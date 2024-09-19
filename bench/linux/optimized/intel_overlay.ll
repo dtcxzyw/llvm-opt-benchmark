@@ -513,7 +513,7 @@ define dso_local i32 @intel_overlay_put_image_ioctl(ptr noundef %0, ptr nocaptur
   %.val = load ptr, ptr %70, align 8
   %104 = getelementptr i8, ptr %.val, i64 1704
   %.val.val = load ptr, ptr %104, align 8
-  %105 = tail call fastcc i32 @check_overlay_dst.argprom.argprom(ptr %.val.val, ptr noundef %1)
+  %105 = tail call fastcc i32 @check_overlay_dst(ptr %.val.val, ptr noundef %1)
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %107, label %.thread20
 
@@ -676,7 +676,7 @@ define internal fastcc void @update_pfit_vscale_ratio(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -22, 1) i32 @check_overlay_dst.argprom.argprom(ptr %.16.val.1704.val, ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @check_overlay_dst(ptr %.16.val.1704.val, ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
   %2 = alloca %struct.drm_rect, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
   %3 = getelementptr inbounds i8, ptr %0, i64 36

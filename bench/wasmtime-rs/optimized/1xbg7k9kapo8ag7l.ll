@@ -725,7 +725,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr nocaptu
 
 223:                                              ; preds = %.noexc52.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %90, ptr noundef nonnull align 8 dereferenceable(104) %89, i64 104, i1 false), !noalias !6
-  invoke fastcc void @_ZN14cranelift_isle7codegen7Codegen18generate_trait_sig17had25becc4e8639acE.argprom.argelim(ptr align 8 %110, ptr align 8 %109, ptr align 8 %90)
+  invoke fastcc void @_ZN14cranelift_isle7codegen7Codegen18generate_trait_sig17had25becc4e8639acE(ptr align 8 %110, ptr align 8 %109, ptr align 8 %90)
           to label %226 unwind label %224
 
 224:                                              ; preds = %223
@@ -758,7 +758,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr nocaptu
 
 232:                                              ; preds = %.noexc55.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %88, ptr noundef nonnull align 8 dereferenceable(104) %87, i64 104, i1 false), !noalias !6
-  invoke fastcc void @_ZN14cranelift_isle7codegen7Codegen18generate_trait_sig17had25becc4e8639acE.argprom.argelim(ptr align 8 %110, ptr align 8 %109, ptr align 8 %88)
+  invoke fastcc void @_ZN14cranelift_isle7codegen7Codegen18generate_trait_sig17had25becc4e8639acE(ptr align 8 %110, ptr align 8 %109, ptr align 8 %88)
           to label %235 unwind label %233
 
 233:                                              ; preds = %232
@@ -2125,7 +2125,7 @@ _ZN14cranelift_isle7codegen7Codegen13generate_rust17h4fe1bb35a025d3d4E.exit: ; p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14cranelift_isle7codegen7Codegen18generate_trait_sig17had25becc4e8639acE.argprom.argelim(ptr nonnull align 8 %0, ptr nonnull align 8 %1, ptr nonnull align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14cranelift_isle7codegen7Codegen18generate_trait_sig17had25becc4e8639acE(ptr nonnull align 8 %0, ptr nonnull align 8 %1, ptr nonnull align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8

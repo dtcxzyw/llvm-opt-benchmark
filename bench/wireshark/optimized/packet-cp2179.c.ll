@@ -645,10 +645,10 @@ copy_request_frame.exit.i:                        ; preds = %.lr.ph.i.i, %.lr.ph
 163:                                              ; preds = %copy_request_frame.exit.i, %switch.early.test.i, %classify_message_type.exit.i
   %164 = tail call i32 @tvb_reported_length_remaining(ptr noundef %.014, i32 noundef 0) #3
   %165 = icmp sgt i32 %164, 0
-  br i1 %165, label %166, label %dissect_cp2179_pdu.argprom.exit
+  br i1 %165, label %166, label %dissect_cp2179_pdu.exit
 
 166:                                              ; preds = %163
-  switch i32 %.0.i.i, label %dissect_cp2179_pdu.argprom.exit [
+  switch i32 %.0.i.i, label %dissect_cp2179_pdu.exit [
     i32 1, label %167
     i32 18, label %167
     i32 10, label %167
@@ -769,7 +769,7 @@ dissect_request_frame.exit.i:                     ; preds = %.preheader82.i.i, %
   %222 = load i32, ptr @hf_cp2179_crc, align 4
   %223 = tail call ptr @proto_tree_add_item(ptr noundef %171, i32 noundef %222, ptr noundef %.014, i32 noundef %.0.i63.i, i32 noundef 2, i32 noundef 0) #3
   %224 = tail call i32 @tvb_reported_length(ptr noundef %.014) #3
-  br label %dissect_cp2179_pdu.argprom.exit
+  br label %dissect_cp2179_pdu.exit
 
 225:                                              ; preds = %166, %166, %166, %166, %166, %166, %166, %166, %166
   %226 = load i32, ptr @proto_cp2179, align 4
@@ -1095,7 +1095,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %270, %265
 
 ._crit_edge.thread.i.i:                           ; preds = %proto_item_set_generated.exit.i.i, %261, %225
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef null, ptr noundef nonnull @.str.201) #3
-  br label %dissect_cp2179_pdu.argprom.exit
+  br label %dissect_cp2179_pdu.exit
 
 .loopexit.sink.split.i72.i:                       ; preds = %291, %290
   %hf_cp2179_sbo_request_point.sink.i73.i = phi ptr [ @hf_cp2179_resetacc_request_point, %291 ], [ @hf_cp2179_sbo_request_point, %290 ]
@@ -1108,14 +1108,14 @@ proto_item_set_generated.exit.i.i:                ; preds = %270, %265
   %423 = load i32, ptr @hf_cp2179_crc, align 4
   %424 = tail call ptr @proto_tree_add_item(ptr noundef %229, i32 noundef %423, ptr noundef %.014, i32 noundef %.0250.i.i, i32 noundef 2, i32 noundef 0) #3
   %425 = tail call i32 @tvb_reported_length(ptr noundef %.014) #3
-  br label %dissect_cp2179_pdu.argprom.exit
+  br label %dissect_cp2179_pdu.exit
 
-dissect_cp2179_pdu.argprom.exit:                  ; preds = %163, %166, %dissect_request_frame.exit.i, %._crit_edge.thread.i.i, %.loopexit.i.i
+dissect_cp2179_pdu.exit:                          ; preds = %163, %166, %dissect_request_frame.exit.i, %._crit_edge.thread.i.i, %.loopexit.i.i
   %426 = tail call i32 @tvb_reported_length(ptr noundef %.014) #3
   br label %427
 
-427:                                              ; preds = %4, %dissect_cp2179_pdu.argprom.exit
-  %.0 = phi i32 [ %5, %dissect_cp2179_pdu.argprom.exit ], [ 0, %4 ]
+427:                                              ; preds = %4, %dissect_cp2179_pdu.exit
+  %.0 = phi i32 [ %5, %dissect_cp2179_pdu.exit ], [ 0, %4 ]
   ret i32 %.0
 }
 

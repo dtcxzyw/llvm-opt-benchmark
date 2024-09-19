@@ -1684,7 +1684,7 @@ define dso_local i32 @drm_mode_setplane(ptr noundef %0, ptr nocapture noundef re
 
 115:                                              ; preds = %109
   %.val.i = load i32, ptr %84, align 8
-  %116 = call fastcc i32 @__setplane_check.argprom(ptr noundef %18, i32 %.val.i, ptr noundef nonnull %45, i32 noundef %47, i32 noundef %49, i32 noundef %51, i32 noundef %53, i32 noundef %55, i32 noundef %57, i32 noundef %59, i32 noundef %61)
+  %116 = call fastcc i32 @__setplane_check(ptr noundef %18, i32 %.val.i, ptr noundef nonnull %45, i32 noundef %47, i32 noundef %49, i32 noundef %51, i32 noundef %53, i32 noundef %55, i32 noundef %57, i32 noundef %59, i32 noundef %61)
   %117 = icmp eq i32 %116, 0
   br i1 %117, label %118, label %__setplane_atomic.exit
 
@@ -2062,7 +2062,7 @@ __setplane_atomic.exit.thread19:                  ; preds = %184
 
 190:                                              ; preds = %184
   %.val.i = load i32, ptr %47, align 8
-  %191 = call fastcc i32 @__setplane_check.argprom(ptr noundef %65, i32 %.val.i, ptr noundef nonnull %126, i32 noundef %133, i32 noundef %132, i32 noundef %143, i32 noundef %144, i32 noundef 0, i32 noundef 0, i32 noundef %145, i32 noundef %146)
+  %191 = call fastcc i32 @__setplane_check(ptr noundef %65, i32 %.val.i, ptr noundef nonnull %126, i32 noundef %133, i32 noundef %132, i32 noundef %143, i32 noundef %144, i32 noundef 0, i32 noundef 0, i32 noundef %145, i32 noundef %146)
   %192 = icmp eq i32 %191, 0
   br i1 %192, label %193, label %__setplane_atomic.exit.thread
 
@@ -2925,7 +2925,7 @@ define internal fastcc i32 @__setplane_internal(ptr noundef nonnull %0, ptr noun
 47:                                               ; preds = %32
   %48 = getelementptr i8, ptr %1, i64 144
   %.val = load i32, ptr %48, align 8
-  %49 = tail call fastcc i32 @__setplane_check.argprom(ptr noundef %0, i32 %.val, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10)
+  %49 = tail call fastcc i32 @__setplane_check(ptr noundef %0, i32 %.val, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10)
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %64
 
@@ -2974,7 +2974,7 @@ define internal fastcc i32 @__setplane_internal(ptr noundef nonnull %0, ptr noun
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__setplane_check.argprom(ptr noundef nonnull %0, i32 %.144.val, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 align 16 {
+define internal fastcc i32 @__setplane_check(ptr noundef nonnull %0, i32 %.144.val, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 align 16 {
   %11 = getelementptr inbounds i8, ptr %0, i64 120
   %12 = load i32, ptr %11, align 8
   %13 = shl nuw i32 1, %.144.val

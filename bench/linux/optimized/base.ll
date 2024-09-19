@@ -1830,7 +1830,7 @@ declare dso_local ptr @d_splice_alias(ptr noundef, ptr noundef) local_unnamed_ad
 define internal ptr @proc_tgid_base_lookup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -72
   %.val = load ptr, ptr %4, align 8
-  %5 = tail call fastcc ptr @proc_pident_lookup.argprom(ptr %.val, ptr noundef %1, ptr noundef nonnull @tgid_base_stuff, ptr noundef nonnull getelementptr inbounds (i8, ptr @tgid_base_stuff, i64 1800))
+  %5 = tail call fastcc ptr @proc_pident_lookup(ptr %.val, ptr noundef %1, ptr noundef nonnull @tgid_base_stuff, ptr noundef nonnull getelementptr inbounds (i8, ptr @tgid_base_stuff, i64 1800))
   ret ptr %5
 }
 
@@ -1904,7 +1904,7 @@ define internal i32 @proc_pid_permission(ptr nocapture readnone %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @proc_pident_lookup.argprom(ptr %.-72.val, ptr noundef %0, ptr noundef readonly %1, ptr noundef readnone %2) unnamed_addr #0 align 16 {
+define internal fastcc ptr @proc_pident_lookup(ptr %.-72.val, ptr noundef %0, ptr noundef readonly %1, ptr noundef readnone %2) unnamed_addr #0 align 16 {
   %4 = tail call ptr @get_pid_task(ptr noundef %.-72.val, i32 noundef 0) #18
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread, label %6
@@ -3288,7 +3288,7 @@ declare dso_local i64 @strnlen(ptr nocapture noundef, i64 noundef) local_unnamed
 define internal i64 @mem_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
   %5 = getelementptr i8, ptr %0, i64 200
   %.val = load ptr, ptr %5, align 8
-  %6 = tail call fastcc i64 @mem_rw.argprom(ptr %.val, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef 0)
+  %6 = tail call fastcc i64 @mem_rw(ptr %.val, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef 0)
   ret i64 %6
 }
 
@@ -3296,7 +3296,7 @@ define internal i64 @mem_read(ptr nocapture noundef readonly %0, ptr noundef %1,
 define internal i64 @mem_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
   %5 = getelementptr i8, ptr %0, i64 200
   %.val = load ptr, ptr %5, align 8
-  %6 = tail call fastcc i64 @mem_rw.argprom(ptr %.val, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef 1)
+  %6 = tail call fastcc i64 @mem_rw(ptr %.val, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef 1)
   ret i64 %6
 }
 
@@ -3363,7 +3363,7 @@ proc_mem_open.exit.thread:                        ; preds = %2, %proc_mem_open.e
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @mem_rw.argprom(ptr %.200.val, ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 align 16 {
+define internal fastcc i64 @mem_rw(ptr %.200.val, ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 align 16 {
   %5 = load i64, ptr %2, align 8
   %6 = icmp eq ptr %.200.val, null
   br i1 %6, label %67, label %7
@@ -3501,7 +3501,7 @@ declare dso_local void @fput(ptr noundef) local_unnamed_addr #2
 define internal ptr @proc_attr_dir_lookup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -72
   %.val = load ptr, ptr %4, align 8
-  %5 = tail call fastcc ptr @proc_pident_lookup.argprom(ptr %.val, ptr noundef %1, ptr noundef nonnull @attr_dir_stuff, ptr noundef nonnull getelementptr inbounds (i8, ptr @attr_dir_stuff, i64 240))
+  %5 = tail call fastcc ptr @proc_pident_lookup(ptr %.val, ptr noundef %1, ptr noundef nonnull @attr_dir_stuff, ptr noundef nonnull getelementptr inbounds (i8, ptr @attr_dir_stuff, i64 240))
   ret ptr %5
 }
 
@@ -3851,7 +3851,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @oom_adj_write(ptr nocapt
   %.val = load ptr, ptr %25, align 8
   %26 = getelementptr i8, ptr %.val, i64 -72
   %.val.val = load ptr, ptr %26, align 8
-  %27 = call fastcc i32 @__set_oom_adj.argprom.argprom(ptr %.val.val, i32 noundef %24, i1 noundef zeroext true)
+  %27 = call fastcc i32 @__set_oom_adj(ptr %.val.val, i32 noundef %24, i1 noundef zeroext true)
   br label %28
 
 28:                                               ; preds = %23, %10
@@ -3873,7 +3873,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @oom_adj_write(ptr nocapt
 declare dso_local i32 @kstrtoint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -13, 1) i32 @__set_oom_adj.argprom.argprom(ptr %.168.val.-72.val, i32 noundef %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -13, 1) i32 @__set_oom_adj(ptr %.168.val.-72.val, i32 noundef %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = tail call ptr @get_pid_task(ptr noundef %.168.val.-72.val, i32 noundef 0) #18
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.thread, label %5
@@ -4292,7 +4292,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @oom_score_adj_write(ptr 
   %.val = load ptr, ptr %19, align 8
   %20 = getelementptr i8, ptr %.val, i64 -72
   %.val.val = load ptr, ptr %20, align 8
-  %21 = call fastcc i32 @__set_oom_adj.argprom.argprom(ptr %.val.val, i32 noundef %15, i1 noundef zeroext false)
+  %21 = call fastcc i32 @__set_oom_adj(ptr %.val.val, i32 noundef %15, i1 noundef zeroext false)
   br label %22
 
 22:                                               ; preds = %18, %10
@@ -4868,7 +4868,7 @@ pid_update_inode.exit:                            ; preds = %19, %31, %52
 define internal ptr @proc_tid_base_lookup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -72
   %.val = load ptr, ptr %4, align 8
-  %5 = tail call fastcc ptr @proc_pident_lookup.argprom(ptr %.val, ptr noundef %1, ptr noundef nonnull @tid_base_stuff, ptr noundef nonnull getelementptr inbounds (i8, ptr @tid_base_stuff, i64 1560))
+  %5 = tail call fastcc ptr @proc_pident_lookup(ptr %.val, ptr noundef %1, ptr noundef nonnull @tid_base_stuff, ptr noundef nonnull getelementptr inbounds (i8, ptr @tid_base_stuff, i64 1560))
   ret ptr %5
 }
 

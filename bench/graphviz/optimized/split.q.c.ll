@@ -402,9 +402,9 @@ MethodZero.exit:                                  ; preds = %Classify.exit.i, %1
 186:                                              ; preds = %.sink.split.i, %180
   %187 = add nuw nsw i64 %.01.i, 1
   %exitcond.not.i14 = icmp eq i64 %187, 65
-  br i1 %exitcond.not.i14, label %LoadNodes.argprom.exit, label %180
+  br i1 %exitcond.not.i14, label %LoadNodes.exit, label %180
 
-LoadNodes.argprom.exit:                           ; preds = %186
+LoadNodes.exit:                                   ; preds = %186
   ret void
 }
 

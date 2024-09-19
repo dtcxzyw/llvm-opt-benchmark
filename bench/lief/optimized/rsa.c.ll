@@ -277,7 +277,7 @@ define hidden range(i32 -2147483648, 2147467136) i32 @mbedtls_rsa_complete(ptr n
   br label %54
 
 52:                                               ; preds = %48, %47
-  %53 = tail call fastcc i32 @rsa_check_context.argelim(ptr noundef %0, i32 noundef %27)
+  %53 = tail call fastcc i32 @rsa_check_context(ptr noundef %0, i32 noundef %27)
   br label %54
 
 54:                                               ; preds = %1, %52, %50, %45, %40, %32
@@ -296,7 +296,7 @@ declare i32 @mbedtls_rsa_deduce_private_exponent(ptr noundef, ptr noundef, ptr n
 declare i32 @mbedtls_rsa_deduce_crt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -16512, 1) i32 @rsa_check_context.argelim(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -16512, 1) i32 @rsa_check_context(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -889,7 +889,7 @@ define hidden range(i32 -16896, 1) i32 @mbedtls_rsa_check_privkey(ptr noundef %0
   br i1 %.not, label %3, label %17
 
 3:                                                ; preds = %1
-  %4 = tail call fastcc i32 @rsa_check_context.argelim(ptr noundef %0, i32 noundef 1)
+  %4 = tail call fastcc i32 @rsa_check_context(ptr noundef %0, i32 noundef 1)
   %.not13 = icmp eq i32 %4, 0
   br i1 %.not13, label %5, label %17
 
@@ -1033,7 +1033,7 @@ define hidden range(i32 -16896, 1) i32 @mbedtls_rsa_check_pub_priv(ptr noundef %
   br i1 %.not.i, label %6, label %mbedtls_rsa_check_privkey.exit.thread
 
 6:                                                ; preds = %4
-  %7 = tail call fastcc i32 @rsa_check_context.argelim(ptr noundef %1, i32 noundef 1)
+  %7 = tail call fastcc i32 @rsa_check_context(ptr noundef %1, i32 noundef 1)
   %.not13.i = icmp eq i32 %7, 0
   br i1 %.not13.i, label %8, label %mbedtls_rsa_check_privkey.exit.thread
 
@@ -1162,7 +1162,7 @@ define hidden i32 @mbedtls_rsa_private(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %16, label %91, label %17
 
 17:                                               ; preds = %5
-  %18 = tail call fastcc i32 @rsa_check_context.argelim(ptr noundef %0, i32 noundef 1)
+  %18 = tail call fastcc i32 @rsa_check_context(ptr noundef %0, i32 noundef 1)
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %19, label %91
 

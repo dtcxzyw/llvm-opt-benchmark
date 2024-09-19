@@ -217,7 +217,7 @@ define internal range(i32 0, 2) i32 @mac_lte_stat_packet(ptr noundef %0, ptr noc
 68:                                               ; preds = %62
   %69 = tail call noalias dereferenceable_or_null(136) ptr @g_malloc_n(i64 noundef 1, i64 noundef 136) #16
   %.not24.i = icmp eq ptr %69, null
-  br i1 %.not24.i, label %alloc_mac_lte_ep.argprom.exit, label %70
+  br i1 %.not24.i, label %alloc_mac_lte_ep.exit, label %70
 
 70:                                               ; preds = %68
   %71 = getelementptr inbounds i8, ptr %3, i64 2
@@ -246,9 +246,9 @@ define internal range(i32 0, 2) i32 @mac_lte_stat_packet(ptr noundef %0, ptr noc
   store i32 0, ptr %85, align 8
   store ptr null, ptr %69, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %82, i8 0, i64 24, i1 false)
-  br label %alloc_mac_lte_ep.argprom.exit
+  br label %alloc_mac_lte_ep.exit
 
-alloc_mac_lte_ep.argprom.exit:                    ; preds = %68, %70
+alloc_mac_lte_ep.exit:                            ; preds = %68, %70
   store ptr %69, ptr %63, align 8
   %86 = getelementptr inbounds i8, ptr %3, i64 2
   %87 = load i16, ptr %86, align 2
@@ -259,7 +259,7 @@ alloc_mac_lte_ep.argprom.exit:                    ; preds = %68, %70
   %92 = icmp eq i16 %91, -1
   br i1 %92, label %update_ueid_rnti_counts.exit, label %93
 
-93:                                               ; preds = %alloc_mac_lte_ep.argprom.exit
+93:                                               ; preds = %alloc_mac_lte_ep.exit
   %94 = getelementptr inbounds i8, ptr %0, i64 131112
   %95 = load i16, ptr %94, align 8
   %96 = icmp eq i16 %95, -1
@@ -401,7 +401,7 @@ alloc_mac_lte_ep.argprom.exit:                    ; preds = %68, %70
   store i16 %169, ptr %153, align 8
   br label %update_ueid_rnti_counts.exit.thread
 
-update_ueid_rnti_counts.exit:                     ; preds = %109, %104, %93, %alloc_mac_lte_ep.argprom.exit
+update_ueid_rnti_counts.exit:                     ; preds = %109, %104, %93, %alloc_mac_lte_ep.exit
   br i1 %.not24.i, label %update_ueid_rnti_counts.exit.thread155, label %update_ueid_rnti_counts.exit.thread
 
 update_ueid_rnti_counts.exit.thread:              ; preds = %120, %168, %163, %152, %146, %update_ueid_rnti_counts.exit

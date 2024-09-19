@@ -1543,9 +1543,9 @@ Abc_Clock.exit77:                                 ; preds = %19, %24
   %45 = getelementptr i8, ptr %39, i64 64
   br label %46
 
-46:                                               ; preds = %.lr.ph, %Gia_Sim2InfoZero.argprom.exit
-  %.val69148 = phi i32 [ %.val69127, %.lr.ph ], [ %.val69, %Gia_Sim2InfoZero.argprom.exit ]
-  %.0128 = phi i32 [ 0, %.lr.ph ], [ %63, %Gia_Sim2InfoZero.argprom.exit ]
+46:                                               ; preds = %.lr.ph, %Gia_Sim2InfoZero.exit
+  %.val69148 = phi i32 [ %.val69127, %.lr.ph ], [ %.val69, %Gia_Sim2InfoZero.exit ]
+  %.0128 = phi i32 [ 0, %.lr.ph ], [ %63, %Gia_Sim2InfoZero.exit ]
   %.val72 = load ptr, ptr %42, align 8
   %.not59 = icmp eq ptr %.val72, null
   br i1 %.not59, label %.critedge, label %47
@@ -1553,7 +1553,7 @@ Abc_Clock.exit77:                                 ; preds = %19, %24
 47:                                               ; preds = %46
   %.val = load i32, ptr %43, align 8
   %48 = icmp sgt i32 %.val, 0
-  br i1 %48, label %.lr.ph.preheader.i, label %Gia_Sim2InfoZero.argprom.exit
+  br i1 %48, label %.lr.ph.preheader.i, label %Gia_Sim2InfoZero.exit
 
 .lr.ph.preheader.i:                               ; preds = %47
   %.val68 = load ptr, ptr %44, align 8
@@ -1577,15 +1577,15 @@ Abc_Clock.exit77:                                 ; preds = %19, %24
   %62 = shl nuw nsw i64 %61, 2
   call void @llvm.memset.p0.i64(ptr align 4 %60, i8 0, i64 %62, i1 false)
   %.val69.pre = load i32, ptr %40, align 8
-  br label %Gia_Sim2InfoZero.argprom.exit
+  br label %Gia_Sim2InfoZero.exit
 
-Gia_Sim2InfoZero.argprom.exit:                    ; preds = %47, %.lr.ph.preheader.i
+Gia_Sim2InfoZero.exit:                            ; preds = %47, %.lr.ph.preheader.i
   %.val69 = phi i32 [ %.val69148, %47 ], [ %.val69.pre, %.lr.ph.preheader.i ]
   %63 = add nuw nsw i32 %.0128, 1
   %64 = icmp slt i32 %63, %.val69
   br i1 %64, label %46, label %.critedge, !llvm.loop !22
 
-.critedge:                                        ; preds = %46, %Gia_Sim2InfoZero.argprom.exit, %37
+.critedge:                                        ; preds = %46, %Gia_Sim2InfoZero.exit, %37
   %65 = getelementptr inbounds i8, ptr %1, i64 4
   %66 = load i32, ptr %65, align 4
   %67 = icmp sgt i32 %66, 0
@@ -1613,7 +1613,7 @@ Gia_Sim2InfoZero.argprom.exit:                    ; preds = %47, %.lr.ph.prehead
 
 84:                                               ; preds = %.lr.ph135, %Gia_Sim2InfoTransfer.exit
   %.1134 = phi i32 [ 0, %.lr.ph135 ], [ %314, %Gia_Sim2InfoTransfer.exit ]
-  br i1 %70, label %.lr.ph.preheader.i.i, label %Gia_Sim2InfoZero.argprom.exit.i
+  br i1 %70, label %.lr.ph.preheader.i.i, label %Gia_Sim2InfoZero.exit.i
 
 .lr.ph.preheader.i.i:                             ; preds = %84
   %.val40.i = load ptr, ptr %69, align 8
@@ -1624,9 +1624,9 @@ Gia_Sim2InfoZero.argprom.exit:                    ; preds = %47, %.lr.ph.prehead
   %87 = sext i32 %86 to i64
   %88 = getelementptr inbounds i32, ptr %.val40.i, i64 %87
   call void @llvm.memset.p0.i64(ptr align 4 %88, i8 0, i64 %73, i1 false)
-  br label %Gia_Sim2InfoZero.argprom.exit.i
+  br label %Gia_Sim2InfoZero.exit.i
 
-Gia_Sim2InfoZero.argprom.exit.i:                  ; preds = %.lr.ph.preheader.i.i, %84
+Gia_Sim2InfoZero.exit.i:                          ; preds = %.lr.ph.preheader.i.i, %84
   %.val4179.i = load i32, ptr %40, align 8
   %.val4280.i = load ptr, ptr %74, align 8
   %89 = getelementptr i8, ptr %.val4280.i, i64 4
@@ -1634,10 +1634,10 @@ Gia_Sim2InfoZero.argprom.exit.i:                  ; preds = %.lr.ph.preheader.i.
   %90 = icmp sgt i32 %.val42.val81.i, %.val4179.i
   br i1 %90, label %.lr.ph.i, label %.critedge.i
 
-.lr.ph.i:                                         ; preds = %Gia_Sim2InfoZero.argprom.exit.i, %Gia_Sim2InfoRandom.argprom.exit.i
-  %.val42.i152 = phi ptr [ %.val42.i, %Gia_Sim2InfoRandom.argprom.exit.i ], [ %.val4280.i, %Gia_Sim2InfoZero.argprom.exit.i ]
-  %.val41.i150 = phi i32 [ %.val41.i, %Gia_Sim2InfoRandom.argprom.exit.i ], [ %.val4179.i, %Gia_Sim2InfoZero.argprom.exit.i ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %Gia_Sim2InfoRandom.argprom.exit.i ], [ 0, %Gia_Sim2InfoZero.argprom.exit.i ]
+.lr.ph.i:                                         ; preds = %Gia_Sim2InfoZero.exit.i, %Gia_Sim2InfoRandom.exit.i
+  %.val42.i152 = phi ptr [ %.val42.i, %Gia_Sim2InfoRandom.exit.i ], [ %.val4280.i, %Gia_Sim2InfoZero.exit.i ]
+  %.val41.i150 = phi i32 [ %.val41.i, %Gia_Sim2InfoRandom.exit.i ], [ %.val4179.i, %Gia_Sim2InfoZero.exit.i ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %Gia_Sim2InfoRandom.exit.i ], [ 0, %Gia_Sim2InfoZero.exit.i ]
   %.val43.i = load ptr, ptr %71, align 8
   %.not.i = icmp eq ptr %.val43.i, null
   br i1 %.not.i, label %.critedge.i, label %91
@@ -1654,7 +1654,7 @@ Gia_Sim2InfoZero.argprom.exit.i:                  ; preds = %.lr.ph.preheader.i.
   %97 = mul nsw i32 %.val45.i, %.val39.i
   %98 = sext i32 %97 to i64
   %99 = getelementptr inbounds i32, ptr %.val38.i, i64 %98
-  br i1 %70, label %.lr.ph.i.i, label %Gia_Sim2InfoRandom.argprom.exit.i
+  br i1 %70, label %.lr.ph.i.i, label %Gia_Sim2InfoRandom.exit.i
 
 .lr.ph.i.i:                                       ; preds = %91, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ %72, %91 ]
@@ -1663,16 +1663,16 @@ Gia_Sim2InfoZero.argprom.exit.i:                  ; preds = %.lr.ph.preheader.i.
   %101 = getelementptr inbounds i32, ptr %99, i64 %indvars.iv.next.i.i
   store i32 %100, ptr %101, align 4
   %102 = icmp ugt i64 %indvars.iv.i.i, 1
-  br i1 %102, label %.lr.ph.i.i, label %Gia_Sim2InfoRandom.argprom.exit.i.loopexit, !llvm.loop !23
+  br i1 %102, label %.lr.ph.i.i, label %Gia_Sim2InfoRandom.exit.i.loopexit, !llvm.loop !23
 
-Gia_Sim2InfoRandom.argprom.exit.i.loopexit:       ; preds = %.lr.ph.i.i
+Gia_Sim2InfoRandom.exit.i.loopexit:               ; preds = %.lr.ph.i.i
   %.val41.i.pre = load i32, ptr %40, align 8
   %.val42.i.pre = load ptr, ptr %74, align 8
-  br label %Gia_Sim2InfoRandom.argprom.exit.i
+  br label %Gia_Sim2InfoRandom.exit.i
 
-Gia_Sim2InfoRandom.argprom.exit.i:                ; preds = %Gia_Sim2InfoRandom.argprom.exit.i.loopexit, %91
-  %.val42.i = phi ptr [ %.val42.i.pre, %Gia_Sim2InfoRandom.argprom.exit.i.loopexit ], [ %.val42.i152, %91 ]
-  %.val41.i = phi i32 [ %.val41.i.pre, %Gia_Sim2InfoRandom.argprom.exit.i.loopexit ], [ %.val41.i150, %91 ]
+Gia_Sim2InfoRandom.exit.i:                        ; preds = %Gia_Sim2InfoRandom.exit.i.loopexit, %91
+  %.val42.i = phi ptr [ %.val42.i.pre, %Gia_Sim2InfoRandom.exit.i.loopexit ], [ %.val42.i152, %91 ]
+  %.val41.i = phi i32 [ %.val41.i.pre, %Gia_Sim2InfoRandom.exit.i.loopexit ], [ %.val41.i150, %91 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %103 = getelementptr i8, ptr %.val42.i, i64 4
   %.val42.val.i = load i32, ptr %103, align 4
@@ -1681,13 +1681,13 @@ Gia_Sim2InfoRandom.argprom.exit.i:                ; preds = %Gia_Sim2InfoRandom.
   %106 = icmp slt i64 %indvars.iv.next.i, %105
   br i1 %106, label %.lr.ph.i, label %.critedge.i, !llvm.loop !24
 
-.critedge.i:                                      ; preds = %Gia_Sim2InfoRandom.argprom.exit.i, %.lr.ph.i, %Gia_Sim2InfoZero.argprom.exit.i
+.critedge.i:                                      ; preds = %Gia_Sim2InfoRandom.exit.i, %.lr.ph.i, %Gia_Sim2InfoZero.exit.i
   %107 = load i32, ptr %75, align 8
   %108 = icmp sgt i32 %107, 0
   br i1 %108, label %.lr.ph86.i, label %.critedge2.i
 
-.lr.ph86.i:                                       ; preds = %.critedge.i, %Gia_Sim2SimulateNode.argprom.exit.i
-  %indvars.iv97.i = phi i64 [ %indvars.iv.next98.i, %Gia_Sim2SimulateNode.argprom.exit.i ], [ 0, %.critedge.i ]
+.lr.ph86.i:                                       ; preds = %.critedge.i, %Gia_Sim2SimulateNode.exit.i
+  %indvars.iv97.i = phi i64 [ %indvars.iv.next98.i, %Gia_Sim2SimulateNode.exit.i ], [ 0, %.critedge.i ]
   %.val.i = load ptr, ptr %71, align 8
   %109 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val.i, i64 %indvars.iv97.i
   %.not33.i = icmp eq ptr %.val.i, null
@@ -1700,7 +1700,7 @@ Gia_Sim2InfoRandom.argprom.exit.i:                ; preds = %Gia_Sim2InfoRandom.
   %112 = and i64 %.val50.i, 536870911
   %113 = icmp eq i64 %112, 536870911
   %narrow.i.not.i = or i1 %.not.i.i, %113
-  br i1 %narrow.i.not.i, label %Gia_Sim2SimulateNode.argprom.exit.i, label %114
+  br i1 %narrow.i.not.i, label %Gia_Sim2SimulateNode.exit.i, label %114
 
 114:                                              ; preds = %110
   %.val52.i = load ptr, ptr %69, align 8
@@ -1732,10 +1732,10 @@ Gia_Sim2InfoRandom.argprom.exit.i:                ; preds = %Gia_Sim2InfoRandom.
   br i1 %.not46.i.i, label %.preheader3.i.i, label %.preheader5.i.i
 
 .preheader5.i.i:                                  ; preds = %134
-  br i1 %70, label %.lr.ph.i64.i, label %Gia_Sim2SimulateNode.argprom.exit.i
+  br i1 %70, label %.lr.ph.i64.i, label %Gia_Sim2SimulateNode.exit.i
 
 .preheader3.i.i:                                  ; preds = %134
-  br i1 %70, label %.lr.ph9.i.i, label %Gia_Sim2SimulateNode.argprom.exit.i
+  br i1 %70, label %.lr.ph9.i.i, label %Gia_Sim2SimulateNode.exit.i
 
 .lr.ph.i64.i:                                     ; preds = %.preheader5.i.i, %.lr.ph.i64.i
   %indvars.iv.i65.i = phi i64 [ %indvars.iv.next.i66.i, %.lr.ph.i64.i ], [ %72, %.preheader5.i.i ]
@@ -1749,7 +1749,7 @@ Gia_Sim2InfoRandom.argprom.exit.i:                ; preds = %Gia_Sim2InfoRandom.
   %141 = getelementptr inbounds i32, ptr %118, i64 %indvars.iv.next.i66.i
   store i32 %140, ptr %141, align 4
   %142 = icmp ugt i64 %indvars.iv.i65.i, 1
-  br i1 %142, label %.lr.ph.i64.i, label %Gia_Sim2SimulateNode.argprom.exit.i, !llvm.loop !25
+  br i1 %142, label %.lr.ph.i64.i, label %Gia_Sim2SimulateNode.exit.i, !llvm.loop !25
 
 .lr.ph9.i.i:                                      ; preds = %.preheader3.i.i, %.lr.ph9.i.i
   %indvars.iv18.i.i = phi i64 [ %indvars.iv.next19.i.i, %.lr.ph9.i.i ], [ %72, %.preheader3.i.i ]
@@ -1763,16 +1763,16 @@ Gia_Sim2InfoRandom.argprom.exit.i:                ; preds = %Gia_Sim2InfoRandom.
   %149 = getelementptr inbounds i32, ptr %118, i64 %indvars.iv.next19.i.i
   store i32 %148, ptr %149, align 4
   %150 = icmp ugt i64 %indvars.iv18.i.i, 1
-  br i1 %150, label %.lr.ph9.i.i, label %Gia_Sim2SimulateNode.argprom.exit.i, !llvm.loop !26
+  br i1 %150, label %.lr.ph9.i.i, label %Gia_Sim2SimulateNode.exit.i, !llvm.loop !26
 
 151:                                              ; preds = %114
   br i1 %.not46.i.i, label %.preheader.i.i, label %.preheader1.i.i
 
 .preheader1.i.i:                                  ; preds = %151
-  br i1 %70, label %.lr.ph11.i.i, label %Gia_Sim2SimulateNode.argprom.exit.i
+  br i1 %70, label %.lr.ph11.i.i, label %Gia_Sim2SimulateNode.exit.i
 
 .preheader.i.i:                                   ; preds = %151
-  br i1 %70, label %.lr.ph13.i.i, label %Gia_Sim2SimulateNode.argprom.exit.i
+  br i1 %70, label %.lr.ph13.i.i, label %Gia_Sim2SimulateNode.exit.i
 
 .lr.ph11.i.i:                                     ; preds = %.preheader1.i.i, %.lr.ph11.i.i
   %indvars.iv21.i.i = phi i64 [ %indvars.iv.next22.i.i, %.lr.ph11.i.i ], [ %72, %.preheader1.i.i ]
@@ -1786,7 +1786,7 @@ Gia_Sim2InfoRandom.argprom.exit.i:                ; preds = %Gia_Sim2InfoRandom.
   %158 = getelementptr inbounds i32, ptr %118, i64 %indvars.iv.next22.i.i
   store i32 %157, ptr %158, align 4
   %159 = icmp ugt i64 %indvars.iv21.i.i, 1
-  br i1 %159, label %.lr.ph11.i.i, label %Gia_Sim2SimulateNode.argprom.exit.i, !llvm.loop !27
+  br i1 %159, label %.lr.ph11.i.i, label %Gia_Sim2SimulateNode.exit.i, !llvm.loop !27
 
 .lr.ph13.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph13.i.i
   %indvars.iv24.i.i = phi i64 [ %indvars.iv.next25.i.i, %.lr.ph13.i.i ], [ %72, %.preheader.i.i ]
@@ -1799,25 +1799,25 @@ Gia_Sim2InfoRandom.argprom.exit.i:                ; preds = %Gia_Sim2InfoRandom.
   %165 = getelementptr inbounds i32, ptr %118, i64 %indvars.iv.next25.i.i
   store i32 %164, ptr %165, align 4
   %166 = icmp ugt i64 %indvars.iv24.i.i, 1
-  br i1 %166, label %.lr.ph13.i.i, label %Gia_Sim2SimulateNode.argprom.exit.i, !llvm.loop !28
+  br i1 %166, label %.lr.ph13.i.i, label %Gia_Sim2SimulateNode.exit.i, !llvm.loop !28
 
-Gia_Sim2SimulateNode.argprom.exit.i:              ; preds = %.lr.ph.i64.i, %.lr.ph9.i.i, %.lr.ph11.i.i, %.lr.ph13.i.i, %.preheader.i.i, %.preheader1.i.i, %.preheader3.i.i, %.preheader5.i.i, %110
+Gia_Sim2SimulateNode.exit.i:                      ; preds = %.lr.ph.i64.i, %.lr.ph9.i.i, %.lr.ph11.i.i, %.lr.ph13.i.i, %.preheader.i.i, %.preheader1.i.i, %.preheader3.i.i, %.preheader5.i.i, %110
   %indvars.iv.next98.i = add nuw nsw i64 %indvars.iv97.i, 1
   %167 = load i32, ptr %75, align 8
   %168 = sext i32 %167 to i64
   %169 = icmp slt i64 %indvars.iv.next98.i, %168
   br i1 %169, label %.lr.ph86.i, label %.critedge2.i, !llvm.loop !29
 
-.critedge2.i:                                     ; preds = %Gia_Sim2SimulateNode.argprom.exit.i, %.lr.ph86.i, %.critedge.i
+.critedge2.i:                                     ; preds = %Gia_Sim2SimulateNode.exit.i, %.lr.ph86.i, %.critedge.i
   %170 = load ptr, ptr %76, align 8
   %171 = getelementptr i8, ptr %170, i64 4
   %.val3688.i = load i32, ptr %171, align 4
   %172 = icmp sgt i32 %.val3688.i, 0
   br i1 %172, label %.lr.ph90.i, label %Gia_Sim2SimulateRound.exit
 
-.lr.ph90.i:                                       ; preds = %.critedge2.i, %Gia_Sim2SimulateCo.argprom.exit.i
-  %indvars.iv100.i = phi i64 [ %indvars.iv.next101.i, %Gia_Sim2SimulateCo.argprom.exit.i ], [ 0, %.critedge2.i ]
-  %173 = phi ptr [ %200, %Gia_Sim2SimulateCo.argprom.exit.i ], [ %170, %.critedge2.i ]
+.lr.ph90.i:                                       ; preds = %.critedge2.i, %Gia_Sim2SimulateCo.exit.i
+  %indvars.iv100.i = phi i64 [ %indvars.iv.next101.i, %Gia_Sim2SimulateCo.exit.i ], [ 0, %.critedge2.i ]
+  %173 = phi ptr [ %200, %Gia_Sim2SimulateCo.exit.i ], [ %170, %.critedge2.i ]
   %.val55.i = load ptr, ptr %71, align 8
   %.not34.i = icmp eq ptr %.val55.i, null
   br i1 %.not34.i, label %Gia_Sim2SimulateRound.exit, label %174
@@ -1847,10 +1847,10 @@ Gia_Sim2SimulateNode.argprom.exit.i:              ; preds = %.lr.ph.i64.i, %.lr.
   br i1 %.not.i67.i, label %.preheader.i73.i, label %.preheader1.i68.i
 
 .preheader1.i68.i:                                ; preds = %174
-  br i1 %70, label %.lr.ph.i70.i, label %Gia_Sim2SimulateCo.argprom.exit.i
+  br i1 %70, label %.lr.ph.i70.i, label %Gia_Sim2SimulateCo.exit.i
 
 .preheader.i73.i:                                 ; preds = %174
-  br i1 %70, label %.lr.ph5.i.i, label %Gia_Sim2SimulateCo.argprom.exit.i
+  br i1 %70, label %.lr.ph5.i.i, label %Gia_Sim2SimulateCo.exit.i
 
 .lr.ph.i70.i:                                     ; preds = %.preheader1.i68.i, %.lr.ph.i70.i
   %indvars.iv.i71.i = phi i64 [ %indvars.iv.next.i72.i, %.lr.ph.i70.i ], [ %72, %.preheader1.i68.i ]
@@ -1861,7 +1861,7 @@ Gia_Sim2SimulateNode.argprom.exit.i:              ; preds = %.lr.ph.i64.i, %.lr.
   %194 = getelementptr inbounds i32, ptr %183, i64 %indvars.iv.next.i72.i
   store i32 %193, ptr %194, align 4
   %195 = icmp ugt i64 %indvars.iv.i71.i, 1
-  br i1 %195, label %.lr.ph.i70.i, label %Gia_Sim2SimulateCo.argprom.exit.i, !llvm.loop !30
+  br i1 %195, label %.lr.ph.i70.i, label %Gia_Sim2SimulateCo.exit.i, !llvm.loop !30
 
 .lr.ph5.i.i:                                      ; preds = %.preheader.i73.i, %.lr.ph5.i.i
   %indvars.iv8.i.i = phi i64 [ %indvars.iv.next9.i.i, %.lr.ph5.i.i ], [ %72, %.preheader.i73.i ]
@@ -1871,9 +1871,9 @@ Gia_Sim2SimulateNode.argprom.exit.i:              ; preds = %.lr.ph.i64.i, %.lr.
   %198 = getelementptr inbounds i32, ptr %183, i64 %indvars.iv.next9.i.i
   store i32 %197, ptr %198, align 4
   %199 = icmp ugt i64 %indvars.iv8.i.i, 1
-  br i1 %199, label %.lr.ph5.i.i, label %Gia_Sim2SimulateCo.argprom.exit.i, !llvm.loop !31
+  br i1 %199, label %.lr.ph5.i.i, label %Gia_Sim2SimulateCo.exit.i, !llvm.loop !31
 
-Gia_Sim2SimulateCo.argprom.exit.i:                ; preds = %.lr.ph.i70.i, %.lr.ph5.i.i, %.preheader.i73.i, %.preheader1.i68.i
+Gia_Sim2SimulateCo.exit.i:                        ; preds = %.lr.ph.i70.i, %.lr.ph5.i.i, %.preheader.i73.i, %.preheader1.i68.i
   %indvars.iv.next101.i = add nuw nsw i64 %indvars.iv100.i, 1
   %200 = load ptr, ptr %76, align 8
   %201 = getelementptr i8, ptr %200, i64 4
@@ -1882,7 +1882,7 @@ Gia_Sim2SimulateCo.argprom.exit.i:                ; preds = %.lr.ph.i70.i, %.lr.
   %203 = icmp slt i64 %indvars.iv.next101.i, %202
   br i1 %203, label %.lr.ph90.i, label %Gia_Sim2SimulateRound.exit, !llvm.loop !32
 
-Gia_Sim2SimulateRound.exit:                       ; preds = %.lr.ph90.i, %Gia_Sim2SimulateCo.argprom.exit.i, %.critedge2.i
+Gia_Sim2SimulateRound.exit:                       ; preds = %.lr.ph90.i, %Gia_Sim2SimulateCo.exit.i, %.critedge2.i
   %204 = load i32, ptr %77, align 4
   %.not60 = icmp eq i32 %204, 0
   br i1 %.not60, label %226, label %205
@@ -2077,9 +2077,9 @@ Abc_Clock.exit88:                                 ; preds = %265, %268
   %282 = icmp sgt i32 %.val2133.i, 0
   br i1 %282, label %.lr.ph.i90, label %Gia_Sim2InfoTransfer.exit
 
-.lr.ph.i90:                                       ; preds = %281, %Gia_Sim2InfoCopy.argprom.exit.i
-  %.val21.i93154 = phi i32 [ %.val21.i93, %Gia_Sim2InfoCopy.argprom.exit.i ], [ %.val2133.i, %281 ]
-  %.035.i = phi i32 [ %311, %Gia_Sim2InfoCopy.argprom.exit.i ], [ 0, %281 ]
+.lr.ph.i90:                                       ; preds = %281, %Gia_Sim2InfoCopy.exit.i
+  %.val21.i93154 = phi i32 [ %.val21.i93, %Gia_Sim2InfoCopy.exit.i ], [ %.val2133.i, %281 ]
+  %.035.i = phi i32 [ %311, %Gia_Sim2InfoCopy.exit.i ], [ 0, %281 ]
   %.val28.i = load ptr, ptr %71, align 8
   %.not.i91 = icmp eq ptr %.val28.i, null
   br i1 %.not.i91, label %Gia_Sim2InfoTransfer.exit.loopexit, label %283
@@ -2117,7 +2117,7 @@ Abc_Clock.exit88:                                 ; preds = %265, %268
   %304 = mul nsw i32 %.val26.i, %.val39.i
   %305 = sext i32 %304 to i64
   %306 = getelementptr i32, ptr %.val20.i92, i64 %305
-  br i1 %70, label %.lr.ph.i.i95, label %Gia_Sim2InfoCopy.argprom.exit.i
+  br i1 %70, label %.lr.ph.i.i95, label %Gia_Sim2InfoCopy.exit.i
 
 .lr.ph.i.i95:                                     ; preds = %283, %.lr.ph.i.i95
   %indvars.iv.i.i96 = phi i64 [ %indvars.iv.next.i.i97, %.lr.ph.i.i95 ], [ %72, %283 ]
@@ -2127,19 +2127,19 @@ Abc_Clock.exit88:                                 ; preds = %265, %268
   %309 = getelementptr inbounds i32, ptr %302, i64 %indvars.iv.next.i.i97
   store i32 %308, ptr %309, align 4
   %310 = icmp ugt i64 %indvars.iv.i.i96, 1
-  br i1 %310, label %.lr.ph.i.i95, label %Gia_Sim2InfoCopy.argprom.exit.i.loopexit, !llvm.loop !36
+  br i1 %310, label %.lr.ph.i.i95, label %Gia_Sim2InfoCopy.exit.i.loopexit, !llvm.loop !36
 
-Gia_Sim2InfoCopy.argprom.exit.i.loopexit:         ; preds = %.lr.ph.i.i95
+Gia_Sim2InfoCopy.exit.i.loopexit:                 ; preds = %.lr.ph.i.i95
   %.val21.i93.pre = load i32, ptr %40, align 8
-  br label %Gia_Sim2InfoCopy.argprom.exit.i
+  br label %Gia_Sim2InfoCopy.exit.i
 
-Gia_Sim2InfoCopy.argprom.exit.i:                  ; preds = %Gia_Sim2InfoCopy.argprom.exit.i.loopexit, %283
-  %.val21.i93 = phi i32 [ %.val21.i93.pre, %Gia_Sim2InfoCopy.argprom.exit.i.loopexit ], [ %.val21.i93154, %283 ]
+Gia_Sim2InfoCopy.exit.i:                          ; preds = %Gia_Sim2InfoCopy.exit.i.loopexit, %283
+  %.val21.i93 = phi i32 [ %.val21.i93.pre, %Gia_Sim2InfoCopy.exit.i.loopexit ], [ %.val21.i93154, %283 ]
   %311 = add nuw nsw i32 %.035.i, 1
   %312 = icmp slt i32 %311, %.val21.i93
   br i1 %312, label %.lr.ph.i90, label %Gia_Sim2InfoTransfer.exit.loopexit, !llvm.loop !37
 
-Gia_Sim2InfoTransfer.exit.loopexit:               ; preds = %.lr.ph.i90, %Gia_Sim2InfoCopy.argprom.exit.i
+Gia_Sim2InfoTransfer.exit.loopexit:               ; preds = %.lr.ph.i90, %Gia_Sim2InfoCopy.exit.i
   %.pre = load i32, ptr %65, align 4
   br label %Gia_Sim2InfoTransfer.exit
 

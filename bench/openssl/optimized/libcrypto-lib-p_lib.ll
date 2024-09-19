@@ -1775,7 +1775,7 @@ if.then4.i:                                       ; preds = %if.end.i, %cond.end
   tail call void @ERR_new() #12
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 640, ptr noundef nonnull @__func__.new_cmac_key_int) #12
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 180, ptr noundef null) #12
-  br label %new_cmac_key_int.argprom.exit
+  br label %new_cmac_key_int.exit
 
 if.end5.i:                                        ; preds = %if.end.i
   %call6.i = tail call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef null, ptr noundef nonnull @.str.14, ptr noundef null) #12
@@ -1826,9 +1826,9 @@ if.then30.i:                                      ; preds = %if.end25.i
 err.i:                                            ; preds = %if.then30.i, %if.end25.i, %if.then12.i, %if.end5.i
   call void @EVP_PKEY_CTX_free(ptr noundef %call6.i) #12
   %0 = load ptr, ptr %pkey.i, align 8
-  br label %new_cmac_key_int.argprom.exit
+  br label %new_cmac_key_int.exit
 
-new_cmac_key_int.argprom.exit:                    ; preds = %if.then4.i, %err.i
+new_cmac_key_int.exit:                            ; preds = %if.then4.i, %err.i
   %retval.0.i = phi ptr [ null, %if.then4.i ], [ %0, %err.i ]
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %params.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pkey.i)
@@ -3056,12 +3056,12 @@ cond.true:                                        ; preds = %entry
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi ptr [ %1, %cond.true ], [ null, %entry ]
-  %call = tail call fastcc i32 @print_pkey.argprom(ptr noundef nonnull %pkey, ptr noundef %out, i32 noundef %indent, i32 noundef 134, ptr noundef %cond, ptr noundef %pctx)
+  %call = tail call fastcc i32 @print_pkey(ptr noundef nonnull %pkey, ptr noundef %out, i32 noundef %indent, i32 noundef 134, ptr noundef %cond, ptr noundef %pctx)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @print_pkey.argprom(ptr noundef %pkey, ptr noundef %out, i32 noundef %indent, i32 noundef range(i32 132, 135) %selection, ptr noundef readonly %legacy_print, ptr noundef %legacy_pctx) unnamed_addr #0 {
+define internal fastcc i32 @print_pkey(ptr noundef %pkey, ptr noundef %out, i32 noundef %indent, i32 noundef range(i32 132, 135) %selection, ptr noundef readonly %legacy_print, ptr noundef %legacy_pctx) unnamed_addr #0 {
 entry:
   %conv = sext i32 %indent to i64
   %cmp.i = icmp sgt i32 %indent, 0
@@ -3168,7 +3168,7 @@ cond.true:                                        ; preds = %entry
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi ptr [ %1, %cond.true ], [ null, %entry ]
-  %call = tail call fastcc i32 @print_pkey.argprom(ptr noundef nonnull %pkey, ptr noundef %out, i32 noundef %indent, i32 noundef 133, ptr noundef %cond, ptr noundef %pctx)
+  %call = tail call fastcc i32 @print_pkey(ptr noundef nonnull %pkey, ptr noundef %out, i32 noundef %indent, i32 noundef 133, ptr noundef %cond, ptr noundef %pctx)
   ret i32 %call
 }
 
@@ -3187,7 +3187,7 @@ cond.true:                                        ; preds = %entry
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi ptr [ %1, %cond.true ], [ null, %entry ]
-  %call = tail call fastcc i32 @print_pkey.argprom(ptr noundef nonnull %pkey, ptr noundef %out, i32 noundef %indent, i32 noundef 132, ptr noundef %cond, ptr noundef %pctx)
+  %call = tail call fastcc i32 @print_pkey(ptr noundef nonnull %pkey, ptr noundef %out, i32 noundef %indent, i32 noundef 132, ptr noundef %cond, ptr noundef %pctx)
   ret i32 %call
 }
 
@@ -3211,7 +3211,7 @@ cond.true.i:                                      ; preds = %if.end
 
 EVP_PKEY_print_public.exit:                       ; preds = %if.end, %cond.true.i
   %cond.i = phi ptr [ %1, %cond.true.i ], [ null, %if.end ]
-  %call.i = tail call fastcc i32 @print_pkey.argprom(ptr noundef nonnull %pkey, ptr noundef nonnull %call, i32 noundef %indent, i32 noundef 134, ptr noundef %cond.i, ptr noundef %pctx)
+  %call.i = tail call fastcc i32 @print_pkey(ptr noundef nonnull %pkey, ptr noundef nonnull %call, i32 noundef %indent, i32 noundef 134, ptr noundef %cond.i, ptr noundef %pctx)
   %call2 = tail call i32 @BIO_free(ptr noundef nonnull %call) #12
   br label %return
 
@@ -3244,7 +3244,7 @@ cond.true.i:                                      ; preds = %if.end
 
 EVP_PKEY_print_private.exit:                      ; preds = %if.end, %cond.true.i
   %cond.i = phi ptr [ %1, %cond.true.i ], [ null, %if.end ]
-  %call.i = tail call fastcc i32 @print_pkey.argprom(ptr noundef nonnull %pkey, ptr noundef nonnull %call, i32 noundef %indent, i32 noundef 133, ptr noundef %cond.i, ptr noundef %pctx)
+  %call.i = tail call fastcc i32 @print_pkey(ptr noundef nonnull %pkey, ptr noundef nonnull %call, i32 noundef %indent, i32 noundef 133, ptr noundef %cond.i, ptr noundef %pctx)
   %call2 = tail call i32 @BIO_free(ptr noundef nonnull %call) #12
   br label %return
 
@@ -3273,7 +3273,7 @@ cond.true.i:                                      ; preds = %if.end
 
 EVP_PKEY_print_params.exit:                       ; preds = %if.end, %cond.true.i
   %cond.i = phi ptr [ %1, %cond.true.i ], [ null, %if.end ]
-  %call.i = tail call fastcc i32 @print_pkey.argprom(ptr noundef nonnull %pkey, ptr noundef nonnull %call, i32 noundef %indent, i32 noundef 132, ptr noundef %cond.i, ptr noundef %pctx)
+  %call.i = tail call fastcc i32 @print_pkey(ptr noundef nonnull %pkey, ptr noundef nonnull %call, i32 noundef %indent, i32 noundef 132, ptr noundef %cond.i, ptr noundef %pctx)
   %call2 = tail call i32 @BIO_free(ptr noundef nonnull %call) #12
   br label %return
 
@@ -3295,7 +3295,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
-  %call.i = tail call fastcc i32 @legacy_asn1_ctrl_to_param.argelim(ptr noundef %pkey, i32 noundef 3, ptr noundef %pnid)
+  %call.i = tail call fastcc i32 @legacy_asn1_ctrl_to_param(ptr noundef %pkey, i32 noundef 3, ptr noundef %pnid)
   br label %return
 
 if.end.i:                                         ; preds = %if.end
@@ -5040,7 +5040,7 @@ declare ptr @OBJ_nid2ln(i32 noundef) local_unnamed_addr #1
 declare ptr @BIO_pop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @legacy_asn1_ctrl_to_param.argelim(ptr noundef nonnull %pkey, i32 noundef range(i32 3, 11) %op, ptr nocapture noundef writeonly %arg2) unnamed_addr #0 {
+define internal fastcc i32 @legacy_asn1_ctrl_to_param(ptr noundef nonnull %pkey, i32 noundef range(i32 3, 11) %op, ptr nocapture noundef writeonly %arg2) unnamed_addr #0 {
 entry:
   %nid.i = alloca i32, align 4
   %mdname = alloca [80 x i8], align 16

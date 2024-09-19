@@ -1729,7 +1729,7 @@ define dso_local void @_ZN9cmFileAPI23GetConfigureLogVersionsEv(ptr dead_on_unwi
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 112
   %.val10 = load ptr, ptr %5, align 8
-  invoke fastcc void @"_ZZN9cmFileAPI23GetConfigureLogVersionsEvENK3$_0clERKNS_5QueryE.argprom"(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %.val, ptr %.val10)
+  invoke fastcc void @"_ZZN9cmFileAPI23GetConfigureLogVersionsEvENK3$_0clERKNS_5QueryE"(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %.val, ptr %.val10)
           to label %6 unwind label %.loopexit.split-lp
 
 6:                                                ; preds = %2
@@ -1745,7 +1745,7 @@ define dso_local void @_ZN9cmFileAPI23GetConfigureLogVersionsEv(ptr dead_on_unwi
   %.val11 = load ptr, ptr %10, align 8
   %11 = getelementptr i8, ptr %.sroa.021.026, i64 72
   %.val12 = load ptr, ptr %11, align 8
-  invoke fastcc void @"_ZZN9cmFileAPI23GetConfigureLogVersionsEvENK3$_0clERKNS_5QueryE.argprom"(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %.val11, ptr %.val12)
+  invoke fastcc void @"_ZZN9cmFileAPI23GetConfigureLogVersionsEvENK3$_0clERKNS_5QueryE"(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %.val11, ptr %.val12)
           to label %12 unwind label %.loopexit
 
 12:                                               ; preds = %.lr.ph
@@ -1850,7 +1850,7 @@ _ZNSt6vectorImSaImEE5eraseEN9__gnu_cxx17__normal_iteratorIPKmS1_EES6_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN9cmFileAPI23GetConfigureLogVersionsEvENK3$_0clERKNS_5QueryE.argprom"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr readonly %.0.val, ptr readnone %.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN9cmFileAPI23GetConfigureLogVersionsEvENK3$_0clERKNS_5QueryE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr readonly %.0.val, ptr readnone %.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.not4 = icmp eq ptr %.0.val, %.8.val
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 

@@ -67,7 +67,7 @@ define range(i32 0, 2) i32 @Gia_ObjCheckMffc_rec(ptr noundef %0, ptr noundef %1,
   %.val = load i64, ptr %1, align 4
   %5 = and i64 %.val, 2684354559
   %narrow.i.not = icmp eq i64 %5, 2684354559
-  br i1 %narrow.i.not, label %Gia_ObjIsMux.argprom.exit.thread, label %6
+  br i1 %narrow.i.not, label %Gia_ObjIsMux.exit.thread, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr i8, ptr %0, i64 32
@@ -159,7 +159,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 52:                                               ; preds = %Vec_IntPush.exit
   %.val52 = load i32, ptr %16, align 4
   %53 = icmp sgt i32 %.val52, %2
-  br i1 %53, label %Gia_ObjIsMux.argprom.exit.thread, label %54
+  br i1 %53, label %Gia_ObjIsMux.exit.thread, label %54
 
 54:                                               ; preds = %52
   %55 = load i64, ptr %1, align 4
@@ -168,7 +168,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %58 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %1, i64 %57
   %59 = tail call i32 @Gia_ObjCheckMffc_rec(ptr noundef nonnull %0, ptr noundef nonnull %58, i32 noundef %2, ptr noundef nonnull %3)
   %.not42 = icmp eq i32 %59, 0
-  br i1 %.not42, label %Gia_ObjIsMux.argprom.exit.thread, label %60
+  br i1 %.not42, label %Gia_ObjIsMux.exit.thread, label %60
 
 60:                                               ; preds = %54, %Vec_IntPush.exit
   %.val55 = load ptr, ptr %7, align 8
@@ -258,7 +258,7 @@ Vec_IntPush.exit65:                               ; preds = %.Vec_IntGrow.exit10
 103:                                              ; preds = %Vec_IntPush.exit65
   %.val53 = load i32, ptr %16, align 4
   %104 = icmp sgt i32 %.val53, %2
-  br i1 %104, label %Gia_ObjIsMux.argprom.exit.thread, label %105
+  br i1 %104, label %Gia_ObjIsMux.exit.thread, label %105
 
 105:                                              ; preds = %103
   %106 = load i64, ptr %1, align 4
@@ -268,15 +268,15 @@ Vec_IntPush.exit65:                               ; preds = %.Vec_IntGrow.exit10
   %110 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %1, i64 %109
   %111 = tail call i32 @Gia_ObjCheckMffc_rec(ptr noundef nonnull %0, ptr noundef nonnull %110, i32 noundef %2, ptr noundef nonnull %3)
   %.not44 = icmp eq i32 %111, 0
-  br i1 %.not44, label %Gia_ObjIsMux.argprom.exit.thread, label %112
+  br i1 %.not44, label %Gia_ObjIsMux.exit.thread, label %112
 
 112:                                              ; preds = %105, %Vec_IntPush.exit65
   %113 = getelementptr i8, ptr %0, i64 40
   %.val57 = load ptr, ptr %113, align 8
   %.not.i.i = icmp eq ptr %.val57, null
-  br i1 %.not.i.i, label %Gia_ObjIsMux.argprom.exit.thread, label %Gia_ObjIsMux.argprom.exit
+  br i1 %.not.i.i, label %Gia_ObjIsMux.exit.thread, label %Gia_ObjIsMux.exit
 
-Gia_ObjIsMux.argprom.exit:                        ; preds = %112
+Gia_ObjIsMux.exit:                                ; preds = %112
   %.val56 = load ptr, ptr %7, align 8
   %114 = ptrtoint ptr %.val56 to i64
   %115 = sub i64 %8, %114
@@ -286,9 +286,9 @@ Gia_ObjIsMux.argprom.exit:                        ; preds = %112
   %118 = getelementptr inbounds i8, ptr %.val57, i64 %117
   %119 = load i32, ptr %118, align 4
   %.not = icmp eq i32 %119, 0
-  br i1 %.not, label %Gia_ObjIsMux.argprom.exit.thread, label %Gia_ObjFaninId2p.exit
+  br i1 %.not, label %Gia_ObjIsMux.exit.thread, label %Gia_ObjFaninId2p.exit
 
-Gia_ObjFaninId2p.exit:                            ; preds = %Gia_ObjIsMux.argprom.exit
+Gia_ObjFaninId2p.exit:                            ; preds = %Gia_ObjIsMux.exit
   %120 = ashr i32 %119, 1
   %121 = load i32, ptr %16, align 4
   %122 = load i32, ptr %3, align 8
@@ -367,7 +367,7 @@ Vec_IntPush.exit73:                               ; preds = %.Vec_IntGrow.exit10
 155:                                              ; preds = %Vec_IntPush.exit73
   %.val54 = load i32, ptr %16, align 4
   %156 = icmp sgt i32 %.val54, %2
-  br i1 %156, label %Gia_ObjIsMux.argprom.exit.thread, label %157
+  br i1 %156, label %Gia_ObjIsMux.exit.thread, label %157
 
 157:                                              ; preds = %155
   %158 = load ptr, ptr %113, align 8
@@ -392,13 +392,13 @@ Gia_ObjFanin2.exit:                               ; preds = %157, %159
   %169 = phi ptr [ %168, %159 ], [ null, %157 ]
   %170 = tail call i32 @Gia_ObjCheckMffc_rec(ptr noundef nonnull %0, ptr noundef %169, i32 noundef %2, ptr noundef nonnull %3)
   %.not47 = icmp eq i32 %170, 0
-  br i1 %.not47, label %Gia_ObjIsMux.argprom.exit.thread, label %171
+  br i1 %.not47, label %Gia_ObjIsMux.exit.thread, label %171
 
 171:                                              ; preds = %Gia_ObjFanin2.exit, %Vec_IntPush.exit73
-  br label %Gia_ObjIsMux.argprom.exit.thread
+  br label %Gia_ObjIsMux.exit.thread
 
-Gia_ObjIsMux.argprom.exit.thread:                 ; preds = %112, %155, %Gia_ObjFanin2.exit, %Gia_ObjIsMux.argprom.exit, %103, %105, %52, %54, %4, %171
-  %.0 = phi i32 [ 1, %171 ], [ 1, %4 ], [ 0, %54 ], [ 0, %52 ], [ 0, %105 ], [ 0, %103 ], [ 1, %Gia_ObjIsMux.argprom.exit ], [ 0, %Gia_ObjFanin2.exit ], [ 0, %155 ], [ 1, %112 ]
+Gia_ObjIsMux.exit.thread:                         ; preds = %112, %155, %Gia_ObjFanin2.exit, %Gia_ObjIsMux.exit, %103, %105, %52, %54, %4, %171
+  %.0 = phi i32 [ 1, %171 ], [ 1, %4 ], [ 0, %54 ], [ 0, %52 ], [ 0, %105 ], [ 0, %103 ], [ 1, %Gia_ObjIsMux.exit ], [ 0, %Gia_ObjFanin2.exit ], [ 0, %155 ], [ 1, %112 ]
   ret i32 %.0
 }
 
@@ -1790,18 +1790,18 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val128 = load i32, ptr %119, align 4
   %120 = getelementptr i8, ptr %116, i64 8
   %.val129 = load ptr, ptr %120, align 8
-  tail call fastcc void @Vec_IntTwoFindCommon.argprom.retelim(i32 %.val126, ptr %.val127, i32 %.val128, ptr %.val129, ptr noundef %.0176)
+  tail call fastcc void @Vec_IntTwoFindCommon(i32 %.val126, ptr %.val127, i32 %.val128, ptr %.val129, ptr noundef %.0176)
   %.val104 = load ptr, ptr %97, align 8
   %.not.i139 = icmp eq ptr %.val104, null
-  br i1 %.not.i139, label %Gia_ObjIsMuxId.argprom.exit.thread, label %Gia_ObjIsMuxId.argprom.exit
+  br i1 %.not.i139, label %Gia_ObjIsMuxId.exit.thread, label %Gia_ObjIsMuxId.exit
 
-Gia_ObjIsMuxId.argprom.exit:                      ; preds = %106
+Gia_ObjIsMuxId.exit:                              ; preds = %106
   %121 = getelementptr inbounds i32, ptr %.val104, i64 %indvars.iv194
   %122 = load i32, ptr %121, align 4
   %.not160 = icmp eq i32 %122, 0
-  br i1 %.not160, label %Gia_ObjIsMuxId.argprom.exit.thread, label %Gia_ObjFaninId2.argprom.exit
+  br i1 %.not160, label %Gia_ObjIsMuxId.exit.thread, label %Gia_ObjFaninId2.exit
 
-Gia_ObjFaninId2.argprom.exit:                     ; preds = %Gia_ObjIsMuxId.argprom.exit
+Gia_ObjFaninId2.exit:                             ; preds = %Gia_ObjIsMuxId.exit
   %123 = ashr i32 %122, 1
   %.val117 = load ptr, ptr %22, align 8
   %124 = sext i32 %123 to i64
@@ -1814,18 +1814,18 @@ Gia_ObjFaninId2.argprom.exit:                     ; preds = %Gia_ObjIsMuxId.argp
   %.0.val = load i32, ptr %128, align 4
   %129 = getelementptr i8, ptr %.0176, i64 8
   %.0.val132 = load ptr, ptr %129, align 8
-  tail call fastcc void @Vec_IntTwoFindCommon.argprom.retelim(i32 %.val130, ptr %.val131, i32 %.0.val, ptr %.0.val132, ptr noundef %.094173)
-  br label %Gia_ObjIsMuxId.argprom.exit.thread
+  tail call fastcc void @Vec_IntTwoFindCommon(i32 %.val130, ptr %.val131, i32 %.0.val, ptr %.0.val132, ptr noundef %.094173)
+  br label %Gia_ObjIsMuxId.exit.thread
 
-Gia_ObjIsMuxId.argprom.exit.thread:               ; preds = %106, %Gia_ObjFaninId2.argprom.exit, %Gia_ObjIsMuxId.argprom.exit
-  %.195 = phi ptr [ %.0176, %Gia_ObjFaninId2.argprom.exit ], [ %.094173, %Gia_ObjIsMuxId.argprom.exit ], [ %.094173, %106 ]
-  %.1 = phi ptr [ %.094173, %Gia_ObjFaninId2.argprom.exit ], [ %.0176, %Gia_ObjIsMuxId.argprom.exit ], [ %.0176, %106 ]
+Gia_ObjIsMuxId.exit.thread:                       ; preds = %106, %Gia_ObjFaninId2.exit, %Gia_ObjIsMuxId.exit
+  %.195 = phi ptr [ %.0176, %Gia_ObjFaninId2.exit ], [ %.094173, %Gia_ObjIsMuxId.exit ], [ %.094173, %106 ]
+  %.1 = phi ptr [ %.094173, %Gia_ObjFaninId2.exit ], [ %.0176, %Gia_ObjIsMuxId.exit ], [ %.0176, %106 ]
   %130 = getelementptr i8, ptr %.1, i64 4
   %.1.val100 = load i32, ptr %130, align 4
   %131 = icmp eq i32 %.1.val100, 0
   br i1 %131, label %.critedge8, label %132
 
-132:                                              ; preds = %Gia_ObjIsMuxId.argprom.exit.thread
+132:                                              ; preds = %Gia_ObjIsMuxId.exit.thread
   %.val116 = load ptr, ptr %22, align 8
   %133 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val116, i64 %indvars.iv194
   %134 = getelementptr i8, ptr %133, i64 4
@@ -2048,9 +2048,9 @@ Vec_IntPush.exit150:                              ; preds = %.Vec_IntGrow.exit10
   %231 = icmp slt i64 %indvars.iv.next192, %230
   br i1 %231, label %.lr.ph172, label %.critedge8, !llvm.loop !20
 
-.critedge8:                                       ; preds = %Vec_IntPush.exit150, %Vec_IntTwoMerge2.exit, %101, %Gia_ObjIsMuxId.argprom.exit.thread
-  %.296 = phi ptr [ %.195, %Gia_ObjIsMuxId.argprom.exit.thread ], [ %.094173, %101 ], [ %.195, %Vec_IntTwoMerge2.exit ], [ %.195, %Vec_IntPush.exit150 ]
-  %.2 = phi ptr [ %.1, %Gia_ObjIsMuxId.argprom.exit.thread ], [ %.0176, %101 ], [ %.1, %Vec_IntTwoMerge2.exit ], [ %.1, %Vec_IntPush.exit150 ]
+.critedge8:                                       ; preds = %Vec_IntPush.exit150, %Vec_IntTwoMerge2.exit, %101, %Gia_ObjIsMuxId.exit.thread
+  %.296 = phi ptr [ %.195, %Gia_ObjIsMuxId.exit.thread ], [ %.094173, %101 ], [ %.195, %Vec_IntTwoMerge2.exit ], [ %.195, %Vec_IntPush.exit150 ]
+  %.2 = phi ptr [ %.1, %Gia_ObjIsMuxId.exit.thread ], [ %.0176, %101 ], [ %.1, %Vec_IntTwoMerge2.exit ], [ %.1, %Vec_IntPush.exit150 ]
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %232 = load i32, ptr %4, align 8
   %233 = sext i32 %232 to i64
@@ -2143,7 +2143,7 @@ Vec_WecFree.exit:                                 ; preds = %._crit_edge.i.i, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntTwoFindCommon.argprom.retelim(i32 %.4.val, ptr readonly %.8.val, i32 %.4.val1, ptr readonly %.8.val3, ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @Vec_IntTwoFindCommon(i32 %.4.val, ptr readonly %.8.val, i32 %.4.val1, ptr readonly %.8.val3, ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = sext i32 %.4.val to i64
   %3 = getelementptr inbounds i32, ptr %.8.val, i64 %2
   %4 = sext i32 %.4.val1 to i64
@@ -4293,7 +4293,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %.0 = phi i32 [ %118, %115 ], [ %120, %119 ], [ 0, %103 ]
   %121 = and i32 %110, 1
   %122 = xor i32 %.0, %121
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %18, i32 noundef %122)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %18, i32 noundef %122)
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %.val55 = load i32, ptr %20, align 4
   %123 = sext i32 %.val55 to i64
@@ -4426,7 +4426,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648
@@ -4967,7 +4967,7 @@ Vec_IntFill.exit:                                 ; preds = %133, %Vec_IntGrow.e
   %.0 = phi i32 [ %180, %176 ], [ %182, %181 ], [ 0, %162 ]
   %183 = and i32 %170, 1
   %184 = xor i32 %.0, %183
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %33, i32 noundef %184)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %33, i32 noundef %184)
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %.val127 = load i32, ptr %35, align 4
   %185 = sext i32 %.val127 to i64
@@ -6032,7 +6032,7 @@ Vec_IntFind.exit:                                 ; preds = %123, %115, %._crit_
   %174 = sext i32 %173 to i64
   %175 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val147, i64 %174, i32 1
   %176 = load i32, ptr %175, align 4
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef %56, i32 noundef %176)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef %56, i32 noundef %176)
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
   %177 = load ptr, ptr %42, align 8
   %178 = getelementptr i8, ptr %177, i64 4
@@ -6633,10 +6633,10 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   %47 = icmp slt i64 %indvars.iv.next102, %46
   br i1 %47, label %.lr.ph, label %.critedge2
 
-.lr.ph:                                           ; preds = %45, %Gia_ManDivCover.argprom.exit
-  %.val46107 = phi i32 [ %.val, %Gia_ManDivCover.argprom.exit ], [ %.val46108, %45 ]
-  %48 = phi i32 [ %66, %Gia_ManDivCover.argprom.exit ], [ %38, %45 ]
-  %indvars.iv98 = phi i64 [ %indvars.iv.next99, %Gia_ManDivCover.argprom.exit ], [ %indvars.iv, %45 ]
+.lr.ph:                                           ; preds = %45, %Gia_ManDivCover.exit
+  %.val46107 = phi i32 [ %.val, %Gia_ManDivCover.exit ], [ %.val46108, %45 ]
+  %48 = phi i32 [ %66, %Gia_ManDivCover.exit ], [ %38, %45 ]
+  %indvars.iv98 = phi i64 [ %indvars.iv.next99, %Gia_ManDivCover.exit ], [ %indvars.iv, %45 ]
   %.val48 = load ptr, ptr %34, align 8
   %49 = getelementptr inbounds i32, ptr %.val48, i64 %indvars.iv98
   %50 = load i32, ptr %49, align 4
@@ -6688,7 +6688,7 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   %78 = load i64, ptr %77, align 8
   %79 = and i64 %78, %76
   %.not84.i.i = icmp eq i64 %79, 0
-  br i1 %.not84.i.i, label %71, label %Gia_ManDivCover.argprom.exit
+  br i1 %.not84.i.i, label %71, label %Gia_ManDivCover.exit
 
 80:                                               ; preds = %65
   %81 = icmp eq i32 %67, 0
@@ -6714,7 +6714,7 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   %90 = load i64, ptr %89, align 8
   %91 = and i64 %88, %90
   %.not83.i.i = icmp eq i64 %91, 0
-  br i1 %.not83.i.i, label %82, label %Gia_ManDivCover.argprom.exit
+  br i1 %.not83.i.i, label %82, label %Gia_ManDivCover.exit
 
 92:                                               ; preds = %80
   br i1 %69, label %.preheader88.i.i, label %.preheader91.i.i
@@ -6742,7 +6742,7 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   %101 = load i64, ptr %100, align 8
   %102 = and i64 %99, %101
   %.not82.i.i = icmp eq i64 %102, 0
-  br i1 %.not82.i.i, label %93, label %Gia_ManDivCover.argprom.exit
+  br i1 %.not82.i.i, label %93, label %Gia_ManDivCover.exit
 
 103:                                              ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -6760,7 +6760,7 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   %110 = load i64, ptr %109, align 8
   %111 = and i64 %108, %110
   %.not.i.i53 = icmp eq i64 %111, 0
-  br i1 %.not.i.i53, label %103, label %Gia_ManDivCover.argprom.exit
+  br i1 %.not.i.i53, label %103, label %Gia_ManDivCover.exit
 
 .loopexit:                                        ; preds = %.preheader.i.i, %.preheader85.i.i, %.preheader88.i.i, %.preheader91.i.i, %103, %93, %82, %71
   %112 = shl i32 %54, 15
@@ -6771,16 +6771,16 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   %117 = or disjoint i32 %116, 1
   br label %.critedge
 
-Gia_ManDivCover.argprom.exit:                     ; preds = %.lr.ph.i.i, %.lr.ph98.i.i, %.lr.ph103.i.i, %.lr.ph108.i.i
+Gia_ManDivCover.exit:                             ; preds = %.lr.ph.i.i, %.lr.ph98.i.i, %.lr.ph103.i.i, %.lr.ph108.i.i
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %.val = load i32, ptr %32, align 4
   %118 = trunc nuw i64 %indvars.iv.next99 to i32
   %119 = icmp sgt i32 %.val, %118
   br i1 %119, label %.lr.ph, label %.critedge2.loopexit, !llvm.loop !69
 
-.critedge2.loopexit:                              ; preds = %.lr.ph, %Gia_ManDivCover.argprom.exit
-  %.val46106 = phi i32 [ %.val46107, %.lr.ph ], [ %.val, %Gia_ManDivCover.argprom.exit ]
-  %120 = phi i32 [ %48, %.lr.ph ], [ %66, %Gia_ManDivCover.argprom.exit ]
+.critedge2.loopexit:                              ; preds = %.lr.ph, %Gia_ManDivCover.exit
+  %.val46106 = phi i32 [ %.val46107, %.lr.ph ], [ %.val, %Gia_ManDivCover.exit ]
+  %120 = phi i32 [ %48, %.lr.ph ], [ %66, %Gia_ManDivCover.exit ]
   %.pre = sext i32 %.val46106 to i64
   br label %.critedge2
 
@@ -7974,8 +7974,8 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %Gia_ManDivCover.argprom.exit.us
-  %indvars.iv126 = phi i64 [ %indvars.iv.next127, %Gia_ManDivCover.argprom.exit.us ], [ 0, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %Gia_ManDivCover.exit.us
+  %indvars.iv126 = phi i64 [ %indvars.iv.next127, %Gia_ManDivCover.exit.us ], [ 0, %.lr.ph ]
   %.val43.us = load ptr, ptr %40, align 8
   %56 = getelementptr inbounds i32, ptr %.val43.us, i64 %indvars.iv126
   %57 = load i32, ptr %56, align 4
@@ -8007,7 +8007,7 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   %71 = load i64, ptr %70, align 8
   %72 = and i64 %69, %71
   %.not83.i.i.us = icmp eq i64 %72, 0
-  br i1 %.not83.i.i.us, label %73, label %Gia_ManDivCover.argprom.exit.us
+  br i1 %.not83.i.i.us, label %73, label %Gia_ManDivCover.exit.us
 
 73:                                               ; preds = %.lr.ph103.i.i.us
   %indvars.iv.next125.i.i.us = add nuw nsw i64 %indvars.iv124.i.i.us, 1
@@ -8029,9 +8029,9 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   %80 = load i64, ptr %79, align 8
   %81 = and i64 %80, %78
   %.not84.i.i.us = icmp eq i64 %81, 0
-  br i1 %.not84.i.i.us, label %84, label %Gia_ManDivCover.argprom.exit.us
+  br i1 %.not84.i.i.us, label %84, label %Gia_ManDivCover.exit.us
 
-Gia_ManDivCover.argprom.exit.us:                  ; preds = %.lr.ph103.i.i.us, %.lr.ph108.i.i.us
+Gia_ManDivCover.exit.us:                          ; preds = %.lr.ph103.i.i.us, %.lr.ph108.i.i.us
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %.val.us = load i32, ptr %39, align 4
   %82 = sext i32 %.val.us to i64
@@ -8043,8 +8043,8 @@ Gia_ManDivCover.argprom.exit.us:                  ; preds = %.lr.ph103.i.i.us, %
   %exitcond133.not.i.i.us = icmp eq i64 %indvars.iv.next130.i.i.us, %wide.trip.count.i.i
   br i1 %exitcond133.not.i.i.us, label %.loopexit, label %.lr.ph108.i.i.us, !llvm.loop !65
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %Gia_ManDivCover.argprom.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %Gia_ManDivCover.argprom.exit ], [ 0, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %Gia_ManDivCover.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %Gia_ManDivCover.exit ], [ 0, %.lr.ph ]
   %.val43 = load ptr, ptr %40, align 8
   %85 = getelementptr inbounds i32, ptr %.val43, i64 %indvars.iv
   %86 = load i32, ptr %85, align 4
@@ -8084,7 +8084,7 @@ Gia_ManDivCover.argprom.exit.us:                  ; preds = %.lr.ph103.i.i.us, %
   %102 = load i64, ptr %101, align 8
   %103 = and i64 %100, %102
   %.not82.i.i = icmp eq i64 %103, 0
-  br i1 %.not82.i.i, label %94, label %Gia_ManDivCover.argprom.exit
+  br i1 %.not82.i.i, label %94, label %Gia_ManDivCover.exit
 
 104:                                              ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -8102,7 +8102,7 @@ Gia_ManDivCover.argprom.exit.us:                  ; preds = %.lr.ph103.i.i.us, %
   %111 = load i64, ptr %110, align 8
   %112 = and i64 %109, %111
   %.not.i.i48 = icmp eq i64 %112, 0
-  br i1 %.not.i.i48, label %104, label %Gia_ManDivCover.argprom.exit
+  br i1 %.not.i.i48, label %104, label %Gia_ManDivCover.exit
 
 .loopexit:                                        ; preds = %.preheader91.i.i, %.preheader88.i.i, %.preheader.i.i.us, %.preheader85.i.i.us, %104, %94, %73, %84
   %.04063.in = phi i64 [ %indvars.iv126, %84 ], [ %indvars.iv126, %73 ], [ %indvars.iv, %94 ], [ %indvars.iv, %104 ], [ %indvars.iv126, %.preheader85.i.i.us ], [ %indvars.iv126, %.preheader.i.i.us ], [ %indvars.iv, %.preheader88.i.i ], [ %indvars.iv, %.preheader91.i.i ]
@@ -8114,14 +8114,14 @@ Gia_ManDivCover.argprom.exit.us:                  ; preds = %.lr.ph103.i.i.us, %
   %116 = xor i32 %115, 65539
   br label %.critedge
 
-Gia_ManDivCover.argprom.exit:                     ; preds = %.lr.ph.i.i, %.lr.ph98.i.i
+Gia_ManDivCover.exit:                             ; preds = %.lr.ph.i.i, %.lr.ph98.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %39, align 4
   %117 = sext i32 %.val to i64
   %118 = icmp slt i64 %indvars.iv.next, %117
   br i1 %118, label %.lr.ph.split, label %.critedge2, !llvm.loop !81
 
-.critedge2:                                       ; preds = %Gia_ManDivCover.argprom.exit, %.lr.ph.split, %Gia_ManDivCover.argprom.exit.us, %.lr.ph.split.us, %.preheader
+.critedge2:                                       ; preds = %Gia_ManDivCover.exit, %.lr.ph.split, %Gia_ManDivCover.exit.us, %.lr.ph.split.us, %.preheader
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %.val42 = load i32, ptr %34, align 4
   %119 = sext i32 %.val42 to i64
@@ -8264,7 +8264,7 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
   br i1 %52, label %.critedge2, label %.lr.ph194
 
-.lr.ph.split.us:                                  ; preds = %Gia_ManDivCover.argprom.exit.us
+.lr.ph.split.us:                                  ; preds = %Gia_ManDivCover.exit.us
   %.val47.us = load ptr, ptr %36, align 8
   %53 = getelementptr inbounds i32, ptr %.val47.us, i64 %indvars.iv.next134
   %54 = load i32, ptr %53, align 4
@@ -8297,7 +8297,7 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   %67 = load i64, ptr %66, align 8
   %68 = and i64 %65, %67
   %.not83.i.i.us = icmp eq i64 %68, 0
-  br i1 %.not83.i.i.us, label %69, label %Gia_ManDivCover.argprom.exit.us
+  br i1 %.not83.i.i.us, label %69, label %Gia_ManDivCover.exit.us
 
 69:                                               ; preds = %.lr.ph103.i.i.us
   %indvars.iv.next125.i.i.us = add nuw nsw i64 %indvars.iv124.i.i.us, 1
@@ -8319,9 +8319,9 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   %76 = load i64, ptr %75, align 8
   %77 = and i64 %76, %74
   %.not84.i.i.us = icmp eq i64 %77, 0
-  br i1 %.not84.i.i.us, label %80, label %Gia_ManDivCover.argprom.exit.us
+  br i1 %.not84.i.i.us, label %80, label %Gia_ManDivCover.exit.us
 
-Gia_ManDivCover.argprom.exit.us:                  ; preds = %.lr.ph103.i.i.us, %.lr.ph108.i.i.us
+Gia_ManDivCover.exit.us:                          ; preds = %.lr.ph103.i.i.us, %.lr.ph108.i.i.us
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133193, 1
   %.val.us = load i32, ptr %33, align 4
   %78 = trunc nuw i64 %indvars.iv.next134 to i32
@@ -8333,7 +8333,7 @@ Gia_ManDivCover.argprom.exit.us:                  ; preds = %.lr.ph103.i.i.us, %
   %exitcond133.not.i.i.us = icmp eq i64 %indvars.iv.next130.i.i.us, %wide.trip.count.i.i
   br i1 %exitcond133.not.i.i.us, label %.loopexit, label %.lr.ph108.i.i.us, !llvm.loop !65
 
-.lr.ph.split:                                     ; preds = %Gia_ManDivCover.argprom.exit
+.lr.ph.split:                                     ; preds = %Gia_ManDivCover.exit
   %.val47 = load ptr, ptr %36, align 8
   %81 = getelementptr inbounds i32, ptr %.val47, i64 %indvars.iv.next131
   %82 = load i32, ptr %81, align 4
@@ -8374,7 +8374,7 @@ Gia_ManDivCover.argprom.exit.us:                  ; preds = %.lr.ph103.i.i.us, %
   %97 = load i64, ptr %96, align 8
   %98 = and i64 %95, %97
   %.not82.i.i = icmp eq i64 %98, 0
-  br i1 %.not82.i.i, label %89, label %Gia_ManDivCover.argprom.exit
+  br i1 %.not82.i.i, label %89, label %Gia_ManDivCover.exit
 
 99:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -8392,7 +8392,7 @@ Gia_ManDivCover.argprom.exit.us:                  ; preds = %.lr.ph103.i.i.us, %
   %106 = load i64, ptr %105, align 8
   %107 = and i64 %104, %106
   %.not.i.i51 = icmp eq i64 %107, 0
-  br i1 %.not.i.i51, label %99, label %Gia_ManDivCover.argprom.exit
+  br i1 %.not.i.i51, label %99, label %Gia_ManDivCover.exit
 
 .loopexit:                                        ; preds = %.preheader91.i.i, %.preheader88.i.i, %.preheader.i.i.us, %.preheader85.i.i.us, %99, %89, %69, %80
   %.04366.in = phi i64 [ %indvars.iv133193, %80 ], [ %indvars.iv133193, %69 ], [ %indvars.iv130189, %89 ], [ %indvars.iv130189, %99 ], [ %indvars.iv133193, %.preheader85.i.i.us ], [ %indvars.iv133193, %.preheader.i.i.us ], [ %indvars.iv130189, %.preheader88.i.i ], [ %indvars.iv130189, %.preheader91.i.i ]
@@ -8404,15 +8404,15 @@ Gia_ManDivCover.argprom.exit.us:                  ; preds = %.lr.ph103.i.i.us, %
   %111 = or i32 %110, 65539
   br label %.critedge
 
-Gia_ManDivCover.argprom.exit:                     ; preds = %.lr.ph.i.i, %.lr.ph98.i.i
+Gia_ManDivCover.exit:                             ; preds = %.lr.ph.i.i, %.lr.ph98.i.i
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130189, 1
   %.val = load i32, ptr %33, align 4
   %112 = trunc nuw i64 %indvars.iv.next131 to i32
   %113 = icmp sgt i32 %.val, %112
   br i1 %113, label %.lr.ph.split, label %.critedge2, !llvm.loop !84
 
-.critedge2:                                       ; preds = %.lr.ph.split, %Gia_ManDivCover.argprom.exit, %.lr.ph.split.us, %Gia_ManDivCover.argprom.exit.us, %.lr.ph.split.preheader, %.lr.ph.split.us.preheader, %45
-  %.val46 = phi i32 [ %.val73, %45 ], [ %.val73, %.lr.ph.split.us.preheader ], [ %.val73, %.lr.ph.split.preheader ], [ %.val.us, %Gia_ManDivCover.argprom.exit.us ], [ %.val.us, %.lr.ph.split.us ], [ %.val, %Gia_ManDivCover.argprom.exit ], [ %.val, %.lr.ph.split ]
+.critedge2:                                       ; preds = %.lr.ph.split, %Gia_ManDivCover.exit, %.lr.ph.split.us, %Gia_ManDivCover.exit.us, %.lr.ph.split.preheader, %.lr.ph.split.us.preheader, %45
+  %.val46 = phi i32 [ %.val73, %45 ], [ %.val73, %.lr.ph.split.us.preheader ], [ %.val73, %.lr.ph.split.preheader ], [ %.val.us, %Gia_ManDivCover.exit.us ], [ %.val.us, %.lr.ph.split.us ], [ %.val, %Gia_ManDivCover.exit ], [ %.val, %.lr.ph.split ]
   %114 = sext i32 %.val46 to i64
   %115 = icmp slt i64 %indvars.iv.next137, %114
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -10859,7 +10859,7 @@ Gia_ManSortUnates.exit.critedge:                  ; preds = %97
   %.val321 = load i32, ptr %137, align 4
   %138 = getelementptr i8, ptr %132, i64 8
   %.val322 = load ptr, ptr %138, align 8
-  tail call fastcc void @Vec_IntTwoFindCommon.argprom.retelim(i32 %.val319, ptr %.val320, i32 %.val321, ptr %.val322, ptr noundef %134)
+  tail call fastcc void @Vec_IntTwoFindCommon(i32 %.val319, ptr %.val320, i32 %.val321, ptr %.val322, ptr noundef %134)
   %.not280 = icmp eq i32 %2, 0
   br i1 %.not280, label %141, label %139
 
@@ -13399,7 +13399,7 @@ Abc_ResubPrepareManager.exit:                     ; preds = %72, %74
 
 96:                                               ; preds = %92
   %.val141 = load ptr, ptr %80, align 8
-  %97 = call fastcc i32 @Gia_ObjLevel.argprom(ptr nonnull %.val127, ptr %.val141, ptr noundef %91)
+  %97 = call fastcc i32 @Gia_ObjLevel(ptr nonnull %.val127, ptr %.val141, ptr noundef %91)
   %98 = call i32 @Gia_NodeMffcSizeMark(ptr noundef nonnull %0, ptr noundef nonnull %91) #30
   %99 = mul nsw i64 %indvars.iv216, %65
   %.val133 = load ptr, ptr %81, align 8
@@ -13652,7 +13652,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 206:                                              ; preds = %199
   %.val143 = load ptr, ptr %80, align 8
-  %207 = call fastcc i32 @Gia_ObjLevel.argprom(ptr nonnull %.val126, ptr %.val143, ptr noundef %194)
+  %207 = call fastcc i32 @Gia_ObjLevel(ptr nonnull %.val126, ptr %.val143, ptr noundef %194)
   %.not119 = icmp sgt i32 %207, %97
   br i1 %.not119, label %243, label %208
 
@@ -13932,7 +13932,7 @@ declare i32 @Gia_ManLevelNum(ptr noundef) local_unnamed_addr #1
 declare void @Gia_ManStaticFanoutStart(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Gia_ObjLevel.argprom(ptr %.32.val, ptr nocapture %.160.val, ptr noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc i32 @Gia_ObjLevel(ptr %.32.val, ptr nocapture %.160.val, ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
   %3 = ptrtoint ptr %.32.val to i64
   %4 = sub i64 %2, %3
@@ -13942,7 +13942,7 @@ define internal fastcc i32 @Gia_ObjLevel.argprom(ptr %.32.val, ptr nocapture %.1
   %8 = getelementptr inbounds i8, ptr %.160.val, i64 4
   %9 = load i32, ptr %8, align 4
   %.not.i.not.i.i = icmp sgt i32 %9, %6
-  br i1 %.not.i.not.i.i, label %Gia_ObjLevelId.argprom.exit, label %10
+  br i1 %.not.i.not.i.i, label %Gia_ObjLevelId.exit, label %10
 
 10:                                               ; preds = %1
   %11 = load i32, ptr %.160.val, align 8
@@ -14027,9 +14027,9 @@ Vec_IntGrow.exit.i.i.i:                           ; preds = %Vec_IntGrow.exit.si
 
 ._crit_edge.i.i.i:                                ; preds = %40, %Vec_IntGrow.exit.i.i.i
   store i32 %7, ptr %8, align 4
-  br label %Gia_ObjLevelId.argprom.exit
+  br label %Gia_ObjLevelId.exit
 
-Gia_ObjLevelId.argprom.exit:                      ; preds = %1, %._crit_edge.i.i.i
+Gia_ObjLevelId.exit:                              ; preds = %1, %._crit_edge.i.i.i
   %43 = getelementptr i8, ptr %.160.val, i64 8
   %.val.i.i = load ptr, ptr %43, align 8
   %sext = shl i64 %5, 32

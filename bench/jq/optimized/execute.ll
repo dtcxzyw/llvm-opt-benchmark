@@ -5571,7 +5571,7 @@ frame_get_level.exit.i:                           ; preds = %2492, %stack_pop.ex
   %2503 = load ptr, ptr %2502, align 8
   %2504 = zext nneg i32 %2500 to i64
   %2505 = getelementptr inbounds ptr, ptr %2503, i64 %2504
-  br label %make_closure.argprom.exit
+  br label %make_closure.exit
 
 2506:                                             ; preds = %frame_get_level.exit.i
   %2507 = getelementptr inbounds i8, ptr %2496, i64 24
@@ -5579,16 +5579,16 @@ frame_get_level.exit.i:                           ; preds = %2492, %stack_pop.ex
   %2509 = getelementptr inbounds [0 x %union.frame_entry], ptr %2507, i64 0, i64 %2508
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %2509, i64 8
   %.sroa.3.0.copyload.i = load i32, ptr %.sroa.3.0..sroa_idx.i, align 8
-  br label %make_closure.argprom.exit
+  br label %make_closure.exit
 
-make_closure.argprom.exit:                        ; preds = %2499, %2506
+make_closure.exit:                                ; preds = %2499, %2506
   %.sroa.0.0.in.i = phi ptr [ %2505, %2499 ], [ %2509, %2506 ]
   %.sroa.3.0.i = phi i32 [ %.0.lcssa.i.i1837, %2499 ], [ %.sroa.3.0.copyload.i, %2506 ]
   %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8
   %2510 = icmp eq i16 %.0743, 30
   br i1 %2510, label %2511, label %2556
 
-2511:                                             ; preds = %make_closure.argprom.exit
+2511:                                             ; preds = %make_closure.exit
   %2512 = sext i32 %.08.i.i1827 to i64
   %2513 = getelementptr inbounds i8, ptr %.val.pre.i1829, i64 %2512
   %2514 = getelementptr inbounds i8, ptr %2513, i64 16
@@ -5676,9 +5676,9 @@ frame_pop.exit:                                   ; preds = %.loopexit.i, %2544
   store i32 %2555, ptr %20, align 8
   br label %2556
 
-2556:                                             ; preds = %frame_pop.exit, %make_closure.argprom.exit
-  %.0748 = phi ptr [ %2515, %frame_pop.exit ], [ %2489, %make_closure.argprom.exit ]
-  %.0747 = phi i32 [ %2517, %frame_pop.exit ], [ %2482, %make_closure.argprom.exit ]
+2556:                                             ; preds = %frame_pop.exit, %make_closure.exit
+  %.0748 = phi ptr [ %2515, %frame_pop.exit ], [ %2489, %make_closure.exit ]
+  %.0747 = phi i32 [ %2517, %frame_pop.exit ], [ %2482, %make_closure.exit ]
   %2557 = call fastcc ptr @frame_push(ptr noundef nonnull %0, ptr %.sroa.0.0.i, i32 %.sroa.3.0.i, ptr noundef nonnull %2485, i32 noundef %2486)
   %2558 = getelementptr inbounds i8, ptr %2557, i64 12
   store i32 %.0747, ptr %2558, align 4
@@ -6116,15 +6116,15 @@ stack_push_block.exit:                            ; preds = %5, %22
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %.lr.ph
 
-.preheader:                                       ; preds = %make_closure.argprom.exit, %stack_push_block.exit
-  %.0.lcssa = phi ptr [ %46, %stack_push_block.exit ], [ %70, %make_closure.argprom.exit ]
+.preheader:                                       ; preds = %make_closure.exit, %stack_push_block.exit
+  %.0.lcssa = phi ptr [ %46, %stack_push_block.exit ], [ %70, %make_closure.exit ]
   %47 = load i32, ptr %9, align 4
   %48 = icmp sgt i32 %47, 0
   br i1 %48, label %.lr.ph38, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %make_closure.argprom.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %make_closure.argprom.exit ]
-  %.035 = phi ptr [ %46, %.lr.ph.preheader ], [ %70, %make_closure.argprom.exit ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %make_closure.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %make_closure.exit ]
+  %.035 = phi ptr [ %46, %.lr.ph.preheader ], [ %70, %make_closure.exit ]
   %.idx = shl nsw i64 %indvars.iv, 2
   %49 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %.val30 = load i16, ptr %49, align 2
@@ -6166,7 +6166,7 @@ frame_get_level.exit.i:                           ; preds = %52, %.lr.ph
   %63 = load ptr, ptr %62, align 8
   %64 = zext nneg i32 %60 to i64
   %65 = getelementptr inbounds ptr, ptr %63, i64 %64
-  br label %make_closure.argprom.exit
+  br label %make_closure.exit
 
 66:                                               ; preds = %frame_get_level.exit.i
   %67 = getelementptr inbounds i8, ptr %56, i64 24
@@ -6174,9 +6174,9 @@ frame_get_level.exit.i:                           ; preds = %52, %.lr.ph
   %69 = getelementptr inbounds [0 x %union.frame_entry], ptr %67, i64 0, i64 %68
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %69, i64 8
   %.sroa.3.0.copyload.i = load i32, ptr %.sroa.3.0..sroa_idx.i, align 8
-  br label %make_closure.argprom.exit
+  br label %make_closure.exit
 
-make_closure.argprom.exit:                        ; preds = %59, %66
+make_closure.exit:                                ; preds = %59, %66
   %.sroa.0.0.in.i = phi ptr [ %65, %59 ], [ %69, %66 ]
   %.sroa.3.0.i = phi i32 [ %.0.lcssa.i.i, %59 ], [ %.sroa.3.0.copyload.i, %66 ]
   %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8

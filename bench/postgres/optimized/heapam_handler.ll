@@ -1091,7 +1091,7 @@ table_scan_getnextslot.exit:                      ; preds = %67
   call void @pgstat_progress_update_param(i32 noundef 3, i64 noundef %163) #11
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %161, %reform_and_rewrite_tuple.argprom.exit, %150, %154
+.backedge.backedge:                               ; preds = %161, %reform_and_rewrite_tuple.exit, %150, %154
   br label %.backedge
 
 164:                                              ; preds = %.critedge
@@ -1101,7 +1101,7 @@ table_scan_getnextslot.exit:                      ; preds = %67
   call void @heap_deform_tuple(ptr noundef %98, ptr noundef %.val, ptr noundef %23, ptr noundef %24) #11
   %165 = load i32, ptr %.val121, align 8
   %166 = icmp sgt i32 %165, 0
-  br i1 %166, label %.lr.ph.i, label %reform_and_rewrite_tuple.argprom.exit
+  br i1 %166, label %.lr.ph.i, label %reform_and_rewrite_tuple.exit
 
 .lr.ph.i:                                         ; preds = %164
   %167 = getelementptr inbounds i8, ptr %.val121, i64 24
@@ -1126,9 +1126,9 @@ table_scan_getnextslot.exit:                      ; preds = %67
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %177 = sext i32 %176 to i64
   %178 = icmp slt i64 %indvars.iv.next.i, %177
-  br i1 %178, label %168, label %reform_and_rewrite_tuple.argprom.exit, !llvm.loop !7
+  br i1 %178, label %168, label %reform_and_rewrite_tuple.exit, !llvm.loop !7
 
-reform_and_rewrite_tuple.argprom.exit:            ; preds = %175, %164
+reform_and_rewrite_tuple.exit:                    ; preds = %175, %164
   %179 = call ptr @heap_form_tuple(ptr noundef nonnull %.val121, ptr noundef %23, ptr noundef %24) #11
   call void @rewrite_heap_tuple(ptr noundef %27, ptr noundef %98, ptr noundef %179) #11
   call void @heap_freetuple(ptr noundef %179) #11
@@ -1170,8 +1170,8 @@ reform_and_rewrite_tuple.argprom.exit:            ; preds = %175, %164
   call void @pgstat_progress_update_param(i32 noundef 1, i64 noundef 4) #11
   br label %193
 
-193:                                              ; preds = %reform_and_rewrite_tuple.argprom.exit128, %192
-  %.099 = phi double [ 0.000000e+00, %192 ], [ %200, %reform_and_rewrite_tuple.argprom.exit128 ]
+193:                                              ; preds = %reform_and_rewrite_tuple.exit128, %192
+  %.099 = phi double [ 0.000000e+00, %192 ], [ %200, %reform_and_rewrite_tuple.exit128 ]
   %194 = load volatile i32, ptr @InterruptPending, align 4
   %.not115 = icmp eq i32 %194, 0
   br i1 %.not115, label %196, label %195
@@ -1192,7 +1192,7 @@ reform_and_rewrite_tuple.argprom.exit:            ; preds = %175, %164
   call void @heap_deform_tuple(ptr noundef nonnull %197, ptr noundef %.val122, ptr noundef %23, ptr noundef %24) #11
   %201 = load i32, ptr %.val123, align 8
   %202 = icmp sgt i32 %201, 0
-  br i1 %202, label %.lr.ph.i124, label %reform_and_rewrite_tuple.argprom.exit128
+  br i1 %202, label %.lr.ph.i124, label %reform_and_rewrite_tuple.exit128
 
 .lr.ph.i124:                                      ; preds = %199
   %203 = getelementptr inbounds i8, ptr %.val123, i64 24
@@ -1217,9 +1217,9 @@ reform_and_rewrite_tuple.argprom.exit:            ; preds = %175, %164
   %indvars.iv.next.i126 = add nuw nsw i64 %indvars.iv.i125, 1
   %213 = sext i32 %212 to i64
   %214 = icmp slt i64 %indvars.iv.next.i126, %213
-  br i1 %214, label %204, label %reform_and_rewrite_tuple.argprom.exit128, !llvm.loop !7
+  br i1 %214, label %204, label %reform_and_rewrite_tuple.exit128, !llvm.loop !7
 
-reform_and_rewrite_tuple.argprom.exit128:         ; preds = %211, %199
+reform_and_rewrite_tuple.exit128:                 ; preds = %211, %199
   %215 = call ptr @heap_form_tuple(ptr noundef nonnull %.val123, ptr noundef %23, ptr noundef %24) #11
   call void @rewrite_heap_tuple(ptr noundef %27, ptr noundef nonnull %197, ptr noundef %215) #11
   call void @heap_freetuple(ptr noundef %215) #11

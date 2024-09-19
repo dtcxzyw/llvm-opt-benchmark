@@ -1430,7 +1430,7 @@ define dso_local noundef range(i32 0, 851969) i32 @krb5_etm_encrypt(ptr nocaptur
   %.val = load ptr, ptr %17, align 8
   %78 = getelementptr i8, ptr %.val, i64 -16
   %.val.val = load i32, ptr %78, align 8
-  %79 = call fastcc i32 @krb5_etm_checksum.argprom.argprom(i32 %.val.val, ptr noundef %14, ptr noundef %2, i32 noundef %21, ptr noundef nonnull %5)
+  %79 = call fastcc i32 @krb5_etm_checksum(i32 %.val.val, ptr noundef %14, ptr noundef %2, i32 noundef %21, ptr noundef nonnull %5)
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %81, label %93
 
@@ -1457,7 +1457,7 @@ define dso_local noundef range(i32 0, 851969) i32 @krb5_etm_encrypt(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 851969) i32 @krb5_etm_checksum.argprom.argprom(i32 %.32.val.-16.val, ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 851969) i32 @krb5_etm_checksum(i32 %.32.val.-16.val, ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 16 {
   %5 = alloca [1 x %struct.scatterlist], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !5
@@ -1594,7 +1594,7 @@ define dso_local range(i32 0, 851969) i32 @krb5_etm_decrypt(ptr nocapture nounde
   %.val = load ptr, ptr %35, align 8
   %36 = getelementptr i8, ptr %.val, i64 -16
   %.val.val = load i32, ptr %36, align 8
-  %37 = call fastcc i32 @krb5_etm_checksum.argprom.argprom(i32 %.val.val, ptr noundef %19, ptr noundef nonnull %10, i32 noundef 0, ptr noundef nonnull %9)
+  %37 = call fastcc i32 @krb5_etm_checksum(i32 %.val.val, ptr noundef %19, ptr noundef nonnull %10, i32 noundef 0, ptr noundef nonnull %9)
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %63
 

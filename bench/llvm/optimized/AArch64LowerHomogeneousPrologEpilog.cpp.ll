@@ -805,7 +805,7 @@ _ZNSt8optionalIiEaSIlEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remov
   br i1 %or.cond.i, label %225, label %.thread.i.i.i.i.i
 
 225:                                              ; preds = %"_ZN4llvm12is_containedIRNS_15SmallVectorImplIjEENS_7AArch643$_0EEEbOT_RKT0_.exit.i.i"
-  call fastcc void @_ZL9emitStoreRN4llvm15MachineFunctionERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_15TargetInstrInfoEjjib.argprom(ptr noundef nonnull align 8 dereferenceable(288) %.sroa.035.064.i.i, ptr nonnull %.sroa.07.011.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %113, i32 noundef 6, i32 noundef 2, i32 noundef %169, i1 noundef zeroext true)
+  call fastcc void @_ZL9emitStoreRN4llvm15MachineFunctionERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_15TargetInstrInfoEjjib(ptr noundef nonnull align 8 dereferenceable(288) %.sroa.035.064.i.i, ptr nonnull %.sroa.07.011.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %113, i32 noundef 6, i32 noundef 2, i32 noundef %169, i1 noundef zeroext true)
   %226 = call fastcc noundef ptr @_ZL22getOrCreateFrameHelperPN4llvm6ModuleEPNS_17MachineModuleInfoERNS_15SmallVectorImplIjEE15FrameHelperTypej(ptr noundef nonnull %1, ptr noundef nonnull %51, ptr noundef nonnull align 8 dereferenceable(16) %26, i32 noundef 1, i32 noundef %.sroa.0109.1.i.i.i.i.i)
   %227 = load ptr, ptr %25, align 8
   store ptr %227, ptr %28, align 8
@@ -1066,7 +1066,7 @@ _ZN4llvm10MIMetadataD2Ev.exit.i.i.i.i.i:          ; preds = %261, %_ZN4llvm7Buil
   br i1 %or.cond42.i.i, label %314, label %.thread.i.i.i.i.i
 
 314:                                              ; preds = %"_ZN4llvm12is_containedIRNS_15SmallVectorImplIjEENS_7AArch643$_0EEEbOT_RKT0_.exit.i14.i.i"
-  call fastcc void @_ZL9emitStoreRN4llvm15MachineFunctionERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_15TargetInstrInfoEjjib.argprom(ptr noundef nonnull align 8 dereferenceable(288) %.sroa.035.064.i.i, ptr nonnull %.sroa.07.011.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %113, i32 noundef 6, i32 noundef 2, i32 noundef %.055.lcssa138143.i.i.i.i.i, i1 noundef zeroext true)
+  call fastcc void @_ZL9emitStoreRN4llvm15MachineFunctionERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_15TargetInstrInfoEjjib(ptr noundef nonnull align 8 dereferenceable(288) %.sroa.035.064.i.i, ptr nonnull %.sroa.07.011.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %113, i32 noundef 6, i32 noundef 2, i32 noundef %.055.lcssa138143.i.i.i.i.i, i1 noundef zeroext true)
   %315 = call fastcc noundef ptr @_ZL22getOrCreateFrameHelperPN4llvm6ModuleEPNS_17MachineModuleInfoERNS_15SmallVectorImplIjEE15FrameHelperTypej(ptr noundef nonnull %1, ptr noundef nonnull %51, ptr noundef nonnull align 8 dereferenceable(16) %26, i32 noundef 0, i32 noundef 0)
   %316 = load ptr, ptr %25, align 8
   store ptr %316, ptr %30, align 8
@@ -1205,7 +1205,7 @@ _ZN4llvm10MIMetadataD2Ev.exit68.i.i.i.i.i:        ; preds = %350, %_ZN4llvm7Buil
   %361 = getelementptr inbounds i8, ptr %356, i64 %360
   %362 = load i32, ptr %361, align 4
   %363 = sub nsw i32 0, %354
-  call fastcc void @_ZL9emitStoreRN4llvm15MachineFunctionERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_15TargetInstrInfoEjjib.argprom(ptr noundef nonnull align 8 dereferenceable(288) %.sroa.035.064.i.i, ptr nonnull %.sroa.07.011.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %113, i32 noundef %359, i32 noundef %362, i32 noundef %363, i1 noundef zeroext true)
+  call fastcc void @_ZL9emitStoreRN4llvm15MachineFunctionERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_15TargetInstrInfoEjjib(ptr noundef nonnull align 8 dereferenceable(288) %.sroa.035.064.i.i, ptr nonnull %.sroa.07.011.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %113, i32 noundef %359, i32 noundef %362, i32 noundef %363, i1 noundef zeroext true)
   %364 = icmp sgt i32 %354, 2
   br i1 %364, label %.lr.ph130.preheader.i.i.i.i.i, label %._crit_edge131.i.i.i.i.i
 
@@ -1224,7 +1224,7 @@ _ZN4llvm10MIMetadataD2Ev.exit68.i.i.i.i.i:        ; preds = %350, %_ZN4llvm7Buil
   %372 = trunc nuw nsw i64 %indvars.iv.i.i.i.i.i to i32
   %373 = xor i32 %372, -1
   %374 = add i32 %354, %373
-  call fastcc void @_ZL9emitStoreRN4llvm15MachineFunctionERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_15TargetInstrInfoEjjib.argprom(ptr noundef nonnull align 8 dereferenceable(288) %.sroa.035.064.i.i, ptr nonnull %.sroa.07.011.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %113, i32 noundef %370, i32 noundef %371, i32 noundef %374, i1 noundef zeroext false)
+  call fastcc void @_ZL9emitStoreRN4llvm15MachineFunctionERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_15TargetInstrInfoEjjib(ptr noundef nonnull align 8 dereferenceable(288) %.sroa.035.064.i.i, ptr nonnull %.sroa.07.011.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %113, i32 noundef %370, i32 noundef %371, i32 noundef %374, i1 noundef zeroext false)
   %indvars.iv.next.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i, -2
   %375 = icmp ugt i64 %indvars.iv.i.i.i.i.i, 1
   br i1 %375, label %.lr.ph130.i.i.i.i.i, label %._crit_edge131.i.i.i.i.i, !llvm.loop !19
@@ -2084,7 +2084,7 @@ _ZN4llvm10MIMetadataD2Ev.exit58.i.i.i.i.i:        ; preds = %669, %_ZN4llvm7Buil
   %677 = load i32, ptr %676, align 4
   %678 = trunc nuw nsw i64 %indvars.iv.i15.i.i.i.i to i32
   %679 = sub i32 %631, %678
-  call fastcc void @_ZL8emitLoadRN4llvm15MachineFunctionERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_15TargetInstrInfoEjjib.argprom(ptr noundef nonnull align 8 dereferenceable(288) %.sroa.035.064.i.i, ptr nonnull %.sroa.07.011.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %113, i32 noundef %674, i32 noundef %677, i32 noundef %679, i1 noundef zeroext false)
+  call fastcc void @_ZL8emitLoadRN4llvm15MachineFunctionERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_15TargetInstrInfoEjjib(ptr noundef nonnull align 8 dereferenceable(288) %.sroa.035.064.i.i, ptr nonnull %.sroa.07.011.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %113, i32 noundef %674, i32 noundef %677, i32 noundef %679, i1 noundef zeroext false)
   %indvars.iv.next.i16.i.i.i.i = add nuw nsw i64 %indvars.iv.i15.i.i.i.i, 2
   %680 = trunc nuw i64 %indvars.iv.next.i16.i.i.i.i to i32
   %681 = icmp sgt i32 %631, %680
@@ -2100,7 +2100,7 @@ _ZN4llvm10MIMetadataD2Ev.exit58.i.i.i.i.i:        ; preds = %669, %_ZN4llvm7Buil
   %687 = ashr exact i64 %sext.i14.i.i.i.i, 30
   %688 = getelementptr inbounds i8, ptr %683, i64 %687
   %689 = load i32, ptr %688, align 4
-  call fastcc void @_ZL8emitLoadRN4llvm15MachineFunctionERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_15TargetInstrInfoEjjib.argprom(ptr noundef nonnull align 8 dereferenceable(288) %.sroa.035.064.i.i, ptr nonnull %.sroa.07.011.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %113, i32 noundef %685, i32 noundef %689, i32 noundef %453, i1 noundef zeroext true)
+  call fastcc void @_ZL8emitLoadRN4llvm15MachineFunctionERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_15TargetInstrInfoEjjib(ptr noundef nonnull align 8 dereferenceable(288) %.sroa.035.064.i.i, ptr nonnull %.sroa.07.011.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %113, i32 noundef %685, i32 noundef %689, i32 noundef %453, i1 noundef zeroext true)
   br label %_ZN4llvm8DebugLocD2Ev.exit60.i.i.i.i.i
 
 _ZN4llvm8DebugLocD2Ev.exit60.i.i.i.i.i:           ; preds = %._crit_edge90.i.i.i.i.i, %671, %_ZN4llvm10MIMetadataD2Ev.exit58.i.i.i.i.i, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i.i.i.i.i
@@ -2324,7 +2324,7 @@ declare noundef zeroext i1 @_ZNK4llvm10ModulePass10skipModuleERNS_6ModuleE(ptr n
 declare noundef ptr @_ZNK4llvm17MachineModuleInfo18getMachineFunctionERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(2512), ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL9emitStoreRN4llvm15MachineFunctionERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_15TargetInstrInfoEjjib.argprom(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc void @_ZL9emitStoreRN4llvm15MachineFunctionERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_15TargetInstrInfoEjjib(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca %"class.llvm::MachineOperand", align 8
   %9 = alloca %"class.llvm::MachineOperand", align 8
   %10 = alloca %"class.llvm::MachineOperand", align 8
@@ -2817,7 +2817,7 @@ _ZL32createFrameHelperMachineFunctionPN4llvm6ModuleEPNS_17MachineModuleInfoENS_9
   %165 = sub i64 %154, %114
   %166 = trunc i64 %165 to i32
   %167 = add i32 %166, 2
-  call fastcc void @_ZL9emitStoreRN4llvm15MachineFunctionERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_15TargetInstrInfoEjjib.argprom(ptr noundef nonnull align 8 dereferenceable(288) %107, ptr nonnull %158, ptr noundef nonnull align 8 dereferenceable(80) %113, i32 noundef %161, i32 noundef %164, i32 noundef %167, i1 noundef zeroext true)
+  call fastcc void @_ZL9emitStoreRN4llvm15MachineFunctionERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_15TargetInstrInfoEjjib(ptr noundef nonnull align 8 dereferenceable(288) %107, ptr nonnull %158, ptr noundef nonnull align 8 dereferenceable(80) %113, i32 noundef %161, i32 noundef %164, i32 noundef %167, i1 noundef zeroext true)
   br label %168
 
 168:                                              ; preds = %157, %"_ZN4llvm4findIRNS_15SmallVectorImplIjEENS_7AArch643$_0EEEDaOT_RKT0_.exit"
@@ -2844,7 +2844,7 @@ _ZL32createFrameHelperMachineFunctionPN4llvm6ModuleEPNS_17MachineModuleInfoENS_9
   %181 = trunc nuw nsw i64 %indvars.iv166 to i32
   %182 = xor i32 %181, -1
   %183 = add i32 %182, %115
-  call fastcc void @_ZL9emitStoreRN4llvm15MachineFunctionERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_15TargetInstrInfoEjjib.argprom(ptr noundef nonnull align 8 dereferenceable(288) %107, ptr nonnull %171, ptr noundef nonnull align 8 dereferenceable(80) %113, i32 noundef %177, i32 noundef %180, i32 noundef %183, i1 noundef zeroext false)
+  call fastcc void @_ZL9emitStoreRN4llvm15MachineFunctionERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_15TargetInstrInfoEjjib(ptr noundef nonnull align 8 dereferenceable(288) %107, ptr nonnull %171, ptr noundef nonnull align 8 dereferenceable(80) %113, i32 noundef %177, i32 noundef %180, i32 noundef %183, i1 noundef zeroext false)
   br label %184
 
 184:                                              ; preds = %173, %179
@@ -3045,7 +3045,7 @@ _ZN4llvm8DebugLocD2Ev.exit111:                    ; preds = %247, %_ZN4llvm10MIM
   %257 = load i32, ptr %256, align 4
   %258 = trunc nuw nsw i64 %indvars.iv to i32
   %259 = sub i32 %248, %258
-  call fastcc void @_ZL8emitLoadRN4llvm15MachineFunctionERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_15TargetInstrInfoEjjib.argprom(ptr noundef nonnull align 8 dereferenceable(288) %107, ptr nonnull %250, ptr noundef nonnull align 8 dereferenceable(80) %113, i32 noundef %254, i32 noundef %257, i32 noundef %259, i1 noundef zeroext false)
+  call fastcc void @_ZL8emitLoadRN4llvm15MachineFunctionERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_15TargetInstrInfoEjjib(ptr noundef nonnull align 8 dereferenceable(288) %107, ptr nonnull %250, ptr noundef nonnull align 8 dereferenceable(80) %113, i32 noundef %254, i32 noundef %257, i32 noundef %259, i1 noundef zeroext false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %260 = trunc nuw i64 %indvars.iv.next to i32
   %261 = icmp sgt i32 %248, %260
@@ -3062,7 +3062,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit113: ; preds = %251, %_Z
   %268 = ashr exact i64 %sext, 30
   %269 = getelementptr inbounds i8, ptr %264, i64 %268
   %270 = load i32, ptr %269, align 4
-  call fastcc void @_ZL8emitLoadRN4llvm15MachineFunctionERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_15TargetInstrInfoEjjib.argprom(ptr noundef nonnull align 8 dereferenceable(288) %107, ptr nonnull %262, ptr noundef nonnull align 8 dereferenceable(80) %113, i32 noundef %266, i32 noundef %270, i32 noundef %115, i1 noundef zeroext true)
+  call fastcc void @_ZL8emitLoadRN4llvm15MachineFunctionERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_15TargetInstrInfoEjjib(ptr noundef nonnull align 8 dereferenceable(288) %107, ptr nonnull %262, ptr noundef nonnull align 8 dereferenceable(80) %113, i32 noundef %266, i32 noundef %270, i32 noundef %115, i1 noundef zeroext true)
   store ptr null, ptr %28, align 8
   %271 = getelementptr inbounds i8, ptr %113, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
@@ -3199,7 +3199,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 declare noundef ptr @_ZNK4llvm6Module11getFunctionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(857), ptr, i64) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL8emitLoadRN4llvm15MachineFunctionERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_15TargetInstrInfoEjjib.argprom(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc void @_ZL8emitLoadRN4llvm15MachineFunctionERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_15TargetInstrInfoEjjib(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca %"class.llvm::MachineOperand", align 8
   %9 = alloca %"class.llvm::MachineOperand", align 8
   %10 = alloca %"class.llvm::MachineOperand", align 8

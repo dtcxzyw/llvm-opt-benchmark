@@ -1001,11 +1001,11 @@ invoke.cont10:                                    ; preds = %invoke.cont8
 
 for.body:                                         ; preds = %invoke.cont10, %for.inc
   %byte1.0286 = phi i32 [ %inc, %for.inc ], [ 128, %invoke.cont10 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte1.0286, i32 noundef -1, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext false, i32 noundef %byte1.0286, i32 noundef -1, i32 noundef -1)
           to label %invoke.cont13 unwind label %lpad9.loopexit.split-lp.loopexit
 
 invoke.cont13:                                    ; preds = %for.body
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte1.0286, i32 noundef -1, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext false, i32 noundef %byte1.0286, i32 noundef -1, i32 noundef -1)
           to label %for.inc unwind label %lpad9.loopexit.split-lp.loopexit
 
 for.inc:                                          ; preds = %invoke.cont13
@@ -1052,11 +1052,11 @@ lpad9:                                            ; preds = %lpad9.loopexit.spli
 
 for.body18:                                       ; preds = %for.inc, %for.inc21
   %byte115.0287 = phi i32 [ %inc22, %for.inc21 ], [ 245, %for.inc ]
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte115.0287, i32 noundef -1, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext false, i32 noundef %byte115.0287, i32 noundef -1, i32 noundef -1)
           to label %invoke.cont19 unwind label %lpad9.loopexit
 
 invoke.cont19:                                    ; preds = %for.body18
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte115.0287, i32 noundef -1, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext false, i32 noundef %byte115.0287, i32 noundef -1, i32 noundef -1)
           to label %for.inc21 unwind label %lpad9.loopexit
 
 for.inc21:                                        ; preds = %invoke.cont19
@@ -1103,7 +1103,7 @@ for.body45:                                       ; preds = %invoke.cont39, %for
   br i1 %cmp47, label %if.then48.invoke, label %if.end50
 
 if.then48.invoke:                                 ; preds = %if.end50, %for.body45, %if.end50
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte142.0288, i32 noundef -1, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext false, i32 noundef %byte142.0288, i32 noundef -1, i32 noundef -1)
           to label %for.inc61 unwind label %lpad38.loopexit
 
 lpad27:                                           ; preds = %invoke.cont26
@@ -1145,11 +1145,11 @@ if.end50:                                         ; preds = %for.body45
   ]
 
 if.end58:                                         ; preds = %if.end50
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext true, i32 noundef %byte142.0288, i32 noundef -1, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext true, i32 noundef %byte142.0288, i32 noundef -1, i32 noundef -1)
           to label %invoke.cont59 unwind label %lpad38.loopexit
 
 invoke.cont59:                                    ; preds = %if.end58
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext true, i32 noundef %byte142.0288, i32 noundef -1, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext true, i32 noundef %byte142.0288, i32 noundef -1, i32 noundef -1)
           to label %for.inc61 unwind label %lpad38.loopexit
 
 for.inc61:                                        ; preds = %invoke.cont59, %if.then48.invoke
@@ -1200,11 +1200,11 @@ for.cond90.preheader:                             ; preds = %invoke.cont83, %for
 
 for.body92:                                       ; preds = %for.cond90.preheader, %for.inc95
   %byte2.0289 = phi i32 [ 128, %for.cond90.preheader ], [ %inc96, %for.inc95 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext true, i32 noundef %byte186.0290, i32 noundef %byte2.0289, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext true, i32 noundef %byte186.0290, i32 noundef %byte2.0289, i32 noundef -1)
           to label %invoke.cont93 unwind label %lpad82.loopexit
 
 invoke.cont93:                                    ; preds = %for.body92
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext true, i32 noundef %byte186.0290, i32 noundef %byte2.0289, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext true, i32 noundef %byte186.0290, i32 noundef %byte2.0289, i32 noundef -1)
           to label %for.inc95 unwind label %lpad82.loopexit
 
 for.inc95:                                        ; preds = %invoke.cont93
@@ -1273,11 +1273,11 @@ invoke.cont110:                                   ; preds = %invoke.cont107
 
 for.body116:                                      ; preds = %invoke.cont110, %for.inc119
   %byte1113.0291 = phi i32 [ %inc120, %for.inc119 ], [ 194, %invoke.cont110 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte1113.0291, i32 noundef -1, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext false, i32 noundef %byte1113.0291, i32 noundef -1, i32 noundef -1)
           to label %invoke.cont117 unwind label %lpad109.loopexit
 
 invoke.cont117:                                   ; preds = %for.body116
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte1113.0291, i32 noundef -1, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext false, i32 noundef %byte1113.0291, i32 noundef -1, i32 noundef -1)
           to label %for.inc119 unwind label %lpad109.loopexit
 
 for.inc119:                                       ; preds = %invoke.cont117
@@ -1355,11 +1355,11 @@ lpad130:                                          ; preds = %lpad130.loopexit.sp
   br label %ehcleanup158
 
 if.end146:                                        ; preds = %for.body141
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte1134.0293, i32 noundef %byte2138.0292, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext false, i32 noundef %byte1134.0293, i32 noundef %byte2138.0292, i32 noundef -1)
           to label %invoke.cont147 unwind label %lpad130.loopexit
 
 invoke.cont147:                                   ; preds = %if.end146
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte1134.0293, i32 noundef %byte2138.0292, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext false, i32 noundef %byte1134.0293, i32 noundef %byte2138.0292, i32 noundef -1)
           to label %for.inc149 unwind label %lpad130.loopexit
 
 for.inc149:                                       ; preds = %invoke.cont147, %for.body141
@@ -1415,11 +1415,11 @@ for.cond187.preheader:                            ; preds = %invoke.cont176, %fo
 
 for.body189:                                      ; preds = %for.cond187.preheader, %for.inc192
   %byte3.0294 = phi i32 [ 128, %for.cond187.preheader ], [ %inc193, %for.inc192 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext true, i32 noundef 224, i32 noundef %byte2183.0295, i32 noundef %byte3.0294)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext true, i32 noundef 224, i32 noundef %byte2183.0295, i32 noundef %byte3.0294)
           to label %invoke.cont190 unwind label %lpad175.loopexit
 
 invoke.cont190:                                   ; preds = %for.body189
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext true, i32 noundef 224, i32 noundef %byte2183.0295, i32 noundef %byte3.0294)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext true, i32 noundef 224, i32 noundef %byte2183.0295, i32 noundef %byte3.0294)
           to label %for.inc192 unwind label %lpad175.loopexit
 
 for.inc192:                                       ; preds = %invoke.cont190
@@ -1487,11 +1487,11 @@ invoke.cont210:                                   ; preds = %invoke.cont207
   br i1 %call211, label %for.body216, label %if.end222
 
 for.body216:                                      ; preds = %invoke.cont210
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext false, i32 noundef 224, i32 noundef -1, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext false, i32 noundef 224, i32 noundef -1, i32 noundef -1)
           to label %invoke.cont217 unwind label %lpad209
 
 invoke.cont217:                                   ; preds = %for.body216
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext false, i32 noundef 224, i32 noundef -1, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext false, i32 noundef 224, i32 noundef -1, i32 noundef -1)
           to label %if.end222 unwind label %lpad209
 
 lpad206:                                          ; preds = %invoke.cont205
@@ -1525,11 +1525,11 @@ invoke.cont231:                                   ; preds = %invoke.cont228
 
 for.body241:                                      ; preds = %invoke.cont231, %for.inc244
   %byte2238.0296 = phi i32 [ %inc245, %for.inc244 ], [ 160, %invoke.cont231 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext false, i32 noundef 224, i32 noundef %byte2238.0296, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext false, i32 noundef 224, i32 noundef %byte2238.0296, i32 noundef -1)
           to label %invoke.cont242 unwind label %lpad230.loopexit
 
 invoke.cont242:                                   ; preds = %for.body241
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext false, i32 noundef 224, i32 noundef %byte2238.0296, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext false, i32 noundef 224, i32 noundef %byte2238.0296, i32 noundef -1)
           to label %for.inc244 unwind label %lpad230.loopexit
 
 for.inc244:                                       ; preds = %invoke.cont242
@@ -1604,11 +1604,11 @@ lpad258:                                          ; preds = %lpad258.loopexit.sp
 
 for.body278:                                      ; preds = %for.body269, %for.inc281
   %byte3275.0297 = phi i32 [ %inc282, %for.inc281 ], [ 128, %for.body269 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext false, i32 noundef 224, i32 noundef %byte2266.0298, i32 noundef %byte3275.0297)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext false, i32 noundef 224, i32 noundef %byte2266.0298, i32 noundef %byte3275.0297)
           to label %invoke.cont279 unwind label %lpad258.loopexit
 
 invoke.cont279:                                   ; preds = %for.body278
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext false, i32 noundef 224, i32 noundef %byte2266.0298, i32 noundef %byte3275.0297)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext false, i32 noundef 224, i32 noundef %byte2266.0298, i32 noundef %byte3275.0297)
           to label %for.inc281 unwind label %lpad258.loopexit
 
 for.inc281:                                       ; preds = %invoke.cont279
@@ -1670,11 +1670,11 @@ lpad298:                                          ; preds = %lpad298.loopexit.sp
   br label %ehcleanup333
 
 if.end318:                                        ; preds = %for.body313
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext false, i32 noundef 224, i32 noundef %byte2306.0300, i32 noundef %byte3310.0299)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext false, i32 noundef 224, i32 noundef %byte2306.0300, i32 noundef %byte3310.0299)
           to label %invoke.cont319 unwind label %lpad298.loopexit
 
 invoke.cont319:                                   ; preds = %if.end318
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext false, i32 noundef 224, i32 noundef %byte2306.0300, i32 noundef %byte3310.0299)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext false, i32 noundef 224, i32 noundef %byte2306.0300, i32 noundef %byte3310.0299)
           to label %for.inc321 unwind label %lpad298.loopexit
 
 for.inc321:                                       ; preds = %invoke.cont319, %for.body313
@@ -1734,11 +1734,11 @@ for.cond363.preheader:                            ; preds = %for.cond359.prehead
 
 for.body365:                                      ; preds = %for.cond363.preheader, %for.inc368
   %byte3362.0301 = phi i32 [ 128, %for.cond363.preheader ], [ %inc369, %for.inc368 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext true, i32 noundef %byte1354.0303, i32 noundef %byte2358.0302, i32 noundef %byte3362.0301)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext true, i32 noundef %byte1354.0303, i32 noundef %byte2358.0302, i32 noundef %byte3362.0301)
           to label %invoke.cont366 unwind label %lpad350.loopexit
 
 invoke.cont366:                                   ; preds = %for.body365
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext true, i32 noundef %byte1354.0303, i32 noundef %byte2358.0302, i32 noundef %byte3362.0301)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext true, i32 noundef %byte1354.0303, i32 noundef %byte2358.0302, i32 noundef %byte3362.0301)
           to label %for.inc368 unwind label %lpad350.loopexit
 
 for.inc368:                                       ; preds = %invoke.cont366
@@ -1812,11 +1812,11 @@ invoke.cont386:                                   ; preds = %invoke.cont383
 
 for.body392:                                      ; preds = %invoke.cont386, %for.inc395
   %byte1389.0304 = phi i32 [ %inc396, %for.inc395 ], [ 225, %invoke.cont386 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte1389.0304, i32 noundef -1, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext false, i32 noundef %byte1389.0304, i32 noundef -1, i32 noundef -1)
           to label %invoke.cont393 unwind label %lpad385.loopexit
 
 invoke.cont393:                                   ; preds = %for.body392
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte1389.0304, i32 noundef -1, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext false, i32 noundef %byte1389.0304, i32 noundef -1, i32 noundef -1)
           to label %for.inc395 unwind label %lpad385.loopexit
 
 for.inc395:                                       ; preds = %invoke.cont393
@@ -1868,11 +1868,11 @@ for.cond415.preheader:                            ; preds = %invoke.cont407, %fo
 
 for.body417:                                      ; preds = %for.cond415.preheader, %for.inc420
   %byte2414.0305 = phi i32 [ 128, %for.cond415.preheader ], [ %inc421, %for.inc420 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte1410.0306, i32 noundef %byte2414.0305, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext false, i32 noundef %byte1410.0306, i32 noundef %byte2414.0305, i32 noundef -1)
           to label %invoke.cont418 unwind label %lpad406.loopexit
 
 invoke.cont418:                                   ; preds = %for.body417
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte1410.0306, i32 noundef %byte2414.0305, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext false, i32 noundef %byte1410.0306, i32 noundef %byte2414.0305, i32 noundef -1)
           to label %for.inc420 unwind label %lpad406.loopexit
 
 for.inc420:                                       ; preds = %invoke.cont418
@@ -1956,11 +1956,11 @@ lpad434:                                          ; preds = %lpad434.loopexit.sp
 
 for.body454:                                      ; preds = %for.body445, %for.inc457
   %byte3451.0307 = phi i32 [ %inc458, %for.inc457 ], [ 128, %for.body445 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte1438.0309, i32 noundef %byte2442.0308, i32 noundef %byte3451.0307)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext false, i32 noundef %byte1438.0309, i32 noundef %byte2442.0308, i32 noundef %byte3451.0307)
           to label %invoke.cont455 unwind label %lpad434.loopexit
 
 invoke.cont455:                                   ; preds = %for.body454
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte1438.0309, i32 noundef %byte2442.0308, i32 noundef %byte3451.0307)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext false, i32 noundef %byte1438.0309, i32 noundef %byte2442.0308, i32 noundef %byte3451.0307)
           to label %for.inc457 unwind label %lpad434.loopexit
 
 for.inc457:                                       ; preds = %invoke.cont455
@@ -2031,11 +2031,11 @@ lpad474:                                          ; preds = %lpad474.loopexit.sp
   br label %ehcleanup509
 
 if.end494:                                        ; preds = %for.body489
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte1478.0312, i32 noundef %byte2482.0311, i32 noundef %byte3486.0310)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext false, i32 noundef %byte1478.0312, i32 noundef %byte2482.0311, i32 noundef %byte3486.0310)
           to label %invoke.cont495 unwind label %lpad474.loopexit
 
 invoke.cont495:                                   ; preds = %if.end494
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte1478.0312, i32 noundef %byte2482.0311, i32 noundef %byte3486.0310)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext false, i32 noundef %byte1478.0312, i32 noundef %byte2482.0311, i32 noundef %byte3486.0310)
           to label %for.inc497 unwind label %lpad474.loopexit
 
 for.inc497:                                       ; preds = %invoke.cont495, %for.body489
@@ -2096,11 +2096,11 @@ for.cond539.preheader:                            ; preds = %invoke.cont527, %fo
 
 for.body541:                                      ; preds = %for.cond539.preheader, %for.inc544
   %byte3538.0313 = phi i32 [ 128, %for.cond539.preheader ], [ %inc545, %for.inc544 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext true, i32 noundef 237, i32 noundef %byte2534.0314, i32 noundef %byte3538.0313)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext true, i32 noundef 237, i32 noundef %byte2534.0314, i32 noundef %byte3538.0313)
           to label %invoke.cont542 unwind label %lpad526.loopexit
 
 invoke.cont542:                                   ; preds = %for.body541
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext true, i32 noundef 237, i32 noundef %byte2534.0314, i32 noundef %byte3538.0313)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext true, i32 noundef 237, i32 noundef %byte2534.0314, i32 noundef %byte3538.0313)
           to label %for.inc544 unwind label %lpad526.loopexit
 
 for.inc544:                                       ; preds = %invoke.cont542
@@ -2168,11 +2168,11 @@ invoke.cont562:                                   ; preds = %invoke.cont559
   br i1 %call563, label %for.body568, label %if.end574
 
 for.body568:                                      ; preds = %invoke.cont562
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext false, i32 noundef 237, i32 noundef -1, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext false, i32 noundef 237, i32 noundef -1, i32 noundef -1)
           to label %invoke.cont569 unwind label %lpad561
 
 invoke.cont569:                                   ; preds = %for.body568
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext false, i32 noundef 237, i32 noundef -1, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext false, i32 noundef 237, i32 noundef -1, i32 noundef -1)
           to label %if.end574 unwind label %lpad561
 
 lpad558:                                          ; preds = %invoke.cont557
@@ -2206,11 +2206,11 @@ invoke.cont583:                                   ; preds = %invoke.cont580
 
 for.body593:                                      ; preds = %invoke.cont583, %for.inc596
   %byte2590.0315 = phi i32 [ %inc597, %for.inc596 ], [ 128, %invoke.cont583 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext false, i32 noundef 237, i32 noundef %byte2590.0315, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext false, i32 noundef 237, i32 noundef %byte2590.0315, i32 noundef -1)
           to label %invoke.cont594 unwind label %lpad582.loopexit
 
 invoke.cont594:                                   ; preds = %for.body593
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext false, i32 noundef 237, i32 noundef %byte2590.0315, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext false, i32 noundef 237, i32 noundef %byte2590.0315, i32 noundef -1)
           to label %for.inc596 unwind label %lpad582.loopexit
 
 for.inc596:                                       ; preds = %invoke.cont594
@@ -2285,11 +2285,11 @@ lpad610:                                          ; preds = %lpad610.loopexit.sp
 
 for.body630:                                      ; preds = %for.body621, %for.inc633
   %byte3627.0316 = phi i32 [ %inc634, %for.inc633 ], [ 128, %for.body621 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext false, i32 noundef 237, i32 noundef %byte2618.0317, i32 noundef %byte3627.0316)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext false, i32 noundef 237, i32 noundef %byte2618.0317, i32 noundef %byte3627.0316)
           to label %invoke.cont631 unwind label %lpad610.loopexit
 
 invoke.cont631:                                   ; preds = %for.body630
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext false, i32 noundef 237, i32 noundef %byte2618.0317, i32 noundef %byte3627.0316)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext false, i32 noundef 237, i32 noundef %byte2618.0317, i32 noundef %byte3627.0316)
           to label %for.inc633 unwind label %lpad610.loopexit
 
 for.inc633:                                       ; preds = %invoke.cont631
@@ -2351,11 +2351,11 @@ lpad650:                                          ; preds = %lpad650.loopexit.sp
   br label %ehcleanup685
 
 if.end670:                                        ; preds = %for.body665
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext false, i32 noundef 237, i32 noundef %byte2658.0319, i32 noundef %byte3662.0318)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext false, i32 noundef 237, i32 noundef %byte2658.0319, i32 noundef %byte3662.0318)
           to label %invoke.cont671 unwind label %lpad650.loopexit
 
 invoke.cont671:                                   ; preds = %if.end670
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext false, i32 noundef 237, i32 noundef %byte2658.0319, i32 noundef %byte3662.0318)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext false, i32 noundef 237, i32 noundef %byte2658.0319, i32 noundef %byte3662.0318)
           to label %for.inc673 unwind label %lpad650.loopexit
 
 for.inc673:                                       ; preds = %invoke.cont671, %for.body665
@@ -2415,11 +2415,11 @@ for.cond715.preheader:                            ; preds = %for.cond711.prehead
 
 for.body717:                                      ; preds = %for.cond715.preheader, %for.inc720
   %byte3714.0320 = phi i32 [ 128, %for.cond715.preheader ], [ %inc721, %for.inc720 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext true, i32 noundef %byte1706.0322, i32 noundef %byte2710.0321, i32 noundef %byte3714.0320)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext true, i32 noundef %byte1706.0322, i32 noundef %byte2710.0321, i32 noundef %byte3714.0320)
           to label %invoke.cont718 unwind label %lpad702.loopexit
 
 invoke.cont718:                                   ; preds = %for.body717
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext true, i32 noundef %byte1706.0322, i32 noundef %byte2710.0321, i32 noundef %byte3714.0320)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext true, i32 noundef %byte1706.0322, i32 noundef %byte2710.0321, i32 noundef %byte3714.0320)
           to label %for.inc720 unwind label %lpad702.loopexit
 
 for.inc720:                                       ; preds = %invoke.cont718
@@ -2493,11 +2493,11 @@ invoke.cont738:                                   ; preds = %invoke.cont735
 
 for.body744:                                      ; preds = %invoke.cont738, %for.inc747
   %byte1741.0323 = phi i32 [ %inc748, %for.inc747 ], [ 238, %invoke.cont738 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte1741.0323, i32 noundef -1, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext false, i32 noundef %byte1741.0323, i32 noundef -1, i32 noundef -1)
           to label %invoke.cont745 unwind label %lpad737.loopexit
 
 invoke.cont745:                                   ; preds = %for.body744
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte1741.0323, i32 noundef -1, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext false, i32 noundef %byte1741.0323, i32 noundef -1, i32 noundef -1)
           to label %for.inc747 unwind label %lpad737.loopexit
 
 for.inc747:                                       ; preds = %invoke.cont745
@@ -2549,11 +2549,11 @@ for.cond767.preheader:                            ; preds = %invoke.cont759, %fo
 
 for.body769:                                      ; preds = %for.cond767.preheader, %for.inc772
   %byte2766.0324 = phi i32 [ 128, %for.cond767.preheader ], [ %inc773, %for.inc772 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte1762.0325, i32 noundef %byte2766.0324, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext false, i32 noundef %byte1762.0325, i32 noundef %byte2766.0324, i32 noundef -1)
           to label %invoke.cont770 unwind label %lpad758.loopexit
 
 invoke.cont770:                                   ; preds = %for.body769
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte1762.0325, i32 noundef %byte2766.0324, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext false, i32 noundef %byte1762.0325, i32 noundef %byte2766.0324, i32 noundef -1)
           to label %for.inc772 unwind label %lpad758.loopexit
 
 for.inc772:                                       ; preds = %invoke.cont770
@@ -2637,11 +2637,11 @@ lpad786:                                          ; preds = %lpad786.loopexit.sp
 
 for.body806:                                      ; preds = %for.body797, %for.inc809
   %byte3803.0326 = phi i32 [ %inc810, %for.inc809 ], [ 128, %for.body797 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte1790.0328, i32 noundef %byte2794.0327, i32 noundef %byte3803.0326)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext false, i32 noundef %byte1790.0328, i32 noundef %byte2794.0327, i32 noundef %byte3803.0326)
           to label %invoke.cont807 unwind label %lpad786.loopexit
 
 invoke.cont807:                                   ; preds = %for.body806
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte1790.0328, i32 noundef %byte2794.0327, i32 noundef %byte3803.0326)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext false, i32 noundef %byte1790.0328, i32 noundef %byte2794.0327, i32 noundef %byte3803.0326)
           to label %for.inc809 unwind label %lpad786.loopexit
 
 for.inc809:                                       ; preds = %invoke.cont807
@@ -2712,11 +2712,11 @@ lpad826:                                          ; preds = %lpad826.loopexit.sp
   br label %ehcleanup861
 
 if.end846:                                        ; preds = %for.body841
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte1830.0331, i32 noundef %byte2834.0330, i32 noundef %byte3838.0329)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext false, i32 noundef %byte1830.0331, i32 noundef %byte2834.0330, i32 noundef %byte3838.0329)
           to label %invoke.cont847 unwind label %lpad826.loopexit
 
 invoke.cont847:                                   ; preds = %if.end846
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte1830.0331, i32 noundef %byte2834.0330, i32 noundef %byte3838.0329)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext false, i32 noundef %byte1830.0331, i32 noundef %byte2834.0330, i32 noundef %byte3838.0329)
           to label %for.inc849 unwind label %lpad826.loopexit
 
 for.inc849:                                       ; preds = %invoke.cont847, %for.body841
@@ -2886,7 +2886,7 @@ entry:
   %m_stream.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_5.i, i64 40
   store ptr %s, ptr %m_stream.i, align 8
   %call.i1.i = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA290_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %DOCTEST_CAPTURE_5.i, ptr noundef nonnull align 1 dereferenceable(290) @.str.9)
-          to label %"_ZZN5utilsL19DOCTEST_ANON_FUNC_2EvENK3$_0clEPSo.argprom.exit" unwind label %lpad.i
+          to label %"_ZZN5utilsL19DOCTEST_ANON_FUNC_2EvENK3$_0clEPSo.exit" unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
@@ -2894,7 +2894,7 @@ lpad.i:                                           ; preds = %entry
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %DOCTEST_CAPTURE_5.i) #24
   resume { ptr, i32 } %0
 
-"_ZZN5utilsL19DOCTEST_ANON_FUNC_2EvENK3$_0clEPSo.argprom.exit": ; preds = %entry
+"_ZZN5utilsL19DOCTEST_ANON_FUNC_2EvENK3$_0clEPSo.exit": ; preds = %entry
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %DOCTEST_CAPTURE_5.i) #24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %DOCTEST_CAPTURE_5.i)
   ret void
@@ -2997,7 +2997,7 @@ declare void @_ZN7doctest6detail7SubcaseC1ERKNS_6StringEPKci(ptr noundef nonnull
 declare noundef zeroext i1 @_ZNK7doctest6detail7SubcasecvbEv(ptr noundef nonnull align 8 dereferenceable(41)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext %success_expected, i32 noundef %byte1, i32 noundef range(i32 -2147483648, 256) %byte2, i32 noundef range(i32 -2147483648, 256) %byte3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext %success_expected, i32 noundef %byte1, i32 noundef range(i32 -2147483648, 256) %byte2, i32 noundef range(i32 -2147483648, 256) %byte3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %byte1.addr = alloca i32, align 4
   %byte2.addr = alloca i32, align 4
@@ -3667,7 +3667,7 @@ terminate.lpad:                                   ; preds = %lpad114, %lpad106, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext %success_expected, i32 noundef %byte1, i32 noundef range(i32 -2147483648, 256) %byte2, i32 noundef range(i32 -2147483648, 256) %byte3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext %success_expected, i32 noundef %byte1, i32 noundef range(i32 -2147483648, 256) %byte2, i32 noundef range(i32 -2147483648, 256) %byte3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %byte1.addr = alloca i32, align 4
   %byte2.addr = alloca i32, align 4
@@ -5800,7 +5800,7 @@ call.i.i.i.i.i.i.noexc.i:                         ; preds = %call.i.i.i.i.noexc.
 
 .noexc.i:                                         ; preds = %call.i.i.i.i.i.i.noexc.i
   %call.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7doctestlsERSoRKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i)
-          to label %"_ZZN12_GLOBAL__N_116check_utf8stringEbiiiiENK3$_4clEPSo.argprom.exit" unwind label %lpad.i.i
+          to label %"_ZZN12_GLOBAL__N_116check_utf8stringEbiiiiENK3$_4clEPSo.exit" unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc.i
   %1 = landingpad { ptr, i32 }
@@ -5818,7 +5818,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %DOCTEST_CAPTURE_35.i) #24
   resume { ptr, i32 } %eh.lpad-body.i
 
-"_ZZN12_GLOBAL__N_116check_utf8stringEbiiiiENK3$_4clEPSo.argprom.exit": ; preds = %.noexc.i
+"_ZZN12_GLOBAL__N_116check_utf8stringEbiiiiENK3$_4clEPSo.exit": ; preds = %.noexc.i
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i) #24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i)
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %DOCTEST_CAPTURE_35.i) #24
@@ -22586,7 +22586,7 @@ call.i.i.i.i.i.i.noexc.i:                         ; preds = %call.i.i.i.i.noexc.
 
 .noexc.i:                                         ; preds = %call.i.i.i.i.i.i.noexc.i
   %call.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7doctestlsERSoRKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i)
-          to label %"_ZZN12_GLOBAL__N_114check_utf8dumpEbiiiiENK3$_4clEPSo.argprom.exit" unwind label %lpad.i.i
+          to label %"_ZZN12_GLOBAL__N_114check_utf8dumpEbiiiiENK3$_4clEPSo.exit" unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc.i
   %1 = landingpad { ptr, i32 }
@@ -22604,7 +22604,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %DOCTEST_CAPTURE_20.i) #24
   resume { ptr, i32 } %eh.lpad-body.i
 
-"_ZZN12_GLOBAL__N_114check_utf8dumpEbiiiiENK3$_4clEPSo.argprom.exit": ; preds = %.noexc.i
+"_ZZN12_GLOBAL__N_114check_utf8dumpEbiiiiENK3$_4clEPSo.exit": ; preds = %.noexc.i
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i) #24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i)
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %DOCTEST_CAPTURE_20.i) #24
@@ -25980,8 +25980,8 @@ attributes #31 = { nounwind willreturn memory(none) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN7doctest6detail16MakeContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EENS0_12ContextScopeIT_EERKS5_.argprom: %agg.result"}
-!7 = distinct !{!7, !"_ZN7doctest6detail16MakeContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EENS0_12ContextScopeIT_EERKS5_.argprom"}
+!6 = distinct !{!6, !7, !"_ZN7doctest6detail16MakeContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EENS0_12ContextScopeIT_EERKS5_: %agg.result"}
+!7 = distinct !{!7, !"_ZN7doctest6detail16MakeContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EENS0_12ContextScopeIT_EERKS5_"}
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = distinct !{!10, !9}
@@ -26050,8 +26050,8 @@ attributes #31 = { nounwind willreturn memory(none) }
 !73 = distinct !{!73, !74, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_116check_utf8stringEbiiiiE3$_3EENS0_12ContextScopeIT_EERKS5_: %agg.result"}
 !74 = distinct !{!74, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_116check_utf8stringEbiiiiE3$_3EENS0_12ContextScopeIT_EERKS5_"}
 !75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_116check_utf8stringEbiiiiE3$_4EENS0_12ContextScopeIT_EERKS5_.argprom: %agg.result"}
-!77 = distinct !{!77, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_116check_utf8stringEbiiiiE3$_4EENS0_12ContextScopeIT_EERKS5_.argprom"}
+!76 = distinct !{!76, !77, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_116check_utf8stringEbiiiiE3$_4EENS0_12ContextScopeIT_EERKS5_: %agg.result"}
+!77 = distinct !{!77, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_116check_utf8stringEbiiiiE3$_4EENS0_12ContextScopeIT_EERKS5_"}
 !78 = !{i64 2154963883}
 !79 = !{i64 2154966465}
 !80 = !{!81}
@@ -26067,8 +26067,8 @@ attributes #31 = { nounwind willreturn memory(none) }
 !90 = distinct !{!90, !91, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_114check_utf8dumpEbiiiiE3$_3EENS0_12ContextScopeIT_EERKS5_: %agg.result"}
 !91 = distinct !{!91, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_114check_utf8dumpEbiiiiE3$_3EENS0_12ContextScopeIT_EERKS5_"}
 !92 = !{!93}
-!93 = distinct !{!93, !94, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_114check_utf8dumpEbiiiiE3$_4EENS0_12ContextScopeIT_EERKS5_.argprom: %agg.result"}
-!94 = distinct !{!94, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_114check_utf8dumpEbiiiiE3$_4EENS0_12ContextScopeIT_EERKS5_.argprom"}
+!93 = distinct !{!93, !94, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_114check_utf8dumpEbiiiiE3$_4EENS0_12ContextScopeIT_EERKS5_: %agg.result"}
+!94 = distinct !{!94, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_114check_utf8dumpEbiiiiE3$_4EENS0_12ContextScopeIT_EERKS5_"}
 !95 = !{i64 2154936060}
 !96 = !{!97}
 !97 = distinct !{!97, !98, !"_ZN7doctest6detail20ExpressionDecomposerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_14Expression_lhsIT_EEOSA_: %agg.result"}

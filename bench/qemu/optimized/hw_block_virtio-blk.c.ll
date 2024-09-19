@@ -499,23 +499,23 @@ sw.bb95:                                          ; preds = %if.end21
   br label %return
 
 sw.bb96:                                          ; preds = %if.end21
-  call fastcc void @virtio_blk_handle_zone_mgmt.retelim(ptr noundef %req, i32 noundef 0)
+  call fastcc void @virtio_blk_handle_zone_mgmt(ptr noundef %req, i32 noundef 0)
   br label %return
 
 sw.bb98:                                          ; preds = %if.end21
-  call fastcc void @virtio_blk_handle_zone_mgmt.retelim(ptr noundef %req, i32 noundef 1)
+  call fastcc void @virtio_blk_handle_zone_mgmt(ptr noundef %req, i32 noundef 1)
   br label %return
 
 sw.bb100:                                         ; preds = %if.end21
-  call fastcc void @virtio_blk_handle_zone_mgmt.retelim(ptr noundef %req, i32 noundef 2)
+  call fastcc void @virtio_blk_handle_zone_mgmt(ptr noundef %req, i32 noundef 2)
   br label %return
 
 sw.bb102:                                         ; preds = %if.end21
-  call fastcc void @virtio_blk_handle_zone_mgmt.retelim(ptr noundef %req, i32 noundef 3)
+  call fastcc void @virtio_blk_handle_zone_mgmt(ptr noundef %req, i32 noundef 3)
   br label %return
 
 sw.bb104:                                         ; preds = %if.end21
-  call fastcc void @virtio_blk_handle_zone_mgmt.retelim(ptr noundef %req, i32 noundef 3)
+  call fastcc void @virtio_blk_handle_zone_mgmt(ptr noundef %req, i32 noundef 3)
   br label %return
 
 sw.bb106:                                         ; preds = %if.end21
@@ -544,7 +544,7 @@ sw.bb131:                                         ; preds = %if.end21
   %36 = load i32, ptr %out_num, align 4
   %conv132 = zext i32 %36 to i64
   %37 = load i32, ptr %in_num, align 4
-  call fastcc void @virtio_blk_handle_zone_append.retelim(ptr noundef %req, ptr noundef %35, ptr noundef nonnull %0, i64 noundef %conv132, i32 noundef %37)
+  call fastcc void @virtio_blk_handle_zone_append(ptr noundef %req, ptr noundef %35, ptr noundef nonnull %0, i64 noundef %conv132, i32 noundef %37)
   br label %return
 
 sw.bb134:                                         ; preds = %if.end21, %if.end21
@@ -1143,7 +1143,7 @@ return:                                           ; preds = %out17, %trace_virti
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @virtio_blk_handle_zone_mgmt.retelim(ptr noundef nonnull %req, i32 noundef range(i32 0, 4) %op) unnamed_addr #0 {
+define internal fastcc void @virtio_blk_handle_zone_mgmt(ptr noundef nonnull %req, i32 noundef range(i32 0, 4) %op) unnamed_addr #0 {
 entry:
   %_now.i.i27 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -1478,7 +1478,7 @@ if.end:                                           ; preds = %if.end84.i, %if.the
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @virtio_blk_handle_zone_append.retelim(ptr noundef nonnull %req, ptr noundef %out_iov, ptr noundef %in_iov, i64 noundef range(i64 0, 4294967296) %out_num, i32 noundef %in_num) unnamed_addr #0 {
+define internal fastcc void @virtio_blk_handle_zone_append(ptr noundef nonnull %req, ptr noundef %out_iov, ptr noundef %in_iov, i64 noundef range(i64 0, 4294967296) %out_num, i32 noundef %in_num) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %dev = getelementptr inbounds i8, ptr %req, i64 64

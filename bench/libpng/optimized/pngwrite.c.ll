@@ -3120,7 +3120,7 @@ png_unpremultiply.exit145.i:                      ; preds = %322, %321, %313
   %348 = load ptr, ptr %347, align 8
   call void @png_set_PLTE(ptr noundef %346, ptr noundef %348, ptr noundef nonnull %2, i32 noundef %spec.select.i) #15
   %349 = icmp sgt i32 %.0122.lcssa.i, 0
-  br i1 %349, label %350, label %png_image_set_PLTE.argprom.exit
+  br i1 %349, label %350, label %png_image_set_PLTE.exit
 
 350:                                              ; preds = %._crit_edge.i
   %351 = load ptr, ptr %.val, align 8
@@ -3128,9 +3128,9 @@ png_unpremultiply.exit145.i:                      ; preds = %322, %321, %313
   %353 = getelementptr inbounds i8, ptr %351, i64 8
   %354 = load ptr, ptr %353, align 8
   call void @png_set_tRNS(ptr noundef %352, ptr noundef %354, ptr noundef nonnull %3, i32 noundef %.0122.lcssa.i, ptr noundef null) #15
-  br label %png_image_set_PLTE.argprom.exit
+  br label %png_image_set_PLTE.exit
 
-png_image_set_PLTE.argprom.exit:                  ; preds = %._crit_edge.i, %350
+png_image_set_PLTE.exit:                          ; preds = %._crit_edge.i, %350
   store i32 %spec.select.i, ptr %63, align 4
   call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3)
@@ -3152,7 +3152,7 @@ png_image_set_PLTE.argprom.exit:                  ; preds = %._crit_edge.i, %350
   tail call void @png_set_IHDR(ptr noundef %6, ptr noundef %8, i32 noundef %359, i32 noundef %38, i32 noundef %360, i32 noundef %362, i32 noundef 0, i32 noundef 0, i32 noundef 0) #15
   br label %363
 
-363:                                              ; preds = %358, %png_image_set_PLTE.argprom.exit
+363:                                              ; preds = %358, %png_image_set_PLTE.exit
   br i1 %19, label %364, label %370
 
 364:                                              ; preds = %363

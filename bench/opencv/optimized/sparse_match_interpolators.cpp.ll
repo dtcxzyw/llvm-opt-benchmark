@@ -7498,7 +7498,7 @@ _ZNSt6vectorIS_IN2cv8ximgproc4nodeESaIS2_EESaIS4_EE6resizeEm.exit: ; preds = %_Z
   store i64 %591, ptr %57, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_8ximgproc19RICInterpolatorImpl11interpolateERKNS0_11_InputArrayES9_S9_S9_RKNS0_12_OutputArrayEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %589, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_8ximgproc19RICInterpolatorImpl11interpolateERKNS0_11_InputArrayES9_S9_S9_RKNS0_12_OutputArrayEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %588, align 8
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd.argelim(ptr noundef nonnull align 4 dereferenceable(8) %56, ptr noundef %57)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %56, ptr noundef %57)
           to label %592 unwind label %678
 
 592:                                              ; preds = %586
@@ -11002,7 +11002,7 @@ _ZNSt6vectorIN2cv8ximgproc4nodeESaIS2_EE9push_backEOS2_.exit593: ; preds = %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd.argelim(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::ParallelLoopBodyLambdaWrapper", align 8
   %4 = alloca %"class.std::function", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -12722,7 +12722,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaI
   store ptr %39, ptr %16, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS0_3MatERSt6vectorIiSaIiEERS9_IfSaIfEEiRKS9_INS5_11SparseMatchESaISG_EES8_E3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %41, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS0_3MatERSt6vectorIiSaIiEERS9_IfSaIfEEiRKS9_INS5_11SparseMatchESaISG_EES8_E3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %38, align 8
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd.argelim(ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef %16)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef %16)
           to label %42 unwind label %86
 
 42:                                               ; preds = %40
@@ -12778,7 +12778,7 @@ _ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit:        ; preds = %42, %44
   store ptr %51, ptr %18, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS0_3MatERSt6vectorIiSaIiEERS9_IfSaIfEEiRKS9_INS5_11SparseMatchESaISG_EES8_E3$_1E9_M_invokeERKSt9_Any_dataS3_", ptr %53, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS0_3MatERSt6vectorIiSaIiEERS9_IfSaIfEEiRKS9_INS5_11SparseMatchESaISG_EES8_E3$_1E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %50, align 8
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd.argelim(ptr noundef nonnull align 4 dereferenceable(8) %17, ptr noundef %18)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %17, ptr noundef %18)
           to label %54 unwind label %94
 
 54:                                               ; preds = %52
@@ -12831,7 +12831,7 @@ _ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit28:      ; preds = %54, %56
   store ptr %68, ptr %20, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS0_3MatERSt6vectorIiSaIiEERS9_IfSaIfEEiRKS9_INS5_11SparseMatchESaISG_EES8_E3$_2E9_M_invokeERKSt9_Any_dataS3_", ptr %70, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS0_3MatERSt6vectorIiSaIiEERS9_IfSaIfEEiRKS9_INS5_11SparseMatchESaISG_EES8_E3$_2E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %67, align 8
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd.argelim(ptr noundef nonnull align 4 dereferenceable(8) %19, ptr noundef %20)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %19, ptr noundef %20)
           to label %71 unwind label %102
 
 71:                                               ; preds = %69
@@ -16056,13 +16056,13 @@ _ZNSt6vectorIjSaIjEED2Ev.exit49.i.i.i:            ; preds = %330, %._crit_edge.i
 
 333:                                              ; preds = %332, %_ZNSt6vectorIjSaIjEED2Ev.exit49.i.i.i
   %334 = icmp eq ptr %328, null
-  br i1 %334, label %"_ZSt10__invoke_rIvRZN2cv8ximgproc19RICInterpolatorImpl11interpolateERKNS0_11_InputArrayES5_S5_S5_RKNS0_12_OutputArrayEE3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESG_E4typeEOSJ_DpOSK_.argprom.exit", label %335
+  br i1 %334, label %"_ZSt10__invoke_rIvRZN2cv8ximgproc19RICInterpolatorImpl11interpolateERKNS0_11_InputArrayES5_S5_S5_RKNS0_12_OutputArrayEE3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESG_E4typeEOSJ_DpOSK_.exit", label %335
 
 335:                                              ; preds = %333
   tail call void @_ZdaPv(ptr noundef nonnull %328) #30
-  br label %"_ZSt10__invoke_rIvRZN2cv8ximgproc19RICInterpolatorImpl11interpolateERKNS0_11_InputArrayES5_S5_S5_RKNS0_12_OutputArrayEE3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESG_E4typeEOSJ_DpOSK_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN2cv8ximgproc19RICInterpolatorImpl11interpolateERKNS0_11_InputArrayES5_S5_S5_RKNS0_12_OutputArrayEE3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESG_E4typeEOSJ_DpOSK_.exit"
 
-"_ZSt10__invoke_rIvRZN2cv8ximgproc19RICInterpolatorImpl11interpolateERKNS0_11_InputArrayES5_S5_S5_RKNS0_12_OutputArrayEE3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESG_E4typeEOSJ_DpOSK_.argprom.exit": ; preds = %333, %335
+"_ZSt10__invoke_rIvRZN2cv8ximgproc19RICInterpolatorImpl11interpolateERKNS0_11_InputArrayES5_S5_S5_RKNS0_12_OutputArrayEE3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESG_E4typeEOSJ_DpOSK_.exit": ; preds = %333, %335
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
 }
@@ -16189,7 +16189,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_8ximgproc19
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS0_3MatERSt6vectorIiSaIiEERS9_IfSaIfEEiRKS9_INS5_11SparseMatchESaISG_EES8_E3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #3 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -16198,30 +16198,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZN
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS_3MatERSt6vectorIiSaIiEERS4_IfSaIfEEiRKS4_INS0_11SparseMatchESaISB_EES3_E3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, ptr noundef nonnull readonly align 8 dereferenceable(64) %.val6, i64 64, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #30
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -16716,7 +16716,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit89.i.i.i:            ; preds = %210, %209
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS0_3MatERSt6vectorIiSaIiEERS9_IfSaIfEEiRKS9_INS5_11SparseMatchESaISG_EES8_E3$_1E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #3 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -16725,30 +16725,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZN
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS_3MatERSt6vectorIiSaIiEERS4_IfSaIfEEiRKS4_INS0_11SparseMatchESaISB_EES3_E3$_1", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #29
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %7, ptr noundef nonnull readonly align 8 dereferenceable(96) %.val6, i64 96, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #30
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -17083,7 +17083,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit51.i.i.i:            ; preds = %_ZNSt6vectorIfSaIfE
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS0_3MatERSt6vectorIiSaIiEERS9_IfSaIfEEiRKS9_INS5_11SparseMatchESaISG_EES8_E3$_2E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #3 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -17092,30 +17092,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZN
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS_3MatERSt6vectorIiSaIiEERS4_IfSaIfEEiRKS4_INS0_11SparseMatchESaISB_EES3_E3$_2", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #29
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %.val6, i64 56, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #30
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS1_3MatERSt6vectorIiSaIiEERS6_IfSaIfEEiRKS6_INS2_11SparseMatchESaISD_EES5_E3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 

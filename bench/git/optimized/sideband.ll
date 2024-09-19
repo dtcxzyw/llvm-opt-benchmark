@@ -145,7 +145,7 @@ sw.bb:                                            ; preds = %if.end22
   br i1 %tobool24.not, label %cleanup.thread, label %if.then25
 
 if.then25:                                        ; preds = %sw.bb
-  %call26 = tail call fastcc ptr @_.argprom()
+  %call26 = tail call fastcc ptr @_()
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 1
   tail call void (ptr, ...) @die(ptr noundef %call26, ptr noundef nonnull %add.ptr) #10
   unreachable
@@ -354,7 +354,7 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 declare void @die(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_.argprom() unnamed_addr #0 {
+define internal fastcc ptr @_() unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not = icmp eq i32 %0, 0

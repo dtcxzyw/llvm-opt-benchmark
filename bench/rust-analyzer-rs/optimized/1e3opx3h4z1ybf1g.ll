@@ -89,8 +89,8 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..chain..Chain
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   br label %35
 
-35:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h891b9597b6b257fbE.argprom.exit.i", %.lr.ph.i9
-  %36 = phi ptr [ %28, %.lr.ph.i9 ], [ %37, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h891b9597b6b257fbE.argprom.exit.i" ]
+35:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h891b9597b6b257fbE.exit.i", %.lr.ph.i9
+  %36 = phi ptr [ %28, %.lr.ph.i9 ], [ %37, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h891b9597b6b257fbE.exit.i" ]
   %37 = getelementptr inbounds i8, ptr %36, i64 48
   store ptr %37, ptr %27, align 8, !alias.scope !50, !noalias !53
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !55
@@ -111,9 +111,9 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..chain..Chain
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !75
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !60
   %trunc.i.i.i.i = trunc nuw i64 %40 to i1
-  br i1 %trunc.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h891b9597b6b257fbE.argprom.exit.i", label %44
+  br i1 %trunc.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h891b9597b6b257fbE.exit.i", label %44
 
-"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h891b9597b6b257fbE.argprom.exit.i": ; preds = %35
+"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h891b9597b6b257fbE.exit.i": ; preds = %35
   %41 = extractvalue { i64, i64 } %39, 1
   %42 = load ptr, ptr %6, align 8, !noalias !60, !nonnull !4, !align !45, !noundef !4
   %43 = call noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17hc1ff09a5f0d94c6fE.llvm.10481666623736195641"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %38, i64 noundef %41, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %42), !noalias !47
@@ -125,8 +125,8 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..chain..Chain
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !55
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h400ca178bab250eeE.exit.thread
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h400ca178bab250eeE.exit.thread: ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h891b9597b6b257fbE.argprom.exit.i", %30, %26, %29, %44
-  %.0 = phi i1 [ true, %29 ], [ true, %44 ], [ false, %26 ], [ false, %30 ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h891b9597b6b257fbE.argprom.exit.i" ]
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h400ca178bab250eeE.exit.thread: ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h891b9597b6b257fbE.exit.i", %30, %26, %29, %44
+  %.0 = phi i1 [ true, %29 ], [ true, %44 ], [ false, %26 ], [ false, %30 ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h891b9597b6b257fbE.exit.i" ]
   ret i1 %.0
 }
 
@@ -782,10 +782,10 @@ attributes #15 = { "function-inline-cost-multiplier"="2" }
 !53 = !{!54}
 !54 = distinct !{!54, !49, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h400ca178bab250eeE: argument 1"}
 !55 = !{!56, !58, !48, !54}
-!56 = distinct !{!56, !57, !"_ZN3cfg7CfgDiff3new28_$u7b$$u7b$closure$u7d$$u7d$17h73be4eb31985a811E.argprom: argument 0"}
-!57 = distinct !{!57, !"_ZN3cfg7CfgDiff3new28_$u7b$$u7b$closure$u7d$$u7d$17h73be4eb31985a811E.argprom"}
-!58 = distinct !{!58, !59, !"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h891b9597b6b257fbE.argprom: argument 0"}
-!59 = distinct !{!59, !"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h891b9597b6b257fbE.argprom"}
+!56 = distinct !{!56, !57, !"_ZN3cfg7CfgDiff3new28_$u7b$$u7b$closure$u7d$$u7d$17h73be4eb31985a811E: argument 0"}
+!57 = distinct !{!57, !"_ZN3cfg7CfgDiff3new28_$u7b$$u7b$closure$u7d$$u7d$17h73be4eb31985a811E"}
+!58 = distinct !{!58, !59, !"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h891b9597b6b257fbE: argument 0"}
+!59 = distinct !{!59, !"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h891b9597b6b257fbE"}
 !60 = !{!61, !63, !56, !58, !48, !54}
 !61 = distinct !{!61, !62, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hdb3ac56d308d9469E: argument 0"}
 !62 = distinct !{!62, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hdb3ac56d308d9469E"}

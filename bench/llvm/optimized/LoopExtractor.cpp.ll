@@ -1079,7 +1079,7 @@ define internal noundef nonnull align 8 dereferenceable(144) ptr @"_ZN4llvm12fun
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i = icmp eq ptr %.val1, null
-  br i1 %.not.i.i.i, label %"_ZZN12_GLOBAL__N_123LoopExtractorLegacyPass11runOnModuleERN4llvm6ModuleEENK3$_1clERNS1_8FunctionE.argprom.exit", label %10
+  br i1 %.not.i.i.i, label %"_ZZN12_GLOBAL__N_123LoopExtractorLegacyPass11runOnModuleERN4llvm6ModuleEENK3$_1clERNS1_8FunctionE.exit", label %10
 
 10:                                               ; preds = %2
   %11 = load i8, ptr %3, align 8
@@ -1087,9 +1087,9 @@ define internal noundef nonnull align 8 dereferenceable(144) ptr @"_ZN4llvm12fun
   %13 = or i8 %12, %11
   %14 = and i8 %13, 1
   store i8 %14, ptr %.val1, align 1
-  br label %"_ZZN12_GLOBAL__N_123LoopExtractorLegacyPass11runOnModuleERN4llvm6ModuleEENK3$_1clERNS1_8FunctionE.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_123LoopExtractorLegacyPass11runOnModuleERN4llvm6ModuleEENK3$_1clERNS1_8FunctionE.exit"
 
-"_ZZN12_GLOBAL__N_123LoopExtractorLegacyPass11runOnModuleERN4llvm6ModuleEENK3$_1clERNS1_8FunctionE.argprom.exit": ; preds = %2, %10
+"_ZZN12_GLOBAL__N_123LoopExtractorLegacyPass11runOnModuleERN4llvm6ModuleEENK3$_1clERNS1_8FunctionE.exit": ; preds = %2, %10
   %15 = load ptr, ptr %9, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 96
   %17 = load ptr, ptr %16, align 8
@@ -1107,7 +1107,7 @@ define internal noundef ptr @"_ZN4llvm12function_refIFPNS_15AssumptionCacheERNS_
   %.val.val = load ptr, ptr %4, align 8
   %5 = tail call noundef ptr @_ZNK4llvm16AnalysisResolver22getAnalysisIfAvailableEPKv(ptr noundef nonnull align 8 dereferenceable(32) %.val.val, ptr noundef nonnull @_ZN4llvm22AssumptionCacheTracker2IDE) #14
   %.not.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i, label %"_ZZN12_GLOBAL__N_123LoopExtractorLegacyPass11runOnModuleERN4llvm6ModuleEENK3$_2clERNS1_8FunctionE.argprom.argprom.exit", label %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_22AssumptionCacheTrackerEEEPT_v.exit.i
+  br i1 %.not.i.i, label %"_ZZN12_GLOBAL__N_123LoopExtractorLegacyPass11runOnModuleERN4llvm6ModuleEENK3$_2clERNS1_8FunctionE.exit", label %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_22AssumptionCacheTrackerEEEPT_v.exit.i
 
 _ZNK4llvm4Pass22getAnalysisIfAvailableINS_22AssumptionCacheTrackerEEEPT_v.exit.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8
@@ -1115,13 +1115,13 @@ _ZNK4llvm4Pass22getAnalysisIfAvailableINS_22AssumptionCacheTrackerEEEPT_v.exit.i
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(28) %5, ptr noundef nonnull @_ZN4llvm22AssumptionCacheTracker2IDE) #14
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %"_ZZN12_GLOBAL__N_123LoopExtractorLegacyPass11runOnModuleERN4llvm6ModuleEENK3$_2clERNS1_8FunctionE.argprom.argprom.exit", label %10
+  br i1 %.not.i, label %"_ZZN12_GLOBAL__N_123LoopExtractorLegacyPass11runOnModuleERN4llvm6ModuleEENK3$_2clERNS1_8FunctionE.exit", label %10
 
 10:                                               ; preds = %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_22AssumptionCacheTrackerEEEPT_v.exit.i
   %11 = tail call noundef ptr @_ZN4llvm22AssumptionCacheTracker21lookupAssumptionCacheERNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 8 dereferenceable(136) %1) #14
-  br label %"_ZZN12_GLOBAL__N_123LoopExtractorLegacyPass11runOnModuleERN4llvm6ModuleEENK3$_2clERNS1_8FunctionE.argprom.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_123LoopExtractorLegacyPass11runOnModuleERN4llvm6ModuleEENK3$_2clERNS1_8FunctionE.exit"
 
-"_ZZN12_GLOBAL__N_123LoopExtractorLegacyPass11runOnModuleERN4llvm6ModuleEENK3$_2clERNS1_8FunctionE.argprom.argprom.exit": ; preds = %2, %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_22AssumptionCacheTrackerEEEPT_v.exit.i, %10
+"_ZZN12_GLOBAL__N_123LoopExtractorLegacyPass11runOnModuleERN4llvm6ModuleEENK3$_2clERNS1_8FunctionE.exit": ; preds = %2, %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_22AssumptionCacheTrackerEEEPT_v.exit.i, %10
   %.0.i = phi ptr [ %11, %10 ], [ null, %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_22AssumptionCacheTrackerEEEPT_v.exit.i ], [ null, %2 ]
   ret ptr %.0.i
 }

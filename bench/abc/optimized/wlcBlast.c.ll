@@ -19049,11 +19049,11 @@ Gia_ManAppendCo.exit3828:                         ; preds = %Vec_IntPush.exit.i3
 
 3723:                                             ; preds = %Gia_ManAppendCo.exit3828
   %3724 = load i32, ptr %3650, align 4
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %100, i32 noundef %3724)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %100, i32 noundef %3724)
   %3725 = load i32, ptr %3648, align 4
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %100, i32 noundef %3725)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %100, i32 noundef %3725)
   %3726 = load i32, ptr %3651, align 4
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %100, i32 noundef %3726)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %100, i32 noundef %3726)
   br label %3727
 
 3727:                                             ; preds = %3723, %Gia_ManAppendCo.exit3841
@@ -20417,7 +20417,7 @@ Vec_IntPushTwo.exit3933:                          ; preds = %.Vec_IntGrow.exit10
 
 .loopexit4635:                                    ; preds = %Vec_IntPushTwo.exit3933, %Vec_IntPushTwo.exit
   %4437 = tail call i32 @Gia_ManHashDualMiter(ptr noundef nonnull %100, ptr noundef nonnull %4115) #21
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %100, i32 noundef %4437)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %100, i32 noundef %4437)
   br label %.loopexit4631
 
 .cont4260.thread:                                 ; preds = %.cont4260
@@ -20684,10 +20684,10 @@ Gia_ManAppendCo.exit3959:                         ; preds = %Vec_IntPush.exit.i3
   %indvars.iv5348 = phi i64 [ 0, %.preheader4632.preheader ], [ %indvars.iv.next5349, %.preheader4632 ]
   %4582 = getelementptr inbounds i32, ptr %4305, i64 %indvars.iv5348
   %4583 = load i32, ptr %4582, align 4
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %100, i32 noundef %4583)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %100, i32 noundef %4583)
   %4584 = getelementptr inbounds i32, ptr %4309, i64 %indvars.iv5348
   %4585 = load i32, ptr %4584, align 4
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %100, i32 noundef %4585)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %100, i32 noundef %4585)
   %indvars.iv.next5349 = add nuw nsw i64 %indvars.iv5348, 1
   %exitcond5353.not = icmp eq i64 %indvars.iv.next5349, %wide.trip.count5352
   br i1 %exitcond5353.not, label %.loopexit4631, label %.preheader4632, !llvm.loop !187
@@ -20794,7 +20794,7 @@ Vec_IntFree.exit3961.cont.thread:                 ; preds = %Vec_IntFree.exit396
   %.val2625 = load ptr, ptr %4613, align 8
   %4615 = getelementptr inbounds i32, ptr %.val2625, i64 %indvars.iv5360
   %4616 = load i32, ptr %4615, align 4
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %100, i32 noundef %4616)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %100, i32 noundef %4616)
   %indvars.iv.next5361 = add nuw nsw i64 %indvars.iv5360, 1
   %.val2644 = load i32, ptr %4611, align 4
   %4617 = sext i32 %.val2644 to i64
@@ -20862,7 +20862,7 @@ Vec_IntFreeP.exit:                                ; preds = %._crit_edge4918, %4
   %4641 = sub nuw nsw i64 %4639, %indvars.iv5369
   %4642 = getelementptr inbounds i32, ptr %4637, i64 %4641
   %4643 = load i32, ptr %4642, align 4
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %100, i32 noundef %4643)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %100, i32 noundef %4643)
   %indvars.iv.next5370 = add nuw nsw i64 %indvars.iv5369, 1
   %exitcond5374.not = icmp eq i64 %indvars.iv.next5370, %wide.trip.count5373
   br i1 %exitcond5374.not, label %.loopexit4626, label %.preheader4625, !llvm.loop !190
@@ -20871,7 +20871,7 @@ Vec_IntFreeP.exit:                                ; preds = %._crit_edge4918, %4
   %indvars.iv5363 = phi i64 [ 0, %.preheader4627.preheader ], [ %indvars.iv.next5364, %.preheader4627 ]
   %4644 = getelementptr inbounds i32, ptr %4637, i64 %indvars.iv5363
   %4645 = load i32, ptr %4644, align 4
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %100, i32 noundef %4645)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %100, i32 noundef %4645)
   %indvars.iv.next5364 = add nuw nsw i64 %indvars.iv5363, 1
   %exitcond5368.not = icmp eq i64 %indvars.iv.next5364, %wide.trip.count5367
   br i1 %exitcond5368.not, label %.loopexit4626, label %.preheader4627, !llvm.loop !191
@@ -20907,7 +20907,7 @@ Vec_IntFreeP.exit:                                ; preds = %._crit_edge4918, %4
 .lr.ph4930:                                       ; preds = %.preheader4624, %.lr.ph4930
   %.134929 = phi i32 [ %4654, %.lr.ph4930 ], [ 0, %.preheader4624 ]
   %4653 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %100)
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %100, i32 noundef %4653)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %100, i32 noundef %4653)
   %4654 = add nuw nsw i32 %.134929, 1
   %exitcond5378.not = icmp eq i32 %4654, %.02196
   br i1 %exitcond5378.not, label %._crit_edge4931, label %.lr.ph4930, !llvm.loop !193
@@ -23482,7 +23482,7 @@ declare void @Tim_ManSetDelayTables(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @Tim_ManCreateBox(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648
@@ -24573,7 +24573,7 @@ Wlc_BlastAdder.exit:                              ; preds = %Wlc_BlastFullAdder.
   %indvars.iv105 = phi i64 [ 8, %._crit_edge94 ], [ %indvars.iv.next106, %184 ]
   %185 = getelementptr inbounds i32, ptr %183, i64 %indvars.iv105
   %186 = load i32, ptr %185, align 4
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %27, i32 noundef %186)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %27, i32 noundef %186)
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next106, 16
   br i1 %exitcond108.not, label %187, label %184, !llvm.loop !230

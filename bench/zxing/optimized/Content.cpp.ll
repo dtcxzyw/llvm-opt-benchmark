@@ -1041,7 +1041,7 @@ define noundef zeroext i8 @_ZNK5ZXing7Content13guessEncodingEv(ptr nocapture nou
   br i1 %10, label %11, label %23
 
 11:                                               ; preds = %1
-  br i1 %5, label %"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.argprom.exit.i", label %12
+  br i1 %5, label %"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.exit.i", label %12
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1059,14 +1059,14 @@ define noundef zeroext i8 @_ZNK5ZXing7Content13guessEncodingEv(ptr nocapture nou
   %21 = phi ptr [ %16, %12 ], [ %27, %26 ]
   %22 = phi ptr [ %20, %12 ], [ %29, %26 ]
   invoke void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKhS1_EEEEvNS4_IPhS1_EET_SA_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr null, ptr %21, ptr %22)
-          to label %"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.argprom.exit.i" unwind label %.loopexit.split-lp
+          to label %"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.exit.i" unwind label %.loopexit.split-lp
 
 23:                                               ; preds = %1
   %24 = getelementptr inbounds i8, ptr %7, i64 4
   %25 = load i32, ptr %24, align 4
   %.not.i = icmp eq i32 %25, 0
   %or.cond.not.i = select i1 %.not.i, i1 true, i1 %5
-  br i1 %or.cond.not.i, label %"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.argprom.exit.i", label %26
+  br i1 %or.cond.not.i, label %"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.exit.i", label %26
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr %0, align 8
@@ -1074,7 +1074,7 @@ define noundef zeroext i8 @_ZNK5ZXing7Content13guessEncodingEv(ptr nocapture nou
   %29 = getelementptr inbounds i8, ptr %27, i64 %28
   br label %.invoke
 
-"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.argprom.exit.i": ; preds = %.invoke, %23, %11
+"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.exit.i": ; preds = %.invoke, %23, %11
   %30 = load ptr, ptr %8, align 8
   %31 = load ptr, ptr %6, align 8
   %32 = ptrtoint ptr %30 to i64
@@ -1085,16 +1085,16 @@ define noundef zeroext i8 @_ZNK5ZXing7Content13guessEncodingEv(ptr nocapture nou
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %.lr.ph.i, label %"_ZNK5ZXing7Content15ForEachECIBlockIZNKS0_13guessEncodingEvE3$_0EEvT_.exit"
 
-.lr.ph.i:                                         ; preds = %"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.argprom.exit.i"
+.lr.ph.i:                                         ; preds = %"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.exit.i"
   %38 = getelementptr inbounds i8, ptr %0, i64 8
   %39 = getelementptr inbounds i8, ptr %2, i64 8
   br label %40
 
-40:                                               ; preds = %"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.argprom.exit19.i", %.lr.ph.i
-  %41 = phi ptr [ %31, %.lr.ph.i ], [ %72, %"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.argprom.exit19.i" ]
-  %42 = phi ptr [ %30, %.lr.ph.i ], [ %73, %"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.argprom.exit19.i" ]
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.argprom.exit19.i" ]
-  %43 = phi i64 [ %35, %.lr.ph.i ], [ %77, %"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.argprom.exit19.i" ]
+40:                                               ; preds = %"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.exit19.i", %.lr.ph.i
+  %41 = phi ptr [ %31, %.lr.ph.i ], [ %72, %"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.exit19.i" ]
+  %42 = phi ptr [ %30, %.lr.ph.i ], [ %73, %"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.exit19.i" ]
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.exit19.i" ]
+  %43 = phi i64 [ %35, %.lr.ph.i ], [ %77, %"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.exit19.i" ]
   %44 = getelementptr inbounds %"struct.ZXing::Content::Encoding", ptr %41, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i = load i32, ptr %44, align 4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %44, i64 4
@@ -1123,7 +1123,7 @@ define noundef zeroext i8 @_ZNK5ZXing7Content13guessEncodingEv(ptr nocapture nou
   %.not12.i = icmp ne i32 %.sroa.2.0.copyload.i, %58
   %59 = icmp eq i32 %.sroa.0.0.copyload.i, -1
   %or.cond20.i = select i1 %.not12.i, i1 %59, i1 false
-  br i1 %or.cond20.i, label %60, label %"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.argprom.exit19.i"
+  br i1 %or.cond20.i, label %60, label %"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.exit19.i"
 
 60:                                               ; preds = %57
   %61 = load ptr, ptr %39, align 8
@@ -1143,9 +1143,9 @@ define noundef zeroext i8 @_ZNK5ZXing7Content13guessEncodingEv(ptr nocapture nou
 .noexc4:                                          ; preds = %60
   %.pre.i = load ptr, ptr %8, align 8
   %.pre23.i = load ptr, ptr %6, align 8
-  br label %"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.argprom.exit19.i"
+  br label %"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.exit19.i"
 
-"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.argprom.exit19.i": ; preds = %.noexc4, %57
+"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.exit19.i": ; preds = %.noexc4, %57
   %72 = phi ptr [ %.pre23.i, %.noexc4 ], [ %41, %57 ]
   %73 = phi ptr [ %.pre.i, %.noexc4 ], [ %42, %57 ]
   %74 = ptrtoint ptr %73 to i64
@@ -1157,7 +1157,7 @@ define noundef zeroext i8 @_ZNK5ZXing7Content13guessEncodingEv(ptr nocapture nou
   %79 = icmp slt i64 %indvars.iv.next.i, %78
   br i1 %79, label %40, label %"_ZNK5ZXing7Content15ForEachECIBlockIZNKS0_13guessEncodingEvE3$_0EEvT_.exit", !llvm.loop !7
 
-"_ZNK5ZXing7Content15ForEachECIBlockIZNKS0_13guessEncodingEvE3$_0EEvT_.exit": ; preds = %"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.argprom.exit19.i", %"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.argprom.exit.i"
+"_ZNK5ZXing7Content15ForEachECIBlockIZNKS0_13guessEncodingEvE3$_0EEvT_.exit": ; preds = %"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.exit19.i", %"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.exit.i"
   %80 = load ptr, ptr %2, align 8
   %81 = getelementptr inbounds i8, ptr %2, i64 8
   %82 = load ptr, ptr %81, align 8

@@ -782,8 +782,8 @@ define float @Abc_NtkComputeNodeDeparture(ptr noundef %0, float noundef %1) loca
   %14 = getelementptr i8, ptr %0, i64 16
   br label %15
 
-15:                                               ; preds = %.lr.ph, %Bus_SclObjUpdateDept.argprom.argprom.argprom.argprom.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Bus_SclObjUpdateDept.argprom.argprom.argprom.argprom.exit ]
+15:                                               ; preds = %.lr.ph, %Bus_SclObjUpdateDept.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Bus_SclObjUpdateDept.exit ]
   %.val15 = load ptr, ptr %0, align 8
   %.val16 = load ptr, ptr %10, align 8
   %16 = getelementptr i8, ptr %.val15, i64 32
@@ -841,16 +841,16 @@ Abc_ObjIsBarBuf.exit:                             ; preds = %27
   %44 = getelementptr inbounds float, ptr %.val21.val.val.val, i64 %43
   %45 = load float, ptr %44, align 4
   %46 = fcmp olt float %45, %39
-  br i1 %46, label %47, label %Bus_SclObjUpdateDept.argprom.argprom.argprom.argprom.exit
+  br i1 %46, label %47, label %Bus_SclObjUpdateDept.exit
 
 47:                                               ; preds = %32
   store float %39, ptr %44, align 4
-  br label %Bus_SclObjUpdateDept.argprom.argprom.argprom.argprom.exit
+  br label %Bus_SclObjUpdateDept.exit
 
 Abc_ObjIsBarBuf.exit.thread:                      ; preds = %15
   %48 = add nsw i32 %26, -5
   %narrow.i = icmp ult i32 %48, -2
-  br i1 %narrow.i, label %Abc_ObjIsBarBuf.exit.thread.thread, label %Bus_SclObjUpdateDept.argprom.argprom.argprom.argprom.exit
+  br i1 %narrow.i, label %Abc_ObjIsBarBuf.exit.thread.thread, label %Bus_SclObjUpdateDept.exit
 
 Abc_ObjIsBarBuf.exit.thread.thread:               ; preds = %Abc_ObjIsBarBuf.exit, %27, %Abc_ObjIsBarBuf.exit.thread
   %49 = tail call i32 @Abc_NodeFindFanin(ptr noundef nonnull %22, ptr noundef nonnull %0) #23
@@ -914,15 +914,15 @@ Abc_ObjIsBarBuf.exit.thread.thread:               ; preds = %Abc_ObjIsBarBuf.exi
   %80 = getelementptr i8, ptr %79, i64 12
   %.val.i.i.i = load i32, ptr %80, align 4
   %81 = icmp eq i32 %.val.i.i.i, 0
-  br i1 %81, label %Abc_NtkComputeEdgeDept.argprom.exit, label %82
+  br i1 %81, label %Abc_NtkComputeEdgeDept.exit, label %82
 
 82:                                               ; preds = %Abc_ObjIsBarBuf.exit.thread.thread
   %83 = getelementptr i8, ptr %79, i64 16
   %.val6.i.i.i = load ptr, ptr %83, align 8
   %84 = load ptr, ptr %.val6.i.i.i, align 8
-  br label %Abc_NtkComputeEdgeDept.argprom.exit
+  br label %Abc_NtkComputeEdgeDept.exit
 
-Abc_NtkComputeEdgeDept.argprom.exit:              ; preds = %Abc_ObjIsBarBuf.exit.thread.thread, %82
+Abc_NtkComputeEdgeDept.exit:                      ; preds = %Abc_ObjIsBarBuf.exit.thread.thread, %82
   %.0.i.i.i = phi ptr [ %84, %82 ], [ null, %Abc_ObjIsBarBuf.exit.thread.thread ]
   call fastcc void @Scl_LibPinArrival(ptr noundef %.0.i.i.i, ptr noundef %4, ptr noundef %6, ptr noundef %3, ptr noundef %5, ptr noundef %7)
   %85 = load float, ptr %13, align 4
@@ -950,20 +950,20 @@ Abc_NtkComputeEdgeDept.argprom.exit:              ; preds = %Abc_ObjIsBarBuf.exi
   %97 = getelementptr inbounds float, ptr %.val23.val.val.val, i64 %96
   %98 = load float, ptr %97, align 4
   %99 = fcmp olt float %98, %92
-  br i1 %99, label %100, label %Bus_SclObjUpdateDept.argprom.argprom.argprom.argprom.exit
+  br i1 %99, label %100, label %Bus_SclObjUpdateDept.exit
 
-100:                                              ; preds = %Abc_NtkComputeEdgeDept.argprom.exit
+100:                                              ; preds = %Abc_NtkComputeEdgeDept.exit
   store float %92, ptr %97, align 4
-  br label %Bus_SclObjUpdateDept.argprom.argprom.argprom.argprom.exit
+  br label %Bus_SclObjUpdateDept.exit
 
-Bus_SclObjUpdateDept.argprom.argprom.argprom.argprom.exit: ; preds = %100, %Abc_NtkComputeEdgeDept.argprom.exit, %47, %32, %Abc_ObjIsBarBuf.exit.thread
+Bus_SclObjUpdateDept.exit:                        ; preds = %100, %Abc_NtkComputeEdgeDept.exit, %47, %32, %Abc_ObjIsBarBuf.exit.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %8, align 4
   %101 = sext i32 %.val to i64
   %102 = icmp slt i64 %indvars.iv.next, %101
   br i1 %102, label %15, label %.critedge, !llvm.loop !8
 
-.critedge:                                        ; preds = %Bus_SclObjUpdateDept.argprom.argprom.argprom.argprom.exit, %2
+.critedge:                                        ; preds = %Bus_SclObjUpdateDept.exit, %2
   %.val19 = load ptr, ptr %0, align 8
   %103 = getelementptr i8, ptr %0, i64 16
   %.val20 = load i32, ptr %103, align 8
@@ -1134,15 +1134,15 @@ Abc_ObjIsBarBuf.exit.thread.thread:               ; preds = %Abc_ObjIsBarBuf.exi
   %80 = getelementptr i8, ptr %79, i64 12
   %.val.i.i.i = load i32, ptr %80, align 4
   %81 = icmp eq i32 %.val.i.i.i, 0
-  br i1 %81, label %Abc_NtkComputeEdgeDept.argprom.exit, label %82
+  br i1 %81, label %Abc_NtkComputeEdgeDept.exit, label %82
 
 82:                                               ; preds = %Abc_ObjIsBarBuf.exit.thread.thread
   %83 = getelementptr i8, ptr %79, i64 16
   %.val6.i.i.i = load ptr, ptr %83, align 8
   %84 = load ptr, ptr %.val6.i.i.i, align 8
-  br label %Abc_NtkComputeEdgeDept.argprom.exit
+  br label %Abc_NtkComputeEdgeDept.exit
 
-Abc_NtkComputeEdgeDept.argprom.exit:              ; preds = %Abc_ObjIsBarBuf.exit.thread.thread, %82
+Abc_NtkComputeEdgeDept.exit:                      ; preds = %Abc_ObjIsBarBuf.exit.thread.thread, %82
   %.0.i.i.i = phi ptr [ %84, %82 ], [ null, %Abc_ObjIsBarBuf.exit.thread.thread ]
   call fastcc void @Scl_LibPinArrival(ptr noundef %.0.i.i.i, ptr noundef %4, ptr noundef %6, ptr noundef %3, ptr noundef %5, ptr noundef %7)
   %85 = load float, ptr %13, align 4
@@ -1199,10 +1199,10 @@ Abc_NtkComputeEdgeDept.argprom.exit:              ; preds = %Abc_ObjIsBarBuf.exi
   %.val21.val = load ptr, ptr %119, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %Abc_NtkComputeEdgeDept.argprom.exit, %31
-  %.val31.val.sink = phi ptr [ %.val31.val, %31 ], [ %.val21.val, %Abc_NtkComputeEdgeDept.argprom.exit ]
-  %.sink49 = phi i64 [ %45, %31 ], [ %98, %Abc_NtkComputeEdgeDept.argprom.exit ]
-  %.sink = phi float [ %47, %31 ], [ %118, %Abc_NtkComputeEdgeDept.argprom.exit ]
+.sink.split:                                      ; preds = %Abc_NtkComputeEdgeDept.exit, %31
+  %.val31.val.sink = phi ptr [ %.val31.val, %31 ], [ %.val21.val, %Abc_NtkComputeEdgeDept.exit ]
+  %.sink49 = phi i64 [ %45, %31 ], [ %98, %Abc_NtkComputeEdgeDept.exit ]
+  %.sink = phi float [ %47, %31 ], [ %118, %Abc_NtkComputeEdgeDept.exit ]
   %120 = getelementptr i8, ptr %.val31.val.sink, i64 56
   %.val23.val.val = load ptr, ptr %120, align 8
   %121 = getelementptr i8, ptr %.val23.val.val, i64 8
@@ -1841,7 +1841,7 @@ define void @Abc_SclOneNodePrint(ptr nocapture readnone %0, ptr nocapture nounde
   %7 = getelementptr inbounds i32, ptr %.val.val.val.i, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, -1
-  br i1 %9, label %Abc_SclObjCell.argprom.exit, label %10
+  br i1 %9, label %Abc_SclObjCell.exit, label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr i8, ptr %.val15, i64 368
@@ -1851,9 +1851,9 @@ define void @Abc_SclOneNodePrint(ptr nocapture readnone %0, ptr nocapture nounde
   %13 = sext i32 %8 to i64
   %14 = getelementptr inbounds ptr, ptr %.val5.i, i64 %13
   %15 = load ptr, ptr %14, align 8
-  br label %Abc_SclObjCell.argprom.exit
+  br label %Abc_SclObjCell.exit
 
-Abc_SclObjCell.argprom.exit:                      ; preds = %2, %10
+Abc_SclObjCell.exit:                              ; preds = %2, %10
   %16 = phi ptr [ %15, %10 ], [ null, %2 ]
   %17 = getelementptr i8, ptr %1, i64 28
   %.val = load i32, ptr %17, align 4
@@ -1888,7 +1888,7 @@ Abc_SclObjCell.argprom.exit:                      ; preds = %2, %10
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %.lr.ph.i, label %SC_CellPinCapAve.exit
 
-.lr.ph.i:                                         ; preds = %Abc_SclObjCell.argprom.exit
+.lr.ph.i:                                         ; preds = %Abc_SclObjCell.exit
   %39 = getelementptr i8, ptr %16, i64 56
   %.val.i = load ptr, ptr %39, align 8
   %wide.trip.count.i = zext nneg i32 %37 to i64
@@ -1913,8 +1913,8 @@ Abc_SclObjCell.argprom.exit:                      ; preds = %2, %10
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %SC_CellPinCapAve.exit, label %40, !llvm.loop !17
 
-SC_CellPinCapAve.exit:                            ; preds = %40, %Abc_SclObjCell.argprom.exit
-  %.0.lcssa.i = phi float [ 0.000000e+00, %Abc_SclObjCell.argprom.exit ], [ %52, %40 ]
+SC_CellPinCapAve.exit:                            ; preds = %40, %Abc_SclObjCell.exit
+  %.0.lcssa.i = phi float [ 0.000000e+00, %Abc_SclObjCell.exit ], [ %52, %40 ]
   %53 = fpext float %35 to double
   %54 = fmul double %53, 1.000000e+02
   %55 = tail call noundef i32 @llvm.smax.i32(i32 %37, i32 1)
@@ -2429,7 +2429,7 @@ Vec_FltPush.exit108:                              ; preds = %.Vec_FltGrow.exit11
   %242 = getelementptr inbounds i8, ptr %236, i64 8
   %243 = load i32, ptr %242, align 8
   %244 = add nsw i32 %.066.val, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %240, i32 noundef %244)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef %240, i32 noundef %244)
   %245 = getelementptr i8, ptr %240, i64 8
   %.val.i109 = load ptr, ptr %245, align 8
   %246 = sext i32 %.066.val to i64
@@ -2582,15 +2582,15 @@ Abc_NtkComputeNodeLoad.exit:                      ; preds = %260, %.critedge2
   %328 = getelementptr i8, ptr %327, i64 12
   %.val.i.i.i = load i32, ptr %328, align 4
   %329 = icmp eq i32 %.val.i.i.i, 0
-  br i1 %329, label %Abc_NtkComputeEdgeDept.argprom.exit, label %330
+  br i1 %329, label %Abc_NtkComputeEdgeDept.exit, label %330
 
 330:                                              ; preds = %Abc_NtkComputeNodeLoad.exit
   %331 = getelementptr i8, ptr %327, i64 16
   %.val6.i.i.i = load ptr, ptr %331, align 8
   %332 = load ptr, ptr %.val6.i.i.i, align 8
-  br label %Abc_NtkComputeEdgeDept.argprom.exit
+  br label %Abc_NtkComputeEdgeDept.exit
 
-Abc_NtkComputeEdgeDept.argprom.exit:              ; preds = %Abc_NtkComputeNodeLoad.exit, %330
+Abc_NtkComputeEdgeDept.exit:                      ; preds = %Abc_NtkComputeNodeLoad.exit, %330
   %.0.i.i.i = phi ptr [ %332, %330 ], [ null, %Abc_NtkComputeNodeLoad.exit ]
   call fastcc void @Scl_LibPinArrival(ptr noundef %.0.i.i.i, ptr noundef %6, ptr noundef %8, ptr noundef %5, ptr noundef %7, ptr noundef %9)
   %333 = getelementptr inbounds i8, ptr %7, i64 4
@@ -2621,7 +2621,7 @@ Abc_NtkComputeEdgeDept.argprom.exit:              ; preds = %Abc_NtkComputeNodeL
   %.not69 = icmp eq ptr %348, null
   br i1 %.not69, label %352, label %349
 
-349:                                              ; preds = %Abc_NtkComputeEdgeDept.argprom.exit
+349:                                              ; preds = %Abc_NtkComputeEdgeDept.exit
   %350 = tail call i32 @Abc_SclIsInv(ptr noundef nonnull %.066) #23
   %.not70 = icmp eq i32 %350, 0
   br i1 %.not70, label %352, label %351
@@ -2630,7 +2630,7 @@ Abc_NtkComputeEdgeDept.argprom.exit:              ; preds = %Abc_NtkComputeNodeL
   tail call void @Abc_NodeInvUpdateFanPolarity(ptr noundef nonnull %.066) #23
   br label %352
 
-352:                                              ; preds = %351, %349, %Abc_NtkComputeEdgeDept.argprom.exit
+352:                                              ; preds = %351, %349, %Abc_NtkComputeEdgeDept.exit
   ret ptr %.066
 }
 
@@ -2983,7 +2983,7 @@ SC_CellPinCapAve.exit187:                         ; preds = %144, %Abc_ObjIsBarB
   %173 = getelementptr inbounds i8, ptr %172, i64 4
   %174 = load i32, ptr %173, align 4
   %175 = icmp slt i32 %174, 2
-  br i1 %175, label %Vec_PtrSort.argprom.exit, label %176
+  br i1 %175, label %Vec_PtrSort.exit, label %176
 
 176:                                              ; preds = %170
   %177 = getelementptr inbounds i8, ptr %172, i64 8
@@ -2991,16 +2991,16 @@ SC_CellPinCapAve.exit187:                         ; preds = %144, %Abc_ObjIsBarB
   %179 = zext nneg i32 %174 to i64
   call void @qsort(ptr noundef %178, i64 noundef %179, i64 noundef 8, ptr noundef nonnull @Bus_SclCompareFanouts) #23
   %.pre281.pre.pre = load ptr, ptr %32, align 8
-  br label %Vec_PtrSort.argprom.exit
+  br label %Vec_PtrSort.exit
 
-Vec_PtrSort.argprom.exit:                         ; preds = %170, %176
+Vec_PtrSort.exit:                                 ; preds = %170, %176
   %.pre281.pre = phi ptr [ %172, %170 ], [ %.pre281.pre.pre, %176 ]
   %.pre = load ptr, ptr %0, align 8
   br label %.critedge2
 
-.critedge2:                                       ; preds = %.critedge2.backedge, %Vec_PtrSort.argprom.exit
-  %.pre281 = phi ptr [ %.pre281.pre, %Vec_PtrSort.argprom.exit ], [ %332, %.critedge2.backedge ]
-  %180 = phi ptr [ %.pre, %Vec_PtrSort.argprom.exit ], [ %334, %.critedge2.backedge ]
+.critedge2:                                       ; preds = %.critedge2.backedge, %Vec_PtrSort.exit
+  %.pre281 = phi ptr [ %.pre281.pre, %Vec_PtrSort.exit ], [ %332, %.critedge2.backedge ]
+  %180 = phi ptr [ %.pre, %Vec_PtrSort.exit ], [ %334, %.critedge2.backedge ]
   %181 = getelementptr inbounds i8, ptr %180, i64 32
   %182 = load i32, ptr %181, align 4
   %.not134 = icmp eq i32 %182, 0
@@ -3705,7 +3705,7 @@ define ptr @Abc_SclBufferingPerform(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.val = load ptr, ptr %14, align 8
   %15 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %15, align 4
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %12, i32 noundef %.val.val)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %12, i32 noundef %.val.val)
   br label %16
 
 16:                                               ; preds = %13, %5
@@ -3726,7 +3726,7 @@ declare void @Abc_SclMioGates2SclGates(ptr noundef, ptr noundef) local_unnamed_a
 declare void @Abc_SclSclGates2MioGates(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

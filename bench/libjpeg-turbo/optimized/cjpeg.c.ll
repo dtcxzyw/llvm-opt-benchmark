@@ -193,7 +193,7 @@ define dso_local range(i32 0, 3) i32 @main(i32 noundef %0, ptr nocapture noundef
   %19 = getelementptr inbounds i8, ptr %3, i64 60
   store i32 2, ptr %19, align 4
   call void @jpeg_set_defaults(ptr noundef nonnull %3) #8
-  %20 = call fastcc i32 @parse_switches.argelim(ptr noundef %3, i32 noundef %0, ptr noundef nonnull %1, i32 noundef 0)
+  %20 = call fastcc i32 @parse_switches(ptr noundef %3, i32 noundef %0, ptr noundef nonnull %1, i32 noundef 0)
   %.b = load i1, ptr @strict, align 4
   br i1 %.b, label %21, label %23
 
@@ -459,7 +459,7 @@ select_file_type.exit:                            ; preds = %107, %124, %129, %1
   %151 = load ptr, ptr %.0.i, align 8
   call void %151(ptr noundef nonnull %3, ptr noundef nonnull %.0.i) #8
   call void @jpeg_default_colorspace(ptr noundef nonnull %3) #8
-  %152 = call fastcc i32 @parse_switches.argelim(ptr noundef %3, i32 noundef %0, ptr noundef nonnull %1, i32 noundef 1)
+  %152 = call fastcc i32 @parse_switches(ptr noundef %3, i32 noundef %0, ptr noundef nonnull %1, i32 noundef 1)
   %.b67 = load i1, ptr @memdst, align 4
   br i1 %.b67, label %153, label %154
 
@@ -608,7 +608,7 @@ declare void @jpeg_CreateCompress(ptr noundef, i32 noundef, i64 noundef) local_u
 declare void @jpeg_set_defaults(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_switches.argelim(ptr noundef nonnull %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc i32 @parse_switches(ptr noundef nonnull %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i8, align 1

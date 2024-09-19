@@ -1730,7 +1730,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT
   %20 = getelementptr inbounds i8, ptr %17, i64 4
   %21 = load i16, ptr %20, align 4, !alias.scope !372, !noalias !373, !noundef !4
   %22 = icmp eq i16 %19, %21
-  br i1 %22, label %23, label %"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hecb62ba8546606f3E.argprom.exit"
+  br i1 %22, label %23, label %"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hecb62ba8546606f3E.exit"
 
 23:                                               ; preds = %13
   %24 = getelementptr inbounds i8, ptr %16, i64 6
@@ -1738,19 +1738,19 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT
   %26 = getelementptr inbounds i8, ptr %17, i64 6
   %27 = load i16, ptr %26, align 2, !alias.scope !372, !noalias !373, !noundef !4
   %28 = icmp eq i16 %25, %27
-  br i1 %28, label %29, label %"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hecb62ba8546606f3E.argprom.exit"
+  br i1 %28, label %29, label %"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hecb62ba8546606f3E.exit"
 
 29:                                               ; preds = %23
   %30 = load i32, ptr %16, align 4, !alias.scope !370, !noalias !371, !noundef !4
   %31 = load i32, ptr %17, align 8, !alias.scope !372, !noalias !373, !noundef !4
   %32 = icmp eq i32 %30, %31
-  br label %"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hecb62ba8546606f3E.argprom.exit"
+  br label %"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hecb62ba8546606f3E.exit"
 
 33:                                               ; preds = %2
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.val, i64 noundef %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7d8da0b2f91b9d9851a76c85d8e936cf.7) #30, !noalias !357
   unreachable
 
-"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hecb62ba8546606f3E.argprom.exit": ; preds = %13, %23, %29
+"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hecb62ba8546606f3E.exit": ; preds = %13, %23, %29
   %.0.i.i.i = phi i1 [ %32, %29 ], [ false, %23 ], [ false, %13 ]
   ret i1 %.0.i.i.i
 }
@@ -1995,8 +1995,8 @@ attributes #32 = { cold noreturn nounwind }
 !29 = distinct !{!29, !"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hbbf9ddc6756fb742E.llvm.9817217397473310483"}
 !30 = !{!28, !20, !23}
 !31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hecb62ba8546606f3E.argprom: argument 0"}
-!33 = distinct !{!33, !"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hecb62ba8546606f3E.argprom"}
+!32 = distinct !{!32, !33, !"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hecb62ba8546606f3E: argument 0"}
+!33 = distinct !{!33, !"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hecb62ba8546606f3E"}
 !34 = !{!32, !20}
 !35 = !{!28, !23}
 !36 = !{!"branch_weights", !"expected", i32 2000, i32 1}
@@ -2089,8 +2089,8 @@ attributes #32 = { cold noreturn nounwind }
 !123 = !{!124, !125, !126, !128, !111, !112, !103}
 !124 = distinct !{!124, !120, !"_ZN64_$LT$salsa..DatabaseKeyIndex$u20$as$u20$core..cmp..PartialEq$GT$2eq17h38433e8ceee02821E: argument 0"}
 !125 = distinct !{!125, !122, !"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17hc10cdde15f11fb87E: argument 0"}
-!126 = distinct !{!126, !127, !"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hecb62ba8546606f3E.argprom: argument 0"}
-!127 = distinct !{!127, !"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hecb62ba8546606f3E.argprom"}
+!126 = distinct !{!126, !127, !"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hecb62ba8546606f3E: argument 0"}
+!127 = distinct !{!127, !"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hecb62ba8546606f3E"}
 !128 = distinct !{!128, !129, !"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h808d1ce4469e75f9E: argument 0"}
 !129 = distinct !{!129, !"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h808d1ce4469e75f9E"}
 !130 = !{!126, !128, !111, !112, !103}
@@ -2256,8 +2256,8 @@ attributes #32 = { cold noreturn nounwind }
 !290 = distinct !{!290, !288, !"_ZN64_$LT$salsa..DatabaseKeyIndex$u20$as$u20$core..cmp..PartialEq$GT$2eq17h38433e8ceee02821E: argument 1"}
 !291 = !{!287, !281}
 !292 = !{!290, !285, !293, !278, !274, !276, !270, !267}
-!293 = distinct !{!293, !294, !"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hecb62ba8546606f3E.argprom: argument 0"}
-!294 = distinct !{!294, !"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hecb62ba8546606f3E.argprom"}
+!293 = distinct !{!293, !294, !"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hecb62ba8546606f3E: argument 0"}
+!294 = distinct !{!294, !"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hecb62ba8546606f3E"}
 !295 = !{!290, !285}
 !296 = !{!287, !281, !293, !278, !274, !276, !270, !267}
 !297 = !{!293, !278, !274, !276, !270, !267}
@@ -2298,8 +2298,8 @@ attributes #32 = { cold noreturn nounwind }
 !332 = distinct !{!332, !330, !"_ZN64_$LT$salsa..DatabaseKeyIndex$u20$as$u20$core..cmp..PartialEq$GT$2eq17h38433e8ceee02821E: argument 1"}
 !333 = !{!329, !323}
 !334 = !{!332, !327, !335, !320, !312, !315}
-!335 = distinct !{!335, !336, !"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hecb62ba8546606f3E.argprom: argument 0"}
-!336 = distinct !{!336, !"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hecb62ba8546606f3E.argprom"}
+!335 = distinct !{!335, !336, !"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hecb62ba8546606f3E: argument 0"}
+!336 = distinct !{!336, !"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hecb62ba8546606f3E"}
 !337 = !{!332, !327}
 !338 = !{!329, !323, !335, !320, !312, !315}
 !339 = !{!335, !320, !312, !315}
@@ -2321,8 +2321,8 @@ attributes #32 = { cold noreturn nounwind }
 !355 = distinct !{!355, !356, !"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$6bucket17hb29d54bfd5f68abdE.llvm.9817217397473310483: argument 0"}
 !356 = distinct !{!356, !"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$6bucket17hb29d54bfd5f68abdE.llvm.9817217397473310483"}
 !357 = !{!358}
-!358 = distinct !{!358, !359, !"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hecb62ba8546606f3E.argprom: argument 0"}
-!359 = distinct !{!359, !"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hecb62ba8546606f3E.argprom"}
+!358 = distinct !{!358, !359, !"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hecb62ba8546606f3E: argument 0"}
+!359 = distinct !{!359, !"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hecb62ba8546606f3E"}
 !360 = !{!361}
 !361 = distinct !{!361, !362, !"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17hc10cdde15f11fb87E: argument 0"}
 !362 = distinct !{!362, !"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17hc10cdde15f11fb87E"}

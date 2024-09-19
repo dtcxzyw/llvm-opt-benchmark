@@ -48,13 +48,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h13bc0bb185bac1d6E
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !4
   %5 = tail call noundef i64 @ring_core_0_17_8__LIMBS_are_zero(ptr noundef nonnull readonly %1, i64 noundef 6), !noalias !8
   %6 = icmp eq i64 %5, -1
-  br i1 %6, label %7, label %"_ZN4ring2ec7suite_b3ops4p38417PUBLIC_SCALAR_OPS28_$u7b$$u7b$closure$u7d$$u7d$17h11b51cb358a6c563E.argprom.exit"
+  br i1 %6, label %7, label %"_ZN4ring2ec7suite_b3ops4p38417PUBLIC_SCALAR_OPS28_$u7b$$u7b$closure$u7d$$u7d$17h11b51cb358a6c563E.exit"
 
 7:                                                ; preds = %2
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a08cbc0fed5954eef0273385eb99bffc.58.llvm.8403485840513791397, i64 noundef 52, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a08cbc0fed5954eef0273385eb99bffc.59.llvm.8403485840513791397) #11, !noalias !8
   unreachable
 
-"_ZN4ring2ec7suite_b3ops4p38417PUBLIC_SCALAR_OPS28_$u7b$$u7b$closure$u7d$$u7d$17h11b51cb358a6c563E.argprom.exit": ; preds = %2
+"_ZN4ring2ec7suite_b3ops4p38417PUBLIC_SCALAR_OPS28_$u7b$$u7b$closure$u7d$$u7d$17h11b51cb358a6c563E.exit": ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false), !noalias !12
   call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull %3, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @_ZN4ring2ec7suite_b3ops4p38418PRIVATE_SCALAR_OPS17hcccc24243ed6cd20E, i64 16)), !noalias !18
@@ -3179,9 +3179,9 @@ attributes #13 = { cold noreturn nounwind }
 !2 = !{i32 1, !"LTOPostLink", i32 1}
 !3 = !{!"rustc version 1.76.0 (07dca489a 2024-02-04)"}
 !4 = !{!5, !7}
-!5 = distinct !{!5, !6, !"_ZN4ring2ec7suite_b3ops4p38417PUBLIC_SCALAR_OPS28_$u7b$$u7b$closure$u7d$$u7d$17h11b51cb358a6c563E.argprom: argument 0"}
-!6 = distinct !{!6, !"_ZN4ring2ec7suite_b3ops4p38417PUBLIC_SCALAR_OPS28_$u7b$$u7b$closure$u7d$$u7d$17h11b51cb358a6c563E.argprom"}
-!7 = distinct !{!7, !6, !"_ZN4ring2ec7suite_b3ops4p38417PUBLIC_SCALAR_OPS28_$u7b$$u7b$closure$u7d$$u7d$17h11b51cb358a6c563E.argprom: argument 1"}
+!5 = distinct !{!5, !6, !"_ZN4ring2ec7suite_b3ops4p38417PUBLIC_SCALAR_OPS28_$u7b$$u7b$closure$u7d$$u7d$17h11b51cb358a6c563E: argument 0"}
+!6 = distinct !{!6, !"_ZN4ring2ec7suite_b3ops4p38417PUBLIC_SCALAR_OPS28_$u7b$$u7b$closure$u7d$$u7d$17h11b51cb358a6c563E"}
+!7 = distinct !{!7, !6, !"_ZN4ring2ec7suite_b3ops4p38417PUBLIC_SCALAR_OPS28_$u7b$$u7b$closure$u7d$$u7d$17h11b51cb358a6c563E: argument 1"}
 !8 = !{!9, !11, !5}
 !9 = distinct !{!9, !10, !"_ZN4ring2ec7suite_b3ops16PrivateScalarOps18scalar_inv_to_mont17h6d2b28c522a7dd28E: argument 0"}
 !10 = distinct !{!10, !"_ZN4ring2ec7suite_b3ops16PrivateScalarOps18scalar_inv_to_mont17h6d2b28c522a7dd28E"}
@@ -3201,11 +3201,11 @@ attributes #13 = { cold noreturn nounwind }
 !24 = distinct !{!24, !22, !"_ZN4ring2ec7suite_b3ops20twin_mul_inefficient17he0ec1380182272dbE: argument 2"}
 !25 = distinct !{!25, !22, !"_ZN4ring2ec7suite_b3ops20twin_mul_inefficient17he0ec1380182272dbE: argument 3"}
 !26 = distinct !{!26, !22, !"_ZN4ring2ec7suite_b3ops20twin_mul_inefficient17he0ec1380182272dbE: argument 4"}
-!27 = distinct !{!27, !28, !"_ZN4ring2ec7suite_b3ops4p38417PUBLIC_SCALAR_OPS28_$u7b$$u7b$closure$u7d$$u7d$17hb82aaccb96754050E.argprom: argument 0"}
-!28 = distinct !{!28, !"_ZN4ring2ec7suite_b3ops4p38417PUBLIC_SCALAR_OPS28_$u7b$$u7b$closure$u7d$$u7d$17hb82aaccb96754050E.argprom"}
-!29 = distinct !{!29, !28, !"_ZN4ring2ec7suite_b3ops4p38417PUBLIC_SCALAR_OPS28_$u7b$$u7b$closure$u7d$$u7d$17hb82aaccb96754050E.argprom: argument 1"}
-!30 = distinct !{!30, !28, !"_ZN4ring2ec7suite_b3ops4p38417PUBLIC_SCALAR_OPS28_$u7b$$u7b$closure$u7d$$u7d$17hb82aaccb96754050E.argprom: argument 2"}
-!31 = distinct !{!31, !28, !"_ZN4ring2ec7suite_b3ops4p38417PUBLIC_SCALAR_OPS28_$u7b$$u7b$closure$u7d$$u7d$17hb82aaccb96754050E.argprom: argument 3"}
+!27 = distinct !{!27, !28, !"_ZN4ring2ec7suite_b3ops4p38417PUBLIC_SCALAR_OPS28_$u7b$$u7b$closure$u7d$$u7d$17hb82aaccb96754050E: argument 0"}
+!28 = distinct !{!28, !"_ZN4ring2ec7suite_b3ops4p38417PUBLIC_SCALAR_OPS28_$u7b$$u7b$closure$u7d$$u7d$17hb82aaccb96754050E"}
+!29 = distinct !{!29, !28, !"_ZN4ring2ec7suite_b3ops4p38417PUBLIC_SCALAR_OPS28_$u7b$$u7b$closure$u7d$$u7d$17hb82aaccb96754050E: argument 1"}
+!30 = distinct !{!30, !28, !"_ZN4ring2ec7suite_b3ops4p38417PUBLIC_SCALAR_OPS28_$u7b$$u7b$closure$u7d$$u7d$17hb82aaccb96754050E: argument 2"}
+!31 = distinct !{!31, !28, !"_ZN4ring2ec7suite_b3ops4p38417PUBLIC_SCALAR_OPS28_$u7b$$u7b$closure$u7d$$u7d$17hb82aaccb96754050E: argument 3"}
 !32 = !{!33, !35, !36, !38, !21, !23, !25, !26, !27, !29, !30, !31}
 !33 = distinct !{!33, !34, !"_ZN4ring2ec7suite_b3ops13PrivateKeyOps9point_mul17h36123dcdc5d41a21E: argument 0"}
 !34 = distinct !{!34, !"_ZN4ring2ec7suite_b3ops13PrivateKeyOps9point_mul17h36123dcdc5d41a21E"}

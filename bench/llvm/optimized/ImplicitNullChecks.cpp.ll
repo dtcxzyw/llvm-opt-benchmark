@@ -1172,7 +1172,7 @@ _ZN12_GLOBAL__N_118ImplicitNullChecks18isSuitableMemoryOpERKN4llvm12MachineInstr
 345:                                              ; preds = %.loopexit.i
   store ptr %.sroa.043.076.i, ptr %22, align 8
   store ptr %.sroa.036.064, ptr %23, align 8
-  call fastcc void @_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_118ImplicitNullChecks9NullCheckEE12emplace_backIJPNS_12MachineInstrERS7_PNS_17MachineBasicBlockERSA_SB_S8_EEERS3_DpOT_.retelim(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %21)
+  call fastcc void @_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_118ImplicitNullChecks9NullCheckEE12emplace_backIJPNS_12MachineInstrERS7_PNS_17MachineBasicBlockERSA_SB_S8_EEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %21)
   br label %_ZN12_GLOBAL__N_118ImplicitNullChecks9canHandleEPKN4llvm12MachineInstrE.exit.thread.i
 
 346:                                              ; preds = %.loopexit.i, %_ZN12_GLOBAL__N_118ImplicitNullChecks18isSuitableMemoryOpERKN4llvm12MachineInstrEjNS1_8ArrayRefIPS2_EE.exit.thread.i
@@ -1957,10 +1957,10 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118ImplicitNullChecks
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %11
 
-11:                                               ; preds = %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.thread.i, %.lr.ph.i
-  %.sroa.211.022.i = phi i8 [ 0, %.lr.ph.i ], [ %.sroa.211.1.i, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.thread.i ]
-  %.sroa.010.021.i = phi ptr [ undef, %.lr.ph.i ], [ %.sroa.010.1.i, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.thread.i ]
-  %.020.i = phi ptr [ %2, %.lr.ph.i ], [ %51, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.thread.i ]
+11:                                               ; preds = %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.thread.i, %.lr.ph.i
+  %.sroa.211.022.i = phi i8 [ 0, %.lr.ph.i ], [ %.sroa.211.1.i, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.thread.i ]
+  %.sroa.010.021.i = phi ptr [ undef, %.lr.ph.i ], [ %.sroa.010.1.i, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.thread.i ]
+  %.020.i = phi ptr [ %2, %.lr.ph.i ], [ %51, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.thread.i ]
   %12 = load ptr, ptr %.020.i, align 8, !noalias !46
   %13 = getelementptr i8, ptr %12, i64 32
   %.val.i = load ptr, ptr %13, align 8, !noalias !46
@@ -1969,7 +1969,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118ImplicitNullChecks
   %15 = zext i24 %.val3.i to i64
   %16 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %.val.i, i64 %15
   %.not15.i.i = icmp eq i24 %.val3.i, 0
-  br i1 %.not15.i.i, label %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.thread.i, label %.lr.ph19.i.i
+  br i1 %.not15.i.i, label %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.thread.i, label %.lr.ph19.i.i
 
 .lr.ph19.i.i:                                     ; preds = %11, %.critedge.i.i
   %.02716.i.i = phi ptr [ %49, %.critedge.i.i ], [ %.val.i, %11 ]
@@ -2024,13 +2024,13 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i.i: ; p
   %43 = load i32, ptr %.02716.i.i, align 8, !noalias !46
   %44 = and i32 %43, 16777216
   %.not8.i.i = icmp eq i32 %44, 0
-  br i1 %.not8.i.i, label %45, label %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.i
+  br i1 %.not8.i.i, label %45, label %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.i
 
 45:                                               ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i.i
   %46 = load i32, ptr %.02814.i.i, align 8, !noalias !46
   %47 = and i32 %46, 16777216
   %.not9.i.i = icmp eq i32 %47, 0
-  br i1 %.not9.i.i, label %.critedge31.i.i, label %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.i
+  br i1 %.not9.i.i, label %.critedge31.i.i, label %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.i
 
 .critedge31.i.i:                                  ; preds = %45, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.i.i, %39, %32, %.lr.ph.i.i
   %48 = getelementptr inbounds i8, ptr %.02814.i.i, i64 32
@@ -2040,20 +2040,20 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i.i: ; p
 .critedge.i.i:                                    ; preds = %.critedge31.i.i, %24, %20, %.lr.ph19.i.i
   %49 = getelementptr inbounds i8, ptr %.02716.i.i, i64 32
   %.not.i.i = icmp eq ptr %49, %16
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.thread.i, label %.lr.ph19.i.i
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.thread.i, label %.lr.ph19.i.i
 
-_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.i: ; preds = %45, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i.i
+_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.i: ; preds = %45, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i.i
   %50 = trunc nuw i8 %.sroa.211.022.i to i1
-  br i1 %50, label %_ZN12_GLOBAL__N_118ImplicitNullChecks17computeDependenceEPKN4llvm12MachineInstrENS1_8ArrayRefIPS2_EE.exit, label %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.thread.i
+  br i1 %50, label %_ZN12_GLOBAL__N_118ImplicitNullChecks17computeDependenceEPKN4llvm12MachineInstrENS1_8ArrayRefIPS2_EE.exit, label %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.thread.i
 
-_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.thread.i: ; preds = %.critedge.i.i, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.i, %11
-  %.sroa.010.1.i = phi ptr [ %.sroa.010.021.i, %11 ], [ %.020.i, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.i ], [ %.sroa.010.021.i, %.critedge.i.i ]
-  %.sroa.211.1.i = phi i8 [ %.sroa.211.022.i, %11 ], [ 1, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.i ], [ %.sroa.211.022.i, %.critedge.i.i ]
+_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.thread.i: ; preds = %.critedge.i.i, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.i, %11
+  %.sroa.010.1.i = phi ptr [ %.sroa.010.021.i, %11 ], [ %.020.i, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.i ], [ %.sroa.010.021.i, %.critedge.i.i ]
+  %.sroa.211.1.i = phi i8 [ %.sroa.211.022.i, %11 ], [ 1, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.i ], [ %.sroa.211.022.i, %.critedge.i.i ]
   %51 = getelementptr inbounds i8, ptr %.020.i, i64 8
   %.not.i = icmp eq ptr %51, %7
   br i1 %.not.i, label %52, label %11, !llvm.loop !49
 
-52:                                               ; preds = %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.thread.i
+52:                                               ; preds = %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.thread.i
   %53 = trunc nuw i8 %.sroa.211.1.i to i1
   br i1 %53, label %54, label %_ZN12_GLOBAL__N_118ImplicitNullChecks17computeDependenceEPKN4llvm12MachineInstrENS1_8ArrayRefIPS2_EE.exit.sink.split
 
@@ -2119,9 +2119,9 @@ _ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.arg
   %.not19.i16 = icmp eq ptr %.sroa.010.1.i, %2
   br i1 %.not19.i16, label %_ZN12_GLOBAL__N_118ImplicitNullChecks17computeDependenceEPKN4llvm12MachineInstrENS1_8ArrayRefIPS2_EE.exit.sink.split, label %.lr.ph.i17
 
-.lr.ph.i17:                                       ; preds = %.loopexit, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.thread.i28
-  %.sroa.211.022.i18 = phi i8 [ %.sroa.211.1.i30, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.thread.i28 ], [ 0, %.loopexit ]
-  %.020.i20 = phi ptr [ %123, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.thread.i28 ], [ %2, %.loopexit ]
+.lr.ph.i17:                                       ; preds = %.loopexit, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.thread.i28
+  %.sroa.211.022.i18 = phi i8 [ %.sroa.211.1.i30, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.thread.i28 ], [ 0, %.loopexit ]
+  %.020.i20 = phi ptr [ %123, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.thread.i28 ], [ %2, %.loopexit ]
   %84 = load ptr, ptr %.020.i20, align 8, !noalias !51
   %85 = getelementptr i8, ptr %84, i64 32
   %.val.i21 = load ptr, ptr %85, align 8, !noalias !51
@@ -2130,7 +2130,7 @@ _ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.arg
   %87 = zext i24 %.val3.i22 to i64
   %88 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %.val.i21, i64 %87
   %.not15.i.i23 = icmp eq i24 %.val3.i22, 0
-  br i1 %.not15.i.i23, label %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.thread.i28, label %.lr.ph19.i.i24
+  br i1 %.not15.i.i23, label %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.thread.i28, label %.lr.ph19.i.i24
 
 .lr.ph19.i.i24:                                   ; preds = %.lr.ph.i17, %.critedge.i.i26
   %.02716.i.i25 = phi ptr [ %121, %.critedge.i.i26 ], [ %.val.i21, %.lr.ph.i17 ]
@@ -2185,13 +2185,13 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i.i44: ;
   %115 = load i32, ptr %.02716.i.i25, align 8, !noalias !51
   %116 = and i32 %115, 16777216
   %.not8.i.i45 = icmp eq i32 %116, 0
-  br i1 %.not8.i.i45, label %117, label %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.i46
+  br i1 %.not8.i.i45, label %117, label %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.i46
 
 117:                                              ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i.i44
   %118 = load i32, ptr %.02814.i.i39, align 8, !noalias !51
   %119 = and i32 %118, 16777216
   %.not9.i.i47 = icmp eq i32 %119, 0
-  br i1 %.not9.i.i47, label %.critedge31.i.i40, label %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.i46
+  br i1 %.not9.i.i47, label %.critedge31.i.i40, label %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.i46
 
 .critedge31.i.i40:                                ; preds = %117, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.i.i43, %111, %104, %.lr.ph.i.i38
   %120 = getelementptr inbounds i8, ptr %.02814.i.i39, i64 32
@@ -2201,19 +2201,19 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i.i44: ;
 .critedge.i.i26:                                  ; preds = %.critedge31.i.i40, %96, %92, %.lr.ph19.i.i24
   %121 = getelementptr inbounds i8, ptr %.02716.i.i25, i64 32
   %.not.i.i27 = icmp eq ptr %121, %88
-  br i1 %.not.i.i27, label %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.thread.i28, label %.lr.ph19.i.i24
+  br i1 %.not.i.i27, label %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.thread.i28, label %.lr.ph19.i.i24
 
-_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.i46: ; preds = %117, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i.i44
+_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.i46: ; preds = %117, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i.i44
   %122 = trunc nuw i8 %.sroa.211.022.i18 to i1
-  br i1 %122, label %_ZN12_GLOBAL__N_118ImplicitNullChecks17computeDependenceEPKN4llvm12MachineInstrENS1_8ArrayRefIPS2_EE.exit, label %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.thread.i28
+  br i1 %122, label %_ZN12_GLOBAL__N_118ImplicitNullChecks17computeDependenceEPKN4llvm12MachineInstrENS1_8ArrayRefIPS2_EE.exit, label %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.thread.i28
 
-_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.thread.i28: ; preds = %.critedge.i.i26, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.i46, %.lr.ph.i17
-  %.sroa.211.1.i30 = phi i8 [ %.sroa.211.022.i18, %.lr.ph.i17 ], [ 1, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.i46 ], [ %.sroa.211.022.i18, %.critedge.i.i26 ]
+_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.thread.i28: ; preds = %.critedge.i.i26, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.i46, %.lr.ph.i17
+  %.sroa.211.1.i30 = phi i8 [ %.sroa.211.022.i18, %.lr.ph.i17 ], [ 1, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.i46 ], [ %.sroa.211.022.i18, %.critedge.i.i26 ]
   %123 = getelementptr inbounds i8, ptr %.020.i20, i64 8
   %.not.i31 = icmp eq ptr %123, %.sroa.010.1.i
   br i1 %.not.i31, label %124, label %.lr.ph.i17, !llvm.loop !49
 
-124:                                              ; preds = %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.thread.i28
+124:                                              ; preds = %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.thread.i28
   %125 = trunc nuw i8 %.sroa.211.1.i30 to i1
   br i1 %125, label %_ZN12_GLOBAL__N_118ImplicitNullChecks17computeDependenceEPKN4llvm12MachineInstrENS1_8ArrayRefIPS2_EE.exit, label %_ZN12_GLOBAL__N_118ImplicitNullChecks17computeDependenceEPKN4llvm12MachineInstrENS1_8ArrayRefIPS2_EE.exit.sink.split
 
@@ -2222,13 +2222,13 @@ _ZN12_GLOBAL__N_118ImplicitNullChecks17computeDependenceEPKN4llvm12MachineInstrE
   store ptr %.sink, ptr %5, align 8
   br label %_ZN12_GLOBAL__N_118ImplicitNullChecks17computeDependenceEPKN4llvm12MachineInstrENS1_8ArrayRefIPS2_EE.exit
 
-_ZN12_GLOBAL__N_118ImplicitNullChecks17computeDependenceEPKN4llvm12MachineInstrENS1_8ArrayRefIPS2_EE.exit: ; preds = %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.i, %.lr.ph.i.i15, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.i46, %_ZN12_GLOBAL__N_118ImplicitNullChecks17computeDependenceEPKN4llvm12MachineInstrENS1_8ArrayRefIPS2_EE.exit.sink.split, %124, %54
-  %.0 = phi i1 [ false, %54 ], [ false, %124 ], [ true, %_ZN12_GLOBAL__N_118ImplicitNullChecks17computeDependenceEPKN4llvm12MachineInstrENS1_8ArrayRefIPS2_EE.exit.sink.split ], [ false, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.i46 ], [ false, %.lr.ph.i.i15 ], [ false, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.argprom.exit.i ]
+_ZN12_GLOBAL__N_118ImplicitNullChecks17computeDependenceEPKN4llvm12MachineInstrENS1_8ArrayRefIPS2_EE.exit: ; preds = %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.i, %.lr.ph.i.i15, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.i46, %_ZN12_GLOBAL__N_118ImplicitNullChecks17computeDependenceEPKN4llvm12MachineInstrENS1_8ArrayRefIPS2_EE.exit.sink.split, %124, %54
+  %.0 = phi i1 [ false, %54 ], [ false, %124 ], [ true, %_ZN12_GLOBAL__N_118ImplicitNullChecks17computeDependenceEPKN4llvm12MachineInstrENS1_8ArrayRefIPS2_EE.exit.sink.split ], [ false, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.i46 ], [ false, %.lr.ph.i.i15 ], [ false, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.i ]
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_118ImplicitNullChecks9NullCheckEE12emplace_backIJPNS_12MachineInstrERS7_PNS_17MachineBasicBlockERSA_SB_S8_EEERS3_DpOT_.retelim(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_118ImplicitNullChecks9NullCheckEE12emplace_backIJPNS_12MachineInstrERS7_PNS_17MachineBasicBlockERSA_SB_S8_EEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.(anonymous namespace)::ImplicitNullChecks::NullCheck", align 8
   %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
@@ -2259,7 +2259,7 @@ define internal fastcc void @_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_118Implicit
   %19 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   %.not.i.i.i.i = icmp ugt i64 %18, %19
   %.val.i.pre3.i.i = load ptr, ptr %0, align 8
-  br i1 %.not.i.i.i.i, label %20, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_118ImplicitNullChecks9NullCheckELb1EE18growAndEmplaceBackIJPNS_12MachineInstrERS7_PNS_17MachineBasicBlockERSA_SB_S8_EEERS3_DpOT_.argprom.exit
+  br i1 %.not.i.i.i.i, label %20, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_118ImplicitNullChecks9NullCheckELb1EE18growAndEmplaceBackIJPNS_12MachineInstrERS7_PNS_17MachineBasicBlockERSA_SB_S8_EEERS3_DpOT_.exit
 
 20:                                               ; preds = %11
   %21 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
@@ -2273,7 +2273,7 @@ define internal fastcc void @_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_118Implicit
   %26 = getelementptr inbounds i8, ptr %0, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %26, i64 noundef %18, i64 noundef 48) #18
   %.val.i.pre.i.i = load ptr, ptr %0, align 8
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_118ImplicitNullChecks9NullCheckELb1EE18growAndEmplaceBackIJPNS_12MachineInstrERS7_PNS_17MachineBasicBlockERSA_SB_S8_EEERS3_DpOT_.argprom.exit
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_118ImplicitNullChecks9NullCheckELb1EE18growAndEmplaceBackIJPNS_12MachineInstrERS7_PNS_17MachineBasicBlockERSA_SB_S8_EEERS3_DpOT_.exit
 
 27:                                               ; preds = %20
   %.val.i.i.i.i = load ptr, ptr %0, align 8
@@ -2284,9 +2284,9 @@ define internal fastcc void @_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_118Implicit
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %31, i64 noundef %18, i64 noundef 48) #18
   %.val18.i.i.i.i = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds i8, ptr %.val18.i.i.i.i, i64 %30
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_118ImplicitNullChecks9NullCheckELb1EE18growAndEmplaceBackIJPNS_12MachineInstrERS7_PNS_17MachineBasicBlockERSA_SB_S8_EEERS3_DpOT_.argprom.exit
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_118ImplicitNullChecks9NullCheckELb1EE18growAndEmplaceBackIJPNS_12MachineInstrERS7_PNS_17MachineBasicBlockERSA_SB_S8_EEERS3_DpOT_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_118ImplicitNullChecks9NullCheckELb1EE18growAndEmplaceBackIJPNS_12MachineInstrERS7_PNS_17MachineBasicBlockERSA_SB_S8_EEERS3_DpOT_.argprom.exit: ; preds = %11, %25, %27
+_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_118ImplicitNullChecks9NullCheckELb1EE18growAndEmplaceBackIJPNS_12MachineInstrERS7_PNS_17MachineBasicBlockERSA_SB_S8_EEERS3_DpOT_.exit: ; preds = %11, %25, %27
   %.val.i.i.i = phi ptr [ %.val.i.pre3.i.i, %11 ], [ %.val18.i.i.i.i, %27 ], [ %.val.i.pre.i.i, %25 ]
   %.016.i.i.i.i = phi ptr [ %8, %11 ], [ %32, %27 ], [ %8, %25 ]
   %33 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
@@ -2326,7 +2326,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_118ImplicitNullChecks9NullCheckE
   %54 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %55
 
-55:                                               ; preds = %38, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_118ImplicitNullChecks9NullCheckELb1EE18growAndEmplaceBackIJPNS_12MachineInstrERS7_PNS_17MachineBasicBlockERSA_SB_S8_EEERS3_DpOT_.argprom.exit
+55:                                               ; preds = %38, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_118ImplicitNullChecks9NullCheckELb1EE18growAndEmplaceBackIJPNS_12MachineInstrERS7_PNS_17MachineBasicBlockERSA_SB_S8_EEERS3_DpOT_.exit
   ret void
 }
 

@@ -668,11 +668,11 @@ define internal range(i32 0, 4) i32 @dissect_t30_hdlc(ptr noundef %0, ptr nounde
   ]
 
 45:                                               ; preds = %39
-  tail call fastcc void @dissect_t30_dis_dtc.argelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %36, ptr noundef %35, i32 noundef 1, ptr noundef %3)
+  tail call fastcc void @dissect_t30_dis_dtc(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %36, ptr noundef %35, i32 noundef 1, ptr noundef %3)
   br label %dissect_t30_non_standard_cap.exit
 
 46:                                               ; preds = %39, %39, %39, %39
-  tail call fastcc void @dissect_t30_numbers.argelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %36, ptr noundef %35, ptr noundef %3)
+  tail call fastcc void @dissect_t30_numbers(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %36, ptr noundef %35, ptr noundef %3)
   br label %dissect_t30_non_standard_cap.exit
 
 47:                                               ; preds = %39
@@ -710,31 +710,31 @@ define internal range(i32 0, 4) i32 @dissect_t30_hdlc(ptr noundef %0, ptr nounde
   ]
 
 60:                                               ; preds = %59
-  tail call fastcc void @dissect_t30_dis_dtc.argelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %36, ptr noundef %35, i32 noundef 1, ptr noundef %3)
+  tail call fastcc void @dissect_t30_dis_dtc(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %36, ptr noundef %35, i32 noundef 1, ptr noundef %3)
   br label %dissect_t30_non_standard_cap.exit
 
 61:                                               ; preds = %59
-  tail call fastcc void @dissect_t30_dis_dtc.argelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %36, ptr noundef %35, i32 noundef 0, ptr noundef %3)
+  tail call fastcc void @dissect_t30_dis_dtc(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %36, ptr noundef %35, i32 noundef 0, ptr noundef %3)
   br label %dissect_t30_non_standard_cap.exit
 
 62:                                               ; preds = %59, %59, %59, %59
-  tail call fastcc void @dissect_t30_numbers.argelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %36, ptr noundef %35, ptr noundef %3)
+  tail call fastcc void @dissect_t30_numbers(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %36, ptr noundef %35, ptr noundef %3)
   br label %dissect_t30_non_standard_cap.exit
 
 63:                                               ; preds = %59, %59
-  tail call fastcc void @dissect_t30_non_standard_cap.argelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %36, ptr noundef %35)
+  tail call fastcc void @dissect_t30_non_standard_cap(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %36, ptr noundef %35)
   br label %dissect_t30_non_standard_cap.exit
 
 64:                                               ; preds = %59
-  tail call fastcc void @dissect_t30_facsimile_coded_data.argelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %36, ptr noundef %35, ptr noundef %3)
+  tail call fastcc void @dissect_t30_facsimile_coded_data(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %36, ptr noundef %35, ptr noundef %3)
   br label %dissect_t30_non_standard_cap.exit
 
 65:                                               ; preds = %59
-  tail call fastcc void @dissect_t30_partial_page_signal.argelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %36, ptr noundef %35, ptr noundef %3)
+  tail call fastcc void @dissect_t30_partial_page_signal(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %36, ptr noundef %35, ptr noundef %3)
   br label %dissect_t30_non_standard_cap.exit
 
 66:                                               ; preds = %59
-  tail call fastcc void @dissect_t30_partial_page_request.argelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %36, ptr noundef %35)
+  tail call fastcc void @dissect_t30_partial_page_request(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %36, ptr noundef %35)
   br label %dissect_t30_non_standard_cap.exit
 
 dissect_t30_non_standard_cap.exit:                ; preds = %45, %46, %66, %65, %64, %63, %62, %61, %60, %59, %49, %53, %7
@@ -767,7 +767,7 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_t30_dis_dtc.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, ptr noundef writeonly %5) unnamed_addr #1 {
+define internal fastcc void @dissect_t30_dis_dtc(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, ptr noundef writeonly %5) unnamed_addr #1 {
   %7 = icmp slt i32 %2, 3
   br i1 %7, label %8, label %13
 
@@ -1177,7 +1177,7 @@ define internal fastcc void @dissect_t30_dis_dtc.argelim(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_t30_numbers.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #1 {
+define internal fastcc void @dissect_t30_numbers(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #1 {
   %6 = alloca [21 x i8], align 16
   %7 = getelementptr inbounds i8, ptr %1, i64 408
   %8 = load ptr, ptr %7, align 8
@@ -1240,7 +1240,7 @@ t30_get_string_numbers.exit:                      ; preds = %.preheader.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_t30_non_standard_cap.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_t30_non_standard_cap(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = icmp slt i32 %2, 2
   br i1 %5, label %6, label %11
 
@@ -1265,7 +1265,7 @@ define internal fastcc void @dissect_t30_non_standard_cap.argelim(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_t30_facsimile_coded_data.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #1 {
+define internal fastcc void @dissect_t30_facsimile_coded_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #1 {
   %6 = icmp slt i32 %2, 2
   br i1 %6, label %7, label %12
 
@@ -1305,7 +1305,7 @@ define internal fastcc void @dissect_t30_facsimile_coded_data.argelim(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_t30_partial_page_signal.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #1 {
+define internal fastcc void @dissect_t30_partial_page_signal(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #1 {
   %.not = icmp eq i32 %2, 4
   br i1 %.not, label %11, label %6
 
@@ -1351,7 +1351,7 @@ define internal fastcc void @dissect_t30_partial_page_signal.argelim(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_t30_partial_page_request.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_t30_partial_page_request(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noalias ptr @wmem_alloc(ptr noundef %6, i64 noundef 1171) #7

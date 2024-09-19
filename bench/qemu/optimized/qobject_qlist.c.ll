@@ -280,33 +280,33 @@ land.lhs.true.i:                                  ; preds = %entry
   %obj.val.i = load i32, ptr %x, align 8
   %0 = add i32 %obj.val.i, -1
   %or.cond.i.i = icmp ult i32 %0, 6
-  br i1 %or.cond.i.i, label %qobject_type.argprom.exit.i, label %if.else.i.i
+  br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #11
   unreachable
 
-qobject_type.argprom.exit.i:                      ; preds = %land.lhs.true.i
+qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 5
   br i1 %cmp.i, label %qobject_check_type.exit, label %if.else.i
 
-if.else.i:                                        ; preds = %qobject_type.argprom.exit.i, %entry
+if.else.i:                                        ; preds = %qobject_type.exit.i, %entry
   br label %qobject_check_type.exit
 
-qobject_check_type.exit:                          ; preds = %qobject_type.argprom.exit.i, %if.else.i
-  %retval.0.i = phi ptr [ null, %if.else.i ], [ %x, %qobject_type.argprom.exit.i ]
+qobject_check_type.exit:                          ; preds = %qobject_type.exit.i, %if.else.i
+  %retval.0.i = phi ptr [ null, %if.else.i ], [ %x, %qobject_type.exit.i ]
   %tobool.not.i9 = icmp ne ptr %y, null
   tail call void @llvm.assume(i1 %tobool.not.i9)
   %obj.val.i11 = load i32, ptr %y, align 8
   %1 = add i32 %obj.val.i11, -1
   %or.cond.i.i12 = icmp ult i32 %1, 6
-  br i1 %or.cond.i.i12, label %qobject_type.argprom.exit.i14, label %if.else.i.i13
+  br i1 %or.cond.i.i12, label %qobject_type.exit.i14, label %if.else.i.i13
 
 if.else.i.i13:                                    ; preds = %qobject_check_type.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #11
   unreachable
 
-qobject_type.argprom.exit.i14:                    ; preds = %qobject_check_type.exit
+qobject_type.exit.i14:                            ; preds = %qobject_check_type.exit
   %cmp.i15 = icmp eq i32 %obj.val.i11, 5
   tail call void @llvm.assume(i1 %cmp.i15)
   %2 = getelementptr i8, ptr %retval.0.i, i64 16
@@ -318,9 +318,9 @@ qobject_type.argprom.exit.i14:                    ; preds = %qobject_check_type.
   %4 = select i1 %tobool23, i1 %tobool424, i1 false
   br i1 %4, label %while.body, label %while.end
 
-while.body:                                       ; preds = %qobject_type.argprom.exit.i14, %if.end
-  %entry_x.026 = phi ptr [ %entry_x.0, %if.end ], [ %entry_x.022, %qobject_type.argprom.exit.i14 ]
-  %entry_y.025 = phi ptr [ %entry_y.0, %if.end ], [ %entry_y.021, %qobject_type.argprom.exit.i14 ]
+while.body:                                       ; preds = %qobject_type.exit.i14, %if.end
+  %entry_x.026 = phi ptr [ %entry_x.0, %if.end ], [ %entry_x.022, %qobject_type.exit.i14 ]
+  %entry_y.025 = phi ptr [ %entry_y.0, %if.end ], [ %entry_y.021, %qobject_type.exit.i14 ]
   %entry_x.0.val = load ptr, ptr %entry_x.026, align 8
   %entry_y.0.val = load ptr, ptr %entry_y.025, align 8
   %call7 = tail call zeroext i1 @qobject_is_equal(ptr noundef %entry_x.0.val, ptr noundef %entry_y.0.val) #10
@@ -336,9 +336,9 @@ if.end:                                           ; preds = %while.body
   %7 = select i1 %tobool, i1 %tobool4, i1 false
   br i1 %7, label %while.body, label %while.end, !llvm.loop !8
 
-while.end:                                        ; preds = %if.end, %qobject_type.argprom.exit.i14
-  %tobool.lcssa = phi i1 [ %tobool23, %qobject_type.argprom.exit.i14 ], [ %tobool, %if.end ]
-  %tobool4.lcssa = phi i1 [ %tobool424, %qobject_type.argprom.exit.i14 ], [ %tobool4, %if.end ]
+while.end:                                        ; preds = %if.end, %qobject_type.exit.i14
+  %tobool.lcssa = phi i1 [ %tobool23, %qobject_type.exit.i14 ], [ %tobool, %if.end ]
+  %tobool4.lcssa = phi i1 [ %tobool424, %qobject_type.exit.i14 ], [ %tobool4, %if.end ]
   %8 = select i1 %tobool.lcssa, i1 true, i1 %tobool4.lcssa
   %9 = xor i1 %8, true
   br label %return
@@ -364,13 +364,13 @@ land.lhs.true.i:                                  ; preds = %entry
   %obj.val.i = load i32, ptr %obj, align 8
   %0 = add i32 %obj.val.i, -1
   %or.cond.i.i = icmp ult i32 %0, 6
-  br i1 %or.cond.i.i, label %qobject_type.argprom.exit.i, label %if.else.i.i
+  br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #11
   unreachable
 
-qobject_type.argprom.exit.i:                      ; preds = %land.lhs.true.i
+qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 5
   %spec.select = select i1 %cmp.i, ptr %obj, ptr null
   %head = getelementptr inbounds i8, ptr %spec.select, i64 16
@@ -378,7 +378,7 @@ qobject_type.argprom.exit.i:                      ; preds = %land.lhs.true.i
   %tobool.not22 = icmp eq ptr %1, null
   br i1 %tobool.not22, label %for.end, label %land.rhs.lr.ph
 
-land.rhs.lr.ph:                                   ; preds = %qobject_type.argprom.exit.i
+land.rhs.lr.ph:                                   ; preds = %qobject_type.exit.i
   %tql_prev13 = getelementptr inbounds i8, ptr %spec.select, i64 24
   br label %land.rhs
 
@@ -423,7 +423,7 @@ qobject_unref_impl.exit:                          ; preds = %land.rhs, %land.lhs
   tail call void @g_free(ptr noundef nonnull %entry1.023) #10
   br i1 %cmp3.not, label %for.end, label %land.rhs, !llvm.loop !9
 
-for.end:                                          ; preds = %qobject_unref_impl.exit, %qobject_type.argprom.exit.i
+for.end:                                          ; preds = %qobject_unref_impl.exit, %qobject_type.exit.i
   tail call void @g_free(ptr noundef %spec.select) #10
   ret void
 }

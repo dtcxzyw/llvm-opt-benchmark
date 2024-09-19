@@ -11544,7 +11544,7 @@ invoke.cont.i.i:                                  ; preds = %lor.lhs.false.i.i.i
   %bf.load.i.i3.i.i = load i64, ptr %15, align 8
   %16 = and i64 %bf.load.i.i3.i.i, 1152920405095219200
   %cmp.not.i.i.i.i = icmp eq i64 %16, 1152920405095219200
-  br i1 %cmp.not.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4cvc58internal3smt9PfManager24connectProofToAssertionsESt10shared_ptrINS1_9ProofNodeEERNS2_9SmtSolverENS2_14ProofScopeModeEE3$_0JNS1_12NodeTemplateILb1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit", label %if.then.i.i4.i.i
+  br i1 %cmp.not.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4cvc58internal3smt9PfManager24connectProofToAssertionsESt10shared_ptrINS1_9ProofNodeEERNS2_9SmtSolverENS2_14ProofScopeModeEE3$_0JNS1_12NodeTemplateILb1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit", label %if.then.i.i4.i.i
 
 if.then.i.i4.i.i:                                 ; preds = %invoke.cont.i.i
   %bf.value.i.i5.i.i = add i64 %bf.load.i.i3.i.i, 1152920405095219200
@@ -11553,11 +11553,11 @@ if.then.i.i4.i.i:                                 ; preds = %invoke.cont.i.i
   %bf.set.i.i8.i.i = or disjoint i64 %bf.shl.i.i6.i.i, %bf.clear7.i.i7.i.i
   store i64 %bf.set.i.i8.i.i, ptr %15, align 8
   %cmp12.i.i9.i.i = icmp eq i64 %bf.shl.i.i6.i.i, 0
-  br i1 %cmp12.i.i9.i.i, label %if.then13.i.i10.i.i, label %"_ZSt10__invoke_rIbRZN4cvc58internal3smt9PfManager24connectProofToAssertionsESt10shared_ptrINS1_9ProofNodeEERNS2_9SmtSolverENS2_14ProofScopeModeEE3$_0JNS1_12NodeTemplateILb1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
+  br i1 %cmp12.i.i9.i.i, label %if.then13.i.i10.i.i, label %"_ZSt10__invoke_rIbRZN4cvc58internal3smt9PfManager24connectProofToAssertionsESt10shared_ptrINS1_9ProofNodeEERNS2_9SmtSolverENS2_14ProofScopeModeEE3$_0JNS1_12NodeTemplateILb1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 
 if.then13.i.i10.i.i:                              ; preds = %if.then.i.i4.i.i
   invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(16) %15)
-          to label %"_ZSt10__invoke_rIbRZN4cvc58internal3smt9PfManager24connectProofToAssertionsESt10shared_ptrINS1_9ProofNodeEERNS2_9SmtSolverENS2_14ProofScopeModeEE3$_0JNS1_12NodeTemplateILb1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit" unwind label %terminate.lpad.i.i.i
+          to label %"_ZSt10__invoke_rIbRZN4cvc58internal3smt9PfManager24connectProofToAssertionsESt10shared_ptrINS1_9ProofNodeEERNS2_9SmtSolverENS2_14ProofScopeModeEE3$_0JNS1_12NodeTemplateILb1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit" unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then13.i.i10.i.i
   %17 = landingpad { ptr, i32 }
@@ -11572,7 +11572,7 @@ lpad.i.i:                                         ; preds = %if.end15.i.i.i.i.i
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.i.i) #21
   resume { ptr, i32 } %19
 
-"_ZSt10__invoke_rIbRZN4cvc58internal3smt9PfManager24connectProofToAssertionsESt10shared_ptrINS1_9ProofNodeEERNS2_9SmtSolverENS2_14ProofScopeModeEE3$_0JNS1_12NodeTemplateILb1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit": ; preds = %invoke.cont.i.i, %if.then.i.i4.i.i, %if.then13.i.i10.i.i
+"_ZSt10__invoke_rIbRZN4cvc58internal3smt9PfManager24connectProofToAssertionsESt10shared_ptrINS1_9ProofNodeEERNS2_9SmtSolverENS2_14ProofScopeModeEE3$_0JNS1_12NodeTemplateILb1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit": ; preds = %invoke.cont.i.i, %if.then.i.i4.i.i, %if.then13.i.i10.i.i
   %cmp.i.i1.i.i = icmp eq ptr %retval.sroa.0.1.i.i.i.i.i, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   ret i1 %cmp.i.i1.i.i

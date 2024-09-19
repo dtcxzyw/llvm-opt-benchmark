@@ -2907,7 +2907,7 @@ entry:
   %voice = getelementptr inbounds i8, ptr %data, i64 120
   %2 = load ptr, ptr %queue, align 8
   %cmp.not42 = icmp eq ptr %2, null
-  br i1 %cmp.not42, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %while.body
+  br i1 %cmp.not42, label %glib_autoptr_cleanup_QemuLockable.exit, label %while.body
 
 while.body:                                       ; preds = %entry, %while.cond.backedge
   %3 = phi ptr [ %6, %while.cond.backedge ], [ %2, %entry ]
@@ -2916,7 +2916,7 @@ while.body:                                       ; preds = %entry, %while.cond.
   %4 = load ptr, ptr %vq, align 8
   %call3 = tail call i32 @virtio_queue_ready(ptr noundef %4) #11
   %tobool4.not = icmp eq i32 %call3, 0
-  br i1 %tobool4.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.end
+  br i1 %tobool4.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end
 
 if.end:                                           ; preds = %while.body
   %5 = load i8, ptr %active, align 8
@@ -2931,7 +2931,7 @@ while.cond.backedge:                              ; preds = %if.then6, %for.end
   %available.addr.1.be = phi i32 [ %conv44, %for.end ], [ %available.addr.143, %if.then6 ]
   %6 = load ptr, ptr %queue, align 8
   %cmp.not = icmp eq ptr %6, null
-  br i1 %cmp.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %while.body, !llvm.loop !20
+  br i1 %cmp.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %while.body, !llvm.loop !20
 
 if.end7:                                          ; preds = %if.end
   %populated = getelementptr inbounds i8, ptr %3, i64 40
@@ -2981,7 +2981,7 @@ if.else:                                          ; preds = %for.cond16
 
 if.end35:                                         ; preds = %for.cond16
   %cmp36 = icmp eq i64 %call22, 0
-  br i1 %cmp36, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.end39
+  br i1 %cmp36, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end39
 
 if.end39:                                         ; preds = %if.end35
   %sub = sub i64 %15, %call22
@@ -2996,14 +2996,14 @@ if.end39:                                         ; preds = %if.end35
 
 if.end49:                                         ; preds = %if.end39
   %tobool50.not = icmp eq i32 %conv44, 0
-  br i1 %tobool50.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %for.cond16
+  br i1 %tobool50.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %for.cond16
 
 for.end:                                          ; preds = %if.end39
   tail call void @return_tx_buffer(ptr noundef nonnull %data, ptr noundef nonnull %3)
   %tobool53.not = icmp eq i32 %conv44, 0
-  br i1 %tobool53.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %while.cond.backedge
+  br i1 %tobool53.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %while.cond.backedge
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %while.body, %while.cond.backedge, %for.end, %if.end49, %if.end35, %entry
+glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %while.body, %while.cond.backedge, %for.end, %if.end49, %if.end35, %entry
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %queue_mutex, ptr noundef nonnull @.str.26, i32 noundef 132) #11
   ret void
 }
@@ -3029,7 +3029,7 @@ while.cond.outer:                                 ; preds = %entry, %for.end
   %available.addr.1.ph = phi i32 [ %available, %entry ], [ %conv22, %for.end ]
   %2 = load ptr, ptr %queue, align 8
   %cmp.not35 = icmp eq ptr %2, null
-  br i1 %cmp.not35, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %while.body
+  br i1 %cmp.not35, label %glib_autoptr_cleanup_QemuLockable.exit, label %while.body
 
 while.body:                                       ; preds = %while.cond.outer, %if.then6
   %3 = phi ptr [ %6, %if.then6 ], [ %2, %while.cond.outer ]
@@ -3037,7 +3037,7 @@ while.body:                                       ; preds = %while.cond.outer, %
   %4 = load ptr, ptr %vq, align 8
   %call3 = tail call i32 @virtio_queue_ready(ptr noundef %4) #11
   %tobool4.not = icmp eq i32 %call3, 0
-  br i1 %tobool4.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.end
+  br i1 %tobool4.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end
 
 if.end:                                           ; preds = %while.body
   %5 = load i8, ptr %active, align 8
@@ -3055,7 +3055,7 @@ if.then6:                                         ; preds = %if.end
   tail call void @return_rx_buffer(ptr noundef nonnull %data, ptr noundef nonnull %3)
   %6 = load ptr, ptr %queue, align 8
   %cmp.not = icmp eq ptr %6, null
-  br i1 %cmp.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %while.body, !llvm.loop !21
+  br i1 %cmp.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %while.body, !llvm.loop !21
 
 for.cond8:                                        ; preds = %for.cond8.preheader, %if.end30
   %7 = phi i32 [ %12, %if.end30 ], [ %.pre45, %for.cond8.preheader ]
@@ -3069,7 +3069,7 @@ for.cond8:                                        ; preds = %for.cond8.preheader
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %conv)
   %call15 = tail call i64 @AUD_read(ptr noundef %9, ptr noundef %add.ptr, i64 noundef %cond) #11
   %tobool16.not = icmp eq i64 %call15, 0
-  br i1 %tobool16.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.end18
+  br i1 %tobool16.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end18
 
 if.end18:                                         ; preds = %for.cond8
   %10 = load i64, ptr %size10, align 8
@@ -3084,14 +3084,14 @@ if.end18:                                         ; preds = %for.cond8
 
 if.end30:                                         ; preds = %if.end18
   %tobool31.not = icmp eq i32 %conv22, 0
-  br i1 %tobool31.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %for.cond8
+  br i1 %tobool31.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %for.cond8
 
 for.end:                                          ; preds = %if.end18
   tail call void @return_rx_buffer(ptr noundef nonnull %data, ptr noundef nonnull %3)
   %tobool34.not = icmp eq i32 %conv22, 0
-  br i1 %tobool34.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %while.cond.outer, !llvm.loop !21
+  br i1 %tobool34.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %while.cond.outer, !llvm.loop !21
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %for.end, %while.cond.outer, %while.body, %if.then6, %if.end30, %for.cond8
+glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %for.end, %while.cond.outer, %while.body, %if.then6, %if.end30, %for.cond8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %queue_mutex, ptr noundef nonnull @.str.26, i32 noundef 132) #11
   ret void
 }

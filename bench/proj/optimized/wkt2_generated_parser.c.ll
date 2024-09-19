@@ -794,7 +794,7 @@ define hidden range(i32 0, 3) i32 @pj_wkt2_parse(ptr noundef %0) local_unnamed_a
   ]
 
 124:                                              ; preds = %122
-  %125 = call fastcc i32 @yysyntax_error.argprom(ptr noundef %6, ptr %.0217, ptr noundef %.2162, i32 noundef %123)
+  %125 = call fastcc i32 @yysyntax_error(ptr noundef %6, ptr %.0217, ptr noundef %.2162, i32 noundef %123)
   switch i32 %125, label %.thread [
     i32 0, label %.thread226
     i32 1, label %126
@@ -828,7 +828,7 @@ define hidden range(i32 0, 3) i32 @pj_wkt2_parse(ptr noundef %0) local_unnamed_a
   br label %.loopexit
 
 132:                                              ; preds = %128
-  %133 = call fastcc i32 @yysyntax_error.argprom(ptr noundef %6, ptr nonnull %130, ptr noundef %.2162, i32 noundef %123)
+  %133 = call fastcc i32 @yysyntax_error(ptr noundef %6, ptr nonnull %130, ptr noundef %.2162, i32 noundef %123)
   call void @pj_wkt2_error(ptr noundef %0, ptr noundef nonnull %130) #8
   %134 = icmp eq i32 %133, 2
   br i1 %134, label %.loopexit, label %139
@@ -934,7 +934,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 declare i32 @pj_wkt2_lex(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 3) i32 @yysyntax_error.argprom(ptr nocapture noundef nonnull %0, ptr %.0.val, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 -2, 256) %2) unnamed_addr #5 {
+define internal fastcc range(i32 0, 3) i32 @yysyntax_error(ptr nocapture noundef nonnull %0, ptr %.0.val, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 -2, 256) %2) unnamed_addr #5 {
   %4 = alloca [5 x ptr], align 16
   %.not = icmp eq i32 %2, -2
   br i1 %.not, label %.thread7, label %5

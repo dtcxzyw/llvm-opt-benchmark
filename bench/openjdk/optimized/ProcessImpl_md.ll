@@ -362,7 +362,7 @@ getBytes.exit139:                                 ; preds = %73
   %143 = zext i1 %142 to i32
   %144 = getelementptr inbounds i8, ptr %26, i64 92
   store i32 %143, ptr %144, align 4
-  %145 = call fastcc i32 @startChild.argprom(ptr noundef nonnull %0, ptr noundef %26, ptr noundef %35)
+  %145 = call fastcc i32 @startChild(ptr noundef nonnull %0, ptr noundef %26, ptr noundef %35)
   %146 = icmp slt i32 %145, 0
   br i1 %146, label %147, label %155
 
@@ -631,7 +631,7 @@ xmalloc.exit:                                     ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @startChild.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc i32 @startChild(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca [36 x i8], align 16
@@ -859,7 +859,7 @@ arraysize.exit89.i:                               ; preds = %._crit_edge.i86.i, 
   %103 = load ptr, ptr @environ, align 8
   %104 = call i32 @posix_spawn(ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, ptr noundef %103) #13
   %.not.i = icmp eq i32 %104, 0
-  br i1 %.not.i, label %105, label %spawnChild.argprom.exit
+  br i1 %.not.i, label %105, label %spawnChild.exit
 
 105:                                              ; preds = %102
   %106 = add nsw i32 %73, %89
@@ -870,7 +870,7 @@ arraysize.exit89.i:                               ; preds = %._crit_edge.i86.i, 
 
 xmalloc.exit.thread.i:                            ; preds = %105
   call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef null) #13
-  br label %spawnChild.argprom.exit
+  br label %spawnChild.exit
 
 xmalloc.exit.i:                                   ; preds = %105
   %110 = load ptr, ptr %29, align 8
@@ -960,7 +960,7 @@ copystrings.exit103.i:                            ; preds = %._crit_edge.i100.i,
 
 148:                                              ; preds = %147
   call void @free(ptr noundef %108) #13
-  br label %spawnChild.argprom.exit
+  br label %spawnChild.exit
 
 149:                                              ; preds = %147, %142, %141
   %.053.i = phi i32 [ %146, %142 ], [ %.0.i102.i, %141 ], [ %.0.i102.i, %147 ]
@@ -1003,7 +1003,7 @@ copystrings.exit114.i:                            ; preds = %.lr.ph.i106.i, %152
 
 166:                                              ; preds = %copystrings.exit114.i
   call void @free(ptr noundef %108) #13
-  br label %spawnChild.argprom.exit
+  br label %spawnChild.exit
 
 167:                                              ; preds = %copystrings.exit114.i
   %168 = load i32, ptr %21, align 4
@@ -1025,7 +1025,7 @@ copystrings.exit114.i:                            ; preds = %.lr.ph.i106.i, %152
 
 176:                                              ; preds = %173, %170, %167
   call void @free(ptr noundef %108) #13
-  br label %spawnChild.argprom.exit
+  br label %spawnChild.exit
 
 177:                                              ; preds = %173
   %178 = load i32, ptr %21, align 4
@@ -1033,9 +1033,9 @@ copystrings.exit114.i:                            ; preds = %.lr.ph.i106.i, %152
   store i32 -1, ptr %21, align 4
   call void @free(ptr noundef %108) #13
   %180 = load i32, ptr %4, align 4
-  br label %spawnChild.argprom.exit
+  br label %spawnChild.exit
 
-spawnChild.argprom.exit:                          ; preds = %102, %xmalloc.exit.thread.i, %148, %166, %176, %177
+spawnChild.exit:                                  ; preds = %102, %xmalloc.exit.thread.i, %148, %166, %176, %177
   %.0.i = phi i32 [ -1, %166 ], [ -1, %176 ], [ %180, %177 ], [ -1, %148 ], [ -1, %102 ], [ -1, %xmalloc.exit.thread.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -1044,8 +1044,8 @@ spawnChild.argprom.exit:                          ; preds = %102, %xmalloc.exit.
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %8)
   br label %forkChild.exit
 
-forkChild.exit:                                   ; preds = %16, %13, %3, %spawnChild.argprom.exit, %11
-  %.0 = phi i32 [ %.0.i, %spawnChild.argprom.exit ], [ %12, %11 ], [ -1, %3 ], [ %14, %13 ], [ 0, %16 ]
+forkChild.exit:                                   ; preds = %16, %13, %3, %spawnChild.exit, %11
+  %.0 = phi i32 [ %.0.i, %spawnChild.exit ], [ %12, %11 ], [ -1, %3 ], [ %14, %13 ], [ 0, %16 ]
   ret i32 %.0
 }
 

@@ -9870,13 +9870,13 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7TfTokenEEERKT_
 27:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7TfTokenEEERKT_v.exit
   %28 = inttoptr i64 %26 to ptr
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.exit
 
 30:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7TfTokenEEERKT_v.exit
   %31 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfToken15_GetEmptyStringB5cxx11Ev(), !noalias !38
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.argprom.exit: ; preds = %27, %30
+_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.exit: ; preds = %27, %30
   %32 = phi ptr [ %29, %27 ], [ %31, %30 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %32)
   %33 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5) #18
@@ -9952,19 +9952,19 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Tf
 59:                                               ; preds = %56
   %60 = inttoptr i64 %58 to ptr
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.argprom.exit.i
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.exit.i
 
 62:                                               ; preds = %56
   %63 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfToken15_GetEmptyStringB5cxx11Ev(), !noalias !46
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.argprom.exit.i
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.exit.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.argprom.exit.i: ; preds = %62, %59
+_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.exit.i: ; preds = %62, %59
   %64 = phi ptr [ %61, %59 ], [ %63, %62 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %64)
   %65 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %66 unwind label %80
 
-66:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.argprom.exit.i
+66:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   %.not2126.i = icmp eq i64 %55, 1
   br i1 %.not2126.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L18_StringFromVtArrayINS_7TfTokenEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7VtArrayIT_EE.exit, label %.lr.ph.i
@@ -9982,30 +9982,30 @@ _ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.a
 71:                                               ; preds = %.lr.ph.i
   %72 = inttoptr i64 %70 to ptr
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.argprom.exit25.i
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.exit25.i
 
 74:                                               ; preds = %.lr.ph.i
   %75 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfToken15_GetEmptyStringB5cxx11Ev(), !noalias !51
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.argprom.exit25.i
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.exit25.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.argprom.exit25.i: ; preds = %74, %71
+_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.exit25.i: ; preds = %74, %71
   %76 = phi ptr [ %73, %71 ], [ %75, %74 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %76)
   %77 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %78 unwind label %82
 
-78:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.argprom.exit25.i
+78:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.exit25.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   %79 = add i64 %.027.i, 1
   %.not21.i = icmp eq i64 %79, %55
   br i1 %.not21.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L18_StringFromVtArrayINS_7TfTokenEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7VtArrayIT_EE.exit, label %.lr.ph.i, !llvm.loop !56
 
-80:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.argprom.exit.i
+80:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.exit.i
   %81 = landingpad { ptr, i32 }
           cleanup
   br label %84
 
-82:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.argprom.exit25.i
+82:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.exit25.i
   %83 = landingpad { ptr, i32 }
           cleanup
   br label %84
@@ -10022,8 +10022,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_StringFromVtArrayINS_7TfTokenEEEvPNSt7_
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7TfTokenEEEEEbv.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7TfTokenEEEEEbv.exit.thread: ; preds = %2, %40, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7TfTokenEEEbv.exit.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7TfTokenEEEEEbv.exit, %_ZN32pxrInternal_v0_24__pxrReserved__L18_StringFromVtArrayINS_7TfTokenEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7VtArrayIT_EE.exit, %_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.argprom.exit
-  %.0 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.argprom.exit ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__L18_StringFromVtArrayINS_7TfTokenEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7VtArrayIT_EE.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7TfTokenEEEEEbv.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7TfTokenEEEbv.exit.thread ], [ false, %40 ], [ false, %2 ]
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7TfTokenEEEEEbv.exit.thread: ; preds = %2, %40, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7TfTokenEEEbv.exit.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7TfTokenEEEEEbv.exit, %_ZN32pxrInternal_v0_24__pxrReserved__L18_StringFromVtArrayINS_7TfTokenEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7VtArrayIT_EE.exit, %_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.exit
+  %.0 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.exit ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__L18_StringFromVtArrayINS_7TfTokenEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7VtArrayIT_EE.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7TfTokenEEEEEbv.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7TfTokenEEEbv.exit.thread ], [ false, %40 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -14948,7 +14948,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit.i: ; pred
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %58)
   %59 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__14Sdf_TextOutput5WriteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %8)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ListOpWriterINS_7TfTokenEE5WriteERNS_14Sdf_TextOutputEmRKS2_.argprom.exit unwind label %.loopexit.split-lp.i.i
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ListOpWriterINS_7TfTokenEE5WriteERNS_14Sdf_TextOutputEmRKS2_.exit unwind label %.loopexit.split-lp.i.i
 
 common.resume:                                    ; preds = %.body, %.body40, %.body50, %.body57, %.body64, %.loopexit.split-lp.i.i
   %common.resume.op = phi { ptr, i32 } [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ], [ %.pn33, %.body ], [ %.pn31, %.body50 ], [ %.pn29, %.body57 ], [ %.pn27, %.body64 ], [ %.pn, %.body40 ]
@@ -14960,14 +14960,14 @@ common.resume:                                    ; preds = %.body, %.body40, %.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
   br label %common.resume
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ListOpWriterINS_7TfTokenEE5WriteERNS_14Sdf_TextOutputEmRKS2_.argprom.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit.i
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ListOpWriterINS_7TfTokenEE5WriteERNS_14Sdf_TextOutputEmRKS2_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   %60 = icmp eq ptr %.sroa.069.076, %42
   br i1 %60, label %_ZNK32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorINS_7TfTokenESaIS2_EELb0EE7GetNextEv.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorINS_7TfTokenESaIS2_EELb0EE7GetNextEv.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorINS_7TfTokenESaIS2_EELb0EE7GetNextEv.exit.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ListOpWriterINS_7TfTokenEE5WriteERNS_14Sdf_TextOutputEmRKS2_.argprom.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorINS_7TfTokenESaIS2_EELb0EE7GetNextEv.exit.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ListOpWriterINS_7TfTokenEE5WriteERNS_14Sdf_TextOutputEmRKS2_.exit
   store ptr @.str.45, ptr %7, align 8
   store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorISt3mapIdNS_7VtValueESt4lessIdESaISt4pairIKdS2_EEELb0EEppEv, ptr %43, align 8
   store i64 233, ptr %44, align 8
@@ -14977,7 +14977,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorINS_7TfTokenESaIS2_
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   br label %75
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorINS_7TfTokenESaIS2_EELb0EE7GetNextEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ListOpWriterINS_7TfTokenEE5WriteERNS_14Sdf_TextOutputEmRKS2_.argprom.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorINS_7TfTokenESaIS2_EELb0EE7GetNextEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ListOpWriterINS_7TfTokenEE5WriteERNS_14Sdf_TextOutputEmRKS2_.exit
   %61 = getelementptr inbounds i8, ptr %.sroa.069.076, i64 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   %.not74 = icmp eq ptr %61, %42
@@ -15590,21 +15590,21 @@ attributes #24 = { nounwind allocsize(0) }
 !38 = !{!39, !41}
 !39 = distinct !{!39, !40, !"_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteB5cxx11ERKNS_7TfTokenE: argument 0"}
 !40 = distinct !{!40, !"_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteB5cxx11ERKNS_7TfTokenE"}
-!41 = distinct !{!41, !42, !"_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.argprom: argument 0"}
-!42 = distinct !{!42, !"_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.argprom"}
+!41 = distinct !{!41, !42, !"_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE: argument 0"}
+!42 = distinct !{!42, !"_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE"}
 !43 = !{!44}
 !44 = distinct !{!44, !45, !"_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteB5cxx11ERKNS_7TfTokenE: argument 0"}
 !45 = distinct !{!45, !"_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteB5cxx11ERKNS_7TfTokenE"}
 !46 = !{!47, !49}
 !47 = distinct !{!47, !48, !"_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteB5cxx11ERKNS_7TfTokenE: argument 0"}
 !48 = distinct !{!48, !"_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteB5cxx11ERKNS_7TfTokenE"}
-!49 = distinct !{!49, !50, !"_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.argprom: argument 0"}
-!50 = distinct !{!50, !"_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.argprom"}
+!49 = distinct !{!49, !50, !"_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE: argument 0"}
+!50 = distinct !{!50, !"_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE"}
 !51 = !{!52, !54}
 !52 = distinct !{!52, !53, !"_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteB5cxx11ERKNS_7TfTokenE: argument 0"}
 !53 = distinct !{!53, !"_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteB5cxx11ERKNS_7TfTokenE"}
-!54 = distinct !{!54, !55, !"_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.argprom: argument 0"}
-!55 = distinct !{!55, !"_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.argprom"}
+!54 = distinct !{!54, !55, !"_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE: argument 0"}
+!55 = distinct !{!55, !"_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE"}
 !56 = distinct !{!56, !5}
 !57 = distinct !{!57, !5}
 !58 = distinct !{!58, !5}

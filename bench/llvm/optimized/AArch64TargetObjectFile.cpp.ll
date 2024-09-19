@@ -352,7 +352,7 @@ _ZN4llvm20MachineModuleInfoELF19getAuthPtrStubEntryEPNS_8MCSymbolE.exit.i: ; pre
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %86 = load ptr, ptr %85, align 8
   %.not.i = icmp eq ptr %86, null
-  br i1 %.not.i, label %87, label %_ZL26getAuthPtrSlotSymbolHelperIN4llvm20MachineModuleInfoELFEEPNS0_8MCSymbolERNS0_9MCContextERKNS0_13TargetMachineEPNS0_17MachineModuleInfoERT_PKS2_NS0_13AArch64PACKey2IDEt.argprom.argprom.exit
+  br i1 %.not.i, label %87, label %_ZL26getAuthPtrSlotSymbolHelperIN4llvm20MachineModuleInfoELFEEPNS0_8MCSymbolERNS0_9MCContextERKNS0_13TargetMachineEPNS0_17MachineModuleInfoERT_PKS2_NS0_13AArch64PACKey2IDEt.exit
 
 87:                                               ; preds = %_ZN4llvm20MachineModuleInfoELF19getAuthPtrStubEntryEPNS_8MCSymbolE.exit.i
   %88 = call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %3, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %22, ptr null) #10
@@ -361,9 +361,9 @@ _ZN4llvm20MachineModuleInfoELF19getAuthPtrStubEntryEPNS_8MCSymbolE.exit.i: ; pre
   %91 = getelementptr inbounds i8, ptr %89, i64 8
   %spec.select.i = select i1 %90, ptr null, ptr %91
   store ptr %spec.select.i, ptr %85, align 8
-  br label %_ZL26getAuthPtrSlotSymbolHelperIN4llvm20MachineModuleInfoELFEEPNS0_8MCSymbolERNS0_9MCContextERKNS0_13TargetMachineEPNS0_17MachineModuleInfoERT_PKS2_NS0_13AArch64PACKey2IDEt.argprom.argprom.exit
+  br label %_ZL26getAuthPtrSlotSymbolHelperIN4llvm20MachineModuleInfoELFEEPNS0_8MCSymbolERNS0_9MCContextERKNS0_13TargetMachineEPNS0_17MachineModuleInfoERT_PKS2_NS0_13AArch64PACKey2IDEt.exit
 
-_ZL26getAuthPtrSlotSymbolHelperIN4llvm20MachineModuleInfoELFEEPNS0_8MCSymbolERNS0_9MCContextERKNS0_13TargetMachineEPNS0_17MachineModuleInfoERT_PKS2_NS0_13AArch64PACKey2IDEt.argprom.argprom.exit: ; preds = %_ZN4llvm20MachineModuleInfoELF19getAuthPtrStubEntryEPNS_8MCSymbolE.exit.i, %87
+_ZL26getAuthPtrSlotSymbolHelperIN4llvm20MachineModuleInfoELFEEPNS0_8MCSymbolERNS0_9MCContextERKNS0_13TargetMachineEPNS0_17MachineModuleInfoERT_PKS2_NS0_13AArch64PACKey2IDEt.exit: ; preds = %_ZN4llvm20MachineModuleInfoELF19getAuthPtrStubEntryEPNS_8MCSymbolE.exit.i, %87
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
@@ -546,7 +546,7 @@ _ZN4llvm22MachineModuleInfoMachO19getAuthPtrStubEntryEPNS_8MCSymbolE.exit.i: ; p
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %87 = load ptr, ptr %86, align 8
   %.not.i = icmp eq ptr %87, null
-  br i1 %.not.i, label %88, label %_ZL26getAuthPtrSlotSymbolHelperIN4llvm22MachineModuleInfoMachOEEPNS0_8MCSymbolERNS0_9MCContextERKNS0_13TargetMachineEPNS0_17MachineModuleInfoERT_PKS2_NS0_13AArch64PACKey2IDEt.argprom.argprom.exit
+  br i1 %.not.i, label %88, label %_ZL26getAuthPtrSlotSymbolHelperIN4llvm22MachineModuleInfoMachOEEPNS0_8MCSymbolERNS0_9MCContextERKNS0_13TargetMachineEPNS0_17MachineModuleInfoERT_PKS2_NS0_13AArch64PACKey2IDEt.exit
 
 88:                                               ; preds = %_ZN4llvm22MachineModuleInfoMachO19getAuthPtrStubEntryEPNS_8MCSymbolE.exit.i
   %89 = call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %3, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %23, ptr null) #10
@@ -555,9 +555,9 @@ _ZN4llvm22MachineModuleInfoMachO19getAuthPtrStubEntryEPNS_8MCSymbolE.exit.i: ; p
   %92 = getelementptr inbounds i8, ptr %90, i64 8
   %spec.select.i = select i1 %91, ptr null, ptr %92
   store ptr %spec.select.i, ptr %86, align 8
-  br label %_ZL26getAuthPtrSlotSymbolHelperIN4llvm22MachineModuleInfoMachOEEPNS0_8MCSymbolERNS0_9MCContextERKNS0_13TargetMachineEPNS0_17MachineModuleInfoERT_PKS2_NS0_13AArch64PACKey2IDEt.argprom.argprom.exit
+  br label %_ZL26getAuthPtrSlotSymbolHelperIN4llvm22MachineModuleInfoMachOEEPNS0_8MCSymbolERNS0_9MCContextERKNS0_13TargetMachineEPNS0_17MachineModuleInfoERT_PKS2_NS0_13AArch64PACKey2IDEt.exit
 
-_ZL26getAuthPtrSlotSymbolHelperIN4llvm22MachineModuleInfoMachOEEPNS0_8MCSymbolERNS0_9MCContextERKNS0_13TargetMachineEPNS0_17MachineModuleInfoERT_PKS2_NS0_13AArch64PACKey2IDEt.argprom.argprom.exit: ; preds = %_ZN4llvm22MachineModuleInfoMachO19getAuthPtrStubEntryEPNS_8MCSymbolE.exit.i, %88
+_ZL26getAuthPtrSlotSymbolHelperIN4llvm22MachineModuleInfoMachOEEPNS0_8MCSymbolERNS0_9MCContextERKNS0_13TargetMachineEPNS0_17MachineModuleInfoERT_PKS2_NS0_13AArch64PACKey2IDEt.exit: ; preds = %_ZN4llvm22MachineModuleInfoMachO19getAuthPtrStubEntryEPNS_8MCSymbolE.exit.i, %88
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)

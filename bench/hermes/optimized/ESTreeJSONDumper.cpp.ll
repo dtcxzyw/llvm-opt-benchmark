@@ -1571,7 +1571,7 @@ sw.bb81:                                          ; preds = %if.end
   br label %return
 
 sw.bb84:                                          ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper5visitEPNS_6ESTree18NumericLiteralNodeEN4llvh9StringRefE.argprom(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %node, i64 14)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper5visitEPNS_6ESTree18NumericLiteralNodeEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %node, i64 14)
   br label %return
 
 sw.bb87:                                          ; preds = %if.end
@@ -2408,7 +2408,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper5visitEPNS_6ESTree18NumericLiteralNodeEN4llvh9StringRefE.argprom(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %node, i64 %type.coerce1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper5visitEPNS_6ESTree18NumericLiteralNodeEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %node, i64 %type.coerce1) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter8openDictEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #7
@@ -6525,13 +6525,13 @@ if.then.i:                                        ; preds = %do.body24
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %do.body24
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   ret void
 }
 
@@ -6907,13 +6907,13 @@ if.then.i:                                        ; preds = %entry
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %entry
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   ret void
 }
 
@@ -6945,13 +6945,13 @@ if.then.i:                                        ; preds = %entry
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %entry
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   %_flags = getelementptr inbounds i8, ptr %node, i64 56
   %2 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr nonnull @.str.272, i64 5) #7
@@ -6960,18 +6960,18 @@ _ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.
   %tobool.not.i18 = icmp eq ptr %3, null
   br i1 %tobool.not.i18, label %if.else.i23, label %if.then.i19
 
-if.then.i19:                                      ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.then.i19:                                      ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %agg.tmp.sroa.0.0.copyload.i20 = load ptr, ptr %3, align 8
   %agg.tmp.sroa.2.0.call.sroa_idx.i21 = getelementptr inbounds i8, ptr %3, i64 8
   %agg.tmp.sroa.2.0.copyload.i22 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i21, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val17, ptr %agg.tmp.sroa.0.0.copyload.i20, i64 %agg.tmp.sroa.2.0.copyload.i22) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit24
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit24
 
-if.else.i23:                                      ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.else.i23:                                      ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val17) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit24
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit24
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit24: ; preds = %if.then.i19, %if.else.i23
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit24: ; preds = %if.then.i19, %if.else.i23
   ret void
 }
 
@@ -6991,13 +6991,13 @@ if.then.i:                                        ; preds = %entry
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %entry
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   ret void
 }
 
@@ -8037,19 +8037,19 @@ if.then.i:                                        ; preds = %entry
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %entry
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   %_left = getelementptr inbounds i8, ptr %node, i64 56
   %2 = load ptr, ptr %_left, align 8
   %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %if.then26, label %if.end56
 
-if.then26:                                        ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.then26:                                        ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %mode_27 = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i32, ptr %mode_27, align 8
   switch i32 %3, label %if.end56 [
@@ -8084,7 +8084,7 @@ if.then46:                                        ; preds = %if.then33
   %cmp.i2.not.i.not = select i1 %cmp.i.i28, i1 true, i1 %cmp.i23.i
   br i1 %cmp.i2.not.i.not, label %if.end56, label %do.body61
 
-if.end56:                                         ; preds = %if.then26, %if.then46, %if.then33, %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.end56:                                         ; preds = %if.then26, %if.then46, %if.then33, %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %8 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr nonnull @.str.254, i64 4) #7
   %9 = load ptr, ptr %_left, align 8
@@ -8159,19 +8159,19 @@ if.then.i:                                        ; preds = %entry
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val26, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %entry
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val26) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   %_argument = getelementptr inbounds i8, ptr %node, i64 56
   %2 = load ptr, ptr %_argument, align 8
   %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %if.then26, label %if.end56
 
-if.then26:                                        ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.then26:                                        ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %mode_27 = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i32, ptr %mode_27, align 8
   switch i32 %3, label %if.end56 [
@@ -8206,7 +8206,7 @@ if.then46:                                        ; preds = %if.then33
   %cmp.i2.not.i.not = select i1 %cmp.i.i29, i1 true, i1 %cmp.i23.i
   br i1 %cmp.i2.not.i.not, label %if.end56, label %do.body61
 
-if.end56:                                         ; preds = %if.then26, %if.then46, %if.then33, %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.end56:                                         ; preds = %if.then26, %if.then46, %if.then33, %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %8 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr nonnull @.str.260, i64 8) #7
   %9 = load ptr, ptr %_argument, align 8
@@ -8283,19 +8283,19 @@ if.then.i:                                        ; preds = %entry
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val26, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %entry
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val26) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   %_argument = getelementptr inbounds i8, ptr %node, i64 56
   %2 = load ptr, ptr %_argument, align 8
   %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %if.then26, label %if.end56
 
-if.then26:                                        ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.then26:                                        ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %mode_27 = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i32, ptr %mode_27, align 8
   switch i32 %3, label %if.end56 [
@@ -8330,7 +8330,7 @@ if.then46:                                        ; preds = %if.then33
   %cmp.i2.not.i.not = select i1 %cmp.i.i29, i1 true, i1 %cmp.i23.i
   br i1 %cmp.i2.not.i.not, label %if.end56, label %do.body61
 
-if.end56:                                         ; preds = %if.then26, %if.then46, %if.then33, %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.end56:                                         ; preds = %if.then26, %if.then46, %if.then33, %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %8 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr nonnull @.str.260, i64 8) #7
   %9 = load ptr, ptr %_argument, align 8
@@ -8857,13 +8857,13 @@ if.then.i:                                        ; preds = %do.body61
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %do.body61
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   ret void
 }
 
@@ -9129,13 +9129,13 @@ if.then.i:                                        ; preds = %do.body61
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %do.body61
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   ret void
 }
 
@@ -9209,13 +9209,13 @@ if.then.i:                                        ; preds = %entry
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %entry
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   ret void
 }
 
@@ -9235,19 +9235,19 @@ if.then.i:                                        ; preds = %entry
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val26, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %entry
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val26) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %2 = load ptr, ptr %_typeAnnotation, align 8
   %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %if.then26, label %if.end56
 
-if.then26:                                        ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.then26:                                        ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %mode_27 = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i32, ptr %mode_27, align 8
   switch i32 %3, label %if.end56 [
@@ -9282,7 +9282,7 @@ if.then46:                                        ; preds = %if.then33
   %cmp.i2.not.i.not = select i1 %cmp.i.i29, i1 true, i1 %cmp.i23.i
   br i1 %cmp.i2.not.i.not, label %if.end56, label %do.body61
 
-if.end56:                                         ; preds = %if.then26, %if.then46, %if.then33, %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.end56:                                         ; preds = %if.then26, %if.then46, %if.then33, %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %8 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr nonnull @.str.13, i64 14) #7
   %9 = load ptr, ptr %_typeAnnotation, align 8
@@ -9820,19 +9820,19 @@ if.then.i:                                        ; preds = %entry
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %entry
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   %_declarations = getelementptr inbounds i8, ptr %node, i64 56
   %2 = load ptr, ptr %_declarations, align 8
   %cmp.i.i.i = icmp eq ptr %_declarations, %2
   br i1 %cmp.i.i.i, label %if.then26, label %if.end56
 
-if.then26:                                        ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.then26:                                        ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %mode_27 = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i32, ptr %mode_27, align 8
   switch i32 %3, label %if.end56 [
@@ -9867,7 +9867,7 @@ if.then46:                                        ; preds = %if.then33
   %cmp.i2.not.i.not = select i1 %cmp.i.i18, i1 true, i1 %cmp.i23.i
   br i1 %cmp.i2.not.i.not, label %if.end56, label %do.end60
 
-if.end56:                                         ; preds = %if.then26, %if.then46, %if.then33, %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.end56:                                         ; preds = %if.then26, %if.then46, %if.then33, %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %8 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr nonnull @.str.291, i64 12) #7
   tail call fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(16) %_declarations)
@@ -10145,13 +10145,13 @@ if.then.i:                                        ; preds = %do.body26
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val26, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %do.body26
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val26) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   %_raw = getelementptr inbounds i8, ptr %node, i64 64
   %10 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr nonnull @.str.297, i64 3) #7
@@ -10160,18 +10160,18 @@ _ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.
   %tobool.not.i31 = icmp eq ptr %11, null
   br i1 %tobool.not.i31, label %if.else.i36, label %if.then.i32
 
-if.then.i32:                                      ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.then.i32:                                      ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %agg.tmp.sroa.0.0.copyload.i33 = load ptr, ptr %11, align 8
   %agg.tmp.sroa.2.0.call.sroa_idx.i34 = getelementptr inbounds i8, ptr %11, i64 8
   %agg.tmp.sroa.2.0.copyload.i35 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i34, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val27, ptr %agg.tmp.sroa.0.0.copyload.i33, i64 %agg.tmp.sroa.2.0.copyload.i35) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit37
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit37
 
-if.else.i36:                                      ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.else.i36:                                      ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val27) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit37
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit37
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit37: ; preds = %if.then.i32, %if.else.i36
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit37: ; preds = %if.then.i32, %if.else.i36
   ret void
 }
 
@@ -10287,19 +10287,19 @@ if.then.i:                                        ; preds = %do.body61
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val55, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %do.body61
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val55) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   %_computed = getelementptr inbounds i8, ptr %node, i64 72
   %18 = load i8, ptr %_computed, align 8
   %tobool99 = trunc i8 %18 to i1
   br i1 %tobool99, label %if.end131, label %if.then101
 
-if.then101:                                       ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.then101:                                       ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %mode_102 = getelementptr inbounds i8, ptr %this, i64 16
   %19 = load i32, ptr %mode_102, align 8
   switch i32 %19, label %if.end131 [
@@ -10334,7 +10334,7 @@ if.then121:                                       ; preds = %if.then108
   %cmp.i2.not.i97.not = select i1 %cmp.i.i92, i1 true, i1 %cmp.i23.i96
   br i1 %cmp.i2.not.i97.not, label %if.end131, label %do.body137
 
-if.end131:                                        ; preds = %if.then101, %if.then121, %if.then108, %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.end131:                                        ; preds = %if.then101, %if.then121, %if.then108, %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %24 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %24, ptr nonnull @.str.286, i64 8) #7
   %25 = load i8, ptr %_computed, align 8
@@ -12134,19 +12134,19 @@ if.then.i:                                        ; preds = %do.body61
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val45, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %do.body61
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val45) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   %_computed = getelementptr inbounds i8, ptr %node, i64 72
   %18 = load i8, ptr %_computed, align 8
   %tobool99 = trunc i8 %18 to i1
   br i1 %tobool99, label %if.end131, label %if.then101
 
-if.then101:                                       ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.then101:                                       ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %mode_102 = getelementptr inbounds i8, ptr %this, i64 16
   %19 = load i32, ptr %mode_102, align 8
   switch i32 %19, label %if.end131 [
@@ -12181,7 +12181,7 @@ if.then121:                                       ; preds = %if.then108
   %cmp.i2.not.i87.not = select i1 %cmp.i.i82, i1 true, i1 %cmp.i23.i86
   br i1 %cmp.i2.not.i87.not, label %if.end131, label %do.body137
 
-if.end131:                                        ; preds = %if.then101, %if.then121, %if.then108, %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.end131:                                        ; preds = %if.then101, %if.then121, %if.then108, %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %24 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %24, ptr nonnull @.str.286, i64 8) #7
   %25 = load i8, ptr %_computed, align 8
@@ -12402,13 +12402,13 @@ if.then.i:                                        ; preds = %do.body98
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %23, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %do.body98
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   ret void
 }
 
@@ -12524,13 +12524,13 @@ if.then.i:                                        ; preds = %do.body61
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %do.body61
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   ret void
 }
 
@@ -12903,13 +12903,13 @@ if.then.i:                                        ; preds = %do.body98
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %24, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %do.body98
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   ret void
 }
 
@@ -13187,13 +13187,13 @@ if.then.i:                                        ; preds = %do.body24
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %do.body24
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   ret void
 }
 
@@ -13571,13 +13571,13 @@ if.then.i:                                        ; preds = %entry
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %entry
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   ret void
 }
 
@@ -14318,13 +14318,13 @@ if.then.i:                                        ; preds = %entry
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %entry
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   %_raw = getelementptr inbounds i8, ptr %node, i64 56
   %2 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr nonnull @.str.297, i64 3) #7
@@ -14333,18 +14333,18 @@ _ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.
   %tobool.not.i18 = icmp eq ptr %3, null
   br i1 %tobool.not.i18, label %if.else.i23, label %if.then.i19
 
-if.then.i19:                                      ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.then.i19:                                      ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %agg.tmp.sroa.0.0.copyload.i20 = load ptr, ptr %3, align 8
   %agg.tmp.sroa.2.0.call.sroa_idx.i21 = getelementptr inbounds i8, ptr %3, i64 8
   %agg.tmp.sroa.2.0.copyload.i22 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i21, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val17, ptr %agg.tmp.sroa.0.0.copyload.i20, i64 %agg.tmp.sroa.2.0.copyload.i22) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit24
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit24
 
-if.else.i23:                                      ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.else.i23:                                      ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val17) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit24
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit24
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit24: ; preds = %if.then.i19, %if.else.i23
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit24: ; preds = %if.then.i19, %if.else.i23
   ret void
 }
 
@@ -14364,13 +14364,13 @@ if.then.i:                                        ; preds = %entry
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %entry
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   %_raw = getelementptr inbounds i8, ptr %node, i64 56
   %2 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr nonnull @.str.297, i64 3) #7
@@ -14379,18 +14379,18 @@ _ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.
   %tobool.not.i18 = icmp eq ptr %3, null
   br i1 %tobool.not.i18, label %if.else.i23, label %if.then.i19
 
-if.then.i19:                                      ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.then.i19:                                      ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %agg.tmp.sroa.0.0.copyload.i20 = load ptr, ptr %3, align 8
   %agg.tmp.sroa.2.0.call.sroa_idx.i21 = getelementptr inbounds i8, ptr %3, i64 8
   %agg.tmp.sroa.2.0.copyload.i22 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i21, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val17, ptr %agg.tmp.sroa.0.0.copyload.i20, i64 %agg.tmp.sroa.2.0.copyload.i22) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit24
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit24
 
-if.else.i23:                                      ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.else.i23:                                      ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val17) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit24
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit24
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit24: ; preds = %if.then.i19, %if.else.i23
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit24: ; preds = %if.then.i19, %if.else.i23
   ret void
 }
 
@@ -14708,13 +14708,13 @@ if.then.i:                                        ; preds = %entry
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %entry
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   %_raw = getelementptr inbounds i8, ptr %node, i64 56
   %2 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr nonnull @.str.297, i64 3) #7
@@ -14723,18 +14723,18 @@ _ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.
   %tobool.not.i18 = icmp eq ptr %3, null
   br i1 %tobool.not.i18, label %if.else.i23, label %if.then.i19
 
-if.then.i19:                                      ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.then.i19:                                      ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %agg.tmp.sroa.0.0.copyload.i20 = load ptr, ptr %3, align 8
   %agg.tmp.sroa.2.0.call.sroa_idx.i21 = getelementptr inbounds i8, ptr %3, i64 8
   %agg.tmp.sroa.2.0.copyload.i22 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i21, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val17, ptr %agg.tmp.sroa.0.0.copyload.i20, i64 %agg.tmp.sroa.2.0.copyload.i22) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit24
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit24
 
-if.else.i23:                                      ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.else.i23:                                      ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val17) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit24
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit24
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit24: ; preds = %if.then.i19, %if.else.i23
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit24: ; preds = %if.then.i19, %if.else.i23
   ret void
 }
 
@@ -14760,13 +14760,13 @@ if.then.i:                                        ; preds = %entry
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %entry
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   ret void
 }
 
@@ -14786,13 +14786,13 @@ if.then.i:                                        ; preds = %entry
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %entry
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   ret void
 }
 
@@ -14862,13 +14862,13 @@ if.then.i:                                        ; preds = %do.body26
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val17, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %do.body26
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val17) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   ret void
 }
 
@@ -15898,19 +15898,19 @@ if.then.i:                                        ; preds = %entry
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %entry
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %2 = load ptr, ptr %_typeAnnotation, align 8
   %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %if.then26, label %if.end56
 
-if.then26:                                        ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.then26:                                        ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %mode_27 = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i32, ptr %mode_27, align 8
   switch i32 %3, label %if.end56 [
@@ -15945,7 +15945,7 @@ if.then46:                                        ; preds = %if.then33
   %cmp.i2.not.i.not = select i1 %cmp.i.i19, i1 true, i1 %cmp.i23.i
   br i1 %cmp.i2.not.i.not, label %if.end56, label %do.end60
 
-if.end56:                                         ; preds = %if.then26, %if.then46, %if.then33, %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.end56:                                         ; preds = %if.then26, %if.then46, %if.then33, %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %8 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr nonnull @.str.13, i64 14) #7
   %9 = load ptr, ptr %_typeAnnotation, align 8
@@ -19226,13 +19226,13 @@ if.then.i:                                        ; preds = %do.body24
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %do.body24
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   ret void
 }
 
@@ -19703,13 +19703,13 @@ if.then.i:                                        ; preds = %do.body61
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %do.body61
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   ret void
 }
 
@@ -20679,13 +20679,13 @@ if.then.i:                                        ; preds = %do.body254
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %57, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val74, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %do.body254
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val74) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   ret void
 }
 
@@ -21555,13 +21555,13 @@ if.then.i:                                        ; preds = %do.body135
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %33, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %do.body135
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   ret void
 }
 
@@ -21581,13 +21581,13 @@ if.then.i:                                        ; preds = %entry
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %entry
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   ret void
 }
 
@@ -21660,19 +21660,19 @@ if.then.i:                                        ; preds = %entry
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val44, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %entry
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val44) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   %_bound = getelementptr inbounds i8, ptr %node, i64 56
   %2 = load ptr, ptr %_bound, align 8
   %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %if.then26, label %if.end56
 
-if.then26:                                        ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.then26:                                        ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %mode_27 = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i32, ptr %mode_27, align 8
   switch i32 %3, label %if.end56 [
@@ -21707,7 +21707,7 @@ if.then46:                                        ; preds = %if.then33
   %cmp.i2.not.i.not = select i1 %cmp.i.i47, i1 true, i1 %cmp.i23.i
   br i1 %cmp.i2.not.i.not, label %if.end56, label %do.body61
 
-if.end56:                                         ; preds = %if.then26, %if.then46, %if.then33, %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.end56:                                         ; preds = %if.then26, %if.then46, %if.then33, %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %8 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr nonnull @.str.347, i64 5) #7
   %9 = load ptr, ptr %_bound, align 8
@@ -24540,19 +24540,19 @@ if.then.i:                                        ; preds = %do.body24
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val46, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %do.body24
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val46) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   %_readonly = getelementptr inbounds i8, ptr %node, i64 64
   %10 = load i8, ptr %_readonly, align 8
   %tobool62 = trunc i8 %10 to i1
   br i1 %tobool62, label %if.end94, label %if.then64
 
-if.then64:                                        ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.then64:                                        ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %mode_65 = getelementptr inbounds i8, ptr %this, i64 16
   %11 = load i32, ptr %mode_65, align 8
   switch i32 %11, label %if.end94 [
@@ -24587,7 +24587,7 @@ if.then84:                                        ; preds = %if.then71
   %cmp.i2.not.i68.not = select i1 %cmp.i.i63, i1 true, i1 %cmp.i23.i67
   br i1 %cmp.i2.not.i68.not, label %if.end94, label %do.body100
 
-if.end94:                                         ; preds = %if.then64, %if.then84, %if.then71, %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.end94:                                         ; preds = %if.then64, %if.then84, %if.then71, %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %16 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr nonnull @.str.356, i64 8) #7
   %17 = load i8, ptr %_readonly, align 8
@@ -27146,19 +27146,19 @@ if.then.i:                                        ; preds = %entry
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val17, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
 if.else.i:                                        ; preds = %entry
   tail call void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this.val17) #7
-  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
 
-_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   %_readonly = getelementptr inbounds i8, ptr %node, i64 56
   %2 = load i8, ptr %_readonly, align 8
   %tobool25 = trunc i8 %2 to i1
   br i1 %tobool25, label %if.end57, label %if.then27
 
-if.then27:                                        ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.then27:                                        ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %mode_28 = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i32, ptr %mode_28, align 8
   switch i32 %3, label %if.end57 [
@@ -27193,7 +27193,7 @@ if.then47:                                        ; preds = %if.then34
   %cmp.i2.not.i.not = select i1 %cmp.i.i19, i1 true, i1 %cmp.i23.i
   br i1 %cmp.i2.not.i.not, label %if.end57, label %do.end62
 
-if.end57:                                         ; preds = %if.then27, %if.then47, %if.then34, %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.argprom.exit
+if.end57:                                         ; preds = %if.then27, %if.then47, %if.then34, %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %8 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr nonnull @.str.356, i64 8) #7
   %9 = load i8, ptr %_readonly, align 8

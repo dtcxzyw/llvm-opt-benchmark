@@ -347,20 +347,20 @@ define internal noundef zeroext i1 @_ZL21setup_syllables_khmerPK18hb_ot_shape_pl
   %gep.i = getelementptr inbounds %struct.hb_glyph_info_t, ptr %invariant.gep.i, i64 %indvars.iv.next, i32 3
   %16 = load i8, ptr %gep.i, align 1
   %17 = icmp eq i8 %12, %16
-  br i1 %17, label %14, label %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit.split.loop.exit, !llvm.loop !12
+  br i1 %17, label %14, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit, !llvm.loop !12
 
-_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit.split.loop.exit: ; preds = %15
+_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit: ; preds = %15
   %18 = trunc nuw i64 %indvars.iv.next to i32
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %14, %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit.split.loop.exit
-  %19 = phi i32 [ %18, %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit.split.loop.exit ], [ %8, %14 ]
+.lr.ph:                                           ; preds = %14, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit
+  %19 = phi i32 [ %18, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit ], [ %8, %14 ]
   %20 = getelementptr i8, ptr %2, i64 104
   br label %21
 
-21:                                               ; preds = %.lr.ph, %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit21
-  %.023 = phi i32 [ %19, %.lr.ph ], [ %.lcssa.i19, %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit21 ]
-  %.01222 = phi i32 [ 0, %.lr.ph ], [ %.023, %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit21 ]
+21:                                               ; preds = %.lr.ph, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit21
+  %.023 = phi i32 [ %19, %.lr.ph ], [ %.lcssa.i19, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit21 ]
+  %.01222 = phi i32 [ 0, %.lr.ph ], [ %.023, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit21 ]
   tail call void @_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb(ptr noundef nonnull align 8 dereferenceable(220) %2, i32 noundef 3, i32 noundef %.01222, i32 noundef %.023, i1 noundef zeroext true, i1 noundef zeroext false)
   %.val14 = load i32, ptr %7, align 8
   %.val15 = load ptr, ptr %20, align 8
@@ -377,7 +377,7 @@ _ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit.split.loop.exit: ; preds = %1
 28:                                               ; preds = %29, %21
   %.0.i18 = phi i32 [ %.023, %21 ], [ %30, %29 ]
   %exitcond26.not = icmp eq i32 %.0.i18, %27
-  br i1 %exitcond26.not, label %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit21, label %29
+  br i1 %exitcond26.not, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit21, label %29
 
 29:                                               ; preds = %28
   %30 = add i32 %.0.i18, 1
@@ -385,14 +385,14 @@ _ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit.split.loop.exit: ; preds = %1
   %gep.i20 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %invariant.gep.i16, i64 %31, i32 3
   %32 = load i8, ptr %gep.i20, align 1
   %33 = icmp eq i8 %25, %32
-  br i1 %33, label %28, label %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit21, !llvm.loop !12
+  br i1 %33, label %28, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit21, !llvm.loop !12
 
-_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit21: ; preds = %28, %29
+_ZL17_hb_next_syllableP11hb_buffer_tj.exit21:     ; preds = %28, %29
   %.lcssa.i19 = phi i32 [ %umax.i17, %28 ], [ %30, %29 ]
   %34 = icmp ult i32 %.023, %8
   br i1 %34, label %21, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit21, %3
+._crit_edge:                                      ; preds = %_ZL17_hb_next_syllableP11hb_buffer_tj.exit21, %3
   ret i1 false
 }
 
@@ -431,14 +431,14 @@ define internal noundef zeroext i1 @_ZL13reorder_khmerPK18hb_ot_shape_plan_tP9hb
   %gep.i = getelementptr inbounds %struct.hb_glyph_info_t, ptr %invariant.gep.i, i64 %indvars.iv.next, i32 3
   %19 = load i8, ptr %gep.i, align 1
   %20 = icmp eq i8 %15, %19
-  br i1 %20, label %17, label %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit.split.loop.exit, !llvm.loop !12
+  br i1 %20, label %17, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit, !llvm.loop !12
 
-_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit.split.loop.exit: ; preds = %18
+_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit: ; preds = %18
   %21 = trunc nuw i64 %indvars.iv.next to i32
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %17, %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit.split.loop.exit
-  %22 = phi i32 [ %21, %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit.split.loop.exit ], [ %11, %17 ]
+.lr.ph:                                           ; preds = %17, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit
+  %22 = phi i32 [ %21, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit ], [ %11, %17 ]
   %23 = getelementptr inbounds i8, ptr %2, i64 104
   %24 = getelementptr i8, ptr %0, i64 136
   %.pre = load ptr, ptr %23, align 8
@@ -446,18 +446,18 @@ _ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit.split.loop.exit: ; preds = %1
   %.pre37 = load i8, ptr %.phi.trans.insert36, align 1
   br label %25
 
-25:                                               ; preds = %.lr.ph, %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit30
-  %.val24.pre45 = phi ptr [ %.pre, %.lr.ph ], [ %.val24.pre46, %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit30 ]
-  %.val23.pre42 = phi i32 [ %11, %.lr.ph ], [ %.val23.pre43, %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit30 ]
-  %.val2440 = phi ptr [ %.pre, %.lr.ph ], [ %.val24, %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit30 ]
-  %.val2338 = phi i32 [ %11, %.lr.ph ], [ %.val23, %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit30 ]
-  %26 = phi i8 [ %.pre37, %.lr.ph ], [ %104, %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit30 ]
-  %.032 = phi i32 [ %22, %.lr.ph ], [ %.lcssa.i28, %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit30 ]
-  %.02031 = phi i32 [ 0, %.lr.ph ], [ %.032, %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit30 ]
+25:                                               ; preds = %.lr.ph, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit30
+  %.val24.pre45 = phi ptr [ %.pre, %.lr.ph ], [ %.val24.pre46, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit30 ]
+  %.val23.pre42 = phi i32 [ %11, %.lr.ph ], [ %.val23.pre43, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit30 ]
+  %.val2440 = phi ptr [ %.pre, %.lr.ph ], [ %.val24, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit30 ]
+  %.val2338 = phi i32 [ %11, %.lr.ph ], [ %.val23, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit30 ]
+  %26 = phi i8 [ %.pre37, %.lr.ph ], [ %104, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit30 ]
+  %.032 = phi i32 [ %22, %.lr.ph ], [ %.lcssa.i28, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit30 ]
+  %.02031 = phi i32 [ 0, %.lr.ph ], [ %.032, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit30 ]
   %27 = zext i32 %.02031 to i64
   %28 = and i8 %26, 14
   %switch.i = icmp eq i8 %28, 0
-  br i1 %switch.i, label %29, label %_ZL22reorder_syllable_khmerPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.argprom.exit
+  br i1 %switch.i, label %29, label %_ZL22reorder_syllable_khmerPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit
 
 29:                                               ; preds = %25
   %.val.i = load ptr, ptr %24, align 8
@@ -474,7 +474,7 @@ _ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit.split.loop.exit: ; preds = %1
   %37 = or i32 %34, %36
   %38 = add nuw i32 %.02031, 1
   %39 = icmp ult i32 %38, %.032
-  br i1 %39, label %.lr.ph.preheader.i.i, label %_ZL26reorder_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.argprom.exit.i
+  br i1 %39, label %.lr.ph.preheader.i.i, label %_ZL26reorder_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit.i
 
 .lr.ph.preheader.i.i:                             ; preds = %29
   %40 = zext i32 %38 to i64
@@ -608,26 +608,26 @@ _ZN11hb_buffer_t14merge_clustersEjj.exit76.i.i:   ; preds = %97, %94
   %indvars.iv.next16.i.i = add i32 %indvars.iv15.i.i, 1
   %lftr.wideiv25.i.i = trunc i64 %indvars.iv.next23.pre-phi.i.i to i32
   %exitcond26.not.i.i = icmp eq i32 %.032, %lftr.wideiv25.i.i
-  br i1 %exitcond26.not.i.i, label %_ZL26reorder_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.argprom.exit.i.loopexit, label %52, !llvm.loop !16
+  br i1 %exitcond26.not.i.i, label %_ZL26reorder_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit.i.loopexit, label %52, !llvm.loop !16
 
-_ZL26reorder_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.argprom.exit.i.loopexit: ; preds = %.thread.i.i
+_ZL26reorder_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit.i.loopexit: ; preds = %.thread.i.i
   %.val23.pre.pre = load i32, ptr %10, align 8
   %.val24.pre.pre = load ptr, ptr %23, align 8
-  br label %_ZL26reorder_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.argprom.exit.i
+  br label %_ZL26reorder_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit.i
 
-_ZL26reorder_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.argprom.exit.i: ; preds = %_ZL26reorder_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.argprom.exit.i.loopexit, %29
-  %.val24.pre = phi ptr [ %.val24.pre.pre, %_ZL26reorder_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.argprom.exit.i.loopexit ], [ %.val24.pre45, %29 ]
-  %.val23.pre = phi i32 [ %.val23.pre.pre, %_ZL26reorder_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.argprom.exit.i.loopexit ], [ %.val23.pre42, %29 ]
+_ZL26reorder_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit.i: ; preds = %_ZL26reorder_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit.i.loopexit, %29
+  %.val24.pre = phi ptr [ %.val24.pre.pre, %_ZL26reorder_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit.i.loopexit ], [ %.val24.pre45, %29 ]
+  %.val23.pre = phi i32 [ %.val23.pre.pre, %_ZL26reorder_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit.i.loopexit ], [ %.val23.pre42, %29 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6)
-  br label %_ZL22reorder_syllable_khmerPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.argprom.exit
+  br label %_ZL22reorder_syllable_khmerPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit
 
-_ZL22reorder_syllable_khmerPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.argprom.exit: ; preds = %25, %_ZL26reorder_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.argprom.exit.i
-  %.val24.pre46 = phi ptr [ %.val24.pre45, %25 ], [ %.val24.pre, %_ZL26reorder_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.argprom.exit.i ]
-  %.val23.pre43 = phi i32 [ %.val23.pre42, %25 ], [ %.val23.pre, %_ZL26reorder_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.argprom.exit.i ]
-  %.val24 = phi ptr [ %.val2440, %25 ], [ %.val24.pre, %_ZL26reorder_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.argprom.exit.i ]
-  %.val23 = phi i32 [ %.val2338, %25 ], [ %.val23.pre, %_ZL26reorder_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.argprom.exit.i ]
+_ZL22reorder_syllable_khmerPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit: ; preds = %25, %_ZL26reorder_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit.i
+  %.val24.pre46 = phi ptr [ %.val24.pre45, %25 ], [ %.val24.pre, %_ZL26reorder_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit.i ]
+  %.val23.pre43 = phi i32 [ %.val23.pre42, %25 ], [ %.val23.pre, %_ZL26reorder_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit.i ]
+  %.val24 = phi ptr [ %.val2440, %25 ], [ %.val24.pre, %_ZL26reorder_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit.i ]
+  %.val23 = phi i32 [ %.val2338, %25 ], [ %.val23.pre, %_ZL26reorder_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit.i ]
   %101 = zext i32 %.032 to i64
   %102 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %.val24, i64 %101, i32 3
   %103 = getelementptr inbounds i8, ptr %102, i64 3
@@ -638,10 +638,10 @@ _ZL22reorder_syllable_khmerPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.arg
   %106 = add i32 %umax.i26, -1
   br label %107
 
-107:                                              ; preds = %108, %_ZL22reorder_syllable_khmerPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.argprom.exit
-  %.0.i27 = phi i32 [ %.032, %_ZL22reorder_syllable_khmerPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.argprom.exit ], [ %109, %108 ]
+107:                                              ; preds = %108, %_ZL22reorder_syllable_khmerPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit
+  %.0.i27 = phi i32 [ %.032, %_ZL22reorder_syllable_khmerPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit ], [ %109, %108 ]
   %exitcond35.not = icmp eq i32 %.0.i27, %106
-  br i1 %exitcond35.not, label %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit30, label %108
+  br i1 %exitcond35.not, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit30, label %108
 
 108:                                              ; preds = %107
   %109 = add i32 %.0.i27, 1
@@ -649,14 +649,14 @@ _ZL22reorder_syllable_khmerPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.arg
   %gep.i29 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %invariant.gep.i25, i64 %110, i32 3
   %111 = load i8, ptr %gep.i29, align 1
   %112 = icmp eq i8 %104, %111
-  br i1 %112, label %107, label %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit30, !llvm.loop !12
+  br i1 %112, label %107, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit30, !llvm.loop !12
 
-_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit30: ; preds = %107, %108
+_ZL17_hb_next_syllableP11hb_buffer_tj.exit30:     ; preds = %107, %108
   %.lcssa.i28 = phi i32 [ %umax.i26, %107 ], [ %109, %108 ]
   %113 = icmp ult i32 %.032, %11
   br i1 %113, label %25, label %._crit_edge, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit30, %8
+._crit_edge:                                      ; preds = %_ZL17_hb_next_syllableP11hb_buffer_tj.exit30, %8
   %114 = tail call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %2, ptr noundef %1, ptr noundef nonnull @.str.3)
   br label %115
 

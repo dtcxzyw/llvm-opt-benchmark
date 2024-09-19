@@ -38,7 +38,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool1.not, label %if.end, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %call = tail call fastcc ptr @_.argprom()
+  %call = tail call fastcc ptr @_()
   tail call void (ptr, ...) @die(ptr noundef %call) #10
   unreachable
 
@@ -59,7 +59,7 @@ if.end6:                                          ; preds = %if.end, %entry
 declare void @die(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_.argprom() unnamed_addr #0 {
+define internal fastcc ptr @_() unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not = icmp eq i32 %0, 0
@@ -100,7 +100,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %tobool1.not.i, label %if.end.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %call.i = tail call fastcc ptr @_.argprom()
+  %call.i = tail call fastcc ptr @_()
   tail call void (ptr, ...) @die(ptr noundef %call.i) #10
   unreachable
 
@@ -666,7 +666,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool1.not.i, label %if.end.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %call.i = tail call fastcc ptr @_.argprom()
+  %call.i = tail call fastcc ptr @_()
   tail call void (ptr, ...) @die(ptr noundef %call.i) #10
   unreachable
 
@@ -1127,7 +1127,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool1.not.i, label %if.end.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %call.i = tail call fastcc ptr @_.argprom()
+  %call.i = tail call fastcc ptr @_()
   tail call void (ptr, ...) @die(ptr noundef %call.i) #10
   unreachable
 
@@ -1326,7 +1326,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool1.not.i, label %init_split_index.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %call.i = tail call fastcc ptr @_.argprom()
+  %call.i = tail call fastcc ptr @_()
   tail call void (ptr, ...) @die(ptr noundef %call.i) #10
   unreachable
 

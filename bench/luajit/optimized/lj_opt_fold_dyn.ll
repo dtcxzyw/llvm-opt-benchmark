@@ -963,7 +963,7 @@ entry:
   %1 = load i64, ptr %arrayidx2, align 8
   %o = getelementptr inbounds i8, ptr %J, i64 189
   %2 = load i8, ptr %o, align 1
-  switch i8 %2, label %kfold_int64arith.argprom.exit [
+  switch i8 %2, label %kfold_int64arith.exit [
     i8 41, label %sw.bb.i
     i8 42, label %sw.bb1.i
     i8 43, label %sw.bb2.i
@@ -979,52 +979,52 @@ entry:
 
 sw.bb.i:                                          ; preds = %entry
   %add.i = add i64 %1, %0
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb1.i:                                         ; preds = %entry
   %sub.i = sub i64 %0, %1
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb2.i:                                         ; preds = %entry
   %mul.i = mul i64 %1, %0
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb3.i:                                         ; preds = %entry
   %and.i = and i64 %1, %0
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb4.i:                                         ; preds = %entry
   %or.i = or i64 %1, %0
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb5.i:                                         ; preds = %entry
   %xor.i = xor i64 %1, %0
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb6.i:                                         ; preds = %entry
   %and7.i = and i64 %1, 63
   %shl.i = shl i64 %0, %and7.i
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb8.i:                                         ; preds = %entry
   %and9.i = and i64 %1, 63
   %shr.i = lshr i64 %0, %and9.i
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb10.i:                                        ; preds = %entry
   %and11.i = and i64 %1, 63
   %shr12.i = ashr i64 %0, %and11.i
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb13.i:                                        ; preds = %entry
   %or21.i = tail call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 %1)
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb22.i:                                        ; preds = %entry
   %or31.i = tail call i64 @llvm.fshr.i64(i64 %0, i64 %0, i64 %1)
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
-kfold_int64arith.argprom.exit:                    ; preds = %entry, %sw.bb.i, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.bb8.i, %sw.bb10.i, %sw.bb13.i, %sw.bb22.i
+kfold_int64arith.exit:                            ; preds = %entry, %sw.bb.i, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.bb8.i, %sw.bb10.i, %sw.bb13.i, %sw.bb22.i
   %k1.addr.0.i = phi i64 [ %0, %entry ], [ %or31.i, %sw.bb22.i ], [ %or21.i, %sw.bb13.i ], [ %shr12.i, %sw.bb10.i ], [ %shr.i, %sw.bb8.i ], [ %shl.i, %sw.bb6.i ], [ %xor.i, %sw.bb5.i ], [ %or.i, %sw.bb4.i ], [ %and.i, %sw.bb3.i ], [ %mul.i, %sw.bb2.i ], [ %sub.i, %sw.bb1.i ], [ %add.i, %sw.bb.i ]
   %call4 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %J, i64 noundef %k1.addr.0.i) #11
   ret i32 %call4
@@ -4317,7 +4317,7 @@ if.then34:                                        ; preds = %if.end
   %conv40 = sext i32 %10 to i64
   %o43 = getelementptr inbounds i8, ptr %J, i64 189
   %11 = load i8, ptr %o43, align 1
-  switch i8 %11, label %kfold_int64arith.argprom.exit [
+  switch i8 %11, label %kfold_int64arith.exit [
     i8 41, label %sw.bb.i41
     i8 42, label %sw.bb1.i39
     i8 43, label %sw.bb2.i37
@@ -4333,52 +4333,52 @@ if.then34:                                        ; preds = %if.end
 
 sw.bb.i41:                                        ; preds = %if.then34
   %add.i42 = add i64 %9, %conv40
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb1.i39:                                       ; preds = %if.then34
   %sub.i40 = sub i64 %9, %conv40
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb2.i37:                                       ; preds = %if.then34
   %mul.i38 = mul i64 %9, %conv40
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb3.i35:                                       ; preds = %if.then34
   %and.i36 = and i64 %9, %conv40
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb4.i33:                                       ; preds = %if.then34
   %or.i34 = or i64 %9, %conv40
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb5.i:                                         ; preds = %if.then34
   %xor.i32 = xor i64 %9, %conv40
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb6.i30:                                       ; preds = %if.then34
   %and7.i = and i64 %conv40, 63
   %shl.i31 = shl i64 %9, %and7.i
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb8.i28:                                       ; preds = %if.then34
   %and9.i = and i64 %conv40, 63
   %shr.i29 = lshr i64 %9, %and9.i
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb10.i:                                        ; preds = %if.then34
   %and11.i = and i64 %conv40, 63
   %shr12.i = ashr i64 %9, %and11.i
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb13.i27:                                      ; preds = %if.then34
   %or21.i = tail call i64 @llvm.fshl.i64(i64 %9, i64 %9, i64 %conv40)
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb22.i:                                        ; preds = %if.then34
   %or31.i = tail call i64 @llvm.fshr.i64(i64 %9, i64 %9, i64 %conv40)
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
-kfold_int64arith.argprom.exit:                    ; preds = %if.then34, %sw.bb.i41, %sw.bb1.i39, %sw.bb2.i37, %sw.bb3.i35, %sw.bb4.i33, %sw.bb5.i, %sw.bb6.i30, %sw.bb8.i28, %sw.bb10.i, %sw.bb13.i27, %sw.bb22.i
+kfold_int64arith.exit:                            ; preds = %if.then34, %sw.bb.i41, %sw.bb1.i39, %sw.bb2.i37, %sw.bb3.i35, %sw.bb4.i33, %sw.bb5.i, %sw.bb6.i30, %sw.bb8.i28, %sw.bb10.i, %sw.bb13.i27, %sw.bb22.i
   %k1.addr.0.i26 = phi i64 [ %9, %if.then34 ], [ %or31.i, %sw.bb22.i ], [ %or21.i, %sw.bb13.i27 ], [ %shr12.i, %sw.bb10.i ], [ %shr.i29, %sw.bb8.i28 ], [ %shl.i31, %sw.bb6.i30 ], [ %xor.i32, %sw.bb5.i ], [ %or.i34, %sw.bb4.i33 ], [ %and.i36, %sw.bb3.i35 ], [ %mul.i38, %sw.bb2.i37 ], [ %sub.i40, %sw.bb1.i39 ], [ %add.i42, %sw.bb.i41 ]
   %12 = load i16, ptr %t, align 4
   %13 = load i16, ptr %left, align 8
@@ -4389,9 +4389,9 @@ kfold_int64arith.argprom.exit:                    ; preds = %if.then34, %sw.bb.i
   %call63 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %J, i64 noundef %k1.addr.0.i26) #11
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %kfold_intop.exit, %kfold_int64arith.argprom.exit
-  %call63.sink = phi i32 [ %call63, %kfold_int64arith.argprom.exit ], [ %call23, %kfold_intop.exit ]
-  %.sink = phi i16 [ %12, %kfold_int64arith.argprom.exit ], [ 8467, %kfold_intop.exit ]
+return.sink.split:                                ; preds = %kfold_intop.exit, %kfold_int64arith.exit
+  %call63.sink = phi i32 [ %call63, %kfold_int64arith.exit ], [ %call23, %kfold_intop.exit ]
+  %.sink = phi i16 [ %12, %kfold_int64arith.exit ], [ 8467, %kfold_intop.exit ]
   %conv64 = trunc i32 %call63.sink to i16
   %op267 = getelementptr inbounds i8, ptr %J, i64 186
   store i16 %conv64, ptr %op267, align 2
@@ -4657,7 +4657,7 @@ if.then6:                                         ; preds = %if.end
   %6 = load i64, ptr %arrayidx9, align 8
   %o11 = getelementptr inbounds i8, ptr %J, i64 189
   %7 = load i8, ptr %o11, align 1
-  switch i8 %7, label %kfold_int64arith.argprom.exit [
+  switch i8 %7, label %kfold_int64arith.exit [
     i8 41, label %sw.bb.i
     i8 42, label %sw.bb1.i
     i8 43, label %sw.bb2.i
@@ -4673,65 +4673,65 @@ if.then6:                                         ; preds = %if.end
 
 sw.bb.i:                                          ; preds = %if.then6
   %add.i = add i64 %6, %5
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb1.i:                                         ; preds = %if.then6
   %sub.i = sub i64 %5, %6
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb2.i:                                         ; preds = %if.then6
   %mul.i = mul i64 %6, %5
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb3.i:                                         ; preds = %if.then6
   %and.i = and i64 %6, %5
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb4.i:                                         ; preds = %if.then6
   %or.i = or i64 %6, %5
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb5.i:                                         ; preds = %if.then6
   %xor.i = xor i64 %6, %5
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb6.i:                                         ; preds = %if.then6
   %and7.i = and i64 %6, 63
   %shl.i = shl i64 %5, %and7.i
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb8.i:                                         ; preds = %if.then6
   %and9.i = and i64 %6, 63
   %shr.i = lshr i64 %5, %and9.i
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb10.i:                                        ; preds = %if.then6
   %and11.i = and i64 %6, 63
   %shr12.i = ashr i64 %5, %and11.i
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb13.i:                                        ; preds = %if.then6
   %or21.i = tail call i64 @llvm.fshl.i64(i64 %5, i64 %5, i64 %6)
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb22.i:                                        ; preds = %if.then6
   %or31.i = tail call i64 @llvm.fshr.i64(i64 %5, i64 %5, i64 %6)
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
-kfold_int64arith.argprom.exit:                    ; preds = %if.then6, %sw.bb.i, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.bb8.i, %sw.bb10.i, %sw.bb13.i, %sw.bb22.i
+kfold_int64arith.exit:                            ; preds = %if.then6, %sw.bb.i, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.bb8.i, %sw.bb10.i, %sw.bb13.i, %sw.bb22.i
   %k1.addr.0.i = phi i64 [ %5, %if.then6 ], [ %or31.i, %sw.bb22.i ], [ %or21.i, %sw.bb13.i ], [ %shr12.i, %sw.bb10.i ], [ %shr.i, %sw.bb8.i ], [ %shl.i, %sw.bb6.i ], [ %xor.i, %sw.bb5.i ], [ %or.i, %sw.bb4.i ], [ %and.i, %sw.bb3.i ], [ %mul.i, %sw.bb2.i ], [ %sub.i, %sw.bb1.i ], [ %add.i, %sw.bb.i ]
   %cmp17 = icmp ne i8 %7, 33
   %cond = sext i1 %cmp17 to i64
   %cmp19 = icmp eq i64 %k1.addr.0.i, %cond
   br i1 %cmp19, label %if.then21, label %return
 
-if.then21:                                        ; preds = %kfold_int64arith.argprom.exit
+if.then21:                                        ; preds = %kfold_int64arith.exit
   %8 = load i16, ptr %left, align 8
   store i16 %8, ptr %fold, align 8
   br label %return
 
-return:                                           ; preds = %if.end, %kfold_int64arith.argprom.exit, %entry, %if.then21
-  %retval.0 = phi i32 [ 1, %if.then21 ], [ 0, %entry ], [ 0, %kfold_int64arith.argprom.exit ], [ 0, %if.end ]
+return:                                           ; preds = %if.end, %kfold_int64arith.exit, %entry, %if.then21
+  %retval.0 = phi i32 [ 1, %if.then21 ], [ 0, %entry ], [ 0, %kfold_int64arith.exit ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 
@@ -4894,7 +4894,7 @@ if.then:                                          ; preds = %entry
   %4 = load i64, ptr %arrayidx4, align 8
   %o6 = getelementptr inbounds i8, ptr %J, i64 189
   %5 = load i8, ptr %o6, align 1
-  switch i8 %5, label %kfold_int64arith.argprom.exit [
+  switch i8 %5, label %kfold_int64arith.exit [
     i8 41, label %sw.bb.i
     i8 42, label %sw.bb1.i
     i8 43, label %sw.bb2.i
@@ -4910,52 +4910,52 @@ if.then:                                          ; preds = %entry
 
 sw.bb.i:                                          ; preds = %if.then
   %add.i = add i64 %4, %3
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb1.i:                                         ; preds = %if.then
   %sub.i = sub i64 %3, %4
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb2.i:                                         ; preds = %if.then
   %mul.i = mul i64 %4, %3
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb3.i:                                         ; preds = %if.then
   %and.i = and i64 %4, %3
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb4.i:                                         ; preds = %if.then
   %or.i = or i64 %4, %3
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb5.i:                                         ; preds = %if.then
   %xor.i = xor i64 %4, %3
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb6.i:                                         ; preds = %if.then
   %and7.i = and i64 %4, 63
   %shl.i = shl i64 %3, %and7.i
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb8.i:                                         ; preds = %if.then
   %and9.i = and i64 %4, 63
   %shr.i = lshr i64 %3, %and9.i
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb10.i:                                        ; preds = %if.then
   %and11.i = and i64 %4, 63
   %shr12.i = ashr i64 %3, %and11.i
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb13.i:                                        ; preds = %if.then
   %or21.i = tail call i64 @llvm.fshl.i64(i64 %3, i64 %3, i64 %4)
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
 sw.bb22.i:                                        ; preds = %if.then
   %or31.i = tail call i64 @llvm.fshr.i64(i64 %3, i64 %3, i64 %4)
-  br label %kfold_int64arith.argprom.exit
+  br label %kfold_int64arith.exit
 
-kfold_int64arith.argprom.exit:                    ; preds = %if.then, %sw.bb.i, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.bb8.i, %sw.bb10.i, %sw.bb13.i, %sw.bb22.i
+kfold_int64arith.exit:                            ; preds = %if.then, %sw.bb.i, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.bb8.i, %sw.bb10.i, %sw.bb13.i, %sw.bb22.i
   %k1.addr.0.i = phi i64 [ %3, %if.then ], [ %or31.i, %sw.bb22.i ], [ %or21.i, %sw.bb13.i ], [ %shr12.i, %sw.bb10.i ], [ %shr.i, %sw.bb8.i ], [ %shl.i, %sw.bb6.i ], [ %xor.i, %sw.bb5.i ], [ %or.i, %sw.bb4.i ], [ %and.i, %sw.bb3.i ], [ %mul.i, %sw.bb2.i ], [ %sub.i, %sw.bb1.i ], [ %add.i, %sw.bb.i ]
   %t = getelementptr inbounds i8, ptr %J, i64 196
   %6 = load i8, ptr %t, align 4
@@ -4963,7 +4963,7 @@ kfold_int64arith.argprom.exit:                    ; preds = %if.then, %sw.bb.i, 
   %tobool.not = icmp eq i8 %7, 0
   br i1 %tobool.not, label %if.end, label %return
 
-if.end:                                           ; preds = %kfold_int64arith.argprom.exit
+if.end:                                           ; preds = %kfold_int64arith.exit
   %8 = load i16, ptr %left, align 8
   store i16 %8, ptr %fold, align 8
   %call19 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %J, i64 noundef %k1.addr.0.i) #11
@@ -4972,8 +4972,8 @@ if.end:                                           ; preds = %kfold_int64arith.ar
   store i16 %conv20, ptr %op223, align 2
   br label %return
 
-return:                                           ; preds = %entry, %kfold_int64arith.argprom.exit, %if.end
-  %retval.0 = phi i32 [ 1, %if.end ], [ 0, %kfold_int64arith.argprom.exit ], [ 0, %entry ]
+return:                                           ; preds = %entry, %kfold_int64arith.exit, %if.end
+  %retval.0 = phi i32 [ 1, %if.end ], [ 0, %kfold_int64arith.exit ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -5742,7 +5742,7 @@ if.then50:                                        ; preds = %if.end34, %if.then2
   %13 = getelementptr i8, ptr %arrayidx67, i64 4
   %arrayidx67.val = load i8, ptr %13, align 4
   %14 = and i8 %arrayidx67.val, 31
-  switch i8 %14, label %kfold_xload.argprom.exit [
+  switch i8 %14, label %kfold_xload.exit [
     i8 14, label %sw.bb.i
     i8 15, label %sw.bb1.i
     i8 16, label %sw.bb3.i
@@ -5757,7 +5757,7 @@ if.then50:                                        ; preds = %if.end34, %if.then2
 sw.bb.i:                                          ; preds = %if.then50
   %15 = load i64, ptr %add.ptr, align 8
   %call.i = tail call i32 @lj_ir_knum_u64(ptr noundef nonnull %J, i64 noundef %15) #11
-  br label %kfold_xload.argprom.exit
+  br label %kfold_xload.exit
 
 sw.bb1.i:                                         ; preds = %if.then50
   %16 = load i8, ptr %add.ptr, align 1
@@ -5786,19 +5786,19 @@ sw.bb11.i:                                        ; preds = %if.then50, %if.then
 sw.bb13.i:                                        ; preds = %if.then50, %if.then50
   %21 = load i64, ptr %add.ptr, align 8
   %call14.i = tail call i32 @lj_ir_kint64(ptr noundef nonnull %J, i64 noundef %21) #11
-  br label %kfold_xload.argprom.exit
+  br label %kfold_xload.exit
 
 sw.epilog.i:                                      ; preds = %sw.bb11.i, %sw.bb8.i, %sw.bb5.i, %sw.bb3.i, %sw.bb1.i
   %k.0.i = phi i32 [ %20, %sw.bb11.i ], [ %conv10.i, %sw.bb8.i ], [ %conv7.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb1.i ]
   %call15.i = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef %k.0.i) #11
-  br label %kfold_xload.argprom.exit
+  br label %kfold_xload.exit
 
-kfold_xload.argprom.exit:                         ; preds = %if.then50, %sw.bb.i, %sw.bb13.i, %sw.epilog.i
+kfold_xload.exit:                                 ; preds = %if.then50, %sw.bb.i, %sw.bb13.i, %sw.epilog.i
   %retval.0.i = phi i32 [ %call14.i, %sw.bb13.i ], [ %call15.i, %sw.epilog.i ], [ %call.i, %sw.bb.i ], [ 0, %if.then50 ]
   %cmp69 = icmp eq i32 %2, 3
   br i1 %cmp69, label %if.then71, label %if.end76
 
-if.then71:                                        ; preds = %kfold_xload.argprom.exit
+if.then71:                                        ; preds = %kfold_xload.exit
   %conv65 = trunc i32 %call62 to i16
   %call73 = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef 16777215) #11
   %conv74 = trunc i32 %call73 to i16
@@ -5808,8 +5808,8 @@ if.then71:                                        ; preds = %kfold_xload.argprom
   %call75 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J)
   br label %if.end76
 
-if.end76:                                         ; preds = %if.then71, %kfold_xload.argprom.exit
-  %tmp.0 = phi i32 [ %call75, %if.then71 ], [ %call62, %kfold_xload.argprom.exit ]
+if.end76:                                         ; preds = %if.then71, %kfold_xload.exit
+  %tmp.0 = phi i32 [ %call75, %if.then71 ], [ %call62, %kfold_xload.exit ]
   %conv77 = trunc i32 %tmp.0 to i16
   store i16 %conv77, ptr %fold, align 8
   %conv81 = trunc i32 %retval.0.i to i16
@@ -6814,7 +6814,7 @@ entry:
   %2 = getelementptr i8, ptr %J, i64 188
   %fold.val = load i8, ptr %2, align 4
   %3 = and i8 %fold.val, 31
-  switch i8 %3, label %kfold_xload.argprom.exit [
+  switch i8 %3, label %kfold_xload.exit [
     i8 14, label %sw.bb.i
     i8 15, label %sw.bb1.i
     i8 16, label %sw.bb3.i
@@ -6829,7 +6829,7 @@ entry:
 sw.bb.i:                                          ; preds = %entry
   %4 = load i64, ptr %1, align 8
   %call.i = tail call i32 @lj_ir_knum_u64(ptr noundef nonnull %J, i64 noundef %4) #11
-  br label %kfold_xload.argprom.exit
+  br label %kfold_xload.exit
 
 sw.bb1.i:                                         ; preds = %entry
   %5 = load i8, ptr %1, align 1
@@ -6858,14 +6858,14 @@ sw.bb11.i:                                        ; preds = %entry, %entry
 sw.bb13.i:                                        ; preds = %entry, %entry
   %10 = load i64, ptr %1, align 8
   %call14.i = tail call i32 @lj_ir_kint64(ptr noundef nonnull %J, i64 noundef %10) #11
-  br label %kfold_xload.argprom.exit
+  br label %kfold_xload.exit
 
 sw.epilog.i:                                      ; preds = %sw.bb11.i, %sw.bb8.i, %sw.bb5.i, %sw.bb3.i, %sw.bb1.i
   %k.0.i = phi i32 [ %9, %sw.bb11.i ], [ %conv10.i, %sw.bb8.i ], [ %conv7.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb1.i ]
   %call15.i = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef %k.0.i) #11
-  br label %kfold_xload.argprom.exit
+  br label %kfold_xload.exit
 
-kfold_xload.argprom.exit:                         ; preds = %entry, %sw.bb.i, %sw.bb13.i, %sw.epilog.i
+kfold_xload.exit:                                 ; preds = %entry, %sw.bb.i, %sw.bb13.i, %sw.epilog.i
   %retval.0.i = phi i32 [ %call14.i, %sw.bb13.i ], [ %call15.i, %sw.epilog.i ], [ %call.i, %sw.bb.i ], [ 0, %entry ]
   ret i32 %retval.0.i
 }

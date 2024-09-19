@@ -196,7 +196,7 @@ entry:
   %1 = load ptr, ptr %dh_params, align 8
   store ptr null, ptr %data, align 8
   store ptr null, ptr %dh_params, align 8
-  call fastcc void @qcrypto_tls_creds_x509_load.retelim(ptr noundef %call.i, ptr noundef nonnull %local_err)
+  call fastcc void @qcrypto_tls_creds_x509_load(ptr noundef %call.i, ptr noundef nonnull %local_err)
   %2 = load ptr, ptr %local_err, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -251,7 +251,7 @@ return:                                           ; preds = %if.end10, %if.then1
 define internal void @qcrypto_tls_creds_x509_complete(ptr noundef %uc, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %uc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS_X509) #9
-  tail call fastcc void @qcrypto_tls_creds_x509_load.retelim(ptr noundef %call.i, ptr noundef %errp)
+  tail call fastcc void @qcrypto_tls_creds_x509_load(ptr noundef %call.i, ptr noundef %errp)
   ret void
 }
 
@@ -312,7 +312,7 @@ entry:
 declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @qcrypto_tls_creds_x509_load.retelim(ptr noundef %creds, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc void @qcrypto_tls_creds_x509_load(ptr noundef %creds, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %cert.addr.i.i = alloca ptr, align 8
   %status.i.i = alloca i32, align 4

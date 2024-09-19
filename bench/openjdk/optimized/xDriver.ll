@@ -1753,11 +1753,11 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %2, %24
   %.val6 = load i32, ptr %31, align 4
   %32 = load i8, ptr @UseDynamicNumberOfGCThreads, align 1
   %33 = trunc i8 %32 to i1
-  br i1 %33, label %_ZL28select_active_worker_threadsRK14XDriverRequest.argprom.exit, label %34
+  br i1 %33, label %_ZL28select_active_worker_threadsRK14XDriverRequest.exit, label %34
 
 34:                                               ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit
   %.val5 = load i32, ptr %1, align 4
-  switch i32 %.val5, label %_ZL28select_active_worker_threadsRK14XDriverRequest.argprom.exit [
+  switch i32 %.val5, label %_ZL28select_active_worker_threadsRK14XDriverRequest.exit [
     i32 31, label %35
     i32 17, label %35
     i32 9, label %35
@@ -1767,9 +1767,9 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %2, %24
 35:                                               ; preds = %34, %34, %34, %34
   %36 = load i32, ptr @ParallelGCThreads, align 4
   %37 = tail call noundef i32 @llvm.umax.i32(i32 %.val6, i32 %36)
-  br label %_ZL28select_active_worker_threadsRK14XDriverRequest.argprom.exit
+  br label %_ZL28select_active_worker_threadsRK14XDriverRequest.exit
 
-_ZL28select_active_worker_threadsRK14XDriverRequest.argprom.exit: ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit, %34, %35
+_ZL28select_active_worker_threadsRK14XDriverRequest.exit: ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit, %34, %35
   %.0.i7 = phi i32 [ %.val6, %_ZN10XStatTimerC2ERK10XStatPhase.exit ], [ %37, %35 ], [ %.val6, %34 ]
   %38 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
   tail call void @_ZN5XHeap18set_active_workersEj(ptr noundef nonnull align 64 dereferenceable(4088) %38, i32 noundef %.0.i7) #12

@@ -170,8 +170,8 @@ define hidden void @proto_reg_handoff_tpncp() #0 {
   br i1 %29, label %78, label %30
 
 30:                                               ; preds = %25
-  call fastcc void @fill_tpncp_id_vals.retelim(ptr noundef nonnull @tpncp_events_id_vals, ptr noundef %28)
-  call fastcc void @fill_tpncp_id_vals.retelim(ptr noundef nonnull @tpncp_commands_id_vals, ptr noundef %28)
+  call fastcc void @fill_tpncp_id_vals(ptr noundef nonnull @tpncp_events_id_vals, ptr noundef %28)
+  call fastcc void @fill_tpncp_id_vals(ptr noundef nonnull @tpncp_commands_id_vals, ptr noundef %28)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
   store i32 0, ptr %1, align 4
   %31 = call noalias dereferenceable_or_null(3000) ptr @g_malloc(i64 noundef 3000) #14
@@ -292,8 +292,8 @@ init_tpncp_db.exit:                               ; preds = %30, %fgetline.exit.
   call void @g_free(ptr noundef nonnull %33) #13
   call void @g_free(ptr noundef nonnull %34) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
-  call fastcc void @init_tpncp_data_fields_info.retelim(ptr noundef nonnull @tpncp_events_info_db, ptr noundef %28)
-  call fastcc void @init_tpncp_data_fields_info.retelim(ptr noundef nonnull @tpncp_commands_info_db, ptr noundef %28)
+  call fastcc void @init_tpncp_data_fields_info(ptr noundef nonnull @tpncp_events_info_db, ptr noundef %28)
+  call fastcc void @init_tpncp_data_fields_info(ptr noundef nonnull @tpncp_commands_info_db, ptr noundef %28)
   %77 = call i32 @fclose(ptr noundef nonnull %28)
   call void @llvm.lifetime.end.p0(i64 3000, ptr nonnull %2)
   br label %79
@@ -678,7 +678,7 @@ declare ptr @get_datafile_dir() local_unnamed_addr #1
 declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fill_tpncp_id_vals.retelim(ptr nocapture noundef writeonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @fill_tpncp_id_vals(ptr nocapture noundef writeonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   store i32 0, ptr %3, align 4
   %4 = tail call noalias dereferenceable_or_null(3000) ptr @g_malloc(i64 noundef 3000) #14
@@ -746,7 +746,7 @@ define internal fastcc void @fill_tpncp_id_vals.retelim(ptr nocapture noundef wr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @init_tpncp_data_fields_info.retelim(ptr noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @init_tpncp_data_fields_info(ptr noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca [3000 x i8], align 16
   %4 = alloca [3000 x i8], align 16
   %5 = alloca %struct.hf_register_info, align 8

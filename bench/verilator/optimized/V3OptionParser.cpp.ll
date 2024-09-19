@@ -9399,13 +9399,13 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZNK14V3OptionParser12Appen
   %6 = getelementptr inbounds i8, ptr %.val, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not.i.i.i.i.i = icmp eq ptr %7, null
-  br i1 %.not.i.i.i.i.i, label %8, label %"_ZSt10__invoke_rIvRZNK14V3OptionParser12AppendHelperclEPKcNS1_14CbPartialMatchESt8functionIFvS3_EEE3$_0JS3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit"
+  br i1 %.not.i.i.i.i.i, label %8, label %"_ZSt10__invoke_rIvRZNK14V3OptionParser12AppendHelperclEPKcNS1_14CbPartialMatchESt8functionIFvS3_EEE3$_0JS3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
 8:                                                ; preds = %2
   tail call void @_ZSt25__throw_bad_function_callv() #19
   unreachable
 
-"_ZSt10__invoke_rIvRZNK14V3OptionParser12AppendHelperclEPKcNS1_14CbPartialMatchESt8functionIFvS3_EEE3$_0JS3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit": ; preds = %2
+"_ZSt10__invoke_rIvRZNK14V3OptionParser12AppendHelperclEPKcNS1_14CbPartialMatchESt8functionIFvS3_EEE3$_0JS3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %2
   %9 = getelementptr inbounds i8, ptr %.val, i64 8
   %10 = getelementptr inbounds i8, ptr %.val, i64 32
   %11 = load ptr, ptr %10, align 8
@@ -9423,16 +9423,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcEZNK14V3Optio
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZNK14V3OptionParser12AppendHelperclEPKcNS0_14CbPartialMatchESt8functionIFvS2_EEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_14CbPartialMatchESt8functionIFvS4_EEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_14CbPartialMatchESt8functionIFvS4_EEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_14CbPartialMatchESt8functionIFvS4_EEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_14CbPartialMatchESt8functionIFvS4_EEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_14CbPartialMatchESt8functionIFvS4_EEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_14CbPartialMatchESt8functionIFvS4_EEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
     i32 3, label %30
     i32 2, label %7
   ]
@@ -9487,12 +9487,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcEZNK14V3Optio
 
 "_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_14CbPartialMatchESt8functionIFvS4_EEE3$_0E15_M_init_functorIRKS9_EEvRSt9_Any_dataOT_.exit.i": ; preds = %18, %7
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_14CbPartialMatchESt8functionIFvS4_EEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_14CbPartialMatchESt8functionIFvS4_EEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 30:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %31 = icmp eq ptr %.val7.i, null
-  br i1 %31, label %"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_14CbPartialMatchESt8functionIFvS4_EEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %32
+  br i1 %31, label %"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_14CbPartialMatchESt8functionIFvS4_EEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %32
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds i8, ptr %.val7.i, i64 24
@@ -9514,9 +9514,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcEZNK14V3Optio
 
 "_ZZNK14V3OptionParser12AppendHelperclEPKcNS0_14CbPartialMatchESt8functionIFvS2_EEEN3$_0D2Ev.exit.i.i": ; preds = %35, %32
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #23
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_14CbPartialMatchESt8functionIFvS4_EEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_14CbPartialMatchESt8functionIFvS4_EEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_14CbPartialMatchESt8functionIFvS4_EEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %"_ZZNK14V3OptionParser12AppendHelperclEPKcNS0_14CbPartialMatchESt8functionIFvS2_EEEN3$_0D2Ev.exit.i.i", %30, %"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_14CbPartialMatchESt8functionIFvS4_EEE3$_0E15_M_init_functorIRKS9_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_14CbPartialMatchESt8functionIFvS4_EEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %"_ZZNK14V3OptionParser12AppendHelperclEPKcNS0_14CbPartialMatchESt8functionIFvS2_EEEN3$_0D2Ev.exit.i.i", %30, %"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_14CbPartialMatchESt8functionIFvS4_EEE3$_0E15_M_init_functorIRKS9_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
   ret i1 false
 }
 
@@ -9789,13 +9789,13 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcS1_EZNK14V3OptionParser12Ap
   %8 = getelementptr inbounds i8, ptr %.val, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i.i.i.i, label %10, label %"_ZSt10__invoke_rIvRZNK14V3OptionParser12AppendHelperclEPKcNS1_17CbPartialMatchValESt8functionIFvS3_S3_EEE3$_0JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit"
+  br i1 %.not.i.i.i.i.i, label %10, label %"_ZSt10__invoke_rIvRZNK14V3OptionParser12AppendHelperclEPKcNS1_17CbPartialMatchValESt8functionIFvS3_S3_EEE3$_0JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
 10:                                               ; preds = %3
   tail call void @_ZSt25__throw_bad_function_callv() #19
   unreachable
 
-"_ZSt10__invoke_rIvRZNK14V3OptionParser12AppendHelperclEPKcNS1_17CbPartialMatchValESt8functionIFvS3_S3_EEE3$_0JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit": ; preds = %3
+"_ZSt10__invoke_rIvRZNK14V3OptionParser12AppendHelperclEPKcNS1_17CbPartialMatchValESt8functionIFvS3_S3_EEE3$_0JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %3
   %11 = getelementptr inbounds i8, ptr %.val, i64 8
   %12 = getelementptr inbounds i8, ptr %.val, i64 32
   %13 = load ptr, ptr %12, align 8
@@ -9814,16 +9814,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcS1_EZNK14V3Op
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZNK14V3OptionParser12AppendHelperclEPKcNS0_17CbPartialMatchValESt8functionIFvS2_S2_EEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_17CbPartialMatchValESt8functionIFvS4_S4_EEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_17CbPartialMatchValESt8functionIFvS4_S4_EEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_17CbPartialMatchValESt8functionIFvS4_S4_EEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_17CbPartialMatchValESt8functionIFvS4_S4_EEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_17CbPartialMatchValESt8functionIFvS4_S4_EEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_17CbPartialMatchValESt8functionIFvS4_S4_EEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
     i32 3, label %30
     i32 2, label %7
   ]
@@ -9878,12 +9878,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcS1_EZNK14V3Op
 
 "_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_17CbPartialMatchValESt8functionIFvS4_S4_EEE3$_0E15_M_init_functorIRKS9_EEvRSt9_Any_dataOT_.exit.i": ; preds = %18, %7
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_17CbPartialMatchValESt8functionIFvS4_S4_EEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_17CbPartialMatchValESt8functionIFvS4_S4_EEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 30:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %31 = icmp eq ptr %.val7.i, null
-  br i1 %31, label %"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_17CbPartialMatchValESt8functionIFvS4_S4_EEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %32
+  br i1 %31, label %"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_17CbPartialMatchValESt8functionIFvS4_S4_EEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %32
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds i8, ptr %.val7.i, i64 24
@@ -9905,9 +9905,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcS1_EZNK14V3Op
 
 "_ZZNK14V3OptionParser12AppendHelperclEPKcNS0_17CbPartialMatchValESt8functionIFvS2_S2_EEEN3$_0D2Ev.exit.i.i": ; preds = %35, %32
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #23
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_17CbPartialMatchValESt8functionIFvS4_S4_EEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_17CbPartialMatchValESt8functionIFvS4_S4_EEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_17CbPartialMatchValESt8functionIFvS4_S4_EEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %"_ZZNK14V3OptionParser12AppendHelperclEPKcNS0_17CbPartialMatchValESt8functionIFvS2_S2_EEEN3$_0D2Ev.exit.i.i", %30, %"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_17CbPartialMatchValESt8functionIFvS4_S4_EEE3$_0E15_M_init_functorIRKS9_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_17CbPartialMatchValESt8functionIFvS4_S4_EEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %"_ZZNK14V3OptionParser12AppendHelperclEPKcNS0_17CbPartialMatchValESt8functionIFvS2_S2_EEEN3$_0D2Ev.exit.i.i", %30, %"_ZNSt14_Function_base13_Base_managerIZNK14V3OptionParser12AppendHelperclEPKcNS2_17CbPartialMatchValESt8functionIFvS4_S4_EEE3$_0E15_M_init_functorIRKS9_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
   ret i1 false
 }
 

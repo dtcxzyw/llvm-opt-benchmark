@@ -2877,7 +2877,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %623, %620, %611, %_ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.argprom.exit, %564, %556, %452, %428, %420, %410, %394, %386, %378, %370, %362, %354, %.noexc, %344, %327, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN4Luau11LintWarningESt6vectorIS3_SaIS3_EEEENS2_17WarningComparatorEEvT_SA_T0_.exit, %406, %402, %340, %336, %297, %7
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %623, %620, %611, %_ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.exit, %564, %556, %452, %428, %420, %410, %394, %386, %378, %370, %362, %354, %.noexc, %344, %327, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN4Luau11LintWarningESt6vectorIS3_SaIS3_EEEENS2_17WarningComparatorEEvT_SA_T0_.exit, %406, %402, %340, %336, %297, %7
   %lpad.loopexit.split-lp116 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -3329,14 +3329,14 @@ _ZN4Luau19LintMisleadingAndOr7processERNS_11LintContextE.exit: ; preds = %452
   %458 = phi i64 [ %.pre147, %_ZN4Luau19LintMisleadingAndOr7processERNS_11LintContextE.exit ], [ %450, %449 ]
   %459 = and i64 %458, 67108864
   %.not106 = icmp eq i64 %459, 0
-  br i1 %.not106, label %_ZN4LuauL12lintCommentsERNS_11LintContextERKSt6vectorINS_10HotCommentESaIS3_EE.argprom.exit, label %460
+  br i1 %.not106, label %_ZN4LuauL12lintCommentsERNS_11LintContextERKSt6vectorINS_10HotCommentESaIS3_EE.exit, label %460
 
 460:                                              ; preds = %457
   %.val16 = load ptr, ptr %5, align 8
   %461 = getelementptr inbounds i8, ptr %5, i64 8
   %.val17 = load ptr, ptr %461, align 8
   %.not3241.i = icmp eq ptr %.val16, %.val17
-  br i1 %.not3241.i, label %_ZN4LuauL12lintCommentsERNS_11LintContextERKSt6vectorINS_10HotCommentESaIS3_EE.argprom.exit, label %.lr.ph.i40
+  br i1 %.not3241.i, label %_ZN4LuauL12lintCommentsERNS_11LintContextERKSt6vectorINS_10HotCommentESaIS3_EE.exit, label %.lr.ph.i40
 
 .lr.ph.i40:                                       ; preds = %460, %.noexc47
   %.043.i = phi i1 [ %.1.i, %.noexc47 ], [ false, %460 ]
@@ -3584,19 +3584,19 @@ _ZN4LuauL10fuzzyMatchESt17basic_string_viewIcSt11char_traitsIcEEPPKcm.exit112.th
   %.1.i = phi i1 [ %.043.i, %.lr.ph.i40 ], [ %.043.i, %464 ], [ %.043.i, %468 ], [ %.043.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i ], [ %.043.i, %.noexc48 ], [ %.043.i, %.tail37.i ], [ %.043.i, %.tail33.i ], [ %.043.i, %.tail.i ], [ %.043.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit101.i ], [ true, %510 ], [ %.043.i, %505 ], [ true, %511 ], [ %.043.i, %548 ], [ %.043.i, %_ZN4LuauL10fuzzyMatchESt17basic_string_viewIcSt11char_traitsIcEEPPKcm.exit112.thread.i ], [ %.043.i, %.invoke ], [ %.043.i, %.tail37.thread.i.invoke ]
   %553 = getelementptr inbounds i8, ptr %.sroa.025.042.i, i64 56
   %.not32.i = icmp eq ptr %553, %.val17
-  br i1 %.not32.i, label %_ZN4LuauL12lintCommentsERNS_11LintContextERKSt6vectorINS_10HotCommentESaIS3_EE.argprom.exit.loopexit, label %.lr.ph.i40
+  br i1 %.not32.i, label %_ZN4LuauL12lintCommentsERNS_11LintContextERKSt6vectorINS_10HotCommentESaIS3_EE.exit.loopexit, label %.lr.ph.i40
 
-_ZN4LuauL12lintCommentsERNS_11LintContextERKSt6vectorINS_10HotCommentESaIS3_EE.argprom.exit.loopexit: ; preds = %.noexc47
+_ZN4LuauL12lintCommentsERNS_11LintContextERKSt6vectorINS_10HotCommentESaIS3_EE.exit.loopexit: ; preds = %.noexc47
   %.pre148 = load i64, ptr %28, align 8
-  br label %_ZN4LuauL12lintCommentsERNS_11LintContextERKSt6vectorINS_10HotCommentESaIS3_EE.argprom.exit
+  br label %_ZN4LuauL12lintCommentsERNS_11LintContextERKSt6vectorINS_10HotCommentESaIS3_EE.exit
 
-_ZN4LuauL12lintCommentsERNS_11LintContextERKSt6vectorINS_10HotCommentESaIS3_EE.argprom.exit: ; preds = %_ZN4LuauL12lintCommentsERNS_11LintContextERKSt6vectorINS_10HotCommentESaIS3_EE.argprom.exit.loopexit, %460, %457
-  %554 = phi i64 [ %.pre148, %_ZN4LuauL12lintCommentsERNS_11LintContextERKSt6vectorINS_10HotCommentESaIS3_EE.argprom.exit.loopexit ], [ %458, %460 ], [ %458, %457 ]
+_ZN4LuauL12lintCommentsERNS_11LintContextERKSt6vectorINS_10HotCommentESaIS3_EE.exit: ; preds = %_ZN4LuauL12lintCommentsERNS_11LintContextERKSt6vectorINS_10HotCommentESaIS3_EE.exit.loopexit, %460, %457
+  %554 = phi i64 [ %.pre148, %_ZN4LuauL12lintCommentsERNS_11LintContextERKSt6vectorINS_10HotCommentESaIS3_EE.exit.loopexit ], [ %458, %460 ], [ %458, %457 ]
   %555 = and i64 %554, 134217728
   %.not107 = icmp eq i64 %555, 0
   br i1 %.not107, label %561, label %556
 
-556:                                              ; preds = %_ZN4LuauL12lintCommentsERNS_11LintContextERKSt6vectorINS_10HotCommentESaIS3_EE.argprom.exit
+556:                                              ; preds = %_ZN4LuauL12lintCommentsERNS_11LintContextERKSt6vectorINS_10HotCommentESaIS3_EE.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau18LintIntegerParsingE, i64 16), ptr %10, align 8
   %557 = getelementptr inbounds i8, ptr %10, i64 8
@@ -3612,8 +3612,8 @@ _ZN4Luau18LintIntegerParsing7processERNS_11LintContextE.exit: ; preds = %556
   %.pre149 = load i64, ptr %28, align 8
   br label %561
 
-561:                                              ; preds = %_ZN4Luau18LintIntegerParsing7processERNS_11LintContextE.exit, %_ZN4LuauL12lintCommentsERNS_11LintContextERKSt6vectorINS_10HotCommentESaIS3_EE.argprom.exit
-  %562 = phi i64 [ %.pre149, %_ZN4Luau18LintIntegerParsing7processERNS_11LintContextE.exit ], [ %554, %_ZN4LuauL12lintCommentsERNS_11LintContextERKSt6vectorINS_10HotCommentESaIS3_EE.argprom.exit ]
+561:                                              ; preds = %_ZN4Luau18LintIntegerParsing7processERNS_11LintContextE.exit, %_ZN4LuauL12lintCommentsERNS_11LintContextERKSt6vectorINS_10HotCommentESaIS3_EE.exit
+  %562 = phi i64 [ %.pre149, %_ZN4Luau18LintIntegerParsing7processERNS_11LintContextE.exit ], [ %554, %_ZN4LuauL12lintCommentsERNS_11LintContextERKSt6vectorINS_10HotCommentESaIS3_EE.exit ]
   %563 = and i64 %562, 268435456
   %.not108 = icmp eq i64 %563, 0
   br i1 %.not108, label %569, label %564
@@ -3636,30 +3636,30 @@ _ZN4Luau24LintComparisonPrecedence7processERNS_11LintContextE.exit: ; preds = %5
 569:                                              ; preds = %_ZN4Luau24LintComparisonPrecedence7processERNS_11LintContextE.exit, %561
   %570 = load i8, ptr @_ZN5FFlag19LuauAttributeSyntaxE, align 8
   %571 = trunc i8 %570 to i1
-  br i1 %571, label %572, label %_ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.argprom.exit.thread
+  br i1 %571, label %572, label %_ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.exit.thread
 
 572:                                              ; preds = %569
   %573 = load i8, ptr @_ZN5FFlag19LuauNativeAttributeE, align 8
   %574 = trunc i8 %573 to i1
-  br i1 %574, label %575, label %_ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.argprom.exit.thread
+  br i1 %574, label %575, label %_ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.exit.thread
 
 575:                                              ; preds = %572
   %576 = load i8, ptr @_ZN5FFlag28LintRedundantNativeAttributeE, align 8
   %577 = trunc i8 %576 to i1
-  br i1 %577, label %578, label %_ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.argprom.exit.thread
+  br i1 %577, label %578, label %_ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.exit.thread
 
 578:                                              ; preds = %575
   %579 = load i64, ptr %28, align 8
   %580 = and i64 %579, 536870912
   %.not109 = icmp eq i64 %580, 0
-  br i1 %.not109, label %_ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.argprom.exit.thread, label %581
+  br i1 %.not109, label %_ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.exit.thread, label %581
 
 581:                                              ; preds = %578
   %.val18 = load ptr, ptr %5, align 8
   %582 = getelementptr inbounds i8, ptr %5, i64 8
   %.val19 = load ptr, ptr %582, align 8
   %.not.i62 = icmp eq ptr %.val18, %.val19
-  br i1 %.not.i62, label %_ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.argprom.exit.thread, label %.lr.ph.i63
+  br i1 %.not.i62, label %_ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.exit.thread, label %.lr.ph.i63
 
 .lr.ph.i63:                                       ; preds = %581, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread.i
   %.sroa.04.07.i = phi ptr [ %603, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread.i ], [ %.val18, %581 ]
@@ -3696,14 +3696,14 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i66: ; preds = %596
   %601 = extractvalue { i64, ptr } %598, 1
   %bcmp.i.i67 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %601, ptr noundef nonnull dereferenceable(6) @.str.214, i64 6)
   %602 = icmp eq i32 %bcmp.i.i67, 0
-  br i1 %602, label %_ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.argprom.exit, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread.i
+  br i1 %602, label %_ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.exit, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread.i
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i66, %596, %593, %589, %585, %.lr.ph.i63
   %603 = getelementptr inbounds i8, ptr %.sroa.04.07.i, i64 56
   %.not9.i = icmp eq ptr %603, %.val19
-  br i1 %.not9.i, label %_ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.argprom.exit.thread, label %.lr.ph.i63
+  br i1 %.not9.i, label %_ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.exit.thread, label %.lr.ph.i63
 
-_ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.argprom.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i66
+_ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i66
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau28LintRedundantNativeAttributeE, i64 16), ptr %8, align 8
   %604 = getelementptr inbounds i8, ptr %8, i64 8
@@ -3714,18 +3714,18 @@ _ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.argpro
   invoke void %607(ptr noundef nonnull align 8 dereferenceable(28) %605, ptr noundef nonnull %8)
           to label %_ZN4Luau28LintRedundantNativeAttribute7processERNS_11LintContextE.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZN4Luau28LintRedundantNativeAttribute7processERNS_11LintContextE.exit: ; preds = %_ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.argprom.exit
+_ZN4Luau28LintRedundantNativeAttribute7processERNS_11LintContextE.exit: ; preds = %_ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br label %_ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.argprom.exit.thread
+  br label %_ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.exit.thread
 
-_ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.argprom.exit.thread: ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread.i, %581, %_ZN4Luau28LintRedundantNativeAttribute7processERNS_11LintContextE.exit, %578, %575, %572, %569
+_ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.exit.thread: ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread.i, %581, %_ZN4Luau28LintRedundantNativeAttribute7processERNS_11LintContextE.exit, %578, %575, %572, %569
   %608 = load ptr, ptr %26, align 8
   %609 = getelementptr inbounds i8, ptr %26, i64 8
   %610 = load ptr, ptr %609, align 8
   %.not.i.i69 = icmp eq ptr %608, %610
   br i1 %.not.i.i69, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN4Luau11LintWarningESt6vectorIS3_SaIS3_EEEENS2_17WarningComparatorEEvT_SA_T0_.exit, label %611
 
-611:                                              ; preds = %_ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.argprom.exit.thread
+611:                                              ; preds = %_ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.exit.thread
   %612 = ptrtoint ptr %610 to i64
   %613 = ptrtoint ptr %608 to i64
   %614 = sub i64 %612, %613
@@ -3763,7 +3763,7 @@ _ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.argpro
   invoke void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4Luau11LintWarningESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_17WarningComparatorEEEEvT_SD_T0_(ptr %608, ptr %610)
           to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN4Luau11LintWarningESt6vectorIS3_SaIS3_EEEENS2_17WarningComparatorEEvT_SA_T0_.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN4Luau11LintWarningESt6vectorIS3_SaIS3_EEEENS2_17WarningComparatorEEvT_SA_T0_.exit: ; preds = %.noexc74, %.noexc73, %_ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.argprom.exit.thread, %623
+_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN4Luau11LintWarningESt6vectorIS3_SaIS3_EEEENS2_17WarningComparatorEEvT_SA_T0_.exit: ; preds = %.noexc74, %.noexc73, %_ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.exit.thread, %623
   invoke void @_ZNSt6vectorIN4Luau11LintWarningESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %26)
           to label %624 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

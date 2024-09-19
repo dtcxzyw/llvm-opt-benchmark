@@ -4021,7 +4021,7 @@ _ZL12getDBcontextP6pj_ctx.exit:                   ; preds = %.noexc
   %.val = load ptr, ptr %3, align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 8
   %.val17 = load ptr, ptr %12, align 8
-  %13 = invoke fastcc noundef ptr @_ZL14to_string_listISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEPPcOT_.argprom(ptr %.val, ptr %.val17)
+  %13 = invoke fastcc noundef ptr @_ZL14to_string_listISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEPPcOT_(ptr %.val, ptr %.val17)
           to label %14 unwind label %60
 
 14:                                               ; preds = %11
@@ -4191,7 +4191,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEED2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZL14to_string_listISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEPPcOT_.argprom(ptr %.0.val, ptr %.8.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZL14to_string_listISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEPPcOT_(ptr %.0.val, ptr %.8.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %1 = ptrtoint ptr %.8.val to i64
   %2 = ptrtoint ptr %.0.val to i64
   %3 = sub i64 %1, %2
@@ -10429,52 +10429,52 @@ define i32 @proj_get_type(ptr noundef %0) local_unnamed_addr #14 {
 8:                                                ; preds = %5
   %9 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj5datum9EllipsoidE, i64 0) #29
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %.critedge57.i, label %"_ZZ13proj_get_typeENK3$_0clEv.argprom.argprom.argprom.exit"
+  br i1 %10, label %.critedge57.i, label %"_ZZ13proj_get_typeENK3$_0clEv.exit"
 
 .critedge57.i:                                    ; preds = %8
   %11 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj5datum13PrimeMeridianE, i64 0) #29
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.critedge59.i, label %"_ZZ13proj_get_typeENK3$_0clEv.argprom.argprom.argprom.exit"
+  br i1 %12, label %.critedge59.i, label %"_ZZ13proj_get_typeENK3$_0clEv.exit"
 
 .critedge59.i:                                    ; preds = %.critedge57.i
   %13 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj5datum29DynamicGeodeticReferenceFrameE, i64 0) #29
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.critedge61.i, label %"_ZZ13proj_get_typeENK3$_0clEv.argprom.argprom.argprom.exit"
+  br i1 %14, label %.critedge61.i, label %"_ZZ13proj_get_typeENK3$_0clEv.exit"
 
 .critedge61.i:                                    ; preds = %.critedge59.i
   %15 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj5datum22GeodeticReferenceFrameE, i64 0) #29
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.critedge63.i, label %"_ZZ13proj_get_typeENK3$_0clEv.argprom.argprom.argprom.exit"
+  br i1 %16, label %.critedge63.i, label %"_ZZ13proj_get_typeENK3$_0clEv.exit"
 
 .critedge63.i:                                    ; preds = %.critedge61.i
   %17 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj5datum29DynamicVerticalReferenceFrameE, i64 0) #29
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %.critedge65.i, label %"_ZZ13proj_get_typeENK3$_0clEv.argprom.argprom.argprom.exit"
+  br i1 %18, label %.critedge65.i, label %"_ZZ13proj_get_typeENK3$_0clEv.exit"
 
 .critedge65.i:                                    ; preds = %.critedge63.i
   %19 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj5datum22VerticalReferenceFrameE, i64 0) #29
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.critedge67.i, label %"_ZZ13proj_get_typeENK3$_0clEv.argprom.argprom.argprom.exit"
+  br i1 %20, label %.critedge67.i, label %"_ZZ13proj_get_typeENK3$_0clEv.exit"
 
 .critedge67.i:                                    ; preds = %.critedge65.i
   %21 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj5datum13DatumEnsembleE, i64 0) #29
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %.critedge69.i, label %"_ZZ13proj_get_typeENK3$_0clEv.argprom.argprom.argprom.exit"
+  br i1 %22, label %.critedge69.i, label %"_ZZ13proj_get_typeENK3$_0clEv.exit"
 
 .critedge69.i:                                    ; preds = %.critedge67.i
   %23 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj5datum13TemporalDatumE, i64 0) #29
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %.critedge71.i, label %"_ZZ13proj_get_typeENK3$_0clEv.argprom.argprom.argprom.exit"
+  br i1 %24, label %.critedge71.i, label %"_ZZ13proj_get_typeENK3$_0clEv.exit"
 
 .critedge71.i:                                    ; preds = %.critedge69.i
   %25 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj5datum16EngineeringDatumE, i64 0) #29
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %.critedge73.i, label %"_ZZ13proj_get_typeENK3$_0clEv.argprom.argprom.argprom.exit"
+  br i1 %26, label %.critedge73.i, label %"_ZZ13proj_get_typeENK3$_0clEv.exit"
 
 .critedge73.i:                                    ; preds = %.critedge71.i
   %27 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj5datum15ParametricDatumE, i64 0) #29
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %.critedge75.i, label %"_ZZ13proj_get_typeENK3$_0clEv.argprom.argprom.argprom.exit"
+  br i1 %28, label %.critedge75.i, label %"_ZZ13proj_get_typeENK3$_0clEv.exit"
 
 .critedge75.i:                                    ; preds = %.critedge73.i
   %29 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj3crs13GeographicCRSE, i64 -1) #29
@@ -10493,7 +10493,7 @@ define i32 @proj_get_type(ptr noundef %0) local_unnamed_addr #14 {
   %39 = sub i64 %37, %38
   %40 = icmp eq i64 %39, 32
   %..i = select i1 %40, i32 12, i32 13
-  br label %"_ZZ13proj_get_typeENK3$_0clEv.argprom.argprom.argprom.exit"
+  br label %"_ZZ13proj_get_typeENK3$_0clEv.exit"
 
 41:                                               ; preds = %.critedge75.i
   %42 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj3crs11GeodeticCRSE, i64 -1) #29
@@ -10503,82 +10503,82 @@ define i32 @proj_get_type(ptr noundef %0) local_unnamed_addr #14 {
 43:                                               ; preds = %41
   %44 = tail call noundef zeroext i1 @_ZNK5osgeo4proj3crs11GeodeticCRS12isGeocentricEv(ptr noundef nonnull align 8 dereferenceable(16) %42) #34
   %.76.i = select i1 %44, i32 10, i32 9
-  br label %"_ZZ13proj_get_typeENK3$_0clEv.argprom.argprom.argprom.exit"
+  br label %"_ZZ13proj_get_typeENK3$_0clEv.exit"
 
 45:                                               ; preds = %41
   %46 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj3crs11VerticalCRSE, i64 -1) #29
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %.critedge79.i, label %"_ZZ13proj_get_typeENK3$_0clEv.argprom.argprom.argprom.exit"
+  br i1 %47, label %.critedge79.i, label %"_ZZ13proj_get_typeENK3$_0clEv.exit"
 
 .critedge79.i:                                    ; preds = %45
   %48 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj3crs12ProjectedCRSE, i64 -1) #29
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %.critedge81.i, label %"_ZZ13proj_get_typeENK3$_0clEv.argprom.argprom.argprom.exit"
+  br i1 %49, label %.critedge81.i, label %"_ZZ13proj_get_typeENK3$_0clEv.exit"
 
 .critedge81.i:                                    ; preds = %.critedge79.i
   %50 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj3crs19DerivedProjectedCRSE, i64 -1) #29
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %.critedge83.i, label %"_ZZ13proj_get_typeENK3$_0clEv.argprom.argprom.argprom.exit"
+  br i1 %51, label %.critedge83.i, label %"_ZZ13proj_get_typeENK3$_0clEv.exit"
 
 .critedge83.i:                                    ; preds = %.critedge81.i
   %52 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj3crs11CompoundCRSE, i64 0) #29
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %.critedge85.i, label %"_ZZ13proj_get_typeENK3$_0clEv.argprom.argprom.argprom.exit"
+  br i1 %53, label %.critedge85.i, label %"_ZZ13proj_get_typeENK3$_0clEv.exit"
 
 .critedge85.i:                                    ; preds = %.critedge83.i
   %54 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj3crs11TemporalCRSE, i64 -1) #29
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %.critedge87.i, label %"_ZZ13proj_get_typeENK3$_0clEv.argprom.argprom.argprom.exit"
+  br i1 %55, label %.critedge87.i, label %"_ZZ13proj_get_typeENK3$_0clEv.exit"
 
 .critedge87.i:                                    ; preds = %.critedge85.i
   %56 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj3crs14EngineeringCRSE, i64 -1) #29
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %.critedge89.i, label %"_ZZ13proj_get_typeENK3$_0clEv.argprom.argprom.argprom.exit"
+  br i1 %57, label %.critedge89.i, label %"_ZZ13proj_get_typeENK3$_0clEv.exit"
 
 .critedge89.i:                                    ; preds = %.critedge87.i
   %58 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj3crs8BoundCRSE, i64 0) #29
   %59 = icmp eq ptr %58, null
-  br i1 %59, label %.critedge91.i, label %"_ZZ13proj_get_typeENK3$_0clEv.argprom.argprom.argprom.exit"
+  br i1 %59, label %.critedge91.i, label %"_ZZ13proj_get_typeENK3$_0clEv.exit"
 
 .critedge91.i:                                    ; preds = %.critedge89.i
   %60 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj3crs3CRSE, i64 0) #29
   %61 = icmp eq ptr %60, null
-  br i1 %61, label %.critedge93.i, label %"_ZZ13proj_get_typeENK3$_0clEv.argprom.argprom.argprom.exit"
+  br i1 %61, label %.critedge93.i, label %"_ZZ13proj_get_typeENK3$_0clEv.exit"
 
 .critedge93.i:                                    ; preds = %.critedge91.i
   %62 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj9operation10ConversionE, i64 -1) #29
   %63 = icmp eq ptr %62, null
-  br i1 %63, label %.critedge95.i, label %"_ZZ13proj_get_typeENK3$_0clEv.argprom.argprom.argprom.exit"
+  br i1 %63, label %.critedge95.i, label %"_ZZ13proj_get_typeENK3$_0clEv.exit"
 
 .critedge95.i:                                    ; preds = %.critedge93.i
   %64 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj9operation14TransformationE, i64 -1) #29
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %.critedge97.i, label %"_ZZ13proj_get_typeENK3$_0clEv.argprom.argprom.argprom.exit"
+  br i1 %65, label %.critedge97.i, label %"_ZZ13proj_get_typeENK3$_0clEv.exit"
 
 .critedge97.i:                                    ; preds = %.critedge95.i
   %66 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj9operation21ConcatenatedOperationE, i64 0) #29
   %67 = icmp eq ptr %66, null
-  br i1 %67, label %.critedge99.i, label %"_ZZ13proj_get_typeENK3$_0clEv.argprom.argprom.argprom.exit"
+  br i1 %67, label %.critedge99.i, label %"_ZZ13proj_get_typeENK3$_0clEv.exit"
 
 .critedge99.i:                                    ; preds = %.critedge97.i
   %68 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj9operation19CoordinateOperationE, i64 0) #29
   %69 = icmp eq ptr %68, null
-  br i1 %69, label %.critedge101.i, label %"_ZZ13proj_get_typeENK3$_0clEv.argprom.argprom.argprom.exit"
+  br i1 %69, label %.critedge101.i, label %"_ZZ13proj_get_typeENK3$_0clEv.exit"
 
 .critedge101.i:                                   ; preds = %.critedge99.i
   %70 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj11coordinates18CoordinateMetadataE, i64 0) #29
   %.fr.i = freeze ptr %70
   %71 = icmp eq ptr %.fr.i, null
   %spec.select = select i1 %71, i32 0, i32 29
-  br label %"_ZZ13proj_get_typeENK3$_0clEv.argprom.argprom.argprom.exit"
+  br label %"_ZZ13proj_get_typeENK3$_0clEv.exit"
 
-"_ZZ13proj_get_typeENK3$_0clEv.argprom.argprom.argprom.exit": ; preds = %.critedge101.i, %8, %.critedge57.i, %.critedge59.i, %.critedge61.i, %.critedge63.i, %.critedge65.i, %.critedge67.i, %.critedge69.i, %.critedge71.i, %.critedge73.i, %30, %43, %45, %.critedge79.i, %.critedge81.i, %.critedge83.i, %.critedge85.i, %.critedge87.i, %.critedge89.i, %.critedge91.i, %.critedge93.i, %.critedge95.i, %.critedge97.i, %.critedge99.i
+"_ZZ13proj_get_typeENK3$_0clEv.exit":             ; preds = %.critedge101.i, %8, %.critedge57.i, %.critedge59.i, %.critedge61.i, %.critedge63.i, %.critedge65.i, %.critedge67.i, %.critedge69.i, %.critedge71.i, %.critedge73.i, %30, %43, %45, %.critedge79.i, %.critedge81.i, %.critedge83.i, %.critedge85.i, %.critedge87.i, %.critedge89.i, %.critedge91.i, %.critedge93.i, %.critedge95.i, %.critedge97.i, %.critedge99.i
   %.0.i = phi i32 [ 1, %8 ], [ 2, %.critedge57.i ], [ 4, %.critedge59.i ], [ 3, %.critedge61.i ], [ 6, %.critedge63.i ], [ 5, %.critedge65.i ], [ 7, %.critedge67.i ], [ 25, %.critedge69.i ], [ 26, %.critedge71.i ], [ 27, %.critedge73.i ], [ %..i, %30 ], [ %.76.i, %43 ], [ 14, %45 ], [ 15, %.critedge79.i ], [ 28, %.critedge81.i ], [ 16, %.critedge83.i ], [ 17, %.critedge85.i ], [ 18, %.critedge87.i ], [ 19, %.critedge89.i ], [ 20, %.critedge91.i ], [ 21, %.critedge93.i ], [ 22, %.critedge95.i ], [ 23, %.critedge97.i ], [ 24, %.critedge99.i ], [ %spec.select, %.critedge101.i ]
   store i32 %.0.i, ptr %6, align 8
   br label %72
 
-72:                                               ; preds = %5, %1, %2, %"_ZZ13proj_get_typeENK3$_0clEv.argprom.argprom.argprom.exit"
-  %.0 = phi i32 [ %.0.i, %"_ZZ13proj_get_typeENK3$_0clEv.argprom.argprom.argprom.exit" ], [ 0, %2 ], [ 0, %1 ], [ %7, %5 ]
+72:                                               ; preds = %5, %1, %2, %"_ZZ13proj_get_typeENK3$_0clEv.exit"
+  %.0 = phi i32 [ %.0.i, %"_ZZ13proj_get_typeENK3$_0clEv.exit" ], [ 0, %2 ], [ 0, %1 ], [ %7, %5 ]
   ret i32 %.0
 }
 
@@ -11680,13 +11680,13 @@ define noundef ptr @proj_as_wkt(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 20:                                               ; preds = %16
   %21 = tail call ptr @__dynamic_cast(ptr nonnull %18, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj2io14IWKTExportableE, i64 -2) #29
   %.not56 = icmp eq ptr %21, null
-  br i1 %.not56, label %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit85, label %"_ZZ11proj_as_wktENK3$_0clE11PJ_WKT_TYPE.argprom.exit"
+  br i1 %.not56, label %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit85, label %"_ZZ11proj_as_wktENK3$_0clE11PJ_WKT_TYPE.exit"
 
-"_ZZ11proj_as_wktENK3$_0clE11PJ_WKT_TYPE.argprom.exit": ; preds = %20
+"_ZZ11proj_as_wktENK3$_0clE11PJ_WKT_TYPE.exit":   ; preds = %20
   invoke fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %.044, ptr noundef nonnull @__FUNCTION__.proj_as_wkt)
           to label %22 unwind label %70
 
-22:                                               ; preds = %"_ZZ11proj_as_wktENK3$_0clE11PJ_WKT_TYPE.argprom.exit"
+22:                                               ; preds = %"_ZZ11proj_as_wktENK3$_0clE11PJ_WKT_TYPE.exit"
   %. = tail call i32 @llvm.umin.i32(i32 %2, i32 5)
   %23 = load ptr, ptr %5, align 8
   store ptr %23, ptr %7, align 8
@@ -11794,7 +11794,7 @@ _ZL14getOptionValuePKcS0_.exit:                   ; preds = %.lr.ph108
   %69 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5osgeo4proj2io12WKTFormatter12setMultiLineEb(ptr noundef nonnull align 8 dereferenceable(8) %67, i1 noundef zeroext %68) #29
   br label %.lr.ph
 
-70:                                               ; preds = %"_ZZ11proj_as_wktENK3$_0clE11PJ_WKT_TYPE.argprom.exit"
+70:                                               ; preds = %"_ZZ11proj_as_wktENK3$_0clE11PJ_WKT_TYPE.exit"
   %71 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   br label %165
@@ -79224,7 +79224,7 @@ define noundef ptr @proj_get_insert_statements(ptr noundef %0, ptr noundef readn
 
 _ZZ26proj_get_insert_statementsEN17TempSessionHolderC2EP6pj_ctxP17PJ_INSERT_SESSION.exit: ; preds = %26
   %.not59 = icmp eq ptr %27, null
-  br i1 %.not59, label %_ZZ26proj_get_insert_statementsEN17TempSessionHolderD2Ev.argprom.exit, label %_ZZ26proj_get_insert_statementsEN17TempSessionHolderC2EP6pj_ctxP17PJ_INSERT_SESSION.exit.thread
+  br i1 %.not59, label %_ZZ26proj_get_insert_statementsEN17TempSessionHolderD2Ev.exit, label %_ZZ26proj_get_insert_statementsEN17TempSessionHolderC2EP6pj_ctxP17PJ_INSERT_SESSION.exit.thread
 
 28:                                               ; preds = %26
   %29 = landingpad { ptr, i32 }
@@ -79649,7 +79649,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEED2E
   %.val = load ptr, ptr %16, align 8
   %166 = getelementptr inbounds i8, ptr %16, i64 8
   %.val74 = load ptr, ptr %166, align 8
-  %167 = invoke fastcc noundef ptr @_ZL14to_string_listISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEPPcOT_.argprom(ptr %.val, ptr %.val74)
+  %167 = invoke fastcc noundef ptr @_ZL14to_string_listISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEPPcOT_(ptr %.val, ptr %.val74)
           to label %168 unwind label %223
 
 168:                                              ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEED2Ev.exit
@@ -79899,7 +79899,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %259 = getelementptr inbounds i8, ptr %258, i64 24
   %260 = load ptr, ptr %259, align 8
   call void %260(ptr noundef nonnull align 8 dereferenceable(16) %226) #29
-  br i1 %.not.i.not, label %262, label %_ZZ26proj_get_insert_statementsEN17TempSessionHolderD2Ev.argprom.exit
+  br i1 %.not.i.not, label %262, label %_ZZ26proj_get_insert_statementsEN17TempSessionHolderD2Ev.exit
 
 261:                                              ; preds = %.loopexit132, %58
   %.pn66.pn.pn = phi { ptr, i32 } [ %.pn66.pn, %.loopexit132 ], [ %59, %58 ]
@@ -79908,12 +79908,12 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEED2Ev.exit: ; preds = %256, %243, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEED2Ev.exit, %35
   %.0 = phi ptr [ null, %35 ], [ %.1, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEED2Ev.exit ], [ %.1, %243 ], [ %.1, %256 ]
-  br i1 %.not.i.not, label %262, label %_ZZ26proj_get_insert_statementsEN17TempSessionHolderD2Ev.argprom.exit
+  br i1 %.not.i.not, label %262, label %_ZZ26proj_get_insert_statementsEN17TempSessionHolderD2Ev.exit
 
 262:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, %_ZNSt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEED2Ev.exit
   %.0129 = phi ptr [ %.1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i ], [ %.0, %_ZNSt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEED2Ev.exit ]
   invoke void @proj_insert_object_session_destroy(ptr noundef %.039, ptr noundef nonnull %30)
-          to label %_ZZ26proj_get_insert_statementsEN17TempSessionHolderD2Ev.argprom.exit unwind label %263
+          to label %_ZZ26proj_get_insert_statementsEN17TempSessionHolderD2Ev.exit unwind label %263
 
 263:                                              ; preds = %262
   %264 = landingpad { ptr, i32 }
@@ -79924,7 +79924,7 @@ _ZNSt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEED2Ev.exit: ; preds = %2
 
 266:                                              ; preds = %261, %36
   %.pn66.pn.pn.pn = phi { ptr, i32 } [ %.pn66.pn.pn, %261 ], [ %37, %36 ]
-  call fastcc void @_ZZ26proj_get_insert_statementsEN17TempSessionHolderD2Ev.argprom(ptr %.039, ptr %30) #29
+  call fastcc void @_ZZ26proj_get_insert_statementsEN17TempSessionHolderD2Ev(ptr %.039, ptr %30) #29
   br label %267
 
 267:                                              ; preds = %266, %28
@@ -79946,7 +79946,7 @@ _ZNSt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEED2Ev.exit: ; preds = %2
 
 276:                                              ; preds = %270
   call void @__cxa_end_catch()
-  br label %_ZZ26proj_get_insert_statementsEN17TempSessionHolderD2Ev.argprom.exit
+  br label %_ZZ26proj_get_insert_statementsEN17TempSessionHolderD2Ev.exit
 
 277:                                              ; preds = %270
   %278 = landingpad { ptr, i32 }
@@ -79954,7 +79954,7 @@ _ZNSt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEED2Ev.exit: ; preds = %2
   invoke void @__cxa_end_catch()
           to label %279 unwind label %280
 
-_ZZ26proj_get_insert_statementsEN17TempSessionHolderD2Ev.argprom.exit: ; preds = %_ZZ26proj_get_insert_statementsEN17TempSessionHolderC2EP6pj_ctxP17PJ_INSERT_SESSION.exit, %262, %_ZNSt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEED2Ev.exit, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, %276
+_ZZ26proj_get_insert_statementsEN17TempSessionHolderD2Ev.exit: ; preds = %_ZZ26proj_get_insert_statementsEN17TempSessionHolderC2EP6pj_ctxP17PJ_INSERT_SESSION.exit, %262, %_ZNSt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEED2Ev.exit, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, %276
   %.2 = phi ptr [ null, %276 ], [ %.1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i ], [ %.0, %_ZNSt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEED2Ev.exit ], [ %.0129, %262 ], [ null, %_ZZ26proj_get_insert_statementsEN17TempSessionHolderC2EP6pj_ctxP17PJ_INSERT_SESSION.exit ]
   ret ptr %.2
 
@@ -79973,7 +79973,7 @@ _ZZ26proj_get_insert_statementsEN17TempSessionHolderD2Ev.argprom.exit: ; preds =
 declare void @_ZN5osgeo4proj2io15DatabaseContext22getInsertStatementsForERKN7dropbox6oxygen2nnISt10shared_ptrINS0_6common16IdentifiedObjectEEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESK_bRKSt6vectorISI_SaISI_EE(ptr dead_on_unwind writable sret(%"class.std::vector") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZ26proj_get_insert_statementsEN17TempSessionHolderD2Ev.argprom(ptr %.0.val, ptr %.8.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZ26proj_get_insert_statementsEN17TempSessionHolderD2Ev(ptr %.0.val, ptr %.8.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %2, label %1
 

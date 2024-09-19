@@ -143,10 +143,10 @@ define dso_local ptr @append_pathkeys(ptr noundef %0, ptr noundef readonly %1) l
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph24, label %._crit_edge
 
-.lr.ph24:                                         ; preds = %.lr.ph, %pathkey_is_redundant.argprom.exit
-  %7 = phi i32 [ %28, %pathkey_is_redundant.argprom.exit ], [ %5, %.lr.ph ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %pathkey_is_redundant.argprom.exit ], [ 0, %.lr.ph ]
-  %.01822 = phi ptr [ %.1, %pathkey_is_redundant.argprom.exit ], [ %0, %.lr.ph ]
+.lr.ph24:                                         ; preds = %.lr.ph, %pathkey_is_redundant.exit
+  %7 = phi i32 [ %28, %pathkey_is_redundant.exit ], [ %5, %.lr.ph ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %pathkey_is_redundant.exit ], [ 0, %.lr.ph ]
+  %.01822 = phi ptr [ %.1, %pathkey_is_redundant.exit ], [ %0, %.lr.ph ]
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr %union.ListCell, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
@@ -155,7 +155,7 @@ define dso_local ptr @append_pathkeys(ptr noundef %0, ptr noundef readonly %1) l
   %12 = getelementptr inbounds i8, ptr %.val, i64 56
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
-  br i1 %14, label %pathkey_is_redundant.argprom.exit, label %.preheader.i
+  br i1 %14, label %pathkey_is_redundant.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph24
   %15 = getelementptr inbounds i8, ptr %.01822, i64 16
@@ -185,14 +185,14 @@ define dso_local ptr @append_pathkeys(ptr noundef %0, ptr noundef readonly %1) l
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %.val, %25
-  br i1 %26, label %pathkey_is_redundant.argprom.exit, label %20
+  br i1 %26, label %pathkey_is_redundant.exit, label %20
 
 .loopexit:                                        ; preds = %20, %.preheader.i, %.lr.ph.i
   %27 = tail call ptr @lappend(ptr noundef %.01822, ptr noundef %10) #10
   %.pre = load i32, ptr %3, align 4
-  br label %pathkey_is_redundant.argprom.exit
+  br label %pathkey_is_redundant.exit
 
-pathkey_is_redundant.argprom.exit:                ; preds = %21, %.lr.ph24, %.loopexit
+pathkey_is_redundant.exit:                        ; preds = %21, %.lr.ph24, %.loopexit
   %28 = phi i32 [ %.pre, %.loopexit ], [ %7, %.lr.ph24 ], [ %7, %21 ]
   %.1 = phi ptr [ %27, %.loopexit ], [ %.01822, %.lr.ph24 ], [ %.01822, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -200,8 +200,8 @@ pathkey_is_redundant.argprom.exit:                ; preds = %21, %.lr.ph24, %.lo
   %30 = icmp slt i64 %indvars.iv.next, %29
   br i1 %30, label %.lr.ph24, label %._crit_edge
 
-._crit_edge:                                      ; preds = %pathkey_is_redundant.argprom.exit, %.lr.ph, %2
-  %.0.lcssa = phi ptr [ %0, %2 ], [ %0, %.lr.ph ], [ %.1, %pathkey_is_redundant.argprom.exit ]
+._crit_edge:                                      ; preds = %pathkey_is_redundant.exit, %.lr.ph, %2
+  %.0.lcssa = phi ptr [ %0, %2 ], [ %0, %.lr.ph ], [ %.1, %pathkey_is_redundant.exit ]
   ret ptr %.0.lcssa
 }
 
@@ -1582,9 +1582,9 @@ define dso_local ptr @build_index_pathkeys(ptr noundef %0, ptr noundef %1, i32 n
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph67, label %.thread
 
-.lr.ph67:                                         ; preds = %.lr.ph, %pathkey_is_redundant.argprom.exit
-  %.0425566 = phi ptr [ %.1, %pathkey_is_redundant.argprom.exit ], [ null, %.lr.ph ]
-  %indvars.iv65 = phi i64 [ %indvars.iv.next, %pathkey_is_redundant.argprom.exit ], [ 0, %.lr.ph ]
+.lr.ph67:                                         ; preds = %.lr.ph, %pathkey_is_redundant.exit
+  %.0425566 = phi ptr [ %.1, %pathkey_is_redundant.exit ], [ null, %.lr.ph ]
+  %indvars.iv65 = phi i64 [ %indvars.iv.next, %pathkey_is_redundant.exit ], [ 0, %.lr.ph ]
   %21 = load i32, ptr %11, align 8
   %22 = sext i32 %21 to i64
   %.not48 = icmp slt i64 %indvars.iv65, %22
@@ -1642,7 +1642,7 @@ define dso_local ptr @build_index_pathkeys(ptr noundef %0, ptr noundef %1, i32 n
   %60 = getelementptr inbounds i8, ptr %.val, i64 56
   %61 = load i8, ptr %60, align 8
   %62 = trunc i8 %61 to i1
-  br i1 %62, label %pathkey_is_redundant.argprom.exit, label %.preheader.i
+  br i1 %62, label %pathkey_is_redundant.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %58
   %63 = getelementptr inbounds i8, ptr %.0425566, i64 16
@@ -1672,18 +1672,18 @@ define dso_local ptr @build_index_pathkeys(ptr noundef %0, ptr noundef %1, i32 n
   %72 = getelementptr inbounds i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %.val, %73
-  br i1 %74, label %pathkey_is_redundant.argprom.exit, label %68
+  br i1 %74, label %pathkey_is_redundant.exit, label %68
 
 .loopexit:                                        ; preds = %68, %.preheader.i, %.lr.ph.i
   %75 = tail call ptr @lappend(ptr noundef %.0425566, ptr noundef nonnull %57) #10
-  br label %pathkey_is_redundant.argprom.exit
+  br label %pathkey_is_redundant.exit
 
 76:                                               ; preds = %42
   %77 = trunc nuw nsw i64 %indvars.iv65 to i32
   %78 = tail call zeroext i1 @indexcol_is_bool_constant_for_query(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %77) #10
-  br i1 %78, label %pathkey_is_redundant.argprom.exit, label %.thread
+  br i1 %78, label %pathkey_is_redundant.exit, label %.thread
 
-pathkey_is_redundant.argprom.exit:                ; preds = %69, %58, %76, %.loopexit
+pathkey_is_redundant.exit:                        ; preds = %69, %58, %76, %.loopexit
   %.1 = phi ptr [ %75, %.loopexit ], [ %.0425566, %76 ], [ %.0425566, %58 ], [ %.0425566, %69 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv65, 1
   %79 = load i32, ptr %10, align 4
@@ -1691,8 +1691,8 @@ pathkey_is_redundant.argprom.exit:                ; preds = %69, %58, %76, %.loo
   %81 = icmp slt i64 %indvars.iv.next, %80
   br i1 %81, label %.lr.ph67, label %.thread
 
-.thread:                                          ; preds = %pathkey_is_redundant.argprom.exit, %.lr.ph67, %76, %.lr.ph, %7, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %7 ], [ null, %.lr.ph ], [ %.0425566, %76 ], [ %.0425566, %.lr.ph67 ], [ %.1, %pathkey_is_redundant.argprom.exit ]
+.thread:                                          ; preds = %pathkey_is_redundant.exit, %.lr.ph67, %76, %.lr.ph, %7, %3
+  %.0 = phi ptr [ null, %3 ], [ null, %7 ], [ null, %.lr.ph ], [ %.0425566, %76 ], [ %.0425566, %.lr.ph67 ], [ %.1, %pathkey_is_redundant.exit ]
   ret ptr %.0
 }
 
@@ -1757,9 +1757,9 @@ define dso_local ptr @build_partition_pathkeys(ptr noundef %0, ptr nocapture nou
   %16 = getelementptr inbounds i8, ptr %1, i64 296
   br label %17
 
-17:                                               ; preds = %.lr.ph, %pathkey_is_redundant.argprom.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %pathkey_is_redundant.argprom.exit ]
-  %.02843 = phi ptr [ null, %.lr.ph ], [ %.1, %pathkey_is_redundant.argprom.exit ]
+17:                                               ; preds = %.lr.ph, %pathkey_is_redundant.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %pathkey_is_redundant.exit ]
+  %.02843 = phi ptr [ null, %.lr.ph ], [ %.1, %pathkey_is_redundant.exit ]
   %18 = load ptr, ptr %10, align 8
   %19 = getelementptr ptr, ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
@@ -1786,7 +1786,7 @@ define dso_local ptr @build_partition_pathkeys(ptr noundef %0, ptr nocapture nou
   %36 = getelementptr inbounds i8, ptr %.val, i64 56
   %37 = load i8, ptr %36, align 8
   %38 = trunc i8 %37 to i1
-  br i1 %38, label %pathkey_is_redundant.argprom.exit, label %.preheader.i
+  br i1 %38, label %pathkey_is_redundant.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %34
   %39 = getelementptr inbounds i8, ptr %.02843, i64 16
@@ -1816,11 +1816,11 @@ define dso_local ptr @build_partition_pathkeys(ptr noundef %0, ptr nocapture nou
   %48 = getelementptr inbounds i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %.val, %49
-  br i1 %50, label %pathkey_is_redundant.argprom.exit, label %44
+  br i1 %50, label %pathkey_is_redundant.exit, label %44
 
 .loopexit:                                        ; preds = %44, %.preheader.i, %.lr.ph.i
   %51 = tail call ptr @lappend(ptr noundef %.02843, ptr noundef nonnull %33) #10
-  br label %pathkey_is_redundant.argprom.exit
+  br label %pathkey_is_redundant.exit
 
 52:                                               ; preds = %17
   %53 = load ptr, ptr %5, align 8
@@ -1845,15 +1845,15 @@ define dso_local ptr @build_partition_pathkeys(ptr noundef %0, ptr nocapture nou
   %63 = icmp sgt i32 %62, 0
   br i1 %63, label %.lr.ph34.i, label %partkey_is_bool_constant_for_query.exit.thread
 
-.lr.ph34.i:                                       ; preds = %.lr.ph.i32, %matches_boolean_partition_clause.argprom.exit.i
-  %indvars.iv.i34 = phi i64 [ %indvars.iv.next.i35, %matches_boolean_partition_clause.argprom.exit.i ], [ 0, %.lr.ph.i32 ]
+.lr.ph34.i:                                       ; preds = %.lr.ph.i32, %matches_boolean_partition_clause.exit.i
+  %indvars.iv.i34 = phi i64 [ %indvars.iv.next.i35, %matches_boolean_partition_clause.exit.i ], [ 0, %.lr.ph.i32 ]
   %64 = load ptr, ptr %61, align 8
   %65 = getelementptr %union.ListCell, ptr %64, i64 %indvars.iv.i34
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 18
   %68 = load i8, ptr %67, align 2
   %69 = trunc i8 %68 to i1
-  br i1 %69, label %matches_boolean_partition_clause.argprom.exit.i, label %70
+  br i1 %69, label %matches_boolean_partition_clause.exit.i, label %70
 
 70:                                               ; preds = %.lr.ph34.i
   %71 = getelementptr i8, ptr %66, i64 8
@@ -1865,22 +1865,22 @@ define dso_local ptr @build_partition_pathkeys(ptr noundef %0, ptr nocapture nou
   %.val.i.i = load ptr, ptr %74, align 8
   %75 = load ptr, ptr %.val.i.i, align 8
   %76 = tail call zeroext i1 @equal(ptr noundef %75, ptr noundef %.val.i) #10
-  br i1 %76, label %pathkey_is_redundant.argprom.exit, label %77
+  br i1 %76, label %pathkey_is_redundant.exit, label %77
 
 77:                                               ; preds = %70
   %.not.i.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i.i, label %matches_boolean_partition_clause.argprom.exit.i, label %78
+  br i1 %.not.i.i.i, label %matches_boolean_partition_clause.exit.i, label %78
 
 78:                                               ; preds = %77
   %79 = load i32, ptr %.val.i, align 4
   %80 = icmp eq i32 %79, 19
-  br i1 %80, label %is_notclause.exit.i.i, label %matches_boolean_partition_clause.argprom.exit.i
+  br i1 %80, label %is_notclause.exit.i.i, label %matches_boolean_partition_clause.exit.i
 
 is_notclause.exit.i.i:                            ; preds = %78
   %81 = getelementptr inbounds i8, ptr %.val.i, i64 4
   %82 = load i32, ptr %81, align 4
   %83 = icmp eq i32 %82, 2
-  br i1 %83, label %84, label %matches_boolean_partition_clause.argprom.exit.i
+  br i1 %83, label %84, label %matches_boolean_partition_clause.exit.i
 
 84:                                               ; preds = %is_notclause.exit.i.i
   %85 = getelementptr i8, ptr %.val.i, i64 8
@@ -1889,16 +1889,16 @@ is_notclause.exit.i.i:                            ; preds = %78
   %.val9.val.i.i = load ptr, ptr %86, align 8
   %.val9.val.val.i.i = load ptr, ptr %.val9.val.i.i, align 8
   %87 = tail call zeroext i1 @equal(ptr noundef %75, ptr noundef %.val9.val.val.i.i) #10
-  br i1 %87, label %pathkey_is_redundant.argprom.exit, label %matches_boolean_partition_clause.argprom.exit.i
+  br i1 %87, label %pathkey_is_redundant.exit, label %matches_boolean_partition_clause.exit.i
 
-matches_boolean_partition_clause.argprom.exit.i:  ; preds = %84, %is_notclause.exit.i.i, %78, %77, %.lr.ph34.i
+matches_boolean_partition_clause.exit.i:          ; preds = %84, %is_notclause.exit.i.i, %78, %77, %.lr.ph34.i
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i34, 1
   %88 = load i32, ptr %60, align 4
   %89 = sext i32 %88 to i64
   %90 = icmp slt i64 %indvars.iv.next.i35, %89
   br i1 %90, label %.lr.ph34.i, label %partkey_is_bool_constant_for_query.exit.thread
 
-pathkey_is_redundant.argprom.exit:                ; preds = %45, %84, %70, %34, %.loopexit
+pathkey_is_redundant.exit:                        ; preds = %45, %84, %70, %34, %.loopexit
   %.1 = phi ptr [ %51, %.loopexit ], [ %.02843, %34 ], [ %.02843, %70 ], [ %.02843, %84 ], [ %.02843, %45 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %91 = load i16, ptr %7, align 2
@@ -1906,9 +1906,9 @@ pathkey_is_redundant.argprom.exit:                ; preds = %45, %84, %70, %34, 
   %93 = icmp slt i64 %indvars.iv.next, %92
   br i1 %93, label %17, label %partkey_is_bool_constant_for_query.exit.thread, !llvm.loop !10
 
-partkey_is_bool_constant_for_query.exit.thread:   ; preds = %pathkey_is_redundant.argprom.exit, %52, %58, %.lr.ph.i32, %matches_boolean_partition_clause.argprom.exit.i, %4
-  %.02841 = phi ptr [ null, %4 ], [ %.02843, %matches_boolean_partition_clause.argprom.exit.i ], [ %.1, %pathkey_is_redundant.argprom.exit ], [ %.02843, %52 ], [ %.02843, %58 ], [ %.02843, %.lr.ph.i32 ]
-  %storemerge = phi i8 [ 0, %4 ], [ 1, %matches_boolean_partition_clause.argprom.exit.i ], [ 0, %pathkey_is_redundant.argprom.exit ], [ 1, %52 ], [ 1, %58 ], [ 1, %.lr.ph.i32 ]
+partkey_is_bool_constant_for_query.exit.thread:   ; preds = %pathkey_is_redundant.exit, %52, %58, %.lr.ph.i32, %matches_boolean_partition_clause.exit.i, %4
+  %.02841 = phi ptr [ null, %4 ], [ %.02843, %matches_boolean_partition_clause.exit.i ], [ %.1, %pathkey_is_redundant.exit ], [ %.02843, %52 ], [ %.02843, %58 ], [ %.02843, %.lr.ph.i32 ]
+  %storemerge = phi i8 [ 0, %4 ], [ 1, %matches_boolean_partition_clause.exit.i ], [ 0, %pathkey_is_redundant.exit ], [ 1, %52 ], [ 1, %58 ], [ 1, %.lr.ph.i32 ]
   store i8 %storemerge, ptr %3, align 1
   ret ptr %.02841
 }
@@ -1985,10 +1985,10 @@ list_length.exit:                                 ; preds = %4, %7
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph271, label %.thread
 
-.lr.ph271:                                        ; preds = %.lr.ph200, %pathkey_is_redundant.argprom.exit
-  %.086198270 = phi i32 [ %.187, %pathkey_is_redundant.argprom.exit ], [ 0, %.lr.ph200 ]
-  %.085199269 = phi ptr [ %.1, %pathkey_is_redundant.argprom.exit ], [ null, %.lr.ph200 ]
-  %indvars.iv229268 = phi i64 [ %indvars.iv.next230, %pathkey_is_redundant.argprom.exit ], [ 0, %.lr.ph200 ]
+.lr.ph271:                                        ; preds = %.lr.ph200, %pathkey_is_redundant.exit
+  %.086198270 = phi i32 [ %.187, %pathkey_is_redundant.exit ], [ 0, %.lr.ph200 ]
+  %.085199269 = phi ptr [ %.1, %pathkey_is_redundant.exit ], [ null, %.lr.ph200 ]
+  %indvars.iv229268 = phi i64 [ %indvars.iv.next230, %pathkey_is_redundant.exit ], [ 0, %.lr.ph200 ]
   %22 = load ptr, ptr %12, align 8
   %23 = getelementptr %union.ListCell, ptr %22, i64 %indvars.iv229268
   %24 = load ptr, ptr %23, align 8
@@ -2364,7 +2364,7 @@ find_var_for_subquery_tle.exit128.thread:         ; preds = %139, %119, %.lr.ph.
   %221 = getelementptr inbounds i8, ptr %.089.val, i64 56
   %222 = load i8, ptr %221, align 8
   %223 = trunc i8 %222 to i1
-  br i1 %223, label %pathkey_is_redundant.argprom.exit, label %.preheader.i138
+  br i1 %223, label %pathkey_is_redundant.exit, label %.preheader.i138
 
 .preheader.i138:                                  ; preds = %219
   %224 = getelementptr inbounds i8, ptr %.085199269, i64 16
@@ -2394,14 +2394,14 @@ find_var_for_subquery_tle.exit128.thread:         ; preds = %139, %119, %.lr.ph.
   %233 = getelementptr inbounds i8, ptr %232, i64 8
   %234 = load ptr, ptr %233, align 8
   %235 = icmp eq ptr %.089.val, %234
-  br i1 %235, label %pathkey_is_redundant.argprom.exit, label %229
+  br i1 %235, label %pathkey_is_redundant.exit, label %229
 
 .loopexit:                                        ; preds = %229, %.preheader.i138, %.lr.ph.i140
   %236 = tail call ptr @lappend(ptr noundef %.085199269, ptr noundef nonnull %.089) #10
   %237 = add i32 %.086198270, 1
-  br label %pathkey_is_redundant.argprom.exit
+  br label %pathkey_is_redundant.exit
 
-pathkey_is_redundant.argprom.exit:                ; preds = %230, %219, %.loopexit
+pathkey_is_redundant.exit:                        ; preds = %230, %219, %.loopexit
   %.187 = phi i32 [ %237, %.loopexit ], [ %.086198270, %219 ], [ %.086198270, %230 ]
   %.1 = phi ptr [ %236, %.loopexit ], [ %.085199269, %219 ], [ %.085199269, %230 ]
   %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229268, 1
@@ -2410,8 +2410,8 @@ pathkey_is_redundant.argprom.exit:                ; preds = %230, %219, %.loopex
   %240 = icmp slt i64 %indvars.iv.next230, %239
   br i1 %240, label %.lr.ph271, label %.thread
 
-.thread:                                          ; preds = %.lr.ph188, %42, %.lr.ph.i, %37, %find_var_for_subquery_tle.exit, %64, %pathkey_is_redundant.argprom.exit, %.thread151, %86, %62, %.lr.ph200, %list_length.exit
-  %.085177 = phi ptr [ null, %list_length.exit ], [ null, %.lr.ph200 ], [ %.085199269, %62 ], [ %.085199269, %86 ], [ %.085199269, %.thread151 ], [ %.1, %pathkey_is_redundant.argprom.exit ], [ %.085199269, %64 ], [ %.085199269, %find_var_for_subquery_tle.exit ], [ %.085199269, %37 ], [ %.085199269, %.lr.ph.i ], [ %.085199269, %42 ], [ %.085199269, %.lr.ph188 ]
+.thread:                                          ; preds = %.lr.ph188, %42, %.lr.ph.i, %37, %find_var_for_subquery_tle.exit, %64, %pathkey_is_redundant.exit, %.thread151, %86, %62, %.lr.ph200, %list_length.exit
+  %.085177 = phi ptr [ null, %list_length.exit ], [ null, %.lr.ph200 ], [ %.085199269, %62 ], [ %.085199269, %86 ], [ %.085199269, %.thread151 ], [ %.1, %pathkey_is_redundant.exit ], [ %.085199269, %64 ], [ %.085199269, %find_var_for_subquery_tle.exit ], [ %.085199269, %37 ], [ %.085199269, %.lr.ph.i ], [ %.085199269, %42 ], [ %.085199269, %.lr.ph188 ]
   ret ptr %.085177
 }
 
@@ -2462,14 +2462,14 @@ define dso_local ptr @truncate_useless_pathkeys(ptr noundef %0, ptr noundef %1, 
   %13 = load ptr, ptr %12, align 8
   %.val.i = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i, label %right_merge_direction.argprom.exit.i, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %right_merge_direction.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph
   %14 = getelementptr inbounds i8, ptr %.val.i, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds i8, ptr %13, i64 16
   %17 = icmp sgt i32 %15, 0
-  br i1 %17, label %.lr.ph6.i.i, label %right_merge_direction.argprom.exit.i
+  br i1 %17, label %.lr.ph6.i.i, label %right_merge_direction.exit.i
 
 .lr.ph6.i.i:                                      ; preds = %.lr.ph.i.i
   %18 = getelementptr inbounds i8, ptr %13, i64 8
@@ -2506,15 +2506,15 @@ define dso_local ptr @truncate_useless_pathkeys(ptr noundef %0, ptr noundef %1, 
 38:                                               ; preds = %28, %22
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %right_merge_direction.argprom.exit.i, label %22
+  br i1 %exitcond.not.i.i, label %right_merge_direction.exit.i, label %22
 
-right_merge_direction.argprom.exit.i:             ; preds = %38, %.lr.ph.i.i, %.lr.ph
+right_merge_direction.exit.i:                     ; preds = %38, %.lr.ph.i.i, %.lr.ph
   %39 = getelementptr inbounds i8, ptr %13, i64 20
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %40, 1
   br i1 %41, label %42, label %.critedge.loopexit86.i.loopexit
 
-42:                                               ; preds = %right_merge_direction.argprom.exit.i, %.split.i.i
+42:                                               ; preds = %right_merge_direction.exit.i, %.split.i.i
   %43 = load i8, ptr %7, align 8
   %44 = trunc i8 %43 to i1
   br i1 %44, label %45, label %49
@@ -2612,8 +2612,8 @@ update_mergeclause_eclasses.exit.i:               ; preds = %.lr.ph11.i.i, %.pre
   %indvars83.le.i = trunc i64 %indvars.iv81.i55 to i32
   br label %pathkeys_useful_for_merging.exit
 
-.critedge.loopexit86.i.loopexit:                  ; preds = %.lr.ph.i, %49, %right_merge_direction.argprom.exit.i, %.split.i.i, %.loopexit.i
-  %indvars.iv81.i.lcssa.ph = phi i64 [ %indvars.iv.next82.i, %.loopexit.i ], [ %indvars.iv81.i55, %.split.i.i ], [ %indvars.iv81.i55, %right_merge_direction.argprom.exit.i ], [ %indvars.iv81.i55, %49 ], [ %indvars.iv81.i55, %.lr.ph.i ]
+.critedge.loopexit86.i.loopexit:                  ; preds = %.lr.ph.i, %49, %right_merge_direction.exit.i, %.split.i.i, %.loopexit.i
+  %indvars.iv81.i.lcssa.ph = phi i64 [ %indvars.iv.next82.i, %.loopexit.i ], [ %indvars.iv81.i55, %.split.i.i ], [ %indvars.iv81.i55, %right_merge_direction.exit.i ], [ %indvars.iv81.i55, %49 ], [ %indvars.iv81.i55, %.lr.ph.i ]
   %88 = trunc i64 %indvars.iv81.i.lcssa.ph to i32
   br label %pathkeys_useful_for_merging.exit
 
@@ -2626,16 +2626,16 @@ pathkeys_useful_for_merging.exit:                 ; preds = %.lr.ph71.i, %.crite
   br i1 %90, label %91, label %95
 
 91:                                               ; preds = %pathkeys_useful_for_merging.exit
-  br i1 %.not.i.i.i, label %pathkeys_useful_for_ordering.argprom.exit, label %92
+  br i1 %.not.i.i.i, label %pathkeys_useful_for_ordering.exit, label %92
 
 92:                                               ; preds = %91
   %93 = getelementptr inbounds i8, ptr %.val, i64 4
   %94 = load i32, ptr %93, align 4
-  br label %pathkeys_useful_for_ordering.argprom.exit
+  br label %pathkeys_useful_for_ordering.exit
 
 95:                                               ; preds = %pathkeys_useful_for_merging.exit
   %or.cond.i23 = or i1 %.not.i, %.not.i.i.i
-  br i1 %or.cond.i23, label %pathkeys_useful_for_ordering.argprom.exit, label %.preheader.i.i24
+  br i1 %or.cond.i23, label %pathkeys_useful_for_ordering.exit, label %.preheader.i.i24
 
 .preheader.i.i24:                                 ; preds = %95
   %96 = getelementptr inbounds i8, ptr %.val, i64 4
@@ -2662,7 +2662,7 @@ pathkeys_useful_for_merging.exit:                 ; preds = %.lr.ph71.i, %.crite
 108:                                              ; preds = %105, %103
   %109 = phi ptr [ %107, %105 ], [ null, %103 ]
   %exitcond.not.i.i27 = icmp eq i64 %indvars.iv.i.i26, %wide.trip.count.i.i25
-  br i1 %exitcond.not.i.i27, label %pathkeys_useful_for_ordering.argprom.exit, label %110
+  br i1 %exitcond.not.i.i27, label %pathkeys_useful_for_ordering.exit, label %110
 
 110:                                              ; preds = %108
   %111 = load ptr, ptr %101, align 8
@@ -2680,7 +2680,7 @@ pathkeys_useful_for_merging.exit:                 ; preds = %.lr.ph71.i, %.crite
 
 119:                                              ; preds = %116
   %indvars41.le47.i.i = trunc i64 %indvars.iv.i.i26 to i32
-  br label %pathkeys_useful_for_ordering.argprom.exit
+  br label %pathkeys_useful_for_ordering.exit
 
 120:                                              ; preds = %116
   %indvars.iv.next.i.i29 = add nuw nsw i64 %indvars.iv.i.i26, 1
@@ -2688,9 +2688,9 @@ pathkeys_useful_for_merging.exit:                 ; preds = %.lr.ph71.i, %.crite
 
 .thread.split.loop.exit44.i.i:                    ; preds = %110
   %indvars41.le.i.i = trunc i64 %indvars.iv.i.i26 to i32
-  br label %pathkeys_useful_for_ordering.argprom.exit
+  br label %pathkeys_useful_for_ordering.exit
 
-pathkeys_useful_for_ordering.argprom.exit:        ; preds = %108, %91, %92, %95, %119, %.thread.split.loop.exit44.i.i
+pathkeys_useful_for_ordering.exit:                ; preds = %108, %91, %92, %95, %119, %.thread.split.loop.exit44.i.i
   %.0.i = phi i32 [ %indvars41.le47.i.i, %119 ], [ %94, %92 ], [ 0, %91 ], [ 0, %95 ], [ %indvars41.le.i.i, %.thread.split.loop.exit44.i.i ], [ %smax.i.i, %108 ]
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.0.i, i32 %.050.i)
   %121 = getelementptr inbounds i8, ptr %0, i64 320
@@ -2698,7 +2698,7 @@ pathkeys_useful_for_ordering.argprom.exit:        ; preds = %108, %91, %92, %95,
   %123 = icmp eq ptr %122, null
   br i1 %123, label %pathkeys_useful_for_grouping.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %pathkeys_useful_for_ordering.argprom.exit
+.preheader.i:                                     ; preds = %pathkeys_useful_for_ordering.exit
   %124 = getelementptr inbounds i8, ptr %2, i64 4
   br i1 %.not.i, label %pathkeys_useful_for_grouping.exit.thread42, label %.lr.ph.i31
 
@@ -2729,8 +2729,8 @@ pathkeys_useful_for_ordering.argprom.exit:        ; preds = %108, %91, %92, %95,
   %.0.ph.i = trunc i64 %.0.ph.in.i to i32
   br label %pathkeys_useful_for_grouping.exit
 
-pathkeys_useful_for_grouping.exit:                ; preds = %pathkeys_useful_for_ordering.argprom.exit, %.thread.loopexit.i
-  %.0.i32 = phi i32 [ 0, %pathkeys_useful_for_ordering.argprom.exit ], [ %.0.ph.i, %.thread.loopexit.i ]
+pathkeys_useful_for_grouping.exit:                ; preds = %pathkeys_useful_for_ordering.exit, %.thread.loopexit.i
+  %.0.i32 = phi i32 [ 0, %pathkeys_useful_for_ordering.exit ], [ %.0.ph.i, %.thread.loopexit.i ]
   %.1 = tail call i32 @llvm.smax.i32(i32 %.0.i32, i32 %spec.select)
   %137 = icmp eq i32 %.1, 0
   br i1 %137, label %144, label %140
@@ -2845,7 +2845,7 @@ make_pathkey_from_sortop.exit:                    ; preds = %23
   %40 = getelementptr inbounds i8, ptr %.val, i64 56
   %41 = load i8, ptr %40, align 8
   %42 = trunc i8 %41 to i1
-  br i1 %42, label %pathkey_is_redundant.argprom.exit, label %.preheader.i
+  br i1 %42, label %pathkey_is_redundant.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %make_pathkey_from_sortop.exit
   %43 = getelementptr inbounds i8, ptr %.035, i64 16
@@ -2875,26 +2875,26 @@ make_pathkey_from_sortop.exit:                    ; preds = %23
   %52 = getelementptr inbounds i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %.val, %53
-  br i1 %54, label %pathkey_is_redundant.argprom.exit, label %48
+  br i1 %54, label %pathkey_is_redundant.exit, label %48
 
 .loopexit:                                        ; preds = %48, %.preheader.i, %.lr.ph.i
   %55 = call ptr @lappend(ptr noundef %.035, ptr noundef %38) #10
   br label %60
 
-pathkey_is_redundant.argprom.exit:                ; preds = %49, %make_pathkey_from_sortop.exit
+pathkey_is_redundant.exit:                        ; preds = %49, %make_pathkey_from_sortop.exit
   br i1 %3, label %56, label %60
 
-56:                                               ; preds = %pathkey_is_redundant.argprom.exit
+56:                                               ; preds = %pathkey_is_redundant.exit
   %57 = load ptr, ptr %1, align 8
   %58 = add i32 %.sroa.5.034, -1
   %59 = call ptr @list_delete_nth_cell(ptr noundef %57, i32 noundef %.sroa.5.034) #10
   store ptr %59, ptr %1, align 8
   br label %60
 
-60:                                               ; preds = %.loopexit, %56, %pathkey_is_redundant.argprom.exit, %22
-  %.sroa.0.1 = phi ptr [ %59, %56 ], [ %.sroa.0.033, %pathkey_is_redundant.argprom.exit ], [ %.sroa.0.033, %.loopexit ], [ %.sroa.0.033, %22 ]
-  %.sroa.5.1 = phi i32 [ %58, %56 ], [ %.sroa.5.034, %pathkey_is_redundant.argprom.exit ], [ %.sroa.5.034, %.loopexit ], [ %.sroa.5.034, %22 ]
-  %.1 = phi ptr [ %.035, %56 ], [ %.035, %pathkey_is_redundant.argprom.exit ], [ %55, %.loopexit ], [ %.035, %22 ]
+60:                                               ; preds = %.loopexit, %56, %pathkey_is_redundant.exit, %22
+  %.sroa.0.1 = phi ptr [ %59, %56 ], [ %.sroa.0.033, %pathkey_is_redundant.exit ], [ %.sroa.0.033, %.loopexit ], [ %.sroa.0.033, %22 ]
+  %.sroa.5.1 = phi i32 [ %58, %56 ], [ %.sroa.5.034, %pathkey_is_redundant.exit ], [ %.sroa.5.034, %.loopexit ], [ %.sroa.5.034, %22 ]
+  %.1 = phi ptr [ %.035, %56 ], [ %.035, %pathkey_is_redundant.exit ], [ %55, %.loopexit ], [ %.035, %22 ]
   %61 = add i32 %.sroa.5.1, 1
   %.not = icmp eq ptr %.sroa.0.1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
@@ -2920,15 +2920,15 @@ define dso_local void @initialize_mergeclause_eclasses(ptr noundef %0, ptr nocap
   %9 = getelementptr i8, ptr %6, i64 32
   %.val = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %get_leftop.argprom.exit, label %10
+  br i1 %.not.i, label %get_leftop.exit, label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr i8, ptr %.val, i64 16
   %.val.i = load ptr, ptr %11, align 8
   %12 = load ptr, ptr %.val.i, align 8
-  br label %get_leftop.argprom.exit
+  br label %get_leftop.exit
 
-get_leftop.argprom.exit:                          ; preds = %2, %10
+get_leftop.exit:                                  ; preds = %2, %10
   %.0.i = phi ptr [ %12, %10 ], [ null, %2 ]
   %13 = getelementptr inbounds i8, ptr %1, i64 144
   %14 = load ptr, ptr %13, align 8
@@ -2940,23 +2940,23 @@ get_leftop.argprom.exit:                          ; preds = %2, %10
   store ptr %18, ptr %19, align 8
   %.val12 = load ptr, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.val12, null
-  br i1 %.not.i.i, label %get_rightop.argprom.exit, label %list_length.exit.i
+  br i1 %.not.i.i, label %get_rightop.exit, label %list_length.exit.i
 
-list_length.exit.i:                               ; preds = %get_leftop.argprom.exit
+list_length.exit.i:                               ; preds = %get_leftop.exit
   %20 = getelementptr inbounds i8, ptr %.val12, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = icmp sgt i32 %21, 1
-  br i1 %22, label %23, label %get_rightop.argprom.exit
+  br i1 %22, label %23, label %get_rightop.exit
 
 23:                                               ; preds = %list_length.exit.i
   %24 = getelementptr i8, ptr %.val12, i64 16
   %.val.i14 = load ptr, ptr %24, align 8
   %25 = getelementptr i8, ptr %.val.i14, i64 8
   %26 = load ptr, ptr %25, align 8
-  br label %get_rightop.argprom.exit
+  br label %get_rightop.exit
 
-get_rightop.argprom.exit:                         ; preds = %get_leftop.argprom.exit, %list_length.exit.i, %23
-  %.0.i13 = phi ptr [ %26, %23 ], [ null, %list_length.exit.i ], [ null, %get_leftop.argprom.exit ]
+get_rightop.exit:                                 ; preds = %get_leftop.exit, %list_length.exit.i, %23
+  %.0.i13 = phi ptr [ %26, %23 ], [ null, %list_length.exit.i ], [ null, %get_leftop.exit ]
   %27 = load ptr, ptr %13, align 8
   %28 = load i32, ptr %4, align 4
   %29 = load i32, ptr %16, align 8
@@ -3505,12 +3505,12 @@ list_head.exit:                                   ; preds = %3, %4
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph80, label %._crit_edge
 
-.lr.ph80:                                         ; preds = %.lr.ph, %pathkey_is_redundant.argprom.exit
-  %.0446379 = phi ptr [ %.145, %pathkey_is_redundant.argprom.exit ], [ null, %.lr.ph ]
-  %.0416478 = phi ptr [ %.142, %pathkey_is_redundant.argprom.exit ], [ %7, %.lr.ph ]
-  %.0396677 = phi ptr [ %.140, %pathkey_is_redundant.argprom.exit ], [ null, %.lr.ph ]
-  %.0386776 = phi ptr [ %.1, %pathkey_is_redundant.argprom.exit ], [ null, %.lr.ph ]
-  %indvars.iv75 = phi i64 [ %indvars.iv.next, %pathkey_is_redundant.argprom.exit ], [ 0, %.lr.ph ]
+.lr.ph80:                                         ; preds = %.lr.ph, %pathkey_is_redundant.exit
+  %.0446379 = phi ptr [ %.145, %pathkey_is_redundant.exit ], [ null, %.lr.ph ]
+  %.0416478 = phi ptr [ %.142, %pathkey_is_redundant.exit ], [ %7, %.lr.ph ]
+  %.0396677 = phi ptr [ %.140, %pathkey_is_redundant.exit ], [ null, %.lr.ph ]
+  %.0386776 = phi ptr [ %.1, %pathkey_is_redundant.exit ], [ null, %.lr.ph ]
+  %indvars.iv75 = phi i64 [ %indvars.iv.next, %pathkey_is_redundant.exit ], [ 0, %.lr.ph ]
   %14 = load ptr, ptr %9, align 8
   %15 = getelementptr %union.ListCell, ptr %14, i64 %indvars.iv75
   %16 = load ptr, ptr %15, align 8
@@ -3613,7 +3613,7 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
   %60 = getelementptr inbounds i8, ptr %.0.val, i64 56
   %61 = load i8, ptr %60, align 8
   %62 = trunc i8 %61 to i1
-  br i1 %62, label %pathkey_is_redundant.argprom.exit, label %.preheader.i54
+  br i1 %62, label %pathkey_is_redundant.exit, label %.preheader.i54
 
 .preheader.i54:                                   ; preds = %58
   %63 = getelementptr inbounds i8, ptr %.0386776, i64 16
@@ -3643,13 +3643,13 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
   %72 = getelementptr inbounds i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %.0.val, %73
-  br i1 %74, label %pathkey_is_redundant.argprom.exit, label %68
+  br i1 %74, label %pathkey_is_redundant.exit, label %68
 
 .loopexit:                                        ; preds = %68, %.preheader.i54, %.lr.ph.i56
   %75 = tail call ptr @lappend(ptr noundef %.0386776, ptr noundef %.0) #10
-  br label %pathkey_is_redundant.argprom.exit
+  br label %pathkey_is_redundant.exit
 
-pathkey_is_redundant.argprom.exit:                ; preds = %69, %58, %.loopexit
+pathkey_is_redundant.exit:                        ; preds = %69, %58, %.loopexit
   %.1 = phi ptr [ %75, %.loopexit ], [ %.0386776, %58 ], [ %.0386776, %69 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv75, 1
   %76 = load i32, ptr %8, align 4
@@ -3657,8 +3657,8 @@ pathkey_is_redundant.argprom.exit:                ; preds = %69, %58, %.loopexit
   %78 = icmp slt i64 %indvars.iv.next, %77
   br i1 %78, label %.lr.ph80, label %._crit_edge
 
-._crit_edge:                                      ; preds = %pathkey_is_redundant.argprom.exit, %.lr.ph, %list_head.exit
-  %.038.lcssa = phi ptr [ null, %list_head.exit ], [ null, %.lr.ph ], [ %.1, %pathkey_is_redundant.argprom.exit ]
+._crit_edge:                                      ; preds = %pathkey_is_redundant.exit, %.lr.ph, %list_head.exit
+  %.038.lcssa = phi ptr [ null, %list_head.exit ], [ null, %.lr.ph ], [ %.1, %pathkey_is_redundant.exit ]
   ret ptr %.038.lcssa
 }
 

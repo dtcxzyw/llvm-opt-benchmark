@@ -294,14 +294,14 @@ define dso_local { ptr, i8 } @_ZN5clang4ento12StoreManager10castRegionEPKNS0_9Me
   %40 = getelementptr inbounds i8, ptr %39, i64 80
   %41 = load ptr, ptr %40, align 8
   %42 = tail call noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(48) %1) #10
-  br i1 %42, label %43, label %"_ZZN5clang4ento12StoreManager10castRegionEPKNS0_9MemRegionENS_8QualTypeEENK3$_0clES4_S5_.argprom.argprom.exit"
+  br i1 %42, label %43, label %"_ZZN5clang4ento12StoreManager10castRegionEPKNS0_9MemRegionENS_8QualTypeEENK3$_0clES4_S5_.exit"
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %45 = load i32, ptr %44, align 8
   %46 = add i32 %45, -27
   %47 = icmp ult i32 %46, -13
-  br i1 %47, label %"_ZZN5clang4ento12StoreManager10castRegionEPKNS0_9MemRegionENS_8QualTypeEENK3$_0clES4_S5_.argprom.argprom.exit", label %48
+  br i1 %47, label %"_ZZN5clang4ento12StoreManager10castRegionEPKNS0_9MemRegionENS_8QualTypeEENK3$_0clES4_S5_.exit", label %48
 
 48:                                               ; preds = %43
   %49 = load ptr, ptr %1, align 8
@@ -318,15 +318,15 @@ define dso_local { ptr, i8 } @_ZN5clang4ento12StoreManager10castRegionEPKNS0_9Me
   %60 = ptrtoint ptr %59 to i64
   %61 = and i64 %60, -16
   %62 = icmp eq i64 %35, %61
-  br i1 %62, label %102, label %"_ZZN5clang4ento12StoreManager10castRegionEPKNS0_9MemRegionENS_8QualTypeEENK3$_0clES4_S5_.argprom.argprom.exit"
+  br i1 %62, label %102, label %"_ZZN5clang4ento12StoreManager10castRegionEPKNS0_9MemRegionENS_8QualTypeEENK3$_0clES4_S5_.exit"
 
-"_ZZN5clang4ento12StoreManager10castRegionEPKNS0_9MemRegionENS_8QualTypeEENK3$_0clES4_S5_.argprom.argprom.exit": ; preds = %48, %43, %38
+"_ZZN5clang4ento12StoreManager10castRegionEPKNS0_9MemRegionENS_8QualTypeEENK3$_0clES4_S5_.exit": ; preds = %48, %43, %38
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %64 = load i32, ptr %63, align 8
   %switch = icmp eq i32 %64, 24
   br i1 %switch, label %77, label %65
 
-65:                                               ; preds = %"_ZZN5clang4ento12StoreManager10castRegionEPKNS0_9MemRegionENS_8QualTypeEENK3$_0clES4_S5_.argprom.argprom.exit"
+65:                                               ; preds = %"_ZZN5clang4ento12StoreManager10castRegionEPKNS0_9MemRegionENS_8QualTypeEENK3$_0clES4_S5_.exit"
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
@@ -341,7 +341,7 @@ define dso_local { ptr, i8 } @_ZN5clang4ento12StoreManager10castRegionEPKNS0_9Me
   %76 = tail call noundef ptr @_ZN5clang4ento16MemRegionManager16getElementRegionENS_8QualTypeENS0_6NonLocEPKNS0_9SubRegionERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(152) %72, i64 %26, ptr nonnull %70, i8 6, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(23096) %75) #10
   br label %102
 
-77:                                               ; preds = %"_ZZN5clang4ento12StoreManager10castRegionEPKNS0_9MemRegionENS_8QualTypeEENK3$_0clES4_S5_.argprom.argprom.exit"
+77:                                               ; preds = %"_ZZN5clang4ento12StoreManager10castRegionEPKNS0_9MemRegionENS_8QualTypeEENK3$_0clES4_S5_.exit"
   %78 = tail call { ptr, i64 } @_ZNK5clang4ento13ElementRegion16getAsArrayOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %1) #10
   %79 = extractvalue { ptr, i64 } %78, 0
   %80 = extractvalue { ptr, i64 } %78, 1
@@ -353,7 +353,7 @@ define dso_local { ptr, i8 } @_ZN5clang4ento12StoreManager10castRegionEPKNS0_9Me
   br i1 %82, label %83, label %87
 
 83:                                               ; preds = %81
-  %84 = tail call fastcc noundef zeroext i1 @"_ZZN5clang4ento12StoreManager10castRegionEPKNS0_9MemRegionENS_8QualTypeEENK3$_0clES4_S5_.argprom.argprom"(ptr noundef nonnull %79, i64 %35)
+  %84 = tail call fastcc noundef zeroext i1 @"_ZZN5clang4ento12StoreManager10castRegionEPKNS0_9MemRegionENS_8QualTypeEENK3$_0clES4_S5_"(ptr noundef nonnull %79, i64 %35)
   br i1 %84, label %102, label %85
 
 85:                                               ; preds = %83
@@ -401,7 +401,7 @@ declare noundef nonnull ptr @_ZNK5clang4ento9MemRegion10StripCastsEb(ptr noundef
 declare i64 @_ZNK5clang4Type14getPointeeTypeEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN5clang4ento12StoreManager10castRegionEPKNS0_9MemRegionENS_8QualTypeEENK3$_0clES4_S5_.argprom.argprom"(ptr noundef %0, i64 %1) unnamed_addr #1 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN5clang4ento12StoreManager10castRegionEPKNS0_9MemRegionENS_8QualTypeEENK3$_0clES4_S5_"(ptr noundef %0, i64 %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, -27

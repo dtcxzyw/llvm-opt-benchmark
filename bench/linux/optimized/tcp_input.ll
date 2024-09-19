@@ -2546,7 +2546,7 @@ declare dso_local void @tcp_time_wait(ptr noundef, i32 noundef, i32 noundef) loc
 declare dso_local i32 @skb_rbtree_purge(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @sk_wake_async.argelim(ptr noundef %0) unnamed_addr #10 align 16 {
+define internal fastcc void @sk_wake_async(ptr noundef %0) unnamed_addr #10 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load volatile i64, ptr %2, align 8
   %4 = and i64 %3, 65536
@@ -9757,7 +9757,7 @@ define dso_local noundef range(i32 0, 2) i32 @tcp_rcv_state_process(ptr noundef 
   %213 = getelementptr inbounds i8, ptr %0, i64 672
   %214 = load ptr, ptr %213, align 8
   call void %214(ptr noundef %0) #20
-  call fastcc void @sk_wake_async.argelim(ptr noundef %0)
+  call fastcc void @sk_wake_async(ptr noundef %0)
   br label %215
 
 215:                                              ; preds = %212, %206
@@ -10144,7 +10144,7 @@ define dso_local noundef range(i32 0, 2) i32 @tcp_rcv_state_process(ptr noundef 
   br i1 %443, label %445, label %444
 
 444:                                              ; preds = %438
-  call fastcc void @sk_wake_async.argelim(ptr noundef %0)
+  call fastcc void @sk_wake_async(ptr noundef %0)
   br label %445
 
 445:                                              ; preds = %444, %438
@@ -14178,7 +14178,7 @@ define internal fastcc void @tcp_fastretrans_alert(ptr noundef %0, i32 noundef %
   br label %300
 
 300:                                              ; preds = %299, %295
-  tail call fastcc void @tcp_undo_cwnd_reduction.argelim(ptr noundef %0)
+  tail call fastcc void @tcp_undo_cwnd_reduction(ptr noundef %0)
   %301 = getelementptr inbounds i8, ptr %0, i64 48
   %302 = load ptr, ptr %301, align 8
   %303 = getelementptr inbounds i8, ptr %302, i64 432
@@ -16618,7 +16618,7 @@ define internal fastcc noundef zeroext i1 @tcp_try_undo_recovery(ptr noundef %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tcp_undo_cwnd_reduction.argelim(ptr noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc void @tcp_undo_cwnd_reduction(ptr noundef %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 352
   %3 = tail call ptr @rb_first(ptr noundef %2) #20
   %4 = icmp eq ptr %3, null

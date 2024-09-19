@@ -3009,7 +3009,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   br i1 %150, label %154, label %181
 
 151:                                              ; preds = %.noexc28.i.i
-  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute12extract_name17h25aa3bdeccb7f337E.argelim(ptr noalias align 8 %27, ptr align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.111)
+  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute12extract_name17h25aa3bdeccb7f337E(ptr noalias align 8 %27, ptr align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.111)
           to label %.noexc31.i.i unwind label %.body.thread46.i.i.loopexit.split-lp
 
 .noexc31.i.i:                                     ; preds = %151
@@ -3018,7 +3018,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   br i1 %153, label %164, label %180
 
 154:                                              ; preds = %.noexc30.i.i
-  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute12extract_name17h25aa3bdeccb7f337E.argelim(ptr noalias align 8 %25, ptr align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.112)
+  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute12extract_name17h25aa3bdeccb7f337E(ptr noalias align 8 %25, ptr align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.112)
           to label %.noexc32.i.i unwind label %.body.thread46.i.i.loopexit.split-lp
 
 .noexc32.i.i:                                     ; preds = %154
@@ -7076,7 +7076,7 @@ default.unreachable:                              ; preds = %4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute12extract_name17h25aa3bdeccb7f337E.argelim(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nonnull align 8 %1, ptr align 1 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute12extract_name17h25aa3bdeccb7f337E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nonnull align 8 %1, ptr align 1 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8

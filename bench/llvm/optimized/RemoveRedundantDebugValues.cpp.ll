@@ -256,7 +256,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_126RemoveRedundantDebugValue
   %13 = load ptr, ptr %1, align 8
   %14 = tail call noundef ptr @_ZNK4llvm8Function13getSubprogramEv(ptr noundef nonnull align 8 dereferenceable(136) %13) #13
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %_ZN12_GLOBAL__N_126RemoveRedundantDebugValues15reduceDbgValuesERN4llvm15MachineFunctionE.argprom.exit, label %15
+  br i1 %.not, label %_ZN12_GLOBAL__N_126RemoveRedundantDebugValues15reduceDbgValuesERN4llvm15MachineFunctionE.exit, label %15
 
 15:                                               ; preds = %2
   %16 = load ptr, ptr %1, align 8
@@ -287,14 +287,14 @@ _ZNK4llvm12DISubprogram7getUnitEv.exit:           ; preds = %21, %25
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %_ZN12_GLOBAL__N_126RemoveRedundantDebugValues15reduceDbgValuesERN4llvm15MachineFunctionE.argprom.exit, label %35
+  br i1 %34, label %_ZN12_GLOBAL__N_126RemoveRedundantDebugValues15reduceDbgValuesERN4llvm15MachineFunctionE.exit, label %35
 
 35:                                               ; preds = %_ZNK4llvm12DISubprogram7getUnitEv.exit
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.01.019.i = load ptr, ptr %36, align 8
   %.not20.i = icmp eq ptr %.sroa.01.019.i, %37
-  br i1 %.not20.i, label %_ZN12_GLOBAL__N_126RemoveRedundantDebugValues15reduceDbgValuesERN4llvm15MachineFunctionE.argprom.exit, label %.lr.ph.i
+  br i1 %.not20.i, label %_ZN12_GLOBAL__N_126RemoveRedundantDebugValues15reduceDbgValuesERN4llvm15MachineFunctionE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %35
   %38 = getelementptr inbounds i8, ptr %10, i64 16
@@ -1490,9 +1490,9 @@ _ZL24reduceDbgValsForwardScanRN4llvm17MachineBasicBlockE.exit.i: ; preds = %573,
   %576 = getelementptr inbounds nuw i8, ptr %.sroa.01.022.i, i64 8
   %.sroa.01.0.i = load ptr, ptr %576, align 8
   %.not.i = icmp eq ptr %.sroa.01.0.i, %37
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_126RemoveRedundantDebugValues15reduceDbgValuesERN4llvm15MachineFunctionE.argprom.exit, label %50
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_126RemoveRedundantDebugValues15reduceDbgValuesERN4llvm15MachineFunctionE.exit, label %50
 
-_ZN12_GLOBAL__N_126RemoveRedundantDebugValues15reduceDbgValuesERN4llvm15MachineFunctionE.argprom.exit: ; preds = %_ZL24reduceDbgValsForwardScanRN4llvm17MachineBasicBlockE.exit.i, %35, %_ZNK4llvm12DISubprogram7getUnitEv.exit, %2
+_ZN12_GLOBAL__N_126RemoveRedundantDebugValues15reduceDbgValuesERN4llvm15MachineFunctionE.exit: ; preds = %_ZL24reduceDbgValsForwardScanRN4llvm17MachineBasicBlockE.exit.i, %35, %_ZNK4llvm12DISubprogram7getUnitEv.exit, %2
   %.0 = phi i1 [ false, %2 ], [ false, %_ZNK4llvm12DISubprogram7getUnitEv.exit ], [ false, %35 ], [ %575, %_ZL24reduceDbgValsForwardScanRN4llvm17MachineBasicBlockE.exit.i ]
   ret i1 %.0
 }

@@ -287,9 +287,9 @@ if.end:                                           ; preds = %invoke.cont19, %ent
   %num_participants_.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %num_participants_.i.i, align 8
   %call.i.i3.i = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22
-          to label %"_ZZN9grpc_core12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEEN3$_0D2Ev.argprom.exit.i" unwind label %lpad.i11
+          to label %"_ZZN9grpc_core12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEEN3$_0D2Ev.exit.i" unwind label %lpad.i11
 
-"_ZZN9grpc_core12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEEN3$_0D2Ev.argprom.exit.i": ; preds = %if.end
+"_ZZN9grpc_core12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEEN3$_0D2Ev.exit.i": ; preds = %if.end
   %handle_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i3.i, i64 8
   store ptr null, ptr %handle_.i.i.i.i.i, align 8
   %name_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i3.i, i64 16
@@ -307,9 +307,9 @@ if.end:                                           ; preds = %invoke.cont19, %ent
   store i64 1, ptr %num_participants_.i.i, align 8
   store ptr %call.i.i3.i, ptr %participants_.i.i, align 8
   invoke void @_ZN9grpc_core5Party15AddParticipantsEPPNS0_11ParticipantEm(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull %participants_.i.i, i64 noundef 1)
-          to label %"_ZZN9grpc_core12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEEN3$_0D2Ev.argprom.exit" unwind label %terminate.lpad.i.i
+          to label %"_ZZN9grpc_core12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEEN3$_0D2Ev.exit" unwind label %terminate.lpad.i.i
 
-terminate.lpad.i.i:                               ; preds = %"_ZZN9grpc_core12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEEN3$_0D2Ev.argprom.exit.i"
+terminate.lpad.i.i:                               ; preds = %"_ZZN9grpc_core12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEEN3$_0D2Ev.exit.i"
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
@@ -319,12 +319,12 @@ terminate.lpad.i.i:                               ; preds = %"_ZZN9grpc_core12Ba
 lpad.i11:                                         ; preds = %if.end
   %22 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZZN9grpc_core12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEEN3$_0D2Ev.argprom"(i64 %17) #21
+  call fastcc void @"_ZZN9grpc_core12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEEN3$_0D2Ev"(i64 %17) #21
   call void @_ZN9grpc_core5Party11BulkSpawnerD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %ref.tmp.i) #21
-  call fastcc void @"_ZZN9grpc_core12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEEN3$_0D2Ev.argprom"(i64 54) #21
+  call fastcc void @"_ZZN9grpc_core12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEEN3$_0D2Ev"(i64 54) #21
   br label %common.resume
 
-"_ZZN9grpc_core12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEEN3$_0D2Ev.argprom.exit": ; preds = %"_ZZN9grpc_core12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEEN3$_0D2Ev.argprom.exit.i"
+"_ZZN9grpc_core12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEEN3$_0D2Ev.exit": ; preds = %"_ZZN9grpc_core12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEEN3$_0D2Ev.exit.i"
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %ref.tmp.i)
   ret void
 }
@@ -395,7 +395,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN9grpc_core12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEEN3$_0D2Ev.argprom"(i64 %this.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN9grpc_core12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEEN3$_0D2Ev"(i64 %this.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %and.i.i.i = and i64 %this.8.val, 1
   %cmp.i.i.i = icmp eq i64 %and.i.i.i, 0
@@ -1756,13 +1756,13 @@ entry:
   %tobool = trunc i8 %0 to i1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br i1 %tobool, label %if.end, label %"_ZN9grpc_core14promise_detail11PromiseLikeIZNS_12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEE3$_0vED2Ev.argprom.exit"
+  br i1 %tobool, label %if.end, label %"_ZN9grpc_core14promise_detail11PromiseLikeIZNS_12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEE3$_0vED2Ev.exit"
 
-"_ZN9grpc_core14promise_detail11PromiseLikeIZNS_12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEE3$_0vED2Ev.argprom.exit": ; preds = %entry
+"_ZN9grpc_core14promise_detail11PromiseLikeIZNS_12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEE3$_0vED2Ev.exit": ; preds = %entry
   store i8 1, ptr %started_, align 8
   br label %if.end
 
-if.end:                                           ; preds = %entry, %"_ZN9grpc_core14promise_detail11PromiseLikeIZNS_12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEE3$_0vED2Ev.argprom.exit"
+if.end:                                           ; preds = %entry, %"_ZN9grpc_core14promise_detail11PromiseLikeIZNS_12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEE3$_0vED2Ev.exit"
   %1 = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %batch.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
@@ -1942,11 +1942,11 @@ _ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit:  ; preds = %entry
   br i1 %tobool.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit
-  br i1 %cmp.i.i.i.i.i.i3.i.i, label %"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEE3$_0ZNS5_18CompletionCallbackES6_S9_E3$_1EEEEvPT_.argprom.exit", label %if.then.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i3.i.i, label %"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEE3$_0ZNS5_18CompletionCallbackES6_S9_E3$_1EEEEvPT_.exit", label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %.val1.i.i)
-          to label %"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEE3$_0ZNS5_18CompletionCallbackES6_S9_E3$_1EEEEvPT_.argprom.exit" unwind label %terminate.lpad.i.i.i.i.i.i
+          to label %"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEE3$_0ZNS5_18CompletionCallbackES6_S9_E3$_1EEEEvPT_.exit" unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i.i
   %4 = landingpad { ptr, i32 }
@@ -1956,11 +1956,11 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 if.else.i.i:                                      ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit
-  br i1 %cmp.i.i.i.i.i.i3.i.i, label %"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEE3$_0ZNS5_18CompletionCallbackES6_S9_E3$_1EEEEvPT_.argprom.exit", label %if.then.i.i.i.i.i4.i.i
+  br i1 %cmp.i.i.i.i.i.i3.i.i, label %"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEE3$_0ZNS5_18CompletionCallbackES6_S9_E3$_1EEEEvPT_.exit", label %if.then.i.i.i.i.i4.i.i
 
 if.then.i.i.i.i.i4.i.i:                           ; preds = %if.else.i.i
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %.val1.i.i)
-          to label %"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEE3$_0ZNS5_18CompletionCallbackES6_S9_E3$_1EEEEvPT_.argprom.exit" unwind label %terminate.lpad.i.i.i.i5.i.i
+          to label %"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEE3$_0ZNS5_18CompletionCallbackES6_S9_E3$_1EEEEvPT_.exit" unwind label %terminate.lpad.i.i.i.i5.i.i
 
 terminate.lpad.i.i.i.i5.i.i:                      ; preds = %if.then.i.i.i.i.i4.i.i
   %6 = landingpad { ptr, i32 }
@@ -1969,7 +1969,7 @@ terminate.lpad.i.i.i.i5.i.i:                      ; preds = %if.then.i.i.i.i.i4.
   tail call void @__clang_call_terminate(ptr %7) #23
   unreachable
 
-"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEE3$_0ZNS5_18CompletionCallbackES6_S9_E3$_1EEEEvPT_.argprom.exit": ; preds = %if.then.i.i, %if.then.i.i.i.i.i.i.i, %if.else.i.i, %if.then.i.i.i.i.i4.i.i
+"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEE3$_0ZNS5_18CompletionCallbackES6_S9_E3$_1EEEEvPT_.exit": ; preds = %if.then.i.i, %if.then.i.i.i.i.i.i.i, %if.else.i.i, %if.then.i.i.i.i.i4.i.i
   tail call void @_ZN9grpc_core5Party11ParticipantD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
   ret void

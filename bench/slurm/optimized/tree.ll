@@ -1394,7 +1394,7 @@ _send_task_spawn_resp_pmi20.exit:                 ; preds = %.loopexit.i, %60
 64:                                               ; preds = %62
   %65 = load ptr, ptr %6, align 8
   %66 = load i32, ptr %4, align 4
-  call fastcc void @_send_task_spawn_resp_pmi11.argelim(ptr noundef %65, i32 noundef %66)
+  call fastcc void @_send_task_spawn_resp_pmi11(ptr noundef %65, i32 noundef %66)
   br label %87
 
 67:                                               ; preds = %21
@@ -1815,7 +1815,7 @@ declare i32 @is_pmi20() local_unnamed_addr #1
 declare i32 @is_pmi11() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_send_task_spawn_resp_pmi11.argelim(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_send_task_spawn_resp_pmi11(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = tail call ptr @client_resp_new() #7

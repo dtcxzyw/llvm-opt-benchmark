@@ -146,7 +146,7 @@ if.then8.i.i:                                     ; preds = %if.then4.i.i
   %call13.c.i.i = tail call zeroext i16 @htons(i16 noundef zeroext 11111) #16
   %sin_port.c.i.i = getelementptr inbounds i8, ptr %addr.i, i64 2
   store i16 %call13.c.i.i, ptr %sin_port.c.i.i, align 2
-  br label %build_addr.argprom.exit.i
+  br label %build_addr.exit.i
 
 if.else.i.i:                                      ; preds = %if.then4.i.i
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.28) #14
@@ -160,19 +160,19 @@ if.end12.i.i:                                     ; preds = %if.end22
   %call22.i.i = tail call i32 @inet_addr(ptr noundef nonnull @.str.7) #15
   %sin_addr23.i.i = getelementptr inbounds i8, ptr %addr.i, i64 4
   store i32 %call22.i.i, ptr %sin_addr23.i.i, align 4
-  br label %build_addr.argprom.exit.i
+  br label %build_addr.exit.i
 
-build_addr.argprom.exit.i:                        ; preds = %if.end12.i.i, %if.then8.i.i
+build_addr.exit.i:                                ; preds = %if.end12.i.i, %if.then8.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %on.i.i)
   %call1.i.i = tail call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 6) #15
   %cmp.i.i = icmp slt i32 %call1.i.i, -1
   br i1 %cmp.i.i, label %if.then2.i.i, label %if.end3.i.i
 
-if.then2.i.i:                                     ; preds = %build_addr.argprom.exit.i
+if.then2.i.i:                                     ; preds = %build_addr.exit.i
   tail call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.29) #14
   unreachable
 
-if.end3.i.i:                                      ; preds = %build_addr.argprom.exit.i
+if.end3.i.i:                                      ; preds = %build_addr.exit.i
   %call4.i.i = tail call ptr @signal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #15
   store i32 1, ptr %on.i.i, align 4
   %call8.i.i = call i32 @setsockopt(i32 noundef %call1.i.i, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %on.i.i, i32 noundef 4) #15
@@ -187,18 +187,18 @@ tcp_socket.exit.i:                                ; preds = %if.end3.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %on.i.i)
   %call3.i = call i32 @connect(i32 noundef %call1.i.i, ptr noundef nonnull %addr.i, i32 noundef 16) #15
   %cmp.not.i = icmp eq i32 %call3.i, 0
-  br i1 %cmp.not.i, label %tcp_connect.argprom.exit, label %if.then4.i
+  br i1 %cmp.not.i, label %tcp_connect.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %tcp_socket.exit.i
   call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.26) #14
   unreachable
 
-tcp_connect.argprom.exit:                         ; preds = %tcp_socket.exit.i
+tcp_connect.exit:                                 ; preds = %tcp_socket.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %addr.i)
   %call24 = call i32 @wolfSSL_set_fd(ptr noundef %call23, i32 noundef %call1.i.i) #15
   br label %do.body
 
-do.body:                                          ; preds = %do.cond, %tcp_connect.argprom.exit
+do.body:                                          ; preds = %do.cond, %tcp_connect.exit
   %call25 = call i32 @wolfSSL_connect(ptr noundef %call23) #15
   %cmp26.not = icmp eq i32 %call25, 1
   br i1 %cmp26.not, label %while.cond.preheader, label %do.cond

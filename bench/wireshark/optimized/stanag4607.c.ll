@@ -85,7 +85,7 @@ define internal i32 @stanag4607_read(ptr nocapture noundef readonly %0, ptr noca
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr i8, ptr %0, i64 96
   %.val = load ptr, ptr %10, align 8
-  %11 = tail call fastcc i32 @stanag4607_read_file.argprom(ptr %.val, ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %11 = tail call fastcc i32 @stanag4607_read_file(ptr %.val, ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret i32 %11
 }
 
@@ -101,7 +101,7 @@ define internal i32 @stanag4607_seek_read(ptr nocapture noundef readonly %0, i64
   %12 = load ptr, ptr %7, align 8
   %13 = getelementptr i8, ptr %0, i64 96
   %.val = load ptr, ptr %13, align 8
-  %14 = tail call fastcc i32 @stanag4607_read_file.argprom(ptr %.val, ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %14 = tail call fastcc i32 @stanag4607_read_file(ptr %.val, ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br label %15
 
 15:                                               ; preds = %6, %11
@@ -126,7 +126,7 @@ declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 no
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @stanag4607_read_file.argprom(ptr nocapture %.96.val, ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @stanag4607_read_file(ptr nocapture %.96.val, ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca [37 x i8], align 16
   %8 = alloca [39 x i8], align 16

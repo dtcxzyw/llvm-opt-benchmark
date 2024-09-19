@@ -900,7 +900,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 273:                                              ; preds = %269
   %.val37 = load ptr, ptr %34, align 8
-  %274 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117HandleVersionModeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatus.argprom(ptr %.val, ptr %.val37, ptr noundef nonnull align 8 dereferenceable(80) %1)
+  %274 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117HandleVersionModeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatus(ptr %.val, ptr %.val37, ptr noundef nonnull align 8 dereferenceable(80) %1)
   br label %285
 
 275:                                              ; preds = %269
@@ -911,7 +911,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 278:                                              ; preds = %275
   %.val39 = load ptr, ptr %34, align 8
-  %279 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120HandleGetWarningModeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatus.argprom(ptr %.val38, ptr %.val39, ptr noundef nonnull align 8 dereferenceable(80) %1)
+  %279 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120HandleGetWarningModeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatus(ptr %.val38, ptr %.val39, ptr noundef nonnull align 8 dereferenceable(80) %1)
   br label %285
 
 280:                                              ; preds = %275
@@ -981,7 +981,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare void @_ZN10cmMakefile9PopPolicyEv(ptr noundef nonnull align 8 dereferenceable(3520)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117HandleVersionModeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatus.argprom(ptr %.0.val, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117HandleVersionModeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatus(ptr %.0.val, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca [3 x %"struct.std::pair"], align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -1196,7 +1196,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120HandleGetWarningModeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatus.argprom(ptr %.0.val, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120HandleGetWarningModeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatus(ptr %.0.val, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca [3 x %"struct.std::pair"], align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1

@@ -150,7 +150,7 @@ define internal noundef range(i32 -28, 1) i32 @cgrp_css_online(ptr nocapture nou
 33:                                               ; preds = %28, %24, %17
   %34 = phi i32 [ %32, %28 ], [ 0, %24 ], [ 0, %17 ]
   %.val = load i32, ptr %4, align 8
-  %35 = tail call fastcc i32 @netprio_set_prio.argprom(i32 %.val, ptr noundef %19, i32 noundef %34)
+  %35 = tail call fastcc i32 @netprio_set_prio(i32 %.val, ptr noundef %19, i32 noundef %34)
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %14, label %.loopexit
 
@@ -223,7 +223,7 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 declare dso_local void @rtnl_lock() local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -28, 1) i32 @netprio_set_prio.argprom(i32 %.80.val, ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -28, 1) i32 @netprio_set_prio(i32 %.80.val, ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2136
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq i32 %1, 0
@@ -449,7 +449,7 @@ define internal noundef i64 @write_priomap(ptr noundef %0, ptr nocapture noundef
   %14 = load i32, ptr %6, align 4
   %15 = getelementptr i8, ptr %13, i64 80
   %.val = load i32, ptr %15, align 8
-  %16 = call fastcc i32 @netprio_set_prio.argprom(i32 %.val, ptr noundef nonnull %10, i32 noundef %14)
+  %16 = call fastcc i32 @netprio_set_prio(i32 %.val, ptr noundef nonnull %10, i32 noundef %14)
   call void @rtnl_unlock() #11
   %17 = getelementptr inbounds i8, ptr %10, i64 1280
   %18 = load ptr, ptr %17, align 8

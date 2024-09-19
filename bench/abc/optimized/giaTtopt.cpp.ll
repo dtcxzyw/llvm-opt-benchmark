@@ -319,7 +319,7 @@ _ZL14Abc_UtilStrsavPc.exit89:                     ; preds = %_ZL14Abc_UtilStrsav
   br i1 %.not, label %.critedge, label %32
 
 32:                                               ; preds = %.lr.ph
-  tail call fastcc void @_ZL15Gia_ManAppendCiP10Gia_Man_t_.retelim(ptr noundef nonnull %10)
+  tail call fastcc void @_ZL15Gia_ManAppendCiP10Gia_Man_t_(ptr noundef nonnull %10)
   %33 = add nuw nsw i32 %.067105, 1
   %34 = load ptr, ptr %28, align 8
   %35 = getelementptr i8, ptr %34, i64 4
@@ -712,7 +712,7 @@ declare i32 @Gia_ManLevelNum(ptr noundef) local_unnamed_addr #1
 declare ptr @Gia_ManStart(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15Gia_ManAppendCiP10Gia_Man_t_.retelim(ptr nocapture noundef %0) unnamed_addr #2 {
+define internal fastcc void @_ZL15Gia_ManAppendCiP10Gia_Man_t_(ptr nocapture noundef %0) unnamed_addr #2 {
   %2 = tail call fastcc noundef ptr @_ZL16Gia_ManAppendObjP10Gia_Man_t_(ptr noundef %0)
   %3 = load i64, ptr %2, align 4
   %4 = or i64 %3, 2684354559
@@ -2361,7 +2361,7 @@ _ZL14Abc_UtilStrsavPc.exit87:                     ; preds = %_ZL14Abc_UtilStrsav
   br i1 %.not, label %.critedge, label %68
 
 68:                                               ; preds = %.lr.ph
-  tail call fastcc void @_ZL15Gia_ManAppendCiP10Gia_Man_t_.retelim(ptr noundef nonnull %46)
+  tail call fastcc void @_ZL15Gia_ManAppendCiP10Gia_Man_t_(ptr noundef nonnull %46)
   %69 = add nuw nsw i32 %.067102, 1
   %70 = load ptr, ptr %64, align 8
   %71 = getelementptr i8, ptr %70, i64 4

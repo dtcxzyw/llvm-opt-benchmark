@@ -200,7 +200,7 @@ if.else5:                                         ; preds = %entry
   %shl.i = shl i64 %ps.val12, 12
   %call3.i = tail call i64 @sz_psz_quantize_floor(i64 noundef %shl.i) #8
   %cmp.i.i = icmp ugt i64 %call3.i, 8070450532247928832
-  br i1 %cmp.i.i, label %psset_hpdata_heap_index.argprom.exit, label %if.end.i.i
+  br i1 %cmp.i.i, label %psset_hpdata_heap_index.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else5
   %cmp.i.i.i = icmp ne i64 %call3.i, 0
@@ -219,16 +219,16 @@ if.end.i.i:                                       ; preds = %if.else5
   %shl.i.i = shl nuw nsw i32 %cond.i.i, 2
   %add13.i.i = or disjoint i32 %conv12.i.i, %shl.i.i
   %7 = zext nneg i32 %add13.i.i to i64
-  br label %psset_hpdata_heap_index.argprom.exit
+  br label %psset_hpdata_heap_index.exit
 
-psset_hpdata_heap_index.argprom.exit:             ; preds = %if.else5, %if.end.i.i
+psset_hpdata_heap_index.exit:                     ; preds = %if.else5, %if.end.i.i
   %retval.i.0.i = phi i64 [ %7, %if.end.i.i ], [ 199, %if.else5 ]
   %stats7 = getelementptr inbounds i8, ptr %psset, i64 1056
   %arrayidx = getelementptr inbounds [64 x [2 x %struct.psset_bin_stats_s]], ptr %stats7, i64 0, i64 %retval.i.0.i
   br label %if.end9
 
-if.end9:                                          ; preds = %if.then2, %psset_hpdata_heap_index.argprom.exit, %if.then
-  %full_slabs.sink = phi ptr [ %full_slabs, %if.then2 ], [ %arrayidx, %psset_hpdata_heap_index.argprom.exit ], [ %empty_slabs, %if.then ]
+if.end9:                                          ; preds = %if.then2, %psset_hpdata_heap_index.exit, %if.then
+  %full_slabs.sink = phi ptr [ %full_slabs, %if.then2 ], [ %arrayidx, %psset_hpdata_heap_index.exit ], [ %empty_slabs, %if.then ]
   %8 = getelementptr i8, ptr %ps, i64 16
   %ps.val.i14 = load i8, ptr %8, align 8
   %9 = and i8 %ps.val.i14, 1
@@ -334,7 +334,7 @@ if.else3:                                         ; preds = %entry
   %shl.i.i = shl i64 %ps.val.i, 12
   %call3.i.i = tail call i64 @sz_psz_quantize_floor(i64 noundef %shl.i.i) #8
   %cmp.i.i.i = icmp ugt i64 %call3.i.i, 8070450532247928832
-  br i1 %cmp.i.i.i, label %psset_hpdata_heap_index.argprom.exit.i, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %psset_hpdata_heap_index.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else3
   %cmp.i.i.i.i = icmp ne i64 %call3.i.i, 0
@@ -353,16 +353,16 @@ if.end.i.i.i:                                     ; preds = %if.else3
   %shl.i.i.i = shl nuw nsw i32 %cond.i.i.i, 2
   %add13.i.i.i = or disjoint i32 %conv12.i.i.i, %shl.i.i.i
   %25 = zext nneg i32 %add13.i.i.i to i64
-  br label %psset_hpdata_heap_index.argprom.exit.i
+  br label %psset_hpdata_heap_index.exit.i
 
-psset_hpdata_heap_index.argprom.exit.i:           ; preds = %if.end.i.i.i, %if.else3
+psset_hpdata_heap_index.exit.i:                   ; preds = %if.end.i.i.i, %if.else3
   %retval.i.0.i.i = phi i64 [ %25, %if.end.i.i.i ], [ 199, %if.else3 ]
   %arrayidx.i = getelementptr inbounds [64 x %struct.hpdata_age_heap_t], ptr %psset, i64 0, i64 %retval.i.0.i.i
   tail call void @hpdata_age_heap_remove(ptr noundef %arrayidx.i, ptr noundef nonnull %ps) #8
   %call4.i = tail call zeroext i1 @hpdata_age_heap_empty(ptr noundef %arrayidx.i) #8
   br i1 %call4.i, label %if.then.i10, label %if.end4
 
-if.then.i10:                                      ; preds = %psset_hpdata_heap_index.argprom.exit.i
+if.then.i10:                                      ; preds = %psset_hpdata_heap_index.exit.i
   %pageslab_bitmap.i = getelementptr inbounds i8, ptr %psset, i64 1024
   %div2.i.i = lshr i64 %retval.i.0.i.i, 6
   %rem.i.i = and i64 %retval.i.0.i.i, 63
@@ -374,7 +374,7 @@ if.then.i10:                                      ; preds = %psset_hpdata_heap_i
   store i64 %and.i.i, ptr %arrayidx.i.i, align 8
   br label %if.end4
 
-if.end4:                                          ; preds = %entry, %if.then.i10, %psset_hpdata_heap_index.argprom.exit.i, %do.body25.i, %do.body9.i
+if.end4:                                          ; preds = %entry, %if.then.i10, %psset_hpdata_heap_index.exit.i, %do.body25.i, %do.body9.i
   ret void
 }
 
@@ -650,7 +650,7 @@ if.else5:                                         ; preds = %entry
   %shl.i = shl i64 %ps.val12, 12
   %call3.i = tail call i64 @sz_psz_quantize_floor(i64 noundef %shl.i) #8
   %cmp.i.i = icmp ugt i64 %call3.i, 8070450532247928832
-  br i1 %cmp.i.i, label %psset_hpdata_heap_index.argprom.exit, label %if.end.i.i
+  br i1 %cmp.i.i, label %psset_hpdata_heap_index.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else5
   %cmp.i.i.i = icmp ne i64 %call3.i, 0
@@ -669,16 +669,16 @@ if.end.i.i:                                       ; preds = %if.else5
   %shl.i.i = shl nuw nsw i32 %cond.i.i, 2
   %add13.i.i = or disjoint i32 %conv12.i.i, %shl.i.i
   %7 = zext nneg i32 %add13.i.i to i64
-  br label %psset_hpdata_heap_index.argprom.exit
+  br label %psset_hpdata_heap_index.exit
 
-psset_hpdata_heap_index.argprom.exit:             ; preds = %if.else5, %if.end.i.i
+psset_hpdata_heap_index.exit:                     ; preds = %if.else5, %if.end.i.i
   %retval.i.0.i = phi i64 [ %7, %if.end.i.i ], [ 199, %if.else5 ]
   %stats7 = getelementptr inbounds i8, ptr %psset, i64 1056
   %arrayidx = getelementptr inbounds [64 x [2 x %struct.psset_bin_stats_s]], ptr %stats7, i64 0, i64 %retval.i.0.i
   br label %if.end9
 
-if.end9:                                          ; preds = %if.then2, %psset_hpdata_heap_index.argprom.exit, %if.then
-  %full_slabs.sink = phi ptr [ %full_slabs, %if.then2 ], [ %arrayidx, %psset_hpdata_heap_index.argprom.exit ], [ %empty_slabs, %if.then ]
+if.end9:                                          ; preds = %if.then2, %psset_hpdata_heap_index.exit, %if.then
+  %full_slabs.sink = phi ptr [ %full_slabs, %if.then2 ], [ %arrayidx, %psset_hpdata_heap_index.exit ], [ %empty_slabs, %if.then ]
   %8 = getelementptr i8, ptr %ps, i64 16
   %ps.val.i14 = load i8, ptr %8, align 8
   %9 = and i8 %ps.val.i14, 1
@@ -772,7 +772,7 @@ if.else3:                                         ; preds = %entry
   %shl.i.i = shl i64 %ps.val.i, 12
   %call3.i.i = tail call i64 @sz_psz_quantize_floor(i64 noundef %shl.i.i) #8
   %cmp.i.i.i = icmp ugt i64 %call3.i.i, 8070450532247928832
-  br i1 %cmp.i.i.i, label %psset_hpdata_heap_index.argprom.exit.i, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %psset_hpdata_heap_index.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else3
   %cmp.i.i.i.i = icmp ne i64 %call3.i.i, 0
@@ -791,15 +791,15 @@ if.end.i.i.i:                                     ; preds = %if.else3
   %shl.i.i.i = shl nuw nsw i32 %cond.i.i.i, 2
   %add13.i.i.i = or disjoint i32 %conv12.i.i.i, %shl.i.i.i
   %19 = zext nneg i32 %add13.i.i.i to i64
-  br label %psset_hpdata_heap_index.argprom.exit.i
+  br label %psset_hpdata_heap_index.exit.i
 
-psset_hpdata_heap_index.argprom.exit.i:           ; preds = %if.end.i.i.i, %if.else3
+psset_hpdata_heap_index.exit.i:                   ; preds = %if.end.i.i.i, %if.else3
   %retval.i.0.i.i = phi i64 [ %19, %if.end.i.i.i ], [ 199, %if.else3 ]
   %arrayidx.i = getelementptr inbounds [64 x %struct.hpdata_age_heap_t], ptr %psset, i64 0, i64 %retval.i.0.i.i
   %call1.i = tail call zeroext i1 @hpdata_age_heap_empty(ptr noundef %arrayidx.i) #8
   br i1 %call1.i, label %if.then.i, label %psset_hpdata_heap_insert.exit
 
-if.then.i:                                        ; preds = %psset_hpdata_heap_index.argprom.exit.i
+if.then.i:                                        ; preds = %psset_hpdata_heap_index.exit.i
   %pageslab_bitmap.i = getelementptr inbounds i8, ptr %psset, i64 1024
   %div2.i.i = lshr i64 %retval.i.0.i.i, 6
   %rem.i.i = and i64 %retval.i.0.i.i, 63
@@ -810,7 +810,7 @@ if.then.i:                                        ; preds = %psset_hpdata_heap_i
   store i64 %or.i.i, ptr %arrayidx.i.i, align 8
   br label %psset_hpdata_heap_insert.exit
 
-psset_hpdata_heap_insert.exit:                    ; preds = %psset_hpdata_heap_index.argprom.exit.i, %if.then.i
+psset_hpdata_heap_insert.exit:                    ; preds = %psset_hpdata_heap_index.exit.i, %if.then.i
   tail call void @hpdata_age_heap_insert(ptr noundef %arrayidx.i, ptr noundef nonnull %ps) #8
   br label %if.end4
 

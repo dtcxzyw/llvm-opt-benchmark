@@ -4406,7 +4406,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %67, %_ZN4llvm11raw_
   %76 = and i64 %74, 4294967295
   %77 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %73) #18
   %78 = icmp ult i64 %76, %77
-  br i1 %78, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZNS0_9ASTDumper22dumpInvalidDeclContextEPKNS0_11DeclContextEE3$_0EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISA_T0_DpT1_EESA_E4typeEOSE_DpOSF_.argprom.exit"
+  br i1 %78, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZNS0_9ASTDumper22dumpInvalidDeclContextEPKNS0_11DeclContextEE3$_0EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISA_T0_DpT1_EESA_E4typeEOSE_DpOSF_.exit"
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN5clang10ColorScopeD2Ev.exit.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i
   %79 = load ptr, ptr %73, align 8
@@ -4447,9 +4447,9 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
 _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: ; preds = %95, %_ZNKSt8functionIFvbEEclEb.exit.i.i.i
   %97 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %73) #18
   %98 = icmp ult i64 %76, %97
-  br i1 %98, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZNS0_9ASTDumper22dumpInvalidDeclContextEPKNS0_11DeclContextEE3$_0EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISA_T0_DpT1_EESA_E4typeEOSE_DpOSF_.argprom.exit", !llvm.loop !17
+  br i1 %98, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZNS0_9ASTDumper22dumpInvalidDeclContextEPKNS0_11DeclContextEE3$_0EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISA_T0_DpT1_EESA_E4typeEOSE_DpOSF_.exit", !llvm.loop !17
 
-"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZNS0_9ASTDumper22dumpInvalidDeclContextEPKNS0_11DeclContextEE3$_0EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISA_T0_DpT1_EESA_E4typeEOSE_DpOSF_.argprom.exit": ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i
+"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZNS0_9ASTDumper22dumpInvalidDeclContextEPKNS0_11DeclContextEE3$_0EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISA_T0_DpT1_EESA_E4typeEOSE_DpOSF_.exit": ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i
   %99 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #18
   %100 = add i64 %99, -2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %25, i64 noundef %100) #18
@@ -4458,7 +4458,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper22dumpInvalidDeclContextEPKNS1_11DeclContextEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper22dumpInvalidDeclContextEPKNS1_11DeclContextEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper22dumpInvalidDeclContextEPKNS1_11DeclContextEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %10
@@ -4468,11 +4468,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper22dumpInvalidDeclContextEPKNS1_11DeclContextEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper22dumpInvalidDeclContextEPKNS1_11DeclContextEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper22dumpInvalidDeclContextEPKNS1_11DeclContextEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper22dumpInvalidDeclContextEPKNS1_11DeclContextEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
@@ -4482,20 +4482,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
   %9 = getelementptr inbounds nuw i8, ptr %.val5, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #18
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper22dumpInvalidDeclContextEPKNS1_11DeclContextEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper22dumpInvalidDeclContextEPKNS1_11DeclContextEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
 
 10:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %11 = icmp eq ptr %.val6.i, null
-  br i1 %11, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper22dumpInvalidDeclContextEPKNS1_11DeclContextEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit", label %12
+  br i1 %11, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper22dumpInvalidDeclContextEPKNS1_11DeclContextEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit", label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 56) #23
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper22dumpInvalidDeclContextEPKNS1_11DeclContextEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper22dumpInvalidDeclContextEPKNS1_11DeclContextEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper22dumpInvalidDeclContextEPKNS1_11DeclContextEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit": ; preds = %3, %12, %10, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper22dumpInvalidDeclContextEPKNS1_11DeclContextEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit": ; preds = %3, %12, %10, %6, %5, %4
   ret i1 false
 }
 
@@ -12626,21 +12626,21 @@ _ZN5clang10ColorScopeC2ERN4llvm11raw_ostreamEbNS_13TerminalColorE.exit.i.i.i: ; 
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i:           ; preds = %208, %206
-  br i1 %191, label %211, label %"_ZZZN5clang9ASTDumper11dumpLookupsEPKNS_11DeclContextEbENK3$_0clEvENKUlvE0_clEv.argprom.exit.i.i"
+  br i1 %191, label %211, label %"_ZZZN5clang9ASTDumper11dumpLookupsEPKNS_11DeclContextEbENK3$_0clEvENKUlvE0_clEv.exit.i.i"
 
 211:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i
   %212 = load ptr, ptr %188, align 8
   %213 = getelementptr inbounds i8, ptr %212, i64 32
   %214 = load ptr, ptr %213, align 8
   %215 = call noundef nonnull align 8 dereferenceable(48) ptr %214(ptr noundef nonnull align 8 dereferenceable(48) %188) #18
-  br label %"_ZZZN5clang9ASTDumper11dumpLookupsEPKNS_11DeclContextEbENK3$_0clEvENKUlvE0_clEv.argprom.exit.i.i"
+  br label %"_ZZZN5clang9ASTDumper11dumpLookupsEPKNS_11DeclContextEbENK3$_0clEvENKUlvE0_clEv.exit.i.i"
 
-"_ZZZN5clang9ASTDumper11dumpLookupsEPKNS_11DeclContextEbENK3$_0clEvENKUlvE0_clEv.argprom.exit.i.i": ; preds = %211, %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i
+"_ZZZN5clang9ASTDumper11dumpLookupsEPKNS_11DeclContextEbENK3$_0clEvENKUlvE0_clEv.exit.i.i": ; preds = %211, %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i
   %216 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %217 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %216) #18
   br i1 %217, label %._crit_edge.i.i24, label %.lr.ph.i.i19
 
-.lr.ph.i.i19:                                     ; preds = %"_ZZZN5clang9ASTDumper11dumpLookupsEPKNS_11DeclContextEbENK3$_0clEvENKUlvE0_clEv.argprom.exit.i.i", %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i23
+.lr.ph.i.i19:                                     ; preds = %"_ZZZN5clang9ASTDumper11dumpLookupsEPKNS_11DeclContextEbENK3$_0clEvENKUlvE0_clEv.exit.i.i", %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i23
   %218 = load ptr, ptr %216, align 8
   %219 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %216) #18
   %220 = getelementptr inbounds %"class.std::function", ptr %218, i64 %219
@@ -12680,7 +12680,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i23: 
   %236 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %216) #18
   br i1 %236, label %._crit_edge.i.i24, label %.lr.ph.i.i19, !llvm.loop !87
 
-._crit_edge.i.i24:                                ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i23, %"_ZZZN5clang9ASTDumper11dumpLookupsEPKNS_11DeclContextEbENK3$_0clEvENKUlvE0_clEv.argprom.exit.i.i"
+._crit_edge.i.i24:                                ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i23, %"_ZZZN5clang9ASTDumper11dumpLookupsEPKNS_11DeclContextEbENK3$_0clEvENKUlvE0_clEv.exit.i.i"
   %237 = getelementptr inbounds nuw i8, ptr %16, i64 1072
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %237) #18
   %238 = load ptr, ptr %32, align 8
@@ -13461,7 +13461,7 @@ _ZNKSt8functionIFvPN5clang4DeclEEEclES2_.exit.i.i.i: ; preds = %11
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, 512
   %.not.i.i.i.i = icmp eq i32 %25, 0
-  br i1 %.not.i.i.i.i, label %26, label %"_ZSt10__invoke_rIvRZZZZN5clang9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbENK3$_0clEvENKUlvE_clEvENKUlvE_clEvEUlPNS0_4DeclEE_JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit"
+  br i1 %.not.i.i.i.i, label %26, label %"_ZSt10__invoke_rIvRZZZZN5clang9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbENK3$_0clEvENKUlvE_clEvENKUlvE_clEvEUlPNS0_4DeclEE_JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
 26:                                               ; preds = %22, %18
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -13473,9 +13473,9 @@ _ZNKSt8functionIFvPN5clang4DeclEEEclES2_.exit.i.i.i: ; preds = %11
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 8
   call void @_ZN5clang17TextTreeStructure8AddChildIZNS_16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEbEUlvE_EEvN4llvm9StringRefET_(ptr noundef nonnull align 8 dereferenceable(1096) %27, ptr nonnull @.str.1, i64 0, ptr noundef nonnull byval(%class.anon.529) align 8 %3) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %"_ZSt10__invoke_rIvRZZZZN5clang9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbENK3$_0clEvENKUlvE_clEvENKUlvE_clEvEUlPNS0_4DeclEE_JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZZZZN5clang9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbENK3$_0clEvENKUlvE_clEvENKUlvE_clEvEUlPNS0_4DeclEE_JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
-"_ZSt10__invoke_rIvRZZZZN5clang9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbENK3$_0clEvENKUlvE_clEvENKUlvE_clEvEUlPNS0_4DeclEE_JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit": ; preds = %22, %26
+"_ZSt10__invoke_rIvRZZZZN5clang9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbENK3$_0clEvENKUlvE_clEvENKUlvE_clEvEUlPNS0_4DeclEE_JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit": ; preds = %22, %26
   ret void
 }
 
@@ -13640,7 +13640,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %67, %_ZN4llvm11raw_
   %76 = and i64 %74, 4294967295
   %77 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %73) #18
   %78 = icmp ult i64 %76, %77
-  br i1 %78, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZZZNS0_9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbENK3$_0clEvENKUlvE_clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISC_T0_DpT1_EESC_E4typeEOSG_DpOSH_.argprom.exit"
+  br i1 %78, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZZZNS0_9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbENK3$_0clEvENKUlvE_clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISC_T0_DpT1_EESC_E4typeEOSG_DpOSH_.exit"
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN5clang10ColorScopeD2Ev.exit.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i
   %79 = load ptr, ptr %73, align 8
@@ -13681,9 +13681,9 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
 _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: ; preds = %95, %_ZNKSt8functionIFvbEEclEb.exit.i.i.i
   %97 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %73) #18
   %98 = icmp ult i64 %76, %97
-  br i1 %98, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZZZNS0_9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbENK3$_0clEvENKUlvE_clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISC_T0_DpT1_EESC_E4typeEOSG_DpOSH_.argprom.exit", !llvm.loop !96
+  br i1 %98, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZZZNS0_9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbENK3$_0clEvENKUlvE_clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISC_T0_DpT1_EESC_E4typeEOSG_DpOSH_.exit", !llvm.loop !96
 
-"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZZZNS0_9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbENK3$_0clEvENKUlvE_clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISC_T0_DpT1_EESC_E4typeEOSG_DpOSH_.argprom.exit": ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i
+"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZZZNS0_9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbENK3$_0clEvENKUlvE_clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISC_T0_DpT1_EESC_E4typeEOSG_DpOSH_.exit": ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i
   %99 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #18
   %100 = add i64 %99, -2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %25, i64 noundef %100) #18
@@ -13692,7 +13692,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvENKUlvE_clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvENKUlvE_clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvENKUlvE_clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %10
@@ -13702,11 +13702,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvENKUlvE_clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvENKUlvE_clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvENKUlvE_clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvENKUlvE_clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
@@ -13716,20 +13716,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
   %9 = getelementptr inbounds nuw i8, ptr %.val5, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #18
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvENKUlvE_clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvENKUlvE_clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
 10:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %11 = icmp eq ptr %.val6.i, null
-  br i1 %11, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvENKUlvE_clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit", label %12
+  br i1 %11, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvENKUlvE_clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit", label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 64) #23
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvENKUlvE_clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvENKUlvE_clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvENKUlvE_clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit": ; preds = %3, %12, %10, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvENKUlvE_clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit": ; preds = %3, %12, %10, %6, %5, %4
   ret i1 false
 }
 
@@ -13870,7 +13870,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %67, %_ZN4llvm11raw_
   %76 = and i64 %74, 4294967295
   %77 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %73) #18
   %78 = icmp ult i64 %76, %77
-  br i1 %78, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZZNS0_9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISB_T0_DpT1_EESB_E4typeEOSF_DpOSG_.argprom.exit"
+  br i1 %78, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZZNS0_9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISB_T0_DpT1_EESB_E4typeEOSF_DpOSG_.exit"
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN5clang10ColorScopeD2Ev.exit.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i
   %79 = load ptr, ptr %73, align 8
@@ -13911,9 +13911,9 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
 _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: ; preds = %95, %_ZNKSt8functionIFvbEEclEb.exit.i.i.i
   %97 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %73) #18
   %98 = icmp ult i64 %76, %97
-  br i1 %98, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZZNS0_9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISB_T0_DpT1_EESB_E4typeEOSF_DpOSG_.argprom.exit", !llvm.loop !97
+  br i1 %98, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZZNS0_9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISB_T0_DpT1_EESB_E4typeEOSF_DpOSG_.exit", !llvm.loop !97
 
-"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZZNS0_9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISB_T0_DpT1_EESB_E4typeEOSF_DpOSG_.argprom.exit": ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i
+"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZZNS0_9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISB_T0_DpT1_EESB_E4typeEOSF_DpOSG_.exit": ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i
   %99 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #18
   %100 = add i64 %99, -2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %25, i64 noundef %100) #18
@@ -13922,7 +13922,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %10
@@ -13932,11 +13932,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
@@ -13946,20 +13946,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
   %9 = getelementptr inbounds nuw i8, ptr %.val5, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #18
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 10:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %11 = icmp eq ptr %.val6.i, null
-  br i1 %11, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit", label %12
+  br i1 %11, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit", label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 72) #23
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit": ; preds = %3, %12, %10, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit": ; preds = %3, %12, %10, %6, %5, %4
   ret i1 false
 }
 
@@ -14136,22 +14136,22 @@ _ZN5clang10ColorScopeC2ERN4llvm11raw_ostreamEbNS_13TerminalColorE.exit.i.i.i.i: 
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i.i:         ; preds = %97, %95
-  br i1 %80, label %100, label %"_ZZZN5clang9ASTDumper11dumpLookupsEPKNS_11DeclContextEbENK3$_0clEvENKUlvE0_clEv.argprom.exit.i.i.i"
+  br i1 %80, label %100, label %"_ZZZN5clang9ASTDumper11dumpLookupsEPKNS_11DeclContextEbENK3$_0clEvENKUlvE0_clEv.exit.i.i.i"
 
 100:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i.i
   %101 = load ptr, ptr %77, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 32
   %103 = load ptr, ptr %102, align 8
   %104 = tail call noundef nonnull align 8 dereferenceable(48) ptr %103(ptr noundef nonnull align 8 dereferenceable(48) %77) #18
-  br label %"_ZZZN5clang9ASTDumper11dumpLookupsEPKNS_11DeclContextEbENK3$_0clEvENKUlvE0_clEv.argprom.exit.i.i.i"
+  br label %"_ZZZN5clang9ASTDumper11dumpLookupsEPKNS_11DeclContextEbENK3$_0clEvENKUlvE0_clEv.exit.i.i.i"
 
-"_ZZZN5clang9ASTDumper11dumpLookupsEPKNS_11DeclContextEbENK3$_0clEvENKUlvE0_clEv.argprom.exit.i.i.i": ; preds = %100, %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i.i
+"_ZZZN5clang9ASTDumper11dumpLookupsEPKNS_11DeclContextEbENK3$_0clEvENKUlvE0_clEv.exit.i.i.i": ; preds = %100, %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i.i
   %105 = and i64 %74, 4294967295
   %106 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %73) #18
   %107 = icmp ult i64 %105, %106
-  br i1 %107, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZZNS0_9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISB_T0_DpT1_EESB_E4typeEOSF_DpOSG_.argprom.exit"
+  br i1 %107, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZZNS0_9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISB_T0_DpT1_EESB_E4typeEOSF_DpOSG_.exit"
 
-.lr.ph.i.i.i:                                     ; preds = %"_ZZZN5clang9ASTDumper11dumpLookupsEPKNS_11DeclContextEbENK3$_0clEvENKUlvE0_clEv.argprom.exit.i.i.i", %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i
+.lr.ph.i.i.i:                                     ; preds = %"_ZZZN5clang9ASTDumper11dumpLookupsEPKNS_11DeclContextEbENK3$_0clEvENKUlvE0_clEv.exit.i.i.i", %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i
   %108 = load ptr, ptr %73, align 8
   %109 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %73) #18
   %110 = getelementptr inbounds %"class.std::function", ptr %108, i64 %109
@@ -14190,9 +14190,9 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
 _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: ; preds = %124, %_ZNKSt8functionIFvbEEclEb.exit.i.i.i
   %126 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %73) #18
   %127 = icmp ult i64 %105, %126
-  br i1 %127, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZZNS0_9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISB_T0_DpT1_EESB_E4typeEOSF_DpOSG_.argprom.exit", !llvm.loop !98
+  br i1 %127, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZZNS0_9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISB_T0_DpT1_EESB_E4typeEOSF_DpOSG_.exit", !llvm.loop !98
 
-"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZZNS0_9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISB_T0_DpT1_EESB_E4typeEOSF_DpOSG_.argprom.exit": ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i, %"_ZZZN5clang9ASTDumper11dumpLookupsEPKNS_11DeclContextEbENK3$_0clEvENKUlvE0_clEv.argprom.exit.i.i.i"
+"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZZNS0_9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISB_T0_DpT1_EESB_E4typeEOSF_DpOSG_.exit": ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i, %"_ZZZN5clang9ASTDumper11dumpLookupsEPKNS_11DeclContextEbENK3$_0clEvENKUlvE0_clEv.exit.i.i.i"
   %128 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #18
   %129 = add i64 %128, -2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %25, i64 noundef %129) #18
@@ -14201,7 +14201,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %10
@@ -14211,11 +14211,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
@@ -14225,20 +14225,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
   %9 = getelementptr inbounds nuw i8, ptr %.val5, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #18
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 10:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %11 = icmp eq ptr %.val6.i, null
-  br i1 %11, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit", label %12
+  br i1 %11, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit", label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 48) #23
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit": ; preds = %3, %12, %10, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit": ; preds = %3, %12, %10, %6, %5, %4
   ret i1 false
 }
 
@@ -14379,7 +14379,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %67, %_ZN4llvm11raw_
   %76 = and i64 %74, 4294967295
   %77 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %73) #18
   %78 = icmp ult i64 %76, %77
-  br i1 %78, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZNS0_9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbE3$_0EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISA_T0_DpT1_EESA_E4typeEOSE_DpOSF_.argprom.exit"
+  br i1 %78, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZNS0_9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbE3$_0EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISA_T0_DpT1_EESA_E4typeEOSE_DpOSF_.exit"
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN5clang10ColorScopeD2Ev.exit.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i
   %79 = load ptr, ptr %73, align 8
@@ -14420,9 +14420,9 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
 _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: ; preds = %95, %_ZNKSt8functionIFvbEEclEb.exit.i.i.i
   %97 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %73) #18
   %98 = icmp ult i64 %76, %97
-  br i1 %98, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZNS0_9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbE3$_0EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISA_T0_DpT1_EESA_E4typeEOSE_DpOSF_.argprom.exit", !llvm.loop !99
+  br i1 %98, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZNS0_9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbE3$_0EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISA_T0_DpT1_EESA_E4typeEOSE_DpOSF_.exit", !llvm.loop !99
 
-"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZNS0_9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbE3$_0EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISA_T0_DpT1_EESA_E4typeEOSE_DpOSF_.argprom.exit": ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i
+"_ZSt10__invoke_rIvRZN5clang17TextTreeStructure8AddChildIZNS0_9ASTDumper11dumpLookupsEPKNS0_11DeclContextEbE3$_0EEvN4llvm9StringRefET_EUlbE_JbEENSt9enable_ifIX16is_invocable_r_vISA_T0_DpT1_EESA_E4typeEOSE_DpOSF_.exit": ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i
   %99 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #18
   %100 = add i64 %99, -2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %25, i64 noundef %100) #18
@@ -14431,7 +14431,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %10
@@ -14441,11 +14441,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
@@ -14455,20 +14455,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
   %9 = getelementptr inbounds nuw i8, ptr %.val5, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #18
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
 
 10:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %11 = icmp eq ptr %.val6.i, null
-  br i1 %11, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit", label %12
+  br i1 %11, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit", label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 64) #23
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit": ; preds = %3, %12, %10, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_9ASTDumper11dumpLookupsEPKNS1_11DeclContextEbE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit": ; preds = %3, %12, %10, %6, %5, %4
   ret i1 false
 }
 

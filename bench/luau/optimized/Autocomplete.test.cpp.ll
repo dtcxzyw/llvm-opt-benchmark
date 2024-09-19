@@ -138659,7 +138659,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA13_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvENKUlPSoE_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvENKUlPSoE_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA13_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -138667,7 +138667,7 @@ _ZN7doctest6detail14MessageBuilderlsIA13_cEERS1_RKT_.exit.i: ; preds = %_ZN7doct
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvENKUlPSoE_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA13_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvENKUlPSoE_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA13_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -139181,7 +139181,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA13_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvENKUlPSoE0_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvENKUlPSoE0_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA13_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -139189,7 +139189,7 @@ _ZN7doctest6detail14MessageBuilderlsIA13_cEERS1_RKT_.exit.i: ; preds = %_ZN7doct
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvENKUlPSoE0_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA13_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvENKUlPSoE0_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA13_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -139460,7 +139460,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA4_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_491fEvENKUlPSoE_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_491fEvENKUlPSoE_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA4_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -139468,7 +139468,7 @@ _ZN7doctest6detail14MessageBuilderlsIA4_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_491fEvENKUlPSoE_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA4_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_491fEvENKUlPSoE_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA4_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -140193,7 +140193,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_601fEvENKUlPSoE_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_601fEvENKUlPSoE_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -140201,7 +140201,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_601fEvENKUlPSoE_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_601fEvENKUlPSoE_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -140528,7 +140528,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_951fEvENKUlPSoE_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_951fEvENKUlPSoE_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -140536,7 +140536,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_951fEvENKUlPSoE_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_951fEvENKUlPSoE_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -140627,7 +140627,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_1031fEvENKUlPSoE_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_1031fEvENKUlPSoE_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -140635,7 +140635,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_1031fEvENKUlPSoE_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_1031fEvENKUlPSoE_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -164454,7 +164454,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA4_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2041fEvENKUlPSoE_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2041fEvENKUlPSoE_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA4_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -164462,7 +164462,7 @@ _ZN7doctest6detail14MessageBuilderlsIA4_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2041fEvENKUlPSoE_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA4_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2041fEvENKUlPSoE_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA4_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -183046,7 +183046,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2811fEvENKUlPSoE0_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2811fEvENKUlPSoE0_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -183054,7 +183054,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2811fEvENKUlPSoE0_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2811fEvENKUlPSoE0_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -183101,7 +183101,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA17_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2811fEvENKUlPSoE1_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2811fEvENKUlPSoE1_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA17_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -183109,7 +183109,7 @@ _ZN7doctest6detail14MessageBuilderlsIA17_cEERS1_RKT_.exit.i: ; preds = %_ZN7doct
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2811fEvENKUlPSoE1_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA17_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2811fEvENKUlPSoE1_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA17_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -185848,7 +185848,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2971fEvENKUlPSoE0_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2971fEvENKUlPSoE0_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -185856,7 +185856,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2971fEvENKUlPSoE0_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2971fEvENKUlPSoE0_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -185903,7 +185903,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA17_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2971fEvENKUlPSoE1_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2971fEvENKUlPSoE1_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA17_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -185911,7 +185911,7 @@ _ZN7doctest6detail14MessageBuilderlsIA17_cEERS1_RKT_.exit.i: ; preds = %_ZN7doct
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2971fEvENKUlPSoE1_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA17_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2971fEvENKUlPSoE1_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA17_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -186002,7 +186002,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA4_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3131fEvENKUlPSoE_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3131fEvENKUlPSoE_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA4_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -186010,7 +186010,7 @@ _ZN7doctest6detail14MessageBuilderlsIA4_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3131fEvENKUlPSoE_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA4_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3131fEvENKUlPSoE_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA4_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -189531,7 +189531,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3451fEvENKUlPSoE_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3451fEvENKUlPSoE_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -189539,7 +189539,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3451fEvENKUlPSoE_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3451fEvENKUlPSoE_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -189586,7 +189586,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3451fEvENKUlPSoE0_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3451fEvENKUlPSoE0_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -189594,7 +189594,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3451fEvENKUlPSoE0_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3451fEvENKUlPSoE0_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -189641,7 +189641,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3451fEvENKUlPSoE1_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3451fEvENKUlPSoE1_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -189649,7 +189649,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3451fEvENKUlPSoE1_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3451fEvENKUlPSoE1_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -190027,7 +190027,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA3_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3871fEvENKUlPSoE_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3871fEvENKUlPSoE_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA3_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -190035,7 +190035,7 @@ _ZN7doctest6detail14MessageBuilderlsIA3_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3871fEvENKUlPSoE_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA3_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3871fEvENKUlPSoE_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA3_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -197482,7 +197482,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvENKUlPSoE_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvENKUlPSoE_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -197490,7 +197490,7 @@ _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvENKUlPSoE_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvENKUlPSoE_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -197593,7 +197593,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvENKUlPSoE0_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvENKUlPSoE0_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -197601,7 +197601,7 @@ _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvENKUlPSoE0_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvENKUlPSoE0_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -197648,7 +197648,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvENKUlPSoE1_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvENKUlPSoE1_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -197656,7 +197656,7 @@ _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvENKUlPSoE1_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvENKUlPSoE1_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -197703,7 +197703,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA7_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvENKUlPSoE2_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvENKUlPSoE2_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA7_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -197711,7 +197711,7 @@ _ZN7doctest6detail14MessageBuilderlsIA7_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvENKUlPSoE2_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA7_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvENKUlPSoE2_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA7_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -197758,7 +197758,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvENKUlPSoE3_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvENKUlPSoE3_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -197766,7 +197766,7 @@ _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvENKUlPSoE3_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvENKUlPSoE3_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -217761,7 +217761,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA3_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvENKUlPSoE_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvENKUlPSoE_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA3_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -217769,7 +217769,7 @@ _ZN7doctest6detail14MessageBuilderlsIA3_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvENKUlPSoE_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA3_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvENKUlPSoE_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA3_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -217816,7 +217816,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvENKUlPSoE0_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvENKUlPSoE0_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -217824,7 +217824,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvENKUlPSoE0_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvENKUlPSoE0_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -217871,7 +217871,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA3_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvENKUlPSoE1_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvENKUlPSoE1_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA3_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -217879,7 +217879,7 @@ _ZN7doctest6detail14MessageBuilderlsIA3_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvENKUlPSoE1_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA3_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvENKUlPSoE1_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA3_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -217926,7 +217926,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvENKUlPSoE2_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvENKUlPSoE2_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -217934,7 +217934,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvENKUlPSoE2_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvENKUlPSoE2_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -227111,7 +227111,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -227119,7 +227119,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -227166,7 +227166,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE0_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE0_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -227174,7 +227174,7 @@ _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE0_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE0_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -227221,7 +227221,7 @@ _ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE1_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE1_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -227229,7 +227229,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE1_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE1_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -227332,7 +227332,7 @@ _ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE2_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE2_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -227340,7 +227340,7 @@ _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE2_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE2_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -227387,7 +227387,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE3_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE3_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -227395,7 +227395,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE3_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE3_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -227442,7 +227442,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE4_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE4_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -227450,7 +227450,7 @@ _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE4_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE4_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -227497,7 +227497,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE5_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE5_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -227505,7 +227505,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE5_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE5_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -227552,7 +227552,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE6_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE6_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -227560,7 +227560,7 @@ _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE6_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE6_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -227607,7 +227607,7 @@ _ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE7_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE7_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -227615,7 +227615,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE7_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE7_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -227662,7 +227662,7 @@ _ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE8_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE8_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -227670,7 +227670,7 @@ _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE8_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE8_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -227717,7 +227717,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE9_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE9_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -227725,7 +227725,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE9_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE9_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -227772,7 +227772,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE10_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE10_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -227780,7 +227780,7 @@ _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE10_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE10_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -227827,7 +227827,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE11_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE11_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -227835,7 +227835,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE11_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE11_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -227882,7 +227882,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE12_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE12_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -227890,7 +227890,7 @@ _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE12_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE12_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -227937,7 +227937,7 @@ _ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE13_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE13_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -227945,7 +227945,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE13_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE13_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -227992,7 +227992,7 @@ _ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE14_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE14_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -228000,7 +228000,7 @@ _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE14_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE14_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -228047,7 +228047,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE15_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE15_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -228055,7 +228055,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE15_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE15_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -228102,7 +228102,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE16_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE16_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -228110,7 +228110,7 @@ _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE16_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE16_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -228157,7 +228157,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE17_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE17_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -228165,7 +228165,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE17_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE17_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -228212,7 +228212,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE18_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE18_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -228220,7 +228220,7 @@ _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE18_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE18_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -228267,7 +228267,7 @@ _ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE19_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE19_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -228275,7 +228275,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE19_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE19_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -228322,7 +228322,7 @@ _ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE20_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE20_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -228330,7 +228330,7 @@ _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE20_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE20_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -228377,7 +228377,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE21_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE21_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -228385,7 +228385,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE21_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE21_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -228432,7 +228432,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE22_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE22_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -228440,7 +228440,7 @@ _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE22_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvENKUlPSoE22_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -237537,7 +237537,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -237545,7 +237545,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -237592,7 +237592,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE0_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE0_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -237600,7 +237600,7 @@ _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE0_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE0_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -237647,7 +237647,7 @@ _ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE1_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE1_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -237655,7 +237655,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE1_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE1_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -237702,7 +237702,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE2_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE2_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -237710,7 +237710,7 @@ _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE2_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE2_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -237757,7 +237757,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE3_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE3_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -237765,7 +237765,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE3_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE3_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -237812,7 +237812,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE4_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE4_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -237820,7 +237820,7 @@ _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE4_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE4_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -237867,7 +237867,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE5_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE5_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -237875,7 +237875,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE5_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE5_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -237922,7 +237922,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE6_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE6_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -237930,7 +237930,7 @@ _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE6_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE6_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -237977,7 +237977,7 @@ _ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE7_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE7_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -237985,7 +237985,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE7_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE7_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -238032,7 +238032,7 @@ _ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE8_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE8_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -238040,7 +238040,7 @@ _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE8_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE8_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -238087,7 +238087,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE9_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE9_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -238095,7 +238095,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE9_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE9_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -238142,7 +238142,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE10_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE10_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -238150,7 +238150,7 @@ _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE10_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE10_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -238197,7 +238197,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE11_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE11_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -238205,7 +238205,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE11_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE11_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -238252,7 +238252,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE12_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE12_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -238260,7 +238260,7 @@ _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE12_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE12_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -238307,7 +238307,7 @@ _ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE13_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE13_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -238315,7 +238315,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE13_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE13_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -238362,7 +238362,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE14_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE14_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -238370,7 +238370,7 @@ _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE14_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE14_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -238417,7 +238417,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE15_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE15_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -238425,7 +238425,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE15_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE15_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -238472,7 +238472,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE16_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE16_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -238480,7 +238480,7 @@ _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE16_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE16_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -238527,7 +238527,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE17_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE17_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -238535,7 +238535,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE17_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE17_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -238582,7 +238582,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE18_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE18_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -238590,7 +238590,7 @@ _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE18_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE18_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -238637,7 +238637,7 @@ _ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE19_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE19_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -238645,7 +238645,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE19_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE19_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -238692,7 +238692,7 @@ _ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE20_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE20_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA22_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -238700,7 +238700,7 @@ _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE20_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE20_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -238747,7 +238747,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE21_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE21_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -238755,7 +238755,7 @@ _ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE21_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE21_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA5_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -238802,7 +238802,7 @@ _ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i: ; preds = %2
 
 _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i
   %7 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA2_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.404)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE22_clES1_.argprom.exit unwind label %8
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE22_clES1_.exit unwind label %8
 
 8:                                                ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i, %_ZN7doctest6detail14MessageBuildermlIA26_cEERS1_RKT_.exit.i, %2
   %9 = landingpad { ptr, i32 }
@@ -238810,7 +238810,7 @@ _ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i: ; preds = %_ZN7docte
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   resume { ptr, i32 } %9
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE22_clES1_.argprom.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvENKUlPSoE22_clES1_.exit: ; preds = %_ZN7doctest6detail14MessageBuilderlsIA6_cEERS1_RKT_.exit.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -244913,7 +244913,7 @@ define internal void @_ZNSt17_Function_handlerIFSt8optionalISt13unordered_mapINS
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit.i.i: ; preds = %5
   call void @llvm.experimental.noalias.scope.decl(metadata !1544)
-  br label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvENKUlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIPKN4Luau9ClassTypeEES7_IS6_EE_clES6_SC_SD_.argprom.exit.i.i
+  br label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvENKUlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIPKN4Luau9ClassTypeEES7_IS6_EE_clES6_SC_SD_.exit.i.i
 
 12:                                               ; preds = %5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %4) #23, !noalias !1543
@@ -244921,9 +244921,9 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit
   %13 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.1052) #23, !noalias !1547
   %14 = icmp eq i32 %13, 0
   %15 = zext i1 %14 to i8
-  br label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvENKUlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIPKN4Luau9ClassTypeEES7_IS6_EE_clES6_SC_SD_.argprom.exit.i.i
+  br label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvENKUlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIPKN4Luau9ClassTypeEES7_IS6_EE_clES6_SC_SD_.exit.i.i
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvENKUlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIPKN4Luau9ClassTypeEES7_IS6_EE_clES6_SC_SD_.argprom.exit.i.i: ; preds = %12, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit.i.i
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvENKUlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIPKN4Luau9ClassTypeEES7_IS6_EE_clES6_SC_SD_.exit.i.i: ; preds = %12, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit.i.i
   %16 = phi i8 [ 0, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit.i.i ], [ %15, %12 ]
   %17 = load ptr, ptr %1, align 8, !noalias !1547
   store i8 %16, ptr %17, align 1, !noalias !1547
@@ -244931,14 +244931,14 @@ _ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvENKUlNSt7__cxx1112basic_stringIcSt
   store i8 0, ptr %18, align 8, !alias.scope !1547
   %19 = load i8, ptr %9, align 8, !noalias !1543
   %20 = trunc i8 %19 to i1
-  br i1 %20, label %21, label %_ZSt10__invoke_rISt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEERZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvEUlS7_S0_IPKNS8_9ClassTypeEES0_IS7_EE_JS7_SP_SQ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESU_E4typeEOSV_DpOSW_.argprom.exit
+  br i1 %20, label %21, label %_ZSt10__invoke_rISt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEERZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvEUlS7_S0_IPKNS8_9ClassTypeEES0_IS7_EE_JS7_SP_SQ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESU_E4typeEOSV_DpOSW_.exit
 
-21:                                               ; preds = %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvENKUlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIPKN4Luau9ClassTypeEES7_IS6_EE_clES6_SC_SD_.argprom.exit.i.i
+21:                                               ; preds = %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvENKUlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIPKN4Luau9ClassTypeEES7_IS6_EE_clES6_SC_SD_.exit.i.i
   store i8 0, ptr %9, align 8, !noalias !1543
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #23, !noalias !1543
-  br label %_ZSt10__invoke_rISt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEERZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvEUlS7_S0_IPKNS8_9ClassTypeEES0_IS7_EE_JS7_SP_SQ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESU_E4typeEOSV_DpOSW_.argprom.exit
+  br label %_ZSt10__invoke_rISt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEERZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvEUlS7_S0_IPKNS8_9ClassTypeEES0_IS7_EE_JS7_SP_SQ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESU_E4typeEOSV_DpOSW_.exit
 
-_ZSt10__invoke_rISt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEERZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvEUlS7_S0_IPKNS8_9ClassTypeEES0_IS7_EE_JS7_SP_SQ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESU_E4typeEOSV_DpOSW_.argprom.exit: ; preds = %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvENKUlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIPKN4Luau9ClassTypeEES7_IS6_EE_clES6_SC_SD_.argprom.exit.i.i, %21
+_ZSt10__invoke_rISt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEERZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvEUlS7_S0_IPKNS8_9ClassTypeEES0_IS7_EE_JS7_SP_SQ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESU_E4typeEOSV_DpOSW_.exit: ; preds = %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvENKUlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIPKN4Luau9ClassTypeEES7_IS6_EE_clES6_SC_SD_.exit.i.i, %21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #23, !noalias !1543
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !1537
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !1537
@@ -245322,12 +245322,12 @@ _ZN4Luau17AutocompleteEntryD2Ev.exit.i.i.i:       ; preds = %71, %_ZNSt6vectorIN
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11), !noalias !1554
   %103 = load i8, ptr %15, align 8, !noalias !1554
   %104 = trunc i8 %103 to i1
-  br i1 %104, label %105, label %_ZSt10__invoke_rISt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEERZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8181fEvEUlS7_S0_IPKNS8_9ClassTypeEES0_IS7_EE_JS7_SP_SQ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESU_E4typeEOSV_DpOSW_.argprom.exit
+  br i1 %104, label %105, label %_ZSt10__invoke_rISt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEERZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8181fEvEUlS7_S0_IPKNS8_9ClassTypeEES0_IS7_EE_JS7_SP_SQ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESU_E4typeEOSV_DpOSW_.exit
 
 105:                                              ; preds = %101
   store i8 0, ptr %15, align 8, !noalias !1554
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #23
-  br label %_ZSt10__invoke_rISt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEERZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8181fEvEUlS7_S0_IPKNS8_9ClassTypeEES0_IS7_EE_JS7_SP_SQ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESU_E4typeEOSV_DpOSW_.argprom.exit
+  br label %_ZSt10__invoke_rISt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEERZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8181fEvEUlS7_S0_IPKNS8_9ClassTypeEES0_IS7_EE_JS7_SP_SQ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESU_E4typeEOSV_DpOSW_.exit
 
 106:                                              ; preds = %.loopexit.i.i.i
   store i8 0, ptr %15, align 8, !noalias !1554
@@ -245338,7 +245338,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit5.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #23, !noalias !1554
   resume { ptr, i32 } %.pn.i.i.i
 
-_ZSt10__invoke_rISt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEERZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8181fEvEUlS7_S0_IPKNS8_9ClassTypeEES0_IS7_EE_JS7_SP_SQ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESU_E4typeEOSV_DpOSW_.argprom.exit: ; preds = %101, %105
+_ZSt10__invoke_rISt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEERZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8181fEvEUlS7_S0_IPKNS8_9ClassTypeEES0_IS7_EE_JS7_SP_SQ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESU_E4typeEOSV_DpOSW_.exit: ; preds = %101, %105
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12), !noalias !1548
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13), !noalias !1548
@@ -253044,8 +253044,8 @@ attributes #26 = { noreturn }
 !20 = !{i64 2152737108}
 !21 = !{i64 2152743672}
 !22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!24 = distinct !{!24, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!23 = distinct !{!23, !24, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!24 = distinct !{!24, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_"}
 !25 = !{i64 2152752214}
 !26 = !{i64 2152753877}
 !27 = !{i64 2152755370}
@@ -253053,8 +253053,8 @@ attributes #26 = { noreturn }
 !29 = !{i64 2152760764}
 !30 = !{i64 2152763489}
 !31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!33 = distinct !{!33, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!32 = distinct !{!32, !33, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!33 = distinct !{!33, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_"}
 !34 = !{i64 2152767970}
 !35 = !{i64 2152769633}
 !36 = !{i64 2152771126}
@@ -253074,8 +253074,8 @@ attributes #26 = { noreturn }
 !50 = !{i64 2152831658}
 !51 = !{i64 2152837326}
 !52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_491fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!54 = distinct !{!54, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_491fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!53 = distinct !{!53, !54, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_491fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!54 = distinct !{!54, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_491fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_"}
 !55 = !{i64 2152841720}
 !56 = !{i64 2152843383}
 !57 = !{i64 2152844876}
@@ -253084,8 +253084,8 @@ attributes #26 = { noreturn }
 !60 = !{i64 2152859580}
 !61 = !{i64 2152862287}
 !62 = !{!63}
-!63 = distinct !{!63, !64, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_601fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!64 = distinct !{!64, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_601fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!63 = distinct !{!63, !64, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_601fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!64 = distinct !{!64, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_601fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_"}
 !65 = !{i64 2152870821}
 !66 = !{i64 2152872484}
 !67 = !{i64 2152873977}
@@ -253119,8 +253119,8 @@ attributes #26 = { noreturn }
 !95 = !{i64 2152976337}
 !96 = !{i64 2152981922}
 !97 = !{!98}
-!98 = distinct !{!98, !99, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_951fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!99 = distinct !{!99, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_951fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!98 = distinct !{!98, !99, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_951fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!99 = distinct !{!99, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_951fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_"}
 !100 = !{i64 2152986321}
 !101 = !{i64 2152987992}
 !102 = !{i64 2152989493}
@@ -253128,8 +253128,8 @@ attributes #26 = { noreturn }
 !104 = !{i64 2152996928}
 !105 = !{i64 2153003630}
 !106 = !{!107}
-!107 = distinct !{!107, !108, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_1031fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!108 = distinct !{!108, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_1031fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!107 = distinct !{!107, !108, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_1031fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!108 = distinct !{!108, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_1031fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_"}
 !109 = !{i64 2153008120}
 !110 = !{i64 2153009791}
 !111 = !{i64 2153011292}
@@ -253225,8 +253225,8 @@ attributes #26 = { noreturn }
 !201 = !{i64 2153600350}
 !202 = !{i64 2153603070}
 !203 = !{!204}
-!204 = distinct !{!204, !205, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2041fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!205 = distinct !{!205, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2041fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!204 = distinct !{!204, !205, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2041fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!205 = distinct !{!205, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2041fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_"}
 !206 = !{i64 2153607561}
 !207 = !{i64 2153609235}
 !208 = !{i64 2153610739}
@@ -253308,20 +253308,20 @@ attributes #26 = { noreturn }
 !284 = distinct !{!284, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2811fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_"}
 !285 = !{i64 2154146830}
 !286 = !{!287}
-!287 = distinct !{!287, !288, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2811fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!288 = distinct !{!288, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2811fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!287 = distinct !{!287, !288, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2811fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!288 = distinct !{!288, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2811fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_"}
 !289 = !{i64 2154151322}
 !290 = !{i64 2154152996}
 !291 = !{i64 2154154500}
 !292 = !{!293}
-!293 = distinct !{!293, !294, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2811fEvEUlPSoE1_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!294 = distinct !{!294, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2811fEvEUlPSoE1_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!293 = distinct !{!293, !294, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2811fEvEUlPSoE1_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!294 = distinct !{!294, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2811fEvEUlPSoE1_EENS0_12ContextScopeIT_EERKS7_"}
 !295 = !{i64 2154162979}
 !296 = !{i64 2154164653}
 !297 = !{i64 2154166157}
 !298 = !{!299}
-!299 = distinct !{!299, !300, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3131fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!300 = distinct !{!300, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3131fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!299 = distinct !{!299, !300, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3131fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!300 = distinct !{!300, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3131fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_"}
 !301 = !{i64 2154213333}
 !302 = !{i64 2154215007}
 !303 = !{i64 2154216511}
@@ -253362,21 +253362,21 @@ attributes #26 = { noreturn }
 !338 = !{i64 2154374469}
 !339 = !{i64 2154377139}
 !340 = !{!341}
-!341 = distinct !{!341, !342, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3451fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!342 = distinct !{!342, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3451fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!341 = distinct !{!341, !342, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3451fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!342 = distinct !{!342, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3451fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_"}
 !343 = !{i64 2154385461}
 !344 = !{i64 2154387135}
 !345 = !{i64 2154388639}
 !346 = !{i64 2154391267}
 !347 = !{!348}
-!348 = distinct !{!348, !349, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3451fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!349 = distinct !{!349, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3451fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!348 = distinct !{!348, !349, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3451fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!349 = distinct !{!349, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3451fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_"}
 !350 = !{i64 2154399820}
 !351 = !{i64 2154401494}
 !352 = !{i64 2154402998}
 !353 = !{!354}
-!354 = distinct !{!354, !355, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3451fEvEUlPSoE1_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!355 = distinct !{!355, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3451fEvEUlPSoE1_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!354 = distinct !{!354, !355, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3451fEvEUlPSoE1_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!355 = distinct !{!355, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3451fEvEUlPSoE1_EENS0_12ContextScopeIT_EERKS7_"}
 !356 = !{i64 2154407404}
 !357 = !{i64 2154409078}
 !358 = !{i64 2154410582}
@@ -253418,8 +253418,8 @@ attributes #26 = { noreturn }
 !394 = !{i64 2154533825}
 !395 = !{i64 2154536563}
 !396 = !{!397}
-!397 = distinct !{!397, !398, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3871fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!398 = distinct !{!398, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3871fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!397 = distinct !{!397, !398, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3871fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!398 = distinct !{!398, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3871fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_"}
 !399 = !{i64 2154544928}
 !400 = !{i64 2154546602}
 !401 = !{i64 2154548106}
@@ -253969,16 +253969,16 @@ attributes #26 = { noreturn }
 !945 = distinct !{!945, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2971fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_"}
 !946 = !{i64 2154174230}
 !947 = !{!948}
-!948 = distinct !{!948, !949, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2971fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!949 = distinct !{!949, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2971fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!948 = distinct !{!948, !949, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2971fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!949 = distinct !{!949, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2971fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_"}
 !950 = !{i64 2154178722}
 !951 = !{i64 2154180396}
 !952 = !{i64 2154181900}
 !953 = !{i64 2154184540}
 !954 = !{i64 2154187470}
 !955 = !{!956}
-!956 = distinct !{!956, !957, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2971fEvEUlPSoE1_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!957 = distinct !{!957, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2971fEvEUlPSoE1_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!956 = distinct !{!956, !957, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2971fEvEUlPSoE1_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!957 = distinct !{!957, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2971fEvEUlPSoE1_EENS0_12ContextScopeIT_EERKS7_"}
 !958 = !{i64 2154191974}
 !959 = !{i64 2154193648}
 !960 = !{i64 2154195152}
@@ -254033,14 +254033,14 @@ attributes #26 = { noreturn }
 !1009 = !{i64 2154583604}
 !1010 = !{i64 2154586246}
 !1011 = !{!1012}
-!1012 = distinct !{!1012, !1013, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1013 = distinct !{!1013, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1012 = distinct !{!1012, !1013, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1013 = distinct !{!1013, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_"}
 !1014 = !{i64 2154590739}
 !1015 = !{i64 2154596474}
 !1016 = !{i64 2154597978}
 !1017 = !{!1018}
-!1018 = distinct !{!1018, !1019, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1019 = distinct !{!1019, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1018 = distinct !{!1018, !1019, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1019 = distinct !{!1019, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_"}
 !1020 = !{i64 2154602385}
 !1021 = !{i64 2154604059}
 !1022 = !{i64 2154605563}
@@ -254055,21 +254055,21 @@ attributes #26 = { noreturn }
 !1031 = !{i64 2154627416}
 !1032 = !{i64 2154629303}
 !1033 = !{!1034}
-!1034 = distinct !{!1034, !1035, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvEUlPSoE1_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1035 = distinct !{!1035, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvEUlPSoE1_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1034 = distinct !{!1034, !1035, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvEUlPSoE1_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1035 = distinct !{!1035, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvEUlPSoE1_EENS0_12ContextScopeIT_EERKS7_"}
 !1036 = !{i64 2154637779}
 !1037 = !{i64 2154639453}
 !1038 = !{i64 2154640957}
 !1039 = !{!1040}
-!1040 = distinct !{!1040, !1041, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvEUlPSoE2_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1041 = distinct !{!1041, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvEUlPSoE2_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1040 = distinct !{!1040, !1041, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvEUlPSoE2_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1041 = distinct !{!1041, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvEUlPSoE2_EENS0_12ContextScopeIT_EERKS7_"}
 !1042 = !{i64 2154645365}
 !1043 = !{i64 2154647039}
 !1044 = !{i64 2154648543}
 !1045 = !{i64 2154650334}
 !1046 = !{!1047}
-!1047 = distinct !{!1047, !1048, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvEUlPSoE3_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1048 = distinct !{!1048, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvEUlPSoE3_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1047 = distinct !{!1047, !1048, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvEUlPSoE3_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1048 = distinct !{!1048, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4011fEvEUlPSoE3_EENS0_12ContextScopeIT_EERKS7_"}
 !1049 = !{i64 2154654749}
 !1050 = !{i64 2154656423}
 !1051 = !{i64 2154657927}
@@ -254200,14 +254200,14 @@ attributes #26 = { noreturn }
 !1176 = !{i64 2155123298}
 !1177 = !{i64 2155126006}
 !1178 = !{!1179}
-!1179 = distinct !{!1179, !1180, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1180 = distinct !{!1180, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1179 = distinct !{!1179, !1180, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1180 = distinct !{!1180, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_"}
 !1181 = !{i64 2155130496}
 !1182 = !{i64 2155132170}
 !1183 = !{i64 2155133674}
 !1184 = !{!1185}
-!1185 = distinct !{!1185, !1186, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1186 = distinct !{!1186, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1185 = distinct !{!1185, !1186, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1186 = distinct !{!1186, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_"}
 !1187 = !{i64 2155138080}
 !1188 = !{i64 2155139754}
 !1189 = !{i64 2155141258}
@@ -254220,160 +254220,160 @@ attributes #26 = { noreturn }
 !1196 = !{i64 2155164253}
 !1197 = !{i64 2155166961}
 !1198 = !{!1199}
-!1199 = distinct !{!1199, !1200, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvEUlPSoE1_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1200 = distinct !{!1200, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvEUlPSoE1_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1199 = distinct !{!1199, !1200, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvEUlPSoE1_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1200 = distinct !{!1200, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvEUlPSoE1_EENS0_12ContextScopeIT_EERKS7_"}
 !1201 = !{i64 2155171451}
 !1202 = !{i64 2155173125}
 !1203 = !{i64 2155174629}
 !1204 = !{!1205}
-!1205 = distinct !{!1205, !1206, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvEUlPSoE2_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1206 = distinct !{!1206, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvEUlPSoE2_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1205 = distinct !{!1205, !1206, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvEUlPSoE2_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1206 = distinct !{!1206, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4801fEvEUlPSoE2_EENS0_12ContextScopeIT_EERKS7_"}
 !1207 = !{i64 2155179035}
 !1208 = !{i64 2155180709}
 !1209 = !{i64 2155182213}
 !1210 = !{i64 2155188912}
 !1211 = !{i64 2155191648}
 !1212 = !{!1213}
-!1213 = distinct !{!1213, !1214, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1214 = distinct !{!1214, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1213 = distinct !{!1213, !1214, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1214 = distinct !{!1214, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_"}
 !1215 = !{i64 2155200040}
 !1216 = !{i64 2155201714}
 !1217 = !{i64 2155203218}
 !1218 = !{!1219}
-!1219 = distinct !{!1219, !1220, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1220 = distinct !{!1220, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1219 = distinct !{!1219, !1220, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1220 = distinct !{!1220, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_"}
 !1221 = !{i64 2155207625}
 !1222 = !{i64 2155209299}
 !1223 = !{i64 2155210803}
 !1224 = !{!1225}
-!1225 = distinct !{!1225, !1226, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE1_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1226 = distinct !{!1226, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE1_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1225 = distinct !{!1225, !1226, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE1_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1226 = distinct !{!1226, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE1_EENS0_12ContextScopeIT_EERKS7_"}
 !1227 = !{i64 2155215184}
 !1228 = !{i64 2155216858}
 !1229 = !{i64 2155218362}
 !1230 = !{!1231}
-!1231 = distinct !{!1231, !1232, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE2_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1232 = distinct !{!1232, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE2_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1231 = distinct !{!1231, !1232, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE2_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1232 = distinct !{!1232, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE2_EENS0_12ContextScopeIT_EERKS7_"}
 !1233 = !{i64 2155222744}
 !1234 = !{i64 2155228479}
 !1235 = !{i64 2155229983}
 !1236 = !{!1237}
-!1237 = distinct !{!1237, !1238, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE3_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1238 = distinct !{!1238, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE3_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1237 = distinct !{!1237, !1238, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE3_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1238 = distinct !{!1238, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE3_EENS0_12ContextScopeIT_EERKS7_"}
 !1239 = !{i64 2155234389}
 !1240 = !{i64 2155236063}
 !1241 = !{i64 2155237567}
 !1242 = !{!1243}
-!1243 = distinct !{!1243, !1244, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE4_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1244 = distinct !{!1244, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE4_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1243 = distinct !{!1243, !1244, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE4_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1244 = distinct !{!1244, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE4_EENS0_12ContextScopeIT_EERKS7_"}
 !1245 = !{i64 2155241974}
 !1246 = !{i64 2155243648}
 !1247 = !{i64 2155245152}
 !1248 = !{!1249}
-!1249 = distinct !{!1249, !1250, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE5_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1250 = distinct !{!1250, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE5_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1249 = distinct !{!1249, !1250, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE5_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1250 = distinct !{!1250, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE5_EENS0_12ContextScopeIT_EERKS7_"}
 !1251 = !{i64 2155249558}
 !1252 = !{i64 2155251232}
 !1253 = !{i64 2155252736}
 !1254 = !{!1255}
-!1255 = distinct !{!1255, !1256, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE6_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1256 = distinct !{!1256, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE6_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1255 = distinct !{!1255, !1256, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE6_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1256 = distinct !{!1256, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE6_EENS0_12ContextScopeIT_EERKS7_"}
 !1257 = !{i64 2155257143}
 !1258 = !{i64 2155258817}
 !1259 = !{i64 2155260321}
 !1260 = !{!1261}
-!1261 = distinct !{!1261, !1262, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE7_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1262 = distinct !{!1262, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE7_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1261 = distinct !{!1261, !1262, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE7_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1262 = distinct !{!1262, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE7_EENS0_12ContextScopeIT_EERKS7_"}
 !1263 = !{i64 2155268763}
 !1264 = !{i64 2155270437}
 !1265 = !{i64 2155271941}
 !1266 = !{!1267}
-!1267 = distinct !{!1267, !1268, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE8_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1268 = distinct !{!1268, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE8_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1267 = distinct !{!1267, !1268, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE8_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1268 = distinct !{!1268, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE8_EENS0_12ContextScopeIT_EERKS7_"}
 !1269 = !{i64 2155276323}
 !1270 = !{i64 2155277997}
 !1271 = !{i64 2155279501}
 !1272 = !{!1273}
-!1273 = distinct !{!1273, !1274, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE9_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1274 = distinct !{!1274, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE9_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1273 = distinct !{!1273, !1274, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE9_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1274 = distinct !{!1274, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE9_EENS0_12ContextScopeIT_EERKS7_"}
 !1275 = !{i64 2155283907}
 !1276 = !{i64 2155285581}
 !1277 = !{i64 2155287085}
 !1278 = !{!1279}
-!1279 = distinct !{!1279, !1280, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE10_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1280 = distinct !{!1280, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE10_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1279 = distinct !{!1279, !1280, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE10_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1280 = distinct !{!1280, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE10_EENS0_12ContextScopeIT_EERKS7_"}
 !1281 = !{i64 2155291492}
 !1282 = !{i64 2155293166}
 !1283 = !{i64 2155294670}
 !1284 = !{!1285}
-!1285 = distinct !{!1285, !1286, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE11_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1286 = distinct !{!1286, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE11_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1285 = distinct !{!1285, !1286, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE11_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1286 = distinct !{!1286, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE11_EENS0_12ContextScopeIT_EERKS7_"}
 !1287 = !{i64 2155299076}
 !1288 = !{i64 2155300750}
 !1289 = !{i64 2155302254}
 !1290 = !{!1291}
-!1291 = distinct !{!1291, !1292, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE12_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1292 = distinct !{!1292, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE12_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1291 = distinct !{!1291, !1292, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE12_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1292 = distinct !{!1292, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE12_EENS0_12ContextScopeIT_EERKS7_"}
 !1293 = !{i64 2155310722}
 !1294 = !{i64 2155312396}
 !1295 = !{i64 2155313900}
 !1296 = !{!1297}
-!1297 = distinct !{!1297, !1298, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE13_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1298 = distinct !{!1298, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE13_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1297 = distinct !{!1297, !1298, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE13_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1298 = distinct !{!1298, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE13_EENS0_12ContextScopeIT_EERKS7_"}
 !1299 = !{i64 2155318281}
 !1300 = !{i64 2155319955}
 !1301 = !{i64 2155321459}
 !1302 = !{!1303}
-!1303 = distinct !{!1303, !1304, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE14_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1304 = distinct !{!1304, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE14_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1303 = distinct !{!1303, !1304, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE14_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1304 = distinct !{!1304, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE14_EENS0_12ContextScopeIT_EERKS7_"}
 !1305 = !{i64 2155325841}
 !1306 = !{i64 2155327515}
 !1307 = !{i64 2155329019}
 !1308 = !{!1309}
-!1309 = distinct !{!1309, !1310, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE15_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1310 = distinct !{!1310, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE15_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1309 = distinct !{!1309, !1310, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE15_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1310 = distinct !{!1310, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE15_EENS0_12ContextScopeIT_EERKS7_"}
 !1311 = !{i64 2155333425}
 !1312 = !{i64 2155335099}
 !1313 = !{i64 2155336603}
 !1314 = !{!1315}
-!1315 = distinct !{!1315, !1316, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE16_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1316 = distinct !{!1316, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE16_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1315 = distinct !{!1315, !1316, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE16_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1316 = distinct !{!1316, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE16_EENS0_12ContextScopeIT_EERKS7_"}
 !1317 = !{i64 2155341010}
 !1318 = !{i64 2155342684}
 !1319 = !{i64 2155344188}
 !1320 = !{!1321}
-!1321 = distinct !{!1321, !1322, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE17_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1322 = distinct !{!1322, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE17_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1321 = distinct !{!1321, !1322, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE17_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1322 = distinct !{!1322, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE17_EENS0_12ContextScopeIT_EERKS7_"}
 !1323 = !{i64 2155352655}
 !1324 = !{i64 2155354329}
 !1325 = !{i64 2155355833}
 !1326 = !{!1327}
-!1327 = distinct !{!1327, !1328, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE18_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1328 = distinct !{!1328, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE18_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1327 = distinct !{!1327, !1328, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE18_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1328 = distinct !{!1328, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE18_EENS0_12ContextScopeIT_EERKS7_"}
 !1329 = !{i64 2155360240}
 !1330 = !{i64 2155361914}
 !1331 = !{i64 2155363418}
 !1332 = !{!1333}
-!1333 = distinct !{!1333, !1334, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE19_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1334 = distinct !{!1334, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE19_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1333 = distinct !{!1333, !1334, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE19_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1334 = distinct !{!1334, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE19_EENS0_12ContextScopeIT_EERKS7_"}
 !1335 = !{i64 2155367799}
 !1336 = !{i64 2155369473}
 !1337 = !{i64 2155370977}
 !1338 = !{!1339}
-!1339 = distinct !{!1339, !1340, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE20_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1340 = distinct !{!1340, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE20_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1339 = distinct !{!1339, !1340, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE20_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1340 = distinct !{!1340, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE20_EENS0_12ContextScopeIT_EERKS7_"}
 !1341 = !{i64 2155375359}
 !1342 = !{i64 2155377033}
 !1343 = !{i64 2155378537}
 !1344 = !{!1345}
-!1345 = distinct !{!1345, !1346, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE21_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1346 = distinct !{!1346, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE21_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1345 = distinct !{!1345, !1346, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE21_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1346 = distinct !{!1346, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE21_EENS0_12ContextScopeIT_EERKS7_"}
 !1347 = !{i64 2155382943}
 !1348 = !{i64 2155384617}
 !1349 = !{i64 2155386121}
 !1350 = !{!1351}
-!1351 = distinct !{!1351, !1352, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE22_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1352 = distinct !{!1352, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE22_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1351 = distinct !{!1351, !1352, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE22_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1352 = distinct !{!1352, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_5031fEvEUlPSoE22_EENS0_12ContextScopeIT_EERKS7_"}
 !1353 = !{i64 2155394589}
 !1354 = !{i64 2155396263}
 !1355 = !{i64 2155397767}
@@ -254385,146 +254385,146 @@ attributes #26 = { noreturn }
 !1361 = distinct !{!1361, !1362, !"_ZN7doctest8toStringIA22_cTnNS_6detail5types9enable_ifIXntsr6detail5types7is_enumIT_EE5valueEbE4typeELb1EEENS_6StringERKS5_: argument 0"}
 !1362 = distinct !{!1362, !"_ZN7doctest8toStringIA22_cTnNS_6detail5types9enable_ifIXntsr6detail5types7is_enumIT_EE5valueEbE4typeELb1EEENS_6StringERKS5_"}
 !1363 = !{!1364}
-!1364 = distinct !{!1364, !1365, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1365 = distinct !{!1365, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1364 = distinct !{!1364, !1365, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1365 = distinct !{!1365, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_"}
 !1366 = !{i64 2155406078}
 !1367 = !{i64 2155407752}
 !1368 = !{i64 2155409256}
 !1369 = !{!1370}
-!1370 = distinct !{!1370, !1371, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1371 = distinct !{!1371, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1370 = distinct !{!1370, !1371, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1371 = distinct !{!1371, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE0_EENS0_12ContextScopeIT_EERKS7_"}
 !1372 = !{i64 2155413663}
 !1373 = !{i64 2155415337}
 !1374 = !{i64 2155416841}
 !1375 = !{!1376}
-!1376 = distinct !{!1376, !1377, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE1_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1377 = distinct !{!1377, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE1_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1376 = distinct !{!1376, !1377, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE1_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1377 = distinct !{!1377, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE1_EENS0_12ContextScopeIT_EERKS7_"}
 !1378 = !{i64 2155421222}
 !1379 = !{i64 2155422896}
 !1380 = !{i64 2155424400}
 !1381 = !{!1382}
-!1382 = distinct !{!1382, !1383, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE2_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1383 = distinct !{!1383, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE2_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1382 = distinct !{!1382, !1383, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE2_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1383 = distinct !{!1383, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE2_EENS0_12ContextScopeIT_EERKS7_"}
 !1384 = !{i64 2155428807}
 !1385 = !{i64 2155434542}
 !1386 = !{i64 2155436046}
 !1387 = !{!1388}
-!1388 = distinct !{!1388, !1389, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE3_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1389 = distinct !{!1389, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE3_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1388 = distinct !{!1388, !1389, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE3_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1389 = distinct !{!1389, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE3_EENS0_12ContextScopeIT_EERKS7_"}
 !1390 = !{i64 2155440452}
 !1391 = !{i64 2155442126}
 !1392 = !{i64 2155443630}
 !1393 = !{!1394}
-!1394 = distinct !{!1394, !1395, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE4_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1395 = distinct !{!1395, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE4_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1394 = distinct !{!1394, !1395, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE4_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1395 = distinct !{!1395, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE4_EENS0_12ContextScopeIT_EERKS7_"}
 !1396 = !{i64 2155448037}
 !1397 = !{i64 2155449711}
 !1398 = !{i64 2155451215}
 !1399 = !{!1400}
-!1400 = distinct !{!1400, !1401, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE5_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1401 = distinct !{!1401, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE5_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1400 = distinct !{!1400, !1401, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE5_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1401 = distinct !{!1401, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE5_EENS0_12ContextScopeIT_EERKS7_"}
 !1402 = !{i64 2155455621}
 !1403 = !{i64 2155457295}
 !1404 = !{i64 2155458799}
 !1405 = !{!1406}
-!1406 = distinct !{!1406, !1407, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE6_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1407 = distinct !{!1407, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE6_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1406 = distinct !{!1406, !1407, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE6_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1407 = distinct !{!1407, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE6_EENS0_12ContextScopeIT_EERKS7_"}
 !1408 = !{i64 2155463206}
 !1409 = !{i64 2155464880}
 !1410 = !{i64 2155466384}
 !1411 = !{!1412}
-!1412 = distinct !{!1412, !1413, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE7_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1413 = distinct !{!1413, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE7_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1412 = distinct !{!1412, !1413, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE7_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1413 = distinct !{!1413, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE7_EENS0_12ContextScopeIT_EERKS7_"}
 !1414 = !{i64 2155474826}
 !1415 = !{i64 2155476500}
 !1416 = !{i64 2155478004}
 !1417 = !{!1418}
-!1418 = distinct !{!1418, !1419, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE8_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1419 = distinct !{!1419, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE8_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1418 = distinct !{!1418, !1419, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE8_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1419 = distinct !{!1419, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE8_EENS0_12ContextScopeIT_EERKS7_"}
 !1420 = !{i64 2155482386}
 !1421 = !{i64 2155484060}
 !1422 = !{i64 2155485564}
 !1423 = !{!1424}
-!1424 = distinct !{!1424, !1425, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE9_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1425 = distinct !{!1425, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE9_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1424 = distinct !{!1424, !1425, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE9_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1425 = distinct !{!1425, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE9_EENS0_12ContextScopeIT_EERKS7_"}
 !1426 = !{i64 2155489970}
 !1427 = !{i64 2155491644}
 !1428 = !{i64 2155493148}
 !1429 = !{!1430}
-!1430 = distinct !{!1430, !1431, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE10_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1431 = distinct !{!1431, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE10_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1430 = distinct !{!1430, !1431, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE10_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1431 = distinct !{!1431, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE10_EENS0_12ContextScopeIT_EERKS7_"}
 !1432 = !{i64 2155497555}
 !1433 = !{i64 2155499229}
 !1434 = !{i64 2155500733}
 !1435 = !{!1436}
-!1436 = distinct !{!1436, !1437, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE11_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1437 = distinct !{!1437, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE11_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1436 = distinct !{!1436, !1437, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE11_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1437 = distinct !{!1437, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE11_EENS0_12ContextScopeIT_EERKS7_"}
 !1438 = !{i64 2155505139}
 !1439 = !{i64 2155506813}
 !1440 = !{i64 2155508317}
 !1441 = !{!1442}
-!1442 = distinct !{!1442, !1443, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE12_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1443 = distinct !{!1443, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE12_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1442 = distinct !{!1442, !1443, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE12_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1443 = distinct !{!1443, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE12_EENS0_12ContextScopeIT_EERKS7_"}
 !1444 = !{i64 2155516785}
 !1445 = !{i64 2155518459}
 !1446 = !{i64 2155519963}
 !1447 = !{!1448}
-!1448 = distinct !{!1448, !1449, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE13_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1449 = distinct !{!1449, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE13_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1448 = distinct !{!1448, !1449, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE13_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1449 = distinct !{!1449, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE13_EENS0_12ContextScopeIT_EERKS7_"}
 !1450 = !{i64 2155524344}
 !1451 = !{i64 2155526018}
 !1452 = !{i64 2155527522}
 !1453 = !{!1454}
-!1454 = distinct !{!1454, !1455, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE14_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1455 = distinct !{!1455, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE14_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1454 = distinct !{!1454, !1455, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE14_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1455 = distinct !{!1455, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE14_EENS0_12ContextScopeIT_EERKS7_"}
 !1456 = !{i64 2155531929}
 !1457 = !{i64 2155533603}
 !1458 = !{i64 2155535107}
 !1459 = !{!1460}
-!1460 = distinct !{!1460, !1461, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE15_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1461 = distinct !{!1461, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE15_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1460 = distinct !{!1460, !1461, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE15_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1461 = distinct !{!1461, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE15_EENS0_12ContextScopeIT_EERKS7_"}
 !1462 = !{i64 2155539513}
 !1463 = !{i64 2155541187}
 !1464 = !{i64 2155542691}
 !1465 = !{!1466}
-!1466 = distinct !{!1466, !1467, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE16_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1467 = distinct !{!1467, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE16_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1466 = distinct !{!1466, !1467, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE16_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1467 = distinct !{!1467, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE16_EENS0_12ContextScopeIT_EERKS7_"}
 !1468 = !{i64 2155547098}
 !1469 = !{i64 2155548772}
 !1470 = !{i64 2155550276}
 !1471 = !{!1472}
-!1472 = distinct !{!1472, !1473, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE17_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1473 = distinct !{!1473, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE17_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1472 = distinct !{!1472, !1473, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE17_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1473 = distinct !{!1473, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE17_EENS0_12ContextScopeIT_EERKS7_"}
 !1474 = !{i64 2155558743}
 !1475 = !{i64 2155560417}
 !1476 = !{i64 2155561921}
 !1477 = !{!1478}
-!1478 = distinct !{!1478, !1479, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE18_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1479 = distinct !{!1479, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE18_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1478 = distinct !{!1478, !1479, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE18_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1479 = distinct !{!1479, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE18_EENS0_12ContextScopeIT_EERKS7_"}
 !1480 = !{i64 2155566328}
 !1481 = !{i64 2155568002}
 !1482 = !{i64 2155569506}
 !1483 = !{!1484}
-!1484 = distinct !{!1484, !1485, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE19_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1485 = distinct !{!1485, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE19_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1484 = distinct !{!1484, !1485, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE19_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1485 = distinct !{!1485, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE19_EENS0_12ContextScopeIT_EERKS7_"}
 !1486 = !{i64 2155573887}
 !1487 = !{i64 2155575561}
 !1488 = !{i64 2155577065}
 !1489 = !{!1490}
-!1490 = distinct !{!1490, !1491, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE20_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1491 = distinct !{!1491, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE20_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1490 = distinct !{!1490, !1491, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE20_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1491 = distinct !{!1491, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE20_EENS0_12ContextScopeIT_EERKS7_"}
 !1492 = !{i64 2155581447}
 !1493 = !{i64 2155583121}
 !1494 = !{i64 2155584625}
 !1495 = !{!1496}
-!1496 = distinct !{!1496, !1497, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE21_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1497 = distinct !{!1497, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE21_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1496 = distinct !{!1496, !1497, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE21_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1497 = distinct !{!1497, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE21_EENS0_12ContextScopeIT_EERKS7_"}
 !1498 = !{i64 2155589031}
 !1499 = !{i64 2155590705}
 !1500 = !{i64 2155592209}
 !1501 = !{!1502}
-!1502 = distinct !{!1502, !1503, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE22_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!1503 = distinct !{!1503, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE22_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!1502 = distinct !{!1502, !1503, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE22_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!1503 = distinct !{!1503, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_6261fEvEUlPSoE22_EENS0_12ContextScopeIT_EERKS7_"}
 !1504 = !{i64 2155600677}
 !1505 = !{i64 2155602351}
 !1506 = !{i64 2155603855}
@@ -254559,26 +254559,26 @@ attributes #26 = { noreturn }
 !1535 = !{i64 2155906348}
 !1536 = !{i64 2155909134}
 !1537 = !{!1538}
-!1538 = distinct !{!1538, !1539, !"_ZSt10__invoke_rISt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEERZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvEUlS7_S0_IPKNS8_9ClassTypeEES0_IS7_EE_JS7_SP_SQ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESU_E4typeEOSV_DpOSW_.argprom: argument 0"}
-!1539 = distinct !{!1539, !"_ZSt10__invoke_rISt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEERZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvEUlS7_S0_IPKNS8_9ClassTypeEES0_IS7_EE_JS7_SP_SQ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESU_E4typeEOSV_DpOSW_.argprom"}
+!1538 = distinct !{!1538, !1539, !"_ZSt10__invoke_rISt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEERZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvEUlS7_S0_IPKNS8_9ClassTypeEES0_IS7_EE_JS7_SP_SQ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESU_E4typeEOSV_DpOSW_: argument 0"}
+!1539 = distinct !{!1539, !"_ZSt10__invoke_rISt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEERZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvEUlS7_S0_IPKNS8_9ClassTypeEES0_IS7_EE_JS7_SP_SQ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESU_E4typeEOSV_DpOSW_"}
 !1540 = !{!1541}
 !1541 = distinct !{!1541, !1542, !"_ZSt13__invoke_implISt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEERZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvEUlS7_S0_IPKNS8_9ClassTypeEES0_IS7_EE_JS7_SP_SQ_EET_St14__invoke_otherOT0_DpOT1_: argument 0"}
 !1542 = distinct !{!1542, !"_ZSt13__invoke_implISt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEERZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvEUlS7_S0_IPKNS8_9ClassTypeEES0_IS7_EE_JS7_SP_SQ_EET_St14__invoke_otherOT0_DpOT1_"}
 !1543 = !{!1541, !1538}
 !1544 = !{!1545}
-!1545 = distinct !{!1545, !1546, !"_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvENKUlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIPKN4Luau9ClassTypeEES7_IS6_EE_clES6_SC_SD_.argprom: argument 0"}
-!1546 = distinct !{!1546, !"_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvENKUlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIPKN4Luau9ClassTypeEES7_IS6_EE_clES6_SC_SD_.argprom"}
+!1545 = distinct !{!1545, !1546, !"_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvENKUlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIPKN4Luau9ClassTypeEES7_IS6_EE_clES6_SC_SD_: argument 0"}
+!1546 = distinct !{!1546, !"_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvENKUlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIPKN4Luau9ClassTypeEES7_IS6_EE_clES6_SC_SD_"}
 !1547 = !{!1545, !1541, !1538}
 !1548 = !{!1549}
-!1549 = distinct !{!1549, !1550, !"_ZSt10__invoke_rISt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEERZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8181fEvEUlS7_S0_IPKNS8_9ClassTypeEES0_IS7_EE_JS7_SP_SQ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESU_E4typeEOSV_DpOSW_.argprom: argument 0"}
-!1550 = distinct !{!1550, !"_ZSt10__invoke_rISt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEERZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8181fEvEUlS7_S0_IPKNS8_9ClassTypeEES0_IS7_EE_JS7_SP_SQ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESU_E4typeEOSV_DpOSW_.argprom"}
+!1549 = distinct !{!1549, !1550, !"_ZSt10__invoke_rISt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEERZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8181fEvEUlS7_S0_IPKNS8_9ClassTypeEES0_IS7_EE_JS7_SP_SQ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESU_E4typeEOSV_DpOSW_: argument 0"}
+!1550 = distinct !{!1550, !"_ZSt10__invoke_rISt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEERZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8181fEvEUlS7_S0_IPKNS8_9ClassTypeEES0_IS7_EE_JS7_SP_SQ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESU_E4typeEOSV_DpOSW_"}
 !1551 = !{!1552}
-!1552 = distinct !{!1552, !1553, !"_ZSt13__invoke_implISt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEERZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8181fEvEUlS7_S0_IPKNS8_9ClassTypeEES0_IS7_EE_JS7_SP_SQ_EET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
-!1553 = distinct !{!1553, !"_ZSt13__invoke_implISt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEERZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8181fEvEUlS7_S0_IPKNS8_9ClassTypeEES0_IS7_EE_JS7_SP_SQ_EET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!1552 = distinct !{!1552, !1553, !"_ZSt13__invoke_implISt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEERZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8181fEvEUlS7_S0_IPKNS8_9ClassTypeEES0_IS7_EE_JS7_SP_SQ_EET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!1553 = distinct !{!1553, !"_ZSt13__invoke_implISt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEERZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8181fEvEUlS7_S0_IPKNS8_9ClassTypeEES0_IS7_EE_JS7_SP_SQ_EET_St14__invoke_otherOT0_DpOT1_"}
 !1554 = !{!1552, !1549}
 !1555 = !{!1556}
-!1556 = distinct !{!1556, !1557, !"_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8181fEvENKUlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIPKN4Luau9ClassTypeEES7_IS6_EE_clES6_SC_SD_.argprom: argument 0"}
-!1557 = distinct !{!1557, !"_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8181fEvENKUlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIPKN4Luau9ClassTypeEES7_IS6_EE_clES6_SC_SD_.argprom"}
+!1556 = distinct !{!1556, !1557, !"_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8181fEvENKUlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIPKN4Luau9ClassTypeEES7_IS6_EE_clES6_SC_SD_: argument 0"}
+!1557 = distinct !{!1557, !"_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8181fEvENKUlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIPKN4Luau9ClassTypeEES7_IS6_EE_clES6_SC_SD_"}
 !1558 = !{!1556, !1552, !1549}
 !1559 = distinct !{!1559, !6}
 !1560 = distinct !{!1560, !6}

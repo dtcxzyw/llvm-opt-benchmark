@@ -72,7 +72,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 384, ptr noundef nonnull @__func__.ossl_quic_new, i32 noundef 524303, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 384, ptr noundef nonnull @__func__.ossl_quic_new, i32 noundef 524303, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -83,7 +83,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.end
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 389, ptr noundef nonnull @__func__.ossl_quic_new, i32 noundef 524303, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 389, ptr noundef nonnull @__func__.ossl_quic_new, i32 noundef 524303, ptr noundef null)
   br label %if.then71
 
 if.end6:                                          ; preds = %if.end
@@ -94,7 +94,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %tobool.not, label %if.then8, label %if.end10
 
 if.then8:                                         ; preds = %if.end6
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 398, ptr noundef nonnull @__func__.ossl_quic_new, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 398, ptr noundef nonnull @__func__.ossl_quic_new, i32 noundef 786691, ptr noundef null)
   br label %if.then71
 
 if.end10:                                         ; preds = %if.end6
@@ -119,7 +119,7 @@ cond.end31:                                       ; preds = %cond.false
   br i1 %cmp33, label %if.then34, label %if.end36
 
 if.then34:                                        ; preds = %cond.false, %cond.end31, %if.end10
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 404, ptr noundef nonnull @__func__.ossl_quic_new, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 404, ptr noundef nonnull @__func__.ossl_quic_new, i32 noundef 786691, ptr noundef null)
   br label %if.else
 
 if.end36:                                         ; preds = %cond.false, %cond.end31
@@ -190,7 +190,7 @@ if.end36:                                         ; preds = %cond.false, %cond.e
   br i1 %cmp.i, label %create_channel.exit.thread, label %if.end67
 
 create_channel.exit.thread:                       ; preds = %if.end36
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 1502, ptr noundef nonnull @__func__.create_channel, i32 noundef 786691, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 1502, ptr noundef nonnull @__func__.create_channel, i32 noundef 786691, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %args.i)
   br label %if.else
 
@@ -253,7 +253,7 @@ return:                                           ; preds = %if.then71, %if.else
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @quic_raise_non_normal_error.retelim(ptr noundef readonly %ctx, ptr nocapture readnone %file, i32 noundef range(i32 206, 3533) %line, ptr noundef %func, i32 noundef %reason, ptr noundef %fmt, ...) unnamed_addr #0 {
+define internal void @quic_raise_non_normal_error(ptr noundef readonly %ctx, ptr nocapture readnone %file, i32 noundef range(i32 206, 3533) %line, ptr noundef %func, i32 noundef %reason, ptr noundef %fmt, ...) unnamed_addr #0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   %cmp.not = icmp eq ptr %ctx, null
@@ -346,7 +346,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -357,7 +357,7 @@ if.end.i:                                         ; preds = %entry
   ]
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.then2:                                         ; preds = %if.end.i
@@ -518,7 +518,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %ossl_quic_clear.exit
 
 if.end.i.i:                                       ; preds = %entry
@@ -528,7 +528,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %switch.i, label %if.end.i, label %sw.default.i.i
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %ossl_quic_clear.exit
 
 if.end.i:                                         ; preds = %if.end.i.i
@@ -548,7 +548,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -558,7 +558,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %switch, label %if.end, label %sw.default.i
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i
@@ -584,7 +584,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -594,7 +594,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %switch, label %if.end, label %sw.default.i
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i
@@ -620,7 +620,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -636,7 +636,7 @@ sw.bb6.i:                                         ; preds = %if.end.i
   br label %if.end
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i, %sw.bb6.i
@@ -664,7 +664,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %if.end10
 
 if.end.i:                                         ; preds = %entry
@@ -680,7 +680,7 @@ sw.bb6.i:                                         ; preds = %if.end.i
   br label %if.end
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %if.end10
 
 if.end:                                           ; preds = %if.end.i, %sw.bb6.i
@@ -716,7 +716,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -727,7 +727,7 @@ if.end.i:                                         ; preds = %entry
   ]
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.end14.thread:                                  ; preds = %if.end.i
@@ -844,7 +844,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -860,7 +860,7 @@ sw.bb6.i:                                         ; preds = %if.end.i
   br label %if.end
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i, %sw.bb6.i
@@ -965,7 +965,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -981,7 +981,7 @@ sw.bb6.i:                                         ; preds = %if.end.i
   br label %if.end
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i, %sw.bb6.i
@@ -1052,7 +1052,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -1068,7 +1068,7 @@ sw.bb6.i:                                         ; preds = %if.end.i
   br label %if.end
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i, %sw.bb6.i
@@ -1089,7 +1089,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -1105,7 +1105,7 @@ sw.bb6.i:                                         ; preds = %if.end.i
   br label %if.end
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i, %sw.bb6.i
@@ -1126,7 +1126,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -1137,7 +1137,7 @@ if.end.i:                                         ; preds = %entry
   ]
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.then2:                                         ; preds = %if.end.i
@@ -1202,7 +1202,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -1213,7 +1213,7 @@ if.end.i:                                         ; preds = %entry
   ]
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i
@@ -1258,18 +1258,18 @@ if.end6:                                          ; preds = %if.end.thread, %if.
   %call.i7 = tail call ptr @ossl_quic_channel_get_reactor(ptr noundef %.val5) #8
   %call1.i = tail call i32 @ossl_quic_reactor_can_poll_r(ptr noundef %call.i7) #8
   %tobool.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool.not.i, label %if.then10, label %qc_can_support_blocking_cached.argprom.exit
+  br i1 %tobool.not.i, label %if.then10, label %qc_can_support_blocking_cached.exit
 
-qc_can_support_blocking_cached.argprom.exit:      ; preds = %if.end6
+qc_can_support_blocking_cached.exit:              ; preds = %if.end6
   %call2.i = tail call i32 @ossl_quic_reactor_can_poll_w(ptr noundef %call.i7) #8
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.then10, label %if.end13
 
-if.then10:                                        ; preds = %if.end6, %qc_can_support_blocking_cached.argprom.exit
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 974, ptr noundef nonnull @__func__.ossl_quic_conn_set_blocking_mode, i32 noundef 524556, ptr noundef null)
+if.then10:                                        ; preds = %if.end6, %qc_can_support_blocking_cached.exit
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 974, ptr noundef nonnull @__func__.ossl_quic_conn_set_blocking_mode, i32 noundef 524556, ptr noundef null)
   br label %out
 
-if.end13:                                         ; preds = %qc_can_support_blocking_cached.argprom.exit
+if.end13:                                         ; preds = %qc_can_support_blocking_cached.exit
   br i1 %tobool3.not1724, label %if.then16, label %if.end18
 
 if.then16:                                        ; preds = %if.end, %if.end13
@@ -1355,7 +1355,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -1381,7 +1381,7 @@ sw.bb6.i:                                         ; preds = %if.end.i
   br label %if.end
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %sw.bb6.i, %sw.bb.i
@@ -1395,7 +1395,7 @@ if.end:                                           ; preds = %sw.bb6.i, %sw.bb.i
   br i1 %tobool1.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1012, ptr noundef nonnull @__func__.ossl_quic_conn_set_initial_peer_addr, i32 noundef 786689, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1012, ptr noundef nonnull @__func__.ossl_quic_conn_set_initial_peer_addr, i32 noundef 786689, ptr noundef null)
   br label %return
 
 if.end4:                                          ; preds = %if.end
@@ -1428,7 +1428,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -1444,7 +1444,7 @@ sw.bb6.i:                                         ; preds = %if.end.i
   br label %if.end
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i, %sw.bb6.i
@@ -1476,7 +1476,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -1492,7 +1492,7 @@ sw.bb6.i:                                         ; preds = %if.end.i
   br label %if.end
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i, %sw.bb6.i
@@ -1567,7 +1567,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -1593,7 +1593,7 @@ sw.bb6.i:                                         ; preds = %if.end.i
   br label %if.end
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %sw.bb6.i, %sw.bb.i
@@ -1610,7 +1610,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %cmp1, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1114, ptr noundef nonnull @__func__.ossl_quic_get_rpoll_descriptor, i32 noundef 524550, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1114, ptr noundef nonnull @__func__.ossl_quic_get_rpoll_descriptor, i32 noundef 524550, ptr noundef null)
   br label %return
 
 if.end4:                                          ; preds = %lor.lhs.false
@@ -1635,7 +1635,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -1661,7 +1661,7 @@ sw.bb6.i:                                         ; preds = %if.end.i
   br label %if.end
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %sw.bb6.i, %sw.bb.i
@@ -1678,7 +1678,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %cmp1, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1129, ptr noundef nonnull @__func__.ossl_quic_get_wpoll_descriptor, i32 noundef 524550, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1129, ptr noundef nonnull @__func__.ossl_quic_get_wpoll_descriptor, i32 noundef 524550, ptr noundef null)
   br label %return
 
 if.end4:                                          ; preds = %lor.lhs.false
@@ -1699,7 +1699,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -1715,7 +1715,7 @@ sw.bb6.i:                                         ; preds = %if.end.i
   br label %if.end
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i, %sw.bb6.i
@@ -1745,7 +1745,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -1761,7 +1761,7 @@ sw.bb6.i:                                         ; preds = %if.end.i
   br label %if.end
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i, %sw.bb6.i
@@ -1798,7 +1798,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -1809,7 +1809,7 @@ if.end.i:                                         ; preds = %entry
   ]
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.then8:                                         ; preds = %if.end.i
@@ -1820,7 +1820,7 @@ if.then8:                                         ; preds = %if.end.i
   store i32 1, ptr %is_stream.i, align 8
   %in_io10.i = getelementptr inbounds i8, ptr %ctx, i64 20
   store i32 0, ptr %in_io10.i, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1242, ptr noundef nonnull @__func__.ossl_quic_conn_shutdown, i32 noundef 356, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1242, ptr noundef nonnull @__func__.ossl_quic_conn_shutdown, i32 noundef 356, ptr noundef null)
   br label %return
 
 if.end10:                                         ; preds = %if.end.i
@@ -1882,7 +1882,7 @@ land.lhs.true26:                                  ; preds = %if.then24
   br i1 %tobool29.not, label %if.else, label %if.then30
 
 if.then30:                                        ; preds = %land.lhs.true26
-  %call33 = tail call fastcc i32 @block_until_pred.argelim(ptr noundef nonnull %s, ptr noundef nonnull @quic_shutdown_flush_wait, ptr noundef nonnull %s)
+  %call33 = tail call fastcc i32 @block_until_pred(ptr noundef nonnull %s, ptr noundef nonnull @quic_shutdown_flush_wait, ptr noundef nonnull %s)
   %cmp34 = icmp slt i32 %call33, 1
   br i1 %cmp34, label %err, label %if.end43
 
@@ -1930,7 +1930,7 @@ land.lhs.true59:                                  ; preds = %if.then57
   br i1 %tobool62.not, label %if.else71, label %if.then63
 
 if.then63:                                        ; preds = %land.lhs.true59
-  %call66 = tail call fastcc i32 @block_until_pred.argelim(ptr noundef nonnull %s, ptr noundef nonnull @quic_shutdown_peer_wait, ptr noundef nonnull %s)
+  %call66 = tail call fastcc i32 @block_until_pred(ptr noundef nonnull %s, ptr noundef nonnull @quic_shutdown_peer_wait, ptr noundef nonnull %s)
   %cmp67 = icmp slt i32 %call66, 1
   br i1 %cmp67, label %err, label %if.end76
 
@@ -1991,7 +1991,7 @@ land.lhs.true104:                                 ; preds = %if.end102
   br i1 %or.cond13, label %if.then112, label %if.else120
 
 if.then112:                                       ; preds = %land.lhs.true104
-  %call115 = tail call fastcc i32 @block_until_pred.argelim(ptr noundef nonnull %s, ptr noundef nonnull @quic_shutdown_wait, ptr noundef nonnull %s)
+  %call115 = tail call fastcc i32 @block_until_pred(ptr noundef nonnull %s, ptr noundef nonnull @quic_shutdown_wait, ptr noundef nonnull %s)
   %cmp116 = icmp slt i32 %call115, 1
   br i1 %cmp116, label %err, label %if.end125
 
@@ -2020,7 +2020,7 @@ return:                                           ; preds = %sw.default.i, %if.t
 declare i32 @ossl_quic_channel_is_terminated(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @block_until_pred.argelim(ptr nocapture noundef readonly %qc, ptr noundef %pred, ptr noundef %pred_arg) unnamed_addr #0 {
+define internal fastcc i32 @block_until_pred(ptr nocapture noundef readonly %qc, ptr noundef %pred, ptr noundef %pred_arg) unnamed_addr #0 {
 entry:
   %ch = getelementptr inbounds i8, ptr %qc, i64 72
   %0 = load ptr, ptr %ch, align 8
@@ -2094,7 +2094,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -2115,7 +2115,7 @@ sw.bb6.i:                                         ; preds = %if.end.i
   br label %if.end
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %sw.bb6.i, %sw.bb.i
@@ -2249,7 +2249,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -2260,7 +2260,7 @@ if.end.i:                                         ; preds = %entry
   ]
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i
@@ -2286,7 +2286,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -2297,7 +2297,7 @@ if.end.i:                                         ; preds = %entry
   ]
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i
@@ -2327,7 +2327,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -2338,7 +2338,7 @@ if.end.i:                                         ; preds = %entry
   ]
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.then2.i.i:                                     ; preds = %if.end.i
@@ -2403,7 +2403,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %tobool1.not.i, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %lor.lhs.false.i, %if.end
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1559, ptr noundef nonnull @__func__.quic_do_handshake, i32 noundef 207, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1559, ptr noundef nonnull @__func__.quic_do_handshake, i32 noundef 207, ptr noundef null)
   br label %return
 
 if.end6:                                          ; preds = %lor.lhs.false.i
@@ -2416,7 +2416,7 @@ if.end6:                                          ; preds = %lor.lhs.false.i
   br i1 %cmp.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %if.end6
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1562, ptr noundef nonnull @__func__.quic_do_handshake, i32 noundef 524550, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1562, ptr noundef nonnull @__func__.quic_do_handshake, i32 noundef 524550, ptr noundef null)
   br label %return
 
 if.end13:                                         ; preds = %if.end6
@@ -2432,7 +2432,7 @@ lor.lhs.false:                                    ; preds = %if.end13
   br i1 %cmp15, label %if.then16, label %if.end18
 
 if.then16:                                        ; preds = %lor.lhs.false, %if.end13
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1568, ptr noundef nonnull @__func__.quic_do_handshake, i32 noundef 128, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1568, ptr noundef nonnull @__func__.quic_do_handshake, i32 noundef 128, ptr noundef null)
   br label %return
 
 if.end18:                                         ; preds = %lor.lhs.false
@@ -2499,7 +2499,7 @@ land.lhs.true94:                                  ; preds = %if.end81
   br i1 %cmp97, label %if.then99, label %if.end101
 
 if.then99:                                        ; preds = %land.lhs.true94
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1642, ptr noundef nonnull @__func__.quic_do_handshake, i32 noundef 346, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1642, ptr noundef nonnull @__func__.quic_do_handshake, i32 noundef 346, ptr noundef null)
   br label %return
 
 if.end101:                                        ; preds = %land.lhs.true94, %if.end81
@@ -2535,7 +2535,7 @@ configure_channel.exit.i:                         ; preds = %lor.lhs.false.i.i
   br i1 %tobool7.not.i.not.i, label %if.then3.i, label %if.end.i61
 
 if.then3.i:                                       ; preds = %configure_channel.exit.i, %lor.lhs.false.i.i, %if.then.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1521, ptr noundef nonnull @__func__.ensure_channel_started, i32 noundef 786691, ptr noundef nonnull @.str.7)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1521, ptr noundef nonnull @__func__.ensure_channel_started, i32 noundef 786691, ptr noundef nonnull @.str.7)
   br label %return
 
 if.end.i61:                                       ; preds = %configure_channel.exit.i
@@ -2547,7 +2547,7 @@ if.end.i61:                                       ; preds = %configure_channel.e
 if.then7.i:                                       ; preds = %if.end.i61
   %25 = load ptr, ptr %ch.i.i, align 8
   tail call void @ossl_quic_channel_restore_err_state(ptr noundef %25) #8
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1528, ptr noundef nonnull @__func__.ensure_channel_started, i32 noundef 786691, ptr noundef nonnull @.str.8)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1528, ptr noundef nonnull @__func__.ensure_channel_started, i32 noundef 786691, ptr noundef nonnull @.str.8)
   br label %return
 
 if.end10.i:                                       ; preds = %if.end.i61
@@ -2572,7 +2572,7 @@ if.then15.if.end23_crit_edge.i:                   ; preds = %if.then15.i
   br label %if.end105
 
 if.then19.i:                                      ; preds = %if.then15.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1538, ptr noundef nonnull @__func__.ensure_channel_started, i32 noundef 786691, ptr noundef nonnull @.str.9)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1538, ptr noundef nonnull @__func__.ensure_channel_started, i32 noundef 786691, ptr noundef nonnull @.str.9)
   br label %return
 
 if.end105:                                        ; preds = %if.then15.if.end23_crit_edge.i, %if.end10.i, %if.end101
@@ -2606,7 +2606,7 @@ if.end121:                                        ; preds = %if.then113
   br i1 %tobool124.not, label %if.else127, label %if.then125
 
 if.then125:                                       ; preds = %if.end121
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1666, ptr noundef nonnull @__func__.quic_do_handshake, i32 noundef 207, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1666, ptr noundef nonnull @__func__.quic_do_handshake, i32 noundef 207, ptr noundef null)
   br label %return
 
 if.else127:                                       ; preds = %if.end121
@@ -2630,13 +2630,13 @@ if.end136:                                        ; preds = %if.then133, %if.els
 
 if.then139:                                       ; preds = %if.end136
   store ptr %0, ptr %args, align 8
-  %call141 = call fastcc i32 @block_until_pred.argelim(ptr noundef nonnull %0, ptr noundef nonnull @quic_handshake_wait, ptr noundef nonnull %args)
+  %call141 = call fastcc i32 @block_until_pred(ptr noundef nonnull %0, ptr noundef nonnull @quic_handshake_wait, ptr noundef nonnull %args)
   %call142 = call fastcc i32 @quic_mutation_allowed(ptr noundef nonnull %0, i32 noundef 1)
   %tobool143.not = icmp eq i32 %call142, 0
   br i1 %tobool143.not, label %if.then144, label %if.else146
 
 if.then144:                                       ; preds = %if.then139
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1693, ptr noundef nonnull @__func__.quic_do_handshake, i32 noundef 207, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1693, ptr noundef nonnull @__func__.quic_do_handshake, i32 noundef 207, ptr noundef null)
   br label %return
 
 if.else146:                                       ; preds = %if.then139
@@ -2644,7 +2644,7 @@ if.else146:                                       ; preds = %if.then139
   br i1 %cmp147, label %if.then149, label %if.end152
 
 if.then149:                                       ; preds = %if.else146
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1696, ptr noundef nonnull @__func__.quic_do_handshake, i32 noundef 786691, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1696, ptr noundef nonnull @__func__.quic_do_handshake, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.end152:                                        ; preds = %if.else146
@@ -2791,7 +2791,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %ossl_quic_set_connect_state.exit
 
 if.end.i.i:                                       ; preds = %entry
@@ -2802,7 +2802,7 @@ if.end.i.i:                                       ; preds = %entry
   ]
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %ossl_quic_set_connect_state.exit
 
 if.end.i:                                         ; preds = %if.end.i.i
@@ -2829,7 +2829,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %ossl_quic_set_accept_state.exit
 
 if.end.i.i:                                       ; preds = %entry
@@ -2840,7 +2840,7 @@ if.end.i.i:                                       ; preds = %entry
   ]
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %ossl_quic_set_accept_state.exit
 
 if.end.i:                                         ; preds = %if.end.i.i
@@ -2871,7 +2871,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i.i:                                       ; preds = %entry
@@ -2882,7 +2882,7 @@ if.end.i.i:                                       ; preds = %entry
   ]
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.then2.i:                                       ; preds = %if.end.i.i
@@ -2893,7 +2893,7 @@ if.then2.i:                                       ; preds = %if.end.i.i
   store i32 1, ptr %is_stream.i.i, align 8
   %in_io10.i.i = getelementptr inbounds i8, ptr %ctx, i64 20
   store i32 0, ptr %in_io10.i.i, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 296, ptr noundef nonnull @__func__.expect_quic_conn_only, i32 noundef 356, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 296, ptr noundef nonnull @__func__.expect_quic_conn_only, i32 noundef 356, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i.i
@@ -2946,7 +2946,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %tobool1.not.i, label %if.end11, label %if.then9
 
 if.then9:                                         ; preds = %lor.lhs.false.i, %if.end
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1983, ptr noundef nonnull @__func__.quic_conn_stream_new, i32 noundef 207, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1983, ptr noundef nonnull @__func__.quic_conn_stream_new, i32 noundef 207, ptr noundef null)
   br label %err
 
 if.end11:                                         ; preds = %lor.lhs.false.i
@@ -2968,7 +2968,7 @@ lor.lhs.false:                                    ; preds = %if.then15
   br i1 %tobool18.not, label %if.then19, label %if.end21
 
 if.then19:                                        ; preds = %lor.lhs.false, %if.then15
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1996, ptr noundef nonnull @__func__.quic_conn_stream_new, i32 noundef 411, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1996, ptr noundef nonnull @__func__.quic_conn_stream_new, i32 noundef 411, ptr noundef null)
   br label %err
 
 if.end21:                                         ; preds = %lor.lhs.false
@@ -3002,7 +3002,7 @@ if.end.i41:                                       ; preds = %lor.lhs.false.i37
   br i1 %tobool5.not.i, label %if.then28, label %if.else
 
 if.then28:                                        ; preds = %lor.lhs.false.i37, %if.end21, %if.end.i41
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2006, ptr noundef nonnull @__func__.quic_conn_stream_new, i32 noundef 207, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2006, ptr noundef nonnull @__func__.quic_conn_stream_new, i32 noundef 207, ptr noundef null)
   br label %err
 
 if.else:                                          ; preds = %if.end.i41
@@ -3010,7 +3010,7 @@ if.else:                                          ; preds = %if.end.i41
   br i1 %cmp30, label %if.then32, label %if.end36
 
 if.then32:                                        ; preds = %if.else
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2009, ptr noundef nonnull @__func__.quic_conn_stream_new, i32 noundef 786691, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2009, ptr noundef nonnull @__func__.quic_conn_stream_new, i32 noundef 786691, ptr noundef null)
   br label %err
 
 if.end36:                                         ; preds = %if.else, %land.lhs.true, %if.end11
@@ -3020,7 +3020,7 @@ if.end36:                                         ; preds = %if.else, %land.lhs.
   br i1 %cmp39, label %if.then41, label %if.end43
 
 if.then41:                                        ; preds = %if.end36
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2016, ptr noundef nonnull @__func__.quic_conn_stream_new, i32 noundef 786691, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2016, ptr noundef nonnull @__func__.quic_conn_stream_new, i32 noundef 786691, ptr noundef null)
   br label %err
 
 if.end43:                                         ; preds = %if.end36
@@ -3082,7 +3082,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -3103,7 +3103,7 @@ sw.bb6.i:                                         ; preds = %if.end.i
   br label %if.end
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %sw.bb6.i, %sw.bb.i
@@ -3140,7 +3140,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -3151,7 +3151,7 @@ if.end.i:                                         ; preds = %entry
   ]
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i
@@ -3221,7 +3221,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %tobool1.not.i, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %lor.lhs.false.i, %if.end
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2497, ptr noundef nonnull @__func__.ossl_quic_write, i32 noundef 207, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2497, ptr noundef nonnull @__func__.ossl_quic_write, i32 noundef 207, ptr noundef null)
   br label %out
 
 if.end5:                                          ; preds = %lor.lhs.false.i
@@ -3282,7 +3282,7 @@ sw.bb14.i:                                        ; preds = %if.end.i10, %if.end
 
 if.then14:                                        ; preds = %sw.bb8.i, %sw.bb14.i, %sw.bb3.i, %if.end.i10, %lor.lhs.false.i9, %if.end10
   %err.0.ph = phi i32 [ 786691, %sw.bb3.i ], [ 366, %if.end.i10 ], [ 786691, %if.end10 ], [ 786691, %lor.lhs.false.i9 ], [ 375, %sw.bb14.i ], [ 365, %sw.bb8.i ]
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2512, ptr noundef nonnull @__func__.ossl_quic_write, i32 noundef %err.0.ph, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2512, ptr noundef nonnull @__func__.ossl_quic_write, i32 noundef %err.0.ph, ptr noundef null)
   br label %out
 
 if.end16:                                         ; preds = %sw.bb8.i
@@ -3344,7 +3344,7 @@ if.then24:                                        ; preds = %xso_blocking_mode.e
 
 if.then.i27:                                      ; preds = %if.then24
   store i64 0, ptr %written, align 8
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2279, ptr noundef nonnull @__func__.quic_write_blocking, i32 noundef 786691, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2279, ptr noundef nonnull @__func__.quic_write_blocking, i32 noundef 786691, ptr noundef null)
   br label %quic_write_blocking.exit
 
 if.end.i22:                                       ; preds = %if.then24
@@ -3424,12 +3424,12 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   br i1 %tobool5.not.i.i, label %if.then17.i, label %if.else.i26
 
 if.then17.i:                                      ; preds = %if.end.i.i, %lor.lhs.false.i.i, %if.then13.i
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2304, ptr noundef nonnull @__func__.quic_write_blocking, i32 noundef 207, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2304, ptr noundef nonnull @__func__.quic_write_blocking, i32 noundef 207, ptr noundef null)
   br label %quic_write_blocking.exit
 
 if.else.i26:                                      ; preds = %if.end.i.i
   %35 = load i32, ptr %err.i, align 8
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2306, ptr noundef nonnull @__func__.quic_write_blocking, i32 noundef %35, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2306, ptr noundef nonnull @__func__.quic_write_blocking, i32 noundef %35, ptr noundef null)
   br label %quic_write_blocking.exit
 
 if.end21.i:                                       ; preds = %if.end6.i
@@ -3477,7 +3477,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -3500,7 +3500,7 @@ sw.bb6.i:                                         ; preds = %if.end.i
   br label %if.end
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %sw.bb6.i, %sw.bb.i
@@ -3570,7 +3570,7 @@ lor.lhs.false.i:                                  ; preds = %if.then5
   br i1 %tobool1.not.i, label %if.end11, label %if.then9
 
 if.then9:                                         ; preds = %lor.lhs.false.i, %if.then5
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 254, ptr noundef nonnull @__func__.expect_quic_with_stream_lock, i32 noundef 207, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 254, ptr noundef nonnull @__func__.expect_quic_with_stream_lock, i32 noundef 207, ptr noundef null)
   br label %err
 
 if.end11:                                         ; preds = %lor.lhs.false.i
@@ -3595,7 +3595,7 @@ lor.lhs.false.i25:                                ; preds = %if.then17
   ]
 
 if.then.i22:                                      ; preds = %lor.lhs.false.i25, %if.then17
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1783, ptr noundef nonnull @__func__.qc_try_create_default_xso_for_write, i32 noundef 355, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1783, ptr noundef nonnull @__func__.qc_try_create_default_xso_for_write, i32 noundef 355, ptr noundef null)
   br label %err
 
 if.then4.split.i:                                 ; preds = %lor.lhs.false.i25
@@ -3646,7 +3646,7 @@ qc_set_default_xso.exit.i:                        ; preds = %qc_set_default_xso.
   br i1 %cmp7.i, label %if.then8.i, label %if.end10.i
 
 if.then8.i:                                       ; preds = %qc_set_default_xso.exit.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1793, ptr noundef nonnull @__func__.qc_try_create_default_xso_for_write, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1793, ptr noundef nonnull @__func__.qc_try_create_default_xso_for_write, i32 noundef 786691, ptr noundef null)
   br label %err
 
 if.end10.i:                                       ; preds = %qc_set_default_xso.exit.i
@@ -3685,7 +3685,7 @@ if.end30:                                         ; preds = %if.end27, %if.end3
   br i1 %cmp32, label %if.then33, label %return
 
 if.then33:                                        ; preds = %if.end30
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 275, ptr noundef nonnull @__func__.expect_quic_with_stream_lock, i32 noundef 355, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 275, ptr noundef nonnull @__func__.expect_quic_with_stream_lock, i32 noundef 355, ptr noundef null)
   br label %err
 
 err:                                              ; preds = %if.then8.i, %if.then.i22, %if.end11, %if.then33, %if.then9
@@ -3745,7 +3745,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i64 0, ptr %written, align 8
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2433, ptr noundef nonnull @__func__.quic_write_nonblocking_epw, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2433, ptr noundef nonnull @__func__.quic_write_nonblocking_epw, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -3811,7 +3811,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true, %if.
   br i1 %cmp5.not, label %if.end, label %if.then7
 
 if.then7:                                         ; preds = %lor.lhs.false, %land.lhs.true
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2358, ptr noundef nonnull @__func__.quic_write_nonblocking_aon, i32 noundef 127, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2358, ptr noundef nonnull @__func__.quic_write_nonblocking_aon, i32 noundef 127, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -3830,7 +3830,7 @@ if.end9:                                          ; preds = %entry, %if.end
 
 if.then12:                                        ; preds = %if.end9
   store i64 0, ptr %written, align 8
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2372, ptr noundef nonnull @__func__.quic_write_nonblocking_aon, i32 noundef 786691, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2372, ptr noundef nonnull @__func__.quic_write_nonblocking_aon, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.end14:                                         ; preds = %if.end9
@@ -4001,7 +4001,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -4012,7 +4012,7 @@ if.end.i:                                         ; preds = %entry
   ]
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.then2.i.i:                                     ; preds = %if.end.i
@@ -4056,7 +4056,7 @@ lor.lhs.false.i:                                  ; preds = %quic_lock_for_io.ex
   br i1 %tobool1.not.i, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %lor.lhs.false.i, %quic_lock_for_io.exit
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2684, ptr noundef nonnull @__func__.quic_read, i32 noundef 207, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2684, ptr noundef nonnull @__func__.quic_read, i32 noundef 207, ptr noundef null)
   br label %out
 
 if.end5:                                          ; preds = %lor.lhs.false.i
@@ -4086,7 +4086,7 @@ lor.lhs.false.i22:                                ; preds = %if.then10
   br i1 %cmp.i23, label %if.then.i19, label %if.end.i24
 
 if.then.i19:                                      ; preds = %lor.lhs.false.i22, %if.then10
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1846, ptr noundef nonnull @__func__.qc_wait_for_default_xso_for_read, i32 noundef 355, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1846, ptr noundef nonnull @__func__.qc_wait_for_default_xso_for_read, i32 noundef 355, ptr noundef null)
   br label %qc_wait_for_default_xso_for_read.exit.thread
 
 if.end.i24:                                       ; preds = %lor.lhs.false.i22
@@ -4176,7 +4176,7 @@ if.end34.i:                                       ; preds = %if.then29.i
   br i1 %cmp40.i, label %if.then42.i, label %if.else.i
 
 if.then42.i:                                      ; preds = %if.end34.i
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1884, ptr noundef nonnull @__func__.qc_wait_for_default_xso_for_read, i32 noundef 786691, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1884, ptr noundef nonnull @__func__.qc_wait_for_default_xso_for_read, i32 noundef 786691, ptr noundef null)
   br label %qc_wait_for_default_xso_for_read.exit.thread
 
 if.else.i:                                        ; preds = %if.end34.i
@@ -4238,7 +4238,7 @@ qc_set_default_xso.exit.i:                        ; preds = %qc_set_default_xso.
   br i1 %cmp60.i, label %if.then62.i, label %if.end64.i
 
 if.then62.i:                                      ; preds = %qc_set_default_xso.exit.i
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1905, ptr noundef nonnull @__func__.qc_wait_for_default_xso_for_read, i32 noundef 786691, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 1905, ptr noundef nonnull @__func__.qc_wait_for_default_xso_for_read, i32 noundef 786691, ptr noundef null)
   br label %qc_wait_for_default_xso_for_read.exit.thread
 
 if.end64.i:                                       ; preds = %qc_set_default_xso.exit.i
@@ -4370,7 +4370,7 @@ if.then31:                                        ; preds = %xso_blocking_mode.e
   br i1 %cmp42, label %if.then43, label %if.else45
 
 if.then43:                                        ; preds = %if.then31
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2736, ptr noundef nonnull @__func__.quic_read, i32 noundef 786691, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2736, ptr noundef nonnull @__func__.quic_read, i32 noundef 786691, ptr noundef null)
   br label %out
 
 if.else45:                                        ; preds = %if.then31
@@ -4471,7 +4471,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -4495,7 +4495,7 @@ if.end.thread:                                    ; preds = %if.end.i
   br label %if.end3
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i
@@ -4512,7 +4512,7 @@ if.end:                                           ; preds = %if.end.i
   br i1 %cmp, label %if.then1, label %if.end3
 
 if.then1:                                         ; preds = %if.end
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2797, ptr noundef nonnull @__func__.ossl_quic_pending_int, i32 noundef 355, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2797, ptr noundef nonnull @__func__.ossl_quic_pending_int, i32 noundef 355, ptr noundef null)
   br label %out
 
 if.end3:                                          ; preds = %if.end.thread, %if.end
@@ -4532,7 +4532,7 @@ lor.lhs.false:                                    ; preds = %if.end3
   br i1 %switch.i, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %lor.lhs.false, %if.end3
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2803, ptr noundef nonnull @__func__.ossl_quic_pending_int, i32 noundef 786691, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2803, ptr noundef nonnull @__func__.ossl_quic_pending_int, i32 noundef 786691, ptr noundef null)
   br label %out
 
 if.end12:                                         ; preds = %lor.lhs.false
@@ -4629,7 +4629,7 @@ if.then3:                                         ; preds = %lor.lhs.false.i, %i
   %7 = getelementptr i8, ptr %6, i64 80
   %.val4 = load ptr, ptr %7, align 8
   call void @ossl_crypto_mutex_unlock(ptr noundef %.val4) #8
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2847, ptr noundef nonnull @__func__.ossl_quic_conn_stream_conclude, i32 noundef 207, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2847, ptr noundef nonnull @__func__.ossl_quic_conn_stream_conclude, i32 noundef 207, ptr noundef null)
   br label %return
 
 if.end6:                                          ; preds = %if.end.i
@@ -4689,7 +4689,7 @@ if.then10:                                        ; preds = %sw.bb8.i, %sw.bb14.
   %17 = getelementptr i8, ptr %16, i64 80
   %.val3 = load ptr, ptr %17, align 8
   call void @ossl_crypto_mutex_unlock(ptr noundef %.val3) #8
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2852, ptr noundef nonnull @__func__.ossl_quic_conn_stream_conclude, i32 noundef %err.0.ph, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2852, ptr noundef nonnull @__func__.ossl_quic_conn_stream_conclude, i32 noundef %err.0.ph, ptr noundef null)
   br label %return
 
 if.end13:                                         ; preds = %sw.bb8.i
@@ -4743,7 +4743,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -4759,7 +4759,7 @@ sw.bb6.i:                                         ; preds = %if.end.i
   br label %if.end
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i, %sw.bb6.i
@@ -4791,7 +4791,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %expect_quic.exit
 
 if.end.i:                                         ; preds = %entry
@@ -4807,7 +4807,7 @@ sw.bb6.i:                                         ; preds = %if.end.i
   br label %expect_quic.exit
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %expect_quic.exit
 
 expect_quic.exit:                                 ; preds = %if.end.i, %sw.default.i, %if.then.i, %sw.bb6.i
@@ -4822,7 +4822,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -4838,7 +4838,7 @@ if.end.thread:                                    ; preds = %if.end.i
   br label %if.end6
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i
@@ -4957,7 +4957,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i.i:                                       ; preds = %entry
@@ -4968,7 +4968,7 @@ if.end.i.i:                                       ; preds = %entry
   ]
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.then2.i:                                       ; preds = %if.end.i.i
@@ -4979,7 +4979,7 @@ if.then2.i:                                       ; preds = %if.end.i.i
   store i32 1, ptr %is_stream.i.i, align 8
   %in_io10.i.i = getelementptr inbounds i8, ptr %ctx, i64 20
   store i32 0, ptr %in_io10.i.i, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 296, ptr noundef nonnull @__func__.expect_quic_conn_only, i32 noundef 356, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 296, ptr noundef nonnull @__func__.expect_quic_conn_only, i32 noundef 356, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i.i
@@ -5001,7 +5001,7 @@ if.end:                                           ; preds = %if.end.i.i
 if.then3:                                         ; preds = %if.end
   %.val4 = load ptr, ptr %3, align 8
   tail call void @ossl_crypto_mutex_unlock(ptr noundef %.val4) #8
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2996, ptr noundef nonnull @__func__.ossl_quic_set_default_stream_mode, i32 noundef 786689, ptr noundef nonnull @.str.1)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2996, ptr noundef nonnull @__func__.ossl_quic_set_default_stream_mode, i32 noundef 786689, ptr noundef nonnull @.str.1)
   br label %return
 
 if.end6:                                          ; preds = %if.end
@@ -5018,7 +5018,7 @@ sw.bb:                                            ; preds = %if.end6
 sw.default:                                       ; preds = %if.end6
   %.val3 = load ptr, ptr %3, align 8
   tail call void @ossl_crypto_mutex_unlock(ptr noundef %.val3) #8
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 3008, ptr noundef nonnull @__func__.ossl_quic_set_default_stream_mode, i32 noundef 524550, ptr noundef nonnull @.str.2)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 3008, ptr noundef nonnull @__func__.ossl_quic_set_default_stream_mode, i32 noundef 524550, ptr noundef nonnull @.str.2)
   br label %return
 
 return:                                           ; preds = %sw.default.i.i, %if.then.i.i, %if.then2.i, %sw.bb, %sw.default, %if.then3
@@ -5036,7 +5036,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i.i:                                       ; preds = %entry
@@ -5047,7 +5047,7 @@ if.end.i.i:                                       ; preds = %entry
   ]
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.then2.i:                                       ; preds = %if.end.i.i
@@ -5058,7 +5058,7 @@ if.then2.i:                                       ; preds = %if.end.i.i
   store i32 1, ptr %is_stream.i.i, align 8
   %in_io10.i.i = getelementptr inbounds i8, ptr %ctx, i64 20
   store i32 0, ptr %in_io10.i.i, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 296, ptr noundef nonnull @__func__.expect_quic_conn_only, i32 noundef 356, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 296, ptr noundef nonnull @__func__.expect_quic_conn_only, i32 noundef 356, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i.i
@@ -5125,7 +5125,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i.i:                                       ; preds = %entry
@@ -5136,7 +5136,7 @@ if.end.i.i:                                       ; preds = %entry
   ]
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.then2.i:                                       ; preds = %if.end.i.i
@@ -5147,7 +5147,7 @@ if.then2.i:                                       ; preds = %if.end.i.i
   store i32 1, ptr %is_stream.i.i, align 8
   %in_io10.i.i = getelementptr inbounds i8, ptr %ctx, i64 20
   store i32 0, ptr %in_io10.i.i, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 296, ptr noundef nonnull @__func__.expect_quic_conn_only, i32 noundef 356, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 296, ptr noundef nonnull @__func__.expect_quic_conn_only, i32 noundef 356, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i.i
@@ -5166,7 +5166,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %cmp1.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 3055, ptr noundef nonnull @__func__.ossl_quic_attach_stream, i32 noundef 786690, ptr noundef nonnull @.str.3)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 3055, ptr noundef nonnull @__func__.ossl_quic_attach_stream, i32 noundef 786690, ptr noundef nonnull @.str.3)
   br label %return
 
 if.end4:                                          ; preds = %lor.lhs.false
@@ -5180,7 +5180,7 @@ if.end4:                                          ; preds = %lor.lhs.false
 if.then7:                                         ; preds = %if.end4
   %.val6 = load ptr, ptr %4, align 8
   tail call void @ossl_crypto_mutex_unlock(ptr noundef %.val6) #8
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 3064, ptr noundef nonnull @__func__.ossl_quic_attach_stream, i32 noundef 786689, ptr noundef nonnull @.str.4)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 3064, ptr noundef nonnull @__func__.ossl_quic_attach_stream, i32 noundef 786689, ptr noundef nonnull @.str.4)
   br label %return
 
 if.end10:                                         ; preds = %if.end4
@@ -5192,7 +5192,7 @@ if.end10:                                         ; preds = %if.end4
 if.then18:                                        ; preds = %if.end10
   %.val5 = load ptr, ptr %4, align 8
   tail call void @ossl_crypto_mutex_unlock(ptr noundef %.val5) #8
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 3081, ptr noundef nonnull @__func__.ossl_quic_attach_stream, i32 noundef 524550, ptr noundef nonnull @.str.6)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 3081, ptr noundef nonnull @__func__.ossl_quic_attach_stream, i32 noundef 524550, ptr noundef nonnull @.str.6)
   br label %return
 
 if.else.i.i:                                      ; preds = %if.end10
@@ -5254,7 +5254,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i.i:                                       ; preds = %entry
@@ -5265,7 +5265,7 @@ if.end.i.i:                                       ; preds = %entry
   ]
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.then2.i:                                       ; preds = %if.end.i.i
@@ -5276,7 +5276,7 @@ if.then2.i:                                       ; preds = %if.end.i.i
   store i32 1, ptr %is_stream.i.i, align 8
   %in_io10.i.i = getelementptr inbounds i8, ptr %ctx, i64 20
   store i32 0, ptr %in_io10.i.i, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 296, ptr noundef nonnull @__func__.expect_quic_conn_only, i32 noundef 356, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 296, ptr noundef nonnull @__func__.expect_quic_conn_only, i32 noundef 356, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i.i
@@ -5300,7 +5300,7 @@ sw.bb:                                            ; preds = %if.end
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 3144, ptr noundef nonnull @__func__.ossl_quic_set_incoming_stream_policy, i32 noundef 524550, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 3144, ptr noundef nonnull @__func__.ossl_quic_set_incoming_stream_policy, i32 noundef 524550, ptr noundef null)
   %.pre = load ptr, ptr %ctx, align 8
   %incoming_stream_policy.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 320
   %.pre7 = load i32, ptr %incoming_stream_policy.i.i.phi.trans.insert, align 8
@@ -5366,7 +5366,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i.i:                                       ; preds = %entry
@@ -5377,7 +5377,7 @@ if.end.i.i:                                       ; preds = %entry
   ]
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.then2.i:                                       ; preds = %if.end.i.i
@@ -5388,7 +5388,7 @@ if.then2.i:                                       ; preds = %if.end.i.i
   store i32 1, ptr %is_stream.i.i, align 8
   %in_io10.i.i = getelementptr inbounds i8, ptr %ctx, i64 20
   store i32 0, ptr %in_io10.i.i, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 296, ptr noundef nonnull @__func__.expect_quic_conn_only, i32 noundef 356, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 296, ptr noundef nonnull @__func__.expect_quic_conn_only, i32 noundef 356, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i.i
@@ -5427,7 +5427,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i, %s
   br i1 %cmp1.i, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end, %lor.lhs.false.i
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 3201, ptr noundef nonnull @__func__.ossl_quic_accept_stream, i32 noundef 786689, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 3201, ptr noundef nonnull @__func__.ossl_quic_accept_stream, i32 noundef 786689, ptr noundef null)
   br label %out
 
 if.end5:                                          ; preds = %if.end, %lor.lhs.false.i, %land.lhs.true.i
@@ -5462,7 +5462,7 @@ if.then15:                                        ; preds = %if.then10
   br i1 %cmp20, label %if.then21, label %if.else
 
 if.then21:                                        ; preds = %if.then15
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 3218, ptr noundef nonnull @__func__.ossl_quic_accept_stream, i32 noundef 786691, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 3218, ptr noundef nonnull @__func__.ossl_quic_accept_stream, i32 noundef 786691, ptr noundef null)
   br label %out
 
 if.else:                                          ; preds = %if.then15
@@ -5562,7 +5562,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 
 if.then:                                          ; preds = %lor.lhs.false.i, %entry, %if.end.i
   %6 = load ptr, ptr %arg, align 8
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef %6, ptr nonnull poison, i32 noundef 3172, ptr noundef nonnull @__func__.wait_for_incoming_stream, i32 noundef 207, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef %6, ptr nonnull poison, i32 noundef 3172, ptr noundef nonnull @__func__.wait_for_incoming_stream, i32 noundef 207, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i
@@ -5586,7 +5586,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 1917, ptr noundef nonnull @__func__.create_xso_from_stream, i32 noundef 524303, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 1917, ptr noundef nonnull @__func__.create_xso_from_stream, i32 noundef 524303, ptr noundef null)
   br label %err
 
 if.end:                                           ; preds = %entry
@@ -5599,7 +5599,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 1922, ptr noundef nonnull @__func__.create_xso_from_stream, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 1922, ptr noundef nonnull @__func__.create_xso_from_stream, i32 noundef 786691, ptr noundef null)
   br label %err
 
 if.end7:                                          ; preds = %if.end
@@ -5608,7 +5608,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %tobool10.not, label %if.then11, label %if.end13
 
 if.then11:                                        ; preds = %if.end7
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 1928, ptr noundef nonnull @__func__.create_xso_from_stream, i32 noundef 524308, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 1928, ptr noundef nonnull @__func__.create_xso_from_stream, i32 noundef 524308, ptr noundef null)
   br label %err
 
 if.end13:                                         ; preds = %if.end7
@@ -5680,7 +5680,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i.i:                                       ; preds = %entry
@@ -5691,7 +5691,7 @@ if.end.i.i:                                       ; preds = %entry
   ]
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.then2.i:                                       ; preds = %if.end.i.i
@@ -5702,7 +5702,7 @@ if.then2.i:                                       ; preds = %if.end.i.i
   store i32 1, ptr %is_stream.i.i, align 8
   %in_io10.i.i = getelementptr inbounds i8, ptr %ctx, i64 20
   store i32 0, ptr %in_io10.i.i, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 296, ptr noundef nonnull @__func__.expect_quic_conn_only, i32 noundef 356, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 296, ptr noundef nonnull @__func__.expect_quic_conn_only, i32 noundef 356, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i.i
@@ -5795,7 +5795,7 @@ sw.bb14.i:                                        ; preds = %if.end.i, %if.end.i
 
 if.then5:                                         ; preds = %sw.bb8.i, %sw.bb14.i, %sw.bb3.i, %if.end.i, %lor.lhs.false.i
   %err.0.ph = phi i32 [ 786691, %sw.bb3.i ], [ 366, %if.end.i ], [ 786691, %lor.lhs.false.i ], [ 375, %sw.bb14.i ], [ 365, %sw.bb8.i ]
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 3290, ptr noundef nonnull @__func__.ossl_quic_stream_reset, i32 noundef %err.0.ph, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 3290, ptr noundef nonnull @__func__.ossl_quic_stream_reset, i32 noundef %err.0.ph, ptr noundef null)
   br label %err9
 
 if.end7:                                          ; preds = %sw.bb8.i
@@ -5965,12 +5965,12 @@ quic_get_stream_state.exit:                       ; preds = %entry, %quic_classi
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @ossl_quic_get_stream_read_error_code(ptr noundef %ssl, ptr noundef %app_error_code) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @quic_get_stream_error_code.argelim(ptr noundef %ssl, ptr noundef %app_error_code)
+  %call = tail call fastcc i32 @quic_get_stream_error_code(ptr noundef %ssl, ptr noundef %app_error_code)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @quic_get_stream_error_code.argelim(ptr noundef %ssl, ptr noundef writeonly %app_error_code) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @quic_get_stream_error_code(ptr noundef %ssl, ptr noundef writeonly %app_error_code) unnamed_addr #0 {
 entry:
   %final_size.i = alloca i64, align 8
   %ctx = alloca %struct.qctx_st, align 8
@@ -6061,7 +6061,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @ossl_quic_get_stream_write_error_code(ptr noundef %ssl, ptr noundef %app_error_code) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @quic_get_stream_error_code.argelim(ptr noundef %ssl, ptr noundef %app_error_code)
+  %call = tail call fastcc i32 @quic_get_stream_error_code(ptr noundef %ssl, ptr noundef %app_error_code)
   ret i32 %call
 }
 
@@ -6085,7 +6085,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.not, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 3448, ptr noundef nonnull @__func__.ossl_quic_set_write_buffer_size, i32 noundef 786689, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 3448, ptr noundef nonnull @__func__.ossl_quic_set_write_buffer_size, i32 noundef 786689, ptr noundef null)
   br label %out
 
 if.end5:                                          ; preds = %if.end
@@ -6103,7 +6103,7 @@ if.end11:                                         ; preds = %if.end5
   br i1 %tobool15.not, label %if.then16, label %out
 
 if.then16:                                        ; preds = %if.end11
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 3462, ptr noundef nonnull @__func__.ossl_quic_set_write_buffer_size, i32 noundef 786691, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 3462, ptr noundef nonnull @__func__.ossl_quic_set_write_buffer_size, i32 noundef 786691, ptr noundef null)
   br label %out
 
 out:                                              ; preds = %if.end11, %if.end5, %if.then16, %if.then3
@@ -6131,7 +6131,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i.i:                                       ; preds = %entry
@@ -6142,7 +6142,7 @@ if.end.i.i:                                       ; preds = %entry
   ]
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.then2.i:                                       ; preds = %if.end.i.i
@@ -6153,7 +6153,7 @@ if.then2.i:                                       ; preds = %if.end.i.i
   store i32 1, ptr %is_stream.i.i, align 8
   %in_io10.i.i = getelementptr inbounds i8, ptr %ctx, i64 20
   store i32 0, ptr %in_io10.i.i, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 296, ptr noundef nonnull @__func__.expect_quic_conn_only, i32 noundef 356, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 296, ptr noundef nonnull @__func__.expect_quic_conn_only, i32 noundef 356, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i.i
@@ -6214,7 +6214,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i.i:                                       ; preds = %entry
@@ -6225,7 +6225,7 @@ if.end.i.i:                                       ; preds = %entry
   ]
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.then2.i:                                       ; preds = %if.end.i.i
@@ -6236,7 +6236,7 @@ if.then2.i:                                       ; preds = %if.end.i.i
   store i32 1, ptr %is_stream.i.i, align 8
   %in_io10.i.i = getelementptr inbounds i8, ptr %ctx, i64 20
   store i32 0, ptr %in_io10.i.i, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 296, ptr noundef nonnull @__func__.expect_quic_conn_only, i32 noundef 356, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 296, ptr noundef nonnull @__func__.expect_quic_conn_only, i32 noundef 356, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i.i
@@ -6250,7 +6250,7 @@ if.end:                                           ; preds = %if.end.i.i
   br i1 %switch, label %sw.epilog, label %sw.default
 
 sw.default:                                       ; preds = %if.end
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 3524, ptr noundef nonnull @__func__.ossl_quic_key_update, i32 noundef 524550, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 3524, ptr noundef nonnull @__func__.ossl_quic_key_update, i32 noundef 524550, ptr noundef null)
   br label %return
 
 sw.epilog:                                        ; preds = %if.end
@@ -6264,7 +6264,7 @@ sw.epilog:                                        ; preds = %if.end
   br i1 %tobool4.not, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %sw.epilog
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 3532, ptr noundef nonnull @__func__.ossl_quic_key_update, i32 noundef 132, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 3532, ptr noundef nonnull @__func__.ossl_quic_key_update, i32 noundef 132, ptr noundef null)
   %5 = load ptr, ptr %ctx, align 8
   %6 = getelementptr i8, ptr %5, i64 80
   %.val2 = load ptr, ptr %6, align 8
@@ -6308,7 +6308,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i.i:                                       ; preds = %entry
@@ -6319,7 +6319,7 @@ if.end.i.i:                                       ; preds = %entry
   ]
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.then2.i:                                       ; preds = %if.end.i.i
@@ -6330,7 +6330,7 @@ if.then2.i:                                       ; preds = %if.end.i.i
   store i32 1, ptr %is_stream.i.i, align 8
   %in_io10.i.i = getelementptr inbounds i8, ptr %ctx, i64 20
   store i32 0, ptr %in_io10.i.i, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 296, ptr noundef nonnull @__func__.expect_quic_conn_only, i32 noundef 356, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 296, ptr noundef nonnull @__func__.expect_quic_conn_only, i32 noundef 356, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i.i
@@ -6410,7 +6410,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i.i:                                       ; preds = %entry
@@ -6421,7 +6421,7 @@ if.end.i.i:                                       ; preds = %entry
   ]
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.then2.i:                                       ; preds = %if.end.i.i
@@ -6432,7 +6432,7 @@ if.then2.i:                                       ; preds = %if.end.i.i
   store i32 1, ptr %is_stream.i.i, align 8
   %in_io10.i.i = getelementptr inbounds i8, ptr %ctx, i64 20
   store i32 0, ptr %in_io10.i.i, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 296, ptr noundef nonnull @__func__.expect_quic_conn_only, i32 noundef 356, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 296, ptr noundef nonnull @__func__.expect_quic_conn_only, i32 noundef 356, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i.i
@@ -6466,7 +6466,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 206, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786690, ptr noundef null)
   br label %return
 
 if.end.i.i:                                       ; preds = %entry
@@ -6477,7 +6477,7 @@ if.end.i.i:                                       ; preds = %entry
   ]
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 226, ptr noundef nonnull @__func__.expect_quic, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.then2.i:                                       ; preds = %if.end.i.i
@@ -6488,7 +6488,7 @@ if.then2.i:                                       ; preds = %if.end.i.i
   store i32 1, ptr %is_stream.i.i, align 8
   %in_io10.i.i = getelementptr inbounds i8, ptr %ctx, i64 20
   store i32 0, ptr %in_io10.i.i, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 296, ptr noundef nonnull @__func__.expect_quic_conn_only, i32 noundef 356, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 296, ptr noundef nonnull @__func__.expect_quic_conn_only, i32 noundef 356, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i.i
@@ -6697,7 +6697,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 if.then:                                          ; preds = %lor.lhs.false.i, %entry, %if.end.i
   %ctx = getelementptr inbounds i8, ptr %arg, i64 16
   %4 = load ptr, ptr %ctx, align 8
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef %4, ptr nonnull poison, i32 noundef 1813, ptr noundef nonnull @__func__.quic_wait_for_stream, i32 noundef 207, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef %4, ptr nonnull poison, i32 noundef 1813, ptr noundef nonnull @__func__.quic_wait_for_stream, i32 noundef 207, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i
@@ -6992,7 +6992,7 @@ if.end13.sink.split.i.i:                          ; preds = %if.then9.i.i, %if.t
 
 if.else:                                          ; preds = %if.end.i, %entry, %lor.lhs.false.i, %sw.bb8.i
   %err.0.ph.ph = phi i32 [ 375, %sw.bb8.i ], [ 786691, %lor.lhs.false.i ], [ 786691, %entry ], [ 379, %if.end.i ]
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2598, ptr noundef nonnull @__func__.quic_read_actual, i32 noundef %err.0.ph.ph, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2598, ptr noundef nonnull @__func__.quic_read_actual, i32 noundef %err.0.ph.ph, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i, %if.end.i, %if.end.i
@@ -7007,7 +7007,7 @@ if.then7:                                         ; preds = %if.end
   br i1 %tobool9.not, label %if.then10, label %if.end46
 
 if.then10:                                        ; preds = %if.then7
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2604, ptr noundef nonnull @__func__.quic_read_actual, i32 noundef 786691, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2604, ptr noundef nonnull @__func__.quic_read_actual, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.else13:                                        ; preds = %if.end
@@ -7016,7 +7016,7 @@ if.else13:                                        ; preds = %if.end
   br i1 %tobool16.not, label %if.then17, label %if.then22
 
 if.then17:                                        ; preds = %if.else13
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2609, ptr noundef nonnull @__func__.quic_read_actual, i32 noundef 786691, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2609, ptr noundef nonnull @__func__.quic_read_actual, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.then22:                                        ; preds = %if.else13
@@ -7037,7 +7037,7 @@ if.then23:                                        ; preds = %if.then22
   br i1 %tobool26.not, label %if.then27, label %if.end30
 
 if.then27:                                        ; preds = %if.then23
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2626, ptr noundef nonnull @__func__.quic_read_actual, i32 noundef 786691, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2626, ptr noundef nonnull @__func__.quic_read_actual, i32 noundef 786691, ptr noundef null)
   br label %return
 
 if.end30:                                         ; preds = %if.then23, %if.then22
@@ -7147,7 +7147,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 
 if.then:                                          ; preds = %lor.lhs.false.i.if.then_crit_edge, %entry, %if.end.i
   %5 = phi ptr [ %.pre, %lor.lhs.false.i.if.then_crit_edge ], [ %0, %entry ], [ %.pre11, %if.end.i ]
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error.retelim(ptr noundef %5, ptr nonnull poison, i32 noundef 2653, ptr noundef nonnull @__func__.quic_read_again, i32 noundef 207, ptr noundef null)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef %5, ptr nonnull poison, i32 noundef 2653, ptr noundef nonnull @__func__.quic_read_again, i32 noundef 207, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %if.end.i

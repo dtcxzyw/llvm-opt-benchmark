@@ -685,44 +685,44 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction25emitPointerAut
   %.val = load ptr, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 432
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %42, label %_ZL22getDiscriminatorOrZeroRKN5clang7CodeGen17CGPointerAuthInfoERNS0_11CGBuilderTyE.argprom.exit
+  br i1 %.not.i, label %42, label %_ZL22getDiscriminatorOrZeroRKN5clang7CodeGen17CGPointerAuthInfoERNS0_11CGBuilderTyE.exit
 
 42:                                               ; preds = %17
   %.val24 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.val24, i64 88
   %44 = load ptr, ptr %43, align 8
   %45 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %44, i64 noundef 0, i1 noundef zeroext false) #10
-  br label %_ZL22getDiscriminatorOrZeroRKN5clang7CodeGen17CGPointerAuthInfoERNS0_11CGBuilderTyE.argprom.exit
+  br label %_ZL22getDiscriminatorOrZeroRKN5clang7CodeGen17CGPointerAuthInfoERNS0_11CGBuilderTyE.exit
 
-_ZL22getDiscriminatorOrZeroRKN5clang7CodeGen17CGPointerAuthInfoERNS0_11CGBuilderTyE.argprom.exit: ; preds = %17, %42
+_ZL22getDiscriminatorOrZeroRKN5clang7CodeGen17CGPointerAuthInfoERNS0_11CGBuilderTyE.exit: ; preds = %17, %42
   %46 = phi ptr [ %45, %42 ], [ %.val, %17 ]
   %47 = getelementptr inbounds i8, ptr %3, i64 8
   %.val25 = load ptr, ptr %47, align 8
   %.not.i27 = icmp eq ptr %.val25, null
-  br i1 %.not.i27, label %48, label %_ZL22getDiscriminatorOrZeroRKN5clang7CodeGen17CGPointerAuthInfoERNS0_11CGBuilderTyE.argprom.exit28
+  br i1 %.not.i27, label %48, label %_ZL22getDiscriminatorOrZeroRKN5clang7CodeGen17CGPointerAuthInfoERNS0_11CGBuilderTyE.exit28
 
-48:                                               ; preds = %_ZL22getDiscriminatorOrZeroRKN5clang7CodeGen17CGPointerAuthInfoERNS0_11CGBuilderTyE.argprom.exit
+48:                                               ; preds = %_ZL22getDiscriminatorOrZeroRKN5clang7CodeGen17CGPointerAuthInfoERNS0_11CGBuilderTyE.exit
   %.val26 = load ptr, ptr %41, align 8
   %49 = getelementptr inbounds nuw i8, ptr %.val26, i64 88
   %50 = load ptr, ptr %49, align 8
   %51 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %50, i64 noundef 0, i1 noundef zeroext false) #10
-  br label %_ZL22getDiscriminatorOrZeroRKN5clang7CodeGen17CGPointerAuthInfoERNS0_11CGBuilderTyE.argprom.exit28
+  br label %_ZL22getDiscriminatorOrZeroRKN5clang7CodeGen17CGPointerAuthInfoERNS0_11CGBuilderTyE.exit28
 
-_ZL22getDiscriminatorOrZeroRKN5clang7CodeGen17CGPointerAuthInfoERNS0_11CGBuilderTyE.argprom.exit28: ; preds = %_ZL22getDiscriminatorOrZeroRKN5clang7CodeGen17CGPointerAuthInfoERNS0_11CGBuilderTyE.argprom.exit, %48
-  %52 = phi ptr [ %51, %48 ], [ %.val25, %_ZL22getDiscriminatorOrZeroRKN5clang7CodeGen17CGPointerAuthInfoERNS0_11CGBuilderTyE.argprom.exit ]
+_ZL22getDiscriminatorOrZeroRKN5clang7CodeGen17CGPointerAuthInfoERNS0_11CGBuilderTyE.exit28: ; preds = %_ZL22getDiscriminatorOrZeroRKN5clang7CodeGen17CGPointerAuthInfoERNS0_11CGBuilderTyE.exit, %48
+  %52 = phi ptr [ %51, %48 ], [ %.val25, %_ZL22getDiscriminatorOrZeroRKN5clang7CodeGen17CGPointerAuthInfoERNS0_11CGBuilderTyE.exit ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %54 = load ptr, ptr %53, align 8
   %55 = call noundef ptr @_ZN5clang7CodeGen13CodeGenModule12getIntrinsicEjN4llvm8ArrayRefIPNS2_4TypeEEE(ptr noundef nonnull align 8 dereferenceable(3600) %54, i32 noundef 288, ptr null, i64 0) #10
   %.not.i29 = icmp eq ptr %55, null
   br i1 %.not.i29, label %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit, label %56
 
-56:                                               ; preds = %_ZL22getDiscriminatorOrZeroRKN5clang7CodeGen17CGPointerAuthInfoERNS0_11CGBuilderTyE.argprom.exit28
+56:                                               ; preds = %_ZL22getDiscriminatorOrZeroRKN5clang7CodeGen17CGPointerAuthInfoERNS0_11CGBuilderTyE.exit28
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %58 = load ptr, ptr %57, align 8
   br label %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit
 
-_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit: ; preds = %_ZL22getDiscriminatorOrZeroRKN5clang7CodeGen17CGPointerAuthInfoERNS0_11CGBuilderTyE.argprom.exit28, %56
-  %59 = phi ptr [ %58, %56 ], [ null, %_ZL22getDiscriminatorOrZeroRKN5clang7CodeGen17CGPointerAuthInfoERNS0_11CGBuilderTyE.argprom.exit28 ]
+_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit: ; preds = %_ZL22getDiscriminatorOrZeroRKN5clang7CodeGen17CGPointerAuthInfoERNS0_11CGBuilderTyE.exit28, %56
+  %59 = phi ptr [ %58, %56 ], [ null, %_ZL22getDiscriminatorOrZeroRKN5clang7CodeGen17CGPointerAuthInfoERNS0_11CGBuilderTyE.exit28 ]
   store ptr %24, ptr %6, align 8
   %60 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %32, ptr %60, align 8
@@ -806,17 +806,17 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction21emitPointerAut
   %38 = and i8 %.val61, 3
   %39 = icmp ne i8 %38, 0
   %40 = xor i1 %37, %39
-  br i1 %40, label %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.argprom.exit.thread, label %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.argprom.exit
+  br i1 %40, label %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.exit.thread, label %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.exit
 
-_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.argprom.exit: ; preds = %35
+_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.exit: ; preds = %35
   %41 = xor i8 %.val61, %.val
   %42 = and i8 %41, 48
   %43 = icmp eq i8 %42, 0
   %44 = icmp eq i8 %36, %38
   %spec.select.i = and i1 %44, %43
-  br i1 %spec.select.i, label %45, label %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.argprom.exit.thread
+  br i1 %spec.select.i, label %45, label %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.exit.thread
 
-45:                                               ; preds = %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.argprom.exit
+45:                                               ; preds = %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.exit
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -831,7 +831,7 @@ _ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.argprom.exit: ; p
 53:                                               ; preds = %51
   %54 = load i8, ptr %49, align 8
   %.not.i = icmp eq i8 %54, 17
-  br i1 %.not.i, label %55, label %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.argprom.exit.thread
+  br i1 %.not.i, label %55, label %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.exit.thread
 
 55:                                               ; preds = %53
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 24
@@ -843,21 +843,21 @@ _ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.argprom.exit: ; p
 60:                                               ; preds = %55
   %61 = load i64, ptr %56, align 8
   %62 = icmp eq i64 %61, 0
-  br i1 %62, label %222, label %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.argprom.exit.thread
+  br i1 %62, label %222, label %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.exit.thread
 
 _ZL14isZeroConstantPKN4llvm5ValueE.exit:          ; preds = %55
   %63 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull readonly align 8 dereferenceable(12) %56) #11
   %64 = icmp eq i32 %63, %58
-  br i1 %64, label %222, label %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.argprom.exit.thread
+  br i1 %64, label %222, label %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.exit.thread
 
 65:                                               ; preds = %51
   %66 = icmp eq ptr %49, null
-  br i1 %66, label %67, label %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.argprom.exit.thread
+  br i1 %66, label %67, label %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.exit.thread
 
 67:                                               ; preds = %65
   %68 = load i8, ptr %47, align 8
   %.not.i63 = icmp eq i8 %68, 17
-  br i1 %.not.i63, label %69, label %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.argprom.exit.thread
+  br i1 %.not.i63, label %69, label %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.exit.thread
 
 69:                                               ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %47, i64 24
@@ -869,20 +869,20 @@ _ZL14isZeroConstantPKN4llvm5ValueE.exit:          ; preds = %55
 74:                                               ; preds = %69
   %75 = load i64, ptr %70, align 8
   %76 = icmp eq i64 %75, 0
-  br i1 %76, label %222, label %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.argprom.exit.thread
+  br i1 %76, label %222, label %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.exit.thread
 
 _ZL14isZeroConstantPKN4llvm5ValueE.exit65:        ; preds = %69
   %77 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull readonly align 8 dereferenceable(12) %70) #11
   %78 = icmp eq i32 %77, %72
-  br i1 %78, label %222, label %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.argprom.exit.thread
+  br i1 %78, label %222, label %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.exit.thread
 
-_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.argprom.exit.thread: ; preds = %67, %53, %_ZL14isZeroConstantPKN4llvm5ValueE.exit, %60, %35, %74, %65, %_ZL14isZeroConstantPKN4llvm5ValueE.exit65, %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.argprom.exit
+_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.exit.thread: ; preds = %67, %53, %_ZL14isZeroConstantPKN4llvm5ValueE.exit, %60, %35, %74, %65, %_ZL14isZeroConstantPKN4llvm5ValueE.exit65, %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.exit
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %81 = load ptr, ptr %80, align 8
   br i1 %5, label %.critedge, label %82
 
-82:                                               ; preds = %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.argprom.exit.thread
+82:                                               ; preds = %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.exit.thread
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 200
@@ -958,9 +958,9 @@ _ZN4llvm13IRBuilderBase12CreateCondBrEPNS_5ValueEPNS_10BasicBlockES4_PNS_6MDNode
   call void @_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull %104, i1 noundef zeroext false) #10
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.argprom.exit.thread, %_ZN4llvm13IRBuilderBase12CreateCondBrEPNS_5ValueEPNS_10BasicBlockES4_PNS_6MDNodeES6_.exit, %82
-  %.053 = phi ptr [ null, %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.argprom.exit.thread ], [ %104, %_ZN4llvm13IRBuilderBase12CreateCondBrEPNS_5ValueEPNS_10BasicBlockES4_PNS_6MDNodeES6_.exit ], [ null, %82 ]
-  %.052 = phi ptr [ null, %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.argprom.exit.thread ], [ %98, %_ZN4llvm13IRBuilderBase12CreateCondBrEPNS_5ValueEPNS_10BasicBlockES4_PNS_6MDNodeES6_.exit ], [ null, %82 ]
+.critedge:                                        ; preds = %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.exit.thread, %_ZN4llvm13IRBuilderBase12CreateCondBrEPNS_5ValueEPNS_10BasicBlockES4_PNS_6MDNodeES6_.exit, %82
+  %.053 = phi ptr [ null, %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.exit.thread ], [ %104, %_ZN4llvm13IRBuilderBase12CreateCondBrEPNS_5ValueEPNS_10BasicBlockES4_PNS_6MDNodeES6_.exit ], [ null, %82 ]
+  %.052 = phi ptr [ null, %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.exit.thread ], [ %98, %_ZN4llvm13IRBuilderBase12CreateCondBrEPNS_5ValueEPNS_10BasicBlockES4_PNS_6MDNodeES6_.exit ], [ null, %82 ]
   %122 = load i8, ptr %4, align 8
   %123 = and i8 %122, 3
   %.not80 = icmp eq i8 %123, 0

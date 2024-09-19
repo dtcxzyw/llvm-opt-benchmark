@@ -991,13 +991,13 @@ _ZN4llvm5ErrorD2Ev.exit37:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %18 = ptrtoint ptr %.sroa.063.078 to i64
   %19 = sub i64 %17, %18
   %20 = icmp eq i64 %19, 9223372036854775800
-  br i1 %20, label %21, label %_ZNKSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
+  br i1 %20, label %21, label %_ZNKSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
 
 21:                                               ; preds = %16
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #23
   unreachable
 
-_ZNKSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i: ; preds = %16
+_ZNKSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %16
   %22 = sdiv exact i64 %19, 24
   %23 = icmp eq ptr %.sroa.7.077, %.sroa.063.078
   %.sroa.speculated.i.i.i.i = select i1 %23, i64 1, i64 %22
@@ -1013,27 +1013,27 @@ _ZNKSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE12_M_check_lenEmPKc.argpro
   store i32 %14, ptr %30, align 8
   %.sroa.361.0..sroa_idx62 = getelementptr inbounds i8, ptr %30, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.361.0..sroa_idx62, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.361, i64 20, i1 false)
-  br i1 %23, label %_ZNSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit26.i.i.i, label %.lr.ph.i.i.i.i.i.i
+  br i1 %23, label %_ZNSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
-  %.03.i.i.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i.i.i ], [ %29, %_ZNKSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i ]
-  %.092.i.i.i.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.063.078, %_ZNKSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
+  %.03.i.i.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i.i.i ], [ %29, %_ZNKSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %.092.i.i.i.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.063.078, %_ZNKSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.03.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.092.i.i.i.i.i.i, i64 24, i1 false), !alias.scope !59
   %31 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i, i64 24
   %32 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i.i = icmp eq ptr %31, %.sroa.7.077
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit26.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !63
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !63
 
-_ZNSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit26.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %29, %_ZNKSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i ], [ %32, %.lr.ph.i.i.i.i.i.i ]
+_ZNSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %29, %_ZNKSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %32, %.lr.ph.i.i.i.i.i.i ]
   %.not.i27.i.i.i = icmp eq ptr %.sroa.063.078, null
   br i1 %.not.i27.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %33
 
-33:                                               ; preds = %_ZNSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit26.i.i.i
+33:                                               ; preds = %_ZNSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.063.078, i64 noundef %19) #22
   br label %_ZNSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %33, %_ZNSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit26.i.i.i
+_ZNSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %33, %_ZNSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i
   %34 = getelementptr inbounds %"struct.(anonymous namespace)::OffsetNamePair", ptr %29, i64 %27
   br label %_ZNSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE9push_backEOS1_.exit
 
@@ -1177,16 +1177,16 @@ _ZNSt6vectorIN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESaIS3_EE9push_
   %.sroa.14.075 = phi ptr [ %.sroa.14.075.ph, %.critedge.sink.split ], [ %.sroa.14.076, %11 ], [ %.sroa.14.076, %_ZN4llvm5ErrorD2Ev.exit ]
   %.sroa.063.070 = phi ptr [ %.sroa.063.070.ph, %.critedge.sink.split ], [ %.sroa.063.078, %11 ], [ %.sroa.063.078, %_ZN4llvm5ErrorD2Ev.exit ]
   %.not.i.i.i = icmp eq ptr %.sroa.063.070, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EED2Ev.argprom.exit, label %82
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EED2Ev.exit, label %82
 
 82:                                               ; preds = %.critedge
   %83 = ptrtoint ptr %.sroa.14.075 to i64
   %84 = ptrtoint ptr %.sroa.063.070 to i64
   %85 = sub i64 %83, %84
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.063.070, i64 noundef %85) #22
-  br label %_ZNSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EED2Ev.argprom.exit
+  br label %_ZNSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EED2Ev.argprom.exit: ; preds = %.critedge, %82
+_ZNSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EED2Ev.exit: ; preds = %.critedge, %82
   ret void
 }
 
@@ -4015,9 +4015,9 @@ attributes #24 = { nounwind allocsize(0) }
 !57 = distinct !{!57, !58, !"_ZN4llvm8ExpectedImE9takeErrorEv: argument 0"}
 !58 = distinct !{!58, !"_ZN4llvm8ExpectedImE9takeErrorEv"}
 !59 = !{!60, !62}
-!60 = distinct !{!60, !61, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_114OffsetNamePairES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 0"}
-!61 = distinct !{!61, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_114OffsetNamePairES1_SaIS1_EEvPT_PT0_RT1_.argprom"}
-!62 = distinct !{!62, !61, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_114OffsetNamePairES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 1"}
+!60 = distinct !{!60, !61, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_114OffsetNamePairES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!61 = distinct !{!61, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_114OffsetNamePairES1_SaIS1_EEvPT_PT0_RT1_"}
+!62 = distinct !{!62, !61, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_114OffsetNamePairES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
 !63 = distinct !{!63, !29}
 !64 = !{!65, !67}
 !65 = distinct !{!65, !66, !"_ZSt19__relocate_object_aIN4llvm9symbolize22SymbolizableObjectFile10SymbolDescES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}

@@ -588,7 +588,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_124PreISelIntrinsicL
   %44 = getelementptr i8, ptr %40, i64 16
   %.val = load ptr, ptr %44, align 8
   %.not16.i = icmp eq ptr %.val, null
-  br i1 %.not16.i, label %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.argprom.exit, label %.lr.ph.i
+  br i1 %.not16.i, label %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %43
   switch i32 %42, label %.lr.ph.split.i [
@@ -681,7 +681,7 @@ _ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit
 _ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us.i: ; preds = %91, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.us.i, %79, %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit.us.i
   %.1.us.i = phi i1 [ %.018.us.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.us.i ], [ true, %91 ], [ %.018.us.i, %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit.us.i ], [ %.018.us.i, %79 ]
   %.not.us.i = icmp eq ptr %46, null
-  br i1 %.not.us.i, label %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.argprom.exit, label %.lr.ph.split.us.i
+  br i1 %.not.us.i, label %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit, label %.lr.ph.split.us.i
 
 .lr.ph.split.us19.i:                              ; preds = %.lr.ph.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us22.i
   %.018.us20.i = phi i1 [ %.1.us23.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us22.i ], [ false, %.lr.ph.i ]
@@ -714,7 +714,7 @@ _ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit
 _ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us22.i: ; preds = %107, %.lr.ph.split.us19.i
   %.1.us23.i = phi i1 [ %.018.us20.i, %.lr.ph.split.us19.i ], [ true, %107 ]
   %.not.us24.i = icmp eq ptr %94, null
-  br i1 %.not.us24.i, label %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.argprom.exit, label %.lr.ph.split.us19.i
+  br i1 %.not.us24.i, label %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit, label %.lr.ph.split.us19.i
 
 .lr.ph.split.us27.i:                              ; preds = %.lr.ph.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us30.i
   %.018.us28.i = phi i1 [ %.1.us31.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us30.i ], [ false, %.lr.ph.i ]
@@ -801,7 +801,7 @@ _ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit
 _ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us30.i: ; preds = %161, %159, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit63.us.i, %147, %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit60.us.i
   %.1.us31.i = phi i1 [ %.018.us28.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit63.us.i ], [ true, %161 ], [ %.018.us28.i, %159 ], [ %.018.us28.i, %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit60.us.i ], [ %.018.us28.i, %147 ]
   %.not.us32.i = icmp eq ptr %114, null
-  br i1 %.not.us32.i, label %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.argprom.exit, label %.lr.ph.split.us27.i
+  br i1 %.not.us32.i, label %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit, label %.lr.ph.split.us27.i
 
 .lr.ph.split.us35.i:                              ; preds = %.lr.ph.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us38.i
   %.018.us36.i = phi i1 [ %.1.us39.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us38.i ], [ false, %.lr.ph.i ]
@@ -885,7 +885,7 @@ _ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit
 _ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us38.i: ; preds = %209, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit72.us.i, %197, %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit69.us.i
   %.1.us39.i = phi i1 [ %.018.us36.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit72.us.i ], [ true, %209 ], [ %.018.us36.i, %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit69.us.i ], [ %.018.us36.i, %197 ]
   %.not.us40.i = icmp eq ptr %164, null
-  br i1 %.not.us40.i, label %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.argprom.exit, label %.lr.ph.split.us35.i
+  br i1 %.not.us40.i, label %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit, label %.lr.ph.split.us35.i
 
 .lr.ph.split.us43.i:                              ; preds = %.lr.ph.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us46.i
   %.018.us44.i = phi i1 [ %.1.us47.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us46.i ], [ false, %.lr.ph.i ]
@@ -914,12 +914,12 @@ _ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit
 _ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us46.i: ; preds = %225, %.lr.ph.split.us43.i
   %.1.us47.i = phi i1 [ %.018.us44.i, %.lr.ph.split.us43.i ], [ true, %225 ]
   %.not.us48.i = icmp eq ptr %212, null
-  br i1 %.not.us48.i, label %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.argprom.exit, label %.lr.ph.split.us43.i
+  br i1 %.not.us48.i, label %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit, label %.lr.ph.split.us43.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   unreachable
 
-_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.argprom.exit: ; preds = %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us46.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us38.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us30.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us22.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us.i, %43
+_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit: ; preds = %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us46.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us38.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us30.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us22.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us.i, %43
   %.0.lcssa.i = phi i1 [ false, %43 ], [ %.1.us.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us.i ], [ %.1.us23.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us22.i ], [ %.1.us31.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us30.i ], [ %.1.us39.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us38.i ], [ %.1.us47.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us46.i ]
   %227 = or i1 %.086, %.0.lcssa.i
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
@@ -1292,8 +1292,8 @@ _ZL17lowerLoadRelativeRN4llvm8FunctionE.exit:     ; preds = %_ZN4llvm9IRBuilderI
   %408 = or i1 %.086, %407
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
-"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit": ; preds = %.thread.i43, %312, %307, %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.argprom.exit, %_ZL17lowerLoadRelativeRN4llvm8FunctionE.exit, %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_0EbRNS2_8FunctionET_.exit", %334, %337, %340, %343, %346, %349, %352, %355, %358, %361, %364, %367, %370, %373, %376, %379, %382, %385, %388, %391, %394, %397, %400, %403, %406, %37
-  %.1 = phi i1 [ %.086, %37 ], [ %408, %406 ], [ %405, %403 ], [ %402, %400 ], [ %399, %397 ], [ %396, %394 ], [ %393, %391 ], [ %390, %388 ], [ %387, %385 ], [ %384, %382 ], [ %381, %379 ], [ %378, %376 ], [ %375, %373 ], [ %372, %370 ], [ %369, %367 ], [ %366, %364 ], [ %363, %361 ], [ %360, %358 ], [ %357, %355 ], [ %354, %352 ], [ %351, %349 ], [ %348, %346 ], [ %345, %343 ], [ %342, %340 ], [ %339, %337 ], [ %336, %334 ], [ %306, %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_0EbRNS2_8FunctionET_.exit" ], [ %284, %_ZL17lowerLoadRelativeRN4llvm8FunctionE.exit ], [ %227, %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.argprom.exit ], [ %.086, %307 ], [ %.2, %312 ], [ %.3, %.thread.i43 ]
+"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit": ; preds = %.thread.i43, %312, %307, %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit, %_ZL17lowerLoadRelativeRN4llvm8FunctionE.exit, %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_0EbRNS2_8FunctionET_.exit", %334, %337, %340, %343, %346, %349, %352, %355, %358, %361, %364, %367, %370, %373, %376, %379, %382, %385, %388, %391, %394, %397, %400, %403, %406, %37
+  %.1 = phi i1 [ %.086, %37 ], [ %408, %406 ], [ %405, %403 ], [ %402, %400 ], [ %399, %397 ], [ %396, %394 ], [ %393, %391 ], [ %390, %388 ], [ %387, %385 ], [ %384, %382 ], [ %381, %379 ], [ %378, %376 ], [ %375, %373 ], [ %372, %370 ], [ %369, %367 ], [ %366, %364 ], [ %363, %361 ], [ %360, %358 ], [ %357, %355 ], [ %354, %352 ], [ %351, %349 ], [ %348, %346 ], [ %345, %343 ], [ %342, %340 ], [ %339, %337 ], [ %336, %334 ], [ %306, %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_0EbRNS2_8FunctionET_.exit" ], [ %284, %_ZL17lowerLoadRelativeRN4llvm8FunctionE.exit ], [ %227, %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit ], [ %.086, %307 ], [ %.2, %312 ], [ %.3, %.thread.i43 ]
   %409 = getelementptr inbounds nuw i8, ptr %.sroa.047.087, i64 8
   %.sroa.047.0 = load ptr, ptr %409, align 8
   %.not = icmp eq ptr %.sroa.047.0, %12
@@ -1654,7 +1654,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12functi
   tail call void @llvm.assume(i1 %.not11.i.i.i.i)
   %6 = load ptr, ptr %.val.val.val, align 8
   %7 = icmp eq ptr %6, @_ZN4llvm30TargetTransformInfoWrapperPass2IDE
-  br i1 %7, label %_ZZN12_GLOBAL__N_134PreISelIntrinsicLoweringLegacyPass11runOnModuleERN4llvm6ModuleEENKUlRNS1_8FunctionEE_clES5_.argprom.argprom.argprom.exit, label %.lr.ph.i.i.i.i
+  br i1 %7, label %_ZZN12_GLOBAL__N_134PreISelIntrinsicLoweringLegacyPass11runOnModuleERN4llvm6ModuleEENKUlRNS1_8FunctionEE_clES5_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %2, %.lr.ph.i.i.i.i
   %.sroa.07.012.i4.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i.i ], [ %.val.val.val, %2 ]
@@ -1663,9 +1663,9 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12functi
   tail call void @llvm.assume(i1 %.not.i.i.i.i)
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, @_ZN4llvm30TargetTransformInfoWrapperPass2IDE
-  br i1 %10, label %_ZZN12_GLOBAL__N_134PreISelIntrinsicLoweringLegacyPass11runOnModuleERN4llvm6ModuleEENKUlRNS1_8FunctionEE_clES5_.argprom.argprom.argprom.exit, label %.lr.ph.i.i.i.i
+  br i1 %10, label %_ZZN12_GLOBAL__N_134PreISelIntrinsicLoweringLegacyPass11runOnModuleERN4llvm6ModuleEENKUlRNS1_8FunctionEE_clES5_.exit, label %.lr.ph.i.i.i.i
 
-_ZZN12_GLOBAL__N_134PreISelIntrinsicLoweringLegacyPass11runOnModuleERN4llvm6ModuleEENKUlRNS1_8FunctionEE_clES5_.argprom.argprom.argprom.exit: ; preds = %.lr.ph.i.i.i.i, %2
+_ZZN12_GLOBAL__N_134PreISelIntrinsicLoweringLegacyPass11runOnModuleERN4llvm6ModuleEENKUlRNS1_8FunctionEE_clES5_.exit: ; preds = %.lr.ph.i.i.i.i, %2
   %.sroa.07.012.i.lcssa.i.i.i = phi ptr [ %.val.val.val, %2 ], [ %8, %.lr.ph.i.i.i.i ]
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i.lcssa.i.i.i, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -1723,13 +1723,13 @@ _ZNK4llvm4Pass11getAnalysisINS_28TargetLibraryInfoWrapperPassEEERT_v.exit.i: ; p
   %22 = load i8, ptr %21, align 8
   %23 = trunc i8 %22 to i1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
-  br i1 %23, label %_ZZN12_GLOBAL__N_134PreISelIntrinsicLoweringLegacyPass11runOnModuleERN4llvm6ModuleEENKUlRNS1_8FunctionEE0_clES5_.argprom.argprom.argprom.exit, label %24
+  br i1 %23, label %_ZZN12_GLOBAL__N_134PreISelIntrinsicLoweringLegacyPass11runOnModuleERN4llvm6ModuleEENKUlRNS1_8FunctionEE0_clES5_.exit, label %24
 
 24:                                               ; preds = %_ZNK4llvm4Pass11getAnalysisINS_28TargetLibraryInfoWrapperPassEEERT_v.exit.i
   store i8 1, ptr %21, align 8
-  br label %_ZZN12_GLOBAL__N_134PreISelIntrinsicLoweringLegacyPass11runOnModuleERN4llvm6ModuleEENKUlRNS1_8FunctionEE0_clES5_.argprom.argprom.argprom.exit
+  br label %_ZZN12_GLOBAL__N_134PreISelIntrinsicLoweringLegacyPass11runOnModuleERN4llvm6ModuleEENKUlRNS1_8FunctionEE0_clES5_.exit
 
-_ZZN12_GLOBAL__N_134PreISelIntrinsicLoweringLegacyPass11runOnModuleERN4llvm6ModuleEENKUlRNS1_8FunctionEE0_clES5_.argprom.argprom.argprom.exit: ; preds = %_ZNK4llvm4Pass11getAnalysisINS_28TargetLibraryInfoWrapperPassEEERT_v.exit.i, %24
+_ZZN12_GLOBAL__N_134PreISelIntrinsicLoweringLegacyPass11runOnModuleERN4llvm6ModuleEENKUlRNS1_8FunctionEE0_clES5_.exit: ; preds = %_ZNK4llvm4Pass11getAnalysisINS_28TargetLibraryInfoWrapperPassEEERT_v.exit.i, %24
   call void @_ZN4llvm15AnalysisManagerINS_8FunctionEJEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #16
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)

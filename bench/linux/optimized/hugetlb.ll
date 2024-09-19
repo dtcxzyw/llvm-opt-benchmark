@@ -3267,7 +3267,7 @@ isolate_hugetlb.exit:                             ; preds = %.lr.ph.i
   %112 = load i64, ptr %28, align 16
   %113 = lshr i64 %112, 58
   %114 = trunc nuw nsw i64 %113 to i32
-  %115 = tail call fastcc ptr @alloc_buddy_hugetlb_folio.argprom(i32 %102, i32 noundef %111, i32 noundef %114, ptr noundef null, ptr noundef null)
+  %115 = tail call fastcc ptr @alloc_buddy_hugetlb_folio(i32 %102, i32 noundef %111, i32 noundef %114, ptr noundef null, ptr noundef null)
   %116 = icmp eq ptr %115, null
   br i1 %116, label %201, label %117
 
@@ -4218,7 +4218,7 @@ define dso_local noundef range(i32 0, 2) i32 @__alloc_bootmem_huge_page(ptr noun
   %52 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %49) #24, !srcloc !14
   %53 = trunc i64 %52 to i32
   %54 = icmp ugt i32 %53, 63
-  br i1 %54, label %.thread2.i, label %hstate_next_node_to_alloc.argprom.exit
+  br i1 %54, label %.thread2.i, label %hstate_next_node_to_alloc.exit
 
 .thread2.i:                                       ; preds = %51, %46, %42
   %55 = icmp eq i64 %.pr3.pre.pre.i, 0
@@ -4232,9 +4232,9 @@ define dso_local noundef range(i32 0, 2) i32 @__alloc_bootmem_huge_page(ptr noun
 59:                                               ; preds = %56, %.thread2.i
   %60 = phi i32 [ %58, %56 ], [ 64, %.thread2.i ]
   %61 = tail call i32 @llvm.umin.i32(i32 %60, i32 64)
-  br label %hstate_next_node_to_alloc.argprom.exit
+  br label %hstate_next_node_to_alloc.exit
 
-hstate_next_node_to_alloc.argprom.exit:           ; preds = %51, %59
+hstate_next_node_to_alloc.exit:                   ; preds = %51, %59
   %62 = phi i32 [ %61, %59 ], [ %53, %51 ]
   store i32 %62, ptr %17, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 40
@@ -4245,8 +4245,8 @@ hstate_next_node_to_alloc.argprom.exit:           ; preds = %51, %59
   %68 = icmp eq ptr %67, null
   br i1 %68, label %90, label %69
 
-69:                                               ; preds = %hstate_next_node_to_alloc.argprom.exit, %11, %4
-  %70 = phi ptr [ %9, %4 ], [ %67, %hstate_next_node_to_alloc.argprom.exit ], [ null, %11 ]
+69:                                               ; preds = %hstate_next_node_to_alloc.exit, %11, %4
+  %70 = phi ptr [ %9, %4 ], [ %67, %hstate_next_node_to_alloc.exit ], [ null, %11 ]
   %71 = getelementptr i8, ptr %70, i64 4096
   %72 = ptrtoint ptr %71 to i64
   %73 = add i64 %72, 2147483648
@@ -4275,8 +4275,8 @@ hstate_next_node_to_alloc.argprom.exit:           ; preds = %51, %59
   store ptr %0, ptr %89, align 8
   br label %90
 
-90:                                               ; preds = %69, %hstate_next_node_to_alloc.argprom.exit, %4
-  %91 = phi i32 [ 1, %69 ], [ 0, %4 ], [ 0, %hstate_next_node_to_alloc.argprom.exit ]
+90:                                               ; preds = %69, %hstate_next_node_to_alloc.exit, %4
+  %91 = phi i32 [ 1, %69 ], [ 0, %4 ], [ 0, %hstate_next_node_to_alloc.exit ]
   ret i32 %91
 }
 
@@ -9144,7 +9144,7 @@ define dso_local range(i32 0, 1025) i32 @hugetlb_fault(ptr noundef %0, ptr nound
   %382 = select i1 %378, i32 0, i32 %381
   %383 = getelementptr i8, ptr %1, i64 24
   %.val = load i64, ptr %383, align 8
-  %384 = call fastcc i64 @make_huge_pte.argprom(i64 %.val, ptr noundef %272, i32 noundef %382)
+  %384 = call fastcc i64 @make_huge_pte(i64 %.val, ptr noundef %272, i32 noundef %382)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 %384, ptr %6, align 8
   %.0..0..0..0. = load volatile i64, ptr %6, align 8
@@ -10272,7 +10272,7 @@ define internal fastcc range(i32 0, 65) i32 @hugetlb_wp(ptr noundef %0, ptr noun
   %492 = xor i32 %491, 1
   %493 = getelementptr i8, ptr %1, i64 24
   %.val = load i64, ptr %493, align 8
-  %494 = call fastcc i64 @make_huge_pte.argprom(i64 %.val, ptr noundef %165, i32 noundef %492)
+  %494 = call fastcc i64 @make_huge_pte(i64 %.val, ptr noundef %165, i32 noundef %492)
   %495 = call i64 @ptep_clear_flush(ptr noundef %1, i64 noundef %30, ptr noundef nonnull %485) #22
   %496 = getelementptr inbounds i8, ptr %89, i64 88
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %496, ptr elementtype(i32) %496) #22, !srcloc !107
@@ -13554,7 +13554,7 @@ define internal fastcc ptr @alloc_fresh_hugetlb_folio(ptr noundef %0, i32 nounde
   br i1 %9, label %.thread3, label %10
 
 10:                                               ; preds = %6
-  %11 = tail call fastcc ptr @alloc_buddy_hugetlb_folio.argprom(i32 %8, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef null)
+  %11 = tail call fastcc ptr @alloc_buddy_hugetlb_folio(i32 %8, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef null)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.thread3, label %13
 
@@ -13564,7 +13564,7 @@ define internal fastcc ptr @alloc_fresh_hugetlb_folio(ptr noundef %0, i32 nounde
   br i1 %15, label %16, label %26
 
 16:                                               ; preds = %13
-  %17 = tail call fastcc zeroext i1 @__prep_compound_gigantic_folio.argelim(ptr noundef nonnull %11, i32 noundef %14)
+  %17 = tail call fastcc zeroext i1 @__prep_compound_gigantic_folio(ptr noundef nonnull %11, i32 noundef %14)
   br i1 %17, label %26, label %18
 
 18:                                               ; preds = %16
@@ -13609,7 +13609,7 @@ define internal fastcc ptr @alloc_fresh_hugetlb_folio(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @alloc_buddy_hugetlb_folio.argprom(i32 %.40.val, i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc ptr @alloc_buddy_hugetlb_folio(i32 %.40.val, i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = icmp ne ptr %3, null
   br i1 %5, label %6, label %.thread
 
@@ -13731,7 +13731,7 @@ define internal fastcc ptr @alloc_buddy_hugetlb_folio.argprom(i32 %.40.val, i32 
 declare dso_local ptr @__alloc_pages(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @__prep_compound_gigantic_folio.argelim(ptr noundef nonnull %0, i32 noundef range(i32 11, 0) %1) unnamed_addr #0 align 16 {
+define internal fastcc zeroext i1 @__prep_compound_gigantic_folio(ptr noundef nonnull %0, i32 noundef range(i32 11, 0) %1) unnamed_addr #0 align 16 {
   %3 = shl nuw i32 1, %1
   tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %0, i64 14) #22, !srcloc !28
   %4 = icmp eq i32 %1, 31
@@ -15530,7 +15530,7 @@ define internal fastcc ptr @alloc_pool_huge_folio(ptr nocapture noundef %0, ptr 
   br i1 %74, label %.thread17, label %75
 
 75:                                               ; preds = %71
-  %76 = tail call fastcc ptr @alloc_buddy_hugetlb_folio.argprom(i32 %73, i32 noundef %14, i32 noundef %50, ptr noundef %1, ptr noundef %2)
+  %76 = tail call fastcc ptr @alloc_buddy_hugetlb_folio(i32 %73, i32 noundef %14, i32 noundef %50, ptr noundef %1, ptr noundef %2)
   %77 = icmp eq ptr %76, null
   br i1 %77, label %.thread17, label %78
 
@@ -17462,7 +17462,7 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #3 sect
 declare dso_local void @__folio_put(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 160, 0) i64 @make_huge_pte.argprom(i64 %.24.val, ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 160, 0) i64 @make_huge_pte(i64 %.24.val, ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
   %3 = icmp eq i32 %1, 0
   %4 = and i64 %.24.val, 66
   %5 = icmp eq i64 %4, 64

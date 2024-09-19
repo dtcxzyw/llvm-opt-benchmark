@@ -1586,7 +1586,7 @@ llvm_emit_slice_copy.exit:                        ; preds = %539, %556
   %.0127.i273 = phi i64 [ %669, %.lr.ph274 ], [ %648, %.preheader ]
   %667 = load ptr, ptr @type_usz, align 8
   call void @llvm_value_set_int(ptr noundef %0, ptr noundef nonnull %32, ptr noundef %667, i64 noundef %.0127.i273) #10
-  call fastcc void @llvm_emit_subscript_addr_with_base.argelim(ptr noundef %0, ptr noundef nonnull %31, ptr noundef nonnull %27, ptr noundef %32)
+  call fastcc void @llvm_emit_subscript_addr_with_base(ptr noundef %0, ptr noundef nonnull %31, ptr noundef nonnull %27, ptr noundef %32)
   %668 = call ptr @llvm_store(ptr noundef %0, ptr noundef nonnull %31, ptr noundef %1) #10
   %669 = add i64 %.0127.i273, 1
   %.not138.i = icmp ugt i64 %669, %.0126.i
@@ -1642,7 +1642,7 @@ llvm_emit_slice_copy.exit:                        ; preds = %539, %556
   call void @llvm_emit_cond_br(ptr noundef nonnull %0, ptr noundef nonnull %34, ptr noundef %675, ptr noundef %674) #10
   call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %675) #10
   %701 = getelementptr inbounds i8, ptr %2, i64 8
-  call fastcc void @llvm_emit_subscript_addr_with_base.argelim(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef nonnull %27, ptr noundef %33)
+  call fastcc void @llvm_emit_subscript_addr_with_base(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef nonnull %27, ptr noundef %33)
   %702 = call ptr @llvm_store(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef nonnull %1) #10
   %703 = load ptr, ptr %683, align 8
   %704 = call fastcc ptr @type_lowering(ptr noundef %703)
@@ -2957,7 +2957,7 @@ type_flatten.exit197:                             ; preds = %1356
 1373:                                             ; preds = %type_flatten.exit197
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false)
   %.val136.i = load ptr, ptr %1353, align 8
-  call fastcc void @llvm_extract_bitvalue.argprom(ptr noundef %0, ptr noundef nonnull %16, ptr %.val136.i, ptr noundef %1355)
+  call fastcc void @llvm_extract_bitvalue(ptr noundef %0, ptr noundef nonnull %16, ptr %.val136.i, ptr noundef %1355)
   %1374 = load i8, ptr %1371, align 8
   %1375 = zext i8 %1374 to i32
   %1376 = call i32 @binaryop_assign_base_op(i32 noundef %1375) #10
@@ -3030,24 +3030,24 @@ type_flatten.exit193:                             ; preds = %1383
   %1408 = trunc i8 %1407 to i1
   %1409 = and i8 %.val.i147, 2
   %.not.i188 = icmp eq i8 %1409, 0
-  br i1 %.not.i188, label %bitstruct_requires_bitswap.argprom.exit, label %1410
+  br i1 %.not.i188, label %bitstruct_requires_bitswap.exit, label %1410
 
 1410:                                             ; preds = %1403
   br i1 %1408, label %1414, label %1412
 
-bitstruct_requires_bitswap.argprom.exit:          ; preds = %1403
+bitstruct_requires_bitswap.exit:                  ; preds = %1403
   %1411 = and i8 %.val.i147, 4
   %.not4.i = icmp ne i8 %1411, 0
   %..i = select i1 %.not4.i, i1 %1408, i1 false
   br i1 %..i, label %1412, label %1414
 
-1412:                                             ; preds = %1410, %bitstruct_requires_bitswap.argprom.exit
+1412:                                             ; preds = %1410, %bitstruct_requires_bitswap.exit
   %1413 = call fastcc ptr @llvm_emit_bswap(ptr noundef %0, ptr noundef %1404)
   br label %1414
 
-1414:                                             ; preds = %1410, %1412, %bitstruct_requires_bitswap.argprom.exit
-  %.0.i189219 = phi i1 [ true, %1412 ], [ false, %bitstruct_requires_bitswap.argprom.exit ], [ false, %1410 ]
-  %.0125.i148 = phi ptr [ %1413, %1412 ], [ %1404, %bitstruct_requires_bitswap.argprom.exit ], [ %1404, %1410 ]
+1414:                                             ; preds = %1410, %1412, %bitstruct_requires_bitswap.exit
+  %.0.i189219 = phi i1 [ true, %1412 ], [ false, %bitstruct_requires_bitswap.exit ], [ false, %1410 ]
+  %.0125.i148 = phi ptr [ %1413, %1412 ], [ %1404, %bitstruct_requires_bitswap.exit ], [ %1404, %1410 ]
   %1415 = call ptr @llvm_load_value_store(ptr noundef %0, ptr noundef %1) #10
   %1416 = getelementptr inbounds i8, ptr %15, i64 8
   %1417 = load ptr, ptr %1416, align 8
@@ -3662,7 +3662,7 @@ llvm_emit_rethrow_expr.exit:                      ; preds = %llvm_emit_rethrow_e
   br label %1726
 
 1726:                                             ; preds = %1721, %1715, %1713
-  call fastcc void @llvm_emit_subscript_addr_with_base.argelim(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1, ptr noundef %10)
+  call fastcc void @llvm_emit_subscript_addr_with_base(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1, ptr noundef %10)
   br i1 %1659, label %gencontext_emit_subscript.exit, label %1727
 
 1727:                                             ; preds = %1726
@@ -3892,7 +3892,7 @@ type_flatten.exit214:                             ; preds = %1824
   tail call fastcc void @llvm_emit_bitstruct_member(ptr noundef %0, ptr noundef %1, ptr noundef %1838, ptr noundef %1823)
   %1839 = load ptr, ptr %1822, align 8
   %.val.i172 = load ptr, ptr %1821, align 8
-  tail call fastcc void @llvm_extract_bitvalue.argprom(ptr noundef %0, ptr noundef %1, ptr %.val.i172, ptr noundef %1839)
+  tail call fastcc void @llvm_extract_bitvalue(ptr noundef %0, ptr noundef %1, ptr %.val.i172, ptr noundef %1839)
   br label %common.ret419
 
 1840:                                             ; preds = %62
@@ -9098,21 +9098,21 @@ type_flatten.exit:                                ; preds = %46
 
 101:                                              ; preds = %89
   %102 = xor i1 %99, true
-  br label %bitstruct_requires_bitswap.argprom.exit
+  br label %bitstruct_requires_bitswap.exit
 
 103:                                              ; preds = %89
   %104 = and i8 %.val, 4
   %.not4.i = icmp ne i8 %104, 0
   %..i = select i1 %.not4.i, i1 %99, i1 false
-  br label %bitstruct_requires_bitswap.argprom.exit
+  br label %bitstruct_requires_bitswap.exit
 
-bitstruct_requires_bitswap.argprom.exit:          ; preds = %101, %103
+bitstruct_requires_bitswap.exit:                  ; preds = %101, %103
   %.0.i133 = phi i1 [ %102, %101 ], [ %..i, %103 ]
   %105 = icmp ugt i32 %91, 8
   %or.cond = select i1 %.0.i133, i1 %105, i1 false
   br i1 %or.cond, label %llvm_bswap_non_integral.exit, label %112
 
-llvm_bswap_non_integral.exit:                     ; preds = %bitstruct_requires_bitswap.argprom.exit
+llvm_bswap_non_integral.exit:                     ; preds = %bitstruct_requires_bitswap.exit
   %106 = call ptr @LLVMTypeOf(ptr noundef %97) #10
   %107 = call i64 @llvm_bitsize(ptr noundef %0, ptr noundef %106) #10
   %108 = trunc i64 %107 to i32
@@ -9121,8 +9121,8 @@ llvm_bswap_non_integral.exit:                     ; preds = %bitstruct_requires_
   %111 = call fastcc ptr @llvm_emit_bswap(ptr noundef %0, ptr noundef %110)
   br label %112
 
-112:                                              ; preds = %llvm_bswap_non_integral.exit, %bitstruct_requires_bitswap.argprom.exit
-  %.0121 = phi ptr [ %111, %llvm_bswap_non_integral.exit ], [ %97, %bitstruct_requires_bitswap.argprom.exit ]
+112:                                              ; preds = %llvm_bswap_non_integral.exit, %bitstruct_requires_bitswap.exit
+  %.0121 = phi ptr [ %111, %llvm_bswap_non_integral.exit ], [ %97, %bitstruct_requires_bitswap.exit ]
   %113 = and i32 %42, 7
   %.not128138 = icmp ugt i32 %93, %94
   br i1 %.not128138, label %.loopexit, label %.lr.ph141
@@ -9984,23 +9984,23 @@ define dso_local ptr @llvm_emit_const_bitstruct(ptr noundef %0, ptr nocapture no
   %103 = trunc i8 %102 to i1
   %104 = and i8 %.val, 2
   %.not.i = icmp eq i8 %104, 0
-  br i1 %.not.i, label %bitstruct_requires_bitswap.argprom.exit, label %105
+  br i1 %.not.i, label %bitstruct_requires_bitswap.exit, label %105
 
 105:                                              ; preds = %._crit_edge
   br i1 %103, label %109, label %107
 
-bitstruct_requires_bitswap.argprom.exit:          ; preds = %._crit_edge
+bitstruct_requires_bitswap.exit:                  ; preds = %._crit_edge
   %106 = and i8 %.val, 4
   %.not4.i = icmp ne i8 %106, 0
   %..i = select i1 %.not4.i, i1 %103, i1 false
   br i1 %..i, label %107, label %109
 
-107:                                              ; preds = %105, %bitstruct_requires_bitswap.argprom.exit
+107:                                              ; preds = %105, %bitstruct_requires_bitswap.exit
   %108 = call ptr @LLVMConstBswap(ptr noundef %.0109.lcssa) #10
   br label %109
 
-109:                                              ; preds = %105, %bitstruct_requires_bitswap.argprom.exit, %107, %20, %14
-  %.0108 = phi ptr [ %16, %14 ], [ %21, %20 ], [ %108, %107 ], [ %.0109.lcssa, %bitstruct_requires_bitswap.argprom.exit ], [ %.0109.lcssa, %105 ]
+109:                                              ; preds = %105, %bitstruct_requires_bitswap.exit, %107, %20, %14
+  %.0108 = phi ptr [ %16, %14 ], [ %21, %20 ], [ %108, %107 ], [ %.0109.lcssa, %bitstruct_requires_bitswap.exit ], [ %.0109.lcssa, %105 ]
   ret ptr %.0108
 }
 
@@ -12604,14 +12604,14 @@ define dso_local void @llvm_emit_parameter(ptr noundef %0, ptr noundef %1, ptr n
   %63 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %62) #10
   %64 = tail call ptr @llvm_emit_alloca(ptr noundef %0, ptr noundef %63, i32 noundef %53, ptr noundef nonnull @.str.110) #10
   %65 = tail call ptr @llvm_store_to_ptr_aligned(ptr noundef %0, ptr noundef %64, ptr noundef nonnull %4, i32 noundef %53) #10
-  br label %llvm_emit_coerce_alignment.argprom.exit
+  br label %llvm_emit_coerce_alignment.exit
 
 66:                                               ; preds = %56
   %67 = getelementptr inbounds i8, ptr %4, i64 16
   %68 = load ptr, ptr %67, align 8
-  br label %llvm_emit_coerce_alignment.argprom.exit
+  br label %llvm_emit_coerce_alignment.exit
 
-llvm_emit_coerce_alignment.argprom.exit:          ; preds = %60, %66
+llvm_emit_coerce_alignment.exit:                  ; preds = %60, %66
   %.0246 = phi i32 [ %53, %60 ], [ %58, %66 ]
   %.0.i = phi ptr [ %64, %60 ], [ %68, %66 ]
   %69 = load ptr, ptr @type_uint, align 8
@@ -12621,8 +12621,8 @@ llvm_emit_coerce_alignment.argprom.exit:          ; preds = %60, %66
   %.not248 = icmp eq i8 %72, 0
   br i1 %.not248, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %llvm_emit_coerce_alignment.argprom.exit, %.lr.ph
-  %.0221247 = phi i32 [ %80, %.lr.ph ], [ 0, %llvm_emit_coerce_alignment.argprom.exit ]
+.lr.ph:                                           ; preds = %llvm_emit_coerce_alignment.exit, %.lr.ph
+  %.0221247 = phi i32 [ %80, %.lr.ph ], [ 0, %llvm_emit_coerce_alignment.exit ]
   %73 = call ptr @llvm_emit_struct_gep_raw(ptr noundef %0, ptr noundef %.0.i, ptr noundef %52, i32 noundef %.0221247, i32 noundef %.0246, ptr noundef nonnull %7)
   %74 = load i32, ptr %7, align 4
   %75 = tail call ptr @llvm_load(ptr noundef %0, ptr noundef %70, ptr noundef %73, i32 noundef %74, ptr noundef nonnull @.str.3) #10
@@ -12922,14 +12922,14 @@ llvm_emit_coerce_alignment.argprom.exit:          ; preds = %60, %66
   %265 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %264) #10
   %266 = tail call ptr @llvm_emit_alloca(ptr noundef %0, ptr noundef %265, i32 noundef %256, ptr noundef nonnull @.str.110) #10
   %267 = tail call ptr @llvm_store_to_ptr_aligned(ptr noundef %0, ptr noundef %266, ptr noundef nonnull %4, i32 noundef %256) #10
-  br label %llvm_emit_coerce_alignment.argprom.exit241
+  br label %llvm_emit_coerce_alignment.exit241
 
 268:                                              ; preds = %259
   %269 = getelementptr inbounds i8, ptr %4, i64 16
   %270 = load ptr, ptr %269, align 8
-  br label %llvm_emit_coerce_alignment.argprom.exit241
+  br label %llvm_emit_coerce_alignment.exit241
 
-llvm_emit_coerce_alignment.argprom.exit241:       ; preds = %263, %268
+llvm_emit_coerce_alignment.exit241:               ; preds = %263, %268
   %.0245 = phi i32 [ %256, %263 ], [ %261, %268 ]
   %.0.i240 = phi ptr [ %266, %263 ], [ %270, %268 ]
   %271 = getelementptr inbounds i8, ptr %0, i64 32
@@ -12996,7 +12996,7 @@ llvm_emit_coerce_alignment.argprom.exit241:       ; preds = %263, %268
   tail call fastcc void @llvm_expand_type_to_args(ptr noundef %0, ptr noundef %11, ptr noundef %312, ptr noundef %1, ptr noundef %2, i32 noundef %314)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %llvm_emit_coerce_alignment.argprom.exit, %310, %290, %llvm_emit_coerce_alignment.argprom.exit241, %244, %181, %133, %116, %110, %96, %90, %45, %34, %27, %6
+.loopexit:                                        ; preds = %.lr.ph, %llvm_emit_coerce_alignment.exit, %310, %290, %llvm_emit_coerce_alignment.exit241, %244, %181, %133, %116, %110, %96, %90, %45, %34, %27, %6
   ret void
 }
 
@@ -14426,15 +14426,15 @@ type_flatten.exit:                                ; preds = %12
 
 43:                                               ; preds = %36
   %44 = xor i1 %41, true
-  br label %bitstruct_requires_bitswap.argprom.exit79
+  br label %bitstruct_requires_bitswap.exit79
 
 45:                                               ; preds = %36
   %46 = and i8 %.val169.i, 4
   %.not4.i77 = icmp ne i8 %46, 0
   %..i78 = select i1 %.not4.i77, i1 %41, i1 false
-  br label %bitstruct_requires_bitswap.argprom.exit79
+  br label %bitstruct_requires_bitswap.exit79
 
-bitstruct_requires_bitswap.argprom.exit79:        ; preds = %43, %45
+bitstruct_requires_bitswap.exit79:                ; preds = %43, %45
   %.0.i76 = phi i1 [ %44, %43 ], [ %..i78, %45 ]
   tail call void @llvm_value_addr(ptr noundef %0, ptr noundef nonnull %1) #10
   %47 = tail call ptr @llvm_store_zero(ptr noundef %0, ptr noundef nonnull %1) #10
@@ -14445,7 +14445,7 @@ bitstruct_requires_bitswap.argprom.exit79:        ; preds = %43, %45
   %.not168.i = icmp eq ptr %26, null
   br i1 %.not168.i, label %llvm_emit_initialize_reference_bitstruct.exit, label %52
 
-52:                                               ; preds = %bitstruct_requires_bitswap.argprom.exit79
+52:                                               ; preds = %bitstruct_requires_bitswap.exit79
   %53 = getelementptr inbounds i8, ptr %26, i64 -8
   %54 = load i32, ptr %53, align 4
   %.not99 = icmp eq i32 %54, 0
@@ -14595,23 +14595,23 @@ bitstruct_requires_bitswap.argprom.exit79:        ; preds = %43, %45
   %129 = trunc i8 %128 to i1
   %130 = and i8 %.val.i, 2
   %.not.i73 = icmp eq i8 %130, 0
-  br i1 %.not.i73, label %bitstruct_requires_bitswap.argprom.exit, label %131
+  br i1 %.not.i73, label %bitstruct_requires_bitswap.exit, label %131
 
 131:                                              ; preds = %._crit_edge
   br i1 %129, label %135, label %133
 
-bitstruct_requires_bitswap.argprom.exit:          ; preds = %._crit_edge
+bitstruct_requires_bitswap.exit:                  ; preds = %._crit_edge
   %132 = and i8 %.val.i, 4
   %.not4.i = icmp ne i8 %132, 0
   %..i = select i1 %.not4.i, i1 %129, i1 false
   br i1 %..i, label %133, label %135
 
-133:                                              ; preds = %131, %bitstruct_requires_bitswap.argprom.exit
+133:                                              ; preds = %131, %bitstruct_requires_bitswap.exit
   %134 = call fastcc ptr @llvm_emit_bswap(ptr noundef %0, ptr noundef %.0154.i.lcssa)
   br label %135
 
-135:                                              ; preds = %131, %133, %bitstruct_requires_bitswap.argprom.exit
-  %.1.i68 = phi ptr [ %134, %133 ], [ %.0154.i.lcssa, %bitstruct_requires_bitswap.argprom.exit ], [ %.0154.i.lcssa, %131 ]
+135:                                              ; preds = %131, %133, %bitstruct_requires_bitswap.exit
+  %.1.i68 = phi ptr [ %134, %133 ], [ %.0154.i.lcssa, %bitstruct_requires_bitswap.exit ], [ %.0154.i.lcssa, %131 ]
   %136 = getelementptr inbounds i8, ptr %1, i64 16
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds i8, ptr %1, i64 4
@@ -14619,7 +14619,7 @@ bitstruct_requires_bitswap.argprom.exit:          ; preds = %._crit_edge
   %140 = call ptr @llvm_store_to_ptr_raw_aligned(ptr noundef %0, ptr noundef %137, ptr noundef %.1.i68, i32 noundef %139) #10
   br label %llvm_emit_initialize_reference_bitstruct.exit
 
-llvm_emit_initialize_reference_bitstruct.exit:    ; preds = %56, %bitstruct_requires_bitswap.argprom.exit79, %52, %135
+llvm_emit_initialize_reference_bitstruct.exit:    ; preds = %56, %bitstruct_requires_bitswap.exit79, %52, %135
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   br label %.loopexit
@@ -14925,15 +14925,15 @@ define internal fastcc void @llvm_emit_initialize_reference_designated(ptr nound
 
 36:                                               ; preds = %29
   %37 = xor i1 %34, true
-  br label %bitstruct_requires_bitswap.argprom.exit.i
+  br label %bitstruct_requires_bitswap.exit.i
 
 38:                                               ; preds = %29
   %39 = and i8 %.val.i43, 4
   %.not4.i.i = icmp ne i8 %39, 0
   %..i.i = select i1 %.not4.i.i, i1 %34, i1 false
-  br label %bitstruct_requires_bitswap.argprom.exit.i
+  br label %bitstruct_requires_bitswap.exit.i
 
-bitstruct_requires_bitswap.argprom.exit.i:        ; preds = %38, %36
+bitstruct_requires_bitswap.exit.i:                ; preds = %38, %36
   %.0.i.i = phi i1 [ %37, %36 ], [ %..i.i, %38 ]
   tail call void @llvm_value_addr(ptr noundef %0, ptr noundef nonnull %1) #10
   %40 = tail call ptr @llvm_store_zero(ptr noundef %0, ptr noundef nonnull %1) #10
@@ -14944,7 +14944,7 @@ bitstruct_requires_bitswap.argprom.exit.i:        ; preds = %38, %36
   %.not.i44 = icmp eq ptr %7, null
   br i1 %.not.i44, label %llvm_emit_initialize_reference_designated_bitstruct_array.exit, label %45
 
-45:                                               ; preds = %bitstruct_requires_bitswap.argprom.exit.i
+45:                                               ; preds = %bitstruct_requires_bitswap.exit.i
   %46 = getelementptr inbounds i8, ptr %7, i64 -8
   %47 = load i32, ptr %46, align 4
   %.not57 = icmp eq i32 %47, 0
@@ -14977,7 +14977,7 @@ bitstruct_requires_bitswap.argprom.exit.i:        ; preds = %38, %36
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
   br i1 %exitcond66.not, label %llvm_emit_initialize_reference_designated_bitstruct_array.exit, label %49, !llvm.loop !60
 
-llvm_emit_initialize_reference_designated_bitstruct_array.exit: ; preds = %49, %bitstruct_requires_bitswap.argprom.exit.i, %45
+llvm_emit_initialize_reference_designated_bitstruct_array.exit: ; preds = %49, %bitstruct_requires_bitswap.exit.i, %45
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %llvm_emit_initialize_reference_designated_bitstruct.exit
 
@@ -15114,23 +15114,23 @@ llvm_emit_initialize_reference_designated_bitstruct_array.exit: ; preds = %49, %
   %138 = trunc i8 %137 to i1
   %139 = and i8 %.val.i, 2
   %.not.i41 = icmp eq i8 %139, 0
-  br i1 %.not.i41, label %bitstruct_requires_bitswap.argprom.exit, label %140
+  br i1 %.not.i41, label %bitstruct_requires_bitswap.exit, label %140
 
 140:                                              ; preds = %._crit_edge
   br i1 %138, label %144, label %142
 
-bitstruct_requires_bitswap.argprom.exit:          ; preds = %._crit_edge
+bitstruct_requires_bitswap.exit:                  ; preds = %._crit_edge
   %141 = and i8 %.val.i, 4
   %.not4.i = icmp ne i8 %141, 0
   %..i = select i1 %.not4.i, i1 %138, i1 false
   br i1 %..i, label %142, label %144
 
-142:                                              ; preds = %140, %bitstruct_requires_bitswap.argprom.exit
+142:                                              ; preds = %140, %bitstruct_requires_bitswap.exit
   %143 = call fastcc ptr @llvm_emit_bswap(ptr noundef %0, ptr noundef %.0123.i.lcssa)
   br label %144
 
-144:                                              ; preds = %140, %142, %bitstruct_requires_bitswap.argprom.exit
-  %.1.i39 = phi ptr [ %143, %142 ], [ %.0123.i.lcssa, %bitstruct_requires_bitswap.argprom.exit ], [ %.0123.i.lcssa, %140 ]
+144:                                              ; preds = %140, %142, %bitstruct_requires_bitswap.exit
+  %.1.i39 = phi ptr [ %143, %142 ], [ %.0123.i.lcssa, %bitstruct_requires_bitswap.exit ], [ %.0123.i.lcssa, %140 ]
   %145 = getelementptr inbounds i8, ptr %1, i64 16
   %146 = load ptr, ptr %145, align 8
   %147 = getelementptr inbounds i8, ptr %1, i64 4
@@ -15842,21 +15842,21 @@ llvm_value_struct_gep.exit:                       ; preds = %79
 
 118:                                              ; preds = %101
   %119 = xor i1 %116, true
-  br label %bitstruct_requires_bitswap.argprom.exit
+  br label %bitstruct_requires_bitswap.exit
 
 120:                                              ; preds = %101
   %121 = and i8 %.val, 4
   %.not4.i = icmp ne i8 %121, 0
   %..i = select i1 %.not4.i, i1 %116, i1 false
-  br label %bitstruct_requires_bitswap.argprom.exit
+  br label %bitstruct_requires_bitswap.exit
 
-bitstruct_requires_bitswap.argprom.exit:          ; preds = %118, %120
+bitstruct_requires_bitswap.exit:                  ; preds = %118, %120
   %.0.i = phi i1 [ %119, %118 ], [ %..i, %120 ]
   %122 = load i32, ptr %111, align 8
   %123 = icmp eq i32 %122, 33
   br i1 %123, label %124, label %129
 
-124:                                              ; preds = %bitstruct_requires_bitswap.argprom.exit
+124:                                              ; preds = %bitstruct_requires_bitswap.exit
   %125 = getelementptr inbounds i8, ptr %14, i64 16
   %126 = load ptr, ptr %125, align 8
   %127 = getelementptr inbounds i8, ptr %14, i64 4
@@ -15864,7 +15864,7 @@ bitstruct_requires_bitswap.argprom.exit:          ; preds = %118, %120
   call fastcc void @llvm_emit_update_bitstruct_array(ptr noundef %0, ptr noundef %126, i32 noundef %128, ptr noundef %113, i1 noundef zeroext %.0.i, ptr noundef %109, ptr noundef %112)
   br label %llvm_emit_initialize_reference.exit
 
-129:                                              ; preds = %bitstruct_requires_bitswap.argprom.exit
+129:                                              ; preds = %bitstruct_requires_bitswap.exit
   %130 = call ptr @llvm_load_value(ptr noundef %0, ptr noundef nonnull %14) #10
   %131 = call i32 @type_size(ptr noundef nonnull %111) #10
   %132 = shl i32 %131, 3
@@ -16782,14 +16782,14 @@ define internal fastcc void @llvm_emit_slice_values(ptr noundef %0, ptr nocaptur
 148:                                              ; preds = %137, %135
   %149 = load i32, ptr %.0, align 8
   %.not145 = icmp eq i32 %149, 23
-  br i1 %.not145, label %llvm_emit_trap_negative.argprom.exit, label %150
+  br i1 %.not145, label %llvm_emit_trap_negative.exit, label %150
 
 150:                                              ; preds = %148
   %151 = getelementptr inbounds i8, ptr %8, i64 16
   %152 = load ptr, ptr %151, align 8
   %153 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 336), align 8
   %.not.i152 = icmp eq i32 %153, 0
-  br i1 %.not.i152, label %llvm_emit_trap_negative.argprom.exit, label %154
+  br i1 %.not.i152, label %llvm_emit_trap_negative.exit, label %154
 
 154:                                              ; preds = %150
   %155 = load ptr, ptr %22, align 8
@@ -16809,7 +16809,7 @@ define internal fastcc void @llvm_emit_slice_values(ptr noundef %0, ptr nocaptur
   %.0.i153 = phi i32 [ %163, %160 ], [ %158, %154 ]
   %165 = add i32 %.0.i153, -8
   %166 = icmp ult i32 %165, 5
-  br i1 %166, label %llvm_emit_trap_negative.argprom.exit, label %167
+  br i1 %166, label %llvm_emit_trap_negative.exit, label %167
 
 167:                                              ; preds = %164
   %168 = call fastcc ptr @type_lowering(ptr noundef nonnull %155)
@@ -16836,9 +16836,9 @@ define internal fastcc void @llvm_emit_slice_values(ptr noundef %0, ptr nocaptur
   %184 = getelementptr inbounds i8, ptr %22, i64 8
   %185 = load i64, ptr %184, align 8
   call void @llvm_emit_panic_on_true(ptr noundef %0, ptr noundef %183, ptr noundef nonnull @.str.164, i64 %185, ptr noundef nonnull @.str.156, ptr noundef nonnull %8, ptr noundef null) #10
-  br label %llvm_emit_trap_negative.argprom.exit
+  br label %llvm_emit_trap_negative.exit
 
-llvm_emit_trap_negative.argprom.exit:             ; preds = %176, %164, %150, %148
+llvm_emit_trap_negative.exit:                     ; preds = %176, %164, %150, %148
   %186 = load i8, ptr %18, align 4
   %187 = and i8 %186, 4
   %.not146 = icmp eq i8 %187, 0
@@ -16846,7 +16846,7 @@ llvm_emit_trap_negative.argprom.exit:             ; preds = %176, %164, %150, %1
   store i8 %.lobit, ptr %5, align 1
   br i1 %.not142, label %230, label %188
 
-188:                                              ; preds = %llvm_emit_trap_negative.argprom.exit
+188:                                              ; preds = %llvm_emit_trap_negative.exit
   call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %11, ptr noundef nonnull %27)
   call void @llvm_value_rvalue(ptr noundef %0, ptr noundef nonnull %11) #10
   %189 = load ptr, ptr %27, align 8
@@ -16918,7 +16918,7 @@ llvm_emit_trap_negative.argprom.exit:             ; preds = %176, %164, %150, %1
   call void @llvm_emit_panic_if_true(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull @.str.159, i64 %229, ptr noundef nonnull @.str.160, ptr noundef nonnull %11, ptr noundef nonnull %9) #10
   br label %235
 
-230:                                              ; preds = %llvm_emit_trap_negative.argprom.exit
+230:                                              ; preds = %llvm_emit_trap_negative.exit
   %231 = getelementptr inbounds i8, ptr %9, i64 16
   %232 = load ptr, ptr %231, align 8
   %233 = getelementptr inbounds i8, ptr %11, i64 16
@@ -16943,7 +16943,7 @@ llvm_emit_trap_negative.argprom.exit:             ; preds = %176, %164, %150, %1
 declare i64 @LLVMConstIntGetZExtValue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_subscript_addr_with_base.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_subscript_addr_with_base(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -17793,7 +17793,7 @@ type_flatten.exit:                                ; preds = %13
   call fastcc void @llvm_emit_bitstruct_member(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %27, ptr noundef %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   %.val145 = load ptr, ptr %10, align 8
-  call fastcc void @llvm_extract_bitvalue.argprom(ptr noundef %0, ptr noundef nonnull %8, ptr %.val145, ptr noundef %12)
+  call fastcc void @llvm_extract_bitvalue(ptr noundef %0, ptr noundef nonnull %8, ptr %.val145, ptr noundef %12)
   %28 = call ptr @llvm_load_value_store(ptr noundef %0, ptr noundef nonnull %8) #10
   %29 = getelementptr inbounds i8, ptr %8, i64 8
   %30 = load ptr, ptr %29, align 8
@@ -17909,24 +17909,24 @@ llvm_emit_bitassign_array.exit:                   ; preds = %80, %82
   %90 = trunc i8 %89 to i1
   %91 = and i8 %.val, 2
   %.not.i = icmp eq i8 %91, 0
-  br i1 %.not.i, label %bitstruct_requires_bitswap.argprom.exit, label %92
+  br i1 %.not.i, label %bitstruct_requires_bitswap.exit, label %92
 
 92:                                               ; preds = %84
   br i1 %90, label %96, label %94
 
-bitstruct_requires_bitswap.argprom.exit:          ; preds = %84
+bitstruct_requires_bitswap.exit:                  ; preds = %84
   %93 = and i8 %.val, 4
   %.not4.i = icmp ne i8 %93, 0
   %..i = select i1 %.not4.i, i1 %90, i1 false
   br i1 %..i, label %94, label %96
 
-94:                                               ; preds = %92, %bitstruct_requires_bitswap.argprom.exit
+94:                                               ; preds = %92, %bitstruct_requires_bitswap.exit
   %95 = call fastcc ptr @llvm_emit_bswap(ptr noundef %0, ptr noundef %85)
   br label %96
 
-96:                                               ; preds = %92, %94, %bitstruct_requires_bitswap.argprom.exit
-  %.0.i150151 = phi i1 [ true, %94 ], [ false, %bitstruct_requires_bitswap.argprom.exit ], [ false, %92 ]
-  %.0132 = phi ptr [ %95, %94 ], [ %85, %bitstruct_requires_bitswap.argprom.exit ], [ %85, %92 ]
+96:                                               ; preds = %92, %94, %bitstruct_requires_bitswap.exit
+  %.0.i150151 = phi i1 [ true, %94 ], [ false, %bitstruct_requires_bitswap.exit ], [ false, %92 ]
+  %.0132 = phi ptr [ %95, %94 ], [ %85, %bitstruct_requires_bitswap.exit ], [ %85, %92 ]
   %97 = getelementptr inbounds i8, ptr %7, i64 8
   %98 = load ptr, ptr %97, align 8
   %99 = call i32 @type_size(ptr noundef %98) #10
@@ -18320,7 +18320,7 @@ llvm_value_struct_gep.exit:                       ; preds = %32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_extract_bitvalue.argprom(ptr noundef %0, ptr noundef %1, ptr nocapture readonly %.0.val, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @llvm_extract_bitvalue(ptr noundef %0, ptr noundef %1, ptr nocapture readonly %.0.val, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca %struct.BEValue, align 8
   %5 = alloca %struct.BEValue, align 8
   %6 = alloca i32, align 4
@@ -18441,15 +18441,15 @@ llvm_extract_bool_bit_from_array.exit.i:          ; preds = %50, %34
 
 77:                                               ; preds = %72
   %78 = xor i1 %75, true
-  br label %bitstruct_requires_bitswap.argprom.exit.i
+  br label %bitstruct_requires_bitswap.exit.i
 
 79:                                               ; preds = %72
   %80 = and i8 %.val.i, 4
   %.not4.i.i = icmp ne i8 %80, 0
   %..i.i = select i1 %.not4.i.i, i1 %75, i1 false
-  br label %bitstruct_requires_bitswap.argprom.exit.i
+  br label %bitstruct_requires_bitswap.exit.i
 
-bitstruct_requires_bitswap.argprom.exit.i:        ; preds = %79, %77
+bitstruct_requires_bitswap.exit.i:                ; preds = %79, %77
   %.0.i.i = phi i1 [ %78, %77 ], [ %..i.i, %79 ]
   %81 = getelementptr inbounds i8, ptr %2, i64 96
   %82 = load i32, ptr %81, align 8
@@ -18469,7 +18469,7 @@ bitstruct_requires_bitswap.argprom.exit.i:        ; preds = %79, %77
   %.not134.i = icmp ugt i32 %89, %90
   br i1 %.not134.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %bitstruct_requires_bitswap.argprom.exit.i
+.lr.ph.i:                                         ; preds = %bitstruct_requires_bitswap.exit.i
   %96 = and i32 %82, 7
   %97 = getelementptr inbounds i8, ptr %1, i64 4
   %98 = getelementptr inbounds i8, ptr %0, i64 64
@@ -18579,8 +18579,8 @@ llvm_emit_array_gep_raw.exit.i:                   ; preds = %111, %102
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %102, !llvm.loop !68
 
-._crit_edge.i:                                    ; preds = %157, %bitstruct_requires_bitswap.argprom.exit.i
-  %.0118.lcssa.i = phi ptr [ null, %bitstruct_requires_bitswap.argprom.exit.i ], [ %.1.i95, %157 ]
+._crit_edge.i:                                    ; preds = %157, %bitstruct_requires_bitswap.exit.i
+  %.0118.lcssa.i = phi ptr [ null, %bitstruct_requires_bitswap.exit.i ], [ %.1.i95, %157 ]
   br i1 %.0.i.i, label %158, label %llvm_bswap_non_integral.exit.i
 
 158:                                              ; preds = %._crit_edge.i
@@ -18657,23 +18657,23 @@ llvm_extract_bitvalue_from_array.exit:            ; preds = %llvm_extract_bool_b
   %196 = trunc i8 %195 to i1
   %197 = and i8 %.val, 2
   %.not.i = icmp eq i8 %197, 0
-  br i1 %.not.i, label %bitstruct_requires_bitswap.argprom.exit, label %198
+  br i1 %.not.i, label %bitstruct_requires_bitswap.exit, label %198
 
 198:                                              ; preds = %192
   br i1 %196, label %202, label %200
 
-bitstruct_requires_bitswap.argprom.exit:          ; preds = %192
+bitstruct_requires_bitswap.exit:                  ; preds = %192
   %199 = and i8 %.val, 4
   %.not4.i = icmp ne i8 %199, 0
   %..i = select i1 %.not4.i, i1 %196, i1 false
   br i1 %..i, label %200, label %202
 
-200:                                              ; preds = %198, %bitstruct_requires_bitswap.argprom.exit
+200:                                              ; preds = %198, %bitstruct_requires_bitswap.exit
   %201 = tail call fastcc ptr @llvm_emit_bswap(ptr noundef %0, ptr noundef %193)
   br label %202
 
-202:                                              ; preds = %198, %200, %bitstruct_requires_bitswap.argprom.exit
-  %.082 = phi ptr [ %201, %200 ], [ %193, %bitstruct_requires_bitswap.argprom.exit ], [ %193, %198 ]
+202:                                              ; preds = %198, %200, %bitstruct_requires_bitswap.exit
+  %.082 = phi ptr [ %201, %200 ], [ %193, %bitstruct_requires_bitswap.exit ], [ %193, %198 ]
   %203 = load ptr, ptr %24, align 8
   %204 = tail call i32 @type_size(ptr noundef %203) #10
   %205 = zext i32 %204 to i64
@@ -18814,15 +18814,15 @@ define internal fastcc void @llvm_emit_bitassign_array(ptr noundef %0, ptr nound
 
 17:                                               ; preds = %5
   %18 = xor i1 %15, true
-  br label %bitstruct_requires_bitswap.argprom.exit
+  br label %bitstruct_requires_bitswap.exit
 
 19:                                               ; preds = %5
   %20 = and i8 %.val, 4
   %.not4.i = icmp ne i8 %20, 0
   %..i = select i1 %.not4.i, i1 %15, i1 false
-  br label %bitstruct_requires_bitswap.argprom.exit
+  br label %bitstruct_requires_bitswap.exit
 
-bitstruct_requires_bitswap.argprom.exit:          ; preds = %17, %19
+bitstruct_requires_bitswap.exit:                  ; preds = %17, %19
   %.0.i = phi i1 [ %18, %17 ], [ %..i, %19 ]
   call fastcc void @llvm_emit_update_bitstruct_array(ptr noundef %0, ptr noundef %7, i32 noundef %9, ptr noundef %12, i1 noundef zeroext %.0.i, ptr noundef %4, ptr noundef %1)
   ret void
@@ -19887,7 +19887,7 @@ type_flatten.exit..thread470_crit_edge:           ; preds = %type_flatten.exit
   %.0400 = phi ptr [ %531, %530 ], [ %533, %532 ], [ %364, %520 ]
   %535 = getelementptr inbounds i8, ptr %2, i64 8
   %536 = load i64, ptr %535, align 8
-  call fastcc void @llvm_emit_trap_invalid_shift.argprom(ptr noundef nonnull %0, ptr noundef %.0400, ptr noundef nonnull %334, i64 %536)
+  call fastcc void @llvm_emit_trap_invalid_shift(ptr noundef nonnull %0, ptr noundef %.0400, ptr noundef nonnull %334, i64 %536)
   %537 = load i32, ptr %334, align 8
   %538 = add i32 %537, -8
   %or.cond427 = icmp ult i32 %538, 5
@@ -19936,7 +19936,7 @@ type_flatten.exit..thread470_crit_edge:           ; preds = %type_flatten.exit
   %.0401 = phi ptr [ %560, %559 ], [ %562, %561 ], [ %364, %549 ]
   %564 = getelementptr inbounds i8, ptr %2, i64 8
   %565 = load i64, ptr %564, align 8
-  call fastcc void @llvm_emit_trap_invalid_shift.argprom(ptr noundef nonnull %0, ptr noundef %.0401, ptr noundef nonnull %334, i64 %565)
+  call fastcc void @llvm_emit_trap_invalid_shift(ptr noundef nonnull %0, ptr noundef %.0401, ptr noundef nonnull %334, i64 %565)
   %566 = getelementptr inbounds i8, ptr %0, i64 64
   %567 = load ptr, ptr %566, align 8
   %568 = call ptr @LLVMBuildShl(ptr noundef %567, ptr noundef %362, ptr noundef %.0401, ptr noundef nonnull @.str.181) #10
@@ -20283,7 +20283,7 @@ declare ptr @LLVMBuildURem(ptr noundef, ptr noundef, ptr noundef, ptr noundef) l
 declare ptr @LLVMBuildSRem(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_trap_invalid_shift.argprom(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 %3) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_trap_invalid_shift(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.BEValue, align 8
   %7 = alloca ptr, align 8

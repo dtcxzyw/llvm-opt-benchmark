@@ -800,7 +800,7 @@ if.end64:                                         ; preds = %land.lhs.true61, %i
   br i1 %tobool66.not, label %lor.lhs.false67, label %if.then70
 
 lor.lhs.false67:                                  ; preds = %if.end64
-  %call68 = call fastcc zeroext i1 @tailmatch.argprom(ptr noundef %hostname)
+  %call68 = call fastcc zeroext i1 @tailmatch(ptr noundef %hostname)
   br i1 %call68, label %if.then70, label %if.else72
 
 if.then70:                                        ; preds = %lor.lhs.false67, %if.end64
@@ -1001,7 +1001,7 @@ declare void @Curl_set_in_callback(ptr noundef, i1 noundef zeroext) local_unname
 declare ptr @Curl_ip2addr(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @tailmatch.argprom(ptr noundef %full) unnamed_addr #0 {
+define internal fastcc zeroext i1 @tailmatch(ptr noundef %full) unnamed_addr #0 {
 entry:
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %full) #12
   %cmp = icmp ult i64 %call1, 10

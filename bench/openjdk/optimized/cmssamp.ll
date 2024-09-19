@@ -45,7 +45,7 @@ define hidden range(i32 0, 2) i32 @cmsDetectBlackPoint(ptr noundef %0, ptr nound
   br i1 %.not, label %17, label %15
 
 15:                                               ; preds = %13
-  %16 = tail call fastcc i32 @BlackPointAsDarkerColorant.argelim(ptr noundef %1, i32 noundef 1, ptr noundef %0)
+  %16 = tail call fastcc i32 @BlackPointAsDarkerColorant(ptr noundef %1, i32 noundef 1, ptr noundef %0)
   br label %32
 
 17:                                               ; preds = %13
@@ -75,7 +75,7 @@ define hidden range(i32 0, 2) i32 @cmsDetectBlackPoint(ptr noundef %0, ptr nound
   br label %32
 
 30:                                               ; preds = %25, %22, %20
-  %31 = tail call fastcc i32 @BlackPointAsDarkerColorant.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %0)
+  %31 = tail call fastcc i32 @BlackPointAsDarkerColorant(ptr noundef %1, i32 noundef %2, ptr noundef %0)
   br label %32
 
 32:                                               ; preds = %30, %28, %17, %15, %8, %6
@@ -90,7 +90,7 @@ declare i32 @cmsGetEncodedICCversion(ptr noundef) local_unnamed_addr #1
 declare i32 @cmsIsMatrixShaper(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @BlackPointAsDarkerColorant.argelim(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @BlackPointAsDarkerColorant(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca %struct.cmsCIELab, align 8
@@ -302,7 +302,7 @@ define hidden range(i32 0, 2) i32 @cmsDetectDestinationBlackPoint(ptr noundef %0
   br i1 %.not130, label %26, label %24
 
 24:                                               ; preds = %22
-  %25 = tail call fastcc i32 @BlackPointAsDarkerColorant.argelim(ptr noundef %1, i32 noundef 1, ptr noundef %0)
+  %25 = tail call fastcc i32 @BlackPointAsDarkerColorant(ptr noundef %1, i32 noundef 1, ptr noundef %0)
   br label %119
 
 26:                                               ; preds = %22

@@ -798,7 +798,7 @@ RARRAY_LENINT.exit.i:                             ; preds = %rb_array_len.exit.i
   %86 = and i64 %.0.i.i.i, 2147483647
   %87 = call i64 @rb_ary_new_capa(i64 noundef %86) #8
   %.not3.i = icmp eq i32 %81, 0
-  br i1 %.not3.i, label %normalize_argument_types.argprom.exit, label %.lr.ph.i
+  br i1 %.not3.i, label %normalize_argument_types.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %85
   %88 = getelementptr inbounds i8, ptr %69, i64 16
@@ -843,7 +843,7 @@ rb_num2int_inline.exit.i:                         ; preds = %101, %99
   %106 = trunc nuw nsw i64 %indvars.iv.i to i32
   %107 = add nsw i32 %81, -1
   %.not.i30 = icmp eq i32 %107, %106
-  br i1 %.not.i30, label %normalize_argument_types.argprom.exit, label %108
+  br i1 %.not.i30, label %normalize_argument_types.exit, label %108
 
 108:                                              ; preds = %105
   %109 = load i64, ptr @rb_eArgError, align 8
@@ -858,9 +858,9 @@ rb_num2int_inline.exit.i:                         ; preds = %101, %99
   %114 = call i64 @rb_ary_push(i64 noundef %87, i64 noundef %113) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %86
-  br i1 %exitcond.not.i, label %normalize_argument_types.argprom.exit, label %90, !llvm.loop !11
+  br i1 %exitcond.not.i, label %normalize_argument_types.exit, label %90, !llvm.loop !11
 
-normalize_argument_types.argprom.exit:            ; preds = %110, %105, %85
+normalize_argument_types.exit:                    ; preds = %110, %105, %85
   %.031 = phi i64 [ 0, %85 ], [ 20, %105 ], [ 0, %110 ]
   call void @rb_obj_freeze_inline(i64 noundef %87) #8
   store i64 %87, ptr %5, align 8

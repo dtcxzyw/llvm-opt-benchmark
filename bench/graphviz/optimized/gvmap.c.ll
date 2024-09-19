@@ -64,31 +64,31 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %26)
   %28 = load ptr, ptr %1, align 8
   store i32 0, ptr @opterr, align 4
-  br label %openFile.argprom.exit.i
+  br label %openFile.exit.i
 
-openFile.argprom.exit.i:                          ; preds = %openFile.argprom.exit.i.backedge, %2
-  %.sroa.40.0 = phi ptr [ null, %2 ], [ %.sroa.40.0.be, %openFile.argprom.exit.i.backedge ]
-  %.sroa.76.0 = phi i32 [ 123, %2 ], [ %.sroa.76.0.be, %openFile.argprom.exit.i.backedge ]
-  %.sroa.70.1 = phi i32 [ 0, %2 ], [ %.sroa.70.1.be, %openFile.argprom.exit.i.backedge ]
-  %.sroa.65.0 = phi i1 [ false, %2 ], [ %.sroa.65.0.be, %openFile.argprom.exit.i.backedge ]
-  %.sroa.62.0 = phi ptr [ @.str, %2 ], [ %.sroa.62.0.be, %openFile.argprom.exit.i.backedge ]
-  %.sroa.57.0 = phi i32 [ 0, %2 ], [ %.sroa.57.0.be, %openFile.argprom.exit.i.backedge ]
-  %.sroa.54.0 = phi i32 [ 0, %2 ], [ %.sroa.54.0.be, %openFile.argprom.exit.i.backedge ]
-  %.sroa.51.0 = phi i1 [ true, %2 ], [ %.sroa.51.0.be, %openFile.argprom.exit.i.backedge ]
-  %.sroa.48.0 = phi i32 [ -1, %2 ], [ %.sroa.48.0.be, %openFile.argprom.exit.i.backedge ]
-  %.sroa.45.0 = phi i32 [ 0, %2 ], [ %.sroa.45.0.be, %openFile.argprom.exit.i.backedge ]
-  %.sroa.43.0 = phi ptr [ null, %2 ], [ %.sroa.43.0.be, %openFile.argprom.exit.i.backedge ]
-  %.sroa.37.0 = phi double [ 0.000000e+00, %2 ], [ %.sroa.37.0.be, %openFile.argprom.exit.i.backedge ]
-  %.sroa.33.0 = phi i32 [ 1, %2 ], [ %.sroa.33.0.be, %openFile.argprom.exit.i.backedge ]
-  %.sroa.31.0 = phi i1 [ false, %2 ], [ %.sroa.31.0.be, %openFile.argprom.exit.i.backedge ]
-  %.sroa.21.0 = phi double [ 0.000000e+00, %2 ], [ %.sroa.21.0.be, %openFile.argprom.exit.i.backedge ]
-  %.sroa.18.0 = phi i32 [ -1, %2 ], [ %.sroa.18.0.be, %openFile.argprom.exit.i.backedge ]
-  %.sroa.13.0 = phi double [ 0.000000e+00, %2 ], [ %.sroa.13.0.be, %openFile.argprom.exit.i.backedge ]
-  %.sroa.29.0 = phi i32 [ 0, %2 ], [ %.sroa.29.0.be, %openFile.argprom.exit.i.backedge ]
-  %.sroa.5.0 = phi ptr [ null, %2 ], [ %.sroa.5.0.be, %openFile.argprom.exit.i.backedge ]
-  %.sroa.26.0 = phi i32 [ 0, %2 ], [ %.sroa.26.0.be, %openFile.argprom.exit.i.backedge ]
+openFile.exit.i:                                  ; preds = %openFile.exit.i.backedge, %2
+  %.sroa.40.0 = phi ptr [ null, %2 ], [ %.sroa.40.0.be, %openFile.exit.i.backedge ]
+  %.sroa.76.0 = phi i32 [ 123, %2 ], [ %.sroa.76.0.be, %openFile.exit.i.backedge ]
+  %.sroa.70.1 = phi i32 [ 0, %2 ], [ %.sroa.70.1.be, %openFile.exit.i.backedge ]
+  %.sroa.65.0 = phi i1 [ false, %2 ], [ %.sroa.65.0.be, %openFile.exit.i.backedge ]
+  %.sroa.62.0 = phi ptr [ @.str, %2 ], [ %.sroa.62.0.be, %openFile.exit.i.backedge ]
+  %.sroa.57.0 = phi i32 [ 0, %2 ], [ %.sroa.57.0.be, %openFile.exit.i.backedge ]
+  %.sroa.54.0 = phi i32 [ 0, %2 ], [ %.sroa.54.0.be, %openFile.exit.i.backedge ]
+  %.sroa.51.0 = phi i1 [ true, %2 ], [ %.sroa.51.0.be, %openFile.exit.i.backedge ]
+  %.sroa.48.0 = phi i32 [ -1, %2 ], [ %.sroa.48.0.be, %openFile.exit.i.backedge ]
+  %.sroa.45.0 = phi i32 [ 0, %2 ], [ %.sroa.45.0.be, %openFile.exit.i.backedge ]
+  %.sroa.43.0 = phi ptr [ null, %2 ], [ %.sroa.43.0.be, %openFile.exit.i.backedge ]
+  %.sroa.37.0 = phi double [ 0.000000e+00, %2 ], [ %.sroa.37.0.be, %openFile.exit.i.backedge ]
+  %.sroa.33.0 = phi i32 [ 1, %2 ], [ %.sroa.33.0.be, %openFile.exit.i.backedge ]
+  %.sroa.31.0 = phi i1 [ false, %2 ], [ %.sroa.31.0.be, %openFile.exit.i.backedge ]
+  %.sroa.21.0 = phi double [ 0.000000e+00, %2 ], [ %.sroa.21.0.be, %openFile.exit.i.backedge ]
+  %.sroa.18.0 = phi i32 [ -1, %2 ], [ %.sroa.18.0.be, %openFile.exit.i.backedge ]
+  %.sroa.13.0 = phi double [ 0.000000e+00, %2 ], [ %.sroa.13.0.be, %openFile.exit.i.backedge ]
+  %.sroa.29.0 = phi i32 [ 0, %2 ], [ %.sroa.29.0.be, %openFile.exit.i.backedge ]
+  %.sroa.5.0 = phi ptr [ null, %2 ], [ %.sroa.5.0.be, %openFile.exit.i.backedge ]
+  %.sroa.26.0 = phi i32 [ 0, %2 ], [ %.sroa.26.0.be, %openFile.exit.i.backedge ]
   %29 = call i32 @getopt(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.1) #12
-  switch i32 %29, label %openFile.argprom.exit.i.backedge [
+  switch i32 %29, label %openFile.exit.i.backedge [
     i32 -1, label %init.exit
     i32 109, label %30
     i32 81, label %37
@@ -112,23 +112,23 @@ openFile.argprom.exit.i:                          ; preds = %openFile.argprom.ex
     i32 98, label %132
   ]
 
-30:                                               ; preds = %openFile.argprom.exit.i
+30:                                               ; preds = %openFile.exit.i
   %31 = load ptr, ptr @optarg, align 8
   %32 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %31, ptr noundef nonnull @.str.2, ptr noundef nonnull %23) #12
   %33 = icmp sgt i32 %32, 0
   %34 = load double, ptr %23, align 8
   %35 = fcmp une double %34, 0.000000e+00
   %or.cond.i = select i1 %33, i1 %35, i1 false
-  br i1 %or.cond.i, label %openFile.argprom.exit.i.backedge, label %36
+  br i1 %or.cond.i, label %openFile.exit.i.backedge, label %36
 
 36:                                               ; preds = %30
   call fastcc void @usage(ptr noundef %28, i32 noundef 1)
   unreachable
 
-37:                                               ; preds = %openFile.argprom.exit.i
-  br label %openFile.argprom.exit.i.backedge
+37:                                               ; preds = %openFile.exit.i
+  br label %openFile.exit.i.backedge
 
-38:                                               ; preds = %openFile.argprom.exit.i
+38:                                               ; preds = %openFile.exit.i
   %39 = load ptr, ptr @optarg, align 8
   %40 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %39, ptr noundef nonnull @.str.2, ptr noundef nonnull %23) #12
   %41 = icmp sgt i32 %40, 0
@@ -136,13 +136,13 @@ openFile.argprom.exit.i:                          ; preds = %openFile.argprom.ex
 
 42:                                               ; preds = %38
   %43 = load double, ptr %23, align 8
-  br label %openFile.argprom.exit.i.backedge
+  br label %openFile.exit.i.backedge
 
 44:                                               ; preds = %38
   call fastcc void @usage(ptr noundef %28, i32 noundef 1)
   unreachable
 
-45:                                               ; preds = %openFile.argprom.exit.i
+45:                                               ; preds = %openFile.exit.i
   %46 = load ptr, ptr @optarg, align 8
   %47 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %46, ptr noundef nonnull @.str.3, ptr noundef nonnull %24) #12
   %48 = icmp sgt i32 %47, 0
@@ -151,7 +151,7 @@ openFile.argprom.exit.i:                          ; preds = %openFile.argprom.ex
 49:                                               ; preds = %45
   %50 = load i32, ptr %24, align 4
   %51 = call i32 @llvm.smax.i32(i32 %50, i32 0)
-  br label %openFile.argprom.exit.i.backedge
+  br label %openFile.exit.i.backedge
 
 52:                                               ; preds = %45
   %53 = load ptr, ptr @optarg, align 8
@@ -168,21 +168,21 @@ openFile.argprom.exit.i:                          ; preds = %openFile.argprom.ex
 60:                                               ; preds = %56
   %61 = load i32, ptr %24, align 4
   %62 = call i32 @llvm.smax.i32(i32 %61, i32 0)
-  br label %openFile.argprom.exit.i.backedge
+  br label %openFile.exit.i.backedge
 
 63:                                               ; preds = %56, %52
   call fastcc void @usage(ptr noundef %28, i32 noundef 1)
   unreachable
 
-64:                                               ; preds = %openFile.argprom.exit.i
+64:                                               ; preds = %openFile.exit.i
   %65 = load ptr, ptr @optarg, align 8
   %66 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %65, ptr noundef nonnull @.str.3, ptr noundef nonnull %25) #12
   %67 = icmp sgt i32 %66, 0
   %68 = load i32, ptr %25, align 4
   %spec.select = select i1 %67, i32 %68, i32 %.sroa.18.0
-  br label %openFile.argprom.exit.i.backedge
+  br label %openFile.exit.i.backedge
 
-69:                                               ; preds = %openFile.argprom.exit.i
+69:                                               ; preds = %openFile.exit.i
   %70 = load ptr, ptr @optarg, align 8
   %71 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %70, ptr noundef nonnull @.str.3, ptr noundef nonnull %25) #12
   %72 = icmp sgt i32 %71, 0
@@ -190,49 +190,49 @@ openFile.argprom.exit.i:                          ; preds = %openFile.argprom.ex
   %74 = icmp sgt i32 %73, 0
   %or.cond3.i = select i1 %72, i1 %74, i1 false
   %spec.select19 = select i1 %or.cond3.i, i32 %73, i32 %.sroa.45.0
-  br label %openFile.argprom.exit.i.backedge
+  br label %openFile.exit.i.backedge
 
-openFile.argprom.exit.i.backedge:                 ; preds = %69, %64, %123, %101, %98, %79, %30, %142, %138, %136, %130, %121, %110, %91, %86, %78, %77, %76, %75, %60, %49, %42, %37, %openFile.argprom.exit.i
-  %.sroa.40.0.be = phi ptr [ %.sroa.40.0, %openFile.argprom.exit.i ], [ %.sroa.40.0, %136 ], [ %.sroa.40.0, %138 ], [ %.sroa.40.0, %130 ], [ %.sroa.40.0, %142 ], [ %.sroa.40.0, %121 ], [ %111, %110 ], [ %.sroa.40.0, %91 ], [ %.sroa.40.0, %86 ], [ %.sroa.40.0, %78 ], [ %.sroa.40.0, %77 ], [ %.sroa.40.0, %76 ], [ %.sroa.40.0, %75 ], [ %.sroa.40.0, %49 ], [ %.sroa.40.0, %60 ], [ %.sroa.40.0, %42 ], [ %.sroa.40.0, %37 ], [ %.sroa.40.0, %30 ], [ %.sroa.40.0, %79 ], [ %.sroa.40.0, %98 ], [ %.sroa.40.0, %101 ], [ %.sroa.40.0, %123 ], [ %.sroa.40.0, %64 ], [ %.sroa.40.0, %69 ]
-  %.sroa.76.0.be = phi i32 [ %.sroa.76.0, %openFile.argprom.exit.i ], [ %.sroa.76.0, %136 ], [ %.sroa.76.0, %138 ], [ %.sroa.76.0, %130 ], [ %.sroa.76.0, %142 ], [ %122, %121 ], [ %.sroa.76.0, %110 ], [ %.sroa.76.0, %91 ], [ %.sroa.76.0, %86 ], [ %.sroa.76.0, %78 ], [ %.sroa.76.0, %77 ], [ %.sroa.76.0, %76 ], [ %.sroa.76.0, %75 ], [ %.sroa.76.0, %49 ], [ %.sroa.76.0, %60 ], [ %.sroa.76.0, %42 ], [ %.sroa.76.0, %37 ], [ %.sroa.76.0, %30 ], [ %.sroa.76.0, %79 ], [ %.sroa.76.0, %98 ], [ %.sroa.76.0, %101 ], [ %.sroa.76.0, %123 ], [ %.sroa.76.0, %64 ], [ %.sroa.76.0, %69 ]
-  %.sroa.70.1.be = phi i32 [ %.sroa.70.1, %openFile.argprom.exit.i ], [ %.sroa.70.1, %136 ], [ %.sroa.70.1, %138 ], [ %.sroa.70.1, %130 ], [ %.sroa.70.1, %142 ], [ %.sroa.70.1, %121 ], [ %.sroa.70.1, %110 ], [ %.sroa.70.1, %91 ], [ %.sroa.70.1, %86 ], [ %.sroa.70.1, %78 ], [ %.sroa.70.1, %77 ], [ %.sroa.70.1, %76 ], [ %.sroa.70.1, %75 ], [ %.sroa.70.1, %49 ], [ %62, %60 ], [ %.sroa.70.1, %42 ], [ %.sroa.70.1, %37 ], [ %.sroa.70.1, %30 ], [ %.sroa.70.1, %79 ], [ %.sroa.70.1, %98 ], [ %.sroa.70.1, %101 ], [ %.sroa.70.1, %123 ], [ %.sroa.70.1, %64 ], [ %.sroa.70.1, %69 ]
-  %.sroa.65.0.be = phi i1 [ %.sroa.65.0, %openFile.argprom.exit.i ], [ %.sroa.65.0, %136 ], [ %.sroa.65.0, %138 ], [ %.sroa.65.0, %130 ], [ %.sroa.65.0, %142 ], [ %.sroa.65.0, %121 ], [ %.sroa.65.0, %110 ], [ %.sroa.65.0, %91 ], [ %.sroa.65.0, %86 ], [ %.sroa.65.0, %78 ], [ %.sroa.65.0, %77 ], [ %.sroa.65.0, %76 ], [ true, %75 ], [ %.sroa.65.0, %49 ], [ %.sroa.65.0, %60 ], [ %.sroa.65.0, %42 ], [ %.sroa.65.0, %37 ], [ %.sroa.65.0, %30 ], [ %.sroa.65.0, %79 ], [ %.sroa.65.0, %98 ], [ %.sroa.65.0, %101 ], [ %.sroa.65.0, %123 ], [ %.sroa.65.0, %64 ], [ %.sroa.65.0, %69 ]
-  %.sroa.62.0.be = phi ptr [ %.sroa.62.0, %openFile.argprom.exit.i ], [ %.sroa.62.0, %136 ], [ %.sroa.62.0, %138 ], [ %131, %130 ], [ %.sroa.62.0, %142 ], [ %.sroa.62.0, %121 ], [ %.sroa.62.0, %110 ], [ %.sroa.62.0, %91 ], [ %.sroa.62.0, %86 ], [ %.sroa.62.0, %78 ], [ %.sroa.62.0, %77 ], [ %.sroa.62.0, %76 ], [ %.sroa.62.0, %75 ], [ %.sroa.62.0, %49 ], [ %.sroa.62.0, %60 ], [ %.sroa.62.0, %42 ], [ %.sroa.62.0, %37 ], [ %.sroa.62.0, %30 ], [ %.sroa.62.0, %79 ], [ %.sroa.62.0, %98 ], [ %.sroa.62.0, %101 ], [ %.sroa.62.0, %123 ], [ %.sroa.62.0, %64 ], [ %.sroa.62.0, %69 ]
-  %.sroa.57.0.be = phi i32 [ %.sroa.57.0, %openFile.argprom.exit.i ], [ %.sroa.57.0, %136 ], [ %.sroa.57.0, %138 ], [ %.sroa.57.0, %130 ], [ %.sroa.57.0, %142 ], [ %.sroa.57.0, %121 ], [ %.sroa.57.0, %110 ], [ %.sroa.57.0, %91 ], [ %.sroa.57.0, %86 ], [ %.sroa.57.0, %78 ], [ %.sroa.57.0, %77 ], [ %.sroa.57.0, %76 ], [ %.sroa.57.0, %75 ], [ %51, %49 ], [ %.sroa.57.0, %60 ], [ %.sroa.57.0, %42 ], [ %.sroa.57.0, %37 ], [ %.sroa.57.0, %30 ], [ %.sroa.57.0, %79 ], [ %.sroa.57.0, %98 ], [ %.sroa.57.0, %101 ], [ %.sroa.57.0, %123 ], [ %.sroa.57.0, %64 ], [ %.sroa.57.0, %69 ]
-  %.sroa.54.0.be = phi i32 [ %.sroa.54.0, %openFile.argprom.exit.i ], [ %.sroa.54.0, %136 ], [ %.sroa.54.0, %138 ], [ %.sroa.54.0, %130 ], [ %.sroa.54.0, %142 ], [ %.sroa.54.0, %121 ], [ %.sroa.54.0, %110 ], [ %.sroa.54.0, %91 ], [ %.sroa.54.0, %86 ], [ %.sroa.54.0, %78 ], [ %.sroa.54.0, %77 ], [ %.sroa.54.0, %76 ], [ %.sroa.54.0, %75 ], [ %.sroa.54.0, %49 ], [ %.sroa.54.0, %60 ], [ %.sroa.54.0, %42 ], [ %.sroa.54.0, %37 ], [ %.sroa.54.0, %30 ], [ %.sroa.54.0, %79 ], [ %.sroa.54.0, %98 ], [ %.sroa.54.0, %101 ], [ %127, %123 ], [ %.sroa.54.0, %64 ], [ %.sroa.54.0, %69 ]
-  %.sroa.51.0.be = phi i1 [ %.sroa.51.0, %openFile.argprom.exit.i ], [ %.sroa.51.0, %136 ], [ %.sroa.51.0, %138 ], [ %.sroa.51.0, %130 ], [ %.sroa.51.0, %142 ], [ %.sroa.51.0, %121 ], [ %.sroa.51.0, %110 ], [ %.sroa.51.0, %91 ], [ false, %86 ], [ %.sroa.51.0, %78 ], [ %.sroa.51.0, %77 ], [ %.sroa.51.0, %76 ], [ %.sroa.51.0, %75 ], [ %.sroa.51.0, %49 ], [ %.sroa.51.0, %60 ], [ %.sroa.51.0, %42 ], [ %.sroa.51.0, %37 ], [ %.sroa.51.0, %30 ], [ %.sroa.51.0, %79 ], [ %.sroa.51.0, %98 ], [ %.sroa.51.0, %101 ], [ %.sroa.51.0, %123 ], [ %.sroa.51.0, %64 ], [ %.sroa.51.0, %69 ]
-  %.sroa.48.0.be = phi i32 [ %.sroa.48.0, %openFile.argprom.exit.i ], [ %.sroa.48.0, %136 ], [ %.sroa.48.0, %138 ], [ %.sroa.48.0, %130 ], [ %.sroa.48.0, %142 ], [ %.sroa.48.0, %121 ], [ %.sroa.48.0, %110 ], [ %92, %91 ], [ %.sroa.48.0, %86 ], [ %.sroa.48.0, %78 ], [ %.sroa.48.0, %77 ], [ %.sroa.48.0, %76 ], [ %.sroa.48.0, %75 ], [ %.sroa.48.0, %49 ], [ %.sroa.48.0, %60 ], [ %.sroa.48.0, %42 ], [ %.sroa.48.0, %37 ], [ %.sroa.48.0, %30 ], [ %.sroa.48.0, %79 ], [ %.sroa.48.0, %98 ], [ %.sroa.48.0, %101 ], [ %.sroa.48.0, %123 ], [ %.sroa.48.0, %64 ], [ %.sroa.48.0, %69 ]
-  %.sroa.45.0.be = phi i32 [ %.sroa.45.0, %openFile.argprom.exit.i ], [ %.sroa.45.0, %136 ], [ %.sroa.45.0, %138 ], [ %.sroa.45.0, %130 ], [ %.sroa.45.0, %142 ], [ %.sroa.45.0, %121 ], [ %.sroa.45.0, %110 ], [ %.sroa.45.0, %91 ], [ %.sroa.45.0, %86 ], [ %.sroa.45.0, %78 ], [ %.sroa.45.0, %77 ], [ %.sroa.45.0, %76 ], [ %.sroa.45.0, %75 ], [ %.sroa.45.0, %49 ], [ %.sroa.45.0, %60 ], [ %.sroa.45.0, %42 ], [ %.sroa.45.0, %37 ], [ %.sroa.45.0, %30 ], [ %.sroa.45.0, %79 ], [ %.sroa.45.0, %98 ], [ %.sroa.45.0, %101 ], [ %.sroa.45.0, %123 ], [ %.sroa.45.0, %64 ], [ %spec.select19, %69 ]
-  %.sroa.43.0.be = phi ptr [ %.sroa.43.0, %openFile.argprom.exit.i ], [ %.sroa.43.0, %136 ], [ %.sroa.43.0, %138 ], [ %.sroa.43.0, %130 ], [ %.sroa.43.0, %142 ], [ %.sroa.43.0, %121 ], [ %.sroa.43.0, %110 ], [ %.sroa.43.0, %91 ], [ %.sroa.43.0, %86 ], [ %.sroa.43.0, %78 ], [ %.sroa.43.0, %77 ], [ %.sroa.43.0, %76 ], [ %.sroa.43.0, %75 ], [ %.sroa.43.0, %49 ], [ %.sroa.43.0, %60 ], [ %.sroa.43.0, %42 ], [ %.sroa.43.0, %37 ], [ %.sroa.43.0, %30 ], [ %.sroa.43.0, %79 ], [ %26, %98 ], [ %.sroa.43.0, %101 ], [ %.sroa.43.0, %123 ], [ %.sroa.43.0, %64 ], [ %.sroa.43.0, %69 ]
-  %.sroa.37.0.be = phi double [ %.sroa.37.0, %openFile.argprom.exit.i ], [ %137, %136 ], [ %.sroa.37.0, %138 ], [ %.sroa.37.0, %130 ], [ %.sroa.37.0, %142 ], [ %.sroa.37.0, %121 ], [ %.sroa.37.0, %110 ], [ %.sroa.37.0, %91 ], [ %.sroa.37.0, %86 ], [ %.sroa.37.0, %78 ], [ %.sroa.37.0, %77 ], [ %.sroa.37.0, %76 ], [ %.sroa.37.0, %75 ], [ %.sroa.37.0, %49 ], [ %.sroa.37.0, %60 ], [ %.sroa.37.0, %42 ], [ %.sroa.37.0, %37 ], [ %.sroa.37.0, %30 ], [ %.sroa.37.0, %79 ], [ %.sroa.37.0, %98 ], [ %.sroa.37.0, %101 ], [ %.sroa.37.0, %123 ], [ %.sroa.37.0, %64 ], [ %.sroa.37.0, %69 ]
-  %.sroa.33.0.be = phi i32 [ %.sroa.33.0, %openFile.argprom.exit.i ], [ %.sroa.33.0, %136 ], [ %.sroa.33.0, %138 ], [ %.sroa.33.0, %130 ], [ %.sroa.33.0, %142 ], [ %.sroa.33.0, %121 ], [ 0, %110 ], [ %.sroa.33.0, %91 ], [ %.sroa.33.0, %86 ], [ %.sroa.33.0, %78 ], [ %.sroa.33.0, %77 ], [ %.sroa.33.0, %76 ], [ %.sroa.33.0, %75 ], [ %.sroa.33.0, %49 ], [ %.sroa.33.0, %60 ], [ %.sroa.33.0, %42 ], [ %.sroa.33.0, %37 ], [ %.sroa.33.0, %30 ], [ %.sroa.33.0, %79 ], [ %.sroa.33.0, %98 ], [ %105, %101 ], [ %.sroa.33.0, %123 ], [ %.sroa.33.0, %64 ], [ %.sroa.33.0, %69 ]
-  %.sroa.31.0.be = phi i1 [ %.sroa.31.0, %openFile.argprom.exit.i ], [ %.sroa.31.0, %136 ], [ %.sroa.31.0, %138 ], [ %.sroa.31.0, %130 ], [ %.sroa.31.0, %142 ], [ %.sroa.31.0, %121 ], [ %.sroa.31.0, %110 ], [ %.sroa.31.0, %91 ], [ %.sroa.31.0, %86 ], [ true, %78 ], [ %.sroa.31.0, %77 ], [ %.sroa.31.0, %76 ], [ %.sroa.31.0, %75 ], [ %.sroa.31.0, %49 ], [ %.sroa.31.0, %60 ], [ %.sroa.31.0, %42 ], [ %.sroa.31.0, %37 ], [ %.sroa.31.0, %30 ], [ %.sroa.31.0, %79 ], [ %.sroa.31.0, %98 ], [ %.sroa.31.0, %101 ], [ %.sroa.31.0, %123 ], [ %.sroa.31.0, %64 ], [ %.sroa.31.0, %69 ]
-  %.sroa.21.0.be = phi double [ %.sroa.21.0, %openFile.argprom.exit.i ], [ %.sroa.21.0, %136 ], [ %.sroa.21.0, %138 ], [ %.sroa.21.0, %130 ], [ %.sroa.21.0, %142 ], [ %.sroa.21.0, %121 ], [ %.sroa.21.0, %110 ], [ %.sroa.21.0, %91 ], [ %.sroa.21.0, %86 ], [ %.sroa.21.0, %78 ], [ %.sroa.21.0, %77 ], [ %.sroa.21.0, %76 ], [ %.sroa.21.0, %75 ], [ %.sroa.21.0, %49 ], [ %.sroa.21.0, %60 ], [ %.sroa.21.0, %42 ], [ %.sroa.21.0, %37 ], [ %34, %30 ], [ %.sroa.21.0, %79 ], [ %.sroa.21.0, %98 ], [ %.sroa.21.0, %101 ], [ %.sroa.21.0, %123 ], [ %.sroa.21.0, %64 ], [ %.sroa.21.0, %69 ]
-  %.sroa.18.0.be = phi i32 [ %.sroa.18.0, %openFile.argprom.exit.i ], [ %.sroa.18.0, %136 ], [ %.sroa.18.0, %138 ], [ %.sroa.18.0, %130 ], [ %.sroa.18.0, %142 ], [ %.sroa.18.0, %121 ], [ %.sroa.18.0, %110 ], [ %.sroa.18.0, %91 ], [ %.sroa.18.0, %86 ], [ %.sroa.18.0, %78 ], [ %.sroa.18.0, %77 ], [ %.sroa.18.0, %76 ], [ %.sroa.18.0, %75 ], [ %.sroa.18.0, %49 ], [ %.sroa.18.0, %60 ], [ %.sroa.18.0, %42 ], [ %.sroa.18.0, %37 ], [ %.sroa.18.0, %30 ], [ %.sroa.18.0, %79 ], [ %.sroa.18.0, %98 ], [ %.sroa.18.0, %101 ], [ %.sroa.18.0, %123 ], [ %spec.select, %64 ], [ %.sroa.18.0, %69 ]
-  %.sroa.13.0.be = phi double [ %.sroa.13.0, %openFile.argprom.exit.i ], [ %.sroa.13.0, %136 ], [ %.sroa.13.0, %138 ], [ %.sroa.13.0, %130 ], [ %.sroa.13.0, %142 ], [ %.sroa.13.0, %121 ], [ %.sroa.13.0, %110 ], [ %.sroa.13.0, %91 ], [ %.sroa.13.0, %86 ], [ %.sroa.13.0, %78 ], [ %.sroa.13.0, %77 ], [ %.sroa.13.0, %76 ], [ %.sroa.13.0, %75 ], [ %.sroa.13.0, %49 ], [ %.sroa.13.0, %60 ], [ %43, %42 ], [ %.sroa.13.0, %37 ], [ %.sroa.13.0, %30 ], [ %.sroa.13.0, %79 ], [ %.sroa.13.0, %98 ], [ %.sroa.13.0, %101 ], [ %.sroa.13.0, %123 ], [ %.sroa.13.0, %64 ], [ %.sroa.13.0, %69 ]
-  %.sroa.29.0.be = phi i32 [ %.sroa.29.0, %openFile.argprom.exit.i ], [ %.sroa.29.0, %136 ], [ %.sroa.29.0, %138 ], [ %.sroa.29.0, %130 ], [ %.sroa.29.0, %142 ], [ %.sroa.29.0, %121 ], [ %.sroa.29.0, %110 ], [ %.sroa.29.0, %91 ], [ %.sroa.29.0, %86 ], [ %.sroa.29.0, %78 ], [ %.sroa.29.0, %77 ], [ %.sroa.29.0, %76 ], [ %.sroa.29.0, %75 ], [ %.sroa.29.0, %49 ], [ %.sroa.29.0, %60 ], [ %.sroa.29.0, %42 ], [ 1, %37 ], [ %.sroa.29.0, %30 ], [ %.sroa.29.0, %79 ], [ %.sroa.29.0, %98 ], [ %.sroa.29.0, %101 ], [ %.sroa.29.0, %123 ], [ %.sroa.29.0, %64 ], [ %.sroa.29.0, %69 ]
-  %.sroa.5.0.be = phi ptr [ %.sroa.5.0, %openFile.argprom.exit.i ], [ %.sroa.5.0, %136 ], [ %.sroa.5.0, %138 ], [ %.sroa.5.0, %130 ], [ %.sroa.5.0, %142 ], [ %.sroa.5.0, %121 ], [ %.sroa.5.0, %110 ], [ %.sroa.5.0, %91 ], [ %.sroa.5.0, %86 ], [ %.sroa.5.0, %78 ], [ %.sroa.5.0, %77 ], [ %.sroa.5.0, %76 ], [ %.sroa.5.0, %75 ], [ %.sroa.5.0, %49 ], [ %.sroa.5.0, %60 ], [ %.sroa.5.0, %42 ], [ %.sroa.5.0, %37 ], [ %.sroa.5.0, %30 ], [ %81, %79 ], [ %.sroa.5.0, %98 ], [ %.sroa.5.0, %101 ], [ %.sroa.5.0, %123 ], [ %.sroa.5.0, %64 ], [ %.sroa.5.0, %69 ]
-  %.sroa.26.0.be = phi i32 [ %.sroa.26.0, %openFile.argprom.exit.i ], [ %.sroa.26.0, %136 ], [ %.sroa.26.0, %138 ], [ %.sroa.26.0, %130 ], [ %.sroa.26.0, %142 ], [ %.sroa.26.0, %121 ], [ %.sroa.26.0, %110 ], [ %.sroa.26.0, %91 ], [ %.sroa.26.0, %86 ], [ %.sroa.26.0, %78 ], [ 1, %77 ], [ %.sroa.26.0, %76 ], [ %.sroa.26.0, %75 ], [ %.sroa.26.0, %49 ], [ %.sroa.26.0, %60 ], [ %.sroa.26.0, %42 ], [ %.sroa.26.0, %37 ], [ %.sroa.26.0, %30 ], [ %.sroa.26.0, %79 ], [ %.sroa.26.0, %98 ], [ %.sroa.26.0, %101 ], [ %.sroa.26.0, %123 ], [ %.sroa.26.0, %64 ], [ %.sroa.26.0, %69 ]
-  br label %openFile.argprom.exit.i
+openFile.exit.i.backedge:                         ; preds = %69, %64, %123, %101, %98, %79, %30, %142, %138, %136, %130, %121, %110, %91, %86, %78, %77, %76, %75, %60, %49, %42, %37, %openFile.exit.i
+  %.sroa.40.0.be = phi ptr [ %.sroa.40.0, %openFile.exit.i ], [ %.sroa.40.0, %136 ], [ %.sroa.40.0, %138 ], [ %.sroa.40.0, %130 ], [ %.sroa.40.0, %142 ], [ %.sroa.40.0, %121 ], [ %111, %110 ], [ %.sroa.40.0, %91 ], [ %.sroa.40.0, %86 ], [ %.sroa.40.0, %78 ], [ %.sroa.40.0, %77 ], [ %.sroa.40.0, %76 ], [ %.sroa.40.0, %75 ], [ %.sroa.40.0, %49 ], [ %.sroa.40.0, %60 ], [ %.sroa.40.0, %42 ], [ %.sroa.40.0, %37 ], [ %.sroa.40.0, %30 ], [ %.sroa.40.0, %79 ], [ %.sroa.40.0, %98 ], [ %.sroa.40.0, %101 ], [ %.sroa.40.0, %123 ], [ %.sroa.40.0, %64 ], [ %.sroa.40.0, %69 ]
+  %.sroa.76.0.be = phi i32 [ %.sroa.76.0, %openFile.exit.i ], [ %.sroa.76.0, %136 ], [ %.sroa.76.0, %138 ], [ %.sroa.76.0, %130 ], [ %.sroa.76.0, %142 ], [ %122, %121 ], [ %.sroa.76.0, %110 ], [ %.sroa.76.0, %91 ], [ %.sroa.76.0, %86 ], [ %.sroa.76.0, %78 ], [ %.sroa.76.0, %77 ], [ %.sroa.76.0, %76 ], [ %.sroa.76.0, %75 ], [ %.sroa.76.0, %49 ], [ %.sroa.76.0, %60 ], [ %.sroa.76.0, %42 ], [ %.sroa.76.0, %37 ], [ %.sroa.76.0, %30 ], [ %.sroa.76.0, %79 ], [ %.sroa.76.0, %98 ], [ %.sroa.76.0, %101 ], [ %.sroa.76.0, %123 ], [ %.sroa.76.0, %64 ], [ %.sroa.76.0, %69 ]
+  %.sroa.70.1.be = phi i32 [ %.sroa.70.1, %openFile.exit.i ], [ %.sroa.70.1, %136 ], [ %.sroa.70.1, %138 ], [ %.sroa.70.1, %130 ], [ %.sroa.70.1, %142 ], [ %.sroa.70.1, %121 ], [ %.sroa.70.1, %110 ], [ %.sroa.70.1, %91 ], [ %.sroa.70.1, %86 ], [ %.sroa.70.1, %78 ], [ %.sroa.70.1, %77 ], [ %.sroa.70.1, %76 ], [ %.sroa.70.1, %75 ], [ %.sroa.70.1, %49 ], [ %62, %60 ], [ %.sroa.70.1, %42 ], [ %.sroa.70.1, %37 ], [ %.sroa.70.1, %30 ], [ %.sroa.70.1, %79 ], [ %.sroa.70.1, %98 ], [ %.sroa.70.1, %101 ], [ %.sroa.70.1, %123 ], [ %.sroa.70.1, %64 ], [ %.sroa.70.1, %69 ]
+  %.sroa.65.0.be = phi i1 [ %.sroa.65.0, %openFile.exit.i ], [ %.sroa.65.0, %136 ], [ %.sroa.65.0, %138 ], [ %.sroa.65.0, %130 ], [ %.sroa.65.0, %142 ], [ %.sroa.65.0, %121 ], [ %.sroa.65.0, %110 ], [ %.sroa.65.0, %91 ], [ %.sroa.65.0, %86 ], [ %.sroa.65.0, %78 ], [ %.sroa.65.0, %77 ], [ %.sroa.65.0, %76 ], [ true, %75 ], [ %.sroa.65.0, %49 ], [ %.sroa.65.0, %60 ], [ %.sroa.65.0, %42 ], [ %.sroa.65.0, %37 ], [ %.sroa.65.0, %30 ], [ %.sroa.65.0, %79 ], [ %.sroa.65.0, %98 ], [ %.sroa.65.0, %101 ], [ %.sroa.65.0, %123 ], [ %.sroa.65.0, %64 ], [ %.sroa.65.0, %69 ]
+  %.sroa.62.0.be = phi ptr [ %.sroa.62.0, %openFile.exit.i ], [ %.sroa.62.0, %136 ], [ %.sroa.62.0, %138 ], [ %131, %130 ], [ %.sroa.62.0, %142 ], [ %.sroa.62.0, %121 ], [ %.sroa.62.0, %110 ], [ %.sroa.62.0, %91 ], [ %.sroa.62.0, %86 ], [ %.sroa.62.0, %78 ], [ %.sroa.62.0, %77 ], [ %.sroa.62.0, %76 ], [ %.sroa.62.0, %75 ], [ %.sroa.62.0, %49 ], [ %.sroa.62.0, %60 ], [ %.sroa.62.0, %42 ], [ %.sroa.62.0, %37 ], [ %.sroa.62.0, %30 ], [ %.sroa.62.0, %79 ], [ %.sroa.62.0, %98 ], [ %.sroa.62.0, %101 ], [ %.sroa.62.0, %123 ], [ %.sroa.62.0, %64 ], [ %.sroa.62.0, %69 ]
+  %.sroa.57.0.be = phi i32 [ %.sroa.57.0, %openFile.exit.i ], [ %.sroa.57.0, %136 ], [ %.sroa.57.0, %138 ], [ %.sroa.57.0, %130 ], [ %.sroa.57.0, %142 ], [ %.sroa.57.0, %121 ], [ %.sroa.57.0, %110 ], [ %.sroa.57.0, %91 ], [ %.sroa.57.0, %86 ], [ %.sroa.57.0, %78 ], [ %.sroa.57.0, %77 ], [ %.sroa.57.0, %76 ], [ %.sroa.57.0, %75 ], [ %51, %49 ], [ %.sroa.57.0, %60 ], [ %.sroa.57.0, %42 ], [ %.sroa.57.0, %37 ], [ %.sroa.57.0, %30 ], [ %.sroa.57.0, %79 ], [ %.sroa.57.0, %98 ], [ %.sroa.57.0, %101 ], [ %.sroa.57.0, %123 ], [ %.sroa.57.0, %64 ], [ %.sroa.57.0, %69 ]
+  %.sroa.54.0.be = phi i32 [ %.sroa.54.0, %openFile.exit.i ], [ %.sroa.54.0, %136 ], [ %.sroa.54.0, %138 ], [ %.sroa.54.0, %130 ], [ %.sroa.54.0, %142 ], [ %.sroa.54.0, %121 ], [ %.sroa.54.0, %110 ], [ %.sroa.54.0, %91 ], [ %.sroa.54.0, %86 ], [ %.sroa.54.0, %78 ], [ %.sroa.54.0, %77 ], [ %.sroa.54.0, %76 ], [ %.sroa.54.0, %75 ], [ %.sroa.54.0, %49 ], [ %.sroa.54.0, %60 ], [ %.sroa.54.0, %42 ], [ %.sroa.54.0, %37 ], [ %.sroa.54.0, %30 ], [ %.sroa.54.0, %79 ], [ %.sroa.54.0, %98 ], [ %.sroa.54.0, %101 ], [ %127, %123 ], [ %.sroa.54.0, %64 ], [ %.sroa.54.0, %69 ]
+  %.sroa.51.0.be = phi i1 [ %.sroa.51.0, %openFile.exit.i ], [ %.sroa.51.0, %136 ], [ %.sroa.51.0, %138 ], [ %.sroa.51.0, %130 ], [ %.sroa.51.0, %142 ], [ %.sroa.51.0, %121 ], [ %.sroa.51.0, %110 ], [ %.sroa.51.0, %91 ], [ false, %86 ], [ %.sroa.51.0, %78 ], [ %.sroa.51.0, %77 ], [ %.sroa.51.0, %76 ], [ %.sroa.51.0, %75 ], [ %.sroa.51.0, %49 ], [ %.sroa.51.0, %60 ], [ %.sroa.51.0, %42 ], [ %.sroa.51.0, %37 ], [ %.sroa.51.0, %30 ], [ %.sroa.51.0, %79 ], [ %.sroa.51.0, %98 ], [ %.sroa.51.0, %101 ], [ %.sroa.51.0, %123 ], [ %.sroa.51.0, %64 ], [ %.sroa.51.0, %69 ]
+  %.sroa.48.0.be = phi i32 [ %.sroa.48.0, %openFile.exit.i ], [ %.sroa.48.0, %136 ], [ %.sroa.48.0, %138 ], [ %.sroa.48.0, %130 ], [ %.sroa.48.0, %142 ], [ %.sroa.48.0, %121 ], [ %.sroa.48.0, %110 ], [ %92, %91 ], [ %.sroa.48.0, %86 ], [ %.sroa.48.0, %78 ], [ %.sroa.48.0, %77 ], [ %.sroa.48.0, %76 ], [ %.sroa.48.0, %75 ], [ %.sroa.48.0, %49 ], [ %.sroa.48.0, %60 ], [ %.sroa.48.0, %42 ], [ %.sroa.48.0, %37 ], [ %.sroa.48.0, %30 ], [ %.sroa.48.0, %79 ], [ %.sroa.48.0, %98 ], [ %.sroa.48.0, %101 ], [ %.sroa.48.0, %123 ], [ %.sroa.48.0, %64 ], [ %.sroa.48.0, %69 ]
+  %.sroa.45.0.be = phi i32 [ %.sroa.45.0, %openFile.exit.i ], [ %.sroa.45.0, %136 ], [ %.sroa.45.0, %138 ], [ %.sroa.45.0, %130 ], [ %.sroa.45.0, %142 ], [ %.sroa.45.0, %121 ], [ %.sroa.45.0, %110 ], [ %.sroa.45.0, %91 ], [ %.sroa.45.0, %86 ], [ %.sroa.45.0, %78 ], [ %.sroa.45.0, %77 ], [ %.sroa.45.0, %76 ], [ %.sroa.45.0, %75 ], [ %.sroa.45.0, %49 ], [ %.sroa.45.0, %60 ], [ %.sroa.45.0, %42 ], [ %.sroa.45.0, %37 ], [ %.sroa.45.0, %30 ], [ %.sroa.45.0, %79 ], [ %.sroa.45.0, %98 ], [ %.sroa.45.0, %101 ], [ %.sroa.45.0, %123 ], [ %.sroa.45.0, %64 ], [ %spec.select19, %69 ]
+  %.sroa.43.0.be = phi ptr [ %.sroa.43.0, %openFile.exit.i ], [ %.sroa.43.0, %136 ], [ %.sroa.43.0, %138 ], [ %.sroa.43.0, %130 ], [ %.sroa.43.0, %142 ], [ %.sroa.43.0, %121 ], [ %.sroa.43.0, %110 ], [ %.sroa.43.0, %91 ], [ %.sroa.43.0, %86 ], [ %.sroa.43.0, %78 ], [ %.sroa.43.0, %77 ], [ %.sroa.43.0, %76 ], [ %.sroa.43.0, %75 ], [ %.sroa.43.0, %49 ], [ %.sroa.43.0, %60 ], [ %.sroa.43.0, %42 ], [ %.sroa.43.0, %37 ], [ %.sroa.43.0, %30 ], [ %.sroa.43.0, %79 ], [ %26, %98 ], [ %.sroa.43.0, %101 ], [ %.sroa.43.0, %123 ], [ %.sroa.43.0, %64 ], [ %.sroa.43.0, %69 ]
+  %.sroa.37.0.be = phi double [ %.sroa.37.0, %openFile.exit.i ], [ %137, %136 ], [ %.sroa.37.0, %138 ], [ %.sroa.37.0, %130 ], [ %.sroa.37.0, %142 ], [ %.sroa.37.0, %121 ], [ %.sroa.37.0, %110 ], [ %.sroa.37.0, %91 ], [ %.sroa.37.0, %86 ], [ %.sroa.37.0, %78 ], [ %.sroa.37.0, %77 ], [ %.sroa.37.0, %76 ], [ %.sroa.37.0, %75 ], [ %.sroa.37.0, %49 ], [ %.sroa.37.0, %60 ], [ %.sroa.37.0, %42 ], [ %.sroa.37.0, %37 ], [ %.sroa.37.0, %30 ], [ %.sroa.37.0, %79 ], [ %.sroa.37.0, %98 ], [ %.sroa.37.0, %101 ], [ %.sroa.37.0, %123 ], [ %.sroa.37.0, %64 ], [ %.sroa.37.0, %69 ]
+  %.sroa.33.0.be = phi i32 [ %.sroa.33.0, %openFile.exit.i ], [ %.sroa.33.0, %136 ], [ %.sroa.33.0, %138 ], [ %.sroa.33.0, %130 ], [ %.sroa.33.0, %142 ], [ %.sroa.33.0, %121 ], [ 0, %110 ], [ %.sroa.33.0, %91 ], [ %.sroa.33.0, %86 ], [ %.sroa.33.0, %78 ], [ %.sroa.33.0, %77 ], [ %.sroa.33.0, %76 ], [ %.sroa.33.0, %75 ], [ %.sroa.33.0, %49 ], [ %.sroa.33.0, %60 ], [ %.sroa.33.0, %42 ], [ %.sroa.33.0, %37 ], [ %.sroa.33.0, %30 ], [ %.sroa.33.0, %79 ], [ %.sroa.33.0, %98 ], [ %105, %101 ], [ %.sroa.33.0, %123 ], [ %.sroa.33.0, %64 ], [ %.sroa.33.0, %69 ]
+  %.sroa.31.0.be = phi i1 [ %.sroa.31.0, %openFile.exit.i ], [ %.sroa.31.0, %136 ], [ %.sroa.31.0, %138 ], [ %.sroa.31.0, %130 ], [ %.sroa.31.0, %142 ], [ %.sroa.31.0, %121 ], [ %.sroa.31.0, %110 ], [ %.sroa.31.0, %91 ], [ %.sroa.31.0, %86 ], [ true, %78 ], [ %.sroa.31.0, %77 ], [ %.sroa.31.0, %76 ], [ %.sroa.31.0, %75 ], [ %.sroa.31.0, %49 ], [ %.sroa.31.0, %60 ], [ %.sroa.31.0, %42 ], [ %.sroa.31.0, %37 ], [ %.sroa.31.0, %30 ], [ %.sroa.31.0, %79 ], [ %.sroa.31.0, %98 ], [ %.sroa.31.0, %101 ], [ %.sroa.31.0, %123 ], [ %.sroa.31.0, %64 ], [ %.sroa.31.0, %69 ]
+  %.sroa.21.0.be = phi double [ %.sroa.21.0, %openFile.exit.i ], [ %.sroa.21.0, %136 ], [ %.sroa.21.0, %138 ], [ %.sroa.21.0, %130 ], [ %.sroa.21.0, %142 ], [ %.sroa.21.0, %121 ], [ %.sroa.21.0, %110 ], [ %.sroa.21.0, %91 ], [ %.sroa.21.0, %86 ], [ %.sroa.21.0, %78 ], [ %.sroa.21.0, %77 ], [ %.sroa.21.0, %76 ], [ %.sroa.21.0, %75 ], [ %.sroa.21.0, %49 ], [ %.sroa.21.0, %60 ], [ %.sroa.21.0, %42 ], [ %.sroa.21.0, %37 ], [ %34, %30 ], [ %.sroa.21.0, %79 ], [ %.sroa.21.0, %98 ], [ %.sroa.21.0, %101 ], [ %.sroa.21.0, %123 ], [ %.sroa.21.0, %64 ], [ %.sroa.21.0, %69 ]
+  %.sroa.18.0.be = phi i32 [ %.sroa.18.0, %openFile.exit.i ], [ %.sroa.18.0, %136 ], [ %.sroa.18.0, %138 ], [ %.sroa.18.0, %130 ], [ %.sroa.18.0, %142 ], [ %.sroa.18.0, %121 ], [ %.sroa.18.0, %110 ], [ %.sroa.18.0, %91 ], [ %.sroa.18.0, %86 ], [ %.sroa.18.0, %78 ], [ %.sroa.18.0, %77 ], [ %.sroa.18.0, %76 ], [ %.sroa.18.0, %75 ], [ %.sroa.18.0, %49 ], [ %.sroa.18.0, %60 ], [ %.sroa.18.0, %42 ], [ %.sroa.18.0, %37 ], [ %.sroa.18.0, %30 ], [ %.sroa.18.0, %79 ], [ %.sroa.18.0, %98 ], [ %.sroa.18.0, %101 ], [ %.sroa.18.0, %123 ], [ %spec.select, %64 ], [ %.sroa.18.0, %69 ]
+  %.sroa.13.0.be = phi double [ %.sroa.13.0, %openFile.exit.i ], [ %.sroa.13.0, %136 ], [ %.sroa.13.0, %138 ], [ %.sroa.13.0, %130 ], [ %.sroa.13.0, %142 ], [ %.sroa.13.0, %121 ], [ %.sroa.13.0, %110 ], [ %.sroa.13.0, %91 ], [ %.sroa.13.0, %86 ], [ %.sroa.13.0, %78 ], [ %.sroa.13.0, %77 ], [ %.sroa.13.0, %76 ], [ %.sroa.13.0, %75 ], [ %.sroa.13.0, %49 ], [ %.sroa.13.0, %60 ], [ %43, %42 ], [ %.sroa.13.0, %37 ], [ %.sroa.13.0, %30 ], [ %.sroa.13.0, %79 ], [ %.sroa.13.0, %98 ], [ %.sroa.13.0, %101 ], [ %.sroa.13.0, %123 ], [ %.sroa.13.0, %64 ], [ %.sroa.13.0, %69 ]
+  %.sroa.29.0.be = phi i32 [ %.sroa.29.0, %openFile.exit.i ], [ %.sroa.29.0, %136 ], [ %.sroa.29.0, %138 ], [ %.sroa.29.0, %130 ], [ %.sroa.29.0, %142 ], [ %.sroa.29.0, %121 ], [ %.sroa.29.0, %110 ], [ %.sroa.29.0, %91 ], [ %.sroa.29.0, %86 ], [ %.sroa.29.0, %78 ], [ %.sroa.29.0, %77 ], [ %.sroa.29.0, %76 ], [ %.sroa.29.0, %75 ], [ %.sroa.29.0, %49 ], [ %.sroa.29.0, %60 ], [ %.sroa.29.0, %42 ], [ 1, %37 ], [ %.sroa.29.0, %30 ], [ %.sroa.29.0, %79 ], [ %.sroa.29.0, %98 ], [ %.sroa.29.0, %101 ], [ %.sroa.29.0, %123 ], [ %.sroa.29.0, %64 ], [ %.sroa.29.0, %69 ]
+  %.sroa.5.0.be = phi ptr [ %.sroa.5.0, %openFile.exit.i ], [ %.sroa.5.0, %136 ], [ %.sroa.5.0, %138 ], [ %.sroa.5.0, %130 ], [ %.sroa.5.0, %142 ], [ %.sroa.5.0, %121 ], [ %.sroa.5.0, %110 ], [ %.sroa.5.0, %91 ], [ %.sroa.5.0, %86 ], [ %.sroa.5.0, %78 ], [ %.sroa.5.0, %77 ], [ %.sroa.5.0, %76 ], [ %.sroa.5.0, %75 ], [ %.sroa.5.0, %49 ], [ %.sroa.5.0, %60 ], [ %.sroa.5.0, %42 ], [ %.sroa.5.0, %37 ], [ %.sroa.5.0, %30 ], [ %81, %79 ], [ %.sroa.5.0, %98 ], [ %.sroa.5.0, %101 ], [ %.sroa.5.0, %123 ], [ %.sroa.5.0, %64 ], [ %.sroa.5.0, %69 ]
+  %.sroa.26.0.be = phi i32 [ %.sroa.26.0, %openFile.exit.i ], [ %.sroa.26.0, %136 ], [ %.sroa.26.0, %138 ], [ %.sroa.26.0, %130 ], [ %.sroa.26.0, %142 ], [ %.sroa.26.0, %121 ], [ %.sroa.26.0, %110 ], [ %.sroa.26.0, %91 ], [ %.sroa.26.0, %86 ], [ %.sroa.26.0, %78 ], [ 1, %77 ], [ %.sroa.26.0, %76 ], [ %.sroa.26.0, %75 ], [ %.sroa.26.0, %49 ], [ %.sroa.26.0, %60 ], [ %.sroa.26.0, %42 ], [ %.sroa.26.0, %37 ], [ %.sroa.26.0, %30 ], [ %.sroa.26.0, %79 ], [ %.sroa.26.0, %98 ], [ %.sroa.26.0, %101 ], [ %.sroa.26.0, %123 ], [ %.sroa.26.0, %64 ], [ %.sroa.26.0, %69 ]
+  br label %openFile.exit.i
 
-75:                                               ; preds = %openFile.argprom.exit.i
-  br label %openFile.argprom.exit.i.backedge
+75:                                               ; preds = %openFile.exit.i
+  br label %openFile.exit.i.backedge
 
-76:                                               ; preds = %openFile.argprom.exit.i
+76:                                               ; preds = %openFile.exit.i
   store i8 1, ptr @Verbose, align 1
-  br label %openFile.argprom.exit.i.backedge
+  br label %openFile.exit.i.backedge
 
-77:                                               ; preds = %openFile.argprom.exit.i
-  br label %openFile.argprom.exit.i.backedge
+77:                                               ; preds = %openFile.exit.i
+  br label %openFile.exit.i.backedge
 
-78:                                               ; preds = %openFile.argprom.exit.i
-  br label %openFile.argprom.exit.i.backedge
+78:                                               ; preds = %openFile.exit.i
+  br label %openFile.exit.i.backedge
 
-79:                                               ; preds = %openFile.argprom.exit.i
+79:                                               ; preds = %openFile.exit.i
   %80 = load ptr, ptr @optarg, align 8
   %81 = call noalias ptr @fopen(ptr noundef %80, ptr noundef nonnull @.str.5)
   %82 = icmp eq ptr %81, null
-  br i1 %82, label %83, label %openFile.argprom.exit.i.backedge
+  br i1 %82, label %83, label %openFile.exit.i.backedge
 
 83:                                               ; preds = %79
   %84 = load ptr, ptr @stderr, align 8
@@ -241,10 +241,10 @@ openFile.argprom.exit.i.backedge:                 ; preds = %69, %64, %123, %101
   call fastcc void @graphviz_exit(i32 noundef 1) #16
   unreachable
 
-86:                                               ; preds = %openFile.argprom.exit.i
-  br label %openFile.argprom.exit.i.backedge
+86:                                               ; preds = %openFile.exit.i
+  br label %openFile.exit.i.backedge
 
-87:                                               ; preds = %openFile.argprom.exit.i
+87:                                               ; preds = %openFile.exit.i
   %88 = load ptr, ptr @optarg, align 8
   %89 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %88, ptr noundef nonnull @.str.3, ptr noundef nonnull %25) #12
   %90 = icmp sgt i32 %89, 0
@@ -252,13 +252,13 @@ openFile.argprom.exit.i.backedge:                 ; preds = %69, %64, %123, %101
 
 91:                                               ; preds = %87
   %92 = load i32, ptr %25, align 4
-  br label %openFile.argprom.exit.i.backedge
+  br label %openFile.exit.i.backedge
 
 93:                                               ; preds = %87
   call fastcc void @usage(ptr noundef %28, i32 noundef 1)
   unreachable
 
-94:                                               ; preds = %openFile.argprom.exit.i
+94:                                               ; preds = %openFile.exit.i
   %95 = load ptr, ptr @optarg, align 8
   %96 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %95, ptr noundef nonnull @.str.6, ptr noundef nonnull %26) #12
   %97 = icmp sgt i32 %96, 0
@@ -267,7 +267,7 @@ openFile.argprom.exit.i.backedge:                 ; preds = %69, %64, %123, %101
 98:                                               ; preds = %94
   %99 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #13
   %100 = icmp eq i64 %99, 2
-  br i1 %100, label %openFile.argprom.exit.i.backedge, label %101
+  br i1 %100, label %openFile.exit.i.backedge, label %101
 
 101:                                              ; preds = %98, %94
   %102 = load ptr, ptr @optarg, align 8
@@ -276,7 +276,7 @@ openFile.argprom.exit.i.backedge:                 ; preds = %69, %64, %123, %101
   %105 = load i32, ptr %25, align 4
   %106 = icmp ult i32 %105, 11
   %or.cond7.i = select i1 %104, i1 %106, i1 false
-  br i1 %or.cond7.i, label %openFile.argprom.exit.i.backedge, label %107
+  br i1 %or.cond7.i, label %openFile.exit.i.backedge, label %107
 
 107:                                              ; preds = %101
   %108 = load ptr, ptr @optarg, align 8
@@ -286,7 +286,7 @@ openFile.argprom.exit.i.backedge:                 ; preds = %69, %64, %123, %101
 
 110:                                              ; preds = %107
   %111 = load ptr, ptr @optarg, align 8
-  br label %openFile.argprom.exit.i.backedge
+  br label %openFile.exit.i.backedge
 
 112:                                              ; preds = %107
   %113 = load ptr, ptr @stderr, align 8
@@ -295,7 +295,7 @@ openFile.argprom.exit.i.backedge:                 ; preds = %69, %64, %123, %101
   call fastcc void @usage(ptr noundef %28, i32 noundef 1)
   unreachable
 
-116:                                              ; preds = %openFile.argprom.exit.i
+116:                                              ; preds = %openFile.exit.i
   %117 = load ptr, ptr @optarg, align 8
   %118 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %117, ptr noundef nonnull @.str.3, ptr noundef nonnull %24) #12
   %119 = icmp slt i32 %118, 1
@@ -307,26 +307,26 @@ openFile.argprom.exit.i.backedge:                 ; preds = %69, %64, %123, %101
 
 121:                                              ; preds = %116
   %122 = load i32, ptr %24, align 4
-  br label %openFile.argprom.exit.i.backedge
+  br label %openFile.exit.i.backedge
 
-123:                                              ; preds = %openFile.argprom.exit.i
+123:                                              ; preds = %openFile.exit.i
   %124 = load ptr, ptr @optarg, align 8
   %125 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %124, ptr noundef nonnull @.str.3, ptr noundef nonnull %24) #12
   %126 = icmp sgt i32 %125, 0
   %127 = load i32, ptr %24, align 4
   %128 = icmp sgt i32 %127, -1
   %or.cond9.i = select i1 %126, i1 %128, i1 false
-  br i1 %or.cond9.i, label %openFile.argprom.exit.i.backedge, label %129
+  br i1 %or.cond9.i, label %openFile.exit.i.backedge, label %129
 
 129:                                              ; preds = %123
   call fastcc void @usage(ptr noundef %28, i32 noundef 1)
   unreachable
 
-130:                                              ; preds = %openFile.argprom.exit.i
+130:                                              ; preds = %openFile.exit.i
   %131 = load ptr, ptr @optarg, align 8
-  br label %openFile.argprom.exit.i.backedge
+  br label %openFile.exit.i.backedge
 
-132:                                              ; preds = %openFile.argprom.exit.i
+132:                                              ; preds = %openFile.exit.i
   %133 = load ptr, ptr @optarg, align 8
   %134 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %133, ptr noundef nonnull @.str.2, ptr noundef nonnull %23) #12
   %135 = icmp sgt i32 %134, 0
@@ -334,21 +334,21 @@ openFile.argprom.exit.i.backedge:                 ; preds = %69, %64, %123, %101
 
 136:                                              ; preds = %132
   %137 = load double, ptr %23, align 8
-  br label %openFile.argprom.exit.i.backedge
+  br label %openFile.exit.i.backedge
 
 138:                                              ; preds = %132
   %139 = load ptr, ptr @stderr, align 8
   %140 = load ptr, ptr @optarg, align 8
   %141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %139, ptr noundef nonnull @.str.8, ptr noundef %28, ptr noundef %140) #14
-  br label %openFile.argprom.exit.i.backedge
+  br label %openFile.exit.i.backedge
 
-142:                                              ; preds = %openFile.argprom.exit.i
+142:                                              ; preds = %openFile.exit.i
   %143 = load ptr, ptr @stderr, align 8
   %144 = load i32, ptr @optopt, align 4
   %145 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.9, i32 noundef %144) #14
-  br label %openFile.argprom.exit.i.backedge
+  br label %openFile.exit.i.backedge
 
-146:                                              ; preds = %openFile.argprom.exit.i
+146:                                              ; preds = %openFile.exit.i
   %147 = load i32, ptr @optopt, align 4
   switch i32 %147, label %149 [
     i32 63, label %148
@@ -365,7 +365,7 @@ openFile.argprom.exit.i.backedge:                 ; preds = %69, %64, %123, %101
   call fastcc void @usage(ptr noundef %28, i32 noundef 1)
   unreachable
 
-init.exit:                                        ; preds = %openFile.argprom.exit.i
+init.exit:                                        ; preds = %openFile.exit.i
   %152 = load i32, ptr @optind, align 4
   %.not82.i = icmp eq i32 %0, %152
   %153 = sext i32 %152 to i64

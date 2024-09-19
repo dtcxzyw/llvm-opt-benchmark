@@ -47,9 +47,9 @@ define range(i32 0, 2) i32 @Gia_ManMarkAutonomous_rec(ptr noundef %0, ptr nounde
   %.val29 = load i64, ptr %1, align 4
   %21 = and i64 %.val29, 2684354559
   %narrow.i.not.i.not = icmp eq i64 %21, 2684354559
-  br i1 %narrow.i.not.i.not, label %Gia_ObjIsPi.argprom.exit, label %Gia_ObjIsPi.argprom.exit.thread
+  br i1 %narrow.i.not.i.not, label %Gia_ObjIsPi.exit, label %Gia_ObjIsPi.exit.thread
 
-Gia_ObjIsPi.argprom.exit:                         ; preds = %20
+Gia_ObjIsPi.exit:                                 ; preds = %20
   %22 = lshr i64 %.val29, 32
   %23 = trunc nuw i64 %22 to i32
   %24 = and i32 %23, 536870911
@@ -66,17 +66,17 @@ Gia_ObjIsPi.argprom.exit:                         ; preds = %20
   %or.cond = or i1 %narrow.i.not, %.not41
   br i1 %or.cond, label %30, label %44
 
-Gia_ObjIsPi.argprom.exit.thread:                  ; preds = %20
+Gia_ObjIsPi.exit.thread:                          ; preds = %20
   %.old = and i64 %.val29, 2305843005455597567
   %narrow.i.not.old = icmp eq i64 %.old, 2305843005455597567
   br i1 %narrow.i.not.old, label %30, label %.thread
 
-30:                                               ; preds = %Gia_ObjIsPi.argprom.exit.thread, %Gia_ObjIsPi.argprom.exit
+30:                                               ; preds = %Gia_ObjIsPi.exit.thread, %Gia_ObjIsPi.exit
   %31 = or i64 %.val29, 1073741824
   store i64 %31, ptr %1, align 4
   br label %common.ret46
 
-.thread:                                          ; preds = %Gia_ObjIsPi.argprom.exit.thread
+.thread:                                          ; preds = %Gia_ObjIsPi.exit.thread
   %32 = and i64 %.val29, 2147483648
   %.not.i43 = icmp eq i64 %32, 0
   %33 = and i64 %.val29, 536870911
@@ -100,7 +100,7 @@ common.ret46:                                     ; preds = %38, %68, %30, %15, 
   store i64 %43, ptr %1, align 4
   br label %common.ret46
 
-44:                                               ; preds = %Gia_ObjIsPi.argprom.exit
+44:                                               ; preds = %Gia_ObjIsPi.exit
   %45 = getelementptr i8, ptr %0, i64 72
   %.val4.i37 = load ptr, ptr %45, align 8
   %46 = getelementptr i8, ptr %.val4.i37, i64 4
@@ -486,7 +486,7 @@ Abc_UtilStrsav.exit140:                           ; preds = %Abc_UtilStrsav.exit
   %82 = lshr i32 %81, 29
   %83 = and i32 %82, 1
   %84 = xor i32 %83, %80
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %4, i32 noundef %84)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %4, i32 noundef %84)
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189222, 1
   %.val132 = load i32, ptr %23, align 8
   %.val133 = load ptr, ptr %41, align 8
@@ -637,7 +637,7 @@ Abc_UtilStrsav.exit140:                           ; preds = %Abc_UtilStrsav.exit
   %154 = lshr i64 %153, 63
   %155 = trunc nuw nsw i64 %154 to i32
   %156 = xor i32 %152, %155
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %4, i32 noundef %156)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %4, i32 noundef %156)
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %.val127 = load i32, ptr %38, align 4
   %157 = sext i32 %.val127 to i64
@@ -761,7 +761,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648

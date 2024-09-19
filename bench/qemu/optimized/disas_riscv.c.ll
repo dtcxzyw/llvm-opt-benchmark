@@ -1423,7 +1423,7 @@ sw.epilog:                                        ; preds = %sw.default, %sw.bb1
   %inst.03651 = phi i64 [ %inst.036, %sw.default ], [ %inst.036, %sw.bb17 ], [ %inst.036, %sw.bb13 ], [ %inst.03650, %sw.bb ]
   %target_info = getelementptr inbounds i8, ptr %info, i64 184
   %13 = load ptr, ptr %target_info, align 8
-  call fastcc void @disasm_inst.argelim(ptr noundef %buf, i32 noundef %isa, i64 noundef %memaddr, i64 noundef %inst.03651, ptr noundef %13)
+  call fastcc void @disasm_inst(ptr noundef %buf, i32 noundef %isa, i64 noundef %memaddr, i64 noundef %inst.03651, ptr noundef %13)
   %14 = load ptr, ptr %info, align 8
   %stream26 = getelementptr inbounds i8, ptr %info, i64 8
   %15 = load ptr, ptr %stream26, align 8
@@ -1453,7 +1453,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @disasm_inst.argelim(ptr noundef nonnull %buf, i32 noundef range(i32 0, 3) %isa, i64 noundef %pc, i64 noundef %inst, ptr noundef %cfg) unnamed_addr #0 {
+define internal fastcc void @disasm_inst(ptr noundef nonnull %buf, i32 noundef range(i32 0, 3) %isa, i64 noundef %pc, i64 noundef %inst, ptr noundef %cfg) unnamed_addr #0 {
 entry:
   %tmp.i = alloca [64 x i8], align 16
   %nbuf.i = alloca [32 x i8], align 16

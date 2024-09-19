@@ -806,7 +806,7 @@ land.rhs:                                         ; preds = %land.lhs.true
   br i1 %cmp4.not, label %for.end31, label %for.body
 
 for.body:                                         ; preds = %land.rhs
-  tail call fastcc void @"_ZZN16propagate_values6reduceEvENK3$_0clEv.argprom.argprom"(ptr nonnull %this, ptr nonnull %this)
+  tail call fastcc void @"_ZZN16propagate_values6reduceEvENK3$_0clEv"(ptr nonnull %this, ptr nonnull %this)
   %5 = load ptr, ptr %m_fmls.i.i, align 8
   %m_qhead.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i32, ptr %m_qhead.i.i.i, align 8
@@ -859,7 +859,7 @@ _ZN25dependent_expr_simplifier8iteratorppEv.exit: ; preds = %lor.lhs.false4.i, %
   br i1 %cmp.i.not, label %for.end, label %for.body12
 
 for.end:                                          ; preds = %_ZN25dependent_expr_simplifier8iteratorppEv.exit, %for.body
-  tail call fastcc void @"_ZZN16propagate_values6reduceEvENK3$_0clEv.argprom.argprom"(ptr nonnull %this, ptr nonnull %this)
+  tail call fastcc void @"_ZZN16propagate_values6reduceEvENK3$_0clEv"(ptr nonnull %this, ptr nonnull %this)
   %17 = load ptr, ptr %m_fmls.i.i, align 8
   %vtable.i24 = load ptr, ptr %17, align 8
   %vfn.i25 = getelementptr inbounds i8, ptr %vtable.i24, i64 16
@@ -913,7 +913,7 @@ declare void @_ZN11shared_occs5resetEv(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZN17expr_substitution5resetEv(ptr noundef nonnull align 8 dereferenceable(49)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN16propagate_values6reduceEvENK3$_0clEv.argprom.argprom"(ptr %this.0.val.0.val, ptr %this.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN16propagate_values6reduceEvENK3$_0clEv"(ptr %this.0.val.0.val, ptr %this.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %visited.i = alloca %class.shared_occs_mark, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %visited.i)
@@ -1006,11 +1006,11 @@ invoke.cont.i.i:                                  ; preds = %invoke.cont.loopexi
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %8, %m_initial_buffer.i.i.i.i
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %8, null
   %or.cond.i.i.i.i.i.i = or i1 %cmp.not.i.i.i.i.i.i, %cmp.i.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i.i.i, label %"_ZZN16propagate_values6reduceEvENK3$_1clEv.argprom.exit", label %if.end.i.i.i.i.i.i.i
+  br i1 %or.cond.i.i.i.i.i.i, label %"_ZZN16propagate_values6reduceEvENK3$_1clEv.exit", label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %invoke.cont.i.i
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %8)
-          to label %"_ZZN16propagate_values6reduceEvENK3$_1clEv.argprom.exit" unwind label %terminate.lpad.i.i.i.i
+          to label %"_ZZN16propagate_values6reduceEvENK3$_1clEv.exit" unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.i
   %9 = landingpad { ptr, i32 }
@@ -1019,7 +1019,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.
   call void @__clang_call_terminate(ptr %10) #15
   unreachable
 
-"_ZZN16propagate_values6reduceEvENK3$_1clEv.argprom.exit": ; preds = %invoke.cont.i.i, %if.end.i.i.i.i.i.i.i
+"_ZZN16propagate_values6reduceEvENK3$_1clEv.exit": ; preds = %invoke.cont.i.i, %if.end.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %visited.i)
   %m_subst = getelementptr inbounds i8, ptr %this.8.val, i64 96
   call void @_ZN17expr_substitution5resetEv(ptr noundef nonnull align 8 dereferenceable(49) %m_subst)
@@ -1033,9 +1033,9 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.
   %cmp2.not = icmp eq i32 %12, 0
   br i1 %cmp2.not, label %for.end, label %for.body
 
-for.body:                                         ; preds = %"_ZZN16propagate_values6reduceEvENK3$_1clEv.argprom.exit", %for.body
-  %13 = phi ptr [ %15, %for.body ], [ %11, %"_ZZN16propagate_values6reduceEvENK3$_1clEv.argprom.exit" ]
-  %i.03 = phi i32 [ %inc, %for.body ], [ 0, %"_ZZN16propagate_values6reduceEvENK3$_1clEv.argprom.exit" ]
+for.body:                                         ; preds = %"_ZZN16propagate_values6reduceEvENK3$_1clEv.exit", %for.body
+  %13 = phi ptr [ %15, %for.body ], [ %11, %"_ZZN16propagate_values6reduceEvENK3$_1clEv.exit" ]
+  %i.03 = phi i32 [ %inc, %for.body ], [ 0, %"_ZZN16propagate_values6reduceEvENK3$_1clEv.exit" ]
   %vtable = load ptr, ptr %13, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %14 = load ptr, ptr %vfn, align 8
@@ -1048,7 +1048,7 @@ for.body:                                         ; preds = %"_ZZN16propagate_va
   %cmp = icmp ult i32 %inc, %16
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
 
-for.end:                                          ; preds = %for.body, %"_ZZN16propagate_values6reduceEvENK3$_1clEv.argprom.exit"
+for.end:                                          ; preds = %for.body, %"_ZZN16propagate_values6reduceEvENK3$_1clEv.exit"
   ret void
 }
 

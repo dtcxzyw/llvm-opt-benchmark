@@ -62,7 +62,7 @@ define { double, double } @_ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConf
 
 5:                                                ; preds = %3
   %or.cond.i = icmp ult i32 %1, 2
-  br i1 %or.cond.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit, label %6
+  br i1 %or.cond.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit, label %6
 
 6:                                                ; preds = %5
   %7 = fcmp une double %.sroa.4.0.copyload, 0.000000e+00
@@ -72,20 +72,20 @@ define { double, double } @_ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConf
   %10 = fcmp ule double %.0.i.i, %2
   %not..i = xor i1 %9, %10
   %..i = zext i1 %not..i to i32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit: ; preds = %5, %6
+_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit: ; preds = %5, %6
   %.0.i = phi i32 [ %1, %5 ], [ %..i, %6 ]
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %14, label %11
 
-11:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit
+11:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit
   %12 = fcmp une double %2, 0.000000e+00
   %13 = fdiv double %.sroa.0.0.copyload, %2
   %.0.i12 = select i1 %12, double %13, double %.sroa.0.0.copyload
   br label %16
 
-14:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit
+14:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit
   %15 = fmul double %2, %.sroa.4.0.copyload
   br label %16
 
@@ -124,7 +124,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConformedWindowERK
   %16 = fmul double %14, 5.000000e-01
   %17 = fmul double %15, 5.000000e-01
   %or.cond.i = icmp ult i32 %2, 2
-  br i1 %or.cond.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit, label %18
+  br i1 %or.cond.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit, label %18
 
 18:                                               ; preds = %7
   %19 = fcmp une double %13, 0.000000e+00
@@ -134,14 +134,14 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConformedWindowERK
   %22 = fcmp ule double %.0.i.i, %3
   %not..i = xor i1 %21, %22
   %..i = zext i1 %not..i to i32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit: ; preds = %7, %18
+_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit: ; preds = %7, %18
   %.0.i = phi i32 [ %2, %7 ], [ %..i, %18 ]
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %30, label %23
 
-23:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit
+23:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit
   %24 = fcmp une double %3, 0.000000e+00
   %25 = fdiv double %10, %3
   %.0.i26 = select i1 %24, double %25, double %10
@@ -157,7 +157,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2
   store double %28, ptr %.sroa.230.0..sroa_idx, align 8
   br label %36
 
-30:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit
+30:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit
   %31 = fmul double %3, %13
   %32 = fmul double %31, 5.000000e-01
   %33 = fsub double %16, %32
@@ -199,7 +199,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConformedWindowERK
   %19 = fmul double %17, 5.000000e-01
   %20 = fmul double %18, 5.000000e-01
   %or.cond.i.i = icmp ult i32 %2, 2
-  br i1 %or.cond.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit.i, label %21
+  br i1 %or.cond.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit.i, label %21
 
 21:                                               ; preds = %7
   %22 = fcmp une double %16, 0.000000e+00
@@ -209,14 +209,14 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConformedWindowERK
   %25 = fcmp ule double %.0.i.i.i, %3
   %not..i.i = xor i1 %24, %25
   %..i.i = zext i1 %not..i.i to i32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit.i
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit.i: ; preds = %21, %7
+_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit.i: ; preds = %21, %7
   %.0.i.i = phi i32 [ %2, %7 ], [ %..i.i, %21 ]
   %.not.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i, label %32, label %26
 
-26:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit.i
+26:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit.i
   %27 = fcmp une double %3, 0.000000e+00
   %28 = fdiv double %15, %3
   %.0.i26.i = select i1 %27, double %28, double %15
@@ -225,7 +225,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2
   %31 = fadd double %20, %29
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConformedWindowERKNS_9GfRange2dENS_29CameraUtilConformWindowPolicyEd.exit
 
-32:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit.i
+32:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit.i
   %33 = fmul double %3, %16
   %34 = fmul double %33, 5.000000e-01
   %35 = fsub double %19, %34
@@ -263,7 +263,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConformedWindowERK
   %10 = load double, ptr %1, align 8
   %11 = tail call double @llvm.fabs.f64(double %10)
   %or.cond.i = icmp ult i32 %2, 2
-  br i1 %or.cond.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit, label %12
+  br i1 %or.cond.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit, label %12
 
 12:                                               ; preds = %6
   %13 = fcmp une double %10, 0.000000e+00
@@ -273,14 +273,14 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConformedWindowERK
   %16 = fcmp ule double %.0.i.i, %3
   %not..i = xor i1 %15, %16
   %..i = zext i1 %not..i to i32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit: ; preds = %6, %12
+_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit: ; preds = %6, %12
   %.0.i = phi i32 [ %2, %6 ], [ %..i, %12 ]
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %25, label %17
 
-17:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit
+17:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit
   %18 = fcmp olt double %8, 0.000000e+00
   %19 = fneg double %11
   %20 = select i1 %18, double %19, double %11
@@ -292,7 +292,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2
   %.0.i19 = select i1 %23, double %24, double %21
   br label %.sink.split
 
-25:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit
+25:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit
   %26 = fcmp olt double %10, 0.000000e+00
   %27 = fcmp une double %3, 0.000000e+00
   %28 = fdiv double %9, %3
@@ -337,7 +337,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__23CameraUtilConformWindowEPNS_
   %8 = tail call noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__8GfCamera19GetVerticalApertureEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   %9 = fpext float %8 to double
   %or.cond.i.i = icmp ult i32 %1, 2
-  br i1 %or.cond.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit.i, label %10
+  br i1 %or.cond.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit.i, label %10
 
 10:                                               ; preds = %5
   %11 = fcmp une float %8, 0.000000e+00
@@ -347,21 +347,21 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__23CameraUtilConformWindowEPNS_
   %14 = fcmp ule double %.0.i.i.i, %2
   %not..i.i = xor i1 %13, %14
   %..i.i = zext i1 %not..i.i to i32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit.i
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit.i: ; preds = %10, %5
+_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit.i: ; preds = %10, %5
   %.0.i.i = phi i32 [ %1, %5 ], [ %..i.i, %10 ]
   %.not.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i, label %19, label %15
 
-15:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit.i
+15:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit.i
   %16 = fcmp une double %2, 0.000000e+00
   %17 = fdiv double %7, %2
   %18 = fptrunc double %17 to float
   %narrow.sel = select i1 %16, float %18, float %6
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConformedWindowERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit
 
-19:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit.i
+19:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit.i
   %20 = fmul double %2, %9
   %21 = fptrunc double %20 to float
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConformedWindowERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit
@@ -406,7 +406,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__23CameraUtilConformWindowEPNS_
   %15 = fmul double %13, 5.000000e-01
   %16 = fmul double %14, 5.000000e-01
   %or.cond.i.i = icmp ult i32 %1, 2
-  br i1 %or.cond.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit.i, label %17
+  br i1 %or.cond.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit.i, label %17
 
 17:                                               ; preds = %5
   %18 = fcmp une double %12, 0.000000e+00
@@ -416,14 +416,14 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__23CameraUtilConformWindowEPNS_
   %21 = fcmp ule double %.0.i.i.i, %2
   %not..i.i = xor i1 %20, %21
   %..i.i = zext i1 %not..i.i to i32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit.i
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit.i: ; preds = %17, %5
+_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit.i: ; preds = %17, %5
   %.0.i.i = phi i32 [ %1, %5 ], [ %..i.i, %17 ]
   %.not.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i, label %28, label %22
 
-22:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit.i
+22:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit.i
   %23 = fcmp une double %2, 0.000000e+00
   %24 = fdiv double %9, %2
   %.0.i26.i = select i1 %23, double %24, double %9
@@ -432,7 +432,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2
   %27 = fadd double %16, %25
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConformedWindowERKNS_9GfRange2dENS_29CameraUtilConformWindowPolicyEd.exit
 
-28:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.argprom.exit.i
+28:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit.i
   %29 = fmul double %2, %12
   %30 = fmul double %29, 5.000000e-01
   %31 = fsub double %15, %30

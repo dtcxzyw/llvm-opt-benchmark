@@ -296,21 +296,21 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_121RegUsageInfoCollector20ru
   %17 = lshr i16 %.val.val, 4
   %18 = and i16 %17, 1023
   switch i16 %18, label %19 [
-    i16 87, label %_ZL18isCallableFunctionRKN4llvm15MachineFunctionE.argprom.argprom.exit
-    i16 88, label %_ZL18isCallableFunctionRKN4llvm15MachineFunctionE.argprom.argprom.exit
-    i16 89, label %_ZL18isCallableFunctionRKN4llvm15MachineFunctionE.argprom.argprom.exit
-    i16 90, label %_ZL18isCallableFunctionRKN4llvm15MachineFunctionE.argprom.argprom.exit
-    i16 93, label %_ZL18isCallableFunctionRKN4llvm15MachineFunctionE.argprom.argprom.exit
-    i16 96, label %_ZL18isCallableFunctionRKN4llvm15MachineFunctionE.argprom.argprom.exit
-    i16 95, label %_ZL18isCallableFunctionRKN4llvm15MachineFunctionE.argprom.argprom.exit
-    i16 91, label %_ZL18isCallableFunctionRKN4llvm15MachineFunctionE.argprom.argprom.exit
+    i16 87, label %_ZL18isCallableFunctionRKN4llvm15MachineFunctionE.exit
+    i16 88, label %_ZL18isCallableFunctionRKN4llvm15MachineFunctionE.exit
+    i16 89, label %_ZL18isCallableFunctionRKN4llvm15MachineFunctionE.exit
+    i16 90, label %_ZL18isCallableFunctionRKN4llvm15MachineFunctionE.exit
+    i16 93, label %_ZL18isCallableFunctionRKN4llvm15MachineFunctionE.exit
+    i16 96, label %_ZL18isCallableFunctionRKN4llvm15MachineFunctionE.exit
+    i16 95, label %_ZL18isCallableFunctionRKN4llvm15MachineFunctionE.exit
+    i16 91, label %_ZL18isCallableFunctionRKN4llvm15MachineFunctionE.exit
   ]
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %_ZL18isCallableFunctionRKN4llvm15MachineFunctionE.argprom.argprom.exit, label %23
+  br i1 %22, label %_ZL18isCallableFunctionRKN4llvm15MachineFunctionE.exit, label %23
 
 23:                                               ; preds = %19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
@@ -767,7 +767,7 @@ _ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread: ; preds = %1
 _ZN4llvm9BitVectorD2Ev.exit:                      ; preds = %255, %265
   %266 = load ptr, ptr %3, align 8
   %.not.i.i.i51 = icmp eq ptr %266, null
-  br i1 %.not.i.i.i51, label %_ZL18isCallableFunctionRKN4llvm15MachineFunctionE.argprom.argprom.exit, label %267
+  br i1 %.not.i.i.i51, label %_ZL18isCallableFunctionRKN4llvm15MachineFunctionE.exit, label %267
 
 267:                                              ; preds = %_ZN4llvm9BitVectorD2Ev.exit
   %268 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -776,9 +776,9 @@ _ZN4llvm9BitVectorD2Ev.exit:                      ; preds = %255, %265
   %271 = ptrtoint ptr %266 to i64
   %272 = sub i64 %270, %271
   call void @_ZdlPvm(ptr noundef nonnull %266, i64 noundef %272) #17
-  br label %_ZL18isCallableFunctionRKN4llvm15MachineFunctionE.argprom.argprom.exit
+  br label %_ZL18isCallableFunctionRKN4llvm15MachineFunctionE.exit
 
-_ZL18isCallableFunctionRKN4llvm15MachineFunctionE.argprom.argprom.exit: ; preds = %267, %_ZN4llvm9BitVectorD2Ev.exit, %2, %2, %2, %2, %2, %2, %2, %2, %19
+_ZL18isCallableFunctionRKN4llvm15MachineFunctionE.exit: ; preds = %267, %_ZN4llvm9BitVectorD2Ev.exit, %2, %2, %2, %2, %2, %2, %2, %2, %19
   ret i1 false
 }
 

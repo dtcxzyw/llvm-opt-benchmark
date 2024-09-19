@@ -1167,7 +1167,7 @@ define void @_ZNK3nix15SingleBuiltPath7outPathEv(ptr dead_on_unwind noalias writ
   %3 = getelementptr inbounds i8, ptr %1, i64 80
   %4 = load i8, ptr %3, align 8, !noalias !18
   %.not.i.i = icmp eq i8 %4, -1
-  br i1 %.not.i.i, label %5, label %"_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath7outPathEvE3$_0ZNKS2_7outPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.argprom.exit"
+  br i1 %.not.i.i, label %5, label %"_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath7outPathEvE3$_0ZNKS2_7outPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.exit"
 
 5:                                                ; preds = %2
   %6 = tail call ptr @__cxa_allocate_exception(i64 16) #26, !noalias !18
@@ -1177,7 +1177,7 @@ define void @_ZNK3nix15SingleBuiltPath7outPathEv(ptr dead_on_unwind noalias writ
   tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #28, !noalias !18
   unreachable
 
-"_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath7outPathEvE3$_0ZNKS2_7outPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.argprom.exit": ; preds = %2
+"_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath7outPathEvE3$_0ZNKS2_7outPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.exit": ; preds = %2
   %switch.i.i = icmp eq i8 %4, 0
   %.sink.idx.i.i = select i1 %switch.i.i, i64 0, i64 48
   %.sink.i.i = getelementptr inbounds i8, ptr %1, i64 %.sink.idx.i.i
@@ -1229,11 +1229,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %19 = load i64, ptr %18, align 8, !noalias !34
   %20 = icmp ult i64 %19, 16
   call void @llvm.assume(i1 %20)
-  br label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt3setIN3nix9StorePathESt4lessIS6_ESaIS6_EEEEONS5_10overloadedIJZNKS5_9BuiltPath8outPathsEvE3$_0ZNKSD_8outPathsEvE3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_14BuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESH_SN_.argprom.exit.i.i"
+  br label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt3setIN3nix9StorePathESt4lessIS6_ESaIS6_EEEEONS5_10overloadedIJZNKS5_9BuiltPath8outPathsEvE3$_0ZNKSD_8outPathsEvE3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_14BuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESH_SN_.exit.i.i"
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %14
   call void @_ZdlPv(ptr noundef %15) #29
-  br label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt3setIN3nix9StorePathESt4lessIS6_ESaIS6_EEEEONS5_10overloadedIJZNKS5_9BuiltPath8outPathsEvE3$_0ZNKSD_8outPathsEvE3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_14BuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESH_SN_.argprom.exit.i.i"
+  br label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt3setIN3nix9StorePathESt4lessIS6_ESaIS6_EEEEONS5_10overloadedIJZNKS5_9BuiltPath8outPathsEvE3$_0ZNKSD_8outPathsEvE3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_14BuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESH_SN_.exit.i.i"
 
 common.resume.i.i:                                ; preds = %42, %21
   %common.resume.op.i.i = phi { ptr, i32 } [ %22, %21 ], [ %43, %42 ]
@@ -1245,12 +1245,12 @@ common.resume.i.i:                                ; preds = %42, %21
   call void @_ZN3nix9StorePathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
   br label %common.resume.i.i
 
-"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt3setIN3nix9StorePathESt4lessIS6_ESaIS6_EEEEONS5_10overloadedIJZNKS5_9BuiltPath8outPathsEvE3$_0ZNKSD_8outPathsEvE3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_14BuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESH_SN_.argprom.exit.i.i": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i
+"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt3setIN3nix9StorePathESt4lessIS6_ESaIS6_EEEEONS5_10overloadedIJZNKS5_9BuiltPath8outPathsEvE3$_0ZNKSD_8outPathsEvE3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_14BuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESH_SN_.exit.i.i": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !27
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !27
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !27
-  br label %"_ZSt5visitIN3nix10overloadedIJZNKS0_9BuiltPath8outPathsEvE3$_0ZNKS2_8outPathsEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.argprom.exit"
+  br label %"_ZSt5visitIN3nix10overloadedIJZNKS0_9BuiltPath8outPathsEvE3$_0ZNKS2_8outPathsEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.exit"
 
 23:                                               ; preds = %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
@@ -1271,7 +1271,7 @@ common.resume.i.i:                                ; preds = %42, %21
   %30 = load ptr, ptr %29, align 8, !noalias !49
   %31 = getelementptr inbounds i8, ptr %1, i64 24
   %32 = icmp eq ptr %30, %31
-  br i1 %32, label %"_ZSt5visitIN3nix10overloadedIJZNKS0_9BuiltPath8outPathsEvE3$_0ZNKS2_8outPathsEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.argprom.exit", label %.lr.ph.i.i.i.i.i.i
+  br i1 %32, label %"_ZSt5visitIN3nix10overloadedIJZNKS0_9BuiltPath8outPathsEvE3$_0ZNKS2_8outPathsEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.exit", label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %23, %39
   %.sroa.01.04.i.i.i.i.i.i = phi ptr [ %40, %39 ], [ %30, %23 ]
@@ -1295,7 +1295,7 @@ common.resume.i.i:                                ; preds = %42, %21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !49
   %40 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.01.04.i.i.i.i.i.i) #27
   %41 = icmp eq ptr %40, %31
-  br i1 %41, label %"_ZSt5visitIN3nix10overloadedIJZNKS0_9BuiltPath8outPathsEvE3$_0ZNKS2_8outPathsEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.argprom.exit", label %.lr.ph.i.i.i.i.i.i
+  br i1 %41, label %"_ZSt5visitIN3nix10overloadedIJZNKS0_9BuiltPath8outPathsEvE3$_0ZNKS2_8outPathsEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.exit", label %.lr.ph.i.i.i.i.i.i
 
 42:                                               ; preds = %36, %.lr.ph.i.i.i.i.i.i
   %43 = landingpad { ptr, i32 }
@@ -1303,7 +1303,7 @@ common.resume.i.i:                                ; preds = %42, %21
   call void @_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #26
   br label %common.resume.i.i
 
-"_ZSt5visitIN3nix10overloadedIJZNKS0_9BuiltPath8outPathsEvE3$_0ZNKS2_8outPathsEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.argprom.exit": ; preds = %39, %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt3setIN3nix9StorePathESt4lessIS6_ESaIS6_EEEEONS5_10overloadedIJZNKS5_9BuiltPath8outPathsEvE3$_0ZNKSD_8outPathsEvE3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_14BuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESH_SN_.argprom.exit.i.i", %23
+"_ZSt5visitIN3nix10overloadedIJZNKS0_9BuiltPath8outPathsEvE3$_0ZNKS2_8outPathsEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.exit": ; preds = %39, %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt3setIN3nix9StorePathESt4lessIS6_ESaIS6_EEEEONS5_10overloadedIJZNKS5_9BuiltPath8outPathsEvE3$_0ZNKSD_8outPathsEvE3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_14BuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESH_SN_.exit.i.i", %23
   ret void
 }
 
@@ -1712,7 +1712,7 @@ define void @_ZNK3nix15SingleBuiltPath17discardOutputPathEv(ptr dead_on_unwind n
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %10 = getelementptr inbounds i8, ptr %0, i64 48
   store i8 0, ptr %10, align 8, !alias.scope !79
-  br label %"_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS2_17discardOutputPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.argprom.exit"
+  br label %"_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS2_17discardOutputPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.exit"
 
 11:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
@@ -1784,7 +1784,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #26
   %40 = load ptr, ptr %14, align 8, !noalias !97
   %.not.i.i.i.i.i.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix17SingleDerivedPathEEEONS4_10overloadedIJZNKS4_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS8_17discardOutputPathEvE3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SI_.argprom.exit.i", label %41
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix17SingleDerivedPathEEEONS4_10overloadedIJZNKS4_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS8_17discardOutputPathEvE3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SI_.exit.i", label %41
 
 41:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
   %42 = getelementptr inbounds i8, ptr %40, i64 8
@@ -1820,7 +1820,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
 57:                                               ; preds = %55, %53
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %45, %53 ], [ %56, %55 ]
   %58 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %58, label %59, label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix17SingleDerivedPathEEEONS4_10overloadedIJZNKS4_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS8_17discardOutputPathEvE3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SI_.argprom.exit.i"
+  br i1 %58, label %59, label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix17SingleDerivedPathEEEONS4_10overloadedIJZNKS4_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS8_17discardOutputPathEvE3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SI_.exit.i"
 
 59:                                               ; preds = %57
   %60 = load ptr, ptr %40, align 8
@@ -1845,20 +1845,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
 70:                                               ; preds = %68, %65
   %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %66, %65 ], [ %69, %68 ]
   %71 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %71, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix17SingleDerivedPathEEEONS4_10overloadedIJZNKS4_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS8_17discardOutputPathEvE3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SI_.argprom.exit.i"
+  br i1 %71, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix17SingleDerivedPathEEEONS4_10overloadedIJZNKS4_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS8_17discardOutputPathEvE3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SI_.exit.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i: ; preds = %70, %46
   %72 = load ptr, ptr %40, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 24
   %74 = load ptr, ptr %73, align 8
   call void %74(ptr noundef nonnull align 8 dereferenceable(16) %40) #26
-  br label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix17SingleDerivedPathEEEONS4_10overloadedIJZNKS4_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS8_17discardOutputPathEvE3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SI_.argprom.exit.i"
+  br label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix17SingleDerivedPathEEEONS4_10overloadedIJZNKS4_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS8_17discardOutputPathEvE3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SI_.exit.i"
 
-"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix17SingleDerivedPathEEEONS4_10overloadedIJZNKS4_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS8_17discardOutputPathEvE3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SI_.argprom.exit.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %70, %57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
+"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix17SingleDerivedPathEEEONS4_10overloadedIJZNKS4_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS8_17discardOutputPathEvE3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SI_.exit.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %70, %57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !91
-  br label %"_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS2_17discardOutputPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.argprom.exit"
+  br label %"_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS2_17discardOutputPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.exit"
 
-"_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS2_17discardOutputPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.argprom.exit": ; preds = %9, %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix17SingleDerivedPathEEEONS4_10overloadedIJZNKS4_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS8_17discardOutputPathEvE3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SI_.argprom.exit.i"
+"_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS2_17discardOutputPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.exit": ; preds = %9, %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix17SingleDerivedPathEEEONS4_10overloadedIJZNKS4_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS8_17discardOutputPathEvE3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SI_.exit.i"
   ret void
 }
 
@@ -2277,13 +2277,13 @@ define void @_ZNK3nix15SingleBuiltPath6toJSONB5cxx11ERKNS_14StoreDirConfigE(ptr 
 
 9:                                                ; preds = %3
   tail call void @_ZNK3nix17DerivedPathOpaque6toJSONB5cxx11ERKNS_14StoreDirConfigE(ptr dead_on_unwind writable sret(%"class.nlohmann::basic_json") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(344) %2)
-  br label %"_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultIN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEEEEEZNK3nix15SingleBuiltPath6toJSONERKNSI_14StoreDirConfigEE3$_0JRKSt7variantIJNSI_17DerivedPathOpaqueENSI_20SingleBuiltPathBuiltEEEEEDcOT0_DpOT1_.argprom.exit"
+  br label %"_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultIN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEEEEEZNK3nix15SingleBuiltPath6toJSONERKNSI_14StoreDirConfigEE3$_0JRKSt7variantIJNSI_17DerivedPathOpaqueENSI_20SingleBuiltPathBuiltEEEEEDcOT0_DpOT1_.exit"
 
 10:                                               ; preds = %3
   tail call void @_ZNK3nix20SingleBuiltPathBuilt6toJSONB5cxx11ERKNS_14StoreDirConfigE(ptr dead_on_unwind writable sret(%"class.nlohmann::basic_json") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(344) %2)
-  br label %"_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultIN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEEEEEZNK3nix15SingleBuiltPath6toJSONERKNSI_14StoreDirConfigEE3$_0JRKSt7variantIJNSI_17DerivedPathOpaqueENSI_20SingleBuiltPathBuiltEEEEEDcOT0_DpOT1_.argprom.exit"
+  br label %"_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultIN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEEEEEZNK3nix15SingleBuiltPath6toJSONERKNSI_14StoreDirConfigEE3$_0JRKSt7variantIJNSI_17DerivedPathOpaqueENSI_20SingleBuiltPathBuiltEEEEEDcOT0_DpOT1_.exit"
 
-"_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultIN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEEEEEZNK3nix15SingleBuiltPath6toJSONERKNSI_14StoreDirConfigEE3$_0JRKSt7variantIJNSI_17DerivedPathOpaqueENSI_20SingleBuiltPathBuiltEEEEEDcOT0_DpOT1_.argprom.exit": ; preds = %9, %10
+"_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultIN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEEEEEZNK3nix15SingleBuiltPath6toJSONERKNSI_14StoreDirConfigEE3$_0JRKSt7variantIJNSI_17DerivedPathOpaqueENSI_20SingleBuiltPathBuiltEEEEEDcOT0_DpOT1_.exit": ; preds = %9, %10
   ret void
 }
 
@@ -2805,13 +2805,13 @@ define void @_ZNK3nix9BuiltPath6toJSONB5cxx11ERKNS_14StoreDirConfigE(ptr dead_on
 
 9:                                                ; preds = %3
   tail call void @_ZNK3nix17DerivedPathOpaque6toJSONB5cxx11ERKNS_14StoreDirConfigE(ptr dead_on_unwind writable sret(%"class.nlohmann::basic_json") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(344) %2)
-  br label %"_ZSt5visitB5cxx11IZNK3nix9BuiltPath6toJSONB5cxx11ERKNS0_14StoreDirConfigEE3$_0JRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.argprom.exit"
+  br label %"_ZSt5visitB5cxx11IZNK3nix9BuiltPath6toJSONB5cxx11ERKNS0_14StoreDirConfigEE3$_0JRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.exit"
 
 10:                                               ; preds = %3
   tail call void @_ZNK3nix14BuiltPathBuilt6toJSONB5cxx11ERKNS_14StoreDirConfigE(ptr dead_on_unwind writable sret(%"class.nlohmann::basic_json") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(344) %2)
-  br label %"_ZSt5visitB5cxx11IZNK3nix9BuiltPath6toJSONB5cxx11ERKNS0_14StoreDirConfigEE3$_0JRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.argprom.exit"
+  br label %"_ZSt5visitB5cxx11IZNK3nix9BuiltPath6toJSONB5cxx11ERKNS0_14StoreDirConfigEE3$_0JRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.exit"
 
-"_ZSt5visitB5cxx11IZNK3nix9BuiltPath6toJSONB5cxx11ERKNS0_14StoreDirConfigEE3$_0JRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.argprom.exit": ; preds = %9, %10
+"_ZSt5visitB5cxx11IZNK3nix9BuiltPath6toJSONB5cxx11ERKNS0_14StoreDirConfigEE3$_0JRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.exit": ; preds = %9, %10
   ret void
 }
 
@@ -2965,11 +2965,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %65 = load i64, ptr %64, align 8
   %66 = icmp ult i64 %65, 16
   call void @llvm.assume(i1 %66)
-  br label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON3nix10overloadedIJZNKS5_9BuiltPath15toRealisedPathsERNS5_5StoreEE3$_0ZNKS7_15toRealisedPathsES9_E3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_14BuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESD_SJ_.argprom.exit.i.i"
+  br label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON3nix10overloadedIJZNKS5_9BuiltPath15toRealisedPathsERNS5_5StoreEE3$_0ZNKS7_15toRealisedPathsES9_E3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_14BuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESD_SJ_.exit.i.i"
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZN3nix12RealisedPathD2Ev.exit.i.i.i.i.i.i
   call void @_ZdlPv(ptr noundef %61) #29
-  br label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON3nix10overloadedIJZNKS5_9BuiltPath15toRealisedPathsERNS5_5StoreEE3$_0ZNKS7_15toRealisedPathsES9_E3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_14BuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESD_SJ_.argprom.exit.i.i"
+  br label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON3nix10overloadedIJZNKS5_9BuiltPath15toRealisedPathsERNS5_5StoreEE3$_0ZNKS7_15toRealisedPathsES9_E3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_14BuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESD_SJ_.exit.i.i"
 
 67:                                               ; preds = %.noexc5
   %68 = landingpad { ptr, i32 }
@@ -2987,7 +2987,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @_ZN3nix9StorePathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #26
   br label %.body
 
-"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON3nix10overloadedIJZNKS5_9BuiltPath15toRealisedPathsERNS5_5StoreEE3$_0ZNKS7_15toRealisedPathsES9_E3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_14BuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESD_SJ_.argprom.exit.i.i": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i
+"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON3nix10overloadedIJZNKS5_9BuiltPath15toRealisedPathsERNS5_5StoreEE3$_0ZNKS7_15toRealisedPathsES9_E3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_14BuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESD_SJ_.exit.i.i": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #26
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
@@ -3648,7 +3648,7 @@ _ZNSt10shared_ptrIKN3nix11RealisationEED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN3nix
   call void @_ZNSt3setIN3nix12RealisedPathESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #26
   resume { ptr, i32 } %eh.lpad-body
 
-"_ZSt5visitIN3nix10overloadedIJZNKS0_9BuiltPath15toRealisedPathsERNS0_5StoreEE3$_0ZNKS2_15toRealisedPathsES4_E3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISH_EEEEE4typeEE4typeEOSQ_EEEE4typeEOSF_DpOSH_.exit": ; preds = %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON3nix10overloadedIJZNKS5_9BuiltPath15toRealisedPathsERNS5_5StoreEE3$_0ZNKS7_15toRealisedPathsES9_E3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_14BuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESD_SJ_.exit.i.i", %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON3nix10overloadedIJZNKS5_9BuiltPath15toRealisedPathsERNS5_5StoreEE3$_0ZNKS7_15toRealisedPathsES9_E3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_14BuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESD_SJ_.argprom.exit.i.i"
+"_ZSt5visitIN3nix10overloadedIJZNKS0_9BuiltPath15toRealisedPathsERNS0_5StoreEE3$_0ZNKS2_15toRealisedPathsES4_E3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISH_EEEEE4typeEE4typeEOSQ_EEEE4typeEOSF_DpOSH_.exit": ; preds = %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON3nix10overloadedIJZNKS5_9BuiltPath15toRealisedPathsERNS5_5StoreEE3$_0ZNKS7_15toRealisedPathsES9_E3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_14BuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESD_SJ_.exit.i.i", %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON3nix10overloadedIJZNKS5_9BuiltPath15toRealisedPathsERNS5_5StoreEE3$_0ZNKS7_15toRealisedPathsES9_E3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_14BuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESD_SJ_.exit.i.i"
   ret void
 }
 
@@ -19290,49 +19290,49 @@ attributes #32 = { "function-inline-cost-multiplier"="2" }
 !16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
 !18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath7outPathEvE3$_0ZNKS2_7outPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.argprom: argument 0"}
-!20 = distinct !{!20, !"_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath7outPathEvE3$_0ZNKS2_7outPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.argprom"}
+!19 = distinct !{!19, !20, !"_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath7outPathEvE3$_0ZNKS2_7outPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_: argument 0"}
+!20 = distinct !{!20, !"_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath7outPathEvE3$_0ZNKS2_7outPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_"}
 !21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZSt5visitIN3nix10overloadedIJZNKS0_9BuiltPath8outPathsEvE3$_0ZNKS2_8outPathsEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.argprom: argument 0"}
-!23 = distinct !{!23, !"_ZSt5visitIN3nix10overloadedIJZNKS0_9BuiltPath8outPathsEvE3$_0ZNKS2_8outPathsEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.argprom"}
+!22 = distinct !{!22, !23, !"_ZSt5visitIN3nix10overloadedIJZNKS0_9BuiltPath8outPathsEvE3$_0ZNKS2_8outPathsEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_: argument 0"}
+!23 = distinct !{!23, !"_ZSt5visitIN3nix10overloadedIJZNKS0_9BuiltPath8outPathsEvE3$_0ZNKS2_8outPathsEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_"}
 !24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultISt3setIN3nix9StorePathESt4lessIS5_ESaIS5_EEEENS4_10overloadedIJZNKS4_9BuiltPath8outPathsEvE3$_0ZNKSC_8outPathsEvE3$_1EEEJRKSt7variantIJNS4_17DerivedPathOpaqueENS4_14BuiltPathBuiltEEEEEDcOT0_DpOT1_.argprom: argument 0"}
-!26 = distinct !{!26, !"_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultISt3setIN3nix9StorePathESt4lessIS5_ESaIS5_EEEENS4_10overloadedIJZNKS4_9BuiltPath8outPathsEvE3$_0ZNKSC_8outPathsEvE3$_1EEEJRKSt7variantIJNS4_17DerivedPathOpaqueENS4_14BuiltPathBuiltEEEEEDcOT0_DpOT1_.argprom"}
+!25 = distinct !{!25, !26, !"_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultISt3setIN3nix9StorePathESt4lessIS5_ESaIS5_EEEENS4_10overloadedIJZNKS4_9BuiltPath8outPathsEvE3$_0ZNKSC_8outPathsEvE3$_1EEEJRKSt7variantIJNS4_17DerivedPathOpaqueENS4_14BuiltPathBuiltEEEEEDcOT0_DpOT1_: argument 0"}
+!26 = distinct !{!26, !"_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultISt3setIN3nix9StorePathESt4lessIS5_ESaIS5_EEEENS4_10overloadedIJZNKS4_9BuiltPath8outPathsEvE3$_0ZNKSC_8outPathsEvE3$_1EEEJRKSt7variantIJNS4_17DerivedPathOpaqueENS4_14BuiltPathBuiltEEEEEDcOT0_DpOT1_"}
 !27 = !{!28, !30, !32, !25, !22}
-!28 = distinct !{!28, !29, !"_ZSt13__invoke_implISt3setIN3nix9StorePathESt4lessIS2_ESaIS2_EENS1_10overloadedIJZNKS1_9BuiltPath8outPathsEvE3$_0ZNKS8_8outPathsEvE3$_1EEEJRKNS1_17DerivedPathOpaqueEEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
-!29 = distinct !{!29, !"_ZSt13__invoke_implISt3setIN3nix9StorePathESt4lessIS2_ESaIS2_EENS1_10overloadedIJZNKS1_9BuiltPath8outPathsEvE3$_0ZNKS8_8outPathsEvE3$_1EEEJRKNS1_17DerivedPathOpaqueEEET_St14__invoke_otherOT0_DpOT1_.argprom"}
-!30 = distinct !{!30, !31, !"_ZSt8__invokeIN3nix10overloadedIJZNKS0_9BuiltPath8outPathsEvE3$_0ZNKS2_8outPathsEvE3$_1EEEJRKNS0_17DerivedPathOpaqueEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.argprom: argument 0"}
-!31 = distinct !{!31, !"_ZSt8__invokeIN3nix10overloadedIJZNKS0_9BuiltPath8outPathsEvE3$_0ZNKS2_8outPathsEvE3$_1EEEJRKNS0_17DerivedPathOpaqueEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.argprom"}
-!32 = distinct !{!32, !33, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt3setIN3nix9StorePathESt4lessIS6_ESaIS6_EEEEONS5_10overloadedIJZNKS5_9BuiltPath8outPathsEvE3$_0ZNKSD_8outPathsEvE3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_14BuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESH_SN_.argprom: argument 0"}
-!33 = distinct !{!33, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt3setIN3nix9StorePathESt4lessIS6_ESaIS6_EEEEONS5_10overloadedIJZNKS5_9BuiltPath8outPathsEvE3$_0ZNKSD_8outPathsEvE3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_14BuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESH_SN_.argprom"}
+!28 = distinct !{!28, !29, !"_ZSt13__invoke_implISt3setIN3nix9StorePathESt4lessIS2_ESaIS2_EENS1_10overloadedIJZNKS1_9BuiltPath8outPathsEvE3$_0ZNKS8_8outPathsEvE3$_1EEEJRKNS1_17DerivedPathOpaqueEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!29 = distinct !{!29, !"_ZSt13__invoke_implISt3setIN3nix9StorePathESt4lessIS2_ESaIS2_EENS1_10overloadedIJZNKS1_9BuiltPath8outPathsEvE3$_0ZNKS8_8outPathsEvE3$_1EEEJRKNS1_17DerivedPathOpaqueEEET_St14__invoke_otherOT0_DpOT1_"}
+!30 = distinct !{!30, !31, !"_ZSt8__invokeIN3nix10overloadedIJZNKS0_9BuiltPath8outPathsEvE3$_0ZNKS2_8outPathsEvE3$_1EEEJRKNS0_17DerivedPathOpaqueEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_: argument 0"}
+!31 = distinct !{!31, !"_ZSt8__invokeIN3nix10overloadedIJZNKS0_9BuiltPath8outPathsEvE3$_0ZNKS2_8outPathsEvE3$_1EEEJRKNS0_17DerivedPathOpaqueEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_"}
+!32 = distinct !{!32, !33, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt3setIN3nix9StorePathESt4lessIS6_ESaIS6_EEEEONS5_10overloadedIJZNKS5_9BuiltPath8outPathsEvE3$_0ZNKSD_8outPathsEvE3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_14BuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESH_SN_: argument 0"}
+!33 = distinct !{!33, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt3setIN3nix9StorePathESt4lessIS6_ESaIS6_EEEEONS5_10overloadedIJZNKS5_9BuiltPath8outPathsEvE3$_0ZNKSD_8outPathsEvE3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_14BuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESH_SN_"}
 !34 = !{!35, !28, !30, !32, !25, !22}
-!35 = distinct !{!35, !36, !"_ZZNK3nix9BuiltPath8outPathsEvENK3$_0clERKNS_17DerivedPathOpaqueE.argprom: argument 0"}
-!36 = distinct !{!36, !"_ZZNK3nix9BuiltPath8outPathsEvENK3$_0clERKNS_17DerivedPathOpaqueE.argprom"}
+!35 = distinct !{!35, !36, !"_ZZNK3nix9BuiltPath8outPathsEvENK3$_0clERKNS_17DerivedPathOpaqueE: argument 0"}
+!36 = distinct !{!36, !"_ZZNK3nix9BuiltPath8outPathsEvENK3$_0clERKNS_17DerivedPathOpaqueE"}
 !37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt3setIN3nix9StorePathESt4lessIS6_ESaIS6_EEEEONS5_10overloadedIJZNKS5_9BuiltPath8outPathsEvE3$_0ZNKSD_8outPathsEvE3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_14BuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESH_SN_.argprom: argument 0"}
-!39 = distinct !{!39, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt3setIN3nix9StorePathESt4lessIS6_ESaIS6_EEEEONS5_10overloadedIJZNKS5_9BuiltPath8outPathsEvE3$_0ZNKSD_8outPathsEvE3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_14BuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESH_SN_.argprom"}
+!38 = distinct !{!38, !39, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt3setIN3nix9StorePathESt4lessIS6_ESaIS6_EEEEONS5_10overloadedIJZNKS5_9BuiltPath8outPathsEvE3$_0ZNKSD_8outPathsEvE3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_14BuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESH_SN_: argument 0"}
+!39 = distinct !{!39, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt3setIN3nix9StorePathESt4lessIS6_ESaIS6_EEEEONS5_10overloadedIJZNKS5_9BuiltPath8outPathsEvE3$_0ZNKSD_8outPathsEvE3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_14BuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESH_SN_"}
 !40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZSt8__invokeIN3nix10overloadedIJZNKS0_9BuiltPath8outPathsEvE3$_0ZNKS2_8outPathsEvE3$_1EEEJRKNS0_14BuiltPathBuiltEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.argprom: argument 0"}
-!42 = distinct !{!42, !"_ZSt8__invokeIN3nix10overloadedIJZNKS0_9BuiltPath8outPathsEvE3$_0ZNKS2_8outPathsEvE3$_1EEEJRKNS0_14BuiltPathBuiltEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.argprom"}
+!41 = distinct !{!41, !42, !"_ZSt8__invokeIN3nix10overloadedIJZNKS0_9BuiltPath8outPathsEvE3$_0ZNKS2_8outPathsEvE3$_1EEEJRKNS0_14BuiltPathBuiltEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_: argument 0"}
+!42 = distinct !{!42, !"_ZSt8__invokeIN3nix10overloadedIJZNKS0_9BuiltPath8outPathsEvE3$_0ZNKS2_8outPathsEvE3$_1EEEJRKNS0_14BuiltPathBuiltEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_"}
 !43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZSt13__invoke_implISt3setIN3nix9StorePathESt4lessIS2_ESaIS2_EENS1_10overloadedIJZNKS1_9BuiltPath8outPathsEvE3$_0ZNKS8_8outPathsEvE3$_1EEEJRKNS1_14BuiltPathBuiltEEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
-!45 = distinct !{!45, !"_ZSt13__invoke_implISt3setIN3nix9StorePathESt4lessIS2_ESaIS2_EENS1_10overloadedIJZNKS1_9BuiltPath8outPathsEvE3$_0ZNKS8_8outPathsEvE3$_1EEEJRKNS1_14BuiltPathBuiltEEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!44 = distinct !{!44, !45, !"_ZSt13__invoke_implISt3setIN3nix9StorePathESt4lessIS2_ESaIS2_EENS1_10overloadedIJZNKS1_9BuiltPath8outPathsEvE3$_0ZNKS8_8outPathsEvE3$_1EEEJRKNS1_14BuiltPathBuiltEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!45 = distinct !{!45, !"_ZSt13__invoke_implISt3setIN3nix9StorePathESt4lessIS2_ESaIS2_EENS1_10overloadedIJZNKS1_9BuiltPath8outPathsEvE3$_0ZNKS8_8outPathsEvE3$_1EEEJRKNS1_14BuiltPathBuiltEEET_St14__invoke_otherOT0_DpOT1_"}
 !46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZZNK3nix9BuiltPath8outPathsEvENK3$_1clERKNS_14BuiltPathBuiltE.argprom: argument 0"}
-!48 = distinct !{!48, !"_ZZNK3nix9BuiltPath8outPathsEvENK3$_1clERKNS_14BuiltPathBuiltE.argprom"}
+!47 = distinct !{!47, !48, !"_ZZNK3nix9BuiltPath8outPathsEvENK3$_1clERKNS_14BuiltPathBuiltE: argument 0"}
+!48 = distinct !{!48, !"_ZZNK3nix9BuiltPath8outPathsEvENK3$_1clERKNS_14BuiltPathBuiltE"}
 !49 = !{!47, !44, !41, !38, !25, !22}
 !50 = !{!51}
 !51 = distinct !{!51, !52, !"_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS2_17discardOutputPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_: argument 0"}
 !52 = distinct !{!52, !"_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS2_17discardOutputPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_"}
 !53 = !{!54, !56, !58, !60}
-!54 = distinct !{!54, !55, !"_ZZNK3nix15SingleBuiltPath17discardOutputPathEvENK3$_0clERKNS_17DerivedPathOpaqueE.argprom: argument 0"}
-!55 = distinct !{!55, !"_ZZNK3nix15SingleBuiltPath17discardOutputPathEvENK3$_0clERKNS_17DerivedPathOpaqueE.argprom"}
-!56 = distinct !{!56, !57, !"_ZSt13__invoke_implIN3nix17SingleDerivedPathENS0_10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS3_17discardOutputPathEvE3$_1EEEJRKNS0_17DerivedPathOpaqueEEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
-!57 = distinct !{!57, !"_ZSt13__invoke_implIN3nix17SingleDerivedPathENS0_10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS3_17discardOutputPathEvE3$_1EEEJRKNS0_17DerivedPathOpaqueEEET_St14__invoke_otherOT0_DpOT1_.argprom"}
-!58 = distinct !{!58, !59, !"_ZSt8__invokeIN3nix10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS2_17discardOutputPathEvE3$_1EEEJRKNS0_17DerivedPathOpaqueEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.argprom: argument 0"}
-!59 = distinct !{!59, !"_ZSt8__invokeIN3nix10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS2_17discardOutputPathEvE3$_1EEEJRKNS0_17DerivedPathOpaqueEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.argprom"}
-!60 = distinct !{!60, !61, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix17SingleDerivedPathEEEONS4_10overloadedIJZNKS4_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS8_17discardOutputPathEvE3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESC_SI_.argprom: argument 0"}
-!61 = distinct !{!61, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix17SingleDerivedPathEEEONS4_10overloadedIJZNKS4_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS8_17discardOutputPathEvE3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESC_SI_.argprom"}
+!54 = distinct !{!54, !55, !"_ZZNK3nix15SingleBuiltPath17discardOutputPathEvENK3$_0clERKNS_17DerivedPathOpaqueE: argument 0"}
+!55 = distinct !{!55, !"_ZZNK3nix15SingleBuiltPath17discardOutputPathEvENK3$_0clERKNS_17DerivedPathOpaqueE"}
+!56 = distinct !{!56, !57, !"_ZSt13__invoke_implIN3nix17SingleDerivedPathENS0_10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS3_17discardOutputPathEvE3$_1EEEJRKNS0_17DerivedPathOpaqueEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!57 = distinct !{!57, !"_ZSt13__invoke_implIN3nix17SingleDerivedPathENS0_10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS3_17discardOutputPathEvE3$_1EEEJRKNS0_17DerivedPathOpaqueEEET_St14__invoke_otherOT0_DpOT1_"}
+!58 = distinct !{!58, !59, !"_ZSt8__invokeIN3nix10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS2_17discardOutputPathEvE3$_1EEEJRKNS0_17DerivedPathOpaqueEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_: argument 0"}
+!59 = distinct !{!59, !"_ZSt8__invokeIN3nix10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS2_17discardOutputPathEvE3$_1EEEJRKNS0_17DerivedPathOpaqueEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_"}
+!60 = distinct !{!60, !61, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix17SingleDerivedPathEEEONS4_10overloadedIJZNKS4_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS8_17discardOutputPathEvE3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESC_SI_: argument 0"}
+!61 = distinct !{!61, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix17SingleDerivedPathEEEONS4_10overloadedIJZNKS4_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS8_17discardOutputPathEvE3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESC_SI_"}
 !62 = !{!63, !65}
 !63 = distinct !{!63, !64, !"_ZSt13__invoke_implIN3nix17SingleDerivedPathENS0_10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS3_17discardOutputPathEvE3$_1EEEJRKNS0_20SingleBuiltPathBuiltEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
 !64 = distinct !{!64, !"_ZSt13__invoke_implIN3nix17SingleDerivedPathENS0_10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS3_17discardOutputPathEvE3$_1EEEJRKNS0_20SingleBuiltPathBuiltEEET_St14__invoke_otherOT0_DpOT1_"}
@@ -19348,20 +19348,20 @@ attributes #32 = { "function-inline-cost-multiplier"="2" }
 !74 = distinct !{!74, !75, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN3nix17SingleDerivedPathESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERS9_: argument 0"}
 !75 = distinct !{!75, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN3nix17SingleDerivedPathESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERS9_"}
 !76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS2_17discardOutputPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.argprom: argument 0"}
-!78 = distinct !{!78, !"_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS2_17discardOutputPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.argprom"}
+!77 = distinct !{!77, !78, !"_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS2_17discardOutputPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_: argument 0"}
+!78 = distinct !{!78, !"_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS2_17discardOutputPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_"}
 !79 = !{!80, !82, !84, !86, !77}
-!80 = distinct !{!80, !81, !"_ZZNK3nix15SingleBuiltPath17discardOutputPathEvENK3$_0clERKNS_17DerivedPathOpaqueE.argprom: argument 0"}
-!81 = distinct !{!81, !"_ZZNK3nix15SingleBuiltPath17discardOutputPathEvENK3$_0clERKNS_17DerivedPathOpaqueE.argprom"}
-!82 = distinct !{!82, !83, !"_ZSt13__invoke_implIN3nix17SingleDerivedPathENS0_10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS3_17discardOutputPathEvE3$_1EEEJRKNS0_17DerivedPathOpaqueEEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
-!83 = distinct !{!83, !"_ZSt13__invoke_implIN3nix17SingleDerivedPathENS0_10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS3_17discardOutputPathEvE3$_1EEEJRKNS0_17DerivedPathOpaqueEEET_St14__invoke_otherOT0_DpOT1_.argprom"}
-!84 = distinct !{!84, !85, !"_ZSt8__invokeIN3nix10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS2_17discardOutputPathEvE3$_1EEEJRKNS0_17DerivedPathOpaqueEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.argprom: argument 0"}
-!85 = distinct !{!85, !"_ZSt8__invokeIN3nix10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS2_17discardOutputPathEvE3$_1EEEJRKNS0_17DerivedPathOpaqueEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.argprom"}
-!86 = distinct !{!86, !87, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix17SingleDerivedPathEEEONS4_10overloadedIJZNKS4_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS8_17discardOutputPathEvE3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESC_SI_.argprom: argument 0"}
-!87 = distinct !{!87, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix17SingleDerivedPathEEEONS4_10overloadedIJZNKS4_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS8_17discardOutputPathEvE3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESC_SI_.argprom"}
+!80 = distinct !{!80, !81, !"_ZZNK3nix15SingleBuiltPath17discardOutputPathEvENK3$_0clERKNS_17DerivedPathOpaqueE: argument 0"}
+!81 = distinct !{!81, !"_ZZNK3nix15SingleBuiltPath17discardOutputPathEvENK3$_0clERKNS_17DerivedPathOpaqueE"}
+!82 = distinct !{!82, !83, !"_ZSt13__invoke_implIN3nix17SingleDerivedPathENS0_10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS3_17discardOutputPathEvE3$_1EEEJRKNS0_17DerivedPathOpaqueEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!83 = distinct !{!83, !"_ZSt13__invoke_implIN3nix17SingleDerivedPathENS0_10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS3_17discardOutputPathEvE3$_1EEEJRKNS0_17DerivedPathOpaqueEEET_St14__invoke_otherOT0_DpOT1_"}
+!84 = distinct !{!84, !85, !"_ZSt8__invokeIN3nix10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS2_17discardOutputPathEvE3$_1EEEJRKNS0_17DerivedPathOpaqueEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_: argument 0"}
+!85 = distinct !{!85, !"_ZSt8__invokeIN3nix10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS2_17discardOutputPathEvE3$_1EEEJRKNS0_17DerivedPathOpaqueEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_"}
+!86 = distinct !{!86, !87, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix17SingleDerivedPathEEEONS4_10overloadedIJZNKS4_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS8_17discardOutputPathEvE3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESC_SI_: argument 0"}
+!87 = distinct !{!87, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix17SingleDerivedPathEEEONS4_10overloadedIJZNKS4_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS8_17discardOutputPathEvE3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESC_SI_"}
 !88 = !{!89}
-!89 = distinct !{!89, !90, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix17SingleDerivedPathEEEONS4_10overloadedIJZNKS4_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS8_17discardOutputPathEvE3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SI_.argprom: argument 0"}
-!90 = distinct !{!90, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix17SingleDerivedPathEEEONS4_10overloadedIJZNKS4_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS8_17discardOutputPathEvE3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SI_.argprom"}
+!89 = distinct !{!89, !90, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix17SingleDerivedPathEEEONS4_10overloadedIJZNKS4_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS8_17discardOutputPathEvE3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SI_: argument 0"}
+!90 = distinct !{!90, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix17SingleDerivedPathEEEONS4_10overloadedIJZNKS4_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS8_17discardOutputPathEvE3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SI_"}
 !91 = !{!92, !89, !77}
 !92 = distinct !{!92, !93, !"_ZSt13__invoke_implIN3nix17SingleDerivedPathENS0_10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS3_17discardOutputPathEvE3$_1EEEJRKNS0_20SingleBuiltPathBuiltEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
 !93 = distinct !{!93, !"_ZSt13__invoke_implIN3nix17SingleDerivedPathENS0_10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS3_17discardOutputPathEvE3$_1EEEJRKNS0_20SingleBuiltPathBuiltEEET_St14__invoke_otherOT0_DpOT1_"}
@@ -19380,11 +19380,11 @@ attributes #32 = { "function-inline-cost-multiplier"="2" }
 !106 = distinct !{!106, !107, !"_ZSt5visitB5cxx11IZNK3nix15SingleBuiltPath6toJSONB5cxx11ERKNS0_14StoreDirConfigEE3$_0JRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_: argument 0"}
 !107 = distinct !{!107, !"_ZSt5visitB5cxx11IZNK3nix15SingleBuiltPath6toJSONB5cxx11ERKNS0_14StoreDirConfigEE3$_0JRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_"}
 !108 = !{!109}
-!109 = distinct !{!109, !110, !"_ZSt5visitB5cxx11IZNK3nix9BuiltPath6toJSONB5cxx11ERKNS0_14StoreDirConfigEE3$_0JRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.argprom: argument 0"}
-!110 = distinct !{!110, !"_ZSt5visitB5cxx11IZNK3nix9BuiltPath6toJSONB5cxx11ERKNS0_14StoreDirConfigEE3$_0JRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.argprom"}
+!109 = distinct !{!109, !110, !"_ZSt5visitB5cxx11IZNK3nix9BuiltPath6toJSONB5cxx11ERKNS0_14StoreDirConfigEE3$_0JRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_: argument 0"}
+!110 = distinct !{!110, !"_ZSt5visitB5cxx11IZNK3nix9BuiltPath6toJSONB5cxx11ERKNS0_14StoreDirConfigEE3$_0JRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_"}
 !111 = !{!112, !114}
-!112 = distinct !{!112, !113, !"_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath7outPathEvE3$_0ZNKS2_7outPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.argprom: argument 0"}
-!113 = distinct !{!113, !"_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath7outPathEvE3$_0ZNKS2_7outPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.argprom"}
+!112 = distinct !{!112, !113, !"_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath7outPathEvE3$_0ZNKS2_7outPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_: argument 0"}
+!113 = distinct !{!113, !"_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath7outPathEvE3$_0ZNKS2_7outPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_"}
 !114 = distinct !{!114, !115, !"_ZNK3nix15SingleBuiltPath7outPathEv: argument 0"}
 !115 = distinct !{!115, !"_ZNK3nix15SingleBuiltPath7outPathEv"}
 !116 = distinct !{!116, !17}

@@ -445,14 +445,14 @@ define internal fastcc void @ip6_mc_leave_src(ptr noundef %0, ptr noundef nonnul
   br i1 %10, label %13, label %14
 
 13:                                               ; preds = %9
-  tail call fastcc void @ip6_mc_del_src.retelim(ptr noundef %2, ptr noundef nonnull %1, i32 noundef %12, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  tail call fastcc void @ip6_mc_del_src(ptr noundef %2, ptr noundef nonnull %1, i32 noundef %12, i32 noundef 0, ptr noundef null, i32 noundef 0)
   br label %23
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds i8, ptr %5, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = getelementptr inbounds i8, ptr %5, i64 24
-  tail call fastcc void @ip6_mc_del_src.retelim(ptr noundef %2, ptr noundef nonnull %1, i32 noundef %12, i32 noundef %16, ptr noundef %17, i32 noundef 0)
+  tail call fastcc void @ip6_mc_del_src(ptr noundef %2, ptr noundef nonnull %1, i32 noundef %12, i32 noundef %16, ptr noundef %17, i32 noundef 0)
   store volatile ptr null, ptr %4, align 8
   %18 = load i32, ptr %5, align 8
   %19 = shl i32 %18, 4
@@ -902,7 +902,7 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
 92:                                               ; preds = %91
   %93 = tail call fastcc i32 @ip6_mc_add_src(ptr noundef nonnull %38, ptr noundef %19, i32 noundef %1, i32 noundef 0, ptr noundef null, i32 noundef 0), !range !41
   %94 = load i32, ptr %87, align 4
-  tail call fastcc void @ip6_mc_del_src.retelim(ptr noundef nonnull %38, ptr noundef %19, i32 noundef %94, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  tail call fastcc void @ip6_mc_del_src(ptr noundef nonnull %38, ptr noundef %19, i32 noundef %94, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store i32 %1, ptr %87, align 4
   %.pre = load ptr, ptr %84, align 8
   br label %95
@@ -953,7 +953,7 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
   br i1 %125, label %220, label %126
 
 126:                                              ; preds = %122
-  tail call fastcc void @ip6_mc_del_src.retelim(ptr noundef nonnull %38, ptr noundef %19, i32 noundef %1, i32 noundef 1, ptr noundef %18, i32 noundef 1)
+  tail call fastcc void @ip6_mc_del_src(ptr noundef nonnull %38, ptr noundef %19, i32 noundef %1, i32 noundef 1, ptr noundef %18, i32 noundef 1)
   %127 = add i32 %110, 1
   %128 = load i32, ptr %101, align 4
   %129 = icmp ult i32 %127, %128
@@ -1419,7 +1419,7 @@ mld_ifc_event.exit:                               ; preds = %8, %112, %177, %173
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ip6_mc_del_src.retelim(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 align 16 {
+define internal fastcc void @ip6_mc_del_src(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 align 16 {
   %7 = icmp eq ptr %0, null
   br i1 %7, label %mld_ifc_event.exit, label %8
 
@@ -1847,7 +1847,7 @@ define dso_local noundef range(i32 -105, 1) i32 @ip6_mc_msfilter(ptr noundef %0,
   %126 = getelementptr inbounds i8, ptr %121, i64 4
   %127 = load i32, ptr %126, align 4
   %128 = getelementptr inbounds i8, ptr %121, i64 24
-  tail call fastcc void @ip6_mc_del_src.retelim(ptr noundef nonnull %40, ptr noundef %17, i32 noundef %124, i32 noundef %127, ptr noundef %128, i32 noundef 0)
+  tail call fastcc void @ip6_mc_del_src(ptr noundef nonnull %40, ptr noundef %17, i32 noundef %124, i32 noundef %127, ptr noundef %128, i32 noundef 0)
   %129 = load i32, ptr %121, align 8
   %130 = shl i32 %129, 4
   %131 = add i32 %130, 24
@@ -1856,7 +1856,7 @@ define dso_local noundef range(i32 -105, 1) i32 @ip6_mc_msfilter(ptr noundef %0,
   br label %134
 
 133:                                              ; preds = %117
-  tail call fastcc void @ip6_mc_del_src.retelim(ptr noundef nonnull %40, ptr noundef %17, i32 noundef %124, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  tail call fastcc void @ip6_mc_del_src(ptr noundef nonnull %40, ptr noundef %17, i32 noundef %124, i32 noundef 0, ptr noundef null, i32 noundef 0)
   br label %134
 
 134:                                              ; preds = %133, %125

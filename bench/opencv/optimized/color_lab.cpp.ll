@@ -1164,7 +1164,7 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_9RGB2Lab_fEEEvPKhmPhmiiRKT_.exit: ; p
   br i1 %.not.i.i.i, label %71, label %67
 
 67:                                               ; preds = %65
-  invoke fastcc void @_ZN2cvL13createLabTabsEv.argelim()
+  invoke fastcc void @_ZN2cvL13createLabTabsEv()
           to label %68 unwind label %69
 
 68:                                               ; preds = %67
@@ -1312,7 +1312,7 @@ define linkonce_odr hidden void @_ZN2cv9RGB2Lab_bC2EiiPKfS2_b(ptr noundef nonnul
   br i1 %.not.i, label %_ZN2cvL11initLabTabsEv.exit, label %23
 
 23:                                               ; preds = %21
-  invoke fastcc void @_ZN2cvL13createLabTabsEv.argelim()
+  invoke fastcc void @_ZN2cvL13createLabTabsEv()
           to label %24 unwind label %25
 
 24:                                               ; preds = %23
@@ -1535,7 +1535,7 @@ define linkonce_odr hidden void @_ZN2cv9RGB2Lab_fC2EiiPKfS2_b(ptr noundef nonnul
   br i1 %.not.i, label %_ZN2cvL11initLabTabsEv.exit, label %29
 
 29:                                               ; preds = %27
-  invoke fastcc void @_ZN2cvL13createLabTabsEv.argelim()
+  invoke fastcc void @_ZN2cvL13createLabTabsEv()
           to label %30 unwind label %31
 
 30:                                               ; preds = %29
@@ -1960,7 +1960,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %94, %97
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv15cvtColorBGR2LabERKNS_11_InputArrayERKNS_12_OutputArrayEbb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.cv::impl::(anonymous namespace)::CvtHelper", align 8
-  call fastcc void @_ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi3ELi4ELin1EEENS3_ILi3ELin1ELin1EEENS3_ILi0ELi5ELin1EEELNS1_10SizePolicyE4EEC2ERKNS_11_InputArrayERKNS_12_OutputArrayEi.argelim(ptr noundef nonnull align 8 dereferenceable(208) %5, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  call fastcc void @_ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi3ELi4ELin1EEENS3_ILi3ELin1ELin1EEENS3_ILi0ELi5ELin1EEELNS1_10SizePolicyE4EEC2ERKNS_11_InputArrayERKNS_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(208) %5, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 80
@@ -1996,7 +1996,7 @@ define hidden void @_ZN2cv15cvtColorBGR2LabERKNS_11_InputArrayERKNS_12_OutputArr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi3ELi4ELin1EEENS3_ILi3ELin1ELin1EEENS3_ILi0ELi5ELin1EEELNS1_10SizePolicyE4EEC2ERKNS_11_InputArrayERKNS_12_OutputArrayEi.argelim(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi3ELi4ELin1EEENS3_ILi3ELin1ELin1EEENS3_ILi0ELi5ELin1EEELNS1_10SizePolicyE4EEC2ERKNS_11_InputArrayERKNS_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.cv::_OutputArray", align 8
@@ -2196,7 +2196,7 @@ _ZNK2cv11_InputArray6getMatEi.exit25:             ; preds = %73, %75
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv15cvtColorBGR2LuvERKNS_11_InputArrayERKNS_12_OutputArrayEbb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.cv::impl::(anonymous namespace)::CvtHelper", align 8
-  call fastcc void @_ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi3ELi4ELin1EEENS3_ILi3ELin1ELin1EEENS3_ILi0ELi5ELin1EEELNS1_10SizePolicyE4EEC2ERKNS_11_InputArrayERKNS_12_OutputArrayEi.argelim(ptr noundef nonnull align 8 dereferenceable(208) %5, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  call fastcc void @_ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi3ELi4ELin1EEENS3_ILi3ELin1ELin1EEENS3_ILi0ELi5ELin1EEELNS1_10SizePolicyE4EEC2ERKNS_11_InputArrayERKNS_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(208) %5, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 80
@@ -3031,7 +3031,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(p
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL13createLabTabsEv.argelim() unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL13createLabTabsEv() unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 .preheader126.preheader:
   %0 = alloca %"struct.cv::softdouble", align 8
   %1 = alloca %"struct.cv::softdouble", align 8
@@ -3316,7 +3316,7 @@ _ZN2cv9softfloataSERKS0_.exit:                    ; preds = %248, %250
   br i1 %exitcond.not, label %252, label %243, !llvm.loop !58
 
 252:                                              ; preds = %_ZN2cv9softfloataSERKS0_.exit
-  %253 = call fastcc noundef ptr @_ZL11splineBuildPKN2cv9softfloatEm.argelim(ptr noundef %165)
+  %253 = call fastcc noundef ptr @_ZL11splineBuildPKN2cv9softfloatEm(ptr noundef %165)
   store ptr %253, ptr @_ZN2cvL10LabCbrtTabE, align 8
   store i32 1065353216, ptr %175, align 4, !alias.scope !59
   store float 1.024000e+03, ptr %176, align 4
@@ -3361,9 +3361,9 @@ _ZN2cv9softfloataSERKS0_.exit106:                 ; preds = %_ZN2cv9softfloataSE
   br i1 %exitcond140.not, label %265, label %255, !llvm.loop !64
 
 265:                                              ; preds = %_ZN2cv9softfloataSERKS0_.exit106
-  %266 = call fastcc noundef ptr @_ZL11splineBuildPKN2cv9softfloatEm.argelim(ptr noundef %166)
+  %266 = call fastcc noundef ptr @_ZL11splineBuildPKN2cv9softfloatEm(ptr noundef %166)
   store ptr %266, ptr @_ZN2cvL12sRGBGammaTabE, align 8
-  %267 = call fastcc noundef ptr @_ZL11splineBuildPKN2cv9softfloatEm.argelim(ptr noundef %167)
+  %267 = call fastcc noundef ptr @_ZL11splineBuildPKN2cv9softfloatEm(ptr noundef %167)
   store ptr %267, ptr @_ZN2cvL15sRGBInvGammaTabE, align 8
   %268 = load atomic i8, ptr @_ZGVZN2cvL13createLabTabsEvE8intScale acquire, align 8
   %269 = icmp eq i8 %268, 0
@@ -5355,7 +5355,7 @@ declare void @_ZN2cv6mulAddERKNS_9softfloatES2_S2_(ptr dead_on_unwind writable s
 declare void @_ZN2cv4cbrtERKNS_9softfloatE(ptr dead_on_unwind writable sret(%"struct.cv::softfloat") align 4, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL11splineBuildPKN2cv9softfloatEm.argelim(ptr noundef nonnull %0) unnamed_addr #5 {
+define internal fastcc noundef ptr @_ZL11splineBuildPKN2cv9softfloatEm(ptr noundef nonnull %0) unnamed_addr #5 {
   %2 = alloca %"struct.cv::softfloat", align 4
   %3 = alloca %"struct.cv::softfloat", align 4
   %4 = alloca %"struct.cv::softfloat", align 4
@@ -5642,7 +5642,7 @@ define linkonce_odr hidden void @_ZN2cv12RGB2LuvfloatC2EiiPKfS2_b(ptr noundef no
   br i1 %.not.i, label %_ZN2cvL11initLabTabsEv.exit, label %44
 
 44:                                               ; preds = %42
-  invoke fastcc void @_ZN2cvL13createLabTabsEv.argelim()
+  invoke fastcc void @_ZN2cvL13createLabTabsEv()
           to label %45 unwind label %46
 
 45:                                               ; preds = %44
@@ -5893,7 +5893,7 @@ define linkonce_odr hidden void @_ZN2cv12Lab2RGBfloatC2EiiPKfS2_b(ptr noundef no
   br i1 %.not.i, label %_ZN2cvL11initLabTabsEv.exit, label %23
 
 23:                                               ; preds = %21
-  invoke fastcc void @_ZN2cvL13createLabTabsEv.argelim()
+  invoke fastcc void @_ZN2cvL13createLabTabsEv()
           to label %24 unwind label %25
 
 24:                                               ; preds = %23
@@ -6198,7 +6198,7 @@ define linkonce_odr hidden void @_ZN2cv12Luv2RGBfloatC2EiiPKfS2_b(ptr noundef no
   br i1 %.not.i, label %_ZN2cvL11initLabTabsEv.exit, label %38
 
 38:                                               ; preds = %36
-  invoke fastcc void @_ZN2cvL13createLabTabsEv.argelim()
+  invoke fastcc void @_ZN2cvL13createLabTabsEv()
           to label %39 unwind label %40
 
 39:                                               ; preds = %38
@@ -6407,7 +6407,7 @@ define linkonce_odr hidden void @_ZN2cv14Luv2RGBintegerC2EiiPKfS2_b(ptr noundef 
   br i1 %.not.i, label %_ZN2cvL11initLabTabsEv.exit, label %17
 
 17:                                               ; preds = %15
-  invoke fastcc void @_ZN2cvL13createLabTabsEv.argelim()
+  invoke fastcc void @_ZN2cvL13createLabTabsEv()
           to label %18 unwind label %19
 
 18:                                               ; preds = %17

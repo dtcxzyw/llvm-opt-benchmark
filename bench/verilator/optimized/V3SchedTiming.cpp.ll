@@ -3529,7 +3529,7 @@ _ZN7AstNode12dtypeSetVoidEv.exit.i:               ; preds = %99, %_ZN14AstCMetho
   %127 = getelementptr inbounds i8, ptr %112, i64 8
   %128 = load ptr, ptr %127, align 8
   %.not37.i = icmp eq ptr %128, null
-  br i1 %.not37.i, label %_ZZN7V3Sched13prepareTimingEP10AstNetlistEN12AwaitVisitor13addResumePinsEP14AstCMethodHardP11AstNodeExpr.argprom.exit.i, label %129
+  br i1 %.not37.i, label %_ZZN7V3Sched13prepareTimingEP10AstNetlistEN12AwaitVisitor13addResumePinsEP14AstCMethodHardP11AstNodeExpr.exit.i, label %129
 
 129:                                              ; preds = %126
   %130 = getelementptr inbounds i8, ptr %128, i64 64
@@ -3551,29 +3551,29 @@ _ZN7AstNode11privateCastI7AstTextPS_EEPT_S2_.exit.i.i: ; preds = %134
   %137 = getelementptr inbounds i8, ptr %128, i64 8
   %138 = load ptr, ptr %137, align 8
   %.not.i11.i.i = icmp eq ptr %138, null
-  br i1 %.not.i11.i.i, label %_ZZN7V3Sched13prepareTimingEP10AstNetlistEN12AwaitVisitor13addResumePinsEP14AstCMethodHardP11AstNodeExpr.argprom.exit.i, label %139
+  br i1 %.not.i11.i.i, label %_ZZN7V3Sched13prepareTimingEP10AstNetlistEN12AwaitVisitor13addResumePinsEP14AstCMethodHardP11AstNodeExpr.exit.i, label %139
 
 139:                                              ; preds = %_ZN7AstNode11privateCastI7AstTextPS_EEPT_S2_.exit.i.i
   %140 = getelementptr inbounds i8, ptr %138, i64 64
   %.sroa.0.0.copyload.i.i.i12.i.i = load i16, ptr %140, align 8
   %141 = add i16 %.sroa.0.0.copyload.i.i.i12.i.i, -78
   %spec.select.i.i.i.i = icmp ult i16 %141, 240
-  br i1 %spec.select.i.i.i.i, label %_ZN7AstNode11privateCastI11AstNodeExprPS_EEPT_S2_.exit.i.i, label %_ZZN7V3Sched13prepareTimingEP10AstNetlistEN12AwaitVisitor13addResumePinsEP14AstCMethodHardP11AstNodeExpr.argprom.exit.i
+  br i1 %spec.select.i.i.i.i, label %_ZN7AstNode11privateCastI11AstNodeExprPS_EEPT_S2_.exit.i.i, label %_ZZN7V3Sched13prepareTimingEP10AstNetlistEN12AwaitVisitor13addResumePinsEP14AstCMethodHardP11AstNodeExpr.exit.i
 
 _ZN7AstNode11privateCastI11AstNodeExprPS_EEPT_S2_.exit.i.i: ; preds = %139
   %142 = call noundef ptr @_ZN7AstNode9cloneTreeEbb(ptr noundef nonnull align 8 dereferenceable(152) %138, i1 noundef zeroext false, i1 noundef zeroext false)
   %.not.i.i.i.i = icmp eq ptr %142, null
-  br i1 %.not.i.i.i.i, label %_ZZN7V3Sched13prepareTimingEP10AstNetlistEN12AwaitVisitor13addResumePinsEP14AstCMethodHardP11AstNodeExpr.argprom.exit.i, label %_ZN14AstCMethodHard8addPinspEP11AstNodeExpr.exit.sink.split.i.i
+  br i1 %.not.i.i.i.i, label %_ZZN7V3Sched13prepareTimingEP10AstNetlistEN12AwaitVisitor13addResumePinsEP14AstCMethodHardP11AstNodeExpr.exit.i, label %_ZN14AstCMethodHard8addPinspEP11AstNodeExpr.exit.sink.split.i.i
 
 143:                                              ; preds = %134, %129
   %144 = call noundef ptr @_ZN7AstNode9cloneTreeEbb(ptr noundef nonnull align 8 dereferenceable(152) %128, i1 noundef zeroext false, i1 noundef zeroext false)
   %.not.i.i14.i.i = icmp eq ptr %144, null
-  br i1 %.not.i.i14.i.i, label %_ZZN7V3Sched13prepareTimingEP10AstNetlistEN12AwaitVisitor13addResumePinsEP14AstCMethodHardP11AstNodeExpr.argprom.exit.i, label %_ZN14AstCMethodHard8addPinspEP11AstNodeExpr.exit.sink.split.i.i
+  br i1 %.not.i.i14.i.i, label %_ZZN7V3Sched13prepareTimingEP10AstNetlistEN12AwaitVisitor13addResumePinsEP14AstCMethodHardP11AstNodeExpr.exit.i, label %_ZN14AstCMethodHard8addPinspEP11AstNodeExpr.exit.sink.split.i.i
 
 _ZN14AstCMethodHard8addPinspEP11AstNodeExpr.exit.sink.split.i.i: ; preds = %143, %_ZN7AstNode11privateCastI11AstNodeExprPS_EEPT_S2_.exit.i.i
   %.sink.i.i = phi ptr [ %142, %_ZN7AstNode11privateCastI11AstNodeExprPS_EEPT_S2_.exit.i.i ], [ %144, %143 ]
   call void @_ZN7AstNode7addOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %54, ptr noundef nonnull %.sink.i.i)
-  br label %_ZZN7V3Sched13prepareTimingEP10AstNetlistEN12AwaitVisitor13addResumePinsEP14AstCMethodHardP11AstNodeExpr.argprom.exit.i
+  br label %_ZZN7V3Sched13prepareTimingEP10AstNetlistEN12AwaitVisitor13addResumePinsEP14AstCMethodHardP11AstNodeExpr.exit.i
 
 145:                                              ; preds = %_ZN7AstNode12dtypeSetVoidEv.exit.i
   %146 = load ptr, ptr %102, align 8
@@ -3584,7 +3584,7 @@ _ZN14AstCMethodHard8addPinspEP11AstNodeExpr.exit.sink.split.i.i: ; preds = %143,
   %151 = getelementptr inbounds i8, ptr %150, i64 164
   %.sroa.0.0.copyload.i.i53.i = load i8, ptr %151, align 4
   %152 = icmp eq i8 %.sroa.0.0.copyload.i.i53.i, 20
-  br i1 %152, label %153, label %_ZZN7V3Sched13prepareTimingEP10AstNetlistEN12AwaitVisitor13addResumePinsEP14AstCMethodHardP11AstNodeExpr.argprom.exit.i
+  br i1 %152, label %153, label %_ZZN7V3Sched13prepareTimingEP10AstNetlistEN12AwaitVisitor13addResumePinsEP14AstCMethodHardP11AstNodeExpr.exit.i
 
 153:                                              ; preds = %145
   %154 = call noundef ptr @_ZN7AstNode9cloneTreeEbb(ptr noundef nonnull align 8 dereferenceable(152) %54, i1 noundef zeroext false, i1 noundef zeroext false)
@@ -3663,7 +3663,7 @@ _ZN11AstNodeExpr8makeStmtEv.exit.i:               ; preds = %.noexc.i.i
   %174 = call noundef ptr @_ZN7AstNode7addNextIS_S_EEPT_S2_PT0_(ptr noundef %168, ptr noundef nonnull %169)
   %175 = load ptr, ptr %166, align 8
   store ptr %174, ptr %175, align 8
-  br label %_ZZN7V3Sched13prepareTimingEP10AstNetlistEN12AwaitVisitor13addResumePinsEP14AstCMethodHardP11AstNodeExpr.argprom.exit.i
+  br label %_ZZN7V3Sched13prepareTimingEP10AstNetlistEN12AwaitVisitor13addResumePinsEP14AstCMethodHardP11AstNodeExpr.exit.i
 
 176:                                              ; preds = %.noexc54.i, %153
   %177 = landingpad { ptr, i32 }
@@ -3681,13 +3681,13 @@ _ZN11AstNodeExpr8makeStmtEv.exit.i:               ; preds = %.noexc.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
   br label %common.resume.i
 
-_ZZN7V3Sched13prepareTimingEP10AstNetlistEN12AwaitVisitor13addResumePinsEP14AstCMethodHardP11AstNodeExpr.argprom.exit.i: ; preds = %_ZN11AstNodeExpr8makeStmtEv.exit.i, %145, %_ZN14AstCMethodHard8addPinspEP11AstNodeExpr.exit.sink.split.i.i, %143, %_ZN7AstNode11privateCastI11AstNodeExprPS_EEPT_S2_.exit.i.i, %139, %_ZN7AstNode11privateCastI7AstTextPS_EEPT_S2_.exit.i.i, %126
+_ZZN7V3Sched13prepareTimingEP10AstNetlistEN12AwaitVisitor13addResumePinsEP14AstCMethodHardP11AstNodeExpr.exit.i: ; preds = %_ZN11AstNodeExpr8makeStmtEv.exit.i, %145, %_ZN14AstCMethodHard8addPinspEP11AstNodeExpr.exit.sink.split.i.i, %143, %_ZN7AstNode11privateCastI11AstNodeExprPS_EEPT_S2_.exit.i.i, %139, %_ZN7AstNode11privateCastI7AstTextPS_EEPT_S2_.exit.i.i, %126
   %180 = call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #22
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #26
   %181 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %.noexc60.i unwind label %235
 
-.noexc60.i:                                       ; preds = %_ZZN7V3Sched13prepareTimingEP10AstNetlistEN12AwaitVisitor13addResumePinsEP14AstCMethodHardP11AstNodeExpr.argprom.exit.i
+.noexc60.i:                                       ; preds = %_ZZN7V3Sched13prepareTimingEP10AstNetlistEN12AwaitVisitor13addResumePinsEP14AstCMethodHardP11AstNodeExpr.exit.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %181, ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %.noexc61.i unwind label %235
 
@@ -3839,7 +3839,7 @@ _ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE17_M_realloc_insertIJRKS2_RKS
   store ptr %234, ptr %203, align 8
   br label %_ZZN7V3Sched13prepareTimingEP10AstNetlistEN12AwaitVisitor18createResumeActiveEP9AstCAwait.exit
 
-235:                                              ; preds = %.noexc60.i, %_ZZN7V3Sched13prepareTimingEP10AstNetlistEN12AwaitVisitor13addResumePinsEP14AstCMethodHardP11AstNodeExpr.argprom.exit.i
+235:                                              ; preds = %.noexc60.i, %_ZZN7V3Sched13prepareTimingEP10AstNetlistEN12AwaitVisitor13addResumePinsEP14AstCMethodHardP11AstNodeExpr.exit.i
   %236 = landingpad { ptr, i32 }
           cleanup
   br label %.body62.i

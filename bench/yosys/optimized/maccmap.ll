@@ -18324,9 +18324,9 @@ _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit: ; preds = %._crit_edge57, %5
 65:                                               ; preds = %63, %59, %54
   %66 = load i32, ptr @_ZZZN12_GLOBAL__N_111MaccmapPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEvE2id, align 4, !noalias !120
   %.not.i.i.i31 = icmp eq i32 %66, 0
-  br i1 %.not.i.i.i31, label %_ZZN12_GLOBAL__N_111MaccmapPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEv.argprom.exit.thread, label %_ZZN12_GLOBAL__N_111MaccmapPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEv.argprom.exit
+  br i1 %.not.i.i.i31, label %_ZZN12_GLOBAL__N_111MaccmapPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEv.exit.thread, label %_ZZN12_GLOBAL__N_111MaccmapPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEv.exit
 
-_ZZN12_GLOBAL__N_111MaccmapPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEv.argprom.exit.thread: ; preds = %65
+_ZZN12_GLOBAL__N_111MaccmapPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEv.exit.thread: ; preds = %65
   %67 = load i32, ptr %56, align 4
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %90, label %102
@@ -18337,7 +18337,7 @@ _ZZN12_GLOBAL__N_111MaccmapPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt1
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZZN12_GLOBAL__N_111MaccmapPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEvE2id) #23, !noalias !120
   br label %.body
 
-_ZZN12_GLOBAL__N_111MaccmapPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEv.argprom.exit: ; preds = %65
+_ZZN12_GLOBAL__N_111MaccmapPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEv.exit: ; preds = %65
   %71 = sext i32 %66 to i64
   %72 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !120
   %73 = getelementptr inbounds i32, ptr %72, i64 %71
@@ -18350,7 +18350,7 @@ _ZZN12_GLOBAL__N_111MaccmapPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt1
   %79 = trunc i8 %78 to i1
   br i1 %79, label %80, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
 
-80:                                               ; preds = %_ZZN12_GLOBAL__N_111MaccmapPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEv.argprom.exit
+80:                                               ; preds = %_ZZN12_GLOBAL__N_111MaccmapPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEv.exit
   %81 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %82 = getelementptr inbounds i32, ptr %81, i64 %71
   %83 = load i32, ptr %82, align 4
@@ -18370,23 +18370,23 @@ _ZZN12_GLOBAL__N_111MaccmapPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt1
   call void @__clang_call_terminate(ptr %89) #21
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZZN12_GLOBAL__N_111MaccmapPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEv.argprom.exit, %80, %86
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZZN12_GLOBAL__N_111MaccmapPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEv.exit, %80, %86
   br i1 %77, label %90, label %102
 
-90:                                               ; preds = %_ZZN12_GLOBAL__N_111MaccmapPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEv.argprom.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
+90:                                               ; preds = %_ZZN12_GLOBAL__N_111MaccmapPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEv.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
   %91 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %48)
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit unwind label %98
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit unwind label %98
 
-_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit: ; preds = %90
+_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit: ; preds = %90
   %92 = getelementptr inbounds i8, ptr %55, i64 72
   %93 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %92)
-          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit unwind label %98
+          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit unwind label %98
 
-_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit
+_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit
   %94 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %56)
           to label %95 unwind label %98
 
-95:                                               ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit
+95:                                               ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit
   invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.31, ptr noundef %91, ptr noundef %93, ptr noundef %94)
           to label %96 unwind label %98
 
@@ -18398,7 +18398,7 @@ _ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit: ; preds = %_ZN5YosysL
   invoke void @_ZN5Yosys5RTLIL6Module6removeEPNS0_4CellE(ptr noundef nonnull align 8 dereferenceable(560) %44, ptr noundef nonnull %55)
           to label %102 unwind label %98
 
-98:                                               ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit, %90, %97, %96, %95, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit
+98:                                               ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit, %90, %97, %96, %95, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit
   %99 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -18413,7 +18413,7 @@ _ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit: ; preds = %_ZN5YosysL
   call void @_ZdlPv(ptr noundef nonnull %100) #22
   br label %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit33
 
-102:                                              ; preds = %_ZZN12_GLOBAL__N_111MaccmapPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEv.argprom.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit, %97
+102:                                              ; preds = %_ZZN12_GLOBAL__N_111MaccmapPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEv.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit, %97
   %103 = getelementptr inbounds i8, ptr %.sroa.038.054, i64 8
   %.not46 = icmp eq ptr %103, %47
   br i1 %.not46, label %._crit_edge57.loopexit, label %54
@@ -19180,15 +19180,15 @@ attributes #26 = { nounwind willreturn memory(read) }
 !32 = distinct !{!32, !7}
 !33 = distinct !{!33, !7}
 !34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZZN12_GLOBAL__N_113MaccmapWorker7fulladdERN5Yosys5RTLIL7SigSpecES4_S4_S4_S4_ENKUlvE_clEv.argprom: argument 0"}
-!36 = distinct !{!36, !"_ZZN12_GLOBAL__N_113MaccmapWorker7fulladdERN5Yosys5RTLIL7SigSpecES4_S4_S4_S4_ENKUlvE_clEv.argprom"}
+!35 = distinct !{!35, !36, !"_ZZN12_GLOBAL__N_113MaccmapWorker7fulladdERN5Yosys5RTLIL7SigSpecES4_S4_S4_S4_ENKUlvE_clEv: argument 0"}
+!36 = distinct !{!36, !"_ZZN12_GLOBAL__N_113MaccmapWorker7fulladdERN5Yosys5RTLIL7SigSpecES4_S4_S4_S4_ENKUlvE_clEv"}
 !37 = !{!"branch_weights", i32 1, i32 1048575}
 !38 = distinct !{!38, !7}
 !39 = distinct !{!39, !7}
 !40 = distinct !{!40, !7}
 !41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZZN12_GLOBAL__N_113MaccmapWorker5synthEvENKUlvE_clEv.argprom: argument 0"}
-!43 = distinct !{!43, !"_ZZN12_GLOBAL__N_113MaccmapWorker5synthEvENKUlvE_clEv.argprom"}
+!42 = distinct !{!42, !43, !"_ZZN12_GLOBAL__N_113MaccmapWorker5synthEvENKUlvE_clEv: argument 0"}
+!43 = distinct !{!43, !"_ZZN12_GLOBAL__N_113MaccmapWorker5synthEvENKUlvE_clEv"}
 !44 = !{!45}
 !45 = distinct !{!45, !46, !"_ZSt19__relocate_object_aIN5Yosys4Macc6port_tES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
 !46 = distinct !{!46, !"_ZSt19__relocate_object_aIN5Yosys4Macc6port_tES2_SaIS2_EEvPT_PT0_RT1_"}
@@ -19266,8 +19266,8 @@ attributes #26 = { nounwind willreturn memory(read) }
 !118 = distinct !{!118, !7}
 !119 = distinct !{!119, !7}
 !120 = !{!121}
-!121 = distinct !{!121, !122, !"_ZZN12_GLOBAL__N_111MaccmapPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEv.argprom: argument 0"}
-!122 = distinct !{!122, !"_ZZN12_GLOBAL__N_111MaccmapPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEv.argprom"}
+!121 = distinct !{!121, !122, !"_ZZN12_GLOBAL__N_111MaccmapPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEv: argument 0"}
+!122 = distinct !{!122, !"_ZZN12_GLOBAL__N_111MaccmapPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEv"}
 !123 = distinct !{!123, !7}
 !124 = !{!125}
 !125 = distinct !{!125, !126, !"_ZSt19__relocate_object_aISt4pairIN5Yosys5RTLIL7SigSpecEbES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}

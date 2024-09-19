@@ -670,7 +670,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %4 = load ptr, ptr %c, align 8
   %arrayidx = getelementptr inbounds %struct.string_list_item, ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx, align 8
-  tail call fastcc void @credential_do.retelim(ptr noundef nonnull %c, ptr noundef %5, ptr noundef nonnull @.str.12)
+  tail call fastcc void @credential_do(ptr noundef nonnull %c, ptr noundef %5, ptr noundef nonnull @.str.12)
   %6 = load i64, ptr %password_expiry_utc, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i)
   %call.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i, ptr noundef null) #14
@@ -935,7 +935,7 @@ if.end23:                                         ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @credential_do.retelim(ptr noundef %c, ptr noundef %helper, ptr noundef %operation) unnamed_addr #2 {
+define internal fastcc void @credential_do(ptr noundef %c, ptr noundef %helper, ptr noundef %operation) unnamed_addr #2 {
 entry:
   %helper.i = alloca %struct.child_process, align 8
   %cmd = alloca %struct.strbuf, align 8
@@ -1067,7 +1067,7 @@ for.body:                                         ; preds = %if.end5, %for.body
   %6 = load ptr, ptr %c, align 8
   %arrayidx = getelementptr inbounds %struct.string_list_item, ptr %6, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx, align 8
-  tail call fastcc void @credential_do.retelim(ptr noundef nonnull %c, ptr noundef %7, ptr noundef nonnull @.str.15)
+  tail call fastcc void @credential_do(ptr noundef nonnull %c, ptr noundef %7, ptr noundef nonnull @.str.15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load i64, ptr %nr, align 8
   %cmp6 = icmp ugt i64 %8, %indvars.iv.next
@@ -1097,7 +1097,7 @@ for.body:                                         ; preds = %entry, %for.body
   %1 = load ptr, ptr %c, align 8
   %arrayidx = getelementptr inbounds %struct.string_list_item, ptr %1, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
-  tail call fastcc void @credential_do.retelim(ptr noundef nonnull %c, ptr noundef %2, ptr noundef nonnull @.str.16)
+  tail call fastcc void @credential_do(ptr noundef nonnull %c, ptr noundef %2, ptr noundef nonnull @.str.16)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %3 = load i64, ptr %nr, align 8
   %cmp = icmp ugt i64 %3, %indvars.iv.next
@@ -1516,20 +1516,20 @@ do.body.i:                                        ; preds = %do.cond.i, %entry
   %prefix.addr.0.ptr.i = getelementptr inbounds i8, ptr @.str.25, i64 %prefix.addr.0.idx.i
   %0 = load i8, ptr %prefix.addr.0.ptr.i, align 1
   %exitcond.i = icmp eq i64 %prefix.addr.0.idx.i, 11
-  br i1 %exitcond.i, label %skip_prefix.argprom.exit, label %do.cond.i
+  br i1 %exitcond.i, label %skip_prefix.exit, label %do.cond.i
 
 do.cond.i:                                        ; preds = %do.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.0.i, i64 1
   %1 = load i8, ptr %str.addr.0.i, align 1
   %prefix.addr.0.add.i = add nuw nsw i64 %prefix.addr.0.idx.i, 1
   %cmp.i = icmp eq i8 %1, %0
-  br i1 %cmp.i, label %do.body.i, label %skip_prefix.argprom.exit, !llvm.loop !13
+  br i1 %cmp.i, label %do.body.i, label %skip_prefix.exit, !llvm.loop !13
 
-skip_prefix.argprom.exit:                         ; preds = %do.body.i, %do.cond.i
+skip_prefix.exit:                                 ; preds = %do.body.i, %do.cond.i
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %if.end, label %return
 
-if.end:                                           ; preds = %skip_prefix.argprom.exit
+if.end:                                           ; preds = %skip_prefix.exit
   %tobool.not = icmp eq ptr %value, null
   br i1 %tobool.not, label %if.then1, label %if.end4
 
@@ -1592,8 +1592,8 @@ if.then25:                                        ; preds = %if.else22
   store i8 %bf.set, ptr %use_http_path, align 8
   br label %return
 
-return:                                           ; preds = %if.else, %if.then9, %if.else22, %if.then25, %if.then16, %if.then18, %skip_prefix.argprom.exit, %if.then1
-  %retval.0 = phi i32 [ -1, %if.then1 ], [ 0, %skip_prefix.argprom.exit ], [ 0, %if.then18 ], [ 0, %if.then16 ], [ 0, %if.then25 ], [ 0, %if.else22 ], [ 0, %if.then9 ], [ 0, %if.else ]
+return:                                           ; preds = %if.else, %if.then9, %if.else22, %if.then25, %if.then16, %if.then18, %skip_prefix.exit, %if.then1
+  %retval.0 = phi i32 [ -1, %if.then1 ], [ 0, %skip_prefix.exit ], [ 0, %if.then18 ], [ 0, %if.then16 ], [ 0, %if.then25 ], [ 0, %if.else22 ], [ 0, %if.then9 ], [ 0, %if.else ]
   ret i32 %retval.0
 }
 

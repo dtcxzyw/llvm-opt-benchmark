@@ -726,7 +726,7 @@ define void @_ZN2cv4gapi3cpu7backendEv(ptr dead_on_unwind noalias nocapture writ
 
 14:                                               ; preds = %9
   call void @_ZNSt10shared_ptrIN2cv4gapi8GBackend4PrivEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #25
-  call fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_115GCPUBackendImplEED2Ev.argprom(ptr null) #25
+  call fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_115GCPUBackendImplEED2Ev(ptr null) #25
   %15 = call i32 @__cxa_atexit(ptr nonnull @_ZN2cv4gapi8GBackendD2Ev, ptr nonnull @_ZZN2cv4gapi3cpu7backendEvE12this_backend, ptr nonnull @__dso_handle) #25
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cv4gapi3cpu7backendEvE12this_backend) #25
   br label %16
@@ -768,7 +768,7 @@ _ZN2cv4gapi8GBackendC2ERKS1_.exit:                ; preds = %16, %23, %26
   %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN2cv4gapi8GBackend4PrivEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #25
-  call fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_115GCPUBackendImplEED2Ev.argprom(ptr null) #25
+  call fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_115GCPUBackendImplEED2Ev(ptr null) #25
   br label %32
 
 32:                                               ; preds = %30, %28
@@ -864,9 +864,9 @@ _ZNSt12__shared_ptrIN2cv4gapi8GBackend4PrivELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_115GCPUBackendImplEED2Ev.argprom(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_115GCPUBackendImplEED2Ev(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_115GCPUBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit, label %1
+  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_115GCPUBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.8.val, i64 8
@@ -902,7 +902,7 @@ define internal fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_115GCPUBackendImplE
 17:                                               ; preds = %15, %13
   %.0.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_115GCPUBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %18, label %19, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_115GCPUBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -927,16 +927,16 @@ define internal fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_115GCPUBackendImplE
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_115GCPUBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_115GCPUBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #25
-  br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_115GCPUBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_115GCPUBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN12_GLOBAL__N_115GCPUBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
+_ZNSt12__shared_ptrIN12_GLOBAL__N_115GCPUBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
   ret void
 }
 
@@ -4933,13 +4933,13 @@ define hidden void @_ZN2cv5gimpl14GCPUExecutable7reshapeERN3ade5GraphERKSt6vecto
   %14 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN2cv5gimpl14GCPUExecutable7reshapeERN3ade5GraphERKSt6vectorINS3_11GCompileArgESaISA_EEE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSH_ENUlvE_8__invokeEv", ptr %14, align 8
   %15 = invoke noundef i32 @pthread_once(ptr noundef nonnull %12, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i unwind label %18
+          to label %_ZL14__gthread_oncePiPFvvE.exit.i unwind label %18
 
-_ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %11
+_ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %11
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %"_ZSt9call_onceIZN2cv5gimpl14GCPUExecutable7reshapeERN3ade5GraphERKSt6vectorINS0_11GCompileArgESaIS7_EEE3$_0JEEvRSt9once_flagOT_DpOT0_.exit", label %16
 
-16:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+16:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %15) #28
           to label %17 unwind label %18
 
@@ -4953,7 +4953,7 @@ _ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %11
   store ptr null, ptr %14, align 8
   resume { ptr, i32 } %19
 
-"_ZSt9call_onceIZN2cv5gimpl14GCPUExecutable7reshapeERN3ade5GraphERKSt6vectorINS0_11GCompileArgESaIS7_EEE3$_0JEEvRSt9once_flagOT_DpOT0_.exit": ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+"_ZSt9call_onceIZN2cv5gimpl14GCPUExecutable7reshapeERN3ade5GraphERKSt6vectorINS0_11GCompileArgESaIS7_EEE3$_0JEEvRSt9once_flagOT_DpOT0_.exit": ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   store ptr null, ptr %13, align 8
   store ptr null, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -6907,7 +6907,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 define internal fastcc void @"_ZNSt10unique_ptrIiZNK2cv5gimpl12_GLOBAL__N_13$_0clEP20___itt_string_handleEUlPiE_ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %"_ZZNK2cv5gimpl12_GLOBAL__N_13$_0clEP20___itt_string_handleENKUlPiE_clES5_.argprom.exit", label %3
+  br i1 %.not, label %"_ZZNK2cv5gimpl12_GLOBAL__N_13$_0clEP20___itt_string_handleENKUlPiE_clES5_.exit", label %3
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr @_ZN2cv5gimpl15gapi_itt_domainE, align 8
@@ -6916,13 +6916,13 @@ define internal fastcc void @"_ZNSt10unique_ptrIiZNK2cv5gimpl12_GLOBAL__N_13$_0c
   %7 = load ptr, ptr @__itt_task_end_ptr__3_0, align 8
   %8 = icmp ne ptr %7, null
   %or.cond.i = select i1 %6, i1 %8, i1 false
-  br i1 %or.cond.i, label %9, label %"_ZZNK2cv5gimpl12_GLOBAL__N_13$_0clEP20___itt_string_handleENKUlPiE_clES5_.argprom.exit"
+  br i1 %or.cond.i, label %9, label %"_ZZNK2cv5gimpl12_GLOBAL__N_13$_0clEP20___itt_string_handleENKUlPiE_clES5_.exit"
 
 9:                                                ; preds = %3
   invoke void %7(ptr noundef nonnull %4)
-          to label %"_ZZNK2cv5gimpl12_GLOBAL__N_13$_0clEP20___itt_string_handleENKUlPiE_clES5_.argprom.exit" unwind label %10
+          to label %"_ZZNK2cv5gimpl12_GLOBAL__N_13$_0clEP20___itt_string_handleENKUlPiE_clES5_.exit" unwind label %10
 
-"_ZZNK2cv5gimpl12_GLOBAL__N_13$_0clEP20___itt_string_handleENKUlPiE_clES5_.argprom.exit": ; preds = %3, %9, %1
+"_ZZNK2cv5gimpl12_GLOBAL__N_13$_0clEP20___itt_string_handleENKUlPiE_clES5_.exit": ; preds = %3, %9, %1
   store ptr null, ptr %0, align 8
   ret void
 
@@ -8532,7 +8532,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115GCPUBacken
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115GCPUBackendImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115GCPUBackendImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115GCPUBackendImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #29
   ret void
 }
@@ -15033,7 +15033,7 @@ define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN2c
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp slt i32 %6, 3
-  br i1 %7, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN2cv5gimpl14GCPUExecutable7reshapeERN3ade5GraphERKSt6vectorINS3_11GCompileArgESaISA_EEE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSH_ENKUlvE_clEv.argprom.exit", label %8
+  br i1 %7, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN2cv5gimpl14GCPUExecutable7reshapeERN3ade5GraphERKSt6vectorINS3_11GCompileArgESaISA_EEE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSH_ENKUlvE_clEv.exit", label %8
 
 8:                                                ; preds = %4, %0
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %1)
@@ -15061,7 +15061,7 @@ define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN2c
 18:                                               ; preds = %16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %1) #25
-  br label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN2cv5gimpl14GCPUExecutable7reshapeERN3ade5GraphERKSt6vectorINS3_11GCompileArgESaISA_EEE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSH_ENKUlvE_clEv.argprom.exit"
+  br label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN2cv5gimpl14GCPUExecutable7reshapeERN3ade5GraphERKSt6vectorINS3_11GCompileArgESaISA_EEE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSH_ENKUlvE_clEv.exit"
 
 19:                                               ; preds = %14, %8
   %20 = landingpad { ptr, i32 }
@@ -15079,7 +15079,7 @@ define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN2c
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %1) #25
   resume { ptr, i32 } %.pn.i.i.i.i.i
 
-"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN2cv5gimpl14GCPUExecutable7reshapeERN3ade5GraphERKSt6vectorINS3_11GCompileArgESaISA_EEE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSH_ENKUlvE_clEv.argprom.exit": ; preds = %4, %18
+"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN2cv5gimpl14GCPUExecutable7reshapeERN3ade5GraphERKSt6vectorINS3_11GCompileArgESaISA_EEE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSH_ENKUlvE_clEv.exit": ; preds = %4, %18
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   ret void
@@ -16256,11 +16256,11 @@ attributes #29 = { builtin nounwind }
 !76 = distinct !{!76, !"_ZN3ade4util5Range7indexedIJRKSt6vectorIN2cv5gimpl6RcDescESaIS6_EEEEEDTcl3zipclL_ZNS1_4iotaImEENS1_9IotaRangeIT_Li1EEEvEEspclsr3stdE7forwardIT_Efp_EEEDpOSF_"}
 !77 = distinct !{!77, !13}
 !78 = !{!79}
-!79 = distinct !{!79, !80, !"_ZNK2cv5gimpl12_GLOBAL__N_13$_0clEP20___itt_string_handle.argprom: argument 0"}
-!80 = distinct !{!80, !"_ZNK2cv5gimpl12_GLOBAL__N_13$_0clEP20___itt_string_handle.argprom"}
+!79 = distinct !{!79, !80, !"_ZNK2cv5gimpl12_GLOBAL__N_13$_0clEP20___itt_string_handle: argument 0"}
+!80 = distinct !{!80, !"_ZNK2cv5gimpl12_GLOBAL__N_13$_0clEP20___itt_string_handle"}
 !81 = !{!82, !79}
-!82 = distinct !{!82, !83, !"_ZN2cv4util14make_ptr_guardIiZNKS_5gimpl12_GLOBAL__N_13$_0clEP20___itt_string_handleEUlPiE_EESt10unique_ptrIT_NSt16remove_referenceIT0_E4typeEEPSA_OSC_.argprom: argument 0"}
-!83 = distinct !{!83, !"_ZN2cv4util14make_ptr_guardIiZNKS_5gimpl12_GLOBAL__N_13$_0clEP20___itt_string_handleEUlPiE_EESt10unique_ptrIT_NSt16remove_referenceIT0_E4typeEEPSA_OSC_.argprom"}
+!82 = distinct !{!82, !83, !"_ZN2cv4util14make_ptr_guardIiZNKS_5gimpl12_GLOBAL__N_13$_0clEP20___itt_string_handleEUlPiE_EESt10unique_ptrIT_NSt16remove_referenceIT0_E4typeEEPSA_OSC_: argument 0"}
+!83 = distinct !{!83, !"_ZN2cv4util14make_ptr_guardIiZNKS_5gimpl12_GLOBAL__N_13$_0clEP20___itt_string_handleEUlPiE_EESt10unique_ptrIT_NSt16remove_referenceIT0_E4typeEEPSA_OSC_"}
 !84 = !{!85, !87}
 !85 = distinct !{!85, !86, !"_ZN3ade4util5Range3zipIJNS1_9IotaRangeImLi1EEERSt6vectorIN2cv4util7variantIJNS7_9monostateENS6_8GMatDescENS6_11GScalarDescENS6_10GArrayDescENS6_11GOpaqueDescENS6_10GFrameDescEEEESaISF_EEEEENS1_8ZipRangeIJDpT_EEEDpOSK_: argument 0"}
 !86 = distinct !{!86, !"_ZN3ade4util5Range3zipIJNS1_9IotaRangeImLi1EEERSt6vectorIN2cv4util7variantIJNS7_9monostateENS6_8GMatDescENS6_11GScalarDescENS6_10GArrayDescENS6_11GOpaqueDescENS6_10GFrameDescEEEESaISF_EEEEENS1_8ZipRangeIJDpT_EEEDpOSK_"}

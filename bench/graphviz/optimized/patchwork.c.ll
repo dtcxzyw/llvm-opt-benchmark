@@ -50,7 +50,7 @@ define internal fastcc noalias noundef ptr @mkTree(ptr noundef %0, ptr noundef %
 7:                                                ; preds = %4
   %8 = load ptr, ptr @stderr, align 8
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.3, i64 noundef 88) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 gv_alloc.exit:                                    ; preds = %4
@@ -128,7 +128,7 @@ gv_alloc.exit:                                    ; preds = %4
 40:                                               ; preds = %37
   %41 = load ptr, ptr @stderr, align 8
   %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.3, i64 noundef 88) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 mkTreeNode.exit:                                  ; preds = %37
@@ -224,7 +224,7 @@ define internal fastcc void @layoutTree(ptr noundef %0) unnamed_addr #0 {
 7:                                                ; preds = %6
   %8 = load ptr, ptr @stderr, align 8
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.2, i64 noundef %4, i64 noundef 8) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 10:                                               ; preds = %6
@@ -236,7 +236,7 @@ define internal fastcc void @layoutTree(ptr noundef %0) unnamed_addr #0 {
   %14 = load ptr, ptr @stderr, align 8
   %15 = shl nuw i64 %4, 3
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.3, i64 noundef %15) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 gv_calloc.exit:                                   ; preds = %10
@@ -264,7 +264,7 @@ gv_calloc.exit:                                   ; preds = %10
   %26 = load ptr, ptr @stderr, align 8
   %27 = shl nuw i64 %4, 3
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.3, i64 noundef %27) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 gv_calloc.exit103:                                ; preds = %22, %gv_calloc.exit103
@@ -585,7 +585,7 @@ declare ptr @agnxtnode(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #5 {
+define internal fastcc void @graphviz_exit() unnamed_addr #5 {
   tail call void @exit(i32 noundef 1) #18
   unreachable
 }

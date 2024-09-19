@@ -114,7 +114,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   call void @_ZN4core3fmt9Formatter10debug_list17h6fd145ef502d86b6E(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !22
   %7 = getelementptr inbounds ptr, ptr %.val, i64 %.val1
   %8 = icmp eq i64 %.val1, 0
-  br i1 %8, label %"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h95d4c86e76a8803fE.argprom.exit", label %.lr.ph.i.i.i
+  br i1 %8, label %"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h95d4c86e76a8803fE.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2, %.lr.ph.i.i.i
   %.sroa.0.06.i.i.i = phi ptr [ %9, %.lr.ph.i.i.i ], [ %.val, %2 ]
@@ -124,9 +124,9 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %10 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h0c25bb22470b1f01E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.caac7ef33e5677a24931e46de60df9e5.1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !23
   %11 = icmp eq ptr %9, %7
-  br i1 %11, label %"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h95d4c86e76a8803fE.argprom.exit", label %.lr.ph.i.i.i
+  br i1 %11, label %"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h95d4c86e76a8803fE.exit", label %.lr.ph.i.i.i
 
-"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h95d4c86e76a8803fE.argprom.exit": ; preds = %.lr.ph.i.i.i, %2
+"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h95d4c86e76a8803fE.exit": ; preds = %.lr.ph.i.i.i, %2
   %12 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17hbb6daff8b6df387cE(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !16
   ret i1 %12
@@ -157,16 +157,16 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   store ptr %8, ptr %4, align 8, !noalias !34
   %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hda3bb1861e902cd2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.caac7ef33e5677a24931e46de60df9e5.7, i64 noundef 4, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.caac7ef33e5677a24931e46de60df9e5.8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !34
-  br label %"_ZN66_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h39d94ec4f60a784bE.argprom.exit"
+  br label %"_ZN66_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h39d94ec4f60a784bE.exit"
 
 11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !34
   store ptr %8, ptr %3, align 8, !noalias !34
   %12 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hda3bb1861e902cd2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.caac7ef33e5677a24931e46de60df9e5.9, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.caac7ef33e5677a24931e46de60df9e5.10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !34
-  br label %"_ZN66_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h39d94ec4f60a784bE.argprom.exit"
+  br label %"_ZN66_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h39d94ec4f60a784bE.exit"
 
-"_ZN66_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h39d94ec4f60a784bE.argprom.exit": ; preds = %9, %11
+"_ZN66_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h39d94ec4f60a784bE.exit": ; preds = %9, %11
   %.sroa.0.0.in.i.i = phi i1 [ %12, %11 ], [ %10, %9 ]
   ret i1 %.sroa.0.0.in.i.i
 }
@@ -797,8 +797,8 @@ attributes #26 = { cold noreturn nounwind }
 !17 = distinct !{!17, !18, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h9d56987417194fd2E: argument 0"}
 !18 = distinct !{!18, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h9d56987417194fd2E"}
 !19 = distinct !{!19, !18, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h9d56987417194fd2E: argument 1"}
-!20 = distinct !{!20, !21, !"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h95d4c86e76a8803fE.argprom: argument 0"}
-!21 = distinct !{!21, !"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h95d4c86e76a8803fE.argprom"}
+!20 = distinct !{!20, !21, !"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h95d4c86e76a8803fE: argument 0"}
+!21 = distinct !{!21, !"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h95d4c86e76a8803fE"}
 !22 = !{!17}
 !23 = !{!24, !17, !19, !20}
 !24 = distinct !{!24, !25, !"_ZN4core3fmt8builders9DebugList7entries17h43b68a1f6932913fE: argument 0"}
@@ -809,8 +809,8 @@ attributes #26 = { cold noreturn nounwind }
 !29 = !{i8 0, i8 2}
 !30 = !{!31, !32}
 !31 = distinct !{!31, !28, !"_ZN60_$LT$ropey..tree..node..Node$u20$as$u20$core..fmt..Debug$GT$3fmt17hf1ae832b970b5d2eE: argument 1"}
-!32 = distinct !{!32, !33, !"_ZN66_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h39d94ec4f60a784bE.argprom: argument 0"}
-!33 = distinct !{!33, !"_ZN66_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h39d94ec4f60a784bE.argprom"}
+!32 = distinct !{!32, !33, !"_ZN66_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h39d94ec4f60a784bE: argument 0"}
+!33 = distinct !{!33, !"_ZN66_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h39d94ec4f60a784bE"}
 !34 = !{!27, !31, !32}
 !35 = !{!36, !38, !40}
 !36 = distinct !{!36, !37, !"_ZN76_$LT$ropey..tree..node_text..NodeText$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1a060fa94bb6231eE: argument 0"}

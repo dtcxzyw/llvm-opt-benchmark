@@ -891,7 +891,7 @@ if.then4.i.i:                                     ; preds = %if.then.i.i
   %cond.i.i = select i1 %tobool5.not.i.i, ptr @.str.84, ptr @.str.94
   %19 = load ptr, ptr %src.i.i, align 8
   call void (ptr, ptr, ...) @refspec_appendf(ptr noundef nonnull @rs, ptr noundef nonnull @.str.93, ptr noundef nonnull %cond.i.i, ptr noundef %19, ptr noundef nonnull %18) #13
-  br label %refspec_append_mapped.argprom.exit.i
+  br label %refspec_append_mapped.exit.i
 
 if.end8.i.i:                                      ; preds = %if.then.i.i, %if.end36.i
   %20 = load i32, ptr @push_default, align 4
@@ -936,13 +936,13 @@ land.lhs.true16.i.i:                              ; preds = %if.then13.i.i
 
 if.then19.i.i:                                    ; preds = %land.lhs.true16.i.i
   call void (ptr, ptr, ...) @refspec_appendf(ptr noundef nonnull @rs, ptr noundef nonnull @.str.96, ptr noundef %11, ptr noundef nonnull %26) #13
-  br label %refspec_append_mapped.argprom.exit.i
+  br label %refspec_append_mapped.exit.i
 
 if.end24.i.i:                                     ; preds = %do.cond.i.i.i, %land.lhs.true16.i.i, %if.then13.i.i, %if.end8.i.i
   call void @refspec_append(ptr noundef nonnull @rs, ptr noundef %11) #13
-  br label %refspec_append_mapped.argprom.exit.i
+  br label %refspec_append_mapped.exit.i
 
-refspec_append_mapped.argprom.exit.i:             ; preds = %if.end24.i.i, %if.then19.i.i, %if.then4.i.i
+refspec_append_mapped.exit.i:                     ; preds = %if.end24.i.i, %if.then19.i.i, %if.then4.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %query.i.i)
   br label %for.inc.i
 
@@ -950,10 +950,10 @@ if.else38.i:                                      ; preds = %if.else18.i
   call void @refspec_append(ptr noundef nonnull @rs, ptr noundef %11) #13
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %if.else38.i, %refspec_append_mapped.argprom.exit.i, %if.then28.i, %if.end17.i, %if.else.i, %if.then7.i
-  %remote.2.i = phi ptr [ %remote.029.i, %if.end17.i ], [ %remote.029.i, %if.else38.i ], [ %remote.029.i, %if.then28.i ], [ %remote.124.i, %refspec_append_mapped.argprom.exit.i ], [ %remote.029.i, %if.then7.i ], [ %remote.029.i, %if.else.i ]
-  %local_refs.2.i = phi ptr [ %local_refs.030.i, %if.end17.i ], [ %local_refs.030.i, %if.else38.i ], [ %local_refs.1.i, %if.then28.i ], [ %local_refs.1.i, %refspec_append_mapped.argprom.exit.i ], [ %local_refs.030.i, %if.then7.i ], [ %local_refs.030.i, %if.else.i ]
-  %i.1.i = phi i32 [ %i.031.i, %if.end17.i ], [ %i.031.i, %if.else38.i ], [ %i.031.i, %if.then28.i ], [ %i.031.i, %refspec_append_mapped.argprom.exit.i ], [ %inc.i, %if.then7.i ], [ %inc.i, %if.else.i ]
+for.inc.i:                                        ; preds = %if.else38.i, %refspec_append_mapped.exit.i, %if.then28.i, %if.end17.i, %if.else.i, %if.then7.i
+  %remote.2.i = phi ptr [ %remote.029.i, %if.end17.i ], [ %remote.029.i, %if.else38.i ], [ %remote.029.i, %if.then28.i ], [ %remote.124.i, %refspec_append_mapped.exit.i ], [ %remote.029.i, %if.then7.i ], [ %remote.029.i, %if.else.i ]
+  %local_refs.2.i = phi ptr [ %local_refs.030.i, %if.end17.i ], [ %local_refs.030.i, %if.else38.i ], [ %local_refs.1.i, %if.then28.i ], [ %local_refs.1.i, %refspec_append_mapped.exit.i ], [ %local_refs.030.i, %if.then7.i ], [ %local_refs.030.i, %if.else.i ]
+  %i.1.i = phi i32 [ %i.031.i, %if.end17.i ], [ %i.031.i, %if.else38.i ], [ %i.031.i, %if.then28.i ], [ %i.031.i, %refspec_append_mapped.exit.i ], [ %inc.i, %if.then7.i ], [ %inc.i, %if.else.i ]
   %inc42.i = add nsw i32 %i.1.i, 1
   %cmp.i = icmp slt i32 %inc42.i, %sub
   br i1 %cmp.i, label %for.body.i, label %set_refspecs.exit, !llvm.loop !7
@@ -1155,7 +1155,7 @@ if.then18.i.i:                                    ; preds = %if.end12.i.i
   %call2.val.val.i.i = load ptr, ptr %call2.val.i.i, align 8
   %46 = getelementptr i8, ptr %call2.val.val.i.i, i64 8
   %call2.val.val.val.i.i = load ptr, ptr %46, align 8
-  call fastcc void @die_push_simple.argprom.argprom.argprom(ptr %call2.val.val.val.i.i, ptr noundef readonly %call373) #16
+  call fastcc void @die_push_simple(ptr %call2.val.val.val.i.i, ptr noundef readonly %call373) #16
   unreachable
 
 sw.bb20.i.i:                                      ; preds = %if.end.i.i
@@ -1965,7 +1965,7 @@ return:                                           ; preds = %if.end20, %if.then
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @die_push_simple.argprom.argprom.argprom(ptr %branch.56.val.0.val.8.val, ptr nocapture noundef nonnull readonly %remote) unnamed_addr #8 {
+define internal fastcc void @die_push_simple(ptr %branch.56.val.0.val.8.val, ptr nocapture noundef nonnull readonly %remote) unnamed_addr #8 {
 entry:
   %scevgep = getelementptr i8, ptr %branch.56.val.0.val.8.val, i64 11
   br label %do.body.i

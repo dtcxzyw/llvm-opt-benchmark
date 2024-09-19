@@ -3956,28 +3956,28 @@ define dso_local noundef ptr @_ZNK4llvm18TargetLoweringBase14emitPatchPointERNS_
   %.029.val.i.i.i.i.i = load i32, ptr %.02943.i.i.i.i.i, align 8
   %25 = and i32 %.029.val.i.i.i.i.i, 255
   %26 = icmp eq i32 %25, 5
-  br i1 %26, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.argprom.exit", label %27
+  br i1 %26, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit", label %27
 
 27:                                               ; preds = %.lr.ph.i.i.i.i.i
   %28 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 32
   %.val.i.i.i.i.i = load i32, ptr %28, align 8
   %29 = and i32 %.val.i.i.i.i.i, 255
   %30 = icmp eq i32 %29, 5
-  br i1 %30, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", label %31
+  br i1 %30, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 64
   %.val30.i.i.i.i.i = load i32, ptr %32, align 8
   %33 = and i32 %.val30.i.i.i.i.i, 255
   %34 = icmp eq i32 %33, 5
-  br i1 %34, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit96", label %35
+  br i1 %34, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit96", label %35
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 96
   %.val31.i.i.i.i.i = load i32, ptr %36, align 8
   %37 = and i32 %.val31.i.i.i.i.i, 255
   %38 = icmp eq i32 %37, 5
-  br i1 %38, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit98", label %39
+  br i1 %38, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit98", label %39
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 128
@@ -3992,7 +3992,7 @@ define dso_local noundef ptr @_ZNK4llvm18TargetLoweringBase14emitPatchPointERNS_
 ._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %3
   %.pre-phi50.i.i.i.i.i = phi i64 [ %43, %._crit_edge.loopexit.i.i.i.i.i ], [ %21, %3 ]
   %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %18, %3 ]
-  switch i64 %.pre-phi50.i.i.i.i.i, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.argprom.exit.thread" [
+  switch i64 %.pre-phi50.i.i.i.i.i, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit.thread" [
     i64 3, label %44
     i64 2, label %49
     i64 1, label %54
@@ -4002,7 +4002,7 @@ define dso_local noundef ptr @_ZNK4llvm18TargetLoweringBase14emitPatchPointERNS_
   %.029.val32.i.i.i.i.i = load i32, ptr %.029.lcssa.i.i.i.i.i, align 8
   %45 = and i32 %.029.val32.i.i.i.i.i, 255
   %46 = icmp eq i32 %45, 5
-  br i1 %46, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.argprom.exit", label %47
+  br i1 %46, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit", label %47
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 32
@@ -4013,7 +4013,7 @@ define dso_local noundef ptr @_ZNK4llvm18TargetLoweringBase14emitPatchPointERNS_
   %.1.val.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i, align 8
   %50 = and i32 %.1.val.i.i.i.i.i, 255
   %51 = icmp eq i32 %50, 5
-  br i1 %51, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.argprom.exit", label %52
+  br i1 %51, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit", label %52
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 32
@@ -4024,26 +4024,26 @@ define dso_local noundef ptr @_ZNK4llvm18TargetLoweringBase14emitPatchPointERNS_
   %.2.val.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i, align 8
   %55 = and i32 %.2.val.i.i.i.i.i, 255
   %56 = icmp eq i32 %55, 5
-  br i1 %56, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.argprom.exit", label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.argprom.exit.thread"
+  br i1 %56, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit", label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit.thread"
 
-"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %27
+"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %27
   %57 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 32
-  br label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit96": ; preds = %31
+"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit96": ; preds = %31
   %58 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 64
-  br label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit98": ; preds = %35
+"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit98": ; preds = %35
   %59 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 96
-  br label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit96", %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit98", %44, %49, %54
-  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %44 ], [ %.1.i.i.i.i.i, %49 ], [ %.2.i.i.i.i.i, %54 ], [ %57, %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %58, %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit96" ], [ %59, %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit98" ], [ %.02943.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit96", %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit98", %44, %49, %54
+  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %44 ], [ %.1.i.i.i.i.i, %49 ], [ %.2.i.i.i.i.i, %54 ], [ %57, %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %58, %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit96" ], [ %59, %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit98" ], [ %.02943.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %60 = icmp eq ptr %22, %.028.i.i.i.i.i
-  br i1 %60, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.argprom.exit.thread", label %61
+  br i1 %60, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit.thread", label %61
 
-61:                                               ; preds = %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.argprom.exit"
+61:                                               ; preds = %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit"
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %63 = load ptr, ptr %62, align 8
   store ptr %63, ptr %11, align 8
@@ -4295,9 +4295,9 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm10MIMetadat
   %160 = or disjoint i64 %159, %158
   store i64 %160, ptr %1, align 8
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #26
-  br label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.argprom.exit.thread"
+  br label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit.thread"
 
-"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.argprom.exit.thread": ; preds = %54, %._crit_edge.i.i.i.i.i, %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.argprom.exit", %._crit_edge
+"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit.thread": ; preds = %54, %._crit_edge.i.i.i.i.i, %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_18TargetLoweringBase14emitPatchPointERNS_12MachineInstrEPNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit", %._crit_edge
   ret ptr %2
 }
 
@@ -8008,7 +8008,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18TargetLoweringBase14shouldLocali
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %8 = load i16, ptr %7, align 4
-  switch i16 %8, label %"_ZZNK4llvm18TargetLoweringBase14shouldLocalizeERKNS_12MachineInstrEPKNS_19TargetTransformInfoEENK3$_0clEj.argprom.exit" [
+  switch i16 %8, label %"_ZZNK4llvm18TargetLoweringBase14shouldLocalizeERKNS_12MachineInstrEPKNS_19TargetTransformInfoEENK3$_0clEj.exit" [
     i16 128, label %9
     i16 129, label %9
     i16 66, label %9
@@ -8017,7 +8017,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18TargetLoweringBase14shouldLocali
   ]
 
 9:                                                ; preds = %3, %3, %3, %3
-  br label %"_ZZNK4llvm18TargetLoweringBase14shouldLocalizeERKNS_12MachineInstrEPKNS_19TargetTransformInfoEENK3$_0clEj.argprom.exit"
+  br label %"_ZZNK4llvm18TargetLoweringBase14shouldLocalizeERKNS_12MachineInstrEPKNS_19TargetTransformInfoEENK3$_0clEj.exit"
 
 10:                                               ; preds = %3
   %11 = tail call noundef i32 @_ZNK4llvm19TargetTransformInfo23getGISelRematGlobalCostEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #26
@@ -8026,7 +8026,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18TargetLoweringBase14shouldLocali
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   switch i32 %11, label %16 [
-    i32 1, label %"_ZZNK4llvm18TargetLoweringBase14shouldLocalizeERKNS_12MachineInstrEPKNS_19TargetTransformInfoEENK3$_0clEj.argprom.exit"
+    i32 1, label %"_ZZNK4llvm18TargetLoweringBase14shouldLocalizeERKNS_12MachineInstrEPKNS_19TargetTransformInfoEENK3$_0clEj.exit"
     i32 2, label %18
   ]
 
@@ -8038,9 +8038,9 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18TargetLoweringBase14shouldLocali
 18:                                               ; preds = %16, %10
   %.0.i.ph = phi i32 [ %11, %10 ], [ 1, %16 ]
   %19 = tail call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo19hasAtMostUserInstrsENS_8RegisterEj(ptr noundef nonnull align 8 dereferenceable(512) %6, i32 %15, i32 noundef %.0.i.ph) #26
-  br label %"_ZZNK4llvm18TargetLoweringBase14shouldLocalizeERKNS_12MachineInstrEPKNS_19TargetTransformInfoEENK3$_0clEj.argprom.exit"
+  br label %"_ZZNK4llvm18TargetLoweringBase14shouldLocalizeERKNS_12MachineInstrEPKNS_19TargetTransformInfoEENK3$_0clEj.exit"
 
-"_ZZNK4llvm18TargetLoweringBase14shouldLocalizeERKNS_12MachineInstrEPKNS_19TargetTransformInfoEENK3$_0clEj.argprom.exit": ; preds = %10, %3, %18, %9
+"_ZZNK4llvm18TargetLoweringBase14shouldLocalizeERKNS_12MachineInstrEPKNS_19TargetTransformInfoEENK3$_0clEj.exit": ; preds = %10, %3, %18, %9
   %.0 = phi i1 [ %19, %18 ], [ true, %9 ], [ false, %3 ], [ true, %10 ]
   ret i1 %.0
 }

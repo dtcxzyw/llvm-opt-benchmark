@@ -110,7 +110,7 @@ if.end7:                                          ; preds = %if.end
   %shr.i = lshr i64 %sub4.i, 8
   %or.i = or i64 %shr.i, %sub4.i
   %cmp1.i = icmp sgt i32 %call3.val103, 0
-  br i1 %cmp1.i, label %for.body.lr.ph.i, label %bn_left_align.argprom.exit
+  br i1 %cmp1.i, label %for.body.lr.ph.i, label %bn_left_align.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.end7
   %sh_prom.i = zext nneg i32 %sub3.i to i64
@@ -130,16 +130,16 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %and13.i = and i64 %shr12.i, %or.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %bn_left_align.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %bn_left_align.exit, label %for.body.i, !llvm.loop !4
 
-bn_left_align.argprom.exit:                       ; preds = %for.body.i, %if.end7
+bn_left_align.exit:                               ; preds = %for.body.i, %if.end7
   %neg = getelementptr inbounds i8, ptr %call3, i64 16
   store i32 0, ptr %neg, align 8
   %call9 = tail call i32 @bn_lshift_fixed_top(ptr noundef %call2, ptr noundef %num, i32 noundef %sub3.i) #3
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %err, label %if.end12
 
-if.end12:                                         ; preds = %bn_left_align.argprom.exit
+if.end12:                                         ; preds = %bn_left_align.exit
   %5 = load i32, ptr %0, align 8
   %top13 = getelementptr inbounds i8, ptr %call2, i64 8
   %6 = load i32, ptr %top13, align 8
@@ -330,7 +330,7 @@ land.lhs.true141:                                 ; preds = %for.end134
   %cmp143 = icmp eq i32 %call142, 0
   br i1 %cmp143, label %err, label %return
 
-err:                                              ; preds = %land.lhs.true141, %if.end49, %cond.end44, %if.then15, %bn_left_align.argprom.exit, %if.end, %cond.end
+err:                                              ; preds = %land.lhs.true141, %if.end49, %cond.end44, %if.then15, %bn_left_align.exit, %if.end, %cond.end
   br label %return
 
 return:                                           ; preds = %for.end134, %land.lhs.true141, %err

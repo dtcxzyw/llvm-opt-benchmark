@@ -935,7 +935,7 @@ pmix_pointer_array_get_item.exit180:              ; preds = %264, %310
 
 335:                                              ; preds = %327, %334, %322
   %336 = load ptr, ptr %4, align 8
-  %337 = call fastcc i32 @plm_slurm_start_proc.argelim(ptr noundef %336, ptr noundef %.4)
+  %337 = call fastcc i32 @plm_slurm_start_proc(ptr noundef %336, ptr noundef %.4)
   switch i32 %337, label %338 [
     i32 0, label %340
     i32 -43, label %344
@@ -1134,7 +1134,7 @@ declare void @prte_plm_base_wrap_args(ptr noundef) local_unnamed_addr #1
 declare i32 @pmix_output_get_verbosity(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -43, 82) i32 @plm_slurm_start_proc.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -43, 82) i32 @plm_slurm_start_proc(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
@@ -1186,7 +1186,7 @@ define internal fastcc range(i32 -43, 82) i32 @plm_slurm_start_proc.argelim(ptr 
 
 26:                                               ; preds = %25, %20
   %.not22.i = icmp eq ptr %22, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.argprom.exit, label %27
+  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %27
 
 27:                                               ; preds = %26
   %28 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %22, ptr noundef null) #16
@@ -1201,7 +1201,7 @@ define internal fastcc range(i32 -43, 82) i32 @plm_slurm_start_proc.argelim(ptr 
   %33 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_proc_t_class, i64 40), align 8
   %34 = load ptr, ptr %33, align 8
   %.not6.i.i = icmp eq ptr %34, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %27, %.lr.ph.i.i
   %35 = phi ptr [ %37, %.lr.ph.i.i ], [ %34, %27 ]
@@ -1210,9 +1210,9 @@ define internal fastcc range(i32 -43, 82) i32 @plm_slurm_start_proc.argelim(ptr 
   %36 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %37 = load ptr, ptr %36, align 8
   %.not.i.i = icmp eq ptr %37, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !9
 
-pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %26, %27
+pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %26, %27
   %38 = getelementptr inbounds i8, ptr %22, i64 408
   store i32 %12, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %22, i64 472
@@ -1223,7 +1223,7 @@ pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %26, %2
   %42 = icmp eq i32 %12, 0
   br i1 %42, label %.preheader63, label %135
 
-.preheader63:                                     ; preds = %pmix_obj_new_tma.argprom.exit
+.preheader63:                                     ; preds = %pmix_obj_new_tma.exit
   %43 = load ptr, ptr @environ, align 8
   %44 = load ptr, ptr %43, align 8
   %.not64 = icmp eq ptr %44, null
@@ -1409,7 +1409,7 @@ pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %26, %2
   call void @exit(i32 noundef 1) #22
   unreachable
 
-135:                                              ; preds = %pmix_obj_new_tma.argprom.exit
+135:                                              ; preds = %pmix_obj_new_tma.exit
   %136 = tail call i32 @setpgid(i32 noundef %12, i32 noundef %12) #16
   tail call void @free(ptr noundef %7) #16
   br label %137

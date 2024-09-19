@@ -326,16 +326,16 @@ entry:
   %call2 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %dest, i64 noundef 0)
   %a.val = load i64, ptr %a, align 8
   %cmp.not.i = icmp eq i64 %a.val, 0
-  br i1 %cmp.not.i, label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit, label %if.then.i
+  br i1 %cmp.not.i, label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %a, i64 8
   %a.val4 = load ptr, ptr %1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call2, i64 %call
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr readonly align 1 %a.val4, i64 %a.val, i1 false)
-  br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit
+  br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit
 
-_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit: ; preds = %entry, %if.then.i
+_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit: ; preds = %entry, %if.then.i
   ret void
 }
 
@@ -351,27 +351,27 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %call3, i64 %call
   %a.val = load i64, ptr %a, align 8
   %cmp.not.i = icmp eq i64 %a.val, 0
-  br i1 %cmp.not.i, label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit, label %if.then.i
+  br i1 %cmp.not.i, label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %a, i64 8
   %a.val7 = load ptr, ptr %2, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr readonly align 1 %a.val7, i64 %a.val, i1 false)
-  br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit
+  br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit
 
-_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit: ; preds = %entry, %if.then.i
+_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit: ; preds = %entry, %if.then.i
   %b.val = load i64, ptr %b, align 8
   %cmp.not.i8 = icmp eq i64 %b.val, 0
-  br i1 %cmp.not.i8, label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit11, label %if.then.i9
+  br i1 %cmp.not.i8, label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit11, label %if.then.i9
 
-if.then.i9:                                       ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit
+if.then.i9:                                       ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit
   %3 = getelementptr inbounds i8, ptr %b, i64 8
   %b.val6 = load ptr, ptr %3, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 %a.val
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %b.val6, i64 %b.val, i1 false)
-  br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit11
+  br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit11
 
-_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit11: ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit, %if.then.i9
+_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit11: ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit, %if.then.i9
   ret void
 }
 
@@ -389,39 +389,39 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %call5, i64 %call
   %a.val = load i64, ptr %a, align 8
   %cmp.not.i = icmp eq i64 %a.val, 0
-  br i1 %cmp.not.i, label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit, label %if.then.i
+  br i1 %cmp.not.i, label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %3 = getelementptr inbounds i8, ptr %a, i64 8
   %a.val10 = load ptr, ptr %3, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr readonly align 1 %a.val10, i64 %a.val, i1 false)
-  br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit
+  br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit
 
-_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit: ; preds = %entry, %if.then.i
+_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit: ; preds = %entry, %if.then.i
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 %a.val
   %b.val = load i64, ptr %b, align 8
   %cmp.not.i11 = icmp eq i64 %b.val, 0
-  br i1 %cmp.not.i11, label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit14, label %if.then.i12
+  br i1 %cmp.not.i11, label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit14, label %if.then.i12
 
-if.then.i12:                                      ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit
+if.then.i12:                                      ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit
   %4 = getelementptr inbounds i8, ptr %b, i64 8
   %b.val9 = load ptr, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %b.val9, i64 %b.val, i1 false)
-  br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit14
+  br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit14
 
-_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit14: ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit, %if.then.i12
+_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit14: ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit, %if.then.i12
   %c.val = load i64, ptr %c, align 8
   %cmp.not.i15 = icmp eq i64 %c.val, 0
-  br i1 %cmp.not.i15, label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit18, label %if.then.i16
+  br i1 %cmp.not.i15, label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit18, label %if.then.i16
 
-if.then.i16:                                      ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit14
+if.then.i16:                                      ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit14
   %5 = getelementptr inbounds i8, ptr %c, i64 8
   %c.val8 = load ptr, ptr %5, align 8
   %add.ptr.i13 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %b.val
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i13, ptr readonly align 1 %c.val8, i64 %c.val, i1 false)
-  br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit18
+  br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit18
 
-_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit18: ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit14, %if.then.i16
+_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit18: ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit14, %if.then.i16
   ret void
 }
 
@@ -441,51 +441,51 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %call7, i64 %call
   %a.val = load i64, ptr %a, align 8
   %cmp.not.i = icmp eq i64 %a.val, 0
-  br i1 %cmp.not.i, label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit, label %if.then.i
+  br i1 %cmp.not.i, label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %4 = getelementptr inbounds i8, ptr %a, i64 8
   %a.val13 = load ptr, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr readonly align 1 %a.val13, i64 %a.val, i1 false)
-  br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit
+  br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit
 
-_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit: ; preds = %entry, %if.then.i
+_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit: ; preds = %entry, %if.then.i
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 %a.val
   %b.val = load i64, ptr %b, align 8
   %cmp.not.i14 = icmp eq i64 %b.val, 0
-  br i1 %cmp.not.i14, label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit17, label %if.then.i15
+  br i1 %cmp.not.i14, label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit17, label %if.then.i15
 
-if.then.i15:                                      ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit
+if.then.i15:                                      ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit
   %5 = getelementptr inbounds i8, ptr %b, i64 8
   %b.val12 = load ptr, ptr %5, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %b.val12, i64 %b.val, i1 false)
-  br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit17
+  br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit17
 
-_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit17: ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit, %if.then.i15
+_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit17: ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit, %if.then.i15
   %add.ptr.i16 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %b.val
   %c.val = load i64, ptr %c, align 8
   %cmp.not.i18 = icmp eq i64 %c.val, 0
-  br i1 %cmp.not.i18, label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit21, label %if.then.i19
+  br i1 %cmp.not.i18, label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit21, label %if.then.i19
 
-if.then.i19:                                      ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit17
+if.then.i19:                                      ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit17
   %6 = getelementptr inbounds i8, ptr %c, i64 8
   %c.val11 = load ptr, ptr %6, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i16, ptr readonly align 1 %c.val11, i64 %c.val, i1 false)
-  br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit21
+  br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit21
 
-_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit21: ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit17, %if.then.i19
+_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit21: ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit17, %if.then.i19
   %d.val = load i64, ptr %d, align 8
   %cmp.not.i22 = icmp eq i64 %d.val, 0
-  br i1 %cmp.not.i22, label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit25, label %if.then.i23
+  br i1 %cmp.not.i22, label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit25, label %if.then.i23
 
-if.then.i23:                                      ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit21
+if.then.i23:                                      ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit21
   %7 = getelementptr inbounds i8, ptr %d, i64 8
   %d.val10 = load ptr, ptr %7, align 8
   %add.ptr.i20 = getelementptr inbounds i8, ptr %add.ptr.i16, i64 %c.val
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i20, ptr readonly align 1 %d.val10, i64 %d.val, i1 false)
-  br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit25
+  br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit25
 
-_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit25: ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.argprom.exit21, %if.then.i23
+_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit25: ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit21, %if.then.i23
   ret void
 }
 

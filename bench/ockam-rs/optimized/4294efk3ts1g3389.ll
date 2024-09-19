@@ -85,7 +85,7 @@ define hidden void @"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$L
   %10 = landingpad { ptr, i32 }
           cleanup
   tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h21a96821667bd066E.llvm.12192176430880052379"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5) #13, !noalias !6
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcb87078ad0480e74E.argprom"(ptr nonnull %5) #13, !noalias !6
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcb87078ad0480e74E"(ptr nonnull %5) #13, !noalias !6
   resume { ptr, i32 } %10
 
 11:                                               ; preds = %3
@@ -333,7 +333,7 @@ define hidden void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h
   %12 = landingpad { ptr, i32 }
           cleanup
   tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h21a96821667bd066E.llvm.12192176430880052379"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6) #13, !noalias !83
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcb87078ad0480e74E.argprom"(ptr nonnull %6) #13, !noalias !83
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcb87078ad0480e74E"(ptr nonnull %6) #13, !noalias !83
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %5
@@ -620,7 +620,7 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$std..io..error..repr_bitpack
   %12 = landingpad { ptr, i32 }
           cleanup
   tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h21a96821667bd066E.llvm.12192176430880052379"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6) #13, !noalias !218
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcb87078ad0480e74E.argprom"(ptr nonnull %6) #13, !noalias !218
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcb87078ad0480e74E"(ptr nonnull %6) #13, !noalias !218
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %5
@@ -1092,7 +1092,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io
   %7 = landingpad { ptr, i32 }
           cleanup
   tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h21a96821667bd066E.llvm.12192176430880052379"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #13
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcb87078ad0480e74E.argprom"(ptr nonnull %2) #13
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcb87078ad0480e74E"(ptr nonnull %2) #13
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %1
@@ -1478,7 +1478,7 @@ define hidden void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..o
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcb87078ad0480e74E.argprom"(ptr %.0.val) unnamed_addr #4 {
+define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcb87078ad0480e74E"(ptr %.0.val) unnamed_addr #4 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 24, i64 noundef 8) #14
@@ -1489,13 +1489,13 @@ define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u2
 define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfce43bc5947ebfc7E.llvm.12192176430880052379"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %3 = icmp eq ptr %2, inttoptr (i64 -1 to ptr)
-  br i1 %3, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h19b613542d82c7a9E.argprom.exit", label %4
+  br i1 %3, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h19b613542d82c7a9E.exit", label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
-  br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h19b613542d82c7a9E.argprom.exit"
+  br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h19b613542d82c7a9E.exit"
 
 8:                                                ; preds = %4
   fence acquire
@@ -1513,13 +1513,13 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
   %20 = icmp ult i64 %14, -9223372036854775807
   tail call void @llvm.assume(i1 %20)
   %21 = icmp eq i64 %19, 0
-  br i1 %21, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h19b613542d82c7a9E.argprom.exit", label %22
+  br i1 %21, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h19b613542d82c7a9E.exit", label %22
 
 22:                                               ; preds = %8
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef %15) #14
-  br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h19b613542d82c7a9E.argprom.exit"
+  br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h19b613542d82c7a9E.exit"
 
-"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h19b613542d82c7a9E.argprom.exit": ; preds = %22, %8, %1, %4
+"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h19b613542d82c7a9E.exit": ; preds = %22, %8, %1, %4
   ret void
 }
 
@@ -1598,7 +1598,7 @@ define hidden void @"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$c
   %12 = landingpad { ptr, i32 }
           cleanup
   tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h21a96821667bd066E.llvm.12192176430880052379"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6) #13, !noalias !476
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcb87078ad0480e74E.argprom"(ptr nonnull %6) #13, !noalias !476
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcb87078ad0480e74E"(ptr nonnull %6) #13, !noalias !476
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %5
@@ -2048,10 +2048,10 @@ attributes #15 = { noinline noreturn nounwind }
 !333 = distinct !{!333, !331, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 1"}
 !334 = distinct !{!334, !331, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 2"}
 !335 = !{!336}
-!336 = distinct !{!336, !337, !"_ZN7tracing4span4Span3log17hec43ba3be1da64bbE.argprom: argument 0"}
-!337 = distinct !{!337, !"_ZN7tracing4span4Span3log17hec43ba3be1da64bbE.argprom"}
+!336 = distinct !{!336, !337, !"_ZN7tracing4span4Span3log17hec43ba3be1da64bbE: argument 0"}
+!337 = distinct !{!337, !"_ZN7tracing4span4Span3log17hec43ba3be1da64bbE"}
 !338 = !{!339}
-!339 = distinct !{!339, !337, !"_ZN7tracing4span4Span3log17hec43ba3be1da64bbE.argprom: argument 1"}
+!339 = distinct !{!339, !337, !"_ZN7tracing4span4Span3log17hec43ba3be1da64bbE: argument 1"}
 !340 = !{!336, !321, !318}
 !341 = !{i64 0, i64 5}
 !342 = !{!336, !339}

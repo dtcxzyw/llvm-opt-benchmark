@@ -1481,7 +1481,7 @@ define hidden void @zif_request_parse_body(ptr noundef %0, ptr nocapture noundef
   br label %51
 
 48:                                               ; preds = %46
-  %49 = tail call fastcc i32 @cache_request_parse_body_option.argprom(ptr noundef nonnull %.05272.i, i32 noundef 0)
+  %49 = tail call fastcc i32 @cache_request_parse_body_option(ptr noundef nonnull %.05272.i, i32 noundef 0)
   %50 = icmp eq i32 %49, -1
   br i1 %50, label %cache_request_parse_body_options.exit.thread, label %82
 
@@ -1496,7 +1496,7 @@ define hidden void @zif_request_parse_body(ptr noundef %0, ptr nocapture noundef
   br i1 %.not67.i, label %56, label %thread-pre-split.i
 
 56:                                               ; preds = %54
-  %57 = tail call fastcc i32 @cache_request_parse_body_option.argprom(ptr noundef nonnull %.05272.i, i32 noundef 1)
+  %57 = tail call fastcc i32 @cache_request_parse_body_option(ptr noundef nonnull %.05272.i, i32 noundef 1)
   %58 = icmp eq i32 %57, -1
   br i1 %58, label %cache_request_parse_body_options.exit.thread, label %82
 
@@ -1515,7 +1515,7 @@ thread-pre-split.i:                               ; preds = %54
   br i1 %.not68.i, label %64, label %81
 
 64:                                               ; preds = %62
-  %65 = tail call fastcc i32 @cache_request_parse_body_option.argprom(ptr noundef nonnull %.05272.i, i32 noundef 2)
+  %65 = tail call fastcc i32 @cache_request_parse_body_option(ptr noundef nonnull %.05272.i, i32 noundef 2)
   %66 = icmp eq i32 %65, -1
   br i1 %66, label %cache_request_parse_body_options.exit.thread, label %82
 
@@ -1529,7 +1529,7 @@ thread-pre-split.i:                               ; preds = %54
   br i1 %.not65.i, label %71, label %81
 
 71:                                               ; preds = %69
-  %72 = tail call fastcc i32 @cache_request_parse_body_option.argprom(ptr noundef nonnull %.05272.i, i32 noundef 3)
+  %72 = tail call fastcc i32 @cache_request_parse_body_option(ptr noundef nonnull %.05272.i, i32 noundef 3)
   %73 = icmp eq i32 %72, -1
   br i1 %73, label %cache_request_parse_body_options.exit.thread, label %82
 
@@ -1543,7 +1543,7 @@ thread-pre-split.i:                               ; preds = %54
   br i1 %.not64.i, label %78, label %81
 
 78:                                               ; preds = %76
-  %79 = tail call fastcc i32 @cache_request_parse_body_option.argprom(ptr noundef nonnull %.05272.i, i32 noundef 4)
+  %79 = tail call fastcc i32 @cache_request_parse_body_option(ptr noundef nonnull %.05272.i, i32 noundef 4)
   %80 = icmp eq i32 %79, -1
   br i1 %80, label %cache_request_parse_body_options.exit.thread, label %82
 
@@ -1726,7 +1726,7 @@ declare void @zend_value_error(ptr noundef, ...) local_unnamed_addr #2
 declare i32 @zend_binary_strcasecmp(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @cache_request_parse_body_option.argprom(ptr noundef %0, i32 noundef range(i32 0, 5) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @cache_request_parse_body_option(ptr noundef %0, i32 noundef range(i32 0, 5) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %34, label %4

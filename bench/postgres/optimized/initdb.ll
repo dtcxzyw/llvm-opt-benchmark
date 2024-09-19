@@ -2338,21 +2338,21 @@ setup_config.exit:                                ; preds = %268
   store i32 0, ptr %331, align 4
   %332 = call noalias ptr @popen(ptr noundef %329, ptr noundef nonnull @.str.59)
   %333 = icmp eq ptr %332, null
-  br i1 %333, label %335, label %popen_check.argprom.exit.preheader.i
+  br i1 %333, label %335, label %popen_check.exit.preheader.i
 
-popen_check.argprom.exit.preheader.i:             ; preds = %328
+popen_check.exit.preheader.i:                     ; preds = %328
   %334 = load ptr, ptr %280, align 8
   %.not3234.i = icmp eq ptr %334, null
-  br i1 %.not3234.i, label %popen_check.argprom.exit._crit_edge.i, label %.lr.ph.i29
+  br i1 %.not3234.i, label %popen_check.exit._crit_edge.i, label %.lr.ph.i29
 
 335:                                              ; preds = %328
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.381, ptr noundef %329) #18
   call void @exit(i32 noundef 1) #19
   unreachable
 
-.lr.ph.i29:                                       ; preds = %popen_check.argprom.exit.preheader.i, %popen_check.argprom.exit.i
-  %336 = phi ptr [ %346, %popen_check.argprom.exit.i ], [ %334, %popen_check.argprom.exit.preheader.i ]
-  %.035.i = phi ptr [ %345, %popen_check.argprom.exit.i ], [ %280, %popen_check.argprom.exit.preheader.i ]
+.lr.ph.i29:                                       ; preds = %popen_check.exit.preheader.i, %popen_check.exit.i
+  %336 = phi ptr [ %346, %popen_check.exit.i ], [ %334, %popen_check.exit.preheader.i ]
+  %.035.i = phi ptr [ %345, %popen_check.exit.i ], [ %280, %popen_check.exit.preheader.i ]
   %337 = call i32 @fputs(ptr noundef nonnull %336, ptr noundef nonnull %332)
   %338 = icmp slt i32 %337, 0
   br i1 %338, label %342, label %339
@@ -2360,32 +2360,32 @@ popen_check.argprom.exit.preheader.i:             ; preds = %328
 339:                                              ; preds = %.lr.ph.i29
   %340 = call i32 @fflush(ptr noundef nonnull %332)
   %341 = icmp slt i32 %340, 0
-  br i1 %341, label %342, label %popen_check.argprom.exit.i
+  br i1 %341, label %342, label %popen_check.exit.i
 
 342:                                              ; preds = %339, %.lr.ph.i29
   store i1 true, ptr @output_failed, align 1
   %343 = load i32, ptr %331, align 4
   store i32 %343, ptr @output_errno, align 4
-  br label %popen_check.argprom.exit.i
+  br label %popen_check.exit.i
 
-popen_check.argprom.exit.i:                       ; preds = %342, %339
+popen_check.exit.i:                               ; preds = %342, %339
   %344 = load ptr, ptr %.035.i, align 8
   call void @free(ptr noundef %344) #18
   %345 = getelementptr i8, ptr %.035.i, i64 8
   %346 = load ptr, ptr %345, align 8
   %.not32.i = icmp eq ptr %346, null
-  br i1 %.not32.i, label %popen_check.argprom.exit._crit_edge.i, label %.lr.ph.i29, !llvm.loop !14
+  br i1 %.not32.i, label %popen_check.exit._crit_edge.i, label %.lr.ph.i29, !llvm.loop !14
 
-popen_check.argprom.exit._crit_edge.i:            ; preds = %popen_check.argprom.exit.i, %popen_check.argprom.exit.preheader.i
+popen_check.exit._crit_edge.i:                    ; preds = %popen_check.exit.i, %popen_check.exit.preheader.i
   %347 = call i32 @pclose_check(ptr noundef nonnull %332) #18
   %.not33.i = icmp eq i32 %347, 0
   br i1 %.not33.i, label %bootstrap_template1.exit, label %348
 
-348:                                              ; preds = %popen_check.argprom.exit._crit_edge.i
+348:                                              ; preds = %popen_check.exit._crit_edge.i
   call void @exit(i32 noundef 1) #19
   unreachable
 
-bootstrap_template1.exit:                         ; preds = %popen_check.argprom.exit._crit_edge.i
+bootstrap_template1.exit:                         ; preds = %popen_check.exit._crit_edge.i
   call void @termPQExpBuffer(ptr noundef nonnull %2) #18
   call void @free(ptr noundef %280) #18
   call fastcc void @check_ok()
@@ -2405,24 +2405,24 @@ bootstrap_template1.exit:                         ; preds = %popen_check.argprom
   store i32 0, ptr %331, align 4
   %356 = call noalias ptr @popen(ptr noundef %354, ptr noundef nonnull @.str.59)
   %357 = icmp eq ptr %356, null
-  br i1 %357, label %358, label %popen_check.argprom.exit
+  br i1 %357, label %358, label %popen_check.exit
 
 358:                                              ; preds = %bootstrap_template1.exit
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.381, ptr noundef %354) #18
   call void @exit(i32 noundef 1) #19
   unreachable
 
-popen_check.argprom.exit:                         ; preds = %bootstrap_template1.exit
+popen_check.exit:                                 ; preds = %bootstrap_template1.exit
   %359 = call i32 @fputs(ptr noundef nonnull @.str.382, ptr noundef nonnull %356)
   %360 = icmp slt i32 %359, 0
   br i1 %360, label %364, label %361
 
-361:                                              ; preds = %popen_check.argprom.exit
+361:                                              ; preds = %popen_check.exit
   %362 = call i32 @fflush(ptr noundef nonnull %356)
   %363 = icmp slt i32 %362, 0
   br i1 %363, label %364, label %366
 
-364:                                              ; preds = %361, %popen_check.argprom.exit
+364:                                              ; preds = %361, %popen_check.exit
   store i1 true, ptr @output_failed, align 1
   %365 = load i32, ptr %331, align 4
   store i32 %365, ptr @output_errno, align 4

@@ -1902,7 +1902,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i6: ;
           to label %433 unwind label %992
 
 433:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i6
-  %434 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom()
+  %434 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv()
           to label %435 unwind label %994
 
 435:                                              ; preds = %433
@@ -1957,7 +1957,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit100.i:
           to label %455 unwind label %998
 
 455:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit100.i
-  %456 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom()
+  %456 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv()
           to label %457 unwind label %1000
 
 457:                                              ; preds = %455
@@ -3931,7 +3931,7 @@ _ZN12_GLOBAL__N_119TestPathExpressionsEv.exit:    ; preds = %_ZN32pxrInternal_v0
   %1112 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1111, ptr noundef nonnull @.str.7)
   %1113 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1112, ptr noundef nonnull @.str.3)
   %1114 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %1113, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  call fastcc void @_ZN12_GLOBAL__N_122TestHdPredicateLibraryEv.retelim()
+  call fastcc void @_ZN12_GLOBAL__N_122TestHdPredicateLibraryEv()
   %1115 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.5)
   %1116 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %1115, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %1117 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i32 noundef 4)
@@ -6427,7 +6427,7 @@ _ZN12_GLOBAL__N_126TestCustomPredicateLibraryEv.exit: ; preds = %_ZN32pxrInterna
   %1878 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1877, ptr noundef nonnull @.str.9)
   %1879 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1878, ptr noundef nonnull @.str.3)
   %1880 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %1879, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  call fastcc void @_ZN12_GLOBAL__N_122TestEvaluatorUtilitiesEv.retelim()
+  call fastcc void @_ZN12_GLOBAL__N_122TestEvaluatorUtilitiesEv()
   %1881 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.5)
   %1882 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %1881, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %1883 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.10)
@@ -6444,7 +6444,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_trai
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_122TestHdPredicateLibraryEv.retelim() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_122TestHdPredicateLibraryEv() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
   %2 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
@@ -13681,7 +13681,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_122TestEvaluatorUtilitiesEv.retelim() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_122TestEvaluatorUtilitiesEv() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
   %2 = alloca %"struct.std::_Rb_tree<pxrInternal_v0_24__pxrReserved__::SdfPath, pxrInternal_v0_24__pxrReserved__::SdfPath, std::_Identity<pxrInternal_v0_24__pxrReserved__::SdfPath>, std::less<pxrInternal_v0_24__pxrReserved__::SdfPath>>::_Alloc_node", align 8
   %3 = alloca %"struct.std::_Rb_tree<pxrInternal_v0_24__pxrReserved__::SdfPath, pxrInternal_v0_24__pxrReserved__::SdfPath, std::_Identity<pxrInternal_v0_24__pxrReserved__::SdfPath>, std::less<pxrInternal_v0_24__pxrReserved__::SdfPath>>::_Alloc_node", align 8
@@ -14432,7 +14432,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit274: ;
           to label %296 unwind label %878
 
 296:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit274
-  %297 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom()
+  %297 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv()
           to label %298 unwind label %880
 
 298:                                              ; preds = %296
@@ -14487,7 +14487,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit280: ;
           to label %318 unwind label %884
 
 318:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit280
-  %319 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom()
+  %319 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv()
           to label %320 unwind label %886
 
 320:                                              ; preds = %318
@@ -14542,7 +14542,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit288: ;
           to label %340 unwind label %890
 
 340:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit288
-  %341 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom()
+  %341 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv()
           to label %342 unwind label %892
 
 342:                                              ; preds = %340
@@ -16911,7 +16911,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %73 unwind label %1466
 
 73:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  %74 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom()
+  %74 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv()
           to label %75 unwind label %1468
 
 75:                                               ; preds = %73
@@ -16966,7 +16966,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit471: ;
           to label %95 unwind label %1472
 
 95:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit471
-  %96 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom()
+  %96 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv()
           to label %97 unwind label %1474
 
 97:                                               ; preds = %95
@@ -17022,7 +17022,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit479: ;
 
 117:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit479
   %118 = getelementptr inbounds i8, ptr %4, i64 72
-  %119 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom()
+  %119 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv()
           to label %120 unwind label %1480
 
 120:                                              ; preds = %117
@@ -17051,11 +17051,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit479: ;
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit482: ; preds = %120, %124, %129
   %134 = getelementptr inbounds i8, ptr %4, i64 80
-  %135 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom()
+  %135 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv()
           to label %136 unwind label %1482
 
 136:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit482
-  %137 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_primvarTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom()
+  %137 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_primvarTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv()
           to label %138 unwind label %1484
 
 138:                                              ; preds = %136
@@ -17288,7 +17288,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit509: ;
 
 230:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit509
   %231 = getelementptr inbounds i8, ptr %4, i64 104
-  %232 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom()
+  %232 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv()
           to label %233 unwind label %1498
 
 233:                                              ; preds = %230
@@ -17317,12 +17317,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit509: ;
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit512: ; preds = %233, %237, %242
   %247 = getelementptr inbounds i8, ptr %4, i64 112
-  %248 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom()
+  %248 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv()
           to label %249 unwind label %.thread1062
 
 249:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit512
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
-  %250 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_147_matBindingPurposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom()
+  %250 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_147_matBindingPurposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv()
           to label %251 unwind label %.thread1041
 
 251:                                              ; preds = %249
@@ -17578,7 +17578,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit554: ;
 
 352:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit554
   %353 = getelementptr inbounds i8, ptr %4, i64 136
-  %354 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom()
+  %354 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv()
           to label %355 unwind label %1518
 
 355:                                              ; preds = %352
@@ -17606,11 +17606,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit554: ;
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit557: ; preds = %355, %358, %363
   %368 = getelementptr inbounds i8, ptr %4, i64 144
-  %369 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom()
+  %369 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv()
           to label %370 unwind label %1520
 
 370:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit557
-  %371 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_primvarTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom()
+  %371 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_primvarTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv()
           to label %373 unwind label %.thread
 
 .thread:                                          ; preds = %370
@@ -17643,7 +17643,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit557: ; preds = %355, %
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit560: ; preds = %373, %376, %381
   %386 = getelementptr inbounds i8, ptr %31, i64 8
-  %387 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_primvarTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom()
+  %387 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_primvarTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv()
           to label %388 unwind label %1522
 
 388:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit560
@@ -17723,7 +17723,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
 421:                                              ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i572
   %422 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %418, ptr %422, align 8
-  %423 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_147_matBindingPurposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom()
+  %423 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_147_matBindingPurposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv()
           to label %424 unwind label %1531
 
 424:                                              ; preds = %421
@@ -17873,7 +17873,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit604: ;
 
 484:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit604
   %485 = getelementptr inbounds i8, ptr %4, i64 168
-  %486 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom()
+  %486 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv()
           to label %487 unwind label %1543
 
 487:                                              ; preds = %484
@@ -17901,12 +17901,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit604: ;
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit607: ; preds = %487, %490, %495
   %500 = getelementptr inbounds i8, ptr %4, i64 176
-  %501 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom()
+  %501 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv()
           to label %502 unwind label %.thread1004
 
 502:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit607
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false)
-  %503 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_147_matBindingPurposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom()
+  %503 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_147_matBindingPurposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv()
           to label %504 unwind label %.thread983
 
 504:                                              ; preds = %502
@@ -18161,7 +18161,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit649: ;
           to label %605 unwind label %1561
 
 605:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit649
-  %606 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom()
+  %606 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv()
           to label %607 unwind label %1563
 
 607:                                              ; preds = %605
@@ -18221,7 +18221,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit657: ;
           to label %629 unwind label %1569
 
 629:                                              ; preds = %627
-  %630 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom()
+  %630 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv()
           to label %631 unwind label %.thread968
 
 631:                                              ; preds = %629
@@ -18263,12 +18263,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit662: ;
 
 641:                                              ; preds = %639
   %642 = getelementptr inbounds i8, ptr %4, i64 272
-  %643 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom()
+  %643 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv()
           to label %644 unwind label %1580
 
 644:                                              ; preds = %641
   %645 = getelementptr inbounds nuw i8, ptr %643, i64 8
-  %646 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_primvarTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom()
+  %646 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_primvarTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv()
           to label %647 unwind label %1582
 
 647:                                              ; preds = %644
@@ -18322,7 +18322,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit665: ; preds = %651, %
 _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i674: ; preds = %665, %660, %.noexc3.i668
   %670 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %657, ptr %670, align 8
-  %671 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_147_matBindingPurposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom()
+  %671 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_147_matBindingPurposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv()
           to label %674 unwind label %1584
 
 672:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit665
@@ -18481,7 +18481,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit706: ;
           to label %736 unwind label %1596
 
 736:                                              ; preds = %734
-  %737 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom()
+  %737 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv()
           to label %738 unwind label %.thread946
 
 738:                                              ; preds = %736
@@ -21807,12 +21807,12 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValu
 declare noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom() unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv() unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca [8 x %"class.pxrInternal_v0_24__pxrReserved__::TfToken"], align 8
   %2 = load atomic i64, ptr @_ZN12_GLOBAL__N_115_primTypeTokensE seq_cst, align 8
   %3 = inttoptr i64 %2 to ptr
   %.not.i = icmp eq i64 %2, 0
-  br i1 %.not.i, label %4, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.argprom.exit
+  br i1 %.not.i, label %4, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.exit
 
 4:                                                ; preds = %0
   %5 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #26
@@ -22301,7 +22301,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryIN12_GLOBAL__N
   %239 = ptrtoint ptr %5 to i64
   %240 = cmpxchg ptr @_ZN12_GLOBAL__N_115_primTypeTokensE, i64 0, i64 %239 seq_cst seq_cst, align 8
   %241 = extractvalue { i64, i1 } %240, 1
-  br i1 %241, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.argprom.exit, label %242
+  br i1 %241, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.exit, label %242
 
 242:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i
   %243 = load ptr, ptr %20, align 8
@@ -22453,9 +22453,9 @@ _ZN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeD2Ev.exit
   call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 88) #27
   %315 = load atomic i64, ptr @_ZN12_GLOBAL__N_115_primTypeTokensE seq_cst, align 8
   %316 = inttoptr i64 %315 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.argprom.exit
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.argprom.exit: ; preds = %0, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i, %_ZN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeD2Ev.exit.i.i
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.exit: ; preds = %0, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i, %_ZN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeD2Ev.exit.i.i
   %317 = phi ptr [ %3, %0 ], [ %316, %_ZN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeD2Ev.exit.i.i ], [ %5, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i ]
   ret ptr %317
 }
@@ -24910,12 +24910,12 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca [2 x %"class.pxrInternal_v0_24__pxrReserved__::TfToken"], align 8
   %2 = load atomic i64, ptr @_ZN12_GLOBAL__N_114_purposeTokensE seq_cst, align 8
   %3 = inttoptr i64 %2 to ptr
   %.not.i = icmp eq i64 %2, 0
-  br i1 %.not.i, label %4, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.argprom.exit
+  br i1 %.not.i, label %4, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.exit
 
 4:                                                ; preds = %0
   %5 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
@@ -25108,7 +25108,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryIN12_GLOBAL__N
   %87 = ptrtoint ptr %5 to i64
   %88 = cmpxchg ptr @_ZN12_GLOBAL__N_114_purposeTokensE, i64 0, i64 %87 seq_cst seq_cst, align 8
   %89 = extractvalue { i64, i1 } %88, 1
-  br i1 %89, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.argprom.exit, label %90
+  br i1 %89, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.exit, label %90
 
 90:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryIN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i
   %91 = load ptr, ptr %8, align 8
@@ -25182,20 +25182,20 @@ _ZN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeD2Ev.exit.
   call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 40) #27
   %121 = load atomic i64, ptr @_ZN12_GLOBAL__N_114_purposeTokensE seq_cst, align 8
   %122 = inttoptr i64 %121 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.argprom.exit
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.argprom.exit: ; preds = %0, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryIN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i, %_ZN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeD2Ev.exit.i.i
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.exit: ; preds = %0, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryIN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i, %_ZN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeD2Ev.exit.i.i
   %123 = phi ptr [ %3, %0 ], [ %122, %_ZN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeD2Ev.exit.i.i ], [ %5, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryIN12_GLOBAL__N_112_GLOBAL__N_137_purposeTokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i ]
   ret ptr %123
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_primvarTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_primvarTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca [4 x %"class.pxrInternal_v0_24__pxrReserved__::TfToken"], align 8
   %2 = load atomic i64, ptr @_ZN12_GLOBAL__N_114_primvarTokensE seq_cst, align 8
   %3 = inttoptr i64 %2 to ptr
   %.not.i = icmp eq i64 %2, 0
-  br i1 %.not.i, label %4, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_primvarTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.argprom.exit
+  br i1 %.not.i, label %4, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_primvarTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.exit
 
 4:                                                ; preds = %0
   %5 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #26
@@ -25476,7 +25476,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryIN12_GLOBAL__N
   %127 = ptrtoint ptr %5 to i64
   %128 = cmpxchg ptr @_ZN12_GLOBAL__N_114_primvarTokensE, i64 0, i64 %127 seq_cst seq_cst, align 8
   %129 = extractvalue { i64, i1 } %128, 1
-  br i1 %129, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_primvarTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.argprom.exit, label %130
+  br i1 %129, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_primvarTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.exit, label %130
 
 130:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryIN12_GLOBAL__N_112_GLOBAL__N_137_primvarTokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i
   %131 = load ptr, ptr %12, align 8
@@ -25576,20 +25576,20 @@ _ZN12_GLOBAL__N_112_GLOBAL__N_137_primvarTokens_PrivateStaticTokenTypeD2Ev.exit.
   call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 56) #27
   %175 = load atomic i64, ptr @_ZN12_GLOBAL__N_114_primvarTokensE seq_cst, align 8
   %176 = inttoptr i64 %175 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_primvarTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.argprom.exit
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_primvarTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_primvarTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.argprom.exit: ; preds = %0, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryIN12_GLOBAL__N_112_GLOBAL__N_137_primvarTokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i, %_ZN12_GLOBAL__N_112_GLOBAL__N_137_primvarTokens_PrivateStaticTokenTypeD2Ev.exit.i.i
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_137_primvarTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.exit: ; preds = %0, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryIN12_GLOBAL__N_112_GLOBAL__N_137_primvarTokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i, %_ZN12_GLOBAL__N_112_GLOBAL__N_137_primvarTokens_PrivateStaticTokenTypeD2Ev.exit.i.i
   %177 = phi ptr [ %3, %0 ], [ %176, %_ZN12_GLOBAL__N_112_GLOBAL__N_137_primvarTokens_PrivateStaticTokenTypeD2Ev.exit.i.i ], [ %5, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryIN12_GLOBAL__N_112_GLOBAL__N_137_primvarTokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i ]
   ret ptr %177
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_147_matBindingPurposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_147_matBindingPurposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca [2 x %"class.pxrInternal_v0_24__pxrReserved__::TfToken"], align 8
   %2 = load atomic i64, ptr @_ZN12_GLOBAL__N_124_matBindingPurposeTokensE seq_cst, align 8
   %3 = inttoptr i64 %2 to ptr
   %.not.i = icmp eq i64 %2, 0
-  br i1 %.not.i, label %4, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_147_matBindingPurposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.argprom.exit
+  br i1 %.not.i, label %4, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_147_matBindingPurposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.exit
 
 4:                                                ; preds = %0
   %5 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
@@ -25782,7 +25782,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryIN12_GLOBAL__N
   %87 = ptrtoint ptr %5 to i64
   %88 = cmpxchg ptr @_ZN12_GLOBAL__N_124_matBindingPurposeTokensE, i64 0, i64 %87 seq_cst seq_cst, align 8
   %89 = extractvalue { i64, i1 } %88, 1
-  br i1 %89, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_147_matBindingPurposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.argprom.exit, label %90
+  br i1 %89, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_147_matBindingPurposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.exit, label %90
 
 90:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryIN12_GLOBAL__N_112_GLOBAL__N_147_matBindingPurposeTokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i
   %91 = load ptr, ptr %8, align 8
@@ -25856,9 +25856,9 @@ _ZN12_GLOBAL__N_112_GLOBAL__N_147_matBindingPurposeTokens_PrivateStaticTokenType
   call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 40) #27
   %121 = load atomic i64, ptr @_ZN12_GLOBAL__N_124_matBindingPurposeTokensE seq_cst, align 8
   %122 = inttoptr i64 %121 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_147_matBindingPurposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.argprom.exit
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_147_matBindingPurposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_147_matBindingPurposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.argprom.exit: ; preds = %0, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryIN12_GLOBAL__N_112_GLOBAL__N_147_matBindingPurposeTokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i, %_ZN12_GLOBAL__N_112_GLOBAL__N_147_matBindingPurposeTokens_PrivateStaticTokenTypeD2Ev.exit.i.i
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_147_matBindingPurposeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEE3GetEv.exit: ; preds = %0, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryIN12_GLOBAL__N_112_GLOBAL__N_147_matBindingPurposeTokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i, %_ZN12_GLOBAL__N_112_GLOBAL__N_147_matBindingPurposeTokens_PrivateStaticTokenTypeD2Ev.exit.i.i
   %123 = phi ptr [ %3, %0 ], [ %122, %_ZN12_GLOBAL__N_112_GLOBAL__N_147_matBindingPurposeTokens_PrivateStaticTokenTypeD2Ev.exit.i.i ], [ %5, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryIN12_GLOBAL__N_112_GLOBAL__N_147_matBindingPurposeTokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i ]
   ret ptr %123
 }
@@ -29259,7 +29259,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_126_GetCustomPredicateLibraryEv(ptr
           to label %8 unwind label %12
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEEE.argprom(ptr noundef nonnull align 8 dereferenceable(80) %7)
+  invoke fastcc void @_ZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEEE(ptr noundef nonnull align 8 dereferenceable(80) %7)
           to label %9 unwind label %12
 
 9:                                                ; preds = %8
@@ -29291,7 +29291,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__19SdfPr
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEEE.argprom(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEEE(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::tuple.262", align 8
   %3 = alloca %"class.std::tuple.265", align 1
   %4 = alloca i8, align 1
@@ -29447,14 +29447,14 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__33SdfPredicatePara
 
 .thread.i.i:                                      ; preds = %57, %.noexc8.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !99
-  br label %"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE15_OverloadBinderIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0E9TryCreateEOS9_RKNS_33SdfPredicateParamNamesAndDefaultsE.argprom.exit.i"
+  br label %"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE15_OverloadBinderIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0E9TryCreateEOS9_RKNS_33SdfPredicateParamNamesAndDefaultsE.exit.i"
 
 65:                                               ; preds = %64
   %66 = load i8, ptr %4, align 1, !noalias !99
   %67 = trunc i8 %66 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !99
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !99
-  br i1 %67, label %77, label %"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE15_OverloadBinderIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0E9TryCreateEOS9_RKNS_33SdfPredicateParamNamesAndDefaultsE.argprom.exit.i"
+  br i1 %67, label %77, label %"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE15_OverloadBinderIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0E9TryCreateEOS9_RKNS_33SdfPredicateParamNamesAndDefaultsE.exit.i"
 
 68:                                               ; preds = %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndDefaults5ParamEEE8allocateERS3_m.exit.i.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i
   %69 = landingpad { ptr, i32 }
@@ -29475,7 +29475,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__33SdfPredicatePara
   call void %73(ptr noundef nonnull align 8 dereferenceable(41) %19) #23, !noalias !99
   br label %.body12
 
-"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE15_OverloadBinderIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0E9TryCreateEOS9_RKNS_33SdfPredicateParamNamesAndDefaultsE.argprom.exit.i": ; preds = %65, %.thread.i.i
+"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE15_OverloadBinderIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0E9TryCreateEOS9_RKNS_33SdfPredicateParamNamesAndDefaultsE.exit.i": ; preds = %65, %.thread.i.i
   %74 = load ptr, ptr %19, align 8, !noalias !99
   %75 = getelementptr inbounds i8, ptr %74, i64 8
   %76 = load ptr, ptr %75, align 8, !noalias !99
@@ -29487,7 +29487,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__33SdfPredicatePara
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   store ptr %7, ptr %2, align 8, !alias.scope !102
   %78 = invoke { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEENS0_9robin_mapIS9_SM_St4hashIS9_ESt8equal_toIS9_ESaISN_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSX_11ValueSelectESQ_SS_ST_Lb0ESW_E11insert_implIS9_JRKSt21piecewise_construct_tSt5tupleIJRKS9_EES15_IJEEEEES3_INS10_14robin_iteratorILb0EEEbERKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(74) @_ZZN12_GLOBAL__N_126_GetCustomPredicateLibraryEvE3lib, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %79 unwind label %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE15_OverloadBinderIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS5_E3$_0EEEclEPSB_.argprom.exit.i12.i"
+          to label %79 unwind label %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE15_OverloadBinderIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS5_E3$_0EEEclEPSB_.exit.i12.i"
 
 79:                                               ; preds = %77
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
@@ -29540,7 +29540,7 @@ _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryI
   call void %97(ptr noundef nonnull align 8 dereferenceable(40) %94) #23
   br label %.body12
 
-"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE15_OverloadBinderIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS5_E3$_0EEEclEPSB_.argprom.exit.i12.i": ; preds = %77
+"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE15_OverloadBinderIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS5_E3$_0EEEclEPSB_.exit.i12.i": ; preds = %77
   %98 = landingpad { ptr, i32 }
           cleanup
   %99 = load ptr, ptr %19, align 8
@@ -29549,7 +29549,7 @@ _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryI
   call void %101(ptr noundef nonnull align 8 dereferenceable(41) %19) #23
   br label %.body12
 
-102:                                              ; preds = %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE19_OverloadBinderBaseEEclEPS6_.exit.i.i, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS1_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS1_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i, %"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE15_OverloadBinderIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0E9TryCreateEOS9_RKNS_33SdfPredicateParamNamesAndDefaultsE.argprom.exit.i"
+102:                                              ; preds = %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE19_OverloadBinderBaseEEclEPS6_.exit.i.i, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS1_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS1_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i, %"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE15_OverloadBinderIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0E9TryCreateEOS9_RKNS_33SdfPredicateParamNamesAndDefaultsE.exit.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %103 = load ptr, ptr %9, align 8
   %104 = load ptr, ptr %21, align 8
@@ -29661,8 +29661,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndDefaults5ParamD2
           cleanup
   br label %.body12
 
-.body12:                                          ; preds = %.body.i.i, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE15_OverloadBinderIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS5_E3$_0EESt14default_deleteISB_EED2Ev.exit.i.i", %92, %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE19_OverloadBinderBaseEEclEPS6_.exit.i8.i, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE15_OverloadBinderIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS5_E3$_0EEEclEPSB_.argprom.exit.i12.i", %147
-  %eh.lpad-body13 = phi { ptr, i32 } [ %148, %147 ], [ %70, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE15_OverloadBinderIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS5_E3$_0EESt14default_deleteISB_EED2Ev.exit.i.i" ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %98, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE15_OverloadBinderIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS5_E3$_0EEEclEPSB_.argprom.exit.i12.i" ], [ %93, %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE19_OverloadBinderBaseEEclEPS6_.exit.i8.i ], [ %93, %92 ]
+.body12:                                          ; preds = %.body.i.i, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE15_OverloadBinderIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS5_E3$_0EESt14default_deleteISB_EED2Ev.exit.i.i", %92, %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE19_OverloadBinderBaseEEclEPS6_.exit.i8.i, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE15_OverloadBinderIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS5_E3$_0EEEclEPSB_.exit.i12.i", %147
+  %eh.lpad-body13 = phi { ptr, i32 } [ %148, %147 ], [ %70, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE15_OverloadBinderIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS5_E3$_0EESt14default_deleteISB_EED2Ev.exit.i.i" ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %98, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE15_OverloadBinderIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS5_E3$_0EEEclEPSB_.exit.i12.i" ], [ %93, %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE19_OverloadBinderBaseEEclEPS6_.exit.i8.i ], [ %93, %92 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndDefaultsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #23
   br label %.loopexit.loopexit
 
@@ -30440,7 +30440,7 @@ define internal void @"_ZNK32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibra
   %26 = select i1 %25, ptr @.str.115, ptr @.str.116
   call void (ptr, i32, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %4, i32 noundef 3, ptr noundef nonnull @.str.114, i64 noundef %11, ptr noundef nonnull %26, i64 noundef %18), !noalias !118
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false), !alias.scope !118
-  br label %"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0EESt8functionIFNS_26SdfPredicateFunctionResultES3_EERKT_RKSt6vectorINS_22SdfPredicateExpression5FnArgESaISJ_EERKNS_33SdfPredicateParamNamesAndDefaultsE.argprom.exit"
+  br label %"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0EESt8functionIFNS_26SdfPredicateFunctionResultES3_EERKT_RKSt6vectorINS_22SdfPredicateExpression5FnArgESaISJ_EERKNS_33SdfPredicateParamNamesAndDefaultsE.exit"
 
 27:                                               ; preds = %3
   %28 = icmp ugt i64 %18, 1
@@ -30458,7 +30458,7 @@ define internal void @"_ZNK32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibra
   store i8 0, ptr %33, align 8, !noalias !118
   call void (ptr, i32, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %5, i32 noundef 3, ptr noundef nonnull @.str.117, i64 noundef 1, ptr noundef nonnull @.str.115, i64 noundef %18), !noalias !118
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false), !alias.scope !118
-  br label %"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0EESt8functionIFNS_26SdfPredicateFunctionResultES3_EERKT_RKSt6vectorINS_22SdfPredicateExpression5FnArgESaISJ_EERKNS_33SdfPredicateParamNamesAndDefaultsE.argprom.exit"
+  br label %"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0EESt8functionIFNS_26SdfPredicateFunctionResultES3_EERKT_RKSt6vectorINS_22SdfPredicateExpression5FnArgESaISJ_EERKNS_33SdfPredicateParamNamesAndDefaultsE.exit"
 
 34:                                               ; preds = %27
   store i8 0, ptr %6, align 1, !noalias !118
@@ -30520,7 +30520,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit.i:                  ; preds = %49, %46
 58:                                               ; preds = %57, %"_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_16HdSceneIndexPrimEEEC2IZNS0_19SdfPredicateLibraryIS4_E14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS9_E3$_0EES6_RKT_RKSt6vectorINS0_22SdfPredicateExpression5FnArgESaISK_EERKNS0_33SdfPredicateParamNamesAndDefaultsEEUlS4_E_vEEOSF_.exit.i"
   %59 = load ptr, ptr %7, align 8, !noalias !118
   %.not.i.i.i15.i = icmp eq ptr %59, null
-  br i1 %.not.i.i.i15.i, label %"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0EESt8functionIFNS_26SdfPredicateFunctionResultES3_EERKT_RKSt6vectorINS_22SdfPredicateExpression5FnArgESaISJ_EERKNS_33SdfPredicateParamNamesAndDefaultsE.argprom.exit", label %60
+  br i1 %.not.i.i.i15.i, label %"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0EESt8functionIFNS_26SdfPredicateFunctionResultES3_EERKT_RKSt6vectorINS_22SdfPredicateExpression5FnArgESaISJ_EERKNS_33SdfPredicateParamNamesAndDefaultsE.exit", label %60
 
 60:                                               ; preds = %58
   %61 = load ptr, ptr %38, align 8, !noalias !118
@@ -30531,9 +30531,9 @@ _ZNSt6vectorIbSaIbEED2Ev.exit.i:                  ; preds = %49, %46
   %66 = sub nsw i64 0, %65
   %67 = getelementptr inbounds i64, ptr %61, i64 %66
   call void @_ZdlPvm(ptr noundef %67, i64 noundef %64) #27, !noalias !118
-  br label %"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0EESt8functionIFNS_26SdfPredicateFunctionResultES3_EERKT_RKSt6vectorINS_22SdfPredicateExpression5FnArgESaISJ_EERKNS_33SdfPredicateParamNamesAndDefaultsE.argprom.exit"
+  br label %"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0EESt8functionIFNS_26SdfPredicateFunctionResultES3_EERKT_RKSt6vectorINS_22SdfPredicateExpression5FnArgESaISJ_EERKNS_33SdfPredicateParamNamesAndDefaultsE.exit"
 
-"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0EESt8functionIFNS_26SdfPredicateFunctionResultES3_EERKT_RKSt6vectorINS_22SdfPredicateExpression5FnArgESaISJ_EERKNS_33SdfPredicateParamNamesAndDefaultsE.argprom.exit": ; preds = %20, %29, %58, %60
+"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0EESt8functionIFNS_26SdfPredicateFunctionResultES3_EERKT_RKSt6vectorINS_22SdfPredicateExpression5FnArgESaISJ_EERKNS_33SdfPredicateParamNamesAndDefaultsE.exit": ; preds = %20, %29, %58, %60
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
@@ -32105,7 +32105,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i.i.i.i.i.i: ; pr
   store ptr null, ptr %17, align 8, !noalias !141
   store ptr %29, ptr %36, align 8, !alias.scope !141
   store ptr null, ptr %14, align 8, !noalias !141
-  %37 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom()
+  %37 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv()
           to label %.noexc.i.i.i unwind label %138
 
 .noexc.i.i.i:                                     ; preds = %28
@@ -32117,10 +32117,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i.i.i.i.i.i: ; pr
   %43 = and i64 %42, -8
   %44 = inttoptr i64 %43 to ptr
   %45 = icmp eq ptr %40, %44
-  br i1 %45, label %"_ZSt5applyIRKZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS1_16HdSceneIndexPrimEEEE3$_0St5tupleIJS3_bEEEDcOT_OT0_.argprom.exit.i.i.i", label %46
+  br i1 %45, label %"_ZSt5applyIRKZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS1_16HdSceneIndexPrimEEEE3$_0St5tupleIJS3_bEEEDcOT_OT0_.exit.i.i.i", label %46
 
 46:                                               ; preds = %.noexc.i.i.i
-  %47 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom()
+  %47 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N_138_primTypeTokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv()
           to label %.noexc5.i.i.i unwind label %138
 
 .noexc5.i.i.i:                                    ; preds = %46
@@ -32131,14 +32131,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i.i.i.i.i.i: ; pr
   %52 = icmp eq ptr %40, %51
   %53 = zext i1 %52 to i64
   %54 = or disjoint i64 %53, 4294967296
-  br label %"_ZSt5applyIRKZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS1_16HdSceneIndexPrimEEEE3$_0St5tupleIJS3_bEEEDcOT_OT0_.argprom.exit.i.i.i"
+  br label %"_ZSt5applyIRKZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS1_16HdSceneIndexPrimEEEE3$_0St5tupleIJS3_bEEEDcOT_OT0_.exit.i.i.i"
 
-"_ZSt5applyIRKZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS1_16HdSceneIndexPrimEEEE3$_0St5tupleIJS3_bEEEDcOT_OT0_.argprom.exit.i.i.i": ; preds = %.noexc5.i.i.i, %.noexc.i.i.i
+"_ZSt5applyIRKZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS1_16HdSceneIndexPrimEEEE3$_0St5tupleIJS3_bEEEDcOT_OT0_.exit.i.i.i": ; preds = %.noexc5.i.i.i, %.noexc.i.i.i
   %.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i.i = phi i64 [ 4294967297, %.noexc.i.i.i ], [ %54, %.noexc5.i.i.i ]
   %.not.i.i.i.i.i.i.i6.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.i.i.i.i.i6.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.i.i.i.i.i.i.i, label %55
 
-55:                                               ; preds = %"_ZSt5applyIRKZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS1_16HdSceneIndexPrimEEEE3$_0St5tupleIJS3_bEEEDcOT_OT0_.argprom.exit.i.i.i"
+55:                                               ; preds = %"_ZSt5applyIRKZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS1_16HdSceneIndexPrimEEEE3$_0St5tupleIJS3_bEEEDcOT_OT0_.exit.i.i.i"
   %56 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %57 = load atomic i64, ptr %56 acquire, align 8
   %58 = icmp eq i64 %57, 4294967297
@@ -32206,7 +32206,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %29) #23
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.i.i.i.i.i.i.i
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.i.i.i.i.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i, %84, %71, %"_ZSt5applyIRKZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS1_16HdSceneIndexPrimEEEE3$_0St5tupleIJS3_bEEEDcOT_OT0_.argprom.exit.i.i.i"
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.i.i.i.i.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i, %84, %71, %"_ZSt5applyIRKZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS1_16HdSceneIndexPrimEEEE3$_0St5tupleIJS3_bEEEDcOT_OT0_.exit.i.i.i"
   %89 = load ptr, ptr %34, align 8
   %90 = ptrtoint ptr %89 to i64
   %91 = and i64 %90, 7
@@ -32320,7 +32320,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_16HdSceneIndexPrimEEZNS0_19SdfPredicateLibraryIS4_E14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS7_E3$_0EESt8functionIS5_ERKT_RKSt6vectorINS0_22SdfPredicateExpression5FnArgESaISK_EERKNS0_33SdfPredicateParamNamesAndDefaultsEEUlS4_E_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #7 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS1_16HdSceneIndexPrimEE14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS6_E3$_0EESt8functionIFNS1_26SdfPredicateFunctionResultES5_EERKT_RKSt6vectorINS1_22SdfPredicateExpression5FnArgESaISL_EERKNS1_33SdfPredicateParamNamesAndDefaultsEEUlS5_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS1_16HdSceneIndexPrimEE14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS6_E3$_0EESt8functionIFNS1_26SdfPredicateFunctionResultES5_EERKT_RKSt6vectorINS1_22SdfPredicateExpression5FnArgESaISL_EERKNS1_33SdfPredicateParamNamesAndDefaultsEEUlS5_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -32329,12 +32329,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN32pxrInternal_v0
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0EESt8functionIFNS_26SdfPredicateFunctionResultES3_EERKT_RKSt6vectorINS_22SdfPredicateExpression5FnArgESaISJ_EERKNS_33SdfPredicateParamNamesAndDefaultsEEUlS3_E_", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS1_16HdSceneIndexPrimEE14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS6_E3$_0EESt8functionIFNS1_26SdfPredicateFunctionResultES5_EERKT_RKSt6vectorINS1_22SdfPredicateExpression5FnArgESaISL_EERKNS1_33SdfPredicateParamNamesAndDefaultsEEUlS5_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS1_16HdSceneIndexPrimEE14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS6_E3$_0EESt8functionIFNS1_26SdfPredicateFunctionResultES5_EERKT_RKSt6vectorINS1_22SdfPredicateExpression5FnArgESaISL_EERKNS1_33SdfPredicateParamNamesAndDefaultsEEUlS5_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS1_16HdSceneIndexPrimEE14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS6_E3$_0EESt8functionIFNS1_26SdfPredicateFunctionResultES5_EERKT_RKSt6vectorINS1_22SdfPredicateExpression5FnArgESaISL_EERKNS1_33SdfPredicateParamNamesAndDefaultsEEUlS5_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS1_16HdSceneIndexPrimEE14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS6_E3$_0EESt8functionIFNS1_26SdfPredicateFunctionResultES5_EERKT_RKSt6vectorINS1_22SdfPredicateExpression5FnArgESaISL_EERKNS1_33SdfPredicateParamNamesAndDefaultsEEUlS5_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
@@ -32342,18 +32342,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN32pxrInternal_v0
   %7 = tail call noalias noundef nonnull dereferenceable(2) ptr @_Znwm(i64 noundef 2) #26
   store i16 %.val7.i, ptr %7, align 2
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS1_16HdSceneIndexPrimEE14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS6_E3$_0EESt8functionIFNS1_26SdfPredicateFunctionResultES5_EERKT_RKSt6vectorINS1_22SdfPredicateExpression5FnArgESaISL_EERKNS1_33SdfPredicateParamNamesAndDefaultsEEUlS5_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS1_16HdSceneIndexPrimEE14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS6_E3$_0EESt8functionIFNS1_26SdfPredicateFunctionResultES5_EERKT_RKSt6vectorINS1_22SdfPredicateExpression5FnArgESaISL_EERKNS1_33SdfPredicateParamNamesAndDefaultsEEUlS5_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val8.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val8.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS1_16HdSceneIndexPrimEE14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS6_E3$_0EESt8functionIFNS1_26SdfPredicateFunctionResultES5_EERKT_RKSt6vectorINS1_22SdfPredicateExpression5FnArgESaISL_EERKNS1_33SdfPredicateParamNamesAndDefaultsEEUlS5_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS1_16HdSceneIndexPrimEE14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS6_E3$_0EESt8functionIFNS1_26SdfPredicateFunctionResultES5_EERKT_RKSt6vectorINS1_22SdfPredicateExpression5FnArgESaISL_EERKNS1_33SdfPredicateParamNamesAndDefaultsEEUlS5_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val8.i, i64 noundef 2) #27
-  br label %"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS1_16HdSceneIndexPrimEE14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS6_E3$_0EESt8functionIFNS1_26SdfPredicateFunctionResultES5_EERKT_RKSt6vectorINS1_22SdfPredicateExpression5FnArgESaISL_EERKNS1_33SdfPredicateParamNamesAndDefaultsEEUlS5_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS1_16HdSceneIndexPrimEE14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS6_E3$_0EESt8functionIFNS1_26SdfPredicateFunctionResultES5_EERKT_RKSt6vectorINS1_22SdfPredicateExpression5FnArgESaISL_EERKNS1_33SdfPredicateParamNamesAndDefaultsEEUlS5_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS1_16HdSceneIndexPrimEE14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS6_E3$_0EESt8functionIFNS1_26SdfPredicateFunctionResultES5_EERKT_RKSt6vectorINS1_22SdfPredicateExpression5FnArgESaISL_EERKNS1_33SdfPredicateParamNamesAndDefaultsEEUlS5_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS1_16HdSceneIndexPrimEE14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS6_E3$_0EESt8functionIFNS1_26SdfPredicateFunctionResultES5_EERKT_RKSt6vectorINS1_22SdfPredicateExpression5FnArgESaISL_EERKNS1_33SdfPredicateParamNamesAndDefaultsEEUlS5_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -34863,8 +34863,8 @@ attributes #28 = { nounwind willreturn memory(read) }
 !97 = distinct !{!97, !"_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7SdfPathEvE19GetProxiedAsVtValueERKS2_"}
 !98 = !{!"branch_weights", i32 1, i32 1048575}
 !99 = !{!100}
-!100 = distinct !{!100, !101, !"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE15_OverloadBinderIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0E9TryCreateEOS9_RKNS_33SdfPredicateParamNamesAndDefaultsE.argprom: argument 0"}
-!101 = distinct !{!101, !"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE15_OverloadBinderIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0E9TryCreateEOS9_RKNS_33SdfPredicateParamNamesAndDefaultsE.argprom"}
+!100 = distinct !{!100, !101, !"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE15_OverloadBinderIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0E9TryCreateEOS9_RKNS_33SdfPredicateParamNamesAndDefaultsE: argument 0"}
+!101 = distinct !{!101, !"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE15_OverloadBinderIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0E9TryCreateEOS9_RKNS_33SdfPredicateParamNamesAndDefaultsE"}
 !102 = !{!103}
 !103 = distinct !{!103, !104, !"_ZSt16forward_as_tupleIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt5tupleIJDpOT_EESB_: argument 0"}
 !104 = distinct !{!104, !"_ZSt16forward_as_tupleIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt5tupleIJDpOT_EESB_"}
@@ -34882,8 +34882,8 @@ attributes #28 = { nounwind willreturn memory(read) }
 !116 = distinct !{!116, !12}
 !117 = distinct !{!117, !12}
 !118 = !{!119}
-!119 = distinct !{!119, !120, !"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0EESt8functionIFNS_26SdfPredicateFunctionResultES3_EERKT_RKSt6vectorINS_22SdfPredicateExpression5FnArgESaISJ_EERKNS_33SdfPredicateParamNamesAndDefaultsE.argprom: argument 0"}
-!120 = distinct !{!120, !"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0EESt8functionIFNS_26SdfPredicateFunctionResultES3_EERKT_RKSt6vectorINS_22SdfPredicateExpression5FnArgESaISJ_EERKNS_33SdfPredicateParamNamesAndDefaultsE.argprom"}
+!119 = distinct !{!119, !120, !"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0EESt8functionIFNS_26SdfPredicateFunctionResultES3_EERKT_RKSt6vectorINS_22SdfPredicateExpression5FnArgESaISJ_EERKNS_33SdfPredicateParamNamesAndDefaultsE: argument 0"}
+!120 = distinct !{!120, !"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE14_TryToBindCallIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0EESt8functionIFNS_26SdfPredicateFunctionResultES3_EERKT_RKSt6vectorINS_22SdfPredicateExpression5FnArgESaISJ_EERKNS_33SdfPredicateParamNamesAndDefaultsE"}
 !121 = distinct !{!121, !12}
 !122 = distinct !{!122, !12}
 !123 = !{!124}

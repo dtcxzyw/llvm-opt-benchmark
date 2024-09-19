@@ -1055,7 +1055,7 @@ define linkonce_odr hidden void @_ZNK19BitwiseShiftChecker12checkPreStmtEPKN5cla
   %78 = and i32 %77, 63
   %79 = add nsw i32 %78, -9
   %or.cond = icmp ult i32 %79, -2
-  br i1 %or.cond, label %_ZN12_GLOBAL__N_121BitwiseShiftValidatorD2Ev.argprom.exit, label %80
+  br i1 %or.cond, label %_ZN12_GLOBAL__N_121BitwiseShiftValidatorD2Ev.exit, label %80
 
 80:                                               ; preds = %3
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1665,9 +1665,9 @@ _ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED
   %.val10.i = load i8, ptr %93, align 8
   %306 = trunc i8 %.val10.i to i1
   %.pre8 = load ptr, ptr %75, align 8
-  br i1 %306, label %_ZNK12_GLOBAL__N_121BitwiseShiftValidator27shouldPerformPedanticChecksEv.argprom.exit.i, label %_ZNK12_GLOBAL__N_121BitwiseShiftValidator27shouldPerformPedanticChecksEv.argprom.exit.thread.i
+  br i1 %306, label %_ZNK12_GLOBAL__N_121BitwiseShiftValidator27shouldPerformPedanticChecksEv.exit.i, label %_ZNK12_GLOBAL__N_121BitwiseShiftValidator27shouldPerformPedanticChecksEv.exit.thread.i
 
-_ZNK12_GLOBAL__N_121BitwiseShiftValidator27shouldPerformPedanticChecksEv.argprom.exit.i: ; preds = %305
+_ZNK12_GLOBAL__N_121BitwiseShiftValidator27shouldPerformPedanticChecksEv.exit.i: ; preds = %305
   %307 = load ptr, ptr %.pre8, align 8
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 24
   %309 = load ptr, ptr %308, align 8
@@ -1680,9 +1680,9 @@ _ZNK12_GLOBAL__N_121BitwiseShiftValidator27shouldPerformPedanticChecksEv.argprom
   %316 = load i64, ptr %315, align 8
   %317 = and i64 %316, 32768
   %.not.i22.i = icmp eq i64 %317, 0
-  br i1 %.not.i22.i, label %318, label %_ZNK12_GLOBAL__N_121BitwiseShiftValidator27shouldPerformPedanticChecksEv.argprom.exit.thread.i
+  br i1 %.not.i22.i, label %318, label %_ZNK12_GLOBAL__N_121BitwiseShiftValidator27shouldPerformPedanticChecksEv.exit.thread.i
 
-318:                                              ; preds = %_ZNK12_GLOBAL__N_121BitwiseShiftValidator27shouldPerformPedanticChecksEv.argprom.exit.i
+318:                                              ; preds = %_ZNK12_GLOBAL__N_121BitwiseShiftValidator27shouldPerformPedanticChecksEv.exit.i
   call fastcc void @_ZN12_GLOBAL__N_121BitwiseShiftValidator20checkOperandNegativeENS_11OperandSideE(ptr dead_on_unwind noalias writable align 8 %73, ptr noundef nonnull align 8 dereferenceable(48) %75, i32 noundef 0)
   %319 = load ptr, ptr %73, align 8
   %.not90.i = icmp eq ptr %319, null
@@ -2368,19 +2368,19 @@ _ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED
 _ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit60.i: ; preds = %_ZN12_GLOBAL__N_121BitwiseShiftValidator22checkLeftShiftOverflowEv.exit.i, %_ZN12_GLOBAL__N_121BitwiseShiftValidator22checkLeftShiftOverflowEv.exit.thread.i
   %.pre = phi ptr [ %419, %_ZN12_GLOBAL__N_121BitwiseShiftValidator22checkLeftShiftOverflowEv.exit.i ], [ %.pre.pre, %_ZN12_GLOBAL__N_121BitwiseShiftValidator22checkLeftShiftOverflowEv.exit.thread.i ]
   store ptr null, ptr %74, align 8
-  br label %_ZNK12_GLOBAL__N_121BitwiseShiftValidator27shouldPerformPedanticChecksEv.argprom.exit.thread.i
+  br label %_ZNK12_GLOBAL__N_121BitwiseShiftValidator27shouldPerformPedanticChecksEv.exit.thread.i
 
-_ZNK12_GLOBAL__N_121BitwiseShiftValidator27shouldPerformPedanticChecksEv.argprom.exit.thread.i: ; preds = %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit60.i, %_ZNK12_GLOBAL__N_121BitwiseShiftValidator27shouldPerformPedanticChecksEv.argprom.exit.i, %305
-  %575 = phi ptr [ %.pre, %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit60.i ], [ %.pre8, %_ZNK12_GLOBAL__N_121BitwiseShiftValidator27shouldPerformPedanticChecksEv.argprom.exit.i ], [ %.pre8, %305 ]
+_ZNK12_GLOBAL__N_121BitwiseShiftValidator27shouldPerformPedanticChecksEv.exit.thread.i: ; preds = %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit60.i, %_ZNK12_GLOBAL__N_121BitwiseShiftValidator27shouldPerformPedanticChecksEv.exit.i, %305
+  %575 = phi ptr [ %.pre, %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit60.i ], [ %.pre8, %_ZNK12_GLOBAL__N_121BitwiseShiftValidator27shouldPerformPedanticChecksEv.exit.i ], [ %.pre8, %305 ]
   %576 = load ptr, ptr %84, align 8
   %.not.i.i61.i = icmp eq ptr %576, null
   br i1 %.not.i.i61.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i, label %577
 
-577:                                              ; preds = %_ZNK12_GLOBAL__N_121BitwiseShiftValidator27shouldPerformPedanticChecksEv.argprom.exit.thread.i
+577:                                              ; preds = %_ZNK12_GLOBAL__N_121BitwiseShiftValidator27shouldPerformPedanticChecksEv.exit.thread.i
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %576) #18
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; preds = %577, %_ZNK12_GLOBAL__N_121BitwiseShiftValidator27shouldPerformPedanticChecksEv.argprom.exit.thread.i
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; preds = %577, %_ZNK12_GLOBAL__N_121BitwiseShiftValidator27shouldPerformPedanticChecksEv.exit.thread.i
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
@@ -2584,13 +2584,13 @@ _ZN12_GLOBAL__N_121BitwiseShiftValidator3runEv.exit: ; preds = %_ZNSt10unique_pt
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %74)
   %.val = load ptr, ptr %84, align 8
   %.not.i.i.i7 = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i7, label %_ZN12_GLOBAL__N_121BitwiseShiftValidatorD2Ev.argprom.exit, label %663
+  br i1 %.not.i.i.i7, label %_ZN12_GLOBAL__N_121BitwiseShiftValidatorD2Ev.exit, label %663
 
 663:                                              ; preds = %_ZN12_GLOBAL__N_121BitwiseShiftValidator3runEv.exit
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.val) #18
-  br label %_ZN12_GLOBAL__N_121BitwiseShiftValidatorD2Ev.argprom.exit
+  br label %_ZN12_GLOBAL__N_121BitwiseShiftValidatorD2Ev.exit
 
-_ZN12_GLOBAL__N_121BitwiseShiftValidatorD2Ev.argprom.exit: ; preds = %663, %_ZN12_GLOBAL__N_121BitwiseShiftValidator3runEv.exit, %3
+_ZN12_GLOBAL__N_121BitwiseShiftValidatorD2Ev.exit: ; preds = %663, %_ZN12_GLOBAL__N_121BitwiseShiftValidator3runEv.exit, %3
   ret void
 }
 

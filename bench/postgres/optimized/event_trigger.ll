@@ -256,16 +256,16 @@ define dso_local i32 @CreateEventTrigger(ptr nocapture noundef readonly %0) loca
   br i1 %or.cond, label %.split47, label %68
 
 .split47:                                         ; preds = %63
-  tail call fastcc void @validate_ddl_tags.argprom(ptr noundef %.046.lcssa)
-  br label %validate_table_rewrite_tags.argprom.exit
+  tail call fastcc void @validate_ddl_tags(ptr noundef %.046.lcssa)
+  br label %validate_table_rewrite_tags.exit
 
 67:                                               ; preds = %60, %._crit_edge
   %.old1.not = icmp eq ptr %.046.lcssa, null
   br i1 %.old1.not, label %68, label %.split
 
 .split:                                           ; preds = %67
-  tail call fastcc void @validate_ddl_tags.argprom(ptr noundef nonnull %.046.lcssa)
-  br label %validate_table_rewrite_tags.argprom.exit
+  tail call fastcc void @validate_ddl_tags(ptr noundef nonnull %.046.lcssa)
+  br label %validate_table_rewrite_tags.exit
 
 68:                                               ; preds = %67, %63
   %69 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(14) @.str.7) #16
@@ -278,7 +278,7 @@ define dso_local i32 @CreateEventTrigger(ptr nocapture noundef readonly %0) loca
   %73 = getelementptr inbounds i8, ptr %.046.lcssa, i64 4
   %74 = load i32, ptr %73, align 4
   %.not3.i = icmp sgt i32 %74, 0
-  br i1 %.not3.i, label %.lr.ph.i, label %validate_table_rewrite_tags.argprom.exit
+  br i1 %.not3.i, label %.lr.ph.i, label %validate_table_rewrite_tags.exit
 
 .lr.ph.i:                                         ; preds = %72
   %75 = getelementptr inbounds i8, ptr %.046.lcssa, i64 16
@@ -289,7 +289,7 @@ define dso_local i32 @CreateEventTrigger(ptr nocapture noundef readonly %0) loca
   %77 = load i32, ptr %73, align 4
   %78 = sext i32 %77 to i64
   %.not.i = icmp slt i64 %indvars.iv.next.i, %78
-  br i1 %.not.i, label %79, label %validate_table_rewrite_tags.argprom.exit, !llvm.loop !5
+  br i1 %.not.i, label %79, label %validate_table_rewrite_tags.exit, !llvm.loop !5
 
 79:                                               ; preds = %76, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %76 ]
@@ -314,7 +314,7 @@ define dso_local i32 @CreateEventTrigger(ptr nocapture noundef readonly %0) loca
   %92 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(6) @.str.6) #16
   %93 = icmp eq i32 %92, 0
   %or.cond7 = select i1 %93, i1 %71, i1 false
-  br i1 %or.cond7, label %94, label %validate_table_rewrite_tags.argprom.exit
+  br i1 %or.cond7, label %94, label %validate_table_rewrite_tags.exit
 
 94:                                               ; preds = %91
   %95 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -324,7 +324,7 @@ define dso_local i32 @CreateEventTrigger(ptr nocapture noundef readonly %0) loca
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 178, ptr noundef nonnull @__func__.CreateEventTrigger) #14
   unreachable
 
-validate_table_rewrite_tags.argprom.exit:         ; preds = %76, %72, %.split, %.split47, %91
+validate_table_rewrite_tags.exit:                 ; preds = %76, %72, %.split, %.split47, %91
   %98 = getelementptr inbounds i8, ptr %0, i64 8
   %99 = load ptr, ptr %98, align 8
   %100 = ptrtoint ptr %99 to i64
@@ -332,7 +332,7 @@ validate_table_rewrite_tags.argprom.exit:         ; preds = %76, %72, %.split, %
   %.not55 = icmp eq ptr %101, null
   br i1 %.not55, label %107, label %102
 
-102:                                              ; preds = %validate_table_rewrite_tags.argprom.exit
+102:                                              ; preds = %validate_table_rewrite_tags.exit
   %103 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %103)
   %104 = tail call i32 @errcode(i32 noundef 290948) #14
@@ -341,7 +341,7 @@ validate_table_rewrite_tags.argprom.exit:         ; preds = %76, %72, %.split, %
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 189, ptr noundef nonnull @__func__.CreateEventTrigger) #14
   unreachable
 
-107:                                              ; preds = %validate_table_rewrite_tags.argprom.exit
+107:                                              ; preds = %validate_table_rewrite_tags.exit
   %108 = getelementptr inbounds i8, ptr %0, i64 32
   %109 = load ptr, ptr %108, align 8
   %110 = tail call i32 @LookupFuncName(ptr noundef %109, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #14
@@ -530,7 +530,7 @@ define internal fastcc void @error_duplicate_filter_variable(ptr noundef %0) unn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @validate_ddl_tags.argprom(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc void @validate_ddl_tags(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %.not4 = icmp sgt i32 %3, 0

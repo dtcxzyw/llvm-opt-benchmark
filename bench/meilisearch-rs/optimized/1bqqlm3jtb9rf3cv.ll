@@ -174,7 +174,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17hf917337b2b6ee
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17hd0e7b1a9a36a222bE.argprom(ptr noalias nocapture noundef nonnull align 8 %0, i64 noundef range(i64 21, 0) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17hd0e7b1a9a36a222bE(ptr noalias nocapture noundef nonnull align 8 %0, i64 noundef range(i64 21, 0) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 4
   %4 = alloca [16 x i8], align 4
   %5 = alloca [16 x i8], align 4
@@ -229,15 +229,15 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %25 = add nsw i64 %1, -1
   br label %.lr.ph17
 
-.split:                                           ; preds = %2, %_ZN4core5slice4sort26insertion_sort_shift_right17hf4359f47e6db1b69E.argprom.exit
-  %.sroa.01.013 = phi i64 [ %.sroa.01.1.lcssa32, %_ZN4core5slice4sort26insertion_sort_shift_right17hf4359f47e6db1b69E.argprom.exit ], [ 1, %2 ]
-  %.sroa.012.012 = phi i64 [ %26, %_ZN4core5slice4sort26insertion_sort_shift_right17hf4359f47e6db1b69E.argprom.exit ], [ 0, %2 ]
+.split:                                           ; preds = %2, %_ZN4core5slice4sort26insertion_sort_shift_right17hf4359f47e6db1b69E.exit
+  %.sroa.01.013 = phi i64 [ %.sroa.01.1.lcssa32, %_ZN4core5slice4sort26insertion_sort_shift_right17hf4359f47e6db1b69E.exit ], [ 1, %2 ]
+  %.sroa.012.012 = phi i64 [ %26, %_ZN4core5slice4sort26insertion_sort_shift_right17hf4359f47e6db1b69E.exit ], [ 0, %2 ]
   %26 = add nuw nsw i64 %.sroa.012.012, 1
   %27 = icmp ult i64 %.sroa.01.013, %1
   br i1 %27, label %.lr.ph, label %._crit_edge
 
-.split15:                                         ; preds = %_ZN4core5slice4sort26insertion_sort_shift_right17hf4359f47e6db1b69E.argprom.exit, %._crit_edge, %35, %._crit_edge.us
-  %.us-phi = phi i1 [ %22, %._crit_edge.us ], [ true, %35 ], [ %34, %._crit_edge ], [ %34, %_ZN4core5slice4sort26insertion_sort_shift_right17hf4359f47e6db1b69E.argprom.exit ]
+.split15:                                         ; preds = %_ZN4core5slice4sort26insertion_sort_shift_right17hf4359f47e6db1b69E.exit, %._crit_edge, %35, %._crit_edge.us
+  %.us-phi = phi i1 [ %22, %._crit_edge.us ], [ true, %35 ], [ %34, %._crit_edge ], [ %34, %_ZN4core5slice4sort26insertion_sort_shift_right17hf4359f47e6db1b69E.exit ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %35
@@ -293,10 +293,10 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %44, ptr noundef nonnull align 8 dereferenceable(160) %8, i64 160, i1 false), !noalias !36
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %8)
   %45 = icmp ugt i64 %.sroa.01.1.lcssa, 1
-  br i1 %45, label %.preheader.split.i, label %_ZN4core5slice4sort26insertion_sort_shift_right17hf4359f47e6db1b69E.argprom.exit
+  br i1 %45, label %.preheader.split.i, label %_ZN4core5slice4sort26insertion_sort_shift_right17hf4359f47e6db1b69E.exit
 
 .preheader.split.i:                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hb062f3343ffa34e1E.exit"
-  call fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h4170dd02170fa12fE.argprom(ptr noalias noundef nonnull align 8 %0, i64 noundef %.sroa.01.1.lcssa, i64 noundef %38)
+  call fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h4170dd02170fa12fE(ptr noalias noundef nonnull align 8 %0, i64 noundef %.sroa.01.1.lcssa, i64 noundef %38)
   call void @llvm.experimental.noalias.scope.decl(metadata !38)
   call void @llvm.experimental.noalias.scope.decl(metadata !41)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !44
@@ -307,7 +307,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %47 = icmp eq i8 %46, -1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !44
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !44
-  br i1 %47, label %48, label %_ZN4core5slice4sort26insertion_sort_shift_right17hf4359f47e6db1b69E.argprom.exit
+  br i1 %47, label %48, label %_ZN4core5slice4sort26insertion_sort_shift_right17hf4359f47e6db1b69E.exit
 
 48:                                               ; preds = %.preheader.split.i
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %7)
@@ -321,7 +321,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %.sroa.5.0.lcssa.i.i = phi ptr [ %15, %48 ], [ %50, %55 ], [ %.sroa.5.04.i.i, %53 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.5.0.lcssa.i.i, ptr noundef nonnull align 8 dereferenceable(160) %7, i64 160, i1 false), !noalias !59
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %7)
-  br label %_ZN4core5slice4sort26insertion_sort_shift_right17hf4359f47e6db1b69E.argprom.exit
+  br label %_ZN4core5slice4sort26insertion_sort_shift_right17hf4359f47e6db1b69E.exit
 
 .lr.ph.i.i:                                       ; preds = %48, %55
   %.sroa.03.05.i.i = phi i64 [ %49, %55 ], [ 2, %48 ]
@@ -354,14 +354,14 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.5.04.i.i, ptr noundef nonnull align 8 dereferenceable(160) %7, i64 160, i1 false), !noalias !78
   resume { ptr, i32 } %58
 
-_ZN4core5slice4sort26insertion_sort_shift_right17hf4359f47e6db1b69E.argprom.exit: ; preds = %._crit_edge.i.i, %.preheader.split.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hb062f3343ffa34e1E.exit"
+_ZN4core5slice4sort26insertion_sort_shift_right17hf4359f47e6db1b69E.exit: ; preds = %._crit_edge.i.i, %.preheader.split.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hb062f3343ffa34e1E.exit"
   %.sroa.01.1.lcssa32 = phi i64 [ %.sroa.01.1.lcssa33, %._crit_edge.i.i ], [ %.sroa.01.1.lcssa, %.preheader.split.i ], [ 1, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hb062f3343ffa34e1E.exit" ]
   %exitcond28.not = icmp eq i64 %26, 5
   br i1 %exitcond28.not, label %.split15, label %.split
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h4170dd02170fa12fE.argprom(ptr noalias nocapture noundef nonnull align 8 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h4170dd02170fa12fE(ptr noalias nocapture noundef nonnull align 8 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 4
   %5 = alloca [16 x i8], align 4
   %6 = alloca [16 x i8], align 4
@@ -373,21 +373,21 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h41
 
 .preheader:                                       ; preds = %3
   %10 = icmp ult i64 %2, %1
-  br i1 %10, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha787b75e8470182fE.argprom.exit.lr.ph", label %._crit_edge
+  br i1 %10, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha787b75e8470182fE.exit.lr.ph", label %._crit_edge
 
-"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha787b75e8470182fE.argprom.exit.lr.ph": ; preds = %.preheader
+"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha787b75e8470182fE.exit.lr.ph": ; preds = %.preheader
   %11 = getelementptr inbounds i8, ptr %8, i64 96
-  br label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha787b75e8470182fE.argprom.exit"
+  br label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha787b75e8470182fE.exit"
 
 12:                                               ; preds = %3
   tail call void @_ZN4core9panicking5panic17h75b3c9209f97d725E(ptr noalias noundef nonnull readonly align 1 @anon.bed9f170711aa8c005b93c2e80cfe6b4.22, i64 noundef 46, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bed9f170711aa8c005b93c2e80cfe6b4.23) #15
   unreachable
 
-._crit_edge:                                      ; preds = %_ZN4core5slice4sort11insert_tail17h92ea9a5f79cb4dddE.argprom.exit, %.preheader
+._crit_edge:                                      ; preds = %_ZN4core5slice4sort11insert_tail17h92ea9a5f79cb4dddE.exit, %.preheader
   ret void
 
-"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha787b75e8470182fE.argprom.exit": ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha787b75e8470182fE.argprom.exit.lr.ph", %_ZN4core5slice4sort11insert_tail17h92ea9a5f79cb4dddE.argprom.exit
-  %.sroa.01.02 = phi i64 [ %2, %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha787b75e8470182fE.argprom.exit.lr.ph" ], [ %13, %_ZN4core5slice4sort11insert_tail17h92ea9a5f79cb4dddE.argprom.exit ]
+"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha787b75e8470182fE.exit": ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha787b75e8470182fE.exit.lr.ph", %_ZN4core5slice4sort11insert_tail17h92ea9a5f79cb4dddE.exit
+  %.sroa.01.02 = phi i64 [ %2, %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha787b75e8470182fE.exit.lr.ph" ], [ %13, %_ZN4core5slice4sort11insert_tail17h92ea9a5f79cb4dddE.exit ]
   %13 = add nuw i64 %.sroa.01.02, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !83)
   %14 = getelementptr { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, { [11 x i8], i8, [4 x i8] }, { [16 x i8] } }, ptr %0, i64 %13
@@ -401,9 +401,9 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h41
   %18 = icmp eq i8 %17, -1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !86
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !86
-  br i1 %18, label %19, label %_ZN4core5slice4sort11insert_tail17h92ea9a5f79cb4dddE.argprom.exit
+  br i1 %18, label %19, label %_ZN4core5slice4sort11insert_tail17h92ea9a5f79cb4dddE.exit
 
-19:                                               ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha787b75e8470182fE.argprom.exit"
+19:                                               ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha787b75e8470182fE.exit"
   %20 = getelementptr i8, ptr %14, i64 -320
   %21 = getelementptr i8, ptr %14, i64 -160
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %8)
@@ -417,7 +417,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h41
   %.sroa.5.0.lcssa.i = phi ptr [ %20, %19 ], [ %.sroa.5.011.i, %27 ], [ %0, %29 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.5.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(160) %8, i64 160, i1 false), !noalias !100
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %8)
-  br label %_ZN4core5slice4sort11insert_tail17h92ea9a5f79cb4dddE.argprom.exit
+  br label %_ZN4core5slice4sort11insert_tail17h92ea9a5f79cb4dddE.exit
 
 .lr.ph.i:                                         ; preds = %19, %29
   %.sroa.4.012.i = phi i64 [ %23, %29 ], [ %22, %19 ]
@@ -449,9 +449,9 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.5.011.i, ptr noundef nonnull align 8 dereferenceable(160) %8, i64 160, i1 false), !noalias !119
   resume { ptr, i32 } %31
 
-_ZN4core5slice4sort11insert_tail17h92ea9a5f79cb4dddE.argprom.exit: ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha787b75e8470182fE.argprom.exit", %.thread.i
+_ZN4core5slice4sort11insert_tail17h92ea9a5f79cb4dddE.exit: ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha787b75e8470182fE.exit", %.thread.i
   %exitcond.not = icmp eq i64 %13, %1
-  br i1 %exitcond.not, label %._crit_edge, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha787b75e8470182fE.argprom.exit"
+  br i1 %exitcond.not, label %._crit_edge, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha787b75e8470182fE.exit"
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -510,21 +510,21 @@ define hidden void @_ZN4core5slice4sort7recurse17h86a04bfa1b35a3e1E.llvm.1236058
   %45 = getelementptr inbounds i8, ptr %.sroa.021.0.ph89, i64 96
   br label %46
 
-46:                                               ; preds = %.lr.ph, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h454e5910cbfdbcedE.argprom.exit"
-  %.sroa.0.082 = phi ptr [ %.sroa.0.0.ph91, %.lr.ph ], [ %203, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h454e5910cbfdbcedE.argprom.exit" ]
-  %.sroa.14.081 = phi i64 [ %.sroa.14.0.ph90, %.lr.ph ], [ %202, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h454e5910cbfdbcedE.argprom.exit" ]
-  %.sroa.024.080 = phi i32 [ %.sroa.024.0.ph88, %.lr.ph ], [ %.sroa.024.1, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h454e5910cbfdbcedE.argprom.exit" ]
+46:                                               ; preds = %.lr.ph, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h454e5910cbfdbcedE.exit"
+  %.sroa.0.082 = phi ptr [ %.sroa.0.0.ph91, %.lr.ph ], [ %203, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h454e5910cbfdbcedE.exit" ]
+  %.sroa.14.081 = phi i64 [ %.sroa.14.0.ph90, %.lr.ph ], [ %202, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h454e5910cbfdbcedE.exit" ]
+  %.sroa.024.080 = phi i32 [ %.sroa.024.0.ph88, %.lr.ph ], [ %.sroa.024.1, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h454e5910cbfdbcedE.exit" ]
   %47 = icmp eq i32 %.sroa.024.080, 0
   br i1 %47, label %49, label %50
 
-.outer._crit_edge:                                ; preds = %.outer, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h454e5910cbfdbcedE.argprom.exit", %5
-  %.sroa.14.0.lcssa = phi i64 [ %1, %5 ], [ %202, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h454e5910cbfdbcedE.argprom.exit" ], [ %.sroa.14.1, %.outer ]
-  %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %203, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h454e5910cbfdbcedE.argprom.exit" ], [ %.sroa.0.1, %.outer ]
+.outer._crit_edge:                                ; preds = %.outer, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h454e5910cbfdbcedE.exit", %5
+  %.sroa.14.0.lcssa = phi i64 [ %1, %5 ], [ %202, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h454e5910cbfdbcedE.exit" ], [ %.sroa.14.1, %.outer ]
+  %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %203, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h454e5910cbfdbcedE.exit" ], [ %.sroa.0.1, %.outer ]
   %48 = icmp ugt i64 %.sroa.14.0.lcssa, 1
   br i1 %48, label %224, label %.loopexit
 
 49:                                               ; preds = %46
-  call fastcc void @_ZN4core5slice4sort8heapsort17h2bd3aa9703a929abE.argelim(ptr noalias noundef nonnull align 8 %.sroa.0.082, i64 noundef %.sroa.14.081)
+  call fastcc void @_ZN4core5slice4sort8heapsort17h2bd3aa9703a929abE(ptr noalias noundef nonnull align 8 %.sroa.0.082, i64 noundef %.sroa.14.081)
   br label %.loopexit
 
 50:                                               ; preds = %46
@@ -545,9 +545,9 @@ define hidden void @_ZN4core5slice4sort7recurse17h86a04bfa1b35a3e1E.llvm.1236058
   %55 = shl nuw nsw i64 %54, 1
   %56 = mul nuw i64 %54, 3
   %57 = icmp ugt i64 %.sroa.14.081, 49
-  br i1 %57, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E.exit.i15.i", label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom.exit23.i"
+  br i1 %57, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E.exit.i15.i", label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.exit23.i"
 
-"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom.exit23.i": ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E.exit.i15.i", %53
+"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.exit23.i": ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E.exit.i15.i", %53
   %.sroa.0.087.i = phi i64 [ 0, %53 ], [ %spec.select.i, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E.exit.i15.i" ]
   %.sroa.031.0.i = phi i64 [ %56, %53 ], [ %spec.select95.i, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E.exit.i15.i" ]
   %.sroa.026.0.i = phi i64 [ %55, %53 ], [ %.sroa.026.6.i, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E.exit.i15.i" ]
@@ -595,11 +595,11 @@ define hidden void @_ZN4core5slice4sort7recurse17h86a04bfa1b35a3e1E.llvm.1236058
   %75 = icmp eq i8 %74, -1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33), !noalias !167
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34), !noalias !167
-  br i1 %75, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom.exit.i", label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom.exit.thread.i"
+  br i1 %75, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.exit.i", label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.exit.thread.i"
 
-"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom.exit.i": ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom.exit23.i"
+"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.exit.i": ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.exit23.i"
   %76 = icmp ult i64 %.sroa.0.289.i, 11
-  br i1 %76, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom.exit.thread.i", label %138
+  br i1 %76, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.exit.thread.i", label %138
 
 "_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E.exit.i15.i": ; preds = %53
   %77 = add nsw i64 %54, -1
@@ -743,9 +743,9 @@ define hidden void @_ZN4core5slice4sort7recurse17h86a04bfa1b35a3e1E.llvm.1236058
   %137 = zext i1 %136 to i64
   %spec.select.i = add nuw nsw i64 %.sroa.0.11.i, %137
   %spec.select95.i = select i1 %136, i64 %126, i64 %.sroa.031.2.i
-  br label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom.exit23.i"
+  br label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.exit23.i"
 
-138:                                              ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom.exit.i"
+138:                                              ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.exit.i"
   %139 = lshr i64 %.sroa.14.081, 1
   %140 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, { [11 x i8], i8, [4 x i8] }, { [16 x i8] } }, ptr %.sroa.0.082, i64 %.sroa.14.081
   %141 = sub nsw i64 0, %139
@@ -784,15 +784,15 @@ _ZN4core10intrinsics10typed_swap17h316bf3f8f319d235E.exit.i.i.i: ; preds = %147
   %155 = add i64 %.sroa.14.081, %154
   br label %_ZN4core5slice4sort12choose_pivot17h0913dd8363d2763cE.exit
 
-"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom.exit.thread.i": ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom.exit.i", %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom.exit23.i"
-  %.sroa.026.394.i = phi i64 [ %65, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom.exit.i" ], [ %.sroa.026.2.i, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom.exit23.i" ]
-  %.sroa.0.39093.i = phi i64 [ 1, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom.exit.i" ], [ %.sroa.0.289.i, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom.exit23.i" ]
+"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.exit.thread.i": ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.exit.i", %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.exit23.i"
+  %.sroa.026.394.i = phi i64 [ %65, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.exit.i" ], [ %.sroa.026.2.i, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.exit23.i" ]
+  %.sroa.0.39093.i = phi i64 [ 1, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.exit.i" ], [ %.sroa.0.289.i, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.exit23.i" ]
   %156 = icmp eq i64 %.sroa.0.39093.i, 0
   br label %_ZN4core5slice4sort12choose_pivot17h0913dd8363d2763cE.exit
 
-_ZN4core5slice4sort12choose_pivot17h0913dd8363d2763cE.exit: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hf9cd85332bd98347E.exit.i", %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom.exit.thread.i"
-  %.sroa.3.0.i = phi i1 [ %156, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom.exit.thread.i" ], [ true, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hf9cd85332bd98347E.exit.i" ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.026.394.i, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom.exit.thread.i" ], [ %155, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hf9cd85332bd98347E.exit.i" ]
+_ZN4core5slice4sort12choose_pivot17h0913dd8363d2763cE.exit: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hf9cd85332bd98347E.exit.i", %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.exit.thread.i"
+  %.sroa.3.0.i = phi i1 [ %156, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.exit.thread.i" ], [ true, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hf9cd85332bd98347E.exit.i" ]
+  %.sroa.0.0.i = phi i64 [ %.sroa.026.394.i, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.exit.thread.i" ], [ %155, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hf9cd85332bd98347E.exit.i" ]
   %or.cond = select i1 %43, i1 %.sroa.3.0.i, i1 false
   br i1 %or.cond, label %158, label %157
 
@@ -800,7 +800,7 @@ _ZN4core5slice4sort12choose_pivot17h0913dd8363d2763cE.exit: ; preds = %"_ZN4core
   br i1 %44, label %162, label %160
 
 158:                                              ; preds = %_ZN4core5slice4sort12choose_pivot17h0913dd8363d2763cE.exit
-  %159 = call fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17hd0e7b1a9a36a222bE.argprom(ptr noalias noundef nonnull align 8 %.sroa.0.082, i64 noundef %.sroa.14.081)
+  %159 = call fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17hd0e7b1a9a36a222bE(ptr noalias noundef nonnull align 8 %.sroa.0.082, i64 noundef %.sroa.14.081)
   br i1 %159, label %.loopexit, label %157
 
 160:                                              ; preds = %157
@@ -810,7 +810,7 @@ _ZN4core5slice4sort12choose_pivot17h0913dd8363d2763cE.exit: ; preds = %"_ZN4core
 162:                                              ; preds = %169, %157
   %.sroa.0.082.lcssa111 = phi ptr [ %.sroa.0.082, %169 ], [ %.sroa.0.0.ph91, %157 ]
   %.sroa.14.081.lcssa104 = phi i64 [ %.sroa.14.081, %169 ], [ %.sroa.14.0.ph90, %157 ]
-  %163 = call fastcc { i64, i1 } @_ZN4core5slice4sort9partition17h7e00584d63447fe2E.argprom(ptr noalias noundef nonnull align 8 %.sroa.0.082.lcssa111, i64 noundef %.sroa.14.081.lcssa104, i64 noundef %.sroa.0.0.i)
+  %163 = call fastcc { i64, i1 } @_ZN4core5slice4sort9partition17h7e00584d63447fe2E(ptr noalias noundef nonnull align 8 %.sroa.0.082.lcssa111, i64 noundef %.sroa.14.081.lcssa104, i64 noundef %.sroa.0.0.i)
   %164 = extractvalue { i64, i1 } %163, 0
   %165 = extractvalue { i64, i1 } %163, 1
   %166 = sub i64 %.sroa.14.081.lcssa104, %164
@@ -887,7 +887,7 @@ _ZN4core5slice4sort12choose_pivot17h0913dd8363d2763cE.exit: ; preds = %"_ZN4core
   %.sroa.09.1.i = phi i64 [ %.sroa.09.0.ph.i, %._crit_edge.i ], [ %187, %193 ]
   %187 = add i64 %.sroa.09.1.i, -1
   %.not25.i = icmp ult i64 %.sroa.01.0.lcssa.i, %187
-  br i1 %.not25.i, label %188, label %_ZN4core5slice4sort15partition_equal17hc310f3400e8f1c96E.argprom.exit
+  br i1 %.not25.i, label %188, label %_ZN4core5slice4sort15partition_equal17hc310f3400e8f1c96E.exit
 
 188:                                              ; preds = %186
   %189 = icmp ult i64 %187, %177
@@ -932,18 +932,18 @@ _ZN4core5slice4sort12choose_pivot17h0913dd8363d2763cE.exit: ; preds = %"_ZN4core
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.0.082, ptr noundef nonnull align 8 dereferenceable(160) %12, i64 160, i1 false), !noalias !418
   resume { ptr, i32 } %lpad.phi.i
 
-_ZN4core5slice4sort15partition_equal17hc310f3400e8f1c96E.argprom.exit: ; preds = %186
+_ZN4core5slice4sort15partition_equal17hc310f3400e8f1c96E.exit: ; preds = %186
   %199 = add i64 %.sroa.01.0.lcssa.i, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.0.082, ptr noundef nonnull align 8 dereferenceable(160) %12, i64 160, i1 false), !noalias !423
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %12)
   %200 = icmp ugt i64 %199, %.sroa.14.081
-  br i1 %200, label %201, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h454e5910cbfdbcedE.argprom.exit"
+  br i1 %200, label %201, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h454e5910cbfdbcedE.exit"
 
-201:                                              ; preds = %_ZN4core5slice4sort15partition_equal17hc310f3400e8f1c96E.argprom.exit
+201:                                              ; preds = %_ZN4core5slice4sort15partition_equal17hc310f3400e8f1c96E.exit
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h9fca8563b179f90fE(i64 noundef %199, i64 noundef %.sroa.14.081, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bed9f170711aa8c005b93c2e80cfe6b4.29) #15, !noalias !428
   unreachable
 
-"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h454e5910cbfdbcedE.argprom.exit": ; preds = %_ZN4core5slice4sort15partition_equal17hc310f3400e8f1c96E.argprom.exit
+"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h454e5910cbfdbcedE.exit": ; preds = %_ZN4core5slice4sort15partition_equal17hc310f3400e8f1c96E.exit
   %202 = sub nuw i64 %.sroa.14.081, %199
   %203 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, { [11 x i8], i8, [4 x i8] }, { [16 x i8] } }, ptr %.sroa.0.082, i64 %199
   %204 = icmp ult i64 %202, 21
@@ -1004,12 +1004,12 @@ _ZN4core5slice4sort15partition_equal17hc310f3400e8f1c96E.argprom.exit: ; preds =
   br i1 %223, label %.outer._crit_edge, label %.lr.ph
 
 224:                                              ; preds = %.outer._crit_edge
-  call fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h4170dd02170fa12fE.argprom(ptr noalias noundef nonnull align 8 %.sroa.0.0.lcssa, i64 noundef %.sroa.14.0.lcssa, i64 noundef 1)
+  call fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h4170dd02170fa12fE(ptr noalias noundef nonnull align 8 %.sroa.0.0.lcssa, i64 noundef %.sroa.14.0.lcssa, i64 noundef 1)
   br label %.loopexit
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc void @_ZN4core5slice4sort8heapsort17h2bd3aa9703a929abE.argelim(ptr noalias nocapture noundef nonnull align 8 %0, i64 noundef range(i64 21, 0) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4core5slice4sort8heapsort17h2bd3aa9703a929abE(ptr noalias nocapture noundef nonnull align 8 %0, i64 noundef range(i64 21, 0) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
 .lr.ph.preheader:
   %2 = alloca [160 x i8], align 8
   %3 = alloca [16 x i8], align 4
@@ -1025,14 +1025,14 @@ define internal fastcc void @_ZN4core5slice4sort8heapsort17h2bd3aa9703a929abE.ar
   %13 = lshr i64 %1, 1
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.argprom.exit"
-  %.sroa.4.054 = phi i64 [ %14, %"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.argprom.exit" ], [ %13, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.exit"
+  %.sroa.4.054 = phi i64 [ %14, %"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.exit" ], [ %13, %.lr.ph.preheader ]
   %14 = add nsw i64 %.sroa.4.054, -1
   call void @llvm.experimental.noalias.scope.decl(metadata !431)
   %15 = shl i64 %14, 1
   %16 = or disjoint i64 %15, 1
   %.not4.i = icmp ult i64 %16, %1
-  br i1 %.not4.i, label %.lr.ph.i, label %"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.argprom.exit"
+  br i1 %.not4.i, label %.lr.ph.i, label %"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.exit"
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hb062f3343ffa34e1E.exit.i"
   %17 = phi i64 [ %42, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hb062f3343ffa34e1E.exit.i" ], [ %16, %.lr.ph ]
@@ -1083,7 +1083,7 @@ define internal fastcc void @_ZN4core5slice4sort8heapsort17h2bd3aa9703a929abE.ar
   %39 = icmp eq i8 %38, -1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !451
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !451
-  br i1 %39, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hb062f3343ffa34e1E.exit.i", label %"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.argprom.exit"
+  br i1 %39, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hb062f3343ffa34e1E.exit.i", label %"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.exit"
 
 40:                                               ; preds = %30
   call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %.sroa.03.0.i, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bed9f170711aa8c005b93c2e80cfe6b4.38) #15, !noalias !431
@@ -1098,13 +1098,13 @@ define internal fastcc void @_ZN4core5slice4sort8heapsort17h2bd3aa9703a929abE.ar
   %41 = shl i64 %.sroa.03.0.i, 1
   %42 = or disjoint i64 %41, 1
   %.not.i = icmp ult i64 %42, %1
-  br i1 %.not.i, label %.lr.ph.i, label %"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.argprom.exit"
+  br i1 %.not.i, label %.lr.ph.i, label %"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.exit"
 
-"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.argprom.exit": ; preds = %33, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hb062f3343ffa34e1E.exit.i", %.lr.ph
+"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.exit": ; preds = %33, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hb062f3343ffa34e1E.exit.i", %.lr.ph
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0471177f342c7879E.exit.preheader", label %.lr.ph
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0471177f342c7879E.exit.preheader": ; preds = %"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.argprom.exit"
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0471177f342c7879E.exit.preheader": ; preds = %"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.exit"
   %43 = add i64 %1, -1
   %44 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, { [11 x i8], i8, [4 x i8] }, { [16 x i8] } }], ptr %0, i64 0, i64 %43
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %7)
@@ -1115,11 +1115,11 @@ define internal fastcc void @_ZN4core5slice4sort8heapsort17h2bd3aa9703a929abE.ar
   %.not4.i2511 = icmp ugt i64 %43, 1
   br i1 %.not4.i2511, label %.lr.ph.i26.preheader, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0471177f342c7879E.exit._crit_edge"
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0471177f342c7879E.exit._crit_edge": ; preds = %"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.argprom.exit31", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0471177f342c7879E.exit.preheader"
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0471177f342c7879E.exit._crit_edge": ; preds = %"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.exit31", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0471177f342c7879E.exit.preheader"
   ret void
 
-.lr.ph.i26.preheader:                             ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0471177f342c7879E.exit.preheader", %"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.argprom.exit31"
-  %45 = phi i64 [ %72, %"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.argprom.exit31" ], [ %43, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0471177f342c7879E.exit.preheader" ]
+.lr.ph.i26.preheader:                             ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0471177f342c7879E.exit.preheader", %"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.exit31"
+  %45 = phi i64 [ %72, %"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.exit31" ], [ %43, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0471177f342c7879E.exit.preheader" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !478)
   br label %.lr.ph.i26
 
@@ -1172,7 +1172,7 @@ define internal fastcc void @_ZN4core5slice4sort8heapsort17h2bd3aa9703a929abE.ar
   %68 = icmp eq i8 %67, -1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !498
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !498
-  br i1 %68, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hb062f3343ffa34e1E.exit.i29", label %"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.argprom.exit31"
+  br i1 %68, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hb062f3343ffa34e1E.exit.i29", label %"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.exit31"
 
 69:                                               ; preds = %59
   call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %.sroa.03.0.i28, i64 noundef %45, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bed9f170711aa8c005b93c2e80cfe6b4.38) #15, !noalias !478
@@ -1187,9 +1187,9 @@ define internal fastcc void @_ZN4core5slice4sort8heapsort17h2bd3aa9703a929abE.ar
   %70 = shl i64 %.sroa.03.0.i28, 1
   %71 = or disjoint i64 %70, 1
   %.not.i30 = icmp ult i64 %71, %45
-  br i1 %.not.i30, label %.lr.ph.i26, label %"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.argprom.exit31"
+  br i1 %.not.i30, label %.lr.ph.i26, label %"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.exit31"
 
-"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.argprom.exit31": ; preds = %62, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hb062f3343ffa34e1E.exit.i29"
+"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.exit31": ; preds = %62, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hb062f3343ffa34e1E.exit.i29"
   %72 = add i64 %45, -1
   %73 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, { [11 x i8], i8, [4 x i8] }, { [16 x i8] } }], ptr %0, i64 0, i64 %72
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %7)
@@ -1202,7 +1202,7 @@ define internal fastcc void @_ZN4core5slice4sort8heapsort17h2bd3aa9703a929abE.ar
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc { i64, i1 } @_ZN4core5slice4sort9partition17h7e00584d63447fe2E.argprom(ptr noalias noundef nonnull align 8 %0, i64 noundef range(i64 21, 0) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc { i64, i1 } @_ZN4core5slice4sort9partition17h7e00584d63447fe2E(ptr noalias noundef nonnull align 8 %0, i64 noundef range(i64 21, 0) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [160 x i8], align 8
   %5 = alloca [160 x i8], align 8
   %6 = alloca [160 x i8], align 8
@@ -1891,18 +1891,18 @@ attributes #17 = { cold }
 !16 = !{!17}
 !17 = distinct !{!17, !14, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hb062f3343ffa34e1E: argument 1"}
 !18 = !{!19, !21}
-!19 = distinct !{!19, !20, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 0"}
-!20 = distinct !{!20, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom"}
-!21 = distinct !{!21, !20, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 1"}
+!19 = distinct !{!19, !20, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 0"}
+!20 = distinct !{!20, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE"}
+!21 = distinct !{!21, !20, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 1"}
 !22 = !{!23, !25}
-!23 = distinct !{!23, !24, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!24 = distinct !{!24, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!25 = distinct !{!25, !24, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!23 = distinct !{!23, !24, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!24 = distinct !{!24, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!25 = distinct !{!25, !24, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !26 = !{!21}
 !27 = !{!28, !30}
-!28 = distinct !{!28, !29, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!29 = distinct !{!29, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!30 = distinct !{!30, !29, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!28 = distinct !{!28, !29, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!29 = distinct !{!29, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!30 = distinct !{!30, !29, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !31 = !{!19}
 !32 = !{i8 -1, i8 3}
 !33 = !{!34}
@@ -1911,24 +1911,24 @@ attributes #17 = { cold }
 !36 = !{!37}
 !37 = distinct !{!37, !35, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hb062f3343ffa34e1E: argument 1"}
 !38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZN4core5slice4sort26insertion_sort_shift_right17hf4359f47e6db1b69E.argprom: argument 0"}
-!40 = distinct !{!40, !"_ZN4core5slice4sort26insertion_sort_shift_right17hf4359f47e6db1b69E.argprom"}
+!39 = distinct !{!39, !40, !"_ZN4core5slice4sort26insertion_sort_shift_right17hf4359f47e6db1b69E: argument 0"}
+!40 = distinct !{!40, !"_ZN4core5slice4sort26insertion_sort_shift_right17hf4359f47e6db1b69E"}
 !41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZN4core5slice4sort11insert_head17he4a4a39af825e4d8E.argprom: argument 0"}
-!43 = distinct !{!43, !"_ZN4core5slice4sort11insert_head17he4a4a39af825e4d8E.argprom"}
+!42 = distinct !{!42, !43, !"_ZN4core5slice4sort11insert_head17he4a4a39af825e4d8E: argument 0"}
+!43 = distinct !{!43, !"_ZN4core5slice4sort11insert_head17he4a4a39af825e4d8E"}
 !44 = !{!45, !47, !42, !39}
-!45 = distinct !{!45, !46, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 0"}
-!46 = distinct !{!46, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom"}
-!47 = distinct !{!47, !46, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 1"}
+!45 = distinct !{!45, !46, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 0"}
+!46 = distinct !{!46, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE"}
+!47 = distinct !{!47, !46, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 1"}
 !48 = !{!49, !51}
-!49 = distinct !{!49, !50, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!50 = distinct !{!50, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!51 = distinct !{!51, !50, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!49 = distinct !{!49, !50, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!50 = distinct !{!50, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!51 = distinct !{!51, !50, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !52 = !{!47}
 !53 = !{!54, !56}
-!54 = distinct !{!54, !55, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!55 = distinct !{!55, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!56 = distinct !{!56, !55, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!54 = distinct !{!54, !55, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!55 = distinct !{!55, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!56 = distinct !{!56, !55, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !57 = !{!45}
 !58 = !{!42, !39}
 !59 = !{!60, !62}
@@ -1937,18 +1937,18 @@ attributes #17 = { cold }
 !62 = distinct !{!62, !63, !"_ZN4core3ptr89drop_in_place$LT$core..slice..sort..InsertionHole$LT$meilisearch_types..keys..Key$GT$$GT$17h96f72371c8fae753E: argument 0"}
 !63 = distinct !{!63, !"_ZN4core3ptr89drop_in_place$LT$core..slice..sort..InsertionHole$LT$meilisearch_types..keys..Key$GT$$GT$17h96f72371c8fae753E"}
 !64 = !{!65, !67, !42, !39}
-!65 = distinct !{!65, !66, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 0"}
-!66 = distinct !{!66, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom"}
-!67 = distinct !{!67, !66, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 1"}
+!65 = distinct !{!65, !66, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 0"}
+!66 = distinct !{!66, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE"}
+!67 = distinct !{!67, !66, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 1"}
 !68 = !{!69, !71}
-!69 = distinct !{!69, !70, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!70 = distinct !{!70, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!71 = distinct !{!71, !70, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!69 = distinct !{!69, !70, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!70 = distinct !{!70, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!71 = distinct !{!71, !70, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !72 = !{!67}
 !73 = !{!74, !76}
-!74 = distinct !{!74, !75, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!75 = distinct !{!75, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!76 = distinct !{!76, !75, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!74 = distinct !{!74, !75, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!75 = distinct !{!75, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!76 = distinct !{!76, !75, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !77 = !{!65, !42, !39}
 !78 = !{!79, !81}
 !79 = distinct !{!79, !80, !"_ZN83_$LT$core..slice..sort..InsertionHole$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf973bd7c7256f412E.llvm.16429374078602074278: argument 0"}
@@ -1956,21 +1956,21 @@ attributes #17 = { cold }
 !81 = distinct !{!81, !82, !"_ZN4core3ptr89drop_in_place$LT$core..slice..sort..InsertionHole$LT$meilisearch_types..keys..Key$GT$$GT$17h96f72371c8fae753E: argument 0"}
 !82 = distinct !{!82, !"_ZN4core3ptr89drop_in_place$LT$core..slice..sort..InsertionHole$LT$meilisearch_types..keys..Key$GT$$GT$17h96f72371c8fae753E"}
 !83 = !{!84}
-!84 = distinct !{!84, !85, !"_ZN4core5slice4sort11insert_tail17h92ea9a5f79cb4dddE.argprom: argument 0"}
-!85 = distinct !{!85, !"_ZN4core5slice4sort11insert_tail17h92ea9a5f79cb4dddE.argprom"}
+!84 = distinct !{!84, !85, !"_ZN4core5slice4sort11insert_tail17h92ea9a5f79cb4dddE: argument 0"}
+!85 = distinct !{!85, !"_ZN4core5slice4sort11insert_tail17h92ea9a5f79cb4dddE"}
 !86 = !{!87, !89, !84}
-!87 = distinct !{!87, !88, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 0"}
-!88 = distinct !{!88, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom"}
-!89 = distinct !{!89, !88, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 1"}
+!87 = distinct !{!87, !88, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 0"}
+!88 = distinct !{!88, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE"}
+!89 = distinct !{!89, !88, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 1"}
 !90 = !{!91, !93}
-!91 = distinct !{!91, !92, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!92 = distinct !{!92, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!93 = distinct !{!93, !92, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!91 = distinct !{!91, !92, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!92 = distinct !{!92, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!93 = distinct !{!93, !92, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !94 = !{!89}
 !95 = !{!96, !98}
-!96 = distinct !{!96, !97, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!97 = distinct !{!97, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!98 = distinct !{!98, !97, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!96 = distinct !{!96, !97, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!97 = distinct !{!97, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!98 = distinct !{!98, !97, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !99 = !{!87}
 !100 = !{!101, !103}
 !101 = distinct !{!101, !102, !"_ZN83_$LT$core..slice..sort..InsertionHole$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf973bd7c7256f412E.llvm.16429374078602074278: argument 0"}
@@ -1978,18 +1978,18 @@ attributes #17 = { cold }
 !103 = distinct !{!103, !104, !"_ZN4core3ptr89drop_in_place$LT$core..slice..sort..InsertionHole$LT$meilisearch_types..keys..Key$GT$$GT$17h96f72371c8fae753E: argument 0"}
 !104 = distinct !{!104, !"_ZN4core3ptr89drop_in_place$LT$core..slice..sort..InsertionHole$LT$meilisearch_types..keys..Key$GT$$GT$17h96f72371c8fae753E"}
 !105 = !{!106, !108, !84}
-!106 = distinct !{!106, !107, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 0"}
-!107 = distinct !{!107, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom"}
-!108 = distinct !{!108, !107, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 1"}
+!106 = distinct !{!106, !107, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 0"}
+!107 = distinct !{!107, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE"}
+!108 = distinct !{!108, !107, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 1"}
 !109 = !{!110, !112}
-!110 = distinct !{!110, !111, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!111 = distinct !{!111, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!112 = distinct !{!112, !111, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!110 = distinct !{!110, !111, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!111 = distinct !{!111, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!112 = distinct !{!112, !111, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !113 = !{!108, !84}
 !114 = !{!115, !117}
-!115 = distinct !{!115, !116, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!116 = distinct !{!116, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!117 = distinct !{!117, !116, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!115 = distinct !{!115, !116, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!116 = distinct !{!116, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!117 = distinct !{!117, !116, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !118 = !{!106}
 !119 = !{!120, !122}
 !120 = distinct !{!120, !121, !"_ZN83_$LT$core..slice..sort..InsertionHole$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf973bd7c7256f412E.llvm.16429374078602074278: argument 0"}
@@ -2000,236 +2000,236 @@ attributes #17 = { cold }
 !125 = distinct !{!125, !126, !"_ZN4core5slice4sort12choose_pivot17h0913dd8363d2763cE: argument 0"}
 !126 = distinct !{!126, !"_ZN4core5slice4sort12choose_pivot17h0913dd8363d2763cE"}
 !127 = !{!128, !130, !131, !133, !134, !135, !137, !138, !125}
-!128 = distinct !{!128, !129, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 0"}
-!129 = distinct !{!129, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom"}
-!130 = distinct !{!130, !129, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 1"}
+!128 = distinct !{!128, !129, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 0"}
+!129 = distinct !{!129, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE"}
+!130 = distinct !{!130, !129, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 1"}
 !131 = distinct !{!131, !132, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 0"}
 !132 = distinct !{!132, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E"}
 !133 = distinct !{!133, !132, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 1"}
 !134 = distinct !{!134, !132, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 2"}
-!135 = distinct !{!135, !136, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom: argument 0"}
-!136 = distinct !{!136, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom"}
-!137 = distinct !{!137, !136, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom: argument 1"}
-!138 = distinct !{!138, !136, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom: argument 2"}
+!135 = distinct !{!135, !136, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE: argument 0"}
+!136 = distinct !{!136, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE"}
+!137 = distinct !{!137, !136, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE: argument 1"}
+!138 = distinct !{!138, !136, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE: argument 2"}
 !139 = !{!140, !142}
-!140 = distinct !{!140, !141, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!141 = distinct !{!141, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!142 = distinct !{!142, !141, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!140 = distinct !{!140, !141, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!141 = distinct !{!141, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!142 = distinct !{!142, !141, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !143 = !{!130, !131, !133, !134, !135, !137, !138}
 !144 = !{!145, !147}
-!145 = distinct !{!145, !146, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!146 = distinct !{!146, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!147 = distinct !{!147, !146, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!145 = distinct !{!145, !146, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!146 = distinct !{!146, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!147 = distinct !{!147, !146, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !148 = !{!128, !131, !133, !134, !135, !137, !138}
 !149 = !{!150, !152, !153, !155, !156, !135, !137, !138, !125}
-!150 = distinct !{!150, !151, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 0"}
-!151 = distinct !{!151, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom"}
-!152 = distinct !{!152, !151, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 1"}
+!150 = distinct !{!150, !151, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 0"}
+!151 = distinct !{!151, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE"}
+!152 = distinct !{!152, !151, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 1"}
 !153 = distinct !{!153, !154, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 0"}
 !154 = distinct !{!154, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E"}
 !155 = distinct !{!155, !154, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 1"}
 !156 = distinct !{!156, !154, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 2"}
 !157 = !{!158, !160}
-!158 = distinct !{!158, !159, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!159 = distinct !{!159, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!160 = distinct !{!160, !159, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!158 = distinct !{!158, !159, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!159 = distinct !{!159, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!160 = distinct !{!160, !159, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !161 = !{!152, !153, !155, !156, !135, !137, !138}
 !162 = !{!163, !165}
-!163 = distinct !{!163, !164, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!164 = distinct !{!164, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!165 = distinct !{!165, !164, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!163 = distinct !{!163, !164, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!164 = distinct !{!164, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!165 = distinct !{!165, !164, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !166 = !{!150, !153, !155, !156, !135, !137, !138}
 !167 = !{!168, !170, !171, !173, !174, !135, !137, !138, !125}
-!168 = distinct !{!168, !169, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 0"}
-!169 = distinct !{!169, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom"}
-!170 = distinct !{!170, !169, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 1"}
+!168 = distinct !{!168, !169, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 0"}
+!169 = distinct !{!169, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE"}
+!170 = distinct !{!170, !169, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 1"}
 !171 = distinct !{!171, !172, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 0"}
 !172 = distinct !{!172, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E"}
 !173 = distinct !{!173, !172, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 1"}
 !174 = distinct !{!174, !172, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 2"}
 !175 = !{!176, !178}
-!176 = distinct !{!176, !177, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!177 = distinct !{!177, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!178 = distinct !{!178, !177, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!176 = distinct !{!176, !177, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!177 = distinct !{!177, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!178 = distinct !{!178, !177, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !179 = !{!170, !171, !173, !174, !135, !137, !138}
 !180 = !{!181, !183}
-!181 = distinct !{!181, !182, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!182 = distinct !{!182, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!183 = distinct !{!183, !182, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!181 = distinct !{!181, !182, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!182 = distinct !{!182, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!183 = distinct !{!183, !182, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !184 = !{!168, !171, !173, !174, !135, !137, !138}
 !185 = !{!186, !188, !189, !191, !192, !193, !195, !196, !125}
-!186 = distinct !{!186, !187, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 0"}
-!187 = distinct !{!187, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom"}
-!188 = distinct !{!188, !187, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 1"}
+!186 = distinct !{!186, !187, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 0"}
+!187 = distinct !{!187, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE"}
+!188 = distinct !{!188, !187, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 1"}
 !189 = distinct !{!189, !190, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 0"}
 !190 = distinct !{!190, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E"}
 !191 = distinct !{!191, !190, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 1"}
 !192 = distinct !{!192, !190, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 2"}
-!193 = distinct !{!193, !194, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom: argument 0"}
-!194 = distinct !{!194, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom"}
-!195 = distinct !{!195, !194, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom: argument 1"}
-!196 = distinct !{!196, !194, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom: argument 2"}
+!193 = distinct !{!193, !194, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE: argument 0"}
+!194 = distinct !{!194, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE"}
+!195 = distinct !{!195, !194, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE: argument 1"}
+!196 = distinct !{!196, !194, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE: argument 2"}
 !197 = !{!198, !200}
-!198 = distinct !{!198, !199, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!199 = distinct !{!199, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!200 = distinct !{!200, !199, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!198 = distinct !{!198, !199, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!199 = distinct !{!199, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!200 = distinct !{!200, !199, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !201 = !{!188, !189, !191, !192, !193, !195, !196}
 !202 = !{!203, !205}
-!203 = distinct !{!203, !204, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!204 = distinct !{!204, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!205 = distinct !{!205, !204, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!203 = distinct !{!203, !204, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!204 = distinct !{!204, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!205 = distinct !{!205, !204, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !206 = !{!186, !189, !191, !192, !193, !195, !196}
 !207 = !{!208, !210, !211, !213, !214, !193, !195, !196, !125}
-!208 = distinct !{!208, !209, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 0"}
-!209 = distinct !{!209, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom"}
-!210 = distinct !{!210, !209, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 1"}
+!208 = distinct !{!208, !209, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 0"}
+!209 = distinct !{!209, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE"}
+!210 = distinct !{!210, !209, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 1"}
 !211 = distinct !{!211, !212, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 0"}
 !212 = distinct !{!212, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E"}
 !213 = distinct !{!213, !212, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 1"}
 !214 = distinct !{!214, !212, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 2"}
 !215 = !{!216, !218}
-!216 = distinct !{!216, !217, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!217 = distinct !{!217, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!218 = distinct !{!218, !217, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!216 = distinct !{!216, !217, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!217 = distinct !{!217, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!218 = distinct !{!218, !217, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !219 = !{!210, !211, !213, !214, !193, !195, !196}
 !220 = !{!221, !223}
-!221 = distinct !{!221, !222, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!222 = distinct !{!222, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!223 = distinct !{!223, !222, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!221 = distinct !{!221, !222, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!222 = distinct !{!222, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!223 = distinct !{!223, !222, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !224 = !{!208, !211, !213, !214, !193, !195, !196}
 !225 = !{!226, !228, !229, !231, !232, !193, !195, !196, !125}
-!226 = distinct !{!226, !227, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 0"}
-!227 = distinct !{!227, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom"}
-!228 = distinct !{!228, !227, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 1"}
+!226 = distinct !{!226, !227, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 0"}
+!227 = distinct !{!227, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE"}
+!228 = distinct !{!228, !227, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 1"}
 !229 = distinct !{!229, !230, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 0"}
 !230 = distinct !{!230, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E"}
 !231 = distinct !{!231, !230, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 1"}
 !232 = distinct !{!232, !230, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 2"}
 !233 = !{!234, !236}
-!234 = distinct !{!234, !235, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!235 = distinct !{!235, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!236 = distinct !{!236, !235, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!234 = distinct !{!234, !235, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!235 = distinct !{!235, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!236 = distinct !{!236, !235, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !237 = !{!228, !229, !231, !232, !193, !195, !196}
 !238 = !{!239, !241}
-!239 = distinct !{!239, !240, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!240 = distinct !{!240, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!241 = distinct !{!241, !240, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!239 = distinct !{!239, !240, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!240 = distinct !{!240, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!241 = distinct !{!241, !240, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !242 = !{!226, !229, !231, !232, !193, !195, !196}
 !243 = !{!244, !246, !247, !249, !250, !251, !253, !254, !125}
-!244 = distinct !{!244, !245, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 0"}
-!245 = distinct !{!245, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom"}
-!246 = distinct !{!246, !245, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 1"}
+!244 = distinct !{!244, !245, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 0"}
+!245 = distinct !{!245, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE"}
+!246 = distinct !{!246, !245, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 1"}
 !247 = distinct !{!247, !248, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 0"}
 !248 = distinct !{!248, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E"}
 !249 = distinct !{!249, !248, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 1"}
 !250 = distinct !{!250, !248, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 2"}
-!251 = distinct !{!251, !252, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom: argument 0"}
-!252 = distinct !{!252, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom"}
-!253 = distinct !{!253, !252, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom: argument 1"}
-!254 = distinct !{!254, !252, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom: argument 2"}
+!251 = distinct !{!251, !252, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE: argument 0"}
+!252 = distinct !{!252, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE"}
+!253 = distinct !{!253, !252, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE: argument 1"}
+!254 = distinct !{!254, !252, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE: argument 2"}
 !255 = !{!256, !258}
-!256 = distinct !{!256, !257, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!257 = distinct !{!257, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!258 = distinct !{!258, !257, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!256 = distinct !{!256, !257, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!257 = distinct !{!257, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!258 = distinct !{!258, !257, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !259 = !{!246, !247, !249, !250, !251, !253, !254}
 !260 = !{!261, !263}
-!261 = distinct !{!261, !262, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!262 = distinct !{!262, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!263 = distinct !{!263, !262, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!261 = distinct !{!261, !262, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!262 = distinct !{!262, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!263 = distinct !{!263, !262, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !264 = !{!244, !247, !249, !250, !251, !253, !254}
 !265 = !{!266, !268, !269, !271, !272, !251, !253, !254, !125}
-!266 = distinct !{!266, !267, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 0"}
-!267 = distinct !{!267, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom"}
-!268 = distinct !{!268, !267, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 1"}
+!266 = distinct !{!266, !267, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 0"}
+!267 = distinct !{!267, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE"}
+!268 = distinct !{!268, !267, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 1"}
 !269 = distinct !{!269, !270, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 0"}
 !270 = distinct !{!270, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E"}
 !271 = distinct !{!271, !270, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 1"}
 !272 = distinct !{!272, !270, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 2"}
 !273 = !{!274, !276}
-!274 = distinct !{!274, !275, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!275 = distinct !{!275, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!276 = distinct !{!276, !275, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!274 = distinct !{!274, !275, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!275 = distinct !{!275, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!276 = distinct !{!276, !275, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !277 = !{!268, !269, !271, !272, !251, !253, !254}
 !278 = !{!279, !281}
-!279 = distinct !{!279, !280, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!280 = distinct !{!280, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!281 = distinct !{!281, !280, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!279 = distinct !{!279, !280, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!280 = distinct !{!280, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!281 = distinct !{!281, !280, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !282 = !{!266, !269, !271, !272, !251, !253, !254}
 !283 = !{!284, !286, !287, !289, !290, !251, !253, !254, !125}
-!284 = distinct !{!284, !285, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 0"}
-!285 = distinct !{!285, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom"}
-!286 = distinct !{!286, !285, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 1"}
+!284 = distinct !{!284, !285, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 0"}
+!285 = distinct !{!285, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE"}
+!286 = distinct !{!286, !285, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 1"}
 !287 = distinct !{!287, !288, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 0"}
 !288 = distinct !{!288, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E"}
 !289 = distinct !{!289, !288, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 1"}
 !290 = distinct !{!290, !288, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 2"}
 !291 = !{!292, !294}
-!292 = distinct !{!292, !293, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!293 = distinct !{!293, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!294 = distinct !{!294, !293, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!292 = distinct !{!292, !293, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!293 = distinct !{!293, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!294 = distinct !{!294, !293, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !295 = !{!286, !287, !289, !290, !251, !253, !254}
 !296 = !{!297, !299}
-!297 = distinct !{!297, !298, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!298 = distinct !{!298, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!299 = distinct !{!299, !298, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!297 = distinct !{!297, !298, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!298 = distinct !{!298, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!299 = distinct !{!299, !298, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !300 = !{!284, !287, !289, !290, !251, !253, !254}
 !301 = !{!302, !304, !305, !307, !308, !309, !311, !312, !125}
-!302 = distinct !{!302, !303, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 0"}
-!303 = distinct !{!303, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom"}
-!304 = distinct !{!304, !303, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 1"}
+!302 = distinct !{!302, !303, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 0"}
+!303 = distinct !{!303, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE"}
+!304 = distinct !{!304, !303, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 1"}
 !305 = distinct !{!305, !306, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 0"}
 !306 = distinct !{!306, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E"}
 !307 = distinct !{!307, !306, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 1"}
 !308 = distinct !{!308, !306, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 2"}
-!309 = distinct !{!309, !310, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom: argument 0"}
-!310 = distinct !{!310, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom"}
-!311 = distinct !{!311, !310, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom: argument 1"}
-!312 = distinct !{!312, !310, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE.argprom: argument 2"}
+!309 = distinct !{!309, !310, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE: argument 0"}
+!310 = distinct !{!310, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE"}
+!311 = distinct !{!311, !310, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE: argument 1"}
+!312 = distinct !{!312, !310, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b246128a008104bE: argument 2"}
 !313 = !{!314, !316}
-!314 = distinct !{!314, !315, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!315 = distinct !{!315, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!316 = distinct !{!316, !315, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!314 = distinct !{!314, !315, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!315 = distinct !{!315, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!316 = distinct !{!316, !315, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !317 = !{!304, !305, !307, !308, !309, !311, !312}
 !318 = !{!319, !321}
-!319 = distinct !{!319, !320, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!320 = distinct !{!320, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!321 = distinct !{!321, !320, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!319 = distinct !{!319, !320, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!320 = distinct !{!320, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!321 = distinct !{!321, !320, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !322 = !{!302, !305, !307, !308, !309, !311, !312}
 !323 = !{!324, !326, !327, !329, !330, !309, !311, !312, !125}
-!324 = distinct !{!324, !325, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 0"}
-!325 = distinct !{!325, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom"}
-!326 = distinct !{!326, !325, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 1"}
+!324 = distinct !{!324, !325, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 0"}
+!325 = distinct !{!325, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE"}
+!326 = distinct !{!326, !325, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 1"}
 !327 = distinct !{!327, !328, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 0"}
 !328 = distinct !{!328, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E"}
 !329 = distinct !{!329, !328, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 1"}
 !330 = distinct !{!330, !328, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 2"}
 !331 = !{!332, !334}
-!332 = distinct !{!332, !333, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!333 = distinct !{!333, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!334 = distinct !{!334, !333, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!332 = distinct !{!332, !333, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!333 = distinct !{!333, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!334 = distinct !{!334, !333, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !335 = !{!326, !327, !329, !330, !309, !311, !312}
 !336 = !{!337, !339}
-!337 = distinct !{!337, !338, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!338 = distinct !{!338, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!339 = distinct !{!339, !338, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!337 = distinct !{!337, !338, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!338 = distinct !{!338, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!339 = distinct !{!339, !338, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !340 = !{!324, !327, !329, !330, !309, !311, !312}
 !341 = !{!342, !344, !345, !347, !348, !309, !311, !312, !125}
-!342 = distinct !{!342, !343, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 0"}
-!343 = distinct !{!343, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom"}
-!344 = distinct !{!344, !343, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 1"}
+!342 = distinct !{!342, !343, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 0"}
+!343 = distinct !{!343, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE"}
+!344 = distinct !{!344, !343, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 1"}
 !345 = distinct !{!345, !346, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 0"}
 !346 = distinct !{!346, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E"}
 !347 = distinct !{!347, !346, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 1"}
 !348 = distinct !{!348, !346, !"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h119f28a1e596c560E: argument 2"}
 !349 = !{!350, !352}
-!350 = distinct !{!350, !351, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!351 = distinct !{!351, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!352 = distinct !{!352, !351, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!350 = distinct !{!350, !351, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!351 = distinct !{!351, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!352 = distinct !{!352, !351, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !353 = !{!344, !345, !347, !348, !309, !311, !312}
 !354 = !{!355, !357}
-!355 = distinct !{!355, !356, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!356 = distinct !{!356, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!357 = distinct !{!357, !356, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!355 = distinct !{!355, !356, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!356 = distinct !{!356, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!357 = distinct !{!357, !356, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !358 = !{!342, !345, !347, !348, !309, !311, !312}
 !359 = !{!360}
 !360 = distinct !{!360, !361, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17hd1217298e32eb650E: argument 0"}
@@ -2241,54 +2241,54 @@ attributes #17 = { cold }
 !366 = distinct !{!366, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hf9cd85332bd98347E"}
 !367 = !{!363, !365, !125}
 !368 = !{!369, !371}
-!369 = distinct !{!369, !370, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 0"}
-!370 = distinct !{!370, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom"}
-!371 = distinct !{!371, !370, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 1"}
+!369 = distinct !{!369, !370, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 0"}
+!370 = distinct !{!370, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE"}
+!371 = distinct !{!371, !370, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 1"}
 !372 = !{!373, !375}
-!373 = distinct !{!373, !374, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!374 = distinct !{!374, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!375 = distinct !{!375, !374, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!373 = distinct !{!373, !374, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!374 = distinct !{!374, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!375 = distinct !{!375, !374, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !376 = !{!371}
 !377 = !{!378, !380}
-!378 = distinct !{!378, !379, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!379 = distinct !{!379, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!380 = distinct !{!380, !379, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!378 = distinct !{!378, !379, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!379 = distinct !{!379, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!380 = distinct !{!380, !379, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !381 = !{!369}
 !382 = !{!383}
-!383 = distinct !{!383, !384, !"_ZN4core5slice4sort15partition_equal17hc310f3400e8f1c96E.argprom: argument 0"}
-!384 = distinct !{!384, !"_ZN4core5slice4sort15partition_equal17hc310f3400e8f1c96E.argprom"}
+!383 = distinct !{!383, !384, !"_ZN4core5slice4sort15partition_equal17hc310f3400e8f1c96E: argument 0"}
+!384 = distinct !{!384, !"_ZN4core5slice4sort15partition_equal17hc310f3400e8f1c96E"}
 !385 = !{!386}
 !386 = distinct !{!386, !387, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hb062f3343ffa34e1E: argument 1"}
 !387 = distinct !{!387, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hb062f3343ffa34e1E"}
 !388 = !{!389, !383}
 !389 = distinct !{!389, !387, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hb062f3343ffa34e1E: argument 0"}
 !390 = !{!391, !393, !383}
-!391 = distinct !{!391, !392, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 0"}
-!392 = distinct !{!392, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom"}
-!393 = distinct !{!393, !392, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 1"}
+!391 = distinct !{!391, !392, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 0"}
+!392 = distinct !{!392, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE"}
+!393 = distinct !{!393, !392, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 1"}
 !394 = !{!395, !397}
-!395 = distinct !{!395, !396, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!396 = distinct !{!396, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!397 = distinct !{!397, !396, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!395 = distinct !{!395, !396, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!396 = distinct !{!396, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!397 = distinct !{!397, !396, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !398 = !{!393, !383}
 !399 = !{!400, !402}
-!400 = distinct !{!400, !401, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!401 = distinct !{!401, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!402 = distinct !{!402, !401, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!400 = distinct !{!400, !401, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!401 = distinct !{!401, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!402 = distinct !{!402, !401, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !403 = !{!391}
 !404 = !{!405, !407, !383}
-!405 = distinct !{!405, !406, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 0"}
-!406 = distinct !{!406, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom"}
-!407 = distinct !{!407, !406, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 1"}
+!405 = distinct !{!405, !406, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 0"}
+!406 = distinct !{!406, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE"}
+!407 = distinct !{!407, !406, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 1"}
 !408 = !{!409, !411}
-!409 = distinct !{!409, !410, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!410 = distinct !{!410, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!411 = distinct !{!411, !410, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!409 = distinct !{!409, !410, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!410 = distinct !{!410, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!411 = distinct !{!411, !410, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !412 = !{!407, !383}
 !413 = !{!414, !416}
-!414 = distinct !{!414, !415, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!415 = distinct !{!415, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!416 = distinct !{!416, !415, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!414 = distinct !{!414, !415, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!415 = distinct !{!415, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!416 = distinct !{!416, !415, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !417 = !{!405}
 !418 = !{!419, !421}
 !419 = distinct !{!419, !420, !"_ZN83_$LT$core..slice..sort..InsertionHole$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf973bd7c7256f412E.llvm.16429374078602074278: argument 0"}
@@ -2301,11 +2301,11 @@ attributes #17 = { cold }
 !426 = distinct !{!426, !427, !"_ZN4core3ptr89drop_in_place$LT$core..slice..sort..InsertionHole$LT$meilisearch_types..keys..Key$GT$$GT$17h96f72371c8fae753E: argument 0"}
 !427 = distinct !{!427, !"_ZN4core3ptr89drop_in_place$LT$core..slice..sort..InsertionHole$LT$meilisearch_types..keys..Key$GT$$GT$17h96f72371c8fae753E"}
 !428 = !{!429}
-!429 = distinct !{!429, !430, !"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h454e5910cbfdbcedE.argprom: argument 0"}
-!430 = distinct !{!430, !"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h454e5910cbfdbcedE.argprom"}
+!429 = distinct !{!429, !430, !"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h454e5910cbfdbcedE: argument 0"}
+!430 = distinct !{!430, !"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h454e5910cbfdbcedE"}
 !431 = !{!432}
-!432 = distinct !{!432, !433, !"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.argprom: argument 0"}
-!433 = distinct !{!433, !"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.argprom"}
+!432 = distinct !{!432, !433, !"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E: argument 0"}
+!433 = distinct !{!433, !"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E"}
 !434 = !{!435, !437, !438, !440, !432}
 !435 = distinct !{!435, !436, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.llvm.12167863148926054676: argument 0"}
 !436 = distinct !{!436, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.llvm.12167863148926054676"}
@@ -2351,8 +2351,8 @@ attributes #17 = { cold }
 !476 = !{!477}
 !477 = distinct !{!477, !475, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hb062f3343ffa34e1E: argument 0"}
 !478 = !{!479}
-!479 = distinct !{!479, !480, !"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.argprom: argument 0"}
-!480 = distinct !{!480, !"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E.argprom"}
+!479 = distinct !{!479, !480, !"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E: argument 0"}
+!480 = distinct !{!480, !"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17he841d59296bce2a2E"}
 !481 = !{!482, !484, !485, !487, !479}
 !482 = distinct !{!482, !483, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.llvm.12167863148926054676: argument 0"}
 !483 = distinct !{!483, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.llvm.12167863148926054676"}
@@ -2398,65 +2398,65 @@ attributes #17 = { cold }
 !523 = !{!524}
 !524 = distinct !{!524, !522, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hb062f3343ffa34e1E: argument 1"}
 !525 = !{!526, !528}
-!526 = distinct !{!526, !527, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 0"}
-!527 = distinct !{!527, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom"}
-!528 = distinct !{!528, !527, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 1"}
+!526 = distinct !{!526, !527, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 0"}
+!527 = distinct !{!527, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE"}
+!528 = distinct !{!528, !527, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 1"}
 !529 = !{!530, !532}
-!530 = distinct !{!530, !531, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!531 = distinct !{!531, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!532 = distinct !{!532, !531, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!530 = distinct !{!530, !531, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!531 = distinct !{!531, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!532 = distinct !{!532, !531, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !533 = !{!528}
 !534 = !{!535, !537}
-!535 = distinct !{!535, !536, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!536 = distinct !{!536, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!537 = distinct !{!537, !536, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!535 = distinct !{!535, !536, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!536 = distinct !{!536, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!537 = distinct !{!537, !536, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !538 = !{!526}
 !539 = !{!540, !542}
-!540 = distinct !{!540, !541, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 0"}
-!541 = distinct !{!541, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom"}
-!542 = distinct !{!542, !541, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 1"}
+!540 = distinct !{!540, !541, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 0"}
+!541 = distinct !{!541, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE"}
+!542 = distinct !{!542, !541, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 1"}
 !543 = !{!544, !546}
-!544 = distinct !{!544, !545, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!545 = distinct !{!545, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!546 = distinct !{!546, !545, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!544 = distinct !{!544, !545, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!545 = distinct !{!545, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!546 = distinct !{!546, !545, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !547 = !{!542}
 !548 = !{!549, !551}
-!549 = distinct !{!549, !550, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!550 = distinct !{!550, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!551 = distinct !{!551, !550, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!549 = distinct !{!549, !550, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!550 = distinct !{!550, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!551 = distinct !{!551, !550, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !552 = !{!540}
 !553 = !{!554}
-!554 = distinct !{!554, !555, !"_ZN4core5slice4sort19partition_in_blocks17h8c54f8452bb0d991E.argprom: argument 0"}
-!555 = distinct !{!555, !"_ZN4core5slice4sort19partition_in_blocks17h8c54f8452bb0d991E.argprom"}
+!554 = distinct !{!554, !555, !"_ZN4core5slice4sort19partition_in_blocks17h8c54f8452bb0d991E: argument 0"}
+!555 = distinct !{!555, !"_ZN4core5slice4sort19partition_in_blocks17h8c54f8452bb0d991E"}
 !556 = !{!554, !557}
-!557 = distinct !{!557, !555, !"_ZN4core5slice4sort19partition_in_blocks17h8c54f8452bb0d991E.argprom: argument 1"}
+!557 = distinct !{!557, !555, !"_ZN4core5slice4sort19partition_in_blocks17h8c54f8452bb0d991E: argument 1"}
 !558 = !{!559, !561, !554, !557}
-!559 = distinct !{!559, !560, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 0"}
-!560 = distinct !{!560, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom"}
-!561 = distinct !{!561, !560, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 1"}
+!559 = distinct !{!559, !560, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 0"}
+!560 = distinct !{!560, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE"}
+!561 = distinct !{!561, !560, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 1"}
 !562 = !{!563, !565}
-!563 = distinct !{!563, !564, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!564 = distinct !{!564, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!565 = distinct !{!565, !564, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!563 = distinct !{!563, !564, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!564 = distinct !{!564, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!565 = distinct !{!565, !564, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !566 = !{!561, !557}
 !567 = !{!568, !570}
-!568 = distinct !{!568, !569, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!569 = distinct !{!569, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!570 = distinct !{!570, !569, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!568 = distinct !{!568, !569, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!569 = distinct !{!569, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!570 = distinct !{!570, !569, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !571 = !{!559, !554}
 !572 = !{!573, !575, !554, !557}
-!573 = distinct !{!573, !574, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 0"}
-!574 = distinct !{!574, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom"}
-!575 = distinct !{!575, !574, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE.argprom: argument 1"}
+!573 = distinct !{!573, !574, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 0"}
+!574 = distinct !{!574, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE"}
+!575 = distinct !{!575, !574, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59e7659fa73c34cdE: argument 1"}
 !576 = !{!577, !579}
-!577 = distinct !{!577, !578, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!578 = distinct !{!578, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!579 = distinct !{!579, !578, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!577 = distinct !{!577, !578, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!578 = distinct !{!578, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!579 = distinct !{!579, !578, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !580 = !{!575, !557}
 !581 = !{!582, !584}
-!582 = distinct !{!582, !583, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 0"}
-!583 = distinct !{!583, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom"}
-!584 = distinct !{!584, !583, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E.argprom: argument 1"}
+!582 = distinct !{!582, !583, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 0"}
+!583 = distinct !{!583, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E"}
+!584 = distinct !{!584, !583, !"_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys28_$u7b$$u7b$closure$u7d$$u7d$17h1a8b770754c62236E: argument 1"}
 !585 = !{!573, !554}
 !586 = !{!557}
 !587 = !{!588, !590}

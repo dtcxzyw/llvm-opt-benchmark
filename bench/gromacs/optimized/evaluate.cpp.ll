@@ -506,7 +506,7 @@ _ZN12_GLOBAL__N_129SelelemTemporaryValueAssignerD2Ev.exit: ; preds = %35, %54, %
   %75 = load ptr, ptr %1, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 48
   invoke void @_Z18gmx_ana_index_copyP15gmx_ana_index_tS0_b(ptr noundef nonnull %76, ptr noundef %2, i1 noundef zeroext false)
-          to label %_ZN12_GLOBAL__N_120MempoolGroupReserverD2Ev.argprom.exit unwind label %77
+          to label %_ZN12_GLOBAL__N_120MempoolGroupReserverD2Ev.exit unwind label %77
 
 77:                                               ; preds = %81, %_ZN12_GLOBAL__N_120MempoolGroupReserver7reserveEP15gmx_ana_index_ti.exit, %_ZN12_GLOBAL__N_129SelelemTemporaryValueAssignerD2Ev.exit
   %.sroa.4132.0 = phi ptr [ null, %_ZN12_GLOBAL__N_129SelelemTemporaryValueAssignerD2Ev.exit ], [ %4, %_ZN12_GLOBAL__N_120MempoolGroupReserver7reserveEP15gmx_ana_index_ti.exit ], [ null, %81 ]
@@ -1010,7 +1010,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 299:                                              ; preds = %85, %258, %277, %290, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i125
   invoke void @_Z27_gmx_sel_mempool_free_groupP17gmx_sel_mempool_tP15gmx_ana_index_t(ptr noundef %13, ptr noundef nonnull %4)
-          to label %_ZN12_GLOBAL__N_120MempoolGroupReserverD2Ev.argprom.exit unwind label %300
+          to label %_ZN12_GLOBAL__N_120MempoolGroupReserverD2Ev.exit unwind label %300
 
 300:                                              ; preds = %299
   %301 = landingpad { ptr, i32 }
@@ -1019,13 +1019,13 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void @__clang_call_terminate(ptr %302) #21
   unreachable
 
-_ZN12_GLOBAL__N_120MempoolGroupReserverD2Ev.argprom.exit: ; preds = %_ZN12_GLOBAL__N_129SelelemTemporaryValueAssignerD2Ev.exit, %299
+_ZN12_GLOBAL__N_120MempoolGroupReserverD2Ev.exit: ; preds = %_ZN12_GLOBAL__N_129SelelemTemporaryValueAssignerD2Ev.exit, %299
   ret void
 
 .body:                                            ; preds = %20, %90, %77, %298, %79
   %.sroa.4132.2 = phi ptr [ %4, %298 ], [ null, %79 ], [ null, %20 ], [ %4, %90 ], [ %.sroa.4132.0, %77 ]
   %.pn108.pn = phi { ptr, i32 } [ %.pn108, %298 ], [ %80, %79 ], [ %21, %20 ], [ %91, %90 ], [ %78, %77 ]
-  call fastcc void @_ZN12_GLOBAL__N_120MempoolGroupReserverD2Ev.argprom(ptr %13, ptr %.sroa.4132.2) #20
+  call fastcc void @_ZN12_GLOBAL__N_120MempoolGroupReserverD2Ev(ptr %13, ptr %.sroa.4132.2) #20
   resume { ptr, i32 } %.pn108.pn
 
 303:                                              ; preds = %247, %236
@@ -5427,7 +5427,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit: ; preds = %4, %23, %36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120MempoolGroupReserverD2Ev.argprom(ptr %.0.val, ptr %.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120MempoolGroupReserverD2Ev(ptr %.0.val, ptr %.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %2, label %1
 

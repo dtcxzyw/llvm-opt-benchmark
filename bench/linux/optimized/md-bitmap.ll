@@ -279,7 +279,7 @@ define dso_local void @md_bitmap_update_sb(ptr noundef %0) #0 align 16 {
 
 88:                                               ; preds = %85
   %89 = load ptr, ptr %13, align 8
-  tail call fastcc void @write_file_page.argelim(ptr noundef nonnull %0, ptr noundef %89)
+  tail call fastcc void @write_file_page(ptr noundef nonnull %0, ptr noundef %89)
   br label %94
 
 90:                                               ; preds = %85
@@ -297,7 +297,7 @@ define dso_local void @md_bitmap_update_sb(ptr noundef %0) #0 align 16 {
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @write_file_page.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @write_file_page(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.wait_queue_entry, align 8
   %4 = load volatile i64, ptr %1, align 8
   %5 = and i64 %4, 32768
@@ -1781,7 +1781,7 @@ define dso_local noundef i32 @md_bitmap_startwrite(ptr noundef %0, i64 noundef %
   br i1 %36, label %37, label %.thread8
 
 37:                                               ; preds = %.lr.ph
-  %38 = call fastcc i32 @md_bitmap_checkpage.argelim(ptr noundef nonnull %0, i64 noundef %32, i32 noundef 0)
+  %38 = call fastcc i32 @md_bitmap_checkpage(ptr noundef nonnull %0, i64 noundef %32, i32 noundef 0)
   %39 = load ptr, ptr %20, align 8
   %40 = getelementptr %struct.bitmap_page, ptr %39, i64 %32
   %41 = getelementptr inbounds i8, ptr %40, i64 8
@@ -2757,7 +2757,7 @@ define internal fastcc void @md_bitmap_set_memory_bits(ptr noundef %0, i64 nound
   br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %3
-  %14 = tail call fastcc i32 @md_bitmap_checkpage.argelim(ptr noundef %0, i64 noundef %7, i32 noundef 0)
+  %14 = tail call fastcc i32 @md_bitmap_checkpage(ptr noundef %0, i64 noundef %7, i32 noundef 0)
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr %struct.bitmap_page, ptr %16, i64 %7
@@ -3562,7 +3562,7 @@ define dso_local ptr @md_bitmap_create(ptr noundef %0, i32 noundef %1) local_unn
   %237 = tail call i64 @llvm.umin.i64(i64 %236, i64 4096)
   %238 = getelementptr i8, ptr %188, i64 168
   %.val = load ptr, ptr %238, align 8
-  %239 = tail call fastcc i32 @read_file_page.argprom(ptr %.val, i64 noundef 0, ptr noundef nonnull %27, i64 noundef %237, ptr noundef nonnull %155)
+  %239 = tail call fastcc i32 @read_file_page(ptr %.val, i64 noundef 0, ptr noundef nonnull %27, i64 noundef %237, ptr noundef nonnull %155)
   %240 = icmp eq i32 %239, 0
   br i1 %240, label %.thread29, label %.thread42
 
@@ -4266,7 +4266,7 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
 
 .preheader57:                                     ; preds = %191, %212
   %197 = phi i64 [ %220, %212 ], [ 0, %191 ]
-  %198 = tail call fastcc i32 @md_bitmap_checkpage.argelim(ptr noundef %0, i64 noundef %197, i32 noundef 1)
+  %198 = tail call fastcc i32 @md_bitmap_checkpage(ptr noundef %0, i64 noundef %197, i32 noundef 1)
   %199 = icmp eq i32 %198, 0
   br i1 %199, label %212, label %200
 
@@ -4390,7 +4390,7 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   br i1 %276, label %277, label %.thread43
 
 277:                                              ; preds = %269
-  %278 = tail call fastcc i32 @md_bitmap_checkpage.argelim(ptr noundef %0, i64 noundef %272, i32 noundef 0)
+  %278 = tail call fastcc i32 @md_bitmap_checkpage(ptr noundef %0, i64 noundef %272, i32 noundef 0)
   %279 = load ptr, ptr %168, align 8
   %280 = getelementptr %struct.bitmap_page, ptr %279, i64 %272
   %281 = getelementptr inbounds i8, ptr %280, i64 8
@@ -4603,7 +4603,7 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   br i1 %400, label %401, label %.thread48
 
 401:                                              ; preds = %.preheader
-  %402 = tail call fastcc i32 @md_bitmap_checkpage.argelim(ptr noundef %0, i64 noundef %396, i32 noundef 0)
+  %402 = tail call fastcc i32 @md_bitmap_checkpage(ptr noundef %0, i64 noundef %396, i32 noundef 0)
   %403 = load ptr, ptr %168, align 8
   %404 = getelementptr %struct.bitmap_page, ptr %403, i64 %396
   %405 = getelementptr inbounds i8, ptr %404, i64 8
@@ -5129,7 +5129,7 @@ define internal fastcc range(i32 -28, 1) i32 @md_bitmap_init_from_disk(ptr nound
 153:                                              ; preds = %148, %.split
   %154 = phi i64 [ %152, %148 ], [ 4096, %.split ]
   %.val = load ptr, ptr %80, align 8
-  %155 = tail call fastcc i32 @read_file_page.argprom(ptr %.val, i64 noundef %142, ptr noundef %0, i64 noundef %154, ptr noundef %145)
+  %155 = tail call fastcc i32 @read_file_page(ptr %.val, i64 noundef %142, ptr noundef %0, i64 noundef %154, ptr noundef %145)
   %156 = icmp eq i32 %155, 0
   br i1 %156, label %.thread23, label %.thread22
 
@@ -5248,7 +5248,7 @@ define internal fastcc range(i32 -28, 1) i32 @md_bitmap_init_from_disk(ptr nound
   br i1 %233, label %235, label %234
 
 234:                                              ; preds = %230
-  tail call fastcc void @write_file_page.argelim(ptr noundef %0, ptr noundef %213)
+  tail call fastcc void @write_file_page(ptr noundef %0, ptr noundef %213)
   br label %236
 
 235:                                              ; preds = %230
@@ -5649,7 +5649,7 @@ declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_
 declare dso_local i32 @seq_file_path(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @md_bitmap_checkpage.argelim(ptr noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @md_bitmap_checkpage(ptr noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp ugt i64 %5, %1
@@ -5964,7 +5964,7 @@ declare dso_local ptr @kernfs_find_and_get_ns(ptr noundef, ptr noundef, ptr noun
 declare dso_local ptr @alloc_pages(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @read_file_page.argprom(ptr %.168.val, i64 noundef %0, ptr noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @read_file_page(ptr %.168.val, i64 noundef %0, ptr noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca %struct.wait_queue_entry, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19

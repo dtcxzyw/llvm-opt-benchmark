@@ -3151,9 +3151,9 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %48, %46, %0
   %.not14.i.i.i = icmp eq ptr %.01113.i.i.i, null
   br i1 %.not14.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared22check_excluded_classesEvE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SM_E_clESO_SM_.argprom.exit.i.i.i"
-  %.01116.i.i.i = phi ptr [ %.011.i.i.i, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared22check_excluded_classesEvE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SM_E_clESO_SM_.argprom.exit.i.i.i" ], [ %.01113.i.i.i, %.preheader.i.i.i ]
-  %.115.i.i.i = phi i32 [ %108, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared22check_excluded_classesEvE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SM_E_clESO_SM_.argprom.exit.i.i.i" ], [ %.01217.i.i.i, %.preheader.i.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared22check_excluded_classesEvE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SM_E_clESO_SM_.exit.i.i.i"
+  %.01116.i.i.i = phi ptr [ %.011.i.i.i, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared22check_excluded_classesEvE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SM_E_clESO_SM_.exit.i.i.i" ], [ %.01113.i.i.i, %.preheader.i.i.i ]
+  %.115.i.i.i = phi i32 [ %108, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared22check_excluded_classesEvE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SM_E_clESO_SM_.exit.i.i.i" ], [ %.01217.i.i.i, %.preheader.i.i.i ]
   %54 = getelementptr inbounds i8, ptr %.01116.i.i.i, i64 8
   %55 = getelementptr inbounds i8, ptr %.01116.i.i.i, i64 16
   %.val.i.i.i = load ptr, ptr %54, align 8
@@ -3168,13 +3168,13 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %48, %46, %0
   %62 = load ptr, ptr @_ZN12MetaspaceObj22_shared_metaspace_baseE, align 8
   %63 = icmp uge ptr %.val.i.i.i, %62
   %64 = select i1 %61, i1 %63, i1 false
-  br i1 %64, label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared22check_excluded_classesEvE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SM_E_clESO_SM_.argprom.exit.i.i.i", label %65
+  br i1 %64, label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared22check_excluded_classesEvE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SM_E_clESO_SM_.exit.i.i.i", label %65
 
 65:                                               ; preds = %59
   %66 = getelementptr inbounds i8, ptr %.01116.i.i.i, i64 18
   %67 = load i8, ptr %66, align 2
   %68 = trunc i8 %67 to i1
-  br i1 %68, label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared22check_excluded_classesEvE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SM_E_clESO_SM_.argprom.exit.i.i.i", label %69
+  br i1 %68, label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared22check_excluded_classesEvE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SM_E_clESO_SM_.exit.i.i.i", label %69
 
 69:                                               ; preds = %65
   %70 = call noundef zeroext i1 @_ZN22SystemDictionaryShared24check_for_exclusion_implEP13InstanceKlass(ptr noundef nonnull %.val.i.i.i) #21
@@ -3186,7 +3186,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %48, %46, %0
 
 72:                                               ; preds = %71, %69
   store i8 1, ptr %66, align 2
-  br label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared22check_excluded_classesEvE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SM_E_clESO_SM_.argprom.exit.i.i.i"
+  br label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared22check_excluded_classesEvE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SM_E_clESO_SM_.exit.i.i.i"
 
 73:                                               ; preds = %.lr.ph.i.i.i
   %74 = load ptr, ptr @_ZN22SystemDictionaryShared15_dumptime_tableE, align 8
@@ -3197,7 +3197,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %48, %46, %0
   %79 = load i8, ptr %78, align 8
   %80 = trunc i8 %79 to i1
   %81 = select i1 %77, i1 true, i1 %80
-  br i1 %81, label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared22check_excluded_classesEvE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SM_E_clESO_SM_.argprom.exit.i.i.i", label %82
+  br i1 %81, label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared22check_excluded_classesEvE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SM_E_clESO_SM_.exit.i.i.i", label %82
 
 82:                                               ; preds = %73
   %83 = load ptr, ptr %53, align 8
@@ -3247,17 +3247,17 @@ _ZN22SystemDictionaryShared13warn_excludedEP13InstanceKlassPKc.exit.i.i.i.i.i: ;
   %105 = load ptr, ptr @_ZN22SystemDictionaryShared15_dumptime_tableE, align 8
   %106 = call noundef ptr @_ZN24DumpTimeSharedClassTable8get_infoEP13InstanceKlass(ptr noundef nonnull align 8 dereferenceable(127124) %105, ptr noundef nonnull %.val.i.i.i) #18
   store i8 1, ptr %106, align 8
-  br label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared22check_excluded_classesEvE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SM_E_clESO_SM_.argprom.exit.i.i.i"
+  br label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared22check_excluded_classesEvE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SM_E_clESO_SM_.exit.i.i.i"
 
-"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared22check_excluded_classesEvE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SM_E_clESO_SM_.argprom.exit.i.i.i": ; preds = %_ZN22SystemDictionaryShared13warn_excludedEP13InstanceKlassPKc.exit.i.i.i.i.i, %73, %72, %65, %59
+"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared22check_excluded_classesEvE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SM_E_clESO_SM_.exit.i.i.i": ; preds = %_ZN22SystemDictionaryShared13warn_excludedEP13InstanceKlassPKc.exit.i.i.i.i.i, %73, %72, %65, %59
   %107 = getelementptr inbounds i8, ptr %.01116.i.i.i, i64 88
   %108 = add nsw i32 %.115.i.i.i, -1
   %.011.i.i.i = load ptr, ptr %107, align 8
   %.not.i.i.i = icmp eq ptr %.011.i.i.i, null
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !15
 
-._crit_edge.i.i.i:                                ; preds = %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared22check_excluded_classesEvE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SM_E_clESO_SM_.argprom.exit.i.i.i", %.preheader.i.i.i
-  %.1.lcssa.i.i.i = phi i32 [ %.01217.i.i.i, %.preheader.i.i.i ], [ %108, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared22check_excluded_classesEvE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SM_E_clESO_SM_.argprom.exit.i.i.i" ]
+._crit_edge.i.i.i:                                ; preds = %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared22check_excluded_classesEvE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SM_E_clESO_SM_.exit.i.i.i", %.preheader.i.i.i
+  %.1.lcssa.i.i.i = phi i32 [ %.01217.i.i.i, %.preheader.i.i.i ], [ %108, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared22check_excluded_classesEvE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SM_E_clESO_SM_.exit.i.i.i" ]
   %.0.add.i.i.i = add nuw nsw i64 %.0.idx18.i.i.i, 8
   %109 = icmp sgt i32 %.1.lcssa.i.i.i, 0
   %110 = icmp ult i64 %.0.idx18.i.i.i, 127104
@@ -3551,9 +3551,9 @@ define hidden void @_ZN22SystemDictionaryShared19dumptime_classes_doEP16Metaspac
   %.not15.i.i.i = icmp eq ptr %.01114.i.i.i, null
   br i1 %.not15.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SO_E_clESQ_SO_.argprom.exit.i.i.i"
-  %.01117.i.i.i = phi ptr [ %.011.i.i.i, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SO_E_clESQ_SO_.argprom.exit.i.i.i" ], [ %.01114.i.i.i, %.preheader.i.i.i ]
-  %.116.i.i.i = phi i32 [ %57, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SO_E_clESQ_SO_.argprom.exit.i.i.i" ], [ %.01218.i.i.i, %.preheader.i.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SO_E_clESQ_SO_.exit.i.i.i"
+  %.01117.i.i.i = phi ptr [ %.011.i.i.i, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SO_E_clESQ_SO_.exit.i.i.i" ], [ %.01114.i.i.i, %.preheader.i.i.i ]
+  %.116.i.i.i = phi i32 [ %57, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SO_E_clESQ_SO_.exit.i.i.i" ], [ %.01218.i.i.i, %.preheader.i.i.i ]
   %7 = getelementptr inbounds i8, ptr %.01117.i.i.i, i64 8
   %8 = getelementptr inbounds i8, ptr %.01117.i.i.i, i64 16
   %.val13.i.i.i = load ptr, ptr %7, align 8
@@ -3565,7 +3565,7 @@ define hidden void @_ZN22SystemDictionaryShared19dumptime_classes_doEP16Metaspac
 12:                                               ; preds = %.lr.ph.i.i.i
   %.val.i.i.i.i.i = load ptr, ptr %9, align 8
   %13 = tail call noundef zeroext i1 @_ZNK15ClassLoaderData8is_aliveEv(ptr noundef nonnull align 8 dereferenceable(160) %.val.i.i.i.i.i) #18
-  br i1 %13, label %14, label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SO_E_clESQ_SO_.argprom.exit.i.i.i"
+  br i1 %13, label %14, label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SO_E_clESQ_SO_.exit.i.i.i"
 
 14:                                               ; preds = %12
   %15 = load i8, ptr %8, align 8
@@ -3574,11 +3574,11 @@ define hidden void @_ZN22SystemDictionaryShared19dumptime_classes_doEP16Metaspac
   %18 = load i8, ptr %17, align 8
   %19 = trunc i8 %18 to i1
   %20 = select i1 %16, i1 true, i1 %19
-  br i1 %20, label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SO_E_clESQ_SO_.argprom.exit.i.i.i", label %21
+  br i1 %20, label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SO_E_clESQ_SO_.exit.i.i.i", label %21
 
 21:                                               ; preds = %14
   tail call void @_ZN17DumpTimeClassInfo21metaspace_pointers_doEP16MetaspaceClosure(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef %0)
-  br label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SO_E_clESQ_SO_.argprom.exit.i.i.i"
+  br label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SO_E_clESQ_SO_.exit.i.i.i"
 
 22:                                               ; preds = %.lr.ph.i.i.i
   %23 = load ptr, ptr @_ZN22SystemDictionaryShared15_dumptime_tableE, align 8
@@ -3589,7 +3589,7 @@ define hidden void @_ZN22SystemDictionaryShared19dumptime_classes_doEP16Metaspac
   %28 = load i8, ptr %27, align 8
   %29 = trunc i8 %28 to i1
   %30 = select i1 %26, i1 true, i1 %29
-  br i1 %30, label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SO_E_clESQ_SO_.argprom.exit.i.i.i", label %31
+  br i1 %30, label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SO_E_clESQ_SO_.exit.i.i.i", label %31
 
 31:                                               ; preds = %22
   %32 = load ptr, ptr %6, align 8
@@ -3639,17 +3639,17 @@ _ZN22SystemDictionaryShared13warn_excludedEP13InstanceKlassPKc.exit.i.i.i.i.i: ;
   %54 = load ptr, ptr @_ZN22SystemDictionaryShared15_dumptime_tableE, align 8
   %55 = tail call noundef ptr @_ZN24DumpTimeSharedClassTable8get_infoEP13InstanceKlass(ptr noundef nonnull align 8 dereferenceable(127124) %54, ptr noundef nonnull %.val13.i.i.i) #18
   store i8 1, ptr %55, align 8
-  br label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SO_E_clESQ_SO_.argprom.exit.i.i.i"
+  br label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SO_E_clESQ_SO_.exit.i.i.i"
 
-"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SO_E_clESQ_SO_.argprom.exit.i.i.i": ; preds = %_ZN22SystemDictionaryShared13warn_excludedEP13InstanceKlassPKc.exit.i.i.i.i.i, %22, %21, %14, %12
+"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SO_E_clESQ_SO_.exit.i.i.i": ; preds = %_ZN22SystemDictionaryShared13warn_excludedEP13InstanceKlassPKc.exit.i.i.i.i.i, %22, %21, %14, %12
   %56 = getelementptr inbounds i8, ptr %.01117.i.i.i, i64 88
   %57 = add nsw i32 %.116.i.i.i, -1
   %.011.i.i.i = load ptr, ptr %56, align 8
   %.not.i.i.i = icmp eq ptr %.011.i.i.i, null
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !20
 
-._crit_edge.i.i.i:                                ; preds = %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SO_E_clESQ_SO_.argprom.exit.i.i.i", %.preheader.i.i.i
-  %.1.lcssa.i.i.i = phi i32 [ %.01218.i.i.i, %.preheader.i.i.i ], [ %57, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SO_E_clESQ_SO_.argprom.exit.i.i.i" ]
+._crit_edge.i.i.i:                                ; preds = %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SO_E_clESQ_SO_.exit.i.i.i", %.preheader.i.i.i
+  %.1.lcssa.i.i.i = phi i32 [ %.01218.i.i.i, %.preheader.i.i.i ], [ %57, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SO_E_clESQ_SO_.exit.i.i.i" ]
   %.0.add.i.i.i = add nuw nsw i64 %.0.idx19.i.i.i, 8
   %58 = icmp sgt i32 %.1.lcssa.i.i.i, 0
   %59 = icmp ult i64 %.0.idx19.i.i.i, 127104
@@ -3671,16 +3671,16 @@ _ZN22SystemDictionaryShared13warn_excludedEP13InstanceKlassPKc.exit.i.i.i.i.i: ;
   %.not14.i.i = icmp eq ptr %.01113.i.i, null
   br i1 %.not14.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137E19LambdaProxyClassKey28DumpTimeLambdaProxyClassInfoES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS1_13DUMPTIME_HASHERKS1_EEXadL_ZNS1_15DUMPTIME_EQUALSES8_S8_EEE11iterate_allIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_1EEvT_ENKUlRS1_RS2_E_clESG_SH_.argprom.exit.i.i"
-  %.01116.i.i = phi ptr [ %.011.i.i, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137E19LambdaProxyClassKey28DumpTimeLambdaProxyClassInfoES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS1_13DUMPTIME_HASHERKS1_EEXadL_ZNS1_15DUMPTIME_EQUALSES8_S8_EEE11iterate_allIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_1EEvT_ENKUlRS1_RS2_E_clESG_SH_.argprom.exit.i.i" ], [ %.01113.i.i, %.preheader.i.i ]
-  %.115.i.i = phi i32 [ %116, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137E19LambdaProxyClassKey28DumpTimeLambdaProxyClassInfoES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS1_13DUMPTIME_HASHERKS1_EEXadL_ZNS1_15DUMPTIME_EQUALSES8_S8_EEE11iterate_allIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_1EEvT_ENKUlRS1_RS2_E_clESG_SH_.argprom.exit.i.i" ], [ %.01217.i.i, %.preheader.i.i ]
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137E19LambdaProxyClassKey28DumpTimeLambdaProxyClassInfoES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS1_13DUMPTIME_HASHERKS1_EEXadL_ZNS1_15DUMPTIME_EQUALSES8_S8_EEE11iterate_allIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_1EEvT_ENKUlRS1_RS2_E_clESG_SH_.exit.i.i"
+  %.01116.i.i = phi ptr [ %.011.i.i, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137E19LambdaProxyClassKey28DumpTimeLambdaProxyClassInfoES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS1_13DUMPTIME_HASHERKS1_EEXadL_ZNS1_15DUMPTIME_EQUALSES8_S8_EEE11iterate_allIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_1EEvT_ENKUlRS1_RS2_E_clESG_SH_.exit.i.i" ], [ %.01113.i.i, %.preheader.i.i ]
+  %.115.i.i = phi i32 [ %116, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137E19LambdaProxyClassKey28DumpTimeLambdaProxyClassInfoES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS1_13DUMPTIME_HASHERKS1_EEXadL_ZNS1_15DUMPTIME_EQUALSES8_S8_EEE11iterate_allIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_1EEvT_ENKUlRS1_RS2_E_clESG_SH_.exit.i.i" ], [ %.01217.i.i, %.preheader.i.i ]
   %64 = getelementptr inbounds i8, ptr %.01116.i.i, i64 8
   %65 = getelementptr inbounds i8, ptr %.01116.i.i, i64 56
   %66 = load ptr, ptr %64, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 152
   %68 = load ptr, ptr %67, align 8
   %69 = tail call noundef zeroext i1 @_ZNK15ClassLoaderData8is_aliveEv(ptr noundef nonnull align 8 dereferenceable(160) %68) #18
-  br i1 %69, label %70, label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137E19LambdaProxyClassKey28DumpTimeLambdaProxyClassInfoES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS1_13DUMPTIME_HASHERKS1_EEXadL_ZNS1_15DUMPTIME_EQUALSES8_S8_EEE11iterate_allIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_1EEvT_ENKUlRS1_RS2_E_clESG_SH_.argprom.exit.i.i"
+  br i1 %69, label %70, label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137E19LambdaProxyClassKey28DumpTimeLambdaProxyClassInfoES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS1_13DUMPTIME_HASHERKS1_EEXadL_ZNS1_15DUMPTIME_EQUALSES8_S8_EEE11iterate_allIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_1EEvT_ENKUlRS1_RS2_E_clESG_SH_.exit.i.i"
 
 70:                                               ; preds = %.lr.ph.i.i
   %71 = load ptr, ptr %65, align 8
@@ -3770,17 +3770,17 @@ _ZN28DumpTimeLambdaProxyClassInfo21metaspace_pointers_doEP16MetaspaceClosure.exi
   %114 = getelementptr inbounds i8, ptr %111, i64 32
   store ptr %110, ptr %114, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %111) #18
-  br label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137E19LambdaProxyClassKey28DumpTimeLambdaProxyClassInfoES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS1_13DUMPTIME_HASHERKS1_EEXadL_ZNS1_15DUMPTIME_EQUALSES8_S8_EEE11iterate_allIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_1EEvT_ENKUlRS1_RS2_E_clESG_SH_.argprom.exit.i.i"
+  br label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137E19LambdaProxyClassKey28DumpTimeLambdaProxyClassInfoES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS1_13DUMPTIME_HASHERKS1_EEXadL_ZNS1_15DUMPTIME_EQUALSES8_S8_EEE11iterate_allIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_1EEvT_ENKUlRS1_RS2_E_clESG_SH_.exit.i.i"
 
-"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137E19LambdaProxyClassKey28DumpTimeLambdaProxyClassInfoES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS1_13DUMPTIME_HASHERKS1_EEXadL_ZNS1_15DUMPTIME_EQUALSES8_S8_EEE11iterate_allIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_1EEvT_ENKUlRS1_RS2_E_clESG_SH_.argprom.exit.i.i": ; preds = %_ZN28DumpTimeLambdaProxyClassInfo21metaspace_pointers_doEP16MetaspaceClosure.exit.i.i.i.i, %.lr.ph.i.i
+"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137E19LambdaProxyClassKey28DumpTimeLambdaProxyClassInfoES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS1_13DUMPTIME_HASHERKS1_EEXadL_ZNS1_15DUMPTIME_EQUALSES8_S8_EEE11iterate_allIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_1EEvT_ENKUlRS1_RS2_E_clESG_SH_.exit.i.i": ; preds = %_ZN28DumpTimeLambdaProxyClassInfo21metaspace_pointers_doEP16MetaspaceClosure.exit.i.i.i.i, %.lr.ph.i.i
   %115 = getelementptr inbounds i8, ptr %.01116.i.i, i64 64
   %116 = add nsw i32 %.115.i.i, -1
   %.011.i.i = load ptr, ptr %115, align 8
   %.not.i.i = icmp eq ptr %.011.i.i, null
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !23
 
-._crit_edge.i.i:                                  ; preds = %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137E19LambdaProxyClassKey28DumpTimeLambdaProxyClassInfoES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS1_13DUMPTIME_HASHERKS1_EEXadL_ZNS1_15DUMPTIME_EQUALSES8_S8_EEE11iterate_allIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_1EEvT_ENKUlRS1_RS2_E_clESG_SH_.argprom.exit.i.i", %.preheader.i.i
-  %.1.lcssa.i.i = phi i32 [ %.01217.i.i, %.preheader.i.i ], [ %116, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137E19LambdaProxyClassKey28DumpTimeLambdaProxyClassInfoES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS1_13DUMPTIME_HASHERKS1_EEXadL_ZNS1_15DUMPTIME_EQUALSES8_S8_EEE11iterate_allIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_1EEvT_ENKUlRS1_RS2_E_clESG_SH_.argprom.exit.i.i" ]
+._crit_edge.i.i:                                  ; preds = %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137E19LambdaProxyClassKey28DumpTimeLambdaProxyClassInfoES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS1_13DUMPTIME_HASHERKS1_EEXadL_ZNS1_15DUMPTIME_EQUALSES8_S8_EEE11iterate_allIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_1EEvT_ENKUlRS1_RS2_E_clESG_SH_.exit.i.i", %.preheader.i.i
+  %.1.lcssa.i.i = phi i32 [ %.01217.i.i, %.preheader.i.i ], [ %116, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137E19LambdaProxyClassKey28DumpTimeLambdaProxyClassInfoES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS1_13DUMPTIME_HASHERKS1_EEXadL_ZNS1_15DUMPTIME_EQUALSES8_S8_EEE11iterate_allIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_1EEvT_ENKUlRS1_RS2_E_clESG_SH_.exit.i.i" ]
   %.0.add.i.i = add nuw nsw i64 %.0.idx18.i.i, 8
   %117 = icmp sgt i32 %.1.lcssa.i.i, 0
   %118 = icmp ult i64 %.0.idx18.i.i, 1088
@@ -5996,20 +5996,20 @@ define linkonce_odr hidden void @_ZNK16CompactHashtableIP6SymbolPK16RunTimeClass
   %.val.i = load i16, ptr %53, align 2
   %54 = and i16 %.val.i, 128
   %.not.i.i = icmp eq i16 %54, 0
-  br i1 %.not.i.i, label %55, label %_ZL28class_loader_name_for_sharedP5Klass.argprom.exit.i
+  br i1 %.not.i.i, label %55, label %_ZL28class_loader_name_for_sharedP5Klass.exit.i
 
 55:                                               ; preds = %.lr.ph
   %56 = and i16 %.val.i, 256
   %.not1.i.i = icmp eq i16 %56, 0
-  br i1 %.not1.i.i, label %57, label %_ZL28class_loader_name_for_sharedP5Klass.argprom.exit.i
+  br i1 %.not1.i.i, label %57, label %_ZL28class_loader_name_for_sharedP5Klass.exit.i
 
 57:                                               ; preds = %55
   %58 = and i16 %.val.i, 512
   %.not2.i.i = icmp eq i16 %58, 0
   %spec.select.i.i = select i1 %.not2.i.i, ptr @.str.93, ptr @.str.92
-  br label %_ZL28class_loader_name_for_sharedP5Klass.argprom.exit.i
+  br label %_ZL28class_loader_name_for_sharedP5Klass.exit.i
 
-_ZL28class_loader_name_for_sharedP5Klass.argprom.exit.i: ; preds = %57, %55, %.lr.ph
+_ZL28class_loader_name_for_sharedP5Klass.exit.i:  ; preds = %57, %55, %.lr.ph
   %.0.i.i = phi ptr [ @.str.90, %.lr.ph ], [ @.str.91, %55 ], [ %spec.select.i.i, %57 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %47, ptr noundef nonnull @.str.89, i32 noundef %48, ptr noundef %51, ptr noundef nonnull %.0.i.i) #18
   %59 = load ptr, ptr %35, align 8
@@ -6018,7 +6018,7 @@ _ZL28class_loader_name_for_sharedP5Klass.argprom.exit.i: ; preds = %57, %55, %.l
   %.not.i = icmp eq ptr %61, null
   br i1 %.not.i, label %66, label %62
 
-62:                                               ; preds = %_ZL28class_loader_name_for_sharedP5Klass.argprom.exit.i
+62:                                               ; preds = %_ZL28class_loader_name_for_sharedP5Klass.exit.i
   %63 = load volatile ptr, ptr %60, align 8
   %64 = load ptr, ptr %1, align 8
   tail call void @_ZNK10ArrayKlass18cds_print_value_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(216) %63, ptr noundef %64) #18
@@ -6026,7 +6026,7 @@ _ZL28class_loader_name_for_sharedP5Klass.argprom.exit.i: ; preds = %57, %55, %.l
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %65) #18
   br label %66
 
-66:                                               ; preds = %62, %_ZL28class_loader_name_for_sharedP5Klass.argprom.exit.i
+66:                                               ; preds = %62, %_ZL28class_loader_name_for_sharedP5Klass.exit.i
   %67 = load ptr, ptr %40, align 8
   %.not.i.i.i.i.i = icmp eq ptr %67, null
   br i1 %.not.i.i.i.i.i, label %69, label %68
@@ -6138,8 +6138,8 @@ define linkonce_odr hidden void @_ZNK16CompactHashtableIP19LambdaProxyClassKeyPK
   %51 = load i64, ptr %50, align 8
   br label %52
 
-52:                                               ; preds = %_ZL28class_loader_name_for_sharedP5Klass.argprom.exit.i, %.lr.ph.i
-  %.012.i = phi ptr [ %37, %.lr.ph.i ], [ %64, %_ZL28class_loader_name_for_sharedP5Klass.argprom.exit.i ]
+52:                                               ; preds = %_ZL28class_loader_name_for_sharedP5Klass.exit.i, %.lr.ph.i
+  %.012.i = phi ptr [ %37, %.lr.ph.i ], [ %64, %_ZL28class_loader_name_for_sharedP5Klass.exit.i ]
   %53 = load ptr, ptr %1, align 8
   %54 = load i32, ptr %8, align 8
   %55 = add nsw i32 %54, 1
@@ -6149,20 +6149,20 @@ define linkonce_odr hidden void @_ZNK16CompactHashtableIP19LambdaProxyClassKeyPK
   %.0.val.i = load i16, ptr %57, align 2
   %58 = and i16 %.0.val.i, 128
   %.not.i.i = icmp eq i16 %58, 0
-  br i1 %.not.i.i, label %59, label %_ZL28class_loader_name_for_sharedP5Klass.argprom.exit.i
+  br i1 %.not.i.i, label %59, label %_ZL28class_loader_name_for_sharedP5Klass.exit.i
 
 59:                                               ; preds = %52
   %60 = and i16 %.0.val.i, 256
   %.not1.i.i = icmp eq i16 %60, 0
-  br i1 %.not1.i.i, label %61, label %_ZL28class_loader_name_for_sharedP5Klass.argprom.exit.i
+  br i1 %.not1.i.i, label %61, label %_ZL28class_loader_name_for_sharedP5Klass.exit.i
 
 61:                                               ; preds = %59
   %62 = and i16 %.0.val.i, 512
   %.not2.i.i = icmp eq i16 %62, 0
   %spec.select.i.i = select i1 %.not2.i.i, ptr @.str.93, ptr @.str.92
-  br label %_ZL28class_loader_name_for_sharedP5Klass.argprom.exit.i
+  br label %_ZL28class_loader_name_for_sharedP5Klass.exit.i
 
-_ZL28class_loader_name_for_sharedP5Klass.argprom.exit.i: ; preds = %61, %59, %52
+_ZL28class_loader_name_for_sharedP5Klass.exit.i:  ; preds = %61, %59, %52
   %.0.i.i = phi ptr [ @.str.90, %52 ], [ @.str.91, %59 ], [ %spec.select.i.i, %61 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %53, ptr noundef nonnull @.str.89, i32 noundef %54, ptr noundef %56, ptr noundef nonnull %.0.i.i) #18
   %63 = getelementptr inbounds i8, ptr %.012.i, i64 144
@@ -6170,7 +6170,7 @@ _ZL28class_loader_name_for_sharedP5Klass.argprom.exit.i: ; preds = %61, %59, %52
   %.not.i = icmp eq ptr %64, null
   br i1 %.not.i, label %._crit_edge.i, label %52, !llvm.loop !36
 
-._crit_edge.i:                                    ; preds = %_ZL28class_loader_name_for_sharedP5Klass.argprom.exit.i
+._crit_edge.i:                                    ; preds = %_ZL28class_loader_name_for_sharedP5Klass.exit.i
   %65 = load ptr, ptr %45, align 8
   %.not.i.i.i.i.i = icmp eq ptr %65, null
   br i1 %.not.i.i.i.i.i, label %67, label %66
@@ -8663,20 +8663,20 @@ define linkonce_odr hidden void @_ZN23SharedDictionaryPrinter8do_valueEPK16RunTi
   %.val = load i16, ptr %22, align 2
   %23 = and i16 %.val, 128
   %.not.i = icmp eq i16 %23, 0
-  br i1 %.not.i, label %24, label %_ZL28class_loader_name_for_sharedP5Klass.argprom.exit
+  br i1 %.not.i, label %24, label %_ZL28class_loader_name_for_sharedP5Klass.exit
 
 24:                                               ; preds = %2
   %25 = and i16 %.val, 256
   %.not1.i = icmp eq i16 %25, 0
-  br i1 %.not1.i, label %26, label %_ZL28class_loader_name_for_sharedP5Klass.argprom.exit
+  br i1 %.not1.i, label %26, label %_ZL28class_loader_name_for_sharedP5Klass.exit
 
 26:                                               ; preds = %24
   %27 = and i16 %.val, 512
   %.not2.i = icmp eq i16 %27, 0
   %spec.select.i = select i1 %.not2.i, ptr @.str.93, ptr @.str.92
-  br label %_ZL28class_loader_name_for_sharedP5Klass.argprom.exit
+  br label %_ZL28class_loader_name_for_sharedP5Klass.exit
 
-_ZL28class_loader_name_for_sharedP5Klass.argprom.exit: ; preds = %2, %24, %26
+_ZL28class_loader_name_for_sharedP5Klass.exit:    ; preds = %2, %24, %26
   %.0.i = phi ptr [ @.str.90, %2 ], [ @.str.91, %24 ], [ %spec.select.i, %26 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull @.str.89, i32 noundef %17, ptr noundef %20, ptr noundef nonnull %.0.i) #18
   %28 = load ptr, ptr %1, align 8
@@ -8685,7 +8685,7 @@ _ZL28class_loader_name_for_sharedP5Klass.argprom.exit: ; preds = %2, %24, %26
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %35, label %31
 
-31:                                               ; preds = %_ZL28class_loader_name_for_sharedP5Klass.argprom.exit
+31:                                               ; preds = %_ZL28class_loader_name_for_sharedP5Klass.exit
   %32 = load volatile ptr, ptr %29, align 8
   %33 = load ptr, ptr %0, align 8
   tail call void @_ZNK10ArrayKlass18cds_print_value_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(216) %32, ptr noundef %33) #18
@@ -8693,7 +8693,7 @@ _ZL28class_loader_name_for_sharedP5Klass.argprom.exit: ; preds = %2, %24, %26
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %34) #18
   br label %35
 
-35:                                               ; preds = %31, %_ZL28class_loader_name_for_sharedP5Klass.argprom.exit
+35:                                               ; preds = %31, %_ZL28class_loader_name_for_sharedP5Klass.exit
   %36 = load ptr, ptr %8, align 8
   %.not.i.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i, label %38, label %37
@@ -8748,8 +8748,8 @@ define linkonce_odr hidden void @_ZN29SharedLambdaDictionaryPrinter8do_valueEPK2
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   br label %21
 
-21:                                               ; preds = %.lr.ph, %_ZL28class_loader_name_for_sharedP5Klass.argprom.exit
-  %.012 = phi ptr [ %4, %.lr.ph ], [ %33, %_ZL28class_loader_name_for_sharedP5Klass.argprom.exit ]
+21:                                               ; preds = %.lr.ph, %_ZL28class_loader_name_for_sharedP5Klass.exit
+  %.012 = phi ptr [ %4, %.lr.ph ], [ %33, %_ZL28class_loader_name_for_sharedP5Klass.exit ]
   %22 = load ptr, ptr %0, align 8
   %23 = load i32, ptr %20, align 8
   %24 = add nsw i32 %23, 1
@@ -8759,20 +8759,20 @@ define linkonce_odr hidden void @_ZN29SharedLambdaDictionaryPrinter8do_valueEPK2
   %.0.val = load i16, ptr %26, align 2
   %27 = and i16 %.0.val, 128
   %.not.i = icmp eq i16 %27, 0
-  br i1 %.not.i, label %28, label %_ZL28class_loader_name_for_sharedP5Klass.argprom.exit
+  br i1 %.not.i, label %28, label %_ZL28class_loader_name_for_sharedP5Klass.exit
 
 28:                                               ; preds = %21
   %29 = and i16 %.0.val, 256
   %.not1.i = icmp eq i16 %29, 0
-  br i1 %.not1.i, label %30, label %_ZL28class_loader_name_for_sharedP5Klass.argprom.exit
+  br i1 %.not1.i, label %30, label %_ZL28class_loader_name_for_sharedP5Klass.exit
 
 30:                                               ; preds = %28
   %31 = and i16 %.0.val, 512
   %.not2.i = icmp eq i16 %31, 0
   %spec.select.i = select i1 %.not2.i, ptr @.str.93, ptr @.str.92
-  br label %_ZL28class_loader_name_for_sharedP5Klass.argprom.exit
+  br label %_ZL28class_loader_name_for_sharedP5Klass.exit
 
-_ZL28class_loader_name_for_sharedP5Klass.argprom.exit: ; preds = %21, %28, %30
+_ZL28class_loader_name_for_sharedP5Klass.exit:    ; preds = %21, %28, %30
   %.0.i = phi ptr [ @.str.90, %21 ], [ @.str.91, %28 ], [ %spec.select.i, %30 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull @.str.89, i32 noundef %23, ptr noundef %25, ptr noundef nonnull %.0.i) #18
   %32 = getelementptr inbounds i8, ptr %.012, i64 144
@@ -8780,7 +8780,7 @@ _ZL28class_loader_name_for_sharedP5Klass.argprom.exit: ; preds = %21, %28, %30
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %._crit_edge, label %21, !llvm.loop !36
 
-._crit_edge:                                      ; preds = %_ZL28class_loader_name_for_sharedP5Klass.argprom.exit
+._crit_edge:                                      ; preds = %_ZL28class_loader_name_for_sharedP5Klass.exit
   %34 = load ptr, ptr %13, align 8
   %.not.i.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i.i, label %36, label %35

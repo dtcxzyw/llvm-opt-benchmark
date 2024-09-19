@@ -1035,28 +1035,28 @@ define dso_local void @_ZN4llvm18ARMAttributeParser20also_compatible_withENS_13A
   %.029.val.i.i.i.i.i.i = load i32, ptr %.02956.i.i.i.i.i.i, align 8
   %42 = zext i32 %.029.val.i.i.i.i.i.i to i64
   %43 = icmp eq i64 %35, %42
-  br i1 %43, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.argprom.exit", label %44
+  br i1 %43, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.exit", label %44
 
 44:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %45 = getelementptr inbounds i8, ptr %.02956.i.i.i.i.i.i, i64 24
   %.val31.i.i.i.i.i.i = load i32, ptr %45, align 8
   %46 = zext i32 %.val31.i.i.i.i.i.i to i64
   %47 = icmp eq i64 %35, %46
-  br i1 %47, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", label %48
+  br i1 %47, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", label %48
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds i8, ptr %.02956.i.i.i.i.i.i, i64 48
   %.val33.i.i.i.i.i.i = load i32, ptr %49, align 8
   %50 = zext i32 %.val33.i.i.i.i.i.i to i64
   %51 = icmp eq i64 %35, %50
-  br i1 %51, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit198", label %52
+  br i1 %51, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit198", label %52
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds i8, ptr %.02956.i.i.i.i.i.i, i64 72
   %.val35.i.i.i.i.i.i = load i32, ptr %53, align 8
   %54 = zext i32 %.val35.i.i.i.i.i.i to i64
   %55 = icmp eq i64 %35, %54
-  br i1 %55, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit200", label %56
+  br i1 %55, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit200", label %56
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds i8, ptr %.02956.i.i.i.i.i.i, i64 96
@@ -1082,7 +1082,7 @@ define dso_local void @_ZN4llvm18ARMAttributeParser20also_compatible_withENS_13A
   %.029.val37.i.i.i.i.i.i = load i32, ptr %.029.lcssa.i.i.i.i.i.i, align 8
   %62 = zext i32 %.029.val37.i.i.i.i.i.i to i64
   %63 = icmp eq i64 %35, %62
-  br i1 %63, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.argprom.exit", label %64
+  br i1 %63, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.exit", label %64
 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 24
@@ -1093,7 +1093,7 @@ define dso_local void @_ZN4llvm18ARMAttributeParser20also_compatible_withENS_13A
   %.1.val.i.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i.i, align 8
   %67 = zext i32 %.1.val.i.i.i.i.i.i to i64
   %68 = icmp eq i64 %35, %67
-  br i1 %68, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.argprom.exit", label %69
+  br i1 %68, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.exit", label %69
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 24
@@ -1104,26 +1104,26 @@ define dso_local void @_ZN4llvm18ARMAttributeParser20also_compatible_withENS_13A
   %.2.val.i.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i.i, align 8
   %72 = zext i32 %.2.val.i.i.i.i.i.i to i64
   %73 = icmp eq i64 %35, %72
-  br i1 %73, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.argprom.exit", label %_ZN4llvm5ErrorD2Ev.exit
+  br i1 %73, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.exit", label %_ZN4llvm5ErrorD2Ev.exit
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %44
+"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %44
   %74 = getelementptr inbounds i8, ptr %.02956.i.i.i.i.i.i, i64 24
-  br label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit198": ; preds = %48
+"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit198": ; preds = %48
   %75 = getelementptr inbounds i8, ptr %.02956.i.i.i.i.i.i, i64 48
-  br label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit200": ; preds = %52
+"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit200": ; preds = %52
   %76 = getelementptr inbounds i8, ptr %.02956.i.i.i.i.i.i, i64 72
-  br label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit198", %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit200", %61, %66, %71
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %61 ], [ %.1.i.i.i.i.i.i, %66 ], [ %.2.i.i.i.i.i.i, %71 ], [ %74, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %75, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit198" ], [ %76, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit200" ], [ %.02956.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit198", %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit200", %61, %66, %71
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %61 ], [ %.1.i.i.i.i.i.i, %66 ], [ %.2.i.i.i.i.i.i, %71 ], [ %74, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %75, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit198" ], [ %76, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit200" ], [ %.02956.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not155 = icmp eq ptr %38, %.028.i.i.i.i.i.i
   br i1 %.not155, label %_ZN4llvm5ErrorD2Ev.exit, label %82
 
-_ZN4llvm5ErrorD2Ev.exit:                          ; preds = %71, %._crit_edge.i.i.i.i.i.i, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.argprom.exit"
+_ZN4llvm5ErrorD2Ev.exit:                          ; preds = %71, %._crit_edge.i.i.i.i.i.i, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.exit"
   %77 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #15
   store ptr %11, ptr %13, align 8, !alias.scope !25
   %78 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -1141,7 +1141,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %71, %._crit_edge.i.
   store ptr null, ptr %12, align 8
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
-82:                                               ; preds = %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.argprom.exit"
+82:                                               ; preds = %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_11TagNameItemEEEZNS_18ARMAttributeParser20also_compatible_withENS_13ARMBuildAttrs8AttrTypeEE3$_0EEbOT_T0_.exit"
   switch i64 %35, label %228 [
     i64 6, label %83
     i64 65, label %_ZNSt8optionalIN4llvm5ErrorEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit101

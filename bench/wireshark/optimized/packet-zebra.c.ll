@@ -532,7 +532,7 @@ define internal i32 @dissect_zebra(ptr noundef %0, ptr nocapture noundef readonl
   %8 = load i16, ptr %5, align 2
   %9 = icmp ugt i16 %8, 1024
   %or.cond.i = select i1 %.not.i, i1 true, i1 %9
-  br i1 %or.cond.i, label %test_zebra.argprom.exit.thread, label %10
+  br i1 %or.cond.i, label %test_zebra.exit.thread, label %10
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %5, i64 4
@@ -546,7 +546,7 @@ define internal i32 @dissect_zebra(ptr noundef %0, ptr nocapture noundef readonl
 17:                                               ; preds = %10
   %18 = tail call ptr @try_val_to_str(i32 noundef %16, ptr noundef nonnull @messages) #4
   %.not6.i = icmp eq ptr %18, null
-  br i1 %.not6.i, label %test_zebra.argprom.exit.thread, label %26
+  br i1 %.not6.i, label %test_zebra.exit.thread, label %26
 
 19:                                               ; preds = %10
   switch i8 %12, label %24 [
@@ -557,19 +557,19 @@ define internal i32 @dissect_zebra(ptr noundef %0, ptr nocapture noundef readonl
 20:                                               ; preds = %19
   %21 = tail call ptr @try_val_to_str(i32 noundef %16, ptr noundef nonnull @frr_zapi4_messages) #4
   %.not5.i = icmp eq ptr %21, null
-  br i1 %.not5.i, label %test_zebra.argprom.exit.thread, label %26
+  br i1 %.not5.i, label %test_zebra.exit.thread, label %26
 
 22:                                               ; preds = %19
   %23 = tail call ptr @try_val_to_str(i32 noundef %16, ptr noundef nonnull @frr_zapi5_messages) #4
   %.not4.i = icmp eq ptr %23, null
-  br i1 %.not4.i, label %test_zebra.argprom.exit.thread, label %26
+  br i1 %.not4.i, label %test_zebra.exit.thread, label %26
 
 24:                                               ; preds = %19
   %25 = tail call ptr @try_val_to_str(i32 noundef %16, ptr noundef nonnull @frr_zapi6_messages) #4
   %.not3.i = icmp eq ptr %25, null
-  br i1 %.not3.i, label %test_zebra.argprom.exit.thread, label %26
+  br i1 %.not3.i, label %test_zebra.exit.thread, label %26
 
-test_zebra.argprom.exit.thread:                   ; preds = %4, %17, %20, %22, %24
+test_zebra.exit.thread:                           ; preds = %4, %17, %20, %22, %24
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %5)
   br label %324
 
@@ -828,23 +828,23 @@ proto_item_set_hidden.exit:                       ; preds = %26, %45, %48
   br i1 %33, label %dissect_zebra_request.exit, label %131
 
 131:                                              ; preds = %130
-  tail call fastcc void @zebra_interface.retelim(ptr noundef %91, ptr noundef %0, i32 noundef %.1330.i, i16 noundef zeroext %88, i8 noundef zeroext %56)
+  tail call fastcc void @zebra_interface(ptr noundef %91, ptr noundef %0, i32 noundef %.1330.i, i16 noundef zeroext %88, i8 noundef zeroext %56)
   br label %dissect_zebra_request.exit
 
 132:                                              ; preds = %129, %129
-  tail call fastcc void @zebra_interface_address.retelim(ptr noundef %91, ptr noundef %0, i32 noundef %.1330.i)
+  tail call fastcc void @zebra_interface_address(ptr noundef %91, ptr noundef %0, i32 noundef %.1330.i)
   br label %dissect_zebra_request.exit
 
 133:                                              ; preds = %129, %129
-  tail call fastcc void @zebra_route.retelim(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %.1330.i, i16 noundef zeroext %89, i8 noundef zeroext 2, i16 noundef zeroext %88, i8 noundef zeroext %56)
+  tail call fastcc void @zebra_route(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %.1330.i, i16 noundef zeroext %89, i8 noundef zeroext 2, i16 noundef zeroext %88, i8 noundef zeroext %56)
   br label %dissect_zebra_request.exit
 
 134:                                              ; preds = %129, %129
-  tail call fastcc void @zebra_route.retelim(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %.1330.i, i16 noundef zeroext %89, i8 noundef zeroext 10, i16 noundef zeroext %88, i8 noundef zeroext %56)
+  tail call fastcc void @zebra_route(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %.1330.i, i16 noundef zeroext %89, i8 noundef zeroext 10, i16 noundef zeroext %88, i8 noundef zeroext %56)
   br label %dissect_zebra_request.exit
 
 135:                                              ; preds = %129, %129
-  tail call fastcc void @zebra_redistribute.retelim(ptr noundef %91, ptr noundef %0, i32 noundef %.1330.i, i8 noundef zeroext %56)
+  tail call fastcc void @zebra_redistribute(ptr noundef %91, ptr noundef %0, i32 noundef %.1330.i, i8 noundef zeroext %56)
   br label %dissect_zebra_request.exit
 
 136:                                              ; preds = %129, %129
@@ -899,11 +899,11 @@ zebra_hello.exit.i:                               ; preds = %129
 
 167:                                              ; preds = %129, %129
   %168 = sub i32 %.1330.i, %.04671
-  tail call fastcc void @zebra_nexthop_register.retelim(ptr noundef %91, ptr noundef %0, i32 noundef %.1330.i, i16 noundef zeroext %89, i32 noundef %168)
+  tail call fastcc void @zebra_nexthop_register(ptr noundef %91, ptr noundef %0, i32 noundef %.1330.i, i16 noundef zeroext %89, i32 noundef %168)
   br label %dissect_zebra_request.exit
 
 169:                                              ; preds = %129
-  tail call fastcc void @zebra_nexthop_update.retelim(ptr noundef %91, ptr noundef %0, i32 noundef %.1330.i, i8 noundef zeroext %56)
+  tail call fastcc void @zebra_nexthop_update(ptr noundef %91, ptr noundef %0, i32 noundef %.1330.i, i8 noundef zeroext %56)
   br label %dissect_zebra_request.exit
 
 170:                                              ; preds = %110
@@ -940,23 +940,23 @@ zebra_hello.exit.i:                               ; preds = %129
   br i1 %33, label %dissect_zebra_request.exit, label %174
 
 174:                                              ; preds = %173
-  tail call fastcc void @zebra_interface.retelim(ptr noundef %91, ptr noundef %0, i32 noundef %119, i16 noundef zeroext %88, i8 noundef zeroext %56)
+  tail call fastcc void @zebra_interface(ptr noundef %91, ptr noundef %0, i32 noundef %119, i16 noundef zeroext %88, i8 noundef zeroext %56)
   br label %dissect_zebra_request.exit
 
 175:                                              ; preds = %.thread333.i, %.thread333.i
-  tail call fastcc void @zebra_interface_address.retelim(ptr noundef %91, ptr noundef %0, i32 noundef %119)
+  tail call fastcc void @zebra_interface_address(ptr noundef %91, ptr noundef %0, i32 noundef %119)
   br label %dissect_zebra_request.exit
 
 176:                                              ; preds = %.thread333.i, %.thread333.i, %.thread333.i, %.thread333.i
-  tail call fastcc void @zebra_route.retelim(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %119, i16 noundef zeroext %89, i8 noundef zeroext 2, i16 noundef zeroext %88, i8 noundef zeroext %56)
+  tail call fastcc void @zebra_route(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %119, i16 noundef zeroext %89, i8 noundef zeroext 2, i16 noundef zeroext %88, i8 noundef zeroext %56)
   br label %dissect_zebra_request.exit
 
 177:                                              ; preds = %.thread333.i, %.thread333.i, %.thread333.i, %.thread333.i
-  tail call fastcc void @zebra_route.retelim(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %119, i16 noundef zeroext %89, i8 noundef zeroext 10, i16 noundef zeroext %88, i8 noundef zeroext %56)
+  tail call fastcc void @zebra_route(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %119, i16 noundef zeroext %89, i8 noundef zeroext 10, i16 noundef zeroext %88, i8 noundef zeroext %56)
   br label %dissect_zebra_request.exit
 
 178:                                              ; preds = %.thread333.i, %.thread333.i
-  tail call fastcc void @zebra_redistribute.retelim(ptr noundef %91, ptr noundef %0, i32 noundef %119, i8 noundef zeroext %56)
+  tail call fastcc void @zebra_redistribute(ptr noundef %91, ptr noundef %0, i32 noundef %119, i8 noundef zeroext %56)
   br label %dissect_zebra_request.exit
 
 179:                                              ; preds = %.thread333.i
@@ -984,11 +984,11 @@ zebra_hello.exit64:                               ; preds = %.thread333.i
   br label %dissect_zebra_request.exit
 
 196:                                              ; preds = %.thread333.i, %.thread333.i
-  tail call fastcc void @zebra_nexthop_register.retelim(ptr noundef %91, ptr noundef %0, i32 noundef %119, i16 noundef zeroext %89, i32 noundef 8)
+  tail call fastcc void @zebra_nexthop_register(ptr noundef %91, ptr noundef %0, i32 noundef %119, i16 noundef zeroext %89, i32 noundef 8)
   br label %dissect_zebra_request.exit
 
 197:                                              ; preds = %.thread333.i
-  tail call fastcc void @zebra_nexthop_update.retelim(ptr noundef %91, ptr noundef %0, i32 noundef %119, i8 noundef zeroext %56)
+  tail call fastcc void @zebra_nexthop_update(ptr noundef %91, ptr noundef %0, i32 noundef %119, i8 noundef zeroext %56)
   br label %dissect_zebra_request.exit
 
 198:                                              ; preds = %.thread333.i
@@ -1000,23 +1000,23 @@ zebra_hello.exit64:                               ; preds = %.thread333.i
   br i1 %33, label %dissect_zebra_request.exit, label %202
 
 202:                                              ; preds = %201
-  tail call fastcc void @zebra_interface.retelim(ptr noundef %91, ptr noundef %0, i32 noundef %115, i16 noundef zeroext %88, i8 noundef zeroext 5)
+  tail call fastcc void @zebra_interface(ptr noundef %91, ptr noundef %0, i32 noundef %115, i16 noundef zeroext %88, i8 noundef zeroext 5)
   br label %dissect_zebra_request.exit
 
 203:                                              ; preds = %.thread335.i, %.thread335.i
-  tail call fastcc void @zebra_interface_address.retelim(ptr noundef %91, ptr noundef %0, i32 noundef %115)
+  tail call fastcc void @zebra_interface_address(ptr noundef %91, ptr noundef %0, i32 noundef %115)
   br label %dissect_zebra_request.exit
 
 204:                                              ; preds = %.thread335.i, %.thread335.i
-  tail call fastcc void @zebra_route.retelim(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %115, i16 noundef zeroext %89, i8 noundef zeroext 2, i16 noundef zeroext %88, i8 noundef zeroext 5)
+  tail call fastcc void @zebra_route(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %115, i16 noundef zeroext %89, i8 noundef zeroext 2, i16 noundef zeroext %88, i8 noundef zeroext 5)
   br label %dissect_zebra_request.exit
 
 205:                                              ; preds = %.thread335.i, %.thread335.i
-  tail call fastcc void @zebra_route.retelim(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %115, i16 noundef zeroext %89, i8 noundef zeroext 10, i16 noundef zeroext %88, i8 noundef zeroext 5)
+  tail call fastcc void @zebra_route(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %115, i16 noundef zeroext %89, i8 noundef zeroext 10, i16 noundef zeroext %88, i8 noundef zeroext 5)
   br label %dissect_zebra_request.exit
 
 206:                                              ; preds = %.thread335.i, %.thread335.i, %.thread335.i, %.thread335.i
-  tail call fastcc void @zebra_route.retelim(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %115, i16 noundef zeroext %89, i8 noundef zeroext 0, i16 noundef zeroext %88, i8 noundef zeroext 5)
+  tail call fastcc void @zebra_route(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %115, i16 noundef zeroext %89, i8 noundef zeroext 0, i16 noundef zeroext %88, i8 noundef zeroext 5)
   br label %dissect_zebra_request.exit
 
 207:                                              ; preds = %.thread335.i, %.thread335.i
@@ -1070,11 +1070,11 @@ zebra_hello.exit64:                               ; preds = %.thread333.i
   br label %dissect_zebra_request.exit
 
 244:                                              ; preds = %.thread335.i, %.thread335.i
-  tail call fastcc void @zebra_nexthop_register.retelim(ptr noundef %91, ptr noundef %0, i32 noundef %115, i16 noundef zeroext %89, i32 noundef 10)
+  tail call fastcc void @zebra_nexthop_register(ptr noundef %91, ptr noundef %0, i32 noundef %115, i16 noundef zeroext %89, i32 noundef 10)
   br label %dissect_zebra_request.exit
 
 245:                                              ; preds = %.thread335.i
-  tail call fastcc void @zebra_nexthop_update.retelim(ptr noundef %91, ptr noundef %0, i32 noundef %115, i8 noundef zeroext 5)
+  tail call fastcc void @zebra_nexthop_update(ptr noundef %91, ptr noundef %0, i32 noundef %115, i8 noundef zeroext 5)
   br label %dissect_zebra_request.exit
 
 246:                                              ; preds = %.thread335.i
@@ -1102,26 +1102,26 @@ zebra_hello.exit64:                               ; preds = %.thread333.i
   br label %dissect_zebra_request.exit
 
 264:                                              ; preds = %.thread335.i
-  tail call fastcc void @zebra_get_label_chunk.retelim(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %115)
+  tail call fastcc void @zebra_get_label_chunk(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %115)
   br label %dissect_zebra_request.exit
 
 265:                                              ; preds = %170, %170, %170, %170
   br i1 %33, label %dissect_zebra_request.exit, label %266
 
 266:                                              ; preds = %265
-  tail call fastcc void @zebra_interface.retelim(ptr noundef %91, ptr noundef %0, i32 noundef %115, i16 noundef zeroext %88, i8 noundef zeroext %56)
+  tail call fastcc void @zebra_interface(ptr noundef %91, ptr noundef %0, i32 noundef %115, i16 noundef zeroext %88, i8 noundef zeroext %56)
   br label %dissect_zebra_request.exit
 
 267:                                              ; preds = %170, %170
-  tail call fastcc void @zebra_interface_address.retelim(ptr noundef %91, ptr noundef %0, i32 noundef %115)
+  tail call fastcc void @zebra_interface_address(ptr noundef %91, ptr noundef %0, i32 noundef %115)
   br label %dissect_zebra_request.exit
 
 268:                                              ; preds = %170, %170, %170, %170
-  tail call fastcc void @zebra_route.retelim(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %115, i16 noundef zeroext %89, i8 noundef zeroext 0, i16 noundef zeroext %88, i8 noundef zeroext %56)
+  tail call fastcc void @zebra_route(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %115, i16 noundef zeroext %89, i8 noundef zeroext 0, i16 noundef zeroext %88, i8 noundef zeroext %56)
   br label %dissect_zebra_request.exit
 
 269:                                              ; preds = %170, %170
-  tail call fastcc void @zebra_redistribute.retelim(ptr noundef %91, ptr noundef %0, i32 noundef %115, i8 noundef zeroext %56)
+  tail call fastcc void @zebra_redistribute(ptr noundef %91, ptr noundef %0, i32 noundef %115, i8 noundef zeroext %56)
   br label %dissect_zebra_request.exit
 
 270:                                              ; preds = %170
@@ -1164,11 +1164,11 @@ zebra_hello.exit64:                               ; preds = %.thread333.i
   br label %dissect_zebra_request.exit
 
 299:                                              ; preds = %170, %170
-  tail call fastcc void @zebra_nexthop_register.retelim(ptr noundef %91, ptr noundef %0, i32 noundef %115, i16 noundef zeroext %89, i32 noundef 10)
+  tail call fastcc void @zebra_nexthop_register(ptr noundef %91, ptr noundef %0, i32 noundef %115, i16 noundef zeroext %89, i32 noundef 10)
   br label %dissect_zebra_request.exit
 
 300:                                              ; preds = %170
-  tail call fastcc void @zebra_nexthop_update.retelim(ptr noundef %91, ptr noundef %0, i32 noundef %115, i8 noundef zeroext %56)
+  tail call fastcc void @zebra_nexthop_update(ptr noundef %91, ptr noundef %0, i32 noundef %115, i8 noundef zeroext %56)
   br label %dissect_zebra_request.exit
 
 301:                                              ; preds = %170
@@ -1196,7 +1196,7 @@ zebra_hello.exit64:                               ; preds = %.thread333.i
   br label %dissect_zebra_request.exit
 
 319:                                              ; preds = %170
-  tail call fastcc void @zebra_get_label_chunk.retelim(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %115)
+  tail call fastcc void @zebra_get_label_chunk(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %115)
   br label %dissect_zebra_request.exit
 
 dissect_zebra_request.exit:                       ; preds = %290, %282, %235, %227, %.thread333.i, %.thread335.i, %129, %130, %131, %132, %133, %134, %135, %136, %138, %144, %146, %152, %161, %162, %zebra_hello.exit.i, %167, %169, %170, %173, %174, %175, %176, %177, %178, %179, %188, %zebra_hello.exit64, %196, %197, %198, %201, %202, %203, %204, %205, %206, %207, %215, %224, %238, %244, %245, %246, %255, %258, %264, %265, %266, %267, %268, %269, %270, %279, %293, %299, %300, %301, %310, %313, %319
@@ -1210,8 +1210,8 @@ dissect_zebra_request.exit:                       ; preds = %290, %282, %235, %2
   %323 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   br label %324
 
-324:                                              ; preds = %test_zebra.argprom.exit.thread, %._crit_edge
-  %.0 = phi i32 [ %323, %._crit_edge ], [ 0, %test_zebra.argprom.exit.thread ]
+324:                                              ; preds = %test_zebra.exit.thread, %._crit_edge
+  %.0 = phi i32 [ %323, %._crit_edge ], [ 0, %test_zebra.exit.thread ]
   ret i32 %.0
 }
 
@@ -1319,7 +1319,7 @@ declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr 
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zebra_interface.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i8 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @zebra_interface(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i8 noundef zeroext %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_zebra_interface, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %2, i32 noundef 20, i32 noundef 0) #4
   %8 = add i32 %2, 20
@@ -1427,7 +1427,7 @@ define internal fastcc void @zebra_interface.retelim(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zebra_interface_address.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @zebra_interface_address(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zebra_index, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef 0) #4
   %6 = add i32 %2, 4
@@ -1467,7 +1467,7 @@ define internal fastcc void @zebra_interface_address.retelim(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zebra_route.retelim(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i8 noundef zeroext range(i8 0, 11) %5, i16 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @zebra_route(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i8 noundef zeroext range(i8 0, 11) %5, i16 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca [16 x i8], align 16
@@ -1851,7 +1851,7 @@ zebra_route_ifindex.exit:                         ; preds = %.lr.ph.i, %155, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zebra_redistribute.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @zebra_redistribute(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #0 {
   %5 = icmp ugt i8 %3, 3
   br i1 %5, label %10, label %6
 
@@ -1882,7 +1882,7 @@ define internal fastcc void @zebra_redistribute.retelim(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zebra_nexthop_register.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @zebra_nexthop_register(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i32 noundef %4) unnamed_addr #0 {
   %6 = zext i16 %3 to i32
   %7 = sub i32 %6, %4
   %8 = icmp sgt i32 %7, 0
@@ -1928,7 +1928,7 @@ define internal fastcc void @zebra_nexthop_register.retelim(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zebra_nexthop_update.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @zebra_nexthop_update(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #0 {
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %2) #4
   %6 = load i32, ptr @hf_zebra_family, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef 0) #4
@@ -2107,7 +2107,7 @@ define internal fastcc void @zebra_nexthop_update.retelim(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zebra_get_label_chunk.retelim(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @zebra_get_label_chunk(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_zebra_proto, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %5, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #4
   %7 = add i32 %3, 1

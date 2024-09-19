@@ -153,7 +153,7 @@ define hidden noundef i32 @DiamDict_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not26.i, label %31, label %32
 
 31:                                               ; preds = %29
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.74) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.74) #28
   unreachable
 
 32:                                               ; preds = %29
@@ -180,7 +180,7 @@ define hidden noundef i32 @DiamDict_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not28.i, label %43, label %44
 
 43:                                               ; preds = %39
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.74) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.74) #28
   unreachable
 
 44:                                               ; preds = %39
@@ -1286,7 +1286,7 @@ DiamDict__delete_buffer.exit:                     ; preds = %552, %554, %563
   br i1 %593, label %594, label %yy_pop_state.exit
 
 594:                                              ; preds = %590
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.76) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.76) #28
   unreachable
 
 yy_pop_state.exit:                                ; preds = %590
@@ -1314,7 +1314,7 @@ yy_pop_state.exit:                                ; preds = %590
   br i1 %607, label %608, label %yy_pop_state.exit450
 
 608:                                              ; preds = %603
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.76) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.76) #28
   unreachable
 
 yy_pop_state.exit450:                             ; preds = %603
@@ -1425,7 +1425,7 @@ yy_pop_state.exit450:                             ; preds = %603
   br label %yy_push_state.exit
 
 662:                                              ; preds = %661
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.75) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #28
   unreachable
 
 yy_push_state.exit:                               ; preds = %._crit_edge.i, %._crit_edge20.i
@@ -1487,7 +1487,7 @@ yy_push_state.exit:                               ; preds = %._crit_edge.i, %._c
   br label %yy_push_state.exit462
 
 689:                                              ; preds = %688
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.75) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #28
   unreachable
 
 yy_push_state.exit462:                            ; preds = %._crit_edge.i459, %._crit_edge20.i457
@@ -1606,7 +1606,7 @@ yy_push_state.exit462:                            ; preds = %._crit_edge.i459, %
   br label %yy_push_state.exit472
 
 750:                                              ; preds = %749
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.75) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #28
   unreachable
 
 yy_push_state.exit472:                            ; preds = %._crit_edge.i469, %._crit_edge20.i467
@@ -1668,7 +1668,7 @@ yy_push_state.exit472:                            ; preds = %._crit_edge.i469, %
   br label %yy_push_state.exit482
 
 777:                                              ; preds = %776
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.75) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #28
   unreachable
 
 yy_push_state.exit482:                            ; preds = %._crit_edge.i479, %._crit_edge20.i477
@@ -1730,7 +1730,7 @@ yy_push_state.exit482:                            ; preds = %._crit_edge.i479, %
   br label %yy_push_state.exit492
 
 804:                                              ; preds = %803
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.75) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #28
   unreachable
 
 yy_push_state.exit492:                            ; preds = %._crit_edge.i489, %._crit_edge20.i487
@@ -1841,7 +1841,7 @@ yy_push_state.exit492:                            ; preds = %._crit_edge.i489, %
   br label %yy_push_state.exit502
 
 861:                                              ; preds = %860
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.75) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #28
   unreachable
 
 yy_push_state.exit502:                            ; preds = %._crit_edge.i499, %._crit_edge20.i497
@@ -1902,7 +1902,7 @@ yy_push_state.exit502:                            ; preds = %._crit_edge.i499, %
   br label %yy_push_state.exit512
 
 887:                                              ; preds = %886
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.75) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #28
   unreachable
 
 yy_push_state.exit512:                            ; preds = %._crit_edge.i509, %._crit_edge20.i507
@@ -1964,7 +1964,7 @@ yy_push_state.exit512:                            ; preds = %._crit_edge.i509, %
   br label %yy_push_state.exit522
 
 914:                                              ; preds = %913
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.75) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #28
   unreachable
 
 yy_push_state.exit522:                            ; preds = %._crit_edge.i519, %._crit_edge20.i517
@@ -2078,7 +2078,7 @@ yy_push_state.exit522:                            ; preds = %._crit_edge.i519, %
   br label %yy_push_state.exit532
 
 971:                                              ; preds = %970
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.75) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #28
   unreachable
 
 yy_push_state.exit532:                            ; preds = %._crit_edge.i529, %._crit_edge20.i527
@@ -2140,7 +2140,7 @@ yy_push_state.exit532:                            ; preds = %._crit_edge.i529, %
   br label %yy_push_state.exit542
 
 998:                                              ; preds = %997
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.75) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #28
   unreachable
 
 yy_push_state.exit542:                            ; preds = %._crit_edge.i539, %._crit_edge20.i537
@@ -2275,7 +2275,7 @@ yy_push_state.exit542:                            ; preds = %._crit_edge.i539, %
   br label %yy_push_state.exit552
 
 1074:                                             ; preds = %1073
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.75) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #28
   unreachable
 
 yy_push_state.exit552:                            ; preds = %._crit_edge.i549, %._crit_edge20.i547
@@ -2337,7 +2337,7 @@ yy_push_state.exit552:                            ; preds = %._crit_edge.i549, %
   br label %yy_push_state.exit562
 
 1101:                                             ; preds = %1100
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.75) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #28
   unreachable
 
 yy_push_state.exit562:                            ; preds = %._crit_edge.i559, %._crit_edge20.i557
@@ -2399,7 +2399,7 @@ yy_push_state.exit562:                            ; preds = %._crit_edge.i559, %
   br label %yy_push_state.exit572
 
 1128:                                             ; preds = %1127
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.75) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #28
   unreachable
 
 yy_push_state.exit572:                            ; preds = %._crit_edge.i569, %._crit_edge20.i567
@@ -2461,7 +2461,7 @@ yy_push_state.exit572:                            ; preds = %._crit_edge.i569, %
   br label %yy_push_state.exit582
 
 1155:                                             ; preds = %1154
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.75) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #28
   unreachable
 
 yy_push_state.exit582:                            ; preds = %._crit_edge.i579, %._crit_edge20.i577
@@ -2544,7 +2544,7 @@ yy_push_state.exit582:                            ; preds = %._crit_edge.i579, %
   br label %yy_push_state.exit592
 
 1191:                                             ; preds = %1190
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.75) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #28
   unreachable
 
 yy_push_state.exit592:                            ; preds = %._crit_edge.i589, %._crit_edge20.i587
@@ -2650,7 +2650,7 @@ yy_push_state.exit592:                            ; preds = %._crit_edge.i589, %
   br label %yy_push_state.exit602
 
 1246:                                             ; preds = %1245
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.75) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #28
   unreachable
 
 yy_push_state.exit602:                            ; preds = %._crit_edge.i599, %._crit_edge20.i597
@@ -2756,7 +2756,7 @@ yy_push_state.exit602:                            ; preds = %._crit_edge.i599, %
   br label %yy_push_state.exit612
 
 1301:                                             ; preds = %1300
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.75) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #28
   unreachable
 
 yy_push_state.exit612:                            ; preds = %._crit_edge.i609, %._crit_edge20.i607
@@ -2818,7 +2818,7 @@ yy_push_state.exit612:                            ; preds = %._crit_edge.i609, %
   br label %yy_push_state.exit622
 
 1328:                                             ; preds = %1327
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.75) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #28
   unreachable
 
 yy_push_state.exit622:                            ; preds = %._crit_edge.i619, %._crit_edge20.i617
@@ -2908,7 +2908,7 @@ yy_push_state.exit622:                            ; preds = %._crit_edge.i619, %
   br label %yy_push_state.exit632
 
 1358:                                             ; preds = %1357
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.75) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #28
   unreachable
 
 yy_push_state.exit632:                            ; preds = %._crit_edge.i629, %._crit_edge20.i627
@@ -3122,7 +3122,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i636, %1451
   br i1 %1479, label %1480, label %1481
 
 1480:                                             ; preds = %1474
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.71) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.71) #28
   unreachable
 
 1481:                                             ; preds = %1474
@@ -3230,7 +3230,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i636, %1451
   br i1 %.not109.i, label %.loopexit.i, label %1531
 
 .loopexit.i:                                      ; preds = %1527, %.thread.i643
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.72) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.72) #28
   unreachable
 
 1531:                                             ; preds = %1527
@@ -3333,7 +3333,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i636, %1451
   br i1 %.not111.i, label %1597, label %1598
 
 1597:                                             ; preds = %1579
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.73) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.73) #28
   unreachable
 
 1598:                                             ; preds = %1579
@@ -3582,7 +3582,7 @@ yy_get_next_buffer.exit.thread681:                ; preds = %1487, %yy_get_next_
   br i1 %exitcond.not.i676, label %.outer.backedge, label %.lr.ph31.i664, !llvm.loop !10
 
 1726:                                             ; preds = %139
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.51) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.51) #28
   unreachable
 
 default.unreachable1055:                          ; preds = %yy_get_next_buffer.exit
@@ -3605,7 +3605,7 @@ define hidden nonnull ptr @DiamDict__create_buffer(ptr noundef %0, i32 noundef %
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.52) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.52) #28
   unreachable
 
 6:                                                ; preds = %3
@@ -3620,7 +3620,7 @@ define hidden nonnull ptr @DiamDict__create_buffer(ptr noundef %0, i32 noundef %
   br i1 %.not12, label %12, label %13
 
 12:                                               ; preds = %6
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.52) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.52) #28
   unreachable
 
 13:                                               ; preds = %6
@@ -3755,7 +3755,7 @@ define hidden void @DiamDict__switch_to_buffer(ptr noundef %0, ptr nocapture nou
   br i1 %.not26.i, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.74) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.74) #28
   unreachable
 
 8:                                                ; preds = %5
@@ -3784,7 +3784,7 @@ define hidden void @DiamDict__switch_to_buffer(ptr noundef %0, ptr nocapture nou
   br i1 %.not28.i, label %21, label %22
 
 21:                                               ; preds = %17
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.74) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.74) #28
   unreachable
 
 22:                                               ; preds = %17
@@ -3914,7 +3914,7 @@ define hidden void @DiamDict__delete_buffer(ptr noundef %0, ptr nocapture nounde
 declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @yy_fatal_error.argprom(ptr noundef %0) unnamed_addr #10 {
+define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #10 {
   %2 = load ptr, ptr @stderr, align 8
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.14, ptr noundef %0) #35
   tail call void @exit(i32 noundef 2) #36
@@ -3943,7 +3943,7 @@ define hidden void @DiamDict_restart(ptr noundef %0, ptr nocapture noundef %1) l
   br i1 %.not26.i, label %12, label %13
 
 12:                                               ; preds = %10
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.74) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.74) #28
   unreachable
 
 13:                                               ; preds = %10
@@ -3970,7 +3970,7 @@ define hidden void @DiamDict_restart(ptr noundef %0, ptr nocapture noundef %1) l
   br i1 %.not28.i, label %24, label %25
 
 24:                                               ; preds = %20
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.74) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.74) #28
   unreachable
 
 25:                                               ; preds = %20
@@ -4196,7 +4196,7 @@ define hidden void @DiamDict_push_buffer_state(ptr noundef %0, ptr nocapture nou
   br i1 %.not26.i, label %9, label %10
 
 9:                                                ; preds = %7
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.74) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.74) #28
   unreachable
 
 10:                                               ; preds = %7
@@ -4225,7 +4225,7 @@ define hidden void @DiamDict_push_buffer_state(ptr noundef %0, ptr nocapture nou
   br i1 %.not28.i, label %23, label %24
 
 23:                                               ; preds = %19
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.74) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.74) #28
   unreachable
 
 24:                                               ; preds = %19
@@ -4420,7 +4420,7 @@ define hidden noundef ptr @DiamDict__scan_buffer(ptr noundef %0, i64 noundef %1,
   br i1 %.not26, label %15, label %16
 
 15:                                               ; preds = %13
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.53) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.53) #28
   unreachable
 
 16:                                               ; preds = %13
@@ -4485,7 +4485,7 @@ define hidden nonnull ptr @DiamDict__scan_bytes(ptr nocapture noundef readonly %
   br label %21
 
 14:                                               ; preds = %3
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.54) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.54) #28
   unreachable
 
 ._crit_edge:                                      ; preds = %.preheader
@@ -4519,11 +4519,11 @@ define hidden nonnull ptr @DiamDict__scan_bytes(ptr nocapture noundef readonly %
   br i1 %.not26.i, label %31, label %33
 
 31:                                               ; preds = %29
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.53) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.53) #28
   unreachable
 
 32:                                               ; preds = %25, %21, %._crit_edge
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.55) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.55) #28
   unreachable
 
 33:                                               ; preds = %29
@@ -4655,7 +4655,7 @@ define hidden void @DiamDict_set_lineno(i32 noundef %0, ptr nocapture noundef re
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.56) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.56) #28
   unreachable
 
 11:                                               ; preds = %5
@@ -4680,7 +4680,7 @@ define hidden void @DiamDict_set_column(i32 noundef %0, ptr nocapture noundef re
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.57) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.57) #28
   unreachable
 
 11:                                               ; preds = %5

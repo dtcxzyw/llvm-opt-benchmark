@@ -1293,16 +1293,16 @@ define hidden void @"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$allo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$syn..data..Field$GT$$GT$$GT$17hac8aa8b34b12786aE.argprom"(ptr %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$syn..data..Field$GT$$GT$$GT$17hac8aa8b34b12786aE"(ptr %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = icmp eq ptr %.0.val, null
   br i1 %1, label %2, label %3
 
-2:                                                ; preds = %"_ZN4core3ptr62drop_in_place$LT$alloc..boxed..Box$LT$syn..data..Field$GT$$GT$17hf57936b74d44e390E.argprom.exit", %0
+2:                                                ; preds = %"_ZN4core3ptr62drop_in_place$LT$alloc..boxed..Box$LT$syn..data..Field$GT$$GT$17hf57936b74d44e390E.exit", %0
   ret void
 
 3:                                                ; preds = %0
   invoke void @"_ZN4core3ptr37drop_in_place$LT$syn..data..Field$GT$17h1087ef1509550ee8E"(ptr noalias noundef nonnull align 8 dereferenceable(328) %.0.val)
-          to label %"_ZN4core3ptr62drop_in_place$LT$alloc..boxed..Box$LT$syn..data..Field$GT$$GT$17hf57936b74d44e390E.argprom.exit" unwind label %4
+          to label %"_ZN4core3ptr62drop_in_place$LT$alloc..boxed..Box$LT$syn..data..Field$GT$$GT$17hf57936b74d44e390E.exit" unwind label %4
 
 4:                                                ; preds = %3
   %5 = landingpad { ptr, i32 }
@@ -1310,7 +1310,7 @@ define internal fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Optio
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 328, i64 noundef 8) #27
   resume { ptr, i32 } %5
 
-"_ZN4core3ptr62drop_in_place$LT$alloc..boxed..Box$LT$syn..data..Field$GT$$GT$17hf57936b74d44e390E.argprom.exit": ; preds = %3
+"_ZN4core3ptr62drop_in_place$LT$alloc..boxed..Box$LT$syn..data..Field$GT$$GT$17hf57936b74d44e390E.exit": ; preds = %3
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 328, i64 noundef 8) #27
   br label %2
 }
@@ -9963,7 +9963,7 @@ define hidden void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$
 .thread.thread:                                   ; preds = %..thread.thread_crit_edge, %.thread
   %.val13 = phi ptr [ %9, %.thread ], [ %.val13.pre, %..thread.thread_crit_edge ]
   %.pn3439 = phi { ptr, i32 } [ %24, %.thread ], [ %28, %..thread.thread_crit_edge ]
-  invoke fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$syn..data..Field$GT$$GT$$GT$17hac8aa8b34b12786aE.argprom"(ptr %.val13) #30
+  invoke fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$syn..data..Field$GT$$GT$$GT$17hac8aa8b34b12786aE"(ptr %.val13) #30
           to label %29 unwind label %25
 }
 
@@ -10075,7 +10075,7 @@ define hidden void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$
 .thread.thread:                                   ; preds = %..thread.thread_crit_edge, %.thread
   %.val13 = phi ptr [ %.val15, %.thread ], [ %.val13.pre, %..thread.thread_crit_edge ]
   %.pn3641 = phi { ptr, i32 } [ %22, %.thread ], [ %26, %..thread.thread_crit_edge ]
-  invoke fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$syn..data..Field$GT$$GT$$GT$17hac8aa8b34b12786aE.argprom"(ptr %.val13) #30
+  invoke fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$syn..data..Field$GT$$GT$$GT$17hac8aa8b34b12786aE"(ptr %.val13) #30
           to label %27 unwind label %23
 }
 

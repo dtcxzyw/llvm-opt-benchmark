@@ -752,7 +752,7 @@ dissect_data_shifting_command_parameters.exit.i:  ; preds = %143, %is_data_shift
 get_data_bit_pin_prefix.exit.i.i:                 ; preds = %166, %165, %163, %162, %160, %157, %155
   %.061.i.i = phi i32 [ 0, %166 ], [ 8, %165 ], [ 8, %162 ], [ 8, %157 ], [ 8, %155 ], [ 8, %160 ], [ 8, %163 ]
   %.0.i.i.i = phi ptr [ null, %166 ], [ @.str.217, %165 ], [ @.str.217, %162 ], [ @.str.215, %157 ], [ @.str.215, %155 ], [ @.str.215, %160 ], [ @.str.215, %163 ]
-  call fastcc void @dissect_set_data_bits_parameters.argprom.argelim(ptr noundef %0, ptr noundef %95, i32 noundef %51, ptr noundef nonnull @get_data_bit_pin_prefix.low_byte_signal_names, ptr noundef %.0.i.i.i, i32 noundef %.061.i.i)
+  call fastcc void @dissect_set_data_bits_parameters(ptr noundef %0, ptr noundef %95, i32 noundef %51, ptr noundef nonnull @get_data_bit_pin_prefix.low_byte_signal_names, ptr noundef %.0.i.i.i, i32 noundef %.061.i.i)
   br label %dissect_non_data_shifting_command_parameters.exit.i
 
 167:                                              ; preds = %154
@@ -784,7 +784,7 @@ get_data_bit_pin_prefix.exit.i.i:                 ; preds = %166, %165, %163, %1
 get_data_bit_pin_prefix.exit56.i.i:               ; preds = %175, %174, %172, %169, %167
   %.1.i.i = phi i32 [ 0, %175 ], [ 8, %174 ], [ 4, %169 ], [ 8, %167 ], [ 8, %172 ]
   %.0.i55.i.i = phi ptr [ null, %175 ], [ @.str.216, %174 ], [ @.str.214, %169 ], [ @.str.214, %167 ], [ @.str.214, %172 ]
-  call fastcc void @dissect_set_data_bits_parameters.argprom.argelim(ptr noundef %0, ptr noundef %95, i32 noundef %51, ptr noundef nonnull @get_data_bit_pin_prefix.high_byte_signal_names, ptr noundef %.0.i55.i.i, i32 noundef %.1.i.i)
+  call fastcc void @dissect_set_data_bits_parameters(ptr noundef %0, ptr noundef %95, i32 noundef %51, ptr noundef nonnull @get_data_bit_pin_prefix.high_byte_signal_names, ptr noundef %.0.i55.i.i, i32 noundef %.1.i.i)
   br label %dissect_non_data_shifting_command_parameters.exit.i
 
 176:                                              ; preds = %154, %154
@@ -889,13 +889,13 @@ freq_to_str.exit15.i.i.i:                         ; preds = %221, %218, %214
 
 226:                                              ; preds = %freq_to_str.exit15.i.i.i
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %189, ptr noundef nonnull @.str.225, ptr noundef %.0.i.i.i.i) #6
-  br label %dissect_clock_parameters.argprom.exit.i.i
+  br label %dissect_clock_parameters.exit.i.i
 
 227:                                              ; preds = %freq_to_str.exit15.i.i.i
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %189, ptr noundef nonnull @.str.226, ptr noundef %.0.i14.i.i.i, ptr noundef %.0.i.i.i.i) #6
-  br label %dissect_clock_parameters.argprom.exit.i.i
+  br label %dissect_clock_parameters.exit.i.i
 
-dissect_clock_parameters.argprom.exit.i.i:        ; preds = %227, %226
+dissect_clock_parameters.exit.i.i:                ; preds = %227, %226
   call void @g_free(ptr noundef %.0.i.i.i.i) #6
   call void @g_free(ptr noundef %.0.i14.i.i.i) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
@@ -1068,7 +1068,7 @@ get_data_bit_pin_prefix.exit53.split.us.i.i.i:    ; preds = %get_data_bit_pin_pr
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %307, ptr noundef nonnull @.str.222, ptr noundef nonnull %301) #6
   %indvars.iv.next17.i.i.i = add nuw nsw i64 %indvars.iv16.i.i.i, 1
   %exitcond19.not.i.i.i = icmp eq i64 %indvars.iv.next17.i.i.i, 8
-  br i1 %exitcond19.not.i.i.i, label %dissect_io_open_drain_enable_parameters.argprom.exit.i.i, label %get_data_bit_pin_prefix.exit53.split.us.i.i.i, !llvm.loop !6
+  br i1 %exitcond19.not.i.i.i, label %dissect_io_open_drain_enable_parameters.exit.i.i, label %get_data_bit_pin_prefix.exit53.split.us.i.i.i, !llvm.loop !6
 
 get_data_bit_pin_prefix.exit53.split.i.i.i:       ; preds = %get_data_bit_pin_prefix.exit53.i.i.i, %321
   %indvars.iv20.i.i.i = phi i64 [ %indvars.iv.next21.i.i.i, %321 ], [ 0, %get_data_bit_pin_prefix.exit53.i.i.i ]
@@ -1095,14 +1095,14 @@ get_data_bit_pin_prefix.exit53.split.i.i.i:       ; preds = %get_data_bit_pin_pr
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %318, ptr noundef nonnull @.str.222, ptr noundef nonnull %312) #6
   %indvars.iv.next21.i.i.i = add nuw nsw i64 %indvars.iv20.i.i.i, 1
   %exitcond23.not.i.i.i = icmp eq i64 %indvars.iv.next21.i.i.i, 8
-  br i1 %exitcond23.not.i.i.i, label %dissect_io_open_drain_enable_parameters.argprom.exit.i.i, label %get_data_bit_pin_prefix.exit53.split.i.i.i, !llvm.loop !6
+  br i1 %exitcond23.not.i.i.i, label %dissect_io_open_drain_enable_parameters.exit.i.i, label %get_data_bit_pin_prefix.exit53.split.i.i.i, !llvm.loop !6
 
-dissect_io_open_drain_enable_parameters.argprom.exit.i.i: ; preds = %get_data_bit_pin_prefix.exit53.split.us.i.i.i, %321
+dissect_io_open_drain_enable_parameters.exit.i.i: ; preds = %get_data_bit_pin_prefix.exit53.split.us.i.i.i, %321
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   br label %dissect_non_data_shifting_command_parameters.exit.i
 
-dissect_non_data_shifting_command_parameters.exit.i: ; preds = %dissect_io_open_drain_enable_parameters.argprom.exit.i.i, %236, %228, %dissect_clock_parameters.argprom.exit.i.i, %dissect_cpumode_parameters.exit.i.i, %176, %get_data_bit_pin_prefix.exit56.i.i, %get_data_bit_pin_prefix.exit.i.i, %154
-  %.0.i79.i = phi i32 [ 2, %dissect_io_open_drain_enable_parameters.argprom.exit.i.i ], [ 2, %236 ], [ 1, %228 ], [ 2, %dissect_clock_parameters.argprom.exit.i.i ], [ %186, %dissect_cpumode_parameters.exit.i.i ], [ 0, %176 ], [ 2, %get_data_bit_pin_prefix.exit56.i.i ], [ 2, %get_data_bit_pin_prefix.exit.i.i ], [ 0, %154 ]
+dissect_non_data_shifting_command_parameters.exit.i: ; preds = %dissect_io_open_drain_enable_parameters.exit.i.i, %236, %228, %dissect_clock_parameters.exit.i.i, %dissect_cpumode_parameters.exit.i.i, %176, %get_data_bit_pin_prefix.exit56.i.i, %get_data_bit_pin_prefix.exit.i.i, %154
+  %.0.i79.i = phi i32 [ 2, %dissect_io_open_drain_enable_parameters.exit.i.i ], [ 2, %236 ], [ 1, %228 ], [ 2, %dissect_clock_parameters.exit.i.i ], [ %186, %dissect_cpumode_parameters.exit.i.i ], [ 0, %176 ], [ 2, %get_data_bit_pin_prefix.exit56.i.i ], [ 2, %get_data_bit_pin_prefix.exit.i.i ], [ 0, %154 ]
   %322 = icmp sgt i32 %.029.i.i, %.0.i79.i
   br i1 %322, label %323, label %327
 
@@ -1481,7 +1481,7 @@ proto_item_set_generated.exit79.i:                ; preds = %459, %456, %445
 
 501:                                              ; preds = %498
   %502 = load i8, ptr %383, align 4
-  switch i8 %502, label %dissect_non_data_shifting_command_response.argprom.exit.i.i [
+  switch i8 %502, label %dissect_non_data_shifting_command_response.exit.i.i [
     i8 -127, label %503
     i8 -125, label %519
     i8 -112, label %531
@@ -1532,8 +1532,8 @@ proto_item_set_generated.exit79.i:                ; preds = %459, %456, %445
 get_data_bit_pin_prefix.exit.i.i.i95:             ; preds = %518, %517, %514, %513, %510, %506, %503
   %.03.i.i.i96 = phi i32 [ 0, %518 ], [ 8, %517 ], [ 8, %513 ], [ 8, %506 ], [ 8, %503 ], [ 8, %510 ], [ 8, %514 ]
   %.0.i.i.i.i97 = phi ptr [ null, %518 ], [ @.str.217, %517 ], [ @.str.217, %513 ], [ @.str.215, %506 ], [ @.str.215, %503 ], [ @.str.215, %510 ], [ @.str.215, %514 ]
-  call fastcc void @dissect_read_data_bits_response.argprom.argelim(ptr noundef %0, ptr noundef %449, i32 noundef %.063.i, ptr noundef nonnull @get_data_bit_pin_prefix.low_byte_signal_names, ptr noundef %.0.i.i.i.i97, i32 noundef %.03.i.i.i96)
-  br label %dissect_non_data_shifting_command_response.argprom.exit.i.i
+  call fastcc void @dissect_read_data_bits_response(ptr noundef %0, ptr noundef %449, i32 noundef %.063.i, ptr noundef nonnull @get_data_bit_pin_prefix.low_byte_signal_names, ptr noundef %.0.i.i.i.i97, i32 noundef %.03.i.i.i96)
+  br label %dissect_non_data_shifting_command_response.exit.i.i
 
 519:                                              ; preds = %501
   %520 = getelementptr inbounds i8, ptr %.2143, i64 8
@@ -1567,26 +1567,26 @@ get_data_bit_pin_prefix.exit.i.i.i95:             ; preds = %518, %517, %514, %5
 get_data_bit_pin_prefix.exit22.i.i.i:             ; preds = %530, %529, %526, %522, %519
   %.1.i.i.i = phi i32 [ 0, %530 ], [ 8, %529 ], [ 4, %522 ], [ 8, %519 ], [ 8, %526 ]
   %.0.i21.i.i.i = phi ptr [ null, %530 ], [ @.str.216, %529 ], [ @.str.214, %522 ], [ @.str.214, %519 ], [ @.str.214, %526 ]
-  call fastcc void @dissect_read_data_bits_response.argprom.argelim(ptr noundef %0, ptr noundef %449, i32 noundef %.063.i, ptr noundef nonnull @get_data_bit_pin_prefix.high_byte_signal_names, ptr noundef %.0.i21.i.i.i, i32 noundef %.1.i.i.i)
-  br label %dissect_non_data_shifting_command_response.argprom.exit.i.i
+  call fastcc void @dissect_read_data_bits_response(ptr noundef %0, ptr noundef %449, i32 noundef %.063.i, ptr noundef nonnull @get_data_bit_pin_prefix.high_byte_signal_names, ptr noundef %.0.i21.i.i.i, i32 noundef %.1.i.i.i)
+  br label %dissect_non_data_shifting_command_response.exit.i.i
 
 531:                                              ; preds = %501, %501
   %532 = load i32, ptr @hf_mpsse_cpumode_data, align 4
   %533 = call ptr @proto_tree_add_item(ptr noundef %449, i32 noundef %532, ptr noundef %0, i32 noundef %.063.i, i32 noundef 1, i32 noundef -2147483648) #6
-  br label %dissect_non_data_shifting_command_response.argprom.exit.i.i
+  br label %dissect_non_data_shifting_command_response.exit.i.i
 
-dissect_non_data_shifting_command_response.argprom.exit.i.i: ; preds = %531, %get_data_bit_pin_prefix.exit22.i.i.i, %get_data_bit_pin_prefix.exit.i.i.i95, %501
+dissect_non_data_shifting_command_response.exit.i.i: ; preds = %531, %get_data_bit_pin_prefix.exit22.i.i.i, %get_data_bit_pin_prefix.exit.i.i.i95, %501
   %.0.i.i.i92 = phi i32 [ 1, %531 ], [ 1, %get_data_bit_pin_prefix.exit22.i.i.i ], [ 1, %get_data_bit_pin_prefix.exit.i.i.i95 ], [ 0, %501 ]
   %534 = add i32 %.0.i.i.i92, %.063.i
   %535 = load i32, ptr %442, align 8
   %.not57.i.i = icmp sgt i32 %.0.i.i.i92, %535
   br i1 %.not57.i.i, label %536, label %537
 
-536:                                              ; preds = %dissect_non_data_shifting_command_response.argprom.exit.i.i
+536:                                              ; preds = %dissect_non_data_shifting_command_response.exit.i.i
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.117, i32 noundef 1154, ptr noundef nonnull @.str.243) #7
   unreachable
 
-537:                                              ; preds = %dissect_non_data_shifting_command_response.argprom.exit.i.i
+537:                                              ; preds = %dissect_non_data_shifting_command_response.exit.i.i
   %538 = icmp ugt i32 %535, %.0.i.i.i92
   br i1 %538, label %539, label %dissect_response_data.exit.i
 
@@ -2327,7 +2327,7 @@ declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i
 declare void @proto_tree_add_bitmask_list_value(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_set_data_bits_parameters.argprom.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_set_data_bits_parameters(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_mpsse_value, align 4
@@ -2472,7 +2472,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare void @wmem_tree_insert32_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_read_data_bits_response.argprom.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_read_data_bits_response(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_mpsse_value, align 4
   %9 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %7) #6

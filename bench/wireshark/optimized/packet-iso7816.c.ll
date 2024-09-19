@@ -441,7 +441,7 @@ proto_item_set_generated.exit.i:                  ; preds = %56, %55, %51, %48, 
   %76 = add nsw i8 %69, 80
   %or.cond11.i.i = icmp ult i8 %76, 32
   %or.cond.i = select i1 %or.cond8.i.i, i1 true, i1 %or.cond11.i.i
-  br i1 %or.cond.i, label %select.unfold.i, label %dissect_iso7816_class.argprom.exit.i
+  br i1 %or.cond.i, label %select.unfold.i, label %dissect_iso7816_class.exit.i
 
 select.unfold.i:                                  ; preds = %71, %proto_item_set_generated.exit.i
   %77 = load ptr, ptr @iso7816_apdu_pld_table, align 8
@@ -461,7 +461,7 @@ select.unfold.i:                                  ; preds = %71, %proto_item_set
   tail call void @col_append_sep_str(ptr noundef %84, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.152) #3
   br label %dissect_iso7816_cmd_apdu.exit
 
-dissect_iso7816_class.argprom.exit.i:             ; preds = %71
+dissect_iso7816_class.exit.i:                     ; preds = %71
   %85 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
   %86 = load i32, ptr @hf_iso7816_ins, align 4
   %87 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %86, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
@@ -472,7 +472,7 @@ dissect_iso7816_class.argprom.exit.i:             ; preds = %71
   %.not99.i = icmp eq ptr %.083.i, null
   br i1 %.not99.i, label %96, label %91
 
-91:                                               ; preds = %dissect_iso7816_class.argprom.exit.i
+91:                                               ; preds = %dissect_iso7816_class.exit.i
   %92 = getelementptr inbounds i8, ptr %.083.i, i64 8
   %93 = load i8, ptr %92, align 8
   %94 = icmp eq i8 %93, 0
@@ -482,7 +482,7 @@ dissect_iso7816_class.argprom.exit.i:             ; preds = %71
   store i8 %85, ptr %92, align 8
   br label %96
 
-96:                                               ; preds = %95, %91, %dissect_iso7816_class.argprom.exit.i
+96:                                               ; preds = %95, %91, %dissect_iso7816_class.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %97 = load i32, ptr @ett_iso7816_param, align 4
@@ -876,7 +876,7 @@ define internal noundef i32 @dissect_iso7816_atr(ptr noundef %0, ptr noundef %1,
   %62 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %14, i32 noundef %60, ptr noundef %0, i32 noundef %57, i32 noundef 1, i32 noundef %61, ptr noundef nonnull @.str.181, i32 noundef %35, i32 noundef %61) #3
   %63 = load i32, ptr @ett_iso7816_atr_ta, align 4
   %64 = tail call ptr @proto_item_add_subtree(ptr noundef %62, i32 noundef %63) #3
-  br i1 %21, label %65, label %dissect_iso7816_atr_ta.argprom.exit
+  br i1 %21, label %65, label %dissect_iso7816_atr_ta.exit
 
 65:                                               ; preds = %58
   %66 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %57) #3
@@ -928,7 +928,7 @@ FI_to_Fi.exit.thread4.i:                          ; preds = %72, %FI_to_Fi.exit.
   br label %DI_to_Di.exit.thread.i
 
 88:                                               ; preds = %FI_to_Fi.exit.thread4.i
-  switch i8 %82, label %dissect_iso7816_atr_ta.argprom.exit [
+  switch i8 %82, label %dissect_iso7816_atr_ta.exit [
     i8 8, label %DI_to_Di.exit.thread.i
     i8 9, label %DI_to_Di.exit.thread.fold.split.i
   ]
@@ -941,14 +941,14 @@ DI_to_Di.exit.thread.i:                           ; preds = %DI_to_Di.exit.threa
   %89 = load i32, ptr @hf_iso7816_atr_ta1_di, align 4
   %90 = zext nneg i8 %82 to i32
   %91 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %64, i32 noundef %89, ptr noundef %0, i32 noundef %57, i32 noundef 1, i32 noundef %.0.i319.i, ptr noundef nonnull @.str.183, i32 noundef %.0.i319.i, i32 noundef %90) #3
-  br label %dissect_iso7816_atr_ta.argprom.exit
+  br label %dissect_iso7816_atr_ta.exit
 
-dissect_iso7816_atr_ta.argprom.exit:              ; preds = %58, %88, %DI_to_Di.exit.thread.i
+dissect_iso7816_atr_ta.exit:                      ; preds = %58, %88, %DI_to_Di.exit.thread.i
   %92 = add i32 %.0123, 2
   br label %93
 
-93:                                               ; preds = %dissect_iso7816_atr_ta.argprom.exit, %29
-  %.1 = phi i32 [ %92, %dissect_iso7816_atr_ta.argprom.exit ], [ %57, %29 ]
+93:                                               ; preds = %dissect_iso7816_atr_ta.exit, %29
+  %.1 = phi i32 [ %92, %dissect_iso7816_atr_ta.exit ], [ %57, %29 ]
   br i1 %.not129, label %100, label %94
 
 94:                                               ; preds = %93

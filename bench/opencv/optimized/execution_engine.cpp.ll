@@ -739,12 +739,12 @@ _ZN3ade11PassManagerINS_6passes11PassContextEE3runERS2_.exit: ; preds = %_ZN3ade
 
 33:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call fastcc void @_ZN3ade12_GLOBAL__N_119GraphListenerSetterD2Ev.argprom(ptr %1) #22
+  call fastcc void @_ZN3ade12_GLOBAL__N_119GraphListenerSetterD2Ev(ptr %1) #22
   resume { ptr, i32 } %lpad.phi
 
 34:                                               ; preds = %23
   invoke void @_ZN3ade5Graph11setListenerEPNS_14IGraphListenerE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef null)
-          to label %_ZN3ade12_GLOBAL__N_119GraphListenerSetterD2Ev.argprom.exit unwind label %35
+          to label %_ZN3ade12_GLOBAL__N_119GraphListenerSetterD2Ev.exit unwind label %35
 
 35:                                               ; preds = %34
   %36 = landingpad { ptr, i32 }
@@ -753,7 +753,7 @@ _ZN3ade11PassManagerINS_6passes11PassContextEE3runERS2_.exit: ; preds = %_ZN3ade
   call void @__clang_call_terminate(ptr %37) #24
   unreachable
 
-_ZN3ade12_GLOBAL__N_119GraphListenerSetterD2Ev.argprom.exit: ; preds = %34
+_ZN3ade12_GLOBAL__N_119GraphListenerSetterD2Ev.exit: ; preds = %34
   ret void
 }
 
@@ -794,7 +794,7 @@ define hidden noundef ptr @_ZNK3ade15ExecutionEngine10LazyPasses7getPassERKNSt7_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN3ade12_GLOBAL__N_119GraphListenerSetterD2Ev.argprom(ptr nonnull %.0.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ade12_GLOBAL__N_119GraphListenerSetterD2Ev(ptr nonnull %.0.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN3ade5Graph11setListenerEPNS_14IGraphListenerE(ptr noundef nonnull align 8 dereferenceable(168) %.0.val, ptr noundef null)
           to label %1 unwind label %2
 

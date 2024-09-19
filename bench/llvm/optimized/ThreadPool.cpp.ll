@@ -220,13 +220,13 @@ _ZNSt10lock_guardIN4llvm3sys12SmartRWMutexILb0EEEEC2ERS3_.exit: ; preds = %2
   %32 = tail call noundef i64 @_ZN4llvm27llvm_execute_on_thread_implEPFPvS0_ES0_St8optionalIjE(ptr noundef nonnull @"_ZN4llvm6thread11ThreadProxyISt5tupleIJZNS_13StdThreadPool4growEiE3$_0EEEEPvS6_", ptr noundef nonnull %31, i64 %.sroa.0.0.copyload.i.i.i.i) #21
   store i64 %32, ptr %28, align 8
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
-  br i1 %.not.i.i.i.i.i, label %"_ZNKSt14default_deleteISt5tupleIJZN4llvm13StdThreadPool4growEiE3$_0EEEclEPS4_.argprom.exit.i.i.i.i.i.i", label %"_ZNSt16allocator_traitsISaIN4llvm6threadEEE9constructIS1_JZNS0_13StdThreadPool4growEiE3$_0EEEvRS2_PT_DpOT0_.argprom.exit.i"
+  br i1 %.not.i.i.i.i.i, label %"_ZNKSt14default_deleteISt5tupleIJZN4llvm13StdThreadPool4growEiE3$_0EEEclEPS4_.exit.i.i.i.i.i.i", label %"_ZNSt16allocator_traitsISaIN4llvm6threadEEE9constructIS1_JZNS0_13StdThreadPool4growEiE3$_0EEEvRS2_PT_DpOT0_.exit.i"
 
-"_ZNKSt14default_deleteISt5tupleIJZN4llvm13StdThreadPool4growEiE3$_0EEEclEPS4_.argprom.exit.i.i.i.i.i.i": ; preds = %30
+"_ZNKSt14default_deleteISt5tupleIJZN4llvm13StdThreadPool4growEiE3$_0EEEclEPS4_.exit.i.i.i.i.i.i": ; preds = %30
   tail call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef 16) #22
-  br label %"_ZNSt16allocator_traitsISaIN4llvm6threadEEE9constructIS1_JZNS0_13StdThreadPool4growEiE3$_0EEEvRS2_PT_DpOT0_.argprom.exit.i"
+  br label %"_ZNSt16allocator_traitsISaIN4llvm6threadEEE9constructIS1_JZNS0_13StdThreadPool4growEiE3$_0EEEvRS2_PT_DpOT0_.exit.i"
 
-"_ZNSt16allocator_traitsISaIN4llvm6threadEEE9constructIS1_JZNS0_13StdThreadPool4growEiE3$_0EEEvRS2_PT_DpOT0_.argprom.exit.i": ; preds = %"_ZNKSt14default_deleteISt5tupleIJZN4llvm13StdThreadPool4growEiE3$_0EEEclEPS4_.argprom.exit.i.i.i.i.i.i", %30
+"_ZNSt16allocator_traitsISaIN4llvm6threadEEE9constructIS1_JZNS0_13StdThreadPool4growEiE3$_0EEEvRS2_PT_DpOT0_.exit.i": ; preds = %"_ZNKSt14default_deleteISt5tupleIJZN4llvm13StdThreadPool4growEiE3$_0EEEclEPS4_.exit.i.i.i.i.i.i", %30
   %33 = load ptr, ptr %8, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 8
   store ptr %34, ptr %8, align 8
@@ -266,19 +266,19 @@ _ZNSt12_Vector_baseIN4llvm6threadESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %4
   %48 = tail call noundef i64 @_ZN4llvm27llvm_execute_on_thread_implEPFPvS0_ES0_St8optionalIjE(ptr noundef nonnull @"_ZN4llvm6thread11ThreadProxyISt5tupleIJZNS_13StdThreadPool4growEiE3$_0EEEEPvS6_", ptr noundef nonnull %47, i64 %.sroa.0.0.copyload.i.i.i.i.i) #21
   store i64 %48, ptr %46, align 8
   %.not.i.i.i.i.i.i = icmp eq i64 %48, 0
-  br i1 %.not.i.i.i.i.i.i, label %"_ZNKSt14default_deleteISt5tupleIJZN4llvm13StdThreadPool4growEiE3$_0EEEclEPS4_.argprom.exit.i.i.i.i.i.i.i", label %"_ZNSt16allocator_traitsISaIN4llvm6threadEEE9constructIS1_JZNS0_13StdThreadPool4growEiE3$_0EEEvRS2_PT_DpOT0_.argprom.exit.i.i"
+  br i1 %.not.i.i.i.i.i.i, label %"_ZNKSt14default_deleteISt5tupleIJZN4llvm13StdThreadPool4growEiE3$_0EEEclEPS4_.exit.i.i.i.i.i.i.i", label %"_ZNSt16allocator_traitsISaIN4llvm6threadEEE9constructIS1_JZNS0_13StdThreadPool4growEiE3$_0EEEvRS2_PT_DpOT0_.exit.i.i"
 
-"_ZNKSt14default_deleteISt5tupleIJZN4llvm13StdThreadPool4growEiE3$_0EEEclEPS4_.argprom.exit.i.i.i.i.i.i.i": ; preds = %_ZNSt12_Vector_baseIN4llvm6threadESaIS1_EE11_M_allocateEm.exit.i.i
+"_ZNKSt14default_deleteISt5tupleIJZN4llvm13StdThreadPool4growEiE3$_0EEEclEPS4_.exit.i.i.i.i.i.i.i": ; preds = %_ZNSt12_Vector_baseIN4llvm6threadESaIS1_EE11_M_allocateEm.exit.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %47, i64 noundef 16) #22
-  br label %"_ZNSt16allocator_traitsISaIN4llvm6threadEEE9constructIS1_JZNS0_13StdThreadPool4growEiE3$_0EEEvRS2_PT_DpOT0_.argprom.exit.i.i"
+  br label %"_ZNSt16allocator_traitsISaIN4llvm6threadEEE9constructIS1_JZNS0_13StdThreadPool4growEiE3$_0EEEvRS2_PT_DpOT0_.exit.i.i"
 
-"_ZNSt16allocator_traitsISaIN4llvm6threadEEE9constructIS1_JZNS0_13StdThreadPool4growEiE3$_0EEEvRS2_PT_DpOT0_.argprom.exit.i.i": ; preds = %"_ZNKSt14default_deleteISt5tupleIJZN4llvm13StdThreadPool4growEiE3$_0EEEclEPS4_.argprom.exit.i.i.i.i.i.i.i", %_ZNSt12_Vector_baseIN4llvm6threadESaIS1_EE11_M_allocateEm.exit.i.i
+"_ZNSt16allocator_traitsISaIN4llvm6threadEEE9constructIS1_JZNS0_13StdThreadPool4growEiE3$_0EEEvRS2_PT_DpOT0_.exit.i.i": ; preds = %"_ZNKSt14default_deleteISt5tupleIJZN4llvm13StdThreadPool4growEiE3$_0EEEclEPS4_.exit.i.i.i.i.i.i.i", %_ZNSt12_Vector_baseIN4llvm6threadESaIS1_EE11_M_allocateEm.exit.i.i
   %.not10.i.i.i.i.i = icmp eq ptr %27, %28
   br i1 %.not10.i.i.i.i.i, label %_ZNSt6vectorIN4llvm6threadESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %"_ZNSt16allocator_traitsISaIN4llvm6threadEEE9constructIS1_JZNS0_13StdThreadPool4growEiE3$_0EEEvRS2_PT_DpOT0_.argprom.exit.i.i", %.lr.ph.i.i.i.i.i
-  %.012.i.i.i.i.i = phi ptr [ %51, %.lr.ph.i.i.i.i.i ], [ %45, %"_ZNSt16allocator_traitsISaIN4llvm6threadEEE9constructIS1_JZNS0_13StdThreadPool4growEiE3$_0EEEvRS2_PT_DpOT0_.argprom.exit.i.i" ]
-  %.0911.i.i.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i.i.i ], [ %27, %"_ZNSt16allocator_traitsISaIN4llvm6threadEEE9constructIS1_JZNS0_13StdThreadPool4growEiE3$_0EEEvRS2_PT_DpOT0_.argprom.exit.i.i" ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %"_ZNSt16allocator_traitsISaIN4llvm6threadEEE9constructIS1_JZNS0_13StdThreadPool4growEiE3$_0EEEvRS2_PT_DpOT0_.exit.i.i", %.lr.ph.i.i.i.i.i
+  %.012.i.i.i.i.i = phi ptr [ %51, %.lr.ph.i.i.i.i.i ], [ %45, %"_ZNSt16allocator_traitsISaIN4llvm6threadEEE9constructIS1_JZNS0_13StdThreadPool4growEiE3$_0EEEvRS2_PT_DpOT0_.exit.i.i" ]
+  %.0911.i.i.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i.i.i ], [ %27, %"_ZNSt16allocator_traitsISaIN4llvm6threadEEE9constructIS1_JZNS0_13StdThreadPool4growEiE3$_0EEEvRS2_PT_DpOT0_.exit.i.i" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %49 = load i64, ptr %.0911.i.i.i.i.i, align 8, !alias.scope !7, !noalias !4
@@ -289,8 +289,8 @@ _ZNSt12_Vector_baseIN4llvm6threadESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %4
   %.not.i.i.i.i3.i = icmp eq ptr %50, %28
   br i1 %.not.i.i.i.i3.i, label %_ZNSt6vectorIN4llvm6threadESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !9
 
-_ZNSt6vectorIN4llvm6threadESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %"_ZNSt16allocator_traitsISaIN4llvm6threadEEE9constructIS1_JZNS0_13StdThreadPool4growEiE3$_0EEEvRS2_PT_DpOT0_.argprom.exit.i.i"
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %45, %"_ZNSt16allocator_traitsISaIN4llvm6threadEEE9constructIS1_JZNS0_13StdThreadPool4growEiE3$_0EEEvRS2_PT_DpOT0_.argprom.exit.i.i" ], [ %51, %.lr.ph.i.i.i.i.i ]
+_ZNSt6vectorIN4llvm6threadESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %"_ZNSt16allocator_traitsISaIN4llvm6threadEEE9constructIS1_JZNS0_13StdThreadPool4growEiE3$_0EEEvRS2_PT_DpOT0_.exit.i.i"
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %45, %"_ZNSt16allocator_traitsISaIN4llvm6threadEEE9constructIS1_JZNS0_13StdThreadPool4growEiE3$_0EEEvRS2_PT_DpOT0_.exit.i.i" ], [ %51, %.lr.ph.i.i.i.i.i ]
   %52 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i23.i.i = icmp eq ptr %27, null
   br i1 %.not.i23.i.i, label %"_ZNSt6vectorIN4llvm6threadESaIS1_EE17_M_realloc_insertIJZNS0_13StdThreadPool4growEiE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i", label %53
@@ -309,9 +309,9 @@ _ZNSt6vectorIN4llvm6threadESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; pr
   store ptr %57, ptr %21, align 8
   br label %"_ZNSt6vectorIN4llvm6threadESaIS1_EE12emplace_backIJZNS0_13StdThreadPool4growEiE3$_0EEERS1_DpOT_.exit"
 
-"_ZNSt6vectorIN4llvm6threadESaIS1_EE12emplace_backIJZNS0_13StdThreadPool4growEiE3$_0EEERS1_DpOT_.exit": ; preds = %"_ZNSt16allocator_traitsISaIN4llvm6threadEEE9constructIS1_JZNS0_13StdThreadPool4growEiE3$_0EEEvRS2_PT_DpOT0_.argprom.exit.i", %"_ZNSt6vectorIN4llvm6threadESaIS1_EE17_M_realloc_insertIJZNS0_13StdThreadPool4growEiE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i"
-  %58 = phi ptr [ %.pre, %"_ZNSt16allocator_traitsISaIN4llvm6threadEEE9constructIS1_JZNS0_13StdThreadPool4growEiE3$_0EEEvRS2_PT_DpOT0_.argprom.exit.i" ], [ %45, %"_ZNSt6vectorIN4llvm6threadESaIS1_EE17_M_realloc_insertIJZNS0_13StdThreadPool4growEiE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i" ]
-  %59 = phi ptr [ %34, %"_ZNSt16allocator_traitsISaIN4llvm6threadEEE9constructIS1_JZNS0_13StdThreadPool4growEiE3$_0EEEvRS2_PT_DpOT0_.argprom.exit.i" ], [ %52, %"_ZNSt6vectorIN4llvm6threadESaIS1_EE17_M_realloc_insertIJZNS0_13StdThreadPool4growEiE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i" ]
+"_ZNSt6vectorIN4llvm6threadESaIS1_EE12emplace_backIJZNS0_13StdThreadPool4growEiE3$_0EEERS1_DpOT_.exit": ; preds = %"_ZNSt16allocator_traitsISaIN4llvm6threadEEE9constructIS1_JZNS0_13StdThreadPool4growEiE3$_0EEEvRS2_PT_DpOT0_.exit.i", %"_ZNSt6vectorIN4llvm6threadESaIS1_EE17_M_realloc_insertIJZNS0_13StdThreadPool4growEiE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i"
+  %58 = phi ptr [ %.pre, %"_ZNSt16allocator_traitsISaIN4llvm6threadEEE9constructIS1_JZNS0_13StdThreadPool4growEiE3$_0EEEvRS2_PT_DpOT0_.exit.i" ], [ %45, %"_ZNSt6vectorIN4llvm6threadESaIS1_EE17_M_realloc_insertIJZNS0_13StdThreadPool4growEiE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i" ]
+  %59 = phi ptr [ %34, %"_ZNSt16allocator_traitsISaIN4llvm6threadEEE9constructIS1_JZNS0_13StdThreadPool4growEiE3$_0EEEvRS2_PT_DpOT0_.exit.i" ], [ %52, %"_ZNSt6vectorIN4llvm6threadESaIS1_EE17_M_realloc_insertIJZNS0_13StdThreadPool4growEiE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i" ]
   %60 = ptrtoint ptr %59 to i64
   %61 = ptrtoint ptr %58 to i64
   %62 = sub i64 %60, %61
@@ -1250,22 +1250,22 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
   br label %11
 
-11:                                               ; preds = %"_ZZN4llvm13StdThreadPool4waitEvENK3$_0clEv.argprom.exit.thread.i", %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
+11:                                               ; preds = %"_ZZN4llvm13StdThreadPool4waitEvENK3$_0clEv.exit.thread.i", %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   %12 = load i32, ptr %10, align 8
   %.not.i.i.i1 = icmp eq i32 %12, 0
-  br i1 %.not.i.i.i1, label %"_ZZN4llvm13StdThreadPool4waitEvENK3$_0clEv.argprom.exit.i", label %"_ZZN4llvm13StdThreadPool4waitEvENK3$_0clEv.argprom.exit.thread.i"
+  br i1 %.not.i.i.i1, label %"_ZZN4llvm13StdThreadPool4waitEvENK3$_0clEv.exit.i", label %"_ZZN4llvm13StdThreadPool4waitEvENK3$_0clEv.exit.thread.i"
 
-"_ZZN4llvm13StdThreadPool4waitEvENK3$_0clEv.argprom.exit.i": ; preds = %11
+"_ZZN4llvm13StdThreadPool4waitEvENK3$_0clEv.exit.i": ; preds = %11
   %13 = load ptr, ptr %8, align 8
   %14 = load ptr, ptr %9, align 8
   %15 = icmp eq ptr %13, %14
-  br i1 %15, label %"_ZNSt18condition_variable4waitIZN4llvm13StdThreadPool4waitEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit", label %"_ZZN4llvm13StdThreadPool4waitEvENK3$_0clEv.argprom.exit.thread.i"
+  br i1 %15, label %"_ZNSt18condition_variable4waitIZN4llvm13StdThreadPool4waitEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit", label %"_ZZN4llvm13StdThreadPool4waitEvENK3$_0clEv.exit.thread.i"
 
-"_ZZN4llvm13StdThreadPool4waitEvENK3$_0clEv.argprom.exit.thread.i": ; preds = %"_ZZN4llvm13StdThreadPool4waitEvENK3$_0clEv.argprom.exit.i", %11
+"_ZZN4llvm13StdThreadPool4waitEvENK3$_0clEv.exit.thread.i": ; preds = %"_ZZN4llvm13StdThreadPool4waitEvENK3$_0clEv.exit.i", %11
   call void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(9) %2) #21
   br label %11, !llvm.loop !69
 
-"_ZNSt18condition_variable4waitIZN4llvm13StdThreadPool4waitEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit": ; preds = %"_ZZN4llvm13StdThreadPool4waitEvENK3$_0clEv.argprom.exit.i"
+"_ZNSt18condition_variable4waitIZN4llvm13StdThreadPool4waitEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit": ; preds = %"_ZZN4llvm13StdThreadPool4waitEvENK3$_0clEv.exit.i"
   %16 = load i8, ptr %4, align 8
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %_ZNSt11unique_lockISt5mutexED2Ev.exit

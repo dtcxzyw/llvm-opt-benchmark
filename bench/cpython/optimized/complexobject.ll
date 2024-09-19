@@ -1177,19 +1177,19 @@ if.end:                                           ; preds = %entry
   %0 = load i64, ptr getelementptr inbounds (i8, ptr @PyComplex_Type, i64 168), align 8
   %1 = and i64 %0, 512
   %tobool.not.i = icmp eq i64 %1, 0
-  br i1 %tobool.not.i, label %_PyObject_Init.argprom.exit, label %if.then.i
+  br i1 %tobool.not.i, label %_PyObject_Init.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   %2 = load i32, ptr @PyComplex_Type, align 8
   %add.i.i = add i32 %2, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
-  br i1 %cmp.i.i, label %_PyObject_Init.argprom.exit, label %if.end.i.i
+  br i1 %cmp.i.i, label %_PyObject_Init.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i
   store i32 %add.i.i, ptr @PyComplex_Type, align 8
-  br label %_PyObject_Init.argprom.exit
+  br label %_PyObject_Init.exit
 
-_PyObject_Init.argprom.exit:                      ; preds = %if.end, %if.then.i, %if.end.i.i
+_PyObject_Init.exit:                              ; preds = %if.end, %if.then.i, %if.end.i.i
   tail call void @_Py_NewReference(ptr noundef nonnull %call) #14
   %cval2 = getelementptr inbounds i8, ptr %call, i64 16
   store double %cval.coerce0, ptr %cval2, align 8
@@ -1197,8 +1197,8 @@ _PyObject_Init.argprom.exit:                      ; preds = %if.end, %if.then.i,
   store double %cval.coerce1, ptr %cval.sroa.2.0.cval2.sroa_idx, align 8
   br label %return
 
-return:                                           ; preds = %_PyObject_Init.argprom.exit, %if.then
-  %retval.0 = phi ptr [ %call1, %if.then ], [ %call, %_PyObject_Init.argprom.exit ]
+return:                                           ; preds = %_PyObject_Init.exit, %if.then
+  %retval.0 = phi ptr [ %call1, %if.then ], [ %call, %_PyObject_Init.exit ]
   ret ptr %retval.0
 }
 
@@ -1226,19 +1226,19 @@ if.end.i:                                         ; preds = %entry
   %0 = load i64, ptr getelementptr inbounds (i8, ptr @PyComplex_Type, i64 168), align 8
   %1 = and i64 %0, 512
   %tobool.not.i.i = icmp eq i64 %1, 0
-  br i1 %tobool.not.i.i, label %_PyObject_Init.argprom.exit.i, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %_PyObject_Init.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   %2 = load i32, ptr @PyComplex_Type, align 8
   %add.i.i.i = add i32 %2, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
-  br i1 %cmp.i.i.i, label %_PyObject_Init.argprom.exit.i, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %_PyObject_Init.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
   store i32 %add.i.i.i, ptr @PyComplex_Type, align 8
-  br label %_PyObject_Init.argprom.exit.i
+  br label %_PyObject_Init.exit.i
 
-_PyObject_Init.argprom.exit.i:                    ; preds = %if.end.i.i.i, %if.then.i.i, %if.end.i
+_PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i, %if.then.i.i, %if.end.i
   tail call void @_Py_NewReference(ptr noundef nonnull %call.i) #14
   %cval2.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store double %real, ptr %cval2.i, align 8
@@ -1246,8 +1246,8 @@ _PyObject_Init.argprom.exit.i:                    ; preds = %if.end.i.i.i, %if.t
   store double %imag, ptr %cval.sroa.2.0.cval2.sroa_idx.i, align 8
   br label %PyComplex_FromCComplex.exit
 
-PyComplex_FromCComplex.exit:                      ; preds = %if.then.i, %_PyObject_Init.argprom.exit.i
-  %retval.0.i = phi ptr [ %call1.i, %if.then.i ], [ %call.i, %_PyObject_Init.argprom.exit.i ]
+PyComplex_FromCComplex.exit:                      ; preds = %if.then.i, %_PyObject_Init.exit.i
+  %retval.0.i = phi ptr [ %call1.i, %if.then.i ], [ %call.i, %_PyObject_Init.exit.i ]
   ret ptr %retval.0.i
 }
 
@@ -1257,19 +1257,19 @@ entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %op.val, @PyComplex_Type
-  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.argprom.exit
+  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
+PyObject_TypeCheck.exit:                          ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %op.val, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.else, label %if.then
 
-if.then:                                          ; preds = %entry, %PyObject_TypeCheck.argprom.exit
+if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
   %cval = getelementptr inbounds i8, ptr %op, i64 16
   %1 = load double, ptr %cval, align 8
   br label %return
 
-if.else:                                          ; preds = %PyObject_TypeCheck.argprom.exit
+if.else:                                          ; preds = %PyObject_TypeCheck.exit
   %call1 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %op) #14
   br label %return
 
@@ -1286,20 +1286,20 @@ entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %op.val, @PyComplex_Type
-  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.argprom.exit
+  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
+PyObject_TypeCheck.exit:                          ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %op.val, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %return, label %if.then
 
-if.then:                                          ; preds = %entry, %PyObject_TypeCheck.argprom.exit
+if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
   %imag = getelementptr inbounds i8, ptr %op, i64 24
   %1 = load double, ptr %imag, align 8
   br label %return
 
-return:                                           ; preds = %PyObject_TypeCheck.argprom.exit, %if.then
-  %retval.0 = phi double [ %1, %if.then ], [ 0.000000e+00, %PyObject_TypeCheck.argprom.exit ]
+return:                                           ; preds = %PyObject_TypeCheck.exit, %if.then
+  %retval.0 = phi double [ %1, %if.then ], [ 0.000000e+00, %PyObject_TypeCheck.exit ]
   ret double %retval.0
 }
 
@@ -1309,21 +1309,21 @@ entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %op.val, @PyComplex_Type
-  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.argprom.exit
+  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
+PyObject_TypeCheck.exit:                          ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %op.val, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %entry, %PyObject_TypeCheck.argprom.exit
+if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
   %cval = getelementptr inbounds i8, ptr %op, i64 16
   %retval.sroa.0.0.copyload = load double, ptr %cval, align 8
   %retval.sroa.5.0.cval.sroa_idx = getelementptr inbounds i8, ptr %op, i64 24
   %retval.sroa.5.0.copyload = load double, ptr %retval.sroa.5.0.cval.sroa_idx, align 8
   br label %return
 
-if.end:                                           ; preds = %PyObject_TypeCheck.argprom.exit
+if.end:                                           ; preds = %PyObject_TypeCheck.exit
   %call1 = tail call fastcc ptr @try_complex_special_method(ptr noundef nonnull %op)
   %tobool2.not = icmp eq ptr %call1, null
   br i1 %tobool2.not, label %if.else, label %if.then3
@@ -1425,9 +1425,9 @@ lor.lhs.false:                                    ; preds = %Py_DECREF.exit36
   %8 = getelementptr i8, ptr %retval.0.i.i, i64 8
   %call1.val18 = load ptr, ptr %8, align 8
   %cmp.i20.not = icmp eq ptr %call1.val18, @PyComplex_Type
-  br i1 %cmp.i20.not, label %return, label %PyObject_TypeCheck.argprom.exit
+  br i1 %cmp.i20.not, label %return, label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.argprom.exit:                  ; preds = %lor.lhs.false
+PyObject_TypeCheck.exit:                          ; preds = %lor.lhs.false
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %call1.val18, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   %call1.val = load ptr, ptr %8, align 8
@@ -1435,7 +1435,7 @@ PyObject_TypeCheck.argprom.exit:                  ; preds = %lor.lhs.false
   %9 = load ptr, ptr %tp_name, align 8
   br i1 %tobool3.i.not, label %if.then8, label %if.end11
 
-if.then8:                                         ; preds = %PyObject_TypeCheck.argprom.exit
+if.then8:                                         ; preds = %PyObject_TypeCheck.exit
   %10 = load ptr, ptr @PyExc_TypeError, align 8
   %call10 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %10, ptr noundef nonnull @.str.1, ptr noundef %9) #14
   %11 = load i64, ptr %retval.0.i.i, align 8
@@ -1449,7 +1449,7 @@ if.end.i22:                                       ; preds = %if.then8
   %cmp.i24 = icmp eq i64 %dec.i23, 0
   br i1 %cmp.i24, label %return.sink.split, label %return
 
-if.end11:                                         ; preds = %PyObject_TypeCheck.argprom.exit
+if.end11:                                         ; preds = %PyObject_TypeCheck.exit
   %13 = load ptr, ptr @PyExc_DeprecationWarning, align 8
   %call14 = tail call i32 (ptr, i64, ptr, ...) @PyErr_WarnFormat(ptr noundef %13, i64 noundef 1, ptr noundef nonnull @.str.2, ptr noundef %9) #14
   %tobool15.not = icmp eq i32 %call14, 0
@@ -1581,21 +1581,21 @@ if.end:                                           ; preds = %entry
   %1 = getelementptr i8, ptr %v, i64 8
   %.val13 = load ptr, ptr %1, align 8
   %cmp.i.not.i = icmp eq ptr %.val13, @PyComplex_Type
-  br i1 %cmp.i.not.i, label %if.then2, label %PyObject_TypeCheck.argprom.exit
+  br i1 %cmp.i.not.i, label %if.then2, label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.argprom.exit:                  ; preds = %if.end
+PyObject_TypeCheck.exit:                          ; preds = %if.end
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val13, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.else, label %if.then2
 
-if.then2:                                         ; preds = %if.end, %PyObject_TypeCheck.argprom.exit
+if.then2:                                         ; preds = %if.end, %PyObject_TypeCheck.exit
   %cval = getelementptr inbounds i8, ptr %v, i64 16
   %i.sroa.0.0.copyload = load double, ptr %cval, align 8
   %i.sroa.7.0.cval.sroa_idx = getelementptr inbounds i8, ptr %v, i64 24
   %i.sroa.7.0.copyload = load double, ptr %i.sroa.7.0.cval.sroa_idx, align 8
   br label %if.end7
 
-if.else:                                          ; preds = %PyObject_TypeCheck.argprom.exit
+if.else:                                          ; preds = %PyObject_TypeCheck.exit
   %.val.i = load ptr, ptr %1, align 8
   %2 = getelementptr i8, ptr %.val.i, i64 168
   %call.val.i = load i64, ptr %2, align 8
@@ -1615,18 +1615,18 @@ land.lhs.true.i:                                  ; preds = %if.then.i
 
 if.end8.i:                                        ; preds = %if.else
   %cmp.i.not.i.i = icmp eq ptr %.val.i, @PyFloat_Type
-  br i1 %cmp.i.not.i.i, label %if.then11.i, label %PyObject_TypeCheck.argprom.exit.i
+  br i1 %cmp.i.not.i.i, label %if.then11.i, label %PyObject_TypeCheck.exit.i
 
-PyObject_TypeCheck.argprom.exit.i:                ; preds = %if.end8.i
+PyObject_TypeCheck.exit.i:                        ; preds = %if.end8.i
   %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type) #14
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %if.end14.i, label %if.then11.i
 
-if.then11.i:                                      ; preds = %PyObject_TypeCheck.argprom.exit.i, %if.end8.i
+if.then11.i:                                      ; preds = %PyObject_TypeCheck.exit.i, %if.end8.i
   %call12.i = tail call double @PyFloat_AsDouble(ptr noundef nonnull %v) #14
   br label %if.end7
 
-if.end14.i:                                       ; preds = %PyObject_TypeCheck.argprom.exit.i
+if.end14.i:                                       ; preds = %PyObject_TypeCheck.exit.i
   %4 = load i32, ptr @_Py_NotImplementedStruct, align 8
   %add.i.i.i = add i32 %4, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
@@ -1679,43 +1679,43 @@ if.then1.i:                                       ; preds = %if.end.i
 
 if.else21:                                        ; preds = %if.end7
   %cmp.i.not.i17 = icmp eq ptr %.val, @PyFloat_Type
-  br i1 %cmp.i.not.i17, label %if.then24, label %PyObject_TypeCheck.argprom.exit22
+  br i1 %cmp.i.not.i17, label %if.then24, label %PyObject_TypeCheck.exit22
 
-PyObject_TypeCheck.argprom.exit22:                ; preds = %if.else21
+PyObject_TypeCheck.exit22:                        ; preds = %if.else21
   %call2.i19 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyFloat_Type) #14
   %tobool3.i20.not = icmp eq i32 %call2.i19, 0
   br i1 %tobool3.i20.not, label %if.else30, label %if.then24
 
-if.then24:                                        ; preds = %if.else21, %PyObject_TypeCheck.argprom.exit22
+if.then24:                                        ; preds = %if.else21, %PyObject_TypeCheck.exit22
   %call26 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %w) #14
   br label %if.end57
 
-if.else30:                                        ; preds = %PyObject_TypeCheck.argprom.exit22
+if.else30:                                        ; preds = %PyObject_TypeCheck.exit22
   %.val11 = load ptr, ptr %5, align 8
   %cmp.i.not.i23 = icmp eq ptr %.val11, @PyComplex_Type
-  br i1 %cmp.i.not.i23, label %if.then37, label %PyObject_TypeCheck.argprom.exit28
+  br i1 %cmp.i.not.i23, label %if.then37, label %PyObject_TypeCheck.exit28
 
-PyObject_TypeCheck.argprom.exit28:                ; preds = %if.else30
+PyObject_TypeCheck.exit28:                        ; preds = %if.else30
   %call2.i25 = tail call i32 @PyType_IsSubtype(ptr noundef %.val11, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i26.not = icmp eq i32 %call2.i25, 0
   br i1 %tobool3.i26.not, label %return, label %if.then33
 
-if.then33:                                        ; preds = %PyObject_TypeCheck.argprom.exit28
+if.then33:                                        ; preds = %PyObject_TypeCheck.exit28
   %.val10.pr = load ptr, ptr %5, align 8
   %cmp.i.not.i29 = icmp eq ptr %.val10.pr, @PyComplex_Type
-  br i1 %cmp.i.not.i29, label %if.then37, label %PyObject_TypeCheck.argprom.exit34
+  br i1 %cmp.i.not.i29, label %if.then37, label %PyObject_TypeCheck.exit34
 
-PyObject_TypeCheck.argprom.exit34:                ; preds = %if.then33
+PyObject_TypeCheck.exit34:                        ; preds = %if.then33
   %call2.i31 = tail call i32 @PyType_IsSubtype(ptr noundef %.val10.pr, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i32.not = icmp eq i32 %call2.i31, 0
   br i1 %tobool3.i32.not, label %if.else39, label %if.then37
 
-if.then37:                                        ; preds = %if.else30, %if.then33, %PyObject_TypeCheck.argprom.exit34
+if.then37:                                        ; preds = %if.else30, %if.then33, %PyObject_TypeCheck.exit34
   %cval38 = getelementptr inbounds i8, ptr %w, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %j34, ptr noundef nonnull align 8 dereferenceable(16) %cval38, i64 16, i1 false)
   br label %if.end44
 
-if.else39:                                        ; preds = %PyObject_TypeCheck.argprom.exit34
+if.else39:                                        ; preds = %PyObject_TypeCheck.exit34
   %call40 = call fastcc i32 @to_complex(ptr noundef %w.addr, ptr noundef %j34)
   %cmp41 = icmp slt i32 %call40, 0
   br i1 %cmp41, label %if.then42, label %if.end44
@@ -1760,8 +1760,8 @@ if.end.i.i37:                                     ; preds = %if.else62.split
   store i32 %add.i.i35, ptr @_Py_FalseStruct, align 8
   br label %return
 
-return:                                           ; preds = %land.lhs.true.i, %if.end.i.i37, %if.else62.split, %if.end.i.i, %if.then61.split, %if.end14.i, %if.end.i.i.i, %entry, %PyObject_TypeCheck.argprom.exit28, %if.end.i, %if.then1.i, %if.end17, %if.then13, %if.then42
-  %retval.0 = phi ptr [ %10, %if.then42 ], [ null, %if.then13 ], [ %call18, %if.end17 ], [ %call18, %if.then1.i ], [ %call18, %if.end.i ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.argprom.exit28 ], [ @_Py_NotImplementedStruct, %entry ], [ @_Py_NotImplementedStruct, %if.end14.i ], [ @_Py_NotImplementedStruct, %if.end.i.i.i ], [ @_Py_TrueStruct, %if.then61.split ], [ @_Py_TrueStruct, %if.end.i.i ], [ @_Py_FalseStruct, %if.else62.split ], [ @_Py_FalseStruct, %if.end.i.i37 ], [ null, %land.lhs.true.i ]
+return:                                           ; preds = %land.lhs.true.i, %if.end.i.i37, %if.else62.split, %if.end.i.i, %if.then61.split, %if.end14.i, %if.end.i.i.i, %entry, %PyObject_TypeCheck.exit28, %if.end.i, %if.then1.i, %if.end17, %if.then13, %if.then42
+  %retval.0 = phi ptr [ %10, %if.then42 ], [ null, %if.then13 ], [ %call18, %if.end17 ], [ %call18, %if.then1.i ], [ %call18, %if.end.i ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit28 ], [ @_Py_NotImplementedStruct, %entry ], [ @_Py_NotImplementedStruct, %if.end14.i ], [ @_Py_NotImplementedStruct, %if.end.i.i.i ], [ @_Py_TrueStruct, %if.then61.split ], [ @_Py_TrueStruct, %if.end.i.i ], [ @_Py_FalseStruct, %if.else62.split ], [ @_Py_FalseStruct, %if.end.i.i37 ], [ null, %land.lhs.true.i ]
   ret ptr %retval.0
 }
 
@@ -1932,19 +1932,19 @@ land.lhs.true35.i:                                ; preds = %lor.lhs.false.i
   %cmp36.i = icmp ne ptr %21, null
   %cmp.i.not.i.i = icmp eq ptr %r.addr.1.val63.i, @PyComplex_Type
   %or.cond.i = or i1 %cmp.i.not.i.i, %cmp36.i
-  br i1 %or.cond.i, label %if.end46.i, label %PyObject_TypeCheck.argprom.exit.i
+  br i1 %or.cond.i, label %if.end46.i, label %PyObject_TypeCheck.exit.i
 
-PyObject_TypeCheck.argprom.exit.i:                ; preds = %land.lhs.true35.i
+PyObject_TypeCheck.exit.i:                        ; preds = %land.lhs.true35.i
   %call2.i80.i = call i32 @PyType_IsSubtype(ptr noundef %r.addr.1.val63.i, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i.not.i = icmp eq i32 %call2.i80.i, 0
-  br i1 %tobool3.i.not.i, label %PyObject_TypeCheck.argprom.exit.if.then40_crit_edge.i, label %if.end46.i
+  br i1 %tobool3.i.not.i, label %PyObject_TypeCheck.exit.if.then40_crit_edge.i, label %if.end46.i
 
-PyObject_TypeCheck.argprom.exit.if.then40_crit_edge.i: ; preds = %PyObject_TypeCheck.argprom.exit.i
+PyObject_TypeCheck.exit.if.then40_crit_edge.i:    ; preds = %PyObject_TypeCheck.exit.i
   %r.addr.1.val.pre.i = load ptr, ptr %18, align 8
   br label %if.then40.i
 
-if.then40.i:                                      ; preds = %PyObject_TypeCheck.argprom.exit.if.then40_crit_edge.i, %if.end31.i
-  %r.addr.1.val.i = phi ptr [ %r.addr.1.val.pre.i, %PyObject_TypeCheck.argprom.exit.if.then40_crit_edge.i ], [ %r.addr.1.val63.i, %if.end31.i ]
+if.then40.i:                                      ; preds = %PyObject_TypeCheck.exit.if.then40_crit_edge.i, %if.end31.i
+  %r.addr.1.val.i = phi ptr [ %r.addr.1.val.pre.i, %PyObject_TypeCheck.exit.if.then40_crit_edge.i ], [ %r.addr.1.val63.i, %if.end31.i ]
   %22 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name.i = getelementptr inbounds i8, ptr %r.addr.1.val.i, i64 24
   %23 = load ptr, ptr %tp_name.i, align 8
@@ -1967,7 +1967,7 @@ if.then1.i161.i:                                  ; preds = %if.end.i158.i
   call void @_Py_Dealloc(ptr noundef nonnull %r.addr.1.i) #14
   br label %exit
 
-if.end46.i:                                       ; preds = %PyObject_TypeCheck.argprom.exit.i, %land.lhs.true35.i, %lor.lhs.false.i
+if.end46.i:                                       ; preds = %PyObject_TypeCheck.exit.i, %land.lhs.true35.i, %lor.lhs.false.i
   br i1 %cmp17.i, label %if.then48.i, label %if.end69.i
 
 if.then48.i:                                      ; preds = %if.end46.i
@@ -1990,19 +1990,19 @@ land.lhs.true55.i:                                ; preds = %lor.lhs.false52.i
   %cmp57.i = icmp ne ptr %29, null
   %cmp.i.not.i81.i = icmp eq ptr %i.val62.i, @PyComplex_Type
   %or.cond115.i = or i1 %cmp.i.not.i81.i, %cmp57.i
-  br i1 %or.cond115.i, label %if.end69.i, label %PyObject_TypeCheck.argprom.exit86.i
+  br i1 %or.cond115.i, label %if.end69.i, label %PyObject_TypeCheck.exit86.i
 
-PyObject_TypeCheck.argprom.exit86.i:              ; preds = %land.lhs.true55.i
+PyObject_TypeCheck.exit86.i:                      ; preds = %land.lhs.true55.i
   %call2.i83.i = call i32 @PyType_IsSubtype(ptr noundef %i.val62.i, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i84.not.i = icmp eq i32 %call2.i83.i, 0
-  br i1 %tobool3.i84.not.i, label %PyObject_TypeCheck.argprom.exit86.if.then61_crit_edge.i, label %if.end69.i
+  br i1 %tobool3.i84.not.i, label %PyObject_TypeCheck.exit86.if.then61_crit_edge.i, label %if.end69.i
 
-PyObject_TypeCheck.argprom.exit86.if.then61_crit_edge.i: ; preds = %PyObject_TypeCheck.argprom.exit86.i
+PyObject_TypeCheck.exit86.if.then61_crit_edge.i:  ; preds = %PyObject_TypeCheck.exit86.i
   %i.val.pre.i = load ptr, ptr %26, align 8
   br label %if.then61.i
 
-if.then61.i:                                      ; preds = %PyObject_TypeCheck.argprom.exit86.if.then61_crit_edge.i, %if.then48.i
-  %i.val.i = phi ptr [ %i.val.pre.i, %PyObject_TypeCheck.argprom.exit86.if.then61_crit_edge.i ], [ %i.val62.i, %if.then48.i ]
+if.then61.i:                                      ; preds = %PyObject_TypeCheck.exit86.if.then61_crit_edge.i, %if.then48.i
+  %i.val.i = phi ptr [ %i.val.pre.i, %PyObject_TypeCheck.exit86.if.then61_crit_edge.i ], [ %i.val62.i, %if.then48.i ]
   %30 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name63.i = getelementptr inbounds i8, ptr %i.val.i, i64 24
   %31 = load ptr, ptr %tp_name63.i, align 8
@@ -2025,17 +2025,17 @@ if.then1.i152.i:                                  ; preds = %if.end.i149.i
   call void @_Py_Dealloc(ptr noundef nonnull %r.addr.1.i) #14
   br label %exit
 
-if.end69.i:                                       ; preds = %PyObject_TypeCheck.argprom.exit86.i, %land.lhs.true55.i, %lor.lhs.false52.i, %if.end46.i
+if.end69.i:                                       ; preds = %PyObject_TypeCheck.exit86.i, %land.lhs.true55.i, %lor.lhs.false52.i, %if.end46.i
   %r.addr.1.val67.i = load ptr, ptr %18, align 8
   %cmp.i.not.i87.i = icmp eq ptr %r.addr.1.val67.i, @PyComplex_Type
-  br i1 %cmp.i.not.i87.i, label %if.then72.i, label %PyObject_TypeCheck.argprom.exit92.i
+  br i1 %cmp.i.not.i87.i, label %if.then72.i, label %PyObject_TypeCheck.exit92.i
 
-PyObject_TypeCheck.argprom.exit92.i:              ; preds = %if.end69.i
+PyObject_TypeCheck.exit92.i:                      ; preds = %if.end69.i
   %call2.i89.i = call i32 @PyType_IsSubtype(ptr noundef %r.addr.1.val67.i, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i90.not.i = icmp eq i32 %call2.i89.i, 0
   br i1 %tobool3.i90.not.i, label %if.else76.i, label %if.then72.i
 
-if.then72.i:                                      ; preds = %PyObject_TypeCheck.argprom.exit92.i, %if.end69.i
+if.then72.i:                                      ; preds = %PyObject_TypeCheck.exit92.i, %if.end69.i
   %cval.i = getelementptr inbounds i8, ptr %r.addr.1.i, i64 16
   %cr.sroa.0.0.copyload.i = load double, ptr %cval.i, align 8
   %cr.sroa.5.0.cval.sroa_idx.i = getelementptr inbounds i8, ptr %r.addr.1.i, i64 24
@@ -2054,7 +2054,7 @@ if.end.i140.i:                                    ; preds = %if.then74.i
   %cmp.i142.i = icmp eq i64 %dec.i141.i, 0
   br i1 %cmp.i142.i, label %if.end85.sink.split.i, label %if.end85.i
 
-if.else76.i:                                      ; preds = %PyObject_TypeCheck.argprom.exit92.i
+if.else76.i:                                      ; preds = %PyObject_TypeCheck.exit92.i
   %call77.i = call ptr @PyNumber_Float(ptr noundef nonnull %r.addr.1.i) #14
   br i1 %tobool25.not.i, label %if.end80.i, label %if.then79.i
 
@@ -2109,14 +2109,14 @@ if.else90.i:                                      ; preds = %if.end85.i
   %40 = getelementptr i8, ptr %i.0, i64 8
   %i.val66.i = load ptr, ptr %40, align 8
   %cmp.i.not.i93.i = icmp eq ptr %i.val66.i, @PyComplex_Type
-  br i1 %cmp.i.not.i93.i, label %if.end103.i, label %PyObject_TypeCheck.argprom.exit98.i
+  br i1 %cmp.i.not.i93.i, label %if.end103.i, label %PyObject_TypeCheck.exit98.i
 
-PyObject_TypeCheck.argprom.exit98.i:              ; preds = %if.else90.i
+PyObject_TypeCheck.exit98.i:                      ; preds = %if.else90.i
   %call2.i95.i = call i32 @PyType_IsSubtype(ptr noundef %i.val66.i, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i96.not.i = icmp eq i32 %call2.i95.i, 0
   br i1 %tobool3.i96.not.i, label %if.else95.i, label %if.end103.i
 
-if.else95.i:                                      ; preds = %PyObject_TypeCheck.argprom.exit98.i
+if.else95.i:                                      ; preds = %PyObject_TypeCheck.exit98.i
   %call96.i = call ptr @PyNumber_Float(ptr noundef nonnull %i.0) #14
   %cmp97.i = icmp eq ptr %call96.i, null
   br i1 %cmp97.i, label %exit, label %if.end99.i
@@ -2138,7 +2138,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   call void @_Py_Dealloc(ptr noundef nonnull %call96.i) #14
   br label %43
 
-if.end103.i:                                      ; preds = %PyObject_TypeCheck.argprom.exit98.i, %if.else90.i
+if.end103.i:                                      ; preds = %PyObject_TypeCheck.exit98.i, %if.else90.i
   %cval94.i = getelementptr inbounds i8, ptr %i.0, i64 16
   %ci.sroa.0.0.copyload.i = load double, ptr %cval94.i, align 8
   %ci.sroa.6.0.cval94.sroa_idx.i = getelementptr inbounds i8, ptr %i.0, i64 24
@@ -2206,21 +2206,21 @@ entry:
   %0 = getelementptr i8, ptr %v, i64 8
   %v.val = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %v.val, @PyComplex_Type
-  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.argprom.exit
+  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
+PyObject_TypeCheck.exit:                          ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %v.val, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.else, label %if.then
 
-if.then:                                          ; preds = %entry, %PyObject_TypeCheck.argprom.exit
+if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
   %cval = getelementptr inbounds i8, ptr %v, i64 16
   %a.sroa.0.0.copyload = load double, ptr %cval, align 8
   %a.sroa.5.0.cval.sroa_idx = getelementptr inbounds i8, ptr %v, i64 24
   %a.sroa.5.0.copyload = load double, ptr %a.sroa.5.0.cval.sroa_idx, align 8
   br label %if.end3
 
-if.else:                                          ; preds = %PyObject_TypeCheck.argprom.exit
+if.else:                                          ; preds = %PyObject_TypeCheck.exit
   %.val.i = load ptr, ptr %0, align 8
   %1 = getelementptr i8, ptr %.val.i, i64 168
   %call.val.i = load i64, ptr %1, align 8
@@ -2240,18 +2240,18 @@ land.lhs.true.i:                                  ; preds = %if.then.i
 
 if.end8.i:                                        ; preds = %if.else
   %cmp.i.not.i.i = icmp eq ptr %.val.i, @PyFloat_Type
-  br i1 %cmp.i.not.i.i, label %if.then11.i, label %PyObject_TypeCheck.argprom.exit.i
+  br i1 %cmp.i.not.i.i, label %if.then11.i, label %PyObject_TypeCheck.exit.i
 
-PyObject_TypeCheck.argprom.exit.i:                ; preds = %if.end8.i
+PyObject_TypeCheck.exit.i:                        ; preds = %if.end8.i
   %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type) #14
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %if.end14.i, label %if.then11.i
 
-if.then11.i:                                      ; preds = %PyObject_TypeCheck.argprom.exit.i, %if.end8.i
+if.then11.i:                                      ; preds = %PyObject_TypeCheck.exit.i, %if.end8.i
   %call12.i = tail call double @PyFloat_AsDouble(ptr noundef nonnull %v) #14
   br label %if.end3
 
-if.end14.i:                                       ; preds = %PyObject_TypeCheck.argprom.exit.i
+if.end14.i:                                       ; preds = %PyObject_TypeCheck.exit.i
   %3 = load i32, ptr @_Py_NotImplementedStruct, align 8
   %add.i.i.i = add i32 %3, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
@@ -2267,21 +2267,21 @@ if.end3:                                          ; preds = %if.then11.i, %land.
   %4 = getelementptr i8, ptr %w, i64 8
   %.val = load ptr, ptr %4, align 8
   %cmp.i.not.i2 = icmp eq ptr %.val, @PyComplex_Type
-  br i1 %cmp.i.not.i2, label %if.then6, label %PyObject_TypeCheck.argprom.exit7
+  br i1 %cmp.i.not.i2, label %if.then6, label %PyObject_TypeCheck.exit7
 
-PyObject_TypeCheck.argprom.exit7:                 ; preds = %if.end3
+PyObject_TypeCheck.exit7:                         ; preds = %if.end3
   %call2.i4 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i5.not = icmp eq i32 %call2.i4, 0
   br i1 %tobool3.i5.not, label %if.else8, label %if.then6
 
-if.then6:                                         ; preds = %if.end3, %PyObject_TypeCheck.argprom.exit7
+if.then6:                                         ; preds = %if.end3, %PyObject_TypeCheck.exit7
   %cval7 = getelementptr inbounds i8, ptr %w, i64 16
   %b.sroa.0.0.copyload = load double, ptr %cval7, align 8
   %b.sroa.5.0.cval7.sroa_idx = getelementptr inbounds i8, ptr %w, i64 24
   %b.sroa.5.0.copyload = load double, ptr %b.sroa.5.0.cval7.sroa_idx, align 8
   br label %if.end13
 
-if.else8:                                         ; preds = %PyObject_TypeCheck.argprom.exit7
+if.else8:                                         ; preds = %PyObject_TypeCheck.exit7
   %.val.i8 = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val.i8, i64 168
   %call.val.i9 = load i64, ptr %5, align 8
@@ -2301,18 +2301,18 @@ land.lhs.true.i15:                                ; preds = %if.then.i11
 
 if.end8.i19:                                      ; preds = %if.else8
   %cmp.i.not.i.i20 = icmp eq ptr %.val.i8, @PyFloat_Type
-  br i1 %cmp.i.not.i.i20, label %if.then11.i24, label %PyObject_TypeCheck.argprom.exit.i21
+  br i1 %cmp.i.not.i.i20, label %if.then11.i24, label %PyObject_TypeCheck.exit.i21
 
-PyObject_TypeCheck.argprom.exit.i21:              ; preds = %if.end8.i19
+PyObject_TypeCheck.exit.i21:                      ; preds = %if.end8.i19
   %call2.i.i22 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i8, ptr noundef nonnull @PyFloat_Type) #14
   %tobool3.i.not.i23 = icmp eq i32 %call2.i.i22, 0
   br i1 %tobool3.i.not.i23, label %if.end14.i26, label %if.then11.i24
 
-if.then11.i24:                                    ; preds = %PyObject_TypeCheck.argprom.exit.i21, %if.end8.i19
+if.then11.i24:                                    ; preds = %PyObject_TypeCheck.exit.i21, %if.end8.i19
   %call12.i25 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %w) #14
   br label %if.end13
 
-if.end14.i26:                                     ; preds = %PyObject_TypeCheck.argprom.exit.i21
+if.end14.i26:                                     ; preds = %PyObject_TypeCheck.exit.i21
   %7 = load i32, ptr @_Py_NotImplementedStruct, align 8
   %add.i.i.i27 = add i32 %7, 1
   %cmp.i.i.i28 = icmp eq i32 %add.i.i.i27, 0
@@ -2341,19 +2341,19 @@ if.end.i:                                         ; preds = %if.end13
   %8 = load i64, ptr getelementptr inbounds (i8, ptr @PyComplex_Type, i64 168), align 8
   %9 = and i64 %8, 512
   %tobool.not.i.i = icmp eq i64 %9, 0
-  br i1 %tobool.not.i.i, label %_PyObject_Init.argprom.exit.i, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %_PyObject_Init.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   %10 = load i32, ptr @PyComplex_Type, align 8
   %add.i.i.i33 = add i32 %10, 1
   %cmp.i.i.i34 = icmp eq i32 %add.i.i.i33, 0
-  br i1 %cmp.i.i.i34, label %_PyObject_Init.argprom.exit.i, label %if.end.i.i.i35
+  br i1 %cmp.i.i.i34, label %_PyObject_Init.exit.i, label %if.end.i.i.i35
 
 if.end.i.i.i35:                                   ; preds = %if.then.i.i
   store i32 %add.i.i.i33, ptr @PyComplex_Type, align 8
-  br label %_PyObject_Init.argprom.exit.i
+  br label %_PyObject_Init.exit.i
 
-_PyObject_Init.argprom.exit.i:                    ; preds = %if.end.i.i.i35, %if.then.i.i, %if.end.i
+_PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i35, %if.then.i.i, %if.end.i
   tail call void @_Py_NewReference(ptr noundef nonnull %call.i) #14
   %cval2.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store double %add.i, ptr %cval2.i, align 8
@@ -2361,8 +2361,8 @@ _PyObject_Init.argprom.exit.i:                    ; preds = %if.end.i.i.i35, %if
   store double %add4.i, ptr %cval.sroa.2.0.cval2.sroa_idx.i, align 8
   br label %return
 
-return:                                           ; preds = %land.lhs.true.i15, %land.lhs.true.i, %_PyObject_Init.argprom.exit.i, %if.then.i37, %if.end14.i26, %if.end.i.i.i29, %if.end14.i, %if.end.i.i.i
-  %retval.0 = phi ptr [ @_Py_NotImplementedStruct, %if.end14.i ], [ @_Py_NotImplementedStruct, %if.end.i.i.i ], [ @_Py_NotImplementedStruct, %if.end14.i26 ], [ @_Py_NotImplementedStruct, %if.end.i.i.i29 ], [ %call1.i, %if.then.i37 ], [ %call.i, %_PyObject_Init.argprom.exit.i ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true.i15 ]
+return:                                           ; preds = %land.lhs.true.i15, %land.lhs.true.i, %_PyObject_Init.exit.i, %if.then.i37, %if.end14.i26, %if.end.i.i.i29, %if.end14.i, %if.end.i.i.i
+  %retval.0 = phi ptr [ @_Py_NotImplementedStruct, %if.end14.i ], [ @_Py_NotImplementedStruct, %if.end.i.i.i ], [ @_Py_NotImplementedStruct, %if.end14.i26 ], [ @_Py_NotImplementedStruct, %if.end.i.i.i29 ], [ %call1.i, %if.then.i37 ], [ %call.i, %_PyObject_Init.exit.i ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true.i15 ]
   ret ptr %retval.0
 }
 
@@ -2372,21 +2372,21 @@ entry:
   %0 = getelementptr i8, ptr %v, i64 8
   %v.val = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %v.val, @PyComplex_Type
-  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.argprom.exit
+  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
+PyObject_TypeCheck.exit:                          ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %v.val, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.else, label %if.then
 
-if.then:                                          ; preds = %entry, %PyObject_TypeCheck.argprom.exit
+if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
   %cval = getelementptr inbounds i8, ptr %v, i64 16
   %a.sroa.0.0.copyload = load double, ptr %cval, align 8
   %a.sroa.5.0.cval.sroa_idx = getelementptr inbounds i8, ptr %v, i64 24
   %a.sroa.5.0.copyload = load double, ptr %a.sroa.5.0.cval.sroa_idx, align 8
   br label %if.end3
 
-if.else:                                          ; preds = %PyObject_TypeCheck.argprom.exit
+if.else:                                          ; preds = %PyObject_TypeCheck.exit
   %.val.i = load ptr, ptr %0, align 8
   %1 = getelementptr i8, ptr %.val.i, i64 168
   %call.val.i = load i64, ptr %1, align 8
@@ -2406,18 +2406,18 @@ land.lhs.true.i:                                  ; preds = %if.then.i
 
 if.end8.i:                                        ; preds = %if.else
   %cmp.i.not.i.i = icmp eq ptr %.val.i, @PyFloat_Type
-  br i1 %cmp.i.not.i.i, label %if.then11.i, label %PyObject_TypeCheck.argprom.exit.i
+  br i1 %cmp.i.not.i.i, label %if.then11.i, label %PyObject_TypeCheck.exit.i
 
-PyObject_TypeCheck.argprom.exit.i:                ; preds = %if.end8.i
+PyObject_TypeCheck.exit.i:                        ; preds = %if.end8.i
   %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type) #14
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %if.end14.i, label %if.then11.i
 
-if.then11.i:                                      ; preds = %PyObject_TypeCheck.argprom.exit.i, %if.end8.i
+if.then11.i:                                      ; preds = %PyObject_TypeCheck.exit.i, %if.end8.i
   %call12.i = tail call double @PyFloat_AsDouble(ptr noundef nonnull %v) #14
   br label %if.end3
 
-if.end14.i:                                       ; preds = %PyObject_TypeCheck.argprom.exit.i
+if.end14.i:                                       ; preds = %PyObject_TypeCheck.exit.i
   %3 = load i32, ptr @_Py_NotImplementedStruct, align 8
   %add.i.i.i = add i32 %3, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
@@ -2433,21 +2433,21 @@ if.end3:                                          ; preds = %if.then11.i, %land.
   %4 = getelementptr i8, ptr %w, i64 8
   %.val = load ptr, ptr %4, align 8
   %cmp.i.not.i2 = icmp eq ptr %.val, @PyComplex_Type
-  br i1 %cmp.i.not.i2, label %if.then6, label %PyObject_TypeCheck.argprom.exit7
+  br i1 %cmp.i.not.i2, label %if.then6, label %PyObject_TypeCheck.exit7
 
-PyObject_TypeCheck.argprom.exit7:                 ; preds = %if.end3
+PyObject_TypeCheck.exit7:                         ; preds = %if.end3
   %call2.i4 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i5.not = icmp eq i32 %call2.i4, 0
   br i1 %tobool3.i5.not, label %if.else8, label %if.then6
 
-if.then6:                                         ; preds = %if.end3, %PyObject_TypeCheck.argprom.exit7
+if.then6:                                         ; preds = %if.end3, %PyObject_TypeCheck.exit7
   %cval7 = getelementptr inbounds i8, ptr %w, i64 16
   %b.sroa.0.0.copyload = load double, ptr %cval7, align 8
   %b.sroa.5.0.cval7.sroa_idx = getelementptr inbounds i8, ptr %w, i64 24
   %b.sroa.5.0.copyload = load double, ptr %b.sroa.5.0.cval7.sroa_idx, align 8
   br label %if.end13
 
-if.else8:                                         ; preds = %PyObject_TypeCheck.argprom.exit7
+if.else8:                                         ; preds = %PyObject_TypeCheck.exit7
   %.val.i8 = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val.i8, i64 168
   %call.val.i9 = load i64, ptr %5, align 8
@@ -2467,18 +2467,18 @@ land.lhs.true.i15:                                ; preds = %if.then.i11
 
 if.end8.i19:                                      ; preds = %if.else8
   %cmp.i.not.i.i20 = icmp eq ptr %.val.i8, @PyFloat_Type
-  br i1 %cmp.i.not.i.i20, label %if.then11.i24, label %PyObject_TypeCheck.argprom.exit.i21
+  br i1 %cmp.i.not.i.i20, label %if.then11.i24, label %PyObject_TypeCheck.exit.i21
 
-PyObject_TypeCheck.argprom.exit.i21:              ; preds = %if.end8.i19
+PyObject_TypeCheck.exit.i21:                      ; preds = %if.end8.i19
   %call2.i.i22 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i8, ptr noundef nonnull @PyFloat_Type) #14
   %tobool3.i.not.i23 = icmp eq i32 %call2.i.i22, 0
   br i1 %tobool3.i.not.i23, label %if.end14.i26, label %if.then11.i24
 
-if.then11.i24:                                    ; preds = %PyObject_TypeCheck.argprom.exit.i21, %if.end8.i19
+if.then11.i24:                                    ; preds = %PyObject_TypeCheck.exit.i21, %if.end8.i19
   %call12.i25 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %w) #14
   br label %if.end13
 
-if.end14.i26:                                     ; preds = %PyObject_TypeCheck.argprom.exit.i21
+if.end14.i26:                                     ; preds = %PyObject_TypeCheck.exit.i21
   %7 = load i32, ptr @_Py_NotImplementedStruct, align 8
   %add.i.i.i27 = add i32 %7, 1
   %cmp.i.i.i28 = icmp eq i32 %add.i.i.i27, 0
@@ -2507,19 +2507,19 @@ if.end.i:                                         ; preds = %if.end13
   %8 = load i64, ptr getelementptr inbounds (i8, ptr @PyComplex_Type, i64 168), align 8
   %9 = and i64 %8, 512
   %tobool.not.i.i = icmp eq i64 %9, 0
-  br i1 %tobool.not.i.i, label %_PyObject_Init.argprom.exit.i, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %_PyObject_Init.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   %10 = load i32, ptr @PyComplex_Type, align 8
   %add.i.i.i33 = add i32 %10, 1
   %cmp.i.i.i34 = icmp eq i32 %add.i.i.i33, 0
-  br i1 %cmp.i.i.i34, label %_PyObject_Init.argprom.exit.i, label %if.end.i.i.i35
+  br i1 %cmp.i.i.i34, label %_PyObject_Init.exit.i, label %if.end.i.i.i35
 
 if.end.i.i.i35:                                   ; preds = %if.then.i.i
   store i32 %add.i.i.i33, ptr @PyComplex_Type, align 8
-  br label %_PyObject_Init.argprom.exit.i
+  br label %_PyObject_Init.exit.i
 
-_PyObject_Init.argprom.exit.i:                    ; preds = %if.end.i.i.i35, %if.then.i.i, %if.end.i
+_PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i35, %if.then.i.i, %if.end.i
   tail call void @_Py_NewReference(ptr noundef nonnull %call.i) #14
   %cval2.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store double %sub.i, ptr %cval2.i, align 8
@@ -2527,8 +2527,8 @@ _PyObject_Init.argprom.exit.i:                    ; preds = %if.end.i.i.i35, %if
   store double %sub4.i, ptr %cval.sroa.2.0.cval2.sroa_idx.i, align 8
   br label %return
 
-return:                                           ; preds = %land.lhs.true.i15, %land.lhs.true.i, %_PyObject_Init.argprom.exit.i, %if.then.i37, %if.end14.i26, %if.end.i.i.i29, %if.end14.i, %if.end.i.i.i
-  %retval.0 = phi ptr [ @_Py_NotImplementedStruct, %if.end14.i ], [ @_Py_NotImplementedStruct, %if.end.i.i.i ], [ @_Py_NotImplementedStruct, %if.end14.i26 ], [ @_Py_NotImplementedStruct, %if.end.i.i.i29 ], [ %call1.i, %if.then.i37 ], [ %call.i, %_PyObject_Init.argprom.exit.i ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true.i15 ]
+return:                                           ; preds = %land.lhs.true.i15, %land.lhs.true.i, %_PyObject_Init.exit.i, %if.then.i37, %if.end14.i26, %if.end.i.i.i29, %if.end14.i, %if.end.i.i.i
+  %retval.0 = phi ptr [ @_Py_NotImplementedStruct, %if.end14.i ], [ @_Py_NotImplementedStruct, %if.end.i.i.i ], [ @_Py_NotImplementedStruct, %if.end14.i26 ], [ @_Py_NotImplementedStruct, %if.end.i.i.i29 ], [ %call1.i, %if.then.i37 ], [ %call.i, %_PyObject_Init.exit.i ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true.i15 ]
   ret ptr %retval.0
 }
 
@@ -2538,21 +2538,21 @@ entry:
   %0 = getelementptr i8, ptr %v, i64 8
   %v.val = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %v.val, @PyComplex_Type
-  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.argprom.exit
+  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
+PyObject_TypeCheck.exit:                          ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %v.val, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.else, label %if.then
 
-if.then:                                          ; preds = %entry, %PyObject_TypeCheck.argprom.exit
+if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
   %cval = getelementptr inbounds i8, ptr %v, i64 16
   %a.sroa.0.0.copyload = load double, ptr %cval, align 8
   %a.sroa.5.0.cval.sroa_idx = getelementptr inbounds i8, ptr %v, i64 24
   %a.sroa.5.0.copyload = load double, ptr %a.sroa.5.0.cval.sroa_idx, align 8
   br label %if.end3
 
-if.else:                                          ; preds = %PyObject_TypeCheck.argprom.exit
+if.else:                                          ; preds = %PyObject_TypeCheck.exit
   %.val.i = load ptr, ptr %0, align 8
   %1 = getelementptr i8, ptr %.val.i, i64 168
   %call.val.i = load i64, ptr %1, align 8
@@ -2572,18 +2572,18 @@ land.lhs.true.i:                                  ; preds = %if.then.i
 
 if.end8.i:                                        ; preds = %if.else
   %cmp.i.not.i.i = icmp eq ptr %.val.i, @PyFloat_Type
-  br i1 %cmp.i.not.i.i, label %if.then11.i, label %PyObject_TypeCheck.argprom.exit.i
+  br i1 %cmp.i.not.i.i, label %if.then11.i, label %PyObject_TypeCheck.exit.i
 
-PyObject_TypeCheck.argprom.exit.i:                ; preds = %if.end8.i
+PyObject_TypeCheck.exit.i:                        ; preds = %if.end8.i
   %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type) #14
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %if.end14.i, label %if.then11.i
 
-if.then11.i:                                      ; preds = %PyObject_TypeCheck.argprom.exit.i, %if.end8.i
+if.then11.i:                                      ; preds = %PyObject_TypeCheck.exit.i, %if.end8.i
   %call12.i = tail call double @PyFloat_AsDouble(ptr noundef nonnull %v) #14
   br label %if.end3
 
-if.end14.i:                                       ; preds = %PyObject_TypeCheck.argprom.exit.i
+if.end14.i:                                       ; preds = %PyObject_TypeCheck.exit.i
   %3 = load i32, ptr @_Py_NotImplementedStruct, align 8
   %add.i.i.i = add i32 %3, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
@@ -2599,21 +2599,21 @@ if.end3:                                          ; preds = %if.then11.i, %land.
   %4 = getelementptr i8, ptr %w, i64 8
   %.val = load ptr, ptr %4, align 8
   %cmp.i.not.i2 = icmp eq ptr %.val, @PyComplex_Type
-  br i1 %cmp.i.not.i2, label %if.then6, label %PyObject_TypeCheck.argprom.exit7
+  br i1 %cmp.i.not.i2, label %if.then6, label %PyObject_TypeCheck.exit7
 
-PyObject_TypeCheck.argprom.exit7:                 ; preds = %if.end3
+PyObject_TypeCheck.exit7:                         ; preds = %if.end3
   %call2.i4 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i5.not = icmp eq i32 %call2.i4, 0
   br i1 %tobool3.i5.not, label %if.else8, label %if.then6
 
-if.then6:                                         ; preds = %if.end3, %PyObject_TypeCheck.argprom.exit7
+if.then6:                                         ; preds = %if.end3, %PyObject_TypeCheck.exit7
   %cval7 = getelementptr inbounds i8, ptr %w, i64 16
   %b.sroa.0.0.copyload = load double, ptr %cval7, align 8
   %b.sroa.5.0.cval7.sroa_idx = getelementptr inbounds i8, ptr %w, i64 24
   %b.sroa.5.0.copyload = load double, ptr %b.sroa.5.0.cval7.sroa_idx, align 8
   br label %if.end13
 
-if.else8:                                         ; preds = %PyObject_TypeCheck.argprom.exit7
+if.else8:                                         ; preds = %PyObject_TypeCheck.exit7
   %.val.i8 = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val.i8, i64 168
   %call.val.i9 = load i64, ptr %5, align 8
@@ -2633,18 +2633,18 @@ land.lhs.true.i15:                                ; preds = %if.then.i11
 
 if.end8.i19:                                      ; preds = %if.else8
   %cmp.i.not.i.i20 = icmp eq ptr %.val.i8, @PyFloat_Type
-  br i1 %cmp.i.not.i.i20, label %if.then11.i24, label %PyObject_TypeCheck.argprom.exit.i21
+  br i1 %cmp.i.not.i.i20, label %if.then11.i24, label %PyObject_TypeCheck.exit.i21
 
-PyObject_TypeCheck.argprom.exit.i21:              ; preds = %if.end8.i19
+PyObject_TypeCheck.exit.i21:                      ; preds = %if.end8.i19
   %call2.i.i22 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i8, ptr noundef nonnull @PyFloat_Type) #14
   %tobool3.i.not.i23 = icmp eq i32 %call2.i.i22, 0
   br i1 %tobool3.i.not.i23, label %if.end14.i26, label %if.then11.i24
 
-if.then11.i24:                                    ; preds = %PyObject_TypeCheck.argprom.exit.i21, %if.end8.i19
+if.then11.i24:                                    ; preds = %PyObject_TypeCheck.exit.i21, %if.end8.i19
   %call12.i25 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %w) #14
   br label %if.end13
 
-if.end14.i26:                                     ; preds = %PyObject_TypeCheck.argprom.exit.i21
+if.end14.i26:                                     ; preds = %PyObject_TypeCheck.exit.i21
   %7 = load i32, ptr @_Py_NotImplementedStruct, align 8
   %add.i.i.i27 = add i32 %7, 1
   %cmp.i.i.i28 = icmp eq i32 %add.i.i.i27, 0
@@ -2676,19 +2676,19 @@ if.end.i:                                         ; preds = %if.end13
   %11 = load i64, ptr getelementptr inbounds (i8, ptr @PyComplex_Type, i64 168), align 8
   %12 = and i64 %11, 512
   %tobool.not.i.i = icmp eq i64 %12, 0
-  br i1 %tobool.not.i.i, label %_PyObject_Init.argprom.exit.i, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %_PyObject_Init.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   %13 = load i32, ptr @PyComplex_Type, align 8
   %add.i.i.i33 = add i32 %13, 1
   %cmp.i.i.i34 = icmp eq i32 %add.i.i.i33, 0
-  br i1 %cmp.i.i.i34, label %_PyObject_Init.argprom.exit.i, label %if.end.i.i.i35
+  br i1 %cmp.i.i.i34, label %_PyObject_Init.exit.i, label %if.end.i.i.i35
 
 if.end.i.i.i35:                                   ; preds = %if.then.i.i
   store i32 %add.i.i.i33, ptr @PyComplex_Type, align 8
-  br label %_PyObject_Init.argprom.exit.i
+  br label %_PyObject_Init.exit.i
 
-_PyObject_Init.argprom.exit.i:                    ; preds = %if.end.i.i.i35, %if.then.i.i, %if.end.i
+_PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i35, %if.then.i.i, %if.end.i
   tail call void @_Py_NewReference(ptr noundef nonnull %call.i) #14
   %cval2.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store double %9, ptr %cval2.i, align 8
@@ -2696,8 +2696,8 @@ _PyObject_Init.argprom.exit.i:                    ; preds = %if.end.i.i.i35, %if
   store double %10, ptr %cval.sroa.2.0.cval2.sroa_idx.i, align 8
   br label %return
 
-return:                                           ; preds = %land.lhs.true.i15, %land.lhs.true.i, %_PyObject_Init.argprom.exit.i, %if.then.i37, %if.end14.i26, %if.end.i.i.i29, %if.end14.i, %if.end.i.i.i
-  %retval.0 = phi ptr [ @_Py_NotImplementedStruct, %if.end14.i ], [ @_Py_NotImplementedStruct, %if.end.i.i.i ], [ @_Py_NotImplementedStruct, %if.end14.i26 ], [ @_Py_NotImplementedStruct, %if.end.i.i.i29 ], [ %call1.i, %if.then.i37 ], [ %call.i, %_PyObject_Init.argprom.exit.i ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true.i15 ]
+return:                                           ; preds = %land.lhs.true.i15, %land.lhs.true.i, %_PyObject_Init.exit.i, %if.then.i37, %if.end14.i26, %if.end.i.i.i29, %if.end14.i, %if.end.i.i.i
+  %retval.0 = phi ptr [ @_Py_NotImplementedStruct, %if.end14.i ], [ @_Py_NotImplementedStruct, %if.end.i.i.i ], [ @_Py_NotImplementedStruct, %if.end14.i26 ], [ @_Py_NotImplementedStruct, %if.end.i.i.i29 ], [ %call1.i, %if.then.i37 ], [ %call.i, %_PyObject_Init.exit.i ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true.i15 ]
   ret ptr %retval.0
 }
 
@@ -2707,21 +2707,21 @@ entry:
   %0 = getelementptr i8, ptr %v, i64 8
   %v.val = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %v.val, @PyComplex_Type
-  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.argprom.exit
+  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
+PyObject_TypeCheck.exit:                          ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %v.val, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.else, label %if.then
 
-if.then:                                          ; preds = %entry, %PyObject_TypeCheck.argprom.exit
+if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
   %cval = getelementptr inbounds i8, ptr %v, i64 16
   %a.sroa.0.0.copyload = load double, ptr %cval, align 8
   %a.sroa.6.0.cval.sroa_idx = getelementptr inbounds i8, ptr %v, i64 24
   %a.sroa.6.0.copyload = load double, ptr %a.sroa.6.0.cval.sroa_idx, align 8
   br label %if.end3
 
-if.else:                                          ; preds = %PyObject_TypeCheck.argprom.exit
+if.else:                                          ; preds = %PyObject_TypeCheck.exit
   %.val.i = load ptr, ptr %0, align 8
   %1 = getelementptr i8, ptr %.val.i, i64 168
   %call.val.i = load i64, ptr %1, align 8
@@ -2741,18 +2741,18 @@ land.lhs.true.i:                                  ; preds = %if.then.i
 
 if.end8.i:                                        ; preds = %if.else
   %cmp.i.not.i.i = icmp eq ptr %.val.i, @PyFloat_Type
-  br i1 %cmp.i.not.i.i, label %if.then11.i, label %PyObject_TypeCheck.argprom.exit.i
+  br i1 %cmp.i.not.i.i, label %if.then11.i, label %PyObject_TypeCheck.exit.i
 
-PyObject_TypeCheck.argprom.exit.i:                ; preds = %if.end8.i
+PyObject_TypeCheck.exit.i:                        ; preds = %if.end8.i
   %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type) #14
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %if.end14.i, label %if.then11.i
 
-if.then11.i:                                      ; preds = %PyObject_TypeCheck.argprom.exit.i, %if.end8.i
+if.then11.i:                                      ; preds = %PyObject_TypeCheck.exit.i, %if.end8.i
   %call12.i = tail call double @PyFloat_AsDouble(ptr noundef nonnull %v) #14
   br label %if.end3
 
-if.end14.i:                                       ; preds = %PyObject_TypeCheck.argprom.exit.i
+if.end14.i:                                       ; preds = %PyObject_TypeCheck.exit.i
   %3 = load i32, ptr @_Py_NotImplementedStruct, align 8
   %add.i.i.i = add i32 %3, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
@@ -2768,21 +2768,21 @@ if.end3:                                          ; preds = %if.then11.i, %land.
   %4 = getelementptr i8, ptr %w, i64 8
   %.val = load ptr, ptr %4, align 8
   %cmp.i.not.i6 = icmp eq ptr %.val, @PyComplex_Type
-  br i1 %cmp.i.not.i6, label %if.then6, label %PyObject_TypeCheck.argprom.exit11
+  br i1 %cmp.i.not.i6, label %if.then6, label %PyObject_TypeCheck.exit11
 
-PyObject_TypeCheck.argprom.exit11:                ; preds = %if.end3
+PyObject_TypeCheck.exit11:                        ; preds = %if.end3
   %call2.i8 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i9.not = icmp eq i32 %call2.i8, 0
   br i1 %tobool3.i9.not, label %if.else8, label %if.then6
 
-if.then6:                                         ; preds = %if.end3, %PyObject_TypeCheck.argprom.exit11
+if.then6:                                         ; preds = %if.end3, %PyObject_TypeCheck.exit11
   %cval7 = getelementptr inbounds i8, ptr %w, i64 16
   %b.sroa.0.0.copyload = load double, ptr %cval7, align 8
   %b.sroa.6.0.cval7.sroa_idx = getelementptr inbounds i8, ptr %w, i64 24
   %b.sroa.6.0.copyload = load double, ptr %b.sroa.6.0.cval7.sroa_idx, align 8
   br label %if.end13
 
-if.else8:                                         ; preds = %PyObject_TypeCheck.argprom.exit11
+if.else8:                                         ; preds = %PyObject_TypeCheck.exit11
   %.val.i12 = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val.i12, i64 168
   %call.val.i13 = load i64, ptr %5, align 8
@@ -2802,18 +2802,18 @@ land.lhs.true.i19:                                ; preds = %if.then.i15
 
 if.end8.i23:                                      ; preds = %if.else8
   %cmp.i.not.i.i24 = icmp eq ptr %.val.i12, @PyFloat_Type
-  br i1 %cmp.i.not.i.i24, label %if.then11.i28, label %PyObject_TypeCheck.argprom.exit.i25
+  br i1 %cmp.i.not.i.i24, label %if.then11.i28, label %PyObject_TypeCheck.exit.i25
 
-PyObject_TypeCheck.argprom.exit.i25:              ; preds = %if.end8.i23
+PyObject_TypeCheck.exit.i25:                      ; preds = %if.end8.i23
   %call2.i.i26 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i12, ptr noundef nonnull @PyFloat_Type) #14
   %tobool3.i.not.i27 = icmp eq i32 %call2.i.i26, 0
   br i1 %tobool3.i.not.i27, label %if.end14.i30, label %if.then11.i28
 
-if.then11.i28:                                    ; preds = %PyObject_TypeCheck.argprom.exit.i25, %if.end8.i23
+if.then11.i28:                                    ; preds = %PyObject_TypeCheck.exit.i25, %if.end8.i23
   %call12.i29 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %w) #14
   br label %if.end13
 
-if.end14.i30:                                     ; preds = %PyObject_TypeCheck.argprom.exit.i25
+if.end14.i30:                                     ; preds = %PyObject_TypeCheck.exit.i25
   %7 = load i32, ptr @_Py_NotImplementedStruct, align 8
   %add.i.i.i31 = add i32 %7, 1
   %cmp.i.i.i32 = icmp eq i32 %add.i.i.i31, 0
@@ -3033,19 +3033,19 @@ if.end.i:                                         ; preds = %if.end43
   %33 = load i64, ptr getelementptr inbounds (i8, ptr @PyComplex_Type, i64 168), align 8
   %34 = and i64 %33, 512
   %tobool.not.i.i42 = icmp eq i64 %34, 0
-  br i1 %tobool.not.i.i42, label %_PyObject_Init.argprom.exit.i, label %if.then.i.i43
+  br i1 %tobool.not.i.i42, label %_PyObject_Init.exit.i, label %if.then.i.i43
 
 if.then.i.i43:                                    ; preds = %if.end.i
   %35 = load i32, ptr @PyComplex_Type, align 8
   %add.i.i.i44 = add i32 %35, 1
   %cmp.i.i.i45 = icmp eq i32 %add.i.i.i44, 0
-  br i1 %cmp.i.i.i45, label %_PyObject_Init.argprom.exit.i, label %if.end.i.i.i46
+  br i1 %cmp.i.i.i45, label %_PyObject_Init.exit.i, label %if.end.i.i.i46
 
 if.end.i.i.i46:                                   ; preds = %if.then.i.i43
   store i32 %add.i.i.i44, ptr @PyComplex_Type, align 8
-  br label %_PyObject_Init.argprom.exit.i
+  br label %_PyObject_Init.exit.i
 
-_PyObject_Init.argprom.exit.i:                    ; preds = %if.end.i.i.i46, %if.then.i.i43, %if.end.i
+_PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i46, %if.then.i.i43, %if.end.i
   tail call void @_Py_NewReference(ptr noundef nonnull %call.i40) #14
   %cval2.i = getelementptr inbounds i8, ptr %call.i40, i64 16
   store double %p.sroa.0.0, ptr %cval2.i, align 8
@@ -3053,8 +3053,8 @@ _PyObject_Init.argprom.exit.i:                    ; preds = %if.end.i.i.i46, %if
   store double %p.sroa.4.0, ptr %cval.sroa.2.0.cval2.sroa_idx.i, align 8
   br label %return
 
-return:                                           ; preds = %land.lhs.true.i19, %land.lhs.true.i, %_PyObject_Init.argprom.exit.i, %if.then.i48, %if.end14.i30, %if.end.i.i.i33, %if.end14.i, %if.end.i.i.i, %if.then41, %if.then36, %if.then15
-  %retval.0 = phi ptr [ null, %if.then15 ], [ null, %if.then36 ], [ null, %if.then41 ], [ @_Py_NotImplementedStruct, %if.end14.i ], [ @_Py_NotImplementedStruct, %if.end.i.i.i ], [ @_Py_NotImplementedStruct, %if.end14.i30 ], [ @_Py_NotImplementedStruct, %if.end.i.i.i33 ], [ %call1.i, %if.then.i48 ], [ %call.i40, %_PyObject_Init.argprom.exit.i ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true.i19 ]
+return:                                           ; preds = %land.lhs.true.i19, %land.lhs.true.i, %_PyObject_Init.exit.i, %if.then.i48, %if.end14.i30, %if.end.i.i.i33, %if.end14.i, %if.end.i.i.i, %if.then41, %if.then36, %if.then15
+  %retval.0 = phi ptr [ null, %if.then15 ], [ null, %if.then36 ], [ null, %if.then41 ], [ @_Py_NotImplementedStruct, %if.end14.i ], [ @_Py_NotImplementedStruct, %if.end.i.i.i ], [ @_Py_NotImplementedStruct, %if.end14.i30 ], [ @_Py_NotImplementedStruct, %if.end.i.i.i33 ], [ %call1.i, %if.then.i48 ], [ %call.i40, %_PyObject_Init.exit.i ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true.i19 ]
   ret ptr %retval.0
 }
 
@@ -3081,19 +3081,19 @@ if.end.i:                                         ; preds = %entry
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @PyComplex_Type, i64 168), align 8
   %3 = and i64 %2, 512
   %tobool.not.i.i = icmp eq i64 %3, 0
-  br i1 %tobool.not.i.i, label %_PyObject_Init.argprom.exit.i, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %_PyObject_Init.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   %4 = load i32, ptr @PyComplex_Type, align 8
   %add.i.i.i = add i32 %4, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
-  br i1 %cmp.i.i.i, label %_PyObject_Init.argprom.exit.i, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %_PyObject_Init.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
   store i32 %add.i.i.i, ptr @PyComplex_Type, align 8
-  br label %_PyObject_Init.argprom.exit.i
+  br label %_PyObject_Init.exit.i
 
-_PyObject_Init.argprom.exit.i:                    ; preds = %if.end.i.i.i, %if.then.i.i, %if.end.i
+_PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i, %if.then.i.i, %if.end.i
   tail call void @_Py_NewReference(ptr noundef nonnull %call.i) #14
   %cval2.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store double %fneg, ptr %cval2.i, align 8
@@ -3101,8 +3101,8 @@ _PyObject_Init.argprom.exit.i:                    ; preds = %if.end.i.i.i, %if.t
   store double %fneg3, ptr %cval.sroa.2.0.cval2.sroa_idx.i, align 8
   br label %PyComplex_FromCComplex.exit
 
-PyComplex_FromCComplex.exit:                      ; preds = %if.then.i, %_PyObject_Init.argprom.exit.i
-  %retval.0.i = phi ptr [ %call1.i, %if.then.i ], [ %call.i, %_PyObject_Init.argprom.exit.i ]
+PyComplex_FromCComplex.exit:                      ; preds = %if.then.i, %_PyObject_Init.exit.i
+  %retval.0.i = phi ptr [ %call1.i, %if.then.i ], [ %call.i, %_PyObject_Init.exit.i ]
   ret ptr %retval.0.i
 }
 
@@ -3143,19 +3143,19 @@ if.end.i:                                         ; preds = %if.else
   %5 = load i64, ptr getelementptr inbounds (i8, ptr @PyComplex_Type, i64 168), align 8
   %6 = and i64 %5, 512
   %tobool.not.i.i = icmp eq i64 %6, 0
-  br i1 %tobool.not.i.i, label %_PyObject_Init.argprom.exit.i, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %_PyObject_Init.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   %7 = load i32, ptr @PyComplex_Type, align 8
   %add.i.i.i = add i32 %7, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
-  br i1 %cmp.i.i.i, label %_PyObject_Init.argprom.exit.i, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %_PyObject_Init.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
   store i32 %add.i.i.i, ptr @PyComplex_Type, align 8
-  br label %_PyObject_Init.argprom.exit.i
+  br label %_PyObject_Init.exit.i
 
-_PyObject_Init.argprom.exit.i:                    ; preds = %if.end.i.i.i, %if.then.i.i, %if.end.i
+_PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i, %if.then.i.i, %if.end.i
   tail call void @_Py_NewReference(ptr noundef nonnull %call.i) #14
   %cval2.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store double %2, ptr %cval2.i, align 8
@@ -3163,8 +3163,8 @@ _PyObject_Init.argprom.exit.i:                    ; preds = %if.end.i.i.i, %if.t
   store double %4, ptr %cval.sroa.2.0.cval2.sroa_idx.i, align 8
   br label %return
 
-return:                                           ; preds = %_PyObject_Init.argprom.exit.i, %if.then.i, %if.end.i.i, %if.then
-  %retval.0 = phi ptr [ %v, %if.then ], [ %v, %if.end.i.i ], [ %call1.i, %if.then.i ], [ %call.i, %_PyObject_Init.argprom.exit.i ]
+return:                                           ; preds = %_PyObject_Init.exit.i, %if.then.i, %if.end.i.i, %if.then
+  %retval.0 = phi ptr [ %v, %if.then ], [ %v, %if.end.i.i ], [ %call1.i, %if.then.i ], [ %call.i, %_PyObject_Init.exit.i ]
   ret ptr %retval.0
 }
 
@@ -3258,21 +3258,21 @@ entry:
   %0 = getelementptr i8, ptr %v, i64 8
   %v.val = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %v.val, @PyComplex_Type
-  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.argprom.exit
+  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
+PyObject_TypeCheck.exit:                          ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %v.val, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.else, label %if.then
 
-if.then:                                          ; preds = %entry, %PyObject_TypeCheck.argprom.exit
+if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
   %cval = getelementptr inbounds i8, ptr %v, i64 16
   %a.sroa.0.0.copyload = load double, ptr %cval, align 8
   %a.sroa.5.0.cval.sroa_idx = getelementptr inbounds i8, ptr %v, i64 24
   %a.sroa.5.0.copyload = load double, ptr %a.sroa.5.0.cval.sroa_idx, align 8
   br label %if.end3
 
-if.else:                                          ; preds = %PyObject_TypeCheck.argprom.exit
+if.else:                                          ; preds = %PyObject_TypeCheck.exit
   %.val.i = load ptr, ptr %0, align 8
   %1 = getelementptr i8, ptr %.val.i, i64 168
   %call.val.i = load i64, ptr %1, align 8
@@ -3292,18 +3292,18 @@ land.lhs.true.i:                                  ; preds = %if.then.i
 
 if.end8.i:                                        ; preds = %if.else
   %cmp.i.not.i.i = icmp eq ptr %.val.i, @PyFloat_Type
-  br i1 %cmp.i.not.i.i, label %if.then11.i, label %PyObject_TypeCheck.argprom.exit.i
+  br i1 %cmp.i.not.i.i, label %if.then11.i, label %PyObject_TypeCheck.exit.i
 
-PyObject_TypeCheck.argprom.exit.i:                ; preds = %if.end8.i
+PyObject_TypeCheck.exit.i:                        ; preds = %if.end8.i
   %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type) #14
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %if.end14.i, label %if.then11.i
 
-if.then11.i:                                      ; preds = %PyObject_TypeCheck.argprom.exit.i, %if.end8.i
+if.then11.i:                                      ; preds = %PyObject_TypeCheck.exit.i, %if.end8.i
   %call12.i = tail call double @PyFloat_AsDouble(ptr noundef nonnull %v) #14
   br label %if.end3
 
-if.end14.i:                                       ; preds = %PyObject_TypeCheck.argprom.exit.i
+if.end14.i:                                       ; preds = %PyObject_TypeCheck.exit.i
   %3 = load i32, ptr @_Py_NotImplementedStruct, align 8
   %add.i.i.i = add i32 %3, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
@@ -3319,21 +3319,21 @@ if.end3:                                          ; preds = %if.then11.i, %land.
   %4 = getelementptr i8, ptr %w, i64 8
   %.val = load ptr, ptr %4, align 8
   %cmp.i.not.i2 = icmp eq ptr %.val, @PyComplex_Type
-  br i1 %cmp.i.not.i2, label %if.then6, label %PyObject_TypeCheck.argprom.exit7
+  br i1 %cmp.i.not.i2, label %if.then6, label %PyObject_TypeCheck.exit7
 
-PyObject_TypeCheck.argprom.exit7:                 ; preds = %if.end3
+PyObject_TypeCheck.exit7:                         ; preds = %if.end3
   %call2.i4 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i5.not = icmp eq i32 %call2.i4, 0
   br i1 %tobool3.i5.not, label %if.else8, label %if.then6
 
-if.then6:                                         ; preds = %if.end3, %PyObject_TypeCheck.argprom.exit7
+if.then6:                                         ; preds = %if.end3, %PyObject_TypeCheck.exit7
   %cval7 = getelementptr inbounds i8, ptr %w, i64 16
   %b.sroa.0.0.copyload = load double, ptr %cval7, align 8
   %b.sroa.5.0.cval7.sroa_idx = getelementptr inbounds i8, ptr %w, i64 24
   %b.sroa.5.0.copyload = load double, ptr %b.sroa.5.0.cval7.sroa_idx, align 8
   br label %if.end13
 
-if.else8:                                         ; preds = %PyObject_TypeCheck.argprom.exit7
+if.else8:                                         ; preds = %PyObject_TypeCheck.exit7
   %.val.i8 = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val.i8, i64 168
   %call.val.i9 = load i64, ptr %5, align 8
@@ -3353,18 +3353,18 @@ land.lhs.true.i15:                                ; preds = %if.then.i11
 
 if.end8.i19:                                      ; preds = %if.else8
   %cmp.i.not.i.i20 = icmp eq ptr %.val.i8, @PyFloat_Type
-  br i1 %cmp.i.not.i.i20, label %if.then11.i24, label %PyObject_TypeCheck.argprom.exit.i21
+  br i1 %cmp.i.not.i.i20, label %if.then11.i24, label %PyObject_TypeCheck.exit.i21
 
-PyObject_TypeCheck.argprom.exit.i21:              ; preds = %if.end8.i19
+PyObject_TypeCheck.exit.i21:                      ; preds = %if.end8.i19
   %call2.i.i22 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i8, ptr noundef nonnull @PyFloat_Type) #14
   %tobool3.i.not.i23 = icmp eq i32 %call2.i.i22, 0
   br i1 %tobool3.i.not.i23, label %if.end14.i26, label %if.then11.i24
 
-if.then11.i24:                                    ; preds = %PyObject_TypeCheck.argprom.exit.i21, %if.end8.i19
+if.then11.i24:                                    ; preds = %PyObject_TypeCheck.exit.i21, %if.end8.i19
   %call12.i25 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %w) #14
   br label %if.end13
 
-if.end14.i26:                                     ; preds = %PyObject_TypeCheck.argprom.exit.i21
+if.end14.i26:                                     ; preds = %PyObject_TypeCheck.exit.i21
   %7 = load i32, ptr @_Py_NotImplementedStruct, align 8
   %add.i.i.i27 = add i32 %7, 1
   %cmp.i.i.i28 = icmp eq i32 %add.i.i.i27, 0
@@ -3439,19 +3439,19 @@ if.end.i:                                         ; preds = %if.end19
   %15 = load i64, ptr getelementptr inbounds (i8, ptr @PyComplex_Type, i64 168), align 8
   %16 = and i64 %15, 512
   %tobool.not.i.i = icmp eq i64 %16, 0
-  br i1 %tobool.not.i.i, label %_PyObject_Init.argprom.exit.i, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %_PyObject_Init.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   %17 = load i32, ptr @PyComplex_Type, align 8
   %add.i.i.i36 = add i32 %17, 1
   %cmp.i.i.i37 = icmp eq i32 %add.i.i.i36, 0
-  br i1 %cmp.i.i.i37, label %_PyObject_Init.argprom.exit.i, label %if.end.i.i.i38
+  br i1 %cmp.i.i.i37, label %_PyObject_Init.exit.i, label %if.end.i.i.i38
 
 if.end.i.i.i38:                                   ; preds = %if.then.i.i
   store i32 %add.i.i.i36, ptr @PyComplex_Type, align 8
-  br label %_PyObject_Init.argprom.exit.i
+  br label %_PyObject_Init.exit.i
 
-_PyObject_Init.argprom.exit.i:                    ; preds = %if.end.i.i.i38, %if.then.i.i, %if.end.i
+_PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i38, %if.then.i.i, %if.end.i
   tail call void @_Py_NewReference(ptr noundef nonnull %call.i34) #14
   %cval2.i = getelementptr inbounds i8, ptr %call.i34, i64 16
   store double %retval.sroa.0.0.i.ph, ptr %cval2.i, align 8
@@ -3459,8 +3459,8 @@ _PyObject_Init.argprom.exit.i:                    ; preds = %if.end.i.i.i38, %if
   store double %retval.sroa.5.0.i.ph, ptr %cval.sroa.2.0.cval2.sroa_idx.i, align 8
   br label %return
 
-return:                                           ; preds = %land.lhs.true.i15, %land.lhs.true.i, %_PyObject_Init.argprom.exit.i, %if.then.i40, %if.end14.i26, %if.end.i.i.i29, %if.end14.i, %if.end.i.i.i, %if.then18
-  %retval.0 = phi ptr [ null, %if.then18 ], [ @_Py_NotImplementedStruct, %if.end14.i ], [ @_Py_NotImplementedStruct, %if.end.i.i.i ], [ @_Py_NotImplementedStruct, %if.end14.i26 ], [ @_Py_NotImplementedStruct, %if.end.i.i.i29 ], [ %call1.i, %if.then.i40 ], [ %call.i34, %_PyObject_Init.argprom.exit.i ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true.i15 ]
+return:                                           ; preds = %land.lhs.true.i15, %land.lhs.true.i, %_PyObject_Init.exit.i, %if.then.i40, %if.end14.i26, %if.end.i.i.i29, %if.end14.i, %if.end.i.i.i, %if.then18
+  %retval.0 = phi ptr [ null, %if.then18 ], [ @_Py_NotImplementedStruct, %if.end14.i ], [ @_Py_NotImplementedStruct, %if.end.i.i.i ], [ @_Py_NotImplementedStruct, %if.end14.i26 ], [ @_Py_NotImplementedStruct, %if.end.i.i.i29 ], [ %call1.i, %if.then.i40 ], [ %call.i34, %_PyObject_Init.exit.i ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true.i15 ]
   ret ptr %retval.0
 }
 
@@ -3494,19 +3494,19 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end8:                                          ; preds = %entry
   %cmp.i.not.i = icmp eq ptr %.val, @PyFloat_Type
-  br i1 %cmp.i.not.i, label %if.then11, label %PyObject_TypeCheck.argprom.exit
+  br i1 %cmp.i.not.i, label %if.then11, label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.argprom.exit:                  ; preds = %if.end8
+PyObject_TypeCheck.exit:                          ; preds = %if.end8
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyFloat_Type) #14
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.end14, label %if.then11
 
-if.then11:                                        ; preds = %if.end8, %PyObject_TypeCheck.argprom.exit
+if.then11:                                        ; preds = %if.end8, %PyObject_TypeCheck.exit
   %call12 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %0) #14
   store double %call12, ptr %pc, align 8
   br label %return
 
-if.end14:                                         ; preds = %PyObject_TypeCheck.argprom.exit
+if.end14:                                         ; preds = %PyObject_TypeCheck.exit
   %4 = load i32, ptr @_Py_NotImplementedStruct, align 8
   %add.i.i = add i32 %4, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
@@ -3552,7 +3552,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %call1.i.i = tail call ptr @PyErr_NoMemory() #14
-  br label %complex_conjugate_impl.argprom.exit
+  br label %complex_conjugate_impl.exit
 
 if.end.i.i:                                       ; preds = %entry
   %ob_type.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
@@ -3560,28 +3560,28 @@ if.end.i.i:                                       ; preds = %entry
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @PyComplex_Type, i64 168), align 8
   %3 = and i64 %2, 512
   %tobool.not.i.i.i = icmp eq i64 %3, 0
-  br i1 %tobool.not.i.i.i, label %_PyObject_Init.argprom.exit.i.i, label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %_PyObject_Init.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   %4 = load i32, ptr @PyComplex_Type, align 8
   %add.i.i.i.i = add i32 %4, 1
   %cmp.i.i.i.i = icmp eq i32 %add.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i, label %_PyObject_Init.argprom.exit.i.i, label %if.end.i.i.i.i
+  br i1 %cmp.i.i.i.i, label %_PyObject_Init.exit.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   store i32 %add.i.i.i.i, ptr @PyComplex_Type, align 8
-  br label %_PyObject_Init.argprom.exit.i.i
+  br label %_PyObject_Init.exit.i.i
 
-_PyObject_Init.argprom.exit.i.i:                  ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.end.i.i
+_PyObject_Init.exit.i.i:                          ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.end.i.i
   tail call void @_Py_NewReference(ptr noundef nonnull %call.i.i) #14
   %cval2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store double %self.val, ptr %cval2.i.i, align 8
   %cval.sroa.2.0.cval2.sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store double %fneg.i, ptr %cval.sroa.2.0.cval2.sroa_idx.i.i, align 8
-  br label %complex_conjugate_impl.argprom.exit
+  br label %complex_conjugate_impl.exit
 
-complex_conjugate_impl.argprom.exit:              ; preds = %if.then.i.i, %_PyObject_Init.argprom.exit.i.i
-  %retval.0.i.i = phi ptr [ %call1.i.i, %if.then.i.i ], [ %call.i.i, %_PyObject_Init.argprom.exit.i.i ]
+complex_conjugate_impl.exit:                      ; preds = %if.then.i.i, %_PyObject_Init.exit.i.i
+  %retval.0.i.i = phi ptr [ %call1.i.i, %if.then.i.i ], [ %call.i.i, %_PyObject_Init.exit.i.i ]
   ret ptr %retval.0.i.i
 }
 
@@ -3622,19 +3622,19 @@ if.end.i.i:                                       ; preds = %if.else.i
   %5 = load i64, ptr getelementptr inbounds (i8, ptr @PyComplex_Type, i64 168), align 8
   %6 = and i64 %5, 512
   %tobool.not.i.i.i = icmp eq i64 %6, 0
-  br i1 %tobool.not.i.i.i, label %_PyObject_Init.argprom.exit.i.i, label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %_PyObject_Init.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   %7 = load i32, ptr @PyComplex_Type, align 8
   %add.i.i.i.i = add i32 %7, 1
   %cmp.i.i.i.i = icmp eq i32 %add.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i, label %_PyObject_Init.argprom.exit.i.i, label %if.end.i.i.i.i
+  br i1 %cmp.i.i.i.i, label %_PyObject_Init.exit.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   store i32 %add.i.i.i.i, ptr @PyComplex_Type, align 8
-  br label %_PyObject_Init.argprom.exit.i.i
+  br label %_PyObject_Init.exit.i.i
 
-_PyObject_Init.argprom.exit.i.i:                  ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.end.i.i
+_PyObject_Init.exit.i.i:                          ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.end.i.i
   tail call void @_Py_NewReference(ptr noundef nonnull %call.i.i) #14
   %cval2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store double %2, ptr %cval2.i.i, align 8
@@ -3642,8 +3642,8 @@ _PyObject_Init.argprom.exit.i.i:                  ; preds = %if.end.i.i.i.i, %if
   store double %4, ptr %cval.sroa.2.0.cval2.sroa_idx.i.i, align 8
   br label %complex___complex___impl.exit
 
-complex___complex___impl.exit:                    ; preds = %if.then.i, %if.end.i.i.i, %if.then.i.i, %_PyObject_Init.argprom.exit.i.i
-  %retval.0.i = phi ptr [ %self, %if.then.i ], [ %self, %if.end.i.i.i ], [ %call1.i.i, %if.then.i.i ], [ %call.i.i, %_PyObject_Init.argprom.exit.i.i ]
+complex___complex___impl.exit:                    ; preds = %if.then.i, %if.end.i.i.i, %if.then.i.i, %_PyObject_Init.exit.i.i
+  %retval.0.i = phi ptr [ %self, %if.then.i ], [ %self, %if.end.i.i.i ], [ %call1.i.i, %if.then.i.i ], [ %call.i.i, %_PyObject_Init.exit.i.i ]
   ret ptr %retval.0.i
 }
 

@@ -203,14 +203,14 @@ define internal range(i32 0, 2) i32 @dissect_krb4(ptr noundef %0, ptr nocapture 
   ]
 
 51:                                               ; preds = %22
-  br i1 %40, label %52, label %dissect_krb4_kdc_request.argprom.exit
+  br i1 %40, label %52, label %dissect_krb4_kdc_request.exit
 
 52:                                               ; preds = %51
   %53 = load i32, ptr @hf_krb4_unknown_transarc_blob, align 4
   %54 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %53, ptr noundef %0, i32 noundef 2, i32 noundef 8, i32 noundef 0) #3
-  br label %dissect_krb4_kdc_request.argprom.exit
+  br label %dissect_krb4_kdc_request.exit
 
-dissect_krb4_kdc_request.argprom.exit:            ; preds = %51, %52
+dissect_krb4_kdc_request.exit:                    ; preds = %51, %52
   %.0.i = phi i32 [ 10, %52 ], [ 2, %51 ]
   %55 = load i32, ptr @hf_krb4_name, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
@@ -338,8 +338,8 @@ dissect_krb4_kdc_request.argprom.exit:            ; preds = %51, %52
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %151
 
-151:                                              ; preds = %22, %dissect_krb4_kdc_request.argprom.exit, %83, %112, %18, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %18 ], [ 1, %112 ], [ 1, %83 ], [ 1, %dissect_krb4_kdc_request.argprom.exit ], [ 1, %22 ]
+151:                                              ; preds = %22, %dissect_krb4_kdc_request.exit, %83, %112, %18, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %18 ], [ 1, %112 ], [ 1, %83 ], [ 1, %dissect_krb4_kdc_request.exit ], [ 1, %22 ]
   ret i32 %.0
 }
 

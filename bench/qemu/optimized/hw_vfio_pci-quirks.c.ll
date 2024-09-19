@@ -3099,7 +3099,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %addr, i8 0, i64 28, i1 false)
   %quirk.val = load ptr, ptr %1, align 8
   %tobool.not1.i = icmp eq ptr %quirk.val, null
-  br i1 %tobool.not1.i, label %vfio_drop_dynamic_eventfds.argprom.exit, label %land.rhs.i
+  br i1 %tobool.not1.i, label %vfio_drop_dynamic_eventfds.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %entry, %for.inc.i
   %ioeventfd.02.i = phi ptr [ %2, %for.inc.i ], [ %quirk.val, %entry ]
@@ -3115,9 +3115,9 @@ if.then.i:                                        ; preds = %land.rhs.i
 
 for.inc.i:                                        ; preds = %if.then.i, %land.rhs.i
   %tobool.not.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i, label %vfio_drop_dynamic_eventfds.argprom.exit, label %land.rhs.i, !llvm.loop !22
+  br i1 %tobool.not.i, label %vfio_drop_dynamic_eventfds.exit, label %land.rhs.i, !llvm.loop !22
 
-vfio_drop_dynamic_eventfds.argprom.exit:          ; preds = %for.inc.i, %entry
+vfio_drop_dynamic_eventfds.exit:                  ; preds = %for.inc.i, %entry
   ret void
 }
 
@@ -3261,7 +3261,7 @@ if.then35:                                        ; preds = %if.then31
   %21 = load i32, ptr %offset41, align 8
   %conv42 = zext i32 %21 to i64
   %add43 = add i64 %addr, %conv42
-  %call44 = tail call fastcc ptr @vfio_ioeventfd_init.argelim(ptr noundef nonnull %0, ptr noundef %19, i64 noundef %addr, i32 noundef %size, i64 noundef %data, ptr noundef %arrayidx39, i64 noundef %add43)
+  %call44 = tail call fastcc ptr @vfio_ioeventfd_init(ptr noundef nonnull %0, ptr noundef %19, i64 noundef %addr, i32 noundef %size, i64 noundef %data, ptr noundef %arrayidx39, i64 noundef %add43)
   %tobool45.not = icmp eq ptr %call44, null
   br i1 %tobool45.not, label %if.end74, label %if.then46
 
@@ -3299,7 +3299,7 @@ if.end74:                                         ; preds = %if.then24, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @vfio_ioeventfd_init.argelim(ptr nocapture noundef readonly %vdev, ptr noundef %mr, i64 noundef range(i64 64, 0) %addr, i32 noundef %size, i64 noundef %data, ptr noundef %region, i64 noundef %region_addr) unnamed_addr #0 {
+define internal fastcc noundef ptr @vfio_ioeventfd_init(ptr nocapture noundef readonly %vdev, ptr noundef %mr, i64 noundef range(i64 64, 0) %addr, i32 noundef %size, i64 noundef %data, ptr noundef %region, i64 noundef %region_addr) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %vfio_ioeventfd = alloca %struct.vfio_device_ioeventfd, align 8

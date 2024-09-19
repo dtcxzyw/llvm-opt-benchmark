@@ -1033,7 +1033,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.758 = private unnamed_addr constant [32 x i8] c"[Cannot find requesting packet]\00", align 1
 @.str.759 = private unnamed_addr constant [27 x i8] c"Payload Data: WRITEMEM_ACK\00", align 1
 @.str.760 = private unnamed_addr constant [26 x i8] c"Payload Data: PENDING_ACK\00", align 1
-@switch.table.dissect_readmem_ack.argelim = private unnamed_addr constant [4 x ptr] [ptr @hf_gvcp_sc_gendc_descriptor_address_v2_2, ptr @hf_gvcp_sc_gendc_descriptor_size_v2_2, ptr @hf_gvcp_sc_gendc_flow_mapping_table_address_v2_2, ptr @hf_gvcp_sc_gendc_flow_mapping_table_size_v2_2], align 8
+@switch.table.dissect_readmem_ack = private unnamed_addr constant [4 x ptr] [ptr @hf_gvcp_sc_gendc_descriptor_address_v2_2, ptr @hf_gvcp_sc_gendc_descriptor_size_v2_2, ptr @hf_gvcp_sc_gendc_flow_mapping_table_address_v2_2, ptr @hf_gvcp_sc_gendc_flow_mapping_table_size_v2_2], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_gvcp() local_unnamed_addr #0 {
@@ -1359,39 +1359,39 @@ proto_item_set_generated.exit:                    ; preds = %160, %157, %154, %1
   ]
 
 164:                                              ; preds = %proto_item_set_generated.exit
-  tail call fastcc void @dissect_forceip_cmd.argprom.argelim(ptr noundef %150, ptr noundef %0, i32 noundef %70)
+  tail call fastcc void @dissect_forceip_cmd(ptr noundef %150, ptr noundef %0, i32 noundef %70)
   br label %173
 
 165:                                              ; preds = %proto_item_set_generated.exit
-  tail call fastcc void @dissect_packetresend_cmd.argelim(ptr noundef %150, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, i32 noundef %.1275)
+  tail call fastcc void @dissect_packetresend_cmd(ptr noundef %150, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, i32 noundef %.1275)
   br label %173
 
 166:                                              ; preds = %proto_item_set_generated.exit
-  tail call fastcc void @dissect_readreg_cmd.argelim(ptr noundef %150, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, ptr noundef nonnull %.0271, ptr noundef %.3316)
+  tail call fastcc void @dissect_readreg_cmd(ptr noundef %150, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, ptr noundef nonnull %.0271, ptr noundef %.3316)
   br label %173
 
 167:                                              ; preds = %proto_item_set_generated.exit
-  tail call fastcc void @dissect_writereg_cmd.argelim(ptr noundef %150, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, ptr noundef nonnull %.0271, ptr noundef %.3316)
+  tail call fastcc void @dissect_writereg_cmd(ptr noundef %150, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, ptr noundef nonnull %.0271, ptr noundef %.3316)
   br label %173
 
 168:                                              ; preds = %proto_item_set_generated.exit
-  tail call fastcc void @dissect_readmem_cmd.argelim(ptr noundef %150, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.0271)
+  tail call fastcc void @dissect_readmem_cmd(ptr noundef %150, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.0271)
   br label %173
 
 169:                                              ; preds = %proto_item_set_generated.exit
-  tail call fastcc void @dissect_writemem_cmd.argelim(ptr noundef %150, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, ptr noundef nonnull %.0271, ptr noundef %.3316)
+  tail call fastcc void @dissect_writemem_cmd(ptr noundef %150, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, ptr noundef nonnull %.0271, ptr noundef %.3316)
   br label %173
 
 170:                                              ; preds = %proto_item_set_generated.exit
-  tail call fastcc void @dissect_event_cmd.argelim(ptr noundef %150, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, i32 noundef %.1275)
+  tail call fastcc void @dissect_event_cmd(ptr noundef %150, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, i32 noundef %.1275)
   br label %173
 
 171:                                              ; preds = %proto_item_set_generated.exit
-  tail call fastcc void @dissect_eventdata_cmd.argelim(ptr noundef %150, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.1275)
+  tail call fastcc void @dissect_eventdata_cmd(ptr noundef %150, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.1275)
   br label %173
 
 172:                                              ; preds = %proto_item_set_generated.exit
-  tail call fastcc void @dissect_action_cmd.argprom.argelim(ptr noundef %150, ptr noundef %0, i32 noundef %.1273)
+  tail call fastcc void @dissect_action_cmd(ptr noundef %150, ptr noundef %0, i32 noundef %.1273)
   br label %173
 
 173:                                              ; preds = %proto_item_set_generated.exit, %172, %171, %170, %169, %168, %167, %166, %165, %164
@@ -1465,27 +1465,27 @@ proto_item_set_generated.exit303:                 ; preds = %200, %197, %194, %1
   ]
 
 204:                                              ; preds = %proto_item_set_generated.exit303
-  tail call fastcc void @dissect_discovery_ack.argelim(ptr noundef %148, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70)
+  tail call fastcc void @dissect_discovery_ack(ptr noundef %148, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70)
   br label %213
 
 205:                                              ; preds = %proto_item_set_generated.exit303
-  tail call fastcc void @dissect_readreg_ack.argelim(ptr noundef %148, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, ptr noundef nonnull %.0271, ptr noundef %.3)
+  tail call fastcc void @dissect_readreg_ack(ptr noundef %148, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, ptr noundef nonnull %.0271, ptr noundef %.3)
   br label %213
 
 206:                                              ; preds = %proto_item_set_generated.exit303
-  tail call fastcc void @dissect_writereg_ack.argelim(ptr noundef %148, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.3)
+  tail call fastcc void @dissect_writereg_ack(ptr noundef %148, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.3)
   br label %213
 
 207:                                              ; preds = %proto_item_set_generated.exit303
-  tail call fastcc void @dissect_readmem_ack.argelim(ptr noundef %148, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, ptr noundef nonnull %.0271)
+  tail call fastcc void @dissect_readmem_ack(ptr noundef %148, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, ptr noundef nonnull %.0271)
   br label %213
 
 208:                                              ; preds = %proto_item_set_generated.exit303
-  tail call fastcc void @dissect_writemem_ack.argelim(ptr noundef %148, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, ptr noundef nonnull %.0271, ptr noundef %.3)
+  tail call fastcc void @dissect_writemem_ack(ptr noundef %148, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, ptr noundef nonnull %.0271, ptr noundef %.3)
   br label %213
 
 209:                                              ; preds = %proto_item_set_generated.exit303
-  tail call fastcc void @dissect_pending_ack.argprom.argelim(ptr noundef %148, ptr noundef %0, i32 noundef %70)
+  tail call fastcc void @dissect_pending_ack(ptr noundef %148, ptr noundef %0, i32 noundef %70)
   br label %213
 
 210:                                              ; preds = %proto_item_set_generated.exit303
@@ -1570,7 +1570,7 @@ declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_forceip_cmd.argprom.argelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 65536) %2) unnamed_addr #0 {
+define internal fastcc void @dissect_forceip_cmd(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 65536) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %4
 
@@ -1592,7 +1592,7 @@ define internal fastcc void @dissect_forceip_cmd.argprom.argelim(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_packetresend_cmd.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, i32 noundef range(i32 -1, 17) %4) unnamed_addr #0 {
+define internal fastcc void @dissect_packetresend_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, i32 noundef range(i32 -1, 17) %4) unnamed_addr #0 {
   %6 = icmp eq i32 %4, 0
   br i1 %6, label %7, label %14
 
@@ -1656,7 +1656,7 @@ define internal fastcc void @dissect_packetresend_cmd.argelim(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_readreg_cmd.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_readreg_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   store ptr null, ptr %7, align 8
@@ -1849,7 +1849,7 @@ is_extended_bootstrap_address.exit:               ; preds = %78
 
 switch.lookup:                                    ; preds = %is_extended_bootstrap_address.exit
   %86 = zext nneg i32 %84 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_readmem_ack.argelim, i64 0, i64 %86
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_readmem_ack, i64 0, i64 %86
   %switch.load = load ptr, ptr %switch.gep, align 8
   %87 = load i32, ptr %switch.load, align 4
   %88 = call ptr @proto_tree_add_item(ptr noundef nonnull %.067, i32 noundef %87, ptr noundef %1, i32 noundef %.03955, i32 noundef 4, i32 noundef 0) #5
@@ -1873,7 +1873,7 @@ dissect_extended_bootstrap_register.exit:         ; preds = %is_extended_bootstr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_writereg_cmd.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef readonly %4, ptr noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc void @dissect_writereg_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef readonly %4, ptr noundef writeonly %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   store ptr null, ptr %7, align 8
   %8 = lshr i32 %3, 3
@@ -1989,7 +1989,7 @@ get_register_name_from_address.exit:              ; preds = %11, %25, %.thread.i
   %50 = load i32, ptr @ett_gvcp_payload_cmd_subtree, align 4
   %51 = call ptr @proto_item_add_subtree(ptr noundef %49, i32 noundef %50) #5
   %52 = add i32 %.06684, 4
-  call fastcc void @dissect_register.argelim(i32 noundef %45, ptr noundef %51, ptr noundef %1, i32 noundef %52, i32 noundef 4)
+  call fastcc void @dissect_register(i32 noundef %45, ptr noundef %51, ptr noundef %1, i32 noundef %52, i32 noundef 4)
   br label %dissect_extended_bootstrap_register.exit
 
 53:                                               ; preds = %.preheader
@@ -2022,7 +2022,7 @@ is_extended_bootstrap_address.exit:               ; preds = %.preheader
 
 switch.lookup:                                    ; preds = %is_extended_bootstrap_address.exit
   %66 = zext nneg i32 %64 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_readmem_ack.argelim, i64 0, i64 %66
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_readmem_ack, i64 0, i64 %66
   %switch.load = load ptr, ptr %switch.gep, align 8
   %67 = load i32, ptr %switch.load, align 4
   %68 = call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %67, ptr noundef %1, i32 noundef %62, i32 noundef 4, i32 noundef 0) #5
@@ -2051,7 +2051,7 @@ dissect_extended_bootstrap_register.exit:         ; preds = %is_extended_bootstr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_readmem_cmd.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_readmem_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 8) #5
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef 14) #5
   %7 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2099,7 +2099,7 @@ is_extended_bootstrap_address.exit:               ; preds = %18
 
 switch.lookup:                                    ; preds = %is_extended_bootstrap_address.exit
   %26 = zext nneg i32 %24 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_readmem_ack.argelim, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_readmem_ack, i64 0, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   %27 = load i32, ptr %switch.load, align 4
   %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %27, ptr noundef %1, i32 noundef 8, i32 noundef 4, i32 noundef 0) #5
@@ -2121,7 +2121,7 @@ dissect_extended_bootstrap_register.exit:         ; preds = %is_extended_bootstr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_writemem_cmd.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_writemem_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 8) #5
   store i32 %8, ptr %7, align 4
@@ -2305,7 +2305,7 @@ is_extended_bootstrap_address.exit:               ; preds = %76
 
 switch.lookup:                                    ; preds = %is_extended_bootstrap_address.exit
   %84 = zext nneg i32 %82 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_readmem_ack.argelim, i64 0, i64 %84
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_readmem_ack, i64 0, i64 %84
   %switch.load = load ptr, ptr %switch.gep, align 8
   %85 = load i32, ptr %switch.load, align 4
   %86 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %85, ptr noundef %1, i32 noundef 12, i32 noundef 4, i32 noundef 0) #5
@@ -2321,7 +2321,7 @@ dissect_register_data.exit:                       ; preds = %is_extended_bootstr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_event_cmd.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, i32 noundef range(i32 -1, 17) %4) unnamed_addr #0 {
+define internal fastcc void @dissect_event_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, i32 noundef range(i32 -1, 17) %4) unnamed_addr #0 {
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef 10) #5
   %7 = zext i16 %6 to i32
   %8 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2404,7 +2404,7 @@ define internal fastcc void @dissect_event_cmd.argelim(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_eventdata_cmd.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 17) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_eventdata_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 17) %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef 8) #5
   %6 = icmp sgt i32 %5, 12
   br i1 %6, label %.lr.ph, label %.loopexit
@@ -2484,7 +2484,7 @@ define internal fastcc void @dissect_eventdata_cmd.argelim(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_action_cmd.argprom.argelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -1, 129) %2) unnamed_addr #0 {
+define internal fastcc void @dissect_action_cmd(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -1, 129) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %4
 
@@ -2514,7 +2514,7 @@ declare noalias ptr @wmem_array_new(ptr noundef, i64 noundef) local_unnamed_addr
 declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_discovery_ack.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_discovery_ack(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 408
@@ -2606,7 +2606,7 @@ define internal fastcc void @dissect_discovery_ack.argelim(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_readreg_ack.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef %4, ptr noundef readonly %5) unnamed_addr #0 {
+define internal fastcc void @dissect_readreg_ack(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef %4, ptr noundef readonly %5) unnamed_addr #0 {
   %7 = lshr i32 %3, 2
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %11, label %8
@@ -2829,7 +2829,7 @@ is_extended_bootstrap_address.exit:               ; preds = %.preheader
 
 switch.lookup:                                    ; preds = %is_extended_bootstrap_address.exit
   %91 = zext nneg i32 %89 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_readmem_ack.argelim, i64 0, i64 %91
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_readmem_ack, i64 0, i64 %91
   %switch.load = load ptr, ptr %switch.gep, align 8
   %92 = load i32, ptr %switch.load, align 4
   %93 = tail call ptr @proto_tree_add_item(ptr noundef %.079165166, i32 noundef %92, ptr noundef %1, i32 noundef %.078133, i32 noundef 4, i32 noundef 0) #5
@@ -2838,7 +2838,7 @@ switch.lookup:                                    ; preds = %is_extended_bootstr
 94:                                               ; preds = %81
   %95 = load i32, ptr @hf_gvcp_readregcmd_bootstrap_register, align 4
   %96 = tail call ptr @proto_tree_add_uint(ptr noundef %.079165166, i32 noundef %95, ptr noundef %1, i32 noundef 0, i32 noundef 4, i32 noundef %59) #5
-  tail call fastcc void @dissect_register.argelim(i32 noundef %59, ptr noundef %.079165166, ptr noundef %1, i32 noundef %.078133, i32 noundef %3)
+  tail call fastcc void @dissect_register(i32 noundef %59, ptr noundef %.079165166, ptr noundef %1, i32 noundef %.078133, i32 noundef %3)
   br label %dissect_extended_bootstrap_register.exit
 
 97:                                               ; preds = %.loopexit
@@ -2864,7 +2864,7 @@ dissect_extended_bootstrap_register.exit:         ; preds = %is_extended_bootstr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_writereg_ack.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_writereg_ack(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %5
 
@@ -2919,7 +2919,7 @@ define internal fastcc void @dissect_writereg_ack.argelim(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_readmem_ack.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @dissect_readmem_ack(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %dissect_register_data.exit, label %6
 
@@ -3049,7 +3049,7 @@ is_extended_bootstrap_address.exit:               ; preds = %50
 
 switch.lookup:                                    ; preds = %is_extended_bootstrap_address.exit
   %58 = zext nneg i32 %56 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_readmem_ack.argelim, i64 0, i64 %58
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_readmem_ack, i64 0, i64 %58
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dissect_register_data.exit.sink.split
 
@@ -3065,7 +3065,7 @@ dissect_register_data.exit:                       ; preds = %is_extended_bootstr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_writemem_ack.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef readonly %4, ptr noundef readonly %5) unnamed_addr #0 {
+define internal fastcc void @dissect_writemem_ack(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef readonly %4, ptr noundef readonly %5) unnamed_addr #0 {
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.thread, label %7
 
@@ -3171,7 +3171,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread, %42, %39, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_pending_ack.argprom.argelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 65536) %2) unnamed_addr #0 {
+define internal fastcc void @dissect_pending_ack(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 65536) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %4
 
@@ -3197,7 +3197,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_register.argelim(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 65536) %4) unnamed_addr #0 {
+define internal fastcc void @dissect_register(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 65536) %4) unnamed_addr #0 {
   switch i32 %0, label %442 [
     i32 0, label %6
     i32 4, label %11

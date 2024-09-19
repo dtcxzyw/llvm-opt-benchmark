@@ -19942,7 +19942,7 @@ define void @_ZN3nix12loadConfFileEv() local_unnamed_addr #5 personality ptr @__
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.5", align 1
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %1, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN3nix8settingsE, i64 264), ptr noundef nonnull @.str.214)
-  invoke fastcc void @"_ZZN3nix12loadConfFileEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke fastcc void @"_ZZN3nix12loadConfFileEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %8 unwind label %22
 
 8:                                                ; preds = %0
@@ -19978,7 +19978,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %.sroa.020.0, i64 -32
-  invoke fastcc void @"_ZZN3nix12loadConfFileEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %21)
+  invoke fastcc void @"_ZZN3nix12loadConfFileEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(32) %21)
           to label %17 unwind label %24, !llvm.loop !55
 
 22:                                               ; preds = %0
@@ -20175,7 +20175,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3nix12loadConfFileEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3nix12loadConfFileEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   invoke void @_ZN3nix8readFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %3 unwind label %11
@@ -22405,13 +22405,13 @@ define void @_ZN3nix12initLibStoreEv() local_unnamed_addr #5 personality ptr @__
   %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN3nixL10preloadNSSEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS6_ENUlvE_8__invokeEv", ptr %4, align 8
   %5 = invoke noundef i32 @pthread_once(ptr noundef nonnull @_ZZN3nixL10preloadNSSEvE16dns_resolve_flag, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i unwind label %8
+          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i unwind label %8
 
-_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i:      ; preds = %0
+_ZL14__gthread_oncePiPFvvE.exit.i.i:              ; preds = %0
   %.not.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i, label %_ZN3nixL10preloadNSSEv.exit, label %6
 
-6:                                                ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i
+6:                                                ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %5) #34
           to label %7 unwind label %8
 
@@ -22425,7 +22425,7 @@ _ZL14__gthread_oncePiPFvvE.argprom.exit.i.i:      ; preds = %0
   store ptr null, ptr %4, align 8
   resume { ptr, i32 } %9
 
-_ZN3nixL10preloadNSSEv.exit:                      ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i
+_ZN3nixL10preloadNSSEv.exit:                      ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
@@ -42842,7 +42842,7 @@ define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN3n
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   %3 = tail call ptr @dlopen(ptr noundef nonnull @.str.277, i32 noundef 2) #30
   %.not.i.i.i.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i.i.i.i, label %4, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN3nixL10preloadNSSEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS6_ENKUlvE_clEv.argprom.exit"
+  br i1 %.not.i.i.i.i.i, label %4, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN3nixL10preloadNSSEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS6_ENKUlvE_clEv.exit"
 
 4:                                                ; preds = %0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #30
@@ -42873,7 +42873,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #30
-  br label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN3nixL10preloadNSSEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS6_ENKUlvE_clEv.argprom.exit"
+  br label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN3nixL10preloadNSSEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS6_ENKUlvE_clEv.exit"
 
 13:                                               ; preds = %4
   %14 = landingpad { ptr, i32 }
@@ -42891,7 +42891,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i: ; pred
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #30
   resume { ptr, i32 } %.pn.i.i.i.i.i
 
-"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN3nixL10preloadNSSEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS6_ENKUlvE_clEv.argprom.exit": ; preds = %0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i
+"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN3nixL10preloadNSSEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS6_ENKUlvE_clEv.exit": ; preds = %0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i
   %18 = call i32 @__nss_configure_lookup(ptr noundef nonnull @.str.279, ptr noundef nonnull @.str.280) #30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)

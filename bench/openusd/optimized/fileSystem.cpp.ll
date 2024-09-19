@@ -347,7 +347,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_GetTokenTypeIN9__gnu_cxx17
   %.sroa.088.1.i = phi ptr [ %59, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_GetTokenTypeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_9TokenTypeESt4pairIT_SF_E.exit.i ], [ %62, %.critedge.i55.loopexit.i.loopexit ], [ %.sroa.088.0.i, %.lr.ph.i54.i ]
   %67 = phi ptr [ %59, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_GetTokenTypeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_9TokenTypeESt4pairIT_SF_E.exit.i ], [ %66, %.critedge.i55.loopexit.i.loopexit ], [ %.sroa.088.0.i, %.lr.ph.i54.i ]
   %.not510.i.i = icmp eq ptr %57, %.sroa.088.1.i
-  br i1 %.not510.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_NextTokenISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEESt4pairIT_SF_ESF_SF_.argprom.exit.i, label %.lr.ph11.i.i
+  br i1 %.not510.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_NextTokenISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEESt4pairIT_SF_ESF_SF_.exit.i, label %.lr.ph11.i.i
 
 .lr.ph11.i.i:                                     ; preds = %.critedge.i55.i, %71
   %.sroa.5.0.i = phi ptr [ %72, %71 ], [ %67, %.critedge.i55.i ]
@@ -355,14 +355,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_GetTokenTypeIN9__gnu_cxx17
   %69 = getelementptr inbounds i8, ptr %.sroa.5.0.i, i64 -1
   %70 = load i8, ptr %69, align 1, !noalias !8
   %.not.i56.i = icmp eq i8 %70, 47
-  br i1 %.not.i56.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_NextTokenISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEESt4pairIT_SF_ESF_SF_.argprom.exit.i, label %71
+  br i1 %.not.i56.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_NextTokenISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEESt4pairIT_SF_ESF_SF_.exit.i, label %71
 
 71:                                               ; preds = %.lr.ph11.i.i
   %72 = getelementptr inbounds i8, ptr %68, i64 -1
   %.not5.i.i = icmp eq ptr %57, %72
-  br i1 %.not5.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_NextTokenISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEESt4pairIT_SF_ESF_SF_.argprom.exit.i, label %.lr.ph11.i.i, !llvm.loop !12
+  br i1 %.not5.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_NextTokenISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEESt4pairIT_SF_ESF_SF_.exit.i, label %.lr.ph11.i.i, !llvm.loop !12
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_NextTokenISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEESt4pairIT_SF_ESF_SF_.argprom.exit.i: ; preds = %71, %.lr.ph11.i.i, %.critedge.i55.i
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_NextTokenISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEESt4pairIT_SF_ESF_SF_.exit.i: ; preds = %71, %.lr.ph11.i.i, %.critedge.i55.i
   %.sroa.5.1.i = phi ptr [ %67, %.critedge.i55.i ], [ %.sroa.5.0.i, %.lr.ph11.i.i ], [ %57, %71 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4rendEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   %.sroa.0.0.copyload.i2.i.i = load ptr, ptr %4, align 8, !noalias !13
@@ -370,7 +370,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_NextTokenISt16reverse_iter
   %or.cond.i = and i1 %.not510.i.i, %73
   br i1 %or.cond.i, label %.critedge.i, label %74
 
-74:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_NextTokenISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEESt4pairIT_SF_ESF_SF_.argprom.exit.i
+74:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_NextTokenISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEESt4pairIT_SF_ESF_SF_.exit.i
   %75 = ptrtoint ptr %.sroa.088.1.i to i64
   %76 = ptrtoint ptr %.sroa.5.1.i to i64
   %77 = sub i64 %75, %76
@@ -389,7 +389,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_NextTokenISt16reverse_iter
   %85 = icmp eq i8 %84, 46
   br i1 %85, label %.critedge.i, label %97
 
-.critedge.i:                                      ; preds = %82, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_NextTokenISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEESt4pairIT_SF_ESF_SF_.argprom.exit.i
+.critedge.i:                                      ; preds = %82, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_NextTokenISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEESt4pairIT_SF_ESF_SF_.exit.i
   %86 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0123.i)
           to label %87 unwind label %.loopexit.split-lp.loopexit.i
 
@@ -1338,7 +1338,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19ArchMapFileReadOnlyERKNSt7__
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23, !noalias !17
   br label %.thread11.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_FcloserclEP8_IO_FILE.argprom.exit.i.i: ; preds = %13
+_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_FcloserclEP8_IO_FILE.exit.i.i: ; preds = %13
   %10 = landingpad { ptr, i32 }
           cleanup
   %11 = tail call i32 @fclose(ptr noundef nonnull %6), !noalias !17
@@ -1352,13 +1352,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_FcloserclEP8_IO_FILE.argpr
 
 13:                                               ; preds = %3
   invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16Arch_MapFileImplISt10unique_ptrIKcNS_13Arch_UnmapperEEEET_P8_IO_FILEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %6, ptr noundef %2)
-          to label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_FcloserclEP8_IO_FILE.argprom.exit.i7.i unwind label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_FcloserclEP8_IO_FILE.argprom.exit.i.i
+          to label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_FcloserclEP8_IO_FILE.exit.i7.i unwind label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_FcloserclEP8_IO_FILE.exit.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_FcloserclEP8_IO_FILE.argprom.exit.i7.i: ; preds = %13
+_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_FcloserclEP8_IO_FILE.exit.i7.i: ; preds = %13
   %14 = tail call i32 @fclose(ptr noundef nonnull %6), !noalias !17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L16Arch_MapFileImplISt10unique_ptrIKcNS_13Arch_UnmapperEEEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSB_.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__L16Arch_MapFileImplISt10unique_ptrIKcNS_13Arch_UnmapperEEEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSB_.exit: ; preds = %.thread11.i, %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_FcloserclEP8_IO_FILE.argprom.exit.i7.i
+_ZN32pxrInternal_v0_24__pxrReserved__L16Arch_MapFileImplISt10unique_ptrIKcNS_13Arch_UnmapperEEEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSB_.exit: ; preds = %.thread11.i, %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_FcloserclEP8_IO_FILE.exit.i7.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   ret void
 }
@@ -1383,7 +1383,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__20ArchMapFileReadWriteERKNSt7_
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23, !noalias !20
   br label %.thread11.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_FcloserclEP8_IO_FILE.argprom.exit.i.i: ; preds = %13
+_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_FcloserclEP8_IO_FILE.exit.i.i: ; preds = %13
   %10 = landingpad { ptr, i32 }
           cleanup
   %11 = tail call i32 @fclose(ptr noundef nonnull %6), !noalias !20
@@ -1397,13 +1397,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_FcloserclEP8_IO_FILE.argpr
 
 13:                                               ; preds = %3
   invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16Arch_MapFileImplISt10unique_ptrIcNS_13Arch_UnmapperEEEET_P8_IO_FILEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %6, ptr noundef %2)
-          to label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_FcloserclEP8_IO_FILE.argprom.exit.i7.i unwind label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_FcloserclEP8_IO_FILE.argprom.exit.i.i
+          to label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_FcloserclEP8_IO_FILE.exit.i7.i unwind label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_FcloserclEP8_IO_FILE.exit.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_FcloserclEP8_IO_FILE.argprom.exit.i7.i: ; preds = %13
+_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_FcloserclEP8_IO_FILE.exit.i7.i: ; preds = %13
   %14 = tail call i32 @fclose(ptr noundef nonnull %6), !noalias !20
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L16Arch_MapFileImplISt10unique_ptrIcNS_13Arch_UnmapperEEEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSA_.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__L16Arch_MapFileImplISt10unique_ptrIcNS_13Arch_UnmapperEEEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSA_.exit: ; preds = %.thread11.i, %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_FcloserclEP8_IO_FILE.argprom.exit.i7.i
+_ZN32pxrInternal_v0_24__pxrReserved__L16Arch_MapFileImplISt10unique_ptrIcNS_13Arch_UnmapperEEEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSA_.exit: ; preds = %.thread11.i, %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_FcloserclEP8_IO_FILE.exit.i7.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   ret void
 }
@@ -1945,8 +1945,8 @@ attributes #29 = { noreturn nounwind }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_NextTokenISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEESt4pairIT_SF_ESF_SF_.argprom: argument 0"}
-!10 = distinct !{!10, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_NextTokenISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEESt4pairIT_SF_ESF_SF_.argprom"}
+!9 = distinct !{!9, !10, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_NextTokenISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEESt4pairIT_SF_ESF_SF_: argument 0"}
+!10 = distinct !{!10, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_NextTokenISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEESt4pairIT_SF_ESF_SF_"}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = !{!14}

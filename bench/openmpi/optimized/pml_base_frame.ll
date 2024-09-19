@@ -261,12 +261,12 @@ opal_obj_run_destructors.exit9:                   ; preds = %.lr.ph.i6, %opal_ob
   %wide.trip.count = zext nneg i32 %19 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %opal_pointer_array_get_item.argprom.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %opal_pointer_array_get_item.argprom.exit ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %opal_pointer_array_get_item.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %opal_pointer_array_get_item.exit ]
   %21 = load i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_pml, i64 88), align 8
   %22 = sext i32 %21 to i64
   %.not15 = icmp slt i64 %indvars.iv, %22
-  br i1 %.not15, label %23, label %opal_pointer_array_get_item.argprom.exit
+  br i1 %.not15, label %23, label %opal_pointer_array_get_item.exit
 
 23:                                               ; preds = %.lr.ph
   %24 = load i8, ptr @opal_uses_threads, align 1
@@ -284,20 +284,20 @@ opal_obj_run_destructors.exit9:                   ; preds = %.lr.ph.i6, %opal_ob
   %31 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = trunc i8 %29 to i1
-  br i1 %33, label %34, label %opal_pointer_array_get_item.argprom.exit
+  br i1 %33, label %34, label %opal_pointer_array_get_item.exit
 
 34:                                               ; preds = %28
   %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_base_pml, i64 32)) #6
-  br label %opal_pointer_array_get_item.argprom.exit
+  br label %opal_pointer_array_get_item.exit
 
-opal_pointer_array_get_item.argprom.exit:         ; preds = %.lr.ph, %28, %34
+opal_pointer_array_get_item.exit:                 ; preds = %.lr.ph, %28, %34
   %.0.i = phi ptr [ null, %.lr.ph ], [ %32, %28 ], [ %32, %34 ]
   tail call void @free(ptr noundef %.0.i) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %opal_pointer_array_get_item.argprom.exit, %opal_obj_run_destructors.exit9
+._crit_edge:                                      ; preds = %opal_pointer_array_get_item.exit, %opal_obj_run_destructors.exit9
   %36 = load ptr, ptr @mca_pml_base_pml, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 48
   %38 = load ptr, ptr %37, align 8

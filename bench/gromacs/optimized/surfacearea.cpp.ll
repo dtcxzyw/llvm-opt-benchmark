@@ -3782,15 +3782,15 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit
   %198 = mul nsw i32 %197, 3
   %199 = add nsw i32 %198, 1
   %.not204.i = icmp sgt i32 %.3175298.i, %199
-  br i1 %.not204.i, label %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.argprom.exit.i, label %200
+  br i1 %.not204.i, label %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit.i, label %200
 
 200:                                              ; preds = %196
   %201 = add nsw i32 %.3175298.i, %124
   %202 = sext i32 %201 to i64
   %203 = invoke noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.2, i32 noundef 834, ptr noundef %.3242297.i, i64 noundef %202, i64 noundef 4)
-          to label %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.argprom.exit.i unwind label %.loopexit248.i
+          to label %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit.i unwind label %.loopexit248.i
 
-_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.argprom.exit.i: ; preds = %200, %196
+_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit.i:      ; preds = %200, %196
   %.4243.i = phi ptr [ %.3242297.i, %196 ], [ %203, %200 ]
   %.4176.i = phi i32 [ %.3175298.i, %196 ], [ %201, %200 ]
   %.idx365.i = mul nuw nsw i64 %indvars.iv346.i, 12
@@ -3813,10 +3813,10 @@ _ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.argprom.exit.i: ; preds = %200, %196
   store float %216, ptr %217, align 4
   br label %218
 
-218:                                              ; preds = %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.argprom.exit.i, %.lr.ph301.i
-  %.5244.i = phi ptr [ %.3242297.i, %.lr.ph301.i ], [ %.4243.i, %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.argprom.exit.i ]
-  %.5.i = phi i32 [ %.3175298.i, %.lr.ph301.i ], [ %.4176.i, %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.argprom.exit.i ]
-  %.4.i = phi i32 [ %.3299.i, %.lr.ph301.i ], [ %197, %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.argprom.exit.i ]
+218:                                              ; preds = %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit.i, %.lr.ph301.i
+  %.5244.i = phi ptr [ %.3242297.i, %.lr.ph301.i ], [ %.4243.i, %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit.i ]
+  %.5.i = phi i32 [ %.3175298.i, %.lr.ph301.i ], [ %.4176.i, %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit.i ]
+  %.4.i = phi i32 [ %.3299.i, %.lr.ph301.i ], [ %197, %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit.i ]
   %indvars.iv.next347.i = add nuw nsw i64 %indvars.iv346.i, 1
   %exitcond351.not.i = icmp eq i64 %indvars.iv.next347.i, %wide.trip.count344.i
   br i1 %exitcond351.not.i, label %.loopexit247.i, label %.lr.ph301.i, !llvm.loop !46

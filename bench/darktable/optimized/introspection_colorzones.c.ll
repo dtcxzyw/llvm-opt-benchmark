@@ -5140,13 +5140,13 @@ define internal noundef i32 @_area_draw_callback(ptr noundef %0, ptr noundef %1,
   %773 = fpext float %772 to double
   br label %777
 
-774:                                              ; preds = %dt_XYZ_to_sRGB.argprom.exit
+774:                                              ; preds = %dt_XYZ_to_sRGB.exit
   %775 = add nuw nsw i32 %765, 1
   %776 = icmp eq i32 %775, 36
   br i1 %776, label %969, label %764
 
-777:                                              ; preds = %dt_XYZ_to_sRGB.argprom.exit, %764
-  %778 = phi i32 [ 0, %764 ], [ %967, %dt_XYZ_to_sRGB.argprom.exit ]
+777:                                              ; preds = %dt_XYZ_to_sRGB.exit, %764
+  %778 = phi i32 [ 0, %764 ], [ %967, %dt_XYZ_to_sRGB.exit ]
   %779 = load float, ptr %748, align 4, !tbaa !200
   %780 = load float, ptr %749, align 4, !tbaa !153
   %781 = fdiv reassoc nsz arcp contract afn float %768, %779
@@ -5321,7 +5321,7 @@ define internal noundef i32 @_area_draw_callback(ptr noundef %0, ptr noundef %1,
 
 919:                                              ; preds = %818
   %920 = fmul reassoc nsz arcp contract afn float %877, 0x4029D70A40000000
-  br label %dt_XYZ_to_sRGB.argprom.exit
+  br label %dt_XYZ_to_sRGB.exit
 
 921:                                              ; preds = %818
   %922 = extractelement <4 x float> %916, i64 0
@@ -5341,9 +5341,9 @@ define internal noundef i32 @_area_draw_callback(ptr noundef %0, ptr noundef %1,
   %936 = fmul reassoc nsz arcp contract afn float %935, 0x3FF0E147A0000000
   %937 = fmul reassoc nsz arcp contract afn float %936, %931
   %938 = fadd reassoc nsz arcp contract afn float %937, 0xBFAC28F5C0000000
-  br label %dt_XYZ_to_sRGB.argprom.exit
+  br label %dt_XYZ_to_sRGB.exit
 
-dt_XYZ_to_sRGB.argprom.exit:                      ; preds = %919, %921
+dt_XYZ_to_sRGB.exit:                              ; preds = %919, %921
   %939 = phi reassoc nsz arcp contract afn float [ %938, %921 ], [ %920, %919 ]
   %940 = fmul reassoc nsz arcp contract afn <2 x float> %885, <float 0x4029D70A40000000, float 0x4029D70A40000000>
   %941 = fcmp reassoc nsz arcp contract afn ugt <2 x float> %885, <float 0x3F69A5C380000000, float 0x3F69A5C380000000>
@@ -8668,15 +8668,15 @@ define internal noundef i32 @_bottom_area_draw_callback(ptr noundef %0, ptr noun
   %62 = fpext float %61 to double
   br label %67
 
-63:                                               ; preds = %dt_XYZ_to_sRGB.argprom.exit
+63:                                               ; preds = %dt_XYZ_to_sRGB.exit
   call void @cairo_set_antialias(ptr noundef %35, i32 noundef 0) #30
   %64 = getelementptr inbounds i8, ptr %2, i64 672
   %65 = load i32, ptr %64, align 16, !tbaa !202
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %234, label %233
 
-67:                                               ; preds = %dt_XYZ_to_sRGB.argprom.exit, %42
-  %68 = phi i32 [ 0, %42 ], [ %231, %dt_XYZ_to_sRGB.argprom.exit ]
+67:                                               ; preds = %dt_XYZ_to_sRGB.exit, %42
+  %68 = phi i32 [ 0, %42 ], [ %231, %dt_XYZ_to_sRGB.exit ]
   %69 = uitofp nneg i32 %68 to float
   %70 = fmul reassoc nsz arcp contract afn float %69, 0x3F90410420000000
   %71 = fadd reassoc nsz arcp contract afn float %70, 0x3F80410420000000
@@ -8808,7 +8808,7 @@ define internal noundef i32 @_bottom_area_draw_callback(ptr noundef %0, ptr noun
 
 183:                                              ; preds = %82
   %184 = fmul reassoc nsz arcp contract afn float %141, 0x4029D70A40000000
-  br label %dt_XYZ_to_sRGB.argprom.exit
+  br label %dt_XYZ_to_sRGB.exit
 
 185:                                              ; preds = %82
   %186 = extractelement <4 x float> %180, i64 0
@@ -8828,9 +8828,9 @@ define internal noundef i32 @_bottom_area_draw_callback(ptr noundef %0, ptr noun
   %200 = fmul reassoc nsz arcp contract afn float %199, 0x3FF0E147A0000000
   %201 = fmul reassoc nsz arcp contract afn float %200, %195
   %202 = fadd reassoc nsz arcp contract afn float %201, 0xBFAC28F5C0000000
-  br label %dt_XYZ_to_sRGB.argprom.exit
+  br label %dt_XYZ_to_sRGB.exit
 
-dt_XYZ_to_sRGB.argprom.exit:                      ; preds = %183, %185
+dt_XYZ_to_sRGB.exit:                              ; preds = %183, %185
   %203 = phi reassoc nsz arcp contract afn float [ %202, %185 ], [ %184, %183 ]
   %204 = fmul reassoc nsz arcp contract afn <2 x float> %149, <float 0x4029D70A40000000, float 0x4029D70A40000000>
   %205 = fcmp reassoc nsz arcp contract afn ugt <2 x float> %149, <float 0x3F69A5C380000000, float 0x3F69A5C380000000>

@@ -999,7 +999,7 @@ while.body.i.i:                                   ; preds = %if.then.i.i152, %wh
 if.end.i.i.i154.thread:                           ; preds = %sw.bb78.i, %if.then.i.i152
   %nargs.0.i.i.ph = phi i32 [ 0, %sw.bb78.i ], [ 1, %if.then.i.i152 ]
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %args.i.i)
-  br label %asm_collectargs.argprom.exit.i.i
+  br label %asm_collectargs.exit.i.i
 
 asm_callx_flags.exit.i:                           ; preds = %while.body.i.i
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %args.i.i)
@@ -1017,7 +1017,7 @@ if.end.i.i.i154:                                  ; preds = %if.then.i.i.i153, %
   %args.addr.0.i.i.i = phi ptr [ %incdec.ptr.i.i.i150, %if.then.i.i.i153 ], [ %args.i.i, %asm_callx_flags.exit.i ]
   %n.0.i.i.i = phi i32 [ %dec.i.i.i, %if.then.i.i.i153 ], [ %and.i.i.i, %asm_callx_flags.exit.i ]
   %cmp2.i.i.i = icmp ugt i32 %n.0.i.i.i, 1
-  br i1 %cmp2.i.i.i, label %while.body.lr.ph.i.i.i, label %asm_collectargs.argprom.exit.i.i
+  br i1 %cmp2.i.i.i, label %while.body.lr.ph.i.i.i, label %asm_collectargs.exit.i.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %if.end.i.i.i154
   %69 = zext i32 %n.0.i.i.i to i64
@@ -1038,9 +1038,9 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %arrayidx10.i.i.i = getelementptr inbounds i32, ptr %args.addr.0.i.i.i, i64 %70
   store i32 %spec.select.i.i.i, ptr %arrayidx10.i.i.i, align 4
   %cmp.wide.i.i.i = icmp ugt i64 %70, 1
-  br i1 %cmp.wide.i.i.i, label %while.body.i.i.i, label %asm_collectargs.argprom.exit.i.i, !llvm.loop !13
+  br i1 %cmp.wide.i.i.i, label %while.body.i.i.i, label %asm_collectargs.exit.i.i, !llvm.loop !13
 
-asm_collectargs.argprom.exit.i.i:                 ; preds = %while.body.i.i.i, %if.end.i.i.i154.thread, %if.end.i.i.i154
+asm_collectargs.exit.i.i:                         ; preds = %while.body.i.i.i, %if.end.i.i.i154.thread, %if.end.i.i.i154
   %args.addr.0.i.i.i3783 = phi ptr [ %args.addr.0.i.i.i, %if.end.i.i.i154 ], [ %args.i.i, %if.end.i.i.i154.thread ], [ %args.addr.0.i.i.i, %while.body.i.i.i ]
   %and.i.i.i37753781 = phi i32 [ %and.i.i.i, %if.end.i.i.i154 ], [ %nargs.0.i.i.ph, %if.end.i.i.i154.thread ], [ %and.i.i.i, %while.body.i.i.i ]
   %ir.addr.0.lcssa.i.i.i = phi ptr [ %ir.4209.i, %if.end.i.i.i154 ], [ %ir.4209.i, %if.end.i.i.i154.thread ], [ %arrayidx.i.i126.i, %while.body.i.i.i ]
@@ -1051,9 +1051,9 @@ asm_collectargs.argprom.exit.i.i:                 ; preds = %while.body.i.i.i, %
   %spec.select10.i.i.i = zext i16 %narrow.i.i.i to i32
   store i32 %spec.select10.i.i.i, ptr %args.addr.0.i.i.i3783, align 4
   %cmp1.not.i.i.i = icmp eq i32 %and.i.i.i37753781, 0
-  br i1 %cmp1.not.i.i.i, label %asm_count_call_slots.argprom.exit.i.i, label %for.body.lr.ph.i.i.i
+  br i1 %cmp1.not.i.i.i, label %asm_count_call_slots.exit.i.i, label %for.body.lr.ph.i.i.i
 
-for.body.lr.ph.i.i.i:                             ; preds = %asm_collectargs.argprom.exit.i.i
+for.body.lr.ph.i.i.i:                             ; preds = %asm_collectargs.exit.i.i
   %wide.trip.count.i.i.i = zext nneg i32 %and.i.i.i37753781 to i64
   %invariant.gep.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 4
   br label %for.body.i.i.i155
@@ -1107,19 +1107,19 @@ for.inc.i.i.i:                                    ; preds = %if.else27.i.i.i, %i
   %nfpr.1.i.i.i = phi i32 [ %dec.i14.i.i, %if.then21.i.i.i ], [ %nfpr.05.i.i.i, %if.else.i.i.i ], [ %nfpr.05.i.i.i, %if.then25.i.i.i ], [ %nfpr.05.i.i.i, %if.else27.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i10.i.i, 1
   %exitcond.not.i.i.i156 = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i156, label %asm_count_call_slots.argprom.exit.i.i, label %for.body.i.i.i155, !llvm.loop !14
+  br i1 %exitcond.not.i.i.i156, label %asm_count_call_slots.exit.i.i, label %for.body.i.i.i155, !llvm.loop !14
 
-asm_count_call_slots.argprom.exit.i.i:            ; preds = %for.inc.i.i.i, %asm_collectargs.argprom.exit.i.i
-  %nslots.0.lcssa.i.i.i = phi i32 [ 0, %asm_collectargs.argprom.exit.i.i ], [ %nslots.1.i.i.i, %for.inc.i.i.i ]
+asm_count_call_slots.exit.i.i:                    ; preds = %for.inc.i.i.i, %asm_collectargs.exit.i.i
+  %nslots.0.lcssa.i.i.i = phi i32 [ 0, %asm_collectargs.exit.i.i ], [ %nslots.1.i.i.i, %for.inc.i.i.i ]
   %77 = load i32, ptr %evenspill.i, align 8
   %cmp.i.i157 = icmp sgt i32 %nslots.0.lcssa.i.i.i, %77
-  br i1 %cmp.i.i157, label %if.then.i124.i, label %asm_setup_call_slots.argprom.exit.i
+  br i1 %cmp.i.i157, label %if.then.i124.i, label %asm_setup_call_slots.exit.i
 
-if.then.i124.i:                                   ; preds = %asm_count_call_slots.argprom.exit.i.i
+if.then.i124.i:                                   ; preds = %asm_count_call_slots.exit.i.i
   store i32 %nslots.0.lcssa.i.i.i, ptr %evenspill.i, align 8
-  br label %asm_setup_call_slots.argprom.exit.i
+  br label %asm_setup_call_slots.exit.i
 
-asm_setup_call_slots.argprom.exit.i:              ; preds = %if.then.i124.i, %asm_count_call_slots.argprom.exit.i.i
+asm_setup_call_slots.exit.i:                      ; preds = %if.then.i124.i, %asm_count_call_slots.exit.i.i
   %78 = load i8, ptr %t.i.i37743782, align 4
   %79 = and i8 %78, 31
   %80 = add nsw i8 %79, -13
@@ -1131,7 +1131,7 @@ asm_setup_call_slots.argprom.exit.i:              ; preds = %if.then.i124.i, %as
   %tobool83.not.i = icmp eq i32 %inloop.0208.i, 0
   br i1 %tobool83.not.i, label %for.inc277.i, label %if.then84.i
 
-if.then84.i:                                      ; preds = %asm_setup_call_slots.argprom.exit.i
+if.then84.i:                                      ; preds = %asm_setup_call_slots.exit.i
   %82 = load i32, ptr %modset.i.i, align 4
   %or85.i = or i32 %82, -61497
   store i32 %or85.i, ptr %modset.i.i, align 4
@@ -1171,7 +1171,7 @@ if.end.i.i134.i:                                  ; preds = %if.then.i.i131.i, %
   %args.addr.0.i.i135.i = phi ptr [ %incdec.ptr.i.i132.i, %if.then.i.i131.i ], [ %args.i127.i, %sw.bb98.i ]
   %n.0.i.i136.i = phi i32 [ %dec.i.i133.i, %if.then.i.i131.i ], [ %and.i.i128.i, %sw.bb98.i ]
   %cmp2.i.i137.i = icmp ugt i32 %n.0.i.i136.i, 1
-  br i1 %cmp2.i.i137.i, label %while.body.lr.ph.i.i186.i, label %asm_collectargs.argprom.exit.i138.i
+  br i1 %cmp2.i.i137.i, label %while.body.lr.ph.i.i186.i, label %asm_collectargs.exit.i138.i
 
 while.body.lr.ph.i.i186.i:                        ; preds = %if.end.i.i134.i
   %87 = zext i32 %n.0.i.i136.i to i64
@@ -1193,9 +1193,9 @@ while.body.i.i188.i:                              ; preds = %while.body.i.i188.i
   %arrayidx10.i.i197.i = getelementptr inbounds i32, ptr %args.addr.0.i.i135.i, i64 %89
   store i32 %spec.select.i.i196.i, ptr %arrayidx10.i.i197.i, align 4
   %cmp.wide.i.i198.i = icmp ugt i64 %89, 1
-  br i1 %cmp.wide.i.i198.i, label %while.body.i.i188.i, label %asm_collectargs.argprom.exit.i138.i, !llvm.loop !13
+  br i1 %cmp.wide.i.i198.i, label %while.body.i.i188.i, label %asm_collectargs.exit.i138.i, !llvm.loop !13
 
-asm_collectargs.argprom.exit.i138.i:              ; preds = %while.body.i.i188.i, %if.end.i.i134.i
+asm_collectargs.exit.i138.i:                      ; preds = %while.body.i.i188.i, %if.end.i.i134.i
   %ir.addr.0.lcssa.i.i139.i = phi ptr [ %ir.4209.i, %if.end.i.i134.i ], [ %arrayidx.i.i192.i, %while.body.i.i188.i ]
   %92 = load i16, ptr %ir.addr.0.lcssa.i.i139.i, align 8
   %cmp13.i.i140.i = icmp eq i16 %92, 32767
@@ -1203,9 +1203,9 @@ asm_collectargs.argprom.exit.i138.i:              ; preds = %while.body.i.i188.i
   %spec.select10.i.i142.i = zext i16 %narrow.i.i141.i to i32
   store i32 %spec.select10.i.i142.i, ptr %args.addr.0.i.i135.i, align 4
   %cmp1.not.i.i143.i = icmp eq i32 %and.i.i128.i, 0
-  br i1 %cmp1.not.i.i143.i, label %asm_count_call_slots.argprom.exit.i170.i, label %for.body.lr.ph.i.i144.i
+  br i1 %cmp1.not.i.i143.i, label %asm_count_call_slots.exit.i170.i, label %for.body.lr.ph.i.i144.i
 
-for.body.lr.ph.i.i144.i:                          ; preds = %asm_collectargs.argprom.exit.i138.i
+for.body.lr.ph.i.i144.i:                          ; preds = %asm_collectargs.exit.i138.i
   %wide.trip.count.i.i146.i = zext nneg i32 %and.i.i128.i to i64
   %93 = load ptr, ptr %ir37, align 8
   %invariant.gep = getelementptr inbounds i8, ptr %93, i64 4
@@ -1260,19 +1260,19 @@ for.inc.i.i164.i:                                 ; preds = %if.else27.i.i162.i,
   %nfpr.1.i.i167.i = phi i32 [ %dec.i14.i185.i, %if.then21.i.i184.i ], [ %nfpr.05.i.i149.i, %if.else.i.i182.i ], [ %nfpr.05.i.i149.i, %if.then25.i.i178.i ], [ %nfpr.05.i.i149.i, %if.else27.i.i162.i ]
   %indvars.iv.next.i.i168.i = add nuw nsw i64 %indvars.iv.i10.i148.i, 1
   %exitcond.not.i.i169.i = icmp eq i64 %indvars.iv.next.i.i168.i, %wide.trip.count.i.i146.i
-  br i1 %exitcond.not.i.i169.i, label %asm_count_call_slots.argprom.exit.i170.i, label %for.body.i.i147.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i169.i, label %asm_count_call_slots.exit.i170.i, label %for.body.i.i147.i, !llvm.loop !14
 
-asm_count_call_slots.argprom.exit.i170.i:         ; preds = %for.inc.i.i164.i, %asm_collectargs.argprom.exit.i138.i
-  %nslots.0.lcssa.i.i171.i = phi i32 [ 0, %asm_collectargs.argprom.exit.i138.i ], [ %nslots.1.i.i165.i, %for.inc.i.i164.i ]
+asm_count_call_slots.exit.i170.i:                 ; preds = %for.inc.i.i164.i, %asm_collectargs.exit.i138.i
+  %nslots.0.lcssa.i.i171.i = phi i32 [ 0, %asm_collectargs.exit.i138.i ], [ %nslots.1.i.i165.i, %for.inc.i.i164.i ]
   %97 = load i32, ptr %evenspill.i, align 8
   %cmp.i173.i = icmp sgt i32 %nslots.0.lcssa.i.i171.i, %97
-  br i1 %cmp.i173.i, label %if.then.i177.i, label %asm_setup_call_slots.argprom.exit199.i
+  br i1 %cmp.i173.i, label %if.then.i177.i, label %asm_setup_call_slots.exit199.i
 
-if.then.i177.i:                                   ; preds = %asm_count_call_slots.argprom.exit.i170.i
+if.then.i177.i:                                   ; preds = %asm_count_call_slots.exit.i170.i
   store i32 %nslots.0.lcssa.i.i171.i, ptr %evenspill.i, align 8
-  br label %asm_setup_call_slots.argprom.exit199.i
+  br label %asm_setup_call_slots.exit199.i
 
-asm_setup_call_slots.argprom.exit199.i:           ; preds = %if.then.i177.i, %asm_count_call_slots.argprom.exit.i170.i
+asm_setup_call_slots.exit199.i:                   ; preds = %if.then.i177.i, %asm_count_call_slots.exit.i170.i
   %t.i175.i = getelementptr inbounds i8, ptr %ir.4209.i, i64 4
   %98 = load i8, ptr %t.i175.i, align 4
   %99 = and i8 %98, 31
@@ -1285,7 +1285,7 @@ asm_setup_call_slots.argprom.exit199.i:           ; preds = %if.then.i177.i, %as
   %tobool106.not.i = icmp eq i32 %inloop.0208.i, 0
   br i1 %tobool106.not.i, label %for.inc277.i, label %if.then107.i
 
-if.then107.i:                                     ; preds = %asm_setup_call_slots.argprom.exit199.i
+if.then107.i:                                     ; preds = %asm_setup_call_slots.exit199.i
   %and109.i = and i32 %arrayidx102.val.i, 1024
   %tobool110.not.i = icmp eq i32 %and109.i, 0
   %cond.i = select i1 %tobool110.not.i, i32 -61497, i32 4039
@@ -1488,8 +1488,8 @@ sw.epilog275.i:                                   ; preds = %land.lhs.true257.i,
   store i16 255, ptr %prev276.i, align 2
   br label %for.inc277.i
 
-for.inc277.i:                                     ; preds = %sw.epilog275.i, %if.then267.i, %if.end186.i, %if.then176.i, %if.then173.i, %if.then159.i, %if.then156.i, %if.end146.i, %if.then126.i, %sw.bb123.i, %sw.bb118.i, %if.then107.i, %asm_setup_call_slots.argprom.exit199.i, %if.then84.i, %asm_setup_call_slots.argprom.exit.i, %if.then72.i, %if.then62.i
-  %inloop.1.i = phi i32 [ %inloop.0208.i, %if.then62.i ], [ %inloop.0208.i, %if.then72.i ], [ %inloop.2.i, %sw.epilog275.i ], [ %inloop.0208.i, %if.then267.i ], [ 1, %if.then176.i ], [ 0, %if.then173.i ], [ %inloop.0208.i, %if.end186.i ], [ 1, %if.then159.i ], [ 0, %if.then156.i ], [ %inloop.0208.i, %if.end146.i ], [ 1, %if.then126.i ], [ 0, %sw.bb123.i ], [ %inloop.0208.i, %sw.bb118.i ], [ 1, %if.then107.i ], [ 0, %asm_setup_call_slots.argprom.exit199.i ], [ 1, %if.then84.i ], [ 0, %asm_setup_call_slots.argprom.exit.i ]
+for.inc277.i:                                     ; preds = %sw.epilog275.i, %if.then267.i, %if.end186.i, %if.then176.i, %if.then173.i, %if.then159.i, %if.then156.i, %if.end146.i, %if.then126.i, %sw.bb123.i, %sw.bb118.i, %if.then107.i, %asm_setup_call_slots.exit199.i, %if.then84.i, %asm_setup_call_slots.exit.i, %if.then72.i, %if.then62.i
+  %inloop.1.i = phi i32 [ %inloop.0208.i, %if.then62.i ], [ %inloop.0208.i, %if.then72.i ], [ %inloop.2.i, %sw.epilog275.i ], [ %inloop.0208.i, %if.then267.i ], [ 1, %if.then176.i ], [ 0, %if.then173.i ], [ %inloop.0208.i, %if.end186.i ], [ 1, %if.then159.i ], [ 0, %if.then156.i ], [ %inloop.0208.i, %if.end146.i ], [ 1, %if.then126.i ], [ 0, %sw.bb123.i ], [ %inloop.0208.i, %sw.bb118.i ], [ 1, %if.then107.i ], [ 0, %asm_setup_call_slots.exit199.i ], [ 1, %if.then84.i ], [ 0, %asm_setup_call_slots.exit.i ]
   %incdec.ptr278.i = getelementptr inbounds i8, ptr %ir.4209.i, i64 8
   %cmp58.i = icmp ult ptr %incdec.ptr278.i, %arrayidx56.i
   br i1 %cmp58.i, label %for.body60.i, label %for.end279.i, !llvm.loop !15
@@ -1531,7 +1531,7 @@ if.then51:                                        ; preds = %asm_setup_regsp.exi
   %arrayidx.i.i170 = getelementptr inbounds i32, ptr %as.val.val.i, i64 %idxprom.i.i
   %invariant.gep.i.i = getelementptr i8, ptr %arrayidx.i.i170, i64 -4
   %cmp.not1.i.i = icmp eq i8 %arrayidx.val54.i, 0
-  br i1 %cmp.not1.i.i, label %asm_baseslot.argprom.argprom.exit.i, label %for.body.preheader.i.i
+  br i1 %cmp.not1.i.i, label %asm_baseslot.exit.i, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.then51
   %134 = zext i8 %arrayidx.val54.i to i64
@@ -1540,7 +1540,7 @@ for.body.preheader.i.i:                           ; preds = %if.then51
 for.cond.i.i:                                     ; preds = %for.body.i.i171
   %indvars.iv.next.i.i207 = add nsw i64 %indvars.iv.i.i172, -1
   %135 = icmp eq i64 %indvars.iv.next.i.i207, 0
-  br i1 %135, label %asm_baseslot.argprom.argprom.exit.i, label %for.body.i.i171, !llvm.loop !16
+  br i1 %135, label %asm_baseslot.exit.i, label %for.body.i.i171, !llvm.loop !16
 
 for.body.i.i171:                                  ; preds = %for.cond.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i172 = phi i64 [ %134, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i207, %for.cond.i.i ]
@@ -1553,9 +1553,9 @@ for.body.i.i171:                                  ; preds = %for.cond.i.i, %for.
 if.then.i57.i:                                    ; preds = %for.body.i.i171
   %shr.i58.i = lshr i32 %136, 24
   %sub4.i.i = add nsw i32 %shr.i58.i, -1
-  br label %asm_baseslot.argprom.argprom.exit.i
+  br label %asm_baseslot.exit.i
 
-asm_baseslot.argprom.argprom.exit.i:              ; preds = %for.cond.i.i, %if.then.i57.i, %if.then51
+asm_baseslot.exit.i:                              ; preds = %for.cond.i.i, %if.then.i57.i, %if.then51
   %tobool71.i = phi i1 [ false, %if.then51 ], [ true, %if.then.i57.i ], [ false, %for.cond.i.i ]
   %retval.0.i.i = phi i32 [ 0, %if.then51 ], [ %sub4.i.i, %if.then.i57.i ], [ 0, %for.cond.i.i ]
   %topslot.i = getelementptr inbounds i8, ptr %arrayidx.i169, i64 9
@@ -1567,11 +1567,11 @@ asm_baseslot.argprom.argprom.exit.i:              ; preds = %for.cond.i.i, %if.t
   %cmp.i.i173 = icmp ult ptr %138, %139
   br i1 %cmp.i.i173, label %if.then.i.i206, label %checkmclim.exit.i
 
-if.then.i.i206:                                   ; preds = %asm_baseslot.argprom.argprom.exit.i
+if.then.i.i206:                                   ; preds = %asm_baseslot.exit.i
   call fastcc void @asm_mclimit(ptr noundef %as_) #16
   unreachable
 
-checkmclim.exit.i:                                ; preds = %asm_baseslot.argprom.argprom.exit.i
+checkmclim.exit.i:                                ; preds = %asm_baseslot.exit.i
   %call5.i = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef 32768, i32 noundef 4)
   %140 = load ptr, ptr %T22, align 8
   %link.i = getelementptr inbounds i8, ptr %140, i64 106
@@ -1917,7 +1917,7 @@ if.end69.i:                                       ; preds = %if.then56.i, %emit_
   %idxprom.i67.i = zext i32 %arrayidx.val55.i to i64
   %arrayidx.i68.i = getelementptr inbounds i32, ptr %194, i64 %idxprom.i67.i
   %cmp1.not.i.i = icmp eq i8 %arrayidx.val56.i, 0
-  br i1 %cmp1.not.i.i, label %asm_stack_restore.argprom.exit.i, label %for.body.lr.ph.i.i182
+  br i1 %cmp1.not.i.i, label %asm_stack_restore.exit.i, label %for.body.lr.ph.i.i182
 
 for.body.lr.ph.i.i182:                            ; preds = %if.end69.i
   %wide.trip.count.i.i183 = zext i8 %arrayidx.val56.i to i64
@@ -2390,23 +2390,23 @@ if.then.i.i81.i:                                  ; preds = %if.end81.i.i
 for.inc.i.i185:                                   ; preds = %if.end81.i.i, %for.body.i69.i
   %indvars.iv.next.i73.i = add nuw nsw i64 %indvars.iv.i70.i, 1
   %exitcond.not.i.i186 = icmp eq i64 %indvars.iv.next.i73.i, %wide.trip.count.i.i183
-  br i1 %exitcond.not.i.i186, label %asm_stack_restore.argprom.exit.i, label %for.body.i69.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i186, label %asm_stack_restore.exit.i, label %for.body.i69.i, !llvm.loop !17
 
-asm_stack_restore.argprom.exit.i:                 ; preds = %for.inc.i.i185, %if.end69.i
+asm_stack_restore.exit.i:                         ; preds = %for.inc.i.i185, %if.end69.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %k.i.i)
   %243 = load ptr, ptr %parent29, align 8
   %tobool70.i = icmp eq ptr %243, null
   %or.cond2.i = and i1 %tobool71.i, %tobool70.i
   br i1 %or.cond2.i, label %if.then72.i189, label %if.end52
 
-if.then72.i189:                                   ; preds = %asm_stack_restore.argprom.exit.i
+if.then72.i189:                                   ; preds = %asm_stack_restore.exit.i
   %244 = load i32, ptr %topslot, align 4
   %245 = load i32, ptr %freeset.i.i, align 8
   %and74.i = and i32 %245, 49135
   call fastcc void @asm_stack_check(ptr noundef %as_, i32 noundef %244, ptr noundef null, i32 noundef %and74.i, i32 noundef %sub.i)
   br label %if.end52
 
-if.end52:                                         ; preds = %if.then72.i189, %asm_stack_restore.argprom.exit.i, %asm_setup_regsp.exit
+if.end52:                                         ; preds = %if.then72.i189, %asm_stack_restore.exit.i, %asm_setup_regsp.exit
   %246 = load i32, ptr %curins, align 8
   %storemerge4003 = add i32 %246, -1
   store i32 %storemerge4003, ptr %curins, align 8
@@ -3385,7 +3385,7 @@ if.end15.i.i.i.i.i:                               ; preds = %if.else12.i.i.i.i.i
   %shr35.i.i.i.i128.i.i = lshr i32 %add.i.i124.i.i, 1
   %and36.i.i.i.i129.i.i = and i32 %shr35.i.i.i.i128.i.i, 260
   %cmp44.i.not.i.i.i130.i.i = icmp eq i32 %and36.i.i.i.i129.i.i, 0
-  br i1 %cmp44.i.not.i.i.i130.i.i, label %ra_save.argprom.exit.i.i, label %if.then46.i.i.i.i131.i.i
+  br i1 %cmp44.i.not.i.i.i130.i.i, label %ra_save.exit.i.i, label %if.then46.i.i.i.i131.i.i
 
 if.then46.i.i.i.i131.i.i:                         ; preds = %if.end15.i.i.i.i.i
   %shr47.i.i.i.i132.i.i = lshr i32 %cond.i.i123.i.i, 16
@@ -3394,7 +3394,7 @@ if.then46.i.i.i.i131.i.i:                         ; preds = %if.end15.i.i.i.i.i
   %conv63.i.i.i.i134.i.i = or disjoint i8 %409, 64
   %incdec.ptr.i.i.i.i135.i.i = getelementptr inbounds i8, ptr %p.0.i.i.i.i.i, i64 -4
   store i8 %conv63.i.i.i.i134.i.i, ptr %incdec.ptr.i.i.i.i135.i.i, align 1
-  br label %ra_save.argprom.exit.i.i
+  br label %ra_save.exit.i.i
 
 if.else.i.i118.i.i:                               ; preds = %ra_alloc1.exit.i.i3297
   %cmp6.i.i.i.i = icmp eq i8 %404, 14
@@ -3435,27 +3435,27 @@ if.end15.i.i.i.i3306:                             ; preds = %if.else12.i.i.i.i33
   %add.ptr34.i.i.i.i.i = getelementptr inbounds i8, ptr %p.0.i.i.i.i3307, i64 -5
   %412 = and i32 %378, 8
   %cmp44.i.not.i.i.i.i3314 = icmp eq i32 %412, 0
-  br i1 %cmp44.i.not.i.i.i.i3314, label %ra_save.argprom.exit.i.i, label %if.then46.i.i.i.i.i3315
+  br i1 %cmp44.i.not.i.i.i.i3314, label %ra_save.exit.i.i, label %if.then46.i.i.i.i.i3315
 
 if.then46.i.i.i.i.i3315:                          ; preds = %if.end15.i.i.i.i3306
   store i8 68, ptr %add.ptr34.i.i.i.i.i, align 1
   %shr52.i.i.i.i.i = lshr i32 %cond8.i.i.i.i, 8
   %conv63.i.i.i.i.i3316 = trunc i32 %shr52.i.i.i.i.i to i8
   store i8 %conv63.i.i.i.i.i3316, ptr %add.ptr29.i.i.i.i.i, align 1
-  br label %ra_save.argprom.exit.i.i
+  br label %ra_save.exit.i.i
 
-ra_save.argprom.exit.i.i:                         ; preds = %if.then46.i.i.i.i.i3315, %if.end15.i.i.i.i3306, %if.then46.i.i.i.i131.i.i, %if.end15.i.i.i.i.i
+ra_save.exit.i.i:                                 ; preds = %if.then46.i.i.i.i.i3315, %if.end15.i.i.i.i3306, %if.then46.i.i.i.i131.i.i, %if.end15.i.i.i.i.i
   %storemerge.i.i3317 = phi ptr [ %incdec.ptr.i.i.i.i135.i.i, %if.then46.i.i.i.i131.i.i ], [ %arrayidx.i.i.i.i127.i.i, %if.end15.i.i.i.i.i ], [ %add.ptr29.i.i.i.i.i, %if.then46.i.i.i.i.i3315 ], [ %add.ptr34.i.i.i.i.i, %if.end15.i.i.i.i3306 ]
   store ptr %storemerge.i.i3317, ptr %mcp, align 8
   %413 = load ptr, ptr %mclim, align 8
   %cmp.i.i.i3318 = icmp ult ptr %storemerge.i.i3317, %413
   br i1 %cmp.i.i.i3318, label %if.then.i.i.i3391, label %if.end107.i.i
 
-if.then.i.i.i3391:                                ; preds = %ra_save.argprom.exit.i.i
+if.then.i.i.i3391:                                ; preds = %ra_save.exit.i.i
   call fastcc void @asm_mclimit(ptr noundef %as_) #16
   unreachable
 
-if.end107.i.i:                                    ; preds = %ra_save.argprom.exit.i.i, %while.body84.i.i
+if.end107.i.i:                                    ; preds = %ra_save.exit.i.i, %while.body84.i.i
   %shl108.i.i = shl nuw i32 1, %xor87.i.i
   %not109.i.i = xor i32 %shl108.i.i, -1
   %and110.i.i = and i32 %work.2156.i.i, %not109.i.i
@@ -4784,7 +4784,7 @@ if.end.i.i3116:                                   ; preds = %if.then16.i.i3123, 
   store i8 %conv.i25.i.i3120, ptr %arrayidx.i26.i.i3121, align 1
   %arrayidx2.i.i.i3122 = getelementptr inbounds i8, ptr %634, i64 -2
   store i8 116, ptr %arrayidx2.i.i.i3122, align 1
-  br label %asm_prof.argprom.exit
+  br label %asm_prof.exit
 
 if.end19.i.i3084:                                 ; preds = %if.then.i.i3103, %sw.bb15.i
   %target.0.i.i3085 = phi ptr [ %302, %if.then.i.i3103 ], [ %add.ptr.i.i.i3080, %sw.bb15.i ]
@@ -4811,9 +4811,9 @@ if.end35.i.i3089:                                 ; preds = %if.then31.i.i3100, 
   store i8 %cc.addr.0.i.i3086, ptr %arrayidx.i30.i.i3095, align 1
   %arrayidx1.i.i.i3096 = getelementptr inbounds i8, ptr %637, i64 -6
   store i8 15, ptr %arrayidx1.i.i.i3096, align 1
-  br label %asm_prof.argprom.exit
+  br label %asm_prof.exit
 
-asm_prof.argprom.exit:                            ; preds = %if.end.i.i3116, %if.end35.i.i3089
+asm_prof.exit:                                    ; preds = %if.end.i.i3116, %if.end35.i.i3089
   %storemerge.i.i3098 = phi ptr [ %arrayidx2.i.i.i3122, %if.end.i.i3116 ], [ %arrayidx1.i.i.i3096, %if.end35.i.i3089 ]
   %incdec.ptr.i3099 = getelementptr inbounds i8, ptr %storemerge.i.i3098, i64 -1
   store ptr %incdec.ptr.i3099, ptr %mcp, align 8
@@ -12406,7 +12406,7 @@ if.end25.i65.thread.i:                            ; preds = %if.else22.i62.i, %i
   store i8 %rb.addr.0.i66.ph.i, ptr %arrayidx30.i737.i, align 1
   %arrayidx.i.i748.i = getelementptr inbounds i8, ptr %p.1.i67.ph.i, i64 -2
   store i8 -10, ptr %arrayidx.i.i748.i, align 1
-  br label %asm_tbar.argprom.exit
+  br label %asm_tbar.exit
 
 if.end25.i65.i:                                   ; preds = %if.then19.i92.i, %if.else.i88.i
   %p.1.i67.i = phi ptr [ %incdec.ptr20.i93.i, %if.then19.i92.i ], [ %incdec.ptr.i94.i, %if.else.i88.i ]
@@ -12419,14 +12419,14 @@ if.end25.i65.i:                                   ; preds = %if.then19.i92.i, %i
   store i8 -10, ptr %arrayidx.i.i74.i, align 1
   %1676 = and i32 %r.0.i.i980, 8
   %cmp44.i.not.i79.i = icmp eq i32 %1676, 0
-  br i1 %cmp44.i.not.i79.i, label %asm_tbar.argprom.exit, label %if.then46.i.i80.i
+  br i1 %cmp44.i.not.i79.i, label %asm_tbar.exit, label %if.then46.i.i80.i
 
 if.then46.i.i80.i:                                ; preds = %if.end25.i65.i
   %incdec.ptr.i.i84.i = getelementptr inbounds i8, ptr %p.1.i67.i, i64 -3
   store i8 65, ptr %incdec.ptr.i.i84.i, align 1
-  br label %asm_tbar.argprom.exit
+  br label %asm_tbar.exit
 
-asm_tbar.argprom.exit:                            ; preds = %if.end25.i65.thread.i, %if.end25.i65.i, %if.then46.i.i80.i
+asm_tbar.exit:                                    ; preds = %if.end25.i65.thread.i, %if.end25.i65.i, %if.then46.i.i80.i
   %retval.i.0.i85.i = phi ptr [ %incdec.ptr.i.i84.i, %if.then46.i.i80.i ], [ %arrayidx.i.i74.i, %if.end25.i65.i ], [ %arrayidx.i.i748.i, %if.end25.i65.thread.i ]
   store ptr %retval.i.0.i85.i, ptr %mcp, align 8
   br label %for.inc
@@ -13515,7 +13515,7 @@ if.end.i19.i:                                     ; preds = %if.then.i18.i, %asm
   %args.addr.0.i.i = phi ptr [ %incdec.ptr.i.i727, %if.then.i18.i ], [ %args.i, %asm_callx_flags.exit.i722 ]
   %n.0.i.i = phi i32 [ %dec.i.i, %if.then.i18.i ], [ %and.i17.i, %asm_callx_flags.exit.i722 ]
   %cmp2.i.i = icmp ugt i32 %n.0.i.i, 1
-  br i1 %cmp2.i.i, label %while.body.lr.ph.i.i, label %asm_collectargs.argprom.exit.i
+  br i1 %cmp2.i.i, label %while.body.lr.ph.i.i, label %asm_collectargs.exit.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.end.i19.i
   %1837 = zext i32 %n.0.i.i to i64
@@ -13536,14 +13536,14 @@ while.body.i20.i:                                 ; preds = %while.body.i20.i, %
   %arrayidx10.i.i755 = getelementptr inbounds i32, ptr %args.addr.0.i.i, i64 %1838
   store i32 %spec.select.i.i, ptr %arrayidx10.i.i755, align 4
   %cmp.wide.i.i = icmp ugt i64 %1838, 1
-  br i1 %cmp.wide.i.i, label %while.body.i20.i, label %asm_collectargs.argprom.exit.loopexit.i, !llvm.loop !13
+  br i1 %cmp.wide.i.i, label %while.body.i20.i, label %asm_collectargs.exit.loopexit.i, !llvm.loop !13
 
-asm_collectargs.argprom.exit.loopexit.i:          ; preds = %while.body.i20.i
+asm_collectargs.exit.loopexit.i:                  ; preds = %while.body.i20.i
   %.pre.i756 = load i16, ptr %arrayidx.i.i754, align 8
-  br label %asm_collectargs.argprom.exit.i
+  br label %asm_collectargs.exit.i
 
-asm_collectargs.argprom.exit.i:                   ; preds = %asm_collectargs.argprom.exit.loopexit.i, %if.end.i19.i
-  %1841 = phi i16 [ %1823, %if.end.i19.i ], [ %.pre.i756, %asm_collectargs.argprom.exit.loopexit.i ]
+asm_collectargs.exit.i:                           ; preds = %asm_collectargs.exit.loopexit.i, %if.end.i19.i
+  %1841 = phi i16 [ %1823, %if.end.i19.i ], [ %.pre.i756, %asm_collectargs.exit.loopexit.i ]
   %cmp13.i.i728 = icmp eq i16 %1841, 32767
   %narrow.i.i729 = select i1 %cmp13.i.i728, i16 0, i16 %1841
   %spec.select10.i.i = zext i16 %narrow.i.i729 to i32
@@ -13558,15 +13558,15 @@ asm_collectargs.argprom.exit.i:                   ; preds = %asm_collectargs.arg
   %cmp.i733 = icmp eq i8 %1844, 100
   br i1 %cmp.i733, label %if.then.i751, label %if.end.i734
 
-if.then.i751:                                     ; preds = %asm_collectargs.argprom.exit.i
+if.then.i751:                                     ; preds = %asm_collectargs.exit.i
   %1845 = load i16, ptr %arrayidx.i731, align 8
   %idxprom6.i = zext i16 %1845 to i64
   %arrayidx7.i = getelementptr inbounds %union.IRIns, ptr %1843, i64 %idxprom6.i
   br label %if.end.i734
 
-if.end.i734:                                      ; preds = %if.then.i751, %asm_collectargs.argprom.exit.i
-  %irf.0.i = phi ptr [ %arrayidx7.i, %if.then.i751 ], [ %arrayidx.i731, %asm_collectargs.argprom.exit.i ]
-  %func.0.in.i = phi i16 [ %1845, %if.then.i751 ], [ %1842, %asm_collectargs.argprom.exit.i ]
+if.end.i734:                                      ; preds = %if.then.i751, %asm_collectargs.exit.i
+  %irf.0.i = phi ptr [ %arrayidx7.i, %if.then.i751 ], [ %arrayidx.i731, %asm_collectargs.exit.i ]
+  %func.0.in.i = phi i16 [ %1845, %if.then.i751 ], [ %1842, %asm_collectargs.exit.i ]
   %func.0.i = zext i16 %func.0.in.i to i32
   %cmp.i.i735 = icmp sgt i16 %func.0.in.i, -1
   br i1 %cmp.i.i735, label %if.then.i23.i, label %asm_callx_func.exit.thread.i
@@ -13662,7 +13662,7 @@ sw.default.i364:                                  ; preds = %checkmclim.exit188
   call void @lj_trace_err_info(ptr noundef %1857, i32 noundef 32) #15
   unreachable
 
-for.inc:                                          ; preds = %asm_callx.exit, %asm_call.exit.i, %asm_strto.exit, %asm_tostr.exit, %asm_obar.exit, %asm_tbar.argprom.exit, %sw.bb68.i, %asm_bufput.exit, %asm_bufhdr.exit, %asm_cnew.exit.i, %sw.bb64.i, %asm_tnew.exit, %sw.bb62.i, %sw.bb61.i, %sw.bb60.i, %asm_ahustore.exit.i, %sw.bb58.i, %sw.bb56.i, %sw.bb55.i, %emit_mrm.exit2000, %emit_mrm.exit2083, %emit_mrm.exit2167, %emit_mrm.exit2250, %if.else.i186.i, %if.then32.i185.i, %sw.bb53.i, %sw.bb51.i, %asm_fref.exit, %emit_rmro.exit160.i.i, %if.then32.i.i, %if.then.i139.i, %asm_newref.exit, %sw.bb46.i, %sw.bb44.i, %sw.bb43.i, %sw.bb42.i, %asm_tobit.exit, %asm_ldexp.exit, %sw.bb36.i, %sw.bb28.i, %sw.bb27.i, %sw.bb26.i, %sw.bb25.i, %sw.bb24.i, %sw.bb23.i, %sw.bb22.i, %sw.bb21.i, %asm_bswap.exit, %asm_neg_not.exit, %asm_retf.exit, %if.else.i.i355, %if.then.i.i358, %sw.bb16.i, %asm_prof.argprom.exit, %asm_gcstep.exit, %ra_alloc1.exit, %checkmclim.exit188, %checkmclim.exit188, %checkmclim.exit188, %asm_loop_fixup.exit.i, %if.then10.i, %sw.bb12.i, %if.end39.i, %if.then55.i, %ra_spill.exit.i, %lor.end13.i, %if.end23.i, %sw.bb.i3158, %if.then27.i, %if.then.i2896, %asm_lea.exit.i, %if.then11.i2850, %if.then.i2841, %if.else.i2839, %if.then.i2836, %if.else.i2834, %if.then.i2818, %if.else.i2827, %if.then.i2813, %asm_neg_not.exit.i, %if.then.i2778, %if.else.i2787, %if.then.i2765, %if.else.i2774, %if.then.i2718, %if.end.i2676, %emit_call_.exit.i, %if.else45.i, %if.then.i2564, %if.else.i2562, %if.then.i2559, %if.else.i2557, %if.then.i2533, %if.else.i2538, %if.then9.i2541, %cond.end56.i, %emit_rmro.exit189.i, %emit_rr.exit.i.i2321, %if.end.i.i2301, %if.end.i24.i, %if.else15.i, %emit_rmro.exit192.i, %emit_rmro.exit280.i, %if.else96.i, %if.end105.i, %emit_rmro.exit398.i, %emit_rmro.exit447.i, %emit_rmro.exit496.i, %emit_rmro.exit597.i, %if.then25.i910, %emit_rr.exit.i871, %ra_alloc1.exit160.i, %cond.end101.i, %if.end126.i, %if.end173.i, %if.then192.i, %if.else193.i, %if.then207.i, %if.else210.i, %land.lhs.true73
+for.inc:                                          ; preds = %asm_callx.exit, %asm_call.exit.i, %asm_strto.exit, %asm_tostr.exit, %asm_obar.exit, %asm_tbar.exit, %sw.bb68.i, %asm_bufput.exit, %asm_bufhdr.exit, %asm_cnew.exit.i, %sw.bb64.i, %asm_tnew.exit, %sw.bb62.i, %sw.bb61.i, %sw.bb60.i, %asm_ahustore.exit.i, %sw.bb58.i, %sw.bb56.i, %sw.bb55.i, %emit_mrm.exit2000, %emit_mrm.exit2083, %emit_mrm.exit2167, %emit_mrm.exit2250, %if.else.i186.i, %if.then32.i185.i, %sw.bb53.i, %sw.bb51.i, %asm_fref.exit, %emit_rmro.exit160.i.i, %if.then32.i.i, %if.then.i139.i, %asm_newref.exit, %sw.bb46.i, %sw.bb44.i, %sw.bb43.i, %sw.bb42.i, %asm_tobit.exit, %asm_ldexp.exit, %sw.bb36.i, %sw.bb28.i, %sw.bb27.i, %sw.bb26.i, %sw.bb25.i, %sw.bb24.i, %sw.bb23.i, %sw.bb22.i, %sw.bb21.i, %asm_bswap.exit, %asm_neg_not.exit, %asm_retf.exit, %if.else.i.i355, %if.then.i.i358, %sw.bb16.i, %asm_prof.exit, %asm_gcstep.exit, %ra_alloc1.exit, %checkmclim.exit188, %checkmclim.exit188, %checkmclim.exit188, %asm_loop_fixup.exit.i, %if.then10.i, %sw.bb12.i, %if.end39.i, %if.then55.i, %ra_spill.exit.i, %lor.end13.i, %if.end23.i, %sw.bb.i3158, %if.then27.i, %if.then.i2896, %asm_lea.exit.i, %if.then11.i2850, %if.then.i2841, %if.else.i2839, %if.then.i2836, %if.else.i2834, %if.then.i2818, %if.else.i2827, %if.then.i2813, %asm_neg_not.exit.i, %if.then.i2778, %if.else.i2787, %if.then.i2765, %if.else.i2774, %if.then.i2718, %if.end.i2676, %emit_call_.exit.i, %if.else45.i, %if.then.i2564, %if.else.i2562, %if.then.i2559, %if.else.i2557, %if.then.i2533, %if.else.i2538, %if.then9.i2541, %cond.end56.i, %emit_rmro.exit189.i, %emit_rr.exit.i.i2321, %if.end.i.i2301, %if.end.i24.i, %if.else15.i, %emit_rmro.exit192.i, %emit_rmro.exit280.i, %if.else96.i, %if.end105.i, %emit_rmro.exit398.i, %emit_rmro.exit447.i, %emit_rmro.exit496.i, %emit_rmro.exit597.i, %if.then25.i910, %emit_rr.exit.i871, %ra_alloc1.exit160.i, %cond.end101.i, %if.end126.i, %if.end173.i, %if.then192.i, %if.else193.i, %if.then207.i, %if.else210.i, %land.lhs.true73
   %1858 = load i32, ptr %curins, align 8
   %storemerge = add i32 %1858, -1
   store i32 %storemerge, ptr %curins, align 8
@@ -14017,7 +14017,7 @@ if.end15.i.i.i.i:                                 ; preds = %if.else12.i.i.i.i46
   %shr35.i.i.i.i.i471 = lshr i32 %add.i.i158.i, 1
   %and36.i.i.i.i.i472 = and i32 %shr35.i.i.i.i.i471, 260
   %cmp44.i.not.i.i.i.i473 = icmp eq i32 %and36.i.i.i.i.i472, 0
-  br i1 %cmp44.i.not.i.i.i.i473, label %ra_save.argprom.exit.i, label %if.then46.i.i.i.i.i474
+  br i1 %cmp44.i.not.i.i.i.i473, label %ra_save.exit.i, label %if.then46.i.i.i.i.i474
 
 if.then46.i.i.i.i.i474:                           ; preds = %if.end15.i.i.i.i
   %shr47.i.i.i.i.i = lshr i32 %cond.i.i.i, 16
@@ -14026,7 +14026,7 @@ if.then46.i.i.i.i.i474:                           ; preds = %if.end15.i.i.i.i
   %conv63.i.i.i.i.i475 = or disjoint i8 %1917, 64
   %incdec.ptr.i.i.i.i.i476 = getelementptr inbounds i8, ptr %p.0.i.i.i.i466, i64 -4
   store i8 %conv63.i.i.i.i.i475, ptr %incdec.ptr.i.i.i.i.i476, align 1
-  br label %ra_save.argprom.exit.i
+  br label %ra_save.exit.i
 
 if.else6.i.i.i440:                                ; preds = %if.then31.i
   %cmp6.i.i.i441 = icmp eq i8 %1913, 14
@@ -14062,28 +14062,28 @@ if.end15.i.i.i445:                                ; preds = %if.else12.i.i.i443,
   %add.ptr34.i.i.i.i = getelementptr inbounds i8, ptr %p.0.i.i.i446, i64 -5
   %1919 = and i32 %conv19.i432, 8
   %cmp44.i.not.i.i.i454 = icmp eq i32 %1919, 0
-  br i1 %cmp44.i.not.i.i.i454, label %ra_save.argprom.exit.i, label %if.then46.i.i.i.i455
+  br i1 %cmp44.i.not.i.i.i454, label %ra_save.exit.i, label %if.then46.i.i.i.i455
 
 if.then46.i.i.i.i455:                             ; preds = %if.end15.i.i.i445
   store i8 68, ptr %add.ptr34.i.i.i.i, align 1
   %shr52.i.i.i.i = lshr i32 %cond8.i.i.i, 8
   %conv63.i.i.i.i456 = trunc i32 %shr52.i.i.i.i to i8
   store i8 %conv63.i.i.i.i456, ptr %add.ptr29.i.i.i.i453, align 1
-  br label %ra_save.argprom.exit.i
+  br label %ra_save.exit.i
 
-ra_save.argprom.exit.i:                           ; preds = %if.then46.i.i.i.i455, %if.end15.i.i.i445, %if.then46.i.i.i.i.i474, %if.end15.i.i.i.i
+ra_save.exit.i:                                   ; preds = %if.then46.i.i.i.i455, %if.end15.i.i.i445, %if.then46.i.i.i.i.i474, %if.end15.i.i.i.i
   %storemerge373.i = phi ptr [ %incdec.ptr.i.i.i.i.i476, %if.then46.i.i.i.i.i474 ], [ %arrayidx.i.i.i.i.i470, %if.end15.i.i.i.i ], [ %add.ptr29.i.i.i.i453, %if.then46.i.i.i.i455 ], [ %add.ptr34.i.i.i.i, %if.end15.i.i.i445 ]
   store ptr %storemerge373.i, ptr %mcp, align 8
   %1920 = load ptr, ptr %mclim, align 8
   %cmp.i345.i = icmp ult ptr %storemerge373.i, %1920
-  br i1 %cmp.i345.i, label %if.then.i349.i, label %ra_save.argprom.exit.if.end43_crit_edge.i
+  br i1 %cmp.i345.i, label %if.then.i349.i, label %ra_save.exit.if.end43_crit_edge.i
 
-ra_save.argprom.exit.if.end43_crit_edge.i:        ; preds = %ra_save.argprom.exit.i
+ra_save.exit.if.end43_crit_edge.i:                ; preds = %ra_save.exit.i
   %.pre.i457 = load i8, ptr %r.i431, align 2
   %.pre372.i = zext i8 %.pre.i457 to i32
   br label %if.end43.i
 
-if.then.i349.i:                                   ; preds = %ra_save.argprom.exit.i
+if.then.i349.i:                                   ; preds = %ra_save.exit.i
   call fastcc void @asm_mclimit(ptr noundef %as_) #16
   unreachable
 
@@ -14100,11 +14100,11 @@ if.then39.i:                                      ; preds = %if.else.i433
   store i8 %1923, ptr %t.i434, align 4
   br label %if.end43.i
 
-if.end43.i:                                       ; preds = %if.then39.i, %if.else.i433, %ra_save.argprom.exit.if.end43_crit_edge.i, %if.then22.i
-  %conv45.pre-phi.i = phi i32 [ %.pre372.i, %ra_save.argprom.exit.if.end43_crit_edge.i ], [ %conv19.i432, %if.else.i433 ], [ %conv19.i432, %if.then39.i ], [ %conv19.i432, %if.then22.i ]
-  %1924 = phi i8 [ %.pre.i457, %ra_save.argprom.exit.if.end43_crit_edge.i ], [ %1910, %if.else.i433 ], [ %1910, %if.then39.i ], [ %1910, %if.then22.i ]
-  %pass2.1.i = phi i32 [ %pass2.0344.i, %ra_save.argprom.exit.if.end43_crit_edge.i ], [ %pass2.0344.i, %if.else.i433 ], [ 1, %if.then39.i ], [ %pass2.0344.i, %if.then22.i ]
-  %allow.2.i = phi i32 [ %and27.i, %ra_save.argprom.exit.if.end43_crit_edge.i ], [ %allow.1347.i, %if.else.i433 ], [ %allow.1347.i, %if.then39.i ], [ %and27.i, %if.then22.i ]
+if.end43.i:                                       ; preds = %if.then39.i, %if.else.i433, %ra_save.exit.if.end43_crit_edge.i, %if.then22.i
+  %conv45.pre-phi.i = phi i32 [ %.pre372.i, %ra_save.exit.if.end43_crit_edge.i ], [ %conv19.i432, %if.else.i433 ], [ %conv19.i432, %if.then39.i ], [ %conv19.i432, %if.then22.i ]
+  %1924 = phi i8 [ %.pre.i457, %ra_save.exit.if.end43_crit_edge.i ], [ %1910, %if.else.i433 ], [ %1910, %if.then39.i ], [ %1910, %if.then22.i ]
+  %pass2.1.i = phi i32 [ %pass2.0344.i, %ra_save.exit.if.end43_crit_edge.i ], [ %pass2.0344.i, %if.else.i433 ], [ 1, %if.then39.i ], [ %pass2.0344.i, %if.then22.i ]
+  %allow.2.i = phi i32 [ %and27.i, %ra_save.exit.if.end43_crit_edge.i ], [ %allow.1347.i, %if.else.i433 ], [ %allow.1347.i, %if.then39.i ], [ %and27.i, %if.then22.i ]
   %cmp46.i = icmp eq i32 %conv45.pre-phi.i, %conv18.i
   br i1 %cmp46.i, label %if.then48.i, label %if.else53.i
 
@@ -14304,7 +14304,7 @@ if.end15.i.i.i207.i:                              ; preds = %if.else12.i.i.i205.
   %shr35.i.i.i.i217.i = lshr i32 %add.i.i200.i, 1
   %and36.i.i.i.i218.i = and i32 %shr35.i.i.i.i217.i, 260
   %cmp44.i.not.i.i.i219.i = icmp eq i32 %and36.i.i.i.i218.i, 0
-  br i1 %cmp44.i.not.i.i.i219.i, label %ra_save.argprom.exit230.i, label %if.then46.i.i.i.i220.i
+  br i1 %cmp44.i.not.i.i.i219.i, label %ra_save.exit230.i, label %if.then46.i.i.i.i220.i
 
 if.then46.i.i.i.i220.i:                           ; preds = %if.end15.i.i.i207.i
   %shr47.i.i.i.i221.i = lshr i32 %cond.i.i199.i, 16
@@ -14313,7 +14313,7 @@ if.then46.i.i.i.i220.i:                           ; preds = %if.end15.i.i.i207.i
   %conv63.i.i.i.i223.i = or disjoint i8 %1952, 64
   %incdec.ptr.i.i.i.i224.i = getelementptr inbounds i8, ptr %p.0.i.i.i208.i, i64 -4
   store i8 %conv63.i.i.i.i223.i, ptr %incdec.ptr.i.i.i.i224.i, align 1
-  br label %ra_save.argprom.exit230.i
+  br label %ra_save.exit230.i
 
 if.else.i.i167.i:                                 ; preds = %if.end165.i
   %cmp6.i.i168.i = icmp eq i8 %1947, 14
@@ -14354,16 +14354,16 @@ if.end15.i.i176.i:                                ; preds = %if.else12.i.i174.i,
   %add.ptr34.i.i.i186.i = getelementptr inbounds i8, ptr %p.0.i.i177.i, i64 -5
   %1955 = and i32 %call166.i, 8
   %cmp44.i.not.i.i187.i = icmp eq i32 %1955, 0
-  br i1 %cmp44.i.not.i.i187.i, label %ra_save.argprom.exit230.i, label %if.then46.i.i.i188.i
+  br i1 %cmp44.i.not.i.i187.i, label %ra_save.exit230.i, label %if.then46.i.i.i188.i
 
 if.then46.i.i.i188.i:                             ; preds = %if.end15.i.i176.i
   store i8 68, ptr %add.ptr34.i.i.i186.i, align 1
   %shr52.i.i.i189.i = lshr i32 %cond8.i.i169.i, 8
   %conv63.i.i.i190.i = trunc i32 %shr52.i.i.i189.i to i8
   store i8 %conv63.i.i.i190.i, ptr %add.ptr29.i.i.i185.i, align 1
-  br label %ra_save.argprom.exit230.i
+  br label %ra_save.exit230.i
 
-ra_save.argprom.exit230.i:                        ; preds = %if.then46.i.i.i188.i, %if.end15.i.i176.i, %if.then46.i.i.i.i220.i, %if.end15.i.i.i207.i
+ra_save.exit230.i:                                ; preds = %if.then46.i.i.i188.i, %if.end15.i.i176.i, %if.then46.i.i.i.i220.i, %if.end15.i.i.i207.i
   %storemerge374.i = phi ptr [ %incdec.ptr.i.i.i.i224.i, %if.then46.i.i.i.i220.i ], [ %arrayidx.i.i.i.i216.i, %if.end15.i.i.i207.i ], [ %add.ptr29.i.i.i185.i, %if.then46.i.i.i188.i ], [ %add.ptr34.i.i.i186.i, %if.end15.i.i176.i ]
   store ptr %storemerge374.i, ptr %mcp, align 8
   %shl167.i = shl nuw i32 1, %call166.i
@@ -14372,14 +14372,14 @@ ra_save.argprom.exit230.i:                        ; preds = %if.then46.i.i.i188.
   %cmp170.i = icmp eq i32 %call166.i, %conv131.i
   br i1 %cmp170.i, label %if.then172.i, label %if.else179.i
 
-if.then172.i:                                     ; preds = %ra_save.argprom.exit230.i
+if.then172.i:                                     ; preds = %ra_save.exit230.i
   %1956 = load i32, ptr %freeset.i.i, align 8
   %or175.i = or i32 %1956, %shl167.i
   store i32 %or175.i, ptr %freeset.i.i, align 8
   %and178.i = and i32 %live.3355.i, %not168.i
   br label %if.end185.i
 
-if.else179.i:                                     ; preds = %ra_save.argprom.exit230.i
+if.else179.i:                                     ; preds = %ra_save.exit230.i
   %spec.select148.i = select i1 %cmp133.not.i, i32 %pass3.3354.i, i32 1
   br label %if.end185.i
 
@@ -23797,7 +23797,7 @@ if.then139:                                       ; preds = %if.then60, %if.then
   %add147 = select i1 %cmp145.not, i32 2, i32 3
   %95 = getelementptr i8, ptr %as, i64 200
   %as.val100 = load i32, ptr %95, align 8
-  %call148 = tail call fastcc i32 @noconflict.argprom(ptr nonnull %0, i32 %as.val100, i32 noundef %ref, i32 noundef %add142, i32 noundef %add147)
+  %call148 = tail call fastcc i32 @noconflict(ptr nonnull %0, i32 %as.val100, i32 noundef %ref, i32 noundef %add142, i32 noundef %add147)
   %tobool149.not = icmp eq i32 %call148, 0
   br i1 %tobool149.not, label %if.end231, label %land.lhs.true150
 
@@ -24394,7 +24394,7 @@ return:                                           ; preds = %if.end, %ra_alloc1.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @noconflict.argprom(ptr nocapture readonly %as.144.val, i32 %as.200.val, i32 noundef range(i32 0, 65536) %ref, i32 noundef range(i32 8, 264) %conflict, i32 noundef range(i32 0, 4) %check) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @noconflict(ptr nocapture readonly %as.144.val, i32 %as.200.val, i32 noundef range(i32 0, 65536) %ref, i32 noundef range(i32 8, 264) %conflict, i32 noundef range(i32 0, 4) %check) unnamed_addr #2 {
 entry:
   %add = add nuw nsw i32 %ref, 31
   %cmp = icmp ugt i32 %as.200.val, %add
@@ -26369,7 +26369,7 @@ if.end15.i.i.i.i:                                 ; preds = %if.else12.i.i.i.i, 
   store i8 -119, ptr %arrayidx.i.i.i.i.i, align 1
   %100 = and i32 %cond.i.i.i, 512
   %cmp44.i.not.i.i.i.i = icmp eq i32 %100, 0
-  br i1 %cmp44.i.not.i.i.i.i, label %ra_save.argprom.exit.i, label %if.then46.i.i.i.i.i
+  br i1 %cmp44.i.not.i.i.i.i, label %ra_save.exit.i, label %if.then46.i.i.i.i.i
 
 if.then46.i.i.i.i.i:                              ; preds = %if.end15.i.i.i.i
   %shr47.i.i.i.i.i = lshr i32 %cond.i.i.i, 16
@@ -26377,14 +26377,14 @@ if.then46.i.i.i.i.i:                              ; preds = %if.end15.i.i.i.i
   %conv63.i.i.i.i.i = or disjoint i8 %101, 64
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %p.0.i.i.i.i, i64 -4
   store i8 %conv63.i.i.i.i.i, ptr %incdec.ptr.i.i.i.i.i, align 1
-  br label %ra_save.argprom.exit.i
+  br label %ra_save.exit.i
 
-ra_save.argprom.exit.i:                           ; preds = %if.then46.i.i.i.i.i, %if.end15.i.i.i.i
+ra_save.exit.i:                                   ; preds = %if.then46.i.i.i.i.i, %if.end15.i.i.i.i
   %retval.i.0.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then46.i.i.i.i.i ], [ %arrayidx.i.i.i.i.i, %if.end15.i.i.i.i ]
   store ptr %retval.i.0.i.i.i.i, ptr %mcp.i.i.i.i, align 8
   br label %if.end98.i
 
-if.end98.i:                                       ; preds = %ra_save.argprom.exit.i, %if.end91.i
+if.end98.i:                                       ; preds = %ra_save.exit.i, %if.end91.i
   %s99.i = getelementptr inbounds i8, ptr %ir, i64 7
   %102 = load i8, ptr %s99.i, align 1
   %cmp101.not.i = icmp eq i8 %102, 0
@@ -26427,7 +26427,7 @@ if.end15.i.i.i234.i:                              ; preds = %if.else12.i.i.i232.
   store i8 -119, ptr %arrayidx.i.i.i.i241.i, align 1
   %107 = and i32 %cond.i.i226.i, 512
   %cmp44.i.not.i.i.i244.i = icmp eq i32 %107, 0
-  br i1 %cmp44.i.not.i.i.i244.i, label %ra_save.argprom.exit254.i, label %if.then46.i.i.i.i245.i
+  br i1 %cmp44.i.not.i.i.i244.i, label %ra_save.exit254.i, label %if.then46.i.i.i.i245.i
 
 if.then46.i.i.i.i245.i:                           ; preds = %if.end15.i.i.i234.i
   %shr47.i.i.i.i246.i = lshr i32 %cond.i.i226.i, 16
@@ -26435,9 +26435,9 @@ if.then46.i.i.i.i245.i:                           ; preds = %if.end15.i.i.i234.i
   %conv63.i.i.i.i248.i = or disjoint i8 %108, 64
   %incdec.ptr.i.i.i.i249.i = getelementptr inbounds i8, ptr %p.0.i.i.i235.i, i64 -4
   store i8 %conv63.i.i.i.i248.i, ptr %incdec.ptr.i.i.i.i249.i, align 1
-  br label %ra_save.argprom.exit254.i
+  br label %ra_save.exit254.i
 
-ra_save.argprom.exit254.i:                        ; preds = %if.then46.i.i.i.i245.i, %if.end15.i.i.i234.i
+ra_save.exit254.i:                                ; preds = %if.then46.i.i.i.i245.i, %if.end15.i.i.i234.i
   %retval.i.0.i.i.i250.i = phi ptr [ %incdec.ptr.i.i.i.i249.i, %if.then46.i.i.i.i245.i ], [ %arrayidx.i.i.i.i241.i, %if.end15.i.i.i234.i ]
   store ptr %retval.i.0.i.i.i250.i, ptr %mcp.i.i.i228.i, align 8
   br label %if.end79
@@ -26516,7 +26516,7 @@ emit_rr.exit25.i.i90:                             ; preds = %if.then46.i.i18.i.i
   store ptr %retval.i.0.i24.i.i91, ptr %mcp.i5.i.i79, align 8
   br label %if.end79
 
-if.end79:                                         ; preds = %emit_rr.exit25.i.i90, %emit_rr.exit.i.i112, %if.else75, %ra_save.argprom.exit254.i, %if.end98.i, %emit_rr.exit25.i.i, %emit_rr.exit.i.i, %if.else, %lor.lhs.false, %if.end67, %emit_rmro.exit
+if.end79:                                         ; preds = %emit_rr.exit25.i.i90, %emit_rr.exit.i.i112, %if.else75, %ra_save.exit254.i, %if.end98.i, %emit_rr.exit25.i.i, %emit_rr.exit.i.i, %if.else, %lor.lhs.false, %if.end67, %emit_rmro.exit
   ret void
 }
 

@@ -1445,7 +1445,7 @@ define hidden void @_ZN16ModuleEntryTableD2Ev(ptr nocapture noundef nonnull alig
 _ZN12ResourceMarkD2Ev.exit.i.i:                   ; preds = %37, %35, %11
   %38 = load ptr, ptr %9, align 8
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %_ZZN16ModuleEntryTableD1EvEN23ModuleEntryTableDeleter8do_entryERK16SymbolHandleBaseILb0EERP11ModuleEntry.argprom.exit.i, label %40
+  br i1 %39, label %_ZZN16ModuleEntryTableD1EvEN23ModuleEntryTableDeleter8do_entryERK16SymbolHandleBaseILb0EERP11ModuleEntry.exit.i, label %40
 
 40:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit.i.i
   %41 = getelementptr inbounds i8, ptr %38, i64 32
@@ -1519,9 +1519,9 @@ _ZN6Symbol24maybe_decrement_refcountEPS_.exit2.i.i.i: ; preds = %59, %_ZN6Symbol
 
 _ZN11ModuleEntryD2Ev.exit.i.i:                    ; preds = %62, %_ZN6Symbol24maybe_decrement_refcountEPS_.exit2.i.i.i
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %38) #16
-  br label %_ZZN16ModuleEntryTableD1EvEN23ModuleEntryTableDeleter8do_entryERK16SymbolHandleBaseILb0EERP11ModuleEntry.argprom.exit.i
+  br label %_ZZN16ModuleEntryTableD1EvEN23ModuleEntryTableDeleter8do_entryERK16SymbolHandleBaseILb0EERP11ModuleEntry.exit.i
 
-_ZZN16ModuleEntryTableD1EvEN23ModuleEntryTableDeleter8do_entryERK16SymbolHandleBaseILb0EERP11ModuleEntry.argprom.exit.i: ; preds = %_ZN11ModuleEntryD2Ev.exit.i.i, %_ZN12ResourceMarkD2Ev.exit.i.i
+_ZZN16ModuleEntryTableD1EvEN23ModuleEntryTableDeleter8do_entryERK16SymbolHandleBaseILb0EERP11ModuleEntry.exit.i: ; preds = %_ZN11ModuleEntryD2Ev.exit.i.i, %_ZN12ResourceMarkD2Ev.exit.i.i
   %63 = getelementptr inbounds i8, ptr %7, i64 24
   %64 = load ptr, ptr %63, align 8
   store ptr %64, ptr %5, align 8
@@ -1529,11 +1529,11 @@ _ZZN16ModuleEntryTableD1EvEN23ModuleEntryTableDeleter8do_entryERK16SymbolHandleB
   %.not.i.i.i16.i = icmp eq ptr %65, null
   br i1 %.not.i.i.i16.i, label %_ZN21ResourceHashtableNodeI16SymbolHandleBaseILb0EEP11ModuleEntryED2Ev.exit.i, label %66
 
-66:                                               ; preds = %_ZZN16ModuleEntryTableD1EvEN23ModuleEntryTableDeleter8do_entryERK16SymbolHandleBaseILb0EERP11ModuleEntry.argprom.exit.i
+66:                                               ; preds = %_ZZN16ModuleEntryTableD1EvEN23ModuleEntryTableDeleter8do_entryERK16SymbolHandleBaseILb0EERP11ModuleEntry.exit.i
   tail call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %65) #16
   br label %_ZN21ResourceHashtableNodeI16SymbolHandleBaseILb0EEP11ModuleEntryED2Ev.exit.i
 
-_ZN21ResourceHashtableNodeI16SymbolHandleBaseILb0EEP11ModuleEntryED2Ev.exit.i: ; preds = %66, %_ZZN16ModuleEntryTableD1EvEN23ModuleEntryTableDeleter8do_entryERK16SymbolHandleBaseILb0EERP11ModuleEntry.argprom.exit.i
+_ZN21ResourceHashtableNodeI16SymbolHandleBaseILb0EEP11ModuleEntryED2Ev.exit.i: ; preds = %66, %_ZZN16ModuleEntryTableD1EvEN23ModuleEntryTableDeleter8do_entryERK16SymbolHandleBaseILb0EERP11ModuleEntry.exit.i
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %7) #16
   %67 = load i32, ptr %3, align 8
   %68 = add nsw i32 %67, -1
@@ -1545,17 +1545,17 @@ _ZN21ResourceHashtableNodeI16SymbolHandleBaseILb0EEP11ModuleEntryED2Ev.exit.i: ;
 ._crit_edge.i:                                    ; preds = %_ZN21ResourceHashtableNodeI16SymbolHandleBaseILb0EEP11ModuleEntryED2Ev.exit.i, %4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 109
-  br i1 %exitcond.not.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP11ModuleEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE6unlinkIZN16ModuleEntryTableD1EvE23ModuleEntryTableDeleterEEvPSC_.argprom.exit, label %4, !llvm.loop !10
+  br i1 %exitcond.not.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP11ModuleEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE6unlinkIZN16ModuleEntryTableD1EvE23ModuleEntryTableDeleterEEvPSC_.exit, label %4, !llvm.loop !10
 
-_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP11ModuleEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE6unlinkIZN16ModuleEntryTableD1EvE23ModuleEntryTableDeleterEEvPSC_.argprom.exit: ; preds = %._crit_edge.i, %._crit_edge.i.i
+_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP11ModuleEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE6unlinkIZN16ModuleEntryTableD1EvE23ModuleEntryTableDeleterEEvPSC_.exit: ; preds = %._crit_edge.i, %._crit_edge.i.i
   %.0.idx11.i.i = phi i64 [ %.0.add.i.i, %._crit_edge.i.i ], [ 0, %._crit_edge.i ]
   %.0.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %.0.idx11.i.i
   %70 = load ptr, ptr %.0.ptr.i.i, align 8
   %.not9.i.i = icmp eq ptr %70, null
   br i1 %.not9.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP11ModuleEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE6unlinkIZN16ModuleEntryTableD1EvE23ModuleEntryTableDeleterEEvPSC_.argprom.exit, %_ZN21ResourceHashtableNodeI16SymbolHandleBaseILb0EEP11ModuleEntryED2Ev.exit.i.i
-  %.0810.i.i = phi ptr [ %72, %_ZN21ResourceHashtableNodeI16SymbolHandleBaseILb0EEP11ModuleEntryED2Ev.exit.i.i ], [ %70, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP11ModuleEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE6unlinkIZN16ModuleEntryTableD1EvE23ModuleEntryTableDeleterEEvPSC_.argprom.exit ]
+.lr.ph.i.i:                                       ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP11ModuleEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE6unlinkIZN16ModuleEntryTableD1EvE23ModuleEntryTableDeleterEEvPSC_.exit, %_ZN21ResourceHashtableNodeI16SymbolHandleBaseILb0EEP11ModuleEntryED2Ev.exit.i.i
+  %.0810.i.i = phi ptr [ %72, %_ZN21ResourceHashtableNodeI16SymbolHandleBaseILb0EEP11ModuleEntryED2Ev.exit.i.i ], [ %70, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP11ModuleEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE6unlinkIZN16ModuleEntryTableD1EvE23ModuleEntryTableDeleterEEvPSC_.exit ]
   %71 = getelementptr inbounds i8, ptr %.0810.i.i, i64 24
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %.0810.i.i, i64 8
@@ -1572,10 +1572,10 @@ _ZN21ResourceHashtableNodeI16SymbolHandleBaseILb0EEP11ModuleEntryED2Ev.exit.i.i:
   %.not.i.i2 = icmp eq ptr %72, null
   br i1 %.not.i.i2, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
 
-._crit_edge.i.i:                                  ; preds = %_ZN21ResourceHashtableNodeI16SymbolHandleBaseILb0EEP11ModuleEntryED2Ev.exit.i.i, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP11ModuleEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE6unlinkIZN16ModuleEntryTableD1EvE23ModuleEntryTableDeleterEEvPSC_.argprom.exit
+._crit_edge.i.i:                                  ; preds = %_ZN21ResourceHashtableNodeI16SymbolHandleBaseILb0EEP11ModuleEntryED2Ev.exit.i.i, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP11ModuleEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE6unlinkIZN16ModuleEntryTableD1EvE23ModuleEntryTableDeleterEEvPSC_.exit
   %.0.add.i.i = add nuw nsw i64 %.0.idx11.i.i, 8
   %76 = icmp ult i64 %.0.idx11.i.i, 864
-  br i1 %76, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP11ModuleEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE6unlinkIZN16ModuleEntryTableD1EvE23ModuleEntryTableDeleterEEvPSC_.argprom.exit, label %_ZN17ResourceHashtableI16SymbolHandleBaseILb0EEP11ModuleEntryLj109ELN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS1_12compute_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEED2Ev.exit, !llvm.loop !12
+  br i1 %76, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP11ModuleEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE6unlinkIZN16ModuleEntryTableD1EvE23ModuleEntryTableDeleterEEvPSC_.exit, label %_ZN17ResourceHashtableI16SymbolHandleBaseILb0EEP11ModuleEntryLj109ELN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS1_12compute_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEED2Ev.exit, !llvm.loop !12
 
 _ZN17ResourceHashtableI16SymbolHandleBaseILb0EEP11ModuleEntryLj109ELN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS1_12compute_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEED2Ev.exit: ; preds = %._crit_edge.i.i
   ret void
@@ -3581,15 +3581,15 @@ define hidden void @_ZN16ModuleEntryTable6verifyEv(ptr nocapture noundef nonnull
   %.not15.i.i = icmp eq ptr %.01114.i.i, null
   br i1 %.not15.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP11ModuleEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN16ModuleEntryTable6verifyEvE3$_0EEvSC_ENKUlRS2_RS4_E_clESJ_SK_.argprom.argprom.exit.i.i"
-  %.01117.i.i = phi ptr [ %.011.i.i, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP11ModuleEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN16ModuleEntryTable6verifyEvE3$_0EEvSC_ENKUlRS2_RS4_E_clESJ_SK_.argprom.argprom.exit.i.i" ], [ %.01114.i.i, %.preheader.i.i ]
-  %.116.i.i = phi i32 [ %10, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP11ModuleEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN16ModuleEntryTable6verifyEvE3$_0EEvSC_ENKUlRS2_RS4_E_clESJ_SK_.argprom.argprom.exit.i.i" ], [ %.01218.i.i, %.preheader.i.i ]
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP11ModuleEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN16ModuleEntryTable6verifyEvE3$_0EEvSC_ENKUlRS2_RS4_E_clESJ_SK_.exit.i.i"
+  %.01117.i.i = phi ptr [ %.011.i.i, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP11ModuleEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN16ModuleEntryTable6verifyEvE3$_0EEvSC_ENKUlRS2_RS4_E_clESJ_SK_.exit.i.i" ], [ %.01114.i.i, %.preheader.i.i ]
+  %.116.i.i = phi i32 [ %10, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP11ModuleEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN16ModuleEntryTable6verifyEvE3$_0EEvSC_ENKUlRS2_RS4_E_clESJ_SK_.exit.i.i" ], [ %.01218.i.i, %.preheader.i.i ]
   %5 = getelementptr inbounds i8, ptr %.01117.i.i, i64 16
   %.val.i.i = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %.val.i.i, i64 24
   %.val.val.i.i = load ptr, ptr %6, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.val.val.i.i, null
-  br i1 %.not.i.i.i.i.i, label %7, label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP11ModuleEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN16ModuleEntryTable6verifyEvE3$_0EEvSC_ENKUlRS2_RS4_E_clESJ_SK_.argprom.argprom.exit.i.i"
+  br i1 %.not.i.i.i.i.i, label %7, label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP11ModuleEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN16ModuleEntryTable6verifyEvE3$_0EEvSC_ENKUlRS2_RS4_E_clESJ_SK_.exit.i.i"
 
 7:                                                ; preds = %.lr.ph.i.i
   %8 = load ptr, ptr @g_assert_poison, align 8
@@ -3597,15 +3597,15 @@ define hidden void @_ZN16ModuleEntryTable6verifyEv(ptr nocapture noundef nonnull
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.9, i32 noundef 762, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22) #18
   unreachable
 
-"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP11ModuleEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN16ModuleEntryTable6verifyEvE3$_0EEvSC_ENKUlRS2_RS4_E_clESJ_SK_.argprom.argprom.exit.i.i": ; preds = %.lr.ph.i.i
+"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP11ModuleEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN16ModuleEntryTable6verifyEvE3$_0EEvSC_ENKUlRS2_RS4_E_clESJ_SK_.exit.i.i": ; preds = %.lr.ph.i.i
   %9 = getelementptr inbounds i8, ptr %.01117.i.i, i64 24
   %10 = add nsw i32 %.116.i.i, -1
   %.011.i.i = load ptr, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.011.i.i, null
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !38
 
-._crit_edge.i.i:                                  ; preds = %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP11ModuleEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN16ModuleEntryTable6verifyEvE3$_0EEvSC_ENKUlRS2_RS4_E_clESJ_SK_.argprom.argprom.exit.i.i", %.preheader.i.i
-  %.1.lcssa.i.i = phi i32 [ %.01218.i.i, %.preheader.i.i ], [ %10, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP11ModuleEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN16ModuleEntryTable6verifyEvE3$_0EEvSC_ENKUlRS2_RS4_E_clESJ_SK_.argprom.argprom.exit.i.i" ]
+._crit_edge.i.i:                                  ; preds = %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP11ModuleEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN16ModuleEntryTable6verifyEvE3$_0EEvSC_ENKUlRS2_RS4_E_clESJ_SK_.exit.i.i", %.preheader.i.i
+  %.1.lcssa.i.i = phi i32 [ %.01218.i.i, %.preheader.i.i ], [ %10, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP11ModuleEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN16ModuleEntryTable6verifyEvE3$_0EEvSC_ENKUlRS2_RS4_E_clESJ_SK_.exit.i.i" ]
   %.0.add.i.i = add nuw nsw i64 %.0.idx19.i.i, 8
   %11 = icmp sgt i32 %.1.lcssa.i.i, 0
   %12 = icmp ult i64 %.0.idx19.i.i, 864

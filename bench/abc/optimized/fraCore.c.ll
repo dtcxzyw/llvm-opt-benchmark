@@ -622,7 +622,7 @@ define void @Fra_FraigSweep(ptr noundef %0) local_unnamed_addr #3 {
   %63 = ptrtoint ptr %.val78 to i64
   %64 = and i64 %63, -2
   %.not.i = icmp eq i64 %64, 0
-  br i1 %.not.i, label %Fra_ObjChild0Fra.argprom.exit, label %65
+  br i1 %.not.i, label %Fra_ObjChild0Fra.exit, label %65
 
 65:                                               ; preds = %57
   %66 = inttoptr i64 %64 to ptr
@@ -643,18 +643,18 @@ define void @Fra_FraigSweep(ptr noundef %0) local_unnamed_addr #3 {
   %77 = ptrtoint ptr %75 to i64
   %78 = xor i64 %76, %77
   %79 = inttoptr i64 %78 to ptr
-  br label %Fra_ObjChild0Fra.argprom.exit
+  br label %Fra_ObjChild0Fra.exit
 
-Fra_ObjChild0Fra.argprom.exit:                    ; preds = %57, %65
+Fra_ObjChild0Fra.exit:                            ; preds = %57, %65
   %80 = phi ptr [ %79, %65 ], [ null, %57 ]
   %81 = getelementptr i8, ptr %50, i64 16
   %.val79 = load ptr, ptr %81, align 8
   %82 = ptrtoint ptr %.val79 to i64
   %83 = and i64 %82, -2
   %.not.i80 = icmp eq i64 %83, 0
-  br i1 %.not.i80, label %Fra_ObjChild1Fra.argprom.exit, label %84
+  br i1 %.not.i80, label %Fra_ObjChild1Fra.exit, label %84
 
-84:                                               ; preds = %Fra_ObjChild0Fra.argprom.exit
+84:                                               ; preds = %Fra_ObjChild0Fra.exit
   %85 = inttoptr i64 %83 to ptr
   %86 = getelementptr i8, ptr %85, i64 36
   %.val5.i81 = load i32, ptr %86, align 4
@@ -673,10 +673,10 @@ Fra_ObjChild0Fra.argprom.exit:                    ; preds = %57, %65
   %96 = ptrtoint ptr %94 to i64
   %97 = xor i64 %95, %96
   %98 = inttoptr i64 %97 to ptr
-  br label %Fra_ObjChild1Fra.argprom.exit
+  br label %Fra_ObjChild1Fra.exit
 
-Fra_ObjChild1Fra.argprom.exit:                    ; preds = %Fra_ObjChild0Fra.argprom.exit, %84
-  %99 = phi ptr [ %98, %84 ], [ null, %Fra_ObjChild0Fra.argprom.exit ]
+Fra_ObjChild1Fra.exit:                            ; preds = %Fra_ObjChild0Fra.exit, %84
+  %99 = phi ptr [ %98, %84 ], [ null, %Fra_ObjChild0Fra.exit ]
   %100 = tail call ptr @Aig_And(ptr noundef %58, ptr noundef %80, ptr noundef %99) #10
   %101 = load ptr, ptr %0, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 80
@@ -705,7 +705,7 @@ Fra_ObjChild1Fra.argprom.exit:                    ; preds = %Fra_ObjChild0Fra.ar
   %.not62 = icmp eq ptr %118, null
   br i1 %.not62, label %119, label %152
 
-119:                                              ; preds = %Fra_ObjChild1Fra.argprom.exit
+119:                                              ; preds = %Fra_ObjChild1Fra.exit
   %120 = load ptr, ptr %0, align 8
   %121 = getelementptr inbounds i8, ptr %120, i64 72
   %122 = load i32, ptr %121, align 8
@@ -761,8 +761,8 @@ Fra_ObjChild1Fra.argprom.exit:                    ; preds = %Fra_ObjChild0Fra.ar
   %151 = tail call i32 @Fra_ImpCheckForNode(ptr noundef nonnull %0, ptr noundef %150, ptr noundef nonnull %50, i32 noundef %.290) #10
   br label %152
 
-152:                                              ; preds = %52, %46, %147, %143, %Fra_ObjChild1Fra.argprom.exit
-  %.3 = phi i32 [ %.290, %46 ], [ %.290, %Fra_ObjChild1Fra.argprom.exit ], [ %151, %147 ], [ %.290, %143 ], [ %.290, %52 ]
+152:                                              ; preds = %52, %46, %147, %143, %Fra_ObjChild1Fra.exit
+  %.3 = phi i32 [ %.290, %46 ], [ %.290, %Fra_ObjChild1Fra.exit ], [ %151, %147 ], [ %.290, %143 ], [ %.290, %52 ]
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %153 = load ptr, ptr %2, align 8
   %154 = getelementptr inbounds i8, ptr %153, i64 32
@@ -1055,7 +1055,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %151 = getelementptr i8, ptr %150, i64 4
   %.val141.i = load i32, ptr %151, align 4
   %152 = icmp sgt i32 %.val141.i, 0
-  br i1 %152, label %.lr.ph.i, label %Fra_FraigNodeSpeculate.argprom.exit
+  br i1 %152, label %.lr.ph.i, label %Fra_FraigNodeSpeculate.exit
 
 .lr.ph.i:                                         ; preds = %117, %161
   %153 = phi ptr [ %162, %161 ], [ %148, %117 ]
@@ -1083,9 +1083,9 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val14.i = load i32, ptr %165, align 4
   %166 = sext i32 %.val14.i to i64
   %167 = icmp slt i64 %indvars.iv.next.i, %166
-  br i1 %167, label %.lr.ph.i, label %Fra_FraigNodeSpeculate.argprom.exit, !llvm.loop !16
+  br i1 %167, label %.lr.ph.i, label %Fra_FraigNodeSpeculate.exit, !llvm.loop !16
 
-Fra_FraigNodeSpeculate.argprom.exit:              ; preds = %161, %117
+Fra_FraigNodeSpeculate.exit:                      ; preds = %161, %117
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
   br label %223
 
@@ -1201,7 +1201,7 @@ Vec_PtrPush.exit76:                               ; preds = %.Vec_PtrGrow.exit11
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %223
 
-223:                                              ; preds = %206, %Vec_PtrPush.exit, %2, %16, %222, %215, %211, %Fra_FraigNodeSpeculate.argprom.exit, %53, %47
+223:                                              ; preds = %206, %Vec_PtrPush.exit, %2, %16, %222, %215, %211, %Fra_FraigNodeSpeculate.exit, %53, %47
   ret void
 }
 

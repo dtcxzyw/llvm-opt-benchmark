@@ -484,7 +484,7 @@ Cut_CManStart.exit:                               ; preds = %33
   %indvars.iv = phi i64 [ 0, %Cut_CManStart.exit ], [ %indvars.iv.next, %41 ]
   %42 = getelementptr inbounds [22 x [16 x i32]], ptr %36, i64 0, i64 %indvars.iv
   %43 = trunc nuw nsw i64 %indvars.iv to i32
-  call fastcc void @Cut_CellTruthElem.argelim(ptr noundef nonnull %18, ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef nonnull %42, i32 noundef %43)
+  call fastcc void @Cut_CellTruthElem(ptr noundef nonnull %18, ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef nonnull %42, i32 noundef %43)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 22
   br i1 %exitcond.not, label %.preheader317, label %41, !llvm.loop !13
@@ -500,7 +500,7 @@ Cut_CManStart.exit:                               ; preds = %33
   %indvars.iv371 = phi i64 [ 0, %.preheader317 ], [ %indvars.iv.next372, %48 ]
   %49 = getelementptr inbounds [22 x [16 x i32]], ptr %40, i64 0, i64 %indvars.iv371
   %50 = trunc nuw nsw i64 %indvars.iv371 to i32
-  call fastcc void @Cut_CellTruthElem.argelim(ptr noundef nonnull %37, ptr noundef nonnull %38, ptr noundef nonnull %39, ptr noundef nonnull %49, i32 noundef %50)
+  call fastcc void @Cut_CellTruthElem(ptr noundef nonnull %37, ptr noundef nonnull %38, ptr noundef nonnull %39, ptr noundef nonnull %49, i32 noundef %50)
   %indvars.iv.next372 = add nuw nsw i64 %indvars.iv371, 1
   %exitcond374.not = icmp eq i64 %indvars.iv.next372, 22
   br i1 %exitcond374.not, label %.preheader316, label %48, !llvm.loop !14
@@ -519,7 +519,7 @@ Cut_CManStart.exit:                               ; preds = %33
   %indvars.iv375 = phi i64 [ 0, %.preheader316 ], [ %indvars.iv.next376, %58 ]
   %59 = getelementptr inbounds [22 x [16 x i32]], ptr %47, i64 0, i64 %indvars.iv375
   %60 = trunc nuw nsw i64 %indvars.iv375 to i32
-  call fastcc void @Cut_CellTruthElem.argelim(ptr noundef nonnull %44, ptr noundef nonnull %45, ptr noundef nonnull %46, ptr noundef nonnull %59, i32 noundef %60)
+  call fastcc void @Cut_CellTruthElem(ptr noundef nonnull %44, ptr noundef nonnull %45, ptr noundef nonnull %46, ptr noundef nonnull %59, i32 noundef %60)
   %indvars.iv.next376 = add nuw nsw i64 %indvars.iv375, 1
   %exitcond378.not = icmp eq i64 %indvars.iv.next376, 22
   br i1 %exitcond378.not, label %.preheader315, label %58, !llvm.loop !15
@@ -574,7 +574,7 @@ Cut_CManStart.exit:                               ; preds = %33
 ._crit_edge:                                      ; preds = %77
   %81 = getelementptr inbounds [22 x [16 x i32]], ptr %47, i64 0, i64 %indvars.iv389
   %82 = getelementptr inbounds i8, ptr %67, i64 84
-  call fastcc void @Cut_CellTruthElem.argelim(ptr noundef nonnull %63, ptr noundef nonnull %65, ptr noundef nonnull %81, ptr noundef nonnull %82, i32 noundef %69)
+  call fastcc void @Cut_CellTruthElem(ptr noundef nonnull %63, ptr noundef nonnull %65, ptr noundef nonnull %81, ptr noundef nonnull %82, i32 noundef %69)
   %83 = load i32, ptr %68, align 8
   %84 = and i32 %83, 15
   %.not49.i = icmp eq i32 %84, 0
@@ -1547,7 +1547,7 @@ Abc_Clock.exit299:                                ; preds = %._crit_edge359, %52
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @Cut_CellTruthElem.argelim(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4) unnamed_addr #5 {
+define internal fastcc void @Cut_CellTruthElem(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4) unnamed_addr #5 {
   switch i32 %4, label %.loopexit [
     i32 0, label %.preheader.preheader
     i32 1, label %.preheader280.preheader

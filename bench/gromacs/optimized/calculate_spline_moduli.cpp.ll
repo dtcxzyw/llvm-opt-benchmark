@@ -155,7 +155,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %5
 
 ._crit_edge:                                      ; preds = %36, %.preheader
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 72, i1 false)
-  invoke fastcc void @_ZL12make_dft_modN3gmx8ArrayRefIKdEEii.argelim(ptr dead_on_unwind noalias writable align 8 %6, ptr nonnull %13, i32 noundef %9, i32 noundef %1)
+  invoke fastcc void @_ZL12make_dft_modN3gmx8ArrayRefIKdEEii(ptr dead_on_unwind noalias writable align 8 %6, ptr nonnull %13, i32 noundef %9, i32 noundef %1)
           to label %_ZNSt6vectorIfSaIfEED2Ev.exit unwind label %62
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge
@@ -170,7 +170,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge
   %45 = load ptr, ptr %44, align 8
   store ptr %45, ptr %40, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZL12make_dft_modN3gmx8ArrayRefIKdEEii.argelim(ptr dead_on_unwind noalias writable align 8 %7, ptr nonnull %13, i32 noundef %9, i32 noundef %2)
+  invoke fastcc void @_ZL12make_dft_modN3gmx8ArrayRefIKdEEii(ptr dead_on_unwind noalias writable align 8 %7, ptr nonnull %13, i32 noundef %9, i32 noundef %2)
           to label %_ZNSt6vectorIfSaIfEED2Ev.exit39 unwind label %62
 
 _ZNSt6vectorIfSaIfEED2Ev.exit39:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
@@ -186,7 +186,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit39:                  ; preds = %_ZNSt6vectorIfSaIfE
   %53 = load ptr, ptr %52, align 8
   store ptr %53, ptr %48, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZL12make_dft_modN3gmx8ArrayRefIKdEEii.argelim(ptr dead_on_unwind noalias writable align 8 %8, ptr nonnull %13, i32 noundef %9, i32 noundef %3)
+  invoke fastcc void @_ZL12make_dft_modN3gmx8ArrayRefIKdEEii(ptr dead_on_unwind noalias writable align 8 %8, ptr nonnull %13, i32 noundef %9, i32 noundef %3)
           to label %_ZNSt6vectorIdSaIdEED2Ev.exit unwind label %62
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit39
@@ -236,7 +236,7 @@ declare i32 @__gxx_personality_v0(...)
 declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12make_dft_modN3gmx8ArrayRefIKdEEii.argelim(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture readonly %1, i32 noundef range(i32 -2147483648, 2147483647) %2, i32 noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL12make_dft_modN3gmx8ArrayRefIKdEEii(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture readonly %1, i32 noundef range(i32 -2147483648, 2147483647) %2, i32 noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = sext i32 %3 to i64
   %6 = icmp slt i32 %3, 0
   br i1 %6, label %.noexc, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i

@@ -10339,17 +10339,17 @@ if.else34.invoke.i:                               ; preds = %invoke.cont14.i, %i
 if.end39.i:                                       ; preds = %if.else34.invoke.i, %call4.i.noexc.i, %if.then28.i
   %96 = load ptr, ptr %errorPtr.i, align 8
   %tobool.not.i77.i = icmp eq ptr %96, null
-  br i1 %tobool.not.i77.i, label %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_11ArrayVectorELb1ELb0EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.argprom.exit, label %if.then.i78.i
+  br i1 %tobool.not.i77.i, label %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_11ArrayVectorELb1ELb0EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.exit, label %if.then.i78.i
 
 if.then.i78.i:                                    ; preds = %if.end39.i
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %errorPtr.i) #22
-  br label %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_11ArrayVectorELb1ELb0EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.argprom.exit
+  br label %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_11ArrayVectorELb1ELb0EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.exit
 
-_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_11ArrayVectorELb1ELb0EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.argprom.exit: ; preds = %if.end39.i, %if.then.i78.i
+_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_11ArrayVectorELb1ELb0EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.exit: ; preds = %if.end39.i, %if.then.i78.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %errorPtr.i)
   br label %if.end
 
-if.end:                                           ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit, %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_11ArrayVectorELb1ELb0EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.argprom.exit
+if.end:                                           ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit, %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_11ArrayVectorELb1ELb0EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.exit
   ret void
 }
 
@@ -12436,17 +12436,17 @@ if.else32.invoke.i:                               ; preds = %invoke.cont12.i, %i
 if.end37.i:                                       ; preds = %if.else32.invoke.i, %call4.i.noexc.i, %if.then26.i
   %96 = load ptr, ptr %errorPtr.i, align 8
   %tobool.not.i77.i = icmp eq ptr %96, null
-  br i1 %tobool.not.i77.i, label %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_11ArrayVectorELb0ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.argprom.exit, label %if.then.i78.i
+  br i1 %tobool.not.i77.i, label %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_11ArrayVectorELb0ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.exit, label %if.then.i78.i
 
 if.then.i78.i:                                    ; preds = %if.end37.i
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %errorPtr.i) #22
-  br label %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_11ArrayVectorELb0ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.argprom.exit
+  br label %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_11ArrayVectorELb0ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.exit
 
-_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_11ArrayVectorELb0ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.argprom.exit: ; preds = %if.end37.i, %if.then.i78.i
+_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_11ArrayVectorELb0ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.exit: ; preds = %if.end37.i, %if.then.i78.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %errorPtr.i)
   br label %if.end
 
-if.end:                                           ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit, %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_11ArrayVectorELb0ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.argprom.exit
+if.end:                                           ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit, %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_11ArrayVectorELb0ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.exit
   ret void
 }
 
@@ -14426,17 +14426,17 @@ if.else32.invoke.i:                               ; preds = %invoke.cont12.i, %i
 if.end37.i:                                       ; preds = %if.else32.invoke.i, %call4.i.noexc.i, %if.then26.i
   %96 = load ptr, ptr %errorPtr.i, align 8
   %tobool.not.i77.i = icmp eq ptr %96, null
-  br i1 %tobool.not.i77.i, label %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_11ArrayVectorELb1ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.argprom.exit, label %if.then.i78.i
+  br i1 %tobool.not.i77.i, label %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_11ArrayVectorELb1ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.exit, label %if.then.i78.i
 
 if.then.i78.i:                                    ; preds = %if.end37.i
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %errorPtr.i) #22
-  br label %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_11ArrayVectorELb1ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.argprom.exit
+  br label %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_11ArrayVectorELb1ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.exit
 
-_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_11ArrayVectorELb1ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.argprom.exit: ; preds = %if.end37.i, %if.then.i78.i
+_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_11ArrayVectorELb1ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.exit: ; preds = %if.end37.i, %if.then.i78.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %errorPtr.i)
   br label %if.end
 
-if.end:                                           ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit, %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_11ArrayVectorELb1ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.argprom.exit
+if.end:                                           ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit, %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_11ArrayVectorELb1ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.exit
   ret void
 }
 
@@ -18091,17 +18091,17 @@ if.else32.invoke.i:                               ; preds = %invoke.cont12.i, %i
 if.end37.i:                                       ; preds = %if.else32.invoke.i, %call4.i.noexc.i, %if.then26.i
   %96 = load ptr, ptr %errorPtr.i, align 8
   %tobool.not.i77.i = icmp eq ptr %96, null
-  br i1 %tobool.not.i77.i, label %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_9MapVectorELb1ELb0EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.argprom.exit, label %if.then.i78.i
+  br i1 %tobool.not.i77.i, label %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_9MapVectorELb1ELb0EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.exit, label %if.then.i78.i
 
 if.then.i78.i:                                    ; preds = %if.end37.i
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %errorPtr.i) #22
-  br label %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_9MapVectorELb1ELb0EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.argprom.exit
+  br label %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_9MapVectorELb1ELb0EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.exit
 
-_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_9MapVectorELb1ELb0EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.argprom.exit: ; preds = %if.end37.i, %if.then.i78.i
+_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_9MapVectorELb1ELb0EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.exit: ; preds = %if.end37.i, %if.then.i78.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %errorPtr.i)
   br label %if.end
 
-if.end:                                           ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit, %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_9MapVectorELb1ELb0EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.argprom.exit
+if.end:                                           ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit, %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_9MapVectorELb1ELb0EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.exit
   ret void
 }
 
@@ -20083,17 +20083,17 @@ if.else32.invoke.i:                               ; preds = %invoke.cont12.i, %i
 if.end37.i:                                       ; preds = %if.else32.invoke.i, %call4.i.noexc.i, %if.then26.i
   %96 = load ptr, ptr %errorPtr.i, align 8
   %tobool.not.i77.i = icmp eq ptr %96, null
-  br i1 %tobool.not.i77.i, label %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_9MapVectorELb0ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.argprom.exit, label %if.then.i78.i
+  br i1 %tobool.not.i77.i, label %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_9MapVectorELb0ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.exit, label %if.then.i78.i
 
 if.then.i78.i:                                    ; preds = %if.end37.i
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %errorPtr.i) #22
-  br label %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_9MapVectorELb0ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.argprom.exit
+  br label %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_9MapVectorELb0ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.exit
 
-_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_9MapVectorELb0ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.argprom.exit: ; preds = %if.end37.i, %if.then.i78.i
+_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_9MapVectorELb0ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.exit: ; preds = %if.end37.i, %if.then.i78.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %errorPtr.i)
   br label %if.end
 
-if.end:                                           ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit, %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_9MapVectorELb0ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.argprom.exit
+if.end:                                           ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit, %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_9MapVectorELb0ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.exit
   ret void
 }
 
@@ -22073,17 +22073,17 @@ if.else32.invoke.i:                               ; preds = %invoke.cont12.i, %i
 if.end37.i:                                       ; preds = %if.else32.invoke.i, %call4.i.noexc.i, %if.then26.i
   %96 = load ptr, ptr %errorPtr.i, align 8
   %tobool.not.i77.i = icmp eq ptr %96, null
-  br i1 %tobool.not.i77.i, label %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_9MapVectorELb1ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.argprom.exit, label %if.then.i78.i
+  br i1 %tobool.not.i77.i, label %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_9MapVectorELb1ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.exit, label %if.then.i78.i
 
 if.then.i78.i:                                    ; preds = %if.end37.i
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %errorPtr.i) #22
-  br label %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_9MapVectorELb1ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.argprom.exit
+  br label %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_9MapVectorELb1ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.exit
 
-_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_9MapVectorELb1ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.argprom.exit: ; preds = %if.end37.i, %if.then.i78.i
+_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_9MapVectorELb1ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.exit: ; preds = %if.end37.i, %if.then.i78.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %errorPtr.i)
   br label %if.end
 
-if.end:                                           ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit, %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_9MapVectorELb1ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.argprom.exit
+if.end:                                           ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit, %_ZNK8facebook5velox9functions12_GLOBAL__N_113MatchFunctionINS0_9MapVectorELb1ELb1EE13applyInternalERNS0_10FlatVectorIbEERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS6_ISC_IvEEEERKNS9_18LocalDecodedVectorE.exit
   ret void
 }
 

@@ -32141,12 +32141,12 @@ define linkonce_odr dso_local void @_ZN3pro7details13allocated_ptrIN5utils15Life
   %23 = load ptr, ptr %17, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   store ptr %24, ptr %17, align 8
-  br label %_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIvEJRS4_EEEPT_RKT0_DpOT1_.argprom.exit
+  br label %_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIvEJRS4_EEEPT_RKT0_DpOT1_.exit
 
 25:                                               ; preds = %14
   %26 = getelementptr inbounds i8, ptr %7, i64 8
   invoke void @_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiRNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr %18, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIvEJRS4_EEEPT_RKT0_DpOT1_.argprom.exit unwind label %_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIvEJRS2_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit8.i
+          to label %_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIvEJRS4_EEEPT_RKT0_DpOT1_.exit unwind label %_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIvEJRS2_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit8.i
 
 _ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIvEJRS2_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit8.i: ; preds = %25, %11
   %27 = landingpad { ptr, i32 }
@@ -32154,7 +32154,7 @@ _ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_S
   call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 16) #23
   resume { ptr, i32 } %27
 
-_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIvEJRS4_EEEPT_RKT0_DpOT1_.argprom.exit: ; preds = %21, %25
+_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIvEJRS4_EEEPT_RKT0_DpOT1_.exit: ; preds = %21, %25
   %28 = load i32, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   store i32 %28, ptr %5, align 8
@@ -32201,12 +32201,12 @@ define linkonce_odr dso_local void @_ZN3pro7details21relocation_dispatcherINS0_1
   %16 = load ptr, ptr %9, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %17, ptr %9, align 8
-  br label %_ZN3pro7detailsL10deallocateISaIvEN5utils15LifetimeTracker7SessionEEEvRKT_PT0_.argprom.exit.i.i
+  br label %_ZN3pro7detailsL10deallocateISaIvEN5utils15LifetimeTracker7SessionEEEvRKT_PT0_.exit.i.i
 
 18:                                               ; preds = %6
   %19 = getelementptr inbounds i8, ptr %8, i64 8
   invoke void @_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr %10, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %_ZN3pro7detailsL10deallocateISaIvEN5utils15LifetimeTracker7SessionEEEvRKT_PT0_.argprom.exit.i.i unwind label %20
+          to label %_ZN3pro7detailsL10deallocateISaIvEN5utils15LifetimeTracker7SessionEEEvRKT_PT0_.exit.i.i unwind label %20
 
 20:                                               ; preds = %18
   %21 = landingpad { ptr, i32 }
@@ -32215,12 +32215,12 @@ define linkonce_odr dso_local void @_ZN3pro7details21relocation_dispatcherINS0_1
   call void @__clang_call_terminate(ptr %22) #24
   unreachable
 
-_ZN3pro7detailsL10deallocateISaIvEN5utils15LifetimeTracker7SessionEEEvRKT_PT0_.argprom.exit.i.i: ; preds = %18, %13
+_ZN3pro7detailsL10deallocateISaIvEN5utils15LifetimeTracker7SessionEEEvRKT_PT0_.exit.i.i: ; preds = %18, %13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 16) #23
   br label %_ZSt10destroy_atIN3pro7details13allocated_ptrIN5utils15LifetimeTracker7SessionESaIvEEEEvPT_.exit
 
-_ZSt10destroy_atIN3pro7details13allocated_ptrIN5utils15LifetimeTracker7SessionESaIvEEEEvPT_.exit: ; preds = %2, %_ZN3pro7detailsL10deallocateISaIvEN5utils15LifetimeTracker7SessionEEEvRKT_PT0_.argprom.exit.i.i
+_ZSt10destroy_atIN3pro7details13allocated_ptrIN5utils15LifetimeTracker7SessionESaIvEEEEvPT_.exit: ; preds = %2, %_ZN3pro7detailsL10deallocateISaIvEN5utils15LifetimeTracker7SessionEEEvRKT_PT0_.exit.i.i
   ret void
 }
 
@@ -32251,12 +32251,12 @@ define linkonce_odr dso_local void @_ZN3pro7details22destruction_dispatcherINS0_
   %14 = load ptr, ptr %7, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %15, ptr %7, align 8
-  br label %_ZN3pro7detailsL10deallocateISaIvEN5utils15LifetimeTracker7SessionEEEvRKT_PT0_.argprom.exit.i.i
+  br label %_ZN3pro7detailsL10deallocateISaIvEN5utils15LifetimeTracker7SessionEEEvRKT_PT0_.exit.i.i
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds i8, ptr %6, i64 8
   invoke void @_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr %8, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %_ZN3pro7detailsL10deallocateISaIvEN5utils15LifetimeTracker7SessionEEEvRKT_PT0_.argprom.exit.i.i unwind label %18
+          to label %_ZN3pro7detailsL10deallocateISaIvEN5utils15LifetimeTracker7SessionEEEvRKT_PT0_.exit.i.i unwind label %18
 
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
@@ -32265,12 +32265,12 @@ define linkonce_odr dso_local void @_ZN3pro7details22destruction_dispatcherINS0_
   call void @__clang_call_terminate(ptr %20) #24
   unreachable
 
-_ZN3pro7detailsL10deallocateISaIvEN5utils15LifetimeTracker7SessionEEEvRKT_PT0_.argprom.exit.i.i: ; preds = %16, %11
+_ZN3pro7detailsL10deallocateISaIvEN5utils15LifetimeTracker7SessionEEEvRKT_PT0_.exit.i.i: ; preds = %16, %11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 16) #23
   br label %_ZSt10destroy_atIN3pro7details13allocated_ptrIN5utils15LifetimeTracker7SessionESaIvEEEEvPT_.exit
 
-_ZSt10destroy_atIN3pro7details13allocated_ptrIN5utils15LifetimeTracker7SessionESaIvEEEEvPT_.exit: ; preds = %1, %_ZN3pro7detailsL10deallocateISaIvEN5utils15LifetimeTracker7SessionEEEvRKT_PT0_.argprom.exit.i.i
+_ZSt10destroy_atIN3pro7details13allocated_ptrIN5utils15LifetimeTracker7SessionESaIvEEEEvPT_.exit: ; preds = %1, %_ZN3pro7detailsL10deallocateISaIvEN5utils15LifetimeTracker7SessionEEEvRKT_PT0_.exit.i.i
   ret void
 }
 
@@ -32329,12 +32329,12 @@ define linkonce_odr dso_local void @_ZN3pro7details13allocated_ptrIN5utils15Life
   %25 = load ptr, ptr %19, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   store ptr %26, ptr %19, align 8
-  br label %_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIvEJRKS4_EEEPT_RKT0_DpOT1_.argprom.exit
+  br label %_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIvEJRKS4_EEEPT_RKT0_DpOT1_.exit
 
 27:                                               ; preds = %16
   %28 = getelementptr inbounds i8, ptr %9, i64 8
   invoke void @_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiRNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr %20, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIvEJRKS4_EEEPT_RKT0_DpOT1_.argprom.exit unwind label %_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIvEJRKS2_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit8.i
+          to label %_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIvEJRKS4_EEEPT_RKT0_DpOT1_.exit unwind label %_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIvEJRKS2_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit8.i
 
 _ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIvEJRKS2_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit8.i: ; preds = %27, %13
   %29 = landingpad { ptr, i32 }
@@ -32342,7 +32342,7 @@ _ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_S
   call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 16) #23
   resume { ptr, i32 } %29
 
-_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIvEJRKS4_EEEPT_RKT0_DpOT1_.argprom.exit: ; preds = %23, %27
+_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIvEJRKS4_EEEPT_RKT0_DpOT1_.exit: ; preds = %23, %27
   %30 = load i32, ptr %9, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   store i32 %30, ptr %7, align 8
@@ -32351,8 +32351,8 @@ _ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIvEJRKS4_EEEPT_RKT0
   store ptr %32, ptr %31, align 8
   br label %33
 
-33:                                               ; preds = %2, %_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIvEJRKS4_EEEPT_RKT0_DpOT1_.argprom.exit
-  %34 = phi ptr [ %7, %_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIvEJRKS4_EEEPT_RKT0_DpOT1_.argprom.exit ], [ null, %2 ]
+33:                                               ; preds = %2, %_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIvEJRKS4_EEEPT_RKT0_DpOT1_.exit
+  %34 = phi ptr [ %7, %_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIvEJRKS4_EEEPT_RKT0_DpOT1_.exit ], [ null, %2 ]
   store ptr %34, ptr %0, align 8
   ret void
 }
@@ -32399,12 +32399,12 @@ define linkonce_odr dso_local void @_ZN3pro7details13allocated_ptrIN5utils15Life
   %21 = load ptr, ptr %15, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %22, ptr %15, align 8
-  br label %_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIvEJPS3_EEEPT_RKT0_DpOT1_.argprom.exit
+  br label %_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIvEJPS3_EEEPT_RKT0_DpOT1_.exit
 
 23:                                               ; preds = %12
   %24 = getelementptr inbounds i8, ptr %.val, i64 8
   invoke void @_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiRNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr %16, ptr noundef nonnull align 4 dereferenceable(4) %.val, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIvEJPS3_EEEPT_RKT0_DpOT1_.argprom.exit unwind label %_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIvEJPS1_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit8.i
+          to label %_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIvEJPS3_EEEPT_RKT0_DpOT1_.exit unwind label %_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIvEJPS1_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit8.i
 
 _ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIvEJPS1_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit8.i: ; preds = %23, %9
   %25 = landingpad { ptr, i32 }
@@ -32412,7 +32412,7 @@ _ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_S
   call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 16) #23
   resume { ptr, i32 } %25
 
-_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIvEJPS3_EEEPT_RKT0_DpOT1_.argprom.exit: ; preds = %19, %23
+_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIvEJPS3_EEEPT_RKT0_DpOT1_.exit: ; preds = %19, %23
   %26 = load i32, ptr %.val, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   store i32 %26, ptr %5, align 8
@@ -32464,12 +32464,12 @@ define linkonce_odr dso_local void @_ZN3pro7details13allocated_ptrIN5utils15Life
   %22 = load ptr, ptr %16, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   store ptr %23, ptr %16, align 8
-  br label %_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIvEJRSt16initializer_listIiEPS3_EEEPT_RKT0_DpOT1_.argprom.exit
+  br label %_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIvEJRSt16initializer_listIiEPS3_EEEPT_RKT0_DpOT1_.exit
 
 24:                                               ; preds = %13
   %25 = getelementptr inbounds i8, ptr %.val, i64 8
   invoke void @_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiRNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr %17, ptr noundef nonnull align 4 dereferenceable(4) %.val, ptr noundef nonnull align 4 dereferenceable(4) %5)
-          to label %_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIvEJRSt16initializer_listIiEPS3_EEEPT_RKT0_DpOT1_.argprom.exit unwind label %_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIvEJRSt16initializer_listIiEPS1_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit9.i
+          to label %_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIvEJRSt16initializer_listIiEPS3_EEEPT_RKT0_DpOT1_.exit unwind label %_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIvEJRSt16initializer_listIiEPS1_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit9.i
 
 _ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIvEJRSt16initializer_listIiEPS1_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit9.i: ; preds = %24, %10
   %26 = landingpad { ptr, i32 }
@@ -32477,7 +32477,7 @@ _ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_S
   call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 16) #23
   resume { ptr, i32 } %26
 
-_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIvEJRSt16initializer_listIiEPS3_EEEPT_RKT0_DpOT1_.argprom.exit: ; preds = %20, %24
+_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIvEJRSt16initializer_listIiEPS3_EEEPT_RKT0_DpOT1_.exit: ; preds = %20, %24
   %27 = load i32, ptr %.val, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   store i32 %27, ptr %6, align 8
@@ -32543,12 +32543,12 @@ define linkonce_odr dso_local void @_ZN3pro7details11compact_ptrIN5utils15Lifeti
   %30 = load ptr, ptr %24, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   store ptr %31, ptr %24, align 8
-  br label %_ZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_RS5_EEEPT_RKT0_DpOT1_.argprom.exit
+  br label %_ZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_RS5_EEEPT_RKT0_DpOT1_.exit
 
 32:                                               ; preds = %21
   %33 = getelementptr inbounds i8, ptr %14, i64 8
   invoke void @_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiRNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr %25, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %_ZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_RS5_EEEPT_RKT0_DpOT1_.argprom.exit unwind label %34
+          to label %_ZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_RS5_EEEPT_RKT0_DpOT1_.exit unwind label %34
 
 34:                                               ; preds = %32, %18
   %35 = landingpad { ptr, i32 }
@@ -32556,7 +32556,7 @@ define linkonce_odr dso_local void @_ZN3pro7details11compact_ptrIN5utils15Lifeti
   call fastcc void @_ZNSt10unique_ptrIN3pro7details11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageEZNS1_L8allocateISB_S9_JRKS9_RS5_EEEPT_RKT0_DpOT1_EUlPSB_E_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #20
   resume { ptr, i32 } %35
 
-_ZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_RS5_EEEPT_RKT0_DpOT1_.argprom.exit: ; preds = %28, %32
+_ZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_RS5_EEEPT_RKT0_DpOT1_.exit: ; preds = %28, %32
   %36 = load i32, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   store i32 %36, ptr %10, align 8
@@ -32577,7 +32577,7 @@ define internal fastcc void @_ZNSt10unique_ptrIN3pro7details11compact_ptrIN5util
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %_ZZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_RS5_EEEPT_RKT0_DpOT1_ENKUlPSB_E_clESN_.argprom.argprom.exit, label %4
+  br i1 %.not, label %_ZZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_RS5_EEEPT_RKT0_DpOT1_ENKUlPSB_E_clESN_.exit, label %4
 
 4:                                                ; preds = %1
   %.val = load ptr, ptr %0, align 8
@@ -32586,7 +32586,7 @@ define internal fastcc void @_ZNSt10unique_ptrIN3pro7details11compact_ptrIN5util
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(8) %.val.val, ptr noundef nonnull %3, i64 noundef 24, i64 noundef 8)
-          to label %_ZZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_RS5_EEEPT_RKT0_DpOT1_ENKUlPSB_E_clESN_.argprom.argprom.exit unwind label %8
+          to label %_ZZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_RS5_EEEPT_RKT0_DpOT1_ENKUlPSB_E_clESN_.exit unwind label %8
 
 8:                                                ; preds = %4
   %9 = landingpad { ptr, i32 }
@@ -32595,7 +32595,7 @@ define internal fastcc void @_ZNSt10unique_ptrIN3pro7details11compact_ptrIN5util
   tail call void @__clang_call_terminate(ptr %10) #24
   unreachable
 
-_ZZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_RS5_EEEPT_RKT0_DpOT1_ENKUlPSB_E_clESN_.argprom.argprom.exit: ; preds = %4, %1
+_ZZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_RS5_EEEPT_RKT0_DpOT1_ENKUlPSB_E_clESN_.exit: ; preds = %4, %1
   store ptr null, ptr %2, align 8
   ret void
 }
@@ -32802,12 +32802,12 @@ define linkonce_odr dso_local void @_ZN3pro7details11compact_ptrIN5utils15Lifeti
   %33 = load ptr, ptr %27, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 8
   store ptr %34, ptr %27, align 8
-  br label %_ZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRS9_RKS5_EEEPT_RKT0_DpOT1_.argprom.exit
+  br label %_ZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRS9_RKS5_EEEPT_RKT0_DpOT1_.exit
 
 35:                                               ; preds = %24
   %36 = getelementptr inbounds i8, ptr %17, i64 8
   invoke void @_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiRNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr %28, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %_ZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRS9_RKS5_EEEPT_RKT0_DpOT1_.argprom.exit unwind label %37
+          to label %_ZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRS9_RKS5_EEEPT_RKT0_DpOT1_.exit unwind label %37
 
 37:                                               ; preds = %35, %21
   %38 = landingpad { ptr, i32 }
@@ -32815,7 +32815,7 @@ define linkonce_odr dso_local void @_ZN3pro7details11compact_ptrIN5utils15Lifeti
   call fastcc void @_ZNSt10unique_ptrIN3pro7details11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageEZNS1_L8allocateISB_S9_JRS9_RKS5_EEEPT_RKT0_DpOT1_EUlPSB_E_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
   resume { ptr, i32 } %38
 
-_ZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRS9_RKS5_EEEPT_RKT0_DpOT1_.argprom.exit: ; preds = %31, %35
+_ZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRS9_RKS5_EEEPT_RKT0_DpOT1_.exit: ; preds = %31, %35
   %39 = load i32, ptr %17, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   store i32 %39, ptr %13, align 8
@@ -32829,8 +32829,8 @@ _ZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %44
 
-44:                                               ; preds = %2, %_ZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRS9_RKS5_EEEPT_RKT0_DpOT1_.argprom.exit
-  %45 = phi ptr [ %13, %_ZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRS9_RKS5_EEEPT_RKT0_DpOT1_.argprom.exit ], [ null, %2 ]
+44:                                               ; preds = %2, %_ZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRS9_RKS5_EEEPT_RKT0_DpOT1_.exit
+  %45 = phi ptr [ %13, %_ZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRS9_RKS5_EEEPT_RKT0_DpOT1_.exit ], [ null, %2 ]
   store ptr %45, ptr %0, align 8
   ret void
 }
@@ -32840,7 +32840,7 @@ define internal fastcc void @_ZNSt10unique_ptrIN3pro7details11compact_ptrIN5util
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %_ZZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRS9_RKS5_EEEPT_RKT0_DpOT1_ENKUlPSB_E_clESN_.argprom.argprom.exit, label %4
+  br i1 %.not, label %_ZZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRS9_RKS5_EEEPT_RKT0_DpOT1_ENKUlPSB_E_clESN_.exit, label %4
 
 4:                                                ; preds = %1
   %.val = load ptr, ptr %0, align 8
@@ -32849,7 +32849,7 @@ define internal fastcc void @_ZNSt10unique_ptrIN3pro7details11compact_ptrIN5util
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(8) %.val.val, ptr noundef nonnull %3, i64 noundef 24, i64 noundef 8)
-          to label %_ZZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRS9_RKS5_EEEPT_RKT0_DpOT1_ENKUlPSB_E_clESN_.argprom.argprom.exit unwind label %8
+          to label %_ZZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRS9_RKS5_EEEPT_RKT0_DpOT1_ENKUlPSB_E_clESN_.exit unwind label %8
 
 8:                                                ; preds = %4
   %9 = landingpad { ptr, i32 }
@@ -32858,7 +32858,7 @@ define internal fastcc void @_ZNSt10unique_ptrIN3pro7details11compact_ptrIN5util
   tail call void @__clang_call_terminate(ptr %10) #24
   unreachable
 
-_ZZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRS9_RKS5_EEEPT_RKT0_DpOT1_ENKUlPSB_E_clESN_.argprom.argprom.exit: ; preds = %4, %1
+_ZZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRS9_RKS5_EEEPT_RKT0_DpOT1_ENKUlPSB_E_clESN_.exit: ; preds = %4, %1
   store ptr null, ptr %2, align 8
   ret void
 }
@@ -32918,12 +32918,12 @@ define linkonce_odr dso_local void @_ZN3pro7details11compact_ptrIN5utils15Lifeti
   %29 = load ptr, ptr %23, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   store ptr %30, ptr %23, align 8
-  br label %_ZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_PS4_EEEPT_RKT0_DpOT1_.argprom.exit
+  br label %_ZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_PS4_EEEPT_RKT0_DpOT1_.exit
 
 31:                                               ; preds = %20
   %32 = getelementptr inbounds i8, ptr %13, i64 8
   invoke void @_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiRNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr %24, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %_ZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_PS4_EEEPT_RKT0_DpOT1_.argprom.exit unwind label %33
+          to label %_ZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_PS4_EEEPT_RKT0_DpOT1_.exit unwind label %33
 
 33:                                               ; preds = %31, %17
   %34 = landingpad { ptr, i32 }
@@ -32931,7 +32931,7 @@ define linkonce_odr dso_local void @_ZN3pro7details11compact_ptrIN5utils15Lifeti
   call fastcc void @_ZNSt10unique_ptrIN3pro7details11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageEZNS1_L8allocateISB_S9_JRKS9_PS4_EEEPT_RKT0_DpOT1_EUlPSB_E_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #20
   resume { ptr, i32 } %34
 
-_ZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_PS4_EEEPT_RKT0_DpOT1_.argprom.exit: ; preds = %27, %31
+_ZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_PS4_EEEPT_RKT0_DpOT1_.exit: ; preds = %27, %31
   %35 = load i32, ptr %13, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   store i32 %35, ptr %10, align 8
@@ -32951,7 +32951,7 @@ define internal fastcc void @_ZNSt10unique_ptrIN3pro7details11compact_ptrIN5util
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %_ZZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_PS4_EEEPT_RKT0_DpOT1_ENKUlPSB_E_clESN_.argprom.argprom.exit, label %4
+  br i1 %.not, label %_ZZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_PS4_EEEPT_RKT0_DpOT1_ENKUlPSB_E_clESN_.exit, label %4
 
 4:                                                ; preds = %1
   %.val = load ptr, ptr %0, align 8
@@ -32960,7 +32960,7 @@ define internal fastcc void @_ZNSt10unique_ptrIN3pro7details11compact_ptrIN5util
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(8) %.val.val, ptr noundef nonnull %3, i64 noundef 24, i64 noundef 8)
-          to label %_ZZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_PS4_EEEPT_RKT0_DpOT1_ENKUlPSB_E_clESN_.argprom.argprom.exit unwind label %8
+          to label %_ZZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_PS4_EEEPT_RKT0_DpOT1_ENKUlPSB_E_clESN_.exit unwind label %8
 
 8:                                                ; preds = %4
   %9 = landingpad { ptr, i32 }
@@ -32969,7 +32969,7 @@ define internal fastcc void @_ZNSt10unique_ptrIN3pro7details11compact_ptrIN5util
   tail call void @__clang_call_terminate(ptr %10) #24
   unreachable
 
-_ZZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_PS4_EEEPT_RKT0_DpOT1_ENKUlPSB_E_clESN_.argprom.argprom.exit: ; preds = %4, %1
+_ZZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_PS4_EEEPT_RKT0_DpOT1_ENKUlPSB_E_clESN_.exit: ; preds = %4, %1
   store ptr null, ptr %2, align 8
   ret void
 }
@@ -33029,12 +33029,12 @@ define linkonce_odr dso_local void @_ZN3pro7details11compact_ptrIN5utils15Lifeti
   %30 = load ptr, ptr %24, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   store ptr %31, ptr %24, align 8
-  br label %_ZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_RSt16initializer_listIiEPS4_EEEPT_RKT0_DpOT1_.argprom.exit
+  br label %_ZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_RSt16initializer_listIiEPS4_EEEPT_RKT0_DpOT1_.exit
 
 32:                                               ; preds = %21
   %33 = getelementptr inbounds i8, ptr %14, i64 8
   invoke void @_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiRNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr %25, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 4 dereferenceable(4) %5)
-          to label %_ZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_RSt16initializer_listIiEPS4_EEEPT_RKT0_DpOT1_.argprom.exit unwind label %34
+          to label %_ZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_RSt16initializer_listIiEPS4_EEEPT_RKT0_DpOT1_.exit unwind label %34
 
 34:                                               ; preds = %32, %18
   %35 = landingpad { ptr, i32 }
@@ -33042,7 +33042,7 @@ define linkonce_odr dso_local void @_ZN3pro7details11compact_ptrIN5utils15Lifeti
   call fastcc void @_ZNSt10unique_ptrIN3pro7details11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageEZNS1_L8allocateISB_S9_JRKS9_RSt16initializer_listIiEPS4_EEEPT_RKT0_DpOT1_EUlPSB_E_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #20
   resume { ptr, i32 } %35
 
-_ZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_RSt16initializer_listIiEPS4_EEEPT_RKT0_DpOT1_.argprom.exit: ; preds = %28, %32
+_ZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_RSt16initializer_listIiEPS4_EEEPT_RKT0_DpOT1_.exit: ; preds = %28, %32
   %36 = load i32, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   store i32 %36, ptr %11, align 8
@@ -33062,7 +33062,7 @@ define internal fastcc void @_ZNSt10unique_ptrIN3pro7details11compact_ptrIN5util
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %_ZZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_RSt16initializer_listIiEPS4_EEEPT_RKT0_DpOT1_ENKUlPSB_E_clESQ_.argprom.argprom.exit, label %4
+  br i1 %.not, label %_ZZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_RSt16initializer_listIiEPS4_EEEPT_RKT0_DpOT1_ENKUlPSB_E_clESQ_.exit, label %4
 
 4:                                                ; preds = %1
   %.val = load ptr, ptr %0, align 8
@@ -33071,7 +33071,7 @@ define internal fastcc void @_ZNSt10unique_ptrIN3pro7details11compact_ptrIN5util
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(8) %.val.val, ptr noundef nonnull %3, i64 noundef 24, i64 noundef 8)
-          to label %_ZZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_RSt16initializer_listIiEPS4_EEEPT_RKT0_DpOT1_ENKUlPSB_E_clESQ_.argprom.argprom.exit unwind label %8
+          to label %_ZZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_RSt16initializer_listIiEPS4_EEEPT_RKT0_DpOT1_ENKUlPSB_E_clESQ_.exit unwind label %8
 
 8:                                                ; preds = %4
   %9 = landingpad { ptr, i32 }
@@ -33080,7 +33080,7 @@ define internal fastcc void @_ZNSt10unique_ptrIN3pro7details11compact_ptrIN5util
   tail call void @__clang_call_terminate(ptr %10) #24
   unreachable
 
-_ZZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_RSt16initializer_listIiEPS4_EEEPT_RKT0_DpOT1_ENKUlPSB_E_clESQ_.argprom.argprom.exit: ; preds = %4, %1
+_ZZN3pro7detailsL8allocateINS0_11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageES9_JRKS9_RSt16initializer_listIiEPS4_EEEPT_RKT0_DpOT1_ENKUlPSB_E_clESQ_.exit: ; preds = %4, %1
   store ptr null, ptr %2, align 8
   ret void
 }
@@ -33189,12 +33189,12 @@ define linkonce_odr dso_local void @_ZN3pro7details21relocation_dispatcherINS0_1
   %16 = load ptr, ptr %9, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %17, ptr %9, align 8
-  br label %_ZN3pro7detailsL10deallocateISaIN5utils15LifetimeTracker7SessionEES4_EEvRKT_PT0_.argprom.exit.i.i
+  br label %_ZN3pro7detailsL10deallocateISaIN5utils15LifetimeTracker7SessionEES4_EEvRKT_PT0_.exit.i.i
 
 18:                                               ; preds = %6
   %19 = getelementptr inbounds i8, ptr %8, i64 8
   invoke void @_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr %10, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %_ZN3pro7detailsL10deallocateISaIN5utils15LifetimeTracker7SessionEES4_EEvRKT_PT0_.argprom.exit.i.i unwind label %20
+          to label %_ZN3pro7detailsL10deallocateISaIN5utils15LifetimeTracker7SessionEES4_EEvRKT_PT0_.exit.i.i unwind label %20
 
 20:                                               ; preds = %18
   %21 = landingpad { ptr, i32 }
@@ -33203,12 +33203,12 @@ define linkonce_odr dso_local void @_ZN3pro7details21relocation_dispatcherINS0_1
   call void @__clang_call_terminate(ptr %22) #24
   unreachable
 
-_ZN3pro7detailsL10deallocateISaIN5utils15LifetimeTracker7SessionEES4_EEvRKT_PT0_.argprom.exit.i.i: ; preds = %18, %13
+_ZN3pro7detailsL10deallocateISaIN5utils15LifetimeTracker7SessionEES4_EEvRKT_PT0_.exit.i.i: ; preds = %18, %13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 16) #23
   br label %_ZSt10destroy_atIN3pro7details13allocated_ptrIN5utils15LifetimeTracker7SessionESaIS5_EEEEvPT_.exit
 
-_ZSt10destroy_atIN3pro7details13allocated_ptrIN5utils15LifetimeTracker7SessionESaIS5_EEEEvPT_.exit: ; preds = %2, %_ZN3pro7detailsL10deallocateISaIN5utils15LifetimeTracker7SessionEES4_EEvRKT_PT0_.argprom.exit.i.i
+_ZSt10destroy_atIN3pro7details13allocated_ptrIN5utils15LifetimeTracker7SessionESaIS5_EEEEvPT_.exit: ; preds = %2, %_ZN3pro7detailsL10deallocateISaIN5utils15LifetimeTracker7SessionEES4_EEvRKT_PT0_.exit.i.i
   ret void
 }
 
@@ -33239,12 +33239,12 @@ define linkonce_odr dso_local void @_ZN3pro7details22destruction_dispatcherINS0_
   %14 = load ptr, ptr %7, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %15, ptr %7, align 8
-  br label %_ZN3pro7detailsL10deallocateISaIN5utils15LifetimeTracker7SessionEES4_EEvRKT_PT0_.argprom.exit.i.i
+  br label %_ZN3pro7detailsL10deallocateISaIN5utils15LifetimeTracker7SessionEES4_EEvRKT_PT0_.exit.i.i
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds i8, ptr %6, i64 8
   invoke void @_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr %8, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %_ZN3pro7detailsL10deallocateISaIN5utils15LifetimeTracker7SessionEES4_EEvRKT_PT0_.argprom.exit.i.i unwind label %18
+          to label %_ZN3pro7detailsL10deallocateISaIN5utils15LifetimeTracker7SessionEES4_EEvRKT_PT0_.exit.i.i unwind label %18
 
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
@@ -33253,12 +33253,12 @@ define linkonce_odr dso_local void @_ZN3pro7details22destruction_dispatcherINS0_
   call void @__clang_call_terminate(ptr %20) #24
   unreachable
 
-_ZN3pro7detailsL10deallocateISaIN5utils15LifetimeTracker7SessionEES4_EEvRKT_PT0_.argprom.exit.i.i: ; preds = %16, %11
+_ZN3pro7detailsL10deallocateISaIN5utils15LifetimeTracker7SessionEES4_EEvRKT_PT0_.exit.i.i: ; preds = %16, %11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 16) #23
   br label %_ZSt10destroy_atIN3pro7details13allocated_ptrIN5utils15LifetimeTracker7SessionESaIS5_EEEEvPT_.exit
 
-_ZSt10destroy_atIN3pro7details13allocated_ptrIN5utils15LifetimeTracker7SessionESaIS5_EEEEvPT_.exit: ; preds = %1, %_ZN3pro7detailsL10deallocateISaIN5utils15LifetimeTracker7SessionEES4_EEvRKT_PT0_.argprom.exit.i.i
+_ZSt10destroy_atIN3pro7details13allocated_ptrIN5utils15LifetimeTracker7SessionESaIS5_EEEEvPT_.exit: ; preds = %1, %_ZN3pro7detailsL10deallocateISaIN5utils15LifetimeTracker7SessionEES4_EEvRKT_PT0_.exit.i.i
   ret void
 }
 
@@ -33317,12 +33317,12 @@ define linkonce_odr dso_local void @_ZN3pro7details13allocated_ptrIN5utils15Life
   %24 = load ptr, ptr %18, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %25, ptr %18, align 8
-  br label %_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIS4_EJRKS4_EEEPT_RKT0_DpOT1_.argprom.exit
+  br label %_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIS4_EJRKS4_EEEPT_RKT0_DpOT1_.exit
 
 26:                                               ; preds = %15
   %27 = getelementptr inbounds i8, ptr %8, i64 8
   invoke void @_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiRNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr %19, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIS4_EJRKS4_EEEPT_RKT0_DpOT1_.argprom.exit unwind label %_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIS2_EJRKS2_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit8.i
+          to label %_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIS4_EJRKS4_EEEPT_RKT0_DpOT1_.exit unwind label %_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIS2_EJRKS2_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit8.i
 
 _ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIS2_EJRKS2_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit8.i: ; preds = %26, %12
   %28 = landingpad { ptr, i32 }
@@ -33330,7 +33330,7 @@ _ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_S
   call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 16) #23
   resume { ptr, i32 } %28
 
-_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIS4_EJRKS4_EEEPT_RKT0_DpOT1_.argprom.exit: ; preds = %22, %26
+_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIS4_EJRKS4_EEEPT_RKT0_DpOT1_.exit: ; preds = %22, %26
   %29 = load i32, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   store i32 %29, ptr %6, align 8
@@ -33339,8 +33339,8 @@ _ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIS4_EJRKS4_EEEPT_RK
   store ptr %31, ptr %30, align 8
   br label %32
 
-32:                                               ; preds = %_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIS4_EJRKS4_EEEPT_RKT0_DpOT1_.argprom.exit, %2
-  %33 = phi ptr [ null, %2 ], [ %6, %_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIS4_EJRKS4_EEEPT_RKT0_DpOT1_.argprom.exit ]
+32:                                               ; preds = %_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIS4_EJRKS4_EEEPT_RKT0_DpOT1_.exit, %2
+  %33 = phi ptr [ null, %2 ], [ %6, %_ZN3pro7detailsL8allocateIN5utils15LifetimeTracker7SessionESaIS4_EJRKS4_EEEPT_RKT0_DpOT1_.exit ]
   store ptr %33, ptr %0, align 8
   ret void
 }
@@ -36180,8 +36180,8 @@ attributes #24 = { noreturn nounwind }
 !34 = distinct !{!34, !32, !"_ZSt19__relocate_object_aIN5utils17LifetimeOperationES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
 !35 = distinct !{!35, !25}
 !36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZN3pro18make_proxy_inplaceITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableETkNS_24inplace_proxiable_targetIT_EEN5utils15LifetimeTracker7SessionEJPS7_EEENS_5proxyIS5_EEDpOT1_.argprom: argument 0"}
-!38 = distinct !{!38, !"_ZN3pro18make_proxy_inplaceITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableETkNS_24inplace_proxiable_targetIT_EEN5utils15LifetimeTracker7SessionEJPS7_EEENS_5proxyIS5_EEDpOT1_.argprom"}
+!37 = distinct !{!37, !38, !"_ZN3pro18make_proxy_inplaceITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableETkNS_24inplace_proxiable_targetIT_EEN5utils15LifetimeTracker7SessionEJPS7_EEENS_5proxyIS5_EEDpOT1_: argument 0"}
+!38 = distinct !{!38, !"_ZN3pro18make_proxy_inplaceITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableETkNS_24inplace_proxiable_targetIT_EEN5utils15LifetimeTracker7SessionEJPS7_EEENS_5proxyIS5_EEDpOT1_"}
 !39 = !{!40, !42}
 !40 = distinct !{!40, !41, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA10_cEENS_15AssertionResultEPKcSB_RKT_RKT0_: argument 0"}
 !41 = distinct !{!41, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA10_cEENS_15AssertionResultEPKcSB_RKT_RKT0_"}
@@ -36193,8 +36193,8 @@ attributes #24 = { noreturn nounwind }
 !47 = !{!48}
 !48 = distinct !{!48, !46, !"_ZSt19__relocate_object_aIN5utils17LifetimeOperationES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
 !49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZN3pro18make_proxy_inplaceITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableETkNS_24inplace_proxiable_targetIT_EEN5utils15LifetimeTracker7SessionEiJPS7_EEENS_5proxyIS5_EESt16initializer_listIT1_EDpOT2_.argprom: argument 0"}
-!51 = distinct !{!51, !"_ZN3pro18make_proxy_inplaceITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableETkNS_24inplace_proxiable_targetIT_EEN5utils15LifetimeTracker7SessionEiJPS7_EEENS_5proxyIS5_EESt16initializer_listIT1_EDpOT2_.argprom"}
+!50 = distinct !{!50, !51, !"_ZN3pro18make_proxy_inplaceITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableETkNS_24inplace_proxiable_targetIT_EEN5utils15LifetimeTracker7SessionEiJPS7_EEENS_5proxyIS5_EESt16initializer_listIT1_EDpOT2_: argument 0"}
+!51 = distinct !{!51, !"_ZN3pro18make_proxy_inplaceITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableETkNS_24inplace_proxiable_targetIT_EEN5utils15LifetimeTracker7SessionEiJPS7_EEENS_5proxyIS5_EESt16initializer_listIT1_EDpOT2_"}
 !52 = !{!53, !55}
 !53 = distinct !{!53, !54, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA10_cEENS_15AssertionResultEPKcSB_RKT_RKT0_: argument 0"}
 !54 = distinct !{!54, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA10_cEENS_15AssertionResultEPKcSB_RKT_RKT0_"}
@@ -36206,8 +36206,8 @@ attributes #24 = { noreturn nounwind }
 !60 = !{!61}
 !61 = distinct !{!61, !59, !"_ZSt19__relocate_object_aIN5utils17LifetimeOperationES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
 !62 = !{!63}
-!63 = distinct !{!63, !64, !"_ZN3pro18make_proxy_inplaceITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableETkNS_24inplace_proxiable_targetIT_EEN5utils15LifetimeTracker7SessionEJPS7_EEENS_5proxyIS5_EEDpOT1_.argprom: argument 0"}
-!64 = distinct !{!64, !"_ZN3pro18make_proxy_inplaceITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableETkNS_24inplace_proxiable_targetIT_EEN5utils15LifetimeTracker7SessionEJPS7_EEENS_5proxyIS5_EEDpOT1_.argprom"}
+!63 = distinct !{!63, !64, !"_ZN3pro18make_proxy_inplaceITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableETkNS_24inplace_proxiable_targetIT_EEN5utils15LifetimeTracker7SessionEJPS7_EEENS_5proxyIS5_EEDpOT1_: argument 0"}
+!64 = distinct !{!64, !"_ZN3pro18make_proxy_inplaceITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableETkNS_24inplace_proxiable_targetIT_EEN5utils15LifetimeTracker7SessionEJPS7_EEENS_5proxyIS5_EEDpOT1_"}
 !65 = !{!66, !68}
 !66 = distinct !{!66, !67, !"_ZNK3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEE6invokeIN5utils4spec8ToStringEJEEEDcDpOT0_Qaasr6TraitsE12has_dispatchITL0__ErqTNS_7details15dispatch_traitsISC_E16matched_overloadIDpTL0_0_EEE: argument 0"}
 !67 = distinct !{!67, !"_ZNK3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEE6invokeIN5utils4spec8ToStringEJEEEDcDpOT0_Qaasr6TraitsE12has_dispatchITL0__ErqTNS_7details15dispatch_traitsISC_E16matched_overloadIDpTL0_0_EEE"}
@@ -36238,8 +36238,8 @@ attributes #24 = { noreturn nounwind }
 !92 = distinct !{!92, !"_ZSt19__relocate_object_aIN5utils17LifetimeOperationES1_SaIS1_EEvPT_PT0_RT1_"}
 !93 = distinct !{!93, !92, !"_ZSt19__relocate_object_aIN5utils17LifetimeOperationES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
 !94 = !{!95}
-!95 = distinct !{!95, !96, !"_ZN3pro18make_proxy_inplaceITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableETkNS_24inplace_proxiable_targetIT_EEN5utils15LifetimeTracker7SessionEJPS7_EEENS_5proxyIS5_EEDpOT1_.argprom: argument 0"}
-!96 = distinct !{!96, !"_ZN3pro18make_proxy_inplaceITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableETkNS_24inplace_proxiable_targetIT_EEN5utils15LifetimeTracker7SessionEJPS7_EEENS_5proxyIS5_EEDpOT1_.argprom"}
+!95 = distinct !{!95, !96, !"_ZN3pro18make_proxy_inplaceITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableETkNS_24inplace_proxiable_targetIT_EEN5utils15LifetimeTracker7SessionEJPS7_EEENS_5proxyIS5_EEDpOT1_: argument 0"}
+!96 = distinct !{!96, !"_ZN3pro18make_proxy_inplaceITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableETkNS_24inplace_proxiable_targetIT_EEN5utils15LifetimeTracker7SessionEJPS7_EEENS_5proxyIS5_EEDpOT1_"}
 !97 = !{!98, !100}
 !98 = distinct !{!98, !99, !"_ZNK3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEE6invokeIN5utils4spec8ToStringEJEEEDcDpOT0_Qaasr6TraitsE12has_dispatchITL0__ErqTNS_7details15dispatch_traitsISC_E16matched_overloadIDpTL0_0_EEE: argument 0"}
 !99 = distinct !{!99, !"_ZNK3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEE6invokeIN5utils4spec8ToStringEJEEEDcDpOT0_Qaasr6TraitsE12has_dispatchITL0__ErqTNS_7details15dispatch_traitsISC_E16matched_overloadIDpTL0_0_EEE"}
@@ -36517,11 +36517,11 @@ attributes #24 = { noreturn nounwind }
 !371 = !{!372}
 !372 = distinct !{!372, !370, !"_ZSt19__relocate_object_aIN5utils17LifetimeOperationES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
 !373 = !{!374}
-!374 = distinct !{!374, !375, !"_ZN3pro10make_proxyITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEJPS5_EEENS_5proxyIT_EEDpOT1_.argprom: argument 0"}
-!375 = distinct !{!375, !"_ZN3pro10make_proxyITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEJPS5_EEENS_5proxyIT_EEDpOT1_.argprom"}
+!374 = distinct !{!374, !375, !"_ZN3pro10make_proxyITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEJPS5_EEENS_5proxyIT_EEDpOT1_: argument 0"}
+!375 = distinct !{!375, !"_ZN3pro10make_proxyITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEJPS5_EEENS_5proxyIT_EEDpOT1_"}
 !376 = !{!377}
-!377 = distinct !{!377, !378, !"_ZN3pro7details15make_proxy_implIN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEJPS6_EEENS_5proxyIT_EEDpOT1_.argprom: argument 0"}
-!378 = distinct !{!378, !"_ZN3pro7details15make_proxy_implIN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEJPS6_EEENS_5proxyIT_EEDpOT1_.argprom"}
+!377 = distinct !{!377, !378, !"_ZN3pro7details15make_proxy_implIN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEJPS6_EEENS_5proxyIT_EEDpOT1_: argument 0"}
+!378 = distinct !{!378, !"_ZN3pro7details15make_proxy_implIN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEJPS6_EEENS_5proxyIT_EEDpOT1_"}
 !379 = !{!377, !374}
 !380 = !{!381, !383}
 !381 = distinct !{!381, !382, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA10_cEENS_15AssertionResultEPKcSB_RKT_RKT0_: argument 0"}
@@ -36534,11 +36534,11 @@ attributes #24 = { noreturn nounwind }
 !388 = !{!389}
 !389 = distinct !{!389, !387, !"_ZSt19__relocate_object_aIN5utils17LifetimeOperationES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
 !390 = !{!391}
-!391 = distinct !{!391, !392, !"_ZN3pro10make_proxyITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEiJPS5_EEENS_5proxyIT_EESt16initializer_listIT1_EDpOT2_.argprom: argument 0"}
-!392 = distinct !{!392, !"_ZN3pro10make_proxyITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEiJPS5_EEENS_5proxyIT_EESt16initializer_listIT1_EDpOT2_.argprom"}
+!391 = distinct !{!391, !392, !"_ZN3pro10make_proxyITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEiJPS5_EEENS_5proxyIT_EESt16initializer_listIT1_EDpOT2_: argument 0"}
+!392 = distinct !{!392, !"_ZN3pro10make_proxyITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEiJPS5_EEENS_5proxyIT_EESt16initializer_listIT1_EDpOT2_"}
 !393 = !{!394}
-!394 = distinct !{!394, !395, !"_ZN3pro7details15make_proxy_implIN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEJRSt16initializer_listIiEPS6_EEENS_5proxyIT_EEDpOT1_.argprom.argprom: argument 0"}
-!395 = distinct !{!395, !"_ZN3pro7details15make_proxy_implIN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEJRSt16initializer_listIiEPS6_EEENS_5proxyIT_EEDpOT1_.argprom.argprom"}
+!394 = distinct !{!394, !395, !"_ZN3pro7details15make_proxy_implIN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEJRSt16initializer_listIiEPS6_EEENS_5proxyIT_EEDpOT1_: argument 0"}
+!395 = distinct !{!395, !"_ZN3pro7details15make_proxy_implIN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEJRSt16initializer_listIiEPS6_EEENS_5proxyIT_EEDpOT1_"}
 !396 = !{!394, !391}
 !397 = !{!398, !400}
 !398 = distinct !{!398, !399, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA10_cEENS_15AssertionResultEPKcSB_RKT_RKT0_: argument 0"}
@@ -36551,11 +36551,11 @@ attributes #24 = { noreturn nounwind }
 !405 = !{!406}
 !406 = distinct !{!406, !404, !"_ZSt19__relocate_object_aIN5utils17LifetimeOperationES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
 !407 = !{!408}
-!408 = distinct !{!408, !409, !"_ZN3pro10make_proxyITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEJPS5_EEENS_5proxyIT_EEDpOT1_.argprom: argument 0"}
-!409 = distinct !{!409, !"_ZN3pro10make_proxyITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEJPS5_EEENS_5proxyIT_EEDpOT1_.argprom"}
+!408 = distinct !{!408, !409, !"_ZN3pro10make_proxyITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEJPS5_EEENS_5proxyIT_EEDpOT1_: argument 0"}
+!409 = distinct !{!409, !"_ZN3pro10make_proxyITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEJPS5_EEENS_5proxyIT_EEDpOT1_"}
 !410 = !{!411}
-!411 = distinct !{!411, !412, !"_ZN3pro7details15make_proxy_implIN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEJPS6_EEENS_5proxyIT_EEDpOT1_.argprom: argument 0"}
-!412 = distinct !{!412, !"_ZN3pro7details15make_proxy_implIN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEJPS6_EEENS_5proxyIT_EEDpOT1_.argprom"}
+!411 = distinct !{!411, !412, !"_ZN3pro7details15make_proxy_implIN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEJPS6_EEENS_5proxyIT_EEDpOT1_: argument 0"}
+!412 = distinct !{!412, !"_ZN3pro7details15make_proxy_implIN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEJPS6_EEENS_5proxyIT_EEDpOT1_"}
 !413 = !{!411, !408}
 !414 = !{!415, !417}
 !415 = distinct !{!415, !416, !"_ZNK3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEE6invokeIN5utils4spec8ToStringEJEEEDcDpOT0_Qaasr6TraitsE12has_dispatchITL0__ErqTNS_7details15dispatch_traitsISC_E16matched_overloadIDpTL0_0_EEE: argument 0"}
@@ -36587,11 +36587,11 @@ attributes #24 = { noreturn nounwind }
 !441 = distinct !{!441, !"_ZSt19__relocate_object_aIN5utils17LifetimeOperationES1_SaIS1_EEvPT_PT0_RT1_"}
 !442 = distinct !{!442, !441, !"_ZSt19__relocate_object_aIN5utils17LifetimeOperationES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
 !443 = !{!444}
-!444 = distinct !{!444, !445, !"_ZN3pro10make_proxyITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEJPS5_EEENS_5proxyIT_EEDpOT1_.argprom: argument 0"}
-!445 = distinct !{!445, !"_ZN3pro10make_proxyITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEJPS5_EEENS_5proxyIT_EEDpOT1_.argprom"}
+!444 = distinct !{!444, !445, !"_ZN3pro10make_proxyITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEJPS5_EEENS_5proxyIT_EEDpOT1_: argument 0"}
+!445 = distinct !{!445, !"_ZN3pro10make_proxyITkNS_6facadeEN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEJPS5_EEENS_5proxyIT_EEDpOT1_"}
 !446 = !{!447}
-!447 = distinct !{!447, !448, !"_ZN3pro7details15make_proxy_implIN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEJPS6_EEENS_5proxyIT_EEDpOT1_.argprom: argument 0"}
-!448 = distinct !{!448, !"_ZN3pro7details15make_proxy_implIN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEJPS6_EEENS_5proxyIT_EEDpOT1_.argprom"}
+!447 = distinct !{!447, !448, !"_ZN3pro7details15make_proxy_implIN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEJPS6_EEENS_5proxyIT_EEDpOT1_: argument 0"}
+!448 = distinct !{!448, !"_ZN3pro7details15make_proxy_implIN12_GLOBAL__N_14spec19TestLargeStringableEN5utils15LifetimeTracker7SessionEJPS6_EEENS_5proxyIT_EEDpOT1_"}
 !449 = !{!447, !444}
 !450 = !{!451, !453}
 !451 = distinct !{!451, !452, !"_ZNK3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEE6invokeIN5utils4spec8ToStringEJEEEDcDpOT0_Qaasr6TraitsE12has_dispatchITL0__ErqTNS_7details15dispatch_traitsISC_E16matched_overloadIDpTL0_0_EEE: argument 0"}

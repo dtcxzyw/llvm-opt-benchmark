@@ -7733,7 +7733,7 @@ define internal fastcc ptr @___slab_alloc(ptr noundef nonnull %0, i32 noundef %1
   %239 = or disjoint i64 %238, 2147483648
   %240 = or disjoint i64 %234, %239
   %.val = load i32, ptr %14, align 8
-  %241 = call fastcc zeroext i1 @slab_update_freelist.argprom(i32 %.val, ptr noundef nonnull %198, ptr noundef %232, i64 noundef %233, ptr noundef null, i64 noundef %240)
+  %241 = call fastcc zeroext i1 @slab_update_freelist(i32 %.val, ptr noundef nonnull %198, ptr noundef %232, i64 noundef %233, ptr noundef null, i64 noundef %240)
   br i1 %241, label %.loopexit27, label %231, !llvm.loop !177
 
 242:                                              ; preds = %448, %.loopexit30
@@ -8411,7 +8411,7 @@ define internal fastcc void @deactivate_slab(ptr nocapture noundef readonly %0, 
   %114 = load volatile i64, ptr %112, align 8
   %115 = and i64 %114, -2147483649
   %.val.us = load i32, ptr %111, align 8
-  %116 = tail call fastcc zeroext i1 @slab_update_freelist.argprom(i32 %.val.us, ptr noundef nonnull %1, ptr noundef %113, i64 noundef %114, ptr noundef %113, i64 noundef %115)
+  %116 = tail call fastcc zeroext i1 @slab_update_freelist(i32 %.val.us, ptr noundef nonnull %1, ptr noundef %113, i64 noundef %114, ptr noundef %113, i64 noundef %115)
   br i1 %116, label %.split24.us.loopexit, label %.split22.us, !llvm.loop !193
 
 .split22:                                         ; preds = %.loopexit, %.split22
@@ -8432,7 +8432,7 @@ define internal fastcc void @deactivate_slab(ptr nocapture noundef readonly %0, 
   %130 = zext nneg i32 %124 to i64
   %131 = or disjoint i64 %120, %130
   %.val = load i32, ptr %110, align 8
-  %132 = tail call fastcc zeroext i1 @slab_update_freelist.argprom(i32 %.val, ptr noundef nonnull %1, ptr noundef %117, i64 noundef %118, ptr noundef nonnull %2, i64 noundef %131)
+  %132 = tail call fastcc zeroext i1 @slab_update_freelist(i32 %.val, ptr noundef nonnull %1, ptr noundef %117, i64 noundef %118, ptr noundef nonnull %2, i64 noundef %131)
   br i1 %132, label %.split24.us, label %.split22, !llvm.loop !193
 
 .split24.us.loopexit:                             ; preds = %.split22.us
@@ -8645,7 +8645,7 @@ define internal fastcc noundef ptr @freeze_slab(ptr nocapture noundef nonnull re
   %14 = or disjoint i64 %13, 2147483648
   %15 = or disjoint i64 %9, %14
   %.val = load i32, ptr %5, align 8
-  %16 = tail call fastcc zeroext i1 @slab_update_freelist.argprom(i32 %.val, ptr noundef nonnull %1, ptr noundef %7, i64 noundef %8, ptr noundef null, i64 noundef %15)
+  %16 = tail call fastcc zeroext i1 @slab_update_freelist(i32 %.val, ptr noundef nonnull %1, ptr noundef %7, i64 noundef %8, ptr noundef null, i64 noundef %15)
   br i1 %16, label %17, label %6, !llvm.loop !177
 
 17:                                               ; preds = %6
@@ -9181,7 +9181,7 @@ declare dso_local zeroext i1 @gfp_pfmemalloc_allowed(i32 noundef) local_unnamed_
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #17
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @slab_update_freelist.argprom(i32 %.8.val, ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #8 align 16 {
+define internal fastcc noundef zeroext i1 @slab_update_freelist(i32 %.8.val, ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #8 align 16 {
   %6 = alloca i64, align 8
   %7 = and i32 %.8.val, 1073741824
   %8 = icmp eq i32 %7, 0
@@ -9325,7 +9325,7 @@ define internal fastcc void @discard_slab(ptr nocapture noundef readonly %0, ptr
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #4 section ".spinlock.text"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @object_err.argprom(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #18 align 16 {
+define internal fastcc void @object_err(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #18 align 16 {
   tail call void (ptr, ptr, ...) @slab_bug(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.72)
   tail call fastcc void @print_trailer(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   tail call void @add_taint(i32 noundef 5, i32 noundef 1) #26
@@ -10402,7 +10402,7 @@ define internal fastcc ptr @get_partial_node(ptr nocapture noundef nonnull reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @put_cpu_partial.argelim(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @put_cpu_partial(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
   store i64 0, ptr %3, align 8, !annotation !66
@@ -11061,7 +11061,7 @@ define internal fastcc void @__slab_free(ptr noundef readonly %0, ptr noundef %1
   br label %.thread.i
 
 119:                                              ; preds = %115
-  tail call fastcc void @object_err.argprom(ptr noundef readonly %0, ptr noundef %1, ptr noundef %60)
+  tail call fastcc void @object_err(ptr noundef readonly %0, ptr noundef %1, ptr noundef %60)
   br label %.thread.i
 
 120:                                              ; preds = %._crit_edge.i, %58
@@ -11389,7 +11389,7 @@ thread-pre-split.i:                               ; preds = %160, %160
   %321 = zext i32 %294 to i64
   %322 = or disjoint i64 %290, %321
   %.val = load i32, ptr %13, align 8
-  %323 = tail call fastcc zeroext i1 @slab_update_freelist.argprom(i32 %.val, ptr noundef %1, ptr noundef %282, i64 noundef %283, ptr noundef %2, i64 noundef %322)
+  %323 = tail call fastcc zeroext i1 @slab_update_freelist(i32 %.val, ptr noundef %1, ptr noundef %282, i64 noundef %283, ptr noundef %2, i64 noundef %322)
   br i1 %323, label %324, label %275, !llvm.loop !213
 
 324:                                              ; preds = %317
@@ -11415,7 +11415,7 @@ thread-pre-split.i:                               ; preds = %160, %160
   br i1 %334, label %free_to_partial_list.exit, label %335
 
 335:                                              ; preds = %332
-  tail call fastcc void @put_cpu_partial.argelim(ptr noundef %0, ptr noundef %1)
+  tail call fastcc void @put_cpu_partial(ptr noundef %0, ptr noundef %1)
   br label %free_to_partial_list.exit
 
 336:                                              ; preds = %324

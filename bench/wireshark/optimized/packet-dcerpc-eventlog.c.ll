@@ -596,7 +596,7 @@ eventlog_dissect_element_Record_sid_offset.exit:  ; preds = %19, %59
   %78 = load i16, ptr @num_of_strings, align 2
   %79 = icmp ne i16 %78, 0
   %80 = select i1 %77, i1 %79, i1 false
-  br i1 %80, label %.lr.ph.i, label %eventlog_dissect_element_Record_strings.argprom.exit
+  br i1 %80, label %.lr.ph.i, label %eventlog_dissect_element_Record_strings.exit
 
 .lr.ph.i:                                         ; preds = %eventlog_dissect_element_Record_sid_offset.exit, %.lr.ph.i
   %81 = phi i32 [ %87, %.lr.ph.i ], [ %76, %eventlog_dissect_element_Record_sid_offset.exit ]
@@ -613,9 +613,9 @@ eventlog_dissect_element_Record_sid_offset.exit:  ; preds = %19, %59
   %90 = icmp ne i32 %87, 0
   %91 = icmp ne i16 %89, 0
   %92 = select i1 %90, i1 %91, i1 false
-  br i1 %92, label %.lr.ph.i, label %eventlog_dissect_element_Record_strings.argprom.exit, !llvm.loop !4
+  br i1 %92, label %.lr.ph.i, label %eventlog_dissect_element_Record_strings.exit, !llvm.loop !4
 
-eventlog_dissect_element_Record_strings.argprom.exit: ; preds = %.lr.ph.i, %eventlog_dissect_element_Record_sid_offset.exit
+eventlog_dissect_element_Record_strings.exit:     ; preds = %.lr.ph.i, %eventlog_dissect_element_Record_sid_offset.exit
   %93 = load i32, ptr @hf_eventlog_eventlog_Record_raw_data, align 4
   %94 = call i32 @dissect_null_term_string(ptr noundef %0, i32 noundef %75, ptr noundef %2, ptr noundef %.0137, ptr noundef %5, i32 noundef %93, i32 noundef 0) #4
   %95 = sub i32 %94, %.0
@@ -628,7 +628,7 @@ eventlog_dissect_element_Record_strings.argprom.exit: ; preds = %.lr.ph.i, %even
   %.not142 = icmp eq i32 %100, 0
   br i1 %.not142, label %107, label %101
 
-101:                                              ; preds = %eventlog_dissect_element_Record_strings.argprom.exit
+101:                                              ; preds = %eventlog_dissect_element_Record_strings.exit
   %102 = load i32, ptr %10, align 4
   %.not143 = icmp ne i32 %102, 0
   %103 = and i32 %94, 3
@@ -641,8 +641,8 @@ eventlog_dissect_element_Record_strings.argprom.exit: ; preds = %.lr.ph.i, %even
   %106 = add i32 %105, 4
   br label %107
 
-107:                                              ; preds = %101, %104, %eventlog_dissect_element_Record_strings.argprom.exit
-  %.1 = phi i32 [ %94, %101 ], [ %106, %104 ], [ %94, %eventlog_dissect_element_Record_strings.argprom.exit ]
+107:                                              ; preds = %101, %104, %eventlog_dissect_element_Record_strings.exit
+  %.1 = phi i32 [ %94, %101 ], [ %106, %104 ], [ %94, %eventlog_dissect_element_Record_strings.exit ]
   ret i32 %.1
 }
 

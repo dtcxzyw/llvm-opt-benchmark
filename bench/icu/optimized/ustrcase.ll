@@ -2542,12 +2542,12 @@ ustrcase_map_75.exit:                             ; preds = %entry, %if.then7.i,
 define noundef range(i32 -65535, 65536) i32 @u_strcmpFold_75(ptr noundef %s1, i32 noundef %length1, ptr noundef %s2, i32 noundef %length2, i32 noundef %options, ptr nocapture noundef readonly %pErrorCode) local_unnamed_addr #0 {
 entry:
   %pErrorCode.val = load i32, ptr %pErrorCode, align 4
-  %call = tail call fastcc noundef i32 @_ZL8_cmpFoldPKDsiS0_ijPiS1_P10UErrorCode.argprom(ptr noundef %s1, i32 noundef %length1, ptr noundef %s2, i32 noundef %length2, i32 noundef %options, ptr noundef null, ptr noundef null, i32 %pErrorCode.val)
+  %call = tail call fastcc noundef i32 @_ZL8_cmpFoldPKDsiS0_ijPiS1_P10UErrorCode(ptr noundef %s1, i32 noundef %length1, ptr noundef %s2, i32 noundef %length2, i32 noundef %options, ptr noundef null, ptr noundef null, i32 %pErrorCode.val)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -65535, 65536) i32 @_ZL8_cmpFoldPKDsiS0_ijPiS1_P10UErrorCode.argprom(ptr noundef %s1, i32 noundef %length1, ptr noundef %s2, i32 noundef %length2, i32 noundef %options, ptr noundef writeonly %matchLen1, ptr nocapture noundef writeonly %matchLen2, i32 %pErrorCode.0.val) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -65535, 65536) i32 @_ZL8_cmpFoldPKDsiS0_ijPiS1_P10UErrorCode(ptr noundef %s1, i32 noundef %length1, ptr noundef %s2, i32 noundef %length2, i32 noundef %options, ptr noundef writeonly %matchLen1, ptr nocapture noundef writeonly %matchLen2, i32 %pErrorCode.0.val) unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %stack1 = alloca [2 x %struct.CmpEquivLevel], align 16
@@ -3197,7 +3197,7 @@ if.then8:                                         ; preds = %if.end
 
 if.end9:                                          ; preds = %if.end
   %or = or i32 %options, 65536
-  %call.i = tail call fastcc noundef range(i32 -65535, 65536) i32 @_ZL8_cmpFoldPKDsiS0_ijPiS1_P10UErrorCode.argprom(ptr noundef nonnull %s1, i32 noundef %length1, ptr noundef nonnull %s2, i32 noundef %length2, i32 noundef %or, ptr noundef null, ptr noundef null, i32 %0)
+  %call.i = tail call fastcc noundef range(i32 -65535, 65536) i32 @_ZL8_cmpFoldPKDsiS0_ijPiS1_P10UErrorCode(ptr noundef nonnull %s1, i32 noundef %length1, ptr noundef nonnull %s2, i32 noundef %length2, i32 noundef %or, ptr noundef null, ptr noundef null, i32 %0)
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end9, %if.then8
@@ -3209,7 +3209,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 define noundef range(i32 -65535, 65536) i32 @u_strcasecmp_75(ptr noundef %s1, ptr noundef %s2, i32 noundef %options) local_unnamed_addr #0 {
 entry:
   %or = or i32 %options, 65536
-  %call.i = tail call fastcc noundef range(i32 -65535, 65536) i32 @_ZL8_cmpFoldPKDsiS0_ijPiS1_P10UErrorCode.argprom(ptr noundef %s1, i32 noundef -1, ptr noundef %s2, i32 noundef -1, i32 noundef %or, ptr noundef null, ptr noundef null, i32 0)
+  %call.i = tail call fastcc noundef range(i32 -65535, 65536) i32 @_ZL8_cmpFoldPKDsiS0_ijPiS1_P10UErrorCode(ptr noundef %s1, i32 noundef -1, ptr noundef %s2, i32 noundef -1, i32 noundef %or, ptr noundef null, ptr noundef null, i32 0)
   ret i32 %call.i
 }
 
@@ -3217,7 +3217,7 @@ entry:
 define noundef range(i32 -65535, 65536) i32 @u_memcasecmp_75(ptr noundef %s1, ptr noundef %s2, i32 noundef %length, i32 noundef %options) local_unnamed_addr #0 {
 entry:
   %or = or i32 %options, 65536
-  %call.i = tail call fastcc noundef range(i32 -65535, 65536) i32 @_ZL8_cmpFoldPKDsiS0_ijPiS1_P10UErrorCode.argprom(ptr noundef %s1, i32 noundef %length, ptr noundef %s2, i32 noundef %length, i32 noundef %or, ptr noundef null, ptr noundef null, i32 0)
+  %call.i = tail call fastcc noundef range(i32 -65535, 65536) i32 @_ZL8_cmpFoldPKDsiS0_ijPiS1_P10UErrorCode(ptr noundef %s1, i32 noundef %length, ptr noundef %s2, i32 noundef %length, i32 noundef %or, ptr noundef null, ptr noundef null, i32 0)
   ret i32 %call.i
 }
 
@@ -3225,7 +3225,7 @@ entry:
 define noundef range(i32 -65535, 65536) i32 @u_strncasecmp_75(ptr noundef %s1, ptr noundef %s2, i32 noundef %n, i32 noundef %options) local_unnamed_addr #0 {
 entry:
   %or = or i32 %options, 69632
-  %call.i = tail call fastcc noundef range(i32 -65535, 65536) i32 @_ZL8_cmpFoldPKDsiS0_ijPiS1_P10UErrorCode.argprom(ptr noundef %s1, i32 noundef %n, ptr noundef %s2, i32 noundef %n, i32 noundef %or, ptr noundef null, ptr noundef null, i32 0)
+  %call.i = tail call fastcc noundef range(i32 -65535, 65536) i32 @_ZL8_cmpFoldPKDsiS0_ijPiS1_P10UErrorCode(ptr noundef %s1, i32 noundef %n, ptr noundef %s2, i32 noundef %n, i32 noundef %or, ptr noundef null, ptr noundef null, i32 0)
   ret i32 %call.i
 }
 
@@ -3233,7 +3233,7 @@ entry:
 define void @u_caseInsensitivePrefixMatch_75(ptr noundef %s1, i32 noundef %length1, ptr noundef %s2, i32 noundef %length2, i32 noundef %options, ptr noundef %matchLen1, ptr nocapture noundef writeonly %matchLen2, ptr nocapture noundef readonly %pErrorCode) local_unnamed_addr #0 {
 entry:
   %pErrorCode.val = load i32, ptr %pErrorCode, align 4
-  %0 = tail call fastcc noundef i32 @_ZL8_cmpFoldPKDsiS0_ijPiS1_P10UErrorCode.argprom(ptr noundef %s1, i32 noundef %length1, ptr noundef %s2, i32 noundef %length2, i32 noundef %options, ptr noundef %matchLen1, ptr noundef %matchLen2, i32 %pErrorCode.val)
+  %0 = tail call fastcc noundef i32 @_ZL8_cmpFoldPKDsiS0_ijPiS1_P10UErrorCode(ptr noundef %s1, i32 noundef %length1, ptr noundef %s2, i32 noundef %length2, i32 noundef %options, ptr noundef %matchLen1, ptr noundef %matchLen2, i32 %pErrorCode.val)
   ret void
 }
 

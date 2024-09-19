@@ -108,7 +108,7 @@ define internal range(i32 -1366, 1) i32 @start(ptr noundef %0, i32 %1, ptr nocap
 
 28:                                               ; preds = %27, %22
   %.not22.i = icmp eq ptr %24, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.argprom.exit, label %29
+  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %29
 
 29:                                               ; preds = %28
   %30 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %24, ptr noundef null) #12
@@ -123,7 +123,7 @@ define internal range(i32 -1366, 1) i32 @start(ptr noundef %0, i32 %1, ptr nocap
   %35 = load ptr, ptr getelementptr inbounds (i8, ptr @file_tracker_t_class, i64 40), align 8
   %36 = load ptr, ptr %35, align 8
   %.not6.i.i = icmp eq ptr %36, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %29, %.lr.ph.i.i
   %37 = phi ptr [ %39, %.lr.ph.i.i ], [ %36, %29 ]
@@ -132,21 +132,21 @@ define internal range(i32 -1366, 1) i32 @start(ptr noundef %0, i32 %1, ptr nocap
   %38 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !4
 
-pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %28, %29
+pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %28, %29
   %40 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #12
   %41 = icmp eq i32 %40, 35
   br i1 %41, label %42, label %44
 
-42:                                               ; preds = %pmix_obj_new_tma.argprom.exit
+42:                                               ; preds = %pmix_obj_new_tma.exit
   %43 = tail call ptr @__errno_location() #15
   store i32 35, ptr %43, align 4
   tail call void @perror(ptr noundef nonnull @.str.2) #16
   tail call void @abort() #17
   unreachable
 
-44:                                               ; preds = %pmix_obj_new_tma.argprom.exit
+44:                                               ; preds = %pmix_obj_new_tma.exit
   %45 = getelementptr inbounds i8, ptr %0, i64 48
   %46 = load i32, ptr %45, align 8
   %47 = add nsw i32 %46, 1
@@ -354,7 +354,7 @@ define internal noundef i32 @stop(ptr noundef %0, ptr noundef readonly %1) #0 {
 
 8:                                                ; preds = %7, %2
   %.not22.i = icmp eq ptr %4, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.argprom.exit, label %9
+  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %9
 
 9:                                                ; preds = %8
   %10 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %4, ptr noundef null) #12
@@ -369,7 +369,7 @@ define internal noundef i32 @stop(ptr noundef %0, ptr noundef readonly %1) #0 {
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @file_caddy_t_class, i64 40), align 8
   %16 = load ptr, ptr %15, align 8
   %.not6.i.i = icmp eq ptr %16, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %9, %.lr.ph.i.i
   %17 = phi ptr [ %19, %.lr.ph.i.i ], [ %16, %9 ]
@@ -378,21 +378,21 @@ define internal noundef i32 @stop(ptr noundef %0, ptr noundef readonly %1) #0 {
   %18 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !4
 
-pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %8, %9
+pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %8, %9
   %20 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #12
   %21 = icmp eq i32 %20, 35
   br i1 %21, label %22, label %24
 
-22:                                               ; preds = %pmix_obj_new_tma.argprom.exit
+22:                                               ; preds = %pmix_obj_new_tma.exit
   %23 = tail call ptr @__errno_location() #15
   store i32 35, ptr %23, align 4
   tail call void @perror(ptr noundef nonnull @.str.2) #16
   tail call void @abort() #17
   unreachable
 
-24:                                               ; preds = %pmix_obj_new_tma.argprom.exit
+24:                                               ; preds = %pmix_obj_new_tma.exit
   %25 = getelementptr inbounds i8, ptr %0, i64 48
   %26 = load i32, ptr %25, align 8
   %27 = add nsw i32 %26, 1

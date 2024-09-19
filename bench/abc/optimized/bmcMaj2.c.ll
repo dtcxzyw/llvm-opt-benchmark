@@ -2116,7 +2116,7 @@ Abc_Clock.exit:                                   ; preds = %1, %14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %18 = getelementptr inbounds i8, ptr %0, i64 72
   %19 = load ptr, ptr %18, align 8
-  call fastcc void @Abc_TtReadHex.retelim(ptr noundef %11, ptr noundef %19)
+  call fastcc void @Abc_TtReadHex(ptr noundef %11, ptr noundef %19)
   %20 = call noalias dereferenceable_or_null(8384) ptr @calloc(i64 noundef 1, i64 noundef 8384) #17
   store ptr %0, ptr %20, align 8
   %21 = load i32, ptr %0, align 8
@@ -3788,7 +3788,7 @@ Abc_Clock.exit78:                                 ; preds = %Vec_WecFree.exit.i,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @Abc_TtReadHex.retelim(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
+define internal fastcc void @Abc_TtReadHex(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
   %3 = load i8, ptr %1, align 1
   %4 = icmp eq i8 %3, 48
   br i1 %4, label %5, label %9
@@ -4007,7 +4007,7 @@ Abc_Clock.exit:                                   ; preds = %1, %15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %19 = getelementptr inbounds i8, ptr %0, i64 72
   %20 = load ptr, ptr %19, align 8
-  call fastcc void @Abc_TtReadHex.retelim(ptr noundef %12, ptr noundef %20)
+  call fastcc void @Abc_TtReadHex(ptr noundef %12, ptr noundef %20)
   %21 = call noalias dereferenceable_or_null(24776) ptr @calloc(i64 noundef 1, i64 noundef 24776) #17
   store ptr %0, ptr %21, align 8
   %22 = load i32, ptr %0, align 8

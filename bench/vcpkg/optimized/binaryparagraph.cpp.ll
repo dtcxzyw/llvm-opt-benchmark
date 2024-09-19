@@ -717,7 +717,7 @@ _ZNSt6vectorIN5vcpkg11PackageSpecESaIS1_EE7reserveEm.exit: ; preds = %_ZNSt12_Ve
 
 .noexc.i:                                         ; preds = %172
   %174 = invoke ptr @_ZN5vcpkg7Triplet19from_canonical_nameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %7)
-          to label %"_ZZZN5vcpkg15BinaryParagraphC1ENS_10StringViewEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS8_NS_10TextRowColEESt4lessIvESaIS9_IKS8_SB_EEEENK3$_0clERKNS_24ParsedQualifiedSpecifierEENKUlOT_E_clIRSE_EEDaSO_.argprom.exit.i.i.i" unwind label %common.resume.i.i, !noalias !13
+          to label %"_ZZZN5vcpkg15BinaryParagraphC1ENS_10StringViewEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS8_NS_10TextRowColEESt4lessIvESaIS9_IKS8_SB_EEEENK3$_0clERKNS_24ParsedQualifiedSpecifierEENKUlOT_E_clIRSE_EEDaSO_.exit.i.i.i" unwind label %common.resume.i.i, !noalias !13
 
 common.resume.i.i:                                ; preds = %.noexc.i
   %175 = landingpad { ptr, i32 }
@@ -725,13 +725,13 @@ common.resume.i.i:                                ; preds = %.noexc.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17, !noalias !13
   br label %.body.i
 
-"_ZZZN5vcpkg15BinaryParagraphC1ENS_10StringViewEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS8_NS_10TextRowColEESt4lessIvESaIS9_IKS8_SB_EEEENK3$_0clERKNS_24ParsedQualifiedSpecifierEENKUlOT_E_clIRSE_EEDaSO_.argprom.exit.i.i.i": ; preds = %.noexc.i
+"_ZZZN5vcpkg15BinaryParagraphC1ENS_10StringViewEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS8_NS_10TextRowColEESt4lessIvESaIS9_IKS8_SB_EEEENK3$_0clERKNS_24ParsedQualifiedSpecifierEENKUlOT_E_clIRSE_EEDaSO_.exit.i.i.i": ; preds = %.noexc.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17, !noalias !13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !16
   br label %"_ZNKR5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3mapIZZNS_15BinaryParagraphC1ENS_10StringViewEOSt3mapIS6_St4pairIS6_NS_10TextRowColEESt4lessIvESaISC_IKS6_SE_EEEENK3$_0clERKNS_24ParsedQualifiedSpecifierEEUlOT_E_EENS0_IDTclclsr3stdE7declvalIRSQ_EEclL_ZSt7declvalIRSH_EDTcl9__declvalISQ_ELi0EEEvEEEEEESQ_.exit.i.i"
 
-"_ZNKR5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3mapIZZNS_15BinaryParagraphC1ENS_10StringViewEOSt3mapIS6_St4pairIS6_NS_10TextRowColEESt4lessIvESaISC_IKS6_SE_EEEENK3$_0clERKNS_24ParsedQualifiedSpecifierEEUlOT_E_EENS0_IDTclclsr3stdE7declvalIRSQ_EEclL_ZSt7declvalIRSH_EDTcl9__declvalISQ_ELi0EEEvEEEEEESQ_.exit.i.i": ; preds = %"_ZZZN5vcpkg15BinaryParagraphC1ENS_10StringViewEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS8_NS_10TextRowColEESt4lessIvESaIS9_IKS8_SB_EEEENK3$_0clERKNS_24ParsedQualifiedSpecifierEENKUlOT_E_clIRSE_EEDaSO_.argprom.exit.i.i.i", %168
-  %.sroa.0.0.i.i.i = phi ptr [ %174, %"_ZZZN5vcpkg15BinaryParagraphC1ENS_10StringViewEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS8_NS_10TextRowColEESt4lessIvESaIS9_IKS8_SB_EEEENK3$_0clERKNS_24ParsedQualifiedSpecifierEENKUlOT_E_clIRSE_EEDaSO_.argprom.exit.i.i.i" ], [ %135, %168 ]
+"_ZNKR5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3mapIZZNS_15BinaryParagraphC1ENS_10StringViewEOSt3mapIS6_St4pairIS6_NS_10TextRowColEESt4lessIvESaISC_IKS6_SE_EEEENK3$_0clERKNS_24ParsedQualifiedSpecifierEEUlOT_E_EENS0_IDTclclsr3stdE7declvalIRSQ_EEclL_ZSt7declvalIRSH_EDTcl9__declvalISQ_ELi0EEEvEEEEEESQ_.exit.i.i": ; preds = %"_ZZZN5vcpkg15BinaryParagraphC1ENS_10StringViewEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS8_NS_10TextRowColEESt4lessIvESaIS9_IKS8_SB_EEEENK3$_0clERKNS_24ParsedQualifiedSpecifierEENKUlOT_E_clIRSE_EEDaSO_.exit.i.i.i", %168
+  %.sroa.0.0.i.i.i = phi ptr [ %174, %"_ZZZN5vcpkg15BinaryParagraphC1ENS_10StringViewEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS8_NS_10TextRowColEESt4lessIvESaIS9_IKS8_SB_EEEENK3$_0clERKNS_24ParsedQualifiedSpecifierEENKUlOT_E_clIRSE_EEDaSO_.exit.i.i.i" ], [ %135, %168 ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.012.016.i)
           to label %176 unwind label %.loopexit.i
 
@@ -1366,7 +1366,7 @@ define dso_local void @_ZN5vcpkg15BinaryParagraph12canonicalizeEv(ptr noundef no
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
   %.val7 = phi ptr [ %.val7.pre, %._crit_edge.loopexit ], [ %7, %1 ]
   %.val = phi ptr [ %.val.pre, %._crit_edge.loopexit ], [ %5, %1 ]
-  %9 = tail call fastcc noundef zeroext i1 @"_ZZN5vcpkg15BinaryParagraph12canonicalizeEvENK3$_0clERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.argprom"(ptr %.val, ptr %.val7)
+  %9 = tail call fastcc noundef zeroext i1 @"_ZZN5vcpkg15BinaryParagraph12canonicalizeEvENK3$_0clERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE"(ptr %.val, ptr %.val7)
   br i1 %9, label %10, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit
 
 10:                                               ; preds = %._crit_edge
@@ -1409,7 +1409,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
 ._crit_edge29:                                    ; preds = %._crit_edge29.loopexit, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit
   %.val9 = phi ptr [ %.val9.pre, %._crit_edge29.loopexit ], [ %17, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit ]
   %.val8 = phi ptr [ %.val8.pre, %._crit_edge29.loopexit ], [ %15, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit ]
-  %19 = tail call fastcc noundef zeroext i1 @"_ZZN5vcpkg15BinaryParagraph12canonicalizeEvENK3$_0clERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.argprom"(ptr %.val8, ptr %.val9)
+  %19 = tail call fastcc noundef zeroext i1 @"_ZZN5vcpkg15BinaryParagraph12canonicalizeEvENK3$_0clERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE"(ptr %.val8, ptr %.val9)
   br i1 %19, label %20, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit15
 
 20:                                               ; preds = %._crit_edge29
@@ -1874,7 +1874,7 @@ _ZNSt6vectorIN5vcpkg11PackageSpecESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorI
 declare void @_ZN5vcpkg7Strings12inplace_trimERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN5vcpkg15BinaryParagraph12canonicalizeEvENK3$_0clERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.argprom"(ptr %.0.val, ptr %.8.val) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN5vcpkg15BinaryParagraph12canonicalizeEvENK3$_0clERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE"(ptr %.0.val, ptr %.8.val) unnamed_addr #4 align 2 {
   %1 = ptrtoint ptr %.8.val to i64
   %2 = ptrtoint ptr %.0.val to i64
   %3 = sub i64 %1, %2
@@ -7806,8 +7806,8 @@ attributes #21 = { builtin allocsize(0) }
 !40 = distinct !{!40, !41, !"_ZN3fmt3v106detail10get_bufferIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_15iterator_bufferIT0_T_NS1_13buffer_traitsEEESC_: argument 0"}
 !41 = distinct !{!41, !"_ZN3fmt3v106detail10get_bufferIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_15iterator_bufferIT0_T_NS1_13buffer_traitsEEESC_"}
 !42 = !{!43, !45}
-!43 = distinct !{!43, !44, !"_ZN5vcpkg7Strings4joinINS_4SpanIKNS_11PackageSpecEEEZNS_L19serialize_deps_listB5cxx11ES5_NS_7TripletEE3$_0EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralERKT_T0_.argprom: argument 0"}
-!44 = distinct !{!44, !"_ZN5vcpkg7Strings4joinINS_4SpanIKNS_11PackageSpecEEEZNS_L19serialize_deps_listB5cxx11ES5_NS_7TripletEE3$_0EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralERKT_T0_.argprom"}
+!43 = distinct !{!43, !44, !"_ZN5vcpkg7Strings4joinINS_4SpanIKNS_11PackageSpecEEEZNS_L19serialize_deps_listB5cxx11ES5_NS_7TripletEE3$_0EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralERKT_T0_: argument 0"}
+!44 = distinct !{!44, !"_ZN5vcpkg7Strings4joinINS_4SpanIKNS_11PackageSpecEEEZNS_L19serialize_deps_listB5cxx11ES5_NS_7TripletEE3$_0EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralERKT_T0_"}
 !45 = distinct !{!45, !46, !"_ZN5vcpkgL19serialize_deps_listB5cxx11ENS_4SpanIKNS_11PackageSpecEEENS_7TripletE: argument 0"}
 !46 = distinct !{!46, !"_ZN5vcpkgL19serialize_deps_listB5cxx11ENS_4SpanIKNS_11PackageSpecEEENS_7TripletE"}
 !47 = distinct !{!47, !6}

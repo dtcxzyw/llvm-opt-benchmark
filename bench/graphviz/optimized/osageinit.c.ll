@@ -70,7 +70,7 @@ define void @osage_layout(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not19.i, label %cluster_init_graph.exit, label %.lr.ph31.i
 
 cluster_init_graph.exit:                          ; preds = %._crit_edge27.i, %._crit_edge.i
-  tail call fastcc void @mkClusters.argprom(ptr noundef %0, ptr noundef null)
+  tail call fastcc void @mkClusters(ptr noundef %0, ptr noundef null)
   tail call fastcc void @layout(ptr noundef %0, i32 noundef 0)
   tail call fastcc void @reposition(ptr noundef %0, i32 noundef 0)
   %13 = load ptr, ptr %2, align 8
@@ -130,7 +130,7 @@ cluster_init_graph.exit:                          ; preds = %._crit_edge27.i, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mkClusters.argprom(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @mkClusters(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.clist_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = icmp eq ptr %1, null
@@ -149,7 +149,7 @@ define internal fastcc void @mkClusters.argprom(ptr noundef %0, ptr noundef %1) 
   %8 = load ptr, ptr @stderr, align 8
   %9 = tail call ptr @strerror(i32 noundef 12) #16
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.3, ptr noundef %9) #17
-  tail call fastcc void @graphviz_exit.argelim() #18
+  tail call fastcc void @graphviz_exit() #18
   unreachable
 
 clist_append.exit:                                ; preds = %5
@@ -217,7 +217,7 @@ clist_append.exit:                                ; preds = %5
   %36 = load ptr, ptr @stderr, align 8
   %37 = call ptr @strerror(i32 noundef %.0.i.ph.i26) #16
   %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.3, ptr noundef %37) #17
-  call fastcc void @graphviz_exit.argelim() #18
+  call fastcc void @graphviz_exit() #18
   unreachable
 
 clist_append.exit27:                              ; preds = %._crit_edge.i.i21, %29
@@ -228,11 +228,11 @@ clist_append.exit27:                              ; preds = %._crit_edge.i.i21, 
   %42 = load i64, ptr %.0.sroa.phi, align 8
   %43 = add i64 %42, 1
   store i64 %43, ptr %.0.sroa.phi, align 8
-  call fastcc void @mkClusters.argprom(ptr noundef nonnull %.0186, ptr noundef null)
+  call fastcc void @mkClusters(ptr noundef nonnull %.0186, ptr noundef null)
   br label %45
 
 44:                                               ; preds = %.lr.ph
-  call fastcc void @mkClusters.argprom(ptr noundef nonnull %.0186, ptr noundef nonnull %.0)
+  call fastcc void @mkClusters(ptr noundef nonnull %.0186, ptr noundef nonnull %.0)
   br label %45
 
 45:                                               ; preds = %clist_append.exit27, %44
@@ -270,7 +270,7 @@ clist_append.exit27:                              ; preds = %._crit_edge.i.i21, 
 59:                                               ; preds = %57
   %60 = load ptr, ptr @stderr, align 8
   %61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.4, i64 noundef %.val, i64 noundef 8) #17
-  call fastcc void @graphviz_exit.argelim() #18
+  call fastcc void @graphviz_exit() #18
   unreachable
 
 62:                                               ; preds = %57
@@ -284,7 +284,7 @@ clist_append.exit27:                              ; preds = %._crit_edge.i.i21, 
 68:                                               ; preds = %62
   %69 = load ptr, ptr @stderr, align 8
   %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.5, i64 noundef %65) #17
-  call fastcc void @graphviz_exit.argelim() #18
+  call fastcc void @graphviz_exit() #18
   unreachable
 
 71:                                               ; preds = %62
@@ -1263,7 +1263,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare ptr @strerror(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #5 {
+define internal fastcc void @graphviz_exit() unnamed_addr #5 {
   tail call void @exit(i32 noundef 1) #22
   unreachable
 }
@@ -1303,7 +1303,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.4, i64 noundef %0, i64 noundef %1) #17
-  tail call fastcc void @graphviz_exit.argelim() #18
+  tail call fastcc void @graphviz_exit() #18
   unreachable
 
 8:                                                ; preds = %4
@@ -1315,7 +1315,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul nsw i64 %1, %0
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.5, i64 noundef %13) #17
-  tail call fastcc void @graphviz_exit.argelim() #18
+  tail call fastcc void @graphviz_exit() #18
   unreachable
 
 15:                                               ; preds = %.thread, %8

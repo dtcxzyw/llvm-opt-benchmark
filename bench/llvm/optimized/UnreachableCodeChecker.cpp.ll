@@ -816,8 +816,8 @@ _ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.i: ; p
   %.sroa.3.i.4.i.4.i.4..sroa_idx = getelementptr inbounds i8, ptr %.sroa.3.i, i64 4
   br label %121
 
-121:                                              ; preds = %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread.i, %.lr.ph247.i
-  %.070245.i = phi ptr [ %110, %.lr.ph247.i ], [ %350, %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread.i ]
+121:                                              ; preds = %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread.i, %.lr.ph247.i
+  %.070245.i = phi ptr [ %110, %.lr.ph247.i ], [ %350, %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread.i ]
   %122 = load ptr, ptr %.070245.i, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 48
   %124 = load i32, ptr %123, align 8
@@ -855,7 +855,7 @@ _ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5vfindERKj.exit.i.i: ; preds = %.lr.ph.i.i.i
   %139 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
   %140 = getelementptr inbounds i32, ptr %138, i64 %139
   %.not277.i = icmp eq ptr %.0.i.i.i, %140
-  br i1 %.not277.i, label %_ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5countERKj.exit.thread.i, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread.i
+  br i1 %.not277.i, label %_ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5countERKj.exit.thread.i, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread.i
 
 141:                                              ; preds = %121
   %142 = load ptr, ptr %22, align 8
@@ -884,7 +884,7 @@ _ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5countERKj.exit.i: ; preds = %_ZNKSt8_Rb_tre
   %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %147 = load i32, ptr %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %148 = icmp ult i32 %124, %147
-  br i1 %148, label %_ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5countERKj.exit.thread.i, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread.i
+  br i1 %148, label %_ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5countERKj.exit.thread.i, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread.i
 
 _ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5countERKj.exit.thread.i: ; preds = %_ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5countERKj.exit.i, %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i.i.i, %141, %_ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5vfindERKj.exit.i.i
   %149 = getelementptr inbounds nuw i8, ptr %122, i64 24
@@ -907,7 +907,7 @@ _ZN12_GLOBAL__N_122UnreachableCodeChecker15isEmptyCFGBlockEPKN5clang8CFGBlockE.e
   %161 = getelementptr inbounds nuw i8, ptr %122, i64 32
   %.0.copyload.i.i.i.i.i.i92.i = load i64, ptr %161, align 8
   %.not.i.i = icmp ult i64 %.0.copyload.i.i.i.i.i.i92.i, 8
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread.i, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker15isEmptyCFGBlockEPKN5clang8CFGBlockE.exit.thread.i
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread.i, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker15isEmptyCFGBlockEPKN5clang8CFGBlockE.exit.thread.i
 
 _ZN12_GLOBAL__N_122UnreachableCodeChecker15isEmptyCFGBlockEPKN5clang8CFGBlockE.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_122UnreachableCodeChecker15isEmptyCFGBlockEPKN5clang8CFGBlockE.exit.i, %152, %_ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5countERKj.exit.thread.i
   %162 = load i32, ptr %123, align 8
@@ -1016,7 +1016,7 @@ _ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5vfindERKj.exit.i136.i: ; preds = %.lr.ph.i.
   %203 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
   %204 = getelementptr inbounds i32, ptr %202, i64 %203
   %.not281.i = icmp eq ptr %.0.i.i137.i, %204
-  br i1 %.not281.i, label %_ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5countERKj.exit138.thread.i, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread.i
+  br i1 %.not281.i, label %_ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5countERKj.exit138.thread.i, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread.i
 
 205:                                              ; preds = %187
   %206 = load ptr, ptr %22, align 8
@@ -1045,7 +1045,7 @@ _ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5countERKj.exit138.i: ; preds = %_ZNKSt8_Rb_
   %.19.i.i.i.i120.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i120.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %211 = load i32, ptr %.19.i.i.i.i120.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %212 = icmp ult i32 %188, %211
-  br i1 %212, label %_ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5countERKj.exit138.thread.i, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread.i
+  br i1 %212, label %_ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5countERKj.exit138.thread.i, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread.i
 
 _ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5countERKj.exit138.thread.i: ; preds = %_ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5countERKj.exit138.i, %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i.i125.i, %205, %_ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5vfindERKj.exit.i136.i
   %213 = getelementptr i8, ptr %122, i64 56
@@ -1058,53 +1058,53 @@ _ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5countERKj.exit138.thread.i: ; preds = %_ZNK
   %218 = lshr exact i64 %217, 4
   %219 = trunc i64 %218 to i32
   %220 = icmp ugt i32 %219, 1
-  br i1 %220, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread.i, label %221
+  br i1 %220, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread.i, label %221
 
 221:                                              ; preds = %_ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5countERKj.exit138.thread.i
   %222 = icmp eq i32 %219, 0
-  br i1 %222, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread206.i, label %223
+  br i1 %222, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread206.i, label %223
 
 223:                                              ; preds = %221
   %224 = load ptr, ptr %.val.i, align 8
   %.not.i139.i = icmp eq ptr %224, null
-  br i1 %.not.i139.i, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread206.i, label %225
+  br i1 %.not.i139.i, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread206.i, label %225
 
 225:                                              ; preds = %223
   %226 = call noundef ptr @_ZN5clang8CFGBlock22getTerminatorConditionEb(ptr noundef nonnull align 8 dereferenceable(120) %224, i1 noundef zeroext true) #19
   %.not14.i.i = icmp eq ptr %226, null
-  br i1 %.not14.i.i, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread206.i, label %227
+  br i1 %.not14.i.i, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread206.i, label %227
 
 227:                                              ; preds = %225
   %228 = call noundef zeroext i1 @_ZN5clang4ento13containsMacroEPKNS_4StmtE(ptr noundef nonnull %226) #19
-  br i1 %228, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread.i, label %229
+  br i1 %228, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread.i, label %229
 
 229:                                              ; preds = %227
   %230 = call noundef zeroext i1 @_ZN5clang4ento12containsEnumEPKNS_4StmtE(ptr noundef nonnull %226) #19
-  br i1 %230, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread.i, label %231
+  br i1 %230, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread.i, label %231
 
 231:                                              ; preds = %229
   %232 = call noundef zeroext i1 @_ZN5clang4ento19containsStaticLocalEPKNS_4StmtE(ptr noundef nonnull %226) #19
-  br i1 %232, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread.i, label %233
+  br i1 %232, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread.i, label %233
 
 233:                                              ; preds = %231
   %234 = call noundef zeroext i1 @_ZN5clang4ento23containsBuiltinOffsetOfEPKNS_4StmtE(ptr noundef nonnull %226) #19
-  br i1 %234, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread.i, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.i
+  br i1 %234, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread.i, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.i
 
-_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.i: ; preds = %233
+_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.i: ; preds = %233
   %235 = call noundef zeroext i1 @_ZN5clang4ento12containsStmtINS_24UnaryExprOrTypeTraitExprEEEbPKNS_4StmtE(ptr noundef nonnull %226)
-  br i1 %235, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread.i, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread206.i
+  br i1 %235, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread.i, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread206.i
 
-_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread206.i: ; preds = %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.i, %225, %223, %221
+_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread206.i: ; preds = %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.i, %225, %223, %221
   %236 = load ptr, ptr %149, align 8
   %.not81.i = icmp eq ptr %236, null
   br i1 %.not81.i, label %240, label %237
 
-237:                                              ; preds = %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread206.i
+237:                                              ; preds = %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread206.i
   %238 = load i8, ptr %236, align 8
   %239 = icmp eq i8 %238, -124
-  br i1 %239, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread.i, label %240
+  br i1 %239, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread.i, label %240
 
-240:                                              ; preds = %237, %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread206.i
+240:                                              ; preds = %237, %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread206.i
   %241 = load ptr, ptr %122, align 8
   %242 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %243 = load ptr, ptr %242, align 8
@@ -1138,7 +1138,7 @@ _ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS
 259:                                              ; preds = %254
   %260 = call noundef i32 @_ZNK5clang8CallExpr16getBuiltinCalleeEv(ptr noundef nonnull align 8 dereferenceable(24) %256) #19
   %261 = icmp eq i32 %260, 1352
-  br i1 %261, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread.i, label %262
+  br i1 %261, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread.i, label %262
 
 262:                                              ; preds = %259
   %263 = load ptr, ptr %113, align 8
@@ -1147,7 +1147,7 @@ _ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS
   %266 = load ptr, ptr %265, align 8
   %267 = call noundef nonnull align 8 dereferenceable(23096) ptr %266(ptr noundef nonnull align 8 dereferenceable(256) %263) #19
   %268 = call noundef zeroext i1 @_ZNK5clang8CallExpr20isBuiltinAssumeFalseERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(24) %256, ptr noundef nonnull align 8 dereferenceable(23096) %267) #19
-  br i1 %268, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread.i, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i
+  br i1 %268, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread.i, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i
 
 _ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i: ; preds = %262, %254, %.preheader.i
   %.not.i = icmp eq ptr %245, %241
@@ -1200,7 +1200,7 @@ _ZN12_GLOBAL__N_122UnreachableCodeChecker18getUnreachableStmtEPKN5clang8CFGBlock
   %286 = and i64 %.0.copyload.i.i.i.i.i.i148.i, -8
   %287 = inttoptr i64 %286 to ptr
   %.not83.i = icmp eq i64 %286, 0
-  br i1 %.not83.i, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread.i, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker18getUnreachableStmtEPKN5clang8CFGBlockE.exit.thread.i
+  br i1 %.not83.i, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread.i, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker18getUnreachableStmtEPKN5clang8CFGBlockE.exit.thread.i
 
 _ZN12_GLOBAL__N_122UnreachableCodeChecker18getUnreachableStmtEPKN5clang8CFGBlockE.exit.thread.i: ; preds = %280, %_ZN12_GLOBAL__N_122UnreachableCodeChecker18getUnreachableStmtEPKN5clang8CFGBlockE.exit.i
   %.0.i149214.i = phi ptr [ %287, %_ZN12_GLOBAL__N_122UnreachableCodeChecker18getUnreachableStmtEPKN5clang8CFGBlockE.exit.i ], [ %282, %280 ]
@@ -1285,7 +1285,7 @@ _ZNK4llvm5APInteqEm.exit.i:                       ; preds = %_ZNK4llvm5APInteqEm
 321:                                              ; preds = %319
   %322 = load i8, ptr %320, align 8
   %323 = icmp eq i8 %322, -26
-  br i1 %323, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread.i, label %_ZN4llvm5APIntD2Ev.exit.thread.i
+  br i1 %323, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread.i, label %_ZN4llvm5APIntD2Ev.exit.thread.i
 
 _ZN4llvm5APIntD2Ev.exit.thread.i:                 ; preds = %321, %319, %317, %.thread218.i, %.thread.i, %_ZNK4llvm5APInteqEm.exit.i, %290, %_ZN12_GLOBAL__N_122UnreachableCodeChecker18getUnreachableStmtEPKN5clang8CFGBlockE.exit.thread.i
   %324 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %.0.i149214.i) #20
@@ -1309,12 +1309,12 @@ _ZN4llvm5APIntD2Ev.exit.thread.i:                 ; preds = %321, %319, %317, %.
   %.not2.i.i = select i1 %331, i1 true, i1 %333
   %.not225.i = icmp eq i32 %.sroa.4.0.copyload171.i, 0
   %or.cond226.i = select i1 %.not2.i.i, i1 true, i1 %.not225.i
-  br i1 %or.cond226.i, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread.i, label %334
+  br i1 %or.cond226.i, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread.i, label %334
 
 334:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit.thread.i
   %335 = load i8, ptr %.0.i149214.i, align 8
   %336 = icmp eq i8 %335, -19
-  br i1 %336, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread.i, label %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.i
+  br i1 %336, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread.i, label %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.i
 
 _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.i: ; preds = %334
   %337 = load ptr, ptr %116, align 8
@@ -1323,7 +1323,7 @@ _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.i: ; preds
   %340 = load ptr, ptr %339, align 8
   %341 = call noundef nonnull align 8 dereferenceable(696) ptr %340(ptr noundef nonnull align 8 dereferenceable(8) %337) #19
   %342 = call noundef i32 @_ZNK5clang13SourceManager21getFileCharacteristicENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %341, i32 %.sroa.4.0.copyload171.i) #19
-  switch i32 %342, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread.i [
+  switch i32 %342, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread.i [
     i32 3, label %343
     i32 0, label %343
   ]
@@ -1331,7 +1331,7 @@ _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.i: ; preds
 343:                                              ; preds = %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.i, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.i
   %344 = call noundef i32 @_ZNK5clang13SourceManager21getFileCharacteristicENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %341, i32 %.sroa.4.0.copyload171.i) #19
   %345 = icmp eq i32 %344, 2
-  br i1 %345, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread.i, label %346
+  br i1 %345, label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread.i, label %346
 
 346:                                              ; preds = %343
   store ptr %117, ptr %15, align 8
@@ -1356,14 +1356,14 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %347, %346
   store i64 1, ptr %120, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   call void @_ZN5clang4ento11BugReporter15EmitBasicReportEPKNS_4DeclEPKNS0_11CheckerBaseEN4llvm9StringRefES9_S9_NS0_22PathDiagnosticLocationENS8_8ArrayRefINS_11SourceRangeEEENSB_INS_9FixItHintEEE(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull %.1.i, ptr noundef nonnull %0, ptr nonnull @.str.1, i64 16, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %15, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %16, ptr noundef nonnull byval(%"class.clang::ento::PathDiagnosticLocation") align 8 %17, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %18, ptr noundef nonnull byval(%"class.llvm::ArrayRef.774") align 8 %19) #19
-  br label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread.i
+  br label %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread.i
 
-_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread.i: ; preds = %262, %259, %_ZN4llvm9StringRefC2EPKc.exit.i, %343, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.i, %334, %_ZN4llvm5APIntD2Ev.exit.thread.i, %321, %_ZN12_GLOBAL__N_122UnreachableCodeChecker18getUnreachableStmtEPKN5clang8CFGBlockE.exit.i, %237, %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.i, %233, %231, %229, %227, %_ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5countERKj.exit138.thread.i, %_ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5countERKj.exit138.i, %_ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5vfindERKj.exit.i136.i, %_ZN12_GLOBAL__N_122UnreachableCodeChecker15isEmptyCFGBlockEPKN5clang8CFGBlockE.exit.i, %_ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5countERKj.exit.i, %_ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5vfindERKj.exit.i.i
+_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread.i: ; preds = %262, %259, %_ZN4llvm9StringRefC2EPKc.exit.i, %343, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.i, %334, %_ZN4llvm5APIntD2Ev.exit.thread.i, %321, %_ZN12_GLOBAL__N_122UnreachableCodeChecker18getUnreachableStmtEPKN5clang8CFGBlockE.exit.i, %237, %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.i, %233, %231, %229, %227, %_ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5countERKj.exit138.thread.i, %_ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5countERKj.exit138.i, %_ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5vfindERKj.exit.i136.i, %_ZN12_GLOBAL__N_122UnreachableCodeChecker15isEmptyCFGBlockEPKN5clang8CFGBlockE.exit.i, %_ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5countERKj.exit.i, %_ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5vfindERKj.exit.i.i
   %350 = getelementptr inbounds i8, ptr %.070245.i, i64 8
   %.not77.i = icmp eq ptr %350, %112
   br i1 %.not77.i, label %_ZNK5clang4ento10ExprEngine16hasWorkRemainingEv.exit.thread.i, label %121
 
-_ZNK5clang4ento10ExprEngine16hasWorkRemainingEv.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.argprom.exit.thread.i, %108, %106, %._crit_edge.i, %47, %_ZNK5clang4ento10ExprEngine16hasWorkRemainingEv.exit.i, %36, %4
+_ZNK5clang4ento10ExprEngine16hasWorkRemainingEv.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS1_9ParentMapE.exit.thread.i, %108, %106, %._crit_edge.i, %47, %_ZNK5clang4ento10ExprEngine16hasWorkRemainingEv.exit.i, %36, %4
   %351 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %352 = load ptr, ptr %28, align 8
   call void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE(ptr noundef nonnull align 8 dereferenceable(48) %351, ptr noundef %352)

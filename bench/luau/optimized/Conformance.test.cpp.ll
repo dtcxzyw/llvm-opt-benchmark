@@ -14048,7 +14048,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_106v() #4 personality ptr @__gxx_pe
   call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.407, ptr noundef null, ptr noundef null, ptr noundef %52, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %53 = getelementptr inbounds i8, ptr %1, i64 8
   %54 = load ptr, ptr %53, align 8
-  invoke fastcc void @"_ZZL21DOCTEST_ANON_FUNC_106vENK3$_0clEP9lua_StatePKc.argprom"(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef %54, ptr noundef nonnull @.str.408)
+  invoke fastcc void @"_ZZL21DOCTEST_ANON_FUNC_106vENK3$_0clEP9lua_StatePKc"(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef %54, ptr noundef nonnull @.str.408)
           to label %55 unwind label %64
 
 55:                                               ; preds = %0
@@ -14155,7 +14155,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_106v() #4 personality ptr @__gxx_pe
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %90) #37
   %91 = getelementptr inbounds i8, ptr %2, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %91) #37
-  invoke fastcc void @"_ZZL21DOCTEST_ANON_FUNC_106vENK3$_0clEP9lua_StatePKc.argprom"(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef %54, ptr noundef nonnull @.str.410)
+  invoke fastcc void @"_ZZL21DOCTEST_ANON_FUNC_106vENK3$_0clEP9lua_StatePKc"(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef %54, ptr noundef nonnull @.str.410)
           to label %92 unwind label %64
 
 92:                                               ; preds = %87
@@ -14268,7 +14268,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_106v() #4 personality ptr @__gxx_pe
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %128) #37
   %129 = getelementptr inbounds i8, ptr %8, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %129) #37
-  invoke fastcc void @"_ZZL21DOCTEST_ANON_FUNC_106vENK3$_0clEP9lua_StatePKc.argprom"(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %54, ptr noundef nonnull @.str.411)
+  invoke fastcc void @"_ZZL21DOCTEST_ANON_FUNC_106vENK3$_0clEP9lua_StatePKc"(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %54, ptr noundef nonnull @.str.411)
           to label %130 unwind label %64
 
 130:                                              ; preds = %125
@@ -14522,7 +14522,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_106v() #4 personality ptr @__gxx_pe
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %208) #37
   %209 = getelementptr inbounds i8, ptr %14, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %209) #37
-  invoke fastcc void @"_ZZL21DOCTEST_ANON_FUNC_106vENK3$_0clEP9lua_StatePKc.argprom"(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef %54, ptr noundef nonnull @.str.414)
+  invoke fastcc void @"_ZZL21DOCTEST_ANON_FUNC_106vENK3$_0clEP9lua_StatePKc"(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef %54, ptr noundef nonnull @.str.414)
           to label %210 unwind label %64
 
 210:                                              ; preds = %205
@@ -14776,7 +14776,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_106v() #4 personality ptr @__gxx_pe
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %288) #37
   %289 = getelementptr inbounds i8, ptr %27, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %289) #37
-  invoke fastcc void @"_ZZL21DOCTEST_ANON_FUNC_106vENK3$_0clEP9lua_StatePKc.argprom"(ptr dead_on_unwind noalias writable align 8 %40, ptr noundef %54, ptr noundef nonnull @.str.417)
+  invoke fastcc void @"_ZZL21DOCTEST_ANON_FUNC_106vENK3$_0clEP9lua_StatePKc"(ptr dead_on_unwind noalias writable align 8 %40, ptr noundef %54, ptr noundef nonnull @.str.417)
           to label %290 unwind label %64
 
 290:                                              ; preds = %285
@@ -14889,7 +14889,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_106v() #4 personality ptr @__gxx_pe
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %326) #37
   %327 = getelementptr inbounds i8, ptr %40, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %327) #37
-  invoke fastcc void @"_ZZL21DOCTEST_ANON_FUNC_106vENK3$_0clEP9lua_StatePKc.argprom"(ptr dead_on_unwind noalias writable align 8 %46, ptr noundef %54, ptr noundef nonnull @.str.418)
+  invoke fastcc void @"_ZZL21DOCTEST_ANON_FUNC_106vENK3$_0clEP9lua_StatePKc"(ptr dead_on_unwind noalias writable align 8 %46, ptr noundef %54, ptr noundef nonnull @.str.418)
           to label %328 unwind label %64
 
 328:                                              ; preds = %323
@@ -23589,11 +23589,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 112:                                              ; preds = %108
   %.not.i.i = icmp eq ptr %66, null
-  br i1 %.not.i.i, label %_ZL11analyzeFilePKcj.argprom.exit, label %113
+  br i1 %.not.i.i, label %_ZL11analyzeFilePKcj.exit, label %113
 
 113:                                              ; preds = %112
   invoke void @_Z9lua_closeP9lua_State(ptr noundef nonnull %66)
-          to label %_ZL11analyzeFilePKcj.argprom.exit unwind label %114
+          to label %_ZL11analyzeFilePKcj.exit unwind label %114
 
 114:                                              ; preds = %113
   %115 = landingpad { ptr, i32 }
@@ -23639,7 +23639,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit21.i: ; preds = %119, %118, %85, %
   call void @__clang_call_terminate(ptr %125) #38
   unreachable
 
-_ZL11analyzeFilePKcj.argprom.exit:                ; preds = %112, %113
+_ZL11analyzeFilePKcj.exit:                        ; preds = %112, %113
   call void @_ZN4Luau15BytecodeBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(840) %9) #37
   call void @llvm.lifetime.end.p0(i64 840, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
@@ -23656,7 +23656,7 @@ _ZL11analyzeFilePKcj.argprom.exit:                ; preds = %112, %113
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull @.str)
           to label %126 unwind label %142
 
-126:                                              ; preds = %_ZL11analyzeFilePKcj.argprom.exit
+126:                                              ; preds = %_ZL11analyzeFilePKcj.exit
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %22, i32 noundef 1034, ptr noundef nonnull @.str.65, i32 noundef 2686, ptr noundef nonnull @.str.549, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %23)
           to label %127 unwind label %144
 
@@ -23696,7 +23696,7 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0ENSt7__cxx1112basic_stringIc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %151
 
-142:                                              ; preds = %554, %517, %480, %435, %398, %361, %316, %279, %242, %197, %160, %_ZL11analyzeFilePKcj.argprom.exit
+142:                                              ; preds = %554, %517, %480, %435, %398, %361, %316, %279, %242, %197, %160, %_ZL11analyzeFilePKcj.exit
   %143 = landingpad { ptr, i32 }
           cleanup
   br label %604
@@ -25770,13 +25770,13 @@ define internal noundef i32 @"_ZZ20setupUserdataHelpersP9lua_StateEN3$_08__invok
 _Z12lua_vec2_getP9lua_Statei.exit.i:              ; preds = %1
   %4 = tail call noundef ptr @_Z20lua_touserdatataggedP9lua_Stateii(ptr noundef %0, i32 noundef 2, i32 noundef 12)
   %.not.i9.i = icmp eq ptr %4, null
-  br i1 %.not.i9.i, label %5, label %"_ZZ20setupUserdataHelpersP9lua_StateENK3$_0clES0_.argprom.exit"
+  br i1 %.not.i9.i, label %5, label %"_ZZ20setupUserdataHelpersP9lua_StateENK3$_0clES0_.exit"
 
 5:                                                ; preds = %_Z12lua_vec2_getP9lua_Statei.exit.i
   tail call void @_Z15luaL_typeerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.56) #36
   unreachable
 
-"_ZZ20setupUserdataHelpersP9lua_StateENK3$_0clES0_.argprom.exit": ; preds = %_Z12lua_vec2_getP9lua_Statei.exit.i
+"_ZZ20setupUserdataHelpersP9lua_StateENK3$_0clES0_.exit": ; preds = %_Z12lua_vec2_getP9lua_Statei.exit.i
   %6 = tail call noundef ptr @_Z21lua_newuserdatataggedP9lua_Statemi(ptr noundef %0, i64 noundef 8, i32 noundef 12)
   tail call void @_Z24lua_getuserdatametatableP9lua_Statei(ptr noundef %0, i32 noundef 12)
   %7 = tail call noundef i32 @_Z16lua_setmetatableP9lua_Statei(ptr noundef %0, i32 noundef -2)
@@ -25807,13 +25807,13 @@ define internal noundef i32 @"_ZZ20setupUserdataHelpersP9lua_StateEN3$_18__invok
 _Z12lua_vec2_getP9lua_Statei.exit.i:              ; preds = %1
   %4 = tail call noundef ptr @_Z20lua_touserdatataggedP9lua_Stateii(ptr noundef %0, i32 noundef 2, i32 noundef 12)
   %.not.i9.i = icmp eq ptr %4, null
-  br i1 %.not.i9.i, label %5, label %"_ZZ20setupUserdataHelpersP9lua_StateENK3$_1clES0_.argprom.exit"
+  br i1 %.not.i9.i, label %5, label %"_ZZ20setupUserdataHelpersP9lua_StateENK3$_1clES0_.exit"
 
 5:                                                ; preds = %_Z12lua_vec2_getP9lua_Statei.exit.i
   tail call void @_Z15luaL_typeerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.56) #36
   unreachable
 
-"_ZZ20setupUserdataHelpersP9lua_StateENK3$_1clES0_.argprom.exit": ; preds = %_Z12lua_vec2_getP9lua_Statei.exit.i
+"_ZZ20setupUserdataHelpersP9lua_StateENK3$_1clES0_.exit": ; preds = %_Z12lua_vec2_getP9lua_Statei.exit.i
   %6 = tail call noundef ptr @_Z21lua_newuserdatataggedP9lua_Statemi(ptr noundef %0, i64 noundef 8, i32 noundef 12)
   tail call void @_Z24lua_getuserdatametatableP9lua_Statei(ptr noundef %0, i32 noundef 12)
   %7 = tail call noundef i32 @_Z16lua_setmetatableP9lua_Statei(ptr noundef %0, i32 noundef -2)
@@ -25844,13 +25844,13 @@ define internal noundef i32 @"_ZZ20setupUserdataHelpersP9lua_StateEN3$_28__invok
 _Z12lua_vec2_getP9lua_Statei.exit.i:              ; preds = %1
   %4 = tail call noundef ptr @_Z20lua_touserdatataggedP9lua_Stateii(ptr noundef %0, i32 noundef 2, i32 noundef 12)
   %.not.i9.i = icmp eq ptr %4, null
-  br i1 %.not.i9.i, label %5, label %"_ZZ20setupUserdataHelpersP9lua_StateENK3$_2clES0_.argprom.exit"
+  br i1 %.not.i9.i, label %5, label %"_ZZ20setupUserdataHelpersP9lua_StateENK3$_2clES0_.exit"
 
 5:                                                ; preds = %_Z12lua_vec2_getP9lua_Statei.exit.i
   tail call void @_Z15luaL_typeerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.56) #36
   unreachable
 
-"_ZZ20setupUserdataHelpersP9lua_StateENK3$_2clES0_.argprom.exit": ; preds = %_Z12lua_vec2_getP9lua_Statei.exit.i
+"_ZZ20setupUserdataHelpersP9lua_StateENK3$_2clES0_.exit": ; preds = %_Z12lua_vec2_getP9lua_Statei.exit.i
   %6 = tail call noundef ptr @_Z21lua_newuserdatataggedP9lua_Statemi(ptr noundef %0, i64 noundef 8, i32 noundef 12)
   tail call void @_Z24lua_getuserdatametatableP9lua_Statei(ptr noundef %0, i32 noundef 12)
   %7 = tail call noundef i32 @_Z16lua_setmetatableP9lua_Statei(ptr noundef %0, i32 noundef -2)
@@ -25881,13 +25881,13 @@ define internal noundef i32 @"_ZZ20setupUserdataHelpersP9lua_StateEN3$_38__invok
 _Z12lua_vec2_getP9lua_Statei.exit.i:              ; preds = %1
   %4 = tail call noundef ptr @_Z20lua_touserdatataggedP9lua_Stateii(ptr noundef %0, i32 noundef 2, i32 noundef 12)
   %.not.i9.i = icmp eq ptr %4, null
-  br i1 %.not.i9.i, label %5, label %"_ZZ20setupUserdataHelpersP9lua_StateENK3$_3clES0_.argprom.exit"
+  br i1 %.not.i9.i, label %5, label %"_ZZ20setupUserdataHelpersP9lua_StateENK3$_3clES0_.exit"
 
 5:                                                ; preds = %_Z12lua_vec2_getP9lua_Statei.exit.i
   tail call void @_Z15luaL_typeerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.56) #36
   unreachable
 
-"_ZZ20setupUserdataHelpersP9lua_StateENK3$_3clES0_.argprom.exit": ; preds = %_Z12lua_vec2_getP9lua_Statei.exit.i
+"_ZZ20setupUserdataHelpersP9lua_StateENK3$_3clES0_.exit": ; preds = %_Z12lua_vec2_getP9lua_Statei.exit.i
   %6 = tail call noundef ptr @_Z21lua_newuserdatataggedP9lua_Statemi(ptr noundef %0, i64 noundef 8, i32 noundef 12)
   tail call void @_Z24lua_getuserdatametatableP9lua_Statei(ptr noundef %0, i32 noundef 12)
   %7 = tail call noundef i32 @_Z16lua_setmetatableP9lua_Statei(ptr noundef %0, i32 noundef -2)
@@ -25909,13 +25909,13 @@ _Z12lua_vec2_getP9lua_Statei.exit.i:              ; preds = %1
 define internal noundef i32 @"_ZZ20setupUserdataHelpersP9lua_StateEN3$_48__invokeES0_"(ptr noundef %0) #4 align 2 {
   %2 = tail call noundef ptr @_Z20lua_touserdatataggedP9lua_Stateii(ptr noundef %0, i32 noundef 1, i32 noundef 12)
   %.not.i.i = icmp eq ptr %2, null
-  br i1 %.not.i.i, label %3, label %"_ZZ20setupUserdataHelpersP9lua_StateENK3$_4clES0_.argprom.exit"
+  br i1 %.not.i.i, label %3, label %"_ZZ20setupUserdataHelpersP9lua_StateENK3$_4clES0_.exit"
 
 3:                                                ; preds = %1
   tail call void @_Z15luaL_typeerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.56) #36
   unreachable
 
-"_ZZ20setupUserdataHelpersP9lua_StateENK3$_4clES0_.argprom.exit": ; preds = %1
+"_ZZ20setupUserdataHelpersP9lua_StateENK3$_4clES0_.exit": ; preds = %1
   %4 = tail call noundef ptr @_Z21lua_newuserdatataggedP9lua_Statemi(ptr noundef %0, i64 noundef 8, i32 noundef 12)
   tail call void @_Z24lua_getuserdatametatableP9lua_Statei(ptr noundef %0, i32 noundef 12)
   %5 = tail call noundef i32 @_Z16lua_setmetatableP9lua_Statei(ptr noundef %0, i32 noundef -2)
@@ -28171,13 +28171,13 @@ define internal noundef i32 @"_ZZZL20DOCTEST_ANON_FUNC_18vENK3$_0clEP9lua_StateE
   %5 = tail call noundef i32 @_Z18luaL_checkunsignedP9lua_Statei(ptr noundef %0, i32 noundef 1)
   %6 = zext i32 %5 to i64
   %7 = inttoptr i64 %6 to ptr
-  br label %"_ZZZL20DOCTEST_ANON_FUNC_18vENK3$_0clEP9lua_StateENKUlS1_E_clES1_.argprom.exit"
+  br label %"_ZZZL20DOCTEST_ANON_FUNC_18vENK3$_0clEP9lua_StateENKUlS1_E_clES1_.exit"
 
 8:                                                ; preds = %1
   %9 = tail call noundef ptr @_Z13lua_topointerP9lua_Statei(ptr noundef %0, i32 noundef 1)
-  br label %"_ZZZL20DOCTEST_ANON_FUNC_18vENK3$_0clEP9lua_StateENKUlS1_E_clES1_.argprom.exit"
+  br label %"_ZZZL20DOCTEST_ANON_FUNC_18vENK3$_0clEP9lua_StateENKUlS1_E_clES1_.exit"
 
-"_ZZZL20DOCTEST_ANON_FUNC_18vENK3$_0clEP9lua_StateENKUlS1_E_clES1_.argprom.exit": ; preds = %4, %8
+"_ZZZL20DOCTEST_ANON_FUNC_18vENK3$_0clEP9lua_StateENKUlS1_E_clES1_.exit": ; preds = %4, %8
   %.sink.i = phi ptr [ %9, %8 ], [ %7, %4 ]
   tail call void @_Z27lua_pushlightuserdatataggedP9lua_StatePvi(ptr noundef %0, ptr noundef %.sink.i, i32 noundef 0)
   ret i32 1
@@ -28724,7 +28724,7 @@ _ZN4Luau15FrontendOptionsD2Ev.exit.i:             ; preds = %_ZNSt16_Sp_counted_
 
 ._crit_edge.i:                                    ; preds = %66, %56
   invoke void @_Z12lua_setfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -10002, ptr noundef nonnull @.str.270)
-          to label %"_ZZL20DOCTEST_ANON_FUNC_72vENK3$_0clEP9lua_State.argprom.exit" unwind label %.loopexit.split-lp.i
+          to label %"_ZZL20DOCTEST_ANON_FUNC_72vENK3$_0clEP9lua_State.exit" unwind label %.loopexit.split-lp.i
 
 71:                                               ; preds = %69, %.loopexit.split-lp.i, %.loopexit.i
   %.pn.i = phi { ptr, i32 } [ %70, %69 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
@@ -28737,7 +28737,7 @@ _ZN4Luau15FrontendOptionsD2Ev.exit.i:             ; preds = %_ZNSt16_Sp_counted_
   call void @_ZN4Luau6ConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %7) #37
   resume { ptr, i32 } %.pn.pn.i
 
-"_ZZL20DOCTEST_ANON_FUNC_72vENK3$_0clEP9lua_State.argprom.exit": ; preds = %._crit_edge.i
+"_ZZL20DOCTEST_ANON_FUNC_72vENK3$_0clEP9lua_State.exit": ; preds = %._crit_edge.i
   call void @_ZN4Luau8FrontendD2Ev(ptr noundef nonnull align 8 dereferenceable(1744) %4) #37
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4Luau18NullConfigResolverE, i64 16), ptr %3, align 8
   call void @_ZN4Luau6ConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %7) #37
@@ -31452,13 +31452,13 @@ define internal void @"_ZZZL20DOCTEST_ANON_FUNC_78vENK3$_0clEP9lua_StateENUlS1_P
   %6 = load i32, ptr @_ZZL20DOCTEST_ANON_FUNC_78vE9breakhits, align 4
   %7 = and i32 %6, -2147483647
   %8 = icmp eq i32 %7, 1
-  br i1 %8, label %9, label %"_ZZZL20DOCTEST_ANON_FUNC_78vENK3$_0clEP9lua_StateENKUlS1_P9lua_DebugE0_clES1_S3_.argprom.exit"
+  br i1 %8, label %9, label %"_ZZZL20DOCTEST_ANON_FUNC_78vENK3$_0clEP9lua_StateENKUlS1_P9lua_DebugE0_clES1_S3_.exit"
 
 9:                                                ; preds = %2
   %10 = tail call noundef i32 @_Z9lua_breakP9lua_State(ptr noundef %0)
-  br label %"_ZZZL20DOCTEST_ANON_FUNC_78vENK3$_0clEP9lua_StateENKUlS1_P9lua_DebugE0_clES1_S3_.argprom.exit"
+  br label %"_ZZZL20DOCTEST_ANON_FUNC_78vENK3$_0clEP9lua_StateENKUlS1_P9lua_DebugE0_clES1_S3_.exit"
 
-"_ZZZL20DOCTEST_ANON_FUNC_78vENK3$_0clEP9lua_StateENKUlS1_P9lua_DebugE0_clES1_S3_.argprom.exit": ; preds = %2, %9
+"_ZZZL20DOCTEST_ANON_FUNC_78vENK3$_0clEP9lua_StateENKUlS1_P9lua_DebugE0_clES1_S3_.exit": ; preds = %2, %9
   ret void
 }
 
@@ -31662,7 +31662,7 @@ define internal void @"_ZZZL20DOCTEST_ANON_FUNC_78vENK3$_0clEP9lua_StateENUlS1_P
 
 71:                                               ; preds = %66, %65
   invoke void @_ZNK7doctest6detail13ResultBuilder5reactEv(ptr noundef nonnull align 8 dereferenceable(144) %9)
-          to label %"_ZZZL20DOCTEST_ANON_FUNC_78vENK3$_0clEP9lua_StateENKUlS1_P9lua_DebugE1_clES1_S3_.argprom.exit" unwind label %69
+          to label %"_ZZZL20DOCTEST_ANON_FUNC_78vENK3$_0clEP9lua_StateENKUlS1_P9lua_DebugE1_clES1_S3_.exit" unwind label %69
 
 72:                                               ; preds = %69, %67
   %.pn11.i = phi { ptr, i32 } [ %70, %69 ], [ %68, %67 ]
@@ -31680,7 +31680,7 @@ define internal void @"_ZZZL20DOCTEST_ANON_FUNC_78vENK3$_0clEP9lua_StateENUlS1_P
   call void @__clang_call_terminate(ptr %76) #38
   unreachable
 
-"_ZZZL20DOCTEST_ANON_FUNC_78vENK3$_0clEP9lua_StateENKUlS1_P9lua_DebugE1_clES1_S3_.argprom.exit": ; preds = %71
+"_ZZZL20DOCTEST_ANON_FUNC_78vENK3$_0clEP9lua_StateENKUlS1_P9lua_DebugE1_clES1_S3_.exit": ; preds = %71
   %77 = getelementptr inbounds i8, ptr %9, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %77) #37
   %78 = getelementptr inbounds i8, ptr %9, i64 72
@@ -31972,12 +31972,12 @@ declare noundef i32 @_Z14lua_breakpointP9lua_Stateiii(ptr noundef, i32 noundef, 
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZZL20DOCTEST_ANON_FUNC_78vEN3$_18__invokeEP9lua_State"(ptr noundef %0) #4 align 2 {
-  tail call fastcc void @"_ZZL20DOCTEST_ANON_FUNC_78vENK3$_1clEP9lua_State.argprom"(ptr noundef %0)
+  tail call fastcc void @"_ZZL20DOCTEST_ANON_FUNC_78vENK3$_1clEP9lua_State"(ptr noundef %0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZL20DOCTEST_ANON_FUNC_78vENK3$_1clEP9lua_State.argprom"(ptr noundef %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZL20DOCTEST_ANON_FUNC_78vENK3$_1clEP9lua_State"(ptr noundef %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.doctest::detail::ResultBuilder", align 8
   %3 = alloca %"class.doctest::String", align 8
   %4 = alloca %"struct.doctest::detail::Result", align 8
@@ -35868,7 +35868,7 @@ define internal void @"_ZZL20DOCTEST_ANON_FUNC_82vEN3$_08__invokeEP9lua_State"(p
 
 148:                                              ; preds = %143, %142
   invoke void @_ZNK7doctest6detail13ResultBuilder5reactEv(ptr noundef nonnull align 8 dereferenceable(144) %20)
-          to label %"_ZZL20DOCTEST_ANON_FUNC_82vENK3$_0clEP9lua_State.argprom.exit" unwind label %146
+          to label %"_ZZL20DOCTEST_ANON_FUNC_82vENK3$_0clEP9lua_State.exit" unwind label %146
 
 149:                                              ; preds = %146, %144
   %.pn24.i = phi { ptr, i32 } [ %147, %146 ], [ %145, %144 ]
@@ -35886,7 +35886,7 @@ define internal void @"_ZZL20DOCTEST_ANON_FUNC_82vEN3$_08__invokeEP9lua_State"(p
   call void @__clang_call_terminate(ptr %153) #38
   unreachable
 
-"_ZZL20DOCTEST_ANON_FUNC_82vENK3$_0clEP9lua_State.argprom.exit": ; preds = %148
+"_ZZL20DOCTEST_ANON_FUNC_82vENK3$_0clEP9lua_State.exit": ; preds = %148
   %154 = getelementptr inbounds i8, ptr %20, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %154) #37
   %155 = getelementptr inbounds i8, ptr %20, i64 72
@@ -36926,15 +36926,15 @@ declare noundef ptr @_Z16lua_tostringatomP9lua_StateiPi(ptr noundef, i32 noundef
 define internal noundef signext range(i16 -1, 2) i16 @"_ZZL20DOCTEST_ANON_FUNC_98vEN3$_08__invokeEPKcm"(ptr nocapture noundef readonly %0, i64 %1) #21 align 2 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.274) #35
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %"_ZZL20DOCTEST_ANON_FUNC_98vENK3$_0clEPKcm.argprom.exit", label %5
+  br i1 %4, label %"_ZZL20DOCTEST_ANON_FUNC_98vENK3$_0clEPKcm.exit", label %5
 
 5:                                                ; preds = %2
   %6 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(10) @.str.374) #35
   %7 = icmp eq i32 %6, 0
   %..i = select i1 %7, i16 1, i16 -1
-  br label %"_ZZL20DOCTEST_ANON_FUNC_98vENK3$_0clEPKcm.argprom.exit"
+  br label %"_ZZL20DOCTEST_ANON_FUNC_98vENK3$_0clEPKcm.exit"
 
-"_ZZL20DOCTEST_ANON_FUNC_98vENK3$_0clEPKcm.argprom.exit": ; preds = %2, %5
+"_ZZL20DOCTEST_ANON_FUNC_98vENK3$_0clEPKcm.exit": ; preds = %2, %5
   %.0.i = phi i16 [ 0, %2 ], [ %..i, %5 ]
   ret i16 %.0.i
 }
@@ -37682,7 +37682,7 @@ _ZN7doctest8toStringIPiTnNS_6detail5types9enable_ifIXntsr6detail5types7is_enumIT
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZL21DOCTEST_ANON_FUNC_106vENK3$_0clEP9lua_StatePKc.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZL21DOCTEST_ANON_FUNC_106vENK3$_0clEP9lua_StatePKc"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.doctest::detail::ResultBuilder", align 8
   %5 = alloca %"class.doctest::String", align 8
   %6 = alloca %"struct.doctest::detail::Result", align 8
@@ -38780,11 +38780,11 @@ _ZL26getFirstLuauFrameDebugInfoP9lua_State.exit.i: ; preds = %33, %_ZSteqIcSt11c
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %174) #37
   %175 = load i8, ptr @_ZZL21DOCTEST_ANON_FUNC_110vE8luaBreak, align 1
   %176 = trunc nuw i8 %175 to i1
-  br i1 %176, label %177, label %"_ZZZL21DOCTEST_ANON_FUNC_110vENK3$_0clEP9lua_StateENKUlS1_E_clES1_.argprom.exit"
+  br i1 %176, label %177, label %"_ZZZL21DOCTEST_ANON_FUNC_110vENK3$_0clEP9lua_StateENKUlS1_E_clES1_.exit"
 
 177:                                              ; preds = %171
   %178 = call noundef i32 @_Z9lua_breakP9lua_State(ptr noundef %0)
-  br label %"_ZZZL21DOCTEST_ANON_FUNC_110vENK3$_0clEP9lua_StateENKUlS1_E_clES1_.argprom.exit"
+  br label %"_ZZZL21DOCTEST_ANON_FUNC_110vENK3$_0clEP9lua_StateENKUlS1_E_clES1_.exit"
 
 179:                                              ; preds = %168, %166
   %.pn22.i = phi { ptr, i32 } [ %169, %168 ], [ %167, %166 ]
@@ -38802,7 +38802,7 @@ _ZL26getFirstLuauFrameDebugInfoP9lua_State.exit.i: ; preds = %33, %_ZSteqIcSt11c
   call void @__clang_call_terminate(ptr %183) #38
   unreachable
 
-"_ZZZL21DOCTEST_ANON_FUNC_110vENK3$_0clEP9lua_StateENKUlS1_E_clES1_.argprom.exit": ; preds = %171, %177
+"_ZZZL21DOCTEST_ANON_FUNC_110vENK3$_0clEP9lua_StateENKUlS1_E_clES1_.exit": ; preds = %171, %177
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
@@ -39064,13 +39064,13 @@ define internal void @"_ZZL21DOCTEST_ANON_FUNC_112vEN3$_08__invokeEP9lua_State"(
 define internal noundef i32 @"_ZZZL21DOCTEST_ANON_FUNC_112vENK3$_0clEP9lua_StateENUlS1_E_8__invokeES1_"(ptr noundef %0) #4 align 2 {
   %2 = tail call noundef i32 @_Z15lua_isLfunctionP9lua_Statei(ptr noundef %0, i32 noundef 1)
   %.not.i = icmp eq i32 %2, 0
-  br i1 %.not.i, label %3, label %"_ZZZL21DOCTEST_ANON_FUNC_112vENK3$_0clEP9lua_StateENKUlS1_E_clES1_.argprom.exit"
+  br i1 %.not.i, label %3, label %"_ZZZL21DOCTEST_ANON_FUNC_112vENK3$_0clEP9lua_StateENKUlS1_E_clES1_.exit"
 
 3:                                                ; preds = %1
   tail call void @_Z15luaL_typeerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.277) #36
   unreachable
 
-"_ZZZL21DOCTEST_ANON_FUNC_112vENK3$_0clEP9lua_StateENKUlS1_E_clES1_.argprom.exit": ; preds = %1
+"_ZZZL21DOCTEST_ANON_FUNC_112vENK3$_0clEP9lua_StateENKUlS1_E_clES1_.exit": ; preds = %1
   tail call void @_Z15lua_createtableP9lua_Stateii(ptr noundef %0, i32 noundef 0, i32 noundef 0)
   tail call void @_Z15lua_getcoverageP9lua_StateiPvPFvS1_PKciiPKimE(ptr noundef %0, i32 noundef 1, ptr noundef %0, ptr noundef nonnull @"_ZZZZL21DOCTEST_ANON_FUNC_112vENK3$_0clEP9lua_StateENKUlS1_E_clES1_ENUlPvPKciiPKimE_8__invokeES3_S5_iiS7_m")
   ret i32 1
@@ -39088,7 +39088,7 @@ define internal void @"_ZZZZL21DOCTEST_ANON_FUNC_112vENK3$_0clEP9lua_StateENKUlS
   tail call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %3)
   tail call void @_Z12lua_setfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.435)
   %.not2.i = icmp eq i64 %5, 0
-  br i1 %.not2.i, label %"_ZZZZL21DOCTEST_ANON_FUNC_112vENK3$_0clEP9lua_StateENKUlS1_E_clES1_ENKUlPvPKciiPKimE_clES3_S5_iiS7_m.argprom.exit", label %.lr.ph.i
+  br i1 %.not2.i, label %"_ZZZZL21DOCTEST_ANON_FUNC_112vENK3$_0clEP9lua_StateENKUlS1_E_clES1_ENKUlPvPKciiPKimE_clES3_S5_iiS7_m.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6, %11
   %.01.i = phi i64 [ %12, %11 ], [ 0, %6 ]
@@ -39106,9 +39106,9 @@ define internal void @"_ZZZZL21DOCTEST_ANON_FUNC_112vENK3$_0clEP9lua_StateENKUlS
 11:                                               ; preds = %9, %.lr.ph.i
   %12 = add nuw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %12, %5
-  br i1 %exitcond.not.i, label %"_ZZZZL21DOCTEST_ANON_FUNC_112vENK3$_0clEP9lua_StateENKUlS1_E_clES1_ENKUlPvPKciiPKimE_clES3_S5_iiS7_m.argprom.exit", label %.lr.ph.i, !llvm.loop !390
+  br i1 %exitcond.not.i, label %"_ZZZZL21DOCTEST_ANON_FUNC_112vENK3$_0clEP9lua_StateENKUlS1_E_clES1_ENKUlPvPKciiPKimE_clES3_S5_iiS7_m.exit", label %.lr.ph.i, !llvm.loop !390
 
-"_ZZZZL21DOCTEST_ANON_FUNC_112vENK3$_0clEP9lua_StateENKUlS1_E_clES1_ENKUlPvPKciiPKimE_clES3_S5_iiS7_m.argprom.exit": ; preds = %11, %6
+"_ZZZZL21DOCTEST_ANON_FUNC_112vENK3$_0clEP9lua_StateENKUlS1_E_clES1_ENKUlPvPKciiPKimE_clES3_S5_iiS7_m.exit": ; preds = %11, %6
   %13 = tail call noundef i32 @_Z10lua_objlenP9lua_Statei(ptr noundef %0, i32 noundef -2)
   %14 = add nsw i32 %13, 1
   tail call void @_Z11lua_rawsetiP9lua_Stateii(ptr noundef %0, i32 noundef -2, i32 noundef %14)
@@ -39411,7 +39411,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %63 = mul i64 %62, 3
   %64 = lshr i64 %63, 2
   %.not.i.i.i = icmp ult i64 %60, %64
-  br i1 %.not.i.i.i, label %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERS6_.argprom.exit.i.i, label %65
+  br i1 %.not.i.i.i, label %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERS6_.exit.i.i, label %65
 
 65:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
   %66 = icmp eq i64 %60, 0
@@ -39439,7 +39439,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %77 = getelementptr inbounds %"struct.std::pair.685", ptr %75, i64 %.0163.i.i.i.i
   %78 = load ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, %1
-  br i1 %79, label %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERS6_.argprom.exit.i.i, label %80
+  br i1 %79, label %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERS6_.exit.i.i, label %80
 
 80:                                               ; preds = %76
   %81 = icmp eq ptr %78, %.pre.i.i.i
@@ -39514,17 +39514,17 @@ _ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %105
   %113 = icmp eq ptr %111, %102
-  br i1 %113, label %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE13insert_unsafeERS6_.argprom.exit.i.i.i.i, label %.lr.ph.i.i.i
+  br i1 %113, label %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE13insert_unsafeERS6_.exit.i.i.i.i, label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i, %105
   %.lcssa.i.i.i.i = phi ptr [ %110, %105 ], [ %117, %.lr.ph.i.i.i ]
   store ptr %102, ptr %.lcssa.i.i.i.i, align 8
   %.pre31.i.i.i.i = load ptr, ptr %101, align 8
-  br label %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE13insert_unsafeERS6_.argprom.exit.i.i.i.i
+  br label %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE13insert_unsafeERS6_.exit.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i
   %114 = icmp eq ptr %118, %102
-  br i1 %114, label %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE13insert_unsafeERS6_.argprom.exit.i.i.i.i, label %.lr.ph.i.i.i
+  br i1 %114, label %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE13insert_unsafeERS6_.exit.i.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.preheader.i.i.i, %.lr.ph.i.i.i.i
   %.0172.i16.i7.i.i.i = phi i64 [ %115, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i.i ]
@@ -39539,7 +39539,7 @@ _ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3
   %119 = icmp eq ptr %118, %85
   br i1 %119, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
-_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE13insert_unsafeERS6_.argprom.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i, %._crit_edge.i.i.i.i, %.lr.ph.i.preheader.i.i.i
+_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE13insert_unsafeERS6_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i, %._crit_edge.i.i.i.i, %.lr.ph.i.preheader.i.i.i
   %120 = phi ptr [ %.pre31.i.i.i.i, %._crit_edge.i.i.i.i ], [ %102, %.lr.ph.i.preheader.i.i.i ], [ %102, %.lr.ph.i.i.i.i ]
   %121 = phi ptr [ %.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %110, %.lr.ph.i.preheader.i.i.i ], [ %117, %.lr.ph.i.i.i.i ]
   store ptr %120, ptr %121, align 8
@@ -39552,8 +39552,8 @@ _ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3
   %.pre32.i.i.i.i = load i64, ptr %61, align 8
   br label %127
 
-127:                                              ; preds = %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE13insert_unsafeERS6_.argprom.exit.i.i.i.i, %98
-  %128 = phi i64 [ %99, %98 ], [ %.pre32.i.i.i.i, %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE13insert_unsafeERS6_.argprom.exit.i.i.i.i ]
+127:                                              ; preds = %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE13insert_unsafeERS6_.exit.i.i.i.i, %98
+  %128 = phi i64 [ %99, %98 ], [ %.pre32.i.i.i.i, %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE13insert_unsafeERS6_.exit.i.i.i.i ]
   %129 = add nuw i64 %.018.i.i.i.i, 1
   %130 = icmp ult i64 %129, %128
   br i1 %130, label %98, label %._crit_edge20.i.i.i.i, !llvm.loop !401
@@ -39563,14 +39563,14 @@ _ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3
   store ptr %.sroa.0.0.i.i.i.i, ptr %0, align 8
   store i64 %spec.select.i.i.i.i, ptr %61, align 8
   %.not.i12.i.i.i.i = icmp eq ptr %131, null
-  br i1 %.not.i12.i.i.i.i, label %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERS6_.argprom.exit.i.i, label %133
+  br i1 %.not.i12.i.i.i.i, label %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERS6_.exit.i.i, label %133
 
 ._crit_edge20.thread.i.i.i.i:                     ; preds = %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EEC2ERS6_m.exit.i.i.i.i
   %132 = load ptr, ptr %0, align 8
   store ptr %.sroa.0.0.i.i.i.i, ptr %0, align 8
   store i64 %spec.select.i.i.i.i, ptr %61, align 8
   %.not.i1234.i.i.i.i = icmp eq ptr %132, null
-  br i1 %.not.i1234.i.i.i.i, label %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERS6_.argprom.exit.i.i, label %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE7destroyEv.exit.i.i.i.i.i
+  br i1 %.not.i1234.i.i.i.i, label %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERS6_.exit.i.i, label %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE7destroyEv.exit.i.i.i.i.i
 
 133:                                              ; preds = %._crit_edge20.i.i.i.i
   %.not.i.i.i.i.i.i.i = icmp eq i64 %128, 0
@@ -39588,9 +39588,9 @@ _ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3
   %136 = phi ptr [ %131, %133 ], [ %132, %._crit_edge20.thread.i.i.i.i ], [ %131, %.lr.ph.i.i.i.i.i.i.i ]
   call void @_ZdlPv(ptr noundef nonnull %136) #37
   %.pre.i.i = load i64, ptr %61, align 8
-  br label %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERS6_.argprom.exit.i.i
+  br label %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERS6_.exit.i.i
 
-_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERS6_.argprom.exit.i.i: ; preds = %76, %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE7destroyEv.exit.i.i.i.i.i, %._crit_edge20.thread.i.i.i.i, %._crit_edge20.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
+_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERS6_.exit.i.i: ; preds = %76, %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE7destroyEv.exit.i.i.i.i.i, %._crit_edge20.thread.i.i.i.i, %._crit_edge20.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
   %137 = phi i64 [ %62, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i ], [ %spec.select.i.i.i.i, %._crit_edge20.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge20.thread.i.i.i.i ], [ %.pre.i.i, %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE7destroyEv.exit.i.i.i.i.i ], [ %62, %76 ]
   %138 = add i64 %137, -1
   %139 = ptrtoint ptr %1 to i64
@@ -39606,21 +39606,21 @@ _ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3
   %148 = icmp eq ptr %147, %145
   br i1 %148, label %._crit_edge.i.i, label %.lr.ph.i.preheader.i
 
-.lr.ph.i.preheader.i:                             ; preds = %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERS6_.argprom.exit.i.i
+.lr.ph.i.preheader.i:                             ; preds = %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERS6_.exit.i.i
   %149 = icmp eq ptr %147, %1
-  br i1 %149, label %"_ZZL21DOCTEST_ANON_FUNC_116vENK3$_0clEPvS0_hhmPKc.argprom.exit", label %.lr.ph.i
+  br i1 %149, label %"_ZZL21DOCTEST_ANON_FUNC_116vENK3$_0clEPvS0_hhmPKc.exit", label %.lr.ph.i
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i, %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERS6_.argprom.exit.i.i
-  %.lcssa.i.i = phi ptr [ %146, %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERS6_.argprom.exit.i.i ], [ %155, %.lr.ph.i ]
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i, %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERS6_.exit.i.i
+  %.lcssa.i.i = phi ptr [ %146, %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERS6_.exit.i.i ], [ %155, %.lr.ph.i ]
   store ptr %1, ptr %.lcssa.i.i, align 8
   %150 = load i64, ptr %59, align 8
   %151 = add i64 %150, 1
   store i64 %151, ptr %59, align 8
-  br label %"_ZZL21DOCTEST_ANON_FUNC_116vENK3$_0clEPvS0_hhmPKc.argprom.exit"
+  br label %"_ZZL21DOCTEST_ANON_FUNC_116vENK3$_0clEPvS0_hhmPKc.exit"
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i
   %152 = icmp eq ptr %156, %1
-  br i1 %152, label %"_ZZL21DOCTEST_ANON_FUNC_116vENK3$_0clEPvS0_hhmPKc.argprom.exit", label %.lr.ph.i
+  br i1 %152, label %"_ZZL21DOCTEST_ANON_FUNC_116vENK3$_0clEPvS0_hhmPKc.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader.i, %.lr.ph.i.i
   %.0172.i11.i7.i = phi i64 [ %153, %.lr.ph.i.i ], [ 0, %.lr.ph.i.preheader.i ]
@@ -39662,7 +39662,7 @@ _ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3
   call void @__clang_call_terminate(ptr %165) #38
   unreachable
 
-"_ZZL21DOCTEST_ANON_FUNC_116vENK3$_0clEPvS0_hhmPKc.argprom.exit": ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i, %._crit_edge.i.i
+"_ZZL21DOCTEST_ANON_FUNC_116vENK3$_0clEPvS0_hhmPKc.exit": ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i, %._crit_edge.i.i
   %166 = phi ptr [ %.lcssa.i.i, %._crit_edge.i.i ], [ %146, %.lr.ph.i.preheader.i ], [ %155, %.lr.ph.i.i ]
   %167 = getelementptr inbounds i8, ptr %166, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %167, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
@@ -40090,7 +40090,7 @@ define internal void @"_ZZL21DOCTEST_ANON_FUNC_118vEN3$_08__invokeEP9lua_Statei"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   %15 = icmp sgt i32 %1, -1
-  br i1 %15, label %"_ZZL21DOCTEST_ANON_FUNC_118vENK3$_0clEP9lua_Statei.argprom.exit", label %16
+  br i1 %15, label %"_ZZL21DOCTEST_ANON_FUNC_118vENK3$_0clEP9lua_Statei.exit", label %16
 
 16:                                               ; preds = %2
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull @.str)
@@ -40285,11 +40285,11 @@ define internal void @"_ZZL21DOCTEST_ANON_FUNC_118vEN3$_08__invokeEP9lua_Statei"
   %84 = add nsw i32 %83, 1
   store i32 %84, ptr @_ZZL21DOCTEST_ANON_FUNC_118vE5index, align 4
   %85 = icmp eq i32 %84, 4
-  br i1 %85, label %86, label %"_ZZL21DOCTEST_ANON_FUNC_118vENK3$_0clEP9lua_Statei.argprom.exit"
+  br i1 %85, label %86, label %"_ZZL21DOCTEST_ANON_FUNC_118vENK3$_0clEP9lua_Statei.exit"
 
 86:                                               ; preds = %79
   %87 = call noundef i32 @_Z9lua_yieldP9lua_Statei(ptr noundef %0, i32 noundef 0)
-  br label %"_ZZL21DOCTEST_ANON_FUNC_118vENK3$_0clEP9lua_Statei.argprom.exit"
+  br label %"_ZZL21DOCTEST_ANON_FUNC_118vENK3$_0clEP9lua_Statei.exit"
 
 88:                                               ; preds = %76, %74
   %.pn12.i = phi { ptr, i32 } [ %77, %76 ], [ %75, %74 ]
@@ -40307,7 +40307,7 @@ define internal void @"_ZZL21DOCTEST_ANON_FUNC_118vEN3$_08__invokeEP9lua_Statei"
   call void @__clang_call_terminate(ptr %92) #38
   unreachable
 
-"_ZZL21DOCTEST_ANON_FUNC_118vENK3$_0clEP9lua_Statei.argprom.exit": ; preds = %2, %79, %86
+"_ZZL21DOCTEST_ANON_FUNC_118vENK3$_0clEP9lua_Statei.exit": ; preds = %2, %79, %86
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
@@ -40399,7 +40399,7 @@ define internal void @"_ZZL21DOCTEST_ANON_FUNC_118vEN3$_18__invokeEP9lua_Statei"
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %9 = icmp sgt i32 %1, -1
-  br i1 %9, label %"_ZZL21DOCTEST_ANON_FUNC_118vENK3$_1clEP9lua_Statei.argprom.exit", label %10
+  br i1 %9, label %"_ZZL21DOCTEST_ANON_FUNC_118vENK3$_1clEP9lua_Statei.exit", label %10
 
 10:                                               ; preds = %2
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull @.str)
@@ -40495,11 +40495,11 @@ define internal void @"_ZZL21DOCTEST_ANON_FUNC_118vEN3$_18__invokeEP9lua_Statei"
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr @_ZZL21DOCTEST_ANON_FUNC_118vE5index, align 4
   %43 = icmp eq i32 %42, 11
-  br i1 %43, label %44, label %"_ZZL21DOCTEST_ANON_FUNC_118vENK3$_1clEP9lua_Statei.argprom.exit"
+  br i1 %43, label %44, label %"_ZZL21DOCTEST_ANON_FUNC_118vENK3$_1clEP9lua_Statei.exit"
 
 44:                                               ; preds = %37
   %45 = call noundef i32 @_Z9lua_yieldP9lua_Statei(ptr noundef %0, i32 noundef 0)
-  br label %"_ZZL21DOCTEST_ANON_FUNC_118vENK3$_1clEP9lua_Statei.argprom.exit"
+  br label %"_ZZL21DOCTEST_ANON_FUNC_118vENK3$_1clEP9lua_Statei.exit"
 
 46:                                               ; preds = %34, %32
   %.pn6.i = phi { ptr, i32 } [ %35, %34 ], [ %33, %32 ]
@@ -40517,7 +40517,7 @@ define internal void @"_ZZL21DOCTEST_ANON_FUNC_118vEN3$_18__invokeEP9lua_Statei"
   call void @__clang_call_terminate(ptr %50) #38
   unreachable
 
-"_ZZL21DOCTEST_ANON_FUNC_118vENK3$_1clEP9lua_Statei.argprom.exit": ; preds = %2, %37, %44
+"_ZZL21DOCTEST_ANON_FUNC_118vENK3$_1clEP9lua_Statei.exit": ; preds = %2, %37, %44
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
@@ -40534,21 +40534,21 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_construc
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZZL21DOCTEST_ANON_FUNC_118vEN3$_28__invokeEP9lua_Statei"(ptr noundef %0, i32 noundef %1) #4 align 2 {
   %3 = icmp sgt i32 %1, -1
-  br i1 %3, label %"_ZZL21DOCTEST_ANON_FUNC_118vENK3$_2clEP9lua_Statei.argprom.exit", label %4
+  br i1 %3, label %"_ZZL21DOCTEST_ANON_FUNC_118vENK3$_2clEP9lua_Statei.exit", label %4
 
 4:                                                ; preds = %2
   %5 = load i32, ptr @_ZZL21DOCTEST_ANON_FUNC_118vE5index, align 4
   %6 = add nsw i32 %5, 1
   store i32 %6, ptr @_ZZL21DOCTEST_ANON_FUNC_118vE5index, align 4
   %7 = icmp eq i32 %6, 1000
-  br i1 %7, label %8, label %"_ZZL21DOCTEST_ANON_FUNC_118vENK3$_2clEP9lua_Statei.argprom.exit"
+  br i1 %7, label %8, label %"_ZZL21DOCTEST_ANON_FUNC_118vENK3$_2clEP9lua_Statei.exit"
 
 8:                                                ; preds = %4
   store i32 0, ptr @_ZZL21DOCTEST_ANON_FUNC_118vE5index, align 4
   tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.458) #36
   unreachable
 
-"_ZZL21DOCTEST_ANON_FUNC_118vENK3$_2clEP9lua_Statei.argprom.exit": ; preds = %2, %4
+"_ZZL21DOCTEST_ANON_FUNC_118vENK3$_2clEP9lua_Statei.exit": ; preds = %2, %4
   ret void
 }
 
@@ -41182,13 +41182,13 @@ define internal noundef i32 @"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_State
   %5 = tail call noundef ptr @_Z17luaL_checklstringP9lua_StateiPm(ptr noundef %0, i32 noundef 2, ptr noundef null)
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(6) @.str.437) #35
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E_clES1_.argprom.exit", label %8
+  br i1 %7, label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E_clES1_.exit", label %8
 
 8:                                                ; preds = %4
   tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.502, ptr noundef %5) #36
   unreachable
 
-"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E_clES1_.argprom.exit": ; preds = %4
+"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E_clES1_.exit": ; preds = %4
   %9 = load i64, ptr %2, align 8
   %10 = sitofp i64 %9 to double
   tail call void @_Z14lua_pushnumberP9lua_Stated(ptr noundef %0, double noundef %10)
@@ -41209,13 +41209,13 @@ define internal noundef i32 @"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_State
   %5 = tail call noundef ptr @_Z17luaL_checklstringP9lua_StateiPm(ptr noundef %0, i32 noundef 2, ptr noundef null)
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(6) @.str.437) #35
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E0_clES1_.argprom.exit", label %8
+  br i1 %7, label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E0_clES1_.exit", label %8
 
 8:                                                ; preds = %4
   tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.502, ptr noundef %5) #36
   unreachable
 
-"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E0_clES1_.argprom.exit": ; preds = %4
+"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E0_clES1_.exit": ; preds = %4
   %9 = tail call noundef double @_Z16luaL_checknumberP9lua_Statei(ptr noundef %0, i32 noundef 3)
   %10 = fptosi double %9 to i64
   store i64 %10, ptr %2, align 8
@@ -41254,7 +41254,7 @@ _ZL8getInt64P9lua_Statei.exit.i:                  ; preds = %7, %3
 
 12:                                               ; preds = %_ZL8getInt64P9lua_Statei.exit.i
   %13 = load i64, ptr %11, align 8
-  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E1_clES1_.argprom.exit"
+  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E1_clES1_.exit"
 
 14:                                               ; preds = %_ZL8getInt64P9lua_Statei.exit.i
   %15 = tail call noundef i32 @_Z12lua_isnumberP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -41264,13 +41264,13 @@ _ZL8getInt64P9lua_Statei.exit.i:                  ; preds = %7, %3
 16:                                               ; preds = %14
   %17 = tail call noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef %0, i32 noundef 2, ptr noundef null)
   %18 = sext i32 %17 to i64
-  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E1_clES1_.argprom.exit"
+  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E1_clES1_.exit"
 
 19:                                               ; preds = %14
   tail call void @_Z15luaL_typeerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.493) #36
   unreachable
 
-"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E1_clES1_.argprom.exit": ; preds = %12, %16
+"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E1_clES1_.exit": ; preds = %12, %16
   %.0.i4.i = phi i64 [ %13, %12 ], [ %18, %16 ]
   %20 = icmp eq i64 %.0.i.i, %.0.i4.i
   %21 = zext i1 %20 to i32
@@ -41310,7 +41310,7 @@ _ZL8getInt64P9lua_Statei.exit.i:                  ; preds = %7, %3
 
 12:                                               ; preds = %_ZL8getInt64P9lua_Statei.exit.i
   %13 = load i64, ptr %11, align 8
-  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E2_clES1_.argprom.exit"
+  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E2_clES1_.exit"
 
 14:                                               ; preds = %_ZL8getInt64P9lua_Statei.exit.i
   %15 = tail call noundef i32 @_Z12lua_isnumberP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -41320,13 +41320,13 @@ _ZL8getInt64P9lua_Statei.exit.i:                  ; preds = %7, %3
 16:                                               ; preds = %14
   %17 = tail call noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef %0, i32 noundef 2, ptr noundef null)
   %18 = sext i32 %17 to i64
-  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E2_clES1_.argprom.exit"
+  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E2_clES1_.exit"
 
 19:                                               ; preds = %14
   tail call void @_Z15luaL_typeerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.493) #36
   unreachable
 
-"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E2_clES1_.argprom.exit": ; preds = %12, %16
+"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E2_clES1_.exit": ; preds = %12, %16
   %.0.i4.i = phi i64 [ %13, %12 ], [ %18, %16 ]
   %20 = icmp slt i64 %.0.i.i, %.0.i4.i
   %21 = zext i1 %20 to i32
@@ -41366,7 +41366,7 @@ _ZL8getInt64P9lua_Statei.exit.i:                  ; preds = %7, %3
 
 12:                                               ; preds = %_ZL8getInt64P9lua_Statei.exit.i
   %13 = load i64, ptr %11, align 8
-  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E3_clES1_.argprom.exit"
+  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E3_clES1_.exit"
 
 14:                                               ; preds = %_ZL8getInt64P9lua_Statei.exit.i
   %15 = tail call noundef i32 @_Z12lua_isnumberP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -41376,13 +41376,13 @@ _ZL8getInt64P9lua_Statei.exit.i:                  ; preds = %7, %3
 16:                                               ; preds = %14
   %17 = tail call noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef %0, i32 noundef 2, ptr noundef null)
   %18 = sext i32 %17 to i64
-  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E3_clES1_.argprom.exit"
+  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E3_clES1_.exit"
 
 19:                                               ; preds = %14
   tail call void @_Z15luaL_typeerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.493) #36
   unreachable
 
-"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E3_clES1_.argprom.exit": ; preds = %12, %16
+"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E3_clES1_.exit": ; preds = %12, %16
   %.0.i4.i = phi i64 [ %13, %12 ], [ %18, %16 ]
   %20 = icmp sle i64 %.0.i.i, %.0.i4.i
   %21 = zext i1 %20 to i32
@@ -41422,7 +41422,7 @@ _ZL8getInt64P9lua_Statei.exit.i:                  ; preds = %7, %3
 
 12:                                               ; preds = %_ZL8getInt64P9lua_Statei.exit.i
   %13 = load i64, ptr %11, align 8
-  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E4_clES1_.argprom.exit"
+  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E4_clES1_.exit"
 
 14:                                               ; preds = %_ZL8getInt64P9lua_Statei.exit.i
   %15 = tail call noundef i32 @_Z12lua_isnumberP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -41432,13 +41432,13 @@ _ZL8getInt64P9lua_Statei.exit.i:                  ; preds = %7, %3
 16:                                               ; preds = %14
   %17 = tail call noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef %0, i32 noundef 2, ptr noundef null)
   %18 = sext i32 %17 to i64
-  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E4_clES1_.argprom.exit"
+  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E4_clES1_.exit"
 
 19:                                               ; preds = %14
   tail call void @_Z15luaL_typeerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.493) #36
   unreachable
 
-"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E4_clES1_.argprom.exit": ; preds = %12, %16
+"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E4_clES1_.exit": ; preds = %12, %16
   %.0.i4.i = phi i64 [ %13, %12 ], [ %18, %16 ]
   %20 = add nsw i64 %.0.i4.i, %.0.i.i
   %21 = tail call noundef ptr @_Z21lua_newuserdatataggedP9lua_Statemi(ptr noundef %0, i64 noundef 8, i32 noundef 1)
@@ -41480,7 +41480,7 @@ _ZL8getInt64P9lua_Statei.exit.i:                  ; preds = %7, %3
 
 12:                                               ; preds = %_ZL8getInt64P9lua_Statei.exit.i
   %13 = load i64, ptr %11, align 8
-  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E5_clES1_.argprom.exit"
+  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E5_clES1_.exit"
 
 14:                                               ; preds = %_ZL8getInt64P9lua_Statei.exit.i
   %15 = tail call noundef i32 @_Z12lua_isnumberP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -41490,13 +41490,13 @@ _ZL8getInt64P9lua_Statei.exit.i:                  ; preds = %7, %3
 16:                                               ; preds = %14
   %17 = tail call noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef %0, i32 noundef 2, ptr noundef null)
   %18 = sext i32 %17 to i64
-  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E5_clES1_.argprom.exit"
+  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E5_clES1_.exit"
 
 19:                                               ; preds = %14
   tail call void @_Z15luaL_typeerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.493) #36
   unreachable
 
-"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E5_clES1_.argprom.exit": ; preds = %12, %16
+"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E5_clES1_.exit": ; preds = %12, %16
   %.0.i4.i = phi i64 [ %13, %12 ], [ %18, %16 ]
   %20 = sub nsw i64 %.0.i.i, %.0.i4.i
   %21 = tail call noundef ptr @_Z21lua_newuserdatataggedP9lua_Statemi(ptr noundef %0, i64 noundef 8, i32 noundef 1)
@@ -41538,7 +41538,7 @@ _ZL8getInt64P9lua_Statei.exit.i:                  ; preds = %7, %3
 
 12:                                               ; preds = %_ZL8getInt64P9lua_Statei.exit.i
   %13 = load i64, ptr %11, align 8
-  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E6_clES1_.argprom.exit"
+  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E6_clES1_.exit"
 
 14:                                               ; preds = %_ZL8getInt64P9lua_Statei.exit.i
   %15 = tail call noundef i32 @_Z12lua_isnumberP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -41548,13 +41548,13 @@ _ZL8getInt64P9lua_Statei.exit.i:                  ; preds = %7, %3
 16:                                               ; preds = %14
   %17 = tail call noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef %0, i32 noundef 2, ptr noundef null)
   %18 = sext i32 %17 to i64
-  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E6_clES1_.argprom.exit"
+  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E6_clES1_.exit"
 
 19:                                               ; preds = %14
   tail call void @_Z15luaL_typeerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.493) #36
   unreachable
 
-"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E6_clES1_.argprom.exit": ; preds = %12, %16
+"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E6_clES1_.exit": ; preds = %12, %16
   %.0.i4.i = phi i64 [ %13, %12 ], [ %18, %16 ]
   %20 = mul nsw i64 %.0.i4.i, %.0.i.i
   %21 = tail call noundef ptr @_Z21lua_newuserdatataggedP9lua_Statemi(ptr noundef %0, i64 noundef 8, i32 noundef 1)
@@ -41596,7 +41596,7 @@ _ZL8getInt64P9lua_Statei.exit.i:                  ; preds = %7, %3
 
 12:                                               ; preds = %_ZL8getInt64P9lua_Statei.exit.i
   %13 = load i64, ptr %11, align 8
-  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E7_clES1_.argprom.exit"
+  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E7_clES1_.exit"
 
 14:                                               ; preds = %_ZL8getInt64P9lua_Statei.exit.i
   %15 = tail call noundef i32 @_Z12lua_isnumberP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -41606,13 +41606,13 @@ _ZL8getInt64P9lua_Statei.exit.i:                  ; preds = %7, %3
 16:                                               ; preds = %14
   %17 = tail call noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef %0, i32 noundef 2, ptr noundef null)
   %18 = sext i32 %17 to i64
-  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E7_clES1_.argprom.exit"
+  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E7_clES1_.exit"
 
 19:                                               ; preds = %14
   tail call void @_Z15luaL_typeerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.493) #36
   unreachable
 
-"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E7_clES1_.argprom.exit": ; preds = %12, %16
+"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E7_clES1_.exit": ; preds = %12, %16
   %.0.i4.i = phi i64 [ %13, %12 ], [ %18, %16 ]
   %20 = sdiv i64 %.0.i.i, %.0.i4.i
   %21 = tail call noundef ptr @_Z21lua_newuserdatataggedP9lua_Statemi(ptr noundef %0, i64 noundef 8, i32 noundef 1)
@@ -41654,7 +41654,7 @@ _ZL8getInt64P9lua_Statei.exit.i:                  ; preds = %7, %3
 
 12:                                               ; preds = %_ZL8getInt64P9lua_Statei.exit.i
   %13 = load i64, ptr %11, align 8
-  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E8_clES1_.argprom.exit"
+  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E8_clES1_.exit"
 
 14:                                               ; preds = %_ZL8getInt64P9lua_Statei.exit.i
   %15 = tail call noundef i32 @_Z12lua_isnumberP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -41664,13 +41664,13 @@ _ZL8getInt64P9lua_Statei.exit.i:                  ; preds = %7, %3
 16:                                               ; preds = %14
   %17 = tail call noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef %0, i32 noundef 2, ptr noundef null)
   %18 = sext i32 %17 to i64
-  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E8_clES1_.argprom.exit"
+  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E8_clES1_.exit"
 
 19:                                               ; preds = %14
   tail call void @_Z15luaL_typeerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.493) #36
   unreachable
 
-"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E8_clES1_.argprom.exit": ; preds = %12, %16
+"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E8_clES1_.exit": ; preds = %12, %16
   %.0.i4.i = phi i64 [ %13, %12 ], [ %18, %16 ]
   %20 = sitofp i64 %.0.i.i to double
   %21 = sitofp i64 %.0.i4.i to double
@@ -41719,7 +41719,7 @@ _ZL8getInt64P9lua_Statei.exit.i:                  ; preds = %7, %3
 
 12:                                               ; preds = %_ZL8getInt64P9lua_Statei.exit.i
   %13 = load i64, ptr %11, align 8
-  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E9_clES1_.argprom.exit"
+  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E9_clES1_.exit"
 
 14:                                               ; preds = %_ZL8getInt64P9lua_Statei.exit.i
   %15 = tail call noundef i32 @_Z12lua_isnumberP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -41729,13 +41729,13 @@ _ZL8getInt64P9lua_Statei.exit.i:                  ; preds = %7, %3
 16:                                               ; preds = %14
   %17 = tail call noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef %0, i32 noundef 2, ptr noundef null)
   %18 = sext i32 %17 to i64
-  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E9_clES1_.argprom.exit"
+  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E9_clES1_.exit"
 
 19:                                               ; preds = %14
   tail call void @_Z15luaL_typeerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.493) #36
   unreachable
 
-"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E9_clES1_.argprom.exit": ; preds = %12, %16
+"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E9_clES1_.exit": ; preds = %12, %16
   %.0.i4.i = phi i64 [ %13, %12 ], [ %18, %16 ]
   %20 = srem i64 %.0.i.i, %.0.i4.i
   %21 = tail call noundef ptr @_Z21lua_newuserdatataggedP9lua_Statemi(ptr noundef %0, i64 noundef 8, i32 noundef 1)
@@ -41777,7 +41777,7 @@ _ZL8getInt64P9lua_Statei.exit.i:                  ; preds = %7, %3
 
 12:                                               ; preds = %_ZL8getInt64P9lua_Statei.exit.i
   %13 = load i64, ptr %11, align 8
-  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E10_clES1_.argprom.exit"
+  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E10_clES1_.exit"
 
 14:                                               ; preds = %_ZL8getInt64P9lua_Statei.exit.i
   %15 = tail call noundef i32 @_Z12lua_isnumberP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -41787,13 +41787,13 @@ _ZL8getInt64P9lua_Statei.exit.i:                  ; preds = %7, %3
 16:                                               ; preds = %14
   %17 = tail call noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef %0, i32 noundef 2, ptr noundef null)
   %18 = sext i32 %17 to i64
-  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E10_clES1_.argprom.exit"
+  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E10_clES1_.exit"
 
 19:                                               ; preds = %14
   tail call void @_Z15luaL_typeerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.493) #36
   unreachable
 
-"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E10_clES1_.argprom.exit": ; preds = %12, %16
+"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E10_clES1_.exit": ; preds = %12, %16
   %.0.i4.i = phi i64 [ %13, %12 ], [ %18, %16 ]
   %20 = sitofp i64 %.0.i.i to double
   %21 = sitofp i64 %.0.i4.i to double
@@ -41817,7 +41817,7 @@ define internal noundef i32 @"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_State
 
 3:                                                ; preds = %1
   %4 = load i64, ptr %2, align 8
-  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E11_clES1_.argprom.exit"
+  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E11_clES1_.exit"
 
 5:                                                ; preds = %1
   %6 = tail call noundef i32 @_Z12lua_isnumberP9lua_Statei(ptr noundef %0, i32 noundef 1)
@@ -41827,13 +41827,13 @@ define internal noundef i32 @"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_State
 7:                                                ; preds = %5
   %8 = tail call noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef %0, i32 noundef 1, ptr noundef null)
   %9 = sext i32 %8 to i64
-  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E11_clES1_.argprom.exit"
+  br label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E11_clES1_.exit"
 
 10:                                               ; preds = %5
   tail call void @_Z15luaL_typeerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.493) #36
   unreachable
 
-"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E11_clES1_.argprom.exit": ; preds = %3, %7
+"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E11_clES1_.exit": ; preds = %3, %7
   %.0.i.i = phi i64 [ %4, %3 ], [ %9, %7 ]
   %11 = sub nsw i64 0, %.0.i.i
   %12 = tail call noundef ptr @_Z21lua_newuserdatataggedP9lua_Statemi(ptr noundef %0, i64 noundef 8, i32 noundef 1)
@@ -41875,7 +41875,7 @@ _ZL8getInt64P9lua_Statei.exit.i:                  ; preds = %8, %4
   %12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #37
   %13 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #37
   invoke void @_Z15lua_pushlstringP9lua_StatePKcm(ptr noundef %0, ptr noundef %12, i64 noundef %13)
-          to label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E12_clES1_.argprom.exit" unwind label %14
+          to label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E12_clES1_.exit" unwind label %14
 
 14:                                               ; preds = %_ZL8getInt64P9lua_Statei.exit.i
   %15 = landingpad { ptr, i32 }
@@ -41883,7 +41883,7 @@ _ZL8getInt64P9lua_Statei.exit.i:                  ; preds = %8, %4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #37
   resume { ptr, i32 } %15
 
-"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E12_clES1_.argprom.exit": ; preds = %_ZL8getInt64P9lua_Statei.exit.i
+"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E12_clES1_.exit": ; preds = %_ZL8getInt64P9lua_Statei.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   ret i32 1
@@ -42625,7 +42625,7 @@ declare void @_ZN4Luau7CodeGen19setUserdataRemapperEP9lua_StatePvPFhS3_PKcmE(ptr
 define internal noundef zeroext i8 @"_ZZZL21DOCTEST_ANON_FUNC_138vENK3$_0clEP9lua_StateENUlPvPKcmE_8__invokeES2_S4_m"(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #27 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %0, align 8
   %.not3.i = icmp eq ptr %4, null
-  br i1 %.not3.i, label %"_ZZZL21DOCTEST_ANON_FUNC_138vENK3$_0clEP9lua_StateENKUlPvPKcmE_clES2_S4_m.argprom.exit", label %.lr.ph.i
+  br i1 %.not3.i, label %"_ZZZL21DOCTEST_ANON_FUNC_138vENK3$_0clEP9lua_StateENKUlPvPKcmE_clES2_S4_m.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
   %5 = icmp eq i64 %2, 0
@@ -42637,14 +42637,14 @@ define internal noundef zeroext i8 @"_ZZZL21DOCTEST_ANON_FUNC_138vENK3$_0clEP9lu
   %.094.us.i = phi i8 [ %9, %8 ], [ 0, %.lr.ph.i ]
   %char0.i = load i8, ptr %6, align 1
   %7 = icmp eq i8 %char0.i, 0
-  br i1 %7, label %"_ZZZL21DOCTEST_ANON_FUNC_138vENK3$_0clEP9lua_StateENKUlPvPKcmE_clES2_S4_m.argprom.exit", label %8
+  br i1 %7, label %"_ZZZL21DOCTEST_ANON_FUNC_138vENK3$_0clEP9lua_StateENKUlPvPKcmE_clES2_S4_m.exit", label %8
 
 8:                                                ; preds = %.lr.ph.split.us.i
   %9 = add i8 %.094.us.i, 1
   %10 = getelementptr inbounds i8, ptr %.085.us.i, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not.us.i = icmp eq ptr %11, null
-  br i1 %.not.us.i, label %"_ZZZL21DOCTEST_ANON_FUNC_138vENK3$_0clEP9lua_StateENKUlPvPKcmE_clES2_S4_m.argprom.exit", label %.lr.ph.split.us.i, !llvm.loop !433
+  br i1 %.not.us.i, label %"_ZZZL21DOCTEST_ANON_FUNC_138vENK3$_0clEP9lua_StateENKUlPvPKcmE_clES2_S4_m.exit", label %.lr.ph.split.us.i, !llvm.loop !433
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %16
   %12 = phi ptr [ %19, %16 ], [ %4, %.lr.ph.i ]
@@ -42657,16 +42657,16 @@ define internal noundef zeroext i8 @"_ZZZL21DOCTEST_ANON_FUNC_138vENK3$_0clEP9lu
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %.lr.ph.split.i
   %bcmp.i.i = tail call i32 @bcmp(ptr readonly %1, ptr nonnull %12, i64 %2)
   %15 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %15, label %"_ZZZL21DOCTEST_ANON_FUNC_138vENK3$_0clEP9lua_StateENKUlPvPKcmE_clES2_S4_m.argprom.exit", label %16
+  br i1 %15, label %"_ZZZL21DOCTEST_ANON_FUNC_138vENK3$_0clEP9lua_StateENKUlPvPKcmE_clES2_S4_m.exit", label %16
 
 16:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %.lr.ph.split.i
   %17 = add i8 %.094.i, 1
   %18 = getelementptr inbounds i8, ptr %.085.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %"_ZZZL21DOCTEST_ANON_FUNC_138vENK3$_0clEP9lua_StateENKUlPvPKcmE_clES2_S4_m.argprom.exit", label %.lr.ph.split.i, !llvm.loop !433
+  br i1 %.not.i, label %"_ZZZL21DOCTEST_ANON_FUNC_138vENK3$_0clEP9lua_StateENKUlPvPKcmE_clES2_S4_m.exit", label %.lr.ph.split.i, !llvm.loop !433
 
-"_ZZZL21DOCTEST_ANON_FUNC_138vENK3$_0clEP9lua_StateENKUlPvPKcmE_clES2_S4_m.argprom.exit": ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %16, %.lr.ph.split.us.i, %8, %3
+"_ZZZL21DOCTEST_ANON_FUNC_138vENK3$_0clEP9lua_StateENKUlPvPKcmE_clES2_S4_m.exit": ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %16, %.lr.ph.split.us.i, %8, %3
   %.0.i = phi i8 [ -1, %3 ], [ -1, %8 ], [ %.094.us.i, %.lr.ph.split.us.i ], [ -1, %16 ], [ %.094.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
   ret i8 %.0.i
 }
@@ -42750,7 +42750,7 @@ define internal noalias noundef ptr @"_ZZL21DOCTEST_ANON_FUNC_150vEN3$_08__invok
 
 6:                                                ; preds = %4
   tail call void @free(ptr noundef %1) #37
-  br label %"_ZZL21DOCTEST_ANON_FUNC_150vENK3$_0clEPvS0_mm.argprom.exit"
+  br label %"_ZZL21DOCTEST_ANON_FUNC_150vENK3$_0clEPvS0_mm.exit"
 
 7:                                                ; preds = %4
   %8 = icmp ugt i64 %3, 32768
@@ -42760,19 +42760,19 @@ define internal noalias noundef ptr @"_ZZL21DOCTEST_ANON_FUNC_150vEN3$_08__invok
   %10 = load i64, ptr @_ZZL21DOCTEST_ANON_FUNC_150vE20largeAllocationCount, align 8
   %11 = load i64, ptr @_ZZL21DOCTEST_ANON_FUNC_150vE21largeAllocationToFail, align 8
   %12 = icmp eq i64 %10, %11
-  br i1 %12, label %"_ZZL21DOCTEST_ANON_FUNC_150vENK3$_0clEPvS0_mm.argprom.exit", label %13
+  br i1 %12, label %"_ZZL21DOCTEST_ANON_FUNC_150vENK3$_0clEPvS0_mm.exit", label %13
 
 13:                                               ; preds = %9
   %14 = add i64 %10, 1
   store i64 %14, ptr @_ZZL21DOCTEST_ANON_FUNC_150vE20largeAllocationCount, align 8
   %15 = tail call ptr @realloc(ptr noundef %1, i64 noundef %3) #41
-  br label %"_ZZL21DOCTEST_ANON_FUNC_150vENK3$_0clEPvS0_mm.argprom.exit"
+  br label %"_ZZL21DOCTEST_ANON_FUNC_150vENK3$_0clEPvS0_mm.exit"
 
 16:                                               ; preds = %7
   %17 = tail call ptr @realloc(ptr noundef %1, i64 noundef %3) #41
-  br label %"_ZZL21DOCTEST_ANON_FUNC_150vENK3$_0clEPvS0_mm.argprom.exit"
+  br label %"_ZZL21DOCTEST_ANON_FUNC_150vENK3$_0clEPvS0_mm.exit"
 
-"_ZZL21DOCTEST_ANON_FUNC_150vENK3$_0clEPvS0_mm.argprom.exit": ; preds = %6, %9, %13, %16
+"_ZZL21DOCTEST_ANON_FUNC_150vENK3$_0clEPvS0_mm.exit": ; preds = %6, %9, %13, %16
   %.0.i = phi ptr [ null, %6 ], [ %15, %13 ], [ %17, %16 ], [ null, %9 ]
   ret ptr %.0.i
 }
@@ -47112,8 +47112,8 @@ attributes #42 = { allocsize(0) }
 !190 = !{i64 2154719729}
 !191 = !{i64 2154722494}
 !192 = !{!193}
-!193 = distinct !{!193, !194, !"_ZL11analyzeFilePKcj.argprom: argument 0"}
-!194 = distinct !{!194, !"_ZL11analyzeFilePKcj.argprom"}
+!193 = distinct !{!193, !194, !"_ZL11analyzeFilePKcj: argument 0"}
+!194 = distinct !{!194, !"_ZL11analyzeFilePKcj"}
 !195 = !{i64 2153933985}
 !196 = !{i64 2154726929}
 !197 = !{i64 2154728657}

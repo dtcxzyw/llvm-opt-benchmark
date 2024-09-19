@@ -148,7 +148,7 @@ define noundef i32 @_Z7gmx_lieiPPc(i32 noundef %0, ptr noundef %1) local_unnamed
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %.loopexit59, %39, %197, %194, %183, %182, %110, %_ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.argprom.exit, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %32, %30, %2
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %.loopexit59, %39, %197, %194, %183, %182, %110, %_ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.exit, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %32, %30, %2
   %lpad.loopexit.split-lp61 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -323,13 +323,13 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %35, %38
   %putchar.i = call i32 @putchar(i32 10)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3)
   %108 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef 179, i64 noundef 1, i64 noundef 80)
-          to label %_ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.argprom.exit unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %_ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
-_ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.argprom.exit: ; preds = %.loopexit59
+_ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.exit: ; preds = %.loopexit59
   %109 = invoke noundef ptr @_Z6ftp2fniiPK8t_filenm(i32 noundef 20, i32 noundef 2, ptr noundef nonnull %10)
           to label %110 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-110:                                              ; preds = %_ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.argprom.exit
+110:                                              ; preds = %_ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.exit
   store ptr %109, ptr %14, align 8
   invoke void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, i8 noundef zeroext 2)
           to label %111 unwind label %.loopexit.split-lp.loopexit.split-lp

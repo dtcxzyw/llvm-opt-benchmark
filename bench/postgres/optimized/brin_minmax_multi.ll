@@ -707,16 +707,16 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_multi_add_value(ptr nocapture 
 37:                                               ; preds = %28, %33
   %38 = phi i32 [ %36, %33 ], [ 37248, %28 ]
   %.not.i = icmp eq ptr %14, null
-  br i1 %.not.i, label %brin_minmax_multi_get_values.argprom.exit, label %39
+  br i1 %.not.i, label %brin_minmax_multi_get_values.exit, label %39
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds i8, ptr %14, i64 4
   %41 = load i32, ptr %40, align 4
   %.not4.i = icmp eq i32 %41, 0
   %spec.select.i = select i1 %.not4.i, i32 32, i32 %41
-  br label %brin_minmax_multi_get_values.argprom.exit
+  br label %brin_minmax_multi_get_values.exit
 
-brin_minmax_multi_get_values.argprom.exit:        ; preds = %37, %39
+brin_minmax_multi_get_values.exit:                ; preds = %37, %39
   %42 = phi i32 [ 32, %37 ], [ %spec.select.i, %39 ]
   %43 = mul i32 %42, 10
   %44 = tail call i32 @llvm.umin.i32(i32 %43, i32 %38)
@@ -810,8 +810,8 @@ brin_minmax_multi_get_values.argprom.exit:        ; preds = %37, %39
   store ptr %81, ptr @CurrentMemoryContext, align 8
   br label %102
 
-102:                                              ; preds = %65, %77, %brin_minmax_multi_get_values.argprom.exit
-  %.086 = phi ptr [ %53, %brin_minmax_multi_get_values.argprom.exit ], [ %67, %65 ], [ %93, %77 ]
+102:                                              ; preds = %65, %77, %brin_minmax_multi_get_values.exit
+  %.086 = phi ptr [ %53, %brin_minmax_multi_get_values.exit ], [ %67, %65 ], [ %93, %77 ]
   %103 = getelementptr inbounds i8, ptr %23, i64 68
   %104 = load i32, ptr %103, align 4
   %105 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef nonnull readonly %7, i16 noundef zeroext %17, i32 noundef %104, i16 noundef zeroext 1)
@@ -1088,7 +1088,7 @@ ensure_free_space_in_buffer.exit.i:               ; preds = %store_expanded_rang
 247:                                              ; preds = %234
   %248 = tail call i64 @FunctionCall2Coll(ptr noundef %226, i32 noundef %16, i64 noundef %12, i64 noundef %243) #12
   %.not46.i.i.i = icmp eq i64 %248, 0
-  br i1 %.not46.i.i.i, label %range_contains_value.argprom.exit.thread.i, label %.outer.i.i.i
+  br i1 %.not46.i.i.i, label %range_contains_value.exit.thread.i, label %.outer.i.i.i
 
 .loopexit3.i.i:                                   ; preds = %.outer.i.i.i, %245, %228, %225, %215, %ensure_free_space_in_buffer.exit.i
   %249 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef readonly %7, i16 noundef zeroext %17, i32 noundef %.val.i, i16 noundef zeroext 3)
@@ -1113,7 +1113,7 @@ ensure_free_space_in_buffer.exit.i:               ; preds = %store_expanded_rang
   %264 = zext nneg i32 %251 to i64
   %265 = call ptr @bsearch_arg(ptr noundef nonnull %2, ptr noundef %263, i64 noundef %264, i64 noundef 8, ptr noundef nonnull @compare_values, ptr noundef nonnull %3) #12
   %.not.i.i = icmp eq ptr %265, null
-  br i1 %.not.i.i, label %.loopexit.i, label %range_contains_value.argprom.exit.thread.i
+  br i1 %.not.i.i, label %.loopexit.i, label %range_contains_value.exit.thread.i
 
 266:                                              ; preds = %.loopexit3.i.i
   %267 = load i32, ptr %106, align 8
@@ -1143,9 +1143,9 @@ ensure_free_space_in_buffer.exit.i:               ; preds = %store_expanded_rang
   %282 = load i64, ptr %281, align 8
   %283 = tail call i64 @FunctionCall2Coll(ptr noundef %249, i32 noundef %16, i64 noundef %12, i64 noundef %282) #12
   %.not2.i.i = icmp eq i64 %283, 0
-  br i1 %.not2.i.i, label %273, label %range_contains_value.argprom.exit.thread.i
+  br i1 %.not2.i.i, label %273, label %range_contains_value.exit.thread.i
 
-range_contains_value.argprom.exit.thread.i:       ; preds = %247, %280, %253
+range_contains_value.exit.thread.i:               ; preds = %247, %280, %253
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %284 = zext i1 %114 to i8
@@ -1179,8 +1179,8 @@ range_contains_value.argprom.exit.thread.i:       ; preds = %247, %280, %253
   store i32 1, ptr %250, align 4
   br label %range_add_value.exit
 
-range_add_value.exit:                             ; preds = %range_contains_value.argprom.exit.thread.i, %.loopexit.i, %302
-  %.0.i = phi i8 [ %284, %range_contains_value.argprom.exit.thread.i ], [ 1, %302 ], [ 1, %.loopexit.i ]
+range_add_value.exit:                             ; preds = %range_contains_value.exit.thread.i, %.loopexit.i, %302
+  %.0.i = phi i8 [ %284, %range_contains_value.exit.thread.i ], [ 1, %302 ], [ 1, %.loopexit.i ]
   %.mask = and i8 %26, 1
   %303 = or i8 %.0.i, %.mask
   %304 = zext nneg i8 %303 to i64

@@ -2540,8 +2540,8 @@ define dso_local void @_ZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEv(ptr 
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 16
   br label %30
 
-30:                                               ; preds = %.lr.ph, %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.argprom.exit"
-  %.sroa.036.046 = phi ptr [ %.sroa.036.044, %.lr.ph ], [ %.sroa.036.0, %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.argprom.exit" ]
+30:                                               ; preds = %.lr.ph, %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.exit"
+  %.sroa.036.046 = phi ptr [ %.sroa.036.044, %.lr.ph ], [ %.sroa.036.0, %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.exit" ]
   %31 = icmp eq ptr %.sroa.036.046, null
   %32 = getelementptr inbounds i8, ptr %.sroa.036.046, i64 -56
   %33 = select i1 %31, ptr null, ptr %32
@@ -2549,9 +2549,9 @@ define dso_local void @_ZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEv(ptr 
   %35 = load i32, ptr %34, align 8
   %36 = and i32 %35, 15
   switch i32 %36, label %37 [
-    i32 8, label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.argprom.exit"
-    i32 7, label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.argprom.exit"
-    i32 1, label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.argprom.exit"
+    i32 8, label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.exit"
+    i32 7, label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.exit"
+    i32 1, label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.exit"
   ]
 
 37:                                               ; preds = %30
@@ -2559,7 +2559,7 @@ define dso_local void @_ZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEv(ptr 
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, 268435456
   %.not.i = icmp eq i32 %40, 0
-  br i1 %.not.i, label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.argprom.exit", label %41
+  br i1 %.not.i, label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.exit", label %41
 
 41:                                               ; preds = %37
   %42 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %33) #22
@@ -2574,15 +2574,15 @@ define dso_local void @_ZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEv(ptr 
   %47 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %43, i64 %44) #22
   %48 = call { ptr, i8 } @_ZN4llvm9StringMapINS_11GlobalValue12LinkageTypesENS_15MallocAllocatorEE21try_emplace_with_hashIJS2_EEESt4pairINS_17StringMapIteratorIS2_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr %43, i64 %44, i32 noundef %47, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.3.0..sroa_idx.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  br label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.argprom.exit"
+  br label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.exit"
 
-"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.argprom.exit": ; preds = %30, %30, %30, %37, %41
+"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.exit": ; preds = %30, %30, %30, %37, %41
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.036.046, i64 8
   %.sroa.036.0 = load ptr, ptr %49, align 8
   %.not = icmp eq ptr %.sroa.036.0, %28
   br i1 %.not, label %._crit_edge.loopexit, label %30
 
-._crit_edge.loopexit:                             ; preds = %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.argprom.exit"
+._crit_edge.loopexit:                             ; preds = %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.exit"
   %.pre = load ptr, ptr %16, align 8
   br label %._crit_edge
 
@@ -2600,8 +2600,8 @@ define dso_local void @_ZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEv(ptr 
   %.sroa.3.0..sroa_idx.i15 = getelementptr inbounds i8, ptr %3, i64 16
   br label %54
 
-54:                                               ; preds = %.lr.ph51, %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.argprom.exit16"
-  %.sroa.030.049 = phi ptr [ %.sroa.030.047, %.lr.ph51 ], [ %.sroa.030.0, %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.argprom.exit16" ]
+54:                                               ; preds = %.lr.ph51, %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.exit16"
+  %.sroa.030.049 = phi ptr [ %.sroa.030.047, %.lr.ph51 ], [ %.sroa.030.0, %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.exit16" ]
   %55 = icmp eq ptr %.sroa.030.049, null
   %56 = getelementptr inbounds i8, ptr %.sroa.030.049, i64 -56
   %57 = select i1 %55, ptr null, ptr %56
@@ -2609,9 +2609,9 @@ define dso_local void @_ZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEv(ptr 
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 15
   switch i32 %60, label %61 [
-    i32 8, label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.argprom.exit16"
-    i32 7, label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.argprom.exit16"
-    i32 1, label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.argprom.exit16"
+    i32 8, label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.exit16"
+    i32 7, label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.exit16"
+    i32 1, label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.exit16"
   ]
 
 61:                                               ; preds = %54
@@ -2619,7 +2619,7 @@ define dso_local void @_ZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEv(ptr 
   %63 = load i32, ptr %62, align 4
   %64 = and i32 %63, 268435456
   %.not.i13 = icmp eq i32 %64, 0
-  br i1 %.not.i13, label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.argprom.exit16", label %65
+  br i1 %.not.i13, label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.exit16", label %65
 
 65:                                               ; preds = %61
   %66 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %57) #22
@@ -2634,15 +2634,15 @@ define dso_local void @_ZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEv(ptr 
   %71 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %67, i64 %68) #22
   %72 = call { ptr, i8 } @_ZN4llvm9StringMapINS_11GlobalValue12LinkageTypesENS_15MallocAllocatorEE21try_emplace_with_hashIJS2_EEESt4pairINS_17StringMapIteratorIS2_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr %67, i64 %68, i32 noundef %71, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.3.0..sroa_idx.i15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.argprom.exit16"
+  br label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.exit16"
 
-"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.argprom.exit16": ; preds = %54, %54, %54, %61, %65
+"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.exit16": ; preds = %54, %54, %54, %61, %65
   %73 = getelementptr inbounds nuw i8, ptr %.sroa.030.049, i64 8
   %.sroa.030.0 = load ptr, ptr %73, align 8
   %.not42 = icmp eq ptr %.sroa.030.0, %52
   br i1 %.not42, label %._crit_edge52.loopexit, label %54
 
-._crit_edge52.loopexit:                           ; preds = %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.argprom.exit16"
+._crit_edge52.loopexit:                           ; preds = %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.exit16"
   %.pre58 = load ptr, ptr %16, align 8
   br label %._crit_edge52
 
@@ -2660,8 +2660,8 @@ define dso_local void @_ZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEv(ptr 
   %.sroa.3.0..sroa_idx.i23 = getelementptr inbounds i8, ptr %2, i64 16
   br label %78
 
-78:                                               ; preds = %.lr.ph57, %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.argprom.exit24"
-  %.sroa.025.055 = phi ptr [ %.sroa.025.053, %.lr.ph57 ], [ %.sroa.025.0, %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.argprom.exit24" ]
+78:                                               ; preds = %.lr.ph57, %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.exit24"
+  %.sroa.025.055 = phi ptr [ %.sroa.025.053, %.lr.ph57 ], [ %.sroa.025.0, %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.exit24" ]
   %79 = icmp eq ptr %.sroa.025.055, null
   %80 = getelementptr inbounds i8, ptr %.sroa.025.055, i64 -48
   %81 = select i1 %79, ptr null, ptr %80
@@ -2669,9 +2669,9 @@ define dso_local void @_ZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEv(ptr 
   %83 = load i32, ptr %82, align 8
   %84 = and i32 %83, 15
   switch i32 %84, label %85 [
-    i32 8, label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.argprom.exit24"
-    i32 7, label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.argprom.exit24"
-    i32 1, label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.argprom.exit24"
+    i32 8, label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.exit24"
+    i32 7, label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.exit24"
+    i32 1, label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.exit24"
   ]
 
 85:                                               ; preds = %78
@@ -2679,7 +2679,7 @@ define dso_local void @_ZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEv(ptr 
   %87 = load i32, ptr %86, align 4
   %88 = and i32 %87, 268435456
   %.not.i21 = icmp eq i32 %88, 0
-  br i1 %.not.i21, label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.argprom.exit24", label %89
+  br i1 %.not.i21, label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.exit24", label %89
 
 89:                                               ; preds = %85
   %90 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %81) #22
@@ -2694,15 +2694,15 @@ define dso_local void @_ZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEv(ptr 
   %95 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %91, i64 %92) #22
   %96 = call { ptr, i8 } @_ZN4llvm9StringMapINS_11GlobalValue12LinkageTypesENS_15MallocAllocatorEE21try_emplace_with_hashIJS2_EEESt4pairINS_17StringMapIteratorIS2_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %77, ptr %91, i64 %92, i32 noundef %95, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.3.0..sroa_idx.i23)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  br label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.argprom.exit24"
+  br label %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.exit24"
 
-"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.argprom.exit24": ; preds = %78, %78, %78, %85, %89
+"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.exit24": ; preds = %78, %78, %78, %85, %89
   %97 = getelementptr inbounds nuw i8, ptr %.sroa.025.055, i64 8
   %.sroa.025.0 = load ptr, ptr %97, align 8
   %.not43 = icmp eq ptr %.sroa.025.0, %76
   br i1 %.not43, label %.loopexit.loopexit, label %78
 
-.loopexit.loopexit:                               ; preds = %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.argprom.exit24"
+.loopexit.loopexit:                               ; preds = %"_ZZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvENK3$_1clERKNS_11GlobalValueE.exit24"
   %.pre59 = load ptr, ptr %16, align 8
   br label %.loopexit
 
@@ -4762,7 +4762,7 @@ define dso_local void @_ZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEv(
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
-  br i1 %4, label %5, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.argprom.exit"
+  br i1 %4, label %5, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit"
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 258
@@ -4772,7 +4772,7 @@ define dso_local void @_ZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEv(
   %10 = load i32, ptr %9, align 4
   %11 = icmp ne i32 %10, 0
   %or.cond.not = select i1 %8, i1 %11, i1 false
-  br i1 %or.cond.not, label %12, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.argprom.exit"
+  br i1 %or.cond.not, label %12, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit"
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4781,66 +4781,66 @@ define dso_local void @_ZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEv(
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %.not5.i.i = icmp eq ptr %16, %17
-  br i1 %.not5.i.i, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.argprom.exit", label %.lr.ph.i.i
+  br i1 %.not5.i.i, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %12, %.lr.ph.i.i
   %.sroa.02.06.i.i = phi ptr [ %22, %.lr.ph.i.i ], [ %16, %12 ]
   %18 = icmp eq ptr %.sroa.02.06.i.i, null
   %19 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i, i64 -56
   %20 = select i1 %18, ptr null, ptr %19
-  tail call fastcc void @"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.argprom"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(48) %20)
+  tail call fastcc void @"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(48) %20)
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i, i64 8
   %22 = load ptr, ptr %21, align 8
   %.not.i.i = icmp eq ptr %22, %17
-  br i1 %.not.i.i, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.argprom.exit.loopexit", label %.lr.ph.i.i, !llvm.loop !84
+  br i1 %.not.i.i, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit.loopexit", label %.lr.ph.i.i, !llvm.loop !84
 
-"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.argprom.exit.loopexit": ; preds = %.lr.ph.i.i
+"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit.loopexit": ; preds = %.lr.ph.i.i
   %.pre = load ptr, ptr %13, align 8
-  br label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.argprom.exit"
+  br label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit"
 
-"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.argprom.exit": ; preds = %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.argprom.exit.loopexit", %12
-  %23 = phi ptr [ %.pre, %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.argprom.exit.loopexit" ], [ %14, %12 ]
+"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit": ; preds = %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit.loopexit", %12
+  %23 = phi ptr [ %.pre, %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit.loopexit" ], [ %14, %12 ]
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.not5.i.i14 = icmp eq ptr %25, %26
-  br i1 %.not5.i.i14, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.argprom.exit", label %.lr.ph.i.i15
+  br i1 %.not5.i.i14, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit", label %.lr.ph.i.i15
 
-.lr.ph.i.i15:                                     ; preds = %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.argprom.exit", %.lr.ph.i.i15
-  %.sroa.02.06.i.i16 = phi ptr [ %31, %.lr.ph.i.i15 ], [ %25, %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.argprom.exit" ]
+.lr.ph.i.i15:                                     ; preds = %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit", %.lr.ph.i.i15
+  %.sroa.02.06.i.i16 = phi ptr [ %31, %.lr.ph.i.i15 ], [ %25, %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit" ]
   %27 = icmp eq ptr %.sroa.02.06.i.i16, null
   %28 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i16, i64 -56
   %29 = select i1 %27, ptr null, ptr %28
-  tail call fastcc void @"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.argprom"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(48) %29)
+  tail call fastcc void @"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(48) %29)
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i16, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not.i.i17 = icmp eq ptr %31, %26
-  br i1 %.not.i.i17, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.argprom.exit.loopexit", label %.lr.ph.i.i15, !llvm.loop !85
+  br i1 %.not.i.i17, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit.loopexit", label %.lr.ph.i.i15, !llvm.loop !85
 
-"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.argprom.exit.loopexit": ; preds = %.lr.ph.i.i15
+"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit.loopexit": ; preds = %.lr.ph.i.i15
   %.pre32 = load ptr, ptr %13, align 8
-  br label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.argprom.exit"
+  br label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit"
 
-"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.argprom.exit": ; preds = %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.argprom.exit.loopexit", %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.argprom.exit"
-  %32 = phi ptr [ %.pre32, %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.argprom.exit.loopexit" ], [ %23, %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.argprom.exit" ]
+"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit": ; preds = %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit.loopexit", %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit"
+  %32 = phi ptr [ %.pre32, %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit.loopexit" ], [ %23, %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit" ]
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %.not5.i.i20 = icmp eq ptr %34, %35
-  br i1 %.not5.i.i20, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.argprom.exit", label %.lr.ph.i.i21
+  br i1 %.not5.i.i20, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit", label %.lr.ph.i.i21
 
-.lr.ph.i.i21:                                     ; preds = %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.argprom.exit", %.lr.ph.i.i21
-  %.sroa.02.06.i.i22 = phi ptr [ %40, %.lr.ph.i.i21 ], [ %34, %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.argprom.exit" ]
+.lr.ph.i.i21:                                     ; preds = %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit", %.lr.ph.i.i21
+  %.sroa.02.06.i.i22 = phi ptr [ %40, %.lr.ph.i.i21 ], [ %34, %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit" ]
   %36 = icmp eq ptr %.sroa.02.06.i.i22, null
   %37 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i22, i64 -48
   %38 = select i1 %36, ptr null, ptr %37
-  tail call fastcc void @"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.argprom"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(48) %38)
+  tail call fastcc void @"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(48) %38)
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i22, i64 8
   %40 = load ptr, ptr %39, align 8
   %.not.i.i23 = icmp eq ptr %40, %35
-  br i1 %.not.i.i23, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.argprom.exit", label %.lr.ph.i.i21, !llvm.loop !86
+  br i1 %.not.i.i23, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit", label %.lr.ph.i.i21, !llvm.loop !86
 
-"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.argprom.exit": ; preds = %.lr.ph.i.i21, %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.argprom.exit", %1, %5
+"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit": ; preds = %.lr.ph.i.i21, %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit", %1, %5
   ret void
 }
 
@@ -7367,7 +7367,7 @@ define internal void @"_ZNSt17_Function_handlerIFN4llvm8ExpectedISt10unique_ptrI
   %18 = call { i32, ptr } @_ZN4llvm3sys2fs19createTemporaryFileERKNS_5TwineENS_9StringRefERiRNS_15SmallVectorImplIcEENS1_9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(34) %10, ptr nonnull %.str.73..str.74.i.i.i, i64 1, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(24) %.val3, i32 noundef 0) #22, !noalias !144
   %19 = extractvalue { i32, ptr } %18, 0
   %.not.i.i.i = icmp eq i32 %19, 0
-  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIN4llvm8ExpectedISt10unique_ptrINS0_16CachedFileStreamESt14default_deleteIS3_EEEERZNS0_16LTOCodeGenerator22compileOptimizedToFileEPPKcE3$_0JjRKNS0_5TwineEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit", label %20
+  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIN4llvm8ExpectedISt10unique_ptrINS0_16CachedFileStreamESt14default_deleteIS3_EEEERZNS0_16LTOCodeGenerator22compileOptimizedToFileEPPKcE3$_0JjRKNS0_5TwineEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit", label %20
 
 20:                                               ; preds = %4
   %21 = extractvalue { i32, ptr } %18, 1
@@ -7410,9 +7410,9 @@ _ZN4llvm16LTOCodeGenerator9emitErrorERKNSt7__cxx1112basic_stringIcSt11char_trait
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !144
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8), !noalias !144
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #22, !noalias !144
-  br label %"_ZSt10__invoke_rIN4llvm8ExpectedISt10unique_ptrINS0_16CachedFileStreamESt14default_deleteIS3_EEEERZNS0_16LTOCodeGenerator22compileOptimizedToFileEPPKcE3$_0JjRKNS0_5TwineEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit"
+  br label %"_ZSt10__invoke_rIN4llvm8ExpectedISt10unique_ptrINS0_16CachedFileStreamESt14default_deleteIS3_EEEERZNS0_16LTOCodeGenerator22compileOptimizedToFileEPPKcE3$_0JjRKNS0_5TwineEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
 
-"_ZSt10__invoke_rIN4llvm8ExpectedISt10unique_ptrINS0_16CachedFileStreamESt14default_deleteIS3_EEEERZNS0_16LTOCodeGenerator22compileOptimizedToFileEPPKcE3$_0JjRKNS0_5TwineEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit": ; preds = %4, %_ZN4llvm16LTOCodeGenerator9emitErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i
+"_ZSt10__invoke_rIN4llvm8ExpectedISt10unique_ptrINS0_16CachedFileStreamESt14default_deleteIS3_EEEERZNS0_16LTOCodeGenerator22compileOptimizedToFileEPPKcE3$_0JjRKNS0_5TwineEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit": ; preds = %4, %_ZN4llvm16LTOCodeGenerator9emitErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i
   %38 = call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23, !noalias !151
   %39 = load i32, ptr %9, align 4, !noalias !151
   call void @_ZN4llvm14raw_fd_ostreamC1EibbNS_11raw_ostream11OStreamKindE(ptr noundef nonnull align 8 dereferenceable(96) %38, i32 noundef %39, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef 0) #22, !noalias !151
@@ -7640,7 +7640,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm11Global
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm11GlobalValueEEZNS0_16LTOCodeGenerator22applyScopeRestrictionsEvE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -7650,34 +7650,34 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm11Global
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16LTOCodeGenerator22applyScopeRestrictionsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.argprom"(ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 align 2 {
+define internal fastcc void @"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE"(ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 15
@@ -8217,8 +8217,8 @@ attributes #26 = { noreturn nounwind }
 !92 = distinct !{!92, !93, !"_ZNK4llvm9StringRef3strB5cxx11Ev: argument 0"}
 !93 = distinct !{!93, !"_ZNK4llvm9StringRef3strB5cxx11Ev"}
 !94 = !{!95}
-!95 = distinct !{!95, !96, !"_ZSt11make_uniqueIN12_GLOBAL__N_120LTODiagnosticHandlerEJPN4llvm16LTOCodeGeneratorEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!96 = distinct !{!96, !"_ZSt11make_uniqueIN12_GLOBAL__N_120LTODiagnosticHandlerEJPN4llvm16LTOCodeGeneratorEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!95 = distinct !{!95, !96, !"_ZSt11make_uniqueIN12_GLOBAL__N_120LTODiagnosticHandlerEJPN4llvm16LTOCodeGeneratorEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!96 = distinct !{!96, !"_ZSt11make_uniqueIN12_GLOBAL__N_120LTODiagnosticHandlerEJPN4llvm16LTOCodeGeneratorEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !97 = !{!98}
 !98 = distinct !{!98, !99, !"_ZN4llvmplEPKcRKNS_9StringRefE: argument 0"}
 !99 = distinct !{!99, !"_ZN4llvmplEPKcRKNS_9StringRefE"}
@@ -8261,14 +8261,14 @@ attributes #26 = { noreturn nounwind }
 !136 = distinct !{!136, !5}
 !137 = distinct !{!137, !5}
 !138 = !{!139}
-!139 = distinct !{!139, !140, !"_ZSt10__invoke_rIN4llvm8ExpectedISt10unique_ptrINS0_16CachedFileStreamESt14default_deleteIS3_EEEERZNS0_16LTOCodeGenerator22compileOptimizedToFileEPPKcE3$_0JjRKNS0_5TwineEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom: argument 0"}
-!140 = distinct !{!140, !"_ZSt10__invoke_rIN4llvm8ExpectedISt10unique_ptrINS0_16CachedFileStreamESt14default_deleteIS3_EEEERZNS0_16LTOCodeGenerator22compileOptimizedToFileEPPKcE3$_0JjRKNS0_5TwineEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom"}
+!139 = distinct !{!139, !140, !"_ZSt10__invoke_rIN4llvm8ExpectedISt10unique_ptrINS0_16CachedFileStreamESt14default_deleteIS3_EEEERZNS0_16LTOCodeGenerator22compileOptimizedToFileEPPKcE3$_0JjRKNS0_5TwineEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_: argument 0"}
+!140 = distinct !{!140, !"_ZSt10__invoke_rIN4llvm8ExpectedISt10unique_ptrINS0_16CachedFileStreamESt14default_deleteIS3_EEEERZNS0_16LTOCodeGenerator22compileOptimizedToFileEPPKcE3$_0JjRKNS0_5TwineEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_"}
 !141 = !{!142, !139}
-!142 = distinct !{!142, !143, !"_ZSt13__invoke_implISt10unique_ptrIN4llvm16CachedFileStreamESt14default_deleteIS2_EERZNS1_16LTOCodeGenerator22compileOptimizedToFileEPPKcE3$_0JjRKNS1_5TwineEEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
-!143 = distinct !{!143, !"_ZSt13__invoke_implISt10unique_ptrIN4llvm16CachedFileStreamESt14default_deleteIS2_EERZNS1_16LTOCodeGenerator22compileOptimizedToFileEPPKcE3$_0JjRKNS1_5TwineEEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!142 = distinct !{!142, !143, !"_ZSt13__invoke_implISt10unique_ptrIN4llvm16CachedFileStreamESt14default_deleteIS2_EERZNS1_16LTOCodeGenerator22compileOptimizedToFileEPPKcE3$_0JjRKNS1_5TwineEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!143 = distinct !{!143, !"_ZSt13__invoke_implISt10unique_ptrIN4llvm16CachedFileStreamESt14default_deleteIS2_EERZNS1_16LTOCodeGenerator22compileOptimizedToFileEPPKcE3$_0JjRKNS1_5TwineEEET_St14__invoke_otherOT0_DpOT1_"}
 !144 = !{!145, !142, !139}
-!145 = distinct !{!145, !146, !"_ZZN4llvm16LTOCodeGenerator22compileOptimizedToFileEPPKcENK3$_0clEmRKNS_5TwineE.argprom: argument 0"}
-!146 = distinct !{!146, !"_ZZN4llvm16LTOCodeGenerator22compileOptimizedToFileEPPKcENK3$_0clEmRKNS_5TwineE.argprom"}
+!145 = distinct !{!145, !146, !"_ZZN4llvm16LTOCodeGenerator22compileOptimizedToFileEPPKcENK3$_0clEmRKNS_5TwineE: argument 0"}
+!146 = distinct !{!146, !"_ZZN4llvm16LTOCodeGenerator22compileOptimizedToFileEPPKcENK3$_0clEmRKNS_5TwineE"}
 !147 = !{!148}
 !148 = distinct !{!148, !149, !"_ZNKSt10error_code7messageB5cxx11Ev: argument 0"}
 !149 = distinct !{!149, !"_ZNKSt10error_code7messageB5cxx11Ev"}

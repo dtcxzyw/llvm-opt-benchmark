@@ -336,9 +336,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %25 = load ptr, ptr %13, align 8, !noalias !4
   %.not.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i, label %27, label %"_ZN7xgboost10collectivelsIZNS0_4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSF_OSE_.argprom.exit.thread"
+  br i1 %.not.i.i, label %27, label %"_ZN7xgboost10collectivelsIZNS0_4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSF_OSE_.exit.thread"
 
-"_ZN7xgboost10collectivelsIZNS0_4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSF_OSE_.argprom.exit.thread": ; preds = %24
+"_ZN7xgboost10collectivelsIZNS0_4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSF_OSE_.exit.thread": ; preds = %24
   %26 = ptrtoint ptr %25 to i64
   store i64 %26, ptr %0, align 8, !alias.scope !4
   br label %_ZN7xgboost10collective6ResultD2Ev.exit
@@ -348,19 +348,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %29 = getelementptr inbounds i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8, !noalias !7
   invoke void %30(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %2)
-          to label %"_ZN7xgboost10collectivelsIZNS0_4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSF_OSE_.argprom.exit" unwind label %35
+          to label %"_ZN7xgboost10collectivelsIZNS0_4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSF_OSE_.exit" unwind label %35
 
-"_ZN7xgboost10collectivelsIZNS0_4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSF_OSE_.argprom.exit": ; preds = %27
+"_ZN7xgboost10collectivelsIZNS0_4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSF_OSE_.exit": ; preds = %27
   %.pr = load ptr, ptr %13, align 8
   %.not.i.i9 = icmp eq ptr %.pr, null
   br i1 %.not.i.i9, label %_ZN7xgboost10collective6ResultD2Ev.exit, label %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i
 
-_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i: ; preds = %"_ZN7xgboost10collectivelsIZNS0_4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSF_OSE_.argprom.exit"
+_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i: ; preds = %"_ZN7xgboost10collectivelsIZNS0_4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSF_OSE_.exit"
   call void @_ZN7xgboost10collective6detail10ResultImplD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %.pr) #12
   call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef 56) #25
   br label %_ZN7xgboost10collective6ResultD2Ev.exit
 
-_ZN7xgboost10collective6ResultD2Ev.exit:          ; preds = %"_ZN7xgboost10collectivelsIZNS0_4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSF_OSE_.argprom.exit.thread", %"_ZN7xgboost10collectivelsIZNS0_4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSF_OSE_.argprom.exit", %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i
+_ZN7xgboost10collective6ResultD2Ev.exit:          ; preds = %"_ZN7xgboost10collectivelsIZNS0_4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSF_OSE_.exit.thread", %"_ZN7xgboost10collectivelsIZNS0_4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSF_OSE_.exit", %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i
   store ptr null, ptr %13, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #12
   ret void
@@ -1634,7 +1634,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIaEEDaT_EUlSF_T0_E_aEEDaSF_SG_.exit.i": ; preds = %551, %549
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %112), !noalias !47
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %113), !noalias !47
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIaEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIaEEDaT_.exit"
 
 564:                                              ; preds = %533
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %110), !noalias !47
@@ -1697,7 +1697,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIaEEDaT_EUlSF_T0_E0_aEEDaSF_SG_.exit.i": ; preds = %580, %578
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %110), !noalias !47
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %111), !noalias !47
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIaEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIaEEDaT_.exit"
 
 593:                                              ; preds = %533
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %108), !noalias !47
@@ -1760,7 +1760,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEaEEDaT_T0_.exit.i": ; preds = %609, %607
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %108), !noalias !47
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %109), !noalias !47
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIaEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIaEEDaT_.exit"
 
 622:                                              ; preds = %533
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %106), !noalias !47
@@ -1823,7 +1823,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEaEEDaT_T0_.exit.i": ; preds = %638, %636
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %106), !noalias !47
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %107), !noalias !47
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIaEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIaEEDaT_.exit"
 
 651:                                              ; preds = %533
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %104), !noalias !47
@@ -1886,7 +1886,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEaEEDaT_T0_.exit.i": ; preds = %667, %665
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %104), !noalias !47
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %105), !noalias !47
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIaEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIaEEDaT_.exit"
 
 680:                                              ; preds = %533
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %102), !noalias !47
@@ -1949,7 +1949,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEaEEDaT_T0_.exit.i": ; preds = %696, %694
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %102), !noalias !47
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %103), !noalias !47
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIaEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIaEEDaT_.exit"
 
 709:                                              ; preds = %533
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %115) #12, !noalias !47
@@ -1977,7 +1977,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
 713:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %114) #12
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %115) #12
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIaEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIaEEDaT_.exit"
 
 714:                                              ; preds = %.noexc.i49, %709
   %715 = landingpad { ptr, i32 }
@@ -1995,7 +1995,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %115) #12
   br label %common.resume
 
-"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIaEEDaT_.argprom.argprom.exit": ; preds = %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIaEEDaT_EUlSF_T0_E_aEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIaEEDaT_EUlSF_T0_E0_aEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEaEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEaEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEaEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEaEEDaT_T0_.exit.i", %713
+"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIaEEDaT_.exit": ; preds = %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIaEEDaT_EUlSF_T0_E_aEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIaEEDaT_EUlSF_T0_E0_aEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEaEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEaEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEaEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEaEEDaT_T0_.exit.i", %713
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %114)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %115)
   br label %2014
@@ -2077,7 +2077,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIsEEDaT_EUlSF_T0_E_sEEDaSF_SG_.exit.i": ; preds = %736, %734
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %98), !noalias !68
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %99), !noalias !68
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIsEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIsEEDaT_.exit"
 
 749:                                              ; preds = %718
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %96), !noalias !68
@@ -2140,7 +2140,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIsEEDaT_EUlSF_T0_E0_sEEDaSF_SG_.exit.i": ; preds = %765, %763
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %96), !noalias !68
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %97), !noalias !68
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIsEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIsEEDaT_.exit"
 
 778:                                              ; preds = %718
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %94), !noalias !68
@@ -2203,7 +2203,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEsEEDaT_T0_.exit.i": ; preds = %794, %792
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %94), !noalias !68
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %95), !noalias !68
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIsEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIsEEDaT_.exit"
 
 807:                                              ; preds = %718
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %92), !noalias !68
@@ -2266,7 +2266,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEsEEDaT_T0_.exit.i": ; preds = %823, %821
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %92), !noalias !68
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %93), !noalias !68
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIsEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIsEEDaT_.exit"
 
 836:                                              ; preds = %718
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %90), !noalias !68
@@ -2329,7 +2329,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEsEEDaT_T0_.exit.i": ; preds = %852, %850
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %90), !noalias !68
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %91), !noalias !68
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIsEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIsEEDaT_.exit"
 
 865:                                              ; preds = %718
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %88), !noalias !68
@@ -2392,7 +2392,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEsEEDaT_T0_.exit.i": ; preds = %881, %879
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %88), !noalias !68
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %89), !noalias !68
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIsEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIsEEDaT_.exit"
 
 894:                                              ; preds = %718
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %101) #12, !noalias !68
@@ -2420,7 +2420,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
 898:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %100) #12
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %101) #12
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIsEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIsEEDaT_.exit"
 
 899:                                              ; preds = %.noexc.i67, %894
   %900 = landingpad { ptr, i32 }
@@ -2438,7 +2438,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %101) #12
   br label %common.resume
 
-"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIsEEDaT_.argprom.argprom.exit": ; preds = %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIsEEDaT_EUlSF_T0_E_sEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIsEEDaT_EUlSF_T0_E0_sEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEsEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEsEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEsEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEsEEDaT_T0_.exit.i", %898
+"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIsEEDaT_.exit": ; preds = %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIsEEDaT_EUlSF_T0_E_sEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIsEEDaT_EUlSF_T0_E0_sEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEsEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEsEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEsEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEsEEDaT_T0_.exit.i", %898
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %100)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %101)
   br label %2014
@@ -2520,7 +2520,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIiEEDaT_EUlSF_T0_E_iEEDaSF_SG_.exit.i": ; preds = %921, %919
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %84), !noalias !89
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %85), !noalias !89
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIiEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIiEEDaT_.exit"
 
 934:                                              ; preds = %903
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %82), !noalias !89
@@ -2583,7 +2583,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIiEEDaT_EUlSF_T0_E0_iEEDaSF_SG_.exit.i": ; preds = %950, %948
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %82), !noalias !89
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %83), !noalias !89
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIiEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIiEEDaT_.exit"
 
 963:                                              ; preds = %903
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %80), !noalias !89
@@ -2646,7 +2646,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEiEEDaT_T0_.exit.i": ; preds = %979, %977
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %80), !noalias !89
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %81), !noalias !89
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIiEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIiEEDaT_.exit"
 
 992:                                              ; preds = %903
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %78), !noalias !89
@@ -2709,7 +2709,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEiEEDaT_T0_.exit.i": ; preds = %1008, %1006
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %78), !noalias !89
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %79), !noalias !89
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIiEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIiEEDaT_.exit"
 
 1021:                                             ; preds = %903
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %76), !noalias !89
@@ -2772,7 +2772,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEiEEDaT_T0_.exit.i": ; preds = %1037, %1035
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %76), !noalias !89
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %77), !noalias !89
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIiEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIiEEDaT_.exit"
 
 1050:                                             ; preds = %903
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %74), !noalias !89
@@ -2835,7 +2835,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEiEEDaT_T0_.exit.i": ; preds = %1066, %1064
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %74), !noalias !89
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %75), !noalias !89
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIiEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIiEEDaT_.exit"
 
 1079:                                             ; preds = %903
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %87) #12, !noalias !89
@@ -2863,7 +2863,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
 1083:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %86) #12
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %87) #12
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIiEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIiEEDaT_.exit"
 
 1084:                                             ; preds = %.noexc.i86, %1079
   %1085 = landingpad { ptr, i32 }
@@ -2881,7 +2881,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %87) #12
   br label %common.resume
 
-"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIiEEDaT_.argprom.argprom.exit": ; preds = %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIiEEDaT_EUlSF_T0_E_iEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIiEEDaT_EUlSF_T0_E0_iEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEiEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEiEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEiEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEiEEDaT_T0_.exit.i", %1083
+"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIiEEDaT_.exit": ; preds = %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIiEEDaT_EUlSF_T0_E_iEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIiEEDaT_EUlSF_T0_E0_iEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEiEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEiEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEiEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEiEEDaT_T0_.exit.i", %1083
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %86)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %87)
   br label %2014
@@ -2963,7 +2963,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIlEEDaT_EUlSF_T0_E_lEEDaSF_SG_.exit.i": ; preds = %1106, %1104
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %70), !noalias !110
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %71), !noalias !110
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIlEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIlEEDaT_.exit"
 
 1119:                                             ; preds = %1088
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %68), !noalias !110
@@ -3026,7 +3026,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIlEEDaT_EUlSF_T0_E0_lEEDaSF_SG_.exit.i": ; preds = %1135, %1133
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %68), !noalias !110
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %69), !noalias !110
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIlEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIlEEDaT_.exit"
 
 1148:                                             ; preds = %1088
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %66), !noalias !110
@@ -3089,7 +3089,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvElEEDaT_T0_.exit.i": ; preds = %1164, %1162
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %66), !noalias !110
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %67), !noalias !110
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIlEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIlEEDaT_.exit"
 
 1177:                                             ; preds = %1088
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %64), !noalias !110
@@ -3152,7 +3152,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvElEEDaT_T0_.exit.i": ; preds = %1193, %1191
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %64), !noalias !110
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %65), !noalias !110
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIlEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIlEEDaT_.exit"
 
 1206:                                             ; preds = %1088
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %62), !noalias !110
@@ -3215,7 +3215,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvElEEDaT_T0_.exit.i": ; preds = %1222, %1220
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62), !noalias !110
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %63), !noalias !110
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIlEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIlEEDaT_.exit"
 
 1235:                                             ; preds = %1088
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %60), !noalias !110
@@ -3278,7 +3278,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvElEEDaT_T0_.exit.i": ; preds = %1251, %1249
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %60), !noalias !110
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %61), !noalias !110
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIlEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIlEEDaT_.exit"
 
 1264:                                             ; preds = %1088
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %73) #12, !noalias !110
@@ -3306,7 +3306,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
 1268:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %72) #12
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %73) #12
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIlEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIlEEDaT_.exit"
 
 1269:                                             ; preds = %.noexc.i105, %1264
   %1270 = landingpad { ptr, i32 }
@@ -3324,7 +3324,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %73) #12
   br label %common.resume
 
-"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIlEEDaT_.argprom.argprom.exit": ; preds = %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIlEEDaT_EUlSF_T0_E_lEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIlEEDaT_EUlSF_T0_E0_lEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvElEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvElEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvElEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvElEEDaT_T0_.exit.i", %1268
+"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIlEEDaT_.exit": ; preds = %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIlEEDaT_EUlSF_T0_E_lEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIlEEDaT_EUlSF_T0_E0_lEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvElEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvElEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvElEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvElEEDaT_T0_.exit.i", %1268
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %72)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %73)
   br label %2014
@@ -3406,7 +3406,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIhEEDaT_EUlSF_T0_E_hEEDaSF_SG_.exit.i": ; preds = %1291, %1289
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %56), !noalias !131
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %57), !noalias !131
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIhEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIhEEDaT_.exit"
 
 1304:                                             ; preds = %1273
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54), !noalias !131
@@ -3469,7 +3469,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIhEEDaT_EUlSF_T0_E0_hEEDaSF_SG_.exit.i": ; preds = %1320, %1318
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54), !noalias !131
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %55), !noalias !131
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIhEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIhEEDaT_.exit"
 
 1333:                                             ; preds = %1273
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %52), !noalias !131
@@ -3532,7 +3532,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEhEEDaT_T0_.exit.i": ; preds = %1349, %1347
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52), !noalias !131
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %53), !noalias !131
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIhEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIhEEDaT_.exit"
 
 1362:                                             ; preds = %1273
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50), !noalias !131
@@ -3595,7 +3595,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEhEEDaT_T0_.exit.i": ; preds = %1378, %1376
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50), !noalias !131
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %51), !noalias !131
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIhEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIhEEDaT_.exit"
 
 1391:                                             ; preds = %1273
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48), !noalias !131
@@ -3658,7 +3658,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEhEEDaT_T0_.exit.i": ; preds = %1407, %1405
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48), !noalias !131
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %49), !noalias !131
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIhEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIhEEDaT_.exit"
 
 1420:                                             ; preds = %1273
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %46), !noalias !131
@@ -3721,7 +3721,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEhEEDaT_T0_.exit.i": ; preds = %1436, %1434
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46), !noalias !131
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %47), !noalias !131
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIhEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIhEEDaT_.exit"
 
 1449:                                             ; preds = %1273
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #12, !noalias !131
@@ -3749,7 +3749,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
 1453:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #12
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #12
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIhEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIhEEDaT_.exit"
 
 1454:                                             ; preds = %.noexc.i124, %1449
   %1455 = landingpad { ptr, i32 }
@@ -3767,7 +3767,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #12
   br label %common.resume
 
-"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIhEEDaT_.argprom.argprom.exit": ; preds = %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIhEEDaT_EUlSF_T0_E_hEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIhEEDaT_EUlSF_T0_E0_hEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEhEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEhEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEhEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEhEEDaT_T0_.exit.i", %1453
+"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIhEEDaT_.exit": ; preds = %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIhEEDaT_EUlSF_T0_E_hEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIhEEDaT_EUlSF_T0_E0_hEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEhEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEhEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEhEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEhEEDaT_T0_.exit.i", %1453
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %58)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %59)
   br label %2014
@@ -3849,7 +3849,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clItEEDaT_EUlSF_T0_E_tEEDaSF_SG_.exit.i": ; preds = %1476, %1474
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42), !noalias !152
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %43), !noalias !152
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clItEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clItEEDaT_.exit"
 
 1489:                                             ; preds = %1458
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40), !noalias !152
@@ -3912,7 +3912,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clItEEDaT_EUlSF_T0_E0_tEEDaSF_SG_.exit.i": ; preds = %1505, %1503
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40), !noalias !152
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %41), !noalias !152
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clItEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clItEEDaT_.exit"
 
 1518:                                             ; preds = %1458
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38), !noalias !152
@@ -3975,7 +3975,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEtEEDaT_T0_.exit.i": ; preds = %1534, %1532
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38), !noalias !152
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %39), !noalias !152
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clItEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clItEEDaT_.exit"
 
 1547:                                             ; preds = %1458
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36), !noalias !152
@@ -4038,7 +4038,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEtEEDaT_T0_.exit.i": ; preds = %1563, %1561
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36), !noalias !152
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %37), !noalias !152
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clItEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clItEEDaT_.exit"
 
 1576:                                             ; preds = %1458
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34), !noalias !152
@@ -4101,7 +4101,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEtEEDaT_T0_.exit.i": ; preds = %1592, %1590
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34), !noalias !152
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35), !noalias !152
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clItEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clItEEDaT_.exit"
 
 1605:                                             ; preds = %1458
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32), !noalias !152
@@ -4164,7 +4164,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEtEEDaT_T0_.exit.i": ; preds = %1621, %1619
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32), !noalias !152
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %33), !noalias !152
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clItEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clItEEDaT_.exit"
 
 1634:                                             ; preds = %1458
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #12, !noalias !152
@@ -4192,7 +4192,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
 1638:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #12
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #12
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clItEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clItEEDaT_.exit"
 
 1639:                                             ; preds = %.noexc.i143, %1634
   %1640 = landingpad { ptr, i32 }
@@ -4210,7 +4210,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #12
   br label %common.resume
 
-"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clItEEDaT_.argprom.argprom.exit": ; preds = %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clItEEDaT_EUlSF_T0_E_tEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clItEEDaT_EUlSF_T0_E0_tEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEtEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEtEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEtEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEtEEDaT_T0_.exit.i", %1638
+"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clItEEDaT_.exit": ; preds = %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clItEEDaT_EUlSF_T0_E_tEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clItEEDaT_EUlSF_T0_E0_tEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEtEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEtEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEtEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEtEEDaT_T0_.exit.i", %1638
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %45)
   br label %2014
@@ -4292,7 +4292,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIjEEDaT_EUlSF_T0_E_jEEDaSF_SG_.exit.i": ; preds = %1661, %1659
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28), !noalias !173
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29), !noalias !173
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIjEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIjEEDaT_.exit"
 
 1674:                                             ; preds = %1643
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26), !noalias !173
@@ -4355,7 +4355,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIjEEDaT_EUlSF_T0_E0_jEEDaSF_SG_.exit.i": ; preds = %1690, %1688
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26), !noalias !173
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27), !noalias !173
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIjEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIjEEDaT_.exit"
 
 1703:                                             ; preds = %1643
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24), !noalias !173
@@ -4418,7 +4418,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEjEEDaT_T0_.exit.i": ; preds = %1719, %1717
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24), !noalias !173
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25), !noalias !173
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIjEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIjEEDaT_.exit"
 
 1732:                                             ; preds = %1643
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22), !noalias !173
@@ -4481,7 +4481,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEjEEDaT_T0_.exit.i": ; preds = %1748, %1746
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22), !noalias !173
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23), !noalias !173
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIjEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIjEEDaT_.exit"
 
 1761:                                             ; preds = %1643
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20), !noalias !173
@@ -4544,7 +4544,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEjEEDaT_T0_.exit.i": ; preds = %1777, %1775
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20), !noalias !173
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21), !noalias !173
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIjEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIjEEDaT_.exit"
 
 1790:                                             ; preds = %1643
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18), !noalias !173
@@ -4607,7 +4607,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEjEEDaT_T0_.exit.i": ; preds = %1806, %1804
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !173
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19), !noalias !173
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIjEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIjEEDaT_.exit"
 
 1819:                                             ; preds = %1643
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #12, !noalias !173
@@ -4635,7 +4635,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
 1823:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #12
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #12
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIjEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIjEEDaT_.exit"
 
 1824:                                             ; preds = %.noexc.i162, %1819
   %1825 = landingpad { ptr, i32 }
@@ -4653,7 +4653,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #12
   br label %common.resume
 
-"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIjEEDaT_.argprom.argprom.exit": ; preds = %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIjEEDaT_EUlSF_T0_E_jEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIjEEDaT_EUlSF_T0_E0_jEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEjEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEjEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEjEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEjEEDaT_T0_.exit.i", %1823
+"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIjEEDaT_.exit": ; preds = %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIjEEDaT_EUlSF_T0_E_jEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIjEEDaT_EUlSF_T0_E0_jEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEjEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEjEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEjEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEjEEDaT_T0_.exit.i", %1823
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %31)
   br label %2014
@@ -4735,7 +4735,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clImEEDaT_EUlSF_T0_E_mEEDaSF_SG_.exit.i": ; preds = %1846, %1844
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !194
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15), !noalias !194
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clImEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clImEEDaT_.exit"
 
 1859:                                             ; preds = %1828
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !194
@@ -4798,7 +4798,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clImEEDaT_EUlSF_T0_E0_mEEDaSF_SG_.exit.i": ; preds = %1875, %1873
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !194
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13), !noalias !194
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clImEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clImEEDaT_.exit"
 
 1888:                                             ; preds = %1828
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !194
@@ -4861,7 +4861,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEmEEDaT_T0_.exit.i": ; preds = %1904, %1902
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !194
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11), !noalias !194
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clImEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clImEEDaT_.exit"
 
 1917:                                             ; preds = %1828
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !194
@@ -4924,7 +4924,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEmEEDaT_T0_.exit.i": ; preds = %1933, %1931
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !194
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !194
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clImEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clImEEDaT_.exit"
 
 1946:                                             ; preds = %1828
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !194
@@ -4987,7 +4987,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEmEEDaT_T0_.exit.i": ; preds = %1962, %1960
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !194
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !194
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clImEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clImEEDaT_.exit"
 
 1975:                                             ; preds = %1828
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !194
@@ -5050,7 +5050,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
 "_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEmEEDaT_T0_.exit.i": ; preds = %1991, %1989
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !194
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !194
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clImEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clImEEDaT_.exit"
 
 2004:                                             ; preds = %1828
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #12, !noalias !194
@@ -5078,7 +5078,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i183:
 2008:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i183
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #12
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #12
-  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clImEEDaT_.argprom.argprom.exit"
+  br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clImEEDaT_.exit"
 
 2009:                                             ; preds = %.noexc.i181, %2004
   %2010 = landingpad { ptr, i32 }
@@ -5096,7 +5096,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i183:
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #12
   br label %common.resume
 
-"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clImEEDaT_.argprom.argprom.exit": ; preds = %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clImEEDaT_EUlSF_T0_E_mEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clImEEDaT_EUlSF_T0_E0_mEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEmEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEmEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEmEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEmEEDaT_T0_.exit.i", %2008
+"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clImEEDaT_.exit": ; preds = %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clImEEDaT_EUlSF_T0_E_mEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clImEEDaT_EUlSF_T0_E0_mEEDaSF_SG_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEmEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEmEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEmEEDaT_T0_.exit.i", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEmEEDaT_T0_.exit.i", %2008
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17)
   br label %2014
@@ -5105,7 +5105,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i183:
   store ptr null, ptr %0, align 8
   br label %2014
 
-2014:                                             ; preds = %2013, %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clImEEDaT_.argprom.argprom.exit", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIjEEDaT_.argprom.argprom.exit", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clItEEDaT_.argprom.argprom.exit", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIhEEDaT_.argprom.argprom.exit", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIlEEDaT_.argprom.argprom.exit", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIiEEDaT_.argprom.argprom.exit", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIsEEDaT_.argprom.argprom.exit", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIaEEDaT_.argprom.argprom.exit", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIeEEDaT_.exit", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIdEEDaT_.exit", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIfEEDaT_.exit"
+2014:                                             ; preds = %2013, %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clImEEDaT_.exit", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIjEEDaT_.exit", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clItEEDaT_.exit", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIhEEDaT_.exit", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIlEEDaT_.exit", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIiEEDaT_.exit", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIsEEDaT_.exit", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIaEEDaT_.exit", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIeEEDaT_.exit", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIdEEDaT_.exit", %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIfEEDaT_.exit"
   ret void
 
 2015:                                             ; preds = %162
@@ -6335,7 +6335,7 @@ _ZN7xgboost6common11RestoreTypeIKfKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKfKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIfEEDaT_EUlSG_T0_E_fEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIfEEDaT_EUlSG_T0_E_fEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -6348,7 +6348,7 @@ _ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store float %.sroa.speculated.i.i.i.i.i, ptr %48, align 4
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIfEEDaT_EUlSG_T0_E_fEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !230
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIfEEDaT_EUlSG_T0_E_fEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !230
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -6362,7 +6362,7 @@ _ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIfEEDaT_EUlSG_T0_E_fEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIfEEDaT_EUlSG_T0_E_fEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -6612,7 +6612,7 @@ _ZN7xgboost6common11RestoreTypeIKfKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKfKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIfEEDaT_EUlSG_T0_E0_fEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIfEEDaT_EUlSG_T0_E0_fEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -6625,7 +6625,7 @@ _ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store float %.sroa.speculated.i.i.i.i.i, ptr %48, align 4
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIfEEDaT_EUlSG_T0_E0_fEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !238
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIfEEDaT_EUlSG_T0_E0_fEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !238
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -6639,7 +6639,7 @@ _ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIfEEDaT_EUlSG_T0_E0_fEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIfEEDaT_EUlSG_T0_E0_fEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -6801,7 +6801,7 @@ _ZN7xgboost6common11RestoreTypeIKfKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKfKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEfEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEfEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -6813,7 +6813,7 @@ _ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store float %50, ptr %47, align 4
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEfEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !245
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEfEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !245
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -6827,7 +6827,7 @@ _ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEfEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEfEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -6989,7 +6989,7 @@ _ZN7xgboost6common11RestoreTypeIKdKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKdKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIdEEDaT_EUlSG_T0_E_dEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIdEEDaT_EUlSG_T0_E_dEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -7002,7 +7002,7 @@ _ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store double %.sroa.speculated.i.i.i.i.i, ptr %48, align 8
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIdEEDaT_EUlSG_T0_E_dEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !252
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIdEEDaT_EUlSG_T0_E_dEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !252
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -7016,7 +7016,7 @@ _ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIdEEDaT_EUlSG_T0_E_dEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIdEEDaT_EUlSG_T0_E_dEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -7178,7 +7178,7 @@ _ZN7xgboost6common11RestoreTypeIKdKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKdKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIdEEDaT_EUlSG_T0_E0_dEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIdEEDaT_EUlSG_T0_E0_dEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -7191,7 +7191,7 @@ _ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store double %.sroa.speculated.i.i.i.i.i, ptr %48, align 8
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIdEEDaT_EUlSG_T0_E0_dEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !259
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIdEEDaT_EUlSG_T0_E0_dEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !259
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -7205,7 +7205,7 @@ _ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIdEEDaT_EUlSG_T0_E0_dEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIdEEDaT_EUlSG_T0_E0_dEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -7367,7 +7367,7 @@ _ZN7xgboost6common11RestoreTypeIKdKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKdKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEdEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEdEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -7379,7 +7379,7 @@ _ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store double %50, ptr %47, align 8
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEdEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !266
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEdEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !266
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -7393,7 +7393,7 @@ _ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEdEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEdEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -7555,7 +7555,7 @@ _ZN7xgboost6common11RestoreTypeIKeKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKeKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIeEEDaT_EUlSG_T0_E_eEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIeEEDaT_EUlSG_T0_E_eEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %52, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -7568,7 +7568,7 @@ _ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store x86_fp80 %51, ptr %48, align 16
   %52 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %52, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIeEEDaT_EUlSG_T0_E_eEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !273
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIeEEDaT_EUlSG_T0_E_eEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !273
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -7582,7 +7582,7 @@ _ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %55) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIeEEDaT_EUlSG_T0_E_eEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIeEEDaT_EUlSG_T0_E_eEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -7744,7 +7744,7 @@ _ZN7xgboost6common11RestoreTypeIKeKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKeKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIeEEDaT_EUlSG_T0_E0_eEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIeEEDaT_EUlSG_T0_E0_eEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %52, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -7757,7 +7757,7 @@ _ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store x86_fp80 %51, ptr %48, align 16
   %52 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %52, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIeEEDaT_EUlSG_T0_E0_eEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !280
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIeEEDaT_EUlSG_T0_E0_eEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !280
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -7771,7 +7771,7 @@ _ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %55) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIeEEDaT_EUlSG_T0_E0_eEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIeEEDaT_EUlSG_T0_E0_eEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -7933,7 +7933,7 @@ _ZN7xgboost6common11RestoreTypeIKeKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKeKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEeEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEeEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -7945,7 +7945,7 @@ _ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store x86_fp80 %50, ptr %47, align 16
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEeEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !287
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEeEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !287
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -7959,7 +7959,7 @@ _ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEeEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEeEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -8120,7 +8120,7 @@ _ZN7xgboost6common11RestoreTypeIKaS2_EENS0_4SpanIT_Lm18446744073709551615EEENS3_
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKaS2_EENS0_4SpanIT_Lm18446744073709551615EEENS3_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %38, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIaEEDaT_EUlSG_T0_E_aEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %38, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIaEEDaT_EUlSG_T0_E_aEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -8132,7 +8132,7 @@ _ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i8 %.sroa.speculated.i.i.i.i.i, ptr %47, align 1
   %49 = add nuw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %49, %.val
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIaEEDaT_EUlSG_T0_E_aEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !294
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIaEEDaT_EUlSG_T0_E_aEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !294
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -8146,7 +8146,7 @@ _ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %52) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIaEEDaT_EUlSG_T0_E_aEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIaEEDaT_EUlSG_T0_E_aEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -8307,7 +8307,7 @@ _ZN7xgboost6common11RestoreTypeIKaS2_EENS0_4SpanIT_Lm18446744073709551615EEENS3_
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKaS2_EENS0_4SpanIT_Lm18446744073709551615EEENS3_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %38, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIaEEDaT_EUlSG_T0_E0_aEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %38, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIaEEDaT_EUlSG_T0_E0_aEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -8319,7 +8319,7 @@ _ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i8 %.sroa.speculated.i.i.i.i.i, ptr %47, align 1
   %49 = add nuw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %49, %.val
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIaEEDaT_EUlSG_T0_E0_aEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !301
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIaEEDaT_EUlSG_T0_E0_aEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !301
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -8333,7 +8333,7 @@ _ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %52) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIaEEDaT_EUlSG_T0_E0_aEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIaEEDaT_EUlSG_T0_E0_aEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -8494,7 +8494,7 @@ _ZN7xgboost6common11RestoreTypeIKaS2_EENS0_4SpanIT_Lm18446744073709551615EEENS3_
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKaS2_EENS0_4SpanIT_Lm18446744073709551615EEENS3_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %38, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEaEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %38, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEaEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -8506,7 +8506,7 @@ _ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i8 %49, ptr %46, align 1
   %50 = add nuw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %.val
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEaEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !308
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEaEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !308
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -8520,7 +8520,7 @@ _ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %53) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEaEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEaEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -8681,7 +8681,7 @@ _ZN7xgboost6common11RestoreTypeIKaS2_EENS0_4SpanIT_Lm18446744073709551615EEENS3_
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKaS2_EENS0_4SpanIT_Lm18446744073709551615EEENS3_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %38, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEaEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %38, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEaEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -8693,7 +8693,7 @@ _ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i8 %49, ptr %46, align 1
   %50 = add nuw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %.val
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEaEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !315
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEaEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !315
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -8707,7 +8707,7 @@ _ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %53) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEaEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEaEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -8868,7 +8868,7 @@ _ZN7xgboost6common11RestoreTypeIKaS2_EENS0_4SpanIT_Lm18446744073709551615EEENS3_
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKaS2_EENS0_4SpanIT_Lm18446744073709551615EEENS3_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %38, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEaEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %38, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEaEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -8880,7 +8880,7 @@ _ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i8 %49, ptr %46, align 1
   %50 = add nuw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %.val
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEaEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !322
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEaEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !322
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -8894,7 +8894,7 @@ _ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %53) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEaEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEaEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -9055,7 +9055,7 @@ _ZN7xgboost6common11RestoreTypeIKaS2_EENS0_4SpanIT_Lm18446744073709551615EEENS3_
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKaS2_EENS0_4SpanIT_Lm18446744073709551615EEENS3_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %38, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEaEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %38, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEaEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -9067,7 +9067,7 @@ _ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i8 %49, ptr %46, align 1
   %50 = add nuw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %.val
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEaEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !329
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEaEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !329
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -9081,7 +9081,7 @@ _ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %53) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEaEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEaEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIaaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -9243,7 +9243,7 @@ _ZN7xgboost6common11RestoreTypeIKsKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKsKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIsEEDaT_EUlSG_T0_E_sEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIsEEDaT_EUlSG_T0_E_sEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -9255,7 +9255,7 @@ _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i16 %.sroa.speculated.i.i.i.i.i, ptr %48, align 2
   %50 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIsEEDaT_EUlSG_T0_E_sEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !336
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIsEEDaT_EUlSG_T0_E_sEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !336
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -9269,7 +9269,7 @@ _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %53) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIsEEDaT_EUlSG_T0_E_sEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIsEEDaT_EUlSG_T0_E_sEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -9431,7 +9431,7 @@ _ZN7xgboost6common11RestoreTypeIKsKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKsKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIsEEDaT_EUlSG_T0_E0_sEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIsEEDaT_EUlSG_T0_E0_sEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -9443,7 +9443,7 @@ _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i16 %.sroa.speculated.i.i.i.i.i, ptr %48, align 2
   %50 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIsEEDaT_EUlSG_T0_E0_sEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !343
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIsEEDaT_EUlSG_T0_E0_sEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !343
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -9457,7 +9457,7 @@ _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %53) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIsEEDaT_EUlSG_T0_E0_sEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIsEEDaT_EUlSG_T0_E0_sEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -9619,7 +9619,7 @@ _ZN7xgboost6common11RestoreTypeIKsKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKsKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEsEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEsEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -9631,7 +9631,7 @@ _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i16 %50, ptr %47, align 2
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEsEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !350
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEsEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !350
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -9645,7 +9645,7 @@ _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEsEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEsEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -9807,7 +9807,7 @@ _ZN7xgboost6common11RestoreTypeIKsKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKsKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEsEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEsEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -9819,7 +9819,7 @@ _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i16 %50, ptr %47, align 2
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEsEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !357
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEsEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !357
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -9833,7 +9833,7 @@ _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEsEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEsEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -9995,7 +9995,7 @@ _ZN7xgboost6common11RestoreTypeIKsKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKsKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEsEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEsEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -10007,7 +10007,7 @@ _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i16 %50, ptr %47, align 2
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEsEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !364
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEsEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !364
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -10021,7 +10021,7 @@ _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEsEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEsEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -10183,7 +10183,7 @@ _ZN7xgboost6common11RestoreTypeIKsKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKsKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEsEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEsEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -10195,7 +10195,7 @@ _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i16 %50, ptr %47, align 2
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEsEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !371
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEsEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !371
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -10209,7 +10209,7 @@ _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEsEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEsEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -10371,7 +10371,7 @@ _ZN7xgboost6common11RestoreTypeIKiKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKiKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIiEEDaT_EUlSG_T0_E_iEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIiEEDaT_EUlSG_T0_E_iEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -10383,7 +10383,7 @@ _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i32 %.sroa.speculated.i.i.i.i.i, ptr %48, align 4
   %50 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIiEEDaT_EUlSG_T0_E_iEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !378
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIiEEDaT_EUlSG_T0_E_iEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !378
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -10397,7 +10397,7 @@ _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %53) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIiEEDaT_EUlSG_T0_E_iEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIiEEDaT_EUlSG_T0_E_iEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -10559,7 +10559,7 @@ _ZN7xgboost6common11RestoreTypeIKiKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKiKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIiEEDaT_EUlSG_T0_E0_iEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIiEEDaT_EUlSG_T0_E0_iEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -10571,7 +10571,7 @@ _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i32 %.sroa.speculated.i.i.i.i.i, ptr %48, align 4
   %50 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIiEEDaT_EUlSG_T0_E0_iEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !385
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIiEEDaT_EUlSG_T0_E0_iEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !385
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -10585,7 +10585,7 @@ _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %53) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIiEEDaT_EUlSG_T0_E0_iEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIiEEDaT_EUlSG_T0_E0_iEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -10747,7 +10747,7 @@ _ZN7xgboost6common11RestoreTypeIKiKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKiKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEiEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEiEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -10759,7 +10759,7 @@ _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i32 %50, ptr %47, align 4
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEiEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !392
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEiEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !392
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -10773,7 +10773,7 @@ _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEiEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEiEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -10935,7 +10935,7 @@ _ZN7xgboost6common11RestoreTypeIKiKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKiKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEiEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEiEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -10947,7 +10947,7 @@ _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i32 %50, ptr %47, align 4
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEiEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !399
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEiEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !399
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -10961,7 +10961,7 @@ _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEiEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEiEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -11123,7 +11123,7 @@ _ZN7xgboost6common11RestoreTypeIKiKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKiKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEiEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEiEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -11135,7 +11135,7 @@ _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i32 %50, ptr %47, align 4
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEiEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !406
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEiEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !406
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -11149,7 +11149,7 @@ _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEiEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEiEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -11311,7 +11311,7 @@ _ZN7xgboost6common11RestoreTypeIKiKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKiKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEiEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEiEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -11323,7 +11323,7 @@ _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i32 %50, ptr %47, align 4
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEiEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !413
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEiEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !413
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -11337,7 +11337,7 @@ _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEiEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEiEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -11499,7 +11499,7 @@ _ZN7xgboost6common11RestoreTypeIKlKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKlKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIlEEDaT_EUlSG_T0_E_lEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIlEEDaT_EUlSG_T0_E_lEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -11511,7 +11511,7 @@ _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i64 %.sroa.speculated.i.i.i.i.i, ptr %48, align 8
   %50 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIlEEDaT_EUlSG_T0_E_lEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !420
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIlEEDaT_EUlSG_T0_E_lEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !420
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -11525,7 +11525,7 @@ _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %53) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIlEEDaT_EUlSG_T0_E_lEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIlEEDaT_EUlSG_T0_E_lEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -11687,7 +11687,7 @@ _ZN7xgboost6common11RestoreTypeIKlKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKlKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIlEEDaT_EUlSG_T0_E0_lEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIlEEDaT_EUlSG_T0_E0_lEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -11699,7 +11699,7 @@ _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i64 %.sroa.speculated.i.i.i.i.i, ptr %48, align 8
   %50 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIlEEDaT_EUlSG_T0_E0_lEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !427
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIlEEDaT_EUlSG_T0_E0_lEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !427
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -11713,7 +11713,7 @@ _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %53) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIlEEDaT_EUlSG_T0_E0_lEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIlEEDaT_EUlSG_T0_E0_lEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -11875,7 +11875,7 @@ _ZN7xgboost6common11RestoreTypeIKlKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKlKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvElEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvElEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -11887,7 +11887,7 @@ _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i64 %50, ptr %47, align 8
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvElEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !434
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvElEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !434
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -11901,7 +11901,7 @@ _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvElEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvElEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -12063,7 +12063,7 @@ _ZN7xgboost6common11RestoreTypeIKlKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKlKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvElEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvElEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -12075,7 +12075,7 @@ _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i64 %50, ptr %47, align 8
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvElEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !441
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvElEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !441
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -12089,7 +12089,7 @@ _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvElEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvElEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -12251,7 +12251,7 @@ _ZN7xgboost6common11RestoreTypeIKlKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKlKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvElEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvElEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -12263,7 +12263,7 @@ _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i64 %50, ptr %47, align 8
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvElEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !448
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvElEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !448
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -12277,7 +12277,7 @@ _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvElEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvElEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -12439,7 +12439,7 @@ _ZN7xgboost6common11RestoreTypeIKlKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKlKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvElEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvElEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -12451,7 +12451,7 @@ _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i64 %50, ptr %47, align 8
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvElEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !455
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvElEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !455
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -12465,7 +12465,7 @@ _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvElEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvElEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -12626,7 +12626,7 @@ _ZN7xgboost6common11RestoreTypeIKhKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKhKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %38, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIhEEDaT_EUlSG_T0_E_hEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %38, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIhEEDaT_EUlSG_T0_E_hEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -12638,7 +12638,7 @@ _ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i8 %.sroa.speculated.i.i.i.i.i, ptr %47, align 1
   %49 = add nuw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %49, %.val
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIhEEDaT_EUlSG_T0_E_hEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !462
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIhEEDaT_EUlSG_T0_E_hEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !462
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -12652,7 +12652,7 @@ _ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %52) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIhEEDaT_EUlSG_T0_E_hEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIhEEDaT_EUlSG_T0_E_hEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -12813,7 +12813,7 @@ _ZN7xgboost6common11RestoreTypeIKhKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKhKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %38, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIhEEDaT_EUlSG_T0_E0_hEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %38, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIhEEDaT_EUlSG_T0_E0_hEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -12825,7 +12825,7 @@ _ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i8 %.sroa.speculated.i.i.i.i.i, ptr %47, align 1
   %49 = add nuw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %49, %.val
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIhEEDaT_EUlSG_T0_E0_hEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !469
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIhEEDaT_EUlSG_T0_E0_hEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !469
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -12839,7 +12839,7 @@ _ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %52) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIhEEDaT_EUlSG_T0_E0_hEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIhEEDaT_EUlSG_T0_E0_hEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -13000,7 +13000,7 @@ _ZN7xgboost6common11RestoreTypeIKhKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKhKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %38, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEhEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %38, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEhEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -13012,7 +13012,7 @@ _ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i8 %49, ptr %46, align 1
   %50 = add nuw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %.val
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEhEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !476
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEhEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !476
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -13026,7 +13026,7 @@ _ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %53) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEhEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEhEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -13187,7 +13187,7 @@ _ZN7xgboost6common11RestoreTypeIKhKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKhKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %38, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEhEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %38, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEhEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -13199,7 +13199,7 @@ _ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i8 %49, ptr %46, align 1
   %50 = add nuw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %.val
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEhEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !483
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEhEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !483
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -13213,7 +13213,7 @@ _ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %53) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEhEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEhEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -13374,7 +13374,7 @@ _ZN7xgboost6common11RestoreTypeIKhKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKhKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %38, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEhEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %38, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEhEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -13386,7 +13386,7 @@ _ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i8 %49, ptr %46, align 1
   %50 = add nuw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %.val
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEhEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !490
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEhEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !490
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -13400,7 +13400,7 @@ _ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %53) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEhEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEhEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -13561,7 +13561,7 @@ _ZN7xgboost6common11RestoreTypeIKhKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKhKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %38, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEhEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %38, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEhEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -13573,7 +13573,7 @@ _ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i8 %49, ptr %46, align 1
   %50 = add nuw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %.val
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEhEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !497
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEhEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !497
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -13587,7 +13587,7 @@ _ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %53) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEhEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEhEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIhaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -13749,7 +13749,7 @@ _ZN7xgboost6common11RestoreTypeIKtKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKtKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clItEEDaT_EUlSG_T0_E_tEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clItEEDaT_EUlSG_T0_E_tEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -13761,7 +13761,7 @@ _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i16 %.sroa.speculated.i.i.i.i.i, ptr %48, align 2
   %50 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clItEEDaT_EUlSG_T0_E_tEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !504
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clItEEDaT_EUlSG_T0_E_tEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !504
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -13775,7 +13775,7 @@ _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %53) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clItEEDaT_EUlSG_T0_E_tEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clItEEDaT_EUlSG_T0_E_tEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -13937,7 +13937,7 @@ _ZN7xgboost6common11RestoreTypeIKtKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKtKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clItEEDaT_EUlSG_T0_E0_tEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clItEEDaT_EUlSG_T0_E0_tEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -13949,7 +13949,7 @@ _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i16 %.sroa.speculated.i.i.i.i.i, ptr %48, align 2
   %50 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clItEEDaT_EUlSG_T0_E0_tEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !511
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clItEEDaT_EUlSG_T0_E0_tEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !511
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -13963,7 +13963,7 @@ _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %53) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clItEEDaT_EUlSG_T0_E0_tEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clItEEDaT_EUlSG_T0_E0_tEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -14125,7 +14125,7 @@ _ZN7xgboost6common11RestoreTypeIKtKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKtKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEtEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEtEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -14137,7 +14137,7 @@ _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i16 %50, ptr %47, align 2
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEtEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !518
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEtEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !518
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -14151,7 +14151,7 @@ _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEtEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEtEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -14313,7 +14313,7 @@ _ZN7xgboost6common11RestoreTypeIKtKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKtKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEtEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEtEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -14325,7 +14325,7 @@ _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i16 %50, ptr %47, align 2
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEtEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !525
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEtEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !525
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -14339,7 +14339,7 @@ _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEtEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEtEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -14501,7 +14501,7 @@ _ZN7xgboost6common11RestoreTypeIKtKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKtKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEtEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEtEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -14513,7 +14513,7 @@ _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i16 %50, ptr %47, align 2
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEtEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !532
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEtEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !532
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -14527,7 +14527,7 @@ _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEtEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEtEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -14689,7 +14689,7 @@ _ZN7xgboost6common11RestoreTypeIKtKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKtKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEtEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEtEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -14701,7 +14701,7 @@ _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i16 %50, ptr %47, align 2
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEtEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !539
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEtEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !539
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -14715,7 +14715,7 @@ _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEtEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEtEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -14877,7 +14877,7 @@ _ZN7xgboost6common11RestoreTypeIKjKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKjKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIjEEDaT_EUlSG_T0_E_jEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIjEEDaT_EUlSG_T0_E_jEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -14889,7 +14889,7 @@ _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i32 %.sroa.speculated.i.i.i.i.i, ptr %48, align 4
   %50 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIjEEDaT_EUlSG_T0_E_jEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !546
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIjEEDaT_EUlSG_T0_E_jEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !546
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -14903,7 +14903,7 @@ _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %53) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIjEEDaT_EUlSG_T0_E_jEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIjEEDaT_EUlSG_T0_E_jEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -15065,7 +15065,7 @@ _ZN7xgboost6common11RestoreTypeIKjKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKjKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIjEEDaT_EUlSG_T0_E0_jEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIjEEDaT_EUlSG_T0_E0_jEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -15077,7 +15077,7 @@ _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i32 %.sroa.speculated.i.i.i.i.i, ptr %48, align 4
   %50 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIjEEDaT_EUlSG_T0_E0_jEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !553
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIjEEDaT_EUlSG_T0_E0_jEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !553
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -15091,7 +15091,7 @@ _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %53) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIjEEDaT_EUlSG_T0_E0_jEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clIjEEDaT_EUlSG_T0_E0_jEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -15253,7 +15253,7 @@ _ZN7xgboost6common11RestoreTypeIKjKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKjKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEjEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEjEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -15265,7 +15265,7 @@ _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i32 %50, ptr %47, align 4
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEjEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !560
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEjEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !560
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -15279,7 +15279,7 @@ _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEjEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEjEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -15441,7 +15441,7 @@ _ZN7xgboost6common11RestoreTypeIKjKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKjKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEjEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEjEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -15453,7 +15453,7 @@ _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i32 %50, ptr %47, align 4
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEjEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !567
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEjEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !567
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -15467,7 +15467,7 @@ _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEjEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEjEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -15629,7 +15629,7 @@ _ZN7xgboost6common11RestoreTypeIKjKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKjKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEjEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEjEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -15641,7 +15641,7 @@ _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i32 %50, ptr %47, align 4
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEjEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !574
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEjEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !574
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -15655,7 +15655,7 @@ _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEjEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEjEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -15817,7 +15817,7 @@ _ZN7xgboost6common11RestoreTypeIKjKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKjKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEjEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEjEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -15829,7 +15829,7 @@ _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i32 %50, ptr %47, align 4
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEjEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !581
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEjEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !581
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -15843,7 +15843,7 @@ _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEjEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEjEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -16005,7 +16005,7 @@ _ZN7xgboost6common11RestoreTypeIKmKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKmKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clImEEDaT_EUlSG_T0_E_mEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clImEEDaT_EUlSG_T0_E_mEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -16017,7 +16017,7 @@ _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i64 %.sroa.speculated.i.i.i.i.i, ptr %48, align 8
   %50 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clImEEDaT_EUlSG_T0_E_mEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !588
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clImEEDaT_EUlSG_T0_E_mEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !588
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -16031,7 +16031,7 @@ _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %53) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clImEEDaT_EUlSG_T0_E_mEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clImEEDaT_EUlSG_T0_E_mEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -16193,7 +16193,7 @@ _ZN7xgboost6common11RestoreTypeIKmKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKmKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clImEEDaT_EUlSG_T0_E0_mEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clImEEDaT_EUlSG_T0_E0_mEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -16205,7 +16205,7 @@ _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i64 %.sroa.speculated.i.i.i.i.i, ptr %48, align 8
   %50 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clImEEDaT_EUlSG_T0_E0_mEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !595
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clImEEDaT_EUlSG_T0_E0_mEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !595
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -16219,7 +16219,7 @@ _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %53) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clImEEDaT_EUlSG_T0_E0_mEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clIZZNS2_9AllreduceES5_S8_SA_SB_ENK3$_0clImEEDaT_EUlSG_T0_E0_mEEDaSG_SH_EUlNS7_IKaLm18446744073709551615EEES8_E_JSK_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSO_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -16381,7 +16381,7 @@ _ZN7xgboost6common11RestoreTypeIKmKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKmKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEmEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEmEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -16393,7 +16393,7 @@ _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i64 %50, ptr %47, align 8
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEmEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !602
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEmEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !602
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -16407,7 +16407,7 @@ _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEmEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt4plusIvEmEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -16569,7 +16569,7 @@ _ZN7xgboost6common11RestoreTypeIKmKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKmKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEmEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEmEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -16581,7 +16581,7 @@ _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i64 %50, ptr %47, align 8
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEmEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !609
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEmEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !609
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -16595,7 +16595,7 @@ _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEmEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_andIvEmEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -16757,7 +16757,7 @@ _ZN7xgboost6common11RestoreTypeIKmKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKmKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEmEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEmEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -16769,7 +16769,7 @@ _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i64 %50, ptr %47, align 8
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEmEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !616
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEmEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !616
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -16783,7 +16783,7 @@ _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEmEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt6bit_orIvEmEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -16945,7 +16945,7 @@ _ZN7xgboost6common11RestoreTypeIKmKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_I
   unreachable
 
 _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i: ; preds = %_ZN7xgboost6common11RestoreTypeIKmKaEENS0_4SpanIT_Lm18446744073709551615EEENS4_IT0_Lm18446744073709551615EEE.exit.i.i.i
-  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEmEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %39, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEmEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
@@ -16957,7 +16957,7 @@ _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   store i64 %50, ptr %47, align 8
   %51 = add nuw nsw i64 %.01.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEmEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !623
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEmEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !623
 
 .body.i.i:                                        ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
@@ -16971,7 +16971,7 @@ _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEmEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
+"_ZSt10__invoke_rIvRZZN7xgboost10collective4Coll9AllreduceERKNS1_4CommENS0_6common4SpanIaLm18446744073709551615EEENS0_21ArrayInterfaceHandler4TypeENS1_2OpEENK3$_2clISt7bit_xorIvEmEEDaT_T0_EUlNS7_IKaLm18446744073709551615EEES8_E_JSJ_S8_EENSt9enable_ifIX16is_invocable_r_vISG_SH_DpT1_EESG_E4typeEOSH_DpOSN_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -18138,11 +18138,11 @@ attributes #29 = { noreturn }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZN7xgboost10collectivelsIZNS0_4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSF_OSE_.argprom: argument 0"}
-!6 = distinct !{!6, !"_ZN7xgboost10collectivelsIZNS0_4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSF_OSE_.argprom"}
+!5 = distinct !{!5, !6, !"_ZN7xgboost10collectivelsIZNS0_4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSF_OSE_: argument 0"}
+!6 = distinct !{!6, !"_ZN7xgboost10collectivelsIZNS0_4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSF_OSE_"}
 !7 = !{!8, !5}
-!8 = distinct !{!8, !9, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_3clEv.argprom: argument 0"}
-!9 = distinct !{!9, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_3clEv.argprom"}
+!8 = distinct !{!8, !9, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_3clEv: argument 0"}
+!9 = distinct !{!9, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_3clEv"}
 !10 = !{!"branch_weights", i32 1, i32 1023}
 !11 = !{!12}
 !12 = distinct !{!12, !13, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIfEEDaT_: argument 0"}
@@ -18181,8 +18181,8 @@ attributes #29 = { noreturn }
 !45 = distinct !{!45, !46, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEeEEDaT_T0_: argument 0"}
 !46 = distinct !{!46, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEeEEDaT_T0_"}
 !47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIaEEDaT_.argprom.argprom: argument 0"}
-!49 = distinct !{!49, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIaEEDaT_.argprom.argprom"}
+!48 = distinct !{!48, !49, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIaEEDaT_: argument 0"}
+!49 = distinct !{!49, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIaEEDaT_"}
 !50 = !{!51, !48}
 !51 = distinct !{!51, !52, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIaEEDaT_EUlSF_T0_E_aEEDaSF_SG_: argument 0"}
 !52 = distinct !{!52, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIaEEDaT_EUlSF_T0_E_aEEDaSF_SG_"}
@@ -18202,8 +18202,8 @@ attributes #29 = { noreturn }
 !66 = distinct !{!66, !67, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEaEEDaT_T0_: argument 0"}
 !67 = distinct !{!67, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEaEEDaT_T0_"}
 !68 = !{!69}
-!69 = distinct !{!69, !70, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIsEEDaT_.argprom.argprom: argument 0"}
-!70 = distinct !{!70, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIsEEDaT_.argprom.argprom"}
+!69 = distinct !{!69, !70, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIsEEDaT_: argument 0"}
+!70 = distinct !{!70, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIsEEDaT_"}
 !71 = !{!72, !69}
 !72 = distinct !{!72, !73, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIsEEDaT_EUlSF_T0_E_sEEDaSF_SG_: argument 0"}
 !73 = distinct !{!73, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIsEEDaT_EUlSF_T0_E_sEEDaSF_SG_"}
@@ -18223,8 +18223,8 @@ attributes #29 = { noreturn }
 !87 = distinct !{!87, !88, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEsEEDaT_T0_: argument 0"}
 !88 = distinct !{!88, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEsEEDaT_T0_"}
 !89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIiEEDaT_.argprom.argprom: argument 0"}
-!91 = distinct !{!91, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIiEEDaT_.argprom.argprom"}
+!90 = distinct !{!90, !91, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIiEEDaT_: argument 0"}
+!91 = distinct !{!91, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIiEEDaT_"}
 !92 = !{!93, !90}
 !93 = distinct !{!93, !94, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIiEEDaT_EUlSF_T0_E_iEEDaSF_SG_: argument 0"}
 !94 = distinct !{!94, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIiEEDaT_EUlSF_T0_E_iEEDaSF_SG_"}
@@ -18244,8 +18244,8 @@ attributes #29 = { noreturn }
 !108 = distinct !{!108, !109, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEiEEDaT_T0_: argument 0"}
 !109 = distinct !{!109, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEiEEDaT_T0_"}
 !110 = !{!111}
-!111 = distinct !{!111, !112, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIlEEDaT_.argprom.argprom: argument 0"}
-!112 = distinct !{!112, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIlEEDaT_.argprom.argprom"}
+!111 = distinct !{!111, !112, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIlEEDaT_: argument 0"}
+!112 = distinct !{!112, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIlEEDaT_"}
 !113 = !{!114, !111}
 !114 = distinct !{!114, !115, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIlEEDaT_EUlSF_T0_E_lEEDaSF_SG_: argument 0"}
 !115 = distinct !{!115, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIlEEDaT_EUlSF_T0_E_lEEDaSF_SG_"}
@@ -18265,8 +18265,8 @@ attributes #29 = { noreturn }
 !129 = distinct !{!129, !130, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvElEEDaT_T0_: argument 0"}
 !130 = distinct !{!130, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvElEEDaT_T0_"}
 !131 = !{!132}
-!132 = distinct !{!132, !133, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIhEEDaT_.argprom.argprom: argument 0"}
-!133 = distinct !{!133, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIhEEDaT_.argprom.argprom"}
+!132 = distinct !{!132, !133, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIhEEDaT_: argument 0"}
+!133 = distinct !{!133, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIhEEDaT_"}
 !134 = !{!135, !132}
 !135 = distinct !{!135, !136, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIhEEDaT_EUlSF_T0_E_hEEDaSF_SG_: argument 0"}
 !136 = distinct !{!136, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIhEEDaT_EUlSF_T0_E_hEEDaSF_SG_"}
@@ -18286,8 +18286,8 @@ attributes #29 = { noreturn }
 !150 = distinct !{!150, !151, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEhEEDaT_T0_: argument 0"}
 !151 = distinct !{!151, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEhEEDaT_T0_"}
 !152 = !{!153}
-!153 = distinct !{!153, !154, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clItEEDaT_.argprom.argprom: argument 0"}
-!154 = distinct !{!154, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clItEEDaT_.argprom.argprom"}
+!153 = distinct !{!153, !154, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clItEEDaT_: argument 0"}
+!154 = distinct !{!154, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clItEEDaT_"}
 !155 = !{!156, !153}
 !156 = distinct !{!156, !157, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clItEEDaT_EUlSF_T0_E_tEEDaSF_SG_: argument 0"}
 !157 = distinct !{!157, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clItEEDaT_EUlSF_T0_E_tEEDaSF_SG_"}
@@ -18307,8 +18307,8 @@ attributes #29 = { noreturn }
 !171 = distinct !{!171, !172, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEtEEDaT_T0_: argument 0"}
 !172 = distinct !{!172, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEtEEDaT_T0_"}
 !173 = !{!174}
-!174 = distinct !{!174, !175, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIjEEDaT_.argprom.argprom: argument 0"}
-!175 = distinct !{!175, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIjEEDaT_.argprom.argprom"}
+!174 = distinct !{!174, !175, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIjEEDaT_: argument 0"}
+!175 = distinct !{!175, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIjEEDaT_"}
 !176 = !{!177, !174}
 !177 = distinct !{!177, !178, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIjEEDaT_EUlSF_T0_E_jEEDaSF_SG_: argument 0"}
 !178 = distinct !{!178, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIjEEDaT_EUlSF_T0_E_jEEDaSF_SG_"}
@@ -18328,8 +18328,8 @@ attributes #29 = { noreturn }
 !192 = distinct !{!192, !193, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEjEEDaT_T0_: argument 0"}
 !193 = distinct !{!193, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEjEEDaT_T0_"}
 !194 = !{!195}
-!195 = distinct !{!195, !196, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clImEEDaT_.argprom.argprom: argument 0"}
-!196 = distinct !{!196, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clImEEDaT_.argprom.argprom"}
+!195 = distinct !{!195, !196, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clImEEDaT_: argument 0"}
+!196 = distinct !{!196, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clImEEDaT_"}
 !197 = !{!198, !195}
 !198 = distinct !{!198, !199, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clImEEDaT_EUlSF_T0_E_mEEDaSF_SG_: argument 0"}
 !199 = distinct !{!199, !"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clImEEDaT_EUlSF_T0_E_mEEDaSF_SG_"}

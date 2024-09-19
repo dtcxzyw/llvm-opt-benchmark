@@ -1210,7 +1210,7 @@ define internal fastcc void @_ZN2cv6detailL10init_libvaEv() unnamed_addr #3 pers
   br i1 %.not, label %22, label %19
 
 19:                                               ; preds = %17
-  invoke fastcc void @_ZN2cv6detailL9loadLibVAEv.argprom()
+  invoke fastcc void @_ZN2cv6detailL9loadLibVAEv()
           to label %20 unwind label %30
 
 20:                                               ; preds = %19
@@ -2550,7 +2550,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv6detailL9loadLibVAEv.argprom() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv6detailL9loadLibVAEv() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN2cv6detailL10init_libvaEvE7library, i8 0, i64 16, i1 false)
   %2 = tail call ptr @getenv(ptr noundef nonnull @.str.33) #17

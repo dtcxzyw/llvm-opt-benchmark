@@ -1875,13 +1875,13 @@ if.end:                                           ; preds = %if.else, %if.then
 
 if.then.i:                                        ; preds = %if.end
   %bcmp3.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid1, ptr noundef nonnull readonly dereferenceable(32) %oid2, i64 32)
-  br label %hasheq_algop.argprom.exit
+  br label %hasheq_algop.exit
 
 if.end.i:                                         ; preds = %if.end
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid1, ptr noundef nonnull readonly dereferenceable(20) %oid2, i64 20)
-  br label %hasheq_algop.argprom.exit
+  br label %hasheq_algop.exit
 
-hasheq_algop.argprom.exit:                        ; preds = %if.then.i, %if.end.i
+hasheq_algop.exit:                                ; preds = %if.then.i, %if.end.i
   %retval.0.in.in.i = phi i32 [ %bcmp3.i, %if.then.i ], [ %bcmp.i, %if.end.i ]
   %retval.0.in.i = icmp eq i32 %retval.0.in.in.i, 0
   %retval.0.i = zext i1 %retval.0.in.i to i32

@@ -2571,16 +2571,16 @@ _ZNK4node22CommonEnvironmentSetup7contextEv.exit.i.i.i: ; preds = %if.end.i.i.i.
   %call11.i.i.i = call noundef ptr @_ZN4node17CreateEnvironmentEPNS_11IsolateDataEN2v85LocalINS2_7ContextEEERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EESG_NS_16EnvironmentFlags5FlagsENS_8ThreadIdESt10unique_ptrINS_21InspectorParentHandleESt14default_deleteISL_EE(ptr noundef %0, ptr %retval.i13.sroa.0.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %9, i64 -1, ptr noundef nonnull %agg.tmp6.i.i.i) #21
   %10 = load ptr, ptr %agg.tmp6.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %10, null
-  br i1 %cmp.not.i.i.i.i, label %"_ZSt10__invoke_rIPN4node11EnvironmentERZNS0_22CommonEnvironmentSetup21CreateForSnapshottingEPNS0_20MultiIsolatePlatformEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERKSE_SH_RKNS0_14SnapshotConfigEE3$_0JPKS3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.argprom.argprom.exit", label %_ZNKSt14default_deleteIN4node21InspectorParentHandleEEclEPS1_.exit.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %"_ZSt10__invoke_rIPN4node11EnvironmentERZNS0_22CommonEnvironmentSetup21CreateForSnapshottingEPNS0_20MultiIsolatePlatformEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERKSE_SH_RKNS0_14SnapshotConfigEE3$_0JPKS3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.exit", label %_ZNKSt14default_deleteIN4node21InspectorParentHandleEEclEPS1_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN4node21InspectorParentHandleEEclEPS1_.exit.i.i.i.i: ; preds = %_ZNK4node22CommonEnvironmentSetup7contextEv.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %10, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %11 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #21
-  br label %"_ZSt10__invoke_rIPN4node11EnvironmentERZNS0_22CommonEnvironmentSetup21CreateForSnapshottingEPNS0_20MultiIsolatePlatformEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERKSE_SH_RKNS0_14SnapshotConfigEE3$_0JPKS3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIPN4node11EnvironmentERZNS0_22CommonEnvironmentSetup21CreateForSnapshottingEPNS0_20MultiIsolatePlatformEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERKSE_SH_RKNS0_14SnapshotConfigEE3$_0JPKS3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.exit"
 
-"_ZSt10__invoke_rIPN4node11EnvironmentERZNS0_22CommonEnvironmentSetup21CreateForSnapshottingEPNS0_20MultiIsolatePlatformEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERKSE_SH_RKNS0_14SnapshotConfigEE3$_0JPKS3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.argprom.argprom.exit": ; preds = %_ZNK4node22CommonEnvironmentSetup7contextEv.exit.i.i.i, %_ZNKSt14default_deleteIN4node21InspectorParentHandleEEclEPS1_.exit.i.i.i.i
+"_ZSt10__invoke_rIPN4node11EnvironmentERZNS0_22CommonEnvironmentSetup21CreateForSnapshottingEPNS0_20MultiIsolatePlatformEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERKSE_SH_RKNS0_14SnapshotConfigEE3$_0JPKS3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.exit": ; preds = %_ZNK4node22CommonEnvironmentSetup7contextEv.exit.i.i.i, %_ZNKSt14default_deleteIN4node21InspectorParentHandleEEclEPS1_.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp6.i.i.i)
   ret ptr %call11.i.i.i
 }

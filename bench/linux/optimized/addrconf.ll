@@ -5904,7 +5904,7 @@ ipv6_find_idev.exit:                              ; preds = %110, %113, %119
 361:                                              ; preds = %353
   %362 = load i64, ptr %6, align 8
   %363 = icmp eq i32 %357, 1
-  call fastcc void @cleanup_prefix_route.argelim(ptr noundef nonnull %127, i64 noundef %362, i1 noundef zeroext %363)
+  call fastcc void @cleanup_prefix_route(ptr noundef nonnull %127, i64 noundef %362, i1 noundef zeroext %363)
   br label %364
 
 364:                                              ; preds = %361, %353
@@ -6146,7 +6146,7 @@ define internal i32 @inet6_rtm_getaddr(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.thread
 
 52:                                               ; preds = %45
-  %53 = call fastcc i32 @nlmsg_parse_deprecated_strict.argprom.argelim(ptr noundef %1, ptr noundef nonnull %5, ptr noundef %2)
+  %53 = call fastcc i32 @nlmsg_parse_deprecated_strict(ptr noundef %1, ptr noundef nonnull %5, ptr noundef %2)
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %.preheader, label %67
 
@@ -9467,7 +9467,7 @@ define internal fastcc void @ipv6_del_addr(ptr noundef %0) unnamed_addr #0 align
 94:                                               ; preds = %91
   %95 = load i64, ptr %2, align 8
   %96 = icmp eq i32 %66, 1
-  tail call fastcc void @cleanup_prefix_route.argelim(ptr noundef %0, i64 noundef %95, i1 noundef zeroext %96)
+  tail call fastcc void @cleanup_prefix_route(ptr noundef %0, i64 noundef %95, i1 noundef zeroext %96)
   br label %97
 
 97:                                               ; preds = %94, %91
@@ -9621,7 +9621,7 @@ define internal fastcc range(i32 0, 3) i32 @check_cleanup_prefix_route(ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @cleanup_prefix_route.argelim(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc void @cleanup_prefix_route(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 168
@@ -10910,9 +10910,9 @@ define internal fastcc noundef range(i32 -90, 1) i32 @inet6_fill_ifla6_attrs(ptr
   store i64 %271, ptr %269, align 1
   %272 = add nuw nsw i64 %268, 1
   %273 = icmp eq i64 %272, 7
-  br i1 %273, label %snmp6_fill_stats.argprom.exit, label %267, !llvm.loop !152
+  br i1 %273, label %snmp6_fill_stats.exit, label %267, !llvm.loop !152
 
-snmp6_fill_stats.argprom.exit:                    ; preds = %267
+snmp6_fill_stats.exit:                            ; preds = %267
   %274 = add nuw nsw i64 %262, 4294967240
   %275 = getelementptr i8, ptr %256, i64 60
   %276 = and i64 %274, 4294967295
@@ -10921,7 +10921,7 @@ snmp6_fill_stats.argprom.exit:                    ; preds = %267
   %278 = icmp eq ptr %277, null
   br i1 %278, label %297, label %279
 
-279:                                              ; preds = %snmp6_fill_stats.argprom.exit
+279:                                              ; preds = %snmp6_fill_stats.exit
   %280 = getelementptr inbounds i8, ptr %1, i64 616
   call void @_raw_read_lock_bh(ptr noundef %280) #20
   %281 = getelementptr i8, ptr %277, i64 4
@@ -10954,7 +10954,7 @@ snmp6_fill_stats.argprom.exit:                    ; preds = %267
   %296 = icmp eq i32 %295, 0
   br i1 %296, label %298, label %297
 
-297:                                              ; preds = %294, %279, %snmp6_fill_stats.argprom.exit, %.thread, %210, %36, %13, %3
+297:                                              ; preds = %294, %279, %snmp6_fill_stats.exit, %.thread, %210, %36, %13, %3
   br label %298
 
 298:                                              ; preds = %297, %294, %290, %44
@@ -15405,7 +15405,7 @@ declare dso_local i32 @rtnl_unicast(ptr noundef, ptr noundef, i32 noundef) local
 declare dso_local zeroext i1 @netlink_strict_get_check(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @nlmsg_parse_deprecated_strict.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 16 {
+define internal fastcc i32 @nlmsg_parse_deprecated_strict(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 16 {
   %4 = load i32, ptr %0, align 4
   %5 = icmp ult i32 %4, 24
   br i1 %5, label %6, label %9

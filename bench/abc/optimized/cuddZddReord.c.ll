@@ -77,7 +77,7 @@ define i32 @Cudd_zddReduceHeap(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   br i1 %35, label %.loopexit, label %36
 
 36:                                               ; preds = %._crit_edge
-  tail call fastcc void @zddReorderPostprocess.retelim(ptr noundef %0)
+  tail call fastcc void @zddReorderPostprocess(ptr noundef %0)
   %37 = getelementptr inbounds i8, ptr %0, i64 504
   %38 = load i32, ptr %37, align 8
   %.not45 = icmp eq i32 %38, 0
@@ -155,7 +155,7 @@ declare i64 @Extra_CpuTime(...) local_unnamed_addr #1
 declare i32 @cuddZddTreeSifting(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zddReorderPostprocess.retelim(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @zddReorderPostprocess(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 296
   %3 = load double, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 288
@@ -389,7 +389,7 @@ zddSiftUp.exit.i:                                 ; preds = %18
 
 zddShuffle.exit:                                  ; preds = %zddSiftUp.exit.i, %19, %2
   %.0.i = phi i32 [ 1, %2 ], [ 0, %19 ], [ 1, %zddSiftUp.exit.i ]
-  tail call fastcc void @zddReorderPostprocess.retelim(ptr noundef %0)
+  tail call fastcc void @zddReorderPostprocess(ptr noundef %0)
   ret i32 %.0.i
 }
 

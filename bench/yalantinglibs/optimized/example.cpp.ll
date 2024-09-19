@@ -11149,7 +11149,7 @@ if.end33.i.i:                                     ; preds = %invoke.cont6.i.i
   %call34.val.i.i = load ptr, ptr %_M_storage.i.i.i.i, align 8
   %50 = getelementptr i8, ptr %49, i64 40
   %call34.val2.i.i = load i64, ptr %50, align 8
-  invoke fastcc void @"_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN7cinatra17coro_http_requestERNS5_18coro_http_responseEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_SB_EEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_0EEESG_INSt8__detail14_Node_iteratorISI_Lb0ELb1EEEbEDpOT_.argprom.argelim"(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @_ZZN7cinatra16coro_http_router8instanceEvE8instance, i64 48), ptr %call34.val.i.i, i64 %call34.val2.i.i)
+  invoke fastcc void @"_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN7cinatra17coro_http_requestERNS5_18coro_http_responseEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_SB_EEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_0EEESG_INSt8__detail14_Node_iteratorISI_Lb0ELb1EEEbEDpOT_"(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @_ZZN7cinatra16coro_http_router8instanceEvE8instance, i64 48), ptr %call34.val.i.i, i64 %call34.val2.i.i)
           to label %cleanup.i.i unwind label %lpad.i.i
 
 cleanup.i.i:                                      ; preds = %if.end33.i.i, %_ZN7easylog8record_tD2Ev.exit.i.i, %invoke.cont10.i.i
@@ -11573,7 +11573,7 @@ if.end33.i137.i:                                  ; preds = %invoke.cont6.i55.i
   %call34.val.i139.i = load ptr, ptr %_M_storage.i.i.i138.i, align 8
   %104 = getelementptr i8, ptr %103, i64 40
   %call34.val2.i140.i = load i64, ptr %104, align 8
-  invoke fastcc void @"_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN7cinatra17coro_http_requestERNS5_18coro_http_responseEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_SB_EEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_0EEESG_INSt8__detail14_Node_iteratorISI_Lb0ELb1EEEbEDpOT_.argprom.argelim"(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @_ZZN7cinatra16coro_http_router8instanceEvE8instance, i64 48), ptr %call34.val.i139.i, i64 %call34.val2.i140.i)
+  invoke fastcc void @"_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN7cinatra17coro_http_requestERNS5_18coro_http_responseEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_SB_EEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_0EEESG_INSt8__detail14_Node_iteratorISI_Lb0ELb1EEEbEDpOT_"(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @_ZZN7cinatra16coro_http_router8instanceEvE8instance, i64 48), ptr %call34.val.i139.i, i64 %call34.val2.i140.i)
           to label %cleanup.i61.i unwind label %lpad.i52.i
 
 cleanup.i61.i:                                    ; preds = %if.end33.i137.i, %_ZN7easylog8record_tD2Ev.exit.i112.i, %invoke.cont10.i59.i
@@ -12069,7 +12069,7 @@ if.end33.i.i315:                                  ; preds = %invoke.cont6.i.i73
   %call34.val.i.i317 = load ptr, ptr %_M_storage.i.i.i.i316, align 8
   %167 = getelementptr i8, ptr %166, i64 40
   %call34.val2.i.i318 = load i64, ptr %167, align 8
-  invoke fastcc void @"_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_SF_EEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_1EEESK_INSt8__detail14_Node_iteratorISM_Lb0ELb1EEEbEDpOT_.argprom.argelim"(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @_ZZN7cinatra16coro_http_router8instanceEvE8instance, i64 152), ptr %call34.val.i.i317, i64 %call34.val2.i.i318)
+  invoke fastcc void @"_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_SF_EEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_1EEESK_INSt8__detail14_Node_iteratorISM_Lb0ELb1EEEbEDpOT_"(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @_ZZN7cinatra16coro_http_router8instanceEvE8instance, i64 152), ptr %call34.val.i.i317, i64 %call34.val2.i.i318)
           to label %cleanup.i.i79 unwind label %lpad.i.i68
 
 cleanup.i.i79:                                    ; preds = %if.end33.i.i315, %_ZN7easylog8record_tD2Ev.exit.i.i290, %invoke.cont10.i.i77
@@ -12493,7 +12493,7 @@ if.end33.i137.i223:                               ; preds = %invoke.cont6.i55.i1
   %call34.val.i139.i225 = load ptr, ptr %_M_storage.i.i.i138.i224, align 8
   %221 = getelementptr i8, ptr %220, i64 40
   %call34.val2.i140.i226 = load i64, ptr %221, align 8
-  invoke fastcc void @"_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_SF_EEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_1EEESK_INSt8__detail14_Node_iteratorISM_Lb0ELb1EEEbEDpOT_.argprom.argelim"(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @_ZZN7cinatra16coro_http_router8instanceEvE8instance, i64 152), ptr %call34.val.i139.i225, i64 %call34.val2.i140.i226)
+  invoke fastcc void @"_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_SF_EEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_1EEESK_INSt8__detail14_Node_iteratorISM_Lb0ELb1EEEbEDpOT_"(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @_ZZN7cinatra16coro_http_router8instanceEvE8instance, i64 152), ptr %call34.val.i139.i225, i64 %call34.val2.i140.i226)
           to label %cleanup.i61.i137 unwind label %lpad.i52.i128
 
 cleanup.i61.i137:                                 ; preds = %if.end33.i137.i223, %_ZN7easylog8record_tD2Ev.exit.i112.i198, %invoke.cont10.i59.i135
@@ -13178,7 +13178,7 @@ lor.lhs.false.i.i.i.i.i.i.i:                      ; preds = %if.end3.i.i.i.i.i.i
 
 if.end34.i.i.i.i.i:                               ; preds = %lor.lhs.false.i.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i.i, %lor.lhs.false.us.i.i.i.i.i.i.i, %if.end3.us.i.i.i.i.i.i.i, %if.then27.i.i.i.i.i, %invoke.cont22.i.i.i.i.i
   %call37.i.i.i.i.i = invoke ptr @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNSB_18coro_http_responseEEEESaISI_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSK_18_Mod_range_hashingENSK_20_Default_ranged_hashENSK_20_Prime_rehash_policyENSK_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSK_10_Hash_nodeISI_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @_ZZN7cinatra16coro_http_router8instanceEvE8instance, i64 152), i64 noundef %rem.i.i.i.i.i.i.i.i, i64 noundef %call.i2.i.i.i.i.i.i.i, ptr noundef nonnull %call5.i.i.i.i.i.i.i101.i.i, i64 noundef 1)
-          to label %"_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_SF_EEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_2EEESK_INSt8__detail14_Node_iteratorISM_Lb0ELb1EEEbEDpOT_.argprom.exit.i.i" unwind label %lpad.i.i.i.i.i
+          to label %"_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_SF_EEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_2EEESK_INSt8__detail14_Node_iteratorISM_Lb0ELb1EEEbEDpOT_.exit.i.i" unwind label %lpad.i.i.i.i.i
 
 if.then.i.i.i.i100.i.i:                           ; preds = %land.rhs.i.i.i.i.i.i.i.i, %for.body.us.i.i.i.i.i, %land.rhs.i.i.i.i.i.i.i.i.i.i.i, %land.rhs.i.us.i.i.i.i.i.i.i
   %307 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i, align 8
@@ -13198,13 +13198,13 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %if.then.i.i.i.i.i.i
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNSD_18coro_http_responseEEEELb1EEEEE18_M_deallocate_nodeEPSL_.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i100.i.i
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i.i101.i.i) #42
-  br label %"_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_SF_EEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_2EEESK_INSt8__detail14_Node_iteratorISM_Lb0ELb1EEEbEDpOT_.argprom.exit.i.i"
+  br label %"_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_SF_EEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_2EEESK_INSt8__detail14_Node_iteratorISM_Lb0ELb1EEEbEDpOT_.exit.i.i"
 
-"_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_SF_EEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_2EEESK_INSt8__detail14_Node_iteratorISM_Lb0ELb1EEEbEDpOT_.argprom.exit.i.i": ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNSD_18coro_http_responseEEEELb1EEEEE18_M_deallocate_nodeEPSL_.exit.i.i.i.i.i.i, %if.end34.i.i.i.i.i
+"_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_SF_EEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_2EEESK_INSt8__detail14_Node_iteratorISM_Lb0ELb1EEEbEDpOT_.exit.i.i": ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNSD_18coro_http_responseEEEELb1EEEEE18_M_deallocate_nodeEPSL_.exit.i.i.i.i.i.i, %if.end34.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__node.i.i.i.i.i)
   br label %cleanup.i.i399
 
-cleanup.i.i399:                                   ; preds = %"_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_SF_EEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_2EEESK_INSt8__detail14_Node_iteratorISM_Lb0ELb1EEEbEDpOT_.argprom.exit.i.i", %_ZN7easylog8record_tD2Ev.exit.i.i452, %invoke.cont10.i.i398
+cleanup.i.i399:                                   ; preds = %"_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_SF_EEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_2EEESK_INSt8__detail14_Node_iteratorISM_Lb0ELb1EEEbEDpOT_.exit.i.i", %_ZN7easylog8record_tD2Ev.exit.i.i452, %invoke.cont10.i.i398
   %310 = load ptr, ptr %whole_str.i.i344, align 8
   %cmp.i.i.i104.i.i = icmp eq ptr %310, %243
   br i1 %cmp.i.i.i104.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i405, label %if.then.i.i105.i.i
@@ -97019,7 +97019,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont4.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
-  br label %"_ZSt10__invoke_rIvRZ14test_websocketRN7cinatra16coro_http_clientEE3$_1JNS0_9resp_dataEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZ14test_websocketRN7cinatra16coro_http_clientEE3$_1JNS0_9resp_dataEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
 
 lpad.i.i.i:                                       ; preds = %invoke.cont.i.i.i, %if.then.i.i.i
   %4 = landingpad { ptr, i32 }
@@ -97030,9 +97030,9 @@ lpad.i.i.i:                                       ; preds = %invoke.cont.i.i.i, 
 if.end.i.i.i:                                     ; preds = %entry
   %call2.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef %agg.tmp.sroa.6.0.copyload.i.i, i64 noundef %agg.tmp.sroa.5.0.copyload.i.i)
   %call7.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call2.i.i.i.i, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  br label %"_ZSt10__invoke_rIvRZ14test_websocketRN7cinatra16coro_http_clientEE3$_1JNS0_9resp_dataEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZ14test_websocketRN7cinatra16coro_http_clientEE3$_1JNS0_9resp_dataEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
 
-"_ZSt10__invoke_rIvRZ14test_websocketRN7cinatra16coro_http_clientEE3$_1JNS0_9resp_dataEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %if.end.i.i.i
+"_ZSt10__invoke_rIvRZ14test_websocketRN7cinatra16coro_http_clientEE3$_1JNS0_9resp_dataEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %if.end.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
   ret void
 }
@@ -97060,7 +97060,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN7cinatra17coro_http_requestERNS5_18coro_http_responseEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_SB_EEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_0EEESG_INSt8__detail14_Node_iteratorISI_Lb0ELb1EEEbEDpOT_.argprom.argelim"(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr %__args.0.val, i64 %__args.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN7cinatra17coro_http_requestERNS5_18coro_http_responseEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_SB_EEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_0EEESG_INSt8__detail14_Node_iteratorISI_Lb0ELb1EEEbEDpOT_"(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr %__args.0.val, i64 %__args.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node.i.i = alloca %"struct.std::_Hashtable<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::function<void (cinatra::coro_http_request &, cinatra::coro_http_response &)>>, std::allocator<std::pair<const std::basic_string_view<char>, std::function<void (cinatra::coro_http_request &, cinatra::coro_http_response &)>>>, std::__detail::_Select1st, std::equal_to<std::basic_string_view<char>>, std::hash<string_view>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__node.i.i)
@@ -97225,7 +97225,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
 
 if.end34.i.i:                                     ; preds = %lor.lhs.false.i.i.i.i, %if.end3.i.i.i.i, %lor.lhs.false.us.i.i.i.i, %if.end3.us.i.i.i.i, %if.then27.i.i, %invoke.cont22.i.i
   %call37.i.i = invoke ptr @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St8functionIFvRN7cinatra17coro_http_requestERNS7_18coro_http_responseEEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSG_10_Hash_nodeISE_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %rem.i.i.i.i.i, i64 noundef %call.i2.i.i.i.i, ptr noundef nonnull %call5.i.i.i.i.i.i, i64 noundef 1)
-          to label %"_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St8functionIFvRN7cinatra17coro_http_requestERNS7_18coro_http_responseEEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_0EEES4_INSG_14_Node_iteratorISE_Lb0ELb1EEEbEDpOT_.argprom.exit" unwind label %lpad.i.i
+          to label %"_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St8functionIFvRN7cinatra17coro_http_requestERNS7_18coro_http_responseEEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_0EEES4_INSG_14_Node_iteratorISE_Lb0ELb1EEEbEDpOT_.exit" unwind label %lpad.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs.i.i.i.i.i, %for.body.us.i.i, %land.rhs.i.i.i.i.i.i.i.i, %land.rhs.i.us.i.i.i.i
   %16 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i, align 8
@@ -97245,9 +97245,9 @@ terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN7cinatra17coro_http_requestERNS9_18coro_http_responseEEEELb1EEEEE18_M_deallocate_nodeEPSH_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %if.then.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i) #42
-  br label %"_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St8functionIFvRN7cinatra17coro_http_requestERNS7_18coro_http_responseEEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_0EEES4_INSG_14_Node_iteratorISE_Lb0ELb1EEEbEDpOT_.argprom.exit"
+  br label %"_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St8functionIFvRN7cinatra17coro_http_requestERNS7_18coro_http_responseEEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_0EEES4_INSG_14_Node_iteratorISE_Lb0ELb1EEEbEDpOT_.exit"
 
-"_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St8functionIFvRN7cinatra17coro_http_requestERNS7_18coro_http_responseEEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_0EEES4_INSG_14_Node_iteratorISE_Lb0ELb1EEEbEDpOT_.argprom.exit": ; preds = %if.end34.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN7cinatra17coro_http_requestERNS9_18coro_http_responseEEEELb1EEEEE18_M_deallocate_nodeEPSH_.exit.i.i.i
+"_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St8functionIFvRN7cinatra17coro_http_requestERNS7_18coro_http_responseEEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_0EEES4_INSG_14_Node_iteratorISE_Lb0ELb1EEEbEDpOT_.exit": ; preds = %if.end34.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN7cinatra17coro_http_requestERNS9_18coro_http_responseEEEELb1EEEEE18_M_deallocate_nodeEPSH_.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__node.i.i)
   ret void
 }
@@ -97769,11 +97769,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %21 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i, align 8
   %cmp3.i.i.i3.i.i.i = icmp ult i64 %21, 16
   call void @llvm.assume(i1 %cmp3.i.i.i3.i.i.i)
-  br label %"_ZSt10__invoke_rIvRZ21test_coro_http_servervE3$_0JRN7cinatra17coro_http_requestERNS2_18coro_http_responseEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZ21test_coro_http_servervE3$_0JRN7cinatra17coro_http_requestERNS2_18coro_http_responseEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN7cinatra18coro_http_response22set_status_and_contentENS_11status_typeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i
   call void @_ZdlPv(ptr noundef %19) #42
-  br label %"_ZSt10__invoke_rIvRZ21test_coro_http_servervE3$_0JRN7cinatra17coro_http_requestERNS2_18coro_http_responseEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZ21test_coro_http_servervE3$_0JRN7cinatra17coro_http_requestERNS2_18coro_http_responseEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 lpad.i.i.i:                                       ; preds = %entry
   %22 = landingpad { ptr, i32 }
@@ -97781,7 +97781,7 @@ lpad.i.i.i:                                       ; preds = %entry
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   resume { ptr, i32 } %22
 
-"_ZSt10__invoke_rIvRZ21test_coro_http_servervE3$_0JRN7cinatra17coro_http_requestERNS2_18coro_http_responseEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %if.then.i.i.i.i.i
+"_ZSt10__invoke_rIvRZ21test_coro_http_servervE3$_0JRN7cinatra17coro_http_requestERNS2_18coro_http_responseEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %if.then.i.i.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.i.i.i) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
@@ -97910,7 +97910,7 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St8funct
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_SF_EEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_1EEESK_INSt8__detail14_Node_iteratorISM_Lb0ELb1EEEbEDpOT_.argprom.argelim"(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr %__args.0.val, i64 %__args.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_SF_EEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_1EEESK_INSt8__detail14_Node_iteratorISM_Lb0ELb1EEEbEDpOT_"(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr %__args.0.val, i64 %__args.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node.i.i = alloca %"struct.std::_Hashtable<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::function<async_simple::coro::Lazy<void> (cinatra::coro_http_request &, cinatra::coro_http_response &)>>, std::allocator<std::pair<const std::basic_string_view<char>, std::function<async_simple::coro::Lazy<void> (cinatra::coro_http_request &, cinatra::coro_http_response &)>>>, std::__detail::_Select1st, std::equal_to<std::basic_string_view<char>>, std::hash<string_view>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__node.i.i)
@@ -98075,7 +98075,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
 
 if.end34.i.i:                                     ; preds = %lor.lhs.false.i.i.i.i, %if.end3.i.i.i.i, %lor.lhs.false.us.i.i.i.i, %if.end3.us.i.i.i.i, %if.then27.i.i, %invoke.cont22.i.i
   %call37.i.i = invoke ptr @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNSB_18coro_http_responseEEEESaISI_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSK_18_Mod_range_hashingENSK_20_Default_ranged_hashENSK_20_Prime_rehash_policyENSK_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSK_10_Hash_nodeISI_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %rem.i.i.i.i.i, i64 noundef %call.i2.i.i.i.i, ptr noundef nonnull %call5.i.i.i.i.i.i, i64 noundef 1)
-          to label %"_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNSB_18coro_http_responseEEEESaISI_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSK_18_Mod_range_hashingENSK_20_Default_ranged_hashENSK_20_Prime_rehash_policyENSK_17_Hashtable_traitsILb1ELb0ELb1EEEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_1EEES4_INSK_14_Node_iteratorISI_Lb0ELb1EEEbEDpOT_.argprom.exit" unwind label %lpad.i.i
+          to label %"_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNSB_18coro_http_responseEEEESaISI_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSK_18_Mod_range_hashingENSK_20_Default_ranged_hashENSK_20_Prime_rehash_policyENSK_17_Hashtable_traitsILb1ELb0ELb1EEEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_1EEES4_INSK_14_Node_iteratorISI_Lb0ELb1EEEbEDpOT_.exit" unwind label %lpad.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs.i.i.i.i.i, %for.body.us.i.i, %land.rhs.i.i.i.i.i.i.i.i, %land.rhs.i.us.i.i.i.i
   %16 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i, align 8
@@ -98095,9 +98095,9 @@ terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNSD_18coro_http_responseEEEELb1EEEEE18_M_deallocate_nodeEPSL_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %if.then.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i) #42
-  br label %"_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNSB_18coro_http_responseEEEESaISI_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSK_18_Mod_range_hashingENSK_20_Default_ranged_hashENSK_20_Prime_rehash_policyENSK_17_Hashtable_traitsILb1ELb0ELb1EEEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_1EEES4_INSK_14_Node_iteratorISI_Lb0ELb1EEEbEDpOT_.argprom.exit"
+  br label %"_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNSB_18coro_http_responseEEEESaISI_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSK_18_Mod_range_hashingENSK_20_Default_ranged_hashENSK_20_Prime_rehash_policyENSK_17_Hashtable_traitsILb1ELb0ELb1EEEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_1EEES4_INSK_14_Node_iteratorISI_Lb0ELb1EEEbEDpOT_.exit"
 
-"_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNSB_18coro_http_responseEEEESaISI_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSK_18_Mod_range_hashingENSK_20_Default_ranged_hashENSK_20_Prime_rehash_policyENSK_17_Hashtable_traitsILb1ELb0ELb1EEEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_1EEES4_INSK_14_Node_iteratorISI_Lb0ELb1EEEbEDpOT_.argprom.exit": ; preds = %if.end34.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNSD_18coro_http_responseEEEELb1EEEEE18_M_deallocate_nodeEPSL_.exit.i.i.i
+"_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNSB_18coro_http_responseEEEESaISI_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSK_18_Mod_range_hashingENSK_20_Default_ranged_hashENSK_20_Prime_rehash_policyENSK_17_Hashtable_traitsILb1ELb0ELb1EEEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ21test_coro_http_servervE3$_1EEES4_INSK_14_Node_iteratorISI_Lb0ELb1EEEbEDpOT_.exit": ; preds = %if.end34.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNSD_18coro_http_responseEEEELb1EEEEE18_M_deallocate_nodeEPSL_.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__node.i.i)
   ret void
 }
@@ -98338,7 +98338,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN4asio6detail9sch
   %ref.tmp2.sroa.3.0.tmp.i.i.i.i.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i.i.i.i.i.i.i, i64 8
   store ptr %2, ptr %ref.tmp2.sroa.3.0.tmp.i.i.i.i.i.i.sroa_idx.i, align 8
   fence acquire
-  invoke fastcc void @"_ZN27asio_handler_invoke_helpers6invokeIN4asio6detail7binder0IZNK7coro_io11post_helperIN12async_simple3TryIvEEZZ21test_coro_http_servervENK3$_1clERN7cinatra17coro_http_requestERNSA_18coro_http_responseEEUlvE_EclINS4_21callback_awaitor_baseIS8_NS4_16callback_awaitorIS8_EEE15awaitor_handlerEEEvT_EUlvE_EESP_EEvRSN_RT0_.argprom"(ptr noundef nonnull align 8 dereferenceable(16) %tmp.i.i.i.i.i.i.i)
+  invoke fastcc void @"_ZN27asio_handler_invoke_helpers6invokeIN4asio6detail7binder0IZNK7coro_io11post_helperIN12async_simple3TryIvEEZZ21test_coro_http_servervENK3$_1clERN7cinatra17coro_http_requestERNSA_18coro_http_responseEEUlvE_EclINS4_21callback_awaitor_baseIS8_NS4_16callback_awaitorIS8_EEE15awaitor_handlerEEEvT_EUlvE_EESP_EEvRSN_RT0_"(ptr noundef nonnull align 8 dereferenceable(16) %tmp.i.i.i.i.i.i.i)
           to label %invoke.cont5.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i
 
 invoke.cont5.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i.i
@@ -98441,7 +98441,7 @@ terminate.lpad.body:                              ; preds = %lpad8.i.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN27asio_handler_invoke_helpers6invokeIN4asio6detail7binder0IZNK7coro_io11post_helperIN12async_simple3TryIvEEZZ21test_coro_http_servervENK3$_1clERN7cinatra17coro_http_requestERNSA_18coro_http_responseEEUlvE_EclINS4_21callback_awaitor_baseIS8_NS4_16callback_awaitorIS8_EEE15awaitor_handlerEEEvT_EUlvE_EESP_EEvRSN_RT0_.argprom"(ptr noundef nonnull align 8 dereferenceable(16) %function) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN27asio_handler_invoke_helpers6invokeIN4asio6detail7binder0IZNK7coro_io11post_helperIN12async_simple3TryIvEEZZ21test_coro_http_servervENK3$_1clERN7cinatra17coro_http_requestERNSA_18coro_http_responseEEUlvE_EclINS4_21callback_awaitor_baseIS8_NS4_16callback_awaitorIS8_EEE15awaitor_handlerEEEvT_EUlvE_EESP_EEvRSN_RT0_"(ptr noundef nonnull align 8 dereferenceable(16) %function) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i.i.i.i.i.i = alloca %"class.std::allocator", align 1
@@ -98584,7 +98584,7 @@ invoke.cont.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %26, align 8
   invoke fastcc void %27(ptr nonnull %26)
-          to label %"_ZN4asio6detail19asio_handler_invokeINS0_7binder0IZNK7coro_io11post_helperIN12async_simple3TryIvEEZZ21test_coro_http_servervENK3$_1clERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEUlvE_EclINS3_21callback_awaitor_baseIS7_NS3_16callback_awaitorIS7_EEE15awaitor_handlerEEEvT_EUlvE_EESN_EEvRSM_PNS2_IT0_EE.argprom.exit" unwind label %lpad.i.i.i.i.i
+          to label %"_ZN4asio6detail19asio_handler_invokeINS0_7binder0IZNK7coro_io11post_helperIN12async_simple3TryIvEEZZ21test_coro_http_servervENK3$_1clERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEUlvE_EclINS3_21callback_awaitor_baseIS7_NS3_16callback_awaitorIS7_EEE15awaitor_handlerEEEvT_EUlvE_EESN_EEvRSM_PNS2_IT0_EE.exit" unwind label %lpad.i.i.i.i.i
 
 lpad.i.i.i.i.i:                                   ; preds = %invoke.cont.i.i.i.i.i
   %28 = landingpad { ptr, i32 }
@@ -98628,7 +98628,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %invoke.cont8.i.i.i.
 
 _ZN12async_simple3TryIvED2Ev.exit.i.i.i.i.i:      ; preds = %if.then.i.i.i.i.i.i.i, %invoke.cont8.i.i.i.i.i
   call void @__cxa_end_catch()
-  br label %"_ZN4asio6detail19asio_handler_invokeINS0_7binder0IZNK7coro_io11post_helperIN12async_simple3TryIvEEZZ21test_coro_http_servervENK3$_1clERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEUlvE_EclINS3_21callback_awaitor_baseIS7_NS3_16callback_awaitorIS7_EEE15awaitor_handlerEEEvT_EUlvE_EESN_EEvRSM_PNS2_IT0_EE.argprom.exit"
+  br label %"_ZN4asio6detail19asio_handler_invokeINS0_7binder0IZNK7coro_io11post_helperIN12async_simple3TryIvEEZZ21test_coro_http_servervENK3$_1clERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEUlvE_EclINS3_21callback_awaitor_baseIS7_NS3_16callback_awaitorIS7_EEE15awaitor_handlerEEEvT_EUlvE_EESN_EEvRSM_PNS2_IT0_EE.exit"
 
 lpad7.i.i.i.i.i:                                  ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i
   %36 = landingpad { ptr, i32 }
@@ -98656,7 +98656,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %_ZN12async_simple3T
   call void @__clang_call_terminate(ptr %39) #43
   unreachable
 
-"_ZN4asio6detail19asio_handler_invokeINS0_7binder0IZNK7coro_io11post_helperIN12async_simple3TryIvEEZZ21test_coro_http_servervENK3$_1clERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEUlvE_EclINS3_21callback_awaitor_baseIS7_NS3_16callback_awaitorIS7_EEE15awaitor_handlerEEEvT_EUlvE_EESN_EEvRSM_PNS2_IT0_EE.argprom.exit": ; preds = %invoke.cont.i.i.i.i.i, %_ZN12async_simple3TryIvED2Ev.exit.i.i.i.i.i
+"_ZN4asio6detail19asio_handler_invokeINS0_7binder0IZNK7coro_io11post_helperIN12async_simple3TryIvEEZZ21test_coro_http_servervENK3$_1clERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEUlvE_EclINS3_21callback_awaitor_baseIS7_NS3_16callback_awaitorIS7_EEE15awaitor_handlerEEEvT_EUlvE_EESN_EEvRSM_PNS2_IT0_EE.exit": ; preds = %invoke.cont.i.i.i.i.i, %_ZN12async_simple3TryIvED2Ev.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %er.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i)
   ret void
@@ -98709,17 +98709,17 @@ if.then4.i.i.i:                                   ; preds = %for.body.i.i.i
   %6 = load i8, ptr %arrayidx5.i.i.i, align 1
   store i8 %6, ptr %1, align 1
   store ptr %1, ptr %arrayidx.i.i.i.le, align 8
-  br label %"_ZN4asio6detail19recycling_allocatorINS0_11executor_opINS0_7binder0IZNK7coro_io11post_helperIN12async_simple3TryIvEEZZ21test_coro_http_servervENK3$_1clERN7cinatra17coro_http_requestERNSA_18coro_http_responseEEUlvE_EclINS4_21callback_awaitor_baseIS8_NS4_16callback_awaitorIS8_EEE15awaitor_handlerEEEvT_EUlvE_EESaIvENS0_19scheduler_operationEEENS0_16thread_info_base11default_tagEE10deallocateEPSS_m.argprom.exit.i"
+  br label %"_ZN4asio6detail19recycling_allocatorINS0_11executor_opINS0_7binder0IZNK7coro_io11post_helperIN12async_simple3TryIvEEZZ21test_coro_http_servervENK3$_1clERN7cinatra17coro_http_requestERNSA_18coro_http_responseEEUlvE_EclINS4_21callback_awaitor_baseIS8_NS4_16callback_awaitorIS8_EEE15awaitor_handlerEEEvT_EUlvE_EESaIvENS0_19scheduler_operationEEENS0_16thread_info_base11default_tagEE10deallocateEPSS_m.exit.i"
 
 if.end11.i.i.i:                                   ; preds = %for.cond.i.i.i, %_ZN4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i, %if.then5.i
   tail call void @free(ptr noundef %1) #28
-  br label %"_ZN4asio6detail19recycling_allocatorINS0_11executor_opINS0_7binder0IZNK7coro_io11post_helperIN12async_simple3TryIvEEZZ21test_coro_http_servervENK3$_1clERN7cinatra17coro_http_requestERNSA_18coro_http_responseEEUlvE_EclINS4_21callback_awaitor_baseIS8_NS4_16callback_awaitorIS8_EEE15awaitor_handlerEEEvT_EUlvE_EESaIvENS0_19scheduler_operationEEENS0_16thread_info_base11default_tagEE10deallocateEPSS_m.argprom.exit.i"
+  br label %"_ZN4asio6detail19recycling_allocatorINS0_11executor_opINS0_7binder0IZNK7coro_io11post_helperIN12async_simple3TryIvEEZZ21test_coro_http_servervENK3$_1clERN7cinatra17coro_http_requestERNSA_18coro_http_responseEEUlvE_EclINS4_21callback_awaitor_baseIS8_NS4_16callback_awaitorIS8_EEE15awaitor_handlerEEEvT_EUlvE_EESaIvENS0_19scheduler_operationEEENS0_16thread_info_base11default_tagEE10deallocateEPSS_m.exit.i"
 
-"_ZN4asio6detail19recycling_allocatorINS0_11executor_opINS0_7binder0IZNK7coro_io11post_helperIN12async_simple3TryIvEEZZ21test_coro_http_servervENK3$_1clERN7cinatra17coro_http_requestERNSA_18coro_http_responseEEUlvE_EclINS4_21callback_awaitor_baseIS8_NS4_16callback_awaitorIS8_EEE15awaitor_handlerEEEvT_EUlvE_EESaIvENS0_19scheduler_operationEEENS0_16thread_info_base11default_tagEE10deallocateEPSS_m.argprom.exit.i": ; preds = %if.end11.i.i.i, %if.then4.i.i.i
+"_ZN4asio6detail19recycling_allocatorINS0_11executor_opINS0_7binder0IZNK7coro_io11post_helperIN12async_simple3TryIvEEZZ21test_coro_http_servervENK3$_1clERN7cinatra17coro_http_requestERNSA_18coro_http_responseEEUlvE_EclINS4_21callback_awaitor_baseIS8_NS4_16callback_awaitorIS8_EEE15awaitor_handlerEEEvT_EUlvE_EESaIvENS0_19scheduler_operationEEENS0_16thread_info_base11default_tagEE10deallocateEPSS_m.exit.i": ; preds = %if.end11.i.i.i, %if.then4.i.i.i
   store ptr null, ptr %v.i, align 8
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %"_ZN4asio6detail19recycling_allocatorINS0_11executor_opINS0_7binder0IZNK7coro_io11post_helperIN12async_simple3TryIvEEZZ21test_coro_http_servervENK3$_1clERN7cinatra17coro_http_requestERNSA_18coro_http_responseEEUlvE_EclINS4_21callback_awaitor_baseIS8_NS4_16callback_awaitorIS8_EEE15awaitor_handlerEEEvT_EUlvE_EESaIvENS0_19scheduler_operationEEENS0_16thread_info_base11default_tagEE10deallocateEPSS_m.argprom.exit.i", %if.end.i
+invoke.cont:                                      ; preds = %"_ZN4asio6detail19recycling_allocatorINS0_11executor_opINS0_7binder0IZNK7coro_io11post_helperIN12async_simple3TryIvEEZZ21test_coro_http_servervENK3$_1clERN7cinatra17coro_http_requestERNSA_18coro_http_responseEEUlvE_EclINS4_21callback_awaitor_baseIS8_NS4_16callback_awaitorIS8_EEE15awaitor_handlerEEEvT_EUlvE_EESaIvENS0_19scheduler_operationEEENS0_16thread_info_base11default_tagEE10deallocateEPSS_m.exit.i", %if.end.i
   ret void
 }
 
@@ -98859,7 +98859,7 @@ invoke.cont3:                                     ; preds = %if.end11.i.i.i, %if
   br i1 %tobool.not, label %"_ZN4asio6detail11executor_opINS0_7binder0IZNK7coro_io11post_helperIN12async_simple3TryIvEEZZ21test_coro_http_servervENK3$_1clERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEUlvE_EclINS3_21callback_awaitor_baseIS7_NS3_16callback_awaitorIS7_EEE15awaitor_handlerEEEvT_EUlvE_EESaIvENS0_19scheduler_operationEE3ptrD2Ev.exit", label %if.then
 
 if.then:                                          ; preds = %invoke.cont3
-  invoke fastcc void @"_ZN27asio_handler_invoke_helpers6invokeIN4asio6detail7binder0IZNK7coro_io11post_helperIN12async_simple3TryIvEEZZ21test_coro_http_servervENK3$_1clERN7cinatra17coro_http_requestERNSA_18coro_http_responseEEUlvE_EclINS4_21callback_awaitor_baseIS8_NS4_16callback_awaitorIS8_EEE15awaitor_handlerEEEvT_EUlvE_EESP_EEvRSN_RT0_.argprom"(ptr noundef nonnull align 8 dereferenceable(16) %handler)
+  invoke fastcc void @"_ZN27asio_handler_invoke_helpers6invokeIN4asio6detail7binder0IZNK7coro_io11post_helperIN12async_simple3TryIvEEZZ21test_coro_http_servervENK3$_1clERN7cinatra17coro_http_requestERNSA_18coro_http_responseEEUlvE_EclINS4_21callback_awaitor_baseIS8_NS4_16callback_awaitorIS8_EEE15awaitor_handlerEEEvT_EUlvE_EESP_EEvRSN_RT0_"(ptr noundef nonnull align 8 dereferenceable(16) %handler)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %if.then
@@ -142572,20 +142572,20 @@ attributes #50 = { cold noreturn nounwind }
 !78 = distinct !{!78, !79, !"_ZN12async_simple4coro6detail8LazyBaseIN7cinatra9resp_dataELb0EE10coAwaitTryEv: %agg.result"}
 !79 = distinct !{!79, !"_ZN12async_simple4coro6detail8LazyBaseIN7cinatra9resp_dataELb0EE10coAwaitTryEv"}
 !80 = !{!81}
-!81 = distinct !{!81, !82, !"_ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE2EZ21test_coro_http_servervE3$_0EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv.argprom: %agg.result"}
-!82 = distinct !{!82, !"_ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE2EZ21test_coro_http_servervE3$_0EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv.argprom"}
+!81 = distinct !{!81, !82, !"_ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE2EZ21test_coro_http_servervE3$_0EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv: %agg.result"}
+!82 = distinct !{!82, !"_ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE2EZ21test_coro_http_servervE3$_0EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv"}
 !83 = !{!84}
-!84 = distinct !{!84, !85, !"_ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE4EZ21test_coro_http_servervE3$_0EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv.argprom: %agg.result"}
-!85 = distinct !{!85, !"_ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE4EZ21test_coro_http_servervE3$_0EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv.argprom"}
+!84 = distinct !{!84, !85, !"_ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE4EZ21test_coro_http_servervE3$_0EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv: %agg.result"}
+!85 = distinct !{!85, !"_ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE4EZ21test_coro_http_servervE3$_0EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv"}
 !86 = !{!87}
-!87 = distinct !{!87, !88, !"_ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE2EZ21test_coro_http_servervE3$_1EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv.argprom: %agg.result"}
-!88 = distinct !{!88, !"_ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE2EZ21test_coro_http_servervE3$_1EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv.argprom"}
+!87 = distinct !{!87, !88, !"_ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE2EZ21test_coro_http_servervE3$_1EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv: %agg.result"}
+!88 = distinct !{!88, !"_ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE2EZ21test_coro_http_servervE3$_1EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv"}
 !89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE4EZ21test_coro_http_servervE3$_1EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv.argprom: %agg.result"}
-!91 = distinct !{!91, !"_ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE4EZ21test_coro_http_servervE3$_1EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv.argprom"}
+!90 = distinct !{!90, !91, !"_ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE4EZ21test_coro_http_servervE3$_1EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv: %agg.result"}
+!91 = distinct !{!91, !"_ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE4EZ21test_coro_http_servervE3$_1EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv"}
 !92 = !{!93}
-!93 = distinct !{!93, !94, !"_ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE2EZ21test_coro_http_servervE3$_2EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv.argprom: %agg.result"}
-!94 = distinct !{!94, !"_ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE2EZ21test_coro_http_servervE3$_2EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv.argprom"}
+!93 = distinct !{!93, !94, !"_ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE2EZ21test_coro_http_servervE3$_2EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv: %agg.result"}
+!94 = distinct !{!94, !"_ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE2EZ21test_coro_http_servervE3$_2EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv"}
 !95 = distinct !{!95, !7}
 !96 = distinct !{!96, !7}
 !97 = distinct !{!97, !7}
@@ -143591,14 +143591,14 @@ attributes #50 = { cold noreturn nounwind }
 !1097 = distinct !{!1097, !7}
 !1098 = distinct !{!1098, !7}
 !1099 = !{!1100}
-!1100 = distinct !{!1100, !1101, !"_ZSt10__invoke_rIN12async_simple4coro4LazyIvEERZ21test_coro_http_servervE3$_1JRN7cinatra17coro_http_requestERNS6_18coro_http_responseEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom: %agg.result"}
-!1101 = distinct !{!1101, !"_ZSt10__invoke_rIN12async_simple4coro4LazyIvEERZ21test_coro_http_servervE3$_1JRN7cinatra17coro_http_requestERNS6_18coro_http_responseEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom"}
+!1100 = distinct !{!1100, !1101, !"_ZSt10__invoke_rIN12async_simple4coro4LazyIvEERZ21test_coro_http_servervE3$_1JRN7cinatra17coro_http_requestERNS6_18coro_http_responseEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_: %agg.result"}
+!1101 = distinct !{!1101, !"_ZSt10__invoke_rIN12async_simple4coro4LazyIvEERZ21test_coro_http_servervE3$_1JRN7cinatra17coro_http_requestERNS6_18coro_http_responseEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_"}
 !1102 = !{!1103}
-!1103 = distinct !{!1103, !1104, !"_ZSt13__invoke_implIN12async_simple4coro4LazyIvEERZ21test_coro_http_servervE3$_1JRN7cinatra17coro_http_requestERNS6_18coro_http_responseEEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
-!1104 = distinct !{!1104, !"_ZSt13__invoke_implIN12async_simple4coro4LazyIvEERZ21test_coro_http_servervE3$_1JRN7cinatra17coro_http_requestERNS6_18coro_http_responseEEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!1103 = distinct !{!1103, !1104, !"_ZSt13__invoke_implIN12async_simple4coro4LazyIvEERZ21test_coro_http_servervE3$_1JRN7cinatra17coro_http_requestERNS6_18coro_http_responseEEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!1104 = distinct !{!1104, !"_ZSt13__invoke_implIN12async_simple4coro4LazyIvEERZ21test_coro_http_servervE3$_1JRN7cinatra17coro_http_requestERNS6_18coro_http_responseEEET_St14__invoke_otherOT0_DpOT1_"}
 !1105 = !{!1106}
-!1106 = distinct !{!1106, !1107, !"_ZZ21test_coro_http_servervENK3$_1clERN7cinatra17coro_http_requestERNS0_18coro_http_responseE.argprom: %agg.result"}
-!1107 = distinct !{!1107, !"_ZZ21test_coro_http_servervENK3$_1clERN7cinatra17coro_http_requestERNS0_18coro_http_responseE.argprom"}
+!1106 = distinct !{!1106, !1107, !"_ZZ21test_coro_http_servervENK3$_1clERN7cinatra17coro_http_requestERNS0_18coro_http_responseE: %agg.result"}
+!1107 = distinct !{!1107, !"_ZZ21test_coro_http_servervENK3$_1clERN7cinatra17coro_http_requestERNS0_18coro_http_responseE"}
 !1108 = !{!1106, !1103, !1100}
 !1109 = !{!1110, !1106, !1103, !1100}
 !1110 = distinct !{!1110, !1111, !"_ZN12async_simple4coro6detail11LazyPromiseIvE17get_return_objectEv: %agg.result"}
@@ -143616,14 +143616,14 @@ attributes #50 = { cold noreturn nounwind }
 !1122 = distinct !{!1122, !7}
 !1123 = distinct !{!1123, !7}
 !1124 = !{!1125}
-!1125 = distinct !{!1125, !1126, !"_ZSt10__invoke_rIN12async_simple4coro4LazyIvEERZ21test_coro_http_servervE3$_2JRN7cinatra17coro_http_requestERNS6_18coro_http_responseEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom: %agg.result"}
-!1126 = distinct !{!1126, !"_ZSt10__invoke_rIN12async_simple4coro4LazyIvEERZ21test_coro_http_servervE3$_2JRN7cinatra17coro_http_requestERNS6_18coro_http_responseEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom"}
+!1125 = distinct !{!1125, !1126, !"_ZSt10__invoke_rIN12async_simple4coro4LazyIvEERZ21test_coro_http_servervE3$_2JRN7cinatra17coro_http_requestERNS6_18coro_http_responseEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_: %agg.result"}
+!1126 = distinct !{!1126, !"_ZSt10__invoke_rIN12async_simple4coro4LazyIvEERZ21test_coro_http_servervE3$_2JRN7cinatra17coro_http_requestERNS6_18coro_http_responseEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_"}
 !1127 = !{!1128}
-!1128 = distinct !{!1128, !1129, !"_ZSt13__invoke_implIN12async_simple4coro4LazyIvEERZ21test_coro_http_servervE3$_2JRN7cinatra17coro_http_requestERNS6_18coro_http_responseEEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
-!1129 = distinct !{!1129, !"_ZSt13__invoke_implIN12async_simple4coro4LazyIvEERZ21test_coro_http_servervE3$_2JRN7cinatra17coro_http_requestERNS6_18coro_http_responseEEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!1128 = distinct !{!1128, !1129, !"_ZSt13__invoke_implIN12async_simple4coro4LazyIvEERZ21test_coro_http_servervE3$_2JRN7cinatra17coro_http_requestERNS6_18coro_http_responseEEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!1129 = distinct !{!1129, !"_ZSt13__invoke_implIN12async_simple4coro4LazyIvEERZ21test_coro_http_servervE3$_2JRN7cinatra17coro_http_requestERNS6_18coro_http_responseEEET_St14__invoke_otherOT0_DpOT1_"}
 !1130 = !{!1131}
-!1131 = distinct !{!1131, !1132, !"_ZZ21test_coro_http_servervENK3$_2clERN7cinatra17coro_http_requestERNS0_18coro_http_responseE.argprom: %agg.result"}
-!1132 = distinct !{!1132, !"_ZZ21test_coro_http_servervENK3$_2clERN7cinatra17coro_http_requestERNS0_18coro_http_responseE.argprom"}
+!1131 = distinct !{!1131, !1132, !"_ZZ21test_coro_http_servervENK3$_2clERN7cinatra17coro_http_requestERNS0_18coro_http_responseE: %agg.result"}
+!1132 = distinct !{!1132, !"_ZZ21test_coro_http_servervENK3$_2clERN7cinatra17coro_http_requestERNS0_18coro_http_responseE"}
 !1133 = !{!1131, !1128, !1125}
 !1134 = !{!1135, !1131, !1128, !1125}
 !1135 = distinct !{!1135, !1136, !"_ZN12async_simple4coro6detail11LazyPromiseIvE17get_return_objectEv: %agg.result"}

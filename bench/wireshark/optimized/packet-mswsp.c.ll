@@ -2230,8 +2230,8 @@ dissect_CPMConnect.exit:                          ; preds = %75, %100
   %154 = call i32 (ptr, i32, i32, ptr, ptr, ...) @parse_padding(ptr noundef %0, i32 noundef %.3.i, i32 noundef 4, ptr noundef %110, ptr noundef nonnull @.str.1037)
   %155 = call i32 (ptr, i32, ptr, ptr, ptr, ...) @parse_CRowsetProperties(ptr noundef %0, i32 noundef %154, ptr noundef %110, ptr poison, ptr nonnull poison)
   %156 = call i32 (ptr, i32, ptr, ptr, ptr, ...) @parse_CPidMapper(ptr noundef %0, i32 noundef %155, ptr noundef %110, ptr noundef %115, ptr nonnull poison)
-  call void (ptr, i32, ptr, ptr, ptr, ...) @parse_CColumnGroupArray.retelim(ptr noundef %0, i32 noundef %156, ptr noundef %110, ptr noundef %115, ptr nonnull poison)
-  br label %dissect_CPMCreateQuery.argprom.exit
+  call void (ptr, i32, ptr, ptr, ptr, ...) @parse_CColumnGroupArray(ptr noundef %0, i32 noundef %156, ptr noundef %110, ptr noundef %115, ptr nonnull poison)
+  br label %dissect_CPMCreateQuery.exit
 
 157:                                              ; preds = %106
   %158 = load i32, ptr @hf_mswsp_msg_cpmcreatequery_trueseq, align 4
@@ -2240,9 +2240,9 @@ dissect_CPMConnect.exit:                          ; preds = %75, %100
   %161 = call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %160, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef -2147483648) #10
   %162 = load i32, ptr @hf_mswsp_msg_cpmcreatequery_cursors, align 4
   %163 = call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %162, ptr noundef %0, i32 noundef 24, i32 noundef -1, i32 noundef 0) #10
-  br label %dissect_CPMCreateQuery.argprom.exit
+  br label %dissect_CPMCreateQuery.exit
 
-dissect_CPMCreateQuery.argprom.exit:              ; preds = %.loopexit.i, %157
+dissect_CPMCreateQuery.exit:                      ; preds = %.loopexit.i, %157
   %164 = call i32 @tvb_reported_length(ptr noundef %0) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   br label %682
@@ -2335,19 +2335,19 @@ get_create_converstation_data.exit.i143:          ; preds = %178, %167
   ]
 
 217:                                              ; preds = %205
-  call void (ptr, i32, ptr, ptr, ...) @parse_CRowSeekNext.retelim(ptr noundef %0, i32 noundef 56, ptr noundef %216, ptr nonnull poison)
+  call void (ptr, i32, ptr, ptr, ...) @parse_CRowSeekNext(ptr noundef %0, i32 noundef 56, ptr noundef %216, ptr nonnull poison)
   br label %dissect_CPMGetRows.exit
 
 218:                                              ; preds = %205
-  call void (ptr, i32, ptr, ptr, ...) @parse_CRowSeekAt.retelim(ptr noundef %0, i32 noundef 56, ptr noundef %216, ptr nonnull poison)
+  call void (ptr, i32, ptr, ptr, ...) @parse_CRowSeekAt(ptr noundef %0, i32 noundef 56, ptr noundef %216, ptr nonnull poison)
   br label %dissect_CPMGetRows.exit
 
 219:                                              ; preds = %205
-  call void (ptr, i32, ptr, ptr, ...) @parse_CRowSeekAtRatio.retelim(ptr noundef %0, i32 noundef 56, ptr noundef %216, ptr nonnull poison)
+  call void (ptr, i32, ptr, ptr, ...) @parse_CRowSeekAtRatio(ptr noundef %0, i32 noundef 56, ptr noundef %216, ptr nonnull poison)
   br label %dissect_CPMGetRows.exit
 
 220:                                              ; preds = %205
-  call void (ptr, i32, ptr, ptr, ...) @parse_CRowSeekByBookmark.retelim(ptr noundef %0, i32 noundef 56, ptr noundef %216, ptr nonnull poison)
+  call void (ptr, i32, ptr, ptr, ...) @parse_CRowSeekByBookmark(ptr noundef %0, i32 noundef 56, ptr noundef %216, ptr nonnull poison)
   br label %dissect_CPMGetRows.exit
 
 221:                                              ; preds = %get_create_converstation_data.exit.i143
@@ -2632,19 +2632,19 @@ is_64bit_mode.exit.i:                             ; preds = %345, %find_matching
   ]
 
 363:                                              ; preds = %is_64bit_mode.exit.i
-  call void (ptr, i32, ptr, ptr, ...) @parse_CRowSeekNext.retelim(ptr noundef %0, i32 noundef 28, ptr noundef %362, ptr nonnull poison)
+  call void (ptr, i32, ptr, ptr, ...) @parse_CRowSeekNext(ptr noundef %0, i32 noundef 28, ptr noundef %362, ptr nonnull poison)
   br label %367
 
 364:                                              ; preds = %is_64bit_mode.exit.i
-  call void (ptr, i32, ptr, ptr, ...) @parse_CRowSeekAt.retelim(ptr noundef %0, i32 noundef 28, ptr noundef %362, ptr nonnull poison)
+  call void (ptr, i32, ptr, ptr, ...) @parse_CRowSeekAt(ptr noundef %0, i32 noundef 28, ptr noundef %362, ptr nonnull poison)
   br label %367
 
 365:                                              ; preds = %is_64bit_mode.exit.i
-  call void (ptr, i32, ptr, ptr, ...) @parse_CRowSeekAtRatio.retelim(ptr noundef %0, i32 noundef 28, ptr noundef %362, ptr nonnull poison)
+  call void (ptr, i32, ptr, ptr, ...) @parse_CRowSeekAtRatio(ptr noundef %0, i32 noundef 28, ptr noundef %362, ptr nonnull poison)
   br label %367
 
 366:                                              ; preds = %is_64bit_mode.exit.i
-  call void (ptr, i32, ptr, ptr, ...) @parse_CRowSeekByBookmark.retelim(ptr noundef %0, i32 noundef 28, ptr noundef %362, ptr nonnull poison)
+  call void (ptr, i32, ptr, ptr, ...) @parse_CRowSeekByBookmark(ptr noundef %0, i32 noundef 28, ptr noundef %362, ptr nonnull poison)
   br label %367
 
 367:                                              ; preds = %366, %365, %364, %363, %is_64bit_mode.exit.i
@@ -2678,16 +2678,16 @@ dissect_CPMGetRows.exit:                          ; preds = %205, %217, %218, %2
   %381 = call ptr @proto_item_add_subtree(ptr noundef %379, i32 noundef %380) #10
   %382 = select i1 %.not, ptr @.str.939, ptr @.str.938
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %379, ptr noundef nonnull @.str.1182, ptr noundef nonnull %382) #10
-  br i1 %.not, label %383, label %dissect_CPMRatioFinished.argprom.exit
+  br i1 %.not, label %383, label %dissect_CPMRatioFinished.exit
 
 383:                                              ; preds = %377
   %384 = load i32, ptr @hf_mswsp_msg_cpmratiofinished_ulnumerator, align 4
   %385 = call ptr @proto_tree_add_item(ptr noundef %381, i32 noundef %384, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648) #10
   %386 = load i32, ptr @hf_mswsp_msg_cpmratiofinished_uldenominator, align 4
   %387 = call ptr @proto_tree_add_item(ptr noundef %381, i32 noundef %386, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %dissect_CPMRatioFinished.argprom.exit
+  br label %dissect_CPMRatioFinished.exit
 
-dissect_CPMRatioFinished.argprom.exit:            ; preds = %377, %383
+dissect_CPMRatioFinished.exit:                    ; preds = %377, %383
   %hf_mswsp_msg_cpmratiofinished_crows.sink.i = phi ptr [ @hf_mswsp_msg_cpmratiofinished_crows, %383 ], [ @hf_mswsp_msg_cpmratiofinished_hcursor, %377 ]
   %.sink2.i = phi i32 [ 24, %383 ], [ 16, %377 ]
   %hf_mswsp_msg_cpmratiofinished_fnewrows.sink.i = phi ptr [ @hf_mswsp_msg_cpmratiofinished_fnewrows, %383 ], [ @hf_mswsp_msg_cpmratiofinished_fquick, %377 ]
@@ -2709,7 +2709,7 @@ dissect_CPMRatioFinished.argprom.exit:            ; preds = %377, %383
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %396, ptr noundef nonnull @.str.1183, ptr noundef nonnull %399) #10
   %400 = load ptr, ptr %26, align 8
   call void @col_append_str(ptr noundef %400, i32 noundef 25, ptr noundef nonnull @.str.1184) #10
-  br i1 %.not, label %dissect_CPMCompareBmk.argprom.exit, label %401
+  br i1 %.not, label %dissect_CPMCompareBmk.exit, label %401
 
 401:                                              ; preds = %393
   %402 = load i32, ptr @hf_mswsp_msg_cpmcomparebmk_hcursor, align 4
@@ -2718,9 +2718,9 @@ dissect_CPMRatioFinished.argprom.exit:            ; preds = %377, %383
   %405 = call ptr @proto_tree_add_item(ptr noundef %398, i32 noundef %404, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef -2147483648) #10
   %406 = load i32, ptr @hf_mswsp_msg_cpmcomparebmk_bmkfirst, align 4
   %407 = call ptr @proto_tree_add_item(ptr noundef %398, i32 noundef %406, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %dissect_CPMCompareBmk.argprom.exit
+  br label %dissect_CPMCompareBmk.exit
 
-dissect_CPMCompareBmk.argprom.exit:               ; preds = %393, %401
+dissect_CPMCompareBmk.exit:                       ; preds = %393, %401
   %hf_mswsp_msg_cpmcomparebmk_dwcomparison.sink.i = phi ptr [ @hf_mswsp_msg_cpmcomparebmk_bmksecond, %401 ], [ @hf_mswsp_msg_cpmcomparebmk_dwcomparison, %393 ]
   %.sink1.i147 = phi i32 [ 28, %401 ], [ 16, %393 ]
   %408 = load i32, ptr %hf_mswsp_msg_cpmcomparebmk_dwcomparison.sink.i, align 4
@@ -2738,14 +2738,14 @@ dissect_CPMCompareBmk.argprom.exit:               ; preds = %393, %401
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %414, ptr noundef nonnull @.str.1185, ptr noundef nonnull %417) #10
   %418 = load ptr, ptr %26, align 8
   call void @col_append_str(ptr noundef %418, i32 noundef 25, ptr noundef nonnull @.str.1186) #10
-  br i1 %.not, label %dissect_CPMGetApproximatePosition.argprom.exit, label %419
+  br i1 %.not, label %dissect_CPMGetApproximatePosition.exit, label %419
 
 419:                                              ; preds = %411
   %420 = load i32, ptr @hf_mswsp_msg_cpmgetapproxpos_hcursor, align 4
   %421 = call ptr @proto_tree_add_item(ptr noundef %416, i32 noundef %420, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %dissect_CPMGetApproximatePosition.argprom.exit
+  br label %dissect_CPMGetApproximatePosition.exit
 
-dissect_CPMGetApproximatePosition.argprom.exit:   ; preds = %411, %419
+dissect_CPMGetApproximatePosition.exit:           ; preds = %411, %419
   %hf_mswsp_msg_cpmgetapproxpos_numerator.sink.i = phi ptr [ @hf_mswsp_msg_cpmgetapproxpos_chapt, %419 ], [ @hf_mswsp_msg_cpmgetapproxpos_numerator, %411 ]
   %.sink2.i149 = phi i32 [ 20, %419 ], [ 16, %411 ]
   %hf_mswsp_msg_cpmgetapproxpos_denominator.sink.i = phi ptr [ @hf_mswsp_msg_cpmgetapproxpos_bmk, %419 ], [ @hf_mswsp_msg_cpmgetapproxpos_denominator, %411 ]
@@ -2907,7 +2907,7 @@ dissect_CPMSetBindings.exit:                      ; preds = %427, %459, %._crit_
 501:                                              ; preds = %49
   %.val134 = load ptr, ptr %26, align 8
   call void @col_append_str(ptr noundef %.val134, i32 noundef 25, ptr noundef nonnull @.str.1207) #10
-  br i1 %.not, label %502, label %dissect_CPMCiState.argprom.exit
+  br i1 %.not, label %502, label %dissect_CPMCiState.exit
 
 502:                                              ; preds = %501
   %503 = load i32, ptr @hf_mswsp_msg, align 4
@@ -2945,9 +2945,9 @@ dissect_CPMSetBindings.exit:                      ; preds = %427, %459, %._crit_
   %534 = call ptr @proto_tree_add_item(ptr noundef %506, i32 noundef %533, ptr noundef %0, i32 noundef 68, i32 noundef 4, i32 noundef -2147483648) #10
   %535 = load i32, ptr @hf_mswsp_msg_cpmcistate_dwpropcachesize, align 4
   %536 = call ptr @proto_tree_add_item(ptr noundef %506, i32 noundef %535, ptr noundef %0, i32 noundef 72, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %dissect_CPMCiState.argprom.exit
+  br label %dissect_CPMCiState.exit
 
-dissect_CPMCiState.argprom.exit:                  ; preds = %501, %502
+dissect_CPMCiState.exit:                          ; preds = %501, %502
   %537 = call i32 @tvb_reported_length(ptr noundef %0) #10
   br label %682
 
@@ -2977,7 +2977,7 @@ dissect_CPMCiState.argprom.exit:                  ; preds = %501, %502
   %554 = call ptr @proto_tree_add_item(ptr noundef %543, i32 noundef %553, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef -2147483648) #10
   %555 = call i32 (ptr, i32, ptr, ptr, ptr, ptr, ...) @parse_CFullPropSpec(ptr noundef %0, i32 noundef 32, ptr noundef %543, ptr noundef %545, ptr noundef nonnull %7, ptr noundef nonnull @.str.1191)
   %556 = call i32 (ptr, i32, i32, ptr, ptr, ...) @parse_padding(ptr noundef %0, i32 noundef %555, i32 noundef 4, ptr noundef %545, ptr noundef nonnull @.str.943)
-  br label %dissect_CPMFetchValue.argprom.exit
+  br label %dissect_CPMFetchValue.exit
 
 557:                                              ; preds = %538
   %558 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 16) #10
@@ -2989,9 +2989,9 @@ dissect_CPMCiState.argprom.exit:                  ; preds = %501, %502
   %564 = call ptr @proto_tree_add_item(ptr noundef %543, i32 noundef %563, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef -2147483648) #10
   %565 = load i32, ptr @hf_mswsp_msg_cpmfetchvalue_vvalue, align 4
   %566 = call ptr @proto_tree_add_item(ptr noundef %543, i32 noundef %565, ptr noundef %0, i32 noundef 28, i32 noundef %558, i32 noundef 0) #10
-  br label %dissect_CPMFetchValue.argprom.exit
+  br label %dissect_CPMFetchValue.exit
 
-dissect_CPMFetchValue.argprom.exit:               ; preds = %546, %557
+dissect_CPMFetchValue.exit:                       ; preds = %546, %557
   %567 = call i32 @tvb_reported_length(ptr noundef %0) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
@@ -3006,7 +3006,7 @@ dissect_CPMFetchValue.argprom.exit:               ; preds = %546, %557
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %570, ptr noundef nonnull @.str.1211, ptr noundef nonnull %573) #10
   %574 = load ptr, ptr %26, align 8
   call void @col_append_str(ptr noundef %574, i32 noundef 25, ptr noundef nonnull @.str.1212) #10
-  br i1 %.not, label %575, label %dissect_CPMGetQueryStatusEx.argprom.exit
+  br i1 %.not, label %575, label %dissect_CPMGetQueryStatusEx.exit
 
 575:                                              ; preds = %568
   %576 = load i32, ptr @hf_mswsp_msg_cpmquerystatusex_qstatus, align 4
@@ -3025,9 +3025,9 @@ dissect_CPMFetchValue.argprom.exit:               ; preds = %546, %557
   %589 = call ptr @proto_tree_add_item(ptr noundef %572, i32 noundef %588, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #10
   %590 = load i32, ptr @hf_mswsp_msg_cpmquerystatusex_maxrank, align 4
   %591 = call ptr @proto_tree_add_item(ptr noundef %572, i32 noundef %590, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %dissect_CPMGetQueryStatusEx.argprom.exit
+  br label %dissect_CPMGetQueryStatusEx.exit
 
-dissect_CPMGetQueryStatusEx.argprom.exit:         ; preds = %568, %575
+dissect_CPMGetQueryStatusEx.exit:                 ; preds = %568, %575
   %hf_mswsp_msg_cpmquerystatusex_cresultsfound.sink.i = phi ptr [ @hf_mswsp_msg_cpmquerystatusex_cresultsfound, %575 ], [ @hf_mswsp_msg_cpmquerystatusex_hcursor, %568 ]
   %.sink2.i161 = phi i32 [ 48, %575 ], [ 16, %568 ]
   %hf_mswsp_msg_cpmquerystatusex_whereid.sink.i = phi ptr [ @hf_mswsp_msg_cpmquerystatusex_whereid, %575 ], [ @hf_mswsp_msg_cpmquerystatusex_bmk, %568 ]
@@ -3042,7 +3042,7 @@ dissect_CPMGetQueryStatusEx.argprom.exit:         ; preds = %568, %575
 597:                                              ; preds = %49
   %598 = load ptr, ptr %26, align 8
   call void @col_append_str(ptr noundef %598, i32 noundef 25, ptr noundef nonnull @.str.1213) #10
-  br i1 %.not, label %dissect_CPMRestartPosition.argprom.exit, label %599
+  br i1 %.not, label %dissect_CPMRestartPosition.exit, label %599
 
 599:                                              ; preds = %597
   %600 = load i32, ptr @hf_mswsp_msg, align 4
@@ -3054,9 +3054,9 @@ dissect_CPMGetQueryStatusEx.argprom.exit:         ; preds = %568, %575
   %605 = call ptr @proto_tree_add_item(ptr noundef %603, i32 noundef %604, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648) #10
   %606 = load i32, ptr @hf_mswsp_msg_cpmrestartposition_chapt, align 4
   %607 = call ptr @proto_tree_add_item(ptr noundef %603, i32 noundef %606, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %dissect_CPMRestartPosition.argprom.exit
+  br label %dissect_CPMRestartPosition.exit
 
-dissect_CPMRestartPosition.argprom.exit:          ; preds = %597, %599
+dissect_CPMRestartPosition.exit:                  ; preds = %597, %599
   %608 = load ptr, ptr %26, align 8
   call void @col_append_str(ptr noundef %608, i32 noundef 25, ptr noundef nonnull @.str.1214) #10
   %609 = call i32 @tvb_reported_length(ptr noundef %0) #10
@@ -3071,7 +3071,7 @@ dissect_CPMRestartPosition.argprom.exit:          ; preds = %597, %599
 612:                                              ; preds = %49
   %.val137 = load ptr, ptr %26, align 8
   call void @col_append_str(ptr noundef %.val137, i32 noundef 25, ptr noundef nonnull @.str.1216) #10
-  br i1 %.not, label %613, label %dissect_CPMGetRowsetNotify.argprom.exit
+  br i1 %.not, label %613, label %dissect_CPMGetRowsetNotify.exit
 
 613:                                              ; preds = %612
   %614 = load i32, ptr @hf_mswsp_msg, align 4
@@ -3095,9 +3095,9 @@ dissect_CPMRestartPosition.argprom.exit:          ; preds = %597, %599
   %631 = call ptr @proto_tree_add_item(ptr noundef %617, i32 noundef %630, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef -2147483648) #10
   %632 = load i32, ptr @hf_mswsp_msg_cpmgetrowsetnotify_rowseteventdata2, align 4
   %633 = call ptr @proto_tree_add_item(ptr noundef %617, i32 noundef %632, ptr noundef %0, i32 noundef 32, i32 noundef 8, i32 noundef -2147483648) #10
-  br label %dissect_CPMGetRowsetNotify.argprom.exit
+  br label %dissect_CPMGetRowsetNotify.exit
 
-dissect_CPMGetRowsetNotify.argprom.exit:          ; preds = %612, %613
+dissect_CPMGetRowsetNotify.exit:                  ; preds = %612, %613
   %634 = call i32 @tvb_reported_length(ptr noundef %0) #10
   br label %682
 
@@ -3121,22 +3121,22 @@ dissect_CPMGetRowsetNotify.argprom.exit:          ; preds = %612, %613
   %647 = call ptr @proto_tree_add_uint(ptr noundef %639, i32 noundef %646, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef %645) #10
   %648 = call i32 (ptr, i32, ptr, i32, ptr, ...) @parse_uin32_array(ptr noundef %0, i32 noundef 24, ptr noundef %639, i32 noundef %641, ptr noundef nonnull @.str.1220)
   %649 = call i32 (ptr, i32, ptr, i32, ptr, ...) @parse_uin32_array(ptr noundef %0, i32 noundef %648, ptr noundef %639, i32 noundef %645, ptr noundef nonnull @.str.1221)
-  br label %dissect_CPMFindIndices.argprom.exit
+  br label %dissect_CPMFindIndices.exit
 
 650:                                              ; preds = %635
   %651 = load i32, ptr @hf_mswsp_msg_cpmfindindices_cdepthnext, align 4
   %652 = call ptr @proto_tree_add_uint(ptr noundef %639, i32 noundef %651, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef %641) #10
   %653 = call i32 (ptr, i32, ptr, i32, ptr, ...) @parse_uin32_array(ptr noundef %0, i32 noundef 20, ptr noundef %639, i32 noundef %641, ptr noundef nonnull @.str.1222)
-  br label %dissect_CPMFindIndices.argprom.exit
+  br label %dissect_CPMFindIndices.exit
 
-dissect_CPMFindIndices.argprom.exit:              ; preds = %642, %650
+dissect_CPMFindIndices.exit:                      ; preds = %642, %650
   %654 = call i32 @tvb_reported_length(ptr noundef %0) #10
   br label %682
 
 655:                                              ; preds = %49
   %.val139 = load ptr, ptr %26, align 8
   call void @col_append_str(ptr noundef %.val139, i32 noundef 25, ptr noundef nonnull @.str.1224) #10
-  br i1 %.not, label %dissect_CPMSetScopePrioritization.argprom.exit, label %656
+  br i1 %.not, label %dissect_CPMSetScopePrioritization.exit, label %656
 
 656:                                              ; preds = %655
   %657 = load i32, ptr @hf_mswsp_msg, align 4
@@ -3148,9 +3148,9 @@ dissect_CPMFindIndices.argprom.exit:              ; preds = %642, %650
   %662 = call ptr @proto_tree_add_item(ptr noundef %660, i32 noundef %661, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648) #10
   %663 = load i32, ptr @hf_mswsp_msg_cpmsetscopeprioritization_eventfreq, align 4
   %664 = call ptr @proto_tree_add_item(ptr noundef %660, i32 noundef %663, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %dissect_CPMSetScopePrioritization.argprom.exit
+  br label %dissect_CPMSetScopePrioritization.exit
 
-dissect_CPMSetScopePrioritization.argprom.exit:   ; preds = %655, %656
+dissect_CPMSetScopePrioritization.exit:           ; preds = %655, %656
   %665 = call i32 @tvb_reported_length(ptr noundef %0) #10
   br label %682
 
@@ -3164,7 +3164,7 @@ dissect_CPMSetScopePrioritization.argprom.exit:   ; preds = %655, %656
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %669, ptr noundef nonnull @.str.1226, ptr noundef nonnull %672) #10
   %673 = load ptr, ptr %26, align 8
   call void @col_append_str(ptr noundef %673, i32 noundef 25, ptr noundef nonnull @.str.1227) #10
-  br i1 %.not, label %674, label %dissect_CPMGetScopeStatistics.argprom.exit
+  br i1 %.not, label %674, label %dissect_CPMGetScopeStatistics.exit
 
 674:                                              ; preds = %666
   %675 = load i32, ptr @hf_mswsp_msg_cpmsetscopestatisics_dwindexitems, align 4
@@ -3173,13 +3173,13 @@ dissect_CPMSetScopePrioritization.argprom.exit:   ; preds = %655, %656
   %678 = call ptr @proto_tree_add_item(ptr noundef %671, i32 noundef %677, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef -2147483648) #10
   %679 = load i32, ptr @hf_mswsp_msg_cpmsetscopestatisics_dwoutstandingmodifies, align 4
   %680 = call ptr @proto_tree_add_item(ptr noundef %671, i32 noundef %679, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %dissect_CPMGetScopeStatistics.argprom.exit
+  br label %dissect_CPMGetScopeStatistics.exit
 
-dissect_CPMGetScopeStatistics.argprom.exit:       ; preds = %666, %674
+dissect_CPMGetScopeStatistics.exit:               ; preds = %666, %674
   %681 = call i32 @tvb_reported_length(ptr noundef %0) #10
   br label %682
 
-682:                                              ; preds = %dissect_CPMGetScopeStatistics.argprom.exit, %dissect_CPMSetScopePrioritization.argprom.exit, %dissect_CPMFindIndices.argprom.exit, %dissect_CPMGetRowsetNotify.argprom.exit, %610, %dissect_CPMRestartPosition.argprom.exit, %dissect_CPMGetQueryStatusEx.argprom.exit, %dissect_CPMFetchValue.argprom.exit, %dissect_CPMCiState.argprom.exit, %491, %483, %481, %dissect_CPMSetBindings.exit, %dissect_CPMGetApproximatePosition.argprom.exit, %dissect_CPMCompareBmk.argprom.exit, %dissect_CPMRatioFinished.argprom.exit, %dissect_CPMGetRows.exit, %165, %dissect_CPMCreateQuery.argprom.exit, %104, %dissect_CPMConnect.exit
+682:                                              ; preds = %dissect_CPMGetScopeStatistics.exit, %dissect_CPMSetScopePrioritization.exit, %dissect_CPMFindIndices.exit, %dissect_CPMGetRowsetNotify.exit, %610, %dissect_CPMRestartPosition.exit, %dissect_CPMGetQueryStatusEx.exit, %dissect_CPMFetchValue.exit, %dissect_CPMCiState.exit, %491, %483, %481, %dissect_CPMSetBindings.exit, %dissect_CPMGetApproximatePosition.exit, %dissect_CPMCompareBmk.exit, %dissect_CPMRatioFinished.exit, %dissect_CPMGetRows.exit, %165, %dissect_CPMCreateQuery.exit, %104, %dissect_CPMConnect.exit
   %683 = call i32 @tvb_reported_length(ptr noundef %0) #10
   br label %684
 
@@ -3726,25 +3726,25 @@ define internal noundef i32 @parse_CDbProp(ptr noundef %0, ptr noundef %1, i32 n
   %62 = load i32, ptr @hf_mswsp_cdbcolid_vstring, align 4
   %63 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %40, i32 noundef %62, ptr noundef %0, i32 noundef %57, i32 noundef %54, ptr noundef %60, ptr noundef nonnull @.str.972, ptr noundef %60) #10
   %64 = add i32 %57, %54
-  br label %parse_CDbColId.argprom.exit
+  br label %parse_CDbColId.exit
 
 65:                                               ; preds = %47
   %66 = load ptr, ptr %9, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %66, ptr noundef nonnull @.str.973, i32 noundef %54) #10
-  br label %parse_CDbColId.argprom.exit
+  br label %parse_CDbColId.exit
 
 67:                                               ; preds = %47
   %68 = load ptr, ptr %9, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %68, ptr noundef nonnull @.str.974) #10
-  br label %parse_CDbColId.argprom.exit
+  br label %parse_CDbColId.exit
 
-parse_CDbColId.argprom.exit:                      ; preds = %58, %65, %67
+parse_CDbColId.exit:                              ; preds = %58, %65, %67
   %.0.i = phi i32 [ %64, %58 ], [ %57, %65 ], [ %57, %67 ]
   %69 = load ptr, ptr %9, align 8
   call void @proto_item_set_end(ptr noundef %69, ptr noundef %0, i32 noundef %.0.i) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %70 = call fastcc i32 @parse_CBaseStorageVariant.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %.0.i, ptr noundef %21, ptr noundef nonnull %10, ptr noundef nonnull @.str.142)
+  %70 = call fastcc i32 @parse_CBaseStorageVariant(ptr noundef %0, ptr noundef %1, i32 noundef %.0.i, ptr noundef %21, ptr noundef nonnull %10, ptr noundef nonnull @.str.142)
   %71 = call fastcc ptr @str_CBaseStorageVariant(ptr noundef nonnull %10, i32 noundef 1)
   %72 = load ptr, ptr %11, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %72, ptr noundef nonnull @.str.935, ptr noundef %71) #10
@@ -3768,7 +3768,7 @@ declare i32 @guid_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_string_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parse_CBaseStorageVariant.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @parse_CBaseStorageVariant(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %4, i8 0, i64 48, i1 false)
   %8 = load i32, ptr @ett_CBaseStorageVariant, align 4
@@ -4616,7 +4616,7 @@ define internal noundef i32 @parse_CPidMapper(ptr noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_CColumnGroupArray.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4, ...) unnamed_addr #0 {
+define internal void @parse_CColumnGroupArray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4, ...) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %7)
@@ -4887,7 +4887,7 @@ parse_relop.exit:                                 ; preds = %19, %22, %26
   %39 = getelementptr inbounds i8, ptr %5, i64 8
   %40 = call i32 (ptr, i32, ptr, ptr, ptr, ptr, ...) @parse_CFullPropSpec(ptr noundef %0, i32 noundef %37, ptr noundef %13, ptr noundef %4, ptr noundef nonnull %39, ptr noundef nonnull @.str.1078)
   %41 = getelementptr inbounds i8, ptr %5, i64 40
-  %42 = call fastcc i32 @parse_CBaseStorageVariant.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %40, ptr noundef %13, ptr noundef nonnull %41, ptr noundef nonnull @.str.1079)
+  %42 = call fastcc i32 @parse_CBaseStorageVariant(ptr noundef %0, ptr noundef %1, i32 noundef %40, ptr noundef %13, ptr noundef nonnull %41, ptr noundef nonnull @.str.1079)
   %43 = call i32 (ptr, i32, i32, ptr, ptr, ...) @parse_padding(ptr noundef %0, i32 noundef %42, i32 noundef 4, ptr noundef %4, ptr noundef nonnull @.str.1080)
   %44 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %43) #10
   %45 = getelementptr inbounds i8, ptr %5, i64 88
@@ -5231,7 +5231,7 @@ parse_CInGroupSortAggregSet_type.exit:            ; preds = %6, %15, %16, %17
   br i1 %19, label %24, label %26
 
 24:                                               ; preds = %parse_CInGroupSortAggregSet_type.exit
-  %25 = call fastcc i32 @parse_CBaseStorageVariant.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %23, ptr noundef %13, ptr noundef nonnull %9, ptr noundef nonnull @.str.1114)
+  %25 = call fastcc i32 @parse_CBaseStorageVariant(ptr noundef %0, ptr noundef %1, i32 noundef %23, ptr noundef %13, ptr noundef nonnull %9, ptr noundef nonnull @.str.1114)
   br label %26
 
 26:                                               ; preds = %24, %parse_CInGroupSortAggregSet_type.exit
@@ -5477,7 +5477,7 @@ define internal i32 @parse_RANGEBOUNDARY(ptr noundef %0, ptr noundef %1, i32 nou
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %19, ptr noundef nonnull @.str.1127, i32 noundef %16) #10
   %20 = add i32 %2, 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
-  %21 = call fastcc i32 @parse_CBaseStorageVariant.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %20, ptr noundef %15, ptr noundef nonnull %8, ptr noundef nonnull @.str.1128)
+  %21 = call fastcc i32 @parse_CBaseStorageVariant(ptr noundef %0, ptr noundef %1, i32 noundef %20, ptr noundef %15, ptr noundef nonnull %8, ptr noundef nonnull @.str.1128)
   %22 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %21) #10
   %23 = load i32, ptr @hf_mswsp_rangeboundry_labelpresent, align 4
   %24 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %23, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef -2147483648) #10
@@ -5653,7 +5653,7 @@ define internal noundef i32 @parse_CColumnGroup(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_CRowSeekNext.retelim(ptr noundef %0, i32 noundef range(i32 28, 57) %1, ptr noundef %2, ptr nocapture readnone %3, ...) unnamed_addr #0 {
+define internal void @parse_CRowSeekNext(ptr noundef %0, i32 noundef range(i32 28, 57) %1, ptr noundef %2, ptr nocapture readnone %3, ...) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %6)
@@ -5671,7 +5671,7 @@ define internal void @parse_CRowSeekNext.retelim(ptr noundef %0, i32 noundef ran
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_CRowSeekAt.retelim(ptr noundef %0, i32 noundef range(i32 28, 57) %1, ptr noundef %2, ptr nocapture readnone %3, ...) unnamed_addr #0 {
+define internal void @parse_CRowSeekAt(ptr noundef %0, i32 noundef range(i32 28, 57) %1, ptr noundef %2, ptr nocapture readnone %3, ...) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %6)
@@ -5695,7 +5695,7 @@ define internal void @parse_CRowSeekAt.retelim(ptr noundef %0, i32 noundef range
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_CRowSeekAtRatio.retelim(ptr noundef %0, i32 noundef range(i32 28, 57) %1, ptr noundef %2, ptr nocapture readnone %3, ...) unnamed_addr #0 {
+define internal void @parse_CRowSeekAtRatio(ptr noundef %0, i32 noundef range(i32 28, 57) %1, ptr noundef %2, ptr nocapture readnone %3, ...) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %6)
@@ -5719,7 +5719,7 @@ define internal void @parse_CRowSeekAtRatio.retelim(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_CRowSeekByBookmark.retelim(ptr noundef %0, i32 noundef range(i32 28, 57) %1, ptr noundef %2, ptr nocapture readnone %3, ...) unnamed_addr #0 {
+define internal void @parse_CRowSeekByBookmark(ptr noundef %0, i32 noundef range(i32 28, 57) %1, ptr noundef %2, ptr nocapture readnone %3, ...) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %6)
@@ -5906,7 +5906,7 @@ define internal noundef i32 @parse_RowsBufferCol(ptr noundef %0, ptr noundef %1,
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %67
-  call void (ptr, ptr, i32, ptr, i64, i32, i32, ptr, ptr, ...) @parse_VariantCol.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %57, ptr noundef %25, i64 noundef %59, i32 poison, i32 noundef %7, ptr noundef %13, ptr nonnull poison)
+  call void (ptr, ptr, i32, ptr, i64, i32, i32, ptr, ptr, ...) @parse_VariantCol(ptr noundef %0, ptr noundef %1, i32 noundef %57, ptr noundef %25, i64 noundef %59, i32 poison, i32 noundef %7, ptr noundef %13, ptr nonnull poison)
   br label %71
 
 71:                                               ; preds = %67, %70, %50
@@ -5914,7 +5914,7 @@ define internal noundef i32 @parse_RowsBufferCol(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_VariantCol.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef range(i64 0, 4294967296) %4, i32 range(i32 -65535, 65536) %5, i32 noundef %6, ptr noundef nonnull %7, ptr nocapture readnone %8, ...) unnamed_addr #0 {
+define internal void @parse_VariantCol(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef range(i64 0, 4294967296) %4, i32 range(i32 -65535, 65536) %5, i32 noundef %6, ptr noundef nonnull %7, ptr nocapture readnone %8, ...) unnamed_addr #0 {
   %10 = alloca %union.vt_single, align 8
   %11 = alloca ptr, align 8
   %12 = alloca [1 x %struct.__va_list_tag], align 16

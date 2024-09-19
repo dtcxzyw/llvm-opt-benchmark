@@ -2427,7 +2427,7 @@ if.end95.i:                                       ; preds = %if.end90.i
   %.sink.i.i.i332.i = select i1 %tobool.not.i.i.i328.i, ptr %79, ptr %78
   %.sroa.speculated459.i = select i1 %tobool.not.i.i.i328.i, ptr %retval.sroa.3.0.i51.i, ptr %retval.sroa.0.0.i52.i
   %cmp5.i.i.not.i333.i = icmp eq ptr %.sink.i.i.i332.i, %.sroa.speculated459.i
-  br i1 %cmp5.i.i.not.i333.i, label %"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.argprom.exit344.i", label %land.lhs.true.i334.i
+  br i1 %cmp5.i.i.not.i333.i, label %"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.exit344.i", label %land.lhs.true.i334.i
 
 land.lhs.true.i334.i:                             ; preds = %if.end95.i
   br i1 %tobool.not.i.i.i328.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i340.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i335.i
@@ -2435,26 +2435,26 @@ land.lhs.true.i334.i:                             ; preds = %if.end95.i
 _ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i340.i: ; preds = %land.lhs.true.i334.i
   %80 = load i16, ptr %79, align 2
   %cmp.i341.i = icmp eq i16 %80, 58
-  br i1 %cmp.i341.i, label %if.else.i.i342.i, label %"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.argprom.exit344.i"
+  br i1 %cmp.i341.i, label %if.else.i.i342.i, label %"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.exit344.i"
 
 _ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i335.i: ; preds = %land.lhs.true.i334.i
   %81 = load i8, ptr %78, align 1
   %cmp2.i336.i = icmp eq i8 %81, 58
-  br i1 %cmp2.i336.i, label %if.then.i.i338.i, label %"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.argprom.exit344.i"
+  br i1 %cmp2.i336.i, label %if.then.i.i338.i, label %"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.exit344.i"
 
 if.then.i.i338.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i335.i
   %incdec.ptr.i.i339.i = getelementptr inbounds i8, ptr %78, i64 1
   store ptr %incdec.ptr.i.i339.i, ptr %it.i, align 8
   %.pre520.i = load ptr, ptr %15, align 8
-  br label %"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.argprom.exit344.i"
+  br label %"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.exit344.i"
 
 if.else.i.i342.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i340.i
   %incdec.ptr3.i.i343.i = getelementptr inbounds i8, ptr %79, i64 2
   store ptr %incdec.ptr3.i.i343.i, ptr %15, align 8
   %.pre519.i = load ptr, ptr %it.i, align 8
-  br label %"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.argprom.exit344.i"
+  br label %"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.exit344.i"
 
-"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.argprom.exit344.i": ; preds = %if.else.i.i342.i, %if.then.i.i338.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i335.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i340.i, %if.end95.i
+"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.exit344.i": ; preds = %if.else.i.i342.i, %if.then.i.i338.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i335.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i340.i, %if.end95.i
   %82 = phi ptr [ %79, %if.end95.i ], [ %79, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i340.i ], [ %79, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i335.i ], [ %.pre520.i, %if.then.i.i338.i ], [ %incdec.ptr3.i.i343.i, %if.else.i.i342.i ]
   %83 = phi ptr [ %78, %if.end95.i ], [ null, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i340.i ], [ %78, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i335.i ], [ %incdec.ptr.i.i339.i, %if.then.i.i338.i ], [ %.pre519.i, %if.else.i.i342.i ]
   %tobool.not.i353.i = icmp eq ptr %83, null
@@ -2463,7 +2463,7 @@ if.else.i.i342.i:                                 ; preds = %_ZNK6hermes2vm10Str
   %cmp5.i358.i = icmp ugt ptr %.sink.i357.i, %.sroa.speculated.i
   br i1 %cmp5.i358.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread, label %if.end104.i
 
-if.end104.i:                                      ; preds = %"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.argprom.exit344.i"
+if.end104.i:                                      ; preds = %"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.exit344.i"
   %add.ptr.i361.i = getelementptr inbounds i8, ptr %83, i64 2
   %retval.sroa.3.0.idx.i362.i = select i1 %tobool.not.i353.i, i64 2, i64 0
   %retval.sroa.3.0.i363.i = getelementptr inbounds i16, ptr %82, i64 %retval.sroa.3.0.idx.i362.i
@@ -2520,7 +2520,7 @@ if.end117.i:                                      ; preds = %if.end114.i
   %add.i379.i = fadd double %mul.i378.i, %add.i376.i
   br i1 %or.cond.i377.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread
 
-_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread: ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i264.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i269.i, %if.end117.i, %if.end5.i, %if.then11.i, %if.then17.i, %if.then26.i, %if.end33.i, %if.then39.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i, %if.then45.i, %if.end86.i, %if.end90.i, %"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.argprom.exit344.i", %if.end104.i, %if.end114.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i192.i, %if.end30.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i187.i
+_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread: ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i264.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i269.i, %if.end117.i, %if.end5.i, %if.then11.i, %if.then17.i, %if.then26.i, %if.end33.i, %if.then39.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i, %if.then45.i, %if.end86.i, %if.end90.i, %"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.exit344.i", %if.end104.i, %if.end114.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i192.i, %if.end30.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i187.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %it.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %y.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %m.i)
@@ -3455,7 +3455,7 @@ _ZNK6hermes2vm10StringView3endEv.exit412:         ; preds = %_ZNK6hermes2vm10Str
   br i1 %cmp5.i.i.not.i.i66, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit.i", label %while.body.i.i, !llvm.loop !45
 
 "_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit.i": ; preds = %_ZNK6hermes2vm10StringView3endEv.exit412, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i.i, %lor.lhs.false.i.i, %if.then14.i
-  %call17.i = call fastcc noundef zeroext i1 @"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_2clEi.argelim"(ptr noundef nonnull align 8 dereferenceable(24) %scanStrAndSkipWord.i)
+  %call17.i = call fastcc noundef zeroext i1 @"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_2clEi"(ptr noundef nonnull align 8 dereferenceable(24) %scanStrAndSkipWord.i)
   br i1 %call17.i, label %if.end19.i, label %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit
 
 if.end19.i:                                       ; preds = %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit.i"
@@ -3501,7 +3501,7 @@ _ZNK6hermes2vm10StringView14const_iteratordeEv.exit176.thread.i: ; preds = %_ZNK
   br i1 %211, label %if.then26.i30, label %if.then.i190.i
 
 if.then26.i30:                                    ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit176.thread.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit176.i
-  %call27.i = call fastcc noundef zeroext i1 @"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_2clEi.argelim"(ptr noundef nonnull align 8 dereferenceable(24) %scanStrAndSkipWord.i)
+  %call27.i = call fastcc noundef zeroext i1 @"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_2clEi"(ptr noundef nonnull align 8 dereferenceable(24) %scanStrAndSkipWord.i)
   br i1 %call27.i, label %if.end29.i, label %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit
 
 if.end29.i:                                       ; preds = %if.then26.i30
@@ -4342,7 +4342,7 @@ _ZNK6hermes2vm10StringView14const_iteratordeEv.exit293.i: ; preds = %cond.true.i
   br i1 %cmp82.i, label %if.then83.i, label %if.end100.i
 
 if.then83.i:                                      ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit293.i
-  %call84.i = call fastcc noundef zeroext i1 @"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_0clEi.argelim"(ptr noundef nonnull align 8 dereferenceable(24) %scanStr.i)
+  %call84.i = call fastcc noundef zeroext i1 @"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_0clEi"(ptr noundef nonnull align 8 dereferenceable(24) %scanStr.i)
   br i1 %call84.i, label %for.cond87.preheader.i, label %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit
 
 for.cond87.preheader.i:                           ; preds = %if.then83.i
@@ -4990,7 +4990,7 @@ declare noundef zeroext i1 @_ZN4llvh18getAsSignedIntegerENS_9StringRefEjRx(ptr, 
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_0clEi.argelim"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_0clEi"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %0, align 8
@@ -5244,7 +5244,7 @@ return:                                           ; preds = %for.body.i.i.i.i.i3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_2clEi.argelim"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_2clEi"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %0, align 8

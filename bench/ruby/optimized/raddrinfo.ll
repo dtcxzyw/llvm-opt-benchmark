@@ -510,7 +510,7 @@ define noalias ptr @rsock_getaddrinfo(i64 noundef %0, i64 noundef %1, ptr nounde
   %13 = alloca [32 x i8], align 16
   %14 = alloca i32, align 4
   store i32 0, ptr %14, align 4
-  %15 = call fastcc ptr @host_str.argelim(i64 noundef %0, ptr noundef %12, ptr noundef nonnull %14)
+  %15 = call fastcc ptr @host_str(i64 noundef %0, ptr noundef %12, ptr noundef nonnull %14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i64 %1, ptr %10, align 8
   %16 = icmp eq i64 %1, 4
@@ -680,7 +680,7 @@ rb_array_len.exit.i:                              ; preds = %79, %76
   %.02433.i = phi i64 [ %96, %95 ], [ 0, %rb_array_len.exit.i ]
   %.02532.i = phi ptr [ %.2.i, %95 ], [ null, %rb_array_len.exit.i ]
   %83 = call i64 @rb_ary_entry(i64 noundef %71, i64 noundef %.02433.i) #22
-  %84 = call fastcc ptr @host_str.argelim(i64 noundef %83, ptr noundef %8, ptr noundef nonnull %6)
+  %84 = call fastcc ptr @host_str(i64 noundef %83, ptr noundef %8, ptr noundef nonnull %6)
   %85 = call fastcc i32 @numeric_getaddrinfo(ptr noundef %84, ptr noundef %.0.i, ptr noundef nonnull %2, ptr noundef %7)
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %87, label %95
@@ -951,7 +951,7 @@ rb_getaddrinfo.exit:                              ; preds = %160, %161
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @host_str.argelim(i64 noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @host_str(i64 noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.sockaddr_in, align 4
   %5 = alloca %struct.sockaddr_in, align 4
   %6 = alloca i64, align 8
@@ -1060,7 +1060,7 @@ make_inetaddr.exit43:                             ; preds = %35
   br i1 %44, label %45, label %ruby_nonempty_memcpy.exit
 
 45:                                               ; preds = %43
-  call fastcc void @make_inetaddr.argelim(i32 noundef -1, ptr noundef %1)
+  call fastcc void @make_inetaddr(i32 noundef -1, ptr noundef %1)
   %.not39 = icmp eq ptr %2, null
   br i1 %.not39, label %54, label %46
 
@@ -1752,7 +1752,7 @@ define internal i64 @make_hostent_internal(i64 noundef %0) #0 {
   br i1 %.not, label %13, label %15
 
 13:                                               ; preds = %1
-  %14 = call fastcc ptr @host_str.argelim(i64 noundef %4, ptr noundef %2, ptr noundef null)
+  %14 = call fastcc ptr @host_str(i64 noundef %4, ptr noundef %2, ptr noundef null)
   br label %15
 
 15:                                               ; preds = %1, %13
@@ -2633,15 +2633,15 @@ declare i64 @rb_io_taint_check(i64 noundef) local_unnamed_addr #2
 define void @rsock_init_addrinfo() local_unnamed_addr #0 {
   %.pr.i = load i64, ptr @rsock_init_addrinfo.rbimpl_id, align 8
   %.not1.i = icmp eq i64 %.pr.i, 0
-  br i1 %.not1.i, label %.lr.ph.i, label %rbimpl_intern_const.argprom.exit
+  br i1 %.not1.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
 
 .lr.ph.i:                                         ; preds = %0, %.lr.ph.i
   %1 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.49, i64 noundef 7) #19
   store i64 %1, ptr @rsock_init_addrinfo.rbimpl_id, align 8
   %.not.i = icmp eq i64 %1, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.argprom.exit, !llvm.loop !32
+  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !32
 
-rbimpl_intern_const.argprom.exit:                 ; preds = %.lr.ph.i, %0
+rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %0
   %.lcssa.i = phi i64 [ %.pr.i, %0 ], [ %1, %.lr.ph.i ]
   store i64 %.lcssa.i, ptr @id_timeout, align 8
   %2 = load i64, ptr @rb_cObject, align 8
@@ -2907,7 +2907,7 @@ rb_num2int_inline.exit32:                         ; preds = %73, %75
   %94 = shl nsw i64 %93, 1
   %95 = or disjoint i64 %94, 1
   %96 = load i64, ptr %12, align 8
-  %97 = call fastcc ptr @call_getaddrinfo.argelim(i64 noundef %84, i64 noundef %78, i64 noundef %89, i64 noundef %92, i64 noundef %95, i64 noundef 2057, i32 noundef 1)
+  %97 = call fastcc ptr @call_getaddrinfo(i64 noundef %84, i64 noundef %78, i64 noundef %89, i64 noundef %92, i64 noundef %95, i64 noundef 2057, i32 noundef 1)
   %98 = call i64 @rb_str_equal(i64 noundef %84, i64 noundef %96) #19
   %.not.i33 = icmp eq i64 %98, 0
   %.pre.i = load ptr, ptr %97, align 8
@@ -3366,7 +3366,7 @@ define internal i64 @addrinfo_s_getaddrinfo(i32 noundef %0, ptr noundef %1, i64 
   %22 = load i64, ptr %7, align 8
   %23 = load i64, ptr %8, align 8
   %24 = load i64, ptr %9, align 8
-  %25 = call fastcc ptr @call_getaddrinfo.argelim(i64 noundef %19, i64 noundef %20, i64 noundef %21, i64 noundef %22, i64 noundef %23, i64 noundef %24, i32 noundef 0)
+  %25 = call fastcc ptr @call_getaddrinfo(i64 noundef %19, i64 noundef %20, i64 noundef %21, i64 noundef %22, i64 noundef %23, i64 noundef %24, i32 noundef 0)
   %26 = load ptr, ptr %25, align 8
   %27 = call fastcc i64 @make_inspectname(i64 noundef %19, i64 noundef %20, ptr noundef %26)
   %28 = call i64 @rb_ary_new() #19
@@ -3475,7 +3475,7 @@ addrinfo_list_new.exit:                           ; preds = %.lr.ph.i.i, %._crit
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @addrinfo_s_ip(i64 %0, i64 noundef %1) #0 {
-  %3 = tail call fastcc i64 @addrinfo_firstonly_new.argelim(i64 noundef %1, i64 noundef 4, i64 noundef 1, i64 noundef 1, i64 noundef 1)
+  %3 = tail call fastcc i64 @addrinfo_firstonly_new(i64 noundef %1, i64 noundef 4, i64 noundef 1, i64 noundef 1, i64 noundef 1)
   %4 = tail call ptr @rb_check_typeddata(i64 noundef %3, ptr noundef nonnull @addrinfo_type) #19
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %5, label %get_addrinfo.exit
@@ -3495,13 +3495,13 @@ get_addrinfo.exit:                                ; preds = %2
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @addrinfo_s_tcp(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
-  %4 = tail call fastcc i64 @addrinfo_firstonly_new.argelim(i64 noundef %1, i64 noundef %2, i64 noundef 1, i64 noundef 3, i64 noundef 13)
+  %4 = tail call fastcc i64 @addrinfo_firstonly_new(i64 noundef %1, i64 noundef %2, i64 noundef 1, i64 noundef 3, i64 noundef 13)
   ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @addrinfo_s_udp(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
-  %4 = tail call fastcc i64 @addrinfo_firstonly_new.argelim(i64 noundef %1, i64 noundef %2, i64 noundef 1, i64 noundef 5, i64 noundef 35)
+  %4 = tail call fastcc i64 @addrinfo_firstonly_new(i64 noundef %1, i64 noundef %2, i64 noundef 1, i64 noundef 5, i64 noundef 35)
   ret i64 %4
 }
 
@@ -5337,7 +5337,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %RSTRING_PTR.exit45,
   %127 = sext i32 %126 to i64
   %128 = shl nsw i64 %127, 1
   %129 = or disjoint i64 %128, 1
-  %130 = call fastcc ptr @call_getaddrinfo.argelim(i64 noundef %116, i64 noundef %117, i64 noundef %121, i64 noundef %125, i64 noundef %129, i64 noundef 2057, i32 noundef 1)
+  %130 = call fastcc ptr @call_getaddrinfo(i64 noundef %116, i64 noundef %117, i64 noundef %121, i64 noundef %125, i64 noundef %129, i64 noundef 2057, i32 noundef 1)
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 16
   %133 = load i32, ptr %132, align 8
@@ -5451,7 +5451,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i64 @rb_obj_is_kind_of(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @make_inetaddr.argelim(i32 noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @make_inetaddr(i32 noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.sockaddr_in, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i16 2, ptr %3, align 4
@@ -5658,7 +5658,7 @@ declare i64 @rb_check_array_type(i64 noundef) local_unnamed_addr #2
 declare i32 @rsock_family_to_int(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias nonnull ptr @call_getaddrinfo.argelim(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
+define internal fastcc noalias nonnull ptr @call_getaddrinfo(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = alloca %struct.addrinfo, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
   %9 = icmp eq i64 %2, 4
@@ -5944,8 +5944,8 @@ declare i64 @rsock_intern_ipproto(i32 noundef) local_unnamed_addr #2
 declare i32 @rb_get_kwargs(i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @addrinfo_firstonly_new.argelim(i64 noundef %0, i64 noundef %1, i64 noundef range(i64 1, 0) %2, i64 noundef range(i64 1, 0) %3, i64 noundef range(i64 1, 0) %4) unnamed_addr #0 {
-  %6 = tail call fastcc ptr @call_getaddrinfo.argelim(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef 1, i32 noundef 0)
+define internal fastcc i64 @addrinfo_firstonly_new(i64 noundef %0, i64 noundef %1, i64 noundef range(i64 1, 0) %2, i64 noundef range(i64 1, 0) %3, i64 noundef range(i64 1, 0) %4) unnamed_addr #0 {
+  %6 = tail call fastcc ptr @call_getaddrinfo(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef 1, i32 noundef 0)
   %7 = load ptr, ptr %6, align 8
   %8 = tail call fastcc i64 @make_inspectname(i64 noundef %0, i64 noundef %1, ptr noundef %7)
   %9 = getelementptr inbounds i8, ptr %7, i64 32

@@ -1066,7 +1066,7 @@ _ZN5Timer5startEv.exit42:                         ; preds = %89
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  %157 = invoke fastcc noundef zeroext i1 @_ZL18AreImagesIdenticalRN2cv3MatES1_.argprom()
+  %157 = invoke fastcc noundef zeroext i1 @_ZL18AreImagesIdenticalRN2cv3MatES1_()
           to label %158 unwind label %51
 
 158:                                              ; preds = %156
@@ -1486,7 +1486,7 @@ _ZN5Timer5startEv.exit42:                         ; preds = %89
           to label %156 unwind label %51
 
 156:                                              ; preds = %154
-  %157 = invoke fastcc noundef zeroext i1 @_ZL18AreImagesIdenticalRN2cv3MatES1_.argprom()
+  %157 = invoke fastcc noundef zeroext i1 @_ZL18AreImagesIdenticalRN2cv3MatES1_()
           to label %158 unwind label %51
 
 158:                                              ; preds = %156
@@ -1638,7 +1638,7 @@ declare void @_ZN2cv8ximgproc2rl12morphologyExERKNS_11_InputArrayERKNS_12_Output
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8), double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL18AreImagesIdenticalRN2cv3MatES1_.argprom() unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL18AreImagesIdenticalRN2cv3MatES1_() unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.cv::Mat", align 8
   %2 = alloca %"class.cv::_InputArray", align 8
   %3 = alloca %"class.cv::_InputArray", align 8

@@ -981,7 +981,7 @@ define void @nanoexr_attr_set_string(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %exr_attr_set_string.exit
 
 108:                                              ; preds = %99
-  tail call fastcc void @exr_attr_string_set_with_length.argelim(ptr noundef nonnull %0, ptr noundef nonnull %88, ptr noundef nonnull %2, i32 noundef %90)
+  tail call fastcc void @exr_attr_string_set_with_length(ptr noundef nonnull %0, ptr noundef nonnull %88, ptr noundef nonnull %2, i32 noundef %90)
   br label %109
 
 109:                                              ; preds = %108, %96, %85
@@ -1191,7 +1191,7 @@ exr_attr_list_find_by_name.exit.i:                ; preds = %165, %160, %._crit_
   br label %exr_attr_set_string.exit
 
 222:                                              ; preds = %213
-  tail call fastcc void @exr_attr_string_set_with_length.argelim(ptr noundef nonnull %0, ptr noundef nonnull %201, ptr noundef %3, i32 noundef %203)
+  tail call fastcc void @exr_attr_string_set_with_length(ptr noundef nonnull %0, ptr noundef nonnull %201, ptr noundef %3, i32 noundef %203)
   br label %223
 
 223:                                              ; preds = %222, %210, %209, %183, %180, %.thread.i
@@ -3011,7 +3011,7 @@ exr_get_storage.exit:                             ; preds = %50, %53
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %89, ptr %90, align 8
   store ptr null, ptr %12, align 8
-  %91 = call fastcc i32 @exr_get_attribute_by_name.argprom(ptr noundef nonnull %22, i32 noundef %4, ptr noundef %12)
+  %91 = call fastcc i32 @exr_get_attribute_by_name(ptr noundef nonnull %22, i32 noundef %4, ptr noundef %12)
   %92 = icmp eq i32 %91, 0
   %93 = load ptr, ptr %12, align 8
   %94 = icmp ne ptr %93, null
@@ -3214,7 +3214,7 @@ fill_context_data.exit:                           ; preds = %88, %89
   br i1 %.not17, label %1096, label %92
 
 92:                                               ; preds = %90
-  %93 = call fastcc i32 @internal_exr_alloc_context.argelim(ptr noundef %30, ptr noundef %31, i32 noundef 0)
+  %93 = call fastcc i32 @internal_exr_alloc_context(ptr noundef %30, ptr noundef %31, i32 noundef 0)
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %95, label %1098
 
@@ -3457,16 +3457,16 @@ priv_init_scratch.exit.i:                         ; preds = %188
 201:                                              ; preds = %priv_init_scratch.exit.i
   %.val.i = load ptr, ptr %27, align 8
   %.not.i99.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i99.i, label %priv_destroy_scratch.argprom.exit.i, label %202
+  br i1 %.not.i99.i, label %priv_destroy_scratch.exit.i, label %202
 
 202:                                              ; preds = %201
   %.val83.i = load ptr, ptr %193, align 8
   %203 = getelementptr inbounds nuw i8, ptr %.val83.i, i64 96
   %204 = load ptr, ptr %203, align 8
   call void %204(ptr noundef nonnull %.val.i) #50
-  br label %priv_destroy_scratch.argprom.exit.i
+  br label %priv_destroy_scratch.exit.i
 
-priv_destroy_scratch.argprom.exit.i:              ; preds = %202, %201
+priv_destroy_scratch.exit.i:                      ; preds = %202, %201
   store ptr @dispatch_standard_error, ptr %198, align 8
   %205 = getelementptr inbounds nuw i8, ptr %96, i64 64
   store ptr @dispatch_error, ptr %205, align 8
@@ -3487,16 +3487,16 @@ priv_init_scratch.exit.thread.i:                  ; preds = %priv_init_scratch.e
   %213 = call i32 %212(ptr noundef nonnull %96, i32 noundef 3, ptr noundef nonnull @.str.147) #50
   %.val84.i = load ptr, ptr %27, align 8
   %.not.i100.i = icmp eq ptr %.val84.i, null
-  br i1 %.not.i100.i, label %priv_destroy_scratch.argprom.exit101.i, label %214
+  br i1 %.not.i100.i, label %priv_destroy_scratch.exit101.i, label %214
 
 214:                                              ; preds = %210
   %.val85.i = load ptr, ptr %193, align 8
   %215 = getelementptr inbounds nuw i8, ptr %.val85.i, i64 96
   %216 = load ptr, ptr %215, align 8
   call void %216(ptr noundef nonnull %.val84.i) #50
-  br label %priv_destroy_scratch.argprom.exit101.i
+  br label %priv_destroy_scratch.exit101.i
 
-priv_destroy_scratch.argprom.exit101.i:           ; preds = %214, %210
+priv_destroy_scratch.exit101.i:                   ; preds = %214, %210
   %217 = getelementptr inbounds nuw i8, ptr %96, i64 56
   store ptr @dispatch_standard_error, ptr %217, align 8
   store ptr @dispatch_error, ptr %211, align 8
@@ -3546,16 +3546,16 @@ priv_destroy_scratch.argprom.exit101.i:           ; preds = %214, %210
   %242 = call i32 (ptr, i32, ptr, ...) %240(ptr noundef nonnull %96, i32 noundef 6, ptr noundef nonnull @.str.148, i32 noundef %241, i32 noundef %233) #50
   %.val86.i = load ptr, ptr %27, align 8
   %.not.i102.i = icmp eq ptr %.val86.i, null
-  br i1 %.not.i102.i, label %priv_destroy_scratch.argprom.exit103.i, label %243
+  br i1 %.not.i102.i, label %priv_destroy_scratch.exit103.i, label %243
 
 243:                                              ; preds = %238
   %.val87.i = load ptr, ptr %193, align 8
   %244 = getelementptr inbounds nuw i8, ptr %.val87.i, i64 96
   %245 = load ptr, ptr %244, align 8
   call void %245(ptr noundef nonnull %.val86.i) #50
-  br label %priv_destroy_scratch.argprom.exit103.i
+  br label %priv_destroy_scratch.exit103.i
 
-priv_destroy_scratch.argprom.exit103.i:           ; preds = %243, %238
+priv_destroy_scratch.exit103.i:                   ; preds = %243, %238
   %246 = getelementptr inbounds nuw i8, ptr %96, i64 56
   store ptr @dispatch_standard_error, ptr %246, align 8
   %247 = getelementptr inbounds nuw i8, ptr %96, i64 64
@@ -3591,16 +3591,16 @@ priv_destroy_scratch.argprom.exit103.i:           ; preds = %243, %238
   %260 = call i32 %259(ptr noundef %96, i32 noundef 6, ptr noundef nonnull @.str.149) #50
   %.val88.i = load ptr, ptr %27, align 8
   %.not.i104.i = icmp eq ptr %.val88.i, null
-  br i1 %.not.i104.i, label %priv_destroy_scratch.argprom.exit105.i, label %261
+  br i1 %.not.i104.i, label %priv_destroy_scratch.exit105.i, label %261
 
 261:                                              ; preds = %._crit_edge.i
   %.val89.i = load ptr, ptr %193, align 8
   %262 = getelementptr inbounds nuw i8, ptr %.val89.i, i64 96
   %263 = load ptr, ptr %262, align 8
   call void %263(ptr noundef nonnull %.val88.i) #50
-  br label %priv_destroy_scratch.argprom.exit105.i
+  br label %priv_destroy_scratch.exit105.i
 
-priv_destroy_scratch.argprom.exit105.i:           ; preds = %261, %._crit_edge.i
+priv_destroy_scratch.exit105.i:                   ; preds = %261, %._crit_edge.i
   %264 = getelementptr inbounds nuw i8, ptr %96, i64 56
   store ptr @dispatch_standard_error, ptr %264, align 8
   store ptr @dispatch_error, ptr %258, align 8
@@ -3654,16 +3654,16 @@ internal_exr_validate_read_part.exit.thread.i:    ; preds = %internal_exr_valida
   %.0.i107133.i = phi i32 [ %285, %internal_exr_validate_read_part.exit.i ], [ %284, %283 ], [ %282, %281 ], [ %280, %275 ], [ %274, %273 ], [ %272, %269 ]
   %.val90.i = load ptr, ptr %27, align 8
   %.not.i108.i = icmp eq ptr %.val90.i, null
-  br i1 %.not.i108.i, label %priv_destroy_scratch.argprom.exit109.i, label %286
+  br i1 %.not.i108.i, label %priv_destroy_scratch.exit109.i, label %286
 
 286:                                              ; preds = %internal_exr_validate_read_part.exit.thread.i
   %.val91.i = load ptr, ptr %193, align 8
   %287 = getelementptr inbounds nuw i8, ptr %.val91.i, i64 96
   %288 = load ptr, ptr %287, align 8
   call void %288(ptr noundef nonnull %.val90.i) #50
-  br label %priv_destroy_scratch.argprom.exit109.i
+  br label %priv_destroy_scratch.exit109.i
 
-priv_destroy_scratch.argprom.exit109.i:           ; preds = %286, %internal_exr_validate_read_part.exit.thread.i
+priv_destroy_scratch.exit109.i:                   ; preds = %286, %internal_exr_validate_read_part.exit.thread.i
   %289 = getelementptr inbounds nuw i8, ptr %96, i64 56
   store ptr @dispatch_standard_error, ptr %289, align 8
   store ptr @dispatch_error, ptr %254, align 8
@@ -3685,16 +3685,16 @@ priv_destroy_scratch.argprom.exit109.i:           ; preds = %286, %internal_exr_
   %297 = call i32 %296(ptr noundef nonnull %96, i32 noundef 6, ptr noundef nonnull @.str.150) #50
   %.val92.i = load ptr, ptr %27, align 8
   %.not.i110.i = icmp eq ptr %.val92.i, null
-  br i1 %.not.i110.i, label %priv_destroy_scratch.argprom.exit111.i, label %298
+  br i1 %.not.i110.i, label %priv_destroy_scratch.exit111.i, label %298
 
 298:                                              ; preds = %295
   %.val93.i = load ptr, ptr %193, align 8
   %299 = getelementptr inbounds nuw i8, ptr %.val93.i, i64 96
   %300 = load ptr, ptr %299, align 8
   call void %300(ptr noundef nonnull %.val92.i) #50
-  br label %priv_destroy_scratch.argprom.exit111.i
+  br label %priv_destroy_scratch.exit111.i
 
-priv_destroy_scratch.argprom.exit111.i:           ; preds = %298, %295
+priv_destroy_scratch.exit111.i:                   ; preds = %298, %295
   %301 = getelementptr inbounds nuw i8, ptr %96, i64 56
   store ptr @dispatch_standard_error, ptr %301, align 8
   store ptr @dispatch_error, ptr %254, align 8
@@ -4001,7 +4001,7 @@ exr_attr_string_destroy.exit.i49.i.i.i.i:         ; preds = %395, %391, %.lr.ph.
   %401 = load ptr, ptr %352, align 8
   %402 = getelementptr inbounds nuw i8, ptr %401, i64 24
   %403 = load ptr, ptr %402, align 8
-  call fastcc void @exr_attr_chlist_destroy.argelim(ptr noundef %96, ptr noundef %403)
+  call fastcc void @exr_attr_chlist_destroy(ptr noundef %96, ptr noundef %403)
   %404 = load ptr, ptr %352, align 8
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 24
   %406 = load ptr, ptr %405, align 8
@@ -4464,7 +4464,7 @@ check_bad_attrsz.exit.thread.i.i.i.i:             ; preds = %check_bad_attrsz.ex
 
 617:                                              ; preds = %612
   %618 = load ptr, ptr %590, align 8
-  call fastcc void @exr_attr_list_remove.argelim(ptr noundef nonnull %96, ptr noundef nonnull %604, ptr noundef %618)
+  call fastcc void @exr_attr_list_remove(ptr noundef nonnull %96, ptr noundef nonnull %604, ptr noundef %618)
   store ptr null, ptr %590, align 8
   %619 = load ptr, ptr %254, align 8
   %620 = call i32 %619(ptr noundef nonnull %96, i32 noundef %616, ptr noundef nonnull @.str.229) #50
@@ -4484,7 +4484,7 @@ check_bad_attrsz.exit.thread.i.i.i.i:             ; preds = %check_bad_attrsz.ex
 
 629:                                              ; preds = %621
   %630 = load ptr, ptr %590, align 8
-  call fastcc void @exr_attr_list_remove.argelim(ptr noundef nonnull %96, ptr noundef nonnull %604, ptr noundef %630)
+  call fastcc void @exr_attr_list_remove(ptr noundef nonnull %96, ptr noundef nonnull %604, ptr noundef %630)
   store ptr null, ptr %590, align 8
   %631 = load ptr, ptr %254, align 8
   %632 = call i32 %631(ptr noundef nonnull %96, i32 noundef %628, ptr noundef nonnull @.str.229) #50
@@ -4893,7 +4893,7 @@ check_bad_attrsz.exit.thread.i133.i.i.i:          ; preds = %check_bad_attrsz.ex
 
 834:                                              ; preds = %829
   %835 = load ptr, ptr %807, align 8
-  call fastcc void @exr_attr_list_remove.argelim(ptr noundef nonnull %96, ptr noundef nonnull %821, ptr noundef %835)
+  call fastcc void @exr_attr_list_remove(ptr noundef nonnull %96, ptr noundef nonnull %821, ptr noundef %835)
   store ptr null, ptr %807, align 8
   %836 = load ptr, ptr %254, align 8
   %837 = call i32 %836(ptr noundef nonnull %96, i32 noundef %833, ptr noundef nonnull @.str.229) #50
@@ -4913,7 +4913,7 @@ check_bad_attrsz.exit.thread.i133.i.i.i:          ; preds = %check_bad_attrsz.ex
 
 846:                                              ; preds = %838
   %847 = load ptr, ptr %807, align 8
-  call fastcc void @exr_attr_list_remove.argelim(ptr noundef nonnull %96, ptr noundef nonnull %821, ptr noundef %847)
+  call fastcc void @exr_attr_list_remove(ptr noundef nonnull %96, ptr noundef nonnull %821, ptr noundef %847)
   store ptr null, ptr %807, align 8
   %848 = load ptr, ptr %254, align 8
   %849 = call i32 %848(ptr noundef nonnull %96, i32 noundef %845, ptr noundef nonnull @.str.229) #50
@@ -4964,7 +4964,7 @@ check_bad_attrsz.exit.thread.i133.i.i.i:          ; preds = %check_bad_attrsz.ex
   %872 = load ptr, ptr %253, align 8
   %873 = call i32 (ptr, i32, ptr, ...) %872(ptr noundef nonnull %96, i32 noundef 14, ptr noundef nonnull @.str.246, ptr noundef %851) #50
   %874 = load ptr, ptr %807, align 8
-  call fastcc void @exr_attr_list_remove.argelim(ptr noundef nonnull %96, ptr noundef nonnull %821, ptr noundef %874)
+  call fastcc void @exr_attr_list_remove(ptr noundef nonnull %96, ptr noundef nonnull %821, ptr noundef %874)
   store ptr null, ptr %807, align 8
   br label %check_populate_type.exit.i.i.i
 
@@ -5085,7 +5085,7 @@ check_req_attr.exit.thread.i.i:                   ; preds = %check_req_attr.exit
 
 925:                                              ; preds = %check_req_attr.exit.thread.i.i
   %926 = getelementptr inbounds nuw i8, ptr %309, i64 8
-  %927 = call fastcc i32 @exr_attr_list_add_by_type.argprom.argelim(ptr noundef %96, ptr noundef nonnull %926, ptr noundef %18, ptr noundef %19, ptr noundef %21)
+  %927 = call fastcc i32 @exr_attr_list_add_by_type(ptr noundef %96, ptr noundef nonnull %926, ptr noundef %18, ptr noundef %19, ptr noundef %21)
   br label %928
 
 928:                                              ; preds = %925, %920
@@ -5354,7 +5354,7 @@ check_req_attr.exit.thread.i.i:                   ; preds = %check_req_attr.exit
 1080:                                             ; preds = %1079
   %1081 = getelementptr inbounds nuw i8, ptr %309, i64 8
   %1082 = load ptr, ptr %21, align 8
-  call fastcc void @exr_attr_list_remove.argelim(ptr noundef %96, ptr noundef nonnull %1081, ptr noundef %1082)
+  call fastcc void @exr_attr_list_remove(ptr noundef %96, ptr noundef nonnull %1081, ptr noundef %1082)
   br label %.thread139.i
 
 .thread139.i:                                     ; preds = %1080, %917, %read_text.exit126.i.i, %read_text.exit126.thread144.i.i, %read_text.exit.i.i, %read_text.exit.thread136.i.i
@@ -5393,40 +5393,40 @@ check_req_attr.exit.thread.i.i:                   ; preds = %check_req_attr.exit
 1088:                                             ; preds = %302, %290
   %.val96.i = load i64, ptr %255, align 8
   %.val97.i = load i64, ptr %190, align 8
-  %1089 = call fastcc i32 @update_chunk_offsets.argprom(ptr noundef nonnull %96, i64 %.val96.i, i64 %.val97.i)
+  %1089 = call fastcc i32 @update_chunk_offsets(ptr noundef nonnull %96, i64 %.val96.i, i64 %.val97.i)
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.thread135.i, %1088
   %.3.i = phi i32 [ %1089, %1088 ], [ %.2138.i, %.thread135.i ]
   %.val94.i = load ptr, ptr %27, align 8
   %.not.i114.i = icmp eq ptr %.val94.i, null
-  br i1 %.not.i114.i, label %priv_destroy_scratch.argprom.exit115.i, label %1090
+  br i1 %.not.i114.i, label %priv_destroy_scratch.exit115.i, label %1090
 
 1090:                                             ; preds = %.loopexit.i
   %.val95.i = load ptr, ptr %193, align 8
   %1091 = getelementptr inbounds nuw i8, ptr %.val95.i, i64 96
   %1092 = load ptr, ptr %1091, align 8
   call void %1092(ptr noundef nonnull %.val94.i) #50
-  br label %priv_destroy_scratch.argprom.exit115.i
+  br label %priv_destroy_scratch.exit115.i
 
-priv_destroy_scratch.argprom.exit115.i:           ; preds = %1090, %.loopexit.i
+priv_destroy_scratch.exit115.i:                   ; preds = %1090, %.loopexit.i
   %1093 = getelementptr inbounds nuw i8, ptr %96, i64 56
   store ptr @dispatch_standard_error, ptr %1093, align 8
   store ptr @dispatch_error, ptr %254, align 8
   br label %1094
 
-.thread39:                                        ; preds = %priv_destroy_scratch.argprom.exit109.i, %priv_destroy_scratch.argprom.exit.i, %184
-  %.sink177.i.ph = phi ptr [ %187, %184 ], [ %206, %priv_destroy_scratch.argprom.exit.i ], [ %253, %priv_destroy_scratch.argprom.exit109.i ]
-  %.058.i.ph = phi i32 [ %.0.i128.i, %184 ], [ %200, %priv_destroy_scratch.argprom.exit.i ], [ %.0.i107133.i, %priv_destroy_scratch.argprom.exit109.i ]
+.thread39:                                        ; preds = %priv_destroy_scratch.exit109.i, %priv_destroy_scratch.exit.i, %184
+  %.sink177.i.ph = phi ptr [ %187, %184 ], [ %206, %priv_destroy_scratch.exit.i ], [ %253, %priv_destroy_scratch.exit109.i ]
+  %.058.i.ph = phi i32 [ %.0.i128.i, %184 ], [ %200, %priv_destroy_scratch.exit.i ], [ %.0.i107133.i, %priv_destroy_scratch.exit109.i ]
   store ptr @dispatch_print_error, ptr %.sink177.i.ph, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %29)
   br label %.thread34
 
-1094:                                             ; preds = %priv_destroy_scratch.argprom.exit115.i, %priv_destroy_scratch.argprom.exit111.i, %priv_destroy_scratch.argprom.exit105.i, %priv_destroy_scratch.argprom.exit103.i, %priv_destroy_scratch.argprom.exit101.i
-  %.sink177.i = phi ptr [ %253, %priv_destroy_scratch.argprom.exit115.i ], [ %253, %priv_destroy_scratch.argprom.exit111.i ], [ %265, %priv_destroy_scratch.argprom.exit105.i ], [ %239, %priv_destroy_scratch.argprom.exit103.i ], [ %218, %priv_destroy_scratch.argprom.exit101.i ]
-  %.058.i = phi i32 [ %.3.i, %priv_destroy_scratch.argprom.exit115.i ], [ %297, %priv_destroy_scratch.argprom.exit111.i ], [ %260, %priv_destroy_scratch.argprom.exit105.i ], [ %242, %priv_destroy_scratch.argprom.exit103.i ], [ %213, %priv_destroy_scratch.argprom.exit101.i ]
+1094:                                             ; preds = %priv_destroy_scratch.exit115.i, %priv_destroy_scratch.exit111.i, %priv_destroy_scratch.exit105.i, %priv_destroy_scratch.exit103.i, %priv_destroy_scratch.exit101.i
+  %.sink177.i = phi ptr [ %253, %priv_destroy_scratch.exit115.i ], [ %253, %priv_destroy_scratch.exit111.i ], [ %265, %priv_destroy_scratch.exit105.i ], [ %239, %priv_destroy_scratch.exit103.i ], [ %218, %priv_destroy_scratch.exit101.i ]
+  %.058.i = phi i32 [ %.3.i, %priv_destroy_scratch.exit115.i ], [ %297, %priv_destroy_scratch.exit111.i ], [ %260, %priv_destroy_scratch.exit105.i ], [ %242, %priv_destroy_scratch.exit103.i ], [ %213, %priv_destroy_scratch.exit101.i ]
   store ptr @dispatch_print_error, ptr %.sink177.i, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
@@ -6066,7 +6066,7 @@ define internal fastcc i32 @exr_get_channels(ptr noundef %0, i32 noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exr_get_attribute_by_name.argprom(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #1 {
+define internal fastcc i32 @exr_get_attribute_by_name(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %62, label %4
 
@@ -6237,7 +6237,7 @@ fill_context_data.exit.i:                         ; preds = %19
   br i1 %.not18.i, label %96, label %45
 
 45:                                               ; preds = %43
-  %46 = call fastcc i32 @internal_exr_alloc_context.argelim(ptr noundef %21, ptr noundef %22, i32 noundef 1)
+  %46 = call fastcc i32 @internal_exr_alloc_context(ptr noundef %21, ptr noundef %22, i32 noundef 1)
   %47 = icmp eq i32 %46, 0
   %.pre30.i = load ptr, ptr %21, align 8
   br i1 %47, label %48, label %exr_start_write.exit.thread
@@ -6371,12 +6371,12 @@ exr_start_write.exit.thread:                      ; preds = %default_init_write_
   %103 = getelementptr inbounds nuw i8, ptr %.pre30.i, i64 56
   %104 = load ptr, ptr %103, align 8
   %105 = tail call i32 %104(ptr noundef nonnull %.pre30.i, i32 noundef 8) #50
-  br label %exr_add_part.argprom.exit
+  br label %exr_add_part.exit
 
 106:                                              ; preds = %97
   %107 = call fastcc i32 @internal_exr_add_part(ptr noundef nonnull %.pre30.i, ptr noundef %20, ptr noundef nonnull %23)
   %.not84.i = icmp eq i32 %107, 0
-  br i1 %.not84.i, label %108, label %exr_add_part.argprom.exit.thread
+  br i1 %.not84.i, label %108, label %exr_add_part.exit.thread
 
 108:                                              ; preds = %106
   %109 = load ptr, ptr %20, align 8
@@ -6386,7 +6386,7 @@ exr_start_write.exit.thread:                      ; preds = %default_init_write_
   %112 = getelementptr inbounds nuw i8, ptr %109, i64 112
   %113 = call fastcc i32 @exr_attr_list_add_static_name(ptr noundef nonnull %.pre30.i, ptr noundef nonnull %111, ptr noundef nonnull @.str.33, i32 noundef 19, i32 noundef 0, ptr noundef null, ptr noundef nonnull %112)
   %.not85.i = icmp eq i32 %113, 0
-  br i1 %.not85.i, label %114, label %exr_add_part.argprom.exit.thread.sink.split
+  br i1 %.not85.i, label %114, label %exr_add_part.exit.thread.sink.split
 
 114:                                              ; preds = %108
   %115 = load ptr, ptr %112, align 8
@@ -6406,7 +6406,7 @@ exr_attr_string_init_static_with_length.exit.i:   ; preds = %114
   %120 = load ptr, ptr %119, align 8
   %121 = call i32 %120(ptr noundef nonnull %.pre30.i, i32 noundef 3, ptr noundef nonnull @.str.88) #50
   %.not86.i = icmp eq i32 %121, 0
-  br i1 %.not86.i, label %122, label %exr_add_part.argprom.exit.thread.sink.split
+  br i1 %.not86.i, label %122, label %exr_add_part.exit.thread.sink.split
 
 122:                                              ; preds = %exr_attr_string_init_static_with_length.exit.i, %exr_attr_string_init_static_with_length.exit.thread.i
   %123 = getelementptr inbounds nuw i8, ptr %109, i64 104
@@ -6446,26 +6446,26 @@ exr_attr_string_init_static_with_length.exit.i:   ; preds = %114
 140:                                              ; preds = %.thread.i, %138
   %.0744.i = phi i32 [ 0, %138 ], [ %.0745.i, %.thread.i ]
   %141 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %98) #50
-  br label %exr_add_part.argprom.exit
+  br label %exr_add_part.exit
 
-exr_add_part.argprom.exit.thread.sink.split:      ; preds = %exr_attr_string_init_static_with_length.exit.i, %108
+exr_add_part.exit.thread.sink.split:              ; preds = %exr_attr_string_init_static_with_length.exit.i, %108
   %.0.i192.ph.ph = phi i32 [ %113, %108 ], [ %121, %exr_attr_string_init_static_with_length.exit.i ]
   call fastcc void @internal_exr_revert_add_part(ptr noundef %.pre30.i, ptr noundef %20, ptr noundef %23)
-  br label %exr_add_part.argprom.exit.thread
+  br label %exr_add_part.exit.thread
 
-exr_add_part.argprom.exit.thread:                 ; preds = %exr_add_part.argprom.exit.thread.sink.split, %106
-  %.0.i192.ph = phi i32 [ %107, %106 ], [ %.0.i192.ph.ph, %exr_add_part.argprom.exit.thread.sink.split ]
+exr_add_part.exit.thread:                         ; preds = %exr_add_part.exit.thread.sink.split, %106
+  %.0.i192.ph = phi i32 [ %107, %106 ], [ %.0.i192.ph.ph, %exr_add_part.exit.thread.sink.split ]
   %142 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %98) #50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   br label %exr_set_zip_compression_level.exit.thread244
 
-exr_add_part.argprom.exit:                        ; preds = %101, %140
+exr_add_part.exit:                                ; preds = %101, %140
   %.0.i192 = phi i32 [ %105, %101 ], [ %.0744.i, %140 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   %.not172 = icmp eq i32 %.0.i192, 0
   br i1 %.not172, label %143, label %exr_set_zip_compression_level.exit.thread244
 
-143:                                              ; preds = %exr_add_part.argprom.exit
+143:                                              ; preds = %exr_add_part.exit
   %144 = call i32 @pthread_mutex_lock(ptr noundef nonnull %98) #50
   %145 = load i8, ptr %.pre30.i, align 8
   %.not55.i = icmp eq i8 %145, 1
@@ -6944,7 +6944,7 @@ exr_initialize_required_attr.exit:                ; preds = %381
 
 385:                                              ; preds = %384
   %386 = load i32, ptr %23, align 4
-  %387 = call fastcc i32 @exr_add_channel.argelim(ptr noundef nonnull %.pre30.i, i32 noundef %386, ptr noundef nonnull @.str.6, i32 noundef %6)
+  %387 = call fastcc i32 @exr_add_channel(ptr noundef nonnull %.pre30.i, i32 noundef %386, ptr noundef nonnull @.str.6, i32 noundef %6)
   %.not175 = icmp eq i32 %387, 0
   br i1 %.not175, label %388, label %exr_set_zip_compression_level.exit.thread244
 
@@ -6953,7 +6953,7 @@ exr_initialize_required_attr.exit:                ; preds = %381
 
 389:                                              ; preds = %388
   %390 = load i32, ptr %23, align 4
-  %391 = call fastcc i32 @exr_add_channel.argelim(ptr noundef nonnull %.pre30.i, i32 noundef %390, ptr noundef nonnull @.str.7, i32 noundef %6)
+  %391 = call fastcc i32 @exr_add_channel(ptr noundef nonnull %.pre30.i, i32 noundef %390, ptr noundef nonnull @.str.7, i32 noundef %6)
   %.not176 = icmp eq i32 %391, 0
   br i1 %.not176, label %392, label %exr_set_zip_compression_level.exit.thread244
 
@@ -6962,7 +6962,7 @@ exr_initialize_required_attr.exit:                ; preds = %381
 
 393:                                              ; preds = %392
   %394 = load i32, ptr %23, align 4
-  %395 = call fastcc i32 @exr_add_channel.argelim(ptr noundef nonnull %.pre30.i, i32 noundef %394, ptr noundef nonnull @.str.8, i32 noundef %6)
+  %395 = call fastcc i32 @exr_add_channel(ptr noundef nonnull %.pre30.i, i32 noundef %394, ptr noundef nonnull @.str.8, i32 noundef %6)
   %.not177 = icmp eq i32 %395, 0
   br i1 %.not177, label %396, label %exr_set_zip_compression_level.exit.thread244
 
@@ -6971,7 +6971,7 @@ exr_initialize_required_attr.exit:                ; preds = %381
 
 397:                                              ; preds = %396
   %398 = load i32, ptr %23, align 4
-  %399 = call fastcc i32 @exr_add_channel.argelim(ptr noundef nonnull %.pre30.i, i32 noundef %398, ptr noundef nonnull @.str.9, i32 noundef %6)
+  %399 = call fastcc i32 @exr_add_channel(ptr noundef nonnull %.pre30.i, i32 noundef %398, ptr noundef nonnull @.str.9, i32 noundef %6)
   %.not178 = icmp eq i32 %399, 0
   br i1 %.not178, label %400, label %exr_set_zip_compression_level.exit.thread244
 
@@ -6979,7 +6979,7 @@ exr_initialize_required_attr.exit:                ; preds = %381
   %401 = load i32, ptr %23, align 4
   %402 = call fastcc i32 @exr_set_version(ptr noundef nonnull %.pre30.i, i32 noundef %401, i32 noundef 1)
   %403 = load i32, ptr %23, align 4
-  %404 = call fastcc i32 @exr_attr_set_chromaticities.argprom(ptr noundef nonnull %.pre30.i, i32 noundef %403, ptr noundef @__const.nanoexr_write_exr.chroma)
+  %404 = call fastcc i32 @exr_attr_set_chromaticities(ptr noundef nonnull %.pre30.i, i32 noundef %403, ptr noundef @__const.nanoexr_write_exr.chroma)
   %.not179 = icmp eq i32 %404, 0
   br i1 %.not179, label %405, label %exr_set_zip_compression_level.exit.thread244
 
@@ -7065,7 +7065,7 @@ exr_initialize_required_attr.exit:                ; preds = %381
   br i1 %.not185, label %445, label %exr_set_zip_compression_level.exit.thread244
 
 444:                                              ; preds = %440
-  call fastcc void @exr_encoding_update.argelim(ptr noundef nonnull %.pre30.i, i32 noundef %441, ptr noundef %27, ptr noundef %26)
+  call fastcc void @exr_encoding_update(ptr noundef nonnull %.pre30.i, i32 noundef %441, ptr noundef %27, ptr noundef %26)
   br label %445
 
 445:                                              ; preds = %442, %444
@@ -7190,13 +7190,13 @@ exr_initialize_required_attr.exit:                ; preds = %381
   %505 = call fastcc i32 @exr_finish(ptr noundef %24)
   br label %exr_set_zip_compression_level.exit.thread244
 
-exr_set_zip_compression_level.exit.thread244:     ; preds = %498, %495, %442, %437, %381, %379, %exr_set_lineorder.exit.i, %exr_set_display_window.exit.i, %exr_set_data_window.exit.i, %exr_set_compression.exit.i, %exr_add_part.argprom.exit.thread, %exr_start_write.exit.thread, %._crit_edge, %407, %400, %397, %393, %389, %385, %exr_initialize_required_attr.exit, %exr_set_zip_compression_level.exit, %exr_add_part.argprom.exit, %19, %504
-  %.0149 = phi i32 [ %505, %504 ], [ 3, %19 ], [ %.0.i192, %exr_add_part.argprom.exit ], [ %.0.i195, %exr_set_zip_compression_level.exit ], [ %383, %exr_initialize_required_attr.exit ], [ %387, %385 ], [ %391, %389 ], [ %395, %393 ], [ %399, %397 ], [ %404, %400 ], [ %408, %407 ], [ %503, %._crit_edge ], [ %.2.i.ph, %exr_start_write.exit.thread ], [ %.0.i192.ph, %exr_add_part.argprom.exit.thread ], [ %382, %381 ], [ %380, %379 ], [ %.0.i57.i, %exr_set_lineorder.exit.i ], [ %.0.i50.i, %exr_set_display_window.exit.i ], [ %.0.i45.i, %exr_set_data_window.exit.i ], [ %.0.i.i196, %exr_set_compression.exit.i ], [ %500, %498 ], [ %497, %495 ], [ %443, %442 ], [ %439, %437 ]
+exr_set_zip_compression_level.exit.thread244:     ; preds = %498, %495, %442, %437, %381, %379, %exr_set_lineorder.exit.i, %exr_set_display_window.exit.i, %exr_set_data_window.exit.i, %exr_set_compression.exit.i, %exr_add_part.exit.thread, %exr_start_write.exit.thread, %._crit_edge, %407, %400, %397, %393, %389, %385, %exr_initialize_required_attr.exit, %exr_set_zip_compression_level.exit, %exr_add_part.exit, %19, %504
+  %.0149 = phi i32 [ %505, %504 ], [ 3, %19 ], [ %.0.i192, %exr_add_part.exit ], [ %.0.i195, %exr_set_zip_compression_level.exit ], [ %383, %exr_initialize_required_attr.exit ], [ %387, %385 ], [ %391, %389 ], [ %395, %393 ], [ %399, %397 ], [ %404, %400 ], [ %408, %407 ], [ %503, %._crit_edge ], [ %.2.i.ph, %exr_start_write.exit.thread ], [ %.0.i192.ph, %exr_add_part.exit.thread ], [ %382, %381 ], [ %380, %379 ], [ %.0.i57.i, %exr_set_lineorder.exit.i ], [ %.0.i50.i, %exr_set_display_window.exit.i ], [ %.0.i45.i, %exr_set_data_window.exit.i ], [ %.0.i.i196, %exr_set_compression.exit.i ], [ %500, %498 ], [ %497, %495 ], [ %443, %442 ], [ %439, %437 ]
   ret i32 %.0149
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exr_add_channel.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc i32 @exr_add_channel(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %58, label %5
 
@@ -7281,7 +7281,7 @@ define internal fastcc i32 @exr_add_channel.argelim(ptr noundef %0, i32 noundef 
   %52 = phi ptr [ %.pre, %..thread_crit_edge ], [ %36, %37 ]
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call fastcc i32 @exr_attr_chlist_add.argelim(ptr noundef %0, ptr noundef %54, ptr noundef %2, i32 noundef %3)
+  %55 = tail call fastcc i32 @exr_attr_chlist_add(ptr noundef %0, ptr noundef %54, ptr noundef %2, i32 noundef %3)
   br label %56
 
 56:                                               ; preds = %.thread, %48
@@ -7397,7 +7397,7 @@ define internal fastcc i32 @exr_set_version(ptr noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exr_attr_set_chromaticities.argprom(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #1 {
+define internal fastcc i32 @exr_attr_set_chromaticities(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   %.not = icmp eq ptr %0, null
@@ -8311,7 +8311,7 @@ define internal fastcc i32 @exr_encoding_initialize(ptr noundef %0, i32 noundef 
   %.val = load ptr, ptr %45, align 8
   %46 = getelementptr i8, ptr %.val, i64 24
   %.val.val = load ptr, ptr %46, align 8
-  %47 = tail call fastcc i32 @internal_coding_fill_channel_info.argprom.argprom(ptr noundef %3, ptr noundef %43, ptr noundef %44, ptr noundef %2, ptr noundef %0, ptr %.val.val)
+  %47 = tail call fastcc i32 @internal_coding_fill_channel_info(ptr noundef %3, ptr noundef %43, ptr noundef %44, ptr noundef %2, ptr noundef %0, ptr %.val.val)
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %53
 
@@ -8340,7 +8340,7 @@ define internal fastcc i32 @exr_encoding_initialize(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @exr_encoding_update.argelim(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull %3) unnamed_addr #1 {
+define internal fastcc void @exr_encoding_update(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull %3) unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %73, label %5
 
@@ -8439,7 +8439,7 @@ define internal fastcc void @exr_encoding_update.argelim(ptr noundef %0, i32 nou
   %.val = load ptr, ptr %61, align 8
   %62 = getelementptr i8, ptr %.val, i64 24
   %.val.val = load ptr, ptr %62, align 8
-  %63 = tail call fastcc i32 @internal_coding_update_channel_info.argprom.argprom(ptr noundef %58, i16 noundef signext %60, ptr noundef %2, ptr noundef %0, ptr %.val.val)
+  %63 = tail call fastcc i32 @internal_coding_update_channel_info(ptr noundef %58, i16 noundef signext %60, ptr noundef %2, ptr noundef %0, ptr %.val.val)
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %65, label %67
 
@@ -8921,10 +8921,10 @@ define internal fastcc i32 @exr_encoding_run(ptr noundef %0, i32 noundef %1, ptr
 .thread:                                          ; preds = %198, %201
   %203 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %204 = getelementptr inbounds nuw i8, ptr %2, i64 176
-  tail call fastcc void @internal_encode_free_buffer.argelim(ptr noundef nonnull %2, i32 noundef 2, ptr noundef nonnull %203, ptr noundef nonnull %204)
+  tail call fastcc void @internal_encode_free_buffer(ptr noundef nonnull %2, i32 noundef 2, ptr noundef nonnull %203, ptr noundef nonnull %204)
   %205 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %206 = getelementptr inbounds nuw i8, ptr %2, i64 152
-  tail call fastcc void @internal_encode_free_buffer.argelim(ptr noundef nonnull %2, i32 noundef 5, ptr noundef nonnull %205, ptr noundef nonnull %206)
+  tail call fastcc void @internal_encode_free_buffer(ptr noundef nonnull %2, i32 noundef 5, ptr noundef nonnull %205, ptr noundef nonnull %206)
   %207 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %208 = load ptr, ptr %207, align 8
   store ptr %208, ptr %203, align 8
@@ -10253,7 +10253,7 @@ exr_read_tile_chunk_info.exit.us:                 ; preds = %444, %441, %438, %4
   %.val.i.us = load ptr, ptr %471, align 8
   %472 = getelementptr i8, ptr %.val.i.us, i64 24
   %.val.val.i.us = load ptr, ptr %472, align 8
-  %473 = call fastcc i32 @internal_coding_update_channel_info.argprom.argprom(ptr noundef nonnull %448, i16 noundef signext %470, ptr noundef readonly %17, ptr noundef %0, ptr %.val.val.i.us)
+  %473 = call fastcc i32 @internal_coding_update_channel_info(ptr noundef nonnull %448, i16 noundef signext %470, ptr noundef readonly %17, ptr noundef %0, ptr %.val.val.i.us)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %221, ptr noundef nonnull readonly align 8 dereferenceable(64) %17, i64 64, i1 false)
   br label %exr_decoding_update.exit.us
 
@@ -10405,7 +10405,7 @@ define internal fastcc i32 @_nanoexr_rgba_decoding_initialize(ptr noundef %0, pt
   %.val.i = load ptr, ptr %31, align 8
   %32 = getelementptr i8, ptr %.val.i, i64 24
   %.val.val.i = load ptr, ptr %32, align 8
-  %33 = tail call fastcc i32 @internal_coding_fill_channel_info.argprom.argprom(ptr noundef %5, ptr noundef %29, ptr noundef %30, ptr noundef readonly %4, ptr noundef %0, ptr %.val.val.i)
+  %33 = tail call fastcc i32 @internal_coding_fill_channel_info(ptr noundef %5, ptr noundef %29, ptr noundef %30, ptr noundef readonly %4, ptr noundef %0, ptr %.val.val.i)
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %exr_decoding_initialize.exit.thread57, label %exr_decoding_initialize.exit.thread
 
@@ -10826,7 +10826,7 @@ define internal fastcc i32 @exr_decoding_choose_default_routines(ptr noundef %0,
   br label %135
 
 135:                                              ; preds = %133, %129
-  %136 = tail call fastcc ptr @internal_exr_match_decode.argelim(ptr noundef %2, i32 noundef %38, i32 noundef %.0147.lcssa, i32 noundef %.0177.lcssa, i32 noundef %.0174.lcssa, i32 noundef %.0171.lcssa, i32 noundef %.0168.lcssa, i32 noundef %.0165.lcssa, i32 noundef %.0162.lcssa, i32 noundef %.0150.lcssa, i32 noundef %spec.store.select7, i32 noundef %spec.store.select14)
+  %136 = tail call fastcc ptr @internal_exr_match_decode(ptr noundef %2, i32 noundef %38, i32 noundef %.0147.lcssa, i32 noundef %.0177.lcssa, i32 noundef %.0174.lcssa, i32 noundef %.0171.lcssa, i32 noundef %.0168.lcssa, i32 noundef %.0165.lcssa, i32 noundef %.0162.lcssa, i32 noundef %.0150.lcssa, i32 noundef %spec.store.select7, i32 noundef %spec.store.select14)
   %137 = getelementptr inbounds nuw i8, ptr %2, i64 232
   store ptr %136, ptr %137, align 8
   br label %138
@@ -12010,7 +12010,7 @@ exr_read_scanline_chunk_info.exit:                ; preds = %59, %65, %74, %81, 
   %.val.i = load ptr, ptr %271, align 8
   %272 = getelementptr i8, ptr %.val.i, i64 24
   %.val.val.i = load ptr, ptr %272, align 8
-  %273 = call fastcc i32 @internal_coding_update_channel_info.argprom.argprom(ptr noundef nonnull %215, i16 noundef signext %270, ptr noundef readonly %13, ptr noundef %0, ptr %.val.val.i)
+  %273 = call fastcc i32 @internal_coding_update_channel_info(ptr noundef nonnull %215, i16 noundef signext %270, ptr noundef readonly %13, ptr noundef %0, ptr %.val.val.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %54, ptr noundef nonnull readonly align 8 dereferenceable(64) %13, i64 64, i1 false)
   br label %exr_decoding_update.exit
 
@@ -12545,7 +12545,7 @@ fill_context_data.exit.i:                         ; preds = %8
   br i1 %.not11.i, label %129, label %38
 
 38:                                               ; preds = %36
-  %39 = call fastcc i32 @internal_exr_alloc_context.argelim(ptr noundef %13, ptr noundef %14, i32 noundef 0)
+  %39 = call fastcc i32 @internal_exr_alloc_context(ptr noundef %13, ptr noundef %14, i32 noundef 0)
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %.sink.split
 
@@ -13749,7 +13749,7 @@ create_attr_block.exit.thread:                    ; preds = %create_attr_block.e
   %84 = load i32, ptr %83, align 4
   %85 = getelementptr inbounds nuw i8, ptr %58, i64 20
   store i32 %84, ptr %85, align 4
-  %86 = tail call fastcc i32 @add_to_list.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %58)
+  %86 = tail call fastcc i32 @add_to_list(ptr noundef %0, ptr noundef %1, ptr noundef %58)
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %88, label %.thread
 
@@ -13861,7 +13861,7 @@ exr_attr_string_init.exit._crit_edge:             ; preds = %exr_attr_string_ini
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @exr_attr_string_set_with_length.argelim(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef range(i32 0, -2147483648) %3) unnamed_addr #1 {
+define internal fastcc void @exr_attr_string_set_with_length(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef range(i32 0, -2147483648) %3) unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %exr_attr_string_create_with_length.exit, label %5
 
@@ -14231,7 +14231,7 @@ define internal fastcc i32 @create_attr_block(ptr noundef nonnull %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @add_to_list.argprom(ptr noundef nonnull %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @add_to_list(ptr noundef nonnull %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr %1, align 8
   %5 = add nsw i32 %4, 1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -14728,7 +14728,7 @@ exr_attr_list_find_by_name.exit.thread:           ; preds = %13, %17, %38, %._cr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @exr_attr_list_remove.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @exr_attr_list_remove(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %46, label %4
 
@@ -15116,7 +15116,7 @@ exr_attr_chlist_destroy.exit:                     ; preds = %115, %93, %._crit_e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @exr_attr_chlist_destroy.argelim(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @exr_attr_chlist_destroy(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   %.not19 = icmp eq ptr %1, null
   %or.cond = or i1 %.not, %.not19
@@ -15383,7 +15383,7 @@ define internal fastcc i32 @exr_set_screen_window_width(ptr noundef %0, i32 noun
 declare double @erf(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @internal_exr_alloc_context.argelim(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
+define internal fastcc i32 @internal_exr_alloc_context(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -16124,7 +16124,7 @@ define internal noundef i32 @silent_print_error(ptr nocapture readnone %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @update_chunk_offsets.argprom(ptr noundef %0, i64 %.16.val, i64 %.24.val) unnamed_addr #1 {
+define internal fastcc i32 @update_chunk_offsets(ptr noundef %0, i64 %.16.val, i64 %.24.val) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -17522,7 +17522,7 @@ create_attr_block.exit.thread:                    ; preds = %create_attr_block.e
   %74 = load i32, ptr %73, align 4
   %75 = getelementptr inbounds nuw i8, ptr %52, i64 20
   store i32 %74, ptr %75, align 4
-  %76 = tail call fastcc i32 @add_to_list.argprom(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %52)
+  %76 = tail call fastcc i32 @add_to_list(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %52)
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %78, label %.thread
 
@@ -17980,7 +17980,7 @@ scratch_attr_too_big.exit:                        ; preds = %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exr_attr_list_add_by_type.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #1 {
+define internal fastcc i32 @exr_attr_list_add_by_type(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #1 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   %.not = icmp eq ptr %0, null
@@ -18224,7 +18224,7 @@ create_attr_block.exit.thread:                    ; preds = %109, %110, %create_
   %.sink = phi i32 [ 29, %127 ], [ %123, %create_attr_block.exit.thread ]
   %130 = getelementptr inbounds nuw i8, ptr %.sink31, i64 20
   store i32 %.sink, ptr %130, align 4
-  %131 = tail call fastcc i32 @add_to_list.argprom(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.sink31)
+  %131 = tail call fastcc i32 @add_to_list(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.sink31)
   %132 = icmp eq i32 %131, 0
   br i1 %132, label %133, label %.thread15
 
@@ -20596,7 +20596,7 @@ define internal fastcc i32 @exr_set_screen_window_center(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exr_attr_chlist_add.argelim(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc i32 @exr_attr_chlist_add(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.split, label %.split10
 
@@ -20694,13 +20694,13 @@ define internal fastcc i32 @save_attr(ptr noundef nonnull %0, ptr noundef %1) un
 27:                                               ; preds = %24
   %28 = getelementptr i8, ptr %1, i64 24
   %.val = load ptr, ptr %28, align 8
-  %29 = tail call fastcc i32 @save_box2i.argprom(ptr noundef %0, ptr %.val)
+  %29 = tail call fastcc i32 @save_box2i(ptr noundef %0, ptr %.val)
   br label %save_attr_uint8.exit
 
 30:                                               ; preds = %24
   %31 = getelementptr i8, ptr %1, i64 24
   %.val80 = load ptr, ptr %31, align 8
-  %32 = tail call fastcc i32 @save_box2f.argprom(ptr noundef %0, ptr %.val80)
+  %32 = tail call fastcc i32 @save_box2f(ptr noundef %0, ptr %.val80)
   br label %save_attr_uint8.exit
 
 33:                                               ; preds = %24
@@ -20710,7 +20710,7 @@ define internal fastcc i32 @save_attr(ptr noundef nonnull %0, ptr noundef %1) un
 35:                                               ; preds = %24
   %36 = getelementptr i8, ptr %1, i64 24
   %.val81 = load ptr, ptr %36, align 8
-  %37 = tail call fastcc i32 @save_chromaticities.argprom(ptr noundef %0, ptr %.val81)
+  %37 = tail call fastcc i32 @save_chromaticities(ptr noundef %0, ptr %.val81)
   br label %save_attr_uint8.exit
 
 38:                                               ; preds = %24
@@ -20731,7 +20731,7 @@ define internal fastcc i32 @save_attr(ptr noundef nonnull %0, ptr noundef %1) un
 46:                                               ; preds = %24
   %47 = getelementptr i8, ptr %1, i64 24
   %.val82 = load double, ptr %47, align 8
-  %48 = tail call fastcc i32 @save_attr_double.argprom(ptr noundef %0, double %.val82)
+  %48 = tail call fastcc i32 @save_attr_double(ptr noundef %0, double %.val82)
   br label %save_attr_uint8.exit
 
 49:                                               ; preds = %24
@@ -20752,7 +20752,7 @@ define internal fastcc i32 @save_attr(ptr noundef nonnull %0, ptr noundef %1) un
 57:                                               ; preds = %24
   %58 = getelementptr i8, ptr %1, i64 24
   %.val83 = load float, ptr %58, align 8
-  %59 = tail call fastcc i32 @save_attr_float.argprom(ptr noundef %0, float %.val83)
+  %59 = tail call fastcc i32 @save_attr_float(ptr noundef %0, float %.val83)
   br label %save_attr_uint8.exit
 
 60:                                               ; preds = %24
@@ -20762,13 +20762,13 @@ define internal fastcc i32 @save_attr(ptr noundef nonnull %0, ptr noundef %1) un
 62:                                               ; preds = %24
   %63 = getelementptr i8, ptr %1, i64 24
   %.val84 = load i32, ptr %63, align 8
-  %64 = tail call fastcc i32 @save_attr_int.argprom(ptr noundef %0, i32 %.val84)
+  %64 = tail call fastcc i32 @save_attr_int(ptr noundef %0, i32 %.val84)
   br label %save_attr_uint8.exit
 
 65:                                               ; preds = %24
   %66 = getelementptr i8, ptr %1, i64 24
   %.val85 = load ptr, ptr %66, align 8
-  %67 = tail call fastcc i32 @save_keycode.argprom(ptr noundef %0, ptr %.val85)
+  %67 = tail call fastcc i32 @save_keycode(ptr noundef %0, ptr %.val85)
   br label %save_attr_uint8.exit
 
 68:                                               ; preds = %24
@@ -20789,25 +20789,25 @@ define internal fastcc i32 @save_attr(ptr noundef nonnull %0, ptr noundef %1) un
 76:                                               ; preds = %24
   %77 = getelementptr i8, ptr %1, i64 24
   %.val86 = load ptr, ptr %77, align 8
-  %78 = tail call fastcc i32 @save_m33f.argprom(ptr noundef %0, ptr %.val86)
+  %78 = tail call fastcc i32 @save_m33f(ptr noundef %0, ptr %.val86)
   br label %save_attr_uint8.exit
 
 79:                                               ; preds = %24
   %80 = getelementptr i8, ptr %1, i64 24
   %.val87 = load ptr, ptr %80, align 8
-  %81 = tail call fastcc i32 @save_m33d.argprom(ptr noundef %0, ptr %.val87)
+  %81 = tail call fastcc i32 @save_m33d(ptr noundef %0, ptr %.val87)
   br label %save_attr_uint8.exit
 
 82:                                               ; preds = %24
   %83 = getelementptr i8, ptr %1, i64 24
   %.val88 = load ptr, ptr %83, align 8
-  %84 = tail call fastcc i32 @save_m44f.argprom(ptr noundef %0, ptr %.val88)
+  %84 = tail call fastcc i32 @save_m44f(ptr noundef %0, ptr %.val88)
   br label %save_attr_uint8.exit
 
 85:                                               ; preds = %24
   %86 = getelementptr i8, ptr %1, i64 24
   %.val89 = load ptr, ptr %86, align 8
-  %87 = tail call fastcc i32 @save_m44d.argprom(ptr noundef %0, ptr %.val89)
+  %87 = tail call fastcc i32 @save_m44d(ptr noundef %0, ptr %.val89)
   br label %save_attr_uint8.exit
 
 88:                                               ; preds = %24
@@ -20818,13 +20818,13 @@ define internal fastcc i32 @save_attr(ptr noundef nonnull %0, ptr noundef %1) un
   %91 = getelementptr i8, ptr %1, i64 24
   %.val90 = load ptr, ptr %91, align 8
   %.val90.val = load i64, ptr %.val90, align 1
-  %92 = tail call fastcc i32 @save_rational.argprom.argprom(ptr noundef %0, i64 %.val90.val)
+  %92 = tail call fastcc i32 @save_rational(ptr noundef %0, i64 %.val90.val)
   br label %save_attr_uint8.exit
 
 93:                                               ; preds = %24
   %94 = getelementptr i8, ptr %1, i64 24
   %.val91 = load ptr, ptr %94, align 8
-  %95 = tail call fastcc i32 @save_string.argprom(ptr noundef %0, ptr %.val91)
+  %95 = tail call fastcc i32 @save_string(ptr noundef %0, ptr %.val91)
   br label %save_attr_uint8.exit
 
 96:                                               ; preds = %24
@@ -20839,51 +20839,51 @@ define internal fastcc i32 @save_attr(ptr noundef nonnull %0, ptr noundef %1) un
   %101 = getelementptr i8, ptr %1, i64 24
   %.val92 = load ptr, ptr %101, align 8
   %.val92.val = load i64, ptr %.val92, align 1
-  %102 = tail call fastcc i32 @save_timecode.argprom.argprom(ptr noundef %0, i64 %.val92.val)
+  %102 = tail call fastcc i32 @save_timecode(ptr noundef %0, i64 %.val92.val)
   br label %save_attr_uint8.exit
 
 103:                                              ; preds = %24
   %104 = getelementptr i8, ptr %1, i64 24
   %.val93 = load ptr, ptr %104, align 8
   %.val93.val = load i64, ptr %.val93, align 1
-  %105 = tail call fastcc i32 @save_v2i.argprom.argprom(ptr noundef %0, i64 %.val93.val)
+  %105 = tail call fastcc i32 @save_v2i(ptr noundef %0, i64 %.val93.val)
   br label %save_attr_uint8.exit
 
 106:                                              ; preds = %24
   %107 = getelementptr i8, ptr %1, i64 24
   %.val94 = load ptr, ptr %107, align 8
   %.val94.val = load i64, ptr %.val94, align 1
-  %108 = tail call fastcc i32 @save_v2f.argprom.argprom(ptr noundef %0, i64 %.val94.val)
+  %108 = tail call fastcc i32 @save_v2f(ptr noundef %0, i64 %.val94.val)
   br label %save_attr_uint8.exit
 
 109:                                              ; preds = %24
   %110 = getelementptr i8, ptr %1, i64 24
   %.val95 = load ptr, ptr %110, align 8
-  %111 = tail call fastcc i32 @save_v2d.argprom(ptr noundef %0, ptr %.val95)
+  %111 = tail call fastcc i32 @save_v2d(ptr noundef %0, ptr %.val95)
   br label %save_attr_uint8.exit
 
 112:                                              ; preds = %24
   %113 = getelementptr i8, ptr %1, i64 24
   %.val96 = load ptr, ptr %113, align 8
-  %114 = tail call fastcc i32 @save_v3i.argprom(ptr noundef %0, ptr %.val96)
+  %114 = tail call fastcc i32 @save_v3i(ptr noundef %0, ptr %.val96)
   br label %save_attr_uint8.exit
 
 115:                                              ; preds = %24
   %116 = getelementptr i8, ptr %1, i64 24
   %.val97 = load ptr, ptr %116, align 8
-  %117 = tail call fastcc i32 @save_v3f.argprom(ptr noundef %0, ptr %.val97)
+  %117 = tail call fastcc i32 @save_v3f(ptr noundef %0, ptr %.val97)
   br label %save_attr_uint8.exit
 
 118:                                              ; preds = %24
   %119 = getelementptr i8, ptr %1, i64 24
   %.val98 = load ptr, ptr %119, align 8
-  %120 = tail call fastcc i32 @save_v3d.argprom(ptr noundef %0, ptr %.val98)
+  %120 = tail call fastcc i32 @save_v3d(ptr noundef %0, ptr %.val98)
   br label %save_attr_uint8.exit
 
 121:                                              ; preds = %24
   %122 = getelementptr i8, ptr %1, i64 24
   %.val99 = load ptr, ptr %122, align 8
-  %123 = tail call fastcc i32 @save_opaque.argprom(ptr noundef %0, ptr %.val99)
+  %123 = tail call fastcc i32 @save_opaque(ptr noundef %0, ptr %.val99)
   br label %save_attr_uint8.exit
 
 124:                                              ; preds = %24
@@ -20898,7 +20898,7 @@ save_attr_uint8.exit:                             ; preds = %72, %68, %53, %49, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_box2i.argprom(ptr noundef nonnull %0, ptr nocapture readonly %.24.val) unnamed_addr #1 {
+define internal fastcc i32 @save_box2i(ptr noundef nonnull %0, ptr nocapture readonly %.24.val) unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.exr_attr_box2i_t, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(16) %.24.val, i64 16, i1 false)
@@ -20923,7 +20923,7 @@ define internal fastcc i32 @save_box2i.argprom(ptr noundef nonnull %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_box2f.argprom(ptr noundef nonnull %0, ptr nocapture readonly %.24.val) unnamed_addr #1 {
+define internal fastcc i32 @save_box2f(ptr noundef nonnull %0, ptr nocapture readonly %.24.val) unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.exr_attr_box2f_t, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(16) %.24.val, i64 16, i1 false)
@@ -21088,7 +21088,7 @@ save_attr_sz.exit:                                ; preds = %23, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_chromaticities.argprom(ptr noundef nonnull %0, ptr nocapture readonly %.24.val) unnamed_addr #1 {
+define internal fastcc i32 @save_chromaticities(ptr noundef nonnull %0, ptr nocapture readonly %.24.val) unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.exr_attr_chromaticities_t, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %3, ptr noundef nonnull align 1 dereferenceable(32) %.24.val, i64 32, i1 false)
@@ -21113,7 +21113,7 @@ define internal fastcc i32 @save_chromaticities.argprom(ptr noundef nonnull %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_attr_double.argprom(ptr noundef nonnull %0, double %.24.val) unnamed_addr #1 {
+define internal fastcc i32 @save_attr_double(ptr noundef nonnull %0, double %.24.val) unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca double, align 8
   store double %.24.val, ptr %3, align 8
@@ -21138,7 +21138,7 @@ define internal fastcc i32 @save_attr_double.argprom(ptr noundef nonnull %0, dou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_attr_float.argprom(ptr noundef nonnull %0, float %.24.val) unnamed_addr #1 {
+define internal fastcc i32 @save_attr_float(ptr noundef nonnull %0, float %.24.val) unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca float, align 4
   store float %.24.val, ptr %3, align 4
@@ -21260,7 +21260,7 @@ save_attr_sz.exit:                                ; preds = %10, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_attr_int.argprom(ptr noundef nonnull %0, i32 %.24.val) unnamed_addr #1 {
+define internal fastcc i32 @save_attr_int(ptr noundef nonnull %0, i32 %.24.val) unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   store i32 %.24.val, ptr %3, align 4
@@ -21285,7 +21285,7 @@ define internal fastcc i32 @save_attr_int.argprom(ptr noundef nonnull %0, i32 %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_keycode.argprom(ptr noundef nonnull %0, ptr nocapture readonly %.24.val) unnamed_addr #1 {
+define internal fastcc i32 @save_keycode(ptr noundef nonnull %0, ptr nocapture readonly %.24.val) unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.exr_attr_keycode_t, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %3, ptr noundef nonnull align 1 dereferenceable(28) %.24.val, i64 28, i1 false)
@@ -21310,7 +21310,7 @@ define internal fastcc i32 @save_keycode.argprom(ptr noundef nonnull %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_m33f.argprom(ptr noundef nonnull %0, ptr nocapture readonly %.24.val) unnamed_addr #1 {
+define internal fastcc i32 @save_m33f(ptr noundef nonnull %0, ptr nocapture readonly %.24.val) unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.exr_attr_m33f_t, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %3, ptr noundef nonnull align 1 dereferenceable(36) %.24.val, i64 36, i1 false)
@@ -21335,7 +21335,7 @@ define internal fastcc i32 @save_m33f.argprom(ptr noundef nonnull %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_m33d.argprom(ptr noundef nonnull %0, ptr nocapture readonly %.24.val) unnamed_addr #1 {
+define internal fastcc i32 @save_m33d(ptr noundef nonnull %0, ptr nocapture readonly %.24.val) unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.exr_attr_m33d_t, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %3, ptr noundef nonnull align 1 dereferenceable(72) %.24.val, i64 72, i1 false)
@@ -21360,7 +21360,7 @@ define internal fastcc i32 @save_m33d.argprom(ptr noundef nonnull %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_m44f.argprom(ptr noundef nonnull %0, ptr nocapture readonly %.24.val) unnamed_addr #1 {
+define internal fastcc i32 @save_m44f(ptr noundef nonnull %0, ptr nocapture readonly %.24.val) unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.exr_attr_m44f_t, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %3, ptr noundef nonnull align 1 dereferenceable(64) %.24.val, i64 64, i1 false)
@@ -21385,7 +21385,7 @@ define internal fastcc i32 @save_m44f.argprom(ptr noundef nonnull %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_m44d.argprom(ptr noundef nonnull %0, ptr nocapture readonly %.24.val) unnamed_addr #1 {
+define internal fastcc i32 @save_m44d(ptr noundef nonnull %0, ptr nocapture readonly %.24.val) unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.exr_attr_m44d_t, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %3, ptr noundef nonnull align 1 dereferenceable(128) %.24.val, i64 128, i1 false)
@@ -21471,7 +21471,7 @@ save_attr_sz.exit:                                ; preds = %15, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_rational.argprom.argprom(ptr noundef nonnull %0, i64 %.24.val.0.val) unnamed_addr #1 {
+define internal fastcc i32 @save_rational(ptr noundef nonnull %0, i64 %.24.val.0.val) unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.exr_attr_rational_t, align 8
   store i64 %.24.val.0.val, ptr %3, align 8
@@ -21496,7 +21496,7 @@ define internal fastcc i32 @save_rational.argprom.argprom(ptr noundef nonnull %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_string.argprom(ptr noundef nonnull %0, ptr nocapture readonly %.24.val) unnamed_addr #1 {
+define internal fastcc i32 @save_string(ptr noundef nonnull %0, ptr nocapture readonly %.24.val) unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = load i32, ptr %.24.val, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
@@ -21695,7 +21695,7 @@ define internal fastcc i32 @save_tiledesc(ptr noundef nonnull %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_timecode.argprom.argprom(ptr noundef nonnull %0, i64 %.24.val.0.val) unnamed_addr #1 {
+define internal fastcc i32 @save_timecode(ptr noundef nonnull %0, i64 %.24.val.0.val) unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.exr_attr_timecode_t, align 8
   store i64 %.24.val.0.val, ptr %3, align 8
@@ -21720,7 +21720,7 @@ define internal fastcc i32 @save_timecode.argprom.argprom(ptr noundef nonnull %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_v2i.argprom.argprom(ptr noundef nonnull %0, i64 %.24.val.0.val) unnamed_addr #1 {
+define internal fastcc i32 @save_v2i(ptr noundef nonnull %0, i64 %.24.val.0.val) unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.exr_attr_v2i_t, align 8
   store i64 %.24.val.0.val, ptr %3, align 8
@@ -21745,7 +21745,7 @@ define internal fastcc i32 @save_v2i.argprom.argprom(ptr noundef nonnull %0, i64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_v2f.argprom.argprom(ptr noundef nonnull %0, i64 %.24.val.0.val) unnamed_addr #1 {
+define internal fastcc i32 @save_v2f(ptr noundef nonnull %0, i64 %.24.val.0.val) unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.exr_attr_v2f_t, align 8
   store i64 %.24.val.0.val, ptr %3, align 8
@@ -21770,7 +21770,7 @@ define internal fastcc i32 @save_v2f.argprom.argprom(ptr noundef nonnull %0, i64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_v2d.argprom(ptr noundef nonnull %0, ptr nocapture readonly %.24.val) unnamed_addr #1 {
+define internal fastcc i32 @save_v2d(ptr noundef nonnull %0, ptr nocapture readonly %.24.val) unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.exr_attr_v2d_t, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(16) %.24.val, i64 16, i1 false)
@@ -21795,7 +21795,7 @@ define internal fastcc i32 @save_v2d.argprom(ptr noundef nonnull %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_v3i.argprom(ptr noundef nonnull %0, ptr nocapture readonly %.24.val) unnamed_addr #1 {
+define internal fastcc i32 @save_v3i(ptr noundef nonnull %0, ptr nocapture readonly %.24.val) unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.exr_attr_v3i_t, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %3, ptr noundef nonnull align 1 dereferenceable(12) %.24.val, i64 12, i1 false)
@@ -21820,7 +21820,7 @@ define internal fastcc i32 @save_v3i.argprom(ptr noundef nonnull %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_v3f.argprom(ptr noundef nonnull %0, ptr nocapture readonly %.24.val) unnamed_addr #1 {
+define internal fastcc i32 @save_v3f(ptr noundef nonnull %0, ptr nocapture readonly %.24.val) unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.exr_attr_v3f_t, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %3, ptr noundef nonnull align 1 dereferenceable(12) %.24.val, i64 12, i1 false)
@@ -21845,7 +21845,7 @@ define internal fastcc i32 @save_v3f.argprom(ptr noundef nonnull %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_v3d.argprom(ptr noundef nonnull %0, ptr nocapture readonly %.24.val) unnamed_addr #1 {
+define internal fastcc i32 @save_v3d(ptr noundef nonnull %0, ptr nocapture readonly %.24.val) unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.exr_attr_v3d_t, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(24) %.24.val, i64 24, i1 false)
@@ -21870,7 +21870,7 @@ define internal fastcc i32 @save_v3d.argprom(ptr noundef nonnull %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_opaque.argprom(ptr noundef nonnull %0, ptr %.24.val) unnamed_addr #1 {
+define internal fastcc i32 @save_opaque(ptr noundef nonnull %0, ptr %.24.val) unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -22175,7 +22175,7 @@ compute_sampled_height.exit:                      ; preds = %57, %61, %69
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @internal_coding_fill_channel_info.argprom.argprom(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull readonly %3, ptr noundef nonnull %4, ptr nocapture readonly %.32.val.24.val) unnamed_addr #1 {
+define internal fastcc i32 @internal_coding_fill_channel_info(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull readonly %3, ptr noundef nonnull %4, ptr nocapture readonly %.32.val.24.val) unnamed_addr #1 {
   %6 = load i32, ptr %.32.val.24.val, align 8
   %7 = icmp slt i32 %6, 6
   br i1 %7, label %19, label %8
@@ -22321,7 +22321,7 @@ compute_sampled_width.exit:                       ; preds = %compute_sampled_hei
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @internal_coding_update_channel_info.argprom.argprom(ptr nocapture noundef writeonly %0, i16 noundef signext %1, ptr nocapture noundef nonnull readonly %2, ptr noundef nonnull %3, ptr nocapture readonly %.32.val.24.val) unnamed_addr #1 {
+define internal fastcc i32 @internal_coding_update_channel_info(ptr nocapture noundef writeonly %0, i16 noundef signext %1, ptr nocapture noundef nonnull readonly %2, ptr noundef nonnull %3, ptr nocapture readonly %.32.val.24.val) unnamed_addr #1 {
   %5 = load i32, ptr %.32.val.24.val, align 8
   %6 = sext i16 %1 to i32
   %.not = icmp eq i32 %5, %6
@@ -22490,21 +22490,21 @@ define internal i32 @default_compress_chunk(ptr noundef %0) #1 {
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %31, 4999
   %.not.i.i.i = icmp ult i64 %32, 5000
-  br i1 %.not.i.i.i, label %libdeflate_zlib_compress_bound.argprom.exit.i, label %33
+  br i1 %.not.i.i.i, label %libdeflate_zlib_compress_bound.exit.i, label %33
 
 33:                                               ; preds = %22
   %34 = udiv i64 %32, 5000
   %35 = mul nuw nsw i64 %34, 5
-  br label %libdeflate_zlib_compress_bound.argprom.exit.i
+  br label %libdeflate_zlib_compress_bound.exit.i
 
-libdeflate_zlib_compress_bound.argprom.exit.i:    ; preds = %33, %22
+libdeflate_zlib_compress_bound.exit.i:            ; preds = %33, %22
   %36 = phi i64 [ %35, %33 ], [ 5, %22 ]
   %37 = add i64 %31, 15
   %38 = add i64 %37, %36
   %39 = icmp ugt i64 %38, -10
   br i1 %39, label %exr_compress_max_buffer_size.exit, label %40
 
-40:                                               ; preds = %libdeflate_zlib_compress_bound.argprom.exit.i
+40:                                               ; preds = %libdeflate_zlib_compress_bound.exit.i
   %41 = mul i64 %31, 130
   %42 = icmp ult i64 %41, %31
   br i1 %42, label %exr_compress_max_buffer_size.exit, label %43
@@ -22515,8 +22515,8 @@ libdeflate_zlib_compress_bound.argprom.exit.i:    ; preds = %33, %22
   %.0.i = tail call i64 @llvm.umax.i64(i64 %45, i64 %44)
   br label %exr_compress_max_buffer_size.exit
 
-exr_compress_max_buffer_size.exit:                ; preds = %libdeflate_zlib_compress_bound.argprom.exit.i, %40, %43
-  %.013.i = phi i64 [ %.0.i, %43 ], [ -1, %libdeflate_zlib_compress_bound.argprom.exit.i ], [ -1, %40 ]
+exr_compress_max_buffer_size.exit:                ; preds = %libdeflate_zlib_compress_bound.exit.i, %40, %43
+  %.013.i = phi i64 [ %.0.i, %43 ], [ -1, %libdeflate_zlib_compress_bound.exit.i ], [ -1, %40 ]
   %46 = tail call fastcc i32 @internal_encode_alloc_buffer(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull %28, ptr noundef nonnull %29, i64 noundef %.013.i)
   %.not41 = icmp eq i32 %46, 0
   br i1 %.not41, label %66, label %47
@@ -22527,21 +22527,21 @@ exr_compress_max_buffer_size.exit:                ; preds = %libdeflate_zlib_com
   %50 = load i64, ptr %30, align 8
   %51 = add i64 %50, 4999
   %.not.i.i.i42 = icmp ult i64 %51, 5000
-  br i1 %.not.i.i.i42, label %libdeflate_zlib_compress_bound.argprom.exit.i43, label %52
+  br i1 %.not.i.i.i42, label %libdeflate_zlib_compress_bound.exit.i43, label %52
 
 52:                                               ; preds = %47
   %53 = udiv i64 %51, 5000
   %54 = mul nuw nsw i64 %53, 5
-  br label %libdeflate_zlib_compress_bound.argprom.exit.i43
+  br label %libdeflate_zlib_compress_bound.exit.i43
 
-libdeflate_zlib_compress_bound.argprom.exit.i43:  ; preds = %52, %47
+libdeflate_zlib_compress_bound.exit.i43:          ; preds = %52, %47
   %55 = phi i64 [ %54, %52 ], [ 5, %47 ]
   %56 = add i64 %50, 15
   %57 = add i64 %56, %55
   %58 = icmp ugt i64 %57, -10
   br i1 %58, label %exr_compress_max_buffer_size.exit46, label %59
 
-59:                                               ; preds = %libdeflate_zlib_compress_bound.argprom.exit.i43
+59:                                               ; preds = %libdeflate_zlib_compress_bound.exit.i43
   %60 = mul i64 %50, 130
   %61 = icmp ult i64 %60, %50
   br i1 %61, label %exr_compress_max_buffer_size.exit46, label %62
@@ -22552,8 +22552,8 @@ libdeflate_zlib_compress_bound.argprom.exit.i43:  ; preds = %52, %47
   %.0.i44 = tail call i64 @llvm.umax.i64(i64 %64, i64 %63)
   br label %exr_compress_max_buffer_size.exit46
 
-exr_compress_max_buffer_size.exit46:              ; preds = %libdeflate_zlib_compress_bound.argprom.exit.i43, %59, %62
-  %.013.i45 = phi i64 [ %.0.i44, %62 ], [ -1, %libdeflate_zlib_compress_bound.argprom.exit.i43 ], [ -1, %59 ]
+exr_compress_max_buffer_size.exit46:              ; preds = %libdeflate_zlib_compress_bound.exit.i43, %59, %62
+  %.013.i45 = phi i64 [ %.0.i44, %62 ], [ -1, %libdeflate_zlib_compress_bound.exit.i43 ], [ -1, %59 ]
   %65 = tail call i32 (ptr, i32, ptr, ...) %49(ptr noundef nonnull %3, i32 noundef %46, ptr noundef nonnull @.str.321, i64 noundef %.013.i45) #50
   br label %93
 
@@ -25307,7 +25307,7 @@ define internal fastcc i32 @internal_exr_apply_dwab(ptr noundef %0) unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @internal_encode_free_buffer.argelim(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 6) %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #1 {
+define internal fastcc void @internal_encode_free_buffer(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 6) %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #1 {
   %5 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %37, label %6
@@ -38366,9 +38366,9 @@ DwaCompressor_setupChannelData.exit:              ; preds = %171
   store float %320, ptr %321, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 64
-  br i1 %exitcond.not.i.i, label %LossyDctEncoderCsc_construct.argprom.exit, label %309, !llvm.loop !284
+  br i1 %exitcond.not.i.i, label %LossyDctEncoderCsc_construct.exit, label %309, !llvm.loop !284
 
-LossyDctEncoderCsc_construct.argprom.exit:        ; preds = %309
+LossyDctEncoderCsc_construct.exit:                ; preds = %309
   store ptr %290, ptr %214, align 8
   store ptr %294, ptr %215, align 8
   store ptr %298, ptr %216, align 8
@@ -38402,7 +38402,7 @@ LossyDctEncoderCsc_construct.argprom.exit:        ; preds = %309
   %.not334 = icmp eq i32 %324, 0
   br i1 %.not334, label %343, label %DctCoderChannelData_push_row.exit
 
-343:                                              ; preds = %LossyDctEncoderCsc_construct.argprom.exit
+343:                                              ; preds = %LossyDctEncoderCsc_construct.exit
   %344 = shl i64 %329, 1
   %345 = getelementptr inbounds i8, ptr %.1265402, i64 %344
   %346 = shl i64 %326, 1
@@ -38460,7 +38460,7 @@ LossyDctEncoderCsc_construct.argprom.exit:        ; preds = %309
   %374 = load i32, ptr %373, align 4
   %375 = getelementptr inbounds nuw i8, ptr %356, i64 8
   %376 = load i32, ptr %375, align 8
-  call fastcc void @LossyDctEncoder_construct.argelim(ptr noundef %5, float noundef %372, ptr noundef nonnull %354, ptr noundef %.2261424, ptr noundef %.2266423, ptr noundef %spec.store.select, i32 noundef %374, i32 noundef %376)
+  call fastcc void @LossyDctEncoder_construct(ptr noundef %5, float noundef %372, ptr noundef nonnull %354, ptr noundef %.2261424, ptr noundef %.2266423, ptr noundef %spec.store.select, i32 noundef %374, i32 noundef %376)
   %377 = load ptr, ptr %278, align 8
   %378 = load ptr, ptr %279, align 8
   %379 = call fastcc i32 @LossyDctEncoder_execute(ptr noundef %377, ptr noundef %378, ptr noundef %5)
@@ -38612,21 +38612,21 @@ LossyDctEncoderCsc_construct.argprom.exit:        ; preds = %309
   %455 = load ptr, ptr %115, align 8
   %456 = add i64 %450, 4999
   %.not.i.i.i = icmp ult i64 %456, 5000
-  br i1 %.not.i.i.i, label %libdeflate_zlib_compress_bound.argprom.exit.i, label %457
+  br i1 %.not.i.i.i, label %libdeflate_zlib_compress_bound.exit.i, label %457
 
 457:                                              ; preds = %451
   %458 = udiv i64 %456, 5000
   %459 = mul nuw nsw i64 %458, 5
-  br label %libdeflate_zlib_compress_bound.argprom.exit.i
+  br label %libdeflate_zlib_compress_bound.exit.i
 
-libdeflate_zlib_compress_bound.argprom.exit.i:    ; preds = %457, %451
+libdeflate_zlib_compress_bound.exit.i:            ; preds = %457, %451
   %460 = phi i64 [ %459, %457 ], [ 5, %451 ]
   %461 = add i64 %450, 15
   %462 = add i64 %461, %460
   %463 = icmp ugt i64 %462, -10
   br i1 %463, label %exr_compress_max_buffer_size.exit, label %464
 
-464:                                              ; preds = %libdeflate_zlib_compress_bound.argprom.exit.i
+464:                                              ; preds = %libdeflate_zlib_compress_bound.exit.i
   %465 = mul i64 %450, 130
   %466 = icmp ult i64 %465, %450
   br i1 %466, label %exr_compress_max_buffer_size.exit, label %467
@@ -38637,8 +38637,8 @@ libdeflate_zlib_compress_bound.argprom.exit.i:    ; preds = %457, %451
   %.0.i348 = tail call i64 @llvm.umax.i64(i64 %469, i64 %468)
   br label %exr_compress_max_buffer_size.exit
 
-exr_compress_max_buffer_size.exit:                ; preds = %libdeflate_zlib_compress_bound.argprom.exit.i, %464, %467
-  %.013.i = phi i64 [ %.0.i348, %467 ], [ -1, %libdeflate_zlib_compress_bound.argprom.exit.i ], [ -1, %464 ]
+exr_compress_max_buffer_size.exit:                ; preds = %libdeflate_zlib_compress_bound.exit.i, %464, %467
+  %.013.i = phi i64 [ %.0.i348, %467 ], [ -1, %libdeflate_zlib_compress_bound.exit.i ], [ -1, %464 ]
   %470 = call fastcc i32 @exr_compress_buffer(ptr noundef %454, i32 noundef 9, ptr noundef %455, i64 noundef %450, ptr noundef %.038.lcssa60.i, i64 noundef %.013.i, ptr noundef %6)
   %.not320 = icmp eq i32 %470, 0
   br i1 %.not320, label %471, label %DctCoderChannelData_push_row.exit
@@ -38705,21 +38705,21 @@ exr_compress_max_buffer_size.exit:                ; preds = %libdeflate_zlib_com
   %504 = load ptr, ptr %108, align 8
   %505 = add i64 %500, 4999
   %.not.i.i.i349 = icmp ult i64 %505, 5000
-  br i1 %.not.i.i.i349, label %libdeflate_zlib_compress_bound.argprom.exit.i350, label %506
+  br i1 %.not.i.i.i349, label %libdeflate_zlib_compress_bound.exit.i350, label %506
 
 506:                                              ; preds = %499
   %507 = udiv i64 %505, 5000
   %508 = mul nuw nsw i64 %507, 5
-  br label %libdeflate_zlib_compress_bound.argprom.exit.i350
+  br label %libdeflate_zlib_compress_bound.exit.i350
 
-libdeflate_zlib_compress_bound.argprom.exit.i350: ; preds = %506, %499
+libdeflate_zlib_compress_bound.exit.i350:         ; preds = %506, %499
   %509 = phi i64 [ %508, %506 ], [ 5, %499 ]
   %510 = add i64 %500, 15
   %511 = add i64 %510, %509
   %512 = icmp ugt i64 %511, -10
   br i1 %512, label %exr_compress_max_buffer_size.exit353, label %513
 
-513:                                              ; preds = %libdeflate_zlib_compress_bound.argprom.exit.i350
+513:                                              ; preds = %libdeflate_zlib_compress_bound.exit.i350
   %514 = mul i64 %476, 260
   %515 = icmp ult i64 %514, %500
   br i1 %515, label %exr_compress_max_buffer_size.exit353, label %516
@@ -38730,8 +38730,8 @@ libdeflate_zlib_compress_bound.argprom.exit.i350: ; preds = %506, %499
   %.0.i351 = tail call i64 @llvm.umax.i64(i64 %518, i64 %517)
   br label %exr_compress_max_buffer_size.exit353
 
-exr_compress_max_buffer_size.exit353:             ; preds = %libdeflate_zlib_compress_bound.argprom.exit.i350, %513, %516
-  %.013.i352 = phi i64 [ %.0.i351, %516 ], [ -1, %libdeflate_zlib_compress_bound.argprom.exit.i350 ], [ -1, %513 ]
+exr_compress_max_buffer_size.exit353:             ; preds = %libdeflate_zlib_compress_bound.exit.i350, %513, %516
+  %.013.i352 = phi i64 [ %.0.i351, %516 ], [ -1, %libdeflate_zlib_compress_bound.exit.i350 ], [ -1, %513 ]
   %519 = call fastcc i32 @exr_compress_buffer(ptr noundef %503, i32 noundef 9, ptr noundef %504, i64 noundef %500, ptr noundef %.0274, i64 noundef %.013.i352, ptr noundef %7)
   %.not322 = icmp eq i32 %519, 0
   br i1 %.not322, label %520, label %DctCoderChannelData_push_row.exit
@@ -38778,21 +38778,21 @@ exr_compress_max_buffer_size.exit353:             ; preds = %libdeflate_zlib_com
   %545 = load ptr, ptr %544, align 8
   %546 = add i64 %529, 4999
   %.not.i.i.i354 = icmp ult i64 %546, 5000
-  br i1 %.not.i.i.i354, label %libdeflate_zlib_compress_bound.argprom.exit.i355, label %547
+  br i1 %.not.i.i.i354, label %libdeflate_zlib_compress_bound.exit.i355, label %547
 
 547:                                              ; preds = %534
   %548 = udiv i64 %546, 5000
   %549 = mul nuw nsw i64 %548, 5
-  br label %libdeflate_zlib_compress_bound.argprom.exit.i355
+  br label %libdeflate_zlib_compress_bound.exit.i355
 
-libdeflate_zlib_compress_bound.argprom.exit.i355: ; preds = %547, %534
+libdeflate_zlib_compress_bound.exit.i355:         ; preds = %547, %534
   %550 = phi i64 [ %549, %547 ], [ 5, %534 ]
   %551 = add i64 %529, 15
   %552 = add i64 %551, %550
   %553 = icmp ugt i64 %552, -10
   br i1 %553, label %exr_compress_max_buffer_size.exit358, label %554
 
-554:                                              ; preds = %libdeflate_zlib_compress_bound.argprom.exit.i355
+554:                                              ; preds = %libdeflate_zlib_compress_bound.exit.i355
   %555 = mul i64 %527, 260
   %556 = icmp ult i64 %555, %529
   br i1 %556, label %exr_compress_max_buffer_size.exit358, label %557
@@ -38803,8 +38803,8 @@ libdeflate_zlib_compress_bound.argprom.exit.i355: ; preds = %547, %534
   %.0.i356 = tail call i64 @llvm.umax.i64(i64 %559, i64 %558)
   br label %exr_compress_max_buffer_size.exit358
 
-exr_compress_max_buffer_size.exit358:             ; preds = %libdeflate_zlib_compress_bound.argprom.exit.i355, %554, %557
-  %.013.i357 = phi i64 [ %.0.i356, %557 ], [ -1, %libdeflate_zlib_compress_bound.argprom.exit.i355 ], [ -1, %554 ]
+exr_compress_max_buffer_size.exit358:             ; preds = %libdeflate_zlib_compress_bound.exit.i355, %554, %557
+  %.013.i357 = phi i64 [ %.0.i356, %557 ], [ -1, %libdeflate_zlib_compress_bound.exit.i355 ], [ -1, %554 ]
   %560 = call fastcc i32 @exr_compress_buffer(ptr noundef %541, i32 noundef %543, ptr noundef %545, i64 noundef %529, ptr noundef %.1275, i64 noundef %.013.i357, ptr noundef %8)
   %.not326 = icmp eq i32 %560, 0
   br i1 %.not326, label %561, label %DctCoderChannelData_push_row.exit
@@ -38838,21 +38838,21 @@ exr_compress_max_buffer_size.exit358:             ; preds = %libdeflate_zlib_com
   %578 = load ptr, ptr %568, align 8
   %579 = add i64 %574, 4999
   %.not.i.i.i359 = icmp ult i64 %579, 5000
-  br i1 %.not.i.i.i359, label %libdeflate_zlib_compress_bound.argprom.exit.i360, label %580
+  br i1 %.not.i.i.i359, label %libdeflate_zlib_compress_bound.exit.i360, label %580
 
 580:                                              ; preds = %567
   %581 = udiv i64 %579, 5000
   %582 = mul nuw nsw i64 %581, 5
-  br label %libdeflate_zlib_compress_bound.argprom.exit.i360
+  br label %libdeflate_zlib_compress_bound.exit.i360
 
-libdeflate_zlib_compress_bound.argprom.exit.i360: ; preds = %580, %567
+libdeflate_zlib_compress_bound.exit.i360:         ; preds = %580, %567
   %583 = phi i64 [ %582, %580 ], [ 5, %567 ]
   %584 = add i64 %574, 15
   %585 = add i64 %584, %583
   %586 = icmp ugt i64 %585, -10
   br i1 %586, label %exr_compress_max_buffer_size.exit363, label %587
 
-587:                                              ; preds = %libdeflate_zlib_compress_bound.argprom.exit.i360
+587:                                              ; preds = %libdeflate_zlib_compress_bound.exit.i360
   %588 = mul i64 %574, 130
   %589 = icmp ult i64 %588, %574
   br i1 %589, label %exr_compress_max_buffer_size.exit363, label %590
@@ -38863,8 +38863,8 @@ libdeflate_zlib_compress_bound.argprom.exit.i360: ; preds = %580, %567
   %.0.i361 = tail call i64 @llvm.umax.i64(i64 %592, i64 %591)
   br label %exr_compress_max_buffer_size.exit363
 
-exr_compress_max_buffer_size.exit363:             ; preds = %libdeflate_zlib_compress_bound.argprom.exit.i360, %587, %590
-  %.013.i362 = phi i64 [ %.0.i361, %590 ], [ -1, %libdeflate_zlib_compress_bound.argprom.exit.i360 ], [ -1, %587 ]
+exr_compress_max_buffer_size.exit363:             ; preds = %libdeflate_zlib_compress_bound.exit.i360, %587, %590
+  %.013.i362 = phi i64 [ %.0.i361, %590 ], [ -1, %libdeflate_zlib_compress_bound.exit.i360 ], [ -1, %587 ]
   %593 = call fastcc i32 @exr_compress_buffer(ptr noundef %577, i32 noundef 9, ptr noundef %578, i64 noundef %574, ptr noundef %.2276, i64 noundef %.013.i362, ptr noundef %9)
   %.not328 = icmp eq i32 %593, 0
   br i1 %.not328, label %594, label %DctCoderChannelData_push_row.exit
@@ -38914,8 +38914,8 @@ DctCoderChannelData_push_row.exit.sink.split:     ; preds = %DctCoderChannelData
   store i64 %.sink, ptr %614, align 8
   br label %DctCoderChannelData_push_row.exit
 
-DctCoderChannelData_push_row.exit:                ; preds = %70, %236, %LossyDctEncoderCsc_construct.argprom.exit, %359, %368, %DctCoderChannelData_push_row.exit.sink.split, %._crit_edge.i, %21, %598, %exr_compress_max_buffer_size.exit363, %exr_compress_max_buffer_size.exit358, %528, %477, %exr_compress_max_buffer_size.exit353, %479, %exr_compress_max_buffer_size.exit, %102, %17, %1
-  %.0 = phi i32 [ 1, %1 ], [ %20, %17 ], [ 1, %102 ], [ 1, %exr_compress_max_buffer_size.exit ], [ %490, %479 ], [ 1, %exr_compress_max_buffer_size.exit353 ], [ 3, %477 ], [ %533, %528 ], [ 1, %exr_compress_max_buffer_size.exit358 ], [ 1, %exr_compress_max_buffer_size.exit363 ], [ 23, %598 ], [ 1, %21 ], [ 1, %._crit_edge.i ], [ 0, %DctCoderChannelData_push_row.exit.sink.split ], [ 3, %359 ], [ 1, %368 ], [ 1, %LossyDctEncoderCsc_construct.argprom.exit ], [ 1, %236 ], [ 1, %70 ]
+DctCoderChannelData_push_row.exit:                ; preds = %70, %236, %LossyDctEncoderCsc_construct.exit, %359, %368, %DctCoderChannelData_push_row.exit.sink.split, %._crit_edge.i, %21, %598, %exr_compress_max_buffer_size.exit363, %exr_compress_max_buffer_size.exit358, %528, %477, %exr_compress_max_buffer_size.exit353, %479, %exr_compress_max_buffer_size.exit, %102, %17, %1
+  %.0 = phi i32 [ 1, %1 ], [ %20, %17 ], [ 1, %102 ], [ 1, %exr_compress_max_buffer_size.exit ], [ %490, %479 ], [ 1, %exr_compress_max_buffer_size.exit353 ], [ 3, %477 ], [ %533, %528 ], [ 1, %exr_compress_max_buffer_size.exit358 ], [ 1, %exr_compress_max_buffer_size.exit363 ], [ 23, %598 ], [ 1, %21 ], [ 1, %._crit_edge.i ], [ 0, %DctCoderChannelData_push_row.exit.sink.split ], [ 3, %359 ], [ 1, %368 ], [ 1, %LossyDctEncoderCsc_construct.exit ], [ 1, %236 ], [ 1, %70 ]
   ret i32 %.0
 }
 
@@ -38973,29 +38973,29 @@ define internal fastcc void @DwaCompressor_destroy(ptr nocapture noundef nonnull
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 192
   br label %27
 
-27:                                               ; preds = %.lr.ph, %DctCoderChannelData_destroy.argprom.exit
-  %28 = phi i32 [ %23, %.lr.ph ], [ %33, %DctCoderChannelData_destroy.argprom.exit ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %DctCoderChannelData_destroy.argprom.exit ]
+27:                                               ; preds = %.lr.ph, %DctCoderChannelData_destroy.exit
+  %28 = phi i32 [ %23, %.lr.ph ], [ %33, %DctCoderChannelData_destroy.exit ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %DctCoderChannelData_destroy.exit ]
   %29 = load ptr, ptr %25, align 8
   %30 = getelementptr %struct._ChannelData, ptr %29, i64 %indvars.iv, i32 0, i32 3
   %.val = load ptr, ptr %30, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %DctCoderChannelData_destroy.argprom.exit, label %31
+  br i1 %.not.i, label %DctCoderChannelData_destroy.exit, label %31
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr %26, align 8
   tail call void %32(ptr noundef nonnull %.val) #50
   %.pre = load i32, ptr %22, align 8
-  br label %DctCoderChannelData_destroy.argprom.exit
+  br label %DctCoderChannelData_destroy.exit
 
-DctCoderChannelData_destroy.argprom.exit:         ; preds = %27, %31
+DctCoderChannelData_destroy.exit:                 ; preds = %27, %31
   %33 = phi i32 [ %28, %27 ], [ %.pre, %31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
   br i1 %35, label %27, label %._crit_edge.loopexit, !llvm.loop !291
 
-._crit_edge.loopexit:                             ; preds = %DctCoderChannelData_destroy.argprom.exit
+._crit_edge.loopexit:                             ; preds = %DctCoderChannelData_destroy.exit
   %.pre64 = load ptr, ptr %20, align 8
   br label %._crit_edge
 
@@ -43147,7 +43147,7 @@ DwaCompressor_classifyChannels.exit:              ; preds = %125, %175, %49, %.p
 
 .thread:                                          ; preds = %DwaCompressor_classifyChannels.exit
   store i64 0, ptr %2, align 16
-  br label %libdeflate_zlib_compress_bound.argprom.exit.i151
+  br label %libdeflate_zlib_compress_bound.exit.i151
 
 .lr.ph193:                                        ; preds = %DwaCompressor_classifyChannels.exit
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -43190,12 +43190,12 @@ DwaCompressor_classifyChannels.exit:              ; preds = %125, %175, %49, %.p
   %205 = getelementptr inbounds nuw i8, ptr %202, i64 548
   %206 = load i32, ptr %205, align 4
   switch i32 %206, label %DwaCompressor_classifyChannels.exit.thread [
-    i32 1, label %libdeflate_zlib_compress_bound.argprom.exit.i
+    i32 1, label %libdeflate_zlib_compress_bound.exit.i
     i32 2, label %209
     i32 0, label %216
   ]
 
-libdeflate_zlib_compress_bound.argprom.exit.i:    ; preds = %199
+libdeflate_zlib_compress_bound.exit.i:            ; preds = %199
   %207 = add i64 %198, %.1191
   %208 = add i64 %.0121190, 1
   br label %223
@@ -43218,13 +43218,13 @@ libdeflate_zlib_compress_bound.argprom.exit.i:    ; preds = %199
   %222 = add i64 %220, %201
   br label %223
 
-223:                                              ; preds = %libdeflate_zlib_compress_bound.argprom.exit.i, %209, %216
-  %224 = phi i64 [ %200, %216 ], [ %215, %209 ], [ %200, %libdeflate_zlib_compress_bound.argprom.exit.i ]
-  %225 = phi i64 [ %222, %216 ], [ %201, %209 ], [ %201, %libdeflate_zlib_compress_bound.argprom.exit.i ]
-  %.1126 = phi i64 [ %221, %216 ], [ %.0125188, %209 ], [ %.0125188, %libdeflate_zlib_compress_bound.argprom.exit.i ]
-  %.1124 = phi i64 [ %.0123189, %216 ], [ %214, %209 ], [ %.0123189, %libdeflate_zlib_compress_bound.argprom.exit.i ]
-  %.1122 = phi i64 [ %.0121190, %216 ], [ %.0121190, %209 ], [ %208, %libdeflate_zlib_compress_bound.argprom.exit.i ]
-  %.2 = phi i64 [ %.1191, %216 ], [ %.1191, %209 ], [ %207, %libdeflate_zlib_compress_bound.argprom.exit.i ]
+223:                                              ; preds = %libdeflate_zlib_compress_bound.exit.i, %209, %216
+  %224 = phi i64 [ %200, %216 ], [ %215, %209 ], [ %200, %libdeflate_zlib_compress_bound.exit.i ]
+  %225 = phi i64 [ %222, %216 ], [ %201, %209 ], [ %201, %libdeflate_zlib_compress_bound.exit.i ]
+  %.1126 = phi i64 [ %221, %216 ], [ %.0125188, %209 ], [ %.0125188, %libdeflate_zlib_compress_bound.exit.i ]
+  %.1124 = phi i64 [ %.0123189, %216 ], [ %214, %209 ], [ %.0123189, %libdeflate_zlib_compress_bound.exit.i ]
+  %.1122 = phi i64 [ %.0121190, %216 ], [ %.0121190, %209 ], [ %208, %libdeflate_zlib_compress_bound.exit.i ]
+  %.2 = phi i64 [ %.1191, %216 ], [ %.1191, %209 ], [ %207, %libdeflate_zlib_compress_bound.exit.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond218.not, label %226, label %199, !llvm.loop !304
@@ -43234,14 +43234,14 @@ libdeflate_zlib_compress_bound.argprom.exit.i:    ; preds = %199
   store i64 %225, ptr %2, align 16
   %227 = add i64 %.1124, 4999
   %.not.i.i.i150 = icmp ult i64 %227, 5000
-  br i1 %.not.i.i.i150, label %libdeflate_zlib_compress_bound.argprom.exit.i151, label %228
+  br i1 %.not.i.i.i150, label %libdeflate_zlib_compress_bound.exit.i151, label %228
 
 228:                                              ; preds = %226
   %229 = udiv i64 %227, 5000
   %230 = mul nuw nsw i64 %229, 5
-  br label %libdeflate_zlib_compress_bound.argprom.exit.i151
+  br label %libdeflate_zlib_compress_bound.exit.i151
 
-libdeflate_zlib_compress_bound.argprom.exit.i151: ; preds = %.thread, %228, %226
+libdeflate_zlib_compress_bound.exit.i151:         ; preds = %.thread, %228, %226
   %.1.lcssa232 = phi i64 [ %.2, %228 ], [ %.2, %226 ], [ %.0120.lcssa, %.thread ]
   %.0121.lcssa231 = phi i64 [ %.1122, %228 ], [ %.1122, %226 ], [ 0, %.thread ]
   %.0123.lcssa230 = phi i64 [ %.1124, %228 ], [ %.1124, %226 ], [ 0, %.thread ]
@@ -43253,7 +43253,7 @@ libdeflate_zlib_compress_bound.argprom.exit.i151: ; preds = %.thread, %228, %226
   %235 = icmp ugt i64 %234, -10
   br i1 %235, label %exr_compress_max_buffer_size.exit154, label %236
 
-236:                                              ; preds = %libdeflate_zlib_compress_bound.argprom.exit.i151
+236:                                              ; preds = %libdeflate_zlib_compress_bound.exit.i151
   %237 = mul i64 %.0123.lcssa230, 130
   %238 = icmp ult i64 %237, %.0123.lcssa230
   br i1 %238, label %exr_compress_max_buffer_size.exit154, label %239
@@ -43264,25 +43264,25 @@ libdeflate_zlib_compress_bound.argprom.exit.i151: ; preds = %.thread, %228, %226
   %.0.i152 = tail call i64 @llvm.umax.i64(i64 %241, i64 %240)
   br label %exr_compress_max_buffer_size.exit154
 
-exr_compress_max_buffer_size.exit154:             ; preds = %libdeflate_zlib_compress_bound.argprom.exit.i151, %236, %239
-  %.013.i153 = phi i64 [ %.0.i152, %239 ], [ -1, %libdeflate_zlib_compress_bound.argprom.exit.i151 ], [ -1, %236 ]
+exr_compress_max_buffer_size.exit154:             ; preds = %libdeflate_zlib_compress_bound.exit.i151, %236, %239
+  %.013.i153 = phi i64 [ %.0.i152, %239 ], [ -1, %libdeflate_zlib_compress_bound.exit.i151 ], [ -1, %236 ]
   %242 = add i64 %.0125.lcssa229, 4999
   %.not.i.i.i155 = icmp ult i64 %242, 5000
-  br i1 %.not.i.i.i155, label %libdeflate_zlib_compress_bound.argprom.exit.i156, label %243
+  br i1 %.not.i.i.i155, label %libdeflate_zlib_compress_bound.exit.i156, label %243
 
 243:                                              ; preds = %exr_compress_max_buffer_size.exit154
   %244 = udiv i64 %242, 5000
   %245 = mul nuw nsw i64 %244, 5
-  br label %libdeflate_zlib_compress_bound.argprom.exit.i156
+  br label %libdeflate_zlib_compress_bound.exit.i156
 
-libdeflate_zlib_compress_bound.argprom.exit.i156: ; preds = %243, %exr_compress_max_buffer_size.exit154
+libdeflate_zlib_compress_bound.exit.i156:         ; preds = %243, %exr_compress_max_buffer_size.exit154
   %246 = phi i64 [ %245, %243 ], [ 5, %exr_compress_max_buffer_size.exit154 ]
   %247 = add i64 %.0125.lcssa229, 15
   %248 = add i64 %247, %246
   %249 = icmp ugt i64 %248, -10
   br i1 %249, label %exr_compress_max_buffer_size.exit159, label %250
 
-250:                                              ; preds = %libdeflate_zlib_compress_bound.argprom.exit.i156
+250:                                              ; preds = %libdeflate_zlib_compress_bound.exit.i156
   %251 = mul i64 %.0125.lcssa229, 130
   %252 = icmp ult i64 %251, %.0125.lcssa229
   br i1 %252, label %exr_compress_max_buffer_size.exit159, label %253
@@ -43293,26 +43293,26 @@ libdeflate_zlib_compress_bound.argprom.exit.i156: ; preds = %243, %exr_compress_
   %.0.i157 = tail call i64 @llvm.umax.i64(i64 %255, i64 %254)
   br label %exr_compress_max_buffer_size.exit159
 
-exr_compress_max_buffer_size.exit159:             ; preds = %libdeflate_zlib_compress_bound.argprom.exit.i156, %250, %253
-  %.013.i158 = phi i64 [ %.0.i157, %253 ], [ -1, %libdeflate_zlib_compress_bound.argprom.exit.i156 ], [ -1, %250 ]
+exr_compress_max_buffer_size.exit159:             ; preds = %libdeflate_zlib_compress_bound.exit.i156, %250, %253
+  %.013.i158 = phi i64 [ %.0.i157, %253 ], [ -1, %libdeflate_zlib_compress_bound.exit.i156 ], [ -1, %250 ]
   %256 = mul i64 %.0121.lcssa231, %20
   %257 = add i64 %256, 4999
   %.not.i.i.i160 = icmp ult i64 %257, 5000
-  br i1 %.not.i.i.i160, label %libdeflate_zlib_compress_bound.argprom.exit.i161, label %258
+  br i1 %.not.i.i.i160, label %libdeflate_zlib_compress_bound.exit.i161, label %258
 
 258:                                              ; preds = %exr_compress_max_buffer_size.exit159
   %259 = udiv i64 %257, 5000
   %260 = mul nuw nsw i64 %259, 5
-  br label %libdeflate_zlib_compress_bound.argprom.exit.i161
+  br label %libdeflate_zlib_compress_bound.exit.i161
 
-libdeflate_zlib_compress_bound.argprom.exit.i161: ; preds = %258, %exr_compress_max_buffer_size.exit159
+libdeflate_zlib_compress_bound.exit.i161:         ; preds = %258, %exr_compress_max_buffer_size.exit159
   %261 = phi i64 [ %260, %258 ], [ 5, %exr_compress_max_buffer_size.exit159 ]
   %262 = add i64 %256, 15
   %263 = add i64 %262, %261
   %264 = icmp ugt i64 %263, -10
   br i1 %264, label %exr_compress_max_buffer_size.exit164, label %265
 
-265:                                              ; preds = %libdeflate_zlib_compress_bound.argprom.exit.i161
+265:                                              ; preds = %libdeflate_zlib_compress_bound.exit.i161
   %266 = mul i64 %256, 130
   %267 = icmp ult i64 %266, %256
   br i1 %267, label %exr_compress_max_buffer_size.exit164, label %268
@@ -43323,8 +43323,8 @@ libdeflate_zlib_compress_bound.argprom.exit.i161: ; preds = %258, %exr_compress_
   %.0.i162 = tail call i64 @llvm.umax.i64(i64 %270, i64 %269)
   br label %exr_compress_max_buffer_size.exit164
 
-exr_compress_max_buffer_size.exit164:             ; preds = %libdeflate_zlib_compress_bound.argprom.exit.i161, %265, %268
-  %.013.i163 = phi i64 [ %.0.i162, %268 ], [ -1, %libdeflate_zlib_compress_bound.argprom.exit.i161 ], [ -1, %265 ]
+exr_compress_max_buffer_size.exit164:             ; preds = %libdeflate_zlib_compress_bound.exit.i161, %265, %268
+  %.013.i163 = phi i64 [ %.0.i162, %268 ], [ -1, %libdeflate_zlib_compress_bound.exit.i161 ], [ -1, %265 ]
   %271 = add i64 %.1.lcssa232, 88
   %272 = add i64 %271, %.013.i153
   %273 = add i64 %272, %.013.i158
@@ -43430,21 +43430,21 @@ exr_compress_max_buffer_size.exit164:             ; preds = %libdeflate_zlib_com
 319:                                              ; preds = %318
   %320 = add i64 %231, 4999
   %.not.i.i.i165 = icmp ult i64 %320, 5000
-  br i1 %.not.i.i.i165, label %libdeflate_zlib_compress_bound.argprom.exit.i166, label %321
+  br i1 %.not.i.i.i165, label %libdeflate_zlib_compress_bound.exit.i166, label %321
 
 321:                                              ; preds = %319
   %322 = udiv i64 %320, 5000
   %323 = mul nuw nsw i64 %322, 5
-  br label %libdeflate_zlib_compress_bound.argprom.exit.i166
+  br label %libdeflate_zlib_compress_bound.exit.i166
 
-libdeflate_zlib_compress_bound.argprom.exit.i166: ; preds = %321, %319
+libdeflate_zlib_compress_bound.exit.i166:         ; preds = %321, %319
   %324 = phi i64 [ %323, %321 ], [ 5, %319 ]
   %325 = add i64 %231, 15
   %326 = add i64 %325, %324
   %327 = icmp ugt i64 %326, -10
   br i1 %327, label %exr_compress_max_buffer_size.exit169, label %328
 
-328:                                              ; preds = %libdeflate_zlib_compress_bound.argprom.exit.i166
+328:                                              ; preds = %libdeflate_zlib_compress_bound.exit.i166
   %329 = mul i64 %231, 130
   %330 = icmp ult i64 %329, %231
   br i1 %330, label %exr_compress_max_buffer_size.exit169, label %331
@@ -43455,8 +43455,8 @@ libdeflate_zlib_compress_bound.argprom.exit.i166: ; preds = %321, %319
   %.0.i167 = tail call i64 @llvm.umax.i64(i64 %333, i64 %332)
   br label %exr_compress_max_buffer_size.exit169
 
-exr_compress_max_buffer_size.exit169:             ; preds = %libdeflate_zlib_compress_bound.argprom.exit.i166, %328, %331
-  %.013.i168 = phi i64 [ %.0.i167, %331 ], [ -1, %libdeflate_zlib_compress_bound.argprom.exit.i166 ], [ -1, %328 ]
+exr_compress_max_buffer_size.exit169:             ; preds = %libdeflate_zlib_compress_bound.exit.i166, %328, %331
+  %.013.i168 = phi i64 [ %.0.i167, %331 ], [ -1, %libdeflate_zlib_compress_bound.exit.i166 ], [ -1, %328 ]
   store i64 %.013.i168, ptr %2, align 16
   br label %334
 
@@ -43504,7 +43504,7 @@ DwaCompressor_classifyChannels.exit.thread:       ; preds = %199, %351, %348, %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @DwaCompressor_setupChannelData.argelim(ptr nocapture noundef nonnull readonly %0) unnamed_addr #29 {
+define internal fastcc void @DwaCompressor_setupChannelData(ptr nocapture noundef nonnull readonly %0) unnamed_addr #29 {
   %2 = alloca [3 x ptr], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   br label %8
@@ -44613,7 +44613,7 @@ dctForward8x8.exit.preheader.us:                  ; preds = %250
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc void @LossyDctEncoder_construct.argelim(ptr nocapture noundef nonnull writeonly %0, float noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #38 {
+define internal fastcc void @LossyDctEncoder_construct(ptr nocapture noundef nonnull writeonly %0, float noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #38 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store float %1, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -46497,7 +46497,7 @@ define internal i32 @default_decompress_chunk(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define internal fastcc nonnull ptr @internal_exr_match_decode.argelim(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, 2) %1, i32 noundef %2, i32 noundef range(i32 -2, 65536) %3, i32 noundef range(i32 -2, 65536) %4, i32 noundef range(i32 -128, 128) %5, i32 noundef range(i32 -32768, 32768) %6, i32 noundef range(i32 0, 2) %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11) unnamed_addr #41 {
+define internal fastcc nonnull ptr @internal_exr_match_decode(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, 2) %1, i32 noundef %2, i32 noundef range(i32 -2, 65536) %3, i32 noundef range(i32 -2, 65536) %4, i32 noundef range(i32 -128, 128) %5, i32 noundef range(i32 -32768, 32768) %6, i32 noundef range(i32 0, 2) %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11) unnamed_addr #41 {
   %.b = load i1, ptr @internal_exr_match_decode.init_cpu_check, align 4
   br i1 %.b, label %14, label %13
 
@@ -54306,7 +54306,7 @@ DwaCompressor_readChannelRules.exit:              ; preds = %Classifier_read.exi
   br i1 %162, label %DwaCompressor_readChannelRules.exit.thread, label %163
 
 163:                                              ; preds = %161
-  tail call fastcc void @DwaCompressor_setupChannelData.argelim(ptr noundef %0)
+  tail call fastcc void @DwaCompressor_setupChannelData(ptr noundef %0)
   %.not369 = icmp eq i64 %.sroa.3.0.copyload, 0
   br i1 %.not369, label %175, label %164
 

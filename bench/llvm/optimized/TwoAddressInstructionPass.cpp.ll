@@ -2923,7 +2923,7 @@ _ZN12_GLOBAL__N_125TwoAddressInstructionImpl19collectTiedOperandsEPN4llvm12Machi
   %1171 = getelementptr inbounds nuw i8, ptr %1170, i64 68
   %1172 = load i16, ptr %1171, align 4
   %1173 = icmp eq i16 %1172, 19
-  br i1 %1173, label %1174, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.thread.i
+  br i1 %1173, label %1174, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread.i
 
 1174:                                             ; preds = %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl19collectTiedOperandsEPN4llvm12MachineInstrERNS1_13SmallDenseMapIjNS1_11SmallVectorISt4pairIjjELj4EEELj4ENS1_12DenseMapInfoIjvEENS1_6detail12DenseMapPairIjS8_EEEE.exit.thread
   %1175 = getelementptr inbounds nuw i8, ptr %1170, i64 32
@@ -2945,7 +2945,7 @@ _ZN12_GLOBAL__N_125TwoAddressInstructionImpl19collectTiedOperandsEPN4llvm12Machi
   %1183 = icmp eq i32 %.val22.i, 0
   %1184 = add i32 %.val22.i, -1
   %1185 = zext i32 %.val22.i to i64
-  br i1 %1183, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.thread.i, label %.lr.ph.split.i.i
+  br i1 %1183, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread.i, label %.lr.ph.split.i.i
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %1201
   %storemerge9.i.i = phi i32 [ %1203, %1201 ], [ %1181, %.lr.ph.i.i ]
@@ -2962,7 +2962,7 @@ _ZN12_GLOBAL__N_125TwoAddressInstructionImpl19collectTiedOperandsEPN4llvm12Machi
   %.01521.i.i.i.i = phi i32 [ %.015.i.i.i.i, %1193 ], [ %.01519.i.i.i.i, %.lr.ph.split.i.i ]
   %.01420.i.i.i.i = phi i32 [ %1194, %1193 ], [ 1, %.lr.ph.split.i.i ]
   %1192 = icmp eq i32 %1191, -1
-  br i1 %1192, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.i, label %1193
+  br i1 %1192, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i, label %1193
 
 1193:                                             ; preds = %.lr.ph.i.i.i.i87
   %1194 = add i32 %.01420.i.i.i.i, 1
@@ -2977,7 +2977,7 @@ _ZN12_GLOBAL__N_125TwoAddressInstructionImpl19collectTiedOperandsEPN4llvm12Machi
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i.i: ; preds = %1193, %.lr.ph.split.i.i
   %.lcssa.i.i.pn.i.i = phi i64 [ %1187, %.lr.ph.split.i.i ], [ %1196, %1193 ]
   %1200 = icmp eq i64 %.lcssa.i.i.pn.i.i, %1185
-  br i1 %1200, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.i, label %1201
+  br i1 %1200, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i, label %1201
 
 1201:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i.i
   %1202 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %.val.i, i64 %.lcssa.i.i.pn.i.i, i32 0, i32 1
@@ -2990,27 +2990,27 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6
   %1205 = add nsw i32 %storemerge.lcssa.i.i, -1
   %1206 = icmp ult i32 %1205, 1073741823
   %spec.select.i.i = select i1 %1206, i32 %storemerge.lcssa.i.i, i32 0
-  br label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.i
+  br label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i
 
-_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i.i, %.lr.ph.i.i.i.i87, %._crit_edge.i.i86
+_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i.i, %.lr.ph.i.i.i.i87, %._crit_edge.i.i86
   %.sroa.07.0.i.i = phi i32 [ %spec.select.i.i, %._crit_edge.i.i86 ], [ 0, %.lr.ph.i.i.i.i87 ], [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i.i ]
   %.val23.i = load ptr, ptr %60, align 8
   %1207 = icmp eq i32 %1178, %.sroa.07.0.i.i
   br i1 %1207, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl24removeClobberedSrcRegMapEPN4llvm12MachineInstrE.exit, label %1208
 
-1208:                                             ; preds = %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.i
+1208:                                             ; preds = %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i
   %.not3.i.i = icmp ne i32 %.sroa.07.0.i.i, 0
   %1209 = or i32 %.sroa.07.0.i.i, %1178
   %or.cond.i.i.i = icmp ult i32 %1209, 1073741824
   %or.cond41.i = and i1 %.not3.i.i, %or.cond.i.i.i
-  br i1 %or.cond41.i, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.i, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.thread.i
+  br i1 %or.cond41.i, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.i, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread.i
 
-_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.i: ; preds = %1208
+_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.i: ; preds = %1208
   %1210 = getelementptr inbounds i8, ptr %.val23.i, i64 8
   %1211 = call noundef zeroext i1 @_ZNK4llvm14MCRegisterInfo11regsOverlapENS_10MCRegisterES1_(ptr noundef nonnull align 8 dereferenceable(224) %1210, i32 %1178, i32 %.sroa.07.0.i.i) #16
-  br i1 %1211, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl24removeClobberedSrcRegMapEPN4llvm12MachineInstrE.exit, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.thread.i
+  br i1 %1211, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl24removeClobberedSrcRegMapEPN4llvm12MachineInstrE.exit, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread.i
 
-_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.i, %1208, %.lr.ph.i.i, %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl19collectTiedOperandsEPN4llvm12MachineInstrERNS1_13SmallDenseMapIjNS1_11SmallVectorISt4pairIjjELj4EEELj4ENS1_12DenseMapInfoIjvEENS1_6detail12DenseMapPairIjS8_EEEE.exit.thread
+_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.i, %1208, %.lr.ph.i.i, %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl19collectTiedOperandsEPN4llvm12MachineInstrERNS1_13SmallDenseMapIjNS1_11SmallVectorISt4pairIjjELj4EEELj4ENS1_12DenseMapInfoIjvEENS1_6detail12DenseMapPairIjS8_EEEE.exit.thread
   %1212 = getelementptr inbounds nuw i8, ptr %1170, i64 32
   %1213 = load ptr, ptr %1212, align 8
   %1214 = getelementptr inbounds nuw i8, ptr %1170, i64 40
@@ -3020,8 +3020,8 @@ _ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8Register
   %.not2044.i = icmp eq i24 %1215, 0
   br i1 %.not2044.i, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl24removeClobberedSrcRegMapEPN4llvm12MachineInstrE.exit, label %.lr.ph.i83
 
-.lr.ph.i83:                                       ; preds = %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.thread.i, %1224
-  %.045.i = phi ptr [ %1225, %1224 ], [ %1213, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.thread.i ]
+.lr.ph.i83:                                       ; preds = %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread.i, %1224
+  %.045.i = phi ptr [ %1225, %1224 ], [ %1213, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread.i ]
   %1218 = load i32, ptr %.045.i, align 8
   %trunc.i = trunc i32 %1218 to i8
   switch i8 %trunc.i, label %1224 [
@@ -3049,7 +3049,7 @@ _ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8Register
   %.not20.i = icmp eq ptr %1225, %1217
   br i1 %.not20.i, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl24removeClobberedSrcRegMapEPN4llvm12MachineInstrE.exit, label %.lr.ph.i83
 
-_ZN12_GLOBAL__N_125TwoAddressInstructionImpl24removeClobberedSrcRegMapEPN4llvm12MachineInstrE.exit: ; preds = %1224, %1174, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.i, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.i, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.thread.i
+_ZN12_GLOBAL__N_125TwoAddressInstructionImpl24removeClobberedSrcRegMapEPN4llvm12MachineInstrE.exit: ; preds = %1224, %1174, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.i, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread.i
   %storemerge.pre = load i64, ptr %25, align 8
   br label %.backedge
 
@@ -3116,7 +3116,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4
   call fastcc void @_ZN12_GLOBAL__N_125TwoAddressInstructionImpl24removeClobberedSrcRegMapEPN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %1259)
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %3627, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.thread.i220, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.i240, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.i234, %3577, %1258, %1746
+.outer.backedge:                                  ; preds = %3627, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread.i220, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.i240, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i234, %3577, %1258, %1746
   %1260 = load i64, ptr %25, align 8
   store i64 %1260, ptr %24, align 8
   %1261 = inttoptr i64 %1260 to ptr
@@ -7976,7 +7976,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4
   %3574 = getelementptr inbounds nuw i8, ptr %3573, i64 68
   %3575 = load i16, ptr %3574, align 4
   %3576 = icmp eq i16 %3575, 19
-  br i1 %3576, label %3577, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.thread.i220
+  br i1 %3576, label %3577, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread.i220
 
 3577:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E5clearEv.exit
   %3578 = getelementptr inbounds nuw i8, ptr %3573, i64 32
@@ -7998,7 +7998,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4
   %3586 = icmp eq i32 %.val22.i242, 0
   %3587 = add i32 %.val22.i242, -1
   %3588 = zext i32 %.val22.i242 to i64
-  br i1 %3586, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.thread.i220, label %.lr.ph.split.i.i243
+  br i1 %3586, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread.i220, label %.lr.ph.split.i.i243
 
 .lr.ph.split.i.i243:                              ; preds = %.lr.ph.i.i241, %3604
   %storemerge9.i.i244 = phi i32 [ %3606, %3604 ], [ %3584, %.lr.ph.i.i241 ]
@@ -8015,7 +8015,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4
   %.01521.i.i.i.i247 = phi i32 [ %.015.i.i.i.i249, %3596 ], [ %.01519.i.i.i.i245, %.lr.ph.split.i.i243 ]
   %.01420.i.i.i.i248 = phi i32 [ %3597, %3596 ], [ 1, %.lr.ph.split.i.i243 ]
   %3595 = icmp eq i32 %3594, -1
-  br i1 %3595, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.i234, label %3596
+  br i1 %3595, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i234, label %3596
 
 3596:                                             ; preds = %.lr.ph.i.i.i.i246
   %3597 = add i32 %.01420.i.i.i.i248, 1
@@ -8030,7 +8030,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i.i250: ; preds = %3596, %.lr.ph.split.i.i243
   %.lcssa.i.i.pn.i.i251 = phi i64 [ %3590, %.lr.ph.split.i.i243 ], [ %3599, %3596 ]
   %3603 = icmp eq i64 %.lcssa.i.i.pn.i.i251, %3588
-  br i1 %3603, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.i234, label %3604
+  br i1 %3603, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i234, label %3604
 
 3604:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i.i250
   %3605 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %.val.i230, i64 %.lcssa.i.i.pn.i.i251, i32 0, i32 1
@@ -8043,27 +8043,27 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6
   %3608 = add nsw i32 %storemerge.lcssa.i.i232, -1
   %3609 = icmp ult i32 %3608, 1073741823
   %spec.select.i.i233 = select i1 %3609, i32 %storemerge.lcssa.i.i232, i32 0
-  br label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.i234
+  br label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i234
 
-_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.i234: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i.i250, %.lr.ph.i.i.i.i246, %._crit_edge.i.i231
+_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i234: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i.i250, %.lr.ph.i.i.i.i246, %._crit_edge.i.i231
   %.sroa.07.0.i.i235 = phi i32 [ %spec.select.i.i233, %._crit_edge.i.i231 ], [ 0, %.lr.ph.i.i.i.i246 ], [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i.i250 ]
   %.val23.i236 = load ptr, ptr %60, align 8
   %3610 = icmp eq i32 %3581, %.sroa.07.0.i.i235
   br i1 %3610, label %.outer.backedge, label %3611
 
-3611:                                             ; preds = %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.i234
+3611:                                             ; preds = %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i234
   %.not3.i.i237 = icmp ne i32 %.sroa.07.0.i.i235, 0
   %3612 = or i32 %.sroa.07.0.i.i235, %3581
   %or.cond.i.i.i238 = icmp ult i32 %3612, 1073741824
   %or.cond41.i239 = and i1 %.not3.i.i237, %or.cond.i.i.i238
-  br i1 %or.cond41.i239, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.i240, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.thread.i220
+  br i1 %or.cond41.i239, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.i240, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread.i220
 
-_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.i240: ; preds = %3611
+_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.i240: ; preds = %3611
   %3613 = getelementptr inbounds i8, ptr %.val23.i236, i64 8
   %3614 = call noundef zeroext i1 @_ZNK4llvm14MCRegisterInfo11regsOverlapENS_10MCRegisterES1_(ptr noundef nonnull align 8 dereferenceable(224) %3613, i32 %3581, i32 %.sroa.07.0.i.i235) #16
-  br i1 %3614, label %.outer.backedge, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.thread.i220
+  br i1 %3614, label %.outer.backedge, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread.i220
 
-_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.thread.i220: ; preds = %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.i240, %3611, %.lr.ph.i.i241, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E5clearEv.exit
+_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread.i220: ; preds = %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.i240, %3611, %.lr.ph.i.i241, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E5clearEv.exit
   %3615 = getelementptr inbounds nuw i8, ptr %3573, i64 32
   %3616 = load ptr, ptr %3615, align 8
   %3617 = getelementptr inbounds nuw i8, ptr %3573, i64 40
@@ -8073,8 +8073,8 @@ _ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8Register
   %.not2044.i221 = icmp eq i24 %3618, 0
   br i1 %.not2044.i221, label %.outer.backedge, label %.lr.ph.i222
 
-.lr.ph.i222:                                      ; preds = %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.thread.i220, %3627
-  %.045.i223 = phi ptr [ %3628, %3627 ], [ %3616, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.thread.i220 ]
+.lr.ph.i222:                                      ; preds = %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread.i220, %3627
+  %.045.i223 = phi ptr [ %3628, %3627 ], [ %3616, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread.i220 ]
   %3621 = load i32, ptr %.045.i223, align 8
   %trunc.i224 = trunc i32 %3621 to i8
   switch i8 %trunc.i224, label %3627 [
@@ -8879,7 +8879,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_125TwoAddressInstructionImpl24remov
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %4 = load i16, ptr %3, align 4
   %5 = icmp eq i16 %4, 19
-  br i1 %5, label %6, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.thread
+  br i1 %5, label %6, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -8887,7 +8887,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_125TwoAddressInstructionImpl24remov
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   %or.cond = icmp slt i32 %10, 1
-  br i1 %or.cond, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.thread38, label %11
+  br i1 %or.cond, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread38, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %8, i64 36
@@ -8903,7 +8903,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_125TwoAddressInstructionImpl24remov
   %17 = icmp eq i32 %.val22, 0
   %18 = add i32 %.val22, -1
   %19 = zext i32 %.val22 to i64
-  br i1 %17, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.thread, label %.lr.ph.split.i
+  br i1 %17, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread, label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %35
   %storemerge9.i = phi i32 [ %37, %35 ], [ %13, %.lr.ph.i ]
@@ -8920,7 +8920,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_125TwoAddressInstructionImpl24remov
   %.01521.i.i.i = phi i32 [ %.015.i.i.i, %27 ], [ %.01519.i.i.i, %.lr.ph.split.i ]
   %.01420.i.i.i = phi i32 [ %28, %27 ], [ 1, %.lr.ph.split.i ]
   %26 = icmp eq i32 %25, -1
-  br i1 %26, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit, label %27
+  br i1 %26, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit, label %27
 
 27:                                               ; preds = %.lr.ph.i.i.i
   %28 = add i32 %.01420.i.i.i, 1
@@ -8935,7 +8935,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_125TwoAddressInstructionImpl24remov
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i: ; preds = %27, %.lr.ph.split.i
   %.lcssa.i.i.pn.i = phi i64 [ %21, %.lr.ph.split.i ], [ %30, %27 ]
   %34 = icmp eq i64 %.lcssa.i.i.pn.i, %19
-  br i1 %34, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit, label %35
+  br i1 %34, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit, label %35
 
 35:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i
   %36 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %.val, i64 %.lcssa.i.i.pn.i, i32 0, i32 1
@@ -8948,28 +8948,28 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6
   %39 = add nsw i32 %storemerge.lcssa.i, -1
   %40 = icmp ult i32 %39, 1073741823
   %spec.select.i = select i1 %40, i32 %storemerge.lcssa.i, i32 0
-  br label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit
+  br label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit
 
-_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i, %.lr.ph.i.i.i, %._crit_edge.i
+_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i, %.lr.ph.i.i.i, %._crit_edge.i
   %.sroa.07.0.i = phi i32 [ %spec.select.i, %._crit_edge.i ], [ 0, %.lr.ph.i.i.i ], [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i ]
   %41 = getelementptr inbounds i8, ptr %0, i64 16
   %.val23 = load ptr, ptr %41, align 8
   %42 = icmp eq i32 %10, %.sroa.07.0.i
-  br i1 %42, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.thread38, label %43
+  br i1 %42, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread38, label %43
 
-43:                                               ; preds = %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit
+43:                                               ; preds = %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit
   %.not3.i = icmp ne i32 %.sroa.07.0.i, 0
   %44 = or i32 %.sroa.07.0.i, %10
   %or.cond.i.i = icmp ult i32 %44, 1073741824
   %or.cond41 = and i1 %.not3.i, %or.cond.i.i
-  br i1 %or.cond41, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.thread
+  br i1 %or.cond41, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread
 
-_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit: ; preds = %43
+_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit: ; preds = %43
   %45 = getelementptr inbounds i8, ptr %.val23, i64 8
   %46 = tail call noundef zeroext i1 @_ZNK4llvm14MCRegisterInfo11regsOverlapENS_10MCRegisterES1_(ptr noundef nonnull align 8 dereferenceable(224) %45, i32 %10, i32 %.sroa.07.0.i) #16
-  br i1 %46, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.thread38, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.thread
+  br i1 %46, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread38, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread
 
-_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.thread: ; preds = %.lr.ph.i, %43, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit, %2
+_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread: ; preds = %.lr.ph.i, %43, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit, %2
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -8977,9 +8977,9 @@ _ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8Register
   %51 = zext i24 %50 to i64
   %52 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %48, i64 %51
   %.not2044 = icmp eq i24 %50, 0
-  br i1 %.not2044, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.thread38, label %.lr.ph
+  br i1 %.not2044, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread38, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.thread
+.lr.ph:                                           ; preds = %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 200
   br label %54
 
@@ -9010,9 +9010,9 @@ _ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8Register
 61:                                               ; preds = %.sink.split, %54, %58, %56
   %62 = getelementptr inbounds i8, ptr %.045, i64 32
   %.not20 = icmp eq ptr %62, %52
-  br i1 %.not20, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.thread38, label %54
+  br i1 %.not20, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread38, label %54
 
-_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.thread38: ; preds = %61, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.thread, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit, %6
+_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread38: ; preds = %61, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit, %6
   ret void
 }
 
@@ -9391,7 +9391,7 @@ _ZNK12_GLOBAL__N_125TwoAddressInstructionImpl8isKilledERN4llvm12MachineInstrENS1
   %201 = icmp eq i32 %.val56.i.i, 0
   %202 = add i32 %.val56.i.i, -1
   %203 = zext i32 %.val56.i.i to i64
-  br i1 %201, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.thread.i.i, label %.lr.ph.split.i.i.i
+  br i1 %201, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.thread.i.i, label %.lr.ph.split.i.i.i
 
 .lr.ph.split.i.i.i:                               ; preds = %.lr.ph.i.i.i, %219
   %storemerge9.i.i.i = phi i32 [ %221, %219 ], [ %98, %.lr.ph.i.i.i ]
@@ -9408,7 +9408,7 @@ _ZNK12_GLOBAL__N_125TwoAddressInstructionImpl8isKilledERN4llvm12MachineInstrENS1
   %.01521.i.i.i.i.i = phi i32 [ %.015.i.i.i.i.i, %211 ], [ %.01519.i.i.i.i.i, %.lr.ph.split.i.i.i ]
   %.01420.i.i.i.i.i = phi i32 [ %212, %211 ], [ 1, %.lr.ph.split.i.i.i ]
   %210 = icmp eq i32 %209, -1
-  br i1 %210, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.thread.i.i, label %211
+  br i1 %210, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.thread.i.i, label %211
 
 211:                                              ; preds = %.lr.ph.i.i.i.i.i
   %212 = add i32 %.01420.i.i.i.i.i, 1
@@ -9423,7 +9423,7 @@ _ZNK12_GLOBAL__N_125TwoAddressInstructionImpl8isKilledERN4llvm12MachineInstrENS1
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i.i.i: ; preds = %211, %.lr.ph.split.i.i.i
   %.lcssa.i.i.pn.i.i.i = phi i64 [ %205, %.lr.ph.split.i.i.i ], [ %214, %211 ]
   %218 = icmp eq i64 %.lcssa.i.i.pn.i.i.i, %203
-  br i1 %218, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.thread.i.i, label %219
+  br i1 %218, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.thread.i.i, label %219
 
 219:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i.i.i
   %220 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %.val55.i.i, i64 %.lcssa.i.i.pn.i.i.i, i32 0, i32 1
@@ -9435,18 +9435,18 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6
   %storemerge.lcssa.i.i.i = phi i32 [ %98, %200 ], [ %221, %219 ]
   %223 = add nsw i32 %storemerge.lcssa.i.i.i, -1
   %224 = icmp ult i32 %223, 1073741823
-  br i1 %224, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.i.i, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.thread.i.i
+  br i1 %224, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i.i, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.thread.i.i
 
-_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.i.i: ; preds = %._crit_edge.i.i.i
+_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i.i: ; preds = %._crit_edge.i.i.i
   %.val53.i.i = load ptr, ptr %112, align 8
   %.val54.i.i = load i32, ptr %113, align 8
   br i1 %119, label %.lr.ph.i67.i.i, label %._crit_edge.i63.i.i
 
-.lr.ph.i67.i.i:                                   ; preds = %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.i.i
+.lr.ph.i67.i.i:                                   ; preds = %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i.i
   %225 = icmp eq i32 %.val54.i.i, 0
   %226 = add i32 %.val54.i.i, -1
   %227 = zext i32 %.val54.i.i to i64
-  br i1 %225, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit77.thread.i.i, label %.lr.ph.split.i68.i.i
+  br i1 %225, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit77.thread.i.i, label %.lr.ph.split.i68.i.i
 
 .lr.ph.split.i68.i.i:                             ; preds = %.lr.ph.i67.i.i, %243
   %storemerge9.i69.i.i = phi i32 [ %245, %243 ], [ %.sroa.011.0105.i.ph, %.lr.ph.i67.i.i ]
@@ -9463,7 +9463,7 @@ _ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_
   %.01521.i.i.i72.i.i = phi i32 [ %.015.i.i.i74.i.i, %235 ], [ %.01519.i.i.i70.i.i, %.lr.ph.split.i68.i.i ]
   %.01420.i.i.i73.i.i = phi i32 [ %236, %235 ], [ 1, %.lr.ph.split.i68.i.i ]
   %234 = icmp eq i32 %233, -1
-  br i1 %234, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit77.i.i, label %235
+  br i1 %234, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit77.i.i, label %235
 
 235:                                              ; preds = %.lr.ph.i.i.i71.i.i
   %236 = add i32 %.01420.i.i.i73.i.i, 1
@@ -9478,7 +9478,7 @@ _ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i75.i.i: ; preds = %235, %.lr.ph.split.i68.i.i
   %.lcssa.i.i.pn.i76.i.i = phi i64 [ %229, %.lr.ph.split.i68.i.i ], [ %238, %235 ]
   %242 = icmp eq i64 %.lcssa.i.i.pn.i76.i.i, %227
-  br i1 %242, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit77.i.i, label %243
+  br i1 %242, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit77.i.i, label %243
 
 243:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i75.i.i
   %244 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %.val53.i.i, i64 %.lcssa.i.i.pn.i76.i.i, i32 0, i32 1
@@ -9486,27 +9486,27 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6
   %246 = icmp slt i32 %245, 0
   br i1 %246, label %.lr.ph.split.i68.i.i, label %._crit_edge.i63.i.i, !llvm.loop !58
 
-._crit_edge.i63.i.i:                              ; preds = %243, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.i.i
-  %storemerge.lcssa.i64.i.i = phi i32 [ %.sroa.011.0105.i.ph, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.i.i ], [ %245, %243 ]
+._crit_edge.i63.i.i:                              ; preds = %243, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i.i
+  %storemerge.lcssa.i64.i.i = phi i32 [ %.sroa.011.0105.i.ph, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i.i ], [ %245, %243 ]
   %247 = add nsw i32 %storemerge.lcssa.i64.i.i, -1
   %248 = icmp ult i32 %247, 1073741823
   %spec.select.i65.i.i = select i1 %248, i32 %storemerge.lcssa.i64.i.i, i32 0
-  br label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit77.i.i
+  br label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit77.i.i
 
-_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit77.i.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i75.i.i, %.lr.ph.i.i.i71.i.i, %._crit_edge.i63.i.i
+_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit77.i.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i75.i.i, %.lr.ph.i.i.i71.i.i, %._crit_edge.i63.i.i
   %.sroa.07.0.i66.i.i = phi i32 [ %spec.select.i65.i.i, %._crit_edge.i63.i.i ], [ 0, %.lr.ph.i.i.i71.i.i ], [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i75.i.i ]
   %249 = icmp slt i32 %145, 0
   br i1 %249, label %.lr.ph.i82.i.i, label %._crit_edge.i78.i.i
 
-_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit77.thread.i.i: ; preds = %.lr.ph.i67.i.i
+_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit77.thread.i.i: ; preds = %.lr.ph.i67.i.i
   %250 = icmp slt i32 %145, 0
-  br i1 %250, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.thread.i.i, label %._crit_edge.i78.i.i
+  br i1 %250, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.thread.i.i, label %._crit_edge.i78.i.i
 
-.lr.ph.i82.i.i:                                   ; preds = %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit77.i.i
+.lr.ph.i82.i.i:                                   ; preds = %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit77.i.i
   %251 = icmp eq i32 %.val54.i.i, 0
   %252 = add i32 %.val54.i.i, -1
   %253 = zext i32 %.val54.i.i to i64
-  br i1 %251, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit92.i.i, label %.lr.ph.split.i83.i.i
+  br i1 %251, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit92.i.i, label %.lr.ph.split.i83.i.i
 
 .lr.ph.split.i83.i.i:                             ; preds = %.lr.ph.i82.i.i, %269
   %storemerge9.i84.i.i = phi i32 [ %271, %269 ], [ %145, %.lr.ph.i82.i.i ]
@@ -9523,7 +9523,7 @@ _ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_
   %.01521.i.i.i87.i.i = phi i32 [ %.015.i.i.i89.i.i, %261 ], [ %.01519.i.i.i85.i.i, %.lr.ph.split.i83.i.i ]
   %.01420.i.i.i88.i.i = phi i32 [ %262, %261 ], [ 1, %.lr.ph.split.i83.i.i ]
   %260 = icmp eq i32 %259, -1
-  br i1 %260, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit92.i.i, label %261
+  br i1 %260, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit92.i.i, label %261
 
 261:                                              ; preds = %.lr.ph.i.i.i86.i.i
   %262 = add i32 %.01420.i.i.i88.i.i, 1
@@ -9538,7 +9538,7 @@ _ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i90.i.i: ; preds = %261, %.lr.ph.split.i83.i.i
   %.lcssa.i.i.pn.i91.i.i = phi i64 [ %255, %.lr.ph.split.i83.i.i ], [ %264, %261 ]
   %268 = icmp eq i64 %.lcssa.i.i.pn.i91.i.i, %253
-  br i1 %268, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit92.i.i, label %269
+  br i1 %268, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit92.i.i, label %269
 
 269:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i90.i.i
   %270 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %.val53.i.i, i64 %.lcssa.i.i.pn.i91.i.i, i32 0, i32 1
@@ -9550,73 +9550,73 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6
   %.pre509 = add nsw i32 %271, -1
   br label %._crit_edge.i78.i.i
 
-._crit_edge.i78.i.i:                              ; preds = %._crit_edge.i78.i.i.loopexit, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit77.thread.i.i, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit77.i.i
-  %.pre-phi = phi i32 [ %.pre509, %._crit_edge.i78.i.i.loopexit ], [ %146, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit77.thread.i.i ], [ %146, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit77.i.i ]
-  %.sroa.07.0.i66160.i.i = phi i32 [ %.sroa.07.0.i66.i.i, %._crit_edge.i78.i.i.loopexit ], [ 0, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit77.thread.i.i ], [ %.sroa.07.0.i66.i.i, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit77.i.i ]
-  %storemerge.lcssa.i79.i.i = phi i32 [ %271, %._crit_edge.i78.i.i.loopexit ], [ %145, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit77.thread.i.i ], [ %145, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit77.i.i ]
+._crit_edge.i78.i.i:                              ; preds = %._crit_edge.i78.i.i.loopexit, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit77.thread.i.i, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit77.i.i
+  %.pre-phi = phi i32 [ %.pre509, %._crit_edge.i78.i.i.loopexit ], [ %146, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit77.thread.i.i ], [ %146, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit77.i.i ]
+  %.sroa.07.0.i66160.i.i = phi i32 [ %.sroa.07.0.i66.i.i, %._crit_edge.i78.i.i.loopexit ], [ 0, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit77.thread.i.i ], [ %.sroa.07.0.i66.i.i, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit77.i.i ]
+  %storemerge.lcssa.i79.i.i = phi i32 [ %271, %._crit_edge.i78.i.i.loopexit ], [ %145, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit77.thread.i.i ], [ %145, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit77.i.i ]
   %273 = icmp ult i32 %.pre-phi, 1073741823
   %spec.select.i80.i.i = select i1 %273, i32 %storemerge.lcssa.i79.i.i, i32 0
-  br label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit92.i.i
+  br label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit92.i.i
 
-_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit92.i.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i90.i.i, %.lr.ph.i.i.i86.i.i, %._crit_edge.i78.i.i, %.lr.ph.i82.i.i
+_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit92.i.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i90.i.i, %.lr.ph.i.i.i86.i.i, %._crit_edge.i78.i.i, %.lr.ph.i82.i.i
   %.sroa.07.0.i66159.i.i = phi i32 [ %.sroa.07.0.i66160.i.i, %._crit_edge.i78.i.i ], [ %.sroa.07.0.i66.i.i, %.lr.ph.i82.i.i ], [ %.sroa.07.0.i66.i.i, %.lr.ph.i.i.i86.i.i ], [ %.sroa.07.0.i66.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i90.i.i ]
   %.sroa.07.0.i81.i.i = phi i32 [ %spec.select.i80.i.i, %._crit_edge.i78.i.i ], [ 0, %.lr.ph.i82.i.i ], [ 0, %.lr.ph.i.i.i86.i.i ], [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i90.i.i ]
   %.not37.i.i = icmp eq i32 %.sroa.07.0.i66159.i.i, 0
-  br i1 %.not37.i.i, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.i.i, label %274
+  br i1 %.not37.i.i, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.i.i, label %274
 
-274:                                              ; preds = %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit92.i.i
+274:                                              ; preds = %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit92.i.i
   %.val58.i.i = load ptr, ptr %114, align 8
   %275 = icmp eq i32 %.sroa.07.0.i66159.i.i, %storemerge.lcssa.i.i.i
-  br i1 %275, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.i.i, label %276
+  br i1 %275, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.i.i, label %276
 
 276:                                              ; preds = %274
   %277 = icmp ult i32 %.sroa.07.0.i66159.i.i, 1073741824
-  br i1 %277, label %278, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.i.i
+  br i1 %277, label %278, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.i.i
 
 278:                                              ; preds = %276
   %279 = getelementptr inbounds i8, ptr %.val58.i.i, i64 8
   %280 = call noundef zeroext i1 @_ZNK4llvm14MCRegisterInfo11regsOverlapENS_10MCRegisterES1_(ptr noundef nonnull align 8 dereferenceable(224) %279, i32 %.sroa.07.0.i66159.i.i, i32 %storemerge.lcssa.i.i.i) #16
-  br label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.i.i
+  br label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.i.i
 
-_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.i.i: ; preds = %278, %276, %274, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit92.i.i
-  %281 = phi i1 [ false, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit92.i.i ], [ true, %274 ], [ false, %276 ], [ %280, %278 ]
+_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.i.i: ; preds = %278, %276, %274, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit92.i.i
+  %281 = phi i1 [ false, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit92.i.i ], [ true, %274 ], [ false, %276 ], [ %280, %278 ]
   %.not38.i.i = icmp eq i32 %.sroa.07.0.i81.i.i, 0
-  br i1 %.not38.i.i, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit98.thread.i.i, label %282
+  br i1 %.not38.i.i, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit98.thread.i.i, label %282
 
-282:                                              ; preds = %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.i.i
+282:                                              ; preds = %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.i.i
   %.val57.i.i = load ptr, ptr %114, align 8
   %283 = icmp eq i32 %.sroa.07.0.i81.i.i, %storemerge.lcssa.i.i.i
-  br i1 %283, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit98.i.i, label %284
+  br i1 %283, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit98.i.i, label %284
 
 284:                                              ; preds = %282
   %285 = icmp ult i32 %.sroa.07.0.i81.i.i, 1073741824
-  br i1 %285, label %286, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit98.thread.i.i
+  br i1 %285, label %286, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit98.thread.i.i
 
 286:                                              ; preds = %284
   %287 = getelementptr inbounds i8, ptr %.val57.i.i, i64 8
   %288 = call noundef zeroext i1 @_ZNK4llvm14MCRegisterInfo11regsOverlapENS_10MCRegisterES1_(ptr noundef nonnull align 8 dereferenceable(224) %287, i32 %.sroa.07.0.i81.i.i, i32 %storemerge.lcssa.i.i.i) #16
-  br label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit98.i.i
+  br label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit98.i.i
 
-_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit98.i.i: ; preds = %286, %282
+_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit98.i.i: ; preds = %286, %282
   %289 = phi i1 [ true, %282 ], [ %288, %286 ]
   %brmerge.demorgan.i.i = and i1 %.not37.i.i, %289
-  br i1 %brmerge.demorgan.i.i, label %.thread72.i, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit98.thread.i.i
+  br i1 %brmerge.demorgan.i.i, label %.thread72.i, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit98.thread.i.i
 
-_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit98.thread.i.i: ; preds = %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit98.i.i, %284, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.i.i
-  %290 = phi i1 [ %289, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit98.i.i ], [ false, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit.i.i ], [ false, %284 ]
+_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit98.thread.i.i: ; preds = %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit98.i.i, %284, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.i.i
+  %290 = phi i1 [ %289, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit98.i.i ], [ false, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.i.i ], [ false, %284 ]
   %brmerge46.i.i = or i1 %.not37.i.i, %281
   %brmerge46.not.i.i = xor i1 %brmerge46.i.i, true
   %brmerge47.i.i = or i1 %.not38.i.i, %290
   %or.cond210.i.i = and i1 %brmerge47.i.i, %brmerge46.not.i.i
   br i1 %or.cond210.i.i, label %.thread72.i, label %291
 
-291:                                              ; preds = %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit98.thread.i.i
+291:                                              ; preds = %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit98.thread.i.i
   %292 = or i1 %290, %brmerge46.not.i.i
   %293 = xor i1 %281, true
   %or.cond257.i.i = select i1 %.not38.i.i, i1 %293, i1 %292
-  br i1 %or.cond257.i.i, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.thread.i.i, label %.thread69.i
+  br i1 %or.cond257.i.i, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.thread.i.i, label %.thread69.i
 
-_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.thread.i.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i.i.i, %.lr.ph.i.i.i.i.i, %291, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit77.thread.i.i, %._crit_edge.i.i.i, %.lr.ph.i.i.i
+_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.thread.i.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i.i.i, %.lr.ph.i.i.i.i.i, %291, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit77.thread.i.i, %._crit_edge.i.i.i, %.lr.ph.i.i.i
   %294 = load ptr, ptr %115, align 8
   %295 = icmp slt i32 %145, 0
   %296 = getelementptr inbounds nuw i8, ptr %294, i64 56
@@ -9634,7 +9634,7 @@ _ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_
   %.val60.pre.i.i.pre = load ptr, ptr %116, align 8
   br i1 %.not3537.i.i.i, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl17noUseAfterLastDefEN4llvm8RegisterEjRj.exit.thread.i.i, label %.lr.ph.i99.i.i
 
-.lr.ph.i99.i.i:                                   ; preds = %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.thread.i.i
+.lr.ph.i99.i.i:                                   ; preds = %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.thread.i.i
   %305 = load ptr, ptr %117, align 8
   %306 = load i32, ptr %118, align 8
   %307 = icmp eq i32 %306, 0
@@ -9731,8 +9731,8 @@ _ZN12_GLOBAL__N_125TwoAddressInstructionImpl17noUseAfterLastDefEN4llvm8RegisterE
   %.not19.i.i.i = or i1 %352, %351
   br i1 %.not19.i.i.i, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl17noUseAfterLastDefEN4llvm8RegisterEjRj.exit.thread.i.i, label %.thread69.i
 
-_ZN12_GLOBAL__N_125TwoAddressInstructionImpl17noUseAfterLastDefEN4llvm8RegisterEjRj.exit.thread.i.i: ; preds = %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl17noUseAfterLastDefEN4llvm8RegisterEjRj.exit.i.i, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.thread.i.i
-  %.2155183.i.i = phi i32 [ %.1154.i.i, %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl17noUseAfterLastDefEN4llvm8RegisterEjRj.exit.i.i ], [ 0, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.thread.i.i ]
+_ZN12_GLOBAL__N_125TwoAddressInstructionImpl17noUseAfterLastDefEN4llvm8RegisterEjRj.exit.thread.i.i: ; preds = %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl17noUseAfterLastDefEN4llvm8RegisterEjRj.exit.i.i, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.thread.i.i
+  %.2155183.i.i = phi i32 [ %.1154.i.i, %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl17noUseAfterLastDefEN4llvm8RegisterEjRj.exit.i.i ], [ 0, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.thread.i.i ]
   %353 = getelementptr inbounds %"struct.std::pair.172", ptr %299, i64 %122, i32 1
   %354 = getelementptr inbounds ptr, ptr %303, i64 %123
   %.0.in.i.i.i.i105.i.i = select i1 %120, ptr %353, ptr %354
@@ -9922,13 +9922,13 @@ _ZN12_GLOBAL__N_125TwoAddressInstructionImpl17noUseAfterLastDefEN4llvm8RegisterE
   %433 = getelementptr inbounds nuw i8, ptr %.pr3.i.i.i.i.i, i64 24
   %434 = load ptr, ptr %433, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %434, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl12getSingleDefEN4llvm8RegisterEPNS1_17MachineBasicBlockE.argprom.argprom.exit.i.i.i, label %435
+  br i1 %.not.i.i.i.i.i.i, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl12getSingleDefEN4llvm8RegisterEPNS1_17MachineBasicBlockE.exit.i.i.i, label %435
 
 435:                                              ; preds = %432
   %436 = load i32, ptr %434, align 8
   %437 = and i32 %436, 16777216
   %.not.i.i.i17.i.i.i.i = icmp eq i32 %437, 0
-  br i1 %.not.i.i.i17.i.i.i.i, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl12getSingleDefEN4llvm8RegisterEPNS1_17MachineBasicBlockE.argprom.argprom.exit.i.i.i, label %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EE7advanceEv.exit.i.i.i.i.i
+  br i1 %.not.i.i.i17.i.i.i.i, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl12getSingleDefEN4llvm8RegisterEPNS1_17MachineBasicBlockE.exit.i.i.i, label %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EE7advanceEv.exit.i.i.i.i.i
 
 _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EE7advanceEv.exit.i.i.i.i.i: ; preds = %435
   %438 = getelementptr inbounds nuw i8, ptr %434, i64 8
@@ -9936,11 +9936,11 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb
   %440 = icmp eq ptr %439, %422
   br i1 %440, label %432, label %.lr.ph.i.loopexit.i.i.i, !llvm.loop !110
 
-_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl12getSingleDefEN4llvm8RegisterEPNS1_17MachineBasicBlockE.argprom.argprom.exit.i.i.i: ; preds = %435, %432
+_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl12getSingleDefEN4llvm8RegisterEPNS1_17MachineBasicBlockE.exit.i.i.i: ; preds = %435, %432
   %.not.i134.i.i = icmp eq ptr %.1.i.i.i.i, null
   br i1 %.not.i134.i.i, label %.lr.ph.i.i.preheader, label %441
 
-441:                                              ; preds = %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl12getSingleDefEN4llvm8RegisterEPNS1_17MachineBasicBlockE.argprom.argprom.exit.i.i.i
+441:                                              ; preds = %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl12getSingleDefEN4llvm8RegisterEPNS1_17MachineBasicBlockE.exit.i.i.i
   %442 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 68
   %443 = load i16, ptr %442, align 4
   %444 = icmp eq i16 %443, 19
@@ -9959,7 +9959,7 @@ _ZNK12_GLOBAL__N_125TwoAddressInstructionImpl12getSingleDefEN4llvm8RegisterEPNS1
   %exitcond.not.i.i = icmp eq i32 %452, %403
   br i1 %exitcond.not.i.i, label %.loopexit.i.thread.i, label %.lr.ph.i.i, !llvm.loop !109
 
-.lr.ph.i.i.preheader:                             ; preds = %441, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl12getSingleDefEN4llvm8RegisterEPNS1_17MachineBasicBlockE.argprom.argprom.exit.i.i.i, %419, %416, %.lr.ph.i132.i.i, %405, %430
+.lr.ph.i.i.preheader:                             ; preds = %441, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl12getSingleDefEN4llvm8RegisterEPNS1_17MachineBasicBlockE.exit.i.i.i, %419, %416, %.lr.ph.i132.i.i, %405, %430
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %451
@@ -10036,13 +10036,13 @@ _ZNK12_GLOBAL__N_125TwoAddressInstructionImpl12getSingleDefEN4llvm8RegisterEPNS1
   %479 = getelementptr inbounds nuw i8, ptr %.pr3.i.i.i.i, i64 24
   %480 = load ptr, ptr %479, align 8
   %.not.i.i.i.i.i = icmp eq ptr %480, null
-  br i1 %.not.i.i.i.i.i, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl12getSingleDefEN4llvm8RegisterEPNS1_17MachineBasicBlockE.argprom.argprom.exit.i.i, label %481
+  br i1 %.not.i.i.i.i.i, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl12getSingleDefEN4llvm8RegisterEPNS1_17MachineBasicBlockE.exit.i.i, label %481
 
 481:                                              ; preds = %478
   %482 = load i32, ptr %480, align 8
   %483 = and i32 %482, 16777216
   %.not.i.i.i17.i.i.i = icmp eq i32 %483, 0
-  br i1 %.not.i.i.i17.i.i.i, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl12getSingleDefEN4llvm8RegisterEPNS1_17MachineBasicBlockE.argprom.argprom.exit.i.i, label %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EE7advanceEv.exit.i.i.i.i
+  br i1 %.not.i.i.i17.i.i.i, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl12getSingleDefEN4llvm8RegisterEPNS1_17MachineBasicBlockE.exit.i.i, label %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EE7advanceEv.exit.i.i.i.i
 
 _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EE7advanceEv.exit.i.i.i.i: ; preds = %481
   %484 = getelementptr inbounds nuw i8, ptr %480, i64 8
@@ -10050,11 +10050,11 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb
   %486 = icmp eq ptr %485, %468
   br i1 %486, label %478, label %.lr.ph.i.loopexit.i.i, !llvm.loop !110
 
-_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl12getSingleDefEN4llvm8RegisterEPNS1_17MachineBasicBlockE.argprom.argprom.exit.i.i: ; preds = %481, %478
+_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl12getSingleDefEN4llvm8RegisterEPNS1_17MachineBasicBlockE.exit.i.i: ; preds = %481, %478
   %.not.i.i = icmp eq ptr %.1.i.i62.i, null
   br i1 %.not.i.i, label %.loopexit.i.thread.i, label %487
 
-487:                                              ; preds = %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl12getSingleDefEN4llvm8RegisterEPNS1_17MachineBasicBlockE.argprom.argprom.exit.i.i
+487:                                              ; preds = %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl12getSingleDefEN4llvm8RegisterEPNS1_17MachineBasicBlockE.exit.i.i
   %488 = getelementptr inbounds nuw i8, ptr %.1.i.i62.i, i64 68
   %489 = load i16, ptr %488, align 4
   %490 = icmp eq i16 %489, 19
@@ -10068,7 +10068,7 @@ _ZNK12_GLOBAL__N_125TwoAddressInstructionImpl12getSingleDefEN4llvm8RegisterEPNS1
   %496 = icmp eq i32 %495, %98
   br i1 %496, label %.thread69.i, label %451
 
-.loopexit.i.thread.i:                             ; preds = %487, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl12getSingleDefEN4llvm8RegisterEPNS1_17MachineBasicBlockE.argprom.argprom.exit.i.i, %465, %462, %.lr.ph.i.i, %451, %476, %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl17noUseAfterLastDefEN4llvm8RegisterEjRj.exit130.thread.i.i
+.loopexit.i.thread.i:                             ; preds = %487, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl12getSingleDefEN4llvm8RegisterEPNS1_17MachineBasicBlockE.exit.i.i, %465, %462, %.lr.ph.i.i, %451, %476, %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl17noUseAfterLastDefEN4llvm8RegisterEjRj.exit130.thread.i.i
   %497 = load ptr, ptr %108, align 8
   %498 = load ptr, ptr %497, align 8
   %499 = getelementptr inbounds i8, ptr %498, i64 216
@@ -10086,7 +10086,7 @@ _ZNK12_GLOBAL__N_125TwoAddressInstructionImpl12getSingleDefEN4llvm8RegisterEPNS1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %24)
   br label %572
 
-.thread72.i:                                      ; preds = %445, %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl17noUseAfterLastDefEN4llvm8RegisterEjRj.exit130.i.i, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit98.thread.i.i, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.argprom.exit98.i.i
+.thread72.i:                                      ; preds = %445, %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl17noUseAfterLastDefEN4llvm8RegisterEjRj.exit130.i.i, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit98.thread.i.i, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit98.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %24)
   br label %.thread.i139
 
@@ -10171,9 +10171,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6
   %storemerge.lcssa.i.i43.i = phi i32 [ %514, %517 ], [ %539, %537 ]
   %541 = add nsw i32 %storemerge.lcssa.i.i43.i, -1
   %542 = icmp ult i32 %541, 1073741823
-  br i1 %542, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.i44.i, label %.thread
+  br i1 %542, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i44.i, label %.thread
 
-_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.i44.i: ; preds = %._crit_edge.i.i42.i
+_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i44.i: ; preds = %._crit_edge.i.i42.i
   %543 = load ptr, ptr %41, align 8
   %544 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %543, i64 %43, i32 1
   %545 = load i32, ptr %544, align 4
@@ -10181,7 +10181,7 @@ _ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_
   %546 = icmp eq i32 %.val11.i.i, 0
   br i1 %546, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E15LookupBucketForIS2_EEbRKT_RPS7_.exit.i.i.i.i, label %547
 
-547:                                              ; preds = %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.i44.i
+547:                                              ; preds = %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i44.i
   %548 = mul i32 %545, 37
   %549 = add i32 %.val11.i.i, -1
   %.02532.i.i.i.i.i.i = and i32 %548, %549
@@ -10219,8 +10219,8 @@ _ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_
   %567 = icmp eq i32 %545, %566
   br i1 %567, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_EixERKS2_.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !45
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E15LookupBucketForIS2_EEbRKT_RPS7_.exit.i.i.i.i: ; preds = %557, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.i44.i
-  %.sink.i.i.i.i.i.i = phi ptr [ %558, %557 ], [ null, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.i44.i ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E15LookupBucketForIS2_EEbRKT_RPS7_.exit.i.i.i.i: ; preds = %557, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i44.i
+  %.sink.i.i.i.i.i.i = phi ptr [ %558, %557 ], [ null, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i44.i ]
   %568 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E20InsertIntoBucketImplIS2_EEPS7_RKS2_RKT_SB_(ptr noundef nonnull align 1 dereferenceable(1) %112, ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef %.sink.i.i.i.i.i.i)
   %569 = load i32, ptr %23, align 4
   store i32 %569, ptr %568, align 4
@@ -10703,24 +10703,24 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit133.i: ; pr
 
 810:                                              ; preds = %.lr.ph86.i
   %811 = icmp ugt i32 %.010184.i, 10
-  br i1 %811, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl21rescheduleMIBelowKillERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_NS1_8RegisterE.argprom.exit, label %812
+  br i1 %811, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl21rescheduleMIBelowKillERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_NS1_8RegisterE.exit, label %812
 
 812:                                              ; preds = %810
   %813 = add nuw nsw i32 %.010184.i, 1
   %814 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr23hasUnmodeledSideEffectsEv(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.016.083.i) #16
-  br i1 %814, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl21rescheduleMIBelowKillERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_NS1_8RegisterE.argprom.exit, label %815
+  br i1 %814, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl21rescheduleMIBelowKillERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_NS1_8RegisterE.exit, label %815
 
 815:                                              ; preds = %812
   %816 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.016.083.i, i32 noundef 1)
-  br i1 %816, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl21rescheduleMIBelowKillERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_NS1_8RegisterE.argprom.exit, label %817
+  br i1 %816, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl21rescheduleMIBelowKillERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_NS1_8RegisterE.exit, label %817
 
 817:                                              ; preds = %815
   %818 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr8isBranchENS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.016.083.i, i32 noundef 1)
-  br i1 %818, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl21rescheduleMIBelowKillERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_NS1_8RegisterE.argprom.exit, label %819
+  br i1 %818, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl21rescheduleMIBelowKillERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_NS1_8RegisterE.exit, label %819
 
 819:                                              ; preds = %817
   %820 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr12isTerminatorENS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.016.083.i, i32 noundef 1)
-  br i1 %820, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl21rescheduleMIBelowKillERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_NS1_8RegisterE.argprom.exit, label %821
+  br i1 %820, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl21rescheduleMIBelowKillERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_NS1_8RegisterE.exit, label %821
 
 821:                                              ; preds = %819
   %822 = getelementptr inbounds nuw i8, ptr %.sroa.016.083.i, i64 32
@@ -10752,7 +10752,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit133.i: ; pr
 
 836:                                              ; preds = %834
   %837 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl14regOverlapsSetERKN4llvm15SmallVectorImplINS1_8RegisterEEES3_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(16) %19, i32 %833)
-  br i1 %837, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl21rescheduleMIBelowKillERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_NS1_8RegisterE.argprom.exit, label %838
+  br i1 %837, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl21rescheduleMIBelowKillERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_NS1_8RegisterE.exit, label %838
 
 838:                                              ; preds = %836
   %839 = load i32, ptr %.010379.i, align 8
@@ -10762,11 +10762,11 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit133.i: ; pr
 
 842:                                              ; preds = %838
   %843 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl14regOverlapsSetERKN4llvm15SmallVectorImplINS1_8RegisterEEES3_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(16) %21, i32 %833)
-  br i1 %843, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl21rescheduleMIBelowKillERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_NS1_8RegisterE.argprom.exit, label %854
+  br i1 %843, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl21rescheduleMIBelowKillERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_NS1_8RegisterE.exit, label %854
 
 844:                                              ; preds = %834
   %845 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl14regOverlapsSetERKN4llvm15SmallVectorImplINS1_8RegisterEEES3_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(16) %21, i32 %833)
-  br i1 %845, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl21rescheduleMIBelowKillERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_NS1_8RegisterE.argprom.exit, label %846
+  br i1 %845, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl21rescheduleMIBelowKillERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_NS1_8RegisterE.exit, label %846
 
 846:                                              ; preds = %844
   %847 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledERKN4llvm14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(32) %.010379.i)
@@ -10778,14 +10778,14 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit133.i: ; pr
 
 849:                                              ; preds = %848
   %850 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl14regOverlapsSetERKN4llvm15SmallVectorImplINS1_8RegisterEEES3_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(16) %19, i32 %833)
-  br i1 %850, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl21rescheduleMIBelowKillERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_NS1_8RegisterE.argprom.exit, label %851
+  br i1 %850, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl21rescheduleMIBelowKillERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_NS1_8RegisterE.exit, label %851
 
 851:                                              ; preds = %849, %848
   %852 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl14regOverlapsSetERKN4llvm15SmallVectorImplINS1_8RegisterEEES3_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 %833)
-  br i1 %852, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl21rescheduleMIBelowKillERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_NS1_8RegisterE.argprom.exit, label %854
+  br i1 %852, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl21rescheduleMIBelowKillERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_NS1_8RegisterE.exit, label %854
 
 853:                                              ; preds = %846
-  br i1 %847, label %854, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl21rescheduleMIBelowKillERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_NS1_8RegisterE.argprom.exit
+  br i1 %847, label %854, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl21rescheduleMIBelowKillERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_NS1_8RegisterE.exit
 
 854:                                              ; preds = %853, %851, %842, %838, %831, %.lr.ph81.i
   %855 = getelementptr inbounds i8, ptr %.010379.i, i64 32
@@ -10940,7 +10940,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEi.exit.i: ; preds
   call void @_ZN4llvm13LiveVariables24addVirtualRegisterKilledENS_8RegisterERNS_12MachineInstrEb(ptr noundef nonnull align 8 dereferenceable(200) %911, i32 %48, ptr noundef nonnull align 8 dereferenceable(70) %.val, i1 noundef zeroext false)
   br label %.critedge350
 
-_ZN12_GLOBAL__N_125TwoAddressInstructionImpl21rescheduleMIBelowKillERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_NS1_8RegisterE.argprom.exit: ; preds = %810, %812, %815, %817, %819, %836, %842, %844, %849, %851, %853
+_ZN12_GLOBAL__N_125TwoAddressInstructionImpl21rescheduleMIBelowKillERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_NS1_8RegisterE.exit: ; preds = %810, %812, %815, %817, %819, %836, %842, %844, %849, %851, %853
   call void @_ZN4llvm11SmallVectorINS_8RegisterELj2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #16
   call void @_ZN4llvm11SmallVectorINS_8RegisterELj2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #16
   call void @_ZN4llvm11SmallVectorINS_8RegisterELj2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #16
@@ -11025,7 +11025,7 @@ _ZSt4nextIN4llvm19MachineRegisterInfo20defusechain_iteratorILb0ELb1ELb0ELb1ELb0E
   %950 = icmp ult i32 %949, 1073741823
   br i1 %950, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl8isKilledERN4llvm12MachineInstrENS1_8RegisterEb.exit175, label %.thread.i154, !llvm.loop !107
 
-_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl8isKilledERN4llvm12MachineInstrENS1_8RegisterEb.exit175.sink.split: ; preds = %728, %726, %724, %716, %718, %720, %722, %711, %713, %713, %682, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E4findEPKS2_.exit.i, %592, %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl21rescheduleMIBelowKillERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_NS1_8RegisterE.argprom.exit
+_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl8isKilledERN4llvm12MachineInstrENS1_8RegisterEb.exit175.sink.split: ; preds = %728, %726, %724, %716, %718, %720, %722, %711, %713, %713, %682, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E4findEPKS2_.exit.i, %592, %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl21rescheduleMIBelowKillERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_NS1_8RegisterE.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
@@ -11112,14 +11112,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6
   %storemerge.lcssa.i.i = phi i32 [ %.sroa.072.0, %960 ], [ %984, %982 ]
   %986 = add nsw i32 %storemerge.lcssa.i.i, -1
   %987 = icmp ult i32 %986, 1073741823
-  br i1 %987, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.i, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl23isProfitableToConv3AddrEN4llvm8RegisterES2_.exit.thread
+  br i1 %987, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl23isProfitableToConv3AddrEN4llvm8RegisterES2_.exit.thread
 
-_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.i: ; preds = %._crit_edge.i.i
+_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i: ; preds = %._crit_edge.i.i
   %988 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.val.i = load ptr, ptr %988, align 8
   br i1 %86, label %.lr.ph.i16.i, label %._crit_edge.i12.i
 
-.lr.ph.i16.i:                                     ; preds = %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.i
+.lr.ph.i16.i:                                     ; preds = %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i
   %989 = getelementptr inbounds i8, ptr %0, i64 240
   %.val8.i = load i32, ptr %989, align 8
   %990 = icmp eq i32 %.val8.i, 0
@@ -11165,8 +11165,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6
   %1011 = icmp slt i32 %1010, 0
   br i1 %1011, label %.lr.ph.split.i17.i, label %._crit_edge.i12.i, !llvm.loop !58
 
-._crit_edge.i12.i:                                ; preds = %1008, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.i
-  %storemerge.lcssa.i13.i = phi i32 [ %45, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.argprom.exit.i ], [ %1010, %1008 ]
+._crit_edge.i12.i:                                ; preds = %1008, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i
+  %storemerge.lcssa.i13.i = phi i32 [ %45, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i ], [ %1010, %1008 ]
   %1012 = add nsw i32 %storemerge.lcssa.i13.i, -1073741824
   %1013 = icmp ult i32 %1012, -1073741823
   %1014 = icmp eq i32 %storemerge.lcssa.i.i, %storemerge.lcssa.i13.i
@@ -13740,7 +13740,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_125TwoAddressInstructionImpl8scanUs
   store i32 0, ptr %6, align 4
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 68
   %57 = load i16, ptr %56, align 4
-  switch i16 %57, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl11isCopyToRegERN4llvm12MachineInstrERNS1_8RegisterES5_RbS6_.argprom.exit.i [
+  switch i16 %57, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl11isCopyToRegERN4llvm12MachineInstrERNS1_8RegisterES5_RbS6_.exit.i [
     i16 19, label %.thread
     i16 9, label %.thread
     i16 11, label %.thread
@@ -13758,13 +13758,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_125TwoAddressInstructionImpl8scanUs
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %115
 
-_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl11isCopyToRegERN4llvm12MachineInstrERNS1_8RegisterES5_RbS6_.argprom.exit.i: ; preds = %53
+_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl11isCopyToRegERN4llvm12MachineInstrERNS1_8RegisterES5_RbS6_.exit.i: ; preds = %53
   %64 = getelementptr inbounds nuw i8, ptr %55, i64 40
   %65 = load i24, ptr %64, align 8
   %.not24.not.i.i = icmp eq i24 %65, 0
   br i1 %.not24.not.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl11isCopyToRegERN4llvm12MachineInstrERNS1_8RegisterES5_RbS6_.argprom.exit.i
+.lr.ph.i.i:                                       ; preds = %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl11isCopyToRegERN4llvm12MachineInstrERNS1_8RegisterES5_RbS6_.exit.i
   %66 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %67 = load ptr, ptr %66, align 8
   %68 = zext i24 %65 to i64
@@ -13792,7 +13792,7 @@ _ZNK12_GLOBAL__N_125TwoAddressInstructionImpl11isCopyToRegERN4llvm12MachineInstr
   %.not.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %68
   br i1 %.not.not.i.i, label %.loopexit.i, label %69, !llvm.loop !121
 
-.loopexit.i:                                      ; preds = %.critedge.i.i, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl11isCopyToRegERN4llvm12MachineInstrERNS1_8RegisterES5_RbS6_.argprom.exit.i
+.loopexit.i:                                      ; preds = %.critedge.i.i, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl11isCopyToRegERN4llvm12MachineInstrERNS1_8RegisterES5_RbS6_.exit.i
   %77 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
@@ -14683,7 +14683,7 @@ _ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit: ; preds = %_ZNK4llvm13L
   %90 = getelementptr inbounds ptr, ptr %89, i64 %88
   %91 = load ptr, ptr %90, align 8, !noalias !143
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %91, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %92, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKN4llvm12MachineInstrENS4_8RegisterEE3$_0EclINS4_17MCRegUnitIteratorEEEbT_.argprom.argprom.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i, label %92, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKN4llvm12MachineInstrENS4_8RegisterEE3$_0EclINS4_17MCRegUnitIteratorEEEbT_.exit.i.i.i.i.i"
 
 92:                                               ; preds = %.lr.ph.i.i.i.i.i
   %93 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #18, !noalias !143
@@ -14716,14 +14716,14 @@ _ZN4llvm9LiveRangeC2Eb.exit.i.i.i.i.i.i.i.i:      ; preds = %99, %92
   %107 = getelementptr inbounds ptr, ptr %106, i64 %88
   store ptr %93, ptr %107, align 8, !noalias !143
   tail call void @_ZN4llvm13LiveIntervals19computeRegUnitRangeERNS_9LiveRangeEj(ptr noundef nonnull align 8 dereferenceable(440) %86, ptr noundef nonnull align 8 dereferenceable(104) %93, i32 noundef %.sroa.8.0.i.i.i.i) #16, !noalias !143
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKN4llvm12MachineInstrENS4_8RegisterEE3$_0EclINS4_17MCRegUnitIteratorEEEbT_.argprom.argprom.exit.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKN4llvm12MachineInstrENS4_8RegisterEE3$_0EclINS4_17MCRegUnitIteratorEEEbT_.exit.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKN4llvm12MachineInstrENS4_8RegisterEE3$_0EclINS4_17MCRegUnitIteratorEEEbT_.argprom.argprom.exit.i.i.i.i.i": ; preds = %_ZN4llvm9LiveRangeC2Eb.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKN4llvm12MachineInstrENS4_8RegisterEE3$_0EclINS4_17MCRegUnitIteratorEEEbT_.exit.i.i.i.i.i": ; preds = %_ZN4llvm9LiveRangeC2Eb.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i
   %.0.i.i.i.i.i.i.i.i = phi ptr [ %91, %.lr.ph.i.i.i.i.i ], [ %93, %_ZN4llvm9LiveRangeC2Eb.exit.i.i.i.i.i.i.i.i ]
   %108 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKN4llvm12MachineInstrERNS1_9LiveRangeE(ptr noundef nonnull readonly align 8 dereferenceable(248) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(104) %.0.i.i.i.i.i.i.i.i), !noalias !143
   br i1 %108, label %_ZN4llvm17MCRegUnitIteratorppEv.exit.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_17MCRegUnitIteratorEEEZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKNS_12MachineInstrENS_8RegisterEE3$_0EEbOT_T0_.exit"
 
-_ZN4llvm17MCRegUnitIteratorppEv.exit.i.i.i.i.i:   ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKN4llvm12MachineInstrENS4_8RegisterEE3$_0EclINS4_17MCRegUnitIteratorEEEbT_.argprom.argprom.exit.i.i.i.i.i"
+_ZN4llvm17MCRegUnitIteratorppEv.exit.i.i.i.i.i:   ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKN4llvm12MachineInstrENS4_8RegisterEE3$_0EclINS4_17MCRegUnitIteratorEEEbT_.exit.i.i.i.i.i"
   %109 = getelementptr inbounds i8, ptr %85, i64 2
   %110 = load i16, ptr %85, align 2, !noalias !143
   %111 = sext i16 %110 to i32
@@ -14736,8 +14736,8 @@ _ZNK4llvm13LiveIntervals12isNotInMIMapERKNS_12MachineInstrE.exit.thread: ; preds
   %114 = icmp ne i32 %113, -1
   br label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_17MCRegUnitIteratorEEEZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKNS_12MachineInstrENS_8RegisterEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6all_ofINS_14iterator_rangeINS_17MCRegUnitIteratorEEEZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKNS_12MachineInstrENS_8RegisterEE3$_0EEbOT_T0_.exit": ; preds = %_ZN4llvm17MCRegUnitIteratorppEv.exit.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKN4llvm12MachineInstrENS4_8RegisterEE3$_0EclINS4_17MCRegUnitIteratorEEEbT_.argprom.argprom.exit.i.i.i.i.i", %71, %58, %_ZNK4llvm13LiveIntervals12isNotInMIMapERKNS_12MachineInstrE.exit.thread, %_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit
-  %.0 = phi i1 [ %114, %_ZNK4llvm13LiveIntervals12isNotInMIMapERKNS_12MachineInstrE.exit.thread ], [ %57, %_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit ], [ false, %58 ], [ true, %71 ], [ %108, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKN4llvm12MachineInstrENS4_8RegisterEE3$_0EclINS4_17MCRegUnitIteratorEEEbT_.argprom.argprom.exit.i.i.i.i.i" ], [ %108, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i.i.i.i.i ]
+"_ZN4llvm6all_ofINS_14iterator_rangeINS_17MCRegUnitIteratorEEEZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKNS_12MachineInstrENS_8RegisterEE3$_0EEbOT_T0_.exit": ; preds = %_ZN4llvm17MCRegUnitIteratorppEv.exit.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKN4llvm12MachineInstrENS4_8RegisterEE3$_0EclINS4_17MCRegUnitIteratorEEEbT_.exit.i.i.i.i.i", %71, %58, %_ZNK4llvm13LiveIntervals12isNotInMIMapERKNS_12MachineInstrE.exit.thread, %_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit
+  %.0 = phi i1 [ %114, %_ZNK4llvm13LiveIntervals12isNotInMIMapERKNS_12MachineInstrE.exit.thread ], [ %57, %_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit ], [ false, %58 ], [ true, %71 ], [ %108, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKN4llvm12MachineInstrENS4_8RegisterEE3$_0EclINS4_17MCRegUnitIteratorEEEbT_.exit.i.i.i.i.i" ], [ %108, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i.i.i.i.i ]
   ret i1 %.0
 }
 
@@ -18524,8 +18524,8 @@ attributes #19 = { noreturn nounwind }
 !141 = distinct !{!141, !142, !"_ZNK4llvm14MCRegisterInfo8regunitsENS_10MCRegisterE: argument 0"}
 !142 = distinct !{!142, !"_ZNK4llvm14MCRegisterInfo8regunitsENS_10MCRegisterE"}
 !143 = !{!144, !146, !148}
-!144 = distinct !{!144, !145, !"_ZSt9__find_ifIN4llvm17MCRegUnitIteratorEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKNS0_12MachineInstrENS0_8RegisterEE3$_0EEET_SD_SD_T0_St18input_iterator_tag.argprom: argument 0"}
-!145 = distinct !{!145, !"_ZSt9__find_ifIN4llvm17MCRegUnitIteratorEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKNS0_12MachineInstrENS0_8RegisterEE3$_0EEET_SD_SD_T0_St18input_iterator_tag.argprom"}
+!144 = distinct !{!144, !145, !"_ZSt9__find_ifIN4llvm17MCRegUnitIteratorEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKNS0_12MachineInstrENS0_8RegisterEE3$_0EEET_SD_SD_T0_St18input_iterator_tag: argument 0"}
+!145 = distinct !{!145, !"_ZSt9__find_ifIN4llvm17MCRegUnitIteratorEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKNS0_12MachineInstrENS0_8RegisterEE3$_0EEET_SD_SD_T0_St18input_iterator_tag"}
 !146 = distinct !{!146, !147, !"_ZSt13__find_if_notIN4llvm17MCRegUnitIteratorEN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKNS0_12MachineInstrENS0_8RegisterEE3$_0EEET_SD_SD_T0_: argument 0"}
 !147 = distinct !{!147, !"_ZSt13__find_if_notIN4llvm17MCRegUnitIteratorEN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKNS0_12MachineInstrENS0_8RegisterEE3$_0EEET_SD_SD_T0_"}
 !148 = distinct !{!148, !149, !"_ZSt11find_if_notIN4llvm17MCRegUnitIteratorEZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKNS0_12MachineInstrENS0_8RegisterEE3$_0ET_S9_S9_T0_: argument 0"}

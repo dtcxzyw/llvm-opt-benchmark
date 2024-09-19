@@ -800,11 +800,11 @@ invoke.cont40:                                    ; preds = %invoke.cont38
   store ptr %7, ptr %_M_invoker.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRK16indexed_uint_setEZN3nla4coreC1ERN2lp10lar_solverERK10params_refR8reslimitE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %_M_invoker4.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %6, null
-  br i1 %tobool.not.i.i.i, label %"_ZNSt8functionIFvRK16indexed_uint_setEEaSIZN3nla4coreC1ERN2lp10lar_solverERK10params_refR8reslimitE3$_0EENSt9enable_ifIXsrNS4_9_CallableIT_NSH_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISJ_E4typeEE4typeES4_EE5valueESt5decayISJ_EE4type4typeESt15__invoke_resultIRSU_JS2_EEEE5valueERS4_E4typeEOSJ_.argprom.exit", label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %"_ZNSt8functionIFvRK16indexed_uint_setEEaSIZN3nla4coreC1ERN2lp10lar_solverERK10params_refR8reslimitE3$_0EENSt9enable_ifIXsrNS4_9_CallableIT_NSH_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISJ_E4typeEE4typeES4_EE5valueESt5decayISJ_EE4type4typeESt15__invoke_resultIRSU_JS2_EEEE5valueERS4_E4typeEOSJ_.exit", label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont40
   %call.i.i.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
-          to label %"_ZNSt8functionIFvRK16indexed_uint_setEEaSIZN3nla4coreC1ERN2lp10lar_solverERK10params_refR8reslimitE3$_0EENSt9enable_ifIXsrNS4_9_CallableIT_NSH_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISJ_E4typeEE4typeES4_EE5valueESt5decayISJ_EE4type4typeESt15__invoke_resultIRSU_JS2_EEEE5valueERS4_E4typeEOSJ_.argprom.exit" unwind label %terminate.lpad.i.i.i
+          to label %"_ZNSt8functionIFvRK16indexed_uint_setEEaSIZN3nla4coreC1ERN2lp10lar_solverERK10params_refR8reslimitE3$_0EENSt9enable_ifIXsrNS4_9_CallableIT_NSH_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISJ_E4typeEE4typeES4_EE5valueESt5decayISJ_EE4type4typeESt15__invoke_resultIRSU_JS2_EEEE5valueERS4_E4typeEOSJ_.exit" unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %8 = landingpad { ptr, i32 }
@@ -813,7 +813,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   call void @__clang_call_terminate(ptr %9) #28
   unreachable
 
-"_ZNSt8functionIFvRK16indexed_uint_setEEaSIZN3nla4coreC1ERN2lp10lar_solverERK10params_refR8reslimitE3$_0EENSt9enable_ifIXsrNS4_9_CallableIT_NSH_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISJ_E4typeEE4typeES4_EE5valueESt5decayISJ_EE4type4typeESt15__invoke_resultIRSU_JS2_EEEE5valueERS4_E4typeEOSJ_.argprom.exit": ; preds = %invoke.cont40, %if.then.i.i.i
+"_ZNSt8functionIFvRK16indexed_uint_setEEaSIZN3nla4coreC1ERN2lp10lar_solverERK10params_refR8reslimitE3$_0EENSt9enable_ifIXsrNS4_9_CallableIT_NSH_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISJ_E4typeEE4typeES4_EE5valueESt5decayISJ_EE4type4typeESt15__invoke_resultIRSU_JS2_EEEE5valueERS4_E4typeEOSJ_.exit": ; preds = %invoke.cont40, %if.then.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   ret void
 
@@ -15637,7 +15637,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 4528
   %call.val = load ptr, ptr %0, align 8
   %cmp.i.i.i.i = icmp eq ptr %call.val, null
-  br i1 %cmp.i.i.i.i, label %"_Z6any_ofIN3nla7emonicsEZNKS0_4core21has_relevant_monomialEvE3$_0EbRKT_RKT0_.argprom.exit", label %_ZNK3nla7emonics3endEv.exit.i
+  br i1 %cmp.i.i.i.i, label %"_Z6any_ofIN3nla7emonicsEZNKS0_4core21has_relevant_monomialEvE3$_0EbRKT_RKT0_.exit", label %_ZNK3nla7emonics3endEv.exit.i
 
 _ZNK3nla7emonics3endEv.exit.i:                    ; preds = %entry
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 -4
@@ -15645,7 +15645,7 @@ _ZNK3nla7emonics3endEv.exit.i:                    ; preds = %entry
   %2 = zext i32 %1 to i64
   %add.ptr.i.i.i = getelementptr inbounds %"class.nla::monic", ptr %call.val, i64 %2
   %cmp.not1.not.i = icmp eq i32 %1, 0
-  br i1 %cmp.not1.not.i, label %"_Z6any_ofIN3nla7emonicsEZNKS0_4core21has_relevant_monomialEvE3$_0EbRKT_RKT0_.argprom.exit", label %for.body.i.preheader
+  br i1 %cmp.not1.not.i, label %"_Z6any_ofIN3nla7emonicsEZNKS0_4core21has_relevant_monomialEvE3$_0EbRKT_RKT0_.exit", label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %_ZNK3nla7emonics3endEv.exit.i
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -15653,28 +15653,28 @@ for.body.i.preheader:                             ; preds = %_ZNK3nla7emonics3en
   %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 248
   br label %for.body.i
 
-for.cond.i:                                       ; preds = %"_ZZNK3nla4core21has_relevant_monomialEvENK3$_0clINS_5monicEEEDaRKT_.argprom.exit.i"
+for.cond.i:                                       ; preds = %"_ZZNK3nla4core21has_relevant_monomialEvENK3$_0clINS_5monicEEEDaRKT_.exit.i"
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin0.02.i, i64 40
   %cmp.not.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i.i
-  br i1 %cmp.not.not.i, label %"_Z6any_ofIN3nla7emonicsEZNKS0_4core21has_relevant_monomialEvE3$_0EbRKT_RKT0_.argprom.exit", label %for.body.i
+  br i1 %cmp.not.not.i, label %"_Z6any_ofIN3nla7emonicsEZNKS0_4core21has_relevant_monomialEvE3$_0EbRKT_RKT0_.exit", label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.cond.i
   %__begin0.02.i = phi ptr [ %incdec.ptr.i, %for.cond.i ], [ %call.val, %for.body.i.preheader ]
   %3 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i.not.i.i.i, label %"_Z6any_ofIN3nla7emonicsEZNKS0_4core21has_relevant_monomialEvE3$_0EbRKT_RKT0_.argprom.exit", label %"_ZZNK3nla4core21has_relevant_monomialEvENK3$_0clINS_5monicEEEDaRKT_.argprom.exit.i"
+  br i1 %tobool.not.i.i.not.i.i.i, label %"_Z6any_ofIN3nla7emonicsEZNKS0_4core21has_relevant_monomialEvE3$_0EbRKT_RKT0_.exit", label %"_ZZNK3nla4core21has_relevant_monomialEvENK3$_0clINS_5monicEEEDaRKT_.exit.i"
 
-"_ZZNK3nla4core21has_relevant_monomialEvENK3$_0clINS_5monicEEEDaRKT_.argprom.exit.i": ; preds = %for.body.i
+"_ZZNK3nla4core21has_relevant_monomialEvENK3$_0clINS_5monicEEEDaRKT_.exit.i": ; preds = %for.body.i
   %__begin0.0.val.i = load i32, ptr %__begin0.02.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i.i.i.i)
   store i32 %__begin0.0.val.i, ptr %__args.addr.i.i.i.i, align 4
   %4 = load ptr, ptr %_M_invoker.i.i.i.i, align 8
   %call2.i.i.i.i = call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %m_relevant.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i.i.i.i)
-  br i1 %call2.i.i.i.i, label %"_Z6any_ofIN3nla7emonicsEZNKS0_4core21has_relevant_monomialEvE3$_0EbRKT_RKT0_.argprom.exit", label %for.cond.i
+  br i1 %call2.i.i.i.i, label %"_Z6any_ofIN3nla7emonicsEZNKS0_4core21has_relevant_monomialEvE3$_0EbRKT_RKT0_.exit", label %for.cond.i
 
-"_Z6any_ofIN3nla7emonicsEZNKS0_4core21has_relevant_monomialEvE3$_0EbRKT_RKT0_.argprom.exit": ; preds = %for.cond.i, %for.body.i, %"_ZZNK3nla4core21has_relevant_monomialEvENK3$_0clINS_5monicEEEDaRKT_.argprom.exit.i", %entry, %_ZNK3nla7emonics3endEv.exit.i
-  %cmp.not.lcssa.i = phi i1 [ false, %_ZNK3nla7emonics3endEv.exit.i ], [ false, %entry ], [ true, %"_ZZNK3nla4core21has_relevant_monomialEvENK3$_0clINS_5monicEEEDaRKT_.argprom.exit.i" ], [ false, %for.cond.i ], [ true, %for.body.i ]
+"_Z6any_ofIN3nla7emonicsEZNKS0_4core21has_relevant_monomialEvE3$_0EbRKT_RKT0_.exit": ; preds = %for.cond.i, %for.body.i, %"_ZZNK3nla4core21has_relevant_monomialEvENK3$_0clINS_5monicEEEDaRKT_.exit.i", %entry, %_ZNK3nla7emonics3endEv.exit.i
+  %cmp.not.lcssa.i = phi i1 [ false, %_ZNK3nla7emonics3endEv.exit.i ], [ false, %entry ], [ true, %"_ZZNK3nla4core21has_relevant_monomialEvENK3$_0clINS_5monicEEEDaRKT_.exit.i" ], [ false, %for.cond.i ], [ true, %for.body.i ]
   ret i1 %cmp.not.lcssa.i
 }
 
@@ -18593,7 +18593,7 @@ entry:
   %m_lemmas = getelementptr inbounds i8, ptr %this, i64 256
   %m_lemmas.val = load ptr, ptr %m_lemmas, align 8
   %cmp.i.i.i = icmp eq ptr %m_lemmas.val, null
-  br i1 %cmp.i.i.i, label %"_Z6any_ofI6vectorIN3nla5lemmaELb1EjEZNKS1_4core14conflict_foundEvE3$_0EbRKT_RKT0_.argprom.exit", label %_ZNK6vectorIN3nla5lemmaELb1EjE3endEv.exit.i
+  br i1 %cmp.i.i.i, label %"_Z6any_ofI6vectorIN3nla5lemmaELb1EjEZNKS1_4core14conflict_foundEvE3$_0EbRKT_RKT0_.exit", label %_ZNK6vectorIN3nla5lemmaELb1EjE3endEv.exit.i
 
 _ZNK6vectorIN3nla5lemmaELb1EjE3endEv.exit.i:      ; preds = %entry
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %m_lemmas.val, i64 -4
@@ -18601,7 +18601,7 @@ _ZNK6vectorIN3nla5lemmaELb1EjE3endEv.exit.i:      ; preds = %entry
   %1 = zext i32 %0 to i64
   %add.ptr.i.i = getelementptr inbounds %"class.nla::lemma", ptr %m_lemmas.val, i64 %1
   %cmp.not1.not.i = icmp eq i32 %0, 0
-  br i1 %cmp.not1.not.i, label %"_Z6any_ofI6vectorIN3nla5lemmaELb1EjEZNKS1_4core14conflict_foundEvE3$_0EbRKT_RKT0_.argprom.exit", label %for.body.i
+  br i1 %cmp.not1.not.i, label %"_Z6any_ofI6vectorIN3nla5lemmaELb1EjEZNKS1_4core14conflict_foundEvE3$_0EbRKT_RKT0_.exit", label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNK6vectorIN3nla5lemmaELb1EjE3endEv.exit.i, %for.inc.i
   %__begin0.02.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %m_lemmas.val, %_ZNK6vectorIN3nla5lemmaELb1EjE3endEv.exit.i ]
@@ -18625,21 +18625,21 @@ _ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i: ; preds = %land.rhs.
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -4
   %5 = load i32, ptr %arrayidx.i.i.i.i.i, align 4
   %cmp3.i.i.i.i.i = icmp eq i32 %5, 0
-  br i1 %cmp3.i.i.i.i.i, label %for.inc.i, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i"
+  br i1 %cmp3.i.i.i.i.i, label %for.inc.i, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i"
 
-"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i
+"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i
   %m_size.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.02.i, i64 28
   %6 = load i32, ptr %m_size.i.i.i.i.i, align 4
   %cmp.i1.i.i.i.not.i = icmp eq i32 %6, 0
-  br i1 %cmp.i1.i.i.i.not.i, label %for.inc.i, label %"_Z6any_ofI6vectorIN3nla5lemmaELb1EjEZNKS1_4core14conflict_foundEvE3$_0EbRKT_RKT0_.argprom.exit"
+  br i1 %cmp.i1.i.i.i.not.i, label %for.inc.i, label %"_Z6any_ofI6vectorIN3nla5lemmaELb1EjEZNKS1_4core14conflict_foundEvE3$_0EbRKT_RKT0_.exit"
 
-for.inc.i:                                        ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i, %land.rhs.i.i.i, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i
+for.inc.i:                                        ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i, %land.rhs.i.i.i, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin0.02.i, i64 40
   %cmp.not.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
-  br i1 %cmp.not.not.i, label %"_Z6any_ofI6vectorIN3nla5lemmaELb1EjEZNKS1_4core14conflict_foundEvE3$_0EbRKT_RKT0_.argprom.exit", label %for.body.i
+  br i1 %cmp.not.not.i, label %"_Z6any_ofI6vectorIN3nla5lemmaELb1EjEZNKS1_4core14conflict_foundEvE3$_0EbRKT_RKT0_.exit", label %for.body.i
 
-"_Z6any_ofI6vectorIN3nla5lemmaELb1EjEZNKS1_4core14conflict_foundEvE3$_0EbRKT_RKT0_.argprom.exit": ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i", %for.inc.i, %entry, %_ZNK6vectorIN3nla5lemmaELb1EjE3endEv.exit.i
-  %cmp.not.lcssa.i = phi i1 [ false, %_ZNK6vectorIN3nla5lemmaELb1EjE3endEv.exit.i ], [ false, %entry ], [ true, %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i" ], [ false, %for.inc.i ]
+"_Z6any_ofI6vectorIN3nla5lemmaELb1EjEZNKS1_4core14conflict_foundEvE3$_0EbRKT_RKT0_.exit": ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i", %for.inc.i, %entry, %_ZNK6vectorIN3nla5lemmaELb1EjE3endEv.exit.i
+  %cmp.not.lcssa.i = phi i1 [ false, %_ZNK6vectorIN3nla5lemmaELb1EjE3endEv.exit.i ], [ false, %entry ], [ true, %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i" ], [ false, %for.inc.i ]
   ret i1 %cmp.not.lcssa.i
 }
 
@@ -18685,15 +18685,15 @@ _ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i: ; preds = %land.rh
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 -4
   %6 = load i32, ptr %arrayidx.i.i.i.i.i.i, align 4
   %cmp3.i.i.i.i.i.i = icmp eq i32 %6, 0
-  br i1 %cmp3.i.i.i.i.i.i, label %for.inc.i.i, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i"
+  br i1 %cmp3.i.i.i.i.i.i, label %for.inc.i.i, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i"
 
-"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i
+"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i
   %m_size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.02.i.i, i64 28
   %7 = load i32, ptr %m_size.i.i.i.i.i.i, align 4
   %cmp.i1.i.i.i.not.i.i = icmp eq i32 %7, 0
   br i1 %cmp.i1.i.i.i.not.i.i, label %for.inc.i.i, label %lor.end
 
-for.inc.i.i:                                      ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i, %land.rhs.i.i.i.i, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i
+for.inc.i.i:                                      ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i, %land.rhs.i.i.i.i, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin0.02.i.i, i64 40
   %cmp.not.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.not.i.i, label %lor.rhs, label %for.body.i.i
@@ -18710,8 +18710,8 @@ lor.rhs:                                          ; preds = %for.inc.i.i, %entry
   %call.i1 = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(8) %9)
   br label %lor.end
 
-lor.end:                                          ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i", %lor.rhs, %_ZNK6vectorIN3nla5lemmaELb1EjE4sizeEv.exit
-  %11 = phi i1 [ true, %_ZNK6vectorIN3nla5lemmaELb1EjE4sizeEv.exit ], [ %call.i1, %lor.rhs ], [ true, %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i" ]
+lor.end:                                          ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i", %lor.rhs, %_ZNK6vectorIN3nla5lemmaELb1EjE4sizeEv.exit
+  %11 = phi i1 [ true, %_ZNK6vectorIN3nla5lemmaELb1EjE4sizeEv.exit ], [ %call.i1, %lor.rhs ], [ true, %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i" ]
   ret i1 %11
 }
 
@@ -21521,15 +21521,15 @@ _ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i: ; preds = %land.
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 -4
   %7 = load i32, ptr %arrayidx.i.i.i.i.i.i.i, align 4
   %cmp3.i.i.i.i.i.i.i = icmp eq i32 %7, 0
-  br i1 %cmp3.i.i.i.i.i.i.i, label %for.inc.i.i.i, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i"
+  br i1 %cmp3.i.i.i.i.i.i.i, label %for.inc.i.i.i, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i"
 
-"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i
+"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i
   %m_size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.02.i.i.i, i64 28
   %8 = load i32, ptr %m_size.i.i.i.i.i.i.i, align 4
   %cmp.i1.i.i.i.not.i.i.i = icmp eq i32 %8, 0
   br i1 %cmp.i1.i.i.i.not.i.i.i, label %for.inc.i.i.i, label %while.end
 
-for.inc.i.i.i:                                    ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i, %land.rhs.i.i.i.i.i, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i.i
+for.inc.i.i.i:                                    ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i, %land.rhs.i.i.i.i.i, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__begin0.02.i.i.i, i64 40
   %cmp.not.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i.i.i
   br i1 %cmp.not.not.i.i.i, label %lor.rhs.i, label %for.body.i.i.i
@@ -21822,7 +21822,7 @@ for.end32:                                        ; preds = %for.inc30, %if.end2
   %cmp2.not = icmp eq i32 %bound.2, 0
   br i1 %cmp2.not, label %while.end, label %land.lhs.true, !llvm.loop !84
 
-while.end:                                        ; preds = %_ZNK6vectorIN3nla5lemmaELb1EjE5emptyEv.exit, %for.end32, %invoke.cont, %_ZNK6vectorIN3nla5lemmaELb1EjE4sizeEv.exit.i, %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i"
+while.end:                                        ; preds = %_ZNK6vectorIN3nla5lemmaELb1EjE5emptyEv.exit, %for.end32, %invoke.cont, %_ZNK6vectorIN3nla5lemmaELb1EjE4sizeEv.exit.i, %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i"
   %.pr = load ptr, ptr %seen, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i.i, label %_ZN8uint_setD2Ev.exit, label %if.then.i.i.i.i
@@ -22279,15 +22279,15 @@ _ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i: ; preds = %lan
   %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 -4
   %31 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i, align 4
   %cmp3.i.i.i.i.i.i.i.i = icmp eq i32 %31, 0
-  br i1 %cmp3.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i"
+  br i1 %cmp3.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i"
 
-"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i
+"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i
   %m_size.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.02.i.i.i.i, i64 28
   %32 = load i32, ptr %m_size.i.i.i.i.i.i.i.i, align 4
   %cmp.i1.i.i.i.not.i.i.i.i = icmp eq i32 %32, 0
   br i1 %cmp.i1.i.i.i.not.i.i.i.i, label %for.inc.i.i.i.i, label %if.end19
 
-for.inc.i.i.i.i:                                  ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i.i.i
+for.inc.i.i.i.i:                                  ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.02.i.i.i.i, i64 40
   %cmp.not.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i.i.i
   br i1 %cmp.not.not.i.i.i.i, label %_ZNK3nla4core4doneEv.exit.i, label %for.body.i.i.i.i
@@ -22318,7 +22318,7 @@ land.lhs.true4.i:                                 ; preds = %_ZNK6vectorIN3nla5l
   %m_literals.i = getelementptr inbounds i8, ptr %this, i64 264
   %38 = load ptr, ptr %m_literals.i, align 8
   %cmp.i3.i = icmp eq ptr %38, null
-  br i1 %cmp.i3.i, label %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit", label %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i
+  br i1 %cmp.i3.i, label %"_ZZN3nla4core5checkEvENK3$_6clEv.exit", label %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i
 
 _ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i:     ; preds = %land.lhs.true4.i
   %arrayidx.i5.i = getelementptr inbounds i8, ptr %38, i64 -4
@@ -22330,18 +22330,18 @@ _ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i:     ; preds = %land.lhs.true4.i
   %or.cond662.not = select i1 %cmp3.i6.i, i1 true, i1 %tobool.i
   br i1 %or.cond662.not, label %if.end19, label %if.then18
 
-"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit": ; preds = %land.lhs.true4.i
+"_ZZN3nla4core5checkEvENK3$_6clEv.exit":          ; preds = %land.lhs.true4.i
   %m_check_feasible.i.old = getelementptr inbounds i8, ptr %this, i64 2740
   %.old = load i8, ptr %m_check_feasible.i.old, align 4
   %tobool.i.old = trunc i8 %.old to i1
   br i1 %tobool.i.old, label %if.end19, label %if.then18
 
-if.then18:                                        ; preds = %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i, %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit"
+if.then18:                                        ; preds = %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i, %"_ZZN3nla4core5checkEvENK3$_6clEv.exit"
   %m_monomial_bounds = getelementptr inbounds i8, ptr %this, i64 2544
   call void @_ZN3nla15monomial_bounds9propagateEv(ptr noundef nonnull align 8 dereferenceable(192) %m_monomial_bounds)
   br label %if.end19
 
-if.end19:                                         ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i", %_ZNK6vectorIN3nla5lemmaELb1EjE4sizeEv.exit.i.i, %_ZNK3nla4core4doneEv.exit.i, %_ZNK6vectorIN3nla5lemmaELb1EjE5emptyEv.exit.i, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i, %if.then18, %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit"
+if.end19:                                         ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i", %_ZNK6vectorIN3nla5lemmaELb1EjE4sizeEv.exit.i.i, %_ZNK3nla4core4doneEv.exit.i, %_ZNK6vectorIN3nla5lemmaELb1EjE5emptyEv.exit.i, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i, %if.then18, %"_ZZN3nla4core5checkEvENK3$_6clEv.exit"
   %_M_manager.i.i = getelementptr inbounds i8, ptr %check1, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %check1, i64 24
   %41 = getelementptr inbounds i8, ptr %check1, i64 8
@@ -22664,15 +22664,15 @@ _ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i168: ; preds = %
   %arrayidx.i.i.i.i.i.i.i.i169 = getelementptr inbounds i8, ptr %79, i64 -4
   %80 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i169, align 4
   %cmp3.i.i.i.i.i.i.i.i170 = icmp eq i32 %80, 0
-  br i1 %cmp3.i.i.i.i.i.i.i.i170, label %for.inc.i.i.i.i140, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i171"
+  br i1 %cmp3.i.i.i.i.i.i.i.i170, label %for.inc.i.i.i.i140, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i171"
 
-"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i171": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i168
+"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i171": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i168
   %m_size.i.i.i.i.i.i.i.i172 = getelementptr inbounds i8, ptr %__begin0.02.i.i.i.i135, i64 28
   %81 = load i32, ptr %m_size.i.i.i.i.i.i.i.i172, align 4
   %cmp.i1.i.i.i.not.i.i.i.i173 = icmp eq i32 %81, 0
   br i1 %cmp.i1.i.i.i.not.i.i.i.i173, label %for.inc.i.i.i.i140, label %if.end69
 
-for.inc.i.i.i.i140:                               ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i171", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i168, %land.rhs.i.i.i.i.i.i165, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i.i.i137
+for.inc.i.i.i.i140:                               ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i171", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i168, %land.rhs.i.i.i.i.i.i165, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i.i.i137
   %incdec.ptr.i.i.i.i141 = getelementptr inbounds i8, ptr %__begin0.02.i.i.i.i135, i64 40
   %cmp.not.not.i.i.i.i142 = icmp eq ptr %incdec.ptr.i.i.i.i141, %add.ptr.i.i.i.i.i132
   br i1 %cmp.not.not.i.i.i.i142, label %_ZNK3nla4core4doneEv.exit.i143, label %for.body.i.i.i.i134
@@ -22704,21 +22704,21 @@ land.lhs.true4.i155:                              ; preds = %_ZNK6vectorIN3nla5l
   %m_literals.i156 = getelementptr inbounds i8, ptr %no_effect.val11, i64 264
   %87 = load ptr, ptr %m_literals.i156, align 8
   %cmp.i3.i157 = icmp eq ptr %87, null
-  br i1 %cmp.i3.i157, label %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit174", label %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i158
+  br i1 %cmp.i3.i157, label %"_ZZN3nla4core5checkEvENK3$_6clEv.exit174", label %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i158
 
 _ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i158:  ; preds = %land.lhs.true4.i155
   %arrayidx.i5.i159 = getelementptr inbounds i8, ptr %87, i64 -4
   %88 = load i32, ptr %arrayidx.i5.i159, align 4
   %cmp3.i6.i160 = icmp eq i32 %88, 0
-  br i1 %cmp3.i6.i160, label %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit174", label %if.end69
+  br i1 %cmp3.i6.i160, label %"_ZZN3nla4core5checkEvENK3$_6clEv.exit174", label %if.end69
 
-"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit174": ; preds = %land.lhs.true4.i155, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i158
+"_ZZN3nla4core5checkEvENK3$_6clEv.exit174":       ; preds = %land.lhs.true4.i155, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i158
   %m_check_feasible.i162 = getelementptr inbounds i8, ptr %no_effect.val11, i64 2740
   %89 = load i8, ptr %m_check_feasible.i162, align 4
   %tobool.i163 = trunc i8 %89 to i1
   br i1 %tobool.i163, label %if.end69, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit174"
+land.lhs.true:                                    ; preds = %"_ZZN3nla4core5checkEvENK3$_6clEv.exit174"
   %90 = load ptr, ptr %m_params.i.i26, align 8
   %call.i.i177 = call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull @.str.87, ptr noundef nonnull align 8 dereferenceable(8) %g.i.i27, i1 noundef zeroext true)
   br i1 %call.i.i177, label %if.end.i178, label %if.end69
@@ -22817,7 +22817,7 @@ terminate.lpad.i.i202:                            ; preds = %if.then.i.i200
   call void @__clang_call_terminate(ptr %104) #28
   unreachable
 
-if.end69:                                         ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i171", %land.lhs.true, %_ZNK6vectorIN3nla5lemmaELb1EjE4sizeEv.exit.i.i128, %cleanup.cont, %_ZNK3nla4core4doneEv.exit.i143, %_ZNK6vectorIN3nla5lemmaELb1EjE5emptyEv.exit.i152, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i158, %if.then67, %_ZN3nla4core24should_run_bounded_nlsatEv.exit, %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit174"
+if.end69:                                         ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i171", %land.lhs.true, %_ZNK6vectorIN3nla5lemmaELb1EjE4sizeEv.exit.i.i128, %cleanup.cont, %_ZNK3nla4core4doneEv.exit.i143, %_ZNK6vectorIN3nla5lemmaELb1EjE5emptyEv.exit.i152, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i158, %if.then67, %_ZN3nla4core24should_run_bounded_nlsatEv.exit, %"_ZZN3nla4core5checkEvENK3$_6clEv.exit174"
   %no_effect.val12 = load ptr, ptr %no_effect, align 8
   %no_effect.val13 = load ptr, ptr %24, align 8
   %no_effect.val12.val = load i32, ptr %no_effect.val12, align 4
@@ -22864,15 +22864,15 @@ _ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i248: ; preds = %
   %arrayidx.i.i.i.i.i.i.i.i249 = getelementptr inbounds i8, ptr %110, i64 -4
   %111 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i249, align 4
   %cmp3.i.i.i.i.i.i.i.i250 = icmp eq i32 %111, 0
-  br i1 %cmp3.i.i.i.i.i.i.i.i250, label %for.inc.i.i.i.i220, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i251"
+  br i1 %cmp3.i.i.i.i.i.i.i.i250, label %for.inc.i.i.i.i220, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i251"
 
-"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i251": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i248
+"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i251": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i248
   %m_size.i.i.i.i.i.i.i.i252 = getelementptr inbounds i8, ptr %__begin0.02.i.i.i.i215, i64 28
   %112 = load i32, ptr %m_size.i.i.i.i.i.i.i.i252, align 4
   %cmp.i1.i.i.i.not.i.i.i.i253 = icmp eq i32 %112, 0
   br i1 %cmp.i1.i.i.i.not.i.i.i.i253, label %for.inc.i.i.i.i220, label %if.end73
 
-for.inc.i.i.i.i220:                               ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i251", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i248, %land.rhs.i.i.i.i.i.i245, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i.i.i217
+for.inc.i.i.i.i220:                               ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i251", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i248, %land.rhs.i.i.i.i.i.i245, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i.i.i217
   %incdec.ptr.i.i.i.i221 = getelementptr inbounds i8, ptr %__begin0.02.i.i.i.i215, i64 40
   %cmp.not.not.i.i.i.i222 = icmp eq ptr %incdec.ptr.i.i.i.i221, %add.ptr.i.i.i.i.i212
   br i1 %cmp.not.not.i.i.i.i222, label %_ZNK3nla4core4doneEv.exit.i223, label %for.body.i.i.i.i214
@@ -22904,26 +22904,26 @@ land.lhs.true4.i235:                              ; preds = %_ZNK6vectorIN3nla5l
   %m_literals.i236 = getelementptr inbounds i8, ptr %no_effect.val13, i64 264
   %118 = load ptr, ptr %m_literals.i236, align 8
   %cmp.i3.i237 = icmp eq ptr %118, null
-  br i1 %cmp.i3.i237, label %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit254", label %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i238
+  br i1 %cmp.i3.i237, label %"_ZZN3nla4core5checkEvENK3$_6clEv.exit254", label %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i238
 
 _ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i238:  ; preds = %land.lhs.true4.i235
   %arrayidx.i5.i239 = getelementptr inbounds i8, ptr %118, i64 -4
   %119 = load i32, ptr %arrayidx.i5.i239, align 4
   %cmp3.i6.i240 = icmp eq i32 %119, 0
-  br i1 %cmp3.i6.i240, label %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit254", label %if.end73
+  br i1 %cmp3.i6.i240, label %"_ZZN3nla4core5checkEvENK3$_6clEv.exit254", label %if.end73
 
-"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit254": ; preds = %land.lhs.true4.i235, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i238
+"_ZZN3nla4core5checkEvENK3$_6clEv.exit254":       ; preds = %land.lhs.true4.i235, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i238
   %m_check_feasible.i242 = getelementptr inbounds i8, ptr %no_effect.val13, i64 2740
   %120 = load i8, ptr %m_check_feasible.i242, align 4
   %tobool.i243 = trunc i8 %120 to i1
   br i1 %tobool.i243, label %if.end73, label %if.then71
 
-if.then71:                                        ; preds = %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit254"
+if.then71:                                        ; preds = %"_ZZN3nla4core5checkEvENK3$_6clEv.exit254"
   %m_basics = getelementptr inbounds i8, ptr %this, i64 520
   %call72 = call noundef zeroext i1 @_ZN3nla6basics11basic_lemmaEb(ptr noundef nonnull align 8 dereferenceable(184) %m_basics, i1 noundef zeroext true)
   br label %if.end73
 
-if.end73:                                         ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i251", %_ZNK6vectorIN3nla5lemmaELb1EjE4sizeEv.exit.i.i208, %if.end69, %_ZNK3nla4core4doneEv.exit.i223, %_ZNK6vectorIN3nla5lemmaELb1EjE5emptyEv.exit.i232, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i238, %if.then71, %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit254"
+if.end73:                                         ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i251", %_ZNK6vectorIN3nla5lemmaELb1EjE4sizeEv.exit.i.i208, %if.end69, %_ZNK3nla4core4doneEv.exit.i223, %_ZNK6vectorIN3nla5lemmaELb1EjE5emptyEv.exit.i232, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i238, %if.then71, %"_ZZN3nla4core5checkEvENK3$_6clEv.exit254"
   %no_effect.val14 = load ptr, ptr %no_effect, align 8
   %no_effect.val15 = load ptr, ptr %24, align 8
   %no_effect.val14.val = load i32, ptr %no_effect.val14, align 4
@@ -22970,15 +22970,15 @@ _ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i299: ; preds = %
   %arrayidx.i.i.i.i.i.i.i.i300 = getelementptr inbounds i8, ptr %126, i64 -4
   %127 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i300, align 4
   %cmp3.i.i.i.i.i.i.i.i301 = icmp eq i32 %127, 0
-  br i1 %cmp3.i.i.i.i.i.i.i.i301, label %for.inc.i.i.i.i271, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i302"
+  br i1 %cmp3.i.i.i.i.i.i.i.i301, label %for.inc.i.i.i.i271, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i302"
 
-"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i302": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i299
+"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i302": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i299
   %m_size.i.i.i.i.i.i.i.i303 = getelementptr inbounds i8, ptr %__begin0.02.i.i.i.i266, i64 28
   %128 = load i32, ptr %m_size.i.i.i.i.i.i.i.i303, align 4
   %cmp.i1.i.i.i.not.i.i.i.i304 = icmp eq i32 %128, 0
   br i1 %cmp.i1.i.i.i.not.i.i.i.i304, label %for.inc.i.i.i.i271, label %if.end78
 
-for.inc.i.i.i.i271:                               ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i302", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i299, %land.rhs.i.i.i.i.i.i296, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i.i.i268
+for.inc.i.i.i.i271:                               ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i302", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i299, %land.rhs.i.i.i.i.i.i296, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i.i.i268
   %incdec.ptr.i.i.i.i272 = getelementptr inbounds i8, ptr %__begin0.02.i.i.i.i266, i64 40
   %cmp.not.not.i.i.i.i273 = icmp eq ptr %incdec.ptr.i.i.i.i272, %add.ptr.i.i.i.i.i263
   br i1 %cmp.not.not.i.i.i.i273, label %_ZNK3nla4core4doneEv.exit.i274, label %for.body.i.i.i.i265
@@ -23010,26 +23010,26 @@ land.lhs.true4.i286:                              ; preds = %_ZNK6vectorIN3nla5l
   %m_literals.i287 = getelementptr inbounds i8, ptr %no_effect.val15, i64 264
   %134 = load ptr, ptr %m_literals.i287, align 8
   %cmp.i3.i288 = icmp eq ptr %134, null
-  br i1 %cmp.i3.i288, label %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit305", label %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i289
+  br i1 %cmp.i3.i288, label %"_ZZN3nla4core5checkEvENK3$_6clEv.exit305", label %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i289
 
 _ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i289:  ; preds = %land.lhs.true4.i286
   %arrayidx.i5.i290 = getelementptr inbounds i8, ptr %134, i64 -4
   %135 = load i32, ptr %arrayidx.i5.i290, align 4
   %cmp3.i6.i291 = icmp eq i32 %135, 0
-  br i1 %cmp3.i6.i291, label %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit305", label %if.end78
+  br i1 %cmp3.i6.i291, label %"_ZZN3nla4core5checkEvENK3$_6clEv.exit305", label %if.end78
 
-"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit305": ; preds = %land.lhs.true4.i286, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i289
+"_ZZN3nla4core5checkEvENK3$_6clEv.exit305":       ; preds = %land.lhs.true4.i286, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i289
   %m_check_feasible.i293 = getelementptr inbounds i8, ptr %no_effect.val15, i64 2740
   %136 = load i8, ptr %m_check_feasible.i293, align 4
   %tobool.i294 = trunc i8 %136 to i1
   br i1 %tobool.i294, label %if.end78, label %if.then75
 
-if.then75:                                        ; preds = %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit305"
+if.then75:                                        ; preds = %"_ZZN3nla4core5checkEvENK3$_6clEv.exit305"
   %m_basics76 = getelementptr inbounds i8, ptr %this, i64 520
   %call77 = call noundef zeroext i1 @_ZN3nla6basics11basic_lemmaEb(ptr noundef nonnull align 8 dereferenceable(184) %m_basics76, i1 noundef zeroext false)
   br label %if.end78
 
-if.end78:                                         ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i302", %_ZNK6vectorIN3nla5lemmaELb1EjE4sizeEv.exit.i.i259, %if.end73, %_ZNK3nla4core4doneEv.exit.i274, %_ZNK6vectorIN3nla5lemmaELb1EjE5emptyEv.exit.i283, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i289, %if.then75, %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit305"
+if.end78:                                         ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i302", %_ZNK6vectorIN3nla5lemmaELb1EjE4sizeEv.exit.i.i259, %if.end73, %_ZNK3nla4core4doneEv.exit.i274, %_ZNK6vectorIN3nla5lemmaELb1EjE5emptyEv.exit.i283, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i289, %if.then75, %"_ZZN3nla4core5checkEvENK3$_6clEv.exit305"
   %no_effect.val16 = load ptr, ptr %no_effect, align 8
   %no_effect.val17 = load ptr, ptr %24, align 8
   %no_effect.val16.val = load i32, ptr %no_effect.val16, align 4
@@ -23076,15 +23076,15 @@ _ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i350: ; preds = %
   %arrayidx.i.i.i.i.i.i.i.i351 = getelementptr inbounds i8, ptr %142, i64 -4
   %143 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i351, align 4
   %cmp3.i.i.i.i.i.i.i.i352 = icmp eq i32 %143, 0
-  br i1 %cmp3.i.i.i.i.i.i.i.i352, label %for.inc.i.i.i.i322, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i353"
+  br i1 %cmp3.i.i.i.i.i.i.i.i352, label %for.inc.i.i.i.i322, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i353"
 
-"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i353": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i350
+"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i353": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i350
   %m_size.i.i.i.i.i.i.i.i354 = getelementptr inbounds i8, ptr %__begin0.02.i.i.i.i317, i64 28
   %144 = load i32, ptr %m_size.i.i.i.i.i.i.i.i354, align 4
   %cmp.i1.i.i.i.not.i.i.i.i355 = icmp eq i32 %144, 0
   br i1 %cmp.i1.i.i.i.not.i.i.i.i355, label %for.inc.i.i.i.i322, label %if.end81
 
-for.inc.i.i.i.i322:                               ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i353", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i350, %land.rhs.i.i.i.i.i.i347, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i.i.i319
+for.inc.i.i.i.i322:                               ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i353", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i350, %land.rhs.i.i.i.i.i.i347, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i.i.i319
   %incdec.ptr.i.i.i.i323 = getelementptr inbounds i8, ptr %__begin0.02.i.i.i.i317, i64 40
   %cmp.not.not.i.i.i.i324 = icmp eq ptr %incdec.ptr.i.i.i.i323, %add.ptr.i.i.i.i.i314
   br i1 %cmp.not.not.i.i.i.i324, label %_ZNK3nla4core4doneEv.exit.i325, label %for.body.i.i.i.i316
@@ -23116,26 +23116,26 @@ land.lhs.true4.i337:                              ; preds = %_ZNK6vectorIN3nla5l
   %m_literals.i338 = getelementptr inbounds i8, ptr %no_effect.val17, i64 264
   %150 = load ptr, ptr %m_literals.i338, align 8
   %cmp.i3.i339 = icmp eq ptr %150, null
-  br i1 %cmp.i3.i339, label %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit356", label %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i340
+  br i1 %cmp.i3.i339, label %"_ZZN3nla4core5checkEvENK3$_6clEv.exit356", label %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i340
 
 _ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i340:  ; preds = %land.lhs.true4.i337
   %arrayidx.i5.i341 = getelementptr inbounds i8, ptr %150, i64 -4
   %151 = load i32, ptr %arrayidx.i5.i341, align 4
   %cmp3.i6.i342 = icmp eq i32 %151, 0
-  br i1 %cmp3.i6.i342, label %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit356", label %if.end81
+  br i1 %cmp3.i6.i342, label %"_ZZN3nla4core5checkEvENK3$_6clEv.exit356", label %if.end81
 
-"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit356": ; preds = %land.lhs.true4.i337, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i340
+"_ZZN3nla4core5checkEvENK3$_6clEv.exit356":       ; preds = %land.lhs.true4.i337, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i340
   %m_check_feasible.i344 = getelementptr inbounds i8, ptr %no_effect.val17, i64 2740
   %152 = load i8, ptr %m_check_feasible.i344, align 4
   %tobool.i345 = trunc i8 %152 to i1
   br i1 %tobool.i345, label %if.end81, label %if.then80
 
-if.then80:                                        ; preds = %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit356"
+if.then80:                                        ; preds = %"_ZZN3nla4core5checkEvENK3$_6clEv.exit356"
   %m_divisions = getelementptr inbounds i8, ptr %this, i64 1080
   call void @_ZN3nla9divisions5checkEv(ptr noundef nonnull align 8 dereferenceable(32) %m_divisions)
   br label %if.end81
 
-if.end81:                                         ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i353", %_ZNK6vectorIN3nla5lemmaELb1EjE4sizeEv.exit.i.i310, %if.end78, %_ZNK3nla4core4doneEv.exit.i325, %_ZNK6vectorIN3nla5lemmaELb1EjE5emptyEv.exit.i334, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i340, %if.then80, %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit356"
+if.end81:                                         ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i353", %_ZNK6vectorIN3nla5lemmaELb1EjE4sizeEv.exit.i.i310, %if.end78, %_ZNK3nla4core4doneEv.exit.i325, %_ZNK6vectorIN3nla5lemmaELb1EjE5emptyEv.exit.i334, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i340, %if.then80, %"_ZZN3nla4core5checkEvENK3$_6clEv.exit356"
   %no_effect.val18 = load ptr, ptr %no_effect, align 8
   %no_effect.val19 = load ptr, ptr %24, align 8
   %no_effect.val18.val = load i32, ptr %no_effect.val18, align 4
@@ -23182,15 +23182,15 @@ _ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i401: ; preds = %
   %arrayidx.i.i.i.i.i.i.i.i402 = getelementptr inbounds i8, ptr %158, i64 -4
   %159 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i402, align 4
   %cmp3.i.i.i.i.i.i.i.i403 = icmp eq i32 %159, 0
-  br i1 %cmp3.i.i.i.i.i.i.i.i403, label %for.inc.i.i.i.i373, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i404"
+  br i1 %cmp3.i.i.i.i.i.i.i.i403, label %for.inc.i.i.i.i373, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i404"
 
-"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i404": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i401
+"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i404": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i401
   %m_size.i.i.i.i.i.i.i.i405 = getelementptr inbounds i8, ptr %__begin0.02.i.i.i.i368, i64 28
   %160 = load i32, ptr %m_size.i.i.i.i.i.i.i.i405, align 4
   %cmp.i1.i.i.i.not.i.i.i.i406 = icmp eq i32 %160, 0
   br i1 %cmp.i1.i.i.i.not.i.i.i.i406, label %for.inc.i.i.i.i373, label %if.end148
 
-for.inc.i.i.i.i373:                               ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i404", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i401, %land.rhs.i.i.i.i.i.i398, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i.i.i370
+for.inc.i.i.i.i373:                               ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i404", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i401, %land.rhs.i.i.i.i.i.i398, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i.i.i370
   %incdec.ptr.i.i.i.i374 = getelementptr inbounds i8, ptr %__begin0.02.i.i.i.i368, i64 40
   %cmp.not.not.i.i.i.i375 = icmp eq ptr %incdec.ptr.i.i.i.i374, %add.ptr.i.i.i.i.i365
   br i1 %cmp.not.not.i.i.i.i375, label %_ZNK3nla4core4doneEv.exit.i376, label %for.body.i.i.i.i367
@@ -23222,21 +23222,21 @@ land.lhs.true4.i388:                              ; preds = %_ZNK6vectorIN3nla5l
   %m_literals.i389 = getelementptr inbounds i8, ptr %no_effect.val19, i64 264
   %166 = load ptr, ptr %m_literals.i389, align 8
   %cmp.i3.i390 = icmp eq ptr %166, null
-  br i1 %cmp.i3.i390, label %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit407", label %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i391
+  br i1 %cmp.i3.i390, label %"_ZZN3nla4core5checkEvENK3$_6clEv.exit407", label %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i391
 
 _ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i391:  ; preds = %land.lhs.true4.i388
   %arrayidx.i5.i392 = getelementptr inbounds i8, ptr %166, i64 -4
   %167 = load i32, ptr %arrayidx.i5.i392, align 4
   %cmp3.i6.i393 = icmp eq i32 %167, 0
-  br i1 %cmp3.i6.i393, label %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit407", label %if.end148
+  br i1 %cmp3.i6.i393, label %"_ZZN3nla4core5checkEvENK3$_6clEv.exit407", label %if.end148
 
-"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit407": ; preds = %land.lhs.true4.i388, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i391
+"_ZZN3nla4core5checkEvENK3$_6clEv.exit407":       ; preds = %land.lhs.true4.i388, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i391
   %m_check_feasible.i395 = getelementptr inbounds i8, ptr %no_effect.val19, i64 2740
   %168 = load i8, ptr %m_check_feasible.i395, align 4
   %tobool.i396 = trunc i8 %168 to i1
   br i1 %tobool.i396, label %if.end148, label %if.then.i.i421
 
-if.then.i.i421:                                   ; preds = %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit407"
+if.then.i.i421:                                   ; preds = %"_ZZN3nla4core5checkEvENK3$_6clEv.exit407"
   %_M_manager.i.i408 = getelementptr inbounds i8, ptr %check184, i64 16
   %_M_invoker.i409 = getelementptr inbounds i8, ptr %check184, i64 24
   %169 = getelementptr inbounds i8, ptr %check184, i64 8
@@ -23332,15 +23332,15 @@ _ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i: ; preds = %land.rh
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %181, i64 -4
   %182 = load i32, ptr %arrayidx.i.i.i.i.i.i, align 4
   %cmp3.i.i.i.i.i.i = icmp eq i32 %182, 0
-  br i1 %cmp3.i.i.i.i.i.i, label %for.inc.i.i, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i"
+  br i1 %cmp3.i.i.i.i.i.i, label %for.inc.i.i, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i"
 
-"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i
+"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i
   %m_size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.02.i.i, i64 28
   %183 = load i32, ptr %m_size.i.i.i.i.i.i, align 4
   %cmp.i1.i.i.i.not.i.i = icmp eq i32 %183, 0
   br i1 %cmp.i1.i.i.i.not.i.i, label %for.inc.i.i, label %if.end131
 
-for.inc.i.i:                                      ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i, %land.rhs.i.i.i.i, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i
+for.inc.i.i:                                      ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i, %land.rhs.i.i.i.i, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin0.02.i.i, i64 40
   %cmp.not.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i475
   br i1 %cmp.not.not.i.i, label %land.lhs.true119, label %for.body.i.i
@@ -23374,7 +23374,7 @@ lpad110:                                          ; preds = %land.lhs.true119, %
   %186 = getelementptr inbounds i8, ptr %checks90, i64 120
   br label %arraydestroy.body140
 
-if.end131:                                        ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i", %invoke.cont129, %land.lhs.true124, %invoke.cont122
+if.end131:                                        ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i", %invoke.cont129, %land.lhs.true124, %invoke.cont122
   %187 = getelementptr inbounds i8, ptr %checks90, i64 120
   br label %arraydestroy.body133
 
@@ -23522,7 +23522,7 @@ terminate.lpad.i.i535:                            ; preds = %if.then.i.i533
   call void @__clang_call_terminate(ptr %211) #28
   unreachable
 
-if.end148:                                        ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i404", %_ZNK6vectorIN3nla5lemmaELb1EjE4sizeEv.exit.i.i361, %if.end81, %_ZNK3nla4core4doneEv.exit.i376, %_ZNK6vectorIN3nla5lemmaELb1EjE5emptyEv.exit.i385, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i391, %if.then.i.i508, %_ZNSt8functionIFvvEED2Ev.exit505, %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit407"
+if.end148:                                        ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i404", %_ZNK6vectorIN3nla5lemmaELb1EjE4sizeEv.exit.i.i361, %if.end81, %_ZNK3nla4core4doneEv.exit.i376, %_ZNK6vectorIN3nla5lemmaELb1EjE5emptyEv.exit.i385, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i391, %if.then.i.i508, %_ZNSt8functionIFvvEED2Ev.exit505, %"_ZZN3nla4core5checkEvENK3$_6clEv.exit407"
   %no_effect.val20 = load ptr, ptr %no_effect, align 8
   %no_effect.val21 = load ptr, ptr %24, align 8
   %no_effect.val20.val = load i32, ptr %no_effect.val20, align 4
@@ -23569,15 +23569,15 @@ _ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i581: ; preds = %
   %arrayidx.i.i.i.i.i.i.i.i582 = getelementptr inbounds i8, ptr %217, i64 -4
   %218 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i582, align 4
   %cmp3.i.i.i.i.i.i.i.i583 = icmp eq i32 %218, 0
-  br i1 %cmp3.i.i.i.i.i.i.i.i583, label %for.inc.i.i.i.i553, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i584"
+  br i1 %cmp3.i.i.i.i.i.i.i.i583, label %for.inc.i.i.i.i553, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i584"
 
-"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i584": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i581
+"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i584": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i581
   %m_size.i.i.i.i.i.i.i.i585 = getelementptr inbounds i8, ptr %__begin0.02.i.i.i.i548, i64 28
   %219 = load i32, ptr %m_size.i.i.i.i.i.i.i.i585, align 4
   %cmp.i1.i.i.i.not.i.i.i.i586 = icmp eq i32 %219, 0
   br i1 %cmp.i1.i.i.i.not.i.i.i.i586, label %for.inc.i.i.i.i553, label %if.end158
 
-for.inc.i.i.i.i553:                               ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i584", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i581, %land.rhs.i.i.i.i.i.i578, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i.i.i550
+for.inc.i.i.i.i553:                               ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i584", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i581, %land.rhs.i.i.i.i.i.i578, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i.i.i550
   %incdec.ptr.i.i.i.i554 = getelementptr inbounds i8, ptr %__begin0.02.i.i.i.i548, i64 40
   %cmp.not.not.i.i.i.i555 = icmp eq ptr %incdec.ptr.i.i.i.i554, %add.ptr.i.i.i.i.i545
   br i1 %cmp.not.not.i.i.i.i555, label %_ZNK3nla4core4doneEv.exit.i556, label %for.body.i.i.i.i547
@@ -23609,21 +23609,21 @@ land.lhs.true4.i568:                              ; preds = %_ZNK6vectorIN3nla5l
   %m_literals.i569 = getelementptr inbounds i8, ptr %no_effect.val21, i64 264
   %225 = load ptr, ptr %m_literals.i569, align 8
   %cmp.i3.i570 = icmp eq ptr %225, null
-  br i1 %cmp.i3.i570, label %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit587", label %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i571
+  br i1 %cmp.i3.i570, label %"_ZZN3nla4core5checkEvENK3$_6clEv.exit587", label %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i571
 
 _ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i571:  ; preds = %land.lhs.true4.i568
   %arrayidx.i5.i572 = getelementptr inbounds i8, ptr %225, i64 -4
   %226 = load i32, ptr %arrayidx.i5.i572, align 4
   %cmp3.i6.i573 = icmp eq i32 %226, 0
-  br i1 %cmp3.i6.i573, label %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit587", label %if.end158
+  br i1 %cmp3.i6.i573, label %"_ZZN3nla4core5checkEvENK3$_6clEv.exit587", label %if.end158
 
-"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit587": ; preds = %land.lhs.true4.i568, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i571
+"_ZZN3nla4core5checkEvENK3$_6clEv.exit587":       ; preds = %land.lhs.true4.i568, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i571
   %m_check_feasible.i575 = getelementptr inbounds i8, ptr %no_effect.val21, i64 2740
   %227 = load i8, ptr %m_check_feasible.i575, align 4
   %tobool.i576 = trunc i8 %227 to i1
   br i1 %tobool.i576, label %if.end158, label %land.lhs.true150
 
-land.lhs.true150:                                 ; preds = %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit587"
+land.lhs.true150:                                 ; preds = %"_ZZN3nla4core5checkEvENK3$_6clEv.exit587"
   %228 = load ptr, ptr %m_params.i.i26, align 8
   %call.i590 = call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %228, ptr noundef nonnull @.str.87, ptr noundef nonnull align 8 dereferenceable(8) %g.i.i27, i1 noundef zeroext true)
   br i1 %call.i590, label %if.then153, label %if.end158
@@ -23640,7 +23640,7 @@ if.then153:                                       ; preds = %land.lhs.true150
   store i32 %inc157, ptr %m_nra_calls, align 8
   br label %if.end158
 
-if.end158:                                        ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i584", %_ZNK6vectorIN3nla5lemmaELb1EjE4sizeEv.exit.i.i541, %if.end148, %_ZNK3nla4core4doneEv.exit.i556, %_ZNK6vectorIN3nla5lemmaELb1EjE5emptyEv.exit.i565, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i571, %if.then153, %land.lhs.true150, %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit587"
+if.end158:                                        ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i584", %_ZNK6vectorIN3nla5lemmaELb1EjE4sizeEv.exit.i.i541, %if.end148, %_ZNK3nla4core4doneEv.exit.i556, %_ZNK6vectorIN3nla5lemmaELb1EjE5emptyEv.exit.i565, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i571, %if.then153, %land.lhs.true150, %"_ZZN3nla4core5checkEvENK3$_6clEv.exit587"
   %231 = load i32, ptr %ret, align 4
   %cmp159 = icmp eq i32 %231, 0
   br i1 %cmp159, label %land.lhs.true160, label %if.end165
@@ -23692,15 +23692,15 @@ _ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i638: ; preds = %
   %arrayidx.i.i.i.i.i.i.i.i639 = getelementptr inbounds i8, ptr %237, i64 -4
   %238 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i639, align 4
   %cmp3.i.i.i.i.i.i.i.i640 = icmp eq i32 %238, 0
-  br i1 %cmp3.i.i.i.i.i.i.i.i640, label %for.inc.i.i.i.i610, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i641"
+  br i1 %cmp3.i.i.i.i.i.i.i.i640, label %for.inc.i.i.i.i610, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i641"
 
-"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i641": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i638
+"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i641": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i638
   %m_size.i.i.i.i.i.i.i.i642 = getelementptr inbounds i8, ptr %__begin0.02.i.i.i.i605, i64 28
   %239 = load i32, ptr %m_size.i.i.i.i.i.i.i.i642, align 4
   %cmp.i1.i.i.i.not.i.i.i.i643 = icmp eq i32 %239, 0
   br i1 %cmp.i1.i.i.i.not.i.i.i.i643, label %for.inc.i.i.i.i610, label %land.lhs.true162
 
-for.inc.i.i.i.i610:                               ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i641", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i638, %land.rhs.i.i.i.i.i.i635, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i.i.i607
+for.inc.i.i.i.i610:                               ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i641", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i638, %land.rhs.i.i.i.i.i.i635, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i.i.i607
   %incdec.ptr.i.i.i.i611 = getelementptr inbounds i8, ptr %__begin0.02.i.i.i.i605, i64 40
   %cmp.not.not.i.i.i.i612 = icmp eq ptr %incdec.ptr.i.i.i.i611, %add.ptr.i.i.i.i.i602
   br i1 %cmp.not.not.i.i.i.i612, label %_ZNK3nla4core4doneEv.exit.i613, label %for.body.i.i.i.i604
@@ -23732,21 +23732,21 @@ land.lhs.true4.i625:                              ; preds = %_ZNK6vectorIN3nla5l
   %m_literals.i626 = getelementptr inbounds i8, ptr %no_effect.val23, i64 264
   %245 = load ptr, ptr %m_literals.i626, align 8
   %cmp.i3.i627 = icmp eq ptr %245, null
-  br i1 %cmp.i3.i627, label %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit644", label %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i628
+  br i1 %cmp.i3.i627, label %"_ZZN3nla4core5checkEvENK3$_6clEv.exit644", label %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i628
 
 _ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i628:  ; preds = %land.lhs.true4.i625
   %arrayidx.i5.i629 = getelementptr inbounds i8, ptr %245, i64 -4
   %246 = load i32, ptr %arrayidx.i5.i629, align 4
   %cmp3.i6.i630 = icmp eq i32 %246, 0
-  br i1 %cmp3.i6.i630, label %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit644", label %land.lhs.true162
+  br i1 %cmp3.i6.i630, label %"_ZZN3nla4core5checkEvENK3$_6clEv.exit644", label %land.lhs.true162
 
-"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit644": ; preds = %land.lhs.true4.i625, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i628
+"_ZZN3nla4core5checkEvENK3$_6clEv.exit644":       ; preds = %land.lhs.true4.i625, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i628
   %m_check_feasible.i632 = getelementptr inbounds i8, ptr %no_effect.val23, i64 2740
   %247 = load i8, ptr %m_check_feasible.i632, align 4
   %tobool.i633 = trunc i8 %247 to i1
   br i1 %tobool.i633, label %land.lhs.true162, label %if.end165
 
-land.lhs.true162:                                 ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i641", %_ZNK6vectorIN3nla5lemmaELb1EjE4sizeEv.exit.i.i598, %land.lhs.true160, %_ZNK3nla4core4doneEv.exit.i613, %_ZNK6vectorIN3nla5lemmaELb1EjE5emptyEv.exit.i622, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i628, %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit644"
+land.lhs.true162:                                 ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i641", %_ZNK6vectorIN3nla5lemmaELb1EjE4sizeEv.exit.i.i598, %land.lhs.true160, %_ZNK3nla4core4doneEv.exit.i613, %_ZNK6vectorIN3nla5lemmaELb1EjE5emptyEv.exit.i622, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i628, %"_ZZN3nla4core5checkEvENK3$_6clEv.exit644"
   %m_reslim = getelementptr inbounds i8, ptr %this, i64 200
   %248 = load ptr, ptr %m_reslim, align 8
   %call163 = call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %248)
@@ -23756,7 +23756,7 @@ if.then164:                                       ; preds = %land.lhs.true162
   store i32 -1, ptr %ret, align 4
   br label %if.end165
 
-if.end165:                                        ; preds = %if.then164, %land.lhs.true162, %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit644", %if.end158
+if.end165:                                        ; preds = %if.then164, %land.lhs.true162, %"_ZZN3nla4core5checkEvENK3$_6clEv.exit644", %if.end158
   %249 = load ptr, ptr %m_lemmas.i.i, align 8
   %cmp.i645 = icmp eq ptr %249, null
   br i1 %cmp.i645, label %_ZNK6vectorIN3nla5lemmaELb1EjE4sizeEv.exit, label %if.end.i646
@@ -33376,7 +33376,7 @@ entry:
   %idx.ext.i.i.i.i = zext i32 %__args.val to i64
   %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %__args.val1, i64 %idx.ext.i.i.i.i
   %cmp.not13.i.i.i = icmp eq i32 %__args.val, 0
-  br i1 %cmp.not13.i.i.i, label %"_ZSt10__invoke_rIvRZN3nla4coreC1ERN2lp10lar_solverERK10params_refR8reslimitE3$_0JRK16indexed_uint_setEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit", label %for.body.lr.ph.i.i.i
+  br i1 %cmp.not13.i.i.i, label %"_ZSt10__invoke_rIvRZN3nla4coreC1ERN2lp10lar_solverERK10params_refR8reslimitE3$_0JRK16indexed_uint_setEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit", label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
   %call.val = load ptr, ptr %__functor, align 8
@@ -33779,9 +33779,9 @@ _ZN16indexed_uint_set6insertEj.exit32.i.i.i:      ; preds = %_ZN16indexed_uint_s
 for.inc12.i.i.i:                                  ; preds = %_ZN16indexed_uint_set6insertEj.exit32.i.i.i, %if.end.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__begin2.014.i.i.i, i64 4
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i.i.i
-  br i1 %cmp.not.i.i.i, label %"_ZSt10__invoke_rIvRZN3nla4coreC1ERN2lp10lar_solverERK10params_refR8reslimitE3$_0JRK16indexed_uint_setEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit", label %for.body.i.i.i
+  br i1 %cmp.not.i.i.i, label %"_ZSt10__invoke_rIvRZN3nla4coreC1ERN2lp10lar_solverERK10params_refR8reslimitE3$_0JRK16indexed_uint_setEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit", label %for.body.i.i.i
 
-"_ZSt10__invoke_rIvRZN3nla4coreC1ERN2lp10lar_solverERK10params_refR8reslimitE3$_0JRK16indexed_uint_setEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit": ; preds = %for.inc12.i.i.i, %entry
+"_ZSt10__invoke_rIvRZN3nla4coreC1ERN2lp10lar_solverERK10params_refR8reslimitE3$_0JRK16indexed_uint_setEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit": ; preds = %for.inc12.i.i.i, %entry
   ret void
 }
 
@@ -37942,15 +37942,15 @@ _ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i.i.i.i: ; preds 
   %arrayidx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 -4
   %10 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i, align 4
   %cmp3.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %10, 0
-  br i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i.i.i.i"
+  br i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i.i.i.i"
 
-"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i.i.i.i": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i.i.i.i
+"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i.i.i.i": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i.i.i.i
   %m_size.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.02.i.i.i.i.i.i.i, i64 28
   %11 = load i32, ptr %m_size.i.i.i.i.i.i.i.i.i.i.i, align 4
   %cmp.i1.i.i.i.not.i.i.i.i.i.i.i = icmp eq i32 %11, 0
   br i1 %cmp.i1.i.i.i.not.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3nla4core5checkEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
 
-for.inc.i.i.i.i.i.i.i:                            ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i.i.i.i", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i.i.i.i, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i.i.i.i.i.i
+for.inc.i.i.i.i.i.i.i:                            ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i.i.i.i", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i.i.i.i, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.02.i.i.i.i.i.i.i, i64 40
   %cmp.not.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i.i
   br i1 %cmp.not.not.i.i.i.i.i.i.i, label %_ZNK3nla4core4doneEv.exit.i.i.i.i, label %for.body.i.i.i.i.i.i.i
@@ -37982,21 +37982,21 @@ land.lhs.true4.i.i.i.i:                           ; preds = %_ZNK6vectorIN3nla5l
   %m_literals.i.i.i.i = getelementptr inbounds i8, ptr %.val1.i.i.i, i64 264
   %17 = load ptr, ptr %m_literals.i.i.i.i, align 8
   %cmp.i3.i.i.i.i = icmp eq ptr %17, null
-  br i1 %cmp.i3.i.i.i.i, label %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit.i.i.i", label %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i
+  br i1 %cmp.i3.i.i.i.i, label %"_ZZN3nla4core5checkEvENK3$_6clEv.exit.i.i.i", label %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i
 
 _ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i: ; preds = %land.lhs.true4.i.i.i.i
   %arrayidx.i5.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 -4
   %18 = load i32, ptr %arrayidx.i5.i.i.i.i, align 4
   %cmp3.i6.i.i.i.i = icmp eq i32 %18, 0
-  br i1 %cmp3.i6.i.i.i.i, label %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit.i.i.i", label %"_ZSt10__invoke_rIvRZN3nla4core5checkEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
+  br i1 %cmp3.i6.i.i.i.i, label %"_ZZN3nla4core5checkEvENK3$_6clEv.exit.i.i.i", label %"_ZSt10__invoke_rIvRZN3nla4core5checkEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
 
-"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit.i.i.i": ; preds = %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i, %land.lhs.true4.i.i.i.i
+"_ZZN3nla4core5checkEvENK3$_6clEv.exit.i.i.i":    ; preds = %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i, %land.lhs.true4.i.i.i.i
   %m_check_feasible.i.i.i.i = getelementptr inbounds i8, ptr %.val1.i.i.i, i64 2740
   %19 = load i8, ptr %m_check_feasible.i.i.i.i, align 4
   %tobool.i.i.i.i = trunc i8 %19 to i1
   br i1 %tobool.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3nla4core5checkEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %land.lhs.true.i.i.i
 
-land.lhs.true.i.i.i:                              ; preds = %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit.i.i.i"
+land.lhs.true.i.i.i:                              ; preds = %"_ZZN3nla4core5checkEvENK3$_6clEv.exit.i.i.i"
   %20 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = load i8, ptr %21, align 1
@@ -38008,7 +38008,7 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   %call2.i.i.i = tail call noundef zeroext i1 @_ZN3nla6horner13horner_lemmasEv(ptr noundef nonnull align 8 dereferenceable(204) %m_horner.i.i.i)
   br label %"_ZSt10__invoke_rIvRZN3nla4core5checkEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
 
-"_ZSt10__invoke_rIvRZN3nla4core5checkEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i.i.i.i", %entry, %_ZNK6vectorIN3nla5lemmaELb1EjE4sizeEv.exit.i.i.i.i.i, %_ZNK3nla4core4doneEv.exit.i.i.i.i, %_ZNK6vectorIN3nla5lemmaELb1EjE5emptyEv.exit.i.i.i.i, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i, %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit.i.i.i", %land.lhs.true.i.i.i, %if.then.i.i.i
+"_ZSt10__invoke_rIvRZN3nla4core5checkEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i.i.i.i", %entry, %_ZNK6vectorIN3nla5lemmaELb1EjE4sizeEv.exit.i.i.i.i.i, %_ZNK3nla4core4doneEv.exit.i.i.i.i, %_ZNK6vectorIN3nla5lemmaELb1EjE5emptyEv.exit.i.i.i.i, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i, %"_ZZN3nla4core5checkEvENK3$_6clEv.exit.i.i.i", %land.lhs.true.i.i.i, %if.then.i.i.i
   ret void
 }
 
@@ -38107,15 +38107,15 @@ _ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i.i.i.i: ; preds 
   %arrayidx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 -4
   %10 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i, align 4
   %cmp3.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %10, 0
-  br i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i.i.i.i"
+  br i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i.i.i.i"
 
-"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i.i.i.i": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i.i.i.i
+"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i.i.i.i": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i.i.i.i
   %m_size.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.02.i.i.i.i.i.i.i, i64 28
   %11 = load i32, ptr %m_size.i.i.i.i.i.i.i.i.i.i.i, align 4
   %cmp.i1.i.i.i.not.i.i.i.i.i.i.i = icmp eq i32 %11, 0
   br i1 %cmp.i1.i.i.i.not.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3nla4core5checkEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
 
-for.inc.i.i.i.i.i.i.i:                            ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i.i.i.i", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i.i.i.i, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i.i.i.i.i.i
+for.inc.i.i.i.i.i.i.i:                            ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i.i.i.i", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i.i.i.i, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.02.i.i.i.i.i.i.i, i64 40
   %cmp.not.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i.i
   br i1 %cmp.not.not.i.i.i.i.i.i.i, label %_ZNK3nla4core4doneEv.exit.i.i.i.i, label %for.body.i.i.i.i.i.i.i
@@ -38147,21 +38147,21 @@ land.lhs.true4.i.i.i.i:                           ; preds = %_ZNK6vectorIN3nla5l
   %m_literals.i.i.i.i = getelementptr inbounds i8, ptr %.val1.i.i.i, i64 264
   %17 = load ptr, ptr %m_literals.i.i.i.i, align 8
   %cmp.i3.i.i.i.i = icmp eq ptr %17, null
-  br i1 %cmp.i3.i.i.i.i, label %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit.i.i.i", label %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i
+  br i1 %cmp.i3.i.i.i.i, label %"_ZZN3nla4core5checkEvENK3$_6clEv.exit.i.i.i", label %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i
 
 _ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i: ; preds = %land.lhs.true4.i.i.i.i
   %arrayidx.i5.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 -4
   %18 = load i32, ptr %arrayidx.i5.i.i.i.i, align 4
   %cmp3.i6.i.i.i.i = icmp eq i32 %18, 0
-  br i1 %cmp3.i6.i.i.i.i, label %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit.i.i.i", label %"_ZSt10__invoke_rIvRZN3nla4core5checkEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
+  br i1 %cmp3.i6.i.i.i.i, label %"_ZZN3nla4core5checkEvENK3$_6clEv.exit.i.i.i", label %"_ZSt10__invoke_rIvRZN3nla4core5checkEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
 
-"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit.i.i.i": ; preds = %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i, %land.lhs.true4.i.i.i.i
+"_ZZN3nla4core5checkEvENK3$_6clEv.exit.i.i.i":    ; preds = %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i, %land.lhs.true4.i.i.i.i
   %m_check_feasible.i.i.i.i = getelementptr inbounds i8, ptr %.val1.i.i.i, i64 2740
   %19 = load i8, ptr %m_check_feasible.i.i.i.i, align 4
   %tobool.i.i.i.i = trunc i8 %19 to i1
   br i1 %tobool.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3nla4core5checkEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %land.lhs.true.i.i.i
 
-land.lhs.true.i.i.i:                              ; preds = %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit.i.i.i"
+land.lhs.true.i.i.i:                              ; preds = %"_ZZN3nla4core5checkEvENK3$_6clEv.exit.i.i.i"
   %20 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = load i8, ptr %21, align 1
@@ -38173,7 +38173,7 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   tail call void @_ZN3nla7grobnerclEv(ptr noundef nonnull align 8 dereferenceable(1448) %m_grobner.i.i.i)
   br label %"_ZSt10__invoke_rIvRZN3nla4core5checkEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
 
-"_ZSt10__invoke_rIvRZN3nla4core5checkEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i.i.i.i", %entry, %_ZNK6vectorIN3nla5lemmaELb1EjE4sizeEv.exit.i.i.i.i.i, %_ZNK3nla4core4doneEv.exit.i.i.i.i, %_ZNK6vectorIN3nla5lemmaELb1EjE5emptyEv.exit.i.i.i.i, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i, %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit.i.i.i", %land.lhs.true.i.i.i, %if.then.i.i.i
+"_ZSt10__invoke_rIvRZN3nla4core5checkEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i.i.i.i", %entry, %_ZNK6vectorIN3nla5lemmaELb1EjE4sizeEv.exit.i.i.i.i.i, %_ZNK3nla4core4doneEv.exit.i.i.i.i, %_ZNK6vectorIN3nla5lemmaELb1EjE5emptyEv.exit.i.i.i.i, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i, %"_ZZN3nla4core5checkEvENK3$_6clEv.exit.i.i.i", %land.lhs.true.i.i.i, %if.then.i.i.i
   ret void
 }
 
@@ -38272,15 +38272,15 @@ _ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i.i.i.i: ; preds 
   %arrayidx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 -4
   %10 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i, align 4
   %cmp3.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %10, 0
-  br i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i.i.i.i"
+  br i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i, label %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i.i.i.i"
 
-"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i.i.i.i": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i.i.i.i
+"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i.i.i.i": ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i.i.i.i
   %m_size.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.02.i.i.i.i.i.i.i, i64 28
   %11 = load i32, ptr %m_size.i.i.i.i.i.i.i.i.i.i.i, align 4
   %cmp.i1.i.i.i.not.i.i.i.i.i.i.i = icmp eq i32 %11, 0
   br i1 %cmp.i1.i.i.i.not.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3nla4core5checkEvE3$_2JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
 
-for.inc.i.i.i.i.i.i.i:                            ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i.i.i.i", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i.i.i.i, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i.i.i.i.i.i
+for.inc.i.i.i.i.i.i.i:                            ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i.i.i.i", %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit.i.i.i.i.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i.i.i.i, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.02.i.i.i.i.i.i.i, i64 40
   %cmp.not.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i.i
   br i1 %cmp.not.not.i.i.i.i.i.i.i, label %_ZNK3nla4core4doneEv.exit.i.i.i.i, label %for.body.i.i.i.i.i.i.i
@@ -38312,21 +38312,21 @@ land.lhs.true4.i.i.i.i:                           ; preds = %_ZNK6vectorIN3nla5l
   %m_literals.i.i.i.i = getelementptr inbounds i8, ptr %.val1.i.i.i, i64 264
   %17 = load ptr, ptr %m_literals.i.i.i.i, align 8
   %cmp.i3.i.i.i.i = icmp eq ptr %17, null
-  br i1 %cmp.i3.i.i.i.i, label %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit.i.i.i", label %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i
+  br i1 %cmp.i3.i.i.i.i, label %"_ZZN3nla4core5checkEvENK3$_6clEv.exit.i.i.i", label %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i
 
 _ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i: ; preds = %land.lhs.true4.i.i.i.i
   %arrayidx.i5.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 -4
   %18 = load i32, ptr %arrayidx.i5.i.i.i.i, align 4
   %cmp3.i6.i.i.i.i = icmp eq i32 %18, 0
-  br i1 %cmp3.i6.i.i.i.i, label %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit.i.i.i", label %"_ZSt10__invoke_rIvRZN3nla4core5checkEvE3$_2JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
+  br i1 %cmp3.i6.i.i.i.i, label %"_ZZN3nla4core5checkEvENK3$_6clEv.exit.i.i.i", label %"_ZSt10__invoke_rIvRZN3nla4core5checkEvE3$_2JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
 
-"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit.i.i.i": ; preds = %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i, %land.lhs.true4.i.i.i.i
+"_ZZN3nla4core5checkEvENK3$_6clEv.exit.i.i.i":    ; preds = %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i, %land.lhs.true4.i.i.i.i
   %m_check_feasible.i.i.i.i = getelementptr inbounds i8, ptr %.val1.i.i.i, i64 2740
   %19 = load i8, ptr %m_check_feasible.i.i.i.i, align 4
   %tobool.i.i.i.i = trunc i8 %19 to i1
   br i1 %tobool.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3nla4core5checkEvE3$_2JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %land.lhs.true.i.i.i
 
-land.lhs.true.i.i.i:                              ; preds = %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit.i.i.i"
+land.lhs.true.i.i.i:                              ; preds = %"_ZZN3nla4core5checkEvENK3$_6clEv.exit.i.i.i"
   %20 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = load i8, ptr %21, align 1
@@ -38337,7 +38337,7 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   tail call void @_ZN3nla4core10add_boundsEv(ptr noundef nonnull align 8 dereferenceable(4720) %1)
   br label %"_ZSt10__invoke_rIvRZN3nla4core5checkEvE3$_2JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
 
-"_ZSt10__invoke_rIvRZN3nla4core5checkEvE3$_2JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.argprom.exit.i.i.i.i.i.i.i", %entry, %_ZNK6vectorIN3nla5lemmaELb1EjE4sizeEv.exit.i.i.i.i.i, %_ZNK3nla4core4doneEv.exit.i.i.i.i, %_ZNK6vectorIN3nla5lemmaELb1EjE5emptyEv.exit.i.i.i.i, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i, %"_ZZN3nla4core5checkEvENK3$_6clEv.argprom.argprom.exit.i.i.i", %land.lhs.true.i.i.i, %if.then.i.i.i
+"_ZSt10__invoke_rIvRZN3nla4core5checkEvE3$_2JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %"_ZZNK3nla4core14conflict_foundEvENK3$_0clINS_5lemmaEEEDaRKT_.exit.i.i.i.i.i.i.i", %entry, %_ZNK6vectorIN3nla5lemmaELb1EjE4sizeEv.exit.i.i.i.i.i, %_ZNK3nla4core4doneEv.exit.i.i.i.i, %_ZNK6vectorIN3nla5lemmaELb1EjE5emptyEv.exit.i.i.i.i, %_ZNK6vectorIN3nla4ineqELb1EjE5emptyEv.exit.i.i.i.i, %"_ZZN3nla4core5checkEvENK3$_6clEv.exit.i.i.i", %land.lhs.true.i.i.i, %if.then.i.i.i
   ret void
 }
 

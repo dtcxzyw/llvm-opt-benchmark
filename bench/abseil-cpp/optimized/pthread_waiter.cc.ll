@@ -215,7 +215,7 @@ lpad.loopexit.split-lp:                           ; preds = %do.body.invoke
 
 lpad:                                             ; preds = %lpad.loopexit.split.us, %lpad.loopexit.split.split.us, %lpad.loopexit.split.split, %lpad.loopexit.split-lp
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp15, %lpad.loopexit.split-lp ], [ %lpad.loopexit14.us, %lpad.loopexit.split.us ], [ %lpad.loopexit14, %lpad.loopexit.split.split ], [ %lpad.loopexit14.us44, %lpad.loopexit.split.split.us ]
-  call fastcc void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.argprom(ptr nonnull %this) #7
+  call fastcc void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev(ptr nonnull %this) #7
   resume { ptr, i32 } %lpad.phi
 
 if.end:                                           ; preds = %while.body.lr.ph.split, %if.then.critedge
@@ -271,7 +271,7 @@ cleanup:                                          ; preds = %invoke.cont16, %inv
   store i32 %storemerge, ptr %waiter_count_, align 8
   %call.i9 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #7
   %cmp.not.i10 = icmp eq i32 %call.i9, 0
-  br i1 %cmp.not.i10, label %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.argprom.exit, label %do.body.i11
+  br i1 %cmp.not.i10, label %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.exit, label %do.body.i11
 
 do.body.i11:                                      ; preds = %cleanup
   invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 129), i32 noundef 52, ptr noundef nonnull @.str.7, i32 noundef %call.i9)
@@ -287,7 +287,7 @@ terminate.lpad.i:                                 ; preds = %do.body.i11
   call void @__clang_call_terminate(ptr %15) #8
   unreachable
 
-_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.argprom.exit: ; preds = %cleanup
+_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.exit: ; preds = %cleanup
   ret i1 %cmp21
 }
 
@@ -298,7 +298,7 @@ declare i32 @__gxx_personality_v0(...)
 declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.argprom(ptr %this.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev(ptr %this.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call i32 @pthread_mutex_unlock(ptr noundef %this.0.val) #7
   %cmp.not = icmp eq i32 %call, 0
@@ -359,7 +359,7 @@ do.body.i4:                                       ; preds = %if.then.i
 invoke.cont:                                      ; preds = %if.then.i, %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit
   %call.i5 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #7
   %cmp.not.i6 = icmp eq i32 %call.i5, 0
-  br i1 %cmp.not.i6, label %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.argprom.exit, label %do.body.i7
+  br i1 %cmp.not.i6, label %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.exit, label %do.body.i7
 
 do.body.i7:                                       ; preds = %invoke.cont
   invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 129), i32 noundef 52, ptr noundef nonnull @.str.7, i32 noundef %call.i5)
@@ -375,13 +375,13 @@ terminate.lpad.i:                                 ; preds = %do.body.i7
   tail call void @__clang_call_terminate(ptr %3) #8
   unreachable
 
-_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.argprom.exit: ; preds = %invoke.cont
+_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.exit: ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %do.body.i4
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.argprom(ptr nonnull %this) #7
+  tail call fastcc void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev(ptr nonnull %this) #7
   resume { ptr, i32 } %4
 }
 
@@ -440,7 +440,7 @@ do.body.i4:                                       ; preds = %if.then.i
 invoke.cont:                                      ; preds = %if.then.i, %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit
   %call.i5 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #7
   %cmp.not.i6 = icmp eq i32 %call.i5, 0
-  br i1 %cmp.not.i6, label %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.argprom.exit, label %do.body.i7
+  br i1 %cmp.not.i6, label %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.exit, label %do.body.i7
 
 do.body.i7:                                       ; preds = %invoke.cont
   invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 129), i32 noundef 52, ptr noundef nonnull @.str.7, i32 noundef %call.i5)
@@ -456,13 +456,13 @@ terminate.lpad.i:                                 ; preds = %do.body.i7
   tail call void @__clang_call_terminate(ptr %2) #8
   unreachable
 
-_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.argprom.exit: ; preds = %invoke.cont
+_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.exit: ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %do.body.i4
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.argprom(ptr nonnull %this) #7
+  tail call fastcc void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev(ptr nonnull %this) #7
   resume { ptr, i32 } %3
 }
 

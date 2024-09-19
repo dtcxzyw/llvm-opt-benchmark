@@ -5600,7 +5600,7 @@ _ZNKSt14default_deleteIA_PKcEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_
 
 _ZNSt10unique_ptrIA_PKcSt14default_deleteIS2_EED2Ev.exit265: ; preds = %_ZNKSt14default_deleteIA_PKcEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i264, %invoke.cont165
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %r) #41
-  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_10Subprocess13spawnInternalESt10unique_ptrIA_PKcSt14default_deleteIS6_EES5_RNS2_7OptionsEPKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EEiE3$_0Lb1EED2Ev.argprom.argelim"(ptr %2, ptr %childFds.sroa.13.0) #41
+  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_10Subprocess13spawnInternalESt10unique_ptrIA_PKcSt14default_deleteIS6_EES5_RNS2_7OptionsEPKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EEiE3$_0Lb1EED2Ev"(ptr %2, ptr %childFds.sroa.13.0) #41
   %tobool.not.i.i.i266 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i266, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %if.then.i.i.i267
 
@@ -5637,7 +5637,7 @@ ehcleanup178:                                     ; preds = %_ZNKSt14default_del
   %childFds.sroa.13.4 = phi ptr [ %childFds.sroa.13.0, %ehcleanup174 ], [ %childFds.sroa.13.0, %_ZNKSt14default_deleteIA_PKcEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i269 ], [ %childFds.sroa.13.0, %ehcleanup174.thread ], [ %childFds.sroa.13.1, %ehcleanup33 ]
   %.pn216.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup174 ], [ %.pn.pn.pn, %_ZNKSt14default_deleteIA_PKcEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i269 ], [ %52, %ehcleanup174.thread ], [ %.pn216.pn, %ehcleanup33 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %r) #41
-  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_10Subprocess13spawnInternalESt10unique_ptrIA_PKcSt14default_deleteIS6_EES5_RNS2_7OptionsEPKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EEiE3$_0Lb1EED2Ev.argprom.argelim"(ptr %childFds.sroa.0.1, ptr %childFds.sroa.13.4) #41
+  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_10Subprocess13spawnInternalESt10unique_ptrIA_PKcSt14default_deleteIS6_EES5_RNS2_7OptionsEPKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EEiE3$_0Lb1EED2Ev"(ptr %childFds.sroa.0.1, ptr %childFds.sroa.13.4) #41
   %tobool.not.i.i.i271 = icmp eq ptr %childFds.sroa.0.1, null
   br i1 %tobool.not.i.i.i271, label %_ZNSt6vectorIiSaIiEED2Ev.exit273, label %if.then.i.i.i272
 
@@ -6425,7 +6425,7 @@ if.end:                                           ; preds = %"_ZN5folly6detail14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_10Subprocess13spawnInternalESt10unique_ptrIA_PKcSt14default_deleteIS6_EES5_RNS2_7OptionsEPKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EEiE3$_0Lb1EED2Ev.argprom.argelim"(ptr readonly %this.8.val.0.val, ptr readnone %this.8.val.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_10Subprocess13spawnInternalESt10unique_ptrIA_PKcSt14default_deleteIS6_EES5_RNS2_7OptionsEPKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EEiE3$_0Lb1EED2Ev"(ptr readonly %this.8.val.0.val, ptr readnone %this.8.val.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp8.i.i = alloca %"class.google::ErrnoLogMessage", align 8
   %indirect-arg-temp.i.i = alloca { i64, i64 }, align 8

@@ -138,7 +138,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 if.end.i:                                         ; preds = %for.body.i
   %4 = trunc nuw nsw i64 %indvars.iv.i to i32
-  tail call fastcc void @atexit_delete_cb.argprom(ptr nonnull %2, i32 noundef %4)
+  tail call fastcc void @atexit_delete_cb(ptr nonnull %2, i32 noundef %4)
   %.pre.i = load i32, ptr %ncallbacks.i, align 8
   br label %for.inc.i
 
@@ -295,7 +295,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 if.end.i17:                                       ; preds = %for.body.i
   %16 = trunc nuw nsw i64 %indvars.iv.i to i32
-  tail call fastcc void @atexit_delete_cb.argprom(ptr nonnull %14, i32 noundef %16)
+  tail call fastcc void @atexit_delete_cb(ptr nonnull %14, i32 noundef %16)
   %.pre.i = load i32, ptr %ncallbacks, align 8
   br label %for.inc.i
 
@@ -324,7 +324,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @atexit_delete_cb.argprom(ptr nocapture %state.16.val, i32 noundef %i) unnamed_addr #0 {
+define internal fastcc void @atexit_delete_cb(ptr nocapture %state.16.val, i32 noundef %i) unnamed_addr #0 {
 entry:
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr ptr, ptr %state.16.val, i64 %idxprom
@@ -551,7 +551,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 if.end.i:                                         ; preds = %for.body.i
   %7 = trunc nuw nsw i64 %indvars.iv.i to i32
-  tail call fastcc void @atexit_delete_cb.argprom(ptr nonnull %5, i32 noundef %7)
+  tail call fastcc void @atexit_delete_cb(ptr nonnull %5, i32 noundef %7)
   %.pre.i = load i32, ptr %ncallbacks.i, align 8
   br label %for.inc.i
 
@@ -604,7 +604,7 @@ if.end6:                                          ; preds = %if.end
 if.then7:                                         ; preds = %if.end6
   %call.val = load ptr, ptr %callbacks, align 8
   %7 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call fastcc void @atexit_delete_cb.argprom(ptr %call.val, i32 noundef %7)
+  tail call fastcc void @atexit_delete_cb(ptr %call.val, i32 noundef %7)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end6, %if.then7, %for.body

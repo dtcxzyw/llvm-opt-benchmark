@@ -568,7 +568,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.i:   ; preds = %_ZN4llvm16dyn_cast_
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 224
   %56 = load i8, ptr %55, align 8
   %57 = trunc i8 %56 to i1
-  br i1 %57, label %58, label %_ZL21addVariantDeclarationRN4llvm8CallInstERKNS_12ElementCountEPKNS_7VecDescE.argprom.exit
+  br i1 %57, label %58, label %_ZL21addVariantDeclarationRN4llvm8CallInstERKNS_12ElementCountEPKNS_7VecDescE.exit
 
 58:                                               ; preds = %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i
   store i8 0, ptr %55, align 8
@@ -581,20 +581,20 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.i:   ; preds = %_ZN4llvm16dyn_cast_
   %63 = load ptr, ptr %61, align 8
   %64 = getelementptr inbounds i8, ptr %4, i64 24
   %65 = icmp eq ptr %63, %64
-  br i1 %65, label %_ZL21addVariantDeclarationRN4llvm8CallInstERKNS_12ElementCountEPKNS_7VecDescE.argprom.exit, label %66
+  br i1 %65, label %_ZL21addVariantDeclarationRN4llvm8CallInstERKNS_12ElementCountEPKNS_7VecDescE.exit, label %66
 
 66:                                               ; preds = %58
   call void @free(ptr noundef %63) #9
-  br label %_ZL21addVariantDeclarationRN4llvm8CallInstERKNS_12ElementCountEPKNS_7VecDescE.argprom.exit
+  br label %_ZL21addVariantDeclarationRN4llvm8CallInstERKNS_12ElementCountEPKNS_7VecDescE.exit
 
-_ZL21addVariantDeclarationRN4llvm8CallInstERKNS_12ElementCountEPKNS_7VecDescE.argprom.exit: ; preds = %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i, %58, %66
+_ZL21addVariantDeclarationRN4llvm8CallInstERKNS_12ElementCountEPKNS_7VecDescE.exit: ; preds = %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i, %58, %66
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %67
 
-67:                                               ; preds = %_ZL21addVariantDeclarationRN4llvm8CallInstERKNS_12ElementCountEPKNS_7VecDescE.argprom.exit, %28
+67:                                               ; preds = %_ZL21addVariantDeclarationRN4llvm8CallInstERKNS_12ElementCountEPKNS_7VecDescE.exit, %28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #9
   br label %.critedge
 

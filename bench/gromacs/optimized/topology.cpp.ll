@@ -47783,7 +47783,7 @@ _ZNSt6vectorIfSaIfEE7reserveEm.exit.i:            ; preds = %_ZNSt12_Vector_base
   %66 = getelementptr inbounds i8, ptr %1, i64 1120
   %67 = load ptr, ptr %66, align 8, !noalias !497
   %.not23.i = icmp eq ptr %65, %67
-  br i1 %.not23.i, label %"_ZN5nblib15TopologyBuilder27extractParticleTypeQuantityIfZNS0_13buildTopologyEvE3$_0EESt6vectorIT_SaIS4_EEOT0_.argprom.exit", label %.lr.ph25.i
+  br i1 %.not23.i, label %"_ZN5nblib15TopologyBuilder27extractParticleTypeQuantityIfZNS0_13buildTopologyEvE3$_0EESt6vectorIT_SaIS4_EEOT0_.exit", label %.lr.ph25.i
 
 .lr.ph25.i:                                       ; preds = %_ZNSt6vectorIfSaIfEE7reserveEm.exit.i
   %68 = getelementptr inbounds i8, ptr %6, i64 8
@@ -48053,7 +48053,7 @@ _ZSt8_DestroyIPN5nblib12ParticleDataES1_EvT_S3_RSaIT0_E.exit.i40.i: ; preds = %_
   %.sroa.0107.7 = phi ptr [ %.sroa.0107.2, %72 ], [ %.sroa.0107.6, %_ZNSt6vectorIN5nblib12ParticleDataESaIS1_EED2Ev.exit.i ]
   %140 = getelementptr inbounds i8, ptr %.sroa.06.024.i, i64 1032
   %.not.i = icmp eq ptr %140, %67
-  br i1 %.not.i, label %"_ZN5nblib15TopologyBuilder27extractParticleTypeQuantityIfZNS0_13buildTopologyEvE3$_0EESt6vectorIT_SaIS4_EEOT0_.argprom.exit", label %72
+  br i1 %.not.i, label %"_ZN5nblib15TopologyBuilder27extractParticleTypeQuantityIfZNS0_13buildTopologyEvE3$_0EESt6vectorIT_SaIS4_EEOT0_.exit", label %72
 
 _ZNSt6vectorIN5nblib12ParticleDataESaIS1_EED2Ev.exit42.i: ; preds = %139, %_ZSt8_DestroyIPN5nblib12ParticleDataES1_EvT_S3_RSaIT0_E.exit.i40.i, %.loopexit10.i
   %.sroa.0107.0 = phi ptr [ %.sroa.0107.4, %_ZSt8_DestroyIPN5nblib12ParticleDataES1_EvT_S3_RSaIT0_E.exit.i40.i ], [ %.sroa.0107.4, %139 ], [ %.sroa.0107.3, %.loopexit10.i ]
@@ -48069,7 +48069,7 @@ common.resume:                                    ; preds = %.body, %35, %33, %_
   %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %141 ], [ %.pn.pn.i, %_ZNSt6vectorIN5nblib12ParticleDataESaIS1_EED2Ev.exit42.i ], [ %.pn36120, %35 ], [ %34, %33 ], [ %.pn34, %.body ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN5nblib15TopologyBuilder27extractParticleTypeQuantityIfZNS0_13buildTopologyEvE3$_0EESt6vectorIT_SaIS4_EEOT0_.argprom.exit": ; preds = %._crit_edge22.i, %_ZNSt6vectorIfSaIfEE7reserveEm.exit.i
+"_ZN5nblib15TopologyBuilder27extractParticleTypeQuantityIfZNS0_13buildTopologyEvE3$_0EESt6vectorIT_SaIS4_EEOT0_.exit": ; preds = %._crit_edge22.i, %_ZNSt6vectorIfSaIfEE7reserveEm.exit.i
   %.sroa.13113.7 = phi ptr [ %.sroa.13113.0, %_ZNSt6vectorIfSaIfEE7reserveEm.exit.i ], [ %.sroa.13113.6, %._crit_edge22.i ]
   %.sroa.8111.7 = phi ptr [ %.sroa.8111.0, %_ZNSt6vectorIfSaIfEE7reserveEm.exit.i ], [ %.sroa.8111.6, %._crit_edge22.i ]
   %.sroa.0107.8 = phi ptr [ %.sroa.8111.0, %_ZNSt6vectorIfSaIfEE7reserveEm.exit.i ], [ %.sroa.0107.7, %._crit_edge22.i ]
@@ -48085,11 +48085,11 @@ common.resume:                                    ; preds = %.body, %35, %33, %_
   %.not.i.i.i.i.i40 = icmp eq ptr %143, null
   br i1 %.not.i.i.i.i.i40, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %146
 
-146:                                              ; preds = %"_ZN5nblib15TopologyBuilder27extractParticleTypeQuantityIfZNS0_13buildTopologyEvE3$_0EESt6vectorIT_SaIS4_EEOT0_.argprom.exit"
+146:                                              ; preds = %"_ZN5nblib15TopologyBuilder27extractParticleTypeQuantityIfZNS0_13buildTopologyEvE3$_0EESt6vectorIT_SaIS4_EEOT0_.exit"
   call void @_ZdlPv(ptr noundef nonnull %143) #22
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
-_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %146, %"_ZN5nblib15TopologyBuilder27extractParticleTypeQuantityIfZNS0_13buildTopologyEvE3$_0EESt6vectorIT_SaIS4_EEOT0_.argprom.exit"
+_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %146, %"_ZN5nblib15TopologyBuilder27extractParticleTypeQuantityIfZNS0_13buildTopologyEvE3$_0EESt6vectorIT_SaIS4_EEOT0_.exit"
   %147 = getelementptr inbounds i8, ptr %11, i64 48
   store ptr %147, ptr %11, align 8
   %148 = getelementptr inbounds i8, ptr %11, i64 8
@@ -60735,8 +60735,8 @@ attributes #25 = { builtin allocsize(0) }
 !495 = distinct !{!495, !6}
 !496 = distinct !{!496, !6}
 !497 = !{!498}
-!498 = distinct !{!498, !499, !"_ZN5nblib15TopologyBuilder27extractParticleTypeQuantityIfZNS0_13buildTopologyEvE3$_0EESt6vectorIT_SaIS4_EEOT0_.argprom: argument 0"}
-!499 = distinct !{!499, !"_ZN5nblib15TopologyBuilder27extractParticleTypeQuantityIfZNS0_13buildTopologyEvE3$_0EESt6vectorIT_SaIS4_EEOT0_.argprom"}
+!498 = distinct !{!498, !499, !"_ZN5nblib15TopologyBuilder27extractParticleTypeQuantityIfZNS0_13buildTopologyEvE3$_0EESt6vectorIT_SaIS4_EEOT0_: argument 0"}
+!499 = distinct !{!499, !"_ZN5nblib15TopologyBuilder27extractParticleTypeQuantityIfZNS0_13buildTopologyEvE3$_0EESt6vectorIT_SaIS4_EEOT0_"}
 !500 = distinct !{!500, !6}
 !501 = !{!502}
 !502 = distinct !{!502, !503, !"_ZN5nblib15TopologyBuilder27extractParticleTypeQuantityIiZNS0_13buildTopologyEvE3$_1EESt6vectorIT_SaIS4_EEOT0_: argument 0"}

@@ -1315,11 +1315,11 @@ _ZN3syn3lit5value4byte17h2572aba12ded7ffdE.exit101: ; preds = %_ZN3syn3lit5value
   %80 = landingpad { ptr, i32 }
           cleanup
   %81 = icmp eq i64 %72, 0
-  br i1 %81, label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h41cdaa6281eb82f1E.argprom.exit", label %82
+  br i1 %81, label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h41cdaa6281eb82f1E.exit", label %82
 
 82:                                               ; preds = %79
   tail call void @__rust_dealloc(ptr noundef nonnull %71, i64 noundef %72, i64 noundef 1) #17
-  br label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h41cdaa6281eb82f1E.argprom.exit"
+  br label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h41cdaa6281eb82f1E.exit"
 
 83:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i118", %74
   invoke void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %19, i64 noundef %18, i64 noundef %41, i64 noundef %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a70902919cbced590412d54f1b4753cc.66) #16
@@ -1364,7 +1364,7 @@ _ZN3syn3lit5value4byte17h2572aba12ded7ffdE.exit101: ; preds = %_ZN3syn3lit5value
   store i64 %96, ptr %100, align 8
   ret void
 
-"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h41cdaa6281eb82f1E.argprom.exit": ; preds = %82, %79
+"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h41cdaa6281eb82f1E.exit": ; preds = %82, %79
   resume { ptr, i32 } %80
 
 101:                                              ; preds = %.lr.ph
@@ -1869,11 +1869,11 @@ _ZN3syn3lit5value4byte17h2572aba12ded7ffdE.exit:  ; preds = %3
   %29 = landingpad { ptr, i32 }
           cleanup
   %30 = icmp eq i64 %27, 0
-  br i1 %30, label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h41cdaa6281eb82f1E.argprom.exit", label %31
+  br i1 %30, label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h41cdaa6281eb82f1E.exit", label %31
 
 31:                                               ; preds = %28
   tail call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef %27, i64 noundef 1) #17
-  br label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h41cdaa6281eb82f1E.argprom.exit"
+  br label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h41cdaa6281eb82f1E.exit"
 
 32:                                               ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
@@ -1886,7 +1886,7 @@ _ZN3syn3lit5value4byte17h2572aba12ded7ffdE.exit:  ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 
-"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h41cdaa6281eb82f1E.argprom.exit": ; preds = %31, %28
+"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h41cdaa6281eb82f1E.exit": ; preds = %31, %28
   resume { ptr, i32 } %29
 }
 
@@ -6577,10 +6577,10 @@ attributes #19 = { cold }
 !415 = !{!413, !410}
 !416 = !{i64 0, i64 2}
 !417 = !{!418}
-!418 = distinct !{!418, !419, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hfc39293a47bb690cE.argprom: argument 0"}
-!419 = distinct !{!419, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hfc39293a47bb690cE.argprom"}
+!418 = distinct !{!418, !419, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hfc39293a47bb690cE: argument 0"}
+!419 = distinct !{!419, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hfc39293a47bb690cE"}
 !420 = !{!421}
-!421 = distinct !{!421, !419, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hfc39293a47bb690cE.argprom: argument 1"}
+!421 = distinct !{!421, !419, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hfc39293a47bb690cE: argument 1"}
 !422 = !{!418, !421}
 !423 = !{!424}
 !424 = distinct !{!424, !425, !"_ZN5alloc6string6String9split_off17hb9dea5a7272bc27aE: argument 0"}

@@ -476,12 +476,12 @@ define noundef i32 @acct_gather_profile_p_task_end(i32 noundef %0) local_unnamed
   br label %5
 
 5:                                                ; preds = %4, %1
-  tail call fastcc void @_send_data.retelim(ptr noundef null)
+  tail call fastcc void @_send_data(ptr noundef null)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_send_data.retelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_send_data(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.http_response, align 8
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
@@ -942,7 +942,7 @@ define noundef i32 @acct_gather_profile_p_add_sample_data(i32 noundef %0, ptr no
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %11
   %51 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ null, %11 ]
-  call fastcc void @_send_data.retelim(ptr noundef %51)
+  call fastcc void @_send_data(ptr noundef %51)
   call void @slurm_xfree(ptr noundef nonnull %4) #8
   ret i32 0
 }

@@ -753,7 +753,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.4, i64 noundef %0, i64 noundef %1) #15
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 8:                                                ; preds = %4
@@ -765,7 +765,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul nsw i64 %1, %0
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.5, i64 noundef %13) #15
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 15:                                               ; preds = %.thread, %8
@@ -1523,7 +1523,7 @@ define dso_local noalias noundef ptr @makeTreeGen(i32 noundef %0) local_unnamed_
 4:                                                ; preds = %1
   %5 = load ptr, ptr @stderr, align 8
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.5, i64 noundef 48) #15
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 gv_alloc.exit:                                    ; preds = %1
@@ -1602,7 +1602,7 @@ genCnt.exit:                                      ; preds = %31, %gv_alloc.exit
 37:                                               ; preds = %genCnt.exit
   %38 = load ptr, ptr @stderr, align 8
   %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.5, i64 noundef 16) #15
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 mkTree.exit:                                      ; preds = %genCnt.exit
@@ -1737,7 +1737,7 @@ define dso_local void @makeRandomTree(ptr nocapture noundef %0, ptr nocapture no
   %65 = load ptr, ptr @stderr, align 8
   %66 = tail call ptr @strerror(i32 noundef %.0.i.ph.i.i56.i) #14
   %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.6, ptr noundef %66) #15
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 int_stack_push.exit57.i:                          ; preds = %58, %._crit_edge.i.i.i51.i
@@ -1787,7 +1787,7 @@ int_stack_push.exit57.i:                          ; preds = %58, %._crit_edge.i.
   %90 = load ptr, ptr @stderr, align 8
   %91 = tail call ptr @strerror(i32 noundef %.0.i.ph.i.i.i) #14
   %92 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef nonnull @.str.6, ptr noundef %91) #15
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 int_stack_push.exit.i:                            ; preds = %83, %._crit_edge.i.i.i.i
@@ -1979,7 +1979,7 @@ define dso_local void @freeTreeGen(ptr nocapture noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #9 {
+define internal fastcc void @graphviz_exit() unnamed_addr #9 {
   tail call void @exit(i32 noundef 1) #19
   unreachable
 }
@@ -2034,7 +2034,7 @@ define internal fastcc void @int_stack_push(ptr nocapture noundef %0, i32 nounde
   %23 = load ptr, ptr @stderr, align 8
   %24 = tail call ptr @strerror(i32 noundef %.0.i.ph.i) #14
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.6, ptr noundef %24) #15
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 int_stack_append.exit:                            ; preds = %._crit_edge.i.i, %16

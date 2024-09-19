@@ -2471,11 +2471,11 @@ define dso_local noundef ptr @_ZN4Luau6followEPKNS_11TypePackVarE(ptr noundef re
 4:                                                ; preds = %1
   %5 = load i32, ptr %0, align 8
   switch i32 %5, label %_ZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_E.exit [
-    i32 0, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit.thread88.i"
+    i32 0, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit.thread88.i"
     i32 4, label %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i.i
   ]
 
-"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit.thread88.i": ; preds = %4
+"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit.thread88.i": ; preds = %4
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   br label %14
 
@@ -2485,17 +2485,17 @@ _ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i.i: ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %8, %10
-  br i1 %11, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit.i", label %_ZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_E.exit
+  br i1 %11, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit.i", label %_ZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_E.exit
 
-"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit.i": ; preds = %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i.i
+"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit.i": ; preds = %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i.i
   %12 = getelementptr inbounds i8, ptr %0, i64 32
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %.sroa.3.0.copyload.i.i = load i8, ptr %.sroa.3.0..sroa_idx.i.i, align 8
   %13 = trunc i8 %.sroa.3.0.copyload.i.i to i1
   br i1 %13, label %14, label %_ZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_E.exit
 
-14:                                               ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit.i", %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit.thread88.i"
-  %.sroa.0.0.i93.in.i = phi ptr [ %6, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit.thread88.i" ], [ %12, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit.i" ]
+14:                                               ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit.i", %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit.thread88.i"
+  %.sroa.0.0.i93.in.i = phi ptr [ %6, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit.thread88.i" ], [ %12, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit.i" ]
   %.sroa.0.0.i93.i = load ptr, ptr %.sroa.0.0.i93.in.i, align 8
   %.not.i.i.i32.i = icmp eq ptr %.sroa.0.0.i93.i, null
   br i1 %.not.i.i.i32.i, label %_ZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_E.exit, label %15
@@ -2513,15 +2513,15 @@ _ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i33.i: ; preds = %15
   %19 = getelementptr inbounds i8, ptr %.sroa.0.0.i93.i, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %18, %20
-  br i1 %21, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit42.i", label %_ZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_E.exit
+  br i1 %21, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit42.i", label %_ZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_E.exit
 
-"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit42.i": ; preds = %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i33.i
+"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit42.i": ; preds = %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i33.i
   %.sroa.3.0..sroa_idx.i39.i = getelementptr inbounds i8, ptr %.sroa.0.0.i93.i, i64 40
   %.sroa.3.0.copyload.i40.i = load i8, ptr %.sroa.3.0..sroa_idx.i39.i, align 8
   %22 = trunc i8 %.sroa.3.0.copyload.i40.i to i1
   br i1 %22, label %.lr.ph.i.preheader, label %_ZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_E.exit
 
-.lr.ph.i.preheader:                               ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit42.i", %15
+.lr.ph.i.preheader:                               ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit42.i", %15
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.critedge.i
@@ -2529,11 +2529,11 @@ _ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i33.i: ; preds = %15
   %.018135.i = phi ptr [ %.119.i, %.critedge.i ], [ %.sroa.0.0.i93.i, %.lr.ph.i.preheader ]
   %24 = load i32, ptr %23, align 8
   switch i32 %24, label %_ZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_E.exit [
-    i32 0, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit53.thread102.i"
+    i32 0, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit53.thread102.i"
     i32 4, label %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i44.i
   ]
 
-"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit53.thread102.i": ; preds = %.lr.ph.i
+"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit53.thread102.i": ; preds = %.lr.ph.i
   %25 = getelementptr inbounds i8, ptr %23, i64 8
   br label %33
 
@@ -2543,29 +2543,29 @@ _ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i44.i: ; preds = %.lr.p
   %28 = getelementptr inbounds i8, ptr %23, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %27, %29
-  br i1 %30, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit53.i", label %_ZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_E.exit
+  br i1 %30, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit53.i", label %_ZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_E.exit
 
-"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit53.i": ; preds = %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i44.i
+"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit53.i": ; preds = %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i44.i
   %31 = getelementptr inbounds i8, ptr %23, i64 32
   %.sroa.3.0..sroa_idx.i50.i = getelementptr inbounds i8, ptr %23, i64 40
   %.sroa.3.0.copyload.i51.i = load i8, ptr %.sroa.3.0..sroa_idx.i50.i, align 8
   %32 = trunc i8 %.sroa.3.0.copyload.i51.i to i1
   br i1 %32, label %33, label %_ZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_E.exit
 
-33:                                               ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit53.i", %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit53.thread102.i"
-  %.sroa.0.0.i46107.in.i = phi ptr [ %25, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit53.thread102.i" ], [ %31, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit53.i" ]
+33:                                               ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit53.i", %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit53.thread102.i"
+  %.sroa.0.0.i46107.in.i = phi ptr [ %25, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit53.thread102.i" ], [ %31, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit53.i" ]
   %.sroa.0.0.i46107.i = load ptr, ptr %.sroa.0.0.i46107.in.i, align 8
   %.not.i = icmp eq ptr %.018135.i, null
   br i1 %.not.i, label %.critedge.i, label %34
 
 34:                                               ; preds = %33
   %35 = load i32, ptr %.018135.i, align 8
-  switch i32 %35, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread.i" [
-    i32 0, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread112.i"
+  switch i32 %35, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread.i" [
+    i32 0, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread112.i"
     i32 4, label %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i55.i
   ]
 
-"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread112.i": ; preds = %34
+"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread112.i": ; preds = %34
   %36 = getelementptr inbounds i8, ptr %.018135.i, i64 8
   br label %44
 
@@ -2575,32 +2575,32 @@ _ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i55.i: ; preds = %34
   %39 = getelementptr inbounds i8, ptr %.018135.i, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %38, %40
-  br i1 %41, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.i", label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread.i"
+  br i1 %41, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.i", label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread.i"
 
-"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.i": ; preds = %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i55.i
+"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.i": ; preds = %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i55.i
   %42 = getelementptr inbounds i8, ptr %.018135.i, i64 32
   %.sroa.3.0..sroa_idx.i61.i = getelementptr inbounds i8, ptr %.018135.i, i64 40
   %.sroa.3.0.copyload.i62.i = load i8, ptr %.sroa.3.0..sroa_idx.i61.i, align 8
   %43 = trunc i8 %.sroa.3.0.copyload.i62.i to i1
-  br i1 %43, label %44, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread.i"
+  br i1 %43, label %44, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread.i"
 
-44:                                               ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.i", %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread112.i"
-  %.sroa.0.0.i57117.in.i = phi ptr [ %36, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread112.i" ], [ %42, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.i" ]
+44:                                               ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.i", %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread112.i"
+  %.sroa.0.0.i57117.in.i = phi ptr [ %36, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread112.i" ], [ %42, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.i" ]
   %.sroa.0.0.i57117.i = load ptr, ptr %.sroa.0.0.i57117.in.i, align 8
   %.not.i.i.i65.i = icmp eq ptr %.sroa.0.0.i57117.i, null
-  br i1 %.not.i.i.i65.i, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread.i", label %45
+  br i1 %.not.i.i.i65.i, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread.i", label %45
 
 45:                                               ; preds = %44
   %46 = load i32, ptr %.sroa.0.0.i57117.i, align 8
-  switch i32 %46, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread.i" [
-    i32 0, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit75.thread122.i"
+  switch i32 %46, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread.i" [
+    i32 0, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit75.thread122.i"
     i32 4, label %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i66.i
   ]
 
-"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit75.thread122.i": ; preds = %45
+"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit75.thread122.i": ; preds = %45
   %47 = getelementptr inbounds i8, ptr %.sroa.0.0.i57117.i, i64 8
   %48 = load ptr, ptr %47, align 8
-  br label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread.i"
+  br label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread.i"
 
 _ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i66.i: ; preds = %45
   %49 = getelementptr inbounds i8, ptr %.sroa.0.0.i57117.i, i64 8
@@ -2608,23 +2608,23 @@ _ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i66.i: ; preds = %45
   %51 = getelementptr inbounds i8, ptr %.sroa.0.0.i57117.i, i64 16
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %50, %52
-  br i1 %53, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit75.i", label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread.i"
+  br i1 %53, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit75.i", label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread.i"
 
-"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit75.i": ; preds = %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i66.i
+"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit75.i": ; preds = %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i66.i
   %54 = getelementptr inbounds i8, ptr %.sroa.0.0.i57117.i, i64 32
   %.sroa.0.0.copyload.i71.i = load ptr, ptr %54, align 8
   %.sroa.3.0..sroa_idx.i72.i = getelementptr inbounds i8, ptr %.sroa.0.0.i57117.i, i64 40
   %.sroa.3.0.copyload.i73.i = load i8, ptr %.sroa.3.0..sroa_idx.i72.i, align 8
   %55 = trunc i8 %.sroa.3.0.copyload.i73.i to i1
   %spec.select.i = select i1 %55, ptr %.sroa.0.0.copyload.i71.i, ptr null
-  br label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread.i"
+  br label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread.i"
 
-"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread.i": ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit75.i", %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i66.i, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit75.thread122.i", %45, %44, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.i", %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i55.i, %34
-  %.2.i = phi ptr [ null, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.i" ], [ %48, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit75.thread122.i" ], [ null, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i55.i ], [ null, %34 ], [ null, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i66.i ], [ null, %44 ], [ null, %45 ], [ %spec.select.i, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit75.i" ]
+"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread.i": ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit75.i", %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i66.i, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit75.thread122.i", %45, %44, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.i", %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i55.i, %34
+  %.2.i = phi ptr [ null, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.i" ], [ %48, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit75.thread122.i" ], [ null, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i55.i ], [ null, %34 ], [ null, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i66.i ], [ null, %44 ], [ null, %45 ], [ %spec.select.i, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit75.i" ]
   %56 = icmp eq ptr %.sroa.0.0.i46107.i, %.2.i
   br i1 %56, label %57, label %.critedge.i
 
-57:                                               ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread.i"
+57:                                               ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread.i"
   %58 = tail call ptr @__cxa_allocate_exception(i64 104) #21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.52, ptr noundef nonnull align 1 dereferenceable(1) %3)
@@ -2657,8 +2657,8 @@ _ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i66.i: ; preds = %45
   call void @__cxa_free_exception(ptr %58) #21
   br label %65
 
-.critedge.i:                                      ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread.i", %33
-  %.119.i = phi ptr [ %.2.i, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread.i" ], [ null, %33 ]
+.critedge.i:                                      ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread.i", %33
+  %.119.i = phi ptr [ %.2.i, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread.i" ], [ null, %33 ]
   %.not.i.i.i43.i = icmp eq ptr %.sroa.0.0.i46107.i, null
   br i1 %.not.i.i.i43.i, label %_ZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_E.exit, label %.lr.ph.i, !llvm.loop !17
 
@@ -2669,8 +2669,8 @@ _ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i66.i: ; preds = %45
 66:                                               ; preds = %60
   unreachable
 
-_ZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_E.exit: ; preds = %.lr.ph.i, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i44.i, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit53.i", %.critedge.i, %1, %4, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i.i, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit.i", %14, %15, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i33.i, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit42.i"
-  %.020.i = phi ptr [ %0, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit.i" ], [ %.sroa.0.0.i93.i, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit42.i" ], [ %0, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i.i ], [ null, %1 ], [ %0, %4 ], [ %.sroa.0.0.i93.i, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i33.i ], [ null, %14 ], [ %.sroa.0.0.i93.i, %15 ], [ %23, %.lr.ph.i ], [ null, %.critedge.i ], [ %23, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i44.i ], [ %23, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit53.i" ]
+_ZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_E.exit: ; preds = %.lr.ph.i, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i44.i, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit53.i", %.critedge.i, %1, %4, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i.i, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit.i", %14, %15, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i33.i, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit42.i"
+  %.020.i = phi ptr [ %0, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit.i" ], [ %.sroa.0.0.i93.i, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit42.i" ], [ %0, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i.i ], [ null, %1 ], [ %0, %4 ], [ %.sroa.0.0.i93.i, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i33.i ], [ null, %14 ], [ %.sroa.0.0.i93.i, %15 ], [ %23, %.lr.ph.i ], [ null, %.critedge.i ], [ %23, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i44.i ], [ %23, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit53.i" ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   ret ptr %.020.i
@@ -2682,16 +2682,16 @@ define dso_local noundef ptr @_ZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_E
   %5 = alloca %"class.std::allocator", align 1
   %6 = tail call noundef ptr %2(ptr noundef %1, ptr noundef %0)
   %.not.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit.thread", label %7
+  br i1 %.not.i.i.i, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit.thread", label %7
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %6, align 8
-  switch i32 %8, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit.thread" [
-    i32 0, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit.thread88"
+  switch i32 %8, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit.thread" [
+    i32 0, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit.thread88"
     i32 4, label %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i
   ]
 
-"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit.thread88": ; preds = %7
+"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit.thread88": ; preds = %7
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   br label %17
 
@@ -2701,25 +2701,25 @@ _ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i: ; preds = %7
   %12 = getelementptr inbounds i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %11, %13
-  br i1 %14, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit", label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit.thread"
+  br i1 %14, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit", label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit.thread"
 
-"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit": ; preds = %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i
+"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit": ; preds = %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i
   %15 = getelementptr inbounds i8, ptr %6, i64 32
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 40
   %.sroa.3.0.copyload.i = load i8, ptr %.sroa.3.0..sroa_idx.i, align 8
   %16 = trunc i8 %.sroa.3.0.copyload.i to i1
-  br i1 %16, label %17, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit.thread"
+  br i1 %16, label %17, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit.thread"
 
-17:                                               ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit.thread88", %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit"
-  %.sroa.0.0.i93.in = phi ptr [ %9, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit.thread88" ], [ %15, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit" ]
+17:                                               ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit.thread88", %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit"
+  %.sroa.0.0.i93.in = phi ptr [ %9, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit.thread88" ], [ %15, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit" ]
   %.sroa.0.0.i93 = load ptr, ptr %.sroa.0.0.i93.in, align 8
   %18 = tail call noundef ptr %2(ptr noundef %1, ptr noundef %.sroa.0.0.i93)
   %.not.i.i.i32 = icmp eq ptr %18, null
-  br i1 %.not.i.i.i32, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit.thread", label %19
+  br i1 %.not.i.i.i32, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit.thread", label %19
 
 19:                                               ; preds = %17
   %20 = load i32, ptr %18, align 8
-  switch i32 %20, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit.thread" [
+  switch i32 %20, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit.thread" [
     i32 0, label %.critedge.preheader
     i32 4, label %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i33
   ]
@@ -2730,30 +2730,30 @@ _ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i33: ; preds = %19
   %23 = getelementptr inbounds i8, ptr %18, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %22, %24
-  br i1 %25, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit42", label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit.thread"
+  br i1 %25, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit42", label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit.thread"
 
-"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit42": ; preds = %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i33
+"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit42": ; preds = %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i33
   %.sroa.3.0..sroa_idx.i39 = getelementptr inbounds i8, ptr %18, i64 40
   %.sroa.3.0.copyload.i40 = load i8, ptr %.sroa.3.0..sroa_idx.i39, align 8
   %26 = trunc i8 %.sroa.3.0.copyload.i40 to i1
-  br i1 %26, label %.critedge.preheader, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit.thread"
+  br i1 %26, label %.critedge.preheader, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit.thread"
 
-.critedge.preheader:                              ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit42", %19
+.critedge.preheader:                              ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit42", %19
   %27 = tail call noundef ptr %2(ptr noundef %1, ptr noundef %0)
   %.not.i.i.i43133 = icmp eq ptr %27, null
-  br i1 %.not.i.i.i43133, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit.thread", label %.lr.ph
+  br i1 %.not.i.i.i43133, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit.thread", label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge.preheader, %.critedge
   %28 = phi ptr [ %73, %.critedge ], [ %27, %.critedge.preheader ]
   %.018135 = phi ptr [ %.119, %.critedge ], [ %.sroa.0.0.i93, %.critedge.preheader ]
   %.021134 = phi ptr [ %.sroa.0.0.i46107, %.critedge ], [ %0, %.critedge.preheader ]
   %29 = load i32, ptr %28, align 8
-  switch i32 %29, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit.thread" [
-    i32 0, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit53.thread102"
+  switch i32 %29, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit.thread" [
+    i32 0, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit53.thread102"
     i32 4, label %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i44
   ]
 
-"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit53.thread102": ; preds = %.lr.ph
+"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit53.thread102": ; preds = %.lr.ph
   %30 = getelementptr inbounds i8, ptr %28, i64 8
   br label %38
 
@@ -2763,17 +2763,17 @@ _ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i44: ; preds = %.lr.ph
   %33 = getelementptr inbounds i8, ptr %28, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %32, %34
-  br i1 %35, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit53", label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit.thread"
+  br i1 %35, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit53", label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit.thread"
 
-"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit53": ; preds = %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i44
+"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit53": ; preds = %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i44
   %36 = getelementptr inbounds i8, ptr %28, i64 32
   %.sroa.3.0..sroa_idx.i50 = getelementptr inbounds i8, ptr %28, i64 40
   %.sroa.3.0.copyload.i51 = load i8, ptr %.sroa.3.0..sroa_idx.i50, align 8
   %37 = trunc i8 %.sroa.3.0.copyload.i51 to i1
-  br i1 %37, label %38, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit.thread"
+  br i1 %37, label %38, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit.thread"
 
-38:                                               ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit53.thread102", %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit53"
-  %.sroa.0.0.i46107.in = phi ptr [ %30, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit53.thread102" ], [ %36, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit53" ]
+38:                                               ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit53.thread102", %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit53"
+  %.sroa.0.0.i46107.in = phi ptr [ %30, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit53.thread102" ], [ %36, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit53" ]
   %.sroa.0.0.i46107 = load ptr, ptr %.sroa.0.0.i46107.in, align 8
   %.not = icmp eq ptr %.018135, null
   br i1 %.not, label %.critedge, label %39
@@ -2781,16 +2781,16 @@ _ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i44: ; preds = %.lr.ph
 39:                                               ; preds = %38
   %40 = tail call noundef ptr %2(ptr noundef %1, ptr noundef nonnull %.018135)
   %.not.i.i.i54 = icmp eq ptr %40, null
-  br i1 %.not.i.i.i54, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread", label %41
+  br i1 %.not.i.i.i54, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread", label %41
 
 41:                                               ; preds = %39
   %42 = load i32, ptr %40, align 8
-  switch i32 %42, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread" [
-    i32 0, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread112"
+  switch i32 %42, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread" [
+    i32 0, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread112"
     i32 4, label %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i55
   ]
 
-"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread112": ; preds = %41
+"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread112": ; preds = %41
   %43 = getelementptr inbounds i8, ptr %40, i64 8
   br label %51
 
@@ -2800,33 +2800,33 @@ _ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i55: ; preds = %41
   %46 = getelementptr inbounds i8, ptr %40, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %45, %47
-  br i1 %48, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64", label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread"
+  br i1 %48, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64", label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread"
 
-"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64": ; preds = %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i55
+"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64": ; preds = %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i55
   %49 = getelementptr inbounds i8, ptr %40, i64 32
   %.sroa.3.0..sroa_idx.i61 = getelementptr inbounds i8, ptr %40, i64 40
   %.sroa.3.0.copyload.i62 = load i8, ptr %.sroa.3.0..sroa_idx.i61, align 8
   %50 = trunc i8 %.sroa.3.0.copyload.i62 to i1
-  br i1 %50, label %51, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread"
+  br i1 %50, label %51, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread"
 
-51:                                               ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread112", %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64"
-  %.sroa.0.0.i57117.in = phi ptr [ %43, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread112" ], [ %49, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64" ]
+51:                                               ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread112", %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64"
+  %.sroa.0.0.i57117.in = phi ptr [ %43, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread112" ], [ %49, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64" ]
   %.sroa.0.0.i57117 = load ptr, ptr %.sroa.0.0.i57117.in, align 8
   %52 = tail call noundef ptr %2(ptr noundef %1, ptr noundef %.sroa.0.0.i57117)
   %.not.i.i.i65 = icmp eq ptr %52, null
-  br i1 %.not.i.i.i65, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread", label %53
+  br i1 %.not.i.i.i65, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread", label %53
 
 53:                                               ; preds = %51
   %54 = load i32, ptr %52, align 8
-  switch i32 %54, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread" [
-    i32 0, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit75.thread122"
+  switch i32 %54, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread" [
+    i32 0, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit75.thread122"
     i32 4, label %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i66
   ]
 
-"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit75.thread122": ; preds = %53
+"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit75.thread122": ; preds = %53
   %55 = getelementptr inbounds i8, ptr %52, i64 8
   %56 = load ptr, ptr %55, align 8
-  br label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread"
+  br label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread"
 
 _ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i66: ; preds = %53
   %57 = getelementptr inbounds i8, ptr %52, i64 8
@@ -2834,23 +2834,23 @@ _ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i66: ; preds = %53
   %59 = getelementptr inbounds i8, ptr %52, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %58, %60
-  br i1 %61, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit75", label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread"
+  br i1 %61, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit75", label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread"
 
-"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit75": ; preds = %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i66
+"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit75": ; preds = %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i66
   %62 = getelementptr inbounds i8, ptr %52, i64 32
   %.sroa.0.0.copyload.i71 = load ptr, ptr %62, align 8
   %.sroa.3.0..sroa_idx.i72 = getelementptr inbounds i8, ptr %52, i64 40
   %.sroa.3.0.copyload.i73 = load i8, ptr %.sroa.3.0..sroa_idx.i72, align 8
   %63 = trunc i8 %.sroa.3.0.copyload.i73 to i1
   %spec.select = select i1 %63, ptr %.sroa.0.0.copyload.i71, ptr null
-  br label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread"
+  br label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread"
 
-"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread": ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit75", %53, %51, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i66, %41, %39, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i55, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit75.thread122", %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64"
-  %.2 = phi ptr [ null, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64" ], [ %56, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit75.thread122" ], [ null, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i55 ], [ null, %39 ], [ null, %41 ], [ null, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i66 ], [ null, %51 ], [ null, %53 ], [ %spec.select, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit75" ]
+"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread": ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit75", %53, %51, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i66, %41, %39, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i55, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit75.thread122", %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64"
+  %.2 = phi ptr [ null, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64" ], [ %56, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit75.thread122" ], [ null, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i55 ], [ null, %39 ], [ null, %41 ], [ null, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i66 ], [ null, %51 ], [ null, %53 ], [ %spec.select, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit75" ]
   %64 = icmp eq ptr %.sroa.0.0.i46107, %.2
   br i1 %64, label %65, label %.critedge
 
-65:                                               ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread"
+65:                                               ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread"
   %66 = tail call ptr @__cxa_allocate_exception(i64 104) #21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.52, ptr noundef nonnull align 1 dereferenceable(1) %5)
@@ -2883,14 +2883,14 @@ _ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i66: ; preds = %53
   call void @__cxa_free_exception(ptr %66) #21
   br label %74
 
-.critedge:                                        ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread", %38
-  %.119 = phi ptr [ %.2, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit64.thread" ], [ null, %38 ]
+.critedge:                                        ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread", %38
+  %.119 = phi ptr [ %.2, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit64.thread" ], [ null, %38 ]
   %73 = tail call noundef ptr %2(ptr noundef %1, ptr noundef %.sroa.0.0.i46107)
   %.not.i.i.i43 = icmp eq ptr %73, null
-  br i1 %.not.i.i.i43, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit.thread", label %.lr.ph, !llvm.loop !17
+  br i1 %.not.i.i.i43, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit.thread", label %.lr.ph, !llvm.loop !17
 
-"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit.thread": ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit53", %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i44, %.critedge, %.lr.ph, %.critedge.preheader, %19, %17, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i33, %7, %3, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit42", %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit"
-  %.020 = phi ptr [ %0, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit" ], [ %.sroa.0.0.i93, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit42" ], [ %0, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i ], [ %0, %3 ], [ %0, %7 ], [ %.sroa.0.0.i93, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i33 ], [ %.sroa.0.0.i93, %17 ], [ %.sroa.0.0.i93, %19 ], [ %0, %.critedge.preheader ], [ %.021134, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.argprom.exit53" ], [ %.021134, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i44 ], [ %.sroa.0.0.i46107, %.critedge ], [ %.021134, %.lr.ph ]
+"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit.thread": ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit53", %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i44, %.critedge, %.lr.ph, %.critedge.preheader, %19, %17, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i33, %7, %3, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit42", %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit"
+  %.020 = phi ptr [ %0, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit" ], [ %.sroa.0.0.i93, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit42" ], [ %0, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i ], [ %0, %3 ], [ %0, %7 ], [ %.sroa.0.0.i93, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i33 ], [ %.sroa.0.0.i93, %17 ], [ %.sroa.0.0.i93, %19 ], [ %0, %.critedge.preheader ], [ %.021134, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit53" ], [ %.021134, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i44 ], [ %.sroa.0.0.i46107, %.critedge ], [ %.021134, %.lr.ph ]
   ret ptr %.020
 
 74:                                               ; preds = %70, %72

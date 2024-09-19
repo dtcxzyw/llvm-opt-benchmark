@@ -2470,7 +2470,7 @@ entry:
   %message170 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %agg.tmp187 = alloca %"class.std::__cxx11::basic_string", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN17ServerEnvironment6getMapEv(ptr noundef nonnull align 8 dereferenceable(952) %env)
-  %call7 = tail call fastcc noundef ptr @_ZL10add_entityP17ServerEnvironmentN3irr4core8vector3dIfEEPKc.argelim(ptr noundef nonnull %env, <2 x float> <float 0.000000e+00, float -6.600000e+02>, ptr noundef nonnull @.str.31)
+  %call7 = tail call fastcc noundef ptr @_ZL10add_entityP17ServerEnvironmentN3irr4core8vector3dIfEEPKc(ptr noundef nonnull %env, <2 x float> <float 0.000000e+00, float -6.600000e+02>, ptr noundef nonnull @.str.31)
   %tobool.not = icmp eq ptr %call7, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -3122,7 +3122,7 @@ declare noundef nonnull align 8 dereferenceable(144) ptr @_ZN17ServerEnvironment
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL10add_entityP17ServerEnvironmentN3irr4core8vector3dIfEEPKc.argelim(ptr noundef nonnull %env, <2 x float> %pos.coerce0, ptr noundef %name) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL10add_entityP17ServerEnvironmentN3irr4core8vector3dIfEEPKc(ptr noundef nonnull %env, <2 x float> %pos.coerce0, ptr noundef %name) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
 entry:
   %pos = alloca %"class.irr::core::vector3d.438", align 8
   %env.addr = alloca ptr, align 8
@@ -3844,7 +3844,7 @@ cleanup.action:                                   ; preds = %ehcleanup, %_ZNKSt7
   br label %ehcleanup194
 
 if.end:                                           ; preds = %entry
-  %call14 = tail call fastcc noundef ptr @_ZL10add_entityP17ServerEnvironmentN3irr4core8vector3dIfEEPKc.argelim(ptr noundef nonnull %env, <2 x float> <float 0.000000e+00, float 4.000000e+01>, ptr noundef nonnull @.str.43)
+  %call14 = tail call fastcc noundef ptr @_ZL10add_entityP17ServerEnvironmentN3irr4core8vector3dIfEEPKc(ptr noundef nonnull %env, <2 x float> <float 0.000000e+00, float 4.000000e+01>, ptr noundef nonnull @.str.43)
   %tobool15.not = icmp eq ptr %call14, null
   br i1 %tobool15.not, label %if.then16, label %if.end32
 
@@ -6577,7 +6577,7 @@ entry:
   %message112 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %agg.tmp129 = alloca %"class.std::__cxx11::basic_string", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN17ServerEnvironment6getMapEv(ptr noundef nonnull align 8 dereferenceable(952) %env)
-  %call7 = tail call fastcc noundef ptr @_ZL10add_entityP17ServerEnvironmentN3irr4core8vector3dIfEEPKc.argelim(ptr noundef nonnull %env, <2 x float> <float 1.230000e+03, float 5.000000e+01>, ptr noundef nonnull @.str.43)
+  %call7 = tail call fastcc noundef ptr @_ZL10add_entityP17ServerEnvironmentN3irr4core8vector3dIfEEPKc(ptr noundef nonnull %env, <2 x float> <float 1.230000e+03, float 5.000000e+01>, ptr noundef nonnull @.str.43)
   %tobool.not = icmp eq ptr %call7, null
   br i1 %tobool.not, label %if.then, label %if.end
 

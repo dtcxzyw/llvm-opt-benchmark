@@ -4890,7 +4890,7 @@ zend_jit_unprotect.exit:                          ; preds = %32, %35, %39
   %121 = zext i32 %120 to i64
   %122 = getelementptr inbounds i8, ptr %116, i64 44
   %123 = load i32, ptr %122, align 4
-  call fastcc void @zend_jit_link_side_trace.argelim(ptr noundef %118, i64 noundef %121, i32 noundef %123, i32 noundef %2, ptr noundef %69)
+  call fastcc void @zend_jit_link_side_trace(ptr noundef %118, i64 noundef %121, i32 noundef %123, i32 noundef %2, ptr noundef %69)
   %124 = load ptr, ptr @zend_jit_traces, align 8
   %125 = getelementptr inbounds i8, ptr %124, i64 28
   %126 = load i32, ptr %125, align 4
@@ -5347,7 +5347,7 @@ zend_jit_deoptimizer_start.exit.i:                ; preds = %138, %zend_jit_trac
   %164 = load ptr, ptr %163, align 8
   %165 = getelementptr inbounds i8, ptr %151, i64 36
   %166 = load i8, ptr %165, align 4
-  call fastcc void @zend_jit_trace_deoptimization.retelim(ptr noundef %8, i32 noundef %161, ptr noundef %162, ptr noundef %159, i32 noundef %153, ptr noundef null, ptr noundef null, ptr noundef %164, i8 noundef signext %166, i1 noundef zeroext false)
+  call fastcc void @zend_jit_trace_deoptimization(ptr noundef %8, i32 noundef %161, ptr noundef %162, ptr noundef %159, i32 noundef %153, ptr noundef null, ptr noundef null, ptr noundef %164, i8 noundef signext %166, i1 noundef zeroext false)
   %167 = load ptr, ptr @zend_jit_traces, align 8
   %168 = getelementptr inbounds %struct._zend_jit_trace_info, ptr %167, i64 %11
   %169 = getelementptr inbounds i8, ptr %168, i64 72
@@ -5464,11 +5464,11 @@ jit_CONST_ADDR.exit.i.i:                          ; preds = %231, %223
   br label %235
 
 zend_jit_set_ip_ex.exit.thread.i:                 ; preds = %.split76.i, %173
-  call fastcc void @zend_jit_set_ip.argelim(ptr noundef %8, ptr noundef nonnull %172)
+  call fastcc void @zend_jit_set_ip(ptr noundef %8, ptr noundef nonnull %172)
   br label %zend_jit_trace_return.exit.sink.split.i
 
 zend_jit_set_ip_ex.exit.i:                        ; preds = %193
-  call fastcc void @zend_jit_set_ip.argelim(ptr noundef %8, ptr noundef nonnull %172)
+  call fastcc void @zend_jit_set_ip(ptr noundef %8, ptr noundef nonnull %172)
   br label %235
 
 235:                                              ; preds = %zend_jit_set_ip_ex.exit.i, %jit_CONST_ADDR.exit.i.i
@@ -8702,7 +8702,7 @@ zend_jit_allocate_registers.exit:                 ; preds = %576, %._crit_edge48
   %579 = sext i32 %578 to i64
   %580 = shl nsw i64 %579, 2
   %581 = alloca i8, i64 %580, align 16
-  %582 = call fastcc i32 @zend_jit_compute_post_order.argelim(ptr noundef %1, ptr noundef %581)
+  %582 = call fastcc i32 @zend_jit_compute_post_order(ptr noundef %1, ptr noundef %581)
   %583 = icmp sgt i32 %582, 0
   br i1 %583, label %.lr.ph.lr.ph.lr.ph, label %.outer5810._crit_edge
 
@@ -8808,7 +8808,7 @@ zend_jit_allocate_registers.exit:                 ; preds = %576, %._crit_edge48
   br i1 %.not4780, label %641, label %662
 
 641:                                              ; preds = %638
-  call fastcc void @zend_jit_bb_start.argelim(ptr noundef %4, i32 noundef %608)
+  call fastcc void @zend_jit_bb_start(ptr noundef %4, i32 noundef %608)
   %642 = load i8, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 2), align 2
   %643 = icmp ne i8 %642, 5
   call void @llvm.assume(i1 %643)
@@ -8872,7 +8872,7 @@ switch.edge.i:                                    ; preds = %645
   br i1 %or.cond5324, label %.loopexit5813, label %674
 
 674:                                              ; preds = %669
-  call fastcc void @zend_jit_free_ctx.argelim(ptr noundef %4)
+  call fastcc void @zend_jit_free_ctx(ptr noundef %4)
   %675 = load i32, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 4), align 4
   %676 = and i32 %675, 3
   %.not4779 = icmp eq i32 %676, 0
@@ -8920,7 +8920,7 @@ switch.edge.i:                                    ; preds = %645
   br i1 %or.cond5325, label %.loopexit5813, label %699
 
 699:                                              ; preds = %694
-  call fastcc void @zend_jit_free_ctx.argelim(ptr noundef %4)
+  call fastcc void @zend_jit_free_ctx(ptr noundef %4)
   %700 = load i32, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 4), align 4
   %701 = and i32 %700, 3
   %.not4777 = icmp eq i32 %701, 0
@@ -9004,7 +9004,7 @@ switch.edge.i:                                    ; preds = %645
   %.14057 = phi i8 [ %.04056.ph58115884, %669 ], [ %.04056.ph58115884, %666 ], [ %.04056.ph58115884, %694 ], [ %.04056.ph58115884, %691 ], [ 1, %635 ], [ 1, %636 ], [ 1, %631 ], [ 1, %632 ], [ 1, %662 ], [ %.14057.ph, %.loopexit5813.sink.split ], [ %.04056.ph58115884, %615 ]
   %indvars6145 = trunc i64 %indvars.iv.next to i32
   %.0399158735985 = trunc i64 %indvars.iv to i32
-  call fastcc void @zend_jit_bb_start.argelim(ptr noundef %4, i32 noundef %608)
+  call fastcc void @zend_jit_bb_start(ptr noundef %4, i32 noundef %608)
   %749 = load i32, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 4), align 4
   %750 = and i32 %749, 2
   %751 = icmp ne i32 %750, 0
@@ -9408,7 +9408,7 @@ zend_jit_set_last_valid_opline.exit:              ; preds = %zend_jit_set_last_v
   %967 = load i32, ptr %966, align 4
   %968 = zext i32 %967 to i64
   %969 = getelementptr inbounds %struct._zend_op, ptr %965, i64 %968
-  call fastcc void @zend_jit_check_timeout.argelim(ptr noundef nonnull %4, ptr noundef %969, ptr noundef null)
+  call fastcc void @zend_jit_check_timeout(ptr noundef nonnull %4, ptr noundef %969, ptr noundef null)
   %.pre6005 = load ptr, ptr %584, align 8
   br label %970
 
@@ -9546,7 +9546,7 @@ zend_jit_load_var.exit:                           ; preds = %1025, %1027
   %1046 = zext i32 %1045 to i64
   %1047 = shl nuw nsw i64 %1046, 8
   %1048 = or disjoint i64 %1047, 57
-  call fastcc void @zend_jit_spill_store.argelim(ptr noundef %4, i64 noundef %1043, i64 noundef %1048, i32 noundef %1038, i1 noundef zeroext true)
+  call fastcc void @zend_jit_spill_store(ptr noundef %4, i64 noundef %1043, i64 noundef %1048, i32 noundef %1038, i1 noundef zeroext true)
   br label %1049
 
 1049:                                             ; preds = %1034, %zend_jit_load_var.exit, %1032, %.lr.ph5890
@@ -9950,7 +9950,7 @@ zend_jit_load_var.exit:                           ; preds = %1025, %1027
   %1204 = phi i32 [ 0, %1197 ], [ %1202, %1201 ]
   %1205 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %1066, ptr noundef %1064, ptr noundef nonnull %0, ptr noundef nonnull %1) #33
   %1206 = zext i1 %1205 to i32
-  call fastcc void @zend_jit_inc_dec.retelim(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.041155521, i64 noundef %1198, i32 noundef %.04127, i64 noundef %1199, i32 noundef %.14023, i32 noundef %.04026, i64 noundef %.04008, i32 noundef %1204, i32 noundef %1206)
+  call fastcc void @zend_jit_inc_dec(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.041155521, i64 noundef %1198, i32 noundef %.04127, i64 noundef %1199, i32 noundef %.14023, i32 noundef %.04026, i64 noundef %.04008, i32 noundef %1204, i32 noundef %1206)
   br label %zend_jit_long_math.exitthread-pre-split
 
 1207:                                             ; preds = %1074, %1074, %1074, %1074, %1074, %1074
@@ -10205,7 +10205,7 @@ zend_jit_load_var.exit:                           ; preds = %1025, %1027
   %1351 = zext i32 %1350 to i64
   %1352 = shl nuw nsw i64 %1351, 8
   %1353 = or disjoint i64 %1352, 61
-  call fastcc void @zend_jit_reuse_ip.retelim(ptr noundef %4)
+  call fastcc void @zend_jit_reuse_ip(ptr noundef %4)
   br label %.thread5542
 
 zend_jit_next_is_send_result.exit:                ; preds = %1342, %1339, %1335, %1331, %1327, %1325, %1322
@@ -10434,7 +10434,7 @@ zend_jit_next_is_send_result.exit:                ; preds = %1342, %1339, %1335,
   %1485 = load i32, ptr %1484, align 8
   %1486 = load i32, ptr %1481, align 8
   %1487 = load i32, ptr %1483, align 4
-  call fastcc void @zend_jit_long_math_helper.argelim(ptr noundef %4, ptr noundef nonnull %1066, i8 noundef zeroext %1479, i8 noundef zeroext %1480, i32 %1486, i64 noundef %1425, i32 noundef %.04327, ptr noundef %1400, i8 noundef zeroext %1482, i32 %1487, i64 noundef %1467, i32 noundef %.04306, ptr noundef %1442, i32 noundef %1485, i64 noundef %.14009, i32 noundef %.04121, i32 noundef %.24024, i32 noundef %1478)
+  call fastcc void @zend_jit_long_math_helper(ptr noundef %4, ptr noundef nonnull %1066, i8 noundef zeroext %1479, i8 noundef zeroext %1480, i32 %1486, i64 noundef %1425, i32 noundef %.04327, ptr noundef %1400, i8 noundef zeroext %1482, i32 %1487, i64 noundef %1467, i32 noundef %.04306, ptr noundef %1442, i32 noundef %1485, i64 noundef %.14009, i32 noundef %.04121, i32 noundef %.24024, i32 noundef %1478)
   %1488 = load i32, ptr %1484, align 8
   %1489 = and i64 %.14009, 3
   %1490 = icmp eq i64 %1489, 2
@@ -10463,7 +10463,7 @@ zend_jit_next_is_send_result.exit:                ; preds = %1342, %1339, %1335,
   %1502 = sext i32 %1488 to i64
   %1503 = shl nsw i64 %1502, 8
   %1504 = or disjoint i64 %1503, 57
-  call fastcc void @zend_jit_spill_store.argelim(ptr noundef %4, i64 noundef %.14009, i64 noundef %1504, i32 noundef %.04121, i1 noundef zeroext true)
+  call fastcc void @zend_jit_spill_store(ptr noundef %4, i64 noundef %.14009, i64 noundef %1504, i32 noundef %.04121, i1 noundef zeroext true)
   br label %zend_jit_long_math.exitthread-pre-split
 
 1505:                                             ; preds = %1074, %1074, %1074
@@ -10709,7 +10709,7 @@ zend_jit_next_is_send_result.exit:                ; preds = %1342, %1339, %1335,
   %1641 = zext i32 %1640 to i64
   %1642 = shl nuw nsw i64 %1641, 8
   %1643 = or disjoint i64 %1642, 61
-  call fastcc void @zend_jit_reuse_ip.retelim(ptr noundef %4)
+  call fastcc void @zend_jit_reuse_ip(ptr noundef %4)
   br label %1675
 
 1644:                                             ; preds = %1636, %1634, %1631
@@ -10881,7 +10881,7 @@ zend_jit_next_is_send_result.exit:                ; preds = %1342, %1339, %1335,
 1735:                                             ; preds = %1727, %1731, %1718
   %1736 = phi i64 [ %1710, %1718 ], [ %1722, %1727 ], [ %1722, %1731 ]
   %1737 = phi i64 [ %1720, %1718 ], [ %1730, %1727 ], [ %1734, %1731 ]
-  call fastcc void @zend_jit_add_arrays.argelim(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04328, i64 noundef %1736, i32 noundef %.04307, i64 noundef %1737, i64 noundef %.2401055685576)
+  call fastcc void @zend_jit_add_arrays(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04328, i64 noundef %1736, i32 noundef %.04307, i64 noundef %1737, i64 noundef %.2401055685576)
   br label %zend_jit_long_math.exitthread-pre-split
 
 1738:                                             ; preds = %.thread5571
@@ -11020,7 +11020,7 @@ zend_jit_next_is_send_result.exit:                ; preds = %1342, %1339, %1335,
   %1823 = sext i32 %1809 to i64
   %1824 = shl nsw i64 %1823, 8
   %1825 = or disjoint i64 %1824, 57
-  call fastcc void @zend_jit_spill_store.argelim(ptr noundef %4, i64 noundef %.2401055685576, i64 noundef %1825, i32 noundef %.04120, i1 noundef zeroext true)
+  call fastcc void @zend_jit_spill_store(ptr noundef %4, i64 noundef %.2401055685576, i64 noundef %1825, i32 noundef %.04120, i1 noundef zeroext true)
   br label %zend_jit_long_math.exitthread-pre-split
 
 1826:                                             ; preds = %1074, %1074
@@ -11277,7 +11277,7 @@ zend_jit_next_is_send_result.exit:                ; preds = %1342, %1339, %1335,
   %1970 = zext i32 %1969 to i64
   %1971 = shl nuw nsw i64 %1970, 8
   %1972 = or disjoint i64 %1971, 61
-  call fastcc void @zend_jit_reuse_ip.retelim(ptr noundef %4)
+  call fastcc void @zend_jit_reuse_ip(ptr noundef %4)
   br label %zend_jit_next_is_send_result.exit5475
 
 zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954, %1950, %1946, %1967, %1943
@@ -11309,7 +11309,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
   %1994 = shl nuw nsw i64 %1993, 8
   %1995 = or disjoint i64 %1994, 57
   %1996 = select i1 %1987, i64 %1992, i64 %1995
-  call fastcc void @zend_jit_concat_helper.argelim(ptr noundef %4, ptr noundef nonnull %1066, i8 noundef zeroext %1975, i32 %1978, i64 noundef %1985, i32 noundef %.04323, i8 noundef zeroext %1986, i32 %1989, i64 noundef %1996, i32 noundef %.04309, i64 noundef %.34011, i32 noundef %1974)
+  call fastcc void @zend_jit_concat_helper(ptr noundef %4, ptr noundef nonnull %1066, i8 noundef zeroext %1975, i32 %1978, i64 noundef %1985, i32 noundef %.04323, i8 noundef zeroext %1986, i32 %1989, i64 noundef %1996, i32 noundef %.04309, i64 noundef %.34011, i32 noundef %1974)
   br label %zend_jit_long_math.exitthread-pre-split
 
 1997:                                             ; preds = %1074
@@ -13019,7 +13019,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
   %2961 = trunc i8 %.240006066 to i1
   %2962 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %1066, ptr noundef %1063, ptr noundef nonnull %0, ptr noundef nonnull %1) #33
   %2963 = zext i1 %2962 to i32
-  %2964 = call fastcc i32 @zend_jit_assign_obj.argelim(ptr noundef %4, ptr noundef nonnull %1066, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1063, i32 noundef %.240306057, i64 noundef %.240196060, i32 noundef %.04263, i1 noundef zeroext false, ptr noundef %.240056063, i1 noundef zeroext %2961, i1 noundef zeroext %2820, i1 noundef zeroext false, ptr noundef null, i32 noundef %2963)
+  %2964 = call fastcc i32 @zend_jit_assign_obj(ptr noundef %4, ptr noundef nonnull %1066, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1063, i32 noundef %.240306057, i64 noundef %.240196060, i32 noundef %.04263, i1 noundef zeroext false, ptr noundef %.240056063, i1 noundef zeroext %2961, i1 noundef zeroext %2820, i1 noundef zeroext false, ptr noundef null, i32 noundef %2963)
   %.not5078 = icmp eq i32 %2964, 0
   br i1 %.not5078, label %zend_jit_math.exit, label %zend_jit_long_math.exitthread-pre-split
 
@@ -13244,7 +13244,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
   %3093 = zext i32 %3092 to i64
   %3094 = shl nuw nsw i64 %3093, 8
   %3095 = or disjoint i64 %3094, 61
-  call fastcc void @zend_jit_reuse_ip.retelim(ptr noundef %4)
+  call fastcc void @zend_jit_reuse_ip(ptr noundef %4)
   %.pre6019 = load ptr, ptr %588, align 8
   br label %3096
 
@@ -13428,7 +13428,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
   %.04314 = phi i32 [ %3180, %3179 ], [ -521143298, %3175 ], [ %3187, %3186 ], [ %spec.select5375, %3188 ], [ %3198, %3195 ], [ -486539265, %3191 ], [ -486539265, %3190 ]
   %3199 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %1066, ptr noundef nonnull %1063, ptr noundef nonnull %0, ptr noundef nonnull %1) #33
   %3200 = zext i1 %3199 to i32
-  call fastcc void @zend_jit_assign.argelim(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.34031, i64 noundef %3122, i32 noundef %.04124, i64 noundef %3157, i32 noundef %.04314, i64 noundef %2998, i64 noundef %.04013, i32 noundef %.14027, i64 noundef %.44012, i64 noundef 0, i32 noundef %3200)
+  call fastcc void @zend_jit_assign(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.34031, i64 noundef %3122, i32 noundef %.04124, i64 noundef %3157, i32 noundef %.04314, i64 noundef %2998, i64 noundef %.04013, i32 noundef %.14027, i64 noundef %.44012, i64 noundef 0, i32 noundef %3200)
   br label %zend_jit_long_math.exitthread-pre-split
 
 3201:                                             ; preds = %1074
@@ -13666,7 +13666,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
 
 3336:                                             ; preds = %3328, %3332, %3319
   %3337 = phi i64 [ %3321, %3319 ], [ %3331, %3328 ], [ %3335, %3332 ]
-  call fastcc void @zend_jit_qm_assign.argelim(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.042536077, i64 noundef %3228, i64 noundef %.04015, i32 noundef -1, i32 noundef %.04117, i64 noundef %3337)
+  call fastcc void @zend_jit_qm_assign(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.042536077, i64 noundef %3228, i64 noundef %.04015, i32 noundef -1, i32 noundef %.04117, i64 noundef %3337)
   br label %zend_jit_long_math.exitthread-pre-split
 
 3338:                                             ; preds = %1074, %1074, %1074
@@ -13892,7 +13892,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
 
 .thread5659:                                      ; preds = %3456, %3454, %3461, %3458, %3445, %3441, %3452
   %.04243 = phi i32 [ %3446, %3445 ], [ -521143298, %3441 ], [ %3453, %3452 ], [ %spec.select5378, %3454 ], [ %3464, %3461 ], [ -486539265, %3458 ], [ -486539265, %3456 ]
-  call fastcc void @zend_jit_send_ref.argprom.argelim(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04243)
+  call fastcc void @zend_jit_send_ref(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04243)
   br label %zend_jit_long_math.exitthread-pre-split
 
 3465:                                             ; preds = %1074, %1074, %1074, %1074, %1074
@@ -14083,7 +14083,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
 
 .thread5661:                                      ; preds = %3566, %3564, %3571, %3568, %3555, %3551, %3562
   %.04238 = phi i32 [ %3556, %3555 ], [ -521143298, %3551 ], [ %3563, %3562 ], [ %spec.select5379, %3564 ], [ %3574, %3571 ], [ -486539265, %3568 ], [ -486539265, %3566 ]
-  %3575 = call fastcc i32 @zend_jit_send_var.argprom(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04238, i64 noundef %3501, i64 noundef %.14016)
+  %3575 = call fastcc i32 @zend_jit_send_var(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04238, i64 noundef %3501, i64 noundef %.14016)
   %.not5014 = icmp eq i32 %3575, 0
   br i1 %.not5014, label %zend_jit_math.exit, label %zend_jit_long_math.exitthread-pre-split
 
@@ -14100,15 +14100,15 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
   br i1 %3583, label %.critedge, label %3584
 
 3584:                                             ; preds = %3580
-  call fastcc void @zend_jit_check_func_arg.argprom.argelim(ptr noundef %4, i32 %3582)
+  call fastcc void @zend_jit_check_func_arg(ptr noundef %4, i32 %3582)
   br label %zend_jit_long_math.exitthread-pre-split
 
 3585:                                             ; preds = %1074
-  call fastcc void @zend_jit_check_undef_args.argelim(ptr noundef %4, ptr noundef nonnull %1066)
+  call fastcc void @zend_jit_check_undef_args(ptr noundef %4, ptr noundef nonnull %1066)
   br label %zend_jit_long_math.exitthread-pre-split
 
 3586:                                             ; preds = %1074, %1074, %1074, %1074
-  %3587 = call fastcc i32 @zend_jit_do_fcall.argelim(ptr noundef %4, ptr noundef nonnull %1066, ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %.24061, ptr noundef null)
+  %3587 = call fastcc i32 @zend_jit_do_fcall(ptr noundef %4, ptr noundef nonnull %1066, ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %.24061, ptr noundef null)
   %.not5006 = icmp eq i32 %3587, 0
   br i1 %.not5006, label %zend_jit_math.exit, label %zend_jit_long_math.exitthread-pre-split
 
@@ -14547,7 +14547,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
   %3835 = phi i64 [ %3821, %3819 ], [ %3829, %3826 ], [ %3833, %3830 ]
   %3836 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %1066, ptr noundef %1064, ptr noundef nonnull %0, ptr noundef nonnull %1) #33
   %3837 = zext i1 %3836 to i32
-  %3838 = call fastcc i32 @zend_jit_cmp.argelim(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.042336086, ptr noundef %3725, i64 noundef %3750, i32 noundef %.043156089, ptr noundef %3809, i64 noundef %3835, i64 noundef %.5, i32 noundef %3837, i8 noundef zeroext %.04049, i32 noundef %.04042, i32 noundef %.04035, ptr noundef null)
+  %3838 = call fastcc i32 @zend_jit_cmp(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.042336086, ptr noundef %3725, i64 noundef %3750, i32 noundef %.043156089, ptr noundef %3809, i64 noundef %3835, i64 noundef %.5, i32 noundef %3837, i8 noundef zeroext %.04049, i32 noundef %.04042, i32 noundef %.04035, ptr noundef null)
   %.not5005 = icmp eq i32 %3838, 0
   br i1 %.not5005, label %zend_jit_math.exit, label %zend_jit_long_math.exitthread-pre-split
 
@@ -14986,7 +14986,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
   %4086 = phi i64 [ %4072, %4070 ], [ %4080, %4077 ], [ %4084, %4081 ]
   %4087 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %1066, ptr noundef %1064, ptr noundef nonnull %0, ptr noundef nonnull %1) #33
   %4088 = zext i1 %4087 to i32
-  %4089 = call fastcc i32 @zend_jit_identical.argelim(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.042286094, ptr noundef %3976, i64 noundef %4001, i32 noundef %.043166097, ptr noundef %4060, i64 noundef %4086, i64 noundef %.6, i32 noundef %4088, i8 noundef zeroext %.14050, i32 noundef %.14043, i32 noundef %.14036, ptr noundef null)
+  %4089 = call fastcc i32 @zend_jit_identical(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.042286094, ptr noundef %3976, i64 noundef %4001, i32 noundef %.043166097, ptr noundef %4060, i64 noundef %4086, i64 noundef %.6, i32 noundef %4088, i8 noundef zeroext %.14050, i32 noundef %.14043, i32 noundef %.14036, ptr noundef null)
   %.not4984 = icmp eq i32 %4089, 0
   br i1 %.not4984, label %zend_jit_math.exit, label %zend_jit_long_math.exitthread-pre-split
 
@@ -15037,7 +15037,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
   %.24051 = phi i8 [ %4098, %4109 ], [ 0, %4096 ], [ 0, %4103 ], [ 0, %4099 ], [ 0, %4094 ], [ 0, %4090 ]
   %.24044 = phi i32 [ %4113, %4109 ], [ -1, %4096 ], [ -1, %4103 ], [ -1, %4099 ], [ -1, %4094 ], [ -1, %4090 ]
   %.24037 = phi i32 [ %4115, %4109 ], [ -1, %4096 ], [ -1, %4103 ], [ -1, %4099 ], [ -1, %4094 ], [ -1, %4090 ]
-  call fastcc void @zend_jit_defined.argelim(ptr noundef %4, ptr noundef nonnull %1066, i8 noundef zeroext %.24051, i32 noundef %.24044, i32 noundef %.24037, ptr noundef null)
+  call fastcc void @zend_jit_defined(ptr noundef %4, ptr noundef nonnull %1066, i8 noundef zeroext %.24051, i32 noundef %.24044, i32 noundef %.24037, ptr noundef null)
   br label %zend_jit_long_math.exitthread-pre-split
 
 4117:                                             ; preds = %1074
@@ -15167,7 +15167,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
 
 .thread5671:                                      ; preds = %4180, %4178, %4185, %4182, %4169, %4165, %4176
   %.04223 = phi i32 [ %4170, %4169 ], [ -521143298, %4165 ], [ %4177, %4176 ], [ %spec.select5388, %4178 ], [ %4188, %4185 ], [ -486539265, %4182 ], [ -486539265, %4180 ]
-  call fastcc void @zend_jit_type_check.argelim(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04223, i8 noundef zeroext %.34052, i32 noundef %.34045, i32 noundef %.34038, ptr noundef null)
+  call fastcc void @zend_jit_type_check(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04223, i8 noundef zeroext %.34052, i32 noundef %.34045, i32 noundef %.34038, ptr noundef null)
   br label %zend_jit_long_math.exitthread-pre-split
 
 4189:                                             ; preds = %1074
@@ -15269,7 +15269,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
   br i1 %or.cond5390, label %4241, label %4240
 
 4240:                                             ; preds = %4237, %4234, %4232, %.thread5673
-  call fastcc void @zend_jit_tail_handler.argelim(ptr noundef %4, ptr noundef nonnull %1066)
+  call fastcc void @zend_jit_tail_handler(ptr noundef %4, ptr noundef nonnull %1066)
   br label %zend_jit_long_math.exitthread-pre-split
 
 4241:                                             ; preds = %4237
@@ -15315,7 +15315,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
 
 4266:                                             ; preds = %4258, %4262, %4250
   %4267 = phi i64 [ %4252, %4250 ], [ %4261, %4258 ], [ %4265, %4262 ]
-  call fastcc void @zend_jit_return.argelim(ptr noundef %4, ptr noundef nonnull %1066, ptr noundef nonnull %0, i32 noundef %.04218, i64 noundef %4267)
+  call fastcc void @zend_jit_return(ptr noundef %4, ptr noundef nonnull %1066, ptr noundef nonnull %0, i32 noundef %.04218, i64 noundef %4267)
   br label %zend_jit_long_math.exitthread-pre-split
 
 4268:                                             ; preds = %1074, %1074
@@ -15474,7 +15474,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
   %4362 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %1066, ptr noundef %1064, ptr noundef nonnull %0, ptr noundef nonnull %1) #33
   %4363 = zext i1 %4362 to i32
   %4364 = load i8, ptr %1067, align 4
-  call fastcc void @zend_jit_bool_jmpznz.argelim(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04213, i64 noundef %4360, i64 noundef %4361, i32 noundef -1, i32 noundef -1, i32 noundef %4363, i8 noundef zeroext %4364, ptr noundef null)
+  call fastcc void @zend_jit_bool_jmpznz(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04213, i64 noundef %4360, i64 noundef %4361, i32 noundef -1, i32 noundef -1, i32 noundef %4363, i8 noundef zeroext %4364, ptr noundef null)
   br label %zend_jit_long_math.exitthread-pre-split
 
 4365:                                             ; preds = %1074, %1074
@@ -15497,7 +15497,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
   %4377 = getelementptr inbounds i8, ptr %1066, i64 32
   %4378 = load ptr, ptr %4367, align 8
   %4379 = load i32, ptr %4378, align 4
-  call fastcc void @zend_jit_cond_jmp.argelim(ptr noundef %4, ptr noundef nonnull %4377, i32 noundef %4379)
+  call fastcc void @zend_jit_cond_jmp(ptr noundef %4, ptr noundef nonnull %4377, i32 noundef %4379)
   br label %zend_jit_long_math.exitthread-pre-split
 
 4380:                                             ; preds = %4365, %4372, %1074, %1074
@@ -15674,7 +15674,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
   %4483 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %1066, ptr noundef %1064, ptr noundef nonnull %0, ptr noundef nonnull %1) #33
   %4484 = zext i1 %4483 to i32
   %4485 = load i8, ptr %1067, align 4
-  call fastcc void @zend_jit_bool_jmpznz.argelim(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04208, i64 noundef %4476, i64 noundef %.7, i32 noundef %4480, i32 noundef %4482, i32 noundef %4484, i8 noundef zeroext %4485, ptr noundef null)
+  call fastcc void @zend_jit_bool_jmpznz(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04208, i64 noundef %4476, i64 noundef %.7, i32 noundef %4480, i32 noundef %4482, i32 noundef %4484, i8 noundef zeroext %4485, ptr noundef null)
   br label %zend_jit_long_math.exitthread-pre-split
 
 4486:                                             ; preds = %1074
@@ -15847,7 +15847,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
 
 4582:                                             ; preds = %4574, %4578, %4566
   %4583 = phi i64 [ %4568, %4566 ], [ %4577, %4574 ], [ %4581, %4578 ]
-  call fastcc void @zend_jit_isset_isempty_cv.argelim(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04203, i64 noundef %4583, i8 noundef zeroext %.44053, i32 noundef %.44046, i32 noundef %.44039, ptr noundef null)
+  call fastcc void @zend_jit_isset_isempty_cv(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04203, i64 noundef %4583, i8 noundef zeroext %.44053, i32 noundef %.44046, i32 noundef %.44039, ptr noundef null)
   br label %zend_jit_long_math.exitthread-pre-split
 
 4584:                                             ; preds = %1074
@@ -16021,7 +16021,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
 
 4678:                                             ; preds = %4670, %4674, %4662
   %4679 = phi i64 [ %4664, %4662 ], [ %4673, %4670 ], [ %4677, %4674 ]
-  call fastcc void @zend_jit_in_array.argelim(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04198, i64 noundef %4679, i8 noundef zeroext %.54054, i32 noundef %.54047, i32 noundef %.54040, ptr noundef null)
+  call fastcc void @zend_jit_in_array(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04198, i64 noundef %4679, i8 noundef zeroext %.54054, i32 noundef %.54047, i32 noundef %.54040, ptr noundef null)
   br label %zend_jit_long_math.exitthread-pre-split
 
 4680:                                             ; preds = %1074, %1074, %1074
@@ -16912,7 +16912,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
   %5189 = trunc i8 %.34001 to i1
   %5190 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %1066, ptr noundef %1064, ptr noundef nonnull %0, ptr noundef nonnull %1) #33
   %5191 = zext i1 %5190 to i32
-  %5192 = call fastcc i32 @zend_jit_fetch_obj.argelim(ptr noundef %4, ptr noundef nonnull %1066, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1064, i32 noundef %.44032, i64 noundef %.34020, i1 noundef zeroext false, ptr noundef %.34006, i1 noundef zeroext %5189, i1 noundef zeroext %5089, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, i32 noundef %5191)
+  %5192 = call fastcc i32 @zend_jit_fetch_obj(ptr noundef %4, ptr noundef nonnull %1066, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1064, i32 noundef %.44032, i64 noundef %.34020, i1 noundef zeroext false, ptr noundef %.34006, i1 noundef zeroext %5189, i1 noundef zeroext %5089, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, i32 noundef %5191)
   %.not4878 = icmp eq i32 %5192, 0
   br i1 %.not4878, label %zend_jit_math.exit, label %zend_jit_long_math.exitthread-pre-split
 
@@ -16994,7 +16994,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
 
 5236:                                             ; preds = %5227, %5225, %5214, %5218, %5229, %5232, %5193, %5194
   %.54033 = phi i32 [ 2046, %5194 ], [ 2046, %5193 ], [ %5219, %5218 ], [ -521143298, %5214 ], [ %5226, %5225 ], [ %spec.select5401, %5227 ], [ %5235, %5232 ], [ -486539265, %5229 ]
-  call fastcc void @zend_jit_bind_global.argelim(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.54033)
+  call fastcc void @zend_jit_bind_global(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.54033)
   br label %zend_jit_long_math.exitthread-pre-split
 
 5237:                                             ; preds = %1074
@@ -17005,7 +17005,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
 5239:                                             ; preds = %1074
   %5240 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %1066, ptr noundef %1064, ptr noundef nonnull %0, ptr noundef nonnull %1) #33
   %5241 = zext i1 %5240 to i32
-  call fastcc void @zend_jit_recv_init.argelim(ptr noundef %4, ptr noundef nonnull %1066, ptr noundef nonnull %0, i32 noundef %5241)
+  call fastcc void @zend_jit_recv_init(ptr noundef %4, ptr noundef nonnull %1066, ptr noundef nonnull %0, i32 noundef %5241)
   br label %zend_jit_long_math.exitthread-pre-split
 
 5242:                                             ; preds = %1074, %1074
@@ -17085,7 +17085,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
   %.04168 = phi i32 [ %5265, %5264 ], [ -521143298, %5260 ], [ %5272, %5271 ], [ %spec.select5402, %5273 ], [ %5283, %5280 ], [ -486539265, %5277 ], [ -486539265, %5275 ]
   %5284 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %1066, ptr noundef %1064, ptr noundef nonnull %0, ptr noundef nonnull %1) #33
   %5285 = zext i1 %5284 to i32
-  call fastcc void @zend_jit_free.argelim(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04168, i32 noundef %5285)
+  call fastcc void @zend_jit_free(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04168, i32 noundef %5285)
   br label %zend_jit_long_math.exitthread-pre-split
 
 5286:                                             ; preds = %1074
@@ -17168,7 +17168,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
   br i1 %.not4855, label %5330, label %.critedge
 
 5330:                                             ; preds = %5328
-  call fastcc void @zend_jit_echo.argelim(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04163)
+  call fastcc void @zend_jit_echo(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04163)
   br label %zend_jit_long_math.exitthread-pre-split
 
 5331:                                             ; preds = %1074
@@ -17329,7 +17329,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
 5425:                                             ; preds = %5417, %5421, %5407
   %5426 = phi i64 [ %5399, %5407 ], [ %5411, %5417 ], [ %5411, %5421 ]
   %5427 = phi i64 [ %5409, %5407 ], [ %5420, %5417 ], [ %5424, %5421 ]
-  call fastcc void @zend_jit_strlen.argelim(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04158, i64 noundef %5426, i64 noundef %5427)
+  call fastcc void @zend_jit_strlen(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04158, i64 noundef %5426, i64 noundef %5427)
   br label %zend_jit_long_math.exitthread-pre-split
 
 5428:                                             ; preds = %1074
@@ -17492,7 +17492,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
   %5524 = phi i64 [ %5506, %5504 ], [ %5517, %5514 ], [ %5521, %5518 ]
   %5525 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %1066, ptr noundef %1064, ptr noundef nonnull %0, ptr noundef nonnull %1) #33
   %5526 = zext i1 %5525 to i32
-  call fastcc void @zend_jit_count.argelim(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04153, i64 noundef %5523, i64 noundef %5524, i32 noundef %5526)
+  call fastcc void @zend_jit_count(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04153, i64 noundef %5523, i64 noundef %5524, i32 noundef %5526)
   br label %zend_jit_long_math.exitthread-pre-split
 
 5527:                                             ; preds = %1074
@@ -17501,7 +17501,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
   br i1 %.not4835, label %zend_jit_math.exit, label %zend_jit_long_math.exitthread-pre-split
 
 5529:                                             ; preds = %1074, %1074, %1074
-  %5530 = call fastcc i32 @zend_jit_switch.argprom(ptr noundef %4, ptr noundef nonnull %1066, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef null)
+  %5530 = call fastcc i32 @zend_jit_switch(ptr noundef %4, ptr noundef nonnull %1066, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef null)
   %.not4834 = icmp eq i32 %5530, 0
   br i1 %.not4834, label %zend_jit_math.exit, label %zend_jit_long_math.exitthread-pre-split
 
@@ -17537,7 +17537,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
 
 5548:                                             ; preds = %5542
   %.val5432 = load ptr, ptr %600, align 8
-  call fastcc void @zend_jit_verify_return_type.argprom.argelim(ptr noundef %4, ptr noundef nonnull %1066, ptr %.val5432, i32 noundef %5545)
+  call fastcc void @zend_jit_verify_return_type(ptr noundef %4, ptr noundef nonnull %1066, ptr %.val5432, i32 noundef %5545)
   br label %zend_jit_long_math.exitthread-pre-split
 
 5549:                                             ; preds = %1074
@@ -17620,7 +17620,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
   br i1 %.not4827, label %5593, label %.critedge
 
 5593:                                             ; preds = %5591
-  call fastcc void @zend_jit_fe_reset.argelim(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04138)
+  call fastcc void @zend_jit_fe_reset(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04138)
   br label %zend_jit_long_math.exitthread-pre-split
 
 5594:                                             ; preds = %1074
@@ -17779,7 +17779,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
 .thread5755:                                      ; preds = %5671, %5669, %5677, %5673, %5660, %5656, %5667
   %.04321 = phi i32 [ %5661, %5660 ], [ -521143298, %5656 ], [ %5668, %5667 ], [ %spec.select5409, %5669 ], [ %5680, %5677 ], [ -486539265, %5673 ], [ -486539265, %5671 ]
   %5681 = load i8, ptr %1067, align 4
-  %5682 = call fastcc i32 @zend_jit_fe_fetch.argelim(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04133, i32 noundef %.04321, i8 noundef zeroext %5681, ptr noundef null)
+  %5682 = call fastcc i32 @zend_jit_fe_fetch(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04133, i32 noundef %.04321, i8 noundef zeroext %5681, ptr noundef null)
   %.not4823 = icmp eq i32 %5682, 0
   br i1 %.not4823, label %zend_jit_math.exit, label %zend_jit_long_math.exitthread-pre-split
 
@@ -17828,7 +17828,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
 
 5710:                                             ; preds = %5702, %5706, %5693
   %5711 = phi i64 [ %5695, %5693 ], [ %5705, %5702 ], [ %5709, %5706 ]
-  %5712 = call fastcc i32 @zend_jit_fetch_constant.argprom(ptr noundef %4, ptr noundef nonnull %1066, ptr noundef %1, ptr noundef %1064, i64 noundef %5711)
+  %5712 = call fastcc i32 @zend_jit_fetch_constant(ptr noundef %4, ptr noundef nonnull %1066, ptr noundef %1, ptr noundef %1064, i64 noundef %5711)
   %.not4815 = icmp eq i32 %5712, 0
   br i1 %.not4815, label %zend_jit_math.exit, label %zend_jit_long_math.exitthread-pre-split
 
@@ -17976,7 +17976,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
 5793:                                             ; preds = %5777, %5789, %5785, %5723
   %.64034 = phi i32 [ -1073741568, %5723 ], [ %.041285763, %5785 ], [ %.041285763, %5789 ], [ %.041285763, %5777 ]
   %.44021 = phi i64 [ 0, %5723 ], [ %5788, %5785 ], [ %5792, %5789 ], [ %5779, %5777 ]
-  %5794 = call fastcc i32 @zend_jit_init_method_call.argprom.argelim(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %608, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1064, i32 noundef %.24061, i32 noundef %.64034, i64 noundef %.44021, i1 noundef zeroext %5726, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, i8 noundef signext -1, i8 noundef signext -1, i1 noundef zeroext false)
+  %5794 = call fastcc i32 @zend_jit_init_method_call(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %608, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1064, i32 noundef %.24061, i32 noundef %.64034, i64 noundef %.44021, i1 noundef zeroext %5726, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, i8 noundef signext -1, i8 noundef signext -1, i1 noundef zeroext false)
   %.not4812 = icmp eq i32 %5794, 0
   br i1 %.not4812, label %zend_jit_math.exit, label %zend_jit_long_math.exitthread-pre-split
 
@@ -18061,7 +18061,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
   br i1 %.not4798, label %5840, label %.critedge
 
 5840:                                             ; preds = %5838
-  call fastcc void @zend_jit_rope.argelim(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04322)
+  call fastcc void @zend_jit_rope(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %.04322)
   br label %zend_jit_long_math.exitthread-pre-split
 
 .critedge:                                        ; preds = %4927, %2965, %2810, %2585, %2462, %2339, %2110, %2000, %5828, %5830, %5813, %5627, %5629, %5612, %5582, %5584, %5567, %5537, %5461, %5463, %5446, %5364, %5366, %5349, %5319, %5321, %5304, %4616, %4618, %4601, %1581, %1583, %5531, %5539, %4584, %4584, %1075, %1083, %1208, %1207, %.thread5534, %1506, %1505, %1591, %1601, %1827, %1826, %.thread5583, %1997, %2003, %2053, %2107, %2113, %2160, %2342, %2455, %2452, %2467, %2517, %2572, %2578, %2575, %2590, %2637, %2689, %2803, %2800, %2815, %2865, %2968, %3340, %3346, %3419, %3465, %3470, %3576, %3580, %4117, %4486, %4625, %4681, %4680, %4831, %4830, %4833, %4931, %5081, %5074, %5071, %5136, %5328, %5373, %5470, %5534, %5542, %5591, %5636, %5716, %5713, %5767, %5838, %1074, %1071
@@ -18128,7 +18128,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
 5849:                                             ; preds = %5845, %5842
   %5850 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %1066, ptr noundef %1064, ptr noundef nonnull %0, ptr noundef nonnull %1) #33
   %5851 = zext i1 %5850 to i32
-  call fastcc void @zend_jit_handler.argelim(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %5851)
+  call fastcc void @zend_jit_handler(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %5851)
   br label %5852
 
 5852:                                             ; preds = %5849, %5845
@@ -18152,15 +18152,15 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
   %5862 = load i32, ptr %5861, align 8
   %5863 = sext i32 %5862 to i64
   %5864 = getelementptr inbounds i8, ptr %1066, i64 %5863
-  call fastcc void @zend_jit_set_ip.argelim(ptr noundef %4, ptr noundef %5864)
+  call fastcc void @zend_jit_set_ip(ptr noundef %4, ptr noundef %5864)
   br label %zend_jit_long_math.exitthread-pre-split
 
 5865:                                             ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
-  call fastcc void @zend_jit_tail_handler.argelim(ptr noundef %4, ptr noundef nonnull %1066)
+  call fastcc void @zend_jit_tail_handler(ptr noundef %4, ptr noundef nonnull %1066)
   br label %zend_jit_long_math.exitthread-pre-split
 
 5866:                                             ; preds = %.critedge, %.critedge, %.critedge, %.critedge
-  call fastcc void @zend_jit_tail_handler.argelim(ptr noundef %4, ptr noundef nonnull %1066)
+  call fastcc void @zend_jit_tail_handler(ptr noundef %4, ptr noundef nonnull %1066)
   br label %zend_jit_long_math.exitthread-pre-split
 
 5867:                                             ; preds = %.critedge, %.critedge
@@ -18185,27 +18185,27 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1961, %1958, %1954,
   %5881 = getelementptr inbounds i8, ptr %1066, i64 32
   %5882 = load ptr, ptr %5870, align 8
   %5883 = load i32, ptr %5882, align 4
-  call fastcc void @zend_jit_cond_jmp.argelim(ptr noundef %4, ptr noundef nonnull %5881, i32 noundef %5883)
+  call fastcc void @zend_jit_cond_jmp(ptr noundef %4, ptr noundef nonnull %5881, i32 noundef %5883)
   br label %zend_jit_long_math.exitthread-pre-split
 
 5884:                                             ; preds = %5867, %5876, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
   %5885 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %1066, ptr noundef %1064, ptr noundef %0, ptr noundef nonnull %1) #33
   %5886 = zext i1 %5885 to i32
-  call fastcc void @zend_jit_handler.argelim(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %5886)
+  call fastcc void @zend_jit_handler(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %5886)
   %5887 = getelementptr inbounds i8, ptr %1066, i64 32
   %5888 = load ptr, ptr %584, align 8
   %5889 = getelementptr inbounds %struct._zend_basic_block, ptr %5888, i64 %610
   %5890 = load ptr, ptr %5889, align 8
   %5891 = load i32, ptr %5890, align 4
-  call fastcc void @zend_jit_cond_jmp.argelim(ptr noundef %4, ptr noundef nonnull %5887, i32 noundef %5891)
+  call fastcc void @zend_jit_cond_jmp(ptr noundef %4, ptr noundef nonnull %5887, i32 noundef %5891)
   br label %zend_jit_long_math.exitthread-pre-split
 
 5892:                                             ; preds = %.critedge
-  call fastcc void @zend_jit_jmp_frameless.argelim(ptr noundef %4, ptr noundef nonnull %1066, ptr noundef null, i32 noundef 0)
+  call fastcc void @zend_jit_jmp_frameless(ptr noundef %4, ptr noundef nonnull %1066, ptr noundef null, i32 noundef 0)
   br label %zend_jit_long_math.exitthread-pre-split
 
 5893:                                             ; preds = %.critedge
-  call fastcc void @zend_jit_handler.argelim(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef 1)
+  call fastcc void @zend_jit_handler(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef 1)
   %5894 = getelementptr inbounds i8, ptr %1066, i64 20
   %5895 = load i32, ptr %5894, align 4
   %5896 = icmp eq i32 %5895, 0
@@ -18361,11 +18361,11 @@ jit_CMP_IP.exit.i:                                ; preds = %5971, %.loopexit.si
   br i1 %5984, label %5985, label %5986
 
 5985:                                             ; preds = %jit_CMP_IP.exit.i
-  call fastcc void @zend_jit_tail_handler.argelim(ptr noundef %4, ptr noundef nonnull %5898)
+  call fastcc void @zend_jit_tail_handler(ptr noundef %4, ptr noundef nonnull %5898)
   br label %5988
 
 5986:                                             ; preds = %jit_CMP_IP.exit.i
-  %5987 = call fastcc i32 @zend_jit_do_fcall.argelim(ptr noundef %4, ptr noundef nonnull %5898, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.24061, ptr noundef null)
+  %5987 = call fastcc i32 @zend_jit_do_fcall(ptr noundef %4, ptr noundef nonnull %5898, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.24061, ptr noundef null)
   %.not.i5479 = icmp eq i32 %5987, 0
   br i1 %.not.i5479, label %zend_jit_constructor.exit, label %5988
 
@@ -18901,7 +18901,7 @@ zend_jit_constructor.exit:                        ; preds = %6020, %6003, %5986,
 6286:                                             ; preds = %.critedge
   %6287 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %1066, ptr noundef %1064, ptr noundef %0, ptr noundef nonnull %1) #33
   %6288 = zext i1 %6287 to i32
-  call fastcc void @zend_jit_handler.argelim(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %6288)
+  call fastcc void @zend_jit_handler(ptr noundef %4, ptr noundef nonnull %1066, i32 noundef %6288)
   %6289 = icmp eq i32 %.040685892, %1057
   br i1 %6289, label %6290, label %zend_jit_long_math.exitthread-pre-split
 
@@ -19034,7 +19034,7 @@ zend_jit_set_cond.exit:                           ; preds = %6348, %6356
   store i8 0, ptr %591, align 1
   store ptr null, ptr %592, align 8
   %6360 = getelementptr inbounds i8, ptr %1066, i64 32
-  call fastcc void @zend_jit_set_ip.argelim(ptr noundef %4, ptr noundef nonnull %6360)
+  call fastcc void @zend_jit_set_ip(ptr noundef %4, ptr noundef nonnull %6360)
   br label %zend_jit_long_math.exitthread-pre-split
 
 zend_jit_long_math.exitthread-pre-split:          ; preds = %1822, %1818, %1814, %1812, %1808, %6032, %.thread5774, %.thread5778, %.thread5784, %2102, %2334, %.thread5624, %2569, %2796, %.thread5645, %3338, %3416, %.thread5661, %3586, %3834, %4085, %4827, %4924, %.thread5710, %5188, %5237, %5527, %5529, %.thread5755, %5710, %5793, %6286, %6290, %5893, %5897, %zend_jit_constructor.exit, %5865, %1203, %1735, %zend_jit_next_is_send_result.exit5475, %.thread5651, %3336, %.thread5659, %3584, %3585, %4116, %.thread5671, %4240, %4266, %4359, %4376, %4475, %4582, %4678, %5236, %5239, %.thread5719, %5330, %5425, %5522, %5548, %5593, %5840, %5860, %5866, %5880, %5884, %5892, %zend_jit_set_cond.exit, %.thread5544, %1491, %1493, %1497, %1501, %5852, %5855
@@ -19133,7 +19133,7 @@ zend_jit_bb_end.exit5490:                         ; preds = %._crit_edge5901, %6
   br label %6396
 
 .thread5790:                                      ; preds = %6386
-  call fastcc void @zend_jit_free_cvs.argelim(ptr noundef %4)
+  call fastcc void @zend_jit_free_cvs(ptr noundef %4)
   br label %.loopexit
 
 6396:                                             ; preds = %.lr.ph5908, %6458
@@ -19261,7 +19261,7 @@ zend_ssa_cv_info.exit.thread:                     ; preds = %6396, %6399, %zend_
   br i1 %6452, label %zend_jit_free_cv.exit, label %6453
 
 6453:                                             ; preds = %zend_ssa_cv_info.exit.thread
-  call fastcc void @zend_jit_leave_frame.argelim(ptr noundef %4)
+  call fastcc void @zend_jit_leave_frame(ptr noundef %4)
   br label %zend_jit_free_cv.exit
 
 zend_jit_free_cv.exit:                            ; preds = %6453, %zend_ssa_cv_info.exit.thread
@@ -19290,7 +19290,7 @@ zend_jit_free_cv.exit:                            ; preds = %6453, %zend_ssa_cv_
   %.1 = phi i1 [ true, %.thread5790 ], [ false, %.preheader ], [ %6462, %.loopexit.loopexit ]
   %6463 = load i32, ptr %32, align 8
   %6464 = and i32 %6463, 1
-  call fastcc void @zend_jit_leave_func.argelim(ptr noundef %4, ptr noundef nonnull %0, ptr noundef null, i32 noundef 1022, i1 noundef zeroext %.1, ptr noundef null, ptr noundef null, i32 noundef %6464, i32 noundef 1)
+  call fastcc void @zend_jit_leave_func(ptr noundef %4, ptr noundef nonnull %0, ptr noundef null, i32 noundef 1022, i1 noundef zeroext %.1, ptr noundef null, ptr noundef null, i32 noundef %6464, i32 noundef 1)
   br label %6465
 
 6465:                                             ; preds = %.loopexit, %.outer5810._crit_edge
@@ -20152,7 +20152,7 @@ zend_jit_free_ctx.exit.i8.i:                      ; preds = %137, %136, %129, %1
   br i1 %.not16.i.i, label %142, label %143
 
 142:                                              ; preds = %139
-  call fastcc void @zend_jit_free_ctx.argelim(ptr noundef %4)
+  call fastcc void @zend_jit_free_ctx(ptr noundef %4)
   call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 0, ptr noundef nonnull @.str.193) #35
   unreachable
 
@@ -20466,13 +20466,13 @@ define void @zend_jit_shutdown() local_unnamed_addr #0 {
 zend_jit_shutdown_ir.exit:                        ; preds = %19, %22
   %23 = load ptr, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 840), align 8
   %.not.i2 = icmp eq ptr %23, null
-  br i1 %.not.i2, label %zend_jit_trace_free_caches.argprom.exit, label %24
+  br i1 %.not.i2, label %zend_jit_trace_free_caches.exit, label %24
 
 24:                                               ; preds = %zend_jit_shutdown_ir.exit
   tail call void @free(ptr noundef nonnull %23) #33
-  br label %zend_jit_trace_free_caches.argprom.exit
+  br label %zend_jit_trace_free_caches.exit
 
-zend_jit_trace_free_caches.argprom.exit:          ; preds = %zend_jit_shutdown_ir.exit, %24
+zend_jit_trace_free_caches.exit:                  ; preds = %zend_jit_shutdown_ir.exit, %24
   ret void
 }
 
@@ -21009,7 +21009,7 @@ define internal fastcc ptr @zend_jit_trace(ptr noundef nonnull %0, i32 noundef %
   store ptr %0, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 176), align 8
   %38 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   %39 = load ptr, ptr %38, align 8
-  %40 = call fastcc ptr @zend_jit_trace_build_tssa.argprom(ptr noundef %0, i32 noundef %.sink, i32 noundef %2, ptr noundef %19, ptr noundef %18)
+  %40 = call fastcc ptr @zend_jit_trace_build_tssa(ptr noundef %0, i32 noundef %.sink, i32 noundef %2, ptr noundef %19, ptr noundef %18)
   %.not10643 = icmp eq ptr %40, null
   br i1 %.not10643, label %17414, label %41
 
@@ -25056,7 +25056,7 @@ zend_jit_stack_check.exit:                        ; preds = %1952, %1960
   %2183 = load ptr, ptr %2182, align 8
   %2184 = getelementptr inbounds i8, ptr %2178, i64 36
   %2185 = load i8, ptr %2184, align 4
-  call fastcc void @zend_jit_trace_deoptimization.retelim(ptr noundef %17, i32 noundef %2180, ptr noundef %2181, ptr noundef %.09605, i32 noundef %.09606, ptr noundef nonnull %40, ptr noundef nonnull %1800, ptr noundef %2183, i8 noundef signext %2185, i1 noundef zeroext %37)
+  call fastcc void @zend_jit_trace_deoptimization(ptr noundef %17, i32 noundef %2180, ptr noundef %2181, ptr noundef %.09605, i32 noundef %.09606, ptr noundef nonnull %40, ptr noundef nonnull %1800, ptr noundef %2183, i8 noundef signext %2185, i1 noundef zeroext %37)
   br label %2186
 
 2186:                                             ; preds = %2172, %._crit_edge12849
@@ -25493,7 +25493,7 @@ zend_jit_load_var.exit12090:                      ; preds = %2426, %2428
   %2457 = zext i32 %2456 to i64
   %2458 = shl nuw nsw i64 %2457, 8
   %2459 = or disjoint i64 %2458, 57
-  call fastcc void @zend_jit_spill_store.argelim(ptr noundef %17, i64 noundef %2454, i64 noundef %2459, i32 noundef %2443, i1 noundef zeroext %2452)
+  call fastcc void @zend_jit_spill_store(ptr noundef %17, i64 noundef %2454, i64 noundef %2459, i32 noundef %2443, i1 noundef zeroext %2452)
   %2460 = load i32, ptr %2347, align 4
   %2461 = sext i32 %2460 to i64
   %2462 = getelementptr inbounds %struct._zend_jit_reg_var, ptr %.09775, i64 %2461
@@ -25782,7 +25782,7 @@ zend_jit_load_var.exit12090:                      ; preds = %2426, %2428
   %2542 = getelementptr inbounds i8, ptr %2503, i64 60
   %2543 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %2503, ptr noundef %.09621, ptr noundef %.09771, ptr noundef nonnull %40) #33
   %2544 = zext i1 %2543 to i32
-  call fastcc void @zend_jit_recv_init.argelim(ptr noundef %17, ptr noundef nonnull %2503, ptr noundef %.09771, i32 noundef %2544)
+  call fastcc void @zend_jit_recv_init(ptr noundef %17, ptr noundef nonnull %2503, ptr noundef %.09771, i32 noundef %2544)
   %2545 = load i8, ptr %2542, align 4
   %2546 = icmp eq i8 %2545, 64
   br i1 %2546, label %.preheader12739, label %thread-pre-split12608
@@ -26162,7 +26162,7 @@ zend_jit_load_var.exit12090:                      ; preds = %2426, %2428
   %2778 = phi i32 [ 0, %2771 ], [ %2776, %2775 ]
   %2779 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %2503, ptr noundef %.09621, ptr noundef %.09771, ptr noundef nonnull %40) #33
   %2780 = zext i1 %2779 to i32
-  call fastcc void @zend_jit_inc_dec.retelim(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %2654, i64 noundef %2772, i32 noundef %.09737, i64 noundef %2773, i32 noundef %.19730, i32 noundef %.09735, i64 noundef %.09706, i32 noundef %2778, i32 noundef %2780)
+  call fastcc void @zend_jit_inc_dec(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %2654, i64 noundef %2772, i32 noundef %.09737, i64 noundef %2773, i32 noundef %.19730, i32 noundef %.09735, i64 noundef %.09706, i32 noundef %2778, i32 noundef %2780)
   %2781 = and i32 %.09737, 268436478
   switch i32 %2781, label %2813 [
     i32 268435472, label %2782
@@ -26741,7 +26741,7 @@ zend_jit_load_var.exit12090:                      ; preds = %2426, %2428
   %3149 = zext i32 %3148 to i64
   %3150 = shl nuw nsw i64 %3149, 8
   %3151 = or disjoint i64 %3150, 61
-  call fastcc void @zend_jit_reuse_ip.retelim(ptr noundef %17)
+  call fastcc void @zend_jit_reuse_ip(ptr noundef %17)
   br label %3173
 
 3152:                                             ; preds = %3144, %3141
@@ -26937,7 +26937,7 @@ zend_jit_load_var.exit12090:                      ; preds = %2426, %2428
   %3266 = phi i64 [ %3252, %3250 ], [ %3260, %3257 ], [ %3264, %3261 ]
   %3267 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %2503, ptr noundef %.09621, ptr noundef %.09771, ptr noundef nonnull %40) #33
   %3268 = zext i1 %3267 to i32
-  call fastcc void @zend_jit_long_math.retelim(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %3200, ptr noundef %3201, i64 noundef %3226, i32 noundef %3112, ptr noundef %3241, i64 noundef %3266, i32 noundef %.29731, i32 noundef %.0944412219, i64 noundef %.19707, i32 noundef %3268)
+  call fastcc void @zend_jit_long_math(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %3200, ptr noundef %3201, i64 noundef %3226, i32 noundef %3112, ptr noundef %3241, i64 noundef %3266, i32 noundef %.29731, i32 noundef %.0944412219, i64 noundef %.19707, i32 noundef %3268)
   br label %thread-pre-split12608
 
 3269:                                             ; preds = %2540, %2540, %2540
@@ -27238,7 +27238,7 @@ zend_jit_load_var.exit12090:                      ; preds = %2426, %2428
   %3436 = load i8, ptr %3435, align 4
   %3437 = and i8 %3436, 64
   %.not11575 = icmp eq i8 %3437, 0
-  %3438 = call fastcc zeroext i1 @zend_jit_fetch_reference.argelim(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext %2497, ptr noundef %20, ptr noundef %22, i1 noundef zeroext %.not11575)
+  %3438 = call fastcc zeroext i1 @zend_jit_fetch_reference(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext %2497, ptr noundef %20, ptr noundef %22, i1 noundef zeroext %.not11575)
   br i1 %3438, label %3439, label %zend_jit_stack_check.exit.thread
 
 3439:                                             ; preds = %3431
@@ -27403,7 +27403,7 @@ zend_jit_load_var.exit12090:                      ; preds = %2426, %2428
   %3553 = load i8, ptr %3552, align 4
   %3554 = and i8 %3553, 64
   %.not11584 = icmp eq i8 %3554, 0
-  %3555 = call fastcc zeroext i1 @zend_jit_fetch_reference.argelim(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext %2499, ptr noundef %21, ptr noundef %23, i1 noundef zeroext %.not11584)
+  %3555 = call fastcc zeroext i1 @zend_jit_fetch_reference(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext %2499, ptr noundef %21, ptr noundef %23, i1 noundef zeroext %.not11584)
   br i1 %3555, label %3556, label %zend_jit_stack_check.exit.thread
 
 3556:                                             ; preds = %3547
@@ -27610,7 +27610,7 @@ zend_jit_load_var.exit12090:                      ; preds = %2426, %2428
   %3697 = zext i32 %3696 to i64
   %3698 = shl nuw nsw i64 %3697, 8
   %3699 = or disjoint i64 %3698, 61
-  call fastcc void @zend_jit_reuse_ip.retelim(ptr noundef %17)
+  call fastcc void @zend_jit_reuse_ip(ptr noundef %17)
   br label %3721
 
 3700:                                             ; preds = %3692, %3689
@@ -27685,7 +27685,7 @@ zend_jit_load_var.exit12090:                      ; preds = %2426, %2428
 3739:                                             ; preds = %3735
   %3740 = load i64, ptr %22, align 8
   %3741 = load i64, ptr %23, align 8
-  call fastcc void @zend_jit_add_arrays.argelim(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %.pre13270, i64 noundef %3740, i32 noundef %3736, i64 noundef %3741, i64 noundef %.29708)
+  call fastcc void @zend_jit_add_arrays(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %.pre13270, i64 noundef %3740, i32 noundef %3736, i64 noundef %3741, i64 noundef %.29708)
   br label %thread-pre-split12608
 
 3742:                                             ; preds = %3735, %.thread12226
@@ -28282,7 +28282,7 @@ zend_jit_load_var.exit12090:                      ; preds = %2426, %2428
   %4116 = zext i32 %4115 to i64
   %4117 = shl nuw nsw i64 %4116, 8
   %4118 = or disjoint i64 %4117, 61
-  call fastcc void @zend_jit_reuse_ip.retelim(ptr noundef %17)
+  call fastcc void @zend_jit_reuse_ip(ptr noundef %17)
   br label %4119
 
 4119:                                             ; preds = %4113, %4110
@@ -28291,7 +28291,7 @@ zend_jit_load_var.exit12090:                      ; preds = %2426, %2428
   %4120 = load i32, ptr %20, align 4
   %4121 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %2503, ptr noundef %.09621, ptr noundef %.09771, ptr noundef nonnull %40) #33
   %4122 = zext i1 %4121 to i32
-  call fastcc void @zend_jit_concat.argelim(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %4120, i32 noundef %4079, i64 noundef %.39709, i32 noundef %4122)
+  call fastcc void @zend_jit_concat(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %4120, i32 noundef %4079, i64 noundef %.39709, i32 noundef %4122)
   br label %thread-pre-split12608
 
 4123:                                             ; preds = %2540
@@ -29071,7 +29071,7 @@ zend_jit_load_var.exit12090:                      ; preds = %2426, %2428
   %4603 = load i8, ptr %4602, align 4
   %4604 = and i8 %4603, 64
   %.not11480 = icmp eq i8 %4604, 0
-  %4605 = call fastcc zeroext i1 @zend_jit_fetch_reference.argelim(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext %2497, ptr noundef %20, ptr noundef %22, i1 noundef zeroext %.not11480)
+  %4605 = call fastcc zeroext i1 @zend_jit_fetch_reference(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext %2497, ptr noundef %20, ptr noundef %22, i1 noundef zeroext %.not11480)
   br i1 %4605, label %4606, label %zend_jit_stack_check.exit.thread
 
 4606:                                             ; preds = %4598
@@ -29906,7 +29906,7 @@ zend_jit_load_var.exit12090:                      ; preds = %2426, %2428
   %5139 = load i8, ptr %5138, align 4
   %5140 = and i8 %5139, 64
   %.not11450 = icmp eq i8 %5140, 0
-  %5141 = call fastcc zeroext i1 @zend_jit_fetch_reference.argelim(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext %2497, ptr noundef %20, ptr noundef %22, i1 noundef zeroext %.not11450)
+  %5141 = call fastcc zeroext i1 @zend_jit_fetch_reference(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext %2497, ptr noundef %20, ptr noundef %22, i1 noundef zeroext %.not11450)
   br i1 %5141, label %5142, label %zend_jit_stack_check.exit.thread
 
 5142:                                             ; preds = %5134
@@ -30517,7 +30517,7 @@ zend_jit_load_var.exit12090:                      ; preds = %2426, %2428
   %5521 = load i8, ptr %5520, align 4
   %5522 = and i8 %5521, 64
   %.not11412 = icmp eq i8 %5522, 0
-  %5523 = call fastcc zeroext i1 @zend_jit_fetch_reference.argelim(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext %2497, ptr noundef %20, ptr noundef %22, i1 noundef zeroext %.not11412)
+  %5523 = call fastcc zeroext i1 @zend_jit_fetch_reference(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext %2497, ptr noundef %20, ptr noundef %22, i1 noundef zeroext %.not11412)
   br i1 %5523, label %5524, label %zend_jit_stack_check.exit.thread
 
 5524:                                             ; preds = %5516
@@ -31229,7 +31229,7 @@ zend_jit_load_var.exit12090:                      ; preds = %2426, %2428
   %5974 = load i8, ptr %5973, align 4
   %5975 = and i8 %5974, 64
   %.not11371 = icmp eq i8 %5975, 0
-  %5976 = call fastcc zeroext i1 @zend_jit_fetch_reference.argelim(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext %2497, ptr noundef %20, ptr noundef %22, i1 noundef zeroext %.not11371)
+  %5976 = call fastcc zeroext i1 @zend_jit_fetch_reference(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext %2497, ptr noundef %20, ptr noundef %22, i1 noundef zeroext %.not11371)
   br i1 %5976, label %5977, label %zend_jit_stack_check.exit.thread
 
 5977:                                             ; preds = %5969
@@ -31701,7 +31701,7 @@ zend_jit_load_var.exit12090:                      ; preds = %2426, %2428
   %6291 = trunc i8 %.79674 to i1
   %6292 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %2503, ptr noundef %.09621, ptr noundef %.09771, ptr noundef nonnull %40) #33
   %6293 = zext i1 %6292 to i32
-  %6294 = call fastcc i32 @zend_jit_assign_obj.argelim(ptr noundef %17, ptr noundef nonnull %2503, ptr noundef %.09771, ptr noundef %40, ptr noundef %.09621, i32 noundef %6288, i64 noundef %6289, i32 noundef %.29727, i1 noundef zeroext %.49583, ptr noundef %.49700, i1 noundef zeroext %6290, i1 noundef zeroext %.29683.shrunk, i1 noundef zeroext %6291, ptr noundef %.09578, i32 noundef %6293)
+  %6294 = call fastcc i32 @zend_jit_assign_obj(ptr noundef %17, ptr noundef nonnull %2503, ptr noundef %.09771, ptr noundef %40, ptr noundef %.09621, i32 noundef %6288, i64 noundef %6289, i32 noundef %.29727, i1 noundef zeroext %.49583, ptr noundef %.49700, i1 noundef zeroext %6290, i1 noundef zeroext %.29683.shrunk, i1 noundef zeroext %6291, ptr noundef %.09578, i32 noundef %6293)
   %.not11389 = icmp eq i32 %6294, 0
   br i1 %.not11389, label %zend_jit_stack_check.exit.thread, label %6295
 
@@ -31920,7 +31920,7 @@ zend_jit_load_var.exit12090:                      ; preds = %2426, %2428
   %6418 = load i8, ptr %6417, align 4
   %6419 = and i8 %6418, 64
   %.not11335 = icmp eq i8 %6419, 0
-  %6420 = call fastcc zeroext i1 @zend_jit_fetch_reference.argelim(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext %2497, ptr noundef %20, ptr noundef %22, i1 noundef zeroext %.not11335)
+  %6420 = call fastcc zeroext i1 @zend_jit_fetch_reference(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext %2497, ptr noundef %20, ptr noundef %22, i1 noundef zeroext %.not11335)
   br i1 %6420, label %6421, label %zend_jit_stack_check.exit.thread
 
 6421:                                             ; preds = %6413
@@ -33283,7 +33283,7 @@ zend_jit_load_var.exit12090:                      ; preds = %2426, %2428
   br i1 %7308, label %7309, label %.thread13331
 
 7309:                                             ; preds = %.thread13333
-  call fastcc void @zend_jit_reuse_ip.retelim(ptr noundef %17)
+  call fastcc void @zend_jit_reuse_ip(ptr noundef %17)
   br label %.thread13331
 
 .thread13331:                                     ; preds = %7294, %7284, %7309, %7300, %.thread13333
@@ -33394,7 +33394,7 @@ zend_jit_load_var.exit12090:                      ; preds = %2426, %2428
   %7368 = zext i32 %7367 to i64
   %7369 = shl nuw nsw i64 %7368, 8
   %7370 = or disjoint i64 %7369, 61
-  call fastcc void @zend_jit_reuse_ip.retelim(ptr noundef %17)
+  call fastcc void @zend_jit_reuse_ip(ptr noundef %17)
   br label %7371
 
 7371:                                             ; preds = %7321, %7365, %.thread12362, %7363
@@ -33407,7 +33407,7 @@ zend_jit_load_var.exit12090:                      ; preds = %2426, %2428
   %7375 = load i64, ptr %24, align 8
   %7376 = call zeroext i1 @zend_may_throw_ex(ptr noundef nonnull %2503, ptr noundef nonnull %.09621, ptr noundef %.09771, ptr noundef nonnull %40, i32 noundef %7372, i32 noundef %7373) #33
   %7377 = zext i1 %7376 to i32
-  call fastcc void @zend_jit_assign.argelim(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %7372, i64 noundef %7322, i32 noundef %.29739, i64 noundef %.09713, i32 noundef %7373, i64 noundef %7374, i64 noundef %.09712, i32 noundef %.19736, i64 noundef %.49710, i64 noundef %7375, i32 noundef %7377)
+  call fastcc void @zend_jit_assign(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %7372, i64 noundef %7322, i32 noundef %.29739, i64 noundef %.09713, i32 noundef %7373, i64 noundef %7374, i64 noundef %.09712, i32 noundef %.19736, i64 noundef %.49710, i64 noundef %7375, i32 noundef %7377)
   %7378 = load i32, ptr %6911, align 4
   %7379 = icmp sgt i32 %7378, 0
   br i1 %7379, label %7380, label %7414
@@ -33456,7 +33456,7 @@ zend_jit_load_var.exit12090:                      ; preds = %2426, %2428
   br i1 %.not11318, label %7410, label %7414
 
 7410:                                             ; preds = %7407
-  call fastcc void @zend_jit_store_type.argelim(ptr noundef %17, i32 noundef %7398, i8 noundef zeroext %7394)
+  call fastcc void @zend_jit_store_type(ptr noundef %17, i32 noundef %7398, i8 noundef zeroext %7394)
   store i8 %7394, ptr %7400, align 4
   store i8 %7394, ptr %7401, align 1
   %7411 = getelementptr inbounds i8, ptr %7400, i64 2
@@ -33915,7 +33915,7 @@ zend_jit_load_var.exit12090:                      ; preds = %2426, %2428
   %.59734 = phi i32 [ %spec.select11868, %7690 ], [ %spec.select11869, %7693 ]
   %7697 = load i32, ptr %20, align 4
   %7698 = load i64, ptr %22, align 8
-  call fastcc void @zend_jit_qm_assign.argelim(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %7697, i64 noundef %7698, i64 noundef %.19714, i32 noundef %.59734, i32 noundef %.09441, i64 noundef %7691)
+  call fastcc void @zend_jit_qm_assign(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %7697, i64 noundef %7698, i64 noundef %.19714, i32 noundef %.59734, i32 noundef %.09441, i64 noundef %7691)
   %7699 = load i32, ptr %7470, align 4
   %7700 = icmp sgt i32 %7699, 0
   %7701 = and i64 %7698, 3
@@ -33961,7 +33961,7 @@ zend_jit_load_var.exit12090:                      ; preds = %2426, %2428
   br i1 %.not11272, label %7729, label %7733
 
 7729:                                             ; preds = %7726
-  call fastcc void @zend_jit_store_type.argelim(ptr noundef %17, i32 noundef %7717, i8 noundef zeroext %7713)
+  call fastcc void @zend_jit_store_type(ptr noundef %17, i32 noundef %7717, i8 noundef zeroext %7713)
   store i8 %7713, ptr %7719, align 4
   store i8 %7713, ptr %7720, align 1
   %7730 = getelementptr inbounds i8, ptr %7719, i64 2
@@ -34419,7 +34419,7 @@ zend_jit_load_var.exit12090:                      ; preds = %2426, %2428
 .thread12380:                                     ; preds = %8004, %8002, %8009, %8006, %7993, %7989, %8000
   %.09943 = phi i32 [ %7994, %7993 ], [ -521143298, %7989 ], [ %8001, %8000 ], [ %spec.select11873, %8002 ], [ %8012, %8009 ], [ -486539265, %8006 ], [ -486539265, %8004 ]
   store i32 %.09943, ptr %20, align 4
-  call fastcc void @zend_jit_send_ref.argprom.argelim(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %.09943)
+  call fastcc void @zend_jit_send_ref(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %.09943)
   %8013 = load i8, ptr %7970, align 1
   %8014 = icmp eq i8 %8013, 8
   br i1 %8014, label %8015, label %thread-pre-split12608
@@ -34769,7 +34769,7 @@ zend_jit_load_var.exit12090:                      ; preds = %2426, %2428
   %8234 = phi i32 [ %.09945, %.thread12382 ], [ %.09850, %8162 ], [ %.pre13256, %8195 ], [ %.09945.ph, %.thread12382.thread ]
   %not..not1074913339 = xor i1 %.not10749, true
   %8235 = load i64, ptr %22, align 8
-  %8236 = call fastcc i32 @zend_jit_send_var.argprom(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %8234, i64 noundef %8235, i64 noundef %.29715)
+  %8236 = call fastcc i32 @zend_jit_send_var(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %8234, i64 noundef %8235, i64 noundef %.29715)
   %.not11225 = icmp eq i32 %8236, 0
   br i1 %.not11225, label %zend_jit_stack_check.exit.thread, label %8237
 
@@ -34819,7 +34819,7 @@ zend_jit_load_var.exit12090:                      ; preds = %2426, %2428
   br i1 %.not11228, label %8268, label %8272
 
 8268:                                             ; preds = %8265
-  call fastcc void @zend_jit_store_type.argelim(ptr noundef %17, i32 noundef %8256, i8 noundef zeroext %8252)
+  call fastcc void @zend_jit_store_type(ptr noundef %17, i32 noundef %8256, i8 noundef zeroext %8252)
   store i8 %8252, ptr %8258, align 4
   store i8 %8252, ptr %8259, align 1
   %8269 = getelementptr inbounds i8, ptr %8258, i64 2
@@ -34963,7 +34963,7 @@ zend_jit_load_var.exit12090:                      ; preds = %2426, %2428
   br label %thread-pre-split12595
 
 8348:                                             ; preds = %8335
-  call fastcc void @zend_jit_check_func_arg.argprom.argelim(ptr noundef %17, i32 %8337)
+  call fastcc void @zend_jit_check_func_arg(ptr noundef %17, i32 %8337)
   br label %thread-pre-split12608
 
 8349:                                             ; preds = %2540
@@ -34984,14 +34984,14 @@ zend_jit_load_var.exit12090:                      ; preds = %2426, %2428
   br label %8357
 
 8357:                                             ; preds = %8353, %8351, %8349
-  call fastcc void @zend_jit_check_undef_args.argelim(ptr noundef %17, ptr noundef nonnull %2503)
+  call fastcc void @zend_jit_check_undef_args(ptr noundef %17, ptr noundef nonnull %2503)
   br label %thread-pre-split12608
 
 8358:                                             ; preds = %2540, %2540, %2540, %2540
   %8359 = getelementptr inbounds i8, ptr %.09646, i64 40
   %8360 = load i32, ptr %8359, align 8
   %8361 = getelementptr inbounds i8, ptr %.39762, i64 16
-  %8362 = call fastcc i32 @zend_jit_do_fcall.argelim(ptr noundef %17, ptr noundef nonnull %2503, ptr noundef %.09771, ptr noundef %.09768, i32 noundef %8360, ptr noundef nonnull %8361)
+  %8362 = call fastcc i32 @zend_jit_do_fcall(ptr noundef %17, ptr noundef nonnull %2503, ptr noundef %.09771, ptr noundef %.09768, i32 noundef %8360, ptr noundef nonnull %8361)
   %.not11208 = icmp eq i32 %8362, 0
   br i1 %.not11208, label %zend_jit_stack_check.exit.thread, label %thread-pre-split12608
 
@@ -35723,7 +35723,7 @@ zend_jit_trace_get_exit_addr.exit:                ; preds = %8697, %8707
   %8828 = phi i64 [ %8811, %8809 ], [ %8821, %8818 ], [ %8825, %8822 ]
   %8829 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %2503, ptr noundef %.09621, ptr noundef %.09771, ptr noundef nonnull %40) #33
   %8830 = zext i1 %8829 to i32
-  %8831 = call fastcc i32 @zend_jit_cmp.argelim(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %8719, ptr noundef %8735, i64 noundef %8760, i32 noundef %8761, ptr noundef %8778, i64 noundef %8827, i64 noundef %8828, i32 noundef %8830, i8 noundef zeroext %8718, i32 noundef -1, i32 noundef -1, ptr noundef nonnull %8716)
+  %8831 = call fastcc i32 @zend_jit_cmp(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %8719, ptr noundef %8735, i64 noundef %8760, i32 noundef %8761, ptr noundef %8778, i64 noundef %8827, i64 noundef %8828, i32 noundef %8830, i8 noundef zeroext %8718, i32 noundef -1, i32 noundef -1, ptr noundef nonnull %8716)
   %.not11207 = icmp eq i32 %8831, 0
   br i1 %.not11207, label %zend_jit_stack_check.exit.thread, label %8832
 
@@ -35906,7 +35906,7 @@ zend_jit_trace_get_exit_addr.exit:                ; preds = %8697, %8707
   %8942 = phi i64 [ %8926, %8924 ], [ %8935, %8932 ], [ %8939, %8936 ]
   %8943 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %2503, ptr noundef %.09621, ptr noundef %.09771, ptr noundef nonnull %40) #33
   %8944 = zext i1 %8943 to i32
-  %8945 = call fastcc i32 @zend_jit_cmp.argelim(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %8834, ptr noundef %8850, i64 noundef %8875, i32 noundef %8876, ptr noundef %8893, i64 noundef %8941, i64 noundef %8942, i32 noundef %8944, i8 noundef zeroext 0, i32 noundef -1, i32 noundef -1, ptr noundef null)
+  %8945 = call fastcc i32 @zend_jit_cmp(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %8834, ptr noundef %8850, i64 noundef %8875, i32 noundef %8876, ptr noundef %8893, i64 noundef %8941, i64 noundef %8942, i32 noundef %8944, i8 noundef zeroext 0, i32 noundef -1, i32 noundef -1, ptr noundef null)
   %.not11194 = icmp eq i32 %8945, 0
   br i1 %.not11194, label %zend_jit_stack_check.exit.thread, label %thread-pre-split12608
 
@@ -36641,7 +36641,7 @@ zend_jit_trace_get_exit_addr.exit12101:           ; preds = %9280, %9290
   %9413 = phi i64 [ %9396, %9394 ], [ %9406, %9403 ], [ %9410, %9407 ]
   %9414 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %2503, ptr noundef %.09621, ptr noundef %.09771, ptr noundef nonnull %40) #33
   %9415 = zext i1 %9414 to i32
-  %9416 = call fastcc i32 @zend_jit_identical.argelim(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %9304, ptr noundef %9320, i64 noundef %9345, i32 noundef %9346, ptr noundef %9363, i64 noundef %9412, i64 noundef %9413, i32 noundef %9415, i8 noundef zeroext %9303, i32 noundef -1, i32 noundef -1, ptr noundef nonnull %9299)
+  %9416 = call fastcc i32 @zend_jit_identical(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %9304, ptr noundef %9320, i64 noundef %9345, i32 noundef %9346, ptr noundef %9363, i64 noundef %9412, i64 noundef %9413, i32 noundef %9415, i8 noundef zeroext %9303, i32 noundef -1, i32 noundef -1, ptr noundef nonnull %9299)
   %.not11165 = icmp eq i32 %9416, 0
   br i1 %.not11165, label %zend_jit_stack_check.exit.thread, label %9417
 
@@ -36824,7 +36824,7 @@ zend_jit_trace_get_exit_addr.exit12101:           ; preds = %9280, %9290
   %9527 = phi i64 [ %9511, %9509 ], [ %9520, %9517 ], [ %9524, %9521 ]
   %9528 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %2503, ptr noundef %.09621, ptr noundef %.09771, ptr noundef nonnull %40) #33
   %9529 = zext i1 %9528 to i32
-  %9530 = call fastcc i32 @zend_jit_identical.argelim(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %9419, ptr noundef %9435, i64 noundef %9460, i32 noundef %9461, ptr noundef %9478, i64 noundef %9526, i64 noundef %9527, i32 noundef %9529, i8 noundef zeroext 0, i32 noundef -1, i32 noundef -1, ptr noundef null)
+  %9530 = call fastcc i32 @zend_jit_identical(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %9419, ptr noundef %9435, i64 noundef %9460, i32 noundef %9461, ptr noundef %9478, i64 noundef %9526, i64 noundef %9527, i32 noundef %9529, i8 noundef zeroext 0, i32 noundef -1, i32 noundef -1, ptr noundef null)
   %.not11152 = icmp eq i32 %9530, 0
   br i1 %.not11152, label %zend_jit_stack_check.exit.thread, label %thread-pre-split12608
 
@@ -36891,7 +36891,7 @@ zend_jit_trace_get_exit_addr.exit12101:           ; preds = %9280, %9290
 9569:                                             ; preds = %9531, %9567
   %.09746 = phi i8 [ %9568, %9567 ], [ 0, %9531 ]
   %.09740 = phi ptr [ %9566, %9567 ], [ null, %9531 ]
-  call fastcc void @zend_jit_defined.argelim(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext %.09746, i32 noundef -1, i32 noundef -1, ptr noundef %.09740)
+  call fastcc void @zend_jit_defined(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext %.09746, i32 noundef -1, i32 noundef -1, ptr noundef %.09740)
   br label %thread-pre-split12608
 
 9570:                                             ; preds = %2540
@@ -37175,7 +37175,7 @@ zend_jit_trace_get_exit_addr.exit12101:           ; preds = %9280, %9290
   %.19747 = phi i8 [ %9747, %9746 ], [ 0, %9708 ]
   %.19741 = phi ptr [ %9745, %9746 ], [ null, %9708 ]
   %9749 = load i32, ptr %20, align 4
-  call fastcc void @zend_jit_type_check.argelim(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %9749, i8 noundef zeroext %.19747, i32 noundef -1, i32 noundef -1, ptr noundef %.19741)
+  call fastcc void @zend_jit_type_check(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %9749, i8 noundef zeroext %.19747, i32 noundef -1, i32 noundef -1, ptr noundef %.19741)
   br label %thread-pre-split12608
 
 9750:                                             ; preds = %2540
@@ -37467,7 +37467,7 @@ zend_jit_trace_get_exit_addr.exit12101:           ; preds = %9280, %9290
 
 9932:                                             ; preds = %9924, %9928, %9918
   %9933 = phi i64 [ %9920, %9918 ], [ %9927, %9924 ], [ %9931, %9928 ]
-  call fastcc void @zend_jit_return.argelim(ptr noundef %17, ptr noundef nonnull %2503, ptr noundef nonnull %.09771, i32 noundef %9902, i64 noundef %9933)
+  call fastcc void @zend_jit_return(ptr noundef %17, ptr noundef nonnull %2503, ptr noundef nonnull %.09771, i32 noundef %9902, i64 noundef %9933)
   %9934 = getelementptr inbounds i8, ptr %.09771, i64 80
   %9935 = load i32, ptr %9934, align 8
   %9936 = icmp sgt i32 %9935, 100
@@ -37487,7 +37487,7 @@ zend_jit_trace_get_exit_addr.exit12101:           ; preds = %9280, %9290
   br label %9944
 
 .thread12414:                                     ; preds = %9932
-  call fastcc void @zend_jit_free_cvs.argelim(ptr noundef %17)
+  call fastcc void @zend_jit_free_cvs(ptr noundef %17)
   br label %.loopexit12735
 
 9944:                                             ; preds = %.lr.ph12918, %10044
@@ -37681,13 +37681,13 @@ zend_ssa_cv_info.exit:                            ; preds = %9998, %9944, %9947,
   br i1 %10038, label %10040, label %10039
 
 10039:                                            ; preds = %10037
-  call fastcc void @zend_jit_leave_frame.argelim(ptr noundef %17)
+  call fastcc void @zend_jit_leave_frame(ptr noundef %17)
   br label %10040
 
 10040:                                            ; preds = %10039, %10037
   %.4 = phi i8 [ %.212916, %10037 ], [ 1, %10039 ]
   %10041 = trunc nuw nsw i64 %indvars.iv13195 to i32
-  call fastcc void @zend_jit_free_cv.argelim(ptr noundef %17, i32 noundef %.09486, i32 noundef %10041)
+  call fastcc void @zend_jit_free_cv(ptr noundef %17, i32 noundef %.09486, i32 noundef %10041)
   %10042 = and i32 %.09486, 918272
   %.not11108 = icmp eq i32 %10042, 0
   %10043 = and i32 %.09486, 1073741824
@@ -37722,7 +37722,7 @@ zend_ssa_cv_info.exit:                            ; preds = %9998, %9944, %9947,
   %10055 = getelementptr inbounds i8, ptr %.09768, i64 32
   %10056 = load i32, ptr %10055, align 8
   %10057 = and i32 %10056, 1
-  call fastcc void @zend_jit_leave_func.argelim(ptr noundef %17, ptr noundef nonnull %.09771, ptr noundef nonnull %2503, i32 noundef %10049, i1 noundef zeroext %.19488, ptr noundef nonnull %10050, ptr noundef nonnull %10054, i32 noundef %10057, i32 noundef %.09489)
+  call fastcc void @zend_jit_leave_func(ptr noundef %17, ptr noundef nonnull %.09771, ptr noundef nonnull %2503, i32 noundef %10049, i1 noundef zeroext %.19488, ptr noundef nonnull %10050, ptr noundef nonnull %10054, i32 noundef %10057, i32 noundef %.09489)
   br label %thread-pre-split12608
 
 10058:                                            ; preds = %2540, %2540
@@ -38013,7 +38013,7 @@ zend_ssa_cv_info.exit:                            ; preds = %9998, %9944, %9947,
   %10246 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %2503, ptr noundef %.09621, ptr noundef %.09771, ptr noundef nonnull %40) #33
   %10247 = zext i1 %10246 to i32
   %10248 = load i8, ptr %2531, align 4
-  call fastcc void @zend_jit_bool_jmpznz.argelim(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %10193, i64 noundef %10244, i64 noundef %10245, i32 noundef -1, i32 noundef -1, i32 noundef %10247, i8 noundef zeroext %10248, ptr noundef null)
+  call fastcc void @zend_jit_bool_jmpznz(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %10193, i64 noundef %10244, i64 noundef %10245, i32 noundef -1, i32 noundef -1, i32 noundef %10247, i8 noundef zeroext %10248, ptr noundef null)
   br label %thread-pre-split12608
 
 10249:                                            ; preds = %2540, %2540, %2540, %2540
@@ -38600,7 +38600,7 @@ zend_jit_trace_get_exit_addr.exit12125:           ; preds = %10542, %10552
   %10618 = phi i64 [ %10603, %10601 ], [ %10612, %10609 ], [ %10616, %10613 ]
   %10619 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %2503, ptr noundef %.09621, ptr noundef %.09771, ptr noundef nonnull %40) #33
   %10620 = zext i1 %10619 to i32
-  call fastcc void @zend_jit_bool_jmpznz.argelim(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %10592, i64 noundef %10618, i64 noundef %.59711, i32 noundef -1, i32 noundef -1, i32 noundef %10620, i8 noundef zeroext %.39749, ptr noundef %.29742)
+  call fastcc void @zend_jit_bool_jmpznz(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %10592, i64 noundef %10618, i64 noundef %.59711, i32 noundef -1, i32 noundef -1, i32 noundef %10620, i8 noundef zeroext %.39749, ptr noundef %.29742)
   br label %thread-pre-split12608
 
 10621:                                            ; preds = %2540
@@ -38701,7 +38701,7 @@ zend_jit_trace_get_exit_addr.exit12125:           ; preds = %10542, %10552
 
 10678:                                            ; preds = %.thread12435
   %spec.select13602 = select i1 %10674, i32 2, i32 1
-  call fastcc void @zend_jit_jmp_frameless.argelim(ptr noundef %17, ptr noundef nonnull %2503, ptr noundef nonnull %10677, i32 noundef %spec.select13602)
+  call fastcc void @zend_jit_jmp_frameless(ptr noundef %17, ptr noundef nonnull %2503, ptr noundef nonnull %10677, i32 noundef %spec.select13602)
   br label %thread-pre-split12608
 
 10679:                                            ; preds = %2540
@@ -38846,7 +38846,7 @@ zend_jit_trace_get_exit_addr.exit12125:           ; preds = %10542, %10552
   %10760 = load i8, ptr %10759, align 4
   %10761 = and i8 %10760, 64
   %.not11055 = icmp eq i8 %10761, 0
-  %10762 = call fastcc zeroext i1 @zend_jit_fetch_reference.argelim(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext %2497, ptr noundef %20, ptr noundef %22, i1 noundef zeroext %.not11055)
+  %10762 = call fastcc zeroext i1 @zend_jit_fetch_reference(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext %2497, ptr noundef %20, ptr noundef %22, i1 noundef zeroext %.not11055)
   br i1 %10762, label %10763, label %zend_jit_stack_check.exit.thread
 
 10763:                                            ; preds = %10755
@@ -39059,7 +39059,7 @@ zend_jit_trace_get_exit_addr.exit12125:           ; preds = %10542, %10552
   %.39743 = phi ptr [ %10904, %10905 ], [ null, %10869 ]
   %10908 = load i32, ptr %20, align 4
   %10909 = load i64, ptr %22, align 8
-  call fastcc void @zend_jit_isset_isempty_cv.argelim(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %10908, i64 noundef %10909, i8 noundef zeroext %.49750, i32 noundef -1, i32 noundef -1, ptr noundef %.39743)
+  call fastcc void @zend_jit_isset_isempty_cv(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %10908, i64 noundef %10909, i8 noundef zeroext %.49750, i32 noundef -1, i32 noundef -1, ptr noundef %.39743)
   br label %thread-pre-split12608
 
 10910:                                            ; preds = %2540
@@ -39380,7 +39380,7 @@ zend_jit_trace_get_exit_addr.exit12125:           ; preds = %10542, %10552
   %.59751 = phi i8 [ %11109, %11108 ], [ 0, %11072 ]
   %.49744 = phi ptr [ %11107, %11108 ], [ null, %11072 ]
   %11112 = load i64, ptr %22, align 8
-  call fastcc void @zend_jit_in_array.argelim(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %11111, i64 noundef %11112, i8 noundef zeroext %.59751, i32 noundef -1, i32 noundef -1, ptr noundef %.49744)
+  call fastcc void @zend_jit_in_array(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %11111, i64 noundef %11112, i8 noundef zeroext %.59751, i32 noundef -1, i32 noundef -1, ptr noundef %.49744)
   br label %thread-pre-split12608
 
 11113:                                            ; preds = %2540
@@ -39541,7 +39541,7 @@ zend_jit_trace_get_exit_addr.exit12125:           ; preds = %10542, %10552
   %11202 = load i8, ptr %11201, align 4
   %11203 = and i8 %11202, 64
   %.not11011 = icmp eq i8 %11203, 0
-  %11204 = call fastcc zeroext i1 @zend_jit_fetch_reference.argelim(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext %2497, ptr noundef %20, ptr noundef %22, i1 noundef zeroext %.not11011)
+  %11204 = call fastcc zeroext i1 @zend_jit_fetch_reference(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext %2497, ptr noundef %20, ptr noundef %22, i1 noundef zeroext %.not11011)
   br i1 %11204, label %11205, label %zend_jit_stack_check.exit.thread
 
 11205:                                            ; preds = %11197
@@ -40232,7 +40232,7 @@ zend_jit_trace_get_exit_addr.exit12125:           ; preds = %10542, %10552
   %11634 = load i8, ptr %11633, align 4
   %11635 = and i8 %11634, 64
   %.not10981 = icmp eq i8 %11635, 0
-  %11636 = call fastcc zeroext i1 @zend_jit_fetch_reference.argelim(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext %2497, ptr noundef %20, ptr noundef %22, i1 noundef zeroext %.not10981)
+  %11636 = call fastcc zeroext i1 @zend_jit_fetch_reference(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext %2497, ptr noundef %20, ptr noundef %22, i1 noundef zeroext %.not10981)
   br i1 %11636, label %11637, label %zend_jit_stack_check.exit.thread
 
 11637:                                            ; preds = %11629
@@ -40820,7 +40820,7 @@ zend_jit_trace_get_exit_addr.exit12125:           ; preds = %10542, %10552
   %12015 = load i8, ptr %12014, align 4
   %12016 = and i8 %12015, 64
   %.not10947 = icmp eq i8 %12016, 0
-  %12017 = call fastcc zeroext i1 @zend_jit_fetch_reference.argelim(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext %2497, ptr noundef %20, ptr noundef %22, i1 noundef zeroext %.not10947)
+  %12017 = call fastcc zeroext i1 @zend_jit_fetch_reference(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext %2497, ptr noundef %20, ptr noundef %22, i1 noundef zeroext %.not10947)
   br i1 %12017, label %12018, label %zend_jit_stack_check.exit.thread
 
 12018:                                            ; preds = %12010
@@ -41595,7 +41595,7 @@ zend_jit_trace_get_exit_addr.exit12125:           ; preds = %10542, %10552
   %12501 = load i8, ptr %12500, align 4
   %12502 = and i8 %12501, 64
   %.not10922 = icmp eq i8 %12502, 0
-  %12503 = call fastcc zeroext i1 @zend_jit_fetch_reference.argelim(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext %2497, ptr noundef %20, ptr noundef %22, i1 noundef zeroext %.not10922)
+  %12503 = call fastcc zeroext i1 @zend_jit_fetch_reference(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext %2497, ptr noundef %20, ptr noundef %22, i1 noundef zeroext %.not10922)
   br i1 %12503, label %12504, label %zend_jit_stack_check.exit.thread
 
 12504:                                            ; preds = %12496
@@ -41885,7 +41885,7 @@ zend_jit_trace_get_exit_addr.exit12125:           ; preds = %10542, %10552
   %12687 = trunc i8 %.09665 to i1
   %12688 = call zeroext i1 @zend_may_throw_ex(ptr noundef nonnull %2503, ptr noundef %.09621, ptr noundef %.09771, ptr noundef nonnull %40, i32 noundef %12683, i32 noundef 64) #33
   %12689 = zext i1 %12688 to i32
-  %12690 = call fastcc i32 @zend_jit_fetch_obj.argelim(ptr noundef %17, ptr noundef nonnull %2503, ptr noundef %.09771, ptr noundef %40, ptr noundef %.09621, i32 noundef %12683, i64 noundef %12684, i1 noundef zeroext %.6, ptr noundef %.69702, i1 noundef zeroext %12685, i1 noundef zeroext %.39684.shrunk, i1 noundef zeroext %12686, i1 noundef zeroext %12687, ptr noundef %.09578, i32 noundef %12689)
+  %12690 = call fastcc i32 @zend_jit_fetch_obj(ptr noundef %17, ptr noundef nonnull %2503, ptr noundef %.09771, ptr noundef %40, ptr noundef %.09621, i32 noundef %12683, i64 noundef %12684, i1 noundef zeroext %.6, ptr noundef %.69702, i1 noundef zeroext %12685, i1 noundef zeroext %.39684.shrunk, i1 noundef zeroext %12686, i1 noundef zeroext %12687, ptr noundef %.09578, i32 noundef %12689)
   %.not10934 = icmp eq i32 %12690, 0
   br i1 %.not10934, label %zend_jit_stack_check.exit.thread, label %thread-pre-split12608
 
@@ -41993,7 +41993,7 @@ zend_jit_trace_get_exit_addr.exit12125:           ; preds = %10542, %10552
 
 12749:                                            ; preds = %12744, %12735
   %12750 = phi i32 [ %.pre13243, %12744 ], [ %storemerge, %12735 ]
-  call fastcc void @zend_jit_bind_global.argelim(ptr noundef %17, ptr noundef nonnull %.29631, i32 noundef %12750)
+  call fastcc void @zend_jit_bind_global(ptr noundef %17, ptr noundef nonnull %.29631, i32 noundef %12750)
   %12751 = getelementptr inbounds i8, ptr %.29631, i64 60
   %12752 = load i8, ptr %12751, align 4
   %12753 = icmp eq i8 %12752, -88
@@ -42017,7 +42017,7 @@ zend_jit_trace_get_exit_addr.exit12125:           ; preds = %10542, %10552
   %12761 = getelementptr inbounds i8, ptr %.3963213733, i64 92
   %12762 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %12759, ptr noundef nonnull %12760, ptr noundef %.09771, ptr noundef nonnull %40) #33
   %12763 = zext i1 %12762 to i32
-  call fastcc void @zend_jit_recv_init.argelim(ptr noundef %17, ptr noundef nonnull %12759, ptr noundef %.09771, i32 noundef %12763)
+  call fastcc void @zend_jit_recv_init(ptr noundef %17, ptr noundef nonnull %12759, ptr noundef %.09771, i32 noundef %12763)
   %12764 = load i8, ptr %12761, align 4
   %12765 = icmp eq i8 %12764, 64
   br i1 %12765, label %.preheader12739, label %thread-pre-split12608
@@ -42102,7 +42102,7 @@ zend_jit_trace_get_exit_addr.exit12125:           ; preds = %10542, %10552
   store i32 %.09914, ptr %20, align 4
   %12810 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %2503, ptr noundef %.09621, ptr noundef %.09771, ptr noundef nonnull %40) #33
   %12811 = zext i1 %12810 to i32
-  call fastcc void @zend_jit_free.argelim(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %.09914, i32 noundef %12811)
+  call fastcc void @zend_jit_free(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %.09914, i32 noundef %12811)
   br label %thread-pre-split12608
 
 12812:                                            ; preds = %2540
@@ -42317,7 +42317,7 @@ zend_jit_trace_get_exit_addr.exit12125:           ; preds = %10542, %10552
   br i1 %.not10892, label %12949, label %thread-pre-split12595
 
 12949:                                            ; preds = %12946
-  call fastcc void @zend_jit_echo.argelim(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %12947)
+  call fastcc void @zend_jit_echo(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %12947)
   br label %thread-pre-split12608
 
 12950:                                            ; preds = %2540
@@ -42452,7 +42452,7 @@ zend_jit_trace_get_exit_addr.exit12125:           ; preds = %10542, %10552
   %13027 = load i8, ptr %13026, align 4
   %13028 = and i8 %13027, 64
   %.not10881 = icmp eq i8 %13028, 0
-  %13029 = call fastcc zeroext i1 @zend_jit_fetch_reference.argelim(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext 38, ptr noundef %20, ptr noundef %22, i1 noundef zeroext %.not10881)
+  %13029 = call fastcc zeroext i1 @zend_jit_fetch_reference(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext 38, ptr noundef %20, ptr noundef %22, i1 noundef zeroext %.not10881)
   br i1 %13029, label %13030, label %zend_jit_stack_check.exit.thread
 
 13030:                                            ; preds = %13022
@@ -42654,7 +42654,7 @@ zend_jit_trace_get_exit_addr.exit12125:           ; preds = %10542, %10552
 
 13168:                                            ; preds = %13160, %13164, %13151
   %13169 = phi i64 [ %13153, %13151 ], [ %13163, %13160 ], [ %13167, %13164 ]
-  call fastcc void @zend_jit_strlen.argelim(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %13140, i64 noundef %13141, i64 noundef %13169)
+  call fastcc void @zend_jit_strlen(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %13140, i64 noundef %13141, i64 noundef %13169)
   br label %thread-pre-split12608
 
 13170:                                            ; preds = %2540
@@ -42789,7 +42789,7 @@ zend_jit_trace_get_exit_addr.exit12125:           ; preds = %10542, %10552
   %13247 = load i8, ptr %13246, align 4
   %13248 = and i8 %13247, 64
   %.not10867 = icmp eq i8 %13248, 0
-  %13249 = call fastcc zeroext i1 @zend_jit_fetch_reference.argelim(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext 39, ptr noundef %20, ptr noundef %22, i1 noundef zeroext %.not10867)
+  %13249 = call fastcc zeroext i1 @zend_jit_fetch_reference(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext 39, ptr noundef %20, ptr noundef %22, i1 noundef zeroext %.not10867)
   br i1 %13249, label %13250, label %zend_jit_stack_check.exit.thread
 
 13250:                                            ; preds = %13242
@@ -42993,7 +42993,7 @@ zend_jit_trace_get_exit_addr.exit12125:           ; preds = %10542, %10552
   %13389 = phi i64 [ %13373, %13371 ], [ %13383, %13380 ], [ %13387, %13384 ]
   %13390 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %2503, ptr noundef %.09621, ptr noundef %.09771, ptr noundef nonnull %40) #33
   %13391 = zext i1 %13390 to i32
-  call fastcc void @zend_jit_count.argelim(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %13360, i64 noundef %13361, i64 noundef %13389, i32 noundef %13391)
+  call fastcc void @zend_jit_count(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %13360, i64 noundef %13361, i64 noundef %13389, i32 noundef %13391)
   br label %thread-pre-split12608
 
 13392:                                            ; preds = %2540
@@ -43031,7 +43031,7 @@ zend_jit_trace_get_exit_addr.exit12125:           ; preds = %10542, %10552
 
 13411:                                            ; preds = %2540, %2540, %2540
   %13412 = getelementptr inbounds i8, ptr %.39762, i64 16
-  %13413 = call fastcc i32 @zend_jit_switch.argprom(ptr noundef %17, ptr noundef nonnull %2503, ptr noundef %.09771, ptr noundef %.09768, ptr noundef nonnull %13412)
+  %13413 = call fastcc i32 @zend_jit_switch(ptr noundef %17, ptr noundef nonnull %2503, ptr noundef %.09771, ptr noundef %.09768, ptr noundef nonnull %13412)
   %.not10853 = icmp eq i32 %13413, 0
   br i1 %.not10853, label %zend_jit_stack_check.exit.thread, label %thread-pre-split12608
 
@@ -43198,7 +43198,7 @@ zend_jit_trace_get_exit_addr.exit12125:           ; preds = %10542, %10552
 13522:                                            ; preds = %13519
   %13523 = getelementptr i8, ptr %.09771, i64 40
   %.09771.val = load ptr, ptr %13523, align 8
-  call fastcc void @zend_jit_verify_return_type.argprom.argelim(ptr noundef %17, ptr noundef nonnull %2503, ptr %.09771.val, i32 noundef %13520)
+  call fastcc void @zend_jit_verify_return_type(ptr noundef %17, ptr noundef nonnull %2503, ptr %.09771.val, i32 noundef %13520)
   br label %thread-pre-split12608
 
 13524:                                            ; preds = %2540
@@ -43413,7 +43413,7 @@ zend_jit_trace_get_exit_addr.exit12125:           ; preds = %10542, %10552
   br i1 %.not10844, label %13661, label %thread-pre-split12595
 
 13661:                                            ; preds = %13658
-  call fastcc void @zend_jit_fe_reset.argelim(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %13659)
+  call fastcc void @zend_jit_fe_reset(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %13659)
   br label %thread-pre-split12608
 
 13662:                                            ; preds = %2540
@@ -43732,7 +43732,7 @@ zend_jit_trace_get_exit_addr.exit12125:           ; preds = %10542, %10552
 
 .thread12543:                                     ; preds = %13851, %13849, %13857, %13853, %13840, %13836, %13847
   %.09912 = phi i32 [ %13841, %13840 ], [ -521143298, %13836 ], [ %13848, %13847 ], [ %spec.select11946, %13849 ], [ %13860, %13857 ], [ -486539265, %13853 ], [ -486539265, %13851 ]
-  %13861 = call fastcc i32 @zend_jit_fe_fetch.argelim(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %13816, i32 noundef %.09912, i8 noundef zeroext %spec.select12051, ptr noundef nonnull %13814)
+  %13861 = call fastcc i32 @zend_jit_fe_fetch(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %13816, i32 noundef %.09912, i8 noundef zeroext %spec.select12051, ptr noundef nonnull %13814)
   %.not10835 = icmp eq i32 %13861, 0
   br i1 %.not10835, label %zend_jit_stack_check.exit.thread, label %thread-pre-split12608
 
@@ -43781,7 +43781,7 @@ zend_jit_trace_get_exit_addr.exit12125:           ; preds = %10542, %10552
 
 13889:                                            ; preds = %13881, %13885, %13872
   %13890 = phi i64 [ %13874, %13872 ], [ %13884, %13881 ], [ %13888, %13885 ]
-  %13891 = call fastcc i32 @zend_jit_fetch_constant.argprom(ptr noundef %17, ptr noundef nonnull %2503, ptr noundef %40, ptr noundef %.09621, i64 noundef %13890)
+  %13891 = call fastcc i32 @zend_jit_fetch_constant(ptr noundef %17, ptr noundef nonnull %2503, ptr noundef %40, ptr noundef %.09621, i64 noundef %13890)
   %.not10821 = icmp eq i32 %13891, 0
   br i1 %.not10821, label %zend_jit_stack_check.exit.thread, label %thread-pre-split12608
 
@@ -43951,7 +43951,7 @@ zend_jit_trace_get_exit_addr.exit12125:           ; preds = %10542, %10552
   %13982 = load i8, ptr %13981, align 4
   %13983 = and i8 %13982, 64
   %.not10807 = icmp eq i8 %13983, 0
-  %13984 = call fastcc zeroext i1 @zend_jit_fetch_reference.argelim(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext %2497, ptr noundef %20, ptr noundef %22, i1 noundef zeroext %.not10807)
+  %13984 = call fastcc zeroext i1 @zend_jit_fetch_reference(ptr noundef %17, ptr noundef nonnull %2503, i8 noundef zeroext %2497, ptr noundef %20, ptr noundef %22, i1 noundef zeroext %.not10807)
   br i1 %13984, label %13985, label %zend_jit_stack_check.exit.thread
 
 13985:                                            ; preds = %13977
@@ -44231,7 +44231,7 @@ zend_jit_trace_get_exit_addr.exit12125:           ; preds = %10542, %10552
 14171:                                            ; preds = %14153, %14163
   %14172 = phi i8 [ %14168, %14163 ], [ -1, %14153 ]
   %14173 = phi i8 [ %14170, %14163 ], [ -1, %14153 ]
-  %14174 = call fastcc i32 @zend_jit_init_method_call.argprom.argelim(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %14154, ptr noundef %.09771, ptr noundef %40, ptr noundef %.09621, i32 noundef %14156, i32 noundef %14157, i64 noundef %14158, i1 noundef zeroext %.49685.shrunk, i1 noundef zeroext %14159, ptr noundef nonnull %14160, i32 noundef %14161, i8 noundef signext %14172, i8 noundef signext %14173, i1 noundef zeroext %14162)
+  %14174 = call fastcc i32 @zend_jit_init_method_call(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %14154, ptr noundef %.09771, ptr noundef %40, ptr noundef %.09621, i32 noundef %14156, i32 noundef %14157, i64 noundef %14158, i1 noundef zeroext %.49685.shrunk, i1 noundef zeroext %14159, ptr noundef nonnull %14160, i32 noundef %14161, i8 noundef signext %14172, i8 noundef signext %14173, i1 noundef zeroext %14162)
   %.not10818 = icmp eq i32 %14174, 0
   br i1 %.not10818, label %zend_jit_stack_check.exit.thread, label %thread-pre-split12608
 
@@ -44708,7 +44708,7 @@ zend_jit_trace_get_exit_addr.exit12125:           ; preds = %10542, %10552
   br i1 %.not10778, label %14479, label %thread-pre-split12595
 
 14479:                                            ; preds = %14476
-  call fastcc void @zend_jit_rope.argelim(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %14477)
+  call fastcc void @zend_jit_rope(ptr noundef %17, ptr noundef nonnull %2503, i32 noundef %14477)
   br label %thread-pre-split12608
 
 14480:                                            ; preds = %2540
@@ -46213,7 +46213,7 @@ thread-pre-split12610:                            ; preds = %15032, %15060, %150
   br i1 %.not11692, label %.lr.ph12957, label %._crit_edge12958
 
 ._crit_edge12958:                                 ; preds = %15275, %.loopexit12715, %.loopexit12723
-  call fastcc void @zend_jit_store_type.argelim(ptr noundef %17, i32 noundef %15189, i8 noundef zeroext %.0942112615)
+  call fastcc void @zend_jit_store_type(ptr noundef %17, i32 noundef %15189, i8 noundef zeroext %.0942112615)
   store i8 %.0942112615, ptr %15191, align 4
   store i8 %.0942112615, ptr %15192, align 1
   %15302 = getelementptr inbounds i8, ptr %15191, i64 2
@@ -49213,7 +49213,7 @@ zend_jit_store_var_type.exit:                     ; preds = %17027, %17018, %170
 17034:                                            ; preds = %17030
   %17035 = getelementptr inbounds i8, ptr %.59764, i64 8
   %17036 = load ptr, ptr %17035, align 8
-  call fastcc void @zend_jit_set_ip.argelim(ptr noundef %17, ptr noundef %17036)
+  call fastcc void @zend_jit_set_ip(ptr noundef %17, ptr noundef %17036)
   br label %17037
 
 17037:                                            ; preds = %17034, %17030, %.loopexit
@@ -49313,7 +49313,7 @@ zend_jit_trace_stack_needs_deoptimization.exit.thread: ; preds = %17061, %17055,
 17076:                                            ; preds = %.thread12647, %zend_jit_trace_stack_needs_deoptimization.exit.thread
   %17077 = phi i32 [ %17072, %.thread12647 ], [ %17075, %zend_jit_trace_stack_needs_deoptimization.exit.thread ]
   %.0937312650 = phi ptr [ %17070, %.thread12647 ], [ %17073, %zend_jit_trace_stack_needs_deoptimization.exit.thread ]
-  call fastcc void @zend_jit_check_timeout.argelim(ptr noundef nonnull %17, ptr noundef null, ptr noundef nonnull %.0937312650)
+  call fastcc void @zend_jit_check_timeout(ptr noundef nonnull %17, ptr noundef null, ptr noundef nonnull %.0937312650)
   br label %zend_jit_trace_end_loop.exit
 
 zend_jit_trace_end_loop.exit:                     ; preds = %.thread12644, %zend_jit_trace_stack_needs_deoptimization.exit.thread, %17076
@@ -49363,9 +49363,9 @@ zend_jit_trace_end_loop.exit:                     ; preds = %.thread12644, %zend
   %17100 = getelementptr inbounds i8, ptr %.09771, i64 88
   br label %17101
 
-17101:                                            ; preds = %.lr.ph13006, %zend_jit_trace_must_store_type.argprom.exit
-  %indvars.iv13198 = phi i64 [ 0, %.lr.ph13006 ], [ %indvars.iv.next13199, %zend_jit_trace_must_store_type.argprom.exit ]
-  %17102 = phi i32 [ %17095, %.lr.ph13006 ], [ %17195, %zend_jit_trace_must_store_type.argprom.exit ]
+17101:                                            ; preds = %.lr.ph13006, %zend_jit_trace_must_store_type.exit
+  %indvars.iv13198 = phi i64 [ 0, %.lr.ph13006 ], [ %indvars.iv.next13199, %zend_jit_trace_must_store_type.exit ]
+  %17102 = phi i32 [ %17095, %.lr.ph13006 ], [ %17195, %zend_jit_trace_must_store_type.exit ]
   %17103 = getelementptr inbounds %struct._zend_jit_trace_stack, ptr %.09641, i64 %indvars.iv13198
   %17104 = getelementptr inbounds i8, ptr %17103, i64 4
   %17105 = load i32, ptr %17104, align 4
@@ -49399,7 +49399,7 @@ zend_jit_trace_end_loop.exit:                     ; preds = %.thread12644, %zend
 17124:                                            ; preds = %17111
   %17125 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %17, i64 noundef %17121)
   call void @_ir_STORE(ptr noundef nonnull %17, i32 noundef %17125, i32 noundef %17105) #33
-  br i1 %.not12685, label %zend_jit_trace_must_store_type.argprom.exit.sink.split, label %17126
+  br i1 %.not12685, label %zend_jit_trace_must_store_type.exit.sink.split, label %17126
 
 17126:                                            ; preds = %17124
   %17127 = load ptr, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 184), align 8
@@ -49415,7 +49415,7 @@ zend_jit_trace_end_loop.exit:                     ; preds = %.thread12644, %zend
   %17134 = getelementptr inbounds i8, ptr %17133, i64 1
   %17135 = load i8, ptr %17134, align 1
   %.not27.i = icmp eq i8 %17135, 4
-  br i1 %.not27.i, label %zend_jit_trace_must_store_type.argprom.exit.sink.split, label %17136
+  br i1 %.not27.i, label %zend_jit_trace_must_store_type.exit.sink.split, label %17136
 
 17136:                                            ; preds = %17128
   %17137 = lshr exact i64 %17119, 4
@@ -49425,14 +49425,14 @@ zend_jit_trace_end_loop.exit:                     ; preds = %.thread12644, %zend
   %17141 = getelementptr inbounds i8, ptr %17140, i64 1
   %17142 = load i8, ptr %17141, align 1
   %17143 = icmp eq i8 %17142, 4
-  br i1 %17143, label %zend_jit_trace_must_store_type.argprom.exit.sink.split, label %jit_set_Z_TYPE_INFO.exit.sink.split.i
+  br i1 %17143, label %zend_jit_trace_must_store_type.exit.sink.split, label %jit_set_Z_TYPE_INFO.exit.sink.split.i
 
 17144:                                            ; preds = %17111
   %17145 = icmp eq i32 %17122, 32
   call void @llvm.assume(i1 %17145)
   %17146 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %17, i64 noundef %17121)
   call void @_ir_STORE(ptr noundef nonnull %17, i32 noundef %17146, i32 noundef %17105) #33
-  br i1 %.not12685, label %zend_jit_trace_must_store_type.argprom.exit.sink.split, label %17147
+  br i1 %.not12685, label %zend_jit_trace_must_store_type.exit.sink.split, label %17147
 
 17147:                                            ; preds = %17144
   %17148 = load ptr, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 184), align 8
@@ -49448,7 +49448,7 @@ zend_jit_trace_end_loop.exit:                     ; preds = %.thread12644, %zend
   %17155 = getelementptr inbounds i8, ptr %17154, i64 1
   %17156 = load i8, ptr %17155, align 1
   %.not25.i = icmp eq i8 %17156, 5
-  br i1 %.not25.i, label %zend_jit_trace_must_store_type.argprom.exit.sink.split, label %17157
+  br i1 %.not25.i, label %zend_jit_trace_must_store_type.exit.sink.split, label %17157
 
 17157:                                            ; preds = %17149
   %17158 = lshr exact i64 %17119, 4
@@ -49458,26 +49458,26 @@ zend_jit_trace_end_loop.exit:                     ; preds = %.thread12644, %zend
   %17162 = getelementptr inbounds i8, ptr %17161, i64 1
   %17163 = load i8, ptr %17162, align 1
   %17164 = icmp eq i8 %17163, 5
-  br i1 %17164, label %zend_jit_trace_must_store_type.argprom.exit.sink.split, label %jit_set_Z_TYPE_INFO.exit.sink.split.i
+  br i1 %17164, label %zend_jit_trace_must_store_type.exit.sink.split, label %jit_set_Z_TYPE_INFO.exit.sink.split.i
 
 jit_set_Z_TYPE_INFO.exit.sink.split.i:            ; preds = %17157, %17147, %17136, %17126
   %.sink35.i = phi i32 [ 4, %17126 ], [ 4, %17136 ], [ 5, %17147 ], [ 5, %17157 ]
   %17165 = call i32 @ir_const_u32(ptr noundef nonnull %17, i32 noundef %.sink35.i) #33
   call fastcc void @jit_set_Z_TYPE_INFO_ex(ptr noundef nonnull %17, i64 noundef %17121, i32 noundef %17165)
-  br label %zend_jit_trace_must_store_type.argprom.exit.sink.split
+  br label %zend_jit_trace_must_store_type.exit.sink.split
 
 17166:                                            ; preds = %17107, %17101
   %17167 = zext i32 %17102 to i64
   %17168 = icmp ult i64 %indvars.iv13198, %17167
   %17169 = icmp ne i8 %17106, -1
   %or.cond208 = select i1 %17168, i1 %17169, i1 false
-  br i1 %or.cond208, label %17170, label %zend_jit_trace_must_store_type.argprom.exit
+  br i1 %or.cond208, label %17170, label %zend_jit_trace_must_store_type.exit
 
 17170:                                            ; preds = %17166
   %17171 = getelementptr inbounds i8, ptr %17103, i64 1
   %17172 = load i8, ptr %17171, align 1
   %.not10727 = icmp eq i8 %17106, %17172
-  br i1 %.not10727, label %zend_jit_trace_must_store_type.argprom.exit, label %17173
+  br i1 %.not10727, label %zend_jit_trace_must_store_type.exit, label %17173
 
 17173:                                            ; preds = %17170
   %17174 = load ptr, ptr %17098, align 8
@@ -49495,7 +49495,7 @@ jit_set_Z_TYPE_INFO.exit.sink.split.i:            ; preds = %17157, %17147, %171
   %17179 = lshr exact i64 %17178, 5
   %17180 = trunc i64 %17179 to i32
   %17181 = trunc nuw i64 %indvars.iv13198 to i32
-  %17182 = call fastcc i32 @zend_jit_find_ssa_var.argprom(ptr noundef nonnull readonly %.09768, i32 noundef %17180, i32 noundef %17181)
+  %17182 = call fastcc i32 @zend_jit_find_ssa_var(ptr noundef nonnull readonly %.09768, i32 noundef %17180, i32 noundef %17181)
   %17183 = icmp sgt i32 %17182, -1
   br i1 %17183, label %17184, label %17192
 
@@ -49508,22 +49508,22 @@ jit_set_Z_TYPE_INFO.exit.sink.split.i:            ; preds = %17157, %17147, %171
   %17190 = zext nneg i8 %17106 to i32
   %17191 = shl nuw i32 1, %17190
   %.not10.i = icmp eq i32 %17189, %17191
-  br i1 %.not10.i, label %17192, label %zend_jit_trace_must_store_type.argprom.exit
+  br i1 %.not10.i, label %17192, label %zend_jit_trace_must_store_type.exit
 
 17192:                                            ; preds = %._crit_edge13282, %17175, %17184
   %.pre-phi13284 = phi i32 [ %.pre13283, %._crit_edge13282 ], [ %17181, %17175 ], [ %17181, %17184 ]
-  call fastcc void @zend_jit_store_type.argelim(ptr noundef %17, i32 noundef %.pre-phi13284, i8 noundef zeroext %17106)
-  br label %zend_jit_trace_must_store_type.argprom.exit.sink.split
+  call fastcc void @zend_jit_store_type(ptr noundef %17, i32 noundef %.pre-phi13284, i8 noundef zeroext %17106)
+  br label %zend_jit_trace_must_store_type.exit.sink.split
 
-zend_jit_trace_must_store_type.argprom.exit.sink.split: ; preds = %jit_set_Z_TYPE_INFO.exit.sink.split.i, %17157, %17149, %17144, %17136, %17128, %17124, %17192
+zend_jit_trace_must_store_type.exit.sink.split:   ; preds = %jit_set_Z_TYPE_INFO.exit.sink.split.i, %17157, %17149, %17144, %17136, %17128, %17124, %17192
   %.sink13600 = phi ptr [ %17171, %17192 ], [ %17114, %17124 ], [ %17114, %17128 ], [ %17114, %17136 ], [ %17114, %17144 ], [ %17114, %17149 ], [ %17114, %17157 ], [ %17114, %jit_set_Z_TYPE_INFO.exit.sink.split.i ]
   store i8 %17106, ptr %17103, align 4
   store i8 %17106, ptr %.sink13600, align 1
   %17193 = getelementptr inbounds i8, ptr %17103, i64 2
   store i8 -1, ptr %17193, align 2
-  br label %zend_jit_trace_must_store_type.argprom.exit
+  br label %zend_jit_trace_must_store_type.exit
 
-zend_jit_trace_must_store_type.argprom.exit:      ; preds = %zend_jit_trace_must_store_type.argprom.exit.sink.split, %17184, %17170, %17166
+zend_jit_trace_must_store_type.exit:              ; preds = %zend_jit_trace_must_store_type.exit.sink.split, %17184, %17170, %17166
   store i32 0, ptr %17104, align 4
   %17194 = getelementptr inbounds i8, ptr %17103, i64 3
   store i8 0, ptr %17194, align 1
@@ -49535,7 +49535,7 @@ zend_jit_trace_must_store_type.argprom.exit:      ; preds = %zend_jit_trace_must
   %17199 = icmp ult i64 %indvars.iv.next13199, %17198
   br i1 %17199, label %17101, label %.loopexit12713.loopexit
 
-.loopexit12713.loopexit:                          ; preds = %zend_jit_trace_must_store_type.argprom.exit
+.loopexit12713.loopexit:                          ; preds = %zend_jit_trace_must_store_type.exit
   %.pre13220 = load i8, ptr %16970, align 1
   br label %.loopexit12713
 
@@ -49587,7 +49587,7 @@ zend_jit_find_trace.exit:                         ; preds = %.lr.ph.i12165
 
 17220:                                            ; preds = %zend_jit_find_trace.exit
   %17221 = load ptr, ptr %17203, align 8
-  call fastcc void @zend_jit_set_ip.argelim(ptr noundef %17, ptr noundef %17221)
+  call fastcc void @zend_jit_set_ip(ptr noundef %17, ptr noundef %17221)
   br label %17222
 
 17222:                                            ; preds = %17220, %zend_jit_find_trace.exit
@@ -49673,7 +49673,7 @@ zend_jit_find_trace.exit:                         ; preds = %.lr.ph.i12165
   %17264 = zext i32 %17263 to i64
   %17265 = getelementptr %struct._zend_jit_trace_info, ptr %17262, i64 %17264, i32 14
   %.val12066 = load ptr, ptr %17265, align 8
-  call fastcc void @zend_jit_trace_link_to_root.argprom.argelim(ptr noundef %17, ptr %.val12066, ptr noundef %.09367)
+  call fastcc void @zend_jit_trace_link_to_root(ptr noundef %17, ptr %.val12066, ptr noundef %.09367)
   br label %17271
 
 17266:                                            ; preds = %.loopexit12713
@@ -50441,7 +50441,7 @@ define internal fastcc void @zend_jit_dump_exit_info(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @zend_jit_trace_build_tssa.argprom(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc ptr @zend_jit_trace_build_tssa(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = alloca %struct._zend_ssa_range, align 8
   %7 = alloca %struct._zend_ssa_range, align 8
   %8 = alloca %struct._zend_ssa_range, align 8
@@ -50491,7 +50491,7 @@ define internal fastcc ptr @zend_jit_trace_build_tssa.argprom(ptr noundef nonnul
   %.03972 = phi i64 [ %33, %24 ], [ %40, %34 ], [ 64, %5 ]
   %41 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %20, ptr %3, align 8
-  %42 = tail call fastcc ptr @zend_jit_trace_build_ssa.argprom(ptr noundef %20)
+  %42 = tail call fastcc ptr @zend_jit_trace_build_ssa(ptr noundef %20)
   br label %43
 
 43:                                               ; preds = %274, %.critedge4744
@@ -50831,7 +50831,7 @@ define internal fastcc ptr @zend_jit_trace_build_tssa.argprom(ptr noundef nonnul
   %204 = sext i32 %.03895 to i64
   %205 = getelementptr inbounds ptr, ptr %3, i64 %204
   store ptr %164, ptr %205, align 8
-  %206 = tail call fastcc ptr @zend_jit_trace_build_ssa.argprom(ptr noundef nonnull %164)
+  %206 = tail call fastcc ptr @zend_jit_trace_build_ssa(ptr noundef nonnull %164)
   br label %274
 
 207:                                              ; preds = %43
@@ -50896,7 +50896,7 @@ define internal fastcc ptr @zend_jit_trace_build_tssa.argprom(ptr noundef nonnul
   %245 = sext i32 %.03895 to i64
   %246 = getelementptr inbounds ptr, ptr %3, i64 %245
   store ptr %.03953, ptr %246, align 8
-  %247 = tail call fastcc ptr @zend_jit_trace_build_ssa.argprom(ptr noundef nonnull %.03953)
+  %247 = tail call fastcc ptr @zend_jit_trace_build_ssa(ptr noundef nonnull %.03953)
   br label %271
 
 248:                                              ; preds = %207
@@ -51405,7 +51405,7 @@ define internal fastcc ptr @zend_jit_trace_build_tssa.argprom(ptr noundef nonnul
 
 ._crit_edge:                                      ; preds = %.lr.ph85, %524
   %529 = load i8, ptr %414, align 1
-  switch i8 %529, label %zend_jit_trace_add_call_phis.argprom.argprom.exit.preheader [
+  switch i8 %529, label %zend_jit_trace_add_call_phis.exit.preheader [
     i8 0, label %530
     i8 1, label %532
     i8 2, label %586
@@ -51413,7 +51413,7 @@ define internal fastcc ptr @zend_jit_trace_build_tssa.argprom(ptr noundef nonnul
 
 530:                                              ; preds = %._crit_edge
   %531 = tail call fastcc i32 @zend_jit_trace_add_phis(ptr noundef %0, i32 noundef %.03910, ptr noundef %.04035, ptr noundef nonnull %525)
-  br label %zend_jit_trace_add_call_phis.argprom.argprom.exit.preheader
+  br label %zend_jit_trace_add_call_phis.exit.preheader
 
 532:                                              ; preds = %._crit_edge
   %.val = load ptr, ptr %19, align 8
@@ -51427,7 +51427,7 @@ define internal fastcc ptr @zend_jit_trace_build_tssa.argprom(ptr noundef nonnul
   %538 = lshr exact i64 %537, 5
   %539 = trunc i64 %538 to i32
   %540 = icmp sgt i32 %539, 0
-  br i1 %540, label %.lr.ph.i, label %zend_jit_trace_add_call_phis.argprom.argprom.exit.preheader
+  br i1 %540, label %.lr.ph.i, label %zend_jit_trace_add_call_phis.exit.preheader
 
 .lr.ph.i:                                         ; preds = %532
   %wide.trip.count.i = and i64 %538, 2147483647
@@ -51520,7 +51520,7 @@ define internal fastcc ptr @zend_jit_trace_build_tssa.argprom(ptr noundef nonnul
   store ptr %.0116.i, ptr %.sink.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %zend_jit_trace_add_call_phis.argprom.argprom.exit.preheader, label %541
+  br i1 %exitcond.not.i, label %zend_jit_trace_add_call_phis.exit.preheader, label %541
 
 586:                                              ; preds = %._crit_edge
   %587 = getelementptr i8, ptr %0, i64 24
@@ -51528,7 +51528,7 @@ define internal fastcc ptr @zend_jit_trace_build_tssa.argprom(ptr noundef nonnul
   %588 = getelementptr inbounds i8, ptr %.val4815, i64 -1
   %589 = load i8, ptr %588, align 1
   %.not.i4816 = icmp eq i8 %589, 0
-  br i1 %.not.i4816, label %zend_jit_trace_add_call_phis.argprom.argprom.exit.preheader, label %590
+  br i1 %.not.i4816, label %zend_jit_trace_add_call_phis.exit.preheader, label %590
 
 590:                                              ; preds = %586
   %591 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 128, i64 1) #34, !srcloc !4
@@ -51608,20 +51608,20 @@ define internal fastcc ptr @zend_jit_trace_build_tssa.argprom(ptr noundef nonnul
   %635 = load ptr, ptr %384, align 8
   %636 = getelementptr inbounds i8, ptr %635, i64 8
   store ptr %.0.i, ptr %636, align 8
-  br label %zend_jit_trace_add_call_phis.argprom.argprom.exit.preheader
+  br label %zend_jit_trace_add_call_phis.exit.preheader
 
-zend_jit_trace_add_call_phis.argprom.argprom.exit.preheader: ; preds = %585, %617, %586, %532, %._crit_edge, %530
+zend_jit_trace_add_call_phis.exit.preheader:      ; preds = %585, %617, %586, %532, %._crit_edge, %530
   %.23912.ph = phi i32 [ %531, %530 ], [ %.03910, %._crit_edge ], [ %.03910, %532 ], [ %.03910, %586 ], [ %633, %617 ], [ %580, %585 ]
-  br label %zend_jit_trace_add_call_phis.argprom.argprom.exit
+  br label %zend_jit_trace_add_call_phis.exit
 
-zend_jit_trace_add_call_phis.argprom.argprom.exit: ; preds = %zend_jit_trace_add_call_phis.argprom.argprom.exit.preheader, %.loopexit50
-  %.23955 = phi ptr [ %.33956, %.loopexit50 ], [ %515, %zend_jit_trace_add_call_phis.argprom.argprom.exit.preheader ]
-  %.13942 = phi ptr [ %763, %.loopexit50 ], [ %41, %zend_jit_trace_add_call_phis.argprom.argprom.exit.preheader ]
-  %.03923 = phi i32 [ %.23925, %.loopexit50 ], [ 0, %zend_jit_trace_add_call_phis.argprom.argprom.exit.preheader ]
-  %.23912 = phi i32 [ %.73917, %.loopexit50 ], [ %.23912.ph, %zend_jit_trace_add_call_phis.argprom.argprom.exit.preheader ]
-  %.03908 = phi ptr [ %.13909, %.loopexit50 ], [ %525, %zend_jit_trace_add_call_phis.argprom.argprom.exit.preheader ]
-  %.33901 = phi i32 [ %.43902, %.loopexit50 ], [ 0, %zend_jit_trace_add_call_phis.argprom.argprom.exit.preheader ]
-  %.03866 = phi ptr [ %.13867, %.loopexit50 ], [ %300, %zend_jit_trace_add_call_phis.argprom.argprom.exit.preheader ]
+zend_jit_trace_add_call_phis.exit:                ; preds = %zend_jit_trace_add_call_phis.exit.preheader, %.loopexit50
+  %.23955 = phi ptr [ %.33956, %.loopexit50 ], [ %515, %zend_jit_trace_add_call_phis.exit.preheader ]
+  %.13942 = phi ptr [ %763, %.loopexit50 ], [ %41, %zend_jit_trace_add_call_phis.exit.preheader ]
+  %.03923 = phi i32 [ %.23925, %.loopexit50 ], [ 0, %zend_jit_trace_add_call_phis.exit.preheader ]
+  %.23912 = phi i32 [ %.73917, %.loopexit50 ], [ %.23912.ph, %zend_jit_trace_add_call_phis.exit.preheader ]
+  %.03908 = phi ptr [ %.13909, %.loopexit50 ], [ %525, %zend_jit_trace_add_call_phis.exit.preheader ]
+  %.33901 = phi i32 [ %.43902, %.loopexit50 ], [ 0, %zend_jit_trace_add_call_phis.exit.preheader ]
+  %.03866 = phi ptr [ %.13867, %.loopexit50 ], [ %300, %zend_jit_trace_add_call_phis.exit.preheader ]
   %637 = load i8, ptr %.13942, align 8
   switch i8 %637, label %.loopexit50 [
     i8 0, label %638
@@ -51630,7 +51630,7 @@ zend_jit_trace_add_call_phis.argprom.argprom.exit: ; preds = %zend_jit_trace_add
     i8 8, label %764
   ]
 
-638:                                              ; preds = %zend_jit_trace_add_call_phis.argprom.argprom.exit
+638:                                              ; preds = %zend_jit_trace_add_call_phis.exit
   %639 = getelementptr inbounds i8, ptr %.13942, i64 8
   %640 = load ptr, ptr %639, align 8
   %641 = sext i32 %.03923 to i64
@@ -51728,7 +51728,7 @@ zend_jit_trace_add_call_phis.argprom.argprom.exit: ; preds = %zend_jit_trace_add
   %675 = icmp sgt i32 %.03921106, 2
   br i1 %675, label %.lr.ph110, label %.loopexit50.loopexit
 
-676:                                              ; preds = %zend_jit_trace_add_call_phis.argprom.argprom.exit
+676:                                              ; preds = %zend_jit_trace_add_call_phis.exit
   %.not.i4818 = icmp eq ptr %.23955, null
   br i1 %.not.i4818, label %zend_jit_trace_call_frame.exit, label %677
 
@@ -51790,7 +51790,7 @@ zend_jit_trace_call_frame.exit:                   ; preds = %676, %680, %690
   %714 = icmp slt i64 %indvars.iv.next219, %713
   br i1 %714, label %.lr.ph94, label %.loopexit50
 
-715:                                              ; preds = %zend_jit_trace_add_call_phis.argprom.argprom.exit
+715:                                              ; preds = %zend_jit_trace_add_call_phis.exit
   %716 = getelementptr inbounds i8, ptr %.13942, i64 8
   %717 = load ptr, ptr %716, align 8
   %.not.i4820 = icmp eq ptr %717, null
@@ -51869,17 +51869,17 @@ zend_jit_trace_ret_frame.exit:                    ; preds = %715, %721, %731
   %762 = trunc nsw i64 %indvars.iv.next222 to i32
   br label %.loopexit50
 
-.loopexit50:                                      ; preds = %.lr.ph89, %.lr.ph94, %.loopexit52, %.loopexit50.loopexit, %744, %703, %zend_jit_trace_add_call_phis.argprom.argprom.exit, %760
-  %.33956 = phi ptr [ %717, %760 ], [ %.23955, %zend_jit_trace_add_call_phis.argprom.argprom.exit ], [ %.23955, %.loopexit52 ], [ %700, %703 ], [ %717, %744 ], [ %.23955, %.loopexit50.loopexit ], [ %700, %.lr.ph94 ], [ %717, %.lr.ph89 ]
-  %.23925 = phi i32 [ %.03923, %760 ], [ %.03923, %zend_jit_trace_add_call_phis.argprom.argprom.exit ], [ %.13924104, %.loopexit52 ], [ %.03923, %703 ], [ %.03923, %744 ], [ %762, %.loopexit50.loopexit ], [ %.03923, %.lr.ph94 ], [ %.03923, %.lr.ph89 ]
-  %.73917 = phi i32 [ %.23912, %760 ], [ %.23912, %zend_jit_trace_add_call_phis.argprom.argprom.exit ], [ %643, %.loopexit52 ], [ %.23912, %703 ], [ %.23912, %744 ], [ %.43914, %.loopexit50.loopexit ], [ %710, %.lr.ph94 ], [ %753, %.lr.ph89 ]
-  %.13909 = phi ptr [ %740, %760 ], [ %.03908, %zend_jit_trace_add_call_phis.argprom.argprom.exit ], [ %.03908, %.loopexit52 ], [ %698, %703 ], [ %740, %744 ], [ %.03908, %.loopexit50.loopexit ], [ %698, %.lr.ph94 ], [ %740, %.lr.ph89 ]
-  %.43902 = phi i32 [ %761, %760 ], [ %.33901, %zend_jit_trace_add_call_phis.argprom.argprom.exit ], [ %.33901, %.loopexit52 ], [ %701, %703 ], [ 0, %744 ], [ %.33901, %.loopexit50.loopexit ], [ %701, %.lr.ph94 ], [ 0, %.lr.ph89 ]
-  %.13867 = phi ptr [ %739, %760 ], [ %.03866, %zend_jit_trace_add_call_phis.argprom.argprom.exit ], [ %.03866, %.loopexit52 ], [ %697, %703 ], [ %739, %744 ], [ %.03866, %.loopexit50.loopexit ], [ %697, %.lr.ph94 ], [ %739, %.lr.ph89 ]
+.loopexit50:                                      ; preds = %.lr.ph89, %.lr.ph94, %.loopexit52, %.loopexit50.loopexit, %744, %703, %zend_jit_trace_add_call_phis.exit, %760
+  %.33956 = phi ptr [ %717, %760 ], [ %.23955, %zend_jit_trace_add_call_phis.exit ], [ %.23955, %.loopexit52 ], [ %700, %703 ], [ %717, %744 ], [ %.23955, %.loopexit50.loopexit ], [ %700, %.lr.ph94 ], [ %717, %.lr.ph89 ]
+  %.23925 = phi i32 [ %.03923, %760 ], [ %.03923, %zend_jit_trace_add_call_phis.exit ], [ %.13924104, %.loopexit52 ], [ %.03923, %703 ], [ %.03923, %744 ], [ %762, %.loopexit50.loopexit ], [ %.03923, %.lr.ph94 ], [ %.03923, %.lr.ph89 ]
+  %.73917 = phi i32 [ %.23912, %760 ], [ %.23912, %zend_jit_trace_add_call_phis.exit ], [ %643, %.loopexit52 ], [ %.23912, %703 ], [ %.23912, %744 ], [ %.43914, %.loopexit50.loopexit ], [ %710, %.lr.ph94 ], [ %753, %.lr.ph89 ]
+  %.13909 = phi ptr [ %740, %760 ], [ %.03908, %zend_jit_trace_add_call_phis.exit ], [ %.03908, %.loopexit52 ], [ %698, %703 ], [ %740, %744 ], [ %.03908, %.loopexit50.loopexit ], [ %698, %.lr.ph94 ], [ %740, %.lr.ph89 ]
+  %.43902 = phi i32 [ %761, %760 ], [ %.33901, %zend_jit_trace_add_call_phis.exit ], [ %.33901, %.loopexit52 ], [ %701, %703 ], [ 0, %744 ], [ %.33901, %.loopexit50.loopexit ], [ %701, %.lr.ph94 ], [ 0, %.lr.ph89 ]
+  %.13867 = phi ptr [ %739, %760 ], [ %.03866, %zend_jit_trace_add_call_phis.exit ], [ %.03866, %.loopexit52 ], [ %697, %703 ], [ %739, %744 ], [ %.03866, %.loopexit50.loopexit ], [ %697, %.lr.ph94 ], [ %739, %.lr.ph89 ]
   %763 = getelementptr inbounds i8, ptr %.13942, i64 16
-  br label %zend_jit_trace_add_call_phis.argprom.argprom.exit
+  br label %zend_jit_trace_add_call_phis.exit
 
-764:                                              ; preds = %zend_jit_trace_add_call_phis.argprom.argprom.exit
+764:                                              ; preds = %zend_jit_trace_add_call_phis.exit
   %765 = load ptr, ptr %19, align 8
   %766 = getelementptr inbounds i8, ptr %.04035, i64 40
   store i32 %.23912, ptr %766, align 8
@@ -57073,7 +57073,7 @@ zend_jit_trace_propagate_range.exit4829:          ; preds = %3530, %3539, %3548
   br label %3709
 
 3708:                                             ; preds = %3684, %3670, %3668, %3664
-  call fastcc void @zend_jit_trace_restrict_ssa_var_info.argelim(ptr noundef %.43957, ptr noundef nonnull %.33873, ptr noundef %.04025, ptr noundef %.04035, i32 noundef %3662)
+  call fastcc void @zend_jit_trace_restrict_ssa_var_info(ptr noundef %.43957, ptr noundef nonnull %.33873, ptr noundef %.04025, ptr noundef %.04035, i32 noundef %3662)
   br label %3709
 
 3709:                                             ; preds = %3708, %3706, %.critedge4795, %3658
@@ -57102,7 +57102,7 @@ zend_jit_trace_propagate_range.exit4829:          ; preds = %3530, %3539, %3548
   br i1 %.not4671, label %3725, label %3724
 
 3724:                                             ; preds = %3713, %3715
-  call fastcc void @zend_jit_trace_restrict_ssa_var_info.argelim(ptr noundef %.43957, ptr noundef nonnull %.33873, ptr noundef %.04025, ptr noundef %.04035, i32 noundef %3711)
+  call fastcc void @zend_jit_trace_restrict_ssa_var_info(ptr noundef %.43957, ptr noundef nonnull %.33873, ptr noundef %.04025, ptr noundef %.04035, i32 noundef %3711)
   br label %3725
 
 3725:                                             ; preds = %3715, %3724, %3709
@@ -57112,7 +57112,7 @@ zend_jit_trace_propagate_range.exit4829:          ; preds = %3530, %3539, %3548
   br i1 %3728, label %3729, label %3730
 
 3729:                                             ; preds = %3725
-  call fastcc void @zend_jit_trace_restrict_ssa_var_info.argelim(ptr noundef %.43957, ptr noundef nonnull %.33873, ptr noundef %.04025, ptr noundef %.04035, i32 noundef %3727)
+  call fastcc void @zend_jit_trace_restrict_ssa_var_info(ptr noundef %.43957, ptr noundef nonnull %.33873, ptr noundef %.04025, ptr noundef %.04035, i32 noundef %3727)
   br label %3730
 
 3730:                                             ; preds = %3725, %3729, %.thread27
@@ -57636,7 +57636,7 @@ zend_jit_trace_propagate_range.exit4832:          ; preds = %3969, %3978, %3987
   br i1 %4044, label %4045, label %4046
 
 4045:                                             ; preds = %4040
-  call fastcc void @zend_jit_trace_restrict_ssa_var_info.argelim(ptr noundef %.43957, ptr noundef nonnull %.33873, ptr noundef %.04025, ptr noundef %.04035, i32 noundef %4043)
+  call fastcc void @zend_jit_trace_restrict_ssa_var_info(ptr noundef %.43957, ptr noundef nonnull %.33873, ptr noundef %.04025, ptr noundef %.04035, i32 noundef %4043)
   br label %4046
 
 4046:                                             ; preds = %4045, %4040
@@ -57646,7 +57646,7 @@ zend_jit_trace_propagate_range.exit4832:          ; preds = %3969, %3978, %3987
   br i1 %4049, label %4050, label %4051
 
 4050:                                             ; preds = %4046
-  call fastcc void @zend_jit_trace_restrict_ssa_var_info.argelim(ptr noundef %.43957, ptr noundef nonnull %.33873, ptr noundef %.04025, ptr noundef %.04035, i32 noundef %4048)
+  call fastcc void @zend_jit_trace_restrict_ssa_var_info(ptr noundef %.43957, ptr noundef nonnull %.33873, ptr noundef %.04025, ptr noundef %.04035, i32 noundef %4048)
   br label %4051
 
 4051:                                             ; preds = %4050, %4046
@@ -57656,7 +57656,7 @@ zend_jit_trace_propagate_range.exit4832:          ; preds = %3969, %3978, %3987
   br i1 %4054, label %4055, label %4056
 
 4055:                                             ; preds = %4051
-  call fastcc void @zend_jit_trace_restrict_ssa_var_info.argelim(ptr noundef %.43957, ptr noundef nonnull %.33873, ptr noundef %.04025, ptr noundef %.04035, i32 noundef %4053)
+  call fastcc void @zend_jit_trace_restrict_ssa_var_info(ptr noundef %.43957, ptr noundef nonnull %.33873, ptr noundef %.04025, ptr noundef %.04035, i32 noundef %4053)
   br label %4056
 
 4056:                                             ; preds = %4051, %4055, %4038
@@ -59333,7 +59333,7 @@ zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %15, %11, %jit_CONST
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_trace_deoptimization.retelim(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr noundef readonly %5, ptr noundef writeonly %6, ptr nocapture noundef readonly %7, i8 noundef signext %8, i1 noundef zeroext %9) unnamed_addr #0 {
+define internal fastcc void @zend_jit_trace_deoptimization(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr noundef readonly %5, ptr noundef writeonly %6, ptr nocapture noundef readonly %7, i8 noundef signext %8, i1 noundef zeroext %9) unnamed_addr #0 {
   %11 = icmp sgt i32 %4, 0
   br i1 %11, label %.lr.ph, label %._crit_edge._crit_edge
 
@@ -59570,7 +59570,7 @@ zend_jit_store_type.exit:                         ; preds = %115, %124
   %143 = trunc nuw nsw i64 %indvars.iv to i32
   %144 = shl i32 %143, 4
   %145 = add i32 %144, 80
-  tail call fastcc void @zend_jit_load_this.argelim(ptr noundef %0, i32 noundef %145)
+  tail call fastcc void @zend_jit_load_this(ptr noundef %0, i32 noundef %145)
   br label %451
 
 146:                                              ; preds = %17
@@ -59578,7 +59578,7 @@ zend_jit_store_type.exit:                         ; preds = %115, %124
   %148 = add i64 %147, 20480
   %149 = and i64 %148, 1099511623680
   %150 = or disjoint i64 %149, 57
-  tail call fastcc void @zend_jit_zval_try_addref.argelim(ptr noundef %0, i64 noundef %150)
+  tail call fastcc void @zend_jit_zval_try_addref(ptr noundef %0, i64 noundef %150)
   br label %451
 
 151:                                              ; preds = %17
@@ -60215,7 +60215,7 @@ zend_jit_deopt_rload.exit.i288:                   ; preds = %477, %472
   br i1 %.not.i289, label %485, label %484
 
 484:                                              ; preds = %zend_jit_deopt_rload.exit.i288
-  tail call fastcc void @zend_jit_save_call_chain.argelim(ptr noundef %0, i32 noundef -1)
+  tail call fastcc void @zend_jit_save_call_chain(ptr noundef %0, i32 noundef -1)
   br label %485
 
 485:                                              ; preds = %484, %zend_jit_deopt_rload.exit.i288
@@ -60242,7 +60242,7 @@ zend_jit_deopt_rload.exit.i288:                   ; preds = %477, %472
   %498 = zext i32 %497 to i64
   %499 = shl nuw nsw i64 %498, 8
   %500 = or disjoint i64 %499, 57
-  tail call fastcc void @zend_jit_zval_try_addref.argelim(ptr noundef %0, i64 noundef %500)
+  tail call fastcc void @zend_jit_zval_try_addref(ptr noundef %0, i64 noundef %500)
   br label %501
 
 501:                                              ; preds = %495, %490, %485
@@ -60317,7 +60317,7 @@ zend_jit_restore_zval.exit:                       ; preds = %519, %524
   br i1 %.not256, label %533, label %532
 
 532:                                              ; preds = %531
-  tail call fastcc void @zend_jit_save_call_chain.argelim(ptr noundef %0, i32 noundef -1)
+  tail call fastcc void @zend_jit_save_call_chain(ptr noundef %0, i32 noundef -1)
   br label %533
 
 533:                                              ; preds = %532, %531
@@ -60475,7 +60475,7 @@ zend_jit_free_trampoline.exit:                    ; preds = %595, %606
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_inc_dec.retelim(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i64 noundef %8, i32 noundef range(i32 0, 2) %9, i32 noundef range(i32 0, 2) %10) unnamed_addr #0 {
+define internal fastcc void @zend_jit_inc_dec(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i64 noundef %8, i32 noundef range(i32 0, 2) %9, i32 noundef range(i32 0, 2) %10) unnamed_addr #0 {
   %12 = alloca i64, align 8
   %13 = alloca %struct._ir_code_buffer, align 8
   %14 = alloca i64, align 8
@@ -62324,7 +62324,7 @@ jit_set_Z_TYPE_INFO.exit601:                      ; preds = %1010, %1000, %jit_s
 
 .thread.i:                                        ; preds = %1046, %1044, %1040, %1036, %1028
   %.029.i = phi i1 [ true, %1028 ], [ false, %1044 ], [ %or.cond.not.i, %1046 ], [ true, %1036 ], [ true, %1040 ]
-  call fastcc void @zend_jit_spill_store.argelim(ptr noundef %0, i64 noundef %5, i64 noundef %1031, i32 noundef %4, i1 noundef zeroext %.029.i)
+  call fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %5, i64 noundef %1031, i32 noundef %4, i1 noundef zeroext %.029.i)
   br label %zend_jit_store_var_if_necessary_ex.exit
 
 zend_jit_store_var_if_necessary_ex.exit:          ; preds = %1013, %1017, %1020, %1024, %.thread.i
@@ -62364,7 +62364,7 @@ zend_jit_store_var_if_necessary_ex.exit:          ; preds = %1013, %1017, %1020,
   %1076 = sext i32 %1061 to i64
   %1077 = shl nsw i64 %1076, 8
   %1078 = or disjoint i64 %1077, 57
-  call fastcc void @zend_jit_spill_store.argelim(ptr noundef %0, i64 noundef %8, i64 noundef %1078, i32 noundef %7, i1 noundef zeroext true)
+  call fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %8, i64 noundef %1078, i32 noundef %7, i1 noundef zeroext true)
   br label %zend_jit_store_var_if_necessary.exit
 
 zend_jit_store_var_if_necessary.exit:             ; preds = %1075, %1071, %1067, %1064, %1059, %zend_jit_store_var_if_necessary_ex.exit
@@ -64789,7 +64789,7 @@ define internal fastcc noundef zeroext i1 @zend_jit_trace_next_is_send_result(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_reuse_ip.retelim(ptr noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @zend_jit_reuse_ip(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 690
   %3 = load i8, ptr %2, align 2
   %4 = trunc i8 %3 to i1
@@ -64879,7 +64879,7 @@ jit_ADD_OFFSET.exit:                              ; preds = %33, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_long_math.retelim(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, i64 noundef %7, i32 noundef %8, i32 noundef %9, i64 noundef %10, i32 noundef range(i32 0, 2) %11) unnamed_addr #0 {
+define internal fastcc void @zend_jit_long_math(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, i64 noundef %7, i32 noundef %8, i32 noundef %9, i64 noundef %10, i32 noundef range(i32 0, 2) %11) unnamed_addr #0 {
   %13 = and i32 %2, 16
   %14 = icmp ne i32 %13, 0
   tail call void @llvm.assume(i1 %14)
@@ -64898,7 +64898,7 @@ define internal fastcc void @zend_jit_long_math.retelim(ptr noundef nonnull %0, 
   %26 = load i32, ptr %25, align 8
   %27 = load i32, ptr %21, align 8
   %28 = load i32, ptr %24, align 4
-  tail call fastcc void @zend_jit_long_math_helper.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %18, i8 noundef zeroext %20, i32 %27, i64 noundef %4, i32 noundef %2, ptr noundef %3, i8 noundef zeroext %23, i32 %28, i64 noundef %7, i32 noundef %5, ptr noundef %6, i32 noundef %26, i64 noundef %10, i32 noundef %9, i32 noundef %8, i32 noundef %11)
+  tail call fastcc void @zend_jit_long_math_helper(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %18, i8 noundef zeroext %20, i32 %27, i64 noundef %4, i32 noundef %2, ptr noundef %3, i8 noundef zeroext %23, i32 %28, i64 noundef %7, i32 noundef %5, ptr noundef %6, i32 noundef %26, i64 noundef %10, i32 noundef %9, i32 noundef %8, i32 noundef %11)
   %29 = load i32, ptr %25, align 8
   %30 = and i64 %10, 3
   %31 = icmp eq i64 %30, 2
@@ -64928,7 +64928,7 @@ define internal fastcc void @zend_jit_long_math.retelim(ptr noundef nonnull %0, 
   %44 = sext i32 %29 to i64
   %45 = shl nsw i64 %44, 8
   %46 = or disjoint i64 %45, 57
-  tail call fastcc void @zend_jit_spill_store.argelim(ptr noundef %0, i64 noundef %10, i64 noundef %46, i32 noundef %9, i1 noundef zeroext true)
+  tail call fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %10, i64 noundef %46, i32 noundef %9, i1 noundef zeroext true)
   br label %zend_jit_store_var_if_necessary.exit
 
 zend_jit_store_var_if_necessary.exit:             ; preds = %12, %32, %35, %39, %43
@@ -64936,7 +64936,7 @@ zend_jit_store_var_if_necessary.exit:             ; preds = %12, %32, %35, %39, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @zend_jit_fetch_reference.argelim(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @zend_jit_fetch_reference(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca %struct._ir_code_buffer, align 8
   %9 = load i64, ptr %4, align 8
@@ -65266,7 +65266,7 @@ zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %19, %15, %zend_jit_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_add_arrays.argelim(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i64 noundef %6) unnamed_addr #0 {
+define internal fastcc void @zend_jit_add_arrays(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i64 noundef %6) unnamed_addr #0 {
   %8 = and i64 %3, 3
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %10, label %32
@@ -65817,7 +65817,7 @@ define internal fastcc range(i32 0, 2) i32 @zend_jit_math(ptr noundef nonnull %0
   %43 = sext i32 %28 to i64
   %44 = shl nsw i64 %43, 8
   %45 = or disjoint i64 %44, 57
-  tail call fastcc void @zend_jit_spill_store.argelim(ptr noundef %0, i64 noundef %8, i64 noundef %45, i32 noundef %7, i1 noundef zeroext true)
+  tail call fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %8, i64 noundef %45, i32 noundef %7, i1 noundef zeroext true)
   br label %zend_jit_store_var_if_necessary.exit
 
 zend_jit_store_var_if_necessary.exit:             ; preds = %42, %38, %34, %31, %27, %11
@@ -65826,7 +65826,7 @@ zend_jit_store_var_if_necessary.exit:             ; preds = %42, %38, %34, %31, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_concat.argelim(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc void @zend_jit_concat(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = and i32 %2, 1
   %.not = icmp eq i32 %7, 0
   tail call void @llvm.assume(i1 %.not)
@@ -65863,7 +65863,7 @@ define internal fastcc void @zend_jit_concat.argelim(ptr noundef nonnull %0, ptr
   %34 = shl nuw nsw i64 %33, 8
   %35 = or disjoint i64 %34, 57
   %36 = select i1 %27, i64 %32, i64 %35
-  tail call fastcc void @zend_jit_concat_helper.argelim(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %14, i32 %17, i64 noundef %24, i32 noundef %2, i8 noundef zeroext %26, i32 %29, i64 noundef %36, i32 noundef %3, i64 noundef %4, i32 noundef %5)
+  tail call fastcc void @zend_jit_concat_helper(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %14, i32 %17, i64 noundef %24, i32 noundef %2, i8 noundef zeroext %26, i32 %29, i64 noundef %36, i32 noundef %3, i64 noundef %4, i32 noundef %5)
   ret void
 }
 
@@ -66261,7 +66261,7 @@ jit_ADD_OFFSET.exit:                              ; preds = %173, %181
   %205 = getelementptr inbounds i8, ptr %1, i64 12
   %206 = load i32, ptr %18, align 8
   %207 = load i32, ptr %205, align 4
-  tail call fastcc void @zend_jit_long_math_helper.argelim(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %202, i8 noundef zeroext %203, i32 %206, i64 noundef %.0115, i32 noundef %2, ptr noundef %4, i8 noundef zeroext %204, i32 %207, i64 noundef %34, i32 noundef %5, ptr noundef %6, i32 noundef %206, i64 noundef %.0115, i32 noundef %3, i32 noundef %2, i32 noundef %8)
+  tail call fastcc void @zend_jit_long_math_helper(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %202, i8 noundef zeroext %203, i32 %206, i64 noundef %.0115, i32 noundef %2, ptr noundef %4, i8 noundef zeroext %204, i32 %207, i64 noundef %34, i32 noundef %5, ptr noundef %6, i32 noundef %206, i64 noundef %.0115, i32 noundef %3, i32 noundef %2, i32 noundef %8)
   br label %215
 
 208:                                              ; preds = %190
@@ -66270,7 +66270,7 @@ jit_ADD_OFFSET.exit:                              ; preds = %173, %181
   %211 = getelementptr inbounds i8, ptr %1, i64 12
   %212 = load i32, ptr %18, align 8
   %213 = load i32, ptr %211, align 4
-  tail call fastcc void @zend_jit_concat_helper.argelim(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %209, i32 %212, i64 noundef %.0115, i32 noundef %2, i8 noundef zeroext %210, i32 %213, i64 noundef %34, i32 noundef %5, i64 noundef %.0115, i32 noundef %8)
+  tail call fastcc void @zend_jit_concat_helper(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %209, i32 %212, i64 noundef %.0115, i32 noundef %2, i8 noundef zeroext %210, i32 %213, i64 noundef %34, i32 noundef %5, i64 noundef %.0115, i32 noundef %8)
   br label %215
 
 214:                                              ; preds = %190
@@ -67130,7 +67130,7 @@ jit_CONST_FUNC.exit234:                           ; preds = %267, %278
   %307 = load i32, ptr %13, align 4
   %308 = load i32, ptr %305, align 8
   %309 = load i32, ptr %306, align 8
-  call fastcc void @zend_jit_long_math_helper.argelim(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %304, i8 noundef zeroext 8, i32 %308, i64 noundef %.0193.ph, i32 noundef %.0195.ph, ptr noundef null, i8 noundef zeroext %spec.store.select, i32 %309, i64 noundef %53, i32 noundef %6, ptr noundef %7, i32 noundef 0, i64 noundef %.0193.ph, i32 noundef %59, i32 noundef %.0195.ph, i32 noundef %307)
+  call fastcc void @zend_jit_long_math_helper(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %304, i8 noundef zeroext 8, i32 %308, i64 noundef %.0193.ph, i32 noundef %.0195.ph, ptr noundef null, i8 noundef zeroext %spec.store.select, i32 %309, i64 noundef %53, i32 noundef %6, ptr noundef %7, i32 noundef 0, i64 noundef %.0193.ph, i32 noundef %59, i32 noundef %.0195.ph, i32 noundef %307)
   br label %317
 
 310:                                              ; preds = %290
@@ -67139,7 +67139,7 @@ jit_CONST_FUNC.exit234:                           ; preds = %267, %278
   %313 = load i32, ptr %13, align 4
   %314 = load i32, ptr %311, align 8
   %315 = load i32, ptr %312, align 8
-  call fastcc void @zend_jit_concat_helper.argelim(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext 8, i32 %314, i64 noundef %.0193.ph, i32 noundef %.0195.ph, i8 noundef zeroext %spec.store.select, i32 %315, i64 noundef %53, i32 noundef %6, i64 noundef %.0193.ph, i32 noundef %313)
+  call fastcc void @zend_jit_concat_helper(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext 8, i32 %314, i64 noundef %.0193.ph, i32 noundef %.0195.ph, i8 noundef zeroext %spec.store.select, i32 %315, i64 noundef %53, i32 noundef %6, i64 noundef %.0193.ph, i32 noundef %313)
   br label %317
 
 316:                                              ; preds = %290
@@ -71471,7 +71471,7 @@ jit_CONST_FUNC.exit637:                           ; preds = %902, %913
   %980 = getelementptr inbounds i8, ptr %1, i64 40
   %981 = load i32, ptr %979, align 8
   %982 = load i32, ptr %980, align 8
-  call fastcc void @zend_jit_long_math_helper.argelim(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %978, i8 noundef zeroext 8, i32 %981, i64 noundef %.0435, i32 noundef %.1434, ptr noundef null, i8 noundef zeroext %spec.store.select, i32 %982, i64 noundef %35, i32 noundef %7, ptr noundef %8, i32 noundef 0, i64 noundef %.0435, i32 noundef -1073739778, i32 noundef %.1434, i32 noundef 1)
+  call fastcc void @zend_jit_long_math_helper(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %978, i8 noundef zeroext 8, i32 %981, i64 noundef %.0435, i32 noundef %.1434, ptr noundef null, i8 noundef zeroext %spec.store.select, i32 %982, i64 noundef %35, i32 noundef %7, ptr noundef %8, i32 noundef 0, i64 noundef %.0435, i32 noundef -1073739778, i32 noundef %.1434, i32 noundef 1)
   br label %989
 
 983:                                              ; preds = %925
@@ -71479,7 +71479,7 @@ jit_CONST_FUNC.exit637:                           ; preds = %902, %913
   %985 = getelementptr inbounds i8, ptr %1, i64 40
   %986 = load i32, ptr %984, align 8
   %987 = load i32, ptr %985, align 8
-  call fastcc void @zend_jit_concat_helper.argelim(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext 8, i32 %986, i64 noundef %.0435, i32 noundef %.1434, i8 noundef zeroext %spec.store.select, i32 %987, i64 noundef %35, i32 noundef %7, i64 noundef %.0435, i32 noundef 0)
+  call fastcc void @zend_jit_concat_helper(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext 8, i32 %986, i64 noundef %.0435, i32 noundef %.1434, i8 noundef zeroext %spec.store.select, i32 %987, i64 noundef %35, i32 noundef %7, i64 noundef %.0435, i32 noundef 0)
   br label %989
 
 988:                                              ; preds = %925
@@ -71820,7 +71820,7 @@ zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %89, %513, %798, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zend_jit_assign_obj.argelim(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i64 noundef %6, i32 noundef %7, i1 noundef zeroext %8, ptr noundef %9, i1 noundef zeroext %10, i1 noundef zeroext %11, i1 noundef zeroext %12, ptr noundef %13, i32 noundef range(i32 0, 2) %14) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_assign_obj(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i64 noundef %6, i32 noundef %7, i1 noundef zeroext %8, ptr noundef %9, i1 noundef zeroext %10, i1 noundef zeroext %11, i1 noundef zeroext %12, ptr noundef %13, i32 noundef range(i32 0, 2) %14) unnamed_addr #0 {
   %16 = alloca i64, align 8
   %17 = alloca %struct._ir_code_buffer, align 8
   %18 = alloca i64, align 8
@@ -73057,12 +73057,12 @@ jit_CONST_FUNC.exit447:                           ; preds = %689, %700
   br i1 %718, label %720, label %722
 
 720:                                              ; preds = %.thread
-  %721 = call fastcc i32 @zend_jit_assign_to_variable_call.argelim(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.0314512, i8 noundef zeroext %719, i64 noundef %37, i32 noundef %7)
+  %721 = call fastcc i32 @zend_jit_assign_to_variable_call(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.0314512, i8 noundef zeroext %719, i64 noundef %37, i32 noundef %7)
   %.not359 = icmp eq i32 %721, 0
   br i1 %.not359, label %zend_jit_trace_get_exit_addr.exit.thread, label %723
 
 722:                                              ; preds = %.thread
-  call fastcc void @zend_jit_assign_to_variable.argelim(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %.0314512, i64 noundef %.0314512, i32 noundef -1, i32 noundef -1, i8 noundef zeroext %719, i64 noundef %37, i32 noundef %7, i64 noundef %.0313, i64 noundef 0, i1 noundef zeroext false)
+  call fastcc void @zend_jit_assign_to_variable(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %.0314512, i64 noundef %.0314512, i32 noundef -1, i32 noundef -1, i8 noundef zeroext %719, i64 noundef %37, i32 noundef %7, i64 noundef %.0313, i64 noundef 0, i1 noundef zeroext false)
   br label %723
 
 723:                                              ; preds = %722, %720
@@ -73677,7 +73677,7 @@ jit_STUB_FUNC_ADDR.exit:                          ; preds = %jit_CONST_ADDR.exit
   %179 = shl nsw i64 %178, 2
   %180 = or disjoint i64 %179, 3
   %181 = load i8, ptr %31, align 1
-  call fastcc void @zend_jit_simple_assign.argelim(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %180, i32 noundef 2, i32 noundef -1, i8 noundef zeroext %181, i64 noundef %48, i32 noundef %.0139, i64 noundef %.0142, i1 noundef zeroext false)
+  call fastcc void @zend_jit_simple_assign(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %180, i32 noundef 2, i32 noundef -1, i8 noundef zeroext %181, i64 noundef %48, i32 noundef %.0139, i64 noundef %.0142, i1 noundef zeroext false)
   br label %215
 
 182:                                              ; preds = %124
@@ -73728,13 +73728,13 @@ jit_STUB_FUNC_ADDR.exit:                          ; preds = %jit_CONST_ADDR.exit
   %210 = icmp eq i8 %209, 0
   call void @llvm.assume(i1 %210)
   %211 = load i8, ptr %31, align 1
-  %212 = call fastcc i32 @zend_jit_assign_to_variable_call.argelim(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %205, i8 noundef zeroext %211, i64 noundef %48, i32 noundef %.0139)
+  %212 = call fastcc i32 @zend_jit_assign_to_variable_call(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %205, i8 noundef zeroext %211, i64 noundef %48, i32 noundef %.0139)
   %.not155 = icmp eq i32 %212, 0
   br i1 %.not155, label %zend_jit_trace_get_exit_addr.exit.thread, label %215
 
 213:                                              ; preds = %198
   %214 = load i8, ptr %31, align 1
-  call fastcc void @zend_jit_assign_to_variable.argelim(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %205, i64 noundef %205, i32 noundef %.1141, i32 noundef -1, i8 noundef zeroext %214, i64 noundef %48, i32 noundef %.0139, i64 noundef %.0142, i64 noundef 0, i1 noundef zeroext false)
+  call fastcc void @zend_jit_assign_to_variable(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %205, i64 noundef %205, i32 noundef %.1141, i32 noundef -1, i8 noundef zeroext %214, i64 noundef %48, i32 noundef %.0139, i64 noundef %.0142, i64 noundef 0, i1 noundef zeroext false)
   br label %215
 
 215:                                              ; preds = %213, %jit_STUB_FUNC_ADDR.exit, %208, %192
@@ -74385,7 +74385,7 @@ zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %14, %10, %zend_jit_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_assign.argelim(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i64 noundef %7, i64 noundef %8, i32 noundef %9, i64 noundef %10, i64 noundef %11, i32 noundef range(i32 0, 2) %12) unnamed_addr #0 {
+define internal fastcc void @zend_jit_assign(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i64 noundef %7, i64 noundef %8, i32 noundef %9, i64 noundef %10, i64 noundef %11, i32 noundef range(i32 0, 2) %12) unnamed_addr #0 {
   %14 = getelementptr inbounds i8, ptr %1, i64 29
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 8
@@ -74396,7 +74396,7 @@ define internal fastcc void @zend_jit_assign.argelim(ptr noundef nonnull %0, ptr
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %1, i64 12
   %19 = load i32, ptr %18, align 4
-  tail call fastcc void @zend_jit_update_regs.argelim(ptr noundef %0, i32 noundef %19, i64 noundef %7, i64 noundef %8, i32 noundef %6)
+  tail call fastcc void @zend_jit_update_regs(ptr noundef %0, i32 noundef %19, i64 noundef %7, i64 noundef %8, i32 noundef %6)
   %20 = and i64 %8, 3
   %21 = icmp ne i64 %20, 2
   %22 = and i64 %7, 3
@@ -74450,7 +74450,7 @@ define internal fastcc void @zend_jit_assign.argelim(ptr noundef nonnull %0, ptr
   %44 = getelementptr inbounds i8, ptr %1, i64 30
   %45 = load i8, ptr %44, align 2
   %46 = icmp ne i32 %12, 0
-  tail call fastcc void @zend_jit_assign_to_variable.argelim(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %3, i64 noundef %5, i32 noundef %.080, i32 noundef %4, i8 noundef zeroext %45, i64 noundef %.081, i32 noundef %6, i64 noundef %10, i64 noundef %11, i1 noundef zeroext %46)
+  tail call fastcc void @zend_jit_assign_to_variable(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %3, i64 noundef %5, i32 noundef %.080, i32 noundef %4, i8 noundef zeroext %45, i64 noundef %.081, i32 noundef %6, i64 noundef %10, i64 noundef %11, i1 noundef zeroext %46)
   %47 = icmp eq i64 %24, 2
   br i1 %47, label %48, label %178
 
@@ -74524,7 +74524,7 @@ define internal fastcc void @zend_jit_assign.argelim(ptr noundef nonnull %0, ptr
 
 zend_jit_store_var_if_necessary_ex.exit:          ; preds = %59, %69, %73, %77, %79
   %.029.i = phi i1 [ true, %59 ], [ false, %77 ], [ %or.cond.not.i, %79 ], [ true, %69 ], [ true, %73 ]
-  tail call fastcc void @zend_jit_spill_store.argelim(ptr noundef %0, i64 noundef %5, i64 noundef %64, i32 noundef %4, i1 noundef zeroext %.029.i)
+  tail call fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %5, i64 noundef %64, i32 noundef %4, i1 noundef zeroext %.029.i)
   br label %178
 
 90:                                               ; preds = %48, %51, %55
@@ -74701,7 +74701,7 @@ jit_set_Z_TYPE_INFO.exit114.thread:               ; preds = %145, %jit_set_Z_TYP
   %198 = sext i32 %183 to i64
   %199 = shl nsw i64 %198, 8
   %200 = or disjoint i64 %199, 57
-  tail call fastcc void @zend_jit_spill_store.argelim(ptr noundef %0, i64 noundef %10, i64 noundef %200, i32 noundef %9, i1 noundef zeroext true)
+  tail call fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %10, i64 noundef %200, i32 noundef %9, i1 noundef zeroext true)
   br label %zend_jit_store_var_if_necessary.exit
 
 zend_jit_store_var_if_necessary.exit:             ; preds = %197, %193, %189, %186, %181, %178
@@ -74709,7 +74709,7 @@ zend_jit_store_var_if_necessary.exit:             ; preds = %197, %193, %189, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_store_type.argelim(ptr noundef nonnull %0, i32 noundef %1, i8 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @zend_jit_store_type(ptr noundef nonnull %0, i32 noundef %1, i8 noundef zeroext %2) unnamed_addr #0 {
   %4 = shl i32 %1, 4
   %5 = add i32 %4, 80
   %6 = zext i32 %5 to i64
@@ -74743,14 +74743,14 @@ jit_set_Z_TYPE_INFO.exit:                         ; preds = %12, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_qm_assign.argelim(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7) unnamed_addr #0 {
+define internal fastcc void @zend_jit_qm_assign(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7) unnamed_addr #0 {
   %.not = icmp eq i64 %3, %4
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
-  tail call fastcc void @zend_jit_update_regs.argelim(ptr noundef %0, i32 noundef %11, i64 noundef %3, i64 noundef %4, i32 noundef %2)
+  tail call fastcc void @zend_jit_update_regs(ptr noundef %0, i32 noundef %11, i64 noundef %3, i64 noundef %4, i32 noundef %2)
   %12 = and i64 %4, 3
   %13 = icmp ne i64 %12, 2
   %14 = and i64 %3, 3
@@ -74763,7 +74763,7 @@ define internal fastcc void @zend_jit_qm_assign.argelim(ptr noundef nonnull %0, 
   %.022 = phi i64 [ %3, %8 ], [ %spec.select, %9 ]
   %16 = getelementptr inbounds i8, ptr %1, i64 29
   %17 = load i8, ptr %16, align 1
-  tail call fastcc void @zend_jit_simple_assign.argelim(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %7, i32 noundef %5, i32 noundef %6, i8 noundef zeroext %17, i64 noundef %.022, i32 noundef %2, i64 noundef 0, i1 noundef zeroext true)
+  tail call fastcc void @zend_jit_simple_assign(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %7, i32 noundef %5, i32 noundef %6, i8 noundef zeroext %17, i64 noundef %.022, i32 noundef %2, i64 noundef 0, i1 noundef zeroext true)
   %18 = getelementptr inbounds i8, ptr %1, i64 16
   %19 = load i32, ptr %18, align 8
   %20 = and i64 %7, 3
@@ -74794,7 +74794,7 @@ define internal fastcc void @zend_jit_qm_assign.argelim(ptr noundef nonnull %0, 
   %34 = sext i32 %19 to i64
   %35 = shl nsw i64 %34, 8
   %36 = or disjoint i64 %35, 57
-  tail call fastcc void @zend_jit_spill_store.argelim(ptr noundef %0, i64 noundef %7, i64 noundef %36, i32 noundef %6, i1 noundef zeroext true)
+  tail call fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %7, i64 noundef %36, i32 noundef %6, i1 noundef zeroext true)
   br label %zend_jit_store_var_if_necessary.exit
 
 zend_jit_store_var_if_necessary.exit:             ; preds = %15, %22, %25, %29, %33
@@ -74816,7 +74816,7 @@ define internal fastcc range(i32 0, 2) i32 @zend_jit_init_fcall(ptr noundef nonn
   br i1 %.not, label %20, label %19
 
 19:                                               ; preds = %9
-  tail call fastcc void @zend_jit_save_call_chain.argelim(ptr noundef %0, i32 noundef %18)
+  tail call fastcc void @zend_jit_save_call_chain(ptr noundef %0, i32 noundef %18)
   br label %20
 
 20:                                               ; preds = %19, %9
@@ -75762,7 +75762,7 @@ jit_STUB_ADDR.exit:                               ; preds = %526, %529
 jit_CONST_ADDR.exit:                              ; preds = %130, %122, %65, %57, %533, %jit_ADD_OFFSET.exit
   %.1158244 = phi ptr [ %.1158, %jit_ADD_OFFSET.exit ], [ %.1158242249, %533 ], [ %.1158, %57 ], [ %.1158, %65 ], [ %.1158, %122 ], [ %.1158, %130 ]
   %.0159 = phi i32 [ %115, %jit_ADD_OFFSET.exit ], [ %536, %533 ], [ %59, %57 ], [ %66, %65 ], [ %124, %122 ], [ %131, %130 ]
-  %537 = call fastcc i32 @zend_jit_push_call_frame.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %.1158244, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %8, i32 noundef %.0159, i32 noundef 0)
+  %537 = call fastcc i32 @zend_jit_push_call_frame(ptr noundef %0, ptr noundef %1, ptr noundef %.1158244, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %8, i32 noundef %.0159, i32 noundef 0)
   %.not179 = icmp eq i32 %537, 0
   br i1 %.not179, label %zend_jit_trace_get_exit_addr.exit.thread, label %538
 
@@ -75772,7 +75772,7 @@ jit_CONST_ADDR.exit:                              ; preds = %130, %122, %65, %57
   br i1 %.not180, label %541, label %540
 
 540:                                              ; preds = %538
-  call fastcc void @zend_jit_save_call_chain.argelim(ptr noundef %0, i32 noundef %6)
+  call fastcc void @zend_jit_save_call_chain(ptr noundef %0, i32 noundef %6)
   br label %zend_jit_trace_get_exit_addr.exit.thread
 
 541:                                              ; preds = %538
@@ -75799,7 +75799,7 @@ define internal fastcc range(i32 0, 2) i32 @zend_jit_send_val(ptr noundef nonnul
   %12 = icmp ult i32 %8, 13
   %13 = select i1 %11, i1 true, i1 %12
   tail call void @llvm.assume(i1 %13)
-  tail call fastcc void @zend_jit_reuse_ip.retelim(ptr noundef %0)
+  tail call fastcc void @zend_jit_reuse_ip(ptr noundef %0)
   %14 = load i8, ptr %9, align 4
   %15 = icmp eq i8 %14, 116
   br i1 %15, label %16, label %.critedge
@@ -76062,7 +76062,7 @@ jit_STUB_ADDR.exit:                               ; preds = %jit_set_Z_TYPE_INFO
   %163 = load i32, ptr %162, align 8
   %164 = sext i32 %163 to i64
   %165 = getelementptr inbounds i8, ptr %1, i64 %164
-  call fastcc void @jit_ZVAL_COPY_CONST.argelim(ptr noundef nonnull %0, i64 noundef %157, i32 noundef 1022, i32 noundef 1022, ptr noundef %165)
+  call fastcc void @jit_ZVAL_COPY_CONST(ptr noundef nonnull %0, i64 noundef %157, i32 noundef 1022, i32 noundef 1022, ptr noundef %165)
   br label %zend_jit_trace_get_exit_addr.exit.thread
 
 166:                                              ; preds = %.critedge
@@ -76160,7 +76160,7 @@ define internal fastcc void @zend_jit_trace_send_type(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_send_ref.argprom.argelim(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @zend_jit_send_ref(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 29
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 1
@@ -76178,7 +76178,7 @@ define internal fastcc void @zend_jit_send_ref.argprom.argelim(ptr noundef nonnu
   %18 = zext i32 %17 to i64
   %19 = shl nuw nsw i64 %18, 8
   %20 = or disjoint i64 %19, 61
-  tail call fastcc void @zend_jit_reuse_ip.retelim(ptr noundef %0)
+  tail call fastcc void @zend_jit_reuse_ip(ptr noundef %0)
   %21 = load i8, ptr %4, align 1
   %22 = icmp eq i8 %21, 4
   br i1 %22, label %23, label %27
@@ -76347,7 +76347,7 @@ jit_Z_PTR.exit:                                   ; preds = %70, %81, %89, %92
   %116 = load i16, ptr %115, align 2
   %117 = icmp eq i16 %116, 0
   tail call void @llvm.assume(i1 %117)
-  br label %jit_EMALLOC.argprom.exit
+  br label %jit_EMALLOC.exit
 
 118:                                              ; preds = %101
   %119 = tail call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef ptrtoint (ptr @_emalloc_32 to i64)) #33
@@ -76357,9 +76357,9 @@ jit_Z_PTR.exit:                                   ; preds = %70, %81, %89, %92
   store i32 1601, ptr %122, align 8
   store i64 %121, ptr %103, align 8
   store i32 4, ptr %104, align 8
-  br label %jit_EMALLOC.argprom.exit
+  br label %jit_EMALLOC.exit
 
-jit_EMALLOC.argprom.exit:                         ; preds = %107, %118
+jit_EMALLOC.exit:                                 ; preds = %107, %118
   %.0.i.i.i = phi i32 [ %109, %107 ], [ %119, %118 ]
   %123 = tail call i32 @_ir_CALL(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i.i) #33
   %124 = tail call i32 @ir_const_u32(ptr noundef nonnull %0, i32 noundef 2) #33
@@ -76370,7 +76370,7 @@ jit_EMALLOC.argprom.exit:                         ; preds = %107, %118
   %128 = icmp eq i8 %127, 4
   br i1 %128, label %129, label %137
 
-129:                                              ; preds = %jit_EMALLOC.argprom.exit
+129:                                              ; preds = %jit_EMALLOC.exit
   %130 = load i64, ptr %125, align 8
   %131 = trunc i64 %130 to i32
   %132 = load ptr, ptr %0, align 8
@@ -76382,7 +76382,7 @@ jit_EMALLOC.argprom.exit:                         ; preds = %107, %118
   tail call void @llvm.assume(i1 %136)
   br label %jit_ADD_OFFSET.exit
 
-137:                                              ; preds = %jit_EMALLOC.argprom.exit
+137:                                              ; preds = %jit_EMALLOC.exit
   %138 = tail call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef 4) #33
   %139 = sext i32 %138 to i64
   store i64 %139, ptr %125, align 8
@@ -76491,7 +76491,7 @@ jit_FREE_OP.exit:                                 ; preds = %.thread, %186
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zend_jit_send_var.argprom(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_send_var(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca %struct._ir_code_buffer, align 8
   %8 = alloca i64, align 8
@@ -76517,7 +76517,7 @@ define internal fastcc range(i32 0, 2) i32 @zend_jit_send_var.argprom(ptr nounde
   %20 = zext i32 %19 to i64
   %21 = shl nuw nsw i64 %20, 8
   %22 = or disjoint i64 %21, 61
-  tail call fastcc void @zend_jit_reuse_ip.retelim(ptr noundef %0)
+  tail call fastcc void @zend_jit_reuse_ip(ptr noundef %0)
   %23 = load i8, ptr %12, align 4
   switch i8 %23, label %.critedge [
     i8 66, label %24
@@ -76570,7 +76570,7 @@ define internal fastcc range(i32 0, 2) i32 @zend_jit_send_var.argprom(ptr nounde
   br i1 %.not7, label %.critedge, label %50
 
 50:                                               ; preds = %43
-  tail call fastcc void @zend_jit_send_ref.argprom.argelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @zend_jit_send_ref(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2)
   br label %zend_jit_trace_get_exit_addr.exit.thread
 
 51:                                               ; preds = %31, %29, %24
@@ -76613,7 +76613,7 @@ jit_ADD_OFFSET.exit:                              ; preds = %61, %69
   %76 = tail call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1069, i32 noundef %74, i32 noundef %75) #33
   %77 = tail call i32 @_ir_IF(ptr noundef nonnull %0, i32 noundef %76) #33
   tail call void @_ir_IF_TRUE_cold(ptr noundef nonnull %0, i32 noundef %77) #33
-  tail call fastcc void @zend_jit_send_ref.argprom.argelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @zend_jit_send_ref(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2)
   %78 = tail call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef 0) #33
   tail call void @_ir_IF_FALSE(ptr noundef nonnull %0, i32 noundef %77) #33
   br label %.critedge
@@ -77003,7 +77003,7 @@ zend_jit_check_exception.exit:                    ; preds = %jit_EG_exception.ex
   br i1 %.not, label %.critedge, label %295
 
 295:                                              ; preds = %288
-  tail call fastcc void @zend_jit_send_ref.argprom.argelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @zend_jit_send_ref(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2)
   br label %zend_jit_trace_get_exit_addr.exit.thread
 
 296:                                              ; preds = %276, %274, %269
@@ -77042,7 +77042,7 @@ jit_ADD_OFFSET.exit382:                           ; preds = %303, %311
   %317 = tail call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1069, i32 noundef %315, i32 noundef %316) #33
   %318 = tail call i32 @_ir_IF(ptr noundef nonnull %0, i32 noundef %317) #33
   tail call void @_ir_IF_TRUE_cold(ptr noundef nonnull %0, i32 noundef %318) #33
-  tail call fastcc void @zend_jit_send_ref.argprom.argelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @zend_jit_send_ref(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2)
   %319 = tail call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef 0) #33
   tail call void @_ir_IF_FALSE(ptr noundef nonnull %0, i32 noundef %318) #33
   br label %.critedge
@@ -77482,7 +77482,7 @@ jit_ADD_OFFSET.exit412:                           ; preds = %519, %527
   %559 = load i16, ptr %558, align 2
   %560 = icmp eq i16 %559, 0
   call void @llvm.assume(i1 %560)
-  br label %jit_EFREE.argprom.exit
+  br label %jit_EFREE.exit
 
 561:                                              ; preds = %jit_ADD_OFFSET.exit412
   %562 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef ptrtoint (ptr @_efree_32 to i64)) #33
@@ -77492,9 +77492,9 @@ jit_ADD_OFFSET.exit412:                           ; preds = %519, %527
   store i32 1601, ptr %565, align 8
   store i64 %564, ptr %546, align 8
   store i32 4, ptr %547, align 8
-  br label %jit_EFREE.argprom.exit
+  br label %jit_EFREE.exit
 
-jit_EFREE.argprom.exit:                           ; preds = %550, %561
+jit_EFREE.exit:                                   ; preds = %550, %561
   %.0.i.i.i = phi i32 [ %552, %550 ], [ %562, %561 ]
   %566 = call i32 @_ir_CALL_1(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i.i, i32 noundef %.0.i407) #33
   %567 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %545) #33
@@ -77509,7 +77509,7 @@ jit_EFREE.argprom.exit:                           ; preds = %550, %561
 569:                                              ; preds = %568
   %570 = getelementptr inbounds i8, ptr %1, i64 8
   %571 = load i32, ptr %570, align 8
-  call fastcc void @zend_jit_update_regs.argelim(ptr noundef %0, i32 noundef %571, i64 noundef %3, i64 noundef %4, i32 noundef %2)
+  call fastcc void @zend_jit_update_regs(ptr noundef %0, i32 noundef %571, i64 noundef %3, i64 noundef %4, i32 noundef %2)
   %572 = and i64 %4, 3
   %573 = icmp ne i64 %572, 2
   %574 = and i64 %3, 3
@@ -77526,8 +77526,8 @@ jit_EFREE.argprom.exit:                           ; preds = %550, %561
   call fastcc void @jit_ZVAL_COPY(ptr noundef nonnull %0, i64 noundef %22, i32 noundef 1022, i64 noundef %.0312, i32 noundef %2, i1 noundef zeroext %578)
   br label %579
 
-579:                                              ; preds = %575, %jit_EFREE.argprom.exit, %476, %jit_CONST_ADDR.exit397, %zend_jit_check_exception.exit406
-  %.5 = phi i32 [ %.4, %jit_CONST_ADDR.exit397 ], [ %.4, %zend_jit_check_exception.exit406 ], [ %.3, %476 ], [ %567, %jit_EFREE.argprom.exit ], [ %.3, %575 ]
+579:                                              ; preds = %575, %jit_EFREE.exit, %476, %jit_CONST_ADDR.exit397, %zend_jit_check_exception.exit406
+  %.5 = phi i32 [ %.4, %jit_CONST_ADDR.exit397 ], [ %.4, %zend_jit_check_exception.exit406 ], [ %.3, %476 ], [ %567, %jit_EFREE.exit ], [ %.3, %575 ]
   %.not363 = icmp eq i32 %.5, 0
   br i1 %.not363, label %zend_jit_trace_get_exit_addr.exit.thread, label %580
 
@@ -77542,7 +77542,7 @@ zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %186, %387, %383, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_check_func_arg.argprom.argelim(ptr noundef nonnull %0, i32 %.12.val) unnamed_addr #0 {
+define internal fastcc void @zend_jit_check_func_arg(ptr noundef nonnull %0, i32 %.12.val) unnamed_addr #0 {
   %2 = load i8, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 2), align 2
   %3 = icmp eq i8 %2, 5
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 184), align 8
@@ -77857,7 +77857,7 @@ jit_ADD_OFFSET.exit103:                           ; preds = %163, %171
   br label %245
 
 178:                                              ; preds = %8, %6, %1
-  tail call fastcc void @zend_jit_reuse_ip.retelim(ptr noundef %0)
+  tail call fastcc void @zend_jit_reuse_ip(ptr noundef %0)
   %179 = shl i32 %.12.val, 1
   %180 = add i32 %179, 6
   %181 = shl i32 3, %180
@@ -77972,7 +77972,7 @@ jit_ADD_OFFSET.exit112:                           ; preds = %229, %237
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_check_undef_args.argelim(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @zend_jit_check_undef_args(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 690
   %4 = load i8, ptr %3, align 2
   %5 = trunc i8 %4 to i1
@@ -78150,7 +78150,7 @@ jit_STUB_ADDR.exit:                               ; preds = %jit_CONST_FUNC.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zend_jit_do_fcall.argelim(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_do_fcall(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca %struct._ir_code_buffer, align 8
   %9 = alloca i64, align 8
@@ -80831,7 +80831,7 @@ jit_CONST_ADDR.exit1029:                          ; preds = %1395, %1403
   %1410 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1069, i32 noundef %1408, i32 noundef %1409) #33
   %1411 = call i32 @_ir_IF(ptr noundef nonnull %0, i32 noundef %1410) #33
   call void @_ir_IF_TRUE_cold(ptr noundef nonnull %0, i32 noundef %1411) #33
-  %1412 = call fastcc i32 @jit_CONST_FUNC.argelim(ptr noundef nonnull %0, i64 noundef ptrtoint (ptr @zend_jit_deprecated_helper to i64))
+  %1412 = call fastcc i32 @jit_CONST_FUNC(ptr noundef nonnull %0, i64 noundef ptrtoint (ptr @zend_jit_deprecated_helper to i64))
   %1413 = call i32 @_ir_CALL_1(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %1412, i32 noundef %156) #33
   %1414 = getelementptr inbounds i8, ptr %0, i64 864
   %1415 = load i32, ptr %1414, align 4
@@ -81986,7 +81986,7 @@ zend_jit_trace_get_exit_addr.exit1120:            ; preds = %2019, %2029
 2039:                                             ; preds = %1997, %zend_jit_trace_get_exit_addr.exit1120
   %.0703 = phi ptr [ %2038, %zend_jit_trace_get_exit_addr.exit1120 ], [ null, %1997 ]
   %2040 = getelementptr inbounds i8, ptr %1, i64 32
-  call fastcc void @zend_jit_check_timeout.argelim(ptr noundef nonnull %0, ptr noundef nonnull %2040, ptr noundef %.0703)
+  call fastcc void @zend_jit_check_timeout(ptr noundef nonnull %0, ptr noundef nonnull %2040, ptr noundef %.0703)
   br i1 %160, label %.thread1177, label %2041
 
 2041:                                             ; preds = %2039
@@ -81996,7 +81996,7 @@ zend_jit_trace_get_exit_addr.exit1120:            ; preds = %2019, %2029
 
 .thread1178:                                      ; preds = %jit_STUB_ADDR.exit1113
   %2043 = getelementptr inbounds i8, ptr %1, i64 32
-  call fastcc void @zend_jit_check_timeout.argelim(ptr noundef nonnull %0, ptr noundef nonnull %2043, ptr noundef null)
+  call fastcc void @zend_jit_check_timeout(ptr noundef nonnull %0, ptr noundef nonnull %2043, ptr noundef null)
   %2044 = load i8, ptr %157, align 4
   %.not8101179 = icmp eq i8 %2044, -127
   br i1 %.not8101179, label %.thread1180, label %.thread1180.sink.split
@@ -82990,7 +82990,7 @@ define internal fastcc i32 @zend_jit_trace_get_exit_point(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zend_jit_cmp.argelim(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, i64 noundef %7, i64 noundef %8, i32 noundef range(i32 0, 2) %9, i8 noundef zeroext %10, i32 noundef %11, i32 noundef %12, ptr noundef %13) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_cmp(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, i64 noundef %7, i64 noundef %8, i32 noundef range(i32 0, 2) %9, i8 noundef zeroext %10, i32 noundef %11, i32 noundef %12, ptr noundef %13) unnamed_addr #0 {
   %15 = icmp eq i64 %4, %7
   br i1 %15, label %27, label %16
 
@@ -83187,7 +83187,7 @@ zend_jit_use_reg.exit:                            ; preds = %zend_jit_use_reg.ex
   %.1440 = phi i32 [ %124, %119 ], [ 0, %117 ]
   %126 = getelementptr i8, ptr %1, i64 28
   %.val = load i8, ptr %126, align 4
-  %127 = tail call fastcc i32 @zend_jit_cmp_long_double.argprom(ptr noundef %0, i8 %.val, i64 noundef %4, i64 noundef %7, i64 noundef %8, i8 noundef zeroext %10, i32 noundef %11, i32 noundef %12, ptr noundef %13)
+  %127 = tail call fastcc i32 @zend_jit_cmp_long_double(ptr noundef %0, i8 %.val, i64 noundef %4, i64 noundef %7, i64 noundef %8, i8 noundef zeroext %10, i32 noundef %11, i32 noundef %12, ptr noundef %13)
   %.not491 = icmp eq i32 %127, 0
   br i1 %.not491, label %522, label %128
 
@@ -83210,7 +83210,7 @@ zend_jit_use_reg.exit:                            ; preds = %zend_jit_use_reg.ex
 134:                                              ; preds = %132, %109
   %135 = phi i32 [ 0, %109 ], [ %133, %132 ]
   %.0439 = phi i32 [ 0, %109 ], [ %.2, %132 ]
-  %136 = tail call fastcc i32 @zend_jit_cmp_long_long.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, ptr noundef %6, i64 noundef %7, i64 noundef %8, i8 noundef zeroext %10, i32 noundef %11, i32 noundef %12, ptr noundef %13)
+  %136 = tail call fastcc i32 @zend_jit_cmp_long_long(ptr noundef %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, ptr noundef %6, i64 noundef %7, i64 noundef %8, i8 noundef zeroext %10, i32 noundef %11, i32 noundef %12, ptr noundef %13)
   %.not492 = icmp eq i32 %136, 0
   br i1 %.not492, label %522, label %137
 
@@ -83310,7 +83310,7 @@ zend_jit_use_reg.exit:                            ; preds = %zend_jit_use_reg.ex
   %.4 = phi i32 [ %177, %172 ], [ %.3, %169 ]
   %179 = getelementptr i8, ptr %1, i64 28
   %.val533 = load i8, ptr %179, align 4
-  %180 = tail call fastcc i32 @zend_jit_cmp_double_long.argprom(ptr noundef %0, i8 %.val533, i64 noundef %4, i64 noundef %7, i64 noundef %8, i8 noundef zeroext %10, i32 noundef %11, i32 noundef %12, ptr noundef %13)
+  %180 = tail call fastcc i32 @zend_jit_cmp_double_long(ptr noundef %0, i8 %.val533, i64 noundef %4, i64 noundef %7, i64 noundef %8, i8 noundef zeroext %10, i32 noundef %11, i32 noundef %12, ptr noundef %13)
   %.not500 = icmp eq i32 %180, 0
   br i1 %.not500, label %522, label %181
 
@@ -83416,7 +83416,7 @@ zend_jit_use_reg.exit:                            ; preds = %zend_jit_use_reg.ex
   %.7 = phi i32 [ %222, %217 ], [ %.6, %214 ]
   %224 = getelementptr i8, ptr %1, i64 28
   %.val534 = load i8, ptr %224, align 4
-  %225 = tail call fastcc i32 @zend_jit_cmp_double_long.argprom(ptr noundef %0, i8 %.val534, i64 noundef %4, i64 noundef %7, i64 noundef %8, i8 noundef zeroext %10, i32 noundef %11, i32 noundef %12, ptr noundef %13)
+  %225 = tail call fastcc i32 @zend_jit_cmp_double_long(ptr noundef %0, i8 %.val534, i64 noundef %4, i64 noundef %7, i64 noundef %8, i8 noundef zeroext %10, i32 noundef %11, i32 noundef %12, ptr noundef %13)
   %.not476 = icmp eq i32 %225, 0
   br i1 %.not476, label %522, label %226
 
@@ -83514,7 +83514,7 @@ zend_jit_use_reg.exit:                            ; preds = %zend_jit_use_reg.ex
   %.9 = phi i32 [ %264, %259 ], [ %.8, %256 ]
   %266 = getelementptr i8, ptr %1, i64 28
   %.val532 = load i8, ptr %266, align 4
-  %267 = tail call fastcc i32 @zend_jit_cmp_long_double.argprom(ptr noundef %0, i8 %.val532, i64 noundef %4, i64 noundef %7, i64 noundef %8, i8 noundef zeroext %10, i32 noundef %11, i32 noundef %12, ptr noundef %13)
+  %267 = tail call fastcc i32 @zend_jit_cmp_long_double(ptr noundef %0, i8 %.val532, i64 noundef %4, i64 noundef %7, i64 noundef %8, i8 noundef zeroext %10, i32 noundef %11, i32 noundef %12, ptr noundef %13)
   %.not485 = icmp eq i32 %267, 0
   br i1 %.not485, label %522, label %268
 
@@ -83566,7 +83566,7 @@ zend_jit_use_reg.exit:                            ; preds = %zend_jit_use_reg.ex
   %287 = zext i32 %286 to i64
   %288 = shl nuw nsw i64 %287, 8
   %289 = or disjoint i64 %288, 57
-  tail call fastcc void @zend_jit_spill_store_inv.argelim(ptr noundef nonnull %0, i64 noundef %4, i64 noundef %289, i32 noundef %2)
+  tail call fastcc void @zend_jit_spill_store_inv(ptr noundef nonnull %0, i64 noundef %4, i64 noundef %289, i32 noundef %2)
   br label %290
 
 290:                                              ; preds = %284, %.thread583
@@ -83581,7 +83581,7 @@ zend_jit_use_reg.exit:                            ; preds = %zend_jit_use_reg.ex
   %296 = zext i32 %295 to i64
   %297 = shl nuw nsw i64 %296, 8
   %298 = or disjoint i64 %297, 57
-  tail call fastcc void @zend_jit_spill_store_inv.argelim(ptr noundef nonnull %0, i64 noundef %7, i64 noundef %298, i32 noundef %5)
+  tail call fastcc void @zend_jit_spill_store_inv(ptr noundef nonnull %0, i64 noundef %7, i64 noundef %298, i32 noundef %5)
   br label %299
 
 299:                                              ; preds = %293, %290
@@ -83736,10 +83736,10 @@ zend_jit_check_exception_undef_result.exit:       ; preds = %jit_EG_exception.ex
 379:                                              ; preds = %zend_jit_check_exception_undef_result.exit, %jit_FREE_OP.exit541
   %.val535 = load i8, ptr %342, align 4
   switch i8 %.val535, label %383 [
-    i8 18, label %zend_jit_cmp_op.argprom.exit.i
-    i8 16, label %zend_jit_cmp_op.argprom.exit.i
-    i8 48, label %zend_jit_cmp_op.argprom.exit.i
-    i8 -60, label %zend_jit_cmp_op.argprom.exit.i
+    i8 18, label %zend_jit_cmp_op.exit.i
+    i8 16, label %zend_jit_cmp_op.exit.i
+    i8 48, label %zend_jit_cmp_op.exit.i
+    i8 -60, label %zend_jit_cmp_op.exit.i
     i8 19, label %380
     i8 17, label %380
     i8 20, label %381
@@ -83747,18 +83747,18 @@ zend_jit_check_exception_undef_result.exit:       ; preds = %jit_EG_exception.ex
   ]
 
 380:                                              ; preds = %379, %379
-  br label %zend_jit_cmp_op.argprom.exit.i
+  br label %zend_jit_cmp_op.exit.i
 
 381:                                              ; preds = %379
-  br label %zend_jit_cmp_op.argprom.exit.i
+  br label %zend_jit_cmp_op.exit.i
 
 382:                                              ; preds = %379
-  br label %zend_jit_cmp_op.argprom.exit.i
+  br label %zend_jit_cmp_op.exit.i
 
 383:                                              ; preds = %379
   unreachable
 
-zend_jit_cmp_op.argprom.exit.i:                   ; preds = %382, %381, %380, %379, %379, %379, %379
+zend_jit_cmp_op.exit.i:                           ; preds = %382, %381, %380, %379, %379, %379, %379
   %.0.i.i544 = phi i32 [ 274, %382 ], [ 272, %381 ], [ 271, %380 ], [ 270, %379 ], [ 270, %379 ], [ 270, %379 ], [ 270, %379 ]
   %384 = tail call i32 @ir_const_i32(ptr noundef nonnull %0, i32 noundef 0) #33
   %385 = tail call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef %.0.i.i544, i32 noundef %341, i32 noundef %384) #33
@@ -83769,7 +83769,7 @@ zend_jit_cmp_op.argprom.exit.i:                   ; preds = %382, %381, %380, %3
     i8 0, label %387
   ]
 
-387:                                              ; preds = %zend_jit_cmp_op.argprom.exit.i, %zend_jit_cmp_op.argprom.exit.i, %zend_jit_cmp_op.argprom.exit.i
+387:                                              ; preds = %zend_jit_cmp_op.exit.i, %zend_jit_cmp_op.exit.i, %zend_jit_cmp_op.exit.i
   %388 = tail call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %8)
   %389 = tail call i32 @ir_fold1(ptr noundef nonnull %0, i32 noundef 1056, i32 noundef %385) #33
   %390 = tail call i32 @ir_const_u32(ptr noundef nonnull %0, i32 noundef 2) #33
@@ -83805,7 +83805,7 @@ jit_set_Z_TYPE_INFO_ref.exit.i:                   ; preds = %404, %396
   tail call void @_ir_STORE(ptr noundef nonnull %0, i32 noundef %407, i32 noundef %391) #33
   br label %408
 
-408:                                              ; preds = %jit_set_Z_TYPE_INFO_ref.exit.i, %zend_jit_cmp_op.argprom.exit.i
+408:                                              ; preds = %jit_set_Z_TYPE_INFO_ref.exit.i, %zend_jit_cmp_op.exit.i
   %.not.i545 = icmp eq ptr %13, null
   br i1 %.not.i545, label %444, label %409
 
@@ -83889,18 +83889,18 @@ jit_CONST_ADDR.exit49.i:                          ; preds = %441, %433
   %447 = select i1 %or.cond11.i, i32 %12, i32 %11
   %448 = tail call i32 @_ir_IF(ptr noundef nonnull %0, i32 noundef %385) #33
   tail call void @ir_set_op(ptr noundef nonnull %0, i32 noundef %448, i32 noundef 3, i32 noundef %447) #33
-  br label %zend_jit_cmp_slow.argprom.exit
+  br label %zend_jit_cmp_slow.exit
 
 449:                                              ; preds = %444, %jit_CONST_ADDR.exit49.i, %jit_CONST_ADDR.exit.i
   %450 = tail call i32 @_ir_END(ptr noundef nonnull %0) #33
-  br label %zend_jit_cmp_slow.argprom.exit
+  br label %zend_jit_cmp_slow.exit
 
-zend_jit_cmp_slow.argprom.exit:                   ; preds = %445, %449
+zend_jit_cmp_slow.exit:                           ; preds = %445, %449
   %.0.i = phi i32 [ %450, %449 ], [ %448, %445 ]
   %.not509 = icmp eq i32 %.0.i, 0
   br i1 %.not509, label %522, label %.thread566
 
-.thread566:                                       ; preds = %zend_jit_cmp_slow.argprom.exit
+.thread566:                                       ; preds = %zend_jit_cmp_slow.exit
   %451 = getelementptr inbounds i8, ptr %35, i64 8
   %452 = add nuw nsw i32 %.pr580587, 1
   store i32 %452, ptr %35, align 16
@@ -84036,8 +84036,8 @@ zend_jit_cmp_slow.argprom.exit:                   ; preds = %445, %449
   store i32 -1, ptr %519, align 8
   br label %522
 
-522:                                              ; preds = %514, %513, %518, %.thread588, %zend_jit_cmp_slow.argprom.exit, %265, %250, %223, %208, %178, %161, %134, %125
-  %.0432 = phi i32 [ 0, %125 ], [ 0, %134 ], [ 0, %161 ], [ 0, %178 ], [ 0, %208 ], [ 0, %223 ], [ 0, %250 ], [ 0, %265 ], [ 0, %zend_jit_cmp_slow.argprom.exit ], [ 1, %.thread588 ], [ 1, %518 ], [ 1, %513 ], [ 1, %514 ]
+522:                                              ; preds = %514, %513, %518, %.thread588, %zend_jit_cmp_slow.exit, %265, %250, %223, %208, %178, %161, %134, %125
+  %.0432 = phi i32 [ 0, %125 ], [ 0, %134 ], [ 0, %161 ], [ 0, %178 ], [ 0, %208 ], [ 0, %223 ], [ 0, %250 ], [ 0, %265 ], [ 0, %zend_jit_cmp_slow.exit ], [ 1, %.thread588 ], [ 1, %518 ], [ 1, %513 ], [ 1, %514 ]
   ret i32 %.0432
 }
 
@@ -84725,7 +84725,7 @@ define internal fastcc void @zend_jit_trace_update_condition_ranges(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zend_jit_identical.argelim(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, i64 noundef %7, i64 noundef %8, i32 noundef range(i32 0, 2) %9, i8 noundef zeroext %10, i32 noundef %11, i32 noundef %12, ptr noundef %13) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_identical(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, i64 noundef %7, i64 noundef %8, i32 noundef range(i32 0, 2) %9, i8 noundef zeroext %10, i32 noundef %11, i32 noundef %12, ptr noundef %13) unnamed_addr #0 {
   %15 = getelementptr inbounds i8, ptr %1, i64 29
   %16 = load i8, ptr %15, align 1
   %17 = icmp ne i8 %16, 8
@@ -85253,7 +85253,7 @@ jit_CONST_ADDR.exit493:                           ; preds = %263, %271
   br i1 %or.cond469, label %307, label %309
 
 307:                                              ; preds = %302
-  %308 = tail call fastcc i32 @zend_jit_cmp_long_long.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %3, i64 noundef %.1, ptr noundef %6, i64 noundef %.1419, i64 noundef %8, i8 noundef zeroext %10, i32 noundef %11, i32 noundef %12, ptr noundef %13)
+  %308 = tail call fastcc i32 @zend_jit_cmp_long_long(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %3, i64 noundef %.1, ptr noundef %6, i64 noundef %.1419, i64 noundef %8, i8 noundef zeroext %10, i32 noundef %11, i32 noundef %12, ptr noundef %13)
   %.not449 = icmp eq i32 %308, 0
   br i1 %.not449, label %.thread516, label %515
 
@@ -85282,7 +85282,7 @@ jit_CONST_ADDR.exit493:                           ; preds = %263, %271
   %321 = zext i32 %320 to i64
   %322 = shl nuw nsw i64 %321, 8
   %323 = or disjoint i64 %322, 57
-  tail call fastcc void @zend_jit_spill_store_inv.argelim(ptr noundef nonnull %0, i64 noundef %.1, i64 noundef %323, i32 noundef %.0415)
+  tail call fastcc void @zend_jit_spill_store_inv(ptr noundef nonnull %0, i64 noundef %.1, i64 noundef %323, i32 noundef %.0415)
   br label %324
 
 324:                                              ; preds = %318, %314
@@ -85300,7 +85300,7 @@ jit_CONST_ADDR.exit493:                           ; preds = %263, %271
   %331 = zext i32 %330 to i64
   %332 = shl nuw nsw i64 %331, 8
   %333 = or disjoint i64 %332, 57
-  tail call fastcc void @zend_jit_spill_store_inv.argelim(ptr noundef nonnull %0, i64 noundef %.1419, i64 noundef %333, i32 noundef %.0417)
+  tail call fastcc void @zend_jit_spill_store_inv(ptr noundef nonnull %0, i64 noundef %.1419, i64 noundef %333, i32 noundef %.0417)
   br label %334
 
 334:                                              ; preds = %328, %324
@@ -85350,7 +85350,7 @@ jit_CONST_ADDR.exit493:                           ; preds = %263, %271
   %364 = zext i32 %363 to i64
   %365 = shl nuw nsw i64 %364, 8
   %366 = or disjoint i64 %365, 57
-  tail call fastcc void @zend_jit_spill_store_inv.argelim(ptr noundef nonnull %0, i64 noundef %.2, i64 noundef %366, i32 noundef %.0415)
+  tail call fastcc void @zend_jit_spill_store_inv(ptr noundef nonnull %0, i64 noundef %.2, i64 noundef %366, i32 noundef %.0415)
   br label %367
 
 367:                                              ; preds = %361, %359
@@ -85363,7 +85363,7 @@ jit_CONST_ADDR.exit493:                           ; preds = %263, %271
   %371 = zext i32 %370 to i64
   %372 = shl nuw nsw i64 %371, 8
   %373 = or disjoint i64 %372, 57
-  tail call fastcc void @zend_jit_spill_store_inv.argelim(ptr noundef nonnull %0, i64 noundef %.1419, i64 noundef %373, i32 noundef %.0417)
+  tail call fastcc void @zend_jit_spill_store_inv(ptr noundef nonnull %0, i64 noundef %.1419, i64 noundef %373, i32 noundef %.0417)
   br label %374
 
 374:                                              ; preds = %368, %367
@@ -85692,7 +85692,7 @@ jit_CONST_ADDR.exit508:                           ; preds = %493, %501
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_defined.argelim(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @zend_jit_defined(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
@@ -86342,7 +86342,7 @@ jit_set_Z_TYPE_INFO_ref.exit:                     ; preds = %333, %341
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_type_check.argelim(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @zend_jit_type_check(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %1, i64 29
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 1
@@ -87152,7 +87152,7 @@ define internal fastcc range(i32 0, 2) i32 @zend_jit_trace_handler(ptr noundef n
   %15 = getelementptr inbounds i8, ptr %2, i64 %14
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
-  tail call fastcc void @zend_jit_set_ip.argelim(ptr noundef %0, ptr noundef %2)
+  tail call fastcc void @zend_jit_set_ip(ptr noundef %0, ptr noundef %2)
   %18 = getelementptr inbounds i8, ptr %0, i64 248
   %19 = load i32, ptr %18, align 8
   %20 = icmp ne i32 %19, 0
@@ -87343,7 +87343,7 @@ jit_CONST_ADDR.exit:                              ; preds = %91, %99
 103:                                              ; preds = %.loopexit227, %jit_CONST_ADDR.exit, %81
   %104 = getelementptr inbounds i8, ptr %2, i64 28
   %105 = load i8, ptr %104, align 4
-  switch i8 %105, label %zend_jit_trace_may_exit.argprom.exit.thread224 [
+  switch i8 %105, label %zend_jit_trace_may_exit.exit.thread224 [
     i8 16, label %106
     i8 17, label %106
     i8 18, label %106
@@ -87362,35 +87362,35 @@ jit_CONST_ADDR.exit:                              ; preds = %91, %99
     i8 122, label %106
     i8 -67, label %106
     i8 -62, label %106
-    i8 43, label %zend_jit_trace_may_exit.argprom.exit.thread
-    i8 44, label %zend_jit_trace_may_exit.argprom.exit.thread
-    i8 46, label %zend_jit_trace_may_exit.argprom.exit.thread
-    i8 47, label %zend_jit_trace_may_exit.argprom.exit.thread
-    i8 -104, label %zend_jit_trace_may_exit.argprom.exit.thread
-    i8 -87, label %zend_jit_trace_may_exit.argprom.exit.thread
-    i8 -58, label %zend_jit_trace_may_exit.argprom.exit.thread
-    i8 77, label %zend_jit_trace_may_exit.argprom.exit.thread
-    i8 125, label %zend_jit_trace_may_exit.argprom.exit.thread
-    i8 -105, label %zend_jit_trace_may_exit.argprom.exit.thread
-    i8 78, label %zend_jit_trace_may_exit.argprom.exit.thread
-    i8 126, label %zend_jit_trace_may_exit.argprom.exit.thread
-    i8 -69, label %zend_jit_trace_may_exit.argprom.exit.thread
-    i8 -68, label %zend_jit_trace_may_exit.argprom.exit.thread
-    i8 -61, label %zend_jit_trace_may_exit.argprom.exit.thread
-    i8 -53, label %zend_jit_trace_may_exit.argprom.exit.thread
-    i8 -48, label %zend_jit_trace_may_exit.argprom.exit.thread
+    i8 43, label %zend_jit_trace_may_exit.exit.thread
+    i8 44, label %zend_jit_trace_may_exit.exit.thread
+    i8 46, label %zend_jit_trace_may_exit.exit.thread
+    i8 47, label %zend_jit_trace_may_exit.exit.thread
+    i8 -104, label %zend_jit_trace_may_exit.exit.thread
+    i8 -87, label %zend_jit_trace_may_exit.exit.thread
+    i8 -58, label %zend_jit_trace_may_exit.exit.thread
+    i8 77, label %zend_jit_trace_may_exit.exit.thread
+    i8 125, label %zend_jit_trace_may_exit.exit.thread
+    i8 -105, label %zend_jit_trace_may_exit.exit.thread
+    i8 78, label %zend_jit_trace_may_exit.exit.thread
+    i8 126, label %zend_jit_trace_may_exit.exit.thread
+    i8 -69, label %zend_jit_trace_may_exit.exit.thread
+    i8 -68, label %zend_jit_trace_may_exit.exit.thread
+    i8 -61, label %zend_jit_trace_may_exit.exit.thread
+    i8 -53, label %zend_jit_trace_may_exit.exit.thread
+    i8 -48, label %zend_jit_trace_may_exit.exit.thread
     i8 68, label %110
-    i8 107, label %zend_jit_trace_may_exit.argprom.exit.thread
-    i8 -94, label %zend_jit_trace_may_exit.argprom.exit.thread
-    i8 -93, label %zend_jit_trace_may_exit.argprom.exit.thread
-    i8 -117, label %zend_jit_trace_may_exit.argprom.exit.thread
-    i8 -95, label %zend_jit_trace_may_exit.argprom.exit.thread
-    i8 79, label %zend_jit_trace_may_exit.argprom.exit.thread
-    i8 -96, label %zend_jit_trace_may_exit.argprom.exit.thread
-    i8 -90, label %zend_jit_trace_may_exit.argprom.exit.thread
-    i8 73, label %zend_jit_trace_may_exit.argprom.exit.thread
-    i8 -59, label %zend_jit_trace_may_exit.argprom.exit.thread
-    i8 60, label %zend_jit_trace_may_exit.argprom.exit.thread
+    i8 107, label %zend_jit_trace_may_exit.exit.thread
+    i8 -94, label %zend_jit_trace_may_exit.exit.thread
+    i8 -93, label %zend_jit_trace_may_exit.exit.thread
+    i8 -117, label %zend_jit_trace_may_exit.exit.thread
+    i8 -95, label %zend_jit_trace_may_exit.exit.thread
+    i8 79, label %zend_jit_trace_may_exit.exit.thread
+    i8 -96, label %zend_jit_trace_may_exit.exit.thread
+    i8 -90, label %zend_jit_trace_may_exit.exit.thread
+    i8 73, label %zend_jit_trace_may_exit.exit.thread
+    i8 -59, label %zend_jit_trace_may_exit.exit.thread
+    i8 60, label %zend_jit_trace_may_exit.exit.thread
     i8 111, label %118
     i8 62, label %118
   ]
@@ -87400,34 +87400,34 @@ jit_CONST_ADDR.exit:                              ; preds = %91, %99
   %108 = load i8, ptr %107, align 1
   %109 = and i8 %108, 48
   %.not5.i = icmp eq i8 %109, 0
-  br i1 %.not5.i, label %zend_jit_trace_may_exit.argprom.exit.thread224, label %zend_jit_trace_may_exit.argprom.exit.thread
+  br i1 %.not5.i, label %zend_jit_trace_may_exit.exit.thread224, label %zend_jit_trace_may_exit.exit.thread
 
 110:                                              ; preds = %103
   %111 = getelementptr inbounds i8, ptr %2, i64 20
   %112 = load i32, ptr %111, align 4
   %113 = icmp eq i32 %112, 0
-  br i1 %113, label %114, label %zend_jit_trace_may_exit.argprom.exit.thread224
+  br i1 %113, label %114, label %zend_jit_trace_may_exit.exit.thread224
 
 114:                                              ; preds = %110
   %115 = getelementptr inbounds i8, ptr %2, i64 60
   %116 = load i8, ptr %115, align 4
   %117 = icmp eq i8 %116, 60
-  br i1 %117, label %zend_jit_trace_may_exit.argprom.exit.thread.thread, label %zend_jit_trace_may_exit.argprom.exit.thread224
+  br i1 %117, label %zend_jit_trace_may_exit.exit.thread.thread, label %zend_jit_trace_may_exit.exit.thread224
 
 118:                                              ; preds = %103, %103
   %119 = load ptr, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 184), align 8
   %.not.i = icmp eq ptr %119, null
-  br i1 %.not.i, label %zend_jit_trace_may_exit.argprom.exit.thread, label %zend_jit_trace_may_exit.argprom.exit
+  br i1 %.not.i, label %zend_jit_trace_may_exit.exit.thread, label %zend_jit_trace_may_exit.exit
 
-zend_jit_trace_may_exit.argprom.exit:             ; preds = %118
+zend_jit_trace_may_exit.exit:                     ; preds = %118
   %120 = getelementptr inbounds i8, ptr %119, i64 44
   %121 = load i32, ptr %120, align 4
   %122 = and i32 %121, 64
   %.not190 = icmp eq i32 %122, 0
-  br i1 %.not190, label %zend_jit_trace_may_exit.argprom.exit.thread224, label %zend_jit_trace_may_exit.argprom.exit.thread
+  br i1 %.not190, label %zend_jit_trace_may_exit.exit.thread224, label %zend_jit_trace_may_exit.exit.thread
 
-zend_jit_trace_may_exit.argprom.exit.thread:      ; preds = %118, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %106, %zend_jit_trace_may_exit.argprom.exit
-  switch i8 %105, label %zend_jit_trace_may_exit.argprom.exit.thread.thread [
+zend_jit_trace_may_exit.exit.thread:              ; preds = %118, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %103, %106, %zend_jit_trace_may_exit.exit
+  switch i8 %105, label %zend_jit_trace_may_exit.exit.thread.thread [
     i8 62, label %123
     i8 111, label %123
     i8 -117, label %123
@@ -87437,7 +87437,7 @@ zend_jit_trace_may_exit.argprom.exit.thread:      ; preds = %118, %103, %103, %1
     i8 -90, label %168
   ]
 
-123:                                              ; preds = %zend_jit_trace_may_exit.argprom.exit.thread, %zend_jit_trace_may_exit.argprom.exit.thread, %zend_jit_trace_may_exit.argprom.exit.thread
+123:                                              ; preds = %zend_jit_trace_may_exit.exit.thread, %zend_jit_trace_may_exit.exit.thread, %zend_jit_trace_may_exit.exit.thread
   %124 = load i32, ptr @zend_jit_vm_kind, align 4
   %125 = icmp eq i32 %124, 4
   br i1 %125, label %126, label %159
@@ -87452,7 +87452,7 @@ zend_jit_trace_may_exit.argprom.exit.thread:      ; preds = %118, %103, %103, %1
   %130 = load i8, ptr %129, align 1
   %.off = add i8 %130, -3
   %switch = icmp ult i8 %.off, 2
-  br i1 %switch, label %zend_jit_trace_may_exit.argprom.exit.thread.thread, label %131
+  br i1 %switch, label %zend_jit_trace_may_exit.exit.thread.thread, label %131
 
 131:                                              ; preds = %128, %126
   %132 = tail call i32 @_ir_RLOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef 15) #33
@@ -87505,7 +87505,7 @@ jit_CONST_ADDR.exit206:                           ; preds = %131, %141, %149
 jit_STUB_ADDR.exit:                               ; preds = %jit_CONST_ADDR.exit206, %155
   %.0.i208 = phi i32 [ %158, %155 ], [ %154, %jit_CONST_ADDR.exit206 ]
   tail call void @_ir_GUARD(ptr noundef nonnull %0, i32 noundef %152, i32 noundef %.0.i208) #33
-  br label %zend_jit_trace_may_exit.argprom.exit.thread.thread
+  br label %zend_jit_trace_may_exit.exit.thread.thread
 
 159:                                              ; preds = %123
   %160 = tail call i32 @ir_const_i32(ptr noundef nonnull %0, i32 noundef 0) #33
@@ -87525,9 +87525,9 @@ jit_STUB_ADDR.exit:                               ; preds = %jit_CONST_ADDR.exit
 jit_STUB_ADDR.exit211:                            ; preds = %159, %164
   %.0.i210 = phi i32 [ %167, %164 ], [ %163, %159 ]
   tail call void @_ir_GUARD(ptr noundef nonnull %0, i32 noundef %161, i32 noundef %.0.i210) #33
-  br label %zend_jit_trace_may_exit.argprom.exit.thread.thread
+  br label %zend_jit_trace_may_exit.exit.thread.thread
 
-168:                                              ; preds = %zend_jit_trace_may_exit.argprom.exit.thread, %zend_jit_trace_may_exit.argprom.exit.thread, %zend_jit_trace_may_exit.argprom.exit.thread, %zend_jit_trace_may_exit.argprom.exit.thread
+168:                                              ; preds = %zend_jit_trace_may_exit.exit.thread, %zend_jit_trace_may_exit.exit.thread, %zend_jit_trace_may_exit.exit.thread, %zend_jit_trace_may_exit.exit.thread
   %169 = getelementptr inbounds i8, ptr %0, i64 944
   %170 = load i32, ptr %169, align 4
   %.not.i212 = icmp eq i32 %170, 0
@@ -87544,21 +87544,21 @@ jit_STUB_ADDR.exit214:                            ; preds = %168, %171
   %.0.i213 = phi i32 [ %174, %171 ], [ %170, %168 ]
   tail call void @_ir_IJMP(ptr noundef nonnull %0, i32 noundef %.0.i213) #33
   tail call void @_ir_BEGIN(ptr noundef nonnull %0, i32 noundef 0) #33
-  br label %zend_jit_trace_may_exit.argprom.exit.thread.thread
+  br label %zend_jit_trace_may_exit.exit.thread.thread
 
-zend_jit_trace_may_exit.argprom.exit.thread.thread: ; preds = %114, %128, %zend_jit_trace_may_exit.argprom.exit.thread, %jit_STUB_ADDR.exit214, %jit_STUB_ADDR.exit211, %jit_STUB_ADDR.exit
+zend_jit_trace_may_exit.exit.thread.thread:       ; preds = %114, %128, %zend_jit_trace_may_exit.exit.thread, %jit_STUB_ADDR.exit214, %jit_STUB_ADDR.exit211, %jit_STUB_ADDR.exit
   %175 = load i8, ptr %.0166, align 8
   %.not194 = icmp eq i8 %175, 8
   br i1 %.not194, label %176, label %179
 
-176:                                              ; preds = %zend_jit_trace_may_exit.argprom.exit.thread.thread
+176:                                              ; preds = %zend_jit_trace_may_exit.exit.thread.thread
   %177 = getelementptr inbounds i8, ptr %.0166, i64 2
   %178 = load i8, ptr %177, align 1
   %.off200 = add i8 %178, -3
   %switch201 = icmp ult i8 %.off200, 2
-  br i1 %switch201, label %zend_jit_trace_may_exit.argprom.exit.thread224, label %179
+  br i1 %switch201, label %zend_jit_trace_may_exit.exit.thread224, label %179
 
-179:                                              ; preds = %176, %zend_jit_trace_may_exit.argprom.exit.thread.thread
+179:                                              ; preds = %176, %zend_jit_trace_may_exit.exit.thread.thread
   %180 = getelementptr inbounds i8, ptr %.0166, i64 8
   %181 = load ptr, ptr %180, align 8
   %182 = load ptr, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 184), align 8
@@ -87986,15 +87986,15 @@ zend_jit_trace_get_exit_addr.exit:                ; preds = %332, %328, %352, %3
 jit_CONST_ADDR.exit221:                           ; preds = %419, %427
   %.0.i219 = phi i32 [ %421, %419 ], [ %428, %427 ]
   call void @_ir_GUARD(ptr noundef nonnull %0, i32 noundef %413, i32 noundef %.0.i219) #33
-  br label %zend_jit_trace_may_exit.argprom.exit.thread224
+  br label %zend_jit_trace_may_exit.exit.thread224
 
-zend_jit_trace_may_exit.argprom.exit.thread224:   ; preds = %114, %110, %106, %103, %176, %jit_CONST_ADDR.exit221, %zend_jit_trace_may_exit.argprom.exit
+zend_jit_trace_may_exit.exit.thread224:           ; preds = %114, %110, %106, %103, %176, %jit_CONST_ADDR.exit221, %zend_jit_trace_may_exit.exit
   %430 = getelementptr inbounds i8, ptr %0, i64 690
   %431 = load i8, ptr %430, align 2
   %432 = trunc i8 %431 to i1
   br i1 %432, label %zend_jit_set_last_valid_opline.exit, label %433
 
-433:                                              ; preds = %zend_jit_trace_may_exit.argprom.exit.thread224
+433:                                              ; preds = %zend_jit_trace_may_exit.exit.thread224
   %434 = getelementptr inbounds i8, ptr %.0166, i64 8
   %435 = load ptr, ptr %434, align 8
   %436 = getelementptr inbounds i8, ptr %0, i64 689
@@ -88003,13 +88003,13 @@ zend_jit_trace_may_exit.argprom.exit.thread224:   ; preds = %114, %110, %106, %1
   store ptr %435, ptr %437, align 8
   br label %zend_jit_set_last_valid_opline.exit
 
-zend_jit_set_last_valid_opline.exit:              ; preds = %433, %zend_jit_trace_may_exit.argprom.exit.thread224, %389
-  %.0165 = phi i32 [ 0, %389 ], [ 1, %zend_jit_trace_may_exit.argprom.exit.thread224 ], [ 1, %433 ]
+zend_jit_set_last_valid_opline.exit:              ; preds = %433, %zend_jit_trace_may_exit.exit.thread224, %389
+  %.0165 = phi i32 [ 0, %389 ], [ 1, %zend_jit_trace_may_exit.exit.thread224 ], [ 1, %433 ]
   ret i32 %.0165
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_return.argelim(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc void @zend_jit_return(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i64 noundef %4) unnamed_addr #0 {
   %6 = load i8, ptr %2, align 8
   %7 = icmp ne i8 %6, 4
   tail call void @llvm.assume(i1 %7)
@@ -88063,7 +88063,7 @@ define internal fastcc void @zend_jit_return.argelim(ptr noundef nonnull %0, ptr
   %33 = zext i32 %32 to i64
   %34 = shl nuw nsw i64 %33, 8
   %35 = or disjoint i64 %34, 57
-  tail call fastcc void @zend_jit_spill_store_inv.argelim(ptr noundef nonnull %0, i64 noundef %4, i64 noundef %35, i32 noundef %3)
+  tail call fastcc void @zend_jit_spill_store_inv(ptr noundef nonnull %0, i64 noundef %4, i64 noundef %35, i32 noundef %3)
   br label %36
 
 36:                                               ; preds = %30, %27
@@ -88390,7 +88390,7 @@ jit_Z_PTR.exit:                                   ; preds = %140, %150, %158, %1
   %196 = load i32, ptr %195, align 8
   %197 = sext i32 %196 to i64
   %198 = getelementptr inbounds i8, ptr %1, i64 %197
-  tail call fastcc void @jit_ZVAL_COPY_CONST.argelim(ptr noundef nonnull %0, i64 noundef %121, i32 noundef 1022, i32 noundef 1022, ptr noundef %198)
+  tail call fastcc void @jit_ZVAL_COPY_CONST(ptr noundef nonnull %0, i64 noundef %121, i32 noundef 1022, i32 noundef 1022, ptr noundef %198)
   br label %309
 
 199:                                              ; preds = %192
@@ -88573,7 +88573,7 @@ jit_ADD_OFFSET.exit228:                           ; preds = %255, %263
   %298 = load i16, ptr %297, align 2
   %299 = icmp eq i16 %298, 0
   tail call void @llvm.assume(i1 %299)
-  br label %jit_EFREE.argprom.exit
+  br label %jit_EFREE.exit
 
 300:                                              ; preds = %jit_ADD_OFFSET.exit228
   %301 = tail call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef ptrtoint (ptr @_efree_32 to i64)) #33
@@ -88583,9 +88583,9 @@ jit_ADD_OFFSET.exit228:                           ; preds = %255, %263
   store i32 1601, ptr %304, align 8
   store i64 %303, ptr %285, align 8
   store i32 4, ptr %286, align 8
-  br label %jit_EFREE.argprom.exit
+  br label %jit_EFREE.exit
 
-jit_EFREE.argprom.exit:                           ; preds = %289, %300
+jit_EFREE.exit:                                   ; preds = %289, %300
   %.0.i.i.i = phi i32 [ %291, %289 ], [ %301, %300 ]
   %305 = tail call i32 @_ir_CALL_1(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i.i, i32 noundef %.0.i222) #33
   %306 = load i32, ptr %275, align 4
@@ -88594,7 +88594,7 @@ jit_EFREE.argprom.exit:                           ; preds = %289, %300
   tail call void @_ir_IF_FALSE(ptr noundef nonnull %0, i32 noundef %224) #33
   br label %308
 
-308:                                              ; preds = %jit_EFREE.argprom.exit, %218
+308:                                              ; preds = %jit_EFREE.exit, %218
   tail call fastcc void @jit_ZVAL_COPY(ptr noundef nonnull %0, i64 noundef %121, i32 noundef 1022, i64 noundef %.0182, i32 noundef %3, i1 noundef zeroext false)
   br label %309
 
@@ -88628,7 +88628,7 @@ jit_EFREE.argprom.exit:                           ; preds = %289, %300
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_free_cvs.argelim(ptr noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @zend_jit_free_cvs(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 808
   %3 = tail call ptr @zend_hash_index_lookup(ptr noundef nonnull %2, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488) to i64)) #33
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -88804,7 +88804,7 @@ jit_FP.exit16:                                    ; preds = %87, %.preheader.i11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_leave_frame.argelim(ptr noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @zend_jit_leave_frame(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 808
   %3 = tail call ptr @zend_hash_index_lookup(ptr noundef nonnull %2, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488) to i64)) #33
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -88907,7 +88907,7 @@ jit_ADD_OFFSET.exit:                              ; preds = %42, %50
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_free_cv.argelim(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @zend_jit_free_cv(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = and i32 %1, 1984
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %11, label %5
@@ -88926,7 +88926,7 @@ define internal fastcc void @zend_jit_free_cv.argelim(ptr noundef nonnull %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_leave_func.argelim(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef readonly %5, ptr nocapture noundef %6, i32 noundef range(i32 0, 2) %7, i32 noundef range(i32 0, 2) %8) unnamed_addr #0 {
+define internal fastcc void @zend_jit_leave_func(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef readonly %5, ptr nocapture noundef %6, i32 noundef range(i32 0, 2) %7, i32 noundef range(i32 0, 2) %8) unnamed_addr #0 {
   %10 = zext i1 %4 to i8
   %11 = load i8, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 2), align 2
   %12 = icmp eq i8 %11, 5
@@ -89009,7 +89009,7 @@ define internal fastcc void @zend_jit_leave_func.argelim(ptr noundef nonnull %0,
   br i1 %4, label %55, label %54
 
 54:                                               ; preds = %53
-  tail call fastcc void @zend_jit_leave_frame.argelim(ptr noundef %0)
+  tail call fastcc void @zend_jit_leave_frame(ptr noundef %0)
   br label %55
 
 55:                                               ; preds = %54, %53
@@ -89261,7 +89261,7 @@ jit_STUB_ADDR.exit242:                            ; preds = %168, %171
   br i1 %180, label %182, label %181
 
 181:                                              ; preds = %179
-  tail call fastcc void @zend_jit_leave_frame.argelim(ptr noundef %0)
+  tail call fastcc void @zend_jit_leave_frame(ptr noundef %0)
   br label %182
 
 182:                                              ; preds = %181, %179
@@ -89375,7 +89375,7 @@ jit_ADD_OFFSET.exit256:                           ; preds = %225, %233
   br i1 %239, label %241, label %240
 
 240:                                              ; preds = %238
-  tail call fastcc void @zend_jit_leave_frame.argelim(ptr noundef %0)
+  tail call fastcc void @zend_jit_leave_frame(ptr noundef %0)
   br label %241
 
 241:                                              ; preds = %240, %238
@@ -90329,7 +90329,7 @@ zend_jit_set_last_valid_opline.exit:              ; preds = %617, %613, %jit_STU
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_bool_jmpznz.argelim(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7, i8 noundef zeroext %8, ptr noundef %9) unnamed_addr #0 {
+define internal fastcc void @zend_jit_bool_jmpznz(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7, i8 noundef zeroext %8, ptr noundef %9) unnamed_addr #0 {
   switch i8 %8, label %14 [
     i8 52, label %16
     i8 14, label %.fold.split
@@ -91505,7 +91505,7 @@ switch.early.test:                                ; preds = %.thread530, %551
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_jmp_frameless.argelim(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 {
+define internal fastcc void @zend_jit_jmp_frameless(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 248
   %6 = load i32, ptr %5, align 8
   %7 = icmp ne i32 %6, 0
@@ -91762,7 +91762,7 @@ jit_CONST_ADDR.exit59:                            ; preds = %119, %127
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_isset_isempty_cv.argelim(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i8 noundef zeroext %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc void @zend_jit_isset_isempty_cv(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i8 noundef zeroext %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %1, i64 31
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 1
@@ -92066,7 +92066,7 @@ jit_set_Z_TYPE_INFO_ref.exit:                     ; preds = %147, %155
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_in_array.argelim(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2, i64 noundef %3, i8 noundef zeroext %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc void @zend_jit_in_array(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2, i64 noundef %3, i8 noundef zeroext %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %1, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
@@ -93094,7 +93094,7 @@ jit_Z_PTR.exit:                                   ; preds = %306, %317, %325, %3
   %412 = sext i32 %400 to i64
   %413 = shl nsw i64 %412, 8
   %414 = or disjoint i64 %413, 57
-  call fastcc void @zend_jit_spill_store.argelim(ptr noundef %0, i64 noundef %9, i64 noundef %414, i32 noundef %.0364, i1 noundef zeroext true)
+  call fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %9, i64 noundef %414, i32 noundef %.0364, i1 noundef zeroext true)
   br label %zend_jit_store_var_if_necessary.exit
 
 415:                                              ; preds = %342
@@ -93104,7 +93104,7 @@ jit_Z_PTR.exit:                                   ; preds = %306, %317, %325, %3
 
 417:                                              ; preds = %415
   %418 = call fastcc i32 @jit_Z_TYPE_INFO(ptr noundef nonnull %0, i64 noundef %349)
-  call fastcc void @zend_jit_zval_copy_deref.argelim(ptr noundef %0, i64 noundef %9, i64 noundef %349, i32 noundef %418)
+  call fastcc void @zend_jit_zval_copy_deref(ptr noundef %0, i64 noundef %9, i64 noundef %349, i32 noundef %418)
   br label %zend_jit_store_var_if_necessary.exit
 
 419:                                              ; preds = %415
@@ -95169,7 +95169,7 @@ jit_set_Z_TYPE_INFO.exit263:                      ; preds = %368, %377
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zend_jit_fetch_obj.argelim(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i64 noundef %6, i1 noundef zeroext %7, ptr noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11, i1 noundef zeroext %12, ptr noundef %13, i32 noundef range(i32 0, 2) %14) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_fetch_obj(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i64 noundef %6, i1 noundef zeroext %7, ptr noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11, i1 noundef zeroext %12, ptr noundef %13, i32 noundef range(i32 0, 2) %14) unnamed_addr #0 {
   %16 = alloca i64, align 8
   %17 = alloca %struct._ir_code_buffer, align 8
   %18 = alloca i64, align 8
@@ -97198,7 +97198,7 @@ jit_CONST_FUNC.exit848:                           ; preds = %1079, %1090
 
 1183:                                             ; preds = %1116
   %1184 = call fastcc i32 @jit_Z_TYPE_INFO(ptr noundef nonnull %0, i64 noundef %.0632)
-  call fastcc void @zend_jit_zval_copy_deref.argelim(ptr noundef %0, i64 noundef %24, i64 noundef %.0632, i32 noundef %1184)
+  call fastcc void @zend_jit_zval_copy_deref(ptr noundef %0, i64 noundef %24, i64 noundef %.0632, i32 noundef %1184)
   br label %1185
 
 1185:                                             ; preds = %1174, %1183, %1108, %1102
@@ -97524,7 +97524,7 @@ zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %86, %797, %1344, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_bind_global.argelim(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @zend_jit_bind_global(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 29
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 1
@@ -98471,7 +98471,7 @@ jit_STUB_ADDR.exit:                               ; preds = %jit_FP.exit81, %218
   br i1 %.not5892, label %.thread97, label %223
 
 223:                                              ; preds = %jit_CONST_ADDR.exit, %jit_STUB_ADDR.exit, %222
-  call fastcc void @zend_jit_verify_arg_type.argelim(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.04889, i1 noundef zeroext true)
+  call fastcc void @zend_jit_verify_arg_type(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.04889, i1 noundef zeroext true)
   br label %.thread97
 
 .thread97:                                        ; preds = %47, %43, %.thread, %jit_CONST_ADDR.exit, %jit_STUB_ADDR.exit, %222, %223, %zend_jit_trace_get_exit_addr.exit
@@ -98480,7 +98480,7 @@ jit_STUB_ADDR.exit:                               ; preds = %jit_FP.exit81, %218
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_recv_init.argelim(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc void @zend_jit_recv_init(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 12
@@ -98511,7 +98511,7 @@ define internal fastcc void @zend_jit_recv_init.argelim(ptr noundef nonnull %0, 
   br i1 %26, label %27, label %76
 
 27:                                               ; preds = %25
-  tail call fastcc void @jit_ZVAL_COPY_CONST.argelim(ptr noundef nonnull %0, i64 noundef %15, i32 noundef -1, i32 noundef -1, ptr noundef nonnull %10)
+  tail call fastcc void @jit_ZVAL_COPY_CONST(ptr noundef nonnull %0, i64 noundef %15, i32 noundef -1, i32 noundef -1, ptr noundef nonnull %10)
   br label %76
 
 28:                                               ; preds = %4
@@ -98605,7 +98605,7 @@ jit_ADD_OFFSET.exit:                              ; preds = %58, %66
 
 75:                                               ; preds = %jit_ADD_OFFSET.exit, %.thread
   %.1 = phi i32 [ %74, %jit_ADD_OFFSET.exit ], [ 0, %.thread ]
-  tail call fastcc void @jit_ZVAL_COPY_CONST.argelim(ptr noundef nonnull %0, i64 noundef %15, i32 noundef -1, i32 noundef -1, ptr noundef %10)
+  tail call fastcc void @jit_ZVAL_COPY_CONST(ptr noundef nonnull %0, i64 noundef %15, i32 noundef -1, i32 noundef -1, ptr noundef %10)
   br label %76
 
 76:                                               ; preds = %25, %27, %75
@@ -98818,7 +98818,7 @@ jit_STUB_ADDR.exit:                               ; preds = %jit_ADD_OFFSET.exit
 
 185:                                              ; preds = %179
   %186 = icmp ne i32 %3, 0
-  tail call fastcc void @zend_jit_verify_arg_type.argelim(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %181, i1 noundef zeroext %186)
+  tail call fastcc void @zend_jit_verify_arg_type(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %181, i1 noundef zeroext %186)
   br label %187
 
 187:                                              ; preds = %168, %179, %177, %185
@@ -98826,7 +98826,7 @@ jit_STUB_ADDR.exit:                               ; preds = %jit_ADD_OFFSET.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_free.argelim(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc void @zend_jit_free(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 29
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 1
@@ -99036,7 +99036,7 @@ zend_jit_check_exception.exit:                    ; preds = %jit_EG_exception.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_echo.argelim(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @zend_jit_echo(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 29
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 1
@@ -99329,7 +99329,7 @@ zend_jit_check_exception.exit58:                  ; preds = %jit_EG_exception.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_strlen.argelim(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc void @zend_jit_strlen(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 29
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 1
@@ -99406,7 +99406,7 @@ define internal fastcc void @zend_jit_strlen.argelim(ptr noundef nonnull %0, ptr
   %54 = sext i32 %42 to i64
   %55 = shl nsw i64 %54, 8
   %56 = or disjoint i64 %55, 57
-  tail call fastcc void @zend_jit_spill_store.argelim(ptr noundef %0, i64 noundef %4, i64 noundef %56, i32 noundef 16, i1 noundef zeroext true)
+  tail call fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %4, i64 noundef %56, i32 noundef 16, i1 noundef zeroext true)
   br label %jit_set_Z_TYPE_INFO.exit
 
 57:                                               ; preds = %5
@@ -99519,7 +99519,7 @@ jit_ADD_OFFSET.exit:                              ; preds = %92, %100
   %121 = sext i32 %109 to i64
   %122 = shl nsw i64 %121, 8
   %123 = or disjoint i64 %122, 57
-  tail call fastcc void @zend_jit_spill_store.argelim(ptr noundef %0, i64 noundef %4, i64 noundef %123, i32 noundef 16, i1 noundef zeroext true)
+  tail call fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %4, i64 noundef %123, i32 noundef 16, i1 noundef zeroext true)
   br label %zend_jit_store_var_if_necessary.exit40
 
 124:                                              ; preds = %jit_ADD_OFFSET.exit
@@ -99573,7 +99573,7 @@ jit_set_Z_TYPE_INFO.exit:                         ; preds = %146, %zend_jit_stor
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_count.argelim(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc void @zend_jit_count(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 29
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 1
@@ -99651,7 +99651,7 @@ define internal fastcc void @zend_jit_count.argelim(ptr noundef nonnull %0, ptr 
   %56 = sext i32 %44 to i64
   %57 = shl nsw i64 %56, 8
   %58 = or disjoint i64 %57, 57
-  tail call fastcc void @zend_jit_spill_store.argelim(ptr noundef %0, i64 noundef %4, i64 noundef %58, i32 noundef 16, i1 noundef zeroext true)
+  tail call fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %4, i64 noundef %58, i32 noundef 16, i1 noundef zeroext true)
   br label %jit_set_Z_TYPE_INFO.exit
 
 59:                                               ; preds = %6
@@ -99765,7 +99765,7 @@ jit_ADD_OFFSET.exit:                              ; preds = %94, %102
   %124 = sext i32 %112 to i64
   %125 = shl nsw i64 %124, 8
   %126 = or disjoint i64 %125, 57
-  tail call fastcc void @zend_jit_spill_store.argelim(ptr noundef %0, i64 noundef %4, i64 noundef %126, i32 noundef 16, i1 noundef zeroext true)
+  tail call fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %4, i64 noundef %126, i32 noundef 16, i1 noundef zeroext true)
   br label %zend_jit_store_var_if_necessary.exit46
 
 127:                                              ; preds = %jit_ADD_OFFSET.exit
@@ -100301,7 +100301,7 @@ jit_STUB_ADDR.exit:                               ; preds = %87, %94
 99:                                               ; preds = %98
   %100 = getelementptr inbounds i8, ptr %1, i64 16
   %101 = load i32, ptr %100, align 8
-  call fastcc void @zend_jit_load_this.argelim(ptr noundef %0, i32 noundef %101)
+  call fastcc void @zend_jit_load_this(ptr noundef %0, i32 noundef %101)
   br label %zend_jit_trace_get_exit_addr.exit.thread
 
 zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %31, %27, %98, %99, %zend_jit_trace_get_exit_addr.exit
@@ -100310,7 +100310,7 @@ zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %31, %27, %98, %99, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zend_jit_switch.argprom(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_switch(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca %struct._ir_code_buffer, align 8
   %8 = alloca i64, align 8
@@ -102576,7 +102576,7 @@ zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %143, %502, %691, %z
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_verify_return_type.argprom.argelim(ptr noundef nonnull %0, ptr noundef %1, ptr %.40.val, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @zend_jit_verify_return_type(ptr noundef nonnull %0, ptr noundef %1, ptr %.40.val, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %.40.val, i64 -32
   %5 = getelementptr inbounds i8, ptr %.40.val, i64 -16
   %6 = load i32, ptr %5, align 8
@@ -102956,7 +102956,7 @@ zend_jit_check_exception.exit:                    ; preds = %jit_EG_exception.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_fe_reset.argelim(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @zend_jit_fe_reset(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
@@ -102972,7 +102972,7 @@ define internal fastcc void @zend_jit_fe_reset.argelim(ptr noundef nonnull %0, p
 14:                                               ; preds = %3
   %15 = sext i32 %13 to i64
   %16 = getelementptr inbounds i8, ptr %1, i64 %15
-  tail call fastcc void @jit_ZVAL_COPY_CONST.argelim(ptr noundef nonnull %0, i64 noundef %8, i32 noundef 1022, i32 noundef 1022, ptr noundef %16)
+  tail call fastcc void @jit_ZVAL_COPY_CONST(ptr noundef nonnull %0, i64 noundef %8, i32 noundef 1022, i32 noundef 1022, ptr noundef %16)
   br label %22
 
 17:                                               ; preds = %3
@@ -103062,7 +103062,7 @@ jit_ADD_OFFSET.exit:                              ; preds = %51, %59
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zend_jit_fe_fetch.argelim(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_fe_fetch(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = and i32 %2, 12582912
   %.not = icmp eq i32 %8, 0
@@ -104477,7 +104477,7 @@ jit_ADD_OFFSET.exit523:                           ; preds = %732, %740
   br i1 %760, label %761, label %762
 
 761:                                              ; preds = %754
-  tail call fastcc void @zend_jit_assign_to_variable.argelim(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %436, i64 noundef %436, i32 noundef %3, i32 noundef -1, i8 noundef zeroext 8, i64 noundef %757, i32 noundef %.1383, i64 noundef 0, i64 noundef 0, i1 noundef zeroext true)
+  tail call fastcc void @zend_jit_assign_to_variable(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %436, i64 noundef %436, i32 noundef %3, i32 noundef -1, i8 noundef zeroext 8, i64 noundef %757, i32 noundef %.1383, i64 noundef 0, i64 noundef 0, i1 noundef zeroext true)
   br label %763
 
 762:                                              ; preds = %754
@@ -104538,7 +104538,7 @@ jit_ADD_OFFSET.exit523:                           ; preds = %732, %740
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zend_jit_fetch_constant.argprom(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef readonly %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_fetch_constant(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef readonly %3, i64 noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
@@ -104924,7 +104924,7 @@ jit_STUB_ADDR.exit:                               ; preds = %jit_CONST_ADDR.exit
   %228 = sext i32 %213 to i64
   %229 = shl nsw i64 %228, 8
   %230 = or disjoint i64 %229, 57
-  tail call fastcc void @zend_jit_spill_store.argelim(ptr noundef %0, i64 noundef %4, i64 noundef %230, i32 noundef %204, i1 noundef zeroext true)
+  tail call fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %4, i64 noundef %230, i32 noundef %204, i1 noundef zeroext true)
   br label %zend_jit_store_var_if_necessary.exit
 
 231:                                              ; preds = %jit_STUB_ADDR.exit
@@ -104940,7 +104940,7 @@ zend_jit_store_var_if_necessary.exit:             ; preds = %227, %223, %219, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zend_jit_init_method_call.argprom.argelim(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i64 noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10, ptr noundef %11, i32 noundef %12, i8 noundef signext %13, i8 noundef signext %14, i1 noundef zeroext %15) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_init_method_call(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i64 noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10, ptr noundef %11, i32 noundef %12, i8 noundef signext %13, i8 noundef signext %14, i1 noundef zeroext %15) unnamed_addr #0 {
   %17 = alloca i64, align 8
   %18 = alloca %struct._ir_code_buffer, align 8
   %19 = alloca i64, align 8
@@ -105434,7 +105434,7 @@ jit_Z_PTR.exit:                                   ; preds = %282, %279, %271, %2
   br i1 %.not290, label %288, label %287
 
 287:                                              ; preds = %jit_Z_PTR.exit
-  call fastcc void @zend_jit_save_call_chain.argelim(ptr noundef %0, i32 noundef %286)
+  call fastcc void @zend_jit_save_call_chain(ptr noundef %0, i32 noundef %286)
   br label %288
 
 288:                                              ; preds = %287, %jit_Z_PTR.exit
@@ -106464,12 +106464,12 @@ jit_STUB_ADDR.exit424:                            ; preds = %837, %840
 848:                                              ; preds = %844
   %849 = call i32 @_ir_END(ptr noundef nonnull %0) #33
   call void @_ir_IF_FALSE(ptr noundef nonnull %0, i32 noundef %.026725) #33
-  %850 = call fastcc i32 @zend_jit_push_call_frame.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext %10, i32 noundef %12, i32 noundef %.0271, i32 noundef %.0269)
+  %850 = call fastcc i32 @zend_jit_push_call_frame(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext %10, i32 noundef %12, i32 noundef %.0271, i32 noundef %.0269)
   %.not305 = icmp eq i32 %850, 0
   br i1 %.not305, label %zend_jit_trace_get_exit_addr.exit.thread, label %852
 
 .thread:                                          ; preds = %.thread33
-  %851 = call fastcc i32 @zend_jit_push_call_frame.argprom(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.126692337.ph, i1 noundef zeroext false, i1 noundef zeroext %10, i32 noundef %12, i32 noundef %.0271, i32 noundef %.0269)
+  %851 = call fastcc i32 @zend_jit_push_call_frame(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.126692337.ph, i1 noundef zeroext false, i1 noundef zeroext %10, i32 noundef %12, i32 noundef %.0271, i32 noundef %.0269)
   %.not30578 = icmp eq i32 %851, 0
   br i1 %.not30578, label %zend_jit_trace_get_exit_addr.exit.thread, label %.thread51
 
@@ -106490,7 +106490,7 @@ jit_STUB_ADDR.exit424:                            ; preds = %837, %840
   br i1 %.not306, label %859, label %858
 
 858:                                              ; preds = %.thread51
-  call fastcc void @zend_jit_save_call_chain.argelim(ptr noundef %0, i32 noundef %6)
+  call fastcc void @zend_jit_save_call_chain(ptr noundef %0, i32 noundef %6)
   br label %zend_jit_trace_get_exit_addr.exit.thread
 
 859:                                              ; preds = %.thread51
@@ -106924,11 +106924,11 @@ jit_CONST_ADDR.exit106:                           ; preds = %242, %250
   br i1 %.not82, label %257, label %256
 
 256:                                              ; preds = %253
-  call fastcc void @zend_jit_save_call_chain.argelim(ptr noundef %0, i32 noundef %255)
+  call fastcc void @zend_jit_save_call_chain(ptr noundef %0, i32 noundef %255)
   br label %257
 
 257:                                              ; preds = %256, %253
-  %258 = call fastcc i32 @zend_jit_push_call_frame.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %.069, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef %8, i32 noundef %20, i32 noundef 0)
+  %258 = call fastcc i32 @zend_jit_push_call_frame(ptr noundef %0, ptr noundef %1, ptr noundef %.069, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef %8, i32 noundef %20, i32 noundef 0)
   %.not83 = icmp eq i32 %258, 0
   br i1 %.not83, label %zend_jit_trace_get_exit_addr.exit.thread, label %259
 
@@ -106938,7 +106938,7 @@ jit_CONST_ADDR.exit106:                           ; preds = %242, %250
   br i1 %.not84, label %262, label %261
 
 261:                                              ; preds = %259
-  call fastcc void @zend_jit_save_call_chain.argelim(ptr noundef %0, i32 noundef %6)
+  call fastcc void @zend_jit_save_call_chain(ptr noundef %0, i32 noundef %6)
   br label %264
 
 262:                                              ; preds = %259
@@ -106961,7 +106961,7 @@ jit_CONST_ADDR.exit106:                           ; preds = %242, %250
 
 271:                                              ; preds = %267
   %272 = getelementptr inbounds i8, ptr %1, i64 32
-  call fastcc void @zend_jit_set_ip.argelim(ptr noundef %0, ptr noundef nonnull %272)
+  call fastcc void @zend_jit_set_ip(ptr noundef %0, ptr noundef nonnull %272)
   br label %zend_jit_trace_get_exit_addr.exit.thread
 
 zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %42, %168, %164, %38, %264, %267, %271, %257, %zend_jit_trace_get_exit_addr.exit96, %zend_jit_trace_get_exit_addr.exit
@@ -106970,7 +106970,7 @@ zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %42, %168, %164, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_rope.argelim(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @zend_jit_rope(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 28
   %5 = load i8, ptr %4, align 4
   %6 = icmp eq i8 %5, 54
@@ -108738,14 +108738,14 @@ zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %23, %19, %jit_CONST
 declare zeroext i1 @zend_inference_propagate_range(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_set_ip.argelim(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @zend_jit_set_ip(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 692
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call fastcc void @zend_jit_save_call_chain.argelim(ptr noundef %0, i32 noundef %4)
+  tail call fastcc void @zend_jit_save_call_chain(ptr noundef %0, i32 noundef %4)
   br label %6
 
 6:                                                ; preds = %5, %2
@@ -108982,7 +108982,7 @@ zend_jit_set_last_valid_opline.exit:              ; preds = %zend_jit_use_last_v
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_trace_link_to_root.argprom.argelim(ptr noundef nonnull %0, ptr %.64.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @zend_jit_trace_link_to_root(ptr noundef nonnull %0, ptr %.64.val, ptr noundef %1) unnamed_addr #0 {
   %3 = load i64, ptr @zend_jit_trace_prologue_size, align 8
   %4 = icmp ne i64 %3, -1
   tail call void @llvm.assume(i1 %4)
@@ -108990,7 +108990,7 @@ define internal fastcc void @zend_jit_trace_link_to_root.argprom.argelim(ptr nou
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call fastcc void @zend_jit_check_timeout.argelim(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %1)
+  tail call fastcc void @zend_jit_check_timeout(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %1)
   br label %6
 
 6:                                                ; preds = %5, %2
@@ -109853,7 +109853,7 @@ define internal fastcc void @zend_jit_trace_setup_ret_counter(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_free_ctx.argelim(ptr noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @zend_jit_free_ctx(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 736
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -109896,7 +109896,7 @@ define internal fastcc void @zend_jit_free_ctx.argelim(ptr noundef nonnull %0) u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef nonnull ptr @zend_jit_trace_build_ssa.argprom(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @zend_jit_trace_build_ssa(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca %struct._zend_cfg, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 192
   %4 = load i32, ptr @zend_func_info_rid, align 4
@@ -110414,7 +110414,7 @@ define internal fastcc range(i32 0, 2) i32 @zend_jit_trace_copy_ssa_var_info(ptr
   %37 = getelementptr inbounds ptr, ptr %2, i64 %36
   %38 = load ptr, ptr %37, align 8
   %.not.i = icmp ult ptr %38, %17
-  br i1 %.not.i, label %zend_jit_trace_is_false_loop.argprom.argprom.exit.thread, label %39
+  br i1 %.not.i, label %zend_jit_trace_is_false_loop.exit.thread, label %39
 
 39:                                               ; preds = %30
   %40 = getelementptr inbounds i8, ptr %0, i64 84
@@ -110422,9 +110422,9 @@ define internal fastcc range(i32 0, 2) i32 @zend_jit_trace_copy_ssa_var_info(ptr
   %42 = zext i32 %41 to i64
   %43 = getelementptr inbounds %struct._zend_op, ptr %17, i64 %42
   %44 = icmp ult ptr %38, %43
-  br i1 %44, label %zend_jit_trace_is_false_loop.argprom.argprom.exit, label %zend_jit_trace_is_false_loop.argprom.argprom.exit.thread
+  br i1 %44, label %zend_jit_trace_is_false_loop.exit, label %zend_jit_trace_is_false_loop.exit.thread
 
-zend_jit_trace_is_false_loop.argprom.argprom.exit: ; preds = %39
+zend_jit_trace_is_false_loop.exit:                ; preds = %39
   %45 = ptrtoint ptr %38 to i64
   %46 = sub i64 %45, %19
   %47 = ashr exact i64 %46, 3
@@ -110434,9 +110434,9 @@ zend_jit_trace_is_false_loop.argprom.argprom.exit: ; preds = %39
   %51 = getelementptr inbounds %struct._zend_basic_block, ptr %25, i64 %50, i32 8
   %52 = load i32, ptr %51, align 4
   %.not104 = icmp eq i32 %52, %23
-  br i1 %.not104, label %zend_jit_trace_is_false_loop.argprom.argprom.exit.thread, label %._crit_edge.thread
+  br i1 %.not104, label %zend_jit_trace_is_false_loop.exit.thread, label %._crit_edge.thread
 
-zend_jit_trace_is_false_loop.argprom.argprom.exit.thread: ; preds = %30, %39, %zend_jit_trace_is_false_loop.argprom.argprom.exit
+zend_jit_trace_is_false_loop.exit.thread:         ; preds = %30, %39, %zend_jit_trace_is_false_loop.exit
   %53 = getelementptr inbounds i8, ptr %1, i64 48
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds %struct._zend_ssa_block, ptr %54, i64 %26
@@ -110445,7 +110445,7 @@ zend_jit_trace_is_false_loop.argprom.argprom.exit.thread: ; preds = %30, %39, %z
   %.not99107 = icmp eq ptr %.090106, null
   br i1 %.not99107, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %zend_jit_trace_is_false_loop.argprom.argprom.exit.thread
+.lr.ph:                                           ; preds = %zend_jit_trace_is_false_loop.exit.thread
   %57 = getelementptr inbounds i8, ptr %1, i64 64
   %58 = load ptr, ptr %57, align 8
   br label %59
@@ -110537,7 +110537,7 @@ zend_jit_trace_is_false_loop.argprom.argprom.exit.thread: ; preds = %30, %39, %z
   %113 = getelementptr inbounds i8, ptr %93, i64 20
   br label %.loopexit.sink.split
 
-._crit_edge.thread:                               ; preds = %zend_jit_trace_is_false_loop.argprom.argprom.exit.thread, %73, %12, %zend_jit_trace_is_false_loop.argprom.argprom.exit, %._crit_edge
+._crit_edge.thread:                               ; preds = %zend_jit_trace_is_false_loop.exit.thread, %73, %12, %zend_jit_trace_is_false_loop.exit, %._crit_edge
   %114 = getelementptr inbounds %struct._zend_ssa_var, ptr %7, i64 %8, i32 5
   %115 = load ptr, ptr %114, align 8
   %.not101 = icmp eq ptr %115, null
@@ -110858,7 +110858,7 @@ zend_jit_trace_propagate_range.exit:              ; preds = %65, %72, %81
 declare i32 @zend_update_type_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_trace_restrict_ssa_var_info.argelim(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @zend_jit_trace_restrict_ssa_var_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %3, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %4 to i64
@@ -113659,7 +113659,7 @@ jit_ADD_OFFSET.exit:                              ; preds = %72, %64, %55, %jit_
 declare void @_ir_GUARD_NOT(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_load_this.argelim(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @zend_jit_load_this(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
   %3 = zext i32 %1 to i64
   %4 = shl nuw nsw i64 %3, 8
   %5 = or disjoint i64 %4, 57
@@ -113677,7 +113677,7 @@ define internal fastcc void @zend_jit_load_this.argelim(ptr noundef nonnull %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_zval_try_addref.argelim(ptr noundef nonnull %0, i64 noundef range(i64 56, 1099511627776) %1) unnamed_addr #0 {
+define internal fastcc void @zend_jit_zval_try_addref(ptr noundef nonnull %0, i64 noundef range(i64 56, 1099511627776) %1) unnamed_addr #0 {
   %3 = tail call fastcc i32 @jit_if_REFCOUNTED(ptr noundef nonnull %0, i64 noundef %1)
   tail call void @_ir_IF_FALSE(ptr noundef nonnull %0, i32 noundef %3) #33
   %4 = tail call i32 @_ir_END(ptr noundef nonnull %0) #33
@@ -113737,7 +113737,7 @@ jit_Z_PTR.exit:                                   ; preds = %7, %18, %26, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_save_call_chain.argelim(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @zend_jit_save_call_chain(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp eq i32 %1, 1
   br i1 %3, label %43, label %4
 
@@ -115801,7 +115801,7 @@ jit_ADD_OFFSET.exit:                              ; preds = %8, %16
 declare i32 @_ir_CALL_1(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @jit_CONST_FUNC.argelim(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @jit_CONST_FUNC(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = icmp ne i64 %1, 0
   tail call void @llvm.assume(i1 %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 808
@@ -116070,7 +116070,7 @@ define internal void @zend_jit_free_trampoline_helper(ptr noundef %0) #0 {
 declare i32 @_ir_LOOP_BEGIN(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_spill_store.argelim(ptr noundef nonnull %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @zend_jit_spill_store(ptr noundef nonnull %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = and i64 %1, 3
   %7 = icmp eq i64 %6, 2
   tail call void @llvm.assume(i1 %7)
@@ -116375,7 +116375,7 @@ define internal void @zend_jit_pre_inc_typed_ref(ptr noundef %0, ptr noundef wri
   br i1 %.not19.i, label %zend_jit_get_prop_not_accepting_double.exit, label %32
 
 zend_jit_get_prop_not_accepting_double.exit:      ; preds = %.lr.ph.i
-  tail call fastcc void @zend_jit_throw_inc_ref_error.argprom(ptr noundef %35)
+  tail call fastcc void @zend_jit_throw_inc_ref_error(ptr noundef %35)
   store i64 9223372036854775807, ptr %4, align 8
   store i32 4, ptr %6, align 8
   br label %zend_jit_get_prop_not_accepting_double.exit.thread
@@ -116500,7 +116500,7 @@ define internal void @zend_jit_pre_dec_typed_ref(ptr noundef %0, ptr noundef wri
   br i1 %.not19.i, label %zend_jit_get_prop_not_accepting_double.exit, label %32
 
 zend_jit_get_prop_not_accepting_double.exit:      ; preds = %.lr.ph.i
-  tail call fastcc void @zend_jit_throw_dec_ref_error.argprom(ptr noundef %35)
+  tail call fastcc void @zend_jit_throw_dec_ref_error(ptr noundef %35)
   store i64 -9223372036854775808, ptr %4, align 8
   store i32 4, ptr %6, align 8
   br label %zend_jit_get_prop_not_accepting_double.exit.thread
@@ -116626,7 +116626,7 @@ define internal void @zend_jit_post_inc_typed_ref(ptr noundef %0, ptr nocapture 
   br i1 %.not19.i, label %zend_jit_get_prop_not_accepting_double.exit, label %32
 
 zend_jit_get_prop_not_accepting_double.exit:      ; preds = %.lr.ph.i
-  tail call fastcc void @zend_jit_throw_inc_ref_error.argprom(ptr noundef %35)
+  tail call fastcc void @zend_jit_throw_inc_ref_error(ptr noundef %35)
   br label %zend_jit_get_prop_not_accepting_double.exit.thread.sink.split
 
 39:                                               ; preds = %16, %12
@@ -116733,7 +116733,7 @@ define internal void @zend_jit_post_dec_typed_ref(ptr noundef %0, ptr nocapture 
   br i1 %.not19.i, label %zend_jit_get_prop_not_accepting_double.exit, label %32
 
 zend_jit_get_prop_not_accepting_double.exit:      ; preds = %.lr.ph.i
-  tail call fastcc void @zend_jit_throw_dec_ref_error.argprom(ptr noundef %35)
+  tail call fastcc void @zend_jit_throw_dec_ref_error(ptr noundef %35)
   br label %zend_jit_get_prop_not_accepting_double.exit.thread.sink.split
 
 39:                                               ; preds = %16, %12
@@ -116818,7 +116818,7 @@ declare i32 @decrement_function(ptr noundef) #4
 declare void @zend_error_unchecked(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_throw_inc_ref_error.argprom(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc void @zend_jit_throw_inc_ref_error(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -116880,7 +116880,7 @@ declare void @zend_type_error(ptr noundef, ...) local_unnamed_addr #4
 declare i32 @zend_unmangle_property_name_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_throw_dec_ref_error.argprom(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc void @zend_jit_throw_dec_ref_error(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -116932,7 +116932,7 @@ define internal fastcc void @zend_jit_throw_dec_ref_error.argprom(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_long_math_helper.argelim(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 %4, i64 noundef %5, i32 noundef %6, ptr noundef readonly %7, i8 noundef zeroext %8, i32 %9, i64 noundef %10, i32 noundef %11, ptr noundef readonly %12, i32 noundef %13, i64 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %17) unnamed_addr #0 {
+define internal fastcc void @zend_jit_long_math_helper(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 %4, i64 noundef %5, i32 noundef %6, ptr noundef readonly %7, i8 noundef zeroext %8, i32 %9, i64 noundef %10, i32 noundef %11, ptr noundef readonly %12, i32 noundef %13, i64 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %17) unnamed_addr #0 {
   %19 = icmp eq i64 %5, %10
   br i1 %19, label %31, label %20
 
@@ -117289,8 +117289,8 @@ jit_STUB_ADDR.exit559:                            ; preds = %zend_jit_invalidate
   br label %446
 
 206:                                              ; preds = %200
-  tail call fastcc void @zend_jit_invalidate_var_if_necessary.argelim(ptr noundef %0, i8 noundef zeroext %3, i64 noundef %5, i32 %4)
-  tail call fastcc void @zend_jit_invalidate_var_if_necessary.argelim(ptr noundef %0, i8 noundef zeroext %8, i64 noundef %10, i32 %9)
+  tail call fastcc void @zend_jit_invalidate_var_if_necessary(ptr noundef %0, i8 noundef zeroext %3, i64 noundef %5, i32 %4)
+  tail call fastcc void @zend_jit_invalidate_var_if_necessary(ptr noundef %0, i8 noundef zeroext %8, i64 noundef %10, i32 %9)
   tail call fastcc void @jit_SET_EX_OPLINE(ptr noundef nonnull %0, ptr noundef %1)
   %207 = getelementptr inbounds i8, ptr %0, i64 888
   %208 = load i32, ptr %207, align 4
@@ -117492,8 +117492,8 @@ jit_STUB_ADDR.exit583:                            ; preds = %zend_jit_invalidate
   br i1 %313, label %314, label %325
 
 314:                                              ; preds = %310
-  tail call fastcc void @zend_jit_invalidate_var_if_necessary.argelim(ptr noundef %0, i8 noundef zeroext %3, i64 noundef %5, i32 %4)
-  tail call fastcc void @zend_jit_invalidate_var_if_necessary.argelim(ptr noundef %0, i8 noundef zeroext %8, i64 noundef %10, i32 %9)
+  tail call fastcc void @zend_jit_invalidate_var_if_necessary(ptr noundef %0, i8 noundef zeroext %3, i64 noundef %5, i32 %4)
+  tail call fastcc void @zend_jit_invalidate_var_if_necessary(ptr noundef %0, i8 noundef zeroext %8, i64 noundef %10, i32 %9)
   tail call fastcc void @jit_SET_EX_OPLINE(ptr noundef nonnull %0, ptr noundef %1)
   %315 = getelementptr inbounds i8, ptr %0, i64 892
   %316 = load i32, ptr %315, align 4
@@ -118052,7 +118052,7 @@ jit_CONST_ADDR.exit615:                           ; preds = %584, %592
   %605 = zext i32 %4 to i64
   %606 = shl nuw nsw i64 %605, 8
   %607 = or disjoint i64 %606, 57
-  call fastcc void @zend_jit_spill_store_inv.argelim(ptr noundef nonnull %0, i64 noundef %.0460, i64 noundef %607, i32 noundef %6)
+  call fastcc void @zend_jit_spill_store_inv(ptr noundef nonnull %0, i64 noundef %.0460, i64 noundef %607, i32 noundef %6)
   br label %608
 
 608:                                              ; preds = %604, %601
@@ -118065,7 +118065,7 @@ jit_CONST_ADDR.exit615:                           ; preds = %584, %592
   %612 = zext i32 %9 to i64
   %613 = shl nuw nsw i64 %612, 8
   %614 = or disjoint i64 %613, 57
-  call fastcc void @zend_jit_spill_store_inv.argelim(ptr noundef nonnull %0, i64 noundef %.0461, i64 noundef %614, i32 noundef %11)
+  call fastcc void @zend_jit_spill_store_inv(ptr noundef nonnull %0, i64 noundef %.0461, i64 noundef %614, i32 noundef %11)
   br label %615
 
 615:                                              ; preds = %611, %608
@@ -118500,7 +118500,7 @@ zend_jit_load_reg.exit:                           ; preds = %830, %832
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_invalidate_var_if_necessary.argelim(ptr noundef nonnull %0, i8 noundef zeroext %1, i64 noundef %2, i32 %3) unnamed_addr #0 {
+define internal fastcc void @zend_jit_invalidate_var_if_necessary(ptr noundef nonnull %0, i8 noundef zeroext %1, i64 noundef %2, i32 %3) unnamed_addr #0 {
   %5 = and i8 %1, 6
   %.not = icmp ne i8 %5, 0
   %6 = and i64 %2, 3
@@ -118564,7 +118564,7 @@ jit_set_Z_TYPE_INFO.exit:                         ; preds = %36, %27, %19, %15, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_spill_store_inv.argelim(ptr noundef %0, i64 noundef %1, i64 noundef range(i64 56, 1099511627776) %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @zend_jit_spill_store_inv(ptr noundef %0, i64 noundef %1, i64 noundef range(i64 56, 1099511627776) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = and i64 %1, 3
   %6 = icmp eq i64 %5, 2
   tail call void @llvm.assume(i1 %6)
@@ -119090,7 +119090,7 @@ zend_jit_use_reg.exit:                            ; preds = %zend_jit_use_reg.ex
 
 157:                                              ; preds = %151, %149
   %.3 = phi i32 [ %156, %151 ], [ 0, %149 ]
-  call fastcc void @zend_jit_math_long_double.argelim(ptr noundef %0, i8 noundef zeroext %2, i64 noundef %5, i64 noundef %9, i64 noundef %12, i32 noundef %14)
+  call fastcc void @zend_jit_math_long_double(ptr noundef %0, i8 noundef zeroext %2, i64 noundef %5, i64 noundef %9, i64 noundef %12, i32 noundef %14)
   %158 = call i32 @_ir_END(ptr noundef nonnull %0) #33
   %159 = getelementptr inbounds i8, ptr %29, i64 8
   store i32 1, ptr %29, align 16
@@ -119167,7 +119167,7 @@ zend_jit_use_reg.exit:                            ; preds = %zend_jit_use_reg.ex
 
 189:                                              ; preds = %187, %186
   %.1388 = phi i32 [ 0, %186 ], [ %188, %187 ]
-  call fastcc void @zend_jit_math_double_double.argelim(ptr noundef %0, i8 noundef zeroext %2, i64 noundef %5, i64 noundef %9, i64 noundef %12, i32 noundef %14)
+  call fastcc void @zend_jit_math_double_double(ptr noundef %0, i8 noundef zeroext %2, i64 noundef %5, i64 noundef %9, i64 noundef %12, i32 noundef %14)
   %190 = call i32 @_ir_END(ptr noundef nonnull %0) #33
   %191 = add nuw nsw i32 %165, 2
   store i32 %191, ptr %29, align 16
@@ -119203,7 +119203,7 @@ zend_jit_use_reg.exit:                            ; preds = %zend_jit_use_reg.ex
 
 205:                                              ; preds = %199, %196
   %.6 = phi i32 [ %204, %199 ], [ %.5, %196 ]
-  call fastcc void @zend_jit_math_double_long.argelim(ptr noundef %0, i8 noundef zeroext %2, i64 noundef %5, i64 noundef %9, i64 noundef %12, i32 noundef %14)
+  call fastcc void @zend_jit_math_double_long(ptr noundef %0, i8 noundef zeroext %2, i64 noundef %5, i64 noundef %9, i64 noundef %12, i32 noundef %14)
   %206 = call i32 @_ir_END(ptr noundef nonnull %0) #33
   %207 = add nuw nsw i32 %197, 1
   store i32 %207, ptr %29, align 16
@@ -119269,7 +119269,7 @@ zend_jit_use_reg.exit:                            ; preds = %zend_jit_use_reg.ex
 
 237:                                              ; preds = %232, %230
   %.3390 = phi i32 [ 0, %230 ], [ %236, %232 ]
-  call fastcc void @zend_jit_math_double_double.argelim(ptr noundef %0, i8 noundef zeroext %2, i64 noundef %5, i64 noundef %9, i64 noundef %12, i32 noundef %14)
+  call fastcc void @zend_jit_math_double_double(ptr noundef %0, i8 noundef zeroext %2, i64 noundef %5, i64 noundef %9, i64 noundef %12, i32 noundef %14)
   %238 = call i32 @_ir_END(ptr noundef nonnull %0) #33
   %239 = getelementptr inbounds i8, ptr %29, i64 8
   store i32 1, ptr %29, align 16
@@ -119305,7 +119305,7 @@ zend_jit_use_reg.exit:                            ; preds = %zend_jit_use_reg.ex
 
 251:                                              ; preds = %245, %242
   %.8 = phi i32 [ %250, %245 ], [ %.7, %242 ]
-  call fastcc void @zend_jit_math_double_long.argelim(ptr noundef %0, i8 noundef zeroext %2, i64 noundef %5, i64 noundef %9, i64 noundef %12, i32 noundef %14)
+  call fastcc void @zend_jit_math_double_long(ptr noundef %0, i8 noundef zeroext %2, i64 noundef %5, i64 noundef %9, i64 noundef %12, i32 noundef %14)
   %252 = call i32 @_ir_END(ptr noundef nonnull %0) #33
   %253 = getelementptr inbounds i8, ptr %29, i64 8
   %254 = add nuw nsw i32 %243, 1
@@ -119361,7 +119361,7 @@ zend_jit_use_reg.exit:                            ; preds = %zend_jit_use_reg.ex
 
 275:                                              ; preds = %273, %271
   %.5392 = phi i32 [ 0, %271 ], [ %274, %273 ]
-  call fastcc void @zend_jit_math_double_double.argelim(ptr noundef %0, i8 noundef zeroext %2, i64 noundef %5, i64 noundef %9, i64 noundef %12, i32 noundef %14)
+  call fastcc void @zend_jit_math_double_double(ptr noundef %0, i8 noundef zeroext %2, i64 noundef %5, i64 noundef %9, i64 noundef %12, i32 noundef %14)
   %276 = call i32 @_ir_END(ptr noundef nonnull %0) #33
   %277 = getelementptr inbounds i8, ptr %29, i64 8
   store i32 1, ptr %29, align 16
@@ -119394,7 +119394,7 @@ zend_jit_use_reg.exit:                            ; preds = %zend_jit_use_reg.ex
 
 286:                                              ; preds = %283, %280
   %.10 = phi i32 [ %285, %283 ], [ %.9, %280 ]
-  call fastcc void @zend_jit_math_long_double.argelim(ptr noundef %0, i8 noundef zeroext %2, i64 noundef %5, i64 noundef %9, i64 noundef %12, i32 noundef %14)
+  call fastcc void @zend_jit_math_long_double(ptr noundef %0, i8 noundef zeroext %2, i64 noundef %5, i64 noundef %9, i64 noundef %12, i32 noundef %14)
   %287 = call i32 @_ir_END(ptr noundef nonnull %0) #33
   %288 = getelementptr inbounds i8, ptr %29, i64 8
   %289 = add nuw nsw i32 %281, 1
@@ -119438,7 +119438,7 @@ zend_jit_use_reg.exit:                            ; preds = %zend_jit_use_reg.ex
   %304 = zext i32 %4 to i64
   %305 = shl nuw nsw i64 %304, 8
   %306 = or disjoint i64 %305, 57
-  call fastcc void @zend_jit_spill_store_inv.argelim(ptr noundef nonnull %0, i64 noundef %5, i64 noundef %306, i32 noundef %6)
+  call fastcc void @zend_jit_spill_store_inv(ptr noundef nonnull %0, i64 noundef %5, i64 noundef %306, i32 noundef %6)
   br label %307
 
 307:                                              ; preds = %303, %.thread518
@@ -119451,7 +119451,7 @@ zend_jit_use_reg.exit:                            ; preds = %zend_jit_use_reg.ex
   %311 = zext i32 %8 to i64
   %312 = shl nuw nsw i64 %311, 8
   %313 = or disjoint i64 %312, 57
-  call fastcc void @zend_jit_spill_store_inv.argelim(ptr noundef nonnull %0, i64 noundef %9, i64 noundef %313, i32 noundef %10)
+  call fastcc void @zend_jit_spill_store_inv(ptr noundef nonnull %0, i64 noundef %9, i64 noundef %313, i32 noundef %10)
   br label %314
 
 314:                                              ; preds = %310, %307
@@ -120542,7 +120542,7 @@ zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %236, %177, %zend_ji
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_math_long_double.argelim(ptr noundef nonnull %0, i8 noundef zeroext %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @zend_jit_math_long_double(ptr noundef nonnull %0, i8 noundef zeroext %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %switch.tableidx = add i8 %1, -1
   %7 = icmp ult i8 %switch.tableidx, 3
   br i1 %7, label %switch.lookup, label %8
@@ -120612,7 +120612,7 @@ jit_set_Z_TYPE_INFO.exit:                         ; preds = %36, %26, %jit_set_Z
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_math_double_double.argelim(ptr noundef nonnull %0, i8 noundef zeroext %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @zend_jit_math_double_double(ptr noundef nonnull %0, i8 noundef zeroext %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = icmp eq i64 %2, %3
   br i1 %7, label %19, label %8
 
@@ -120734,7 +120734,7 @@ jit_set_Z_DVAL.exit:                              ; preds = %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_math_double_long.argelim(ptr noundef nonnull %0, i8 noundef zeroext %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @zend_jit_math_double_long(ptr noundef nonnull %0, i8 noundef zeroext %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %switch.tableidx = add i8 %1, -1
   %7 = icmp ult i8 %switch.tableidx, 3
   br i1 %7, label %switch.lookup, label %8
@@ -120831,7 +120831,7 @@ declare i32 @div_function(ptr noundef, ptr noundef, ptr noundef) #4
 declare void @_ir_MERGE_N(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_concat_helper.argelim(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %2, i32 %3, i64 noundef %4, i32 noundef %5, i8 noundef zeroext %6, i32 %7, i64 noundef %8, i32 noundef %9, i64 noundef %10, i32 noundef %11) unnamed_addr #0 {
+define internal fastcc void @zend_jit_concat_helper(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %2, i32 %3, i64 noundef %4, i32 noundef %5, i8 noundef zeroext %6, i32 %7, i64 noundef %8, i32 noundef %9, i64 noundef %10, i32 noundef %11) unnamed_addr #0 {
   %13 = and i32 %5, 64
   %14 = and i32 %13, %9
   %or.cond145.not.not = icmp eq i32 %14, 0
@@ -122797,7 +122797,7 @@ jit_ADD_OFFSET.exit938:                           ; preds = %322, %330
   %.4810 = phi i32 [ %.18071057, %344 ], [ %347, %346 ]
   %349 = trunc nuw i8 %.07971059 to i1
   %. = select i1 %349, i64 ptrtoint (ptr @_zend_hash_index_find to i64), i64 ptrtoint (ptr @zend_hash_index_find to i64)
-  %350 = call fastcc i32 @jit_CONST_FUNC.argelim(ptr noundef nonnull %0, i64 noundef %.)
+  %350 = call fastcc i32 @jit_CONST_FUNC(ptr noundef nonnull %0, i64 noundef %.)
   %351 = call i32 @_ir_CALL_2(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %350, i32 noundef %10, i32 noundef %.4810) #33
   %.not860 = icmp eq ptr %7, null
   br i1 %.not860, label %355, label %352
@@ -123502,7 +123502,7 @@ jit_STUB_FUNC_ADDR.exit:                          ; preds = %641, %646
 711:                                              ; preds = %709, %.thread1087
   %.6812 = phi i32 [ %.1807, %.thread1087 ], [ %710, %709 ]
   %.1135 = select i1 %661, i64 ptrtoint (ptr @zend_jit_hash_index_lookup_rw_no_packed to i64), i64 ptrtoint (ptr @zend_jit_hash_index_lookup_rw to i64)
-  %712 = call fastcc i32 @jit_CONST_FUNC.argelim(ptr noundef nonnull %0, i64 noundef %.1135)
+  %712 = call fastcc i32 @jit_CONST_FUNC(ptr noundef nonnull %0, i64 noundef %.1135)
   %713 = call i32 @_ir_CALL_2(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %712, i32 noundef %10, i32 noundef %.6812) #33
   br i1 %707, label %714, label %717
 
@@ -128653,7 +128653,7 @@ define internal void @zend_jit_inc_typed_prop(ptr noundef %0, ptr noundef %1) #0
   br i1 %.not40, label %38, label %39
 
 38:                                               ; preds = %34
-  tail call fastcc void @_zend_jit_throw_inc_prop_error.argelim(ptr noundef nonnull %1)
+  tail call fastcc void @_zend_jit_throw_inc_prop_error(ptr noundef nonnull %1)
   store i64 9223372036854775807, ptr %.0, align 8
   store i32 4, ptr %21, align 8
   br label %55
@@ -128759,7 +128759,7 @@ define internal void @zend_jit_dec_typed_prop(ptr noundef %0, ptr noundef %1) #0
   br i1 %.not40, label %38, label %39
 
 38:                                               ; preds = %34
-  tail call fastcc void @_zend_jit_throw_dec_prop_error.argelim(ptr noundef nonnull %1)
+  tail call fastcc void @_zend_jit_throw_dec_prop_error(ptr noundef nonnull %1)
   store i64 -9223372036854775808, ptr %.0, align 8
   store i32 4, ptr %21, align 8
   br label %55
@@ -128942,7 +128942,7 @@ define internal void @zend_jit_post_inc_typed_prop(ptr noundef %0, ptr noundef %
   br i1 %.not47, label %41, label %42
 
 41:                                               ; preds = %37
-  tail call fastcc void @_zend_jit_throw_inc_prop_error.argelim(ptr noundef nonnull %1)
+  tail call fastcc void @_zend_jit_throw_inc_prop_error(ptr noundef nonnull %1)
   store i64 9223372036854775807, ptr %.0, align 8
   store i32 4, ptr %23, align 8
   br label %60
@@ -129057,7 +129057,7 @@ define internal void @zend_jit_post_dec_typed_prop(ptr noundef %0, ptr noundef %
   br i1 %.not47, label %41, label %42
 
 41:                                               ; preds = %37
-  tail call fastcc void @_zend_jit_throw_dec_prop_error.argelim(ptr noundef nonnull %1)
+  tail call fastcc void @_zend_jit_throw_dec_prop_error(ptr noundef nonnull %1)
   store i64 -9223372036854775808, ptr %.0, align 8
   store i32 4, ptr %23, align 8
   br label %60
@@ -129161,7 +129161,7 @@ define internal void @zend_jit_pre_inc_obj_helper(ptr noundef %0, ptr noundef %1
   br i1 %.not123, label %32, label %43
 
 32:                                               ; preds = %28
-  tail call fastcc void @_zend_jit_throw_inc_prop_error.argelim(ptr noundef nonnull %21)
+  tail call fastcc void @_zend_jit_throw_inc_prop_error(ptr noundef nonnull %21)
   store i64 9223372036854775807, ptr %11, align 8
   store i32 4, ptr %13, align 8
   br label %43
@@ -129423,7 +129423,7 @@ define internal void @zend_jit_pre_dec_obj_helper(ptr noundef %0, ptr noundef %1
   br i1 %.not123, label %32, label %43
 
 32:                                               ; preds = %28
-  tail call fastcc void @_zend_jit_throw_dec_prop_error.argelim(ptr noundef nonnull %21)
+  tail call fastcc void @_zend_jit_throw_dec_prop_error(ptr noundef nonnull %21)
   store i64 -9223372036854775808, ptr %11, align 8
   store i32 4, ptr %13, align 8
   br label %43
@@ -129685,7 +129685,7 @@ define internal void @zend_jit_post_inc_obj_helper(ptr noundef %0, ptr noundef %
   br i1 %.not120, label %33, label %123
 
 33:                                               ; preds = %29
-  tail call fastcc void @_zend_jit_throw_inc_prop_error.argelim(ptr noundef nonnull %20)
+  tail call fastcc void @_zend_jit_throw_inc_prop_error(ptr noundef nonnull %20)
   store i64 9223372036854775807, ptr %11, align 8
   store i32 4, ptr %13, align 8
   br label %123
@@ -129932,7 +129932,7 @@ define internal void @zend_jit_post_dec_obj_helper(ptr noundef %0, ptr noundef %
   br i1 %.not120, label %33, label %123
 
 33:                                               ; preds = %29
-  tail call fastcc void @_zend_jit_throw_dec_prop_error.argelim(ptr noundef nonnull %20)
+  tail call fastcc void @_zend_jit_throw_dec_prop_error(ptr noundef nonnull %20)
   store i64 -9223372036854775808, ptr %11, align 8
   store i32 4, ptr %13, align 8
   br label %123
@@ -130121,7 +130121,7 @@ declare ptr @zend_zval_value_name(ptr noundef) local_unnamed_addr #4
 declare void @zend_readonly_property_modification_error(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_zend_jit_throw_inc_prop_error.argelim(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @_zend_jit_throw_inc_prop_error(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -130175,7 +130175,7 @@ define internal fastcc void @_zend_jit_throw_inc_prop_error.argelim(ptr nocaptur
 declare zeroext i1 @zend_verify_property_type(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_zend_jit_throw_dec_prop_error.argelim(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @_zend_jit_throw_dec_prop_error(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -130787,7 +130787,7 @@ define internal void @zend_jit_assign_to_typed_prop(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zend_jit_assign_to_variable_call.argelim(ptr noundef nonnull %0, ptr noundef %1, i64 noundef range(i64 3, 0) %2, i8 noundef zeroext %3, i64 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_assign_to_variable_call(ptr noundef nonnull %0, ptr noundef %1, i64 noundef range(i64 3, 0) %2, i8 noundef zeroext %3, i64 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca %struct._ir_code_buffer, align 8
   %9 = and i32 %5, 1
@@ -131082,7 +131082,7 @@ zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %22, %18, %jit_STUB_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_assign_to_variable.argelim(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i8 noundef zeroext %6, i64 noundef %7, i32 noundef %8, i64 noundef %9, i64 noundef %10, i1 noundef zeroext %11) unnamed_addr #0 {
+define internal fastcc void @zend_jit_assign_to_variable(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i8 noundef zeroext %6, i64 noundef %7, i32 noundef %8, i64 noundef %9, i64 noundef %10, i1 noundef zeroext %11) unnamed_addr #0 {
   %13 = alloca [32 x i8], align 16
   store i32 0, ptr %13, align 16
   %14 = getelementptr inbounds i8, ptr %13, i64 4
@@ -131248,7 +131248,7 @@ jit_if_TYPED_REF.exit:                            ; preds = %91, %99
   %111 = zext i32 %110 to i64
   %112 = shl nuw nsw i64 %111, 8
   %113 = or disjoint i64 %112, 57
-  call fastcc void @zend_jit_spill_store_inv.argelim(ptr noundef %0, i64 noundef %7, i64 noundef %113, i32 noundef %8)
+  call fastcc void @zend_jit_spill_store_inv(ptr noundef %0, i64 noundef %7, i64 noundef %113, i32 noundef %8)
   br label %114
 
 114:                                              ; preds = %jit_if_TYPED_REF.exit, %105
@@ -131535,7 +131535,7 @@ jit_Z_PTR.exit:                                   ; preds = %224, %235, %243, %2
   br i1 %.not275, label %377, label %250
 
 250:                                              ; preds = %jit_Z_PTR.exit
-  call fastcc void @zend_jit_simple_assign.argelim(ptr noundef %0, ptr noundef %1, i64 noundef %.0252, i32 noundef %4, i32 noundef %5, i8 noundef zeroext %6, i64 noundef %7, i32 noundef %8, i64 noundef %.0253, i1 noundef zeroext false)
+  call fastcc void @zend_jit_simple_assign(ptr noundef %0, ptr noundef %1, i64 noundef %.0252, i32 noundef %4, i32 noundef %5, i8 noundef zeroext %6, i64 noundef %7, i32 noundef %8, i64 noundef %.0253, i1 noundef zeroext false)
   %251 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 4, i32 noundef %.0.i) #33
   %252 = call i32 @ir_const_u32(ptr noundef %0, i32 noundef 1) #33
   %253 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1049, i32 noundef %251, i32 noundef %252) #33
@@ -131862,7 +131862,7 @@ jit_CONST_FUNC.exit331:                           ; preds = %389, %400
 
 .thread336:                                       ; preds = %211, %411
   %412 = phi i32 [ %212, %211 ], [ %.pr, %411 ]
-  call fastcc void @zend_jit_simple_assign.argelim(ptr noundef %0, ptr noundef %1, i64 noundef %.0252, i32 noundef %4, i32 noundef %5, i8 noundef zeroext %6, i64 noundef %7, i32 noundef %8, i64 noundef %.0253, i1 noundef zeroext %11)
+  call fastcc void @zend_jit_simple_assign(ptr noundef %0, ptr noundef %1, i64 noundef %.0252, i32 noundef %4, i32 noundef %5, i8 noundef zeroext %6, i64 noundef %7, i32 noundef %8, i64 noundef %.0253, i1 noundef zeroext %11)
   %.not282 = icmp eq i32 %412, 0
   br i1 %.not282, label %.thread338, label %.thread340
 
@@ -133150,7 +133150,7 @@ define internal noundef ptr @zend_jit_assign_cv_to_typed_ref2(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_simple_assign.argelim(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5, i64 noundef %6, i32 noundef %7, i64 noundef %8, i1 noundef zeroext %9) unnamed_addr #0 {
+define internal fastcc void @zend_jit_simple_assign(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5, i64 noundef %6, i32 noundef %7, i64 noundef %8, i1 noundef zeroext %9) unnamed_addr #0 {
   %11 = and i64 %6, 3
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %13, label %16
@@ -133158,11 +133158,11 @@ define internal fastcc void @zend_jit_simple_assign.argelim(ptr noundef %0, ptr 
 13:                                               ; preds = %10
   %14 = inttoptr i64 %6 to ptr
   %.not120 = icmp eq i64 %8, 0
-  tail call fastcc void @jit_ZVAL_COPY_CONST.argelim(ptr noundef %0, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %14)
+  tail call fastcc void @jit_ZVAL_COPY_CONST(ptr noundef %0, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %14)
   br i1 %.not120, label %.thread, label %15
 
 15:                                               ; preds = %13
-  tail call fastcc void @jit_ZVAL_COPY_CONST.argelim(ptr noundef %0, i64 noundef %8, i32 noundef -1, i32 noundef %4, ptr noundef %14)
+  tail call fastcc void @jit_ZVAL_COPY_CONST(ptr noundef %0, i64 noundef %8, i32 noundef -1, i32 noundef %4, ptr noundef %14)
   br label %.thread
 
 16:                                               ; preds = %10
@@ -133449,7 +133449,7 @@ declare i32 @ir_emit2(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_
 declare ptr @zend_assign_to_typed_ref(ptr noundef, ptr noundef, i8 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @jit_ZVAL_COPY_CONST.argelim(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @jit_ZVAL_COPY_CONST(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load i8, ptr %6, align 8
   %8 = icmp ugt i8 %7, 3
@@ -134621,7 +134621,7 @@ zend_assign_to_string_offset.exit:                ; preds = %.sink.split.i, %265
 declare ptr @zval_try_get_string_func(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_update_regs.argelim(ptr noundef nonnull %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @zend_jit_update_regs(ptr noundef nonnull %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = icmp eq i64 %2, %3
   br i1 %6, label %..critedge_crit_edge, label %7
 
@@ -134777,7 +134777,7 @@ zend_jit_use_reg.exit:                            ; preds = %27, %51
 
 95:                                               ; preds = %90, %81, %73
   %96 = phi i1 [ true, %81 ], [ true, %73 ], [ %94, %90 ]
-  tail call fastcc void @zend_jit_spill_store.argelim(ptr noundef %0, i64 noundef %3, i64 noundef %76, i32 noundef %4, i1 noundef zeroext %96)
+  tail call fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %3, i64 noundef %76, i32 noundef %4, i1 noundef zeroext %96)
   br label %176
 
 97:                                               ; preds = %18
@@ -134837,7 +134837,7 @@ zend_jit_use_reg.exit:                            ; preds = %27, %51
 
 131:                                              ; preds = %126, %117, %.thread136
   %132 = phi i1 [ true, %117 ], [ true, %.thread136 ], [ %130, %126 ]
-  tail call fastcc void @zend_jit_spill_store.argelim(ptr noundef %0, i64 noundef %2, i64 noundef %3, i32 noundef %4, i1 noundef zeroext %132)
+  tail call fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %2, i64 noundef %3, i32 noundef %4, i1 noundef zeroext %132)
   br label %176
 
 .critedge128.thread129:                           ; preds = %16, %.critedge128
@@ -134919,7 +134919,7 @@ zend_jit_load_reg.exit:                           ; preds = %136, %138
 
 174:                                              ; preds = %169, %160, %152
   %175 = phi i1 [ true, %160 ], [ true, %152 ], [ %173, %169 ]
-  tail call fastcc void @zend_jit_spill_store.argelim(ptr noundef %0, i64 noundef %2, i64 noundef %155, i32 noundef %4, i1 noundef zeroext %175)
+  tail call fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %2, i64 noundef %155, i32 noundef %4, i1 noundef zeroext %175)
   br label %176
 
 176:                                              ; preds = %zend_jit_use_reg.exit, %.thread135, %69, %62, %58, %105, %109, %.critedge.thread, %144, %148, %.critedge, %95, %131, %zend_jit_load_reg.exit, %174
@@ -135203,7 +135203,7 @@ _zend_jit_init_func_run_time_cache.exit:          ; preds = %42, %44
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zend_jit_push_call_frame.argprom(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_push_call_frame(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca i64, align 8
   %10 = alloca %struct._ir_code_buffer, align 8
   %11 = icmp ne i32 %6, -1
@@ -137427,7 +137427,7 @@ declare i32 @zend_get_func_info(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare void @_ir_AFREE(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_check_timeout.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @zend_jit_check_timeout(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 808
   %5 = tail call ptr @zend_hash_index_lookup(ptr noundef nonnull %4, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @executor_globals, i64 534) to i64)) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -137551,12 +137551,12 @@ declare void @_ir_ENTRY(ptr noundef, i32 noundef, i32 noundef) local_unnamed_add
 declare void @_ir_BEGIN(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @zend_jit_cmp_long_double.argprom(ptr noundef nonnull %0, i8 %.28.val, i64 noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef zeroext %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @zend_jit_cmp_long_double(ptr noundef nonnull %0, i8 %.28.val, i64 noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef zeroext %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
   switch i8 %.28.val, label %12 [
-    i8 18, label %zend_jit_cmp_op.argprom.exit
-    i8 16, label %zend_jit_cmp_op.argprom.exit
-    i8 48, label %zend_jit_cmp_op.argprom.exit
-    i8 -60, label %zend_jit_cmp_op.argprom.exit
+    i8 18, label %zend_jit_cmp_op.exit
+    i8 16, label %zend_jit_cmp_op.exit
+    i8 48, label %zend_jit_cmp_op.exit
+    i8 -60, label %zend_jit_cmp_op.exit
     i8 19, label %9
     i8 17, label %9
     i8 20, label %10
@@ -137564,18 +137564,18 @@ define internal fastcc i32 @zend_jit_cmp_long_double.argprom(ptr noundef nonnull
   ]
 
 9:                                                ; preds = %8, %8
-  br label %zend_jit_cmp_op.argprom.exit
+  br label %zend_jit_cmp_op.exit
 
 10:                                               ; preds = %8
-  br label %zend_jit_cmp_op.argprom.exit
+  br label %zend_jit_cmp_op.exit
 
 11:                                               ; preds = %8
-  br label %zend_jit_cmp_op.argprom.exit
+  br label %zend_jit_cmp_op.exit
 
 12:                                               ; preds = %8
   unreachable
 
-zend_jit_cmp_op.argprom.exit:                     ; preds = %8, %8, %8, %8, %9, %10, %11
+zend_jit_cmp_op.exit:                             ; preds = %8, %8, %8, %8, %9, %10, %11
   %.0.i = phi i32 [ 274, %11 ], [ 272, %10 ], [ 271, %9 ], [ 270, %8 ], [ 270, %8 ], [ 270, %8 ], [ 270, %8 ]
   %13 = tail call fastcc i32 @jit_Z_LVAL(ptr noundef nonnull %0, i64 noundef %1)
   %14 = tail call i32 @ir_fold1(ptr noundef nonnull %0, i32 noundef 3107, i32 noundef %13) #33
@@ -137588,7 +137588,7 @@ zend_jit_cmp_op.argprom.exit:                     ; preds = %8, %8, %8, %8, %9, 
     i8 0, label %18
   ]
 
-18:                                               ; preds = %zend_jit_cmp_op.argprom.exit, %zend_jit_cmp_op.argprom.exit, %zend_jit_cmp_op.argprom.exit
+18:                                               ; preds = %zend_jit_cmp_op.exit, %zend_jit_cmp_op.exit, %zend_jit_cmp_op.exit
   %19 = tail call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %3)
   %20 = tail call i32 @ir_fold1(ptr noundef nonnull %0, i32 noundef 1056, i32 noundef %16) #33
   %21 = tail call i32 @ir_const_u32(ptr noundef nonnull %0, i32 noundef 2) #33
@@ -137625,7 +137625,7 @@ jit_set_Z_TYPE_INFO_ref.exit:                     ; preds = %28, %36
   tail call void @_ir_STORE(ptr noundef nonnull %0, i32 noundef %39, i32 noundef %22) #33
   br label %40
 
-40:                                               ; preds = %zend_jit_cmp_op.argprom.exit, %jit_set_Z_TYPE_INFO_ref.exit
+40:                                               ; preds = %zend_jit_cmp_op.exit, %jit_set_Z_TYPE_INFO_ref.exit
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %78, label %41
 
@@ -137723,7 +137723,7 @@ jit_CONST_ADDR.exit52:                            ; preds = %67, %75
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @zend_jit_cmp_long_long.argelim(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i64 noundef %3, ptr noundef readonly %4, i64 noundef %5, i64 noundef %6, i8 noundef zeroext %7, i32 noundef %8, i32 noundef %9, ptr noundef %10) unnamed_addr #0 {
+define internal fastcc i32 @zend_jit_cmp_long_long(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i64 noundef %3, ptr noundef readonly %4, i64 noundef %5, i64 noundef %6, i8 noundef zeroext %7, i32 noundef %8, i32 noundef %9, ptr noundef %10) unnamed_addr #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %16, label %12
 
@@ -137912,10 +137912,10 @@ jit_set_Z_TYPE_INFO.exit:                         ; preds = %78, %67, %zend_jit_
   %95 = getelementptr i8, ptr %1, i64 28
   %.val = load i8, ptr %95, align 4
   switch i8 %.val, label %99 [
-    i8 18, label %zend_jit_cmp_op.argprom.exit
-    i8 16, label %zend_jit_cmp_op.argprom.exit
-    i8 48, label %zend_jit_cmp_op.argprom.exit
-    i8 -60, label %zend_jit_cmp_op.argprom.exit
+    i8 18, label %zend_jit_cmp_op.exit
+    i8 16, label %zend_jit_cmp_op.exit
+    i8 48, label %zend_jit_cmp_op.exit
+    i8 -60, label %zend_jit_cmp_op.exit
     i8 19, label %96
     i8 17, label %96
     i8 20, label %97
@@ -137923,18 +137923,18 @@ jit_set_Z_TYPE_INFO.exit:                         ; preds = %78, %67, %zend_jit_
   ]
 
 96:                                               ; preds = %94, %94
-  br label %zend_jit_cmp_op.argprom.exit
+  br label %zend_jit_cmp_op.exit
 
 97:                                               ; preds = %94
-  br label %zend_jit_cmp_op.argprom.exit
+  br label %zend_jit_cmp_op.exit
 
 98:                                               ; preds = %94
-  br label %zend_jit_cmp_op.argprom.exit
+  br label %zend_jit_cmp_op.exit
 
 99:                                               ; preds = %94
   unreachable
 
-zend_jit_cmp_op.argprom.exit:                     ; preds = %94, %94, %94, %94, %96, %97, %98
+zend_jit_cmp_op.exit:                             ; preds = %94, %94, %94, %94, %96, %97, %98
   %.0.i114 = phi i32 [ 274, %98 ], [ 272, %97 ], [ 271, %96 ], [ 270, %94 ], [ 270, %94 ], [ 270, %94 ], [ 270, %94 ]
   %100 = tail call fastcc i32 @jit_Z_LVAL(ptr noundef nonnull %0, i64 noundef %3)
   %101 = tail call fastcc i32 @jit_Z_LVAL(ptr noundef nonnull %0, i64 noundef %5)
@@ -137946,7 +137946,7 @@ zend_jit_cmp_op.argprom.exit:                     ; preds = %94, %94, %94, %94, 
     i8 0, label %104
   ]
 
-104:                                              ; preds = %zend_jit_cmp_op.argprom.exit, %zend_jit_cmp_op.argprom.exit, %zend_jit_cmp_op.argprom.exit
+104:                                              ; preds = %zend_jit_cmp_op.exit, %zend_jit_cmp_op.exit, %zend_jit_cmp_op.exit
   %105 = tail call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %6)
   %106 = tail call i32 @ir_fold1(ptr noundef nonnull %0, i32 noundef 1056, i32 noundef %102) #33
   %107 = tail call i32 @ir_const_u32(ptr noundef nonnull %0, i32 noundef 2) #33
@@ -137983,7 +137983,7 @@ jit_set_Z_TYPE_INFO_ref.exit:                     ; preds = %114, %122
   tail call void @_ir_STORE(ptr noundef nonnull %0, i32 noundef %125, i32 noundef %108) #33
   br label %126
 
-126:                                              ; preds = %zend_jit_cmp_op.argprom.exit, %jit_set_Z_TYPE_INFO_ref.exit
+126:                                              ; preds = %zend_jit_cmp_op.exit, %jit_set_Z_TYPE_INFO_ref.exit
   %.not103 = icmp eq ptr %10, null
   br i1 %.not103, label %192, label %127
 
@@ -138157,10 +138157,10 @@ define internal fastcc i32 @zend_jit_cmp_double_double(ptr noundef nonnull %0, p
   %10 = getelementptr i8, ptr %1, i64 28
   %.val = load i8, ptr %10, align 4
   switch i8 %.val, label %14 [
-    i8 18, label %zend_jit_cmp_op.argprom.exit
-    i8 16, label %zend_jit_cmp_op.argprom.exit
-    i8 48, label %zend_jit_cmp_op.argprom.exit
-    i8 -60, label %zend_jit_cmp_op.argprom.exit
+    i8 18, label %zend_jit_cmp_op.exit
+    i8 16, label %zend_jit_cmp_op.exit
+    i8 48, label %zend_jit_cmp_op.exit
+    i8 -60, label %zend_jit_cmp_op.exit
     i8 19, label %11
     i8 17, label %11
     i8 20, label %12
@@ -138168,18 +138168,18 @@ define internal fastcc i32 @zend_jit_cmp_double_double(ptr noundef nonnull %0, p
   ]
 
 11:                                               ; preds = %9, %9
-  br label %zend_jit_cmp_op.argprom.exit
+  br label %zend_jit_cmp_op.exit
 
 12:                                               ; preds = %9
-  br label %zend_jit_cmp_op.argprom.exit
+  br label %zend_jit_cmp_op.exit
 
 13:                                               ; preds = %9
-  br label %zend_jit_cmp_op.argprom.exit
+  br label %zend_jit_cmp_op.exit
 
 14:                                               ; preds = %9
   unreachable
 
-zend_jit_cmp_op.argprom.exit:                     ; preds = %9, %9, %9, %9, %11, %12, %13
+zend_jit_cmp_op.exit:                             ; preds = %9, %9, %9, %9, %11, %12, %13
   %.0.i = phi i32 [ 274, %13 ], [ 272, %12 ], [ 271, %11 ], [ 270, %9 ], [ 270, %9 ], [ 270, %9 ], [ 270, %9 ]
   %15 = tail call fastcc i32 @jit_Z_DVAL(ptr noundef nonnull %0, i64 noundef %2)
   %16 = tail call fastcc i32 @jit_Z_DVAL(ptr noundef nonnull %0, i64 noundef %3)
@@ -138191,7 +138191,7 @@ zend_jit_cmp_op.argprom.exit:                     ; preds = %9, %9, %9, %9, %11,
     i8 0, label %19
   ]
 
-19:                                               ; preds = %zend_jit_cmp_op.argprom.exit, %zend_jit_cmp_op.argprom.exit, %zend_jit_cmp_op.argprom.exit
+19:                                               ; preds = %zend_jit_cmp_op.exit, %zend_jit_cmp_op.exit, %zend_jit_cmp_op.exit
   %20 = tail call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %4)
   %21 = tail call i32 @ir_fold1(ptr noundef nonnull %0, i32 noundef 1056, i32 noundef %17) #33
   %22 = tail call i32 @ir_const_u32(ptr noundef nonnull %0, i32 noundef 2) #33
@@ -138228,7 +138228,7 @@ jit_set_Z_TYPE_INFO_ref.exit:                     ; preds = %29, %37
   tail call void @_ir_STORE(ptr noundef nonnull %0, i32 noundef %40, i32 noundef %23) #33
   br label %41
 
-41:                                               ; preds = %zend_jit_cmp_op.argprom.exit, %jit_set_Z_TYPE_INFO_ref.exit
+41:                                               ; preds = %zend_jit_cmp_op.exit, %jit_set_Z_TYPE_INFO_ref.exit
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %107, label %42
 
@@ -138398,12 +138398,12 @@ jit_CONST_ADDR.exit76:                            ; preds = %96, %104
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @zend_jit_cmp_double_long.argprom(ptr noundef nonnull %0, i8 %.28.val, i64 noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef zeroext %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @zend_jit_cmp_double_long(ptr noundef nonnull %0, i8 %.28.val, i64 noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef zeroext %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
   switch i8 %.28.val, label %12 [
-    i8 18, label %zend_jit_cmp_op.argprom.exit
-    i8 16, label %zend_jit_cmp_op.argprom.exit
-    i8 48, label %zend_jit_cmp_op.argprom.exit
-    i8 -60, label %zend_jit_cmp_op.argprom.exit
+    i8 18, label %zend_jit_cmp_op.exit
+    i8 16, label %zend_jit_cmp_op.exit
+    i8 48, label %zend_jit_cmp_op.exit
+    i8 -60, label %zend_jit_cmp_op.exit
     i8 19, label %9
     i8 17, label %9
     i8 20, label %10
@@ -138411,18 +138411,18 @@ define internal fastcc i32 @zend_jit_cmp_double_long.argprom(ptr noundef nonnull
   ]
 
 9:                                                ; preds = %8, %8
-  br label %zend_jit_cmp_op.argprom.exit
+  br label %zend_jit_cmp_op.exit
 
 10:                                               ; preds = %8
-  br label %zend_jit_cmp_op.argprom.exit
+  br label %zend_jit_cmp_op.exit
 
 11:                                               ; preds = %8
-  br label %zend_jit_cmp_op.argprom.exit
+  br label %zend_jit_cmp_op.exit
 
 12:                                               ; preds = %8
   unreachable
 
-zend_jit_cmp_op.argprom.exit:                     ; preds = %8, %8, %8, %8, %9, %10, %11
+zend_jit_cmp_op.exit:                             ; preds = %8, %8, %8, %8, %9, %10, %11
   %.0.i = phi i32 [ 274, %11 ], [ 272, %10 ], [ 271, %9 ], [ 270, %8 ], [ 270, %8 ], [ 270, %8 ], [ 270, %8 ]
   %13 = tail call fastcc i32 @jit_Z_DVAL(ptr noundef nonnull %0, i64 noundef %1)
   %14 = tail call fastcc i32 @jit_Z_LVAL(ptr noundef nonnull %0, i64 noundef %2)
@@ -138435,7 +138435,7 @@ zend_jit_cmp_op.argprom.exit:                     ; preds = %8, %8, %8, %8, %9, 
     i8 0, label %18
   ]
 
-18:                                               ; preds = %zend_jit_cmp_op.argprom.exit, %zend_jit_cmp_op.argprom.exit, %zend_jit_cmp_op.argprom.exit
+18:                                               ; preds = %zend_jit_cmp_op.exit, %zend_jit_cmp_op.exit, %zend_jit_cmp_op.exit
   %19 = tail call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %3)
   %20 = tail call i32 @ir_fold1(ptr noundef nonnull %0, i32 noundef 1056, i32 noundef %16) #33
   %21 = tail call i32 @ir_const_u32(ptr noundef nonnull %0, i32 noundef 2) #33
@@ -138472,7 +138472,7 @@ jit_set_Z_TYPE_INFO_ref.exit:                     ; preds = %28, %36
   tail call void @_ir_STORE(ptr noundef nonnull %0, i32 noundef %39, i32 noundef %22) #33
   br label %40
 
-40:                                               ; preds = %zend_jit_cmp_op.argprom.exit, %jit_set_Z_TYPE_INFO_ref.exit
+40:                                               ; preds = %zend_jit_cmp_op.exit, %jit_set_Z_TYPE_INFO_ref.exit
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %78, label %41
 
@@ -139548,7 +139548,7 @@ zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %115, %232, %228, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_zval_copy_deref.argelim(ptr noundef nonnull %0, i64 noundef %1, i64 noundef range(i64 3, 0) %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @zend_jit_zval_copy_deref(ptr noundef nonnull %0, i64 noundef %1, i64 noundef range(i64 3, 0) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca [24 x i8], align 16
   %6 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 4, ptr %6, align 4
@@ -142285,7 +142285,7 @@ declare ptr @zend_hash_add_new(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare void @zend_missing_arg_error(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_verify_arg_type.argelim(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @zend_jit_verify_arg_type(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
@@ -143166,7 +143166,7 @@ define internal noalias noundef ptr @zend_jit_rope_end(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @zend_jit_find_ssa_var.argprom(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @zend_jit_find_ssa_var(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
@@ -144018,7 +144018,7 @@ declare ptr @ir_reg_name(i8 noundef signext, i32 noundef) local_unnamed_addr #4
 declare zeroext i1 @ir_reg_is_int(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_link_side_trace.argelim(ptr noundef %0, i64 noundef range(i64 0, 4294967296) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc void @zend_jit_link_side_trace(ptr noundef %0, i64 noundef range(i64 0, 4294967296) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca %struct._ir_code_buffer, align 8
   %8 = load ptr, ptr @zend_jit_traces, align 8
@@ -144113,7 +144113,7 @@ declare void @zend_ssa_find_sccs(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @zend_ssa_inference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @zend_jit_compute_post_order.argelim(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc i32 @zend_jit_compute_post_order(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %4 = sext i32 %3 to i64
   %5 = shl nsw i64 %4, 2
@@ -144278,7 +144278,7 @@ zend_worklist_push.exit33.thread:                 ; preds = %52, %46
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_bb_start.argelim(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @zend_jit_bb_start(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
   %3 = load i8, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 2), align 2
   %4 = icmp ne i8 %3, 5
   tail call void @llvm.assume(i1 %4)
@@ -144636,8 +144636,8 @@ define internal fastcc noundef zeroext i1 @zend_jit_next_is_send_result(ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_tail_handler.argelim(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
-  tail call fastcc void @zend_jit_set_ip.argelim(ptr noundef %0, ptr noundef %1)
+define internal fastcc void @zend_jit_tail_handler(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
+  tail call fastcc void @zend_jit_set_ip(ptr noundef %0, ptr noundef %1)
   %3 = load i32, ptr @zend_jit_vm_kind, align 4
   %4 = icmp eq i32 %3, 4
   br i1 %4, label %5, label %60
@@ -145037,7 +145037,7 @@ jit_CONST_FUNC.exit91:                            ; preds = %144, %155
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_cond_jmp.argelim(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @zend_jit_cond_jmp(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 696
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, -1
@@ -145143,8 +145143,8 @@ zend_jit_set_last_valid_opline.exit:              ; preds = %zend_jit_set_last_v
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_handler.argelim(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
-  tail call fastcc void @zend_jit_set_ip.argelim(ptr noundef %0, ptr noundef %1)
+define internal fastcc void @zend_jit_handler(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+  tail call fastcc void @zend_jit_set_ip(ptr noundef %0, ptr noundef %1)
   %4 = load i32, ptr @zend_jit_vm_kind, align 4
   %5 = icmp eq i32 %4, 4
   br i1 %5, label %6, label %8
@@ -149211,7 +149211,7 @@ define internal range(i32 0, 2) i32 @zend_jit_hybrid_func_hot_counter_stub(ptr n
   %7 = add nsw i64 %4, 32530
   %8 = sdiv i64 %7, %4
   %9 = trunc i64 %8 to i32
-  tail call fastcc void @_zend_jit_hybrid_hot_counter_stub.argelim(ptr noundef %0, i32 noundef %9)
+  tail call fastcc void @_zend_jit_hybrid_hot_counter_stub(ptr noundef %0, i32 noundef %9)
   br label %10
 
 10:                                               ; preds = %1, %6
@@ -149232,7 +149232,7 @@ define internal range(i32 0, 2) i32 @zend_jit_hybrid_loop_hot_counter_stub(ptr n
   %7 = add nsw i64 %4, 32530
   %8 = sdiv i64 %7, %4
   %9 = trunc i64 %8 to i32
-  tail call fastcc void @_zend_jit_hybrid_hot_counter_stub.argelim(ptr noundef %0, i32 noundef %9)
+  tail call fastcc void @_zend_jit_hybrid_hot_counter_stub(ptr noundef %0, i32 noundef %9)
   br label %10
 
 10:                                               ; preds = %1, %6
@@ -149253,7 +149253,7 @@ define internal range(i32 0, 2) i32 @zend_jit_hybrid_func_trace_counter_stub(ptr
   %7 = add nsw i64 %4, 32530
   %8 = sdiv i64 %7, %4
   %9 = trunc i64 %8 to i32
-  tail call fastcc void @_zend_jit_hybrid_trace_counter_stub.argelim(ptr noundef %0, i32 noundef %9)
+  tail call fastcc void @_zend_jit_hybrid_trace_counter_stub(ptr noundef %0, i32 noundef %9)
   br label %10
 
 10:                                               ; preds = %1, %6
@@ -149274,7 +149274,7 @@ define internal range(i32 0, 2) i32 @zend_jit_hybrid_ret_trace_counter_stub(ptr 
   %7 = add nsw i64 %4, 32530
   %8 = sdiv i64 %7, %4
   %9 = trunc i64 %8 to i32
-  tail call fastcc void @_zend_jit_hybrid_trace_counter_stub.argelim(ptr noundef %0, i32 noundef %9)
+  tail call fastcc void @_zend_jit_hybrid_trace_counter_stub(ptr noundef %0, i32 noundef %9)
   br label %10
 
 10:                                               ; preds = %1, %6
@@ -149295,7 +149295,7 @@ define internal range(i32 0, 2) i32 @zend_jit_hybrid_loop_trace_counter_stub(ptr
   %7 = add nsw i64 %4, 32530
   %8 = sdiv i64 %7, %4
   %9 = trunc i64 %8 to i32
-  tail call fastcc void @_zend_jit_hybrid_trace_counter_stub.argelim(ptr noundef %0, i32 noundef %9)
+  tail call fastcc void @_zend_jit_hybrid_trace_counter_stub(ptr noundef %0, i32 noundef %9)
   br label %10
 
 10:                                               ; preds = %1, %6
@@ -149988,7 +149988,7 @@ define internal noundef i32 @zend_jit_assign_const_stub(ptr noundef %0) #0 {
   %7 = sext i32 %3 to i64
   %8 = shl nsw i64 %7, 2
   %9 = or disjoint i64 %8, 3
-  tail call fastcc void @zend_jit_assign_to_variable.argelim(ptr noundef %0, ptr noundef null, i64 noundef %6, i64 noundef %6, i32 noundef -1, i32 noundef -1, i8 noundef zeroext 1, i64 noundef %9, i32 noundef -1073740802, i64 noundef 0, i64 noundef 0, i1 noundef zeroext false)
+  tail call fastcc void @zend_jit_assign_to_variable(ptr noundef %0, ptr noundef null, i64 noundef %6, i64 noundef %6, i32 noundef -1, i32 noundef -1, i8 noundef zeroext 1, i64 noundef %9, i32 noundef -1073740802, i64 noundef 0, i64 noundef 0, i1 noundef zeroext false)
   tail call void @_ir_RETURN(ptr noundef %0, i32 noundef 0) #33
   ret i32 1
 }
@@ -150003,7 +150003,7 @@ define internal noundef i32 @zend_jit_assign_tmp_stub(ptr noundef %0) #0 {
   %7 = sext i32 %3 to i64
   %8 = shl nsw i64 %7, 2
   %9 = or disjoint i64 %8, 3
-  tail call fastcc void @zend_jit_assign_to_variable.argelim(ptr noundef %0, ptr noundef null, i64 noundef %6, i64 noundef %6, i32 noundef -1, i32 noundef -1, i8 noundef zeroext 2, i64 noundef %9, i32 noundef -1073740802, i64 noundef 0, i64 noundef 0, i1 noundef zeroext false)
+  tail call fastcc void @zend_jit_assign_to_variable(ptr noundef %0, ptr noundef null, i64 noundef %6, i64 noundef %6, i32 noundef -1, i32 noundef -1, i8 noundef zeroext 2, i64 noundef %9, i32 noundef -1073740802, i64 noundef 0, i64 noundef 0, i1 noundef zeroext false)
   tail call void @_ir_RETURN(ptr noundef %0, i32 noundef 0) #33
   ret i32 1
 }
@@ -150018,7 +150018,7 @@ define internal noundef i32 @zend_jit_assign_var_stub(ptr noundef %0) #0 {
   %7 = sext i32 %3 to i64
   %8 = shl nsw i64 %7, 2
   %9 = or disjoint i64 %8, 3
-  tail call fastcc void @zend_jit_assign_to_variable.argelim(ptr noundef %0, ptr noundef null, i64 noundef %6, i64 noundef %6, i32 noundef -1, i32 noundef -1, i8 noundef zeroext 4, i64 noundef %9, i32 noundef -1073739778, i64 noundef 0, i64 noundef 0, i1 noundef zeroext false)
+  tail call fastcc void @zend_jit_assign_to_variable(ptr noundef %0, ptr noundef null, i64 noundef %6, i64 noundef %6, i32 noundef -1, i32 noundef -1, i8 noundef zeroext 4, i64 noundef %9, i32 noundef -1073739778, i64 noundef 0, i64 noundef 0, i1 noundef zeroext false)
   tail call void @_ir_RETURN(ptr noundef %0, i32 noundef 0) #33
   ret i32 1
 }
@@ -150033,7 +150033,7 @@ define internal noundef i32 @zend_jit_assign_cv_noref_stub(ptr noundef %0) #0 {
   %7 = sext i32 %3 to i64
   %8 = shl nsw i64 %7, 2
   %9 = or disjoint i64 %8, 3
-  tail call fastcc void @zend_jit_assign_to_variable.argelim(ptr noundef %0, ptr noundef null, i64 noundef %6, i64 noundef %6, i32 noundef -1, i32 noundef -1, i8 noundef zeroext 8, i64 noundef %9, i32 noundef -1073740802, i64 noundef 0, i64 noundef 0, i1 noundef zeroext false)
+  tail call fastcc void @zend_jit_assign_to_variable(ptr noundef %0, ptr noundef null, i64 noundef %6, i64 noundef %6, i32 noundef -1, i32 noundef -1, i8 noundef zeroext 8, i64 noundef %9, i32 noundef -1073740802, i64 noundef 0, i64 noundef 0, i1 noundef zeroext false)
   tail call void @_ir_RETURN(ptr noundef %0, i32 noundef 0) #33
   ret i32 1
 }
@@ -150048,7 +150048,7 @@ define internal noundef i32 @zend_jit_assign_cv_stub(ptr noundef %0) #0 {
   %7 = sext i32 %3 to i64
   %8 = shl nsw i64 %7, 2
   %9 = or disjoint i64 %8, 3
-  tail call fastcc void @zend_jit_assign_to_variable.argelim(ptr noundef %0, ptr noundef null, i64 noundef %6, i64 noundef %6, i32 noundef -1, i32 noundef -1, i8 noundef zeroext 8, i64 noundef %9, i32 noundef -1073739778, i64 noundef 0, i64 noundef 0, i1 noundef zeroext false)
+  tail call fastcc void @zend_jit_assign_to_variable(ptr noundef %0, ptr noundef null, i64 noundef %6, i64 noundef %6, i32 noundef -1, i32 noundef -1, i8 noundef zeroext 8, i64 noundef %9, i32 noundef -1073739778, i64 noundef 0, i64 noundef 0, i1 noundef zeroext false)
   tail call void @_ir_RETURN(ptr noundef %0, i32 noundef 0) #33
   ret i32 1
 }
@@ -150288,7 +150288,7 @@ zend_jit_protect.exit:                            ; preds = %45, %48, %52
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_zend_jit_hybrid_hot_counter_stub.argelim(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_zend_jit_hybrid_hot_counter_stub(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 248
   %4 = load i32, ptr %3, align 8
   %5 = icmp ne i32 %4, 0
@@ -150614,7 +150614,7 @@ jit_ADD_OFFSET.exit75:                            ; preds = %169, %177
 declare i32 @ir_const_i16(ptr noundef, i16 noundef signext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_zend_jit_hybrid_trace_counter_stub.argelim(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_zend_jit_hybrid_trace_counter_stub(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 248
   %4 = load i32, ptr %3, align 8
   %5 = icmp ne i32 %4, 0

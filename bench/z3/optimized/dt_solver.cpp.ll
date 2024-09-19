@@ -5334,7 +5334,7 @@ if.then:                                          ; preds = %for.body
   %m_mark1.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.090, i64 8
   %3 = load i8, ptr %m_mark1.i.i, align 8
   %tobool.i.i = trunc i8 %3 to i1
-  br i1 %tobool.i.i, label %"_ZZN2dt6solver12get_seq_argsEPN3euf5enodeERS3_ENK3$_0clES3_.argprom.exit", label %if.then.i22
+  br i1 %tobool.i.i, label %"_ZZN2dt6solver12get_seq_argsEPN3euf5enodeERS3_ENK3$_0clES3_.exit", label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.then
   store i8 1, ptr %m_mark1.i.i, align 8
@@ -5368,9 +5368,9 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i: ; preds = %if.then.i.i, %
   %10 = load i32, ptr %arrayidx10.i.i, align 4
   %inc.i.i = add i32 %10, 1
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
-  br label %"_ZZN2dt6solver12get_seq_argsEPN3euf5enodeERS3_ENK3$_0clES3_.argprom.exit"
+  br label %"_ZZN2dt6solver12get_seq_argsEPN3euf5enodeERS3_ENK3$_0clES3_.exit"
 
-"_ZZN2dt6solver12get_seq_argsEPN3euf5enodeERS3_ENK3$_0clES3_.argprom.exit": ; preds = %if.then, %_ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i
+"_ZZN2dt6solver12get_seq_argsEPN3euf5enodeERS3_ENK3$_0clES3_.exit": ; preds = %if.then, %_ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i
   store ptr %__begin1.sroa.0.090, ptr %sibling, align 8
   br label %for.end
 
@@ -5384,7 +5384,7 @@ for.inc:                                          ; preds = %for.body
   %.not.i = select i1 %cmp.i.i, i1 true, i1 %cmp4.i.i
   br i1 %.not.i, label %for.body, label %for.end
 
-for.end:                                          ; preds = %for.inc, %_ZN6vectorIPN3euf5enodeELb0EjE5resetEv.exit19, %"_ZZN2dt6solver12get_seq_argsEPN3euf5enodeERS3_ENK3$_0clES3_.argprom.exit"
+for.end:                                          ; preds = %for.inc, %_ZN6vectorIPN3euf5enodeELb0EjE5resetEv.exit19, %"_ZZN2dt6solver12get_seq_argsEPN3euf5enodeERS3_ENK3$_0clES3_.exit"
   %12 = load ptr, ptr %m_todo, align 8
   %cmp.i94 = icmp eq ptr %12, null
   br i1 %cmp.i94, label %for.end53, label %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.thread.lr.ph
@@ -5489,8 +5489,8 @@ for.body33.preheader:                             ; preds = %if.then27
   %m_args.i48.ptr = getelementptr inbounds i8, ptr %17, i64 32
   br label %for.body33
 
-for.body33:                                       ; preds = %for.body33.preheader, %"_ZZN2dt6solver12get_seq_argsEPN3euf5enodeERS3_ENK3$_0clES3_.argprom.exit71"
-  %__begin4.093 = phi ptr [ %incdec.ptr, %"_ZZN2dt6solver12get_seq_argsEPN3euf5enodeERS3_ENK3$_0clES3_.argprom.exit71" ], [ %m_args.i48.ptr, %for.body33.preheader ]
+for.body33:                                       ; preds = %for.body33.preheader, %"_ZZN2dt6solver12get_seq_argsEPN3euf5enodeERS3_ENK3$_0clES3_.exit71"
+  %__begin4.093 = phi ptr [ %incdec.ptr, %"_ZZN2dt6solver12get_seq_argsEPN3euf5enodeERS3_ENK3$_0clES3_.exit71" ], [ %m_args.i48.ptr, %for.body33.preheader ]
   %37 = load ptr, ptr %ctx, align 8
   %m_expr2enode.i.i = getelementptr inbounds i8, ptr %37, i64 1784
   %38 = load ptr, ptr %m_expr2enode.i.i, align 8
@@ -5516,7 +5516,7 @@ _ZNK3euf6solver9get_enodeEP4expr.exit:            ; preds = %for.body33, %_ZNK6v
   %m_mark1.i.i52 = getelementptr inbounds i8, ptr %42, i64 8
   %43 = load i8, ptr %m_mark1.i.i52, align 8
   %tobool.i.i53 = trunc i8 %43 to i1
-  br i1 %tobool.i.i53, label %"_ZZN2dt6solver12get_seq_argsEPN3euf5enodeERS3_ENK3$_0clES3_.argprom.exit71", label %if.then.i54
+  br i1 %tobool.i.i53, label %"_ZZN2dt6solver12get_seq_argsEPN3euf5enodeERS3_ENK3$_0clES3_.exit71", label %if.then.i54
 
 if.then.i54:                                      ; preds = %_ZNK3euf6solver9get_enodeEP4expr.exit
   store i8 1, ptr %m_mark1.i.i52, align 8
@@ -5621,14 +5621,14 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i61: ; preds = %_ZN6vectorIP
   %52 = load i32, ptr %arrayidx10.i.i64, align 4
   %inc.i.i65 = add i32 %52, 1
   store i32 %inc.i.i65, ptr %arrayidx10.i.i64, align 4
-  br label %"_ZZN2dt6solver12get_seq_argsEPN3euf5enodeERS3_ENK3$_0clES3_.argprom.exit71"
+  br label %"_ZZN2dt6solver12get_seq_argsEPN3euf5enodeERS3_ENK3$_0clES3_.exit71"
 
-"_ZZN2dt6solver12get_seq_argsEPN3euf5enodeERS3_ENK3$_0clES3_.argprom.exit71": ; preds = %_ZNK3euf6solver9get_enodeEP4expr.exit, %_ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i61
+"_ZZN2dt6solver12get_seq_argsEPN3euf5enodeERS3_ENK3$_0clES3_.exit71": ; preds = %_ZNK3euf6solver9get_enodeEP4expr.exit, %_ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i61
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin4.093, i64 8
   %cmp32.not = icmp eq ptr %incdec.ptr, %add.ptr.i51.ptr
   br i1 %cmp32.not, label %for.inc39, label %for.body33
 
-for.inc39:                                        ; preds = %"_ZZN2dt6solver12get_seq_argsEPN3euf5enodeERS3_ENK3$_0clES3_.argprom.exit71", %land.rhs.i.i, %if.then27, %for.body11, %_ZN6vectorIPN3euf5enodeELb0EjE9push_backEOS2_.exit, %_ZNK8seq_util3str9is_concatEPK4expr.exit
+for.inc39:                                        ; preds = %"_ZZN2dt6solver12get_seq_argsEPN3euf5enodeERS3_ENK3$_0clES3_.exit71", %land.rhs.i.i, %if.then27, %for.body11, %_ZN6vectorIPN3euf5enodeELb0EjE9push_backEOS2_.exit, %_ZNK8seq_util3str9is_concatEPK4expr.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %53 = load ptr, ptr %m_todo, align 8
   %cmp.i = icmp eq ptr %53, null

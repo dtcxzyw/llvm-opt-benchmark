@@ -419,20 +419,20 @@ dgram_clear.exit:                                 ; preds = %if.end.i, %if.end4.
   %local_addr.i = getelementptr inbounds i8, ptr %b.val109, i64 112
   %call.i110 = call i32 @getsockname(i32 noundef %4, ptr nonnull %local_addr.i, ptr noundef nonnull %addr_len.i) #11
   %cmp.i111 = icmp slt i32 %call.i110, 0
-  br i1 %cmp.i111, label %if.then.i, label %dgram_update_local_addr.argprom.exit
+  br i1 %cmp.i111, label %if.then.i, label %dgram_update_local_addr.exit
 
 if.then.i:                                        ; preds = %dgram_clear.exit
   call void @BIO_ADDR_clear(ptr noundef nonnull %local_addr.i) #11
-  br label %dgram_update_local_addr.argprom.exit
+  br label %dgram_update_local_addr.exit
 
-dgram_update_local_addr.argprom.exit:             ; preds = %dgram_clear.exit, %if.then.i
+dgram_update_local_addr.exit:                     ; preds = %dgram_clear.exit, %if.then.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %addr_len.i)
   %local_addr_enabled = getelementptr inbounds i8, ptr %0, i64 260
   %5 = load i8, ptr %local_addr_enabled, align 4
   %tobool.not = icmp eq i8 %5, 0
   br i1 %tobool.not, label %sw.epilog333, label %if.then
 
-if.then:                                          ; preds = %dgram_update_local_addr.argprom.exit
+if.then:                                          ; preds = %dgram_update_local_addr.exit
   %call5 = call fastcc i32 @enable_local_addr(ptr noundef nonnull %b, i32 noundef 1)
   %cmp.not.not = icmp eq i32 %call5, 0
   br i1 %cmp.not.not, label %if.then7, label %sw.epilog333
@@ -992,8 +992,8 @@ sw.bb330:                                         ; preds = %entry, %entry
   store i32 %56, ptr %value, align 8
   br label %sw.epilog333
 
-sw.epilog333:                                     ; preds = %sw.bb196, %entry, %if.then316, %sw.bb275, %sw.bb267, %sw.bb259, %if.then172, %land.lhs.true179, %if.end67, %sw.bb84, %sw.bb70, %sw.bb59, %if.end39, %sw.bb33, %sw.bb10, %sw.bb308, %if.end322, %if.then287, %sw.bb279, %if.then298, %sw.bb290, %if.then271, %if.then263, %if.then247, %cond.end255, %sw.bb231, %if.then237, %if.then223, %cond.end, %sw.bb208, %if.then214, %if.then143, %if.else147, %sw.bb108, %sw.default131, %if.else128, %if.then126, %if.else79, %if.else94, %if.then47, %sw.bb41, %if.then56, %sw.bb50, %if.end18, %dgram_update_local_addr.argprom.exit, %if.then7, %if.then, %sw.bb330, %sw.bb329, %sw.bb326, %sw.bb307, %sw.bb305, %dgram_get_mtu_overhead.exit135, %ossl_time_from_timeval.exit, %if.end186, %sw.bb163, %sw.bb151, %sw.bb137, %sw.bb30, %sw.bb29, %sw.bb25, %sw.bb22
-  %ret.0 = phi i64 [ 1, %sw.bb330 ], [ 15, %sw.bb329 ], [ 1, %sw.bb326 ], [ 1, %if.end322 ], [ 1, %sw.bb308 ], [ 1, %sw.bb307 ], [ 1, %sw.bb305 ], [ %ret.0.i121, %dgram_get_mtu_overhead.exit135 ], [ %conv295, %if.then298 ], [ %conv295, %sw.bb290 ], [ %conv284, %if.then287 ], [ %conv284, %sw.bb279 ], [ 1, %if.then271 ], [ 1, %if.then263 ], [ %conv244, %if.then247 ], [ %conv257, %cond.end255 ], [ %conv234, %if.then237 ], [ %conv234, %sw.bb231 ], [ %conv220, %if.then223 ], [ %conv229, %cond.end ], [ %conv211, %if.then214 ], [ %conv211, %sw.bb208 ], [ 1, %ossl_time_from_timeval.exit ], [ %num.addr.1, %if.end186 ], [ 1, %sw.bb163 ], [ %num.addr.0, %sw.bb151 ], [ 1, %if.then143 ], [ 1, %if.else147 ], [ %num, %sw.bb137 ], [ %add132, %sw.default131 ], [ %add127, %if.then126 ], [ %add129, %if.else128 ], [ %add, %sw.bb108 ], [ %conv99, %if.else94 ], [ %conv82, %if.else79 ], [ %conv53, %if.then56 ], [ %conv53, %sw.bb50 ], [ %conv44, %if.then47 ], [ %conv44, %sw.bb41 ], [ 1, %sw.bb30 ], [ 1, %sw.bb29 ], [ 1, %sw.bb25 ], [ %conv24, %sw.bb22 ], [ %conv20, %if.end18 ], [ 1, %if.then7 ], [ 1, %if.then ], [ 1, %dgram_update_local_addr.argprom.exit ], [ -1, %sw.bb10 ], [ 0, %sw.bb33 ], [ -1, %if.end39 ], [ 0, %sw.bb59 ], [ 0, %sw.bb70 ], [ 0, %sw.bb84 ], [ 0, %if.end67 ], [ 0, %land.lhs.true179 ], [ 0, %if.then172 ], [ %spec.select, %sw.bb196 ], [ 0, %sw.bb259 ], [ 0, %sw.bb267 ], [ -1, %sw.bb275 ], [ 0, %if.then316 ], [ 0, %entry ]
+sw.epilog333:                                     ; preds = %sw.bb196, %entry, %if.then316, %sw.bb275, %sw.bb267, %sw.bb259, %if.then172, %land.lhs.true179, %if.end67, %sw.bb84, %sw.bb70, %sw.bb59, %if.end39, %sw.bb33, %sw.bb10, %sw.bb308, %if.end322, %if.then287, %sw.bb279, %if.then298, %sw.bb290, %if.then271, %if.then263, %if.then247, %cond.end255, %sw.bb231, %if.then237, %if.then223, %cond.end, %sw.bb208, %if.then214, %if.then143, %if.else147, %sw.bb108, %sw.default131, %if.else128, %if.then126, %if.else79, %if.else94, %if.then47, %sw.bb41, %if.then56, %sw.bb50, %if.end18, %dgram_update_local_addr.exit, %if.then7, %if.then, %sw.bb330, %sw.bb329, %sw.bb326, %sw.bb307, %sw.bb305, %dgram_get_mtu_overhead.exit135, %ossl_time_from_timeval.exit, %if.end186, %sw.bb163, %sw.bb151, %sw.bb137, %sw.bb30, %sw.bb29, %sw.bb25, %sw.bb22
+  %ret.0 = phi i64 [ 1, %sw.bb330 ], [ 15, %sw.bb329 ], [ 1, %sw.bb326 ], [ 1, %if.end322 ], [ 1, %sw.bb308 ], [ 1, %sw.bb307 ], [ 1, %sw.bb305 ], [ %ret.0.i121, %dgram_get_mtu_overhead.exit135 ], [ %conv295, %if.then298 ], [ %conv295, %sw.bb290 ], [ %conv284, %if.then287 ], [ %conv284, %sw.bb279 ], [ 1, %if.then271 ], [ 1, %if.then263 ], [ %conv244, %if.then247 ], [ %conv257, %cond.end255 ], [ %conv234, %if.then237 ], [ %conv234, %sw.bb231 ], [ %conv220, %if.then223 ], [ %conv229, %cond.end ], [ %conv211, %if.then214 ], [ %conv211, %sw.bb208 ], [ 1, %ossl_time_from_timeval.exit ], [ %num.addr.1, %if.end186 ], [ 1, %sw.bb163 ], [ %num.addr.0, %sw.bb151 ], [ 1, %if.then143 ], [ 1, %if.else147 ], [ %num, %sw.bb137 ], [ %add132, %sw.default131 ], [ %add127, %if.then126 ], [ %add129, %if.else128 ], [ %add, %sw.bb108 ], [ %conv99, %if.else94 ], [ %conv82, %if.else79 ], [ %conv53, %if.then56 ], [ %conv53, %sw.bb50 ], [ %conv44, %if.then47 ], [ %conv44, %sw.bb41 ], [ 1, %sw.bb30 ], [ 1, %sw.bb29 ], [ 1, %sw.bb25 ], [ %conv24, %sw.bb22 ], [ %conv20, %if.end18 ], [ 1, %if.then7 ], [ 1, %if.then ], [ 1, %dgram_update_local_addr.exit ], [ -1, %sw.bb10 ], [ 0, %sw.bb33 ], [ -1, %if.end39 ], [ 0, %sw.bb59 ], [ 0, %sw.bb70 ], [ 0, %sw.bb84 ], [ 0, %if.end67 ], [ 0, %land.lhs.true179 ], [ 0, %if.then172 ], [ %spec.select, %sw.bb196 ], [ 0, %sw.bb259 ], [ 0, %sw.bb267 ], [ -1, %sw.bb275 ], [ 0, %if.then316 ], [ 0, %entry ]
   %spec.store.select = call i64 @llvm.smax.i64(i64 %ret.0, i64 -1)
   br label %return
 

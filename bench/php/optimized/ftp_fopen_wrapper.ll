@@ -118,7 +118,7 @@ define hidden ptr @php_stream_url_wrap_ftp(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not164, label %.split, label %25
 
 .split:                                           ; preds = %23
-  %24 = call fastcc ptr @php_ftp_fopen_connect.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %3, ptr noundef null, ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %24 = call fastcc ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1, i32 noundef %3, ptr noundef null, ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %11, ptr noundef nonnull %12)
   br label %33
 
 25:                                               ; preds = %23
@@ -127,7 +127,7 @@ define hidden ptr @php_stream_url_wrap_ftp(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not165, label %.split138, label %28
 
 .split138:                                        ; preds = %25
-  %27 = call fastcc ptr @php_ftp_fopen_connect.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %27 = call fastcc ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1, i32 noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %11, ptr noundef nonnull %12)
   br label %33
 
 28:                                               ; preds = %25
@@ -149,7 +149,7 @@ define hidden ptr @php_stream_url_wrap_ftp(ptr noundef %0, ptr noundef %1, ptr n
 
 34:                                               ; preds = %33
   %35 = call i64 @_php_stream_write(ptr noundef nonnull %phi.call, ptr noundef nonnull @.str.7, i64 noundef 8) #15
-  %36 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %phi.call, ptr noundef %8)
+  %36 = call fastcc i32 @get_ftp_result(ptr noundef %phi.call, ptr noundef %8)
   %37 = add i32 %36, -300
   %or.cond = icmp ult i32 %37, -100
   br i1 %or.cond, label %158, label %38
@@ -160,7 +160,7 @@ define hidden ptr @php_stream_url_wrap_ftp(ptr noundef %0, ptr noundef %1, ptr n
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 24
   %43 = call i64 (ptr, ptr, ...) @_php_stream_printf(ptr noundef nonnull %phi.call, ptr noundef nonnull @.str.8, ptr noundef nonnull %42) #15
-  %44 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %phi.call, ptr noundef %8)
+  %44 = call fastcc i32 @get_ftp_result(ptr noundef %phi.call, ptr noundef %8)
   %45 = icmp eq i8 %.1185, 1
   br i1 %45, label %46, label %59
 
@@ -226,7 +226,7 @@ define hidden ptr @php_stream_url_wrap_ftp(ptr noundef %0, ptr noundef %1, ptr n
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 24
   %75 = call i64 (ptr, ptr, ...) @_php_stream_printf(ptr noundef nonnull %phi.call, ptr noundef nonnull @.str.10, ptr noundef nonnull %74) #15
-  %76 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %phi.call, ptr noundef %8)
+  %76 = call fastcc i32 @get_ftp_result(ptr noundef %phi.call, ptr noundef %8)
   %77 = add i32 %76, -300
   %or.cond7 = icmp ult i32 %77, -100
   br i1 %or.cond7, label %158, label %80
@@ -240,7 +240,7 @@ define hidden ptr @php_stream_url_wrap_ftp(ptr noundef %0, ptr noundef %1, ptr n
 80:                                               ; preds = %59, %70, %67, %50, %52, %56, %58
   %.1137 = phi i32 [ %44, %58 ], [ %44, %56 ], [ %44, %52 ], [ %44, %50 ], [ %76, %70 ], [ %44, %67 ], [ %44, %59 ]
   %.0135 = phi i64 [ %55, %58 ], [ %55, %56 ], [ %55, %52 ], [ 0, %50 ], [ 0, %70 ], [ 0, %67 ], [ 0, %59 ]
-  %81 = call fastcc zeroext i16 @php_fopen_do_pasv.argelim(ptr noundef %phi.call, ptr noundef %9, ptr noundef %10)
+  %81 = call fastcc zeroext i16 @php_fopen_do_pasv(ptr noundef %phi.call, ptr noundef %9, ptr noundef %10)
   %.not170 = icmp eq i16 %81, 0
   br i1 %.not170, label %158, label %82
 
@@ -268,7 +268,7 @@ define hidden ptr @php_stream_url_wrap_ftp(ptr noundef %0, ptr noundef %1, ptr n
 
 93:                                               ; preds = %90
   %94 = call i64 (ptr, ptr, ...) @_php_stream_printf(ptr noundef nonnull %phi.call, ptr noundef nonnull @.str.13, i64 noundef %91) #15
-  %95 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %phi.call, ptr noundef %8)
+  %95 = call fastcc i32 @get_ftp_result(ptr noundef %phi.call, ptr noundef %8)
   %96 = add i32 %95, -400
   %or.cond9 = icmp ult i32 %96, -100
   br i1 %or.cond9, label %97, label %99
@@ -333,7 +333,7 @@ define hidden ptr @php_stream_url_wrap_ftp(ptr noundef %0, ptr noundef %1, ptr n
   br label %158
 
 127:                                              ; preds = %117
-  %128 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %phi.call, ptr noundef %8)
+  %128 = call fastcc i32 @get_ftp_result(ptr noundef %phi.call, ptr noundef %8)
   switch i32 %128, label %129 [
     i32 150, label %131
     i32 125, label %131
@@ -492,7 +492,7 @@ declare ptr @php_stream_context_get_option(ptr noundef, ptr noundef, ptr noundef
 declare ptr @php_stream_url_wrap_http(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @php_ftp_fopen_connect.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr noundef writeonly %7) unnamed_addr #0 {
   %9 = alloca [512 x i8], align 16
   %10 = alloca ptr, align 8
   %11 = tail call ptr @php_url_parse(ptr noundef %1) #15
@@ -573,13 +573,13 @@ define internal fastcc ptr @php_ftp_fopen_connect.argprom(ptr noundef %0, ptr no
   br label %53
 
 53:                                               ; preds = %50, %52
-  %54 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %45, ptr noundef %9)
+  %54 = call fastcc i32 @get_ftp_result(ptr noundef %45, ptr noundef %9)
   %55 = add i32 %54, -300
   %or.cond3 = icmp ult i32 %55, -100
   br i1 %or.cond3, label %58, label %61
 
 .thread2:                                         ; preds = %48
-  %56 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %45, ptr noundef %9)
+  %56 = call fastcc i32 @get_ftp_result(ptr noundef %45, ptr noundef %9)
   %57 = add i32 %56, -300
   %or.cond33 = icmp ult i32 %57, -100
   br i1 %or.cond33, label %.thread10, label %61
@@ -598,13 +598,13 @@ define internal fastcc ptr @php_ftp_fopen_connect.argprom(ptr noundef %0, ptr no
 
 62:                                               ; preds = %61
   %63 = call i64 @_php_stream_write(ptr noundef nonnull %45, ptr noundef nonnull @.str.26, i64 noundef 10) #15
-  %64 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %45, ptr noundef %9)
+  %64 = call fastcc i32 @get_ftp_result(ptr noundef %45, ptr noundef %9)
   %.not156 = icmp eq i32 %64, 234
   br i1 %.not156, label %69, label %65
 
 65:                                               ; preds = %62
   %66 = call i64 @_php_stream_write(ptr noundef nonnull %45, ptr noundef nonnull @.str.27, i64 noundef 10) #15
-  %67 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %45, ptr noundef %9)
+  %67 = call fastcc i32 @get_ftp_result(ptr noundef %45, ptr noundef %9)
   %.not157 = icmp eq i32 %67, 334
   br i1 %.not157, label %69, label %68
 
@@ -630,9 +630,9 @@ define internal fastcc ptr @php_ftp_fopen_connect.argprom(ptr noundef %0, ptr no
 
 77:                                               ; preds = %72
   %78 = call i64 @_php_stream_write(ptr noundef nonnull %45, ptr noundef nonnull @.str.29, i64 noundef 8) #15
-  %79 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %45, ptr noundef %9)
+  %79 = call fastcc i32 @get_ftp_result(ptr noundef %45, ptr noundef %9)
   %80 = call i64 @_php_stream_write(ptr noundef nonnull %45, ptr noundef nonnull @.str.30, i64 noundef 8) #15
-  %81 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %45, ptr noundef %9)
+  %81 = call fastcc i32 @get_ftp_result(ptr noundef %45, ptr noundef %9)
   %82 = add i32 %81, -200
   %or.cond5 = icmp ult i32 %82, 100
   %83 = icmp ne ptr %.0136.ph, null
@@ -698,7 +698,7 @@ define internal fastcc ptr @php_ftp_fopen_connect.argprom(ptr noundef %0, ptr no
   br label %115
 
 115:                                              ; preds = %113, %._crit_edge
-  %116 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %45, ptr noundef %9)
+  %116 = call fastcc i32 @get_ftp_result(ptr noundef %45, ptr noundef %9)
   %117 = add i32 %116, -300
   %or.cond7 = icmp ult i32 %117, 100
   br i1 %or.cond7, label %118, label %167
@@ -780,7 +780,7 @@ define internal fastcc ptr @php_ftp_fopen_connect.argprom(ptr noundef %0, ptr no
   br label %156
 
 156:                                              ; preds = %152, %154, %._crit_edge23
-  %157 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %45, ptr noundef %9)
+  %157 = call fastcc i32 @get_ftp_result(ptr noundef %45, ptr noundef %9)
   %158 = add i32 %157, -300
   %or.cond9 = icmp ult i32 %158, -100
   br i1 %or.cond9, label %159, label %163
@@ -862,7 +862,7 @@ define internal fastcc ptr @php_ftp_fopen_connect.argprom(ptr noundef %0, ptr no
 declare i64 @_php_stream_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_ftp_result.argelim(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc i32 @get_ftp_result(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
   store i8 0, ptr %1, align 1
   %3 = getelementptr inbounds i8, ptr %1, i64 3
   %4 = tail call ptr @_php_stream_get_line(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef 511, ptr noundef null) #15
@@ -932,17 +932,17 @@ declare void @php_stream_notification_notify(ptr noundef, i32 noundef, i32 nound
 declare i32 @zend_is_true(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i16 @php_fopen_do_pasv.argelim(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc zeroext i16 @php_fopen_do_pasv(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = alloca [512 x i8], align 16
   %5 = alloca ptr, align 8
   %6 = tail call i64 @_php_stream_write(ptr noundef nonnull %0, ptr noundef nonnull @.str.37, i64 noundef 6) #15
-  %7 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %0, ptr noundef %4)
+  %7 = call fastcc i32 @get_ftp_result(ptr noundef %0, ptr noundef %4)
   %.not = icmp eq i32 %7, 229
   br i1 %.not, label %49, label %8
 
 8:                                                ; preds = %3
   %9 = call i64 @_php_stream_write(ptr noundef nonnull %0, ptr noundef nonnull @.str.38, i64 noundef 6) #15
-  %10 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %0, ptr noundef %4)
+  %10 = call fastcc i32 @get_ftp_result(ptr noundef %0, ptr noundef %4)
   %.not56 = icmp eq i32 %10, 227
   br i1 %.not56, label %11, label %.critedge.thread
 
@@ -1105,20 +1105,20 @@ define hidden ptr @php_stream_ftp_opendir(ptr noundef %0, ptr noundef %1, ptr no
   store i32 0, ptr %10, align 4
   store ptr null, ptr %11, align 8
   store i8 0, ptr %12, align 16
-  %14 = call fastcc ptr @php_ftp_fopen_connect.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %3, ptr noundef %5, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %14 = call fastcc ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1, i32 noundef %3, ptr noundef %5, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %57, label %15
 
 15:                                               ; preds = %6
   %16 = call i64 @_php_stream_write(ptr noundef nonnull %14, ptr noundef nonnull @.str.24, i64 noundef 8) #15
-  %17 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %14, ptr noundef %12)
+  %17 = call fastcc i32 @get_ftp_result(ptr noundef %14, ptr noundef %12)
   %18 = add i32 %17, -300
   %or.cond = icmp ult i32 %18, -100
   br i1 %or.cond, label %57, label %19
 
 19:                                               ; preds = %15
   store i8 0, ptr %12, align 16
-  %20 = call fastcc zeroext i16 @php_fopen_do_pasv.argelim(ptr noundef %14, ptr noundef %13, ptr noundef %11)
+  %20 = call fastcc zeroext i16 @php_fopen_do_pasv(ptr noundef %14, ptr noundef %13, ptr noundef %11)
   %.not55 = icmp eq i16 %20, 0
   br i1 %.not55, label %57, label %21
 
@@ -1148,7 +1148,7 @@ define hidden ptr @php_stream_ftp_opendir(ptr noundef %0, ptr noundef %1, ptr no
   %37 = getelementptr inbounds i8, ptr %36, i64 24
   %spec.select = select i1 %.not56, ptr @.str.19, ptr %37
   %38 = call i64 (ptr, ptr, ...) @_php_stream_printf(ptr noundef nonnull %14, ptr noundef nonnull @.str.25, ptr noundef nonnull %spec.select) #15
-  %39 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %14, ptr noundef %12)
+  %39 = call fastcc i32 @get_ftp_result(ptr noundef %14, ptr noundef %12)
   switch i32 %39, label %.sink.split [
     i32 150, label %40
     i32 125, label %40
@@ -1382,7 +1382,7 @@ define internal range(i32 -1, 1) i32 @php_stream_ftp_stream_close(ptr nocapture 
   br i1 %.not13, label %12, label %9
 
 9:                                                ; preds = %6
-  %10 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %5, ptr noundef %3)
+  %10 = call fastcc i32 @get_ftp_result(ptr noundef %5, ptr noundef %3)
   switch i32 %10, label %11 [
     i32 250, label %12
     i32 226, label %12
@@ -1421,7 +1421,7 @@ define internal range(i32 -1, 1) i32 @php_stream_ftp_url_stat(ptr noundef %0, pt
   br i1 %.not, label %108, label %11
 
 11:                                               ; preds = %5
-  %12 = call fastcc ptr @php_ftp_fopen_connect.argprom(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef %4, ptr noundef null, ptr noundef nonnull %6, ptr noundef null, ptr noundef null)
+  %12 = call fastcc ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef %4, ptr noundef null, ptr noundef nonnull %6, ptr noundef null, ptr noundef null)
   %.not66 = icmp eq ptr %12, null
   br i1 %.not66, label %102, label %13
 
@@ -1435,7 +1435,7 @@ define internal range(i32 -1, 1) i32 @php_stream_ftp_url_stat(ptr noundef %0, pt
   %18 = getelementptr inbounds i8, ptr %17, i64 24
   %spec.select = select i1 %.not67, ptr @.str.19, ptr %18
   %19 = call i64 (ptr, ptr, ...) @_php_stream_printf(ptr noundef nonnull %12, ptr noundef nonnull @.str.43, ptr noundef nonnull %spec.select) #15
-  %20 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %12, ptr noundef %7)
+  %20 = call fastcc i32 @get_ftp_result(ptr noundef %12, ptr noundef %7)
   %21 = add i32 %20, -300
   %or.cond = icmp ult i32 %21, -100
   %22 = load i32, ptr %14, align 8
@@ -1443,7 +1443,7 @@ define internal range(i32 -1, 1) i32 @php_stream_ftp_url_stat(ptr noundef %0, pt
   %23 = or i32 %22, %.
   store i32 %23, ptr %14, align 8
   %24 = call i64 @_php_stream_write(ptr noundef nonnull %12, ptr noundef nonnull @.str.7, i64 noundef 8) #15
-  %25 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %12, ptr noundef %7)
+  %25 = call fastcc i32 @get_ftp_result(ptr noundef %12, ptr noundef %7)
   %26 = add i32 %25, -300
   %or.cond3 = icmp ult i32 %26, -100
   br i1 %or.cond3, label %102, label %27
@@ -1456,7 +1456,7 @@ define internal range(i32 -1, 1) i32 @php_stream_ftp_url_stat(ptr noundef %0, pt
   %31 = getelementptr inbounds i8, ptr %30, i64 24
   %spec.select75 = select i1 %.not68, ptr @.str.19, ptr %31
   %32 = call i64 (ptr, ptr, ...) @_php_stream_printf(ptr noundef nonnull %12, ptr noundef nonnull @.str.8, ptr noundef nonnull %spec.select75) #15
-  %33 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %12, ptr noundef %7)
+  %33 = call fastcc i32 @get_ftp_result(ptr noundef %12, ptr noundef %7)
   %34 = add i32 %33, -300
   %or.cond5 = icmp ult i32 %34, -100
   br i1 %or.cond5, label %35, label %38
@@ -1484,7 +1484,7 @@ define internal range(i32 -1, 1) i32 @php_stream_ftp_url_stat(ptr noundef %0, pt
   %47 = getelementptr inbounds i8, ptr %46, i64 24
   %spec.select76 = select i1 %.not70, ptr @.str.19, ptr %47
   %48 = call i64 (ptr, ptr, ...) @_php_stream_printf(ptr noundef nonnull %12, ptr noundef nonnull @.str.44, ptr noundef nonnull %spec.select76) #15
-  %49 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %12, ptr noundef %7)
+  %49 = call fastcc i32 @get_ftp_result(ptr noundef %12, ptr noundef %7)
   %50 = icmp eq i32 %49, 213
   br i1 %50, label %51, label %85
 
@@ -1613,7 +1613,7 @@ define internal range(i32 0, 2) i32 @php_stream_ftp_unlink(ptr noundef %0, ptr n
   %5 = alloca ptr, align 8
   %6 = alloca [512 x i8], align 16
   store ptr null, ptr %5, align 8
-  %7 = call fastcc ptr @php_ftp_fopen_connect.argprom(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef %3, ptr noundef null, ptr noundef nonnull %5, ptr noundef null, ptr noundef null)
+  %7 = call fastcc ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef %3, ptr noundef null, ptr noundef nonnull %5, ptr noundef null, ptr noundef null)
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %11
 
@@ -1645,7 +1645,7 @@ define internal range(i32 0, 2) i32 @php_stream_ftp_unlink(ptr noundef %0, ptr n
 19:                                               ; preds = %11
   %20 = getelementptr inbounds i8, ptr %14, i64 24
   %21 = call i64 (ptr, ptr, ...) @_php_stream_printf(ptr noundef nonnull %7, ptr noundef nonnull @.str.10, ptr noundef nonnull %20) #15
-  %22 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %7, ptr noundef %6)
+  %22 = call fastcc i32 @get_ftp_result(ptr noundef %7, ptr noundef %6)
   %23 = add i32 %22, -300
   %or.cond = icmp ult i32 %23, -100
   br i1 %or.cond, label %24, label %27
@@ -1779,7 +1779,7 @@ define internal range(i32 0, 2) i32 @php_stream_ftp_rename(ptr noundef %0, ptr n
   br i1 %.not93, label %.critedge3.thread, label %54
 
 54:                                               ; preds = %51
-  %55 = tail call fastcc ptr @php_ftp_fopen_connect.argprom(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef %4, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+  %55 = tail call fastcc ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef %4, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   %.not94 = icmp eq ptr %55, null
   br i1 %.not94, label %56, label %61
 
@@ -1798,7 +1798,7 @@ define internal range(i32 0, 2) i32 @php_stream_ftp_rename(ptr noundef %0, ptr n
   %62 = load ptr, ptr %49, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 24
   %64 = tail call i64 (ptr, ptr, ...) @_php_stream_printf(ptr noundef nonnull %55, ptr noundef nonnull @.str.49, ptr noundef nonnull %63) #15
-  %65 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %55, ptr noundef %6)
+  %65 = call fastcc i32 @get_ftp_result(ptr noundef %55, ptr noundef %6)
   %66 = add i32 %65, -400
   %or.cond9 = icmp ult i32 %66, -100
   br i1 %or.cond9, label %67, label %70
@@ -1816,7 +1816,7 @@ define internal range(i32 0, 2) i32 @php_stream_ftp_rename(ptr noundef %0, ptr n
   %71 = load ptr, ptr %52, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 24
   %73 = call i64 (ptr, ptr, ...) @_php_stream_printf(ptr noundef nonnull %55, ptr noundef nonnull @.str.51, ptr noundef nonnull %72) #15
-  %74 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %55, ptr noundef %6)
+  %74 = call fastcc i32 @get_ftp_result(ptr noundef %55, ptr noundef %6)
   %75 = add i32 %74, -300
   %or.cond11 = icmp ult i32 %75, -100
   br i1 %or.cond11, label %76, label %79
@@ -1872,7 +1872,7 @@ define internal range(i32 0, 2) i32 @php_stream_ftp_mkdir(ptr noundef %0, ptr no
   %7 = alloca [512 x i8], align 16
   store ptr null, ptr %6, align 8
   %8 = and i32 %3, 1
-  %9 = call fastcc ptr @php_ftp_fopen_connect.argprom(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef %4, ptr noundef null, ptr noundef nonnull %6, ptr noundef null, ptr noundef null)
+  %9 = call fastcc ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef %4, ptr noundef null, ptr noundef nonnull %6, ptr noundef null, ptr noundef null)
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %12
 
@@ -1900,7 +1900,7 @@ define internal range(i32 0, 2) i32 @php_stream_ftp_mkdir(ptr noundef %0, ptr no
 
 21:                                               ; preds = %19
   %22 = call i64 (ptr, ptr, ...) @_php_stream_printf(ptr noundef nonnull %9, ptr noundef nonnull @.str.52, ptr noundef nonnull %20) #15
-  %23 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %9, ptr noundef %7)
+  %23 = call fastcc i32 @get_ftp_result(ptr noundef %9, ptr noundef %7)
   br label %60
 
 24:                                               ; preds = %19
@@ -1926,7 +1926,7 @@ define internal range(i32 0, 2) i32 @php_stream_ftp_mkdir(ptr noundef %0, ptr no
   %.not69 = icmp eq i8 %char0, 0
   %37 = select i1 %.not69, ptr @.str.19, ptr %27
   %38 = call i64 (ptr, ptr, ...) @_php_stream_printf(ptr noundef nonnull %9, ptr noundef nonnull @.str.43, ptr noundef nonnull %37) #15
-  %39 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %9, ptr noundef %7)
+  %39 = call fastcc i32 @get_ftp_result(ptr noundef %9, ptr noundef %7)
   %40 = add i32 %39, -200
   %or.cond = icmp ult i32 %40, 100
   br i1 %or.cond, label %41, label %34
@@ -1941,7 +1941,7 @@ define internal range(i32 0, 2) i32 @php_stream_ftp_mkdir(ptr noundef %0, ptr no
   %.not71 = icmp eq i8 %char070, 0
   %42 = select i1 %.not71, ptr @.str.19, ptr %27
   %43 = call i64 (ptr, ptr, ...) @_php_stream_printf(ptr noundef nonnull %9, ptr noundef nonnull @.str.52, ptr noundef nonnull %42) #15
-  %44 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %9, ptr noundef %7)
+  %44 = call fastcc i32 @get_ftp_result(ptr noundef %9, ptr noundef %7)
   %45 = add i32 %44, -300
   %or.cond3 = icmp ult i32 %45, -100
   %.not7283 = icmp eq ptr %spec.select, %33
@@ -1964,7 +1964,7 @@ define internal range(i32 0, 2) i32 @php_stream_ftp_mkdir(ptr noundef %0, ptr no
 51:                                               ; preds = %48
   store i8 47, ptr %.185, align 1
   %52 = call i64 (ptr, ptr, ...) @_php_stream_printf(ptr noundef nonnull %9, ptr noundef nonnull @.str.52, ptr noundef nonnull %27) #15
-  %53 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %9, ptr noundef %7)
+  %53 = call fastcc i32 @get_ftp_result(ptr noundef %9, ptr noundef %7)
   %54 = add i32 %53, -300
   %or.cond5 = icmp ult i32 %54, -100
   br i1 %or.cond5, label %55, label %58
@@ -2030,7 +2030,7 @@ define internal range(i32 0, 2) i32 @php_stream_ftp_rmdir(ptr noundef %0, ptr no
   %5 = alloca ptr, align 8
   %6 = alloca [512 x i8], align 16
   store ptr null, ptr %5, align 8
-  %7 = call fastcc ptr @php_ftp_fopen_connect.argprom(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef %3, ptr noundef null, ptr noundef nonnull %5, ptr noundef null, ptr noundef null)
+  %7 = call fastcc ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef %3, ptr noundef null, ptr noundef nonnull %5, ptr noundef null, ptr noundef null)
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %11
 
@@ -2062,7 +2062,7 @@ define internal range(i32 0, 2) i32 @php_stream_ftp_rmdir(ptr noundef %0, ptr no
 19:                                               ; preds = %11
   %20 = getelementptr inbounds i8, ptr %14, i64 24
   %21 = call i64 (ptr, ptr, ...) @_php_stream_printf(ptr noundef nonnull %7, ptr noundef nonnull @.str.54, ptr noundef nonnull %20) #15
-  %22 = call fastcc i32 @get_ftp_result.argelim(ptr noundef %7, ptr noundef %6)
+  %22 = call fastcc i32 @get_ftp_result(ptr noundef %7, ptr noundef %6)
   %23 = add i32 %22, -300
   %or.cond = icmp ult i32 %23, -100
   br i1 %or.cond, label %24, label %27

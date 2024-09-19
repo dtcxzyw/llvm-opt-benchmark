@@ -1537,7 +1537,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp7GetAttrEv.exit.i17: ; pre
 
 _ZNK32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp9SplitNameB5cxx11Ev.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp7GetAttrEv.exit.i17
   %.val = load ptr, ptr %86, align 8
-  %92 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L13_IsNamespacedERKNS_7TfTokenE.argprom(ptr %.val)
+  %92 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L13_IsNamespacedERKNS_7TfTokenE(ptr %.val)
           to label %93 unwind label %107
 
 93:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp9SplitNameB5cxx11Ev.exit
@@ -1762,7 +1762,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit23: ; preds = %114, %109, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L13_IsNamespacedERKNS_7TfTokenE.argprom(ptr %.0.val) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L13_IsNamespacedERKNS_7TfTokenE(ptr %.0.val) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %1 = ptrtoint ptr %.0.val to i64
   %2 = and i64 %1, -8
   %.not.i.i = icmp eq i64 %2, 0
@@ -1779,7 +1779,7 @@ define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit: ; preds = %3, %6
   %8 = phi ptr [ %5, %3 ], [ %7, %6 ]
-  %9 = tail call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.argprom()
+  %9 = tail call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv()
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, -8
@@ -2740,73 +2740,73 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i32 0, 14) i32 @_ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcm(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
-  switch i64 %1, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit33.thread" [
-    i64 9, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit"
-    i64 5, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit31"
-    i64 7, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit32"
+  switch i64 %1, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit33.thread" [
+    i64 9, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit"
+    i64 5, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit31"
+    i64 7, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit32"
   ]
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit": ; preds = %2
+"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit": ; preds = %2
   %3 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(10) @.str.12, ptr noundef nonnull readonly dereferenceable(1) %0, i64 noundef 9) #25
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %28, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit29"
+  br i1 %4, label %28, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit29"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit29": ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit"
+"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit29": ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit"
   %5 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(10) @.str, ptr noundef nonnull readonly dereferenceable(1) %0, i64 noundef 9) #25
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %28, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit30"
+  br i1 %6, label %28, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit30"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit30": ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit29"
+"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit30": ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit29"
   %7 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(10) @.str.5, ptr noundef nonnull readonly dereferenceable(1) %0, i64 noundef 9) #25
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %28, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit33.thread"
+  br i1 %8, label %28, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit33.thread"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit31": ; preds = %2
+"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit31": ; preds = %2
   %9 = tail call i32 @strncmp(ptr noundef nonnull readonly @.str.1, ptr noundef readonly %0, i64 noundef %1) #25
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %28, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit33.thread"
+  br i1 %10, label %28, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit33.thread"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit32": ; preds = %2
+"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit32": ; preds = %2
   %11 = tail call i32 @strncmp(ptr noundef nonnull readonly @.str.2, ptr noundef readonly %0, i64 noundef %1) #25
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %28, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit33"
+  br i1 %12, label %28, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit33"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit33": ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit32"
+"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit33": ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit32"
   %13 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(8) @.str.3, ptr noundef nonnull readonly dereferenceable(1) %0, i64 noundef 7) #25
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %28, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit33.thread"
+  br i1 %14, label %28, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit33.thread"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit33.thread": ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit31", %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit30", %2, %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit33"
-  %15 = tail call fastcc noundef zeroext i1 @"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom"(ptr %0, i64 %1, ptr noundef nonnull @.str.4)
+"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit33.thread": ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit31", %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit30", %2, %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit33"
+  %15 = tail call fastcc noundef zeroext i1 @"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_"(ptr %0, i64 %1, ptr noundef nonnull @.str.4)
   br i1 %15, label %28, label %16
 
-16:                                               ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit33.thread"
-  %17 = tail call fastcc noundef zeroext i1 @"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom"(ptr %0, i64 %1, ptr noundef nonnull @.str.6)
+16:                                               ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit33.thread"
+  %17 = tail call fastcc noundef zeroext i1 @"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_"(ptr %0, i64 %1, ptr noundef nonnull @.str.6)
   br i1 %17, label %28, label %18
 
 18:                                               ; preds = %16
-  %19 = tail call fastcc noundef zeroext i1 @"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom"(ptr %0, i64 %1, ptr noundef nonnull @.str.7)
+  %19 = tail call fastcc noundef zeroext i1 @"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_"(ptr %0, i64 %1, ptr noundef nonnull @.str.7)
   br i1 %19, label %28, label %20
 
 20:                                               ; preds = %18
-  %21 = tail call fastcc noundef zeroext i1 @"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom"(ptr %0, i64 %1, ptr noundef nonnull @.str.8)
+  %21 = tail call fastcc noundef zeroext i1 @"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_"(ptr %0, i64 %1, ptr noundef nonnull @.str.8)
   br i1 %21, label %28, label %22
 
 22:                                               ; preds = %20
-  %23 = tail call fastcc noundef zeroext i1 @"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom"(ptr %0, i64 %1, ptr noundef nonnull @.str.9)
+  %23 = tail call fastcc noundef zeroext i1 @"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_"(ptr %0, i64 %1, ptr noundef nonnull @.str.9)
   br i1 %23, label %28, label %24
 
 24:                                               ; preds = %22
-  %25 = tail call fastcc noundef zeroext i1 @"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom"(ptr %0, i64 %1, ptr noundef nonnull @.str.10)
+  %25 = tail call fastcc noundef zeroext i1 @"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_"(ptr %0, i64 %1, ptr noundef nonnull @.str.10)
   br i1 %25, label %28, label %26
 
 26:                                               ; preds = %24
-  %27 = tail call fastcc noundef zeroext i1 @"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom"(ptr %0, i64 %1, ptr noundef nonnull @.str.11)
+  %27 = tail call fastcc noundef zeroext i1 @"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_"(ptr %0, i64 %1, ptr noundef nonnull @.str.11)
   %spec.select = select i1 %27, i32 12, i32 0
   br label %28
 
-28:                                               ; preds = %26, %24, %22, %20, %18, %16, %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit33.thread", %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit33", %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit32", %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit31", %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit30", %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit29", %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit"
-  %.0 = phi i32 [ 13, %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit" ], [ 1, %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit29" ], [ 6, %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit30" ], [ 2, %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit31" ], [ 3, %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit32" ], [ 4, %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit33" ], [ 5, %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom.exit33.thread" ], [ 7, %16 ], [ 8, %18 ], [ 9, %20 ], [ 10, %22 ], [ 11, %24 ], [ %spec.select, %26 ]
+28:                                               ; preds = %26, %24, %22, %20, %18, %16, %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit33.thread", %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit33", %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit32", %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit31", %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit30", %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit29", %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit"
+  %.0 = phi i32 [ 13, %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit" ], [ 1, %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit29" ], [ 6, %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit30" ], [ 2, %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit31" ], [ 3, %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit32" ], [ 4, %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit33" ], [ 5, %"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.exit33.thread" ], [ 7, %16 ], [ 8, %18 ], [ 9, %20 ], [ 10, %22 ], [ 11, %24 ], [ %spec.select, %26 ]
   ret i32 %.0
 }
 
@@ -3001,7 +3001,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp9GetOpNameEv(
   br i1 %6, label %7, label %54
 
 7:                                                ; preds = %2
-  %8 = tail call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.argprom()
+  %8 = tail call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv()
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %10 to i64
@@ -3200,12 +3200,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.thread: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.argprom() unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv() unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca [9 x %"class.pxrInternal_v0_24__pxrReserved__::TfToken"], align 8
   %2 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L7_tokensE seq_cst, align 8
   %3 = inttoptr i64 %2 to ptr
   %.not.i = icmp eq i64 %2, 0
-  br i1 %.not.i, label %4, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEE3GetEv.argprom.exit
+  br i1 %.not.i, label %4, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEE3GetEv.exit
 
 4:                                                ; preds = %0
   %5 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #21
@@ -3742,7 +3742,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_12_GLOBAL_
   %263 = ptrtoint ptr %5 to i64
   %264 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__L7_tokensE, i64 0, i64 %263 seq_cst seq_cst, align 8
   %265 = extractvalue { i64, i1 } %264, 1
-  br i1 %265, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEE3GetEv.argprom.exit, label %266
+  br i1 %265, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEE3GetEv.exit, label %266
 
 266:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i
   %267 = load ptr, ptr %22, align 8
@@ -3907,9 +3907,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_tokens_PrivateStaticTokenT
   call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 96) #20
   %346 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L7_tokensE seq_cst, align 8
   %347 = inttoptr i64 %346 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEE3GetEv.argprom.exit
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEE3GetEv.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEE3GetEv.argprom.exit: ; preds = %0, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeD2Ev.exit.i.i
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEE3GetEv.exit: ; preds = %0, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeD2Ev.exit.i.i
   %348 = phi ptr [ %3, %0 ], [ %347, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeD2Ev.exit.i.i ], [ %5, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i ]
   ret ptr %348
 }
@@ -3985,7 +3985,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread7.thread: ; pre
 _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetNameEv.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread7.thread
   %30 = phi ptr [ %28, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit.i ], [ %29, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread7.thread ]
   %.val.i = load ptr, ptr %30, align 8
-  %31 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L13_IsNamespacedERKNS_7TfTokenE.argprom(ptr %.val.i)
+  %31 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L13_IsNamespacedERKNS_7TfTokenE(ptr %.val.i)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %3, %1, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetNameEv.exit
@@ -3996,7 +3996,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %3,
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp9IsXformOpERKNS_7TfTokenE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
   %.val = load ptr, ptr %0, align 8
-  %2 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L13_IsNamespacedERKNS_7TfTokenE.argprom(ptr %.val)
+  %2 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L13_IsNamespacedERKNS_7TfTokenE(ptr %.val)
   ret i1 %2
 }
 
@@ -4021,7 +4021,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp15_GetXformOpA
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit.i: ; preds = %12, %9
   %14 = phi ptr [ %11, %9 ], [ %13, %12 ]
-  %15 = tail call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.argprom()
+  %15 = tail call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv()
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
@@ -4045,20 +4045,20 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %28 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #22
   %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #25
   %.not.i.i.i.i = icmp ult i64 %28, %29
-  br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_IsInverseOpERKNS_7TfTokenE.argprom.exit.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_IsInverseOpERKNS_7TfTokenE.argprom.exit
+  br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_IsInverseOpERKNS_7TfTokenE.exit.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_IsInverseOpERKNS_7TfTokenE.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_IsInverseOpERKNS_7TfTokenE.argprom.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i
+_ZN32pxrInternal_v0_24__pxrReserved__L12_IsInverseOpERKNS_7TfTokenE.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i
   store i8 0, ptr %3, align 1
   br label %56
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_IsInverseOpERKNS_7TfTokenE.argprom.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i
+_ZN32pxrInternal_v0_24__pxrReserved__L12_IsInverseOpERKNS_7TfTokenE.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i
   %30 = tail call i32 @strncmp(ptr noundef %27, ptr noundef %26, i64 noundef %29) #25
   %31 = icmp eq i32 %30, 0
   %32 = zext i1 %31 to i8
   store i8 %32, ptr %3, align 1
   br i1 %31, label %33, label %56
 
-33:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_IsInverseOpERKNS_7TfTokenE.argprom.exit
+33:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_IsInverseOpERKNS_7TfTokenE.exit
   %34 = load ptr, ptr %2, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = and i64 %35, -8
@@ -4076,7 +4076,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_IsInverseOpERKNS_7TfTokenE.argprom.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit: ; preds = %37, %40
   %42 = phi ptr [ %39, %37 ], [ %41, %40 ]
-  %43 = tail call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.argprom()
+  %43 = tail call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv()
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = ptrtoint ptr %45 to i64
@@ -4104,7 +4104,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit18: ; pred
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim12GetAttributeERKNS_7TfTokenE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %57 unwind label %67
 
-56:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_IsInverseOpERKNS_7TfTokenE.argprom.exit.thread, %_ZN32pxrInternal_v0_24__pxrReserved__L12_IsInverseOpERKNS_7TfTokenE.argprom.exit
+56:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_IsInverseOpERKNS_7TfTokenE.exit.thread, %_ZN32pxrInternal_v0_24__pxrReserved__L12_IsInverseOpERKNS_7TfTokenE.exit
   tail call void @_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim12GetAttributeERKNS_7TfTokenE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %.critedge
 
@@ -5010,7 +5010,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokeneqEPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_.argprom"(ptr nocapture readonly %.0.val, i64 %.8.val, ptr nocapture noundef readonly %0) unnamed_addr #5 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp25_GetOpTypeEnumFromCStringEPKcmENK3$_0clES2_"(ptr nocapture readonly %.0.val, i64 %.8.val, ptr nocapture noundef readonly %0) unnamed_addr #5 align 2 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #25
   %3 = icmp eq i64 %2, %.8.val
   br i1 %3, label %4, label %7
@@ -5682,7 +5682,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp9GetOpNameENS0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %.val.i = load ptr, ptr %11, align 8, !noalias !18
-  %12 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L13_IsNamespacedERKNS_7TfTokenE.argprom(ptr %.val.i), !noalias !18
+  %12 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L13_IsNamespacedERKNS_7TfTokenE(ptr %.val.i), !noalias !18
   br i1 %12, label %13, label %22
 
 13:                                               ; preds = %4
@@ -5705,7 +5705,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp9GetOpNameENS0
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L15_MakeNamespacedERKNS_7TfTokenE.exit
 
 22:                                               ; preds = %4
-  %23 = tail call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.argprom(), !noalias !18
+  %23 = tail call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv(), !noalias !18
   %24 = load ptr, ptr %23, align 8, !noalias !18
   %25 = ptrtoint ptr %24 to i64
   %26 = and i64 %25, -8
@@ -5900,7 +5900,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %_ZN32pxrInter
   br i1 %3, label %97, label %140
 
 97:                                               ; preds = %96
-  %98 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.argprom()
+  %98 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv()
           to label %99 unwind label %89
 
 99:                                               ; preds = %97

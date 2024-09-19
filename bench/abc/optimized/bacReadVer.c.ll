@@ -1668,26 +1668,26 @@ Psr_ManReadName.exit125.thread.i.i:               ; preds = %Psr_ManReadName.exi
   %153 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %152) #21
   %154 = tail call i32 @strncmp(ptr noundef readonly %150, ptr noundef nonnull %152, i64 noundef %153) #21
   %.not8.i.i = icmp eq i32 %154, 0
-  br i1 %.not8.i.i, label %Psr_ManIsKnownModule.argprom.exit.i, label %155
+  br i1 %.not8.i.i, label %Psr_ManIsKnownModule.exit.i, label %155
 
 155:                                              ; preds = %151
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %156 = getelementptr inbounds [100 x ptr], ptr @s_KnownModules, i64 0, i64 %indvars.iv.next.i.i
   %157 = load ptr, ptr %156, align 8
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 51
-  br i1 %exitcond.i.i, label %Psr_ManIsKnownModule.argprom.exit.thread.i, label %151, !llvm.loop !18
+  br i1 %exitcond.i.i, label %Psr_ManIsKnownModule.exit.thread.i, label %151, !llvm.loop !18
 
-Psr_ManIsKnownModule.argprom.exit.i:              ; preds = %151
+Psr_ManIsKnownModule.exit.i:                      ; preds = %151
   %.not71.i.i = icmp eq i64 %indvars.iv.i.i, 0
-  br i1 %.not71.i.i, label %Psr_ManIsKnownModule.argprom.exit.thread.i, label %158
+  br i1 %.not71.i.i, label %Psr_ManIsKnownModule.exit.thread.i, label %158
 
-158:                                              ; preds = %Psr_ManIsKnownModule.argprom.exit.i
+158:                                              ; preds = %Psr_ManIsKnownModule.exit.i
   %159 = load ptr, ptr %27, align 8
   %160 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %159, ptr noundef nonnull dereferenceable(1) @.str.47) #21
   %161 = icmp eq ptr %160, null
-  br i1 %161, label %Psr_ManUtilSkipUntilWord.argprom.exit.i.i, label %162
+  br i1 %161, label %Psr_ManUtilSkipUntilWord.exit.i.i, label %162
 
-Psr_ManUtilSkipUntilWord.argprom.exit.i.i:        ; preds = %158
+Psr_ManUtilSkipUntilWord.exit.i.i:                ; preds = %158
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %47, ptr noundef nonnull readonly align 1 dereferenceable(33) @.str.51, i64 33, i1 false)
   br label %Psr_ManReadDesign.exit
 
@@ -1766,7 +1766,7 @@ Vec_IntPush.exit.i:                               ; preds = %185, %Vec_IntGrow.e
   %194 = icmp ult ptr %.promoted21.i.i.i, %193
   br i1 %194, label %.preheader.i.i.i.preheader, label %.loopexit26.i
 
-Psr_ManIsKnownModule.argprom.exit.thread.i:       ; preds = %155, %Psr_ManIsKnownModule.argprom.exit.i
+Psr_ManIsKnownModule.exit.thread.i:               ; preds = %155, %Psr_ManIsKnownModule.exit.i
   %195 = tail call noalias dereferenceable_or_null(224) ptr @calloc(i64 noundef 1, i64 noundef 224) #20
   store ptr %195, ptr %41, align 8
   store i32 %146, ptr %195, align 8
@@ -1785,12 +1785,12 @@ Psr_ManIsKnownModule.argprom.exit.thread.i:       ; preds = %155, %Psr_ManIsKnow
   %206 = icmp eq i32 %204, %205
   br i1 %206, label %207, label %.Vec_PtrGrow.exit11_crit_edge.i.i.i
 
-.Vec_PtrGrow.exit11_crit_edge.i.i.i:              ; preds = %Psr_ManIsKnownModule.argprom.exit.thread.i
+.Vec_PtrGrow.exit11_crit_edge.i.i.i:              ; preds = %Psr_ManIsKnownModule.exit.thread.i
   %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %201, i64 8
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   br label %Psr_ManInitializeNtk.exit.i
 
-207:                                              ; preds = %Psr_ManIsKnownModule.argprom.exit.thread.i
+207:                                              ; preds = %Psr_ManIsKnownModule.exit.thread.i
   %208 = icmp slt i32 %204, 16
   br i1 %208, label %209, label %217
 
@@ -5167,39 +5167,39 @@ Psr_ManUtilSkipSpaces.exit92.i.i:                 ; preds = %.preheader.i74.i.i,
   %1238 = phi ptr [ @.str.145, %.loopexit167.thread.i ], [ %1242, %1240 ]
   %1239 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1236, ptr noundef nonnull dereferenceable(1) %1238) #21
   %.not7.i.i = icmp eq i32 %1239, 0
-  br i1 %.not7.i.i, label %Psr_ManIsVerilogModule.argprom.exit.i, label %1240
+  br i1 %.not7.i.i, label %Psr_ManIsVerilogModule.exit.i, label %1240
 
 1240:                                             ; preds = %1237
   %indvars.iv.next.i.i29 = add nuw nsw i64 %indvars.iv.i.i28, 1
   %1241 = getelementptr inbounds [100 x ptr], ptr @s_VerilogModules, i64 0, i64 %indvars.iv.next.i.i29
   %1242 = load ptr, ptr %1241, align 8
   %exitcond.i.i30 = icmp eq i64 %indvars.iv.next.i.i29, 15
-  br i1 %exitcond.i.i30, label %Psr_ManIsVerilogModule.argprom.exit.thread.i, label %1237, !llvm.loop !23
+  br i1 %exitcond.i.i30, label %Psr_ManIsVerilogModule.exit.thread.i, label %1237, !llvm.loop !23
 
-Psr_ManIsVerilogModule.argprom.exit.i:            ; preds = %1237
+Psr_ManIsVerilogModule.exit.i:                    ; preds = %1237
   %1243 = tail call i32 @Psr_ManReadSignalList(ptr noundef nonnull %24, ptr noundef nonnull %55, i8 noundef signext 41, i32 noundef 1)
   %1244 = icmp eq i32 %1243, 0
-  br i1 %1244, label %Psr_ManReadSignalList2.exit.thread.i, label %Psr_ManIsVerilogModule.argprom.exit.Psr_ManReadSignalList2.exit.thread138_crit_edge.i
+  br i1 %1244, label %Psr_ManReadSignalList2.exit.thread.i, label %Psr_ManIsVerilogModule.exit.Psr_ManReadSignalList2.exit.thread138_crit_edge.i
 
-Psr_ManIsVerilogModule.argprom.exit.Psr_ManReadSignalList2.exit.thread138_crit_edge.i: ; preds = %Psr_ManIsVerilogModule.argprom.exit.i
+Psr_ManIsVerilogModule.exit.Psr_ManReadSignalList2.exit.thread138_crit_edge.i: ; preds = %Psr_ManIsVerilogModule.exit.i
   %1245 = trunc nuw nsw i64 %indvars.iv.i.i28 to i32
   %1246 = add nuw nsw i32 %1245, 6
   %.pre.i31 = load ptr, ptr %27, align 8
   %.pre308.i = load ptr, ptr %26, align 8
   br label %Psr_ManReadSignalList2.exit.thread138.i
 
-Psr_ManIsVerilogModule.argprom.exit.thread.i:     ; preds = %1240
+Psr_ManIsVerilogModule.exit.thread.i:             ; preds = %1240
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %47, ptr noundef nonnull readonly align 1 dereferenceable(29) @.str.134, i64 29, i1 false)
   br label %1273
 
-Psr_ManReadSignalList2.exit.thread.i:             ; preds = %Psr_ManIsVerilogModule.argprom.exit.i, %.loopexit.i95.i, %.loopexit107.thread.i.i, %.loopexit110.i.i, %1187, %1185, %.loopexit114.i.i, %1158, %Psr_ManReadName.exit.thread.i.i64
+Psr_ManReadSignalList2.exit.thread.i:             ; preds = %Psr_ManIsVerilogModule.exit.i, %.loopexit.i95.i, %.loopexit107.thread.i.i, %.loopexit110.i.i, %1187, %1185, %.loopexit114.i.i, %1158, %Psr_ManReadName.exit.thread.i.i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.135, i64 17, i1 false)
   br label %1273
 
-Psr_ManReadSignalList2.exit.thread138.i:          ; preds = %Psr_ManUtilSkipSpaces.exit92.i.i, %.loopexit107.i.i, %1218, %Psr_ManIsVerilogModule.argprom.exit.Psr_ManReadSignalList2.exit.thread138_crit_edge.i, %1136
-  %1247 = phi ptr [ %.pre308.i, %Psr_ManIsVerilogModule.argprom.exit.Psr_ManReadSignalList2.exit.thread138_crit_edge.i ], [ %1114, %1136 ], [ %1190, %1218 ], [ %1190, %.loopexit107.i.i ], [ %1190, %Psr_ManUtilSkipSpaces.exit92.i.i ]
-  %1248 = phi ptr [ %.pre.i31, %Psr_ManIsVerilogModule.argprom.exit.Psr_ManReadSignalList2.exit.thread138_crit_edge.i ], [ %.val42.i, %1136 ], [ %1215, %1218 ], [ %.val40.i.i, %Psr_ManUtilSkipSpaces.exit92.i.i ], [ %.val37.i.i, %.loopexit107.i.i ]
-  %.033141.i = phi i32 [ %1246, %Psr_ManIsVerilogModule.argprom.exit.Psr_ManReadSignalList2.exit.thread138_crit_edge.i ], [ %.012.i213318321324, %1136 ], [ %.012.i213318321324, %1218 ], [ %.012.i213318321324, %.loopexit107.i.i ], [ %.012.i213318321324, %Psr_ManUtilSkipSpaces.exit92.i.i ]
+Psr_ManReadSignalList2.exit.thread138.i:          ; preds = %Psr_ManUtilSkipSpaces.exit92.i.i, %.loopexit107.i.i, %1218, %Psr_ManIsVerilogModule.exit.Psr_ManReadSignalList2.exit.thread138_crit_edge.i, %1136
+  %1247 = phi ptr [ %.pre308.i, %Psr_ManIsVerilogModule.exit.Psr_ManReadSignalList2.exit.thread138_crit_edge.i ], [ %1114, %1136 ], [ %1190, %1218 ], [ %1190, %.loopexit107.i.i ], [ %1190, %Psr_ManUtilSkipSpaces.exit92.i.i ]
+  %1248 = phi ptr [ %.pre.i31, %Psr_ManIsVerilogModule.exit.Psr_ManReadSignalList2.exit.thread138_crit_edge.i ], [ %.val42.i, %1136 ], [ %1215, %1218 ], [ %.val40.i.i, %Psr_ManUtilSkipSpaces.exit92.i.i ], [ %.val37.i.i, %.loopexit107.i.i ]
+  %.033141.i = phi i32 [ %1246, %Psr_ManIsVerilogModule.exit.Psr_ManReadSignalList2.exit.thread138_crit_edge.i ], [ %.012.i213318321324, %1136 ], [ %.012.i213318321324, %1218 ], [ %.012.i213318321324, %.loopexit107.i.i ], [ %.012.i213318321324, %Psr_ManUtilSkipSpaces.exit92.i.i ]
   %1249 = getelementptr inbounds i8, ptr %1248, i64 1
   store ptr %1249, ptr %27, align 8
   %1250 = icmp ult ptr %1249, %1247
@@ -5310,13 +5310,13 @@ Psr_ManUtilSkipComments.exit.i114.i:              ; preds = %.lr.ph38.i.i116.i, 
   tail call fastcc void @Psr_NtkAddBox(ptr noundef %1272, i32 noundef %.033141.i, i32 noundef %.012.i129.i, ptr noundef %55)
   br label %.thread.i.i
 
-1273:                                             ; preds = %855, %.loopexit183.i, %888, %.loopexit177.i, %1027, %1035, %1037, %1030, %993, %857, %.loopexit182.i, %.loopexit175.i, %.loopexit170.i, %Psr_ManReadSignalList2.exit.thread.i, %.loopexit148.i, %.loopexit.thread.i34, %Psr_ManIsVerilogModule.argprom.exit.thread.i, %Psr_ManReadName.exit.thread.thread.i
+1273:                                             ; preds = %855, %.loopexit183.i, %888, %.loopexit177.i, %1027, %1035, %1037, %1030, %993, %857, %.loopexit182.i, %.loopexit175.i, %.loopexit170.i, %Psr_ManReadSignalList2.exit.thread.i, %.loopexit148.i, %.loopexit.thread.i34, %Psr_ManIsVerilogModule.exit.thread.i, %Psr_ManReadName.exit.thread.thread.i
   %1274 = load ptr, ptr %27, align 8
   %1275 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1274, ptr noundef nonnull dereferenceable(1) @.str.47) #21
   %1276 = icmp eq ptr %1275, null
-  br i1 %1276, label %Psr_ManUtilSkipUntilWord.argprom.exit131.i.i, label %1277
+  br i1 %1276, label %Psr_ManUtilSkipUntilWord.exit131.i.i, label %1277
 
-Psr_ManUtilSkipUntilWord.argprom.exit131.i.i:     ; preds = %1273
+Psr_ManUtilSkipUntilWord.exit131.i.i:             ; preds = %1273
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %47, ptr noundef nonnull readonly align 1 dereferenceable(33) @.str.51, i64 33, i1 false)
   br label %Psr_ManReadDesign.exit
 
@@ -5548,7 +5548,7 @@ Psr_ManUtilSkipSpaces.exit259._crit_edge:         ; preds = %Psr_ManUtilSkipSpac
   store i8 0, ptr %47, align 4
   br label %Psr_ManReadDesign.exit
 
-Psr_ManReadDesign.exit:                           ; preds = %828, %.backedge.i117, %Psr_ManUtilSkipSpaces.exit.thread, %Psr_ManUtilSkipUntil.exit.thread332, %Psr_ManUtilSkipSpaces.exit237, %Psr_ManUtilSkipSpaces.exit259.thread, %Psr_ManReadArguments.exit.thread, %._crit_edge.i, %Psr_ManReadName.exit.thread.i.i, %Psr_ManUtilSkipSpaces.exit107.i.i, %Psr_ManReadName.exit125.thread.i.i, %Psr_ManUtilSkipUntilWord.argprom.exit.i.i, %Psr_ManUtilSkipSpaces.exit.i, %.loopexit.thread.i, %Psr_ManUtilSkipUntilWord.argprom.exit131.i.i, %Psr_ManUtilSkipSpaces.exit259._crit_edge, %.loopexit26.i
+Psr_ManReadDesign.exit:                           ; preds = %828, %.backedge.i117, %Psr_ManUtilSkipSpaces.exit.thread, %Psr_ManUtilSkipUntil.exit.thread332, %Psr_ManUtilSkipSpaces.exit237, %Psr_ManUtilSkipSpaces.exit259.thread, %Psr_ManReadArguments.exit.thread, %._crit_edge.i, %Psr_ManReadName.exit.thread.i.i, %Psr_ManUtilSkipSpaces.exit107.i.i, %Psr_ManReadName.exit125.thread.i.i, %Psr_ManUtilSkipUntilWord.exit.i.i, %Psr_ManUtilSkipSpaces.exit.i, %.loopexit.thread.i, %Psr_ManUtilSkipUntilWord.exit131.i.i, %Psr_ManUtilSkipSpaces.exit259._crit_edge, %.loopexit26.i
   %1339 = getelementptr inbounds i8, ptr %24, i64 156
   %1340 = load i8, ptr %1339, align 4
   %.not.i = icmp eq i8 %1340, 0

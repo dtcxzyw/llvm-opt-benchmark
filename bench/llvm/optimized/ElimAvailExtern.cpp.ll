@@ -239,7 +239,7 @@ _ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i: ; preds = %_ZNK4ll
   %57 = getelementptr inbounds i8, ptr %.sroa.026.041.i, i64 -40
   %58 = load ptr, ptr %57, align 8
   %.not4.i.i.i.i.i.i = icmp eq ptr %58, null
-  br i1 %.not4.i.i.i.i.i.i, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_5Value17use_iterator_implINS_3UseEEEEEZL18convertToLocalCopyRNS_6ModuleERNS_8FunctionEE3$_0EEDaOT_T0_.argprom.exit.i.i", label %.lr.ph.i.i.i.i.i.i
+  br i1 %.not4.i.i.i.i.i.i, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_5Value17use_iterator_implINS_3UseEEEEEZL18convertToLocalCopyRNS_6ModuleERNS_8FunctionEE3$_0EEDaOT_T0_.exit.i.i", label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %56, %63
   %.sroa.02.05.i.i.i.i.i.i = phi ptr [ %65, %63 ], [ %58, %56 ]
@@ -251,18 +251,18 @@ _ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i: ; preds = %_ZNK4ll
 
 62:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   switch i8 %60, label %63 [
-    i8 85, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_5Value17use_iterator_implINS_3UseEEEEEZL18convertToLocalCopyRNS_6ModuleERNS_8FunctionEE3$_0EEDaOT_T0_.argprom.exit.thread.i.i"
-    i8 34, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_5Value17use_iterator_implINS_3UseEEEEEZL18convertToLocalCopyRNS_6ModuleERNS_8FunctionEE3$_0EEDaOT_T0_.argprom.exit.thread.i.i"
-    i8 40, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_5Value17use_iterator_implINS_3UseEEEEEZL18convertToLocalCopyRNS_6ModuleERNS_8FunctionEE3$_0EEDaOT_T0_.argprom.exit.thread.i.i"
+    i8 85, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_5Value17use_iterator_implINS_3UseEEEEEZL18convertToLocalCopyRNS_6ModuleERNS_8FunctionEE3$_0EEDaOT_T0_.exit.thread.i.i"
+    i8 34, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_5Value17use_iterator_implINS_3UseEEEEEZL18convertToLocalCopyRNS_6ModuleERNS_8FunctionEE3$_0EEDaOT_T0_.exit.thread.i.i"
+    i8 40, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_5Value17use_iterator_implINS_3UseEEEEEZL18convertToLocalCopyRNS_6ModuleERNS_8FunctionEE3$_0EEDaOT_T0_.exit.thread.i.i"
   ]
 
 63:                                               ; preds = %62, %.lr.ph.i.i.i.i.i.i
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.02.05.i.i.i.i.i.i, i64 8
   %65 = load ptr, ptr %64, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %65, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_5Value17use_iterator_implINS_3UseEEEEEZL18convertToLocalCopyRNS_6ModuleERNS_8FunctionEE3$_0EEDaOT_T0_.argprom.exit.i.i", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !4
+  br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_5Value17use_iterator_implINS_3UseEEEEEZL18convertToLocalCopyRNS_6ModuleERNS_8FunctionEE3$_0EEDaOT_T0_.exit.i.i", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !4
 
-"_ZN4llvm7find_ifINS_14iterator_rangeINS_5Value17use_iterator_implINS_3UseEEEEEZL18convertToLocalCopyRNS_6ModuleERNS_8FunctionEE3$_0EEDaOT_T0_.argprom.exit.i.i": ; preds = %63, %56
+"_ZN4llvm7find_ifINS_14iterator_rangeINS_5Value17use_iterator_implINS_3UseEEEEEZL18convertToLocalCopyRNS_6ModuleERNS_8FunctionEE3$_0EEDaOT_T0_.exit.i.i": ; preds = %63, %56
   call void @_ZN4llvm8Function14deleteBodyImplEb(ptr noundef nonnull align 8 dereferenceable(136) %46, i1 noundef zeroext false) #9
   %66 = load i32, ptr %49, align 8
   %67 = and i32 %66, -16
@@ -273,18 +273,18 @@ _ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i: ; preds = %_ZNK4ll
   store i32 %spec.select.i.i.i.i, ptr %49, align 8
   br label %_ZL18convertToLocalCopyRN4llvm6ModuleERNS_8FunctionE.exit.i
 
-"_ZN4llvm7find_ifINS_14iterator_rangeINS_5Value17use_iterator_implINS_3UseEEEEEZL18convertToLocalCopyRNS_6ModuleERNS_8FunctionEE3$_0EEDaOT_T0_.argprom.exit.thread.i.i": ; preds = %62, %62, %62
+"_ZN4llvm7find_ifINS_14iterator_rangeINS_5Value17use_iterator_implINS_3UseEEEEEZL18convertToLocalCopyRNS_6ModuleERNS_8FunctionEE3$_0EEDaOT_T0_.exit.thread.i.i": ; preds = %62, %62, %62
   %70 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %46) #9
   %71 = extractvalue { ptr, i64 } %70, 0
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   %.not.i.i.i = icmp eq ptr %71, null
   br i1 %.not.i.i.i, label %72, label %73
 
-72:                                               ; preds = %"_ZN4llvm7find_ifINS_14iterator_rangeINS_5Value17use_iterator_implINS_3UseEEEEEZL18convertToLocalCopyRNS_6ModuleERNS_8FunctionEE3$_0EEDaOT_T0_.argprom.exit.thread.i.i"
+72:                                               ; preds = %"_ZN4llvm7find_ifINS_14iterator_rangeINS_5Value17use_iterator_implINS_3UseEEEEEZL18convertToLocalCopyRNS_6ModuleERNS_8FunctionEE3$_0EEDaOT_T0_.exit.thread.i.i"
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #9
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit.i.i
 
-73:                                               ; preds = %"_ZN4llvm7find_ifINS_14iterator_rangeINS_5Value17use_iterator_implINS_3UseEEEEEZL18convertToLocalCopyRNS_6ModuleERNS_8FunctionEE3$_0EEDaOT_T0_.argprom.exit.thread.i.i"
+73:                                               ; preds = %"_ZN4llvm7find_ifINS_14iterator_rangeINS_5Value17use_iterator_implINS_3UseEEEEEZL18convertToLocalCopyRNS_6ModuleERNS_8FunctionEE3$_0EEDaOT_T0_.exit.thread.i.i"
   %74 = extractvalue { ptr, i64 } %70, 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #9, !noalias !6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %71, i64 noundef %74, ptr noundef nonnull align 1 dereferenceable(1) %5) #9
@@ -363,7 +363,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #9
   br label %_ZL18convertToLocalCopyRN4llvm6ModuleERNS_8FunctionE.exit.i
 
-_ZL18convertToLocalCopyRN4llvm6ModuleERNS_8FunctionE.exit.i: ; preds = %95, %"_ZN4llvm7find_ifINS_14iterator_rangeINS_5Value17use_iterator_implINS_3UseEEEEEZL18convertToLocalCopyRNS_6ModuleERNS_8FunctionEE3$_0EEDaOT_T0_.argprom.exit.i.i"
+_ZL18convertToLocalCopyRN4llvm6ModuleERNS_8FunctionE.exit.i: ; preds = %95, %"_ZN4llvm7find_ifINS_14iterator_rangeINS_5Value17use_iterator_implINS_3UseEEEEEZL18convertToLocalCopyRNS_6ModuleERNS_8FunctionEE3$_0EEDaOT_T0_.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
@@ -512,20 +512,20 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_3UseEEE11callb
   %.val = load ptr, ptr %3, align 8
   %4 = load i8, ptr %.val, align 8
   %5 = icmp ugt i8 %4, 28
-  br i1 %5, label %6, label %"_ZZL18convertToLocalCopyRN4llvm6ModuleERNS_8FunctionEENK3$_1clERNS_3UseE.argprom.exit"
+  br i1 %5, label %6, label %"_ZZL18convertToLocalCopyRN4llvm6ModuleERNS_8FunctionEENK3$_1clERNS_3UseE.exit"
 
 6:                                                ; preds = %2
   %switch.tableidx = add i8 %4, -34
   %7 = icmp ult i8 %switch.tableidx, 52
-  br i1 %7, label %switch.lookup, label %"_ZZL18convertToLocalCopyRN4llvm6ModuleERNS_8FunctionEENK3$_1clERNS_3UseE.argprom.exit"
+  br i1 %7, label %switch.lookup, label %"_ZZL18convertToLocalCopyRN4llvm6ModuleERNS_8FunctionEENK3$_1clERNS_3UseE.exit"
 
 switch.lookup:                                    ; preds = %6
   %switch.cast = zext nneg i8 %switch.tableidx to i52
   %switch.downshift = lshr i52 2251799813685182, %switch.cast
   %switch.masked = trunc i52 %switch.downshift to i1
-  br label %"_ZZL18convertToLocalCopyRN4llvm6ModuleERNS_8FunctionEENK3$_1clERNS_3UseE.argprom.exit"
+  br label %"_ZZL18convertToLocalCopyRN4llvm6ModuleERNS_8FunctionEENK3$_1clERNS_3UseE.exit"
 
-"_ZZL18convertToLocalCopyRN4llvm6ModuleERNS_8FunctionEENK3$_1clERNS_3UseE.argprom.exit": ; preds = %6, %switch.lookup, %2
+"_ZZL18convertToLocalCopyRN4llvm6ModuleERNS_8FunctionEENK3$_1clERNS_3UseE.exit": ; preds = %6, %switch.lookup, %2
   %8 = phi i1 [ true, %2 ], [ %switch.masked, %switch.lookup ], [ true, %6 ]
   ret i1 %8
 }

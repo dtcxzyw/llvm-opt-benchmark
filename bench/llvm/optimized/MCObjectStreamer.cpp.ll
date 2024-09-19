@@ -865,7 +865,7 @@ define dso_local noundef ptr @_ZN4llvm16MCObjectStreamer23getOrCreateDataFragmen
   %7 = icmp ne i8 %6, 1
   %.not12 = icmp eq ptr %4, null
   %.not = or i1 %.not12, %7
-  br i1 %.not, label %_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.argprom.exit.thread10, label %8
+  br i1 %.not, label %_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.exit.thread10, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr i8, ptr %4, i64 29
@@ -873,7 +873,7 @@ define dso_local noundef ptr @_ZN4llvm16MCObjectStreamer23getOrCreateDataFragmen
   %10 = getelementptr i8, ptr %4, i64 32
   %.val7 = load ptr, ptr %10, align 8
   %11 = trunc i8 %.val to i1
-  br i1 %11, label %12, label %_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.argprom.exit.thread
+  br i1 %11, label %12, label %_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.exit.thread
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -884,15 +884,15 @@ define dso_local noundef ptr @_ZN4llvm16MCObjectStreamer23getOrCreateDataFragmen
   %17 = icmp ne i8 %16, 0
   %18 = icmp ne i32 %.val8, 0
   %or.cond.i = select i1 %17, i1 true, i1 %18
-  br i1 %or.cond.i, label %_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.argprom.exit.thread10, label %_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.argprom.exit
+  br i1 %or.cond.i, label %_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.exit.thread10, label %_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.exit
 
-_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.argprom.exit: ; preds = %12
+_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.exit: ; preds = %12
   %.not.i = icmp eq ptr %1, null
   %19 = icmp eq ptr %.val7, %1
   %spec.select.i = select i1 %.not.i, i1 true, i1 %19
-  br i1 %spec.select.i, label %_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.argprom.exit.thread, label %_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.argprom.exit.thread10
+  br i1 %spec.select.i, label %_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.exit.thread, label %_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.exit.thread10
 
-_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.argprom.exit.thread10: ; preds = %12, %_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.argprom.exit, %2
+_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.exit.thread10: ; preds = %12, %_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.exit, %2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 288
@@ -913,12 +913,12 @@ _ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSu
   %or.cond.i.i.i = or i1 %.not14.i.i.i, %.not.i.i.i
   br i1 %or.cond.i.i.i, label %.critedge.i.i.i, label %34
 
-34:                                               ; preds = %_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.argprom.exit.thread10
+34:                                               ; preds = %_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.exit.thread10
   %35 = inttoptr i64 %30 to ptr
   %36 = inttoptr i64 %29 to ptr
   br label %_ZN4llvm9MCContext13allocFragmentINS_14MCDataFragmentEJEEEPT_DpOT0_.exit
 
-.critedge.i.i.i:                                  ; preds = %_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.argprom.exit.thread10
+.critedge.i.i.i:                                  ; preds = %_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.exit.thread10
   tail call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %22)
   %37 = load ptr, ptr %22, align 8
   %38 = ptrtoint ptr %37 to i64
@@ -961,10 +961,10 @@ _ZN4llvm9MCContext13allocFragmentINS_14MCDataFragmentEJEEEPT_DpOT0_.exit: ; pred
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %.0.i.i.i, ptr %61, align 8
-  br label %_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.argprom.exit.thread
+  br label %_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.exit.thread
 
-_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.argprom.exit.thread: ; preds = %8, %_ZN4llvm9MCContext13allocFragmentINS_14MCDataFragmentEJEEEPT_DpOT0_.exit, %_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.argprom.exit
-  %.0 = phi ptr [ %4, %_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.argprom.exit ], [ %.0.i.i.i, %_ZN4llvm9MCContext13allocFragmentINS_14MCDataFragmentEJEEEPT_DpOT0_.exit ], [ %4, %8 ]
+_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.exit.thread: ; preds = %8, %_ZN4llvm9MCContext13allocFragmentINS_14MCDataFragmentEJEEEPT_DpOT0_.exit, %_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.exit
+  %.0 = phi ptr [ %4, %_ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSubtargetInfoE.exit ], [ %.0.i.i.i, %_ZN4llvm9MCContext13allocFragmentINS_14MCDataFragmentEJEEEPT_DpOT0_.exit ], [ %4, %8 ]
   ret ptr %.0
 }
 

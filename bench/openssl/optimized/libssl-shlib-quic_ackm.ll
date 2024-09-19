@@ -282,7 +282,7 @@ if.end57:                                         ; preds = %if.then41, %if.then
   %22 = load i64, ptr %bytes_in_flight, align 8
   %add59 = add i64 %22, %21
   store i64 %add59, ptr %bytes_in_flight, align 8
-  tail call fastcc void @ackm_set_loss_detection_timer.retelim(ptr noundef nonnull %ackm)
+  tail call fastcc void @ackm_set_loss_detection_timer(ptr noundef nonnull %ackm)
   %cc_method = getelementptr inbounds i8, ptr %ackm, i64 264
   %23 = load ptr, ptr %cc_method, align 8
   %on_data_sent = getelementptr inbounds i8, ptr %23, i64 64
@@ -299,7 +299,7 @@ return:                                           ; preds = %if.end.i.i, %land.r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ackm_set_loss_detection_timer.retelim(ptr nocapture noundef %ackm) unnamed_addr #0 {
+define internal fastcc void @ackm_set_loss_detection_timer(ptr nocapture noundef %ackm) unnamed_addr #0 {
 entry:
   %space = alloca i32, align 4
   %loss_time.i = getelementptr inbounds i8, ptr %ackm, i64 336

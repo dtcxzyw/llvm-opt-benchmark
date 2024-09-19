@@ -649,21 +649,21 @@ land.lhs.true.i96:                                ; preds = %land.lhs.true.i.i
   %bf.load.i.i.i98 = load i32, ptr %m_kind.i.i.i97, align 4
   %bf.clear.i.i.i99 = and i32 %bf.load.i.i.i98, 65535
   %cmp.i2.i = icmp eq i32 %bf.clear.i.i.i99, 1
-  br i1 %cmp.i2.i, label %_ZL10is_neg_varR11ast_managerP4exprRP3varj.argprom.exit, label %if.then30
+  br i1 %cmp.i2.i, label %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit, label %if.then30
 
-_ZL10is_neg_varR11ast_managerP4exprRP3varj.argprom.exit: ; preds = %land.lhs.true.i96
+_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit:  ; preds = %land.lhs.true.i96
   store ptr %49, ptr %v, align 8
   %m_idx.i.i101 = getelementptr inbounds i8, ptr %49, i64 16
   %50 = load i32, ptr %m_idx.i.i101, align 8
   %cmp.i102 = icmp ult i32 %50, %num_decls
   br i1 %cmp.i102, label %if.end31, label %if.then30
 
-if.then30:                                        ; preds = %if.end20, %_ZL6is_varP4exprj.exit78, %land.rhs.i.i.i.i, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i, %land.lhs.true.i.i, %land.lhs.true.i96, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.argprom.exit
+if.then30:                                        ; preds = %if.end20, %_ZL6is_varP4exprj.exit78, %land.rhs.i.i.i.i, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i, %land.lhs.true.i.i, %land.lhs.true.i96, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit
   br label %if.end31
 
-if.end31:                                         ; preds = %if.then30, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.argprom.exit
-  %rhs.3 = phi ptr [ %rhs.2, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.argprom.exit ], [ %lhs.2, %if.then30 ]
-  %lhs.3 = phi ptr [ %lhs.2, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.argprom.exit ], [ %rhs.2, %if.then30 ]
+if.end31:                                         ; preds = %if.then30, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit
+  %rhs.3 = phi ptr [ %rhs.2, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit ], [ %lhs.2, %if.then30 ]
+  %lhs.3 = phi ptr [ %lhs.2, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit ], [ %rhs.2, %if.then30 ]
   %m_kind.i.i.i.i.i103 = getelementptr inbounds i8, ptr %lhs.3, i64 4
   %bf.load.i.i.i.i.i104 = load i32, ptr %m_kind.i.i.i.i.i103, align 4
   %bf.clear.i.i.i.i.i105 = and i32 %bf.load.i.i.i.i.i104, 65535
@@ -700,16 +700,16 @@ land.lhs.true.i118:                               ; preds = %land.lhs.true.i.i11
   %bf.load.i.i.i121 = load i32, ptr %m_kind.i.i.i120, align 4
   %bf.clear.i.i.i122 = and i32 %bf.load.i.i.i121, 65535
   %cmp.i2.i123 = icmp eq i32 %bf.clear.i.i.i122, 1
-  br i1 %cmp.i2.i123, label %_ZL10is_neg_varR11ast_managerP4exprRP3varj.argprom.exit127, label %return
+  br i1 %cmp.i2.i123, label %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit127, label %return
 
-_ZL10is_neg_varR11ast_managerP4exprRP3varj.argprom.exit127: ; preds = %land.lhs.true.i118
+_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit127: ; preds = %land.lhs.true.i118
   store ptr %57, ptr %v, align 8
   %m_idx.i.i125 = getelementptr inbounds i8, ptr %57, i64 16
   %58 = load i32, ptr %m_idx.i.i125, align 8
   %cmp.i126 = icmp ult i32 %58, %num_decls
   br i1 %cmp.i126, label %if.then34, label %return
 
-if.then34:                                        ; preds = %_ZL10is_neg_varR11ast_managerP4exprRP3varj.argprom.exit127
+if.then34:                                        ; preds = %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit127
   %tobool.not.i.i128 = icmp eq ptr %rhs.3, null
   br i1 %tobool.not.i.i128, label %if.end.i.i132, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i129
 
@@ -817,16 +817,16 @@ land.lhs.true.i177:                               ; preds = %land.lhs.true.i.i17
   %bf.load.i.i.i180 = load i32, ptr %m_kind.i.i.i179, align 4
   %bf.clear.i.i.i181 = and i32 %bf.load.i.i.i180, 65535
   %cmp.i2.i182 = icmp eq i32 %bf.clear.i.i.i181, 1
-  br i1 %cmp.i2.i182, label %_ZL10is_neg_varR11ast_managerP4exprRP3varj.argprom.exit186, label %return
+  br i1 %cmp.i2.i182, label %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit186, label %return
 
-_ZL10is_neg_varR11ast_managerP4exprRP3varj.argprom.exit186: ; preds = %land.lhs.true.i177
+_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit186: ; preds = %land.lhs.true.i177
   store ptr %76, ptr %v, align 8
   %m_idx.i.i184 = getelementptr inbounds i8, ptr %76, i64 16
   %77 = load i32, ptr %m_idx.i.i184, align 8
   %cmp.i185 = icmp ult i32 %77, %num_decls
   br i1 %cmp.i185, label %if.then47, label %return
 
-if.then47:                                        ; preds = %_ZL10is_neg_varR11ast_managerP4exprRP3varj.argprom.exit186
+if.then47:                                        ; preds = %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit186
   %78 = load ptr, ptr %this, align 8
   %m_true.i = getelementptr inbounds i8, ptr %78, i64 856
   %79 = load ptr, ptr %m_true.i, align 8
@@ -864,8 +864,8 @@ return.sink.split:                                ; preds = %if.then2.i.i.i.i198
   store ptr %.sink, ptr %t, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end37, %_ZL6is_varP4exprj.exit148, %land.rhs.i.i.i.i166, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i170, %land.lhs.true.i.i174, %land.lhs.true.i177, %land.rhs.i.i.i.i107, %if.end31, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i111, %land.lhs.true.i.i115, %land.lhs.true.i118, %if.end, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.argprom.exit186, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.argprom.exit127, %_ZL6is_varP4exprj.exit42
-  %retval.0 = phi i1 [ false, %_ZL6is_varP4exprj.exit42 ], [ false, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.argprom.exit127 ], [ false, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.argprom.exit186 ], [ false, %if.end ], [ false, %land.lhs.true.i118 ], [ false, %land.lhs.true.i.i115 ], [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i111 ], [ false, %if.end31 ], [ false, %land.rhs.i.i.i.i107 ], [ false, %land.lhs.true.i177 ], [ false, %land.lhs.true.i.i174 ], [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i170 ], [ false, %land.rhs.i.i.i.i166 ], [ false, %_ZL6is_varP4exprj.exit148 ], [ false, %if.end37 ], [ true, %return.sink.split ]
+return:                                           ; preds = %return.sink.split, %if.end37, %_ZL6is_varP4exprj.exit148, %land.rhs.i.i.i.i166, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i170, %land.lhs.true.i.i174, %land.lhs.true.i177, %land.rhs.i.i.i.i107, %if.end31, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i111, %land.lhs.true.i.i115, %land.lhs.true.i118, %if.end, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit186, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit127, %_ZL6is_varP4exprj.exit42
+  %retval.0 = phi i1 [ false, %_ZL6is_varP4exprj.exit42 ], [ false, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit127 ], [ false, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit186 ], [ false, %if.end ], [ false, %land.lhs.true.i118 ], [ false, %land.lhs.true.i.i115 ], [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i111 ], [ false, %if.end31 ], [ false, %land.rhs.i.i.i.i107 ], [ false, %land.lhs.true.i177 ], [ false, %land.lhs.true.i.i174 ], [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i170 ], [ false, %land.rhs.i.i.i.i166 ], [ false, %_ZL6is_varP4exprj.exit148 ], [ false, %if.end37 ], [ true, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -1214,16 +1214,16 @@ land.lhs.true.i95:                                ; preds = %land.lhs.true.i.i
   %bf.load.i.i.i97 = load i32, ptr %m_kind.i.i.i96, align 4
   %bf.clear.i.i.i98 = and i32 %bf.load.i.i.i97, 65535
   %cmp.i2.i = icmp eq i32 %bf.clear.i.i.i98, 1
-  br i1 %cmp.i2.i, label %_ZL10is_neg_varR11ast_managerP4exprRP3varj.argprom.exit, label %return
+  br i1 %cmp.i2.i, label %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit, label %return
 
-_ZL10is_neg_varR11ast_managerP4exprRP3varj.argprom.exit: ; preds = %land.lhs.true.i95
+_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit:  ; preds = %land.lhs.true.i95
   store ptr %48, ptr %v, align 8
   %m_idx.i.i100 = getelementptr inbounds i8, ptr %48, i64 16
   %49 = load i32, ptr %m_idx.i.i100, align 8
   %cmp.i101 = icmp ult i32 %49, %num_decls
   br i1 %cmp.i101, label %if.then33, label %return
 
-if.then33:                                        ; preds = %_ZL10is_neg_varR11ast_managerP4exprRP3varj.argprom.exit
+if.then33:                                        ; preds = %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit
   %50 = load ptr, ptr %this, align 8
   %m_false.i = getelementptr inbounds i8, ptr %50, i64 864
   %51 = load ptr, ptr %m_false.i, align 8
@@ -1261,8 +1261,8 @@ return.sink.split:                                ; preds = %if.then2.i.i.i.i113
   store ptr %.sink, ptr %t, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end23, %_ZL6is_varP4exprj.exit79, %land.rhs.i.i.i.i, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i, %land.lhs.true.i.i, %land.lhs.true.i95, %if.end17, %if.end, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.argprom.exit, %_ZL6is_varP4exprj.exit56, %_ZL6is_varP4exprj.exit20
-  %retval.0 = phi i1 [ false, %_ZL6is_varP4exprj.exit20 ], [ false, %_ZL6is_varP4exprj.exit56 ], [ false, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.argprom.exit ], [ false, %if.end ], [ false, %if.end17 ], [ false, %land.lhs.true.i95 ], [ false, %land.lhs.true.i.i ], [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i ], [ false, %land.rhs.i.i.i.i ], [ false, %_ZL6is_varP4exprj.exit79 ], [ false, %if.end23 ], [ true, %return.sink.split ]
+return:                                           ; preds = %return.sink.split, %if.end23, %_ZL6is_varP4exprj.exit79, %land.rhs.i.i.i.i, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i, %land.lhs.true.i.i, %land.lhs.true.i95, %if.end17, %if.end, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit, %_ZL6is_varP4exprj.exit56, %_ZL6is_varP4exprj.exit20
+  %retval.0 = phi i1 [ false, %_ZL6is_varP4exprj.exit20 ], [ false, %_ZL6is_varP4exprj.exit56 ], [ false, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit ], [ false, %if.end ], [ false, %if.end17 ], [ false, %land.lhs.true.i95 ], [ false, %land.lhs.true.i.i ], [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i ], [ false, %land.rhs.i.i.i.i ], [ false, %_ZL6is_varP4exprj.exit79 ], [ false, %if.end23 ], [ true, %return.sink.split ]
   ret i1 %retval.0
 }
 

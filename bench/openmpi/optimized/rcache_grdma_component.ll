@@ -58,12 +58,12 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %4
 define internal noundef i32 @grdma_close() #0 {
   %1 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 280), align 8
   %2 = icmp eq i32 %1, 1
-  br i1 %2, label %.preheader, label %opal_list_remove_first.argprom.exit.thread
+  br i1 %2, label %.preheader, label %opal_list_remove_first.exit.thread
 
 .preheader:                                       ; preds = %0
   %3 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 328), align 8
   %4 = icmp eq i64 %3, 0
-  br i1 %4, label %opal_list_remove_first.argprom.exit.thread, label %.lr.ph
+  br i1 %4, label %opal_list_remove_first.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %33
   %5 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 328), align 8
@@ -124,9 +124,9 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %25
 33:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
   %34 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 328), align 8
   %35 = icmp eq i64 %34, 0
-  br i1 %35, label %opal_list_remove_first.argprom.exit.thread, label %.lr.ph, !llvm.loop !7
+  br i1 %35, label %opal_list_remove_first.exit.thread, label %.lr.ph, !llvm.loop !7
 
-opal_list_remove_first.argprom.exit.thread:       ; preds = %33, %.preheader, %0
+opal_list_remove_first.exit.thread:               ; preds = %33, %.preheader, %0
   %36 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 272), align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 48
   %38 = load ptr, ptr %37, align 8
@@ -134,16 +134,16 @@ opal_list_remove_first.argprom.exit.thread:       ; preds = %33, %.preheader, %0
   %.not6.i5 = icmp eq ptr %39, null
   br i1 %.not6.i5, label %opal_obj_run_destructors.exit9, label %.lr.ph.i6
 
-.lr.ph.i6:                                        ; preds = %opal_list_remove_first.argprom.exit.thread, %.lr.ph.i6
-  %40 = phi ptr [ %42, %.lr.ph.i6 ], [ %39, %opal_list_remove_first.argprom.exit.thread ]
-  %.07.i7 = phi ptr [ %41, %.lr.ph.i6 ], [ %38, %opal_list_remove_first.argprom.exit.thread ]
+.lr.ph.i6:                                        ; preds = %opal_list_remove_first.exit.thread, %.lr.ph.i6
+  %40 = phi ptr [ %42, %.lr.ph.i6 ], [ %39, %opal_list_remove_first.exit.thread ]
+  %.07.i7 = phi ptr [ %41, %.lr.ph.i6 ], [ %38, %opal_list_remove_first.exit.thread ]
   tail call void %40(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 272)) #7
   %41 = getelementptr inbounds i8, ptr %.07.i7, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not.i8 = icmp eq ptr %42, null
   br i1 %.not.i8, label %opal_obj_run_destructors.exit9, label %.lr.ph.i6, !llvm.loop !6
 
-opal_obj_run_destructors.exit9:                   ; preds = %.lr.ph.i6, %opal_list_remove_first.argprom.exit.thread
+opal_obj_run_destructors.exit9:                   ; preds = %.lr.ph.i6, %opal_list_remove_first.exit.thread
   ret i32 0
 }
 
@@ -203,7 +203,7 @@ define internal noundef ptr @grdma_init(ptr nocapture noundef readonly %0) #0 {
 
 23:                                               ; preds = %22, %.thread
   %.not9.i = icmp eq ptr %19, null
-  br i1 %.not9.i, label %opal_obj_new.argprom.exit.thread, label %24
+  br i1 %.not9.i, label %opal_obj_new.exit.thread, label %24
 
 24:                                               ; preds = %23
   store ptr @mca_rcache_grdma_cache_t_class, ptr %19, align 8
@@ -212,7 +212,7 @@ define internal noundef ptr @grdma_init(ptr nocapture noundef readonly %0) #0 {
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_cache_t_class, i64 40), align 8
   %27 = load ptr, ptr %26, align 8
   %.not6.i.i = icmp eq ptr %27, null
-  br i1 %.not6.i.i, label %opal_obj_new.argprom.exit.thread20, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %opal_obj_new.exit.thread20, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %24, %.lr.ph.i.i
   %28 = phi ptr [ %30, %.lr.ph.i.i ], [ %27, %24 ]
@@ -221,9 +221,9 @@ define internal noundef ptr @grdma_init(ptr nocapture noundef readonly %0) #0 {
   %29 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not.i.i = icmp eq ptr %30, null
-  br i1 %.not.i.i, label %opal_obj_new.argprom.exit.thread20, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %opal_obj_new.exit.thread20, label %.lr.ph.i.i, !llvm.loop !4
 
-opal_obj_new.argprom.exit.thread20:               ; preds = %.lr.ph.i.i, %24
+opal_obj_new.exit.thread20:                       ; preds = %.lr.ph.i.i, %24
   %31 = load ptr, ptr %0, align 8
   %32 = tail call noalias ptr @strdup(ptr noundef %31) #7
   %33 = getelementptr inbounds i8, ptr %19, i64 40
@@ -242,15 +242,15 @@ opal_obj_new.argprom.exit.thread20:               ; preds = %.lr.ph.i.i, %24
   store volatile i64 %40, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 328), align 8
   br label %41
 
-41:                                               ; preds = %opal_obj_new.argprom.exit.thread20, %16
-  %.1 = phi ptr [ %19, %opal_obj_new.argprom.exit.thread20 ], [ %.024, %16 ]
+41:                                               ; preds = %opal_obj_new.exit.thread20, %16
+  %.1 = phi ptr [ %19, %opal_obj_new.exit.thread20 ], [ %.024, %16 ]
   %42 = tail call noalias dereferenceable_or_null(560) ptr @malloc(i64 noundef 560) #9
   %43 = getelementptr inbounds i8, ptr %42, i64 120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   tail call void @mca_rcache_grdma_module_init(ptr noundef %42, ptr noundef nonnull %.1) #7
-  br label %opal_obj_new.argprom.exit.thread
+  br label %opal_obj_new.exit.thread
 
-opal_obj_new.argprom.exit.thread:                 ; preds = %23, %41
+opal_obj_new.exit.thread:                         ; preds = %23, %41
   %.017 = phi ptr [ %42, %41 ], [ null, %23 ]
   ret ptr %.017
 }

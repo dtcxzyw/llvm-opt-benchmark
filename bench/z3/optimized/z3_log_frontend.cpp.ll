@@ -54,7 +54,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @_ZL5solvePKcRSi.argprom(ptr noundef nonnull align 8 dereferenceable(16) @_ZSt3cin)
+  tail call fastcc void @_ZL5solvePKcRSi(ptr noundef nonnull align 8 dereferenceable(16) @_ZSt3cin)
   br label %if.end15
 
 if.else:                                          ; preds = %entry
@@ -103,7 +103,7 @@ lpad:                                             ; preds = %if.end, %invoke.con
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %invoke.cont5
-  invoke fastcc void @_ZL5solvePKcRSi.argprom(ptr noundef nonnull align 8 dereferenceable(16) %in)
+  invoke fastcc void @_ZL5solvePKcRSi(ptr noundef nonnull align 8 dereferenceable(16) %in)
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %if.end
@@ -116,7 +116,7 @@ if.end15:                                         ; preds = %invoke.cont14, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL5solvePKcRSi.argprom(ptr noundef nonnull align 8 dereferenceable(16) %in) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL5solvePKcRSi(ptr noundef nonnull align 8 dereferenceable(16) %in) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %r = alloca %class.z3_replayer, align 8
   %call = tail call i64 @clock() #11

@@ -732,7 +732,7 @@ define dso_local void @_Z19AddInterfaceEntriesPK17cmGeneratorTargetRKNSt7__cxx11
   %.val = load ptr, ptr %20, align 8
   %21 = getelementptr i8, ptr %18, i64 48
   %.val40 = load ptr, ptr %21, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_117addInterfaceEntryEPK17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_P31cmGeneratorExpressionDAGCheckerR30EvaluatedTargetPropertyEntriesNS0_16LinkInterfaceForERKSt6vectorI14cmLinkImplItemSaISH_EE.argprom(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(25) %5, i32 noundef %7, ptr %.val, ptr %.val40)
+  tail call fastcc void @_ZN12_GLOBAL__N_117addInterfaceEntryEPK17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_P31cmGeneratorExpressionDAGCheckerR30EvaluatedTargetPropertyEntriesNS0_16LinkInterfaceForERKSt6vectorI14cmLinkImplItemSaISH_EE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(25) %5, i32 noundef %7, ptr %.val, ptr %.val40)
   br label %.sink.split
 
 22:                                               ; preds = %8
@@ -753,7 +753,7 @@ define dso_local void @_Z19AddInterfaceEntriesPK17cmGeneratorTargetRKNSt7__cxx11
   %.val43 = load ptr, ptr %.sink, align 8
   %29 = getelementptr i8, ptr %.sink, i64 8
   %.val44 = load ptr, ptr %29, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_117addInterfaceEntryEPK17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_P31cmGeneratorExpressionDAGCheckerR30EvaluatedTargetPropertyEntriesNS0_16LinkInterfaceForERKSt6vectorI14cmLinkImplItemSaISH_EE.argprom(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(25) %5, i32 noundef %7, ptr %.val43, ptr %.val44)
+  tail call fastcc void @_ZN12_GLOBAL__N_117addInterfaceEntryEPK17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_P31cmGeneratorExpressionDAGCheckerR30EvaluatedTargetPropertyEntriesNS0_16LinkInterfaceForERKSt6vectorI14cmLinkImplItemSaISH_EE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(25) %5, i32 noundef %7, ptr %.val43, ptr %.val44)
   br label %30
 
 30:                                               ; preds = %.sink.split, %22, %10
@@ -763,7 +763,7 @@ define dso_local void @_Z19AddInterfaceEntriesPK17cmGeneratorTargetRKNSt7__cxx11
 declare noundef ptr @_ZNK17cmGeneratorTarget21GetLinkImplementationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16LinkInterfaceForE(ptr noundef nonnull align 8 dereferenceable(2728), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117addInterfaceEntryEPK17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_P31cmGeneratorExpressionDAGCheckerR30EvaluatedTargetPropertyEntriesNS0_16LinkInterfaceForERKSt6vectorI14cmLinkImplItemSaISH_EE.argprom(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(25) %5, i32 noundef %6, ptr %.0.val, ptr readnone %.8.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_117addInterfaceEntryEPK17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_P31cmGeneratorExpressionDAGCheckerR30EvaluatedTargetPropertyEntriesNS0_16LinkInterfaceForERKSt6vectorI14cmLinkImplItemSaISH_EE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(25) %5, i32 noundef %6, ptr %.0.val, ptr readnone %.8.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %8 = alloca %struct.EvaluatedTargetPropertyEntry, align 8
   %9 = alloca %struct.cmGeneratorExpressionContext, align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8

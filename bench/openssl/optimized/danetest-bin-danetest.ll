@@ -262,13 +262,13 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
 
 if.then12.i:                                      ; preds = %if.end.i, %while.body.i.i
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.14, i32 noundef 318, ptr noundef nonnull @.str.30, i32 noundef %inc.i) #9
-  br label %test_tlsafile.argprom.exit
+  br label %test_tlsafile.exit
 
 if.end13.i:                                       ; preds = %while.cond.i.i
   %call14.i = call ptr @SSL_new(ptr noundef %call3) #9
   %call15.i = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 322, ptr noundef nonnull @.str.31, ptr noundef %call14.i) #9
   %tobool16.not.i = icmp eq i32 %call15.i, 0
-  br i1 %tobool16.not.i, label %test_tlsafile.argprom.exit, label %if.end18.i
+  br i1 %tobool16.not.i, label %test_tlsafile.exit, label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.end13.i
   call void @SSL_set_connect_state(ptr noundef %call14.i) #9
@@ -278,7 +278,7 @@ if.end18.i:                                       ; preds = %if.end13.i
 
 if.then22.i:                                      ; preds = %if.end18.i
   call void @SSL_free(ptr noundef %call14.i) #9
-  br label %test_tlsafile.argprom.exit
+  br label %test_tlsafile.exit
 
 if.end23.i:                                       ; preds = %if.end18.i
   %9 = load i32, ptr %noncheck.i, align 4
@@ -355,7 +355,7 @@ if.then7.i.i:                                     ; preds = %if.end5.i.i
 
 if.then36.i:                                      ; preds = %for.body.i, %if.then7.i.i, %if.then4.i.i, %if.then.i.i
   call void @SSL_free(ptr noundef %call14.i) #9
-  br label %test_tlsafile.argprom.exit
+  br label %test_tlsafile.exit
 
 for.end.i:                                        ; preds = %for.cond.i, %if.end27.i
   call void @ERR_clear_error() #9
@@ -484,7 +484,7 @@ load_chain.exit.i:                                ; preds = %err.i.i, %if.then34
 
 if.then42.i:                                      ; preds = %load_chain.exit.i
   call void @SSL_free(ptr noundef %call14.i) #9
-  br label %test_tlsafile.argprom.exit
+  br label %test_tlsafile.exit
 
 if.end43.i:                                       ; preds = %load_chain.exit.i
   %call.i41.i = call i32 @SSL_get_ex_data_X509_STORE_CTX_idx() #9
@@ -606,9 +606,9 @@ if.then73.i:                                      ; preds = %if.end70.i
 while.end.i:                                      ; preds = %land.rhs.lr.ph.i, %if.then.i, %if.then73.i, %if.then69.i, %if.else.i, %if.then54.i
   %ret.0.lcssa.i = phi i32 [ 0, %if.then69.i ], [ 0, %if.else.i ], [ 0, %if.then54.i ], [ 0, %if.then73.i ], [ 1, %if.then.i ], [ 1, %land.rhs.lr.ph.i ]
   call void @ERR_clear_error() #9
-  br label %test_tlsafile.argprom.exit
+  br label %test_tlsafile.exit
 
-test_tlsafile.argprom.exit:                       ; preds = %if.end13.i, %if.then12.i, %if.then22.i, %if.then36.i, %if.then42.i, %while.end.i
+test_tlsafile.exit:                               ; preds = %if.end13.i, %if.then12.i, %if.then22.i, %if.then36.i, %if.then42.i, %while.end.i
   %retval.0.i = phi i32 [ 0, %if.then12.i ], [ 0, %if.then22.i ], [ 0, %if.then36.i ], [ 0, %if.then42.i ], [ %ret.0.lcssa.i, %while.end.i ], [ 0, %if.end13.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ntlsa.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ncert.i)
@@ -621,9 +621,9 @@ test_tlsafile.argprom.exit:                       ; preds = %if.end13.i, %if.the
   %spec.select = zext i1 %tobool27.not to i32
   br label %end
 
-end:                                              ; preds = %test_tlsafile.argprom.exit, %entry, %lor.lhs.false, %lor.lhs.false6, %lor.lhs.false10, %lor.lhs.false14, %lor.lhs.false19
-  %ctx.0 = phi ptr [ %call3, %lor.lhs.false19 ], [ %call3, %lor.lhs.false14 ], [ %call3, %lor.lhs.false10 ], [ %call3, %lor.lhs.false6 ], [ %call3, %lor.lhs.false ], [ null, %entry ], [ %call3, %test_tlsafile.argprom.exit ]
-  %ret.0 = phi i32 [ 0, %lor.lhs.false19 ], [ 0, %lor.lhs.false14 ], [ 0, %lor.lhs.false10 ], [ 0, %lor.lhs.false6 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ %spec.select, %test_tlsafile.argprom.exit ]
+end:                                              ; preds = %test_tlsafile.exit, %entry, %lor.lhs.false, %lor.lhs.false6, %lor.lhs.false10, %lor.lhs.false14, %lor.lhs.false19
+  %ctx.0 = phi ptr [ %call3, %lor.lhs.false19 ], [ %call3, %lor.lhs.false14 ], [ %call3, %lor.lhs.false10 ], [ %call3, %lor.lhs.false6 ], [ %call3, %lor.lhs.false ], [ null, %entry ], [ %call3, %test_tlsafile.exit ]
+  %ret.0 = phi i32 [ 0, %lor.lhs.false19 ], [ 0, %lor.lhs.false14 ], [ 0, %lor.lhs.false10 ], [ 0, %lor.lhs.false6 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ %spec.select, %test_tlsafile.exit ]
   %call28 = call i32 @BIO_free(ptr noundef %call) #9
   call void @SSL_CTX_free(ptr noundef %ctx.0) #9
   ret i32 %ret.0

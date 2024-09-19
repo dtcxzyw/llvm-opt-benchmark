@@ -334,7 +334,7 @@ invoke.cont41:                                    ; preds = %invoke.cont39
           to label %invoke.cont42 unwind label %terminate.lpad.loopexit.split-lp
 
 invoke.cont42:                                    ; preds = %invoke.cont41
-  %call46 = call fastcc noundef ptr @"_ZSt7find_ifIPKSt4pairIiPKcEZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNS7_15safe_assert_argEiP13__va_list_tagE3$_0ET_SF_SF_T0_.argprom"(i32 %error)
+  %call46 = call fastcc noundef ptr @"_ZSt7find_ifIPKSt4pairIiPKcEZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNS7_15safe_assert_argEiP13__va_list_tagE3$_0ET_SF_SF_T0_"(i32 %error)
   %cmp48.not = icmp eq ptr %call46, getelementptr inbounds (i8, ptr @_ZN5folly6detail12_GLOBAL__N_16errorsE, i64 2128)
   br i1 %cmp48.not, label %cond.end, label %cond.true
 
@@ -467,7 +467,7 @@ _ZN5folly15fileutil_detail8wrapFullIPFliPKvmEJEEElT_iPvmDpT0_.exit: ; preds = %d
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef nonnull ptr @"_ZSt7find_ifIPKSt4pairIiPKcEZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNS7_15safe_assert_argEiP13__va_list_tagE3$_0ET_SF_SF_T0_.argprom"(i32 range(i32 1, 0) %__pred.coerce) unnamed_addr #6 {
+define internal fastcc noundef nonnull ptr @"_ZSt7find_ifIPKSt4pairIiPKcEZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNS7_15safe_assert_argEiP13__va_list_tagE3$_0ET_SF_SF_T0_"(i32 range(i32 1, 0) %__pred.coerce) unnamed_addr #6 {
 entry:
   br label %for.body.i.i
 

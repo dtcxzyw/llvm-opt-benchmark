@@ -2009,7 +2009,7 @@ define dso_local void @ImportSnapshot(ptr noundef %0) local_unnamed_addr #0 {
 77:                                               ; preds = %69
   %78 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %70, i32 noundef 10) #18
   %.not17.i = icmp eq ptr %78, null
-  br i1 %.not17.i, label %79, label %parseVxidFromText.argprom.exit
+  br i1 %.not17.i, label %79, label %parseVxidFromText.exit
 
 79:                                               ; preds = %77
   %80 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
@@ -2019,7 +2019,7 @@ define dso_local void @ImportSnapshot(ptr noundef %0) local_unnamed_addr #0 {
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1363, ptr noundef nonnull @__func__.parseVxidFromText) #16
   unreachable
 
-parseVxidFromText.argprom.exit:                   ; preds = %77
+parseVxidFromText.exit:                           ; preds = %77
   %83 = getelementptr i8, ptr %78, i64 1
   store ptr %83, ptr %4, align 8
   %84 = call fastcc i32 @parseIntFromText(ptr noundef nonnull @.str.39, ptr noundef %4, ptr noundef %2)
@@ -2040,12 +2040,12 @@ parseVxidFromText.argprom.exit:                   ; preds = %77
   %94 = icmp slt i32 %92, 0
   br i1 %94, label %98, label %95
 
-95:                                               ; preds = %parseVxidFromText.argprom.exit
+95:                                               ; preds = %parseVxidFromText.exit
   %96 = call i32 @GetMaxSnapshotXidCount() #16
   %97 = icmp sgt i32 %92, %96
   br i1 %97, label %98, label %102
 
-98:                                               ; preds = %95, %parseVxidFromText.argprom.exit
+98:                                               ; preds = %95, %parseVxidFromText.exit
   %99 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
   call void @llvm.assume(i1 %99)
   %100 = call i32 @errcode(i32 noundef 33685634) #16

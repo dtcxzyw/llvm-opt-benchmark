@@ -5340,22 +5340,22 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContent
           cleanup
   %.val.i.i.i.i.i = load ptr, ptr %1629, align 8, !noalias !48
   %.not.i.i.i.i11.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i11.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.argprom.exit.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i11.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.exit.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i.i.i.i: ; preds = %1634
   %1636 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 8
   %1637 = atomicrmw sub ptr %1636, i32 1 release, align 4, !noalias !48
   %1638 = icmp eq i32 %1637, 1
-  br i1 %1638, label %1639, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.argprom.exit.i.i.i.i.i
+  br i1 %1638, label %1639, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.exit.i.i.i.i.i
 
 1639:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i.i.i.i
   %1640 = load ptr, ptr %.val.i.i.i.i.i, align 8, !noalias !48
   %1641 = getelementptr inbounds i8, ptr %1640, i64 8
   %1642 = load ptr, ptr %1641, align 8, !noalias !48
   call void %1642(ptr noundef nonnull align 8 dereferenceable(12) %.val.i.i.i.i.i) #23, !noalias !48
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.argprom.exit.i.i.i.i.i
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.exit.i.i.i.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.argprom.exit.i.i.i.i.i: ; preds = %1639, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i.i.i.i, %1634
+_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.exit.i.i.i.i.i: ; preds = %1639, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i.i.i.i, %1634
   call void @_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice14_DelivererBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(34) %1623) #23, !noalias !48
   %.pre.i.i.i.i = load ptr, ptr %161, align 8, !noalias !48
   br label %.body.i.i.i.i
@@ -5365,9 +5365,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContent
           cleanup
   br label %.body.i.i.i.i
 
-.body.i.i.i.i:                                    ; preds = %1643, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.argprom.exit.i.i.i.i.i
-  %1645 = phi ptr [ getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolderE, i64 16), %1643 ], [ %.pre.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.argprom.exit.i.i.i.i.i ]
-  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %1644, %1643 ], [ %1635, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.argprom.exit.i.i.i.i.i ]
+.body.i.i.i.i:                                    ; preds = %1643, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.exit.i.i.i.i.i
+  %1645 = phi ptr [ getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolderE, i64 16), %1643 ], [ %.pre.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.exit.i.i.i.i.i ]
+  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %1644, %1643 ], [ %1635, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.exit.i.i.i.i.i ]
   %1646 = load ptr, ptr %1645, align 8, !noalias !48
   call void %1646(ptr noundef nonnull align 8 dereferenceable(8) %161) #23, !noalias !48
   call void @_ZdlPvm(ptr noundef nonnull %1623, i64 noundef 104) #26, !noalias !48
@@ -5623,9 +5623,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit45.i: ; p
   %1751 = icmp sgt i64 %1750, 0
   br i1 %1751, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit45.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit51.thread.i.i.i.i"
-  %.0103.i.i.i.i = phi i64 [ %1820, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit51.thread.i.i.i.i" ], [ %1750, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit45.i ]
-  %.sroa.085.0102.i.i.i.i = phi ptr [ %1819, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit51.thread.i.i.i.i" ], [ %1743, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit45.i ]
+.lr.ph.i.i.i.i:                                   ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit45.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit51.thread.i.i.i.i"
+  %.0103.i.i.i.i = phi i64 [ %1820, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit51.thread.i.i.i.i" ], [ %1750, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit45.i ]
+  %.sroa.085.0102.i.i.i.i = phi ptr [ %1819, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit51.thread.i.i.i.i" ], [ %1743, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit45.i ]
   %1752 = getelementptr inbounds nuw i8, ptr %.sroa.085.0102.i.i.i.i, i64 8
   %1753 = load ptr, ptr %1752, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %1753, null
@@ -5645,12 +5645,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
 _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i.i.i.i.i: ; preds = %.noexc48.i, %.lr.ph.i.i.i.i
   %1758 = load ptr, ptr %173, align 8
   %1759 = icmp eq ptr %1758, null
-  br i1 %1759, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit.thread.i.i.i.i"
+  br i1 %1759, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit.thread.i.i.i.i"
 
 1760:                                             ; preds = %.noexc48.i
   %1761 = load ptr, ptr %1752, align 8
   %.not.i.i.i.i8.i.i.i.i.i.i.i = icmp eq ptr %1761, null
-  br i1 %.not.i.i.i.i8.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit.thread.i.i.i.i", label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i8.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit.thread.i.i.i.i", label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i.i.i.i.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i.i.i.i.i: ; preds = %1760
   %1762 = getelementptr inbounds nuw i8, ptr %1761, i64 14
@@ -5662,16 +5662,16 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   %1766 = load ptr, ptr %173, align 8
   %1767 = icmp eq ptr %1765, %1766
   %or.cond.i = select i1 %or.cond.not.i.i.i.i.i.i.i, i1 %1767, i1 false
-  br i1 %or.cond.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit.thread.i.i.i.i"
+  br i1 %or.cond.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit.thread.i.i.i.i": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i.i.i.i.i, %1760, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit.thread.i.i.i.i": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i.i.i.i.i, %1760, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i.i.i.i.i
   %1768 = getelementptr inbounds i8, ptr %.sroa.085.0102.i.i.i.i, i64 240
   %1769 = getelementptr inbounds i8, ptr %.sroa.085.0102.i.i.i.i, i64 248
   %1770 = load ptr, ptr %1769, align 8
   %.not.i.i.i.i.i.i.i22.i.i.i.i = icmp eq ptr %1770, null
   br i1 %.not.i.i.i.i.i.i.i22.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i30.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.i.i.i23.i.i.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.i.i.i23.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit.thread.i.i.i.i"
+_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.i.i.i23.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit.thread.i.i.i.i"
   %1771 = load ptr, ptr %1770, align 8
   %1772 = getelementptr inbounds i8, ptr %1771, i64 16
   %1773 = load ptr, ptr %1772, align 8
@@ -5682,15 +5682,15 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
   %.not.i.i.i24.i.i.i.i = icmp eq ptr %1774, null
   br i1 %.not.i.i.i24.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i30.i.i.i.i, label %1777
 
-_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i30.i.i.i.i: ; preds = %.noexc49.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit.thread.i.i.i.i"
+_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i30.i.i.i.i: ; preds = %.noexc49.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit.thread.i.i.i.i"
   %1775 = load ptr, ptr %173, align 8
   %1776 = icmp eq ptr %1775, null
-  br i1 %1776, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit31.thread.i.i.i.i"
+  br i1 %1776, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit31.thread.i.i.i.i"
 
 1777:                                             ; preds = %.noexc49.i
   %1778 = load ptr, ptr %1769, align 8
   %.not.i.i.i.i8.i.i.i25.i.i.i.i = icmp eq ptr %1778, null
-  br i1 %.not.i.i.i.i8.i.i.i25.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit31.thread.i.i.i.i", label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i26.i.i.i.i
+  br i1 %.not.i.i.i.i8.i.i.i25.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit31.thread.i.i.i.i", label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i26.i.i.i.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i26.i.i.i.i: ; preds = %1777
   %1779 = getelementptr inbounds nuw i8, ptr %1778, i64 14
@@ -5702,16 +5702,16 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   %1783 = load ptr, ptr %173, align 8
   %1784 = icmp eq ptr %1782, %1783
   %or.cond91.i = select i1 %or.cond.not.i.i.i28.i.i.i.i, i1 %1784, i1 false
-  br i1 %or.cond91.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit31.thread.i.i.i.i"
+  br i1 %or.cond91.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit31.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit31.thread.i.i.i.i": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i26.i.i.i.i, %1777, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i30.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit31.thread.i.i.i.i": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i26.i.i.i.i, %1777, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i30.i.i.i.i
   %1785 = getelementptr inbounds i8, ptr %.sroa.085.0102.i.i.i.i, i64 480
   %1786 = getelementptr inbounds i8, ptr %.sroa.085.0102.i.i.i.i, i64 488
   %1787 = load ptr, ptr %1786, align 8
   %.not.i.i.i.i.i.i.i32.i.i.i.i = icmp eq ptr %1787, null
   br i1 %.not.i.i.i.i.i.i.i32.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i40.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.i.i.i33.i.i.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.i.i.i33.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit31.thread.i.i.i.i"
+_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.i.i.i33.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit31.thread.i.i.i.i"
   %1788 = load ptr, ptr %1787, align 8
   %1789 = getelementptr inbounds i8, ptr %1788, i64 16
   %1790 = load ptr, ptr %1789, align 8
@@ -5722,15 +5722,15 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
   %.not.i.i.i34.i.i.i.i = icmp eq ptr %1791, null
   br i1 %.not.i.i.i34.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i40.i.i.i.i, label %1794
 
-_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i40.i.i.i.i: ; preds = %.noexc50.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit31.thread.i.i.i.i"
+_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i40.i.i.i.i: ; preds = %.noexc50.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit31.thread.i.i.i.i"
   %1792 = load ptr, ptr %173, align 8
   %1793 = icmp eq ptr %1792, null
-  br i1 %1793, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit41.thread.i.i.i.i"
+  br i1 %1793, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit41.thread.i.i.i.i"
 
 1794:                                             ; preds = %.noexc50.i
   %1795 = load ptr, ptr %1786, align 8
   %.not.i.i.i.i8.i.i.i35.i.i.i.i = icmp eq ptr %1795, null
-  br i1 %.not.i.i.i.i8.i.i.i35.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit41.thread.i.i.i.i", label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i36.i.i.i.i
+  br i1 %.not.i.i.i.i8.i.i.i35.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit41.thread.i.i.i.i", label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i36.i.i.i.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i36.i.i.i.i: ; preds = %1794
   %1796 = getelementptr inbounds nuw i8, ptr %1795, i64 14
@@ -5742,16 +5742,16 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   %1800 = load ptr, ptr %173, align 8
   %1801 = icmp eq ptr %1799, %1800
   %or.cond93.i = select i1 %or.cond.not.i.i.i38.i.i.i.i, i1 %1801, i1 false
-  br i1 %or.cond93.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit41.thread.i.i.i.i"
+  br i1 %or.cond93.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit41.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit41.thread.i.i.i.i": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i36.i.i.i.i, %1794, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i40.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit41.thread.i.i.i.i": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i36.i.i.i.i, %1794, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i40.i.i.i.i
   %1802 = getelementptr inbounds i8, ptr %.sroa.085.0102.i.i.i.i, i64 720
   %1803 = getelementptr inbounds i8, ptr %.sroa.085.0102.i.i.i.i, i64 728
   %1804 = load ptr, ptr %1803, align 8
   %.not.i.i.i.i.i.i.i42.i.i.i.i = icmp eq ptr %1804, null
   br i1 %.not.i.i.i.i.i.i.i42.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i50.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.i.i.i43.i.i.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.i.i.i43.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit41.thread.i.i.i.i"
+_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.i.i.i43.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit41.thread.i.i.i.i"
   %1805 = load ptr, ptr %1804, align 8
   %1806 = getelementptr inbounds i8, ptr %1805, i64 16
   %1807 = load ptr, ptr %1806, align 8
@@ -5762,15 +5762,15 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
   %.not.i.i.i44.i.i.i.i = icmp eq ptr %1808, null
   br i1 %.not.i.i.i44.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i50.i.i.i.i, label %1811
 
-_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i50.i.i.i.i: ; preds = %.noexc51.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit41.thread.i.i.i.i"
+_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i50.i.i.i.i: ; preds = %.noexc51.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit41.thread.i.i.i.i"
   %1809 = load ptr, ptr %173, align 8
   %1810 = icmp eq ptr %1809, null
-  br i1 %1810, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit51.thread.i.i.i.i"
+  br i1 %1810, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit51.thread.i.i.i.i"
 
 1811:                                             ; preds = %.noexc51.i
   %1812 = load ptr, ptr %1803, align 8
   %.not.i.i.i.i8.i.i.i45.i.i.i.i = icmp eq ptr %1812, null
-  br i1 %.not.i.i.i.i8.i.i.i45.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit51.thread.i.i.i.i", label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i46.i.i.i.i
+  br i1 %.not.i.i.i.i8.i.i.i45.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit51.thread.i.i.i.i", label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i46.i.i.i.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i46.i.i.i.i: ; preds = %1811
   %1813 = getelementptr inbounds nuw i8, ptr %1812, i64 14
@@ -5782,15 +5782,15 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   %1817 = load ptr, ptr %173, align 8
   %1818 = icmp eq ptr %1816, %1817
   %or.cond95.i = select i1 %or.cond.not.i.i.i48.i.i.i.i, i1 %1818, i1 false
-  br i1 %or.cond95.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit51.thread.i.i.i.i"
+  br i1 %or.cond95.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit51.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit51.thread.i.i.i.i": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i46.i.i.i.i, %1811, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i50.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit51.thread.i.i.i.i": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i46.i.i.i.i, %1811, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i50.i.i.i.i
   %1819 = getelementptr inbounds i8, ptr %.sroa.085.0102.i.i.i.i, i64 960
   %1820 = add nsw i64 %.0103.i.i.i.i, -1
   %1821 = icmp sgt i64 %.0103.i.i.i.i, 1
   br i1 %1821, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !61
 
-._crit_edge.loopexit.i.i.i.i:                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit51.thread.i.i.i.i"
+._crit_edge.loopexit.i.i.i.i:                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit51.thread.i.i.i.i"
   %.pre.i.i.i47.i = ptrtoint ptr %1819 to i64
   %.pre104.i.i.i.i = sub i64 %1746, %.pre.i.i.i47.i
   br label %._crit_edge.i.i.i.i
@@ -5825,12 +5825,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
 _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i60.i.i.i.i: ; preds = %.noexc52.i64, %1823
   %1830 = load ptr, ptr %173, align 8
   %1831 = icmp eq ptr %1830, null
-  br i1 %1831, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit61.thread.i.i.i.i"
+  br i1 %1831, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit61.thread.i.i.i.i"
 
 1832:                                             ; preds = %.noexc52.i64
   %1833 = load ptr, ptr %1824, align 8
   %.not.i.i.i.i8.i.i.i55.i.i.i.i = icmp eq ptr %1833, null
-  br i1 %.not.i.i.i.i8.i.i.i55.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit61.thread.i.i.i.i", label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i56.i.i.i.i
+  br i1 %.not.i.i.i.i8.i.i.i55.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit61.thread.i.i.i.i", label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i56.i.i.i.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i56.i.i.i.i: ; preds = %1832
   %1834 = getelementptr inbounds nuw i8, ptr %1833, i64 14
@@ -5842,14 +5842,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   %1838 = load ptr, ptr %173, align 8
   %1839 = icmp eq ptr %1837, %1838
   %or.cond97.i = select i1 %or.cond.not.i.i.i58.i.i.i.i, i1 %1839, i1 false
-  br i1 %or.cond97.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit61.thread.i.i.i.i"
+  br i1 %or.cond97.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit61.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit61.thread.i.i.i.i": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i56.i.i.i.i, %1832, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i60.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit61.thread.i.i.i.i": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i56.i.i.i.i, %1832, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i60.i.i.i.i
   %1840 = getelementptr inbounds i8, ptr %.sroa.085.0.lcssa.i.i.i.i, i64 240
   br label %1841
 
-1841:                                             ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit61.thread.i.i.i.i", %._crit_edge.i.i.i.i
-  %.sroa.085.1.i.i.i.i = phi ptr [ %.sroa.085.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %1840, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit61.thread.i.i.i.i" ]
+1841:                                             ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit61.thread.i.i.i.i", %._crit_edge.i.i.i.i
+  %.sroa.085.1.i.i.i.i = phi ptr [ %.sroa.085.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %1840, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit61.thread.i.i.i.i" ]
   %1842 = getelementptr inbounds nuw i8, ptr %.sroa.085.1.i.i.i.i, i64 8
   %1843 = load ptr, ptr %1842, align 8
   %.not.i.i.i.i.i.i.i62.i.i.i.i = icmp eq ptr %1843, null
@@ -5869,12 +5869,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
 _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i70.i.i.i.i: ; preds = %.noexc53.i63, %1841
   %1848 = load ptr, ptr %173, align 8
   %1849 = icmp eq ptr %1848, null
-  br i1 %1849, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit71.thread.i.i.i.i"
+  br i1 %1849, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit71.thread.i.i.i.i"
 
 1850:                                             ; preds = %.noexc53.i63
   %1851 = load ptr, ptr %1842, align 8
   %.not.i.i.i.i8.i.i.i65.i.i.i.i = icmp eq ptr %1851, null
-  br i1 %.not.i.i.i.i8.i.i.i65.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit71.thread.i.i.i.i", label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i66.i.i.i.i
+  br i1 %.not.i.i.i.i8.i.i.i65.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit71.thread.i.i.i.i", label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i66.i.i.i.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i66.i.i.i.i: ; preds = %1850
   %1852 = getelementptr inbounds nuw i8, ptr %1851, i64 14
@@ -5886,14 +5886,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   %1856 = load ptr, ptr %173, align 8
   %1857 = icmp eq ptr %1855, %1856
   %or.cond99.i = select i1 %or.cond.not.i.i.i68.i.i.i.i, i1 %1857, i1 false
-  br i1 %or.cond99.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit71.thread.i.i.i.i"
+  br i1 %or.cond99.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit71.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit71.thread.i.i.i.i": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i66.i.i.i.i, %1850, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i70.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit71.thread.i.i.i.i": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i66.i.i.i.i, %1850, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i70.i.i.i.i
   %1858 = getelementptr inbounds i8, ptr %.sroa.085.1.i.i.i.i, i64 240
   br label %1859
 
-1859:                                             ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit71.thread.i.i.i.i", %._crit_edge.i.i.i.i
-  %.sroa.085.2.i.i.i.i = phi ptr [ %.sroa.085.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %1858, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit71.thread.i.i.i.i" ]
+1859:                                             ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit71.thread.i.i.i.i", %._crit_edge.i.i.i.i
+  %.sroa.085.2.i.i.i.i = phi ptr [ %.sroa.085.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %1858, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit71.thread.i.i.i.i" ]
   %1860 = getelementptr inbounds nuw i8, ptr %.sroa.085.2.i.i.i.i, i64 8
   %1861 = load ptr, ptr %1860, align 8
   %.not.i.i.i.i.i.i.i72.i.i.i.i = icmp eq ptr %1861, null
@@ -5913,12 +5913,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
 _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i80.i.i.i.i: ; preds = %.noexc54.i49, %1859
   %1866 = load ptr, ptr %173, align 8
   %1867 = icmp eq ptr %1866, null
-  br i1 %1867, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit81.thread.i.i.i.i"
+  br i1 %1867, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit81.thread.i.i.i.i"
 
 1868:                                             ; preds = %.noexc54.i49
   %1869 = load ptr, ptr %1860, align 8
   %.not.i.i.i.i8.i.i.i75.i.i.i.i = icmp eq ptr %1869, null
-  br i1 %.not.i.i.i.i8.i.i.i75.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit81.thread.i.i.i.i", label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i76.i.i.i.i
+  br i1 %.not.i.i.i.i8.i.i.i75.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit81.thread.i.i.i.i", label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i76.i.i.i.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i76.i.i.i.i: ; preds = %1868
   %1870 = getelementptr inbounds nuw i8, ptr %1869, i64 14
@@ -5930,13 +5930,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   %1874 = load ptr, ptr %173, align 8
   %1875 = icmp eq ptr %1873, %1874
   %or.cond101.i = select i1 %or.cond.not.i.i.i78.i.i.i.i, i1 %1875, i1 false
-  br i1 %or.cond101.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit81.thread.i.i.i.i"
+  br i1 %or.cond101.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit81.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit81.thread.i.i.i.i": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i76.i.i.i.i, %1868, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i80.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit81.thread.i.i.i.i": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i76.i.i.i.i, %1868, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i80.i.i.i.i
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i46.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i50.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i36.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i40.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i26.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i30.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit81.thread.i.i.i.i", %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i76.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i80.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i66.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i70.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i56.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i60.i.i.i.i, %._crit_edge.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %1745, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit81.thread.i.i.i.i" ], [ %1745, %._crit_edge.i.i.i.i ], [ %.sroa.085.0.lcssa.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i60.i.i.i.i ], [ %.sroa.085.1.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i70.i.i.i.i ], [ %.sroa.085.2.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i80.i.i.i.i ], [ %.sroa.085.0.lcssa.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i56.i.i.i.i ], [ %.sroa.085.1.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i66.i.i.i.i ], [ %.sroa.085.2.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i76.i.i.i.i ], [ %1802, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i50.i.i.i.i ], [ %1785, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i40.i.i.i.i ], [ %1768, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i30.i.i.i.i ], [ %.sroa.085.0102.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i.i.i.i.i ], [ %.sroa.085.0102.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i.i.i.i.i ], [ %1768, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i26.i.i.i.i ], [ %1785, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i36.i.i.i.i ], [ %1802, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i46.i.i.i.i ]
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_8SdfLayerEEENS3_13SdfChangeListEESt6vectorIS8_SaIS8_EEEEZL29_TestSdfLayerTransferContentsvE3$_0ET_SF_SF_T0_.exit.i": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i46.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i50.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i36.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i40.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i26.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i30.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit81.thread.i.i.i.i", %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i76.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i80.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i66.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i70.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i56.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i60.i.i.i.i, %._crit_edge.i.i.i.i
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %1745, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29_TestSdfLayerTransferContentsvE3$_0EclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS7_8SdfLayerEEENS7_13SdfChangeListEESt6vectorISC_SaISC_EEEEEEbT_.exit81.thread.i.i.i.i" ], [ %1745, %._crit_edge.i.i.i.i ], [ %.sroa.085.0.lcssa.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i60.i.i.i.i ], [ %.sroa.085.1.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i70.i.i.i.i ], [ %.sroa.085.2.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i80.i.i.i.i ], [ %.sroa.085.0.lcssa.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i56.i.i.i.i ], [ %.sroa.085.1.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i66.i.i.i.i ], [ %.sroa.085.2.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i76.i.i.i.i ], [ %1802, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i50.i.i.i.i ], [ %1785, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i40.i.i.i.i ], [ %1768, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i30.i.i.i.i ], [ %.sroa.085.0102.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.thread.i.i.i.i.i.i.i ], [ %.sroa.085.0102.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i.i.i.i.i ], [ %1768, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i26.i.i.i.i ], [ %1785, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i36.i.i.i.i ], [ %1802, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i9.i.i.i46.i.i.i.i ]
   %1876 = load ptr, ptr %1744, align 8
   %.not.i50 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %1876
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %159)
@@ -8513,30 +8513,30 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice3KeyD2Ev.exit.i.i160
 
 _ZN32pxrInternal_v0_24__pxrReserved__8TfNotice3KeyD2Ev.exit.i.i160: ; preds = %2750, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i18.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice8RegisterINS_9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEEMS3_FvRKNS_9SdfNotice18LayerInfoDidChangeEENS2_INS_8SdfLayerEEEEENS0_3KeyERKT_T0_RKT1_.exit.i.i
-  br i1 %.not.i.i.i.i.i.i.i.i.i158, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerED2Ev.argprom.exit.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i161
+  br i1 %.not.i.i.i.i.i.i.i.i.i158, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerED2Ev.exit.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i161
 
 _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i161: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice3KeyD2Ev.exit.i.i160
   %2754 = atomicrmw sub ptr %2726, i32 1 release, align 4
   %2755 = icmp eq i32 %2754, 1
-  br i1 %2755, label %2756, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerED2Ev.argprom.exit.i.i
+  br i1 %2755, label %2756, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerED2Ev.exit.i.i
 
 2756:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i161
   %2757 = load ptr, ptr %.sink8.i.sink5.i.i.i.i.i.i.i153, align 8
   %2758 = getelementptr inbounds i8, ptr %2757, i64 8
   %2759 = load ptr, ptr %2758, align 8
   call void %2759(ptr noundef nonnull align 8 dereferenceable(12) %.sink8.i.sink5.i.i.i.i.i.i.i153) #23
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerED2Ev.argprom.exit.i.i
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerED2Ev.exit.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerED2Ev.argprom.exit.i.i: ; preds = %2756, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i161, %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice3KeyD2Ev.exit.i.i160
+_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerED2Ev.exit.i.i: ; preds = %2756, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i161, %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice3KeyD2Ev.exit.i.i160
   %2760 = load atomic i64, ptr %76 seq_cst, align 8, !noalias !112
   %.not.i.i.i.i.i20.i.i = icmp eq i64 %2760, 0
   br i1 %.not.i.i.i.i.i20.i.i, label %2761, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9enable_ifIXsr3std14is_convertibleIS5_PS1_EE5valueEvE4typeE.exit.i.i.i.i.i21.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9enable_ifIXsr3std14is_convertibleIS5_PS1_EE5valueEvE4typeE.exit.i.i.i.i.i21.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerED2Ev.argprom.exit.i.i
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9enable_ifIXsr3std14is_convertibleIS5_PS1_EE5valueEvE4typeE.exit.i.i.i.i.i21.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerED2Ev.exit.i.i
   %.0.i.i.i.i.i.i22.i.i = inttoptr i64 %2760 to ptr
   br label %2777
 
-2761:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerED2Ev.argprom.exit.i.i
+2761:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerED2Ev.exit.i.i
   %2762 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
           to label %.noexc.i.i29.i.i unwind label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEED2Ev.exit14.i.i28.i.i, !noalias !121
 
@@ -26565,22 +26565,22 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_Deliverer
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %.val = load ptr, ptr %5, align 8
   %.not.i.i.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.argprom.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i
+  br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i: ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %7 = atomicrmw sub ptr %6, i32 1 release, align 4
   %8 = icmp eq i32 %7, 1
-  br i1 %8, label %9, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.argprom.exit
+  br i1 %8, label %9, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.exit
 
 9:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i
   %10 = load ptr, ptr %.val, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %.val) #23
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.argprom.exit: ; preds = %1, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i, %9
+_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.exit: ; preds = %1, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i, %9
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice14_DelivererBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(34) %0) #23
   ret void
 }
@@ -26624,7 +26624,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8TfNoti
   %10 = getelementptr i8, ptr %0, i64 48
   %.val24 = load ptr, ptr %10, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val24, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL29_TestSdfLayerTransferContentsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.argprom.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL29_TestSdfLayerTransferContentsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i: ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %.val24, i64 14
@@ -26632,12 +26632,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   %13 = trunc i8 %12 to i1
   %.not = icmp ne ptr %.val, null
   %or.cond.not = select i1 %13, i1 %.not, i1 false
-  br i1 %or.cond.not, label %14, label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL29_TestSdfLayerTransferContentsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.argprom.exit.thread
+  br i1 %or.cond.not, label %14, label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL29_TestSdfLayerTransferContentsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit.thread
 
 14:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr9IsInvalidEv(ptr noundef nonnull align 8 dereferenceable(32) %15)
-  br i1 %16, label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL29_TestSdfLayerTransferContentsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.argprom.exit.thread, label %17
+  br i1 %16, label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL29_TestSdfLayerTransferContentsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit.thread, label %17
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %6, align 8
@@ -26655,7 +26655,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   %.val26 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   %.not.i.i.i.i.i.i29 = icmp eq ptr %.val26, null
-  br i1 %.not.i.i.i.i.i.i29, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL29_TestSdfLayerTransferContentsvE15_ChangeListenerE13_FetchPointerEv.argprom.exit.thread.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i30
+  br i1 %.not.i.i.i.i.i.i29, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL29_TestSdfLayerTransferContentsvE15_ChangeListenerE13_FetchPointerEv.exit.thread.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i30
 
 _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i30: ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %.val26, i64 14
@@ -26663,9 +26663,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   %29 = trunc i8 %28 to i1
   %.not.i.i = icmp ne ptr %.val25, null
   %or.cond.not.i.i = select i1 %29, i1 %.not.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL29_TestSdfLayerTransferContentsvE15_ChangeListenerE11GetWeakBaseEv.argprom.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL29_TestSdfLayerTransferContentsvE15_ChangeListenerE13_FetchPointerEv.argprom.exit.thread.i.i
+  br i1 %or.cond.not.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL29_TestSdfLayerTransferContentsvE15_ChangeListenerE11GetWeakBaseEv.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL29_TestSdfLayerTransferContentsvE15_ChangeListenerE13_FetchPointerEv.exit.thread.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL29_TestSdfLayerTransferContentsvE15_ChangeListenerE13_FetchPointerEv.argprom.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i30, %22
+_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL29_TestSdfLayerTransferContentsvE15_ChangeListenerE13_FetchPointerEv.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i30, %22
   store ptr @.str.39, ptr %8, align 8
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @__func__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv, ptr %30, align 8
@@ -26678,14 +26678,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL29_TestS
   call void @_ZN32pxrInternal_v0_24__pxrReserved__40Tf_PostNullSmartPtrDereferenceFatalErrorERKNS_13TfCallContextEPKc(ptr noundef nonnull align 8 dereferenceable(33) %8, ptr noundef nonnull @_ZTSN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerEE) #27
   unreachable
 
-_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL29_TestSdfLayerTransferContentsvE15_ChangeListenerE11GetWeakBaseEv.argprom.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i30
+_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL29_TestSdfLayerTransferContentsvE15_ChangeListenerE11GetWeakBaseEv.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i30
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   %.not23 = icmp eq ptr %26, null
   %34 = select i1 %.not23, ptr @_ZTIv, ptr %5
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice14_DelivererBase14_BeginDeliveryERKS0_PKNS_10TfWeakBaseERKSt9type_infoS6_S9_RKSt6vectorINS_9TfWeakPtrINS0_5ProbeEEESaISD_EE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %26, ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull %.val25, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIZL29_TestSdfLayerTransferContentsvE15_ChangeListener, ptr noundef nonnull align 8 dereferenceable(24) %6)
   br label %35
 
-35:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL29_TestSdfLayerTransferContentsvE15_ChangeListenerE11GetWeakBaseEv.argprom.exit, %17
+35:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL29_TestSdfLayerTransferContentsvE15_ChangeListenerE11GetWeakBaseEv.exit, %17
   %36 = getelementptr i8, ptr %0, i64 88
   %.val27 = load i64, ptr %36, align 8
   %37 = getelementptr i8, ptr %0, i64 96
@@ -26700,26 +26700,26 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL29_TestS
   %42 = getelementptr i8, ptr %41, i64 %.val27
   %43 = getelementptr i8, ptr %42, i64 -1
   %44 = load ptr, ptr %43, align 8, !nosanitize !165
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerEENS_12TfAnyWeakPtrEMS3_FvRKNS_9SdfNotice15LayersDidChangeEES7_E21_InvokeListenerMethodEPS3_S9_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerEENS_12TfAnyWeakPtrEMS3_FvRKNS_9SdfNotice15LayersDidChangeEES7_E21_InvokeListenerMethodEPS3_S9_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.exit
 
 45:                                               ; preds = %35
   %46 = inttoptr i64 %.val27 to ptr
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerEENS_12TfAnyWeakPtrEMS3_FvRKNS_9SdfNotice15LayersDidChangeEES7_E21_InvokeListenerMethodEPS3_S9_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerEENS_12TfAnyWeakPtrEMS3_FvRKNS_9SdfNotice15LayersDidChangeEES7_E21_InvokeListenerMethodEPS3_S9_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerEENS_12TfAnyWeakPtrEMS3_FvRKNS_9SdfNotice15LayersDidChangeEES7_E21_InvokeListenerMethodEPS3_S9_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.argprom.exit: ; preds = %40, %45
+_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerEENS_12TfAnyWeakPtrEMS3_FvRKNS_9SdfNotice15LayersDidChangeEES7_E21_InvokeListenerMethodEPS3_S9_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.exit: ; preds = %40, %45
   %47 = phi ptr [ %44, %40 ], [ %46, %45 ]
   tail call void %47(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %48 = load ptr, ptr %6, align 8
   %49 = load ptr, ptr %19, align 8
   %50 = icmp eq ptr %48, %49
-  br i1 %50, label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL29_TestSdfLayerTransferContentsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.argprom.exit.thread, label %51
+  br i1 %50, label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL29_TestSdfLayerTransferContentsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit.thread, label %51
 
-51:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerEENS_12TfAnyWeakPtrEMS3_FvRKNS_9SdfNotice15LayersDidChangeEES7_E21_InvokeListenerMethodEPS3_S9_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.argprom.exit
+51:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerEENS_12TfAnyWeakPtrEMS3_FvRKNS_9SdfNotice15LayersDidChangeEES7_E21_InvokeListenerMethodEPS3_S9_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.exit
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice14_DelivererBase12_EndDeliveryERKSt6vectorINS_9TfWeakPtrINS0_5ProbeEEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(24) %6)
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL29_TestSdfLayerTransferContentsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.argprom.exit.thread
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL29_TestSdfLayerTransferContentsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL29_TestSdfLayerTransferContentsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.argprom.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i, %7, %14, %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerEENS_12TfAnyWeakPtrEMS3_FvRKNS_9SdfNotice15LayersDidChangeEES7_E21_InvokeListenerMethodEPS3_S9_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.argprom.exit, %51
-  %.0 = phi i1 [ true, %51 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerEENS_12TfAnyWeakPtrEMS3_FvRKNS_9SdfNotice15LayersDidChangeEES7_E21_InvokeListenerMethodEPS3_S9_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.argprom.exit ], [ false, %14 ], [ false, %7 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i ]
+_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL29_TestSdfLayerTransferContentsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i, %7, %14, %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerEENS_12TfAnyWeakPtrEMS3_FvRKNS_9SdfNotice15LayersDidChangeEES7_E21_InvokeListenerMethodEPS3_S9_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.exit, %51
+  %.0 = phi i1 [ true, %51 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerEENS_12TfAnyWeakPtrEMS3_FvRKNS_9SdfNotice15LayersDidChangeEES7_E21_InvokeListenerMethodEPS3_S9_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.exit ], [ false, %14 ], [ false, %7 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i ]
   ret i1 %.0
 }
 
@@ -26895,22 +26895,22 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContent
           cleanup
   %.val.i = load ptr, ptr %15, align 8
   %.not.i.i.i.i11.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i.i.i11.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.argprom.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
+  br i1 %.not.i.i.i.i11.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i: ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
   %28 = atomicrmw sub ptr %27, i32 1 release, align 4
   %29 = icmp eq i32 %28, 1
-  br i1 %29, label %30, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.argprom.exit.i
+  br i1 %29, label %30, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.exit.i
 
 30:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
   %31 = load ptr, ptr %.val.i, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef nonnull align 8 dereferenceable(12) %.val.i) #23
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.argprom.exit.i
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.exit.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.argprom.exit.i: ; preds = %30, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i, %25
+_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.exit.i: ; preds = %30, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i, %25
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice14_DelivererBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(34) %2) #23
   br label %.body
 
@@ -26930,8 +26930,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContent
           cleanup
   br label %.body
 
-.body:                                            ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.argprom.exit.i, %37
-  %eh.lpad-body = phi { ptr, i32 } [ %38, %37 ], [ %26, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.argprom.exit.i ]
+.body:                                            ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.exit.i, %37
+  %eh.lpad-body = phi { ptr, i32 } [ %38, %37 ], [ %26, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL29_TestSdfLayerTransferContentsvE15_ChangeListenerED2Ev.exit.i ]
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 104) #26
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -34055,22 +34055,22 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit: ; preds
   %11 = getelementptr inbounds i8, ptr %0, i64 48
   %.val = load ptr, ptr %11, align 8
   %.not.i.i.i.i1 = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i.i1, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerED2Ev.argprom.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i2
+  br i1 %.not.i.i.i.i1, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerED2Ev.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i2
 
 _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i2: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %13 = atomicrmw sub ptr %12, i32 1 release, align 4
   %14 = icmp eq i32 %13, 1
-  br i1 %14, label %15, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerED2Ev.argprom.exit
+  br i1 %14, label %15, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerED2Ev.exit
 
 15:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i2
   %16 = load ptr, ptr %.val, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(12) %.val) #23
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerED2Ev.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerED2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerED2Ev.argprom.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i2, %15
+_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i2, %15
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice14_DelivererBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(34) %0) #23
   ret void
 }
@@ -34129,7 +34129,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8TfNoti
   %10 = getelementptr i8, ptr %0, i64 48
   %.val24 = load ptr, ptr %10, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val24, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.argprom.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i: ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %.val24, i64 14
@@ -34137,7 +34137,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   %13 = trunc i8 %12 to i1
   %.not = icmp ne ptr %.val, null
   %or.cond.not = select i1 %13, i1 %.not, i1 false
-  br i1 %or.cond.not, label %14, label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.argprom.exit.thread
+  br i1 %or.cond.not, label %14, label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit.thread
 
 14:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -34149,7 +34149,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 14
   %18 = load i8, ptr %17, align 2
   %19 = trunc i8 %18 to i1
-  br i1 %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE9IsInvalidEv.exit.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.argprom.exit.thread
+  br i1 %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE9IsInvalidEv.exit.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE9IsInvalidEv.exit.thread: ; preds = %14, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE9IsInvalidEv.exit
   %20 = load ptr, ptr %6, align 8
@@ -34167,7 +34167,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
   %.val26 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   %.not.i.i.i.i.i.i29 = icmp eq ptr %.val26, null
-  br i1 %.not.i.i.i.i.i.i29, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerE13_FetchPointerEv.argprom.exit.thread.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i30
+  br i1 %.not.i.i.i.i.i.i29, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerE13_FetchPointerEv.exit.thread.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i30
 
 _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i30: ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %.val26, i64 14
@@ -34175,9 +34175,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   %31 = trunc i8 %30 to i1
   %.not.i.i = icmp ne ptr %.val25, null
   %or.cond.not.i.i = select i1 %31, i1 %.not.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerE11GetWeakBaseEv.argprom.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerE13_FetchPointerEv.argprom.exit.thread.i.i
+  br i1 %or.cond.not.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerE11GetWeakBaseEv.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerE13_FetchPointerEv.exit.thread.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerE13_FetchPointerEv.argprom.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i30, %24
+_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerE13_FetchPointerEv.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i30, %24
   store ptr @.str.39, ptr %8, align 8
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @__func__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv, ptr %32, align 8
@@ -34190,14 +34190,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL18_TestS
   call void @_ZN32pxrInternal_v0_24__pxrReserved__40Tf_PostNullSmartPtrDereferenceFatalErrorERKNS_13TfCallContextEPKc(ptr noundef nonnull align 8 dereferenceable(33) %8, ptr noundef nonnull @_ZTSN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEE) #27
   unreachable
 
-_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerE11GetWeakBaseEv.argprom.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i30
+_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerE11GetWeakBaseEv.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i30
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   %.not23 = icmp eq ptr %28, null
   %36 = select i1 %.not23, ptr @_ZTIv, ptr %5
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice14_DelivererBase14_BeginDeliveryERKS0_PKNS_10TfWeakBaseERKSt9type_infoS6_S9_RKSt6vectorINS_9TfWeakPtrINS0_5ProbeEEESaISD_EE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %28, ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull %.val25, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIZL18_TestSdfFpsAndTcpsvE15_ChangeListener, ptr noundef nonnull align 8 dereferenceable(24) %6)
   br label %37
 
-37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerE11GetWeakBaseEv.argprom.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE9IsInvalidEv.exit.thread
+37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerE11GetWeakBaseEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE9IsInvalidEv.exit.thread
   %38 = getelementptr i8, ptr %0, i64 72
   %.val27 = load i64, ptr %38, align 8
   %39 = getelementptr i8, ptr %0, i64 80
@@ -34212,26 +34212,26 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL18_TestS
   %44 = getelementptr i8, ptr %43, i64 %.val27
   %45 = getelementptr i8, ptr %44, i64 -1
   %46 = load ptr, ptr %45, align 8, !nosanitize !165
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEENS2_INS_8SdfLayerEEEMS3_FvRKNS_9SdfNotice18LayerInfoDidChangeEES8_E21_InvokeListenerMethodEPS3_SA_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEENS2_INS_8SdfLayerEEEMS3_FvRKNS_9SdfNotice18LayerInfoDidChangeEES8_E21_InvokeListenerMethodEPS3_SA_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.exit
 
 47:                                               ; preds = %37
   %48 = inttoptr i64 %.val27 to ptr
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEENS2_INS_8SdfLayerEEEMS3_FvRKNS_9SdfNotice18LayerInfoDidChangeEES8_E21_InvokeListenerMethodEPS3_SA_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEENS2_INS_8SdfLayerEEEMS3_FvRKNS_9SdfNotice18LayerInfoDidChangeEES8_E21_InvokeListenerMethodEPS3_SA_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEENS2_INS_8SdfLayerEEEMS3_FvRKNS_9SdfNotice18LayerInfoDidChangeEES8_E21_InvokeListenerMethodEPS3_SA_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.argprom.exit: ; preds = %42, %47
+_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEENS2_INS_8SdfLayerEEEMS3_FvRKNS_9SdfNotice18LayerInfoDidChangeEES8_E21_InvokeListenerMethodEPS3_SA_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.exit: ; preds = %42, %47
   %49 = phi ptr [ %46, %42 ], [ %48, %47 ]
   tail call void %49(ptr noundef nonnull align 8 dereferenceable(72) %40, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %50 = load ptr, ptr %6, align 8
   %51 = load ptr, ptr %21, align 8
   %52 = icmp eq ptr %50, %51
-  br i1 %52, label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.argprom.exit.thread, label %53
+  br i1 %52, label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit.thread, label %53
 
-53:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEENS2_INS_8SdfLayerEEEMS3_FvRKNS_9SdfNotice18LayerInfoDidChangeEES8_E21_InvokeListenerMethodEPS3_SA_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.argprom.exit
+53:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEENS2_INS_8SdfLayerEEEMS3_FvRKNS_9SdfNotice18LayerInfoDidChangeEES8_E21_InvokeListenerMethodEPS3_SA_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.exit
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice14_DelivererBase12_EndDeliveryERKSt6vectorINS_9TfWeakPtrINS0_5ProbeEEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(24) %6)
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.argprom.exit.thread
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.argprom.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i, %7, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE9IsInvalidEv.exit, %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEENS2_INS_8SdfLayerEEEMS3_FvRKNS_9SdfNotice18LayerInfoDidChangeEES8_E21_InvokeListenerMethodEPS3_SA_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.argprom.exit, %53
-  %.0 = phi i1 [ true, %53 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEENS2_INS_8SdfLayerEEEMS3_FvRKNS_9SdfNotice18LayerInfoDidChangeEES8_E21_InvokeListenerMethodEPS3_SA_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.argprom.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE9IsInvalidEv.exit ], [ false, %7 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i ]
+_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i, %7, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE9IsInvalidEv.exit, %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEENS2_INS_8SdfLayerEEEMS3_FvRKNS_9SdfNotice18LayerInfoDidChangeEES8_E21_InvokeListenerMethodEPS3_SA_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.exit, %53
+  %.0 = phi i1 [ true, %53 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEENS2_INS_8SdfLayerEEEMS3_FvRKNS_9SdfNotice18LayerInfoDidChangeEES8_E21_InvokeListenerMethodEPS3_SA_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE9IsInvalidEv.exit ], [ false, %7 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i ]
   ret i1 %.0
 }
 
@@ -34610,22 +34610,22 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit: ; preds
   %11 = getelementptr inbounds i8, ptr %0, i64 48
   %.val = load ptr, ptr %11, align 8
   %.not.i.i.i.i1 = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i.i1, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerED2Ev.argprom.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i2
+  br i1 %.not.i.i.i.i1, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerED2Ev.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i2
 
 _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i2: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %13 = atomicrmw sub ptr %12, i32 1 release, align 4
   %14 = icmp eq i32 %13, 1
-  br i1 %14, label %15, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerED2Ev.argprom.exit
+  br i1 %14, label %15, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerED2Ev.exit
 
 15:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i2
   %16 = load ptr, ptr %.val, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(12) %.val) #23
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerED2Ev.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerED2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerED2Ev.argprom.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i2, %15
+_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i2, %15
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice14_DelivererBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(34) %0) #23
   ret void
 }
@@ -34684,7 +34684,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8TfNoti
   %10 = getelementptr i8, ptr %0, i64 48
   %.val24 = load ptr, ptr %10, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val24, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.argprom.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i: ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %.val24, i64 14
@@ -34692,7 +34692,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   %13 = trunc i8 %12 to i1
   %.not = icmp ne ptr %.val, null
   %or.cond.not = select i1 %13, i1 %.not, i1 false
-  br i1 %or.cond.not, label %14, label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.argprom.exit.thread
+  br i1 %or.cond.not, label %14, label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit.thread
 
 14:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -34704,7 +34704,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 14
   %18 = load i8, ptr %17, align 2
   %19 = trunc i8 %18 to i1
-  br i1 %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE9IsInvalidEv.exit.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.argprom.exit.thread
+  br i1 %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE9IsInvalidEv.exit.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE9IsInvalidEv.exit.thread: ; preds = %14, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE9IsInvalidEv.exit
   %20 = load ptr, ptr %6, align 8
@@ -34722,7 +34722,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
   %.val26 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   %.not.i.i.i.i.i.i29 = icmp eq ptr %.val26, null
-  br i1 %.not.i.i.i.i.i.i29, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerE13_FetchPointerEv.argprom.exit.thread.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i30
+  br i1 %.not.i.i.i.i.i.i29, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerE13_FetchPointerEv.exit.thread.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i30
 
 _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i30: ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %.val26, i64 14
@@ -34730,9 +34730,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   %31 = trunc i8 %30 to i1
   %.not.i.i = icmp ne ptr %.val25, null
   %or.cond.not.i.i = select i1 %31, i1 %.not.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerE11GetWeakBaseEv.argprom.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerE13_FetchPointerEv.argprom.exit.thread.i.i
+  br i1 %or.cond.not.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerE11GetWeakBaseEv.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerE13_FetchPointerEv.exit.thread.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerE13_FetchPointerEv.argprom.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i30, %24
+_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerE13_FetchPointerEv.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i30, %24
   store ptr @.str.39, ptr %8, align 8
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @__func__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv, ptr %32, align 8
@@ -34745,14 +34745,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL18_TestS
   call void @_ZN32pxrInternal_v0_24__pxrReserved__40Tf_PostNullSmartPtrDereferenceFatalErrorERKNS_13TfCallContextEPKc(ptr noundef nonnull align 8 dereferenceable(33) %8, ptr noundef nonnull @_ZTSN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEE) #27
   unreachable
 
-_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerE11GetWeakBaseEv.argprom.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i30
+_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerE11GetWeakBaseEv.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i30
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   %.not23 = icmp eq ptr %28, null
   %36 = select i1 %.not23, ptr @_ZTIv, ptr %5
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice14_DelivererBase14_BeginDeliveryERKS0_PKNS_10TfWeakBaseERKSt9type_infoS6_S9_RKSt6vectorINS_9TfWeakPtrINS0_5ProbeEEESaISD_EE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %28, ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull %.val25, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIZL18_TestSdfFpsAndTcpsvE15_ChangeListener, ptr noundef nonnull align 8 dereferenceable(24) %6)
   br label %37
 
-37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerE11GetWeakBaseEv.argprom.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE9IsInvalidEv.exit.thread
+37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerE11GetWeakBaseEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE9IsInvalidEv.exit.thread
   %38 = getelementptr i8, ptr %0, i64 72
   %.val27 = load i64, ptr %38, align 8
   %39 = getelementptr i8, ptr %0, i64 80
@@ -34767,26 +34767,26 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEZL18_TestS
   %44 = getelementptr i8, ptr %43, i64 %.val27
   %45 = getelementptr i8, ptr %44, i64 -1
   %46 = load ptr, ptr %45, align 8, !nosanitize !165
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEENS2_INS_8SdfLayerEEEMS3_FvRKNS_9SdfNotice27LayersDidChangeSentPerLayerEES8_E21_InvokeListenerMethodEPS3_SA_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEENS2_INS_8SdfLayerEEEMS3_FvRKNS_9SdfNotice27LayersDidChangeSentPerLayerEES8_E21_InvokeListenerMethodEPS3_SA_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.exit
 
 47:                                               ; preds = %37
   %48 = inttoptr i64 %.val27 to ptr
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEENS2_INS_8SdfLayerEEEMS3_FvRKNS_9SdfNotice27LayersDidChangeSentPerLayerEES8_E21_InvokeListenerMethodEPS3_SA_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEENS2_INS_8SdfLayerEEEMS3_FvRKNS_9SdfNotice27LayersDidChangeSentPerLayerEES8_E21_InvokeListenerMethodEPS3_SA_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEENS2_INS_8SdfLayerEEEMS3_FvRKNS_9SdfNotice27LayersDidChangeSentPerLayerEES8_E21_InvokeListenerMethodEPS3_SA_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.argprom.exit: ; preds = %42, %47
+_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEENS2_INS_8SdfLayerEEEMS3_FvRKNS_9SdfNotice27LayersDidChangeSentPerLayerEES8_E21_InvokeListenerMethodEPS3_SA_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.exit: ; preds = %42, %47
   %49 = phi ptr [ %46, %42 ], [ %48, %47 ]
   tail call void %49(ptr noundef nonnull align 8 dereferenceable(72) %40, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %50 = load ptr, ptr %6, align 8
   %51 = load ptr, ptr %21, align 8
   %52 = icmp eq ptr %50, %51
-  br i1 %52, label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.argprom.exit.thread, label %53
+  br i1 %52, label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit.thread, label %53
 
-53:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEENS2_INS_8SdfLayerEEEMS3_FvRKNS_9SdfNotice27LayersDidChangeSentPerLayerEES8_E21_InvokeListenerMethodEPS3_SA_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.argprom.exit
+53:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEENS2_INS_8SdfLayerEEEMS3_FvRKNS_9SdfNotice27LayersDidChangeSentPerLayerEES8_E21_InvokeListenerMethodEPS3_SA_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.exit
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice14_DelivererBase12_EndDeliveryERKSt6vectorINS_9TfWeakPtrINS0_5ProbeEEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(24) %6)
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.argprom.exit.thread
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.argprom.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i, %7, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE9IsInvalidEv.exit, %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEENS2_INS_8SdfLayerEEEMS3_FvRKNS_9SdfNotice27LayersDidChangeSentPerLayerEES8_E21_InvokeListenerMethodEPS3_SA_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.argprom.exit, %53
-  %.0 = phi i1 [ true, %53 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEENS2_INS_8SdfLayerEEEMS3_FvRKNS_9SdfNotice27LayersDidChangeSentPerLayerEES8_E21_InvokeListenerMethodEPS3_SA_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.argprom.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE9IsInvalidEv.exit ], [ false, %7 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i ]
+_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrEZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i, %7, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE9IsInvalidEv.exit, %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEENS2_INS_8SdfLayerEEEMS3_FvRKNS_9SdfNotice27LayersDidChangeSentPerLayerEES8_E21_InvokeListenerMethodEPS3_SA_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.exit, %53
+  %.0 = phi i1 [ true, %53 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrIZL18_TestSdfFpsAndTcpsvE15_ChangeListenerEENS2_INS_8SdfLayerEEEMS3_FvRKNS_9SdfNotice27LayersDidChangeSentPerLayerEES8_E21_InvokeListenerMethodEPS3_SA_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_info.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE9IsInvalidEv.exit ], [ false, %7 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i ]
   ret i1 %.0
 }
 

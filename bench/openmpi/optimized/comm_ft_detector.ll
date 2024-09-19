@@ -317,7 +317,7 @@ define internal noundef i32 @fd_heartbeat_request_cb(ptr noundef %0, ptr nocaptu
   %38 = ptrtoint ptr %37 to i64
   %39 = and i64 %38, 1
   %.not.i.i.i.i = icmp eq i64 %39, 0
-  br i1 %.not.i.i.i.i, label %ompi_comm_peer_lookup.argprom.exit, label %40
+  br i1 %.not.i.i.i.i, label %ompi_comm_peer_lookup.exit, label %40
 
 40:                                               ; preds = %29
   %41 = lshr i64 %38, 1
@@ -330,7 +330,7 @@ define internal noundef i32 @fd_heartbeat_request_cb(ptr noundef %0, ptr nocaptu
   %47 = ptrtoint ptr %44 to i64
   %48 = cmpxchg volatile ptr %46, i64 %38, i64 %47 acquire monotonic, align 8
   %49 = extractvalue { i64, i1 } %48, 1
-  br i1 %49, label %50, label %ompi_comm_peer_lookup.argprom.exit
+  br i1 %49, label %50, label %ompi_comm_peer_lookup.exit
 
 50:                                               ; preds = %40
   %51 = getelementptr inbounds i8, ptr %44, i64 8
@@ -340,23 +340,23 @@ define internal noundef i32 @fd_heartbeat_request_cb(ptr noundef %0, ptr nocaptu
 
 54:                                               ; preds = %50
   %55 = atomicrmw volatile add ptr %51, i32 1 monotonic, align 4
-  br label %ompi_comm_peer_lookup.argprom.exit
+  br label %ompi_comm_peer_lookup.exit
 
 56:                                               ; preds = %50
   %57 = load volatile i32, ptr %51, align 4
   %58 = add nsw i32 %57, 1
   store volatile i32 %58, ptr %51, align 4
   %59 = load volatile i32, ptr %51, align 4
-  br label %ompi_comm_peer_lookup.argprom.exit
+  br label %ompi_comm_peer_lookup.exit
 
-ompi_comm_peer_lookup.argprom.exit:               ; preds = %29, %40, %54, %56
+ompi_comm_peer_lookup.exit:                       ; preds = %29, %40, %54, %56
   %.0.i.i.i.i = phi ptr [ %37, %29 ], [ %44, %56 ], [ %44, %54 ], [ %44, %40 ]
   %60 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 72
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %63, label %mca_bml_base_get_endpoint.exit
 
-63:                                               ; preds = %ompi_comm_peer_lookup.argprom.exit
+63:                                               ; preds = %ompi_comm_peer_lookup.exit
   %64 = load i8, ptr @opal_uses_threads, align 1
   %65 = trunc i8 %64 to i1
   br i1 %65, label %66, label %.thread.i
@@ -381,7 +381,7 @@ ompi_comm_peer_lookup.argprom.exit:               ; preds = %29, %40, %54, %56
   %75 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_bml_lock, i64 16)) #10
   br label %mca_bml_base_get_endpoint.exit
 
-mca_bml_base_get_endpoint.exit:                   ; preds = %ompi_comm_peer_lookup.argprom.exit, %71, %74
+mca_bml_base_get_endpoint.exit:                   ; preds = %ompi_comm_peer_lookup.exit, %71, %74
   %76 = load ptr, ptr %60, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 184
   %78 = load i64, ptr %77, align 8
@@ -462,7 +462,7 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %mca_bml_base_get_en
   br label %117
 
 117:                                              ; preds = %115, %110, %27
-  tail call fastcc void @fd_heartbeat_send.retelim(ptr noundef nonnull @comm_world_detector)
+  tail call fastcc void @fd_heartbeat_send(ptr noundef nonnull @comm_world_detector)
   br label %118
 
 118:                                              ; preds = %19, %16, %117
@@ -569,7 +569,7 @@ define noundef i32 @ompi_comm_failure_detector_finalize() local_unnamed_addr #0 
 
 3:                                                ; preds = %0
   store i32 %2, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 80), align 8
-  tail call fastcc void @fd_heartbeat_send.retelim(ptr noundef nonnull @comm_world_detector)
+  tail call fastcc void @fd_heartbeat_send(ptr noundef nonnull @comm_world_detector)
   store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 48), align 8
   store i32 -2, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 20), align 4
   fence seq_cst
@@ -829,11 +829,11 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %27
   br i1 %.not42, label %52, label %51
 
 51:                                               ; preds = %49
-  call fastcc void @fd_heartbeat_request.retelim(ptr noundef nonnull @comm_world_detector)
+  call fastcc void @fd_heartbeat_request(ptr noundef nonnull @comm_world_detector)
   br label %53
 
 52:                                               ; preds = %49
-  call fastcc void @fd_heartbeat_send.retelim(ptr noundef nonnull @comm_world_detector)
+  call fastcc void @fd_heartbeat_send(ptr noundef nonnull @comm_world_detector)
   br label %53
 
 53:                                               ; preds = %51, %52, %1
@@ -842,7 +842,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fd_heartbeat_send.retelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @fd_heartbeat_send(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.fd_heartbeat_t, align 4
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, @ompi_mpi_comm_world
@@ -966,7 +966,7 @@ define internal fastcc void @fd_heartbeat_send.retelim(ptr noundef %0) unnamed_a
   %81 = ptrtoint ptr %80 to i64
   %82 = and i64 %81, 1
   %.not.i.i.i.i = icmp eq i64 %82, 0
-  br i1 %.not.i.i.i.i, label %ompi_comm_peer_lookup.argprom.exit, label %83
+  br i1 %.not.i.i.i.i, label %ompi_comm_peer_lookup.exit, label %83
 
 83:                                               ; preds = %65
   %84 = lshr i64 %81, 1
@@ -979,7 +979,7 @@ define internal fastcc void @fd_heartbeat_send.retelim(ptr noundef %0) unnamed_a
   %90 = ptrtoint ptr %87 to i64
   %91 = cmpxchg volatile ptr %89, i64 %81, i64 %90 acquire monotonic, align 8
   %92 = extractvalue { i64, i1 } %91, 1
-  br i1 %92, label %93, label %ompi_comm_peer_lookup.argprom.exit
+  br i1 %92, label %93, label %ompi_comm_peer_lookup.exit
 
 93:                                               ; preds = %83
   %94 = getelementptr inbounds i8, ptr %87, i64 8
@@ -989,21 +989,21 @@ define internal fastcc void @fd_heartbeat_send.retelim(ptr noundef %0) unnamed_a
 
 97:                                               ; preds = %93
   %98 = atomicrmw volatile add ptr %94, i32 1 monotonic, align 4
-  br label %ompi_comm_peer_lookup.argprom.exit
+  br label %ompi_comm_peer_lookup.exit
 
 99:                                               ; preds = %93
   %100 = load volatile i32, ptr %94, align 4
   %101 = add nsw i32 %100, 1
   store volatile i32 %101, ptr %94, align 4
   %102 = load volatile i32, ptr %94, align 4
-  br label %ompi_comm_peer_lookup.argprom.exit
+  br label %ompi_comm_peer_lookup.exit
 
-ompi_comm_peer_lookup.argprom.exit:               ; preds = %65, %83, %97, %99
+ompi_comm_peer_lookup.exit:                       ; preds = %65, %83, %97, %99
   %.0.i.i.i.i = phi ptr [ %80, %65 ], [ %87, %99 ], [ %87, %97 ], [ %87, %83 ]
   %103 = call i32 @ompi_comm_rbcast_send_msg(ptr noundef %.0.i.i.i.i, ptr noundef nonnull %2, i64 noundef 16) #10
   br label %fd_heartbeat_rdma_put.exit
 
-fd_heartbeat_rdma_put.exit:                       ; preds = %62, %59, %25, %1, %ompi_comm_peer_lookup.argprom.exit
+fd_heartbeat_rdma_put.exit:                       ; preds = %62, %59, %25, %1, %ompi_comm_peer_lookup.exit
   ret void
 }
 
@@ -1042,7 +1042,7 @@ define internal void @fd_event_cb(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %3
-  tail call fastcc void @fd_heartbeat_send.retelim(ptr noundef nonnull %2)
+  tail call fastcc void @fd_heartbeat_send(ptr noundef nonnull %2)
   br label %15
 
 15:                                               ; preds = %14, %3
@@ -1126,7 +1126,7 @@ define internal void @fd_event_cb(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   %60 = ptrtoint ptr %59 to i64
   %61 = and i64 %60, 1
   %.not.i.i.i.i = icmp eq i64 %61, 0
-  br i1 %.not.i.i.i.i, label %ompi_comm_peer_lookup.argprom.exit, label %62
+  br i1 %.not.i.i.i.i, label %ompi_comm_peer_lookup.exit, label %62
 
 62:                                               ; preds = %51
   %63 = lshr i64 %60, 1
@@ -1139,7 +1139,7 @@ define internal void @fd_event_cb(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   %69 = ptrtoint ptr %66 to i64
   %70 = cmpxchg volatile ptr %68, i64 %60, i64 %69 acquire monotonic, align 8
   %71 = extractvalue { i64, i1 } %70, 1
-  br i1 %71, label %72, label %ompi_comm_peer_lookup.argprom.exit
+  br i1 %71, label %72, label %ompi_comm_peer_lookup.exit
 
 72:                                               ; preds = %62
   %73 = getelementptr inbounds i8, ptr %66, i64 8
@@ -1149,23 +1149,23 @@ define internal void @fd_event_cb(i32 %0, i16 signext %1, ptr noundef %2) #0 {
 
 76:                                               ; preds = %72
   %77 = atomicrmw volatile add ptr %73, i32 1 monotonic, align 4
-  br label %ompi_comm_peer_lookup.argprom.exit
+  br label %ompi_comm_peer_lookup.exit
 
 78:                                               ; preds = %72
   %79 = load volatile i32, ptr %73, align 4
   %80 = add nsw i32 %79, 1
   store volatile i32 %80, ptr %73, align 4
   %81 = load volatile i32, ptr %73, align 4
-  br label %ompi_comm_peer_lookup.argprom.exit
+  br label %ompi_comm_peer_lookup.exit
 
-ompi_comm_peer_lookup.argprom.exit:               ; preds = %51, %62, %76, %78
+ompi_comm_peer_lookup.exit:                       ; preds = %51, %62, %76, %78
   %.0.i.i.i.i = phi ptr [ %59, %51 ], [ %66, %78 ], [ %66, %76 ], [ %66, %62 ]
   %82 = getelementptr i8, ptr %.0.i.i.i.i, i64 64
   %.val50 = load i8, ptr %82, align 8
   %83 = trunc i8 %.val50 to i1
   br i1 %83, label %84, label %95
 
-84:                                               ; preds = %ompi_comm_peer_lookup.argprom.exit
+84:                                               ; preds = %ompi_comm_peer_lookup.exit
   %85 = load double, ptr %16, align 8
   %86 = getelementptr inbounds i8, ptr %2, i64 40
   %87 = load double, ptr %86, align 8
@@ -1181,7 +1181,7 @@ ompi_comm_peer_lookup.argprom.exit:               ; preds = %51, %62, %76, %78
   %or.cond = or i1 %93, %94
   br i1 %or.cond, label %95, label %117
 
-95:                                               ; preds = %ompi_comm_peer_lookup.argprom.exit, %90
+95:                                               ; preds = %ompi_comm_peer_lookup.exit, %90
   %96 = load i32, ptr @ompi_ftmpi_output_handle, align 4
   %97 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 1, i32 noundef %96) #10
   br i1 %97, label %98, label %109
@@ -1216,7 +1216,7 @@ ompi_comm_peer_lookup.argprom.exit:               ; preds = %51, %62, %76, %78
 115:                                              ; preds = %109
   %116 = getelementptr inbounds i8, ptr %2, i64 96
   store volatile i32 -2, ptr %116, align 8
-  tail call fastcc void @fd_heartbeat_request.retelim(ptr noundef nonnull %2)
+  tail call fastcc void @fd_heartbeat_request(ptr noundef nonnull %2)
   br label %117
 
 117:                                              ; preds = %90, %44, %41, %15, %115, %114, %84, %50, %34
@@ -1228,7 +1228,7 @@ declare i32 @event_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @opal_progress_event_users_increment() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fd_heartbeat_request.retelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @fd_heartbeat_request(ptr noundef %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = load volatile i32, ptr %3, align 8
@@ -1257,8 +1257,8 @@ define internal fastcc void @fd_heartbeat_request.retelim(ptr noundef %0) unname
   %21 = add i32 %.val64.val, -1
   br label %22
 
-22:                                               ; preds = %ompi_comm_peer_lookup.argprom.exit, %14
-  %.pn = phi i32 [ %19, %14 ], [ %52, %ompi_comm_peer_lookup.argprom.exit ]
+22:                                               ; preds = %ompi_comm_peer_lookup.exit, %14
+  %.pn = phi i32 [ %19, %14 ], [ %52, %ompi_comm_peer_lookup.exit ]
   %.056 = srem i32 %.pn, %.val64.val
   %.val62 = load ptr, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %.val62, i64 32
@@ -1269,7 +1269,7 @@ define internal fastcc void @fd_heartbeat_request.retelim(ptr noundef %0) unname
   %28 = ptrtoint ptr %27 to i64
   %29 = and i64 %28, 1
   %.not.i.i.i.i = icmp eq i64 %29, 0
-  br i1 %.not.i.i.i.i, label %ompi_comm_peer_lookup.argprom.exit, label %30
+  br i1 %.not.i.i.i.i, label %ompi_comm_peer_lookup.exit, label %30
 
 30:                                               ; preds = %22
   %31 = lshr i64 %28, 1
@@ -1282,7 +1282,7 @@ define internal fastcc void @fd_heartbeat_request.retelim(ptr noundef %0) unname
   %37 = ptrtoint ptr %34 to i64
   %38 = cmpxchg volatile ptr %36, i64 %28, i64 %37 acquire monotonic, align 8
   %39 = extractvalue { i64, i1 } %38, 1
-  br i1 %39, label %40, label %ompi_comm_peer_lookup.argprom.exit
+  br i1 %39, label %40, label %ompi_comm_peer_lookup.exit
 
 40:                                               ; preds = %30
   %41 = getelementptr inbounds i8, ptr %34, i64 8
@@ -1292,16 +1292,16 @@ define internal fastcc void @fd_heartbeat_request.retelim(ptr noundef %0) unname
 
 44:                                               ; preds = %40
   %45 = atomicrmw volatile add ptr %41, i32 1 monotonic, align 4
-  br label %ompi_comm_peer_lookup.argprom.exit
+  br label %ompi_comm_peer_lookup.exit
 
 46:                                               ; preds = %40
   %47 = load volatile i32, ptr %41, align 4
   %48 = add nsw i32 %47, 1
   store volatile i32 %48, ptr %41, align 4
   %49 = load volatile i32, ptr %41, align 4
-  br label %ompi_comm_peer_lookup.argprom.exit
+  br label %ompi_comm_peer_lookup.exit
 
-ompi_comm_peer_lookup.argprom.exit:               ; preds = %22, %30, %44, %46
+ompi_comm_peer_lookup.exit:                       ; preds = %22, %30, %44, %46
   %.0.i.i.i.i = phi ptr [ %27, %22 ], [ %34, %46 ], [ %34, %44 ], [ %34, %30 ]
   %50 = getelementptr i8, ptr %.0.i.i.i.i, i64 64
   %.val65 = load i8, ptr %50, align 8
@@ -1309,7 +1309,7 @@ ompi_comm_peer_lookup.argprom.exit:               ; preds = %22, %30, %44, %46
   %52 = add i32 %21, %.056
   br i1 %51, label %53, label %22
 
-53:                                               ; preds = %ompi_comm_peer_lookup.argprom.exit
+53:                                               ; preds = %ompi_comm_peer_lookup.exit
   %54 = getelementptr inbounds i8, ptr %2, i64 220
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %.056, %55

@@ -1323,7 +1323,7 @@ if.end20:                                         ; preds = %if.end15
   %13 = load ptr, ptr %func, align 8
   %14 = load ptr, ptr %args, align 8
   %15 = load ptr, ptr %kwargs, align 8
-  %call21 = call fastcc i32 @do_start_new_thread.argprom(ptr noundef %13, ptr noundef %14, ptr noundef %15, i32 noundef 0, ptr noundef %ident, ptr noundef %handle)
+  %call21 = call fastcc i32 @do_start_new_thread(ptr noundef %13, ptr noundef %14, ptr noundef %15, i32 noundef 0, ptr noundef %ident, ptr noundef %handle)
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %if.end24, label %return
 
@@ -1388,7 +1388,7 @@ if.end12:                                         ; preds = %if.end8
   %ident.i = getelementptr inbounds i8, ptr %call.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %ident.i, i8 0, i64 17, i1 false)
   %handle = getelementptr inbounds i8, ptr %call.i, i64 24
-  %call13 = tail call fastcc i32 @do_start_new_thread.argprom(ptr noundef %func, ptr noundef nonnull %call5, ptr noundef null, i32 noundef 1, ptr noundef %ident.i, ptr noundef %handle)
+  %call13 = tail call fastcc i32 @do_start_new_thread(ptr noundef %func, ptr noundef nonnull %call5, ptr noundef null, i32 noundef 1, ptr noundef %ident.i, ptr noundef %handle)
   %tobool14.not = icmp eq i32 %call13, 0
   %5 = load i64, ptr %call5, align 8
   %6 = and i64 %5, 2147483648
@@ -1473,7 +1473,7 @@ entry:
   %2 = load ptr, ptr %tp_alloc.i, align 8
   %call1.i = tail call ptr %2(ptr noundef %module.val.val, i64 noundef 0) #8
   %cmp.i = icmp eq ptr %call1.i, null
-  br i1 %cmp.i, label %newlockobject.argprom.argprom.exit, label %if.end.i
+  br i1 %cmp.i, label %newlockobject.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %call2.i = tail call ptr @PyThread_allocate_lock() #8
@@ -1484,7 +1484,7 @@ if.end.i:                                         ; preds = %entry
   %in_weakreflist.i = getelementptr inbounds i8, ptr %call1.i, i64 24
   store ptr null, ptr %in_weakreflist.i, align 8
   %cmp4.i = icmp eq ptr %call2.i, null
-  br i1 %cmp4.i, label %if.then5.i, label %newlockobject.argprom.argprom.exit
+  br i1 %cmp4.i, label %if.then5.i, label %newlockobject.exit
 
 if.then5.i:                                       ; preds = %if.end.i
   %3 = load i64, ptr %call1.i, align 8
@@ -1505,9 +1505,9 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.end.i.i, %if.then5.i
   %5 = load ptr, ptr @PyExc_RuntimeError, align 8
   tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.29) #8
-  br label %newlockobject.argprom.argprom.exit
+  br label %newlockobject.exit
 
-newlockobject.argprom.argprom.exit:               ; preds = %entry, %if.end.i, %Py_DECREF.exit.i
+newlockobject.exit:                               ; preds = %entry, %if.end.i, %Py_DECREF.exit.i
   %retval.0.i = phi ptr [ null, %Py_DECREF.exit.i ], [ null, %entry ], [ %call1.i, %if.end.i ]
   ret ptr %retval.0.i
 }
@@ -1970,7 +1970,7 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @PySys_Audit(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @do_start_new_thread.argprom(ptr noundef %func, ptr noundef %args, ptr noundef %kwargs, i32 noundef range(i32 0, 2) %joinable, ptr noundef nonnull %ident, ptr noundef nonnull %handle) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @do_start_new_thread(ptr noundef %func, ptr noundef %args, ptr noundef %kwargs, i32 noundef range(i32 0, 2) %joinable, ptr noundef nonnull %ident, ptr noundef nonnull %handle) unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -3779,28 +3779,28 @@ if.then22:                                        ; preds = %do.end21
   %15 = load ptr, ptr %interp.i, align 8
   %16 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 336), i8 0, i8 1 seq_cst seq_cst, align 1
   %17 = extractvalue { i8, i1 } %16, 1
-  br i1 %17, label %PyMutex_LockFlags.argprom.exit, label %if.then.i
+  br i1 %17, label %PyMutex_LockFlags.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then22
   %call1.i = tail call i32 @_PyMutex_LockTimed(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 336), i64 noundef -1, i32 noundef 0) #8
-  br label %PyMutex_LockFlags.argprom.exit
+  br label %PyMutex_LockFlags.exit
 
-PyMutex_LockFlags.argprom.exit:                   ; preds = %if.then22, %if.then.i
+PyMutex_LockFlags.exit:                           ; preds = %if.then22, %if.then.i
   %call23 = tail call ptr @PyInterpreterState_ThreadHead(ptr noundef %15) #8
   %18 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 336), i8 1, i8 0 seq_cst seq_cst, align 1
   %19 = extractvalue { i8, i1 } %18, 1
-  br i1 %19, label %PyMutex_Unlock.argprom.exit, label %if.then.i33
+  br i1 %19, label %PyMutex_Unlock.exit, label %if.then.i33
 
-if.then.i33:                                      ; preds = %PyMutex_LockFlags.argprom.exit
+if.then.i33:                                      ; preds = %PyMutex_LockFlags.exit
   tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 336)) #8
-  br label %PyMutex_Unlock.argprom.exit
+  br label %PyMutex_Unlock.exit
 
-PyMutex_Unlock.argprom.exit:                      ; preds = %PyMutex_LockFlags.argprom.exit, %if.then.i33
+PyMutex_Unlock.exit:                              ; preds = %PyMutex_LockFlags.exit, %if.then.i33
   %tobool26.not42 = icmp eq ptr %call23, null
   br i1 %tobool26.not42, label %if.end41, label %while.body
 
-while.body:                                       ; preds = %PyMutex_Unlock.argprom.exit, %PyMutex_Unlock.argprom.exit41
-  %tstate.043 = phi ptr [ %call38, %PyMutex_Unlock.argprom.exit41 ], [ %call23, %PyMutex_Unlock.argprom.exit ]
+while.body:                                       ; preds = %PyMutex_Unlock.exit, %PyMutex_Unlock.exit41
+  %tstate.043 = phi ptr [ %call38, %PyMutex_Unlock.exit41 ], [ %call23, %PyMutex_Unlock.exit ]
   %dict = getelementptr inbounds i8, ptr %tstate.043, i64 120
   %20 = load ptr, ptr %dict, align 8
   %tobool27.not = icmp eq ptr %20, null
@@ -3819,27 +3819,27 @@ if.then33:                                        ; preds = %if.then28
 if.end35:                                         ; preds = %if.then28, %if.then33, %while.body
   %22 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 336), i8 0, i8 1 seq_cst seq_cst, align 1
   %23 = extractvalue { i8, i1 } %22, 1
-  br i1 %23, label %PyMutex_LockFlags.argprom.exit38, label %if.then.i35
+  br i1 %23, label %PyMutex_LockFlags.exit38, label %if.then.i35
 
 if.then.i35:                                      ; preds = %if.end35
   %call1.i36 = tail call i32 @_PyMutex_LockTimed(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 336), i64 noundef -1, i32 noundef 0) #8
-  br label %PyMutex_LockFlags.argprom.exit38
+  br label %PyMutex_LockFlags.exit38
 
-PyMutex_LockFlags.argprom.exit38:                 ; preds = %if.end35, %if.then.i35
+PyMutex_LockFlags.exit38:                         ; preds = %if.end35, %if.then.i35
   %call38 = tail call ptr @PyThreadState_Next(ptr noundef nonnull %tstate.043) #8
   %24 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 336), i8 1, i8 0 seq_cst seq_cst, align 1
   %25 = extractvalue { i8, i1 } %24, 1
-  br i1 %25, label %PyMutex_Unlock.argprom.exit41, label %if.then.i39
+  br i1 %25, label %PyMutex_Unlock.exit41, label %if.then.i39
 
-if.then.i39:                                      ; preds = %PyMutex_LockFlags.argprom.exit38
+if.then.i39:                                      ; preds = %PyMutex_LockFlags.exit38
   tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 336)) #8
-  br label %PyMutex_Unlock.argprom.exit41
+  br label %PyMutex_Unlock.exit41
 
-PyMutex_Unlock.argprom.exit41:                    ; preds = %PyMutex_LockFlags.argprom.exit38, %if.then.i39
+PyMutex_Unlock.exit41:                            ; preds = %PyMutex_LockFlags.exit38, %if.then.i39
   %tobool26.not = icmp eq ptr %call38, null
   br i1 %tobool26.not, label %if.end41, label %while.body, !llvm.loop !5
 
-if.end41:                                         ; preds = %PyMutex_Unlock.argprom.exit41, %PyMutex_Unlock.argprom.exit, %do.end21
+if.end41:                                         ; preds = %PyMutex_Unlock.exit41, %PyMutex_Unlock.exit, %do.end21
   ret i32 0
 }
 
@@ -3977,7 +3977,7 @@ Py_DECREF.exit56:                                 ; preds = %Py_DECREF.exit56thr
 if.end43:                                         ; preds = %Py_DECREF.exit56
   %10 = getelementptr i8, ptr %call15.val, i64 24
   %call16.val = load ptr, ptr %10, align 8
-  %call44 = tail call fastcc ptr @_local_create_dummy.argprom(ptr noundef nonnull %call17, ptr %call16.val)
+  %call44 = tail call fastcc ptr @_local_create_dummy(ptr noundef nonnull %call17, ptr %call16.val)
   %cmp45 = icmp eq ptr %call44, null
   br i1 %cmp45, label %err, label %return
 
@@ -4031,7 +4031,7 @@ if.then3:                                         ; preds = %if.end
 if.end6:                                          ; preds = %if.then3
   %2 = getelementptr i8, ptr %state, i64 24
   %state.val = load ptr, ptr %2, align 8
-  %call7 = tail call fastcc ptr @_local_create_dummy.argprom(ptr noundef nonnull %self, ptr %state.val)
+  %call7 = tail call fastcc ptr @_local_create_dummy(ptr noundef nonnull %self, ptr %state.val)
   %cmp8 = icmp eq ptr %call7, null
   br i1 %cmp8, label %return, label %if.end10
 
@@ -4079,7 +4079,7 @@ declare ptr @PyThreadState_GetDict() local_unnamed_addr #1
 declare ptr @PyDict_GetItemWithError(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_local_create_dummy.argprom(ptr nocapture noundef readonly %self, ptr %state.24.val) unnamed_addr #0 {
+define internal fastcc ptr @_local_create_dummy(ptr nocapture noundef readonly %self, ptr %state.24.val) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyThreadState_GetDict() #8
   %cmp = icmp eq ptr %call, null

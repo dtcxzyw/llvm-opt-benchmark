@@ -170,14 +170,14 @@ entry:
   %call.i = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %provctx) #3
   %call1.i = tail call ptr @EVP_KDF_fetch(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef null) #3
   %cmp.i = icmp eq ptr %call1.i, null
-  br i1 %cmp.i, label %kdf_settable_ctx_params.argprom.exit, label %if.end.i
+  br i1 %cmp.i, label %kdf_settable_ctx_params.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %call2.i = tail call ptr @EVP_KDF_settable_ctx_params(ptr noundef nonnull %call1.i) #3
   tail call void @EVP_KDF_free(ptr noundef nonnull %call1.i) #3
-  br label %kdf_settable_ctx_params.argprom.exit
+  br label %kdf_settable_ctx_params.exit
 
-kdf_settable_ctx_params.argprom.exit:             ; preds = %entry, %if.end.i
+kdf_settable_ctx_params.exit:                     ; preds = %entry, %if.end.i
   %retval.0.i = phi ptr [ %call2.i, %if.end.i ], [ null, %entry ]
   ret ptr %retval.0.i
 }
@@ -195,14 +195,14 @@ entry:
   %call.i = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %provctx) #3
   %call1.i = tail call ptr @EVP_KDF_fetch(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef null) #3
   %cmp.i = icmp eq ptr %call1.i, null
-  br i1 %cmp.i, label %kdf_settable_ctx_params.argprom.exit, label %if.end.i
+  br i1 %cmp.i, label %kdf_settable_ctx_params.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %call2.i = tail call ptr @EVP_KDF_settable_ctx_params(ptr noundef nonnull %call1.i) #3
   tail call void @EVP_KDF_free(ptr noundef nonnull %call1.i) #3
-  br label %kdf_settable_ctx_params.argprom.exit
+  br label %kdf_settable_ctx_params.exit
 
-kdf_settable_ctx_params.argprom.exit:             ; preds = %entry, %if.end.i
+kdf_settable_ctx_params.exit:                     ; preds = %entry, %if.end.i
   %retval.0.i = phi ptr [ %call2.i, %if.end.i ], [ null, %entry ]
   ret ptr %retval.0.i
 }
@@ -220,14 +220,14 @@ entry:
   %call.i = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %provctx) #3
   %call1.i = tail call ptr @EVP_KDF_fetch(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef null) #3
   %cmp.i = icmp eq ptr %call1.i, null
-  br i1 %cmp.i, label %kdf_settable_ctx_params.argprom.exit, label %if.end.i
+  br i1 %cmp.i, label %kdf_settable_ctx_params.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %call2.i = tail call ptr @EVP_KDF_settable_ctx_params(ptr noundef nonnull %call1.i) #3
   tail call void @EVP_KDF_free(ptr noundef nonnull %call1.i) #3
-  br label %kdf_settable_ctx_params.argprom.exit
+  br label %kdf_settable_ctx_params.exit
 
-kdf_settable_ctx_params.argprom.exit:             ; preds = %entry, %if.end.i
+kdf_settable_ctx_params.exit:                     ; preds = %entry, %if.end.i
   %retval.0.i = phi ptr [ %call2.i, %if.end.i ], [ null, %entry ]
   ret ptr %retval.0.i
 }

@@ -578,8 +578,8 @@ entry:
   %cmp93.not = icmp eq i32 %0, 1
   br i1 %cmp93.not, label %for.end, label %for.body
 
-for.body:                                         ; preds = %entry, %qvirtio_writew.argprom.exit
-  %i.094 = phi i32 [ %add26, %qvirtio_writew.argprom.exit ], [ 0, %entry ]
+for.body:                                         ; preds = %entry, %qvirtio_writew.exit
+  %i.094 = phi i32 [ %add26, %qvirtio_writew.exit ], [ 0, %entry ]
   %2 = load ptr, ptr %vq, align 8
   %3 = load i64, ptr %desc, align 8
   %mul17 = shl i32 %i.094, 4
@@ -589,13 +589,13 @@ for.body:                                         ; preds = %entry, %qvirtio_wri
   %.val = load i64, ptr %4, align 8
   %and.i = and i64 %.val, 4294967296
   %tobool.not.i = icmp eq i64 %and.i, 0
-  br i1 %tobool.not.i, label %qvirtio_writeq.argprom.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %qvirtio_writeq.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body
   %call.i = tail call zeroext i1 @qtest_big_endian(ptr noundef %qts) #6
-  br label %qvirtio_writeq.argprom.exit
+  br label %qvirtio_writeq.exit
 
-qvirtio_writeq.argprom.exit:                      ; preds = %for.body, %land.lhs.true.i
+qvirtio_writeq.exit:                              ; preds = %for.body, %land.lhs.true.i
   tail call void @qtest_writeq(ptr noundef %qts, i64 noundef %add19, i64 noundef 0) #6
   %5 = load ptr, ptr %vq, align 8
   %6 = load i64, ptr %desc, align 8
@@ -607,23 +607,23 @@ qvirtio_writeq.argprom.exit:                      ; preds = %for.body, %land.lhs
   %.val39 = load i64, ptr %7, align 8
   %and.i46 = and i64 %.val39, 4294967296
   %tobool.not.i47 = icmp eq i64 %and.i46, 0
-  br i1 %tobool.not.i47, label %qvirtio_writew.argprom.exit, label %land.lhs.true.i48
+  br i1 %tobool.not.i47, label %qvirtio_writew.exit, label %land.lhs.true.i48
 
-land.lhs.true.i48:                                ; preds = %qvirtio_writeq.argprom.exit
+land.lhs.true.i48:                                ; preds = %qvirtio_writeq.exit
   %call.i49 = tail call zeroext i1 @qtest_big_endian(ptr noundef %qts) #6
   %8 = tail call i16 @llvm.bswap.i16(i16 %conv27)
   %spec.select.i = select i1 %call.i49, i16 %8, i16 %conv27
-  br label %qvirtio_writew.argprom.exit
+  br label %qvirtio_writew.exit
 
-qvirtio_writew.argprom.exit:                      ; preds = %qvirtio_writeq.argprom.exit, %land.lhs.true.i48
-  %val.addr.0.i = phi i16 [ %conv27, %qvirtio_writeq.argprom.exit ], [ %spec.select.i, %land.lhs.true.i48 ]
+qvirtio_writew.exit:                              ; preds = %qvirtio_writeq.exit, %land.lhs.true.i48
+  %val.addr.0.i = phi i16 [ %conv27, %qvirtio_writeq.exit ], [ %spec.select.i, %land.lhs.true.i48 ]
   tail call void @qtest_writew(ptr noundef %qts, i64 noundef %add25, i16 noundef zeroext %val.addr.0.i) #6
   %9 = load i32, ptr %size, align 4
   %sub14 = add i32 %9, -1
   %cmp = icmp ult i32 %add26, %sub14
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !7
 
-for.end.loopexit:                                 ; preds = %qvirtio_writew.argprom.exit
+for.end.loopexit:                                 ; preds = %qvirtio_writew.exit
   %.pre = load i64, ptr %avail, align 8
   br label %for.end
 
@@ -634,13 +634,13 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %.val40 = load i64, ptr %12, align 8
   %and.i50 = and i64 %.val40, 4294967296
   %tobool.not.i51 = icmp eq i64 %and.i50, 0
-  br i1 %tobool.not.i51, label %qvirtio_writew.argprom.exit56, label %land.lhs.true.i52
+  br i1 %tobool.not.i51, label %qvirtio_writew.exit56, label %land.lhs.true.i52
 
 land.lhs.true.i52:                                ; preds = %for.end
   %call.i53 = tail call zeroext i1 @qtest_big_endian(ptr noundef %qts) #6
-  br label %qvirtio_writew.argprom.exit56
+  br label %qvirtio_writew.exit56
 
-qvirtio_writew.argprom.exit56:                    ; preds = %for.end, %land.lhs.true.i52
+qvirtio_writew.exit56:                            ; preds = %for.end, %land.lhs.true.i52
   tail call void @qtest_writew(ptr noundef %qts, i64 noundef %10, i16 noundef zeroext 0) #6
   %13 = load ptr, ptr %vq, align 8
   %14 = load i64, ptr %avail, align 8
@@ -649,13 +649,13 @@ qvirtio_writew.argprom.exit56:                    ; preds = %for.end, %land.lhs.
   %.val41 = load i64, ptr %15, align 8
   %and.i57 = and i64 %.val41, 4294967296
   %tobool.not.i58 = icmp eq i64 %and.i57, 0
-  br i1 %tobool.not.i58, label %qvirtio_writew.argprom.exit63, label %land.lhs.true.i59
+  br i1 %tobool.not.i58, label %qvirtio_writew.exit63, label %land.lhs.true.i59
 
-land.lhs.true.i59:                                ; preds = %qvirtio_writew.argprom.exit56
+land.lhs.true.i59:                                ; preds = %qvirtio_writew.exit56
   %call.i60 = tail call zeroext i1 @qtest_big_endian(ptr noundef %qts) #6
-  br label %qvirtio_writew.argprom.exit63
+  br label %qvirtio_writew.exit63
 
-qvirtio_writew.argprom.exit63:                    ; preds = %qvirtio_writew.argprom.exit56, %land.lhs.true.i59
+qvirtio_writew.exit63:                            ; preds = %qvirtio_writew.exit56, %land.lhs.true.i59
   tail call void @qtest_writew(ptr noundef %qts, i64 noundef %add32, i16 noundef zeroext 0) #6
   %16 = load ptr, ptr %vq, align 8
   %17 = load i64, ptr %avail, align 8
@@ -668,13 +668,13 @@ qvirtio_writew.argprom.exit63:                    ; preds = %qvirtio_writew.argp
   %.val42 = load i64, ptr %19, align 8
   %and.i64 = and i64 %.val42, 4294967296
   %tobool.not.i65 = icmp eq i64 %and.i64, 0
-  br i1 %tobool.not.i65, label %qvirtio_writew.argprom.exit70, label %land.lhs.true.i66
+  br i1 %tobool.not.i65, label %qvirtio_writew.exit70, label %land.lhs.true.i66
 
-land.lhs.true.i66:                                ; preds = %qvirtio_writew.argprom.exit63
+land.lhs.true.i66:                                ; preds = %qvirtio_writew.exit63
   %call.i67 = tail call zeroext i1 @qtest_big_endian(ptr noundef %qts) #6
-  br label %qvirtio_writew.argprom.exit70
+  br label %qvirtio_writew.exit70
 
-qvirtio_writew.argprom.exit70:                    ; preds = %qvirtio_writew.argprom.exit63, %land.lhs.true.i66
+qvirtio_writew.exit70:                            ; preds = %qvirtio_writew.exit63, %land.lhs.true.i66
   tail call void @qtest_writew(ptr noundef %qts, i64 noundef %add39, i16 noundef zeroext 0) #6
   %20 = load ptr, ptr %vq, align 8
   %21 = load i64, ptr %used, align 8
@@ -682,13 +682,13 @@ qvirtio_writew.argprom.exit70:                    ; preds = %qvirtio_writew.argp
   %.val43 = load i64, ptr %22, align 8
   %and.i71 = and i64 %.val43, 4294967296
   %tobool.not.i72 = icmp eq i64 %and.i71, 0
-  br i1 %tobool.not.i72, label %qvirtio_writew.argprom.exit77, label %land.lhs.true.i73
+  br i1 %tobool.not.i72, label %qvirtio_writew.exit77, label %land.lhs.true.i73
 
-land.lhs.true.i73:                                ; preds = %qvirtio_writew.argprom.exit70
+land.lhs.true.i73:                                ; preds = %qvirtio_writew.exit70
   %call.i74 = tail call zeroext i1 @qtest_big_endian(ptr noundef %qts) #6
-  br label %qvirtio_writew.argprom.exit77
+  br label %qvirtio_writew.exit77
 
-qvirtio_writew.argprom.exit77:                    ; preds = %qvirtio_writew.argprom.exit70, %land.lhs.true.i73
+qvirtio_writew.exit77:                            ; preds = %qvirtio_writew.exit70, %land.lhs.true.i73
   tail call void @qtest_writew(ptr noundef %qts, i64 noundef %21, i16 noundef zeroext 0) #6
   %23 = load ptr, ptr %vq, align 8
   %24 = load i64, ptr %used, align 8
@@ -697,13 +697,13 @@ qvirtio_writew.argprom.exit77:                    ; preds = %qvirtio_writew.argp
   %.val44 = load i64, ptr %25, align 8
   %and.i78 = and i64 %.val44, 4294967296
   %tobool.not.i79 = icmp eq i64 %and.i78, 0
-  br i1 %tobool.not.i79, label %qvirtio_writew.argprom.exit84, label %land.lhs.true.i80
+  br i1 %tobool.not.i79, label %qvirtio_writew.exit84, label %land.lhs.true.i80
 
-land.lhs.true.i80:                                ; preds = %qvirtio_writew.argprom.exit77
+land.lhs.true.i80:                                ; preds = %qvirtio_writew.exit77
   %call.i81 = tail call zeroext i1 @qtest_big_endian(ptr noundef %qts) #6
-  br label %qvirtio_writew.argprom.exit84
+  br label %qvirtio_writew.exit84
 
-qvirtio_writew.argprom.exit84:                    ; preds = %qvirtio_writew.argprom.exit77, %land.lhs.true.i80
+qvirtio_writew.exit84:                            ; preds = %qvirtio_writew.exit77, %land.lhs.true.i80
   tail call void @qtest_writew(ptr noundef %qts, i64 noundef %add44, i16 noundef zeroext 0) #6
   %26 = load ptr, ptr %vq, align 8
   %27 = load i64, ptr %used, align 8
@@ -712,13 +712,13 @@ qvirtio_writew.argprom.exit84:                    ; preds = %qvirtio_writew.argp
   %.val45 = load i64, ptr %29, align 8
   %and.i85 = and i64 %.val45, 4294967296
   %tobool.not.i86 = icmp eq i64 %and.i85, 0
-  br i1 %tobool.not.i86, label %qvirtio_writew.argprom.exit91, label %land.lhs.true.i87
+  br i1 %tobool.not.i86, label %qvirtio_writew.exit91, label %land.lhs.true.i87
 
-land.lhs.true.i87:                                ; preds = %qvirtio_writew.argprom.exit84
+land.lhs.true.i87:                                ; preds = %qvirtio_writew.exit84
   %call.i88 = tail call zeroext i1 @qtest_big_endian(ptr noundef %qts) #6
-  br label %qvirtio_writew.argprom.exit91
+  br label %qvirtio_writew.exit91
 
-qvirtio_writew.argprom.exit91:                    ; preds = %qvirtio_writew.argprom.exit84, %land.lhs.true.i87
+qvirtio_writew.exit91:                            ; preds = %qvirtio_writew.exit84, %land.lhs.true.i87
   %add47 = add i64 %27, 2
   %conv49 = zext i32 %28 to i64
   %mul50 = shl nuw nsw i64 %conv49, 3
@@ -749,34 +749,34 @@ for.body.lr.ph:                                   ; preds = %entry
   %wide.trip.count = and i64 %sub, 4294967295
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %qvirtio_writew.argprom.exit30
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %qvirtio_writew.argprom.exit30 ]
+for.body:                                         ; preds = %for.body.lr.ph, %qvirtio_writew.exit30
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %qvirtio_writew.exit30 ]
   %1 = shl i64 %indvars.iv, 4
   %add = add i64 %call2, %1
   %d.val = load i64, ptr %0, align 8
   %and.i = and i64 %d.val, 4294967296
   %tobool.not.i = icmp eq i64 %and.i, 0
-  br i1 %tobool.not.i, label %qvirtio_writeq.argprom.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %qvirtio_writeq.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body
   %call.i = tail call zeroext i1 @qtest_big_endian(ptr noundef %qs) #6
-  br label %qvirtio_writeq.argprom.exit
+  br label %qvirtio_writeq.exit
 
-qvirtio_writeq.argprom.exit:                      ; preds = %for.body, %land.lhs.true.i
+qvirtio_writeq.exit:                              ; preds = %for.body, %land.lhs.true.i
   tail call void @qtest_writeq(ptr noundef %qs, i64 noundef %add, i64 noundef 0) #6
   %add12 = add i64 %add, 12
   %d.val19 = load i64, ptr %0, align 8
   %and.i20 = and i64 %d.val19, 4294967296
   %tobool.not.i21 = icmp eq i64 %and.i20, 0
-  br i1 %tobool.not.i21, label %qvirtio_writew.argprom.exit, label %land.lhs.true.i22
+  br i1 %tobool.not.i21, label %qvirtio_writew.exit, label %land.lhs.true.i22
 
-land.lhs.true.i22:                                ; preds = %qvirtio_writeq.argprom.exit
+land.lhs.true.i22:                                ; preds = %qvirtio_writeq.exit
   %call.i23 = tail call zeroext i1 @qtest_big_endian(ptr noundef %qs) #6
   %spec.select.i = select i1 %call.i23, i16 256, i16 1
-  br label %qvirtio_writew.argprom.exit
+  br label %qvirtio_writew.exit
 
-qvirtio_writew.argprom.exit:                      ; preds = %qvirtio_writeq.argprom.exit, %land.lhs.true.i22
-  %val.addr.0.i = phi i16 [ 1, %qvirtio_writeq.argprom.exit ], [ %spec.select.i, %land.lhs.true.i22 ]
+qvirtio_writew.exit:                              ; preds = %qvirtio_writeq.exit, %land.lhs.true.i22
+  %val.addr.0.i = phi i16 [ 1, %qvirtio_writeq.exit ], [ %spec.select.i, %land.lhs.true.i22 ]
   tail call void @qtest_writew(ptr noundef %qs, i64 noundef %add12, i16 noundef zeroext %val.addr.0.i) #6
   %add17 = add i64 %add, 14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -784,21 +784,21 @@ qvirtio_writew.argprom.exit:                      ; preds = %qvirtio_writeq.argp
   %and.i24 = and i64 %d.val18, 4294967296
   %tobool.not.i25 = icmp eq i64 %and.i24, 0
   %2 = trunc nuw i64 %indvars.iv.next to i16
-  br i1 %tobool.not.i25, label %qvirtio_writew.argprom.exit30, label %land.lhs.true.i26
+  br i1 %tobool.not.i25, label %qvirtio_writew.exit30, label %land.lhs.true.i26
 
-land.lhs.true.i26:                                ; preds = %qvirtio_writew.argprom.exit
+land.lhs.true.i26:                                ; preds = %qvirtio_writew.exit
   %call.i27 = tail call zeroext i1 @qtest_big_endian(ptr noundef %qs) #6
   %3 = tail call i16 @llvm.bswap.i16(i16 %2)
   %spec.select.i28 = select i1 %call.i27, i16 %3, i16 %2
-  br label %qvirtio_writew.argprom.exit30
+  br label %qvirtio_writew.exit30
 
-qvirtio_writew.argprom.exit30:                    ; preds = %qvirtio_writew.argprom.exit, %land.lhs.true.i26
-  %val.addr.0.i29 = phi i16 [ %2, %qvirtio_writew.argprom.exit ], [ %spec.select.i28, %land.lhs.true.i26 ]
+qvirtio_writew.exit30:                            ; preds = %qvirtio_writew.exit, %land.lhs.true.i26
+  %val.addr.0.i29 = phi i16 [ %2, %qvirtio_writew.exit ], [ %spec.select.i28, %land.lhs.true.i26 ]
   tail call void @qtest_writew(ptr noundef %qs, i64 noundef %add17, i16 noundef zeroext %val.addr.0.i29) #6
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
-for.end:                                          ; preds = %qvirtio_writew.argprom.exit30, %entry
+for.end:                                          ; preds = %qvirtio_writew.exit30, %entry
   ret ptr %call
 }
 
@@ -846,7 +846,7 @@ qvirtio_readw.exit.thread:                        ; preds = %do.end
   %conv1544 = zext i16 %7 to i64
   %mul1645 = shl nuw nsw i64 %conv1544, 4
   %add1846 = add i64 %mul1645, %6
-  br label %qvirtio_writeq.argprom.exit
+  br label %qvirtio_writeq.exit
 
 qvirtio_readw.exit:                               ; preds = %do.end
   %call1.i = tail call zeroext i1 @qtest_big_endian(ptr noundef %qts) #6
@@ -862,15 +862,15 @@ qvirtio_readw.exit:                               ; preds = %do.end
   %conv15 = zext i16 %12 to i64
   %mul16 = shl nuw nsw i64 %conv15, 4
   %add18 = add i64 %mul16, %11
-  br i1 %9, label %qvirtio_writeq.argprom.exit, label %land.lhs.true.i24
+  br i1 %9, label %qvirtio_writeq.exit, label %land.lhs.true.i24
 
 land.lhs.true.i24:                                ; preds = %qvirtio_readw.exit
   %call.i25 = tail call zeroext i1 @qtest_big_endian(ptr noundef %qts) #6
   %13 = tail call i64 @llvm.bswap.i64(i64 %data)
   %spec.select.i26 = select i1 %call.i25, i64 %13, i64 %data
-  br label %qvirtio_writeq.argprom.exit
+  br label %qvirtio_writeq.exit
 
-qvirtio_writeq.argprom.exit:                      ; preds = %qvirtio_readw.exit.thread, %qvirtio_readw.exit, %land.lhs.true.i24
+qvirtio_writeq.exit:                              ; preds = %qvirtio_readw.exit.thread, %qvirtio_readw.exit, %land.lhs.true.i24
   %add1848 = phi i64 [ %add18, %qvirtio_readw.exit ], [ %add18, %land.lhs.true.i24 ], [ %add1846, %qvirtio_readw.exit.thread ]
   %spec.select47 = phi i16 [ %spec.select, %qvirtio_readw.exit ], [ %spec.select, %land.lhs.true.i24 ], [ %spec.select43, %qvirtio_readw.exit.thread ]
   %val.addr.0.i = phi i64 [ %data, %qvirtio_readw.exit ], [ %spec.select.i26, %land.lhs.true.i24 ], [ %data, %qvirtio_readw.exit.thread ]
@@ -884,32 +884,32 @@ qvirtio_writeq.argprom.exit:                      ; preds = %qvirtio_readw.exit.
   %d.val21 = load i64, ptr %features.i, align 8
   %and.i27 = and i64 %d.val21, 4294967296
   %tobool.not.i28 = icmp eq i64 %and.i27, 0
-  br i1 %tobool.not.i28, label %qvirtio_writel.argprom.exit, label %land.lhs.true.i29
+  br i1 %tobool.not.i28, label %qvirtio_writel.exit, label %land.lhs.true.i29
 
-land.lhs.true.i29:                                ; preds = %qvirtio_writeq.argprom.exit
+land.lhs.true.i29:                                ; preds = %qvirtio_writeq.exit
   %call.i30 = tail call zeroext i1 @qtest_big_endian(ptr noundef %qts) #6
   %16 = tail call i32 @llvm.bswap.i32(i32 %len)
   %spec.select.i31 = select i1 %call.i30, i32 %16, i32 %len
-  br label %qvirtio_writel.argprom.exit
+  br label %qvirtio_writel.exit
 
-qvirtio_writel.argprom.exit:                      ; preds = %qvirtio_writeq.argprom.exit, %land.lhs.true.i29
-  %val.addr.0.i32 = phi i32 [ %len, %qvirtio_writeq.argprom.exit ], [ %spec.select.i31, %land.lhs.true.i29 ]
+qvirtio_writel.exit:                              ; preds = %qvirtio_writeq.exit, %land.lhs.true.i29
+  %val.addr.0.i32 = phi i32 [ %len, %qvirtio_writeq.exit ], [ %spec.select.i31, %land.lhs.true.i29 ]
   tail call void @qtest_writel(ptr noundef %qts, i64 noundef %add25, i32 noundef %val.addr.0.i32) #6
   %17 = load i64, ptr %indirect, align 8
   %18 = load i16, ptr %index, align 8
   %d.val20 = load i64, ptr %features.i, align 8
   %and.i33 = and i64 %d.val20, 4294967296
   %tobool.not.i34 = icmp eq i64 %and.i33, 0
-  br i1 %tobool.not.i34, label %qvirtio_writew.argprom.exit, label %land.lhs.true.i35
+  br i1 %tobool.not.i34, label %qvirtio_writew.exit, label %land.lhs.true.i35
 
-land.lhs.true.i35:                                ; preds = %qvirtio_writel.argprom.exit
+land.lhs.true.i35:                                ; preds = %qvirtio_writel.exit
   %call.i36 = tail call zeroext i1 @qtest_big_endian(ptr noundef %qts) #6
   %19 = tail call i16 @llvm.bswap.i16(i16 %spec.select47)
   %spec.select.i37 = select i1 %call.i36, i16 %19, i16 %spec.select47
-  br label %qvirtio_writew.argprom.exit
+  br label %qvirtio_writew.exit
 
-qvirtio_writew.argprom.exit:                      ; preds = %qvirtio_writel.argprom.exit, %land.lhs.true.i35
-  %val.addr.0.i38 = phi i16 [ %spec.select47, %qvirtio_writel.argprom.exit ], [ %spec.select.i37, %land.lhs.true.i35 ]
+qvirtio_writew.exit:                              ; preds = %qvirtio_writel.exit, %land.lhs.true.i35
+  %val.addr.0.i38 = phi i16 [ %spec.select47, %qvirtio_writel.exit ], [ %spec.select.i37, %land.lhs.true.i35 ]
   %conv28 = zext i16 %18 to i64
   %mul29 = shl nuw nsw i64 %conv28, 4
   %add31 = add i64 %17, 12
@@ -943,15 +943,15 @@ entry:
   %.val = load i64, ptr %5, align 8
   %and.i = and i64 %.val, 4294967296
   %tobool.not.i = icmp eq i64 %and.i, 0
-  br i1 %tobool.not.i, label %qvirtio_writeq.argprom.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %qvirtio_writeq.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %call.i = tail call zeroext i1 @qtest_big_endian(ptr noundef %qts) #6
   %6 = tail call i64 @llvm.bswap.i64(i64 %data)
   %spec.select.i = select i1 %call.i, i64 %6, i64 %data
-  br label %qvirtio_writeq.argprom.exit
+  br label %qvirtio_writeq.exit
 
-qvirtio_writeq.argprom.exit:                      ; preds = %entry, %land.lhs.true.i
+qvirtio_writeq.exit:                              ; preds = %entry, %land.lhs.true.i
   %val.addr.0.i = phi i64 [ %data, %entry ], [ %spec.select.i, %land.lhs.true.i ]
   tail call void @qtest_writeq(ptr noundef %qts, i64 noundef %add, i64 noundef %val.addr.0.i) #6
   %7 = load ptr, ptr %vq, align 8
@@ -965,16 +965,16 @@ qvirtio_writeq.argprom.exit:                      ; preds = %entry, %land.lhs.tr
   %.val16 = load i64, ptr %10, align 8
   %and.i17 = and i64 %.val16, 4294967296
   %tobool.not.i18 = icmp eq i64 %and.i17, 0
-  br i1 %tobool.not.i18, label %qvirtio_writel.argprom.exit, label %land.lhs.true.i19
+  br i1 %tobool.not.i18, label %qvirtio_writel.exit, label %land.lhs.true.i19
 
-land.lhs.true.i19:                                ; preds = %qvirtio_writeq.argprom.exit
+land.lhs.true.i19:                                ; preds = %qvirtio_writeq.exit
   %call.i20 = tail call zeroext i1 @qtest_big_endian(ptr noundef %qts) #6
   %11 = tail call i32 @llvm.bswap.i32(i32 %len)
   %spec.select.i21 = select i1 %call.i20, i32 %11, i32 %len
-  br label %qvirtio_writel.argprom.exit
+  br label %qvirtio_writel.exit
 
-qvirtio_writel.argprom.exit:                      ; preds = %qvirtio_writeq.argprom.exit, %land.lhs.true.i19
-  %val.addr.0.i22 = phi i32 [ %len, %qvirtio_writeq.argprom.exit ], [ %spec.select.i21, %land.lhs.true.i19 ]
+qvirtio_writel.exit:                              ; preds = %qvirtio_writeq.exit, %land.lhs.true.i19
+  %val.addr.0.i22 = phi i32 [ %len, %qvirtio_writeq.exit ], [ %spec.select.i21, %land.lhs.true.i19 ]
   tail call void @qtest_writel(ptr noundef %qts, i64 noundef %add16, i32 noundef %val.addr.0.i22) #6
   %12 = load ptr, ptr %vq, align 8
   %13 = load i64, ptr %desc, align 8
@@ -983,16 +983,16 @@ qvirtio_writel.argprom.exit:                      ; preds = %qvirtio_writeq.argp
   %.val15 = load i64, ptr %15, align 8
   %and.i23 = and i64 %.val15, 4294967296
   %tobool.not.i24 = icmp eq i64 %and.i23, 0
-  br i1 %tobool.not.i24, label %qvirtio_writew.argprom.exit, label %land.lhs.true.i25
+  br i1 %tobool.not.i24, label %qvirtio_writew.exit, label %land.lhs.true.i25
 
-land.lhs.true.i25:                                ; preds = %qvirtio_writel.argprom.exit
+land.lhs.true.i25:                                ; preds = %qvirtio_writel.exit
   %call.i26 = tail call zeroext i1 @qtest_big_endian(ptr noundef %qts) #6
   %16 = shl nuw nsw i16 %flags.1, 8
   %spec.select.i27 = select i1 %call.i26, i16 %16, i16 %flags.1
-  br label %qvirtio_writew.argprom.exit
+  br label %qvirtio_writew.exit
 
-qvirtio_writew.argprom.exit:                      ; preds = %qvirtio_writel.argprom.exit, %land.lhs.true.i25
-  %val.addr.0.i28 = phi i16 [ %flags.1, %qvirtio_writel.argprom.exit ], [ %spec.select.i27, %land.lhs.true.i25 ]
+qvirtio_writew.exit:                              ; preds = %qvirtio_writel.exit, %land.lhs.true.i25
+  %val.addr.0.i28 = phi i16 [ %flags.1, %qvirtio_writel.exit ], [ %spec.select.i27, %land.lhs.true.i25 ]
   %mul20 = shl i32 %14, 4
   %conv21 = zext i32 %mul20 to i64
   %add22 = add i64 %13, 12
@@ -1063,15 +1063,15 @@ do.end24:                                         ; preds = %if.else20, %do.body
   %.val = load i64, ptr %11, align 8
   %and.i = and i64 %.val, 4294967296
   %tobool.not.i = icmp eq i64 %and.i, 0
-  br i1 %tobool.not.i, label %qvirtio_writeq.argprom.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %qvirtio_writeq.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %do.end24
   %call.i = tail call zeroext i1 @qtest_big_endian(ptr noundef %qts) #6
   %12 = tail call i64 @llvm.bswap.i64(i64 %10)
   %spec.select.i = select i1 %call.i, i64 %12, i64 %10
-  br label %qvirtio_writeq.argprom.exit
+  br label %qvirtio_writeq.exit
 
-qvirtio_writeq.argprom.exit:                      ; preds = %do.end24, %land.lhs.true.i
+qvirtio_writeq.exit:                              ; preds = %do.end24, %land.lhs.true.i
   %val.addr.0.i = phi i64 [ %10, %do.end24 ], [ %spec.select.i, %land.lhs.true.i ]
   tail call void @qtest_writeq(ptr noundef %qts, i64 noundef %add, i64 noundef %val.addr.0.i) #6
   %13 = load ptr, ptr %vq, align 8
@@ -1088,16 +1088,16 @@ qvirtio_writeq.argprom.exit:                      ; preds = %do.end24, %land.lhs
   %.val24 = load i64, ptr %17, align 8
   %and.i25 = and i64 %.val24, 4294967296
   %tobool.not.i26 = icmp eq i64 %and.i25, 0
-  br i1 %tobool.not.i26, label %qvirtio_writel.argprom.exit, label %land.lhs.true.i27
+  br i1 %tobool.not.i26, label %qvirtio_writel.exit, label %land.lhs.true.i27
 
-land.lhs.true.i27:                                ; preds = %qvirtio_writeq.argprom.exit
+land.lhs.true.i27:                                ; preds = %qvirtio_writeq.exit
   %call.i28 = tail call zeroext i1 @qtest_big_endian(ptr noundef %qts) #6
   %18 = tail call i32 @llvm.bswap.i32(i32 %mul36)
   %spec.select.i29 = select i1 %call.i28, i32 %18, i32 %mul36
-  br label %qvirtio_writel.argprom.exit
+  br label %qvirtio_writel.exit
 
-qvirtio_writel.argprom.exit:                      ; preds = %qvirtio_writeq.argprom.exit, %land.lhs.true.i27
-  %val.addr.0.i30 = phi i32 [ %mul36, %qvirtio_writeq.argprom.exit ], [ %spec.select.i29, %land.lhs.true.i27 ]
+qvirtio_writel.exit:                              ; preds = %qvirtio_writeq.exit, %land.lhs.true.i27
+  %val.addr.0.i30 = phi i32 [ %mul36, %qvirtio_writeq.exit ], [ %spec.select.i29, %land.lhs.true.i27 ]
   tail call void @qtest_writel(ptr noundef %qts, i64 noundef %add33, i32 noundef %val.addr.0.i30) #6
   %19 = load ptr, ptr %vq, align 8
   %20 = load i64, ptr %desc, align 8
@@ -1106,15 +1106,15 @@ qvirtio_writel.argprom.exit:                      ; preds = %qvirtio_writeq.argp
   %.val23 = load i64, ptr %22, align 8
   %and.i31 = and i64 %.val23, 4294967296
   %tobool.not.i32 = icmp eq i64 %and.i31, 0
-  br i1 %tobool.not.i32, label %qvirtio_writew.argprom.exit, label %land.lhs.true.i33
+  br i1 %tobool.not.i32, label %qvirtio_writew.exit, label %land.lhs.true.i33
 
-land.lhs.true.i33:                                ; preds = %qvirtio_writel.argprom.exit
+land.lhs.true.i33:                                ; preds = %qvirtio_writel.exit
   %call.i34 = tail call zeroext i1 @qtest_big_endian(ptr noundef %qts) #6
   %spec.select.i35 = select i1 %call.i34, i16 1024, i16 4
-  br label %qvirtio_writew.argprom.exit
+  br label %qvirtio_writew.exit
 
-qvirtio_writew.argprom.exit:                      ; preds = %qvirtio_writel.argprom.exit, %land.lhs.true.i33
-  %val.addr.0.i36 = phi i16 [ 4, %qvirtio_writel.argprom.exit ], [ %spec.select.i35, %land.lhs.true.i33 ]
+qvirtio_writew.exit:                              ; preds = %qvirtio_writel.exit, %land.lhs.true.i33
+  %val.addr.0.i36 = phi i16 [ 4, %qvirtio_writel.exit ], [ %spec.select.i35, %land.lhs.true.i33 ]
   %mul41 = shl i32 %21, 4
   %conv42 = zext i32 %mul41 to i64
   %add43 = add i64 %20, 12
@@ -1161,15 +1161,15 @@ qvirtio_readw.exit:                               ; preds = %entry, %land.lhs.tr
   %conv3 = zext nneg i32 %mul to i64
   %add4 = add i64 %add2, %conv3
   %conv5 = trunc i32 %free_head to i16
-  br i1 %and.i22.pre-phi, label %qvirtio_writew.argprom.exit, label %land.lhs.true.i24
+  br i1 %and.i22.pre-phi, label %qvirtio_writew.exit, label %land.lhs.true.i24
 
 land.lhs.true.i24:                                ; preds = %qvirtio_readw.exit
   %call.i25 = tail call zeroext i1 @qtest_big_endian(ptr noundef %qts) #6
   %6 = tail call i16 @llvm.bswap.i16(i16 %conv5)
   %spec.select.i26 = select i1 %call.i25, i16 %6, i16 %conv5
-  br label %qvirtio_writew.argprom.exit
+  br label %qvirtio_writew.exit
 
-qvirtio_writew.argprom.exit:                      ; preds = %qvirtio_readw.exit, %land.lhs.true.i24
+qvirtio_writew.exit:                              ; preds = %qvirtio_readw.exit, %land.lhs.true.i24
   %val.addr.0.i = phi i16 [ %conv5, %qvirtio_readw.exit ], [ %spec.select.i26, %land.lhs.true.i24 ]
   tail call void @qtest_writew(ptr noundef %qts, i64 noundef %add4, i16 noundef zeroext %val.addr.0.i) #6
   %7 = load i64, ptr %avail, align 8
@@ -1178,16 +1178,16 @@ qvirtio_writew.argprom.exit:                      ; preds = %qvirtio_readw.exit,
   %d.val = load i64, ptr %features.i, align 8
   %and.i27 = and i64 %d.val, 4294967296
   %tobool.not.i28 = icmp eq i64 %and.i27, 0
-  br i1 %tobool.not.i28, label %qvirtio_writew.argprom.exit33, label %land.lhs.true.i29
+  br i1 %tobool.not.i28, label %qvirtio_writew.exit33, label %land.lhs.true.i29
 
-land.lhs.true.i29:                                ; preds = %qvirtio_writew.argprom.exit
+land.lhs.true.i29:                                ; preds = %qvirtio_writew.exit
   %call.i30 = tail call zeroext i1 @qtest_big_endian(ptr noundef %qts) #6
   %8 = tail call i16 @llvm.bswap.i16(i16 %add9)
   %spec.select.i31 = select i1 %call.i30, i16 %8, i16 %add9
-  br label %qvirtio_writew.argprom.exit33
+  br label %qvirtio_writew.exit33
 
-qvirtio_writew.argprom.exit33:                    ; preds = %qvirtio_writew.argprom.exit, %land.lhs.true.i29
-  %val.addr.0.i32 = phi i16 [ %add9, %qvirtio_writew.argprom.exit ], [ %spec.select.i31, %land.lhs.true.i29 ]
+qvirtio_writew.exit33:                            ; preds = %qvirtio_writew.exit, %land.lhs.true.i29
+  %val.addr.0.i32 = phi i16 [ %add9, %qvirtio_writew.exit ], [ %spec.select.i31, %land.lhs.true.i29 ]
   tail call void @qtest_writew(ptr noundef %qts, i64 noundef %add7, i16 noundef zeroext %val.addr.0.i32) #6
   %9 = load i64, ptr %avail, align 8
   %call.i34 = tail call zeroext i16 @qtest_readw(ptr noundef %qts, i64 noundef %9) #6
@@ -1196,14 +1196,14 @@ qvirtio_writew.argprom.exit33:                    ; preds = %qvirtio_writew.argp
   %tobool.not.i37 = icmp eq i64 %and.i36, 0
   br i1 %tobool.not.i37, label %qvirtio_readw.exit42, label %land.lhs.true.i38
 
-land.lhs.true.i38:                                ; preds = %qvirtio_writew.argprom.exit33
+land.lhs.true.i38:                                ; preds = %qvirtio_writew.exit33
   %call1.i39 = tail call zeroext i1 @qtest_big_endian(ptr noundef %qts) #6
   %11 = tail call i16 @llvm.bswap.i16(i16 %call.i34)
   %spec.select.i40 = select i1 %call1.i39, i16 %11, i16 %call.i34
   br label %qvirtio_readw.exit42
 
-qvirtio_readw.exit42:                             ; preds = %qvirtio_writew.argprom.exit33, %land.lhs.true.i38
-  %val.0.i41 = phi i16 [ %call.i34, %qvirtio_writew.argprom.exit33 ], [ %spec.select.i40, %land.lhs.true.i38 ]
+qvirtio_readw.exit42:                             ; preds = %qvirtio_writew.exit33, %land.lhs.true.i38
+  %val.0.i41 = phi i16 [ %call.i34, %qvirtio_writew.exit33 ], [ %spec.select.i40, %land.lhs.true.i38 ]
   %used = getelementptr inbounds i8, ptr %vq, i64 24
   %12 = load i64, ptr %used, align 8
   %add13 = add i64 %12, 4
@@ -1270,15 +1270,15 @@ do.end:                                           ; preds = %entry
   %.val = load i64, ptr %4, align 8
   %and.i = and i64 %.val, 4294967296
   %tobool.not.i = icmp eq i64 %and.i, 0
-  br i1 %tobool.not.i, label %qvirtio_writew.argprom.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %qvirtio_writew.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %do.end
   %call.i = tail call zeroext i1 @qtest_big_endian(ptr noundef %qts) #6
   %5 = tail call i16 @llvm.bswap.i16(i16 %idx)
   %spec.select.i = select i1 %call.i, i16 %5, i16 %idx
-  br label %qvirtio_writew.argprom.exit
+  br label %qvirtio_writew.exit
 
-qvirtio_writew.argprom.exit:                      ; preds = %do.end, %land.lhs.true.i
+qvirtio_writew.exit:                              ; preds = %do.end, %land.lhs.true.i
   %val.addr.0.i = phi i16 [ %idx, %do.end ], [ %spec.select.i, %land.lhs.true.i ]
   %add = add i64 %2, 4
   %mul = shl i32 %3, 1

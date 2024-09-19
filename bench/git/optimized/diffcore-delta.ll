@@ -397,16 +397,16 @@ if.end11.i:                                       ; preds = %if.end6.i.preheader
 while.end:                                        ; preds = %while.cond.outer29, %while.cond.us
   %20 = load i32, ptr %hash.0.ph.ph, align 4
   %cmp.i27.not = icmp eq i32 %20, 0
-  br i1 %cmp.i27.not, label %sane_qsort.argprom.exit, label %if.then.i28
+  br i1 %cmp.i27.not, label %sane_qsort.exit, label %if.then.i28
 
 if.then.i28:                                      ; preds = %while.end
   %sh_prom36 = zext nneg i32 %20 to i64
   %shl37 = shl nuw i64 1, %sh_prom36
   %data33 = getelementptr inbounds i8, ptr %hash.0.ph.ph, i64 8
   tail call void @qsort(ptr noundef nonnull %data33, i64 noundef %shl37, i64 noundef 8, ptr noundef nonnull @spanhash_cmp) #8
-  br label %sane_qsort.argprom.exit
+  br label %sane_qsort.exit
 
-sane_qsort.argprom.exit:                          ; preds = %while.end, %if.then.i28
+sane_qsort.exit:                                  ; preds = %while.end, %if.then.i28
   ret ptr %hash.0.ph.ph
 }
 

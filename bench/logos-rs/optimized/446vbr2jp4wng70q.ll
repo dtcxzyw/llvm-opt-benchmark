@@ -874,5 +874,5 @@ attributes #10 = { cold noreturn nounwind }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
 !3 = !{!4}
-!4 = distinct !{!4, !5, !"_ZN13logos_codegen9generator7context7Context9backtrack17hd9cec25756008b77E.argprom: argument 0"}
-!5 = distinct !{!5, !"_ZN13logos_codegen9generator7context7Context9backtrack17hd9cec25756008b77E.argprom"}
+!4 = distinct !{!4, !5, !"_ZN13logos_codegen9generator7context7Context9backtrack17hd9cec25756008b77E: argument 0"}
+!5 = distinct !{!5, !"_ZN13logos_codegen9generator7context7Context9backtrack17hd9cec25756008b77E"}

@@ -68319,16 +68319,16 @@ _ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i: ; pre
 _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i, %arraydestroy.body.i.i
   store ptr null, ptr %arraydestroy.element.i.i, align 8
   %arraydestroy.done.i.i = icmp eq ptr %arraydestroy.element.i.i, %arg_convertibles.i.i
-  br i1 %arraydestroy.done.i.i, label %_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.exit, label %arraydestroy.body.i.i
+  br i1 %arraydestroy.done.i.i, label %_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.exit, label %arraydestroy.body.i.i
 
-_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i
+_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.exit: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_convertibles.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg1_name.addr.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %arg_type.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg_value.i)
   br label %do.end175
 
-do.end175:                                        ; preds = %_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.exit, %if.end166
+do.end175:                                        ; preds = %_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.exit, %if.end166
   %156 = load ptr, ptr %traced_value, align 8
   %cmp.not.i378 = icmp eq ptr %156, null
   br i1 %cmp.not.i378, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i
@@ -71279,14 +71279,14 @@ _ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14def
   %task_queues_async_initialized_.i = getelementptr inbounds i8, ptr %this, i64 2544
   %6 = load i8, ptr %task_queues_async_initialized_.i, align 8
   %tobool.i = trunc i8 %6 to i1
-  br i1 %tobool.i, label %if.then.i, label %"_ZN4node11Environment22SetImmediateThreadsafeIZNS0_7ExitEnvENS_9StopFlags5FlagsEE3$_0EEvOT_NS_13CallbackFlags5FlagsE.argprom.exit"
+  br i1 %tobool.i, label %if.then.i, label %"_ZN4node11Environment22SetImmediateThreadsafeIZNS0_7ExitEnvENS_9StopFlags5FlagsEE3$_0EEvOT_NS_13CallbackFlags5FlagsE.exit"
 
 if.then.i:                                        ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i
   %task_queues_async_.i = getelementptr inbounds i8, ptr %this, i64 736
   %call.i = tail call i32 @uv_async_send(ptr noundef nonnull %task_queues_async_.i) #24
-  br label %"_ZN4node11Environment22SetImmediateThreadsafeIZNS0_7ExitEnvENS_9StopFlags5FlagsEE3$_0EEvOT_NS_13CallbackFlags5FlagsE.argprom.exit"
+  br label %"_ZN4node11Environment22SetImmediateThreadsafeIZNS0_7ExitEnvENS_9StopFlags5FlagsEE3$_0EEvOT_NS_13CallbackFlags5FlagsE.exit"
 
-"_ZN4node11Environment22SetImmediateThreadsafeIZNS0_7ExitEnvENS_9StopFlags5FlagsEE3$_0EEvOT_NS_13CallbackFlags5FlagsE.argprom.exit": ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i, %if.then.i
+"_ZN4node11Environment22SetImmediateThreadsafeIZNS0_7ExitEnvENS_9StopFlags5FlagsEE3$_0EEvOT_NS_13CallbackFlags5FlagsE.exit": ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i, %if.then.i
   tail call void @uv_mutex_unlock(ptr noundef nonnull %native_immediates_threadsafe_mutex_.i) #24
   ret void
 }
@@ -79096,15 +79096,15 @@ define internal void @"_ZZN4node11Environment22RequestInterruptFromV8EvEN3$_08__
 entry:
   %0 = load ptr, ptr %data, align 8
   %cmp.i = icmp eq ptr %0, null
-  br i1 %cmp.i, label %"_ZZN4node11Environment22RequestInterruptFromV8EvENK3$_0clEPN2v87IsolateEPv.argprom.exit", label %if.end.i
+  br i1 %cmp.i, label %"_ZZN4node11Environment22RequestInterruptFromV8EvENK3$_0clEPN2v87IsolateEPv.exit", label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %interrupt_data_.i = getelementptr inbounds i8, ptr %0, i64 2552
   store atomic i64 0, ptr %interrupt_data_.i seq_cst, align 8
   tail call void @_ZN4node11Environment21RunAndClearInterruptsEv(ptr noundef nonnull align 8 dereferenceable(2872) %0)
-  br label %"_ZZN4node11Environment22RequestInterruptFromV8EvENK3$_0clEPN2v87IsolateEPv.argprom.exit"
+  br label %"_ZZN4node11Environment22RequestInterruptFromV8EvENK3$_0clEPN2v87IsolateEPv.exit"
 
-"_ZZN4node11Environment22RequestInterruptFromV8EvENK3$_0clEPN2v87IsolateEPv.argprom.exit": ; preds = %entry, %if.end.i
+"_ZZN4node11Environment22RequestInterruptFromV8EvENK3$_0clEPN2v87IsolateEPv.exit": ; preds = %entry, %if.end.i
   tail call void @_ZdlPv(ptr noundef nonnull %data) #27
   ret void
 }
@@ -87320,10 +87320,10 @@ attributes #30 = { nounwind willreturn memory(read) }
 !988 = distinct !{!988, !6}
 !989 = distinct !{!989, !6}
 !990 = !{!991, !993}
-!991 = distinct !{!991, !992, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS2_7ExitEnvENS0_9StopFlags5FlagsEE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
-!992 = distinct !{!992, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS2_7ExitEnvENS0_9StopFlags5FlagsEE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
-!993 = distinct !{!993, !994, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS1_7ExitEnvENS_9StopFlags5FlagsEE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE.argprom: %agg.result"}
-!994 = distinct !{!994, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS1_7ExitEnvENS_9StopFlags5FlagsEE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE.argprom"}
+!991 = distinct !{!991, !992, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS2_7ExitEnvENS0_9StopFlags5FlagsEE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!992 = distinct !{!992, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS2_7ExitEnvENS0_9StopFlags5FlagsEE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!993 = distinct !{!993, !994, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS1_7ExitEnvENS_9StopFlags5FlagsEE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE: %agg.result"}
+!994 = distinct !{!994, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS1_7ExitEnvENS_9StopFlags5FlagsEE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE"}
 !995 = distinct !{!995, !6}
 !996 = distinct !{!996, !6}
 !997 = distinct !{!997, !6}

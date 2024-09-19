@@ -11869,7 +11869,7 @@ entry:
   store i8 0, ptr %Upper.i.i, align 1, !alias.scope !381
   %HexPrefix.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 22
   store i8 1, ptr %HexPrefix.i.i, align 2, !alias.scope !381
-  call fastcc void @_ZN6hermes2vmL22llvmStreamableToStringIN4llvh15FormattedNumberEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.retelim(ptr noundef nonnull align 8 dereferenceable(23) %ref.tmp)
+  call fastcc void @_ZN6hermes2vmL22llvmStreamableToStringIN4llvh15FormattedNumberEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr noundef nonnull align 8 dereferenceable(23) %ref.tmp)
   call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.155, i64 7) #26
   %call.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN6hermes2vmL22llvmStreamableToStringIN4llvh15FormattedNumberEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_E3bufB5cxx11) #26
   %call2.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN6hermes2vmL22llvmStreamableToStringIN4llvh15FormattedNumberEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_E3bufB5cxx11) #26
@@ -11888,7 +11888,7 @@ entry:
   store i8 0, ptr %Upper.i.i18, align 1, !alias.scope !384
   %HexPrefix.i.i19 = getelementptr inbounds i8, ptr %ref.tmp4, i64 22
   store i8 1, ptr %HexPrefix.i.i19, align 2, !alias.scope !384
-  call fastcc void @_ZN6hermes2vmL22llvmStreamableToStringIN4llvh15FormattedNumberEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.retelim(ptr noundef nonnull align 8 dereferenceable(23) %ref.tmp4)
+  call fastcc void @_ZN6hermes2vmL22llvmStreamableToStringIN4llvh15FormattedNumberEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr noundef nonnull align 8 dereferenceable(23) %ref.tmp4)
   call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.156, i64 23) #26
   %call.i.i20 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN6hermes2vmL22llvmStreamableToStringIN4llvh15FormattedNumberEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_E3bufB5cxx11) #26
   %call2.i.i21 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN6hermes2vmL22llvmStreamableToStringIN4llvh15FormattedNumberEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_E3bufB5cxx11) #26
@@ -11907,7 +11907,7 @@ entry:
   store i8 0, ptr %Upper.i.i25, align 1, !alias.scope !387
   %HexPrefix.i.i26 = getelementptr inbounds i8, ptr %ref.tmp8, i64 22
   store i8 1, ptr %HexPrefix.i.i26, align 2, !alias.scope !387
-  call fastcc void @_ZN6hermes2vmL22llvmStreamableToStringIN4llvh15FormattedNumberEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.retelim(ptr noundef nonnull align 8 dereferenceable(23) %ref.tmp8)
+  call fastcc void @_ZN6hermes2vmL22llvmStreamableToStringIN4llvh15FormattedNumberEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr noundef nonnull align 8 dereferenceable(23) %ref.tmp8)
   call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.157, i64 18) #26
   %call.i.i27 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN6hermes2vmL22llvmStreamableToStringIN4llvh15FormattedNumberEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_E3bufB5cxx11) #26
   %call2.i.i28 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN6hermes2vmL22llvmStreamableToStringIN4llvh15FormattedNumberEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_E3bufB5cxx11) #26
@@ -11926,7 +11926,7 @@ entry:
   store i8 0, ptr %Upper.i.i32, align 1, !alias.scope !390
   %HexPrefix.i.i33 = getelementptr inbounds i8, ptr %ref.tmp11, i64 22
   store i8 1, ptr %HexPrefix.i.i33, align 2, !alias.scope !390
-  call fastcc void @_ZN6hermes2vmL22llvmStreamableToStringIN4llvh15FormattedNumberEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.retelim(ptr noundef nonnull align 8 dereferenceable(23) %ref.tmp11)
+  call fastcc void @_ZN6hermes2vmL22llvmStreamableToStringIN4llvh15FormattedNumberEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr noundef nonnull align 8 dereferenceable(23) %ref.tmp11)
   call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.158, i64 20) #26
   %call.i.i34 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN6hermes2vmL22llvmStreamableToStringIN4llvh15FormattedNumberEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_E3bufB5cxx11) #26
   %call2.i.i35 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN6hermes2vmL22llvmStreamableToStringIN4llvh15FormattedNumberEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_E3bufB5cxx11) #26
@@ -11945,7 +11945,7 @@ entry:
   store i8 0, ptr %Upper.i.i39, align 1, !alias.scope !393
   %HexPrefix.i.i40 = getelementptr inbounds i8, ptr %ref.tmp14, i64 22
   store i8 1, ptr %HexPrefix.i.i40, align 2, !alias.scope !393
-  call fastcc void @_ZN6hermes2vmL22llvmStreamableToStringIN4llvh15FormattedNumberEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.retelim(ptr noundef nonnull align 8 dereferenceable(23) %ref.tmp14)
+  call fastcc void @_ZN6hermes2vmL22llvmStreamableToStringIN4llvh15FormattedNumberEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr noundef nonnull align 8 dereferenceable(23) %ref.tmp14)
   call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.159, i64 16) #26
   %call.i.i41 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN6hermes2vmL22llvmStreamableToStringIN4llvh15FormattedNumberEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_E3bufB5cxx11) #26
   %call2.i.i42 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN6hermes2vmL22llvmStreamableToStringIN4llvh15FormattedNumberEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_E3bufB5cxx11) #26
@@ -11969,7 +11969,7 @@ _ZN6hermes11JSONEmitterD2Ev.exit:                 ; preds = %entry, %if.then.i.i
 declare void @_ZN4llvh14raw_fd_ostreamC1Eibb(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, i1 noundef zeroext, i1 noundef zeroext) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes2vmL22llvmStreamableToStringIN4llvh15FormattedNumberEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.retelim(ptr noundef nonnull align 8 dereferenceable(23) %v) unnamed_addr #0 {
+define internal fastcc void @_ZN6hermes2vmL22llvmStreamableToStringIN4llvh15FormattedNumberEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr noundef nonnull align 8 dereferenceable(23) %v) unnamed_addr #0 {
 entry:
   %strstrm = alloca %"class.llvh::raw_string_ostream", align 8
   %0 = load atomic i8, ptr @_ZGVZN6hermes2vmL22llvmStreamableToStringIN4llvh15FormattedNumberEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_E3bufB5cxx11 acquire, align 8
@@ -15136,7 +15136,7 @@ if.end.i.i.i:                                     ; preds = %lor.lhs.false.i.i.i
   %24 = extractvalue { i32, i64 } %call29.i.i.i, 0
   %25 = extractvalue { i32, i64 } %call29.i.i.i, 1
   %cmp.i.i.i.i = icmp eq i32 %24, 0
-  br i1 %cmp.i.i.i.i, label %"_ZSt10__invoke_rIN6hermes2vm15ExecutionStatusERZNS1_7Runtime24assertBuiltinsUnmodifiedEvE3$_0JjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit", label %if.end32.i.i.i
+  br i1 %cmp.i.i.i.i, label %"_ZSt10__invoke_rIN6hermes2vm15ExecutionStatusERZNS1_7Runtime24assertBuiltinsUnmodifiedEvE3$_0JjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %if.end32.i.i.i
 
 if.end32.i.i.i:                                   ; preds = %if.end.i.i.i
   %cmp.i.i137.i.i.i = icmp ugt i64 %25, -844424930131969
@@ -15157,7 +15157,7 @@ lor.lhs.false41.i.i.i:                            ; preds = %cond.true.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %29, i64 %conv.i.i.i
   %30 = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %30, %26
-  br i1 %cmp.not.i.i.i, label %"_ZSt10__invoke_rIN6hermes2vm15ExecutionStatusERZNS1_7Runtime24assertBuiltinsUnmodifiedEvE3$_0JjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit", label %lor.lhs.false.i.i150.i.i.i
+  br i1 %cmp.not.i.i.i, label %"_ZSt10__invoke_rIN6hermes2vm15ExecutionStatusERZNS1_7Runtime24assertBuiltinsUnmodifiedEvE3$_0JjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %lor.lhs.false.i.i150.i.i.i
 
 lor.lhs.false.i.i150.i.i.i:                       ; preds = %lor.lhs.false41.i.i.i, %cond.true.i.i.i.i, %if.end32.i.i.i
   %identifierTable_.i.i146.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 9264
@@ -15365,9 +15365,9 @@ return.sink.split.i.i.i:                          ; preds = %if.end8.i.i289.i.i.
   %ref.tmp44.sink.i.i.i = phi ptr [ %ref.tmp.i.i.i, %if.then.i.i132.i.i.i ], [ %ref.tmp.i.i.i, %if.then4.i.i131.i.i.i ], [ %ref.tmp.i.i.i, %if.end8.i.i108.i.i.i ], [ %ref.tmp44.i.i.i, %if.then.i.i313.i.i.i ], [ %ref.tmp44.i.i.i, %if.then4.i.i312.i.i.i ], [ %ref.tmp44.i.i.i, %if.end8.i.i289.i.i.i ]
   %TypeErrorPrototype.i318.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 136
   %call5.i319.i.i.i = call fastcc noundef i32 @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %call.val, ptr nonnull %TypeErrorPrototype.i318.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp44.sink.i.i.i)
-  br label %"_ZSt10__invoke_rIN6hermes2vm15ExecutionStatusERZNS1_7Runtime24assertBuiltinsUnmodifiedEvE3$_0JjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit"
+  br label %"_ZSt10__invoke_rIN6hermes2vm15ExecutionStatusERZNS1_7Runtime24assertBuiltinsUnmodifiedEvE3$_0JjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
-"_ZSt10__invoke_rIN6hermes2vm15ExecutionStatusERZNS1_7Runtime24assertBuiltinsUnmodifiedEvE3$_0JjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit": ; preds = %if.end.i.i.i, %lor.lhs.false41.i.i.i, %return.sink.split.i.i.i
+"_ZSt10__invoke_rIN6hermes2vm15ExecutionStatusERZNS1_7Runtime24assertBuiltinsUnmodifiedEvE3$_0JjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %if.end.i.i.i, %lor.lhs.false41.i.i.i, %return.sink.split.i.i.i
   %retval.0.i.i.i = phi i32 [ 0, %if.end.i.i.i ], [ 1, %lor.lhs.false41.i.i.i ], [ %call5.i319.i.i.i, %return.sink.split.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %desc.i.i.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i.i)
@@ -15511,7 +15511,7 @@ lor.lhs.false.i.i.i:                              ; preds = %_ZNSt6vectorIN6herm
   %9 = load i16, ptr %arrayidx.i.i.i, align 4
   %conv.i.i.i = zext i16 %9 to i32
   %cmp3.not.i.i.i = icmp eq i32 %__args1.val, %conv.i.i.i
-  br i1 %cmp3.not.i.i.i, label %"_ZSt10__invoke_rIN6hermes2vm15ExecutionStatusERZNS1_7Runtime14freezeBuiltinsEvE3$_0JjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit", label %if.then.i.i.i
+  br i1 %cmp3.not.i.i.i, label %"_ZSt10__invoke_rIN6hermes2vm15ExecutionStatusERZNS1_7Runtime14freezeBuiltinsEvE3$_0JjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i, %_ZNSt6vectorIN6hermes2vm8SymbolIDESaIS2_EE9push_backERKS2_.exit.i.i.i
   %10 = getelementptr inbounds i8, ptr %__functor.val, i64 8
@@ -15620,13 +15620,13 @@ _ZNSt6vectorIN6hermes2vm8SymbolIDESaIS2_EE9push_backERKS2_.exit41.i.i.i: ; preds
   %_M_finish.i.i42.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load ptr, ptr %_M_finish.i.i42.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %27, %26
-  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIN6hermes2vm15ExecutionStatusERZNS1_7Runtime14freezeBuiltinsEvE3$_0JjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit", label %if.then.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIN6hermes2vm15ExecutionStatusERZNS1_7Runtime14freezeBuiltinsEvE3$_0JjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIN6hermes2vm8SymbolIDESaIS2_EE9push_backERKS2_.exit41.i.i.i
   store ptr %26, ptr %_M_finish.i.i42.i.i.i, align 8
-  br label %"_ZSt10__invoke_rIN6hermes2vm15ExecutionStatusERZNS1_7Runtime14freezeBuiltinsEvE3$_0JjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit"
+  br label %"_ZSt10__invoke_rIN6hermes2vm15ExecutionStatusERZNS1_7Runtime14freezeBuiltinsEvE3$_0JjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
-"_ZSt10__invoke_rIN6hermes2vm15ExecutionStatusERZNS1_7Runtime14freezeBuiltinsEvE3$_0JjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit": ; preds = %lor.lhs.false.i.i.i, %_ZNSt6vectorIN6hermes2vm8SymbolIDESaIS2_EE9push_backERKS2_.exit41.i.i.i, %if.then.i.i.i.i.i
+"_ZSt10__invoke_rIN6hermes2vm15ExecutionStatusERZNS1_7Runtime14freezeBuiltinsEvE3$_0JjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %lor.lhs.false.i.i.i, %_ZNSt6vectorIN6hermes2vm8SymbolIDESaIS2_EE9push_backERKS2_.exit41.i.i.i, %if.then.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp7.i.i.i)
   ret i32 1
 }

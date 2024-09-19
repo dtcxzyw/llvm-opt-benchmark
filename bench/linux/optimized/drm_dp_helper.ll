@@ -4768,7 +4768,7 @@ define dso_local range(i32 2, 1) i32 @drm_edp_backlight_enable(ptr noundef %0, p
 .thread:                                          ; preds = %..thread_crit_edge, %65
   %.val = phi i8 [ %.val.pre, %..thread_crit_edge ], [ %66, %65 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #18
-  %92 = call fastcc i32 @drm_edp_backlight_set_enable.argprom(ptr noundef %0, i8 %.val, i1 noundef zeroext true)
+  %92 = call fastcc i32 @drm_edp_backlight_set_enable(ptr noundef %0, i8 %.val, i1 noundef zeroext true)
   %93 = call i32 @llvm.smin.i32(i32 %92, i32 0)
   br label %94
 
@@ -4778,7 +4778,7 @@ define dso_local range(i32 2, 1) i32 @drm_edp_backlight_enable(ptr noundef %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 2, 1) i32 @drm_edp_backlight_set_enable.argprom(ptr noundef %0, i8 %.4.val, i1 noundef zeroext %1) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 2, 1) i32 @drm_edp_backlight_set_enable(ptr noundef %0, i8 %.4.val, i1 noundef zeroext %1) unnamed_addr #3 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #18
@@ -4855,7 +4855,7 @@ define internal fastcc range(i32 2, 1) i32 @drm_edp_backlight_set_enable.argprom
 define dso_local range(i32 -2147483648, 1) i32 @drm_edp_backlight_disable(ptr noundef %0, ptr nocapture noundef readonly %1) #3 align 16 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val = load i8, ptr %3, align 2
-  %4 = tail call fastcc i32 @drm_edp_backlight_set_enable.argprom(ptr noundef %0, i8 %.val, i1 noundef zeroext false)
+  %4 = tail call fastcc i32 @drm_edp_backlight_set_enable(ptr noundef %0, i8 %.val, i1 noundef zeroext false)
   %5 = tail call i32 @llvm.smin.i32(i32 %4, i32 0)
   ret i32 %5
 }
@@ -6301,7 +6301,7 @@ define internal i32 @dp_aux_backlight_update_status(ptr nocapture noundef readon
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr i8, ptr %4, i64 20
   %.val = load i8, ptr %72, align 2
-  %73 = tail call fastcc i32 @drm_edp_backlight_set_enable.argprom(ptr noundef %71, i8 %.val, i1 noundef zeroext false)
+  %73 = tail call fastcc i32 @drm_edp_backlight_set_enable(ptr noundef %71, i8 %.val, i1 noundef zeroext false)
   store i8 0, ptr %66, align 2
   br label %74
 

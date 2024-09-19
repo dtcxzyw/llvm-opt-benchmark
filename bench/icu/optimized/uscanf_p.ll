@@ -481,7 +481,7 @@ if.end25:                                         ; preds = %if.else, %if.then13
   %expLen.0 = phi i32 [ %call18, %if.then13 ], [ %call24, %if.else ]
   call void @unum_setSymbol_75(ptr noundef nonnull %call6, i32 noundef 11, ptr noundef nonnull %expBuf, i32 noundef %expLen.0, ptr noundef nonnull %status)
   %status.val = load i32, ptr %status, align 4
-  %call27 = call fastcc noundef i32 @_ZL34u_scanf_skip_leading_positive_signP5UFILEPPvP10UErrorCode.argprom(ptr noundef nonnull %input, ptr noundef nonnull %call6, i32 %status.val)
+  %call27 = call fastcc noundef i32 @_ZL34u_scanf_skip_leading_positive_signP5UFILEPPvP10UErrorCode(ptr noundef nonnull %input, ptr noundef nonnull %call6, i32 %status.val)
   %add = add nsw i32 %call27, %count.0.i
   %8 = load ptr, ptr %str, align 8
   %call30 = call double @unum_parseDouble_75(ptr noundef nonnull %call6, ptr noundef %8, i32 noundef %len.0, ptr noundef nonnull %parsePos, ptr noundef nonnull %status)
@@ -607,7 +607,7 @@ if.end13:                                         ; preds = %_ZL23u_scanf_skip_l
   %conv = trunc i64 %sub.ptr.div to i32
   %conv. = call i32 @llvm.smin.i32(i32 %5, i32 %conv)
   %len.0 = select i1 %cmp.not, i32 %conv, i32 %conv.
-  %call14 = call fastcc noundef i32 @_ZL34u_scanf_skip_leading_positive_signP5UFILEPPvP10UErrorCode.argprom(ptr noundef nonnull %input, ptr noundef nonnull %call9, i32 0)
+  %call14 = call fastcc noundef i32 @_ZL34u_scanf_skip_leading_positive_signP5UFILEPPvP10UErrorCode(ptr noundef nonnull %input, ptr noundef nonnull %call9, i32 0)
   %add = add nsw i32 %call14, %count.0.i
   %6 = load ptr, ptr %str, align 8
   %call17 = call double @unum_parseDouble_75(ptr noundef nonnull %call6, ptr noundef %6, i32 noundef %len.0, ptr noundef nonnull %scientificParsePos, ptr noundef nonnull %scientificStatus)
@@ -730,7 +730,7 @@ if.end9:                                          ; preds = %_ZL23u_scanf_skip_l
   %conv = trunc i64 %sub.ptr.div to i32
   %conv. = call i32 @llvm.smin.i32(i32 %5, i32 %conv)
   %len.0 = select i1 %cmp.not, i32 %conv, i32 %conv.
-  %6 = call fastcc noundef i32 @_ZL34u_scanf_skip_leading_positive_signP5UFILEPPvP10UErrorCode.argprom(ptr noundef nonnull %input, ptr noundef nonnull %call6, i32 0)
+  %6 = call fastcc noundef i32 @_ZL34u_scanf_skip_leading_positive_signP5UFILEPPvP10UErrorCode(ptr noundef nonnull %input, ptr noundef nonnull %call6, i32 0)
   %7 = load ptr, ptr %str, align 8
   %call13 = call double @unum_parseDouble_75(ptr noundef nonnull %call6, ptr noundef %7, i32 noundef %len.0, ptr noundef nonnull %parsePos, ptr noundef nonnull %status)
   %fSkipArg = getelementptr inbounds i8, ptr %info, i64 8
@@ -1389,7 +1389,7 @@ if.end24:                                         ; preds = %if.end13, %if.then2
   %parseIntOnly.0 = phi i32 [ 1, %if.then23 ], [ 0, %if.end13 ]
   call void @unum_setAttribute_75(ptr noundef %call10, i32 noundef 0, i32 noundef %parseIntOnly.0)
   %status.val = load i32, ptr %status, align 4
-  %call25 = call fastcc noundef i32 @_ZL34u_scanf_skip_leading_positive_signP5UFILEPPvP10UErrorCode.argprom(ptr noundef nonnull %input, ptr noundef %call10, i32 %status.val)
+  %call25 = call fastcc noundef i32 @_ZL34u_scanf_skip_leading_positive_signP5UFILEPPvP10UErrorCode(ptr noundef nonnull %input, ptr noundef %call10, i32 %status.val)
   %add = add nsw i32 %call25, %count.0.i
   %9 = load ptr, ptr %str, align 8
   %call28 = call i64 @unum_parseInt64_75(ptr noundef %call10, ptr noundef %9, i32 noundef %len.0, ptr noundef nonnull %parsePos, ptr noundef nonnull %status)
@@ -1508,7 +1508,7 @@ if.end9:                                          ; preds = %_ZL23u_scanf_skip_l
   %conv = trunc i64 %sub.ptr.div to i32
   %conv. = call i32 @llvm.smin.i32(i32 %5, i32 %conv)
   %len.0 = select i1 %cmp.not, i32 %conv, i32 %conv.
-  %call10 = call fastcc noundef i32 @_ZL34u_scanf_skip_leading_positive_signP5UFILEPPvP10UErrorCode.argprom(ptr noundef nonnull %input, ptr noundef nonnull %call6, i32 0)
+  %call10 = call fastcc noundef i32 @_ZL34u_scanf_skip_leading_positive_signP5UFILEPPvP10UErrorCode(ptr noundef nonnull %input, ptr noundef nonnull %call6, i32 0)
   %add = add nsw i32 %call10, %count.0.i
   %6 = load ptr, ptr %str, align 8
   %call13 = call double @unum_parseDouble_75(ptr noundef nonnull %call6, ptr noundef %6, i32 noundef %len.0, ptr noundef nonnull %parsePos, ptr noundef nonnull %status)
@@ -2042,7 +2042,7 @@ declare i32 @u_strToUpper_75(ptr noundef, i32 noundef, ptr noundef, i32 noundef,
 declare void @unum_setSymbol_75(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL34u_scanf_skip_leading_positive_signP5UFILEPPvP10UErrorCode.argprom(ptr noundef %input, ptr noundef %format, i32 %status.0.val) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL34u_scanf_skip_leading_positive_signP5UFILEPPvP10UErrorCode(ptr noundef %input, ptr noundef %format, i32 %status.0.val) unnamed_addr #0 {
 entry:
   %c = alloca i16, align 2
   %plusSymbol = alloca [8 x i16], align 16

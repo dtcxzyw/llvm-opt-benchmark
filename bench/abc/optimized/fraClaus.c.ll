@@ -6030,7 +6030,7 @@ define void @Fra_ClausPrintIndClauses(ptr nocapture noundef readonly %0) local_u
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @Fra_ClausGetLiteral(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #12 {
-Aig_ManObj.argprom.exit:
+Aig_ManObj.exit:
   %3 = ashr i32 %2, 1
   %4 = sext i32 %3 to i64
   %5 = getelementptr inbounds i32, ptr %1, i64 %4

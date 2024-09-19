@@ -62,7 +62,7 @@ define internal void @_ZN4core5error5Error7provide17hba14b53d21d6b79aE(ptr noali
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbe27c70f588dd236E.argprom"(ptr nonnull %.0.val, i64 %.16.val, ptr %.0.val1, i64 %.16.val3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbe27c70f588dd236E"(ptr nonnull %.0.val, i64 %.16.val, ptr %.0.val1, i64 %.16.val3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %1 = alloca { i8, [55 x i8] }, align 8
   %2 = alloca { { { ptr, i64 }, { i8, [39 x i8] }, i8, i8, i8, [5 x i8] } }, align 8
   %3 = alloca { { { ptr, i64 }, { i8, [39 x i8] }, i8, i8, i8, [5 x i8] } }, align 8
@@ -233,7 +233,7 @@ define noundef zeroext i1 @"_ZN68_$LT$anki_io..error..FileIoError$u20$as$u20$cor
   %.val2 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 48
   %.val3 = load i64, ptr %6, align 8
-  %7 = tail call fastcc noundef zeroext i1 @"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbe27c70f588dd236E.argprom"(ptr %.val, i64 %.val1, ptr %.val2, i64 %.val3)
+  %7 = tail call fastcc noundef zeroext i1 @"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbe27c70f588dd236E"(ptr %.val, i64 %.val1, ptr %.val2, i64 %.val3)
   br i1 %7, label %8, label %"_ZN63_$LT$anki_io..error..FileOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7a64bfcb1d0e1fd9E.exit"
 
 8:                                                ; preds = %2
@@ -257,7 +257,7 @@ define noundef zeroext i1 @"_ZN68_$LT$anki_io..error..FileIoError$u20$as$u20$cor
   %.val5.i = load ptr, ptr %16, align 8, !alias.scope !64, !noalias !61
   %18 = getelementptr inbounds i8, ptr %1, i64 24
   %.val6.i = load i64, ptr %18, align 8, !alias.scope !64, !noalias !61
-  %19 = tail call fastcc noundef zeroext i1 @"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbe27c70f588dd236E.argprom"(ptr %.val.i, i64 %.val4.i, ptr %.val5.i, i64 %.val6.i), !noalias !67
+  %19 = tail call fastcc noundef zeroext i1 @"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbe27c70f588dd236E"(ptr %.val.i, i64 %.val4.i, ptr %.val5.i, i64 %.val6.i), !noalias !67
   br label %"_ZN63_$LT$anki_io..error..FileOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7a64bfcb1d0e1fd9E.exit"
 
 "_ZN63_$LT$anki_io..error..FileOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7a64bfcb1d0e1fd9E.exit": ; preds = %14, %12, %8, %2
@@ -684,18 +684,18 @@ switch.lookup:                                    ; preds = %1
   %5 = ashr i64 %3, 32
   %switch.gep = getelementptr inbounds [41 x i8], ptr @switch.table._ZN7anki_io5error11FileIoError12is_not_found17h637f7feac20ba008E, i64 0, i64 %5
   %switch.load = load i8, ptr %switch.gep, align 1
-  br label %_ZN3std2io5error5Error4kind17h2040909452a97b57E.argprom.exit
+  br label %_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit
 
 6:                                                ; preds = %1
   %.mask = and i64 %3, -4294967296
   %cond = icmp eq i64 %.mask, 8589934592
   %spec.select = select i1 %cond, i8 0, i8 13
-  br label %_ZN3std2io5error5Error4kind17h2040909452a97b57E.argprom.exit
+  br label %_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %.val, i64 16
   %9 = load i8, ptr %8, align 8, !range !174, !noundef !4
-  br label %_ZN3std2io5error5Error4kind17h2040909452a97b57E.argprom.exit
+  br label %_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit
 
 10:                                               ; preds = %1
   %11 = getelementptr i8, ptr %.val, i64 -1
@@ -703,9 +703,9 @@ switch.lookup:                                    ; preds = %1
   tail call void @llvm.assume(i1 %12)
   %13 = getelementptr i8, ptr %.val, i64 15
   %14 = load i8, ptr %13, align 8, !range !174, !noundef !4
-  br label %_ZN3std2io5error5Error4kind17h2040909452a97b57E.argprom.exit
+  br label %_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit
 
-_ZN3std2io5error5Error4kind17h2040909452a97b57E.argprom.exit: ; preds = %switch.lookup, %6, %7, %10
+_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit: ; preds = %switch.lookup, %6, %7, %10
   %.0.i = phi i8 [ %14, %10 ], [ %9, %7 ], [ %spec.select, %6 ], [ %switch.load, %switch.lookup ]
   %15 = icmp eq i8 %.0.i, 0
   ret i1 %15

@@ -352,7 +352,7 @@ entry:
   %progress = getelementptr inbounds i8, ptr %s, i64 144
   %1 = load ptr, ptr %progress, align 8
   %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.then
+  br i1 %tobool.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.then
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %copy_bitmap, align 8
@@ -361,9 +361,9 @@ if.then:                                          ; preds = %entry
   %3 = load i64, ptr %in_flight_bytes, align 8
   %add = add i64 %3, %call6
   tail call void @progress_set_remaining(ptr noundef nonnull %1, i64 noundef %add) #14
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %if.then, %entry
+glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.then, %entry
   tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #14
   ret void
 }
@@ -575,7 +575,7 @@ declare i32 @qemu_co_timeout(ptr noundef, ptr noundef, i64 noundef, ptr noundef)
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @block_copy_async_co_entry(ptr noundef %opaque) #0 {
-glib_autoptr_cleanup_GraphLockable.argprom.exit:
+glib_autoptr_cleanup_GraphLockable.exit:
   tail call void @bdrv_graph_co_rdlock() #14
   %call1 = tail call i32 @block_copy_common(ptr noundef %opaque)
   tail call void @bdrv_graph_co_rdunlock() #14
@@ -1584,7 +1584,7 @@ block_copy_chunk_size.exit:                       ; preds = %sw.bb.i, %sw.bb1.i,
   %8 = load ptr, ptr %copy_bitmap, align 8
   %add = add i64 %bytes, %offset
   %call12 = call zeroext i1 @bdrv_dirty_bitmap_next_dirty_area(ptr noundef %8, i64 noundef %offset, i64 noundef %add, i64 noundef %cond11, ptr noundef nonnull %offset.addr, ptr noundef nonnull %bytes.addr) #14
-  br i1 %call12, label %if.end, label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br i1 %call12, label %if.end, label %glib_autoptr_cleanup_QemuLockable.exit
 
 if.end:                                           ; preds = %block_copy_chunk_size.exit
   %9 = load i64, ptr %offset.addr, align 8
@@ -1646,9 +1646,9 @@ if.end23:                                         ; preds = %if.end15
   %19 = load i64, ptr %offset.addr, align 8
   %20 = load i64, ptr %bytes.addr, align 8
   call void @reqlist_init_req(ptr noundef nonnull %reqs, ptr noundef nonnull %req33, i64 noundef %19, i64 noundef %20) #14
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %block_copy_chunk_size.exit, %if.end23
+glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %block_copy_chunk_size.exit, %if.end23
   %retval.0 = phi ptr [ %call26, %if.end23 ], [ null, %block_copy_chunk_size.exit ]
   call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #14
   ret ptr %retval.0
@@ -1728,7 +1728,7 @@ entry:
   %bytes = getelementptr inbounds i8, ptr %task, i64 56
   %1 = load i64, ptr %bytes, align 8
   %cmp = icmp eq i64 %new_bytes, %1
-  br i1 %cmp, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.end
+  br i1 %cmp, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end
 
 if.end:                                           ; preds = %entry
   %cmp5 = icmp sgt i64 %new_bytes, 0
@@ -1756,9 +1756,9 @@ if.end10:                                         ; preds = %if.end
   %sub19 = sub i64 %7, %new_bytes
   tail call void @bdrv_set_dirty_bitmap(ptr noundef %5, i64 noundef %add, i64 noundef %sub19) #14
   tail call void @reqlist_shrink_req(ptr noundef nonnull %req, i64 noundef %new_bytes) #14
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %entry, %if.end10
+glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %entry, %if.end10
   tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #14
   ret void
 }
@@ -1795,7 +1795,7 @@ if.end:                                           ; preds = %if.then, %entry
   %progress = getelementptr inbounds i8, ptr %8, i64 144
   %9 = load ptr, ptr %progress, align 8
   %tobool.not = icmp eq ptr %9, null
-  br i1 %tobool.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.then11
+  br i1 %tobool.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.then11
 
 if.then11:                                        ; preds = %if.end
   %copy_bitmap15 = getelementptr inbounds i8, ptr %8, i64 136
@@ -1806,9 +1806,9 @@ if.then11:                                        ; preds = %if.end
   %12 = load i64, ptr %in_flight_bytes18, align 8
   %add = add i64 %12, %call16
   tail call void @progress_set_remaining(ptr noundef nonnull %9, i64 noundef %add) #14
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %if.then11, %if.end
+glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.then11, %if.end
   tail call void @reqlist_remove_req(ptr noundef nonnull %req) #14
   tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #14
   ret void
@@ -1912,14 +1912,14 @@ if.end.us.us:                                     ; preds = %if.then.us.us, %for
   %ret17.us.us = getelementptr inbounds i8, ptr %8, i64 116
   %9 = load i32, ptr %ret17.us.us, align 4
   %tobool18.not.us.us = icmp eq i32 %9, 0
-  br i1 %tobool18.not.us.us, label %if.then19.us.us, label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br i1 %tobool18.not.us.us, label %if.then19.us.us, label %glib_autoptr_cleanup_QemuLockable.exit
 
 if.then19.us.us:                                  ; preds = %if.end.us.us
   store i32 %call4, ptr %ret17.us.us, align 4
   %10 = load ptr, ptr %call_state, align 8
   %error_is_read24.us.us = getelementptr inbounds i8, ptr %10, i64 112
   store i8 %frombool, ptr %error_is_read24.us.us, align 8
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
 for.body11.us25:                                  ; preds = %entry
   br i1 %cmp.us.us, label %if.then.us28, label %if.end.us29
@@ -1931,14 +1931,14 @@ if.then.us28:                                     ; preds = %for.body11.us25
 if.end.us29:                                      ; preds = %if.then.us28, %for.body11.us25
   %11 = load ptr, ptr %progress, align 8
   %tobool26.not.us = icmp eq ptr %11, null
-  br i1 %tobool26.not.us, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.then27.us
+  br i1 %tobool26.not.us, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.then27.us
 
 if.then27.us:                                     ; preds = %if.end.us29
   %12 = load i64, ptr %bytes, align 8
   tail call void @progress_work_done(ptr noundef nonnull %11, i64 noundef %12) #14
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %if.end.us29, %if.then27.us, %if.end.us.us, %if.then19.us.us
+glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.end.us29, %if.then27.us, %if.end.us.us, %if.then19.us.us
   tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #14
   %mem = getelementptr inbounds i8, ptr %0, i64 152
   %13 = load ptr, ptr %mem, align 8

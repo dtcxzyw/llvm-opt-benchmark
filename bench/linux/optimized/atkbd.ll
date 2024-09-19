@@ -1929,7 +1929,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @atkbd_do_set_extra(ptr n
 
 11:                                               ; preds = %4
   %12 = sext i32 %9 to i64
-  br label %atkbd_attr_set_helper.argprom.exit
+  br label %atkbd_attr_set_helper.exit
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %.val, align 8
@@ -2046,9 +2046,9 @@ atkbd_set_extra.exit:                             ; preds = %13, %25, %27, %30, 
   tail call void @mutex_unlock(ptr noundef %8) #17
   %74 = shl i64 %69, 32
   %75 = ashr exact i64 %74, 32
-  br label %atkbd_attr_set_helper.argprom.exit
+  br label %atkbd_attr_set_helper.exit
 
-atkbd_attr_set_helper.argprom.exit:               ; preds = %11, %atkbd_set_extra.exit
+atkbd_attr_set_helper.exit:                       ; preds = %11, %atkbd_set_extra.exit
   %76 = phi i64 [ %12, %11 ], [ %75, %atkbd_set_extra.exit ]
   ret i64 %76
 }
@@ -2165,7 +2165,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @atkbd_do_set_scroll(ptr 
 
 10:                                               ; preds = %4
   %11 = sext i32 %8 to i64
-  br label %atkbd_attr_set_helper.argprom.exit
+  br label %atkbd_attr_set_helper.exit
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr %.val, align 8
@@ -2244,9 +2244,9 @@ atkbd_set_scroll.exit:                            ; preds = %20, %22, %25, %30, 
   tail call void @mutex_unlock(ptr noundef %7) #17
   %50 = shl i64 %45, 32
   %51 = ashr exact i64 %50, 32
-  br label %atkbd_attr_set_helper.argprom.exit
+  br label %atkbd_attr_set_helper.exit
 
-atkbd_attr_set_helper.argprom.exit:               ; preds = %10, %atkbd_set_scroll.exit
+atkbd_attr_set_helper.exit:                       ; preds = %10, %atkbd_set_scroll.exit
   %52 = phi i64 [ %11, %10 ], [ %51, %atkbd_set_scroll.exit ]
   ret i64 %52
 }
@@ -2276,7 +2276,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @atkbd_do_set_set(ptr noc
 
 11:                                               ; preds = %4
   %12 = sext i32 %9 to i64
-  br label %atkbd_attr_set_helper.argprom.exit
+  br label %atkbd_attr_set_helper.exit
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %.val, align 8
@@ -2394,9 +2394,9 @@ atkbd_set_set.exit:                               ; preds = %13, %25, %27, %31, 
   tail call void @mutex_unlock(ptr noundef %8) #17
   %75 = shl i64 %70, 32
   %76 = ashr exact i64 %75, 32
-  br label %atkbd_attr_set_helper.argprom.exit
+  br label %atkbd_attr_set_helper.exit
 
-atkbd_attr_set_helper.argprom.exit:               ; preds = %11, %atkbd_set_set.exit
+atkbd_attr_set_helper.exit:                       ; preds = %11, %atkbd_set_set.exit
   %77 = phi i64 [ %12, %11 ], [ %76, %atkbd_set_set.exit ]
   ret i64 %77
 }
@@ -2425,7 +2425,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @atkbd_do_set_softrepeat(
 
 10:                                               ; preds = %4
   %11 = sext i32 %8 to i64
-  br label %atkbd_attr_set_helper.argprom.exit
+  br label %atkbd_attr_set_helper.exit
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr %.val, align 8
@@ -2518,9 +2518,9 @@ atkbd_set_softrepeat.exit:                        ; preds = %12, %24, %26, %29, 
   tail call void @mutex_unlock(ptr noundef %7) #17
   %58 = shl i64 %53, 32
   %59 = ashr exact i64 %58, 32
-  br label %atkbd_attr_set_helper.argprom.exit
+  br label %atkbd_attr_set_helper.exit
 
-atkbd_attr_set_helper.argprom.exit:               ; preds = %10, %atkbd_set_softrepeat.exit
+atkbd_attr_set_helper.exit:                       ; preds = %10, %atkbd_set_softrepeat.exit
   %60 = phi i64 [ %11, %10 ], [ %59, %atkbd_set_softrepeat.exit ]
   ret i64 %60
 }
@@ -2549,7 +2549,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @atkbd_do_set_softraw(ptr
 
 10:                                               ; preds = %4
   %11 = sext i32 %8 to i64
-  br label %atkbd_attr_set_helper.argprom.exit
+  br label %atkbd_attr_set_helper.exit
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr %.val, align 8
@@ -2626,9 +2626,9 @@ atkbd_set_softraw.exit:                           ; preds = %20, %22, %25, %30, 
   tail call void @mutex_unlock(ptr noundef %7) #17
   %50 = shl i64 %45, 32
   %51 = ashr exact i64 %50, 32
-  br label %atkbd_attr_set_helper.argprom.exit
+  br label %atkbd_attr_set_helper.exit
 
-atkbd_attr_set_helper.argprom.exit:               ; preds = %10, %atkbd_set_softraw.exit
+atkbd_attr_set_helper.exit:                       ; preds = %10, %atkbd_set_softraw.exit
   %52 = phi i64 [ %11, %10 ], [ %51, %atkbd_set_softraw.exit ]
   ret i64 %52
 }

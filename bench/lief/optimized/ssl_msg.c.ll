@@ -2525,9 +2525,9 @@ define internal fastcc i32 @ssl_get_remaining_payload_in_datagram(ptr noundef %0
   %23 = getelementptr inbounds i8, ptr %15, i64 128
   %.val19.i = load ptr, ptr %23, align 8
   %24 = icmp eq ptr %.val19.i, null
-  br i1 %24, label %mbedtls_ssl_get_record_expansion.exit.thread, label %mbedtls_cipher_get_cipher_mode.argprom.exit.i
+  br i1 %24, label %mbedtls_ssl_get_record_expansion.exit.thread, label %mbedtls_cipher_get_cipher_mode.exit.i
 
-mbedtls_cipher_get_cipher_mode.argprom.exit.i:    ; preds = %22
+mbedtls_cipher_get_cipher_mode.exit.i:            ; preds = %22
   %25 = getelementptr inbounds i8, ptr %.val19.i, i64 4
   %26 = load i32, ptr %25, align 4
   switch i32 %26, label %mbedtls_ssl_get_record_expansion.exit.thread [
@@ -2535,14 +2535,14 @@ mbedtls_cipher_get_cipher_mode.argprom.exit.i:    ; preds = %22
     i32 8, label %27
     i32 11, label %27
     i32 7, label %27
-    i32 2, label %mbedtls_cipher_get_block_size.argprom.exit.i
+    i32 2, label %mbedtls_cipher_get_block_size.exit.i
   ]
 
-27:                                               ; preds = %mbedtls_cipher_get_cipher_mode.argprom.exit.i, %mbedtls_cipher_get_cipher_mode.argprom.exit.i, %mbedtls_cipher_get_cipher_mode.argprom.exit.i, %mbedtls_cipher_get_cipher_mode.argprom.exit.i
+27:                                               ; preds = %mbedtls_cipher_get_cipher_mode.exit.i, %mbedtls_cipher_get_cipher_mode.exit.i, %mbedtls_cipher_get_cipher_mode.exit.i, %mbedtls_cipher_get_cipher_mode.exit.i
   %28 = load i64, ptr %15, align 8
   br label %35
 
-mbedtls_cipher_get_block_size.argprom.exit.i:     ; preds = %mbedtls_cipher_get_cipher_mode.argprom.exit.i
+mbedtls_cipher_get_block_size.exit.i:             ; preds = %mbedtls_cipher_get_cipher_mode.exit.i
   %29 = getelementptr inbounds i8, ptr %.val19.i, i64 32
   %30 = load i32, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %15, i64 24
@@ -2552,12 +2552,12 @@ mbedtls_cipher_get_block_size.argprom.exit.i:     ; preds = %mbedtls_cipher_get_
   %34 = add i64 %reass.add.i, %32
   br label %35
 
-mbedtls_ssl_get_record_expansion.exit.thread:     ; preds = %22, %mbedtls_cipher_get_cipher_mode.argprom.exit.i
+mbedtls_ssl_get_record_expansion.exit.thread:     ; preds = %22, %mbedtls_cipher_get_cipher_mode.exit.i
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 5243, ptr noundef nonnull @.str.25) #17
   br label %42
 
-35:                                               ; preds = %mbedtls_cipher_get_block_size.argprom.exit.i, %27
-  %.016.i = phi i64 [ %34, %mbedtls_cipher_get_block_size.argprom.exit.i ], [ %28, %27 ]
+35:                                               ; preds = %mbedtls_cipher_get_block_size.exit.i, %27
+  %.016.i = phi i64 [ %34, %mbedtls_cipher_get_block_size.exit.i ], [ %28, %27 ]
   %36 = add i64 %.016.i, %20
   br label %mbedtls_ssl_get_record_expansion.exit
 
@@ -2932,7 +2932,7 @@ mbedtls_ssl_flight_free.exit:                     ; preds = %mbedtls_ssl_flight_
   %22 = getelementptr inbounds i8, ptr %19, i64 984
   %23 = load ptr, ptr %22, align 8
   %.not.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i, label %ssl_free_buffered_record.argprom.exit.i.preheader, label %24
+  br i1 %.not.i.i, label %ssl_free_buffered_record.exit.i.preheader, label %24
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds i8, ptr %19, i64 872
@@ -2943,22 +2943,22 @@ mbedtls_ssl_flight_free.exit:                     ; preds = %mbedtls_ssl_flight_
   store i64 %29, ptr %25, align 8
   tail call void @free(ptr noundef nonnull %23) #17
   store ptr null, ptr %22, align 8
-  br label %ssl_free_buffered_record.argprom.exit.i.preheader
+  br label %ssl_free_buffered_record.exit.i.preheader
 
-ssl_free_buffered_record.argprom.exit.i.preheader: ; preds = %24, %21
-  br label %ssl_free_buffered_record.argprom.exit.i
+ssl_free_buffered_record.exit.i.preheader:        ; preds = %24, %21
+  br label %ssl_free_buffered_record.exit.i
 
-ssl_free_buffered_record.argprom.exit.i:          ; preds = %ssl_free_buffered_record.argprom.exit.i.preheader, %ssl_buffering_free_slot.argprom.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %ssl_buffering_free_slot.argprom.exit.i ], [ 0, %ssl_free_buffered_record.argprom.exit.i.preheader ]
+ssl_free_buffered_record.exit.i:                  ; preds = %ssl_free_buffered_record.exit.i.preheader, %ssl_buffering_free_slot.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %ssl_buffering_free_slot.exit.i ], [ 0, %ssl_free_buffered_record.exit.i.preheader ]
   %.val6.i = load ptr, ptr %2, align 8
   %30 = getelementptr inbounds i8, ptr %.val6.i, i64 888
   %31 = getelementptr inbounds [4 x %struct.mbedtls_ssl_hs_buffer], ptr %30, i64 0, i64 %indvars.iv.i
   %32 = load i8, ptr %31, align 8
   %33 = and i8 %32, 1
   %.not.i7.i = icmp eq i8 %33, 0
-  br i1 %.not.i7.i, label %ssl_buffering_free_slot.argprom.exit.i, label %34
+  br i1 %.not.i7.i, label %ssl_buffering_free_slot.exit.i, label %34
 
-34:                                               ; preds = %ssl_free_buffered_record.argprom.exit.i
+34:                                               ; preds = %ssl_free_buffered_record.exit.i
   %35 = getelementptr inbounds i8, ptr %.val6.i, i64 872
   %36 = getelementptr inbounds i8, ptr %31, i64 16
   %37 = load i64, ptr %36, align 8
@@ -2971,14 +2971,14 @@ ssl_free_buffered_record.argprom.exit.i:          ; preds = %ssl_free_buffered_r
   %42 = load ptr, ptr %40, align 8
   tail call void @free(ptr noundef %42) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
-  br label %ssl_buffering_free_slot.argprom.exit.i
+  br label %ssl_buffering_free_slot.exit.i
 
-ssl_buffering_free_slot.argprom.exit.i:           ; preds = %34, %ssl_free_buffered_record.argprom.exit.i
+ssl_buffering_free_slot.exit.i:                   ; preds = %34, %ssl_free_buffered_record.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %mbedtls_ssl_buffering_free.exit, label %ssl_free_buffered_record.argprom.exit.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %mbedtls_ssl_buffering_free.exit, label %ssl_free_buffered_record.exit.i, !llvm.loop !13
 
-mbedtls_ssl_buffering_free.exit:                  ; preds = %ssl_buffering_free_slot.argprom.exit.i, %mbedtls_ssl_flight_free.exit
+mbedtls_ssl_buffering_free.exit:                  ; preds = %ssl_buffering_free_slot.exit.i, %mbedtls_ssl_flight_free.exit
   %43 = getelementptr inbounds i8, ptr %0, i64 160
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
@@ -3025,7 +3025,7 @@ define hidden void @mbedtls_ssl_buffering_free(ptr nocapture noundef readonly %0
   %6 = getelementptr inbounds i8, ptr %3, i64 984
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %ssl_free_buffered_record.argprom.exit.preheader, label %8
+  br i1 %.not.i, label %ssl_free_buffered_record.exit.preheader, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %3, i64 872
@@ -3036,22 +3036,22 @@ define hidden void @mbedtls_ssl_buffering_free(ptr nocapture noundef readonly %0
   store i64 %13, ptr %9, align 8
   tail call void @free(ptr noundef nonnull %7) #17
   store ptr null, ptr %6, align 8
-  br label %ssl_free_buffered_record.argprom.exit.preheader
+  br label %ssl_free_buffered_record.exit.preheader
 
-ssl_free_buffered_record.argprom.exit.preheader:  ; preds = %5, %8
-  br label %ssl_free_buffered_record.argprom.exit
+ssl_free_buffered_record.exit.preheader:          ; preds = %5, %8
+  br label %ssl_free_buffered_record.exit
 
-ssl_free_buffered_record.argprom.exit:            ; preds = %ssl_free_buffered_record.argprom.exit.preheader, %ssl_buffering_free_slot.argprom.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %ssl_buffering_free_slot.argprom.exit ], [ 0, %ssl_free_buffered_record.argprom.exit.preheader ]
+ssl_free_buffered_record.exit:                    ; preds = %ssl_free_buffered_record.exit.preheader, %ssl_buffering_free_slot.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %ssl_buffering_free_slot.exit ], [ 0, %ssl_free_buffered_record.exit.preheader ]
   %.val6 = load ptr, ptr %2, align 8
   %14 = getelementptr inbounds i8, ptr %.val6, i64 888
   %15 = getelementptr inbounds [4 x %struct.mbedtls_ssl_hs_buffer], ptr %14, i64 0, i64 %indvars.iv
   %16 = load i8, ptr %15, align 8
   %17 = and i8 %16, 1
   %.not.i7 = icmp eq i8 %17, 0
-  br i1 %.not.i7, label %ssl_buffering_free_slot.argprom.exit, label %18
+  br i1 %.not.i7, label %ssl_buffering_free_slot.exit, label %18
 
-18:                                               ; preds = %ssl_free_buffered_record.argprom.exit
+18:                                               ; preds = %ssl_free_buffered_record.exit
   %19 = getelementptr inbounds i8, ptr %.val6, i64 872
   %20 = getelementptr inbounds i8, ptr %15, i64 16
   %21 = load i64, ptr %20, align 8
@@ -3064,14 +3064,14 @@ ssl_free_buffered_record.argprom.exit:            ; preds = %ssl_free_buffered_r
   %26 = load ptr, ptr %24, align 8
   tail call void @free(ptr noundef %26) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  br label %ssl_buffering_free_slot.argprom.exit
+  br label %ssl_buffering_free_slot.exit
 
-ssl_buffering_free_slot.argprom.exit:             ; preds = %ssl_free_buffered_record.argprom.exit, %18
+ssl_buffering_free_slot.exit:                     ; preds = %ssl_free_buffered_record.exit, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %ssl_free_buffered_record.argprom.exit, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %ssl_free_buffered_record.exit, !llvm.loop !13
 
-.loopexit:                                        ; preds = %ssl_buffering_free_slot.argprom.exit, %1
+.loopexit:                                        ; preds = %ssl_buffering_free_slot.exit, %1
   ret void
 }
 
@@ -3684,7 +3684,7 @@ define hidden void @mbedtls_ssl_update_handshake_status(ptr noundef %0) local_un
   %26 = load i8, ptr %25, align 8
   %27 = and i8 %26, 1
   %.not.i = icmp eq i8 %27, 0
-  br i1 %.not.i, label %ssl_buffering_free_slot.argprom.exit, label %28
+  br i1 %.not.i, label %ssl_buffering_free_slot.exit, label %28
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds i8, ptr %.val20, i64 872
@@ -3699,9 +3699,9 @@ define hidden void @mbedtls_ssl_update_handshake_status(ptr noundef %0) local_un
   %36 = load ptr, ptr %34, align 8
   tail call void @free(ptr noundef %36) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
-  br label %ssl_buffering_free_slot.argprom.exit
+  br label %ssl_buffering_free_slot.exit
 
-ssl_buffering_free_slot.argprom.exit:             ; preds = %21, %28
+ssl_buffering_free_slot.exit:                     ; preds = %21, %28
   %37 = getelementptr i8, ptr %3, i64 888
   %scevgep = getelementptr i8, ptr %3, i64 912
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %37, ptr noundef nonnull align 8 dereferenceable(72) %scevgep, i64 72, i1 false)
@@ -3709,7 +3709,7 @@ ssl_buffering_free_slot.argprom.exit:             ; preds = %21, %28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep22, i8 0, i64 24, i1 false)
   br label %38
 
-38:                                               ; preds = %ssl_buffering_free_slot.argprom.exit, %19, %14
+38:                                               ; preds = %ssl_buffering_free_slot.exit, %19, %14
   ret void
 }
 
@@ -4116,7 +4116,7 @@ ssl_load_buffered_message.exit:                   ; preds = %65, %105
 
 125:                                              ; preds = %122
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 4426, ptr noundef nonnull @.str.196) #17
-  br label %ssl_free_buffered_record.argprom.exit.i.i
+  br label %ssl_free_buffered_record.exit.i.i
 
 126:                                              ; preds = %122
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 4430, ptr noundef nonnull @.str.197) #17
@@ -4135,13 +4135,13 @@ ssl_load_buffered_message.exit:                   ; preds = %65, %105
   store i64 0, ptr %12, align 8
   %.val.i.i = load ptr, ptr %13, align 8
   %134 = icmp eq ptr %.val.i.i, null
-  br i1 %134, label %ssl_free_buffered_record.argprom.exit.i.i, label %135
+  br i1 %134, label %ssl_free_buffered_record.exit.i.i, label %135
 
 135:                                              ; preds = %133
   %136 = getelementptr inbounds i8, ptr %.val.i.i, i64 984
   %137 = load ptr, ptr %136, align 8
   %.not.i.i.i = icmp eq ptr %137, null
-  br i1 %.not.i.i.i, label %ssl_free_buffered_record.argprom.exit.i.i, label %138
+  br i1 %.not.i.i.i, label %ssl_free_buffered_record.exit.i.i, label %138
 
 138:                                              ; preds = %135
   %139 = getelementptr inbounds i8, ptr %.val.i.i, i64 872
@@ -4152,9 +4152,9 @@ ssl_load_buffered_message.exit:                   ; preds = %65, %105
   store i64 %143, ptr %139, align 8
   call void @free(ptr noundef nonnull %137) #17
   store ptr null, ptr %136, align 8
-  br label %ssl_free_buffered_record.argprom.exit.i.i
+  br label %ssl_free_buffered_record.exit.i.i
 
-ssl_free_buffered_record.argprom.exit.i.i:        ; preds = %138, %135, %133, %125
+ssl_free_buffered_record.exit.i.i:                ; preds = %138, %135, %133, %125
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 4446, ptr noundef nonnull @.str.198) #17
   %.val.pre.i = load ptr, ptr %0, align 8
   %.phi.trans.insert.i = getelementptr i8, ptr %.val.pre.i, i64 9
@@ -4165,8 +4165,8 @@ ssl_load_buffered_record.exit.i:                  ; preds = %126
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 4435, ptr noundef nonnull @.str.25) #17
   br label %ssl_get_next_record.exit.thread
 
-144:                                              ; preds = %ssl_free_buffered_record.argprom.exit.i.i, %.critedge
-  %.val.val.i = phi i8 [ %.val.val.pre.i, %ssl_free_buffered_record.argprom.exit.i.i ], [ %111, %.critedge ]
+144:                                              ; preds = %ssl_free_buffered_record.exit.i.i, %.critedge
+  %.val.val.i = phi i8 [ %.val.val.pre.i, %ssl_free_buffered_record.exit.i.i ], [ %111, %.critedge ]
   %.val.val.fr.i = freeze i8 %.val.val.i
   %145 = icmp eq i8 %.val.val.fr.i, 1
   br i1 %145, label %.thread129.i, label %146
@@ -5002,7 +5002,7 @@ ssl_buffer_message.exit:                          ; preds = %467, %465
   %562 = load i8, ptr %561, align 8
   %563 = and i8 %562, 1
   %.not.i.i54 = icmp eq i8 %563, 0
-  br i1 %.not.i.i54, label %ssl_buffering_free_slot.argprom.exit.i, label %564
+  br i1 %.not.i.i54, label %ssl_buffering_free_slot.exit.i, label %564
 
 564:                                              ; preds = %557
   %565 = getelementptr inbounds i8, ptr %.val20.i, i64 872
@@ -5017,9 +5017,9 @@ ssl_buffer_message.exit:                          ; preds = %467, %465
   %572 = load ptr, ptr %570, align 8
   call void @free(ptr noundef %572) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %561, i8 0, i64 24, i1 false)
-  br label %ssl_buffering_free_slot.argprom.exit.i
+  br label %ssl_buffering_free_slot.exit.i
 
-ssl_buffering_free_slot.argprom.exit.i:           ; preds = %564, %557
+ssl_buffering_free_slot.exit.i:                   ; preds = %564, %557
   %573 = getelementptr i8, ptr %542, i64 888
   %scevgep.i = getelementptr i8, ptr %542, i64 912
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %573, ptr noundef nonnull align 8 dereferenceable(72) %scevgep.i, i64 72, i1 false)
@@ -5032,7 +5032,7 @@ ssl_buffering_free_slot.argprom.exit.i:           ; preds = %564, %557
   store i32 0, ptr %4, align 4
   br label %mbedtls_ssl_update_handshake_status.exit
 
-mbedtls_ssl_update_handshake_status.exit:         ; preds = %ssl_buffering_free_slot.argprom.exit.i, %555, %550, %537, %574
+mbedtls_ssl_update_handshake_status.exit:         ; preds = %ssl_buffering_free_slot.exit.i, %555, %550, %537, %574
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 3916, ptr noundef nonnull @.str.100) #17
   br label %ssl_buffer_message.exit.thread
 
@@ -5596,24 +5596,24 @@ define hidden i32 @mbedtls_ssl_get_record_expansion(ptr noundef %0) local_unname
   %13 = getelementptr inbounds i8, ptr %3, i64 128
   %.val19 = load ptr, ptr %13, align 8
   %14 = icmp eq ptr %.val19, null
-  br i1 %14, label %mbedtls_cipher_get_cipher_mode.argprom.exit.thread, label %mbedtls_cipher_get_cipher_mode.argprom.exit
+  br i1 %14, label %mbedtls_cipher_get_cipher_mode.exit.thread, label %mbedtls_cipher_get_cipher_mode.exit
 
-mbedtls_cipher_get_cipher_mode.argprom.exit:      ; preds = %12
+mbedtls_cipher_get_cipher_mode.exit:              ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.val19, i64 4
   %16 = load i32, ptr %15, align 4
-  switch i32 %16, label %mbedtls_cipher_get_cipher_mode.argprom.exit.thread [
+  switch i32 %16, label %mbedtls_cipher_get_cipher_mode.exit.thread [
     i32 6, label %17
     i32 8, label %17
     i32 11, label %17
     i32 7, label %17
-    i32 2, label %mbedtls_cipher_get_block_size.argprom.exit
+    i32 2, label %mbedtls_cipher_get_block_size.exit
   ]
 
-17:                                               ; preds = %mbedtls_cipher_get_cipher_mode.argprom.exit, %mbedtls_cipher_get_cipher_mode.argprom.exit, %mbedtls_cipher_get_cipher_mode.argprom.exit, %mbedtls_cipher_get_cipher_mode.argprom.exit
+17:                                               ; preds = %mbedtls_cipher_get_cipher_mode.exit, %mbedtls_cipher_get_cipher_mode.exit, %mbedtls_cipher_get_cipher_mode.exit, %mbedtls_cipher_get_cipher_mode.exit
   %18 = load i64, ptr %3, align 8
   br label %25
 
-mbedtls_cipher_get_block_size.argprom.exit:       ; preds = %mbedtls_cipher_get_cipher_mode.argprom.exit
+mbedtls_cipher_get_block_size.exit:               ; preds = %mbedtls_cipher_get_cipher_mode.exit
   %19 = getelementptr inbounds i8, ptr %.val19, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %3, i64 24
@@ -5623,18 +5623,18 @@ mbedtls_cipher_get_block_size.argprom.exit:       ; preds = %mbedtls_cipher_get_
   %24 = add i64 %reass.add, %22
   br label %25
 
-mbedtls_cipher_get_cipher_mode.argprom.exit.thread: ; preds = %12, %mbedtls_cipher_get_cipher_mode.argprom.exit
+mbedtls_cipher_get_cipher_mode.exit.thread:       ; preds = %12, %mbedtls_cipher_get_cipher_mode.exit
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 5243, ptr noundef nonnull @.str.25) #17
   br label %28
 
-25:                                               ; preds = %mbedtls_cipher_get_block_size.argprom.exit, %17
-  %.016 = phi i64 [ %24, %mbedtls_cipher_get_block_size.argprom.exit ], [ %18, %17 ]
+25:                                               ; preds = %mbedtls_cipher_get_block_size.exit, %17
+  %.016 = phi i64 [ %24, %mbedtls_cipher_get_block_size.exit ], [ %18, %17 ]
   %26 = add i64 %.016, %8
   %27 = trunc i64 %26 to i32
   br label %28
 
-28:                                               ; preds = %25, %mbedtls_cipher_get_cipher_mode.argprom.exit.thread, %10
-  %.0 = phi i32 [ %11, %10 ], [ -27648, %mbedtls_cipher_get_cipher_mode.argprom.exit.thread ], [ %27, %25 ]
+28:                                               ; preds = %25, %mbedtls_cipher_get_cipher_mode.exit.thread, %10
+  %.0 = phi i32 [ %11, %10 ], [ -27648, %mbedtls_cipher_get_cipher_mode.exit.thread ], [ %27, %25 ]
   ret i32 %.0
 }
 
@@ -6413,13 +6413,13 @@ define internal fastcc range(i32 -1, 1) i32 @ssl_buffer_make_space(ptr noundef %
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 4036, ptr noundef nonnull @.str.183, i32 noundef %5) #17
   %.val = load ptr, ptr %3, align 8
   %6 = icmp eq ptr %.val, null
-  br i1 %6, label %ssl_free_buffered_record.argprom.exit, label %7
+  br i1 %6, label %ssl_free_buffered_record.exit, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %.val, i64 984
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %ssl_free_buffered_record.argprom.exit, label %10
+  br i1 %.not.i, label %ssl_free_buffered_record.exit, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %.val, i64 872
@@ -6430,26 +6430,26 @@ define internal fastcc range(i32 -1, 1) i32 @ssl_buffer_make_space(ptr noundef %
   store i64 %15, ptr %11, align 8
   tail call void @free(ptr noundef nonnull %9) #17
   store ptr null, ptr %8, align 8
-  br label %ssl_free_buffered_record.argprom.exit
+  br label %ssl_free_buffered_record.exit
 
-ssl_free_buffered_record.argprom.exit:            ; preds = %2, %7, %10
+ssl_free_buffered_record.exit:                    ; preds = %2, %7, %10
   %16 = getelementptr inbounds i8, ptr %4, i64 872
   %17 = load i64, ptr %16, align 8
   %18 = sub i64 32768, %17
   %.not = icmp ugt i64 %1, %18
   br i1 %.not, label %.preheader, label %19
 
-19:                                               ; preds = %ssl_free_buffered_record.argprom.exit
+19:                                               ; preds = %ssl_free_buffered_record.exit
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 4045, ptr noundef nonnull @.str.184) #17
   br label %.loopexit
 
-20:                                               ; preds = %ssl_buffering_free_slot.argprom.exit
+20:                                               ; preds = %ssl_buffering_free_slot.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not25 = icmp eq i64 %indvars.iv, 0
   br i1 %.not25, label %.loopexit, label %.preheader, !llvm.loop !18
 
-.preheader:                                       ; preds = %ssl_free_buffered_record.argprom.exit, %20
-  %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 3, %ssl_free_buffered_record.argprom.exit ]
+.preheader:                                       ; preds = %ssl_free_buffered_record.exit, %20
+  %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 3, %ssl_free_buffered_record.exit ]
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 4056, ptr noundef nonnull @.str.185, i32 noundef %21) #17
   %.val19 = load ptr, ptr %3, align 8
@@ -6458,13 +6458,13 @@ ssl_free_buffered_record.argprom.exit:            ; preds = %2, %7, %10
   %24 = getelementptr inbounds [4 x %struct.mbedtls_ssl_hs_buffer], ptr %23, i64 0, i64 %indvars.iv
   %25 = and i32 %21, 252
   %.not21 = icmp eq i32 %25, 0
-  br i1 %.not21, label %26, label %ssl_buffering_free_slot.argprom.exit
+  br i1 %.not21, label %26, label %ssl_buffering_free_slot.exit
 
 26:                                               ; preds = %.preheader
   %27 = load i8, ptr %24, align 8
   %28 = and i8 %27, 1
   %.not.i20 = icmp eq i8 %28, 0
-  br i1 %.not.i20, label %ssl_buffering_free_slot.argprom.exit, label %29
+  br i1 %.not.i20, label %ssl_buffering_free_slot.exit, label %29
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %24, i64 16
@@ -6478,15 +6478,15 @@ ssl_free_buffered_record.argprom.exit:            ; preds = %2, %7, %10
   %36 = load ptr, ptr %34, align 8
   tail call void @free(ptr noundef %36) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
-  br label %ssl_buffering_free_slot.argprom.exit
+  br label %ssl_buffering_free_slot.exit
 
-ssl_buffering_free_slot.argprom.exit:             ; preds = %.preheader, %26, %29
+ssl_buffering_free_slot.exit:                     ; preds = %.preheader, %26, %29
   %37 = load i64, ptr %16, align 8
   %38 = sub i64 32768, %37
   %.not18 = icmp ugt i64 %1, %38
   br i1 %.not18, label %20, label %39
 
-39:                                               ; preds = %ssl_buffering_free_slot.argprom.exit
+39:                                               ; preds = %ssl_buffering_free_slot.exit
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 4064, ptr noundef nonnull @.str.186) #17
   br label %.loopexit
 

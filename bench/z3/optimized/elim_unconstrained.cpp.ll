@@ -9839,13 +9839,13 @@ entry:
   %bf.load.i.i.i.i.i = load i32, ptr %m_kind.i.i.i.i.i, align 4
   %bf.clear.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i, 65535
   %cmp.i.i.i.i = icmp eq i32 %bf.clear.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %"_ZSt10__invoke_rIbRZN18elim_unconstrainedC1ER11ast_managerR20dependent_expr_stateE3$_0JP4exprEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
+  br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %"_ZSt10__invoke_rIbRZN18elim_unconstrainedC1ER11ast_managerR20dependent_expr_stateE3$_0JP4exprEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
 land.lhs.true.i.i.i.i:                            ; preds = %entry
   %m_num_args.i.i.i.i.i = getelementptr inbounds i8, ptr %__args.val, i64 24
   %0 = load i32, ptr %m_num_args.i.i.i.i.i, align 8
   %cmp3.i.i.i.i = icmp eq i32 %0, 0
-  br i1 %cmp3.i.i.i.i, label %land.rhs.i.i.i.i, label %"_ZSt10__invoke_rIbRZN18elim_unconstrainedC1ER11ast_managerR20dependent_expr_stateE3$_0JP4exprEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
+  br i1 %cmp3.i.i.i.i, label %land.rhs.i.i.i.i, label %"_ZSt10__invoke_rIbRZN18elim_unconstrainedC1ER11ast_managerR20dependent_expr_stateE3$_0JP4exprEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
 land.rhs.i.i.i.i:                                 ; preds = %land.lhs.true.i.i.i.i
   %m_decl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args.val, i64 16
@@ -9858,27 +9858,27 @@ land.rhs.i.i.i.i:                                 ; preds = %land.lhs.true.i.i.i
 _Z17is_uninterp_constPK4expr.exit.i.i.i:          ; preds = %land.rhs.i.i.i.i
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, -1
-  br i1 %4, label %_ZNK20dependent_expr_state6frozenEP4expr.exit.i.i.i, label %"_ZSt10__invoke_rIbRZN18elim_unconstrainedC1ER11ast_managerR20dependent_expr_stateE3$_0JP4exprEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
+  br i1 %4, label %_ZNK20dependent_expr_state6frozenEP4expr.exit.i.i.i, label %"_ZSt10__invoke_rIbRZN18elim_unconstrainedC1ER11ast_managerR20dependent_expr_stateE3$_0JP4exprEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
 _ZNK20dependent_expr_state6frozenEP4expr.exit.i.i.i: ; preds = %_Z17is_uninterp_constPK4expr.exit.i.i.i, %land.rhs.i.i.i.i
   %m_fmls.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 16
   %5 = load ptr, ptr %m_fmls.i.i.i, align 8
   %m_frozen.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
   %call4.i.i.i.i = tail call noundef zeroext i1 @_ZNK8ast_mark9is_markedEP3ast(ptr noundef nonnull align 8 dereferenceable(56) %m_frozen.i.i.i.i, ptr noundef nonnull %1)
-  br i1 %call4.i.i.i.i, label %"_ZSt10__invoke_rIbRZN18elim_unconstrainedC1ER11ast_managerR20dependent_expr_stateE3$_0JP4exprEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit", label %land.lhs.true3.i.i.i
+  br i1 %call4.i.i.i.i, label %"_ZSt10__invoke_rIbRZN18elim_unconstrainedC1ER11ast_managerR20dependent_expr_stateE3$_0JP4exprEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %land.lhs.true3.i.i.i
 
 land.lhs.true3.i.i.i:                             ; preds = %_ZNK20dependent_expr_state6frozenEP4expr.exit.i.i.i
   %6 = load i32, ptr %__args.val, align 4
   %m_nodes.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 104
   %7 = load ptr, ptr %m_nodes.i.i.i.i.i, align 8
   %cmp.i.i.i5.i.i.i = icmp eq ptr %7, null
-  br i1 %cmp.i.i.i5.i.i.i, label %"_ZSt10__invoke_rIbRZN18elim_unconstrainedC1ER11ast_managerR20dependent_expr_stateE3$_0JP4exprEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit", label %_ZNK18elim_unconstrained7is_nodeEP4expr.exit.i.i.i
+  br i1 %cmp.i.i.i5.i.i.i, label %"_ZSt10__invoke_rIbRZN18elim_unconstrainedC1ER11ast_managerR20dependent_expr_stateE3$_0JP4exprEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %_ZNK18elim_unconstrained7is_nodeEP4expr.exit.i.i.i
 
 _ZNK18elim_unconstrained7is_nodeEP4expr.exit.i.i.i: ; preds = %land.lhs.true3.i.i.i
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 -4
   %8 = load i32, ptr %arrayidx.i.i.i.i.i.i, align 4
   %cmp.i.i6.i.i.i = icmp ugt i32 %8, %6
-  br i1 %cmp.i.i6.i.i.i, label %land.rhs.i.i.i, label %"_ZSt10__invoke_rIbRZN18elim_unconstrainedC1ER11ast_managerR20dependent_expr_stateE3$_0JP4exprEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
+  br i1 %cmp.i.i6.i.i.i, label %land.rhs.i.i.i, label %"_ZSt10__invoke_rIbRZN18elim_unconstrainedC1ER11ast_managerR20dependent_expr_stateE3$_0JP4exprEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
 land.rhs.i.i.i:                                   ; preds = %_ZNK18elim_unconstrained7is_nodeEP4expr.exit.i.i.i
   %m_root.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 184
@@ -9890,9 +9890,9 @@ land.rhs.i.i.i:                                   ; preds = %_ZNK18elim_unconstr
   %arrayidx.i.i.i.i.i = getelementptr inbounds %"struct.elim_unconstrained::node", ptr %7, i64 %idxprom.i.i.i.i.i
   %11 = load i32, ptr %arrayidx.i.i.i.i.i, align 8
   %cmp.i.i.i = icmp ult i32 %11, 2
-  br label %"_ZSt10__invoke_rIbRZN18elim_unconstrainedC1ER11ast_managerR20dependent_expr_stateE3$_0JP4exprEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN18elim_unconstrainedC1ER11ast_managerR20dependent_expr_stateE3$_0JP4exprEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
-"_ZSt10__invoke_rIbRZN18elim_unconstrainedC1ER11ast_managerR20dependent_expr_stateE3$_0JP4exprEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit": ; preds = %entry, %land.lhs.true.i.i.i.i, %_Z17is_uninterp_constPK4expr.exit.i.i.i, %_ZNK20dependent_expr_state6frozenEP4expr.exit.i.i.i, %land.lhs.true3.i.i.i, %_ZNK18elim_unconstrained7is_nodeEP4expr.exit.i.i.i, %land.rhs.i.i.i
+"_ZSt10__invoke_rIbRZN18elim_unconstrainedC1ER11ast_managerR20dependent_expr_stateE3$_0JP4exprEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %entry, %land.lhs.true.i.i.i.i, %_Z17is_uninterp_constPK4expr.exit.i.i.i, %_ZNK20dependent_expr_state6frozenEP4expr.exit.i.i.i, %land.lhs.true3.i.i.i, %_ZNK18elim_unconstrained7is_nodeEP4expr.exit.i.i.i, %land.rhs.i.i.i
   %12 = phi i1 [ false, %_ZNK18elim_unconstrained7is_nodeEP4expr.exit.i.i.i ], [ false, %_ZNK20dependent_expr_state6frozenEP4expr.exit.i.i.i ], [ false, %_Z17is_uninterp_constPK4expr.exit.i.i.i ], [ %cmp.i.i.i, %land.rhs.i.i.i ], [ false, %land.lhs.true.i.i.i.i ], [ false, %entry ], [ false, %land.lhs.true3.i.i.i ]
   ret i1 %12
 }

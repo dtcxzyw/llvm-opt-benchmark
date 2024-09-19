@@ -2156,13 +2156,13 @@ _ZN5clang8CallExpr15getDirectCalleeEv.exit:       ; preds = %28
   %54 = load i8, ptr %53, align 8
   %55 = and i8 %54, -2
   %spec.select.i.i.i.i.i.i.i.i.not.i = icmp eq i8 %55, 118
-  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i, label %56, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit32.thread.i
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i, label %56, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit32.thread.i
 
 56:                                               ; preds = %38
   %57 = load i32, ptr %53, align 8
   %58 = and i32 %57, 16515072
   %59 = icmp eq i32 %58, 1572864
-  br i1 %59, label %60, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit32.thread.i
+  br i1 %59, label %60, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit32.thread.i
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 16
@@ -2171,13 +2171,13 @@ _ZN5clang8CallExpr15getDirectCalleeEv.exit:       ; preds = %28
   %64 = load ptr, ptr %63, align 8
   %65 = load i8, ptr %62, align 8
   %.not.i.i = icmp eq i8 %65, 5
-  br i1 %.not.i.i, label %66, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit32.thread.i
+  br i1 %.not.i.i, label %66, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit32.thread.i
 
 66:                                               ; preds = %60
   %67 = load i24, ptr %62, align 8
   %68 = and i24 %67, 3932160
   %or.cond.not.i.i = icmp eq i24 %68, 0
-  br i1 %or.cond.not.i.i, label %69, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.thread.i
+  br i1 %or.cond.not.i.i, label %69, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %62, i64 16
@@ -2185,27 +2185,27 @@ _ZN5clang8CallExpr15getDirectCalleeEv.exit:       ; preds = %28
   %72 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %71) #20
   %73 = load i8, ptr %72, align 8
   %.not.i.i.i25 = icmp eq i8 %73, 71
-  br i1 %.not.i.i.i25, label %74, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.thread.i
+  br i1 %.not.i.i.i25, label %74, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i
 
 74:                                               ; preds = %69
   %75 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %48) #20
   %76 = load i8, ptr %75, align 8
   %.not3.i.i.i = icmp eq i8 %76, 71
-  br i1 %.not3.i.i.i, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.i, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.thread.i
+  br i1 %.not3.i.i.i, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.i, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i
 
-_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.i: ; preds = %74
+_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.i: ; preds = %74
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %78, %80
-  br i1 %81, label %82, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.thread.i
+  br i1 %81, label %82, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i
 
-82:                                               ; preds = %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.i
+82:                                               ; preds = %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.i
   %83 = load i8, ptr %64, align 8
   %84 = add i8 %83, -94
   %spec.select.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %84, -5
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.thread.i, label %85
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i, label %85
 
 85:                                               ; preds = %82
   %86 = load i32, ptr %64, align 8
@@ -2215,7 +2215,7 @@ _ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.i: ; preds = 
   %90 = load ptr, ptr %89, align 8
   %91 = tail call noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16) %90) #19
   %.not.i.i.i.i.i = icmp eq ptr %91, null
-  br i1 %.not.i.i.i.i.i, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.thread.i, label %92
+  br i1 %.not.i.i.i.i.i, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i, label %92
 
 92:                                               ; preds = %85
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 28
@@ -2223,11 +2223,11 @@ _ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.i: ; preds = 
   %95 = and i32 %94, 127
   %96 = add nsw i32 %95, -31
   %97 = icmp ult i32 %96, 6
-  br i1 %97, label %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.i.i, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.thread.i
+  br i1 %97, label %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.i.i, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i
 
 _ZNK5clang8CallExpr15getDirectCalleeEv.exit.i.i:  ; preds = %92
   %98 = tail call noundef zeroext i1 @_ZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefE(ptr noundef nonnull %91, ptr nonnull @.str.19, i64 6) #19
-  br i1 %98, label %99, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.thread.i
+  br i1 %98, label %99, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i
 
 99:                                               ; preds = %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.i.i
   %100 = load i32, ptr %64, align 8
@@ -2243,32 +2243,32 @@ _ZNK5clang8CallExpr15getDirectCalleeEv.exit.i.i:  ; preds = %92
   %110 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %109) #20
   %111 = load i8, ptr %110, align 8
   %.not.i.i25.i = icmp eq i8 %111, 71
-  br i1 %.not.i.i25.i, label %112, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.thread.i
+  br i1 %.not.i.i25.i, label %112, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i
 
 112:                                              ; preds = %99
   %113 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %48) #20
   %114 = load i8, ptr %113, align 8
   %.not3.i.i26.i = icmp eq i8 %114, 71
-  br i1 %.not3.i.i26.i, label %_ZN12_GLOBAL__N_17WalkAST8isStrlenEPKN5clang4ExprES4_.argprom.exit.i, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.thread.i
+  br i1 %.not3.i.i26.i, label %_ZN12_GLOBAL__N_17WalkAST8isStrlenEPKN5clang4ExprES4_.exit.i, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i
 
-_ZN12_GLOBAL__N_17WalkAST8isStrlenEPKN5clang4ExprES4_.argprom.exit.i: ; preds = %112
+_ZN12_GLOBAL__N_17WalkAST8isStrlenEPKN5clang4ExprES4_.exit.i: ; preds = %112
   %115 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %118 = load ptr, ptr %117, align 8
   %119 = icmp eq ptr %116, %118
-  br i1 %119, label %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.argprom.exit.thread, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.thread.i
+  br i1 %119, label %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.exit.thread, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i
 
-_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_17WalkAST8isStrlenEPKN5clang4ExprES4_.argprom.exit.i, %112, %99, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.i.i, %92, %85, %82, %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.i, %74, %69, %66
+_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_17WalkAST8isStrlenEPKN5clang4ExprES4_.exit.i, %112, %99, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.i.i, %92, %85, %82, %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.i, %74, %69, %66
   %.pr.i = load i8, ptr %62, align 8
   %.not.i27.i = icmp eq i8 %.pr.i, 5
-  br i1 %.not.i27.i, label %120, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit32.thread.i
+  br i1 %.not.i27.i, label %120, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit32.thread.i
 
-120:                                              ; preds = %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.thread.i
+120:                                              ; preds = %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i
   %121 = load i24, ptr %62, align 8
   %122 = and i24 %121, 3932160
   %or.cond.not.i29.i = icmp eq i24 %122, 0
-  br i1 %or.cond.not.i29.i, label %123, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit32.thread.i
+  br i1 %or.cond.not.i29.i, label %123, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit32.thread.i
 
 123:                                              ; preds = %120
   %124 = getelementptr inbounds nuw i8, ptr %62, i64 16
@@ -2276,32 +2276,32 @@ _ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.thread.i: ; p
   %126 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %125) #20
   %127 = load i8, ptr %126, align 8
   %.not.i.i30.i = icmp eq i8 %127, 71
-  br i1 %.not.i.i30.i, label %128, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit32.thread.i
+  br i1 %.not.i.i30.i, label %128, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit32.thread.i
 
 128:                                              ; preds = %123
   %129 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %48) #20
   %130 = load i8, ptr %129, align 8
   %.not3.i.i31.i = icmp eq i8 %130, 71
-  br i1 %.not3.i.i31.i, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit32.i, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit32.thread.i
+  br i1 %.not3.i.i31.i, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit32.i, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit32.thread.i
 
-_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit32.i: ; preds = %128
+_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit32.i: ; preds = %128
   %131 = getelementptr inbounds nuw i8, ptr %126, i64 16
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %134 = load ptr, ptr %133, align 8
   %135 = icmp eq ptr %132, %134
-  br i1 %135, label %136, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit32.thread.i
+  br i1 %135, label %136, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit32.thread.i
 
-136:                                              ; preds = %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit32.i
+136:                                              ; preds = %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit32.i
   %137 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %64) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %138 = load i8, ptr %137, align 8
   %.not.i33.i = icmp eq i8 %138, 52
-  br i1 %.not.i33.i, label %139, label %_ZN12_GLOBAL__N_17WalkAST5isOneEPKN5clang4ExprE.argprom.exit.thread.i
+  br i1 %.not.i33.i, label %139, label %_ZN12_GLOBAL__N_17WalkAST5isOneEPKN5clang4ExprE.exit.thread.i
 
-_ZN12_GLOBAL__N_17WalkAST5isOneEPKN5clang4ExprE.argprom.exit.thread.i: ; preds = %136
+_ZN12_GLOBAL__N_17WalkAST5isOneEPKN5clang4ExprE.exit.thread.i: ; preds = %136
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit32.thread.i
+  br label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit32.thread.i
 
 139:                                              ; preds = %136
   %140 = getelementptr inbounds i8, ptr %137, i64 16
@@ -2345,7 +2345,7 @@ _ZNK4llvm5APInt6isIntNEj.exit.i.i:                ; preds = %_ZNK5clang12APIntSt
   %161 = add nsw i32 %160, -63
   %162 = icmp ult i32 %161, 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br i1 %162, label %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.argprom.exit.thread, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit32.thread.i
+  br i1 %162, label %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.exit.thread, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit32.thread.i
 
 163:                                              ; preds = %_ZNK5clang12APIntStorage8getValueEv.exit.i.i
   %164 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %5) #20
@@ -2353,23 +2353,23 @@ _ZNK4llvm5APInt6isIntNEj.exit.i.i:                ; preds = %_ZNK5clang12APIntSt
   %166 = icmp ult i32 %165, 2
   %167 = load ptr, ptr %5, align 8
   %168 = icmp eq ptr %167, null
-  br i1 %168, label %_ZN12_GLOBAL__N_17WalkAST5isOneEPKN5clang4ExprE.argprom.exit.i, label %169
+  br i1 %168, label %_ZN12_GLOBAL__N_17WalkAST5isOneEPKN5clang4ExprE.exit.i, label %169
 
 169:                                              ; preds = %163
   call void @_ZdaPv(ptr noundef nonnull %167) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br i1 %166, label %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.argprom.exit.thread, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit32.thread.i
+  br i1 %166, label %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.exit.thread, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit32.thread.i
 
-_ZN12_GLOBAL__N_17WalkAST5isOneEPKN5clang4ExprE.argprom.exit.i: ; preds = %163
+_ZN12_GLOBAL__N_17WalkAST5isOneEPKN5clang4ExprE.exit.i: ; preds = %163
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br i1 %166, label %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.argprom.exit.thread, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit32.thread.i
+  br i1 %166, label %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.exit.thread, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit32.thread.i
 
-_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit32.thread.i: ; preds = %_ZN12_GLOBAL__N_17WalkAST5isOneEPKN5clang4ExprE.argprom.exit.i, %169, %_ZNK4llvm5APInt6isIntNEj.exit.i.i, %_ZN12_GLOBAL__N_17WalkAST5isOneEPKN5clang4ExprE.argprom.exit.thread.i, %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit32.i, %128, %123, %120, %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.thread.i, %60, %56, %38
+_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit32.thread.i: ; preds = %_ZN12_GLOBAL__N_17WalkAST5isOneEPKN5clang4ExprE.exit.i, %169, %_ZNK4llvm5APInt6isIntNEj.exit.i.i, %_ZN12_GLOBAL__N_17WalkAST5isOneEPKN5clang4ExprE.exit.thread.i, %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit32.i, %128, %123, %120, %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i, %60, %56, %38
   %170 = load i8, ptr %52, align 8
   %.not.i35.i = icmp eq i8 %170, 5
   br i1 %.not.i35.i, label %171, label %_ZN4llvm11SmallStringILj256EED2Ev.exit
 
-171:                                              ; preds = %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit32.thread.i
+171:                                              ; preds = %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit32.thread.i
   %172 = load i24, ptr %52, align 8
   %173 = and i24 %172, 3932160
   %or.cond.not.i37.i = icmp eq i24 %173, 0
@@ -2387,31 +2387,31 @@ _ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit32.thread.i: ;
   %180 = call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %48) #20
   %181 = load i8, ptr %180, align 8
   %.not3.i.i39.i = icmp eq i8 %181, 71
-  br i1 %.not3.i.i39.i, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit40.i, label %187
+  br i1 %.not3.i.i39.i, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit40.i, label %187
 
-_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit40.i: ; preds = %179
+_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit40.i: ; preds = %179
   %182 = getelementptr inbounds nuw i8, ptr %177, i64 16
   %183 = load ptr, ptr %182, align 8
   %184 = getelementptr inbounds nuw i8, ptr %180, i64 16
   %185 = load ptr, ptr %184, align 8
   %186 = icmp eq ptr %183, %185
-  br i1 %186, label %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.argprom.exit.thread, label %187
+  br i1 %186, label %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.exit.thread, label %187
 
-187:                                              ; preds = %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit40.i, %179
+187:                                              ; preds = %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit40.i, %179
   %188 = call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %50) #20
   %189 = load i8, ptr %188, align 8
   %.not3.i.i45.i = icmp eq i8 %189, 71
-  br i1 %.not3.i.i45.i, label %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.argprom.exit, label %_ZN4llvm11SmallStringILj256EED2Ev.exit
+  br i1 %.not3.i.i45.i, label %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.exit, label %_ZN4llvm11SmallStringILj256EED2Ev.exit
 
-_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.argprom.exit: ; preds = %187
+_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.exit: ; preds = %187
   %190 = getelementptr inbounds nuw i8, ptr %177, i64 16
   %191 = load ptr, ptr %190, align 8
   %192 = getelementptr inbounds nuw i8, ptr %188, i64 16
   %193 = load ptr, ptr %192, align 8
   %194 = icmp eq ptr %191, %193
-  br i1 %194, label %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.argprom.exit.thread, label %_ZN4llvm11SmallStringILj256EED2Ev.exit
+  br i1 %194, label %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.exit.thread, label %_ZN4llvm11SmallStringILj256EED2Ev.exit
 
-_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.argprom.exit.thread: ; preds = %169, %_ZNK4llvm5APInt6isIntNEj.exit.i.i, %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit40.i, %_ZN12_GLOBAL__N_17WalkAST5isOneEPKN5clang4ExprE.argprom.exit.i, %_ZN12_GLOBAL__N_17WalkAST8isStrlenEPKN5clang4ExprES4_.argprom.exit.i, %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.argprom.exit
+_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.exit.thread: ; preds = %169, %_ZNK4llvm5APInt6isIntNEj.exit.i.i, %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit40.i, %_ZN12_GLOBAL__N_17WalkAST5isOneEPKN5clang4ExprE.exit.i, %_ZN12_GLOBAL__N_17WalkAST8isStrlenEPKN5clang4ExprES4_.exit.i, %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.exit
   %195 = load i32, ptr %1, align 8
   %196 = lshr i32 %195, 24
   %197 = zext nneg i32 %196 to i64
@@ -2440,9 +2440,9 @@ _ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.argprom
   %219 = call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %204) #20
   %220 = load i8, ptr %219, align 8
   %.not.i26 = icmp eq i8 %220, 71
-  br i1 %.not.i26, label %221, label %_ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.argprom.exit
+  br i1 %.not.i26, label %221, label %_ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.exit
 
-221:                                              ; preds = %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.argprom.exit.thread
+221:                                              ; preds = %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.exit.thread
   %222 = getelementptr inbounds nuw i8, ptr %219, i64 16
   %223 = load ptr, ptr %222, align 8
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 40
@@ -2452,7 +2452,7 @@ _ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.argprom
   %228 = and i64 %225, -8
   %.not2.i.i = icmp eq i64 %228, 0
   %.not.i.i27 = or i1 %227, %.not2.i.i
-  br i1 %.not.i.i27, label %_ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.argprom.exit, label %229
+  br i1 %.not.i.i27, label %_ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.exit, label %229
 
 229:                                              ; preds = %221
   %230 = inttoptr i64 %228 to ptr
@@ -2461,11 +2461,11 @@ _ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.argprom
   %233 = getelementptr inbounds i8, ptr %232, i64 16
   %234 = load i64, ptr %232, align 8
   %235 = and i64 %234, 4294967295
-  br label %_ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.argprom.exit
+  br label %_ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.exit
 
-_ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.argprom.exit: ; preds = %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.argprom.exit.thread, %221, %229
-  %.sroa.0.0.i = phi ptr [ null, %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.argprom.exit.thread ], [ %233, %229 ], [ @.str.20, %221 ]
-  %.sroa.4.0.i = phi i64 [ 0, %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.argprom.exit.thread ], [ %235, %229 ], [ 0, %221 ]
+_ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.exit: ; preds = %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.exit.thread, %221, %229
+  %.sroa.0.0.i = phi ptr [ null, %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.exit.thread ], [ %233, %229 ], [ @.str.20, %221 ]
+  %.sroa.4.0.i = phi i64 [ 0, %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.exit.thread ], [ %235, %229 ], [ 0, %221 ]
   %236 = getelementptr inbounds i8, ptr %7, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull %236, i64 noundef 256) #19
   %237 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2490,11 +2490,11 @@ _ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.argprom.exit: ; pred
   %249 = icmp ult i64 %248, 27
   br i1 %249, label %250, label %252
 
-250:                                              ; preds = %_ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.argprom.exit
+250:                                              ; preds = %_ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.exit
   %251 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull @.str.2, i64 noundef 27) #19
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
-252:                                              ; preds = %_ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.argprom.exit
+252:                                              ; preds = %_ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(27) %245, ptr noundef nonnull align 1 dereferenceable(27) @.str.2, i64 27, i1 false)
   %253 = load ptr, ptr %244, align 8
   %254 = getelementptr inbounds i8, ptr %253, i64 27
@@ -2747,13 +2747,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit50:               ; preds = %344, %346
   %spec.select.i.i51.i = select i1 %386, ptr %384, ptr null
   %387 = load i8, ptr %381, align 8
   %.not.i.i55 = icmp eq i8 %387, 5
-  br i1 %.not.i.i55, label %388, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.thread.i56
+  br i1 %.not.i.i55, label %388, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i56
 
 388:                                              ; preds = %369
   %389 = load i24, ptr %381, align 8
   %390 = and i24 %389, 3932160
   %or.cond.not.i.i61 = icmp eq i24 %390, 0
-  br i1 %or.cond.not.i.i61, label %391, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.thread.i56
+  br i1 %or.cond.not.i.i61, label %391, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i56
 
 391:                                              ; preds = %388
   %392 = getelementptr inbounds nuw i8, ptr %381, i64 16
@@ -2761,27 +2761,27 @@ _ZN4llvm11raw_ostreamlsEPKc.exit50:               ; preds = %344, %346
   %394 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %393) #20
   %395 = load i8, ptr %394, align 8
   %.not.i.i.i62 = icmp eq i8 %395, 71
-  br i1 %.not.i.i.i62, label %396, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.thread.i56
+  br i1 %.not.i.i.i62, label %396, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i56
 
 396:                                              ; preds = %391
   %397 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %379) #20
   %398 = load i8, ptr %397, align 8
   %.not3.i.i.i63 = icmp eq i8 %398, 71
-  br i1 %.not3.i.i.i63, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.i64, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.thread.i56
+  br i1 %.not3.i.i.i63, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.i64, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i56
 
-_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.i64: ; preds = %396
+_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.i64: ; preds = %396
   %399 = getelementptr inbounds nuw i8, ptr %394, i64 16
   %400 = load ptr, ptr %399, align 8
   %401 = getelementptr inbounds nuw i8, ptr %397, i64 16
   %402 = load ptr, ptr %401, align 8
   %403 = icmp eq ptr %400, %402
-  br i1 %403, label %_ZN12_GLOBAL__N_17WalkAST32containsBadStrlcpyStrlcatPatternEPKN5clang8CallExprE.exit.thread, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.thread.i56
+  br i1 %403, label %_ZN12_GLOBAL__N_17WalkAST32containsBadStrlcpyStrlcatPatternEPKN5clang8CallExprE.exit.thread, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i56
 
-_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.thread.i56: ; preds = %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.i64, %396, %391, %388, %369
+_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i56: ; preds = %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.i64, %396, %391, %388, %369
   %.not42.i = icmp eq ptr %spec.select.i.i51.i, null
   br i1 %.not42.i, label %416, label %404
 
-404:                                              ; preds = %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.thread.i56
+404:                                              ; preds = %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i56
   %405 = getelementptr inbounds nuw i8, ptr %spec.select.i.i51.i, i64 16
   %406 = load ptr, ptr %405, align 8
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 28
@@ -2802,8 +2802,8 @@ _ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.thread.i56: ;
   %415 = tail call noundef ptr @_ZN5clang7VarDecl7getInitEv(ptr noundef nonnull align 8 dereferenceable(100) %406) #19
   br label %416
 
-416:                                              ; preds = %414, %412, %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.thread.i56
-  %.032.i = phi ptr [ %415, %414 ], [ %381, %412 ], [ %381, %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.thread.i56 ]
+416:                                              ; preds = %414, %412, %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i56
+  %.032.i = phi ptr [ %415, %414 ], [ %381, %412 ], [ %381, %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i56 ]
   %417 = tail call noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %.032.i) #20
   %418 = load i8, ptr %417, align 8
   %.not74.i = icmp eq i8 %418, 52
@@ -2938,7 +2938,7 @@ _ZN4llvm5APIntD2Ev.exit60.thread65.i:             ; preds = %_ZN4llvm5APIntD2Ev.
   %486 = icmp ult i64 %485, %.0.i5486.i
   br i1 %486, label %487, label %_ZN12_GLOBAL__N_17WalkAST32containsBadStrlcpyStrlcatPatternEPKN5clang8CallExprE.exit.thread
 
-_ZN12_GLOBAL__N_17WalkAST32containsBadStrlcpyStrlcatPatternEPKN5clang8CallExprE.exit.thread: ; preds = %366, %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit.i64, %404, %473, %_ZN4llvm5APIntD2Ev.exit60.thread65.i, %_ZN4llvm5APIntD2Ev.exit60.i, %441, %416
+_ZN12_GLOBAL__N_17WalkAST32containsBadStrlcpyStrlcatPatternEPKN5clang8CallExprE.exit.thread: ; preds = %366, %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.i64, %404, %473, %_ZN4llvm5APIntD2Ev.exit60.thread65.i, %_ZN4llvm5APIntD2Ev.exit60.i, %441, %416
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %_ZN4llvm11SmallStringILj256EED2Ev.exit
@@ -2973,7 +2973,7 @@ _ZN12_GLOBAL__N_17WalkAST32containsBadStrlcpyStrlcatPatternEPKN5clang8CallExprE.
   %511 = call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %497) #20
   %512 = load i8, ptr %511, align 8
   %.not.i65 = icmp eq i8 %512, 71
-  br i1 %.not.i65, label %513, label %_ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.argprom.exit72
+  br i1 %.not.i65, label %513, label %_ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.exit72
 
 513:                                              ; preds = %487
   %514 = getelementptr inbounds nuw i8, ptr %511, i64 16
@@ -2985,7 +2985,7 @@ _ZN12_GLOBAL__N_17WalkAST32containsBadStrlcpyStrlcatPatternEPKN5clang8CallExprE.
   %520 = and i64 %517, -8
   %.not2.i.i70 = icmp eq i64 %520, 0
   %.not.i.i71 = or i1 %519, %.not2.i.i70
-  br i1 %.not.i.i71, label %_ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.argprom.exit72, label %521
+  br i1 %.not.i.i71, label %_ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.exit72, label %521
 
 521:                                              ; preds = %513
   %522 = inttoptr i64 %520 to ptr
@@ -2994,9 +2994,9 @@ _ZN12_GLOBAL__N_17WalkAST32containsBadStrlcpyStrlcatPatternEPKN5clang8CallExprE.
   %525 = getelementptr inbounds i8, ptr %524, i64 16
   %526 = load i64, ptr %524, align 8
   %527 = and i64 %526, 4294967295
-  br label %_ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.argprom.exit72
+  br label %_ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.exit72
 
-_ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.argprom.exit72: ; preds = %487, %513, %521
+_ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.exit72: ; preds = %487, %513, %521
   %.sroa.0.0.i66 = phi ptr [ null, %487 ], [ %525, %521 ], [ @.str.20, %513 ]
   %.sroa.4.0.i67 = phi i64 [ 0, %487 ], [ %527, %521 ], [ 0, %513 ]
   %528 = getelementptr inbounds i8, ptr %15, i64 24
@@ -3023,14 +3023,14 @@ _ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.argprom.exit72: ; pr
   %541 = icmp ult i64 %540, 73
   br i1 %541, label %542, label %544
 
-542:                                              ; preds = %_ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.argprom.exit72
+542:                                              ; preds = %_ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.exit72
   %543 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull @.str.13, i64 noundef 73) #19
   %.pre = load ptr, ptr %534, align 8
   %.pre120 = load ptr, ptr %536, align 8
   %.pre132 = ptrtoint ptr %.pre to i64
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit75
 
-544:                                              ; preds = %_ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.argprom.exit72
+544:                                              ; preds = %_ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.exit72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(73) %537, ptr noundef nonnull align 1 dereferenceable(73) @.str.13, i64 73, i1 false)
   %545 = getelementptr inbounds i8, ptr %537, i64 73
   store ptr %545, ptr %536, align 8
@@ -3190,7 +3190,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit93:               ; preds = %604, %606
   call void @free(ptr noundef %619) #19
   br label %_ZN4llvm11SmallStringILj256EED2Ev.exit
 
-_ZN4llvm11SmallStringILj256EED2Ev.exit:           ; preds = %174, %171, %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.argprom.exit32.thread.i, %187, %35, %621, %_ZN4llvm11raw_ostreamlsEPKc.exit93, %_ZN12_GLOBAL__N_17WalkAST32containsBadStrlcpyStrlcatPatternEPKN5clang8CallExprE.exit.thread, %361, %_ZN4llvm11raw_ostreamlsEPKc.exit50, %364, %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.argprom.exit
+_ZN4llvm11SmallStringILj256EED2Ev.exit:           ; preds = %174, %171, %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit32.thread.i, %187, %35, %621, %_ZN4llvm11raw_ostreamlsEPKc.exit93, %_ZN12_GLOBAL__N_17WalkAST32containsBadStrlcpyStrlcatPatternEPKN5clang8CallExprE.exit.thread, %361, %_ZN4llvm11raw_ostreamlsEPKc.exit50, %364, %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.exit
   call fastcc void @_ZN12_GLOBAL__N_17WalkAST13VisitChildrenEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1)
   br label %_ZN5clang8CallExpr15getDirectCalleeEv.exit.thread
 

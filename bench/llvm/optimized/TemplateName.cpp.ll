@@ -827,7 +827,7 @@ define dso_local void @_ZNK5clang12TemplateName5printERN4llvm11raw_ostreamERKNS_
 
 _ZNK5clang12TemplateName7getKindEv.exit:          ; preds = %4
   %13 = tail call noundef ptr @_ZNK5clang12TemplateName17getAsTemplateDeclEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %14 = tail call fastcc noundef zeroext i1 @"_ZZNK5clang12TemplateName5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyENS0_9QualifiedEENK3$_0clEPNS_12TemplateDeclES3_.argprom"(ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  %14 = tail call fastcc noundef zeroext i1 @"_ZZNK5clang12TemplateName5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyENS0_9QualifiedEENK3$_0clEPNS_12TemplateDeclES3_"(ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(48) %1)
   br i1 %14, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit, label %15
 
 15:                                               ; preds = %_ZNK5clang12TemplateName7getKindEv.exit
@@ -890,7 +890,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %39, %37, %26
   %.sroa.0.0.copyload.i = load i64, ptr %42, align 8
   store i64 %.sroa.0.0.copyload.i, ptr %5, align 8
   %43 = call noundef ptr @_ZNK5clang12TemplateName17getAsTemplateDeclEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %44 = tail call fastcc noundef zeroext i1 @"_ZZNK5clang12TemplateName5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyENS0_9QualifiedEENK3$_0clEPNS_12TemplateDeclES3_.argprom"(ptr noundef %43, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  %44 = tail call fastcc noundef zeroext i1 @"_ZZNK5clang12TemplateName5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyENS0_9QualifiedEENK3$_0clEPNS_12TemplateDeclES3_"(ptr noundef %43, ptr noundef nonnull align 8 dereferenceable(48) %1)
   br i1 %44, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit, label %45
 
 45:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -1142,7 +1142,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %149, %148, %146, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZNK5clang12TemplateName5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyENS0_9QualifiedEENK3$_0clEPNS_12TemplateDeclES3_.argprom"(ptr noundef readonly %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #1 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZNK5clang12TemplateName5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyENS0_9QualifiedEENK3$_0clEPNS_12TemplateDeclES3_"(ptr noundef readonly %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 127

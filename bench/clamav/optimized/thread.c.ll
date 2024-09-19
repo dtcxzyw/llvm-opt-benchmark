@@ -155,7 +155,7 @@ define dso_local noalias noundef ptr @onas_scan_worker(ptr noundef %0) local_unn
 
 55:                                               ; preds = %51, %48, %43
   %56 = load ptr, ptr %44, align 8
-  call fastcc void @onas_scan_thread_scanfile.retelim(ptr noundef %0, ptr noundef %56, ptr noundef nonnull byval(%struct.stat) align 8 %13, ptr noundef %10, ptr noundef %11, ptr noundef %12)
+  call fastcc void @onas_scan_thread_scanfile(ptr noundef %0, ptr noundef %56, ptr noundef nonnull byval(%struct.stat) align 8 %13, ptr noundef %10, ptr noundef %11, ptr noundef %12)
   br label %.split.i
 
 .split.i:                                         ; preds = %55, %40
@@ -204,7 +204,7 @@ define dso_local noalias noundef ptr @onas_scan_worker(ptr noundef %0) local_unn
   br label %76
 
 76:                                               ; preds = %73, %69, %65
-  call fastcc void @onas_scan_thread_scanfile.retelim(ptr noundef %0, ptr noundef nonnull %63, ptr noundef nonnull byval(%struct.stat) align 8 %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
+  call fastcc void @onas_scan_thread_scanfile(ptr noundef %0, ptr noundef nonnull %63, ptr noundef nonnull byval(%struct.stat) align 8 %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   br label %onas_scan_thread_handle_file.exit
 
 onas_scan_thread_handle_file.exit:                ; preds = %60, %76
@@ -254,7 +254,7 @@ onas_scan_thread_handle_file.exit:                ; preds = %60, %76
   br label %94
 
 94:                                               ; preds = %91, %87, %83
-  call fastcc void @onas_scan_thread_scanfile.retelim(ptr noundef %0, ptr noundef nonnull %81, ptr noundef nonnull byval(%struct.stat) align 8 %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  call fastcc void @onas_scan_thread_scanfile(ptr noundef %0, ptr noundef nonnull %81, ptr noundef nonnull byval(%struct.stat) align 8 %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br label %onas_scan_thread_handle_file.exit52
 
 onas_scan_thread_handle_file.exit52:              ; preds = %79, %94
@@ -447,7 +447,7 @@ declare ptr @optget(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @onas_scan_thread_scanfile.retelim(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef readonly byval(%struct.stat) align 8 %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc void @onas_scan_thread_scanfile(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef readonly byval(%struct.stat) align 8 %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca %struct.stat, align 8
   %8 = alloca %struct.fanotify_response, align 4
   %9 = icmp eq ptr %1, null

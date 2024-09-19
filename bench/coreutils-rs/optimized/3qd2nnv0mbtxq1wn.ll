@@ -171,22 +171,22 @@ define hidden void @_ZN5uu_df6blocks23to_magnitude_and_suffix17h227d811b5c3ccea7
     i8 2, label %22
   ]
 
-default.unreachable:                              ; preds = %_ZN5uu_df6blocks10SuffixType5bases17hd8b5c3f44ad8b556E.argprom.exit, %3
+default.unreachable:                              ; preds = %_ZN5uu_df6blocks10SuffixType5bases17hd8b5c3f44ad8b556E.exit, %3
   unreachable
 
 20:                                               ; preds = %22, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %18, ptr noundef nonnull align 16 dereferenceable(160) @anon.1ddc00ef857710078536ad3a58a29b4d.8, i64 160, i1 false)
-  br label %_ZN5uu_df6blocks10SuffixType5bases17hd8b5c3f44ad8b556E.argprom.exit
+  br label %_ZN5uu_df6blocks10SuffixType5bases17hd8b5c3f44ad8b556E.exit
 
 21:                                               ; preds = %22, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %18, ptr noundef nonnull align 16 dereferenceable(160) @anon.1ddc00ef857710078536ad3a58a29b4d.7, i64 160, i1 false)
-  br label %_ZN5uu_df6blocks10SuffixType5bases17hd8b5c3f44ad8b556E.argprom.exit
+  br label %_ZN5uu_df6blocks10SuffixType5bases17hd8b5c3f44ad8b556E.exit
 
 22:                                               ; preds = %3
   %trunc.i = trunc i8 %2 to i1
   br i1 %trunc.i, label %20, label %21
 
-_ZN5uu_df6blocks10SuffixType5bases17hd8b5c3f44ad8b556E.argprom.exit: ; preds = %20, %21
+_ZN5uu_df6blocks10SuffixType5bases17hd8b5c3f44ad8b556E.exit: ; preds = %20, %21
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %17)
   %23 = getelementptr inbounds i8, ptr %17, i64 24
   switch i8 %narrow.i, label %default.unreachable [
@@ -195,7 +195,7 @@ _ZN5uu_df6blocks10SuffixType5bases17hd8b5c3f44ad8b556E.argprom.exit: ; preds = %
     i8 2, label %58
   ]
 
-24:                                               ; preds = %_ZN5uu_df6blocks10SuffixType5bases17hd8b5c3f44ad8b556E.argprom.exit
+24:                                               ; preds = %_ZN5uu_df6blocks10SuffixType5bases17hd8b5c3f44ad8b556E.exit
   store ptr @anon.1ddc00ef857710078536ad3a58a29b4d.9, ptr %17, align 8, !alias.scope !41
   %25 = getelementptr inbounds i8, ptr %17, i64 8
   store i64 1, ptr %25, align 8, !alias.scope !41
@@ -230,9 +230,9 @@ _ZN5uu_df6blocks10SuffixType5bases17hd8b5c3f44ad8b556E.argprom.exit: ; preds = %
   store ptr @anon.1ddc00ef857710078536ad3a58a29b4d.17, ptr %39, align 8, !alias.scope !41
   %40 = getelementptr inbounds i8, ptr %17, i64 136
   store i64 1, ptr %40, align 8, !alias.scope !41
-  br label %_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.argprom.exit.preheader
+  br label %_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.exit.preheader
 
-41:                                               ; preds = %_ZN5uu_df6blocks10SuffixType5bases17hd8b5c3f44ad8b556E.argprom.exit
+41:                                               ; preds = %_ZN5uu_df6blocks10SuffixType5bases17hd8b5c3f44ad8b556E.exit
   store ptr @anon.1ddc00ef857710078536ad3a58a29b4d.9, ptr %17, align 8, !alias.scope !41
   %42 = getelementptr inbounds i8, ptr %17, i64 8
   store i64 1, ptr %42, align 8, !alias.scope !41
@@ -267,9 +267,9 @@ _ZN5uu_df6blocks10SuffixType5bases17hd8b5c3f44ad8b556E.argprom.exit: ; preds = %
   store ptr @anon.1ddc00ef857710078536ad3a58a29b4d.25, ptr %56, align 8, !alias.scope !41
   %57 = getelementptr inbounds i8, ptr %17, i64 136
   store i64 2, ptr %57, align 8, !alias.scope !41
-  br label %_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.argprom.exit.preheader
+  br label %_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.exit.preheader
 
-58:                                               ; preds = %_ZN5uu_df6blocks10SuffixType5bases17hd8b5c3f44ad8b556E.argprom.exit
+58:                                               ; preds = %_ZN5uu_df6blocks10SuffixType5bases17hd8b5c3f44ad8b556E.exit
   %trunc.i50 = trunc i8 %2 to i1
   store ptr @anon.1ddc00ef857710078536ad3a58a29b4d.3, ptr %17, align 8, !alias.scope !41
   %59 = getelementptr inbounds i8, ptr %17, i64 8
@@ -308,7 +308,7 @@ _ZN5uu_df6blocks10SuffixType5bases17hd8b5c3f44ad8b556E.argprom.exit: ; preds = %
   store i64 1, ptr %72, align 8, !alias.scope !41
   store ptr @anon.1ddc00ef857710078536ad3a58a29b4d.17, ptr %73, align 8, !alias.scope !41
   store i64 1, ptr %74, align 8, !alias.scope !41
-  br label %_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.argprom.exit.preheader
+  br label %_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.exit.preheader
 
 76:                                               ; preds = %58
   store ptr @anon.1ddc00ef857710078536ad3a58a29b4d.10, ptr %60, align 8, !alias.scope !41
@@ -327,28 +327,28 @@ _ZN5uu_df6blocks10SuffixType5bases17hd8b5c3f44ad8b556E.argprom.exit: ; preds = %
   store i64 1, ptr %72, align 8, !alias.scope !41
   store ptr @anon.1ddc00ef857710078536ad3a58a29b4d.17, ptr %73, align 8, !alias.scope !41
   store i64 1, ptr %74, align 8, !alias.scope !41
-  br label %_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.argprom.exit.preheader
+  br label %_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.exit.preheader
 
-_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.argprom.exit.preheader: ; preds = %24, %41, %75, %76
-  br label %_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.argprom.exit
+_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.exit.preheader: ; preds = %24, %41, %75, %76
+  br label %_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.exit
 
-_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.argprom.exit: ; preds = %_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.argprom.exit.preheader, %79
-  %77 = phi i128 [ %82, %79 ], [ 1, %_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.argprom.exit.preheader ]
-  %.0 = phi i64 [ %80, %79 ], [ 0, %_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.argprom.exit.preheader ]
+_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.exit: ; preds = %_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.exit.preheader, %79
+  %77 = phi i128 [ %82, %79 ], [ 1, %_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.exit.preheader ]
+  %.0 = phi i64 [ %80, %79 ], [ 0, %_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.exit.preheader ]
   %exitcond.not = icmp eq i64 %.0, 9
   br i1 %exitcond.not, label %78, label %79, !prof !44
 
-78:                                               ; preds = %_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.argprom.exit
+78:                                               ; preds = %_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.exit
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef 10, i64 noundef 10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1ddc00ef857710078536ad3a58a29b4d.28) #9
   unreachable
 
-79:                                               ; preds = %_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.argprom.exit
+79:                                               ; preds = %_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.exit
   %80 = add nuw nsw i64 %.0, 1
   %81 = getelementptr inbounds [10 x i128], ptr %18, i64 0, i64 %80
   %82 = load i128, ptr %81, align 16, !noundef !5
   %83 = sub i128 %82, %77
   %84 = icmp ult i128 %83, %1
-  br i1 %84, label %_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.argprom.exit, label %85
+  br i1 %84, label %_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.exit, label %85
 
 85:                                               ; preds = %79
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
@@ -1261,8 +1261,8 @@ attributes #11 = { cold noreturn nounwind }
 !39 = distinct !{!39, !40, !"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h7f7c940131f8d3abE: argument 0"}
 !40 = distinct !{!40, !"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h7f7c940131f8d3abE"}
 !41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.argprom: argument 0"}
-!43 = distinct !{!43, !"_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.argprom"}
+!42 = distinct !{!42, !43, !"_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E: argument 0"}
+!43 = distinct !{!43, !"_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E"}
 !44 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !45 = !{i64 1}
 !46 = !{!47, !49, !50, !52, !53, !54, !56}

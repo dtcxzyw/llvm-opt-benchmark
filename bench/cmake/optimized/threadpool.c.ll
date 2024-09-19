@@ -490,22 +490,22 @@ switch.lookup:                                    ; preds = %1
   store ptr %12, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %.0, i64 176
   %30 = tail call i32 @uv_async_send(ptr noundef nonnull %29) #9
-  br label %uv__work_cancel.argprom.exit
+  br label %uv__work_cancel.exit
 
 .critedge.i:                                      ; preds = %15, %switch.lookup
   %31 = load ptr, ptr %9, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 136
   tail call void @uv_mutex_unlock(ptr noundef nonnull %32) #9
-  br label %uv__work_cancel.argprom.exit
+  br label %uv__work_cancel.exit
 
-uv__work_cancel.argprom.exit:                     ; preds = %17, %.critedge.i
+uv__work_cancel.exit:                             ; preds = %17, %.critedge.i
   %mutex.sink.i = phi ptr [ @mutex, %.critedge.i ], [ %25, %17 ]
   %.0.i = phi i32 [ -16, %.critedge.i ], [ 0, %17 ]
   tail call void @uv_mutex_unlock(ptr noundef nonnull %mutex.sink.i) #9
   br label %33
 
-33:                                               ; preds = %1, %uv__work_cancel.argprom.exit
-  %.015 = phi i32 [ %.0.i, %uv__work_cancel.argprom.exit ], [ -22, %1 ]
+33:                                               ; preds = %1, %uv__work_cancel.exit
+  %.015 = phi i32 [ %.0.i, %uv__work_cancel.exit ], [ -22, %1 ]
   ret i32 %.015
 }
 

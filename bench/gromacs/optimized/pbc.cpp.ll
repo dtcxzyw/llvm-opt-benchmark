@@ -4295,12 +4295,12 @@ define void @_Z16put_atoms_in_box7PbcTypePA3_KfN3gmx8ArrayRefINS3_11BasicVectorI
   %6 = ptrtoint ptr %2 to i64
   %7 = sub i64 %5, %6
   %8 = getelementptr inbounds i8, ptr %2, i64 %7
-  tail call fastcc void @_ZL22putAtomsInBoxTemplatedILb0EEv7PbcTypePA3_KfS3_N3gmx8ArrayRefINS4_11BasicVectorIfEEEES8_.argprom(i32 noundef %0, ptr noundef %1, ptr %2, ptr %8)
+  tail call fastcc void @_ZL22putAtomsInBoxTemplatedILb0EEv7PbcTypePA3_KfS3_N3gmx8ArrayRefINS4_11BasicVectorIfEEEES8_(i32 noundef %0, ptr noundef %1, ptr %2, ptr %8)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL22putAtomsInBoxTemplatedILb0EEv7PbcTypePA3_KfS3_N3gmx8ArrayRefINS4_11BasicVectorIfEEEES8_.argprom(i32 noundef %0, ptr nocapture noundef readonly %1, ptr %2, ptr %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL22putAtomsInBoxTemplatedILb0EEv7PbcTypePA3_KfS3_N3gmx8ArrayRefINS4_11BasicVectorIfEEEES8_(i32 noundef %0, ptr nocapture noundef readonly %1, ptr %2, ptr %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %6 = alloca %"class.gmx::BasicVector", align 4
   switch i32 %0, label %12 [
@@ -4604,7 +4604,7 @@ define internal void @_Z20put_atoms_in_box_omp7PbcTypePA3_KfbS2_N3gmx8ArrayRefIN
 .preheader7.i:                                    ; preds = %68
   %gepdiff = sub nsw i64 %.idx, %.idx37
   %72 = icmp sgt i64 %gepdiff, 0
-  br i1 %72, label %.preheader6.lr.ph.i, label %_ZL22putAtomsInBoxTemplatedILb1EEv7PbcTypePA3_KfS3_N3gmx8ArrayRefINS4_11BasicVectorIfEEEES8_.argprom.exit
+  br i1 %72, label %.preheader6.lr.ph.i, label %_ZL22putAtomsInBoxTemplatedILb1EEv7PbcTypePA3_KfS3_N3gmx8ArrayRefINS4_11BasicVectorIfEEEES8_.exit
 
 .preheader6.lr.ph.i:                              ; preds = %.preheader7.i
   %73 = udiv exact i64 %gepdiff, 12
@@ -4614,7 +4614,7 @@ define internal void @_Z20put_atoms_in_box_omp7PbcTypePA3_KfbS2_N3gmx8ArrayRefIN
 75:                                               ; preds = %68, %64, %60
   %gepdiff38 = sub nsw i64 %.idx, %.idx37
   %76 = icmp sgt i64 %gepdiff38, 0
-  br i1 %76, label %.preheader.lr.ph.i, label %_ZL22putAtomsInBoxTemplatedILb1EEv7PbcTypePA3_KfS3_N3gmx8ArrayRefINS4_11BasicVectorIfEEEES8_.argprom.exit
+  br i1 %76, label %.preheader.lr.ph.i, label %_ZL22putAtomsInBoxTemplatedILb1EEv7PbcTypePA3_KfS3_N3gmx8ArrayRefINS4_11BasicVectorIfEEEES8_.exit
 
 .preheader.lr.ph.i:                               ; preds = %75
   %77 = udiv exact i64 %gepdiff38, 12
@@ -4664,7 +4664,7 @@ define internal void @_Z20put_atoms_in_box_omp7PbcTypePA3_KfbS2_N3gmx8ArrayRefIN
 101:                                              ; preds = %.loopexit.i
   %102 = add nuw nsw i64 %.06617.i, 1
   %exitcond46.not.i = icmp eq i64 %102, %78
-  br i1 %exitcond46.not.i, label %_ZL22putAtomsInBoxTemplatedILb1EEv7PbcTypePA3_KfS3_N3gmx8ArrayRefINS4_11BasicVectorIfEEEES8_.argprom.exit, label %.preheader.i, !llvm.loop !100
+  br i1 %exitcond46.not.i, label %_ZL22putAtomsInBoxTemplatedILb1EEv7PbcTypePA3_KfS3_N3gmx8ArrayRefINS4_11BasicVectorIfEEEES8_.exit, label %.preheader.i, !llvm.loop !100
 
 .preheader6.i:                                    ; preds = %123, %.preheader6.lr.ph.i
   %.06212.i = phi i64 [ 0, %.preheader6.lr.ph.i ], [ %124, %123 ]
@@ -4709,9 +4709,9 @@ define internal void @_Z20put_atoms_in_box_omp7PbcTypePA3_KfbS2_N3gmx8ArrayRefIN
 123:                                              ; preds = %122
   %124 = add nuw nsw i64 %.06212.i, 1
   %exitcond36.not.i = icmp eq i64 %124, %74
-  br i1 %exitcond36.not.i, label %_ZL22putAtomsInBoxTemplatedILb1EEv7PbcTypePA3_KfS3_N3gmx8ArrayRefINS4_11BasicVectorIfEEEES8_.argprom.exit, label %.preheader6.i, !llvm.loop !103
+  br i1 %exitcond36.not.i, label %_ZL22putAtomsInBoxTemplatedILb1EEv7PbcTypePA3_KfS3_N3gmx8ArrayRefINS4_11BasicVectorIfEEEES8_.exit, label %.preheader6.i, !llvm.loop !103
 
-_ZL22putAtomsInBoxTemplatedILb1EEv7PbcTypePA3_KfS3_N3gmx8ArrayRefINS4_11BasicVectorIfEEEES8_.argprom.exit: ; preds = %123, %101, %.preheader7.i, %75
+_ZL22putAtomsInBoxTemplatedILb1EEv7PbcTypePA3_KfS3_N3gmx8ArrayRefINS4_11BasicVectorIfEEEES8_.exit: ; preds = %123, %101, %.preheader7.i, %75
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11)
   br label %135
@@ -4747,10 +4747,10 @@ _ZL22putAtomsInBoxTemplatedILb1EEv7PbcTypePA3_KfS3_N3gmx8ArrayRefINS4_11BasicVec
 132:                                              ; preds = %26
   %133 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload.i, i64 %35
   %134 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload.i, i64 %37
-  invoke fastcc void @_ZL22putAtomsInBoxTemplatedILb0EEv7PbcTypePA3_KfS3_N3gmx8ArrayRefINS4_11BasicVectorIfEEEES8_.argprom(i32 noundef %40, ptr noundef %41, ptr %133, ptr %134)
+  invoke fastcc void @_ZL22putAtomsInBoxTemplatedILb0EEv7PbcTypePA3_KfS3_N3gmx8ArrayRefINS4_11BasicVectorIfEEEES8_(i32 noundef %40, ptr noundef %41, ptr %133, ptr %134)
           to label %135 unwind label %.loopexit
 
-135:                                              ; preds = %_ZL22putAtomsInBoxTemplatedILb1EEv7PbcTypePA3_KfS3_N3gmx8ArrayRefINS4_11BasicVectorIfEEEES8_.argprom.exit, %132
+135:                                              ; preds = %_ZL22putAtomsInBoxTemplatedILb1EEv7PbcTypePA3_KfS3_N3gmx8ArrayRefINS4_11BasicVectorIfEEEES8_.exit, %132
   %136 = load i32, ptr %13, align 4
   %137 = sext i32 %136 to i64
   %.not.not = icmp slt i64 %indvars.iv, %137

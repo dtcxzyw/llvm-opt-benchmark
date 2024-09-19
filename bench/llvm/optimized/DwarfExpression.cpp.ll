@@ -1913,13 +1913,13 @@ _ZN4llvm15DwarfExpression6addRegEiPKc.exit._crit_edge: ; preds = %_ZN4llvm15Dwar
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %.val, ptr %6, align 8
   %.not2.i.i.i.i.i.i = icmp eq ptr %.val, %.val66
-  br i1 %.not2.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_18DIExpressionCursorEZNS_15DwarfExpression23addMachineRegExpressionERKNS_18TargetRegisterInfoES2_NS_8RegisterEjE3$_0EEbOT_T0_.argprom.exit", label %.lr.ph.i.i.i.i.i.i
+  br i1 %.not2.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_18DIExpressionCursorEZNS_15DwarfExpression23addMachineRegExpressionERKNS_18TargetRegisterInfoES2_NS_8RegisterEjE3$_0EEbOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %176, %179
   %storemerge3.i.i.i.i.i.i = phi ptr [ %182, %179 ], [ %.val, %176 ]
   %177 = load i64, ptr %storemerge3.i.i.i.i.i.i, align 8
   %178 = icmp eq i64 %177, 159
-  br i1 %178, label %"_ZN4llvm6any_ofIRNS_18DIExpressionCursorEZNS_15DwarfExpression23addMachineRegExpressionERKNS_18TargetRegisterInfoES2_NS_8RegisterEjE3$_0EEbOT_T0_.argprom.exit", label %179
+  br i1 %178, label %"_ZN4llvm6any_ofIRNS_18DIExpressionCursorEZNS_15DwarfExpression23addMachineRegExpressionERKNS_18TargetRegisterInfoES2_NS_8RegisterEjE3$_0EEbOT_T0_.exit", label %179
 
 179:                                              ; preds = %.lr.ph.i.i.i.i.i.i
   %180 = call noundef i32 @_ZNK4llvm12DIExpression11ExprOperand7getSizeEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #13
@@ -1927,19 +1927,19 @@ _ZN4llvm15DwarfExpression6addRegEiPKc.exit._crit_edge: ; preds = %_ZN4llvm15Dwar
   %182 = getelementptr inbounds i64, ptr %storemerge3.i.i.i.i.i.i, i64 %181
   store ptr %182, ptr %6, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %182, %.val66
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_18DIExpressionCursorEZNS_15DwarfExpression23addMachineRegExpressionERKNS_18TargetRegisterInfoES2_NS_8RegisterEjE3$_0EEbOT_T0_.argprom.exit.thread", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !30
+  br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_18DIExpressionCursorEZNS_15DwarfExpression23addMachineRegExpressionERKNS_18TargetRegisterInfoES2_NS_8RegisterEjE3$_0EEbOT_T0_.exit.thread", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !30
 
-"_ZN4llvm6any_ofIRNS_18DIExpressionCursorEZNS_15DwarfExpression23addMachineRegExpressionERKNS_18TargetRegisterInfoES2_NS_8RegisterEjE3$_0EEbOT_T0_.argprom.exit.thread": ; preds = %179
+"_ZN4llvm6any_ofIRNS_18DIExpressionCursorEZNS_15DwarfExpression23addMachineRegExpressionERKNS_18TargetRegisterInfoES2_NS_8RegisterEjE3$_0EEbOT_T0_.exit.thread": ; preds = %179
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %189
 
-"_ZN4llvm6any_ofIRNS_18DIExpressionCursorEZNS_15DwarfExpression23addMachineRegExpressionERKNS_18TargetRegisterInfoES2_NS_8RegisterEjE3$_0EEbOT_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %176
+"_ZN4llvm6any_ofIRNS_18DIExpressionCursorEZNS_15DwarfExpression23addMachineRegExpressionERKNS_18TargetRegisterInfoES2_NS_8RegisterEjE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %176
   %storemerge.lcssa.i.i.i.i.i.i = phi ptr [ %.val, %176 ], [ %storemerge3.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %.not119 = icmp eq ptr %.val66, %storemerge.lcssa.i.i.i.i.i.i
   br i1 %.not119, label %189, label %183
 
-183:                                              ; preds = %"_ZN4llvm6any_ofIRNS_18DIExpressionCursorEZNS_15DwarfExpression23addMachineRegExpressionERKNS_18TargetRegisterInfoES2_NS_8RegisterEjE3$_0EEbOT_T0_.argprom.exit"
+183:                                              ; preds = %"_ZN4llvm6any_ofIRNS_18DIExpressionCursorEZNS_15DwarfExpression23addMachineRegExpressionERKNS_18TargetRegisterInfoES2_NS_8RegisterEjE3$_0EEbOT_T0_.exit"
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %185 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %184) #13
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1949,7 +1949,7 @@ _ZN4llvm15DwarfExpression6addRegEiPKc.exit._crit_edge: ; preds = %_ZN4llvm15Dwar
   store i16 %188, ptr %54, align 4
   br label %286
 
-189:                                              ; preds = %"_ZN4llvm6any_ofIRNS_18DIExpressionCursorEZNS_15DwarfExpression23addMachineRegExpressionERKNS_18TargetRegisterInfoES2_NS_8RegisterEjE3$_0EEbOT_T0_.argprom.exit.thread", %"_ZN4llvm6any_ofIRNS_18DIExpressionCursorEZNS_15DwarfExpression23addMachineRegExpressionERKNS_18TargetRegisterInfoES2_NS_8RegisterEjE3$_0EEbOT_T0_.argprom.exit", %173
+189:                                              ; preds = %"_ZN4llvm6any_ofIRNS_18DIExpressionCursorEZNS_15DwarfExpression23addMachineRegExpressionERKNS_18TargetRegisterInfoES2_NS_8RegisterEjE3$_0EEbOT_T0_.exit.thread", %"_ZN4llvm6any_ofIRNS_18DIExpressionCursorEZNS_15DwarfExpression23addMachineRegExpressionERKNS_18TargetRegisterInfoES2_NS_8RegisterEjE3$_0EEbOT_T0_.exit", %173
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %191 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %190) #13
   %192 = icmp ugt i64 %191, 1

@@ -3807,7 +3807,7 @@ _ZN4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcSt
   %.lcssa155.sink = phi ptr [ %91, %90 ], [ %66, %65 ]
   %.sink160 = phi ptr [ %79, %90 ], [ %54, %65 ]
   %99 = getelementptr inbounds i8, ptr %.lcssa155.sink, i64 8
-  call fastcc void @"_ZZN4Luau20DataFlowGraphBuilder9joinPropsEPNS_8DfgScopeERKS1_S4_EN3$_0clISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_3DefESt4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SG_EEESP_EEDaS2_RKT_RKT0_NS_7NotNullISF_EE.argprom"(ptr nonnull %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(56) %37, ptr noundef nonnull align 8 dereferenceable(56) %99, ptr %.sink160)
+  call fastcc void @"_ZZN4Luau20DataFlowGraphBuilder9joinPropsEPNS_8DfgScopeERKS1_S4_EN3$_0clISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_3DefESt4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SG_EEESP_EEDaS2_RKT_RKT0_NS_7NotNullISF_EE"(ptr nonnull %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(56) %37, ptr noundef nonnull align 8 dereferenceable(56) %99, ptr %.sink160)
   br label %_ZN4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_S3_EEENS_16DenseHashPointerESD_IS3_EE4findERKS3_.exit.thread
 
 _ZN4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_S3_EEENS_16DenseHashPointerESD_IS3_EE4findERKS3_.exit.thread: ; preds = %96, %94, %_ZN4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_S3_EEENS_16DenseHashPointerESD_IS3_EE4findERKS3_.exit.thread.sink.split, %78, %.loopexit121
@@ -4014,7 +4014,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Lua
 
 202:                                              ; preds = %193
   %203 = getelementptr inbounds i8, ptr %194, i64 8
-  call fastcc void @"_ZZN4Luau20DataFlowGraphBuilder9joinPropsEPNS_8DfgScopeERKS1_S4_EN3$_0clISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_3DefESt4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SG_EEESP_EEDaS2_RKT_RKT0_NS_7NotNullISF_EE.argprom"(ptr nonnull %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(56) %140, ptr noundef nonnull align 8 dereferenceable(56) %203, ptr %182)
+  call fastcc void @"_ZZN4Luau20DataFlowGraphBuilder9joinPropsEPNS_8DfgScopeERKS1_S4_EN3$_0clISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_3DefESt4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SG_EEESP_EEDaS2_RKT_RKT0_NS_7NotNullISF_EE"(ptr nonnull %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(56) %140, ptr noundef nonnull align 8 dereferenceable(56) %203, ptr %182)
   br label %_ZN4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_S3_EEENS_16DenseHashPointerESD_IS3_EE4findERKS3_.exit91.thread
 
 _ZN4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_S3_EEENS_16DenseHashPointerESD_IS3_EE4findERKS3_.exit91.thread: ; preds = %168, %199, %197, %181, %.loopexit, %202
@@ -4212,7 +4212,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4Luau20DataFlowGraphBuilder9joinPropsEPNS_8DfgScopeERKS1_S4_EN3$_0clISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_3DefESt4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SG_EEESP_EEDaS2_RKT_RKT0_NS_7NotNullISF_EE.argprom"(ptr nocapture readonly %.0.val, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4Luau20DataFlowGraphBuilder9joinPropsEPNS_8DfgScopeERKS1_S4_EN3$_0clISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_3DefESt4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SG_EEESP_EEDaS2_RKT_RKT0_NS_7NotNullISF_EE"(ptr nocapture readonly %.0.val, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %3, ptr %5, align 8

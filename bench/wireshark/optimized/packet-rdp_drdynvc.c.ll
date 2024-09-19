@@ -1048,14 +1048,14 @@ proto_item_set_generated.exit423:                 ; preds = %353, %362, %365
   %449 = inttoptr i64 %448 to ptr
   %450 = call ptr @wmem_multimap_lookup32_le(ptr noundef %.val404, ptr noundef %449, i32 noundef %.val) #7
   %.not.i424 = icmp eq ptr %450, null
-  br i1 %.not.i424, label %find_channel_name_by_id.argprom.exit, label %451
+  br i1 %.not.i424, label %find_channel_name_by_id.exit, label %451
 
 451:                                              ; preds = %.lr.ph456
   %452 = getelementptr inbounds i8, ptr %450, i64 8
   %453 = load ptr, ptr %452, align 8
-  br label %find_channel_name_by_id.argprom.exit
+  br label %find_channel_name_by_id.exit
 
-find_channel_name_by_id.argprom.exit:             ; preds = %.lr.ph456, %451
+find_channel_name_by_id.exit:                     ; preds = %.lr.ph456, %451
   %.0.i425 = phi ptr [ %453, %451 ], [ null, %.lr.ph456 ]
   %.not382 = icmp eq ptr %.0.i425, null
   %spec.store.select = select i1 %.not382, ptr @.str.91, ptr %.0.i425
@@ -1065,7 +1065,7 @@ find_channel_name_by_id.argprom.exit:             ; preds = %.lr.ph456, %451
   %457 = call ptr @proto_tree_add_item(ptr noundef %455, i32 noundef %456, ptr noundef %0, i32 noundef %.4455, i32 noundef 4, i32 noundef -2147483648) #7
   br i1 %.not382, label %proto_item_set_generated.exit428, label %458
 
-458:                                              ; preds = %find_channel_name_by_id.argprom.exit
+458:                                              ; preds = %find_channel_name_by_id.exit
   %459 = load i32, ptr @hf_rdp_drdynvc_channelName, align 4
   %460 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %455, i32 noundef %459, ptr noundef %0, i32 noundef %.4455, i32 noundef 4, ptr noundef nonnull %.0.i425, ptr noundef nonnull @.str.76, ptr noundef nonnull %.0.i425) #7
   %.not.i426 = icmp eq ptr %460, null
@@ -1084,7 +1084,7 @@ find_channel_name_by_id.argprom.exit:             ; preds = %.lr.ph456, %451
   store i32 %467, ptr %465, align 4
   br label %proto_item_set_generated.exit428
 
-proto_item_set_generated.exit428:                 ; preds = %464, %461, %458, %find_channel_name_by_id.argprom.exit
+proto_item_set_generated.exit428:                 ; preds = %464, %461, %458, %find_channel_name_by_id.exit
   %468 = add nuw i16 %.0366454, 1
   %469 = add i32 %.4455, 4
   %exitcond.not = icmp eq i16 %468, %434

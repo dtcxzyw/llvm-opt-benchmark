@@ -311,7 +311,7 @@ cond.false:                                       ; preds = %index2stack.exit
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %add.ptr1, %cond.true ], [ %add.ptr5, %cond.false ]
   %cmp1.i = icmp ult ptr %retval.0.i, %cond
-  br i1 %cmp1.i, label %for.body.i, label %reverse.argprom.exit
+  br i1 %cmp1.i, label %for.body.i, label %reverse.exit
 
 for.body.i:                                       ; preds = %cond.end, %for.body.i
   %from.addr.03.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %retval.0.i, %cond.end ]
@@ -329,16 +329,16 @@ for.body.i:                                       ; preds = %cond.end, %for.body
   %incdec.ptr.i = getelementptr inbounds i8, ptr %from.addr.03.i, i64 16
   %incdec.ptr15.i = getelementptr inbounds i8, ptr %to.addr.02.i, i64 -16
   %cmp.i12 = icmp ult ptr %incdec.ptr.i, %incdec.ptr15.i
-  br i1 %cmp.i12, label %for.body.i, label %reverse.argprom.exit, !llvm.loop !8
+  br i1 %cmp.i12, label %for.body.i, label %reverse.exit, !llvm.loop !8
 
-reverse.argprom.exit:                             ; preds = %for.body.i, %cond.end
+reverse.exit:                                     ; preds = %for.body.i, %cond.end
   %add.ptr6 = getelementptr inbounds i8, ptr %cond, i64 16
   %cmp1.i13 = icmp ult ptr %add.ptr6, %add.ptr
-  br i1 %cmp1.i13, label %for.body.i14, label %reverse.argprom.exit23
+  br i1 %cmp1.i13, label %for.body.i14, label %reverse.exit23
 
-for.body.i14:                                     ; preds = %reverse.argprom.exit, %for.body.i14
-  %from.addr.03.i15 = phi ptr [ %incdec.ptr.i20, %for.body.i14 ], [ %add.ptr6, %reverse.argprom.exit ]
-  %to.addr.02.i16 = phi ptr [ %incdec.ptr15.i21, %for.body.i14 ], [ %add.ptr, %reverse.argprom.exit ]
+for.body.i14:                                     ; preds = %reverse.exit, %for.body.i14
+  %from.addr.03.i15 = phi ptr [ %incdec.ptr.i20, %for.body.i14 ], [ %add.ptr6, %reverse.exit ]
+  %to.addr.02.i16 = phi ptr [ %incdec.ptr15.i21, %for.body.i14 ], [ %add.ptr, %reverse.exit ]
   %temp.sroa.0.0.copyload13.i17 = load ptr, ptr %from.addr.03.i15, align 8
   %tt_.i18 = getelementptr inbounds i8, ptr %from.addr.03.i15, i64 8
   %6 = load i8, ptr %tt_.i18, align 8
@@ -352,15 +352,15 @@ for.body.i14:                                     ; preds = %reverse.argprom.exi
   %incdec.ptr.i20 = getelementptr inbounds i8, ptr %from.addr.03.i15, i64 16
   %incdec.ptr15.i21 = getelementptr inbounds i8, ptr %to.addr.02.i16, i64 -16
   %cmp.i22 = icmp ult ptr %incdec.ptr.i20, %incdec.ptr15.i21
-  br i1 %cmp.i22, label %for.body.i14, label %reverse.argprom.exit23, !llvm.loop !8
+  br i1 %cmp.i22, label %for.body.i14, label %reverse.exit23, !llvm.loop !8
 
-reverse.argprom.exit23:                           ; preds = %for.body.i14, %reverse.argprom.exit
+reverse.exit23:                                   ; preds = %for.body.i14, %reverse.exit
   %cmp1.i24 = icmp ult ptr %retval.0.i, %add.ptr
-  br i1 %cmp1.i24, label %for.body.i25, label %reverse.argprom.exit34
+  br i1 %cmp1.i24, label %for.body.i25, label %reverse.exit34
 
-for.body.i25:                                     ; preds = %reverse.argprom.exit23, %for.body.i25
-  %from.addr.03.i26 = phi ptr [ %incdec.ptr.i31, %for.body.i25 ], [ %retval.0.i, %reverse.argprom.exit23 ]
-  %to.addr.02.i27 = phi ptr [ %incdec.ptr15.i32, %for.body.i25 ], [ %add.ptr, %reverse.argprom.exit23 ]
+for.body.i25:                                     ; preds = %reverse.exit23, %for.body.i25
+  %from.addr.03.i26 = phi ptr [ %incdec.ptr.i31, %for.body.i25 ], [ %retval.0.i, %reverse.exit23 ]
+  %to.addr.02.i27 = phi ptr [ %incdec.ptr15.i32, %for.body.i25 ], [ %add.ptr, %reverse.exit23 ]
   %temp.sroa.0.0.copyload13.i28 = load ptr, ptr %from.addr.03.i26, align 8
   %tt_.i29 = getelementptr inbounds i8, ptr %from.addr.03.i26, i64 8
   %9 = load i8, ptr %tt_.i29, align 8
@@ -374,9 +374,9 @@ for.body.i25:                                     ; preds = %reverse.argprom.exi
   %incdec.ptr.i31 = getelementptr inbounds i8, ptr %from.addr.03.i26, i64 16
   %incdec.ptr15.i32 = getelementptr inbounds i8, ptr %to.addr.02.i27, i64 -16
   %cmp.i33 = icmp ult ptr %incdec.ptr.i31, %incdec.ptr15.i32
-  br i1 %cmp.i33, label %for.body.i25, label %reverse.argprom.exit34, !llvm.loop !8
+  br i1 %cmp.i33, label %for.body.i25, label %reverse.exit34, !llvm.loop !8
 
-reverse.argprom.exit34:                           ; preds = %for.body.i25, %reverse.argprom.exit23
+reverse.exit34:                                   ; preds = %for.body.i25, %reverse.exit23
   ret void
 }
 

@@ -157,7 +157,7 @@ define dso_local range(i32 2, 1) i32 @archive_read_data_into_fd(ptr noundef %0, 
   br i1 %63, label %64, label %select.unfold
 
 64:                                               ; preds = %.split81.us
-  %65 = call fastcc i32 @pad_to.argelim(ptr noundef %0, i32 noundef %1, i32 noundef %17, ptr noundef %.041106, i64 noundef %62, i64 noundef %.us-phi82)
+  %65 = call fastcc i32 @pad_to(ptr noundef %0, i32 noundef %1, i32 noundef %17, ptr noundef %.041106, i64 noundef %62, i64 noundef %.us-phi82)
   %.not56 = icmp eq i32 %65, 0
   br i1 %.not56, label %select.unfold, label %.sink.split
 
@@ -194,7 +194,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare i32 @archive_read_data_block(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @pad_to.argelim(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, ptr nocapture noundef readonly %3, i64 noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @pad_to(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, ptr nocapture noundef readonly %3, i64 noundef %4, i64 noundef %5) unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.preheader, label %8
 

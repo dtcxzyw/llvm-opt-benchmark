@@ -214,9 +214,9 @@ define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__
   %10 = and i32 %.01117, 2147483616
   %11 = icmp eq i32 %10, 128
   %or.cond = or i1 %or.cond3.i, %11
-  br i1 %or.cond, label %"_ZZN32pxrInternal_v0_24__pxrReserved__L24_ValidateAssetPathStringEPKcENK3$_0clEi.argprom.exit.thread", label %17
+  br i1 %or.cond, label %"_ZZN32pxrInternal_v0_24__pxrReserved__L24_ValidateAssetPathStringEPKcENK3$_0clEi.exit.thread", label %17
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__L24_ValidateAssetPathStringEPKcENK3$_0clEi.argprom.exit.thread": ; preds = %.lr.ph
+"_ZZN32pxrInternal_v0_24__pxrReserved__L24_ValidateAssetPathStringEPKcENK3$_0clEi.exit.thread": ; preds = %.lr.ph
   store ptr @.str.5, ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__L24_ValidateAssetPathStringEPKc, ptr %12, align 8
@@ -234,7 +234,7 @@ define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__
           cleanup
   br label %16
 
-.loopexit.split-lp:                               ; preds = %1, %"_ZZN32pxrInternal_v0_24__pxrReserved__L24_ValidateAssetPathStringEPKcENK3$_0clEi.argprom.exit.thread", %23
+.loopexit.split-lp:                               ; preds = %1, %"_ZZN32pxrInternal_v0_24__pxrReserved__L24_ValidateAssetPathStringEPKcENK3$_0clEi.exit.thread", %23
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %16
@@ -273,8 +273,8 @@ define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__
   invoke void (ptr, i32, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %5, i32 noundef 1, ptr noundef nonnull @.str.7, i32 noundef %.0.lcssa, ptr noundef %28)
           to label %29 unwind label %.loopexit.split-lp
 
-29:                                               ; preds = %._crit_edge, %23, %"_ZZN32pxrInternal_v0_24__pxrReserved__L24_ValidateAssetPathStringEPKcENK3$_0clEi.argprom.exit.thread"
-  %.010 = phi i1 [ false, %"_ZZN32pxrInternal_v0_24__pxrReserved__L24_ValidateAssetPathStringEPKcENK3$_0clEi.argprom.exit.thread" ], [ false, %23 ], [ true, %._crit_edge ]
+29:                                               ; preds = %._crit_edge, %23, %"_ZZN32pxrInternal_v0_24__pxrReserved__L24_ValidateAssetPathStringEPKcENK3$_0clEi.exit.thread"
+  %.010 = phi i1 [ false, %"_ZZN32pxrInternal_v0_24__pxrReserved__L24_ValidateAssetPathStringEPKcENK3$_0clEi.exit.thread" ], [ false, %23 ], [ true, %._crit_edge ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #16
   ret i1 %.010
 }

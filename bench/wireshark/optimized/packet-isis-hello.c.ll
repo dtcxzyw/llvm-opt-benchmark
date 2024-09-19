@@ -412,27 +412,27 @@ declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_isis_l1_hello(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  tail call fastcc void @dissect_isis_hello.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @clv_l1_hello_opts, ptr noundef %3)
+  tail call fastcc void @dissect_isis_hello(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @clv_l1_hello_opts, ptr noundef %3)
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_isis_l2_hello(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  tail call fastcc void @dissect_isis_hello.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @clv_l2_hello_opts, ptr noundef %3)
+  tail call fastcc void @dissect_isis_hello(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @clv_l2_hello_opts, ptr noundef %3)
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_isis_ptp_hello(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  tail call fastcc void @dissect_isis_hello.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @clv_ptp_hello_opts, ptr noundef %3)
+  tail call fastcc void @dissect_isis_hello(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @clv_ptp_hello_opts, ptr noundef %3)
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_isis_hello.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_isis_hello(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.172) #4
@@ -734,9 +734,9 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
   %13 = add nsw i32 %5, -2
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %dissect_hello_mt_port_cap_appointedfwrdrs_clv.argprom.exit
-  %.096 = phi i32 [ %156, %dissect_hello_mt_port_cap_appointedfwrdrs_clv.argprom.exit ], [ %12, %.lr.ph.preheader ]
-  %.08195 = phi i32 [ %155, %dissect_hello_mt_port_cap_appointedfwrdrs_clv.argprom.exit ], [ %13, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit
+  %.096 = phi i32 [ %156, %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit ], [ %12, %.lr.ph.preheader ]
+  %.08195 = phi i32 [ %155, %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit ], [ %13, %.lr.ph.preheader ]
   %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.096) #4
   %15 = add i32 %.096, 1
   %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %15) #4
@@ -790,7 +790,7 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
   %49 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %48, ptr noundef %0, i32 noundef %45, i32 noundef 2, i32 noundef 0) #4
   %50 = load i32, ptr @hf_isis_hello_vlan_flags_designated_vlan, align 4
   %51 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %50, ptr noundef %0, i32 noundef %45, i32 noundef 2, i32 noundef 0) #4
-  br label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.argprom.exit
+  br label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit
 
 52:                                               ; preds = %24
   %53 = add nuw nsw i32 %19, 2
@@ -804,14 +804,14 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
   %61 = load i32, ptr @hf_isis_hello_enabled_vlans, align 4
   %62 = tail call ptr @proto_tree_add_string(ptr noundef %55, i32 noundef %61, ptr noundef %0, i32 noundef %59, i32 noundef %60, ptr noundef nonnull @.str.195) #4
   tail call fastcc void @parse_vlan_bitmap(ptr noundef %62, ptr noundef %0, i32 noundef %58, i32 noundef %59, i32 noundef %60)
-  br label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.argprom.exit
+  br label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit
 
 63:                                               ; preds = %24
   %64 = add nuw nsw i32 %19, 2
   %65 = load i32, ptr @ett_isis_hello_clv_mt_port_cap_appointedfwrdrs, align 4
   %66 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.096, i32 noundef %64, i32 noundef %65, ptr noundef null, ptr noundef nonnull @.str.203, i32 noundef 3, i32 noundef %19) #4
   %67 = icmp ugt i8 %16, 5
-  br i1 %67, label %.lr.ph.i, label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.argprom.exit
+  br i1 %67, label %.lr.ph.i, label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit
 
 .lr.ph.i:                                         ; preds = %63, %.lr.ph.i
   %.02.i = phi i32 [ %76, %.lr.ph.i ], [ %18, %63 ]
@@ -827,7 +827,7 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
   %76 = add i32 %.02.i, 6
   %77 = add nsw i32 %.0171.i, -6
   %78 = icmp ugt i32 %.0171.i, 11
-  br i1 %78, label %.lr.ph.i, label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.argprom.exit, !llvm.loop !4
+  br i1 %78, label %.lr.ph.i, label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit, !llvm.loop !4
 
 79:                                               ; preds = %24
   %.not.i = icmp eq i8 %16, 102
@@ -835,7 +835,7 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
 
 80:                                               ; preds = %79
   %81 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_hello_short_clv, ptr noundef %0, i32 noundef %18, i32 noundef -1, ptr noundef nonnull @.str.204, i32 noundef %19, i32 noundef 102) #4
-  br label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.argprom.exit
+  br label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit
 
 82:                                               ; preds = %79
   %83 = load i32, ptr @ett_isis_hello_clv_mt_port_cap_spb_mcid, align 4
@@ -845,7 +845,7 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
   %87 = add i32 %.096, 53
   %88 = load i32, ptr @hf_isis_hello_aux_mcid, align 4
   %89 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %88, ptr noundef %0, i32 noundef %87, i32 noundef 51, i32 noundef 0) #4
-  br label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.argprom.exit
+  br label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit
 
 90:                                               ; preds = %24
   %.not.i88 = icmp eq i8 %16, 33
@@ -853,7 +853,7 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
 
 91:                                               ; preds = %90
   %92 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_hello_short_clv, ptr noundef %0, i32 noundef %18, i32 noundef -1, ptr noundef nonnull @.str.206, i32 noundef %19, i32 noundef 33) #4
-  br label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.argprom.exit
+  br label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit
 
 93:                                               ; preds = %90
   %94 = load i32, ptr @ett_isis_hello_clv_mt_port_cap_spb_digest, align 4
@@ -867,14 +867,14 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
   %102 = add i32 %.096, 3
   %103 = load i32, ptr @hf_isis_hello_digest, align 4
   %104 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %103, ptr noundef %0, i32 noundef %102, i32 noundef 32, i32 noundef 0) #4
-  br label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.argprom.exit
+  br label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit
 
 105:                                              ; preds = %24
   %106 = add nuw nsw i32 %19, 2
   %107 = load i32, ptr @ett_isis_hello_clv_mt_port_cap_spb_bvid_tuples, align 4
   %108 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.096, i32 noundef %106, i32 noundef %107, ptr noundef null, ptr noundef nonnull @.str.208, i32 noundef 6, i32 noundef %19) #4
   %.not29.i = icmp eq i8 %16, 0
-  br i1 %.not29.i, label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.argprom.exit, label %.lr.ph.preheader.i
+  br i1 %.not29.i, label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %105
   %109 = urem i8 %16, 6
@@ -889,7 +889,7 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
 
 111:                                              ; preds = %.lr.ph.i89
   %112 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_hello_short_clv, ptr noundef %0, i32 noundef %18, i32 noundef -1, ptr noundef nonnull @.str.209, i32 noundef %.zext.i, i32 noundef 6) #4
-  br label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.argprom.exit
+  br label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit
 
 113:                                              ; preds = %.lr.ph.i89
   %114 = load i32, ptr @hf_isis_hello_ect, align 4
@@ -904,7 +904,7 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
   %123 = add nsw i32 %.02730.i, -6
   %124 = add i32 %.031.i, 6
   %.not.i90 = icmp eq i32 %123, 0
-  br i1 %.not.i90, label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.argprom.exit, label %.lr.ph.i89, !llvm.loop !6
+  br i1 %.not.i90, label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit, label %.lr.ph.i89, !llvm.loop !6
 
 125:                                              ; preds = %24
   %126 = add nuw nsw i32 %19, 2
@@ -921,7 +921,7 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
   %137 = tail call ptr @proto_tree_add_item(ptr noundef %128, i32 noundef %136, ptr noundef %0, i32 noundef %131, i32 noundef 4, i32 noundef 0) #4
   %138 = load i32, ptr @hf_isis_hello_trill_unassigned_2, align 4
   %139 = tail call ptr @proto_tree_add_item(ptr noundef %128, i32 noundef %138, ptr noundef %0, i32 noundef %131, i32 noundef 4, i32 noundef 0) #4
-  br label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.argprom.exit
+  br label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit
 
 140:                                              ; preds = %24
   %141 = add nuw nsw i32 %19, 2
@@ -935,21 +935,21 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
   %149 = load i32, ptr @hf_isis_hello_appointed_vlans, align 4
   %150 = tail call ptr @proto_tree_add_string(ptr noundef %143, i32 noundef %149, ptr noundef %0, i32 noundef %147, i32 noundef %148, ptr noundef nonnull @.str.195) #4
   tail call fastcc void @parse_vlan_bitmap(ptr noundef %150, ptr noundef %0, i32 noundef %146, i32 noundef %147, i32 noundef %148)
-  br label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.argprom.exit
+  br label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit
 
 151:                                              ; preds = %24
   %152 = zext i8 %14 to i32
   %153 = add nuw nsw i32 %19, 2
   %154 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_hello_subtlv, ptr noundef %0, i32 noundef %.096, i32 noundef %153, ptr noundef nonnull @.str.197, i32 noundef %152, i32 noundef %19) #4
-  br label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.argprom.exit
+  br label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit
 
-dissect_hello_mt_port_cap_appointedfwrdrs_clv.argprom.exit: ; preds = %113, %.lr.ph.i, %111, %105, %93, %91, %82, %80, %63, %151, %140, %125, %52, %25
+dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit: ; preds = %113, %.lr.ph.i, %111, %105, %93, %91, %82, %80, %63, %151, %140, %125, %52, %25
   %155 = sub nsw i32 %17, %19
   %156 = add i32 %18, %19
   %157 = icmp sgt i32 %155, 1
   br i1 %157, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
-.loopexit:                                        ; preds = %dissect_hello_mt_port_cap_appointedfwrdrs_clv.argprom.exit, %8, %21, %6
+.loopexit:                                        ; preds = %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit, %8, %21, %6
   ret void
 }
 

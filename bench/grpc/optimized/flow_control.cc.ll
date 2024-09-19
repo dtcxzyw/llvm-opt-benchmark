@@ -1912,7 +1912,7 @@ land.lhs.true.i:                                  ; preds = %if.then.i
   %3 = load i64, ptr %pending_size_.i, align 8
   %sub.i = sub nsw i64 0, %3
   %spec.select.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %sub.i)
-  br label %"_ZZNK9grpc_core6chttp217StreamFlowControl19DesiredAnnounceSizeEvENK3$_0clEv.argprom.exit"
+  br label %"_ZZNK9grpc_core6chttp217StreamFlowControl19DesiredAnnounceSizeEvENK3$_0clEv.exit"
 
 if.else10.i:                                      ; preds = %entry
   %cmp.i.i = icmp sgt i64 %0, 1048576
@@ -1924,9 +1924,9 @@ return.sink.split.i:                              ; preds = %if.else10.i, %if.th
   %.pre.i = load i64, ptr %announced_window_delta_9.phi.trans.insert.sink.i, align 8
   %announced_window_delta_.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 24
   %.pre = load i64, ptr %announced_window_delta_.phi.trans.insert, align 8
-  br label %"_ZZNK9grpc_core6chttp217StreamFlowControl19DesiredAnnounceSizeEvENK3$_0clEv.argprom.exit"
+  br label %"_ZZNK9grpc_core6chttp217StreamFlowControl19DesiredAnnounceSizeEvENK3$_0clEv.exit"
 
-"_ZZNK9grpc_core6chttp217StreamFlowControl19DesiredAnnounceSizeEvENK3$_0clEv.argprom.exit": ; preds = %land.lhs.true.i, %return.sink.split.i
+"_ZZNK9grpc_core6chttp217StreamFlowControl19DesiredAnnounceSizeEvENK3$_0clEv.exit": ; preds = %land.lhs.true.i, %return.sink.split.i
   %4 = phi i64 [ %2, %land.lhs.true.i ], [ %.pre, %return.sink.split.i ]
   %retval.0.i = phi i64 [ %spec.select.i, %land.lhs.true.i ], [ %.pre.i, %return.sink.split.i ]
   %sub = sub nsw i64 %retval.0.i, %4

@@ -129,13 +129,13 @@ define internal ptr @H5O__fill_shared_decode(ptr noundef %0, ptr noundef %1, i32
   %12 = load i64, ptr @H5E_OHDR_g, align 8
   %13 = load i64, ptr @H5E_CANTDECODE_g, align 8
   %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_shared_decode, i32 noundef 61, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.11) #8
-  br label %H5O__fill_old_decode.argprom.exit
+  br label %H5O__fill_old_decode.exit
 
 15:                                               ; preds = %8
   %16 = load i32, ptr %3, align 4
   %17 = and i32 %16, -3
   store i32 %17, ptr %3, align 4
-  br label %H5O__fill_old_decode.argprom.exit
+  br label %H5O__fill_old_decode.exit
 
 18:                                               ; preds = %6
   %19 = getelementptr i8, ptr %5, i64 %4
@@ -269,7 +269,7 @@ define internal ptr @H5O__fill_shared_decode(ptr noundef %0, ptr noundef %1, i32
 
 95:                                               ; preds = %40
   store i64 -1, ptr %43, align 8
-  br label %H5O__fill_old_decode.argprom.exit
+  br label %H5O__fill_old_decode.exit
 
 96:                                               ; preds = %93, %89
   %.0.i = phi ptr [ null, %89 ], [ %20, %93 ]
@@ -285,7 +285,7 @@ define internal ptr @H5O__fill_shared_decode(ptr noundef %0, ptr noundef %1, i32
 .thread.i:                                        ; preds = %97, %96
   %.04.i = phi ptr [ %.010.i, %97 ], [ %.0.i, %96 ]
   %99 = icmp eq ptr %.04.i, null
-  br i1 %99, label %.thread.thread16.i, label %H5O__fill_old_decode.argprom.exit
+  br i1 %99, label %.thread.thread16.i, label %H5O__fill_old_decode.exit
 
 .thread.thread16.i:                               ; preds = %.thread.i, %76, %68, %61, %36
   %100 = getelementptr inbounds i8, ptr %20, i64 64
@@ -298,9 +298,9 @@ define internal ptr @H5O__fill_shared_decode(ptr noundef %0, ptr noundef %1, i32
   %105 = load i64, ptr @H5E_OHDR_g, align 8
   %106 = load i64, ptr @H5E_CANTDECODE_g, align 8
   %107 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_shared_decode, i32 noundef 74, i64 noundef %105, i64 noundef %106, ptr noundef nonnull @.str.12) #8
-  br label %H5O__fill_old_decode.argprom.exit
+  br label %H5O__fill_old_decode.exit
 
-H5O__fill_old_decode.argprom.exit:                ; preds = %.thread.i, %95, %15, %104, %11
+H5O__fill_old_decode.exit:                        ; preds = %.thread.i, %95, %15, %104, %11
   %.0 = phi ptr [ null, %11 ], [ %9, %15 ], [ null, %104 ], [ %.04.i, %.thread.i ], [ %20, %95 ]
   ret ptr %.0
 }
@@ -316,13 +316,13 @@ define internal range(i32 -1, 1) i32 @H5O__fill_shared_encode(ptr noundef %0, i1
 8:                                                ; preds = %5
   %9 = tail call i32 @H5O__shared_encode(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %4) #8
   %10 = icmp slt i32 %9, 0
-  br i1 %10, label %11, label %H5O__fill_old_encode.argprom.exit
+  br i1 %10, label %11, label %H5O__fill_old_encode.exit
 
 11:                                               ; preds = %8
   %12 = load i64, ptr @H5E_OHDR_g, align 8
   %13 = load i64, ptr @H5E_CANTENCODE_g, align 8
   %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_shared_encode, i32 noundef 119, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.19) #8
-  br label %H5O__fill_old_encode.argprom.exit
+  br label %H5O__fill_old_encode.exit
 
 15:                                               ; preds = %5
   %16 = getelementptr inbounds i8, ptr %4, i64 56
@@ -347,15 +347,15 @@ define internal range(i32 -1, 1) i32 @H5O__fill_shared_encode(ptr noundef %0, i1
   %31 = getelementptr inbounds i8, ptr %4, i64 64
   %32 = load ptr, ptr %31, align 8
   %.not.i = icmp eq ptr %32, null
-  br i1 %.not.i, label %H5O__fill_old_encode.argprom.exit, label %33
+  br i1 %.not.i, label %H5O__fill_old_encode.exit, label %33
 
 33:                                               ; preds = %15
   %34 = getelementptr inbounds i8, ptr %3, i64 4
   %35 = load i64, ptr %16, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr nonnull align 1 %32, i64 %35, i1 false)
-  br label %H5O__fill_old_encode.argprom.exit
+  br label %H5O__fill_old_encode.exit
 
-H5O__fill_old_encode.argprom.exit:                ; preds = %33, %15, %8, %11
+H5O__fill_old_encode.exit:                        ; preds = %33, %15, %8, %11
   %.0 = phi i32 [ -1, %11 ], [ 0, %8 ], [ 0, %15 ], [ 0, %33 ]
   ret i32 %.0
 }
@@ -772,7 +772,7 @@ define internal range(i32 -1, 1) i32 @H5O__fill_shared_debug(ptr nocapture readn
   br label %15
 
 14:                                               ; preds = %5, %7
-  tail call fastcc void @H5O__fill_debug.argprom.retelim(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef %4)
+  tail call fastcc void @H5O__fill_debug(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef %4)
   br label %15
 
 15:                                               ; preds = %14, %10
@@ -795,13 +795,13 @@ define internal ptr @H5O__fill_new_shared_decode(ptr noundef %0, ptr noundef %1,
   %12 = load i64, ptr @H5E_OHDR_g, align 8
   %13 = load i64, ptr @H5E_CANTDECODE_g, align 8
   %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_new_shared_decode, i32 noundef 61, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.11) #8
-  br label %H5O__fill_new_decode.argprom.exit.thread
+  br label %H5O__fill_new_decode.exit.thread
 
 15:                                               ; preds = %8
   %16 = load i32, ptr %3, align 4
   %17 = and i32 %16, -3
   store i32 %17, ptr %3, align 4
-  br label %H5O__fill_new_decode.argprom.exit.thread
+  br label %H5O__fill_new_decode.exit.thread
 
 18:                                               ; preds = %6
   %19 = getelementptr i8, ptr %5, i64 %4
@@ -814,7 +814,7 @@ define internal ptr @H5O__fill_new_shared_decode(ptr noundef %0, ptr noundef %1,
   %23 = load i64, ptr @H5E_RESOURCE_g, align 8
   %24 = load i64, ptr @H5E_NOSPACE_g, align 8
   %25 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_new_decode, i32 noundef 202, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.13) #8
-  br label %H5O__fill_new_decode.argprom.exit
+  br label %H5O__fill_new_decode.exit
 
 26:                                               ; preds = %18
   %27 = icmp ugt ptr %5, %.ptr132.i
@@ -924,7 +924,7 @@ define internal ptr @H5O__fill_new_shared_decode(ptr noundef %0, ptr noundef %1,
   store i64 %96, ptr %85, align 8
   %97 = getelementptr inbounds i8, ptr %5, i64 8
   %98 = icmp sgt i64 %96, 0
-  br i1 %98, label %99, label %H5O__fill_new_decode.argprom.exit.thread
+  br i1 %98, label %99, label %H5O__fill_new_decode.exit.thread
 
 99:                                               ; preds = %82
   %100 = icmp ugt ptr %97, %.ptr132.i
@@ -958,12 +958,12 @@ define internal ptr @H5O__fill_new_shared_decode(ptr noundef %0, ptr noundef %1,
 
 117:                                              ; preds = %109
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %110, ptr nonnull align 1 %97, i64 %96, i1 false)
-  br label %H5O__fill_new_decode.argprom.exit.thread
+  br label %H5O__fill_new_decode.exit.thread
 
 118:                                              ; preds = %58
   %119 = getelementptr inbounds i8, ptr %20, i64 56
   store i64 -1, ptr %119, align 8
-  br label %H5O__fill_new_decode.argprom.exit.thread
+  br label %H5O__fill_new_decode.exit.thread
 
 120:                                              ; preds = %47
   %121 = icmp slt i64 %4, 2
@@ -1017,7 +1017,7 @@ define internal ptr @H5O__fill_new_shared_decode(ptr noundef %0, ptr noundef %1,
 149:                                              ; preds = %144
   %150 = getelementptr inbounds i8, ptr %20, i64 56
   store i64 -1, ptr %150, align 8
-  br label %H5O__fill_new_decode.argprom.exit.thread
+  br label %H5O__fill_new_decode.exit.thread
 
 151:                                              ; preds = %136
   br i1 %.not135.i, label %197, label %152
@@ -1092,28 +1092,28 @@ define internal ptr @H5O__fill_new_shared_decode(ptr noundef %0, ptr noundef %1,
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %188, ptr nonnull align 1 %176, i64 %175, i1 false)
   %196 = getelementptr inbounds i8, ptr %20, i64 80
   store i8 1, ptr %196, align 8
-  br label %H5O__fill_new_decode.argprom.exit.thread
+  br label %H5O__fill_new_decode.exit.thread
 
 197:                                              ; preds = %151
   %198 = getelementptr inbounds i8, ptr %20, i64 80
   store i8 1, ptr %198, align 8
-  br label %H5O__fill_new_decode.argprom.exit.thread
+  br label %H5O__fill_new_decode.exit.thread
 
 199:                                              ; preds = %191, %183, %158, %145, %132, %125, %113, %105, %78, %54, %43, %33
   %200 = getelementptr inbounds i8, ptr %20, i64 64
   %201 = load ptr, ptr %200, align 8
   %202 = tail call ptr @H5MM_xfree(ptr noundef %201) #8
   %203 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_fill_t_reg_free_list, ptr noundef nonnull %20) #8
-  br label %H5O__fill_new_decode.argprom.exit
+  br label %H5O__fill_new_decode.exit
 
-H5O__fill_new_decode.argprom.exit:                ; preds = %199, %22
+H5O__fill_new_decode.exit:                        ; preds = %199, %22
   %204 = load i64, ptr @H5E_OHDR_g, align 8
   %205 = load i64, ptr @H5E_CANTDECODE_g, align 8
   %206 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_new_shared_decode, i32 noundef 74, i64 noundef %204, i64 noundef %205, ptr noundef nonnull @.str.12) #8
-  br label %H5O__fill_new_decode.argprom.exit.thread
+  br label %H5O__fill_new_decode.exit.thread
 
-H5O__fill_new_decode.argprom.exit.thread:         ; preds = %149, %197, %195, %118, %117, %82, %15, %H5O__fill_new_decode.argprom.exit, %11
-  %.0 = phi ptr [ null, %11 ], [ %9, %15 ], [ null, %H5O__fill_new_decode.argprom.exit ], [ %20, %82 ], [ %20, %117 ], [ %20, %118 ], [ %20, %195 ], [ %20, %197 ], [ %20, %149 ]
+H5O__fill_new_decode.exit.thread:                 ; preds = %149, %197, %195, %118, %117, %82, %15, %H5O__fill_new_decode.exit, %11
+  %.0 = phi ptr [ null, %11 ], [ %9, %15 ], [ null, %H5O__fill_new_decode.exit ], [ %20, %82 ], [ %20, %117 ], [ %20, %118 ], [ %20, %195 ], [ %20, %197 ], [ %20, %149 ]
   ret ptr %.0
 }
 
@@ -1128,13 +1128,13 @@ define internal range(i32 -1, 1) i32 @H5O__fill_new_shared_encode(ptr noundef %0
 8:                                                ; preds = %5
   %9 = tail call i32 @H5O__shared_encode(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %4) #8
   %10 = icmp slt i32 %9, 0
-  br i1 %10, label %11, label %H5O__fill_new_encode.argprom.exit
+  br i1 %10, label %11, label %H5O__fill_new_encode.exit
 
 11:                                               ; preds = %8
   %12 = load i64, ptr @H5E_OHDR_g, align 8
   %13 = load i64, ptr @H5E_CANTENCODE_g, align 8
   %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_new_shared_encode, i32 noundef 119, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.19) #8
-  br label %H5O__fill_new_encode.argprom.exit
+  br label %H5O__fill_new_encode.exit
 
 15:                                               ; preds = %5
   %16 = getelementptr inbounds i8, ptr %4, i64 40
@@ -1163,7 +1163,7 @@ define internal range(i32 -1, 1) i32 @H5O__fill_new_shared_encode(ptr noundef %0
   store i8 %33, ptr %30, align 1
   %34 = load i8, ptr %31, align 8
   %35 = trunc i8 %34 to i1
-  br i1 %35, label %36, label %H5O__fill_new_encode.argprom.exit
+  br i1 %35, label %36, label %H5O__fill_new_encode.exit
 
 36:                                               ; preds = %24
   %37 = getelementptr inbounds i8, ptr %3, i64 4
@@ -1189,17 +1189,17 @@ define internal range(i32 -1, 1) i32 @H5O__fill_new_shared_encode(ptr noundef %0
   %53 = getelementptr inbounds i8, ptr %3, i64 8
   %54 = load i64, ptr %38, align 8
   %55 = icmp sgt i64 %54, 0
-  br i1 %55, label %56, label %H5O__fill_new_encode.argprom.exit
+  br i1 %55, label %56, label %H5O__fill_new_encode.exit
 
 56:                                               ; preds = %36
   %57 = getelementptr inbounds i8, ptr %4, i64 64
   %58 = load ptr, ptr %57, align 8
   %.not58.i = icmp eq ptr %58, null
-  br i1 %.not58.i, label %H5O__fill_new_encode.argprom.exit, label %59
+  br i1 %.not58.i, label %H5O__fill_new_encode.exit, label %59
 
 59:                                               ; preds = %56
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull align 1 %58, i64 %54, i1 false)
-  br label %H5O__fill_new_encode.argprom.exit
+  br label %H5O__fill_new_encode.exit
 
 60:                                               ; preds = %15
   %61 = and i32 %23, 3
@@ -1217,7 +1217,7 @@ define internal range(i32 -1, 1) i32 @H5O__fill_new_shared_encode(ptr noundef %0
 71:                                               ; preds = %60
   %72 = or disjoint i8 %67, 16
   store i8 %72, ptr %19, align 1
-  br label %H5O__fill_new_encode.argprom.exit
+  br label %H5O__fill_new_encode.exit
 
 73:                                               ; preds = %60
   %.not.i = icmp eq i64 %69, 0
@@ -1250,13 +1250,13 @@ define internal range(i32 -1, 1) i32 @H5O__fill_new_shared_encode(ptr noundef %0
   %93 = load ptr, ptr %92, align 8
   %94 = load i64, ptr %68, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %91, ptr align 1 %93, i64 %94, i1 false)
-  br label %H5O__fill_new_encode.argprom.exit
+  br label %H5O__fill_new_encode.exit
 
 95:                                               ; preds = %73
   store i8 %67, ptr %19, align 1
-  br label %H5O__fill_new_encode.argprom.exit
+  br label %H5O__fill_new_encode.exit
 
-H5O__fill_new_encode.argprom.exit:                ; preds = %95, %74, %71, %59, %56, %36, %24, %8, %11
+H5O__fill_new_encode.exit:                        ; preds = %95, %74, %71, %59, %56, %36, %24, %8, %11
   %.0 = phi i32 [ -1, %11 ], [ 0, %8 ], [ 0, %24 ], [ 0, %36 ], [ 0, %56 ], [ 0, %59 ], [ 0, %71 ], [ 0, %74 ], [ 0, %95 ]
   ret i32 %.0
 }
@@ -1272,13 +1272,13 @@ define internal i64 @H5O__fill_new_shared_size(ptr noundef %0, i1 noundef zeroex
 6:                                                ; preds = %3
   %7 = tail call i64 @H5O__shared_size(ptr noundef %0, ptr noundef nonnull %2) #8
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %9, label %H5O__fill_new_size.argprom.exit
+  br i1 %8, label %9, label %H5O__fill_new_size.exit
 
 9:                                                ; preds = %6
   %10 = load i64, ptr @H5E_OHDR_g, align 8
   %11 = load i64, ptr @H5E_CANTGET_g, align 8
   %12 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_new_shared_size, i32 noundef 167, i64 noundef %10, i64 noundef %11, ptr noundef nonnull @.str.21) #8
-  br label %H5O__fill_new_size.argprom.exit
+  br label %H5O__fill_new_size.exit
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %2, i64 40
@@ -1290,7 +1290,7 @@ define internal i64 @H5O__fill_new_shared_size(ptr noundef %0, i1 noundef zeroex
   %18 = getelementptr inbounds i8, ptr %2, i64 80
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
-  br i1 %20, label %.sink.split.i, label %H5O__fill_new_size.argprom.exit
+  br i1 %20, label %.sink.split.i, label %H5O__fill_new_size.exit
 
 .sink.split.i:                                    ; preds = %17, %13
   %.sink4.i = phi i64 [ 8, %17 ], [ 6, %13 ]
@@ -1300,9 +1300,9 @@ define internal i64 @H5O__fill_new_shared_size(ptr noundef %0, i1 noundef zeroex
   %23 = icmp sgt i64 %22, 0
   %24 = add nuw i64 %22, %.sink4.i
   %spec.select11.i = select i1 %23, i64 %24, i64 %.sink2.i
-  br label %H5O__fill_new_size.argprom.exit
+  br label %H5O__fill_new_size.exit
 
-H5O__fill_new_size.argprom.exit:                  ; preds = %.sink.split.i, %17, %6, %9
+H5O__fill_new_size.exit:                          ; preds = %.sink.split.i, %17, %6, %9
   %.0 = phi i64 [ 0, %9 ], [ %7, %6 ], [ 4, %17 ], [ %spec.select11.i, %.sink.split.i ]
   ret i64 %.0
 }
@@ -1418,7 +1418,7 @@ define internal range(i32 -1, 1) i32 @H5O__fill_new_shared_debug(ptr nocapture r
   br label %15
 
 14:                                               ; preds = %5, %7
-  tail call fastcc void @H5O__fill_debug.argprom.retelim(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef %4)
+  tail call fastcc void @H5O__fill_debug(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef %4)
   br label %15
 
 15:                                               ; preds = %14, %10
@@ -1740,7 +1740,7 @@ declare i32 @H5O__shared_post_copy_file(ptr noundef, ptr noundef, ptr noundef, p
 declare i32 @H5O__shared_debug(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @H5O__fill_debug.argprom.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @H5O__fill_debug(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.30, i32 noundef %2, ptr noundef nonnull @.str.31, i32 noundef %3, ptr noundef nonnull @.str.32) #8
   %7 = getelementptr inbounds i8, ptr %0, i64 72

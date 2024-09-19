@@ -433,7 +433,7 @@ init.check.i:                                     ; preds = %sw.bb
   br i1 %tobool.not.i, label %_ZN5arrow12_GLOBAL__N_114IsDebugEnabledEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  %call.i = invoke fastcc noundef zeroext i1 @"_ZZN5arrow12_GLOBAL__N_114IsDebugEnabledEvENK3$_0clEv.argprom"()
+  %call.i = invoke fastcc noundef zeroext i1 @"_ZZN5arrow12_GLOBAL__N_114IsDebugEnabledEvENK3$_0clEv"()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -479,7 +479,7 @@ init.check.i7:                                    ; preds = %sw.bb11
   br i1 %tobool.not.i8, label %_ZN5arrow12_GLOBAL__N_114IsDebugEnabledEv.exit14, label %init.i9
 
 init.i9:                                          ; preds = %init.check.i7
-  %call.i10 = invoke fastcc noundef zeroext i1 @"_ZZN5arrow12_GLOBAL__N_114IsDebugEnabledEvENK3$_0clEv.argprom"()
+  %call.i10 = invoke fastcc noundef zeroext i1 @"_ZZN5arrow12_GLOBAL__N_114IsDebugEnabledEvENK3$_0clEv"()
           to label %invoke.cont.i12 unwind label %lpad.i11
 
 invoke.cont.i12:                                  ; preds = %init.i9
@@ -561,7 +561,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN5arrow12_GLOBAL__N_119UserSelectedBackendEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  %call.i = invoke fastcc i16 @"_ZZN5arrow12_GLOBAL__N_119UserSelectedBackendEvENK3$_0clEv.argprom"()
+  %call.i = invoke fastcc i16 @"_ZZN5arrow12_GLOBAL__N_119UserSelectedBackendEvENK3$_0clEv"()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -659,7 +659,7 @@ init.check.i.i:                                   ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN5arrow11GlobalState18system_memory_poolEv.exit, label %init.i.i
 
 init.i.i:                                         ; preds = %init.check.i.i
-  %call.i.i = invoke fastcc noundef zeroext i1 @"_ZZN5arrow12_GLOBAL__N_114IsDebugEnabledEvENK3$_0clEv.argprom"()
+  %call.i.i = invoke fastcc noundef zeroext i1 @"_ZZN5arrow12_GLOBAL__N_114IsDebugEnabledEvENK3$_0clEv"()
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
@@ -695,7 +695,7 @@ init.check.i.i:                                   ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN5arrow11GlobalState20jemalloc_memory_poolEv.exit, label %init.i.i
 
 init.i.i:                                         ; preds = %init.check.i.i
-  %call.i.i = invoke fastcc noundef zeroext i1 @"_ZZN5arrow12_GLOBAL__N_114IsDebugEnabledEvENK3$_0clEv.argprom"()
+  %call.i.i = invoke fastcc noundef zeroext i1 @"_ZZN5arrow12_GLOBAL__N_114IsDebugEnabledEvENK3$_0clEv"()
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
@@ -748,7 +748,7 @@ init.check.i.i:                                   ; preds = %sw.bb
   br i1 %tobool.not.i.i, label %_ZN5arrow11GlobalState18system_memory_poolEv.exit, label %init.i.i
 
 init.i.i:                                         ; preds = %init.check.i.i
-  %call.i.i = invoke fastcc noundef zeroext i1 @"_ZZN5arrow12_GLOBAL__N_114IsDebugEnabledEvENK3$_0clEv.argprom"()
+  %call.i.i = invoke fastcc noundef zeroext i1 @"_ZZN5arrow12_GLOBAL__N_114IsDebugEnabledEvENK3$_0clEv"()
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
@@ -785,7 +785,7 @@ init.check.i.i5:                                  ; preds = %sw.bb2
   br i1 %tobool.not.i.i6, label %_ZN5arrow11GlobalState20jemalloc_memory_poolEv.exit, label %init.i.i7
 
 init.i.i7:                                        ; preds = %init.check.i.i5
-  %call.i.i8 = invoke fastcc noundef zeroext i1 @"_ZZN5arrow12_GLOBAL__N_114IsDebugEnabledEvENK3$_0clEv.argprom"()
+  %call.i.i8 = invoke fastcc noundef zeroext i1 @"_ZZN5arrow12_GLOBAL__N_114IsDebugEnabledEvENK3$_0clEv"()
           to label %invoke.cont.i.i10 unwind label %lpad.i.i9
 
 invoke.cont.i.i10:                                ; preds = %init.i.i7
@@ -2478,7 +2478,7 @@ entry:
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc range(i16 0, 512) i16 @"_ZZN5arrow12_GLOBAL__N_119UserSelectedBackendEvENK3$_0clEv.argprom"() unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc range(i16 0, 512) i16 @"_ZZN5arrow12_GLOBAL__N_119UserSelectedBackendEvENK3$_0clEv"() unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %__guard.i = alloca %struct._Guard, align 8
   %supported.i = alloca %"class.std::vector", align 8
@@ -3253,7 +3253,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN5arrow12_GLOBAL__N_114IsDebugEnabledEvENK3$_0clEv.argprom"() unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZN5arrow12_GLOBAL__N_114IsDebugEnabledEvENK3$_0clEv"() unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp.i.i55 = alloca %"class.std::function", align 8
   %ref.tmp.i.i19 = alloca %"class.std::function", align 8
@@ -6944,13 +6944,13 @@ define internal void @_ZNSt6vectorIN5arrow12_GLOBAL__N_116SupportedBackendESaIS2
 invoke.cont:
   %this.val = load ptr, ptr %this, align 8
   %tobool.not.i.i = icmp eq ptr %this.val, null
-  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_116SupportedBackendESaIS2_EED2Ev.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_116SupportedBackendESaIS2_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   tail call void @_ZdlPv(ptr noundef nonnull %this.val) #29
-  br label %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_116SupportedBackendESaIS2_EED2Ev.argprom.exit
+  br label %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_116SupportedBackendESaIS2_EED2Ev.exit
 
-_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_116SupportedBackendESaIS2_EED2Ev.argprom.exit: ; preds = %invoke.cont, %if.then.i.i
+_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_116SupportedBackendESaIS2_EED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
   ret void
 }
 

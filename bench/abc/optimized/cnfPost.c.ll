@@ -47,22 +47,22 @@ define void @Cnf_ManPostprocess_old(ptr nocapture noundef readonly %0) local_unn
   %.fr = freeze i32 %19
   %20 = lshr i32 %.fr, 29
   %.not = icmp ult i32 %.fr, 536870912
-  br i1 %.not, label %.critedge2, label %Aig_ManObj.argprom.exit.lr.ph
+  br i1 %.not, label %.critedge2, label %Aig_ManObj.exit.lr.ph
 
-Aig_ManObj.argprom.exit.lr.ph:                    ; preds = %.preheader
+Aig_ManObj.exit.lr.ph:                            ; preds = %.preheader
   %21 = lshr i32 %.fr, 15
   %22 = and i32 %21, 4094
   %.not37 = icmp eq i32 %22, 0
-  br i1 %.not37, label %.critedge2, label %Aig_ManObj.argprom.exit.preheader
+  br i1 %.not37, label %.critedge2, label %Aig_ManObj.exit.preheader
 
-Aig_ManObj.argprom.exit.preheader:                ; preds = %Aig_ManObj.argprom.exit.lr.ph
+Aig_ManObj.exit.preheader:                        ; preds = %Aig_ManObj.exit.lr.ph
   %wide.trip.count = zext nneg i32 %20 to i64
-  br label %Aig_ManObj.argprom.exit
+  br label %Aig_ManObj.exit
 
-Aig_ManObj.argprom.exit:                          ; preds = %Aig_ManObj.argprom.exit.preheader, %Aig_ManObj.argprom.exit
-  %indvars.iv = phi i64 [ 0, %Aig_ManObj.argprom.exit.preheader ], [ %indvars.iv.next, %Aig_ManObj.argprom.exit ]
-  %.246 = phi i32 [ %.02751, %Aig_ManObj.argprom.exit.preheader ], [ %.3, %Aig_ManObj.argprom.exit ]
-  %.23045 = phi i32 [ %.02850, %Aig_ManObj.argprom.exit.preheader ], [ %.331, %Aig_ManObj.argprom.exit ]
+Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.preheader, %Aig_ManObj.exit
+  %indvars.iv = phi i64 [ 0, %Aig_ManObj.exit.preheader ], [ %indvars.iv.next, %Aig_ManObj.exit ]
+  %.246 = phi i32 [ %.02751, %Aig_ManObj.exit.preheader ], [ %.3, %Aig_ManObj.exit ]
+  %.23045 = phi i32 [ %.02850, %Aig_ManObj.exit.preheader ], [ %.331, %Aig_ManObj.exit ]
   %23 = getelementptr inbounds [4 x i32], ptr inttoptr (i64 8 to ptr), i64 0, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
   %25 = sext i32 %24 to i64
@@ -83,11 +83,11 @@ Aig_ManObj.argprom.exit:                          ; preds = %Aig_ManObj.argprom.
   %.3 = add nsw i32 %.246, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge2, label %Aig_ManObj.argprom.exit, !llvm.loop !4
+  br i1 %exitcond.not, label %.critedge2, label %Aig_ManObj.exit, !llvm.loop !4
 
-.critedge2:                                       ; preds = %Aig_ManObj.argprom.exit, %Aig_ManObj.argprom.exit.lr.ph, %.preheader, %8, %12
-  %.129 = phi i32 [ %.02850, %8 ], [ %.02850, %12 ], [ %.02850, %.preheader ], [ %.02850, %Aig_ManObj.argprom.exit.lr.ph ], [ %.331, %Aig_ManObj.argprom.exit ]
-  %.1 = phi i32 [ %.02751, %8 ], [ %.02751, %12 ], [ %.02751, %.preheader ], [ %.02751, %Aig_ManObj.argprom.exit.lr.ph ], [ %.3, %Aig_ManObj.argprom.exit ]
+.critedge2:                                       ; preds = %Aig_ManObj.exit, %Aig_ManObj.exit.lr.ph, %.preheader, %8, %12
+  %.129 = phi i32 [ %.02850, %8 ], [ %.02850, %12 ], [ %.02850, %.preheader ], [ %.02850, %Aig_ManObj.exit.lr.ph ], [ %.331, %Aig_ManObj.exit ]
+  %.1 = phi i32 [ %.02751, %8 ], [ %.02751, %12 ], [ %.02751, %.preheader ], [ %.02751, %Aig_ManObj.exit.lr.ph ], [ %.3, %Aig_ManObj.exit ]
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
   br i1 %exitcond62.not, label %.critedge, label %8, !llvm.loop !6
@@ -257,14 +257,14 @@ define void @Cnf_ManPostprocess(ptr noundef %0) local_unnamed_addr #2 {
   %24 = load i8, ptr %.val87, align 8
   %25 = sext i8 %24 to i32
   %26 = icmp sgt i8 %24, 0
-  br i1 %26, label %Aig_ManObj.argprom.exit.preheader, label %.critedge4
+  br i1 %26, label %Aig_ManObj.exit.preheader, label %.critedge4
 
-Aig_ManObj.argprom.exit.preheader:                ; preds = %21
+Aig_ManObj.exit.preheader:                        ; preds = %21
   %wide.trip.count = zext nneg i32 %25 to i64
-  br label %Aig_ManObj.argprom.exit
+  br label %Aig_ManObj.exit
 
-Aig_ManObj.argprom.exit:                          ; preds = %Aig_ManObj.argprom.exit.preheader, %44
-  %indvars.iv = phi i64 [ 0, %Aig_ManObj.argprom.exit.preheader ], [ %indvars.iv.next, %44 ]
+Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.preheader, %44
+  %indvars.iv = phi i64 [ 0, %Aig_ManObj.exit.preheader ], [ %indvars.iv.next, %44 ]
   %27 = getelementptr inbounds [0 x i32], ptr %23, i64 0, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
@@ -273,7 +273,7 @@ Aig_ManObj.argprom.exit:                          ; preds = %Aig_ManObj.argprom.
   %.not72 = icmp eq ptr %31, null
   br i1 %.not72, label %.critedge2, label %32
 
-32:                                               ; preds = %Aig_ManObj.argprom.exit
+32:                                               ; preds = %Aig_ManObj.exit
   %33 = getelementptr inbounds [16 x i32], ptr %2, i64 0, i64 %indvars.iv
   %34 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %34, ptr %33, align 4
@@ -299,9 +299,9 @@ Aig_ManObj.argprom.exit:                          ; preds = %Aig_ManObj.argprom.
   store i32 %45, ptr %46, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge2, label %Aig_ManObj.argprom.exit, !llvm.loop !9
+  br i1 %exitcond.not, label %.critedge2, label %Aig_ManObj.exit, !llvm.loop !9
 
-.critedge2:                                       ; preds = %Aig_ManObj.argprom.exit, %44
+.critedge2:                                       ; preds = %Aig_ManObj.exit, %44
   %.not = icmp eq i8 %24, 1
   br i1 %.not, label %.lr.ph, label %.lr.ph.us.preheader
 
@@ -356,9 +356,9 @@ Aig_ManObj.argprom.exit:                          ; preds = %Aig_ManObj.argprom.
   %65 = getelementptr i8, ptr %64, i64 32
   %.val85 = load ptr, ptr %65, align 8
   %.not.i91 = icmp eq ptr %.val85, null
-  br i1 %.not.i91, label %.critedge4, label %Aig_ManObj.argprom.exit93
+  br i1 %.not.i91, label %.critedge4, label %Aig_ManObj.exit93
 
-Aig_ManObj.argprom.exit93:                        ; preds = %63
+Aig_ManObj.exit93:                                ; preds = %63
   %66 = getelementptr inbounds [16 x i32], ptr %2, i64 0, i64 %indvars.iv119
   %67 = load i32, ptr %66, align 4
   %68 = sext i32 %67 to i64
@@ -372,7 +372,7 @@ Aig_ManObj.argprom.exit93:                        ; preds = %63
   %.not74 = icmp eq ptr %74, null
   br i1 %.not74, label %.critedge4, label %75
 
-75:                                               ; preds = %Aig_ManObj.argprom.exit93
+75:                                               ; preds = %Aig_ManObj.exit93
   %76 = getelementptr i8, ptr %74, i64 24
   %.val82 = load i64, ptr %76, align 8
   %77 = trunc i64 %.val82 to i32
@@ -430,7 +430,7 @@ Aig_ManObj.argprom.exit93:                        ; preds = %63
   %104 = icmp slt i64 %indvars.iv.next120, %103
   br i1 %104, label %63, label %.critedge4, !llvm.loop !12
 
-.critedge4:                                       ; preds = %Aig_ManObj.argprom.exit93, %101, %63, %21, %14, %.lr.ph111, %99
+.critedge4:                                       ; preds = %Aig_ManObj.exit93, %101, %63, %21, %14, %.lr.ph111, %99
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %105 = load ptr, ptr %0, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 32

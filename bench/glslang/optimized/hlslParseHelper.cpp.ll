@@ -2869,7 +2869,7 @@ define noundef range(i32 0, 41) i32 @_ZN7glslang16HlslParseContext19getLayoutFro
   %10 = getelementptr inbounds i8, ptr %9, i64 344
   %11 = load ptr, ptr %10, align 8
   tail call void (ptr, ptr, ptr, ptr, ptr, ...) %11(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.5) #24
-  br label %"_ZZN7glslang16HlslParseContext19getLayoutFromTxTypeERKNS_10TSourceLocERKNS_5TTypeEENK3$_0clENS_13TLayoutFormatES8_S8_.argprom.argprom.argprom.exit"
+  br label %"_ZZN7glslang16HlslParseContext19getLayoutFromTxTypeERKNS_10TSourceLocERKNS_5TTypeEENK3$_0clENS_13TLayoutFormatES8_S8_.exit"
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr %2, align 8
@@ -2892,14 +2892,14 @@ define noundef range(i32 0, 41) i32 @_ZN7glslang16HlslParseContext19getLayoutFro
   %23 = getelementptr i8, ptr %.val.val, i64 1235
   %.val.val.val = load i8, ptr %23, align 1
   %24 = trunc i8 %.val.val.val to i1
-  br i1 %24, label %"_ZZN7glslang16HlslParseContext19getLayoutFromTxTypeERKNS_10TSourceLocERKNS_5TTypeEENK3$_0clENS_13TLayoutFormatES8_S8_.argprom.argprom.argprom.exit", label %25
+  br i1 %24, label %"_ZZN7glslang16HlslParseContext19getLayoutFromTxTypeERKNS_10TSourceLocERKNS_5TTypeEENK3$_0clENS_13TLayoutFormatES8_S8_.exit", label %25
 
 25:                                               ; preds = %21
   %26 = icmp eq i32 %16, 1
   %27 = icmp eq i32 %16, 2
   %28 = select i1 %27, i32 7, i32 1
   %29 = select i1 %26, i32 3, i32 %28
-  br label %"_ZZN7glslang16HlslParseContext19getLayoutFromTxTypeERKNS_10TSourceLocERKNS_5TTypeEENK3$_0clENS_13TLayoutFormatES8_S8_.argprom.argprom.argprom.exit"
+  br label %"_ZZN7glslang16HlslParseContext19getLayoutFromTxTypeERKNS_10TSourceLocERKNS_5TTypeEENK3$_0clENS_13TLayoutFormatES8_S8_.exit"
 
 30:                                               ; preds = %12
   %31 = getelementptr inbounds i8, ptr %0, i64 56
@@ -2907,14 +2907,14 @@ define noundef range(i32 0, 41) i32 @_ZN7glslang16HlslParseContext19getLayoutFro
   %32 = getelementptr i8, ptr %.val8.val, i64 1235
   %.val8.val.val = load i8, ptr %32, align 1
   %33 = trunc i8 %.val8.val.val to i1
-  br i1 %33, label %"_ZZN7glslang16HlslParseContext19getLayoutFromTxTypeERKNS_10TSourceLocERKNS_5TTypeEENK3$_0clENS_13TLayoutFormatES8_S8_.argprom.argprom.argprom.exit", label %34
+  br i1 %33, label %"_ZZN7glslang16HlslParseContext19getLayoutFromTxTypeERKNS_10TSourceLocERKNS_5TTypeEENK3$_0clENS_13TLayoutFormatES8_S8_.exit", label %34
 
 34:                                               ; preds = %30
   %35 = icmp eq i32 %16, 1
   %36 = icmp eq i32 %16, 2
   %37 = select i1 %36, i32 28, i32 23
   %38 = select i1 %35, i32 26, i32 %37
-  br label %"_ZZN7glslang16HlslParseContext19getLayoutFromTxTypeERKNS_10TSourceLocERKNS_5TTypeEENK3$_0clENS_13TLayoutFormatES8_S8_.argprom.argprom.argprom.exit"
+  br label %"_ZZN7glslang16HlslParseContext19getLayoutFromTxTypeERKNS_10TSourceLocERKNS_5TTypeEENK3$_0clENS_13TLayoutFormatES8_S8_.exit"
 
 39:                                               ; preds = %12
   %40 = getelementptr inbounds i8, ptr %0, i64 56
@@ -2922,23 +2922,23 @@ define noundef range(i32 0, 41) i32 @_ZN7glslang16HlslParseContext19getLayoutFro
   %41 = getelementptr i8, ptr %.val10.val, i64 1235
   %.val10.val.val = load i8, ptr %41, align 1
   %42 = trunc i8 %.val10.val.val to i1
-  br i1 %42, label %"_ZZN7glslang16HlslParseContext19getLayoutFromTxTypeERKNS_10TSourceLocERKNS_5TTypeEENK3$_0clENS_13TLayoutFormatES8_S8_.argprom.argprom.argprom.exit", label %43
+  br i1 %42, label %"_ZZN7glslang16HlslParseContext19getLayoutFromTxTypeERKNS_10TSourceLocERKNS_5TTypeEENK3$_0clENS_13TLayoutFormatES8_S8_.exit", label %43
 
 43:                                               ; preds = %39
   %44 = icmp eq i32 %16, 1
   %45 = icmp eq i32 %16, 2
   %46 = select i1 %45, i32 40, i32 35
   %47 = select i1 %44, i32 38, i32 %46
-  br label %"_ZZN7glslang16HlslParseContext19getLayoutFromTxTypeERKNS_10TSourceLocERKNS_5TTypeEENK3$_0clENS_13TLayoutFormatES8_S8_.argprom.argprom.argprom.exit"
+  br label %"_ZZN7glslang16HlslParseContext19getLayoutFromTxTypeERKNS_10TSourceLocERKNS_5TTypeEENK3$_0clENS_13TLayoutFormatES8_S8_.exit"
 
 48:                                               ; preds = %12
   %49 = load ptr, ptr %0, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 344
   %51 = load ptr, ptr %50, align 8
   tail call void (ptr, ptr, ptr, ptr, ptr, ...) %51(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.5) #24
-  br label %"_ZZN7glslang16HlslParseContext19getLayoutFromTxTypeERKNS_10TSourceLocERKNS_5TTypeEENK3$_0clENS_13TLayoutFormatES8_S8_.argprom.argprom.argprom.exit"
+  br label %"_ZZN7glslang16HlslParseContext19getLayoutFromTxTypeERKNS_10TSourceLocERKNS_5TTypeEENK3$_0clENS_13TLayoutFormatES8_S8_.exit"
 
-"_ZZN7glslang16HlslParseContext19getLayoutFromTxTypeERKNS_10TSourceLocERKNS_5TTypeEENK3$_0clENS_13TLayoutFormatES8_S8_.argprom.argprom.argprom.exit": ; preds = %43, %39, %34, %30, %25, %21, %48, %8
+"_ZZN7glslang16HlslParseContext19getLayoutFromTxTypeERKNS_10TSourceLocERKNS_5TTypeEENK3$_0clENS_13TLayoutFormatES8_S8_.exit": ; preds = %43, %39, %34, %30, %25, %21, %48, %8
   %.0 = phi i32 [ 0, %8 ], [ 0, %48 ], [ %29, %25 ], [ 0, %21 ], [ %38, %34 ], [ 0, %30 ], [ %47, %43 ], [ 0, %39 ]
   ret i32 %.0
 }
@@ -3499,9 +3499,9 @@ switch.lookup:                                    ; preds = %164
   %282 = load ptr, ptr %281, align 8
   %283 = call noundef ptr @_ZN7glslang13TIntermediate9addSymbolERKNS_9TVariableERKNS_10TSourceLocE(ptr noundef nonnull align 8 dereferenceable(2024) %282, ptr noundef nonnull align 8 dereferenceable(236) %181, ptr noundef nonnull align 8 dereferenceable(24) %1) #24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  br i1 %.not114, label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.argprom.exit.thread", label %284
+  br i1 %.not114, label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit.thread", label %284
 
-"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.argprom.exit.thread": ; preds = %178
+"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit.thread": ; preds = %178
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %393
 
@@ -3612,25 +3612,25 @@ switch.lookup:                                    ; preds = %164
   %.02943.i.i.i.i.i = phi ptr [ %371, %370 ], [ %5, %.lr.ph.preheader.i.i.i.i.i ]
   %.029.val.i.i.i.i.i = load i8, ptr %.02943.i.i.i.i.i, align 1
   %360 = trunc i8 %.029.val.i.i.i.i.i to i1
-  br i1 %360, label %361, label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.argprom.exit"
+  br i1 %360, label %361, label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit"
 
 361:                                              ; preds = %.lr.ph.i.i.i.i.i
   %362 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 1
   %.val.i.i.i.i.i = load i8, ptr %362, align 1
   %363 = trunc i8 %.val.i.i.i.i.i to i1
-  br i1 %363, label %364, label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.argprom.exit.loopexit.split.loop.exit207"
+  br i1 %363, label %364, label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit.loopexit.split.loop.exit207"
 
 364:                                              ; preds = %361
   %365 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 2
   %.val30.i.i.i.i.i = load i8, ptr %365, align 1
   %366 = trunc i8 %.val30.i.i.i.i.i to i1
-  br i1 %366, label %367, label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.argprom.exit.loopexit.split.loop.exit205"
+  br i1 %366, label %367, label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit.loopexit.split.loop.exit205"
 
 367:                                              ; preds = %364
   %368 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 3
   %.val31.i.i.i.i.i = load i8, ptr %368, align 1
   %369 = trunc i8 %.val31.i.i.i.i.i to i1
-  br i1 %369, label %370, label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.argprom.exit.loopexit.split.loop.exit"
+  br i1 %369, label %370, label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit.loopexit.split.loop.exit"
 
 370:                                              ; preds = %367
   %371 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 4
@@ -3642,7 +3642,7 @@ switch.lookup:                                    ; preds = %164
   %.029.lcssa.i.i.i.i.i = phi ptr [ %5, %.loopexit.i ], [ %scevgep.i.i.i.i.i, %370 ]
   %.pre-phi.i.i.i.i.i = ptrtoint ptr %.029.lcssa.i.i.i.i.i to i64
   %374 = sub i64 %356, %.pre-phi.i.i.i.i.i
-  switch i64 %374, label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.argprom.exit.thread191" [
+  switch i64 %374, label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit.thread191" [
     i64 3, label %375
     i64 2, label %379
     i64 1, label %383
@@ -3651,7 +3651,7 @@ switch.lookup:                                    ; preds = %164
 375:                                              ; preds = %._crit_edge.i.i.i.i.i
   %.029.val32.i.i.i.i.i = load i8, ptr %.029.lcssa.i.i.i.i.i, align 1
   %376 = trunc i8 %.029.val32.i.i.i.i.i to i1
-  br i1 %376, label %377, label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.argprom.exit"
+  br i1 %376, label %377, label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit"
 
 377:                                              ; preds = %375
   %378 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 1
@@ -3661,7 +3661,7 @@ switch.lookup:                                    ; preds = %164
   %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %378, %377 ]
   %.1.val.i.i.i.i.i = load i8, ptr %.1.i.i.i.i.i, align 1
   %380 = trunc i8 %.1.val.i.i.i.i.i to i1
-  br i1 %380, label %381, label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.argprom.exit"
+  br i1 %380, label %381, label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit"
 
 381:                                              ; preds = %379
   %382 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 1
@@ -3671,38 +3671,38 @@ switch.lookup:                                    ; preds = %164
   %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %382, %381 ]
   %.2.val.i.i.i.i.i = load i8, ptr %.2.i.i.i.i.i, align 1
   %384 = trunc i8 %.2.val.i.i.i.i.i to i1
-  br i1 %384, label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.argprom.exit.thread191", label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.argprom.exit"
+  br i1 %384, label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit.thread191", label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit"
 
-"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.argprom.exit.thread191": ; preds = %._crit_edge.i.i.i.i.i, %383
+"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit.thread191": ; preds = %._crit_edge.i.i.i.i.i, %383
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %393
 
-"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.argprom.exit.loopexit.split.loop.exit": ; preds = %367
+"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit.loopexit.split.loop.exit": ; preds = %367
   %385 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 3
-  br label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.argprom.exit"
+  br label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit"
 
-"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.argprom.exit.loopexit.split.loop.exit205": ; preds = %364
+"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit.loopexit.split.loop.exit205": ; preds = %364
   %386 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 2
-  br label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.argprom.exit"
+  br label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit"
 
-"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.argprom.exit.loopexit.split.loop.exit207": ; preds = %361
+"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit.loopexit.split.loop.exit207": ; preds = %361
   %387 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 1
-  br label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.argprom.exit"
+  br label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit"
 
-"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.argprom.exit.loopexit.split.loop.exit", %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.argprom.exit.loopexit.split.loop.exit205", %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.argprom.exit.loopexit.split.loop.exit207", %375, %379, %383
-  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %375 ], [ %.1.i.i.i.i.i, %379 ], [ %.2.i.i.i.i.i, %383 ], [ %385, %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.argprom.exit.loopexit.split.loop.exit" ], [ %386, %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.argprom.exit.loopexit.split.loop.exit205" ], [ %387, %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.argprom.exit.loopexit.split.loop.exit207" ], [ %.02943.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit.loopexit.split.loop.exit", %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit.loopexit.split.loop.exit205", %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit.loopexit.split.loop.exit207", %375, %379, %383
+  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %375 ], [ %.1.i.i.i.i.i, %379 ], [ %.2.i.i.i.i.i, %383 ], [ %385, %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit.loopexit.split.loop.exit" ], [ %386, %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit.loopexit.split.loop.exit205" ], [ %387, %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit.loopexit.split.loop.exit207" ], [ %.02943.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %388 = icmp eq ptr %355, %.028.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br i1 %388, label %393, label %389
 
-389:                                              ; preds = %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.argprom.exit"
+389:                                              ; preds = %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit"
   %390 = load ptr, ptr %0, align 8
   %391 = getelementptr inbounds i8, ptr %390, i64 344
   %392 = load ptr, ptr %391, align 8
   call void (ptr, ptr, ptr, ptr, ptr, ...) %392(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.5) #24
   br label %393
 
-393:                                              ; preds = %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.argprom.exit.thread191", %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.argprom.exit.thread", %389, %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.argprom.exit"
+393:                                              ; preds = %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit.thread191", %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit.thread", %389, %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit"
   br i1 %switch.masked, label %394, label %450
 
 394:                                              ; preds = %393
@@ -21138,7 +21138,7 @@ _ZNSt3mapIxN7glslang16HlslParseContext12TFlattenDataESt4lessIxENS0_14pool_alloca
 .lr.ph:                                           ; preds = %_ZNSt3mapIxN7glslang16HlslParseContext12TFlattenDataESt4lessIxENS0_14pool_allocatorISt4pairIKxS2_EEEEixEOx.exit, %.lr.ph
   %.sroa.041.049 = phi ptr [ %41, %.lr.ph ], [ %37, %_ZNSt3mapIxN7glslang16HlslParseContext12TFlattenDataESt4lessIxENS0_14pool_allocatorISt4pairIKxS2_EEEEixEOx.exit ]
   %40 = load ptr, ptr %.sroa.041.049, align 8
-  call fastcc void @"_ZZN7glslang16HlslParseContext17assignToInterfaceERNS_9TVariableEENK3$_0clES2_.argprom"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(236) %40)
+  call fastcc void @"_ZZN7glslang16HlslParseContext17assignToInterfaceERNS_9TVariableEENK3$_0clES2_"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(236) %40)
   %41 = getelementptr inbounds i8, ptr %.sroa.041.049, i64 8
   %42 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %41, %42
@@ -21212,7 +21212,7 @@ _ZNKSt8_Rb_treeIxSt4pairIKxPN7glslang9TVariableEESt10_Select1stIS5_ESt4lessIxENS
 
 .loopexit.sink.split:                             ; preds = %_ZNK7glslang16HlslParseContext8wasSplitEx.exit, %_ZNKSt8_Rb_treeIxSt4pairIKxPN7glslang9TVariableEESt10_Select1stIS5_ESt4lessIxENS2_14pool_allocatorIS5_EEE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZNK7glslang16HlslParseContext12wasFlattenedEx.exit.thread, %_ZNKSt8_Rb_treeIxSt4pairIKxPN7glslang9TVariableEESt10_Select1stIS5_ESt4lessIxENS2_14pool_allocatorIS5_EEE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i40
   %.sink = phi ptr [ %71, %_ZNKSt8_Rb_treeIxSt4pairIKxPN7glslang9TVariableEESt10_Select1stIS5_ESt4lessIxENS2_14pool_allocatorIS5_EEE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i40 ], [ %1, %_ZNK7glslang16HlslParseContext12wasFlattenedEx.exit.thread ], [ %1, %_ZNKSt8_Rb_treeIxSt4pairIKxPN7glslang9TVariableEESt10_Select1stIS5_ESt4lessIxENS2_14pool_allocatorIS5_EEE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %1, %_ZNK7glslang16HlslParseContext8wasSplitEx.exit ]
-  tail call fastcc void @"_ZZN7glslang16HlslParseContext17assignToInterfaceERNS_9TVariableEENK3$_0clES2_.argprom"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(236) %.sink)
+  tail call fastcc void @"_ZZN7glslang16HlslParseContext17assignToInterfaceERNS_9TVariableEENK3$_0clES2_"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(236) %.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %_ZNSt3mapIxN7glslang16HlslParseContext12TFlattenDataESt4lessIxENS0_14pool_allocatorISt4pairIKxS2_EEEEixEOx.exit
@@ -21220,7 +21220,7 @@ _ZNKSt8_Rb_treeIxSt4pairIKxPN7glslang9TVariableEESt10_Select1stIS5_ESt4lessIxENS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN7glslang16HlslParseContext17assignToInterfaceERNS_9TVariableEENK3$_0clES2_.argprom"(ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(236) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN7glslang16HlslParseContext17assignToInterfaceERNS_9TVariableEENK3$_0clES2_"(ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(236) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.glslang::TType", align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 104
@@ -23221,7 +23221,7 @@ _ZN7glslang16HlslParseContext16isEntrypointNameERKNSt7__cxx1112basic_stringIcSt1
   br i1 %.not, label %40, label %39
 
 39:                                               ; preds = %32
-  tail call fastcc void @"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_0clERNS_9TVariableE.argprom"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(236) %38)
+  tail call fastcc void @"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_0clERNS_9TVariableE"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(236) %38)
   br label %40
 
 40:                                               ; preds = %39, %32
@@ -23244,18 +23244,18 @@ _ZN7glslang16HlslParseContext16isEntrypointNameERKNSt7__cxx1112basic_stringIcSt1
   %50 = tail call noundef nonnull align 8 dereferenceable(152) ptr %49(ptr noundef nonnull align 8 dereferenceable(236) %46) #24
   %.val116.val = load i32, ptr %44, align 4
   %51 = icmp eq i32 %.val116.val, 2
-  br i1 %51, label %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.argprom.argprom.exit", label %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.argprom.argprom.exit.thread"
+  br i1 %51, label %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.exit", label %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.exit.thread"
 
-"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.argprom.argprom.exit": ; preds = %45
+"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.exit": ; preds = %45
   %52 = tail call fastcc noundef zeroext i1 @"_ZNK7glslang5TType8containsIZZNS_16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKS0_EUlPSE_E_EEbT_"(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  br i1 %52, label %54, label %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.argprom.argprom.exit.thread"
+  br i1 %52, label %54, label %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.exit.thread"
 
-"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.argprom.argprom.exit.thread": ; preds = %45, %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.argprom.argprom.exit"
+"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.exit.thread": ; preds = %45, %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.exit"
   %53 = load ptr, ptr %.sroa.0223.0244, align 8
-  tail call fastcc void @"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_0clERNS_9TVariableE.argprom"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(236) %53)
+  tail call fastcc void @"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_0clERNS_9TVariableE"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(236) %53)
   br label %54
 
-54:                                               ; preds = %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.argprom.argprom.exit", %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.argprom.argprom.exit.thread"
+54:                                               ; preds = %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.exit", %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.exit.thread"
   %55 = getelementptr inbounds i8, ptr %.sroa.0223.0244, i64 8
   %.not232 = icmp eq ptr %55, %43
   br i1 %.not232, label %._crit_edge, label %45, !llvm.loop !156
@@ -23270,7 +23270,7 @@ _ZN7glslang16HlslParseContext16isEntrypointNameERKNSt7__cxx1112basic_stringIcSt1
 .lr.ph248:                                        ; preds = %._crit_edge, %.lr.ph248
   %.sroa.0219.0246 = phi ptr [ %60, %.lr.ph248 ], [ %56, %._crit_edge ]
   %59 = load ptr, ptr %.sroa.0219.0246, align 8
-  tail call fastcc void @"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_0clERNS_9TVariableE.argprom"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(236) %59)
+  tail call fastcc void @"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_0clERNS_9TVariableE"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(236) %59)
   %60 = getelementptr inbounds i8, ptr %.sroa.0219.0246, i64 8
   %.not233 = icmp eq ptr %60, %58
   br i1 %.not233, label %._crit_edge249, label %.lr.ph248, !llvm.loop !157
@@ -23282,8 +23282,8 @@ _ZN7glslang16HlslParseContext16isEntrypointNameERKNSt7__cxx1112basic_stringIcSt1
   %or.cond277 = or i1 %63, %.not232243
   br i1 %or.cond277, label %.loopexit, label %.lr.ph252
 
-.lr.ph252:                                        ; preds = %._crit_edge249, %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.argprom.argprom.exit118.thread"
-  %.sroa.0214.0251 = phi ptr [ %73, %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.argprom.argprom.exit118.thread" ], [ %41, %._crit_edge249 ]
+.lr.ph252:                                        ; preds = %._crit_edge249, %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.exit118.thread"
+  %.sroa.0214.0251 = phi ptr [ %73, %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.exit118.thread" ], [ %41, %._crit_edge249 ]
   %64 = load ptr, ptr %.sroa.0214.0251, align 8
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 96
@@ -23291,23 +23291,23 @@ _ZN7glslang16HlslParseContext16isEntrypointNameERKNSt7__cxx1112basic_stringIcSt1
   %68 = tail call noundef nonnull align 8 dereferenceable(152) ptr %67(ptr noundef nonnull align 8 dereferenceable(236) %64) #24
   %.val117.val = load i32, ptr %61, align 4
   %69 = icmp eq i32 %.val117.val, 2
-  br i1 %69, label %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.argprom.argprom.exit118", label %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.argprom.argprom.exit118.thread"
+  br i1 %69, label %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.exit118", label %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.exit118.thread"
 
-"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.argprom.argprom.exit118": ; preds = %.lr.ph252
+"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.exit118": ; preds = %.lr.ph252
   %70 = tail call fastcc noundef zeroext i1 @"_ZNK7glslang5TType8containsIZZNS_16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKS0_EUlPSE_E_EEbT_"(ptr noundef nonnull align 8 dereferenceable(152) %68)
-  br i1 %70, label %71, label %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.argprom.argprom.exit118.thread"
+  br i1 %70, label %71, label %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.exit118.thread"
 
-71:                                               ; preds = %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.argprom.argprom.exit118"
+71:                                               ; preds = %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.exit118"
   %72 = load ptr, ptr %.sroa.0214.0251, align 8
-  tail call fastcc void @"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_0clERNS_9TVariableE.argprom"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(236) %72)
-  br label %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.argprom.argprom.exit118.thread"
+  tail call fastcc void @"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_0clERNS_9TVariableE"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(236) %72)
+  br label %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.exit118.thread"
 
-"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.argprom.argprom.exit118.thread": ; preds = %.lr.ph252, %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.argprom.argprom.exit118", %71
+"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.exit118.thread": ; preds = %.lr.ph252, %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.exit118", %71
   %73 = getelementptr inbounds i8, ptr %.sroa.0214.0251, i64 8
   %.not234 = icmp eq ptr %73, %43
   br i1 %.not234, label %.loopexit, label %.lr.ph252, !llvm.loop !158
 
-.loopexit:                                        ; preds = %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.argprom.argprom.exit118.thread", %._crit_edge249
+.loopexit:                                        ; preds = %"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeE.exit118.thread", %._crit_edge249
   %74 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #24
   %75 = load ptr, ptr %2, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 288
@@ -26441,7 +26441,7 @@ define void @_ZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPN
   %21 = getelementptr inbounds i8, ptr %20, i64 104
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef nonnull align 8 dereferenceable(152) ptr %22(ptr noundef nonnull align 8 dereferenceable(340) %1) #24
-  %24 = tail call fastcc noundef ptr @"_ZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_0clEPKcRNS_5TTypeENS_17TStorageQualifierE.argprom"(ptr nonnull %0, ptr noundef nonnull @.str.113, ptr noundef nonnull align 8 dereferenceable(152) %23, i32 noundef 4)
+  %24 = tail call fastcc noundef ptr @"_ZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_0clEPKcRNS_5TTypeENS_17TStorageQualifierE"(ptr nonnull %0, ptr noundef nonnull @.str.113, ptr noundef nonnull align 8 dereferenceable(152) %23, i32 noundef 4)
   store ptr %24, ptr %2, align 8
   br i1 %19, label %25, label %99
 
@@ -26544,7 +26544,7 @@ define void @_ZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPN
   store i64 %96, ptr %84, align 4
   %97 = or i64 %87, 1097364144127
   store i64 %97, ptr %86, align 4
-  %98 = call fastcc noundef ptr @"_ZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_0clEPKcRNS_5TTypeENS_17TStorageQualifierE.argprom"(ptr nonnull %0, ptr noundef nonnull @.str.113, ptr noundef nonnull align 8 dereferenceable(152) %6, i32 noundef 4)
+  %98 = call fastcc noundef ptr @"_ZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_0clEPKcRNS_5TTypeENS_17TStorageQualifierE"(ptr nonnull %0, ptr noundef nonnull @.str.113, ptr noundef nonnull align 8 dereferenceable(152) %6, i32 noundef 4)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %5, %25
@@ -26600,58 +26600,58 @@ define void @_ZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPN
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.3.i)
   %132 = load i32, ptr %105, align 4
   %133 = icmp eq i32 %132, 4
-  br i1 %133, label %134, label %"_ZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeE.argprom.exit"
+  br i1 %133, label %134, label %"_ZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeE.exit"
 
 134:                                              ; preds = %131
   %135 = load ptr, ptr %122, align 8
   %136 = getelementptr inbounds i8, ptr %135, i64 400
   %137 = load ptr, ptr %136, align 8
   %138 = call noundef zeroext i1 %137(ptr noundef nonnull align 8 dereferenceable(152) %122, i32 noundef 8) #24
-  br i1 %138, label %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.argprom.exit.thread.i", label %139
+  br i1 %138, label %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.exit.thread.i", label %139
 
 139:                                              ; preds = %134
   %140 = load ptr, ptr %122, align 8
   %141 = getelementptr inbounds i8, ptr %140, i64 400
   %142 = load ptr, ptr %141, align 8
   %143 = call noundef zeroext i1 %142(ptr noundef nonnull align 8 dereferenceable(152) %122, i32 noundef 9) #24
-  br i1 %143, label %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.argprom.exit.thread.i", label %144
+  br i1 %143, label %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.exit.thread.i", label %144
 
 144:                                              ; preds = %139
   %145 = load ptr, ptr %122, align 8
   %146 = getelementptr inbounds i8, ptr %145, i64 400
   %147 = load ptr, ptr %146, align 8
   %148 = call noundef zeroext i1 %147(ptr noundef nonnull align 8 dereferenceable(152) %122, i32 noundef 10) #24
-  br i1 %148, label %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.argprom.exit.thread.i", label %149
+  br i1 %148, label %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.exit.thread.i", label %149
 
 149:                                              ; preds = %144
   %150 = load ptr, ptr %122, align 8
   %151 = getelementptr inbounds i8, ptr %150, i64 400
   %152 = load ptr, ptr %151, align 8
   %153 = call noundef zeroext i1 %152(ptr noundef nonnull align 8 dereferenceable(152) %122, i32 noundef 11) #24
-  br i1 %153, label %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.argprom.exit.thread.i", label %154
+  br i1 %153, label %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.exit.thread.i", label %154
 
 154:                                              ; preds = %149
   %155 = load ptr, ptr %122, align 8
   %156 = getelementptr inbounds i8, ptr %155, i64 400
   %157 = load ptr, ptr %156, align 8
   %158 = call noundef zeroext i1 %157(ptr noundef nonnull align 8 dereferenceable(152) %122, i32 noundef 12) #24
-  br i1 %158, label %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.argprom.exit.thread.i", label %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.argprom.exit.i"
+  br i1 %158, label %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.exit.thread.i", label %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.exit.i"
 
-"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.argprom.exit.i": ; preds = %154
+"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.exit.i": ; preds = %154
   %159 = load ptr, ptr %122, align 8
   %160 = getelementptr inbounds i8, ptr %159, i64 400
   %161 = load ptr, ptr %160, align 8
   %162 = call noundef zeroext i1 %161(ptr noundef nonnull align 8 dereferenceable(152) %122, i32 noundef 2) #24
-  br i1 %162, label %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.argprom.exit.thread.i", label %"_ZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeE.argprom.exit"
+  br i1 %162, label %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.exit.thread.i", label %"_ZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeE.exit"
 
-"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.argprom.exit.thread.i": ; preds = %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.argprom.exit.i", %154, %149, %144, %139, %134
+"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.exit.thread.i": ; preds = %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.exit.i", %154, %149, %144, %139, %134
   %163 = load ptr, ptr %122, align 8
   %164 = getelementptr inbounds i8, ptr %163, i64 296
   %165 = load ptr, ptr %164, align 8
   %166 = call noundef zeroext i1 %165(ptr noundef nonnull align 8 dereferenceable(152) %122) #24
   br i1 %166, label %167, label %395
 
-167:                                              ; preds = %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.argprom.exit.thread.i"
+167:                                              ; preds = %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.exit.thread.i"
   %168 = getelementptr inbounds i8, ptr %122, i64 104
   %169 = load ptr, ptr %168, align 8
   %170 = load ptr, ptr %107, align 8
@@ -27004,7 +27004,7 @@ _ZNSt3mapIPKN7glslang7TVectorINS0_8TTypeLocEEENS0_16HlslParseContext8tIoKindsESt
   %345 = getelementptr inbounds i8, ptr %.0.i32, i64 16
   %346 = load ptr, ptr %345, align 8
   %.not2631.i = icmp eq ptr %344, %346
-  br i1 %.not2631.i, label %"_ZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeE.argprom.exit", label %.lr.ph34.i
+  br i1 %.not2631.i, label %"_ZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeE.exit", label %.lr.ph34.i
 
 .lr.ph34.i:                                       ; preds = %342, %392
   %.sroa.01.032.i = phi ptr [ %393, %392 ], [ %344, %342 ]
@@ -27013,44 +27013,44 @@ _ZNSt3mapIPKN7glslang7TVectorINS0_8TTypeLocEEENS0_16HlslParseContext8tIoKindsESt
   %349 = getelementptr inbounds i8, ptr %348, i64 400
   %350 = load ptr, ptr %349, align 8
   %351 = call noundef zeroext i1 %350(ptr noundef nonnull align 8 dereferenceable(152) %347, i32 noundef 8) #24
-  br i1 %351, label %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.argprom.exit20.thread.i", label %352
+  br i1 %351, label %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.exit20.thread.i", label %352
 
 352:                                              ; preds = %.lr.ph34.i
   %353 = load ptr, ptr %347, align 8
   %354 = getelementptr inbounds i8, ptr %353, i64 400
   %355 = load ptr, ptr %354, align 8
   %356 = call noundef zeroext i1 %355(ptr noundef nonnull align 8 dereferenceable(152) %347, i32 noundef 9) #24
-  br i1 %356, label %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.argprom.exit20.thread.i", label %357
+  br i1 %356, label %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.exit20.thread.i", label %357
 
 357:                                              ; preds = %352
   %358 = load ptr, ptr %347, align 8
   %359 = getelementptr inbounds i8, ptr %358, i64 400
   %360 = load ptr, ptr %359, align 8
   %361 = call noundef zeroext i1 %360(ptr noundef nonnull align 8 dereferenceable(152) %347, i32 noundef 10) #24
-  br i1 %361, label %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.argprom.exit20.thread.i", label %362
+  br i1 %361, label %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.exit20.thread.i", label %362
 
 362:                                              ; preds = %357
   %363 = load ptr, ptr %347, align 8
   %364 = getelementptr inbounds i8, ptr %363, i64 400
   %365 = load ptr, ptr %364, align 8
   %366 = call noundef zeroext i1 %365(ptr noundef nonnull align 8 dereferenceable(152) %347, i32 noundef 11) #24
-  br i1 %366, label %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.argprom.exit20.thread.i", label %367
+  br i1 %366, label %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.exit20.thread.i", label %367
 
 367:                                              ; preds = %362
   %368 = load ptr, ptr %347, align 8
   %369 = getelementptr inbounds i8, ptr %368, i64 400
   %370 = load ptr, ptr %369, align 8
   %371 = call noundef zeroext i1 %370(ptr noundef nonnull align 8 dereferenceable(152) %347, i32 noundef 12) #24
-  br i1 %371, label %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.argprom.exit20.thread.i", label %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.argprom.exit20.i"
+  br i1 %371, label %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.exit20.thread.i", label %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.exit20.i"
 
-"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.argprom.exit20.i": ; preds = %367
+"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.exit20.i": ; preds = %367
   %372 = load ptr, ptr %347, align 8
   %373 = getelementptr inbounds i8, ptr %372, i64 400
   %374 = load ptr, ptr %373, align 8
   %375 = call noundef zeroext i1 %374(ptr noundef nonnull align 8 dereferenceable(152) %347, i32 noundef 2) #24
-  br i1 %375, label %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.argprom.exit20.thread.i", label %392
+  br i1 %375, label %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.exit20.thread.i", label %392
 
-"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.argprom.exit20.thread.i": ; preds = %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.argprom.exit20.i", %367, %362, %357, %352, %.lr.ph34.i
+"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.exit20.thread.i": ; preds = %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.exit20.i", %367, %362, %357, %352, %.lr.ph34.i
   %376 = load ptr, ptr %.sroa.01.032.i, align 8
   %377 = load ptr, ptr %376, align 8
   %378 = getelementptr inbounds i8, ptr %377, i64 80
@@ -27071,13 +27071,13 @@ _ZNSt3mapIPKN7glslang7TVectorINS0_8TTypeLocEEENS0_16HlslParseContext8tIoKindsESt
   store i64 %391, ptr %389, align 8
   br label %392
 
-392:                                              ; preds = %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.argprom.exit20.thread.i", %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.argprom.exit20.i"
+392:                                              ; preds = %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.exit20.thread.i", %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.exit20.i"
   %393 = getelementptr inbounds i8, ptr %.sroa.01.032.i, i64 32
   %394 = load ptr, ptr %345, align 8
   %.not26.i = icmp eq ptr %393, %394
-  br i1 %.not26.i, label %"_ZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeE.argprom.exit", label %.lr.ph34.i, !llvm.loop !169
+  br i1 %.not26.i, label %"_ZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeE.exit", label %.lr.ph34.i, !llvm.loop !169
 
-395:                                              ; preds = %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.argprom.exit.thread.i"
+395:                                              ; preds = %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.exit.thread.i"
   %396 = load ptr, ptr %122, align 8
   %397 = getelementptr inbounds i8, ptr %396, i64 80
   %398 = load ptr, ptr %397, align 8
@@ -27094,9 +27094,9 @@ _ZNSt3mapIPKN7glslang7TVectorINS0_8TTypeLocEEENS0_16HlslParseContext8tIoKindsESt
   %408 = load i64, ptr %407, align 8
   %409 = or i64 %408, 2147483648
   store i64 %409, ptr %407, align 8
-  br label %"_ZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeE.argprom.exit"
+  br label %"_ZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeE.exit"
 
-"_ZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeE.argprom.exit": ; preds = %392, %131, %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.argprom.exit.i", %342, %395
+"_ZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeE.exit": ; preds = %392, %131, %"_ZZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeEENKUlRKSA_E_clESD_.exit.i", %342, %395
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.3.i)
   %410 = load ptr, ptr %1, align 8
   %411 = getelementptr inbounds i8, ptr %410, i64 312
@@ -27105,20 +27105,20 @@ _ZNSt3mapIPKN7glslang7TVectorINS0_8TTypeLocEEENS0_16HlslParseContext8tIoKindsESt
   %414 = load ptr, ptr %413, align 8
   %415 = getelementptr inbounds i8, ptr %414, i64 8
   %416 = load ptr, ptr %415, align 8
-  %417 = call fastcc noundef ptr @"_ZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_0clEPKcRNS_5TTypeENS_17TStorageQualifierE.argprom"(ptr nonnull %0, ptr noundef %416, ptr noundef nonnull align 8 dereferenceable(152) %122, i32 noundef 3)
+  %417 = call fastcc noundef ptr @"_ZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_0clEPKcRNS_5TTypeENS_17TStorageQualifierE"(ptr nonnull %0, ptr noundef %416, ptr noundef nonnull align 8 dereferenceable(152) %122, i32 noundef 3)
   %418 = load ptr, ptr %110, align 8
   %419 = load ptr, ptr %111, align 8
   %.not.i33 = icmp eq ptr %418, %419
   br i1 %.not.i33, label %423, label %420
 
-420:                                              ; preds = %"_ZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeE.argprom.exit"
+420:                                              ; preds = %"_ZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeE.exit"
   store ptr %417, ptr %418, align 8
   %421 = load ptr, ptr %110, align 8
   %422 = getelementptr inbounds i8, ptr %421, i64 8
   store ptr %422, ptr %110, align 8
   br label %_ZNK7glslang10TQualifier12isParamInputEv.exit
 
-423:                                              ; preds = %"_ZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeE.argprom.exit"
+423:                                              ; preds = %"_ZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_1clERNS_5TTypeE.exit"
   %424 = load ptr, ptr %112, align 8
   %425 = ptrtoint ptr %418 to i64
   %426 = ptrtoint ptr %424 to i64
@@ -27193,7 +27193,7 @@ _ZNK7glslang10TQualifier12isParamInputEv.exit:    ; preds = %_ZNSt6vectorIPN7gls
   %459 = load ptr, ptr %458, align 8
   %460 = getelementptr inbounds i8, ptr %459, i64 8
   %461 = load ptr, ptr %460, align 8
-  %462 = call fastcc noundef ptr @"_ZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_0clEPKcRNS_5TTypeENS_17TStorageQualifierE.argprom"(ptr nonnull %0, ptr noundef %461, ptr noundef nonnull align 8 dereferenceable(152) %122, i32 noundef 4)
+  %462 = call fastcc noundef ptr @"_ZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_0clEPKcRNS_5TTypeENS_17TStorageQualifierE"(ptr nonnull %0, ptr noundef %461, ptr noundef nonnull align 8 dereferenceable(152) %122, i32 noundef 4)
   %463 = load ptr, ptr %113, align 8
   %464 = load ptr, ptr %114, align 8
   %.not.i37 = icmp eq ptr %463, %464
@@ -27274,7 +27274,7 @@ _ZNSt6vectorIPN7glslang9TVariableENS0_14pool_allocatorIS2_EEE9push_backERKS2_.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_0clERNS_9TVariableE.argprom"(ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(236) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_0clERNS_9TVariableE"(ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(236) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 96
   %4 = load ptr, ptr %3, align 8
@@ -27968,7 +27968,7 @@ define noundef ptr @_ZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLo
   %64 = load ptr, ptr %63, align 8
   %65 = tail call noundef ptr %64(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
   %.not.i = icmp eq ptr %65, null
-  br i1 %.not.i, label %66, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.argprom.exit"
+  br i1 %.not.i, label %66, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.exit"
 
 66:                                               ; preds = %61
   %67 = load ptr, ptr %3, align 8
@@ -27976,14 +27976,14 @@ define noundef ptr @_ZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLo
   %69 = load ptr, ptr %68, align 8
   %70 = tail call noundef ptr %69(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
   %.not11.i = icmp eq ptr %70, null
-  br i1 %.not11.i, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.argprom.exit", label %71
+  br i1 %.not11.i, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.exit", label %71
 
 71:                                               ; preds = %66
   %72 = getelementptr inbounds i8, ptr %70, i64 184
   %73 = load i32, ptr %72, align 8
   %74 = and i32 %73, -2
   %switch.i = icmp eq i32 %74, 182
-  br i1 %switch.i, label %75, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.argprom.exit"
+  br i1 %switch.i, label %75, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.exit"
 
 75:                                               ; preds = %71
   %76 = load ptr, ptr %70, align 8
@@ -27994,31 +27994,31 @@ define noundef ptr @_ZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLo
   %81 = getelementptr inbounds i8, ptr %80, i64 96
   %82 = load ptr, ptr %81, align 8
   %83 = tail call noundef ptr %82(ptr noundef nonnull align 8 dereferenceable(32) %79) #24
-  br label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.argprom.exit"
+  br label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.exit"
 
-"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.argprom.exit": ; preds = %61, %66, %71, %75
+"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.exit": ; preds = %61, %66, %71, %75
   %.0.i = phi ptr [ %83, %75 ], [ %65, %61 ], [ null, %66 ], [ null, %71 ]
   %84 = load ptr, ptr %4, align 8
   %85 = getelementptr inbounds i8, ptr %84, i64 192
   %86 = load ptr, ptr %85, align 8
   %87 = tail call noundef ptr %86(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
   %.not.i107 = icmp eq ptr %87, null
-  br i1 %.not.i107, label %88, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.argprom.exit111"
+  br i1 %.not.i107, label %88, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.exit111"
 
-88:                                               ; preds = %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.argprom.exit"
+88:                                               ; preds = %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.exit"
   %89 = load ptr, ptr %4, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 160
   %91 = load ptr, ptr %90, align 8
   %92 = tail call noundef ptr %91(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
   %.not11.i109 = icmp eq ptr %92, null
-  br i1 %.not11.i109, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.argprom.exit111", label %93
+  br i1 %.not11.i109, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.exit111", label %93
 
 93:                                               ; preds = %88
   %94 = getelementptr inbounds i8, ptr %92, i64 184
   %95 = load i32, ptr %94, align 8
   %96 = and i32 %95, -2
   %switch.i110 = icmp eq i32 %96, 182
-  br i1 %switch.i110, label %97, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.argprom.exit111"
+  br i1 %switch.i110, label %97, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.exit111"
 
 97:                                               ; preds = %93
   %98 = load ptr, ptr %92, align 8
@@ -28029,10 +28029,10 @@ define noundef ptr @_ZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLo
   %103 = getelementptr inbounds i8, ptr %102, i64 96
   %104 = load ptr, ptr %103, align 8
   %105 = tail call noundef ptr %104(ptr noundef nonnull align 8 dereferenceable(32) %101) #24
-  br label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.argprom.exit111"
+  br label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.exit111"
 
-"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.argprom.exit111": ; preds = %97, %93, %88, %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.argprom.exit"
-  %.0.i108 = phi ptr [ %105, %97 ], [ %87, %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.argprom.exit" ], [ null, %88 ], [ null, %93 ]
+"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.exit111": ; preds = %97, %93, %88, %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.exit"
+  %.0.i108 = phi ptr [ %105, %97 ], [ %87, %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.exit" ], [ null, %88 ], [ null, %93 ]
   %106 = load ptr, ptr %3, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 192
   %108 = load ptr, ptr %107, align 8
@@ -28040,7 +28040,7 @@ define noundef ptr @_ZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLo
   %.not4.i = icmp eq ptr %109, null
   br i1 %.not4.i, label %_ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit.thread, label %110
 
-110:                                              ; preds = %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.argprom.exit111"
+110:                                              ; preds = %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.exit111"
   %111 = load ptr, ptr %3, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 192
   %113 = load ptr, ptr %112, align 8
@@ -28076,22 +28076,22 @@ _ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit: ; preds = %_Z
   %126 = getelementptr inbounds i8, ptr %.19.i.i.i.i.i, i64 32
   %127 = load i64, ptr %126, align 8
   %128 = icmp slt i64 %118, %127
-  br i1 %128, label %_ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit.thread, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit"
+  br i1 %128, label %_ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit.thread, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit"
 
-_ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit.thread: ; preds = %110, %_ZNKSt8_Rb_treeIxSt4pairIKxPN7glslang9TVariableEESt10_Select1stIS5_ESt4lessIxENS2_14pool_allocatorIS5_EEE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i, %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.argprom.exit111", %_ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit
+_ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit.thread: ; preds = %110, %_ZNKSt8_Rb_treeIxSt4pairIKxPN7glslang9TVariableEESt10_Select1stIS5_ESt4lessIxENS2_14pool_allocatorIS5_EEE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i, %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_1clEPKS5_.exit111", %_ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit
   %129 = load ptr, ptr %3, align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 160
   %131 = load ptr, ptr %130, align 8
   %132 = tail call noundef ptr %131(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
   %133 = icmp eq ptr %132, null
-  br i1 %133, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit", label %134
+  br i1 %133, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit", label %134
 
 134:                                              ; preds = %_ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit.thread
   %135 = getelementptr inbounds i8, ptr %132, i64 184
   %136 = load i32, ptr %135, align 8
   %137 = and i32 %136, -2
   %switch.i113 = icmp eq i32 %137, 182
-  br i1 %switch.i113, label %138, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit"
+  br i1 %switch.i113, label %138, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit"
 
 138:                                              ; preds = %134
   %139 = load ptr, ptr %132, align 8
@@ -28099,7 +28099,7 @@ _ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit.thread: ; pred
   %141 = load ptr, ptr %140, align 8
   %142 = tail call noundef ptr %141(ptr noundef nonnull align 8 dereferenceable(208) %132) #24
   %.not.i.i = icmp eq ptr %142, null
-  br i1 %.not.i.i, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit", label %143
+  br i1 %.not.i.i, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit", label %143
 
 143:                                              ; preds = %138
   %144 = load ptr, ptr %142, align 8
@@ -28107,7 +28107,7 @@ _ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit.thread: ; pred
   %146 = load ptr, ptr %145, align 8
   %147 = tail call noundef ptr %146(ptr noundef nonnull align 8 dereferenceable(32) %142) #24
   %.not4.i.i = icmp eq ptr %147, null
-  br i1 %.not4.i.i, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit", label %148
+  br i1 %.not4.i.i, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit", label %148
 
 148:                                              ; preds = %143
   %149 = load ptr, ptr %142, align 8
@@ -28152,9 +28152,9 @@ _ZNK7glslang16HlslParseContext8wasSplitEx.exit.i.i: ; preds = %164, %_ZNKSt8_Rb_
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %159, %_ZNKSt8_Rb_treeIxSt4pairIKxPN7glslang9TVariableEESt10_Select1stIS5_ESt4lessIxENS2_14pool_allocatorIS5_EEE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i ], [ %159, %148 ], [ %spec.select.i.i.i.i.i, %164 ]
   %168 = icmp ne ptr %.sroa.0.0.i.i.i.i.i, %159
   %169 = zext i1 %168 to i8
-  br label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit"
+  br label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit"
 
-"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit": ; preds = %_ZNK7glslang16HlslParseContext8wasSplitEx.exit.i.i, %143, %138, %134, %_ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit.thread, %_ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit
+"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit": ; preds = %_ZNK7glslang16HlslParseContext8wasSplitEx.exit.i.i, %143, %138, %134, %_ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit.thread, %_ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit
   %170 = phi i8 [ 1, %_ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit ], [ 0, %_ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit.thread ], [ 0, %143 ], [ 0, %138 ], [ %169, %_ZNK7glslang16HlslParseContext8wasSplitEx.exit.i.i ], [ 0, %134 ]
   store i8 %170, ptr %13, align 1
   %171 = load ptr, ptr %4, align 8
@@ -28164,7 +28164,7 @@ _ZNK7glslang16HlslParseContext8wasSplitEx.exit.i.i: ; preds = %164, %_ZNKSt8_Rb_
   %.not4.i116 = icmp eq ptr %174, null
   br i1 %.not4.i116, label %_ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit130.thread, label %175
 
-175:                                              ; preds = %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit"
+175:                                              ; preds = %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit"
   %176 = load ptr, ptr %4, align 8
   %177 = getelementptr inbounds i8, ptr %176, i64 192
   %178 = load ptr, ptr %177, align 8
@@ -28200,22 +28200,22 @@ _ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit130: ; preds = 
   %191 = getelementptr inbounds i8, ptr %.19.i.i.i.i.i121, i64 32
   %192 = load i64, ptr %191, align 8
   %193 = icmp slt i64 %183, %192
-  br i1 %193, label %_ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit130.thread, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit148"
+  br i1 %193, label %_ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit130.thread, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit148"
 
-_ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit130.thread: ; preds = %175, %_ZNKSt8_Rb_treeIxSt4pairIKxPN7glslang9TVariableEESt10_Select1stIS5_ESt4lessIxENS2_14pool_allocatorIS5_EEE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i126, %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit", %_ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit130
+_ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit130.thread: ; preds = %175, %_ZNKSt8_Rb_treeIxSt4pairIKxPN7glslang9TVariableEESt10_Select1stIS5_ESt4lessIxENS2_14pool_allocatorIS5_EEE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i126, %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit", %_ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit130
   %194 = load ptr, ptr %4, align 8
   %195 = getelementptr inbounds i8, ptr %194, i64 160
   %196 = load ptr, ptr %195, align 8
   %197 = tail call noundef ptr %196(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
   %198 = icmp eq ptr %197, null
-  br i1 %198, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit148", label %199
+  br i1 %198, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit148", label %199
 
 199:                                              ; preds = %_ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit130.thread
   %200 = getelementptr inbounds i8, ptr %197, i64 184
   %201 = load i32, ptr %200, align 8
   %202 = and i32 %201, -2
   %switch.i131 = icmp eq i32 %202, 182
-  br i1 %switch.i131, label %203, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit148"
+  br i1 %switch.i131, label %203, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit148"
 
 203:                                              ; preds = %199
   %204 = load ptr, ptr %197, align 8
@@ -28223,7 +28223,7 @@ _ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit130.thread: ; p
   %206 = load ptr, ptr %205, align 8
   %207 = tail call noundef ptr %206(ptr noundef nonnull align 8 dereferenceable(208) %197) #24
   %.not.i.i133 = icmp eq ptr %207, null
-  br i1 %.not.i.i133, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit148", label %208
+  br i1 %.not.i.i133, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit148", label %208
 
 208:                                              ; preds = %203
   %209 = load ptr, ptr %207, align 8
@@ -28231,7 +28231,7 @@ _ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit130.thread: ; p
   %211 = load ptr, ptr %210, align 8
   %212 = tail call noundef ptr %211(ptr noundef nonnull align 8 dereferenceable(32) %207) #24
   %.not4.i.i134 = icmp eq ptr %212, null
-  br i1 %.not4.i.i134, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit148", label %213
+  br i1 %.not4.i.i134, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit148", label %213
 
 213:                                              ; preds = %208
   %214 = load ptr, ptr %207, align 8
@@ -28276,15 +28276,15 @@ _ZNK7glslang16HlslParseContext8wasSplitEx.exit.i.i146: ; preds = %229, %_ZNKSt8_
   %.sroa.0.0.i.i.i.i.i147 = phi ptr [ %224, %_ZNKSt8_Rb_treeIxSt4pairIKxPN7glslang9TVariableEESt10_Select1stIS5_ESt4lessIxENS2_14pool_allocatorIS5_EEE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i144 ], [ %224, %213 ], [ %spec.select.i.i.i.i.i145, %229 ]
   %233 = icmp ne ptr %.sroa.0.0.i.i.i.i.i147, %224
   %234 = zext i1 %233 to i8
-  br label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit148"
+  br label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit148"
 
-"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit148": ; preds = %_ZNK7glslang16HlslParseContext8wasSplitEx.exit.i.i146, %208, %203, %199, %_ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit130.thread, %_ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit130
+"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit148": ; preds = %_ZNK7glslang16HlslParseContext8wasSplitEx.exit.i.i146, %208, %203, %199, %_ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit130.thread, %_ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit130
   %235 = phi i8 [ 1, %_ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit130 ], [ 0, %_ZNK7glslang16HlslParseContext8wasSplitEPKNS_12TIntermTypedE.exit130.thread ], [ 0, %208 ], [ 0, %203 ], [ %234, %_ZNK7glslang16HlslParseContext8wasSplitEx.exit.i.i146 ], [ 0, %199 ]
   store i8 %235, ptr %14, align 1
   %.not.i149 = icmp eq ptr %.0.i, null
   br i1 %.not.i149, label %_ZNK7glslang16HlslParseContext12wasFlattenedEPKNS_12TIntermTypedE.exit, label %236
 
-236:                                              ; preds = %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit148"
+236:                                              ; preds = %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit148"
   %237 = load ptr, ptr %.0.i, align 8
   %238 = getelementptr inbounds i8, ptr %237, i64 192
   %239 = load ptr, ptr %238, align 8
@@ -28337,8 +28337,8 @@ _ZNK7glslang16HlslParseContext12wasFlattenedEx.exit.i: ; preds = %257, %_ZNKSt8_
   %262 = zext i1 %261 to i8
   br label %_ZNK7glslang16HlslParseContext12wasFlattenedEPKNS_12TIntermTypedE.exit
 
-_ZNK7glslang16HlslParseContext12wasFlattenedEPKNS_12TIntermTypedE.exit: ; preds = %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit148", %236, %_ZNK7glslang16HlslParseContext12wasFlattenedEx.exit.i
-  %263 = phi i8 [ 0, %236 ], [ 0, %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit148" ], [ %262, %_ZNK7glslang16HlslParseContext12wasFlattenedEx.exit.i ]
+_ZNK7glslang16HlslParseContext12wasFlattenedEPKNS_12TIntermTypedE.exit: ; preds = %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit148", %236, %_ZNK7glslang16HlslParseContext12wasFlattenedEx.exit.i
+  %263 = phi i8 [ 0, %236 ], [ 0, %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit148" ], [ %262, %_ZNK7glslang16HlslParseContext12wasFlattenedEx.exit.i ]
   store i8 %263, ptr %15, align 1
   %.not.i162 = icmp eq ptr %.0.i108, null
   br i1 %.not.i162, label %_ZNK7glslang16HlslParseContext12wasFlattenedEPKNS_12TIntermTypedE.exit177, label %264
@@ -28498,12 +28498,12 @@ _ZNK7glslang16HlslParseContext12wasFlattenedEPKNS_12TIntermTypedE.exit177: ; pre
   %373 = getelementptr inbounds i8, ptr %0, i64 28
   %374 = load i32, ptr %373, align 4
   switch i32 %374, label %376 [
-    i32 0, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_3clEPKS5_.argprom.exit"
-    i32 3, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_3clEPKS5_.argprom.exit"
-    i32 2, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_3clEPKS5_.argprom.exit"
+    i32 0, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_3clEPKS5_.exit"
+    i32 3, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_3clEPKS5_.exit"
+    i32 2, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_3clEPKS5_.exit"
   ]
 
-"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_3clEPKS5_.argprom.exit": ; preds = %372, %372, %372
+"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_3clEPKS5_.exit": ; preds = %372, %372, %372
   %375 = tail call noundef ptr @_ZN7glslang16HlslParseContext14assignPositionERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_(ptr noundef nonnull align 8 dereferenceable(2489) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
@@ -29060,14 +29060,14 @@ _ZNK7glslang16HlslParseContext17findSubtreeOffsetERK11TIntermNode.exit204: ; pre
   %694 = load ptr, ptr %693, align 8
   %695 = call noundef ptr %694(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
   %696 = icmp eq ptr %695, null
-  br i1 %696, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit222.thread", label %697
+  br i1 %696, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit222.thread", label %697
 
 697:                                              ; preds = %691
   %698 = getelementptr inbounds i8, ptr %695, i64 184
   %699 = load i32, ptr %698, align 8
   %700 = and i32 %699, -2
   %switch.i205 = icmp eq i32 %700, 182
-  br i1 %switch.i205, label %701, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit222.thread"
+  br i1 %switch.i205, label %701, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit222.thread"
 
 701:                                              ; preds = %697
   %702 = load ptr, ptr %695, align 8
@@ -29075,7 +29075,7 @@ _ZNK7glslang16HlslParseContext17findSubtreeOffsetERK11TIntermNode.exit204: ; pre
   %704 = load ptr, ptr %703, align 8
   %705 = call noundef ptr %704(ptr noundef nonnull align 8 dereferenceable(208) %695) #24
   %.not.i.i207 = icmp eq ptr %705, null
-  br i1 %.not.i.i207, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit222.thread", label %706
+  br i1 %.not.i.i207, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit222.thread", label %706
 
 706:                                              ; preds = %701
   %707 = load ptr, ptr %705, align 8
@@ -29083,7 +29083,7 @@ _ZNK7glslang16HlslParseContext17findSubtreeOffsetERK11TIntermNode.exit204: ; pre
   %709 = load ptr, ptr %708, align 8
   %710 = call noundef ptr %709(ptr noundef nonnull align 8 dereferenceable(32) %705) #24
   %.not4.i.i208 = icmp eq ptr %710, null
-  br i1 %.not4.i.i208, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit222.thread", label %711
+  br i1 %.not4.i.i208, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit222.thread", label %711
 
 711:                                              ; preds = %706
   %712 = load ptr, ptr %705, align 8
@@ -29098,7 +29098,7 @@ _ZNK7glslang16HlslParseContext17findSubtreeOffsetERK11TIntermNode.exit204: ; pre
   %721 = load ptr, ptr %720, align 8
   %722 = getelementptr inbounds i8, ptr %0, i64 1888
   %.not10.i.i.i.i.i.i209 = icmp eq ptr %721, null
-  br i1 %.not10.i.i.i.i.i.i209, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit222.thread", label %.lr.ph.i.i.i.i.i.i210
+  br i1 %.not10.i.i.i.i.i.i209, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit222.thread", label %.lr.ph.i.i.i.i.i.i210
 
 .lr.ph.i.i.i.i.i.i210:                            ; preds = %711, %.lr.ph.i.i.i.i.i.i210
   %.012.i.i.i.i.i.i211 = phi ptr [ %.1.i.i.i.i.i.i216, %.lr.ph.i.i.i.i.i.i210 ], [ %721, %711 ]
@@ -29115,15 +29115,15 @@ _ZNK7glslang16HlslParseContext17findSubtreeOffsetERK11TIntermNode.exit204: ; pre
 
 _ZNKSt8_Rb_treeIxSt4pairIKxPN7glslang9TVariableEESt10_Select1stIS5_ESt4lessIxENS2_14pool_allocatorIS5_EEE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i218: ; preds = %.lr.ph.i.i.i.i.i.i210
   %726 = icmp eq ptr %.19.i.i.i.i.i.i213, %722
-  br i1 %726, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit222.thread", label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit222"
+  br i1 %726, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit222.thread", label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit222"
 
-"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit222": ; preds = %_ZNKSt8_Rb_treeIxSt4pairIKxPN7glslang9TVariableEESt10_Select1stIS5_ESt4lessIxENS2_14pool_allocatorIS5_EEE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i218
+"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit222": ; preds = %_ZNKSt8_Rb_treeIxSt4pairIKxPN7glslang9TVariableEESt10_Select1stIS5_ESt4lessIxENS2_14pool_allocatorIS5_EEE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i218
   %727 = getelementptr inbounds i8, ptr %.19.i.i.i.i.i.i213, i64 32
   %728 = load i64, ptr %727, align 8
   %729 = icmp slt i64 %719, %728
-  br i1 %729, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit222.thread", label %730
+  br i1 %729, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit222.thread", label %730
 
-730:                                              ; preds = %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit222"
+730:                                              ; preds = %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit222"
   %731 = load ptr, ptr %3, align 8
   %732 = getelementptr inbounds i8, ptr %731, i64 64
   %733 = load ptr, ptr %732, align 8
@@ -29195,7 +29195,7 @@ _ZNKSt8_Rb_treeIxSt4pairIKxPN7glslang9TVariableEESt10_Select1stIS5_ESt4lessIxENS
   call void %782(ptr noundef nonnull align 8 dereferenceable(184) %775, ptr noundef nonnull align 8 dereferenceable(152) %30) #24
   br label %806
 
-"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit222.thread": ; preds = %711, %_ZNKSt8_Rb_treeIxSt4pairIKxPN7glslang9TVariableEESt10_Select1stIS5_ESt4lessIxENS2_14pool_allocatorIS5_EEE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i218, %697, %701, %706, %691, %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit222"
+"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit222.thread": ; preds = %711, %_ZNKSt8_Rb_treeIxSt4pairIKxPN7glslang9TVariableEESt10_Select1stIS5_ESt4lessIxENS2_14pool_allocatorIS5_EEE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i218, %697, %701, %706, %691, %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit222"
   %783 = load ptr, ptr %3, align 8
   %784 = getelementptr inbounds i8, ptr %783, i64 96
   %785 = load ptr, ptr %784, align 8
@@ -29211,9 +29211,9 @@ _ZNKSt8_Rb_treeIxSt4pairIKxPN7glslang9TVariableEESt10_Select1stIS5_ESt4lessIxENS
   %795 = getelementptr inbounds i8, ptr %0, i64 1888
   br label %.lr.ph.i.i.i.i234
 
-.lr.ph.i.i.i.i234:                                ; preds = %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit222.thread", %.lr.ph.i.i.i.i234
-  %.012.i.i.i.i235 = phi ptr [ %.1.i.i.i.i240, %.lr.ph.i.i.i.i234 ], [ %794, %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit222.thread" ]
-  %.0811.i.i.i.i236 = phi ptr [ %.19.i.i.i.i237, %.lr.ph.i.i.i.i234 ], [ %795, %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.argprom.exit222.thread" ]
+.lr.ph.i.i.i.i234:                                ; preds = %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit222.thread", %.lr.ph.i.i.i.i234
+  %.012.i.i.i.i235 = phi ptr [ %.1.i.i.i.i240, %.lr.ph.i.i.i.i234 ], [ %794, %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit222.thread" ]
+  %.0811.i.i.i.i236 = phi ptr [ %.19.i.i.i.i237, %.lr.ph.i.i.i.i234 ], [ %795, %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_2clEPKS5_.exit222.thread" ]
   %796 = getelementptr inbounds i8, ptr %.012.i.i.i.i235, i64 32
   %797 = load i64, ptr %796, align 8
   %798 = icmp slt i64 %797, %792
@@ -29339,8 +29339,8 @@ _ZNSt8functionIFvPN7glslang12TIntermTypedES2_S2_S2_bEED2Ev.exit: ; preds = %_ZNK
   call void @_ZdlPvm(ptr noundef nonnull %845, i64 noundef %851) #26
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %846, %_ZNSt8functionIFvPN7glslang12TIntermTypedES2_S2_S2_bEED2Ev.exit, %5, %407, %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_3clEPKS5_.argprom.exit", %329, %59
-  %.0 = phi ptr [ %60, %59 ], [ %358, %329 ], [ %375, %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_3clEPKS5_.argprom.exit" ], [ %410, %407 ], [ null, %5 ], [ %841, %_ZNSt8functionIFvPN7glslang12TIntermTypedES2_S2_S2_bEED2Ev.exit ], [ %841, %846 ]
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %846, %_ZNSt8functionIFvPN7glslang12TIntermTypedES2_S2_S2_bEED2Ev.exit, %5, %407, %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_3clEPKS5_.exit", %329, %59
+  %.0 = phi ptr [ %60, %59 ], [ %358, %329 ], [ %375, %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_3clEPKS5_.exit" ], [ %410, %407 ], [ null, %5 ], [ %841, %_ZNSt8functionIFvPN7glslang12TIntermTypedES2_S2_S2_bEED2Ev.exit ], [ %841, %846 ]
   ret ptr %.0
 }
 
@@ -31080,7 +31080,7 @@ _ZN7glslang16HlslParseContext8popScopeEv.exit:    ; preds = %_ZNSt7__cxx1112basi
 declare void @_ZN7glslang9TFunctionD1Ev(ptr noundef nonnull align 8 dereferenceable(340)) unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_0clEPKcRNS_5TTypeENS_17TStorageQualifierE.argprom"(ptr %.0.val, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef range(i32 3, 5) %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @"_ZZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_ENK3$_0clEPKcRNS_5TTypeENS_17TStorageQualifierE"(ptr %.0.val, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef range(i32 3, 5) %2) unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_ZN7glslang14NewPoolTStringB5cxx11EPKc(ptr noundef %0)
   %5 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #24
   %6 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %5, i64 noundef 240) #24
@@ -42662,15 +42662,15 @@ define void @_ZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLoc
   %623 = load ptr, ptr %622, align 8
   %624 = tail call noundef ptr %623(ptr noundef nonnull align 8 dereferenceable(32) %582) #24
   %.not.i = icmp eq ptr %624, null
-  br i1 %.not.i, label %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.argprom.exit", label %625
+  br i1 %.not.i, label %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.exit", label %625
 
 625:                                              ; preds = %620
   %626 = getelementptr inbounds i8, ptr %624, i64 184
   %627 = load i32, ptr %626, align 8
   %628 = icmp eq i32 %627, 604
-  br label %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.argprom.exit"
+  br label %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.exit"
 
-"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.argprom.exit": ; preds = %620, %625
+"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.exit": ; preds = %620, %625
   %629 = phi i1 [ false, %620 ], [ %628, %625 ]
   switch i32 %89, label %646 [
     i32 779, label %630
@@ -42683,39 +42683,39 @@ define void @_ZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLoc
     i32 783, label %644
   ]
 
-630:                                              ; preds = %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.argprom.exit"
+630:                                              ; preds = %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.exit"
   %631 = select i1 %629, i32 608, i32 429
   br label %_ZN7glslang16HlslParseContext11mapAtomicOpERKNS_10TSourceLocENS_9TOperatorEb.exit
 
-632:                                              ; preds = %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.argprom.exit"
+632:                                              ; preds = %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.exit"
   %633 = select i1 %629, i32 611, i32 433
   br label %_ZN7glslang16HlslParseContext11mapAtomicOpERKNS_10TSourceLocENS_9TOperatorEb.exit
 
-634:                                              ; preds = %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.argprom.exit"
+634:                                              ; preds = %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.exit"
   %635 = select i1 %629, i32 615, i32 437
   br label %_ZN7glslang16HlslParseContext11mapAtomicOpERKNS_10TSourceLocENS_9TOperatorEb.exit
 
-636:                                              ; preds = %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.argprom.exit"
+636:                                              ; preds = %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.exit"
   %637 = select i1 %629, i32 610, i32 432
   br label %_ZN7glslang16HlslParseContext11mapAtomicOpERKNS_10TSourceLocENS_9TOperatorEb.exit
 
-638:                                              ; preds = %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.argprom.exit"
+638:                                              ; preds = %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.exit"
   %639 = select i1 %629, i32 609, i32 431
   br label %_ZN7glslang16HlslParseContext11mapAtomicOpERKNS_10TSourceLocENS_9TOperatorEb.exit
 
-640:                                              ; preds = %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.argprom.exit"
+640:                                              ; preds = %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.exit"
   %641 = select i1 %629, i32 612, i32 434
   br label %_ZN7glslang16HlslParseContext11mapAtomicOpERKNS_10TSourceLocENS_9TOperatorEb.exit
 
-642:                                              ; preds = %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.argprom.exit"
+642:                                              ; preds = %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.exit"
   %643 = select i1 %629, i32 613, i32 435
   br label %_ZN7glslang16HlslParseContext11mapAtomicOpERKNS_10TSourceLocENS_9TOperatorEb.exit
 
-644:                                              ; preds = %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.argprom.exit"
+644:                                              ; preds = %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.exit"
   %645 = select i1 %629, i32 614, i32 436
   br label %_ZN7glslang16HlslParseContext11mapAtomicOpERKNS_10TSourceLocENS_9TOperatorEb.exit
 
-646:                                              ; preds = %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.argprom.exit"
+646:                                              ; preds = %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.exit"
   %647 = load ptr, ptr %0, align 8
   %648 = getelementptr inbounds i8, ptr %647, i64 344
   %649 = load ptr, ptr %648, align 8
@@ -43211,16 +43211,16 @@ _ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE9push_backEOS1_.exit5
   %943 = load ptr, ptr %942, align 8
   %944 = tail call noundef ptr %943(ptr noundef nonnull align 8 dereferenceable(32) %904) #24
   %.not.i503 = icmp eq ptr %944, null
-  br i1 %.not.i503, label %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.argprom.exit504", label %945
+  br i1 %.not.i503, label %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.exit504", label %945
 
 945:                                              ; preds = %893
   %946 = getelementptr inbounds i8, ptr %944, i64 184
   %947 = load i32, ptr %946, align 8
   %.fr = freeze i32 %947
   %948 = icmp eq i32 %.fr, 604
-  br label %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.argprom.exit504"
+  br label %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.exit504"
 
-"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.argprom.exit504": ; preds = %893, %945
+"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.exit504": ; preds = %893, %945
   %cond.fr = phi i1 [ false, %893 ], [ %948, %945 ]
   %949 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #24
   %950 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %949, i64 noundef 368) #24
@@ -43249,11 +43249,11 @@ _ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE9push_backEOS1_.exit5
   tail call void @_ZN7glslang10TQualifier13makeTemporaryEv(ptr noundef nonnull align 8 dereferenceable(80) %968)
   br i1 %cond.fr, label %969, label %970
 
-969:                                              ; preds = %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.argprom.exit504"
+969:                                              ; preds = %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.exit504"
   call fastcc void @"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_1clEPNS_16TIntermAggregateES5_"(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %950, ptr noundef nonnull %904)
   br label %975
 
-970:                                              ; preds = %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.argprom.exit504"
+970:                                              ; preds = %"_ZZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLocERPNS_12TIntermTypedEP11TIntermNodeENK3$_0clES5_.exit504"
   %971 = load ptr, ptr %950, align 8
   %972 = getelementptr inbounds i8, ptr %971, i64 400
   %973 = load ptr, ptr %972, align 8
@@ -50378,12 +50378,12 @@ define void @_ZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS_10TSourc
   %24 = icmp sgt i64 %23, 0
   br i1 %24, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %3, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit30.thread.i.i.i.i.i"
-  %.069.i.i.i.i.i = phi i64 [ %121, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit30.thread.i.i.i.i.i" ], [ %23, %3 ]
-  %.sroa.049.068.i.i.i.i.i = phi ptr [ %120, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit30.thread.i.i.i.i.i" ], [ %12, %3 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %3, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit30.thread.i.i.i.i.i"
+  %.069.i.i.i.i.i = phi i64 [ %121, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit30.thread.i.i.i.i.i" ], [ %23, %3 ]
+  %.sroa.049.068.i.i.i.i.i = phi ptr [ %120, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit30.thread.i.i.i.i.i" ], [ %12, %3 ]
   %25 = load ptr, ptr %.sroa.049.068.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit.thread.i.i.i.i.i", label %26
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit.thread.i.i.i.i.i", label %26
 
 26:                                               ; preds = %.lr.ph.i.i.i.i.i
   %27 = load ptr, ptr %25, align 8
@@ -50391,9 +50391,9 @@ define void @_ZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS_10TSourc
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef ptr %29(ptr noundef nonnull align 8 dereferenceable(32) %25) #24
   %.not4.i.i.i.i.i.i.i = icmp eq ptr %30, null
-  br i1 %.not4.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit.i.i.i.i.i"
+  br i1 %.not4.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit.i.i.i.i.i": ; preds = %26
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit.i.i.i.i.i": ; preds = %26
   %31 = load ptr, ptr %25, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 120
   %33 = load ptr, ptr %32, align 8
@@ -50413,23 +50413,23 @@ define void @_ZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS_10TSourc
   %47 = and i32 %46, 511
   %.off.i.i.i.i.i.i.i.i = add nsw i32 %47, -143
   %switch.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i, 2
-  br i1 %switch.i.i.i.i.i.i.i.i, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit.thread.i.i.i.i.i"
+  br i1 %switch.i.i.i.i.i.i.i.i, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit.i.i.i.i.i", %26, %.lr.ph.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit.i.i.i.i.i", %26, %.lr.ph.i.i.i.i.i
   %48 = getelementptr inbounds i8, ptr %.sroa.049.068.i.i.i.i.i, i64 8
   %49 = load ptr, ptr %48, align 8
   %.not.i.i16.i.i.i.i.i = icmp eq ptr %49, null
-  br i1 %.not.i.i16.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit20.thread.i.i.i.i.i", label %50
+  br i1 %.not.i.i16.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit20.thread.i.i.i.i.i", label %50
 
-50:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit.thread.i.i.i.i.i"
+50:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit.thread.i.i.i.i.i"
   %51 = load ptr, ptr %49, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 120
   %53 = load ptr, ptr %52, align 8
   %54 = tail call noundef ptr %53(ptr noundef nonnull align 8 dereferenceable(32) %49) #24
   %.not4.i.i17.i.i.i.i.i = icmp eq ptr %54, null
-  br i1 %.not4.i.i17.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit20.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit20.i.i.i.i.i"
+  br i1 %.not4.i.i17.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit20.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit20.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit20.i.i.i.i.i": ; preds = %50
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit20.i.i.i.i.i": ; preds = %50
   %55 = load ptr, ptr %49, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 120
   %57 = load ptr, ptr %56, align 8
@@ -50449,23 +50449,23 @@ define void @_ZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS_10TSourc
   %71 = and i32 %70, 511
   %.off.i.i.i18.i.i.i.i.i = add nsw i32 %71, -143
   %switch.i.i.i19.i.i.i.i.i = icmp ult i32 %.off.i.i.i18.i.i.i.i.i, 2
-  br i1 %switch.i.i.i19.i.i.i.i.i, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.argprom.exit.loopexit.split.loop.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit20.thread.i.i.i.i.i"
+  br i1 %switch.i.i.i19.i.i.i.i.i, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit.loopexit.split.loop.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit20.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit20.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit20.i.i.i.i.i", %50, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit.thread.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit20.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit20.i.i.i.i.i", %50, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit.thread.i.i.i.i.i"
   %72 = getelementptr inbounds i8, ptr %.sroa.049.068.i.i.i.i.i, i64 16
   %73 = load ptr, ptr %72, align 8
   %.not.i.i21.i.i.i.i.i = icmp eq ptr %73, null
-  br i1 %.not.i.i21.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit25.thread.i.i.i.i.i", label %74
+  br i1 %.not.i.i21.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit25.thread.i.i.i.i.i", label %74
 
-74:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit20.thread.i.i.i.i.i"
+74:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit20.thread.i.i.i.i.i"
   %75 = load ptr, ptr %73, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 120
   %77 = load ptr, ptr %76, align 8
   %78 = tail call noundef ptr %77(ptr noundef nonnull align 8 dereferenceable(32) %73) #24
   %.not4.i.i22.i.i.i.i.i = icmp eq ptr %78, null
-  br i1 %.not4.i.i22.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit25.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit25.i.i.i.i.i"
+  br i1 %.not4.i.i22.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit25.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit25.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit25.i.i.i.i.i": ; preds = %74
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit25.i.i.i.i.i": ; preds = %74
   %79 = load ptr, ptr %73, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 120
   %81 = load ptr, ptr %80, align 8
@@ -50485,23 +50485,23 @@ define void @_ZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS_10TSourc
   %95 = and i32 %94, 511
   %.off.i.i.i23.i.i.i.i.i = add nsw i32 %95, -143
   %switch.i.i.i24.i.i.i.i.i = icmp ult i32 %.off.i.i.i23.i.i.i.i.i, 2
-  br i1 %switch.i.i.i24.i.i.i.i.i, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.argprom.exit.loopexit.split.loop.exit69", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit25.thread.i.i.i.i.i"
+  br i1 %switch.i.i.i24.i.i.i.i.i, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit.loopexit.split.loop.exit69", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit25.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit25.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit25.i.i.i.i.i", %74, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit20.thread.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit25.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit25.i.i.i.i.i", %74, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit20.thread.i.i.i.i.i"
   %96 = getelementptr inbounds i8, ptr %.sroa.049.068.i.i.i.i.i, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i26.i.i.i.i.i = icmp eq ptr %97, null
-  br i1 %.not.i.i26.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit30.thread.i.i.i.i.i", label %98
+  br i1 %.not.i.i26.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit30.thread.i.i.i.i.i", label %98
 
-98:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit25.thread.i.i.i.i.i"
+98:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit25.thread.i.i.i.i.i"
   %99 = load ptr, ptr %97, align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 120
   %101 = load ptr, ptr %100, align 8
   %102 = tail call noundef ptr %101(ptr noundef nonnull align 8 dereferenceable(32) %97) #24
   %.not4.i.i27.i.i.i.i.i = icmp eq ptr %102, null
-  br i1 %.not4.i.i27.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit30.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit30.i.i.i.i.i"
+  br i1 %.not4.i.i27.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit30.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit30.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit30.i.i.i.i.i": ; preds = %98
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit30.i.i.i.i.i": ; preds = %98
   %103 = load ptr, ptr %97, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 120
   %105 = load ptr, ptr %104, align 8
@@ -50521,15 +50521,15 @@ define void @_ZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS_10TSourc
   %119 = and i32 %118, 511
   %.off.i.i.i28.i.i.i.i.i = add nsw i32 %119, -143
   %switch.i.i.i29.i.i.i.i.i = icmp ult i32 %.off.i.i.i28.i.i.i.i.i, 2
-  br i1 %switch.i.i.i29.i.i.i.i.i, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.argprom.exit.loopexit.split.loop.exit71", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit30.thread.i.i.i.i.i"
+  br i1 %switch.i.i.i29.i.i.i.i.i, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit.loopexit.split.loop.exit71", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit30.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit30.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit30.i.i.i.i.i", %98, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit25.thread.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit30.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit30.i.i.i.i.i", %98, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit25.thread.i.i.i.i.i"
   %120 = getelementptr inbounds i8, ptr %.sroa.049.068.i.i.i.i.i, i64 32
   %121 = add nsw i64 %.069.i.i.i.i.i, -1
   %122 = icmp sgt i64 %.069.i.i.i.i.i, 1
   br i1 %122, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !259
 
-._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit30.thread.i.i.i.i.i"
+._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit30.thread.i.i.i.i.i"
   %.pre.i.i.i.i.i = ptrtoint ptr %120 to i64
   %.pre74.i.i.i.i.i = sub i64 %20, %.pre.i.i.i.i.i
   br label %._crit_edge.i.i.i.i.i
@@ -50538,7 +50538,7 @@ define void @_ZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS_10TSourc
   %.pre-phi75.i.i.i.i.i = phi i64 [ %.pre74.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %22, %3 ]
   %.sroa.049.0.lcssa.i.i.i.i.i = phi ptr [ %120, %._crit_edge.loopexit.i.i.i.i.i ], [ %12, %3 ]
   %123 = ashr exact i64 %.pre-phi75.i.i.i.i.i, 3
-  switch i64 %123, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.argprom.exit.thread" [
+  switch i64 %123, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit.thread" [
     i64 3, label %124
     i64 2, label %149
     i64 1, label %174
@@ -50547,7 +50547,7 @@ define void @_ZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS_10TSourc
 124:                                              ; preds = %._crit_edge.i.i.i.i.i
   %125 = load ptr, ptr %.sroa.049.0.lcssa.i.i.i.i.i, align 8
   %.not.i.i31.i.i.i.i.i = icmp eq ptr %125, null
-  br i1 %.not.i.i31.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit35.thread.i.i.i.i.i", label %126
+  br i1 %.not.i.i31.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit35.thread.i.i.i.i.i", label %126
 
 126:                                              ; preds = %124
   %127 = load ptr, ptr %125, align 8
@@ -50555,9 +50555,9 @@ define void @_ZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS_10TSourc
   %129 = load ptr, ptr %128, align 8
   %130 = tail call noundef ptr %129(ptr noundef nonnull align 8 dereferenceable(32) %125) #24
   %.not4.i.i32.i.i.i.i.i = icmp eq ptr %130, null
-  br i1 %.not4.i.i32.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit35.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit35.i.i.i.i.i"
+  br i1 %.not4.i.i32.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit35.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit35.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit35.i.i.i.i.i": ; preds = %126
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit35.i.i.i.i.i": ; preds = %126
   %131 = load ptr, ptr %125, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 120
   %133 = load ptr, ptr %132, align 8
@@ -50577,17 +50577,17 @@ define void @_ZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS_10TSourc
   %147 = and i32 %146, 511
   %.off.i.i.i33.i.i.i.i.i = add nsw i32 %147, -143
   %switch.i.i.i34.i.i.i.i.i = icmp ult i32 %.off.i.i.i33.i.i.i.i.i, 2
-  br i1 %switch.i.i.i34.i.i.i.i.i, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit35.thread.i.i.i.i.i"
+  br i1 %switch.i.i.i34.i.i.i.i.i, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit35.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit35.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit35.i.i.i.i.i", %126, %124
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit35.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit35.i.i.i.i.i", %126, %124
   %148 = getelementptr inbounds i8, ptr %.sroa.049.0.lcssa.i.i.i.i.i, i64 8
   br label %149
 
-149:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit35.thread.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.sroa.049.1.i.i.i.i.i = phi ptr [ %.sroa.049.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %148, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit35.thread.i.i.i.i.i" ]
+149:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit35.thread.i.i.i.i.i", %._crit_edge.i.i.i.i.i
+  %.sroa.049.1.i.i.i.i.i = phi ptr [ %.sroa.049.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %148, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit35.thread.i.i.i.i.i" ]
   %150 = load ptr, ptr %.sroa.049.1.i.i.i.i.i, align 8
   %.not.i.i36.i.i.i.i.i = icmp eq ptr %150, null
-  br i1 %.not.i.i36.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit40.thread.i.i.i.i.i", label %151
+  br i1 %.not.i.i36.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit40.thread.i.i.i.i.i", label %151
 
 151:                                              ; preds = %149
   %152 = load ptr, ptr %150, align 8
@@ -50595,9 +50595,9 @@ define void @_ZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS_10TSourc
   %154 = load ptr, ptr %153, align 8
   %155 = tail call noundef ptr %154(ptr noundef nonnull align 8 dereferenceable(32) %150) #24
   %.not4.i.i37.i.i.i.i.i = icmp eq ptr %155, null
-  br i1 %.not4.i.i37.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit40.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit40.i.i.i.i.i"
+  br i1 %.not4.i.i37.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit40.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit40.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit40.i.i.i.i.i": ; preds = %151
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit40.i.i.i.i.i": ; preds = %151
   %156 = load ptr, ptr %150, align 8
   %157 = getelementptr inbounds i8, ptr %156, i64 120
   %158 = load ptr, ptr %157, align 8
@@ -50617,17 +50617,17 @@ define void @_ZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS_10TSourc
   %172 = and i32 %171, 511
   %.off.i.i.i38.i.i.i.i.i = add nsw i32 %172, -143
   %switch.i.i.i39.i.i.i.i.i = icmp ult i32 %.off.i.i.i38.i.i.i.i.i, 2
-  br i1 %switch.i.i.i39.i.i.i.i.i, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit40.thread.i.i.i.i.i"
+  br i1 %switch.i.i.i39.i.i.i.i.i, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit40.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit40.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit40.i.i.i.i.i", %151, %149
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit40.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit40.i.i.i.i.i", %151, %149
   %173 = getelementptr inbounds i8, ptr %.sroa.049.1.i.i.i.i.i, i64 8
   br label %174
 
-174:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit40.thread.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.sroa.049.2.i.i.i.i.i = phi ptr [ %.sroa.049.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %173, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit40.thread.i.i.i.i.i" ]
+174:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit40.thread.i.i.i.i.i", %._crit_edge.i.i.i.i.i
+  %.sroa.049.2.i.i.i.i.i = phi ptr [ %.sroa.049.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %173, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit40.thread.i.i.i.i.i" ]
   %175 = load ptr, ptr %.sroa.049.2.i.i.i.i.i, align 8
   %.not.i.i41.i.i.i.i.i = icmp eq ptr %175, null
-  br i1 %.not.i.i41.i.i.i.i.i, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.argprom.exit.thread", label %176
+  br i1 %.not.i.i41.i.i.i.i.i, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit.thread", label %176
 
 176:                                              ; preds = %174
   %177 = load ptr, ptr %175, align 8
@@ -50635,9 +50635,9 @@ define void @_ZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS_10TSourc
   %179 = load ptr, ptr %178, align 8
   %180 = tail call noundef ptr %179(ptr noundef nonnull align 8 dereferenceable(32) %175) #24
   %.not4.i.i42.i.i.i.i.i = icmp eq ptr %180, null
-  br i1 %.not4.i.i42.i.i.i.i.i, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.argprom.exit.thread", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit45.i.i.i.i.i"
+  br i1 %.not4.i.i42.i.i.i.i.i, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit45.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit45.i.i.i.i.i": ; preds = %176
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit45.i.i.i.i.i": ; preds = %176
   %181 = load ptr, ptr %175, align 8
   %182 = getelementptr inbounds i8, ptr %181, i64 120
   %183 = load ptr, ptr %182, align 8
@@ -50657,26 +50657,26 @@ define void @_ZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS_10TSourc
   %197 = and i32 %196, 511
   %.off.i.i.i43.i.i.i.i.i = add nsw i32 %197, -143
   %switch.i.i.i44.i.i.i.i.i = icmp ult i32 %.off.i.i.i43.i.i.i.i.i, 2
-  br i1 %switch.i.i.i44.i.i.i.i.i, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.argprom.exit", label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.argprom.exit.thread"
+  br i1 %switch.i.i.i44.i.i.i.i.i, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit", label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit.thread"
 
-"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit20.i.i.i.i.i"
+"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit20.i.i.i.i.i"
   %198 = getelementptr inbounds i8, ptr %.sroa.049.068.i.i.i.i.i, i64 8
-  br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.argprom.exit"
+  br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit"
 
-"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.argprom.exit.loopexit.split.loop.exit69": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit25.i.i.i.i.i"
+"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit.loopexit.split.loop.exit69": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit25.i.i.i.i.i"
   %199 = getelementptr inbounds i8, ptr %.sroa.049.068.i.i.i.i.i, i64 16
-  br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.argprom.exit"
+  br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit"
 
-"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.argprom.exit.loopexit.split.loop.exit71": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit30.i.i.i.i.i"
+"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit.loopexit.split.loop.exit71": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit30.i.i.i.i.i"
   %200 = getelementptr inbounds i8, ptr %.sroa.049.068.i.i.i.i.i, i64 24
-  br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.argprom.exit"
+  br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit"
 
-"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.argprom.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit.i.i.i.i.i", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.argprom.exit.loopexit.split.loop.exit69", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.argprom.exit.loopexit.split.loop.exit71", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit35.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit40.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit45.i.i.i.i.i"
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.049.0.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit35.i.i.i.i.i" ], [ %.sroa.049.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit40.i.i.i.i.i" ], [ %.sroa.049.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit45.i.i.i.i.i" ], [ %198, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %199, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.argprom.exit.loopexit.split.loop.exit69" ], [ %200, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.argprom.exit.loopexit.split.loop.exit71" ], [ %.sroa.049.068.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit.i.i.i.i.i" ]
+"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit.i.i.i.i.i", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit.loopexit.split.loop.exit69", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit.loopexit.split.loop.exit71", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit35.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit40.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit45.i.i.i.i.i"
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.049.0.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit35.i.i.i.i.i" ], [ %.sroa.049.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit40.i.i.i.i.i" ], [ %.sroa.049.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit45.i.i.i.i.i" ], [ %198, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit.loopexit.split.loop.exit" ], [ %199, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit.loopexit.split.loop.exit69" ], [ %200, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit.loopexit.split.loop.exit71" ], [ %.sroa.049.068.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit.i.i.i.i.i" ]
   %.not37 = icmp eq ptr %19, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
-  br i1 %.not37, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.argprom.exit.thread", label %201
+  br i1 %.not37, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit.thread", label %201
 
-201:                                              ; preds = %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.argprom.exit"
+201:                                              ; preds = %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit"
   %202 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #24
   %203 = load ptr, ptr %2, align 8
   %204 = load ptr, ptr %203, align 8
@@ -51112,9 +51112,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   store ptr %.sroa.4.0.lcssa, ptr %458, align 8
   store ptr %.sroa.11.0.lcssa, ptr %459, align 8
   store ptr %.sroa.21.0.lcssa, ptr %460, align 8
-  br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.argprom.exit.thread"
+  br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit.thread"
 
-"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.argprom.exit.thread": ; preds = %174, %176, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.argprom.exit45.i.i.i.i.i", %._crit_edge.i.i.i.i.i, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.argprom.exit", %._crit_edge
+"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit.thread": ; preds = %174, %176, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit45.i.i.i.i.i", %._crit_edge.i.i.i.i.i, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit", %._crit_edge
   ret void
 }
 
@@ -51469,7 +51469,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i:     ; preds = %46
   br i1 %or.cond154, label %53, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7compareEmmPKc.exit.thread
 
 53:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i
-  %54 = call fastcc noundef i32 @"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr %51, i64 %48, i32 noundef 0, ptr noundef null)
+  %54 = call fastcc noundef i32 @"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc"(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr %51, i64 %48, i32 noundef 0, ptr noundef null)
   %55 = getelementptr inbounds i8, ptr %2, i64 28
   %56 = load i64, ptr %55, align 4
   %57 = and i32 %54, 4095
@@ -51552,16 +51552,16 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %_ZNSt11char_traitsI
 
 83:                                               ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
   %.not15.i.i.i = icmp eq i64 %.1.i.i.i, 0
-  br i1 %.not15.i.i.i, label %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.argprom.exit", label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i, !llvm.loop !264
+  br i1 %.not15.i.i.i, label %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.exit", label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i, !llvm.loop !264
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE16find_last_not_ofEPKcm.exit.i: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
   %84 = getelementptr inbounds i8, ptr %76, i64 %.1.i.i.in.i
   %85 = call i32 @atoi(ptr nocapture noundef nonnull %84) #28
   %86 = freeze i32 %85
   %87 = and i32 %86, 4095
-  br label %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.argprom.exit"
+  br label %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.exit"
 
-"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.argprom.exit": ; preds = %83, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE16find_last_not_ofEPKcm.exit.i
+"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.exit": ; preds = %83, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE16find_last_not_ofEPKcm.exit.i
   %.0.i77 = phi i32 [ %87, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE16find_last_not_ofEPKcm.exit.i ], [ 0, %83 ]
   %88 = getelementptr inbounds i8, ptr %2, i64 28
   %89 = load i64, ptr %88, align 4
@@ -51610,23 +51610,23 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i90: ; preds = %99, %106
 
 106:                                              ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i90
   %.not15.i.i.i96 = icmp eq i64 %.1.i.i.i92, 0
-  br i1 %.not15.i.i.i96, label %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.argprom.exit99", label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i90, !llvm.loop !264
+  br i1 %.not15.i.i.i96, label %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.exit99", label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i90, !llvm.loop !264
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE16find_last_not_ofEPKcm.exit.i98: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i90
   %107 = getelementptr inbounds i8, ptr %97, i64 %.1.i.i.in.i91
   %108 = call i32 @atoi(ptr nocapture noundef nonnull %107) #28
   %109 = freeze i32 %108
   %or.cond.not.i = icmp ugt i32 %109, 1
-  br i1 %or.cond.not.i, label %110, label %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.argprom.exit99"
+  br i1 %or.cond.not.i, label %110, label %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.exit99"
 
 110:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE16find_last_not_ofEPKcm.exit.i98
   %111 = load ptr, ptr %100, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 344
   %113 = load ptr, ptr %112, align 8
   call void (ptr, ptr, ptr, ptr, ptr, ...) %113(ptr noundef nonnull align 8 dereferenceable(1280) %100, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull @.str.183, ptr noundef nonnull %97, ptr noundef nonnull @.str.5) #24
-  br label %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.argprom.exit99"
+  br label %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.exit99"
 
-"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.argprom.exit99": ; preds = %106, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE16find_last_not_ofEPKcm.exit.i98, %110
+"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.exit99": ; preds = %106, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE16find_last_not_ofEPKcm.exit.i98, %110
   %.0.i97 = phi i32 [ 0, %110 ], [ %109, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE16find_last_not_ofEPKcm.exit.i98 ], [ 0, %106 ]
   %114 = getelementptr inbounds i8, ptr %2, i64 28
   %115 = load i64, ptr %114, align 4
@@ -51661,23 +51661,23 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i111: ; preds = %119, %126
 
 126:                                              ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i111
   %.not15.i.i.i117 = icmp eq i64 %.1.i.i.i113, 0
-  br i1 %.not15.i.i.i117, label %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.argprom.exit121", label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i111, !llvm.loop !264
+  br i1 %.not15.i.i.i117, label %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.exit121", label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i111, !llvm.loop !264
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE16find_last_not_ofEPKcm.exit.i119: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i111
   %127 = getelementptr inbounds i8, ptr %97, i64 %.1.i.i.in.i112
   %128 = call i32 @atoi(ptr nocapture noundef nonnull %127) #28
   %129 = freeze i32 %128
   %or.cond.not.i120 = icmp ugt i32 %129, 1
-  br i1 %or.cond.not.i120, label %130, label %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.argprom.exit121"
+  br i1 %or.cond.not.i120, label %130, label %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.exit121"
 
 130:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE16find_last_not_ofEPKcm.exit.i119
   %131 = load ptr, ptr %120, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 344
   %133 = load ptr, ptr %132, align 8
   call void (ptr, ptr, ptr, ptr, ptr, ...) %133(ptr noundef nonnull align 8 dereferenceable(1280) %120, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull @.str.185, ptr noundef nonnull %97, ptr noundef nonnull @.str.5) #24
-  br label %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.argprom.exit121"
+  br label %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.exit121"
 
-"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.argprom.exit121": ; preds = %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE16find_last_not_ofEPKcm.exit.i119, %130
+"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.exit121": ; preds = %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE16find_last_not_ofEPKcm.exit.i119, %130
   %.0.i118 = phi i32 [ 0, %130 ], [ %129, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE16find_last_not_ofEPKcm.exit.i119 ], [ 0, %126 ]
   %134 = getelementptr inbounds i8, ptr %2, i64 28
   %135 = load i64, ptr %134, align 4
@@ -51708,8 +51708,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE16
   store i64 %150, ptr %148, align 8
   br label %.thread143
 
-.thread143:                                       ; preds = %73, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7compareEmmPKc.exit76.thread, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i61, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i102, %139, %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_.exit49.thread, %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.argprom.exit", %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.argprom.exit121", %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.argprom.exit99", %147, %143
-  %.3 = phi i32 [ %.0, %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_.exit49.thread ], [ %.0, %147 ], [ 68, %143 ], [ 0, %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.argprom.exit" ], [ 33, %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.argprom.exit99" ], [ 34, %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.argprom.exit121" ], [ %spec.select34, %139 ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i102 ], [ 31, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 67, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i61 ], [ 0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7compareEmmPKc.exit76.thread ], [ 0, %73 ]
+.thread143:                                       ; preds = %73, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7compareEmmPKc.exit76.thread, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i61, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i102, %139, %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_.exit49.thread, %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.exit", %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.exit121", %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.exit99", %147, %143
+  %.3 = phi i32 [ %.0, %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_.exit49.thread ], [ %.0, %147 ], [ 68, %143 ], [ 0, %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.exit" ], [ 33, %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.exit99" ], [ 34, %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.exit121" ], [ %spec.select34, %139 ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i102 ], [ 31, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 67, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i61 ], [ 0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7compareEmmPKc.exit76.thread ], [ 0, %73 ]
   %151 = getelementptr inbounds i8, ptr %2, i64 8
   %152 = load i64, ptr %151, align 8
   %153 = and i64 %152, 65408
@@ -51789,7 +51789,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread: ; preds = %_ZNKSt7__cxx1112ba
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %.8.val, i64 %.16.val, i32 noundef range(i32 0, 3) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef i32 @"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %.8.val, i64 %.16.val, i32 noundef range(i32 0, 3) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq i64 %.16.val, 0
   br i1 %.not.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE16find_last_not_ofEPKcm.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
@@ -54895,11 +54895,11 @@ define void @_ZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt
   %40 = getelementptr inbounds i8, ptr %0, i64 1832
   br label %41
 
-41:                                               ; preds = %.lr.ph, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit33"
-  %.sroa.0106.0139 = phi ptr [ null, %.lr.ph ], [ %.sroa.0106.1, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit33" ]
-  %.sroa.9.0138 = phi ptr [ null, %.lr.ph ], [ %.sroa.9.1, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit33" ]
-  %.sroa.16.0137 = phi ptr [ null, %.lr.ph ], [ %.sroa.16.1, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit33" ]
-  %.sroa.099.0136 = phi ptr [ %35, %.lr.ph ], [ %176, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit33" ]
+41:                                               ; preds = %.lr.ph, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit33"
+  %.sroa.0106.0139 = phi ptr [ null, %.lr.ph ], [ %.sroa.0106.1, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit33" ]
+  %.sroa.9.0138 = phi ptr [ null, %.lr.ph ], [ %.sroa.9.1, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit33" ]
+  %.sroa.16.0137 = phi ptr [ null, %.lr.ph ], [ %.sroa.16.1, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit33" ]
+  %.sroa.099.0136 = phi ptr [ %35, %.lr.ph ], [ %176, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit33" ]
   %42 = load ptr, ptr %.sroa.099.0136, align 8
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 80
@@ -54943,7 +54943,7 @@ _ZNK7glslang16HlslParseContext10hasUniformERKNS_10TQualifierE.exit: ; preds = %4
   %70 = select i1 %66, i1 true, i1 %69
   %71 = icmp eq ptr %.sroa.16.0137, null
   %or.cond.i = select i1 %70, i1 %71, i1 false
-  br i1 %or.cond.i, label %72, label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit"
+  br i1 %or.cond.i, label %72, label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit"
 
 72:                                               ; preds = %_ZNK7glslang16HlslParseContext10hasUniformERKNS_10TQualifierE.exit
   %73 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #24
@@ -54953,9 +54953,9 @@ _ZNK7glslang16HlslParseContext10hasUniformERKNS_10TQualifierE.exit: ; preds = %4
   store ptr %75, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %74, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %76, i8 0, i64 24, i1 false)
-  br label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit"
+  br label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit"
 
-"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit": ; preds = %_ZNK7glslang16HlslParseContext10hasUniformERKNS_10TQualifierE.exit, %72
+"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit": ; preds = %_ZNK7glslang16HlslParseContext10hasUniformERKNS_10TQualifierE.exit, %72
   %.sroa.16.2 = phi ptr [ %74, %72 ], [ %.sroa.16.0137, %_ZNK7glslang16HlslParseContext10hasUniformERKNS_10TQualifierE.exit ]
   %77 = load ptr, ptr %.sroa.099.0136, align 8
   %78 = load ptr, ptr %77, align 8
@@ -54968,7 +54968,7 @@ _ZNK7glslang16HlslParseContext10hasUniformERKNS_10TQualifierE.exit: ; preds = %4
   %.not10.i = icmp eq i64 %84, 71776119061237759
   br i1 %.not10.i, label %85, label %_ZNK7glslang16HlslParseContext8hasInputERKNS_10TQualifierE.exit
 
-85:                                               ; preds = %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit"
+85:                                               ; preds = %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit"
   %86 = load i32, ptr %38, align 4
   switch i32 %86, label %.thread.i [
     i32 4, label %87
@@ -54993,11 +54993,11 @@ _ZNK7glslang16HlslParseContext10hasUniformERKNS_10TQualifierE.exit: ; preds = %4
   %95 = tail call noundef zeroext i1 @_ZNK7glslang16HlslParseContext14isInputBuiltInERKNS_10TQualifierE(ptr noundef nonnull readonly align 8 dereferenceable(2489) %0, ptr noundef nonnull readonly align 8 dereferenceable(80) %81)
   br label %_ZNK7glslang16HlslParseContext8hasInputERKNS_10TQualifierE.exit
 
-_ZNK7glslang16HlslParseContext8hasInputERKNS_10TQualifierE.exit: ; preds = %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit", %87, %91, %.thread.i
-  %.0.i = phi i1 [ true, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit" ], [ true, %87 ], [ true, %91 ], [ %95, %.thread.i ]
+_ZNK7glslang16HlslParseContext8hasInputERKNS_10TQualifierE.exit: ; preds = %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit", %87, %91, %.thread.i
+  %.0.i = phi i1 [ true, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit" ], [ true, %87 ], [ true, %91 ], [ %95, %.thread.i ]
   %96 = icmp eq ptr %.sroa.0106.0139, null
   %or.cond.i22 = select i1 %.0.i, i1 %96, i1 false
-  br i1 %or.cond.i22, label %97, label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit23"
+  br i1 %or.cond.i22, label %97, label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit23"
 
 97:                                               ; preds = %_ZNK7glslang16HlslParseContext8hasInputERKNS_10TQualifierE.exit
   %98 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #24
@@ -55007,9 +55007,9 @@ _ZNK7glslang16HlslParseContext8hasInputERKNS_10TQualifierE.exit: ; preds = %"_ZZ
   store ptr %100, ptr %99, align 8
   %101 = getelementptr inbounds i8, ptr %99, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %101, i8 0, i64 24, i1 false)
-  br label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit23"
+  br label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit23"
 
-"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit23": ; preds = %_ZNK7glslang16HlslParseContext8hasInputERKNS_10TQualifierE.exit, %97
+"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit23": ; preds = %_ZNK7glslang16HlslParseContext8hasInputERKNS_10TQualifierE.exit, %97
   %.sroa.0106.2 = phi ptr [ %99, %97 ], [ %.sroa.0106.0139, %_ZNK7glslang16HlslParseContext8hasInputERKNS_10TQualifierE.exit ]
   %102 = load ptr, ptr %.sroa.099.0136, align 8
   %103 = load ptr, ptr %102, align 8
@@ -55022,7 +55022,7 @@ _ZNK7glslang16HlslParseContext8hasInputERKNS_10TQualifierE.exit: ; preds = %"_ZZ
   %.not.i = icmp eq i64 %109, 71776119061237759
   br i1 %.not.i, label %110, label %_ZNK7glslang16HlslParseContext9hasOutputERKNS_10TQualifierE.exit
 
-110:                                              ; preds = %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit23"
+110:                                              ; preds = %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit23"
   %111 = load i32, ptr %38, align 4
   %112 = and i32 %111, -2
   %switch.i = icmp eq i32 %112, 4
@@ -55056,11 +55056,11 @@ _ZNK7glslang16HlslParseContext8hasInputERKNS_10TQualifierE.exit: ; preds = %"_ZZ
   %124 = tail call noundef zeroext i1 @_ZNK7glslang16HlslParseContext15isOutputBuiltInERKNS_10TQualifierE(ptr noundef nonnull readonly align 8 dereferenceable(2489) %0, ptr noundef nonnull readonly align 8 dereferenceable(80) %106)
   br label %_ZNK7glslang16HlslParseContext9hasOutputERKNS_10TQualifierE.exit
 
-_ZNK7glslang16HlslParseContext9hasOutputERKNS_10TQualifierE.exit: ; preds = %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit23", %113, %118, %122, %.thread10.i
-  %.0.i24 = phi i1 [ true, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit23" ], [ true, %113 ], [ true, %118 ], [ true, %122 ], [ %124, %.thread10.i ]
+_ZNK7glslang16HlslParseContext9hasOutputERKNS_10TQualifierE.exit: ; preds = %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit23", %113, %118, %122, %.thread10.i
+  %.0.i24 = phi i1 [ true, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit23" ], [ true, %113 ], [ true, %118 ], [ true, %122 ], [ %124, %.thread10.i ]
   %125 = icmp eq ptr %.sroa.9.0138, null
   %or.cond.i26 = select i1 %.0.i24, i1 %125, i1 false
-  br i1 %or.cond.i26, label %126, label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit27"
+  br i1 %or.cond.i26, label %126, label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit27"
 
 126:                                              ; preds = %_ZNK7glslang16HlslParseContext9hasOutputERKNS_10TQualifierE.exit
   %127 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #24
@@ -55070,24 +55070,24 @@ _ZNK7glslang16HlslParseContext9hasOutputERKNS_10TQualifierE.exit: ; preds = %"_Z
   store ptr %129, ptr %128, align 8
   %130 = getelementptr inbounds i8, ptr %128, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %130, i8 0, i64 24, i1 false)
-  br label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit27"
+  br label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit27"
 
-"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit27": ; preds = %_ZNK7glslang16HlslParseContext9hasOutputERKNS_10TQualifierE.exit, %126
+"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit27": ; preds = %_ZNK7glslang16HlslParseContext9hasOutputERKNS_10TQualifierE.exit, %126
   %.sroa.9.2 = phi ptr [ %128, %126 ], [ %.sroa.9.0138, %_ZNK7glslang16HlslParseContext9hasOutputERKNS_10TQualifierE.exit ]
   %131 = load ptr, ptr %.sroa.099.0136, align 8
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds i8, ptr %132, i64 296
   %134 = load ptr, ptr %133, align 8
   %135 = tail call noundef zeroext i1 %134(ptr noundef nonnull align 8 dereferenceable(152) %131) #24
-  br i1 %135, label %136, label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit33"
+  br i1 %135, label %136, label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit33"
 
-136:                                              ; preds = %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit27"
+136:                                              ; preds = %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit27"
   %137 = load ptr, ptr %.sroa.099.0136, align 8
   %138 = getelementptr inbounds i8, ptr %137, i64 104
   %139 = load ptr, ptr %138, align 8
   %140 = load ptr, ptr %39, align 8
   %.not10.i.i.i = icmp eq ptr %140, null
-  br i1 %.not10.i.i.i, label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit33", label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit33", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %136, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %140, %136 ]
@@ -55104,13 +55104,13 @@ _ZNK7glslang16HlslParseContext9hasOutputERKNS_10TQualifierE.exit: ; preds = %"_Z
 
 _ZNSt8_Rb_treeIPKN7glslang7TVectorINS0_8TTypeLocEEESt4pairIKS5_NS0_16HlslParseContext8tIoKindsEESt10_Select1stISA_ESt4lessIS5_ENS0_14pool_allocatorISA_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS7_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %144 = icmp eq ptr %.19.i.i.i, %40
-  br i1 %144, label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit33", label %_ZNSt3mapIPKN7glslang7TVectorINS0_8TTypeLocEEENS0_16HlslParseContext8tIoKindsESt4lessIS5_ENS0_14pool_allocatorISt4pairIKS5_S7_EEEE4findERSC_.exit
+  br i1 %144, label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit33", label %_ZNSt3mapIPKN7glslang7TVectorINS0_8TTypeLocEEENS0_16HlslParseContext8tIoKindsESt4lessIS5_ENS0_14pool_allocatorISt4pairIKS5_S7_EEEE4findERSC_.exit
 
 _ZNSt3mapIPKN7glslang7TVectorINS0_8TTypeLocEEENS0_16HlslParseContext8tIoKindsESt4lessIS5_ENS0_14pool_allocatorISt4pairIKS5_S7_EEEE4findERSC_.exit: ; preds = %_ZNSt8_Rb_treeIPKN7glslang7TVectorINS0_8TTypeLocEEESt4pairIKS5_NS0_16HlslParseContext8tIoKindsEESt10_Select1stISA_ESt4lessIS5_ENS0_14pool_allocatorISA_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS7_.exit.i.i
   %145 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
   %146 = load ptr, ptr %145, align 8
   %147 = icmp ult ptr %139, %146
-  br i1 %147, label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit33", label %148
+  br i1 %147, label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit33", label %148
 
 148:                                              ; preds = %_ZNSt3mapIPKN7glslang7TVectorINS0_8TTypeLocEEENS0_16HlslParseContext8tIoKindsESt4lessIS5_ENS0_14pool_allocatorISt4pairIKS5_S7_EEEE4findERSC_.exit
   %149 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 56
@@ -55118,7 +55118,7 @@ _ZNSt3mapIPKN7glslang7TVectorINS0_8TTypeLocEEENS0_16HlslParseContext8tIoKindsESt
   %151 = icmp ne ptr %150, null
   %152 = icmp eq ptr %.sroa.16.2, null
   %or.cond.i28 = select i1 %151, i1 %152, i1 false
-  br i1 %or.cond.i28, label %153, label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit29"
+  br i1 %or.cond.i28, label %153, label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit29"
 
 153:                                              ; preds = %148
   %154 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #24
@@ -55128,18 +55128,18 @@ _ZNSt3mapIPKN7glslang7TVectorINS0_8TTypeLocEEENS0_16HlslParseContext8tIoKindsESt
   store ptr %156, ptr %155, align 8
   %157 = getelementptr inbounds i8, ptr %155, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %157, i8 0, i64 24, i1 false)
-  br label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit29"
+  br label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit29"
 
-"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit29": ; preds = %148, %153
+"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit29": ; preds = %148, %153
   %.sroa.16.3 = phi ptr [ %155, %153 ], [ %.sroa.16.2, %148 ]
   %158 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 40
   %159 = load ptr, ptr %158, align 8
   %160 = icmp ne ptr %159, null
   %161 = icmp eq ptr %.sroa.0106.2, null
   %or.cond.i30 = select i1 %160, i1 %161, i1 false
-  br i1 %or.cond.i30, label %162, label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit31"
+  br i1 %or.cond.i30, label %162, label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit31"
 
-162:                                              ; preds = %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit29"
+162:                                              ; preds = %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit29"
   %163 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #24
   %164 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %163, i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %164, i8 0, i64 32, i1 false)
@@ -55147,18 +55147,18 @@ _ZNSt3mapIPKN7glslang7TVectorINS0_8TTypeLocEEENS0_16HlslParseContext8tIoKindsESt
   store ptr %165, ptr %164, align 8
   %166 = getelementptr inbounds i8, ptr %164, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %166, i8 0, i64 24, i1 false)
-  br label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit31"
+  br label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit31"
 
-"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit31": ; preds = %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit29", %162
-  %.sroa.0106.3 = phi ptr [ %164, %162 ], [ %.sroa.0106.2, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit29" ]
+"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit31": ; preds = %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit29", %162
+  %.sroa.0106.3 = phi ptr [ %164, %162 ], [ %.sroa.0106.2, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit29" ]
   %167 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 48
   %168 = load ptr, ptr %167, align 8
   %169 = icmp ne ptr %168, null
   %170 = icmp eq ptr %.sroa.9.2, null
   %or.cond.i32 = select i1 %169, i1 %170, i1 false
-  br i1 %or.cond.i32, label %171, label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit33"
+  br i1 %or.cond.i32, label %171, label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit33"
 
-171:                                              ; preds = %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit31"
+171:                                              ; preds = %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit31"
   %172 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #24
   %173 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %172, i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %173, i8 0, i64 32, i1 false)
@@ -55166,12 +55166,12 @@ _ZNSt3mapIPKN7glslang7TVectorINS0_8TTypeLocEEENS0_16HlslParseContext8tIoKindsESt
   store ptr %174, ptr %173, align 8
   %175 = getelementptr inbounds i8, ptr %173, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %175, i8 0, i64 24, i1 false)
-  br label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit33"
+  br label %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit33"
 
-"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit33": ; preds = %136, %_ZNSt8_Rb_treeIPKN7glslang7TVectorINS0_8TTypeLocEEESt4pairIKS5_NS0_16HlslParseContext8tIoKindsEESt10_Select1stISA_ESt4lessIS5_ENS0_14pool_allocatorISA_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %171, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit31", %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit27", %_ZNSt3mapIPKN7glslang7TVectorINS0_8TTypeLocEEENS0_16HlslParseContext8tIoKindsESt4lessIS5_ENS0_14pool_allocatorISt4pairIKS5_S7_EEEE4findERSC_.exit
-  %.sroa.16.1 = phi ptr [ %.sroa.16.2, %_ZNSt3mapIPKN7glslang7TVectorINS0_8TTypeLocEEENS0_16HlslParseContext8tIoKindsESt4lessIS5_ENS0_14pool_allocatorISt4pairIKS5_S7_EEEE4findERSC_.exit ], [ %.sroa.16.2, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit27" ], [ %.sroa.16.3, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit31" ], [ %.sroa.16.3, %171 ], [ %.sroa.16.2, %_ZNSt8_Rb_treeIPKN7glslang7TVectorINS0_8TTypeLocEEESt4pairIKS5_NS0_16HlslParseContext8tIoKindsEESt10_Select1stISA_ESt4lessIS5_ENS0_14pool_allocatorISA_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ %.sroa.16.2, %136 ]
-  %.sroa.9.1 = phi ptr [ %.sroa.9.2, %_ZNSt3mapIPKN7glslang7TVectorINS0_8TTypeLocEEENS0_16HlslParseContext8tIoKindsESt4lessIS5_ENS0_14pool_allocatorISt4pairIKS5_S7_EEEE4findERSC_.exit ], [ %.sroa.9.2, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit27" ], [ %.sroa.9.2, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit31" ], [ %173, %171 ], [ %.sroa.9.2, %_ZNSt8_Rb_treeIPKN7glslang7TVectorINS0_8TTypeLocEEESt4pairIKS5_NS0_16HlslParseContext8tIoKindsEESt10_Select1stISA_ESt4lessIS5_ENS0_14pool_allocatorISA_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ %.sroa.9.2, %136 ]
-  %.sroa.0106.1 = phi ptr [ %.sroa.0106.2, %_ZNSt3mapIPKN7glslang7TVectorINS0_8TTypeLocEEENS0_16HlslParseContext8tIoKindsESt4lessIS5_ENS0_14pool_allocatorISt4pairIKS5_S7_EEEE4findERSC_.exit ], [ %.sroa.0106.2, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit27" ], [ %.sroa.0106.3, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit31" ], [ %.sroa.0106.3, %171 ], [ %.sroa.0106.2, %_ZNSt8_Rb_treeIPKN7glslang7TVectorINS0_8TTypeLocEEESt4pairIKS5_NS0_16HlslParseContext8tIoKindsEESt10_Select1stISA_ESt4lessIS5_ENS0_14pool_allocatorISA_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ %.sroa.0106.2, %136 ]
+"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit33": ; preds = %136, %_ZNSt8_Rb_treeIPKN7glslang7TVectorINS0_8TTypeLocEEESt4pairIKS5_NS0_16HlslParseContext8tIoKindsEESt10_Select1stISA_ESt4lessIS5_ENS0_14pool_allocatorISA_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %171, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit31", %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit27", %_ZNSt3mapIPKN7glslang7TVectorINS0_8TTypeLocEEENS0_16HlslParseContext8tIoKindsESt4lessIS5_ENS0_14pool_allocatorISt4pairIKS5_S7_EEEE4findERSC_.exit
+  %.sroa.16.1 = phi ptr [ %.sroa.16.2, %_ZNSt3mapIPKN7glslang7TVectorINS0_8TTypeLocEEENS0_16HlslParseContext8tIoKindsESt4lessIS5_ENS0_14pool_allocatorISt4pairIKS5_S7_EEEE4findERSC_.exit ], [ %.sroa.16.2, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit27" ], [ %.sroa.16.3, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit31" ], [ %.sroa.16.3, %171 ], [ %.sroa.16.2, %_ZNSt8_Rb_treeIPKN7glslang7TVectorINS0_8TTypeLocEEESt4pairIKS5_NS0_16HlslParseContext8tIoKindsEESt10_Select1stISA_ESt4lessIS5_ENS0_14pool_allocatorISA_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ %.sroa.16.2, %136 ]
+  %.sroa.9.1 = phi ptr [ %.sroa.9.2, %_ZNSt3mapIPKN7glslang7TVectorINS0_8TTypeLocEEENS0_16HlslParseContext8tIoKindsESt4lessIS5_ENS0_14pool_allocatorISt4pairIKS5_S7_EEEE4findERSC_.exit ], [ %.sroa.9.2, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit27" ], [ %.sroa.9.2, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit31" ], [ %173, %171 ], [ %.sroa.9.2, %_ZNSt8_Rb_treeIPKN7glslang7TVectorINS0_8TTypeLocEEESt4pairIKS5_NS0_16HlslParseContext8tIoKindsEESt10_Select1stISA_ESt4lessIS5_ENS0_14pool_allocatorISA_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ %.sroa.9.2, %136 ]
+  %.sroa.0106.1 = phi ptr [ %.sroa.0106.2, %_ZNSt3mapIPKN7glslang7TVectorINS0_8TTypeLocEEENS0_16HlslParseContext8tIoKindsESt4lessIS5_ENS0_14pool_allocatorISt4pairIKS5_S7_EEEE4findERSC_.exit ], [ %.sroa.0106.2, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit27" ], [ %.sroa.0106.3, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit31" ], [ %.sroa.0106.3, %171 ], [ %.sroa.0106.2, %_ZNSt8_Rb_treeIPKN7glslang7TVectorINS0_8TTypeLocEEESt4pairIKS5_NS0_16HlslParseContext8tIoKindsEESt10_Select1stISA_ESt4lessIS5_ENS0_14pool_allocatorISA_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ %.sroa.0106.2, %136 ]
   %176 = getelementptr inbounds i8, ptr %.sroa.099.0136, i64 32
   %177 = load ptr, ptr %32, align 8
   %178 = getelementptr inbounds i8, ptr %177, i64 16
@@ -55179,12 +55179,12 @@ _ZNSt3mapIPKN7glslang7TVectorINS0_8TTypeLocEEENS0_16HlslParseContext8tIoKindsESt
   %.not = icmp eq ptr %176, %179
   br i1 %.not, label %._crit_edge, label %41, !llvm.loop !281
 
-._crit_edge:                                      ; preds = %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit33", %31
-  %180 = phi ptr [ %35, %31 ], [ %176, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit33" ]
-  %.sroa.16.0.lcssa = phi ptr [ null, %31 ], [ %.sroa.16.1, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit33" ]
-  %.sroa.9.0.lcssa = phi ptr [ null, %31 ], [ %.sroa.9.1, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit33" ]
-  %.sroa.0106.0.lcssa = phi ptr [ null, %31 ], [ %.sroa.0106.1, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit33" ]
-  %181 = phi ptr [ %33, %31 ], [ %177, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.argprom.exit33" ]
+._crit_edge:                                      ; preds = %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit33", %31
+  %180 = phi ptr [ %35, %31 ], [ %176, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit33" ]
+  %.sroa.16.0.lcssa = phi ptr [ null, %31 ], [ %.sroa.16.1, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit33" ]
+  %.sroa.9.0.lcssa = phi ptr [ null, %31 ], [ %.sroa.9.1, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit33" ]
+  %.sroa.0106.0.lcssa = phi ptr [ null, %31 ], [ %.sroa.0106.1, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit33" ]
+  %181 = phi ptr [ %33, %31 ], [ %177, %"_ZZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEENK3$_0clEbRPNS_7TVectorINS_8TTypeLocEEE.exit33" ]
   %182 = icmp eq ptr %.sroa.16.0.lcssa, null
   %183 = icmp eq ptr %.sroa.0106.0.lcssa, null
   %or.cond = select i1 %182, i1 %183, i1 false
@@ -63969,10 +63969,10 @@ _ZNSt8_Rb_treeIN7glslang16HlslParseContext17tInterstageIoDataES2_St9_IdentityIS2
   store ptr %72, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %8, i64 40
   store i64 0, ptr %76, align 8
-  call fastcc void @"_ZZN7glslang16HlslParseContext26addPatchConstantInvocationEvENK3$_0clERKNS_9TFunctionERSt3setINS0_17tInterstageIoDataESt4lessIS6_ESaIS6_EE.argprom"(ptr noundef nonnull align 8 dereferenceable(340) %30, ptr noundef nonnull align 8 dereferenceable(48) %7)
+  call fastcc void @"_ZZN7glslang16HlslParseContext26addPatchConstantInvocationEvENK3$_0clERKNS_9TFunctionERSt3setINS0_17tInterstageIoDataESt4lessIS6_ESaIS6_EE"(ptr noundef nonnull align 8 dereferenceable(340) %30, ptr noundef nonnull align 8 dereferenceable(48) %7)
   %77 = getelementptr inbounds i8, ptr %0, i64 2120
   %78 = load ptr, ptr %77, align 8
-  call fastcc void @"_ZZN7glslang16HlslParseContext26addPatchConstantInvocationEvENK3$_0clERKNS_9TFunctionERSt3setINS0_17tInterstageIoDataESt4lessIS6_ESaIS6_EE.argprom"(ptr noundef nonnull align 8 dereferenceable(340) %78, ptr noundef nonnull align 8 dereferenceable(48) %8)
+  call fastcc void @"_ZZN7glslang16HlslParseContext26addPatchConstantInvocationEvENK3$_0clERKNS_9TFunctionERSt3setINS0_17tInterstageIoDataESt4lessIS6_ESaIS6_EE"(ptr noundef nonnull align 8 dereferenceable(340) %78, ptr noundef nonnull align 8 dereferenceable(48) %8)
   %79 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 0, ptr %79, align 8
   %80 = getelementptr inbounds i8, ptr %9, i64 16
@@ -65834,7 +65834,7 @@ _ZNSt3mapIPKN7glslang7TVectorINS0_8TTypeLocEEENS0_16HlslParseContext8tIoKindsESt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN7glslang16HlslParseContext26addPatchConstantInvocationEvENK3$_0clERKNS_9TFunctionERSt3setINS0_17tInterstageIoDataESt4lessIS6_ESaIS6_EE.argprom"(ptr noundef nonnull align 8 dereferenceable(340) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN7glslang16HlslParseContext26addPatchConstantInvocationEvENK3$_0clERKNS_9TFunctionERSt3setINS0_17tInterstageIoDataESt4lessIS6_ESaIS6_EE"(ptr noundef nonnull align 8 dereferenceable(340) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.glslang::HlslParseContext::tInterstageIoData", align 4
   %4 = alloca %"struct.glslang::HlslParseContext::tInterstageIoData", align 4
   %5 = load ptr, ptr %0, align 8
@@ -66011,22 +66011,22 @@ define void @_ZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEv(p
 .lr.ph.i.i.i.i:                                   ; preds = %1, %21
   %.043.i.i.i.i = phi i64 [ %23, %21 ], [ %9, %1 ]
   %.sroa.032.042.i.i.i.i = phi ptr [ %22, %21 ], [ %3, %1 ]
-  %11 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_.argprom"(ptr nonnull %0, ptr %.sroa.032.042.i.i.i.i)
+  %11 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_"(ptr nonnull %0, ptr %.sroa.032.042.i.i.i.i)
   br i1 %11, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7glslang7TSymbolESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEENS0_5__ops10_Iter_predIZNS2_16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EEET_SG_SG_T0_.exit.i.i", label %12
 
 12:                                               ; preds = %.lr.ph.i.i.i.i
   %13 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i.i, i64 8
-  %14 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_.argprom"(ptr nonnull %0, ptr nonnull %13)
+  %14 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_"(ptr nonnull %0, ptr nonnull %13)
   br i1 %14, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7glslang7TSymbolESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEENS0_5__ops10_Iter_predIZNS2_16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EEET_SG_SG_T0_.exit.i.i", label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i.i, i64 16
-  %17 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_.argprom"(ptr nonnull %0, ptr nonnull %16)
+  %17 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_"(ptr nonnull %0, ptr nonnull %16)
   br i1 %17, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7glslang7TSymbolESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEENS0_5__ops10_Iter_predIZNS2_16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EEET_SG_SG_T0_.exit.i.i", label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i.i, i64 24
-  %20 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_.argprom"(ptr nonnull %0, ptr nonnull %19)
+  %20 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_"(ptr nonnull %0, ptr nonnull %19)
   br i1 %20, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7glslang7TSymbolESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEENS0_5__ops10_Iter_predIZNS2_16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EEET_SG_SG_T0_.exit.i.i", label %21
 
 21:                                               ; preds = %18
@@ -66051,7 +66051,7 @@ define void @_ZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEv(p
   ]
 
 26:                                               ; preds = %._crit_edge.i.i.i.i
-  %27 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_.argprom"(ptr nonnull %0, ptr %.sroa.032.0.lcssa.i.i.i.i)
+  %27 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_"(ptr nonnull %0, ptr %.sroa.032.0.lcssa.i.i.i.i)
   br i1 %27, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7glslang7TSymbolESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEENS0_5__ops10_Iter_predIZNS2_16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EEET_SG_SG_T0_.exit.i.i", label %28
 
 28:                                               ; preds = %26
@@ -66060,7 +66060,7 @@ define void @_ZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEv(p
 
 30:                                               ; preds = %28, %._crit_edge.i.i.i.i
   %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %29, %28 ]
-  %31 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_.argprom"(ptr nonnull %0, ptr %.sroa.032.1.i.i.i.i)
+  %31 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_"(ptr nonnull %0, ptr %.sroa.032.1.i.i.i.i)
   br i1 %31, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7glslang7TSymbolESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEENS0_5__ops10_Iter_predIZNS2_16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EEET_SG_SG_T0_.exit.i.i", label %32
 
 32:                                               ; preds = %30
@@ -66069,7 +66069,7 @@ define void @_ZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEv(p
 
 34:                                               ; preds = %32, %._crit_edge.i.i.i.i
   %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %33, %32 ]
-  %35 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_.argprom"(ptr nonnull %0, ptr %.sroa.032.2.i.i.i.i)
+  %35 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_"(ptr nonnull %0, ptr %.sroa.032.2.i.i.i.i)
   %spec.select.i.i.i.i = select i1 %35, ptr %.sroa.032.2.i.i.i.i, ptr %5
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7glslang7TSymbolESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEENS0_5__ops10_Iter_predIZNS2_16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EEET_SG_SG_T0_.exit.i.i"
 
@@ -66084,7 +66084,7 @@ define void @_ZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEv(p
 .lr.ph.i.i:                                       ; preds = %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7glslang7TSymbolESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEENS0_5__ops10_Iter_predIZNS2_16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EEET_SG_SG_T0_.exit.i.i", %41
   %.sroa.07.021.i.i = phi ptr [ %.sroa.07.0.i.i, %41 ], [ %.sroa.07.018.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7glslang7TSymbolESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEENS0_5__ops10_Iter_predIZNS2_16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EEET_SG_SG_T0_.exit.i.i" ]
   %.sroa.013.120.i.i = phi ptr [ %.sroa.013.2.i.i, %41 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7glslang7TSymbolESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEENS0_5__ops10_Iter_predIZNS2_16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EEET_SG_SG_T0_.exit.i.i" ]
-  %37 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_.argprom"(ptr nonnull %0, ptr nonnull %.sroa.07.021.i.i)
+  %37 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_"(ptr nonnull %0, ptr nonnull %.sroa.07.021.i.i)
   br i1 %37, label %41, label %38
 
 38:                                               ; preds = %.lr.ph.i.i
@@ -76043,9 +76043,9 @@ define internal fastcc noundef zeroext i1 @"_ZNK7glslang5TType8containsIZZNS_16H
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 65408
   %9 = icmp eq i64 %8, 7168
-  br i1 %9, label %"_ZZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeEENKUlPSD_E_clESF_.argprom.exit.thread", label %"_ZZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeEENKUlPSD_E_clESF_.argprom.exit"
+  br i1 %9, label %"_ZZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeEENKUlPSD_E_clESF_.exit.thread", label %"_ZZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeEENKUlPSD_E_clESF_.exit"
 
-"_ZZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeEENKUlPSD_E_clESF_.argprom.exit": ; preds = %1
+"_ZZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeEENKUlPSD_E_clESF_.exit": ; preds = %1
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 88
   %12 = load ptr, ptr %11, align 8
@@ -76054,14 +76054,14 @@ define internal fastcc noundef zeroext i1 @"_ZNK7glslang5TType8containsIZZNS_16H
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 65408
   %17 = icmp eq i64 %16, 7296
-  br i1 %17, label %"_ZZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeEENKUlPSD_E_clESF_.argprom.exit.thread", label %18
+  br i1 %17, label %"_ZZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeEENKUlPSD_E_clESF_.exit.thread", label %18
 
-18:                                               ; preds = %"_ZZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeEENKUlPSD_E_clESF_.argprom.exit"
+18:                                               ; preds = %"_ZZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeEENKUlPSD_E_clESF_.exit"
   %19 = load ptr, ptr %0, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 296
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %0) #24
-  br i1 %22, label %23, label %"_ZZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeEENKUlPSD_E_clESF_.argprom.exit.thread"
+  br i1 %22, label %23, label %"_ZZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeEENKUlPSD_E_clESF_.exit.thread"
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds i8, ptr %0, i64 104
@@ -76164,10 +76164,10 @@ define internal fastcc noundef zeroext i1 @"_ZNK7glslang5TType8containsIZZNS_16H
 "_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZZNS2_16HlslParseContext19transformEntryPointERKNS2_10TSourceLocERNS2_9TFunctionERKNS2_5TListINS2_14TAttributeArgsEEEENK3$_1clERKSC_EUlPSQ_E_EEbT_EUlRKS3_E_EEESU_SU_SU_T0_.exit": ; preds = %.lr.ph, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZZNS2_16HlslParseContext19transformEntryPointERKNS2_10TSourceLocERNS2_9TFunctionERKNS2_5TListINS2_14TAttributeArgsEEEENK3$_1clERKSC_EUlPSQ_E_EEbT_EUlRKS3_E_EEESU_SU_SU_T0_.exit.loopexit.split.loop.exit", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZZNS2_16HlslParseContext19transformEntryPointERKNS2_10TSourceLocERNS2_9TFunctionERKNS2_5TListINS2_14TAttributeArgsEEEENK3$_1clERKSC_EUlPSQ_E_EEbT_EUlRKS3_E_EEESU_SU_SU_T0_.exit.loopexit.split.loop.exit52", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZZNS2_16HlslParseContext19transformEntryPointERKNS2_10TSourceLocERNS2_9TFunctionERKNS2_5TListINS2_14TAttributeArgsEEEENK3$_1clERKSC_EUlPSQ_E_EEbT_EUlRKS3_E_EEESU_SU_SU_T0_.exit.loopexit.split.loop.exit54", %64, %._crit_edge, %54, %59
   %.sroa.08.0.in.i.i.sroa.speculated = phi ptr [ %.sroa.018.0.lcssa, %54 ], [ %.sroa.018.2, %59 ], [ %29, %._crit_edge ], [ %spec.select, %64 ], [ %67, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZZNS2_16HlslParseContext19transformEntryPointERKNS2_10TSourceLocERNS2_9TFunctionERKNS2_5TListINS2_14TAttributeArgsEEEENK3$_1clERKSC_EUlPSQ_E_EEbT_EUlRKS3_E_EEESU_SU_SU_T0_.exit.loopexit.split.loop.exit" ], [ %68, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZZNS2_16HlslParseContext19transformEntryPointERKNS2_10TSourceLocERNS2_9TFunctionERKNS2_5TListINS2_14TAttributeArgsEEEENK3$_1clERKSC_EUlPSQ_E_EEbT_EUlRKS3_E_EEESU_SU_SU_T0_.exit.loopexit.split.loop.exit52" ], [ %69, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZZNS2_16HlslParseContext19transformEntryPointERKNS2_10TSourceLocERNS2_9TFunctionERKNS2_5TListINS2_14TAttributeArgsEEEENK3$_1clERKSC_EUlPSQ_E_EEbT_EUlRKS3_E_EEESU_SU_SU_T0_.exit.loopexit.split.loop.exit54" ], [ %.sroa.018.044, %.lr.ph ]
   %70 = icmp ne ptr %29, %.sroa.08.0.in.i.i.sroa.speculated
-  br label %"_ZZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeEENKUlPSD_E_clESF_.argprom.exit.thread"
+  br label %"_ZZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeEENKUlPSD_E_clESF_.exit.thread"
 
-"_ZZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeEENKUlPSD_E_clESF_.argprom.exit.thread": ; preds = %1, %18, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZZNS2_16HlslParseContext19transformEntryPointERKNS2_10TSourceLocERNS2_9TFunctionERKNS2_5TListINS2_14TAttributeArgsEEEENK3$_1clERKSC_EUlPSQ_E_EEbT_EUlRKS3_E_EEESU_SU_SU_T0_.exit", %"_ZZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeEENKUlPSD_E_clESF_.argprom.exit"
-  %.0 = phi i1 [ true, %"_ZZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeEENKUlPSD_E_clESF_.argprom.exit" ], [ false, %18 ], [ %70, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZZNS2_16HlslParseContext19transformEntryPointERKNS2_10TSourceLocERNS2_9TFunctionERKNS2_5TListINS2_14TAttributeArgsEEEENK3$_1clERKSC_EUlPSQ_E_EEbT_EUlRKS3_E_EEESU_SU_SU_T0_.exit" ], [ true, %1 ]
+"_ZZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeEENKUlPSD_E_clESF_.exit.thread": ; preds = %1, %18, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZZNS2_16HlslParseContext19transformEntryPointERKNS2_10TSourceLocERNS2_9TFunctionERKNS2_5TListINS2_14TAttributeArgsEEEENK3$_1clERKSC_EUlPSQ_E_EEbT_EUlRKS3_E_EEESU_SU_SU_T0_.exit", %"_ZZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeEENKUlPSD_E_clESF_.exit"
+  %.0 = phi i1 [ true, %"_ZZZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKNS_5TTypeEENKUlPSD_E_clESF_.exit" ], [ false, %18 ], [ %70, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZZNS2_16HlslParseContext19transformEntryPointERKNS2_10TSourceLocERNS2_9TFunctionERKNS2_5TListINS2_14TAttributeArgsEEEENK3$_1clERKSC_EUlPSQ_E_EEbT_EUlRKS3_E_EEESU_SU_SU_T0_.exit" ], [ true, %1 ]
   ret i1 %.0
 }
 
@@ -80717,7 +80717,7 @@ _ZNK7glslang16HlslParseContext13shouldFlattenERKNS_5TTypeENS_17TStorageQualifier
   %159 = phi i32 [ %157, %149 ], [ 1, %139 ]
   %.sroa.speculated.i.i.i = tail call i32 @llvm.smin.i32(i32 %159, i32 %140)
   %160 = icmp sgt i32 %.sroa.speculated.i.i.i, 0
-  br i1 %160, label %.lr.ph131.i.i.i, label %"_ZSt10__invoke_rIvRZN7glslang16HlslParseContext12handleAssignERKNS0_10TSourceLocENS0_9TOperatorEPNS0_12TIntermTypedES7_E3$_0JS7_S7_S7_S7_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit"
+  br i1 %160, label %.lr.ph131.i.i.i, label %"_ZSt10__invoke_rIvRZN7glslang16HlslParseContext12handleAssignERKNS0_10TSourceLocENS0_9TOperatorEPNS0_12TIntermTypedES7_E3$_0JS7_S7_S7_S7_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
 .lr.ph131.i.i.i:                                  ; preds = %158
   %161 = getelementptr inbounds i8, ptr %.val, i64 56
@@ -80880,7 +80880,7 @@ _ZNKSt8functionIFvPN7glslang12TIntermTypedES2_S2_S2_bEEclES2_S2_S2_S2_b.exit.i.i
   store ptr %243, ptr %241, align 8
   %244 = add nuw nsw i32 %storemerge130.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %244, %.sroa.speculated.i.i.i
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZN7glslang16HlslParseContext12handleAssignERKNS0_10TSourceLocENS0_9TOperatorEPNS0_12TIntermTypedES7_E3$_0JS7_S7_S7_S7_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit", label %166, !llvm.loop !522
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZN7glslang16HlslParseContext12handleAssignERKNS0_10TSourceLocENS0_9TOperatorEPNS0_12TIntermTypedES7_E3$_0JS7_S7_S7_S7_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %166, !llvm.loop !522
 
 245:                                              ; preds = %116, %101
   %246 = load ptr, ptr %.val6, align 8
@@ -80976,7 +80976,7 @@ _ZNKSt8functionIFvPN7glslang12TIntermTypedES2_S2_S2_bEEclES2_S2_S2_S2_b.exit.i.i
   %314 = lshr exact i64 %.pre-phi139.i.i.i, 5
   %315 = trunc i64 %314 to i32
   %316 = icmp sgt i32 %315, 0
-  br i1 %316, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN7glslang16HlslParseContext12handleAssignERKNS0_10TSourceLocENS0_9TOperatorEPNS0_12TIntermTypedES7_E3$_0JS7_S7_S7_S7_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit"
+  br i1 %316, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN7glslang16HlslParseContext12handleAssignERKNS0_10TSourceLocENS0_9TOperatorEPNS0_12TIntermTypedES7_E3$_0JS7_S7_S7_S7_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
 .lr.ph.i.i.i:                                     ; preds = %312
   %317 = getelementptr inbounds i8, ptr %277, i64 8
@@ -81171,12 +81171,12 @@ _ZNKSt8functionIFvPN7glslang12TIntermTypedES2_S2_S2_bEEclES2_S2_S2_S2_b.exit.i.i
   %476 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 28
   %477 = load i32, ptr %476, align 4
   switch i32 %477, label %488 [
-    i32 0, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_3clEPKS5_.argprom.exit.i.i.i"
-    i32 3, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_3clEPKS5_.argprom.exit.i.i.i"
-    i32 2, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_3clEPKS5_.argprom.exit.i.i.i"
+    i32 0, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_3clEPKS5_.exit.i.i.i"
+    i32 3, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_3clEPKS5_.exit.i.i.i"
+    i32 2, label %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_3clEPKS5_.exit.i.i.i"
   ]
 
-"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_3clEPKS5_.argprom.exit.i.i.i": ; preds = %475, %475, %475
+"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_3clEPKS5_.exit.i.i.i": ; preds = %475, %475, %475
   %478 = load ptr, ptr %322, align 8
   %479 = load ptr, ptr %323, align 8
   %480 = load i32, ptr %479, align 4
@@ -81253,7 +81253,7 @@ _ZNKSt8functionIFvPN7glslang12TIntermTypedES2_S2_S2_bEEclES2_S2_S2_S2_b.exit115.
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   br label %517
 
-517:                                              ; preds = %_ZNKSt8functionIFvPN7glslang12TIntermTypedES2_S2_S2_bEEclES2_S2_S2_S2_b.exit115.i.i.i, %499, %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_3clEPKS5_.argprom.exit.i.i.i", %450, %403
+517:                                              ; preds = %_ZNKSt8functionIFvPN7glslang12TIntermTypedES2_S2_S2_bEEclES2_S2_S2_S2_b.exit115.i.i.i, %499, %"_ZZN7glslang16HlslParseContext12handleAssignERKNS_10TSourceLocENS_9TOperatorEPNS_12TIntermTypedES6_ENK3$_3clEPKS5_.exit.i.i.i", %450, %403
   %518 = load ptr, ptr %331, align 8
   %519 = getelementptr inbounds i8, ptr %518, i64 328
   %520 = load ptr, ptr %519, align 8
@@ -81277,7 +81277,7 @@ _ZNKSt8functionIFvPN7glslang12TIntermTypedES2_S2_S2_bEEclES2_S2_S2_S2_b.exit115.
   %sext.i.i.i = shl i64 %534, 27
   %535 = ashr i64 %sext.i.i.i, 32
   %536 = icmp slt i64 %indvars.iv.next.i.i.i, %535
-  br i1 %536, label %328, label %"_ZSt10__invoke_rIvRZN7glslang16HlslParseContext12handleAssignERKNS0_10TSourceLocENS0_9TOperatorEPNS0_12TIntermTypedES7_E3$_0JS7_S7_S7_S7_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit", !llvm.loop !523
+  br i1 %536, label %328, label %"_ZSt10__invoke_rIvRZN7glslang16HlslParseContext12handleAssignERKNS0_10TSourceLocENS0_9TOperatorEPNS0_12TIntermTypedES7_E3$_0JS7_S7_S7_S7_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", !llvm.loop !523
 
 537:                                              ; preds = %260, %245
   %538 = getelementptr inbounds i8, ptr %19, i64 56
@@ -81295,16 +81295,16 @@ _ZNKSt8functionIFvPN7glslang12TIntermTypedES2_S2_S2_bEEclES2_S2_S2_S2_b.exit115.
   %550 = tail call noundef ptr @_ZN7glslang13TIntermediate13growAggregateEP11TIntermNodeS2_RKNS_10TSourceLocE(ptr noundef nonnull align 8 dereferenceable(2024) %539, ptr noundef %542, ptr noundef %548, ptr noundef nonnull align 8 dereferenceable(24) %549) #24
   %551 = load ptr, ptr %540, align 8
   store ptr %550, ptr %551, align 8
-  br label %"_ZSt10__invoke_rIvRZN7glslang16HlslParseContext12handleAssignERKNS0_10TSourceLocENS0_9TOperatorEPNS0_12TIntermTypedES7_E3$_0JS7_S7_S7_S7_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN7glslang16HlslParseContext12handleAssignERKNS0_10TSourceLocENS0_9TOperatorEPNS0_12TIntermTypedES7_E3$_0JS7_S7_S7_S7_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
-"_ZSt10__invoke_rIvRZN7glslang16HlslParseContext12handleAssignERKNS0_10TSourceLocENS0_9TOperatorEPNS0_12TIntermTypedES7_E3$_0JS7_S7_S7_S7_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit": ; preds = %517, %_ZNKSt8functionIFvPN7glslang12TIntermTypedES2_S2_S2_bEEclES2_S2_S2_S2_b.exit.i.i.i, %158, %312, %537
+"_ZSt10__invoke_rIvRZN7glslang16HlslParseContext12handleAssignERKNS0_10TSourceLocENS0_9TOperatorEPNS0_12TIntermTypedES7_E3$_0JS7_S7_S7_S7_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %517, %_ZNKSt8functionIFvPN7glslang12TIntermTypedES2_S2_S2_bEEclES2_S2_S2_S2_b.exit.i.i.i, %158, %312, %537
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %17)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPN7glslang12TIntermTypedES2_S2_S2_bEZNS0_16HlslParseContext12handleAssignERKNS0_10TSourceLocENS0_9TOperatorES2_S2_E3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12handleAssignERKNS1_10TSourceLocENS1_9TOperatorEPNS1_12TIntermTypedES8_E3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12handleAssignERKNS1_10TSourceLocENS1_9TOperatorEPNS1_12TIntermTypedES8_E3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -81314,29 +81314,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPN7glslang12TInt
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12handleAssignERKNS1_10TSourceLocENS1_9TOperatorEPNS1_12TIntermTypedES8_E3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12handleAssignERKNS1_10TSourceLocENS1_9TOperatorEPNS1_12TIntermTypedES8_E3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12handleAssignERKNS1_10TSourceLocENS1_9TOperatorEPNS1_12TIntermTypedES8_E3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12handleAssignERKNS1_10TSourceLocENS1_9TOperatorEPNS1_12TIntermTypedES8_E3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %7, ptr noundef nonnull readonly align 8 dereferenceable(112) %.val5, i64 112, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12handleAssignERKNS1_10TSourceLocENS1_9TOperatorEPNS1_12TIntermTypedES8_E3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12handleAssignERKNS1_10TSourceLocENS1_9TOperatorEPNS1_12TIntermTypedES8_E3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12handleAssignERKNS1_10TSourceLocENS1_9TOperatorEPNS1_12TIntermTypedES8_E3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12handleAssignERKNS1_10TSourceLocENS1_9TOperatorEPNS1_12TIntermTypedES8_E3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 112) #26
-  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12handleAssignERKNS1_10TSourceLocENS1_9TOperatorEPNS1_12TIntermTypedES8_E3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12handleAssignERKNS1_10TSourceLocENS1_9TOperatorEPNS1_12TIntermTypedES8_E3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12handleAssignERKNS1_10TSourceLocENS1_9TOperatorEPNS1_12TIntermTypedES8_E3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12handleAssignERKNS1_10TSourceLocENS1_9TOperatorEPNS1_12TIntermTypedES8_E3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -82658,7 +82658,7 @@ _ZNKSt8functionIFbRN7glslang5TTypeES2_EEclES2_S2_.exit.i.i.i: ; preds = %.lr.ph.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRN7glslang5TTypeES2_EZNS0_16HlslParseContext21shareStructBufferTypeES2_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext21shareStructBufferTypeERNS1_5TTypeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext21shareStructBufferTypeERNS1_5TTypeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -82666,18 +82666,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRN7glslang5TType
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext21shareStructBufferTypeERNS1_5TTypeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext21shareStructBufferTypeERNS1_5TTypeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext21shareStructBufferTypeERNS1_5TTypeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext21shareStructBufferTypeERNS1_5TTypeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext21shareStructBufferTypeERNS1_5TTypeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext21shareStructBufferTypeERNS1_5TTypeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext21shareStructBufferTypeERNS1_5TTypeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext21shareStructBufferTypeERNS1_5TTypeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -82688,35 +82688,35 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef zeroext i1 @_ZNK7glslang5TTypeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(152) %2)
-  br i1 %8, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit", label %9
+  br i1 %8, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit", label %9
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr %1, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 232
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
-  br i1 %13, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit", label %14
+  br i1 %13, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit", label %14
 
 14:                                               ; preds = %9
   %15 = load ptr, ptr %2, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 232
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(152) %2) #24
-  br i1 %18, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit", label %19
+  br i1 %18, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit", label %19
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr %1, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 296
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
-  br i1 %23, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit", label %24
+  br i1 %23, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit", label %24
 
 24:                                               ; preds = %19
   %25 = load ptr, ptr %2, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 296
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %2) #24
-  br i1 %28, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit", label %29
+  br i1 %28, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit", label %29
 
 29:                                               ; preds = %24
   switch i32 %.val, label %104 [
@@ -82756,7 +82756,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
 
 30:                                               ; preds = %29, %29, %29, %29, %29, %29, %29, %29, %29
   %31 = icmp eq i32 %.val5, 0
-  br i1 %31, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit", label %104
+  br i1 %31, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit", label %104
 
 32:                                               ; preds = %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29
   %33 = icmp eq i32 %.val5, 0
@@ -82776,7 +82776,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
   %45 = xor i32 %44, %39
   %46 = and i32 %45, 255
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit"
+  br i1 %47, label %48, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit"
 
 48:                                               ; preds = %34
   %49 = load ptr, ptr %1, align 8
@@ -82792,7 +82792,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
   %59 = xor i32 %58, %53
   %60 = and i32 %59, 65536
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %62, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit"
+  br i1 %61, label %62, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit"
 
 62:                                               ; preds = %48
   %63 = load ptr, ptr %1, align 8
@@ -82808,7 +82808,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
   %73 = xor i32 %72, %67
   %74 = and i32 %73, 131072
   %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit"
+  br i1 %75, label %76, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit"
 
 76:                                               ; preds = %62
   %77 = load ptr, ptr %1, align 8
@@ -82824,7 +82824,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
   %87 = xor i32 %86, %81
   %88 = and i32 %87, 262144
   %89 = icmp eq i32 %88, 0
-  br i1 %89, label %90, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit"
+  br i1 %89, label %90, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit"
 
 90:                                               ; preds = %76
   %91 = load ptr, ptr %1, align 8
@@ -82840,7 +82840,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
   %101 = xor i32 %100, %95
   %102 = and i32 %101, 65280
   %103 = icmp eq i32 %102, 0
-  br label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit"
 
 104:                                              ; preds = %32, %30, %29
   %105 = load ptr, ptr %0, align 8
@@ -82860,7 +82860,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
   %117 = load ptr, ptr %116, align 8
   %118 = tail call noundef i32 %117(ptr noundef nonnull align 8 dereferenceable(152) %2) #24
   %119 = tail call noundef zeroext i1 @_ZNK7glslang13TIntermediate20canImplicitlyPromoteENS_10TBasicTypeES1_NS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(2024) %110, i32 noundef %114, i32 noundef %118, i32 noundef 4) #24
-  br i1 %119, label %120, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit"
+  br i1 %119, label %120, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit"
 
 120:                                              ; preds = %108, %104
   %121 = load ptr, ptr %1, align 8
@@ -82874,7 +82874,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
   %127 = getelementptr inbounds i8, ptr %126, i64 200
   %128 = load ptr, ptr %127, align 8
   %129 = tail call noundef zeroext i1 %128(ptr noundef nonnull align 8 dereferenceable(152) %2) #24
-  br i1 %129, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit", label %130
+  br i1 %129, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit", label %130
 
 130:                                              ; preds = %125, %120
   %131 = load ptr, ptr %1, align 8
@@ -82888,7 +82888,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
   %137 = getelementptr inbounds i8, ptr %136, i64 216
   %138 = load ptr, ptr %137, align 8
   %139 = tail call noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(152) %2) #24
-  br i1 %139, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit", label %140
+  br i1 %139, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit", label %140
 
 140:                                              ; preds = %135, %130
   %141 = load ptr, ptr %1, align 8
@@ -82902,7 +82902,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
   %147 = getelementptr inbounds i8, ptr %146, i64 224
   %148 = load ptr, ptr %147, align 8
   %149 = tail call noundef zeroext i1 %148(ptr noundef nonnull align 8 dereferenceable(152) %2) #24
-  br i1 %149, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit", label %150
+  br i1 %149, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit", label %150
 
 150:                                              ; preds = %145, %140
   %151 = load ptr, ptr %1, align 8
@@ -82928,12 +82928,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
   %167 = load ptr, ptr %166, align 8
   %168 = tail call noundef i32 %167(ptr noundef nonnull align 8 dereferenceable(152) %2) #24
   %.not.i.i.i = icmp slt i32 %164, %168
-  br i1 %.not.i.i.i, label %169, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit"
+  br i1 %.not.i.i.i, label %169, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit"
 
 169:                                              ; preds = %160, %155, %150
-  br label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit"
 
-"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit": ; preds = %5, %9, %14, %19, %24, %30, %34, %48, %62, %76, %90, %108, %125, %135, %145, %160, %169
+"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_0JRKNS0_5TTypeESG_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit": ; preds = %5, %9, %14, %19, %24, %30, %34, %48, %62, %76, %90, %108, %125, %135, %145, %160, %169
   %.0.i.i.i = phi i1 [ false, %169 ], [ true, %5 ], [ false, %24 ], [ false, %19 ], [ false, %14 ], [ false, %9 ], [ false, %30 ], [ false, %76 ], [ false, %62 ], [ false, %48 ], [ false, %34 ], [ %103, %90 ], [ false, %108 ], [ true, %160 ], [ true, %145 ], [ true, %135 ], [ true, %125 ]
   ret i1 %.0.i.i.i
 }
@@ -82973,11 +82973,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
 
 7:                                                ; preds = %4
   %8 = tail call noundef zeroext i1 @_ZNK7glslang5TTypeneERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(152) %2)
-  br label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
 
 9:                                                ; preds = %4
   %10 = tail call noundef zeroext i1 @_ZNK7glslang5TTypeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(152) %2)
-  br i1 %10, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit", label %11
+  br i1 %10, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit", label %11
 
 11:                                               ; preds = %9
   %12 = load ptr, ptr %1, align 8
@@ -83015,7 +83015,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef i32 %38(ptr noundef nonnull align 8 dereferenceable(152) %2) #24
   %.not.i.i.i = icmp eq i32 %35, %39
-  br i1 %.not.i.i.i, label %40, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit"
+  br i1 %.not.i.i.i, label %40, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
 
 40:                                               ; preds = %31, %21
   %41 = load ptr, ptr %1, align 8
@@ -83039,7 +83039,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
   %57 = load ptr, ptr %56, align 8
   %58 = tail call noundef i32 %57(ptr noundef nonnull align 8 dereferenceable(152) %3) #24
   %.not30.i.i.i = icmp eq i32 %54, %58
-  br i1 %.not30.i.i.i, label %59, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit"
+  br i1 %.not30.i.i.i, label %59, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
 
 59:                                               ; preds = %50, %40, %16
   %60 = load ptr, ptr %1, align 8
@@ -83154,7 +83154,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
   %145 = load ptr, ptr %144, align 8
   %146 = tail call noundef nonnull align 4 dereferenceable(4) ptr %145(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
   %147 = call noundef zeroext i1 @_ZNK7glslang8TSamplerneERKS0_(ptr noundef nonnull align 4 dereferenceable(4) %146, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  br label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
 
 _ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i.i:  ; preds = %135, %129, %123, %117, %111, %105, %77
   %148 = load ptr, ptr %1, align 8
@@ -83216,7 +83216,7 @@ _ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i.i:  ; preds = %135, %129, %123, %1
   %190 = and i32 %153, 532676608
   %191 = icmp eq i32 %190, 0
   %or.cond.i.i = and i1 %.not.i4.i.i, %191
-  br i1 %or.cond.i.i, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit", label %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i
+  br i1 %or.cond.i.i, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit", label %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i
 
 _ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i:    ; preds = %185, %179, %173, %167, %161, %155, %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i.i, %71, %65, %59
   %192 = load ptr, ptr %3, align 8
@@ -83225,15 +83225,15 @@ _ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i:    ; preds = %185, %179, %173, %1
   %195 = tail call noundef i32 %194(ptr noundef nonnull align 8 dereferenceable(152) %3) #24
   %switch.tableidx = add i32 %195, -1
   %196 = icmp ult i32 %switch.tableidx, 12
-  br i1 %196, label %switch.lookup, label %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.argprom.exit.i.i.i"
+  br i1 %196, label %switch.lookup, label %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit.i.i.i"
 
 switch.lookup:                                    ; preds = %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i
   %197 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [12 x i32], ptr @"switch.table._ZNSt17_Function_handlerIFbRKN7glslang5TTypeES3_S3_EZNS0_16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1E9_M_invokeERKSt9_Any_dataS3_S3_S3_.91", i64 0, i64 %197
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.argprom.exit.i.i.i"
+  br label %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit.i.i.i"
 
-"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.argprom.exit.i.i.i": ; preds = %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i, %switch.lookup
+"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit.i.i.i": ; preds = %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i, %switch.lookup
   %.0.i.i.i.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i ]
   %198 = load ptr, ptr %1, align 8
   %199 = getelementptr inbounds i8, ptr %198, i64 56
@@ -83241,16 +83241,16 @@ switch.lookup:                                    ; preds = %_ZNK7glslang8TSampl
   %201 = tail call noundef i32 %200(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
   %switch.tableidx5 = add i32 %201, -1
   %202 = icmp ult i32 %switch.tableidx5, 12
-  br i1 %202, label %switch.lookup4, label %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.argprom.exit35.i.i.i"
+  br i1 %202, label %switch.lookup4, label %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit35.i.i.i"
 
-switch.lookup4:                                   ; preds = %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.argprom.exit.i.i.i"
+switch.lookup4:                                   ; preds = %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit.i.i.i"
   %203 = zext nneg i32 %switch.tableidx5 to i64
   %switch.gep6 = getelementptr inbounds [12 x i32], ptr @"switch.table._ZNSt17_Function_handlerIFbRKN7glslang5TTypeES3_S3_EZNS0_16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1E9_M_invokeERKSt9_Any_dataS3_S3_S3_.92", i64 0, i64 %203
   %switch.load7 = load i32, ptr %switch.gep6, align 4
-  br label %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.argprom.exit35.i.i.i"
+  br label %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit35.i.i.i"
 
-"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.argprom.exit35.i.i.i": ; preds = %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.argprom.exit.i.i.i", %switch.lookup4
-  %.0.i34.neg.i.i.i = phi i32 [ %switch.load7, %switch.lookup4 ], [ 0, %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.argprom.exit.i.i.i" ]
+"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit35.i.i.i": ; preds = %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit.i.i.i", %switch.lookup4
+  %.0.i34.neg.i.i.i = phi i32 [ %switch.load7, %switch.lookup4 ], [ 0, %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit.i.i.i" ]
   %204 = add nsw i32 %.0.i34.neg.i.i.i, %.0.i.i.i.i
   %205 = tail call i32 @llvm.abs.i32(i32 %204, i1 true)
   %206 = load ptr, ptr %2, align 8
@@ -83259,59 +83259,59 @@ switch.lookup4:                                   ; preds = %"_ZZZN7glslang16Hls
   %209 = tail call noundef i32 %208(ptr noundef nonnull align 8 dereferenceable(152) %2) #24
   %switch.tableidx9 = add i32 %209, -1
   %210 = icmp ult i32 %switch.tableidx9, 12
-  br i1 %210, label %switch.lookup8, label %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.argprom.exit37.i.i.i"
+  br i1 %210, label %switch.lookup8, label %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit37.i.i.i"
 
-switch.lookup8:                                   ; preds = %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.argprom.exit35.i.i.i"
+switch.lookup8:                                   ; preds = %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit35.i.i.i"
   %211 = zext nneg i32 %switch.tableidx9 to i64
   %switch.gep10 = getelementptr inbounds [12 x i32], ptr @"switch.table._ZNSt17_Function_handlerIFbRKN7glslang5TTypeES3_S3_EZNS0_16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1E9_M_invokeERKSt9_Any_dataS3_S3_S3_.91", i64 0, i64 %211
   %switch.load11 = load i32, ptr %switch.gep10, align 4
-  br label %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.argprom.exit37.i.i.i"
+  br label %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit37.i.i.i"
 
-"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.argprom.exit37.i.i.i": ; preds = %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.argprom.exit35.i.i.i", %switch.lookup8
-  %.0.i36.i.i.i = phi i32 [ %switch.load11, %switch.lookup8 ], [ 0, %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.argprom.exit35.i.i.i" ]
+"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit37.i.i.i": ; preds = %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit35.i.i.i", %switch.lookup8
+  %.0.i36.i.i.i = phi i32 [ %switch.load11, %switch.lookup8 ], [ 0, %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit35.i.i.i" ]
   %212 = load ptr, ptr %1, align 8
   %213 = getelementptr inbounds i8, ptr %212, i64 56
   %214 = load ptr, ptr %213, align 8
   %215 = tail call noundef i32 %214(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
   %switch.tableidx13 = add i32 %215, -1
   %216 = icmp ult i32 %switch.tableidx13, 12
-  br i1 %216, label %switch.lookup12, label %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.argprom.exit39.i.i.i"
+  br i1 %216, label %switch.lookup12, label %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit39.i.i.i"
 
-switch.lookup12:                                  ; preds = %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.argprom.exit37.i.i.i"
+switch.lookup12:                                  ; preds = %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit37.i.i.i"
   %217 = zext nneg i32 %switch.tableidx13 to i64
   %switch.gep14 = getelementptr inbounds [12 x i32], ptr @"switch.table._ZNSt17_Function_handlerIFbRKN7glslang5TTypeES3_S3_EZNS0_16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1E9_M_invokeERKSt9_Any_dataS3_S3_S3_.92", i64 0, i64 %217
   %switch.load15 = load i32, ptr %switch.gep14, align 4
-  br label %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.argprom.exit39.i.i.i"
+  br label %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit39.i.i.i"
 
-"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.argprom.exit39.i.i.i": ; preds = %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.argprom.exit37.i.i.i", %switch.lookup12
-  %.0.i38.neg.i.i.i = phi i32 [ %switch.load15, %switch.lookup12 ], [ 0, %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.argprom.exit37.i.i.i" ]
+"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit39.i.i.i": ; preds = %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit37.i.i.i", %switch.lookup12
+  %.0.i38.neg.i.i.i = phi i32 [ %switch.load15, %switch.lookup12 ], [ 0, %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit37.i.i.i" ]
   %218 = add nsw i32 %.0.i38.neg.i.i.i, %.0.i36.i.i.i
   %219 = tail call i32 @llvm.abs.i32(i32 %218, i1 true)
   %220 = icmp ult i32 %205, %219
-  br label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
 
-"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit": ; preds = %7, %9, %31, %50, %142, %185, %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.argprom.exit39.i.i.i"
-  %.0.i.i.i = phi i1 [ %8, %7 ], [ %147, %142 ], [ %220, %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.argprom.exit39.i.i.i" ], [ false, %9 ], [ true, %31 ], [ false, %50 ], [ false, %185 ]
+"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit": ; preds = %7, %9, %31, %50, %142, %185, %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit39.i.i.i"
+  %.0.i.i.i = phi i1 [ %8, %7 ], [ %147, %142 ], [ %220, %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit39.i.i.i" ], [ false, %9 ], [ true, %31 ], [ false, %50 ], [ false, %185 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   ret i1 %.0.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTypeES3_S3_EZNS0_16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #17 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12findFunctionERKNS1_10TSourceLocERNS1_9TFunctionERbRiRPNS1_12TIntermTypedEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12findFunctionERKNS1_10TSourceLocERNS1_9TFunctionERbRiRPNS1_12TIntermTypedEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12findFunctionERKNS1_10TSourceLocERNS1_9TFunctionERbRiRPNS1_12TIntermTypedEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12findFunctionERKNS1_10TSourceLocERNS1_9TFunctionERbRiRPNS1_12TIntermTypedEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12findFunctionERKNS1_10TSourceLocERNS1_9TFunctionERbRiRPNS1_12TIntermTypedEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12findFunctionERKNS1_10TSourceLocERNS1_9TFunctionERbRiRPNS1_12TIntermTypedEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12findFunctionERKNS1_10TSourceLocERNS1_9TFunctionERbRiRPNS1_12TIntermTypedEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12findFunctionERKNS1_10TSourceLocERNS1_9TFunctionERbRiRPNS1_12TIntermTypedEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12findFunctionERKNS1_10TSourceLocERNS1_9TFunctionERbRiRPNS1_12TIntermTypedEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12findFunctionERKNS1_10TSourceLocERNS1_9TFunctionERbRiRPNS1_12TIntermTypedEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12findFunctionERKNS1_10TSourceLocERNS1_9TFunctionERbRiRPNS1_12TIntermTypedEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12findFunctionERKNS1_10TSourceLocERNS1_9TFunctionERbRiRPNS1_12TIntermTypedEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12findFunctionERKNS1_10TSourceLocERNS1_9TFunctionERbRiRPNS1_12TIntermTypedEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12findFunctionERKNS1_10TSourceLocERNS1_9TFunctionERbRiRPNS1_12TIntermTypedEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit.sink.split", %3
   ret i1 false
 }
 
@@ -83751,7 +83751,7 @@ _ZNSt8_Rb_treeIN7glslang16HlslParseContext17tInterstageIoDataES2_St9_IdentityIS2
 declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_.argprom"(ptr readonly %.0.val, ptr nocapture readonly %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_"(ptr readonly %.0.val, ptr nocapture readonly %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
@@ -83761,7 +83761,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7g
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %.0.val, i64 2008
   %.not10.i.i.i.i = icmp eq ptr %8, null
-  br i1 %.not10.i.i.i.i, label %"_ZZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvENK3$_0clEPKNS_7TSymbolE.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %"_ZZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvENK3$_0clEPKNS_7TSymbolE.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %1
   %10 = getelementptr inbounds i8, ptr %6, i64 16
@@ -83805,7 +83805,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocat
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_bESt10_Select1stISA_ESt4lessIS7_ENS5_ISA_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS9_.exit.i.i.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEEclERKS7_SA_.exit.i.i.i.i
   %23 = icmp eq ptr %.19.i.i.i.i, %9
-  br i1 %23, label %"_ZZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvENK3$_0clEPKNS_7TSymbolE.argprom.exit", label %24
+  br i1 %23, label %"_ZZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvENK3$_0clEPKNS_7TSymbolE.exit", label %24
 
 24:                                               ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_bESt10_Select1stISA_ESt4lessIS7_ENS5_ISA_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS9_.exit.i.i.i
   %25 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 48
@@ -83831,16 +83831,16 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEbSt4lessIS7_ENS5_ISt4pairIKS7_bEEEE4findERSB_.exit.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
   %.0.i.i.i.i.i.i = phi i32 [ %30, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ], [ %.0.i6.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i ]
   %32 = icmp slt i32 %.0.i.i.i.i.i.i, 0
-  br i1 %32, label %"_ZZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvENK3$_0clEPKNS_7TSymbolE.argprom.exit", label %33
+  br i1 %32, label %"_ZZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvENK3$_0clEPKNS_7TSymbolE.exit", label %33
 
 33:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEbSt4lessIS7_ENS5_ISt4pairIKS7_bEEEE4findERSB_.exit.i
   %34 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 72
   %35 = load i8, ptr %34, align 8
   %36 = trunc i8 %35 to i1
   %37 = xor i1 %36, true
-  br label %"_ZZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvENK3$_0clEPKNS_7TSymbolE.argprom.exit"
+  br label %"_ZZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvENK3$_0clEPKNS_7TSymbolE.exit"
 
-"_ZZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvENK3$_0clEPKNS_7TSymbolE.argprom.exit": ; preds = %1, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_bESt10_Select1stISA_ESt4lessIS7_ENS5_ISA_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS9_.exit.i.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEbSt4lessIS7_ENS5_ISt4pairIKS7_bEEEE4findERSB_.exit.i, %33
+"_ZZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvENK3$_0clEPKNS_7TSymbolE.exit": ; preds = %1, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_bESt10_Select1stISA_ESt4lessIS7_ENS5_ISA_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS9_.exit.i.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEbSt4lessIS7_ENS5_ISt4pairIKS7_bEEEE4findERSB_.exit.i, %33
   %38 = phi i1 [ false, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEbSt4lessIS7_ENS5_ISt4pairIKS7_bEEEE4findERSB_.exit.i ], [ %37, %33 ], [ false, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_bESt10_Select1stISA_ESt4lessIS7_ENS5_ISA_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS9_.exit.i.i.i ], [ false, %1 ]
   ret i1 %38
 }

@@ -3746,7 +3746,7 @@ define internal range(i32 0, 165) i32 @cf2_decoder_parse_charstrings(ptr noundef
   %14 = getelementptr inbounds i8, ptr %0, i64 1056
   %15 = load ptr, ptr %14, align 8
   %.not72 = icmp eq ptr %15, null
-  br i1 %.not72, label %cf2_setGlyphWidth.argprom.exit, label %16
+  br i1 %.not72, label %cf2_setGlyphWidth.exit, label %16
 
 16:                                               ; preds = %13, %3
   %17 = load ptr, ptr %0, align 8
@@ -3764,7 +3764,7 @@ define internal range(i32 0, 165) i32 @cf2_decoder_parse_charstrings(ptr noundef
   store ptr %23, ptr %24, align 8
   %25 = load i32, ptr %8, align 4
   %.not74 = icmp eq i32 %25, 0
-  br i1 %.not74, label %26, label %cf2_setGlyphWidth.argprom.exit
+  br i1 %.not74, label %26, label %cf2_setGlyphWidth.exit
 
 26:                                               ; preds = %21
   %27 = load ptr, ptr %18, align 8
@@ -3933,11 +3933,11 @@ cf2_getScaleAndHintFlag.exit:                     ; preds = %43, %70
   %124 = icmp slt i32 %81, 1
   %125 = icmp slt i32 %storemerge.i, 1
   %or.cond95 = select i1 %124, i1 true, i1 %125
-  br i1 %or.cond95, label %cf2_setGlyphWidth.argprom.exit, label %126
+  br i1 %or.cond95, label %cf2_setGlyphWidth.exit, label %126
 
 126:                                              ; preds = %123
   %127 = icmp slt i16 %.val.val, 0
-  br i1 %127, label %cf2_setGlyphWidth.argprom.exit, label %128
+  br i1 %127, label %cf2_setGlyphWidth.exit, label %128
 
 128:                                              ; preds = %126
   %129 = shl nuw nsw i32 %121, 16
@@ -3947,7 +3947,7 @@ cf2_getScaleAndHintFlag.exit:                     ; preds = %43, %70
   %133 = icmp sgt i32 %81, %132
   %134 = icmp ugt i32 %storemerge.i, %132
   %or.cond96 = select i1 %133, i1 true, i1 %134
-  br i1 %or.cond96, label %cf2_setGlyphWidth.argprom.exit, label %.cf2_checkTransform.exit_crit_edge
+  br i1 %or.cond96, label %cf2_setGlyphWidth.exit, label %.cf2_checkTransform.exit_crit_edge
 
 .cf2_checkTransform.exit_crit_edge:               ; preds = %128
   %.pre = load ptr, ptr %44, align 8
@@ -4834,7 +4834,7 @@ cf2_font_setup.exit.i:                            ; preds = %515, %506, %338, %2
 cf2_getGlyphOutline.exit.thread:                  ; preds = %538, %cf2_font_setup.exit.thread.i, %cf2_font_setup.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br label %cf2_setGlyphWidth.argprom.exit
+  br label %cf2_setGlyphWidth.exit
 
 cf2_getGlyphOutline.exit:                         ; preds = %548, %569, %602, %609, %612
   %619 = getelementptr inbounds i8, ptr %.val.i, i64 24
@@ -4845,14 +4845,14 @@ cf2_getGlyphOutline.exit:                         ; preds = %548, %569, %602, %6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %.not83 = icmp eq i32 %.pr, 0
-  br i1 %.not83, label %622, label %cf2_setGlyphWidth.argprom.exit
+  br i1 %.not83, label %622, label %cf2_setGlyphWidth.exit
 
 622:                                              ; preds = %cf2_getGlyphOutline.exit
   %.val84 = load ptr, ptr %46, align 8
   %623 = getelementptr inbounds i8, ptr %.val84, i64 92
   %624 = load i8, ptr %623, align 4
   %.not.i87 = icmp eq i8 %624, 0
-  br i1 %.not.i87, label %625, label %cf2_setGlyphWidth.argprom.exit
+  br i1 %.not.i87, label %625, label %cf2_setGlyphWidth.exit
 
 625:                                              ; preds = %622
   %626 = add i32 %621, 32768
@@ -4863,9 +4863,9 @@ cf2_getGlyphOutline.exit:                         ; preds = %548, %569, %602, %6
   %630 = getelementptr inbounds i8, ptr %.val84, i64 1072
   %631 = load ptr, ptr %630, align 8
   store i64 %629, ptr %631, align 8
-  br label %cf2_setGlyphWidth.argprom.exit
+  br label %cf2_setGlyphWidth.exit
 
-cf2_setGlyphWidth.argprom.exit:                   ; preds = %128, %126, %123, %625, %622, %cf2_getGlyphOutline.exit.thread, %cf2_getGlyphOutline.exit, %21, %13
+cf2_setGlyphWidth.exit:                           ; preds = %128, %126, %123, %625, %622, %cf2_getGlyphOutline.exit.thread, %cf2_getGlyphOutline.exit, %21, %13
   %.0 = phi i32 [ 8, %13 ], [ 64, %21 ], [ 3, %cf2_getGlyphOutline.exit ], [ 3, %cf2_getGlyphOutline.exit.thread ], [ 0, %622 ], [ 0, %625 ], [ 164, %128 ], [ 164, %126 ], [ 36, %123 ]
   ret i32 %.0
 }
@@ -4916,7 +4916,7 @@ define internal i32 @afm_parser_parse(ptr nocapture noundef readonly %0) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %afm_parser_next_key.argprom.exit.thread, label %8
+  br i1 %.not, label %afm_parser_next_key.exit.thread, label %8
 
 8:                                                ; preds = %1
   %9 = getelementptr i8, ptr %0, i64 8
@@ -4928,7 +4928,7 @@ define internal i32 @afm_parser_parse(ptr nocapture noundef readonly %0) #0 {
   br i1 %12, label %afm_stream_read_string.exit.i.preheader, label %13
 
 13:                                               ; preds = %8
-  tail call fastcc void @afm_stream_skip_spaces.retelim(ptr noundef nonnull %.val)
+  tail call fastcc void @afm_stream_skip_spaces(ptr noundef nonnull %.val)
   %14 = load i32, ptr %10, align 8
   %15 = icmp sgt i32 %14, 1
   br i1 %15, label %afm_stream_read_string.exit.i.preheader, label %16
@@ -4960,25 +4960,25 @@ afm_stream_read_string.exit.i:                    ; preds = %afm_stream_read_str
   store i32 0, ptr %10, align 8
   %25 = tail call fastcc ptr @afm_stream_read_one(ptr noundef nonnull %.val)
   %.not.i = icmp eq ptr %25, null
-  br i1 %.not.i, label %26, label %afm_parser_next_key.argprom.exit
+  br i1 %.not.i, label %26, label %afm_parser_next_key.exit
 
 26:                                               ; preds = %afm_stream_read_string.exit.i
   %27 = load i32, ptr %10, align 8
   %28 = icmp eq i32 %27, 2
-  br i1 %28, label %afm_stream_read_string.exit.i, label %afm_parser_next_key.argprom.exit.thread
+  br i1 %28, label %afm_stream_read_string.exit.i, label %afm_parser_next_key.exit.thread
 
-afm_parser_next_key.argprom.exit:                 ; preds = %afm_stream_read_string.exit.i
+afm_parser_next_key.exit:                         ; preds = %afm_stream_read_string.exit.i
   %29 = load ptr, ptr %.val, align 8
   %30 = ptrtoint ptr %29 to i64
   %31 = ptrtoint ptr %25 to i64
   %32 = sub i64 %31, %30
   %.not90 = icmp eq i64 %32, -17
-  br i1 %.not90, label %33, label %afm_parser_next_key.argprom.exit.thread
+  br i1 %.not90, label %33, label %afm_parser_next_key.exit.thread
 
-33:                                               ; preds = %afm_parser_next_key.argprom.exit
+33:                                               ; preds = %afm_parser_next_key.exit
   %34 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(17) @.str.1, i64 noundef 16) #21
   %.not46 = icmp eq i32 %34, 0
-  br i1 %.not46, label %.preheader97, label %afm_parser_next_key.argprom.exit.thread
+  br i1 %.not46, label %.preheader97, label %afm_parser_next_key.exit.thread
 
 .preheader97:                                     ; preds = %33
   %35 = getelementptr inbounds i8, ptr %2, i64 8
@@ -5008,7 +5008,7 @@ afm_parser_next_key.argprom.exit:                 ; preds = %afm_stream_read_str
   br i1 %53, label %afm_stream_read_string.exit.i58.preheader, label %54
 
 54:                                               ; preds = %50
-  tail call fastcc void @afm_stream_skip_spaces.retelim(ptr noundef nonnull %.val56)
+  tail call fastcc void @afm_stream_skip_spaces(ptr noundef nonnull %.val56)
   %55 = load i32, ptr %51, align 8
   %56 = icmp sgt i32 %55, 1
   br i1 %56, label %afm_stream_read_string.exit.i58.preheader, label %57
@@ -5045,7 +5045,7 @@ afm_stream_read_string.exit.i58:                  ; preds = %afm_stream_read_str
 67:                                               ; preds = %afm_stream_read_string.exit.i58
   %68 = load i32, ptr %51, align 8
   %69 = icmp eq i32 %68, 2
-  br i1 %69, label %afm_stream_read_string.exit.i58, label %afm_parser_next_key.argprom.exit61.thread
+  br i1 %69, label %afm_stream_read_string.exit.i58, label %afm_parser_next_key.exit61.thread
 
 70:                                               ; preds = %afm_stream_read_string.exit.i58
   %71 = load ptr, ptr %.val56, align 8
@@ -5098,7 +5098,7 @@ afm_tokenize.exit:                                ; preds = %85
     i32 14, label %112
     i32 45, label %116
     i32 49, label %189
-    i32 20, label %afm_parser_next_key.argprom.exit.thread
+    i32 20, label %afm_parser_next_key.exit.thread
   ]
 
 91:                                               ; preds = %afm_tokenize.exit
@@ -5110,20 +5110,20 @@ afm_tokenize.exit:                                ; preds = %85
 
 afm_parser_read_int.exit:                         ; preds = %91
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %afm_parser_next_key.argprom.exit61.thread
+  br label %afm_parser_next_key.exit61.thread
 
 94:                                               ; preds = %91
   %95 = load i32, ptr %49, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %96 = and i32 %95, -3
   %or.cond3.not = icmp eq i32 %96, 0
-  br i1 %or.cond3.not, label %afm_parser_skip_section.exit, label %afm_parser_next_key.argprom.exit61.thread
+  br i1 %or.cond3.not, label %afm_parser_skip_section.exit, label %afm_parser_next_key.exit61.thread
 
 97:                                               ; preds = %afm_tokenize.exit
   store i32 4, ptr %4, align 16
   %98 = call fastcc i32 @afm_parser_read_vals(ptr noundef nonnull %0, ptr noundef %4, i32 noundef 1)
   %.not54 = icmp eq i32 %98, 1
-  br i1 %.not54, label %99, label %afm_parser_next_key.argprom.exit61.thread
+  br i1 %.not54, label %99, label %afm_parser_next_key.exit61.thread
 
 99:                                               ; preds = %97
   %100 = load i8, ptr %36, align 8
@@ -5137,7 +5137,7 @@ afm_parser_read_int.exit:                         ; preds = %91
   store i32 2, ptr %41, align 16
   %102 = call fastcc i32 @afm_parser_read_vals(ptr noundef nonnull %0, ptr noundef %4, i32 noundef 4)
   %.not53 = icmp eq i32 %102, 4
-  br i1 %.not53, label %103, label %afm_parser_next_key.argprom.exit61.thread
+  br i1 %.not53, label %103, label %afm_parser_next_key.exit61.thread
 
 103:                                              ; preds = %101
   %104 = load i64, ptr %36, align 8
@@ -5154,7 +5154,7 @@ afm_parser_read_int.exit:                         ; preds = %91
   store i32 2, ptr %4, align 16
   %109 = call fastcc i32 @afm_parser_read_vals(ptr noundef nonnull %0, ptr noundef %4, i32 noundef 1)
   %.not52 = icmp eq i32 %109, 1
-  br i1 %.not52, label %110, label %afm_parser_next_key.argprom.exit61.thread
+  br i1 %.not52, label %110, label %afm_parser_next_key.exit61.thread
 
 110:                                              ; preds = %108
   %111 = load i64, ptr %36, align 8
@@ -5165,7 +5165,7 @@ afm_parser_read_int.exit:                         ; preds = %91
   store i32 2, ptr %4, align 16
   %113 = call fastcc i32 @afm_parser_read_vals(ptr noundef nonnull %0, ptr noundef %4, i32 noundef 1)
   %.not51 = icmp eq i32 %113, 1
-  br i1 %.not51, label %114, label %afm_parser_next_key.argprom.exit61.thread
+  br i1 %.not51, label %114, label %afm_parser_next_key.exit61.thread
 
 114:                                              ; preds = %112
   %115 = load i64, ptr %36, align 8
@@ -5181,7 +5181,7 @@ afm_parser_read_int.exit:                         ; preds = %91
 
 afm_parser_read_int.exit64:                       ; preds = %116
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  br label %afm_parser_next_key.argprom.exit61.thread
+  br label %afm_parser_next_key.exit61.thread
 
 119:                                              ; preds = %116
   %120 = load i32, ptr %35, align 8
@@ -5189,8 +5189,8 @@ afm_parser_read_int.exit64:                       ; preds = %116
   %121 = icmp sgt i32 %120, 0
   br i1 %121, label %.lr.ph.i, label %.preheader.i65.preheader
 
-.lr.ph.i:                                         ; preds = %119, %afm_parser_next_key.argprom.exit.i
-  %.0964.i = phi i32 [ %122, %afm_parser_next_key.argprom.exit.i ], [ %120, %119 ]
+.lr.ph.i:                                         ; preds = %119, %afm_parser_next_key.exit.i
+  %.0964.i = phi i32 [ %122, %afm_parser_next_key.exit.i ], [ %120, %119 ]
   %122 = add nsw i32 %.0964.i, -1
   %.val12.i = load ptr, ptr %9, align 8
   %123 = getelementptr inbounds i8, ptr %.val12.i, i64 24
@@ -5205,7 +5205,7 @@ afm_parser_read_int.exit64:                       ; preds = %116
   br label %.preheader.i26.preheader.i
 
 126:                                              ; preds = %.lr.ph.i
-  tail call fastcc void @afm_stream_skip_spaces.retelim(ptr noundef nonnull %.val12.i)
+  tail call fastcc void @afm_stream_skip_spaces(ptr noundef nonnull %.val12.i)
   %127 = load i32, ptr %123, align 8
   %128 = icmp sgt i32 %127, 1
   %.val12.promoted.pre85.i = load ptr, ptr %.val12.i, align 8
@@ -5257,11 +5257,11 @@ afm_parser_read_int.exit64:                       ; preds = %116
 
 138:                                              ; preds = %.lr.ph.i.i
   store i32 1, ptr %123, align 8
-  br label %afm_parser_next_key.argprom.exit.thread
+  br label %afm_parser_next_key.exit.thread
 
 .thread.i27.i:                                    ; preds = %.preheader.i26.preheader.i, %afm_stream_skip_spaces.exit.thread.i, %.backedge.i.i, %.lr.ph.i.i
   store i32 3, ptr %123, align 8
-  br label %afm_parser_next_key.argprom.exit.thread
+  br label %afm_parser_next_key.exit.thread
 
 afm_stream_skip_spaces.exit.i:                    ; preds = %.lr.ph.i.i, %141
   %139 = phi ptr [ %142, %141 ], [ %136, %.lr.ph.i.i ]
@@ -5273,8 +5273,8 @@ afm_stream_skip_spaces.exit.i:                    ; preds = %.lr.ph.i.i, %141
   store ptr %142, ptr %.val12.i, align 8
   %143 = load i8, ptr %139, align 1
   switch i8 %143, label %afm_stream_skip_spaces.exit.i [
-    i8 32, label %afm_parser_next_key.argprom.exit.i
-    i8 9, label %afm_parser_next_key.argprom.exit.i
+    i8 32, label %afm_parser_next_key.exit.i
+    i8 9, label %afm_parser_next_key.exit.i
     i8 13, label %.loopexit.sink.split.i.i.loopexit
     i8 10, label %.loopexit.sink.split.i.i.loopexit
     i8 59, label %.loopexit.sink.split.i.i.loopexit315
@@ -5290,18 +5290,18 @@ afm_stream_skip_spaces.exit.i:                    ; preds = %.lr.ph.i.i, %141
 .loopexit.sink.split.i.i:                         ; preds = %afm_stream_skip_spaces.exit.i, %141, %.loopexit.sink.split.i.i.loopexit315, %.loopexit.sink.split.i.i.loopexit
   %.sink.i.i = phi i32 [ 2, %.loopexit.sink.split.i.i.loopexit ], [ 1, %.loopexit.sink.split.i.i.loopexit315 ], [ 3, %141 ], [ 3, %afm_stream_skip_spaces.exit.i ]
   store i32 %.sink.i.i, ptr %123, align 8
-  br label %afm_parser_next_key.argprom.exit.i
+  br label %afm_parser_next_key.exit.i
 
 afm_stream_skip_spaces.exit.thread.i:             ; preds = %.lr.ph.i.i, %.lr.ph.i.i
   store i32 0, ptr %123, align 8
   %144 = icmp ult ptr %136, %.pre.i70
   br i1 %144, label %.lr.ph.i.i.backedge, label %.thread.i27.i
 
-afm_parser_next_key.argprom.exit.i:               ; preds = %141, %141, %.loopexit.sink.split.i.i
+afm_parser_next_key.exit.i:                       ; preds = %141, %141, %.loopexit.sink.split.i.i
   %145 = icmp sgt i32 %.0964.i, 1
   br i1 %145, label %.lr.ph.i, label %.preheader.i65.preheader, !llvm.loop !25
 
-.preheader.i65.preheader:                         ; preds = %afm_parser_next_key.argprom.exit.i, %119
+.preheader.i65.preheader:                         ; preds = %afm_parser_next_key.exit.i, %119
   br label %.preheader.i65
 
 .preheader.i65:                                   ; preds = %.preheader.i65.preheader, %afm_tokenize.exit.i
@@ -5318,7 +5318,7 @@ afm_parser_next_key.argprom.exit.i:               ; preds = %141, %141, %.loopex
   br label %.preheader.i30.preheader.i
 
 149:                                              ; preds = %.preheader.i65
-  tail call fastcc void @afm_stream_skip_spaces.retelim(ptr noundef nonnull %.val.i)
+  tail call fastcc void @afm_stream_skip_spaces(ptr noundef nonnull %.val.i)
   %150 = load i32, ptr %146, align 8
   %151 = icmp sgt i32 %150, 1
   %.val.promoted.pre88.i = load ptr, ptr %.val.i, align 8
@@ -5370,11 +5370,11 @@ afm_parser_next_key.argprom.exit.i:               ; preds = %141, %141, %.loopex
 
 161:                                              ; preds = %.lr.ph.i34.i
   store i32 1, ptr %146, align 8
-  br label %afm_parser_next_key.argprom.exit.thread
+  br label %afm_parser_next_key.exit.thread
 
 .thread.i32.i:                                    ; preds = %.preheader.i30.preheader.i, %afm_stream_skip_spaces.exit38.thread.i, %.backedge.i35.i, %.lr.ph.i34.i
   store i32 3, ptr %146, align 8
-  br label %afm_parser_next_key.argprom.exit.thread
+  br label %afm_parser_next_key.exit.thread
 
 afm_stream_skip_spaces.exit38.i:                  ; preds = %.lr.ph.i34.i, %164
   %162 = phi ptr [ %165, %164 ], [ %159, %.lr.ph.i34.i ]
@@ -5466,13 +5466,13 @@ afm_tokenize.exit.i:                              ; preds = %.loopexit17.i.i, %1
 189:                                              ; preds = %afm_tokenize.exit
   %190 = tail call fastcc i32 @afm_parse_kern_data(ptr noundef nonnull %0)
   %.not48 = icmp eq i32 %190, 0
-  br i1 %.not48, label %afm_parser_next_key.argprom.exit.thread, label %afm_parser_next_key.argprom.exit61.thread
+  br i1 %.not48, label %afm_parser_next_key.exit.thread, label %afm_parser_next_key.exit61.thread
 
 afm_parser_skip_section.exit:                     ; preds = %.loopexit17.i, %88, %.preheader.i, %afm_tokenize.exit.i, %afm_tokenize.exit.i, %afm_tokenize.exit, %94, %114, %110, %103, %99
   %.1 = phi i32 [ %.0, %afm_tokenize.exit ], [ %.0, %114 ], [ %.0, %110 ], [ %.0, %103 ], [ %.0, %99 ], [ %.0, %94 ], [ 0, %afm_tokenize.exit.i ], [ 0, %afm_tokenize.exit.i ], [ %.0, %.preheader.i ], [ %.0, %88 ], [ %.0, %.loopexit17.i ]
   br label %50, !llvm.loop !26
 
-afm_parser_next_key.argprom.exit61.thread:        ; preds = %94, %97, %101, %108, %112, %67, %afm_parser_read_int.exit64, %afm_parser_read_int.exit, %189
+afm_parser_next_key.exit61.thread:                ; preds = %94, %97, %101, %108, %112, %67, %afm_parser_read_int.exit64, %afm_parser_read_int.exit, %189
   %.2 = phi i32 [ %190, %189 ], [ %.0, %afm_parser_read_int.exit64 ], [ %.0, %afm_parser_read_int.exit ], [ %.0, %67 ], [ 7, %94 ], [ %.0, %97 ], [ %.0, %101 ], [ %.0, %108 ], [ %.0, %112 ]
   %191 = getelementptr inbounds i8, ptr %7, i64 56
   %192 = load ptr, ptr %191, align 8
@@ -5487,10 +5487,10 @@ afm_parser_next_key.argprom.exit61.thread:        ; preds = %94, %97, %101, %108
   %196 = getelementptr inbounds i8, ptr %7, i64 80
   store i32 0, ptr %196, align 8
   store i8 0, ptr %7, align 8
-  br label %afm_parser_next_key.argprom.exit.thread
+  br label %afm_parser_next_key.exit.thread
 
-afm_parser_next_key.argprom.exit.thread:          ; preds = %26, %afm_tokenize.exit, %.thread.i27.i, %138, %.thread.i32.i, %161, %189, %afm_parser_next_key.argprom.exit, %33, %1, %afm_parser_next_key.argprom.exit61.thread
-  %.039 = phi i32 [ %.2, %afm_parser_next_key.argprom.exit61.thread ], [ 6, %1 ], [ 2, %33 ], [ 2, %afm_parser_next_key.argprom.exit ], [ 0, %189 ], [ 160, %161 ], [ 160, %.thread.i32.i ], [ 160, %138 ], [ 160, %.thread.i27.i ], [ 0, %afm_tokenize.exit ], [ 2, %26 ]
+afm_parser_next_key.exit.thread:                  ; preds = %26, %afm_tokenize.exit, %.thread.i27.i, %138, %.thread.i32.i, %161, %189, %afm_parser_next_key.exit, %33, %1, %afm_parser_next_key.exit61.thread
+  %.039 = phi i32 [ %.2, %afm_parser_next_key.exit61.thread ], [ 6, %1 ], [ 2, %33 ], [ 2, %afm_parser_next_key.exit ], [ 0, %189 ], [ 160, %161 ], [ 160, %.thread.i32.i ], [ 160, %138 ], [ 160, %.thread.i27.i ], [ 0, %afm_tokenize.exit ], [ 2, %26 ]
   ret i32 %.039
 }
 
@@ -6565,7 +6565,7 @@ define internal fastcc i32 @afm_parser_read_vals(ptr nocapture noundef readonly 
   br i1 %15, label %16, label %afm_stream_read_string.exit
 
 16:                                               ; preds = %12
-  call fastcc void @afm_stream_skip_spaces.retelim(ptr noundef %7)
+  call fastcc void @afm_stream_skip_spaces(ptr noundef %7)
   %17 = load i32, ptr %8, align 8
   %18 = icmp sgt i32 %17, 1
   br i1 %18, label %afm_stream_read_string.exit.thread, label %20
@@ -6756,7 +6756,7 @@ define internal fastcc i32 @afm_parse_kern_data(ptr nocapture noundef readonly %
   br label %.preheader.i48.preheader
 
 32:                                               ; preds = %28
-  call fastcc void @afm_stream_skip_spaces.retelim(ptr noundef nonnull %.val)
+  call fastcc void @afm_stream_skip_spaces(ptr noundef nonnull %.val)
   %33 = load i32, ptr %29, align 8
   %34 = icmp sgt i32 %33, 1
   %.val.promoted.pre121 = load ptr, ptr %.val, align 8
@@ -6808,11 +6808,11 @@ define internal fastcc i32 @afm_parse_kern_data(ptr nocapture noundef readonly %
 
 44:                                               ; preds = %.lr.ph.i
   store i32 1, ptr %29, align 8
-  br label %afm_parser_next_key.argprom.exit.thread
+  br label %afm_parser_next_key.exit.thread
 
 .thread.i49:                                      ; preds = %.preheader.i48.preheader, %afm_stream_skip_spaces.exit.thread, %.backedge.i, %.lr.ph.i
   store i32 3, ptr %29, align 8
-  br label %afm_parser_next_key.argprom.exit.thread
+  br label %afm_parser_next_key.exit.thread
 
 afm_stream_skip_spaces.exit:                      ; preds = %.lr.ph.i, %47
   %45 = phi ptr [ %48, %47 ], [ %42, %.lr.ph.i ]
@@ -6892,18 +6892,18 @@ afm_stream_skip_spaces.exit.thread:               ; preds = %.lr.ph.i, %.lr.ph.i
 
 afm_tokenize.exit:                                ; preds = %66
   %71 = trunc nsw i64 %indvars.iv.i to i32
-  switch i32 %71, label %afm_parser_next_key.argprom.exit.thread [
+  switch i32 %71, label %afm_parser_next_key.exit.thread [
     i32 53, label %72
     i32 50, label %162
     i32 51, label %162
-    i32 21, label %afm_parser_next_key.argprom.exit.thread.loopexit
-    i32 20, label %afm_parser_next_key.argprom.exit.thread.loopexit
+    i32 21, label %afm_parser_next_key.exit.thread.loopexit
+    i32 20, label %afm_parser_next_key.exit.thread.loopexit
     i32 75, label %afm_tokenize.exit.thread
   ]
 
 72:                                               ; preds = %afm_tokenize.exit
   %.not18 = icmp eq i32 %.010, 0
-  br i1 %.not18, label %73, label %afm_parser_next_key.argprom.exit.thread
+  br i1 %.not18, label %73, label %afm_parser_next_key.exit.thread
 
 73:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
@@ -6967,7 +6967,7 @@ afm_parser_read_int.exit.i:                       ; preds = %73
   br i1 %102, label %afm_stream_read_string.exit.i.i.preheader, label %103
 
 103:                                              ; preds = %99
-  call fastcc void @afm_stream_skip_spaces.retelim(ptr noundef nonnull %.val.i)
+  call fastcc void @afm_stream_skip_spaces(ptr noundef nonnull %.val.i)
   %104 = load i32, ptr %100, align 8
   %105 = icmp sgt i32 %104, 1
   br i1 %105, label %afm_stream_read_string.exit.i.i.preheader, label %106
@@ -7111,7 +7111,7 @@ afm_parse_track_kern.exit.thread:                 ; preds = %92, %80, %afm_parse
   %.0.i.ph = phi i32 [ 160, %afm_parser_read_int.exit.thread.i ], [ 160, %116 ], [ 160, %140 ], [ 160, %143 ], [ 160, %afm_tokenize.exit.i ], [ %96, %92 ], [ 160, %80 ], [ 160, %afm_parser_read_int.exit.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7)
-  br label %afm_parser_next_key.argprom.exit.thread
+  br label %afm_parser_next_key.exit.thread
 
 afm_parse_track_kern.exit:                        ; preds = %158, %161
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -7120,7 +7120,7 @@ afm_parse_track_kern.exit:                        ; preds = %158, %161
 
 162:                                              ; preds = %afm_tokenize.exit, %afm_tokenize.exit
   %.not16 = icmp eq i32 %.0, 0
-  br i1 %.not16, label %163, label %afm_parser_next_key.argprom.exit.thread
+  br i1 %.not16, label %163, label %afm_parser_next_key.exit.thread
 
 163:                                              ; preds = %162
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -7184,7 +7184,7 @@ afm_parser_read_int.exit.i27:                     ; preds = %163
   br i1 %192, label %afm_stream_read_string.exit.i.i32.preheader, label %193
 
 193:                                              ; preds = %189
-  call fastcc void @afm_stream_skip_spaces.retelim(ptr noundef nonnull %.val.i29)
+  call fastcc void @afm_stream_skip_spaces(ptr noundef nonnull %.val.i29)
   %194 = load i32, ptr %190, align 8
   %195 = icmp sgt i32 %194, 1
   br i1 %195, label %afm_stream_read_string.exit.i.i32.preheader, label %196
@@ -7339,7 +7339,7 @@ afm_parse_kern_pairs.exit.thread:                 ; preds = %182, %170, %afm_par
   %.0.i26.ph = phi i32 [ 160, %afm_parser_read_int.exit.thread.i25 ], [ 160, %206 ], [ 160, %230 ], [ 160, %233 ], [ 160, %afm_tokenize.exit.i44 ], [ %186, %182 ], [ 160, %170 ], [ 160, %afm_parser_read_int.exit.i27 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  br label %afm_parser_next_key.argprom.exit.thread
+  br label %afm_parser_next_key.exit.thread
 
 afm_parse_kern_pairs.exit:                        ; preds = %250, %253
   %256 = load ptr, ptr %188, align 8
@@ -7354,17 +7354,17 @@ afm_tokenize.exit.thread:                         ; preds = %.loopexit17.i, %69,
   %.1 = phi i32 [ %.0, %afm_tokenize.exit ], [ %.0, %afm_parse_track_kern.exit ], [ 1, %afm_parse_kern_pairs.exit ], [ %.0, %.preheader.i ], [ %.0, %69 ], [ %.0, %.loopexit17.i ]
   br label %28, !llvm.loop !33
 
-afm_parser_next_key.argprom.exit.thread.loopexit: ; preds = %afm_tokenize.exit, %afm_tokenize.exit
-  br label %afm_parser_next_key.argprom.exit.thread
+afm_parser_next_key.exit.thread.loopexit:         ; preds = %afm_tokenize.exit, %afm_tokenize.exit
+  br label %afm_parser_next_key.exit.thread
 
-afm_parser_next_key.argprom.exit.thread:          ; preds = %72, %162, %afm_tokenize.exit, %afm_parser_next_key.argprom.exit.thread.loopexit, %.thread.i49, %44, %afm_parse_kern_pairs.exit.thread, %afm_parse_track_kern.exit.thread
-  %.012 = phi i32 [ %.0.i.ph, %afm_parse_track_kern.exit.thread ], [ %.0.i26.ph, %afm_parse_kern_pairs.exit.thread ], [ 160, %44 ], [ 160, %.thread.i49 ], [ 0, %afm_parser_next_key.argprom.exit.thread.loopexit ], [ 160, %afm_tokenize.exit ], [ 160, %162 ], [ 160, %72 ]
+afm_parser_next_key.exit.thread:                  ; preds = %72, %162, %afm_tokenize.exit, %afm_parser_next_key.exit.thread.loopexit, %.thread.i49, %44, %afm_parse_kern_pairs.exit.thread, %afm_parse_track_kern.exit.thread
+  %.012 = phi i32 [ %.0.i.ph, %afm_parse_track_kern.exit.thread ], [ %.0.i26.ph, %afm_parse_kern_pairs.exit.thread ], [ 160, %44 ], [ 160, %.thread.i49 ], [ 0, %afm_parser_next_key.exit.thread.loopexit ], [ 160, %afm_tokenize.exit ], [ 160, %162 ], [ 160, %72 ]
   ret i32 %.012
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc ptr @afm_stream_read_one(ptr nocapture noundef %0) unnamed_addr #3 {
-  tail call fastcc void @afm_stream_skip_spaces.retelim(ptr noundef %0)
+  tail call fastcc void @afm_stream_skip_spaces(ptr noundef %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -7412,7 +7412,7 @@ define internal fastcc ptr @afm_stream_read_one(ptr nocapture noundef %0) unname
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @afm_stream_skip_spaces.retelim(ptr nocapture noundef %0) unnamed_addr #3 {
+define internal fastcc void @afm_stream_skip_spaces(ptr nocapture noundef %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -9260,7 +9260,7 @@ define internal void @cf2_builder_moveTo(ptr nocapture noundef readonly %0, ptr 
   %5 = getelementptr i8, ptr %4, i64 40
   %.val = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %ps_builder_close_contour.argprom.exit, label %6
+  br i1 %.not.i, label %ps_builder_close_contour.exit, label %6
 
 6:                                                ; preds = %2
   %7 = load i16, ptr %.val, align 8
@@ -9299,7 +9299,7 @@ define internal void @cf2_builder_moveTo(ptr nocapture noundef readonly %0, ptr 
 25:                                               ; preds = %19
   %26 = add i16 %7, -1
   store i16 %26, ptr %.val, align 8
-  br label %ps_builder_close_contour.argprom.exit
+  br label %ps_builder_close_contour.exit
 
 27:                                               ; preds = %19, %._crit_edge.i
   %28 = phi i16 [ %22, %19 ], [ %.pre.i, %._crit_edge.i ]
@@ -9347,7 +9347,7 @@ define internal void @cf2_builder_moveTo(ptr nocapture noundef readonly %0, ptr 
 58:                                               ; preds = %56, %53, %47, %32, %27
   %59 = phi i16 [ %28, %32 ], [ %28, %47 ], [ %57, %56 ], [ %28, %53 ], [ %28, %27 ]
   %60 = zext i16 %7 to i64
-  br i1 %.not333.i, label %ps_builder_close_contour.argprom.exit, label %61
+  br i1 %.not333.i, label %ps_builder_close_contour.exit, label %61
 
 61:                                               ; preds = %58
   %62 = zext i16 %59 to i32
@@ -9360,7 +9360,7 @@ define internal void @cf2_builder_moveTo(ptr nocapture noundef readonly %0, ptr 
   store i16 %66, ptr %.val, align 8
   %67 = add i16 %59, -1
   store i16 %67, ptr %30, align 2
-  br label %ps_builder_close_contour.argprom.exit
+  br label %ps_builder_close_contour.exit
 
 68:                                               ; preds = %61
   %69 = trunc i32 %63 to i16
@@ -9370,9 +9370,9 @@ define internal void @cf2_builder_moveTo(ptr nocapture noundef readonly %0, ptr 
   %73 = and i64 %72, 4294967295
   %74 = getelementptr inbounds i16, ptr %71, i64 %73
   store i16 %69, ptr %74, align 2
-  br label %ps_builder_close_contour.argprom.exit
+  br label %ps_builder_close_contour.exit
 
-ps_builder_close_contour.argprom.exit:            ; preds = %2, %25, %58, %65, %68
+ps_builder_close_contour.exit:                    ; preds = %2, %25, %58, %65, %68
   %75 = getelementptr inbounds i8, ptr %4, i64 88
   store i8 0, ptr %75, align 8
   ret void
@@ -9424,14 +9424,14 @@ define internal void @cf2_builder_lineTo(ptr nocapture noundef readonly %0, ptr 
   %31 = getelementptr inbounds i8, ptr %.val.i, i64 8
   %32 = load i32, ptr %31, align 8
   %.not.i.i = icmp ugt i32 %30, %32
-  br i1 %.not.i.i, label %ps_builder_check_points.argprom.exit.i, label %ps_builder_check_points.argprom.exit.thread.i
+  br i1 %.not.i.i, label %ps_builder_check_points.exit.i, label %ps_builder_check_points.exit.thread.i
 
-ps_builder_check_points.argprom.exit.i:           ; preds = %17
+ps_builder_check_points.exit.i:                   ; preds = %17
   %33 = tail call i32 @FT_GlyphLoader_CheckPoints(ptr noundef nonnull %.val.i, i32 noundef 1, i32 noundef 0) #20
   %.not.i = icmp eq i32 %33, 0
-  br i1 %.not.i, label %ps_builder_check_points.argprom.exit.thread.i, label %ps_builder_add_point1.exit
+  br i1 %.not.i, label %ps_builder_check_points.exit.thread.i, label %ps_builder_add_point1.exit
 
-ps_builder_check_points.argprom.exit.thread.i:    ; preds = %ps_builder_check_points.argprom.exit.i, %17
+ps_builder_check_points.exit.thread.i:            ; preds = %ps_builder_check_points.exit.i, %17
   %34 = getelementptr i8, ptr %4, i64 40
   %.val5.i = load ptr, ptr %34, align 8
   %35 = getelementptr i8, ptr %4, i64 89
@@ -9439,7 +9439,7 @@ ps_builder_check_points.argprom.exit.thread.i:    ; preds = %ps_builder_check_po
   %.not.i7.i = icmp eq i8 %.val6.i, 0
   br i1 %.not.i7.i, label %ps_builder_add_point1.exit.thread, label %36
 
-36:                                               ; preds = %ps_builder_check_points.argprom.exit.thread.i
+36:                                               ; preds = %ps_builder_check_points.exit.thread.i
   %37 = getelementptr inbounds i8, ptr %.val5.i, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %.val5.i, i64 2
@@ -9457,14 +9457,14 @@ ps_builder_check_points.argprom.exit.thread.i:    ; preds = %ps_builder_check_po
   store i8 1, ptr %45, align 1
   br label %ps_builder_add_point1.exit.thread
 
-ps_builder_add_point1.exit.thread:                ; preds = %ps_builder_check_points.argprom.exit.thread.i, %36
+ps_builder_add_point1.exit.thread:                ; preds = %ps_builder_check_points.exit.thread.i, %36
   %49 = getelementptr inbounds i8, ptr %.val5.i, i64 2
   %50 = load i16, ptr %49, align 2
   %51 = add i16 %50, 1
   store i16 %51, ptr %49, align 2
   br label %56
 
-ps_builder_add_point1.exit:                       ; preds = %ps_builder_check_points.argprom.exit.i
+ps_builder_add_point1.exit:                       ; preds = %ps_builder_check_points.exit.i
   %52 = getelementptr inbounds i8, ptr %0, i64 48
   %53 = load ptr, ptr %52, align 8
   %54 = load i32, ptr %53, align 4
@@ -9521,14 +9521,14 @@ define internal void @cf2_builder_cubeTo(ptr nocapture noundef readonly %0, ptr 
   %27 = getelementptr inbounds i8, ptr %.val, i64 8
   %28 = load i32, ptr %27, align 8
   %.not.i = icmp ugt i32 %26, %28
-  br i1 %.not.i, label %ps_builder_check_points.argprom.exit, label %ps_builder_check_points.argprom.exit.thread
+  br i1 %.not.i, label %ps_builder_check_points.exit, label %ps_builder_check_points.exit.thread
 
-ps_builder_check_points.argprom.exit:             ; preds = %17
+ps_builder_check_points.exit:                     ; preds = %17
   %29 = tail call i32 @FT_GlyphLoader_CheckPoints(ptr noundef nonnull %.val, i32 noundef 3, i32 noundef 0) #20
   %.not26 = icmp eq i32 %29, 0
-  br i1 %.not26, label %ps_builder_check_points.argprom.exit.thread, label %30
+  br i1 %.not26, label %ps_builder_check_points.exit.thread, label %30
 
-30:                                               ; preds = %ps_builder_check_points.argprom.exit
+30:                                               ; preds = %ps_builder_check_points.exit
   %31 = getelementptr inbounds i8, ptr %0, i64 48
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %32, align 4
@@ -9539,15 +9539,15 @@ ps_builder_check_points.argprom.exit:             ; preds = %17
   store i32 %29, ptr %32, align 4
   br label %97
 
-ps_builder_check_points.argprom.exit.thread:      ; preds = %17, %ps_builder_check_points.argprom.exit
+ps_builder_check_points.exit.thread:              ; preds = %17, %ps_builder_check_points.exit
   %35 = getelementptr i8, ptr %4, i64 40
   %.val28 = load ptr, ptr %35, align 8
   %36 = getelementptr i8, ptr %4, i64 89
   %.val29 = load i8, ptr %36, align 1
   %.not.i34 = icmp eq i8 %.val29, 0
-  br i1 %.not.i34, label %ps_builder_add_point.argprom.exit, label %37
+  br i1 %.not.i34, label %ps_builder_add_point.exit, label %37
 
-37:                                               ; preds = %ps_builder_check_points.argprom.exit.thread
+37:                                               ; preds = %ps_builder_check_points.exit.thread
   %38 = getelementptr inbounds i8, ptr %1, i64 24
   %39 = load i64, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %1, i64 16
@@ -9567,9 +9567,9 @@ ps_builder_check_points.argprom.exit.thread:      ; preds = %17, %ps_builder_che
   %53 = getelementptr inbounds i8, ptr %47, i64 8
   store i64 %52, ptr %53, align 8
   store i8 2, ptr %50, align 1
-  br label %ps_builder_add_point.argprom.exit
+  br label %ps_builder_add_point.exit
 
-ps_builder_add_point.argprom.exit:                ; preds = %ps_builder_check_points.argprom.exit.thread, %37
+ps_builder_add_point.exit:                        ; preds = %ps_builder_check_points.exit.thread, %37
   %54 = getelementptr inbounds i8, ptr %.val28, i64 2
   %55 = load i16, ptr %54, align 2
   %56 = add i16 %55, 1
@@ -9577,9 +9577,9 @@ ps_builder_add_point.argprom.exit:                ; preds = %ps_builder_check_po
   %.val30 = load ptr, ptr %35, align 8
   %.val31 = load i8, ptr %36, align 1
   %.not.i35 = icmp eq i8 %.val31, 0
-  br i1 %.not.i35, label %ps_builder_add_point.argprom.exit36, label %57
+  br i1 %.not.i35, label %ps_builder_add_point.exit36, label %57
 
-57:                                               ; preds = %ps_builder_add_point.argprom.exit
+57:                                               ; preds = %ps_builder_add_point.exit
   %58 = getelementptr inbounds i8, ptr %1, i64 40
   %59 = load i64, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %1, i64 32
@@ -9599,9 +9599,9 @@ ps_builder_add_point.argprom.exit:                ; preds = %ps_builder_check_po
   %73 = getelementptr inbounds i8, ptr %67, i64 8
   store i64 %72, ptr %73, align 8
   store i8 2, ptr %70, align 1
-  br label %ps_builder_add_point.argprom.exit36
+  br label %ps_builder_add_point.exit36
 
-ps_builder_add_point.argprom.exit36:              ; preds = %ps_builder_add_point.argprom.exit, %57
+ps_builder_add_point.exit36:                      ; preds = %ps_builder_add_point.exit, %57
   %74 = getelementptr inbounds i8, ptr %.val30, i64 2
   %75 = load i16, ptr %74, align 2
   %76 = add i16 %75, 1
@@ -9609,9 +9609,9 @@ ps_builder_add_point.argprom.exit36:              ; preds = %ps_builder_add_poin
   %.val32 = load ptr, ptr %35, align 8
   %.val33 = load i8, ptr %36, align 1
   %.not.i37 = icmp eq i8 %.val33, 0
-  br i1 %.not.i37, label %ps_builder_add_point.argprom.exit38, label %77
+  br i1 %.not.i37, label %ps_builder_add_point.exit38, label %77
 
-77:                                               ; preds = %ps_builder_add_point.argprom.exit36
+77:                                               ; preds = %ps_builder_add_point.exit36
   %78 = getelementptr inbounds i8, ptr %1, i64 56
   %79 = load i64, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %1, i64 48
@@ -9631,16 +9631,16 @@ ps_builder_add_point.argprom.exit36:              ; preds = %ps_builder_add_poin
   %93 = getelementptr inbounds i8, ptr %87, i64 8
   store i64 %92, ptr %93, align 8
   store i8 1, ptr %90, align 1
-  br label %ps_builder_add_point.argprom.exit38
+  br label %ps_builder_add_point.exit38
 
-ps_builder_add_point.argprom.exit38:              ; preds = %ps_builder_add_point.argprom.exit36, %77
+ps_builder_add_point.exit38:                      ; preds = %ps_builder_add_point.exit36, %77
   %94 = getelementptr inbounds i8, ptr %.val32, i64 2
   %95 = load i16, ptr %94, align 2
   %96 = add i16 %95, 1
   store i16 %96, ptr %94, align 2
   br label %97
 
-97:                                               ; preds = %30, %34, %12, %16, %ps_builder_add_point.argprom.exit38
+97:                                               ; preds = %30, %34, %12, %16, %ps_builder_add_point.exit38
   ret void
 }
 
@@ -9723,20 +9723,20 @@ define internal fastcc i32 @ps_builder_start_point(ptr nocapture noundef %0, i64
   %48 = getelementptr inbounds i8, ptr %.val.i, i64 8
   %49 = load i32, ptr %48, align 8
   %.not.i.i = icmp ugt i32 %47, %49
-  br i1 %.not.i.i, label %ps_builder_check_points.argprom.exit.i, label %ps_builder_check_points.argprom.exit.thread.i
+  br i1 %.not.i.i, label %ps_builder_check_points.exit.i, label %ps_builder_check_points.exit.thread.i
 
-ps_builder_check_points.argprom.exit.i:           ; preds = %38
+ps_builder_check_points.exit.i:                   ; preds = %38
   %50 = tail call i32 @FT_GlyphLoader_CheckPoints(ptr noundef nonnull %.val.i, i32 noundef 1, i32 noundef 0) #20
   %.not.i9 = icmp eq i32 %50, 0
-  br i1 %.not.i9, label %ps_builder_check_points.argprom.exit.thread.i, label %ps_builder_add_point1.exit
+  br i1 %.not.i9, label %ps_builder_check_points.exit.thread.i, label %ps_builder_add_point1.exit
 
-ps_builder_check_points.argprom.exit.thread.i:    ; preds = %ps_builder_check_points.argprom.exit.i, %38
+ps_builder_check_points.exit.thread.i:            ; preds = %ps_builder_check_points.exit.i, %38
   %.val5.i = load ptr, ptr %7, align 8
   %.val6.i = load i8, ptr %10, align 1
   %.not.i7.i = icmp eq i8 %.val6.i, 0
-  br i1 %.not.i7.i, label %ps_builder_add_point.argprom.exit.i, label %51
+  br i1 %.not.i7.i, label %ps_builder_add_point.exit.i, label %51
 
-51:                                               ; preds = %ps_builder_check_points.argprom.exit.thread.i
+51:                                               ; preds = %ps_builder_check_points.exit.thread.i
   %52 = getelementptr inbounds i8, ptr %.val5.i, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %.val5.i, i64 2
@@ -9752,17 +9752,17 @@ ps_builder_check_points.argprom.exit.thread.i:    ; preds = %ps_builder_check_po
   %63 = getelementptr inbounds i8, ptr %57, i64 8
   store i64 %62, ptr %63, align 8
   store i8 1, ptr %60, align 1
-  br label %ps_builder_add_point.argprom.exit.i
+  br label %ps_builder_add_point.exit.i
 
-ps_builder_add_point.argprom.exit.i:              ; preds = %51, %ps_builder_check_points.argprom.exit.thread.i
+ps_builder_add_point.exit.i:                      ; preds = %51, %ps_builder_check_points.exit.thread.i
   %64 = getelementptr inbounds i8, ptr %.val5.i, i64 2
   %65 = load i16, ptr %64, align 2
   %66 = add i16 %65, 1
   store i16 %66, ptr %64, align 2
   br label %ps_builder_add_point1.exit
 
-ps_builder_add_point1.exit:                       ; preds = %24, %6, %ps_builder_add_point.argprom.exit.i, %ps_builder_check_points.argprom.exit.i, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %ps_builder_add_point.argprom.exit.i ], [ %50, %ps_builder_check_points.argprom.exit.i ], [ %25, %24 ], [ 3, %6 ]
+ps_builder_add_point1.exit:                       ; preds = %24, %6, %ps_builder_add_point.exit.i, %ps_builder_check_points.exit.i, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %ps_builder_add_point.exit.i ], [ %50, %ps_builder_check_points.exit.i ], [ %25, %24 ], [ 3, %6 ]
   ret i32 %.0
 }
 
@@ -11974,7 +11974,7 @@ cf2_stack_setReal.exit1383:                       ; preds = %887, %889, %891, %8
   %989 = load ptr, ptr %162, align 8
   call void @FT_GlyphLoader_Prepare(ptr noundef %989) #20
   %.val1224 = load ptr, ptr %922, align 8
-  %990 = call fastcc i32 @cf2_getT1SeacComponent.argprom(ptr %.val1224, i32 noundef %.01009, ptr noundef %25)
+  %990 = call fastcc i32 @cf2_getT1SeacComponent(ptr %.val1224, i32 noundef %.01009, ptr noundef %25)
   %.not1138 = icmp eq i32 %990, 0
   br i1 %.not1138, label %991, label %cf2_initGlobalRegionBuffer.exit
 
@@ -12002,7 +12002,7 @@ cf2_stack_setReal.exit1383:                       ; preds = %887, %889, %891, %8
   %1002 = getelementptr inbounds i8, ptr %10, i64 8
   store i32 %1001, ptr %1002, align 8
   %.not.i1384 = icmp eq ptr %.val1226.val.val, null
-  br i1 %.not.i1384, label %cf2_freeT1SeacComponent.argprom.argprom.argprom.exit, label %1003
+  br i1 %.not.i1384, label %cf2_freeT1SeacComponent.exit, label %1003
 
 1003:                                             ; preds = %991
   %1004 = load ptr, ptr %.val1226.val.val, align 8
@@ -12011,28 +12011,28 @@ cf2_stack_setReal.exit1383:                       ; preds = %887, %889, %891, %8
   %1007 = getelementptr inbounds i8, ptr %.val1226.val.val, i64 8
   %1008 = load ptr, ptr %1007, align 8
   call void %1006(ptr noundef %1008, ptr noundef nonnull %10) #20
-  br label %cf2_freeT1SeacComponent.argprom.argprom.argprom.exit
+  br label %cf2_freeT1SeacComponent.exit
 
-cf2_freeT1SeacComponent.argprom.argprom.argprom.exit: ; preds = %991, %1003
+cf2_freeT1SeacComponent.exit:                     ; preds = %991, %1003
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %1009 = load i8, ptr %18, align 1
   %.not1139 = icmp eq i8 %1009, 0
   %.pre1996 = load ptr, ptr %156, align 8
   br i1 %.not1139, label %1010, label %1012
 
-1010:                                             ; preds = %cf2_freeT1SeacComponent.argprom.argprom.argprom.exit
+1010:                                             ; preds = %cf2_freeT1SeacComponent.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.pre1996, i64 16, i1 false)
   %1011 = load ptr, ptr %155, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %1011, i64 16, i1 false)
   br label %1012
 
-1012:                                             ; preds = %1010, %cf2_freeT1SeacComponent.argprom.argprom.argprom.exit
+1012:                                             ; preds = %1010, %cf2_freeT1SeacComponent.exit
   store i64 0, ptr %.pre1996, align 8
   %1013 = load ptr, ptr %156, align 8
   %1014 = getelementptr inbounds i8, ptr %1013, i64 8
   store i64 0, ptr %1014, align 8
   %.val1225 = load ptr, ptr %922, align 8
-  %1015 = call fastcc i32 @cf2_getT1SeacComponent.argprom(ptr %.val1225, i32 noundef %.01011, ptr noundef %25)
+  %1015 = call fastcc i32 @cf2_getT1SeacComponent(ptr %.val1225, i32 noundef %.01011, ptr noundef %25)
   %.not1140 = icmp eq i32 %1015, 0
   br i1 %.not1140, label %1016, label %cf2_initGlobalRegionBuffer.exit
 
@@ -12056,7 +12056,7 @@ cf2_freeT1SeacComponent.argprom.argprom.argprom.exit: ; preds = %991, %1003
   %1025 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %1024, ptr %1025, align 8
   %.not.i1385 = icmp eq ptr %.val1229.val.val, null
-  br i1 %.not.i1385, label %cf2_freeT1SeacComponent.argprom.argprom.argprom.exit1386, label %1026
+  br i1 %.not.i1385, label %cf2_freeT1SeacComponent.exit1386, label %1026
 
 1026:                                             ; preds = %1016
   %1027 = load ptr, ptr %.val1229.val.val, align 8
@@ -12065,9 +12065,9 @@ cf2_freeT1SeacComponent.argprom.argprom.argprom.exit: ; preds = %991, %1003
   %1030 = getelementptr inbounds i8, ptr %.val1229.val.val, i64 8
   %1031 = load ptr, ptr %1030, align 8
   call void %1029(ptr noundef %1031, ptr noundef nonnull %9) #20
-  br label %cf2_freeT1SeacComponent.argprom.argprom.argprom.exit1386
+  br label %cf2_freeT1SeacComponent.exit1386
 
-cf2_freeT1SeacComponent.argprom.argprom.argprom.exit1386: ; preds = %1016, %1026
+cf2_freeT1SeacComponent.exit1386:                 ; preds = %1016, %1026
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %1032 = load ptr, ptr %156, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1032, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
@@ -12286,14 +12286,14 @@ cf2_freeT1SeacComponent.argprom.argprom.argprom.exit1386: ; preds = %1016, %1026
   %1133 = getelementptr inbounds i8, ptr %.val1179, i64 8
   %1134 = load i32, ptr %1133, align 8
   %.not.i1387 = icmp ugt i32 %1132, %1134
-  br i1 %.not.i1387, label %ps_builder_check_points.argprom.exit, label %ps_builder_check_points.argprom.exit.thread
+  br i1 %.not.i1387, label %ps_builder_check_points.exit, label %ps_builder_check_points.exit.thread
 
-ps_builder_check_points.argprom.exit:             ; preds = %1124
+ps_builder_check_points.exit:                     ; preds = %1124
   %1135 = call i32 @FT_GlyphLoader_CheckPoints(ptr noundef nonnull %.val1179, i32 noundef 6, i32 noundef 0) #20
   %.not1123 = icmp eq i32 %1135, 0
-  br i1 %.not1123, label %ps_builder_check_points.argprom.exit.thread, label %cf2_initGlobalRegionBuffer.exit
+  br i1 %.not1123, label %ps_builder_check_points.exit.thread, label %cf2_initGlobalRegionBuffer.exit
 
-ps_builder_check_points.argprom.exit.thread:      ; preds = %1124, %ps_builder_check_points.argprom.exit
+ps_builder_check_points.exit.thread:              ; preds = %1124, %ps_builder_check_points.exit
   store i32 1, ptr %139, align 8
   store i32 0, ptr %161, align 4
   br label %.backedge.backedge
@@ -12332,14 +12332,14 @@ ps_builder_check_points.argprom.exit.thread:      ; preds = %1124, %ps_builder_c
   %1153 = getelementptr inbounds i8, ptr %.val, i64 8
   %1154 = load i32, ptr %1153, align 8
   %.not.i1388 = icmp ugt i32 %1152, %1154
-  br i1 %.not.i1388, label %ps_builder_check_points.argprom.exit1389, label %ps_builder_check_points.argprom.exit1389.thread
+  br i1 %.not.i1388, label %ps_builder_check_points.exit1389, label %ps_builder_check_points.exit1389.thread
 
-ps_builder_check_points.argprom.exit1389:         ; preds = %1144
+ps_builder_check_points.exit1389:                 ; preds = %1144
   %1155 = call i32 @FT_GlyphLoader_CheckPoints(ptr noundef nonnull %.val, i32 noundef 1, i32 noundef 0) #20
   %.not1120 = icmp eq i32 %1155, 0
-  br i1 %.not1120, label %ps_builder_check_points.argprom.exit1389.thread, label %cf2_initGlobalRegionBuffer.exit
+  br i1 %.not1120, label %ps_builder_check_points.exit1389.thread, label %cf2_initGlobalRegionBuffer.exit
 
-ps_builder_check_points.argprom.exit1389.thread:  ; preds = %1144, %ps_builder_check_points.argprom.exit1389
+ps_builder_check_points.exit1389.thread:          ; preds = %1144, %ps_builder_check_points.exit1389
   %1156 = icmp ugt i32 %1141, 3
   %1157 = shl nuw nsw i32 %1141, 1
   %1158 = add nsw i32 %1157, -6
@@ -12359,7 +12359,7 @@ ps_builder_check_points.argprom.exit1389.thread:  ; preds = %1144, %ps_builder_c
     i32 3, label %1168
   ]
 
-1168:                                             ; preds = %ps_builder_check_points.argprom.exit1389.thread, %ps_builder_check_points.argprom.exit1389.thread
+1168:                                             ; preds = %ps_builder_check_points.exit1389.thread, %ps_builder_check_points.exit1389.thread
   %1169 = load i32, ptr %17, align 16
   %1170 = load i32, ptr %163, align 4
   %1171 = load i32, ptr %164, align 8
@@ -15467,14 +15467,14 @@ cf2_buf_readByte.exit1704:                        ; preds = %2487, %2491, %2493,
   call fastcc void @cf2_stack_pushInt(ptr noundef %118, i32 noundef %2498)
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.lr.ph1870, %cf2_buf_readByte.exit1704, %2555, %2552, %2442, %2444, %2446, %2447, %2473, %2475, %2477, %2478, %2427, %2426, %2424, %2422, %1417, %1432, %1370, %1373, %1363, %1367, %1356, %1349, %1101, %1251, %1253, %1256, %1140, %1168, %1137, %1123, %1327, %1320, %1313, %1300, %1288, %1272, %1267, %1262, %1178, %ps_builder_check_points.argprom.exit.thread, %1119, %ps_builder_check_points.argprom.exit1389.thread, %1177, %1176, %1231, %1233, %1235, %1236, %1342, %1093, %1094, %1066, %1067, %216, %cf2_doBlend.exit, %._crit_edge1901, %._crit_edge1891, %723, %824, %cf2_arrstack_getPointer.exit1371, %845, %847, %848, %903, %910, %917, %1069, %1073, %1085, %1096, %1352, %1361, %1377, %1383, %1395, %1411, %1412, %1414, %1434, %._crit_edge1843, %._crit_edge1824, %._crit_edge1814, %._crit_edge, %cf2_hintmask_read.exit
-  %.0987.be = phi i32 [ %.0987, %._crit_edge ], [ %.0987, %._crit_edge1814 ], [ %.0987, %._crit_edge1824 ], [ %.0987, %._crit_edge1843 ], [ %.1988, %cf2_hintmask_read.exit ], [ %.0987, %1434 ], [ %.0987, %1414 ], [ %.0987, %1412 ], [ %.0987, %1411 ], [ %.0987, %1395 ], [ %.0987, %1383 ], [ %.0987, %1377 ], [ %.0987, %1361 ], [ %.0987, %1352 ], [ %.0987, %1096 ], [ %.0987, %1085 ], [ %.0987, %1073 ], [ %.0987, %1069 ], [ %.0987, %917 ], [ %.0987, %910 ], [ %.0987, %903 ], [ %.0987, %848 ], [ %.0987, %847 ], [ %.0987, %845 ], [ %830, %cf2_arrstack_getPointer.exit1371 ], [ %826, %824 ], [ %.0987, %723 ], [ %.0987, %._crit_edge1891 ], [ %.0987, %._crit_edge1901 ], [ %.0987, %cf2_doBlend.exit ], [ %.0987, %216 ], [ %.0987, %1067 ], [ %.0987, %1066 ], [ %.0987, %1094 ], [ %.0987, %1093 ], [ %.0987, %1342 ], [ %.0987, %1236 ], [ %.0987, %1235 ], [ %.0987, %1233 ], [ %.0987, %1231 ], [ %.0987, %1176 ], [ %.0987, %1177 ], [ %.0987, %ps_builder_check_points.argprom.exit1389.thread ], [ %.0987, %1119 ], [ %.0987, %ps_builder_check_points.argprom.exit.thread ], [ %.0987, %1178 ], [ %.0987, %1262 ], [ %.0987, %1267 ], [ %.0987, %1272 ], [ %.0987, %1288 ], [ %.0987, %1300 ], [ %.0987, %1313 ], [ %.0987, %1320 ], [ %.0987, %1327 ], [ %.0987, %1123 ], [ %.0987, %1137 ], [ %.0987, %1168 ], [ %.0987, %1140 ], [ %.0987, %1256 ], [ %.0987, %1253 ], [ %.0987, %1251 ], [ %.0987, %1101 ], [ %.0987, %1349 ], [ %.0987, %1356 ], [ %.0987, %1367 ], [ %.0987, %1363 ], [ %.0987, %1373 ], [ %.0987, %1370 ], [ %.0987, %1432 ], [ %.0987, %1417 ], [ %.0987, %2422 ], [ %.0987, %2424 ], [ %.0987, %2426 ], [ %.0987, %2427 ], [ %.0987, %2478 ], [ %.0987, %2477 ], [ %.0987, %2475 ], [ %.0987, %2473 ], [ %.0987, %2447 ], [ %.0987, %2446 ], [ %.0987, %2444 ], [ %.0987, %2442 ], [ %.0987, %2552 ], [ %.0987, %2555 ], [ %.0987, %cf2_buf_readByte.exit1704 ], [ %.0987, %.lr.ph1870 ]
-  %.0984.be = phi ptr [ %.0984, %._crit_edge ], [ %.0984, %._crit_edge1814 ], [ %.0984, %._crit_edge1824 ], [ %.0984, %._crit_edge1843 ], [ %.1985, %cf2_hintmask_read.exit ], [ %.0984, %1434 ], [ %.0984, %1414 ], [ %.0984, %1412 ], [ %.0984, %1411 ], [ %.0984, %1395 ], [ %.0984, %1383 ], [ %.0984, %1377 ], [ %.0984, %1361 ], [ %.0984, %1352 ], [ %.0984, %1096 ], [ %.0984, %1085 ], [ %.0984, %1073 ], [ %.0984, %1069 ], [ %.0984, %917 ], [ %.0984, %910 ], [ %.0984, %903 ], [ %.0984, %848 ], [ %.0984, %847 ], [ %.0984, %845 ], [ %834, %cf2_arrstack_getPointer.exit1371 ], [ %745, %824 ], [ %.0984, %723 ], [ %.0984, %._crit_edge1891 ], [ %.0984, %._crit_edge1901 ], [ %.0984, %cf2_doBlend.exit ], [ %.0984, %216 ], [ %.0984, %1067 ], [ %.0984, %1066 ], [ %.0984, %1094 ], [ %.0984, %1093 ], [ %.0984, %1342 ], [ %.0984, %1236 ], [ %.0984, %1235 ], [ %.0984, %1233 ], [ %.0984, %1231 ], [ %.0984, %1176 ], [ %.0984, %1177 ], [ %.0984, %ps_builder_check_points.argprom.exit1389.thread ], [ %.0984, %1119 ], [ %.0984, %ps_builder_check_points.argprom.exit.thread ], [ %.0984, %1178 ], [ %.0984, %1262 ], [ %.0984, %1267 ], [ %.0984, %1272 ], [ %.0984, %1288 ], [ %.0984, %1300 ], [ %.0984, %1313 ], [ %.0984, %1320 ], [ %.0984, %1327 ], [ %.0984, %1123 ], [ %.0984, %1137 ], [ %.0984, %1168 ], [ %.0984, %1140 ], [ %.0984, %1256 ], [ %.0984, %1253 ], [ %.0984, %1251 ], [ %.0984, %1101 ], [ %.0984, %1349 ], [ %.0984, %1356 ], [ %.0984, %1367 ], [ %.0984, %1363 ], [ %.0984, %1373 ], [ %.0984, %1370 ], [ %.0984, %1432 ], [ %.0984, %1417 ], [ %.0984, %2422 ], [ %.0984, %2424 ], [ %.0984, %2426 ], [ %.0984, %2427 ], [ %.0984, %2478 ], [ %.0984, %2477 ], [ %.0984, %2475 ], [ %.0984, %2473 ], [ %.0984, %2447 ], [ %.0984, %2446 ], [ %.0984, %2444 ], [ %.0984, %2442 ], [ %.0984, %2552 ], [ %.0984, %2555 ], [ %.0984, %cf2_buf_readByte.exit1704 ], [ %.0984, %.lr.ph1870 ]
-  %.0983.be = phi i32 [ %227, %._crit_edge ], [ %227, %._crit_edge1814 ], [ %227, %._crit_edge1824 ], [ %227, %._crit_edge1843 ], [ %227, %cf2_hintmask_read.exit ], [ %227, %1434 ], [ %227, %1414 ], [ %227, %1412 ], [ %227, %1411 ], [ %227, %1395 ], [ %227, %1383 ], [ %227, %1377 ], [ %227, %1361 ], [ %227, %1352 ], [ %227, %1096 ], [ %227, %1085 ], [ %227, %1073 ], [ %227, %1069 ], [ %227, %917 ], [ %227, %910 ], [ %227, %903 ], [ %227, %848 ], [ %227, %847 ], [ %227, %845 ], [ %227, %cf2_arrstack_getPointer.exit1371 ], [ %227, %824 ], [ %227, %723 ], [ %227, %._crit_edge1891 ], [ %227, %._crit_edge1901 ], [ %227, %cf2_doBlend.exit ], [ %.0983, %216 ], [ %227, %1067 ], [ %227, %1066 ], [ %227, %1094 ], [ %227, %1093 ], [ %227, %1342 ], [ %227, %1236 ], [ %227, %1235 ], [ %227, %1233 ], [ %227, %1231 ], [ %227, %1176 ], [ %227, %1177 ], [ %227, %ps_builder_check_points.argprom.exit1389.thread ], [ %227, %1119 ], [ %227, %ps_builder_check_points.argprom.exit.thread ], [ %227, %1178 ], [ %227, %1262 ], [ %227, %1267 ], [ %227, %1272 ], [ %227, %1288 ], [ %227, %1300 ], [ %227, %1313 ], [ %227, %1320 ], [ %227, %1327 ], [ %227, %1123 ], [ %227, %1137 ], [ %227, %1168 ], [ %227, %1140 ], [ %227, %1256 ], [ %227, %1253 ], [ %227, %1251 ], [ %227, %1101 ], [ %227, %1349 ], [ %227, %1356 ], [ %227, %1367 ], [ %227, %1363 ], [ %227, %1373 ], [ %227, %1370 ], [ %227, %1432 ], [ %227, %1417 ], [ %227, %2422 ], [ %227, %2424 ], [ %227, %2426 ], [ %227, %2427 ], [ %227, %2478 ], [ %227, %2477 ], [ %227, %2475 ], [ %227, %2473 ], [ %227, %2447 ], [ %227, %2446 ], [ %227, %2444 ], [ %227, %2442 ], [ %227, %2552 ], [ %227, %2555 ], [ %227, %cf2_buf_readByte.exit1704 ], [ %227, %.lr.ph1870 ]
-  %.0978.be = phi i32 [ %.1979, %._crit_edge ], [ %.1979, %._crit_edge1814 ], [ %.1979, %._crit_edge1824 ], [ %.1979, %._crit_edge1843 ], [ %.3981, %cf2_hintmask_read.exit ], [ %.1979, %1434 ], [ %.1979, %1414 ], [ %.1979, %1412 ], [ %.1979, %1411 ], [ %.1979, %1395 ], [ %.1979, %1383 ], [ %.1979, %1377 ], [ %.1979, %1361 ], [ %.1979, %1352 ], [ %.1979, %1096 ], [ %.1979, %1085 ], [ %.1979, %1073 ], [ %.1979, %1069 ], [ %.1979, %917 ], [ %.1979, %910 ], [ %.1979, %903 ], [ %.1979, %848 ], [ %.1979, %847 ], [ %.1979, %845 ], [ %.1979, %cf2_arrstack_getPointer.exit1371 ], [ %.1979, %824 ], [ %.1979, %723 ], [ %.1979, %._crit_edge1891 ], [ %.1979, %._crit_edge1901 ], [ %.1979, %cf2_doBlend.exit ], [ %.0978, %216 ], [ %.1979, %1067 ], [ %.1979, %1066 ], [ %.1979, %1094 ], [ %.1979, %1093 ], [ %1343, %1342 ], [ 0, %1236 ], [ 0, %1235 ], [ 0, %1233 ], [ 0, %1231 ], [ 0, %1176 ], [ 0, %1177 ], [ 0, %ps_builder_check_points.argprom.exit1389.thread ], [ 0, %1119 ], [ 0, %ps_builder_check_points.argprom.exit.thread ], [ 0, %1178 ], [ 0, %1262 ], [ 0, %1267 ], [ 0, %1272 ], [ 0, %1288 ], [ 0, %1300 ], [ 0, %1313 ], [ 0, %1320 ], [ 0, %1327 ], [ 0, %1123 ], [ 0, %1137 ], [ 0, %1168 ], [ 0, %1140 ], [ 0, %1256 ], [ 0, %1253 ], [ 0, %1251 ], [ %.1979, %1101 ], [ %.1979, %1349 ], [ %1357, %1356 ], [ %.1979, %1367 ], [ %.1979, %1363 ], [ %.1979, %1373 ], [ %.1979, %1370 ], [ %.1979, %1432 ], [ %.1979, %1417 ], [ %.1979, %2422 ], [ %.1979, %2424 ], [ %.1979, %2426 ], [ %.1979, %2427 ], [ %.1979, %2478 ], [ %.1979, %2477 ], [ %.1979, %2475 ], [ %.1979, %2473 ], [ %.1979, %2447 ], [ %.1979, %2446 ], [ %.1979, %2444 ], [ %.1979, %2442 ], [ %.1979, %2552 ], [ %.1979, %2555 ], [ %.1979, %cf2_buf_readByte.exit1704 ], [ %1343, %.lr.ph1870 ]
-  %.0976.be = phi i8 [ %.0976, %._crit_edge ], [ %.0976, %._crit_edge1814 ], [ %.0976, %._crit_edge1824 ], [ %.0976, %._crit_edge1843 ], [ %.1977, %cf2_hintmask_read.exit ], [ %.0976, %1434 ], [ %.0976, %1414 ], [ %.0976, %1412 ], [ %.0976, %1411 ], [ %.0976, %1395 ], [ %.0976, %1383 ], [ %.0976, %1377 ], [ %.0976, %1361 ], [ %.0976, %1352 ], [ %.0976, %1096 ], [ %.0976, %1085 ], [ %.0976, %1073 ], [ %.0976, %1069 ], [ %.0976, %917 ], [ %.0976, %910 ], [ %.0976, %903 ], [ %.0976, %848 ], [ %.0976, %847 ], [ %.0976, %845 ], [ %.0976, %cf2_arrstack_getPointer.exit1371 ], [ %.0976, %824 ], [ %.0976, %723 ], [ %.0976, %._crit_edge1891 ], [ %.0976, %._crit_edge1901 ], [ %.0976, %cf2_doBlend.exit ], [ 0, %216 ], [ %.0976, %1067 ], [ %.0976, %1066 ], [ %.0976, %1094 ], [ %.0976, %1093 ], [ %.0976, %1342 ], [ %.0976, %1236 ], [ %.0976, %1235 ], [ %.0976, %1233 ], [ %.0976, %1231 ], [ 0, %1176 ], [ %.0976, %1177 ], [ %.0976, %ps_builder_check_points.argprom.exit1389.thread ], [ %.0976, %1119 ], [ %.0976, %ps_builder_check_points.argprom.exit.thread ], [ %.0976, %1178 ], [ %.0976, %1262 ], [ %.0976, %1267 ], [ %.0976, %1272 ], [ %.0976, %1288 ], [ %.0976, %1300 ], [ %.0976, %1313 ], [ %.0976, %1320 ], [ %.0976, %1327 ], [ 0, %1123 ], [ 0, %1137 ], [ %.0976, %1168 ], [ %.0976, %1140 ], [ %.0976, %1256 ], [ %.0976, %1253 ], [ %.0976, %1251 ], [ %.0976, %1101 ], [ %.0976, %1349 ], [ %.0976, %1356 ], [ %.0976, %1367 ], [ %.0976, %1363 ], [ %.0976, %1373 ], [ %.0976, %1370 ], [ %.0976, %1432 ], [ %.0976, %1417 ], [ %.0976, %2422 ], [ %.0976, %2424 ], [ %.0976, %2426 ], [ %.0976, %2427 ], [ %.0976, %2478 ], [ %.0976, %2477 ], [ %.0976, %2475 ], [ %.0976, %2473 ], [ %.0976, %2447 ], [ %.0976, %2446 ], [ %.0976, %2444 ], [ %.0976, %2442 ], [ %.0976, %2552 ], [ %.0976, %2555 ], [ %.0976, %cf2_buf_readByte.exit1704 ], [ %.0976, %.lr.ph1870 ]
-  %.0973.be = phi i8 [ %.1974, %._crit_edge ], [ %.1974, %._crit_edge1814 ], [ %.1974, %._crit_edge1824 ], [ %.1974, %._crit_edge1843 ], [ %.1974, %cf2_hintmask_read.exit ], [ %.1974, %1434 ], [ %.1974, %1414 ], [ %.1974, %1412 ], [ %.1974, %1411 ], [ %.1974, %1395 ], [ %.1974, %1383 ], [ %.1974, %1377 ], [ %.1974, %1361 ], [ %.1974, %1352 ], [ %.1974, %1096 ], [ %.2975, %1085 ], [ %.1974, %1073 ], [ %.1974, %1069 ], [ %.1974, %917 ], [ %.1974, %910 ], [ %.1974, %903 ], [ %.1974, %848 ], [ %.1974, %847 ], [ %.1974, %845 ], [ %.1974, %cf2_arrstack_getPointer.exit1371 ], [ %.1974, %824 ], [ %.1974, %723 ], [ %.1974, %._crit_edge1891 ], [ %.1974, %._crit_edge1901 ], [ %.1974, %cf2_doBlend.exit ], [ %.0973, %216 ], [ %.1974, %1067 ], [ %.1974, %1066 ], [ %.1974, %1094 ], [ %.1974, %1093 ], [ %.1974, %1342 ], [ %.1974, %1236 ], [ %.1974, %1235 ], [ %.1974, %1233 ], [ %.1974, %1231 ], [ %.1974, %1176 ], [ %.1974, %1177 ], [ %.1974, %ps_builder_check_points.argprom.exit1389.thread ], [ %.1974, %1119 ], [ %.1974, %ps_builder_check_points.argprom.exit.thread ], [ %.1974, %1178 ], [ %.1974, %1262 ], [ %.1974, %1267 ], [ %.1974, %1272 ], [ %.1974, %1288 ], [ %.1974, %1300 ], [ %.1974, %1313 ], [ %.1974, %1320 ], [ %.1974, %1327 ], [ %.1974, %1123 ], [ %.1974, %1137 ], [ %.1974, %1168 ], [ %.1974, %1140 ], [ %.1974, %1256 ], [ %.1974, %1253 ], [ %.1974, %1251 ], [ %.1974, %1101 ], [ %.1974, %1349 ], [ %.1974, %1356 ], [ %.1974, %1367 ], [ %.1974, %1363 ], [ %.1974, %1373 ], [ %.1974, %1370 ], [ %.1974, %1432 ], [ %.1974, %1417 ], [ %.1974, %2422 ], [ %.1974, %2424 ], [ %.1974, %2426 ], [ %.1974, %2427 ], [ %.1974, %2478 ], [ %.1974, %2477 ], [ %.1974, %2475 ], [ %.1974, %2473 ], [ %.1974, %2447 ], [ %.1974, %2446 ], [ %.1974, %2444 ], [ %.1974, %2442 ], [ %spec.store.select97, %2552 ], [ %.1974, %2555 ], [ %.1974, %cf2_buf_readByte.exit1704 ], [ %.1974, %.lr.ph1870 ]
-  %.0971.be = phi i32 [ %.0971, %._crit_edge ], [ %.0971, %._crit_edge1814 ], [ %.0971, %._crit_edge1824 ], [ %.0971, %._crit_edge1843 ], [ %.0971, %cf2_hintmask_read.exit ], [ %.0971, %1434 ], [ %.0971, %1414 ], [ %.0971, %1412 ], [ %.0971, %1411 ], [ %.0971, %1395 ], [ %.0971, %1383 ], [ %.0971, %1377 ], [ %.0971, %1361 ], [ %1353, %1352 ], [ %.0971, %1096 ], [ %.0971, %1085 ], [ %.0971, %1073 ], [ %.0971, %1069 ], [ %.0971, %917 ], [ %.0971, %910 ], [ %.0971, %903 ], [ %.0971, %848 ], [ %.0971, %847 ], [ %.0971, %845 ], [ %.0971, %cf2_arrstack_getPointer.exit1371 ], [ %.0971, %824 ], [ %.0971, %723 ], [ %.0971, %._crit_edge1891 ], [ %.0971, %._crit_edge1901 ], [ %.0971, %cf2_doBlend.exit ], [ %.0971, %216 ], [ %.0971, %1067 ], [ %.0971, %1066 ], [ %.0971, %1094 ], [ %.0971, %1093 ], [ 0, %1342 ], [ %1185, %1236 ], [ %1185, %1235 ], [ %1185, %1233 ], [ %1185, %1231 ], [ 1, %1176 ], [ 1, %1177 ], [ 0, %ps_builder_check_points.argprom.exit1389.thread ], [ 2, %1119 ], [ 0, %ps_builder_check_points.argprom.exit.thread ], [ 0, %1178 ], [ 1, %1262 ], [ 1, %1267 ], [ 1, %1272 ], [ 1, %1288 ], [ 0, %1300 ], [ 1, %1313 ], [ 1, %1320 ], [ 1, %1327 ], [ 0, %1123 ], [ 0, %1137 ], [ 0, %1168 ], [ 0, %1140 ], [ 0, %1256 ], [ 0, %1253 ], [ 0, %1251 ], [ %.0971, %1101 ], [ %.0971, %1349 ], [ %.0971, %1356 ], [ %.0971, %1367 ], [ %.0971, %1363 ], [ %.0971, %1373 ], [ %.0971, %1370 ], [ %.0971, %1432 ], [ %.0971, %1417 ], [ %.0971, %2422 ], [ %.0971, %2424 ], [ %.0971, %2426 ], [ %.0971, %2427 ], [ %.0971, %2478 ], [ %.0971, %2477 ], [ %.0971, %2475 ], [ %.0971, %2473 ], [ %.0971, %2447 ], [ %.0971, %2446 ], [ %.0971, %2444 ], [ %.0971, %2442 ], [ %.0971, %2552 ], [ %.0971, %2555 ], [ %.0971, %cf2_buf_readByte.exit1704 ], [ 0, %.lr.ph1870 ]
+.backedge.backedge:                               ; preds = %.lr.ph1870, %cf2_buf_readByte.exit1704, %2555, %2552, %2442, %2444, %2446, %2447, %2473, %2475, %2477, %2478, %2427, %2426, %2424, %2422, %1417, %1432, %1370, %1373, %1363, %1367, %1356, %1349, %1101, %1251, %1253, %1256, %1140, %1168, %1137, %1123, %1327, %1320, %1313, %1300, %1288, %1272, %1267, %1262, %1178, %ps_builder_check_points.exit.thread, %1119, %ps_builder_check_points.exit1389.thread, %1177, %1176, %1231, %1233, %1235, %1236, %1342, %1093, %1094, %1066, %1067, %216, %cf2_doBlend.exit, %._crit_edge1901, %._crit_edge1891, %723, %824, %cf2_arrstack_getPointer.exit1371, %845, %847, %848, %903, %910, %917, %1069, %1073, %1085, %1096, %1352, %1361, %1377, %1383, %1395, %1411, %1412, %1414, %1434, %._crit_edge1843, %._crit_edge1824, %._crit_edge1814, %._crit_edge, %cf2_hintmask_read.exit
+  %.0987.be = phi i32 [ %.0987, %._crit_edge ], [ %.0987, %._crit_edge1814 ], [ %.0987, %._crit_edge1824 ], [ %.0987, %._crit_edge1843 ], [ %.1988, %cf2_hintmask_read.exit ], [ %.0987, %1434 ], [ %.0987, %1414 ], [ %.0987, %1412 ], [ %.0987, %1411 ], [ %.0987, %1395 ], [ %.0987, %1383 ], [ %.0987, %1377 ], [ %.0987, %1361 ], [ %.0987, %1352 ], [ %.0987, %1096 ], [ %.0987, %1085 ], [ %.0987, %1073 ], [ %.0987, %1069 ], [ %.0987, %917 ], [ %.0987, %910 ], [ %.0987, %903 ], [ %.0987, %848 ], [ %.0987, %847 ], [ %.0987, %845 ], [ %830, %cf2_arrstack_getPointer.exit1371 ], [ %826, %824 ], [ %.0987, %723 ], [ %.0987, %._crit_edge1891 ], [ %.0987, %._crit_edge1901 ], [ %.0987, %cf2_doBlend.exit ], [ %.0987, %216 ], [ %.0987, %1067 ], [ %.0987, %1066 ], [ %.0987, %1094 ], [ %.0987, %1093 ], [ %.0987, %1342 ], [ %.0987, %1236 ], [ %.0987, %1235 ], [ %.0987, %1233 ], [ %.0987, %1231 ], [ %.0987, %1176 ], [ %.0987, %1177 ], [ %.0987, %ps_builder_check_points.exit1389.thread ], [ %.0987, %1119 ], [ %.0987, %ps_builder_check_points.exit.thread ], [ %.0987, %1178 ], [ %.0987, %1262 ], [ %.0987, %1267 ], [ %.0987, %1272 ], [ %.0987, %1288 ], [ %.0987, %1300 ], [ %.0987, %1313 ], [ %.0987, %1320 ], [ %.0987, %1327 ], [ %.0987, %1123 ], [ %.0987, %1137 ], [ %.0987, %1168 ], [ %.0987, %1140 ], [ %.0987, %1256 ], [ %.0987, %1253 ], [ %.0987, %1251 ], [ %.0987, %1101 ], [ %.0987, %1349 ], [ %.0987, %1356 ], [ %.0987, %1367 ], [ %.0987, %1363 ], [ %.0987, %1373 ], [ %.0987, %1370 ], [ %.0987, %1432 ], [ %.0987, %1417 ], [ %.0987, %2422 ], [ %.0987, %2424 ], [ %.0987, %2426 ], [ %.0987, %2427 ], [ %.0987, %2478 ], [ %.0987, %2477 ], [ %.0987, %2475 ], [ %.0987, %2473 ], [ %.0987, %2447 ], [ %.0987, %2446 ], [ %.0987, %2444 ], [ %.0987, %2442 ], [ %.0987, %2552 ], [ %.0987, %2555 ], [ %.0987, %cf2_buf_readByte.exit1704 ], [ %.0987, %.lr.ph1870 ]
+  %.0984.be = phi ptr [ %.0984, %._crit_edge ], [ %.0984, %._crit_edge1814 ], [ %.0984, %._crit_edge1824 ], [ %.0984, %._crit_edge1843 ], [ %.1985, %cf2_hintmask_read.exit ], [ %.0984, %1434 ], [ %.0984, %1414 ], [ %.0984, %1412 ], [ %.0984, %1411 ], [ %.0984, %1395 ], [ %.0984, %1383 ], [ %.0984, %1377 ], [ %.0984, %1361 ], [ %.0984, %1352 ], [ %.0984, %1096 ], [ %.0984, %1085 ], [ %.0984, %1073 ], [ %.0984, %1069 ], [ %.0984, %917 ], [ %.0984, %910 ], [ %.0984, %903 ], [ %.0984, %848 ], [ %.0984, %847 ], [ %.0984, %845 ], [ %834, %cf2_arrstack_getPointer.exit1371 ], [ %745, %824 ], [ %.0984, %723 ], [ %.0984, %._crit_edge1891 ], [ %.0984, %._crit_edge1901 ], [ %.0984, %cf2_doBlend.exit ], [ %.0984, %216 ], [ %.0984, %1067 ], [ %.0984, %1066 ], [ %.0984, %1094 ], [ %.0984, %1093 ], [ %.0984, %1342 ], [ %.0984, %1236 ], [ %.0984, %1235 ], [ %.0984, %1233 ], [ %.0984, %1231 ], [ %.0984, %1176 ], [ %.0984, %1177 ], [ %.0984, %ps_builder_check_points.exit1389.thread ], [ %.0984, %1119 ], [ %.0984, %ps_builder_check_points.exit.thread ], [ %.0984, %1178 ], [ %.0984, %1262 ], [ %.0984, %1267 ], [ %.0984, %1272 ], [ %.0984, %1288 ], [ %.0984, %1300 ], [ %.0984, %1313 ], [ %.0984, %1320 ], [ %.0984, %1327 ], [ %.0984, %1123 ], [ %.0984, %1137 ], [ %.0984, %1168 ], [ %.0984, %1140 ], [ %.0984, %1256 ], [ %.0984, %1253 ], [ %.0984, %1251 ], [ %.0984, %1101 ], [ %.0984, %1349 ], [ %.0984, %1356 ], [ %.0984, %1367 ], [ %.0984, %1363 ], [ %.0984, %1373 ], [ %.0984, %1370 ], [ %.0984, %1432 ], [ %.0984, %1417 ], [ %.0984, %2422 ], [ %.0984, %2424 ], [ %.0984, %2426 ], [ %.0984, %2427 ], [ %.0984, %2478 ], [ %.0984, %2477 ], [ %.0984, %2475 ], [ %.0984, %2473 ], [ %.0984, %2447 ], [ %.0984, %2446 ], [ %.0984, %2444 ], [ %.0984, %2442 ], [ %.0984, %2552 ], [ %.0984, %2555 ], [ %.0984, %cf2_buf_readByte.exit1704 ], [ %.0984, %.lr.ph1870 ]
+  %.0983.be = phi i32 [ %227, %._crit_edge ], [ %227, %._crit_edge1814 ], [ %227, %._crit_edge1824 ], [ %227, %._crit_edge1843 ], [ %227, %cf2_hintmask_read.exit ], [ %227, %1434 ], [ %227, %1414 ], [ %227, %1412 ], [ %227, %1411 ], [ %227, %1395 ], [ %227, %1383 ], [ %227, %1377 ], [ %227, %1361 ], [ %227, %1352 ], [ %227, %1096 ], [ %227, %1085 ], [ %227, %1073 ], [ %227, %1069 ], [ %227, %917 ], [ %227, %910 ], [ %227, %903 ], [ %227, %848 ], [ %227, %847 ], [ %227, %845 ], [ %227, %cf2_arrstack_getPointer.exit1371 ], [ %227, %824 ], [ %227, %723 ], [ %227, %._crit_edge1891 ], [ %227, %._crit_edge1901 ], [ %227, %cf2_doBlend.exit ], [ %.0983, %216 ], [ %227, %1067 ], [ %227, %1066 ], [ %227, %1094 ], [ %227, %1093 ], [ %227, %1342 ], [ %227, %1236 ], [ %227, %1235 ], [ %227, %1233 ], [ %227, %1231 ], [ %227, %1176 ], [ %227, %1177 ], [ %227, %ps_builder_check_points.exit1389.thread ], [ %227, %1119 ], [ %227, %ps_builder_check_points.exit.thread ], [ %227, %1178 ], [ %227, %1262 ], [ %227, %1267 ], [ %227, %1272 ], [ %227, %1288 ], [ %227, %1300 ], [ %227, %1313 ], [ %227, %1320 ], [ %227, %1327 ], [ %227, %1123 ], [ %227, %1137 ], [ %227, %1168 ], [ %227, %1140 ], [ %227, %1256 ], [ %227, %1253 ], [ %227, %1251 ], [ %227, %1101 ], [ %227, %1349 ], [ %227, %1356 ], [ %227, %1367 ], [ %227, %1363 ], [ %227, %1373 ], [ %227, %1370 ], [ %227, %1432 ], [ %227, %1417 ], [ %227, %2422 ], [ %227, %2424 ], [ %227, %2426 ], [ %227, %2427 ], [ %227, %2478 ], [ %227, %2477 ], [ %227, %2475 ], [ %227, %2473 ], [ %227, %2447 ], [ %227, %2446 ], [ %227, %2444 ], [ %227, %2442 ], [ %227, %2552 ], [ %227, %2555 ], [ %227, %cf2_buf_readByte.exit1704 ], [ %227, %.lr.ph1870 ]
+  %.0978.be = phi i32 [ %.1979, %._crit_edge ], [ %.1979, %._crit_edge1814 ], [ %.1979, %._crit_edge1824 ], [ %.1979, %._crit_edge1843 ], [ %.3981, %cf2_hintmask_read.exit ], [ %.1979, %1434 ], [ %.1979, %1414 ], [ %.1979, %1412 ], [ %.1979, %1411 ], [ %.1979, %1395 ], [ %.1979, %1383 ], [ %.1979, %1377 ], [ %.1979, %1361 ], [ %.1979, %1352 ], [ %.1979, %1096 ], [ %.1979, %1085 ], [ %.1979, %1073 ], [ %.1979, %1069 ], [ %.1979, %917 ], [ %.1979, %910 ], [ %.1979, %903 ], [ %.1979, %848 ], [ %.1979, %847 ], [ %.1979, %845 ], [ %.1979, %cf2_arrstack_getPointer.exit1371 ], [ %.1979, %824 ], [ %.1979, %723 ], [ %.1979, %._crit_edge1891 ], [ %.1979, %._crit_edge1901 ], [ %.1979, %cf2_doBlend.exit ], [ %.0978, %216 ], [ %.1979, %1067 ], [ %.1979, %1066 ], [ %.1979, %1094 ], [ %.1979, %1093 ], [ %1343, %1342 ], [ 0, %1236 ], [ 0, %1235 ], [ 0, %1233 ], [ 0, %1231 ], [ 0, %1176 ], [ 0, %1177 ], [ 0, %ps_builder_check_points.exit1389.thread ], [ 0, %1119 ], [ 0, %ps_builder_check_points.exit.thread ], [ 0, %1178 ], [ 0, %1262 ], [ 0, %1267 ], [ 0, %1272 ], [ 0, %1288 ], [ 0, %1300 ], [ 0, %1313 ], [ 0, %1320 ], [ 0, %1327 ], [ 0, %1123 ], [ 0, %1137 ], [ 0, %1168 ], [ 0, %1140 ], [ 0, %1256 ], [ 0, %1253 ], [ 0, %1251 ], [ %.1979, %1101 ], [ %.1979, %1349 ], [ %1357, %1356 ], [ %.1979, %1367 ], [ %.1979, %1363 ], [ %.1979, %1373 ], [ %.1979, %1370 ], [ %.1979, %1432 ], [ %.1979, %1417 ], [ %.1979, %2422 ], [ %.1979, %2424 ], [ %.1979, %2426 ], [ %.1979, %2427 ], [ %.1979, %2478 ], [ %.1979, %2477 ], [ %.1979, %2475 ], [ %.1979, %2473 ], [ %.1979, %2447 ], [ %.1979, %2446 ], [ %.1979, %2444 ], [ %.1979, %2442 ], [ %.1979, %2552 ], [ %.1979, %2555 ], [ %.1979, %cf2_buf_readByte.exit1704 ], [ %1343, %.lr.ph1870 ]
+  %.0976.be = phi i8 [ %.0976, %._crit_edge ], [ %.0976, %._crit_edge1814 ], [ %.0976, %._crit_edge1824 ], [ %.0976, %._crit_edge1843 ], [ %.1977, %cf2_hintmask_read.exit ], [ %.0976, %1434 ], [ %.0976, %1414 ], [ %.0976, %1412 ], [ %.0976, %1411 ], [ %.0976, %1395 ], [ %.0976, %1383 ], [ %.0976, %1377 ], [ %.0976, %1361 ], [ %.0976, %1352 ], [ %.0976, %1096 ], [ %.0976, %1085 ], [ %.0976, %1073 ], [ %.0976, %1069 ], [ %.0976, %917 ], [ %.0976, %910 ], [ %.0976, %903 ], [ %.0976, %848 ], [ %.0976, %847 ], [ %.0976, %845 ], [ %.0976, %cf2_arrstack_getPointer.exit1371 ], [ %.0976, %824 ], [ %.0976, %723 ], [ %.0976, %._crit_edge1891 ], [ %.0976, %._crit_edge1901 ], [ %.0976, %cf2_doBlend.exit ], [ 0, %216 ], [ %.0976, %1067 ], [ %.0976, %1066 ], [ %.0976, %1094 ], [ %.0976, %1093 ], [ %.0976, %1342 ], [ %.0976, %1236 ], [ %.0976, %1235 ], [ %.0976, %1233 ], [ %.0976, %1231 ], [ 0, %1176 ], [ %.0976, %1177 ], [ %.0976, %ps_builder_check_points.exit1389.thread ], [ %.0976, %1119 ], [ %.0976, %ps_builder_check_points.exit.thread ], [ %.0976, %1178 ], [ %.0976, %1262 ], [ %.0976, %1267 ], [ %.0976, %1272 ], [ %.0976, %1288 ], [ %.0976, %1300 ], [ %.0976, %1313 ], [ %.0976, %1320 ], [ %.0976, %1327 ], [ 0, %1123 ], [ 0, %1137 ], [ %.0976, %1168 ], [ %.0976, %1140 ], [ %.0976, %1256 ], [ %.0976, %1253 ], [ %.0976, %1251 ], [ %.0976, %1101 ], [ %.0976, %1349 ], [ %.0976, %1356 ], [ %.0976, %1367 ], [ %.0976, %1363 ], [ %.0976, %1373 ], [ %.0976, %1370 ], [ %.0976, %1432 ], [ %.0976, %1417 ], [ %.0976, %2422 ], [ %.0976, %2424 ], [ %.0976, %2426 ], [ %.0976, %2427 ], [ %.0976, %2478 ], [ %.0976, %2477 ], [ %.0976, %2475 ], [ %.0976, %2473 ], [ %.0976, %2447 ], [ %.0976, %2446 ], [ %.0976, %2444 ], [ %.0976, %2442 ], [ %.0976, %2552 ], [ %.0976, %2555 ], [ %.0976, %cf2_buf_readByte.exit1704 ], [ %.0976, %.lr.ph1870 ]
+  %.0973.be = phi i8 [ %.1974, %._crit_edge ], [ %.1974, %._crit_edge1814 ], [ %.1974, %._crit_edge1824 ], [ %.1974, %._crit_edge1843 ], [ %.1974, %cf2_hintmask_read.exit ], [ %.1974, %1434 ], [ %.1974, %1414 ], [ %.1974, %1412 ], [ %.1974, %1411 ], [ %.1974, %1395 ], [ %.1974, %1383 ], [ %.1974, %1377 ], [ %.1974, %1361 ], [ %.1974, %1352 ], [ %.1974, %1096 ], [ %.2975, %1085 ], [ %.1974, %1073 ], [ %.1974, %1069 ], [ %.1974, %917 ], [ %.1974, %910 ], [ %.1974, %903 ], [ %.1974, %848 ], [ %.1974, %847 ], [ %.1974, %845 ], [ %.1974, %cf2_arrstack_getPointer.exit1371 ], [ %.1974, %824 ], [ %.1974, %723 ], [ %.1974, %._crit_edge1891 ], [ %.1974, %._crit_edge1901 ], [ %.1974, %cf2_doBlend.exit ], [ %.0973, %216 ], [ %.1974, %1067 ], [ %.1974, %1066 ], [ %.1974, %1094 ], [ %.1974, %1093 ], [ %.1974, %1342 ], [ %.1974, %1236 ], [ %.1974, %1235 ], [ %.1974, %1233 ], [ %.1974, %1231 ], [ %.1974, %1176 ], [ %.1974, %1177 ], [ %.1974, %ps_builder_check_points.exit1389.thread ], [ %.1974, %1119 ], [ %.1974, %ps_builder_check_points.exit.thread ], [ %.1974, %1178 ], [ %.1974, %1262 ], [ %.1974, %1267 ], [ %.1974, %1272 ], [ %.1974, %1288 ], [ %.1974, %1300 ], [ %.1974, %1313 ], [ %.1974, %1320 ], [ %.1974, %1327 ], [ %.1974, %1123 ], [ %.1974, %1137 ], [ %.1974, %1168 ], [ %.1974, %1140 ], [ %.1974, %1256 ], [ %.1974, %1253 ], [ %.1974, %1251 ], [ %.1974, %1101 ], [ %.1974, %1349 ], [ %.1974, %1356 ], [ %.1974, %1367 ], [ %.1974, %1363 ], [ %.1974, %1373 ], [ %.1974, %1370 ], [ %.1974, %1432 ], [ %.1974, %1417 ], [ %.1974, %2422 ], [ %.1974, %2424 ], [ %.1974, %2426 ], [ %.1974, %2427 ], [ %.1974, %2478 ], [ %.1974, %2477 ], [ %.1974, %2475 ], [ %.1974, %2473 ], [ %.1974, %2447 ], [ %.1974, %2446 ], [ %.1974, %2444 ], [ %.1974, %2442 ], [ %spec.store.select97, %2552 ], [ %.1974, %2555 ], [ %.1974, %cf2_buf_readByte.exit1704 ], [ %.1974, %.lr.ph1870 ]
+  %.0971.be = phi i32 [ %.0971, %._crit_edge ], [ %.0971, %._crit_edge1814 ], [ %.0971, %._crit_edge1824 ], [ %.0971, %._crit_edge1843 ], [ %.0971, %cf2_hintmask_read.exit ], [ %.0971, %1434 ], [ %.0971, %1414 ], [ %.0971, %1412 ], [ %.0971, %1411 ], [ %.0971, %1395 ], [ %.0971, %1383 ], [ %.0971, %1377 ], [ %.0971, %1361 ], [ %1353, %1352 ], [ %.0971, %1096 ], [ %.0971, %1085 ], [ %.0971, %1073 ], [ %.0971, %1069 ], [ %.0971, %917 ], [ %.0971, %910 ], [ %.0971, %903 ], [ %.0971, %848 ], [ %.0971, %847 ], [ %.0971, %845 ], [ %.0971, %cf2_arrstack_getPointer.exit1371 ], [ %.0971, %824 ], [ %.0971, %723 ], [ %.0971, %._crit_edge1891 ], [ %.0971, %._crit_edge1901 ], [ %.0971, %cf2_doBlend.exit ], [ %.0971, %216 ], [ %.0971, %1067 ], [ %.0971, %1066 ], [ %.0971, %1094 ], [ %.0971, %1093 ], [ 0, %1342 ], [ %1185, %1236 ], [ %1185, %1235 ], [ %1185, %1233 ], [ %1185, %1231 ], [ 1, %1176 ], [ 1, %1177 ], [ 0, %ps_builder_check_points.exit1389.thread ], [ 2, %1119 ], [ 0, %ps_builder_check_points.exit.thread ], [ 0, %1178 ], [ 1, %1262 ], [ 1, %1267 ], [ 1, %1272 ], [ 1, %1288 ], [ 0, %1300 ], [ 1, %1313 ], [ 1, %1320 ], [ 1, %1327 ], [ 0, %1123 ], [ 0, %1137 ], [ 0, %1168 ], [ 0, %1140 ], [ 0, %1256 ], [ 0, %1253 ], [ 0, %1251 ], [ %.0971, %1101 ], [ %.0971, %1349 ], [ %.0971, %1356 ], [ %.0971, %1367 ], [ %.0971, %1363 ], [ %.0971, %1373 ], [ %.0971, %1370 ], [ %.0971, %1432 ], [ %.0971, %1417 ], [ %.0971, %2422 ], [ %.0971, %2424 ], [ %.0971, %2426 ], [ %.0971, %2427 ], [ %.0971, %2478 ], [ %.0971, %2477 ], [ %.0971, %2475 ], [ %.0971, %2473 ], [ %.0971, %2447 ], [ %.0971, %2446 ], [ %.0971, %2444 ], [ %.0971, %2442 ], [ %.0971, %2552 ], [ %.0971, %2555 ], [ %.0971, %cf2_buf_readByte.exit1704 ], [ 0, %.lr.ph1870 ]
   br label %.backedge
 
 2499:                                             ; preds = %2485
@@ -15625,11 +15625,11 @@ cf2_hintmask_read.exit:                           ; preds = %cf2_buf_readByte.ex
   store ptr %2556, ptr %129, align 8
   br label %.backedge.backedge
 
-cf2_initGlobalRegionBuffer.exit:                  ; preds = %789, %774, %1354, %1113, %1122, %1136, %1175, %1240, %1244, %1261, %1266, %1271, %1283, %1284, %1293, %1297, %1306, %1310, %1319, %1326, %1339, %1181, %1179, %ps_builder_check_points.argprom.exit1389, %1138, %1115, %1117, %1102, %827, %738, %cf2_stack_popInt.exit1248, %257, %233, %1716, %1645, %1570, %cf2_stack_popFixed.exit1407, %ps_builder_check_points.argprom.exit, %1035, %cf2_stack_setReal.exit1383, %432, %.thread1753, %.thread, %267, %cf2_stack_init.exit.thread, %1547, %1541, %1540, %1012, %988, %958, %951, %942, %932, %921, %1531, %1533, %1535, %1558, %1529, %cf2_freeT1SeacComponent.argprom.argprom.argprom.exit1386, %965
-  %.not10721747.ph = phi i1 [ true, %cf2_stack_init.exit.thread ], [ false, %921 ], [ false, %932 ], [ false, %958 ], [ false, %965 ], [ false, %988 ], [ false, %1012 ], [ false, %cf2_freeT1SeacComponent.argprom.argprom.argprom.exit1386 ], [ false, %951 ], [ false, %942 ], [ false, %1529 ], [ false, %1531 ], [ false, %1533 ], [ false, %1535 ], [ false, %1540 ], [ false, %1541 ], [ false, %1547 ], [ false, %1558 ], [ false, %267 ], [ false, %.thread ], [ false, %.thread1753 ], [ false, %432 ], [ false, %cf2_stack_setReal.exit1383 ], [ false, %1035 ], [ false, %ps_builder_check_points.argprom.exit ], [ false, %cf2_stack_popFixed.exit1407 ], [ false, %1570 ], [ false, %1645 ], [ false, %1716 ], [ false, %233 ], [ false, %257 ], [ false, %cf2_stack_popInt.exit1248 ], [ false, %738 ], [ false, %827 ], [ false, %1102 ], [ false, %1117 ], [ false, %1115 ], [ false, %1138 ], [ false, %ps_builder_check_points.argprom.exit1389 ], [ false, %1179 ], [ false, %1181 ], [ false, %1339 ], [ false, %1326 ], [ false, %1319 ], [ false, %1310 ], [ false, %1306 ], [ false, %1297 ], [ false, %1293 ], [ false, %1284 ], [ false, %1283 ], [ false, %1271 ], [ false, %1266 ], [ false, %1261 ], [ false, %1244 ], [ false, %1240 ], [ false, %1175 ], [ false, %1136 ], [ false, %1122 ], [ false, %1113 ], [ false, %1354 ], [ false, %774 ], [ false, %789 ]
-  %.0.i1746.ph = phi ptr [ null, %cf2_stack_init.exit.thread ], [ %118, %921 ], [ %118, %932 ], [ %118, %958 ], [ %118, %965 ], [ %118, %988 ], [ %118, %1012 ], [ %118, %cf2_freeT1SeacComponent.argprom.argprom.argprom.exit1386 ], [ %118, %951 ], [ %118, %942 ], [ %118, %1529 ], [ %118, %1531 ], [ %118, %1533 ], [ %118, %1535 ], [ %118, %1540 ], [ %118, %1541 ], [ %118, %1547 ], [ %118, %1558 ], [ %118, %267 ], [ %118, %.thread ], [ %118, %.thread1753 ], [ %118, %432 ], [ %118, %cf2_stack_setReal.exit1383 ], [ %118, %1035 ], [ %118, %ps_builder_check_points.argprom.exit ], [ %118, %cf2_stack_popFixed.exit1407 ], [ %118, %1570 ], [ %118, %1645 ], [ %118, %1716 ], [ %118, %233 ], [ %118, %257 ], [ %118, %cf2_stack_popInt.exit1248 ], [ %118, %738 ], [ %118, %827 ], [ %118, %1102 ], [ %118, %1117 ], [ %118, %1115 ], [ %118, %1138 ], [ %118, %ps_builder_check_points.argprom.exit1389 ], [ %118, %1179 ], [ %118, %1181 ], [ %118, %1339 ], [ %118, %1326 ], [ %118, %1319 ], [ %118, %1310 ], [ %118, %1306 ], [ %118, %1297 ], [ %118, %1293 ], [ %118, %1284 ], [ %118, %1283 ], [ %118, %1271 ], [ %118, %1266 ], [ %118, %1261 ], [ %118, %1244 ], [ %118, %1240 ], [ %118, %1175 ], [ %118, %1136 ], [ %118, %1122 ], [ %118, %1113 ], [ %118, %1354 ], [ %118, %774 ], [ %118, %789 ]
-  %.sroa.26.0.ph = phi ptr [ null, %cf2_stack_init.exit.thread ], [ %130, %921 ], [ %130, %932 ], [ %130, %958 ], [ %130, %965 ], [ %130, %988 ], [ %130, %1012 ], [ %130, %cf2_freeT1SeacComponent.argprom.argprom.argprom.exit1386 ], [ %130, %951 ], [ %130, %942 ], [ %130, %1529 ], [ %130, %1531 ], [ %130, %1533 ], [ %130, %1535 ], [ %130, %1540 ], [ %130, %1541 ], [ %130, %1547 ], [ %130, %1558 ], [ %130, %267 ], [ %130, %.thread ], [ %130, %.thread1753 ], [ %130, %432 ], [ %130, %cf2_stack_setReal.exit1383 ], [ %130, %1035 ], [ %130, %ps_builder_check_points.argprom.exit ], [ %130, %cf2_stack_popFixed.exit1407 ], [ %130, %1570 ], [ %130, %1645 ], [ %130, %1716 ], [ %130, %233 ], [ %130, %257 ], [ %130, %cf2_stack_popInt.exit1248 ], [ %130, %738 ], [ %130, %827 ], [ %130, %1102 ], [ %130, %1117 ], [ %130, %1115 ], [ %130, %1138 ], [ %130, %ps_builder_check_points.argprom.exit1389 ], [ %130, %1179 ], [ %130, %1181 ], [ %130, %1339 ], [ %130, %1326 ], [ %130, %1319 ], [ %130, %1310 ], [ %130, %1306 ], [ %130, %1297 ], [ %130, %1293 ], [ %130, %1284 ], [ %130, %1283 ], [ %130, %1271 ], [ %130, %1266 ], [ %130, %1261 ], [ %130, %1244 ], [ %130, %1240 ], [ %130, %1175 ], [ %130, %1136 ], [ %130, %1122 ], [ %130, %1113 ], [ %130, %1354 ], [ %130, %774 ], [ %130, %789 ]
-  %.0.ph = phi i32 [ 64, %cf2_stack_init.exit.thread ], [ 18, %921 ], [ 18, %932 ], [ %964, %958 ], [ 0, %965 ], [ %990, %988 ], [ %1015, %1012 ], [ 0, %cf2_freeT1SeacComponent.argprom.argprom.argprom.exit1386 ], [ 18, %951 ], [ 18, %942 ], [ 0, %1529 ], [ 0, %1531 ], [ 0, %1533 ], [ 0, %1535 ], [ 18, %1540 ], [ %1546, %1541 ], [ %1557, %1547 ], [ 0, %1558 ], [ 18, %789 ], [ 18, %774 ], [ 18, %1354 ], [ 18, %1113 ], [ 18, %1122 ], [ 18, %1136 ], [ 18, %1175 ], [ 18, %1240 ], [ 18, %1244 ], [ 18, %1261 ], [ 18, %1266 ], [ 18, %1271 ], [ 18, %1283 ], [ 18, %1284 ], [ 18, %1293 ], [ 18, %1297 ], [ 18, %1306 ], [ 18, %1310 ], [ 18, %1319 ], [ 18, %1326 ], [ 18, %1339 ], [ 18, %1181 ], [ 18, %1179 ], [ 18, %ps_builder_check_points.argprom.exit1389 ], [ 18, %1138 ], [ 18, %1115 ], [ 18, %1117 ], [ 18, %1102 ], [ 18, %827 ], [ 18, %738 ], [ 18, %cf2_stack_popInt.exit1248 ], [ 18, %257 ], [ 18, %233 ], [ 0, %1716 ], [ 0, %1645 ], [ 0, %1570 ], [ 0, %cf2_stack_popFixed.exit1407 ], [ 0, %ps_builder_check_points.argprom.exit ], [ 0, %1035 ], [ 0, %cf2_stack_setReal.exit1383 ], [ 0, %432 ], [ 0, %.thread1753 ], [ 0, %.thread ], [ %274, %267 ]
+cf2_initGlobalRegionBuffer.exit:                  ; preds = %789, %774, %1354, %1113, %1122, %1136, %1175, %1240, %1244, %1261, %1266, %1271, %1283, %1284, %1293, %1297, %1306, %1310, %1319, %1326, %1339, %1181, %1179, %ps_builder_check_points.exit1389, %1138, %1115, %1117, %1102, %827, %738, %cf2_stack_popInt.exit1248, %257, %233, %1716, %1645, %1570, %cf2_stack_popFixed.exit1407, %ps_builder_check_points.exit, %1035, %cf2_stack_setReal.exit1383, %432, %.thread1753, %.thread, %267, %cf2_stack_init.exit.thread, %1547, %1541, %1540, %1012, %988, %958, %951, %942, %932, %921, %1531, %1533, %1535, %1558, %1529, %cf2_freeT1SeacComponent.exit1386, %965
+  %.not10721747.ph = phi i1 [ true, %cf2_stack_init.exit.thread ], [ false, %921 ], [ false, %932 ], [ false, %958 ], [ false, %965 ], [ false, %988 ], [ false, %1012 ], [ false, %cf2_freeT1SeacComponent.exit1386 ], [ false, %951 ], [ false, %942 ], [ false, %1529 ], [ false, %1531 ], [ false, %1533 ], [ false, %1535 ], [ false, %1540 ], [ false, %1541 ], [ false, %1547 ], [ false, %1558 ], [ false, %267 ], [ false, %.thread ], [ false, %.thread1753 ], [ false, %432 ], [ false, %cf2_stack_setReal.exit1383 ], [ false, %1035 ], [ false, %ps_builder_check_points.exit ], [ false, %cf2_stack_popFixed.exit1407 ], [ false, %1570 ], [ false, %1645 ], [ false, %1716 ], [ false, %233 ], [ false, %257 ], [ false, %cf2_stack_popInt.exit1248 ], [ false, %738 ], [ false, %827 ], [ false, %1102 ], [ false, %1117 ], [ false, %1115 ], [ false, %1138 ], [ false, %ps_builder_check_points.exit1389 ], [ false, %1179 ], [ false, %1181 ], [ false, %1339 ], [ false, %1326 ], [ false, %1319 ], [ false, %1310 ], [ false, %1306 ], [ false, %1297 ], [ false, %1293 ], [ false, %1284 ], [ false, %1283 ], [ false, %1271 ], [ false, %1266 ], [ false, %1261 ], [ false, %1244 ], [ false, %1240 ], [ false, %1175 ], [ false, %1136 ], [ false, %1122 ], [ false, %1113 ], [ false, %1354 ], [ false, %774 ], [ false, %789 ]
+  %.0.i1746.ph = phi ptr [ null, %cf2_stack_init.exit.thread ], [ %118, %921 ], [ %118, %932 ], [ %118, %958 ], [ %118, %965 ], [ %118, %988 ], [ %118, %1012 ], [ %118, %cf2_freeT1SeacComponent.exit1386 ], [ %118, %951 ], [ %118, %942 ], [ %118, %1529 ], [ %118, %1531 ], [ %118, %1533 ], [ %118, %1535 ], [ %118, %1540 ], [ %118, %1541 ], [ %118, %1547 ], [ %118, %1558 ], [ %118, %267 ], [ %118, %.thread ], [ %118, %.thread1753 ], [ %118, %432 ], [ %118, %cf2_stack_setReal.exit1383 ], [ %118, %1035 ], [ %118, %ps_builder_check_points.exit ], [ %118, %cf2_stack_popFixed.exit1407 ], [ %118, %1570 ], [ %118, %1645 ], [ %118, %1716 ], [ %118, %233 ], [ %118, %257 ], [ %118, %cf2_stack_popInt.exit1248 ], [ %118, %738 ], [ %118, %827 ], [ %118, %1102 ], [ %118, %1117 ], [ %118, %1115 ], [ %118, %1138 ], [ %118, %ps_builder_check_points.exit1389 ], [ %118, %1179 ], [ %118, %1181 ], [ %118, %1339 ], [ %118, %1326 ], [ %118, %1319 ], [ %118, %1310 ], [ %118, %1306 ], [ %118, %1297 ], [ %118, %1293 ], [ %118, %1284 ], [ %118, %1283 ], [ %118, %1271 ], [ %118, %1266 ], [ %118, %1261 ], [ %118, %1244 ], [ %118, %1240 ], [ %118, %1175 ], [ %118, %1136 ], [ %118, %1122 ], [ %118, %1113 ], [ %118, %1354 ], [ %118, %774 ], [ %118, %789 ]
+  %.sroa.26.0.ph = phi ptr [ null, %cf2_stack_init.exit.thread ], [ %130, %921 ], [ %130, %932 ], [ %130, %958 ], [ %130, %965 ], [ %130, %988 ], [ %130, %1012 ], [ %130, %cf2_freeT1SeacComponent.exit1386 ], [ %130, %951 ], [ %130, %942 ], [ %130, %1529 ], [ %130, %1531 ], [ %130, %1533 ], [ %130, %1535 ], [ %130, %1540 ], [ %130, %1541 ], [ %130, %1547 ], [ %130, %1558 ], [ %130, %267 ], [ %130, %.thread ], [ %130, %.thread1753 ], [ %130, %432 ], [ %130, %cf2_stack_setReal.exit1383 ], [ %130, %1035 ], [ %130, %ps_builder_check_points.exit ], [ %130, %cf2_stack_popFixed.exit1407 ], [ %130, %1570 ], [ %130, %1645 ], [ %130, %1716 ], [ %130, %233 ], [ %130, %257 ], [ %130, %cf2_stack_popInt.exit1248 ], [ %130, %738 ], [ %130, %827 ], [ %130, %1102 ], [ %130, %1117 ], [ %130, %1115 ], [ %130, %1138 ], [ %130, %ps_builder_check_points.exit1389 ], [ %130, %1179 ], [ %130, %1181 ], [ %130, %1339 ], [ %130, %1326 ], [ %130, %1319 ], [ %130, %1310 ], [ %130, %1306 ], [ %130, %1297 ], [ %130, %1293 ], [ %130, %1284 ], [ %130, %1283 ], [ %130, %1271 ], [ %130, %1266 ], [ %130, %1261 ], [ %130, %1244 ], [ %130, %1240 ], [ %130, %1175 ], [ %130, %1136 ], [ %130, %1122 ], [ %130, %1113 ], [ %130, %1354 ], [ %130, %774 ], [ %130, %789 ]
+  %.0.ph = phi i32 [ 64, %cf2_stack_init.exit.thread ], [ 18, %921 ], [ 18, %932 ], [ %964, %958 ], [ 0, %965 ], [ %990, %988 ], [ %1015, %1012 ], [ 0, %cf2_freeT1SeacComponent.exit1386 ], [ 18, %951 ], [ 18, %942 ], [ 0, %1529 ], [ 0, %1531 ], [ 0, %1533 ], [ 0, %1535 ], [ 18, %1540 ], [ %1546, %1541 ], [ %1557, %1547 ], [ 0, %1558 ], [ 18, %789 ], [ 18, %774 ], [ 18, %1354 ], [ 18, %1113 ], [ 18, %1122 ], [ 18, %1136 ], [ 18, %1175 ], [ 18, %1240 ], [ 18, %1244 ], [ 18, %1261 ], [ 18, %1266 ], [ 18, %1271 ], [ 18, %1283 ], [ 18, %1284 ], [ 18, %1293 ], [ 18, %1297 ], [ 18, %1306 ], [ 18, %1310 ], [ 18, %1319 ], [ 18, %1326 ], [ 18, %1339 ], [ 18, %1181 ], [ 18, %1179 ], [ 18, %ps_builder_check_points.exit1389 ], [ 18, %1138 ], [ 18, %1115 ], [ 18, %1117 ], [ 18, %1102 ], [ 18, %827 ], [ 18, %738 ], [ 18, %cf2_stack_popInt.exit1248 ], [ 18, %257 ], [ 18, %233 ], [ 0, %1716 ], [ 0, %1645 ], [ 0, %1570 ], [ 0, %cf2_stack_popFixed.exit1407 ], [ 0, %ps_builder_check_points.exit ], [ 0, %1035 ], [ 0, %cf2_stack_setReal.exit1383 ], [ 0, %432 ], [ 0, %.thread1753 ], [ 0, %.thread ], [ %274, %267 ]
   %.pr = load i32, ptr %33, align 4
   %.not3.i = icmp eq i32 %.pr, 0
   br i1 %.not3.i, label %cf2_initGlobalRegionBuffer.exit.thread1772, label %cf2_setError.exit
@@ -17282,7 +17282,7 @@ declare hidden i32 @FT_GlyphLoader_CheckSubGlyphs(ptr noundef, i32 noundef) loca
 declare hidden void @FT_GlyphLoader_Prepare(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cf2_getT1SeacComponent.argprom(ptr nocapture readonly %.8.val, i32 noundef range(i32 0, -2147483648) %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc i32 @cf2_getT1SeacComponent(ptr nocapture readonly %.8.val, i32 noundef range(i32 0, -2147483648) %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = alloca %struct.FT_Data_, align 8
   %4 = getelementptr inbounds i8, ptr %.8.val, i64 240
   %5 = load ptr, ptr %4, align 8

@@ -880,7 +880,7 @@ lpad.i180:                                        ; preds = %.noexc183
 invoke.cont63:                                    ; preds = %.noexc183
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i186)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i186, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp60) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i186, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i186, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
           to label %invoke.cont65 unwind label %lpad.i187
 
 lpad.i187:                                        ; preds = %invoke.cont63
@@ -916,7 +916,7 @@ lpad.i191:                                        ; preds = %.noexc194
 invoke.cont71:                                    ; preds = %.noexc194
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i197)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i197, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp68) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i197, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i197, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
           to label %invoke.cont73 unwind label %lpad.i198
 
 lpad.i198:                                        ; preds = %invoke.cont71
@@ -952,7 +952,7 @@ lpad.i203:                                        ; preds = %.noexc206
 invoke.cont79:                                    ; preds = %.noexc206
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i209)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i209, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp76) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i209, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i209, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
           to label %invoke.cont81 unwind label %lpad.i210
 
 lpad.i210:                                        ; preds = %invoke.cont79
@@ -988,7 +988,7 @@ lpad.i215:                                        ; preds = %.noexc218
 invoke.cont87:                                    ; preds = %.noexc218
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i221)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i221, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp84) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i221, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i221, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
           to label %invoke.cont89 unwind label %lpad.i222
 
 lpad.i222:                                        ; preds = %invoke.cont87
@@ -1024,7 +1024,7 @@ lpad.i227:                                        ; preds = %.noexc230
 invoke.cont95:                                    ; preds = %.noexc230
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i233)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i233, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp92) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i233, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i233, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
           to label %invoke.cont97 unwind label %lpad.i234
 
 lpad.i234:                                        ; preds = %invoke.cont95
@@ -1060,7 +1060,7 @@ lpad.i239:                                        ; preds = %.noexc242
 invoke.cont103:                                   ; preds = %.noexc242
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i245)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i245, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp100) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i245, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i245, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
           to label %invoke.cont105 unwind label %lpad.i246
 
 lpad.i246:                                        ; preds = %invoke.cont103
@@ -1096,7 +1096,7 @@ lpad.i251:                                        ; preds = %.noexc254
 invoke.cont111:                                   ; preds = %.noexc254
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i257)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i257, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp108) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i257, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i257, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
           to label %invoke.cont113 unwind label %lpad.i258
 
 lpad.i258:                                        ; preds = %invoke.cont111
@@ -1132,7 +1132,7 @@ lpad.i263:                                        ; preds = %.noexc266
 invoke.cont119:                                   ; preds = %.noexc266
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i269)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i269, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp116) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i269, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i269, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
           to label %invoke.cont121 unwind label %lpad.i270
 
 lpad.i270:                                        ; preds = %invoke.cont119
@@ -1204,7 +1204,7 @@ lpad.i287:                                        ; preds = %.noexc290
 invoke.cont135:                                   ; preds = %.noexc290
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i293)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i293, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp132) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i293, i32 noundef 3, i32 noundef 0, i64 noundef 320278879989760, i32 noundef -20)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i293, i32 noundef 3, i32 noundef 0, i64 noundef 320278879989760, i32 noundef -20)
           to label %invoke.cont137 unwind label %lpad.i294
 
 lpad.i294:                                        ; preds = %invoke.cont135
@@ -1564,7 +1564,7 @@ lpad.i407:                                        ; preds = %.noexc410
 invoke.cont215:                                   ; preds = %.noexc410
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i413)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i413, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp212) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i413, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i413, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
           to label %invoke.cont217 unwind label %lpad.i414
 
 lpad.i414:                                        ; preds = %invoke.cont215
@@ -1600,7 +1600,7 @@ lpad.i419:                                        ; preds = %.noexc422
 invoke.cont223:                                   ; preds = %.noexc422
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i425)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i425, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp220) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i425, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i425, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
           to label %invoke.cont225 unwind label %lpad.i426
 
 lpad.i426:                                        ; preds = %invoke.cont223
@@ -1636,7 +1636,7 @@ lpad.i431:                                        ; preds = %.noexc434
 invoke.cont231:                                   ; preds = %.noexc434
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i437)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i437, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp228) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i437, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i437, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
           to label %invoke.cont233 unwind label %lpad.i438
 
 lpad.i438:                                        ; preds = %invoke.cont231
@@ -1672,7 +1672,7 @@ lpad.i443:                                        ; preds = %.noexc446
 invoke.cont239:                                   ; preds = %.noexc446
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i449)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i449, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp236) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i449, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i449, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
           to label %invoke.cont241 unwind label %lpad.i450
 
 lpad.i450:                                        ; preds = %invoke.cont239
@@ -1708,7 +1708,7 @@ lpad.i455:                                        ; preds = %.noexc458
 invoke.cont247:                                   ; preds = %.noexc458
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i461)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i461, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp244) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i461, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i461, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
           to label %invoke.cont249 unwind label %lpad.i462
 
 lpad.i462:                                        ; preds = %invoke.cont247
@@ -1744,7 +1744,7 @@ lpad.i467:                                        ; preds = %.noexc470
 invoke.cont255:                                   ; preds = %.noexc470
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i473)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i473, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp252) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i473, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i473, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
           to label %invoke.cont257 unwind label %lpad.i474
 
 lpad.i474:                                        ; preds = %invoke.cont255
@@ -1780,7 +1780,7 @@ lpad.i479:                                        ; preds = %.noexc482
 invoke.cont263:                                   ; preds = %.noexc482
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i485)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i485, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp260) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i485, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i485, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
           to label %invoke.cont265 unwind label %lpad.i486
 
 lpad.i486:                                        ; preds = %invoke.cont263
@@ -1816,7 +1816,7 @@ lpad.i491:                                        ; preds = %.noexc494
 invoke.cont271:                                   ; preds = %.noexc494
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i497)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i497, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp268) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i497, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i497, i32 noundef 3, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
           to label %invoke.cont273 unwind label %lpad.i498
 
 lpad.i498:                                        ; preds = %invoke.cont271
@@ -1888,7 +1888,7 @@ lpad.i515:                                        ; preds = %.noexc518
 invoke.cont287:                                   ; preds = %.noexc518
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i521)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i521, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp284) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i521, i32 noundef 3, i32 noundef 0, i64 noundef 1152921504606846975, i32 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i521, i32 noundef 3, i32 noundef 0, i64 noundef 1152921504606846975, i32 noundef 0)
           to label %invoke.cont289 unwind label %lpad.i522
 
 lpad.i522:                                        ; preds = %invoke.cont287
@@ -1960,7 +1960,7 @@ lpad.i539:                                        ; preds = %.noexc542
 invoke.cont303:                                   ; preds = %.noexc542
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i545)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i545, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp300) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i545, i32 noundef 3, i32 noundef 0, i64 noundef 0, i32 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i545, i32 noundef 3, i32 noundef 0, i64 noundef 0, i32 noundef 0)
           to label %invoke.cont305 unwind label %lpad.i546
 
 lpad.i546:                                        ; preds = %invoke.cont303
@@ -2032,7 +2032,7 @@ lpad.i563:                                        ; preds = %.noexc566
 invoke.cont319:                                   ; preds = %.noexc566
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i569)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i569, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp316) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i569, i32 noundef 3, i32 noundef 0, i64 noundef 0, i32 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i569, i32 noundef 3, i32 noundef 0, i64 noundef 0, i32 noundef 0)
           to label %invoke.cont321 unwind label %lpad.i570
 
 lpad.i570:                                        ; preds = %invoke.cont319
@@ -2104,7 +2104,7 @@ lpad.i587:                                        ; preds = %.noexc590
 invoke.cont335:                                   ; preds = %.noexc590
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i593)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i593, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp332) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i593, i32 noundef 3, i32 noundef 0, i64 noundef 0, i32 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i593, i32 noundef 3, i32 noundef 0, i64 noundef 0, i32 noundef 0)
           to label %invoke.cont337 unwind label %lpad.i594
 
 lpad.i594:                                        ; preds = %invoke.cont335
@@ -2176,7 +2176,7 @@ lpad.i611:                                        ; preds = %.noexc614
 invoke.cont351:                                   ; preds = %.noexc614
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i617)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i617, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp348) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i617, i32 noundef 3, i32 noundef 0, i64 noundef 0, i32 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i617, i32 noundef 3, i32 noundef 0, i64 noundef 0, i32 noundef 0)
           to label %invoke.cont353 unwind label %lpad.i618
 
 lpad.i618:                                        ; preds = %invoke.cont351
@@ -4954,7 +4954,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i.i.i7,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef nonnull %s, i32 noundef range(i32 1, 4) %format_flags, i32 noundef range(i32 0, 3) %expected_type, i64 noundef range(i64 0, 1152921504606846976) %expected_mantissa, i32 noundef range(i32 -36, 61) %expected_exponent) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef nonnull %s, i32 noundef range(i32 1, 4) %format_flags, i32 noundef range(i32 0, 3) %expected_type, i64 noundef range(i64 0, 1152921504606846976) %expected_mantissa, i32 noundef range(i32 -36, 61) %expected_exponent) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %expected_type.addr = alloca i32, align 4
@@ -6850,7 +6850,7 @@ lpad.i:                                           ; preds = %.noexc
 invoke.cont:                                      ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i, i32 noundef 3, i32 noundef 0, i64 noundef 81985529216486895, i32 noundef 60)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i, i32 noundef 3, i32 noundef 0, i64 noundef 81985529216486895, i32 noundef 60)
           to label %invoke.cont3 unwind label %lpad.i16
 
 lpad.i16:                                         ; preds = %invoke.cont
@@ -6886,7 +6886,7 @@ lpad.i20:                                         ; preds = %.noexc23
 invoke.cont7:                                     ; preds = %.noexc23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i26)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i26, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp4) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i26, i32 noundef 3, i32 noundef 0, i64 noundef 81985529216486895, i32 noundef 60)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i26, i32 noundef 3, i32 noundef 0, i64 noundef 81985529216486895, i32 noundef 60)
           to label %invoke.cont9 unwind label %lpad.i27
 
 lpad.i27:                                         ; preds = %invoke.cont7
@@ -6922,7 +6922,7 @@ lpad.i32:                                         ; preds = %.noexc35
 invoke.cont15:                                    ; preds = %.noexc35
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i38)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i38, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp12) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i38, i32 noundef 3, i32 noundef 0, i64 noundef 81985529216486895, i32 noundef 44)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i38, i32 noundef 3, i32 noundef 0, i64 noundef 81985529216486895, i32 noundef 44)
           to label %invoke.cont17 unwind label %lpad.i39
 
 lpad.i39:                                         ; preds = %invoke.cont15
@@ -6958,7 +6958,7 @@ lpad.i44:                                         ; preds = %.noexc47
 invoke.cont23:                                    ; preds = %.noexc47
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i50)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i50, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp20) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i50, i32 noundef 3, i32 noundef 0, i64 noundef 81985529216486895, i32 noundef 44)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i50, i32 noundef 3, i32 noundef 0, i64 noundef 81985529216486895, i32 noundef 44)
           to label %invoke.cont25 unwind label %lpad.i51
 
 lpad.i51:                                         ; preds = %invoke.cont23
@@ -6994,7 +6994,7 @@ lpad.i56:                                         ; preds = %.noexc59
 invoke.cont31:                                    ; preds = %.noexc59
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i62)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i62, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp28) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i62, i32 noundef 3, i32 noundef 0, i64 noundef 81985529216486895, i32 noundef 60)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i62, i32 noundef 3, i32 noundef 0, i64 noundef 81985529216486895, i32 noundef 60)
           to label %invoke.cont33 unwind label %lpad.i63
 
 lpad.i63:                                         ; preds = %invoke.cont31
@@ -7030,7 +7030,7 @@ lpad.i68:                                         ; preds = %.noexc71
 invoke.cont39:                                    ; preds = %.noexc71
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i74)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i74, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp36) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i74, i32 noundef 3, i32 noundef 0, i64 noundef 81985529216486895, i32 noundef 60)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i74, i32 noundef 3, i32 noundef 0, i64 noundef 81985529216486895, i32 noundef 60)
           to label %invoke.cont41 unwind label %lpad.i75
 
 lpad.i75:                                         ; preds = %invoke.cont39
@@ -7066,7 +7066,7 @@ lpad.i80:                                         ; preds = %.noexc83
 invoke.cont47:                                    ; preds = %.noexc83
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i86)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i86, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp44) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i86, i32 noundef 3, i32 noundef 0, i64 noundef 81985529216486894, i32 noundef 60)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i86, i32 noundef 3, i32 noundef 0, i64 noundef 81985529216486894, i32 noundef 60)
           to label %invoke.cont49 unwind label %lpad.i87
 
 lpad.i87:                                         ; preds = %invoke.cont47
@@ -7285,7 +7285,7 @@ lpad.i30:                                         ; preds = %.noexc33
 invoke.cont15:                                    ; preds = %.noexc33
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i36)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i36, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp12) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i36, i32 noundef 2, i32 noundef 0, i64 noundef 78193085935, i32 noundef -36)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i36, i32 noundef 2, i32 noundef 0, i64 noundef 78193085935, i32 noundef -36)
           to label %invoke.cont17 unwind label %lpad.i37
 
 lpad.i37:                                         ; preds = %invoke.cont15
@@ -7321,7 +7321,7 @@ lpad.i41:                                         ; preds = %.noexc44
 invoke.cont23:                                    ; preds = %.noexc44
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i47)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i47, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp20) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i47, i32 noundef 2, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i47, i32 noundef 2, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
           to label %invoke.cont25 unwind label %lpad.i48
 
 lpad.i48:                                         ; preds = %invoke.cont23
@@ -7394,7 +7394,7 @@ lpad.i66:                                         ; preds = %.noexc69
 invoke.cont40:                                    ; preds = %.noexc69
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i72)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i72, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp37) #15
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp.i72, i32 noundef 1, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp.i72, i32 noundef 1, i32 noundef 0, i64 noundef 78193085935, i32 noundef -8)
           to label %invoke.cont42 unwind label %lpad.i73
 
 lpad.i73:                                         ; preds = %invoke.cont40
@@ -7777,7 +7777,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %eh.resume
 
 invoke.cont:                                      ; preds = %.noexc
-  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE.argelim(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 1)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont
@@ -7802,7 +7802,7 @@ lpad.i23:                                         ; preds = %.noexc26
   br label %eh.resume
 
 invoke.cont11:                                    ; preds = %.noexc26
-  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE.argelim(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, i32 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, i32 noundef 1)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont11
@@ -7827,7 +7827,7 @@ lpad.i31:                                         ; preds = %.noexc34
   br label %eh.resume
 
 invoke.cont19:                                    ; preds = %.noexc34
-  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE.argelim(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16, i32 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16, i32 noundef 1)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %invoke.cont19
@@ -7852,7 +7852,7 @@ lpad.i39:                                         ; preds = %.noexc42
   br label %eh.resume
 
 invoke.cont27:                                    ; preds = %.noexc42
-  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE.argelim(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24, i32 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24, i32 noundef 1)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %invoke.cont27
@@ -7877,7 +7877,7 @@ lpad.i47:                                         ; preds = %.noexc50
   br label %eh.resume
 
 invoke.cont35:                                    ; preds = %.noexc50
-  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE.argelim(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp32, i32 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp32, i32 noundef 1)
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %invoke.cont35
@@ -7902,7 +7902,7 @@ lpad.i55:                                         ; preds = %.noexc58
   br label %eh.resume
 
 invoke.cont43:                                    ; preds = %.noexc58
-  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE.argelim(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40, i32 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40, i32 noundef 1)
           to label %invoke.cont45 unwind label %lpad44
 
 invoke.cont45:                                    ; preds = %invoke.cont43
@@ -7984,7 +7984,7 @@ eh.resume:                                        ; preds = %lpad44, %lpad.i55, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE.argelim(ptr noundef nonnull align 8 dereferenceable(32) %s, i32 noundef range(i32 1, 3) %type) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE(ptr noundef nonnull align 8 dereferenceable(32) %s, i32 noundef range(i32 1, 3) %type) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7995,7 +7995,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1, ptr noundef nonnull align 8 dereferenceable(32) %s)
-  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii.argelim(ptr noundef %agg.tmp1, i32 noundef 3, i32 noundef %type, i64 noundef 0, i32 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ExpectParsedFloatILi16EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS7_16strings_internal9FloatTypeEmii(ptr noundef %agg.tmp1, i32 noundef 3, i32 noundef %type, i64 noundef 0, i32 noundef 0)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -8115,7 +8115,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %eh.resume
 
 invoke.cont:                                      ; preds = %.noexc
-  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE.argelim(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 2)
+  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 2)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont
@@ -8140,7 +8140,7 @@ lpad.i35:                                         ; preds = %.noexc38
   br label %eh.resume
 
 invoke.cont11:                                    ; preds = %.noexc38
-  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE.argelim(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, i32 noundef 2)
+  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, i32 noundef 2)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont11
@@ -8165,7 +8165,7 @@ lpad.i43:                                         ; preds = %.noexc46
   br label %eh.resume
 
 invoke.cont19:                                    ; preds = %.noexc46
-  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE.argelim(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16, i32 noundef 2)
+  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16, i32 noundef 2)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %invoke.cont19
@@ -8190,7 +8190,7 @@ lpad.i51:                                         ; preds = %.noexc54
   br label %eh.resume
 
 invoke.cont27:                                    ; preds = %.noexc54
-  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE.argelim(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24, i32 noundef 2)
+  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24, i32 noundef 2)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %invoke.cont27
@@ -8215,7 +8215,7 @@ lpad.i59:                                         ; preds = %.noexc62
   br label %eh.resume
 
 invoke.cont35:                                    ; preds = %.noexc62
-  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE.argelim(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp32, i32 noundef 2)
+  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp32, i32 noundef 2)
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %invoke.cont35
@@ -8240,7 +8240,7 @@ lpad.i67:                                         ; preds = %.noexc70
   br label %eh.resume
 
 invoke.cont43:                                    ; preds = %.noexc70
-  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE.argelim(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40, i32 noundef 2)
+  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40, i32 noundef 2)
           to label %invoke.cont45 unwind label %lpad44
 
 invoke.cont45:                                    ; preds = %invoke.cont43
@@ -8265,7 +8265,7 @@ lpad.i75:                                         ; preds = %.noexc78
   br label %eh.resume
 
 invoke.cont51:                                    ; preds = %.noexc78
-  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE.argelim(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48, i32 noundef 2)
+  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48, i32 noundef 2)
           to label %invoke.cont53 unwind label %lpad52
 
 invoke.cont53:                                    ; preds = %invoke.cont51
@@ -8290,7 +8290,7 @@ lpad.i83:                                         ; preds = %.noexc86
   br label %eh.resume
 
 invoke.cont59:                                    ; preds = %.noexc86
-  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE.argelim(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp56, i32 noundef 2)
+  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp56, i32 noundef 2)
           to label %invoke.cont61 unwind label %lpad60
 
 invoke.cont61:                                    ; preds = %invoke.cont59
@@ -8315,7 +8315,7 @@ lpad.i91:                                         ; preds = %.noexc94
   br label %eh.resume
 
 invoke.cont67:                                    ; preds = %.noexc94
-  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE.argelim(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp64, i32 noundef 2)
+  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp64, i32 noundef 2)
           to label %invoke.cont69 unwind label %lpad68
 
 invoke.cont69:                                    ; preds = %invoke.cont67
@@ -8340,7 +8340,7 @@ lpad.i99:                                         ; preds = %.noexc102
   br label %eh.resume
 
 invoke.cont75:                                    ; preds = %.noexc102
-  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE.argelim(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp72, i32 noundef 2)
+  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp72, i32 noundef 2)
           to label %invoke.cont77 unwind label %lpad76
 
 invoke.cont77:                                    ; preds = %invoke.cont75
@@ -8365,7 +8365,7 @@ lpad.i107:                                        ; preds = %.noexc110
   br label %eh.resume
 
 invoke.cont83:                                    ; preds = %.noexc110
-  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE.argelim(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80, i32 noundef 2)
+  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80, i32 noundef 2)
           to label %invoke.cont85 unwind label %lpad84
 
 invoke.cont85:                                    ; preds = %invoke.cont83
@@ -8390,7 +8390,7 @@ lpad.i115:                                        ; preds = %.noexc118
   br label %eh.resume
 
 invoke.cont91:                                    ; preds = %.noexc118
-  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE.argelim(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp88, i32 noundef 2)
+  invoke fastcc void @_ZN12_GLOBAL__N_113ExpectSpecialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12chars_formatENS8_16strings_internal9FloatTypeE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp88, i32 noundef 2)
           to label %invoke.cont93 unwind label %lpad92
 
 invoke.cont93:                                    ; preds = %invoke.cont91

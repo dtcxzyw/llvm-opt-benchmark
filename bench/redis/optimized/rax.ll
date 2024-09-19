@@ -1961,9 +1961,9 @@ if.then34:                                        ; preds = %lor.lhs.false22, %r
 if.then37:                                        ; preds = %if.then34
   %ts.val60 = load i64, ptr %items.i, align 8
   %cmp.i65 = icmp eq i64 %ts.val60, 0
-  br i1 %cmp.i65, label %if.end43, label %raxStackPeek.argprom.exit
+  br i1 %cmp.i65, label %if.end43, label %raxStackPeek.exit
 
-raxStackPeek.argprom.exit:                        ; preds = %if.then37
+raxStackPeek.exit:                                ; preds = %if.then37
   %ts.val = load ptr, ptr %ts, align 8
   %23 = getelementptr ptr, ptr %ts.val, i64 %ts.val60
   %arrayidx.i67 = getelementptr i8, ptr %23, i64 -8
@@ -1971,7 +1971,7 @@ raxStackPeek.argprom.exit:                        ; preds = %if.then37
   %cmp39 = icmp eq ptr %24, null
   br i1 %cmp39, label %if.end43, label %if.else
 
-if.else:                                          ; preds = %raxStackPeek.argprom.exit
+if.else:                                          ; preds = %raxStackPeek.exit
   %data.i = getelementptr inbounds i8, ptr %24, i64 4
   %bf.load.i69 = load i32, ptr %24, align 4
   %bf.lshr.i = lshr i32 %bf.load.i69, 3
@@ -1991,8 +1991,8 @@ while.body.i:                                     ; preds = %while.body.i, %if.e
   %incdec.ptr.i = getelementptr inbounds i8, ptr %cp.0.i, i64 8
   br i1 %cmp.i73, label %if.end43, label %while.body.i
 
-if.end43:                                         ; preds = %while.body.i, %if.then37, %raxStackPeek.argprom.exit
-  %parentlink.0 = phi ptr [ %rax, %raxStackPeek.argprom.exit ], [ %rax, %if.then37 ], [ %cp.0.i, %while.body.i ]
+if.end43:                                         ; preds = %while.body.i, %if.then37, %raxStackPeek.exit
+  %parentlink.0 = phi ptr [ %rax, %raxStackPeek.exit ], [ %rax, %if.then37 ], [ %cp.0.i, %while.body.i ]
   store ptr %call35, ptr %parentlink.0, align 8
   br label %if.end44
 

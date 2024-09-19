@@ -110,7 +110,7 @@ define hidden i32 @df_yylex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not28.i, label %29, label %30
 
 29:                                               ; preds = %27
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.20) #30
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.20) #30
   unreachable
 
 30:                                               ; preds = %27
@@ -137,7 +137,7 @@ define hidden i32 @df_yylex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not30.i, label %41, label %42
 
 41:                                               ; preds = %37
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.20) #30
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.20) #30
   unreachable
 
 42:                                               ; preds = %37
@@ -441,7 +441,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %153, ptr %155, align 8
   %159 = load ptr, ptr %0, align 8
   %160 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %159, ptr noundef %160, i32 noundef 0)
+  tail call fastcc void @set_lval_simple(ptr noundef %159, ptr noundef %160, i32 noundef 0)
   br label %.loopexit
 
 161:                                              ; preds = %137
@@ -457,7 +457,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %164, ptr %166, align 8
   %170 = load ptr, ptr %0, align 8
   %171 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %170, ptr noundef %171, i32 noundef 0)
+  tail call fastcc void @set_lval_simple(ptr noundef %170, ptr noundef %171, i32 noundef 0)
   br label %.loopexit
 
 172:                                              ; preds = %137
@@ -473,7 +473,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %175, ptr %177, align 8
   %181 = load ptr, ptr %0, align 8
   %182 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %181, ptr noundef %182, i32 noundef 0)
+  tail call fastcc void @set_lval_simple(ptr noundef %181, ptr noundef %182, i32 noundef 0)
   br label %.loopexit
 
 183:                                              ; preds = %137
@@ -489,7 +489,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %186, ptr %188, align 8
   %192 = load ptr, ptr %0, align 8
   %193 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %192, ptr noundef %193, i32 noundef 0)
+  tail call fastcc void @set_lval_simple(ptr noundef %192, ptr noundef %193, i32 noundef 0)
   br label %.loopexit
 
 194:                                              ; preds = %137
@@ -505,7 +505,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %197, ptr %199, align 8
   %203 = load ptr, ptr %0, align 8
   %204 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %203, ptr noundef %204, i32 noundef 0)
+  tail call fastcc void @set_lval_simple(ptr noundef %203, ptr noundef %204, i32 noundef 0)
   br label %.loopexit
 
 205:                                              ; preds = %137
@@ -521,7 +521,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %208, ptr %210, align 8
   %214 = load ptr, ptr %0, align 8
   %215 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %214, ptr noundef %215, i32 noundef 0)
+  tail call fastcc void @set_lval_simple(ptr noundef %214, ptr noundef %215, i32 noundef 0)
   br label %.loopexit
 
 216:                                              ; preds = %137
@@ -537,7 +537,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %219, ptr %221, align 8
   %225 = load ptr, ptr %0, align 8
   %226 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %225, ptr noundef %226, i32 noundef 0)
+  tail call fastcc void @set_lval_simple(ptr noundef %225, ptr noundef %226, i32 noundef 0)
   br label %.loopexit
 
 227:                                              ; preds = %137
@@ -553,7 +553,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %230, ptr %232, align 8
   %236 = load ptr, ptr %0, align 8
   %237 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %236, ptr noundef %237, i32 noundef 0)
+  tail call fastcc void @set_lval_simple(ptr noundef %236, ptr noundef %237, i32 noundef 0)
   br label %.loopexit
 
 238:                                              ; preds = %137
@@ -569,7 +569,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %241, ptr %243, align 8
   %247 = load ptr, ptr %0, align 8
   %248 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %247, ptr noundef %248, i32 noundef 0)
+  tail call fastcc void @set_lval_simple(ptr noundef %247, ptr noundef %248, i32 noundef 0)
   br label %.loopexit
 
 249:                                              ; preds = %137
@@ -585,7 +585,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %252, ptr %254, align 8
   %258 = load ptr, ptr %0, align 8
   %259 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %258, ptr noundef %259, i32 noundef 0)
+  tail call fastcc void @set_lval_simple(ptr noundef %258, ptr noundef %259, i32 noundef 0)
   br label %.loopexit
 
 260:                                              ; preds = %137
@@ -601,7 +601,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %263, ptr %265, align 8
   %269 = load ptr, ptr %0, align 8
   %270 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %269, ptr noundef %270, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %269, ptr noundef %270, i32 noundef 1)
   br label %.loopexit
 
 271:                                              ; preds = %137
@@ -617,7 +617,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %274, ptr %276, align 8
   %280 = load ptr, ptr %0, align 8
   %281 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %280, ptr noundef %281, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %280, ptr noundef %281, i32 noundef 1)
   br label %.loopexit
 
 282:                                              ; preds = %137
@@ -633,7 +633,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %285, ptr %287, align 8
   %291 = load ptr, ptr %0, align 8
   %292 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %291, ptr noundef %292, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %291, ptr noundef %292, i32 noundef 1)
   br label %.loopexit
 
 293:                                              ; preds = %137
@@ -649,7 +649,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %296, ptr %298, align 8
   %302 = load ptr, ptr %0, align 8
   %303 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %302, ptr noundef %303, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %302, ptr noundef %303, i32 noundef 1)
   br label %.loopexit
 
 304:                                              ; preds = %137
@@ -665,7 +665,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %307, ptr %309, align 8
   %313 = load ptr, ptr %0, align 8
   %314 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %313, ptr noundef %314, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %313, ptr noundef %314, i32 noundef 1)
   br label %.loopexit
 
 315:                                              ; preds = %137
@@ -681,7 +681,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %318, ptr %320, align 8
   %324 = load ptr, ptr %0, align 8
   %325 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %324, ptr noundef %325, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %324, ptr noundef %325, i32 noundef 1)
   br label %.loopexit
 
 326:                                              ; preds = %137
@@ -697,7 +697,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %329, ptr %331, align 8
   %335 = load ptr, ptr %0, align 8
   %336 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %335, ptr noundef %336, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %335, ptr noundef %336, i32 noundef 1)
   br label %.loopexit
 
 337:                                              ; preds = %137
@@ -713,7 +713,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %340, ptr %342, align 8
   %346 = load ptr, ptr %0, align 8
   %347 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %346, ptr noundef %347, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %346, ptr noundef %347, i32 noundef 1)
   br label %.loopexit
 
 348:                                              ; preds = %137
@@ -729,7 +729,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %351, ptr %353, align 8
   %357 = load ptr, ptr %0, align 8
   %358 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %357, ptr noundef %358, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %357, ptr noundef %358, i32 noundef 1)
   br label %.loopexit
 
 359:                                              ; preds = %137
@@ -745,7 +745,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %362, ptr %364, align 8
   %368 = load ptr, ptr %0, align 8
   %369 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %368, ptr noundef %369, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %368, ptr noundef %369, i32 noundef 1)
   br label %.loopexit
 
 370:                                              ; preds = %137
@@ -761,7 +761,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %373, ptr %375, align 8
   %379 = load ptr, ptr %0, align 8
   %380 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %379, ptr noundef %380, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %379, ptr noundef %380, i32 noundef 1)
   br label %.loopexit
 
 381:                                              ; preds = %137
@@ -777,7 +777,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %384, ptr %386, align 8
   %390 = load ptr, ptr %0, align 8
   %391 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %390, ptr noundef %391, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %390, ptr noundef %391, i32 noundef 1)
   br label %.loopexit
 
 392:                                              ; preds = %137
@@ -793,7 +793,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %395, ptr %397, align 8
   %401 = load ptr, ptr %0, align 8
   %402 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %401, ptr noundef %402, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %401, ptr noundef %402, i32 noundef 1)
   br label %.loopexit
 
 403:                                              ; preds = %137
@@ -809,7 +809,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %406, ptr %408, align 8
   %412 = load ptr, ptr %0, align 8
   %413 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %412, ptr noundef %413, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %412, ptr noundef %413, i32 noundef 1)
   br label %.loopexit
 
 414:                                              ; preds = %137
@@ -825,7 +825,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %417, ptr %419, align 8
   %423 = load ptr, ptr %0, align 8
   %424 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %423, ptr noundef %424, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %423, ptr noundef %424, i32 noundef 1)
   br label %.loopexit
 
 425:                                              ; preds = %137
@@ -841,7 +841,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %428, ptr %430, align 8
   %434 = load ptr, ptr %0, align 8
   %435 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %434, ptr noundef %435, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %434, ptr noundef %435, i32 noundef 1)
   br label %.loopexit
 
 436:                                              ; preds = %137
@@ -857,7 +857,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %439, ptr %441, align 8
   %445 = load ptr, ptr %0, align 8
   %446 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %445, ptr noundef %446, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %445, ptr noundef %446, i32 noundef 1)
   br label %.loopexit
 
 447:                                              ; preds = %137
@@ -873,7 +873,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %450, ptr %452, align 8
   %456 = load ptr, ptr %0, align 8
   %457 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %456, ptr noundef %457, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %456, ptr noundef %457, i32 noundef 1)
   br label %.loopexit
 
 458:                                              ; preds = %137
@@ -889,7 +889,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %461, ptr %463, align 8
   %467 = load ptr, ptr %0, align 8
   %468 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %467, ptr noundef %468, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %467, ptr noundef %468, i32 noundef 1)
   br label %.loopexit
 
 469:                                              ; preds = %137
@@ -905,7 +905,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %472, ptr %474, align 8
   %478 = load ptr, ptr %0, align 8
   %479 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %478, ptr noundef %479, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %478, ptr noundef %479, i32 noundef 1)
   br label %.loopexit
 
 480:                                              ; preds = %137
@@ -921,7 +921,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %483, ptr %485, align 8
   %489 = load ptr, ptr %0, align 8
   %490 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %489, ptr noundef %490, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %489, ptr noundef %490, i32 noundef 1)
   br label %.loopexit
 
 491:                                              ; preds = %137
@@ -937,7 +937,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %494, ptr %496, align 8
   %500 = load ptr, ptr %0, align 8
   %501 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %500, ptr noundef %501, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %500, ptr noundef %501, i32 noundef 1)
   br label %.loopexit
 
 502:                                              ; preds = %137
@@ -953,7 +953,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %505, ptr %507, align 8
   %511 = load ptr, ptr %0, align 8
   %512 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %511, ptr noundef %512, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %511, ptr noundef %512, i32 noundef 1)
   br label %.loopexit
 
 513:                                              ; preds = %137
@@ -969,7 +969,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %516, ptr %518, align 8
   %522 = load ptr, ptr %0, align 8
   %523 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %522, ptr noundef %523, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %522, ptr noundef %523, i32 noundef 1)
   br label %.loopexit
 
 524:                                              ; preds = %137
@@ -985,7 +985,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %527, ptr %529, align 8
   %533 = load ptr, ptr %0, align 8
   %534 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %533, ptr noundef %534, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %533, ptr noundef %534, i32 noundef 1)
   br label %.loopexit
 
 535:                                              ; preds = %137
@@ -1001,7 +1001,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %538, ptr %540, align 8
   %544 = load ptr, ptr %0, align 8
   %545 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %544, ptr noundef %545, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %544, ptr noundef %545, i32 noundef 1)
   br label %.loopexit
 
 546:                                              ; preds = %137
@@ -1017,7 +1017,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %549, ptr %551, align 8
   %555 = load ptr, ptr %0, align 8
   %556 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %555, ptr noundef %556, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %555, ptr noundef %556, i32 noundef 1)
   br label %.loopexit
 
 557:                                              ; preds = %137
@@ -1033,7 +1033,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %560, ptr %562, align 8
   %566 = load ptr, ptr %0, align 8
   %567 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %566, ptr noundef %567, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %566, ptr noundef %567, i32 noundef 1)
   br label %.loopexit
 
 568:                                              ; preds = %137
@@ -1049,7 +1049,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %571, ptr %573, align 8
   %577 = load ptr, ptr %0, align 8
   %578 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %577, ptr noundef %578, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %577, ptr noundef %578, i32 noundef 1)
   br label %.loopexit
 
 579:                                              ; preds = %137
@@ -1065,7 +1065,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %582, ptr %584, align 8
   %588 = load ptr, ptr %0, align 8
   %589 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %588, ptr noundef %589, i32 noundef 1)
+  tail call fastcc void @set_lval_simple(ptr noundef %588, ptr noundef %589, i32 noundef 1)
   br label %.loopexit
 
 590:                                              ; preds = %137
@@ -1081,7 +1081,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %593, ptr %595, align 8
   %599 = load ptr, ptr %0, align 8
   %600 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %599, ptr noundef %600, i32 noundef 14)
+  tail call fastcc void @set_lval_simple(ptr noundef %599, ptr noundef %600, i32 noundef 14)
   br label %.loopexit
 
 601:                                              ; preds = %137
@@ -1097,7 +1097,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %604, ptr %606, align 8
   %610 = load ptr, ptr %0, align 8
   %611 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %610, ptr noundef %611, i32 noundef 14)
+  tail call fastcc void @set_lval_simple(ptr noundef %610, ptr noundef %611, i32 noundef 14)
   br label %.loopexit
 
 612:                                              ; preds = %137
@@ -1113,7 +1113,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %615, ptr %617, align 8
   %621 = load ptr, ptr %0, align 8
   %622 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %621, ptr noundef %622, i32 noundef 14)
+  tail call fastcc void @set_lval_simple(ptr noundef %621, ptr noundef %622, i32 noundef 14)
   br label %.loopexit
 
 623:                                              ; preds = %137
@@ -1129,7 +1129,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %626, ptr %628, align 8
   %632 = load ptr, ptr %0, align 8
   %633 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %632, ptr noundef %633, i32 noundef 14)
+  tail call fastcc void @set_lval_simple(ptr noundef %632, ptr noundef %633, i32 noundef 14)
   br label %.loopexit
 
 634:                                              ; preds = %137
@@ -1145,7 +1145,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %637, ptr %639, align 8
   %643 = load ptr, ptr %0, align 8
   %644 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %643, ptr noundef %644, i32 noundef 14)
+  tail call fastcc void @set_lval_simple(ptr noundef %643, ptr noundef %644, i32 noundef 14)
   br label %.loopexit
 
 645:                                              ; preds = %137
@@ -1161,7 +1161,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %648, ptr %650, align 8
   %654 = load ptr, ptr %0, align 8
   %655 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %654, ptr noundef %655, i32 noundef 14)
+  tail call fastcc void @set_lval_simple(ptr noundef %654, ptr noundef %655, i32 noundef 14)
   br label %.loopexit
 
 656:                                              ; preds = %137
@@ -1177,7 +1177,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %659, ptr %661, align 8
   %665 = load ptr, ptr %0, align 8
   %666 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %665, ptr noundef %666, i32 noundef 14)
+  tail call fastcc void @set_lval_simple(ptr noundef %665, ptr noundef %666, i32 noundef 14)
   br label %.loopexit
 
 667:                                              ; preds = %137
@@ -1193,7 +1193,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %670, ptr %672, align 8
   %676 = load ptr, ptr %0, align 8
   %677 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %676, ptr noundef %677, i32 noundef 14)
+  tail call fastcc void @set_lval_simple(ptr noundef %676, ptr noundef %677, i32 noundef 14)
   br label %.loopexit
 
 678:                                              ; preds = %137
@@ -1210,7 +1210,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %681, ptr %683, align 8
   %687 = load ptr, ptr %0, align 8
   %688 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %687, ptr noundef %688, i32 noundef 0)
+  tail call fastcc void @set_lval_simple(ptr noundef %687, ptr noundef %688, i32 noundef 0)
   br label %.loopexit
 
 689:                                              ; preds = %137
@@ -1227,7 +1227,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %692, ptr %694, align 8
   %698 = load ptr, ptr %0, align 8
   %699 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %698, ptr noundef %699, i32 noundef 0)
+  tail call fastcc void @set_lval_simple(ptr noundef %698, ptr noundef %699, i32 noundef 0)
   br label %.loopexit
 
 700:                                              ; preds = %137
@@ -1264,7 +1264,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %718, ptr %720, align 8
   %724 = load ptr, ptr %0, align 8
   %725 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %724, ptr noundef %725, i32 noundef 0)
+  tail call fastcc void @set_lval_simple(ptr noundef %724, ptr noundef %725, i32 noundef 0)
   br label %.loopexit
 
 726:                                              ; preds = %137
@@ -1280,7 +1280,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %729, ptr %731, align 8
   %735 = load ptr, ptr %0, align 8
   %736 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %735, ptr noundef %736, i32 noundef 0)
+  tail call fastcc void @set_lval_simple(ptr noundef %735, ptr noundef %736, i32 noundef 0)
   br label %.loopexit
 
 737:                                              ; preds = %137
@@ -1296,7 +1296,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %740, ptr %742, align 8
   %746 = load ptr, ptr %0, align 8
   %747 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %746, ptr noundef %747, i32 noundef 0)
+  tail call fastcc void @set_lval_simple(ptr noundef %746, ptr noundef %747, i32 noundef 0)
   br label %.loopexit
 
 748:                                              ; preds = %137
@@ -1313,7 +1313,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %751, ptr %753, align 8
   %757 = load ptr, ptr %0, align 8
   %758 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_simple.argelim(ptr noundef %757, ptr noundef %758, i32 noundef 0)
+  tail call fastcc void @set_lval_simple(ptr noundef %757, ptr noundef %758, i32 noundef 0)
   br label %.loopexit
 
 759:                                              ; preds = %137
@@ -1423,7 +1423,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %831 = load ptr, ptr %0, align 8
   %832 = getelementptr inbounds i8, ptr %831, i64 40
   %833 = load ptr, ptr %832, align 8
-  tail call fastcc void @set_lval_quoted_string.argelim(ptr noundef %831, ptr noundef %833)
+  tail call fastcc void @set_lval_quoted_string(ptr noundef %831, ptr noundef %833)
   %834 = load ptr, ptr %0, align 8
   %835 = getelementptr inbounds i8, ptr %834, i64 40
   store ptr null, ptr %835, align 8
@@ -1822,7 +1822,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %1118, ptr %1120, align 8
   %1124 = load ptr, ptr %0, align 8
   %1125 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_literal.argelim(ptr noundef %1124, ptr noundef %1125, ptr noundef %1125)
+  tail call fastcc void @set_lval_literal(ptr noundef %1124, ptr noundef %1125, ptr noundef %1125)
   br label %.loopexit
 
 1126:                                             ; preds = %137
@@ -1838,7 +1838,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %1129, ptr %1131, align 8
   %1135 = load ptr, ptr %0, align 8
   %1136 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_literal.argelim(ptr noundef %1135, ptr noundef %1136, ptr noundef %1136)
+  tail call fastcc void @set_lval_literal(ptr noundef %1135, ptr noundef %1136, ptr noundef %1136)
   br label %.loopexit
 
 1137:                                             ; preds = %137
@@ -1854,7 +1854,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %1140, ptr %1142, align 8
   %1146 = load ptr, ptr %0, align 8
   %1147 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_literal.argelim(ptr noundef %1146, ptr noundef %1147, ptr noundef %1147)
+  tail call fastcc void @set_lval_literal(ptr noundef %1146, ptr noundef %1147, ptr noundef %1147)
   br label %.loopexit
 
 1148:                                             ; preds = %137
@@ -1879,7 +1879,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   br i1 %.not588, label %1165, label %1164
 
 1164:                                             ; preds = %1148
-  tail call fastcc void @set_lval_field.argelim(ptr noundef %1162, ptr noundef %1161, ptr noundef %1163)
+  tail call fastcc void @set_lval_field(ptr noundef %1162, ptr noundef %1161, ptr noundef %1163)
   br label %.loopexit
 
 1165:                                             ; preds = %1148
@@ -1940,7 +1940,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   br i1 %.not587, label %1208, label %1207
 
 1207:                                             ; preds = %1191
-  tail call fastcc void @set_lval_field.argelim(ptr noundef %1205, ptr noundef %1204, ptr noundef %1206)
+  tail call fastcc void @set_lval_field(ptr noundef %1205, ptr noundef %1204, ptr noundef %1206)
   br label %.loopexit
 
 1208:                                             ; preds = %1191
@@ -1977,7 +1977,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %1231 = load ptr, ptr %0, align 8
   %1232 = load ptr, ptr %74, align 8
   %1233 = getelementptr i8, ptr %1232, i64 1
-  tail call fastcc void @set_lval_literal.argelim(ptr noundef %1231, ptr noundef %1233, ptr noundef %1232)
+  tail call fastcc void @set_lval_literal(ptr noundef %1231, ptr noundef %1233, ptr noundef %1232)
   br label %.loopexit
 
 1234:                                             ; preds = %137
@@ -1999,11 +1999,11 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 
 1247:                                             ; preds = %1234
   %1248 = getelementptr i8, ptr %1243, i64 1
-  tail call fastcc void @set_lval_literal.argelim(ptr noundef %1246, ptr noundef %1248, ptr noundef nonnull %1243)
+  tail call fastcc void @set_lval_literal(ptr noundef %1246, ptr noundef %1248, ptr noundef nonnull %1243)
   br label %.loopexit
 
 1249:                                             ; preds = %1234
-  tail call fastcc void @set_lval_literal.argelim(ptr noundef %1246, ptr noundef nonnull %1243, ptr noundef nonnull %1243)
+  tail call fastcc void @set_lval_literal(ptr noundef %1246, ptr noundef nonnull %1243, ptr noundef nonnull %1243)
   br label %.loopexit
 
 1250:                                             ; preds = %137
@@ -2020,7 +2020,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %1259 = load ptr, ptr %0, align 8
   %1260 = load ptr, ptr %74, align 8
   %1261 = getelementptr i8, ptr %1260, i64 1
-  tail call fastcc void @set_lval_literal.argelim(ptr noundef %1259, ptr noundef %1261, ptr noundef %1260)
+  tail call fastcc void @set_lval_literal(ptr noundef %1259, ptr noundef %1261, ptr noundef %1260)
   br label %.loopexit
 
 1262:                                             ; preds = %137
@@ -2037,7 +2037,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %1271 = load ptr, ptr %0, align 8
   %1272 = load ptr, ptr %74, align 8
   %1273 = getelementptr i8, ptr %1272, i64 1
-  tail call fastcc void @set_lval_literal.argelim(ptr noundef %1271, ptr noundef %1273, ptr noundef %1272)
+  tail call fastcc void @set_lval_literal(ptr noundef %1271, ptr noundef %1273, ptr noundef %1272)
   br label %.loopexit
 
 1274:                                             ; preds = %137
@@ -2053,7 +2053,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %1277, ptr %1279, align 8
   %1283 = load ptr, ptr %0, align 8
   %1284 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_identifier.argelim(ptr noundef %1283, ptr noundef %1284, ptr noundef %1284)
+  tail call fastcc void @set_lval_identifier(ptr noundef %1283, ptr noundef %1284, ptr noundef %1284)
   br label %.loopexit
 
 1285:                                             ; preds = %137
@@ -2087,7 +2087,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 
 1307:                                             ; preds = %1285
   %1308 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_field.argelim(ptr noundef %1301, ptr noundef %1299, ptr noundef %1308)
+  tail call fastcc void @set_lval_field(ptr noundef %1301, ptr noundef %1299, ptr noundef %1308)
   br label %.loopexit
 
 1309:                                             ; preds = %137
@@ -2103,7 +2103,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %1312, ptr %1314, align 8
   %1318 = load ptr, ptr %0, align 8
   %1319 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_unparsed.argelim(ptr noundef %1318, ptr noundef %1319, ptr noundef %1319)
+  tail call fastcc void @set_lval_unparsed(ptr noundef %1318, ptr noundef %1319, ptr noundef %1319)
   br label %.loopexit
 
 1320:                                             ; preds = %137
@@ -2119,7 +2119,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %1323, ptr %1325, align 8
   %1329 = load ptr, ptr %0, align 8
   %1330 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_literal.argelim(ptr noundef %1329, ptr noundef %1330, ptr noundef %1330)
+  tail call fastcc void @set_lval_literal(ptr noundef %1329, ptr noundef %1330, ptr noundef %1330)
   br label %.loopexit
 
 1331:                                             ; preds = %137
@@ -2253,7 +2253,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   br i1 %1409, label %1410, label %1411
 
 1410:                                             ; preds = %1404
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.16) #30
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.16) #30
   unreachable
 
 1411:                                             ; preds = %1404
@@ -2361,7 +2361,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   br i1 %.not149.i, label %.loopexit.i, label %1461
 
 .loopexit.i:                                      ; preds = %1457, %.thread.i
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.17) #30
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.17) #30
   unreachable
 
 1461:                                             ; preds = %1457
@@ -2450,7 +2450,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   br i1 %.not145.i, label %1502, label %1501
 
 1501:                                             ; preds = %1498
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.18) #30
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.18) #30
   unreachable
 
 1502:                                             ; preds = %1498, %.thread154.i, %.critedge.i
@@ -2490,7 +2490,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   br i1 %.not143.i, label %1523, label %1522
 
 1522:                                             ; preds = %1520
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.18) #30
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.18) #30
   unreachable
 
 1523:                                             ; preds = %1520
@@ -2582,7 +2582,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   br i1 %.not151.i, label %1583, label %1584
 
 1583:                                             ; preds = %1565
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.19) #30
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.19) #30
   unreachable
 
 1584:                                             ; preds = %1565
@@ -2673,7 +2673,7 @@ yy_get_next_buffer.exit.thread591:                ; preds = %1417, %yy_get_next_
   br label %.outer.backedge
 
 1630:                                             ; preds = %137
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.9) #30
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.9) #30
   unreachable
 
 default.unreachable1081:                          ; preds = %yy_get_next_buffer.exit
@@ -2691,7 +2691,7 @@ define hidden nonnull ptr @df_yy_create_buffer(ptr noundef %0, i32 noundef %1, p
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.10) #30
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.10) #30
   unreachable
 
 6:                                                ; preds = %3
@@ -2706,7 +2706,7 @@ define hidden nonnull ptr @df_yy_create_buffer(ptr noundef %0, i32 noundef %1, p
   br i1 %.not14, label %12, label %13
 
 12:                                               ; preds = %6
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.10) #30
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.10) #30
   unreachable
 
 13:                                               ; preds = %6
@@ -2791,7 +2791,7 @@ df_yy_init_buffer.exit:                           ; preds = %45, %.thread.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_lval_simple.argelim(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 0, 15) %2) unnamed_addr #0 {
+define internal fastcc void @set_lval_simple(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 0, 15) %2) unnamed_addr #0 {
   %4 = tail call noalias ptr @g_strdup(ptr noundef %1) #33
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load i64, ptr %5, align 8
@@ -2813,7 +2813,7 @@ declare ptr @g_string_new(ptr noundef) local_unnamed_addr #2
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_lval_quoted_string.argelim(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @set_lval_quoted_string(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
@@ -3417,7 +3417,7 @@ define internal fastcc range(i32 -1, 27) i32 @set_lval_charconst(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_lval_literal.argelim(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @set_lval_literal(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call noalias ptr @g_strdup(ptr noundef %1) #33
   %5 = tail call noalias ptr @g_strdup(ptr noundef %2) #33
   %6 = getelementptr inbounds i8, ptr %0, i64 72
@@ -3433,7 +3433,7 @@ define internal fastcc void @set_lval_literal.argelim(ptr nocapture noundef %0, 
 declare ptr @dfilter_resolve_unparsed(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_lval_field.argelim(ptr nocapture noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @set_lval_field(ptr nocapture noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call noalias ptr @g_strdup(ptr noundef %2) #33
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load i64, ptr %5, align 8
@@ -3476,18 +3476,18 @@ define internal fastcc range(i32 27, 29) i32 @set_lval_integer(ptr nocapture nou
   %storemerge.i = phi i64 [ %15, %14 ], [ %13, %11 ]
   %17 = load i32, ptr %5, align 4
   %18 = icmp eq i32 %17, 22
-  br i1 %18, label %parse_unsigned_long_long.argprom.exit.thread, label %19
+  br i1 %18, label %parse_unsigned_long_long.exit.thread, label %19
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %4, align 8
   %21 = icmp eq ptr %20, %1
-  br i1 %21, label %parse_unsigned_long_long.argprom.exit.thread, label %parse_unsigned_long_long.argprom.exit
+  br i1 %21, label %parse_unsigned_long_long.exit.thread, label %parse_unsigned_long_long.exit
 
-parse_unsigned_long_long.argprom.exit.thread:     ; preds = %16, %19
+parse_unsigned_long_long.exit.thread:             ; preds = %16, %19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %23
 
-parse_unsigned_long_long.argprom.exit:            ; preds = %19
+parse_unsigned_long_long.exit:                    ; preds = %19
   %22 = load i8, ptr %20, align 1
   %.not.i = icmp eq i8 %22, 0
   %cond.i = icmp eq i32 %17, 0
@@ -3495,7 +3495,7 @@ parse_unsigned_long_long.argprom.exit:            ; preds = %19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br i1 %or.cond.i, label %32, label %23
 
-23:                                               ; preds = %parse_unsigned_long_long.argprom.exit.thread, %parse_unsigned_long_long.argprom.exit
+23:                                               ; preds = %parse_unsigned_long_long.exit.thread, %parse_unsigned_long_long.exit
   %24 = call noalias ptr @g_strdup(ptr noundef nonnull %1) #33
   %25 = call noalias ptr @g_strdup(ptr noundef %2) #33
   %26 = getelementptr inbounds i8, ptr %0, i64 72
@@ -3507,7 +3507,7 @@ parse_unsigned_long_long.argprom.exit:            ; preds = %19
   store ptr %30, ptr %31, align 8
   br label %40
 
-32:                                               ; preds = %parse_unsigned_long_long.argprom.exit
+32:                                               ; preds = %parse_unsigned_long_long.exit
   %33 = call noalias ptr @g_strdup(ptr noundef %2) #33
   %34 = getelementptr inbounds i8, ptr %0, i64 72
   %35 = load i64, ptr %34, align 8
@@ -3604,7 +3604,7 @@ parse_double.exit.thread:                         ; preds = %11, %26, %25, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_lval_identifier.argelim(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @set_lval_identifier(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call noalias ptr @g_strdup(ptr noundef %1) #33
   %5 = tail call noalias ptr @g_strdup(ptr noundef %2) #33
   %6 = getelementptr inbounds i8, ptr %0, i64 72
@@ -3619,7 +3619,7 @@ define internal fastcc void @set_lval_identifier.argelim(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_lval_unparsed.argelim(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @set_lval_unparsed(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call noalias ptr @g_strdup(ptr noundef %1) #33
   %5 = tail call noalias ptr @g_strdup(ptr noundef %2) #33
   %6 = getelementptr inbounds i8, ptr %0, i64 72
@@ -3786,7 +3786,7 @@ define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 nounde
 }
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @yy_fatal_error.argprom(ptr noundef %0) unnamed_addr #8 {
+define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #8 {
   %2 = load ptr, ptr @stderr, align 8
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.21, ptr noundef %0) #35
   tail call void @exit(i32 noundef 2) #36
@@ -3815,7 +3815,7 @@ define hidden void @df_yyrestart(ptr noundef %0, ptr nocapture noundef %1) local
   br i1 %.not28.i, label %12, label %13
 
 12:                                               ; preds = %10
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.20) #30
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.20) #30
   unreachable
 
 13:                                               ; preds = %10
@@ -3842,7 +3842,7 @@ define hidden void @df_yyrestart(ptr noundef %0, ptr nocapture noundef %1) local
   br i1 %.not30.i, label %24, label %25
 
 24:                                               ; preds = %20
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.20) #30
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.20) #30
   unreachable
 
 25:                                               ; preds = %20
@@ -3999,7 +3999,7 @@ define hidden void @df_yy_switch_to_buffer(ptr noundef %0, ptr nocapture noundef
   br i1 %.not28.i, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.20) #30
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.20) #30
   unreachable
 
 8:                                                ; preds = %5
@@ -4028,7 +4028,7 @@ define hidden void @df_yy_switch_to_buffer(ptr noundef %0, ptr nocapture noundef
   br i1 %.not30.i, label %21, label %22
 
 21:                                               ; preds = %17
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.20) #30
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.20) #30
   unreachable
 
 22:                                               ; preds = %17
@@ -4243,7 +4243,7 @@ define hidden void @df_yypush_buffer_state(ptr noundef %0, ptr nocapture noundef
   br i1 %.not28.i, label %9, label %10
 
 9:                                                ; preds = %7
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.20) #30
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.20) #30
   unreachable
 
 10:                                               ; preds = %7
@@ -4272,7 +4272,7 @@ define hidden void @df_yypush_buffer_state(ptr noundef %0, ptr nocapture noundef
   br i1 %.not30.i, label %23, label %24
 
 23:                                               ; preds = %19
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.20) #30
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.20) #30
   unreachable
 
 24:                                               ; preds = %19
@@ -4467,7 +4467,7 @@ define hidden noundef ptr @df_yy_scan_buffer(ptr noundef %0, i64 noundef %1, ptr
   br i1 %.not27, label %15, label %16
 
 15:                                               ; preds = %13
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.11) #30
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.11) #30
   unreachable
 
 16:                                               ; preds = %13
@@ -4532,7 +4532,7 @@ define hidden nonnull ptr @df_yy_scan_bytes(ptr nocapture noundef readonly %0, i
   br label %21
 
 14:                                               ; preds = %3
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.12) #30
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #30
   unreachable
 
 ._crit_edge:                                      ; preds = %.preheader
@@ -4566,11 +4566,11 @@ define hidden nonnull ptr @df_yy_scan_bytes(ptr nocapture noundef readonly %0, i
   br i1 %.not27.i, label %31, label %33
 
 31:                                               ; preds = %29
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.11) #30
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.11) #30
   unreachable
 
 32:                                               ; preds = %25, %21, %._crit_edge
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.13) #30
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #30
   unreachable
 
 33:                                               ; preds = %29
@@ -4708,7 +4708,7 @@ define hidden void @df_yyset_lineno(i32 noundef %0, ptr nocapture noundef readon
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.14) #30
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #30
   unreachable
 
 11:                                               ; preds = %5
@@ -4733,7 +4733,7 @@ define hidden void @df_yyset_column(i32 noundef %0, ptr nocapture noundef readon
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.15) #30
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.15) #30
   unreachable
 
 11:                                               ; preds = %5

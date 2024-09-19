@@ -154,7 +154,7 @@ Abc_NtkFxuCheck.exit:                             ; preds = %.critedge2.i, %3
   %47 = getelementptr i8, ptr %.val35.i15, i64 4
   %.val35.val.i = load i32, ptr %47, align 4
   %.not.i.i.i = icmp sgt i32 %.val35.val.i, 0
-  br i1 %.not.i.i.i, label %.lr.ph.i.i, label %Vec_PtrFill.argprom.exit.i
+  br i1 %.not.i.i.i, label %.lr.ph.i.i, label %Vec_PtrFill.exit.i
 
 .lr.ph.i.i:                                       ; preds = %Abc_NtkFxuCheck.exit
   %48 = getelementptr inbounds i8, ptr %calloc.i.i, i64 8
@@ -172,16 +172,16 @@ Abc_NtkFxuCheck.exit:                             ; preds = %.critedge2.i, %3
   store ptr null, ptr %54, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %49
-  br i1 %exitcond.not.i.i, label %Vec_PtrFill.argprom.exit.loopexit.i, label %52, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %Vec_PtrFill.exit.loopexit.i, label %52, !llvm.loop !8
 
-Vec_PtrFill.argprom.exit.loopexit.i:              ; preds = %52
+Vec_PtrFill.exit.loopexit.i:                      ; preds = %52
   %.pre.i = load ptr, ptr %44, align 8
   %.val36.pre.i = load ptr, ptr %4, align 8
-  br label %Vec_PtrFill.argprom.exit.i
+  br label %Vec_PtrFill.exit.i
 
-Vec_PtrFill.argprom.exit.i:                       ; preds = %Vec_PtrFill.argprom.exit.loopexit.i, %Abc_NtkFxuCheck.exit
-  %.val36.i = phi ptr [ %.val36.pre.i, %Vec_PtrFill.argprom.exit.loopexit.i ], [ %.val35.i15, %Abc_NtkFxuCheck.exit ]
-  %55 = phi ptr [ %.pre.i, %Vec_PtrFill.argprom.exit.loopexit.i ], [ %calloc.i40.i, %Abc_NtkFxuCheck.exit ]
+Vec_PtrFill.exit.i:                               ; preds = %Vec_PtrFill.exit.loopexit.i, %Abc_NtkFxuCheck.exit
+  %.val36.i = phi ptr [ %.val36.pre.i, %Vec_PtrFill.exit.loopexit.i ], [ %.val35.i15, %Abc_NtkFxuCheck.exit ]
+  %55 = phi ptr [ %.pre.i, %Vec_PtrFill.exit.loopexit.i ], [ %calloc.i40.i, %Abc_NtkFxuCheck.exit ]
   %56 = getelementptr inbounds i8, ptr %calloc.i.i, i64 4
   store i32 %.val35.val.i, ptr %56, align 4
   %57 = getelementptr i8, ptr %.val36.i, i64 4
@@ -190,7 +190,7 @@ Vec_PtrFill.argprom.exit.i:                       ; preds = %Vec_PtrFill.argprom
   %.not.i.i43.i = icmp slt i32 %58, %.val36.val.i
   br i1 %.not.i.i43.i, label %59, label %Vec_PtrGrow.exit.i44.i
 
-59:                                               ; preds = %Vec_PtrFill.argprom.exit.i
+59:                                               ; preds = %Vec_PtrFill.exit.i
   %60 = getelementptr inbounds i8, ptr %55, i64 8
   %61 = load ptr, ptr %60, align 8
   %.not9.i.i50.i = icmp eq ptr %61, null
@@ -212,9 +212,9 @@ Vec_PtrFill.argprom.exit.i:                       ; preds = %Vec_PtrFill.argprom
   store i32 %.val36.val.i, ptr %55, align 8
   br label %Vec_PtrGrow.exit.i44.i
 
-Vec_PtrGrow.exit.i44.i:                           ; preds = %68, %Vec_PtrFill.argprom.exit.i
+Vec_PtrGrow.exit.i44.i:                           ; preds = %68, %Vec_PtrFill.exit.i
   %70 = icmp sgt i32 %.val36.val.i, 0
-  br i1 %70, label %.lr.ph.i45.i, label %Vec_PtrFill.argprom.exit51.i
+  br i1 %70, label %.lr.ph.i45.i, label %Vec_PtrFill.exit51.i
 
 .lr.ph.i45.i:                                     ; preds = %Vec_PtrGrow.exit.i44.i
   %71 = getelementptr inbounds i8, ptr %55, i64 8
@@ -228,9 +228,9 @@ Vec_PtrGrow.exit.i44.i:                           ; preds = %68, %Vec_PtrFill.ar
   store ptr null, ptr %74, align 8
   %indvars.iv.next.i48.i = add nuw nsw i64 %indvars.iv.i47.i, 1
   %exitcond.not.i49.i = icmp eq i64 %indvars.iv.next.i48.i, %wide.trip.count.i46.i
-  br i1 %exitcond.not.i49.i, label %Vec_PtrFill.argprom.exit51.i, label %72, !llvm.loop !8
+  br i1 %exitcond.not.i49.i, label %Vec_PtrFill.exit51.i, label %72, !llvm.loop !8
 
-Vec_PtrFill.argprom.exit51.i:                     ; preds = %72, %Vec_PtrGrow.exit.i44.i
+Vec_PtrFill.exit51.i:                             ; preds = %72, %Vec_PtrGrow.exit.i44.i
   %75 = getelementptr inbounds i8, ptr %55, i64 4
   store i32 %.val36.val.i, ptr %75, align 4
   %76 = load ptr, ptr %45, align 8
@@ -244,7 +244,7 @@ Vec_PtrFill.argprom.exit51.i:                     ; preds = %72, %Vec_PtrGrow.ex
   %.not.i.i52.i = icmp slt i32 %81, %80
   br i1 %.not.i.i52.i, label %82, label %Vec_PtrGrow.exit.i53.i
 
-82:                                               ; preds = %Vec_PtrFill.argprom.exit51.i
+82:                                               ; preds = %Vec_PtrFill.exit51.i
   %83 = getelementptr inbounds i8, ptr %76, i64 8
   %84 = load ptr, ptr %83, align 8
   %.not9.i.i59.i = icmp eq ptr %84, null
@@ -266,9 +266,9 @@ Vec_PtrFill.argprom.exit51.i:                     ; preds = %72, %Vec_PtrGrow.ex
   store i32 %80, ptr %76, align 8
   br label %Vec_PtrGrow.exit.i53.i
 
-Vec_PtrGrow.exit.i53.i:                           ; preds = %91, %Vec_PtrFill.argprom.exit51.i
+Vec_PtrGrow.exit.i53.i:                           ; preds = %91, %Vec_PtrFill.exit51.i
   %93 = icmp sgt i32 %80, 0
-  br i1 %93, label %.lr.ph.i54.i, label %Vec_PtrFill.argprom.exit60.i
+  br i1 %93, label %.lr.ph.i54.i, label %Vec_PtrFill.exit60.i
 
 .lr.ph.i54.i:                                     ; preds = %Vec_PtrGrow.exit.i53.i
   %94 = getelementptr inbounds i8, ptr %76, i64 8
@@ -282,9 +282,9 @@ Vec_PtrGrow.exit.i53.i:                           ; preds = %91, %Vec_PtrFill.ar
   store ptr null, ptr %97, align 8
   %indvars.iv.next.i57.i = add nuw nsw i64 %indvars.iv.i56.i, 1
   %exitcond.not.i58.i = icmp eq i64 %indvars.iv.next.i57.i, %wide.trip.count.i55.i
-  br i1 %exitcond.not.i58.i, label %Vec_PtrFill.argprom.exit60.i, label %95, !llvm.loop !8
+  br i1 %exitcond.not.i58.i, label %Vec_PtrFill.exit60.i, label %95, !llvm.loop !8
 
-Vec_PtrFill.argprom.exit60.i:                     ; preds = %95, %Vec_PtrGrow.exit.i53.i
+Vec_PtrFill.exit60.i:                             ; preds = %95, %Vec_PtrGrow.exit.i53.i
   %98 = getelementptr inbounds i8, ptr %76, i64 4
   store i32 %80, ptr %98, align 4
   %99 = load ptr, ptr %46, align 8
@@ -297,7 +297,7 @@ Vec_PtrFill.argprom.exit60.i:                     ; preds = %95, %Vec_PtrGrow.ex
   %.not.i.i61.i = icmp slt i32 %103, %102
   br i1 %.not.i.i61.i, label %104, label %Vec_PtrGrow.exit.i62.i
 
-104:                                              ; preds = %Vec_PtrFill.argprom.exit60.i
+104:                                              ; preds = %Vec_PtrFill.exit60.i
   %105 = getelementptr inbounds i8, ptr %99, i64 8
   %106 = load ptr, ptr %105, align 8
   %.not9.i.i68.i = icmp eq ptr %106, null
@@ -319,9 +319,9 @@ Vec_PtrFill.argprom.exit60.i:                     ; preds = %95, %Vec_PtrGrow.ex
   store i32 %102, ptr %99, align 8
   br label %Vec_PtrGrow.exit.i62.i
 
-Vec_PtrGrow.exit.i62.i:                           ; preds = %113, %Vec_PtrFill.argprom.exit60.i
+Vec_PtrGrow.exit.i62.i:                           ; preds = %113, %Vec_PtrFill.exit60.i
   %115 = icmp sgt i32 %102, 0
-  br i1 %115, label %.lr.ph.i63.i, label %Vec_PtrFill.argprom.exit69.i
+  br i1 %115, label %.lr.ph.i63.i, label %Vec_PtrFill.exit69.i
 
 .lr.ph.i63.i:                                     ; preds = %Vec_PtrGrow.exit.i62.i
   %116 = getelementptr inbounds i8, ptr %99, i64 8
@@ -335,9 +335,9 @@ Vec_PtrGrow.exit.i62.i:                           ; preds = %113, %Vec_PtrFill.a
   store ptr null, ptr %119, align 8
   %indvars.iv.next.i66.i = add nuw nsw i64 %indvars.iv.i65.i, 1
   %exitcond.not.i67.i = icmp eq i64 %indvars.iv.next.i66.i, %wide.trip.count.i64.i
-  br i1 %exitcond.not.i67.i, label %Vec_PtrFill.argprom.exit69.i, label %117, !llvm.loop !8
+  br i1 %exitcond.not.i67.i, label %Vec_PtrFill.exit69.i, label %117, !llvm.loop !8
 
-Vec_PtrFill.argprom.exit69.i:                     ; preds = %117, %Vec_PtrGrow.exit.i62.i
+Vec_PtrFill.exit69.i:                             ; preds = %117, %Vec_PtrGrow.exit.i62.i
   %120 = getelementptr inbounds i8, ptr %99, i64 4
   store i32 %102, ptr %120, align 4
   %121 = load ptr, ptr %4, align 8
@@ -346,9 +346,9 @@ Vec_PtrFill.argprom.exit69.i:                     ; preds = %117, %Vec_PtrGrow.e
   %123 = icmp sgt i32 %.val70.i, 0
   br i1 %123, label %.lr.ph.i19, label %Abc_NtkFxuCollectInfo.exit
 
-.lr.ph.i19:                                       ; preds = %Vec_PtrFill.argprom.exit69.i, %152
-  %indvars.iv.i20 = phi i64 [ %indvars.iv.next.i24, %152 ], [ 0, %Vec_PtrFill.argprom.exit69.i ]
-  %124 = phi ptr [ %153, %152 ], [ %121, %Vec_PtrFill.argprom.exit69.i ]
+.lr.ph.i19:                                       ; preds = %Vec_PtrFill.exit69.i, %152
+  %indvars.iv.i20 = phi i64 [ %indvars.iv.next.i24, %152 ], [ 0, %Vec_PtrFill.exit69.i ]
+  %124 = phi ptr [ %153, %152 ], [ %121, %Vec_PtrFill.exit69.i ]
   %125 = getelementptr i8, ptr %124, i64 8
   %.val33.val.i21 = load ptr, ptr %125, align 8
   %126 = getelementptr inbounds ptr, ptr %.val33.val.i21, i64 %indvars.iv.i20
@@ -400,8 +400,8 @@ Vec_PtrFill.argprom.exit69.i:                     ; preds = %117, %Vec_PtrGrow.e
   %156 = icmp slt i64 %indvars.iv.next.i24, %155
   br i1 %156, label %.lr.ph.i19, label %Abc_NtkFxuCollectInfo.exit, !llvm.loop !9
 
-Abc_NtkFxuCollectInfo.exit:                       ; preds = %152, %Vec_PtrFill.argprom.exit69.i
-  %.val.lcssa.i = phi i32 [ %.val70.i, %Vec_PtrFill.argprom.exit69.i ], [ %.val.i25, %152 ]
+Abc_NtkFxuCollectInfo.exit:                       ; preds = %152, %Vec_PtrFill.exit69.i
+  %.val.lcssa.i = phi i32 [ %.val70.i, %Vec_PtrFill.exit69.i ], [ %.val.i25, %152 ]
   %157 = getelementptr inbounds i8, ptr %1, i64 88
   store i32 %.val.lcssa.i, ptr %157, align 8
   %158 = tail call i32 @Fxu_FastExtract(ptr noundef %1) #9

@@ -4842,7 +4842,7 @@ _sp_mul_4.exit:                                   ; preds = %land.rhs.i, %for.in
   br label %if.end27
 
 if.else23:                                        ; preds = %if.else
-  tail call fastcc void @_sp_mul.retelim(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef nonnull %r)
+  tail call fastcc void @_sp_mul(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef nonnull %r)
   br label %if.end27
 
 if.end27:                                         ; preds = %entry, %land.lhs.true, %if.then16, %if.else23, %_sp_mul_4.exit
@@ -4851,7 +4851,7 @@ if.end27:                                         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_sp_mul.retelim(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef %r) unnamed_addr #7 {
+define internal fastcc void @_sp_mul(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef %r) unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %a, align 8
   %1 = load i32, ptr %b, align 8
@@ -6901,13 +6901,13 @@ for.body71.i:                                     ; preds = %for.inc106.i, %_sp_
   br i1 %cmp83.i, label %if.end98.i, label %do.body225.i
 
 if.end98.i:                                       ; preds = %for.body71.i
-  tail call fastcc void @_sp_mont_red.retelim(ptr noundef nonnull %20, ptr noundef nonnull %m, i64 noundef %mp, i32 noundef 0)
+  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %20, ptr noundef nonnull %m, i64 noundef %mp, i32 noundef 0)
   %call97.i = tail call i32 @sp_mul(ptr noundef nonnull %20, ptr noundef nonnull %a, ptr noundef nonnull %20)
   %cmp99.i = icmp eq i32 %call97.i, 0
   br i1 %cmp99.i, label %for.inc106.i, label %do.body225.i
 
 for.inc106.i:                                     ; preds = %if.end98.i
-  tail call fastcc void @_sp_mont_red.retelim(ptr noundef nonnull %20, ptr noundef nonnull %m, i64 noundef %mp, i32 noundef 0)
+  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %20, ptr noundef nonnull %m, i64 noundef %mp, i32 noundef 0)
   %indvars.iv.next240.i = add nuw nsw i64 %indvars.iv239.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next240.i, 8
   br i1 %exitcond.not, label %if.then112.i, label %for.body71.i, !llvm.loop !67
@@ -7175,7 +7175,7 @@ for.body158.i:                                    ; preds = %if.then148.i, %for.
   br i1 %cmp160.i, label %for.inc165.i, label %do.body225.i
 
 for.inc165.i:                                     ; preds = %for.body158.i
-  tail call fastcc void @_sp_mont_red.retelim(ptr noundef nonnull %12, ptr noundef nonnull %m, i64 noundef %mp, i32 noundef 0)
+  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %12, ptr noundef nonnull %m, i64 noundef %mp, i32 noundef 0)
   %dec166.i = add nsw i32 %s.2219.i, -1
   %cmp155.i = icmp ugt i32 %s.2219.i, 1
   br i1 %cmp155.i, label %for.body158.i, label %if.end175.i, !llvm.loop !69
@@ -7190,7 +7190,7 @@ if.end175.i:                                      ; preds = %for.inc165.i, %if.t
   br i1 %cmp176.i, label %if.then178.i, label %do.body225.i
 
 if.then178.i:                                     ; preds = %if.end175.i
-  tail call fastcc void @_sp_mont_red.retelim(ptr noundef nonnull %12, ptr noundef nonnull %m, i64 noundef %mp, i32 noundef 0)
+  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %12, ptr noundef nonnull %m, i64 noundef %mp, i32 noundef 0)
   br label %for.inc182.i
 
 for.inc182.i:                                     ; preds = %if.then178.i, %lor.lhs.false143.i
@@ -7211,7 +7211,7 @@ for.body196.i:                                    ; preds = %for.cond189.prehead
   br i1 %cmp198.i, label %for.inc203.i, label %do.body225.i
 
 for.inc203.i:                                     ; preds = %for.body196.i
-  tail call fastcc void @_sp_mont_red.retelim(ptr noundef nonnull %12, ptr noundef nonnull %m, i64 noundef %mp, i32 noundef 0)
+  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %12, ptr noundef nonnull %m, i64 noundef %mp, i32 noundef 0)
   %dec204.i = add nsw i32 %s.4230.i, -1
   %cmp193.i = icmp ugt i32 %s.4230.i, 1
   br i1 %cmp193.i, label %for.body196.i, label %if.then209.i, !llvm.loop !71
@@ -7230,7 +7230,7 @@ if.then212.i:                                     ; preds = %if.then209.i
   br i1 %cmp217.i, label %if.then219.i, label %do.body225.i
 
 if.then219.i:                                     ; preds = %if.then212.i
-  tail call fastcc void @_sp_mont_red.retelim(ptr noundef %r, ptr noundef nonnull %m, i64 noundef %mp, i32 noundef 0)
+  tail call fastcc void @_sp_mont_red(ptr noundef %r, ptr noundef nonnull %m, i64 noundef %mp, i32 noundef 0)
   br label %do.body225.i
 
 if.else222thread-pre-split.i:                     ; preds = %if.then209.i
@@ -7667,7 +7667,7 @@ for.body170.us:                                   ; preds = %if.end162, %for.inc
   br i1 %cmp172.us, label %for.inc182.us, label %do.end216
 
 for.inc182.us:                                    ; preds = %for.body170.us
-  call fastcc void @_sp_mont_red.retelim(ptr noundef %add.ptr, ptr noundef nonnull %m, i64 noundef %mp.0144154167, i32 noundef 0)
+  call fastcc void @_sp_mont_red(ptr noundef %add.ptr, ptr noundef nonnull %m, i64 noundef %mp.0144154167, i32 noundef 0)
   %inc183.us = add nuw nsw i32 %j.0210.us, 1
   %cmp164.us = icmp ult i32 %j.0210.us, 4
   br i1 %cmp164.us, label %for.body170.us, label %for.end184, !llvm.loop !72
@@ -7739,7 +7739,7 @@ for.end202:                                       ; preds = %land.rhs
   br i1 %cmp8, label %if.then207, label %if.then212
 
 if.then207:                                       ; preds = %for.end202
-  call fastcc void @_sp_mont_red.retelim(ptr noundef %add.ptr, ptr noundef nonnull %m, i64 noundef %mp.0144154167, i32 noundef 0)
+  call fastcc void @_sp_mont_red(ptr noundef %add.ptr, ptr noundef nonnull %m, i64 noundef %mp.0144154167, i32 noundef 0)
   br label %if.then212
 
 if.then212:                                       ; preds = %if.then207, %for.end202
@@ -8029,7 +8029,7 @@ _sp_copy.exit90:                                  ; preds = %if.then.i89, %if.el
   br i1 %cmp137, label %if.then139, label %if.end142
 
 if.then139:                                       ; preds = %_sp_copy.exit90
-  call fastcc void @_sp_mont_red.retelim(ptr noundef nonnull %10, ptr noundef nonnull %m, i64 noundef %mul11.neg.i, i32 noundef 0)
+  call fastcc void @_sp_mont_red(ptr noundef nonnull %10, ptr noundef nonnull %m, i64 noundef %mul11.neg.i, i32 noundef 0)
   br label %if.end142
 
 if.end142:                                        ; preds = %if.then139, %_sp_copy.exit90
@@ -8099,7 +8099,7 @@ _sp_copy.exit106:                                 ; preds = %if.then.i105, %if.e
   br i1 %cmp179, label %if.then181, label %if.end184
 
 if.then181:                                       ; preds = %_sp_copy.exit106
-  call fastcc void @_sp_mont_red.retelim(ptr noundef nonnull %10, ptr noundef nonnull %m, i64 noundef %mul11.neg.i, i32 noundef 0)
+  call fastcc void @_sp_mont_red(ptr noundef nonnull %10, ptr noundef nonnull %m, i64 noundef %mul11.neg.i, i32 noundef 0)
   br label %if.end184
 
 if.end184:                                        ; preds = %if.then181, %_sp_copy.exit106
@@ -8132,7 +8132,7 @@ for.end198:                                       ; preds = %for.inc197, %if.end
   br i1 %cmp120.lcssa, label %if.then201, label %do.end215
 
 if.then201:                                       ; preds = %for.end198
-  call fastcc void @_sp_mont_red.retelim(ptr noundef nonnull %7, ptr noundef nonnull %m, i64 noundef %mul11.neg.i, i32 noundef 0)
+  call fastcc void @_sp_mont_red(ptr noundef nonnull %7, ptr noundef nonnull %m, i64 noundef %mul11.neg.i, i32 noundef 0)
   %42 = load i32, ptr %7, align 8
   %cmp.i115 = icmp eq i32 %42, 0
   %dp.i116 = getelementptr inbounds i8, ptr %r, i64 8
@@ -8947,7 +8947,7 @@ for.body146.i:                                    ; preds = %if.end140.i, %for.i
   br i1 %cmp150.i, label %for.inc156.i, label %do.body425.i
 
 for.inc156.i:                                     ; preds = %for.body146.i
-  tail call fastcc void @_sp_mont_red.retelim(ptr noundef nonnull %call32.i, ptr noundef nonnull %m, i64 noundef %mul11.neg.i.i, i32 noundef 0)
+  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %call32.i, ptr noundef nonnull %m, i64 noundef %mul11.neg.i.i, i32 noundef 0)
   %inc157.i = add nuw nsw i32 %i.1352.i, 1
   %exitcond.not = icmp eq i32 %inc157.i, %winBits.0.i
   br i1 %exitcond.not, label %for.body166.preheader.i, label %for.body146.i, !llvm.loop !80
@@ -8962,7 +8962,7 @@ for.body166.i:                                    ; preds = %for.inc180.i, %for.
   br i1 %cmp173.i, label %for.inc180.i, label %do.body425.i
 
 for.inc180.i:                                     ; preds = %for.body166.i
-  tail call fastcc void @_sp_mont_red.retelim(ptr noundef %38, ptr noundef nonnull %m, i64 noundef %mul11.neg.i.i, i32 noundef 0)
+  tail call fastcc void @_sp_mont_red(ptr noundef %38, ptr noundef nonnull %m, i64 noundef %mul11.neg.i.i, i32 noundef 0)
   %indvars.iv.next380.i = add nuw nsw i64 %indvars.iv379.i, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next380.i, %umax
   br i1 %exitcond54.not, label %if.then185.i, label %for.body166.i, !llvm.loop !81
@@ -9120,7 +9120,7 @@ for.body287.i:                                    ; preds = %land.lhs.true272.i,
   br i1 %cmp289.i, label %for.inc294.i, label %do.body425.i
 
 for.inc294.i:                                     ; preds = %for.body287.i
-  tail call fastcc void @_sp_mont_red.retelim(ptr noundef nonnull %20, ptr noundef nonnull %m, i64 noundef %mul11.neg.i.i, i32 noundef 0)
+  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %20, ptr noundef nonnull %m, i64 noundef %mul11.neg.i.i, i32 noundef 0)
   %dec295.i = add nsw i32 %sqrs.3359.i, -1
   %cmp284.i = icmp ugt i32 %sqrs.3359.i, 1
   br i1 %cmp284.i, label %for.body287.i, label %for.end296.i, !llvm.loop !83
@@ -9177,7 +9177,7 @@ if.end364.i:                                      ; preds = %if.else345.i, %if.t
   br i1 %cmp365.i, label %if.end369.i, label %do.body425.i
 
 if.end369.i:                                      ; preds = %if.end364.i
-  tail call fastcc void @_sp_mont_red.retelim(ptr noundef nonnull %20, ptr noundef nonnull %m, i64 noundef %mul11.neg.i.i, i32 noundef 0)
+  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %20, ptr noundef nonnull %m, i64 noundef %mul11.neg.i.i, i32 noundef 0)
   %cmp237.i = icmp sgt i32 %i.9.i, -1
   %cmp239.i = icmp sge i32 %c.8.i, %winBits.0.i
   %50 = select i1 %cmp237.i, i1 true, i1 %cmp239.i
@@ -9201,7 +9201,7 @@ for.body386.i:                                    ; preds = %for.inc408.i, %if.t
   br i1 %cmp388.i, label %land.lhs.true395.i, label %do.body425.i
 
 land.lhs.true395.i:                               ; preds = %for.body386.i
-  tail call fastcc void @_sp_mont_red.retelim(ptr noundef nonnull %20, ptr noundef nonnull %m, i64 noundef %mul11.neg.i.i, i32 noundef 0)
+  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %20, ptr noundef nonnull %m, i64 noundef %mul11.neg.i.i, i32 noundef 0)
   %53 = shl nuw i64 1, %indvars.iv.next384.i
   %54 = and i64 %53, %51
   %tobool399.not.i = icmp eq i64 %54, 0
@@ -9213,7 +9213,7 @@ if.then400.i:                                     ; preds = %land.lhs.true395.i
   br i1 %cmp402.i, label %if.then404.i, label %do.body425.i
 
 if.then404.i:                                     ; preds = %if.then400.i
-  tail call fastcc void @_sp_mont_red.retelim(ptr noundef nonnull %20, ptr noundef nonnull %m, i64 noundef %mul11.neg.i.i, i32 noundef 0)
+  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %20, ptr noundef nonnull %m, i64 noundef %mul11.neg.i.i, i32 noundef 0)
   br label %for.inc408.i
 
 for.inc408.i:                                     ; preds = %if.then404.i, %land.lhs.true395.i
@@ -9221,7 +9221,7 @@ for.inc408.i:                                     ; preds = %if.then404.i, %land
   br i1 %cmp383.i, label %for.body386.i, label %if.then415.i, !llvm.loop !84
 
 if.then415.i:                                     ; preds = %for.inc408.i, %while.end.i
-  tail call fastcc void @_sp_mont_red.retelim(ptr noundef nonnull %20, ptr noundef nonnull %m, i64 noundef %mul11.neg.i.i, i32 noundef 0)
+  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %20, ptr noundef nonnull %m, i64 noundef %mul11.neg.i.i, i32 noundef 0)
   %55 = load i32, ptr %20, align 8
   %cmp.i243.i = icmp eq i32 %55, 0
   %dp.i244.i = getelementptr inbounds i8, ptr %r, i64 8
@@ -9994,7 +9994,7 @@ _sp_sqr_4.exit:                                   ; preds = %land.rhs.i, %for.in
   br label %if.end18
 
 if.else14:                                        ; preds = %if.then7
-  tail call fastcc void @_sp_sqr.retelim(ptr noundef nonnull %a, ptr noundef nonnull %r)
+  tail call fastcc void @_sp_sqr(ptr noundef nonnull %a, ptr noundef nonnull %r)
   br label %if.end18
 
 if.end18:                                         ; preds = %entry, %land.lhs.true, %if.then10, %if.else14, %_sp_sqr_4.exit
@@ -10003,7 +10003,7 @@ if.end18:                                         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_sp_sqr.retelim(ptr nocapture noundef readonly %a, ptr nocapture noundef %r) unnamed_addr #7 {
+define internal fastcc void @_sp_sqr(ptr nocapture noundef readonly %a, ptr nocapture noundef %r) unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %a, align 8
   %mul = shl i32 %0, 1
@@ -10269,7 +10269,7 @@ if.else:                                          ; preds = %lor.lhs.false2
   br i1 %cmp5.not, label %if.else7, label %if.end8
 
 if.else7:                                         ; preds = %if.else
-  tail call fastcc void @_sp_mont_red.retelim(ptr noundef nonnull %a, ptr noundef nonnull %m, i64 noundef %mp, i32 noundef %ct)
+  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %a, ptr noundef nonnull %m, i64 noundef %mp, i32 noundef %ct)
   br label %if.end8
 
 if.end8:                                          ; preds = %if.else, %entry, %lor.lhs.false2, %if.else7
@@ -10278,7 +10278,7 @@ if.end8:                                          ; preds = %if.else, %entry, %l
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_sp_mont_red.retelim(ptr noundef %a, ptr noundef readonly %m, i64 noundef %mp, i32 noundef %ct) unnamed_addr #7 {
+define internal fastcc void @_sp_mont_red(ptr noundef %a, ptr noundef readonly %m, i64 noundef %mp, i32 noundef %ct) unnamed_addr #7 {
 entry:
   %cmp.not.i = icmp eq ptr %m, null
   br i1 %cmp.not.i, label %sp_count_bits.exit, label %land.lhs.true.i

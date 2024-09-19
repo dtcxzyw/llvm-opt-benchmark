@@ -2692,7 +2692,7 @@ _ZN3tev10ThreadPool6globalEv.exit:                ; preds = %379, %376, %373
   store ptr %.187216240257286288296, ptr %100, align 8
   store ptr %391, ptr %101, align 8
   %392 = load i32, ptr %21, align 4
-  invoke fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncImZNS_9ImageData15convertToRec709EiE3$_0EENS_4TaskIvEET_S6_T0_i.argelim"(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(256) @_ZZN3tev10ThreadPool6globalEvE4pool, i64 noundef %390, ptr noundef nonnull byval(%class.anon) align 8 %23, i32 noundef %392)
+  invoke fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncImZNS_9ImageData15convertToRec709EiE3$_0EENS_4TaskIvEET_S6_T0_i"(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(256) @_ZZN3tev10ThreadPool6globalEvE4pool, i64 noundef %390, ptr noundef nonnull byval(%class.anon) align 8 %23, i32 noundef %392)
           to label %393 unwind label %421
 
 393:                                              ; preds = %_ZN3tev10ThreadPool6globalEv.exit
@@ -3075,7 +3075,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncImZNS_9ImageData15convertToRec709EiE3$_0EENS_4TaskIvEET_S6_T0_i.argelim"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(256) %1, i64 noundef %2, ptr nocapture noundef readonly byval(%class.anon) align 8 %3, i32 noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncImZNS_9ImageData15convertToRec709EiE3$_0EENS_4TaskIvEET_S6_T0_i"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(256) %1, i64 noundef %2, ptr nocapture noundef readonly byval(%class.anon) align 8 %3, i32 noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.tlog::Stream", align 8
   %7 = alloca %"class.tlog::Stream", align 8
   %8 = alloca %"class.std::__1::future", align 8
@@ -3277,7 +3277,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncImZNS_9ImageD
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false)
   %92 = load i32, ptr %18, align 4
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_9ImageData15convertToRec709EiE3$_0EENS_4TaskIvEET_S6_T0_iENKUlmmS3_iPS0_E_clEmmS3_iS8_.argprom"(ptr dead_on_unwind noalias writable align 8 %12, i64 noundef %90, i64 noundef %89, ptr noundef nonnull byval(%class.anon) align 8 %17, i32 noundef %92, ptr noundef %91)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_9ImageData15convertToRec709EiE3$_0EENS_4TaskIvEET_S6_T0_iENKUlmmS3_iPS0_E_clEmmS3_iS8_"(ptr dead_on_unwind noalias writable align 8 %12, i64 noundef %90, i64 noundef %89, ptr noundef nonnull byval(%class.anon) align 8 %17, i32 noundef %92, ptr noundef %91)
           to label %93 unwind label %121
 
 93:                                               ; preds = %87
@@ -8597,7 +8597,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
   %619 = load ptr, ptr %426, align 8
   store ptr %619, ptr %432, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
-  invoke fastcc void @"_ZZNK3tev5Image18getGroupedChannelsERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clES7_NS1_6vectorIS7_NS5_IS7_EEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef %36, ptr noundef %37)
+  invoke fastcc void @"_ZZNK3tev5Image18getGroupedChannelsERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clES7_NS1_6vectorIS7_NS5_IS7_EEEE"(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef %36, ptr noundef %37)
           to label %620 unwind label %643
 
 620:                                              ; preds = %616
@@ -8868,7 +8868,7 @@ _ZNSt3__116allocator_traitsINS_9allocatorINS_12basic_stringIcNS_11char_traitsIcE
   %699 = getelementptr inbounds i8, ptr %686, i64 %698
   store ptr %699, ptr %660, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  invoke fastcc void @"_ZZNK3tev5Image18getGroupedChannelsERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clES7_NS1_6vectorIS7_NS5_IS7_EEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef %39, ptr noundef %40)
+  invoke fastcc void @"_ZZNK3tev5Image18getGroupedChannelsERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clES7_NS1_6vectorIS7_NS5_IS7_EEEE"(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef %39, ptr noundef %40)
           to label %700 unwind label %732
 
 700:                                              ; preds = %695
@@ -9103,7 +9103,7 @@ _ZNSt3__116allocator_traitsINS_9allocatorINS_12basic_stringIcNS_11char_traitsIcE
   %760 = getelementptr inbounds i8, ptr %747, i64 %759
   store ptr %760, ptr %671, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  invoke fastcc void @"_ZZNK3tev5Image18getGroupedChannelsERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clES7_NS1_6vectorIS7_NS5_IS7_EEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %42, ptr noundef %43, ptr noundef %44)
+  invoke fastcc void @"_ZZNK3tev5Image18getGroupedChannelsERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clES7_NS1_6vectorIS7_NS5_IS7_EEEE"(ptr dead_on_unwind noalias writable align 8 %42, ptr noundef %43, ptr noundef %44)
           to label %761 unwind label %793
 
 761:                                              ; preds = %756
@@ -9351,7 +9351,7 @@ _ZNSt3__116allocator_traitsINS_9allocatorINS_12basic_stringIcNS_11char_traitsIcE
   %832 = getelementptr inbounds i8, ptr %817, i64 %831
   store ptr %832, ptr %815, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  invoke fastcc void @"_ZZNK3tev5Image18getGroupedChannelsERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clES7_NS1_6vectorIS7_NS5_IS7_EEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %46, ptr noundef %47, ptr noundef %48)
+  invoke fastcc void @"_ZZNK3tev5Image18getGroupedChannelsERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clES7_NS1_6vectorIS7_NS5_IS7_EEEE"(ptr dead_on_unwind noalias writable align 8 %46, ptr noundef %47, ptr noundef %48)
           to label %833 unwind label %872
 
 833:                                              ; preds = %828
@@ -10787,7 +10787,7 @@ _ZN3tev10ThreadPool6globalEv.exit:                ; preds = %178, %175, %172
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %36) #29, !noalias !210
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %191, ptr noundef nonnull align 8 dereferenceable(24) %186, i64 24, i1 false), !noalias !210
   %253 = load i32, ptr %187, align 4, !noalias !210
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_5Image7textureERKNSt3__16vectorINS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS8_ISA_EEEEE3$_0EENS_4TaskIvEET_SI_T0_iENKUlmmSF_iPS0_E_clEmmSF_iSK_.argprom"(ptr dead_on_unwind noalias writable align 8 %36, i64 noundef %251, i64 noundef %250, ptr noundef nonnull byval(%class.anon.117) align 8 %186, i32 noundef %253, ptr noundef %252)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_5Image7textureERKNSt3__16vectorINS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS8_ISA_EEEEE3$_0EENS_4TaskIvEET_SI_T0_iENKUlmmSF_iPS0_E_clEmmSF_iSK_"(ptr dead_on_unwind noalias writable align 8 %36, i64 noundef %251, i64 noundef %250, ptr noundef nonnull byval(%class.anon.117) align 8 %186, i32 noundef %253, ptr noundef %252)
           to label %254 unwind label %282, !noalias !210
 
 254:                                              ; preds = %248
@@ -13734,8 +13734,8 @@ define dso_local void @_ZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_str
   %19 = load ptr, ptr %18, align 8
   br label %.lr.ph.split.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.argprom.exit.thread7.us.i"
-  %.sroa.02.013.us.i = phi ptr [ %33, %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.argprom.exit.thread7.us.i" ], [ %7, %.lr.ph.i ]
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.exit.thread7.us.i"
+  %.sroa.02.013.us.i = phi ptr [ %33, %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.exit.thread7.us.i" ], [ %7, %.lr.ph.i ]
   %20 = load i8, ptr %.sroa.02.013.us.i, align 8
   %21 = and i8 %20, 1
   %.not.i.i.i.us.i = icmp eq i8 %21, 0
@@ -13745,17 +13745,17 @@ define dso_local void @_ZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_str
   %25 = zext nneg i8 %24 to i64
   %26 = select i1 %.not.i.i.i.us.i, i64 %25, i64 %23
   %.not.i.i.us.i = icmp eq i64 %26, %16
-  br i1 %.not.i.i.us.i, label %27, label %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.argprom.exit.thread7.us.i"
+  br i1 %.not.i.i.us.i, label %27, label %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.exit.thread7.us.i"
 
 27:                                               ; preds = %.lr.ph.split.us.i
-  br i1 %.not.i.i.i.us.i, label %.preheader.i.i.us.i, label %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.argprom.exit.us.i"
+  br i1 %.not.i.i.i.us.i, label %.preheader.i.i.us.i, label %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.exit.us.i"
 
-"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.argprom.exit.us.i": ; preds = %27
+"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.exit.us.i": ; preds = %27
   %28 = getelementptr inbounds i8, ptr %.sroa.02.013.us.i, i64 16
   %29 = load ptr, ptr %28, align 8
   %bcmp.i.i.us.i = tail call i32 @bcmp(ptr %29, ptr nonnull readonly %17, i64 %23)
   %30 = icmp eq i32 %bcmp.i.i.us.i, 0
-  br i1 %30, label %"_ZNSt3__17find_ifB8ne190000INS_11__wrap_iterIPN3tev12ChannelGroupEEEZNS2_5Image21decomposeChannelGroupERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEE3$_0EET_SG_SG_T0_.exit", label %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.argprom.exit.thread7.us.i"
+  br i1 %30, label %"_ZNSt3__17find_ifB8ne190000INS_11__wrap_iterIPN3tev12ChannelGroupEEEZNS2_5Image21decomposeChannelGroupERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEE3$_0EET_SG_SG_T0_.exit", label %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.exit.thread7.us.i"
 
 .preheader.i.i.us.i:                              ; preds = %27
   %.not1924.i.i.us.i = icmp ult i8 %20, 2
@@ -13769,9 +13769,9 @@ define dso_local void @_ZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_str
   %31 = load i8, ptr %.01526.i.i.us.i, align 1
   %32 = load i8, ptr %.027.i.i.us.i, align 1
   %.not20.i.i.us.i = icmp eq i8 %31, %32
-  br i1 %.not20.i.i.us.i, label %34, label %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.argprom.exit.thread7.us.i"
+  br i1 %.not20.i.i.us.i, label %34, label %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.exit.thread7.us.i"
 
-"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.argprom.exit.thread7.us.i": ; preds = %.lr.ph.i.i.us.i, %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.argprom.exit.us.i", %.lr.ph.split.us.i
+"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.exit.thread7.us.i": ; preds = %.lr.ph.i.i.us.i, %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.exit.us.i", %.lr.ph.split.us.i
   %33 = getelementptr inbounds i8, ptr %.sroa.02.013.us.i, i64 48
   %.not.us.i = icmp eq ptr %33, %9
   br i1 %.not.us.i, label %"_ZNSt3__17find_ifB8ne190000INS_11__wrap_iterIPN3tev12ChannelGroupEEEZNS2_5Image21decomposeChannelGroupERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEE3$_0EET_SG_SG_T0_.exit", label %.lr.ph.split.us.i, !llvm.loop !353
@@ -13782,8 +13782,8 @@ define dso_local void @_ZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_str
   %.not19.i.i.us.i = icmp eq i64 %35, 0
   br i1 %.not19.i.i.us.i, label %"_ZNSt3__17find_ifB8ne190000INS_11__wrap_iterIPN3tev12ChannelGroupEEEZNS2_5Image21decomposeChannelGroupERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEE3$_0EET_SG_SG_T0_.exit", label %.lr.ph.i.i.us.i, !llvm.loop !77
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.argprom.exit.thread7.i"
-  %.sroa.02.013.i = phi ptr [ %53, %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.argprom.exit.thread7.i" ], [ %7, %.lr.ph.split.i.preheader ]
+.lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.exit.thread7.i"
+  %.sroa.02.013.i = phi ptr [ %53, %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.exit.thread7.i" ], [ %7, %.lr.ph.split.i.preheader ]
   %37 = load i8, ptr %.sroa.02.013.i, align 8
   %38 = and i8 %37, 1
   %.not.i.i.i.i = icmp eq i8 %38, 0
@@ -13793,10 +13793,10 @@ define dso_local void @_ZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_str
   %42 = zext nneg i8 %41 to i64
   %43 = select i1 %.not.i.i.i.i, i64 %42, i64 %40
   %.not.i.i.i = icmp eq i64 %43, %16
-  br i1 %.not.i.i.i, label %44, label %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.argprom.exit.thread7.i"
+  br i1 %.not.i.i.i, label %44, label %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.exit.thread7.i"
 
 44:                                               ; preds = %.lr.ph.split.i
-  br i1 %.not.i.i.i.i, label %.preheader.i.i.i, label %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.argprom.exit.i"
+  br i1 %.not.i.i.i.i, label %.preheader.i.i.i, label %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.exit.i"
 
 .preheader.i.i.i:                                 ; preds = %44
   %.not1924.i.i.i = icmp ult i8 %37, 2
@@ -13810,7 +13810,7 @@ define dso_local void @_ZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_str
   %45 = load i8, ptr %.01526.i.i.i, align 1
   %46 = load i8, ptr %.027.i.i.i, align 1
   %.not20.i.i.i = icmp eq i8 %45, %46
-  br i1 %.not20.i.i.i, label %47, label %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.argprom.exit.thread7.i"
+  br i1 %.not20.i.i.i, label %47, label %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.exit.thread7.i"
 
 47:                                               ; preds = %.lr.ph.i.i.i
   %48 = add nsw i64 %.01625.i.i.i, -1
@@ -13818,20 +13818,20 @@ define dso_local void @_ZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_str
   %.not19.i.i.i = icmp eq i64 %48, 0
   br i1 %.not19.i.i.i, label %"_ZNSt3__17find_ifB8ne190000INS_11__wrap_iterIPN3tev12ChannelGroupEEEZNS2_5Image21decomposeChannelGroupERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEE3$_0EET_SG_SG_T0_.exit", label %.lr.ph.i.i.i, !llvm.loop !77
 
-"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.argprom.exit.i": ; preds = %44
+"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.exit.i": ; preds = %44
   %50 = getelementptr inbounds i8, ptr %.sroa.02.013.i, i64 16
   %51 = load ptr, ptr %50, align 8
   %bcmp.i.i.i = tail call i32 @bcmp(ptr %51, ptr %19, i64 %40)
   %52 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %52, label %"_ZNSt3__17find_ifB8ne190000INS_11__wrap_iterIPN3tev12ChannelGroupEEEZNS2_5Image21decomposeChannelGroupERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEE3$_0EET_SG_SG_T0_.exit", label %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.argprom.exit.thread7.i"
+  br i1 %52, label %"_ZNSt3__17find_ifB8ne190000INS_11__wrap_iterIPN3tev12ChannelGroupEEEZNS2_5Image21decomposeChannelGroupERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEE3$_0EET_SG_SG_T0_.exit", label %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.exit.thread7.i"
 
-"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.argprom.exit.thread7.i": ; preds = %.lr.ph.i.i.i, %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.argprom.exit.i", %.lr.ph.split.i
+"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.exit.thread7.i": ; preds = %.lr.ph.i.i.i, %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.exit.i", %.lr.ph.split.i
   %53 = getelementptr inbounds i8, ptr %.sroa.02.013.i, i64 48
   %.not.i = icmp eq ptr %53, %9
   br i1 %.not.i, label %"_ZNSt3__17find_ifB8ne190000INS_11__wrap_iterIPN3tev12ChannelGroupEEEZNS2_5Image21decomposeChannelGroupERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEE3$_0EET_SG_SG_T0_.exit", label %.lr.ph.split.i, !llvm.loop !353
 
-"_ZNSt3__17find_ifB8ne190000INS_11__wrap_iterIPN3tev12ChannelGroupEEEZNS2_5Image21decomposeChannelGroupERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEE3$_0EET_SG_SG_T0_.exit": ; preds = %.preheader.i.i.i, %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.argprom.exit.i", %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.argprom.exit.thread7.i", %47, %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.argprom.exit.us.i", %.preheader.i.i.us.i, %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.argprom.exit.thread7.us.i", %34, %2
-  %.sroa.02.011.i = phi ptr [ %7, %2 ], [ %.sroa.02.013.us.i, %34 ], [ %.sroa.02.013.us.i, %.preheader.i.i.us.i ], [ %.sroa.02.013.us.i, %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.argprom.exit.us.i" ], [ %33, %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.argprom.exit.thread7.us.i" ], [ %.sroa.02.013.i, %47 ], [ %.sroa.02.013.i, %.preheader.i.i.i ], [ %.sroa.02.013.i, %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.argprom.exit.i" ], [ %53, %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.argprom.exit.thread7.i" ]
+"_ZNSt3__17find_ifB8ne190000INS_11__wrap_iterIPN3tev12ChannelGroupEEEZNS2_5Image21decomposeChannelGroupERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEE3$_0EET_SG_SG_T0_.exit": ; preds = %.preheader.i.i.i, %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.exit.i", %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.exit.thread7.i", %47, %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.exit.us.i", %.preheader.i.i.us.i, %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.exit.thread7.us.i", %34, %2
+  %.sroa.02.011.i = phi ptr [ %7, %2 ], [ %.sroa.02.013.us.i, %34 ], [ %.sroa.02.013.us.i, %.preheader.i.i.us.i ], [ %.sroa.02.013.us.i, %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.exit.us.i" ], [ %33, %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.exit.thread7.us.i" ], [ %.sroa.02.013.i, %47 ], [ %.sroa.02.013.i, %.preheader.i.i.i ], [ %.sroa.02.013.i, %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.exit.i" ], [ %53, %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.exit.thread7.i" ]
   %54 = icmp eq ptr %.sroa.02.011.i, %9
   br i1 %54, label %122, label %55
 
@@ -14503,7 +14503,7 @@ _ZNSt3__113unordered_setIN3tev12ChannelGroupENS_4hashIS2_EENS_8equal_toIS2_EENS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZNK3tev5Image18getGroupedChannelsERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clES7_NS1_6vectorIS7_NS5_IS7_EEEE.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZNK3tev5Image18getGroupedChannelsERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clES7_NS1_6vectorIS7_NS5_IS7_EEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__1::basic_string", align 8
   %5 = alloca %"struct.std::__1::__equal_to", align 1
   %6 = alloca %"class.fmt::v9::format_arg_store.540", align 16
@@ -16592,21 +16592,21 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
 
 .noexc.i.i:                                       ; preds = %.lr.ph.i.i.i
   invoke void @_ZN3tev7Channel4tailERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
-          to label %"_ZZZNK3tev5Image8toStringEvENK3$_0clENSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEENKUlS8_E_clES8_.argprom.exit.i.i.i" unwind label %169, !noalias !390
+          to label %"_ZZZNK3tev5Image8toStringEvENK3$_0clENSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEENKUlS8_E_clES8_.exit.i.i.i" unwind label %169, !noalias !390
 
-"_ZZZNK3tev5Image8toStringEvENK3$_0clENSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEENKUlS8_E_clES8_.argprom.exit.i.i.i": ; preds = %.noexc.i.i
+"_ZZZNK3tev5Image8toStringEvENK3$_0clENSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEENKUlS8_E_clES8_.exit.i.i.i": ; preds = %.noexc.i.i
   %163 = load i8, ptr %.sroa.0.09.i.i.i, align 8, !noalias !390
   %164 = and i8 %163, 1
   %.not16.i.i.i.i.i = icmp eq i8 %164, 0
   br i1 %.not16.i.i.i.i.i, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_.exit.i.i.i, label %165
 
-165:                                              ; preds = %"_ZZZNK3tev5Image8toStringEvENK3$_0clENSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEENKUlS8_E_clES8_.argprom.exit.i.i.i"
+165:                                              ; preds = %"_ZZZNK3tev5Image8toStringEvENK3$_0clENSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEENKUlS8_E_clES8_.exit.i.i.i"
   %166 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i.i, i64 16
   %167 = load ptr, ptr %166, align 8, !noalias !390
   call void @_ZdlPv(ptr noundef %167) #30, !noalias !390
   br label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_.exit.i.i.i
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_.exit.i.i.i: ; preds = %165, %"_ZZZNK3tev5Image8toStringEvENK3$_0clENSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEENKUlS8_E_clES8_.argprom.exit.i.i.i"
+_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_.exit.i.i.i: ; preds = %165, %"_ZZZNK3tev5Image8toStringEvENK3$_0clENSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEENKUlS8_E_clES8_.exit.i.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.09.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !390
   store i8 0, ptr %3, align 8, !noalias !390
   store i8 0, ptr %146, align 1, !noalias !390
@@ -66425,7 +66425,7 @@ declare noundef ptr @_ZNKSt9exception4whatEv(ptr noundef nonnull align 8 derefer
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_9ImageData15convertToRec709EiE3$_0EENS_4TaskIvEET_S6_T0_iENKUlmmS3_iPS0_E_clEmmS3_iS8_.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly byval(%class.anon) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_9ImageData15convertToRec709EiE3$_0EENS_4TaskIvEET_S6_T0_iENKUlmmS3_iPS0_E_clEmmS3_iS8_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly byval(%class.anon) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.std::__1::coroutine_handle.23", align 8
   %8 = alloca %"class.std::__1::future", align 8
   %9 = alloca %"class.std::__1::future", align 8
@@ -67756,11 +67756,11 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev9ImageData13multiplyAl
 
 _ZNSt3__16vectorIN3tev4TaskIvEENS_9allocatorIS3_EEE22__construct_one_at_endB8ne190000IJS3_EEEvDpOT_.exit.i.i.i.i.i: ; preds = %30, %26, %13
   %34 = getelementptr inbounds i8, ptr %9, i64 32
-  br label %"_ZNSt3__110__function12__alloc_funcIZN3tev9ImageData13multiplyAlphaEiE3$_0NS_9allocatorIS4_EEFvRNS2_7ChannelERKS7_EEclB8ne190000ES8_SA_.argprom.argprom.exit"
+  br label %"_ZNSt3__110__function12__alloc_funcIZN3tev9ImageData13multiplyAlphaEiE3$_0NS_9allocatorIS4_EEFvRNS2_7ChannelERKS7_EEclB8ne190000ES8_SA_.exit"
 
 35:                                               ; preds = %3
   %36 = invoke noundef ptr @_ZNSt3__16vectorIN3tev4TaskIvEENS_9allocatorIS3_EEE24__emplace_back_slow_pathIJS3_EEEPS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %.val, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %"_ZNSt3__110__function12__alloc_funcIZN3tev9ImageData13multiplyAlphaEiE3$_0NS_9allocatorIS4_EEFvRNS2_7ChannelERKS7_EEclB8ne190000ES8_SA_.argprom.argprom.exit" unwind label %37
+          to label %"_ZNSt3__110__function12__alloc_funcIZN3tev9ImageData13multiplyAlphaEiE3$_0NS_9allocatorIS4_EEFvRNS2_7ChannelERKS7_EEclB8ne190000ES8_SA_.exit" unwind label %37
 
 37:                                               ; preds = %35
   %38 = landingpad { ptr, i32 }
@@ -67768,7 +67768,7 @@ _ZNSt3__16vectorIN3tev4TaskIvEENS_9allocatorIS3_EEE22__construct_one_at_endB8ne1
   call void @_ZN3tev4TaskIvED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #29
   resume { ptr, i32 } %38
 
-"_ZNSt3__110__function12__alloc_funcIZN3tev9ImageData13multiplyAlphaEiE3$_0NS_9allocatorIS4_EEFvRNS2_7ChannelERKS7_EEclB8ne190000ES8_SA_.argprom.argprom.exit": ; preds = %_ZNSt3__16vectorIN3tev4TaskIvEENS_9allocatorIS3_EEE22__construct_one_at_endB8ne190000IJS3_EEEvDpOT_.exit.i.i.i.i.i, %35
+"_ZNSt3__110__function12__alloc_funcIZN3tev9ImageData13multiplyAlphaEiE3$_0NS_9allocatorIS4_EEFvRNS2_7ChannelERKS7_EEclB8ne190000ES8_SA_.exit": ; preds = %_ZNSt3__16vectorIN3tev4TaskIvEENS_9allocatorIS3_EEE22__construct_one_at_endB8ne190000IJS3_EEEvDpOT_.exit.i.i.i.i.i, %35
   %.0.i.i.i.i.i = phi ptr [ %34, %_ZNSt3__16vectorIN3tev4TaskIvEENS_9allocatorIS3_EEE22__construct_one_at_endB8ne190000IJS3_EEEvDpOT_.exit.i.i.i.i.i ], [ %36, %35 ]
   store ptr %.0.i.i.i.i.i, ptr %8, align 8
   call void @_ZN3tev4TaskIvED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #29
@@ -67897,11 +67897,11 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev9ImageData15unmultiply
 
 _ZNSt3__16vectorIN3tev4TaskIvEENS_9allocatorIS3_EEE22__construct_one_at_endB8ne190000IJS3_EEEvDpOT_.exit.i.i.i.i.i: ; preds = %30, %26, %13
   %34 = getelementptr inbounds i8, ptr %9, i64 32
-  br label %"_ZNSt3__110__function12__alloc_funcIZN3tev9ImageData15unmultiplyAlphaEiE3$_0NS_9allocatorIS4_EEFvRNS2_7ChannelERKS7_EEclB8ne190000ES8_SA_.argprom.argprom.exit"
+  br label %"_ZNSt3__110__function12__alloc_funcIZN3tev9ImageData15unmultiplyAlphaEiE3$_0NS_9allocatorIS4_EEFvRNS2_7ChannelERKS7_EEclB8ne190000ES8_SA_.exit"
 
 35:                                               ; preds = %3
   %36 = invoke noundef ptr @_ZNSt3__16vectorIN3tev4TaskIvEENS_9allocatorIS3_EEE24__emplace_back_slow_pathIJS3_EEEPS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %.val, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %"_ZNSt3__110__function12__alloc_funcIZN3tev9ImageData15unmultiplyAlphaEiE3$_0NS_9allocatorIS4_EEFvRNS2_7ChannelERKS7_EEclB8ne190000ES8_SA_.argprom.argprom.exit" unwind label %37
+          to label %"_ZNSt3__110__function12__alloc_funcIZN3tev9ImageData15unmultiplyAlphaEiE3$_0NS_9allocatorIS4_EEFvRNS2_7ChannelERKS7_EEclB8ne190000ES8_SA_.exit" unwind label %37
 
 37:                                               ; preds = %35
   %38 = landingpad { ptr, i32 }
@@ -67909,7 +67909,7 @@ _ZNSt3__16vectorIN3tev4TaskIvEENS_9allocatorIS3_EEE22__construct_one_at_endB8ne1
   call void @_ZN3tev4TaskIvED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #29
   resume { ptr, i32 } %38
 
-"_ZNSt3__110__function12__alloc_funcIZN3tev9ImageData15unmultiplyAlphaEiE3$_0NS_9allocatorIS4_EEFvRNS2_7ChannelERKS7_EEclB8ne190000ES8_SA_.argprom.argprom.exit": ; preds = %_ZNSt3__16vectorIN3tev4TaskIvEENS_9allocatorIS3_EEE22__construct_one_at_endB8ne190000IJS3_EEEvDpOT_.exit.i.i.i.i.i, %35
+"_ZNSt3__110__function12__alloc_funcIZN3tev9ImageData15unmultiplyAlphaEiE3$_0NS_9allocatorIS4_EEFvRNS2_7ChannelERKS7_EEclB8ne190000ES8_SA_.exit": ; preds = %_ZNSt3__16vectorIN3tev4TaskIvEENS_9allocatorIS3_EEE22__construct_one_at_endB8ne190000IJS3_EEEvDpOT_.exit.i.i.i.i.i, %35
   %.0.i.i.i.i.i = phi ptr [ %34, %_ZNSt3__16vectorIN3tev4TaskIvEENS_9allocatorIS3_EEE22__construct_one_at_endB8ne190000IJS3_EEEvDpOT_.exit.i.i.i.i.i ], [ %36, %35 ]
   store ptr %.0.i.i.i.i.i, ptr %8, align 8
   call void @_ZN3tev4TaskIvED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #29
@@ -68239,7 +68239,7 @@ define internal void @"_ZNKSt3__110__function6__funcIZN3tev5ImageD1EvE3$_0NS_9al
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %.not8.i.i.i.i.i.i.i = icmp eq ptr %6, %7
-  br i1 %.not8.i.i.i.i.i.i.i, label %"_ZNSt3__110__function6__funcIZN3tev5ImageD1EvE3$_0NS_9allocatorIS4_EEFvvEEC2B8ne190000ERKS4_RKS6_.argprom.exit", label %.lr.ph.i.i.i.i.i.i.i
+  br i1 %.not8.i.i.i.i.i.i.i, label %"_ZNSt3__110__function6__funcIZN3tev5ImageD1EvE3$_0NS_9allocatorIS4_EEFvvEEC2B8ne190000ERKS4_RKS6_.exit", label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %2, %_ZNSt3__120__map_const_iteratorINS_21__tree_const_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN3tev12ImageTextureEEEPNS_11__tree_nodeISB_PvEElEEEppB8ne190000Ev.exit.i.i.i.i.i.i.i
   %.sroa.04.09.i.i.i.i.i.i.i = phi ptr [ %.06.i.i.i.i.i.i.i.i.i.i, %_ZNSt3__120__map_const_iteratorINS_21__tree_const_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN3tev12ImageTextureEEEPNS_11__tree_nodeISB_PvEElEEEppB8ne190000Ev.exit.i.i.i.i.i.i.i ], [ %6, %2 ]
@@ -68270,7 +68270,7 @@ define internal void @"_ZNKSt3__110__function6__funcIZN3tev5ImageD1EvE3$_0NS_9al
 _ZNSt3__120__map_const_iteratorINS_21__tree_const_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN3tev12ImageTextureEEEPNS_11__tree_nodeISB_PvEElEEEppB8ne190000Ev.exit.i.i.i.i.i.i.i: ; preds = %.preheader8.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i.i
   %.06.i.i.i.i.i.i.i.i.i.i = phi ptr [ %14, %.preheader.i.i.i.i.i.i.i.i.i.i ], [ %.0.i.i.i.i.i.i.i.i.i.i.i, %.preheader8.i.i.i.i.i.i.i.i.i.i ]
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.06.i.i.i.i.i.i.i.i.i.i, %7
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt3__110__function6__funcIZN3tev5ImageD1EvE3$_0NS_9allocatorIS4_EEFvvEEC2B8ne190000ERKS4_RKS6_.argprom.exit", label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !1128
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt3__110__function6__funcIZN3tev5ImageD1EvE3$_0NS_9allocatorIS4_EEFvvEEC2B8ne190000ERKS4_RKS6_.exit", label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !1128
 
 .body.i:                                          ; preds = %.lr.ph.i.i.i.i.i.i.i
   %17 = landingpad { ptr, i32 }
@@ -68279,7 +68279,7 @@ _ZNSt3__120__map_const_iteratorINS_21__tree_const_iteratorINS_12__value_typeINS_
   tail call void @_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN3tev12ImageTextureEEENS_19__map_value_compareIS7_SA_NS_4lessIS7_EELb1EEENS5_ISA_EEE7destroyEPNS_11__tree_nodeISA_PvEE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %18) #29
   resume { ptr, i32 } %17
 
-"_ZNSt3__110__function6__funcIZN3tev5ImageD1EvE3$_0NS_9allocatorIS4_EEFvvEEC2B8ne190000ERKS4_RKS6_.argprom.exit": ; preds = %_ZNSt3__120__map_const_iteratorINS_21__tree_const_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN3tev12ImageTextureEEEPNS_11__tree_nodeISB_PvEElEEEppB8ne190000Ev.exit.i.i.i.i.i.i.i, %2
+"_ZNSt3__110__function6__funcIZN3tev5ImageD1EvE3$_0NS_9allocatorIS4_EEFvvEEC2B8ne190000ERKS4_RKS6_.exit": ; preds = %_ZNSt3__120__map_const_iteratorINS_21__tree_const_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN3tev12ImageTextureEEEPNS_11__tree_nodeISB_PvEElEEEppB8ne190000Ev.exit.i.i.i.i.i.i.i, %2
   ret void
 }
 
@@ -69077,7 +69077,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_5Image7textureERKNSt3__16vectorINS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS8_ISA_EEEEE3$_0EENS_4TaskIvEET_SI_T0_iENKUlmmSF_iPS0_E_clEmmSF_iSK_.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly byval(%class.anon.117) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_5Image7textureERKNSt3__16vectorINS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS8_ISA_EEEEE3$_0EENS_4TaskIvEET_SI_T0_iENKUlmmSF_iPS0_E_clEmmSF_iSK_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly byval(%class.anon.117) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.std::__1::coroutine_handle.23", align 8
   %8 = alloca %"class.std::__1::future", align 8
   %9 = alloca %"class.std::__1::future", align 8
@@ -69197,7 +69197,7 @@ define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_5Image
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_5Image7textureERKNSt3__16vectorINS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS8_ISA_EEEEE3$_1EENS_4TaskIvEET_SI_T0_iENKUlmmSF_iPS0_E_clEmmSF_iSK_.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly byval(%class.anon.118) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_5Image7textureERKNSt3__16vectorINS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS8_ISA_EEEEE3$_1EENS_4TaskIvEET_SI_T0_iENKUlmmSF_iPS0_E_clEmmSF_iSK_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly byval(%class.anon.118) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.std::__1::coroutine_handle.23", align 8
   %8 = alloca %"class.std::__1::future", align 8
   %9 = alloca %"class.std::__1::future", align 8
@@ -69317,7 +69317,7 @@ define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_5Image
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_5Image7textureERKNSt3__16vectorINS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS8_ISA_EEEEE3$_2EENS_4TaskIvEET_SI_T0_iENKUlmmSF_iPS0_E_clEmmSF_iSK_.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly byval(%class.anon.119) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_5Image7textureERKNSt3__16vectorINS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS8_ISA_EEEEE3$_2EENS_4TaskIvEET_SI_T0_iENKUlmmSF_iPS0_E_clEmmSF_iSK_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly byval(%class.anon.119) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.std::__1::coroutine_handle.23", align 8
   %8 = alloca %"class.std::__1::future", align 8
   %9 = alloca %"class.std::__1::future", align 8
@@ -75986,7 +75986,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncImZNS_9ImageD
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   %62 = load i32, ptr %10, align 8
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_9ImageData15convertToRec709EiE3$_0EENS_4TaskIvEET_S6_T0_iENKUlmmS3_iPS0_E_clEmmS3_iS8_.argprom"(ptr dead_on_unwind noalias writable align 8 %5, i64 noundef %60, i64 noundef %59, ptr noundef nonnull byval(%class.anon) align 8 %9, i32 noundef %62, ptr noundef %61)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_9ImageData15convertToRec709EiE3$_0EENS_4TaskIvEET_S6_T0_iENKUlmmS3_iPS0_E_clEmmS3_iS8_"(ptr dead_on_unwind noalias writable align 8 %5, i64 noundef %60, i64 noundef %59, ptr noundef nonnull byval(%class.anon) align 8 %9, i32 noundef %62, ptr noundef %61)
           to label %63 unwind label %91
 
 63:                                               ; preds = %57
@@ -77298,7 +77298,7 @@ _ZN3tev10ThreadPool6globalEv.exit:                ; preds = %351, %348, %345
   store ptr %.173212230255276286288, ptr %73, align 8
   store ptr %363, ptr %74, align 8
   %364 = load i32, ptr %16, align 8
-  invoke fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncImZNS_9ImageData15convertToRec709EiE3$_0EENS_4TaskIvEET_S6_T0_i.argelim"(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(256) @_ZZN3tev10ThreadPool6globalEvE4pool, i64 noundef %362, ptr noundef nonnull byval(%class.anon) align 8 %18, i32 noundef %364)
+  invoke fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncImZNS_9ImageData15convertToRec709EiE3$_0EENS_4TaskIvEET_S6_T0_i"(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(256) @_ZZN3tev10ThreadPool6globalEvE4pool, i64 noundef %362, ptr noundef nonnull byval(%class.anon) align 8 %18, i32 noundef %364)
           to label %365 unwind label %393
 
 365:                                              ; preds = %_ZN3tev10ThreadPool6globalEv.exit
@@ -80175,7 +80175,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncImZNS_5Image7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   %62 = load i32, ptr %10, align 8
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_5Image7textureERKNSt3__16vectorINS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS8_ISA_EEEEE3$_0EENS_4TaskIvEET_SI_T0_iENKUlmmSF_iPS0_E_clEmmSF_iSK_.argprom"(ptr dead_on_unwind noalias writable align 8 %5, i64 noundef %60, i64 noundef %59, ptr noundef nonnull byval(%class.anon.117) align 8 %9, i32 noundef %62, ptr noundef %61)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_5Image7textureERKNSt3__16vectorINS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS8_ISA_EEEEE3$_0EENS_4TaskIvEET_SI_T0_iENKUlmmSF_iPS0_E_clEmmSF_iSK_"(ptr dead_on_unwind noalias writable align 8 %5, i64 noundef %60, i64 noundef %59, ptr noundef nonnull byval(%class.anon.117) align 8 %9, i32 noundef %62, ptr noundef %61)
           to label %63 unwind label %91
 
 63:                                               ; preds = %57
@@ -80907,7 +80907,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncImZNS_5Image7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   %62 = load i32, ptr %10, align 8
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_5Image7textureERKNSt3__16vectorINS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS8_ISA_EEEEE3$_1EENS_4TaskIvEET_SI_T0_iENKUlmmSF_iPS0_E_clEmmSF_iSK_.argprom"(ptr dead_on_unwind noalias writable align 8 %5, i64 noundef %60, i64 noundef %59, ptr noundef nonnull byval(%class.anon.118) align 8 %9, i32 noundef %62, ptr noundef %61)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_5Image7textureERKNSt3__16vectorINS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS8_ISA_EEEEE3$_1EENS_4TaskIvEET_SI_T0_iENKUlmmSF_iPS0_E_clEmmSF_iSK_"(ptr dead_on_unwind noalias writable align 8 %5, i64 noundef %60, i64 noundef %59, ptr noundef nonnull byval(%class.anon.118) align 8 %9, i32 noundef %62, ptr noundef %61)
           to label %63 unwind label %91
 
 63:                                               ; preds = %57
@@ -81636,7 +81636,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncImZNS_5Image7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   %62 = load i32, ptr %10, align 8
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_5Image7textureERKNSt3__16vectorINS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS8_ISA_EEEEE3$_2EENS_4TaskIvEET_SI_T0_iENKUlmmSF_iPS0_E_clEmmSF_iSK_.argprom"(ptr dead_on_unwind noalias writable align 8 %5, i64 noundef %60, i64 noundef %59, ptr noundef nonnull byval(%class.anon.119) align 8 %9, i32 noundef %62, ptr noundef %61)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_5Image7textureERKNSt3__16vectorINS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS8_ISA_EEEEE3$_2EENS_4TaskIvEET_SI_T0_iENKUlmmSF_iPS0_E_clEmmSF_iSK_"(ptr dead_on_unwind noalias writable align 8 %5, i64 noundef %60, i64 noundef %59, ptr noundef nonnull byval(%class.anon.119) align 8 %9, i32 noundef %62, ptr noundef %61)
           to label %63 unwind label %91
 
 63:                                               ; preds = %57
@@ -86845,8 +86845,8 @@ attributes #36 = { nounwind willreturn memory(read) }
 !249 = distinct !{!249, !"_ZN3tev11TaskPromiseINS_4TaskIvEEvE17get_return_objectEv"}
 !250 = !{!248, !235}
 !251 = !{!252}
-!252 = distinct !{!252, !253, !"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_5Image7textureERKNSt3__16vectorINS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS8_ISA_EEEEE3$_1EENS_4TaskIvEET_SI_T0_iENKUlmmSF_iPS0_E_clEmmSF_iSK_.argprom: argument 0"}
-!253 = distinct !{!253, !"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_5Image7textureERKNSt3__16vectorINS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS8_ISA_EEEEE3$_1EENS_4TaskIvEET_SI_T0_iENKUlmmSF_iPS0_E_clEmmSF_iSK_.argprom"}
+!252 = distinct !{!252, !253, !"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_5Image7textureERKNSt3__16vectorINS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS8_ISA_EEEEE3$_1EENS_4TaskIvEET_SI_T0_iENKUlmmSF_iPS0_E_clEmmSF_iSK_: argument 0"}
+!253 = distinct !{!253, !"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_5Image7textureERKNSt3__16vectorINS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS8_ISA_EEEEE3$_1EENS_4TaskIvEET_SI_T0_iENKUlmmSF_iPS0_E_clEmmSF_iSK_"}
 !254 = !{!252, !235}
 !255 = !{!256}
 !256 = distinct !{!256, !257, !"_ZNSt3__111make_sharedB8ne190000IN3tev15TaskSharedStateEJETnNS_9enable_ifIXntsr8is_arrayIT_EE5valueEiE4typeELi0EEENS_10shared_ptrIS4_EEDpOT0_: argument 0"}
@@ -86899,8 +86899,8 @@ attributes #36 = { nounwind willreturn memory(read) }
 !303 = distinct !{!303, !"_ZN3tev11TaskPromiseINS_4TaskIvEEvE17get_return_objectEv"}
 !304 = !{!302, !289}
 !305 = !{!306}
-!306 = distinct !{!306, !307, !"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_5Image7textureERKNSt3__16vectorINS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS8_ISA_EEEEE3$_2EENS_4TaskIvEET_SI_T0_iENKUlmmSF_iPS0_E_clEmmSF_iSK_.argprom: argument 0"}
-!307 = distinct !{!307, !"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_5Image7textureERKNSt3__16vectorINS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS8_ISA_EEEEE3$_2EENS_4TaskIvEET_SI_T0_iENKUlmmSF_iPS0_E_clEmmSF_iSK_.argprom"}
+!306 = distinct !{!306, !307, !"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_5Image7textureERKNSt3__16vectorINS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS8_ISA_EEEEE3$_2EENS_4TaskIvEET_SI_T0_iENKUlmmSF_iPS0_E_clEmmSF_iSK_: argument 0"}
+!307 = distinct !{!307, !"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_5Image7textureERKNSt3__16vectorINS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS8_ISA_EEEEE3$_2EENS_4TaskIvEET_SI_T0_iENKUlmmSF_iPS0_E_clEmmSF_iSK_"}
 !308 = !{!306, !289}
 !309 = !{!310}
 !310 = distinct !{!310, !311, !"_ZNSt3__111make_sharedB8ne190000IN3tev15TaskSharedStateEJETnNS_9enable_ifIXntsr8is_arrayIT_EE5valueEiE4typeELi0EEENS_10shared_ptrIS4_EEDpOT0_: argument 0"}
@@ -86984,8 +86984,8 @@ attributes #36 = { nounwind willreturn memory(read) }
 !388 = distinct !{!388, !389, !"_ZNKRSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne190000Ev: argument 0"}
 !389 = distinct !{!389, !"_ZNKRSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne190000Ev"}
 !390 = !{!391}
-!391 = distinct !{!391, !392, !"_ZZNK3tev5Image8toStringEvENK3$_0clENSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEE.argprom: argument 0"}
-!392 = distinct !{!392, !"_ZZNK3tev5Image8toStringEvENK3$_0clENSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEE.argprom"}
+!391 = distinct !{!391, !392, !"_ZZNK3tev5Image8toStringEvENK3$_0clENSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEE: argument 0"}
+!392 = distinct !{!392, !"_ZZNK3tev5Image8toStringEvENK3$_0clENSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEE"}
 !393 = distinct !{!393, !6}
 !394 = !{!395}
 !395 = distinct !{!395, !396, !"_ZNSt3__1plB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12basic_stringIT_T0_T1_EERKS9_SB_: argument 0"}

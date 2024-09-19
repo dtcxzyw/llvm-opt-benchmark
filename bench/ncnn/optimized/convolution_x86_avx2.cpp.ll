@@ -24,12 +24,12 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN4ncnn34convolution_im2col_input_tile_int8ILi1ELi1ELi1ELi1ELi2ELi2EEEvRKNS_3MatERS1_iiii(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 comdat {
   %.val = load ptr, ptr %1, align 8
-  tail call fastcc void @_ZN4ncnnL39convolution_im2col_input_tile_int8_implERKNS_3MatERS0_iiiiiiiiii.argprom(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr %.val, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 2, i32 noundef 2)
+  tail call fastcc void @_ZN4ncnnL39convolution_im2col_input_tile_int8_implERKNS_3MatERS0_iiiiiiiiii(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr %.val, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 2, i32 noundef 2)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL39convolution_im2col_input_tile_int8_implERKNS_3MatERS0_iiiiiiiiii.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr writeonly %.0.val, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4ncnnL39convolution_im2col_input_tile_int8_implERKNS_3MatERS0_iiiiiiiiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr writeonly %.0.val, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %13 = load i32, ptr %12, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1816,35 +1816,35 @@ define internal fastcc void @_ZN4ncnnL39convolution_im2col_input_tile_int8_implE
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN4ncnn34convolution_im2col_input_tile_int8ILi3ELi3ELi1ELi1ELi1ELi1EEEvRKNS_3MatERS1_iiii(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 comdat {
   %.val = load ptr, ptr %1, align 8
-  tail call fastcc void @_ZN4ncnnL39convolution_im2col_input_tile_int8_implERKNS_3MatERS0_iiiiiiiiii.argprom(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr %.val, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef 3, i32 noundef 3, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 1)
+  tail call fastcc void @_ZN4ncnnL39convolution_im2col_input_tile_int8_implERKNS_3MatERS0_iiiiiiiiii(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr %.val, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef 3, i32 noundef 3, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN4ncnn34convolution_im2col_input_tile_int8ILi3ELi3ELi1ELi1ELi2ELi2EEEvRKNS_3MatERS1_iiii(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 comdat {
   %.val = load ptr, ptr %1, align 8
-  tail call fastcc void @_ZN4ncnnL39convolution_im2col_input_tile_int8_implERKNS_3MatERS0_iiiiiiiiii.argprom(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr %.val, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef 3, i32 noundef 3, i32 noundef 1, i32 noundef 1, i32 noundef 2, i32 noundef 2)
+  tail call fastcc void @_ZN4ncnnL39convolution_im2col_input_tile_int8_implERKNS_3MatERS0_iiiiiiiiii(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr %.val, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef 3, i32 noundef 3, i32 noundef 1, i32 noundef 1, i32 noundef 2, i32 noundef 2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN4ncnn34convolution_im2col_input_tile_int8ILi5ELi5ELi1ELi1ELi1ELi1EEEvRKNS_3MatERS1_iiii(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 comdat {
   %.val = load ptr, ptr %1, align 8
-  tail call fastcc void @_ZN4ncnnL39convolution_im2col_input_tile_int8_implERKNS_3MatERS0_iiiiiiiiii.argprom(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr %.val, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef 5, i32 noundef 5, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 1)
+  tail call fastcc void @_ZN4ncnnL39convolution_im2col_input_tile_int8_implERKNS_3MatERS0_iiiiiiiiii(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr %.val, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef 5, i32 noundef 5, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN4ncnn34convolution_im2col_input_tile_int8ILi5ELi5ELi1ELi1ELi2ELi2EEEvRKNS_3MatERS1_iiii(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 comdat {
   %.val = load ptr, ptr %1, align 8
-  tail call fastcc void @_ZN4ncnnL39convolution_im2col_input_tile_int8_implERKNS_3MatERS0_iiiiiiiiii.argprom(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr %.val, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef 5, i32 noundef 5, i32 noundef 1, i32 noundef 1, i32 noundef 2, i32 noundef 2)
+  tail call fastcc void @_ZN4ncnnL39convolution_im2col_input_tile_int8_implERKNS_3MatERS0_iiiiiiiiii(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr %.val, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef 5, i32 noundef 5, i32 noundef 1, i32 noundef 1, i32 noundef 2, i32 noundef 2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN4ncnn34convolution_im2col_input_tile_int8ILi7ELi7ELi1ELi1ELi2ELi2EEEvRKNS_3MatERS1_iiii(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 comdat {
   %.val = load ptr, ptr %1, align 8
-  tail call fastcc void @_ZN4ncnnL39convolution_im2col_input_tile_int8_implERKNS_3MatERS0_iiiiiiiiii.argprom(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr %.val, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef 7, i32 noundef 7, i32 noundef 1, i32 noundef 1, i32 noundef 2, i32 noundef 2)
+  tail call fastcc void @_ZN4ncnnL39convolution_im2col_input_tile_int8_implERKNS_3MatERS0_iiiiiiiiii(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr %.val, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef 7, i32 noundef 7, i32 noundef 1, i32 noundef 1, i32 noundef 2, i32 noundef 2)
   ret void
 }
 
@@ -9387,8 +9387,8 @@ _ZN4ncnnL49convolution_im2col_gemm_get_optimal_tile_mnk_int8EiiiRiS0_S0_i.exit.i
   %invariant.op.i.us.i = add i32 %248, 1
   br label %253
 
-253:                                              ; preds = %_ZN4ncnnL35convolution_im2col_pack_A_tile_int8ERKNS_3MatERS0_iiii.argprom.exit.us.i, %.lr.ph399.us.i
-  %indvars.iv488.i = phi i64 [ 0, %.lr.ph399.us.i ], [ %indvars.iv.next489.i, %_ZN4ncnnL35convolution_im2col_pack_A_tile_int8ERKNS_3MatERS0_iiii.argprom.exit.us.i ]
+253:                                              ; preds = %_ZN4ncnnL35convolution_im2col_pack_A_tile_int8ERKNS_3MatERS0_iiii.exit.us.i, %.lr.ph399.us.i
+  %indvars.iv488.i = phi i64 [ 0, %.lr.ph399.us.i ], [ %indvars.iv.next489.i, %_ZN4ncnnL35convolution_im2col_pack_A_tile_int8ERKNS_3MatERS0_iiii.exit.us.i ]
   %254 = trunc i64 %indvars.iv488.i to i32
   %255 = sub i32 %12, %254
   %.sroa.speculated.us.i = call i32 @llvm.smin.i32(i32 %.sroa.speculated91.i.i, i32 %255)
@@ -10181,7 +10181,7 @@ _ZN4ncnnL49convolution_im2col_gemm_get_optimal_tile_mnk_int8EiiiRiS0_S0_i.exit.i
   %.2686.lcssa.i.us.i = phi i32 [ %.1685.lcssa.i.us.i, %.preheader6.i.us.i ], [ %713, %.preheader2.loopexit.i.us.i ]
   %.10.lcssa.i.us.i = phi ptr [ %.5.lcssa.i.us.i, %.preheader6.i.us.i ], [ %.14.lcssa.i.us.i, %.preheader2.loopexit.i.us.i ]
   %714 = icmp slt i32 %.2686.lcssa.i.us.i, %.sroa.speculated301.us.i
-  br i1 %714, label %.lr.ph209.i.us.i, label %_ZN4ncnnL35convolution_im2col_pack_A_tile_int8ERKNS_3MatERS0_iiii.argprom.exit.us.i
+  br i1 %714, label %.lr.ph209.i.us.i, label %_ZN4ncnnL35convolution_im2col_pack_A_tile_int8ERKNS_3MatERS0_iiii.exit.us.i
 
 .lr.ph209.i.us.i:                                 ; preds = %.preheader2.i.us.i
   %715 = icmp sgt i32 %.sroa.speculated.us.i, 15
@@ -10259,14 +10259,14 @@ _ZN4ncnnL49convolution_im2col_gemm_get_optimal_tile_mnk_int8EiiiRiS0_S0_i.exit.i
   %.18.lcssa.i.us.i = phi ptr [ %.17.lcssa.i.us.i, %.preheader.i.us.i ], [ %744, %.lr.ph204.i.us.i ]
   %indvars.iv.next294.i.us.i = add nsw i64 %indvars.iv293.i.us.i, 1
   %exitcond296.not.i.us.i = icmp eq i64 %indvars.iv.next294.i.us.i, %252
-  br i1 %exitcond296.not.i.us.i, label %_ZN4ncnnL35convolution_im2col_pack_A_tile_int8ERKNS_3MatERS0_iiii.argprom.exit.us.i, label %722, !llvm.loop !164
+  br i1 %exitcond296.not.i.us.i, label %_ZN4ncnnL35convolution_im2col_pack_A_tile_int8ERKNS_3MatERS0_iiii.exit.us.i, label %722, !llvm.loop !164
 
-_ZN4ncnnL35convolution_im2col_pack_A_tile_int8ERKNS_3MatERS0_iiii.argprom.exit.us.i: ; preds = %._crit_edge205.i.us.i, %.preheader2.i.us.i
+_ZN4ncnnL35convolution_im2col_pack_A_tile_int8ERKNS_3MatERS0_iiii.exit.us.i: ; preds = %._crit_edge205.i.us.i, %.preheader2.i.us.i
   %indvars.iv.next489.i = add nsw i64 %indvars.iv488.i, %smin.i
   %747 = icmp slt i64 %indvars.iv.next489.i, %245
   br i1 %747, label %253, label %._crit_edge400.us.i, !llvm.loop !165
 
-._crit_edge400.us.i:                              ; preds = %_ZN4ncnnL35convolution_im2col_pack_A_tile_int8ERKNS_3MatERS0_iiii.argprom.exit.us.i
+._crit_edge400.us.i:                              ; preds = %_ZN4ncnnL35convolution_im2col_pack_A_tile_int8ERKNS_3MatERS0_iiii.exit.us.i
   %indvars.iv.next491.i = add nuw nsw i64 %indvars.iv490.i, 1
   %exitcond494.not.i = icmp eq i64 %indvars.iv.next491.i, %wide.trip.count493.i
   br i1 %exitcond494.not.i, label %._crit_edge403.i, label %.lr.ph399.us.i, !llvm.loop !166
@@ -10564,8 +10564,8 @@ _ZN4ncnnL49convolution_im2col_gemm_get_optimal_tile_mnk_int8EiiiRiS0_S0_i.exit.i
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %or.cond9.i.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.exit.us.i
-  %.0351824.us.i = phi i32 [ %468, %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.exit.us.i ], [ 0, %.lr.ph.i ]
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.us.i
+  %.0351824.us.i = phi i32 [ %468, %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.us.i ], [ 0, %.lr.ph.i ]
   %138 = sdiv i32 %.0351824.us.i, %101
   %139 = srem i32 %.0351824.us.i, %101
   %140 = mul nsw i32 %138, %.0651.i
@@ -11055,7 +11055,7 @@ _ZN4ncnnL49convolution_im2col_gemm_get_optimal_tile_mnk_int8EiiiRiS0_S0_i.exit.i
   %.2539.lcssa.i.i.us.i = phi i32 [ %.1538.lcssa.i.i.us.i, %.preheader5.i.i.us.i ], [ %425, %.preheader.loopexit.i.i.us.i ]
   %.12.lcssa.i.i.us.i = phi ptr [ %.6.lcssa.i.i.us.i, %.preheader5.i.i.us.i ], [ %.17.i.i.us.i, %.preheader.loopexit.i.i.us.i ]
   %426 = icmp slt i32 %.2539.lcssa.i.i.us.i, %.sroa.speculated617.us.i
-  br i1 %426, label %.lr.ph89.i.i.us.i, label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.exit.us.i
+  br i1 %426, label %.lr.ph89.i.i.us.i, label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.us.i
 
 .lr.ph89.i.i.us.i:                                ; preds = %.preheader.i.i.us.i
   %427 = icmp eq i32 %157, 8
@@ -11069,7 +11069,7 @@ _ZN4ncnnL49convolution_im2col_gemm_get_optimal_tile_mnk_int8EiiiRiS0_S0_i.exit.i
   %432 = icmp slt i32 %.sroa.speculated613.us.i, 1
   %433 = icmp ne i32 %157, 1
   %brmerge173.i.i.us.i = or i1 %432, %433
-  br i1 %brmerge173.i.i.us.i, label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.exit.us.i, label %.lr.ph85.us98.us.preheader.i.i.us.i
+  br i1 %brmerge173.i.i.us.i, label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.us.i, label %.lr.ph85.us98.us.preheader.i.i.us.i
 
 .lr.ph85.us98.us.preheader.i.i.us.i:              ; preds = %.lr.ph89.split.i.i.us.i
   %434 = sext i32 %.2539.lcssa.i.i.us.i to i64
@@ -11107,13 +11107,13 @@ _ZN4ncnnL49convolution_im2col_gemm_get_optimal_tile_mnk_int8EiiiRiS0_S0_i.exit.i
 ..loopexit_crit_edge.us99.us.i.i.us.i:            ; preds = %444
   %indvars.iv.next138.i.i.us.i = add nsw i64 %indvars.iv137.i.i.us.i, 1
   %exitcond140.not.i.i.us.i = icmp eq i64 %indvars.iv.next138.i.i.us.i, %wide.trip.count.i.i.us.i
-  br i1 %exitcond140.not.i.i.us.i, label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.exit.us.i, label %.lr.ph85.us98.us.i.i.us.i, !llvm.loop !180
+  br i1 %exitcond140.not.i.i.us.i, label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.us.i, label %.lr.ph85.us98.us.i.i.us.i, !llvm.loop !180
 
 .lr.ph89.split.us.preheader.i.i.us.i:             ; preds = %.lr.ph89.i.i.us.i
   %450 = icmp sgt i32 %.sroa.speculated613.us.i, 7
   %451 = sext i32 %140 to i64
   %wide.trip.count146.i.i.us.i = sext i32 %.sroa.speculated617.us.i to i64
-  br i1 %450, label %.lr.ph89.split.us.i.us.preheader.i.us.i, label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.exit.us.i
+  br i1 %450, label %.lr.ph89.split.us.i.us.preheader.i.us.i, label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.us.i
 
 .lr.ph89.split.us.i.us.preheader.i.us.i:          ; preds = %.lr.ph89.split.us.preheader.i.i.us.i
   %.pre148.i.i.us.i = load i64, ptr %136, align 8
@@ -11151,9 +11151,9 @@ _ZN4ncnnL49convolution_im2col_gemm_get_optimal_tile_mnk_int8EiiiRiS0_S0_i.exit.i
 .loopexit1.us.i.loopexit.us.i.us.i:               ; preds = %.lr.ph80.us.i.us.i.us.i
   %indvars.iv.next144.i.us.i.us.i = add nsw i64 %indvars.iv143.i.us.i.us.i, 1
   %exitcond147.not.i.us.i.us.i = icmp eq i64 %indvars.iv.next144.i.us.i.us.i, %wide.trip.count146.i.i.us.i
-  br i1 %exitcond147.not.i.us.i.us.i, label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.exit.us.i, label %.lr.ph89.split.us.i.us.i.us.i, !llvm.loop !180
+  br i1 %exitcond147.not.i.us.i.us.i, label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.us.i, label %.lr.ph89.split.us.i.us.i.us.i, !llvm.loop !180
 
-_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.exit.us.i: ; preds = %..loopexit_crit_edge.us99.us.i.i.us.i, %.loopexit1.us.i.loopexit.us.i.us.i, %.lr.ph89.split.us.preheader.i.i.us.i, %.lr.ph89.split.i.i.us.i, %.preheader.i.i.us.i
+_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.us.i: ; preds = %..loopexit_crit_edge.us99.us.i.i.us.i, %.loopexit1.us.i.loopexit.us.i.us.i, %.lr.ph89.split.us.preheader.i.i.us.i, %.lr.ph89.split.i.i.us.i, %.preheader.i.i.us.i
   %468 = add nuw nsw i32 %.0351824.us.i, 1
   %exitcond1023.not.i = icmp eq i32 %468, %120
   br i1 %exitcond1023.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !182
@@ -11161,10 +11161,10 @@ _ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.e
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   %or.cond13.i.i = and i1 %or.cond.i.i, %128
   %or.cond15.i.i = and i1 %or.cond13.i.i, %129
-  br i1 %or.cond15.i.i, label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.exit.us828.i, label %.lr.ph.split.split.i
+  br i1 %or.cond15.i.i, label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.us828.i, label %.lr.ph.split.split.i
 
-_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.exit.us828.i: ; preds = %.lr.ph.split.i, %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.exit.us828.i
-  %.0351824.us825.i = phi i32 [ %488, %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.exit.us828.i ], [ 0, %.lr.ph.split.i ]
+_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.us828.i: ; preds = %.lr.ph.split.i, %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.us828.i
+  %.0351824.us825.i = phi i32 [ %488, %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.us828.i ], [ 0, %.lr.ph.split.i ]
   %469 = sdiv i32 %.0351824.us825.i, %101
   %470 = srem i32 %.0351824.us825.i, %101
   %471 = mul nsw i32 %469, %.0651.i
@@ -11186,13 +11186,13 @@ _ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.e
   %485 = mul nsw i64 %483, %484
   %486 = mul i64 %485, %480
   %487 = getelementptr inbounds i8, ptr %482, i64 %486
-  call fastcc void @_ZN4ncnnL39convolution_im2col_input_tile_int8_implERKNS_3MatERS0_iiiiiiiiii.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr %487, i32 noundef %471, i32 noundef %.sroa.speculated617.us826.i, i32 noundef %472, i32 noundef %.sroa.speculated613.us827.i, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 2, i32 noundef 2)
+  call fastcc void @_ZN4ncnnL39convolution_im2col_input_tile_int8_implERKNS_3MatERS0_iiiiiiiiii(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr %487, i32 noundef %471, i32 noundef %.sroa.speculated617.us826.i, i32 noundef %472, i32 noundef %.sroa.speculated613.us827.i, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 2, i32 noundef 2)
   %488 = add nuw nsw i32 %.0351824.us825.i, 1
   %exitcond1022.not.i = icmp eq i32 %488, %120
-  br i1 %exitcond1022.not.i, label %._crit_edge.i, label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.exit.us828.i, !llvm.loop !182
+  br i1 %exitcond1022.not.i, label %._crit_edge.i, label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.us828.i, !llvm.loop !182
 
-.lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i, %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.exit.i
-  %.0351824.i = phi i32 [ %518, %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.exit.i ], [ 0, %.lr.ph.split.i ]
+.lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i, %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.i
+  %.0351824.i = phi i32 [ %518, %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.i ], [ 0, %.lr.ph.split.i ]
   %489 = sdiv i32 %.0351824.i, %101
   %490 = srem i32 %.0351824.i, %101
   %491 = mul nsw i32 %489, %.0651.i
@@ -11217,47 +11217,47 @@ _ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.e
   br i1 %or.cond25.i.i, label %508, label %509
 
 508:                                              ; preds = %.lr.ph.split.split.i
-  call fastcc void @_ZN4ncnnL39convolution_im2col_input_tile_int8_implERKNS_3MatERS0_iiiiiiiiii.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr %507, i32 noundef %491, i32 noundef %.sroa.speculated617.i, i32 noundef %492, i32 noundef %.sroa.speculated613.i, i32 noundef 3, i32 noundef 3, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 1)
-  br label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.exit.i
+  call fastcc void @_ZN4ncnnL39convolution_im2col_input_tile_int8_implERKNS_3MatERS0_iiiiiiiiii(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr %507, i32 noundef %491, i32 noundef %.sroa.speculated617.i, i32 noundef %492, i32 noundef %.sroa.speculated613.i, i32 noundef 3, i32 noundef 3, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 1)
+  br label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.i
 
 509:                                              ; preds = %.lr.ph.split.split.i
   br i1 %or.cond35.i.i, label %510, label %511
 
 510:                                              ; preds = %509
-  call fastcc void @_ZN4ncnnL39convolution_im2col_input_tile_int8_implERKNS_3MatERS0_iiiiiiiiii.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr %507, i32 noundef %491, i32 noundef %.sroa.speculated617.i, i32 noundef %492, i32 noundef %.sroa.speculated613.i, i32 noundef 3, i32 noundef 3, i32 noundef 1, i32 noundef 1, i32 noundef 2, i32 noundef 2)
-  br label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.exit.i
+  call fastcc void @_ZN4ncnnL39convolution_im2col_input_tile_int8_implERKNS_3MatERS0_iiiiiiiiii(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr %507, i32 noundef %491, i32 noundef %.sroa.speculated617.i, i32 noundef %492, i32 noundef %.sroa.speculated613.i, i32 noundef 3, i32 noundef 3, i32 noundef 1, i32 noundef 1, i32 noundef 2, i32 noundef 2)
+  br label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.i
 
 511:                                              ; preds = %509
   br i1 %or.cond45.i.i, label %512, label %513
 
 512:                                              ; preds = %511
-  call fastcc void @_ZN4ncnnL39convolution_im2col_input_tile_int8_implERKNS_3MatERS0_iiiiiiiiii.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr %507, i32 noundef %491, i32 noundef %.sroa.speculated617.i, i32 noundef %492, i32 noundef %.sroa.speculated613.i, i32 noundef 5, i32 noundef 5, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 1)
-  br label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.exit.i
+  call fastcc void @_ZN4ncnnL39convolution_im2col_input_tile_int8_implERKNS_3MatERS0_iiiiiiiiii(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr %507, i32 noundef %491, i32 noundef %.sroa.speculated617.i, i32 noundef %492, i32 noundef %.sroa.speculated613.i, i32 noundef 5, i32 noundef 5, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 1)
+  br label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.i
 
 513:                                              ; preds = %511
   br i1 %or.cond55.i.i, label %514, label %515
 
 514:                                              ; preds = %513
-  call fastcc void @_ZN4ncnnL39convolution_im2col_input_tile_int8_implERKNS_3MatERS0_iiiiiiiiii.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr %507, i32 noundef %491, i32 noundef %.sroa.speculated617.i, i32 noundef %492, i32 noundef %.sroa.speculated613.i, i32 noundef 5, i32 noundef 5, i32 noundef 1, i32 noundef 1, i32 noundef 2, i32 noundef 2)
-  br label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.exit.i
+  call fastcc void @_ZN4ncnnL39convolution_im2col_input_tile_int8_implERKNS_3MatERS0_iiiiiiiiii(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr %507, i32 noundef %491, i32 noundef %.sroa.speculated617.i, i32 noundef %492, i32 noundef %.sroa.speculated613.i, i32 noundef 5, i32 noundef 5, i32 noundef 1, i32 noundef 1, i32 noundef 2, i32 noundef 2)
+  br label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.i
 
 515:                                              ; preds = %513
   br i1 %or.cond65.i.i, label %516, label %517
 
 516:                                              ; preds = %515
-  call fastcc void @_ZN4ncnnL39convolution_im2col_input_tile_int8_implERKNS_3MatERS0_iiiiiiiiii.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr %507, i32 noundef %491, i32 noundef %.sroa.speculated617.i, i32 noundef %492, i32 noundef %.sroa.speculated613.i, i32 noundef 7, i32 noundef 7, i32 noundef 1, i32 noundef 1, i32 noundef 2, i32 noundef 2)
-  br label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.exit.i
+  call fastcc void @_ZN4ncnnL39convolution_im2col_input_tile_int8_implERKNS_3MatERS0_iiiiiiiiii(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr %507, i32 noundef %491, i32 noundef %.sroa.speculated617.i, i32 noundef %492, i32 noundef %.sroa.speculated613.i, i32 noundef 7, i32 noundef 7, i32 noundef 1, i32 noundef 1, i32 noundef 2, i32 noundef 2)
+  br label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.i
 
 517:                                              ; preds = %515
-  call fastcc void @_ZN4ncnnL39convolution_im2col_input_tile_int8_implERKNS_3MatERS0_iiiiiiiiii.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr %507, i32 noundef %491, i32 noundef %.sroa.speculated617.i, i32 noundef %492, i32 noundef %.sroa.speculated613.i, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8)
-  br label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.exit.i
+  call fastcc void @_ZN4ncnnL39convolution_im2col_input_tile_int8_implERKNS_3MatERS0_iiiiiiiiii(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr %507, i32 noundef %491, i32 noundef %.sroa.speculated617.i, i32 noundef %492, i32 noundef %.sroa.speculated613.i, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8)
+  br label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.i
 
-_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.exit.i: ; preds = %517, %516, %514, %512, %510, %508
+_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.i: ; preds = %517, %516, %514, %512, %510, %508
   %518 = add nuw nsw i32 %.0351824.i, 1
   %exitcond.not.i = icmp eq i32 %518, %120
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.split.i, !llvm.loop !182
 
-._crit_edge.i:                                    ; preds = %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.exit.i, %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.exit.us828.i, %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.exit.us.i, %119
+._crit_edge.i:                                    ; preds = %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.i, %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.us828.i, %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.us.i, %119
   %519 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %520 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %521 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -11354,8 +11354,8 @@ _ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.e
   %572 = add i32 %.sroa.speculated562.us.us.i.us, -1
   br label %573
 
-573:                                              ; preds = %_ZN4ncnnL40convolution_gemm_transB_packed_tile_int8ERKNS_3MatES2_RS0_S3_iiiiiib.argprom.exit.us.us.i.us, %.lr.ph831.us.us.i.us
-  %.0829.us.us.i.us = phi i32 [ 0, %.lr.ph831.us.us.i.us ], [ %599, %_ZN4ncnnL40convolution_gemm_transB_packed_tile_int8ERKNS_3MatES2_RS0_S3_iiiiiib.argprom.exit.us.us.i.us ]
+573:                                              ; preds = %_ZN4ncnnL40convolution_gemm_transB_packed_tile_int8ERKNS_3MatES2_RS0_S3_iiiiiib.exit.us.us.i.us, %.lr.ph831.us.us.i.us
+  %.0829.us.us.i.us = phi i32 [ 0, %.lr.ph831.us.us.i.us ], [ %599, %_ZN4ncnnL40convolution_gemm_transB_packed_tile_int8ERKNS_3MatES2_RS0_S3_iiiiiib.exit.us.us.i.us ]
   %574 = sub nsw i32 %.fr190, %.0829.us.us.i.us
   %.sroa.speculated.us.us.i.us = call i32 @llvm.smin.i32(i32 %.sroa.speculated91.i.i, i32 %574)
   %575 = load i32, ptr %542, align 4
@@ -13694,7 +13694,7 @@ _ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.e
   %.10.lcssa.i.us.us.i.us = phi ptr [ %.5.lcssa.i.us.us.i.us, %.preheader64.i.us.us.i.us ], [ %.14.lcssa.i.us.us.i.us, %.preheader56.loopexit.i.us.us.i.us ]
   %.22789.lcssa.i.us.us.i.us = phi ptr [ %.12788.lcssa.i.us.us.i.us, %.preheader64.i.us.us.i.us ], [ %1901, %.preheader56.loopexit.i.us.us.i.us ]
   %1905 = icmp slt i32 %.22796.lcssa.i.us.us.i.us, %.sroa.speculated566.us.i.us
-  br i1 %1905, label %.lr.ph633.i.us.us.i.us, label %_ZN4ncnnL40convolution_gemm_transB_packed_tile_int8ERKNS_3MatES2_RS0_S3_iiiiiib.argprom.exit.us.us.i.us
+  br i1 %1905, label %.lr.ph633.i.us.us.i.us, label %_ZN4ncnnL40convolution_gemm_transB_packed_tile_int8ERKNS_3MatES2_RS0_S3_iiiiiib.exit.us.us.i.us
 
 .lr.ph633.i.us.us.i.us:                           ; preds = %.preheader56.i.us.us.i.us
   %1906 = icmp eq i32 %.0829.us.us.i.us, 0
@@ -14142,12 +14142,12 @@ _ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.argprom.e
   %2100 = getelementptr inbounds i8, ptr %.3631.i.us.us.i.us, i64 %1909
   %indvars.iv.next853.i.us.us.i.us = add nsw i64 %indvars.iv852.i.us.us.i.us, 1
   %exitcond855.not.i.us.us.i.us = icmp eq i64 %indvars.iv.next853.i.us.us.i.us, %565
-  br i1 %exitcond855.not.i.us.us.i.us, label %_ZN4ncnnL40convolution_gemm_transB_packed_tile_int8ERKNS_3MatES2_RS0_S3_iiiiiib.argprom.exit.us.us.i.us, label %1916, !llvm.loop !233
+  br i1 %exitcond855.not.i.us.us.i.us, label %_ZN4ncnnL40convolution_gemm_transB_packed_tile_int8ERKNS_3MatES2_RS0_S3_iiiiiib.exit.us.us.i.us, label %1916, !llvm.loop !233
 
-_ZN4ncnnL40convolution_gemm_transB_packed_tile_int8ERKNS_3MatES2_RS0_S3_iiiiiib.argprom.exit.us.us.i.us: ; preds = %._crit_edge614.i.us.us.i.us, %.preheader56.i.us.us.i.us
+_ZN4ncnnL40convolution_gemm_transB_packed_tile_int8ERKNS_3MatES2_RS0_S3_iiiiiib.exit.us.us.i.us: ; preds = %._crit_edge614.i.us.us.i.us, %.preheader56.i.us.us.i.us
   br i1 %.not652.us.us.i.us, label %573, label %._crit_edge832.us.us.i.us, !llvm.loop !234
 
-._crit_edge832.us.us.i.us:                        ; preds = %_ZN4ncnnL40convolution_gemm_transB_packed_tile_int8ERKNS_3MatES2_RS0_S3_iiiiiib.argprom.exit.us.us.i.us
+._crit_edge832.us.us.i.us:                        ; preds = %_ZN4ncnnL40convolution_gemm_transB_packed_tile_int8ERKNS_3MatES2_RS0_S3_iiiiiib.exit.us.us.i.us
   %indvars.iv.next.i.us = add nsw i64 %indvars.iv.i.us, %547
   %2101 = icmp slt i64 %indvars.iv.next.i.us, %548
   br i1 %2101, label %.lr.ph831.us.us.i.us, label %._crit_edge836.us.i.loopexit.us, !llvm.loop !235
@@ -14984,7 +14984,7 @@ define hidden noundef i32 @_ZN4ncnn30conv3x3s1_winograd23_int8_avx2ERKNS_3MatERS
   %.sroa.speculated767.i = call i32 @llvm.smin.i32(i32 %49, i32 %116)
   %117 = sub nsw i32 %44, %115
   %.sroa.speculated763.i = call i32 @llvm.smin.i32(i32 %53, i32 %117)
-  call fastcc void @_ZN4ncnnL46conv3x3s1_winograd23_transform_input_tile_int8ERKNS_3MatERS0_iiiii.argelim(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %14, i32 noundef %114, i32 noundef %.sroa.speculated767.i, i32 noundef %115, i32 noundef %.sroa.speculated763.i)
+  call fastcc void @_ZN4ncnnL46conv3x3s1_winograd23_transform_input_tile_int8ERKNS_3MatERS0_iiiii(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %14, i32 noundef %114, i32 noundef %.sroa.speculated767.i, i32 noundef %115, i32 noundef %.sroa.speculated763.i)
   %118 = load i32, ptr %64, align 4
   %119 = load i32, ptr %65, align 8
   %120 = load ptr, ptr %13, align 8
@@ -15014,7 +15014,7 @@ define hidden noundef i32 @_ZN4ncnn30conv3x3s1_winograd23_int8_avx2ERKNS_3MatERS
   store i32 1, ptr %108, align 4
   store i32 1, ptr %109, align 8
   store i64 %131, ptr %110, align 8
-  call fastcc void @_ZN4ncnnL26transpose_pack_B_tile_int8ERKNS_3MatERS0_iiii.argelim(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull align 8 dereferenceable(72) %15, i32 noundef 16, i32 noundef %.sroa.speculated767.i, i32 noundef %.sroa.speculated763.i)
+  call fastcc void @_ZN4ncnnL26transpose_pack_B_tile_int8ERKNS_3MatERS0_iiii(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull align 8 dereferenceable(72) %15, i32 noundef 16, i32 noundef %.sroa.speculated767.i, i32 noundef %.sroa.speculated763.i)
   store i64 0, ptr %110, align 8
   %136 = add nuw nsw i32 %.0473788.i, 1
   %exitcond815.not.i = icmp eq i32 %136, %79
@@ -15185,7 +15185,7 @@ define hidden noundef i32 @_ZN4ncnn30conv3x3s1_winograd23_int8_avx2ERKNS_3MatERS
   br label %230
 
 230:                                              ; preds = %229, %206
-  call fastcc void @_ZN4ncnnL46conv3x3s1_winograd23_transform_input_tile_int8ERKNS_3MatERS0_iiiii.argelim(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %17, i32 noundef %201, i32 noundef %.sroa.speculated759.i, i32 noundef %202, i32 noundef %.sroa.speculated755.i)
+  call fastcc void @_ZN4ncnnL46conv3x3s1_winograd23_transform_input_tile_int8ERKNS_3MatERS0_iiiii(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %17, i32 noundef %201, i32 noundef %.sroa.speculated759.i, i32 noundef %202, i32 noundef %.sroa.speculated755.i)
   %231 = load i32, ptr %64, align 4
   %232 = load i32, ptr %65, align 8
   %233 = load ptr, ptr %13, align 8
@@ -15215,7 +15215,7 @@ define hidden noundef i32 @_ZN4ncnn30conv3x3s1_winograd23_int8_avx2ERKNS_3MatERS
   store i32 1, ptr %192, align 4
   store i32 1, ptr %193, align 8
   store i64 %244, ptr %194, align 8
-  call fastcc void @_ZN4ncnnL26transpose_pack_B_tile_int8ERKNS_3MatERS0_iiii.argelim(ptr noundef nonnull align 8 dereferenceable(72) %17, ptr noundef nonnull align 8 dereferenceable(72) %18, i32 noundef 16, i32 noundef %.sroa.speculated759.i, i32 noundef %.sroa.speculated755.i)
+  call fastcc void @_ZN4ncnnL26transpose_pack_B_tile_int8ERKNS_3MatERS0_iiii(ptr noundef nonnull align 8 dereferenceable(72) %17, ptr noundef nonnull align 8 dereferenceable(72) %18, i32 noundef 16, i32 noundef %.sroa.speculated759.i, i32 noundef %.sroa.speculated755.i)
   store i64 0, ptr %194, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %18, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %189, i8 0, i64 20, i1 false)
@@ -16266,7 +16266,7 @@ define hidden noundef i32 @_ZN4ncnn30conv3x3s1_winograd23_int8_avx2ERKNS_3MatERS
   store i64 %833, ptr %332, align 8
   %837 = add nsw i32 %.0790.us.i, %.pre.i
   %838 = icmp sge i32 %837, %44
-  call fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES2_RS0_iiiiib.argprom(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull align 8 dereferenceable(72) %21, ptr %345, i32 noundef 16, i32 noundef %.sroa.speculated742.us.i, i32 noundef %.sroa.speculated738.us.i, i32 noundef %.0790.us.i, i32 noundef %.sroa.speculated.us.i, i1 noundef zeroext %838)
+  call fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES2_RS0_iiiiib(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull align 8 dereferenceable(72) %21, ptr %345, i32 noundef 16, i32 noundef %.sroa.speculated742.us.i, i32 noundef %.sroa.speculated738.us.i, i32 noundef %.0790.us.i, i32 noundef %.sroa.speculated.us.i, i1 noundef zeroext %838)
   store i64 0, ptr %332, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %21, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %327, i8 0, i64 20, i1 false)
@@ -16685,10 +16685,10 @@ define hidden void @_ZN4ncnn47conv3x3s1_winograd43_transform_kernel_int8_avx2ERK
   %.pre.i = load i32, ptr %9, align 4
   br label %99
 
-99:                                               ; preds = %_ZN4ncnnL47conv3x3s1_winograd43_transform_kernel_tile_int8ERKNS_3MatERS0_iiiii.argprom.exit.i, %.lr.ph.i
-  %100 = phi i32 [ %.pre.i, %.lr.ph.i ], [ %184, %_ZN4ncnnL47conv3x3s1_winograd43_transform_kernel_tile_int8ERKNS_3MatERS0_iiiii.argprom.exit.i ]
-  %101 = phi i32 [ %70, %.lr.ph.i ], [ %185, %_ZN4ncnnL47conv3x3s1_winograd43_transform_kernel_tile_int8ERKNS_3MatERS0_iiiii.argprom.exit.i ]
-  %.0206.i = phi i32 [ 0, %.lr.ph.i ], [ %206, %_ZN4ncnnL47conv3x3s1_winograd43_transform_kernel_tile_int8ERKNS_3MatERS0_iiiii.argprom.exit.i ]
+99:                                               ; preds = %_ZN4ncnnL47conv3x3s1_winograd43_transform_kernel_tile_int8ERKNS_3MatERS0_iiiii.exit.i, %.lr.ph.i
+  %100 = phi i32 [ %.pre.i, %.lr.ph.i ], [ %184, %_ZN4ncnnL47conv3x3s1_winograd43_transform_kernel_tile_int8ERKNS_3MatERS0_iiiii.exit.i ]
+  %101 = phi i32 [ %70, %.lr.ph.i ], [ %185, %_ZN4ncnnL47conv3x3s1_winograd43_transform_kernel_tile_int8ERKNS_3MatERS0_iiiii.exit.i ]
+  %.0206.i = phi i32 [ 0, %.lr.ph.i ], [ %206, %_ZN4ncnnL47conv3x3s1_winograd43_transform_kernel_tile_int8ERKNS_3MatERS0_iiiii.exit.i ]
   %.sroa.speculated196.i = call i32 @llvm.smin.i32(i32 %101, i32 %98)
   %102 = sub nsw i32 %2, %.0206.i
   %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %100, i32 %102)
@@ -16697,7 +16697,7 @@ define hidden void @_ZN4ncnn47conv3x3s1_winograd43_transform_kernel_int8_avx2ERK
   %103 = icmp sgt i32 %.sroa.speculated196.i, 0
   %104 = icmp sgt i32 %.sroa.speculated.i, 0
   %or.cond.i = select i1 %103, i1 %104, i1 false
-  br i1 %or.cond.i, label %.preheader9.us.preheader.i.i, label %_ZN4ncnnL47conv3x3s1_winograd43_transform_kernel_tile_int8ERKNS_3MatERS0_iiiii.argprom.exit.i
+  br i1 %or.cond.i, label %.preheader9.us.preheader.i.i, label %_ZN4ncnnL47conv3x3s1_winograd43_transform_kernel_tile_int8ERKNS_3MatERS0_iiiii.exit.i
 
 .preheader9.us.preheader.i.i:                     ; preds = %99
   %105 = sext i32 %.0206.i to i64
@@ -16826,16 +16826,16 @@ define hidden void @_ZN4ncnn47conv3x3s1_winograd43_transform_kernel_int8_avx2ERK
 ._crit_edge.us.i.i:                               ; preds = %116
   %indvars.iv.next30.i.i = add nuw nsw i64 %indvars.iv29.i.i, 1
   %exitcond33.not.i.i = icmp eq i64 %indvars.iv.next30.i.i, %wide.trip.count32.i.i
-  br i1 %exitcond33.not.i.i, label %_ZN4ncnnL47conv3x3s1_winograd43_transform_kernel_tile_int8ERKNS_3MatERS0_iiiii.argprom.exit.loopexit.i, label %.preheader9.us.i.i, !llvm.loop !276
+  br i1 %exitcond33.not.i.i, label %_ZN4ncnnL47conv3x3s1_winograd43_transform_kernel_tile_int8ERKNS_3MatERS0_iiiii.exit.loopexit.i, label %.preheader9.us.i.i, !llvm.loop !276
 
-_ZN4ncnnL47conv3x3s1_winograd43_transform_kernel_tile_int8ERKNS_3MatERS0_iiiii.argprom.exit.loopexit.i: ; preds = %._crit_edge.us.i.i
+_ZN4ncnnL47conv3x3s1_winograd43_transform_kernel_tile_int8ERKNS_3MatERS0_iiiii.exit.loopexit.i: ; preds = %._crit_edge.us.i.i
   %.pre210.i = load i32, ptr %7, align 4
   %.pre211.i = load i32, ptr %9, align 4
-  br label %_ZN4ncnnL47conv3x3s1_winograd43_transform_kernel_tile_int8ERKNS_3MatERS0_iiiii.argprom.exit.i
+  br label %_ZN4ncnnL47conv3x3s1_winograd43_transform_kernel_tile_int8ERKNS_3MatERS0_iiiii.exit.i
 
-_ZN4ncnnL47conv3x3s1_winograd43_transform_kernel_tile_int8ERKNS_3MatERS0_iiiii.argprom.exit.i: ; preds = %_ZN4ncnnL47conv3x3s1_winograd43_transform_kernel_tile_int8ERKNS_3MatERS0_iiiii.argprom.exit.loopexit.i, %99
-  %184 = phi i32 [ %.pre211.i, %_ZN4ncnnL47conv3x3s1_winograd43_transform_kernel_tile_int8ERKNS_3MatERS0_iiiii.argprom.exit.loopexit.i ], [ %100, %99 ]
-  %185 = phi i32 [ %.pre210.i, %_ZN4ncnnL47conv3x3s1_winograd43_transform_kernel_tile_int8ERKNS_3MatERS0_iiiii.argprom.exit.loopexit.i ], [ %101, %99 ]
+_ZN4ncnnL47conv3x3s1_winograd43_transform_kernel_tile_int8ERKNS_3MatERS0_iiiii.exit.i: ; preds = %_ZN4ncnnL47conv3x3s1_winograd43_transform_kernel_tile_int8ERKNS_3MatERS0_iiiii.exit.loopexit.i, %99
+  %184 = phi i32 [ %.pre211.i, %_ZN4ncnnL47conv3x3s1_winograd43_transform_kernel_tile_int8ERKNS_3MatERS0_iiiii.exit.loopexit.i ], [ %100, %99 ]
+  %185 = phi i32 [ %.pre210.i, %_ZN4ncnnL47conv3x3s1_winograd43_transform_kernel_tile_int8ERKNS_3MatERS0_iiiii.exit.loopexit.i ], [ %101, %99 ]
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %6)
   %186 = sdiv i32 %71, %185
   %187 = load i32, ptr %53, align 4
@@ -16892,7 +16892,7 @@ _ZN4ncnnL47conv3x3s1_winograd43_transform_kernel_tile_int8ERKNS_3MatERS0_iiiii.a
   %.not187.i = icmp eq ptr %209, null
   br i1 %.not187.i, label %254, label %242
 
-._crit_edge.i:                                    ; preds = %_ZN4ncnnL47conv3x3s1_winograd43_transform_kernel_tile_int8ERKNS_3MatERS0_iiiii.argprom.exit.i
+._crit_edge.i:                                    ; preds = %_ZN4ncnnL47conv3x3s1_winograd43_transform_kernel_tile_int8ERKNS_3MatERS0_iiiii.exit.i
   %.pre212.i = load ptr, ptr %36, align 8
   %.not177.i = icmp eq ptr %.pre212.i, null
   br i1 %.not177.i, label %._crit_edge.thread.i, label %210
@@ -17186,7 +17186,7 @@ define hidden noundef i32 @_ZN4ncnn30conv3x3s1_winograd43_int8_avx2ERKNS_3MatERS
   %.sroa.speculated767.i = call i32 @llvm.smin.i32(i32 %49, i32 %115)
   %116 = sub nsw i32 %44, %114
   %.sroa.speculated763.i = call i32 @llvm.smin.i32(i32 %53, i32 %116)
-  call fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_tile_int8ERKNS_3MatERS0_iiiii.argelim(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %14, i32 noundef %113, i32 noundef %.sroa.speculated767.i, i32 noundef %114, i32 noundef %.sroa.speculated763.i)
+  call fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_tile_int8ERKNS_3MatERS0_iiiii(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %14, i32 noundef %113, i32 noundef %.sroa.speculated767.i, i32 noundef %114, i32 noundef %.sroa.speculated763.i)
   %117 = load i32, ptr %64, align 4
   %118 = load i32, ptr %65, align 8
   %119 = load ptr, ptr %13, align 8
@@ -17216,7 +17216,7 @@ define hidden noundef i32 @_ZN4ncnn30conv3x3s1_winograd43_int8_avx2ERKNS_3MatERS
   store i32 1, ptr %107, align 4
   store i32 1, ptr %108, align 8
   store i64 %130, ptr %109, align 8
-  call fastcc void @_ZN4ncnnL26transpose_pack_B_tile_int8ERKNS_3MatERS0_iiii.argelim(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull align 8 dereferenceable(72) %15, i32 noundef 36, i32 noundef %.sroa.speculated767.i, i32 noundef %.sroa.speculated763.i)
+  call fastcc void @_ZN4ncnnL26transpose_pack_B_tile_int8ERKNS_3MatERS0_iiii(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull align 8 dereferenceable(72) %15, i32 noundef 36, i32 noundef %.sroa.speculated767.i, i32 noundef %.sroa.speculated763.i)
   store i64 0, ptr %109, align 8
   %135 = add nuw nsw i32 %.0473796.i, 1
   %exitcond833.not.i = icmp eq i32 %135, %79
@@ -17387,7 +17387,7 @@ define hidden noundef i32 @_ZN4ncnn30conv3x3s1_winograd43_int8_avx2ERKNS_3MatERS
   br label %229
 
 229:                                              ; preds = %228, %205
-  call fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_tile_int8ERKNS_3MatERS0_iiiii.argelim(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %17, i32 noundef %200, i32 noundef %.sroa.speculated759.i, i32 noundef %201, i32 noundef %.sroa.speculated755.i)
+  call fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_tile_int8ERKNS_3MatERS0_iiiii(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %17, i32 noundef %200, i32 noundef %.sroa.speculated759.i, i32 noundef %201, i32 noundef %.sroa.speculated755.i)
   %230 = load i32, ptr %64, align 4
   %231 = load i32, ptr %65, align 8
   %232 = load ptr, ptr %13, align 8
@@ -17417,7 +17417,7 @@ define hidden noundef i32 @_ZN4ncnn30conv3x3s1_winograd43_int8_avx2ERKNS_3MatERS
   store i32 1, ptr %191, align 4
   store i32 1, ptr %192, align 8
   store i64 %243, ptr %193, align 8
-  call fastcc void @_ZN4ncnnL26transpose_pack_B_tile_int8ERKNS_3MatERS0_iiii.argelim(ptr noundef nonnull align 8 dereferenceable(72) %17, ptr noundef nonnull align 8 dereferenceable(72) %18, i32 noundef 36, i32 noundef %.sroa.speculated759.i, i32 noundef %.sroa.speculated755.i)
+  call fastcc void @_ZN4ncnnL26transpose_pack_B_tile_int8ERKNS_3MatERS0_iiii(ptr noundef nonnull align 8 dereferenceable(72) %17, ptr noundef nonnull align 8 dereferenceable(72) %18, i32 noundef 36, i32 noundef %.sroa.speculated759.i, i32 noundef %.sroa.speculated755.i)
   store i64 0, ptr %193, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %18, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %188, i8 0, i64 20, i1 false)
@@ -19073,7 +19073,7 @@ define hidden noundef i32 @_ZN4ncnn30conv3x3s1_winograd43_int8_avx2ERKNS_3MatERS
   store i64 %1277, ptr %331, align 8
   %1281 = add nsw i32 %.0798.us.i, %.pre.i
   %1282 = icmp sge i32 %1281, %44
-  call fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES2_RS0_iiiiib.argprom(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull align 8 dereferenceable(72) %21, ptr %376, i32 noundef 36, i32 noundef %.sroa.speculated742.us.i, i32 noundef %.sroa.speculated738.us.i, i32 noundef %.0798.us.i, i32 noundef %.sroa.speculated.us.i, i1 noundef zeroext %1282)
+  call fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES2_RS0_iiiiib(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull align 8 dereferenceable(72) %21, ptr %376, i32 noundef 36, i32 noundef %.sroa.speculated742.us.i, i32 noundef %.sroa.speculated738.us.i, i32 noundef %.0798.us.i, i32 noundef %.sroa.speculated.us.i, i1 noundef zeroext %1282)
   store i64 0, ptr %331, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %21, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %326, i8 0, i64 20, i1 false)
@@ -19893,7 +19893,7 @@ declare float @llvm.sqrt.f32(float) #14
 declare noundef i32 @_ZN4ncnn33conv3x3s1_winograd23_int8_avxvnniERKNS_3MatERS0_S2_iRKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd23_transform_input_tile_int8ERKNS_3MatERS0_iiiii.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd23_transform_input_tile_int8ERKNS_3MatERS0_iiiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
   %7 = alloca [4 x [4 x [8 x i16]]], align 32
   %8 = alloca [4 x [4 x [2 x i16]]], align 16
   %9 = alloca [4 x [4 x i16]], align 16
@@ -20608,7 +20608,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd23_transform_input_til
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL26transpose_pack_B_tile_int8ERKNS_3MatERS0_iiii.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, i32 noundef range(i32 16, 37) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #16 {
+define internal fastcc void @_ZN4ncnnL26transpose_pack_B_tile_int8ERKNS_3MatERS0_iiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, i32 noundef range(i32 16, 37) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #16 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %factor.op.mul466 = mul i32 %3, %2
@@ -21100,7 +21100,7 @@ define internal fastcc void @_ZN4ncnnL26transpose_pack_B_tile_int8ERKNS_3MatERS0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES2_RS0_iiiiib.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr %.0.val, i32 noundef range(i32 16, 37) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7) unnamed_addr #16 {
+define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES2_RS0_iiiiib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr %.0.val, i32 noundef range(i32 16, 37) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7) unnamed_addr #16 {
   %9 = icmp sgt i32 %3, 7
   br i1 %9, label %.preheader33.lr.ph, label %.preheader25
 
@@ -23482,7 +23482,7 @@ declare void @_ZN4ncnn3Mat6createEimPNS_9AllocatorE(ptr noundef nonnull align 8 
 declare noundef i32 @_ZN4ncnn33conv3x3s1_winograd43_int8_avxvnniERKNS_3MatERS0_S2_iRKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_tile_int8ERKNS_3MatERS0_iiiii.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_tile_int8ERKNS_3MatERS0_iiiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
   %7 = alloca [6 x [6 x [8 x i16]]], align 32
   %8 = alloca [6 x [6 x [2 x i16]]], align 16
   %9 = alloca [6 x [6 x i16]], align 16

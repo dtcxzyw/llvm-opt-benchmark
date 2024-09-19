@@ -4826,10 +4826,10 @@ for.cond41.preheader.us.us.us.i:                  ; preds = %for.cond41.for.inc4
   %19 = sext i32 %offset.0136.us.us.us.i to i64
   br label %for.body43.us.us.us.i
 
-for.body43.us.us.us.i:                            ; preds = %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.argprom.exit.us.us.us.i", %for.cond41.preheader.us.us.us.i
-  %bufIter.7 = phi ptr [ %bufIter.6, %for.cond41.preheader.us.us.us.i ], [ %incdec.ptr.i.us.us.us.i, %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.argprom.exit.us.us.us.i" ]
-  %indvars.iv152.i = phi i64 [ %19, %for.cond41.preheader.us.us.us.i ], [ %indvars.iv.next153.i, %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.argprom.exit.us.us.us.i" ]
-  %c.0132.us.us.us.i = phi i32 [ 0, %for.cond41.preheader.us.us.us.i ], [ %inc44.us.us.us.i, %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.argprom.exit.us.us.us.i" ]
+for.body43.us.us.us.i:                            ; preds = %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.exit.us.us.us.i", %for.cond41.preheader.us.us.us.i
+  %bufIter.7 = phi ptr [ %bufIter.6, %for.cond41.preheader.us.us.us.i ], [ %incdec.ptr.i.us.us.us.i, %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.exit.us.us.us.i" ]
+  %indvars.iv152.i = phi i64 [ %19, %for.cond41.preheader.us.us.us.i ], [ %indvars.iv.next153.i, %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.exit.us.us.us.i" ]
+  %c.0132.us.us.us.i = phi i32 [ 0, %for.cond41.preheader.us.us.us.i ], [ %inc44.us.us.us.i, %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.exit.us.us.us.i" ]
   %indvars.iv.next153.i = add nsw i64 %indvars.iv152.i, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v.i.i)
   %incdec.ptr.i.us.us.us.i = getelementptr inbounds i8, ptr %bufIter.7, i64 4
@@ -4849,7 +4849,7 @@ for.body43.us.us.us.i:                            ; preds = %"_ZZN4pbrt5Image10C
 
 sw.bb3.i.i.i.i.us.us.us.i:                        ; preds = %for.body43.us.us.us.i
   call void @_ZNK4pbrt17sRGBColorEncoding10FromLinearEN4pstd4spanIKfEENS2_IhEE(ptr noundef nonnull align 1 dereferenceable(1) %23, ptr nonnull %v.i.i, i64 1, ptr %arrayidx.i.i.us.us.us.i, i64 1)
-  br label %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.argprom.exit.us.us.us.i"
+  br label %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.exit.us.us.us.i"
 
 for.body.i.i.i.i.i.preheader.i.us.us.us.i:        ; preds = %for.body43.us.us.us.i
   %mul.i.i.i.i.i.i.us.us.us.i = fmul float %20, 2.550000e+02
@@ -4860,19 +4860,19 @@ for.body.i.i.i.i.i.preheader.i.us.us.us.i:        ; preds = %for.body43.us.us.us
   %retval.0.i.i.i.i.i.i.i.us.us.us.i = select i1 %cmp.i.i.i.i.i.i.i.us.us.us.i, float 0.000000e+00, float %conv2.val.i.i.i.i.i.i.i.us.us.us.i
   %conv.i.i.i.i.i.i.us.us.us.i = fptoui float %retval.0.i.i.i.i.i.i.i.us.us.us.i to i8
   store i8 %conv.i.i.i.i.i.i.us.us.us.i, ptr %arrayidx.i.i.us.us.us.i, align 1
-  br label %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.argprom.exit.us.us.us.i"
+  br label %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.exit.us.us.us.i"
 
 sw.default.i.i.i.i.us.us.us.i:                    ; preds = %for.body43.us.us.us.i
   call void @_ZNK4pbrt18GammaColorEncoding10FromLinearEN4pstd4spanIKfEENS2_IhEE(ptr noundef nonnull align 4 dereferenceable(5124) %23, ptr nonnull %v.i.i, i64 1, ptr %arrayidx.i.i.us.us.us.i, i64 1)
-  br label %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.argprom.exit.us.us.us.i"
+  br label %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.exit.us.us.us.i"
 
-"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.argprom.exit.us.us.us.i": ; preds = %sw.default.i.i.i.i.us.us.us.i, %for.body.i.i.i.i.i.preheader.i.us.us.us.i, %sw.bb3.i.i.i.i.us.us.us.i
+"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.exit.us.us.us.i": ; preds = %sw.default.i.i.i.i.us.us.us.i, %for.body.i.i.i.i.i.preheader.i.us.us.us.i, %sw.bb3.i.i.i.i.us.us.us.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.i.i)
   %inc44.us.us.us.i = add nuw nsw i32 %c.0132.us.us.us.i, 1
   %exitcond155.not.i = icmp eq i32 %inc44.us.us.us.i, %conv.i
   br i1 %exitcond155.not.i, label %for.cond41.for.inc45_crit_edge.us.us.us.i, label %for.body43.us.us.us.i, !llvm.loop !38
 
-for.cond41.for.inc45_crit_edge.us.us.us.i:        ; preds = %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.argprom.exit.us.us.us.i"
+for.cond41.for.inc45_crit_edge.us.us.us.i:        ; preds = %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.exit.us.us.us.i"
   %24 = trunc nsw i64 %indvars.iv.next153.i to i32
   %inc46.us.us.us.i = add nuw nsw i32 %x37.0135.us.us.us.i, 1
   %exitcond156.not.i = icmp eq i32 %inc46.us.us.us.i, %sub.i
@@ -4974,10 +4974,10 @@ land.end.us.i.us.us:                              ; preds = %for.inc.i.us.i.us.u
   %28 = sext i32 %mul3.i83.us.i.us.us to i64
   br label %for.body81.us.i.us.us
 
-for.body81.us.i.us.us:                            ; preds = %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.argprom.exit104.us.i.us.us", %land.end.us.i.us.us
-  %bufIter.4.us.us = phi ptr [ %bufIter.2.us.us, %land.end.us.i.us.us ], [ %incdec.ptr.i86.us.i.us.us, %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.argprom.exit104.us.i.us.us" ]
-  %indvars.iv.i.us.us = phi i64 [ %28, %land.end.us.i.us.us ], [ %indvars.iv.next.i.us.us, %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.argprom.exit104.us.i.us.us" ]
-  %c78.0125.us.i.us.us = phi i32 [ 0, %land.end.us.i.us.us ], [ %inc84.us.i.us.us, %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.argprom.exit104.us.i.us.us" ]
+for.body81.us.i.us.us:                            ; preds = %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.exit104.us.i.us.us", %land.end.us.i.us.us
+  %bufIter.4.us.us = phi ptr [ %bufIter.2.us.us, %land.end.us.i.us.us ], [ %incdec.ptr.i86.us.i.us.us, %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.exit104.us.i.us.us" ]
+  %indvars.iv.i.us.us = phi i64 [ %28, %land.end.us.i.us.us ], [ %indvars.iv.next.i.us.us, %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.exit104.us.i.us.us" ]
+  %c78.0125.us.i.us.us = phi i32 [ 0, %land.end.us.i.us.us ], [ %inc84.us.i.us.us, %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.exit104.us.i.us.us" ]
   %indvars.iv.next.i.us.us = add nsw i64 %indvars.iv.i.us.us, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v.i85.i)
   %incdec.ptr.i86.us.i.us.us = getelementptr inbounds i8, ptr %bufIter.4.us.us, i64 4
@@ -4997,7 +4997,7 @@ for.body81.us.i.us.us:                            ; preds = %"_ZZN4pbrt5Image10C
 
 sw.bb3.i.i.i.i94.us.i.us.us:                      ; preds = %for.body81.us.i.us.us
   call void @_ZNK4pbrt17sRGBColorEncoding10FromLinearEN4pstd4spanIKfEENS2_IhEE(ptr noundef nonnull align 1 dereferenceable(1) %32, ptr nonnull %v.i85.i, i64 1, ptr %arrayidx.i.i90.us.i.us.us, i64 1)
-  br label %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.argprom.exit104.us.i.us.us"
+  br label %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.exit104.us.i.us.us"
 
 for.body.i.i.i.i.i.preheader.i95.us.i.us.us:      ; preds = %for.body81.us.i.us.us
   %mul.i.i.i.i.i.i96.us.i.us.us = fmul float %29, 2.550000e+02
@@ -5008,19 +5008,19 @@ for.body.i.i.i.i.i.preheader.i95.us.i.us.us:      ; preds = %for.body81.us.i.us.
   %retval.0.i.i.i.i.i.i.i101.us.i.us.us = select i1 %cmp.i.i.i.i.i.i.i98.us.i.us.us, float 0.000000e+00, float %conv2.val.i.i.i.i.i.i.i100.us.i.us.us
   %conv.i.i.i.i.i.i102.us.i.us.us = fptoui float %retval.0.i.i.i.i.i.i.i101.us.i.us.us to i8
   store i8 %conv.i.i.i.i.i.i102.us.i.us.us, ptr %arrayidx.i.i90.us.i.us.us, align 1
-  br label %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.argprom.exit104.us.i.us.us"
+  br label %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.exit104.us.i.us.us"
 
 sw.default.i.i.i.i103.us.i.us.us:                 ; preds = %for.body81.us.i.us.us
   call void @_ZNK4pbrt18GammaColorEncoding10FromLinearEN4pstd4spanIKfEENS2_IhEE(ptr noundef nonnull align 4 dereferenceable(5124) %32, ptr nonnull %v.i85.i, i64 1, ptr %arrayidx.i.i90.us.i.us.us, i64 1)
-  br label %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.argprom.exit104.us.i.us.us"
+  br label %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.exit104.us.i.us.us"
 
-"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.argprom.exit104.us.i.us.us": ; preds = %sw.default.i.i.i.i103.us.i.us.us, %for.body.i.i.i.i.i.preheader.i95.us.i.us.us, %sw.bb3.i.i.i.i94.us.i.us.us
+"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.exit104.us.i.us.us": ; preds = %sw.default.i.i.i.i103.us.i.us.us, %for.body.i.i.i.i.i.preheader.i95.us.i.us.us, %sw.bb3.i.i.i.i94.us.i.us.us
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.i85.i)
   %inc84.us.i.us.us = add nuw nsw i32 %c78.0125.us.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i32 %inc84.us.i.us.us, %conv.i
   br i1 %exitcond.not.i.us.us, label %for.inc86.us.i.loopexit.us.us, label %for.body81.us.i.us.us, !llvm.loop !41
 
-for.inc86.us.i.loopexit.us.us:                    ; preds = %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.argprom.exit104.us.i.us.us"
+for.inc86.us.i.loopexit.us.us:                    ; preds = %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.exit104.us.i.us.us"
   %inc87.us.i.us.us = add nuw nsw i32 %x59.0127.us.i.us.us, 1
   %exitcond151.not.i.us.us = icmp eq i32 %inc87.us.i.us.us, %sub.i
   br i1 %exitcond151.not.i.us.us, label %for.cond60.for.inc89_crit_edge.us.i.split.us.us, label %for.body62.us.i.us.us, !llvm.loop !42
@@ -5195,10 +5195,10 @@ for.cond41.preheader.us.us.us.i185:               ; preds = %for.cond41.for.inc4
   %39 = sext i32 %offset.0144.us.us.us.i to i64
   br label %for.body43.us.us.us.i186
 
-for.body43.us.us.us.i186:                         ; preds = %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.argprom.exit.us.us.us.i", %for.cond41.preheader.us.us.us.i185
-  %bufIter.14 = phi ptr [ %bufIter.13, %for.cond41.preheader.us.us.us.i185 ], [ %incdec.ptr.i.us.us.us.i187, %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.argprom.exit.us.us.us.i" ]
-  %indvars.iv160.i = phi i64 [ %39, %for.cond41.preheader.us.us.us.i185 ], [ %indvars.iv.next161.i, %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.argprom.exit.us.us.us.i" ]
-  %c.0140.us.us.us.i = phi i32 [ 0, %for.cond41.preheader.us.us.us.i185 ], [ %inc44.us.us.us.i189, %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.argprom.exit.us.us.us.i" ]
+for.body43.us.us.us.i186:                         ; preds = %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.exit.us.us.us.i", %for.cond41.preheader.us.us.us.i185
+  %bufIter.14 = phi ptr [ %bufIter.13, %for.cond41.preheader.us.us.us.i185 ], [ %incdec.ptr.i.us.us.us.i187, %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.exit.us.us.us.i" ]
+  %indvars.iv160.i = phi i64 [ %39, %for.cond41.preheader.us.us.us.i185 ], [ %indvars.iv.next161.i, %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.exit.us.us.us.i" ]
+  %c.0140.us.us.us.i = phi i32 [ 0, %for.cond41.preheader.us.us.us.i185 ], [ %inc44.us.us.us.i189, %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.exit.us.us.us.i" ]
   %indvars.iv.next161.i = add nsw i64 %indvars.iv160.i, 1
   %incdec.ptr.i.us.us.us.i187 = getelementptr inbounds i8, ptr %bufIter.14, i64 4
   %40 = load float, ptr %bufIter.14, align 4
@@ -5217,19 +5217,19 @@ if.else6.i.i.us.us.us.i:                          ; preds = %if.else.i.i.us.us.u
   %add8.i.i.us.us.us.i = add nuw nsw i32 %xor.i.i.us.us.us.i, 134221823
   %add9.i.i.us.us.us.i = add nuw nsw i32 %add8.i.i.us.us.us.i, %and7.i.i.us.us.us.i
   %shr10.i.i.us.us.us.i = lshr i32 %add9.i.i.us.us.us.i, 13
-  br label %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.argprom.exit.us.us.us.i"
+  br label %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.exit.us.us.us.i"
 
 if.then4.i.i.us.us.us.i:                          ; preds = %if.else.i.i.us.us.us.i
   %add.i.i.us.us.us.i = fadd float %41, 5.000000e-01
   %42 = bitcast float %add.i.i.us.us.us.i to i32
-  br label %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.argprom.exit.us.us.us.i"
+  br label %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.exit.us.us.us.i"
 
 if.then.i.i.us.us.us.i:                           ; preds = %for.body43.us.us.us.i186
   %cmp2.i.i.us.us.us.i = icmp ugt i32 %xor.i.i.us.us.us.i, 2139095040
   %conv.i.i64.us.us.us.i = select i1 %cmp2.i.i.us.us.us.i, i32 32256, i32 31744
-  br label %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.argprom.exit.us.us.us.i"
+  br label %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.exit.us.us.us.i"
 
-"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.argprom.exit.us.us.us.i": ; preds = %if.then.i.i.us.us.us.i, %if.then4.i.i.us.us.us.i, %if.else6.i.i.us.us.us.i
+"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.exit.us.us.us.i": ; preds = %if.then.i.i.us.us.us.i, %if.then4.i.i.us.us.us.i, %if.else6.i.i.us.us.us.i
   %o.sroa.0.0.i.i.us.us.us.i = phi i32 [ %conv.i.i64.us.us.us.i, %if.then.i.i.us.us.us.i ], [ %42, %if.then4.i.i.us.us.us.i ], [ %shr10.i.i.us.us.us.i, %if.else6.i.i.us.us.us.i ]
   %43 = bitcast float %40 to i32
   %and.i.i.us.us.us.i = lshr i32 %43, 16
@@ -5243,7 +5243,7 @@ if.then.i.i.us.us.us.i:                           ; preds = %for.body43.us.us.us
   %exitcond163.not.i = icmp eq i32 %inc44.us.us.us.i189, %conv.i
   br i1 %exitcond163.not.i, label %for.cond41.for.inc45_crit_edge.us.us.us.i190, label %for.body43.us.us.us.i186, !llvm.loop !44
 
-for.cond41.for.inc45_crit_edge.us.us.us.i190:     ; preds = %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.argprom.exit.us.us.us.i"
+for.cond41.for.inc45_crit_edge.us.us.us.i190:     ; preds = %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.exit.us.us.us.i"
   %45 = trunc nsw i64 %indvars.iv.next161.i to i32
   %inc46.us.us.us.i191 = add nuw nsw i32 %x37.0143.us.us.us.i, 1
   %exitcond164.not.i = icmp eq i32 %inc46.us.us.us.i191, %sub.i.i
@@ -5343,10 +5343,10 @@ land.end.us.i114.us.us:                           ; preds = %for.inc.i.us.i129.u
   %49 = sext i32 %mul3.i86.us.i.us.us to i64
   br label %for.body81.us.i124.us.us
 
-for.body81.us.i124.us.us:                         ; preds = %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.argprom.exit112.us.i.us.us", %land.end.us.i114.us.us
-  %bufIter.11.us.us = phi ptr [ %bufIter.9.us.us, %land.end.us.i114.us.us ], [ %incdec.ptr.i88.us.i.us.us, %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.argprom.exit112.us.i.us.us" ]
-  %indvars.iv.i125.us.us = phi i64 [ %49, %land.end.us.i114.us.us ], [ %indvars.iv.next.i126.us.us, %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.argprom.exit112.us.i.us.us" ]
-  %c78.0133.us.i.us.us = phi i32 [ 0, %land.end.us.i114.us.us ], [ %inc84.us.i127.us.us, %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.argprom.exit112.us.i.us.us" ]
+for.body81.us.i124.us.us:                         ; preds = %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.exit112.us.i.us.us", %land.end.us.i114.us.us
+  %bufIter.11.us.us = phi ptr [ %bufIter.9.us.us, %land.end.us.i114.us.us ], [ %incdec.ptr.i88.us.i.us.us, %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.exit112.us.i.us.us" ]
+  %indvars.iv.i125.us.us = phi i64 [ %49, %land.end.us.i114.us.us ], [ %indvars.iv.next.i126.us.us, %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.exit112.us.i.us.us" ]
+  %c78.0133.us.i.us.us = phi i32 [ 0, %land.end.us.i114.us.us ], [ %inc84.us.i127.us.us, %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.exit112.us.i.us.us" ]
   %indvars.iv.next.i126.us.us = add nsw i64 %indvars.iv.i125.us.us, 1
   %incdec.ptr.i88.us.i.us.us = getelementptr inbounds i8, ptr %bufIter.11.us.us, i64 4
   %50 = load float, ptr %bufIter.11.us.us, align 4
@@ -5365,19 +5365,19 @@ if.else6.i.i93.us.i.us.us:                        ; preds = %if.else.i.i91.us.i.
   %add8.i.i96.us.i.us.us = add nuw nsw i32 %xor.i.i89.us.i.us.us, 134221823
   %add9.i.i97.us.i.us.us = add nuw nsw i32 %add8.i.i96.us.i.us.us, %and7.i.i95.us.i.us.us
   %shr10.i.i98.us.i.us.us = lshr i32 %add9.i.i97.us.i.us.us, 13
-  br label %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.argprom.exit112.us.i.us.us"
+  br label %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.exit112.us.i.us.us"
 
 if.then4.i.i107.us.i.us.us:                       ; preds = %if.else.i.i91.us.i.us.us
   %add.i.i108.us.i.us.us = fadd float %51, 5.000000e-01
   %52 = bitcast float %add.i.i108.us.i.us.us to i32
-  br label %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.argprom.exit112.us.i.us.us"
+  br label %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.exit112.us.i.us.us"
 
 if.then.i.i109.us.i.us.us:                        ; preds = %for.body81.us.i124.us.us
   %cmp2.i.i110.us.i.us.us = icmp ugt i32 %xor.i.i89.us.i.us.us, 2139095040
   %conv.i.i111.us.i.us.us = select i1 %cmp2.i.i110.us.i.us.us, i32 32256, i32 31744
-  br label %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.argprom.exit112.us.i.us.us"
+  br label %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.exit112.us.i.us.us"
 
-"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.argprom.exit112.us.i.us.us": ; preds = %if.then.i.i109.us.i.us.us, %if.then4.i.i107.us.i.us.us, %if.else6.i.i93.us.i.us.us
+"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.exit112.us.i.us.us": ; preds = %if.then.i.i109.us.i.us.us, %if.then4.i.i107.us.i.us.us, %if.else6.i.i93.us.i.us.us
   %o.sroa.0.0.i.i99.us.i.us.us = phi i32 [ %conv.i.i111.us.i.us.us, %if.then.i.i109.us.i.us.us ], [ %52, %if.then4.i.i107.us.i.us.us ], [ %shr10.i.i98.us.i.us.us, %if.else6.i.i93.us.i.us.us ]
   %53 = bitcast float %50 to i32
   %and.i.i100.us.i.us.us = lshr i32 %53, 16
@@ -5391,7 +5391,7 @@ if.then.i.i109.us.i.us.us:                        ; preds = %for.body81.us.i124.
   %exitcond.not.i128.us.us = icmp eq i32 %inc84.us.i127.us.us, %conv.i
   br i1 %exitcond.not.i128.us.us, label %for.inc86.us.i117.loopexit.us.us, label %for.body81.us.i124.us.us, !llvm.loop !47
 
-for.inc86.us.i117.loopexit.us.us:                 ; preds = %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.argprom.exit112.us.i.us.us"
+for.inc86.us.i117.loopexit.us.us:                 ; preds = %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.exit112.us.i.us.us"
   %inc87.us.i118.us.us = add nuw nsw i32 %x59.0135.us.i.us.us, 1
   %exitcond159.not.i.us.us = icmp eq i32 %inc87.us.i118.us.us, %sub.i.i
   br i1 %exitcond159.not.i.us.us, label %for.cond60.for.inc89_crit_edge.us.i119.split.us.us, label %for.body62.us.i92.us.us, !llvm.loop !48
@@ -11514,10 +11514,10 @@ for.cond41.preheader.us.us.us.i140:               ; preds = %for.cond41.for.inc4
   %50 = sext i32 %offset.0155.us.us.us.i to i64
   br label %for.body43.us.us.us.i141
 
-for.body43.us.us.us.i141:                         ; preds = %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.argprom.argprom.exit.us.us.us.i", %for.cond41.preheader.us.us.us.i140
-  %bufIter.17 = phi ptr [ %bufIter.16, %for.cond41.preheader.us.us.us.i140 ], [ %incdec.ptr.i.us.us.us.i143, %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.argprom.argprom.exit.us.us.us.i" ]
-  %indvars.iv179.i = phi i64 [ %50, %for.cond41.preheader.us.us.us.i140 ], [ %indvars.iv.next180.i, %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.argprom.argprom.exit.us.us.us.i" ]
-  %c.0151.us.us.us.i = phi i32 [ 0, %for.cond41.preheader.us.us.us.i140 ], [ %inc44.us.us.us.i144, %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.argprom.argprom.exit.us.us.us.i" ]
+for.body43.us.us.us.i141:                         ; preds = %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.exit.us.us.us.i", %for.cond41.preheader.us.us.us.i140
+  %bufIter.17 = phi ptr [ %bufIter.16, %for.cond41.preheader.us.us.us.i140 ], [ %incdec.ptr.i.us.us.us.i143, %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.exit.us.us.us.i" ]
+  %indvars.iv179.i = phi i64 [ %50, %for.cond41.preheader.us.us.us.i140 ], [ %indvars.iv.next180.i, %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.exit.us.us.us.i" ]
+  %c.0151.us.us.us.i = phi i32 [ 0, %for.cond41.preheader.us.us.us.i140 ], [ %inc44.us.us.us.i144, %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.exit.us.us.us.i" ]
   %indvars.iv.next180.i = add nsw i64 %indvars.iv179.i, 1
   %op.val29.val.us.us.us.i = load ptr, ptr %47, align 8
   %arrayidx.i.i.us.us.us.i142 = getelementptr inbounds %"class.pbrt::Half", ptr %op.val29.val.us.us.us.i, i64 %indvars.iv179.i
@@ -11532,20 +11532,20 @@ if.else.i.i.us.us.us.i:                           ; preds = %for.body43.us.us.us
   %shl.i.i.us.us.us.i = and i32 %and.i.i.us.us.us.i, 268427264
   %add.i.i.us.us.us.i = add nuw nsw i32 %shl.i.i.us.us.us.i, 939524096
   %cmp5.i.i.us.us.us.i = icmp eq i32 %and3.i.i.us.us.us.i, 0
-  br i1 %cmp5.i.i.us.us.us.i, label %if.then6.i.i.us.us.us.i, label %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.argprom.argprom.exit.us.us.us.i"
+  br i1 %cmp5.i.i.us.us.us.i, label %if.then6.i.i.us.us.us.i, label %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.exit.us.us.us.i"
 
 if.then6.i.i.us.us.us.i:                          ; preds = %if.else.i.i.us.us.us.i
   %add7.i.i.us.us.us.i = or i32 %and.i.i.us.us.us.i, 947912704
   %52 = bitcast i32 %add7.i.i.us.us.us.i to float
   %sub.i.i.us.us.us.i = fadd float %52, 0xBF10000000000000
   %53 = bitcast float %sub.i.i.us.us.us.i to i32
-  br label %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.argprom.argprom.exit.us.us.us.i"
+  br label %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.exit.us.us.us.i"
 
 if.then.i.i.us.us.us.i:                           ; preds = %for.body43.us.us.us.i141
   %add4.i.i.us.us.us.i = or i32 %and.i.i.us.us.us.i, 1879048192
-  br label %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.argprom.argprom.exit.us.us.us.i"
+  br label %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.exit.us.us.us.i"
 
-"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.argprom.argprom.exit.us.us.us.i": ; preds = %if.then.i.i.us.us.us.i, %if.then6.i.i.us.us.us.i, %if.else.i.i.us.us.us.i
+"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.exit.us.us.us.i": ; preds = %if.then.i.i.us.us.us.i, %if.then6.i.i.us.us.us.i, %if.else.i.i.us.us.us.i
   %o.sroa.0.0.i.i.us.us.us.i = phi i32 [ %add4.i.i.us.us.us.i, %if.then.i.i.us.us.us.i ], [ %53, %if.then6.i.i.us.us.us.i ], [ %add.i.i.us.us.us.i, %if.else.i.i.us.us.us.i ]
   %.signext.i.i.us.us.us.i = sext i16 %51 to i32
   %shl11.i.i.us.us.us.i = and i32 %.signext.i.i.us.us.us.i, -2147483648
@@ -11556,7 +11556,7 @@ if.then.i.i.us.us.us.i:                           ; preds = %for.body43.us.us.us
   %exitcond182.not.i = icmp eq i32 %inc44.us.us.us.i144, %conv.i
   br i1 %exitcond182.not.i, label %for.cond41.for.inc45_crit_edge.us.us.us.i145, label %for.body43.us.us.us.i141, !llvm.loop !126
 
-for.cond41.for.inc45_crit_edge.us.us.us.i145:     ; preds = %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.argprom.argprom.exit.us.us.us.i"
+for.cond41.for.inc45_crit_edge.us.us.us.i145:     ; preds = %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.exit.us.us.us.i"
   %54 = trunc nsw i64 %indvars.iv.next180.i to i32
   %inc46.us.us.us.i146 = add nuw nsw i32 %x37.0154.us.us.us.i, 1
   %exitcond183.not.i = icmp eq i32 %inc46.us.us.us.i146, %sub.i.i
@@ -11666,10 +11666,10 @@ land.end.loopexit.us.i.us.us:                     ; preds = %for.inc.i.us.i116.u
   %61 = sext i32 %mul3.i86.us.i.us.us to i64
   br label %for.body81.us.i111.us.us
 
-for.body81.us.i111.us.us:                         ; preds = %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.argprom.argprom.exit108.us.i.us.us", %land.end.loopexit.us.i.us.us
-  %bufIter.11.us.us = phi ptr [ %bufIter.9.us.us, %land.end.loopexit.us.i.us.us ], [ %incdec.ptr.i102.us.i.us.us, %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.argprom.argprom.exit108.us.i.us.us" ]
-  %indvars.iv.i112.us.us = phi i64 [ %61, %land.end.loopexit.us.i.us.us ], [ %indvars.iv.next.i113.us.us, %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.argprom.argprom.exit108.us.i.us.us" ]
-  %c78.0129.us.i.us.us = phi i32 [ 0, %land.end.loopexit.us.i.us.us ], [ %inc84.us.i114.us.us, %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.argprom.argprom.exit108.us.i.us.us" ]
+for.body81.us.i111.us.us:                         ; preds = %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.exit108.us.i.us.us", %land.end.loopexit.us.i.us.us
+  %bufIter.11.us.us = phi ptr [ %bufIter.9.us.us, %land.end.loopexit.us.i.us.us ], [ %incdec.ptr.i102.us.i.us.us, %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.exit108.us.i.us.us" ]
+  %indvars.iv.i112.us.us = phi i64 [ %61, %land.end.loopexit.us.i.us.us ], [ %indvars.iv.next.i113.us.us, %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.exit108.us.i.us.us" ]
+  %c78.0129.us.i.us.us = phi i32 [ 0, %land.end.loopexit.us.i.us.us ], [ %inc84.us.i114.us.us, %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.exit108.us.i.us.us" ]
   %indvars.iv.next.i113.us.us = add nsw i64 %indvars.iv.i112.us.us, 1
   %op.val31.val.us.i.us.us = load ptr, ptr %55, align 8
   %arrayidx.i.i89.us.i.us.us = getelementptr inbounds %"class.pbrt::Half", ptr %op.val31.val.us.i.us.us, i64 %indvars.iv.i112.us.us
@@ -11684,20 +11684,20 @@ if.else.i.i94.us.i.us.us:                         ; preds = %for.body81.us.i111.
   %shl.i.i95.us.i.us.us = and i32 %and.i.i91.us.i.us.us, 268427264
   %add.i.i96.us.i.us.us = add nuw nsw i32 %shl.i.i95.us.i.us.us, 939524096
   %cmp5.i.i97.us.i.us.us = icmp eq i32 %and3.i.i92.us.i.us.us, 0
-  br i1 %cmp5.i.i97.us.i.us.us, label %if.then6.i.i103.us.i.us.us, label %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.argprom.argprom.exit108.us.i.us.us"
+  br i1 %cmp5.i.i97.us.i.us.us, label %if.then6.i.i103.us.i.us.us, label %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.exit108.us.i.us.us"
 
 if.then6.i.i103.us.i.us.us:                       ; preds = %if.else.i.i94.us.i.us.us
   %add7.i.i104.us.i.us.us = or i32 %and.i.i91.us.i.us.us, 947912704
   %63 = bitcast i32 %add7.i.i104.us.i.us.us to float
   %sub.i.i105.us.i.us.us = fadd float %63, 0xBF10000000000000
   %64 = bitcast float %sub.i.i105.us.i.us.us to i32
-  br label %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.argprom.argprom.exit108.us.i.us.us"
+  br label %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.exit108.us.i.us.us"
 
 if.then.i.i106.us.i.us.us:                        ; preds = %for.body81.us.i111.us.us
   %add4.i.i107.us.i.us.us = or i32 %and.i.i91.us.i.us.us, 1879048192
-  br label %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.argprom.argprom.exit108.us.i.us.us"
+  br label %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.exit108.us.i.us.us"
 
-"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.argprom.argprom.exit108.us.i.us.us": ; preds = %if.then.i.i106.us.i.us.us, %if.then6.i.i103.us.i.us.us, %if.else.i.i94.us.i.us.us
+"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.exit108.us.i.us.us": ; preds = %if.then.i.i106.us.i.us.us, %if.then6.i.i103.us.i.us.us, %if.else.i.i94.us.i.us.us
   %o.sroa.0.0.i.i98.us.i.us.us = phi i32 [ %add4.i.i107.us.i.us.us, %if.then.i.i106.us.i.us.us ], [ %64, %if.then6.i.i103.us.i.us.us ], [ %add.i.i96.us.i.us.us, %if.else.i.i94.us.i.us.us ]
   %.signext.i.i99.us.i.us.us = sext i16 %62 to i32
   %shl11.i.i100.us.i.us.us = and i32 %.signext.i.i99.us.i.us.us, -2147483648
@@ -11708,7 +11708,7 @@ if.then.i.i106.us.i.us.us:                        ; preds = %for.body81.us.i111.
   %exitcond.not.i115.us.us = icmp eq i32 %inc84.us.i114.us.us, %conv.i
   br i1 %exitcond.not.i115.us.us, label %for.inc86.us.i106.loopexit.us.us, label %for.body81.us.i111.us.us, !llvm.loop !129
 
-for.inc86.us.i106.loopexit.us.us:                 ; preds = %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.argprom.argprom.exit108.us.i.us.us"
+for.inc86.us.i106.loopexit.us.us:                 ; preds = %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.exit108.us.i.us.us"
   %inc87.us.i107.us.us = add nuw nsw i32 %x59.0131.us.i.us.us, 1
   %exitcond172.not.i.us.us = icmp eq i32 %inc87.us.i107.us.us, %sub.i.i
   br i1 %exitcond172.not.i.us.us, label %for.cond60.for.inc89_crit_edge.split.us.i.split.us.us, label %for.body62.us140.i.us.us, !llvm.loop !130
@@ -11802,10 +11802,10 @@ if.end59.i.us.us.us.us.us.us.i:                   ; preds = %if.then33.i.us.us.u
   %71 = sext i32 %mul3.i86.us.us.us.us.us.us.i to i64
   br label %for.body81.us.us.us.us.us.us.i
 
-for.body81.us.us.us.us.us.us.i:                   ; preds = %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.argprom.argprom.exit108.us.us.us.us.us.us.i", %if.end59.i.us.us.us.us.us.us.i
-  %bufIter.14 = phi ptr [ %bufIter.13, %if.end59.i.us.us.us.us.us.us.i ], [ %incdec.ptr.i102.us.us.us.us.us.us.i, %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.argprom.argprom.exit108.us.us.us.us.us.us.i" ]
-  %indvars.iv174.i = phi i64 [ %71, %if.end59.i.us.us.us.us.us.us.i ], [ %indvars.iv.next175.i, %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.argprom.argprom.exit108.us.us.us.us.us.us.i" ]
-  %c78.0129.us.us.us.us.us.us.i = phi i32 [ 0, %if.end59.i.us.us.us.us.us.us.i ], [ %inc84.us.us.us.us.us.us.i, %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.argprom.argprom.exit108.us.us.us.us.us.us.i" ]
+for.body81.us.us.us.us.us.us.i:                   ; preds = %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.exit108.us.us.us.us.us.us.i", %if.end59.i.us.us.us.us.us.us.i
+  %bufIter.14 = phi ptr [ %bufIter.13, %if.end59.i.us.us.us.us.us.us.i ], [ %incdec.ptr.i102.us.us.us.us.us.us.i, %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.exit108.us.us.us.us.us.us.i" ]
+  %indvars.iv174.i = phi i64 [ %71, %if.end59.i.us.us.us.us.us.us.i ], [ %indvars.iv.next175.i, %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.exit108.us.us.us.us.us.us.i" ]
+  %c78.0129.us.us.us.us.us.us.i = phi i32 [ 0, %if.end59.i.us.us.us.us.us.us.i ], [ %inc84.us.us.us.us.us.us.i, %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.exit108.us.us.us.us.us.us.i" ]
   %indvars.iv.next175.i = add nsw i64 %indvars.iv174.i, 1
   %op.val31.val.us.us.us.us.us.us.i = load ptr, ptr %55, align 8
   %arrayidx.i.i89.us.us.us.us.us.us.i = getelementptr inbounds %"class.pbrt::Half", ptr %op.val31.val.us.us.us.us.us.us.i, i64 %indvars.iv174.i
@@ -11820,20 +11820,20 @@ if.else.i.i94.us.us.us.us.us.us.i:                ; preds = %for.body81.us.us.us
   %shl.i.i95.us.us.us.us.us.us.i = and i32 %and.i.i91.us.us.us.us.us.us.i, 268427264
   %add.i.i96.us.us.us.us.us.us.i = add nuw nsw i32 %shl.i.i95.us.us.us.us.us.us.i, 939524096
   %cmp5.i.i97.us.us.us.us.us.us.i = icmp eq i32 %and3.i.i92.us.us.us.us.us.us.i, 0
-  br i1 %cmp5.i.i97.us.us.us.us.us.us.i, label %if.then6.i.i103.us.us.us.us.us.us.i, label %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.argprom.argprom.exit108.us.us.us.us.us.us.i"
+  br i1 %cmp5.i.i97.us.us.us.us.us.us.i, label %if.then6.i.i103.us.us.us.us.us.us.i, label %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.exit108.us.us.us.us.us.us.i"
 
 if.then6.i.i103.us.us.us.us.us.us.i:              ; preds = %if.else.i.i94.us.us.us.us.us.us.i
   %add7.i.i104.us.us.us.us.us.us.i = or i32 %and.i.i91.us.us.us.us.us.us.i, 947912704
   %73 = bitcast i32 %add7.i.i104.us.us.us.us.us.us.i to float
   %sub.i.i105.us.us.us.us.us.us.i = fadd float %73, 0xBF10000000000000
   %74 = bitcast float %sub.i.i105.us.us.us.us.us.us.i to i32
-  br label %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.argprom.argprom.exit108.us.us.us.us.us.us.i"
+  br label %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.exit108.us.us.us.us.us.us.i"
 
 if.then.i.i106.us.us.us.us.us.us.i:               ; preds = %for.body81.us.us.us.us.us.us.i
   %add4.i.i107.us.us.us.us.us.us.i = or i32 %and.i.i91.us.us.us.us.us.us.i, 1879048192
-  br label %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.argprom.argprom.exit108.us.us.us.us.us.us.i"
+  br label %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.exit108.us.us.us.us.us.us.i"
 
-"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.argprom.argprom.exit108.us.us.us.us.us.us.i": ; preds = %if.then.i.i106.us.us.us.us.us.us.i, %if.then6.i.i103.us.us.us.us.us.us.i, %if.else.i.i94.us.us.us.us.us.us.i
+"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.exit108.us.us.us.us.us.us.i": ; preds = %if.then.i.i106.us.us.us.us.us.us.i, %if.then6.i.i103.us.us.us.us.us.us.i, %if.else.i.i94.us.us.us.us.us.us.i
   %o.sroa.0.0.i.i98.us.us.us.us.us.us.i = phi i32 [ %add4.i.i107.us.us.us.us.us.us.i, %if.then.i.i106.us.us.us.us.us.us.i ], [ %74, %if.then6.i.i103.us.us.us.us.us.us.i ], [ %add.i.i96.us.us.us.us.us.us.i, %if.else.i.i94.us.us.us.us.us.us.i ]
   %.signext.i.i99.us.us.us.us.us.us.i = sext i16 %72 to i32
   %shl11.i.i100.us.us.us.us.us.us.i = and i32 %.signext.i.i99.us.us.us.us.us.us.i, -2147483648
@@ -11844,7 +11844,7 @@ if.then.i.i106.us.us.us.us.us.us.i:               ; preds = %for.body81.us.us.us
   %exitcond177.not.i = icmp eq i32 %inc84.us.us.us.us.us.us.i, %conv.i
   br i1 %exitcond177.not.i, label %for.cond79.for.inc86_crit_edge.us.us.us.us.us.us.i, label %for.body81.us.us.us.us.us.us.i, !llvm.loop !129
 
-for.cond79.for.inc86_crit_edge.us.us.us.us.us.us.i: ; preds = %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.argprom.argprom.exit108.us.us.us.us.us.us.i"
+for.cond79.for.inc86_crit_edge.us.us.us.us.us.us.i: ; preds = %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.exit108.us.us.us.us.us.us.i"
   %inc87.us.us.us.us.us.us.i = add nuw nsw i32 %x59.0131.us.us.us.us.us.us.i, 1
   %exitcond178.not.i = icmp eq i32 %inc87.us.us.us.us.us.us.i, %sub.i.i
   br i1 %exitcond178.not.i, label %for.cond60.for.inc89_crit_edge.split.us.split.us.us.us.split.us.us.i, label %for.body62.us.us.us.us.us.us.i, !llvm.loop !130
@@ -15052,7 +15052,7 @@ lpad.i260.i:                                      ; preds = %if.end.i.i.i.i.i.i.
   br label %ehcleanup366.i
 
 invoke.cont344.i:                                 ; preds = %for.body.i.i, %_ZN4pbrt13InlinedVectorIiLi4EN4pstd3pmr21polymorphic_allocatorIiEEE6resizeEm.exit.i.i
-  invoke fastcc void @_ZN4pbrtL18imageToFrameBufferERKNS_5ImageERKNS_16ImageChannelDescERKN9Imath_2_53BoxINS6_4Vec2IiEEEE.argprom(ptr noalias align 8 %ref.tmp341.i, ptr noundef nonnull align 8 dereferenceable(152) %image.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp342.i, i32 %1, i32 %2)
+  invoke fastcc void @_ZN4pbrtL18imageToFrameBufferERKNS_5ImageERKNS_16ImageChannelDescERKN9Imath_2_53BoxINS6_4Vec2IiEEEE(ptr noalias align 8 %ref.tmp341.i, ptr noundef nonnull align 8 dereferenceable(152) %image.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp342.i, i32 %1, i32 %2)
           to label %invoke.cont346.i unwind label %lpad345.i, !noalias !151
 
 invoke.cont346.i:                                 ; preds = %invoke.cont344.i
@@ -24392,7 +24392,7 @@ lpad.i:                                           ; preds = %if.end.i.i.i.i.i.i
 invoke.cont90:                                    ; preds = %for.body.i, %_ZN4pbrt13InlinedVectorIiLi4EN4pstd3pmr21polymorphic_allocatorIiEEE6resizeEm.exit.i
   %dataWindow.val = load i32, ptr %dataWindow, align 4
   %dataWindow.val52 = load i32, ptr %y3.i.i.i55, align 4
-  invoke fastcc void @_ZN4pbrtL18imageToFrameBufferERKNS_5ImageERKNS_16ImageChannelDescERKN9Imath_2_53BoxINS6_4Vec2IiEEEE.argprom(ptr noalias align 8 %fb, ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp89, i32 %dataWindow.val, i32 %dataWindow.val52)
+  invoke fastcc void @_ZN4pbrtL18imageToFrameBufferERKNS_5ImageERKNS_16ImageChannelDescERKN9Imath_2_53BoxINS6_4Vec2IiEEEE(ptr noalias align 8 %fb, ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp89, i32 %dataWindow.val, i32 %dataWindow.val52)
           to label %invoke.cont92 unwind label %lpad91
 
 invoke.cont92:                                    ; preds = %invoke.cont90
@@ -27317,7 +27317,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pbrtL18imageToFrameBufferERKNS_5ImageERKNS_16ImageChannelDescERKN9Imath_2_53BoxINS6_4Vec2IiEEEE.argprom(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %image, ptr noundef nonnull readonly align 8 dereferenceable(48) %desc, i32 %dataWindow.0.val, i32 %dataWindow.4.val) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4pbrtL18imageToFrameBufferERKNS_5ImageERKNS_16ImageChannelDescERKN9Imath_2_53BoxINS6_4Vec2IiEEEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %image, ptr noundef nonnull readonly align 8 dereferenceable(48) %desc, i32 %dataWindow.0.val, i32 %dataWindow.4.val) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %channelNames = alloca %"class.std::vector.36", align 8
   %ref.tmp25 = alloca %"struct.Imf_2_5::Slice", align 8
@@ -39085,7 +39085,7 @@ _ZNK4pstd8optionalIN4pbrt6Point2IiEEE5valueEv.exit: ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @_ZN4pbrt8internal9ToString2IiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_S8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, i32 noundef %call6.val, i32 noundef %call6.val3)
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
-          to label %_ZN4pbrtlsINS_6Point2IiEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.argprom.exit unwind label %lpad.i
+          to label %_ZN4pbrtlsINS_6Point2IiEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %_ZNK4pstd8optionalIN4pbrt6Point2IiEEE5valueEv.exit
   %3 = landingpad { ptr, i32 }
@@ -39093,7 +39093,7 @@ lpad.i:                                           ; preds = %_ZNK4pstd8optionalI
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #33
   resume { ptr, i32 } %3
 
-_ZN4pbrtlsINS_6Point2IiEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.argprom.exit: ; preds = %_ZNK4pstd8optionalIN4pbrt6Point2IiEEE5valueEv.exit
+_ZN4pbrtlsINS_6Point2IiEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.exit: ; preds = %_ZNK4pstd8optionalIN4pbrt6Point2IiEEE5valueEv.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #33
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   %call8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call.i, ptr noundef nonnull @.str.139)
@@ -39103,8 +39103,8 @@ if.else:                                          ; preds = %entry
   %call12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call3, ptr noundef nonnull @.str.143)
   br label %return
 
-return:                                           ; preds = %if.else, %_ZN4pbrtlsINS_6Point2IiEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.argprom.exit
-  %retval.0 = phi ptr [ %call8, %_ZN4pbrtlsINS_6Point2IiEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.argprom.exit ], [ %call12, %if.else ]
+return:                                           ; preds = %if.else, %_ZN4pbrtlsINS_6Point2IiEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.exit
+  %retval.0 = phi ptr [ %call8, %_ZN4pbrtlsINS_6Point2IiEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.exit ], [ %call12, %if.else ]
   ret ptr %retval.0
 }
 
@@ -39578,7 +39578,7 @@ entry:
   %sext.i.i.i = shl i64 %__args.val, 32
   %conv279.i.i.i = ashr exact i64 %sext.i.i.i, 32
   %cmp80.i.i.i = icmp sgt i64 %__args1.val, %conv279.i.i.i
-  br i1 %cmp80.i.i.i, label %for.cond3.preheader.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZNK4pbrt5Image14GaussianFilterERKNS0_16ImageChannelDescEifE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br i1 %cmp80.i.i.i, label %for.cond3.preheader.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZNK4pbrt5Image14GaussianFilterERKNS0_16ImageChannelDescEifE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 for.cond3.preheader.lr.ph.i.i.i:                  ; preds = %entry
   %resolution.i.i.i = getelementptr inbounds i8, ptr %0, i64 4
@@ -39597,7 +39597,7 @@ for.cond3.preheader.lr.ph.i.i.i:                  ; preds = %entry
   %7 = getelementptr inbounds i8, ptr %__functor.val, i64 40
   %8 = load i32, ptr %resolution.i.i.i, align 4
   %9 = icmp sgt i32 %8, 0
-  br i1 %9, label %for.cond3.preheader.i.i.i, label %"_ZSt10__invoke_rIvRZNK4pbrt5Image14GaussianFilterERKNS0_16ImageChannelDescEifE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br i1 %9, label %for.cond3.preheader.i.i.i, label %"_ZSt10__invoke_rIvRZNK4pbrt5Image14GaussianFilterERKNS0_16ImageChannelDescEifE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 for.cond3.preheader.i.i.i:                        ; preds = %for.cond3.preheader.lr.ph.i.i.i, %for.inc36.i.i.i
   %10 = phi i32 [ %69, %for.inc36.i.i.i ], [ %8, %for.cond3.preheader.lr.ph.i.i.i ]
@@ -39906,9 +39906,9 @@ for.inc36.i.i.i:                                  ; preds = %_ZN4pbrt18ImageChan
   %69 = phi i32 [ %10, %for.cond3.preheader.i.i.i ], [ %67, %_ZN4pbrt18ImageChannelValuesD2Ev.exit49.i.i.i ]
   %indvars.iv.next89.i.i.i = add i64 %indvars.iv88.i.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next89.i.i.i, %__args1.val
-  br i1 %exitcond.not.i.i, label %"_ZSt10__invoke_rIvRZNK4pbrt5Image14GaussianFilterERKNS0_16ImageChannelDescEifE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit", label %for.cond3.preheader.i.i.i, !llvm.loop !276
+  br i1 %exitcond.not.i.i, label %"_ZSt10__invoke_rIvRZNK4pbrt5Image14GaussianFilterERKNS0_16ImageChannelDescEifE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %for.cond3.preheader.i.i.i, !llvm.loop !276
 
-"_ZSt10__invoke_rIvRZNK4pbrt5Image14GaussianFilterERKNS0_16ImageChannelDescEifE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %for.inc36.i.i.i, %entry, %for.cond3.preheader.lr.ph.i.i.i
+"_ZSt10__invoke_rIvRZNK4pbrt5Image14GaussianFilterERKNS0_16ImageChannelDescEifE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %for.inc36.i.i.i, %entry, %for.cond3.preheader.lr.ph.i.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %result.i.i.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %cv.i.i.i)
   ret void
@@ -39968,7 +39968,7 @@ entry:
   %sext.i.i.i = shl i64 %__args.val, 32
   %conv279.i.i.i = ashr exact i64 %sext.i.i.i, 32
   %cmp80.i.i.i = icmp sgt i64 %__args1.val, %conv279.i.i.i
-  br i1 %cmp80.i.i.i, label %for.cond3.preheader.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZNK4pbrt5Image14GaussianFilterERKNS0_16ImageChannelDescEifE3$_1JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br i1 %cmp80.i.i.i, label %for.cond3.preheader.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZNK4pbrt5Image14GaussianFilterERKNS0_16ImageChannelDescEifE3$_1JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 for.cond3.preheader.lr.ph.i.i.i:                  ; preds = %entry
   %0 = load ptr, ptr %__functor.val, align 8
@@ -39989,7 +39989,7 @@ for.cond3.preheader.lr.ph.i.i.i:                  ; preds = %entry
   %8 = getelementptr inbounds i8, ptr %__functor.val, i64 48
   %9 = load i32, ptr %resolution.i.i.i, align 4
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %for.cond3.preheader.i.i.i, label %"_ZSt10__invoke_rIvRZNK4pbrt5Image14GaussianFilterERKNS0_16ImageChannelDescEifE3$_1JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br i1 %10, label %for.cond3.preheader.i.i.i, label %"_ZSt10__invoke_rIvRZNK4pbrt5Image14GaussianFilterERKNS0_16ImageChannelDescEifE3$_1JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 for.cond3.preheader.i.i.i:                        ; preds = %for.cond3.preheader.lr.ph.i.i.i, %for.inc36.i.i.i
   %11 = phi i32 [ %70, %for.inc36.i.i.i ], [ %9, %for.cond3.preheader.lr.ph.i.i.i ]
@@ -40299,9 +40299,9 @@ for.inc36.i.i.i:                                  ; preds = %_ZN4pbrt18ImageChan
   %70 = phi i32 [ %11, %for.cond3.preheader.i.i.i ], [ %68, %_ZN4pbrt18ImageChannelValuesD2Ev.exit49.i.i.i ]
   %indvars.iv.next89.i.i.i = add i64 %indvars.iv88.i.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next89.i.i.i, %__args1.val
-  br i1 %exitcond.not.i.i, label %"_ZSt10__invoke_rIvRZNK4pbrt5Image14GaussianFilterERKNS0_16ImageChannelDescEifE3$_1JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit", label %for.cond3.preheader.i.i.i, !llvm.loop !280
+  br i1 %exitcond.not.i.i, label %"_ZSt10__invoke_rIvRZNK4pbrt5Image14GaussianFilterERKNS0_16ImageChannelDescEifE3$_1JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %for.cond3.preheader.i.i.i, !llvm.loop !280
 
-"_ZSt10__invoke_rIvRZNK4pbrt5Image14GaussianFilterERKNS0_16ImageChannelDescEifE3$_1JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %for.inc36.i.i.i, %entry, %for.cond3.preheader.lr.ph.i.i.i
+"_ZSt10__invoke_rIvRZNK4pbrt5Image14GaussianFilterERKNS0_16ImageChannelDescEifE3$_1JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %for.inc36.i.i.i, %entry, %for.cond3.preheader.lr.ph.i.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %result.i.i.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %cv.i.i.i)
   ret void
@@ -42318,11 +42318,11 @@ if.then.i.i.i130.i.i.i:                           ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZNSt6vectorIfSaIfEED2Ev.exit131.i.i.i:           ; preds = %if.then.i.i.i130.i.i.i, %_ZNSt6vectorIfSaIfEED2Ev.exit128.i.i.i
   %tobool.not.i.i.i132.i.i.i = icmp eq ptr %inBuf.sroa.0.0.i.i.i, null
-  br i1 %tobool.not.i.i.i132.i.i.i, label %"_ZSt10__invoke_rIvRZNK4pbrt5Image13FloatResizeUpENS0_6Point2IiEENS0_10WrapMode2DEE3$_0JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit", label %if.then.i.i.i133.i.i.i
+  br i1 %tobool.not.i.i.i132.i.i.i, label %"_ZSt10__invoke_rIvRZNK4pbrt5Image13FloatResizeUpENS0_6Point2IiEENS0_10WrapMode2DEE3$_0JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %if.then.i.i.i133.i.i.i
 
 if.then.i.i.i133.i.i.i:                           ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit131.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %inBuf.sroa.0.0.i.i.i) #36
-  br label %"_ZSt10__invoke_rIvRZNK4pbrt5Image13FloatResizeUpENS0_6Point2IiEENS0_10WrapMode2DEE3$_0JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZNK4pbrt5Image13FloatResizeUpENS0_6Point2IiEENS0_10WrapMode2DEE3$_0JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
 ehcleanup.i.i.i:                                  ; preds = %if.then.i.i.i.i.i.i, %lpad158.i.i.i, %lpad147.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %71, %lpad147.i.i.i ], [ %72, %lpad158.i.i.i ], [ %72, %if.then.i.i.i.i.i.i ]
@@ -42345,7 +42345,7 @@ if.then.i.i.i139.i.i.i:                           ; preds = %ehcleanup249.i.i.i
 eh.resume.i.i.i:                                  ; preds = %if.then.i.i.i139.i.i.i, %ehcleanup249.i.i.i
   resume { ptr, i32 } %.pn.pn.i.i.i
 
-"_ZSt10__invoke_rIvRZNK4pbrt5Image13FloatResizeUpENS0_6Point2IiEENS0_10WrapMode2DEE3$_0JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit": ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit131.i.i.i, %if.then.i.i.i133.i.i.i
+"_ZSt10__invoke_rIvRZNK4pbrt5Image13FloatResizeUpENS0_6Point2IiEENS0_10WrapMode2DEE3$_0JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit131.i.i.i, %if.then.i.i.i133.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %outExtent.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %inExtent.i.i.i)
   ret void
@@ -42571,14 +42571,14 @@ entry:
 entry.for.end38_crit_edge.i.i.i:                  ; preds = %entry
   %.pre76.i.i.i = load ptr, ptr %4, align 8
   %.pre77.i.i.i = load i32, ptr %.pre76.i.i.i, align 4
-  br label %"_ZSt10__invoke_rIvRZN4pbrt5Image15GeneratePyramidES1_NS0_10WrapMode2DEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4pbrt5Image15GeneratePyramidES1_NS0_10WrapMode2DEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
 for.cond9.preheader.lr.ph.i.i.i:                  ; preds = %entry
   %5 = getelementptr inbounds i8, ptr %__functor.val, i64 32
   %6 = load ptr, ptr %4, align 8
   %7 = load i32, ptr %6, align 4
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %for.cond9.preheader.preheader.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt5Image15GeneratePyramidES1_NS0_10WrapMode2DEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit"
+  br i1 %8, label %for.cond9.preheader.preheader.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt5Image15GeneratePyramidES1_NS0_10WrapMode2DEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
 for.cond9.preheader.preheader.i.i.i:              ; preds = %for.cond9.preheader.lr.ph.i.i.i
   %9 = load ptr, ptr %0, align 8
@@ -42673,9 +42673,9 @@ for.inc35.i.i.i:                                  ; preds = %for.inc35.loopexit.
 
 for.end38.loopexit.i.i.i:                         ; preds = %for.inc35.i.i.i
   %.pre74.i.i.i = load ptr, ptr %__functor.val, align 8
-  br label %"_ZSt10__invoke_rIvRZN4pbrt5Image15GeneratePyramidES1_NS0_10WrapMode2DEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4pbrt5Image15GeneratePyramidES1_NS0_10WrapMode2DEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
-"_ZSt10__invoke_rIvRZN4pbrt5Image15GeneratePyramidES1_NS0_10WrapMode2DEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit": ; preds = %entry.for.end38_crit_edge.i.i.i, %for.cond9.preheader.lr.ph.i.i.i, %for.end38.loopexit.i.i.i
+"_ZSt10__invoke_rIvRZN4pbrt5Image15GeneratePyramidES1_NS0_10WrapMode2DEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %entry.for.end38_crit_edge.i.i.i, %for.cond9.preheader.lr.ph.i.i.i, %for.end38.loopexit.i.i.i
   %39 = phi i32 [ %38, %for.end38.loopexit.i.i.i ], [ %.pre77.i.i.i, %entry.for.end38_crit_edge.i.i.i ], [ %7, %for.cond9.preheader.lr.ph.i.i.i ]
   %40 = phi ptr [ %.pre74.i.i.i, %for.end38.loopexit.i.i.i ], [ %.pre75.i.i.i, %entry.for.end38_crit_edge.i.i.i ], [ %.pre75.i.i.i, %for.cond9.preheader.lr.ph.i.i.i ]
   %add43.i.i.i = add nsw i32 %mul.i.i.i, 2
@@ -48832,7 +48832,7 @@ entry:
   %sext.i.i.i = shl i64 %__args.val, 32
   %conv2222.i.i.i = ashr exact i64 %sext.i.i.i, 32
   %cmp223.i.i.i = icmp sgt i64 %__args1.val, %conv2222.i.i.i
-  br i1 %cmp223.i.i.i, label %for.cond3.preheader.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZNK4pbrt5Image20JointBilateralFilterERKNS0_16ImageChannelDescEiPKfS4_RKNS0_18ImageChannelValuesEE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit"
+  br i1 %cmp223.i.i.i, label %for.cond3.preheader.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZNK4pbrt5Image20JointBilateralFilterERKNS0_16ImageChannelDescEiPKfS4_RKNS0_18ImageChannelValuesEE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
 for.cond3.preheader.lr.ph.i.i.i:                  ; preds = %entry
   %resolution.i.i.i = getelementptr inbounds i8, ptr %0, i64 4
@@ -48862,7 +48862,7 @@ for.cond3.preheader.lr.ph.i.i.i:                  ; preds = %entry
   %nAlloc.i.i122.i.i.i = getelementptr inbounds i8, ptr %jointPixelChannels.i.i.i, i64 32
   %12 = load i32, ptr %resolution.i.i.i, align 4
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %for.cond3.preheader.i.i.i, label %"_ZSt10__invoke_rIvRZNK4pbrt5Image20JointBilateralFilterERKNS0_16ImageChannelDescEiPKfS4_RKNS0_18ImageChannelValuesEE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit"
+  br i1 %13, label %for.cond3.preheader.i.i.i, label %"_ZSt10__invoke_rIvRZNK4pbrt5Image20JointBilateralFilterERKNS0_16ImageChannelDescEiPKfS4_RKNS0_18ImageChannelValuesEE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
 for.cond3.preheader.i.i.i:                        ; preds = %for.cond3.preheader.lr.ph.i.i.i, %for.inc129.i.i.i
   %14 = phi i32 [ %132, %for.inc129.i.i.i ], [ %12, %for.cond3.preheader.lr.ph.i.i.i ]
@@ -49438,9 +49438,9 @@ for.inc129.i.i.i:                                 ; preds = %_ZN4pbrt18ImageChan
   %132 = phi i32 [ %14, %for.cond3.preheader.i.i.i ], [ %118, %_ZN4pbrt18ImageChannelValuesD2Ev.exit127.i.i.i ]
   %indvars.iv.next238.i.i.i = add i64 %indvars.iv237.i.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next238.i.i.i, %__args1.val
-  br i1 %exitcond.not.i.i, label %"_ZSt10__invoke_rIvRZNK4pbrt5Image20JointBilateralFilterERKNS0_16ImageChannelDescEiPKfS4_RKNS0_18ImageChannelValuesEE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit", label %for.cond3.preheader.i.i.i, !llvm.loop !297
+  br i1 %exitcond.not.i.i, label %"_ZSt10__invoke_rIvRZNK4pbrt5Image20JointBilateralFilterERKNS0_16ImageChannelDescEiPKfS4_RKNS0_18ImageChannelValuesEE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit", label %for.cond3.preheader.i.i.i, !llvm.loop !297
 
-"_ZSt10__invoke_rIvRZNK4pbrt5Image20JointBilateralFilterERKNS0_16ImageChannelDescEiPKfS4_RKNS0_18ImageChannelValuesEE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit": ; preds = %for.inc129.i.i.i, %entry, %for.cond3.preheader.lr.ph.i.i.i
+"_ZSt10__invoke_rIvRZNK4pbrt5Image20JointBilateralFilterERKNS0_16ImageChannelDescEiPKfS4_RKNS0_18ImageChannelValuesEE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit": ; preds = %for.inc129.i.i.i, %entry, %for.cond3.preheader.lr.ph.i.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %jointPixelChannels.i.i.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %filteredSum.i.i.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %jointOtherChannels.i.i.i)

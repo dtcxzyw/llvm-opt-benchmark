@@ -1742,7 +1742,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %476 = getelementptr inbounds i8, ptr %475, i64 616
   call void (ptr, ptr, ...) @_dev_info(ptr noundef %476, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.27, ptr noundef nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
-  call fastcc void @decode_cxl_osc_control.argprom(ptr noundef nonnull %24, i32 noundef %468)
+  call fastcc void @decode_cxl_osc_control(ptr noundef nonnull %24, i32 noundef %468)
   br label %477
 
 477:                                              ; preds = %474, %472
@@ -2002,7 +2002,7 @@ define internal fastcc void @decode_osc_control(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @decode_cxl_osc_control.argprom(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @decode_cxl_osc_control(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #0 align 16 {
   %3 = alloca [80 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %3, i8 0, i64 80, i1 false)

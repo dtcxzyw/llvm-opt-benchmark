@@ -410,7 +410,7 @@ _ZN3fst5bytes12pack_uint_in17h972e63214e176808E.exit.i: ; preds = %123
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %163, i64 16
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 8
   %169 = icmp eq i64 %167, 0
-  br i1 %169, label %_ZN3fst5bytes9pack_uint17h342c53e2317bb7d6E.argprom.exit.thread.i, label %.thread
+  br i1 %169, label %_ZN3fst5bytes9pack_uint17h342c53e2317bb7d6E.exit.thread.i, label %.thread
 
 .thread:                                          ; preds = %228, %168
   %.sroa.5.0.copyload28 = phi i8 [ %.sroa.5.0.copyload, %168 ], [ %231, %228 ]
@@ -464,9 +464,9 @@ _ZN3fst5bytes12pack_uint_in17h972e63214e176808E.exit.i.i: ; preds = %183
   %187 = call noundef ptr @_ZN3std2io5Write9write_all17h52e0d6ae28ba0bedE(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef %182), !noalias !32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !24
   %188 = icmp eq ptr %187, null
-  br i1 %188, label %_ZN3fst5bytes9pack_uint17h342c53e2317bb7d6E.argprom.exit.thread.i, label %_ZN3fst3raw4node13StateAnyTrans7compile17hebbade8d7d90725bE.exit
+  br i1 %188, label %_ZN3fst5bytes9pack_uint17h342c53e2317bb7d6E.exit.thread.i, label %_ZN3fst3raw4node13StateAnyTrans7compile17hebbade8d7d90725bE.exit
 
-_ZN3fst5bytes9pack_uint17h342c53e2317bb7d6E.argprom.exit.thread.i: ; preds = %_ZN3fst5bytes12pack_uint_in17h972e63214e176808E.exit.i.i, %168
+_ZN3fst5bytes9pack_uint17h342c53e2317bb7d6E.exit.thread.i: ; preds = %_ZN3fst5bytes12pack_uint_in17h972e63214e176808E.exit.i.i, %168
   %.sroa.5.0.copyload29 = phi i8 [ %.sroa.5.0.copyload, %168 ], [ %.sroa.5.0.copyload28, %_ZN3fst5bytes12pack_uint_in17h972e63214e176808E.exit.i.i ]
   %.038.i = phi i8 [ 0, %168 ], [ %.0.i3.i.i, %_ZN3fst5bytes12pack_uint_in17h972e63214e176808E.exit.i.i ]
   %189 = icmp eq i64 %165, 0
@@ -475,7 +475,7 @@ _ZN3fst5bytes9pack_uint17h342c53e2317bb7d6E.argprom.exit.thread.i: ; preds = %_Z
   %191 = icmp ult i64 %.08.i.i, 256
   br i1 %191, label %.lr.ph.preheader.i.i57.i, label %192
 
-192:                                              ; preds = %_ZN3fst5bytes9pack_uint17h342c53e2317bb7d6E.argprom.exit.thread.i
+192:                                              ; preds = %_ZN3fst5bytes9pack_uint17h342c53e2317bb7d6E.exit.thread.i
   %193 = icmp ult i64 %.08.i.i, 65536
   br i1 %193, label %.lr.ph.preheader.i.i57.i, label %194
 
@@ -500,8 +500,8 @@ _ZN3fst5bytes9pack_size17hfe6a7ff0d64b0162E.exit.i55.i: ; preds = %200
   %..i.i56.i = select i1 %202, i8 7, i8 8
   br label %.lr.ph.preheader.i.i57.i
 
-.lr.ph.preheader.i.i57.i:                         ; preds = %_ZN3fst5bytes9pack_size17hfe6a7ff0d64b0162E.exit.i55.i, %200, %198, %196, %194, %192, %_ZN3fst5bytes9pack_uint17h342c53e2317bb7d6E.argprom.exit.thread.i
-  %.0.i3.i58.i = phi i8 [ %..i.i56.i, %_ZN3fst5bytes9pack_size17hfe6a7ff0d64b0162E.exit.i55.i ], [ 6, %200 ], [ 5, %198 ], [ 4, %196 ], [ 3, %194 ], [ 2, %192 ], [ 1, %_ZN3fst5bytes9pack_uint17h342c53e2317bb7d6E.argprom.exit.thread.i ]
+.lr.ph.preheader.i.i57.i:                         ; preds = %_ZN3fst5bytes9pack_size17hfe6a7ff0d64b0162E.exit.i55.i, %200, %198, %196, %194, %192, %_ZN3fst5bytes9pack_uint17h342c53e2317bb7d6E.exit.thread.i
+  %.0.i3.i58.i = phi i8 [ %..i.i56.i, %_ZN3fst5bytes9pack_size17hfe6a7ff0d64b0162E.exit.i55.i ], [ 6, %200 ], [ 5, %198 ], [ 4, %196 ], [ 3, %194 ], [ 2, %192 ], [ 1, %_ZN3fst5bytes9pack_uint17h342c53e2317bb7d6E.exit.thread.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !33
   store i64 0, ptr %7, align 8, !noalias !33
   %203 = zext nneg i8 %.0.i3.i58.i to i64
@@ -664,8 +664,8 @@ attributes #7 = { noreturn }
 !24 = !{!25, !27, !29, !31}
 !25 = distinct !{!25, !26, !"_ZN3fst5bytes12pack_uint_in17h972e63214e176808E: argument 0"}
 !26 = distinct !{!26, !"_ZN3fst5bytes12pack_uint_in17h972e63214e176808E"}
-!27 = distinct !{!27, !28, !"_ZN3fst5bytes9pack_uint17h342c53e2317bb7d6E.argprom: argument 0"}
-!28 = distinct !{!28, !"_ZN3fst5bytes9pack_uint17h342c53e2317bb7d6E.argprom"}
+!27 = distinct !{!27, !28, !"_ZN3fst5bytes9pack_uint17h342c53e2317bb7d6E: argument 0"}
+!28 = distinct !{!28, !"_ZN3fst5bytes9pack_uint17h342c53e2317bb7d6E"}
 !29 = distinct !{!29, !30, !"_ZN3fst3raw4node13StateOneTrans7compile17h4763ff09886e69f5E: argument 0"}
 !30 = distinct !{!30, !"_ZN3fst3raw4node13StateOneTrans7compile17h4763ff09886e69f5E"}
 !31 = distinct !{!31, !30, !"_ZN3fst3raw4node13StateOneTrans7compile17h4763ff09886e69f5E: argument 1"}
@@ -673,8 +673,8 @@ attributes #7 = { noreturn }
 !33 = !{!34, !36, !29, !31}
 !34 = distinct !{!34, !35, !"_ZN3fst5bytes12pack_uint_in17h972e63214e176808E: argument 0"}
 !35 = distinct !{!35, !"_ZN3fst5bytes12pack_uint_in17h972e63214e176808E"}
-!36 = distinct !{!36, !37, !"_ZN3fst3raw4node10pack_delta17hbdb807c41b5be9acE.argprom: argument 0"}
-!37 = distinct !{!37, !"_ZN3fst3raw4node10pack_delta17hbdb807c41b5be9acE.argprom"}
+!36 = distinct !{!36, !37, !"_ZN3fst3raw4node10pack_delta17hbdb807c41b5be9acE: argument 0"}
+!37 = distinct !{!37, !"_ZN3fst3raw4node10pack_delta17hbdb807c41b5be9acE"}
 !38 = !{!34, !36, !31}
 !39 = !{!29, !31}
 !40 = !{!31}

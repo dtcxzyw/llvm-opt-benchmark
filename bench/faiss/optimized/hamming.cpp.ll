@@ -1243,14 +1243,14 @@ define void @_ZN5faiss15hammings_knn_hcEPNS_9HeapArrayINS_4CMaxIilEEEEPKhS6_mmi1
   br i1 %72, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !91
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %66
-  br i1 %.not.i93.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_16HammingComputer4EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.argprom.exit.i, label %73
+  br i1 %.not.i93.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_16HammingComputer4EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.exit.i, label %73
 
 73:                                               ; preds = %._crit_edge.i.i.i
   %74 = load ptr, ptr %57, align 8, !noalias !87
   call void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE7reorderEv(ptr noundef nonnull align 8 dereferenceable(32) %74)
-  br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_16HammingComputer4EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.argprom.exit.i
+  br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_16HammingComputer4EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.exit.i
 
-_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_16HammingComputer4EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.argprom.exit.i: ; preds = %73, %._crit_edge.i.i.i
+_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_16HammingComputer4EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.exit.i: ; preds = %73, %._crit_edge.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %56)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58)
@@ -1259,7 +1259,7 @@ _ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_16HammingComputer4EJmPNS_9Heap
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_hcEJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mib17ApproxTopK_mode_tEEENT_1TEiRSB_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_hcEJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mib17ApproxTopK_mode_tEEENT_1TEiRSB_DpT0_.exit
 
 75:                                               ; preds = %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
@@ -1296,14 +1296,14 @@ _ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_16HammingComputer4EJmPNS_9Heap
   br i1 %81, label %.lr.ph.i.i65.i, label %._crit_edge.i.i68.i, !llvm.loop !99
 
 ._crit_edge.i.i68.i:                              ; preds = %.lr.ph.i.i65.i, %75
-  br i1 %.not.i93.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_16HammingComputer8EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.argprom.exit.i, label %82
+  br i1 %.not.i93.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_16HammingComputer8EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.exit.i, label %82
 
 82:                                               ; preds = %._crit_edge.i.i68.i
   %83 = load ptr, ptr %49, align 8, !noalias !95
   call void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE7reorderEv(ptr noundef nonnull align 8 dereferenceable(32) %83)
-  br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_16HammingComputer8EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.argprom.exit.i
+  br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_16HammingComputer8EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.exit.i
 
-_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_16HammingComputer8EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.argprom.exit.i: ; preds = %82, %._crit_edge.i.i68.i
+_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_16HammingComputer8EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.exit.i: ; preds = %82, %._crit_edge.i.i68.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %48)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50)
@@ -1312,7 +1312,7 @@ _ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_16HammingComputer8EJmPNS_9Heap
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_hcEJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mib17ApproxTopK_mode_tEEENT_1TEiRSB_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_hcEJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mib17ApproxTopK_mode_tEEENT_1TEiRSB_DpT0_.exit
 
 84:                                               ; preds = %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
@@ -1349,14 +1349,14 @@ _ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_16HammingComputer8EJmPNS_9Heap
   br i1 %90, label %.lr.ph.i.i71.i, label %._crit_edge.i.i74.i, !llvm.loop !107
 
 ._crit_edge.i.i74.i:                              ; preds = %.lr.ph.i.i71.i, %84
-  br i1 %.not.i93.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer16EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.argprom.exit.i, label %91
+  br i1 %.not.i93.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer16EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.exit.i, label %91
 
 91:                                               ; preds = %._crit_edge.i.i74.i
   %92 = load ptr, ptr %41, align 8, !noalias !103
   call void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE7reorderEv(ptr noundef nonnull align 8 dereferenceable(32) %92)
-  br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer16EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.argprom.exit.i
+  br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer16EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.exit.i
 
-_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer16EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.argprom.exit.i: ; preds = %91, %._crit_edge.i.i74.i
+_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer16EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.exit.i: ; preds = %91, %._crit_edge.i.i74.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
@@ -1365,7 +1365,7 @@ _ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer16EJmPNS_9Hea
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_hcEJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mib17ApproxTopK_mode_tEEENT_1TEiRSB_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_hcEJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mib17ApproxTopK_mode_tEEENT_1TEiRSB_DpT0_.exit
 
 93:                                               ; preds = %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !108)
@@ -1402,14 +1402,14 @@ _ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer16EJmPNS_9Hea
   br i1 %99, label %.lr.ph.i.i77.i, label %._crit_edge.i.i80.i, !llvm.loop !115
 
 ._crit_edge.i.i80.i:                              ; preds = %.lr.ph.i.i77.i, %93
-  br i1 %.not.i93.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer20EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.argprom.exit.i, label %100
+  br i1 %.not.i93.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer20EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.exit.i, label %100
 
 100:                                              ; preds = %._crit_edge.i.i80.i
   %101 = load ptr, ptr %33, align 8, !noalias !111
   call void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE7reorderEv(ptr noundef nonnull align 8 dereferenceable(32) %101)
-  br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer20EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.argprom.exit.i
+  br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer20EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.exit.i
 
-_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer20EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.argprom.exit.i: ; preds = %100, %._crit_edge.i.i80.i
+_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer20EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.exit.i: ; preds = %100, %._crit_edge.i.i80.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
@@ -1418,7 +1418,7 @@ _ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer20EJmPNS_9Hea
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_hcEJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mib17ApproxTopK_mode_tEEENT_1TEiRSB_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_hcEJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mib17ApproxTopK_mode_tEEENT_1TEiRSB_DpT0_.exit
 
 102:                                              ; preds = %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
@@ -1455,14 +1455,14 @@ _ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer20EJmPNS_9Hea
   br i1 %108, label %.lr.ph.i.i83.i, label %._crit_edge.i.i86.i, !llvm.loop !123
 
 ._crit_edge.i.i86.i:                              ; preds = %.lr.ph.i.i83.i, %102
-  br i1 %.not.i93.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer32EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.argprom.exit.i, label %109
+  br i1 %.not.i93.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer32EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.exit.i, label %109
 
 109:                                              ; preds = %._crit_edge.i.i86.i
   %110 = load ptr, ptr %25, align 8, !noalias !119
   call void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE7reorderEv(ptr noundef nonnull align 8 dereferenceable(32) %110)
-  br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer32EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.argprom.exit.i
+  br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer32EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.exit.i
 
-_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer32EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.argprom.exit.i: ; preds = %109, %._crit_edge.i.i86.i
+_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer32EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.exit.i: ; preds = %109, %._crit_edge.i.i86.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
@@ -1471,7 +1471,7 @@ _ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer32EJmPNS_9Hea
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_hcEJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mib17ApproxTopK_mode_tEEENT_1TEiRSB_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_hcEJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mib17ApproxTopK_mode_tEEENT_1TEiRSB_DpT0_.exit
 
 111:                                              ; preds = %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !124)
@@ -1508,14 +1508,14 @@ _ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer32EJmPNS_9Hea
   br i1 %117, label %.lr.ph.i.i89.i, label %._crit_edge.i.i92.i, !llvm.loop !131
 
 ._crit_edge.i.i92.i:                              ; preds = %.lr.ph.i.i89.i, %111
-  br i1 %.not.i93.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer64EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.argprom.exit.i, label %118
+  br i1 %.not.i93.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer64EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.exit.i, label %118
 
 118:                                              ; preds = %._crit_edge.i.i92.i
   %119 = load ptr, ptr %17, align 8, !noalias !127
   call void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE7reorderEv(ptr noundef nonnull align 8 dereferenceable(32) %119)
-  br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer64EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.argprom.exit.i
+  br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer64EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.exit.i
 
-_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer64EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.argprom.exit.i: ; preds = %118, %._crit_edge.i.i92.i
+_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer64EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.exit.i: ; preds = %118, %._crit_edge.i.i92.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
@@ -1524,7 +1524,7 @@ _ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer64EJmPNS_9Hea
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_hcEJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mib17ApproxTopK_mode_tEEENT_1TEiRSB_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_hcEJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mib17ApproxTopK_mode_tEEENT_1TEiRSB_DpT0_.exit
 
 120:                                              ; preds = %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !132)
@@ -1561,14 +1561,14 @@ _ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer64EJmPNS_9Hea
   br i1 %126, label %.lr.ph.i.i95.i, label %._crit_edge.i.i98.i, !llvm.loop !139
 
 ._crit_edge.i.i98.i:                              ; preds = %.lr.ph.i.i95.i, %120
-  br i1 %.not.i93.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_22HammingComputerDefaultEJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.argprom.exit.i, label %127
+  br i1 %.not.i93.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_22HammingComputerDefaultEJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.exit.i, label %127
 
 127:                                              ; preds = %._crit_edge.i.i98.i
   %128 = load ptr, ptr %9, align 8, !noalias !135
   call void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE7reorderEv(ptr noundef nonnull align 8 dereferenceable(32) %128)
-  br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_22HammingComputerDefaultEJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.argprom.exit.i
+  br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_22HammingComputerDefaultEJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.exit.i
 
-_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_22HammingComputerDefaultEJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.argprom.exit.i: ; preds = %127, %._crit_edge.i.i98.i
+_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_22HammingComputerDefaultEJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.exit.i: ; preds = %127, %._crit_edge.i.i98.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
@@ -1577,9 +1577,9 @@ _ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_22HammingComputerDefaultEJmPNS
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_hcEJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mib17ApproxTopK_mode_tEEENT_1TEiRSB_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_hcEJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mib17ApproxTopK_mode_tEEENT_1TEiRSB_DpT0_.exit
 
-_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_hcEJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mib17ApproxTopK_mode_tEEENT_1TEiRSB_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_16HammingComputer4EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.argprom.exit.i, %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_16HammingComputer8EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.argprom.exit.i, %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer16EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.argprom.exit.i, %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer20EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.argprom.exit.i, %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer32EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.argprom.exit.i, %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer64EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.argprom.exit.i, %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_22HammingComputerDefaultEJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.argprom.exit.i
+_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_hcEJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mib17ApproxTopK_mode_tEEENT_1TEiRSB_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_16HammingComputer4EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.exit.i, %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_16HammingComputer8EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.exit.i, %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer16EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.exit.i, %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer20EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.exit.i, %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer32EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.exit.i, %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_17HammingComputer64EJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.exit.i, %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_hc1fINS_22HammingComputerDefaultEJmPNS_9HeapArrayINS_4CMaxIilEEEEPKhSA_mib17ApproxTopK_mode_tEEEvDpT0_.exit.i
   ret void
 }
 
@@ -20337,11 +20337,11 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i: ; preds = %108, %1
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i.i: ; preds = %153, %._crit_edge131.i.i.i
   call void @_ZdaPv(ptr noundef nonnull %61) #27, !noalias !469
   %.not.i.i.i79.i.i.i = icmp eq ptr %.sroa.0102.0.i.i.i, null
-  br i1 %.not.i.i.i79.i.i.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_16HammingComputer4EJmPKhS5_mmmPiPlEEEvDpT0_.argprom.exit.i, label %154
+  br i1 %.not.i.i.i79.i.i.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_16HammingComputer4EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i, label %154
 
 154:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0102.0.i.i.i) #27, !noalias !469
-  br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_16HammingComputer4EJmPKhS5_mmmPiPlEEEvDpT0_.argprom.exit.i
+  br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_16HammingComputer4EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i
 
 155:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i, %105
   %.pn.i.i.i = phi { ptr, i32 } [ %lpad.phi.i.i.i, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i ], [ %106, %105 ]
@@ -20358,14 +20358,14 @@ common.resume.i:                                  ; preds = %820, %702, %584, %4
   %common.resume.op.i = phi { ptr, i32 } [ %.pn.i.i.i, %155 ], [ %.pn.i.i67.i, %259 ], [ %.pn.i.i129.i, %365 ], [ %.pn.i.i224.i, %474 ], [ %.pn.i.i283.i, %584 ], [ %.pn.i.i351.i, %702 ], [ %.pn.i.i421.i, %820 ], [ %common.resume.op.ph.i, %common.resume.sink.split.i ]
   resume { ptr, i32 } %common.resume.op.i
 
-_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_16HammingComputer4EJmPKhS5_mmmPiPlEEEvDpT0_.argprom.exit.i: ; preds = %154, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i.i
+_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_16HammingComputer4EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i: ; preds = %154, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %48)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_mcEJmPKhS4_mmmPiPlEEENT_1TEiRS7_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_mcEJmPKhS4_mmmPiPlEEENT_1TEiRS7_DpT0_.exit
 
 156:                                              ; preds = %8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !486)
@@ -20700,25 +20700,25 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i106.i: ; preds = %212,
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i90.i: ; preds = %257, %._crit_edge128.i.i.i
   call void @_ZdaPv(ptr noundef nonnull %165) #27, !noalias !495
   %.not.i.i.i79.i.i91.i = icmp eq ptr %.sroa.0100.0.i.i.i, null
-  br i1 %.not.i.i.i79.i.i91.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_16HammingComputer8EJmPKhS5_mmmPiPlEEEvDpT0_.argprom.exit.i, label %258
+  br i1 %.not.i.i.i79.i.i91.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_16HammingComputer8EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i, label %258
 
 258:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i90.i
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0100.0.i.i.i) #27, !noalias !495
-  br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_16HammingComputer8EJmPKhS5_mmmPiPlEEEvDpT0_.argprom.exit.i
+  br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_16HammingComputer8EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i
 
 259:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i106.i, %209
   %.pn.i.i67.i = phi { ptr, i32 } [ %lpad.phi.i.i104.i, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i106.i ], [ %210, %209 ]
   %.not.i.i.i80.i.i68.i = icmp eq ptr %.sroa.0100.0.i.i.i, null
   br i1 %.not.i.i.i80.i.i68.i, label %common.resume.i, label %common.resume.sink.split.i
 
-_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_16HammingComputer8EJmPKhS5_mmmPiPlEEEvDpT0_.argprom.exit.i: ; preds = %258, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i90.i
+_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_16HammingComputer8EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i: ; preds = %258, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i90.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_mcEJmPKhS4_mmmPiPlEEENT_1TEiRS7_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_mcEJmPKhS4_mmmPiPlEEENT_1TEiRS7_DpT0_.exit
 
 260:                                              ; preds = %8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !511)
@@ -21059,25 +21059,25 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i202.i: ; preds = %318,
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i170.i: ; preds = %363, %._crit_edge131.i.i168.i
   call void @_ZdaPv(ptr noundef nonnull %269) #27, !noalias !520
   %.not.i.i.i79.i.i171.i = icmp eq ptr %.sroa.0102.0.i.i128.i, null
-  br i1 %.not.i.i.i79.i.i171.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer16EJmPKhS5_mmmPiPlEEEvDpT0_.argprom.exit.i, label %364
+  br i1 %.not.i.i.i79.i.i171.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer16EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i, label %364
 
 364:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i170.i
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0102.0.i.i128.i) #27, !noalias !520
-  br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer16EJmPKhS5_mmmPiPlEEEvDpT0_.argprom.exit.i
+  br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer16EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i
 
 365:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i202.i, %315
   %.pn.i.i129.i = phi { ptr, i32 } [ %lpad.phi.i.i200.i, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i202.i ], [ %316, %315 ]
   %.not.i.i.i80.i.i130.i = icmp eq ptr %.sroa.0102.0.i.i128.i, null
   br i1 %.not.i.i.i80.i.i130.i, label %common.resume.i, label %common.resume.sink.split.i
 
-_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer16EJmPKhS5_mmmPiPlEEEvDpT0_.argprom.exit.i: ; preds = %364, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i170.i
+_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer16EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i: ; preds = %364, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i170.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_mcEJmPKhS4_mmmPiPlEEENT_1TEiRS7_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_mcEJmPKhS4_mmmPiPlEEENT_1TEiRS7_DpT0_.exit
 
 366:                                              ; preds = %8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !536)
@@ -21425,25 +21425,25 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i263.i: ; preds = %427,
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i247.i: ; preds = %472, %._crit_edge136.i.i.i
   call void @_ZdaPv(ptr noundef nonnull %375) #27, !noalias !545
   %.not.i.i.i79.i.i248.i = icmp eq ptr %.sroa.0107.0.i.i.i, null
-  br i1 %.not.i.i.i79.i.i248.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer20EJmPKhS5_mmmPiPlEEEvDpT0_.argprom.exit.i, label %473
+  br i1 %.not.i.i.i79.i.i248.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer20EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i, label %473
 
 473:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i247.i
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0107.0.i.i.i) #27, !noalias !545
-  br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer20EJmPKhS5_mmmPiPlEEEvDpT0_.argprom.exit.i
+  br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer20EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i
 
 474:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i263.i, %424
   %.pn.i.i224.i = phi { ptr, i32 } [ %lpad.phi.i.i261.i, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i263.i ], [ %425, %424 ]
   %.not.i.i.i80.i.i225.i = icmp eq ptr %.sroa.0107.0.i.i.i, null
   br i1 %.not.i.i.i80.i.i225.i, label %common.resume.i, label %common.resume.sink.split.i
 
-_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer20EJmPKhS5_mmmPiPlEEEvDpT0_.argprom.exit.i: ; preds = %473, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i247.i
+_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer20EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i: ; preds = %473, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i247.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_mcEJmPKhS4_mmmPiPlEEENT_1TEiRS7_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_mcEJmPKhS4_mmmPiPlEEENT_1TEiRS7_DpT0_.exit
 
 475:                                              ; preds = %8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !561)
@@ -21796,25 +21796,25 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i328.i: ; preds = %537,
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i311.i: ; preds = %582, %._crit_edge135.i.i.i
   call void @_ZdaPv(ptr noundef nonnull %484) #27, !noalias !570
   %.not.i.i.i79.i.i312.i = icmp eq ptr %.sroa.0106.0.i.i.i, null
-  br i1 %.not.i.i.i79.i.i312.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer32EJmPKhS5_mmmPiPlEEEvDpT0_.argprom.exit.i, label %583
+  br i1 %.not.i.i.i79.i.i312.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer32EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i, label %583
 
 583:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i311.i
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0106.0.i.i.i) #27, !noalias !570
-  br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer32EJmPKhS5_mmmPiPlEEEvDpT0_.argprom.exit.i
+  br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer32EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i
 
 584:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i328.i, %534
   %.pn.i.i283.i = phi { ptr, i32 } [ %lpad.phi.i.i326.i, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i328.i ], [ %535, %534 ]
   %.not.i.i.i80.i.i284.i = icmp eq ptr %.sroa.0106.0.i.i.i, null
   br i1 %.not.i.i.i80.i.i284.i, label %common.resume.i, label %common.resume.sink.split.i
 
-_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer32EJmPKhS5_mmmPiPlEEEvDpT0_.argprom.exit.i: ; preds = %583, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i311.i
+_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer32EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i: ; preds = %583, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i311.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_mcEJmPKhS4_mmmPiPlEEENT_1TEiRS7_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_mcEJmPKhS4_mmmPiPlEEENT_1TEiRS7_DpT0_.exit
 
 585:                                              ; preds = %8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !586)
@@ -22191,25 +22191,25 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i396.i: ; preds = %655,
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i378.i: ; preds = %700, %._crit_edge143.i.i.i
   call void @_ZdaPv(ptr noundef nonnull %594) #27, !noalias !595
   %.not.i.i.i79.i.i379.i = icmp eq ptr %.sroa.0114.0.i.i.i, null
-  br i1 %.not.i.i.i79.i.i379.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer64EJmPKhS5_mmmPiPlEEEvDpT0_.argprom.exit.i, label %701
+  br i1 %.not.i.i.i79.i.i379.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer64EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i, label %701
 
 701:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i378.i
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0114.0.i.i.i) #27, !noalias !595
-  br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer64EJmPKhS5_mmmPiPlEEEvDpT0_.argprom.exit.i
+  br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer64EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i
 
 702:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i396.i, %652
   %.pn.i.i351.i = phi { ptr, i32 } [ %lpad.phi.i.i394.i, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i396.i ], [ %653, %652 ]
   %.not.i.i.i80.i.i352.i = icmp eq ptr %.sroa.0114.0.i.i.i, null
   br i1 %.not.i.i.i80.i.i352.i, label %common.resume.i, label %common.resume.sink.split.i
 
-_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer64EJmPKhS5_mmmPiPlEEEvDpT0_.argprom.exit.i: ; preds = %701, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i378.i
+_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer64EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i: ; preds = %701, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i378.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_mcEJmPKhS4_mmmPiPlEEENT_1TEiRS7_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_mcEJmPKhS4_mmmPiPlEEENT_1TEiRS7_DpT0_.exit
 
 703:                                              ; preds = %8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !611)
@@ -22592,27 +22592,27 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i470.i: ; preds = %764,
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i449.i: ; preds = %818, %._crit_edge133.i.i.i
   call void @_ZdaPv(ptr noundef nonnull %715) #27, !noalias !619
   %.not.i.i.i79.i.i450.i = icmp eq ptr %.sroa.0104.0.i.i.i, null
-  br i1 %.not.i.i.i79.i.i450.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_22HammingComputerDefaultEJmPKhS5_mmmPiPlEEEvDpT0_.argprom.exit.i, label %819
+  br i1 %.not.i.i.i79.i.i450.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_22HammingComputerDefaultEJmPKhS5_mmmPiPlEEEvDpT0_.exit.i, label %819
 
 819:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i449.i
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0104.0.i.i.i) #27, !noalias !619
-  br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_22HammingComputerDefaultEJmPKhS5_mmmPiPlEEEvDpT0_.argprom.exit.i
+  br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_22HammingComputerDefaultEJmPKhS5_mmmPiPlEEEvDpT0_.exit.i
 
 820:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i470.i, %761
   %.pn.i.i421.i = phi { ptr, i32 } [ %lpad.phi.i.i468.i, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i470.i ], [ %762, %761 ]
   %.not.i.i.i80.i.i422.i = icmp eq ptr %.sroa.0104.0.i.i.i, null
   br i1 %.not.i.i.i80.i.i422.i, label %common.resume.i, label %common.resume.sink.split.i
 
-_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_22HammingComputerDefaultEJmPKhS5_mmmPiPlEEEvDpT0_.argprom.exit.i: ; preds = %819, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i449.i
+_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_22HammingComputerDefaultEJmPKhS5_mmmPiPlEEEvDpT0_.exit.i: ; preds = %819, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i449.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_mcEJmPKhS4_mmmPiPlEEENT_1TEiRS7_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_mcEJmPKhS4_mmmPiPlEEENT_1TEiRS7_DpT0_.exit
 
-_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_mcEJmPKhS4_mmmPiPlEEENT_1TEiRS7_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_16HammingComputer4EJmPKhS5_mmmPiPlEEEvDpT0_.argprom.exit.i, %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_16HammingComputer8EJmPKhS5_mmmPiPlEEEvDpT0_.argprom.exit.i, %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer16EJmPKhS5_mmmPiPlEEEvDpT0_.argprom.exit.i, %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer20EJmPKhS5_mmmPiPlEEEvDpT0_.argprom.exit.i, %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer32EJmPKhS5_mmmPiPlEEEvDpT0_.argprom.exit.i, %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer64EJmPKhS5_mmmPiPlEEEvDpT0_.argprom.exit.i, %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_22HammingComputerDefaultEJmPKhS5_mmmPiPlEEEvDpT0_.argprom.exit.i
+_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_mcEJmPKhS4_mmmPiPlEEENT_1TEiRS7_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_16HammingComputer4EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i, %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_16HammingComputer8EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i, %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer16EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i, %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer20EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i, %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer32EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i, %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer64EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i, %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_22HammingComputerDefaultEJmPKhS5_mmmPiPlEEEvDpT0_.exit.i
   ret void
 }
 
@@ -23945,7 +23945,7 @@ define void @_ZN5faiss20hamming_range_searchEPKhS1_mmimPNS_17RangeSearchResultE(
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %54)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_124Run_hamming_range_searchEJPKhS4_mmimPNS_17RangeSearchResultEEEENT_1TEiRS7_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_124Run_hamming_range_searchEJPKhS4_mmimPNS_17RangeSearchResultEEEENT_1TEiRS7_DpT0_.exit
 
 59:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43)
@@ -23970,7 +23970,7 @@ define void @_ZN5faiss20hamming_range_searchEPKhS1_mmimPNS_17RangeSearchResultE(
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_124Run_hamming_range_searchEJPKhS4_mmimPNS_17RangeSearchResultEEEENT_1TEiRS7_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_124Run_hamming_range_searchEJPKhS4_mmimPNS_17RangeSearchResultEEEENT_1TEiRS7_DpT0_.exit
 
 60:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36)
@@ -23995,7 +23995,7 @@ define void @_ZN5faiss20hamming_range_searchEPKhS1_mmimPNS_17RangeSearchResultE(
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_124Run_hamming_range_searchEJPKhS4_mmimPNS_17RangeSearchResultEEEENT_1TEiRS7_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_124Run_hamming_range_searchEJPKhS4_mmimPNS_17RangeSearchResultEEEENT_1TEiRS7_DpT0_.exit
 
 61:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
@@ -24020,7 +24020,7 @@ define void @_ZN5faiss20hamming_range_searchEPKhS1_mmimPNS_17RangeSearchResultE(
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_124Run_hamming_range_searchEJPKhS4_mmimPNS_17RangeSearchResultEEEENT_1TEiRS7_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_124Run_hamming_range_searchEJPKhS4_mmimPNS_17RangeSearchResultEEEENT_1TEiRS7_DpT0_.exit
 
 62:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
@@ -24045,7 +24045,7 @@ define void @_ZN5faiss20hamming_range_searchEPKhS1_mmimPNS_17RangeSearchResultE(
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_124Run_hamming_range_searchEJPKhS4_mmimPNS_17RangeSearchResultEEEENT_1TEiRS7_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_124Run_hamming_range_searchEJPKhS4_mmimPNS_17RangeSearchResultEEEENT_1TEiRS7_DpT0_.exit
 
 63:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
@@ -24070,7 +24070,7 @@ define void @_ZN5faiss20hamming_range_searchEPKhS1_mmimPNS_17RangeSearchResultE(
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_124Run_hamming_range_searchEJPKhS4_mmimPNS_17RangeSearchResultEEEENT_1TEiRS7_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_124Run_hamming_range_searchEJPKhS4_mmimPNS_17RangeSearchResultEEEENT_1TEiRS7_DpT0_.exit
 
 64:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
@@ -24095,9 +24095,9 @@ define void @_ZN5faiss20hamming_range_searchEPKhS1_mmimPNS_17RangeSearchResultE(
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_124Run_hamming_range_searchEJPKhS4_mmimPNS_17RangeSearchResultEEEENT_1TEiRS7_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_124Run_hamming_range_searchEJPKhS4_mmimPNS_17RangeSearchResultEEEENT_1TEiRS7_DpT0_.exit
 
-_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_124Run_hamming_range_searchEJPKhS4_mmimPNS_17RangeSearchResultEEEENT_1TEiRS7_DpT0_.argprom.exit: ; preds = %58, %59, %60, %61, %62, %63, %64
+_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_124Run_hamming_range_searchEJPKhS4_mmimPNS_17RangeSearchResultEEEENT_1TEiRS7_DpT0_.exit: ; preds = %58, %59, %60, %61, %62, %63, %64
   ret void
 }
 
@@ -26029,8 +26029,8 @@ define internal void @_ZN5faiss27generalized_hammings_knn_hcEPNS_9HeapArrayINS_4
   %22 = sext i32 %21 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.argprom.exit
-  %indvars.iv = phi i64 [ %22, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.argprom.exit ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.exit
+  %indvars.iv = phi i64 [ %22, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.exit ]
   %23 = load ptr, ptr %3, align 8
   %24 = load i64, ptr %4, align 8
   %25 = mul i64 %24, %indvars.iv
@@ -26059,7 +26059,7 @@ define internal void @_ZN5faiss27generalized_hammings_knn_hcEPNS_9HeapArrayINS_4
   call void @llvm.experimental.noalias.scope.decl(metadata !792)
   call void @llvm.experimental.noalias.scope.decl(metadata !794)
   %.not.i = icmp eq i64 %38, 0
-  br i1 %.not.i, label %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %39
   %40 = getelementptr inbounds i8, ptr %34, i64 -4
@@ -26100,7 +26100,7 @@ _ZN5faiss19maxheap_replace_topIiEEvmPT_PlS1_l.exit.us.i: ; preds = %43
   %59 = phi i32 [ %55, %_ZN5faiss19maxheap_replace_topIiEEvmPT_PlS1_l.exit.us.i ], [ %44, %43 ]
   %60 = add nuw i64 %.0141.us.i, 1
   %exitcond6.not.i = icmp eq i64 %60, %38
-  br i1 %exitcond6.not.i, label %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.argprom.exit, label %43, !llvm.loop !799
+  br i1 %exitcond6.not.i, label %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.exit, label %43, !llvm.loop !799
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %112
   %.04.i = phi ptr [ %72, %112 ], [ %27, %.lr.ph.i ]
@@ -26197,7 +26197,7 @@ _ZN5faiss19maxheap_replace_topIiEEvmPT_PlS1_l.exit.loopexit.i: ; preds = %103, %
 112:                                              ; preds = %_ZN5faiss19maxheap_replace_topIiEEvmPT_PlS1_l.exit.loopexit.i, %.lr.ph.split.i
   %113 = add nuw i64 %.0141.i, 1
   %exitcond.not.i = icmp eq i64 %113, %38
-  br i1 %exitcond.not.i, label %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.argprom.exit, label %.lr.ph.split.i, !llvm.loop !799
+  br i1 %exitcond.not.i, label %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.exit, label %.lr.ph.split.i, !llvm.loop !799
 
 114:                                              ; preds = %.lr.ph
   %.val35 = load i64, ptr %26, align 8
@@ -26207,7 +26207,7 @@ _ZN5faiss19maxheap_replace_topIiEEvmPT_PlS1_l.exit.loopexit.i: ; preds = %103, %
   call void @llvm.experimental.noalias.scope.decl(metadata !803)
   call void @llvm.experimental.noalias.scope.decl(metadata !805)
   %.not.i37 = icmp eq i64 %38, 0
-  br i1 %.not.i37, label %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.argprom.exit, label %.lr.ph.i38
+  br i1 %.not.i37, label %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.exit, label %.lr.ph.i38
 
 .lr.ph.i38:                                       ; preds = %114
   %116 = getelementptr inbounds i8, ptr %34, i64 -4
@@ -26327,7 +26327,7 @@ _ZN5faiss19maxheap_replace_topIiEEvmPT_PlS1_l.exit.i: ; preds = %176, %_ZN5faiss
 185:                                              ; preds = %_ZN5faiss19maxheap_replace_topIiEEvmPT_PlS1_l.exit.i, %119
   %186 = add nuw i64 %.0141.i41, 1
   %exitcond.not.i42 = icmp eq i64 %186, %38
-  br i1 %exitcond.not.i42, label %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.argprom.exit, label %119, !llvm.loop !810
+  br i1 %exitcond.not.i42, label %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.exit, label %119, !llvm.loop !810
 
 187:                                              ; preds = %.lr.ph
   call void @llvm.experimental.noalias.scope.decl(metadata !811)
@@ -26342,7 +26342,7 @@ _ZN5faiss19maxheap_replace_topIiEEvmPT_PlS1_l.exit.i: ; preds = %176, %_ZN5faiss
   %193 = getelementptr inbounds i8, ptr %26, i64 24
   %194 = load i64, ptr %193, align 8, !alias.scope !811, !noalias !820
   %.not.i53 = icmp eq i64 %38, 0
-  br i1 %.not.i53, label %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.argprom.exit, label %.lr.ph.i54
+  br i1 %.not.i53, label %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.exit, label %.lr.ph.i54
 
 .lr.ph.i54:                                       ; preds = %187
   %195 = getelementptr inbounds i8, ptr %34, i64 -4
@@ -26488,7 +26488,7 @@ _ZN5faiss19maxheap_replace_topIiEEvmPT_PlS1_l.exit.i63: ; preds = %281, %_ZN5fai
 290:                                              ; preds = %_ZN5faiss19maxheap_replace_topIiEEvmPT_PlS1_l.exit.i63, %198
   %291 = add nuw i64 %.01416.i, 1
   %exitcond.not.i56 = icmp eq i64 %291, %38
-  br i1 %exitcond.not.i56, label %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.argprom.exit, label %198, !llvm.loop !824
+  br i1 %exitcond.not.i56, label %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.exit, label %198, !llvm.loop !824
 
 292:                                              ; preds = %.lr.ph
   call void @llvm.experimental.noalias.scope.decl(metadata !825)
@@ -26496,7 +26496,7 @@ _ZN5faiss19maxheap_replace_topIiEEvmPT_PlS1_l.exit.i63: ; preds = %281, %_ZN5fai
   call void @llvm.experimental.noalias.scope.decl(metadata !830)
   call void @llvm.experimental.noalias.scope.decl(metadata !832)
   %.not.i69 = icmp eq i64 %38, 0
-  br i1 %.not.i69, label %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.argprom.exit, label %.lr.ph.i70
+  br i1 %.not.i69, label %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.exit, label %.lr.ph.i70
 
 .lr.ph.i70:                                       ; preds = %292
   %293 = trunc i64 %24 to i32
@@ -26550,7 +26550,7 @@ _ZN5faiss19maxheap_replace_topIiEEvmPT_PlS1_l.exit.us.us.i: ; preds = %_ZNK5fais
   %317 = phi i32 [ %315, %_ZN5faiss19maxheap_replace_topIiEEvmPT_PlS1_l.exit.us.us.i ], [ %299, %_ZNK5faiss20GenHammingComputerM87hammingEPKh.exit.loopexit.us.us.i ]
   %318 = add nuw i64 %.01416.us.us.i, 1
   %exitcond41.not.i = icmp eq i64 %318, %38
-  br i1 %exitcond41.not.i, label %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.argprom.exit, label %.lr.ph.i.us.us.i, !llvm.loop !839
+  br i1 %exitcond41.not.i, label %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.exit, label %.lr.ph.i.us.us.i, !llvm.loop !839
 
 _ZNK5faiss20GenHammingComputerM87hammingEPKh.exit.loopexit.us.us.i: ; preds = %300
   %319 = getelementptr inbounds i8, ptr %.019.us.us.i, i64 %24
@@ -26572,7 +26572,7 @@ _ZN5faiss19maxheap_replace_topIiEEvmPT_PlS1_l.exit.us.i89: ; preds = %_ZNK5faiss
   %324 = phi i32 [ 0, %_ZN5faiss19maxheap_replace_topIiEEvmPT_PlS1_l.exit.us.i89 ], [ %321, %_ZNK5faiss20GenHammingComputerM87hammingEPKh.exit.us.i ]
   %325 = add nuw i64 %.01416.us.i, 1
   %exitcond40.not.i = icmp eq i64 %325, %38
-  br i1 %exitcond40.not.i, label %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.argprom.exit, label %_ZNK5faiss20GenHammingComputerM87hammingEPKh.exit.us.i, !llvm.loop !839
+  br i1 %exitcond40.not.i, label %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.exit, label %_ZNK5faiss20GenHammingComputerM87hammingEPKh.exit.us.i, !llvm.loop !839
 
 .lr.ph.split.i72:                                 ; preds = %.lr.ph.i70
   br i1 %295, label %.lr.ph.i.us22.i, label %.lr.ph.split.split.i
@@ -26672,7 +26672,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.us.i:     ; preds = %_ZN5faiss4CMaxIilE4
 377:                                              ; preds = %_ZNK5faiss20GenHammingComputerM87hammingEPKh.exit.loopexit.us29.i, %_ZN5faiss19maxheap_replace_topIiEEvmPT_PlS1_l.exit.loopexit.us.i
   %378 = add nuw i64 %.01416.us21.i, 1
   %exitcond39.not.i = icmp eq i64 %378, %38
-  br i1 %exitcond39.not.i, label %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.argprom.exit, label %.lr.ph.i.us22.i, !llvm.loop !839
+  br i1 %exitcond39.not.i, label %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.exit, label %.lr.ph.i.us22.i, !llvm.loop !839
 
 _ZN5faiss19maxheap_replace_topIiEEvmPT_PlS1_l.exit.loopexit.us.i: ; preds = %370, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.us.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i.i.us.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.us.i, %358
   %.0.lcssa.i.i.ph.us.i = phi i64 [ %.056.i.i.us.i, %358 ], [ %.056.i.i.us.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i.i.us.i ], [ %.056.i.i.us.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.us.i ], [ %.056.i.i.us.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.us.i ], [ %.1.i.i.us.i, %370 ]
@@ -26691,7 +26691,7 @@ _ZNK5faiss20GenHammingComputerM87hammingEPKh.exit.loopexit.us29.i: ; preds = %32
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i72
   %384 = load i32, ptr %34, align 4, !alias.scope !830, !noalias !834
   %385 = icmp sgt i32 %384, 0
-  br i1 %385, label %_ZNK5faiss20GenHammingComputerM87hammingEPKh.exit.i, label %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.argprom.exit
+  br i1 %385, label %_ZNK5faiss20GenHammingComputerM87hammingEPKh.exit.i, label %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.exit
 
 _ZNK5faiss20GenHammingComputerM87hammingEPKh.exitthread-pre-split.i: ; preds = %425
   %.pr.i = load i32, ptr %34, align 4, !alias.scope !830, !noalias !834
@@ -26779,16 +26779,16 @@ _ZN5faiss19maxheap_replace_topIiEEvmPT_PlS1_l.exit.loopexit.i81: ; preds = %416,
 425:                                              ; preds = %_ZN5faiss19maxheap_replace_topIiEEvmPT_PlS1_l.exit.loopexit.i81, %_ZNK5faiss20GenHammingComputerM87hammingEPKh.exit.i
   %426 = add nuw i64 %.01416.i73, 1
   %exitcond.not.i74 = icmp eq i64 %426, %38
-  br i1 %exitcond.not.i74, label %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.argprom.exit, label %_ZNK5faiss20GenHammingComputerM87hammingEPKh.exitthread-pre-split.i, !llvm.loop !840
+  br i1 %exitcond.not.i74, label %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.exit, label %_ZNK5faiss20GenHammingComputerM87hammingEPKh.exitthread-pre-split.i, !llvm.loop !840
 
-_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.argprom.exit: ; preds = %290, %185, %112, %58, %425, %377, %323, %316, %.lr.ph.split.split.i, %292, %187, %114, %39
+_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.exit: ; preds = %290, %185, %112, %58, %425, %377, %323, %316, %.lr.ph.split.split.i, %292, %187, %114, %39
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %427 = load i32, ptr %11, align 4
   %428 = sext i32 %427 to i64
   %.not.not = icmp slt i64 %indvars.iv, %428
   br i1 %.not.not, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.argprom.exit, %16
+._crit_edge:                                      ; preds = %_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.exit, %16
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %18)
   br label %429
 
@@ -28554,23 +28554,23 @@ attributes #27 = { builtin nounwind }
 !787 = distinct !{!787, !6}
 !788 = distinct !{!788, !6}
 !789 = !{!790}
-!790 = distinct !{!790, !791, !"_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.argprom: argument 0"}
-!791 = distinct !{!791, !"_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.argprom"}
+!790 = distinct !{!790, !791, !"_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl: argument 0"}
+!791 = distinct !{!791, !"_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl"}
 !792 = !{!793}
-!793 = distinct !{!793, !791, !"_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.argprom: argument 1"}
+!793 = distinct !{!793, !791, !"_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl: argument 1"}
 !794 = !{!795}
-!795 = distinct !{!795, !791, !"_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.argprom: argument 2"}
+!795 = distinct !{!795, !791, !"_ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl: argument 2"}
 !796 = !{!790, !795}
 !797 = !{!793, !795}
 !798 = !{!790, !793}
 !799 = distinct !{!799, !6}
 !800 = !{!801}
-!801 = distinct !{!801, !802, !"_ZN5faissL22hamming_dis_inner_loopINS_20GenHammingComputer16EEEvPKhS3_mmiPiPl.argprom: argument 0"}
-!802 = distinct !{!802, !"_ZN5faissL22hamming_dis_inner_loopINS_20GenHammingComputer16EEEvPKhS3_mmiPiPl.argprom"}
+!801 = distinct !{!801, !802, !"_ZN5faissL22hamming_dis_inner_loopINS_20GenHammingComputer16EEEvPKhS3_mmiPiPl: argument 0"}
+!802 = distinct !{!802, !"_ZN5faissL22hamming_dis_inner_loopINS_20GenHammingComputer16EEEvPKhS3_mmiPiPl"}
 !803 = !{!804}
-!804 = distinct !{!804, !802, !"_ZN5faissL22hamming_dis_inner_loopINS_20GenHammingComputer16EEEvPKhS3_mmiPiPl.argprom: argument 1"}
+!804 = distinct !{!804, !802, !"_ZN5faissL22hamming_dis_inner_loopINS_20GenHammingComputer16EEEvPKhS3_mmiPiPl: argument 1"}
 !805 = !{!806}
-!806 = distinct !{!806, !802, !"_ZN5faissL22hamming_dis_inner_loopINS_20GenHammingComputer16EEEvPKhS3_mmiPiPl.argprom: argument 2"}
+!806 = distinct !{!806, !802, !"_ZN5faissL22hamming_dis_inner_loopINS_20GenHammingComputer16EEEvPKhS3_mmiPiPl: argument 2"}
 !807 = !{!804, !806}
 !808 = !{!801, !806}
 !809 = !{!801, !804}

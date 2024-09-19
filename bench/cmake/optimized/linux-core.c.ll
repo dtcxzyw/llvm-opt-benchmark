@@ -1166,14 +1166,14 @@ define dso_local i64 @uv_get_constrained_memory() local_unnamed_addr #0 {
   %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #14
   %5 = call i32 @uv__slurp(ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef 32) #14
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %uv__read_cgroups_uint64.argprom.exit
+  br i1 %6, label %7, label %uv__read_cgroups_uint64.exit
 
 7:                                                ; preds = %0
   %8 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %2, ptr noundef nonnull @.str.12, ptr noundef nonnull %3) #14
   %.pre.i = load i64, ptr %3, align 8
-  br label %uv__read_cgroups_uint64.argprom.exit
+  br label %uv__read_cgroups_uint64.exit
 
-uv__read_cgroups_uint64.argprom.exit:             ; preds = %0, %7
+uv__read_cgroups_uint64.exit:                     ; preds = %0, %7
   %9 = phi i64 [ %.pre.i, %7 ], [ 0, %0 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)

@@ -3221,7 +3221,7 @@ define void @Gia_ManDupCones2CollectPis_rec(ptr nocapture noundef readonly %0, i
   %7 = getelementptr inbounds i32, ptr %.val2131, i64 %6
   %8 = load i32, ptr %7, align 4
   %.not.i32 = icmp eq i32 %8, %.val2030
-  br i1 %.not.i32, label %Gia_ObjUpdateTravIdCurrentId.argprom.exit, label %.lr.ph
+  br i1 %.not.i32, label %Gia_ObjUpdateTravIdCurrentId.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %9 = getelementptr i8, ptr %0, i64 32
@@ -3259,12 +3259,12 @@ tailrecurse:                                      ; preds = %10
   %25 = getelementptr inbounds i32, ptr %.val21, i64 %24
   %26 = load i32, ptr %25, align 4
   %.not.i = icmp eq i32 %26, %.val20
-  br i1 %.not.i, label %Gia_ObjUpdateTravIdCurrentId.argprom.exit, label %10
+  br i1 %.not.i, label %Gia_ObjUpdateTravIdCurrentId.exit, label %10
 
 27:                                               ; preds = %10
   %28 = and i64 %.val19, 2684354559
   %narrow.i24.not = icmp eq i64 %28, 2684354559
-  br i1 %narrow.i24.not, label %29, label %Gia_ObjUpdateTravIdCurrentId.argprom.exit
+  br i1 %narrow.i24.not, label %29, label %Gia_ObjUpdateTravIdCurrentId.exit
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds i8, ptr %2, i64 4
@@ -3333,9 +3333,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %59 = sext i32 %57 to i64
   %60 = getelementptr inbounds i32, ptr %56, i64 %59
   store i32 %.tr2733, ptr %60, align 4
-  br label %Gia_ObjUpdateTravIdCurrentId.argprom.exit
+  br label %Gia_ObjUpdateTravIdCurrentId.exit
 
-Gia_ObjUpdateTravIdCurrentId.argprom.exit:        ; preds = %tailrecurse, %3, %Vec_IntPush.exit, %27
+Gia_ObjUpdateTravIdCurrentId.exit:                ; preds = %tailrecurse, %3, %Vec_IntPush.exit, %27
   ret void
 }
 
@@ -4050,7 +4050,7 @@ define i32 @Min_ManAccumulate(ptr nocapture noundef readonly %0, i32 noundef %1,
   %26 = icmp sgt i32 %.val27, 0
   %27 = icmp sgt i32 %.val31, 0
   %28 = select i1 %26, i1 %27, i1 false
-  br i1 %28, label %.lr.ph.i, label %Vec_IntTwoCountCommon.argprom.exit
+  br i1 %28, label %.lr.ph.i, label %Vec_IntTwoCountCommon.exit
 
 .lr.ph.i:                                         ; preds = %20, %42
   %.07.i = phi i32 [ %.1.i, %42 ], [ 0, %20 ]
@@ -4086,14 +4086,14 @@ define i32 @Min_ManAccumulate(ptr nocapture noundef readonly %0, i32 noundef %1,
   %43 = icmp ult ptr %.120.i, %23
   %44 = icmp ult ptr %.122.i, %25
   %45 = select i1 %43, i1 %44, i1 false
-  br i1 %45, label %.lr.ph.i, label %Vec_IntTwoCountCommon.argprom.exit, !llvm.loop !31
+  br i1 %45, label %.lr.ph.i, label %Vec_IntTwoCountCommon.exit, !llvm.loop !31
 
-Vec_IntTwoCountCommon.argprom.exit:               ; preds = %42, %20
+Vec_IntTwoCountCommon.exit:                       ; preds = %42, %20
   %.0.lcssa.i = phi i32 [ 0, %20 ], [ %.1.i, %42 ]
   %46 = icmp eq i32 %.0.lcssa.i, %.val27
   br i1 %46, label %.critedge, label %47
 
-47:                                               ; preds = %Vec_IntTwoCountCommon.argprom.exit
+47:                                               ; preds = %Vec_IntTwoCountCommon.exit
   %48 = icmp eq i32 %.0.lcssa.i, %.val31
   br i1 %48, label %.lr.ph.i35.preheader, label %58
 
@@ -4145,8 +4145,8 @@ Min_ManRemoveItem.exit:                           ; preds = %.critedge.i, %56
   %exitcond.not = icmp eq i32 %2, %lftr.wideiv
   br i1 %exitcond.not, label %.critedge, label %14, !llvm.loop !32
 
-.critedge:                                        ; preds = %Vec_IntTwoCountCommon.argprom.exit, %58, %4, %18
-  %.022 = phi i32 [ %19, %18 ], [ 1000000000, %4 ], [ %.041, %Vec_IntTwoCountCommon.argprom.exit ], [ 1000000000, %58 ]
+.critedge:                                        ; preds = %Vec_IntTwoCountCommon.exit, %58, %4, %18
+  %.022 = phi i32 [ %19, %18 ], [ 1000000000, %4 ], [ %.041, %Vec_IntTwoCountCommon.exit ], [ 1000000000, %58 ]
   ret i32 %.022
 }
 
@@ -4847,7 +4847,7 @@ Vec_IntClearAppend.exit305:                       ; preds = %Vec_IntPush.exit.i2
   %285 = getelementptr inbounds i32, ptr %.val30.i, i64 %284
   %286 = icmp sgt i32 %.val27.i, 0
   %287 = and i1 %275, %286
-  br i1 %287, label %.lr.ph.i.i312, label %Vec_IntTwoCountCommon.argprom.exit.i
+  br i1 %287, label %.lr.ph.i.i312, label %Vec_IntTwoCountCommon.exit.i
 
 .lr.ph.i.i312:                                    ; preds = %282, %301
   %.07.i.i = phi i32 [ %.1.i.i, %301 ], [ 0, %282 ]
@@ -4883,14 +4883,14 @@ Vec_IntClearAppend.exit305:                       ; preds = %Vec_IntPush.exit.i2
   %302 = icmp ult ptr %.120.i.i, %285
   %303 = icmp ult ptr %.122.i.i, %274
   %304 = select i1 %302, i1 %303, i1 false
-  br i1 %304, label %.lr.ph.i.i312, label %Vec_IntTwoCountCommon.argprom.exit.i, !llvm.loop !31
+  br i1 %304, label %.lr.ph.i.i312, label %Vec_IntTwoCountCommon.exit.i, !llvm.loop !31
 
-Vec_IntTwoCountCommon.argprom.exit.i:             ; preds = %301, %282
+Vec_IntTwoCountCommon.exit.i:                     ; preds = %301, %282
   %.0.lcssa.i.i = phi i32 [ 0, %282 ], [ %.1.i.i, %301 ]
   %305 = icmp eq i32 %.0.lcssa.i.i, %.val27.i
   br i1 %305, label %Min_ManAccumulate.exit, label %306
 
-306:                                              ; preds = %Vec_IntTwoCountCommon.argprom.exit.i
+306:                                              ; preds = %Vec_IntTwoCountCommon.exit.i
   %307 = icmp eq i32 %.0.lcssa.i.i, %.val241
   br i1 %307, label %.lr.ph.i35.preheader.i, label %316
 
@@ -4938,8 +4938,8 @@ Min_ManRemoveItem.exit.i:                         ; preds = %314, %.critedge.i.i
   %exitcond.not.i309 = icmp eq i32 %155, %lftr.wideiv.i
   br i1 %exitcond.not.i309, label %Min_ManAccumulate.exit, label %276, !llvm.loop !32
 
-Min_ManAccumulate.exit:                           ; preds = %Vec_IntTwoCountCommon.argprom.exit.i, %316, %272, %280
-  %.022.i = phi i32 [ %281, %280 ], [ 1000000000, %272 ], [ 1000000000, %316 ], [ %.041.i, %Vec_IntTwoCountCommon.argprom.exit.i ]
+Min_ManAccumulate.exit:                           ; preds = %Vec_IntTwoCountCommon.exit.i, %316, %272, %280
+  %.022.i = phi i32 [ %281, %280 ], [ 1000000000, %272 ], [ 1000000000, %316 ], [ %.041.i, %Vec_IntTwoCountCommon.exit.i ]
   %317 = add nsw i32 %.022.i, %.1183
   %318 = add nsw i32 %.1187, 1
   br label %319

@@ -873,12 +873,12 @@ define dso_local void @logicalrep_write_insert(ptr noundef %0, i32 noundef %1, p
   store i32 %33, ptr %8, align 8, !alias.scope !119
   %34 = getelementptr i8, ptr %2, i64 64
   %.val = load ptr, ptr %34, align 8
-  tail call fastcc void @logicalrep_write_tuple.argprom(ptr noundef nonnull %0, ptr %.val, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5)
+  tail call fastcc void @logicalrep_write_tuple(ptr noundef nonnull %0, ptr %.val, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @logicalrep_write_tuple.argprom(ptr noundef %0, ptr nocapture readonly %.64.val, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @logicalrep_write_tuple(ptr noundef %0, ptr nocapture readonly %.64.val, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr %.64.val, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -1317,7 +1317,7 @@ define dso_local void @logicalrep_write_update(ptr noundef %0, i32 noundef %1, p
   store i32 %storemerge, ptr %9, align 8
   %40 = getelementptr i8, ptr %2, i64 64
   %.val22 = load ptr, ptr %40, align 8
-  tail call fastcc void @logicalrep_write_tuple.argprom(ptr noundef nonnull %0, ptr %.val22, ptr noundef nonnull %3, i1 noundef zeroext %5, ptr noundef %6)
+  tail call fastcc void @logicalrep_write_tuple(ptr noundef nonnull %0, ptr %.val22, ptr noundef nonnull %3, i1 noundef zeroext %5, ptr noundef %6)
   br label %41
 
 41:                                               ; preds = %30, %21
@@ -1332,7 +1332,7 @@ define dso_local void @logicalrep_write_update(ptr noundef %0, i32 noundef %1, p
   store i32 %46, ptr %9, align 8, !alias.scope !154
   %47 = getelementptr i8, ptr %2, i64 64
   %.val = load ptr, ptr %47, align 8
-  tail call fastcc void @logicalrep_write_tuple.argprom(ptr noundef nonnull %0, ptr %.val, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6)
+  tail call fastcc void @logicalrep_write_tuple(ptr noundef nonnull %0, ptr %.val, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6)
   ret void
 }
 
@@ -1446,7 +1446,7 @@ define dso_local void @logicalrep_write_delete(ptr noundef %0, i32 noundef %1, p
   store i32 %storemerge, ptr %8, align 8
   %38 = getelementptr i8, ptr %2, i64 64
   %.val = load ptr, ptr %38, align 8
-  tail call fastcc void @logicalrep_write_tuple.argprom(ptr noundef nonnull %0, ptr %.val, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5)
+  tail call fastcc void @logicalrep_write_tuple(ptr noundef nonnull %0, ptr %.val, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5)
   ret void
 }
 

@@ -117,7 +117,7 @@ define void @dot_sameports(ptr noundef %0) local_unnamed_addr #0 {
   %38 = load ptr, ptr @stderr, align 8
   %39 = tail call ptr @strerror(i32 noundef 12) #12
   %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.2, ptr noundef %39) #14
-  tail call fastcc void @graphviz_exit.argelim() #15
+  tail call fastcc void @graphviz_exit() #15
   unreachable
 
 edge_list_append.exit.i:                          ; preds = %._crit_edge.i
@@ -150,7 +150,7 @@ edge_list_append.exit.i:                          ; preds = %._crit_edge.i
   %54 = load ptr, ptr @stderr, align 8
   %55 = tail call ptr @strerror(i32 noundef %.0.i.ph.i17.i) #12
   %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.2, ptr noundef %55) #14
-  tail call fastcc void @graphviz_exit.argelim() #15
+  tail call fastcc void @graphviz_exit() #15
   unreachable
 
 same_list_append.exit.i:                          ; preds = %edge_list_append.exit.i, %48
@@ -216,7 +216,7 @@ same_list_append.exit.i:                          ; preds = %edge_list_append.ex
   %79 = load ptr, ptr @stderr, align 8
   %80 = tail call ptr @strerror(i32 noundef 12) #12
   %81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef nonnull @.str.2, ptr noundef %80) #14
-  tail call fastcc void @graphviz_exit.argelim() #15
+  tail call fastcc void @graphviz_exit() #15
   unreachable
 
 edge_list_append.exit.i75:                        ; preds = %._crit_edge.i73
@@ -249,7 +249,7 @@ edge_list_append.exit.i75:                        ; preds = %._crit_edge.i73
   %95 = load ptr, ptr @stderr, align 8
   %96 = tail call ptr @strerror(i32 noundef %.0.i.ph.i17.i85) #12
   %97 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef nonnull @.str.2, ptr noundef %96) #14
-  tail call fastcc void @graphviz_exit.argelim() #15
+  tail call fastcc void @graphviz_exit() #15
   unreachable
 
 same_list_append.exit.i78:                        ; preds = %edge_list_append.exit.i75, %89
@@ -288,7 +288,7 @@ sameedge.exit:                                    ; preds = %same_list_append.ex
 104:                                              ; preds = %.lr.ph203
   %105 = getelementptr inbounds i8, ptr %101, i64 8
   %.sroa.1111.0.copyload = load ptr, ptr %105, align 8
-  tail call fastcc void @sameport.argprom(ptr noundef %.048212, ptr %.sroa.1111.0.copyload, i64 %.val60)
+  tail call fastcc void @sameport(ptr noundef %.048212, ptr %.sroa.1111.0.copyload, i64 %.val60)
   br label %106
 
 106:                                              ; preds = %.lr.ph203, %104
@@ -320,7 +320,7 @@ same_list_clear.exit:                             ; preds = %.lr.ph.i89, %.prehe
 112:                                              ; preds = %.lr.ph205
   %113 = getelementptr inbounds i8, ptr %109, i64 8
   %.sroa.1.0.copyload = load ptr, ptr %113, align 8
-  tail call fastcc void @sameport.argprom(ptr noundef %.048212, ptr %.sroa.1.0.copyload, i64 %.val61)
+  tail call fastcc void @sameport(ptr noundef %.048212, ptr %.sroa.1.0.copyload, i64 %.val61)
   br label %114
 
 114:                                              ; preds = %.lr.ph205, %112
@@ -371,7 +371,7 @@ declare ptr @agxget(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @agnxtedge(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sameport.argprom(ptr noundef nonnull %0, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @sameport(ptr noundef nonnull %0, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #0 {
   %2 = alloca [4 x %struct.pointf_s], align 16
   %.not16 = icmp eq i64 %.8.val, 0
   br i1 %.not16, label %._crit_edge, label %.lr.ph
@@ -847,7 +847,7 @@ define internal fastcc void @edge_list_append(ptr nocapture noundef %0, ptr noun
   %23 = load ptr, ptr @stderr, align 8
   %24 = tail call ptr @strerror(i32 noundef %.0.i.ph) #12
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.2, ptr noundef %24) #14
-  tail call fastcc void @graphviz_exit.argelim() #15
+  tail call fastcc void @graphviz_exit() #15
   unreachable
 
 26:                                               ; preds = %16, %._crit_edge.i
@@ -871,7 +871,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare ptr @strerror(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #7 {
+define internal fastcc void @graphviz_exit() unnamed_addr #7 {
   tail call void @exit(i32 noundef 1) #17
   unreachable
 }

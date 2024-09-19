@@ -506,12 +506,12 @@ _ZN4llvm8ExpectedIiED2Ev.exit:                    ; preds = %35, %_ZNKSt14defaul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm20WritableMemoryBuffer7getFileERKNS_5TwineEbSt8optionalINS_5AlignEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i1 noundef zeroext %2, i16 %3) local_unnamed_addr #4 align 2 {
-  tail call fastcc void @_ZL10getFileAuxIN4llvm20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEERKNS0_5TwineEmmbbbSt8optionalINS0_5AlignEE.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i64 noundef -1, i64 noundef 0, i16 %3)
+  tail call fastcc void @_ZL10getFileAuxIN4llvm20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEERKNS0_5TwineEmmbbbSt8optionalINS0_5AlignEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i64 noundef -1, i64 noundef 0, i16 %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL10getFileAuxIN4llvm20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEERKNS0_5TwineEmmbbbSt8optionalINS0_5AlignEE.argelim(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i64 noundef %2, i64 noundef %3, i16 %4) unnamed_addr #4 {
+define internal fastcc void @_ZL10getFileAuxIN4llvm20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEERKNS0_5TwineEmmbbbSt8optionalINS0_5AlignEE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i64 noundef %2, i64 noundef %3, i16 %4) unnamed_addr #4 {
   %6 = alloca %"class.llvm::sys::fs::file_status", align 8
   %7 = alloca %"class.std::error_code", align 8
   %8 = alloca %"struct.(anonymous namespace)::NamedBufferAlloc", align 8
@@ -853,7 +853,7 @@ _ZN4llvm8ExpectedIiED2Ev.exit:                    ; preds = %151, %_ZNKSt14defau
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm20WritableMemoryBuffer12getFileSliceERKNS_5TwineEmmbSt8optionalINS_5AlignEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4, i16 %5) local_unnamed_addr #4 align 2 {
-  tail call fastcc void @_ZL10getFileAuxIN4llvm20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEERKNS0_5TwineEmmbbbSt8optionalINS0_5AlignEE.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i64 noundef %2, i64 noundef %3, i16 %5)
+  tail call fastcc void @_ZL10getFileAuxIN4llvm20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEERKNS0_5TwineEmmbbbSt8optionalINS0_5AlignEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i64 noundef %2, i64 noundef %3, i16 %5)
   ret void
 }
 

@@ -646,7 +646,7 @@ while.end:                                        ; preds = %hpa_dalloc_locked.e
   %psset.i24 = getelementptr inbounds i8, ptr %self, i64 320
   %call.i = call ptr @psset_pick_hugify(ptr noundef nonnull %psset.i24) #8
   %cmp.not.i = icmp eq ptr %call.i, null
-  br i1 %cmp.not.i, label %lor.rhs.i, label %hpa_shard_has_deferred_work.argprom.exit
+  br i1 %cmp.not.i, label %lor.rhs.i, label %hpa_shard_has_deferred_work.exit
 
 lor.rhs.i:                                        ; preds = %while.end
   %37 = getelementptr i8, ptr %self, i64 1368
@@ -669,23 +669,23 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
   %conv.i.i.i.i = zext i32 %39 to i64
   %mul.i.i.i.i = mul i64 %psset.val.i.i.i, %conv.i.i.i.i
   %shr.i.i.i.i = lshr i64 %mul.i.i.i.i, 16
-  br label %hpa_ndirty_max.argprom.exit.i.i
+  br label %hpa_ndirty_max.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
   %shr1.i.i.i.i = lshr i64 %psset.val.i.i.i, 16
   %conv2.i.i.i.i = zext i32 %39 to i64
   %mul3.i.i.i.i = mul i64 %shr1.i.i.i.i, %conv2.i.i.i.i
-  br label %hpa_ndirty_max.argprom.exit.i.i
+  br label %hpa_ndirty_max.exit.i.i
 
-hpa_ndirty_max.argprom.exit.i.i:                  ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
+hpa_ndirty_max.exit.i.i:                          ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i = phi i64 [ %shr.i.i.i.i, %if.then.i.i.i.i ], [ %mul3.i.i.i.i, %if.else.i.i.i.i ]
   %cmp.i.i26 = icmp ugt i64 %sub.i.i.i, %retval.0.i.i.i
-  br i1 %cmp.i.i26, label %hpa_shard_has_deferred_work.argprom.exit, label %if.end.i.i27
+  br i1 %cmp.i.i26, label %hpa_shard_has_deferred_work.exit, label %if.end.i.i27
 
-if.end.i.i27:                                     ; preds = %hpa_ndirty_max.argprom.exit.i.i, %lor.rhs.i
+if.end.i.i27:                                     ; preds = %hpa_ndirty_max.exit.i.i, %lor.rhs.i
   %call.i.i.i = call ptr @psset_pick_hugify(ptr noundef nonnull %psset.i24) #8
   %cmp.i8.i.i = icmp eq ptr %call.i.i.i, null
-  br i1 %cmp.i8.i.i, label %hpa_shard_has_deferred_work.argprom.exit, label %if.end.i9.i.i
+  br i1 %cmp.i8.i.i, label %hpa_shard_has_deferred_work.exit, label %if.end.i9.i.i
 
 if.end.i9.i.i:                                    ; preds = %if.end.i.i27
   %shard.val.i.i.i = load i64, ptr %37, align 8
@@ -697,7 +697,7 @@ if.end.i9.i.i:                                    ; preds = %if.end.i.i27
   %add.i.i.i = sub i64 %.neg, %42
   %43 = load i32, ptr %dirty_mult.i.i.i, align 8
   %cmp.i.i10.i.i = icmp eq i32 %43, -1
-  br i1 %cmp.i.i10.i.i, label %hpa_ndirty_max.argprom.exit.i.i.i, label %if.end.i.i.i.i
+  br i1 %cmp.i.i10.i.i, label %hpa_ndirty_max.exit.i.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i9.i.i
   %44 = getelementptr i8, ptr %self, i64 1360
@@ -709,22 +709,22 @@ if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %conv.i.i.i.i.i = zext i32 %43 to i64
   %mul.i.i.i.i.i = mul i64 %psset.val.i.i.i.i, %conv.i.i.i.i.i
   %shr.i.i.i.i.i = lshr i64 %mul.i.i.i.i.i, 16
-  br label %hpa_ndirty_max.argprom.exit.i.i.i
+  br label %hpa_ndirty_max.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %shr1.i.i.i.i.i = lshr i64 %psset.val.i.i.i.i, 16
   %conv2.i.i.i.i.i = zext i32 %43 to i64
   %mul3.i.i.i.i.i = mul i64 %shr1.i.i.i.i.i, %conv2.i.i.i.i.i
-  br label %hpa_ndirty_max.argprom.exit.i.i.i
+  br label %hpa_ndirty_max.exit.i.i.i
 
-hpa_ndirty_max.argprom.exit.i.i.i:                ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i, %if.end.i9.i.i
+hpa_ndirty_max.exit.i.i.i:                        ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i, %if.end.i9.i.i
   %retval.0.i.i.i.i = phi i64 [ -1, %if.end.i9.i.i ], [ %shr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %mul3.i.i.i.i.i, %if.else.i.i.i.i.i ]
   %cmp4.i.i.i = icmp ugt i64 %add.i.i.i, %retval.0.i.i.i.i
   %45 = zext i1 %cmp4.i.i.i to i8
-  br label %hpa_shard_has_deferred_work.argprom.exit
+  br label %hpa_shard_has_deferred_work.exit
 
-hpa_shard_has_deferred_work.argprom.exit:         ; preds = %while.end, %hpa_ndirty_max.argprom.exit.i.i, %if.end.i.i27, %hpa_ndirty_max.argprom.exit.i.i.i
-  %frombool = phi i8 [ 1, %while.end ], [ 1, %hpa_ndirty_max.argprom.exit.i.i ], [ %45, %hpa_ndirty_max.argprom.exit.i.i.i ], [ 0, %if.end.i.i27 ]
+hpa_shard_has_deferred_work.exit:                 ; preds = %while.end, %hpa_ndirty_max.exit.i.i, %if.end.i.i27, %hpa_ndirty_max.exit.i.i.i
+  %frombool = phi i8 [ 1, %while.end ], [ 1, %hpa_ndirty_max.exit.i.i ], [ %45, %hpa_ndirty_max.exit.i.i.i ], [ 0, %if.end.i.i27 ]
   store i8 %frombool, ptr %deferred_work_generated, align 1
   %locked.i28 = getelementptr inbounds i8, ptr %self, i64 128
   store atomic i8 0, ptr %locked.i28 monotonic, align 1
@@ -813,20 +813,20 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
   %conv.i.i.i = zext i32 %9 to i64
   %mul.i.i.i = mul i64 %psset.val.i.i, %conv.i.i.i
   %shr.i.i.i = lshr i64 %mul.i.i.i, 16
-  br label %hpa_ndirty_max.argprom.exit.i
+  br label %hpa_ndirty_max.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i.i
   %shr1.i.i.i = lshr i64 %psset.val.i.i, 16
   %conv2.i.i.i = zext i32 %9 to i64
   %mul3.i.i.i = mul i64 %shr1.i.i.i, %conv2.i.i.i
-  br label %hpa_ndirty_max.argprom.exit.i
+  br label %hpa_ndirty_max.exit.i
 
-hpa_ndirty_max.argprom.exit.i:                    ; preds = %if.else.i.i.i, %if.then.i.i.i
+hpa_ndirty_max.exit.i:                            ; preds = %if.else.i.i.i, %if.then.i.i.i
   %retval.0.i.i = phi i64 [ %shr.i.i.i, %if.then.i.i.i ], [ %mul3.i.i.i, %if.else.i.i.i ]
   %cmp.i = icmp ugt i64 %sub.i.i, %retval.0.i.i
   br i1 %cmp.i, label %if.then11, label %if.end.i27
 
-if.end.i27:                                       ; preds = %hpa_ndirty_max.argprom.exit.i, %if.end9
+if.end.i27:                                       ; preds = %hpa_ndirty_max.exit.i, %if.end9
   %call.i.i28 = call ptr @psset_pick_hugify(ptr noundef nonnull %psset) #8
   %cmp.i8.i = icmp eq ptr %call.i.i28, null
   br i1 %cmp.i8.i, label %return, label %if.end.i9.i
@@ -853,20 +853,20 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
   %conv.i.i.i.i = zext i32 %13 to i64
   %mul.i.i.i.i = mul i64 %psset.val.i.i.i, %conv.i.i.i.i
   %shr.i.i.i.i = lshr i64 %mul.i.i.i.i, 16
-  br label %hpa_should_purge.argprom.exit
+  br label %hpa_should_purge.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
   %shr1.i.i.i.i = lshr i64 %psset.val.i.i.i, 16
   %conv2.i.i.i.i = zext i32 %13 to i64
   %mul3.i.i.i.i = mul i64 %shr1.i.i.i.i, %conv2.i.i.i.i
-  br label %hpa_should_purge.argprom.exit
+  br label %hpa_should_purge.exit
 
-hpa_should_purge.argprom.exit:                    ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
+hpa_should_purge.exit:                            ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
   %retval.0.i.i.i = phi i64 [ %shr.i.i.i.i, %if.then.i.i.i.i ], [ %mul3.i.i.i.i, %if.else.i.i.i.i ]
   %cmp4.i.i = icmp ugt i64 %add.i.i, %retval.0.i.i.i
   br i1 %cmp4.i.i, label %if.then11, label %return
 
-if.then11:                                        ; preds = %hpa_ndirty_max.argprom.exit.i, %hpa_should_purge.argprom.exit
+if.then11:                                        ; preds = %hpa_ndirty_max.exit.i, %hpa_should_purge.exit
   %stats = getelementptr inbounds i8, ptr %self, i64 5672
   %15 = load i64, ptr %stats, align 8
   %cmp12 = icmp eq i64 %15, 0
@@ -890,8 +890,8 @@ if.then22:                                        ; preds = %if.end15
   %spec.select = call i64 @llvm.umin.i64(i64 %mul26, i64 %time_ns.0)
   br label %return
 
-return:                                           ; preds = %hpa_should_purge.argprom.exit, %if.end15, %if.then22, %if.end.i27, %if.end.i9.i, %if.then11, %if.then
-  %retval.0 = phi i64 [ 0, %if.then ], [ 0, %if.then11 ], [ %time_ns.0, %hpa_should_purge.argprom.exit ], [ %spec.select, %if.then22 ], [ 0, %if.end15 ], [ %time_ns.0, %if.end.i27 ], [ %time_ns.0, %if.end.i9.i ]
+return:                                           ; preds = %hpa_should_purge.exit, %if.end15, %if.then22, %if.end.i27, %if.end.i9.i, %if.then11, %if.then
+  %retval.0 = phi i64 [ 0, %if.then ], [ 0, %if.then11 ], [ %time_ns.0, %hpa_should_purge.exit ], [ %spec.select, %if.then22 ], [ 0, %if.end15 ], [ %time_ns.0, %if.end.i27 ], [ %time_ns.0, %if.end.i9.i ]
   %locked.i32 = getelementptr inbounds i8, ptr %self, i64 128
   store atomic i8 0, ptr %locked.i32 monotonic, align 1
   %call1.i34 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #8
@@ -1220,20 +1220,20 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
   %conv.i.i.i = zext i32 %5 to i64
   %mul.i.i.i = mul i64 %psset.val.i.i, %conv.i.i.i
   %shr.i.i.i = lshr i64 %mul.i.i.i, 16
-  br label %hpa_ndirty_max.argprom.exit.i
+  br label %hpa_ndirty_max.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i.i
   %shr1.i.i.i = lshr i64 %psset.val.i.i, 16
   %conv2.i.i.i = zext i32 %5 to i64
   %mul3.i.i.i = mul i64 %shr1.i.i.i, %conv2.i.i.i
-  br label %hpa_ndirty_max.argprom.exit.i
+  br label %hpa_ndirty_max.exit.i
 
-hpa_ndirty_max.argprom.exit.i:                    ; preds = %if.else.i.i.i, %if.then.i.i.i
+hpa_ndirty_max.exit.i:                            ; preds = %if.else.i.i.i, %if.then.i.i.i
   %retval.0.i.i = phi i64 [ %shr.i.i.i, %if.then.i.i.i ], [ %mul3.i.i.i, %if.else.i.i.i ]
   %cmp.i = icmp ugt i64 %sub.i.i, %retval.0.i.i
-  br i1 %cmp.i, label %hpa_should_purge.argprom.exit, label %if.end.i
+  br i1 %cmp.i, label %hpa_should_purge.exit, label %if.end.i
 
-if.end.i:                                         ; preds = %hpa_ndirty_max.argprom.exit.i, %while.cond
+if.end.i:                                         ; preds = %hpa_ndirty_max.exit.i, %while.cond
   %call.i.i = call ptr @psset_pick_hugify(ptr noundef nonnull %psset.i.i) #8
   %cmp.i8.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i8.i, label %while.end, label %if.end.i9.i
@@ -1248,7 +1248,7 @@ if.end.i9.i:                                      ; preds = %if.end.i
   %add.i.i = sub i64 %.neg, %7
   %8 = load i32, ptr %dirty_mult.i.i, align 8
   %cmp.i.i10.i = icmp eq i32 %8, -1
-  br i1 %cmp.i.i10.i, label %hpa_ndirty_max.argprom.exit.i.i, label %if.end.i.i.i
+  br i1 %cmp.i.i10.i, label %hpa_ndirty_max.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i9.i
   %psset.val.i.i.i = load i64, ptr %3, align 8
@@ -1259,26 +1259,26 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
   %conv.i.i.i.i = zext i32 %8 to i64
   %mul.i.i.i.i = mul i64 %psset.val.i.i.i, %conv.i.i.i.i
   %shr.i.i.i.i = lshr i64 %mul.i.i.i.i, 16
-  br label %hpa_ndirty_max.argprom.exit.i.i
+  br label %hpa_ndirty_max.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
   %shr1.i.i.i.i = lshr i64 %psset.val.i.i.i, 16
   %conv2.i.i.i.i = zext i32 %8 to i64
   %mul3.i.i.i.i = mul i64 %shr1.i.i.i.i, %conv2.i.i.i.i
-  br label %hpa_ndirty_max.argprom.exit.i.i
+  br label %hpa_ndirty_max.exit.i.i
 
-hpa_ndirty_max.argprom.exit.i.i:                  ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i, %if.end.i9.i
+hpa_ndirty_max.exit.i.i:                          ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i, %if.end.i9.i
   %retval.0.i.i.i = phi i64 [ -1, %if.end.i9.i ], [ %shr.i.i.i.i, %if.then.i.i.i.i ], [ %mul3.i.i.i.i, %if.else.i.i.i.i ]
   %cmp4.i.i = icmp ugt i64 %add.i.i, %retval.0.i.i.i
-  br label %hpa_should_purge.argprom.exit
+  br label %hpa_should_purge.exit
 
-hpa_should_purge.argprom.exit:                    ; preds = %hpa_ndirty_max.argprom.exit.i, %hpa_ndirty_max.argprom.exit.i.i
-  %retval.0.i = phi i1 [ true, %hpa_ndirty_max.argprom.exit.i ], [ %cmp4.i.i, %hpa_ndirty_max.argprom.exit.i.i ]
+hpa_should_purge.exit:                            ; preds = %hpa_ndirty_max.exit.i, %hpa_ndirty_max.exit.i.i
+  %retval.0.i = phi i1 [ true, %hpa_ndirty_max.exit.i ], [ %cmp4.i.i, %hpa_ndirty_max.exit.i.i ]
   %cmp = icmp ult i64 %nops.1, %cond
   %9 = select i1 %retval.0.i, i1 %cmp, i1 false
   br i1 %9, label %while.body, label %while.end
 
-while.body:                                       ; preds = %hpa_should_purge.argprom.exit
+while.body:                                       ; preds = %hpa_should_purge.exit
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %purge_state.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %purge_addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %purge_size.i)
@@ -1433,18 +1433,18 @@ if.then4.i.i:                                     ; preds = %land.lhs.true.i.i
 if.end5.i.i:                                      ; preds = %if.then4.i.i, %land.lhs.true.i.i, %if.end.i46.i
   %ps.val13.i.i = phi i64 [ %ps.val13.pre.i.i, %if.then4.i.i ], [ %ps.val.i.i, %land.lhs.true.i.i ], [ %ps.val.i.i, %if.end.i46.i ]
   %cmp7.i.i = icmp eq i64 %ps.val13.i.i, 0
-  br i1 %cmp7.i.i, label %if.end9.sink.split.i.i, label %hpa_update_purge_hugify_eligibility.argprom.exit.i
+  br i1 %cmp7.i.i, label %if.end9.sink.split.i.i, label %hpa_update_purge_hugify_eligibility.exit.i
 
 if.end9.sink.split.i.i:                           ; preds = %if.end5.i.i, %if.then.i48.i
   store i8 0, ptr %h_hugify_allowed.i.i, align 4
-  br label %hpa_update_purge_hugify_eligibility.argprom.exit.i
+  br label %hpa_update_purge_hugify_eligibility.exit.i
 
-hpa_update_purge_hugify_eligibility.argprom.exit.i: ; preds = %if.end9.sink.split.i.i, %if.end5.i.i
+hpa_update_purge_hugify_eligibility.exit.i:       ; preds = %if.end9.sink.split.i.i, %if.end5.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now.i.i)
   call void @psset_update_end(ptr noundef nonnull %psset.i.i, ptr noundef nonnull %call.i) #8
   br label %hpa_try_purge.exit
 
-hpa_try_purge.exit:                               ; preds = %while.body, %hpa_update_purge_hugify_eligibility.argprom.exit.i
+hpa_try_purge.exit:                               ; preds = %while.body, %hpa_update_purge_hugify_eligibility.exit.i
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %purge_state.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %purge_addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %purge_size.i)
@@ -1457,7 +1457,7 @@ while.cond.backedge:                              ; preds = %hpa_try_purge.exit,
   %nops.1.be = phi i64 [ %spec.select, %hpa_try_purge.exit ], [ %55, %54 ]
   br label %while.cond, !llvm.loop !9
 
-while.end:                                        ; preds = %if.end.i, %hpa_should_purge.argprom.exit
+while.end:                                        ; preds = %if.end.i, %hpa_should_purge.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %time_hugify_allowed.i)
   %call.i.i29 = call ptr @psset_pick_hugify(ptr noundef nonnull %psset.i.i) #8
   %cmp.i.i30 = icmp eq ptr %call.i.i29, null
@@ -1484,20 +1484,20 @@ if.then.i.i.i.i83:                                ; preds = %if.end.i.i.i38
   %conv.i.i.i.i84 = zext i32 %35 to i64
   %mul.i.i.i.i85 = mul i64 %psset.val.i.i.i39, %conv.i.i.i.i84
   %shr.i.i.i.i86 = lshr i64 %mul.i.i.i.i85, 16
-  br label %hpa_hugify_blocked_by_ndirty.argprom.exit.i
+  br label %hpa_hugify_blocked_by_ndirty.exit.i
 
 if.else.i.i.i.i41:                                ; preds = %if.end.i.i.i38
   %shr1.i.i.i.i42 = lshr i64 %psset.val.i.i.i39, 16
   %conv2.i.i.i.i43 = zext i32 %35 to i64
   %mul3.i.i.i.i44 = mul i64 %shr1.i.i.i.i42, %conv2.i.i.i.i43
-  br label %hpa_hugify_blocked_by_ndirty.argprom.exit.i
+  br label %hpa_hugify_blocked_by_ndirty.exit.i
 
-hpa_hugify_blocked_by_ndirty.argprom.exit.i:      ; preds = %if.else.i.i.i.i41, %if.then.i.i.i.i83
+hpa_hugify_blocked_by_ndirty.exit.i:              ; preds = %if.else.i.i.i.i41, %if.then.i.i.i.i83
   %retval.0.i.i.i45 = phi i64 [ %shr.i.i.i.i86, %if.then.i.i.i.i83 ], [ %mul3.i.i.i.i44, %if.else.i.i.i.i41 ]
   %cmp4.i.i46 = icmp ugt i64 %add.i.i36, %retval.0.i.i.i45
   br i1 %cmp4.i.i46, label %hpa_try_hugify.exit.thread, label %if.end.i47
 
-if.end.i47:                                       ; preds = %hpa_hugify_blocked_by_ndirty.argprom.exit.i, %if.end.i.i31, %while.end
+if.end.i47:                                       ; preds = %hpa_hugify_blocked_by_ndirty.exit.i, %if.end.i.i31, %while.end
   %call1.i = call ptr @psset_pick_hugify(ptr noundef nonnull %psset.i.i) #8
   %cmp.i48 = icmp eq ptr %call1.i, null
   br i1 %cmp.i48, label %hpa_try_hugify.exit.thread, label %do.end5.i
@@ -1610,7 +1610,7 @@ if.end9.sink.split.i.i82:                         ; preds = %if.end5.i.i77, %if.
   store i8 0, ptr %h_hugify_allowed.i.i51, align 4
   br label %53
 
-hpa_try_hugify.exit.thread:                       ; preds = %hpa_hugify_blocked_by_ndirty.argprom.exit.i, %if.end.i47, %do.end5.i
+hpa_try_hugify.exit.thread:                       ; preds = %hpa_hugify_blocked_by_ndirty.exit.i, %if.end.i47, %do.end5.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %time_hugify_allowed.i)
   br label %54
 
@@ -1953,7 +1953,7 @@ for.end:                                          ; preds = %edata_list_active_a
   %psset.i17 = getelementptr inbounds i8, ptr %shard, i64 320
   %call.i18 = call ptr @psset_pick_hugify(ptr noundef nonnull %psset.i17) #8
   %cmp.not.i = icmp eq ptr %call.i18, null
-  br i1 %cmp.not.i, label %lor.rhs.i, label %hpa_shard_has_deferred_work.argprom.exit
+  br i1 %cmp.not.i, label %lor.rhs.i, label %hpa_shard_has_deferred_work.exit
 
 lor.rhs.i:                                        ; preds = %for.end
   %35 = getelementptr i8, ptr %shard, i64 1368
@@ -1976,23 +1976,23 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
   %conv.i.i.i.i = zext i32 %37 to i64
   %mul.i.i.i.i = mul i64 %psset.val.i.i.i, %conv.i.i.i.i
   %shr.i.i.i.i = lshr i64 %mul.i.i.i.i, 16
-  br label %hpa_ndirty_max.argprom.exit.i.i
+  br label %hpa_ndirty_max.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
   %shr1.i.i.i.i = lshr i64 %psset.val.i.i.i, 16
   %conv2.i.i.i.i = zext i32 %37 to i64
   %mul3.i.i.i.i = mul i64 %shr1.i.i.i.i, %conv2.i.i.i.i
-  br label %hpa_ndirty_max.argprom.exit.i.i
+  br label %hpa_ndirty_max.exit.i.i
 
-hpa_ndirty_max.argprom.exit.i.i:                  ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
+hpa_ndirty_max.exit.i.i:                          ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i = phi i64 [ %shr.i.i.i.i, %if.then.i.i.i.i ], [ %mul3.i.i.i.i, %if.else.i.i.i.i ]
   %cmp.i.i20 = icmp ugt i64 %sub.i.i.i, %retval.0.i.i.i
-  br i1 %cmp.i.i20, label %hpa_shard_has_deferred_work.argprom.exit, label %if.end.i.i21
+  br i1 %cmp.i.i20, label %hpa_shard_has_deferred_work.exit, label %if.end.i.i21
 
-if.end.i.i21:                                     ; preds = %hpa_ndirty_max.argprom.exit.i.i, %lor.rhs.i
+if.end.i.i21:                                     ; preds = %hpa_ndirty_max.exit.i.i, %lor.rhs.i
   %call.i.i.i = call ptr @psset_pick_hugify(ptr noundef nonnull %psset.i17) #8
   %cmp.i8.i.i = icmp eq ptr %call.i.i.i, null
-  br i1 %cmp.i8.i.i, label %hpa_shard_has_deferred_work.argprom.exit, label %if.end.i9.i.i
+  br i1 %cmp.i8.i.i, label %hpa_shard_has_deferred_work.exit, label %if.end.i9.i.i
 
 if.end.i9.i.i:                                    ; preds = %if.end.i.i21
   %shard.val.i.i.i = load i64, ptr %35, align 8
@@ -2004,7 +2004,7 @@ if.end.i9.i.i:                                    ; preds = %if.end.i.i21
   %add.i.i.i = sub i64 %.neg, %40
   %41 = load i32, ptr %dirty_mult.i.i.i, align 8
   %cmp.i.i10.i.i = icmp eq i32 %41, -1
-  br i1 %cmp.i.i10.i.i, label %hpa_ndirty_max.argprom.exit.i.i.i, label %if.end.i.i.i.i
+  br i1 %cmp.i.i10.i.i, label %hpa_ndirty_max.exit.i.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i9.i.i
   %42 = getelementptr i8, ptr %shard, i64 1360
@@ -2016,22 +2016,22 @@ if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %conv.i.i.i.i.i = zext i32 %41 to i64
   %mul.i.i.i.i.i = mul i64 %psset.val.i.i.i.i, %conv.i.i.i.i.i
   %shr.i.i.i.i.i = lshr i64 %mul.i.i.i.i.i, 16
-  br label %hpa_ndirty_max.argprom.exit.i.i.i
+  br label %hpa_ndirty_max.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %shr1.i.i.i.i.i = lshr i64 %psset.val.i.i.i.i, 16
   %conv2.i.i.i.i.i = zext i32 %41 to i64
   %mul3.i.i.i.i.i = mul i64 %shr1.i.i.i.i.i, %conv2.i.i.i.i.i
-  br label %hpa_ndirty_max.argprom.exit.i.i.i
+  br label %hpa_ndirty_max.exit.i.i.i
 
-hpa_ndirty_max.argprom.exit.i.i.i:                ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i, %if.end.i9.i.i
+hpa_ndirty_max.exit.i.i.i:                        ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i, %if.end.i9.i.i
   %retval.0.i.i.i.i = phi i64 [ -1, %if.end.i9.i.i ], [ %shr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %mul3.i.i.i.i.i, %if.else.i.i.i.i.i ]
   %cmp4.i.i.i = icmp ugt i64 %add.i.i.i, %retval.0.i.i.i.i
   %43 = zext i1 %cmp4.i.i.i to i8
-  br label %hpa_shard_has_deferred_work.argprom.exit
+  br label %hpa_shard_has_deferred_work.exit
 
-hpa_shard_has_deferred_work.argprom.exit:         ; preds = %for.end, %hpa_ndirty_max.argprom.exit.i.i, %if.end.i.i21, %hpa_ndirty_max.argprom.exit.i.i.i
-  %frombool = phi i8 [ 1, %for.end ], [ 1, %hpa_ndirty_max.argprom.exit.i.i ], [ %43, %hpa_ndirty_max.argprom.exit.i.i.i ], [ 0, %if.end.i.i21 ]
+hpa_shard_has_deferred_work.exit:                 ; preds = %for.end, %hpa_ndirty_max.exit.i.i, %if.end.i.i21, %hpa_ndirty_max.exit.i.i.i
+  %frombool = phi i8 [ 1, %for.end ], [ 1, %hpa_ndirty_max.exit.i.i ], [ %43, %hpa_ndirty_max.exit.i.i.i ], [ 0, %if.end.i.i21 ]
   store i8 %frombool, ptr %deferred_work_generated, align 1
   %locked.i22 = getelementptr inbounds i8, ptr %shard, i64 128
   store atomic i8 0, ptr %locked.i22 monotonic, align 1

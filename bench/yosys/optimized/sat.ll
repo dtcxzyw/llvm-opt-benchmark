@@ -3611,21 +3611,21 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit: ; preds = %._crit_edge1951
 765:                                              ; preds = %.lr.ph1950
   %766 = getelementptr inbounds i8, ptr %.03861948, i64 304
   %767 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %766)
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit unwind label %771
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit unwind label %771
 
-_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit: ; preds = %765
+_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit: ; preds = %765
   %768 = getelementptr inbounds i8, ptr %764, i64 304
   %769 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %768)
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit509 unwind label %771
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit509 unwind label %771
 
-_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit509: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit
+_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit509: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit
   invoke void (ptr, ...) @_ZN5Yosys13log_cmd_errorEPKcz(ptr noundef nonnull @.str.169, ptr noundef %767, ptr noundef %769) #29
           to label %770 unwind label %771
 
-770:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit509
+770:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit509
   unreachable
 
-771:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit, %765, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit509
+771:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit, %765, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit509
   %772 = landingpad { ptr, i32 }
           cleanup
   %773 = load ptr, ptr %63, align 8
@@ -12894,12 +12894,12 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit506:              ; preds = %_ZSt8_DestroyIPN5Yo
 1562:                                             ; preds = %1561
   %1563 = getelementptr inbounds i8, ptr %0, i64 754
   %.val = load i8, ptr %1563, align 2
-  invoke fastcc void @_ZN12_GLOBAL__N_19SatHelper19check_undef_enabledERKN5Yosys5RTLIL7SigSpecE.argprom(i8 %.val, ptr noundef nonnull align 8 dereferenceable(64) %55)
+  invoke fastcc void @_ZN12_GLOBAL__N_19SatHelper19check_undef_enabledERKN5Yosys5RTLIL7SigSpecE(i8 %.val, ptr noundef nonnull align 8 dereferenceable(64) %55)
           to label %1564 unwind label %205
 
 1564:                                             ; preds = %1562
   %.val244 = load i8, ptr %1563, align 2
-  invoke fastcc void @_ZN12_GLOBAL__N_19SatHelper19check_undef_enabledERKN5Yosys5RTLIL7SigSpecE.argprom(i8 %.val244, ptr noundef nonnull align 8 dereferenceable(64) %56)
+  invoke fastcc void @_ZN12_GLOBAL__N_19SatHelper19check_undef_enabledERKN5Yosys5RTLIL7SigSpecE(i8 %.val244, ptr noundef nonnull align 8 dereferenceable(64) %56)
           to label %1565 unwind label %205
 
 1565:                                             ; preds = %1564
@@ -17281,9 +17281,9 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit1010: ; preds = %_ZN5Yosys5RTL
 3078:                                             ; preds = %3076, %3072, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit1010
   %3079 = load i32, ptr @_ZZZN12_GLOBAL__N_19SatHelper5setupEibENKUlvE_clEvE2id, align 4, !noalias !132
   %.not.i.i.i976 = icmp eq i32 %3079, 0
-  br i1 %.not.i.i.i976, label %_ZZN12_GLOBAL__N_19SatHelper5setupEibENKUlvE_clEv.argprom.exit.thread, label %_ZZN12_GLOBAL__N_19SatHelper5setupEibENKUlvE_clEv.argprom.exit
+  br i1 %.not.i.i.i976, label %_ZZN12_GLOBAL__N_19SatHelper5setupEibENKUlvE_clEv.exit.thread, label %_ZZN12_GLOBAL__N_19SatHelper5setupEibENKUlvE_clEv.exit
 
-_ZZN12_GLOBAL__N_19SatHelper5setupEibENKUlvE_clEv.argprom.exit.thread: ; preds = %3078
+_ZZN12_GLOBAL__N_19SatHelper5setupEibENKUlvE_clEv.exit.thread: ; preds = %3078
   %3080 = getelementptr inbounds i8, ptr %3069, i64 76
   %3081 = load i32, ptr %3080, align 4
   %3082 = icmp eq i32 %3081, 0
@@ -17295,7 +17295,7 @@ _ZZN12_GLOBAL__N_19SatHelper5setupEibENKUlvE_clEv.argprom.exit.thread: ; preds =
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZZN12_GLOBAL__N_19SatHelper5setupEibENKUlvE_clEvE2id) #26, !noalias !132
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit1012
 
-_ZZN12_GLOBAL__N_19SatHelper5setupEibENKUlvE_clEv.argprom.exit: ; preds = %3078
+_ZZN12_GLOBAL__N_19SatHelper5setupEibENKUlvE_clEv.exit: ; preds = %3078
   %3085 = sext i32 %3079 to i64
   %3086 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !132
   %3087 = getelementptr inbounds i32, ptr %3086, i64 %3085
@@ -17309,7 +17309,7 @@ _ZZN12_GLOBAL__N_19SatHelper5setupEibENKUlvE_clEv.argprom.exit: ; preds = %3078
   %3094 = trunc i8 %3093 to i1
   br i1 %3094, label %3095, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit981
 
-3095:                                             ; preds = %_ZZN12_GLOBAL__N_19SatHelper5setupEibENKUlvE_clEv.argprom.exit
+3095:                                             ; preds = %_ZZN12_GLOBAL__N_19SatHelper5setupEibENKUlvE_clEv.exit
   %3096 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %3097 = getelementptr inbounds i32, ptr %3096, i64 %3085
   %3098 = load i32, ptr %3097, align 4
@@ -17329,10 +17329,10 @@ _ZZN12_GLOBAL__N_19SatHelper5setupEibENKUlvE_clEv.argprom.exit: ; preds = %3078
   call void @__clang_call_terminate(ptr %3104) #30
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit981:             ; preds = %_ZZN12_GLOBAL__N_19SatHelper5setupEibENKUlvE_clEv.argprom.exit, %3095, %3101
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit981:             ; preds = %_ZZN12_GLOBAL__N_19SatHelper5setupEibENKUlvE_clEv.exit, %3095, %3101
   br i1 %3092, label %3105, label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1009
 
-3105:                                             ; preds = %_ZZN12_GLOBAL__N_19SatHelper5setupEibENKUlvE_clEv.argprom.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit981
+3105:                                             ; preds = %_ZZN12_GLOBAL__N_19SatHelper5setupEibENKUlvE_clEv.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit981
   %3106 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK5Yosys5RTLIL4Cell7getPortERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %3069, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID1QE)
           to label %3107 unwind label %3065
 
@@ -17468,7 +17468,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i1007: ; preds =
   call void @_ZN5Yosys5RTLIL7SigSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %107) #26
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit1012
 
-_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1009:             ; preds = %3136, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i1007, %_ZZN12_GLOBAL__N_19SatHelper5setupEibENKUlvE_clEv.argprom.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit981
+_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1009:             ; preds = %3136, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i1007, %_ZZN12_GLOBAL__N_19SatHelper5setupEibENKUlvE_clEv.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit981
   %indvars.iv.next3645 = add nsw i64 %indvars.iv3644, -1
   %3142 = icmp eq i64 %indvars.iv3644, 0
   br i1 %3142, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit973, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit1010
@@ -19680,12 +19680,12 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1303:             ; preds = %3980, %_ZSt8_Destro
 
 3993:                                             ; preds = %3992
   %.val245 = load i8, ptr %1563, align 2
-  invoke fastcc void @_ZN12_GLOBAL__N_19SatHelper19check_undef_enabledERKN5Yosys5RTLIL7SigSpecE.argprom(i8 %.val245, ptr noundef nonnull align 8 dereferenceable(64) %103)
+  invoke fastcc void @_ZN12_GLOBAL__N_19SatHelper19check_undef_enabledERKN5Yosys5RTLIL7SigSpecE(i8 %.val245, ptr noundef nonnull align 8 dereferenceable(64) %103)
           to label %3994 unwind label %3063
 
 3994:                                             ; preds = %3993
   %.val246 = load i8, ptr %1563, align 2
-  invoke fastcc void @_ZN12_GLOBAL__N_19SatHelper19check_undef_enabledERKN5Yosys5RTLIL7SigSpecE.argprom(i8 %.val246, ptr noundef nonnull align 8 dereferenceable(64) %104)
+  invoke fastcc void @_ZN12_GLOBAL__N_19SatHelper19check_undef_enabledERKN5Yosys5RTLIL7SigSpecE(i8 %.val246, ptr noundef nonnull align 8 dereferenceable(64) %104)
           to label %3995 unwind label %3063
 
 3995:                                             ; preds = %3994
@@ -21392,12 +21392,12 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit173:              ; preds = %_ZSt8_DestroyIPN5Yo
 578:                                              ; preds = %577
   %579 = getelementptr inbounds i8, ptr %0, i64 754
   %.val = load i8, ptr %579, align 2
-  invoke fastcc void @_ZN12_GLOBAL__N_19SatHelper19check_undef_enabledERKN5Yosys5RTLIL7SigSpecE.argprom(i8 %.val, ptr noundef nonnull align 8 dereferenceable(64) %23)
+  invoke fastcc void @_ZN12_GLOBAL__N_19SatHelper19check_undef_enabledERKN5Yosys5RTLIL7SigSpecE(i8 %.val, ptr noundef nonnull align 8 dereferenceable(64) %23)
           to label %580 unwind label %131
 
 580:                                              ; preds = %578
   %.val90 = load i8, ptr %579, align 2
-  invoke fastcc void @_ZN12_GLOBAL__N_19SatHelper19check_undef_enabledERKN5Yosys5RTLIL7SigSpecE.argprom(i8 %.val90, ptr noundef nonnull align 8 dereferenceable(64) %24)
+  invoke fastcc void @_ZN12_GLOBAL__N_19SatHelper19check_undef_enabledERKN5Yosys5RTLIL7SigSpecE(i8 %.val90, ptr noundef nonnull align 8 dereferenceable(64) %24)
           to label %581 unwind label %131
 
 581:                                              ; preds = %580
@@ -24427,7 +24427,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %46
   %47 = getelementptr inbounds i8, ptr %0, i64 1192
   %48 = getelementptr inbounds i8, ptr %0, i64 1208
   %.val.i.i = load ptr, ptr %48, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_19SatHelper14ModelBlockInfoES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E.argprom(ptr noundef %.val.i.i)
+  tail call fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_19SatHelper14ModelBlockInfoES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val.i.i)
   %49 = getelementptr inbounds i8, ptr %0, i64 1200
   store ptr null, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 1216
@@ -24891,7 +24891,7 @@ _ZN5Yosys7SigPool3addERKNS_5RTLIL7SigSpecE.exit111: ; preds = %.noexc110, %216
 266:                                              ; preds = %264, %260, %.lr.ph
   %267 = load i32, ptr @_ZZZN12_GLOBAL__N_19SatHelper14generate_modelEvENKUlvE_clEvE2id, align 4, !noalias !190
   %.not.i.i.i = icmp eq i32 %267, 0
-  br i1 %.not.i.i.i, label %_ZZN12_GLOBAL__N_19SatHelper14generate_modelEvENKUlvE_clEv.argprom.exit, label %268
+  br i1 %.not.i.i.i, label %_ZZN12_GLOBAL__N_19SatHelper14generate_modelEvENKUlvE_clEv.exit, label %268
 
 268:                                              ; preds = %266
   %269 = sext i32 %267 to i64
@@ -24900,7 +24900,7 @@ _ZN5Yosys7SigPool3addERKNS_5RTLIL7SigSpecE.exit111: ; preds = %.noexc110, %216
   %272 = load i32, ptr %271, align 4, !noalias !190
   %273 = add nsw i32 %272, 1
   store i32 %273, ptr %271, align 4, !noalias !190
-  br label %_ZZN12_GLOBAL__N_19SatHelper14generate_modelEvENKUlvE_clEv.argprom.exit
+  br label %_ZZN12_GLOBAL__N_19SatHelper14generate_modelEvENKUlvE_clEv.exit
 
 274:                                              ; preds = %262
   %275 = landingpad { ptr, i32 }
@@ -24908,13 +24908,13 @@ _ZN5Yosys7SigPool3addERKNS_5RTLIL7SigSpecE.exit111: ; preds = %.noexc110, %216
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZZN12_GLOBAL__N_19SatHelper14generate_modelEvENKUlvE_clEvE2id) #26, !noalias !190
   br label %.body
 
-_ZZN12_GLOBAL__N_19SatHelper14generate_modelEvENKUlvE_clEv.argprom.exit: ; preds = %268, %266
+_ZZN12_GLOBAL__N_19SatHelper14generate_modelEvENKUlvE_clEv.exit: ; preds = %268, %266
   %276 = getelementptr inbounds i8, ptr %257, i64 76
   %277 = load i32, ptr %276, align 4
   %278 = icmp eq i32 %277, %267
   br i1 %278, label %279, label %.critedge
 
-279:                                              ; preds = %_ZZN12_GLOBAL__N_19SatHelper14generate_modelEvENKUlvE_clEv.argprom.exit
+279:                                              ; preds = %_ZZN12_GLOBAL__N_19SatHelper14generate_modelEvENKUlvE_clEv.exit
   %280 = load i32, ptr %256, align 4
   %281 = load i32, ptr @_ZN5Yosys5RTLIL2ID3CLKE, align 4
   %282 = icmp eq i32 %280, %281
@@ -24948,7 +24948,7 @@ _ZZN12_GLOBAL__N_19SatHelper14generate_modelEvENKUlvE_clEv.argprom.exit: ; preds
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %279, %286, %293
   br i1 %282, label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit171, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit114
 
-.critedge:                                        ; preds = %_ZZN12_GLOBAL__N_19SatHelper14generate_modelEvENKUlvE_clEv.argprom.exit
+.critedge:                                        ; preds = %_ZZN12_GLOBAL__N_19SatHelper14generate_modelEvENKUlvE_clEv.exit
   %297 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %298 = trunc i8 %297 to i1
   %299 = icmp ne i32 %267, 0
@@ -27376,7 +27376,7 @@ _ZN5Yosys7SigPoolD2Ev.exit236:                    ; preds = %_ZN5Yosys5RTLIL7Sig
   %1259 = lshr exact i64 %1258, 2
   %1260 = trunc i64 %1259 to i32
   store i32 %1260, ptr %1213, align 4
-  invoke fastcc void @_ZNSt3setIN12_GLOBAL__N_19SatHelper14ModelBlockInfoESt4lessIS2_ESaIS2_EE6insertERKS2_.retelim(ptr noundef nonnull align 8 dereferenceable(48) %47, ptr noundef nonnull align 8 dereferenceable(48) %28)
+  invoke fastcc void @_ZNSt3setIN12_GLOBAL__N_19SatHelper14ModelBlockInfoESt4lessIS2_ESaIS2_EE6insertERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %47, ptr noundef nonnull align 8 dereferenceable(48) %28)
           to label %1261 unwind label %.loopexit824
 
 1261:                                             ; preds = %1253
@@ -28421,7 +28421,7 @@ _ZNK5Yosys5RTLIL7SigSpec6chunksEv.exit385:        ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %1592 unwind label %1643
 
 1592:                                             ; preds = %1590
-  invoke fastcc void @_ZNSt3setIN12_GLOBAL__N_19SatHelper14ModelBlockInfoESt4lessIS2_ESaIS2_EE6insertERKS2_.retelim(ptr noundef nonnull align 8 dereferenceable(48) %47, ptr noundef nonnull align 8 dereferenceable(48) %35)
+  invoke fastcc void @_ZNSt3setIN12_GLOBAL__N_19SatHelper14ModelBlockInfoESt4lessIS2_ESaIS2_EE6insertERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %47, ptr noundef nonnull align 8 dereferenceable(48) %35)
           to label %1593 unwind label %1643
 
 1593:                                             ; preds = %1592
@@ -31577,7 +31577,7 @@ declare void @_ZN5Yosys9log_errorEPKcz(ptr noundef, ...) local_unnamed_addr #7
 define internal fastcc void @_ZN12_GLOBAL__N_19SatHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(1240) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1208
   %.val = load ptr, ptr %2, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_19SatHelper14ModelBlockInfoES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E.argprom(ptr noundef %.val)
+  tail call fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_19SatHelper14ModelBlockInfoES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val)
   %3 = getelementptr inbounds i8, ptr %0, i64 1152
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -93797,7 +93797,7 @@ declare void @_ZN5Yosys5RTLIL7SigSpec7remove2ERKS1_PS1_(ptr noundef nonnull alig
 declare void @_ZN5Yosys5RTLIL7SigSpec6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19SatHelper19check_undef_enabledERKN5Yosys5RTLIL7SigSpecE.argprom(i8 %.754.val, ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_19SatHelper19check_undef_enabledERKN5Yosys5RTLIL7SigSpecE(i8 %.754.val, ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.143", align 8
   %3 = trunc i8 %.754.val to i1
   br i1 %3, label %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit10, label %4
@@ -98197,7 +98197,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   %81 = getelementptr inbounds i32, ptr %74, i64 %70
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
-.loopexit:                                        ; preds = %55, %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.argprom.exit, %117, %119, %37, %71, %98, %115
+.loopexit:                                        ; preds = %55, %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit, %117, %119, %37, %71, %98, %115
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   store ptr %32, ptr %16, align 8
@@ -98281,9 +98281,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 
 115:                                              ; preds = %110
   %116 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %114)
-          to label %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.argprom.exit unwind label %.loopexit
+          to label %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit unwind label %.loopexit
 
-_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.argprom.exit: ; preds = %115
+_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit: ; preds = %115
   invoke void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.382, ptr noundef %116)
           to label %122 unwind label %.loopexit
 
@@ -98297,7 +98297,7 @@ _ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.argprom.exit: ; preds = %115
   invoke void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.383, ptr noundef %118, i32 noundef %121)
           to label %122 unwind label %.loopexit
 
-122:                                              ; preds = %119, %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.argprom.exit
+122:                                              ; preds = %119, %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit
   %123 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %124 unwind label %161
 
@@ -104058,7 +104058,7 @@ declare void @_ZN5Yosys5RTLIL7SigSpec14sort_and_unifyEv(ptr noundef nonnull alig
 declare void @_ZN5Yosys5RTLIL7SigSpecC1ERKNS0_8SigChunkE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt3setIN12_GLOBAL__N_19SatHelper14ModelBlockInfoESt4lessIS2_ESaIS2_EE6insertERKS2_.retelim(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt3setIN12_GLOBAL__N_19SatHelper14ModelBlockInfoESt4lessIS2_ESaIS2_EE6insertERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %.02426.i.i = load ptr, ptr %3, align 8
@@ -104068,7 +104068,7 @@ define internal fastcc void @_ZNSt3setIN12_GLOBAL__N_19SatHelper14ModelBlockInfo
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
   %.02428.i.i = phi ptr [ %.024.i.i, %.lr.ph.i.i ], [ %.02426.i.i, %2 ]
   %5 = getelementptr inbounds i8, ptr %.02428.i.i, i64 32
-  %6 = tail call fastcc noundef zeroext i1 @_ZNKSt4lessIN12_GLOBAL__N_19SatHelper14ModelBlockInfoEEclERKS2_S5_.argprom(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %5)
+  %6 = tail call fastcc noundef zeroext i1 @_ZNKSt4lessIN12_GLOBAL__N_19SatHelper14ModelBlockInfoEEclERKS2_S5_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %5)
   %.in.v.i.i = select i1 %6, i64 16, i64 24
   %.in.i.i = getelementptr i8, ptr %.02428.i.i, i64 %.in.v.i.i
   %.024.i.i = load ptr, ptr %.in.i.i, align 8
@@ -104093,7 +104093,7 @@ define internal fastcc void @_ZNSt3setIN12_GLOBAL__N_19SatHelper14ModelBlockInfo
   %.023.lcssa33.i.i = phi ptr [ %.023.lcssa32.i.i, %9 ], [ %.02428.i.i, %._crit_edge.i.i ]
   %.sroa.012.0.i.i = phi ptr [ %10, %9 ], [ %.02428.i.i, %._crit_edge.i.i ]
   %12 = getelementptr inbounds i8, ptr %.sroa.012.0.i.i, i64 32
-  %13 = tail call fastcc noundef zeroext i1 @_ZNKSt4lessIN12_GLOBAL__N_19SatHelper14ModelBlockInfoEEclERKS2_S5_.argprom(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  %13 = tail call fastcc noundef zeroext i1 @_ZNKSt4lessIN12_GLOBAL__N_19SatHelper14ModelBlockInfoEEclERKS2_S5_(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) %1)
   br i1 %13, label %select.unfold.i, label %_ZNSt8_Rb_treeIN12_GLOBAL__N_19SatHelper14ModelBlockInfoES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE16_M_insert_uniqueIRKS2_EESt4pairISt17_Rb_tree_iteratorIS2_EbEOT_.exit
 
 select.unfold.i:                                  ; preds = %11, %._crit_edge.thread.i.i
@@ -104103,7 +104103,7 @@ select.unfold.i:                                  ; preds = %11, %._crit_edge.th
 
 15:                                               ; preds = %select.unfold.i
   %16 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i, i64 32
-  %17 = tail call fastcc noundef zeroext i1 @_ZNKSt4lessIN12_GLOBAL__N_19SatHelper14ModelBlockInfoEEclERKS2_S5_.argprom(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %16)
+  %17 = tail call fastcc noundef zeroext i1 @_ZNKSt4lessIN12_GLOBAL__N_19SatHelper14ModelBlockInfoEEclERKS2_S5_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %16)
   br label %18
 
 18:                                               ; preds = %15, %select.unfold.i
@@ -104114,7 +104114,7 @@ select.unfold.i:                                  ; preds = %11, %._crit_edge.th
   %22 = getelementptr inbounds i8, ptr %20, i64 48
   %23 = getelementptr inbounds i8, ptr %1, i64 16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %23)
-          to label %_ZNSt8_Rb_treeIN12_GLOBAL__N_19SatHelper14ModelBlockInfoES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.argprom.exit.i unwind label %24
+          to label %_ZNSt8_Rb_treeIN12_GLOBAL__N_19SatHelper14ModelBlockInfoES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i unwind label %24
 
 24:                                               ; preds = %18
   %25 = landingpad { ptr, i32 }
@@ -104144,7 +104144,7 @@ select.unfold.i:                                  ; preds = %11, %._crit_edge.th
 34:                                               ; preds = %24
   unreachable
 
-_ZNSt8_Rb_treeIN12_GLOBAL__N_19SatHelper14ModelBlockInfoES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.argprom.exit.i: ; preds = %18
+_ZNSt8_Rb_treeIN12_GLOBAL__N_19SatHelper14ModelBlockInfoES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i: ; preds = %18
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %19, ptr noundef nonnull %20, ptr noundef nonnull %.sroa.4.0.i.ph.i, ptr noundef nonnull align 8 dereferenceable(32) %4) #26
   %35 = getelementptr inbounds i8, ptr %0, i64 40
   %36 = load i64, ptr %35, align 8
@@ -104152,12 +104152,12 @@ _ZNSt8_Rb_treeIN12_GLOBAL__N_19SatHelper14ModelBlockInfoES2_St9_IdentityIS2_ESt4
   store i64 %37, ptr %35, align 8
   br label %_ZNSt8_Rb_treeIN12_GLOBAL__N_19SatHelper14ModelBlockInfoES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE16_M_insert_uniqueIRKS2_EESt4pairISt17_Rb_tree_iteratorIS2_EbEOT_.exit
 
-_ZNSt8_Rb_treeIN12_GLOBAL__N_19SatHelper14ModelBlockInfoES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE16_M_insert_uniqueIRKS2_EESt4pairISt17_Rb_tree_iteratorIS2_EbEOT_.exit: ; preds = %11, %_ZNSt8_Rb_treeIN12_GLOBAL__N_19SatHelper14ModelBlockInfoES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.argprom.exit.i
+_ZNSt8_Rb_treeIN12_GLOBAL__N_19SatHelper14ModelBlockInfoES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE16_M_insert_uniqueIRKS2_EESt4pairISt17_Rb_tree_iteratorIS2_EbEOT_.exit: ; preds = %11, %_ZNSt8_Rb_treeIN12_GLOBAL__N_19SatHelper14ModelBlockInfoES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_19SatHelper14ModelBlockInfoES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E.argprom(ptr noundef %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_19SatHelper14ModelBlockInfoES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.not1 = icmp eq ptr %0, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -104165,7 +104165,7 @@ define internal fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_19SatHelper14ModelBloc
   %.02 = phi ptr [ %.0.val6, %.lr.ph ], [ %0, %1 ]
   %2 = getelementptr i8, ptr %.02, i64 24
   %.0.val = load ptr, ptr %2, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_19SatHelper14ModelBlockInfoES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E.argprom(ptr noundef %.0.val)
+  tail call fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_19SatHelper14ModelBlockInfoES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.0.val)
   %3 = getelementptr i8, ptr %.02, i64 16
   %.0.val6 = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %.02, i64 48
@@ -104606,7 +104606,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIPN5Yosys5RTLIL4CellES3_St9_IdentityIS3_
 declare void @_ZNK5Yosys5RTLIL7SigSpec4packEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZNKSt4lessIN12_GLOBAL__N_19SatHelper14ModelBlockInfoEEclERKS2_S5_.argprom(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZNKSt4lessIN12_GLOBAL__N_19SatHelper14ModelBlockInfoEEclERKS2_S5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %.not.i = icmp eq i32 %3, %4
@@ -109881,8 +109881,8 @@ attributes #32 = { nounwind willreturn memory(none) }
 !19 = distinct !{!19, !20, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv: argument 0"}
 !20 = distinct !{!20, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv"}
 !21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEv.argprom: argument 0"}
-!23 = distinct !{!23, !"_ZZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEv.argprom"}
+!22 = distinct !{!22, !23, !"_ZZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEv: argument 0"}
+!23 = distinct !{!23, !"_ZZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEv"}
 !24 = !{!"branch_weights", i32 1, i32 1048575}
 !25 = !{!26}
 !26 = distinct !{!26, !27, !"_ZN5Yosys7hashlib4poolIPNS_5RTLIL4WireENS0_8hash_opsIS4_EEE6insertERKS4_: argument 0"}
@@ -109992,8 +109992,8 @@ attributes #32 = { nounwind willreturn memory(none) }
 !130 = distinct !{!130, !131, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv: argument 0"}
 !131 = distinct !{!131, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv"}
 !132 = !{!133}
-!133 = distinct !{!133, !134, !"_ZZN12_GLOBAL__N_19SatHelper5setupEibENKUlvE_clEv.argprom: argument 0"}
-!134 = distinct !{!134, !"_ZZN12_GLOBAL__N_19SatHelper5setupEibENKUlvE_clEv.argprom"}
+!133 = distinct !{!133, !134, !"_ZZN12_GLOBAL__N_19SatHelper5setupEibENKUlvE_clEv: argument 0"}
+!134 = distinct !{!134, !"_ZZN12_GLOBAL__N_19SatHelper5setupEibENKUlvE_clEv"}
 !135 = !{!136}
 !136 = distinct !{!136, !137, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE: argument 0"}
 !137 = distinct !{!137, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE"}
@@ -110050,8 +110050,8 @@ attributes #32 = { nounwind willreturn memory(none) }
 !188 = distinct !{!188, !189, !"_ZN5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE6insertEOS3_: argument 0"}
 !189 = distinct !{!189, !"_ZN5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE6insertEOS3_"}
 !190 = !{!191}
-!191 = distinct !{!191, !192, !"_ZZN12_GLOBAL__N_19SatHelper14generate_modelEvENKUlvE_clEv.argprom: argument 0"}
-!192 = distinct !{!192, !"_ZZN12_GLOBAL__N_19SatHelper14generate_modelEvENKUlvE_clEv.argprom"}
+!191 = distinct !{!191, !192, !"_ZZN12_GLOBAL__N_19SatHelper14generate_modelEvENKUlvE_clEv: argument 0"}
+!192 = distinct !{!192, !"_ZZN12_GLOBAL__N_19SatHelper14generate_modelEvENKUlvE_clEv"}
 !193 = !{!194}
 !194 = distinct !{!194, !195, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE: argument 0"}
 !195 = distinct !{!195, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE"}

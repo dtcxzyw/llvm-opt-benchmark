@@ -1052,7 +1052,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   %.1143 = phi ptr [ null, %30 ], [ %.0142, %100 ], [ %.0142, %101 ], [ null, %.lr.ph.i ]
   %108 = load ptr, ptr %4, align 8
   %.not77.i = icmp eq ptr %108, null
-  br i1 %.not77.i, label %interpret_func_volatility.argprom.argprom.exit.i, label %109
+  br i1 %.not77.i, label %interpret_func_volatility.exit.i, label %109
 
 109:                                              ; preds = %.thread169.i
   %110 = getelementptr i8, ptr %108, i64 24
@@ -1061,17 +1061,17 @@ sub_1.i:                                          ; preds = %sub_0.i
   %.val.val.i = load ptr, ptr %111, align 8
   %112 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val.val.i, ptr noundef nonnull dereferenceable(10) @.str.98) #10
   %113 = icmp eq i32 %112, 0
-  br i1 %113, label %interpret_func_volatility.argprom.argprom.exit.i, label %114
+  br i1 %113, label %interpret_func_volatility.exit.i, label %114
 
 114:                                              ; preds = %109
   %115 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val.val.i, ptr noundef nonnull dereferenceable(7) @.str.99) #10
   %116 = icmp eq i32 %115, 0
-  br i1 %116, label %interpret_func_volatility.argprom.argprom.exit.i, label %117
+  br i1 %116, label %interpret_func_volatility.exit.i, label %117
 
 117:                                              ; preds = %114
   %118 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val.val.i, ptr noundef nonnull dereferenceable(9) @.str.100) #10
   %119 = icmp eq i32 %118, 0
-  br i1 %119, label %interpret_func_volatility.argprom.argprom.exit.i, label %120
+  br i1 %119, label %interpret_func_volatility.exit.i, label %120
 
 120:                                              ; preds = %117
   %121 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -1080,13 +1080,13 @@ sub_1.i:                                          ; preds = %sub_0.i
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 619, ptr noundef nonnull @__func__.interpret_func_volatility) #8
   unreachable
 
-interpret_func_volatility.argprom.argprom.exit.i: ; preds = %109, %114, %117, %.thread169.i
+interpret_func_volatility.exit.i:                 ; preds = %109, %114, %117, %.thread169.i
   %.0150 = phi i8 [ 118, %.thread169.i ], [ 105, %109 ], [ 115, %114 ], [ 118, %117 ]
   %123 = load ptr, ptr %5, align 8
   %.not78.i = icmp eq ptr %123, null
   br i1 %.not78.i, label %130, label %124
 
-124:                                              ; preds = %interpret_func_volatility.argprom.argprom.exit.i
+124:                                              ; preds = %interpret_func_volatility.exit.i
   %125 = getelementptr inbounds i8, ptr %123, i64 24
   %126 = load ptr, ptr %125, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 4
@@ -1094,8 +1094,8 @@ interpret_func_volatility.argprom.argprom.exit.i: ; preds = %109, %114, %117, %.
   %129 = trunc i8 %128 to i1
   br label %130
 
-130:                                              ; preds = %124, %interpret_func_volatility.argprom.argprom.exit.i
-  %.0153 = phi i1 [ false, %interpret_func_volatility.argprom.argprom.exit.i ], [ %129, %124 ]
+130:                                              ; preds = %124, %interpret_func_volatility.exit.i
+  %.0153 = phi i1 [ false, %interpret_func_volatility.exit.i ], [ %129, %124 ]
   %131 = load ptr, ptr %6, align 8
   %.not79.i = icmp eq ptr %131, null
   br i1 %.not79.i, label %138, label %132
@@ -1234,7 +1234,7 @@ update_proconfig_value.exit.i:                    ; preds = %update_proconfig_va
   %.val90.i = load ptr, ptr %197, align 8
   %198 = getelementptr i8, ptr %.val90.i, i64 8
   %.val90.val.i = load ptr, ptr %198, align 8
-  %199 = call fastcc signext i8 @interpret_func_parallel.argprom.argprom(ptr %.val90.val.i)
+  %199 = call fastcc signext i8 @interpret_func_parallel(ptr %.val90.val.i)
   br label %compute_function_attributes.exit
 
 compute_function_attributes.exit:                 ; preds = %194, %196
@@ -2182,17 +2182,17 @@ define dso_local { i64, i32 } @AlterFunction(ptr noundef %0, ptr nocapture nound
   %.val.val = load ptr, ptr %80, align 8
   %81 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val.val, ptr noundef nonnull dereferenceable(10) @.str.98) #10
   %82 = icmp eq i32 %81, 0
-  br i1 %82, label %interpret_func_volatility.argprom.argprom.exit, label %83
+  br i1 %82, label %interpret_func_volatility.exit, label %83
 
 83:                                               ; preds = %78
   %84 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val.val, ptr noundef nonnull dereferenceable(7) @.str.99) #10
   %85 = icmp eq i32 %84, 0
-  br i1 %85, label %interpret_func_volatility.argprom.argprom.exit, label %86
+  br i1 %85, label %interpret_func_volatility.exit, label %86
 
 86:                                               ; preds = %83
   %87 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val.val, ptr noundef nonnull dereferenceable(9) @.str.100) #10
   %88 = icmp eq i32 %87, 0
-  br i1 %88, label %interpret_func_volatility.argprom.argprom.exit, label %89
+  br i1 %88, label %interpret_func_volatility.exit, label %89
 
 89:                                               ; preds = %86
   %90 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -2201,13 +2201,13 @@ define dso_local { i64, i32 } @AlterFunction(ptr noundef %0, ptr nocapture nound
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 619, ptr noundef nonnull @__func__.interpret_func_volatility) #8
   unreachable
 
-interpret_func_volatility.argprom.argprom.exit:   ; preds = %78, %83, %86
+interpret_func_volatility.exit:                   ; preds = %78, %83, %86
   %.0.i = phi i8 [ 105, %78 ], [ 115, %83 ], [ 118, %86 ]
   %92 = getelementptr inbounds i8, ptr %37, i64 101
   store i8 %.0.i, ptr %92, align 1
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %58, %.lr.ph, %interpret_func_volatility.argprom.argprom.exit, %._crit_edge
+._crit_edge.thread:                               ; preds = %58, %.lr.ph, %interpret_func_volatility.exit, %._crit_edge
   %93 = load ptr, ptr %5, align 8
   %.not73 = icmp eq ptr %93, null
   br i1 %.not73, label %101, label %94
@@ -2369,7 +2369,7 @@ interpret_func_volatility.argprom.argprom.exit:   ; preds = %78, %83, %86
   %.val84 = load ptr, ptr %175, align 8
   %176 = getelementptr i8, ptr %.val84, i64 8
   %.val84.val = load ptr, ptr %176, align 8
-  %177 = call fastcc signext i8 @interpret_func_parallel.argprom.argprom(ptr %.val84.val)
+  %177 = call fastcc signext i8 @interpret_func_parallel(ptr %.val84.val)
   %178 = getelementptr inbounds i8, ptr %37, i64 102
   store i8 %177, ptr %178, align 2
   br label %179
@@ -2733,7 +2733,7 @@ declare ptr @get_func_name(i32 noundef) local_unnamed_addr #1
 declare void @recordDependencyOn(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc signext range(i8 114, 118) i8 @interpret_func_parallel.argprom.argprom(ptr nocapture readonly %.24.val.8.val) unnamed_addr #0 {
+define internal fastcc signext range(i8 114, 118) i8 @interpret_func_parallel(ptr nocapture readonly %.24.val.8.val) unnamed_addr #0 {
   %1 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.24.val.8.val, ptr noundef nonnull dereferenceable(5) @.str.105) #10
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %13, label %3

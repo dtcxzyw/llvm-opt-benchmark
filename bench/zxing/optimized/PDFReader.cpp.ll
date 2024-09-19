@@ -710,7 +710,7 @@ define internal fastcc void @_ZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbb(
   %32 = trunc i8 %.val.i to i1
   %33 = trunc i8 %.val9.i to i1
   %34 = select i1 %32, i1 %33, i1 false
-  br i1 %34, label %35, label %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit.i
+  br i1 %34, label %35, label %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit.i
 
 35:                                               ; preds = %25
   %36 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 120
@@ -723,9 +723,9 @@ define internal fastcc void @_ZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbb(
   %41 = fptosi float %40 to i32
   %42 = sub nsw i32 %39, %41
   %43 = call i32 @llvm.abs.i32(i32 %42, i1 true)
-  br label %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit.i
+  br label %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit.i
 
-_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit.i: ; preds = %35, %25
+_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit.i: ; preds = %35, %25
   %.0.i.i = phi i32 [ %43, %35 ], [ 126322567, %25 ]
   %44 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 64
   %.val11.i = load i8, ptr %30, align 8
@@ -733,9 +733,9 @@ _ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exi
   %45 = trunc i8 %.val11.i to i1
   %46 = trunc i8 %.val13.i to i1
   %47 = select i1 %45, i1 %46, i1 false
-  br i1 %47, label %48, label %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit24.i
+  br i1 %47, label %48, label %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i
 
-48:                                               ; preds = %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit.i
+48:                                               ; preds = %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit.i
   %49 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 72
   %.val14.i = load double, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 168
@@ -748,19 +748,19 @@ _ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exi
   %56 = call i32 @llvm.abs.i32(i32 %55, i1 true)
   %57 = mul nuw nsw i32 %56, 17
   %58 = udiv i32 %57, 18
-  br label %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit24.i
+  br label %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i
 
-_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit24.i: ; preds = %48, %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit.i
-  %.0.i23.i = phi i32 [ %58, %48 ], [ 119304646, %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit.i ]
+_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i: ; preds = %48, %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit.i
+  %.0.i23.i = phi i32 [ %58, %48 ], [ 119304646, %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit.i ]
   %59 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 40
   %.val15.i = load i8, ptr %59, align 8
   %.val17.i = load i8, ptr %29, align 8
   %60 = trunc i8 %.val15.i to i1
   %61 = trunc i8 %.val17.i to i1
   %62 = select i1 %60, i1 %61, i1 false
-  br i1 %62, label %63, label %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit26.i
+  br i1 %62, label %63, label %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i
 
-63:                                               ; preds = %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit24.i
+63:                                               ; preds = %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i
   %64 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 144
   %.val18.i = load double, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 48
@@ -771,10 +771,10 @@ _ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exi
   %69 = fptosi float %68 to i32
   %70 = sub nsw i32 %67, %69
   %71 = call i32 @llvm.abs.i32(i32 %70, i1 true)
-  br label %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit26.i
+  br label %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i
 
-_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit26.i: ; preds = %63, %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit24.i
-  %.0.i25.i = phi i32 [ %71, %63 ], [ 126322567, %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit24.i ]
+_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i: ; preds = %63, %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i
+  %.0.i25.i = phi i32 [ %71, %63 ], [ 126322567, %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i ]
   %72 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 88
   %.val19.i = load i8, ptr %31, align 8
   %.val21.i = load i8, ptr %72, align 8
@@ -783,7 +783,7 @@ _ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exi
   %75 = select i1 %73, i1 %74, i1 false
   br i1 %75, label %76, label %87
 
-76:                                               ; preds = %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit26.i
+76:                                               ; preds = %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i
   %77 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 96
   %.val22.i = load double, ptr %77, align 8
   %78 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 192
@@ -798,12 +798,12 @@ _ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exi
   %86 = udiv i32 %85, 18
   br label %87
 
-87:                                               ; preds = %76, %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit26.i
-  %.0.i27.i = phi i32 [ %86, %76 ], [ 119304646, %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit26.i ]
+87:                                               ; preds = %76, %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i
+  %.0.i27.i = phi i32 [ %86, %76 ], [ 119304646, %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i ]
   %88 = call i32 @llvm.umin.i32(i32 %.0.i27.i, i32 %.0.i25.i)
   %89 = call i32 @llvm.umin.i32(i32 %.0.i23.i, i32 %.0.i.i)
   %90 = call noundef range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %88, i32 %89)
-  br i1 %34, label %91, label %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit.i
+  br i1 %34, label %91, label %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit.i
 
 91:                                               ; preds = %87
   %92 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 120
@@ -816,13 +816,13 @@ _ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exi
   %97 = fptosi float %96 to i32
   %98 = sub nsw i32 %95, %97
   %99 = call i32 @llvm.abs.i32(i32 %98, i1 true)
-  br label %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit.i
+  br label %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit.i
 
-_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit.i: ; preds = %91, %87
+_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit.i: ; preds = %91, %87
   %.0.i.i43 = phi i32 [ %99, %91 ], [ 0, %87 ]
-  br i1 %47, label %100, label %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit24.i
+  br i1 %47, label %100, label %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i
 
-100:                                              ; preds = %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit.i
+100:                                              ; preds = %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit.i
   %101 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 72
   %.val14.i57 = load double, ptr %101, align 8
   %102 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 168
@@ -835,13 +835,13 @@ _ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exi
   %108 = call i32 @llvm.abs.i32(i32 %107, i1 true)
   %109 = mul nuw nsw i32 %108, 17
   %110 = udiv i32 %109, 18
-  br label %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit24.i
+  br label %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i
 
-_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit24.i: ; preds = %100, %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit.i
-  %.0.i23.i46 = phi i32 [ %110, %100 ], [ 0, %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit.i ]
-  br i1 %62, label %111, label %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit26.i
+_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i: ; preds = %100, %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit.i
+  %.0.i23.i46 = phi i32 [ %110, %100 ], [ 0, %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit.i ]
+  br i1 %62, label %111, label %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i
 
-111:                                              ; preds = %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit24.i
+111:                                              ; preds = %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i
   %112 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 144
   %.val18.i55 = load double, ptr %112, align 8
   %113 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 48
@@ -852,13 +852,13 @@ _ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exi
   %117 = fptosi float %116 to i32
   %118 = sub nsw i32 %115, %117
   %119 = call i32 @llvm.abs.i32(i32 %118, i1 true)
-  br label %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit26.i
+  br label %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i
 
-_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit26.i: ; preds = %111, %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit24.i
-  %.0.i25.i49 = phi i32 [ %119, %111 ], [ 0, %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit24.i ]
+_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i: ; preds = %111, %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i
+  %.0.i25.i49 = phi i32 [ %119, %111 ], [ 0, %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i ]
   br i1 %75, label %120, label %131
 
-120:                                              ; preds = %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit26.i
+120:                                              ; preds = %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i
   %121 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 96
   %.val22.i53 = load double, ptr %121, align 8
   %122 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 192
@@ -873,8 +873,8 @@ _ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exi
   %130 = udiv i32 %129, 18
   br label %131
 
-131:                                              ; preds = %120, %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit26.i
-  %.0.i27.i52 = phi i32 [ %130, %120 ], [ 0, %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.argprom.exit26.i ]
+131:                                              ; preds = %120, %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i
+  %.0.i27.i52 = phi i32 [ %130, %120 ], [ 0, %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i ]
   %132 = call i32 @llvm.umax.i32(i32 %.0.i.i43, i32 %.0.i23.i46)
   %133 = call i32 @llvm.umax.i32(i32 %.0.i25.i49, i32 %.0.i27.i52)
   %134 = call noundef range(i32 0, -2147483648) i32 @llvm.umax.i32(i32 %132, i32 %133)

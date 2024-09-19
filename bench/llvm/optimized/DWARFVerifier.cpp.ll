@@ -4142,18 +4142,18 @@ _ZN4llvm8ExpectedISt6vectorINS_23DWARFLocationExpressionESaIS2_EEE9takeErrorEv.e
   call void @llvm.experimental.noalias.scope.decl(metadata !86)
   %.val.val.val.i.i.i = load i8, ptr %540, align 1, !noalias !89
   %549 = trunc i8 %.val.val.val.i.i.i to i1
-  br i1 %549, label %"_ZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEENK3$_2clESt10unique_ptrINS_13ResolverErrorESt14default_deleteIS8_EE.argprom.argprom.argprom.exit.i.i.i", label %"_ZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEENK3$_2clESt10unique_ptrINS_13ResolverErrorESt14default_deleteIS8_EE.argprom.argprom.argprom.exit.thread.i.i.i"
+  br i1 %549, label %"_ZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEENK3$_2clESt10unique_ptrINS_13ResolverErrorESt14default_deleteIS8_EE.exit.i.i.i", label %"_ZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEENK3$_2clESt10unique_ptrINS_13ResolverErrorESt14default_deleteIS8_EE.exit.thread.i.i.i"
 
-"_ZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEENK3$_2clESt10unique_ptrINS_13ResolverErrorESt14default_deleteIS8_EE.argprom.argprom.argprom.exit.thread.i.i.i": ; preds = %548
+"_ZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEENK3$_2clESt10unique_ptrINS_13ResolverErrorESt14default_deleteIS8_EE.exit.thread.i.i.i": ; preds = %548
   store ptr %543, ptr %11, align 8, !alias.scope !90, !noalias !79
   br label %_ZN4llvm5ErrorD2Ev.exit.i
 
-"_ZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEENK3$_2clESt10unique_ptrINS_13ResolverErrorESt14default_deleteIS8_EE.argprom.argprom.argprom.exit.i.i.i": ; preds = %548
+"_ZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEENK3$_2clESt10unique_ptrINS_13ResolverErrorESt14default_deleteIS8_EE.exit.i.i.i": ; preds = %548
   store ptr null, ptr %11, align 8, !alias.scope !90, !noalias !79
   %.not.i.i.i.i = icmp eq i64 %542, 0
   br i1 %.not.i.i.i.i, label %_ZN4llvm5ErrorD2Ev.exit.i, label %_ZNKSt14default_deleteIN4llvm13ResolverErrorEEclEPS1_.exit.i.i.i.i
 
-_ZNKSt14default_deleteIN4llvm13ResolverErrorEEclEPS1_.exit.i.i.i.i: ; preds = %"_ZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEENK3$_2clESt10unique_ptrINS_13ResolverErrorESt14default_deleteIS8_EE.argprom.argprom.argprom.exit.i.i.i"
+_ZNKSt14default_deleteIN4llvm13ResolverErrorEEclEPS1_.exit.i.i.i.i: ; preds = %"_ZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEENK3$_2clESt10unique_ptrINS_13ResolverErrorESt14default_deleteIS8_EE.exit.i.i.i"
   %550 = load ptr, ptr %543, align 8, !noalias !89
   %551 = getelementptr inbounds i8, ptr %550, i64 8
   %552 = load ptr, ptr %551, align 8, !noalias !89
@@ -4164,7 +4164,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit3.i.i: 
   store ptr %543, ptr %11, align 8, !alias.scope !93, !noalias !79
   br label %_ZN4llvm5ErrorD2Ev.exit.i
 
-_ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit3.i.i, %_ZNKSt14default_deleteIN4llvm13ResolverErrorEEclEPS1_.exit.i.i.i.i, %"_ZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEENK3$_2clESt10unique_ptrINS_13ResolverErrorESt14default_deleteIS8_EE.argprom.argprom.argprom.exit.i.i.i", %"_ZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEENK3$_2clESt10unique_ptrINS_13ResolverErrorESt14default_deleteIS8_EE.argprom.argprom.argprom.exit.thread.i.i.i"
+_ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit3.i.i, %_ZNKSt14default_deleteIN4llvm13ResolverErrorEEclEPS1_.exit.i.i.i.i, %"_ZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEENK3$_2clESt10unique_ptrINS_13ResolverErrorESt14default_deleteIS8_EE.exit.i.i.i", %"_ZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEENK3$_2clESt10unique_ptrINS_13ResolverErrorESt14default_deleteIS8_EE.exit.thread.i.i.i"
   call void @_ZN4llvm9ErrorList4joinENS_5ErrorES1_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %9, ptr noundef nonnull %10, ptr noundef nonnull %11), !noalias !79
   %553 = load ptr, ptr %9, align 8, !noalias !79
   store ptr null, ptr %9, align 8, !noalias !79
@@ -6809,7 +6809,7 @@ define dso_local noundef i32 @_ZN4llvm13DWARFVerifier25verifyDebugInfoReferences
   %.val.val7 = load i64, ptr %19, align 8
   %20 = call noundef ptr %.val.val(i64 noundef %.val.val7, i64 noundef %18) #26
   %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.argprom.argprom.exit.thread", label %21
+  br i1 %.not.i, label %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.exit.thread", label %21
 
 21:                                               ; preds = %16
   call void @_ZN4llvm9DWARFUnit19extractDIEsIfNeededEb(ptr noundef nonnull align 8 dereferenceable(448) %20, i1 noundef zeroext false) #26
@@ -6845,16 +6845,16 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vect
 _ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i.i.i, %21
   %.sroa.012.0.lcssa.i.i.i.i.i = phi ptr [ %23, %21 ], [ %.sroa.012.1.i.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i.i.i ]
   %.not.i.i.i = icmp eq ptr %.sroa.012.0.lcssa.i.i.i.i.i, %25
-  br i1 %.not.i.i.i, label %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.argprom.argprom.exit.thread", label %39
+  br i1 %.not.i.i.i, label %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.exit.thread", label %39
 
 39:                                               ; preds = %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i.i
   %40 = load i64, ptr %.sroa.012.0.lcssa.i.i.i.i.i, align 8
   %41 = icmp ne i64 %40, %18
   %.not22 = icmp eq ptr %23, null
   %or.cond = or i1 %.not22, %41
-  br i1 %or.cond, label %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.argprom.argprom.exit.thread", label %_ZNSt8functionIFvvEED2Ev.exit
+  br i1 %or.cond, label %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.exit.thread", label %_ZNSt8functionIFvvEED2Ev.exit
 
-"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.argprom.argprom.exit.thread": ; preds = %39, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i.i, %16
+"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.exit.thread": ; preds = %39, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i.i, %16
   %42 = add i32 %.025, 1
   store i64 0, ptr %15, align 8
   %43 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -6871,12 +6871,12 @@ _ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARF
   %.not.i.i8 = icmp eq ptr %44, null
   br i1 %.not.i.i8, label %_ZNSt8functionIFvvEED2Ev.exit, label %45
 
-45:                                               ; preds = %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.argprom.argprom.exit.thread"
+45:                                               ; preds = %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.exit.thread"
   %46 = call noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3) #26
   br label %_ZNSt8functionIFvvEED2Ev.exit
 
-_ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %45, %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.argprom.argprom.exit.thread"
-  %.1 = phi i32 [ %42, %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.argprom.argprom.exit.thread" ], [ %42, %45 ], [ %.025, %39 ]
+_ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %45, %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.exit.thread"
+  %.1 = phi i32 [ %42, %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.exit.thread" ], [ %42, %45 ], [ %.025, %39 ]
   %47 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.014.024) #25
   %.not = icmp eq ptr %47, %11
   br i1 %.not, label %._crit_edge, label %16
@@ -11338,23 +11338,23 @@ define dso_local noundef i32 @_ZN4llvm13DWARFVerifier22verifyNameIndexBucketsERK
   store i64 %25, ptr %30, align 8, !alias.scope !258
   store ptr %29, ptr %26, align 8, !alias.scope !258
   %31 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_19formatv_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(33) %5) #26
-  br label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EED2Ev.argprom.exit
+  br label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EED2Ev.exit
 
 32:                                               ; preds = %3
   %33 = add i32 %19, 1
   %.not110 = icmp eq i32 %33, 0
-  br i1 %.not110, label %.lr.ph, label %_ZNSt12_Vector_baseIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE13_M_deallocateEPS9_m.argprom.exit.i
+  br i1 %.not110, label %.lr.ph, label %_ZNSt12_Vector_baseIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE13_M_deallocateEPS9_m.exit.i
 
-_ZNSt12_Vector_baseIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE13_M_deallocateEPS9_m.argprom.exit.i: ; preds = %32
+_ZNSt12_Vector_baseIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE13_M_deallocateEPS9_m.exit.i: ; preds = %32
   %34 = zext i32 %33 to i64
   %35 = shl nuw nsw i64 %34, 3
   %36 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %35) #23
   %37 = getelementptr inbounds %struct.BucketInfo, ptr %36, i64 %34
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNSt12_Vector_baseIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE13_M_deallocateEPS9_m.argprom.exit.i, %32
-  %.sroa.22.3 = phi ptr [ %37, %_ZNSt12_Vector_baseIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE13_M_deallocateEPS9_m.argprom.exit.i ], [ null, %32 ]
-  %.sroa.10.2 = phi ptr [ %36, %_ZNSt12_Vector_baseIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE13_M_deallocateEPS9_m.argprom.exit.i ], [ null, %32 ]
+.lr.ph:                                           ; preds = %_ZNSt12_Vector_baseIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE13_M_deallocateEPS9_m.exit.i, %32
+  %.sroa.22.3 = phi ptr [ %37, %_ZNSt12_Vector_baseIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE13_M_deallocateEPS9_m.exit.i ], [ null, %32 ]
+  %.sroa.10.2 = phi ptr [ %36, %_ZNSt12_Vector_baseIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE13_M_deallocateEPS9_m.exit.i ], [ null, %32 ]
   store i32 0, ptr %6, align 4
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -11363,12 +11363,12 @@ _ZNSt12_Vector_baseIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARF
   %42 = getelementptr inbounds i8, ptr %8, i64 8
   br label %43
 
-43:                                               ; preds = %.lr.ph, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJRjSD_EEERS9_DpOT_.argprom.exit
-  %44 = phi i32 [ 0, %.lr.ph ], [ %81, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJRjSD_EEERS9_DpOT_.argprom.exit ]
-  %.039121 = phi i32 [ 0, %.lr.ph ], [ %.140, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJRjSD_EEERS9_DpOT_.argprom.exit ]
-  %.sroa.0104.0120 = phi ptr [ %.sroa.10.2, %.lr.ph ], [ %.sroa.0104.1, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJRjSD_EEERS9_DpOT_.argprom.exit ]
-  %.sroa.10.0119 = phi ptr [ %.sroa.10.2, %.lr.ph ], [ %.sroa.10.1, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJRjSD_EEERS9_DpOT_.argprom.exit ]
-  %.sroa.22.0118 = phi ptr [ %.sroa.22.3, %.lr.ph ], [ %.sroa.22.1, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJRjSD_EEERS9_DpOT_.argprom.exit ]
+43:                                               ; preds = %.lr.ph, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJRjSD_EEERS9_DpOT_.exit
+  %44 = phi i32 [ 0, %.lr.ph ], [ %81, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJRjSD_EEERS9_DpOT_.exit ]
+  %.039121 = phi i32 [ 0, %.lr.ph ], [ %.140, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJRjSD_EEERS9_DpOT_.exit ]
+  %.sroa.0104.0120 = phi ptr [ %.sroa.10.2, %.lr.ph ], [ %.sroa.0104.1, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJRjSD_EEERS9_DpOT_.exit ]
+  %.sroa.10.0119 = phi ptr [ %.sroa.10.2, %.lr.ph ], [ %.sroa.10.1, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJRjSD_EEERS9_DpOT_.exit ]
+  %.sroa.22.0118 = phi ptr [ %.sroa.22.3, %.lr.ph ], [ %.sroa.22.1, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJRjSD_EEERS9_DpOT_.exit ]
   %45 = call noundef i32 @_ZNK4llvm15DWARFDebugNames9NameIndex19getBucketArrayEntryEj(ptr noundef nonnull align 8 dereferenceable(160) %1, i32 noundef %44) #26
   store i32 %45, ptr %7, align 4
   %46 = load i32, ptr %38, align 4
@@ -11399,11 +11399,11 @@ _ZNSt12_Vector_baseIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARF
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %48, %51
   %53 = add i32 %.039121, 1
-  br label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJRjSD_EEERS9_DpOT_.argprom.exit
+  br label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJRjSD_EEERS9_DpOT_.exit
 
 54:                                               ; preds = %43
   %.not46 = icmp eq i32 %45, 0
-  br i1 %.not46, label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJRjSD_EEERS9_DpOT_.argprom.exit, label %55
+  br i1 %.not46, label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJRjSD_EEERS9_DpOT_.exit, label %55
 
 55:                                               ; preds = %54
   %.val51 = load i32, ptr %6, align 4
@@ -11415,20 +11415,20 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %48, %51
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.10.0119, i64 4
   store i32 %45, ptr %57, align 4
   %58 = getelementptr inbounds i8, ptr %.sroa.10.0119, i64 8
-  br label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJRjSD_EEERS9_DpOT_.argprom.exit
+  br label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJRjSD_EEERS9_DpOT_.exit
 
 59:                                               ; preds = %55
   %60 = ptrtoint ptr %.sroa.10.0119 to i64
   %61 = ptrtoint ptr %.sroa.0104.0120 to i64
   %62 = sub i64 %60, %61
   %63 = icmp eq i64 %62, 9223372036854775800
-  br i1 %63, label %64, label %_ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12_M_check_lenEmPKc.argprom.exit.i.i
+  br i1 %63, label %64, label %_ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12_M_check_lenEmPKc.exit.i.i
 
 64:                                               ; preds = %59
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.147) #22
   unreachable
 
-_ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12_M_check_lenEmPKc.argprom.exit.i.i: ; preds = %59
+_ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %59
   %65 = ashr exact i64 %62, 3
   %66 = icmp eq ptr %.sroa.10.0119, %.sroa.0104.0120
   %.sroa.speculated.i.i.i = select i1 %66, i64 1, i64 %65
@@ -11444,44 +11444,44 @@ _ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugN
   store i32 %.val51, ptr %73, align 4
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   store i32 %45, ptr %74, align 4
-  br i1 %66, label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.argprom.exit30.i.i, label %.lr.ph.i.i.i.i.i
+  br i1 %66, label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit30.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12_M_check_lenEmPKc.argprom.exit.i.i, %.lr.ph.i.i.i.i.i
-  %.03.i.i.i.i.i = phi ptr [ %76, %.lr.ph.i.i.i.i.i ], [ %72, %_ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12_M_check_lenEmPKc.argprom.exit.i.i ]
-  %.092.i.i.i.i.i = phi ptr [ %75, %.lr.ph.i.i.i.i.i ], [ %.sroa.0104.0120, %_ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12_M_check_lenEmPKc.argprom.exit.i.i ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i
+  %.03.i.i.i.i.i = phi ptr [ %76, %.lr.ph.i.i.i.i.i ], [ %72, %_ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.092.i.i.i.i.i = phi ptr [ %75, %.lr.ph.i.i.i.i.i ], [ %.sroa.0104.0120, %_ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12_M_check_lenEmPKc.exit.i.i ]
   %.09.val.i.i.i.i.i = load i64, ptr %.092.i.i.i.i.i, align 4
   store i64 %.09.val.i.i.i.i.i, ptr %.03.i.i.i.i.i, align 4, !alias.scope !263
   %75 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 8
   %76 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %75, %.sroa.10.0119
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.argprom.exit30.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !266
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit30.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !266
 
-_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.argprom.exit30.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12_M_check_lenEmPKc.argprom.exit.i.i
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %72, %_ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12_M_check_lenEmPKc.argprom.exit.i.i ], [ %76, %.lr.ph.i.i.i.i.i ]
+_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit30.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12_M_check_lenEmPKc.exit.i.i
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %72, %_ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12_M_check_lenEmPKc.exit.i.i ], [ %76, %.lr.ph.i.i.i.i.i ]
   %77 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i31.i.i = icmp eq ptr %.sroa.0104.0120, null
-  br i1 %.not.i31.i.i, label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJRjSD_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.argprom.exit.i, label %78
+  br i1 %.not.i31.i.i, label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJRjSD_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i, label %78
 
-78:                                               ; preds = %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.argprom.exit30.i.i
+78:                                               ; preds = %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit30.i.i
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0104.0120, i64 noundef %62) #24
-  br label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJRjSD_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.argprom.exit.i
+  br label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJRjSD_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i
 
-_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJRjSD_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.argprom.exit.i: ; preds = %78, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.argprom.exit30.i.i
+_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJRjSD_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i: ; preds = %78, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit30.i.i
   %79 = getelementptr inbounds %struct.BucketInfo, ptr %72, i64 %70
-  br label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJRjSD_EEERS9_DpOT_.argprom.exit
+  br label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJRjSD_EEERS9_DpOT_.exit
 
-_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJRjSD_EEERS9_DpOT_.argprom.exit: ; preds = %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJRjSD_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.argprom.exit.i, %56, %54, %_ZNSt8functionIFvvEED2Ev.exit
-  %.sroa.22.1 = phi ptr [ %.sroa.22.0118, %_ZNSt8functionIFvvEED2Ev.exit ], [ %.sroa.22.0118, %54 ], [ %79, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJRjSD_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.argprom.exit.i ], [ %.sroa.22.0118, %56 ]
-  %.sroa.10.1 = phi ptr [ %.sroa.10.0119, %_ZNSt8functionIFvvEED2Ev.exit ], [ %.sroa.10.0119, %54 ], [ %77, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJRjSD_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.argprom.exit.i ], [ %58, %56 ]
-  %.sroa.0104.1 = phi ptr [ %.sroa.0104.0120, %_ZNSt8functionIFvvEED2Ev.exit ], [ %.sroa.0104.0120, %54 ], [ %72, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJRjSD_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.argprom.exit.i ], [ %.sroa.0104.0120, %56 ]
-  %.140 = phi i32 [ %53, %_ZNSt8functionIFvvEED2Ev.exit ], [ %.039121, %54 ], [ %.039121, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJRjSD_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.argprom.exit.i ], [ %.039121, %56 ]
+_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJRjSD_EEERS9_DpOT_.exit: ; preds = %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJRjSD_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i, %56, %54, %_ZNSt8functionIFvvEED2Ev.exit
+  %.sroa.22.1 = phi ptr [ %.sroa.22.0118, %_ZNSt8functionIFvvEED2Ev.exit ], [ %.sroa.22.0118, %54 ], [ %79, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJRjSD_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i ], [ %.sroa.22.0118, %56 ]
+  %.sroa.10.1 = phi ptr [ %.sroa.10.0119, %_ZNSt8functionIFvvEED2Ev.exit ], [ %.sroa.10.0119, %54 ], [ %77, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJRjSD_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i ], [ %58, %56 ]
+  %.sroa.0104.1 = phi ptr [ %.sroa.0104.0120, %_ZNSt8functionIFvvEED2Ev.exit ], [ %.sroa.0104.0120, %54 ], [ %72, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJRjSD_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i ], [ %.sroa.0104.0120, %56 ]
+  %.140 = phi i32 [ %53, %_ZNSt8functionIFvvEED2Ev.exit ], [ %.039121, %54 ], [ %.039121, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJRjSD_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i ], [ %.039121, %56 ]
   %80 = load i32, ptr %6, align 4
   %81 = add i32 %80, 1
   store i32 %81, ptr %6, align 4
   %82 = icmp ult i32 %81, %19
   br i1 %82, label %43, label %._crit_edge, !llvm.loop !267
 
-._crit_edge:                                      ; preds = %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJRjSD_EEERS9_DpOT_.argprom.exit
+._crit_edge:                                      ; preds = %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJRjSD_EEERS9_DpOT_.exit
   %.not = icmp eq i32 %.140, 0
   br i1 %.not, label %83, label %.loopexit
 
@@ -11509,17 +11509,17 @@ _ZN4llvm14array_pod_sortIN9__gnu_cxx17__normal_iteratorIPZNS_13DWARFVerifier22ve
   store i32 %90, ptr %.sroa.10.1, align 4
   %95 = getelementptr inbounds nuw i8, ptr %.sroa.10.1, i64 4
   store i32 %93, ptr %95, align 4
-  br label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJjjEEERS9_DpOT_.argprom.exit
+  br label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJjjEEERS9_DpOT_.exit
 
 96:                                               ; preds = %_ZN4llvm14array_pod_sortIN9__gnu_cxx17__normal_iteratorIPZNS_13DWARFVerifier22verifyNameIndexBucketsERKNS_15DWARFDebugNames9NameIndexERKNS_13DataExtractorEE10BucketInfoSt6vectorISB_SaISB_EEEEEEvT_SH_.exit
   %97 = icmp eq i64 %86, 9223372036854775800
-  br i1 %97, label %98, label %_ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12_M_check_lenEmPKc.argprom.exit.i.i60
+  br i1 %97, label %98, label %_ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12_M_check_lenEmPKc.exit.i.i60
 
 98:                                               ; preds = %96
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.147) #22
   unreachable
 
-_ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12_M_check_lenEmPKc.argprom.exit.i.i60: ; preds = %96
+_ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12_M_check_lenEmPKc.exit.i.i60: ; preds = %96
   %99 = icmp eq ptr %.sroa.22.1, %.sroa.0104.1
   %.sroa.speculated.i.i.i61 = select i1 %99, i64 1, i64 %87
   %100 = add nsw i64 %.sroa.speculated.i.i.i61, %87
@@ -11534,41 +11534,41 @@ _ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugN
   store i32 %90, ptr %106, align 4
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
   store i32 %93, ptr %107, align 4
-  br i1 %99, label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.argprom.exit30.i.i68, label %.lr.ph.i.i.i.i.i63
+  br i1 %99, label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit30.i.i68, label %.lr.ph.i.i.i.i.i63
 
-.lr.ph.i.i.i.i.i63:                               ; preds = %_ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12_M_check_lenEmPKc.argprom.exit.i.i60, %.lr.ph.i.i.i.i.i63
-  %.03.i.i.i.i.i64 = phi ptr [ %109, %.lr.ph.i.i.i.i.i63 ], [ %105, %_ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12_M_check_lenEmPKc.argprom.exit.i.i60 ]
-  %.092.i.i.i.i.i65 = phi ptr [ %108, %.lr.ph.i.i.i.i.i63 ], [ %.sroa.0104.1, %_ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12_M_check_lenEmPKc.argprom.exit.i.i60 ]
+.lr.ph.i.i.i.i.i63:                               ; preds = %_ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12_M_check_lenEmPKc.exit.i.i60, %.lr.ph.i.i.i.i.i63
+  %.03.i.i.i.i.i64 = phi ptr [ %109, %.lr.ph.i.i.i.i.i63 ], [ %105, %_ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12_M_check_lenEmPKc.exit.i.i60 ]
+  %.092.i.i.i.i.i65 = phi ptr [ %108, %.lr.ph.i.i.i.i.i63 ], [ %.sroa.0104.1, %_ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12_M_check_lenEmPKc.exit.i.i60 ]
   %.09.val.i.i.i.i.i66 = load i64, ptr %.092.i.i.i.i.i65, align 4
   store i64 %.09.val.i.i.i.i.i66, ptr %.03.i.i.i.i.i64, align 4, !alias.scope !268
   %108 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i65, i64 8
   %109 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i64, i64 8
   %.not.i.i.i.i.i67 = icmp eq ptr %108, %.sroa.22.1
-  br i1 %.not.i.i.i.i.i67, label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.argprom.exit30.i.i68, label %.lr.ph.i.i.i.i.i63, !llvm.loop !266
+  br i1 %.not.i.i.i.i.i67, label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit30.i.i68, label %.lr.ph.i.i.i.i.i63, !llvm.loop !266
 
-_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.argprom.exit30.i.i68: ; preds = %.lr.ph.i.i.i.i.i63, %_ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12_M_check_lenEmPKc.argprom.exit.i.i60
-  %.0.lcssa.i.i.i.i.i69 = phi ptr [ %105, %_ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12_M_check_lenEmPKc.argprom.exit.i.i60 ], [ %109, %.lr.ph.i.i.i.i.i63 ]
+_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit30.i.i68: ; preds = %.lr.ph.i.i.i.i.i63, %_ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12_M_check_lenEmPKc.exit.i.i60
+  %.0.lcssa.i.i.i.i.i69 = phi ptr [ %105, %_ZNKSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12_M_check_lenEmPKc.exit.i.i60 ], [ %109, %.lr.ph.i.i.i.i.i63 ]
   %.not.i31.i.i70 = icmp eq ptr %.sroa.0104.1, null
-  br i1 %.not.i31.i.i70, label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJjjEEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.argprom.exit.i, label %110
+  br i1 %.not.i31.i.i70, label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJjjEEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i, label %110
 
-110:                                              ; preds = %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.argprom.exit30.i.i68
+110:                                              ; preds = %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit30.i.i68
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0104.1, i64 noundef %86) #24
-  br label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJjjEEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.argprom.exit.i
+  br label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJjjEEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i
 
-_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJjjEEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.argprom.exit.i: ; preds = %110, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.argprom.exit30.i.i68
+_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJjjEEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i: ; preds = %110, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit30.i.i68
   %111 = getelementptr inbounds %struct.BucketInfo, ptr %105, i64 %103
-  br label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJjjEEERS9_DpOT_.argprom.exit
+  br label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJjjEEERS9_DpOT_.exit
 
-_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJjjEEERS9_DpOT_.argprom.exit: ; preds = %94, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJjjEEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.argprom.exit.i
-  %.sroa.22.5 = phi ptr [ %111, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJjjEEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.argprom.exit.i ], [ %.sroa.22.1, %94 ]
-  %.0.lcssa.i.i.i.i.i69.pn = phi ptr [ %.0.lcssa.i.i.i.i.i69, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJjjEEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.argprom.exit.i ], [ %.sroa.10.1, %94 ]
-  %.sroa.0104.5 = phi ptr [ %105, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJjjEEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.argprom.exit.i ], [ %.sroa.0104.1, %94 ]
+_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJjjEEERS9_DpOT_.exit: ; preds = %94, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJjjEEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i
+  %.sroa.22.5 = phi ptr [ %111, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJjjEEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i ], [ %.sroa.22.1, %94 ]
+  %.0.lcssa.i.i.i.i.i69.pn = phi ptr [ %.0.lcssa.i.i.i.i.i69, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJjjEEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i ], [ %.sroa.10.1, %94 ]
+  %.sroa.0104.5 = phi ptr [ %105, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE17_M_realloc_insertIJjjEEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i ], [ %.sroa.0104.1, %94 ]
   %.sroa.10.4 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i69.pn, i64 8
   store i32 1, ptr %9, align 4
   %.not111133 = icmp eq ptr %.sroa.0104.5, %.sroa.10.4
   br i1 %.not111133, label %.loopexit, label %.lr.ph136
 
-.lr.ph136:                                        ; preds = %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJjjEEERS9_DpOT_.argprom.exit
+.lr.ph136:                                        ; preds = %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJjjEEERS9_DpOT_.exit
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %113 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %114 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -11751,21 +11751,21 @@ _ZNSt8functionIFvvEED2Ev.exit77:                  ; preds = %167, %170
   %.not111 = icmp eq ptr %.sroa.096.0134, %.0.lcssa.i.i.i.i.i69.pn
   br i1 %.not111, label %.loopexit, label %123
 
-.loopexit:                                        ; preds = %134, %._crit_edge129, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJjjEEERS9_DpOT_.argprom.exit, %._crit_edge
-  %.sroa.22.2 = phi ptr [ %.sroa.22.1, %._crit_edge ], [ %.sroa.22.5, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJjjEEERS9_DpOT_.argprom.exit ], [ %.sroa.22.5, %._crit_edge129 ], [ %.sroa.22.5, %134 ]
-  %.sroa.0104.2 = phi ptr [ %.sroa.0104.1, %._crit_edge ], [ %.sroa.0104.5, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJjjEEERS9_DpOT_.argprom.exit ], [ %.sroa.0104.5, %._crit_edge129 ], [ %.sroa.0104.5, %134 ]
-  %.1 = phi i32 [ %.140, %._crit_edge ], [ 0, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJjjEEERS9_DpOT_.argprom.exit ], [ %.4, %134 ], [ %.6.lcssa, %._crit_edge129 ]
+.loopexit:                                        ; preds = %134, %._crit_edge129, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJjjEEERS9_DpOT_.exit, %._crit_edge
+  %.sroa.22.2 = phi ptr [ %.sroa.22.1, %._crit_edge ], [ %.sroa.22.5, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJjjEEERS9_DpOT_.exit ], [ %.sroa.22.5, %._crit_edge129 ], [ %.sroa.22.5, %134 ]
+  %.sroa.0104.2 = phi ptr [ %.sroa.0104.1, %._crit_edge ], [ %.sroa.0104.5, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJjjEEERS9_DpOT_.exit ], [ %.sroa.0104.5, %._crit_edge129 ], [ %.sroa.0104.5, %134 ]
+  %.1 = phi i32 [ %.140, %._crit_edge ], [ 0, %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EE12emplace_backIJjjEEERS9_DpOT_.exit ], [ %.4, %134 ], [ %.6.lcssa, %._crit_edge129 ]
   %.not.i.i.i78 = icmp eq ptr %.sroa.0104.2, null
-  br i1 %.not.i.i.i78, label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EED2Ev.argprom.exit, label %181
+  br i1 %.not.i.i.i78, label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EED2Ev.exit, label %181
 
 181:                                              ; preds = %.loopexit
   %182 = ptrtoint ptr %.sroa.22.2 to i64
   %183 = ptrtoint ptr %.sroa.0104.2 to i64
   %184 = sub i64 %182, %183
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0104.2, i64 noundef %184) #24
-  br label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EED2Ev.argprom.exit
+  br label %_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EED2Ev.exit
 
-_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EED2Ev.argprom.exit: ; preds = %181, %.loopexit, %21
+_ZNSt6vectorIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoSaIS9_EED2Ev.exit: ; preds = %181, %.loopexit, %21
   %.0 = phi i32 [ 0, %21 ], [ %.1, %.loopexit ], [ %.1, %181 ]
   ret i32 %.0
 }
@@ -11903,9 +11903,9 @@ _ZN4llvm12is_containedINS_5dwarf4FormES2_EEbSt16initializer_listIT_ERKT0_.exit: 
   %.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %3 to i32
   %switch.tableidx = add i32 %.sroa.0.0.extract.trunc.i.i.i.i, -1
   %52 = icmp ult i32 %switch.tableidx, 3
-  br i1 %52, label %switch.lookup, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIZNS_13DWARFVerifier24verifyNameIndexAttributeERKNS_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE14FormClassTableEEZNS2_24verifyNameIndexAttributeES6_S9_SA_E3$_3EEDaOT_T0_.argprom.exit.thread50"
+  br i1 %52, label %switch.lookup, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIZNS_13DWARFVerifier24verifyNameIndexAttributeERKNS_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE14FormClassTableEEZNS2_24verifyNameIndexAttributeES6_S9_SA_E3$_3EEDaOT_T0_.exit.thread50"
 
-"_ZN4llvm7find_ifIRNS_8ArrayRefIZNS_13DWARFVerifier24verifyNameIndexAttributeERKNS_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE14FormClassTableEEZNS2_24verifyNameIndexAttributeES6_S9_SA_E3$_3EEDaOT_T0_.argprom.exit.thread50": ; preds = %._crit_edge.i.i.i.i
+"_ZN4llvm7find_ifIRNS_8ArrayRefIZNS_13DWARFVerifier24verifyNameIndexAttributeERKNS_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE14FormClassTableEEZNS2_24verifyNameIndexAttributeES6_S9_SA_E3$_3EEDaOT_T0_.exit.thread50": ; preds = %._crit_edge.i.i.i.i
   %53 = load ptr, ptr %0, align 8
   %54 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm9WithColor7warningERNS_11raw_ostreamENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(48) %53, ptr nonnull @.str.145, i64 0, i1 noundef zeroext false) #26
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -11986,8 +11986,8 @@ switch.lookup:                                    ; preds = %._crit_edge.i.i.i.i
   %83 = call noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3) #26
   br label %_ZNSt8functionIFvvEED2Ev.exit
 
-_ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %.preheader, %82, %75, %50, %_ZN4llvm12is_containedINS_5dwarf4FormES2_EEbSt16initializer_listIT_ERKT0_.exit, %39, %32, %27, %20, %switch.lookup, %31, %"_ZN4llvm7find_ifIRNS_8ArrayRefIZNS_13DWARFVerifier24verifyNameIndexAttributeERKNS_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE14FormClassTableEEZNS2_24verifyNameIndexAttributeES6_S9_SA_E3$_3EEDaOT_T0_.argprom.exit.thread50"
-  %.0 = phi i32 [ 0, %"_ZN4llvm7find_ifIRNS_8ArrayRefIZNS_13DWARFVerifier24verifyNameIndexAttributeERKNS_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE14FormClassTableEEZNS2_24verifyNameIndexAttributeES6_S9_SA_E3$_3EEDaOT_T0_.argprom.exit.thread50" ], [ 0, %31 ], [ 0, %switch.lookup ], [ 1, %20 ], [ 1, %27 ], [ 1, %32 ], [ 1, %39 ], [ 1, %_ZN4llvm12is_containedINS_5dwarf4FormES2_EEbSt16initializer_listIT_ERKT0_.exit ], [ 1, %50 ], [ 1, %75 ], [ 1, %82 ], [ 0, %.preheader ]
+_ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %.preheader, %82, %75, %50, %_ZN4llvm12is_containedINS_5dwarf4FormES2_EEbSt16initializer_listIT_ERKT0_.exit, %39, %32, %27, %20, %switch.lookup, %31, %"_ZN4llvm7find_ifIRNS_8ArrayRefIZNS_13DWARFVerifier24verifyNameIndexAttributeERKNS_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE14FormClassTableEEZNS2_24verifyNameIndexAttributeES6_S9_SA_E3$_3EEDaOT_T0_.exit.thread50"
+  %.0 = phi i32 [ 0, %"_ZN4llvm7find_ifIRNS_8ArrayRefIZNS_13DWARFVerifier24verifyNameIndexAttributeERKNS_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE14FormClassTableEEZNS2_24verifyNameIndexAttributeES6_S9_SA_E3$_3EEDaOT_T0_.exit.thread50" ], [ 0, %31 ], [ 0, %switch.lookup ], [ 1, %20 ], [ 1, %27 ], [ 1, %32 ], [ 1, %39 ], [ 1, %_ZN4llvm12is_containedINS_5dwarf4FormES2_EEbSt16initializer_listIT_ERKT0_.exit ], [ 1, %50 ], [ 1, %75 ], [ 1, %82 ], [ 0, %.preheader ]
   ret i32 %.0
 }
 
@@ -18427,7 +18427,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i.i:             ; preds = %13, %11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -18437,29 +18437,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN4llvm13DWAR
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -21098,16 +21098,16 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier16veri
 
 33:                                               ; preds = %"_ZZN4llvm13DWARFVerifier16verifyUnitHeaderENS_18DWARFDataExtractorEPmjRhRbENK3$_5clEv.exit.i.i.i"
   %34 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull @.str.163, i64 noundef 68) #26
-  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
 35:                                               ; preds = %"_ZZN4llvm13DWARFVerifier16verifyUnitHeaderENS_18DWARFDataExtractorEPmjRhRbENK3$_5clEv.exit.i.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(68) %28, ptr noundef nonnull align 1 dereferenceable(68) @.str.163, i64 68, i1 false)
   %36 = load ptr, ptr %27, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 68
   store ptr %37, ptr %27, align 8
-  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
-"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit": ; preds = %33, %35
+"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %33, %35
   ret void
 }
 
@@ -21200,16 +21200,16 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier16veri
 
 33:                                               ; preds = %"_ZZN4llvm13DWARFVerifier16verifyUnitHeaderENS_18DWARFDataExtractorEPmjRhRbENK3$_5clEv.exit.i.i.i"
   %34 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull @.str.165, i64 noundef 45) #26
-  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
 35:                                               ; preds = %"_ZZN4llvm13DWARFVerifier16verifyUnitHeaderENS_18DWARFDataExtractorEPmjRhRbENK3$_5clEv.exit.i.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(45) %28, ptr noundef nonnull align 1 dereferenceable(45) @.str.165, i64 45, i1 false)
   %36 = load ptr, ptr %27, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 45
   store ptr %37, ptr %27, align 8
-  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
-"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit": ; preds = %33, %35
+"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %33, %35
   ret void
 }
 
@@ -21289,16 +21289,16 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier16veri
 
 33:                                               ; preds = %"_ZZN4llvm13DWARFVerifier16verifyUnitHeaderENS_18DWARFDataExtractorEPmjRhRbENK3$_5clEv.exit.i.i.i"
   %34 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull @.str.166, i64 noundef 37) #26
-  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_2JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_2JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
 35:                                               ; preds = %"_ZZN4llvm13DWARFVerifier16verifyUnitHeaderENS_18DWARFDataExtractorEPmjRhRbENK3$_5clEv.exit.i.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(37) %28, ptr noundef nonnull align 1 dereferenceable(37) @.str.166, i64 37, i1 false)
   %36 = load ptr, ptr %27, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 37
   store ptr %37, ptr %27, align 8
-  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_2JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_2JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
-"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_2JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit": ; preds = %33, %35
+"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_2JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %33, %35
   ret void
 }
 
@@ -21378,16 +21378,16 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier16veri
 
 33:                                               ; preds = %"_ZZN4llvm13DWARFVerifier16verifyUnitHeaderENS_18DWARFDataExtractorEPmjRhRbENK3$_5clEv.exit.i.i.i"
   %34 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull @.str.167, i64 noundef 56) #26
-  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_3JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_3JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
 35:                                               ; preds = %"_ZZN4llvm13DWARFVerifier16verifyUnitHeaderENS_18DWARFDataExtractorEPmjRhRbENK3$_5clEv.exit.i.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %28, ptr noundef nonnull align 1 dereferenceable(56) @.str.167, i64 56, i1 false)
   %36 = load ptr, ptr %27, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 56
   store ptr %37, ptr %27, align 8
-  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_3JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_3JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
-"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_3JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit": ; preds = %33, %35
+"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_3JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %33, %35
   ret void
 }
 
@@ -21467,16 +21467,16 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier16veri
 
 33:                                               ; preds = %"_ZZN4llvm13DWARFVerifier16verifyUnitHeaderENS_18DWARFDataExtractorEPmjRhRbENK3$_5clEv.exit.i.i.i"
   %34 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull @.str.168, i64 noundef 33) #26
-  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_4JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_4JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
 35:                                               ; preds = %"_ZZN4llvm13DWARFVerifier16verifyUnitHeaderENS_18DWARFDataExtractorEPmjRhRbENK3$_5clEv.exit.i.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %28, ptr noundef nonnull align 1 dereferenceable(33) @.str.168, i64 33, i1 false)
   %36 = load ptr, ptr %27, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 33
   store ptr %37, ptr %27, align 8
-  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_4JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_4JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
-"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_4JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit": ; preds = %33, %35
+"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier16verifyUnitHeaderENS0_18DWARFDataExtractorEPmjRhRbE3$_4JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %33, %35
   ret void
 }
 
@@ -21623,7 +21623,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i.i:             ; preds = %41, %39
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier10verifyNameERKNS1_8DWARFDieEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier10verifyNameERKNS1_8DWARFDieEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier10verifyNameERKNS1_8DWARFDieEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -21633,29 +21633,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier10verifyNameERKNS1_8DWARFDieEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier10verifyNameERKNS1_8DWARFDieEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier10verifyNameERKNS1_8DWARFDieEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier10verifyNameERKNS1_8DWARFDieEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier10verifyNameERKNS1_8DWARFDieEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier10verifyNameERKNS1_8DWARFDieEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier10verifyNameERKNS1_8DWARFDieEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier10verifyNameERKNS1_8DWARFDieEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier10verifyNameERKNS1_8DWARFDieEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier10verifyNameERKNS1_8DWARFDieEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier10verifyNameERKNS1_8DWARFDieEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier10verifyNameERKNS1_8DWARFDieEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -21739,22 +21739,22 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier18veri
 
 11:                                               ; preds = %1
   %12 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull @.str.171, i64 noundef 30) #26
-  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier18verifyUnitContentsERNS0_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES7_SaISt4pairIKmS9_EEESF_E3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier18verifyUnitContentsERNS0_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES7_SaISt4pairIKmS9_EEESF_E3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit"
 
 13:                                               ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(30) %6, ptr noundef nonnull align 1 dereferenceable(30) @.str.171, i64 30, i1 false)
   %14 = load ptr, ptr %5, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 30
   store ptr %15, ptr %5, align 8
-  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier18verifyUnitContentsERNS0_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES7_SaISt4pairIKmS9_EEESF_E3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier18verifyUnitContentsERNS0_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES7_SaISt4pairIKmS9_EEESF_E3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit"
 
-"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier18verifyUnitContentsERNS0_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES7_SaISt4pairIKmS9_EEESF_E3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.argprom.exit": ; preds = %11, %13
+"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier18verifyUnitContentsERNS0_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES7_SaISt4pairIKmS9_EEESF_E3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit": ; preds = %11, %13
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -21762,18 +21762,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -22067,7 +22067,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit10.i.i.i: ; preds = %76, %75, %73
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_2E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_2E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_2E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -22077,29 +22077,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_2E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_2E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_2E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_2E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_2E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_2E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_2E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_2E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_2E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_2E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_2E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_2E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -22122,22 +22122,22 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier18veri
 
 11:                                               ; preds = %1
   %12 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull @.str.177, i64 noundef 40) #26
-  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier18verifyUnitContentsERNS0_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES7_SaISt4pairIKmS9_EEESF_E3$_3JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier18verifyUnitContentsERNS0_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES7_SaISt4pairIKmS9_EEESF_E3$_3JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit"
 
 13:                                               ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %6, ptr noundef nonnull align 1 dereferenceable(40) @.str.177, i64 40, i1 false)
   %14 = load ptr, ptr %5, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 40
   store ptr %15, ptr %5, align 8
-  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier18verifyUnitContentsERNS0_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES7_SaISt4pairIKmS9_EEESF_E3$_3JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier18verifyUnitContentsERNS0_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES7_SaISt4pairIKmS9_EEESF_E3$_3JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit"
 
-"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier18verifyUnitContentsERNS0_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES7_SaISt4pairIKmS9_EEESF_E3$_3JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.argprom.exit": ; preds = %11, %13
+"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier18verifyUnitContentsERNS0_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES7_SaISt4pairIKmS9_EEESF_E3$_3JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit": ; preds = %11, %13
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_3E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_3E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_3E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -22145,18 +22145,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_3E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_3E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_3E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_3E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_3E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_3E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_3E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier18verifyUnitContentsERNS1_9DWARFUnitERSt3mapImSt3setImSt4lessImESaImEES8_SaISt4pairIKmSA_EEESG_E3$_3E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -22585,7 +22585,7 @@ _ZNSt8functionIFvN4llvm5ErrorEEED2Ev.exit2.i4.i.i.i: ; preds = %74, %_ZNSt8funct
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier23verifyDebugInfoCallSiteERKNS1_8DWARFDieEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugInfoCallSiteERKNS1_8DWARFDieEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugInfoCallSiteERKNS1_8DWARFDieEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -22595,29 +22595,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugInfoCallSiteERKNS1_8DWARFDieEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugInfoCallSiteERKNS1_8DWARFDieEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugInfoCallSiteERKNS1_8DWARFDieEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugInfoCallSiteERKNS1_8DWARFDieEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugInfoCallSiteERKNS1_8DWARFDieEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugInfoCallSiteERKNS1_8DWARFDieEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugInfoCallSiteERKNS1_8DWARFDieEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugInfoCallSiteERKNS1_8DWARFDieEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugInfoCallSiteERKNS1_8DWARFDieEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugInfoCallSiteERKNS1_8DWARFDieEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugInfoCallSiteERKNS1_8DWARFDieEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugInfoCallSiteERKNS1_8DWARFDieEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -23061,7 +23061,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i.i: ; preds = %36, %35, %33
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier19verifyAbbrevSectionEPKNS1_16DWARFDebugAbbrevEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyAbbrevSectionEPKNS1_16DWARFDebugAbbrevEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyAbbrevSectionEPKNS1_16DWARFDebugAbbrevEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -23071,29 +23071,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyAbbrevSectionEPKNS1_16DWARFDebugAbbrevEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyAbbrevSectionEPKNS1_16DWARFDebugAbbrevEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyAbbrevSectionEPKNS1_16DWARFDebugAbbrevEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyAbbrevSectionEPKNS1_16DWARFDebugAbbrevEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyAbbrevSectionEPKNS1_16DWARFDebugAbbrevEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyAbbrevSectionEPKNS1_16DWARFDebugAbbrevEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyAbbrevSectionEPKNS1_16DWARFDebugAbbrevEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyAbbrevSectionEPKNS1_16DWARFDebugAbbrevEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyAbbrevSectionEPKNS1_16DWARFDebugAbbrevEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyAbbrevSectionEPKNS1_16DWARFDebugAbbrevEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyAbbrevSectionEPKNS1_16DWARFDebugAbbrevEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyAbbrevSectionEPKNS1_16DWARFDebugAbbrevEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -23541,7 +23541,7 @@ switch.lookup:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier11verifyIndexENS1_9StringRefENS1_16DWARFSectionKindES3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier11verifyIndexENS1_9StringRefENS1_16DWARFSectionKindES3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier11verifyIndexENS1_9StringRefENS1_16DWARFSectionKindES3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -23551,29 +23551,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier11verifyIndexENS1_9StringRefENS1_16DWARFSectionKindES3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier11verifyIndexENS1_9StringRefENS1_16DWARFSectionKindES3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier11verifyIndexENS1_9StringRefENS1_16DWARFSectionKindES3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier11verifyIndexENS1_9StringRefENS1_16DWARFSectionKindES3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier11verifyIndexENS1_9StringRefENS1_16DWARFSectionKindES3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier11verifyIndexENS1_9StringRefENS1_16DWARFSectionKindES3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier11verifyIndexENS1_9StringRefENS1_16DWARFSectionKindES3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier11verifyIndexENS1_9StringRefENS1_16DWARFSectionKindES3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier11verifyIndexENS1_9StringRefENS1_16DWARFSectionKindES3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier11verifyIndexENS1_9StringRefENS1_16DWARFSectionKindES3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier11verifyIndexENS1_9StringRefENS1_16DWARFSectionKindES3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier11verifyIndexENS1_9StringRefENS1_16DWARFSectionKindES3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -26689,7 +26689,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i:           ; preds = %15, %13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -26699,29 +26699,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -26811,7 +26811,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit3.i.i.i:          ; preds = %31, %29
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -26821,29 +26821,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -26906,7 +26906,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i:           ; preds = %15, %13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_2E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_2E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_2E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -26916,29 +26916,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_2E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_2E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_2E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_2E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_2E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_2E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_2E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_2E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_2E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_2E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_2E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_2E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -26999,7 +26999,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i:           ; preds = %15, %13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_3E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_3E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_3E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -27009,29 +27009,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_3E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_3E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_3E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_3E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_3E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_3E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_3E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_3E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_3E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_3E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_3E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier15verifyDieRangesERKNS1_8DWARFDieERNS2_12DieRangeInfoEE3$_3E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -27310,7 +27310,7 @@ _ZN4llvm13DIDumpOptionsD2Ev.exit.i.i.i:           ; preds = %129, %_ZNSt8functio
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -27320,29 +27320,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -27811,7 +27811,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i:           ; preds = %20, %18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_2E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_2E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_2E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -27821,29 +27821,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_2E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_2E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_2E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_2E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_2E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_2E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_2E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_2E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_2E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_2E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_2E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugInfoFormERKNS1_8DWARFDieERNS1_14DWARFAttributeERSt3mapImSt3setImSt4lessImESaImEESB_SaISt4pairIKmSD_EEESJ_E3$_2E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -27935,7 +27935,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit6.i.i.i:          ; preds = %36, %34
   %.val.val3.i.i.i = load i64, ptr %49, align 8
   %50 = call noundef ptr %.val.val.i.i.i(i64 noundef %.val.val3.i.i.i, i64 noundef %47) #26
   %.not.i.i.i.i = icmp eq ptr %50, null
-  br i1 %.not.i.i.i.i, label %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.argprom.argprom.exit.i.i.i", label %51
+  br i1 %.not.i.i.i.i, label %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.exit.i.i.i", label %51
 
 51:                                               ; preds = %45
   call void @_ZN4llvm9DWARFUnit19extractDIEsIfNeededEb(ptr noundef nonnull align 8 dereferenceable(448) %50, i1 noundef zeroext false) #26
@@ -27971,12 +27971,12 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vect
 _ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i.i.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i.i.i.i.i.i, %51
   %.sroa.012.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %53, %51 ], [ %.sroa.012.1.i.i.i.i.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i.i.i.i.i.i ]
   %.not.i.i.i.i.i.i = icmp eq ptr %.sroa.012.0.lcssa.i.i.i.i.i.i.i.i, %55
-  br i1 %.not.i.i.i.i.i.i, label %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.argprom.argprom.exit.i.i.i", label %69
+  br i1 %.not.i.i.i.i.i.i, label %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.exit.i.i.i", label %69
 
 69:                                               ; preds = %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i.i.i.i.i
   %70 = load i64, ptr %.sroa.012.0.lcssa.i.i.i.i.i.i.i.i, align 8
   %71 = icmp eq i64 %70, %47
-  br i1 %71, label %72, label %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.argprom.argprom.exit.i.i.i"
+  br i1 %71, label %72, label %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.exit.i.i.i"
 
 72:                                               ; preds = %69
   %73 = ptrtoint ptr %.sroa.012.0.lcssa.i.i.i.i.i.i.i.i to i64
@@ -27984,9 +27984,9 @@ _ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARF
   %75 = sdiv exact i64 %74, 24
   %76 = and i64 %75, 4294967295
   %77 = getelementptr inbounds %"class.llvm::DWARFDebugInfoEntry", ptr %53, i64 %76
-  br label %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.exit.i.i.i"
 
-"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.argprom.argprom.exit.i.i.i": ; preds = %72, %69, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i.i.i.i.i, %45
+"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.exit.i.i.i": ; preds = %72, %69, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i.i.i.i.i, %45
   %.sroa.0.0.i.i.i.i = phi ptr [ null, %45 ], [ %50, %72 ], [ null, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i.i.i.i.i ], [ null, %69 ]
   %.sroa.4.0.i.i.i.i = phi ptr [ null, %45 ], [ %77, %72 ], [ null, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i.i.i.i.i ], [ null, %69 ]
   store ptr %.sroa.0.0.i.i.i.i, ptr %3, align 8
@@ -27999,11 +27999,11 @@ _ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARF
   %.not.i7.i.i.i = icmp ult ptr %80, %82
   br i1 %.not.i7.i.i.i, label %85, label %83
 
-83:                                               ; preds = %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.argprom.argprom.exit.i.i.i"
+83:                                               ; preds = %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.exit.i.i.i"
   %84 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %78, i8 noundef zeroext 10) #26
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i
 
-85:                                               ; preds = %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.argprom.argprom.exit.i.i.i"
+85:                                               ; preds = %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.exit.i.i.i"
   %86 = getelementptr inbounds i8, ptr %80, i64 1
   store ptr %86, ptr %79, align 8
   store i8 10, ptr %80, align 1
@@ -28042,7 +28042,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i.i:             ; preds = %85, %83
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES6_SaISt4pairIKmS8_EEENS1_12function_refIFPNS1_9DWARFUnitEmEEEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES6_SaISt4pairIKmS8_EEENS1_12function_refIFPNS1_9DWARFUnitEmEEEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES6_SaISt4pairIKmS8_EEENS1_12function_refIFPNS1_9DWARFUnitEmEEEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -28052,29 +28052,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES6_SaISt4pairIKmS8_EEENS1_12function_refIFPNS1_9DWARFUnitEmEEEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES6_SaISt4pairIKmS8_EEENS1_12function_refIFPNS1_9DWARFUnitEmEEEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES6_SaISt4pairIKmS8_EEENS1_12function_refIFPNS1_9DWARFUnitEmEEEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES6_SaISt4pairIKmS8_EEENS1_12function_refIFPNS1_9DWARFUnitEmEEEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES6_SaISt4pairIKmS8_EEENS1_12function_refIFPNS1_9DWARFUnitEmEEEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES6_SaISt4pairIKmS8_EEENS1_12function_refIFPNS1_9DWARFUnitEmEEEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES6_SaISt4pairIKmS8_EEENS1_12function_refIFPNS1_9DWARFUnitEmEEEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES6_SaISt4pairIKmS8_EEENS1_12function_refIFPNS1_9DWARFUnitEmEEEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES6_SaISt4pairIKmS8_EEENS1_12function_refIFPNS1_9DWARFUnitEmEEEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES6_SaISt4pairIKmS8_EEENS1_12function_refIFPNS1_9DWARFUnitEmEEEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES6_SaISt4pairIKmS8_EEENS1_12function_refIFPNS1_9DWARFUnitEmEEEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES6_SaISt4pairIKmS8_EEENS1_12function_refIFPNS1_9DWARFUnitEmEEEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -28168,7 +28168,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit3.i.i.i:          ; preds = %35, %33
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -28178,29 +28178,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -28336,7 +28336,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit6.i.i.i:          ; preds = %60, %58
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -28346,29 +28346,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier26verifyDebugLineStmtOffsetsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -28720,7 +28720,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit6.i.i.i:          ; preds = %59, %57
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -28730,29 +28730,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -28919,7 +28919,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit6.i.i.i:          ; preds = %59, %57
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -28929,29 +28929,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -29210,7 +29210,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit15.i.i.i:         ; preds = %130, %128
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -29220,29 +29220,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %.val5, i64 56, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 56) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier19verifyDebugLineRowsEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -29263,22 +29263,22 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier21veri
 
 11:                                               ; preds = %1
   %12 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull @.str.219, i64 noundef 46) #26
-  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS0_12DWARFSectionEPNS0_13DataExtractorEPKcE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS0_12DWARFSectionEPNS0_13DataExtractorEPKcE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit"
 
 13:                                               ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(46) %6, ptr noundef nonnull align 1 dereferenceable(46) @.str.219, i64 46, i1 false)
   %14 = load ptr, ptr %5, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 46
   store ptr %15, ptr %5, align 8
-  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS0_12DWARFSectionEPNS0_13DataExtractorEPKcE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS0_12DWARFSectionEPNS0_13DataExtractorEPKcE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit"
 
-"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS0_12DWARFSectionEPNS0_13DataExtractorEPKcE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.argprom.exit": ; preds = %11, %13
+"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS0_12DWARFSectionEPNS0_13DataExtractorEPKcE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit": ; preds = %11, %13
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -29286,18 +29286,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -29385,7 +29385,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier21veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -29395,29 +29395,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -29451,22 +29451,22 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier21veri
 
 11:                                               ; preds = %1
   %12 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull @.str.221, i64 noundef 35) #26
-  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS0_12DWARFSectionEPNS0_13DataExtractorEPKcE3$_3JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS0_12DWARFSectionEPNS0_13DataExtractorEPKcE3$_3JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit"
 
 13:                                               ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(35) %6, ptr noundef nonnull align 1 dereferenceable(35) @.str.221, i64 35, i1 false)
   %14 = load ptr, ptr %5, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 35
   store ptr %15, ptr %5, align 8
-  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS0_12DWARFSectionEPNS0_13DataExtractorEPKcE3$_3JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS0_12DWARFSectionEPNS0_13DataExtractorEPKcE3$_3JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit"
 
-"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS0_12DWARFSectionEPNS0_13DataExtractorEPKcE3$_3JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.argprom.exit": ; preds = %11, %13
+"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS0_12DWARFSectionEPNS0_13DataExtractorEPKcE3$_3JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit": ; preds = %11, %13
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -29474,18 +29474,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -29506,22 +29506,22 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier21veri
 
 11:                                               ; preds = %1
   %12 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull @.str.222, i64 noundef 43) #26
-  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS0_12DWARFSectionEPNS0_13DataExtractorEPKcE3$_4JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS0_12DWARFSectionEPNS0_13DataExtractorEPKcE3$_4JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit"
 
 13:                                               ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(43) %6, ptr noundef nonnull align 1 dereferenceable(43) @.str.222, i64 43, i1 false)
   %14 = load ptr, ptr %5, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 43
   store ptr %15, ptr %5, align 8
-  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS0_12DWARFSectionEPNS0_13DataExtractorEPKcE3$_4JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS0_12DWARFSectionEPNS0_13DataExtractorEPKcE3$_4JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit"
 
-"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS0_12DWARFSectionEPNS0_13DataExtractorEPKcE3$_4JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.argprom.exit": ; preds = %11, %13
+"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS0_12DWARFSectionEPNS0_13DataExtractorEPKcE3$_4JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit": ; preds = %11, %13
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_4E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_4E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_4E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -29529,18 +29529,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_4E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_4E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_4E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_4E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_4E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_4E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_4E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_4E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -29573,7 +29573,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier21veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -29583,29 +29583,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -29673,7 +29673,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier21veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -29683,29 +29683,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %7, ptr noundef nonnull readonly align 8 dereferenceable(80) %.val5, i64 80, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 80) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -29927,7 +29927,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit13.i.i.i:         ; preds = %87, %85
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -29937,29 +29937,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -30349,7 +30349,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier23veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -30359,29 +30359,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -30437,7 +30437,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier23veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -30447,29 +30447,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier23verifyDebugNamesCUListsERKNS1_15DWARFDebugNamesEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -30531,7 +30531,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -30541,29 +30541,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -30670,7 +30670,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -30680,29 +30680,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -30766,7 +30766,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -30776,29 +30776,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -30877,7 +30877,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -30887,29 +30887,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS1_15DWARFDebugNames9NameIndexERKNS1_13DataExtractorEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -31040,7 +31040,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier24veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -31050,29 +31050,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -31279,7 +31279,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier24veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -31289,29 +31289,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -31385,7 +31385,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier24veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -31395,29 +31395,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -31489,7 +31489,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier24veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -31499,29 +31499,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier24verifyNameIndexAttributeERKNS1_15DWARFDebugNames9NameIndexERKNS3_6AbbrevENS3_17AttributeEncodingEE3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -31724,7 +31724,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -31734,29 +31734,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -31822,7 +31822,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -31832,29 +31832,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -31907,7 +31907,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -31917,29 +31917,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexAbbrevsERKNS1_15DWARFDebugNames9NameIndexEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -32005,7 +32005,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -32015,29 +32015,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -32294,7 +32294,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -32304,29 +32304,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -32380,7 +32380,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -32390,29 +32390,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -32466,7 +32466,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -32476,29 +32476,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -32661,7 +32661,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i: ; preds 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_4E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_4E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_4E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -32671,29 +32671,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_4E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_4E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_4E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_4E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_4E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_4E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_4E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_4E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_4E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_4E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_4E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_4E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -32816,7 +32816,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -32826,29 +32826,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -32902,7 +32902,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -32912,29 +32912,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -33007,7 +33007,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -33017,29 +33017,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val5, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 48) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -33127,7 +33127,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_8E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_8E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_8E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -33137,29 +33137,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_8E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_8E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_8E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_8E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val5, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_8E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_8E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_8E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_8E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 48) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_8E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_8E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_8E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_8E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -33431,7 +33431,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_9E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_9E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_9E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -33441,29 +33441,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_9E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_9E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_9E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_9E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val5, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_9E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_9E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_9E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_9E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 48) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_9E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_9E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_9E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEE3$_9E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -33981,7 +33981,7 @@ define internal fastcc void @"_ZN4llvm15handleErrorImplIZNS_13DWARFVerifier22ver
   %15 = load ptr, ptr %2, align 8, !noalias !720
   %16 = load i32, ptr %15, align 4, !noalias !720
   %.not.i.i = icmp eq i32 %16, 0
-  br i1 %.not.i.i, label %17, label %"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_15DWARFDebugNames13SentinelErrorEEE5applyIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS1_9NameIndexERKNS1_14NameTableEntryEE4$_10EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISK_EE.argprom.argprom.exit"
+  br i1 %.not.i.i, label %17, label %"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_15DWARFDebugNames13SentinelErrorEEE5applyIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS1_9NameIndexERKNS1_14NameTableEntryEE4$_10EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISK_EE.exit"
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -34023,15 +34023,15 @@ _ZNSt8functionIFvvEED2Ev.exit.i.i:                ; preds = %32, %17
   %36 = load i32, ptr %35, align 4, !noalias !720
   %37 = add i32 %36, 1
   store i32 %37, ptr %35, align 4, !noalias !720
-  br label %"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_15DWARFDebugNames13SentinelErrorEEE5applyIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS1_9NameIndexERKNS1_14NameTableEntryEE4$_10EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISK_EE.argprom.argprom.exit"
+  br label %"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_15DWARFDebugNames13SentinelErrorEEE5applyIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS1_9NameIndexERKNS1_14NameTableEntryEE4$_10EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISK_EE.exit"
 
-"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_15DWARFDebugNames13SentinelErrorEEE5applyIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS1_9NameIndexERKNS1_14NameTableEntryEE4$_10EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISK_EE.argprom.argprom.exit": ; preds = %14, %_ZNSt8functionIFvvEED2Ev.exit.i.i
+"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_15DWARFDebugNames13SentinelErrorEEE5applyIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS1_9NameIndexERKNS1_14NameTableEntryEE4$_10EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISK_EE.exit": ; preds = %14, %_ZNSt8functionIFvvEED2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !720
   store ptr null, ptr %0, align 8, !alias.scope !720
   %.not.i = icmp eq i64 %12, 0
   br i1 %.not.i, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i: ; preds = %"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_15DWARFDebugNames13SentinelErrorEEE5applyIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS1_9NameIndexERKNS1_14NameTableEntryEE4$_10EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISK_EE.argprom.argprom.exit"
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i: ; preds = %"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_15DWARFDebugNames13SentinelErrorEEE5applyIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS1_9NameIndexERKNS1_14NameTableEntryEE4$_10EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISK_EE.exit"
   %38 = load ptr, ptr %13, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
@@ -34077,13 +34077,13 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i: ; preds = %"_ZN4ll
   call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %48, ptr nonnull @.str.260, i64 29, ptr noundef nonnull %5), !noalias !729
   %59 = load ptr, ptr %55, align 8, !noalias !729
   %.not.i.i.i.i.i = icmp eq ptr %59, null
-  br i1 %.not.i.i.i.i.i, label %"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS_15DWARFDebugNames9NameIndexERKNS8_14NameTableEntryEE4$_11EENS_5ErrorEOT_St10unique_ptrIS1_St14default_deleteIS1_EE.argprom.exit.i", label %60
+  br i1 %.not.i.i.i.i.i, label %"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS_15DWARFDebugNames9NameIndexERKNS8_14NameTableEntryEE4$_11EENS_5ErrorEOT_St10unique_ptrIS1_St14default_deleteIS1_EE.exit.i", label %60
 
 60:                                               ; preds = %46
   %61 = call noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3) #26, !noalias !729
-  br label %"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS_15DWARFDebugNames9NameIndexERKNS8_14NameTableEntryEE4$_11EENS_5ErrorEOT_St10unique_ptrIS1_St14default_deleteIS1_EE.argprom.exit.i"
+  br label %"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS_15DWARFDebugNames9NameIndexERKNS8_14NameTableEntryEE4$_11EENS_5ErrorEOT_St10unique_ptrIS1_St14default_deleteIS1_EE.exit.i"
 
-"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS_15DWARFDebugNames9NameIndexERKNS8_14NameTableEntryEE4$_11EENS_5ErrorEOT_St10unique_ptrIS1_St14default_deleteIS1_EE.argprom.exit.i": ; preds = %60, %46
+"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS_15DWARFDebugNames9NameIndexERKNS8_14NameTableEntryEE4$_11EENS_5ErrorEOT_St10unique_ptrIS1_St14default_deleteIS1_EE.exit.i": ; preds = %60, %46
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %63 = load ptr, ptr %62, align 8, !noalias !729
   %64 = load i32, ptr %63, align 4, !noalias !729
@@ -34094,7 +34094,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i: ; preds = %"_ZN4ll
   %.not.i.i2 = icmp eq i64 %12, 0
   br i1 %.not.i.i2, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS_15DWARFDebugNames9NameIndexERKNS8_14NameTableEntryEE4$_11EENS_5ErrorEOT_St10unique_ptrIS1_St14default_deleteIS1_EE.argprom.exit.i"
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS_15DWARFDebugNames9NameIndexERKNS8_14NameTableEntryEE4$_11EENS_5ErrorEOT_St10unique_ptrIS1_St14default_deleteIS1_EE.exit.i"
   %66 = load ptr, ptr %13, align 8, !noalias !723
   %67 = getelementptr inbounds i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8, !noalias !723
@@ -34105,7 +34105,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit3.i: ; 
   store ptr %13, ptr %0, align 8, !alias.scope !730
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit: ; preds = %"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS_15DWARFDebugNames9NameIndexERKNS8_14NameTableEntryEE4$_11EENS_5ErrorEOT_St10unique_ptrIS1_St14default_deleteIS1_EE.argprom.exit.i", %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit3.i, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i, %"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_15DWARFDebugNames13SentinelErrorEEE5applyIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS1_9NameIndexERKNS1_14NameTableEntryEE4$_10EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISK_EE.argprom.argprom.exit"
+_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit: ; preds = %"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS_15DWARFDebugNames9NameIndexERKNS8_14NameTableEntryEE4$_11EENS_5ErrorEOT_St10unique_ptrIS1_St14default_deleteIS1_EE.exit.i", %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit3.i, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i, %"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_15DWARFDebugNames13SentinelErrorEEE5applyIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS1_9NameIndexERKNS1_14NameTableEntryEE4$_10EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISK_EE.exit"
   ret void
 }
 
@@ -34161,7 +34161,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZZN4llvm13DWARFVerifier22ver
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_10clERKNS3_13SentinelErrorEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_10clERKNS3_13SentinelErrorEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_10clERKNS3_13SentinelErrorEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -34171,29 +34171,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN4llvm13DWAR
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_10clERKNS3_13SentinelErrorEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_10clERKNS3_13SentinelErrorEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_10clERKNS3_13SentinelErrorEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_10clERKNS3_13SentinelErrorEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_10clERKNS3_13SentinelErrorEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_10clERKNS3_13SentinelErrorEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_10clERKNS3_13SentinelErrorEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_10clERKNS3_13SentinelErrorEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_10clERKNS3_13SentinelErrorEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_10clERKNS3_13SentinelErrorEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_10clERKNS3_13SentinelErrorEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_10clERKNS3_13SentinelErrorEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -34299,7 +34299,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZZN4llvm13DWARFVerifier22ver
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_11clERKNS1_13ErrorInfoBaseEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_11clERKNS1_13ErrorInfoBaseEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_11clERKNS1_13ErrorInfoBaseEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -34309,29 +34309,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN4llvm13DWAR
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_11clERKNS1_13ErrorInfoBaseEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_11clERKNS1_13ErrorInfoBaseEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_11clERKNS1_13ErrorInfoBaseEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_11clERKNS1_13ErrorInfoBaseEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_11clERKNS1_13ErrorInfoBaseEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_11clERKNS1_13ErrorInfoBaseEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_11clERKNS1_13ErrorInfoBaseEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_11clERKNS1_13ErrorInfoBaseEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_11clERKNS1_13ErrorInfoBaseEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_11clERKNS1_13ErrorInfoBaseEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_11clERKNS1_13ErrorInfoBaseEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZZN4llvm13DWARFVerifier22verifyNameIndexEntriesERKNS1_15DWARFDebugNames9NameIndexERKNS3_14NameTableEntryEENK4$_11clERKNS1_13ErrorInfoBaseEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -34549,7 +34549,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier27veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier27verifyNameIndexCompletenessERKNS1_8DWARFDieERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier27verifyNameIndexCompletenessERKNS1_8DWARFDieERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier27verifyNameIndexCompletenessERKNS1_8DWARFDieERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -34559,29 +34559,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier27verifyNameIndexCompletenessERKNS1_8DWARFDieERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier27verifyNameIndexCompletenessERKNS1_8DWARFDieERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier27verifyNameIndexCompletenessERKNS1_8DWARFDieERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier27verifyNameIndexCompletenessERKNS1_8DWARFDieERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier27verifyNameIndexCompletenessERKNS1_8DWARFDieERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier27verifyNameIndexCompletenessERKNS1_8DWARFDieERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier27verifyNameIndexCompletenessERKNS1_8DWARFDieERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier27verifyNameIndexCompletenessERKNS1_8DWARFDieERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier27verifyNameIndexCompletenessERKNS1_8DWARFDieERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier27verifyNameIndexCompletenessERKNS1_8DWARFDieERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier27verifyNameIndexCompletenessERKNS1_8DWARFDieERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier27verifyNameIndexCompletenessERKNS1_8DWARFDieERKNS1_15DWARFDebugNames9NameIndexEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -34778,7 +34778,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier21veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -34788,29 +34788,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val5, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 48) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -34862,7 +34862,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier21veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -34872,29 +34872,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -35065,7 +35065,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier21veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -35075,29 +35075,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val5, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 48) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -35175,7 +35175,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier21veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -35185,29 +35185,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %.val5, i64 56, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 56) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -35275,7 +35275,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier21veri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -35285,29 +35285,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val5, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 48) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -35402,7 +35402,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i:           ; preds = %30, %28
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -35412,29 +35412,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARF
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier21verifyDebugStrOffsetsESt8optionalINS1_5dwarf11DwarfFormatEENS1_9StringRefERKNS1_12DWARFSectionES7_E3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -35772,22 +35772,22 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i:           ; preds = %29, %27
 
 43:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i
   %44 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull @.str.270, i64 noundef 10) #26
-  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier9summarizeEvE3$_0JNS0_9StringRefEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier9summarizeEvE3$_0JNS0_9StringRefEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 45:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %38, ptr noundef nonnull align 1 dereferenceable(10) @.str.270, i64 10, i1 false)
   %46 = load ptr, ptr %37, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 10
   store ptr %47, ptr %37, align 8
-  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier9summarizeEvE3$_0JNS0_9StringRefEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier9summarizeEvE3$_0JNS0_9StringRefEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
-"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier9summarizeEvE3$_0JNS0_9StringRefEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.argprom.exit": ; preds = %43, %45
+"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier9summarizeEvE3$_0JNS0_9StringRefEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %43, %45
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN4llvm9StringRefEjEZNS0_13DWARFVerifier9summarizeEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier9summarizeEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier9summarizeEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -35795,18 +35795,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN4llvm9StringRef
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier9summarizeEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier9summarizeEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier9summarizeEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier9summarizeEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier9summarizeEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier9summarizeEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier9summarizeEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13DWARFVerifier9summarizeEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -36687,14 +36687,14 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E11try_emplaceIJNS2_6ObjectEEEESt4pairINS_16DenseMapIteratorIS3_S4_S7_SA_Lb0EEEbEOS3_DpOT_.exit.i.i.i: ; preds = %31, %_ZN4llvm4json9ObjectKeyD2Ev.exit.i.i.i
   %45 = load ptr, ptr %8, align 8
   %.not.i.i3.i.i.i = icmp eq ptr %45, null
-  br i1 %.not.i.i3.i.i.i, label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier9summarizeEvE3$_1JNS0_9StringRefEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i4.i.i.i
+  br i1 %.not.i.i3.i.i.i, label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier9summarizeEvE3$_1JNS0_9StringRefEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i4.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i4.i.i.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E11try_emplaceIJNS2_6ObjectEEEESt4pairINS_16DenseMapIteratorIS3_S4_S7_SA_Lb0EEEbEOS3_DpOT_.exit.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #26
   call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef 32) #24
-  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier9summarizeEvE3$_1JNS0_9StringRefEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier9summarizeEvE3$_1JNS0_9StringRefEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
-"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier9summarizeEvE3$_1JNS0_9StringRefEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E11try_emplaceIJNS2_6ObjectEEEESt4pairINS_16DenseMapIteratorIS3_S4_S7_SA_Lb0EEEbEOS3_DpOT_.exit.i.i.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i4.i.i.i
+"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier9summarizeEvE3$_1JNS0_9StringRefEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E11try_emplaceIJNS2_6ObjectEEEESt4pairINS_16DenseMapIteratorIS3_S4_S7_SA_Lb0EEEbEOS3_DpOT_.exit.i.i.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i4.i.i.i
   store ptr null, ptr %8, align 8
   %46 = zext i32 %.val4 to i64
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -36890,8 +36890,8 @@ attributes #27 = { nounwind willreturn memory(none) }
 !88 = distinct !{!88, !"_ZN4llvm18ErrorHandlerTraitsIRFNS_5ErrorESt10unique_ptrINS_13ResolverErrorESt14default_deleteIS3_EEEE5applyIZNS_13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEE3$_2EES1_OT_S2_INS_13ErrorInfoBaseES4_ISK_EE"}
 !89 = !{!87, !83, !80}
 !90 = !{!91, !87, !83}
-!91 = distinct !{!91, !92, !"_ZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEENK3$_2clESt10unique_ptrINS_13ResolverErrorESt14default_deleteIS8_EE.argprom.argprom.argprom: argument 0"}
-!92 = distinct !{!92, !"_ZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEENK3$_2clESt10unique_ptrINS_13ResolverErrorESt14default_deleteIS8_EE.argprom.argprom.argprom"}
+!91 = distinct !{!91, !92, !"_ZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEENK3$_2clESt10unique_ptrINS_13ResolverErrorESt14default_deleteIS8_EE: argument 0"}
+!92 = distinct !{!92, !"_ZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEENK3$_2clESt10unique_ptrINS_13ResolverErrorESt14default_deleteIS8_EE"}
 !93 = !{!94, !83}
 !94 = distinct !{!94, !95, !"_ZN4llvm15handleErrorImplESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS1_EE: argument 0"}
 !95 = distinct !{!95, !"_ZN4llvm15handleErrorImplESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS1_EE"}
@@ -37063,13 +37063,13 @@ attributes #27 = { nounwind willreturn memory(none) }
 !261 = distinct !{!261, !262, !"_ZN4llvm7formatvIJmEEEDaPKcDpOT_: argument 0"}
 !262 = distinct !{!262, !"_ZN4llvm7formatvIJmEEEDaPKcDpOT_"}
 !263 = !{!264}
-!264 = distinct !{!264, !265, !"_ZSt19__relocate_object_aIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoS9_SaIS9_EEvPT_PT0_RT1_.argprom: argument 0"}
-!265 = distinct !{!265, !"_ZSt19__relocate_object_aIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoS9_SaIS9_EEvPT_PT0_RT1_.argprom"}
+!264 = distinct !{!264, !265, !"_ZSt19__relocate_object_aIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoS9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
+!265 = distinct !{!265, !"_ZSt19__relocate_object_aIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoS9_SaIS9_EEvPT_PT0_RT1_"}
 !266 = distinct !{!266, !5}
 !267 = distinct !{!267, !5}
 !268 = !{!269}
-!269 = distinct !{!269, !270, !"_ZSt19__relocate_object_aIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoS9_SaIS9_EEvPT_PT0_RT1_.argprom: argument 0"}
-!270 = distinct !{!270, !"_ZSt19__relocate_object_aIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoS9_SaIS9_EEvPT_PT0_RT1_.argprom"}
+!269 = distinct !{!269, !270, !"_ZSt19__relocate_object_aIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoS9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
+!270 = distinct !{!270, !"_ZSt19__relocate_object_aIZN4llvm13DWARFVerifier22verifyNameIndexBucketsERKNS0_15DWARFDebugNames9NameIndexERKNS0_13DataExtractorEE10BucketInfoS9_SaIS9_EEvPT_PT0_RT1_"}
 !271 = distinct !{!271, !5}
 !272 = !{!273, !275}
 !273 = distinct !{!273, !274, !"_ZN4llvm7formatvIJmRKjRNS_5dwarf5IndexEEEENS_14formatv_objectIDTclsr3stdE10make_tuplespclsr7support6detailE20build_format_adapterclsr3stdE7forwardIT_Efp1_EEEEEEbPKcDpOS7_: argument 0"}
@@ -37520,14 +37520,14 @@ attributes #27 = { nounwind willreturn memory(none) }
 !718 = distinct !{!718, !"_ZN4llvm7formatvIJmRmS1_RNS_9StringRefENS_14iterator_rangeIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEDaPKcDpOT_"}
 !719 = distinct !{!719, !5}
 !720 = !{!721}
-!721 = distinct !{!721, !722, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_15DWARFDebugNames13SentinelErrorEEE5applyIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS1_9NameIndexERKNS1_14NameTableEntryEE4$_10EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISK_EE.argprom.argprom: argument 0"}
-!722 = distinct !{!722, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_15DWARFDebugNames13SentinelErrorEEE5applyIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS1_9NameIndexERKNS1_14NameTableEntryEE4$_10EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISK_EE.argprom.argprom"}
+!721 = distinct !{!721, !722, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_15DWARFDebugNames13SentinelErrorEEE5applyIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS1_9NameIndexERKNS1_14NameTableEntryEE4$_10EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISK_EE: argument 0"}
+!722 = distinct !{!722, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_15DWARFDebugNames13SentinelErrorEEE5applyIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS1_9NameIndexERKNS1_14NameTableEntryEE4$_10EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISK_EE"}
 !723 = !{!724}
 !724 = distinct !{!724, !725, !"_ZN4llvm15handleErrorImplIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS_15DWARFDebugNames9NameIndexERKNS2_14NameTableEntryEE4$_11JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISC_EEOT_DpOT0_: argument 0"}
 !725 = distinct !{!725, !"_ZN4llvm15handleErrorImplIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS_15DWARFDebugNames9NameIndexERKNS2_14NameTableEntryEE4$_11JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISC_EEOT_DpOT0_"}
 !726 = !{!727}
-!727 = distinct !{!727, !728, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS_15DWARFDebugNames9NameIndexERKNS8_14NameTableEntryEE4$_11EENS_5ErrorEOT_St10unique_ptrIS1_St14default_deleteIS1_EE.argprom: argument 0"}
-!728 = distinct !{!728, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS_15DWARFDebugNames9NameIndexERKNS8_14NameTableEntryEE4$_11EENS_5ErrorEOT_St10unique_ptrIS1_St14default_deleteIS1_EE.argprom"}
+!727 = distinct !{!727, !728, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS_15DWARFDebugNames9NameIndexERKNS8_14NameTableEntryEE4$_11EENS_5ErrorEOT_St10unique_ptrIS1_St14default_deleteIS1_EE: argument 0"}
+!728 = distinct !{!728, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS_15DWARFDebugNames9NameIndexERKNS8_14NameTableEntryEE4$_11EENS_5ErrorEOT_St10unique_ptrIS1_St14default_deleteIS1_EE"}
 !729 = !{!727, !724}
 !730 = !{!731, !724}
 !731 = distinct !{!731, !732, !"_ZN4llvm15handleErrorImplESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS1_EE: argument 0"}

@@ -5564,7 +5564,7 @@ init:                                             ; preds = %init.check
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_19invertMapINS1_15AggregationNode4StepENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt13unordered_mapIT0_T_St4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SE_EEERKSC_ISE_SD_SF_ISE_ESH_ISE_ESaISJ_IKSE_SD_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_19invertMapINS1_15AggregationNode4StepENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt13unordered_mapIT0_T_St4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SE_EEERKSC_ISE_SD_SF_ISE_ESH_ISE_ESaISJ_IKSE_SD_EEE(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp)
           to label %invoke.cont2 unwind label %lpad1
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -5605,7 +5605,7 @@ ehcleanup:                                        ; preds = %lpad1, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_19invertMapINS1_15AggregationNode4StepENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt13unordered_mapIT0_T_St4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SE_EEERKSC_ISE_SD_SF_ISE_ESH_ISE_ESaISJ_IKSE_SD_EEE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %mapping) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_19invertMapINS1_15AggregationNode4StepENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt13unordered_mapIT0_T_St4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SE_EEERKSC_ISE_SD_SF_ISE_ESH_ISE_ESaISJ_IKSE_SD_EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %mapping) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4core15AggregationNode12stepFromNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6kStepsB5cxx11, i64 48), ptr @_ZZN8facebook5velox4core15AggregationNode12stepFromNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6kStepsB5cxx11, align 8
   store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4core15AggregationNode12stepFromNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6kStepsB5cxx11, i64 8), align 8
@@ -6568,7 +6568,7 @@ invoke.cont37:                                    ; preds = %invoke.cont33
   %sortingOrders.val = load ptr, ptr %sortingOrders, align 8
   %8 = getelementptr inbounds i8, ptr %this, i64 88
   %sortingOrders.val3 = load ptr, ptr %8, align 8
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE.argprom(ptr noalias align 8 %ref.tmp40, ptr %sortingOrders.val, ptr %sortingOrders.val3)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE(ptr noalias align 8 %ref.tmp40, ptr %sortingOrders.val, ptr %sortingOrders.val3)
           to label %invoke.cont41 unwind label %lpad4
 
 invoke.cont41:                                    ; preds = %invoke.cont37
@@ -6710,7 +6710,7 @@ ehcleanup:                                        ; preds = %lpad5, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE.argprom(ptr noalias nonnull align 8 %agg.result, ptr readonly %sortingOrders.0.val, ptr readnone %sortingOrders.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE(ptr noalias nonnull align 8 %agg.result, ptr readonly %sortingOrders.0.val, ptr readnone %sortingOrders.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.folly::dynamic", align 8
   store i32 1, ptr %agg.result, align 8, !alias.scope !68
@@ -21788,7 +21788,7 @@ init:                                             ; preds = %init.check
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_19invertMapINS1_8JoinTypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt13unordered_mapIT0_T_St4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SD_EEERKSB_ISD_SC_SE_ISD_ESG_ISD_ESaISI_IKSD_SC_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_19invertMapINS1_8JoinTypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt13unordered_mapIT0_T_St4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SD_EEERKSB_ISD_SC_SE_ISD_ESG_ISD_ESaISI_IKSD_SC_EEE(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp)
           to label %invoke.cont2 unwind label %lpad1
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -21829,7 +21829,7 @@ ehcleanup:                                        ; preds = %lpad1, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_19invertMapINS1_8JoinTypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt13unordered_mapIT0_T_St4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SD_EEERKSB_ISD_SC_SE_ISD_ESG_ISD_ESaISI_IKSD_SC_EEE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %mapping) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_19invertMapINS1_8JoinTypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt13unordered_mapIT0_T_St4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SD_EEERKSB_ISD_SC_SE_ISD_ESG_ISD_ESaISI_IKSD_SC_EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %mapping) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4core16joinTypeFromNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10kJoinTypesB5cxx11, i64 48), ptr @_ZZN8facebook5velox4core16joinTypeFromNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10kJoinTypesB5cxx11, align 8
   store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4core16joinTypeFromNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10kJoinTypesB5cxx11, i64 8), align 8
@@ -28762,7 +28762,7 @@ init:                                             ; preds = %init.check
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_19invertMapINS1_10WindowNode9BoundTypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt13unordered_mapIT0_T_St4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SE_EEERKSC_ISE_SD_SF_ISE_ESH_ISE_ESaISJ_IKSE_SD_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_19invertMapINS1_10WindowNode9BoundTypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt13unordered_mapIT0_T_St4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SE_EEERKSC_ISE_SD_SF_ISE_ESH_ISE_ESaISJ_IKSE_SD_EEE(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp)
           to label %invoke.cont2 unwind label %lpad1
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -28803,7 +28803,7 @@ ehcleanup:                                        ; preds = %lpad1, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_19invertMapINS1_10WindowNode9BoundTypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt13unordered_mapIT0_T_St4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SE_EEERKSC_ISE_SD_SF_ISE_ESH_ISE_ESaISJ_IKSE_SD_EEE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %mapping) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_19invertMapINS1_10WindowNode9BoundTypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt13unordered_mapIT0_T_St4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SE_EEERKSC_ISE_SD_SF_ISE_ESH_ISE_ESaISJ_IKSE_SD_EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %mapping) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4core10WindowNode17boundTypeFromNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6kTypesB5cxx11, i64 48), ptr @_ZZN8facebook5velox4core10WindowNode17boundTypeFromNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6kTypesB5cxx11, align 8
   store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4core10WindowNode17boundTypeFromNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6kTypesB5cxx11, i64 8), align 8
@@ -29074,7 +29074,7 @@ init:                                             ; preds = %init.check
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_19invertMapINS1_10WindowNode10WindowTypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt13unordered_mapIT0_T_St4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SE_EEERKSC_ISE_SD_SF_ISE_ESH_ISE_ESaISJ_IKSE_SD_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_19invertMapINS1_10WindowNode10WindowTypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt13unordered_mapIT0_T_St4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SE_EEERKSC_ISE_SD_SF_ISE_ESH_ISE_ESaISJ_IKSE_SD_EEE(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp)
           to label %invoke.cont2 unwind label %lpad1
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -29115,7 +29115,7 @@ ehcleanup:                                        ; preds = %lpad1, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_19invertMapINS1_10WindowNode10WindowTypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt13unordered_mapIT0_T_St4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SE_EEERKSC_ISE_SD_SF_ISE_ESH_ISE_ESaISJ_IKSE_SD_EEE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %mapping) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_19invertMapINS1_10WindowNode10WindowTypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt13unordered_mapIT0_T_St4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SE_EEERKSC_ISE_SD_SF_ISE_ESH_ISE_ESaISJ_IKSE_SD_EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %mapping) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4core10WindowNode18windowTypeFromNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6kTypesB5cxx11, i64 48), ptr @_ZZN8facebook5velox4core10WindowNode18windowTypeFromNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6kTypesB5cxx11, align 8
   store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4core10WindowNode18windowTypeFromNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6kTypesB5cxx11, i64 8), align 8
@@ -30115,7 +30115,7 @@ invoke.cont11:                                    ; preds = %invoke.cont7
   %sortingOrders_.val = load ptr, ptr %sortingOrders_, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 96
   %sortingOrders_.val7 = load ptr, ptr %0, align 8
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE.argprom(ptr noalias align 8 %ref.tmp14, ptr %sortingOrders_.val, ptr %sortingOrders_.val7)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE(ptr noalias align 8 %ref.tmp14, ptr %sortingOrders_.val, ptr %sortingOrders_.val7)
           to label %invoke.cont15 unwind label %lpad.loopexit.split-lp40
 
 invoke.cont15:                                    ; preds = %invoke.cont11
@@ -33894,7 +33894,7 @@ invoke.cont11:                                    ; preds = %invoke.cont7
   %sortingOrders_.val = load ptr, ptr %sortingOrders_, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 96
   %sortingOrders_.val4 = load ptr, ptr %0, align 8
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE.argprom(ptr noalias align 8 %ref.tmp14, ptr %sortingOrders_.val, ptr %sortingOrders_.val4)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE(ptr noalias align 8 %ref.tmp14, ptr %sortingOrders_.val, ptr %sortingOrders_.val4)
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %invoke.cont11
@@ -34572,7 +34572,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %sortingOrders_.val = load ptr, ptr %sortingOrders_, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 96
   %sortingOrders_.val2 = load ptr, ptr %0, align 8
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE.argprom(ptr noalias align 8 %ref.tmp6, ptr %sortingOrders_.val, ptr %sortingOrders_.val2)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE(ptr noalias align 8 %ref.tmp6, ptr %sortingOrders_.val, ptr %sortingOrders_.val2)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont4
@@ -37078,7 +37078,7 @@ invoke.cont14:                                    ; preds = %invoke.cont10
   %sortingOrders_.val = load ptr, ptr %sortingOrders_, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 88
   %sortingOrders_.val2 = load ptr, ptr %2, align 8
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE.argprom(ptr noalias align 8 %ref.tmp17, ptr %sortingOrders_.val, ptr %sortingOrders_.val2)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE(ptr noalias align 8 %ref.tmp17, ptr %sortingOrders_.val, ptr %sortingOrders_.val2)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %invoke.cont14
@@ -37878,7 +37878,7 @@ init:                                             ; preds = %init.check
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_19invertMapINS1_18LocalPartitionNode4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt13unordered_mapIT0_T_St4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SE_EEERKSC_ISE_SD_SF_ISE_ESH_ISE_ESaISJ_IKSE_SD_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_19invertMapINS1_18LocalPartitionNode4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt13unordered_mapIT0_T_St4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SE_EEERKSC_ISE_SD_SF_ISE_ESH_ISE_ESaISJ_IKSE_SD_EEE(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp)
           to label %invoke.cont2 unwind label %lpad1
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -37999,7 +37999,7 @@ _ZNSt12__shared_ptrIKN8facebook5velox4core21PartitionFunctionSpecELN9__gnu_cxx12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_19invertMapINS1_18LocalPartitionNode4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt13unordered_mapIT0_T_St4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SE_EEERKSC_ISE_SD_SF_ISE_ESH_ISE_ESaISJ_IKSE_SD_EEE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %mapping) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_19invertMapINS1_18LocalPartitionNode4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt13unordered_mapIT0_T_St4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SE_EEERKSC_ISE_SD_SF_ISE_ESH_ISE_ESaISJ_IKSE_SD_EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %mapping) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4core18LocalPartitionNode12typeFromNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6kTypesB5cxx11, i64 48), ptr @_ZZN8facebook5velox4core18LocalPartitionNode12typeFromNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6kTypesB5cxx11, align 8
   store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4core18LocalPartitionNode12typeFromNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6kTypesB5cxx11, i64 8), align 8
@@ -40240,7 +40240,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %sortingOrders_.val = load ptr, ptr %sortingOrders_, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 72
   %sortingOrders_.val2 = load ptr, ptr %0, align 8
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE.argprom(ptr noalias align 8 %ref.tmp6, ptr %sortingOrders_.val, ptr %sortingOrders_.val2)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE(ptr noalias align 8 %ref.tmp6, ptr %sortingOrders_.val, ptr %sortingOrders_.val2)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont4
@@ -41092,7 +41092,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %sortingOrders_.val = load ptr, ptr %sortingOrders_, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 72
   %sortingOrders_.val2 = load ptr, ptr %0, align 8
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE.argprom(ptr noalias align 8 %ref.tmp6, ptr %sortingOrders_.val, ptr %sortingOrders_.val2)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE(ptr noalias align 8 %ref.tmp6, ptr %sortingOrders_.val, ptr %sortingOrders_.val2)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont4
@@ -83588,8 +83588,8 @@ attributes #38 = { cold noreturn nounwind }
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN8facebook5velox4core12_GLOBAL__N_124getAggregationOutputTypeERKSt6vectorISt10shared_ptrIKNS1_20FieldAccessTypedExprEESaIS7_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EERKS3_INS1_15AggregationNode9AggregateESaISN_EE.argprom: %agg.result"}
-!12 = distinct !{!12, !"_ZN8facebook5velox4core12_GLOBAL__N_124getAggregationOutputTypeERKSt6vectorISt10shared_ptrIKNS1_20FieldAccessTypedExprEESaIS7_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EERKS3_INS1_15AggregationNode9AggregateESaISN_EE.argprom"}
+!11 = distinct !{!11, !12, !"_ZN8facebook5velox4core12_GLOBAL__N_124getAggregationOutputTypeERKSt6vectorISt10shared_ptrIKNS1_20FieldAccessTypedExprEESaIS7_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EERKS3_INS1_15AggregationNode9AggregateESaISN_EE: %agg.result"}
+!12 = distinct !{!12, !"_ZN8facebook5velox4core12_GLOBAL__N_124getAggregationOutputTypeERKSt6vectorISt10shared_ptrIKNS1_20FieldAccessTypedExprEESaIS7_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EERKS3_INS1_15AggregationNode9AggregateESaISN_EE"}
 !13 = !{!14}
 !14 = distinct !{!14, !15, !"_ZN8facebook5velox4core10TypedExprs13asFieldAccessERKSt10shared_ptrIKNS1_10ITypedExprEE: %agg.result"}
 !15 = distinct !{!15, !"_ZN8facebook5velox4core10TypedExprs13asFieldAccessERKSt10shared_ptrIKNS1_10ITypedExprEE"}

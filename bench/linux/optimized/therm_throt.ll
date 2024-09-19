@@ -246,7 +246,7 @@ define dso_local void @intel_thermal_interrupt() local_unnamed_addr #0 align 16 
 49:                                               ; preds = %45, %33, %30, %9
   %50 = and i64 %4, 1
   %51 = icmp ne i64 %50, 0
-  tail call fastcc void @therm_throt_process.argelim(i1 noundef zeroext %51, i32 noundef 0)
+  tail call fastcc void @therm_throt_process(i1 noundef zeroext %51, i32 noundef 0)
   %52 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @cpu_info, i64 96)) #12, !srcloc !12
   %53 = and i64 %52, 16
   %54 = icmp eq i64 %53, 0
@@ -375,7 +375,7 @@ define dso_local void @intel_thermal_interrupt() local_unnamed_addr #0 align 16 
 135:                                              ; preds = %132, %118, %117, %88, %85
   %136 = and i64 %80, 1
   %137 = icmp ne i64 %136, 0
-  tail call fastcc void @therm_throt_process.argelim(i1 noundef zeroext %137, i32 noundef 1)
+  tail call fastcc void @therm_throt_process(i1 noundef zeroext %137, i32 noundef 1)
   %138 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @cpu_info, i64 96)) #12, !srcloc !12
   %139 = and i64 %138, 16
   %140 = icmp eq i64 %139, 0
@@ -417,7 +417,7 @@ define dso_local void @intel_thermal_interrupt() local_unnamed_addr #0 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @therm_throt_process.argelim(i1 noundef zeroext %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @therm_throt_process(i1 noundef zeroext %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
   %3 = zext i1 %0 to i8
   %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #12, !srcloc !13
   %5 = zext i32 %4 to i64

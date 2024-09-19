@@ -2704,7 +2704,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %.idx.i.i = shl nsw i64 %.sroa.2.0.copyload.i.i, 3
   %21 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx.i.i
   %22 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
-  br i1 %22, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNumGangsClauseERKNS2_21OpenACCNumGangsClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %23
+  br i1 %22, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNumGangsClauseERKNS2_21OpenACCNumGangsClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %23
 
 23:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %24 = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8
@@ -2717,7 +2717,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   tail call void @_ZNK5clang4Stmt11printPrettyERN4llvm11raw_ostreamEPNS_13PrinterHelperERKNS_14PrintingPolicyEjNS1_9StringRefEPKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %.val.val12.i.i.i, i32 noundef 0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %4, ptr noundef null) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %.not18.i.i.i = icmp eq i64 %.sroa.2.0.copyload.i.i, 1
-  br i1 %.not18.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNumGangsClauseERKNS2_21OpenACCNumGangsClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %.lr.ph.i.i.i
+  br i1 %.not18.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNumGangsClauseERKNS2_21OpenACCNumGangsClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %23
   %.017.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 8
@@ -2726,8 +2726,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %30
 
-30:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNumGangsClauseERKNS2_21OpenACCNumGangsClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %.lr.ph.i.i.i
-  %.019.i.i.i = phi ptr [ %.017.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNumGangsClauseERKNS2_21OpenACCNumGangsClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i" ]
+30:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNumGangsClauseERKNS2_21OpenACCNumGangsClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i", %.lr.ph.i.i.i
+  %.019.i.i.i = phi ptr [ %.017.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNumGangsClauseERKNS2_21OpenACCNumGangsClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i" ]
   %31 = load ptr, ptr %27, align 8
   %32 = load ptr, ptr %28, align 8
   %33 = ptrtoint ptr %31 to i64
@@ -2738,16 +2738,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
 
 37:                                               ; preds = %30
   %38 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull @.str.82, i64 noundef 2) #14
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNumGangsClauseERKNS2_21OpenACCNumGangsClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNumGangsClauseERKNS2_21OpenACCNumGangsClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
 39:                                               ; preds = %30
   store i16 8236, ptr %32, align 1
   %40 = load ptr, ptr %28, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 2
   store ptr %41, ptr %28, align 8
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNumGangsClauseERKNS2_21OpenACCNumGangsClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNumGangsClauseERKNS2_21OpenACCNumGangsClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
-"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNumGangsClauseERKNS2_21OpenACCNumGangsClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i": ; preds = %39, %37
+"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNumGangsClauseERKNS2_21OpenACCNumGangsClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i": ; preds = %39, %37
   %42 = load ptr, ptr %.019.i.i.i, align 8
   %.val10.val.i.i.i = load ptr, ptr %0, align 8
   %.val10.val11.i.i.i = load ptr, ptr %25, align 8
@@ -2758,9 +2758,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %.0.i.i.i = getelementptr inbounds i8, ptr %.019.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, %21
-  br i1 %.not.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNumGangsClauseERKNS2_21OpenACCNumGangsClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %30, !llvm.loop !84
+  br i1 %.not.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNumGangsClauseERKNS2_21OpenACCNumGangsClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %30, !llvm.loop !84
 
-"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNumGangsClauseERKNS2_21OpenACCNumGangsClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit": ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNumGangsClauseERKNS2_21OpenACCNumGangsClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %_ZN4llvm11raw_ostreamlsEPKc.exit, %23
+"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNumGangsClauseERKNS2_21OpenACCNumGangsClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit": ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNumGangsClauseERKNS2_21OpenACCNumGangsClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i", %_ZN4llvm11raw_ostreamlsEPKc.exit, %23
   %43 = load ptr, ptr %0, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8
@@ -2769,11 +2769,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %48 = icmp eq ptr %45, %47
   br i1 %48, label %49, label %51
 
-49:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNumGangsClauseERKNS2_21OpenACCNumGangsClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit"
+49:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNumGangsClauseERKNS2_21OpenACCNumGangsClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit"
   %50 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %43, ptr noundef nonnull @.str.2, i64 noundef 1) #14
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit5
 
-51:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNumGangsClauseERKNS2_21OpenACCNumGangsClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit"
+51:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNumGangsClauseERKNS2_21OpenACCNumGangsClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit"
   store i8 41, ptr %47, align 1
   %52 = load ptr, ptr %46, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 1
@@ -3039,7 +3039,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %.idx.i.i = shl nsw i64 %.sroa.2.0.copyload.i.i, 3
   %21 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx.i.i
   %22 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
-  br i1 %22, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPrivateClauseERKNS2_20OpenACCPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %23
+  br i1 %22, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPrivateClauseERKNS2_20OpenACCPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %23
 
 23:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %24 = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8
@@ -3052,7 +3052,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   tail call void @_ZNK5clang4Stmt11printPrettyERN4llvm11raw_ostreamEPNS_13PrinterHelperERKNS_14PrintingPolicyEjNS1_9StringRefEPKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %.val.val12.i.i.i, i32 noundef 0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %4, ptr noundef null) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %.not18.i.i.i = icmp eq i64 %.sroa.2.0.copyload.i.i, 1
-  br i1 %.not18.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPrivateClauseERKNS2_20OpenACCPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %.lr.ph.i.i.i
+  br i1 %.not18.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPrivateClauseERKNS2_20OpenACCPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %23
   %.017.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 8
@@ -3061,8 +3061,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %30
 
-30:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPrivateClauseERKNS2_20OpenACCPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %.lr.ph.i.i.i
-  %.019.i.i.i = phi ptr [ %.017.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPrivateClauseERKNS2_20OpenACCPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i" ]
+30:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPrivateClauseERKNS2_20OpenACCPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i", %.lr.ph.i.i.i
+  %.019.i.i.i = phi ptr [ %.017.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPrivateClauseERKNS2_20OpenACCPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i" ]
   %31 = load ptr, ptr %27, align 8
   %32 = load ptr, ptr %28, align 8
   %33 = ptrtoint ptr %31 to i64
@@ -3073,16 +3073,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
 
 37:                                               ; preds = %30
   %38 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull @.str.82, i64 noundef 2) #14
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPrivateClauseERKNS2_20OpenACCPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPrivateClauseERKNS2_20OpenACCPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
 39:                                               ; preds = %30
   store i16 8236, ptr %32, align 1
   %40 = load ptr, ptr %28, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 2
   store ptr %41, ptr %28, align 8
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPrivateClauseERKNS2_20OpenACCPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPrivateClauseERKNS2_20OpenACCPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
-"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPrivateClauseERKNS2_20OpenACCPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i": ; preds = %39, %37
+"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPrivateClauseERKNS2_20OpenACCPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i": ; preds = %39, %37
   %42 = load ptr, ptr %.019.i.i.i, align 8
   %.val10.val.i.i.i = load ptr, ptr %0, align 8
   %.val10.val11.i.i.i = load ptr, ptr %25, align 8
@@ -3093,9 +3093,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %.0.i.i.i = getelementptr inbounds i8, ptr %.019.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, %21
-  br i1 %.not.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPrivateClauseERKNS2_20OpenACCPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %30, !llvm.loop !85
+  br i1 %.not.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPrivateClauseERKNS2_20OpenACCPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %30, !llvm.loop !85
 
-"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPrivateClauseERKNS2_20OpenACCPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit": ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPrivateClauseERKNS2_20OpenACCPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %_ZN4llvm11raw_ostreamlsEPKc.exit, %23
+"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPrivateClauseERKNS2_20OpenACCPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit": ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPrivateClauseERKNS2_20OpenACCPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i", %_ZN4llvm11raw_ostreamlsEPKc.exit, %23
   %43 = load ptr, ptr %0, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8
@@ -3104,11 +3104,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %48 = icmp eq ptr %45, %47
   br i1 %48, label %49, label %51
 
-49:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPrivateClauseERKNS2_20OpenACCPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit"
+49:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPrivateClauseERKNS2_20OpenACCPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit"
   %50 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %43, ptr noundef nonnull @.str.2, i64 noundef 1) #14
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit5
 
-51:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPrivateClauseERKNS2_20OpenACCPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit"
+51:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPrivateClauseERKNS2_20OpenACCPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit"
   store i8 41, ptr %47, align 1
   %52 = load ptr, ptr %46, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 1
@@ -3154,7 +3154,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %.idx.i.i = shl nsw i64 %.sroa.2.0.copyload.i.i, 3
   %21 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx.i.i
   %22 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
-  br i1 %22, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter23VisitFirstPrivateClauseERKNS2_25OpenACCFirstPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %23
+  br i1 %22, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter23VisitFirstPrivateClauseERKNS2_25OpenACCFirstPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %23
 
 23:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %24 = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8
@@ -3167,7 +3167,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   tail call void @_ZNK5clang4Stmt11printPrettyERN4llvm11raw_ostreamEPNS_13PrinterHelperERKNS_14PrintingPolicyEjNS1_9StringRefEPKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %.val.val12.i.i.i, i32 noundef 0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %4, ptr noundef null) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %.not18.i.i.i = icmp eq i64 %.sroa.2.0.copyload.i.i, 1
-  br i1 %.not18.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter23VisitFirstPrivateClauseERKNS2_25OpenACCFirstPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %.lr.ph.i.i.i
+  br i1 %.not18.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter23VisitFirstPrivateClauseERKNS2_25OpenACCFirstPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %23
   %.017.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 8
@@ -3176,8 +3176,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %30
 
-30:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter23VisitFirstPrivateClauseERKNS2_25OpenACCFirstPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %.lr.ph.i.i.i
-  %.019.i.i.i = phi ptr [ %.017.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter23VisitFirstPrivateClauseERKNS2_25OpenACCFirstPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i" ]
+30:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter23VisitFirstPrivateClauseERKNS2_25OpenACCFirstPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i", %.lr.ph.i.i.i
+  %.019.i.i.i = phi ptr [ %.017.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter23VisitFirstPrivateClauseERKNS2_25OpenACCFirstPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i" ]
   %31 = load ptr, ptr %27, align 8
   %32 = load ptr, ptr %28, align 8
   %33 = ptrtoint ptr %31 to i64
@@ -3188,16 +3188,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
 
 37:                                               ; preds = %30
   %38 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull @.str.82, i64 noundef 2) #14
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter23VisitFirstPrivateClauseERKNS2_25OpenACCFirstPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter23VisitFirstPrivateClauseERKNS2_25OpenACCFirstPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
 39:                                               ; preds = %30
   store i16 8236, ptr %32, align 1
   %40 = load ptr, ptr %28, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 2
   store ptr %41, ptr %28, align 8
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter23VisitFirstPrivateClauseERKNS2_25OpenACCFirstPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter23VisitFirstPrivateClauseERKNS2_25OpenACCFirstPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
-"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter23VisitFirstPrivateClauseERKNS2_25OpenACCFirstPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i": ; preds = %39, %37
+"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter23VisitFirstPrivateClauseERKNS2_25OpenACCFirstPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i": ; preds = %39, %37
   %42 = load ptr, ptr %.019.i.i.i, align 8
   %.val10.val.i.i.i = load ptr, ptr %0, align 8
   %.val10.val11.i.i.i = load ptr, ptr %25, align 8
@@ -3208,9 +3208,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %.0.i.i.i = getelementptr inbounds i8, ptr %.019.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, %21
-  br i1 %.not.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter23VisitFirstPrivateClauseERKNS2_25OpenACCFirstPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %30, !llvm.loop !86
+  br i1 %.not.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter23VisitFirstPrivateClauseERKNS2_25OpenACCFirstPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %30, !llvm.loop !86
 
-"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter23VisitFirstPrivateClauseERKNS2_25OpenACCFirstPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit": ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter23VisitFirstPrivateClauseERKNS2_25OpenACCFirstPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %_ZN4llvm11raw_ostreamlsEPKc.exit, %23
+"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter23VisitFirstPrivateClauseERKNS2_25OpenACCFirstPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit": ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter23VisitFirstPrivateClauseERKNS2_25OpenACCFirstPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i", %_ZN4llvm11raw_ostreamlsEPKc.exit, %23
   %43 = load ptr, ptr %0, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8
@@ -3219,11 +3219,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %48 = icmp eq ptr %45, %47
   br i1 %48, label %49, label %51
 
-49:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter23VisitFirstPrivateClauseERKNS2_25OpenACCFirstPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit"
+49:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter23VisitFirstPrivateClauseERKNS2_25OpenACCFirstPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit"
   %50 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %43, ptr noundef nonnull @.str.2, i64 noundef 1) #14
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit5
 
-51:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter23VisitFirstPrivateClauseERKNS2_25OpenACCFirstPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit"
+51:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter23VisitFirstPrivateClauseERKNS2_25OpenACCFirstPrivateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit"
   store i8 41, ptr %47, align 1
   %52 = load ptr, ptr %46, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 1
@@ -3269,7 +3269,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %.idx.i.i = shl nsw i64 %.sroa.2.0.copyload.i.i, 3
   %21 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx.i.i
   %22 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
-  br i1 %22, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitAttachClauseERKNS2_19OpenACCAttachClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %23
+  br i1 %22, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitAttachClauseERKNS2_19OpenACCAttachClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %23
 
 23:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %24 = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8
@@ -3282,7 +3282,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   tail call void @_ZNK5clang4Stmt11printPrettyERN4llvm11raw_ostreamEPNS_13PrinterHelperERKNS_14PrintingPolicyEjNS1_9StringRefEPKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %.val.val12.i.i.i, i32 noundef 0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %4, ptr noundef null) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %.not18.i.i.i = icmp eq i64 %.sroa.2.0.copyload.i.i, 1
-  br i1 %.not18.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitAttachClauseERKNS2_19OpenACCAttachClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %.lr.ph.i.i.i
+  br i1 %.not18.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitAttachClauseERKNS2_19OpenACCAttachClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %23
   %.017.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 8
@@ -3291,8 +3291,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %30
 
-30:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitAttachClauseERKNS2_19OpenACCAttachClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %.lr.ph.i.i.i
-  %.019.i.i.i = phi ptr [ %.017.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitAttachClauseERKNS2_19OpenACCAttachClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i" ]
+30:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitAttachClauseERKNS2_19OpenACCAttachClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i", %.lr.ph.i.i.i
+  %.019.i.i.i = phi ptr [ %.017.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitAttachClauseERKNS2_19OpenACCAttachClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i" ]
   %31 = load ptr, ptr %27, align 8
   %32 = load ptr, ptr %28, align 8
   %33 = ptrtoint ptr %31 to i64
@@ -3303,16 +3303,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
 
 37:                                               ; preds = %30
   %38 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull @.str.82, i64 noundef 2) #14
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitAttachClauseERKNS2_19OpenACCAttachClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitAttachClauseERKNS2_19OpenACCAttachClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
 39:                                               ; preds = %30
   store i16 8236, ptr %32, align 1
   %40 = load ptr, ptr %28, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 2
   store ptr %41, ptr %28, align 8
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitAttachClauseERKNS2_19OpenACCAttachClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitAttachClauseERKNS2_19OpenACCAttachClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
-"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitAttachClauseERKNS2_19OpenACCAttachClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i": ; preds = %39, %37
+"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitAttachClauseERKNS2_19OpenACCAttachClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i": ; preds = %39, %37
   %42 = load ptr, ptr %.019.i.i.i, align 8
   %.val10.val.i.i.i = load ptr, ptr %0, align 8
   %.val10.val11.i.i.i = load ptr, ptr %25, align 8
@@ -3323,9 +3323,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %.0.i.i.i = getelementptr inbounds i8, ptr %.019.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, %21
-  br i1 %.not.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitAttachClauseERKNS2_19OpenACCAttachClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %30, !llvm.loop !87
+  br i1 %.not.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitAttachClauseERKNS2_19OpenACCAttachClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %30, !llvm.loop !87
 
-"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitAttachClauseERKNS2_19OpenACCAttachClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit": ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitAttachClauseERKNS2_19OpenACCAttachClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %_ZN4llvm11raw_ostreamlsEPKc.exit, %23
+"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitAttachClauseERKNS2_19OpenACCAttachClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit": ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitAttachClauseERKNS2_19OpenACCAttachClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i", %_ZN4llvm11raw_ostreamlsEPKc.exit, %23
   %43 = load ptr, ptr %0, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8
@@ -3334,11 +3334,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %48 = icmp eq ptr %45, %47
   br i1 %48, label %49, label %51
 
-49:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitAttachClauseERKNS2_19OpenACCAttachClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit"
+49:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitAttachClauseERKNS2_19OpenACCAttachClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit"
   %50 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %43, ptr noundef nonnull @.str.2, i64 noundef 1) #14
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit5
 
-51:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitAttachClauseERKNS2_19OpenACCAttachClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit"
+51:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitAttachClauseERKNS2_19OpenACCAttachClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit"
   store i8 41, ptr %47, align 1
   %52 = load ptr, ptr %46, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 1
@@ -3384,7 +3384,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %.idx.i.i = shl nsw i64 %.sroa.2.0.copyload.i.i, 3
   %21 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx.i.i
   %22 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
-  br i1 %22, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitDevicePtrClauseERKNS2_22OpenACCDevicePtrClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %23
+  br i1 %22, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitDevicePtrClauseERKNS2_22OpenACCDevicePtrClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %23
 
 23:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %24 = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8
@@ -3397,7 +3397,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   tail call void @_ZNK5clang4Stmt11printPrettyERN4llvm11raw_ostreamEPNS_13PrinterHelperERKNS_14PrintingPolicyEjNS1_9StringRefEPKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %.val.val12.i.i.i, i32 noundef 0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %4, ptr noundef null) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %.not18.i.i.i = icmp eq i64 %.sroa.2.0.copyload.i.i, 1
-  br i1 %.not18.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitDevicePtrClauseERKNS2_22OpenACCDevicePtrClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %.lr.ph.i.i.i
+  br i1 %.not18.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitDevicePtrClauseERKNS2_22OpenACCDevicePtrClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %23
   %.017.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 8
@@ -3406,8 +3406,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %30
 
-30:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitDevicePtrClauseERKNS2_22OpenACCDevicePtrClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %.lr.ph.i.i.i
-  %.019.i.i.i = phi ptr [ %.017.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitDevicePtrClauseERKNS2_22OpenACCDevicePtrClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i" ]
+30:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitDevicePtrClauseERKNS2_22OpenACCDevicePtrClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i", %.lr.ph.i.i.i
+  %.019.i.i.i = phi ptr [ %.017.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitDevicePtrClauseERKNS2_22OpenACCDevicePtrClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i" ]
   %31 = load ptr, ptr %27, align 8
   %32 = load ptr, ptr %28, align 8
   %33 = ptrtoint ptr %31 to i64
@@ -3418,16 +3418,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
 
 37:                                               ; preds = %30
   %38 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull @.str.82, i64 noundef 2) #14
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitDevicePtrClauseERKNS2_22OpenACCDevicePtrClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitDevicePtrClauseERKNS2_22OpenACCDevicePtrClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
 39:                                               ; preds = %30
   store i16 8236, ptr %32, align 1
   %40 = load ptr, ptr %28, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 2
   store ptr %41, ptr %28, align 8
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitDevicePtrClauseERKNS2_22OpenACCDevicePtrClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitDevicePtrClauseERKNS2_22OpenACCDevicePtrClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
-"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitDevicePtrClauseERKNS2_22OpenACCDevicePtrClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i": ; preds = %39, %37
+"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitDevicePtrClauseERKNS2_22OpenACCDevicePtrClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i": ; preds = %39, %37
   %42 = load ptr, ptr %.019.i.i.i, align 8
   %.val10.val.i.i.i = load ptr, ptr %0, align 8
   %.val10.val11.i.i.i = load ptr, ptr %25, align 8
@@ -3438,9 +3438,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %.0.i.i.i = getelementptr inbounds i8, ptr %.019.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, %21
-  br i1 %.not.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitDevicePtrClauseERKNS2_22OpenACCDevicePtrClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %30, !llvm.loop !88
+  br i1 %.not.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitDevicePtrClauseERKNS2_22OpenACCDevicePtrClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %30, !llvm.loop !88
 
-"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitDevicePtrClauseERKNS2_22OpenACCDevicePtrClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit": ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitDevicePtrClauseERKNS2_22OpenACCDevicePtrClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %_ZN4llvm11raw_ostreamlsEPKc.exit, %23
+"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitDevicePtrClauseERKNS2_22OpenACCDevicePtrClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit": ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitDevicePtrClauseERKNS2_22OpenACCDevicePtrClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i", %_ZN4llvm11raw_ostreamlsEPKc.exit, %23
   %43 = load ptr, ptr %0, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8
@@ -3449,11 +3449,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %48 = icmp eq ptr %45, %47
   br i1 %48, label %49, label %51
 
-49:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitDevicePtrClauseERKNS2_22OpenACCDevicePtrClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit"
+49:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitDevicePtrClauseERKNS2_22OpenACCDevicePtrClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit"
   %50 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %43, ptr noundef nonnull @.str.2, i64 noundef 1) #14
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit5
 
-51:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitDevicePtrClauseERKNS2_22OpenACCDevicePtrClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit"
+51:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitDevicePtrClauseERKNS2_22OpenACCDevicePtrClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit"
   store i8 41, ptr %47, align 1
   %52 = load ptr, ptr %46, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 1
@@ -3499,7 +3499,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %.idx.i.i = shl nsw i64 %.sroa.2.0.copyload.i.i, 3
   %21 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx.i.i
   %22 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
-  br i1 %22, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNoCreateClauseERKNS2_21OpenACCNoCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %23
+  br i1 %22, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNoCreateClauseERKNS2_21OpenACCNoCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %23
 
 23:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %24 = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8
@@ -3512,7 +3512,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   tail call void @_ZNK5clang4Stmt11printPrettyERN4llvm11raw_ostreamEPNS_13PrinterHelperERKNS_14PrintingPolicyEjNS1_9StringRefEPKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %.val.val12.i.i.i, i32 noundef 0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %4, ptr noundef null) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %.not18.i.i.i = icmp eq i64 %.sroa.2.0.copyload.i.i, 1
-  br i1 %.not18.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNoCreateClauseERKNS2_21OpenACCNoCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %.lr.ph.i.i.i
+  br i1 %.not18.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNoCreateClauseERKNS2_21OpenACCNoCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %23
   %.017.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 8
@@ -3521,8 +3521,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %30
 
-30:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNoCreateClauseERKNS2_21OpenACCNoCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %.lr.ph.i.i.i
-  %.019.i.i.i = phi ptr [ %.017.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNoCreateClauseERKNS2_21OpenACCNoCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i" ]
+30:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNoCreateClauseERKNS2_21OpenACCNoCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i", %.lr.ph.i.i.i
+  %.019.i.i.i = phi ptr [ %.017.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNoCreateClauseERKNS2_21OpenACCNoCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i" ]
   %31 = load ptr, ptr %27, align 8
   %32 = load ptr, ptr %28, align 8
   %33 = ptrtoint ptr %31 to i64
@@ -3533,16 +3533,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
 
 37:                                               ; preds = %30
   %38 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull @.str.82, i64 noundef 2) #14
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNoCreateClauseERKNS2_21OpenACCNoCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNoCreateClauseERKNS2_21OpenACCNoCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
 39:                                               ; preds = %30
   store i16 8236, ptr %32, align 1
   %40 = load ptr, ptr %28, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 2
   store ptr %41, ptr %28, align 8
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNoCreateClauseERKNS2_21OpenACCNoCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNoCreateClauseERKNS2_21OpenACCNoCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
-"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNoCreateClauseERKNS2_21OpenACCNoCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i": ; preds = %39, %37
+"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNoCreateClauseERKNS2_21OpenACCNoCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i": ; preds = %39, %37
   %42 = load ptr, ptr %.019.i.i.i, align 8
   %.val10.val.i.i.i = load ptr, ptr %0, align 8
   %.val10.val11.i.i.i = load ptr, ptr %25, align 8
@@ -3553,9 +3553,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %.0.i.i.i = getelementptr inbounds i8, ptr %.019.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, %21
-  br i1 %.not.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNoCreateClauseERKNS2_21OpenACCNoCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %30, !llvm.loop !89
+  br i1 %.not.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNoCreateClauseERKNS2_21OpenACCNoCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %30, !llvm.loop !89
 
-"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNoCreateClauseERKNS2_21OpenACCNoCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit": ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNoCreateClauseERKNS2_21OpenACCNoCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %_ZN4llvm11raw_ostreamlsEPKc.exit, %23
+"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNoCreateClauseERKNS2_21OpenACCNoCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit": ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNoCreateClauseERKNS2_21OpenACCNoCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i", %_ZN4llvm11raw_ostreamlsEPKc.exit, %23
   %43 = load ptr, ptr %0, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8
@@ -3564,11 +3564,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %48 = icmp eq ptr %45, %47
   br i1 %48, label %49, label %51
 
-49:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNoCreateClauseERKNS2_21OpenACCNoCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit"
+49:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNoCreateClauseERKNS2_21OpenACCNoCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit"
   %50 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %43, ptr noundef nonnull @.str.2, i64 noundef 1) #14
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit5
 
-51:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNoCreateClauseERKNS2_21OpenACCNoCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit"
+51:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter19VisitNoCreateClauseERKNS2_21OpenACCNoCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit"
   store i8 41, ptr %47, align 1
   %52 = load ptr, ptr %46, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 1
@@ -3614,7 +3614,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %.idx.i.i = shl nsw i64 %.sroa.2.0.copyload.i.i, 3
   %21 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx.i.i
   %22 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
-  br i1 %22, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPresentClauseERKNS2_20OpenACCPresentClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %23
+  br i1 %22, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPresentClauseERKNS2_20OpenACCPresentClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %23
 
 23:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %24 = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8
@@ -3627,7 +3627,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   tail call void @_ZNK5clang4Stmt11printPrettyERN4llvm11raw_ostreamEPNS_13PrinterHelperERKNS_14PrintingPolicyEjNS1_9StringRefEPKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %.val.val12.i.i.i, i32 noundef 0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %4, ptr noundef null) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %.not18.i.i.i = icmp eq i64 %.sroa.2.0.copyload.i.i, 1
-  br i1 %.not18.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPresentClauseERKNS2_20OpenACCPresentClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %.lr.ph.i.i.i
+  br i1 %.not18.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPresentClauseERKNS2_20OpenACCPresentClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %23
   %.017.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 8
@@ -3636,8 +3636,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %30
 
-30:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPresentClauseERKNS2_20OpenACCPresentClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %.lr.ph.i.i.i
-  %.019.i.i.i = phi ptr [ %.017.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPresentClauseERKNS2_20OpenACCPresentClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i" ]
+30:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPresentClauseERKNS2_20OpenACCPresentClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i", %.lr.ph.i.i.i
+  %.019.i.i.i = phi ptr [ %.017.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPresentClauseERKNS2_20OpenACCPresentClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i" ]
   %31 = load ptr, ptr %27, align 8
   %32 = load ptr, ptr %28, align 8
   %33 = ptrtoint ptr %31 to i64
@@ -3648,16 +3648,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
 
 37:                                               ; preds = %30
   %38 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull @.str.82, i64 noundef 2) #14
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPresentClauseERKNS2_20OpenACCPresentClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPresentClauseERKNS2_20OpenACCPresentClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
 39:                                               ; preds = %30
   store i16 8236, ptr %32, align 1
   %40 = load ptr, ptr %28, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 2
   store ptr %41, ptr %28, align 8
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPresentClauseERKNS2_20OpenACCPresentClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPresentClauseERKNS2_20OpenACCPresentClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
-"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPresentClauseERKNS2_20OpenACCPresentClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i": ; preds = %39, %37
+"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPresentClauseERKNS2_20OpenACCPresentClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i": ; preds = %39, %37
   %42 = load ptr, ptr %.019.i.i.i, align 8
   %.val10.val.i.i.i = load ptr, ptr %0, align 8
   %.val10.val11.i.i.i = load ptr, ptr %25, align 8
@@ -3668,9 +3668,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %.0.i.i.i = getelementptr inbounds i8, ptr %.019.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, %21
-  br i1 %.not.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPresentClauseERKNS2_20OpenACCPresentClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %30, !llvm.loop !90
+  br i1 %.not.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPresentClauseERKNS2_20OpenACCPresentClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %30, !llvm.loop !90
 
-"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPresentClauseERKNS2_20OpenACCPresentClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit": ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPresentClauseERKNS2_20OpenACCPresentClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %_ZN4llvm11raw_ostreamlsEPKc.exit, %23
+"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPresentClauseERKNS2_20OpenACCPresentClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit": ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPresentClauseERKNS2_20OpenACCPresentClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i", %_ZN4llvm11raw_ostreamlsEPKc.exit, %23
   %43 = load ptr, ptr %0, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8
@@ -3679,11 +3679,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %48 = icmp eq ptr %45, %47
   br i1 %48, label %49, label %51
 
-49:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPresentClauseERKNS2_20OpenACCPresentClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit"
+49:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPresentClauseERKNS2_20OpenACCPresentClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit"
   %50 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %43, ptr noundef nonnull @.str.2, i64 noundef 1) #14
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit5
 
-51:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPresentClauseERKNS2_20OpenACCPresentClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit"
+51:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitPresentClauseERKNS2_20OpenACCPresentClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit"
   store i8 41, ptr %47, align 1
   %52 = load ptr, ptr %46, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 1
@@ -3728,7 +3728,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %13, %15
   %.idx.i.i = shl nsw i64 %.sroa.2.0.copyload.i.i, 3
   %19 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx.i.i
   %20 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
-  br i1 %20, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitCopyClauseERKNS2_17OpenACCCopyClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %21
+  br i1 %20, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitCopyClauseERKNS2_17OpenACCCopyClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %21
 
 21:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
   %22 = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8
@@ -3741,7 +3741,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %13, %15
   tail call void @_ZNK5clang4Stmt11printPrettyERN4llvm11raw_ostreamEPNS_13PrinterHelperERKNS_14PrintingPolicyEjNS1_9StringRefEPKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %.val.val12.i.i.i, i32 noundef 0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %4, ptr noundef null) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %.not18.i.i.i = icmp eq i64 %.sroa.2.0.copyload.i.i, 1
-  br i1 %.not18.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitCopyClauseERKNS2_17OpenACCCopyClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %.lr.ph.i.i.i
+  br i1 %.not18.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitCopyClauseERKNS2_17OpenACCCopyClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %21
   %.017.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 8
@@ -3750,8 +3750,8 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %13, %15
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %28
 
-28:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitCopyClauseERKNS2_17OpenACCCopyClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %.lr.ph.i.i.i
-  %.019.i.i.i = phi ptr [ %.017.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitCopyClauseERKNS2_17OpenACCCopyClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i" ]
+28:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitCopyClauseERKNS2_17OpenACCCopyClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i", %.lr.ph.i.i.i
+  %.019.i.i.i = phi ptr [ %.017.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitCopyClauseERKNS2_17OpenACCCopyClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i" ]
   %29 = load ptr, ptr %25, align 8
   %30 = load ptr, ptr %26, align 8
   %31 = ptrtoint ptr %29 to i64
@@ -3762,16 +3762,16 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %13, %15
 
 35:                                               ; preds = %28
   %36 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull @.str.82, i64 noundef 2) #14
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitCopyClauseERKNS2_17OpenACCCopyClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitCopyClauseERKNS2_17OpenACCCopyClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
 37:                                               ; preds = %28
   store i16 8236, ptr %30, align 1
   %38 = load ptr, ptr %26, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 2
   store ptr %39, ptr %26, align 8
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitCopyClauseERKNS2_17OpenACCCopyClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitCopyClauseERKNS2_17OpenACCCopyClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
-"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitCopyClauseERKNS2_17OpenACCCopyClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i": ; preds = %37, %35
+"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitCopyClauseERKNS2_17OpenACCCopyClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i": ; preds = %37, %35
   %40 = load ptr, ptr %.019.i.i.i, align 8
   %.val10.val.i.i.i = load ptr, ptr %0, align 8
   %.val10.val11.i.i.i = load ptr, ptr %23, align 8
@@ -3782,9 +3782,9 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %13, %15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %.0.i.i.i = getelementptr inbounds i8, ptr %.019.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, %19
-  br i1 %.not.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitCopyClauseERKNS2_17OpenACCCopyClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %28, !llvm.loop !91
+  br i1 %.not.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitCopyClauseERKNS2_17OpenACCCopyClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %28, !llvm.loop !91
 
-"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitCopyClauseERKNS2_17OpenACCCopyClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit": ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitCopyClauseERKNS2_17OpenACCCopyClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %_ZN4llvm11raw_ostreamlsEc.exit, %21
+"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitCopyClauseERKNS2_17OpenACCCopyClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit": ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitCopyClauseERKNS2_17OpenACCCopyClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i", %_ZN4llvm11raw_ostreamlsEc.exit, %21
   %41 = load ptr, ptr %0, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8
@@ -3793,11 +3793,11 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %13, %15
   %46 = icmp eq ptr %43, %45
   br i1 %46, label %47, label %49
 
-47:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitCopyClauseERKNS2_17OpenACCCopyClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit"
+47:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitCopyClauseERKNS2_17OpenACCCopyClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit"
   %48 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull @.str.2, i64 noundef 1) #14
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
-49:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitCopyClauseERKNS2_17OpenACCCopyClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit"
+49:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitCopyClauseERKNS2_17OpenACCCopyClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit"
   store i8 41, ptr %45, align 1
   %50 = load ptr, ptr %44, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 1
@@ -3871,7 +3871,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %32, %30, %_ZN4llvm1
   %.idx.i.i = shl nsw i64 %.sroa.2.0.copyload.i.i, 3
   %37 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx.i.i
   %38 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
-  br i1 %38, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCopyInClauseERKNS2_19OpenACCCopyInClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %39
+  br i1 %38, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCopyInClauseERKNS2_19OpenACCCopyInClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %39
 
 39:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %40 = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8
@@ -3884,7 +3884,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %32, %30, %_ZN4llvm1
   tail call void @_ZNK5clang4Stmt11printPrettyERN4llvm11raw_ostreamEPNS_13PrinterHelperERKNS_14PrintingPolicyEjNS1_9StringRefEPKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %.val.val12.i.i.i, i32 noundef 0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %4, ptr noundef null) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %.not18.i.i.i = icmp eq i64 %.sroa.2.0.copyload.i.i, 1
-  br i1 %.not18.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCopyInClauseERKNS2_19OpenACCCopyInClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %.lr.ph.i.i.i
+  br i1 %.not18.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCopyInClauseERKNS2_19OpenACCCopyInClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %39
   %.017.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 8
@@ -3893,8 +3893,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %32, %30, %_ZN4llvm1
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %46
 
-46:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCopyInClauseERKNS2_19OpenACCCopyInClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %.lr.ph.i.i.i
-  %.019.i.i.i = phi ptr [ %.017.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCopyInClauseERKNS2_19OpenACCCopyInClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i" ]
+46:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCopyInClauseERKNS2_19OpenACCCopyInClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i", %.lr.ph.i.i.i
+  %.019.i.i.i = phi ptr [ %.017.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCopyInClauseERKNS2_19OpenACCCopyInClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i" ]
   %47 = load ptr, ptr %43, align 8
   %48 = load ptr, ptr %44, align 8
   %49 = ptrtoint ptr %47 to i64
@@ -3905,16 +3905,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %32, %30, %_ZN4llvm1
 
 53:                                               ; preds = %46
   %54 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef nonnull @.str.82, i64 noundef 2) #14
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCopyInClauseERKNS2_19OpenACCCopyInClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCopyInClauseERKNS2_19OpenACCCopyInClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
 55:                                               ; preds = %46
   store i16 8236, ptr %48, align 1
   %56 = load ptr, ptr %44, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 2
   store ptr %57, ptr %44, align 8
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCopyInClauseERKNS2_19OpenACCCopyInClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCopyInClauseERKNS2_19OpenACCCopyInClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
-"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCopyInClauseERKNS2_19OpenACCCopyInClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i": ; preds = %55, %53
+"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCopyInClauseERKNS2_19OpenACCCopyInClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i": ; preds = %55, %53
   %58 = load ptr, ptr %.019.i.i.i, align 8
   %.val10.val.i.i.i = load ptr, ptr %0, align 8
   %.val10.val11.i.i.i = load ptr, ptr %41, align 8
@@ -3925,9 +3925,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %32, %30, %_ZN4llvm1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %.0.i.i.i = getelementptr inbounds i8, ptr %.019.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, %37
-  br i1 %.not.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCopyInClauseERKNS2_19OpenACCCopyInClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %46, !llvm.loop !92
+  br i1 %.not.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCopyInClauseERKNS2_19OpenACCCopyInClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %46, !llvm.loop !92
 
-"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCopyInClauseERKNS2_19OpenACCCopyInClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit": ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCopyInClauseERKNS2_19OpenACCCopyInClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %_ZN4llvm11raw_ostreamlsEPKc.exit, %39
+"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCopyInClauseERKNS2_19OpenACCCopyInClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit": ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCopyInClauseERKNS2_19OpenACCCopyInClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i", %_ZN4llvm11raw_ostreamlsEPKc.exit, %39
   %59 = load ptr, ptr %0, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = load ptr, ptr %60, align 8
@@ -3936,11 +3936,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %32, %30, %_ZN4llvm1
   %64 = icmp eq ptr %61, %63
   br i1 %64, label %65, label %67
 
-65:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCopyInClauseERKNS2_19OpenACCCopyInClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit"
+65:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCopyInClauseERKNS2_19OpenACCCopyInClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit"
   %66 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %59, ptr noundef nonnull @.str.2, i64 noundef 1) #14
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit7
 
-67:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCopyInClauseERKNS2_19OpenACCCopyInClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit"
+67:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCopyInClauseERKNS2_19OpenACCCopyInClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit"
   store i8 41, ptr %63, align 1
   %68 = load ptr, ptr %62, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 1
@@ -4014,7 +4014,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %32, %30, %_ZN4llvm1
   %.idx.i.i = shl nsw i64 %.sroa.2.0.copyload.i.i, 3
   %37 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx.i.i
   %38 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
-  br i1 %38, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitCopyOutClauseERKNS2_20OpenACCCopyOutClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %39
+  br i1 %38, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitCopyOutClauseERKNS2_20OpenACCCopyOutClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %39
 
 39:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %40 = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8
@@ -4027,7 +4027,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %32, %30, %_ZN4llvm1
   tail call void @_ZNK5clang4Stmt11printPrettyERN4llvm11raw_ostreamEPNS_13PrinterHelperERKNS_14PrintingPolicyEjNS1_9StringRefEPKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %.val.val12.i.i.i, i32 noundef 0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %4, ptr noundef null) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %.not18.i.i.i = icmp eq i64 %.sroa.2.0.copyload.i.i, 1
-  br i1 %.not18.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitCopyOutClauseERKNS2_20OpenACCCopyOutClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %.lr.ph.i.i.i
+  br i1 %.not18.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitCopyOutClauseERKNS2_20OpenACCCopyOutClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %39
   %.017.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 8
@@ -4036,8 +4036,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %32, %30, %_ZN4llvm1
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %46
 
-46:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitCopyOutClauseERKNS2_20OpenACCCopyOutClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %.lr.ph.i.i.i
-  %.019.i.i.i = phi ptr [ %.017.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitCopyOutClauseERKNS2_20OpenACCCopyOutClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i" ]
+46:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitCopyOutClauseERKNS2_20OpenACCCopyOutClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i", %.lr.ph.i.i.i
+  %.019.i.i.i = phi ptr [ %.017.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitCopyOutClauseERKNS2_20OpenACCCopyOutClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i" ]
   %47 = load ptr, ptr %43, align 8
   %48 = load ptr, ptr %44, align 8
   %49 = ptrtoint ptr %47 to i64
@@ -4048,16 +4048,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %32, %30, %_ZN4llvm1
 
 53:                                               ; preds = %46
   %54 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef nonnull @.str.82, i64 noundef 2) #14
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitCopyOutClauseERKNS2_20OpenACCCopyOutClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitCopyOutClauseERKNS2_20OpenACCCopyOutClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
 55:                                               ; preds = %46
   store i16 8236, ptr %48, align 1
   %56 = load ptr, ptr %44, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 2
   store ptr %57, ptr %44, align 8
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitCopyOutClauseERKNS2_20OpenACCCopyOutClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitCopyOutClauseERKNS2_20OpenACCCopyOutClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
-"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitCopyOutClauseERKNS2_20OpenACCCopyOutClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i": ; preds = %55, %53
+"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitCopyOutClauseERKNS2_20OpenACCCopyOutClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i": ; preds = %55, %53
   %58 = load ptr, ptr %.019.i.i.i, align 8
   %.val10.val.i.i.i = load ptr, ptr %0, align 8
   %.val10.val11.i.i.i = load ptr, ptr %41, align 8
@@ -4068,9 +4068,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %32, %30, %_ZN4llvm1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %.0.i.i.i = getelementptr inbounds i8, ptr %.019.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, %37
-  br i1 %.not.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitCopyOutClauseERKNS2_20OpenACCCopyOutClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %46, !llvm.loop !93
+  br i1 %.not.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitCopyOutClauseERKNS2_20OpenACCCopyOutClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %46, !llvm.loop !93
 
-"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitCopyOutClauseERKNS2_20OpenACCCopyOutClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit": ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitCopyOutClauseERKNS2_20OpenACCCopyOutClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %_ZN4llvm11raw_ostreamlsEPKc.exit, %39
+"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitCopyOutClauseERKNS2_20OpenACCCopyOutClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit": ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitCopyOutClauseERKNS2_20OpenACCCopyOutClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i", %_ZN4llvm11raw_ostreamlsEPKc.exit, %39
   %59 = load ptr, ptr %0, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = load ptr, ptr %60, align 8
@@ -4079,11 +4079,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %32, %30, %_ZN4llvm1
   %64 = icmp eq ptr %61, %63
   br i1 %64, label %65, label %67
 
-65:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitCopyOutClauseERKNS2_20OpenACCCopyOutClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit"
+65:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitCopyOutClauseERKNS2_20OpenACCCopyOutClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit"
   %66 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %59, ptr noundef nonnull @.str.2, i64 noundef 1) #14
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit7
 
-67:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitCopyOutClauseERKNS2_20OpenACCCopyOutClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit"
+67:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter18VisitCopyOutClauseERKNS2_20OpenACCCopyOutClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit"
   store i8 41, ptr %63, align 1
   %68 = load ptr, ptr %62, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 1
@@ -4157,7 +4157,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %32, %30, %_ZN4llvm1
   %.idx.i.i = shl nsw i64 %.sroa.2.0.copyload.i.i, 3
   %37 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx.i.i
   %38 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
-  br i1 %38, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCreateClauseERKNS2_19OpenACCCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %39
+  br i1 %38, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCreateClauseERKNS2_19OpenACCCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %39
 
 39:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %40 = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8
@@ -4170,7 +4170,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %32, %30, %_ZN4llvm1
   tail call void @_ZNK5clang4Stmt11printPrettyERN4llvm11raw_ostreamEPNS_13PrinterHelperERKNS_14PrintingPolicyEjNS1_9StringRefEPKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %.val.val12.i.i.i, i32 noundef 0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %4, ptr noundef null) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %.not18.i.i.i = icmp eq i64 %.sroa.2.0.copyload.i.i, 1
-  br i1 %.not18.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCreateClauseERKNS2_19OpenACCCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %.lr.ph.i.i.i
+  br i1 %.not18.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCreateClauseERKNS2_19OpenACCCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %39
   %.017.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 8
@@ -4179,8 +4179,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %32, %30, %_ZN4llvm1
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %46
 
-46:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCreateClauseERKNS2_19OpenACCCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %.lr.ph.i.i.i
-  %.019.i.i.i = phi ptr [ %.017.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCreateClauseERKNS2_19OpenACCCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i" ]
+46:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCreateClauseERKNS2_19OpenACCCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i", %.lr.ph.i.i.i
+  %.019.i.i.i = phi ptr [ %.017.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCreateClauseERKNS2_19OpenACCCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i" ]
   %47 = load ptr, ptr %43, align 8
   %48 = load ptr, ptr %44, align 8
   %49 = ptrtoint ptr %47 to i64
@@ -4191,16 +4191,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %32, %30, %_ZN4llvm1
 
 53:                                               ; preds = %46
   %54 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef nonnull @.str.82, i64 noundef 2) #14
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCreateClauseERKNS2_19OpenACCCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCreateClauseERKNS2_19OpenACCCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
 55:                                               ; preds = %46
   store i16 8236, ptr %48, align 1
   %56 = load ptr, ptr %44, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 2
   store ptr %57, ptr %44, align 8
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCreateClauseERKNS2_19OpenACCCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCreateClauseERKNS2_19OpenACCCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
-"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCreateClauseERKNS2_19OpenACCCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i": ; preds = %55, %53
+"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCreateClauseERKNS2_19OpenACCCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i": ; preds = %55, %53
   %58 = load ptr, ptr %.019.i.i.i, align 8
   %.val10.val.i.i.i = load ptr, ptr %0, align 8
   %.val10.val11.i.i.i = load ptr, ptr %41, align 8
@@ -4211,9 +4211,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %32, %30, %_ZN4llvm1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %.0.i.i.i = getelementptr inbounds i8, ptr %.019.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, %37
-  br i1 %.not.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCreateClauseERKNS2_19OpenACCCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %46, !llvm.loop !94
+  br i1 %.not.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCreateClauseERKNS2_19OpenACCCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %46, !llvm.loop !94
 
-"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCreateClauseERKNS2_19OpenACCCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit": ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCreateClauseERKNS2_19OpenACCCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %_ZN4llvm11raw_ostreamlsEPKc.exit, %39
+"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCreateClauseERKNS2_19OpenACCCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit": ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCreateClauseERKNS2_19OpenACCCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i", %_ZN4llvm11raw_ostreamlsEPKc.exit, %39
   %59 = load ptr, ptr %0, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = load ptr, ptr %60, align 8
@@ -4222,11 +4222,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %32, %30, %_ZN4llvm1
   %64 = icmp eq ptr %61, %63
   br i1 %64, label %65, label %67
 
-65:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCreateClauseERKNS2_19OpenACCCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit"
+65:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCreateClauseERKNS2_19OpenACCCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit"
   %66 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %59, ptr noundef nonnull @.str.2, i64 noundef 1) #14
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit7
 
-67:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCreateClauseERKNS2_19OpenACCCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit"
+67:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter17VisitCreateClauseERKNS2_19OpenACCCreateClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit"
   store i8 41, ptr %63, align 1
   %68 = load ptr, ptr %62, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 1
@@ -4298,7 +4298,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit6:                ; preds = %30, %32
   %.idx.i.i = shl nsw i64 %.sroa.2.0.copyload.i.i, 3
   %37 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx.i.i
   %38 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
-  br i1 %38, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitReductionClauseERKNS2_22OpenACCReductionClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %39
+  br i1 %38, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitReductionClauseERKNS2_22OpenACCReductionClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %39
 
 39:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit6
   %40 = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8
@@ -4311,7 +4311,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit6:                ; preds = %30, %32
   tail call void @_ZNK5clang4Stmt11printPrettyERN4llvm11raw_ostreamEPNS_13PrinterHelperERKNS_14PrintingPolicyEjNS1_9StringRefEPKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %.val.val12.i.i.i, i32 noundef 0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %4, ptr noundef null) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %.not18.i.i.i = icmp eq i64 %.sroa.2.0.copyload.i.i, 1
-  br i1 %.not18.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitReductionClauseERKNS2_22OpenACCReductionClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %.lr.ph.i.i.i
+  br i1 %.not18.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitReductionClauseERKNS2_22OpenACCReductionClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %39
   %.017.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 8
@@ -4320,8 +4320,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit6:                ; preds = %30, %32
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %46
 
-46:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitReductionClauseERKNS2_22OpenACCReductionClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %.lr.ph.i.i.i
-  %.019.i.i.i = phi ptr [ %.017.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitReductionClauseERKNS2_22OpenACCReductionClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i" ]
+46:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitReductionClauseERKNS2_22OpenACCReductionClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i", %.lr.ph.i.i.i
+  %.019.i.i.i = phi ptr [ %.017.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitReductionClauseERKNS2_22OpenACCReductionClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i" ]
   %47 = load ptr, ptr %43, align 8
   %48 = load ptr, ptr %44, align 8
   %49 = ptrtoint ptr %47 to i64
@@ -4332,16 +4332,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit6:                ; preds = %30, %32
 
 53:                                               ; preds = %46
   %54 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef nonnull @.str.82, i64 noundef 2) #14
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitReductionClauseERKNS2_22OpenACCReductionClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitReductionClauseERKNS2_22OpenACCReductionClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
 55:                                               ; preds = %46
   store i16 8236, ptr %48, align 1
   %56 = load ptr, ptr %44, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 2
   store ptr %57, ptr %44, align 8
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitReductionClauseERKNS2_22OpenACCReductionClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitReductionClauseERKNS2_22OpenACCReductionClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
-"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitReductionClauseERKNS2_22OpenACCReductionClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i": ; preds = %55, %53
+"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitReductionClauseERKNS2_22OpenACCReductionClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i": ; preds = %55, %53
   %58 = load ptr, ptr %.019.i.i.i, align 8
   %.val10.val.i.i.i = load ptr, ptr %0, align 8
   %.val10.val11.i.i.i = load ptr, ptr %41, align 8
@@ -4352,9 +4352,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit6:                ; preds = %30, %32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %.0.i.i.i = getelementptr inbounds i8, ptr %.019.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, %37
-  br i1 %.not.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitReductionClauseERKNS2_22OpenACCReductionClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %46, !llvm.loop !95
+  br i1 %.not.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitReductionClauseERKNS2_22OpenACCReductionClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %46, !llvm.loop !95
 
-"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitReductionClauseERKNS2_22OpenACCReductionClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit": ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitReductionClauseERKNS2_22OpenACCReductionClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %_ZN4llvm11raw_ostreamlsEPKc.exit6, %39
+"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitReductionClauseERKNS2_22OpenACCReductionClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit": ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitReductionClauseERKNS2_22OpenACCReductionClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i", %_ZN4llvm11raw_ostreamlsEPKc.exit6, %39
   %59 = load ptr, ptr %0, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = load ptr, ptr %60, align 8
@@ -4363,11 +4363,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit6:                ; preds = %30, %32
   %64 = icmp eq ptr %61, %63
   br i1 %64, label %65, label %67
 
-65:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitReductionClauseERKNS2_22OpenACCReductionClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit"
+65:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitReductionClauseERKNS2_22OpenACCReductionClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit"
   %66 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %59, ptr noundef nonnull @.str.2, i64 noundef 1) #14
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit9
 
-67:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitReductionClauseERKNS2_22OpenACCReductionClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit"
+67:                                               ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter20VisitReductionClauseERKNS2_22OpenACCReductionClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit"
   store i8 41, ptr %63, align 1
   %68 = load ptr, ptr %62, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 1
@@ -4534,7 +4534,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %84, %82, %_ZN4llvm1
   %.idx.i.i = shl nsw i64 %87, 3
   %90 = getelementptr inbounds i8, ptr %88, i64 %.idx.i.i
   %91 = icmp eq i64 %87, 0
-  br i1 %91, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitWaitClauseERKNS2_17OpenACCWaitClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %92
+  br i1 %91, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitWaitClauseERKNS2_17OpenACCWaitClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %92
 
 92:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit19
   %93 = load ptr, ptr %88, align 8
@@ -4547,7 +4547,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %84, %82, %_ZN4llvm1
   tail call void @_ZNK5clang4Stmt11printPrettyERN4llvm11raw_ostreamEPNS_13PrinterHelperERKNS_14PrintingPolicyEjNS1_9StringRefEPKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull align 8 dereferenceable(48) %89, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %.val.val12.i.i.i, i32 noundef 0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %4, ptr noundef null) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %.not18.i.i.i = icmp eq i64 %87, 1
-  br i1 %.not18.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitWaitClauseERKNS2_17OpenACCWaitClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %.lr.ph.i.i.i
+  br i1 %.not18.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitWaitClauseERKNS2_17OpenACCWaitClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %92
   %.017.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i20, i64 16
@@ -4556,8 +4556,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %84, %82, %_ZN4llvm1
   %98 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %99
 
-99:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitWaitClauseERKNS2_17OpenACCWaitClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %.lr.ph.i.i.i
-  %.019.i.i.i = phi ptr [ %.017.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitWaitClauseERKNS2_17OpenACCWaitClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i" ]
+99:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitWaitClauseERKNS2_17OpenACCWaitClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i", %.lr.ph.i.i.i
+  %.019.i.i.i = phi ptr [ %.017.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitWaitClauseERKNS2_17OpenACCWaitClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i" ]
   %100 = load ptr, ptr %96, align 8
   %101 = load ptr, ptr %97, align 8
   %102 = ptrtoint ptr %100 to i64
@@ -4568,16 +4568,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %84, %82, %_ZN4llvm1
 
 106:                                              ; preds = %99
   %107 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %89, ptr noundef nonnull @.str.82, i64 noundef 2) #14
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitWaitClauseERKNS2_17OpenACCWaitClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitWaitClauseERKNS2_17OpenACCWaitClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
 108:                                              ; preds = %99
   store i16 8236, ptr %101, align 1
   %109 = load ptr, ptr %97, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 2
   store ptr %110, ptr %97, align 8
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitWaitClauseERKNS2_17OpenACCWaitClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitWaitClauseERKNS2_17OpenACCWaitClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
-"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitWaitClauseERKNS2_17OpenACCWaitClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i": ; preds = %108, %106
+"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitWaitClauseERKNS2_17OpenACCWaitClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i": ; preds = %108, %106
   %111 = load ptr, ptr %.019.i.i.i, align 8
   %.val10.val.i.i.i = load ptr, ptr %0, align 8
   %.val10.val11.i.i.i = load ptr, ptr %94, align 8
@@ -4588,9 +4588,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %84, %82, %_ZN4llvm1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %.0.i.i.i = getelementptr inbounds i8, ptr %.019.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, %90
-  br i1 %.not.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitWaitClauseERKNS2_17OpenACCWaitClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit", label %99, !llvm.loop !96
+  br i1 %.not.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitWaitClauseERKNS2_17OpenACCWaitClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit", label %99, !llvm.loop !96
 
-"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitWaitClauseERKNS2_17OpenACCWaitClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit": ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitWaitClauseERKNS2_17OpenACCWaitClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %_ZN4llvm11raw_ostreamlsEPKc.exit19, %92
+"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitWaitClauseERKNS2_17OpenACCWaitClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit": ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitWaitClauseERKNS2_17OpenACCWaitClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i", %_ZN4llvm11raw_ostreamlsEPKc.exit19, %92
   %112 = load ptr, ptr %0, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %114 = load ptr, ptr %113, align 8
@@ -4599,11 +4599,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %84, %82, %_ZN4llvm1
   %117 = icmp eq ptr %114, %116
   br i1 %117, label %118, label %120
 
-118:                                              ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitWaitClauseERKNS2_17OpenACCWaitClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit"
+118:                                              ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitWaitClauseERKNS2_17OpenACCWaitClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit"
   %119 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %112, ptr noundef nonnull @.str.2, i64 noundef 1) #14
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit23
 
-120:                                              ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitWaitClauseERKNS2_17OpenACCWaitClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.argprom.exit"
+120:                                              ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang4ExprEEEZNS2_20OpenACCClausePrinter15VisitWaitClauseERKNS2_17OpenACCWaitClauseEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_.exit"
   store i8 41, ptr %116, align 1
   %121 = load ptr, ptr %115, align 8
   %122 = getelementptr inbounds i8, ptr %121, i64 1
@@ -4648,7 +4648,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %13, %15
   %.idx.i.i = shl nuw nsw i64 %21, 4
   %23 = getelementptr inbounds i8, ptr %18, i64 %.idx.i.i
   %24 = icmp eq i32 %20, 0
-  br i1 %24, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefISt4pairIPN5clang14IdentifierInfoENS3_14SourceLocationEEEEZNS3_20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS3_23OpenACCDeviceTypeClauseEE3$_0NS_11raw_ostreamEKS7_EEvRKT_RT1_T0_.argprom.exit", label %25
+  br i1 %24, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefISt4pairIPN5clang14IdentifierInfoENS3_14SourceLocationEEEEZNS3_20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS3_23OpenACCDeviceTypeClauseEE3$_0NS_11raw_ostreamEKS7_EEvRKT_RT1_T0_.exit", label %25
 
 25:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %.val10.i.i.i = load ptr, ptr %18, align 8
@@ -4665,14 +4665,14 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %13, %15
 
 33:                                               ; preds = %27
   %34 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.74, i64 noundef 1) #14
-  br label %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.argprom.exit.i.i.i"
+  br label %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.exit.i.i.i"
 
 35:                                               ; preds = %27
   store i8 42, ptr %31, align 1
   %36 = load ptr, ptr %30, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 1
   store ptr %37, ptr %30, align 8
-  br label %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.argprom.exit.i.i.i"
+  br label %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.exit.i.i.i"
 
 38:                                               ; preds = %25
   %39 = getelementptr inbounds nuw i8, ptr %.val10.i.i.i, i64 16
@@ -4692,31 +4692,31 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %13, %15
 
 52:                                               ; preds = %38
   %53 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %41, i64 noundef %43) #14
-  br label %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.argprom.exit.i.i.i"
+  br label %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.exit.i.i.i"
 
 54:                                               ; preds = %38
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
-  br i1 %.not.i.i.i.i.i, label %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.argprom.exit.i.i.i", label %55
+  br i1 %.not.i.i.i.i.i, label %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.exit.i.i.i", label %55
 
 55:                                               ; preds = %54
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr nonnull align 1 %41, i64 %43, i1 false)
   %56 = load ptr, ptr %46, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 %43
   store ptr %57, ptr %46, align 8
-  br label %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.argprom.exit.i.i.i"
+  br label %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.exit.i.i.i"
 
-"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.argprom.exit.i.i.i": ; preds = %55, %54, %52, %35, %33
+"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.exit.i.i.i": ; preds = %55, %54, %52, %35, %33
   %.not20.i.i.i = icmp eq i32 %20, 1
-  br i1 %.not20.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefISt4pairIPN5clang14IdentifierInfoENS3_14SourceLocationEEEEZNS3_20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS3_23OpenACCDeviceTypeClauseEE3$_0NS_11raw_ostreamEKS7_EEvRKT_RT1_T0_.argprom.exit", label %.lr.ph.i.i.i
+  br i1 %.not20.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefISt4pairIPN5clang14IdentifierInfoENS3_14SourceLocationEEEEZNS3_20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS3_23OpenACCDeviceTypeClauseEE3$_0NS_11raw_ostreamEKS7_EEvRKT_RT1_T0_.exit", label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.argprom.exit.i.i.i"
+.lr.ph.i.i.i:                                     ; preds = %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.exit.i.i.i"
   %.019.i.i.i = getelementptr inbounds i8, ptr %1, i64 48
   %58 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %59 = getelementptr inbounds nuw i8, ptr %22, i64 32
   br label %60
 
-60:                                               ; preds = %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.argprom.exit17.i.i.i", %.lr.ph.i.i.i
-  %.021.i.i.i = phi ptr [ %.019.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.argprom.exit17.i.i.i" ]
+60:                                               ; preds = %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.exit17.i.i.i", %.lr.ph.i.i.i
+  %.021.i.i.i = phi ptr [ %.019.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.exit17.i.i.i" ]
   %61 = load ptr, ptr %58, align 8
   %62 = load ptr, ptr %59, align 8
   %63 = ptrtoint ptr %61 to i64
@@ -4727,22 +4727,22 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %13, %15
 
 67:                                               ; preds = %60
   %68 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.82, i64 noundef 2) #14
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefISt4pairIPN5clang14IdentifierInfoENS3_14SourceLocationEEEEZNS3_20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS3_23OpenACCDeviceTypeClauseEE3$_0NS_11raw_ostreamEKS7_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefISt4pairIPN5clang14IdentifierInfoENS3_14SourceLocationEEEEZNS3_20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS3_23OpenACCDeviceTypeClauseEE3$_0NS_11raw_ostreamEKS7_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
 69:                                               ; preds = %60
   store i16 8236, ptr %62, align 1
   %70 = load ptr, ptr %59, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 2
   store ptr %71, ptr %59, align 8
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefISt4pairIPN5clang14IdentifierInfoENS3_14SourceLocationEEEEZNS3_20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS3_23OpenACCDeviceTypeClauseEE3$_0NS_11raw_ostreamEKS7_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefISt4pairIPN5clang14IdentifierInfoENS3_14SourceLocationEEEEZNS3_20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS3_23OpenACCDeviceTypeClauseEE3$_0NS_11raw_ostreamEKS7_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
-"_ZZN4llvm10interleaveINS_8ArrayRefISt4pairIPN5clang14IdentifierInfoENS3_14SourceLocationEEEEZNS3_20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS3_23OpenACCDeviceTypeClauseEE3$_0NS_11raw_ostreamEKS7_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i": ; preds = %69, %67
+"_ZZN4llvm10interleaveINS_8ArrayRefISt4pairIPN5clang14IdentifierInfoENS3_14SourceLocationEEEEZNS3_20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS3_23OpenACCDeviceTypeClauseEE3$_0NS_11raw_ostreamEKS7_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i": ; preds = %69, %67
   %.0.val.i.i.i = load ptr, ptr %.021.i.i.i, align 8
   %72 = icmp eq ptr %.0.val.i.i.i, null
   %73 = load ptr, ptr %0, align 8
   br i1 %72, label %74, label %85
 
-74:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefISt4pairIPN5clang14IdentifierInfoENS3_14SourceLocationEEEEZNS3_20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS3_23OpenACCDeviceTypeClauseEE3$_0NS_11raw_ostreamEKS7_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+74:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefISt4pairIPN5clang14IdentifierInfoENS3_14SourceLocationEEEEZNS3_20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS3_23OpenACCDeviceTypeClauseEE3$_0NS_11raw_ostreamEKS7_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 32
@@ -4752,16 +4752,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %13, %15
 
 80:                                               ; preds = %74
   %81 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %73, ptr noundef nonnull @.str.74, i64 noundef 1) #14
-  br label %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.argprom.exit17.i.i.i"
+  br label %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.exit17.i.i.i"
 
 82:                                               ; preds = %74
   store i8 42, ptr %78, align 1
   %83 = load ptr, ptr %77, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 1
   store ptr %84, ptr %77, align 8
-  br label %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.argprom.exit17.i.i.i"
+  br label %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.exit17.i.i.i"
 
-85:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefISt4pairIPN5clang14IdentifierInfoENS3_14SourceLocationEEEEZNS3_20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS3_23OpenACCDeviceTypeClauseEE3$_0NS_11raw_ostreamEKS7_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+85:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefISt4pairIPN5clang14IdentifierInfoENS3_14SourceLocationEEEEZNS3_20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS3_23OpenACCDeviceTypeClauseEE3$_0NS_11raw_ostreamEKS7_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
   %86 = getelementptr inbounds nuw i8, ptr %.0.val.i.i.i, i64 16
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 16
@@ -4779,25 +4779,25 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %13, %15
 
 99:                                               ; preds = %85
   %100 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %73, ptr noundef nonnull %88, i64 noundef %90) #14
-  br label %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.argprom.exit17.i.i.i"
+  br label %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.exit17.i.i.i"
 
 101:                                              ; preds = %85
   %.not.i.i16.i.i.i = icmp eq i64 %90, 0
-  br i1 %.not.i.i16.i.i.i, label %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.argprom.exit17.i.i.i", label %102
+  br i1 %.not.i.i16.i.i.i, label %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.exit17.i.i.i", label %102
 
 102:                                              ; preds = %101
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %94, ptr nonnull align 1 %88, i64 %90, i1 false)
   %103 = load ptr, ptr %93, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 %90
   store ptr %104, ptr %93, align 8
-  br label %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.argprom.exit17.i.i.i"
+  br label %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.exit17.i.i.i"
 
-"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.argprom.exit17.i.i.i": ; preds = %102, %101, %99, %82, %80
+"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.exit17.i.i.i": ; preds = %102, %101, %99, %82, %80
   %.0.i.i.i = getelementptr inbounds i8, ptr %.021.i.i.i, i64 16
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, %23
-  br i1 %.not.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefISt4pairIPN5clang14IdentifierInfoENS3_14SourceLocationEEEEZNS3_20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS3_23OpenACCDeviceTypeClauseEE3$_0NS_11raw_ostreamEKS7_EEvRKT_RT1_T0_.argprom.exit", label %60, !llvm.loop !97
+  br i1 %.not.i.i.i, label %"_ZN4llvm15interleaveCommaINS_8ArrayRefISt4pairIPN5clang14IdentifierInfoENS3_14SourceLocationEEEEZNS3_20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS3_23OpenACCDeviceTypeClauseEE3$_0NS_11raw_ostreamEKS7_EEvRKT_RT1_T0_.exit", label %60, !llvm.loop !97
 
-"_ZN4llvm15interleaveCommaINS_8ArrayRefISt4pairIPN5clang14IdentifierInfoENS3_14SourceLocationEEEEZNS3_20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS3_23OpenACCDeviceTypeClauseEE3$_0NS_11raw_ostreamEKS7_EEvRKT_RT1_T0_.argprom.exit": ; preds = %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.argprom.exit17.i.i.i", %_ZN4llvm11raw_ostreamlsEPKc.exit, %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.argprom.exit.i.i.i"
+"_ZN4llvm15interleaveCommaINS_8ArrayRefISt4pairIPN5clang14IdentifierInfoENS3_14SourceLocationEEEEZNS3_20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS3_23OpenACCDeviceTypeClauseEE3$_0NS_11raw_ostreamEKS7_EEvRKT_RT1_T0_.exit": ; preds = %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.exit17.i.i.i", %_ZN4llvm11raw_ostreamlsEPKc.exit, %"_ZZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseEENK3$_0clERKSt4pairIPNS_14IdentifierInfoENS_14SourceLocationEE.exit.i.i.i"
   %105 = load ptr, ptr %0, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 24
   %107 = load ptr, ptr %106, align 8
@@ -4806,11 +4806,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %13, %15
   %110 = icmp eq ptr %107, %109
   br i1 %110, label %111, label %113
 
-111:                                              ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefISt4pairIPN5clang14IdentifierInfoENS3_14SourceLocationEEEEZNS3_20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS3_23OpenACCDeviceTypeClauseEE3$_0NS_11raw_ostreamEKS7_EEvRKT_RT1_T0_.argprom.exit"
+111:                                              ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefISt4pairIPN5clang14IdentifierInfoENS3_14SourceLocationEEEEZNS3_20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS3_23OpenACCDeviceTypeClauseEE3$_0NS_11raw_ostreamEKS7_EEvRKT_RT1_T0_.exit"
   %112 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %105, ptr noundef nonnull @.str.2, i64 noundef 1) #14
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit6
 
-113:                                              ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefISt4pairIPN5clang14IdentifierInfoENS3_14SourceLocationEEEEZNS3_20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS3_23OpenACCDeviceTypeClauseEE3$_0NS_11raw_ostreamEKS7_EEvRKT_RT1_T0_.argprom.exit"
+113:                                              ; preds = %"_ZN4llvm15interleaveCommaINS_8ArrayRefISt4pairIPN5clang14IdentifierInfoENS3_14SourceLocationEEEEZNS3_20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS3_23OpenACCDeviceTypeClauseEE3$_0NS_11raw_ostreamEKS7_EEvRKT_RT1_T0_.exit"
   store i8 41, ptr %109, align 1
   %114 = load ptr, ptr %108, align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 1

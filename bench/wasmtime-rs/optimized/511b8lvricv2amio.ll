@@ -819,7 +819,7 @@ default.unreachable575:                           ; preds = %._crit_edge
 342:                                              ; preds = %341
   %343 = load i16, ptr %280, align 2, !noundef !3
   %.sroa.0.0.copyload = load i8, ptr %306, align 16
-  %344 = invoke fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen11emit_source17h925efddfd8bc9ad6E.argprom(ptr align 8 %0, ptr nonnull align 8 %1, i16 %343, i8 %.sroa.0.0.copyload)
+  %344 = invoke fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen11emit_source17h925efddfd8bc9ad6E(ptr align 8 %0, ptr nonnull align 8 %1, i16 %343, i8 %.sroa.0.0.copyload)
           to label %345 unwind label %355
 
 345:                                              ; preds = %342
@@ -2524,7 +2524,7 @@ define internal fastcc zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen9emit_exp
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen11emit_source17h925efddfd8bc9ad6E.argprom(ptr align 8 %0, ptr align 8 %1, i16 %2, i8 %.0.val) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen11emit_source17h925efddfd8bc9ad6E(ptr align 8 %0, ptr align 8 %1, i16 %2, i8 %.0.val) unnamed_addr #0 {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca i16, align 2
   store i16 %2, ptr %5, align 2

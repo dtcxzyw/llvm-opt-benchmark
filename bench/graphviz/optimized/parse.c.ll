@@ -330,7 +330,7 @@ parseCase.exit:                                   ; preds = %78, %80
 97:                                               ; preds = %94
   %98 = load ptr, ptr @stderr, align 8
   %99 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull @.str.15, i64 noundef 56) #16
-  call fastcc void @graphviz_exit.argelim() #17
+  call fastcc void @graphviz_exit() #17
   unreachable
 
 gv_alloc.exit.i:                                  ; preds = %94
@@ -446,7 +446,7 @@ bindAction.exit.backedge:                         ; preds = %125, %123, %119, %1
 135:                                              ; preds = %131
   %136 = load ptr, ptr @stderr, align 8
   %137 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %136, ptr noundef nonnull @.str.15, i64 noundef 40) #16
-  call fastcc void @graphviz_exit.argelim() #17
+  call fastcc void @graphviz_exit() #17
   unreachable
 
 gv_alloc.exit.i108:                               ; preds = %131
@@ -504,7 +504,7 @@ addCase.exit:                                     ; preds = %129, %144, %145
 156:                                              ; preds = %152
   %157 = load ptr, ptr @stderr, align 8
   %158 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %157, ptr noundef nonnull @.str.15, i64 noundef 40) #16
-  call fastcc void @graphviz_exit.argelim() #17
+  call fastcc void @graphviz_exit() #17
   unreachable
 
 gv_alloc.exit.i112:                               ; preds = %152
@@ -561,7 +561,7 @@ default.unreachable265:                           ; preds = %parseCase.exit
 175:                                              ; preds = %172
   %176 = load ptr, ptr @stderr, align 8
   %177 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %176, ptr noundef nonnull @.str.15, i64 noundef 56) #16
-  call fastcc void @graphviz_exit.argelim() #17
+  call fastcc void @graphviz_exit() #17
   unreachable
 
 gv_alloc.exit.i115:                               ; preds = %172
@@ -817,7 +817,7 @@ define internal fastcc noundef i32 @readc(ptr nocapture noundef nonnull %0, ptr 
   %30 = load i32, ptr @lineno, align 4
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr @lineno, align 4
-  tail call fastcc void @agxbputc.retelim(ptr noundef %1, i8 noundef signext 10)
+  tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext 10)
   br label %.preheader32.split.split.backedge
 
 32:                                               ; preds = %.preheader32.split.split
@@ -836,7 +836,7 @@ define internal fastcc noundef i32 @readc(ptr nocapture noundef nonnull %0, ptr 
   %35 = load i32, ptr @lineno, align 4
   %36 = add nsw i32 %35, 1
   store i32 %36, ptr @lineno, align 4
-  tail call fastcc void @agxbputc.retelim(ptr noundef %1, i8 noundef signext 10)
+  tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext 10)
   br label %.preheader32.split.split.backedge
 
 37:                                               ; preds = %32
@@ -884,7 +884,7 @@ eol.exit:                                         ; preds = %40, %32, %18, %9, %
 declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbputc.retelim(ptr nocapture noundef nonnull %0, i8 noundef signext %1) unnamed_addr #0 {
+define internal fastcc void @agxbputc(ptr nocapture noundef nonnull %0, i8 noundef signext %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 31
   %.val.i = load i8, ptr %3, align 1
   %.not.i = icmp eq i8 %.val.i, -1
@@ -925,7 +925,7 @@ agxbsizeof.exit.i:                                ; preds = %agxbsizeof.exit
 17:                                               ; preds = %14
   %18 = load ptr, ptr @stderr, align 8
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.15, i64 noundef %spec.select34.i) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 20:                                               ; preds = %14
@@ -946,7 +946,7 @@ agxbsizeof.exit.i:                                ; preds = %agxbsizeof.exit
 27:                                               ; preds = %.thread
   %28 = load ptr, ptr @stderr, align 8
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.15, i64 noundef 62) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 gv_calloc.exit.i:                                 ; preds = %.thread
@@ -1002,7 +1002,7 @@ declare noundef i32 @ungetc(i32 noundef, ptr nocapture noundef) local_unnamed_ad
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #7 {
+define internal fastcc void @graphviz_exit() unnamed_addr #7 {
   tail call void @exit(i32 noundef 1) #19
   unreachable
 }
@@ -1085,11 +1085,11 @@ agxblen.exit.i:                                   ; preds = %24
   %30 = load ptr, ptr @stderr, align 8
   %31 = add nuw nsw i64 %26, 1
   %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.15, i64 noundef %31) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 33:                                               ; preds = %24
-  tail call fastcc void @agxbputc.retelim(ptr noundef %1, i8 noundef signext 0)
+  tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext 0)
   %34 = load ptr, ptr %1, align 8
   br label %agxbdisown.exit
 
@@ -1122,7 +1122,7 @@ define internal fastcc i32 @endBracket(ptr nocapture noundef nonnull %0, ptr nou
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %10
-  tail call fastcc void @agxbputc.retelim(ptr noundef %1, i8 noundef signext %2)
+  tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext %2)
   %14 = tail call fastcc i32 @endBracket(ptr noundef %0, ptr noundef %1, i8 noundef signext %2, i8 noundef signext %3)
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %.loopexit, label %endString.exit.thread
@@ -1135,7 +1135,7 @@ define internal fastcc i32 @endBracket(ptr nocapture noundef nonnull %0, ptr nou
 
 17:                                               ; preds = %16, %16
   %18 = trunc nuw i32 %11 to i8
-  tail call fastcc void @agxbputc.retelim(ptr noundef %1, i8 noundef signext %18)
+  tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext %18)
   %19 = load i32, ptr @lineno, align 4
   %20 = tail call i32 @getc(ptr noundef nonnull %0)
   %.not17.i = icmp eq i32 %20, %11
@@ -1147,7 +1147,7 @@ define internal fastcc i32 @endBracket(ptr nocapture noundef nonnull %0, ptr nou
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %.lr.ph.i
-  tail call fastcc void @agxbputc.retelim(ptr noundef %1, i8 noundef signext 92)
+  tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext 92)
   %24 = tail call i32 @getc(ptr noundef nonnull %0)
   br label %25
 
@@ -1168,7 +1168,7 @@ define internal fastcc i32 @endBracket(ptr nocapture noundef nonnull %0, ptr nou
 
 32:                                               ; preds = %29, %27
   %33 = trunc i32 %.0.i to i8
-  tail call fastcc void @agxbputc.retelim(ptr noundef %1, i8 noundef signext %33)
+  tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext %33)
   %34 = tail call i32 @getc(ptr noundef nonnull %0)
   %.not.i = icmp eq i32 %34, %11
   br i1 %.not.i, label %endString.exit.thread, label %.lr.ph.i
@@ -1180,7 +1180,7 @@ endString.exit:                                   ; preds = %25
 endString.exit.thread:                            ; preds = %32, %16, %17, %13
   %.lcssa.i.sink = phi i32 [ %14, %13 ], [ %20, %17 ], [ %11, %16 ], [ %11, %32 ]
   %35 = trunc i32 %.lcssa.i.sink to i8
-  tail call fastcc void @agxbputc.retelim(ptr noundef %1, i8 noundef signext %35)
+  tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext %35)
   %36 = tail call fastcc i32 @readc(ptr noundef %0, ptr noundef nonnull %1)
   %37 = icmp slt i32 %36, 0
   %38 = icmp eq i32 %36, %7

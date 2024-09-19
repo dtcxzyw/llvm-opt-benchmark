@@ -397,10 +397,10 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_122AArch64ELFObjectWriter12getRelo
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17)
   %.not.i = icmp eq i32 %48, 137
-  br i1 %.not.i, label %171, label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.argprom.exit.thread
+  br i1 %.not.i, label %171, label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
 171:                                              ; preds = %169
-  switch i32 %54, label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.argprom.exit.thread [
+  switch i32 %54, label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread [
     i32 113, label %172
     i32 97, label %175
     i32 98, label %178
@@ -420,86 +420,86 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_122AArch64ELFObjectWriter12getRelo
   %174 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 1, ptr %174, align 1
   store ptr @.str.26, ptr %6, align 8
-  br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.argprom.exit
+  br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit
 
 175:                                              ; preds = %171
   %176 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %177 = getelementptr inbounds nuw i8, ptr %7, i64 33
   store i8 1, ptr %177, align 1
   store ptr @.str.27, ptr %7, align 8
-  br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.argprom.exit
+  br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit
 
 178:                                              ; preds = %171
   %179 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %180 = getelementptr inbounds nuw i8, ptr %8, i64 33
   store i8 1, ptr %180, align 1
   store ptr @.str.28, ptr %8, align 8
-  br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.argprom.exit
+  br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit
 
 181:                                              ; preds = %171
   %182 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %183 = getelementptr inbounds nuw i8, ptr %9, i64 33
   store i8 1, ptr %183, align 1
   store ptr @.str.29, ptr %9, align 8
-  br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.argprom.exit
+  br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit
 
 184:                                              ; preds = %171
   %185 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %186 = getelementptr inbounds nuw i8, ptr %10, i64 33
   store i8 1, ptr %186, align 1
   store ptr @.str.30, ptr %10, align 8
-  br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.argprom.exit
+  br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit
 
 187:                                              ; preds = %171
   %188 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %189 = getelementptr inbounds nuw i8, ptr %11, i64 33
   store i8 1, ptr %189, align 1
   store ptr @.str.31, ptr %11, align 8
-  br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.argprom.exit
+  br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit
 
 190:                                              ; preds = %171
   %191 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %192 = getelementptr inbounds nuw i8, ptr %12, i64 33
   store i8 1, ptr %192, align 1
   store ptr @.str.32, ptr %12, align 8
-  br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.argprom.exit
+  br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit
 
 193:                                              ; preds = %171
   %194 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %195 = getelementptr inbounds nuw i8, ptr %13, i64 33
   store i8 1, ptr %195, align 1
   store ptr @.str.33, ptr %13, align 8
-  br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.argprom.exit
+  br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit
 
 196:                                              ; preds = %171
   %197 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %198 = getelementptr inbounds nuw i8, ptr %14, i64 33
   store i8 1, ptr %198, align 1
   store ptr @.str.34, ptr %14, align 8
-  br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.argprom.exit
+  br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit
 
 199:                                              ; preds = %171
   %200 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %201 = getelementptr inbounds nuw i8, ptr %15, i64 33
   store i8 1, ptr %201, align 1
   store ptr @.str.35, ptr %15, align 8
-  br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.argprom.exit
+  br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit
 
 202:                                              ; preds = %171
   %203 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %204 = getelementptr inbounds nuw i8, ptr %16, i64 33
   store i8 1, ptr %204, align 1
   store ptr @.str.36, ptr %16, align 8
-  br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.argprom.exit
+  br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit
 
 205:                                              ; preds = %171
   %206 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %207 = getelementptr inbounds nuw i8, ptr %17, i64 33
   store i8 1, ptr %207, align 1
   store ptr @.str.37, ptr %17, align 8
-  br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.argprom.exit
+  br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit
 
-_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.argprom.exit.thread: ; preds = %169, %171
+_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread: ; preds = %169, %171
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
@@ -514,7 +514,7 @@ _ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCCont
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17)
   br label %208
 
-_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.argprom.exit: ; preds = %172, %175, %178, %181, %184, %187, %190, %193, %196, %199, %202, %205
+_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit: ; preds = %172, %175, %178, %181, %184, %187, %190, %193, %196, %199, %202, %205
   %.sink1.i = phi ptr [ %206, %205 ], [ %203, %202 ], [ %200, %199 ], [ %197, %196 ], [ %194, %193 ], [ %191, %190 ], [ %188, %187 ], [ %185, %184 ], [ %182, %181 ], [ %179, %178 ], [ %176, %175 ], [ %173, %172 ]
   %.sink.i = phi ptr [ %17, %205 ], [ %16, %202 ], [ %15, %199 ], [ %14, %196 ], [ %13, %193 ], [ %12, %190 ], [ %11, %187 ], [ %10, %184 ], [ %9, %181 ], [ %8, %178 ], [ %7, %175 ], [ %6, %172 ]
   store i8 3, ptr %.sink1.i, align 8
@@ -533,7 +533,7 @@ _ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCCont
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17)
   br label %432
 
-208:                                              ; preds = %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.argprom.exit.thread, %165
+208:                                              ; preds = %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread, %165
   %trunc371 = trunc nuw i32 %48 to i8
   switch i8 %trunc371, label %428 [
     i8 1, label %209
@@ -1159,8 +1159,8 @@ _ZN4llvm5TwineC2EPKc.exit:                        ; preds = %223, %231
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i346, ptr noundef nonnull align 8 dereferenceable(34) %46) #10
   br label %432
 
-432:                                              ; preds = %215, %._crit_edge, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.argprom.exit, %382, %357, %350, %335, %321, %316, %310, %313, %303, %216, %100, %75, %428, %424, %423, %422, %420, %418, %417, %415, %414, %412, %410, %409, %407, %406, %404, %402, %401, %399, %398, %397, %396, %394, %392, %390, %389, %388, %386, %385, %384, %383, %378, %376, %374, %372, %370, %368, %362, %358, %351, %348, %346, %344, %342, %338, %332, %326, %322, %317, %304, %301, %299, %297, %295, %293, %287, %285, %283, %281, %279, %277, %271, %269, %267, %265, %263, %261, %255, %253, %249, %247, %245, %243, %241, %239, %237, %234, %_ZN4llvm5TwineC2EPKc.exit, %213, %209, %161, %156, %152, %147, %145, %143, %141, %132, %127, %123, %118, %113, %108, %104, %95, %88, %79, %66, %61, %57, %50
-  %.0 = phi i32 [ %51, %50 ], [ 0, %161 ], [ %160, %156 ], [ 0, %152 ], [ %151, %147 ], [ %142, %141 ], [ %144, %143 ], [ %146, %145 ], [ %136, %132 ], [ %131, %127 ], [ 0, %104 ], [ 0, %123 ], [ %122, %118 ], [ %117, %113 ], [ %112, %108 ], [ %99, %95 ], [ %92, %88 ], [ 0, %79 ], [ %74, %66 ], [ %65, %61 ], [ 0, %57 ], [ 0, %428 ], [ 267, %383 ], [ 272, %384 ], [ 268, %385 ], [ %387, %386 ], [ 271, %388 ], [ 266, %389 ], [ %391, %390 ], [ %393, %392 ], [ %395, %394 ], [ 293, %396 ], [ 291, %397 ], [ 292, %398 ], [ %400, %399 ], [ 290, %401 ], [ %403, %402 ], [ %405, %404 ], [ 523, %406 ], [ %408, %407 ], [ 525, %409 ], [ %411, %410 ], [ %413, %412 ], [ 544, %414 ], [ %416, %415 ], [ 546, %417 ], [ %419, %418 ], [ %421, %420 ], [ 539, %422 ], [ 540, %423 ], [ 0, %424 ], [ %369, %368 ], [ %373, %372 ], [ %377, %376 ], [ 0, %378 ], [ %375, %374 ], [ %371, %370 ], [ %333, %332 ], [ 0, %338 ], [ %345, %344 ], [ %349, %348 ], [ 0, %351 ], [ 0, %358 ], [ 0, %362 ], [ %347, %346 ], [ %343, %342 ], [ %294, %293 ], [ %298, %297 ], [ %302, %301 ], [ 0, %304 ], [ 0, %317 ], [ 0, %326 ], [ 0, %322 ], [ %300, %299 ], [ %296, %295 ], [ %278, %277 ], [ %282, %281 ], [ %286, %285 ], [ 0, %287 ], [ %284, %283 ], [ %280, %279 ], [ %262, %261 ], [ %266, %265 ], [ %270, %269 ], [ 0, %271 ], [ %268, %267 ], [ %264, %263 ], [ %238, %237 ], [ %240, %239 ], [ %242, %241 ], [ %244, %243 ], [ %246, %245 ], [ %248, %247 ], [ %250, %249 ], [ %254, %253 ], [ 0, %255 ], [ 0, %_ZN4llvm5TwineC2EPKc.exit ], [ %235, %234 ], [ %214, %213 ], [ 0, %209 ], [ 260, %75 ], [ 276, %100 ], [ 0, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.argprom.exit ], [ 315, %216 ], [ 27, %303 ], [ 0, %313 ], [ 0, %310 ], [ 104, %316 ], [ 125, %321 ], [ %., %335 ], [ 542, %350 ], [ 563, %357 ], [ 269, %382 ], [ %219, %._crit_edge ], [ 1, %215 ]
+432:                                              ; preds = %215, %._crit_edge, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit, %382, %357, %350, %335, %321, %316, %310, %313, %303, %216, %100, %75, %428, %424, %423, %422, %420, %418, %417, %415, %414, %412, %410, %409, %407, %406, %404, %402, %401, %399, %398, %397, %396, %394, %392, %390, %389, %388, %386, %385, %384, %383, %378, %376, %374, %372, %370, %368, %362, %358, %351, %348, %346, %344, %342, %338, %332, %326, %322, %317, %304, %301, %299, %297, %295, %293, %287, %285, %283, %281, %279, %277, %271, %269, %267, %265, %263, %261, %255, %253, %249, %247, %245, %243, %241, %239, %237, %234, %_ZN4llvm5TwineC2EPKc.exit, %213, %209, %161, %156, %152, %147, %145, %143, %141, %132, %127, %123, %118, %113, %108, %104, %95, %88, %79, %66, %61, %57, %50
+  %.0 = phi i32 [ %51, %50 ], [ 0, %161 ], [ %160, %156 ], [ 0, %152 ], [ %151, %147 ], [ %142, %141 ], [ %144, %143 ], [ %146, %145 ], [ %136, %132 ], [ %131, %127 ], [ 0, %104 ], [ 0, %123 ], [ %122, %118 ], [ %117, %113 ], [ %112, %108 ], [ %99, %95 ], [ %92, %88 ], [ 0, %79 ], [ %74, %66 ], [ %65, %61 ], [ 0, %57 ], [ 0, %428 ], [ 267, %383 ], [ 272, %384 ], [ 268, %385 ], [ %387, %386 ], [ 271, %388 ], [ 266, %389 ], [ %391, %390 ], [ %393, %392 ], [ %395, %394 ], [ 293, %396 ], [ 291, %397 ], [ 292, %398 ], [ %400, %399 ], [ 290, %401 ], [ %403, %402 ], [ %405, %404 ], [ 523, %406 ], [ %408, %407 ], [ 525, %409 ], [ %411, %410 ], [ %413, %412 ], [ 544, %414 ], [ %416, %415 ], [ 546, %417 ], [ %419, %418 ], [ %421, %420 ], [ 539, %422 ], [ 540, %423 ], [ 0, %424 ], [ %369, %368 ], [ %373, %372 ], [ %377, %376 ], [ 0, %378 ], [ %375, %374 ], [ %371, %370 ], [ %333, %332 ], [ 0, %338 ], [ %345, %344 ], [ %349, %348 ], [ 0, %351 ], [ 0, %358 ], [ 0, %362 ], [ %347, %346 ], [ %343, %342 ], [ %294, %293 ], [ %298, %297 ], [ %302, %301 ], [ 0, %304 ], [ 0, %317 ], [ 0, %326 ], [ 0, %322 ], [ %300, %299 ], [ %296, %295 ], [ %278, %277 ], [ %282, %281 ], [ %286, %285 ], [ 0, %287 ], [ %284, %283 ], [ %280, %279 ], [ %262, %261 ], [ %266, %265 ], [ %270, %269 ], [ 0, %271 ], [ %268, %267 ], [ %264, %263 ], [ %238, %237 ], [ %240, %239 ], [ %242, %241 ], [ %244, %243 ], [ %246, %245 ], [ %248, %247 ], [ %250, %249 ], [ %254, %253 ], [ 0, %255 ], [ 0, %_ZN4llvm5TwineC2EPKc.exit ], [ %235, %234 ], [ %214, %213 ], [ 0, %209 ], [ 260, %75 ], [ 276, %100 ], [ 0, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit ], [ 315, %216 ], [ 27, %303 ], [ 0, %313 ], [ 0, %310 ], [ 104, %316 ], [ 125, %321 ], [ %., %335 ], [ 542, %350 ], [ 563, %357 ], [ 269, %382 ], [ %219, %._crit_edge ], [ 1, %215 ]
   ret i32 %.0
 }
 
@@ -1306,8 +1306,8 @@ attributes #11 = { builtin nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZSt11make_uniqueIN12_GLOBAL__N_122AArch64ELFObjectWriterEJRhRbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!6 = distinct !{!6, !"_ZSt11make_uniqueIN12_GLOBAL__N_122AArch64ELFObjectWriterEJRhRbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!5 = distinct !{!5, !6, !"_ZSt11make_uniqueIN12_GLOBAL__N_122AArch64ELFObjectWriterEJRhRbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!6 = distinct !{!6, !"_ZSt11make_uniqueIN12_GLOBAL__N_122AArch64ELFObjectWriterEJRhRbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !7 = !{!8}
 !8 = distinct !{!8, !9, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !9 = distinct !{!9, !"_ZNK4llvm5Twine6concatERKS0_"}

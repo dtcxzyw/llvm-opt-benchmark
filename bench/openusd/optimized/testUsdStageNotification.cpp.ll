@@ -1376,7 +1376,7 @@ _ZNSt6vectorISt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14Obje
 
 426:                                              ; preds = %413, %_ZNSt6vectorISt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEESaIS7_EE9push_backEOS7_.exit.i, %_ZNSt6vectorISt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEESaIS7_EE9push_backEOS7_.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %79)
-  br i1 %.not.i.i.i, label %"_ZZ18TestObjectsChangedvEN3$_0D2Ev.argprom.exit", label %427
+  br i1 %.not.i.i.i, label %"_ZZ18TestObjectsChangedvEN3$_0D2Ev.exit", label %427
 
 427:                                              ; preds = %426
   %428 = getelementptr inbounds nuw i8, ptr %366, i64 8
@@ -1397,7 +1397,7 @@ _ZNSt6vectorISt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14Obje
 
 437:                                              ; preds = %432
   %438 = icmp eq i32 %429, -1
-  br i1 %438, label %443, label %"_ZZ18TestObjectsChangedvEN3$_0D2Ev.argprom.exit"
+  br i1 %438, label %443, label %"_ZZ18TestObjectsChangedvEN3$_0D2Ev.exit"
 
 439:                                              ; preds = %432, %431
   %.067.i.i.i.i = phi i32 [ %436, %432 ], [ -2, %431 ]
@@ -1405,19 +1405,19 @@ _ZNSt6vectorISt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14Obje
           to label %.noexc.i.i unwind label %447
 
 .noexc.i.i:                                       ; preds = %439
-  br i1 %440, label %443, label %"_ZZ18TestObjectsChangedvEN3$_0D2Ev.argprom.exit"
+  br i1 %440, label %443, label %"_ZZ18TestObjectsChangedvEN3$_0D2Ev.exit"
 
 _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i: ; preds = %427
   %441 = atomicrmw sub ptr %428, i32 1 release, align 4
   %442 = icmp eq i32 %441, 1
-  br i1 %442, label %443, label %"_ZZ18TestObjectsChangedvEN3$_0D2Ev.argprom.exit"
+  br i1 %442, label %443, label %"_ZZ18TestObjectsChangedvEN3$_0D2Ev.exit"
 
 443:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i, %.noexc.i.i, %437
   %444 = load ptr, ptr %366, align 8
   %445 = getelementptr inbounds i8, ptr %444, i64 8
   %446 = load ptr, ptr %445, align 8
   call void %446(ptr noundef nonnull align 8 dereferenceable(12) %366) #22
-  br label %"_ZZ18TestObjectsChangedvEN3$_0D2Ev.argprom.exit"
+  br label %"_ZZ18TestObjectsChangedvEN3$_0D2Ev.exit"
 
 447:                                              ; preds = %439
   %448 = landingpad { ptr, i32 }
@@ -1426,12 +1426,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
   call void @__clang_call_terminate(ptr %449) #23
   unreachable
 
-"_ZZ18TestObjectsChangedvEN3$_0D2Ev.argprom.exit": ; preds = %426, %437, %.noexc.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i, %443
+"_ZZ18TestObjectsChangedvEN3$_0D2Ev.exit":        ; preds = %426, %437, %.noexc.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i, %443
   %450 = load ptr, ptr %83, align 8
   %.not.i.i.i312 = icmp eq ptr %450, null
   br i1 %.not.i.i.i312, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEC2ERKS2_.exit316, label %451
 
-451:                                              ; preds = %"_ZZ18TestObjectsChangedvEN3$_0D2Ev.argprom.exit"
+451:                                              ; preds = %"_ZZ18TestObjectsChangedvEN3$_0D2Ev.exit"
   %452 = getelementptr inbounds nuw i8, ptr %450, i64 8
   %453 = load atomic i32, ptr %452 monotonic, align 4
   %454 = icmp slt i32 %453, 0
@@ -1457,7 +1457,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
   %463 = atomicrmw add ptr %452, i32 1 monotonic, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEC2ERKS2_.exit316
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEC2ERKS2_.exit316: ; preds = %462, %456, %"_ZZ18TestObjectsChangedvEN3$_0D2Ev.argprom.exit", %461
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEC2ERKS2_.exit316: ; preds = %462, %456, %"_ZZ18TestObjectsChangedvEN3$_0D2Ev.exit", %461
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %78)
   %464 = getelementptr inbounds nuw i8, ptr %78, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %78, i8 0, i64 32, i1 false)
@@ -1576,7 +1576,7 @@ _ZNSt6vectorISt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14Obje
 
 507:                                              ; preds = %494, %_ZNSt6vectorISt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEESaIS7_EE9push_backEOS7_.exit.i323, %_ZNSt6vectorISt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEESaIS7_EE9push_backEOS7_.exit.thread.i319
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %78)
-  br i1 %.not.i.i.i312, label %"_ZZ18TestObjectsChangedvEN3$_1D2Ev.argprom.exit", label %508
+  br i1 %.not.i.i.i312, label %"_ZZ18TestObjectsChangedvEN3$_1D2Ev.exit", label %508
 
 508:                                              ; preds = %507
   %509 = getelementptr inbounds nuw i8, ptr %450, i64 8
@@ -1597,7 +1597,7 @@ _ZNSt6vectorISt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14Obje
 
 518:                                              ; preds = %513
   %519 = icmp eq i32 %510, -1
-  br i1 %519, label %524, label %"_ZZ18TestObjectsChangedvEN3$_1D2Ev.argprom.exit"
+  br i1 %519, label %524, label %"_ZZ18TestObjectsChangedvEN3$_1D2Ev.exit"
 
 520:                                              ; preds = %513, %512
   %.067.i.i.i.i337 = phi i32 [ %517, %513 ], [ -2, %512 ]
@@ -1605,19 +1605,19 @@ _ZNSt6vectorISt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14Obje
           to label %.noexc.i.i338 unwind label %528
 
 .noexc.i.i338:                                    ; preds = %520
-  br i1 %521, label %524, label %"_ZZ18TestObjectsChangedvEN3$_1D2Ev.argprom.exit"
+  br i1 %521, label %524, label %"_ZZ18TestObjectsChangedvEN3$_1D2Ev.exit"
 
 _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i335: ; preds = %508
   %522 = atomicrmw sub ptr %509, i32 1 release, align 4
   %523 = icmp eq i32 %522, 1
-  br i1 %523, label %524, label %"_ZZ18TestObjectsChangedvEN3$_1D2Ev.argprom.exit"
+  br i1 %523, label %524, label %"_ZZ18TestObjectsChangedvEN3$_1D2Ev.exit"
 
 524:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i335, %.noexc.i.i338, %518
   %525 = load ptr, ptr %450, align 8
   %526 = getelementptr inbounds i8, ptr %525, i64 8
   %527 = load ptr, ptr %526, align 8
   call void %527(ptr noundef nonnull align 8 dereferenceable(12) %450) #22
-  br label %"_ZZ18TestObjectsChangedvEN3$_1D2Ev.argprom.exit"
+  br label %"_ZZ18TestObjectsChangedvEN3$_1D2Ev.exit"
 
 528:                                              ; preds = %520
   %529 = landingpad { ptr, i32 }
@@ -1626,7 +1626,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
   call void @__clang_call_terminate(ptr %530) #23
   unreachable
 
-"_ZZ18TestObjectsChangedvEN3$_1D2Ev.argprom.exit": ; preds = %507, %518, %.noexc.i.i338, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i335, %524
+"_ZZ18TestObjectsChangedvEN3$_1D2Ev.exit":        ; preds = %507, %518, %.noexc.i.i338, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i335, %524
   %531 = load ptr, ptr %83, align 8
   store ptr %531, ptr %92, align 8
   %532 = getelementptr inbounds nuw i8, ptr %92, i64 8
@@ -1634,11 +1634,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
   %.not.i339 = icmp eq ptr %531, null
   br i1 %.not.i339, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8UsdStageEEC2IS1_EERKNS_8TfRefPtrIT_EEPNSt9enable_ifIXsr3std14is_convertibleIPS5_PS1_EE5valueEvE4typeE.exit352.thread, label %533
 
-_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8UsdStageEEC2IS1_EERKNS_8TfRefPtrIT_EEPNSt9enable_ifIXsr3std14is_convertibleIPS5_PS1_EE5valueEvE4typeE.exit352.thread: ; preds = %"_ZZ18TestObjectsChangedvEN3$_1D2Ev.argprom.exit"
+_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8UsdStageEEC2IS1_EERKNS_8TfRefPtrIT_EEPNSt9enable_ifIXsr3std14is_convertibleIPS5_PS1_EE5valueEvE4typeE.exit352.thread: ; preds = %"_ZZ18TestObjectsChangedvEN3$_1D2Ev.exit"
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %77)
   br label %572
 
-533:                                              ; preds = %"_ZZ18TestObjectsChangedvEN3$_1D2Ev.argprom.exit"
+533:                                              ; preds = %"_ZZ18TestObjectsChangedvEN3$_1D2Ev.exit"
   %534 = getelementptr inbounds i8, ptr %531, i64 16
   %535 = load atomic i64, ptr %534 seq_cst, align 8, !noalias !15
   %.not.i.i.i.i340 = icmp eq i64 %535, 0
@@ -2634,7 +2634,7 @@ _ZNSt6vectorISt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14Obje
 
 959:                                              ; preds = %946, %_ZNSt6vectorISt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEESaIS7_EE9push_backEOS7_.exit.i435, %_ZNSt6vectorISt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEESaIS7_EE9push_backEOS7_.exit.thread.i431
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %73)
-  br i1 %.not.i.i.i424, label %"_ZZ18TestObjectsChangedvEN3$_3D2Ev.argprom.exit", label %960
+  br i1 %.not.i.i.i424, label %"_ZZ18TestObjectsChangedvEN3$_3D2Ev.exit", label %960
 
 960:                                              ; preds = %959
   %961 = getelementptr inbounds nuw i8, ptr %902, i64 8
@@ -2655,7 +2655,7 @@ _ZNSt6vectorISt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14Obje
 
 970:                                              ; preds = %965
   %971 = icmp eq i32 %962, -1
-  br i1 %971, label %976, label %"_ZZ18TestObjectsChangedvEN3$_3D2Ev.argprom.exit"
+  br i1 %971, label %976, label %"_ZZ18TestObjectsChangedvEN3$_3D2Ev.exit"
 
 972:                                              ; preds = %965, %964
   %.067.i.i.i.i449 = phi i32 [ %969, %965 ], [ -2, %964 ]
@@ -2663,19 +2663,19 @@ _ZNSt6vectorISt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14Obje
           to label %.noexc.i.i450 unwind label %980
 
 .noexc.i.i450:                                    ; preds = %972
-  br i1 %973, label %976, label %"_ZZ18TestObjectsChangedvEN3$_3D2Ev.argprom.exit"
+  br i1 %973, label %976, label %"_ZZ18TestObjectsChangedvEN3$_3D2Ev.exit"
 
 _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i447: ; preds = %960
   %974 = atomicrmw sub ptr %961, i32 1 release, align 4
   %975 = icmp eq i32 %974, 1
-  br i1 %975, label %976, label %"_ZZ18TestObjectsChangedvEN3$_3D2Ev.argprom.exit"
+  br i1 %975, label %976, label %"_ZZ18TestObjectsChangedvEN3$_3D2Ev.exit"
 
 976:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i447, %.noexc.i.i450, %970
   %977 = load ptr, ptr %902, align 8
   %978 = getelementptr inbounds i8, ptr %977, i64 8
   %979 = load ptr, ptr %978, align 8
   call void %979(ptr noundef nonnull align 8 dereferenceable(12) %902) #22
-  br label %"_ZZ18TestObjectsChangedvEN3$_3D2Ev.argprom.exit"
+  br label %"_ZZ18TestObjectsChangedvEN3$_3D2Ev.exit"
 
 980:                                              ; preds = %972
   %981 = landingpad { ptr, i32 }
@@ -2684,12 +2684,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
   call void @__clang_call_terminate(ptr %982) #23
   unreachable
 
-"_ZZ18TestObjectsChangedvEN3$_3D2Ev.argprom.exit": ; preds = %959, %970, %.noexc.i.i450, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i447, %976
+"_ZZ18TestObjectsChangedvEN3$_3D2Ev.exit":        ; preds = %959, %970, %.noexc.i.i450, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i447, %976
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %109) #22
   %983 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %108)
           to label %.noexc451 unwind label %7032
 
-.noexc451:                                        ; preds = %"_ZZ18TestObjectsChangedvEN3$_3D2Ev.argprom.exit"
+.noexc451:                                        ; preds = %"_ZZ18TestObjectsChangedvEN3$_3D2Ev.exit"
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %108, ptr noundef %983, ptr noundef nonnull align 1 dereferenceable(1) %109)
           to label %.noexc452 unwind label %7032
 
@@ -16174,7 +16174,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 .body309:                                         ; preds = %.body.i.i, %397, %418, %421, %6970
   %eh.lpad-body310 = phi { ptr, i32 } [ %6971, %6970 ], [ %396, %397 ], [ %396, %.body.i.i ], [ %419, %418 ], [ %419, %421 ]
-  call fastcc void @"_ZZ18TestObjectsChangedvEN3$_0D2Ev.argprom"(ptr %366) #22
+  call fastcc void @"_ZZ18TestObjectsChangedvEN3$_0D2Ev"(ptr %366) #22
   br label %.body350
 
 6972:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEC2ERKS2_.exit316
@@ -16184,7 +16184,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 .body332:                                         ; preds = %.body.i.i328, %480, %499, %502, %6972
   %eh.lpad-body333 = phi { ptr, i32 } [ %6973, %6972 ], [ %479, %480 ], [ %479, %.body.i.i328 ], [ %500, %499 ], [ %500, %502 ]
-  call fastcc void @"_ZZ18TestObjectsChangedvEN3$_1D2Ev.argprom"(ptr %450) #22
+  call fastcc void @"_ZZ18TestObjectsChangedvEN3$_1D2Ev"(ptr %450) #22
   br label %.body350
 
 6974:                                             ; preds = %572
@@ -16355,10 +16355,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 .body444:                                         ; preds = %.body.i.i440, %932, %951, %954, %7030
   %eh.lpad-body445 = phi { ptr, i32 } [ %7031, %7030 ], [ %931, %932 ], [ %931, %.body.i.i440 ], [ %952, %951 ], [ %952, %954 ]
-  call fastcc void @"_ZZ18TestObjectsChangedvEN3$_3D2Ev.argprom"(ptr %902) #22
+  call fastcc void @"_ZZ18TestObjectsChangedvEN3$_3D2Ev"(ptr %902) #22
   br label %7039
 
-7032:                                             ; preds = %.noexc451, %"_ZZ18TestObjectsChangedvEN3$_3D2Ev.argprom.exit"
+7032:                                             ; preds = %.noexc451, %"_ZZ18TestObjectsChangedvEN3$_3D2Ev.exit"
   %7033 = landingpad { ptr, i32 }
           cleanup
   br label %.body453
@@ -18333,7 +18333,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8UsdStageEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZ18TestObjectsChangedvEN3$_0D2Ev.argprom"(ptr %.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZ18TestObjectsChangedvEN3$_0D2Ev"(ptr %.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.0.val, null
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit, label %1
 
@@ -18390,7 +18390,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZ18TestObjectsChangedvEN3$_1D2Ev.argprom"(ptr %.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZ18TestObjectsChangedvEN3$_1D2Ev"(ptr %.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.0.val, null
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit, label %1
 
@@ -18804,7 +18804,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %_ZN32pxrInter
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZ18TestObjectsChangedvEN3$_3D2Ev.argprom"(ptr %.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZ18TestObjectsChangedvEN3$_3D2Ev"(ptr %.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.0.val, null
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit, label %1
 
@@ -25193,18 +25193,18 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i: ; preds = %72,
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %77 = load ptr, ptr %76, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %77, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE3$_0JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit", label %78
+  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE3$_0JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %78
 
 78:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 48
   %80 = atomicrmw sub ptr %79, i64 1 release, align 8
   %.not1.i.i.i.i.i.i.i.i = icmp eq i64 %80, 1
-  br i1 %.not1.i.i.i.i.i.i.i.i, label %81, label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE3$_0JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br i1 %.not1.i.i.i.i.i.i.i.i, label %81, label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE3$_0JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 81:                                               ; preds = %78
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12Usd_PrimDataD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %77) #22
   call void @_ZdlPvm(ptr noundef nonnull %77, i64 noundef 64) #25
-  br label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE3$_0JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE3$_0JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 82:                                               ; preds = %.noexc.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEptEv.exit.i.i.i
   %83 = landingpad { ptr, i32 }
@@ -25242,7 +25242,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i: ; preds = %72,
   %.pn8.i.i.i = phi { ptr, i32 } [ %90, %89 ], [ %.pn.pn.i.i.i, %.body.i.i.i ]
   resume { ptr, i32 } %.pn8.i.i.i
 
-"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE3$_0JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i, %78, %81
+"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE3$_0JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i, %78, %81
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
@@ -25252,7 +25252,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i: ; preds = %72,
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEZ18TestObjectsChangedvE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %23
@@ -25261,12 +25261,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZ18TestObjectsChangedvE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
@@ -25274,7 +25274,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
   %7 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
   store ptr %.val.i, ptr %7, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_0E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.argprom.exit.i", label %8
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_0E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
@@ -25291,16 +25291,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
   %15 = cmpxchg weak ptr %9, i32 %10, i32 %14 monotonic monotonic, align 4
   %16 = extractvalue { i32, i1 } %15, 1
   %17 = extractvalue { i32, i1 } %15, 0
-  br i1 %16, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_0E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.argprom.exit.i", label %18
+  br i1 %16, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_0E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", label %18
 
 18:                                               ; preds = %13, %12
   %.062.i.i.i.i.i.i.i = phi i32 [ %17, %13 ], [ -1, %12 ]
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter18_AddRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %.val.i, i32 noundef %.062.i.i.i.i.i.i.i)
-          to label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_0E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.argprom.exit.i" unwind label %21
+          to label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_0E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i" unwind label %21
 
 19:                                               ; preds = %8
   %20 = atomicrmw add ptr %9, i32 1 monotonic, align 4
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_0E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.argprom.exit.i"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_0E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i"
 
 21:                                               ; preds = %18
   %22 = landingpad { ptr, i32 }
@@ -25308,19 +25308,19 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
   tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 8) #25
   resume { ptr, i32 } %22
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_0E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.argprom.exit.i": ; preds = %19, %18, %13, %6
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_0E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i": ; preds = %19, %18, %13, %6
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 23:                                               ; preds = %3
   %.val8.i = load ptr, ptr %0, align 8
   %24 = icmp eq ptr %.val8.i, null
-  br i1 %24, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit", label %25
+  br i1 %24, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %25
 
 25:                                               ; preds = %23
   %.val.i.i = load ptr, ptr %.val8.i, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZZ18TestObjectsChangedvEN3$_0D2Ev.argprom.exit.i.i", label %26
+  br i1 %.not.i.i.i.i.i.i, label %"_ZZ18TestObjectsChangedvEN3$_0D2Ev.exit.i.i", label %26
 
 26:                                               ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
@@ -25341,7 +25341,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 36:                                               ; preds = %31
   %37 = icmp eq i32 %28, -1
-  br i1 %37, label %42, label %"_ZZ18TestObjectsChangedvEN3$_0D2Ev.argprom.exit.i.i"
+  br i1 %37, label %42, label %"_ZZ18TestObjectsChangedvEN3$_0D2Ev.exit.i.i"
 
 38:                                               ; preds = %31, %30
   %.067.i.i.i.i.i.i = phi i32 [ %35, %31 ], [ -2, %30 ]
@@ -25349,19 +25349,19 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
           to label %.noexc.i.i.i.i unwind label %46
 
 .noexc.i.i.i.i:                                   ; preds = %38
-  br i1 %39, label %42, label %"_ZZ18TestObjectsChangedvEN3$_0D2Ev.argprom.exit.i.i"
+  br i1 %39, label %42, label %"_ZZ18TestObjectsChangedvEN3$_0D2Ev.exit.i.i"
 
 _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i: ; preds = %26
   %40 = atomicrmw sub ptr %27, i32 1 release, align 4
   %41 = icmp eq i32 %40, 1
-  br i1 %41, label %42, label %"_ZZ18TestObjectsChangedvEN3$_0D2Ev.argprom.exit.i.i"
+  br i1 %41, label %42, label %"_ZZ18TestObjectsChangedvEN3$_0D2Ev.exit.i.i"
 
 42:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i, %.noexc.i.i.i.i, %36
   %43 = load ptr, ptr %.val.i.i, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
   tail call void %45(ptr noundef nonnull align 8 dereferenceable(12) %.val.i.i) #22
-  br label %"_ZZ18TestObjectsChangedvEN3$_0D2Ev.argprom.exit.i.i"
+  br label %"_ZZ18TestObjectsChangedvEN3$_0D2Ev.exit.i.i"
 
 46:                                               ; preds = %38
   %47 = landingpad { ptr, i32 }
@@ -25370,11 +25370,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
   tail call void @__clang_call_terminate(ptr %48) #23
   unreachable
 
-"_ZZ18TestObjectsChangedvEN3$_0D2Ev.argprom.exit.i.i": ; preds = %42, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i, %.noexc.i.i.i.i, %36, %25
+"_ZZ18TestObjectsChangedvEN3$_0D2Ev.exit.i.i":    ; preds = %42, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i, %.noexc.i.i.i.i, %36, %25
   tail call void @_ZdlPvm(ptr noundef nonnull %.val8.i, i64 noundef 8) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZ18TestObjectsChangedvEN3$_0D2Ev.argprom.exit.i.i", %23, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_0E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.argprom.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %3, %"_ZZ18TestObjectsChangedvEN3$_0D2Ev.exit.i.i", %23, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_0E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -25624,7 +25624,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.ex
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit.i.i.i: ; preds = %75, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i.i.i.i
   %81 = load i32, ptr %8, align 4
   %.not.i.i35.i.i.i = icmp eq i32 %81, 0
-  br i1 %.not.i.i35.i.i.i, label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE3$_1JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit", label %82
+  br i1 %.not.i.i35.i.i.i, label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE3$_1JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %82
 
 82:                                               ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit.i.i.i
   %83 = and i32 %81, 255
@@ -25639,11 +25639,11 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit.i.i.i
   %92 = atomicrmw sub ptr %91, i32 1 seq_cst, align 4
   %93 = and i32 %92, 2147483647
   %94 = icmp eq i32 %93, 1
-  br i1 %94, label %95, label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE3$_1JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br i1 %94, label %95, label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE3$_1JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 95:                                               ; preds = %82
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode8_DestroyEv(ptr noundef nonnull align 8 dereferenceable(16) %90)
-          to label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE3$_1JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit" unwind label %96
+          to label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE3$_1JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit" unwind label %96
 
 96:                                               ; preds = %95
   %97 = landingpad { ptr, i32 }
@@ -25718,7 +25718,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit.i.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #22
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.i.i.i
 
-"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE3$_1JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit.i.i.i, %82, %95
+"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE3$_1JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit.i.i.i, %82, %95
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
@@ -25733,7 +25733,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit.i.i.i
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEZ18TestObjectsChangedvE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_1E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_1E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %23
@@ -25742,12 +25742,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZ18TestObjectsChangedvE3$_1", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_1E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_1E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_1E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_1E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
@@ -25755,7 +25755,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
   %7 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
   store ptr %.val.i, ptr %7, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_1E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.argprom.exit.i", label %8
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_1E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
@@ -25772,16 +25772,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
   %15 = cmpxchg weak ptr %9, i32 %10, i32 %14 monotonic monotonic, align 4
   %16 = extractvalue { i32, i1 } %15, 1
   %17 = extractvalue { i32, i1 } %15, 0
-  br i1 %16, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_1E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.argprom.exit.i", label %18
+  br i1 %16, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_1E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", label %18
 
 18:                                               ; preds = %13, %12
   %.062.i.i.i.i.i.i.i = phi i32 [ %17, %13 ], [ -1, %12 ]
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter18_AddRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %.val.i, i32 noundef %.062.i.i.i.i.i.i.i)
-          to label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_1E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.argprom.exit.i" unwind label %21
+          to label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_1E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i" unwind label %21
 
 19:                                               ; preds = %8
   %20 = atomicrmw add ptr %9, i32 1 monotonic, align 4
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_1E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.argprom.exit.i"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_1E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i"
 
 21:                                               ; preds = %18
   %22 = landingpad { ptr, i32 }
@@ -25789,19 +25789,19 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
   tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 8) #25
   resume { ptr, i32 } %22
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_1E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.argprom.exit.i": ; preds = %19, %18, %13, %6
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_1E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i": ; preds = %19, %18, %13, %6
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_1E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_1E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 23:                                               ; preds = %3
   %.val8.i = load ptr, ptr %0, align 8
   %24 = icmp eq ptr %.val8.i, null
-  br i1 %24, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_1E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit", label %25
+  br i1 %24, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_1E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %25
 
 25:                                               ; preds = %23
   %.val.i.i = load ptr, ptr %.val8.i, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZZ18TestObjectsChangedvEN3$_1D2Ev.argprom.exit.i.i", label %26
+  br i1 %.not.i.i.i.i.i.i, label %"_ZZ18TestObjectsChangedvEN3$_1D2Ev.exit.i.i", label %26
 
 26:                                               ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
@@ -25822,7 +25822,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 36:                                               ; preds = %31
   %37 = icmp eq i32 %28, -1
-  br i1 %37, label %42, label %"_ZZ18TestObjectsChangedvEN3$_1D2Ev.argprom.exit.i.i"
+  br i1 %37, label %42, label %"_ZZ18TestObjectsChangedvEN3$_1D2Ev.exit.i.i"
 
 38:                                               ; preds = %31, %30
   %.067.i.i.i.i.i.i = phi i32 [ %35, %31 ], [ -2, %30 ]
@@ -25830,19 +25830,19 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
           to label %.noexc.i.i.i.i unwind label %46
 
 .noexc.i.i.i.i:                                   ; preds = %38
-  br i1 %39, label %42, label %"_ZZ18TestObjectsChangedvEN3$_1D2Ev.argprom.exit.i.i"
+  br i1 %39, label %42, label %"_ZZ18TestObjectsChangedvEN3$_1D2Ev.exit.i.i"
 
 _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i: ; preds = %26
   %40 = atomicrmw sub ptr %27, i32 1 release, align 4
   %41 = icmp eq i32 %40, 1
-  br i1 %41, label %42, label %"_ZZ18TestObjectsChangedvEN3$_1D2Ev.argprom.exit.i.i"
+  br i1 %41, label %42, label %"_ZZ18TestObjectsChangedvEN3$_1D2Ev.exit.i.i"
 
 42:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i, %.noexc.i.i.i.i, %36
   %43 = load ptr, ptr %.val.i.i, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
   tail call void %45(ptr noundef nonnull align 8 dereferenceable(12) %.val.i.i) #22
-  br label %"_ZZ18TestObjectsChangedvEN3$_1D2Ev.argprom.exit.i.i"
+  br label %"_ZZ18TestObjectsChangedvEN3$_1D2Ev.exit.i.i"
 
 46:                                               ; preds = %38
   %47 = landingpad { ptr, i32 }
@@ -25851,11 +25851,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
   tail call void @__clang_call_terminate(ptr %48) #23
   unreachable
 
-"_ZZ18TestObjectsChangedvEN3$_1D2Ev.argprom.exit.i.i": ; preds = %42, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i, %.noexc.i.i.i.i, %36, %25
+"_ZZ18TestObjectsChangedvEN3$_1D2Ev.exit.i.i":    ; preds = %42, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i, %.noexc.i.i.i.i, %36, %25
   tail call void @_ZdlPvm(ptr noundef nonnull %.val8.i, i64 noundef 8) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_1E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_1E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_1E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZ18TestObjectsChangedvEN3$_1D2Ev.argprom.exit.i.i", %23, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_1E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.argprom.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_1E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %3, %"_ZZ18TestObjectsChangedvEN3$_1D2Ev.exit.i.i", %23, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_1E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -25922,16 +25922,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZ18TestObjectsChangedvE3$_2", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_2E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_2E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_2E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_2E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_2E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_2E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 3, label %43
     i32 2, label %7
   ]
@@ -26000,12 +26000,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i: ; preds 
 
 "_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_2E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i": ; preds = %42, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_2E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_2E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 43:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %44 = icmp eq ptr %.val7.i, null
-  br i1 %44, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_2E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit", label %45
+  br i1 %44, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_2E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %45
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %.val7.i, i64 24
@@ -26072,9 +26072,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i: ; preds = %69,
 
 "_ZZ18TestObjectsChangedvEN3$_2D2Ev.exit.i.i":    ; preds = %78, %75, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_2E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_2E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_2E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %"_ZZ18TestObjectsChangedvEN3$_2D2Ev.exit.i.i", %43, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_2E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_2E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %"_ZZ18TestObjectsChangedvEN3$_2D2Ev.exit.i.i", %43, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_2E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
   ret i1 false
 }
 
@@ -26324,7 +26324,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.ex
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit.i.i.i: ; preds = %75, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i.i.i.i
   %81 = load i32, ptr %8, align 4
   %.not.i.i35.i.i.i = icmp eq i32 %81, 0
-  br i1 %.not.i.i35.i.i.i, label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE3$_3JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit", label %82
+  br i1 %.not.i.i35.i.i.i, label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE3$_3JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %82
 
 82:                                               ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit.i.i.i
   %83 = and i32 %81, 255
@@ -26339,11 +26339,11 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit.i.i.i
   %92 = atomicrmw sub ptr %91, i32 1 seq_cst, align 4
   %93 = and i32 %92, 2147483647
   %94 = icmp eq i32 %93, 1
-  br i1 %94, label %95, label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE3$_3JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br i1 %94, label %95, label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE3$_3JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 95:                                               ; preds = %82
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode8_DestroyEv(ptr noundef nonnull align 8 dereferenceable(16) %90)
-          to label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE3$_3JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit" unwind label %96
+          to label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE3$_3JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit" unwind label %96
 
 96:                                               ; preds = %95
   %97 = landingpad { ptr, i32 }
@@ -26418,7 +26418,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit.i.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #22
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.i.i.i
 
-"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE3$_3JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit.i.i.i, %82, %95
+"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE3$_3JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit.i.i.i, %82, %95
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
@@ -26433,7 +26433,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit.i.i.i
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEZ18TestObjectsChangedvE3$_3E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_3E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_3E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %23
@@ -26442,12 +26442,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZ18TestObjectsChangedvE3$_3", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_3E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_3E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_3E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_3E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
@@ -26455,7 +26455,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
   %7 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
   store ptr %.val.i, ptr %7, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_3E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.argprom.exit.i", label %8
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_3E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
@@ -26472,16 +26472,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
   %15 = cmpxchg weak ptr %9, i32 %10, i32 %14 monotonic monotonic, align 4
   %16 = extractvalue { i32, i1 } %15, 1
   %17 = extractvalue { i32, i1 } %15, 0
-  br i1 %16, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_3E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.argprom.exit.i", label %18
+  br i1 %16, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_3E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", label %18
 
 18:                                               ; preds = %13, %12
   %.062.i.i.i.i.i.i.i = phi i32 [ %17, %13 ], [ -1, %12 ]
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter18_AddRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %.val.i, i32 noundef %.062.i.i.i.i.i.i.i)
-          to label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_3E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.argprom.exit.i" unwind label %21
+          to label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_3E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i" unwind label %21
 
 19:                                               ; preds = %8
   %20 = atomicrmw add ptr %9, i32 1 monotonic, align 4
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_3E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.argprom.exit.i"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_3E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i"
 
 21:                                               ; preds = %18
   %22 = landingpad { ptr, i32 }
@@ -26489,19 +26489,19 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
   tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 8) #25
   resume { ptr, i32 } %22
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_3E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.argprom.exit.i": ; preds = %19, %18, %13, %6
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_3E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i": ; preds = %19, %18, %13, %6
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_3E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_3E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 23:                                               ; preds = %3
   %.val8.i = load ptr, ptr %0, align 8
   %24 = icmp eq ptr %.val8.i, null
-  br i1 %24, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_3E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit", label %25
+  br i1 %24, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_3E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %25
 
 25:                                               ; preds = %23
   %.val.i.i = load ptr, ptr %.val8.i, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZZ18TestObjectsChangedvEN3$_3D2Ev.argprom.exit.i.i", label %26
+  br i1 %.not.i.i.i.i.i.i, label %"_ZZ18TestObjectsChangedvEN3$_3D2Ev.exit.i.i", label %26
 
 26:                                               ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
@@ -26522,7 +26522,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 36:                                               ; preds = %31
   %37 = icmp eq i32 %28, -1
-  br i1 %37, label %42, label %"_ZZ18TestObjectsChangedvEN3$_3D2Ev.argprom.exit.i.i"
+  br i1 %37, label %42, label %"_ZZ18TestObjectsChangedvEN3$_3D2Ev.exit.i.i"
 
 38:                                               ; preds = %31, %30
   %.067.i.i.i.i.i.i = phi i32 [ %35, %31 ], [ -2, %30 ]
@@ -26530,19 +26530,19 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
           to label %.noexc.i.i.i.i unwind label %46
 
 .noexc.i.i.i.i:                                   ; preds = %38
-  br i1 %39, label %42, label %"_ZZ18TestObjectsChangedvEN3$_3D2Ev.argprom.exit.i.i"
+  br i1 %39, label %42, label %"_ZZ18TestObjectsChangedvEN3$_3D2Ev.exit.i.i"
 
 _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i: ; preds = %26
   %40 = atomicrmw sub ptr %27, i32 1 release, align 4
   %41 = icmp eq i32 %40, 1
-  br i1 %41, label %42, label %"_ZZ18TestObjectsChangedvEN3$_3D2Ev.argprom.exit.i.i"
+  br i1 %41, label %42, label %"_ZZ18TestObjectsChangedvEN3$_3D2Ev.exit.i.i"
 
 42:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i, %.noexc.i.i.i.i, %36
   %43 = load ptr, ptr %.val.i.i, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
   tail call void %45(ptr noundef nonnull align 8 dereferenceable(12) %.val.i.i) #22
-  br label %"_ZZ18TestObjectsChangedvEN3$_3D2Ev.argprom.exit.i.i"
+  br label %"_ZZ18TestObjectsChangedvEN3$_3D2Ev.exit.i.i"
 
 46:                                               ; preds = %38
   %47 = landingpad { ptr, i32 }
@@ -26551,11 +26551,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
   tail call void @__clang_call_terminate(ptr %48) #23
   unreachable
 
-"_ZZ18TestObjectsChangedvEN3$_3D2Ev.argprom.exit.i.i": ; preds = %42, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i, %.noexc.i.i.i.i, %36, %25
+"_ZZ18TestObjectsChangedvEN3$_3D2Ev.exit.i.i":    ; preds = %42, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i, %.noexc.i.i.i.i, %36, %25
   tail call void @_ZdlPvm(ptr noundef nonnull %.val8.i, i64 noundef 8) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_3E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_3E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_3E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZ18TestObjectsChangedvEN3$_3D2Ev.argprom.exit.i.i", %23, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_3E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.argprom.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_3E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %3, %"_ZZ18TestObjectsChangedvEN3$_3D2Ev.exit.i.i", %23, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_3E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -26596,16 +26596,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZ18TestObjectsChangedvE3$_4", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_4E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_4E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_4E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_4E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_4E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_4E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 3, label %43
     i32 2, label %7
   ]
@@ -26674,12 +26674,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i: ; preds 
 
 "_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_4E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i": ; preds = %42, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_4E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_4E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 43:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %44 = icmp eq ptr %.val7.i, null
-  br i1 %44, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_4E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit", label %45
+  br i1 %44, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_4E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %45
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %.val7.i, i64 24
@@ -26746,9 +26746,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i: ; preds = %69,
 
 "_ZZ18TestObjectsChangedvEN3$_4D2Ev.exit.i.i":    ; preds = %78, %75, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_4E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_4E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_4E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %"_ZZ18TestObjectsChangedvEN3$_4D2Ev.exit.i.i", %43, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_4E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_4E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %"_ZZ18TestObjectsChangedvEN3$_4D2Ev.exit.i.i", %43, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_4E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
   ret i1 false
 }
 
@@ -27048,16 +27048,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZ18TestObjectsChangedvE3$_5", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_5E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_5E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_5E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_5E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_5E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_5E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 3, label %43
     i32 2, label %7
   ]
@@ -27126,12 +27126,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i: ; preds 
 
 "_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_5E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i": ; preds = %42, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_5E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_5E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 43:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %44 = icmp eq ptr %.val7.i, null
-  br i1 %44, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_5E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit", label %45
+  br i1 %44, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_5E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %45
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %.val7.i, i64 24
@@ -27198,9 +27198,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i: ; preds = %69,
 
 "_ZZ18TestObjectsChangedvEN3$_5D2Ev.exit.i.i":    ; preds = %78, %75, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_5E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_5E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_5E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %"_ZZ18TestObjectsChangedvEN3$_5D2Ev.exit.i.i", %43, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_5E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_5E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %"_ZZ18TestObjectsChangedvEN3$_5D2Ev.exit.i.i", %43, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_5E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
   ret i1 false
 }
 
@@ -27396,7 +27396,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEZ18TestObjectsChangedvE3$_6E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_6E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_6E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %7
@@ -27405,29 +27405,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZ18TestObjectsChangedvE3$_6", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_6E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_6E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_6E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_6E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   tail call fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_6E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(64) %.val6)
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_6E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_6E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 7:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %8 = icmp eq ptr %.val7.i, null
-  br i1 %8, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_6E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit", label %9
+  br i1 %8, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_6E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %9
 
 9:                                                ; preds = %7
   tail call fastcc void @"_ZZ18TestObjectsChangedvEN3$_6D2Ev"(ptr noundef nonnull align 8 dereferenceable(64) %.val7.i) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 64) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_6E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_6E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_6E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %3, %9, %7, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_6E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %3, %9, %7, %6, %5, %4
   ret i1 false
 }
 
@@ -27936,7 +27936,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.ex
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEZ18TestObjectsChangedvE3$_7E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_7E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_7E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %7
@@ -27945,29 +27945,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZ18TestObjectsChangedvE3$_7", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_7E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_7E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_7E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_7E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   tail call fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_7E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(64) %.val6)
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_7E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_7E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 7:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %8 = icmp eq ptr %.val7.i, null
-  br i1 %8, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_7E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit", label %9
+  br i1 %8, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_7E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %9
 
 9:                                                ; preds = %7
   tail call fastcc void @"_ZZ18TestObjectsChangedvEN3$_7D2Ev"(ptr noundef nonnull align 8 dereferenceable(64) %.val7.i) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 64) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_7E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_7E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_7E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %3, %9, %7, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_7E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %3, %9, %7, %6, %5, %4
   ret i1 false
 }
 
@@ -28008,16 +28008,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZ18TestObjectsChangedvE3$_8", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_8E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_8E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_8E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_8E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_8E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_8E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 3, label %43
     i32 2, label %7
   ]
@@ -28086,12 +28086,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i: ; preds 
 
 "_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_8E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i": ; preds = %42, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_8E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_8E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 43:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %44 = icmp eq ptr %.val7.i, null
-  br i1 %44, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_8E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit", label %45
+  br i1 %44, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_8E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %45
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %.val7.i, i64 24
@@ -28158,9 +28158,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i: ; preds = %69,
 
 "_ZZ18TestObjectsChangedvEN3$_8D2Ev.exit.i.i":    ; preds = %78, %75, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_8E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_8E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_8E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %"_ZZ18TestObjectsChangedvEN3$_8D2Ev.exit.i.i", %43, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_8E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_8E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %"_ZZ18TestObjectsChangedvEN3$_8D2Ev.exit.i.i", %43, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_8E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
   ret i1 false
 }
 
@@ -28595,16 +28595,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZ18TestObjectsChangedvE3$_9", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_9E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_9E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_9E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_9E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_9E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_9E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 3, label %43
     i32 2, label %7
   ]
@@ -28673,12 +28673,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i: ; preds 
 
 "_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_9E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i": ; preds = %42, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_9E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_9E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 43:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %44 = icmp eq ptr %.val7.i, null
-  br i1 %44, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_9E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit", label %45
+  br i1 %44, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_9E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %45
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %.val7.i, i64 24
@@ -28745,9 +28745,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i: ; preds = %69,
 
 "_ZZ18TestObjectsChangedvEN3$_9D2Ev.exit.i.i":    ; preds = %78, %75, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_9E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_9E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_9E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %"_ZZ18TestObjectsChangedvEN3$_9D2Ev.exit.i.i", %43, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_9E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_9E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %"_ZZ18TestObjectsChangedvEN3$_9D2Ev.exit.i.i", %43, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_9E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
   ret i1 false
 }
 
@@ -28935,7 +28935,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEZ18TestObjectsChangedvE4$_10E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_10E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_10E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %7
@@ -28944,29 +28944,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZ18TestObjectsChangedvE4$_10", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_10E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_10E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_10E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_10E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   tail call fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_10E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(64) %.val6)
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_10E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_10E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 7:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %8 = icmp eq ptr %.val7.i, null
-  br i1 %8, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_10E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit", label %9
+  br i1 %8, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_10E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %9
 
 9:                                                ; preds = %7
   tail call fastcc void @"_ZZ18TestObjectsChangedvEN4$_10D2Ev"(ptr noundef nonnull align 8 dereferenceable(64) %.val7.i) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 64) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_10E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_10E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_10E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %3, %9, %7, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_10E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %3, %9, %7, %6, %5, %4
   ret i1 false
 }
 
@@ -29511,7 +29511,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.ex
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEZ18TestObjectsChangedvE4$_11E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_11E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_11E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %7
@@ -29520,29 +29520,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZ18TestObjectsChangedvE4$_11", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_11E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_11E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_11E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_11E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   tail call fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_11E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(64) %.val6)
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_11E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_11E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 7:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %8 = icmp eq ptr %.val7.i, null
-  br i1 %8, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_11E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit", label %9
+  br i1 %8, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_11E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %9
 
 9:                                                ; preds = %7
   tail call fastcc void @"_ZZ18TestObjectsChangedvEN4$_11D2Ev"(ptr noundef nonnull align 8 dereferenceable(64) %.val7.i) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 64) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_11E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_11E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_11E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %3, %9, %7, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_11E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %3, %9, %7, %6, %5, %4
   ret i1 false
 }
 
@@ -29763,7 +29763,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChanged9PathRange4sizeE
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEZ18TestObjectsChangedvE4$_12E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_12E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_12E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %7
@@ -29772,29 +29772,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZ18TestObjectsChangedvE4$_12", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_12E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_12E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_12E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_12E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   tail call fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_12E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(64) %.val6)
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_12E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_12E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 7:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %8 = icmp eq ptr %.val7.i, null
-  br i1 %8, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_12E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit", label %9
+  br i1 %8, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_12E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %9
 
 9:                                                ; preds = %7
   tail call fastcc void @"_ZZ18TestObjectsChangedvEN4$_12D2Ev"(ptr noundef nonnull align 8 dereferenceable(64) %.val7.i) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 64) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_12E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_12E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_12E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %3, %9, %7, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_12E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %3, %9, %7, %6, %5, %4
   ret i1 false
 }
 
@@ -30303,7 +30303,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.ex
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEZ18TestObjectsChangedvE4$_13E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_13E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_13E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %7
@@ -30312,29 +30312,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZ18TestObjectsChangedvE4$_13", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_13E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_13E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_13E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_13E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   tail call fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_13E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(64) %.val6)
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_13E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_13E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 7:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %8 = icmp eq ptr %.val7.i, null
-  br i1 %8, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_13E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit", label %9
+  br i1 %8, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_13E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %9
 
 9:                                                ; preds = %7
   tail call fastcc void @"_ZZ18TestObjectsChangedvEN4$_13D2Ev"(ptr noundef nonnull align 8 dereferenceable(64) %.val7.i) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 64) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_13E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_13E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_13E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %3, %9, %7, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_13E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %3, %9, %7, %6, %5, %4
   ret i1 false
 }
 
@@ -30694,7 +30694,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEZ18TestObjectsChangedvE4$_14E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_14E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_14E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %7
@@ -30703,29 +30703,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZ18TestObjectsChangedvE4$_14", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_14E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_14E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_14E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_14E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   tail call fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_14E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(128) %.val6)
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_14E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_14E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 7:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %8 = icmp eq ptr %.val7.i, null
-  br i1 %8, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_14E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit", label %9
+  br i1 %8, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_14E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %9
 
 9:                                                ; preds = %7
   tail call fastcc void @"_ZZ18TestObjectsChangedvEN4$_14D2Ev"(ptr noundef nonnull align 8 dereferenceable(128) %.val7.i) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 128) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_14E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_14E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_14E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %3, %9, %7, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_14E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %3, %9, %7, %6, %5, %4
   ret i1 false
 }
 
@@ -31667,7 +31667,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.ex
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEZ18TestObjectsChangedvE4$_15E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_15E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_15E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %7
@@ -31676,29 +31676,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZ18TestObjectsChangedvE4$_15", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_15E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_15E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_15E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_15E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   tail call fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_15E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(128) %.val6)
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_15E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_15E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 7:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %8 = icmp eq ptr %.val7.i, null
-  br i1 %8, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_15E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit", label %9
+  br i1 %8, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_15E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %9
 
 9:                                                ; preds = %7
   tail call fastcc void @"_ZZ18TestObjectsChangedvEN4$_15D2Ev"(ptr noundef nonnull align 8 dereferenceable(128) %.val7.i) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 128) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_15E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_15E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_15E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %3, %9, %7, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_15E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %3, %9, %7, %6, %5, %4
   ret i1 false
 }
 
@@ -32140,7 +32140,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChanged14AffectedObject
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEZ18TestObjectsChangedvE4$_16E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_16E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_16E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %7
@@ -32149,29 +32149,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZ18TestObjectsChangedvE4$_16", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_16E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_16E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_16E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_16E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   tail call fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_16E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(96) %.val6)
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_16E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_16E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 7:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %8 = icmp eq ptr %.val7.i, null
-  br i1 %8, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_16E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit", label %9
+  br i1 %8, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_16E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %9
 
 9:                                                ; preds = %7
   tail call fastcc void @"_ZZ18TestObjectsChangedvEN4$_16D2Ev"(ptr noundef nonnull align 8 dereferenceable(96) %.val7.i) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 96) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_16E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_16E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_16E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %3, %9, %7, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_16E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %3, %9, %7, %6, %5, %4
   ret i1 false
 }
 
@@ -33274,7 +33274,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.ex
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEZ18TestObjectsChangedvE4$_17E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_17E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_17E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %7
@@ -33283,29 +33283,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZ18TestObjectsChangedvE4$_17", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_17E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_17E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_17E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_17E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   tail call fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_17E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(96) %.val6)
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_17E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_17E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 7:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %8 = icmp eq ptr %.val7.i, null
-  br i1 %8, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_17E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit", label %9
+  br i1 %8, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_17E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %9
 
 9:                                                ; preds = %7
   tail call fastcc void @"_ZZ18TestObjectsChangedvEN4$_17D2Ev"(ptr noundef nonnull align 8 dereferenceable(96) %.val7.i) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 96) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_17E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_17E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_17E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %3, %9, %7, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_17E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %3, %9, %7, %6, %5, %4
   ret i1 false
 }
 
@@ -34284,7 +34284,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChanged14AffectedObject
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEZ18TestObjectsChangedvE4$_18E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_18E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_18E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %7
@@ -34293,29 +34293,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZ18TestObjectsChangedvE4$_18", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_18E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_18E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_18E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_18E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   tail call fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_18E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(96) %.val6)
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_18E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_18E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 7:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %8 = icmp eq ptr %.val7.i, null
-  br i1 %8, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_18E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit", label %9
+  br i1 %8, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_18E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %9
 
 9:                                                ; preds = %7
   tail call fastcc void @"_ZZ18TestObjectsChangedvEN4$_18D2Ev"(ptr noundef nonnull align 8 dereferenceable(96) %.val7.i) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 96) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_18E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_18E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_18E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %3, %9, %7, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_18E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %3, %9, %7, %6, %5, %4
   ret i1 false
 }
 
@@ -35416,7 +35416,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.ex
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEZ18TestObjectsChangedvE4$_19E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_19E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_19E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %7
@@ -35425,29 +35425,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZ18TestObjectsChangedvE4$_19", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_19E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_19E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_19E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_19E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   tail call fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_19E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(96) %.val6)
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_19E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_19E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 7:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %8 = icmp eq ptr %.val7.i, null
-  br i1 %8, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_19E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit", label %9
+  br i1 %8, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_19E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %9
 
 9:                                                ; preds = %7
   tail call fastcc void @"_ZZ18TestObjectsChangedvEN4$_19D2Ev"(ptr noundef nonnull align 8 dereferenceable(96) %.val7.i) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 96) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_19E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_19E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_19E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %3, %9, %7, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_19E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %3, %9, %7, %6, %5, %4
   ret i1 false
 }
 
@@ -35599,16 +35599,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZ18TestObjectsChangedvE4$_20", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_20E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_20E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_20E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_20E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_20E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_20E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 3, label %43
     i32 2, label %7
   ]
@@ -35677,12 +35677,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i: ; preds 
 
 "_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_20E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i": ; preds = %42, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_20E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_20E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 43:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %44 = icmp eq ptr %.val7.i, null
-  br i1 %44, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_20E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit", label %45
+  br i1 %44, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_20E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %45
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %.val7.i, i64 24
@@ -35749,9 +35749,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i: ; preds = %69,
 
 "_ZZ18TestObjectsChangedvEN4$_20D2Ev.exit.i.i":   ; preds = %78, %75, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_20E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_20E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_20E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %"_ZZ18TestObjectsChangedvEN4$_20D2Ev.exit.i.i", %43, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_20E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_20E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %"_ZZ18TestObjectsChangedvEN4$_20D2Ev.exit.i.i", %43, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_20E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
   ret i1 false
 }
 
@@ -36051,16 +36051,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZ18TestObjectsChangedvE4$_21", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_21E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_21E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_21E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_21E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_21E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_21E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 3, label %43
     i32 2, label %7
   ]
@@ -36129,12 +36129,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i: ; preds 
 
 "_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_21E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i": ; preds = %42, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_21E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_21E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 43:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %44 = icmp eq ptr %.val7.i, null
-  br i1 %44, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_21E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit", label %45
+  br i1 %44, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_21E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %45
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %.val7.i, i64 24
@@ -36201,9 +36201,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i: ; preds = %69,
 
 "_ZZ18TestObjectsChangedvEN4$_21D2Ev.exit.i.i":   ; preds = %78, %75, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_21E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_21E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_21E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %"_ZZ18TestObjectsChangedvEN4$_21D2Ev.exit.i.i", %43, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_21E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_21E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %"_ZZ18TestObjectsChangedvEN4$_21D2Ev.exit.i.i", %43, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_21E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
   ret i1 false
 }
 
@@ -36355,16 +36355,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZ18TestObjectsChangedvE4$_22", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_22E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_22E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_22E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_22E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_22E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_22E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 3, label %43
     i32 2, label %7
   ]
@@ -36433,12 +36433,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i: ; preds 
 
 "_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_22E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i": ; preds = %42, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_22E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_22E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 43:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %44 = icmp eq ptr %.val7.i, null
-  br i1 %44, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_22E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit", label %45
+  br i1 %44, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_22E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %45
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %.val7.i, i64 24
@@ -36505,9 +36505,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i: ; preds = %69,
 
 "_ZZ18TestObjectsChangedvEN4$_22D2Ev.exit.i.i":   ; preds = %78, %75, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_22E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_22E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_22E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %"_ZZ18TestObjectsChangedvEN4$_22D2Ev.exit.i.i", %43, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_22E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_22E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %"_ZZ18TestObjectsChangedvEN4$_22D2Ev.exit.i.i", %43, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_22E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
   ret i1 false
 }
 
@@ -36942,16 +36942,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZ18TestObjectsChangedvE4$_23", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_23E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_23E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_23E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_23E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_23E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_23E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 3, label %43
     i32 2, label %7
   ]
@@ -37020,12 +37020,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i: ; preds 
 
 "_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_23E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i": ; preds = %42, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_23E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_23E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 43:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %44 = icmp eq ptr %.val7.i, null
-  br i1 %44, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_23E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit", label %45
+  br i1 %44, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_23E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %45
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %.val7.i, i64 24
@@ -37092,9 +37092,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i: ; preds = %69,
 
 "_ZZ18TestObjectsChangedvEN4$_23D2Ev.exit.i.i":   ; preds = %78, %75, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_23E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_23E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_23E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %"_ZZ18TestObjectsChangedvEN4$_23D2Ev.exit.i.i", %43, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_23E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_23E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %"_ZZ18TestObjectsChangedvEN4$_23D2Ev.exit.i.i", %43, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_23E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
   ret i1 false
 }
 
@@ -37413,7 +37413,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.ex
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i30.i.i.i: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i28.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i
   %127 = phi ptr [ %.pr.i29.i.i.i, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i28.i.i.i ], [ %106, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i ]
   %.not.i.i.i31.i.i.i = icmp eq ptr %127, null
-  br i1 %.not.i.i.i31.i.i.i, label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_24JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit", label %128
+  br i1 %.not.i.i.i31.i.i.i, label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_24JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %128
 
 128:                                              ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i30.i.i.i
   %129 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -37422,7 +37422,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.ex
   %132 = ptrtoint ptr %127 to i64
   %133 = sub i64 %131, %132
   call void @_ZdlPvm(ptr noundef nonnull %127, i64 noundef %133) #25
-  br label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_24JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_24JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 134:                                              ; preds = %.noexc.i.i.i, %2
   %135 = landingpad { ptr, i32 }
@@ -37456,7 +37456,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.ex
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #22
   resume { ptr, i32 } %.pn.pn.pn.i.i.i
 
-"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_24JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i30.i.i.i, %128
+"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_24JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i30.i.i.i, %128
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -38056,7 +38056,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.ex
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit59.i.i.i
   %169 = phi ptr [ %.pr.i.i.i.i, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i ], [ %159, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit59.i.i.i ]
   %.not.i.i.i.i.i.i = icmp eq ptr %169, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_25JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit", label %170
+  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_25JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %170
 
 170:                                              ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i.i.i.i
   %171 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -38065,7 +38065,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.ex
   %174 = ptrtoint ptr %169 to i64
   %175 = sub i64 %173, %174
   call void @_ZdlPvm(ptr noundef nonnull %169, i64 noundef %175) #25
-  br label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_25JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_25JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 176:                                              ; preds = %.noexc.i.i.i, %2
   %177 = landingpad { ptr, i32 }
@@ -38172,7 +38172,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit63.i.i.i: ; preds = %197, 
   %.pn16.pn.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %.pn16.pn.pn.pn.i.i.i, %.body24.i.i.i ], [ %.pn.pn.i.i.i, %.body.i.i.i ]
   resume { ptr, i32 } %.pn16.pn.pn.pn.pn.i.i.i
 
-"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_25JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i.i.i.i, %170
+"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_25JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i.i.i.i, %170
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
@@ -40023,16 +40023,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZ18TestObjectsChangedvE4$_26", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_26E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_26E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_26E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_26E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_26E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_26E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 3, label %43
     i32 2, label %7
   ]
@@ -40101,12 +40101,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i.i: ; pred
 
 "_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_26E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i": ; preds = %42, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i.i
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_26E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_26E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 43:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %44 = icmp eq ptr %.val7.i, null
-  br i1 %44, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_26E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit", label %45
+  br i1 %44, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_26E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %45
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %.val7.i, i64 24
@@ -40173,9 +40173,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i.i: ; preds = %6
 
 "_ZZ18TestObjectsChangedvEN4$_26D2Ev.exit.i.i":   ; preds = %78, %75, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_26E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_26E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_26E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %"_ZZ18TestObjectsChangedvEN4$_26D2Ev.exit.i.i", %43, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_26E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_26E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %"_ZZ18TestObjectsChangedvEN4$_26D2Ev.exit.i.i", %43, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_26E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
   ret i1 false
 }
 
@@ -40475,16 +40475,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZ18TestObjectsChangedvE4$_27", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_27E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_27E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_27E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_27E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_27E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_27E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 3, label %43
     i32 2, label %7
   ]
@@ -40553,12 +40553,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i.i: ; pred
 
 "_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_27E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i": ; preds = %42, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i.i
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_27E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_27E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 43:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %44 = icmp eq ptr %.val7.i, null
-  br i1 %44, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_27E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit", label %45
+  br i1 %44, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_27E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %45
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %.val7.i, i64 24
@@ -40625,9 +40625,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i.i: ; preds = %6
 
 "_ZZ18TestObjectsChangedvEN4$_27D2Ev.exit.i.i":   ; preds = %78, %75, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_27E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_27E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_27E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %"_ZZ18TestObjectsChangedvEN4$_27D2Ev.exit.i.i", %43, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_27E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_27E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %"_ZZ18TestObjectsChangedvEN4$_27D2Ev.exit.i.i", %43, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_27E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
   ret i1 false
 }
 
@@ -40948,7 +40948,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.ex
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i30.i.i.i: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i28.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i
   %127 = phi ptr [ %.pr.i29.i.i.i, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i28.i.i.i ], [ %106, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i ]
   %.not.i.i.i31.i.i.i = icmp eq ptr %127, null
-  br i1 %.not.i.i.i31.i.i.i, label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_28JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit", label %128
+  br i1 %.not.i.i.i31.i.i.i, label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_28JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %128
 
 128:                                              ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i30.i.i.i
   %129 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -40957,7 +40957,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.ex
   %132 = ptrtoint ptr %127 to i64
   %133 = sub i64 %131, %132
   call void @_ZdlPvm(ptr noundef nonnull %127, i64 noundef %133) #25
-  br label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_28JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_28JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 134:                                              ; preds = %.noexc.i.i.i, %2
   %135 = landingpad { ptr, i32 }
@@ -40991,7 +40991,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.ex
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #22
   resume { ptr, i32 } %.pn.pn.pn.i.i.i
 
-"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_28JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i30.i.i.i, %128
+"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_28JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i30.i.i.i, %128
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -41527,7 +41527,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit88.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #22
   %197 = load i32, ptr %7, align 4
   %.not.i.i90.i.i.i = icmp eq i32 %197, 0
-  br i1 %.not.i.i90.i.i.i, label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_29JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit", label %198
+  br i1 %.not.i.i90.i.i.i, label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_29JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %198
 
 198:                                              ; preds = %.critedge49.i.i.i
   %199 = and i32 %197, 255
@@ -41542,11 +41542,11 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit88.i.i
   %208 = atomicrmw sub ptr %207, i32 1 seq_cst, align 4
   %209 = and i32 %208, 2147483647
   %210 = icmp eq i32 %209, 1
-  br i1 %210, label %211, label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_29JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br i1 %210, label %211, label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_29JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 211:                                              ; preds = %198
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode8_DestroyEv(ptr noundef nonnull align 8 dereferenceable(16) %206)
-          to label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_29JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit" unwind label %212
+          to label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_29JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit" unwind label %212
 
 212:                                              ; preds = %211
   %213 = landingpad { ptr, i32 }
@@ -41668,7 +41668,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit95.i.i.i: ; preds = %243, 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #22
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i
 
-"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_29JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %.critedge49.i.i.i, %198, %211
+"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_29JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %.critedge49.i.i.i, %198, %211
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -42153,16 +42153,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZ18TestObjectsChangedvE4$_30", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_30E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_30E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_30E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_30E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_30E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_30E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 3, label %43
     i32 2, label %7
   ]
@@ -42231,12 +42231,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i.i: ; pred
 
 "_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_30E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i": ; preds = %42, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i.i
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_30E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_30E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 43:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %44 = icmp eq ptr %.val7.i, null
-  br i1 %44, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_30E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit", label %45
+  br i1 %44, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_30E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %45
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %.val7.i, i64 24
@@ -42303,9 +42303,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i.i: ; preds = %6
 
 "_ZZ18TestObjectsChangedvEN4$_30D2Ev.exit.i.i":   ; preds = %78, %75, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_30E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_30E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_30E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %"_ZZ18TestObjectsChangedvEN4$_30D2Ev.exit.i.i", %43, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_30E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_30E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %"_ZZ18TestObjectsChangedvEN4$_30D2Ev.exit.i.i", %43, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_30E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
   ret i1 false
 }
 
@@ -42605,16 +42605,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZ18TestObjectsChangedvE4$_31", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_31E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_31E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_31E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_31E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_31E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_31E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 3, label %43
     i32 2, label %7
   ]
@@ -42683,12 +42683,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i.i: ; pred
 
 "_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_31E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i": ; preds = %42, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i.i
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_31E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_31E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 43:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %44 = icmp eq ptr %.val7.i, null
-  br i1 %44, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_31E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit", label %45
+  br i1 %44, label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_31E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %45
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %.val7.i, i64 24
@@ -42755,9 +42755,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i.i: ; preds = %6
 
 "_ZZ18TestObjectsChangedvEN4$_31D2Ev.exit.i.i":   ; preds = %78, %75, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_31E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_31E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_31E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %"_ZZ18TestObjectsChangedvEN4$_31D2Ev.exit.i.i", %43, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_31E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_31E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %"_ZZ18TestObjectsChangedvEN4$_31D2Ev.exit.i.i", %43, %"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_31E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
   ret i1 false
 }
 
@@ -42777,7 +42777,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChanged9PathRange5empty
   %6 = load i64, ptr %5, align 8
   %.not.i.i.i = icmp eq i64 %6, 0
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
-  br i1 %.not.i.i.i, label %7, label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_32JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br i1 %.not.i.i.i, label %7, label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_32JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 7:                                                ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChanged9PathRange5emptyEv.exit.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChanged9PathRange5emptyEv.exit.thread.i.i.i
   store ptr @.str.38, ptr %3, align 8
@@ -42794,7 +42794,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChanged9PathRange5empty
   call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %3, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.125) #21
   unreachable
 
-"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_32JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChanged9PathRange5emptyEv.exit.i.i.i
+"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_32JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChanged9PathRange5emptyEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   ret i1 true
 }
@@ -42834,7 +42834,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChanged9PathRange5empty
   %6 = load i64, ptr %5, align 8
   %.not.i.i.i = icmp eq i64 %6, 0
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
-  br i1 %.not.i.i.i, label %7, label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_33JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br i1 %.not.i.i.i, label %7, label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_33JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 7:                                                ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChanged9PathRange5emptyEv.exit.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChanged9PathRange5emptyEv.exit.thread.i.i.i
   store ptr @.str.38, ptr %3, align 8
@@ -42851,7 +42851,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChanged9PathRange5empty
   call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %3, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.125) #21
   unreachable
 
-"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_33JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChanged9PathRange5emptyEv.exit.i.i.i
+"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_33JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChanged9PathRange5emptyEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   ret i1 true
 }
@@ -42891,7 +42891,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChanged9PathRange5empty
   %6 = load i64, ptr %5, align 8
   %.not.i.i.i = icmp eq i64 %6, 0
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
-  br i1 %.not.i.i.i, label %7, label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_34JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br i1 %.not.i.i.i, label %7, label %"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_34JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 7:                                                ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChanged9PathRange5emptyEv.exit.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChanged9PathRange5emptyEv.exit.thread.i.i.i
   store ptr @.str.38, ptr %3, align 8
@@ -42908,7 +42908,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChanged9PathRange5empty
   call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %3, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.125) #21
   unreachable
 
-"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_34JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChanged9PathRange5emptyEv.exit.i.i.i
+"_ZSt10__invoke_rIbRZ18TestObjectsChangedvE4$_34JRKN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChangedEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChanged9PathRange5emptyEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   ret i1 true
 }

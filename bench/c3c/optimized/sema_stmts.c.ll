@@ -827,9 +827,9 @@ define dso_local noundef zeroext i1 @sema_analyse_statement(ptr noundef %0, ptr 
   %192 = load i64, ptr %191, align 8
   %193 = and i64 %192, 127
   %194 = icmp eq i64 %193, 20
-  br i1 %194, label %context_labels_exist_in_scope.argprom.exit.i, label %188
+  br i1 %194, label %context_labels_exist_in_scope.exit.i, label %188
 
-context_labels_exist_in_scope.argprom.exit.i:     ; preds = %.lr.ph.i.i118
+context_labels_exist_in_scope.exit.i:             ; preds = %.lr.ph.i.i118
   %195 = load i64, ptr %1, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %195, ptr noundef nonnull @.str.25) #9
   br label %.sink.split
@@ -1955,7 +1955,7 @@ sema_analyse_defer_stmt_body.exit.i:              ; preds = %427
   %769 = getelementptr inbounds i8, ptr %.0408.i.lcssa347, i64 8
   %770 = load i64, ptr %769, align 8
   %771 = call ptr @decl_new_generated_var(ptr noundef %768, i32 noundef 2, i64 %770) #9
-  %772 = call fastcc ptr @expand_.argelim(ptr noundef null)
+  %772 = call fastcc ptr @expand_(ptr noundef null)
   %773 = call ptr @expr_generate_decl(ptr noundef %771, ptr noundef nonnull %.0408.i.lcssa347) #9
   %774 = getelementptr inbounds i8, ptr %772, i64 -8
   %775 = load i32, ptr %774, align 4
@@ -2098,7 +2098,7 @@ sema_analyse_defer_stmt_body.exit.i:              ; preds = %427
   br label %sema_analyse_foreach_stmt.exit.thread
 
 856:                                              ; preds = %832
-  %857 = call fastcc ptr @expand_.argelim(ptr noundef %.0409.i170)
+  %857 = call fastcc ptr @expand_(ptr noundef %.0409.i170)
   %858 = call ptr @expr_generate_decl(ptr noundef %834, ptr noundef nonnull %.0426.i) #9
   %859 = getelementptr inbounds i8, ptr %857, i64 -8
   %860 = load i32, ptr %859, align 4
@@ -2109,7 +2109,7 @@ sema_analyse_defer_stmt_body.exit.i:              ; preds = %427
   br label %913
 
 864:                                              ; preds = %829
-  %865 = call fastcc ptr @expand_.argelim(ptr noundef %.0409.i170)
+  %865 = call fastcc ptr @expand_(ptr noundef %.0409.i170)
   %866 = call ptr @expr_generate_decl(ptr noundef %821, ptr noundef %.1427.i) #9
   %867 = getelementptr inbounds i8, ptr %865, i64 -8
   %868 = load i32, ptr %867, align 4
@@ -2176,7 +2176,7 @@ sema_analyse_defer_stmt_body.exit.i:              ; preds = %427
   %914 = getelementptr inbounds i8, ptr %821, i64 16
   %915 = load i64, ptr %914, align 8
   %916 = call ptr @expr_new_const_int(i64 %915, ptr noundef %.0418.i, i64 noundef 0) #9
-  %917 = call fastcc ptr @expand_.argelim(ptr noundef %.2.i79)
+  %917 = call fastcc ptr @expand_(ptr noundef %.2.i79)
   %918 = call ptr @expr_generate_decl(ptr noundef %821, ptr noundef %916) #9
   %919 = getelementptr inbounds i8, ptr %917, i64 -8
   %920 = load i32, ptr %919, align 4
@@ -2583,7 +2583,7 @@ sema_analyse_foreach_stmt.exit:                   ; preds = %1017, %1042
   %1135 = getelementptr inbounds i8, ptr %.val.i, i64 -8
   %1136 = load i32, ptr %1135, align 4
   %.not33.i.i = icmp eq i32 %1136, 0
-  br i1 %.not33.i.i, label %sema_remove_unwraps_from_try.argprom.exit.i.thread, label %1137
+  br i1 %.not33.i.i, label %sema_remove_unwraps_from_try.exit.i.thread, label %1137
 
 1137:                                             ; preds = %1134
   %1138 = add i32 %1136, -1
@@ -2591,26 +2591,26 @@ sema_analyse_foreach_stmt.exit:                   ; preds = %1017, %1042
   %1140 = getelementptr inbounds ptr, ptr %.val.i, i64 %1139
   %1141 = load ptr, ptr %1140, align 8
   %.not34.i.i = icmp eq ptr %1141, null
-  br i1 %.not34.i.i, label %sema_remove_unwraps_from_try.argprom.exit.i.thread, label %1142
+  br i1 %.not34.i.i, label %sema_remove_unwraps_from_try.exit.i.thread, label %1142
 
 1142:                                             ; preds = %1137
   %1143 = getelementptr inbounds i8, ptr %1141, i64 16
   %1144 = load i16, ptr %1143, align 8
   %1145 = and i16 %1144, 255
   %.not35.i.i = icmp eq i16 %1145, 59
-  br i1 %.not35.i.i, label %1146, label %sema_remove_unwraps_from_try.argprom.exit.i.thread
+  br i1 %.not35.i.i, label %1146, label %sema_remove_unwraps_from_try.exit.i.thread
 
 1146:                                             ; preds = %1142
   %1147 = getelementptr inbounds i8, ptr %1141, i64 24
   %1148 = load ptr, ptr %1147, align 8
   %.not36.i.i = icmp eq ptr %1148, null
-  br i1 %.not36.i.i, label %sema_remove_unwraps_from_try.argprom.exit.i.thread, label %1149
+  br i1 %.not36.i.i, label %sema_remove_unwraps_from_try.exit.i.thread, label %1149
 
 1149:                                             ; preds = %1146
   %1150 = getelementptr inbounds i8, ptr %1148, i64 -8
   %1151 = load i32, ptr %1150, align 4
   %.not6.i.i = icmp eq i32 %1151, 0
-  br i1 %.not6.i.i, label %sema_remove_unwraps_from_try.argprom.exit.i.thread, label %.lr.ph.preheader.i.i
+  br i1 %.not6.i.i, label %sema_remove_unwraps_from_try.exit.i.thread, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %1149
   %wide.trip.count.i.i65 = zext i32 %1151 to i64
@@ -2651,29 +2651,29 @@ sema_analyse_foreach_stmt.exit:                   ; preds = %1017, %1042
 1168:                                             ; preds = %1167, %1166, %1157, %.lr.ph.i.i66
   %indvars.iv.next.i.i69 = add nuw nsw i64 %indvars.iv.i.i67, 1
   %exitcond.not.i.i70 = icmp eq i64 %indvars.iv.next.i.i69, %wide.trip.count.i.i65
-  br i1 %exitcond.not.i.i70, label %sema_remove_unwraps_from_try.argprom.exit.i, label %.lr.ph.i.i66, !llvm.loop !16
+  br i1 %exitcond.not.i.i70, label %sema_remove_unwraps_from_try.exit.i, label %.lr.ph.i.i66, !llvm.loop !16
 
-sema_remove_unwraps_from_try.argprom.exit.i:      ; preds = %1168
+sema_remove_unwraps_from_try.exit.i:              ; preds = %1168
   %.val103.i.pr.pre = load ptr, ptr %1133, align 8
   %.not.i106.i = icmp eq ptr %.val103.i.pr.pre, null
-  br i1 %.not.i106.i, label %.thread.i.i, label %sema_remove_unwraps_from_try.argprom.exit.i.thread
+  br i1 %.not.i106.i, label %.thread.i.i, label %sema_remove_unwraps_from_try.exit.i.thread
 
-sema_remove_unwraps_from_try.argprom.exit.i.thread: ; preds = %1134, %1137, %1142, %1146, %1149, %sema_remove_unwraps_from_try.argprom.exit.i
-  %.val103.i.pr567 = phi ptr [ %.val103.i.pr.pre, %sema_remove_unwraps_from_try.argprom.exit.i ], [ %.val.i, %1149 ], [ %.val.i, %1146 ], [ %.val.i, %1142 ], [ %.val.i, %1137 ], [ %.val.i, %1134 ]
+sema_remove_unwraps_from_try.exit.i.thread:       ; preds = %1134, %1137, %1142, %1146, %1149, %sema_remove_unwraps_from_try.exit.i
+  %.val103.i.pr567 = phi ptr [ %.val103.i.pr.pre, %sema_remove_unwraps_from_try.exit.i ], [ %.val.i, %1149 ], [ %.val.i, %1146 ], [ %.val.i, %1142 ], [ %.val.i, %1137 ], [ %.val.i, %1134 ]
   %1169 = getelementptr inbounds i8, ptr %.val103.i.pr567, i64 -8
   %1170 = load i32, ptr %1169, align 4
   %.not35.i107.i = icmp eq i32 %1170, 0
   br i1 %.not35.i107.i, label %.thread.i.i, label %1171
 
-1171:                                             ; preds = %sema_remove_unwraps_from_try.argprom.exit.i.thread
+1171:                                             ; preds = %sema_remove_unwraps_from_try.exit.i.thread
   %1172 = add i32 %1170, -1
   %1173 = zext i32 %1172 to i64
   %1174 = getelementptr inbounds ptr, ptr %.val103.i.pr567, i64 %1173
   %1175 = load ptr, ptr %1174, align 8
   br label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %1131, %1171, %sema_remove_unwraps_from_try.argprom.exit.i.thread, %sema_remove_unwraps_from_try.argprom.exit.i
-  %1176 = phi ptr [ %1175, %1171 ], [ null, %sema_remove_unwraps_from_try.argprom.exit.i.thread ], [ null, %sema_remove_unwraps_from_try.argprom.exit.i ], [ null, %1131 ]
+.thread.i.i:                                      ; preds = %1131, %1171, %sema_remove_unwraps_from_try.exit.i.thread, %sema_remove_unwraps_from_try.exit.i
+  %1176 = phi ptr [ %1175, %1171 ], [ null, %sema_remove_unwraps_from_try.exit.i.thread ], [ null, %sema_remove_unwraps_from_try.exit.i ], [ null, %1131 ]
   %1177 = load ptr, ptr @expr_arena, align 8
   br label %1178
 
@@ -2682,7 +2682,7 @@ sema_remove_unwraps_from_try.argprom.exit.i.thread: ; preds = %1134, %1137, %114
   %1179 = getelementptr inbounds i8, ptr %.030.i.i, i64 16
   %1180 = load i16, ptr %1179, align 8
   %trunc6.i.i = trunc i16 %1180 to i8
-  switch i8 %trunc6.i.i, label %sema_unwrappable_from_catch_in_else.argprom.exit.i [
+  switch i8 %trunc6.i.i, label %sema_unwrappable_from_catch_in_else.exit.i [
     i8 9, label %1181
     i8 10, label %1186
   ]
@@ -2698,13 +2698,13 @@ sema_remove_unwraps_from_try.argprom.exit.i.thread: ; preds = %1134, %1137, %114
   %1187 = getelementptr inbounds i8, ptr %.030.i.i, i64 40
   %1188 = load ptr, ptr %1187, align 8
   %.not38.i108.i = icmp eq ptr %1188, null
-  br i1 %.not38.i108.i, label %sema_unwrappable_from_catch_in_else.argprom.exit.i, label %1189
+  br i1 %.not38.i108.i, label %sema_unwrappable_from_catch_in_else.exit.i, label %1189
 
 1189:                                             ; preds = %1186
   %1190 = getelementptr inbounds i8, ptr %1188, i64 -8
   %1191 = load i32, ptr %1190, align 4
   %.not7.i.i = icmp eq i32 %1191, 0
-  br i1 %.not7.i.i, label %sema_unwrappable_from_catch_in_else.argprom.exit.i, label %.lr.ph.preheader.i109.i
+  br i1 %.not7.i.i, label %sema_unwrappable_from_catch_in_else.exit.i, label %.lr.ph.preheader.i109.i
 
 .lr.ph.preheader.i109.i:                          ; preds = %1189
   %wide.trip.count.i110.i = zext i32 %1191 to i64
@@ -2744,9 +2744,9 @@ sema_remove_unwraps_from_try.argprom.exit.i.thread: ; preds = %1134, %1137, %114
 1207:                                             ; preds = %1206, %1203, %1197, %.lr.ph.i111.i
   %indvars.iv.next.i113.i = add nuw nsw i64 %indvars.iv.i112.i, 1
   %exitcond.not.i114.i = icmp eq i64 %indvars.iv.next.i113.i, %wide.trip.count.i110.i
-  br i1 %exitcond.not.i114.i, label %sema_unwrappable_from_catch_in_else.argprom.exit.i, label %.lr.ph.i111.i, !llvm.loop !18
+  br i1 %exitcond.not.i114.i, label %sema_unwrappable_from_catch_in_else.exit.i, label %.lr.ph.i111.i, !llvm.loop !18
 
-sema_unwrappable_from_catch_in_else.argprom.exit.i: ; preds = %1178, %1207, %1189, %1186
+sema_unwrappable_from_catch_in_else.exit.i:       ; preds = %1178, %1207, %1189, %1186
   %1208 = tail call zeroext i1 @sema_analyse_statement(ptr noundef %0, ptr noundef %1083)
   %1209 = load i8, ptr %24, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1084, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
@@ -2754,9 +2754,9 @@ sema_unwrappable_from_catch_in_else.argprom.exit.i: ; preds = %1178, %1207, %118
   %1211 = icmp eq i8 %1210, 0
   br label %1212
 
-1212:                                             ; preds = %sema_unwrappable_from_catch_in_else.argprom.exit.i, %1129, %1127
-  %.5.i.in = phi i1 [ %1208, %sema_unwrappable_from_catch_in_else.argprom.exit.i ], [ true, %1129 ], [ false, %1127 ]
-  %.082.i = phi i1 [ %1211, %sema_unwrappable_from_catch_in_else.argprom.exit.i ], [ true, %1129 ], [ undef, %1127 ]
+1212:                                             ; preds = %sema_unwrappable_from_catch_in_else.exit.i, %1129, %1127
+  %.5.i.in = phi i1 [ %1208, %sema_unwrappable_from_catch_in_else.exit.i ], [ true, %1129 ], [ false, %1127 ]
+  %.082.i = phi i1 [ %1211, %sema_unwrappable_from_catch_in_else.exit.i ], [ true, %1129 ], [ undef, %1127 ]
   tail call void @context_pop_defers_and_replace_ast(ptr noundef nonnull %0, ptr noundef %1) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1084, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
   br i1 %.5.i.in, label %1213, label %sema_analyse_if_stmt.exit
@@ -2795,7 +2795,7 @@ sema_unwrappable_from_catch_in_else.argprom.exit.i: ; preds = %1178, %1207, %118
   %1228 = getelementptr inbounds i8, ptr %.030.i118.i, i64 16
   %1229 = load i16, ptr %1228, align 8
   %trunc6.i119.i = trunc i16 %1229 to i8
-  switch i8 %trunc6.i119.i, label %sema_unwrappable_from_catch_in_else.argprom.exit133.i [
+  switch i8 %trunc6.i119.i, label %sema_unwrappable_from_catch_in_else.exit133.i [
     i8 9, label %1230
     i8 10, label %1235
   ]
@@ -2811,13 +2811,13 @@ sema_unwrappable_from_catch_in_else.argprom.exit.i: ; preds = %1178, %1207, %118
   %1236 = getelementptr inbounds i8, ptr %.030.i118.i, i64 40
   %1237 = load ptr, ptr %1236, align 8
   %.not38.i120.i = icmp eq ptr %1237, null
-  br i1 %.not38.i120.i, label %sema_unwrappable_from_catch_in_else.argprom.exit133.i, label %1238
+  br i1 %.not38.i120.i, label %sema_unwrappable_from_catch_in_else.exit133.i, label %1238
 
 1238:                                             ; preds = %1235
   %1239 = getelementptr inbounds i8, ptr %1237, i64 -8
   %1240 = load i32, ptr %1239, align 4
   %.not7.i121.i = icmp eq i32 %1240, 0
-  br i1 %.not7.i121.i, label %sema_unwrappable_from_catch_in_else.argprom.exit133.i, label %.lr.ph.preheader.i122.i
+  br i1 %.not7.i121.i, label %sema_unwrappable_from_catch_in_else.exit133.i, label %.lr.ph.preheader.i122.i
 
 .lr.ph.preheader.i122.i:                          ; preds = %1238
   %wide.trip.count.i123.i = zext i32 %1240 to i64
@@ -2857,12 +2857,12 @@ sema_unwrappable_from_catch_in_else.argprom.exit.i: ; preds = %1178, %1207, %118
 1256:                                             ; preds = %1255, %1252, %1246, %.lr.ph.i124.i
   %indvars.iv.next.i127.i = add nuw nsw i64 %indvars.iv.i125.i, 1
   %exitcond.not.i128.i = icmp eq i64 %indvars.iv.next.i127.i, %wide.trip.count.i123.i
-  br i1 %exitcond.not.i128.i, label %sema_unwrappable_from_catch_in_else.argprom.exit133.i, label %.lr.ph.i124.i, !llvm.loop !18
+  br i1 %exitcond.not.i128.i, label %sema_unwrappable_from_catch_in_else.exit133.i, label %.lr.ph.i124.i, !llvm.loop !18
 
-sema_unwrappable_from_catch_in_else.argprom.exit133.i: ; preds = %1227, %1256, %1238, %1235
+sema_unwrappable_from_catch_in_else.exit133.i:    ; preds = %1227, %1256, %1238, %1235
   br i1 %.082.i, label %sema_analyse_if_stmt.exit.thread, label %1257
 
-1257:                                             ; preds = %sema_unwrappable_from_catch_in_else.argprom.exit133.i
+1257:                                             ; preds = %sema_unwrappable_from_catch_in_else.exit133.i
   %1258 = getelementptr inbounds i8, ptr %1, i64 20
   %1259 = load i8, ptr %1258, align 4
   %1260 = trunc i8 %1259 to i1
@@ -2874,7 +2874,7 @@ sema_unwrappable_from_catch_in_else.argprom.exit133.i: ; preds = %1227, %1256, %
   store i8 %1263, ptr %24, align 4
   br label %sema_analyse_if_stmt.exit.thread
 
-sema_analyse_if_stmt.exit.thread:                 ; preds = %1213, %sema_unwrappable_from_catch_in_else.argprom.exit133.i, %1261, %1257
+sema_analyse_if_stmt.exit.thread:                 ; preds = %1213, %sema_unwrappable_from_catch_in_else.exit133.i, %1261, %1257
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
@@ -5121,9 +5121,9 @@ sema_analyse_statement_inner.exit.thread188:      ; preds = %73, %.thread, %sema
   call void (i64, ptr, ...) @sema_error_at(i64 %2354, ptr noundef nonnull @.str.13) #9
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.lr.ph.i126, %74, %42, %40, %2349, %2346, %2346, %sema_analyse_statement_inner.exit, %1635, %1059, %sema_analyse_foreach_stmt.exit, %412, %288, %sema_analyse_foreach_stmt.exit.thread, %sema_analyse_if_stmt.exit, %sema_analyse_return_stmt.exit.thread, %sema_analyse_ct_foreach_stmt.exit, %sema_analyse_ct_for_stmt.exit, %425, %231, %.critedge.i.i134, %52, %128, %135, %.critedge.i122, %93, %.loopexit.i130, %.critedge70.i, %165, %.loopexit.i119, %context_labels_exist_in_scope.argprom.exit.i, %206, %270, %254, %258, %sema_analyse_then_overwrite.exit.i93, %414, %sema_analyse_defer_stmt_body.exit.i.thread, %sema_analyse_defer_stmt_body.exit.i, %466, %470, %1675, %._crit_edge183.i, %1760, %._crit_edge179.i, %._crit_edge.i, %1739, %1682, %1657, %1656, %1664, %1746, %1805, %sema_analyse_then_overwrite.exit.i, %2353
-  %.sink728 = phi i8 [ 0, %2353 ], [ 0, %sema_analyse_then_overwrite.exit.i ], [ 0, %1805 ], [ 0, %1746 ], [ 0, %1664 ], [ 0, %1656 ], [ 0, %1657 ], [ 0, %1682 ], [ 0, %1739 ], [ 0, %._crit_edge.i ], [ 0, %._crit_edge179.i ], [ 0, %1760 ], [ 0, %._crit_edge183.i ], [ 0, %1675 ], [ 0, %470 ], [ 0, %466 ], [ 0, %sema_analyse_defer_stmt_body.exit.i ], [ 0, %sema_analyse_defer_stmt_body.exit.i.thread ], [ 0, %414 ], [ 0, %sema_analyse_then_overwrite.exit.i93 ], [ 0, %258 ], [ 0, %254 ], [ 0, %270 ], [ 0, %206 ], [ 0, %context_labels_exist_in_scope.argprom.exit.i ], [ 0, %.loopexit.i119 ], [ 0, %165 ], [ 0, %.critedge70.i ], [ 0, %.loopexit.i130 ], [ 0, %93 ], [ 0, %.critedge.i122 ], [ 0, %135 ], [ 0, %128 ], [ 0, %52 ], [ 0, %.critedge.i.i134 ], [ 0, %231 ], [ 0, %425 ], [ 0, %sema_analyse_ct_for_stmt.exit ], [ 0, %sema_analyse_ct_foreach_stmt.exit ], [ 0, %sema_analyse_return_stmt.exit.thread ], [ 0, %sema_analyse_if_stmt.exit ], [ 0, %sema_analyse_foreach_stmt.exit.thread ], [ 0, %288 ], [ 0, %412 ], [ 0, %sema_analyse_foreach_stmt.exit ], [ 0, %1059 ], [ 0, %1635 ], [ 0, %sema_analyse_statement_inner.exit ], [ 24, %2346 ], [ 24, %2346 ], [ 24, %2349 ], [ 0, %40 ], [ 0, %42 ], [ 0, %74 ], [ 0, %.lr.ph.i126 ]
-  %.0.ph = phi i1 [ false, %2353 ], [ false, %sema_analyse_then_overwrite.exit.i ], [ false, %1805 ], [ false, %1746 ], [ false, %1664 ], [ false, %1656 ], [ false, %1657 ], [ false, %1682 ], [ false, %1739 ], [ false, %._crit_edge.i ], [ false, %._crit_edge179.i ], [ false, %1760 ], [ false, %._crit_edge183.i ], [ false, %1675 ], [ false, %470 ], [ false, %466 ], [ false, %sema_analyse_defer_stmt_body.exit.i ], [ false, %sema_analyse_defer_stmt_body.exit.i.thread ], [ false, %414 ], [ false, %sema_analyse_then_overwrite.exit.i93 ], [ false, %258 ], [ false, %254 ], [ false, %270 ], [ false, %206 ], [ false, %context_labels_exist_in_scope.argprom.exit.i ], [ false, %.loopexit.i119 ], [ false, %165 ], [ false, %.critedge70.i ], [ false, %.loopexit.i130 ], [ false, %93 ], [ false, %.critedge.i122 ], [ false, %135 ], [ false, %128 ], [ false, %52 ], [ false, %.critedge.i.i134 ], [ false, %231 ], [ false, %425 ], [ false, %sema_analyse_ct_for_stmt.exit ], [ false, %sema_analyse_ct_foreach_stmt.exit ], [ false, %sema_analyse_return_stmt.exit.thread ], [ false, %sema_analyse_if_stmt.exit ], [ false, %sema_analyse_foreach_stmt.exit.thread ], [ false, %288 ], [ false, %412 ], [ false, %sema_analyse_foreach_stmt.exit ], [ false, %1059 ], [ false, %1635 ], [ false, %sema_analyse_statement_inner.exit ], [ true, %2346 ], [ true, %2346 ], [ true, %2349 ], [ false, %40 ], [ false, %42 ], [ false, %74 ], [ false, %.lr.ph.i126 ]
+.sink.split:                                      ; preds = %.lr.ph.i126, %74, %42, %40, %2349, %2346, %2346, %sema_analyse_statement_inner.exit, %1635, %1059, %sema_analyse_foreach_stmt.exit, %412, %288, %sema_analyse_foreach_stmt.exit.thread, %sema_analyse_if_stmt.exit, %sema_analyse_return_stmt.exit.thread, %sema_analyse_ct_foreach_stmt.exit, %sema_analyse_ct_for_stmt.exit, %425, %231, %.critedge.i.i134, %52, %128, %135, %.critedge.i122, %93, %.loopexit.i130, %.critedge70.i, %165, %.loopexit.i119, %context_labels_exist_in_scope.exit.i, %206, %270, %254, %258, %sema_analyse_then_overwrite.exit.i93, %414, %sema_analyse_defer_stmt_body.exit.i.thread, %sema_analyse_defer_stmt_body.exit.i, %466, %470, %1675, %._crit_edge183.i, %1760, %._crit_edge179.i, %._crit_edge.i, %1739, %1682, %1657, %1656, %1664, %1746, %1805, %sema_analyse_then_overwrite.exit.i, %2353
+  %.sink728 = phi i8 [ 0, %2353 ], [ 0, %sema_analyse_then_overwrite.exit.i ], [ 0, %1805 ], [ 0, %1746 ], [ 0, %1664 ], [ 0, %1656 ], [ 0, %1657 ], [ 0, %1682 ], [ 0, %1739 ], [ 0, %._crit_edge.i ], [ 0, %._crit_edge179.i ], [ 0, %1760 ], [ 0, %._crit_edge183.i ], [ 0, %1675 ], [ 0, %470 ], [ 0, %466 ], [ 0, %sema_analyse_defer_stmt_body.exit.i ], [ 0, %sema_analyse_defer_stmt_body.exit.i.thread ], [ 0, %414 ], [ 0, %sema_analyse_then_overwrite.exit.i93 ], [ 0, %258 ], [ 0, %254 ], [ 0, %270 ], [ 0, %206 ], [ 0, %context_labels_exist_in_scope.exit.i ], [ 0, %.loopexit.i119 ], [ 0, %165 ], [ 0, %.critedge70.i ], [ 0, %.loopexit.i130 ], [ 0, %93 ], [ 0, %.critedge.i122 ], [ 0, %135 ], [ 0, %128 ], [ 0, %52 ], [ 0, %.critedge.i.i134 ], [ 0, %231 ], [ 0, %425 ], [ 0, %sema_analyse_ct_for_stmt.exit ], [ 0, %sema_analyse_ct_foreach_stmt.exit ], [ 0, %sema_analyse_return_stmt.exit.thread ], [ 0, %sema_analyse_if_stmt.exit ], [ 0, %sema_analyse_foreach_stmt.exit.thread ], [ 0, %288 ], [ 0, %412 ], [ 0, %sema_analyse_foreach_stmt.exit ], [ 0, %1059 ], [ 0, %1635 ], [ 0, %sema_analyse_statement_inner.exit ], [ 24, %2346 ], [ 24, %2346 ], [ 24, %2349 ], [ 0, %40 ], [ 0, %42 ], [ 0, %74 ], [ 0, %.lr.ph.i126 ]
+  %.0.ph = phi i1 [ false, %2353 ], [ false, %sema_analyse_then_overwrite.exit.i ], [ false, %1805 ], [ false, %1746 ], [ false, %1664 ], [ false, %1656 ], [ false, %1657 ], [ false, %1682 ], [ false, %1739 ], [ false, %._crit_edge.i ], [ false, %._crit_edge179.i ], [ false, %1760 ], [ false, %._crit_edge183.i ], [ false, %1675 ], [ false, %470 ], [ false, %466 ], [ false, %sema_analyse_defer_stmt_body.exit.i ], [ false, %sema_analyse_defer_stmt_body.exit.i.thread ], [ false, %414 ], [ false, %sema_analyse_then_overwrite.exit.i93 ], [ false, %258 ], [ false, %254 ], [ false, %270 ], [ false, %206 ], [ false, %context_labels_exist_in_scope.exit.i ], [ false, %.loopexit.i119 ], [ false, %165 ], [ false, %.critedge70.i ], [ false, %.loopexit.i130 ], [ false, %93 ], [ false, %.critedge.i122 ], [ false, %135 ], [ false, %128 ], [ false, %52 ], [ false, %.critedge.i.i134 ], [ false, %231 ], [ false, %425 ], [ false, %sema_analyse_ct_for_stmt.exit ], [ false, %sema_analyse_ct_foreach_stmt.exit ], [ false, %sema_analyse_return_stmt.exit.thread ], [ false, %sema_analyse_if_stmt.exit ], [ false, %sema_analyse_foreach_stmt.exit.thread ], [ false, %288 ], [ false, %412 ], [ false, %sema_analyse_foreach_stmt.exit ], [ false, %1059 ], [ false, %1635 ], [ false, %sema_analyse_statement_inner.exit ], [ true, %2346 ], [ true, %2346 ], [ true, %2349 ], [ false, %40 ], [ false, %42 ], [ false, %74 ], [ false, %.lr.ph.i126 ]
   store i8 %.sink728, ptr %20, align 4
   br label %2355
 
@@ -5402,9 +5402,9 @@ define dso_local noundef zeroext i1 @sema_analyse_contracts(ptr noundef %0, i32 
   %107 = load i16, ptr %106, align 8
   %108 = and i16 %107, 255
   %109 = icmp eq i16 %108, 23
-  br i1 %109, label %sema_analyse_ensure.argprom.argprom.exit, label %103
+  br i1 %109, label %sema_analyse_ensure.exit, label %103
 
-sema_analyse_ensure.argprom.argprom.exit:         ; preds = %.lr.ph.i16
+sema_analyse_ensure.exit:                         ; preds = %.lr.ph.i16
   %110 = getelementptr inbounds i8, ptr %105, i64 8
   %111 = load i64, ptr %110, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %111, ptr noundef nonnull @.str.87) #9
@@ -5420,8 +5420,8 @@ sema_analyse_optional_returns.exit:               ; preds = %95, %19, %16, %14, 
   %.not = icmp eq i32 %113, 0
   br i1 %.not, label %sema_analyse_optional_returns.exit.thread, label %7, !llvm.loop !40
 
-sema_analyse_optional_returns.exit.thread:        ; preds = %14, %sema_analyse_optional_returns.exit, %38, %5, %35, %44, %._crit_edge.i, %sema_analyse_ensure.argprom.argprom.exit
-  %.not48 = phi i1 [ false, %35 ], [ false, %44 ], [ false, %._crit_edge.i ], [ false, %sema_analyse_ensure.argprom.argprom.exit ], [ true, %5 ], [ false, %38 ], [ false, %14 ], [ true, %sema_analyse_optional_returns.exit ]
+sema_analyse_optional_returns.exit.thread:        ; preds = %14, %sema_analyse_optional_returns.exit, %38, %5, %35, %44, %._crit_edge.i, %sema_analyse_ensure.exit
+  %.not48 = phi i1 [ false, %35 ], [ false, %44 ], [ false, %._crit_edge.i ], [ false, %sema_analyse_ensure.exit ], [ true, %5 ], [ false, %38 ], [ false, %14 ], [ true, %sema_analyse_optional_returns.exit ]
   ret i1 %.not48
 }
 
@@ -6342,13 +6342,13 @@ type_flatten.exit:                                ; preds = %.preheader
   %invariant.gep = getelementptr inbounds i8, ptr %81, i64 8
   br label %113
 
-113:                                              ; preds = %.lr.ph, %sema_check_type_case.argprom.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %sema_check_type_case.argprom.exit ]
-  %.0257.i165 = phi ptr [ null, %.lr.ph ], [ %.1258.i, %sema_check_type_case.argprom.exit ]
-  %.0259.i164 = phi i8 [ 0, %.lr.ph ], [ %.1260.i, %sema_check_type_case.argprom.exit ]
-  %.0261.i163 = phi i8 [ 1, %.lr.ph ], [ %.1262.i, %sema_check_type_case.argprom.exit ]
-  %.0119158 = phi i1 [ %narrow, %.lr.ph ], [ %.1120, %sema_check_type_case.argprom.exit ]
-  %.0122157 = phi i8 [ 0, %.lr.ph ], [ %.1123, %sema_check_type_case.argprom.exit ]
+113:                                              ; preds = %.lr.ph, %sema_check_type_case.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %sema_check_type_case.exit ]
+  %.0257.i165 = phi ptr [ null, %.lr.ph ], [ %.1258.i, %sema_check_type_case.exit ]
+  %.0259.i164 = phi i8 [ 0, %.lr.ph ], [ %.1260.i, %sema_check_type_case.exit ]
+  %.0261.i163 = phi i8 [ 1, %.lr.ph ], [ %.1262.i, %sema_check_type_case.exit ]
+  %.0119158 = phi i1 [ %narrow, %.lr.ph ], [ %.1120, %sema_check_type_case.exit ]
+  %.0122157 = phi i8 [ 0, %.lr.ph ], [ %.1123, %sema_check_type_case.exit ]
   %114 = trunc nuw i8 %.0261.i163 to i1
   br i1 %114, label %115, label %._crit_edge.loopexit
 
@@ -6390,20 +6390,20 @@ type_flatten.exit:                                ; preds = %.preheader
   %135 = getelementptr inbounds %struct.Expr_, ptr %133, i64 %134
   %136 = load ptr, ptr @type_typeid, align 8
   %137 = call zeroext i1 @sema_analyse_expr_rhs(ptr noundef nonnull %0, ptr noundef %136, ptr noundef %135, i1 noundef zeroext false, ptr noundef null) #9
-  br i1 %137, label %138, label %sema_check_type_case.argprom.exit
+  br i1 %137, label %138, label %sema_check_type_case.exit
 
 138:                                              ; preds = %130
   %139 = getelementptr inbounds i8, ptr %135, i64 16
   %140 = load i16, ptr %139, align 8
   %141 = and i16 %140, 255
   %142 = icmp eq i16 %141, 14
-  br i1 %142, label %143, label %sema_check_type_case.argprom.exit
+  br i1 %142, label %143, label %sema_check_type_case.exit
 
 143:                                              ; preds = %138
   %144 = getelementptr inbounds i8, ptr %135, i64 32
   %145 = load ptr, ptr %144, align 8
   %.not2.i = icmp eq i64 %indvars.iv, 0
-  br i1 %.not2.i, label %sema_check_type_case.argprom.exit, label %.lr.ph.i86
+  br i1 %.not2.i, label %sema_check_type_case.exit, label %.lr.ph.i86
 
 .lr.ph.i86:                                       ; preds = %143
   %146 = load ptr, ptr @expr_arena, align 8
@@ -6440,12 +6440,12 @@ type_flatten.exit:                                ; preds = %.preheader
   call void (i64, ptr, ...) @sema_error_at(i64 %166, ptr noundef nonnull @.str.95) #9
   %167 = load i64, ptr %149, align 8
   call void (i64, ptr, ...) @sema_error_prev_at(i64 %167, ptr noundef nonnull @.str.96) #9
-  br label %sema_check_type_case.argprom.exit
+  br label %sema_check_type_case.exit
 
 168:                                              ; preds = %161, %152, %147
   %indvars.iv.next.i90 = add nuw nsw i64 %indvars.iv.i88, 1
   %exitcond.not.i91 = icmp eq i64 %indvars.iv.next.i90, %indvars.iv
-  br i1 %exitcond.not.i91, label %sema_check_type_case.argprom.exit, label %147, !llvm.loop !45
+  br i1 %exitcond.not.i91, label %sema_check_type_case.exit, label %147, !llvm.loop !45
 
 169:                                              ; preds = %129
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
@@ -6642,30 +6642,30 @@ extend_span_with_token.exit76.i:                  ; preds = %229, %228
 sema_check_value_case.exit.thread:                ; preds = %269, %extend_span_with_token.exit76.i, %extend_span_with_token.exit.i, %169, %182
   %.3.ph = phi i8 [ %.0122157, %169 ], [ %.0122157, %182 ], [ %.0122157, %extend_span_with_token.exit.i ], [ %.0122157, %extend_span_with_token.exit76.i ], [ %.2124, %269 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %sema_check_type_case.argprom.exit
+  br label %sema_check_type_case.exit
 
 .loopexit141:                                     ; preds = %272, %.thread77.i, %184
   %.3 = phi i8 [ %.2124, %.thread77.i ], [ %.0122157, %184 ], [ %.2124, %272 ]
   %.2 = phi i1 [ %.0119158, %.thread77.i ], [ true, %184 ], [ %.0119158, %272 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %sema_check_type_case.argprom.exit
+  br label %sema_check_type_case.exit
 
 273:                                              ; preds = %121
   %.not290.i = icmp eq ptr %.0257.i165, null
-  br i1 %.not290.i, label %sema_check_type_case.argprom.exit, label %274
+  br i1 %.not290.i, label %sema_check_type_case.exit, label %274
 
 274:                                              ; preds = %273
   %275 = load i64, ptr %117, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %275, ptr noundef nonnull @.str.93) #9
   %276 = load i64, ptr %.0257.i165, align 8
   call void (i64, ptr, ...) @sema_error_prev_at(i64 %276, ptr noundef nonnull @.str.94) #9
-  br label %sema_check_type_case.argprom.exit
+  br label %sema_check_type_case.exit
 
 277:                                              ; preds = %121
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__.sema_analyse_switch_body, ptr noundef nonnull @.str.17, i32 noundef 2323) #10
   unreachable
 
-sema_check_type_case.argprom.exit:                ; preds = %168, %.loopexit141, %sema_check_value_case.exit.thread, %130, %165, %138, %143, %274, %273
+sema_check_type_case.exit:                        ; preds = %168, %.loopexit141, %sema_check_value_case.exit.thread, %130, %165, %138, %143, %274, %273
   %.1123 = phi i8 [ %.0122157, %273 ], [ %.0122157, %274 ], [ %.0122157, %143 ], [ %.0122157, %138 ], [ %.0122157, %165 ], [ %.0122157, %130 ], [ %.3, %.loopexit141 ], [ %.3.ph, %sema_check_value_case.exit.thread ], [ %.0122157, %168 ]
   %.1120 = phi i1 [ %.0119158, %273 ], [ %.0119158, %274 ], [ %.0119158, %143 ], [ %.0119158, %138 ], [ %.0119158, %165 ], [ %.0119158, %130 ], [ %.2, %.loopexit141 ], [ %.0119158, %sema_check_value_case.exit.thread ], [ %.0119158, %168 ]
   %.1262.i = phi i8 [ %.0261.i163, %273 ], [ 0, %274 ], [ %.0261.i163, %143 ], [ %.0261.i163, %138 ], [ 0, %165 ], [ 0, %130 ], [ %.0261.i163, %.loopexit141 ], [ 0, %sema_check_value_case.exit.thread ], [ %.0261.i163, %168 ]
@@ -6678,11 +6678,11 @@ sema_check_type_case.argprom.exit:                ; preds = %168, %.loopexit141,
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %113, !llvm.loop !47
 
-._crit_edge.loopexit:                             ; preds = %113, %sema_check_type_case.argprom.exit
-  %.0122.lcssa.ph = phi i8 [ %.1123, %sema_check_type_case.argprom.exit ], [ %.0122157, %113 ]
-  %.0119.lcssa.ph = phi i1 [ %.1120, %sema_check_type_case.argprom.exit ], [ %.0119158, %113 ]
-  %.0261.i.lcssa.ph = phi i8 [ %.1262.i, %sema_check_type_case.argprom.exit ], [ %.0261.i163, %113 ]
-  %.0259.i.lcssa.ph = phi i8 [ %.1260.i, %sema_check_type_case.argprom.exit ], [ %.0259.i164, %113 ]
+._crit_edge.loopexit:                             ; preds = %113, %sema_check_type_case.exit
+  %.0122.lcssa.ph = phi i8 [ %.1123, %sema_check_type_case.exit ], [ %.0122157, %113 ]
+  %.0119.lcssa.ph = phi i1 [ %.1120, %sema_check_type_case.exit ], [ %.0119158, %113 ]
+  %.0261.i.lcssa.ph = phi i8 [ %.1262.i, %sema_check_type_case.exit ], [ %.0261.i163, %113 ]
+  %.0259.i.lcssa.ph = phi i8 [ %.1260.i, %sema_check_type_case.exit ], [ %.0259.i164, %113 ]
   %278 = shl nuw nsw i8 %.0122.lcssa.ph, 3
   %279 = and i8 %278, 8
   br label %._crit_edge
@@ -7494,7 +7494,7 @@ declare void @expr_insert_addr(ptr noundef) local_unnamed_addr #1
 declare ptr @decl_new_generated_var(ptr noundef, i32 noundef, i64) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @expand_.argelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc nonnull ptr @expand_(ptr noundef %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %5
 

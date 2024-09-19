@@ -603,7 +603,7 @@ _ZL16canSplitCallSiteRN4llvm8CallBaseERNS_19TargetTransformInfoE.exit.i.i: ; pre
   %211 = getelementptr i8, ptr %210, i64 16
   %.val.i.i.i = load ptr, ptr %211, align 8, !noalias !7
   %212 = icmp eq ptr %.val.i.i.i, null
-  br i1 %212, label %_ZL18getTwoPredecessorsPN4llvm10BasicBlockE.argprom.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
+  br i1 %212, label %_ZL18getTwoPredecessorsPN4llvm10BasicBlockE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %209, %220
   %.sroa.0.0.i.i.i.i.i.i = phi ptr [ %222, %220 ], [ %.val.i.i.i, %209 ]
@@ -615,15 +615,15 @@ _ZL16canSplitCallSiteRN4llvm8CallBaseERNS_19TargetTransformInfoE.exit.i.i: ; pre
   %218 = add nsw i32 %217, -30
   %219 = icmp ult i32 %218, 11
   %or.cond.i.i.i.i.i.i.i.i = select i1 %216, i1 %219, i1 false
-  br i1 %or.cond.i.i.i.i.i.i.i.i, label %_ZL18getTwoPredecessorsPN4llvm10BasicBlockE.argprom.exit.i.i.i, label %220
+  br i1 %or.cond.i.i.i.i.i.i.i.i, label %_ZL18getTwoPredecessorsPN4llvm10BasicBlockE.exit.i.i.i, label %220
 
 220:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   %221 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i.i, i64 8
   %222 = load ptr, ptr %221, align 8, !noalias !10
   %223 = icmp eq ptr %222, null
-  br i1 %223, label %_ZL18getTwoPredecessorsPN4llvm10BasicBlockE.argprom.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %223, label %_ZL18getTwoPredecessorsPN4llvm10BasicBlockE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !6
 
-_ZL18getTwoPredecessorsPN4llvm10BasicBlockE.argprom.exit.i.i.i: ; preds = %220, %.lr.ph.i.i.i.i.i.i.i.i, %209
+_ZL18getTwoPredecessorsPN4llvm10BasicBlockE.exit.i.i.i: ; preds = %220, %.lr.ph.i.i.i.i.i.i.i.i, %209
   %.sroa.0.1.i.i.i.i.i.i = phi ptr [ null, %209 ], [ null, %220 ], [ %.sroa.0.0.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull %40, i64 noundef 2) #14, !noalias !7
   call void @_ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE6appendINS_12PredIteratorIS1_NS_5Value18user_iterator_implINS_4UserEEEEEvEEvT_SB_(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr %.sroa.0.1.i.i.i.i.i.i, ptr null), !noalias !7
@@ -634,11 +634,11 @@ _ZL18getTwoPredecessorsPN4llvm10BasicBlockE.argprom.exit.i.i.i: ; preds = %220, 
   %228 = icmp eq ptr %225, %227
   br i1 %228, label %229, label %230
 
-229:                                              ; preds = %_ZL18getTwoPredecessorsPN4llvm10BasicBlockE.argprom.exit.i.i.i
+229:                                              ; preds = %_ZL18getTwoPredecessorsPN4llvm10BasicBlockE.exit.i.i.i
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull %50, i64 noundef 2) #14
   br label %_ZN4llvm11SmallVectorISt4pairIPNS_10BasicBlockENS0_IS1_IPNS_8ICmpInstEjELj2EEEELj2EED2Ev.exit.i.i.i
 
-230:                                              ; preds = %_ZL18getTwoPredecessorsPN4llvm10BasicBlockE.argprom.exit.i.i.i
+230:                                              ; preds = %_ZL18getTwoPredecessorsPN4llvm10BasicBlockE.exit.i.i.i
   %231 = call noundef nonnull align 8 dereferenceable(124) ptr @_ZN4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13DominatorTreeENS_17PostDominatorTreeEE10getDomTreeEv(ptr noundef nonnull align 8 dereferenceable(410) %28) #14, !noalias !7
   %232 = load ptr, ptr %156, align 8, !noalias !7
   %233 = call noundef ptr @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_(ptr noundef nonnull align 8 dereferenceable(124) %231, ptr noundef %232) #14, !noalias !7
@@ -1101,7 +1101,7 @@ _ZL17isPredicatedOnPHIRN4llvm8CallBaseE.exit.i.i.i: ; preds = %402
   %416 = getelementptr i8, ptr %415, i64 16
   %.val.i14.i.i = load ptr, ptr %416, align 8, !noalias !41
   %417 = icmp eq ptr %.val.i14.i.i, null
-  br i1 %417, label %_ZL18getTwoPredecessorsPN4llvm10BasicBlockE.argprom.exit.i18.i.i, label %.lr.ph.i.i.i.i.i.i15.i.i
+  br i1 %417, label %_ZL18getTwoPredecessorsPN4llvm10BasicBlockE.exit.i18.i.i, label %.lr.ph.i.i.i.i.i.i15.i.i
 
 .lr.ph.i.i.i.i.i.i15.i.i:                         ; preds = %_ZL17isPredicatedOnPHIRN4llvm8CallBaseE.exit.i.i.i, %425
   %.sroa.0.0.i.i.i.i16.i.i = phi ptr [ %427, %425 ], [ %.val.i14.i.i, %_ZL17isPredicatedOnPHIRN4llvm8CallBaseE.exit.i.i.i ]
@@ -1113,15 +1113,15 @@ _ZL17isPredicatedOnPHIRN4llvm8CallBaseE.exit.i.i.i: ; preds = %402
   %423 = add nsw i32 %422, -30
   %424 = icmp ult i32 %423, 11
   %or.cond.i.i.i.i.i.i17.i.i = select i1 %421, i1 %424, i1 false
-  br i1 %or.cond.i.i.i.i.i.i17.i.i, label %_ZL18getTwoPredecessorsPN4llvm10BasicBlockE.argprom.exit.i18.i.i, label %425
+  br i1 %or.cond.i.i.i.i.i.i17.i.i, label %_ZL18getTwoPredecessorsPN4llvm10BasicBlockE.exit.i18.i.i, label %425
 
 425:                                              ; preds = %.lr.ph.i.i.i.i.i.i15.i.i
   %426 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i16.i.i, i64 8
   %427 = load ptr, ptr %426, align 8, !noalias !44
   %428 = icmp eq ptr %427, null
-  br i1 %428, label %_ZL18getTwoPredecessorsPN4llvm10BasicBlockE.argprom.exit.i18.i.i, label %.lr.ph.i.i.i.i.i.i15.i.i, !llvm.loop !6
+  br i1 %428, label %_ZL18getTwoPredecessorsPN4llvm10BasicBlockE.exit.i18.i.i, label %.lr.ph.i.i.i.i.i.i15.i.i, !llvm.loop !6
 
-_ZL18getTwoPredecessorsPN4llvm10BasicBlockE.argprom.exit.i18.i.i: ; preds = %425, %.lr.ph.i.i.i.i.i.i15.i.i, %_ZL17isPredicatedOnPHIRN4llvm8CallBaseE.exit.i.i.i
+_ZL18getTwoPredecessorsPN4llvm10BasicBlockE.exit.i18.i.i: ; preds = %425, %.lr.ph.i.i.i.i.i.i15.i.i, %_ZL17isPredicatedOnPHIRN4llvm8CallBaseE.exit.i.i.i
   %.sroa.0.1.i.i.i.i19.i.i = phi ptr [ null, %_ZL17isPredicatedOnPHIRN4llvm8CallBaseE.exit.i.i.i ], [ null, %425 ], [ %.sroa.0.0.i.i.i.i16.i.i, %.lr.ph.i.i.i.i.i.i15.i.i ]
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %51, i64 noundef 2) #14, !noalias !41
   call void @_ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE6appendINS_12PredIteratorIS1_NS_5Value18user_iterator_implINS_4UserEEEEEvEEvT_SB_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr %.sroa.0.1.i.i.i.i19.i.i, ptr null), !noalias !41
@@ -1133,11 +1133,11 @@ _ZL18getTwoPredecessorsPN4llvm10BasicBlockE.argprom.exit.i18.i.i: ; preds = %425
   %431 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %18) #14, !noalias !41
   br i1 %431, label %_ZNSt4pairIPN4llvm10BasicBlockENS0_11SmallVectorIS_IPNS0_8ICmpInstEjELj2EEEEC2IS2_S7_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISB_SC_EEEbE4typeELb1EEERKS2_RKS7_.exit.i.i.i, label %432
 
-432:                                              ; preds = %_ZL18getTwoPredecessorsPN4llvm10BasicBlockE.argprom.exit.i18.i.i
+432:                                              ; preds = %_ZL18getTwoPredecessorsPN4llvm10BasicBlockE.exit.i18.i.i
   %433 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt4pairIPNS_8ICmpInstEjEEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %18), !noalias !41
   br label %_ZNSt4pairIPN4llvm10BasicBlockENS0_11SmallVectorIS_IPNS0_8ICmpInstEjELj2EEEEC2IS2_S7_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISB_SC_EEEbE4typeELb1EEERKS2_RKS7_.exit.i.i.i
 
-_ZNSt4pairIPN4llvm10BasicBlockENS0_11SmallVectorIS_IPNS0_8ICmpInstEjELj2EEEEC2IS2_S7_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISB_SC_EEEbE4typeELb1EEERKS2_RKS7_.exit.i.i.i: ; preds = %432, %_ZL18getTwoPredecessorsPN4llvm10BasicBlockE.argprom.exit.i18.i.i
+_ZNSt4pairIPN4llvm10BasicBlockENS0_11SmallVectorIS_IPNS0_8ICmpInstEjELj2EEEEC2IS2_S7_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISB_SC_EEEbE4typeELb1EEERKS2_RKS7_.exit.i.i.i: ; preds = %432, %_ZL18getTwoPredecessorsPN4llvm10BasicBlockE.exit.i18.i.i
   %434 = load ptr, ptr %16, align 8, !noalias !41
   %435 = getelementptr inbounds i8, ptr %434, i64 8
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %56, i64 noundef 2) #14, !noalias !41
@@ -3268,7 +3268,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:
 47:                                               ; preds = %45
   %48 = load ptr, ptr %.0123.i, align 8
   %49 = icmp eq ptr %48, %.val
-  br i1 %49, label %_ZL31isCondRelevantToAnyCallArgumentPN4llvm8ICmpInstERNS_8CallBaseE.argprom.exit, label %50
+  br i1 %49, label %_ZL31isCondRelevantToAnyCallArgumentPN4llvm8ICmpInstERNS_8CallBaseE.exit, label %50
 
 50:                                               ; preds = %47, %45, %.lr.ph.i
   %51 = getelementptr inbounds i8, ptr %.0123.i, i64 32
@@ -3276,7 +3276,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:
   %.not.not.i = icmp eq ptr %51, %41
   br i1 %.not.not.i, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14CmpClass_matchINS0_11class_matchIS2_EENS4_INS_8ConstantEEENS_8ICmpInstENS_7CmpInst9PredicateELb0EEEEEbPT_RKT0_.exit.thread, label %.lr.ph.i, !llvm.loop !68
 
-_ZL31isCondRelevantToAnyCallArgumentPN4llvm8ICmpInstERNS_8CallBaseE.argprom.exit: ; preds = %47
+_ZL31isCondRelevantToAnyCallArgumentPN4llvm8ICmpInstERNS_8CallBaseE.exit: ; preds = %47
   %53 = load ptr, ptr %4, align 8
   %54 = icmp ne ptr %4, %53
   tail call void @llvm.assume(i1 %54)
@@ -3290,15 +3290,15 @@ _ZL31isCondRelevantToAnyCallArgumentPN4llvm8ICmpInstERNS_8CallBaseE.argprom.exit
   %61 = icmp eq ptr %60, %2
   br i1 %61, label %67, label %62
 
-62:                                               ; preds = %_ZL31isCondRelevantToAnyCallArgumentPN4llvm8ICmpInstERNS_8CallBaseE.argprom.exit
+62:                                               ; preds = %_ZL31isCondRelevantToAnyCallArgumentPN4llvm8ICmpInstERNS_8CallBaseE.exit
   %63 = load i16, ptr %28, align 2
   %64 = and i16 %63, 63
   %65 = zext nneg i16 %64 to i32
   %66 = tail call noundef i32 @_ZN4llvm7CmpInst19getInversePredicateENS0_9PredicateE(i32 noundef %65) #14
   br label %67
 
-67:                                               ; preds = %_ZL31isCondRelevantToAnyCallArgumentPN4llvm8ICmpInstERNS_8CallBaseE.argprom.exit, %62
-  %68 = phi i32 [ %66, %62 ], [ %31, %_ZL31isCondRelevantToAnyCallArgumentPN4llvm8ICmpInstERNS_8CallBaseE.argprom.exit ]
+67:                                               ; preds = %_ZL31isCondRelevantToAnyCallArgumentPN4llvm8ICmpInstERNS_8CallBaseE.exit, %62
+  %68 = phi i32 [ %66, %62 ], [ %31, %_ZL31isCondRelevantToAnyCallArgumentPN4llvm8ICmpInstERNS_8CallBaseE.exit ]
   %69 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
   %70 = add i64 %69, 1
   %71 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
@@ -5871,8 +5871,8 @@ attributes #16 = { nounwind willreturn memory(read) }
 !8 = distinct !{!8, !9, !"_ZL31shouldSplitOnPredicatedArgumentRN4llvm8CallBaseERNS_14DomTreeUpdaterE: argument 0"}
 !9 = distinct !{!9, !"_ZL31shouldSplitOnPredicatedArgumentRN4llvm8CallBaseERNS_14DomTreeUpdaterE"}
 !10 = !{!11, !8}
-!11 = distinct !{!11, !12, !"_ZL18getTwoPredecessorsPN4llvm10BasicBlockE.argprom: argument 0"}
-!12 = distinct !{!12, !"_ZL18getTwoPredecessorsPN4llvm10BasicBlockE.argprom"}
+!11 = distinct !{!11, !12, !"_ZL18getTwoPredecessorsPN4llvm10BasicBlockE: argument 0"}
+!12 = distinct !{!12, !"_ZL18getTwoPredecessorsPN4llvm10BasicBlockE"}
 !13 = !{!14, !16, !18, !20, !22, !8}
 !14 = distinct !{!14, !15, !"_ZN4llvm25SmallVectorTemplateCommonIPNS_10BasicBlockEvE6rbeginEv: argument 0"}
 !15 = distinct !{!15, !"_ZN4llvm25SmallVectorTemplateCommonIPNS_10BasicBlockEvE6rbeginEv"}
@@ -5905,8 +5905,8 @@ attributes #16 = { nounwind willreturn memory(read) }
 !42 = distinct !{!42, !43, !"_ZL34shouldSplitOnPHIPredicatedArgumentRN4llvm8CallBaseE: argument 0"}
 !43 = distinct !{!43, !"_ZL34shouldSplitOnPHIPredicatedArgumentRN4llvm8CallBaseE"}
 !44 = !{!45, !42}
-!45 = distinct !{!45, !46, !"_ZL18getTwoPredecessorsPN4llvm10BasicBlockE.argprom: argument 0"}
-!46 = distinct !{!46, !"_ZL18getTwoPredecessorsPN4llvm10BasicBlockE.argprom"}
+!45 = distinct !{!45, !46, !"_ZL18getTwoPredecessorsPN4llvm10BasicBlockE: argument 0"}
+!46 = distinct !{!46, !"_ZL18getTwoPredecessorsPN4llvm10BasicBlockE"}
 !47 = distinct !{!47, !5}
 !48 = distinct !{!48, !5}
 !49 = distinct !{!49, !5}

@@ -339,23 +339,23 @@ define hidden ptr @lexbor_hash_destroy(ptr noundef %0, i1 noundef zeroext %1) lo
   %10 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %lexbor_hash_table_destroy.argprom.exit, label %11
+  br i1 %.not.i, label %lexbor_hash_table_destroy.exit, label %11
 
 11:                                               ; preds = %4
   %12 = tail call ptr @lexbor_free(ptr noundef nonnull %.val) #6
-  br label %lexbor_hash_table_destroy.argprom.exit
+  br label %lexbor_hash_table_destroy.exit
 
-lexbor_hash_table_destroy.argprom.exit:           ; preds = %4, %11
+lexbor_hash_table_destroy.exit:                   ; preds = %4, %11
   %.0.i = phi ptr [ %12, %11 ], [ null, %4 ]
   store ptr %.0.i, ptr %10, align 8
   br i1 %1, label %13, label %15
 
-13:                                               ; preds = %lexbor_hash_table_destroy.argprom.exit
+13:                                               ; preds = %lexbor_hash_table_destroy.exit
   %14 = tail call ptr @lexbor_free(ptr noundef nonnull %0) #6
   br label %15
 
-15:                                               ; preds = %lexbor_hash_table_destroy.argprom.exit, %2, %13
-  %.0 = phi ptr [ %14, %13 ], [ null, %2 ], [ %0, %lexbor_hash_table_destroy.argprom.exit ]
+15:                                               ; preds = %lexbor_hash_table_destroy.exit, %2, %13
+  %.0 = phi ptr [ %14, %13 ], [ null, %2 ], [ %0, %lexbor_hash_table_destroy.exit ]
   ret ptr %.0
 }
 

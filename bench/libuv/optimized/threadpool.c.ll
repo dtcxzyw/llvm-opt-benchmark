@@ -534,22 +534,22 @@ if.then.i:                                        ; preds = %land.rhs.i
   store ptr %wq.i, ptr %prev.i11.i, align 8
   %wq_async.i = getelementptr inbounds i8, ptr %loop.0, i64 176
   %call13.i = tail call i32 @uv_async_send(ptr noundef nonnull %wq_async.i) #9
-  br label %uv__work_cancel.argprom.exit
+  br label %uv__work_cancel.exit
 
 if.then7.critedge.i:                              ; preds = %land.rhs.i, %switch.lookup
   %11 = load ptr, ptr %loop1.i, align 8
   %wq_mutex5.c.i = getelementptr inbounds i8, ptr %11, i64 136
   tail call void @uv_mutex_unlock(ptr noundef nonnull %wq_mutex5.c.i) #9
-  br label %uv__work_cancel.argprom.exit
+  br label %uv__work_cancel.exit
 
-uv__work_cancel.argprom.exit:                     ; preds = %if.then.i, %if.then7.critedge.i
+uv__work_cancel.exit:                             ; preds = %if.then.i, %if.then7.critedge.i
   %mutex.sink.i = phi ptr [ @mutex, %if.then7.critedge.i ], [ %wq_mutex10.i, %if.then.i ]
   %retval.0.i = phi i32 [ -16, %if.then7.critedge.i ], [ 0, %if.then.i ]
   tail call void @uv_mutex_unlock(ptr noundef nonnull %mutex.sink.i) #9
   br label %return
 
-return:                                           ; preds = %entry, %uv__work_cancel.argprom.exit
-  %retval.0 = phi i32 [ %retval.0.i, %uv__work_cancel.argprom.exit ], [ -22, %entry ]
+return:                                           ; preds = %entry, %uv__work_cancel.exit
+  %retval.0 = phi i32 [ %retval.0.i, %uv__work_cancel.exit ], [ -22, %entry ]
   ret i32 %retval.0
 }
 

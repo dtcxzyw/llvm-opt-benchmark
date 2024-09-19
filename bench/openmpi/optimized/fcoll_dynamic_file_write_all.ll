@@ -926,7 +926,7 @@ define noundef i32 @mca_fcoll_dynamic_file_write_all(ptr noundef %0, ptr noundef
   br i1 %exitcond1135.not, label %._crit_edge948, label %.preheader803, !llvm.loop !15
 
 ._crit_edge948:                                   ; preds = %._crit_edge944
-  call fastcc void @local_heap_sort.retelim(ptr noundef %424, i32 noundef %.3660.lcssa, ptr noundef %428)
+  call fastcc void @local_heap_sort(ptr noundef %424, i32 noundef %.3660.lcssa, ptr noundef %428)
   %452 = shl nuw nsw i64 %422, 3
   %453 = call noalias ptr @malloc(i64 noundef %452) #11
   %454 = load i32, ptr %428, align 4
@@ -1587,7 +1587,7 @@ declare i32 @ompi_datatype_destroy(ptr noundef) local_unnamed_addr #1
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @local_heap_sort.retelim(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 1, -2147483648) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc void @local_heap_sort(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 1, -2147483648) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = add nsw i32 %1, -1
   %5 = zext nneg i32 %1 to i64
   %6 = shl nuw nsw i64 %5, 2

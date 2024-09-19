@@ -295,7 +295,7 @@ define hidden { ptr, i64 } @"_ZN79_$LT$std..path..Path$u20$as$u20$core..convert.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6uu_env15variable_parser14VariableParser25check_variable_name_start17hfb6f4b875849867aE.argprom(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr readonly %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6uu_env15variable_parser14VariableParser25check_variable_name_start17hfb6f4b875849867aE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr readonly %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = alloca { ptr, [3 x i64] }, align 8
@@ -338,7 +338,7 @@ define internal fastcc void @_ZN6uu_env15variable_parser14VariableParser25check_
   %.sroa.4.0.copyload.i.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !45
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !38
   %20 = icmp eq i64 %.sroa.4.0.copyload.i.i.i, 0
-  br i1 %20, label %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit, label %21
+  br i1 %20, label %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit, label %21
 
 21:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i.i"
   %22 = load i8, ptr %.sroa.3.0.copyload.i.i.i, align 1, !noalias !46, !noundef !4
@@ -354,13 +354,13 @@ define internal fastcc void @_ZN6uu_env15variable_parser14VariableParser25check_
   %.0 = icmp ult i32 %26, 10
   br i1 %.0, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit, label %.thread
 
-_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i.i", %.thread
+_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i.i", %.thread
   store i32 8, ptr %0, align 8
   br label %29
 
 .thread:                                          ; preds = %21, %25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit
+  br label %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.5)
@@ -391,12 +391,12 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %29
 
-29:                                               ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit
+29:                                               ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE.argprom(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr nonnull %.0.val) unnamed_addr #0 {
+define internal fastcc void @_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr nonnull %.0.val) unnamed_addr #0 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = alloca { ptr, [3 x i64] }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
@@ -592,14 +592,14 @@ define void @_ZN6uu_env15variable_parser14VariableParser14parse_variable17h11ebf
   %.sroa.4.0.copyload.i.i.i123 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i122, align 8, !noalias !118
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34), !noalias !111
   %66 = icmp eq i64 %.sroa.4.0.copyload.i.i.i123, 0
-  br i1 %66, label %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit.thread191, label %67
+  br i1 %66, label %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.thread191, label %67
 
 67:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i.i"
   %68 = load i8, ptr %.sroa.3.0.copyload.i.i.i121, align 1, !noalias !119, !noundef !4
   %69 = tail call { i32, i8 } @_ZN6uu_env14native_int_str24get_char_from_native_int17h567f0d96168909e2E(i8 noundef %68), !noalias !119
   %70 = extractvalue { i32, i8 } %69, 0
   %cond = icmp eq i32 %70, 123
-  br i1 %cond, label %82, label %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit.thread
+  br i1 %cond, label %82, label %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.thread
 
 71:                                               ; preds = %2
   %72 = getelementptr inbounds i8, ptr %37, i64 16
@@ -617,7 +617,7 @@ define void @_ZN6uu_env15variable_parser14VariableParser14parse_variable17h11ebf
   store i8 %76, ptr %.sroa.259.sroa.4.0..sroa.259.0..sroa_idx.sroa_idx, align 8
   br label %316
 
-_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit.thread191: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i.i"
+_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.thread191: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i.i"
   %77 = load i64, ptr %38, align 8, !alias.scope !120, !noundef !4
   %78 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h94b64fd980b0ab3eE"(i64 noundef 21, i1 noundef zeroext false)
   %79 = extractvalue { i64, ptr } %78, 0
@@ -674,15 +674,15 @@ _ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.60abe728c86cd201b6b12a3448c31f09.37.llvm.16827823597129230134) #10, !noalias !141
   unreachable
 
-_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit.thread: ; preds = %67
+_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.thread: ; preds = %67
   %96 = load i64, ptr %38, align 8, !alias.scope !142, !noalias !145, !noundef !4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %29), !noalias !145
-  call fastcc void @_ZN6uu_env15variable_parser14VariableParser25check_variable_name_start17hfb6f4b875849867aE.argprom(ptr noalias nocapture noundef align 8 dereferenceable(40) %29, ptr nonnull %.val116), !noalias !145
+  call fastcc void @_ZN6uu_env15variable_parser14VariableParser25check_variable_name_start17hfb6f4b875849867aE(ptr noalias nocapture noundef align 8 dereferenceable(40) %29, ptr nonnull %.val116), !noalias !145
   %97 = load i32, ptr %29, align 8, !range !148, !noalias !145, !noundef !4
   %98 = icmp eq i32 %97, 8
   br i1 %98, label %99, label %105
 
-99:                                               ; preds = %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit.thread
+99:                                               ; preds = %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.thread
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %29), !noalias !145
   tail call void @llvm.experimental.noalias.scope.decl(metadata !149)
   %100 = load i64, ptr %38, align 8, !alias.scope !149, !noalias !152, !noundef !4
@@ -703,7 +703,7 @@ _ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381
   %.sroa.4.0..sroa_idx.i.i.i39.i = getelementptr inbounds i8, ptr %24, i64 24
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i.i.i"
 
-105:                                              ; preds = %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit.thread
+105:                                              ; preds = %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.thread
   %.sroa.417.0..sroa_idx.i = getelementptr inbounds i8, ptr %29, i64 4
   %.sroa.219.i.sroa.0.0.copyload = load i32, ptr %.sroa.417.0..sroa_idx.i, align 4, !noalias !145
   %.sroa.219.i.sroa.4.0..sroa.417.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %29, i64 8
@@ -736,7 +736,7 @@ _ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381
   %.sroa.4.0.copyload.i.i.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !170
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27), !noalias !166
   %110 = icmp eq i64 %.sroa.4.0.copyload.i.i.i.i, 0
-  br i1 %110, label %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit.i, label %select.unfold.i
+  br i1 %110, label %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i, label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i.i.i"
   %111 = load i8, ptr %.sroa.3.0.copyload.i.i.i.i, align 1, !noalias !171, !noundef !4
@@ -752,9 +752,9 @@ select.unfold.i:                                  ; preds = %"_ZN4core5slice29_$
   %118 = or i1 %.0.i.i, %117
   %119 = icmp eq i32 %spec.select.i, 95
   %or.cond.i = or i1 %119, %118
-  br i1 %or.cond.i, label %122, label %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit.i
+  br i1 %or.cond.i, label %122, label %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i
 
-_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit.i: ; preds = %select.unfold.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i.i.i"
+_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i: ; preds = %select.unfold.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i.i.i"
   %120 = load i64, ptr %38, align 8, !alias.scope !172, !noalias !145, !noundef !4
   %121 = icmp eq i64 %120, %96
   br i1 %121, label %136, label %310
@@ -796,7 +796,7 @@ _ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.60abe728c86cd201b6b12a3448c31f09.37.llvm.16827823597129230134) #10, !noalias !193
   unreachable
 
-136:                                              ; preds = %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit.i
+136:                                              ; preds = %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i
   %137 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h94b64fd980b0ab3eE"(i64 noundef 21, i1 noundef zeroext false), !noalias !145
   %138 = extractvalue { i64, ptr } %137, 0
   %139 = extractvalue { i64, ptr } %137, 1
@@ -843,7 +843,7 @@ _ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381
   store i64 %.sroa.4.0.copyload.i.i.i130, ptr %55, align 8, !alias.scope !134, !noalias !130
   %155 = load i64, ptr %38, align 8, !alias.scope !203, !noalias !206, !noundef !4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22), !noalias !206
-  call fastcc void @_ZN6uu_env15variable_parser14VariableParser25check_variable_name_start17hfb6f4b875849867aE.argprom(ptr noalias nocapture noundef align 8 dereferenceable(40) %22, ptr nonnull %.val116), !noalias !206
+  call fastcc void @_ZN6uu_env15variable_parser14VariableParser25check_variable_name_start17hfb6f4b875849867aE(ptr noalias nocapture noundef align 8 dereferenceable(40) %22, ptr nonnull %.val116), !noalias !206
   %156 = load i32, ptr %22, align 8, !range !148, !noalias !206, !noundef !4
   %157 = icmp eq i32 %156, 8
   br i1 %157, label %158, label %164
@@ -902,7 +902,7 @@ _ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381
   %.sroa.4.0.copyload.i.i.i.i142 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i138, align 8, !noalias !230
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16), !noalias !226
   %169 = icmp eq i64 %.sroa.4.0.copyload.i.i.i.i142, 0
-  br i1 %169, label %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit.i150, label %170
+  br i1 %169, label %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150, label %170
 
 170:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i.i.i140"
   %171 = load i8, ptr %.sroa.3.0.copyload.i.i.i.i141, align 1, !noalias !231, !noundef !4
@@ -911,7 +911,7 @@ _ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381
   %174 = icmp ult i32 %173, 128
   br i1 %174, label %180, label %.thread22.i
 
-_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit.i150: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i.i.i140"
+_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i.i.i140"
   %175 = load i64, ptr %38, align 8, !alias.scope !232, !noalias !206, !noundef !4
   %176 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h94b64fd980b0ab3eE"(i64 noundef 21, i1 noundef zeroext false), !noalias !206
   %177 = extractvalue { i64, ptr } %176, 0
@@ -1083,16 +1083,16 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %200
   %.sroa.4.0.copyload.i.i.i127.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i126.i, align 8, !noalias !308
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !304
   %227 = icmp eq i64 %.sroa.4.0.copyload.i.i.i127.i, 0
-  br i1 %227, label %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit130.thread39.i, label %228
+  br i1 %227, label %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread39.i, label %228
 
 228:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i.i123.i"
   %229 = load i8, ptr %.sroa.3.0.copyload.i.i.i125.i, align 1, !noalias !309, !noundef !4
   %230 = tail call { i32, i8 } @_ZN6uu_env14native_int_str24get_char_from_native_int17h567f0d96168909e2E(i8 noundef %229), !noalias !309
   %231 = extractvalue { i32, i8 } %230, 0
   %cond.i = icmp eq i32 %231, 125
-  br i1 %cond.i, label %237, label %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit130.thread.i
+  br i1 %cond.i, label %237, label %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread.i
 
-_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit130.thread39.i: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i.i123.i"
+_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread39.i: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i.i123.i"
   %232 = load i64, ptr %38, align 8, !alias.scope !310, !noalias !206, !noundef !4
   %233 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h94b64fd980b0ab3eE"(i64 noundef 41, i1 noundef zeroext false), !noalias !206
   %234 = extractvalue { i64, ptr } %233, 0
@@ -1105,12 +1105,12 @@ _ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381
 237:                                              ; preds = %228
   %238 = load i64, ptr %38, align 8, !alias.scope !313, !noalias !206, !noundef !4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21), !noalias !206
-  call fastcc void @_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE.argprom(ptr noalias nocapture noundef align 8 dereferenceable(40) %21, ptr %.val116), !noalias !206
+  call fastcc void @_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE(ptr noalias nocapture noundef align 8 dereferenceable(40) %21, ptr %.val116), !noalias !206
   %239 = load i32, ptr %21, align 8, !range !148, !noalias !206, !noundef !4
   %240 = icmp eq i32 %239, 8
   br i1 %240, label %276, label %254
 
-_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit130.thread.i: ; preds = %228
+_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread.i: ; preds = %228
   tail call void @llvm.experimental.noalias.scope.decl(metadata !316)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !319
   %241 = load i64, ptr %38, align 8, !alias.scope !316, !noalias !323, !noundef !4
@@ -1119,7 +1119,7 @@ _ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381
   %trunc.i.i131.i = trunc nuw i64 %242 to i1
   br i1 %trunc.i.i131.i, label %262, label %243
 
-243:                                              ; preds = %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit130.thread.i
+243:                                              ; preds = %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread.i
   %.sroa.68.0.copyload.i.i133.i = load i64, ptr %.sroa.68.0..sroa_idx.i.i132.i, align 8, !noalias !319
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !319
   %244 = add i64 %.sroa.68.0.copyload.i.i133.i, %241
@@ -1188,7 +1188,7 @@ _ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381
   %261 = icmp eq ptr %260, null
   br i1 %261, label %._crit_edge96.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i.i123.i"
 
-262:                                              ; preds = %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit130.thread.i
+262:                                              ; preds = %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread.i
   %263 = getelementptr inbounds i8, ptr %5, i64 16
   %264 = load i8, ptr %263, align 8, !noalias !319
   %265 = getelementptr inbounds i8, ptr %5, i64 8
@@ -1282,13 +1282,13 @@ _ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381
   call void @llvm.assume(i1 %305)
   br label %308
 
-306:                                              ; preds = %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit.i150, %288, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i, %269, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit130.thread39.i, %254, %262, %164
-  %.sroa.33.0.ph = phi ptr [ %.sroa.257.i.sroa.6.0.copyload, %164 ], [ %268, %262 ], [ %.sroa.280.i.sroa.6.0.copyload, %254 ], [ %235, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit130.thread39.i ], [ %275, %269 ], [ %.sroa.33.16.copyload, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ %294, %288 ], [ %178, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit.i150 ]
-  %.sroa.41.0.ph = phi i64 [ %.sroa.257.i.sroa.7.0.copyload, %164 ], [ undef, %262 ], [ %.sroa.280.i.sroa.7.0.copyload, %254 ], [ 41, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit130.thread39.i ], [ undef, %269 ], [ %.sroa.41.16.copyload, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ undef, %288 ], [ 21, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit.i150 ]
-  %.sroa.24.0.ph = phi i64 [ %.sroa.257.i.sroa.5.0.copyload, %164 ], [ %266, %262 ], [ %.sroa.280.i.sroa.5.0.copyload, %254 ], [ %234, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit130.thread39.i ], [ %273, %269 ], [ %.sroa.24.16.copyload, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ %292, %288 ], [ %177, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit.i150 ]
-  %.sroa.15.0.ph = phi i64 [ %.sroa.257.i.sroa.4.0.copyload, %164 ], [ %266, %262 ], [ %.sroa.280.i.sroa.4.0.copyload, %254 ], [ %232, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit130.thread39.i ], [ %273, %269 ], [ %201, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ %292, %288 ], [ %175, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit.i150 ]
-  %.sroa.12.0.ph = phi i32 [ %.sroa.257.i.sroa.0.0.copyload, %164 ], [ undef, %262 ], [ %.sroa.280.i.sroa.0.0.copyload, %254 ], [ undef, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit130.thread39.i ], [ undef, %269 ], [ undef, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ undef, %288 ], [ undef, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit.i150 ]
-  %.sroa.0161.0.ph = phi i32 [ %156, %164 ], [ 5, %262 ], [ %239, %254 ], [ 4, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit130.thread39.i ], [ 5, %269 ], [ 4, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ 5, %288 ], [ 4, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit.i150 ]
+306:                                              ; preds = %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150, %288, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i, %269, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread39.i, %254, %262, %164
+  %.sroa.33.0.ph = phi ptr [ %.sroa.257.i.sroa.6.0.copyload, %164 ], [ %268, %262 ], [ %.sroa.280.i.sroa.6.0.copyload, %254 ], [ %235, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread39.i ], [ %275, %269 ], [ %.sroa.33.16.copyload, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ %294, %288 ], [ %178, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
+  %.sroa.41.0.ph = phi i64 [ %.sroa.257.i.sroa.7.0.copyload, %164 ], [ undef, %262 ], [ %.sroa.280.i.sroa.7.0.copyload, %254 ], [ 41, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread39.i ], [ undef, %269 ], [ %.sroa.41.16.copyload, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ undef, %288 ], [ 21, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
+  %.sroa.24.0.ph = phi i64 [ %.sroa.257.i.sroa.5.0.copyload, %164 ], [ %266, %262 ], [ %.sroa.280.i.sroa.5.0.copyload, %254 ], [ %234, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread39.i ], [ %273, %269 ], [ %.sroa.24.16.copyload, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ %292, %288 ], [ %177, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
+  %.sroa.15.0.ph = phi i64 [ %.sroa.257.i.sroa.4.0.copyload, %164 ], [ %266, %262 ], [ %.sroa.280.i.sroa.4.0.copyload, %254 ], [ %232, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread39.i ], [ %273, %269 ], [ %201, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ %292, %288 ], [ %175, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
+  %.sroa.12.0.ph = phi i32 [ %.sroa.257.i.sroa.0.0.copyload, %164 ], [ undef, %262 ], [ %.sroa.280.i.sroa.0.0.copyload, %254 ], [ undef, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread39.i ], [ undef, %269 ], [ undef, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ undef, %288 ], [ undef, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
+  %.sroa.0161.0.ph = phi i32 [ %156, %164 ], [ 5, %262 ], [ %239, %254 ], [ 4, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread39.i ], [ 5, %269 ], [ 4, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ 5, %288 ], [ 4, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
   %307 = inttoptr i64 %.sroa.15.0.ph to ptr
   store i32 %.sroa.0161.0.ph, ptr %0, align 8
   %.sroa.288.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
@@ -1320,7 +1320,7 @@ _ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381
   store i32 8, ptr %0, align 8
   br label %316
 
-310:                                              ; preds = %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit.i
+310:                                              ; preds = %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28), !noalias !145
   store i64 %96, ptr %28, align 8, !noalias !145
   %311 = getelementptr inbounds i8, ptr %28, i64 8
@@ -1351,7 +1351,7 @@ _ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381
   store i64 %.sroa.22.0.ph, ptr %.sroa.5107.sroa.2.0..sroa.5107.0..sroa_idx.sroa_idx, align 8
   br label %316
 
-316:                                              ; preds = %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.argprom.exit.thread191, %295, %306, %314, %308, %71
+316:                                              ; preds = %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.thread191, %295, %306, %314, %308, %71
   ret void
 }
 
@@ -1536,8 +1536,8 @@ attributes #10 = { noreturn }
 !82 = distinct !{!82, !"_ZN6uu_env13string_parser12StringParser13consume_chunk17hc0f361e8f2800996E"}
 !83 = !{!84, !81, !85}
 !84 = distinct !{!84, !82, !"_ZN6uu_env13string_parser12StringParser13consume_chunk17hc0f361e8f2800996E: argument 0"}
-!85 = distinct !{!85, !86, !"_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE.argprom: argument 0"}
-!86 = distinct !{!86, !"_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE.argprom"}
+!85 = distinct !{!85, !86, !"_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE: argument 0"}
+!86 = distinct !{!86, !"_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE"}
 !87 = !{!84, !85}
 !88 = !{!89}
 !89 = distinct !{!89, !90, !"_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE: argument 0"}
@@ -1579,8 +1579,8 @@ attributes #10 = { noreturn }
 !125 = distinct !{!125, !"_ZN6uu_env13string_parser12StringParser13consume_chunk17hc0f361e8f2800996E"}
 !126 = !{!127, !124, !128}
 !127 = distinct !{!127, !125, !"_ZN6uu_env13string_parser12StringParser13consume_chunk17hc0f361e8f2800996E: argument 0"}
-!128 = distinct !{!128, !129, !"_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE.argprom: argument 0"}
-!129 = distinct !{!129, !"_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE.argprom"}
+!128 = distinct !{!128, !129, !"_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE: argument 0"}
+!129 = distinct !{!129, !"_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE"}
 !130 = !{!127, !128}
 !131 = !{!132}
 !132 = distinct !{!132, !133, !"_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE: argument 0"}
@@ -1597,8 +1597,8 @@ attributes #10 = { noreturn }
 !143 = distinct !{!143, !144, !"_ZN6uu_env13string_parser12StringParser17get_peek_position17heb5766bc7833dc00E: argument 0"}
 !144 = distinct !{!144, !"_ZN6uu_env13string_parser12StringParser17get_peek_position17heb5766bc7833dc00E"}
 !145 = !{!146}
-!146 = distinct !{!146, !147, !"_ZN6uu_env15variable_parser14VariableParser28parse_unbraced_variable_name17h920e29775840edd2E.argprom: argument 0"}
-!147 = distinct !{!147, !"_ZN6uu_env15variable_parser14VariableParser28parse_unbraced_variable_name17h920e29775840edd2E.argprom"}
+!146 = distinct !{!146, !147, !"_ZN6uu_env15variable_parser14VariableParser28parse_unbraced_variable_name17h920e29775840edd2E: argument 0"}
+!147 = distinct !{!147, !"_ZN6uu_env15variable_parser14VariableParser28parse_unbraced_variable_name17h920e29775840edd2E"}
 !148 = !{i32 0, i32 9}
 !149 = !{!150}
 !150 = distinct !{!150, !151, !"_ZN6uu_env13string_parser12StringParser4peek17h67dbe62d54298102E: argument 1:pre.rot"}
@@ -1631,8 +1631,8 @@ attributes #10 = { noreturn }
 !177 = distinct !{!177, !"_ZN6uu_env13string_parser12StringParser13consume_chunk17hc0f361e8f2800996E"}
 !178 = !{!179, !176, !180, !146}
 !179 = distinct !{!179, !177, !"_ZN6uu_env13string_parser12StringParser13consume_chunk17hc0f361e8f2800996E: argument 0"}
-!180 = distinct !{!180, !181, !"_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE.argprom: argument 0"}
-!181 = distinct !{!181, !"_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE.argprom"}
+!180 = distinct !{!180, !181, !"_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE: argument 0"}
+!181 = distinct !{!181, !"_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE"}
 !182 = !{!179, !180, !146}
 !183 = !{!184}
 !184 = distinct !{!184, !185, !"_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE: argument 0"}
@@ -1658,8 +1658,8 @@ attributes #10 = { noreturn }
 !204 = distinct !{!204, !205, !"_ZN6uu_env13string_parser12StringParser17get_peek_position17heb5766bc7833dc00E: argument 0"}
 !205 = distinct !{!205, !"_ZN6uu_env13string_parser12StringParser17get_peek_position17heb5766bc7833dc00E"}
 !206 = !{!207}
-!207 = distinct !{!207, !208, !"_ZN6uu_env15variable_parser14VariableParser26parse_braced_variable_name17hef5be0e7133dd16bE.argprom: argument 0"}
-!208 = distinct !{!208, !"_ZN6uu_env15variable_parser14VariableParser26parse_braced_variable_name17hef5be0e7133dd16bE.argprom"}
+!207 = distinct !{!207, !208, !"_ZN6uu_env15variable_parser14VariableParser26parse_braced_variable_name17hef5be0e7133dd16bE: argument 0"}
+!208 = distinct !{!208, !"_ZN6uu_env15variable_parser14VariableParser26parse_braced_variable_name17hef5be0e7133dd16bE"}
 !209 = !{!210}
 !210 = distinct !{!210, !211, !"_ZN6uu_env13string_parser12StringParser4peek17h67dbe62d54298102E: argument 1:pre.rot"}
 !211 = distinct !{!211, !"_ZN6uu_env13string_parser12StringParser4peek17h67dbe62d54298102E"}
@@ -1691,8 +1691,8 @@ attributes #10 = { noreturn }
 !237 = distinct !{!237, !"_ZN6uu_env13string_parser12StringParser13consume_chunk17hc0f361e8f2800996E"}
 !238 = !{!239, !236, !240, !207}
 !239 = distinct !{!239, !237, !"_ZN6uu_env13string_parser12StringParser13consume_chunk17hc0f361e8f2800996E: argument 0"}
-!240 = distinct !{!240, !241, !"_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE.argprom: argument 0"}
-!241 = distinct !{!241, !"_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE.argprom"}
+!240 = distinct !{!240, !241, !"_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE: argument 0"}
+!241 = distinct !{!241, !"_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE"}
 !242 = !{!239, !240, !207}
 !243 = !{!244}
 !244 = distinct !{!244, !245, !"_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE: argument 0"}
@@ -1741,8 +1741,8 @@ attributes #10 = { noreturn }
 !287 = distinct !{!287, !"_ZN6uu_env13string_parser12StringParser13consume_chunk17hc0f361e8f2800996E"}
 !288 = !{!289, !286, !290, !207}
 !289 = distinct !{!289, !287, !"_ZN6uu_env13string_parser12StringParser13consume_chunk17hc0f361e8f2800996E: argument 0"}
-!290 = distinct !{!290, !291, !"_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE.argprom: argument 0"}
-!291 = distinct !{!291, !"_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE.argprom"}
+!290 = distinct !{!290, !291, !"_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE: argument 0"}
+!291 = distinct !{!291, !"_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE"}
 !292 = !{!289, !290, !207}
 !293 = !{!294}
 !294 = distinct !{!294, !295, !"_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE: argument 0"}
@@ -1772,8 +1772,8 @@ attributes #10 = { noreturn }
 !318 = distinct !{!318, !"_ZN6uu_env13string_parser12StringParser13consume_chunk17hc0f361e8f2800996E"}
 !319 = !{!320, !317, !321, !207}
 !320 = distinct !{!320, !318, !"_ZN6uu_env13string_parser12StringParser13consume_chunk17hc0f361e8f2800996E: argument 0"}
-!321 = distinct !{!321, !322, !"_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE.argprom: argument 0"}
-!322 = distinct !{!322, !"_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE.argprom"}
+!321 = distinct !{!321, !322, !"_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE: argument 0"}
+!322 = distinct !{!322, !"_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE"}
 !323 = !{!320, !321, !207}
 !324 = !{!325}
 !325 = distinct !{!325, !326, !"_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE: argument 0"}

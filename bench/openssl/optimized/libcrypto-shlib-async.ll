@@ -48,7 +48,7 @@ while.body:                                       ; preds = %while.body.preheade
   store i32 %call1, ptr %ret, align 8
   %status = getelementptr inbounds i8, ptr %0, i64 1196
   store i32 3, ptr %status, align 4
-  tail call fastcc void @async_fibre_swapcontext.argelim(ptr noundef %0, ptr noundef nonnull %call.i)
+  tail call fastcc void @async_fibre_swapcontext(ptr noundef %0, ptr noundef nonnull %call.i)
   br label %while.body
 }
 
@@ -59,7 +59,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @async_fibre_swapcontext.argelim(ptr noundef %o, ptr noundef %n) unnamed_addr #0 {
+define internal fastcc void @async_fibre_swapcontext(ptr noundef %o, ptr noundef %n) unnamed_addr #0 {
 entry:
   %env_init = getelementptr inbounds i8, ptr %o, i64 1168
   store i32 1, ptr %env_init, align 8
@@ -236,7 +236,7 @@ async_release_job.exit62:                         ; preds = %if.then.i61, %if.en
 
 if.end45:                                         ; preds = %if.end38
   %14 = load ptr, ptr %currjob11, align 8
-  tail call fastcc void @async_fibre_swapcontext.argelim(ptr noundef nonnull %ctx.0, ptr noundef %14)
+  tail call fastcc void @async_fibre_swapcontext(ptr noundef nonnull %ctx.0, ptr noundef %14)
   %call54 = tail call ptr @OSSL_LIB_CTX_set0_default(ptr noundef nonnull %call42) #7
   br label %for.cond.backedge
 
@@ -398,7 +398,7 @@ if.end81:                                         ; preds = %if.else, %if.end76
   store ptr %wctx, ptr %waitctx85, align 8
   %call86 = tail call ptr @ossl_lib_ctx_get_concrete(ptr noundef null) #7
   %31 = load ptr, ptr %currjob11, align 8
-  tail call fastcc void @async_fibre_swapcontext.argelim(ptr noundef nonnull %ctx.0, ptr noundef %31)
+  tail call fastcc void @async_fibre_swapcontext(ptr noundef nonnull %ctx.0, ptr noundef %31)
   %call94 = tail call ptr @OSSL_LIB_CTX_set0_default(ptr noundef %call86) #7
   br label %for.cond.backedge
 
@@ -440,7 +440,7 @@ lor.lhs.false2:                                   ; preds = %lor.lhs.false
 if.end:                                           ; preds = %lor.lhs.false2
   %status = getelementptr inbounds i8, ptr %0, i64 1196
   store i32 1, ptr %status, align 4
-  tail call fastcc void @async_fibre_swapcontext.argelim(ptr noundef nonnull %0, ptr noundef nonnull %call.i)
+  tail call fastcc void @async_fibre_swapcontext(ptr noundef nonnull %0, ptr noundef nonnull %call.i)
   %waitctx = getelementptr inbounds i8, ptr %0, i64 1200
   %2 = load ptr, ptr %waitctx, align 8
   tail call void @async_wait_ctx_reset_counts(ptr noundef %2) #7

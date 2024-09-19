@@ -6791,7 +6791,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %cond61.i = tail call i64 @llvm.smin.i64(i64 %22, i64 0)
   %local_ep.i.0 = select i1 %cmp53.i, i64 %cond61.i, i64 %22
   %tobool.i.not.i = icmp eq i64 %local_ep.i.0, %sp.i.0
-  br i1 %tobool.i.not.i, label %mcclellanExec8_i_nm.argprom.exit, label %if.end2.i.i
+  br i1 %tobool.i.not.i, label %mcclellanExec8_i_nm.exit, label %if.end2.i.i
 
 if.end2.i.i:                                      ; preds = %while.body.i
   %sub65.i = sub nsw i64 %local_ep.i.0, %sp.i.0
@@ -6816,7 +6816,7 @@ do.body12.i.i:                                    ; preds = %if.end46.i.i, %with
   %c.i.2.i = phi ptr [ %c.i.0.i, %without_accel.i.i ], [ %incdec.ptr.i52.i, %if.end46.i.i ]
   %s.i.2.i = phi i32 [ %s.i.0.i, %without_accel.i.i ], [ %conv7.i51.i, %if.end46.i.i ]
   %tobool13.i.not.i = icmp eq i32 %s.i.2.i, 0
-  br i1 %tobool13.i.not.i, label %mcclellanExec8_i_nm.argprom.exit, label %if.end15.i.i
+  br i1 %tobool13.i.not.i, label %mcclellanExec8_i_nm.exit, label %if.end15.i.i
 
 if.end15.i.i:                                     ; preds = %do.body12.i.i
   %25 = load i8, ptr %alphaShift.i36.i, align 4
@@ -6851,7 +6851,7 @@ do.end49.i.i:                                     ; preds = %if.end46.i.i, %if.e
   %s.addr.i23.0.lcssa17.i = phi i32 [ %conv7.i51.i, %if.end46.i.i ], [ %s.i.2.i, %if.end15.i.i ]
   %c.i26.0.lcssa16.i = phi ptr [ %incdec.ptr.i52.i, %if.end46.i.i ], [ %c.i.2.i, %if.end15.i.i ]
   %cmp50.i.i = icmp eq ptr %c.i26.0.lcssa16.i, %add.ptr.i.i
-  br i1 %cmp50.i.i, label %mcclellanExec8_i_nm.argprom.exit, label %with_accel.i.i
+  br i1 %cmp50.i.i, label %mcclellanExec8_i_nm.exit, label %with_accel.i.i
 
 with_accel.i.i:                                   ; preds = %do.end49.i.i, %if.end2.i.i
   %c.i.1.i = phi ptr [ %c.i26.0.lcssa16.i, %do.end49.i.i ], [ %add.ptr64.i, %if.end2.i.i ]
@@ -6863,7 +6863,7 @@ do.body54.i.i:                                    ; preds = %if.end111.i.i, %wit
   %c.i.3.i = phi ptr [ %c.i.1.i, %with_accel.i.i ], [ %c.i3.1.i, %if.end111.i.i ]
   %s.i.4.i = phi i32 [ %s.i.1.i, %with_accel.i.i ], [ %s.addr.i.1.i, %if.end111.i.i ]
   %tobool56.i.not.i = icmp eq i32 %s.i.4.i, 0
-  br i1 %tobool56.i.not.i, label %mcclellanExec8_i_nm.argprom.exit, label %if.end58.i.i
+  br i1 %tobool56.i.not.i, label %mcclellanExec8_i_nm.exit, label %if.end58.i.i
 
 if.end58.i.i:                                     ; preds = %do.body54.i.i
   %30 = load i16, ptr %accel_limit_8.i.i, align 4
@@ -6890,7 +6890,7 @@ if.then63.i.i:                                    ; preds = %land.lhs.true61.i.i
   %cmp6.i.not.i = icmp ult ptr %min_accel_offset.i.2.i, %add.ptr5.i.i
   %min_accel_offset.i.3.i = select i1 %cmp6.i.not.i, ptr %min_accel_offset.i.2.i, ptr %add.ptr.i.i
   %cmp65.i.i = icmp eq ptr %call.i.i, %add.ptr.i.i
-  br i1 %cmp65.i.i, label %mcclellanExec8_i_nm.argprom.exit, label %without_accel.i.i
+  br i1 %cmp65.i.i, label %mcclellanExec8_i_nm.exit, label %without_accel.i.i
 
 if.end69.i.i:                                     ; preds = %land.lhs.true61.i.i, %if.end58.i.i
   %32 = load i8, ptr %alphaShift.i36.i, align 4
@@ -6926,9 +6926,9 @@ if.end111.i.i:                                    ; preds = %while.body.i.i, %wh
   %c.i3.1.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %c.i3.0.i, %while.cond.i.i ]
   %s.addr.i.1.i = phi i32 [ %conv7.i.i, %while.body.i.i ], [ %s.addr.i.0.i, %while.cond.i.i ]
   %cmp113.i.i = icmp ult ptr %c.i3.1.i, %add.ptr.i.i
-  br i1 %cmp113.i.i, label %do.body54.i.i, label %mcclellanExec8_i_nm.argprom.exit, !llvm.loop !8
+  br i1 %cmp113.i.i, label %do.body54.i.i, label %mcclellanExec8_i_nm.exit, !llvm.loop !8
 
-mcclellanExec8_i_nm.argprom.exit:                 ; preds = %do.body12.i.i, %do.body54.i.i, %if.end111.i.i, %do.end49.i.i, %if.then63.i.i, %while.body.i
+mcclellanExec8_i_nm.exit:                         ; preds = %do.body12.i.i, %do.body54.i.i, %if.end111.i.i, %do.end49.i.i, %if.then63.i.i, %while.body.i
   %s.i.2 = phi i32 [ %s.i.0, %while.body.i ], [ %s.addr.i23.0.lcssa17.i, %do.end49.i.i ], [ %s.i.4.i, %if.then63.i.i ], [ %s.addr.i.1.i, %if.end111.i.i ], [ 0, %do.body54.i.i ], [ 0, %do.body12.i.i ]
   %cmp128.i = icmp eq i64 %local_ep.i.0, 0
   %cur_buf.i.1 = select i1 %cmp128.i, ptr %1, ptr %cur_buf.i.0
@@ -6936,7 +6936,7 @@ mcclellanExec8_i_nm.argprom.exit:                 ; preds = %do.body12.i.i, %do.
   %.pre.pre = load i32, ptr %cur.i52, align 8
   br i1 %cmp132.i.not, label %if.end135.i, label %while.body.i.backedge
 
-if.end135.i:                                      ; preds = %mcclellanExec8_i_nm.argprom.exit
+if.end135.i:                                      ; preds = %mcclellanExec8_i_nm.exit
   %idxprom138.i = zext i32 %.pre.pre to i64
   %arrayidx139.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i51, i64 0, i64 %idxprom138.i
   %38 = load i32, ptr %arrayidx139.i, align 8
@@ -6971,9 +6971,9 @@ sw.epilog.i:                                      ; preds = %if.end135.i, %if.en
   store i32 %inc158.i, ptr %cur.i52, align 8
   br label %while.body.i.backedge
 
-while.body.i.backedge:                            ; preds = %sw.epilog.i, %mcclellanExec8_i_nm.argprom.exit
-  %.be = phi i32 [ %inc158.i, %sw.epilog.i ], [ %.pre.pre, %mcclellanExec8_i_nm.argprom.exit ]
-  %s.i.0.be = phi i32 [ %s.i.1, %sw.epilog.i ], [ %s.i.2, %mcclellanExec8_i_nm.argprom.exit ]
+while.body.i.backedge:                            ; preds = %sw.epilog.i, %mcclellanExec8_i_nm.exit
+  %.be = phi i32 [ %inc158.i, %sw.epilog.i ], [ %.pre.pre, %mcclellanExec8_i_nm.exit ]
+  %s.i.0.be = phi i32 [ %s.i.1, %sw.epilog.i ], [ %s.i.2, %mcclellanExec8_i_nm.exit ]
   br label %while.body.i
 
 nfaExecMcClellan8_Q2i.exit:                       ; preds = %if.end135.i
@@ -7194,7 +7194,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i311.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i.i)
   %tobool.i.not.i = icmp eq i64 %local_ep.i.0, %sp.i.0
-  br i1 %tobool.i.not.i, label %mcclellanExec16_i_nm.argprom.exit, label %if.end2.i.i
+  br i1 %tobool.i.not.i, label %mcclellanExec16_i_nm.exit, label %if.end2.i.i
 
 if.end2.i.i:                                      ; preds = %while.body.i
   %sub64.i = sub nsw i64 %local_ep.i.0, %sp.i.0
@@ -8105,9 +8105,9 @@ if.end137.i.i:                                    ; preds = %do.body9.i.i, %if.e
   %s.i.2.i = phi i32 [ %and69.i.i, %if.then65.i.i ], [ %s.i.3.i, %do.end53.i.i ], [ 0, %with_accel.i.i ], [ %s.i.5.i, %if.end128.i.i ], [ 0, %do.body9.i.i ]
   %and133.i.i = and i32 %s.i.2.i, 16383
   %.pre.pre.pre = load i32, ptr %cur.i52, align 8
-  br label %mcclellanExec16_i_nm.argprom.exit
+  br label %mcclellanExec16_i_nm.exit
 
-mcclellanExec16_i_nm.argprom.exit:                ; preds = %while.body.i, %if.end137.i.i
+mcclellanExec16_i_nm.exit:                        ; preds = %while.body.i, %if.end137.i.i
   %.pre.pre = phi i32 [ %.pre.pre197, %while.body.i ], [ %.pre.pre.pre, %if.end137.i.i ]
   %s.i.2 = phi i32 [ %s.i.0, %while.body.i ], [ %and133.i.i, %if.end137.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %a.i767.i)
@@ -8121,7 +8121,7 @@ mcclellanExec16_i_nm.argprom.exit:                ; preds = %while.body.i, %if.e
   %cmp131.i.not = icmp eq i64 %local_ep.i.0, %21
   br i1 %cmp131.i.not, label %if.end134.i, label %while.body.i.backedge
 
-if.end134.i:                                      ; preds = %mcclellanExec16_i_nm.argprom.exit
+if.end134.i:                                      ; preds = %mcclellanExec16_i_nm.exit
   %idxprom137.i = zext i32 %.pre.pre to i64
   %arrayidx138.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i51, i64 0, i64 %idxprom137.i
   %148 = load i32, ptr %arrayidx138.i, align 8
@@ -8154,9 +8154,9 @@ sw.epilog.i:                                      ; preds = %sw.epilog.i.sink.sp
   store i32 %inc156.i, ptr %cur.i52, align 8
   br label %while.body.i.backedge
 
-while.body.i.backedge:                            ; preds = %sw.epilog.i, %mcclellanExec16_i_nm.argprom.exit
-  %.pre.pre197.be = phi i32 [ %inc156.i, %sw.epilog.i ], [ %.pre.pre, %mcclellanExec16_i_nm.argprom.exit ]
-  %s.i.0.be = phi i32 [ %s.i.1, %sw.epilog.i ], [ %s.i.2, %mcclellanExec16_i_nm.argprom.exit ]
+while.body.i.backedge:                            ; preds = %sw.epilog.i, %mcclellanExec16_i_nm.exit
+  %.pre.pre197.be = phi i32 [ %inc156.i, %sw.epilog.i ], [ %.pre.pre, %mcclellanExec16_i_nm.exit ]
+  %s.i.0.be = phi i32 [ %s.i.1, %sw.epilog.i ], [ %s.i.2, %mcclellanExec16_i_nm.exit ]
   br label %while.body.i
 
 nfaExecMcClellan16_Q2i.exit:                      ; preds = %if.end134.i

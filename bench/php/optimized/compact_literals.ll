@@ -1624,7 +1624,7 @@ type_num_classes.exit1107.thread1164:             ; preds = %745, %type_num_clas
   %801 = load i32, ptr %800, align 4
   %802 = and i32 %801, 64
   %.not32.i = icmp eq i32 %802, 0
-  br i1 %.not32.i, label %803, label %add_static_slot.argprom.exit
+  br i1 %.not32.i, label %803, label %add_static_slot.exit
 
 803:                                              ; preds = %799
   %804 = load i32, ptr %787, align 4
@@ -1633,13 +1633,13 @@ type_num_classes.exit1107.thread1164:             ; preds = %745, %type_num_clas
   %806 = add i32 %804, -1
   store i32 %806, ptr %787, align 4
   %807 = icmp eq i32 %806, 0
-  br i1 %807, label %808, label %add_static_slot.argprom.exit
+  br i1 %807, label %808, label %add_static_slot.exit
 
 808:                                              ; preds = %803
   call void @_efree(ptr noundef nonnull %787) #12
-  br label %add_static_slot.argprom.exit
+  br label %add_static_slot.exit
 
-add_static_slot.argprom.exit:                     ; preds = %799, %803, %808
+add_static_slot.exit:                             ; preds = %799, %803, %808
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %809 = getelementptr inbounds i8, ptr %.11198, i64 52
   store i32 %.0.i1109, ptr %809, align 4
@@ -1890,7 +1890,7 @@ add_static_slot.argprom.exit:                     ; preds = %799, %803, %808
   %947 = load i32, ptr %946, align 4
   %948 = and i32 %947, 64
   %.not32.i1112 = icmp eq i32 %948, 0
-  br i1 %.not32.i1112, label %949, label %add_static_slot.argprom.exit1113
+  br i1 %.not32.i1112, label %949, label %add_static_slot.exit1113
 
 949:                                              ; preds = %945
   %950 = load i32, ptr %933, align 4
@@ -1899,13 +1899,13 @@ add_static_slot.argprom.exit:                     ; preds = %799, %803, %808
   %952 = add i32 %950, -1
   store i32 %952, ptr %933, align 4
   %953 = icmp eq i32 %952, 0
-  br i1 %953, label %954, label %add_static_slot.argprom.exit1113
+  br i1 %953, label %954, label %add_static_slot.exit1113
 
 954:                                              ; preds = %949
   call void @_efree(ptr noundef nonnull %933) #12
-  br label %add_static_slot.argprom.exit1113
+  br label %add_static_slot.exit1113
 
-add_static_slot.argprom.exit1113:                 ; preds = %945, %949, %954
+add_static_slot.exit1113:                         ; preds = %945, %949, %954
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %955 = getelementptr inbounds i8, ptr %.11198, i64 16
   store i32 %.0.i1111, ptr %955, align 8
@@ -2032,7 +2032,7 @@ add_static_slot.argprom.exit1113:                 ; preds = %945, %949, %954
   %1024 = load i32, ptr %1023, align 4
   %1025 = and i32 %1024, 64
   %.not32.i1116 = icmp eq i32 %1025, 0
-  br i1 %.not32.i1116, label %1026, label %add_static_slot.argprom.exit1117
+  br i1 %.not32.i1116, label %1026, label %add_static_slot.exit1117
 
 1026:                                             ; preds = %1022
   %1027 = load i32, ptr %1010, align 4
@@ -2041,13 +2041,13 @@ add_static_slot.argprom.exit1113:                 ; preds = %945, %949, %954
   %1029 = add i32 %1027, -1
   store i32 %1029, ptr %1010, align 4
   %1030 = icmp eq i32 %1029, 0
-  br i1 %1030, label %1031, label %add_static_slot.argprom.exit1117
+  br i1 %1030, label %1031, label %add_static_slot.exit1117
 
 1031:                                             ; preds = %1026
   call void @_efree(ptr noundef nonnull %1010) #12
-  br label %add_static_slot.argprom.exit1117
+  br label %add_static_slot.exit1117
 
-add_static_slot.argprom.exit1117:                 ; preds = %1022, %1026, %1031
+add_static_slot.exit1117:                         ; preds = %1022, %1026, %1031
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %1032 = getelementptr inbounds i8, ptr %.11198, i64 20
   store i32 %.0.i1115, ptr %1032, align 4
@@ -2107,7 +2107,7 @@ add_static_slot.argprom.exit1117:                 ; preds = %1022, %1026, %1031
   %1063 = load i32, ptr %1062, align 4
   %1064 = and i32 %1063, 64
   %.not32.i1120 = icmp eq i32 %1064, 0
-  br i1 %.not32.i1120, label %1065, label %add_static_slot.argprom.exit1121
+  br i1 %.not32.i1120, label %1065, label %add_static_slot.exit1121
 
 1065:                                             ; preds = %1061
   %1066 = load i32, ptr %1049, align 4
@@ -2116,13 +2116,13 @@ add_static_slot.argprom.exit1117:                 ; preds = %1022, %1026, %1031
   %1068 = add i32 %1066, -1
   store i32 %1068, ptr %1049, align 4
   %1069 = icmp eq i32 %1068, 0
-  br i1 %1069, label %1070, label %add_static_slot.argprom.exit1121
+  br i1 %1069, label %1070, label %add_static_slot.exit1121
 
 1070:                                             ; preds = %1065
   call void @_efree(ptr noundef nonnull %1049) #12
-  br label %add_static_slot.argprom.exit1121
+  br label %add_static_slot.exit1121
 
-add_static_slot.argprom.exit1121:                 ; preds = %1061, %1065, %1070
+add_static_slot.exit1121:                         ; preds = %1061, %1065, %1070
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %1071 = getelementptr inbounds i8, ptr %.11198, i64 20
   %1072 = load i32, ptr %1071, align 4
@@ -2276,8 +2276,8 @@ add_static_slot.argprom.exit1121:                 ; preds = %1061, %1065, %1070
   %1155 = add i32 %.011501197, 16
   br label %type_num_classes.exit.thread
 
-type_num_classes.exit.thread:                     ; preds = %753, %739, %718, %705, %696, %686, %915, %882, %857, %837, %1152, %1153, %1146, %1147, %1121, %1134, %1132, %1109, %1119, %1118, %1097, %1107, %1106, %1075, %add_static_slot.argprom.exit1121, %1092, %1094, %1081, %add_static_slot.argprom.exit1117, %1033, %990, %991, %979, %980, %956, %add_static_slot.argprom.exit1113, %968, %969, %959, %903, %918, %914, %900, %901, %867, %888, %880, %842, %863, %855, %825, %840, %836, %810, %add_static_slot.argprom.exit, %822, %823, %813, %type_num_classes.exit1107, %type_num_classes.exit1107.thread1164, %type_num_classes.exit, %type_num_classes.exit.thread1158, %1149, %680
-  %.11151 = phi i32 [ %.011501197, %680 ], [ %1155, %1153 ], [ %.011501197, %1152 ], [ %1151, %1149 ], [ %.011501197, %1146 ], [ %1148, %1147 ], [ %.011501197, %1132 ], [ %1136, %1134 ], [ %.011501197, %1121 ], [ %.011501197, %1118 ], [ %1120, %1119 ], [ %.011501197, %1109 ], [ %.011501197, %1106 ], [ %1108, %1107 ], [ %.011501197, %1097 ], [ %.51155, %add_static_slot.argprom.exit1121 ], [ %1080, %1075 ], [ %.011501197, %1092 ], [ %1096, %1094 ], [ %.011501197, %1081 ], [ %.41154, %add_static_slot.argprom.exit1117 ], [ %1035, %1033 ], [ %.011501197, %990 ], [ %992, %991 ], [ %.011501197, %979 ], [ %981, %980 ], [ %.31153, %add_static_slot.argprom.exit1113 ], [ %958, %956 ], [ %.011501197, %968 ], [ %970, %969 ], [ %.011501197, %959 ], [ %.011501197, %914 ], [ %919, %918 ], [ %917, %915 ], [ %.011501197, %903 ], [ %.011501197, %900 ], [ %902, %901 ], [ %.011501197, %880 ], [ %890, %888 ], [ %887, %882 ], [ %.011501197, %867 ], [ %.011501197, %855 ], [ %865, %863 ], [ %862, %857 ], [ %.011501197, %842 ], [ %.011501197, %836 ], [ %841, %840 ], [ %839, %837 ], [ %.011501197, %825 ], [ %.21152, %add_static_slot.argprom.exit ], [ %812, %810 ], [ %.011501197, %822 ], [ %824, %823 ], [ %.011501197, %813 ], [ %.011501197, %type_num_classes.exit1107 ], [ %773, %type_num_classes.exit1107.thread1164 ], [ %.011501197, %type_num_classes.exit ], [ %738, %type_num_classes.exit.thread1158 ], [ %.011501197, %686 ], [ %.011501197, %696 ], [ %.011501197, %705 ], [ %.011501197, %718 ], [ %.011501197, %739 ], [ %.011501197, %753 ]
+type_num_classes.exit.thread:                     ; preds = %753, %739, %718, %705, %696, %686, %915, %882, %857, %837, %1152, %1153, %1146, %1147, %1121, %1134, %1132, %1109, %1119, %1118, %1097, %1107, %1106, %1075, %add_static_slot.exit1121, %1092, %1094, %1081, %add_static_slot.exit1117, %1033, %990, %991, %979, %980, %956, %add_static_slot.exit1113, %968, %969, %959, %903, %918, %914, %900, %901, %867, %888, %880, %842, %863, %855, %825, %840, %836, %810, %add_static_slot.exit, %822, %823, %813, %type_num_classes.exit1107, %type_num_classes.exit1107.thread1164, %type_num_classes.exit, %type_num_classes.exit.thread1158, %1149, %680
+  %.11151 = phi i32 [ %.011501197, %680 ], [ %1155, %1153 ], [ %.011501197, %1152 ], [ %1151, %1149 ], [ %.011501197, %1146 ], [ %1148, %1147 ], [ %.011501197, %1132 ], [ %1136, %1134 ], [ %.011501197, %1121 ], [ %.011501197, %1118 ], [ %1120, %1119 ], [ %.011501197, %1109 ], [ %.011501197, %1106 ], [ %1108, %1107 ], [ %.011501197, %1097 ], [ %.51155, %add_static_slot.exit1121 ], [ %1080, %1075 ], [ %.011501197, %1092 ], [ %1096, %1094 ], [ %.011501197, %1081 ], [ %.41154, %add_static_slot.exit1117 ], [ %1035, %1033 ], [ %.011501197, %990 ], [ %992, %991 ], [ %.011501197, %979 ], [ %981, %980 ], [ %.31153, %add_static_slot.exit1113 ], [ %958, %956 ], [ %.011501197, %968 ], [ %970, %969 ], [ %.011501197, %959 ], [ %.011501197, %914 ], [ %919, %918 ], [ %917, %915 ], [ %.011501197, %903 ], [ %.011501197, %900 ], [ %902, %901 ], [ %.011501197, %880 ], [ %890, %888 ], [ %887, %882 ], [ %.011501197, %867 ], [ %.011501197, %855 ], [ %865, %863 ], [ %862, %857 ], [ %.011501197, %842 ], [ %.011501197, %836 ], [ %841, %840 ], [ %839, %837 ], [ %.011501197, %825 ], [ %.21152, %add_static_slot.exit ], [ %812, %810 ], [ %.011501197, %822 ], [ %824, %823 ], [ %.011501197, %813 ], [ %.011501197, %type_num_classes.exit1107 ], [ %773, %type_num_classes.exit1107.thread1164 ], [ %.011501197, %type_num_classes.exit ], [ %738, %type_num_classes.exit.thread1158 ], [ %.011501197, %686 ], [ %.011501197, %696 ], [ %.011501197, %705 ], [ %.011501197, %718 ], [ %.011501197, %739 ], [ %.011501197, %753 ]
   %1156 = getelementptr inbounds i8, ptr %.11198, i64 32
   %1157 = icmp ult ptr %1156, %651
   br i1 %1157, label %660, label %._crit_edge1201

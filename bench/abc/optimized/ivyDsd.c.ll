@@ -1175,10 +1175,10 @@ tailrecurse:                                      ; preds = %46, %2
   %50 = xor i32 %sext60, %accumulator.tr
   br label %tailrecurse
 
-51:                                               ; preds = %.lr.ph111, %Ivy_DecGetVar.argprom.exit
-  %.051110 = phi i32 [ -1, %.lr.ph111 ], [ %61, %Ivy_DecGetVar.argprom.exit ]
-  %.052109 = phi i32 [ 0, %.lr.ph111 ], [ %62, %Ivy_DecGetVar.argprom.exit ]
-  switch i32 %.052109, label %Ivy_DecGetVar.argprom.exit [
+51:                                               ; preds = %.lr.ph111, %Ivy_DecGetVar.exit
+  %.051110 = phi i32 [ -1, %.lr.ph111 ], [ %61, %Ivy_DecGetVar.exit ]
+  %.052109 = phi i32 [ 0, %.lr.ph111 ], [ %62, %Ivy_DecGetVar.exit ]
+  switch i32 %.052109, label %Ivy_DecGetVar.exit [
     i32 0, label %52
     i32 1, label %53
     i32 2, label %54
@@ -1188,24 +1188,24 @@ tailrecurse:                                      ; preds = %46, %2
   ]
 
 52:                                               ; preds = %51
-  br label %Ivy_DecGetVar.argprom.exit
+  br label %Ivy_DecGetVar.exit
 
 53:                                               ; preds = %51
-  br label %Ivy_DecGetVar.argprom.exit
+  br label %Ivy_DecGetVar.exit
 
 54:                                               ; preds = %51
-  br label %Ivy_DecGetVar.argprom.exit
+  br label %Ivy_DecGetVar.exit
 
 55:                                               ; preds = %51
-  br label %Ivy_DecGetVar.argprom.exit
+  br label %Ivy_DecGetVar.exit
 
 56:                                               ; preds = %51
-  br label %Ivy_DecGetVar.argprom.exit
+  br label %Ivy_DecGetVar.exit
 
 57:                                               ; preds = %51
-  br label %Ivy_DecGetVar.argprom.exit
+  br label %Ivy_DecGetVar.exit
 
-Ivy_DecGetVar.argprom.exit:                       ; preds = %51, %52, %53, %54, %55, %56, %57
+Ivy_DecGetVar.exit:                               ; preds = %51, %52, %53, %54, %55, %56, %57
   %.0.i = phi i32 [ %23, %57 ], [ %25, %56 ], [ %27, %55 ], [ %29, %54 ], [ %31, %53 ], [ %33, %52 ], [ -1, %51 ]
   %58 = ashr i32 %.0.i, 1
   %59 = tail call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %58, ptr noundef %1)
@@ -1217,17 +1217,17 @@ Ivy_DecGetVar.argprom.exit:                       ; preds = %51, %52, %53, %54, 
   %exitcond140.not = icmp eq i32 %62, %22
   br i1 %exitcond140.not, label %._crit_edge112, label %51, !llvm.loop !13
 
-._crit_edge112:                                   ; preds = %Ivy_DecGetVar.argprom.exit, %.preheader
-  %.051.lcssa = phi i32 [ -1, %.preheader ], [ %61, %Ivy_DecGetVar.argprom.exit ]
+._crit_edge112:                                   ; preds = %Ivy_DecGetVar.exit, %.preheader
+  %.051.lcssa = phi i32 [ -1, %.preheader ], [ %61, %Ivy_DecGetVar.exit ]
   %63 = shl i32 %6, 27
   %sext58 = ashr i32 %63, 31
   %64 = xor i32 %.051.lcssa, %sext58
   br label %.loopexit
 
-65:                                               ; preds = %.lr.ph, %Ivy_DecGetVar.argprom.exit70
-  %.1108 = phi i32 [ 0, %.lr.ph ], [ %74, %Ivy_DecGetVar.argprom.exit70 ]
-  %.153107 = phi i32 [ 0, %.lr.ph ], [ %75, %Ivy_DecGetVar.argprom.exit70 ]
-  switch i32 %.153107, label %Ivy_DecGetVar.argprom.exit70 [
+65:                                               ; preds = %.lr.ph, %Ivy_DecGetVar.exit70
+  %.1108 = phi i32 [ 0, %.lr.ph ], [ %74, %Ivy_DecGetVar.exit70 ]
+  %.153107 = phi i32 [ 0, %.lr.ph ], [ %75, %Ivy_DecGetVar.exit70 ]
+  switch i32 %.153107, label %Ivy_DecGetVar.exit70 [
     i32 0, label %66
     i32 1, label %67
     i32 2, label %68
@@ -1237,24 +1237,24 @@ Ivy_DecGetVar.argprom.exit:                       ; preds = %51, %52, %53, %54, 
   ]
 
 66:                                               ; preds = %65
-  br label %Ivy_DecGetVar.argprom.exit70
+  br label %Ivy_DecGetVar.exit70
 
 67:                                               ; preds = %65
-  br label %Ivy_DecGetVar.argprom.exit70
+  br label %Ivy_DecGetVar.exit70
 
 68:                                               ; preds = %65
-  br label %Ivy_DecGetVar.argprom.exit70
+  br label %Ivy_DecGetVar.exit70
 
 69:                                               ; preds = %65
-  br label %Ivy_DecGetVar.argprom.exit70
+  br label %Ivy_DecGetVar.exit70
 
 70:                                               ; preds = %65
-  br label %Ivy_DecGetVar.argprom.exit70
+  br label %Ivy_DecGetVar.exit70
 
 71:                                               ; preds = %65
-  br label %Ivy_DecGetVar.argprom.exit70
+  br label %Ivy_DecGetVar.exit70
 
-Ivy_DecGetVar.argprom.exit70:                     ; preds = %65, %66, %67, %68, %69, %70, %71
+Ivy_DecGetVar.exit70:                             ; preds = %65, %66, %67, %68, %69, %70, %71
   %.0.i69 = phi i32 [ %10, %71 ], [ %12, %70 ], [ %14, %69 ], [ %16, %68 ], [ %18, %67 ], [ %20, %66 ], [ -1, %65 ]
   %72 = ashr i32 %.0.i69, 1
   %73 = tail call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %72, ptr noundef %1)
@@ -1263,8 +1263,8 @@ Ivy_DecGetVar.argprom.exit70:                     ; preds = %65, %66, %67, %68, 
   %exitcond.not = icmp eq i32 %75, %9
   br i1 %exitcond.not, label %._crit_edge, label %65, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %Ivy_DecGetVar.argprom.exit70, %.preheader83
-  %.1.lcssa = phi i32 [ 0, %.preheader83 ], [ %74, %Ivy_DecGetVar.argprom.exit70 ]
+._crit_edge:                                      ; preds = %Ivy_DecGetVar.exit70, %.preheader83
+  %.1.lcssa = phi i32 [ 0, %.preheader83 ], [ %74, %Ivy_DecGetVar.exit70 ]
   %76 = shl i32 %6, 27
   %sext57 = ashr i32 %76, 31
   %77 = xor i32 %.1.lcssa, %sext57
@@ -1382,7 +1382,7 @@ common.ret95:                                     ; preds = %3, %13, %._crit_edg
 
 39:                                               ; preds = %.lr.ph90, %50
   %.088 = phi i32 [ 0, %.lr.ph90 ], [ %51, %50 ]
-  switch i32 %.088, label %Ivy_DecGetVar.argprom.exit [
+  switch i32 %.088, label %Ivy_DecGetVar.exit [
     i32 0, label %40
     i32 1, label %41
     i32 2, label %42
@@ -1392,24 +1392,24 @@ common.ret95:                                     ; preds = %3, %13, %._crit_edg
   ]
 
 40:                                               ; preds = %39
-  br label %Ivy_DecGetVar.argprom.exit
+  br label %Ivy_DecGetVar.exit
 
 41:                                               ; preds = %39
-  br label %Ivy_DecGetVar.argprom.exit
+  br label %Ivy_DecGetVar.exit
 
 42:                                               ; preds = %39
-  br label %Ivy_DecGetVar.argprom.exit
+  br label %Ivy_DecGetVar.exit
 
 43:                                               ; preds = %39
-  br label %Ivy_DecGetVar.argprom.exit
+  br label %Ivy_DecGetVar.exit
 
 44:                                               ; preds = %39
-  br label %Ivy_DecGetVar.argprom.exit
+  br label %Ivy_DecGetVar.exit
 
 45:                                               ; preds = %39
-  br label %Ivy_DecGetVar.argprom.exit
+  br label %Ivy_DecGetVar.exit
 
-Ivy_DecGetVar.argprom.exit:                       ; preds = %39, %40, %41, %42, %43, %44, %45
+Ivy_DecGetVar.exit:                               ; preds = %39, %40, %41, %42, %43, %44, %45
   %.0.i = phi i32 [ %27, %45 ], [ %29, %44 ], [ %31, %43 ], [ %33, %42 ], [ %35, %41 ], [ %37, %40 ], [ -1, %39 ]
   %46 = ashr i32 %.0.i, 1
   tail call void @Ivy_TruthDsdPrint_rec(ptr noundef %0, i32 noundef %46, ptr noundef %2)
@@ -1420,11 +1420,11 @@ Ivy_DecGetVar.argprom.exit:                       ; preds = %39, %40, %41, %42, 
   %.not61 = icmp eq i32 %.088, %38
   br i1 %.not61, label %50, label %49
 
-49:                                               ; preds = %Ivy_DecGetVar.argprom.exit
+49:                                               ; preds = %Ivy_DecGetVar.exit
   %fputc62 = tail call i32 @fputc(i32 44, ptr %0)
   br label %50
 
-50:                                               ; preds = %Ivy_DecGetVar.argprom.exit, %49
+50:                                               ; preds = %Ivy_DecGetVar.exit, %49
   %51 = add nuw nsw i32 %.088, 1
   %exitcond94.not = icmp eq i32 %51, %26
   br i1 %exitcond94.not, label %._crit_edge91, label %39, !llvm.loop !15
@@ -1460,7 +1460,7 @@ Ivy_DecGetVar.argprom.exit:                       ; preds = %39, %40, %41, %42, 
 
 71:                                               ; preds = %.lr.ph, %80
   %.187 = phi i32 [ 0, %.lr.ph ], [ %81, %80 ]
-  switch i32 %.187, label %Ivy_DecGetVar.argprom.exit73 [
+  switch i32 %.187, label %Ivy_DecGetVar.exit73 [
     i32 0, label %72
     i32 1, label %73
     i32 2, label %74
@@ -1470,35 +1470,35 @@ Ivy_DecGetVar.argprom.exit:                       ; preds = %39, %40, %41, %42, 
   ]
 
 72:                                               ; preds = %71
-  br label %Ivy_DecGetVar.argprom.exit73
+  br label %Ivy_DecGetVar.exit73
 
 73:                                               ; preds = %71
-  br label %Ivy_DecGetVar.argprom.exit73
+  br label %Ivy_DecGetVar.exit73
 
 74:                                               ; preds = %71
-  br label %Ivy_DecGetVar.argprom.exit73
+  br label %Ivy_DecGetVar.exit73
 
 75:                                               ; preds = %71
-  br label %Ivy_DecGetVar.argprom.exit73
+  br label %Ivy_DecGetVar.exit73
 
 76:                                               ; preds = %71
-  br label %Ivy_DecGetVar.argprom.exit73
+  br label %Ivy_DecGetVar.exit73
 
 77:                                               ; preds = %71
-  br label %Ivy_DecGetVar.argprom.exit73
+  br label %Ivy_DecGetVar.exit73
 
-Ivy_DecGetVar.argprom.exit73:                     ; preds = %71, %72, %73, %74, %75, %76, %77
+Ivy_DecGetVar.exit73:                             ; preds = %71, %72, %73, %74, %75, %76, %77
   %.0.i72 = phi i32 [ %59, %77 ], [ %61, %76 ], [ %63, %75 ], [ %65, %74 ], [ %67, %73 ], [ %69, %72 ], [ -1, %71 ]
   %78 = ashr i32 %.0.i72, 1
   tail call void @Ivy_TruthDsdPrint_rec(ptr noundef %0, i32 noundef %78, ptr noundef %2)
   %.not56 = icmp eq i32 %.187, %70
   br i1 %.not56, label %80, label %79
 
-79:                                               ; preds = %Ivy_DecGetVar.argprom.exit73
+79:                                               ; preds = %Ivy_DecGetVar.exit73
   %fputc57 = tail call i32 @fputc(i32 44, ptr %0)
   br label %80
 
-80:                                               ; preds = %Ivy_DecGetVar.argprom.exit73, %79
+80:                                               ; preds = %Ivy_DecGetVar.exit73, %79
   %81 = add nuw nsw i32 %.187, 1
   %exitcond.not = icmp eq i32 %81, %58
   br i1 %exitcond.not, label %._crit_edge, label %71, !llvm.loop !16
@@ -1642,10 +1642,10 @@ common.ret65:                                     ; preds = %4, %114, %112, %._c
   %wide.trip.count = zext nneg i32 %46 to i64
   br label %58
 
-58:                                               ; preds = %.lr.ph, %Ivy_DecGetVar.argprom.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Ivy_DecGetVar.argprom.exit ]
+58:                                               ; preds = %.lr.ph, %Ivy_DecGetVar.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Ivy_DecGetVar.exit ]
   %59 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %59, label %Ivy_DecGetVar.argprom.exit [
+  switch i32 %59, label %Ivy_DecGetVar.exit [
     i32 0, label %60
     i32 1, label %61
     i32 2, label %62
@@ -1655,24 +1655,24 @@ common.ret65:                                     ; preds = %4, %114, %112, %._c
   ]
 
 60:                                               ; preds = %58
-  br label %Ivy_DecGetVar.argprom.exit
+  br label %Ivy_DecGetVar.exit
 
 61:                                               ; preds = %58
-  br label %Ivy_DecGetVar.argprom.exit
+  br label %Ivy_DecGetVar.exit
 
 62:                                               ; preds = %58
-  br label %Ivy_DecGetVar.argprom.exit
+  br label %Ivy_DecGetVar.exit
 
 63:                                               ; preds = %58
-  br label %Ivy_DecGetVar.argprom.exit
+  br label %Ivy_DecGetVar.exit
 
 64:                                               ; preds = %58
-  br label %Ivy_DecGetVar.argprom.exit
+  br label %Ivy_DecGetVar.exit
 
 65:                                               ; preds = %58
-  br label %Ivy_DecGetVar.argprom.exit
+  br label %Ivy_DecGetVar.exit
 
-Ivy_DecGetVar.argprom.exit:                       ; preds = %58, %60, %61, %62, %63, %64, %65
+Ivy_DecGetVar.exit:                               ; preds = %58, %60, %61, %62, %63, %64, %65
   %.0.i = phi i32 [ %47, %65 ], [ %49, %64 ], [ %51, %63 ], [ %53, %62 ], [ %55, %61 ], [ %57, %60 ], [ -1, %58 ]
   %66 = ashr i32 %.0.i, 1
   %67 = tail call ptr @Ivy_ManDsdConstruct_rec(ptr noundef %0, ptr noundef %1, i32 noundef %66, ptr noundef %3)
@@ -1687,7 +1687,7 @@ Ivy_DecGetVar.argprom.exit:                       ; preds = %58, %60, %61, %62, 
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %58, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %Ivy_DecGetVar.argprom.exit, %44
+._crit_edge:                                      ; preds = %Ivy_DecGetVar.exit, %44
   %74 = icmp eq i32 %10, 3
   %75 = select i1 %74, i32 5, i32 6
   %76 = call ptr @Ivy_Multi(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %46, i32 noundef %75) #11

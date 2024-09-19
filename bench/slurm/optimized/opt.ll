@@ -1627,36 +1627,36 @@ _opt_args.exit:                                   ; preds = %280, %287, %292, %2
 
 507:                                              ; preds = %504
   %508 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 120), align 8
-  br label %_valid_node_list.argprom.exit.i
+  br label %_valid_node_list.exit.i
 
 509:                                              ; preds = %504
   %510 = load i8, ptr getelementptr inbounds (i8, ptr @opt, i64 152), align 8
   %511 = trunc i8 %510 to i1
-  br i1 %511, label %512, label %_valid_node_list.argprom.exit.i
+  br i1 %511, label %512, label %_valid_node_list.exit.i
 
 512:                                              ; preds = %509
   %513 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 140), align 4
   %.not.i.i = icmp eq i32 %513, 0
-  br i1 %.not.i.i, label %514, label %_valid_node_list.argprom.exit.i
+  br i1 %.not.i.i, label %514, label %_valid_node_list.exit.i
 
 514:                                              ; preds = %512
   %515 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 136), align 8
   %.not3.i.i = icmp eq i32 %515, 0
   %spec.select.i.i = select i1 %.not3.i.i, i32 -2, i32 %515
-  br label %_valid_node_list.argprom.exit.i
+  br label %_valid_node_list.exit.i
 
-_valid_node_list.argprom.exit.i:                  ; preds = %514, %512, %509, %507
+_valid_node_list.exit.i:                          ; preds = %514, %512, %509, %507
   %.0.i.i = phi i32 [ %508, %507 ], [ -2, %509 ], [ %513, %512 ], [ %spec.select.i.i, %514 ]
   %516 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 252), align 4
   %517 = call zeroext i1 @verify_node_list(ptr noundef nonnull getelementptr inbounds (i8, ptr @opt, i64 552), i32 noundef %516, i32 noundef %.0.i.i) #16
   br i1 %517, label %520, label %518
 
-518:                                              ; preds = %_valid_node_list.argprom.exit.i
+518:                                              ; preds = %_valid_node_list.exit.i
   %519 = load i32, ptr @error_exit, align 4
   call void @exit(i32 noundef %519) #17
   unreachable
 
-520:                                              ; preds = %_valid_node_list.argprom.exit.i, %502
+520:                                              ; preds = %_valid_node_list.exit.i, %502
   %521 = call zeroext i1 @slurm_option_set_by_cli(ptr noundef nonnull @opt, i32 noundef 288) #16
   br i1 %521, label %522, label %526
 

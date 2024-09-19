@@ -4078,7 +4078,7 @@ call2.i.i.noexc:                                  ; preds = %for.body.i
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i38, i64 8
   %33 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !47
   %cmp.not.i.i.i.i.i = icmp eq ptr %33, null
-  br i1 %cmp.not.i.i.i.i.i, label %"_ZZN5arrow5Table22FromChunkedStructArrayERKSt10shared_ptrINS_12ChunkedArrayEEENK3$_0clERKS1_INS_5ArrayEE.argprom.exit.i", label %if.then.i.i.i.i.i35
+  br i1 %cmp.not.i.i.i.i.i, label %"_ZZN5arrow5Table22FromChunkedStructArrayERKSt10shared_ptrINS_12ChunkedArrayEEENK3$_0clERKS1_INS_5ArrayEE.exit.i", label %if.then.i.i.i.i.i35
 
 if.then.i.i.i.i.i35:                              ; preds = %call2.i.i.noexc
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %33, i64 8
@@ -4090,13 +4090,13 @@ if.then.i.i.i.i.i.i.i36:                          ; preds = %if.then.i.i.i.i.i35
   %35 = load i32, ptr %_M_use_count.i.i.i.i.i.i, align 4, !noalias !47
   %add.i.i.i.i.i.i.i = add nsw i32 %35, 1
   store i32 %add.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i, align 4, !noalias !47
-  br label %"_ZZN5arrow5Table22FromChunkedStructArrayERKSt10shared_ptrINS_12ChunkedArrayEEENK3$_0clERKS1_INS_5ArrayEE.argprom.exit.i"
+  br label %"_ZZN5arrow5Table22FromChunkedStructArrayERKSt10shared_ptrINS_12ChunkedArrayEEENK3$_0clERKS1_INS_5ArrayEE.exit.i"
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i35
   %36 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !47
-  br label %"_ZZN5arrow5Table22FromChunkedStructArrayERKSt10shared_ptrINS_12ChunkedArrayEEENK3$_0clERKS1_INS_5ArrayEE.argprom.exit.i"
+  br label %"_ZZN5arrow5Table22FromChunkedStructArrayERKSt10shared_ptrINS_12ChunkedArrayEEENK3$_0clERKS1_INS_5ArrayEE.exit.i"
 
-"_ZZN5arrow5Table22FromChunkedStructArrayERKSt10shared_ptrINS_12ChunkedArrayEEENK3$_0clERKS1_INS_5ArrayEE.argprom.exit.i": ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i36, %call2.i.i.noexc
+"_ZZN5arrow5Table22FromChunkedStructArrayERKSt10shared_ptrINS_12ChunkedArrayEEENK3$_0clERKS1_INS_5ArrayEE.exit.i": ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i36, %call2.i.i.noexc
   store ptr %32, ptr %__result.sroa.0.016.i, align 8
   %_M_refcount3.i.i.i1.i = getelementptr inbounds i8, ptr %__result.sroa.0.016.i, i64 8
   %37 = load ptr, ptr %_M_refcount3.i.i.i1.i, align 8
@@ -4104,7 +4104,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i35
   %cmp.not.i.i.i.i2.i = icmp eq ptr %37, null
   br i1 %cmp.not.i.i.i.i2.i, label %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i, label %if.then.i.i.i.i3.i
 
-if.then.i.i.i.i3.i:                               ; preds = %"_ZZN5arrow5Table22FromChunkedStructArrayERKSt10shared_ptrINS_12ChunkedArrayEEENK3$_0clERKS1_INS_5ArrayEE.argprom.exit.i"
+if.then.i.i.i.i3.i:                               ; preds = %"_ZZN5arrow5Table22FromChunkedStructArrayERKSt10shared_ptrINS_12ChunkedArrayEEENK3$_0clERKS1_INS_5ArrayEE.exit.i"
   %_M_use_count.i.i.i.i.i4.i = getelementptr inbounds i8, ptr %37, i64 8
   %38 = load atomic i64, ptr %_M_use_count.i.i.i.i.i4.i acquire, align 8
   %cmp.i.i.i.i.i.i = icmp eq i64 %38, 4294967297
@@ -4172,7 +4172,7 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
   call void %47(ptr noundef nonnull align 8 dereferenceable(16) %37) #21
   br label %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i
 
-_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i:     ; preds = %if.end8.sink.split.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %"_ZZN5arrow5Table22FromChunkedStructArrayERKSt10shared_ptrINS_12ChunkedArrayEEENK3$_0clERKS1_INS_5ArrayEE.argprom.exit.i"
+_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i:     ; preds = %if.end8.sink.split.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %"_ZZN5arrow5Table22FromChunkedStructArrayERKSt10shared_ptrINS_12ChunkedArrayEEENK3$_0clERKS1_INS_5ArrayEE.exit.i"
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.017.i, i64 16
   %incdec.ptr.i10.i = getelementptr inbounds i8, ptr %__result.sroa.0.016.i, i64 16
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %30
@@ -29191,8 +29191,8 @@ attributes #25 = { noreturn nounwind }
 !45 = distinct !{!45, !"_ZN5arrow5Table4MakeESt10shared_ptrINS_6SchemaEESt6vectorIS1_INS_12ChunkedArrayEESaIS6_EEl"}
 !46 = distinct !{!46, !8}
 !47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZZN5arrow5Table22FromChunkedStructArrayERKSt10shared_ptrINS_12ChunkedArrayEEENK3$_0clERKS1_INS_5ArrayEE.argprom: %agg.result"}
-!49 = distinct !{!49, !"_ZZN5arrow5Table22FromChunkedStructArrayERKSt10shared_ptrINS_12ChunkedArrayEEENK3$_0clERKS1_INS_5ArrayEE.argprom"}
+!48 = distinct !{!48, !49, !"_ZZN5arrow5Table22FromChunkedStructArrayERKSt10shared_ptrINS_12ChunkedArrayEEENK3$_0clERKS1_INS_5ArrayEE: %agg.result"}
+!49 = distinct !{!49, !"_ZZN5arrow5Table22FromChunkedStructArrayERKSt10shared_ptrINS_12ChunkedArrayEEENK3$_0clERKS1_INS_5ArrayEE"}
 !50 = distinct !{!50, !8}
 !51 = !{!52}
 !52 = distinct !{!52, !53, !"_ZSt11make_sharedIN5arrow12ChunkedArrayEJSt6vectorISt10shared_ptrINS0_5ArrayEESaIS5_EERKS3_INS0_8DataTypeEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_: %agg.result"}

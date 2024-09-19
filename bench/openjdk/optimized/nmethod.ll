@@ -2971,7 +2971,7 @@ _ZNK7nmethod16oops_reloc_beginEv.exit:            ; preds = %19, %30
 61:                                               ; preds = %53
   %62 = load i16, ptr %54, align 2
   %63 = lshr i16 %62, 11
-  switch i16 %63, label %_ZL28clean_if_nmethod_is_unloadedI10CompiledICEvPT_P7nmethodb.argprom.exit.loopexit [
+  switch i16 %63, label %_ZL28clean_if_nmethod_is_unloadedI10CompiledICEvPT_P7nmethodb.exit.loopexit [
     i16 2, label %.split38.us
     i16 3, label %.split40.us
     i16 4, label %.split40.us
@@ -3019,7 +3019,7 @@ _ZNK7nmethod16oops_reloc_beginEv.exit:            ; preds = %19, %30
 78:                                               ; preds = %70
   %79 = load i16, ptr %71, align 2
   %80 = lshr i16 %79, 11
-  switch i16 %80, label %_ZL28clean_if_nmethod_is_unloadedI10CompiledICEvPT_P7nmethodb.argprom.exit.loopexit [
+  switch i16 %80, label %_ZL28clean_if_nmethod_is_unloadedI10CompiledICEvPT_P7nmethodb.exit.loopexit [
     i16 2, label %.split38.us
     i16 3, label %.split40.us
     i16 4, label %.split40.us
@@ -3245,8 +3245,8 @@ _ZN13RelocIterator14metadata_relocEv.exit:        ; preds = %_ZN7nmethod12is_unl
   %194 = call noundef zeroext i1 @_ZNK15ClassLoaderData8is_aliveEv(ptr noundef nonnull align 8 dereferenceable(160) %193) #23
   br i1 %194, label %.critedge.outer.backedge, label %195
 
-.critedge.outer.backedge:                         ; preds = %78, %185, %199, %195, %180, %_ZN13RelocIterator14metadata_relocEv.exit, %83, %_ZN7nmethod12is_unloadingEv.exit.thread2.i, %_ZN7nmethod12is_unloadingEv.exit.thread.i, %.split40.us, %_ZN7nmethod12is_unloadingEv.exit.thread2.i20, %_ZN7nmethod12is_unloadingEv.exit.thread.i16, %_ZL28clean_if_nmethod_is_unloadedI10CompiledICEvPT_P7nmethodb.argprom.exit.loopexit, %61, %_ZN7nmethod12is_unloadingEv.exit, %169, %.split44.us
-  %.0.ph.be = phi i1 [ false, %.split44.us ], [ false, %169 ], [ false, %_ZN7nmethod12is_unloadingEv.exit ], [ false, %185 ], [ false, %195 ], [ false, %199 ], [ false, %180 ], [ false, %_ZN13RelocIterator14metadata_relocEv.exit ], [ %.0.ph, %83 ], [ %.0.ph, %_ZN7nmethod12is_unloadingEv.exit.thread2.i ], [ %.0.ph, %_ZN7nmethod12is_unloadingEv.exit.thread.i ], [ %.0.ph, %.split40.us ], [ %.0.ph, %_ZN7nmethod12is_unloadingEv.exit.thread2.i20 ], [ %.0.ph, %_ZN7nmethod12is_unloadingEv.exit.thread.i16 ], [ %.0.ph, %_ZL28clean_if_nmethod_is_unloadedI10CompiledICEvPT_P7nmethodb.argprom.exit.loopexit ], [ true, %61 ], [ true, %78 ]
+.critedge.outer.backedge:                         ; preds = %78, %185, %199, %195, %180, %_ZN13RelocIterator14metadata_relocEv.exit, %83, %_ZN7nmethod12is_unloadingEv.exit.thread2.i, %_ZN7nmethod12is_unloadingEv.exit.thread.i, %.split40.us, %_ZN7nmethod12is_unloadingEv.exit.thread2.i20, %_ZN7nmethod12is_unloadingEv.exit.thread.i16, %_ZL28clean_if_nmethod_is_unloadedI10CompiledICEvPT_P7nmethodb.exit.loopexit, %61, %_ZN7nmethod12is_unloadingEv.exit, %169, %.split44.us
+  %.0.ph.be = phi i1 [ false, %.split44.us ], [ false, %169 ], [ false, %_ZN7nmethod12is_unloadingEv.exit ], [ false, %185 ], [ false, %195 ], [ false, %199 ], [ false, %180 ], [ false, %_ZN13RelocIterator14metadata_relocEv.exit ], [ %.0.ph, %83 ], [ %.0.ph, %_ZN7nmethod12is_unloadingEv.exit.thread2.i ], [ %.0.ph, %_ZN7nmethod12is_unloadingEv.exit.thread.i ], [ %.0.ph, %.split40.us ], [ %.0.ph, %_ZN7nmethod12is_unloadingEv.exit.thread2.i20 ], [ %.0.ph, %_ZN7nmethod12is_unloadingEv.exit.thread.i16 ], [ %.0.ph, %_ZL28clean_if_nmethod_is_unloadedI10CompiledICEvPT_P7nmethodb.exit.loopexit ], [ true, %61 ], [ true, %78 ]
   br label %.critedge.outer, !llvm.loop !39
 
 195:                                              ; preds = %185
@@ -3260,7 +3260,7 @@ _ZN13RelocIterator14metadata_relocEv.exit:        ; preds = %_ZN7nmethod12is_unl
   call void @_ZN19metadata_Relocation23fix_metadata_relocationEv(ptr noundef nonnull align 8 dereferenceable(24) %36) #23
   br label %.critedge.outer.backedge
 
-_ZL28clean_if_nmethod_is_unloadedI10CompiledICEvPT_P7nmethodb.argprom.exit.loopexit: ; preds = %78, %61
+_ZL28clean_if_nmethod_is_unloadedI10CompiledICEvPT_P7nmethodb.exit.loopexit: ; preds = %78, %61
   br label %.critedge.outer.backedge
 
 .split.us:                                        ; preds = %.critedge.outer.split, %.critedge.outer.split.us, %53, %70, %.critedge

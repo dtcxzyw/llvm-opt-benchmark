@@ -344,7 +344,7 @@ doemit.exit98.thread:                             ; preds = %p_str.exit
   %101 = add nsw i64 %100, -1
   %102 = getelementptr inbounds nuw i8, ptr %22, i64 64
   store i64 %101, ptr %102, align 8
-  br label %categorize.argprom.exit
+  br label %categorize.exit
 
 103:                                              ; preds = %p_str.exit
   %104 = load i64, ptr %28, align 8
@@ -408,7 +408,7 @@ doemit.exit98:                                    ; preds = %103, %105, %seterr.
   store i64 %126, ptr %127, align 8
   %128 = load ptr, ptr %54, align 8
   %.not.i99 = icmp eq i32 %.val.pr, 0
-  br i1 %.not.i99, label %.preheader.i, label %categorize.argprom.exit
+  br i1 %.not.i99, label %.preheader.i, label %categorize.exit
 
 .preheader.i:                                     ; preds = %doemit.exit98, %isinsets.exit.thread.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %isinsets.exit.thread.i ], [ -128, %doemit.exit98 ]
@@ -503,21 +503,21 @@ samesets.exit.i:                                  ; preds = %161, %.loopexit.i, 
 isinsets.exit.thread.i:                           ; preds = %142, %samesets.exit.i, %isinsets.exit.i, %132, %.preheader.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond15.not.i = icmp eq i64 %indvars.iv.next.i, 128
-  br i1 %exitcond15.not.i, label %categorize.argprom.exitthread-pre-split.loopexit, label %.preheader.i, !llvm.loop !9
+  br i1 %exitcond15.not.i, label %categorize.exitthread-pre-split.loopexit, label %.preheader.i, !llvm.loop !9
 
-categorize.argprom.exitthread-pre-split.loopexit: ; preds = %isinsets.exit.thread.i
+categorize.exitthread-pre-split.loopexit:         ; preds = %isinsets.exit.thread.i
   %.pr.pre = load i64, ptr %31, align 8
-  br label %categorize.argprom.exit
+  br label %categorize.exit
 
-categorize.argprom.exit:                          ; preds = %doemit.exit98, %categorize.argprom.exitthread-pre-split.loopexit, %doemit.exit98.thread
-  %171 = phi i64 [ %100, %doemit.exit98.thread ], [ %.pr.pre, %categorize.argprom.exitthread-pre-split.loopexit ], [ %125, %doemit.exit98 ]
+categorize.exit:                                  ; preds = %doemit.exit98, %categorize.exitthread-pre-split.loopexit, %doemit.exit98.thread
+  %171 = phi i64 [ %100, %doemit.exit98.thread ], [ %.pr.pre, %categorize.exitthread-pre-split.loopexit ], [ %125, %doemit.exit98 ]
   %172 = getelementptr inbounds nuw i8, ptr %22, i64 48
   store i64 %171, ptr %172, align 8
   %173 = icmp ugt i64 %171, 2305843009213693951
   %174 = load ptr, ptr %30, align 8
   br i1 %173, label %175, label %180
 
-175:                                              ; preds = %categorize.argprom.exit
+175:                                              ; preds = %categorize.exit
   %176 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %174, ptr %176, align 8
   %177 = load i32, ptr %38, align 8
@@ -531,9 +531,9 @@ categorize.argprom.exit:                          ; preds = %doemit.exit98, %cat
 seterr.exit.i102:                                 ; preds = %179, %175
   store ptr @nuls, ptr %4, align 8
   store ptr @nuls, ptr %37, align 8
-  br label %stripsnug.exit.pluscount.argprom.exit_crit_edge
+  br label %stripsnug.exit.pluscount.exit_crit_edge
 
-180:                                              ; preds = %categorize.argprom.exit
+180:                                              ; preds = %categorize.exit
   %181 = shl nuw i64 %171, 3
   %182 = call ptr @realloc(ptr noundef %174, i64 noundef %181) #18
   %183 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -555,14 +555,14 @@ seterr.exit13.i:                                  ; preds = %187, %186
   store ptr @nuls, ptr %37, align 8
   %188 = load ptr, ptr %30, align 8
   store ptr %188, ptr %183, align 8
-  br label %stripsnug.exit.pluscount.argprom.exit_crit_edge
+  br label %stripsnug.exit.pluscount.exit_crit_edge
 
 stripsnug.exit:                                   ; preds = %180
-  br i1 %185, label %189, label %stripsnug.exit.pluscount.argprom.exit_crit_edge
+  br i1 %185, label %189, label %stripsnug.exit.pluscount.exit_crit_edge
 
-stripsnug.exit.pluscount.argprom.exit_crit_edge:  ; preds = %seterr.exit13.i, %seterr.exit.i102, %stripsnug.exit
+stripsnug.exit.pluscount.exit_crit_edge:          ; preds = %seterr.exit13.i, %seterr.exit.i102, %stripsnug.exit
   %.pre = load i32, ptr %45, align 8
-  br label %pluscount.argprom.exit
+  br label %pluscount.exit
 
 189:                                              ; preds = %stripsnug.exit
   %190 = getelementptr inbounds i8, ptr %182, i64 8
@@ -618,7 +618,7 @@ switch.early.test.i:                              ; preds = %200
   %206 = load i32, ptr %45, align 8
   %207 = or i32 %206, 4
   store i32 %207, ptr %45, align 8
-  br label %findmust.argprom.exit.preheader
+  br label %findmust.exit.preheader
 
 .loopexit.i104:                                   ; preds = %switch.early.test.i, %200, %191
   %.147.i = phi ptr [ %192, %191 ], [ %202, %200 ], [ %202, %switch.early.test.i ]
@@ -646,7 +646,7 @@ switch.early.test.i:                              ; preds = %200
 215:                                              ; preds = %213
   %216 = load i32, ptr %49, align 8
   %217 = icmp eq i32 %216, 0
-  br i1 %217, label %findmust.argprom.exit.preheader, label %218
+  br i1 %217, label %findmust.exit.preheader, label %218
 
 218:                                              ; preds = %215
   %219 = sext i32 %216 to i64
@@ -662,7 +662,7 @@ switch.early.test.i:                              ; preds = %200
 
 224:                                              ; preds = %218
   store i32 0, ptr %49, align 8
-  br label %findmust.argprom.exit.preheader
+  br label %findmust.exit.preheader
 
 .preheader.i105:                                  ; preds = %.preheader4.i, %229
   %.011.i = phi i64 [ %232, %229 ], [ %219, %.preheader4.i ]
@@ -689,15 +689,15 @@ switch.early.test.i:                              ; preds = %200
 ._crit_edge.i:                                    ; preds = %229, %.preheader4.i
   %.036.lcssa.i = phi ptr [ %221, %.preheader4.i ], [ %231, %229 ]
   store i8 0, ptr %.036.lcssa.i, align 1
-  br label %findmust.argprom.exit.preheader
+  br label %findmust.exit.preheader
 
-findmust.argprom.exit.preheader:                  ; preds = %._crit_edge.i, %224, %215, %205
-  br label %findmust.argprom.exit
+findmust.exit.preheader:                          ; preds = %._crit_edge.i, %224, %215, %205
+  br label %findmust.exit
 
-findmust.argprom.exit:                            ; preds = %findmust.argprom.exit.preheader, %240
-  %.pn.i = phi ptr [ %.016.i, %240 ], [ %182, %findmust.argprom.exit.preheader ]
-  %.013.i = phi i64 [ %.114.i, %240 ], [ 0, %findmust.argprom.exit.preheader ]
-  %.0.i = phi i64 [ %.2.i109, %240 ], [ 0, %findmust.argprom.exit.preheader ]
+findmust.exit:                                    ; preds = %findmust.exit.preheader, %240
+  %.pn.i = phi ptr [ %.016.i, %240 ], [ %182, %findmust.exit.preheader ]
+  %.013.i = phi i64 [ %.114.i, %240 ], [ 0, %findmust.exit.preheader ]
+  %.0.i = phi i64 [ %.2.i109, %240 ], [ 0, %findmust.exit.preheader ]
   %.016.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
   %234 = load i64, ptr %.016.i, align 8
   %235 = and i64 %234, 4160749568
@@ -707,36 +707,36 @@ findmust.argprom.exit:                            ; preds = %findmust.argprom.ex
     i32 1342177280, label %238
   ]
 
-236:                                              ; preds = %findmust.argprom.exit
+236:                                              ; preds = %findmust.exit
   %237 = add nsw i64 %.013.i, 1
   br label %240
 
-238:                                              ; preds = %findmust.argprom.exit
+238:                                              ; preds = %findmust.exit
   %spec.select.i108 = call i64 @llvm.smax.i64(i64 %.013.i, i64 %.0.i)
   %239 = add nsw i64 %.013.i, -1
   br label %240
 
-240:                                              ; preds = %238, %236, %findmust.argprom.exit
-  %.114.i = phi i64 [ %.013.i, %findmust.argprom.exit ], [ %239, %238 ], [ %237, %236 ]
-  %.2.i109 = phi i64 [ %.0.i, %findmust.argprom.exit ], [ %spec.select.i108, %238 ], [ %.0.i, %236 ]
+240:                                              ; preds = %238, %236, %findmust.exit
+  %.114.i = phi i64 [ %.013.i, %findmust.exit ], [ %239, %238 ], [ %237, %236 ]
+  %.2.i109 = phi i64 [ %.0.i, %findmust.exit ], [ %spec.select.i108, %238 ], [ %.0.i, %236 ]
   %.not17.i = icmp eq i64 %235, 134217728
-  br i1 %.not17.i, label %241, label %findmust.argprom.exit, !llvm.loop !13
+  br i1 %.not17.i, label %241, label %findmust.exit, !llvm.loop !13
 
 241:                                              ; preds = %240
   %.not18.i = icmp eq i64 %.114.i, 0
   %.pre130 = load i32, ptr %45, align 8
-  br i1 %.not18.i, label %pluscount.argprom.exit, label %242
+  br i1 %.not18.i, label %pluscount.exit, label %242
 
 242:                                              ; preds = %241
   %243 = or i32 %.pre130, 4
   store i32 %243, ptr %45, align 8
-  br label %pluscount.argprom.exit
+  br label %pluscount.exit
 
-pluscount.argprom.exit:                           ; preds = %stripsnug.exit.pluscount.argprom.exit_crit_edge, %241, %242
-  %.not.i103136 = phi i1 [ true, %242 ], [ true, %241 ], [ false, %stripsnug.exit.pluscount.argprom.exit_crit_edge ]
-  %.val90134 = phi i32 [ %.val90.pre, %242 ], [ %.val90.pre, %241 ], [ 1, %stripsnug.exit.pluscount.argprom.exit_crit_edge ]
-  %244 = phi i32 [ %243, %242 ], [ %.pre130, %241 ], [ %.pre, %stripsnug.exit.pluscount.argprom.exit_crit_edge ]
-  %.015.i = phi i64 [ %.2.i109, %242 ], [ %.2.i109, %241 ], [ 0, %stripsnug.exit.pluscount.argprom.exit_crit_edge ]
+pluscount.exit:                                   ; preds = %stripsnug.exit.pluscount.exit_crit_edge, %241, %242
+  %.not.i103136 = phi i1 [ true, %242 ], [ true, %241 ], [ false, %stripsnug.exit.pluscount.exit_crit_edge ]
+  %.val90134 = phi i32 [ %.val90.pre, %242 ], [ %.val90.pre, %241 ], [ 1, %stripsnug.exit.pluscount.exit_crit_edge ]
+  %244 = phi i32 [ %243, %242 ], [ %.pre130, %241 ], [ %.pre, %stripsnug.exit.pluscount.exit_crit_edge ]
+  %.015.i = phi i64 [ %.2.i109, %242 ], [ %.2.i109, %241 ], [ 0, %stripsnug.exit.pluscount.exit_crit_edge ]
   %245 = getelementptr inbounds nuw i8, ptr %22, i64 128
   store i64 %.015.i, ptr %245, align 8
   store i32 53829, ptr %22, align 8
@@ -750,7 +750,7 @@ pluscount.argprom.exit:                           ; preds = %stripsnug.exit.plus
   %.not88 = icmp eq i32 %249, 0
   br i1 %.not88, label %252, label %250
 
-250:                                              ; preds = %pluscount.argprom.exit
+250:                                              ; preds = %pluscount.exit
   br i1 %.not.i103136, label %251, label %.thread
 
 251:                                              ; preds = %250
@@ -762,7 +762,7 @@ pluscount.argprom.exit:                           ; preds = %stripsnug.exit.plus
   store ptr @nuls, ptr %37, align 8
   br label %253
 
-252:                                              ; preds = %pluscount.argprom.exit
+252:                                              ; preds = %pluscount.exit
   %.not89 = icmp eq i32 %.val90134, 0
   br i1 %.not89, label %254, label %253
 
@@ -5435,7 +5435,7 @@ othercase.exit:                                   ; preds = %580, %582, %584
   %.fr48.i = freeze i32 %.val.val
   %636 = sext i32 %.fr48.i to i64
   %.not3.i = icmp eq i32 %.fr48.i, 0
-  br i1 %.not3.i, label %nch.argprom.argprom.exit.thread.thread, label %.lr.ph.i142
+  br i1 %.not3.i, label %nch.exit.thread.thread, label %.lr.ph.i142
 
 .lr.ph.i142:                                      ; preds = %634
   %637 = load ptr, ptr %153, align 8
@@ -5454,14 +5454,14 @@ othercase.exit:                                   ; preds = %580, %582, %584
   %spec.select.i = add nuw nsw i32 %.02.i, %644
   %645 = add nuw i64 %.081.i, 1
   %exitcond.not.i144 = icmp eq i64 %645, %636
-  br i1 %exitcond.not.i144, label %nch.argprom.argprom.exit, label %639, !llvm.loop !32
+  br i1 %exitcond.not.i144, label %nch.exit, label %639, !llvm.loop !32
 
-nch.argprom.argprom.exit:                         ; preds = %639
+nch.exit:                                         ; preds = %639
   %646 = icmp eq i32 %spec.select.i, 1
-  br i1 %646, label %.lr.ph.i147, label %nch.argprom.argprom.exit.thread
+  br i1 %646, label %.lr.ph.i147, label %nch.exit.thread
 
-.lr.ph.i147:                                      ; preds = %nch.argprom.argprom.exit, %654
-  %.082.i = phi i64 [ %655, %654 ], [ 0, %nch.argprom.argprom.exit ]
+.lr.ph.i147:                                      ; preds = %nch.exit, %654
+  %.082.i = phi i64 [ %655, %654 ], [ 0, %nch.exit ]
   %647 = and i64 %.082.i, 255
   %648 = getelementptr inbounds i8, ptr %637, i64 %647
   %649 = load i8, ptr %648, align 1
@@ -5473,14 +5473,14 @@ nch.argprom.argprom.exit:                         ; preds = %639
   %652 = trunc i64 %.082.i to i32
   %sext.i = shl i32 %652, 24
   %653 = ashr exact i32 %sext.i, 24
-  br label %firstch.argprom.argprom.exit
+  br label %firstch.exit
 
 654:                                              ; preds = %.lr.ph.i147
   %655 = add nuw i64 %.082.i, 1
   %exitcond.not.i150 = icmp eq i64 %655, %636
-  br i1 %exitcond.not.i150, label %firstch.argprom.argprom.exit, label %.lr.ph.i147, !llvm.loop !33
+  br i1 %exitcond.not.i150, label %firstch.exit, label %.lr.ph.i147, !llvm.loop !33
 
-firstch.argprom.argprom.exit:                     ; preds = %654, %651
+firstch.exit:                                     ; preds = %654, %651
   %.0.i149 = phi i32 [ %653, %651 ], [ 0, %654 ]
   %656 = getelementptr inbounds nuw i8, ptr %.val, i64 88
   %657 = load ptr, ptr %656, align 8
@@ -5488,13 +5488,13 @@ firstch.argprom.argprom.exit:                     ; preds = %654, %651
   %659 = load i32, ptr %658, align 8
   %660 = and i32 %659, 2
   %.not.i151 = icmp eq i32 %660, 0
-  br i1 %.not.i151, label %firstch.argprom.argprom.exit._crit_edge, label %661
+  br i1 %.not.i151, label %firstch.exit._crit_edge, label %661
 
-firstch.argprom.argprom.exit._crit_edge:          ; preds = %firstch.argprom.argprom.exit
+firstch.exit._crit_edge:                          ; preds = %firstch.exit
   %.pre237 = and i32 %.0.i149, 255
   br label %680
 
-661:                                              ; preds = %firstch.argprom.argprom.exit
+661:                                              ; preds = %firstch.exit
   %662 = tail call ptr @__ctype_b_loc() #19
   %663 = load ptr, ptr %662, align 8
   %664 = and i32 %.0.i149, 255
@@ -5535,8 +5535,8 @@ othercase.exit182:                                ; preds = %672, %674, %676
   tail call fastcc void @bothcases(ptr noundef %0, i32 noundef %.0.i149)
   br label %ordinary.exit
 
-680:                                              ; preds = %firstch.argprom.argprom.exit._crit_edge, %othercase.exit182, %661
-  %.pre-phi238 = phi i32 [ %.pre237, %firstch.argprom.argprom.exit._crit_edge ], [ %664, %othercase.exit182 ], [ %664, %661 ]
+680:                                              ; preds = %firstch.exit._crit_edge, %othercase.exit182, %661
+  %.pre-phi238 = phi i32 [ %.pre237, %firstch.exit._crit_edge ], [ %664, %othercase.exit182 ], [ %664, %661 ]
   %681 = load i32, ptr %520, align 8
   %.not.i171 = icmp eq i32 %681, 0
   br i1 %.not.i171, label %682, label %doemit.exit177
@@ -5667,7 +5667,7 @@ ordinary.exit:                                    ; preds = %679, %doemit.exit17
   store i32 %748, ptr %746, align 4
   br label %freeset.exit
 
-nch.argprom.argprom.exit.thread:                  ; preds = %nch.argprom.argprom.exit
+nch.exit.thread:                                  ; preds = %nch.exit
   %749 = load i8, ptr %162, align 1
   %750 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %751 = load ptr, ptr %750, align 8
@@ -5678,7 +5678,7 @@ nch.argprom.argprom.exit.thread:                  ; preds = %nch.argprom.argprom
   %756 = icmp sgt i32 %753, 0
   br i1 %756, label %.lr.ph39.split.us.i, label %freezeset.exit
 
-nch.argprom.argprom.exit.thread.thread:           ; preds = %634
+nch.exit.thread.thread:                           ; preds = %634
   %757 = load i8, ptr %162, align 1
   %758 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %759 = load ptr, ptr %758, align 8
@@ -5689,8 +5689,8 @@ nch.argprom.argprom.exit.thread.thread:           ; preds = %634
   %764 = icmp sgt i32 %761, 0
   br i1 %764, label %.lr.ph39.split.split.us.i, label %freezeset.exit
 
-.lr.ph39.split.us.i:                              ; preds = %nch.argprom.argprom.exit.thread, %781
-  %.02937.us.i = phi ptr [ %782, %781 ], [ %751, %nch.argprom.argprom.exit.thread ]
+.lr.ph39.split.us.i:                              ; preds = %nch.exit.thread, %781
+  %.02937.us.i = phi ptr [ %782, %781 ], [ %751, %nch.exit.thread ]
   %765 = getelementptr inbounds nuw i8, ptr %.02937.us.i, i64 9
   %766 = load i8, ptr %765, align 1
   %767 = icmp ne i8 %766, %749
@@ -5734,8 +5734,8 @@ nch.argprom.argprom.exit.thread.thread:           ; preds = %634
   %788 = load i8, ptr %161, align 8
   br label %768
 
-.lr.ph39.split.split.us.i:                        ; preds = %nch.argprom.argprom.exit.thread.thread, %792
-  %.02937.us40.i = phi ptr [ %793, %792 ], [ %759, %nch.argprom.argprom.exit.thread.thread ]
+.lr.ph39.split.split.us.i:                        ; preds = %nch.exit.thread.thread, %792
+  %.02937.us40.i = phi ptr [ %793, %792 ], [ %759, %nch.exit.thread.thread ]
   %789 = getelementptr inbounds nuw i8, ptr %.02937.us40.i, i64 9
   %790 = load i8, ptr %789, align 1
   %791 = icmp ne i8 %790, %757
@@ -5789,9 +5789,9 @@ nch.argprom.argprom.exit.thread.thread:           ; preds = %634
   %.pre.i162 = load ptr, ptr %80, align 8
   br label %freezeset.exit
 
-freezeset.exit:                                   ; preds = %781, %792, %nch.argprom.argprom.exit.thread.thread, %nch.argprom.argprom.exit.thread, %._crit_edge.i.i161, %809
-  %813 = phi ptr [ %.pre54.i, %._crit_edge.i.i161 ], [ %.pre.i162, %809 ], [ %.val, %nch.argprom.argprom.exit.thread ], [ %.val, %nch.argprom.argprom.exit.thread.thread ], [ %.val, %792 ], [ %.val, %781 ]
-  %.0.i158 = phi ptr [ %.us-phi.i, %._crit_edge.i.i161 ], [ %.us-phi.i, %809 ], [ %153, %nch.argprom.argprom.exit.thread ], [ %153, %nch.argprom.argprom.exit.thread.thread ], [ %153, %792 ], [ %153, %781 ]
+freezeset.exit:                                   ; preds = %781, %792, %nch.exit.thread.thread, %nch.exit.thread, %._crit_edge.i.i161, %809
+  %813 = phi ptr [ %.pre54.i, %._crit_edge.i.i161 ], [ %.pre.i162, %809 ], [ %.val, %nch.exit.thread ], [ %.val, %nch.exit.thread.thread ], [ %.val, %792 ], [ %.val, %781 ]
+  %.0.i158 = phi ptr [ %.us-phi.i, %._crit_edge.i.i161 ], [ %.us-phi.i, %809 ], [ %153, %nch.exit.thread ], [ %153, %nch.exit.thread.thread ], [ %153, %792 ], [ %153, %781 ]
   %814 = getelementptr inbounds nuw i8, ptr %813, i64 24
   %815 = load ptr, ptr %814, align 8
   %816 = ptrtoint ptr %.0.i158 to i64

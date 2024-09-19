@@ -256,7 +256,7 @@ if.else.i:                                        ; preds = %entry
 do.end.i:                                         ; preds = %entry
   %call1.i = tail call i32 @bdrv_open_file_child(ptr noundef null, ptr noundef %options, ptr noundef nonnull @.str.30, ptr noundef nonnull %bs, ptr noundef %errp) #9
   %cmp.i = icmp slt i32 %call1.i, 0
-  br i1 %cmp.i, label %block_crypto_open_generic.argprom.exit, label %if.end3.i
+  br i1 %cmp.i, label %block_crypto_open_generic.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %do.end.i
   tail call void @bdrv_graph_rdlock_main_loop() #9
@@ -270,7 +270,7 @@ if.end3.i:                                        ; preds = %do.end.i
   store i32 %and.i, ptr %supported_write_flags6.i, align 4
   %call7.i = tail call ptr @qemu_opts_create(ptr noundef nonnull @block_crypto_runtime_opts_luks, ptr noundef null, i32 noundef 0, ptr noundef nonnull @error_abort) #9
   %call8.i = tail call zeroext i1 @qemu_opts_absorb_qdict(ptr noundef %call7.i, ptr noundef %options, ptr noundef %errp) #9
-  br i1 %call8.i, label %if.end10.i, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.i
+  br i1 %call8.i, label %if.end10.i, label %glib_autoptr_cleanup_GraphLockableMainloop.exit.i
 
 if.end10.i:                                       ; preds = %if.end3.i
   %call11.i = tail call ptr @qemu_opts_to_qdict(ptr noundef %call7.i, ptr noundef null) #9
@@ -310,7 +310,7 @@ cleanup.i:                                        ; preds = %if.end24.i, %if.end
   %open_opts.0.i = phi ptr [ %4, %if.end24.i ], [ null, %block_crypto_open_opts_init.exit.i ], [ %4, %if.end15.i ], [ null, %block_crypto_open_opts_init.exit.thread.i ]
   %ret.0.i = phi i32 [ 0, %if.end24.i ], [ -22, %block_crypto_open_opts_init.exit.i ], [ -5, %if.end15.i ], [ -22, %block_crypto_open_opts_init.exit.thread.i ]
   %tobool25.not.i = icmp eq ptr %call11.i, null
-  br i1 %tobool25.not.i, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.i, label %lor.lhs.false.i.i
+  br i1 %tobool25.not.i, label %glib_autoptr_cleanup_GraphLockableMainloop.exit.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %cleanup.i
   %refcnt.i.i = getelementptr inbounds i8, ptr %call11.i, i64 8
@@ -326,21 +326,21 @@ land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
   %dec.i.i = add i64 %5, -1
   store i64 %dec.i.i, ptr %refcnt.i.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i.i, label %if.then5.i.i, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.i
+  br i1 %cmp.i.i, label %if.then5.i.i, label %glib_autoptr_cleanup_GraphLockableMainloop.exit.i
 
 if.then5.i.i:                                     ; preds = %land.lhs.true.i.i
   call void @qobject_destroy(ptr noundef nonnull %call11.i) #9
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.i
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit.i
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.i: ; preds = %if.then5.i.i, %land.lhs.true.i.i, %cleanup.i, %if.end3.i
+glib_autoptr_cleanup_GraphLockableMainloop.exit.i: ; preds = %if.then5.i.i, %land.lhs.true.i.i, %cleanup.i, %if.end3.i
   %ret.08.i = phi i32 [ %ret.0.i, %cleanup.i ], [ %ret.0.i, %land.lhs.true.i.i ], [ %ret.0.i, %if.then5.i.i ], [ -22, %if.end3.i ]
   %open_opts.07.i = phi ptr [ %open_opts.0.i, %cleanup.i ], [ %open_opts.0.i, %land.lhs.true.i.i ], [ %open_opts.0.i, %if.then5.i.i ], [ null, %if.end3.i ]
   call void @qapi_free_QCryptoBlockOpenOptions(ptr noundef %open_opts.07.i) #9
   call void @bdrv_graph_rdunlock_main_loop() #9
-  br label %block_crypto_open_generic.argprom.exit
+  br label %block_crypto_open_generic.exit
 
-block_crypto_open_generic.argprom.exit:           ; preds = %do.end.i, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.i
-  %retval.0.i = phi i32 [ %ret.08.i, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.i ], [ %call1.i, %do.end.i ]
+block_crypto_open_generic.exit:                   ; preds = %do.end.i, %glib_autoptr_cleanup_GraphLockableMainloop.exit.i
+  %retval.0.i = phi i32 [ %ret.08.i, %glib_autoptr_cleanup_GraphLockableMainloop.exit.i ], [ %call1.i, %do.end.i ]
   ret i32 %retval.0.i
 }
 
@@ -1088,7 +1088,7 @@ cleanup.thread:                                   ; preds = %if.end11
 cleanup.thread19:                                 ; preds = %qobject_unref_impl.exit, %if.then3
   %4 = load ptr, ptr %local_err, align 8
   call void @error_propagate(ptr noundef %errp, ptr noundef %4) #9
-  br label %glib_autoptr_cleanup_QCryptoBlockCreateOptions.argprom.exit
+  br label %glib_autoptr_cleanup_QCryptoBlockCreateOptions.exit
 
 cleanup:                                          ; preds = %if.end11
   %5 = load ptr, ptr %local_err, align 8
@@ -1098,9 +1098,9 @@ cleanup:                                          ; preds = %if.end11
 if.then.i.i:                                      ; preds = %cleanup, %cleanup.thread
   %retval.017 = phi ptr [ %call15, %cleanup.thread ], [ null, %cleanup ]
   call void @qapi_free_QCryptoBlockCreateOptions(ptr noundef nonnull %retval.0.i) #9
-  br label %glib_autoptr_cleanup_QCryptoBlockCreateOptions.argprom.exit
+  br label %glib_autoptr_cleanup_QCryptoBlockCreateOptions.exit
 
-glib_autoptr_cleanup_QCryptoBlockCreateOptions.argprom.exit: ; preds = %cleanup.thread19, %if.then.i.i
+glib_autoptr_cleanup_QCryptoBlockCreateOptions.exit: ; preds = %cleanup.thread19, %if.then.i.i
   %retval.018 = phi ptr [ %retval.017, %if.then.i.i ], [ null, %cleanup.thread19 ]
   ret ptr %retval.018
 }
@@ -1200,14 +1200,14 @@ do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %file, align 8
   %call2 = tail call i32 @bdrv_pread(ptr noundef %0, i64 noundef %offset, i64 noundef %buflen, ptr noundef %buf, i32 noundef 0) #9
   %cmp = icmp slt i32 %call2, 0
-  br i1 %cmp, label %if.then4, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br i1 %cmp, label %if.then4, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.then4:                                         ; preds = %do.end
   %sub = sub i32 0, %call2
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.29, i32 noundef 73, ptr noundef nonnull @__func__.block_crypto_read_func, i32 noundef %sub, ptr noundef nonnull @.str.32) #9
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %do.end, %if.then4
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %do.end, %if.then4
   %retval.0 = phi i32 [ %call2, %if.then4 ], [ 0, %do.end ]
   tail call void @bdrv_graph_rdunlock_main_loop() #9
   ret i32 %retval.0
@@ -1381,14 +1381,14 @@ do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %file, align 8
   %call2 = tail call i32 @bdrv_pwrite(ptr noundef %0, i64 noundef %offset, i64 noundef %buflen, ptr noundef %buf, i32 noundef 0) #9
   %cmp = icmp slt i32 %call2, 0
-  br i1 %cmp, label %if.then4, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br i1 %cmp, label %if.then4, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.then4:                                         ; preds = %do.end
   %sub = sub i32 0, %call2
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.29, i32 noundef 94, ptr noundef nonnull @__func__.block_crypto_write_func, i32 noundef %sub, ptr noundef nonnull @.str.38) #9
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %do.end, %if.then4
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %do.end, %if.then4
   %retval.0 = phi i32 [ %call2, %if.then4 ], [ 0, %do.end ]
   tail call void @bdrv_graph_rdunlock_main_loop() #9
   ret i32 %retval.0

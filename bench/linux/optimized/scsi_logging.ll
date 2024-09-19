@@ -217,7 +217,7 @@ define dso_local void @scmd_printk(ptr noundef %0, ptr noundef readonly %1, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -2147483648, 2147483775) i64 @sdev_format_header.argelim(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483775) i64 @sdev_format_header(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.thread, label %5
 
@@ -580,7 +580,7 @@ define dso_local void @scsi_print_command(ptr noundef %0) #0 align 16 {
 80:                                               ; preds = %74, %.preheader
   %81 = phi ptr [ null, %.preheader ], [ %79, %74 ]
   %82 = load i32, ptr %38, align 8
-  %83 = tail call fastcc i64 @sdev_format_header.argelim(ptr noundef nonnull %3, ptr noundef %81, i32 noundef %82)
+  %83 = tail call fastcc i64 @sdev_format_header(ptr noundef nonnull %3, ptr noundef %81, i32 noundef %82)
   %84 = icmp ugt i64 %83, 70
   br i1 %84, label %85, label %86, !prof !29
 
@@ -753,7 +753,7 @@ define internal fastcc void @scsi_log_print_sense_hdr(ptr noundef %0, ptr nounde
   br i1 %66, label %75, label %67
 
 67:                                               ; preds = %62
-  %68 = tail call fastcc i64 @sdev_format_header.argelim(ptr noundef nonnull %65, ptr noundef %1, i32 noundef %2)
+  %68 = tail call fastcc i64 @sdev_format_header(ptr noundef nonnull %65, ptr noundef %1, i32 noundef %2)
   %69 = getelementptr i8, ptr %65, i64 %68
   %70 = sub nsw i64 128, %68
   %71 = getelementptr inbounds i8, ptr %3, i64 2

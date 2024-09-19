@@ -1269,7 +1269,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_14TestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef range(i32 93, 119) %line_num) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_14TestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef range(i32 93, 119) %line_num) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::internal::GTestLog", align 4
   %call3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
@@ -1311,7 +1311,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_14TestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef range(i32 93, 119) %line_num) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_14TestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef range(i32 93, 119) %line_num) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::internal::GTestLog", align 4
   %call3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
@@ -1558,11 +1558,11 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   store ptr %3, ptr %_M_invoker.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvPvPiiEZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_iE_E9_M_invokeERKSt9_Any_dataOS0_OS1_Oi, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps9constructE, i64 24), align 8
   %tobool.not.i.i.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt8functionIFvPvPiiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_iE_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_iEEEE5valueERS3_E4typeEOSC_.argprom.exit, label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %_ZNSt8functionIFvPvPiiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_iE_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_iEEEE5valueERS3_E4typeEOSC_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont7
   %call.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
-          to label %_ZNSt8functionIFvPvPiiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_iE_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_iEEEE5valueERS3_E4typeEOSC_.argprom.exit unwind label %terminate.lpad.i.i.i
+          to label %_ZNSt8functionIFvPvPiiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_iE_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_iEEEE5valueERS3_E4typeEOSC_.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %4 = landingpad { ptr, i32 }
@@ -1571,7 +1571,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   call void @__clang_call_terminate(ptr %5) #25
   unreachable
 
-_ZNSt8functionIFvPvPiiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_iE_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_iEEEE5valueERS3_E4typeEOSC_.argprom.exit: ; preds = %invoke.cont7, %if.then.i.i.i
+_ZNSt8functionIFvPvPiiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_iE_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_iEEEE5valueERS3_E4typeEOSC_.exit: ; preds = %invoke.cont7, %if.then.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i5)
   %_M_manager.i.i.i6 = getelementptr inbounds i8, ptr %ref.tmp.i5, i64 16
@@ -1591,11 +1591,11 @@ _ZNSt8functionIFvPvPiiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUl
   store ptr %8, ptr %_M_invoker.i.i7, align 8
   store ptr @_ZNSt17_Function_handlerIFvPvPiEZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_E_E9_M_invokeERKSt9_Any_dataOS0_OS1_, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps7destroyE, i64 24), align 8
   %tobool.not.i.i.i8 = icmp eq ptr %7, null
-  br i1 %tobool.not.i.i.i8, label %_ZNSt8functionIFvPvPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_EEEE5valueERS3_E4typeEOSC_.argprom.exit, label %if.then.i.i.i9
+  br i1 %tobool.not.i.i.i8, label %_ZNSt8functionIFvPvPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_EEEE5valueERS3_E4typeEOSC_.exit, label %if.then.i.i.i9
 
-if.then.i.i.i9:                                   ; preds = %_ZNSt8functionIFvPvPiiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_iE_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_iEEEE5valueERS3_E4typeEOSC_.argprom.exit
+if.then.i.i.i9:                                   ; preds = %_ZNSt8functionIFvPvPiiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_iE_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_iEEEE5valueERS3_E4typeEOSC_.exit
   %call.i.i.i10 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i5, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i5, i32 noundef 3)
-          to label %_ZNSt8functionIFvPvPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_EEEE5valueERS3_E4typeEOSC_.argprom.exit unwind label %terminate.lpad.i.i.i11
+          to label %_ZNSt8functionIFvPvPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_EEEE5valueERS3_E4typeEOSC_.exit unwind label %terminate.lpad.i.i.i11
 
 terminate.lpad.i.i.i11:                           ; preds = %if.then.i.i.i9
   %9 = landingpad { ptr, i32 }
@@ -1604,7 +1604,7 @@ terminate.lpad.i.i.i11:                           ; preds = %if.then.i.i.i9
   call void @__clang_call_terminate(ptr %10) #25
   unreachable
 
-_ZNSt8functionIFvPvPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_EEEE5valueERS3_E4typeEOSC_.argprom.exit: ; preds = %_ZNSt8functionIFvPvPiiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_iE_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_iEEEE5valueERS3_E4typeEOSC_.argprom.exit, %if.then.i.i.i9
+_ZNSt8functionIFvPvPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_EEEE5valueERS3_E4typeEOSC_.exit: ; preds = %_ZNSt8functionIFvPvPiiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_iE_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_iEEEE5valueERS3_E4typeEOSC_.exit, %if.then.i.i.i9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i13)
   %_M_manager.i.i.i14 = getelementptr inbounds i8, ptr %ref.tmp.i13, i64 16
@@ -1624,11 +1624,11 @@ _ZNSt8functionIFvPvPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS
   store ptr %13, ptr %_M_invoker.i.i15, align 8
   store ptr @_ZNSt17_Function_handlerIFRiPiEZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps7elementE, i64 24), align 8
   %tobool.not.i.i.i16 = icmp eq ptr %12, null
-  br i1 %tobool.not.i.i.i16, label %_ZNSt8functionIFRiPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_.argprom.exit, label %if.then.i.i.i17
+  br i1 %tobool.not.i.i.i16, label %_ZNSt8functionIFRiPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_.exit, label %if.then.i.i.i17
 
-if.then.i.i.i17:                                  ; preds = %_ZNSt8functionIFvPvPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_EEEE5valueERS3_E4typeEOSC_.argprom.exit
+if.then.i.i.i17:                                  ; preds = %_ZNSt8functionIFvPvPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_EEEE5valueERS3_E4typeEOSC_.exit
   %call.i.i.i18 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i13, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i13, i32 noundef 3)
-          to label %_ZNSt8functionIFRiPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_.argprom.exit unwind label %terminate.lpad.i.i.i19
+          to label %_ZNSt8functionIFRiPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_.exit unwind label %terminate.lpad.i.i.i19
 
 terminate.lpad.i.i.i19:                           ; preds = %if.then.i.i.i17
   %14 = landingpad { ptr, i32 }
@@ -1637,7 +1637,7 @@ terminate.lpad.i.i.i19:                           ; preds = %if.then.i.i.i17
   call void @__clang_call_terminate(ptr %15) #25
   unreachable
 
-_ZNSt8functionIFRiPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_.argprom.exit: ; preds = %_ZNSt8functionIFvPvPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_EEEE5valueERS3_E4typeEOSC_.argprom.exit, %if.then.i.i.i17
+_ZNSt8functionIFRiPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_.exit: ; preds = %_ZNSt8functionIFvPvPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_EEEE5valueERS3_E4typeEOSC_.exit, %if.then.i.i.i17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i13)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i21)
   %_M_manager.i.i.i22 = getelementptr inbounds i8, ptr %ref.tmp.i21, i64 16
@@ -1657,11 +1657,11 @@ _ZNSt8functionIFRiPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS1
   store ptr %18, ptr %_M_invoker.i.i23, align 8
   store ptr @_ZNSt17_Function_handlerIFvPvPiS1_EZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_S1_E_E9_M_invokeERKSt9_Any_dataOS0_OS1_SD_, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_121PolicyWithOptionalOps8transferE, i64 24), align 8
   %tobool.not.i.i.i24 = icmp eq ptr %17, null
-  br i1 %tobool.not.i.i.i24, label %_ZNSt8functionIFvPvPiS1_EEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_S1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_S1_EEEE5valueERS3_E4typeEOSC_.argprom.exit, label %if.then.i.i.i25
+  br i1 %tobool.not.i.i.i24, label %_ZNSt8functionIFvPvPiS1_EEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_S1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_S1_EEEE5valueERS3_E4typeEOSC_.exit, label %if.then.i.i.i25
 
-if.then.i.i.i25:                                  ; preds = %_ZNSt8functionIFRiPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_.argprom.exit
+if.then.i.i.i25:                                  ; preds = %_ZNSt8functionIFRiPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_.exit
   %call.i.i.i26 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i21, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i21, i32 noundef 3)
-          to label %_ZNSt8functionIFvPvPiS1_EEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_S1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_S1_EEEE5valueERS3_E4typeEOSC_.argprom.exit unwind label %terminate.lpad.i.i.i27
+          to label %_ZNSt8functionIFvPvPiS1_EEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_S1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_S1_EEEE5valueERS3_E4typeEOSC_.exit unwind label %terminate.lpad.i.i.i27
 
 terminate.lpad.i.i.i27:                           ; preds = %if.then.i.i.i25
   %19 = landingpad { ptr, i32 }
@@ -1670,7 +1670,7 @@ terminate.lpad.i.i.i27:                           ; preds = %if.then.i.i.i25
   call void @__clang_call_terminate(ptr %20) #25
   unreachable
 
-_ZNSt8functionIFvPvPiS1_EEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_S1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_S1_EEEE5valueERS3_E4typeEOSC_.argprom.exit: ; preds = %_ZNSt8functionIFRiPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_.argprom.exit, %if.then.i.i.i25
+_ZNSt8functionIFvPvPiS1_EEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_S1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_S1_EEEE5valueERS3_E4typeEOSC_.exit: ; preds = %_ZNSt8functionIFRiPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_.exit, %if.then.i.i.i25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i21)
   ret void
 
@@ -1844,13 +1844,13 @@ _ZN7testing7MatcherIPvED2Ev.exit:                 ; preds = %invoke.cont10
   store i32 53, ptr %__args.addr4.i.i, align 4
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps9constructE, i64 16), align 8
   %tobool.not.i.i.i = icmp eq ptr %6, null
-  br i1 %tobool.not.i.i.i, label %if.then.i.i, label %_ZN4absl18container_internal20common_policy_traitsINS0_12_GLOBAL__N_124PolicyWithoutOptionalOpsEvE9constructISaIiEJiEEEvPT_PiDpOT0_.argprom.exit
+  br i1 %tobool.not.i.i.i, label %if.then.i.i, label %_ZN4absl18container_internal20common_policy_traitsINS0_12_GLOBAL__N_124PolicyWithoutOptionalOpsEvE9constructISaIiEJiEEEvPT_PiDpOT0_.exit
 
 if.then.i.i:                                      ; preds = %_ZN7testing7MatcherIPvED2Ev.exit
   call void @_ZSt25__throw_bad_function_callv() #29
   unreachable
 
-_ZN4absl18container_internal20common_policy_traitsINS0_12_GLOBAL__N_124PolicyWithoutOptionalOpsEvE9constructISaIiEJiEEEvPT_PiDpOT0_.argprom.exit: ; preds = %_ZN7testing7MatcherIPvED2Ev.exit
+_ZN4absl18container_internal20common_policy_traitsINS0_12_GLOBAL__N_124PolicyWithoutOptionalOpsEvE9constructISaIiEJiEEEvPT_PiDpOT0_.exit: ; preds = %_ZN7testing7MatcherIPvED2Ev.exit
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps9constructE, i64 24), align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps9constructE, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i)
@@ -20179,13 +20179,13 @@ _ZN4absl18container_internal20common_policy_traitsINS0_12_GLOBAL__N_124PolicyWit
   store ptr %b, ptr %__args.addr.i.i1.i.i, align 8
   %149 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps7elementE, i64 16), align 8
   %tobool.not.i.i.i2.i.i = icmp eq ptr %149, null
-  br i1 %tobool.not.i.i.i2.i.i, label %if.then.i.i4.i.i, label %_ZN4absl18container_internal20common_policy_traitsINS0_12_GLOBAL__N_124PolicyWithoutOptionalOpsEvE8transferISaIiEEEvPT_PiS9_.argprom.exit
+  br i1 %tobool.not.i.i.i2.i.i, label %if.then.i.i4.i.i, label %_ZN4absl18container_internal20common_policy_traitsINS0_12_GLOBAL__N_124PolicyWithoutOptionalOpsEvE8transferISaIiEEEvPT_PiS9_.exit
 
 if.then.i.i4.i.i:                                 ; preds = %_ZN4absl18container_internal20common_policy_traitsINS0_12_GLOBAL__N_124PolicyWithoutOptionalOpsEvE7elementIS3_EEDTclsrT_7elementfp_EEPi.exit.i.i
   call void @_ZSt25__throw_bad_function_callv() #29
   unreachable
 
-_ZN4absl18container_internal20common_policy_traitsINS0_12_GLOBAL__N_124PolicyWithoutOptionalOpsEvE8transferISaIiEEEvPT_PiS9_.argprom.exit: ; preds = %_ZN4absl18container_internal20common_policy_traitsINS0_12_GLOBAL__N_124PolicyWithoutOptionalOpsEvE7elementIS3_EEDTclsrT_7elementfp_EEPi.exit.i.i
+_ZN4absl18container_internal20common_policy_traitsINS0_12_GLOBAL__N_124PolicyWithoutOptionalOpsEvE8transferISaIiEEEvPT_PiS9_.exit: ; preds = %_ZN4absl18container_internal20common_policy_traitsINS0_12_GLOBAL__N_124PolicyWithoutOptionalOpsEvE7elementIS3_EEDTclsrT_7elementfp_EEPi.exit.i.i
   %150 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps7elementE, i64 24), align 8
   %call2.i.i3.i.i = call noundef nonnull align 4 dereferenceable(4) ptr %150(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps7elementE, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i1.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i1.i.i)
@@ -21497,11 +21497,11 @@ invoke.cont.i:                                    ; preds = %.noexc.i
 invoke.cont3.i:                                   ; preds = %invoke.cont.i
   %line.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 32
   store i32 93, ptr %line.i.i, align 8
-  %call7.i = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_14TestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 93)
+  %call7.i = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_14TestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 93)
           to label %invoke.cont6.i unwind label %lpad4.i
 
 invoke.cont6.i:                                   ; preds = %invoke.cont3.i
-  %call9.i = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_14TestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 93)
+  %call9.i = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_14TestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 93)
           to label %invoke.cont8.i unwind label %lpad4.i
 
 invoke.cont8.i:                                   ; preds = %invoke.cont6.i
@@ -21576,11 +21576,11 @@ invoke.cont.i10:                                  ; preds = %.noexc.i8
 invoke.cont3.i13:                                 ; preds = %invoke.cont.i10
   %line.i.i14 = getelementptr inbounds i8, ptr %agg.tmp.i1, i64 32
   store i32 98, ptr %line.i.i14, align 8
-  %call7.i15 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_14TestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 98)
+  %call7.i15 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_14TestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 98)
           to label %invoke.cont6.i17 unwind label %lpad4.i16
 
 invoke.cont6.i17:                                 ; preds = %invoke.cont3.i13
-  %call9.i18 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_14TestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 98)
+  %call9.i18 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_14TestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 98)
           to label %invoke.cont8.i19 unwind label %lpad4.i16
 
 invoke.cont8.i19:                                 ; preds = %invoke.cont6.i17
@@ -21649,11 +21649,11 @@ invoke.cont.i32:                                  ; preds = %.noexc.i30
 invoke.cont3.i36:                                 ; preds = %invoke.cont.i32
   %line.i.i37 = getelementptr inbounds i8, ptr %agg.tmp.i22, i64 32
   store i32 103, ptr %line.i.i37, align 8
-  %call7.i38 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_14TestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 103)
+  %call7.i38 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_14TestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 103)
           to label %invoke.cont6.i40 unwind label %lpad4.i39
 
 invoke.cont6.i40:                                 ; preds = %invoke.cont3.i36
-  %call9.i41 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_14TestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 103)
+  %call9.i41 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_14TestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 103)
           to label %invoke.cont8.i42 unwind label %lpad4.i39
 
 invoke.cont8.i42:                                 ; preds = %invoke.cont6.i40
@@ -21722,11 +21722,11 @@ invoke.cont.i56:                                  ; preds = %.noexc.i54
 invoke.cont3.i60:                                 ; preds = %invoke.cont.i56
   %line.i.i61 = getelementptr inbounds i8, ptr %agg.tmp.i46, i64 32
   store i32 109, ptr %line.i.i61, align 8
-  %call7.i62 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_14TestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 109)
+  %call7.i62 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_14TestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 109)
           to label %invoke.cont6.i64 unwind label %lpad4.i63
 
 invoke.cont6.i64:                                 ; preds = %invoke.cont3.i60
-  %call9.i65 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_14TestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 109)
+  %call9.i65 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_14TestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 109)
           to label %invoke.cont8.i66 unwind label %lpad4.i63
 
 invoke.cont8.i66:                                 ; preds = %invoke.cont6.i64
@@ -21795,11 +21795,11 @@ invoke.cont.i80:                                  ; preds = %.noexc.i78
 invoke.cont3.i84:                                 ; preds = %invoke.cont.i80
   %line.i.i85 = getelementptr inbounds i8, ptr %agg.tmp.i70, i64 32
   store i32 118, ptr %line.i.i85, align 8
-  %call7.i86 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_14TestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 118)
+  %call7.i86 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_14TestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 118)
           to label %invoke.cont6.i88 unwind label %lpad4.i87
 
 invoke.cont6.i88:                                 ; preds = %invoke.cont3.i84
-  %call9.i89 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_14TestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 118)
+  %call9.i89 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_14TestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 118)
           to label %invoke.cont8.i90 unwind label %lpad4.i87
 
 invoke.cont8.i90:                                 ; preds = %invoke.cont6.i88

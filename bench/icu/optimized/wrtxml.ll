@@ -278,7 +278,7 @@ lor.lhs.false.i:                                  ; preds = %if.then1
 for.body.i.i:                                     ; preds = %lor.lhs.false.i, %invoke.cont.i.i
   %i.03.i.i = phi i32 [ %inc.i.i, %invoke.cont.i.i ], [ 0, %lor.lhs.false.i ]
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i.i, ptr noundef nonnull @.str.93)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %2, ptr noundef %agg.tmp.i.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %2, ptr noundef %agg.tmp.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %for.body.i.i
@@ -307,7 +307,7 @@ _ZL10write_tabsP11_FileStream.exit.i:             ; preds = %_ZL10write_tabsP11_
   %6 = phi ptr [ %.pre.i, %_ZL10write_tabsP11_FileStream.exit.loopexit.i ], [ %2, %lor.lhs.false.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i.i)
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i, ptr noundef nonnull @.str.42)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %6, ptr noundef %agg.tmp.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %6, ptr noundef %agg.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZL10write_tabsP11_FileStream.exit.i
@@ -343,10 +343,10 @@ _ZNK18StringBaseResource9getBufferEv.exit.i:      ; preds = %if.else9.i.i.i, %if
   %fLength.i.i.i = getelementptr inbounds i8, ptr %res, i64 68
   %11 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %11, i32 %shr.i.i.i.i
-  %call5.i = call fastcc noundef ptr @_ZL16convertAndEscapePPciPiPKDsiP10UErrorCode.argprom(ptr null, i32 noundef 0, ptr noundef %bufLen.i, ptr noundef %retval.0.i.i.i, i32 noundef %cond.i.i.i, ptr noundef nonnull %status)
+  %call5.i = call fastcc noundef ptr @_ZL16convertAndEscapePPciPiPKDsiP10UErrorCode(ptr null, i32 noundef 0, ptr noundef %bufLen.i, ptr noundef %retval.0.i.i.i, i32 noundef %cond.i.i.i, ptr noundef nonnull %status)
   %12 = load i32, ptr %status, align 4
   %cmp.i10.i = icmp slt i32 %12, 1
-  br i1 %cmp.i10.i, label %if.end9.i, label %_ZL16string_write_xmlP14StringResourcePKcS2_P10UErrorCode.argprom.exit
+  br i1 %cmp.i10.i, label %if.end9.i, label %_ZL16string_write_xmlP14StringResourcePKcS2_P10UErrorCode.exit
 
 lpad.i:                                           ; preds = %_ZL10write_tabsP11_FileStream.exit.i
   %13 = landingpad { ptr, i32 }
@@ -357,14 +357,14 @@ if.end9.i:                                        ; preds = %_ZNK18StringBaseRes
   %14 = load ptr, ptr @_ZL3out, align 8
   %15 = load i32, ptr %bufLen.i, align 4
   call void @_ZN6icu_7513UnicodeStringC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp10.i, ptr noundef %call5.i, i32 noundef %15, ptr noundef nonnull @.str.24)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %14, ptr noundef %agg.tmp10.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %14, ptr noundef %agg.tmp10.i)
           to label %invoke.cont12.i unwind label %lpad11.i
 
 invoke.cont12.i:                                  ; preds = %if.end9.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp10.i) #13
   %16 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp14.i, ptr noundef nonnull @.str.51)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %16, ptr noundef %agg.tmp14.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %16, ptr noundef %agg.tmp14.i)
           to label %invoke.cont16.i unwind label %lpad15.i
 
 invoke.cont16.i:                                  ; preds = %invoke.cont12.i
@@ -382,7 +382,7 @@ invoke.cont16.i:                                  ; preds = %invoke.cont12.i
 for.body.i14.i:                                   ; preds = %invoke.cont16.i, %invoke.cont.i18.i
   %i.03.i15.i = phi i32 [ %inc.i19.i, %invoke.cont.i18.i ], [ 0, %invoke.cont16.i ]
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i12.i, ptr noundef nonnull @.str.93)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %18, ptr noundef %agg.tmp.i12.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %18, ptr noundef %agg.tmp.i12.i)
           to label %invoke.cont.i18.i unwind label %lpad.i17.i
 
 invoke.cont.i18.i:                                ; preds = %for.body.i14.i
@@ -405,14 +405,14 @@ _ZL10write_tabsP11_FileStream.exit21.i:           ; preds = %_ZL10write_tabsP11_
   %21 = phi ptr [ %.pre2.i, %_ZL10write_tabsP11_FileStream.exit21.loopexit.i ], [ %18, %invoke.cont16.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i12.i)
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp18.i, ptr noundef nonnull @.str.54)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %21, ptr noundef %agg.tmp18.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %21, ptr noundef %agg.tmp18.i)
           to label %invoke.cont20.i unwind label %lpad19.i
 
 invoke.cont20.i:                                  ; preds = %_ZL10write_tabsP11_FileStream.exit21.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp18.i) #13
   call void @uprv_free_75(ptr noundef %call5.i)
   call void @uprv_free_75(ptr noundef %call1.i)
-  br label %_ZL16string_write_xmlP14StringResourcePKcS2_P10UErrorCode.argprom.exit
+  br label %_ZL16string_write_xmlP14StringResourcePKcS2_P10UErrorCode.exit
 
 lpad11.i:                                         ; preds = %if.end9.i
   %22 = landingpad { ptr, i32 }
@@ -429,7 +429,7 @@ lpad19.i:                                         ; preds = %_ZL10write_tabsP11_
           cleanup
   br label %common.resume
 
-_ZL16string_write_xmlP14StringResourcePKcS2_P10UErrorCode.argprom.exit: ; preds = %_ZNK18StringBaseResource9getBufferEv.exit.i, %invoke.cont20.i
+_ZL16string_write_xmlP14StringResourcePKcS2_P10UErrorCode.exit: ; preds = %_ZNK18StringBaseResource9getBufferEv.exit.i, %invoke.cont20.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bufLen.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp10.i)
@@ -454,7 +454,7 @@ sw.bb2:                                           ; preds = %if.then1
 for.body.i.i36:                                   ; preds = %sw.bb2, %invoke.cont.i.i43
   %i.03.i.i37 = phi i32 [ %inc.i.i44, %invoke.cont.i.i43 ], [ 0, %sw.bb2 ]
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i.i30, ptr noundef nonnull @.str.93)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %25, ptr noundef %agg.tmp.i.i30)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %25, ptr noundef %agg.tmp.i.i30)
           to label %invoke.cont.i.i43 unwind label %lpad.i.i39
 
 invoke.cont.i.i43:                                ; preds = %for.body.i.i36
@@ -477,7 +477,7 @@ _ZL10write_tabsP11_FileStream.exit.i48:           ; preds = %_ZL10write_tabsP11_
   %29 = phi ptr [ %.pre.i47, %_ZL10write_tabsP11_FileStream.exit.loopexit.i46 ], [ %25, %sw.bb2 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i.i30)
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i32, ptr noundef nonnull @.str.42)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %29, ptr noundef %agg.tmp.i32)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %29, ptr noundef %agg.tmp.i32)
           to label %invoke.cont.i51 unwind label %lpad.i50
 
 invoke.cont.i51:                                  ; preds = %_ZL10write_tabsP11_FileStream.exit.i48
@@ -513,10 +513,10 @@ _ZNK18StringBaseResource9getBufferEv.exit.i56:    ; preds = %if.else9.i.i.i78, %
   %fLength.i.i.i60 = getelementptr inbounds i8, ptr %res, i64 68
   %34 = load i32, ptr %fLength.i.i.i60, align 4
   %cond.i.i.i61 = select i1 %cmp.i.i.i.i58, i32 %34, i32 %shr.i.i.i.i59
-  %call4.i = call fastcc noundef ptr @_ZL16convertAndEscapePPciPiPKDsiP10UErrorCode.argprom(ptr null, i32 noundef 0, ptr noundef %bufLen.i31, ptr noundef %retval.0.i.i.i57, i32 noundef %cond.i.i.i61, ptr noundef %status)
+  %call4.i = call fastcc noundef ptr @_ZL16convertAndEscapePPciPiPKDsiP10UErrorCode(ptr null, i32 noundef 0, ptr noundef %bufLen.i31, ptr noundef %retval.0.i.i.i57, i32 noundef %cond.i.i.i61, ptr noundef %status)
   %35 = load i32, ptr %status, align 4
   %cmp.i.i62 = icmp slt i32 %35, 1
-  br i1 %cmp.i.i62, label %if.end.i63, label %_ZL15alias_write_xmlP13AliasResourcePKcS2_P10UErrorCode.argprom.exit
+  br i1 %cmp.i.i62, label %if.end.i63, label %_ZL15alias_write_xmlP13AliasResourcePKcS2_P10UErrorCode.exit
 
 lpad.i50:                                         ; preds = %_ZL10write_tabsP11_FileStream.exit.i48
   %36 = landingpad { ptr, i32 }
@@ -527,14 +527,14 @@ if.end.i63:                                       ; preds = %_ZNK18StringBaseRes
   %37 = load ptr, ptr @_ZL3out, align 8
   %38 = load i32, ptr %bufLen.i31, align 4
   call void @_ZN6icu_7513UnicodeStringC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp6.i, ptr noundef %call4.i, i32 noundef %38, ptr noundef nonnull @.str.24)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %37, ptr noundef %agg.tmp6.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %37, ptr noundef %agg.tmp6.i)
           to label %invoke.cont8.i unwind label %lpad7.i
 
 invoke.cont8.i:                                   ; preds = %if.end.i63
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp6.i) #13
   %39 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp10.i33, ptr noundef nonnull @.str.51)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %39, ptr noundef %agg.tmp10.i33)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %39, ptr noundef %agg.tmp10.i33)
           to label %invoke.cont12.i66 unwind label %lpad11.i65
 
 invoke.cont12.i66:                                ; preds = %invoke.cont8.i
@@ -552,7 +552,7 @@ invoke.cont12.i66:                                ; preds = %invoke.cont8.i
 for.body.i10.i:                                   ; preds = %invoke.cont12.i66, %invoke.cont.i14.i
   %i.03.i11.i = phi i32 [ %inc.i15.i, %invoke.cont.i14.i ], [ 0, %invoke.cont12.i66 ]
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i8.i, ptr noundef nonnull @.str.93)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %41, ptr noundef %agg.tmp.i8.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %41, ptr noundef %agg.tmp.i8.i)
           to label %invoke.cont.i14.i unwind label %lpad.i13.i
 
 invoke.cont.i14.i:                                ; preds = %for.body.i10.i
@@ -575,14 +575,14 @@ _ZL10write_tabsP11_FileStream.exit17.i:           ; preds = %_ZL10write_tabsP11_
   %44 = phi ptr [ %.pre2.i69, %_ZL10write_tabsP11_FileStream.exit17.loopexit.i ], [ %41, %invoke.cont12.i66 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i8.i)
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp14.i34, ptr noundef nonnull @.str.54)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %44, ptr noundef %agg.tmp14.i34)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %44, ptr noundef %agg.tmp14.i34)
           to label %invoke.cont16.i72 unwind label %lpad15.i71
 
 invoke.cont16.i72:                                ; preds = %_ZL10write_tabsP11_FileStream.exit17.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp14.i34) #13
   call void @uprv_free_75(ptr noundef %call4.i)
   call void @uprv_free_75(ptr noundef %call.i)
-  br label %_ZL15alias_write_xmlP13AliasResourcePKcS2_P10UErrorCode.argprom.exit
+  br label %_ZL15alias_write_xmlP13AliasResourcePKcS2_P10UErrorCode.exit
 
 lpad7.i:                                          ; preds = %if.end.i63
   %45 = landingpad { ptr, i32 }
@@ -599,7 +599,7 @@ lpad15.i71:                                       ; preds = %_ZL10write_tabsP11_
           cleanup
   br label %common.resume
 
-_ZL15alias_write_xmlP13AliasResourcePKcS2_P10UErrorCode.argprom.exit: ; preds = %_ZNK18StringBaseResource9getBufferEv.exit.i56, %invoke.cont16.i72
+_ZL15alias_write_xmlP13AliasResourcePKcS2_P10UErrorCode.exit: ; preds = %_ZNK18StringBaseResource9getBufferEv.exit.i56, %invoke.cont16.i72
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bufLen.i31)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i32)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp6.i)
@@ -647,7 +647,7 @@ for.body.i:                                       ; preds = %invoke.cont34.i, %f
   %i.02.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %add36.i, %invoke.cont34.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %c.i, i8 0, i64 256, i1 false)
   %call1.i87 = call i32 @itostr(ptr noundef nonnull %c.i, i32 noundef %i.02.i, i32 noundef 10, i32 noundef 0)
-  %call3.i = call fastcc noundef ptr @_ZL5getIDPKcS0_Pc.argprom(ptr noundef %call.i82, ptr noundef nonnull %c.i)
+  %call3.i = call fastcc noundef ptr @_ZL5getIDPKcS0_Pc(ptr noundef %call.i82, ptr noundef nonnull %c.i)
   %49 = load ptr, ptr %fArray.i, align 8
   %arrayidx.i = getelementptr inbounds i32, ptr %49, i64 %conv3.i
   %50 = load i32, ptr %arrayidx.i, align 4
@@ -743,23 +743,23 @@ _ZL10write_tabsP11_FileStream.exit.i110:          ; preds = %_ZL10write_tabsP11_
   %68 = phi ptr [ %.pre.i109, %_ZL10write_tabsP11_FileStream.exit.loopexit.i108 ], [ %51, %for.body.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i.i80)
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i81, ptr noundef nonnull @.str.25)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %68, ptr noundef %agg.tmp.i81)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %68, ptr noundef %agg.tmp.i81)
           to label %invoke.cont.i112 unwind label %lpad.i111
 
 invoke.cont.i112:                                 ; preds = %_ZL10write_tabsP11_FileStream.exit.i110
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i81) #13
   %69 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp7.i, ptr noundef nonnull @.str.41)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %69, ptr noundef %agg.tmp7.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %69, ptr noundef %agg.tmp7.i)
           to label %invoke.cont9.i unwind label %lpad8.i
 
 invoke.cont9.i:                                   ; preds = %invoke.cont.i112
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp7.i) #13
-  call fastcc void @_ZL14printAttributePKcS0_i.argelim(ptr noundef nonnull @.str.26, ptr noundef %call3.i)
-  call fastcc void @_ZL14printAttributePKcS0_i.argelim(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.58)
+  call fastcc void @_ZL14printAttributePKcS0_i(ptr noundef nonnull @.str.26, ptr noundef %call3.i)
+  call fastcc void @_ZL14printAttributePKcS0_i(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.58)
   %70 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp15.i, ptr noundef nonnull @.str.30)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %70, ptr noundef %agg.tmp15.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %70, ptr noundef %agg.tmp15.i)
           to label %invoke.cont17.i unwind label %lpad16.i
 
 invoke.cont17.i:                                  ; preds = %invoke.cont9.i
@@ -857,21 +857,21 @@ _ZL10write_tabsP11_FileStream.exit20.i:           ; preds = %_ZL10write_tabsP11_
   %88 = phi ptr [ %.pre9.i, %_ZL10write_tabsP11_FileStream.exit20.loopexit.i ], [ %72, %invoke.cont17.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i11.i)
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp19.i, ptr noundef nonnull @.str.42)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %88, ptr noundef %agg.tmp19.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %88, ptr noundef %agg.tmp19.i)
           to label %invoke.cont21.i unwind label %lpad20.i
 
 invoke.cont21.i:                                  ; preds = %_ZL10write_tabsP11_FileStream.exit20.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp19.i) #13
   %89 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKci(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp23.i, ptr noundef nonnull %buf.i, i32 noundef %call5.i88)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %89, ptr noundef %agg.tmp23.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %89, ptr noundef %agg.tmp23.i)
           to label %invoke.cont26.i unwind label %lpad25.i
 
 invoke.cont26.i:                                  ; preds = %invoke.cont21.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp23.i) #13
   %90 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp28.i, ptr noundef nonnull @.str.51)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %90, ptr noundef %agg.tmp28.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %90, ptr noundef %agg.tmp28.i)
           to label %invoke.cont30.i unwind label %lpad29.i
 
 invoke.cont30.i:                                  ; preds = %invoke.cont26.i
@@ -969,7 +969,7 @@ _ZL10write_tabsP11_FileStream.exit30.i:           ; preds = %_ZL10write_tabsP11_
   %108 = phi ptr [ %.pre10.i, %_ZL10write_tabsP11_FileStream.exit30.loopexit.i ], [ %92, %invoke.cont30.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i21.i)
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp32.i, ptr noundef nonnull @.str.54)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %108, ptr noundef %agg.tmp32.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %108, ptr noundef %agg.tmp32.i)
           to label %invoke.cont34.i unwind label %lpad33.i
 
 invoke.cont34.i:                                  ; preds = %_ZL10write_tabsP11_FileStream.exit30.i
@@ -1028,7 +1028,7 @@ for.end.i:                                        ; preds = %invoke.cont34.i, %s
 for.body.i33.i:                                   ; preds = %for.end.i, %invoke.cont.i37.i
   %i.03.i34.i = phi i32 [ %inc.i38.i, %invoke.cont.i37.i ], [ 0, %for.end.i ]
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i31.i, ptr noundef nonnull @.str.93)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %118, ptr noundef %agg.tmp.i31.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %118, ptr noundef %agg.tmp.i31.i)
           to label %invoke.cont.i37.i unwind label %lpad.i36.i
 
 invoke.cont.i37.i:                                ; preds = %for.body.i33.i
@@ -1051,15 +1051,15 @@ _ZL10write_tabsP11_FileStream.exit40.i:           ; preds = %_ZL10write_tabsP11_
   %121 = phi ptr [ %.pre11.i, %_ZL10write_tabsP11_FileStream.exit40.loopexit.i ], [ %118, %for.end.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i31.i)
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp38.i, ptr noundef nonnull @.str.59)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %121, ptr noundef %agg.tmp38.i)
-          to label %_ZL19intvector_write_xmlP17IntVectorResourcePKcS2_P10UErrorCode.argprom.exit unwind label %lpad39.i
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %121, ptr noundef %agg.tmp38.i)
+          to label %_ZL19intvector_write_xmlP17IntVectorResourcePKcS2_P10UErrorCode.exit unwind label %lpad39.i
 
 lpad39.i:                                         ; preds = %_ZL10write_tabsP11_FileStream.exit40.i
   %122 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZL19intvector_write_xmlP17IntVectorResourcePKcS2_P10UErrorCode.argprom.exit: ; preds = %_ZL10write_tabsP11_FileStream.exit40.i
+_ZL19intvector_write_xmlP17IntVectorResourcePKcS2_P10UErrorCode.exit: ; preds = %_ZL10write_tabsP11_FileStream.exit40.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp38.i) #13
   call void @uprv_free_75(ptr noundef %call.i82)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %buf.i)
@@ -1202,7 +1202,7 @@ if.end62.i:                                       ; preds = %if.then58.i, %lor.l
 for.body.i.i126:                                  ; preds = %if.end62.i, %invoke.cont.i.i133
   %i.03.i.i127 = phi i32 [ %inc.i.i134, %invoke.cont.i.i133 ], [ 0, %if.end62.i ]
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i.i116, ptr noundef nonnull @.str.93)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %129, ptr noundef %agg.tmp.i.i116)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %129, ptr noundef %agg.tmp.i.i116)
           to label %invoke.cont.i.i133 unwind label %lpad.i.i129
 
 invoke.cont.i.i133:                               ; preds = %for.body.i.i126
@@ -1225,7 +1225,7 @@ _ZL10write_tabsP11_FileStream.exit.i138:          ; preds = %_ZL10write_tabsP11_
   %133 = phi ptr [ %.pre.i137, %_ZL10write_tabsP11_FileStream.exit.loopexit.i136 ], [ %129, %if.end62.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i.i116)
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i117, ptr noundef nonnull @.str.81)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %133, ptr noundef %agg.tmp.i117)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %133, ptr noundef %agg.tmp.i117)
           to label %invoke.cont.i140 unwind label %lpad.i139
 
 invoke.cont.i140:                                 ; preds = %_ZL10write_tabsP11_FileStream.exit.i138
@@ -1241,7 +1241,7 @@ invoke.cont.i140:                                 ; preds = %_ZL10write_tabsP11_
 for.body.i43.i:                                   ; preds = %invoke.cont.i140, %invoke.cont.i47.i
   %i.03.i44.i = phi i32 [ %inc.i48.i, %invoke.cont.i47.i ], [ 0, %invoke.cont.i140 ]
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i41.i, ptr noundef nonnull @.str.93)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %135, ptr noundef %agg.tmp.i41.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %135, ptr noundef %agg.tmp.i41.i)
           to label %invoke.cont.i47.i unwind label %lpad.i46.i
 
 invoke.cont.i47.i:                                ; preds = %for.body.i43.i
@@ -1264,15 +1264,15 @@ _ZL10write_tabsP11_FileStream.exit50.i:           ; preds = %_ZL10write_tabsP11_
   %138 = phi ptr [ %.pre10.i141, %_ZL10write_tabsP11_FileStream.exit50.loopexit.i ], [ %135, %invoke.cont.i140 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i41.i)
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp66.i, ptr noundef nonnull @.str.82)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %138, ptr noundef %agg.tmp66.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %138, ptr noundef %agg.tmp66.i)
           to label %invoke.cont68.i unwind label %lpad67.i
 
 invoke.cont68.i:                                  ; preds = %_ZL10write_tabsP11_FileStream.exit50.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp66.i) #13
-  call fastcc void @_ZL14printAttributePKcS0_i.argelim(ptr noundef nonnull @.str.74, ptr noundef nonnull %f.0.i)
+  call fastcc void @_ZL14printAttributePKcS0_i(ptr noundef nonnull @.str.74, ptr noundef nonnull %f.0.i)
   %139 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp72.i, ptr noundef nonnull @.str.23)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %139, ptr noundef %agg.tmp72.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %139, ptr noundef %agg.tmp72.i)
           to label %invoke.cont74.i unwind label %lpad73.i
 
 invoke.cont74.i:                                  ; preds = %invoke.cont68.i
@@ -1288,7 +1288,7 @@ invoke.cont74.i:                                  ; preds = %invoke.cont68.i
 for.body.i53.i:                                   ; preds = %invoke.cont74.i, %invoke.cont.i57.i
   %i.03.i54.i = phi i32 [ %inc.i58.i, %invoke.cont.i57.i ], [ 0, %invoke.cont74.i ]
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i51.i, ptr noundef nonnull @.str.93)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %141, ptr noundef %agg.tmp.i51.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %141, ptr noundef %agg.tmp.i51.i)
           to label %invoke.cont.i57.i unwind label %lpad.i56.i
 
 invoke.cont.i57.i:                                ; preds = %for.body.i53.i
@@ -1311,7 +1311,7 @@ _ZL10write_tabsP11_FileStream.exit60.i:           ; preds = %_ZL10write_tabsP11_
   %144 = phi ptr [ %.pre11.i143, %_ZL10write_tabsP11_FileStream.exit60.loopexit.i ], [ %141, %invoke.cont74.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i51.i)
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp76.i, ptr noundef nonnull @.str.83)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %144, ptr noundef %agg.tmp76.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %144, ptr noundef %agg.tmp76.i)
           to label %invoke.cont78.i unwind label %lpad77.i
 
 invoke.cont78.i:                                  ; preds = %_ZL10write_tabsP11_FileStream.exit60.i
@@ -1329,7 +1329,7 @@ invoke.cont78.i:                                  ; preds = %_ZL10write_tabsP11_
 for.body.i63.i:                                   ; preds = %invoke.cont78.i, %invoke.cont.i67.i
   %i.03.i64.i = phi i32 [ %inc.i68.i, %invoke.cont.i67.i ], [ 0, %invoke.cont78.i ]
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i61.i, ptr noundef nonnull @.str.93)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %146, ptr noundef %agg.tmp.i61.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %146, ptr noundef %agg.tmp.i61.i)
           to label %invoke.cont.i67.i unwind label %lpad.i66.i
 
 invoke.cont.i67.i:                                ; preds = %for.body.i63.i
@@ -1352,12 +1352,12 @@ _ZL10write_tabsP11_FileStream.exit70.i:           ; preds = %_ZL10write_tabsP11_
   %149 = phi ptr [ %.pre12.i, %_ZL10write_tabsP11_FileStream.exit70.loopexit.i ], [ %146, %invoke.cont78.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i61.i)
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp81.i, ptr noundef nonnull @.str.84)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %149, ptr noundef %agg.tmp81.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %149, ptr noundef %agg.tmp81.i)
           to label %invoke.cont83.i unwind label %lpad82.i
 
 invoke.cont83.i:                                  ; preds = %_ZL10write_tabsP11_FileStream.exit70.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp81.i) #13
-  br label %_ZL13bin_write_xmlP14BinaryResourcePKcS2_P10UErrorCode.argprom.exit
+  br label %_ZL13bin_write_xmlP14BinaryResourcePKcS2_P10UErrorCode.exit
 
 lpad.i139:                                        ; preds = %_ZL10write_tabsP11_FileStream.exit.i138
   %150 = landingpad { ptr, i32 }
@@ -1396,7 +1396,7 @@ if.else85.i:                                      ; preds = %cond.end7.i
 for.body.i73.i:                                   ; preds = %if.else85.i, %invoke.cont.i77.i
   %i.03.i74.i = phi i32 [ %inc.i78.i, %invoke.cont.i77.i ], [ 0, %if.else85.i ]
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i71.i, ptr noundef nonnull @.str.93)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %155, ptr noundef %agg.tmp.i71.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %155, ptr noundef %agg.tmp.i71.i)
           to label %invoke.cont.i77.i unwind label %lpad.i76.i
 
 invoke.cont.i77.i:                                ; preds = %for.body.i73.i
@@ -1419,7 +1419,7 @@ _ZL10write_tabsP11_FileStream.exit80.i:           ; preds = %_ZL10write_tabsP11_
   %159 = phi ptr [ %.pre13.i, %_ZL10write_tabsP11_FileStream.exit80.loopexit.i ], [ %155, %if.else85.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i71.i)
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp87.i, ptr noundef nonnull @.str.81)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %159, ptr noundef %agg.tmp87.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %159, ptr noundef %agg.tmp87.i)
           to label %invoke.cont89.i unwind label %lpad88.i
 
 invoke.cont89.i:                                  ; preds = %_ZL10write_tabsP11_FileStream.exit80.i
@@ -1435,7 +1435,7 @@ invoke.cont89.i:                                  ; preds = %_ZL10write_tabsP11_
 for.body.i83.i:                                   ; preds = %invoke.cont89.i, %invoke.cont.i87.i
   %i.03.i84.i = phi i32 [ %inc.i88.i, %invoke.cont.i87.i ], [ 0, %invoke.cont89.i ]
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i81.i, ptr noundef nonnull @.str.93)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %161, ptr noundef %agg.tmp.i81.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %161, ptr noundef %agg.tmp.i81.i)
           to label %invoke.cont.i87.i unwind label %lpad.i86.i
 
 invoke.cont.i87.i:                                ; preds = %for.body.i83.i
@@ -1458,12 +1458,12 @@ _ZL10write_tabsP11_FileStream.exit90.i:           ; preds = %_ZL10write_tabsP11_
   %164 = phi ptr [ %.pre14.i, %_ZL10write_tabsP11_FileStream.exit90.loopexit.i ], [ %161, %invoke.cont89.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i81.i)
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp92.i, ptr noundef nonnull @.str.85)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %164, ptr noundef %agg.tmp92.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %164, ptr noundef %agg.tmp92.i)
           to label %invoke.cont94.i unwind label %lpad93.i
 
 invoke.cont94.i:                                  ; preds = %_ZL10write_tabsP11_FileStream.exit90.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp92.i) #13
-  call fastcc void @_ZL14printAttributePKcS0_i.argelim(ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.78)
+  call fastcc void @_ZL14printAttributePKcS0_i(ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.78)
   %fLength.i = getelementptr inbounds i8, ptr %res, i64 56
   %165 = load i32, ptr %fLength.i, align 8
   %cmp981.not.i = icmp eq i32 %165, 0
@@ -1551,10 +1551,10 @@ lpad93.i:                                         ; preds = %_ZL10write_tabsP11_
 while.end.i:                                      ; preds = %computeCRC.exit.i, %invoke.cont94.i
   %crc.0.lcssa.i = phi i32 [ -1, %invoke.cont94.i ], [ %crc.0.lcssa.i.i, %computeCRC.exit.i ]
   %call106.i = call i32 @itostr(ptr noundef nonnull %temp.i, i32 noundef %crc.0.lcssa.i, i32 noundef 10, i32 noundef 0)
-  call fastcc void @_ZL14printAttributePKcS0_i.argelim(ptr noundef nonnull @.str.76, ptr noundef nonnull %temp.i)
+  call fastcc void @_ZL14printAttributePKcS0_i(ptr noundef nonnull @.str.76, ptr noundef nonnull %temp.i)
   %175 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp108.i, ptr noundef nonnull @.str.77)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %175, ptr noundef %agg.tmp108.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %175, ptr noundef %agg.tmp108.i)
           to label %invoke.cont110.i unwind label %lpad109.i
 
 invoke.cont110.i:                                 ; preds = %while.end.i
@@ -1576,7 +1576,7 @@ while.body115.i:                                  ; preds = %invoke.cont125.i, %
   %call121.i = call i32 @itostr(ptr noundef nonnull %temp.i, i32 noundef %conv120.i, i32 noundef 16, i32 noundef 2)
   %179 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp122.i, ptr noundef nonnull %temp.i)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %179, ptr noundef %agg.tmp122.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %179, ptr noundef %agg.tmp122.i)
           to label %invoke.cont125.i unwind label %lpad124.i
 
 invoke.cont125.i:                                 ; preds = %while.body115.i
@@ -1600,7 +1600,7 @@ lpad124.i:                                        ; preds = %while.body115.i
 while.end128.i:                                   ; preds = %invoke.cont125.i, %invoke.cont110.i
   %184 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp129.i, ptr noundef nonnull @.str.86)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %184, ptr noundef %agg.tmp129.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %184, ptr noundef %agg.tmp129.i)
           to label %invoke.cont131.i unwind label %lpad130.i
 
 invoke.cont131.i:                                 ; preds = %while.end128.i
@@ -1616,7 +1616,7 @@ invoke.cont131.i:                                 ; preds = %while.end128.i
 for.body.i93.i:                                   ; preds = %invoke.cont131.i, %invoke.cont.i97.i
   %i.03.i94.i = phi i32 [ %inc.i98.i, %invoke.cont.i97.i ], [ 0, %invoke.cont131.i ]
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i91.i, ptr noundef nonnull @.str.93)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %186, ptr noundef %agg.tmp.i91.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %186, ptr noundef %agg.tmp.i91.i)
           to label %invoke.cont.i97.i unwind label %lpad.i96.i
 
 invoke.cont.i97.i:                                ; preds = %for.body.i93.i
@@ -1639,7 +1639,7 @@ _ZL10write_tabsP11_FileStream.exit101.i:          ; preds = %_ZL10write_tabsP11_
   %189 = phi ptr [ %.pre15.i, %_ZL10write_tabsP11_FileStream.exit101.loopexit.i ], [ %186, %invoke.cont131.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i91.i)
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp134.i, ptr noundef nonnull @.str.83)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %189, ptr noundef %agg.tmp134.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %189, ptr noundef %agg.tmp134.i)
           to label %invoke.cont136.i unwind label %lpad135.i
 
 invoke.cont136.i:                                 ; preds = %_ZL10write_tabsP11_FileStream.exit101.i
@@ -1657,7 +1657,7 @@ invoke.cont136.i:                                 ; preds = %_ZL10write_tabsP11_
 for.body.i104.i:                                  ; preds = %invoke.cont136.i, %invoke.cont.i108.i
   %i.03.i105.i = phi i32 [ %inc.i109.i, %invoke.cont.i108.i ], [ 0, %invoke.cont136.i ]
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i102.i, ptr noundef nonnull @.str.93)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %191, ptr noundef %agg.tmp.i102.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %191, ptr noundef %agg.tmp.i102.i)
           to label %invoke.cont.i108.i unwind label %lpad.i107.i
 
 invoke.cont.i108.i:                               ; preds = %for.body.i104.i
@@ -1680,13 +1680,13 @@ _ZL10write_tabsP11_FileStream.exit112.i:          ; preds = %_ZL10write_tabsP11_
   %194 = phi ptr [ %.pre16.i, %_ZL10write_tabsP11_FileStream.exit112.loopexit.i ], [ %191, %invoke.cont136.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i102.i)
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp140.i, ptr noundef nonnull @.str.84)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %194, ptr noundef %agg.tmp140.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %194, ptr noundef %agg.tmp140.i)
           to label %invoke.cont142.i unwind label %lpad141.i
 
 invoke.cont142.i:                                 ; preds = %_ZL10write_tabsP11_FileStream.exit112.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp140.i) #13
   call void @uprv_free_75(ptr noundef %call86.i)
-  br label %_ZL13bin_write_xmlP14BinaryResourcePKcS2_P10UErrorCode.argprom.exit
+  br label %_ZL13bin_write_xmlP14BinaryResourcePKcS2_P10UErrorCode.exit
 
 lpad130.i:                                        ; preds = %while.end128.i
   %195 = landingpad { ptr, i32 }
@@ -1703,7 +1703,7 @@ lpad141.i:                                        ; preds = %_ZL10write_tabsP11_
           cleanup
   br label %common.resume
 
-_ZL13bin_write_xmlP14BinaryResourcePKcS2_P10UErrorCode.argprom.exit: ; preds = %invoke.cont83.i, %invoke.cont142.i
+_ZL13bin_write_xmlP14BinaryResourcePKcS2_P10UErrorCode.exit: ; preds = %invoke.cont83.i, %invoke.cont142.i
   call void @uprv_free_75(ptr noundef nonnull %call10.i121)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %fileName.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i117)
@@ -1738,7 +1738,7 @@ sw.bb5:                                           ; preds = %if.then1
 for.body.i.i150:                                  ; preds = %sw.bb5, %invoke.cont.i.i157
   %i.03.i.i151 = phi i32 [ %inc.i.i158, %invoke.cont.i.i157 ], [ 0, %sw.bb5 ]
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i.i145, ptr noundef nonnull @.str.93)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %198, ptr noundef %agg.tmp.i.i145)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %198, ptr noundef %agg.tmp.i.i145)
           to label %invoke.cont.i.i157 unwind label %lpad.i.i153
 
 invoke.cont.i.i157:                               ; preds = %for.body.i.i150
@@ -1761,7 +1761,7 @@ _ZL10write_tabsP11_FileStream.exit.i162:          ; preds = %_ZL10write_tabsP11_
   %202 = phi ptr [ %.pre.i161, %_ZL10write_tabsP11_FileStream.exit.loopexit.i160 ], [ %198, %sw.bb5 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i.i145)
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i147, ptr noundef nonnull @.str.42)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %202, ptr noundef %agg.tmp.i147)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %202, ptr noundef %agg.tmp.i147)
           to label %invoke.cont.i165 unwind label %lpad.i164
 
 invoke.cont.i165:                                 ; preds = %_ZL10write_tabsP11_FileStream.exit.i162
@@ -1771,14 +1771,14 @@ invoke.cont.i165:                                 ; preds = %_ZL10write_tabsP11_
   %call2.i166 = call i32 @itostr(ptr noundef nonnull %buf.i146, i32 noundef %203, i32 noundef 10, i32 noundef 0)
   %204 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKci(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp3.i, ptr noundef nonnull %buf.i146, i32 noundef %call2.i166)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %204, ptr noundef %agg.tmp3.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %204, ptr noundef %agg.tmp3.i)
           to label %invoke.cont6.i unwind label %lpad5.i
 
 invoke.cont6.i:                                   ; preds = %invoke.cont.i165
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp3.i) #13
   %205 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp8.i, ptr noundef nonnull @.str.51)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %205, ptr noundef %agg.tmp8.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %205, ptr noundef %agg.tmp8.i)
           to label %invoke.cont10.i unwind label %lpad9.i
 
 invoke.cont10.i:                                  ; preds = %invoke.cont6.i
@@ -1796,7 +1796,7 @@ invoke.cont10.i:                                  ; preds = %invoke.cont6.i
 for.body.i7.i:                                    ; preds = %invoke.cont10.i, %invoke.cont.i11.i
   %i.03.i8.i = phi i32 [ %inc.i12.i, %invoke.cont.i11.i ], [ 0, %invoke.cont10.i ]
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i5.i, ptr noundef nonnull @.str.93)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %207, ptr noundef %agg.tmp.i5.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %207, ptr noundef %agg.tmp.i5.i)
           to label %invoke.cont.i11.i unwind label %lpad.i10.i
 
 invoke.cont.i11.i:                                ; preds = %for.body.i7.i
@@ -1819,8 +1819,8 @@ _ZL10write_tabsP11_FileStream.exit14.i:           ; preds = %_ZL10write_tabsP11_
   %210 = phi ptr [ %.pre1.i, %_ZL10write_tabsP11_FileStream.exit14.loopexit.i ], [ %207, %invoke.cont10.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i5.i)
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp12.i, ptr noundef nonnull @.str.54)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %210, ptr noundef %agg.tmp12.i)
-          to label %_ZL13int_write_xmlP11IntResourcePKcS2_P10UErrorCode.argprom.exit unwind label %lpad13.i
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %210, ptr noundef %agg.tmp12.i)
+          to label %_ZL13int_write_xmlP11IntResourcePKcS2_P10UErrorCode.exit unwind label %lpad13.i
 
 lpad.i164:                                        ; preds = %_ZL10write_tabsP11_FileStream.exit.i162
   %211 = landingpad { ptr, i32 }
@@ -1842,7 +1842,7 @@ lpad13.i:                                         ; preds = %_ZL10write_tabsP11_
           cleanup
   br label %common.resume
 
-_ZL13int_write_xmlP11IntResourcePKcS2_P10UErrorCode.argprom.exit: ; preds = %_ZL10write_tabsP11_FileStream.exit14.i
+_ZL13int_write_xmlP11IntResourcePKcS2_P10UErrorCode.exit: ; preds = %_ZL10write_tabsP11_FileStream.exit14.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp12.i) #13
   call void @uprv_free_75(ptr noundef %call.i148)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %buf.i146)
@@ -1866,7 +1866,7 @@ while.body.i173:                                  ; preds = %sw.bb6, %if.end.i17
   %index.0.i213 = phi i32 [ %add.i178, %if.end.i177 ], [ 0, %sw.bb6 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %c.i170, i8 0, i64 256, i1 false)
   %call1.i174 = call i32 @itostr(ptr noundef nonnull %c.i170, i32 noundef %index.0.i213, i32 noundef 10, i32 noundef 0)
-  %call3.i175 = call fastcc noundef ptr @_ZL5getIDPKcS0_Pc.argprom(ptr noundef %call.i172, ptr noundef nonnull %c.i170)
+  %call3.i175 = call fastcc noundef ptr @_ZL5getIDPKcS0_Pc(ptr noundef %call.i172, ptr noundef nonnull %c.i170)
   call void @_Z13res_write_xmlP9SResourcePKcS2_aP10UErrorCode(ptr noundef nonnull %current.0.i214, ptr noundef %call3.i175, ptr noundef %language, i8 noundef signext 0, ptr noundef nonnull %status)
   call void @uprv_free_75(ptr noundef %call3.i175)
   %215 = load i32, ptr %status, align 4
@@ -1888,7 +1888,7 @@ while.end.i179:                                   ; preds = %if.end.i177, %sw.bb
   call fastcc void @_ZL10write_tabsP11_FileStream(ptr noundef %217)
   %218 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i171, ptr noundef nonnull @.str.59)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %218, ptr noundef %agg.tmp.i171)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %218, ptr noundef %agg.tmp.i171)
           to label %invoke.cont.i183 unwind label %lpad.i182
 
 invoke.cont.i183:                                 ; preds = %while.end.i179
@@ -1943,7 +1943,7 @@ while.end.i197:                                   ; preds = %while.cond.i190, %i
   tail call fastcc void @_ZL10write_tabsP11_FileStream(ptr noundef %222)
   %223 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i184, ptr noundef nonnull @.str.59)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %223, ptr noundef %agg.tmp.i184)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %223, ptr noundef %agg.tmp.i184)
           to label %invoke.cont.i201 unwind label %lpad.i200
 
 invoke.cont.i201:                                 ; preds = %while.end.i197
@@ -1964,7 +1964,7 @@ if.end8:                                          ; preds = %if.then1, %if.end
   store i32 5, ptr %status, align 4
   br label %return
 
-return:                                           ; preds = %entry, %if.end8, %_ZL15table_write_xmlP13TableResourcePKcS2_aP10UErrorCode.exit, %_ZL15array_write_xmlP13ArrayResourcePKcS2_P10UErrorCode.exit, %_ZL13int_write_xmlP11IntResourcePKcS2_P10UErrorCode.argprom.exit, %_ZL13bin_write_xmlP14BinaryResourcePKcS2_P10UErrorCode.argprom.exit, %_ZL19intvector_write_xmlP17IntVectorResourcePKcS2_P10UErrorCode.argprom.exit, %_ZL15alias_write_xmlP13AliasResourcePKcS2_P10UErrorCode.argprom.exit, %_ZL16string_write_xmlP14StringResourcePKcS2_P10UErrorCode.argprom.exit
+return:                                           ; preds = %entry, %if.end8, %_ZL15table_write_xmlP13TableResourcePKcS2_aP10UErrorCode.exit, %_ZL15array_write_xmlP13ArrayResourcePKcS2_P10UErrorCode.exit, %_ZL13int_write_xmlP11IntResourcePKcS2_P10UErrorCode.exit, %_ZL13bin_write_xmlP14BinaryResourcePKcS2_P10UErrorCode.exit, %_ZL19intvector_write_xmlP17IntVectorResourcePKcS2_P10UErrorCode.exit, %_ZL15alias_write_xmlP13AliasResourcePKcS2_P10UErrorCode.exit, %_ZL16string_write_xmlP14StringResourcePKcS2_P10UErrorCode.exit
   ret void
 }
 
@@ -2094,7 +2094,7 @@ if.then10.i:                                      ; preds = %if.then33
 
 if.end13.i:                                       ; preds = %if.then33
   %cmp5.i.i = icmp sgt i32 %call8.i, 0
-  br i1 %cmp5.i.i, label %for.body.preheader.i.i, label %_ZL13parseFilenamePKcPc.argprom.exit
+  br i1 %cmp5.i.i, label %for.body.preheader.i.i, label %_ZL13parseFilenamePKcPc.exit
 
 for.body.preheader.i.i:                           ; preds = %if.end13.i
   %wide.trip.count.i.i = zext nneg i32 %call8.i to i64
@@ -2114,18 +2114,18 @@ if.then.i.i:                                      ; preds = %for.body.i.i
 for.inc.i.i:                                      ; preds = %if.then.i.i, %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZL13parseFilenamePKcPc.argprom.exit.thread, label %for.body.i.i, !llvm.loop !16
+  br i1 %exitcond.not.i.i, label %_ZL13parseFilenamePKcPc.exit.thread, label %for.body.i.i, !llvm.loop !16
 
-_ZL13parseFilenamePKcPc.argprom.exit.thread:      ; preds = %for.inc.i.i
+_ZL13parseFilenamePKcPc.exit.thread:              ; preds = %for.inc.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i)
   br label %if.end49
 
-_ZL13parseFilenamePKcPc.argprom.exit:             ; preds = %if.end13.i
+_ZL13parseFilenamePKcPc.exit:                     ; preds = %if.end13.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i)
   %cmp36 = icmp eq ptr %call7.i, null
   br i1 %cmp36, label %if.then37, label %if.end49
 
-if.then37:                                        ; preds = %_ZL13parseFilenamePKcPc.argprom.exit
+if.then37:                                        ; preds = %_ZL13parseFilenamePKcPc.exit
   %15 = load ptr, ptr @stderr, align 8
   %16 = call i64 @fwrite(ptr nonnull @.str.15, i64 110, i64 1, ptr %15) #16
   call void @exit(i32 noundef 1) #17
@@ -2141,8 +2141,8 @@ if.else40:                                        ; preds = %if.end18
   %call48 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call44, ptr noundef nonnull dereferenceable(1) %language) #13
   br label %if.end49
 
-if.end49:                                         ; preds = %_ZL13parseFilenamePKcPc.argprom.exit.thread, %_ZL13parseFilenamePKcPc.argprom.exit, %if.else40
-  %lang.0 = phi ptr [ %call7.i, %_ZL13parseFilenamePKcPc.argprom.exit ], [ %call44, %if.else40 ], [ %call7.i, %_ZL13parseFilenamePKcPc.argprom.exit.thread ]
+if.end49:                                         ; preds = %_ZL13parseFilenamePKcPc.exit.thread, %_ZL13parseFilenamePKcPc.exit, %if.else40
+  %lang.0 = phi ptr [ %call7.i, %_ZL13parseFilenamePKcPc.exit ], [ %call44, %if.else40 ], [ %call7.i, %_ZL13parseFilenamePKcPc.exit.thread ]
   %tobool.not = icmp eq ptr %outFileName, null
   br i1 %tobool.not, label %if.else59, label %if.then50
 
@@ -2254,7 +2254,7 @@ if.then128:                                       ; preds = %if.end125
 
 if.end129:                                        ; preds = %if.end125
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp, ptr noundef nonnull @.str.90)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef nonnull %call126, ptr noundef %agg.tmp)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef nonnull %call126, ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end129
@@ -2283,7 +2283,7 @@ lpad:                                             ; preds = %if.end129
 if.end140:                                        ; preds = %if.then134, %land.lhs.true, %invoke.cont
   %33 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp141, ptr noundef nonnull @.str.92)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %33, ptr noundef %agg.tmp141)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %33, ptr noundef %agg.tmp141)
           to label %invoke.cont143 unwind label %lpad142
 
 invoke.cont143:                                   ; preds = %if.end140
@@ -2297,7 +2297,7 @@ invoke.cont143:                                   ; preds = %if.end140
 for.body.i:                                       ; preds = %invoke.cont143, %invoke.cont.i
   %i.03.i = phi i32 [ %inc.i, %invoke.cont.i ], [ 0, %invoke.cont143 ]
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i, ptr noundef nonnull @.str.93)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %34, ptr noundef %agg.tmp.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %34, ptr noundef %agg.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %for.body.i
@@ -2326,7 +2326,7 @@ _ZL10write_tabsP11_FileStream.exit:               ; preds = %_ZL10write_tabsP11_
   %38 = phi ptr [ %.pre, %_ZL10write_tabsP11_FileStream.exit.loopexit ], [ %34, %invoke.cont143 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i)
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp145, ptr noundef nonnull @.str.2)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %38, ptr noundef %agg.tmp145)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %38, ptr noundef %agg.tmp145)
           to label %invoke.cont147 unwind label %lpad146
 
 invoke.cont147:                                   ; preds = %_ZL10write_tabsP11_FileStream.exit
@@ -2359,35 +2359,35 @@ lpad146:                                          ; preds = %_ZL10write_tabsP11_
 if.end156:                                        ; preds = %if.then154, %land.lhs.true150, %invoke.cont147
   %45 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp157, ptr noundef %lang.0)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %45, ptr noundef %agg.tmp157)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %45, ptr noundef %agg.tmp157)
           to label %invoke.cont159 unwind label %lpad158
 
 invoke.cont159:                                   ; preds = %if.end156
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp157) #13
   %46 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp161, ptr noundef nonnull @.str.3)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %46, ptr noundef %agg.tmp161)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %46, ptr noundef %agg.tmp161)
           to label %invoke.cont163 unwind label %lpad162
 
 invoke.cont163:                                   ; preds = %invoke.cont159
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp161) #13
   %47 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp165, ptr noundef nonnull @.str.4)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %47, ptr noundef %agg.tmp165)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %47, ptr noundef %agg.tmp165)
           to label %invoke.cont167 unwind label %lpad166
 
 invoke.cont167:                                   ; preds = %invoke.cont163
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp165) #13
   %48 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp169, ptr noundef %call24)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %48, ptr noundef %agg.tmp169)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %48, ptr noundef %agg.tmp169)
           to label %invoke.cont171 unwind label %lpad170
 
 invoke.cont171:                                   ; preds = %invoke.cont167
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp169) #13
   %49 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp173, ptr noundef nonnull @.str.5)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %49, ptr noundef %agg.tmp173)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %49, ptr noundef %agg.tmp173)
           to label %invoke.cont175 unwind label %lpad174
 
 invoke.cont175:                                   ; preds = %invoke.cont171
@@ -2397,14 +2397,14 @@ invoke.cont175:                                   ; preds = %invoke.cont171
   %call179 = call i64 @strftime(ptr noundef nonnull %timeBuf, i64 noundef 128, ptr noundef nonnull @.str.19, ptr noundef %call178) #13
   %50 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp180, ptr noundef nonnull %timeBuf)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %50, ptr noundef %agg.tmp180)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %50, ptr noundef %agg.tmp180)
           to label %invoke.cont183 unwind label %lpad182
 
 invoke.cont183:                                   ; preds = %invoke.cont175
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp180) #13
   %51 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp185, ptr noundef nonnull @.str.20)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %51, ptr noundef %agg.tmp185)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %51, ptr noundef %agg.tmp185)
           to label %invoke.cont187 unwind label %lpad186
 
 invoke.cont187:                                   ; preds = %invoke.cont183
@@ -2420,7 +2420,7 @@ invoke.cont187:                                   ; preds = %invoke.cont183
 for.body.i77:                                     ; preds = %invoke.cont187, %invoke.cont.i81
   %i.03.i78 = phi i32 [ %inc.i82, %invoke.cont.i81 ], [ 0, %invoke.cont187 ]
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i75, ptr noundef nonnull @.str.93)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %53, ptr noundef %agg.tmp.i75)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %53, ptr noundef %agg.tmp.i75)
           to label %invoke.cont.i81 unwind label %lpad.i80
 
 invoke.cont.i81:                                  ; preds = %for.body.i77
@@ -2443,7 +2443,7 @@ _ZL10write_tabsP11_FileStream.exit84:             ; preds = %_ZL10write_tabsP11_
   %56 = phi ptr [ %.pre148, %_ZL10write_tabsP11_FileStream.exit84.loopexit ], [ %53, %invoke.cont187 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i75)
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp190, ptr noundef nonnull @.str.7)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %56, ptr noundef %agg.tmp190)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %56, ptr noundef %agg.tmp190)
           to label %invoke.cont192 unwind label %lpad191
 
 invoke.cont192:                                   ; preds = %_ZL10write_tabsP11_FileStream.exit84
@@ -2459,7 +2459,7 @@ invoke.cont192:                                   ; preds = %_ZL10write_tabsP11_
 for.body.i87:                                     ; preds = %invoke.cont192, %invoke.cont.i91
   %i.03.i88 = phi i32 [ %inc.i92, %invoke.cont.i91 ], [ 0, %invoke.cont192 ]
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i85, ptr noundef nonnull @.str.93)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %58, ptr noundef %agg.tmp.i85)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %58, ptr noundef %agg.tmp.i85)
           to label %invoke.cont.i91 unwind label %lpad.i90
 
 invoke.cont.i91:                                  ; preds = %for.body.i87
@@ -2482,16 +2482,16 @@ _ZL10write_tabsP11_FileStream.exit94:             ; preds = %_ZL10write_tabsP11_
   %61 = phi ptr [ %.pre149, %_ZL10write_tabsP11_FileStream.exit94.loopexit ], [ %58, %invoke.cont192 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i85)
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp195, ptr noundef nonnull @.str.11)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %61, ptr noundef %agg.tmp195)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %61, ptr noundef %agg.tmp195)
           to label %invoke.cont197 unwind label %lpad196
 
 invoke.cont197:                                   ; preds = %_ZL10write_tabsP11_FileStream.exit94
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp195) #13
-  call fastcc void @_ZL14printAttributePKcS0_i.argelim(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.12)
-  call fastcc void @_ZL14printAttributePKcS0_i.argelim(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.13)
+  call fastcc void @_ZL14printAttributePKcS0_i(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.12)
+  call fastcc void @_ZL14printAttributePKcS0_i(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.13)
   %62 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp203, ptr noundef nonnull @.str.23)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %62, ptr noundef %agg.tmp203)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %62, ptr noundef %agg.tmp203)
           to label %invoke.cont205 unwind label %lpad204
 
 invoke.cont205:                                   ; preds = %invoke.cont197
@@ -2507,7 +2507,7 @@ invoke.cont205:                                   ; preds = %invoke.cont197
 for.body.i97:                                     ; preds = %invoke.cont205, %invoke.cont.i101
   %i.03.i98 = phi i32 [ %inc.i102, %invoke.cont.i101 ], [ 0, %invoke.cont205 ]
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i95, ptr noundef nonnull @.str.93)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %64, ptr noundef %agg.tmp.i95)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %64, ptr noundef %agg.tmp.i95)
           to label %invoke.cont.i101 unwind label %lpad.i100
 
 invoke.cont.i101:                                 ; preds = %for.body.i97
@@ -2530,7 +2530,7 @@ _ZL10write_tabsP11_FileStream.exit104:            ; preds = %_ZL10write_tabsP11_
   %67 = phi ptr [ %.pre150, %_ZL10write_tabsP11_FileStream.exit104.loopexit ], [ %64, %invoke.cont205 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i95)
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp208, ptr noundef nonnull @.str.8)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %67, ptr noundef %agg.tmp208)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %67, ptr noundef %agg.tmp208)
           to label %invoke.cont210 unwind label %lpad209
 
 invoke.cont210:                                   ; preds = %_ZL10write_tabsP11_FileStream.exit104
@@ -2544,7 +2544,7 @@ invoke.cont210:                                   ; preds = %_ZL10write_tabsP11_
 for.body.i107:                                    ; preds = %invoke.cont210, %invoke.cont.i111
   %i.03.i108 = phi i32 [ %inc.i112, %invoke.cont.i111 ], [ 0, %invoke.cont210 ]
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i105, ptr noundef nonnull @.str.93)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %68, ptr noundef %agg.tmp.i105)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %68, ptr noundef %agg.tmp.i105)
           to label %invoke.cont.i111 unwind label %lpad.i110
 
 invoke.cont.i111:                                 ; preds = %for.body.i107
@@ -2570,7 +2570,7 @@ _ZL10write_tabsP11_FileStream.exit114:            ; preds = %_ZL10write_tabsP11_
   %add212 = add nsw i32 %73, 1
   store i32 %add212, ptr @_ZL8tabCount, align 4
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp213, ptr noundef nonnull @.str.9)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %72, ptr noundef %agg.tmp213)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %72, ptr noundef %agg.tmp213)
           to label %invoke.cont215 unwind label %lpad214
 
 invoke.cont215:                                   ; preds = %_ZL10write_tabsP11_FileStream.exit114
@@ -2590,7 +2590,7 @@ invoke.cont215:                                   ; preds = %_ZL10write_tabsP11_
 for.body.i117:                                    ; preds = %invoke.cont215, %invoke.cont.i121
   %i.03.i118 = phi i32 [ %inc.i122, %invoke.cont.i121 ], [ 0, %invoke.cont215 ]
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i115, ptr noundef nonnull @.str.93)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %77, ptr noundef %agg.tmp.i115)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %77, ptr noundef %agg.tmp.i115)
           to label %invoke.cont.i121 unwind label %lpad.i120
 
 invoke.cont.i121:                                 ; preds = %for.body.i117
@@ -2613,7 +2613,7 @@ _ZL10write_tabsP11_FileStream.exit124:            ; preds = %_ZL10write_tabsP11_
   %80 = phi ptr [ %.pre152, %_ZL10write_tabsP11_FileStream.exit124.loopexit ], [ %77, %invoke.cont215 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i115)
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp219, ptr noundef nonnull @.str.10)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %80, ptr noundef %agg.tmp219)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %80, ptr noundef %agg.tmp219)
           to label %invoke.cont221 unwind label %lpad220
 
 invoke.cont221:                                   ; preds = %_ZL10write_tabsP11_FileStream.exit124
@@ -2629,7 +2629,7 @@ invoke.cont221:                                   ; preds = %_ZL10write_tabsP11_
 for.body.i127:                                    ; preds = %invoke.cont221, %invoke.cont.i131
   %i.03.i128 = phi i32 [ %inc.i132, %invoke.cont.i131 ], [ 0, %invoke.cont221 ]
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i125, ptr noundef nonnull @.str.93)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %82, ptr noundef %agg.tmp.i125)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %82, ptr noundef %agg.tmp.i125)
           to label %invoke.cont.i131 unwind label %lpad.i130
 
 invoke.cont.i131:                                 ; preds = %for.body.i127
@@ -2652,7 +2652,7 @@ _ZL10write_tabsP11_FileStream.exit134:            ; preds = %_ZL10write_tabsP11_
   %85 = phi ptr [ %.pre153, %_ZL10write_tabsP11_FileStream.exit134.loopexit ], [ %82, %invoke.cont221 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i125)
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp223, ptr noundef nonnull @.str.6)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %85, ptr noundef %agg.tmp223)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %85, ptr noundef %agg.tmp223)
           to label %invoke.cont225 unwind label %lpad224
 
 invoke.cont225:                                   ; preds = %_ZL10write_tabsP11_FileStream.exit134
@@ -2668,7 +2668,7 @@ invoke.cont225:                                   ; preds = %_ZL10write_tabsP11_
 for.body.i137:                                    ; preds = %invoke.cont225, %invoke.cont.i141
   %i.03.i138 = phi i32 [ %inc.i142, %invoke.cont.i141 ], [ 0, %invoke.cont225 ]
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i135, ptr noundef nonnull @.str.93)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %87, ptr noundef %agg.tmp.i135)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %87, ptr noundef %agg.tmp.i135)
           to label %invoke.cont.i141 unwind label %lpad.i140
 
 invoke.cont.i141:                                 ; preds = %for.body.i137
@@ -2691,7 +2691,7 @@ _ZL10write_tabsP11_FileStream.exit144:            ; preds = %_ZL10write_tabsP11_
   %90 = phi ptr [ %.pre154, %_ZL10write_tabsP11_FileStream.exit144.loopexit ], [ %87, %invoke.cont225 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i135)
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp228, ptr noundef nonnull @.str.94)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %90, ptr noundef %agg.tmp228)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %90, ptr noundef %agg.tmp228)
           to label %invoke.cont230 unwind label %lpad229
 
 invoke.cont230:                                   ; preds = %_ZL10write_tabsP11_FileStream.exit144
@@ -2834,7 +2834,7 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocaptur
 declare ptr @T_FileStream_open(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %fileStream, ptr noundef nonnull %outString) unnamed_addr #1 {
+define internal fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %fileStream, ptr noundef nonnull %outString) unnamed_addr #1 {
 entry:
   %status = alloca i32, align 4
   %len = alloca i32, align 4
@@ -2933,7 +2933,7 @@ entry:
 for.body:                                         ; preds = %entry, %invoke.cont
   %i.03 = phi i32 [ %inc, %invoke.cont ], [ 0, %entry ]
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp, ptr noundef nonnull @.str.93)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %os, ptr noundef %agg.tmp)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %os, ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %for.body
@@ -2963,7 +2963,7 @@ declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_
 declare ptr @gmtime(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14printAttributePKcS0_i.argelim(ptr noundef %name, ptr noundef %value) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14printAttributePKcS0_i(ptr noundef %name, ptr noundef %value) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp1 = alloca %"class.icu_75::UnicodeString", align 8
@@ -2972,35 +2972,35 @@ entry:
   %agg.tmp13 = alloca %"class.icu_75::UnicodeString", align 8
   %0 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp, ptr noundef nonnull @.str.36)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %0, ptr noundef %agg.tmp)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %0, ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp) #13
   %1 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1, ptr noundef %name)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %1, ptr noundef %agg.tmp1)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %1, ptr noundef %agg.tmp1)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1) #13
   %2 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp5, ptr noundef nonnull @.str.37)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %2, ptr noundef %agg.tmp5)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %2, ptr noundef %agg.tmp5)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont3
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp5) #13
   %3 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp9, ptr noundef %value)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %3, ptr noundef %agg.tmp9)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %3, ptr noundef %agg.tmp9)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont7
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp9) #13
   %4 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp13, ptr noundef nonnull @.str.38)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %4, ptr noundef %agg.tmp13)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %4, ptr noundef %agg.tmp13)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %invoke.cont11
@@ -3071,7 +3071,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %invoke.cont.i
   %i.03.i = phi i32 [ %inc.i, %invoke.cont.i ], [ 0, %entry ]
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i, ptr noundef nonnull @.str.93)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %0, ptr noundef %agg.tmp.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %0, ptr noundef %agg.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %for.body.i
@@ -3105,7 +3105,7 @@ land.lhs.true:                                    ; preds = %_ZL10write_tabsP11_
   br i1 %cmp1.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %call2 = call fastcc noundef ptr @_ZL5getIDPKcS0_Pc.argprom(ptr noundef %id, ptr noundef nonnull %call)
+  %call2 = call fastcc noundef ptr @_ZL5getIDPKcS0_Pc(ptr noundef %id, ptr noundef nonnull %call)
   br label %if.end
 
 if.else:                                          ; preds = %land.lhs.true, %_ZL10write_tabsP11_FileStream.exit
@@ -3122,23 +3122,23 @@ if.end:                                           ; preds = %if.else, %if.then
   %sid.0 = phi ptr [ %call2, %if.then ], [ %call1.i, %if.else ]
   %6 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp, ptr noundef nonnull @.str.25)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %6, ptr noundef %agg.tmp)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %6, ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp) #13
   %7 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp5, ptr noundef %container)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %7, ptr noundef %agg.tmp5)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %7, ptr noundef %agg.tmp5)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp5) #13
-  call fastcc void @_ZL14printAttributePKcS0_i.argelim(ptr noundef nonnull @.str.26, ptr noundef %sid.0)
+  call fastcc void @_ZL14printAttributePKcS0_i(ptr noundef nonnull @.str.26, ptr noundef %sid.0)
   br i1 %cmp.not, label %if.end15, label %if.then12
 
 if.then12:                                        ; preds = %invoke.cont7
-  call fastcc void @_ZL14printAttributePKcS0_i.argelim(ptr noundef nonnull @.str.27, ptr noundef nonnull %call)
+  call fastcc void @_ZL14printAttributePKcS0_i(ptr noundef nonnull @.str.27, ptr noundef nonnull %call)
   br label %if.end15
 
 lpad:                                             ; preds = %if.end
@@ -3156,7 +3156,7 @@ if.end15:                                         ; preds = %if.then12, %invoke.
   br i1 %cmp16.not, label %if.end20, label %if.then17
 
 if.then17:                                        ; preds = %if.end15
-  call fastcc void @_ZL14printAttributePKcS0_i.argelim(ptr noundef nonnull @.str.28, ptr noundef nonnull %mimetype)
+  call fastcc void @_ZL14printAttributePKcS0_i(ptr noundef nonnull @.str.28, ptr noundef nonnull %mimetype)
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then17, %if.end15
@@ -3164,7 +3164,7 @@ if.end20:                                         ; preds = %if.then17, %if.end1
   br i1 %cmp21.not, label %if.end25, label %if.then22
 
 if.then22:                                        ; preds = %if.end20
-  call fastcc void @_ZL14printAttributePKcS0_i.argelim(ptr noundef nonnull @.str.29, ptr noundef nonnull %restype)
+  call fastcc void @_ZL14printAttributePKcS0_i(ptr noundef nonnull @.str.29, ptr noundef nonnull %restype)
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then22, %if.end20
@@ -3185,12 +3185,12 @@ if.then27:                                        ; preds = %if.end25
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp27.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp43.i)
   %cmp.i = icmp eq ptr %status, null
-  br i1 %cmp.i, label %_ZL13printCommentsP7UStringPKcaP10UErrorCode.argprom.exit, label %lor.lhs.false.i
+  br i1 %cmp.i, label %_ZL13printCommentsP7UStringPKcaP10UErrorCode.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then27
   %12 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %12, 1
-  br i1 %cmp.i.i, label %if.end.i, label %_ZL13printCommentsP7UStringPKcaP10UErrorCode.argprom.exit
+  br i1 %cmp.i.i, label %if.end.i, label %_ZL13printCommentsP7UStringPKcaP10UErrorCode.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %add.i21 = add nuw nsw i32 %11, 1
@@ -3209,7 +3209,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 if.then8.i:                                       ; preds = %if.end.i
   store i32 7, ptr %status, align 4
   call void @uprv_free_75(ptr noundef %call1.i22)
-  br label %_ZL13printCommentsP7UStringPKcaP10UErrorCode.argprom.exit.sink.split
+  br label %_ZL13printCommentsP7UStringPKcaP10UErrorCode.exit.sink.split
 
 if.end9.i:                                        ; preds = %if.end.i
   %13 = load ptr, ptr %fComment, align 8
@@ -3226,7 +3226,7 @@ if.end9.i:                                        ; preds = %if.end.i
 
 if.then22.i:                                      ; preds = %if.end9.i
   %18 = load ptr, ptr %trans.i, align 8
-  %call23.i = call fastcc noundef ptr @_ZL16convertAndEscapePPciPiPKDsiP10UErrorCode.argprom(ptr null, i32 noundef 0, ptr noundef %bufLen.i, ptr noundef %18, i32 noundef %call18.i, ptr noundef nonnull %status)
+  %call23.i = call fastcc noundef ptr @_ZL16convertAndEscapePPciPiPKDsiP10UErrorCode(ptr null, i32 noundef 0, ptr noundef %bufLen.i, ptr noundef %18, i32 noundef %call18.i, ptr noundef nonnull %status)
   %19 = load i32, ptr %status, align 4
   %cmp.i22.i = icmp sgt i32 %19, 0
   br i1 %cmp.i22.i, label %if.end47.i, label %if.then26.i
@@ -3244,7 +3244,7 @@ if.then26.i:                                      ; preds = %if.then22.i
           to label %.noexc.i unwind label %lpad.i23
 
 .noexc.i:                                         ; preds = %if.then26.i
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %21, ptr noundef %agg.tmp.i.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %21, ptr noundef %agg.tmp.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %.noexc.i
@@ -3254,7 +3254,7 @@ invoke.cont.i.i:                                  ; preds = %.noexc.i
           to label %.noexc24.i unwind label %lpad.i23
 
 .noexc24.i:                                       ; preds = %invoke.cont.i.i
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %22, ptr noundef %agg.tmp1.i.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %22, ptr noundef %agg.tmp1.i.i)
           to label %invoke.cont3.i.i unwind label %lpad2.i.i
 
 invoke.cont3.i.i:                                 ; preds = %.noexc24.i
@@ -3264,7 +3264,7 @@ invoke.cont3.i.i:                                 ; preds = %.noexc24.i
           to label %.noexc25.i unwind label %lpad.i23
 
 .noexc25.i:                                       ; preds = %invoke.cont3.i.i
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %23, ptr noundef %agg.tmp5.i.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %23, ptr noundef %agg.tmp5.i.i)
           to label %invoke.cont7.i.i unwind label %lpad6.i.i
 
 invoke.cont7.i.i:                                 ; preds = %.noexc25.i
@@ -3274,7 +3274,7 @@ invoke.cont7.i.i:                                 ; preds = %.noexc25.i
           to label %.noexc26.i unwind label %lpad.i23
 
 .noexc26.i:                                       ; preds = %invoke.cont7.i.i
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %24, ptr noundef %agg.tmp9.i.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %24, ptr noundef %agg.tmp9.i.i)
           to label %invoke.cont11.i.i unwind label %lpad10.i.i
 
 invoke.cont11.i.i:                                ; preds = %.noexc26.i
@@ -3284,7 +3284,7 @@ invoke.cont11.i.i:                                ; preds = %.noexc26.i
           to label %.noexc27.i unwind label %lpad.i23
 
 .noexc27.i:                                       ; preds = %invoke.cont11.i.i
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %25, ptr noundef %agg.tmp13.i.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %25, ptr noundef %agg.tmp13.i.i)
           to label %invoke.cont.i24 unwind label %lpad14.i.i
 
 lpad.i.i:                                         ; preds = %.noexc.i
@@ -3328,7 +3328,7 @@ invoke.cont.i24:                                  ; preds = %.noexc27.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i20) #13
   %31 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp27.i, ptr noundef nonnull @.str.30)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %31, ptr noundef %agg.tmp27.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %31, ptr noundef %agg.tmp27.i)
           to label %if.end47.sink.split.i unwind label %lpad28.i
 
 lpad.i23:                                         ; preds = %invoke.cont11.i.i, %invoke.cont7.i.i, %invoke.cont3.i.i, %invoke.cont.i.i, %if.then26.i
@@ -3344,7 +3344,7 @@ lpad28.i:                                         ; preds = %invoke.cont.i24
 if.else42.i:                                      ; preds = %if.end9.i
   %34 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp43.i, ptr noundef nonnull @.str.30)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %34, ptr noundef %agg.tmp43.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %34, ptr noundef %agg.tmp43.i)
           to label %if.end47.sink.split.i unwind label %lpad44.i
 
 lpad44.i:                                         ; preds = %if.else42.i
@@ -3371,7 +3371,7 @@ if.then49.i:                                      ; preds = %if.end47.i
 for.body.i.i:                                     ; preds = %if.then49.i, %invoke.cont.i31.i
   %i.03.i.i = phi i32 [ %inc.i.i, %invoke.cont.i31.i ], [ 0, %if.then49.i ]
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i28.i, ptr noundef nonnull @.str.93)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %36, ptr noundef %agg.tmp.i28.i)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %36, ptr noundef %agg.tmp.i28.i)
           to label %invoke.cont.i31.i unwind label %lpad.i30.i
 
 invoke.cont.i31.i:                                ; preds = %for.body.i.i
@@ -3396,14 +3396,14 @@ if.end50.i:                                       ; preds = %_ZL10write_tabsP11_
   %41 = load ptr, ptr %desc.i, align 8
   call void @uprv_free_75(ptr noundef %41)
   %42 = load ptr, ptr %trans.i, align 8
-  br label %_ZL13printCommentsP7UStringPKcaP10UErrorCode.argprom.exit.sink.split
+  br label %_ZL13printCommentsP7UStringPKcaP10UErrorCode.exit.sink.split
 
-_ZL13printCommentsP7UStringPKcaP10UErrorCode.argprom.exit.sink.split: ; preds = %if.end50.i, %if.then8.i
+_ZL13printCommentsP7UStringPKcaP10UErrorCode.exit.sink.split: ; preds = %if.end50.i, %if.then8.i
   %call4.i.sink = phi ptr [ %call4.i, %if.then8.i ], [ %42, %if.end50.i ]
   call void @uprv_free_75(ptr noundef %call4.i.sink)
-  br label %_ZL13printCommentsP7UStringPKcaP10UErrorCode.argprom.exit
+  br label %_ZL13printCommentsP7UStringPKcaP10UErrorCode.exit
 
-_ZL13printCommentsP7UStringPKcaP10UErrorCode.argprom.exit: ; preds = %_ZL13printCommentsP7UStringPKcaP10UErrorCode.argprom.exit.sink.split, %if.then27, %lor.lhs.false.i
+_ZL13printCommentsP7UStringPKcaP10UErrorCode.exit: ; preds = %_ZL13printCommentsP7UStringPKcaP10UErrorCode.exit.sink.split, %if.then27, %lor.lhs.false.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bufLen.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %desc.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %trans.i)
@@ -3415,7 +3415,7 @@ _ZL13printCommentsP7UStringPKcaP10UErrorCode.argprom.exit: ; preds = %_ZL13print
 if.else29:                                        ; preds = %if.end25
   %43 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp30, ptr noundef nonnull @.str.30)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %43, ptr noundef %agg.tmp30)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %43, ptr noundef %agg.tmp30)
           to label %invoke.cont32 unwind label %lpad31
 
 invoke.cont32:                                    ; preds = %if.else29
@@ -3427,12 +3427,12 @@ lpad31:                                           ; preds = %if.else29
           cleanup
   br label %common.resume
 
-if.end34:                                         ; preds = %invoke.cont32, %_ZL13printCommentsP7UStringPKcaP10UErrorCode.argprom.exit
+if.end34:                                         ; preds = %invoke.cont32, %_ZL13printCommentsP7UStringPKcaP10UErrorCode.exit
   ret ptr %sid.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL16convertAndEscapePPciPiPKDsiP10UErrorCode.argprom(ptr %pDest.0.val, i32 noundef range(i32 0, -2147483648) %destCap, ptr nocapture noundef nonnull writeonly %destLength, ptr noundef readonly %src, i32 noundef %srcLen, ptr noundef %status) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL16convertAndEscapePPciPiPKDsiP10UErrorCode(ptr %pDest.0.val, i32 noundef range(i32 0, -2147483648) %destCap, ptr nocapture noundef nonnull writeonly %destLength, ptr noundef readonly %src, i32 noundef %srcLen, ptr noundef %status) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %status, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -3945,7 +3945,7 @@ return:                                           ; preds = %for.end, %if.then12
 declare noundef ptr @_ZNK9SResource12getKeyStringEPK7SRBRoot(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL5getIDPKcS0_Pc.argprom(ptr nocapture noundef readonly %id, ptr noundef readonly %curKey) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL5getIDPKcS0_Pc(ptr nocapture noundef readonly %id, ptr noundef readonly %curKey) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %curKey, null
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %id) #15
@@ -4023,14 +4023,14 @@ if.then2:                                         ; preds = %if.end
   unreachable
 
 if.end4:                                          ; preds = %if.end
-  %call5 = call fastcc noundef ptr @_ZL16convertAndEscapePPciPiPKDsiP10UErrorCode.argprom(ptr nonnull %call1, i32 noundef %mul, ptr noundef %bufLen, ptr noundef %src, i32 noundef %srcLen, ptr noundef nonnull %status)
+  %call5 = call fastcc noundef ptr @_ZL16convertAndEscapePPciPiPKDsiP10UErrorCode(ptr nonnull %call1, i32 noundef %mul, ptr noundef %bufLen, ptr noundef %src, i32 noundef %srcLen, ptr noundef nonnull %status)
   %3 = load i32, ptr %status, align 4
   %cmp.i7 = icmp sgt i32 %3, 0
   br i1 %cmp.i7, label %if.end22, label %if.then8
 
 if.then8:                                         ; preds = %if.end4
   %cmp1.i = icmp eq ptr %call5, null
-  br i1 %cmp1.i, label %_ZL4trimPPcPi.argprom.exit, label %if.end.i
+  br i1 %cmp1.i, label %_ZL4trimPPcPi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then8
   %4 = load i32, ptr %bufLen, align 4
@@ -4065,41 +4065,41 @@ for.end.loopexit.split.loop.exit.i:               ; preds = %for.body.i
 for.end.i:                                        ; preds = %sw.bb.i, %for.end.loopexit.split.loop.exit.i, %if.end.i
   %i.0.in.lcssa.i = phi i32 [ %4, %if.end.i ], [ %7, %for.end.loopexit.split.loop.exit.i ], [ 0, %sw.bb.i ]
   store i32 %i.0.in.lcssa.i, ptr %bufLen, align 4
-  br label %_ZL4trimPPcPi.argprom.exit
+  br label %_ZL4trimPPcPi.exit
 
-_ZL4trimPPcPi.argprom.exit:                       ; preds = %if.then8, %for.end.i
+_ZL4trimPPcPi.exit:                               ; preds = %if.then8, %for.end.i
   %8 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp, ptr noundef %tagStart)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %8, ptr noundef %agg.tmp)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %8, ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %_ZL4trimPPcPi.argprom.exit
+invoke.cont:                                      ; preds = %_ZL4trimPPcPi.exit
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp) #13
   %9 = load ptr, ptr @_ZL3out, align 8
   %10 = load i32, ptr %bufLen, align 4
   call void @_ZN6icu_7513UnicodeStringC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp10, ptr noundef %call5, i32 noundef %10, ptr noundef nonnull @.str.24)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %9, ptr noundef %agg.tmp10)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %9, ptr noundef %agg.tmp10)
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %invoke.cont
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp10) #13
   %11 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp14, ptr noundef %tagEnd)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %11, ptr noundef %agg.tmp14)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %11, ptr noundef %agg.tmp14)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont12
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp14) #13
   %12 = load ptr, ptr @_ZL3out, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp18, ptr noundef nonnull @.str.40)
-  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE.retelim(ptr noundef %12, ptr noundef %agg.tmp18)
+  invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7513UnicodeStringE(ptr noundef %12, ptr noundef %agg.tmp18)
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %invoke.cont16
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp18) #13
   br label %if.end22
 
-lpad:                                             ; preds = %_ZL4trimPPcPi.argprom.exit
+lpad:                                             ; preds = %_ZL4trimPPcPi.exit
   %13 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume

@@ -11363,7 +11363,7 @@ zend_file_cache_unserialize_interned.exit492:     ; preds = %407, %413, %423
 
 442:                                              ; preds = %zend_file_cache_unserialize_interned.exit492, %436, %434, %403, %399, %392
   %443 = getelementptr inbounds i8, ptr %.1512, i64 8
-  tail call fastcc void @zend_file_cache_unserialize_type.argprom(ptr noundef nonnull %443, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @zend_file_cache_unserialize_type(ptr noundef nonnull %443, ptr noundef nonnull %1, ptr noundef %2)
   %444 = getelementptr inbounds i8, ptr %.1512, i64 32
   %445 = icmp ult ptr %444, %.0373
   br i1 %445, label %.lr.ph514, label %.loopexit507
@@ -12313,7 +12313,7 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %56, %63, %73
 
 115:                                              ; preds = %93, %98, %105, %109
   %116 = getelementptr inbounds i8, ptr %29, i64 40
-  tail call fastcc void @zend_file_cache_unserialize_type.argprom(ptr noundef nonnull %116, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @zend_file_cache_unserialize_type(ptr noundef nonnull %116, ptr noundef nonnull %1, ptr noundef %2)
   br label %117
 
 117:                                              ; preds = %32, %40, %115, %15, %7
@@ -12872,7 +12872,7 @@ zend_file_cache_unserialize_interned.exit111:     ; preds = %94, %101, %111
 
 153:                                              ; preds = %131, %136, %143, %147
   %154 = getelementptr inbounds i8, ptr %25, i64 40
-  tail call fastcc void @zend_file_cache_unserialize_type.argprom(ptr noundef nonnull %154, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @zend_file_cache_unserialize_type(ptr noundef nonnull %154, ptr noundef nonnull %1, ptr noundef %2)
   br label %155
 
 155:                                              ; preds = %30, %38, %153, %15, %7
@@ -13028,7 +13028,7 @@ define internal fastcc void @zend_file_cache_unserialize_ast(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_file_cache_unserialize_type.argprom(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @zend_file_cache_unserialize_type(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4194304
@@ -13067,7 +13067,7 @@ define internal fastcc void @zend_file_cache_unserialize_type.argprom(ptr nocapt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.0401 = phi ptr [ %19, %.lr.ph ], [ %.ptr, %.lr.ph.preheader ]
-  tail call fastcc void @zend_file_cache_unserialize_type.argprom(ptr noundef nonnull %.0401, ptr noundef %1, ptr noundef %2)
+  tail call fastcc void @zend_file_cache_unserialize_type(ptr noundef nonnull %.0401, ptr noundef %1, ptr noundef %2)
   %19 = getelementptr inbounds i8, ptr %.0401, i64 16
   %20 = icmp ult ptr %19, %.ptr2
   br i1 %20, label %.lr.ph, label %.loopexit

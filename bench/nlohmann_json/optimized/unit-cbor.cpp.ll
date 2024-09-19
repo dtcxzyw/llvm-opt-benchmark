@@ -40585,7 +40585,7 @@ invoke.cont10999:                                 ; preds = %if.then10986
 
 invoke.cont11006:                                 ; preds = %invoke.cont10999
   %add.ptr.i1.i7829 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i7824, i64 4
-  %call11009 = invoke fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9sax_parseIRKSC_N12_GLOBAL__N_112SaxCountdownEEEbOT_PT0_NS0_6detail14input_format_tEbb.argprom.argelim(ptr nonnull %call5.i.i.i.i2.i7824, ptr nonnull %add.ptr.i1.i7829, ptr noundef %scp)
+  %call11009 = invoke fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9sax_parseIRKSC_N12_GLOBAL__N_112SaxCountdownEEEbOT_PT0_NS0_6detail14input_format_tEbb(ptr nonnull %call5.i.i.i.i2.i7824, ptr nonnull %add.ptr.i1.i7829, ptr noundef %scp)
           to label %invoke.cont11012 unwind label %lpad11001
 
 invoke.cont11012:                                 ; preds = %invoke.cont11006
@@ -40697,7 +40697,7 @@ invoke.cont11046:                                 ; preds = %if.then11031
 
 invoke.cont11054:                                 ; preds = %invoke.cont11046
   %add.ptr.i1.i7854 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i7849, i64 6
-  %call11057 = invoke fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9sax_parseIRKSC_N12_GLOBAL__N_112SaxCountdownEEEbOT_PT0_NS0_6detail14input_format_tEbb.argprom.argelim(ptr nonnull %call5.i.i.i.i2.i7849, ptr nonnull %add.ptr.i1.i7854, ptr noundef %scp11048)
+  %call11057 = invoke fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9sax_parseIRKSC_N12_GLOBAL__N_112SaxCountdownEEEbOT_PT0_NS0_6detail14input_format_tEbb(ptr nonnull %call5.i.i.i.i2.i7849, ptr nonnull %add.ptr.i1.i7854, ptr noundef %scp11048)
           to label %invoke.cont11060 unwind label %lpad11049
 
 invoke.cont11060:                                 ; preds = %invoke.cont11054
@@ -40798,7 +40798,7 @@ invoke.cont11094:                                 ; preds = %if.then11079
 
 invoke.cont11102:                                 ; preds = %invoke.cont11094
   %add.ptr.i1.i7879 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i7874, i64 6
-  %call11105 = invoke fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9sax_parseIRKSC_N12_GLOBAL__N_112SaxCountdownEEEbOT_PT0_NS0_6detail14input_format_tEbb.argprom.argelim(ptr nonnull %call5.i.i.i.i2.i7874, ptr nonnull %add.ptr.i1.i7879, ptr noundef %scp11096)
+  %call11105 = invoke fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9sax_parseIRKSC_N12_GLOBAL__N_112SaxCountdownEEEbOT_PT0_NS0_6detail14input_format_tEbb(ptr nonnull %call5.i.i.i.i2.i7874, ptr nonnull %add.ptr.i1.i7879, ptr noundef %scp11096)
           to label %invoke.cont11108 unwind label %lpad11097
 
 invoke.cont11108:                                 ; preds = %invoke.cont11102
@@ -71990,7 +71990,7 @@ entry:
   %m_stream.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_5.i, i64 40
   store ptr %s, ptr %m_stream.i, align 8
   %call.i1.i = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA290_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %DOCTEST_CAPTURE_5.i, ptr noundef nonnull align 1 dereferenceable(290) @.str.24)
-          to label %"_ZZN5utilsL19DOCTEST_ANON_FUNC_2EvENK3$_0clEPSo.argprom.exit" unwind label %lpad.i
+          to label %"_ZZN5utilsL19DOCTEST_ANON_FUNC_2EvENK3$_0clEPSo.exit" unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
@@ -71998,7 +71998,7 @@ lpad.i:                                           ; preds = %entry
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %DOCTEST_CAPTURE_5.i) #31
   resume { ptr, i32 } %0
 
-"_ZZN5utilsL19DOCTEST_ANON_FUNC_2EvENK3$_0clEPSo.argprom.exit": ; preds = %entry
+"_ZZN5utilsL19DOCTEST_ANON_FUNC_2EvENK3$_0clEPSo.exit": ; preds = %entry
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %DOCTEST_CAPTURE_5.i) #31
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %DOCTEST_CAPTURE_5.i)
   ret void
@@ -77074,7 +77074,7 @@ ehcleanup9:                                       ; preds = %if.then.i.i21, %ehc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9sax_parseIRKSC_N12_GLOBAL__N_112SaxCountdownEEEbOT_PT0_NS0_6detail14input_format_tEbb.argprom.argelim(ptr %i.0.val, ptr %i.8.val, ptr noundef nonnull %sax) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9sax_parseIRKSC_N12_GLOBAL__N_112SaxCountdownEEEbOT_PT0_NS0_6detail14input_format_tEbb(ptr %i.0.val, ptr %i.8.val, ptr noundef nonnull %sax) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cr.i7.i = alloca %"struct.std::array.196", align 1
   %ref.tmp.i8.i5 = alloca %"class.std::allocator.67", align 1
@@ -77355,7 +77355,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6v
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp32.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp33.i8)
   store ptr %sax, ptr %sax.i, align 8
-  %call4.i16 = invoke fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE19parse_cbor_internalEbNS1_18cbor_tag_handler_tE.argelim(ptr noundef nonnull align 8 dereferenceable(552) %ref.tmp8, i1 noundef zeroext true)
+  %call4.i16 = invoke fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE19parse_cbor_internalEbNS1_18cbor_tag_handler_tE(ptr noundef nonnull align 8 dereferenceable(552) %ref.tmp8, i1 noundef zeroext true)
           to label %call4.i.noexc unwind label %lpad11
 
 call4.i.noexc:                                    ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEEC2EOSM_NS1_14input_format_tE.exit
@@ -77425,7 +77425,7 @@ if.then22.i:                                      ; preds = %_ZN8nlohmann16json_
   %call4.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %cr.i.i, i64 noundef 3, ptr noundef nonnull @.str.325, i32 noundef %conv.i.i) #31, !noalias !908
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i6) #31, !noalias !908
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull %cr.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i6)
-          to label %_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv.argprom.exit.i unwind label %lpad.i.i11
+          to label %_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv.exit.i unwind label %lpad.i.i11
 
 lpad.i.i11:                                       ; preds = %if.then22.i
   %20 = landingpad { ptr, i32 }
@@ -77433,7 +77433,7 @@ lpad.i.i11:                                       ; preds = %if.then22.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i6) #31
   br label %lpad11.body
 
-_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv.argprom.exit.i: ; preds = %if.then22.i
+_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv.exit.i: ; preds = %if.then22.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i6) #31
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %cr.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i6)
@@ -77450,13 +77450,13 @@ _ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29.i, ptr noundef nonnull %cr.i7.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i8.i5)
           to label %invoke.cont.i14 unwind label %lpad.i12.i
 
-lpad.i12.i:                                       ; preds = %_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv.argprom.exit.i
+lpad.i12.i:                                       ; preds = %_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv.exit.i
   %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i8.i5) #31
   br label %ehcleanup44.i
 
-invoke.cont.i14:                                  ; preds = %_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv.argprom.exit.i
+invoke.cont.i14:                                  ; preds = %_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv.exit.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i8.i5) #31
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %cr.i7.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i8.i5)
@@ -77485,7 +77485,7 @@ invoke.cont31.i:                                  ; preds = %call.i3.noexc.i.i
           to label %invoke.cont35.i15 unwind label %lpad34.i
 
 invoke.cont35.i15:                                ; preds = %invoke.cont31.i
-  invoke fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE17exception_messageENS1_14input_format_tERKSB_SS_.argprom(ptr noalias align 8 %ref.tmp26.i, i32 noundef %22, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp32.i)
+  invoke fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE17exception_messageENS1_14input_format_tERKSB_SS_(ptr noalias align 8 %ref.tmp26.i, i32 noundef %22, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp32.i)
           to label %invoke.cont37.i unwind label %lpad36.i
 
 invoke.cont37.i:                                  ; preds = %invoke.cont35.i15
@@ -120966,14 +120966,14 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16jso
 entry:
   %__args3.val = load i8, ptr %__args3, align 8
   %cmp.i.i.i.i = icmp eq i8 %__args3.val, 8
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIbRZL19DOCTEST_ANON_FUNC_7vE3$_0JiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS3_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES8_IhSaIhEEvEEEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESN_EEE5valueESN_E4typeEOSS_DpOST_.argprom.exit"
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIbRZL19DOCTEST_ANON_FUNC_7vE3$_0JiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS3_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES8_IhSaIhEEvEEEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESN_EEE5valueESN_E4typeEOSS_DpOST_.exit"
 
 if.then.i.i.i:                                    ; preds = %entry
   %call.val = load ptr, ptr %__functor, align 8
   store i8 1, ptr %call.val, align 1
-  br label %"_ZSt10__invoke_rIbRZL19DOCTEST_ANON_FUNC_7vE3$_0JiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS3_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES8_IhSaIhEEvEEEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESN_EEE5valueESN_E4typeEOSS_DpOST_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZL19DOCTEST_ANON_FUNC_7vE3$_0JiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS3_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES8_IhSaIhEEvEEEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESN_EEE5valueESN_E4typeEOSS_DpOST_.exit"
 
-"_ZSt10__invoke_rIbRZL19DOCTEST_ANON_FUNC_7vE3$_0JiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS3_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES8_IhSaIhEEvEEEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESN_EEE5valueESN_E4typeEOSS_DpOST_.argprom.exit": ; preds = %entry, %if.then.i.i.i
+"_ZSt10__invoke_rIbRZL19DOCTEST_ANON_FUNC_7vE3$_0JiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS3_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES8_IhSaIhEEvEEEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESN_EEE5valueESN_E4typeEOSS_DpOST_.exit": ; preds = %entry, %if.then.i.i.i
   ret i1 true
 }
 
@@ -134734,7 +134734,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE19parse_cbor_internalEbNS1_18cbor_tag_handler_tE.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, i1 noundef zeroext %get_char) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE19parse_cbor_internalEbNS1_18cbor_tag_handler_tE(ptr noundef nonnull align 8 dereferenceable(552) %this, i1 noundef zeroext %get_char) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cr.i = alloca %"struct.std::array.196", align 1
   %ref.tmp.i = alloca %"class.std::allocator.67", align 1
@@ -135011,7 +135011,7 @@ cond.end:                                         ; preds = %cond.false, %_ZN8nl
   ]
 
 sw.bb:                                            ; preds = %cond.end
-  %call2 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.318)
+  %call2 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.318)
   br label %return
 
 sw.bb3:                                           ; preds = %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end
@@ -135024,7 +135024,7 @@ sw.bb3:                                           ; preds = %cond.end, %cond.end
   br label %return
 
 sw.bb6:                                           ; preds = %cond.end
-  %call7 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIhLb0EEEbNS1_14input_format_tERT_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 1 dereferenceable(1) %number)
+  %call7 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIhLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 1 dereferenceable(1) %number)
   br i1 %call7, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %sw.bb6
@@ -135037,7 +135037,7 @@ land.rhs:                                         ; preds = %sw.bb6
   br label %return
 
 sw.bb10:                                          ; preds = %cond.end
-  %call12 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberItLb0EEEbNS1_14input_format_tERT_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 2 dereferenceable(2) %number11)
+  %call12 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberItLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 2 dereferenceable(2) %number11)
   br i1 %call12, label %land.rhs13, label %return
 
 land.rhs13:                                       ; preds = %sw.bb10
@@ -135050,7 +135050,7 @@ land.rhs13:                                       ; preds = %sw.bb10
   br label %return
 
 sw.bb18:                                          ; preds = %cond.end
-  %call20 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIjLb0EEEbNS1_14input_format_tERT_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %number19)
+  %call20 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIjLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %number19)
   br i1 %call20, label %land.rhs21, label %return
 
 land.rhs21:                                       ; preds = %sw.bb18
@@ -135063,7 +135063,7 @@ land.rhs21:                                       ; preds = %sw.bb18
   br label %return
 
 sw.bb26:                                          ; preds = %cond.end
-  %call28 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberImLb0EEEbNS1_14input_format_tERT_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 8 dereferenceable(8) %number27)
+  %call28 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberImLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 8 dereferenceable(8) %number27)
   br i1 %call28, label %land.rhs29, label %return
 
 land.rhs29:                                       ; preds = %sw.bb26
@@ -135085,7 +135085,7 @@ sw.bb33:                                          ; preds = %cond.end, %cond.end
   br label %return
 
 sw.bb39:                                          ; preds = %cond.end
-  %call41 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIhLb0EEEbNS1_14input_format_tERT_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 1 dereferenceable(1) %number40)
+  %call41 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIhLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 1 dereferenceable(1) %number40)
   br i1 %call41, label %land.rhs42, label %return
 
 land.rhs42:                                       ; preds = %sw.bb39
@@ -135098,7 +135098,7 @@ land.rhs42:                                       ; preds = %sw.bb39
   br label %return
 
 sw.bb48:                                          ; preds = %cond.end
-  %call50 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberItLb0EEEbNS1_14input_format_tERT_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 2 dereferenceable(2) %number49)
+  %call50 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberItLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 2 dereferenceable(2) %number49)
   br i1 %call50, label %land.rhs51, label %return
 
 land.rhs51:                                       ; preds = %sw.bb48
@@ -135111,7 +135111,7 @@ land.rhs51:                                       ; preds = %sw.bb48
   br label %return
 
 sw.bb57:                                          ; preds = %cond.end
-  %call59 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIjLb0EEEbNS1_14input_format_tERT_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %number58)
+  %call59 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIjLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %number58)
   br i1 %call59, label %land.rhs60, label %return
 
 land.rhs60:                                       ; preds = %sw.bb57
@@ -135124,7 +135124,7 @@ land.rhs60:                                       ; preds = %sw.bb57
   br label %return
 
 sw.bb66:                                          ; preds = %cond.end
-  %call68 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberImLb0EEEbNS1_14input_format_tERT_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 8 dereferenceable(8) %number67)
+  %call68 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberImLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 8 dereferenceable(8) %number67)
   br i1 %call68, label %land.rhs69, label %return
 
 land.rhs69:                                       ; preds = %sw.bb66
@@ -135223,7 +135223,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i.preheader, %for.cond.i
   %i.0.i96 = phi i64 [ %inc.i51, %for.cond.i ], [ 0, %for.cond.i.preheader ]
-  %call6.i = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE19parse_cbor_internalEbNS1_18cbor_tag_handler_tE.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, i1 noundef zeroext true)
+  %call6.i = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE19parse_cbor_internalEbNS1_18cbor_tag_handler_tE(ptr noundef nonnull align 8 dereferenceable(552) %this, i1 noundef zeroext true)
   br i1 %call6.i, label %for.cond.i, label %return
 
 if.end20.i:                                       ; preds = %for.cond.i, %for.cond.i.preheader
@@ -135236,101 +135236,101 @@ if.end20.i:                                       ; preds = %for.cond.i, %for.co
 
 sw.bb93:                                          ; preds = %cond.end
   store i8 0, ptr %len, align 1
-  %call94 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIhLb0EEEbNS1_14input_format_tERT_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 1 dereferenceable(1) %len)
+  %call94 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIhLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 1 dereferenceable(1) %len)
   br i1 %call94, label %land.rhs95, label %return
 
 land.rhs95:                                       ; preds = %sw.bb93
   %39 = load i8, ptr %len, align 1
   %conv96 = zext i8 %39 to i64
-  %call97 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE14get_cbor_arrayEmNS1_18cbor_tag_handler_tE.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %conv96)
+  %call97 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE14get_cbor_arrayEmNS1_18cbor_tag_handler_tE(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %conv96)
   br label %return
 
 sw.bb99:                                          ; preds = %cond.end
   store i16 0, ptr %len100, align 2
-  %call101 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberItLb0EEEbNS1_14input_format_tERT_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 2 dereferenceable(2) %len100)
+  %call101 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberItLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 2 dereferenceable(2) %len100)
   br i1 %call101, label %land.rhs102, label %return
 
 land.rhs102:                                      ; preds = %sw.bb99
   %40 = load i16, ptr %len100, align 2
   %conv103 = zext i16 %40 to i64
-  %call104 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE14get_cbor_arrayEmNS1_18cbor_tag_handler_tE.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %conv103)
+  %call104 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE14get_cbor_arrayEmNS1_18cbor_tag_handler_tE(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %conv103)
   br label %return
 
 sw.bb106:                                         ; preds = %cond.end
   store i32 0, ptr %len107, align 4
-  %call108 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIjLb0EEEbNS1_14input_format_tERT_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %len107)
+  %call108 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIjLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %len107)
   br i1 %call108, label %land.rhs109, label %return
 
 land.rhs109:                                      ; preds = %sw.bb106
   %41 = load i32, ptr %len107, align 4
   %conv.i52 = zext i32 %41 to i64
-  %call111 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE14get_cbor_arrayEmNS1_18cbor_tag_handler_tE.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %conv.i52)
+  %call111 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE14get_cbor_arrayEmNS1_18cbor_tag_handler_tE(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %conv.i52)
   br label %return
 
 sw.bb113:                                         ; preds = %cond.end
   store i64 0, ptr %len114, align 8
-  %call115 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberImLb0EEEbNS1_14input_format_tERT_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 8 dereferenceable(8) %len114)
+  %call115 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberImLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 8 dereferenceable(8) %len114)
   br i1 %call115, label %land.rhs116, label %return
 
 land.rhs116:                                      ; preds = %sw.bb113
   %42 = load i64, ptr %len114, align 8
-  %call118 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE14get_cbor_arrayEmNS1_18cbor_tag_handler_tE.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %42)
+  %call118 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE14get_cbor_arrayEmNS1_18cbor_tag_handler_tE(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %42)
   br label %return
 
 sw.bb120:                                         ; preds = %cond.end
-  %call121 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE14get_cbor_arrayEmNS1_18cbor_tag_handler_tE.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef -1)
+  %call121 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE14get_cbor_arrayEmNS1_18cbor_tag_handler_tE(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef -1)
   br label %return
 
 sw.bb122:                                         ; preds = %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end
   %and125 = and i64 %this.val25, 31
-  %call127 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE15get_cbor_objectEmNS1_18cbor_tag_handler_tE.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %and125)
+  %call127 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE15get_cbor_objectEmNS1_18cbor_tag_handler_tE(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %and125)
   br label %return
 
 sw.bb128:                                         ; preds = %cond.end
   store i8 0, ptr %len129, align 1
-  %call130 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIhLb0EEEbNS1_14input_format_tERT_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 1 dereferenceable(1) %len129)
+  %call130 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIhLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 1 dereferenceable(1) %len129)
   br i1 %call130, label %land.rhs131, label %return
 
 land.rhs131:                                      ; preds = %sw.bb128
   %43 = load i8, ptr %len129, align 1
   %conv132 = zext i8 %43 to i64
-  %call133 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE15get_cbor_objectEmNS1_18cbor_tag_handler_tE.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %conv132)
+  %call133 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE15get_cbor_objectEmNS1_18cbor_tag_handler_tE(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %conv132)
   br label %return
 
 sw.bb135:                                         ; preds = %cond.end
   store i16 0, ptr %len136, align 2
-  %call137 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberItLb0EEEbNS1_14input_format_tERT_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 2 dereferenceable(2) %len136)
+  %call137 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberItLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 2 dereferenceable(2) %len136)
   br i1 %call137, label %land.rhs138, label %return
 
 land.rhs138:                                      ; preds = %sw.bb135
   %44 = load i16, ptr %len136, align 2
   %conv139 = zext i16 %44 to i64
-  %call140 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE15get_cbor_objectEmNS1_18cbor_tag_handler_tE.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %conv139)
+  %call140 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE15get_cbor_objectEmNS1_18cbor_tag_handler_tE(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %conv139)
   br label %return
 
 sw.bb142:                                         ; preds = %cond.end
   store i32 0, ptr %len143, align 4
-  %call144 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIjLb0EEEbNS1_14input_format_tERT_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %len143)
+  %call144 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIjLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %len143)
   br i1 %call144, label %land.rhs145, label %return
 
 land.rhs145:                                      ; preds = %sw.bb142
   %45 = load i32, ptr %len143, align 4
   %conv.i54 = zext i32 %45 to i64
-  %call147 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE15get_cbor_objectEmNS1_18cbor_tag_handler_tE.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %conv.i54)
+  %call147 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE15get_cbor_objectEmNS1_18cbor_tag_handler_tE(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %conv.i54)
   br label %return
 
 sw.bb149:                                         ; preds = %cond.end
   store i64 0, ptr %len150, align 8
-  %call151 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberImLb0EEEbNS1_14input_format_tERT_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 8 dereferenceable(8) %len150)
+  %call151 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberImLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 8 dereferenceable(8) %len150)
   br i1 %call151, label %land.rhs152, label %return
 
 land.rhs152:                                      ; preds = %sw.bb149
   %46 = load i64, ptr %len150, align 8
-  %call154 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE15get_cbor_objectEmNS1_18cbor_tag_handler_tE.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %46)
+  %call154 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE15get_cbor_objectEmNS1_18cbor_tag_handler_tE(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %46)
   br label %return
 
 sw.bb156:                                         ; preds = %cond.end
-  %call157 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE15get_cbor_objectEmNS1_18cbor_tag_handler_tE.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef -1)
+  %call157 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE15get_cbor_objectEmNS1_18cbor_tag_handler_tE(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef -1)
   br label %return
 
 sw.bb159:                                         ; preds = %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end, %cond.end
@@ -135341,7 +135341,7 @@ sw.bb159:                                         ; preds = %cond.end, %cond.end
   %call4.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %cr.i, i64 noundef 3, ptr noundef nonnull @.str.325, i32 noundef %conv.i55) #31, !noalias !1331
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #31, !noalias !1331
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %last_token, ptr noundef nonnull %cr.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
-          to label %_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv.argprom.exit unwind label %lpad.i
+          to label %_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad81, %ehcleanup177, %lpad266, %ehcleanup337, %lpad278, %lpad298, %lpad, %if.then.i.i.i.i47, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %47, %lpad.i ], [ %.pn19.pn.pn, %ehcleanup337 ], [ %75, %lpad298 ], [ %72, %lpad278 ], [ %69, %lpad266 ], [ %.pn.pn.pn, %ehcleanup177 ], [ %34, %lpad81 ], [ %29, %lpad ], [ %29, %if.then.i.i.i.i47 ]
@@ -135353,7 +135353,7 @@ lpad.i:                                           ; preds = %sw.bb159
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #31
   br label %common.resume
 
-_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv.argprom.exit: ; preds = %sw.bb159
+_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv.exit: ; preds = %sw.bb159
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #31
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %cr.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
@@ -135365,7 +135365,7 @@ _ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp163, i64 noundef %add.i.i)
           to label %invoke.cont3.i unwind label %lpad.i56
 
-invoke.cont3.i:                                   ; preds = %_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv.argprom.exit
+invoke.cont3.i:                                   ; preds = %_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv.exit
   %call.i35.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp163, ptr noundef nonnull @.str.330)
           to label %call.i3.noexc.i unwind label %lpad.i56
 
@@ -135373,7 +135373,7 @@ call.i3.noexc.i:                                  ; preds = %invoke.cont3.i
   %call.i.i46.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp163, ptr noundef nonnull align 8 dereferenceable(32) %last_token)
           to label %invoke.cont165 unwind label %lpad.i56
 
-lpad.i56:                                         ; preds = %call.i3.noexc.i, %invoke.cont3.i, %_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv.argprom.exit
+lpad.i56:                                         ; preds = %call.i3.noexc.i, %invoke.cont3.i, %_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv.exit
   %49 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup177
@@ -135384,7 +135384,7 @@ invoke.cont165:                                   ; preds = %call.i3.noexc.i
           to label %invoke.cont169 unwind label %lpad168
 
 invoke.cont169:                                   ; preds = %invoke.cont165
-  invoke fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE17exception_messageENS1_14input_format_tERKSB_SS_.argprom(ptr noalias align 8 %ref.tmp162, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp163, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp166)
+  invoke fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE17exception_messageENS1_14input_format_tERKSB_SS_(ptr noalias align 8 %ref.tmp162, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp163, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp166)
           to label %invoke.cont171 unwind label %lpad170
 
 invoke.cont171:                                   ; preds = %invoke.cont169
@@ -135484,7 +135484,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6v
   %retval.0.i.i70 = phi i64 [ %conv.i.i.i68, %if.then.i.i67 ], [ -1, %sw.bb238 ]
   %current.i71 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %retval.0.i.i70, ptr %current.i71, align 8
-  %call240 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.39)
+  %call240 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.39)
   br i1 %call240, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit72
@@ -135506,7 +135506,7 @@ if.then.i.i77:                                    ; preds = %if.end
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit82: ; preds = %if.end, %if.then.i.i77
   %retval.0.i.i80 = phi i64 [ %conv.i.i.i78, %if.then.i.i77 ], [ -1, %if.end ]
   store i64 %retval.0.i.i80, ptr %current.i71, align 8
-  %call245 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.39)
+  %call245 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.39)
   br i1 %call245, label %if.end251, label %return
 
 if.end251:                                        ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit82
@@ -135516,7 +135516,7 @@ if.end251:                                        ; preds = %_ZN8nlohmann16json_
   %shl = and i32 %conv254, 65280
   %conv255 = and i32 %conv253, 255
   %add = or disjoint i32 %conv255, %shl
-  tail call fastcc void @_ZZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE19parse_cbor_internalEbNS1_18cbor_tag_handler_tEENKUlvE_clEv.argprom.argprom.argelim(i32 %add)
+  tail call fastcc void @_ZZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE19parse_cbor_internalEbNS1_18cbor_tag_handler_tEENKUlvE_clEv(i32 %add)
   %sax258 = getelementptr inbounds i8, ptr %this, i64 40
   %67 = load ptr, ptr %sax258, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp265) #31
@@ -135539,7 +135539,7 @@ lpad266:                                          ; preds = %if.end251
   br label %common.resume
 
 sw.bb270:                                         ; preds = %cond.end
-  %call272 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIfLb0EEEbNS1_14input_format_tERT_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %number271)
+  %call272 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIfLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %number271)
   br i1 %call272, label %land.rhs273, label %return
 
 land.rhs273:                                      ; preds = %sw.bb270
@@ -135565,7 +135565,7 @@ lpad278:                                          ; preds = %land.rhs273
   br label %common.resume
 
 sw.bb290:                                         ; preds = %cond.end
-  %call292 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIdLb0EEEbNS1_14input_format_tERT_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 8 dereferenceable(8) %number291)
+  %call292 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIdLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 8 dereferenceable(8) %number291)
   br i1 %call292, label %land.rhs293, label %return
 
 land.rhs293:                                      ; preds = %sw.bb290
@@ -135591,7 +135591,7 @@ lpad298:                                          ; preds = %land.rhs293
   br label %common.resume
 
 sw.default313:                                    ; preds = %cond.end
-  call fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv.argprom(ptr noalias align 8 %last_token314, i64 %this.val25)
+  call fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv(ptr noalias align 8 %last_token314, i64 %this.val25)
   %chars_read316 = getelementptr inbounds i8, ptr %this, i64 24
   %76 = load i64, ptr %chars_read316, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_36detail6concatINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA17_KcRS8_EEET_DpOT0_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp320, ptr noundef nonnull align 1 dereferenceable(17) @.str.330, ptr noundef nonnull align 8 dereferenceable(32) %last_token314)
@@ -135603,7 +135603,7 @@ invoke.cont322:                                   ; preds = %sw.default313
           to label %invoke.cont326 unwind label %lpad325
 
 invoke.cont326:                                   ; preds = %invoke.cont322
-  invoke fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE17exception_messageENS1_14input_format_tERKSB_SS_.argprom(ptr noalias align 8 %ref.tmp319, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp320, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp323)
+  invoke fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE17exception_messageENS1_14input_format_tERKSB_SS_(ptr noalias align 8 %ref.tmp319, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp320, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp323)
           to label %invoke.cont328 unwind label %lpad327
 
 invoke.cont328:                                   ; preds = %invoke.cont326
@@ -135665,7 +135665,7 @@ return:                                           ; preds = %for.body.i, %sw.bb2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv.argprom(ptr noalias nonnull align 8 %agg.result, i64 %this.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv(ptr noalias nonnull align 8 %agg.result, i64 %this.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cr = alloca %"struct.std::array.196", align 1
   %ref.tmp = alloca %"class.std::allocator.67", align 1
@@ -135689,7 +135689,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE17exception_messageENS1_14input_format_tERKSB_SS_.argprom(ptr noalias nonnull align 8 %agg.result, i32 noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %detail, ptr noundef nonnull align 8 dereferenceable(32) %context) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE17exception_messageENS1_14input_format_tERKSB_SS_(ptr noalias nonnull align 8 %agg.result, i32 noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %detail, ptr noundef nonnull align 8 dereferenceable(32) %context) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %error_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator.67", align 1
@@ -135738,7 +135738,7 @@ eh.resume:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(552) %this, ptr noundef nonnull %context) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(552) %this, ptr noundef nonnull %context) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator.67", align 1
@@ -135771,7 +135771,7 @@ invoke.cont10:                                    ; preds = %invoke.cont
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %invoke.cont10
-  invoke fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE17exception_messageENS1_14input_format_tERKSB_SS_.argprom(ptr noalias align 8 %ref.tmp6, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11)
+  invoke fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE17exception_messageENS1_14input_format_tERKSB_SS_(ptr noalias align 8 %ref.tmp6, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont14
@@ -135845,7 +135845,7 @@ return:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIhLb0EEEbNS1_14input_format_tERT_.argelim(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %result) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIhLb0EEEbNS1_14input_format_tERT_(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %result) unnamed_addr #4 align 2 {
 entry:
   %chars_read.i = getelementptr inbounds i8, ptr %this, i64 24
   %end.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -135868,7 +135868,7 @@ if.then.i.i:                                      ; preds = %entry
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit: ; preds = %entry, %if.then.i.i
   %retval.0.i.i = phi i64 [ %conv.i.i.i, %if.then.i.i ], [ -1, %entry ]
   store i64 %retval.0.i.i, ptr %current.i, align 8
-  %call2 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.39)
+  %call2 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.39)
   br i1 %call2, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit
@@ -135882,7 +135882,7 @@ return:                                           ; preds = %_ZN8nlohmann16json_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberItLb0EEEbNS1_14input_format_tERT_.argelim(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %result) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberItLb0EEEbNS1_14input_format_tERT_(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %result) unnamed_addr #4 align 2 {
 entry:
   %vec = alloca %"struct.std::array.170", align 2
   store i16 0, ptr %vec, align 2
@@ -135913,7 +135913,7 @@ if.then.i.i:                                      ; preds = %for.body
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit: ; preds = %for.body, %if.then.i.i
   %retval.0.i.i = phi i64 [ %conv.i.i.i, %if.then.i.i ], [ -1, %for.body ]
   store i64 %retval.0.i.i, ptr %current.i, align 8
-  %call2 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.39)
+  %call2 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.39)
   br i1 %call2, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit
@@ -135937,7 +135937,7 @@ return:                                           ; preds = %_ZN8nlohmann16json_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIjLb0EEEbNS1_14input_format_tERT_.argelim(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIjLb0EEEbNS1_14input_format_tERT_(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result) unnamed_addr #4 align 2 {
 entry:
   %vec = alloca %"struct.std::array.171", align 4
   store i32 0, ptr %vec, align 4
@@ -135967,7 +135967,7 @@ if.then.i.i:                                      ; preds = %for.body
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit: ; preds = %for.body, %if.then.i.i
   %retval.0.i.i = phi i64 [ %conv.i.i.i, %if.then.i.i ], [ -1, %for.body ]
   store i64 %retval.0.i.i, ptr %current.i, align 8
-  %call2 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.39)
+  %call2 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.39)
   br i1 %call2, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit
@@ -135994,7 +135994,7 @@ return:                                           ; preds = %_ZN8nlohmann16json_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberImLb0EEEbNS1_14input_format_tERT_.argelim(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberImLb0EEEbNS1_14input_format_tERT_(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) unnamed_addr #4 align 2 {
 entry:
   %vec = alloca %"struct.std::array.172", align 8
   store i64 0, ptr %vec, align 8
@@ -136024,7 +136024,7 @@ if.then.i.i:                                      ; preds = %for.body
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit: ; preds = %for.body, %if.then.i.i
   %retval.0.i.i = phi i64 [ %conv.i.i.i, %if.then.i.i ], [ -1, %for.body ]
   store i64 %retval.0.i.i, ptr %current.i, align 8
-  %call2 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.39)
+  %call2 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.39)
   br i1 %call2, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit
@@ -136064,7 +136064,7 @@ entry:
   %ref.tmp48 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp51 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp52 = alloca %"class.std::allocator.67", align 1
-  %call = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.171)
+  %call = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.171)
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -136112,47 +136112,47 @@ while.cond.preheader:                             ; preds = %if.end
 sw.bb:                                            ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
   %conv = trunc i64 %0 to i32
   %and = and i32 %conv, 31
-  %call5 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_binaryIjEEbNS1_14input_format_tET_RNS0_27byte_container_with_subtypeISE_EE.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, i32 noundef %and, ptr noundef nonnull align 8 dereferenceable(33) %result)
+  %call5 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_binaryIjEEbNS1_14input_format_tET_RNS0_27byte_container_with_subtypeISE_EE(ptr noundef nonnull align 8 dereferenceable(552) %this, i32 noundef %and, ptr noundef nonnull align 8 dereferenceable(33) %result)
   br label %return
 
 sw.bb6:                                           ; preds = %if.end
   store i8 0, ptr %len, align 1
-  %call7 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIhLb0EEEbNS1_14input_format_tERT_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 1 dereferenceable(1) %len)
+  %call7 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIhLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 1 dereferenceable(1) %len)
   br i1 %call7, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %sw.bb6
   %1 = load i8, ptr %len, align 1
-  %call8 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_binaryIhEEbNS1_14input_format_tET_RNS0_27byte_container_with_subtypeISE_EE.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, i8 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(33) %result)
+  %call8 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_binaryIhEEbNS1_14input_format_tET_RNS0_27byte_container_with_subtypeISE_EE(ptr noundef nonnull align 8 dereferenceable(552) %this, i8 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(33) %result)
   br label %return
 
 sw.bb9:                                           ; preds = %if.end
   store i16 0, ptr %len10, align 2
-  %call11 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberItLb0EEEbNS1_14input_format_tERT_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 2 dereferenceable(2) %len10)
+  %call11 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberItLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 2 dereferenceable(2) %len10)
   br i1 %call11, label %land.rhs12, label %return
 
 land.rhs12:                                       ; preds = %sw.bb9
   %2 = load i16, ptr %len10, align 2
-  %call13 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_binaryItEEbNS1_14input_format_tET_RNS0_27byte_container_with_subtypeISE_EE.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, i16 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(33) %result)
+  %call13 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_binaryItEEbNS1_14input_format_tET_RNS0_27byte_container_with_subtypeISE_EE(ptr noundef nonnull align 8 dereferenceable(552) %this, i16 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(33) %result)
   br label %return
 
 sw.bb15:                                          ; preds = %if.end
   store i32 0, ptr %len16, align 4
-  %call17 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIjLb0EEEbNS1_14input_format_tERT_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %len16)
+  %call17 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIjLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %len16)
   br i1 %call17, label %land.rhs18, label %return
 
 land.rhs18:                                       ; preds = %sw.bb15
   %3 = load i32, ptr %len16, align 4
-  %call19 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_binaryIjEEbNS1_14input_format_tET_RNS0_27byte_container_with_subtypeISE_EE.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(33) %result)
+  %call19 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_binaryIjEEbNS1_14input_format_tET_RNS0_27byte_container_with_subtypeISE_EE(ptr noundef nonnull align 8 dereferenceable(552) %this, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(33) %result)
   br label %return
 
 sw.bb21:                                          ; preds = %if.end
   store i64 0, ptr %len22, align 8
-  %call23 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberImLb0EEEbNS1_14input_format_tERT_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 8 dereferenceable(8) %len22)
+  %call23 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberImLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 8 dereferenceable(8) %len22)
   br i1 %call23, label %land.rhs24, label %return
 
 land.rhs24:                                       ; preds = %sw.bb21
   %4 = load i64, ptr %len22, align 8
-  %call25 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_binaryImEEbNS1_14input_format_tET_RNS0_27byte_container_with_subtypeISE_EE.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(33) %result)
+  %call25 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_binaryImEEbNS1_14input_format_tET_RNS0_27byte_container_with_subtypeISE_EE(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(33) %result)
   br label %return
 
 while.cond:                                       ; preds = %while.cond.preheader, %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit14
@@ -136221,7 +136221,7 @@ _ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2
   br i1 %call29, label %while.cond, label %return
 
 sw.default:                                       ; preds = %if.end
-  call fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv.argprom(ptr noalias align 8 %last_token, i64 %0)
+  call fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv(ptr noalias align 8 %last_token, i64 %0)
   %chars_read = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load i64, ptr %chars_read, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_36detail6concatINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA96_KcRS8_EEET_DpOT0_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp48, ptr noundef nonnull align 1 dereferenceable(96) @.str.331, ptr noundef nonnull align 8 dereferenceable(32) %last_token)
@@ -136233,7 +136233,7 @@ invoke.cont50:                                    ; preds = %sw.default
           to label %invoke.cont54 unwind label %lpad53
 
 invoke.cont54:                                    ; preds = %invoke.cont50
-  invoke fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE17exception_messageENS1_14input_format_tERKSB_SS_.argprom(ptr noalias align 8 %ref.tmp47, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51)
+  invoke fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE17exception_messageENS1_14input_format_tERKSB_SS_(ptr noalias align 8 %ref.tmp47, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51)
           to label %invoke.cont56 unwind label %lpad55
 
 invoke.cont56:                                    ; preds = %invoke.cont54
@@ -136312,7 +136312,7 @@ entry:
   %ref.tmp36 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp39 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp40 = alloca %"class.std::allocator.67", align 1
-  %call = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.134)
+  %call = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.134)
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -136386,7 +136386,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit.i: ; preds = %if.then.i.i.i, %for.body.i
   %retval.0.i.i.i = phi i64 [ %conv.i.i.i.i, %if.then.i.i.i ], [ -1, %for.body.i ]
   store i64 %retval.0.i.i.i, ptr %current, align 8
-  %call2.i = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.134)
+  %call2.i = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.134)
   br i1 %call2.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit.i
@@ -136399,42 +136399,42 @@ if.end.i:                                         ; preds = %_ZN8nlohmann16json_
 
 sw.bb6:                                           ; preds = %if.end
   store i8 0, ptr %len, align 1
-  %call7 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIhLb0EEEbNS1_14input_format_tERT_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 1 dereferenceable(1) %len)
+  %call7 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIhLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 1 dereferenceable(1) %len)
   br i1 %call7, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %sw.bb6
   %6 = load i8, ptr %len, align 1
-  %call8 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_stringIhEEbNS1_14input_format_tET_RSB_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, i8 noundef zeroext %6, ptr noundef nonnull align 8 dereferenceable(32) %result)
+  %call8 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_stringIhEEbNS1_14input_format_tET_RSB_(ptr noundef nonnull align 8 dereferenceable(552) %this, i8 noundef zeroext %6, ptr noundef nonnull align 8 dereferenceable(32) %result)
   br label %return
 
 sw.bb9:                                           ; preds = %if.end
   store i16 0, ptr %len10, align 2
-  %call11 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberItLb0EEEbNS1_14input_format_tERT_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 2 dereferenceable(2) %len10)
+  %call11 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberItLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 2 dereferenceable(2) %len10)
   br i1 %call11, label %land.rhs12, label %return
 
 land.rhs12:                                       ; preds = %sw.bb9
   %7 = load i16, ptr %len10, align 2
-  %call13 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_stringItEEbNS1_14input_format_tET_RSB_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, i16 noundef zeroext %7, ptr noundef nonnull align 8 dereferenceable(32) %result)
+  %call13 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_stringItEEbNS1_14input_format_tET_RSB_(ptr noundef nonnull align 8 dereferenceable(552) %this, i16 noundef zeroext %7, ptr noundef nonnull align 8 dereferenceable(32) %result)
   br label %return
 
 sw.bb15:                                          ; preds = %if.end
   store i32 0, ptr %len16, align 4
-  %call17 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIjLb0EEEbNS1_14input_format_tERT_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %len16)
+  %call17 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIjLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %len16)
   br i1 %call17, label %land.rhs18, label %return
 
 land.rhs18:                                       ; preds = %sw.bb15
   %8 = load i32, ptr %len16, align 4
-  %call19 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_stringIjEEbNS1_14input_format_tET_RSB_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, i32 noundef %8, ptr noundef nonnull align 8 dereferenceable(32) %result)
+  %call19 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_stringIjEEbNS1_14input_format_tET_RSB_(ptr noundef nonnull align 8 dereferenceable(552) %this, i32 noundef %8, ptr noundef nonnull align 8 dereferenceable(32) %result)
   br label %return
 
 sw.bb21:                                          ; preds = %if.end
   store i64 0, ptr %len22, align 8
-  %call23 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberImLb0EEEbNS1_14input_format_tERT_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 8 dereferenceable(8) %len22)
+  %call23 = call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberImLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 8 dereferenceable(8) %len22)
   br i1 %call23, label %land.rhs24, label %return
 
 land.rhs24:                                       ; preds = %sw.bb21
   %9 = load i64, ptr %len22, align 8
-  %call25 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_stringImEEbNS1_14input_format_tET_RSB_.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %9, ptr noundef nonnull align 8 dereferenceable(32) %result)
+  %call25 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_stringImEEbNS1_14input_format_tET_RSB_(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %9, ptr noundef nonnull align 8 dereferenceable(32) %result)
   br label %return
 
 while.cond:                                       ; preds = %while.cond.preheader, %cleanup
@@ -136485,7 +136485,7 @@ cleanup:                                          ; preds = %if.end31
   br label %while.cond
 
 sw.default:                                       ; preds = %if.end
-  call fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv.argprom(ptr noalias align 8 %last_token, i64 %0)
+  call fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv(ptr noalias align 8 %last_token, i64 %0)
   %chars_read = getelementptr inbounds i8, ptr %this, i64 24
   %15 = load i64, ptr %chars_read, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_36detail6concatINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA90_KcRS8_EEET_DpOT0_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp36, ptr noundef nonnull align 1 dereferenceable(90) @.str.332, ptr noundef nonnull align 8 dereferenceable(32) %last_token)
@@ -136497,7 +136497,7 @@ invoke.cont38:                                    ; preds = %sw.default
           to label %invoke.cont42 unwind label %lpad41
 
 invoke.cont42:                                    ; preds = %invoke.cont38
-  invoke fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE17exception_messageENS1_14input_format_tERKSB_SS_.argprom(ptr noalias align 8 %ref.tmp35, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp36, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39)
+  invoke fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE17exception_messageENS1_14input_format_tERKSB_SS_(ptr noalias align 8 %ref.tmp35, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp36, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39)
           to label %invoke.cont44 unwind label %lpad43
 
 invoke.cont44:                                    ; preds = %invoke.cont42
@@ -136560,7 +136560,7 @@ eh.resume:                                        ; preds = %lpad37, %ehcleanup4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE14get_cbor_arrayEmNS1_18cbor_tag_handler_tE.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %len) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE14get_cbor_arrayEmNS1_18cbor_tag_handler_tE(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %len) unnamed_addr #4 align 2 {
 entry:
   %sax = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %sax, align 8
@@ -136589,7 +136589,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %if.end, %for.cond
   %i.013 = phi i64 [ %inc, %for.cond ], [ 0, %if.end ]
-  %call6 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE19parse_cbor_internalEbNS1_18cbor_tag_handler_tE.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, i1 noundef zeroext true)
+  %call6 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE19parse_cbor_internalEbNS1_18cbor_tag_handler_tE(ptr noundef nonnull align 8 dereferenceable(552) %this, i1 noundef zeroext true)
   br i1 %call6, label %for.cond, label %return
 
 while.cond:                                       ; preds = %while.cond.preheader, %while.body
@@ -136615,7 +136615,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6v
   br i1 %cmp13.not, label %if.end20, label %while.body
 
 while.body:                                       ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit.thread, %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit
-  %call14 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE19parse_cbor_internalEbNS1_18cbor_tag_handler_tE.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, i1 noundef zeroext false)
+  %call14 = tail call fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE19parse_cbor_internalEbNS1_18cbor_tag_handler_tE(ptr noundef nonnull align 8 dereferenceable(552) %this, i1 noundef zeroext false)
   br i1 %call14, label %while.cond, label %return, !llvm.loop !1338
 
 if.end20:                                         ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit, %for.cond, %if.end
@@ -136632,7 +136632,7 @@ return:                                           ; preds = %while.body, %for.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE15get_cbor_objectEmNS1_18cbor_tag_handler_tE.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %len) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE15get_cbor_objectEmNS1_18cbor_tag_handler_tE(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %len) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %key = alloca %"class.std::__cxx11::basic_string", align 8
   %sax = getelementptr inbounds i8, ptr %this, i64 40
@@ -136705,7 +136705,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 if.end17:                                         ; preds = %lor.rhs
-  %call19 = invoke fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE19parse_cbor_internalEbNS1_18cbor_tag_handler_tE.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, i1 noundef zeroext true)
+  %call19 = invoke fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE19parse_cbor_internalEbNS1_18cbor_tag_handler_tE(ptr noundef nonnull align 8 dereferenceable(552) %this, i1 noundef zeroext true)
           to label %invoke.cont18 unwind label %lpad.loopexit.split-lp
 
 invoke.cont18:                                    ; preds = %if.end17
@@ -136755,7 +136755,7 @@ lor.rhs30:                                        ; preds = %invoke.cont28
   br i1 %cmp.i19, label %cleanup.thread, label %if.end38
 
 if.end38:                                         ; preds = %lor.rhs30
-  %call40 = invoke fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE19parse_cbor_internalEbNS1_18cbor_tag_handler_tE.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, i1 noundef zeroext true)
+  %call40 = invoke fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE19parse_cbor_internalEbNS1_18cbor_tag_handler_tE(ptr noundef nonnull align 8 dereferenceable(552) %this, i1 noundef zeroext true)
           to label %invoke.cont39 unwind label %lpad.loopexit
 
 invoke.cont39:                                    ; preds = %if.end38
@@ -136787,7 +136787,7 @@ return:                                           ; preds = %cleanup.thread, %en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc void @_ZZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE19parse_cbor_internalEbNS1_18cbor_tag_handler_tEENKUlvE_clEv.argprom.argprom.argelim(i32 %this.0.val.0.val) unnamed_addr #21 align 2 {
+define internal fastcc void @_ZZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE19parse_cbor_internalEbNS1_18cbor_tag_handler_tEENKUlvE_clEv(i32 %this.0.val.0.val) unnamed_addr #21 align 2 {
 entry:
   %shr = lshr i32 %this.0.val.0.val, 10
   %and = and i32 %shr, 31
@@ -136814,7 +136814,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIfLb0EEEbNS1_14input_format_tERT_.argelim(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIfLb0EEEbNS1_14input_format_tERT_(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result) unnamed_addr #4 align 2 {
 entry:
   %vec = alloca %"struct.std::array.171", align 4
   store i32 0, ptr %vec, align 4
@@ -136844,7 +136844,7 @@ if.then.i.i:                                      ; preds = %for.body
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit: ; preds = %for.body, %if.then.i.i
   %retval.0.i.i = phi i64 [ %conv.i.i.i, %if.then.i.i ], [ -1, %for.body ]
   store i64 %retval.0.i.i, ptr %current.i, align 8
-  %call2 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.39)
+  %call2 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.39)
   br i1 %call2, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit
@@ -136871,7 +136871,7 @@ return:                                           ; preds = %_ZN8nlohmann16json_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIdLb0EEEbNS1_14input_format_tERT_.argelim(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIdLb0EEEbNS1_14input_format_tERT_(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) unnamed_addr #4 align 2 {
 entry:
   %vec = alloca %"struct.std::array.172", align 8
   store i64 0, ptr %vec, align 8
@@ -136901,7 +136901,7 @@ if.then.i.i:                                      ; preds = %for.body
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit: ; preds = %for.body, %if.then.i.i
   %retval.0.i.i = phi i64 [ %conv.i.i.i, %if.then.i.i ], [ -1, %for.body ]
   store i64 %retval.0.i.i, ptr %current.i, align 8
-  %call2 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.39)
+  %call2 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.39)
   br i1 %call2, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit
@@ -136928,7 +136928,7 @@ return:                                           ; preds = %_ZN8nlohmann16json_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_binaryIjEEbNS1_14input_format_tET_RNS0_27byte_container_with_subtypeISE_EE.argelim(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, i32 noundef %len, ptr nocapture noundef nonnull align 8 dereferenceable(33) %result) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_binaryIjEEbNS1_14input_format_tET_RNS0_27byte_container_with_subtypeISE_EE(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, i32 noundef %len, ptr nocapture noundef nonnull align 8 dereferenceable(33) %result) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp5 = icmp eq i32 %len, 0
   br i1 %cmp5, label %for.end, label %for.body.lr.ph
@@ -136961,7 +136961,7 @@ if.then.i.i:                                      ; preds = %for.body
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit: ; preds = %for.body, %if.then.i.i
   %retval.0.i.i = phi i64 [ %conv.i.i.i, %if.then.i.i ], [ -1, %for.body ]
   store i64 %retval.0.i.i, ptr %current.i, align 8
-  %call2 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.171)
+  %call2 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.171)
   br i1 %call2, label %if.end, label %for.end
 
 if.end:                                           ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit
@@ -137042,7 +137042,7 @@ for.end:                                          ; preds = %_ZNSt6vectorIhSaIhE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_binaryIhEEbNS1_14input_format_tET_RNS0_27byte_container_with_subtypeISE_EE.argelim(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, i8 noundef zeroext %len, ptr nocapture noundef nonnull align 8 dereferenceable(33) %result) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_binaryIhEEbNS1_14input_format_tET_RNS0_27byte_container_with_subtypeISE_EE(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, i8 noundef zeroext %len, ptr nocapture noundef nonnull align 8 dereferenceable(33) %result) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp5 = icmp eq i8 %len, 0
   br i1 %cmp5, label %for.end, label %for.body.lr.ph
@@ -137075,7 +137075,7 @@ if.then.i.i:                                      ; preds = %for.body
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit: ; preds = %for.body, %if.then.i.i
   %retval.0.i.i = phi i64 [ %conv.i.i.i, %if.then.i.i ], [ -1, %for.body ]
   store i64 %retval.0.i.i, ptr %current.i, align 8
-  %call3 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.171)
+  %call3 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.171)
   br i1 %call3, label %if.end, label %for.end
 
 if.end:                                           ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit
@@ -137156,7 +137156,7 @@ for.end:                                          ; preds = %_ZNSt6vectorIhSaIhE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_binaryItEEbNS1_14input_format_tET_RNS0_27byte_container_with_subtypeISE_EE.argelim(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, i16 noundef zeroext %len, ptr nocapture noundef nonnull align 8 dereferenceable(33) %result) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_binaryItEEbNS1_14input_format_tET_RNS0_27byte_container_with_subtypeISE_EE(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, i16 noundef zeroext %len, ptr nocapture noundef nonnull align 8 dereferenceable(33) %result) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp5 = icmp eq i16 %len, 0
   br i1 %cmp5, label %for.end, label %for.body.lr.ph
@@ -137189,7 +137189,7 @@ if.then.i.i:                                      ; preds = %for.body
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit: ; preds = %for.body, %if.then.i.i
   %retval.0.i.i = phi i64 [ %conv.i.i.i, %if.then.i.i ], [ -1, %for.body ]
   store i64 %retval.0.i.i, ptr %current.i, align 8
-  %call3 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.171)
+  %call3 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.171)
   br i1 %call3, label %if.end, label %for.end
 
 if.end:                                           ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit
@@ -137270,7 +137270,7 @@ for.end:                                          ; preds = %_ZNSt6vectorIhSaIhE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_binaryImEEbNS1_14input_format_tET_RNS0_27byte_container_with_subtypeISE_EE.argelim(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %len, ptr nocapture noundef nonnull align 8 dereferenceable(33) %result) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_binaryImEEbNS1_14input_format_tET_RNS0_27byte_container_with_subtypeISE_EE(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %len, ptr nocapture noundef nonnull align 8 dereferenceable(33) %result) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp5 = icmp eq i64 %len, 0
   br i1 %cmp5, label %for.end, label %for.body.lr.ph
@@ -137303,7 +137303,7 @@ if.then.i.i:                                      ; preds = %for.body
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit: ; preds = %for.body, %if.then.i.i
   %retval.0.i.i = phi i64 [ %conv.i.i.i, %if.then.i.i ], [ -1, %for.body ]
   store i64 %retval.0.i.i, ptr %current.i, align 8
-  %call2 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.171)
+  %call2 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.171)
   br i1 %call2, label %if.end, label %for.end
 
 if.end:                                           ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit
@@ -137384,7 +137384,7 @@ for.end:                                          ; preds = %_ZNSt6vectorIhSaIhE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_stringIjEEbNS1_14input_format_tET_RSB_.argelim(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, i32 noundef %len, ptr noundef nonnull align 8 dereferenceable(32) %result) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_stringIjEEbNS1_14input_format_tET_RSB_(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, i32 noundef %len, ptr noundef nonnull align 8 dereferenceable(32) %result) unnamed_addr #4 align 2 {
 entry:
   %cmp2 = icmp eq i32 %len, 0
   br i1 %cmp2, label %for.end, label %for.body.lr.ph
@@ -137415,7 +137415,7 @@ if.then.i.i:                                      ; preds = %for.body
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit: ; preds = %for.body, %if.then.i.i
   %retval.0.i.i = phi i64 [ %conv.i.i.i, %if.then.i.i ], [ -1, %for.body ]
   store i64 %retval.0.i.i, ptr %current.i, align 8
-  %call2 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.134)
+  %call2 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.134)
   br i1 %call2, label %if.end, label %for.end
 
 if.end:                                           ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit
@@ -137432,7 +137432,7 @@ for.end:                                          ; preds = %if.end, %_ZN8nlohma
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_stringIhEEbNS1_14input_format_tET_RSB_.argelim(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, i8 noundef zeroext %len, ptr noundef nonnull align 8 dereferenceable(32) %result) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_stringIhEEbNS1_14input_format_tET_RSB_(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, i8 noundef zeroext %len, ptr noundef nonnull align 8 dereferenceable(32) %result) unnamed_addr #4 align 2 {
 entry:
   %cmp2 = icmp eq i8 %len, 0
   br i1 %cmp2, label %for.end, label %for.body.lr.ph
@@ -137463,7 +137463,7 @@ if.then.i.i:                                      ; preds = %for.body
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit: ; preds = %for.body, %if.then.i.i
   %retval.0.i.i = phi i64 [ %conv.i.i.i, %if.then.i.i ], [ -1, %for.body ]
   store i64 %retval.0.i.i, ptr %current.i, align 8
-  %call3 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.134)
+  %call3 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.134)
   br i1 %call3, label %if.end, label %for.end
 
 if.end:                                           ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit
@@ -137480,7 +137480,7 @@ for.end:                                          ; preds = %if.end, %_ZN8nlohma
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_stringItEEbNS1_14input_format_tET_RSB_.argelim(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, i16 noundef zeroext %len, ptr noundef nonnull align 8 dereferenceable(32) %result) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_stringItEEbNS1_14input_format_tET_RSB_(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, i16 noundef zeroext %len, ptr noundef nonnull align 8 dereferenceable(32) %result) unnamed_addr #4 align 2 {
 entry:
   %cmp2 = icmp eq i16 %len, 0
   br i1 %cmp2, label %for.end, label %for.body.lr.ph
@@ -137511,7 +137511,7 @@ if.then.i.i:                                      ; preds = %for.body
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit: ; preds = %for.body, %if.then.i.i
   %retval.0.i.i = phi i64 [ %conv.i.i.i, %if.then.i.i ], [ -1, %for.body ]
   store i64 %retval.0.i.i, ptr %current.i, align 8
-  %call3 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.134)
+  %call3 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.134)
   br i1 %call3, label %if.end, label %for.end
 
 if.end:                                           ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit
@@ -137528,7 +137528,7 @@ for.end:                                          ; preds = %if.end, %_ZN8nlohma
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_stringImEEbNS1_14input_format_tET_RSB_.argelim(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %len, ptr noundef nonnull align 8 dereferenceable(32) %result) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_stringImEEbNS1_14input_format_tET_RSB_(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %len, ptr noundef nonnull align 8 dereferenceable(32) %result) unnamed_addr #4 align 2 {
 entry:
   %cmp2 = icmp eq i64 %len, 0
   br i1 %cmp2, label %for.end, label %for.body.lr.ph
@@ -137559,7 +137559,7 @@ if.then.i.i:                                      ; preds = %for.body
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit: ; preds = %for.body, %if.then.i.i
   %retval.0.i.i = phi i64 [ %conv.i.i.i, %if.then.i.i ], [ -1, %for.body ]
   store i64 %retval.0.i.i, ptr %current.i, align 8
-  %call2 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc.argelim(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.134)
+  %call2 = tail call fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef @.str.134)
   br i1 %call2, label %if.end, label %for.end
 
 if.end:                                           ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit
@@ -223502,8 +223502,8 @@ attributes #38 = { nounwind willreturn memory(none) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN7doctest6detail16MakeContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EENS0_12ContextScopeIT_EERKS5_.argprom: %agg.result"}
-!7 = distinct !{!7, !"_ZN7doctest6detail16MakeContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EENS0_12ContextScopeIT_EERKS5_.argprom"}
+!6 = distinct !{!6, !7, !"_ZN7doctest6detail16MakeContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EENS0_12ContextScopeIT_EERKS5_: %agg.result"}
+!7 = distinct !{!7, !"_ZN7doctest6detail16MakeContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EENS0_12ContextScopeIT_EERKS5_"}
 !8 = !{!9}
 !9 = distinct !{!9, !10, !"_ZN7doctest6detail20ExpressionDecomposerlsIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS4_14adl_serializerES7_IhSaIhEEvEEEENS0_14Expression_lhsIT_EEOSJ_: %agg.result"}
 !10 = distinct !{!10, !"_ZN7doctest6detail20ExpressionDecomposerlsIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS4_14adl_serializerES7_IhSaIhEEvEEEENS0_14Expression_lhsIT_EEOSJ_"}
@@ -224405,11 +224405,11 @@ attributes #38 = { nounwind willreturn memory(none) }
 !906 = distinct !{!906, !"_ZN8nlohmann16json_abi_v3_11_36detail10make_arrayImJccccccccEEESt5arrayIT_XsZT0_EEDpOT0_"}
 !907 = distinct !{!907, !54}
 !908 = !{!909}
-!909 = distinct !{!909, !910, !"_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv.argprom: %agg.result"}
-!910 = distinct !{!910, !"_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv.argprom"}
+!909 = distinct !{!909, !910, !"_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv: %agg.result"}
+!910 = distinct !{!910, !"_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv"}
 !911 = !{!912}
-!912 = distinct !{!912, !913, !"_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv.argprom: %agg.result"}
-!913 = distinct !{!913, !"_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv.argprom"}
+!912 = distinct !{!912, !913, !"_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv: %agg.result"}
+!913 = distinct !{!913, !"_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv"}
 !914 = distinct !{!914, !54}
 !915 = distinct !{!915, !54}
 !916 = !{!917}
@@ -224828,8 +224828,8 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1329 = distinct !{!1329, !"_ZN7doctest8toStringIA2_cTnNS_6detail5types9enable_ifIXntsr6detail35should_stringify_as_underlying_typeIT_EE5valueEbE4typeELb1EEENS_6StringERKS5_"}
 !1330 = distinct !{!1330, !54}
 !1331 = !{!1332}
-!1332 = distinct !{!1332, !1333, !"_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv.argprom: %agg.result"}
-!1333 = distinct !{!1333, !"_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv.argprom"}
+!1332 = distinct !{!1332, !1333, !"_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv: %agg.result"}
+!1333 = distinct !{!1333, !"_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE16get_token_stringEv"}
 !1334 = distinct !{!1334, !54}
 !1335 = distinct !{!1335, !54}
 !1336 = distinct !{!1336, !54}

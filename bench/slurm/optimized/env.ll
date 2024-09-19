@@ -5290,14 +5290,14 @@ env_array_free.exit:                              ; preds = %176, %._crit_edge.i
 239:                                              ; preds = %234
   %240 = call i32 @xstrcmp(ptr noundef nonnull %8, ptr noundef nonnull @.str.167) #18
   %241 = icmp eq i32 %240, 0
-  br i1 %241, label %_env_array_entry_splitter.exit.thread, label %_discard_env.argprom.exit
+  br i1 %241, label %_env_array_entry_splitter.exit.thread, label %_discard_env.exit
 
-_discard_env.argprom.exit:                        ; preds = %239
+_discard_env.exit:                                ; preds = %239
   %242 = call i32 @xstrcmp(ptr noundef nonnull %8, ptr noundef nonnull @.str.169) #18
   %243 = icmp eq i32 %242, 0
   br i1 %243, label %_env_array_entry_splitter.exit.thread, label %244
 
-244:                                              ; preds = %_discard_env.argprom.exit
+244:                                              ; preds = %_discard_env.exit
   %245 = load ptr, ptr %9, align 8
   %246 = load i8, ptr %245, align 1
   %247 = icmp eq i8 %246, 40
@@ -5362,7 +5362,7 @@ _bracket_cnt.exit:                                ; preds = %249
   %269 = call fastcc range(i32 0, 2) i32 @_env_array_update(ptr noundef nonnull %11, ptr noundef nonnull %8, ptr noundef %268, i1 noundef zeroext true)
   br label %_env_array_entry_splitter.exit.thread
 
-_env_array_entry_splitter.exit.thread:            ; preds = %234, %239, %226, %219, %215, %.loopexit, %_discard_env.argprom.exit
+_env_array_entry_splitter.exit.thread:            ; preds = %234, %239, %226, %219, %215, %.loopexit, %_discard_env.exit
   %270 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.180, ptr noundef nonnull %7) #18
   %.not77 = icmp eq ptr %270, null
   br i1 %.not77, label %._crit_edge, label %.lr.ph107, !llvm.loop !28
@@ -5526,14 +5526,14 @@ _strip_cr_nl.exit:                                ; preds = %_strip_cr_nl.exit.l
 55:                                               ; preds = %50
   %56 = call i32 @xstrcmp(ptr noundef nonnull %4, ptr noundef nonnull @.str.167) #18
   %57 = icmp eq i32 %56, 0
-  br i1 %57, label %_env_array_entry_splitter.exit.thread, label %_discard_env.argprom.exit
+  br i1 %57, label %_env_array_entry_splitter.exit.thread, label %_discard_env.exit
 
-_discard_env.argprom.exit:                        ; preds = %55
+_discard_env.exit:                                ; preds = %55
   %58 = call i32 @xstrcmp(ptr noundef nonnull %4, ptr noundef nonnull @.str.169) #18
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %_env_array_entry_splitter.exit.thread, label %60
 
-60:                                               ; preds = %_discard_env.argprom.exit
+60:                                               ; preds = %_discard_env.exit
   %61 = load ptr, ptr %5, align 8
   %62 = load i8, ptr %61, align 1
   %63 = icmp eq i8 %62, 40
@@ -5619,7 +5619,7 @@ _strip_cr_nl.exit19:                              ; preds = %.lr.ph.i15, %80, %7
   %87 = call fastcc range(i32 0, 2) i32 @_env_array_update(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %61, i1 noundef zeroext true)
   br label %_env_array_entry_splitter.exit.thread
 
-_env_array_entry_splitter.exit.thread:            ; preds = %50, %55, %42, %35, %_strip_cr_nl.exit, %.loopexit, %_discard_env.argprom.exit
+_env_array_entry_splitter.exit.thread:            ; preds = %50, %55, %42, %35, %_strip_cr_nl.exit, %.loopexit, %_discard_env.exit
   %88 = load ptr, ptr %3, align 8
   %89 = call ptr @fgets(ptr noundef %88, i32 noundef 262144, ptr noundef nonnull %13)
   %.not6 = icmp eq ptr %89, null

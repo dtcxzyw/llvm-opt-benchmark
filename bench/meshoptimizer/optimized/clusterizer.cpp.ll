@@ -349,7 +349,7 @@ invoke.cont19:                                    ; preds = %for.end
   store i64 8, ptr %count.i.i, align 8
   %arrayidx.i125 = getelementptr inbounds i8, ptr %allocator, i64 56
   store ptr %call.i126, ptr %arrayidx.i125, align 8
-  %46 = tail call fastcc noundef i64 @_ZN7meshoptL11kdtreeBuildEmPNS_6KDNodeEmPKfmPjmm.argelim(i64 noundef 0, ptr noundef %call.i126, ptr noundef %call.i104, ptr noundef %call.i118, i64 noundef %div.i)
+  %46 = tail call fastcc noundef i64 @_ZN7meshoptL11kdtreeBuildEmPNS_6KDNodeEmPKfmPjmm(i64 noundef 0, ptr noundef %call.i126, ptr noundef %call.i104, ptr noundef %call.i118, i64 noundef %div.i)
   %47 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
   %call.i130 = invoke noundef ptr %47(i64 noundef %vertex_count)
           to label %invoke.cont25 unwind label %lpad
@@ -558,7 +558,7 @@ if.then41:                                        ; preds = %if.then, %for.cond2
   store float %mul2.i, ptr %arrayinit.element43, align 4
   store i32 -1, ptr %index, align 4
   store float 0x47EFFFFFE0000000, ptr %limit, align 4
-  call fastcc void @_ZN7meshoptL13kdtreeNearestEPNS_6KDNodeEjPKfmPKhS3_RjRf.argelim(ptr noundef %call.i126, i32 noundef 0, ptr noundef %call.i104, ptr noundef %call.i97, ptr noundef %position, ptr noundef nonnull align 4 dereferenceable(4) %index, ptr noundef nonnull align 4 dereferenceable(4) %limit)
+  call fastcc void @_ZN7meshoptL13kdtreeNearestEPNS_6KDNodeEjPKfmPKhS3_RjRf(ptr noundef %call.i126, i32 noundef 0, ptr noundef %call.i104, ptr noundef %call.i97, ptr noundef %position, ptr noundef nonnull align 4 dereferenceable(4) %index, ptr noundef nonnull align 4 dereferenceable(4) %limit)
   %68 = load i32, ptr %index, align 4
   %cmp48 = icmp eq i32 %68, -1
   br i1 %cmp48, label %for.end139, label %if.end50
@@ -688,7 +688,7 @@ if.then141:                                       ; preds = %for.end139
   %conv.i148 = zext i32 %add.i147 to i64
   %and1.i = and i64 %conv.i148, 3
   %tobool.not2.i = icmp eq i64 %and1.i, 0
-  br i1 %tobool.not2.i, label %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.argprom.exit, label %while.body.preheader.i
+  br i1 %tobool.not2.i, label %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit, label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %if.then141
   %scevgep.i = getelementptr i8, ptr %meshlet_triangles, i64 %conv.i148
@@ -699,16 +699,16 @@ while.body.preheader.i:                           ; preds = %if.then141
   %93 = and i64 %92, 3
   %94 = add nuw nsw i64 %93, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %94, i1 false)
-  br label %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.argprom.exit
+  br label %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit
 
-_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.argprom.exit: ; preds = %if.then141, %while.body.preheader.i
+_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit: ; preds = %if.then141, %while.body.preheader.i
   %inc143 = add i64 %meshlet_offset.0, 1
   %arrayidx144 = getelementptr inbounds %struct.meshopt_Meshlet, ptr %meshlets, i64 %meshlet_offset.0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx144, ptr noundef nonnull align 4 dereferenceable(16) %meshlet, i64 16, i1 false)
   br label %if.end145
 
-if.end145:                                        ; preds = %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.argprom.exit, %for.end139
-  %meshlet_offset.2 = phi i64 [ %inc143, %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.argprom.exit ], [ %meshlet_offset.0, %for.end139 ]
+if.end145:                                        ; preds = %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit, %for.end139
+  %meshlet_offset.2 = phi i64 [ %inc143, %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit ], [ %meshlet_offset.0, %for.end139 ]
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.body.i150, %if.end145
@@ -747,7 +747,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare float @sqrtf(float noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i64 @_ZN7meshoptL11kdtreeBuildEmPNS_6KDNodeEmPKfmPjmm.argelim(i64 noundef %offset, ptr nocapture noundef %nodes, ptr nocapture noundef readonly %points, ptr nocapture noundef %indices, i64 noundef %count) unnamed_addr #5 {
+define internal fastcc noundef i64 @_ZN7meshoptL11kdtreeBuildEmPNS_6KDNodeEmPKfmPjmm(i64 noundef %offset, ptr nocapture noundef %nodes, ptr nocapture noundef readonly %points, ptr nocapture noundef %indices, i64 noundef %count) unnamed_addr #5 {
 entry:
   %mean = alloca [3 x float], align 4
   %vars = alloca [3 x float], align 4
@@ -912,7 +912,7 @@ if.end42:                                         ; preds = %_ZN7meshoptL15kdtre
   %bf.set = or disjoint i32 %bf.clear, %cond31
   store i32 %bf.set, ptr %axis44, align 4
   %add45 = add i64 %offset.tr83, 1
-  %call46 = tail call fastcc noundef i64 @_ZN7meshoptL11kdtreeBuildEmPNS_6KDNodeEmPKfmPjmm.argelim(i64 noundef %add45, ptr noundef %nodes, ptr noundef nonnull %points, ptr noundef nonnull %indices.tr84, i64 noundef %add9.i)
+  %call46 = tail call fastcc noundef i64 @_ZN7meshoptL11kdtreeBuildEmPNS_6KDNodeEmPKfmPjmm(i64 noundef %add45, ptr noundef %nodes, ptr noundef nonnull %points, ptr noundef nonnull %indices.tr84, i64 noundef %add9.i)
   %19 = xor i64 %offset.tr83, -1
   %sub48 = add i64 %call46, %19
   %conv49 = trunc i64 %sub48 to i32
@@ -1237,7 +1237,7 @@ if.end103:                                        ; preds = %if.then102, %for.en
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN7meshoptL13kdtreeNearestEPNS_6KDNodeEjPKfmPKhS3_RjRf.argelim(ptr nocapture noundef readonly %nodes, i32 noundef %root, ptr nocapture noundef readonly %points, ptr nocapture noundef readonly %emitted_flags, ptr nocapture noundef nonnull readonly %position, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, ptr nocapture noundef nonnull align 4 dereferenceable(4) %limit) unnamed_addr #5 {
+define internal fastcc void @_ZN7meshoptL13kdtreeNearestEPNS_6KDNodeEjPKfmPKhS3_RjRf(ptr nocapture noundef readonly %nodes, i32 noundef %root, ptr nocapture noundef readonly %points, ptr nocapture noundef readonly %emitted_flags, ptr nocapture noundef nonnull readonly %position, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, ptr nocapture noundef nonnull align 4 dereferenceable(4) %limit) unnamed_addr #5 {
 entry:
   %idxprom47 = zext i32 %root to i64
   %arrayidx48 = getelementptr inbounds %"struct.meshopt::KDNode", ptr %nodes, i64 %idxprom47
@@ -1318,7 +1318,7 @@ if.else:                                          ; preds = %entry, %if.then47
   %cond = select i1 %cmp37, i32 %bf.lshr40, i32 0
   %add44 = add i32 %root.tr53, 1
   %add45 = add i32 %cond, %add44
-  tail call fastcc void @_ZN7meshoptL13kdtreeNearestEPNS_6KDNodeEjPKfmPKhS3_RjRf.argelim(ptr noundef nonnull %nodes, i32 noundef %add45, ptr noundef %points, ptr noundef %emitted_flags, ptr noundef %position, ptr noundef nonnull align 4 dereferenceable(4) %result, ptr noundef nonnull align 4 dereferenceable(4) %limit)
+  tail call fastcc void @_ZN7meshoptL13kdtreeNearestEPNS_6KDNodeEjPKfmPKhS3_RjRf(ptr noundef nonnull %nodes, i32 noundef %add45, ptr noundef %points, ptr noundef %emitted_flags, ptr noundef %position, ptr noundef nonnull align 4 dereferenceable(4) %result, ptr noundef nonnull align 4 dereferenceable(4) %limit)
   %16 = tail call float @llvm.fabs.f32(float %sub36)
   %17 = load float, ptr %limit, align 4
   %cmp46 = fcmp ugt float %16, %17
@@ -1404,7 +1404,7 @@ for.end:                                          ; preds = %for.body, %if.then
   %conv.i = zext i32 %add.i to i64
   %and1.i = and i64 %conv.i, 3
   %tobool.not2.i = icmp eq i64 %and1.i, 0
-  br i1 %tobool.not2.i, label %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.argprom.exit, label %while.body.preheader.i
+  br i1 %tobool.not2.i, label %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit, label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %for.end
   %scevgep.i = getelementptr i8, ptr %meshlet_triangles, i64 %conv.i
@@ -1419,9 +1419,9 @@ while.body.preheader.i:                           ; preds = %for.end
   %.pre55 = load i32, ptr %triangle_count, align 4
   %.pre56 = load i32, ptr %11, align 4
   %.pre58 = mul i32 %.pre55, 3
-  br label %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.argprom.exit
+  br label %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit
 
-_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.argprom.exit: ; preds = %for.end, %while.body.preheader.i
+_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit: ; preds = %for.end, %while.body.preheader.i
   %mul.pre-phi = phi i32 [ %mul.i, %for.end ], [ %.pre58, %while.body.preheader.i ]
   %18 = phi i32 [ %meshlet.val, %for.end ], [ %.pre56, %while.body.preheader.i ]
   %19 = phi i32 [ %10, %for.end ], [ %.pre, %while.body.preheader.i ]
@@ -1437,9 +1437,9 @@ _ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.argprom.exit: ; preds = %for.en
   %.pre57 = load i8, ptr %arrayidx, align 1
   br label %if.end
 
-if.end:                                           ; preds = %entry, %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.argprom.exit
-  %21 = phi i32 [ %3, %entry ], [ 0, %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.argprom.exit ]
-  %22 = phi i8 [ %0, %entry ], [ %.pre57, %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.argprom.exit ]
+if.end:                                           ; preds = %entry, %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit
+  %21 = phi i32 [ %3, %entry ], [ 0, %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit ]
+  %22 = phi i8 [ %0, %entry ], [ %.pre57, %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit ]
   %cmp36 = icmp eq i8 %22, -1
   br i1 %cmp36, label %if.then37, label %if.end46
 
@@ -1614,7 +1614,7 @@ if.then:                                          ; preds = %for.end
   %conv.i = zext i32 %add.i to i64
   %and1.i = and i64 %conv.i, 3
   %tobool.not2.i = icmp eq i64 %and1.i, 0
-  br i1 %tobool.not2.i, label %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.argprom.exit, label %while.body.preheader.i
+  br i1 %tobool.not2.i, label %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit, label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %if.then
   %scevgep.i = getelementptr i8, ptr %meshlet_triangles, i64 %conv.i
@@ -1625,16 +1625,16 @@ while.body.preheader.i:                           ; preds = %if.then
   %10 = and i64 %9, 3
   %11 = add nuw nsw i64 %10, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %11, i1 false)
-  br label %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.argprom.exit
+  br label %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit
 
-_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.argprom.exit: ; preds = %if.then, %while.body.preheader.i
+_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit: ; preds = %if.then, %while.body.preheader.i
   %inc = add i64 %add7, 1
   %arrayidx10 = getelementptr inbounds %struct.meshopt_Meshlet, ptr %meshlets, i64 %add7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10, ptr noundef nonnull align 4 dereferenceable(16) %meshlet, i64 16, i1 false)
   br label %if.end
 
-if.end:                                           ; preds = %invoke.cont, %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.argprom.exit, %for.end
-  %meshlet_offset.1 = phi i64 [ %inc, %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.argprom.exit ], [ %add7, %for.end ], [ 0, %invoke.cont ]
+if.end:                                           ; preds = %invoke.cont, %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit, %for.end
+  %meshlet_offset.1 = phi i64 [ %inc, %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit ], [ %add7, %for.end ], [ 0, %invoke.cont ]
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.body.i, %if.end

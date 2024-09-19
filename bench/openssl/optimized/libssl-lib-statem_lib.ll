@@ -2420,14 +2420,14 @@ if.else:                                          ; preds = %if.then12
   %pha_context_len = getelementptr inbounds i8, ptr %sc, i64 2840
   %8 = load i64, ptr %pha_context_len, align 8
   %cmp.not.i = icmp eq i64 %8, %conv.i
-  br i1 %cmp.not.i, label %PACKET_equal.argprom.exit, label %if.then22
+  br i1 %cmp.not.i, label %PACKET_equal.exit, label %if.then22
 
-PACKET_equal.argprom.exit:                        ; preds = %if.else
+PACKET_equal.exit:                                ; preds = %if.else
   %call1.i = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull %add.ptr.i.i.i, ptr noundef nonnull %7, i64 noundef %conv.i) #11
   %cmp2.i.not = icmp eq i32 %call1.i, 0
   br i1 %cmp2.i.not, label %if.end31, label %if.then22
 
-if.then22:                                        ; preds = %if.else, %PACKET_equal.argprom.exit
+if.then22:                                        ; preds = %if.else, %PACKET_equal.exit
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1212, ptr noundef nonnull @__func__.tls_process_rpk) #11
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %sc, i32 noundef 50, i32 noundef 282, ptr noundef null) #11
@@ -2443,7 +2443,7 @@ if.then28:                                        ; preds = %if.else25
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %sc, i32 noundef 50, i32 noundef 282, ptr noundef null) #11
   br label %err
 
-if.end31:                                         ; preds = %PACKET_equal.argprom.exit, %if.then14, %if.else25, %land.lhs.true, %entry
+if.end31:                                         ; preds = %PACKET_equal.exit, %if.then14, %if.else25, %land.lhs.true, %entry
   %9 = getelementptr i8, ptr %pkt, i64 8
   %pkt.val.i.i = load i64, ptr %9, align 8
   %cmp.i.i = icmp ult i64 %pkt.val.i.i, 3

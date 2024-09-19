@@ -635,7 +635,7 @@ is_protected_compatible_scope.exit.thread:        ; preds = %57, %is_protected_c
 
 56:                                               ; preds = %is_protected_compatible_scope.exit.thread
   %.val = load i32, ptr %22, align 4
-  tail call fastcc void @zend_bad_property_access.argprom(i32 %.val, ptr noundef %0, ptr noundef %1)
+  tail call fastcc void @zend_bad_property_access(i32 %.val, ptr noundef %0, ptr noundef %1)
   br label %72
 
 57:                                               ; preds = %52
@@ -742,7 +742,7 @@ define internal fastcc ptr @zend_get_parent_private_property(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_bad_property_access.argprom(i32 %.4.val, ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @zend_bad_property_access(i32 %.4.val, ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @zend_visibility_string(i32 noundef %.4.val) #15
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -1282,7 +1282,7 @@ is_protected_compatible_scope.exit.thread:        ; preds = %87, %is_protected_c
 
 86:                                               ; preds = %is_protected_compatible_scope.exit.thread
   %.val380 = load i32, ptr %50, align 4
-  tail call fastcc void @zend_bad_property_access.argprom(i32 %.val380, ptr noundef %10, ptr noundef %1)
+  tail call fastcc void @zend_bad_property_access(i32 %.val380, ptr noundef %10, ptr noundef %1)
   br label %.thread.thread431
 
 87:                                               ; preds = %82
@@ -1890,7 +1890,7 @@ is_protected_compatible_scope.exit.thread403:     ; preds = %91, %zend_get_paren
 
 is_protected_compatible_scope.exit399.thread:     ; preds = %374, %372, %is_protected_compatible_scope.exit399
   %.val = load i32, ptr %349, align 4
-  tail call fastcc void @zend_bad_property_access.argprom(i32 %.val, ptr noundef %331, ptr noundef %1)
+  tail call fastcc void @zend_bad_property_access(i32 %.val, ptr noundef %331, ptr noundef %1)
   br label %387
 
 374:                                              ; preds = %370
@@ -2195,7 +2195,7 @@ is_protected_compatible_scope.exit.thread:        ; preds = %81, %is_protected_c
 
 80:                                               ; preds = %is_protected_compatible_scope.exit.thread
   %.val = load i32, ptr %44, align 4
-  tail call fastcc void @zend_bad_property_access.argprom(i32 %.val, ptr noundef %9, ptr noundef %1)
+  tail call fastcc void @zend_bad_property_access(i32 %.val, ptr noundef %9, ptr noundef %1)
   br label %.thread.thread449
 
 81:                                               ; preds = %76
@@ -4054,7 +4054,7 @@ is_protected_compatible_scope.exit.thread:        ; preds = %78, %is_protected_c
 
 77:                                               ; preds = %is_protected_compatible_scope.exit.thread
   %.val = load i32, ptr %41, align 4
-  tail call fastcc void @zend_bad_property_access.argprom(i32 %.val, ptr noundef %6, ptr noundef %1)
+  tail call fastcc void @zend_bad_property_access(i32 %.val, ptr noundef %6, ptr noundef %1)
   br label %.thread.thread190
 
 78:                                               ; preds = %73
@@ -4517,7 +4517,7 @@ is_protected_compatible_scope.exit.thread:        ; preds = %79, %is_protected_c
 
 78:                                               ; preds = %is_protected_compatible_scope.exit.thread
   %.val = load i32, ptr %42, align 4
-  tail call fastcc void @zend_bad_property_access.argprom(i32 %.val, ptr noundef %7, ptr noundef %1)
+  tail call fastcc void @zend_bad_property_access(i32 %.val, ptr noundef %7, ptr noundef %1)
   br label %.thread.thread188
 
 79:                                               ; preds = %74

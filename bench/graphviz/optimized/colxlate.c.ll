@@ -2564,7 +2564,7 @@ define ptr @canontoken(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
 11:                                               ; preds = %8
   %12 = load ptr, ptr @stderr, align 8
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.6, i64 noundef %5) #23
-  tail call fastcc void @graphviz_exit.argelim() #24
+  tail call fastcc void @graphviz_exit() #24
   unreachable
 
 14:                                               ; preds = %8
@@ -2698,8 +2698,8 @@ define range(i32 -1, 2) i32 @colorxlate(ptr noundef %0, ptr noundef writeonly %1
     i32 3, label %104
     i32 2, label %137
     i32 4, label %153
-    i32 5, label %agxbfree.argprom.exit
-    i32 6, label %agxbfree.argprom.exit
+    i32 5, label %agxbfree.exit
+    i32 6, label %agxbfree.exit
   ]
 
 42:                                               ; preds = %41
@@ -2778,7 +2778,7 @@ rgb2hsv.exit:                                     ; preds = %42, %83, %86
   store double %58, ptr %90, align 8
   %91 = getelementptr inbounds i8, ptr %1, i64 24
   store double %54, ptr %91, align 8
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
 92:                                               ; preds = %41
   %93 = load i32, ptr %9, align 4
@@ -2796,7 +2796,7 @@ rgb2hsv.exit:                                     ; preds = %42, %83, %86
   %102 = trunc i32 %101 to i8
   %103 = getelementptr inbounds i8, ptr %1, i64 3
   store i8 %102, ptr %103, align 1
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
 104:                                              ; preds = %41
   %105 = load i32, ptr %9, align 4
@@ -2835,7 +2835,7 @@ rgb2hsv.exit:                                     ; preds = %42, %83, %86
   %135 = sub i8 0, %134
   %136 = getelementptr inbounds i8, ptr %1, i64 3
   store i8 %135, ptr %136, align 1
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
 137:                                              ; preds = %41
   %138 = load i32, ptr %9, align 4
@@ -2857,7 +2857,7 @@ rgb2hsv.exit:                                     ; preds = %42, %83, %86
   %151 = udiv i32 %150, 255
   %152 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 %151, ptr %152, align 4
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
 153:                                              ; preds = %41
   %154 = load i32, ptr %9, align 4
@@ -2879,7 +2879,7 @@ rgb2hsv.exit:                                     ; preds = %42, %83, %86
   %167 = fdiv double %166, 2.550000e+02
   %168 = getelementptr inbounds i8, ptr %1, i64 24
   store double %167, ptr %168, align 8
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
 169:                                              ; preds = %41
   %170 = load ptr, ptr @stderr, align 8
@@ -2894,7 +2894,7 @@ rgb2hsv.exit:                                     ; preds = %42, %83, %86
   %175 = add nsw i32 %174, -48
   %176 = icmp ult i32 %175, 10
   %or.cond = select i1 %173, i1 true, i1 %176
-  br i1 %or.cond, label %177, label %agxbfree.argprom.exit137
+  br i1 %or.cond, label %177, label %agxbfree.exit137
 
 177:                                              ; preds = %.thread193
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
@@ -3354,28 +3354,28 @@ hsv2rgb.exit136:                                  ; preds = %361, %363, %378, %3
   unreachable
 
 392:                                              ; preds = %220, %220, %hsv2rgb.exit136, %hsv2rgb.exit132, %hsv2rgb.exit128, %hsv2rgb.exit, %233
-  br i1 %.val.i4.pr.i215, label %393, label %agxbfree.argprom.exit
+  br i1 %.val.i4.pr.i215, label %393, label %agxbfree.exit
 
 393:                                              ; preds = %392
   %.val = load ptr, ptr %13, align 8
   call void @free(ptr noundef %.val) #21
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
 394:                                              ; preds = %agxbuse.exit
-  br i1 %.val.i4.pr.i215, label %395, label %agxbfree.argprom.exit137
+  br i1 %.val.i4.pr.i215, label %395, label %agxbfree.exit137
 
 395:                                              ; preds = %394
   %.val122 = load ptr, ptr %13, align 8
   call void @free(ptr noundef %.val122) #21
-  br label %agxbfree.argprom.exit137
+  br label %agxbfree.exit137
 
-agxbfree.argprom.exit137:                         ; preds = %.thread193, %395, %394
+agxbfree.exit137:                                 ; preds = %.thread193, %395, %394
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %396 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0112, ptr noundef nonnull dereferenceable(6) @.str.7) #20
   %.not.i138 = icmp eq i32 %396, 0
   br i1 %.not.i138, label %resolveColor.exit, label %397
 
-397:                                              ; preds = %agxbfree.argprom.exit137
+397:                                              ; preds = %agxbfree.exit137
   %398 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0112, ptr noundef nonnull dereferenceable(6) @.str.8) #20
   %.not25.i = icmp eq i32 %398, 0
   br i1 %.not25.i, label %resolveColor.exit, label %399
@@ -3448,7 +3448,7 @@ agxbfree.argprom.exit137:                         ; preds = %.thread193, %395, %
   br i1 %.not29.i, label %fullColor.exit.i, label %agxbsizeof.exit.i.i.i.i
 
 agxbsizeof.exit.i.i.i.i:                          ; preds = %427
-  call void (ptr, ptr, ...) @agxbprint.argelim(ptr noundef %4, ptr nonnull poison, ptr noundef nonnull %424, ptr noundef nonnull %.0112)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr nonnull poison, ptr noundef nonnull %424, ptr noundef nonnull %.0112)
   %429 = getelementptr inbounds i8, ptr %4, i64 31
   %.val.i.i.i.i.i = load i8, ptr %429, align 1
   %.not.i.i.i.i.i = icmp eq i8 %.val.i.i.i.i.i, -1
@@ -3515,11 +3515,11 @@ fullColor.exit.i:                                 ; preds = %445, %agxbclear.exi
   call void @free(ptr noundef %.val.i) #21
   br label %resolveColor.exit
 
-resolveColor.exit:                                ; preds = %agxbfree.argprom.exit137, %397, %399, %fullColor.exit.i, %450
-  %.0.i139 = phi ptr [ %.0112, %agxbfree.argprom.exit137 ], [ %.0112, %397 ], [ %.0112, %399 ], [ %447, %fullColor.exit.i ], [ %447, %450 ]
+resolveColor.exit:                                ; preds = %agxbfree.exit137, %397, %399, %fullColor.exit.i, %450
+  %.0.i139 = phi ptr [ %.0112, %agxbfree.exit137 ], [ %.0112, %397 ], [ %.0112, %399 ], [ %447, %fullColor.exit.i ], [ %447, %450 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %.not118 = icmp eq ptr %.0.i139, null
-  br i1 %.not118, label %agxbfree.argprom.exit, label %451
+  br i1 %.not118, label %agxbfree.exit, label %451
 
 451:                                              ; preds = %resolveColor.exit
   %452 = load ptr, ptr @colorxlate.last, align 8
@@ -3546,8 +3546,8 @@ thread-pre-split.thread:                          ; preds = %454, %thread-pre-sp
     i32 3, label %491
     i32 2, label %527
     i32 4, label %547
-    i32 5, label %agxbfree.argprom.exit
-    i32 6, label %agxbfree.argprom.exit
+    i32 5, label %agxbfree.exit
+    i32 6, label %agxbfree.exit
   ]
 
 459:                                              ; preds = %thread-pre-split.thread
@@ -3574,7 +3574,7 @@ thread-pre-split.thread:                          ; preds = %454, %thread-pre-sp
   %477 = fdiv double %476, 2.550000e+02
   %478 = getelementptr inbounds i8, ptr %1, i64 24
   store double %477, ptr %478, align 8
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
 479:                                              ; preds = %thread-pre-split.thread
   %480 = getelementptr inbounds i8, ptr %458, i64 11
@@ -3592,7 +3592,7 @@ thread-pre-split.thread:                          ; preds = %454, %thread-pre-sp
   %489 = load i8, ptr %488, align 2
   %490 = getelementptr inbounds i8, ptr %1, i64 3
   store i8 %489, ptr %490, align 1
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
 491:                                              ; preds = %thread-pre-split.thread
   %492 = getelementptr inbounds i8, ptr %458, i64 11
@@ -3634,7 +3634,7 @@ thread-pre-split.thread:                          ; preds = %454, %thread-pre-sp
   %525 = sub i8 0, %524
   %526 = getelementptr inbounds i8, ptr %1, i64 3
   store i8 %525, ptr %526, align 1
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
 527:                                              ; preds = %thread-pre-split.thread
   %528 = getelementptr inbounds i8, ptr %458, i64 11
@@ -3660,7 +3660,7 @@ thread-pre-split.thread:                          ; preds = %454, %thread-pre-sp
   %545 = mul nuw nsw i32 %544, 257
   %546 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 %545, ptr %546, align 4
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
 547:                                              ; preds = %thread-pre-split.thread
   %548 = getelementptr inbounds i8, ptr %458, i64 11
@@ -3686,7 +3686,7 @@ thread-pre-split.thread:                          ; preds = %454, %thread-pre-sp
   %565 = fdiv double %564, 2.550000e+02
   %566 = getelementptr inbounds i8, ptr %1, i64 24
   store double %565, ptr %566, align 8
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
 567:                                              ; preds = %thread-pre-split.thread
   %568 = load ptr, ptr @stderr, align 8
@@ -3701,15 +3701,15 @@ thread-pre-split.thread:                          ; preds = %454, %thread-pre-sp
     i32 3, label %577
     i32 2, label %578
     i32 4, label %582
-    i32 5, label %agxbfree.argprom.exit
-    i32 6, label %agxbfree.argprom.exit
+    i32 5, label %agxbfree.exit
+    i32 6, label %agxbfree.exit
   ]
 
 571:                                              ; preds = %570
   %572 = getelementptr inbounds i8, ptr %1, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   store double 1.000000e+00, ptr %572, align 8
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
 573:                                              ; preds = %570
   %574 = getelementptr inbounds i8, ptr %1, i64 2
@@ -3719,11 +3719,11 @@ thread-pre-split.thread:                          ; preds = %454, %thread-pre-sp
   store i8 0, ptr %1, align 8
   %576 = getelementptr inbounds i8, ptr %1, i64 3
   store i8 -1, ptr %576, align 1
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
 577:                                              ; preds = %570
   store i32 0, ptr %1, align 8
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
 578:                                              ; preds = %570
   %579 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3733,13 +3733,13 @@ thread-pre-split.thread:                          ; preds = %454, %thread-pre-sp
   store i32 0, ptr %1, align 8
   %581 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 65535, ptr %581, align 4
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
 582:                                              ; preds = %570
   %583 = getelementptr inbounds i8, ptr %1, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   store double 1.000000e+00, ptr %583, align 8
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
 584:                                              ; preds = %570
   %585 = load ptr, ptr @stderr, align 8
@@ -3747,7 +3747,7 @@ thread-pre-split.thread:                          ; preds = %454, %thread-pre-sp
   call void @abort() #25
   unreachable
 
-agxbfree.argprom.exit:                            ; preds = %393, %392, %571, %573, %577, %578, %582, %570, %570, %459, %479, %491, %527, %547, %thread-pre-split.thread, %thread-pre-split.thread, %resolveColor.exit, %rgb2hsv.exit, %92, %104, %137, %153, %41, %41
+agxbfree.exit:                                    ; preds = %393, %392, %571, %573, %577, %578, %582, %570, %570, %459, %479, %491, %527, %547, %thread-pre-split.thread, %thread-pre-split.thread, %resolveColor.exit, %rgb2hsv.exit, %92, %104, %137, %153, %41, %41
   %.0 = phi i32 [ 0, %41 ], [ 0, %41 ], [ 0, %153 ], [ 0, %137 ], [ 0, %104 ], [ 0, %92 ], [ 0, %rgb2hsv.exit ], [ -1, %resolveColor.exit ], [ 0, %thread-pre-split.thread ], [ 0, %thread-pre-split.thread ], [ 0, %547 ], [ 0, %527 ], [ 0, %491 ], [ 0, %479 ], [ 0, %459 ], [ 1, %570 ], [ 1, %570 ], [ 1, %582 ], [ 1, %578 ], [ 1, %577 ], [ 1, %573 ], [ 1, %571 ], [ 0, %392 ], [ 0, %393 ]
   ret i32 %.0
 }
@@ -3798,7 +3798,7 @@ define ptr @setColorScheme(ptr noundef readonly %0) local_unnamed_addr #9 {
   %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #20
   %10 = add i64 %9, 1
   %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.6, i64 noundef %10) #23
-  tail call fastcc void @graphviz_exit.argelim() #24
+  tail call fastcc void @graphviz_exit() #24
   unreachable
 
 gv_strdup.exit:                                   ; preds = %4, %1
@@ -3808,7 +3808,7 @@ gv_strdup.exit:                                   ; preds = %4, %1
 }
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #10 {
+define internal fastcc void @graphviz_exit() unnamed_addr #10 {
   tail call void @exit(i32 noundef 1) #26
   unreachable
 }
@@ -3854,7 +3854,7 @@ agxbsizeof.exit:                                  ; preds = %2
 15:                                               ; preds = %12
   %16 = load ptr, ptr @stderr, align 8
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.6, i64 noundef %spec.select33) #23
-  tail call fastcc void @graphviz_exit.argelim() #24
+  tail call fastcc void @graphviz_exit() #24
   unreachable
 
 18:                                               ; preds = %12
@@ -3877,7 +3877,7 @@ agxbsizeof.exit:                                  ; preds = %2
 27:                                               ; preds = %23
   %28 = load ptr, ptr @stderr, align 8
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.6, i64 noundef %spec.select) #23
-  tail call fastcc void @graphviz_exit.argelim() #24
+  tail call fastcc void @graphviz_exit() #24
   unreachable
 
 gv_calloc.exit:                                   ; preds = %23
@@ -3914,7 +3914,7 @@ declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @fullColor(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
-  tail call void (ptr, ptr, ...) @agxbprint.argelim(ptr noundef %0, ptr nonnull poison, ptr noundef nonnull %1, ptr noundef %2)
+  tail call void (ptr, ptr, ...) @agxbprint(ptr noundef %0, ptr nonnull poison, ptr noundef nonnull %1, ptr noundef %2)
   %4 = getelementptr i8, ptr %0, i64 31
   %.val.i.i.i = load i8, ptr %4, align 1
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
@@ -3989,7 +3989,7 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @agxbprint.argelim(ptr nocapture noundef nonnull %0, ptr nocapture readnone %1, ...) unnamed_addr #0 {
+define internal void @agxbprint(ptr nocapture noundef nonnull %0, ptr nocapture readnone %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -4002,7 +4002,7 @@ define internal void @agxbprint.argelim(ptr nocapture noundef nonnull %0, ptr no
 
 7:                                                ; preds = %2
   call void @llvm.va_end.p0(ptr nonnull %4)
-  br label %vagxbprint.argprom.exit
+  br label %vagxbprint.exit
 
 8:                                                ; preds = %2
   %narrow.i = add nuw i32 %5, 1
@@ -4057,7 +4057,7 @@ agxbnext.exit.i:                                  ; preds = %25, %22
   %30 = phi ptr [ %24, %22 ], [ %29, %25 ]
   %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef nonnull @.str.11, ptr noundef nonnull %4) #21
   %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %33, label %vagxbprint.argprom.exit
+  br i1 %32, label %33, label %vagxbprint.exit
 
 33:                                               ; preds = %agxbnext.exit.i
   %.val.i = load i8, ptr %10, align 1
@@ -4068,7 +4068,7 @@ agxbnext.exit.i:                                  ; preds = %25, %22
   %35 = trunc i32 %31 to i8
   %36 = add i8 %.val.i, %35
   store i8 %36, ptr %10, align 1
-  br label %vagxbprint.argprom.exit
+  br label %vagxbprint.exit
 
 37:                                               ; preds = %33
   %38 = zext nneg i32 %31 to i64
@@ -4076,9 +4076,9 @@ agxbnext.exit.i:                                  ; preds = %25, %22
   %40 = load i64, ptr %39, align 8
   %41 = add i64 %40, %38
   store i64 %41, ptr %39, align 8
-  br label %vagxbprint.argprom.exit
+  br label %vagxbprint.exit
 
-vagxbprint.argprom.exit:                          ; preds = %7, %agxbnext.exit.i, %34, %37
+vagxbprint.exit:                                  ; preds = %7, %agxbnext.exit.i, %34, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)
   ret void

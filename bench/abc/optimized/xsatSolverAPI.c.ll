@@ -575,7 +575,7 @@ define range(i32 0, 2) i32 @xSAT_SolverSimplify(ptr noundef %0) local_unnamed_ad
   %25 = getelementptr inbounds i32, ptr %.val45, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4
   %.not.i.i = icmp eq i32 %26, -1
-  br i1 %.not.i.i, label %xSAT_SolverReadClause.argprom.exit, label %27
+  br i1 %.not.i.i, label %xSAT_SolverReadClause.exit, label %27
 
 27:                                               ; preds = %22
   %.val46 = load ptr, ptr %0, align 8
@@ -583,9 +583,9 @@ define range(i32 0, 2) i32 @xSAT_SolverSimplify(ptr noundef %0) local_unnamed_ad
   %29 = load ptr, ptr %28, align 8
   %30 = sext i32 %26 to i64
   %31 = getelementptr inbounds i32, ptr %29, i64 %30
-  br label %xSAT_SolverReadClause.argprom.exit
+  br label %xSAT_SolverReadClause.exit
 
-xSAT_SolverReadClause.argprom.exit:               ; preds = %22, %27
+xSAT_SolverReadClause.exit:                       ; preds = %22, %27
   %32 = phi ptr [ %31, %27 ], [ null, %22 ]
   %33 = getelementptr inbounds i8, ptr %32, i64 8
   %34 = getelementptr inbounds i8, ptr %32, i64 4
@@ -593,7 +593,7 @@ xSAT_SolverReadClause.argprom.exit:               ; preds = %22, %27
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %.lr.ph.i, label %.loopexit
 
-.lr.ph.i:                                         ; preds = %xSAT_SolverReadClause.argprom.exit
+.lr.ph.i:                                         ; preds = %xSAT_SolverReadClause.exit
   %37 = load ptr, ptr %18, align 8
   %38 = getelementptr i8, ptr %37, i64 8
   %.val.i = load ptr, ptr %38, align 8
@@ -766,7 +766,7 @@ xSAT_WatchListRemove.exit69:                      ; preds = %127
   store i32 %140, ptr %133, align 4
   br label %144
 
-.loopexit:                                        ; preds = %39, %xSAT_SolverReadClause.argprom.exit
+.loopexit:                                        ; preds = %39, %xSAT_SolverReadClause.exit
   %141 = add nsw i32 %.04181, 1
   %142 = sext i32 %.04181 to i64
   %143 = getelementptr inbounds i32, ptr %.val45, i64 %142

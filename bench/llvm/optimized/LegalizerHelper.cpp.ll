@@ -14955,7 +14955,7 @@ define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm13createLibcallERNS_16Mach
 64:                                               ; preds = %55, %49
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %66 = load ptr, ptr %65, align 8
-  %67 = call fastcc noundef zeroext i1 @_ZL23isLibCallInTailPositionRKN4llvm12CallLowering7ArgInfoERNS_12MachineInstrERKNS_15TargetInstrInfoERNS_19MachineRegisterInfoE.argprom(ptr noundef nonnull align 8 dereferenceable(70) %7, ptr noundef nonnull align 8 dereferenceable(80) %66)
+  %67 = call fastcc noundef zeroext i1 @_ZL23isLibCallInTailPositionRKN4llvm12CallLowering7ArgInfoERNS_12MachineInstrERKNS_15TargetInstrInfoERNS_19MachineRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(70) %7, ptr noundef nonnull align 8 dereferenceable(80) %66)
   %68 = zext i1 %67 to i8
   br label %69
 
@@ -15034,7 +15034,7 @@ _ZSt4copyIPKN4llvm12CallLowering7ArgInfoESt20back_insert_iteratorINS0_11SmallVec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL23isLibCallInTailPositionRKN4llvm12CallLowering7ArgInfoERNS_12MachineInstrERKNS_15TargetInstrInfoERNS_19MachineRegisterInfoE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL23isLibCallInTailPositionRKN4llvm12CallLowering7ArgInfoERNS_12MachineInstrERKNS_15TargetInstrInfoERNS_19MachineRegisterInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::AttributeList", align 8
   %4 = alloca %"class.llvm::AttrBuilder", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -15663,7 +15663,7 @@ _ZN4llvm12CallLowering7ArgInfoD2Ev.exit47:        ; preds = %_ZN4llvm11SmallVect
 187:                                              ; preds = %_ZN4llvm12CallLowering7ArgInfoD2Ev.exit47
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %189 = load ptr, ptr %188, align 8
-  %190 = call fastcc noundef zeroext i1 @_ZL23isLibCallInTailPositionRKN4llvm12CallLowering7ArgInfoERNS_12MachineInstrERKNS_15TargetInstrInfoERNS_19MachineRegisterInfoE.argprom(ptr noundef nonnull align 8 dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(80) %189)
+  %190 = call fastcc noundef zeroext i1 @_ZL23isLibCallInTailPositionRKN4llvm12CallLowering7ArgInfoERNS_12MachineInstrERKNS_15TargetInstrInfoERNS_19MachineRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(80) %189)
   %191 = zext i1 %190 to i8
   br label %192
 
@@ -34009,7 +34009,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %139, %143, %146, %_
   %164 = call { i64, i64 } @_ZNK4llvm13LegalizerInfo9getActionERKNS_13LegalityQueryE(ptr noundef nonnull align 8 dereferenceable(121040) %.val.val, ptr noundef nonnull align 8 dereferenceable(40) %59) #18
   %165 = extractvalue { i64, i64 } %164, 0
   %.sroa.0.0.extract.trunc.i = trunc i64 %165 to i8
-  switch i8 %.sroa.0.0.extract.trunc.i, label %"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.argprom.argprom.exit" [
+  switch i8 %.sroa.0.0.extract.trunc.i, label %"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.exit" [
     i8 7, label %166
     i8 0, label %166
     i8 8, label %166
@@ -34113,13 +34113,13 @@ _ZNK4llvm3LLT17changeElementSizeEj.exit:          ; preds = %166, %185
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #18
   br label %_ZN4llvm5APIntD2Ev.exit268
 
-"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.argprom.argprom.exit": ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
+"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.exit": ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
   %.sroa.0131.0.copyload = load i32, ptr %130, align 8
   %210 = and i64 %157, 4294967295
   %or.cond.i202 = icmp eq i64 %210, 0
   br i1 %or.cond.i202, label %._crit_edge635, label %_ZN4llvm12PowerOf2CeilEm.exit
 
-_ZN4llvm12PowerOf2CeilEm.exit:                    ; preds = %"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.argprom.argprom.exit"
+_ZN4llvm12PowerOf2CeilEm.exit:                    ; preds = %"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.exit"
   %211 = add nsw i64 %210, -1
   %212 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %211, i1 false)
   %213 = sub nuw nsw i64 64, %212
@@ -34199,8 +34199,8 @@ _ZN4llvm12PowerOf2CeilEm.exit:                    ; preds = %"_ZZN4llvm15Legaliz
   %.not = icmp eq i32 %.highbits, 0
   br i1 %.not, label %._crit_edge635, label %220, !llvm.loop !184
 
-._crit_edge635:                                   ; preds = %220, %"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.argprom.argprom.exit", %_ZN4llvm12PowerOf2CeilEm.exit
-  %.sroa.0131.0.lcssa = phi i32 [ %.sroa.0131.0.copyload, %_ZN4llvm12PowerOf2CeilEm.exit ], [ %.sroa.0131.0.copyload, %"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.argprom.argprom.exit" ], [ %242, %220 ]
+._crit_edge635:                                   ; preds = %220, %"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.exit", %_ZN4llvm12PowerOf2CeilEm.exit
+  %.sroa.0131.0.lcssa = phi i32 [ %.sroa.0131.0.copyload, %_ZN4llvm12PowerOf2CeilEm.exit ], [ %.sroa.0131.0.copyload, %"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.exit" ], [ %242, %220 ]
   %244 = load ptr, ptr %0, align 8
   %.sroa.0120.0.copyload = load i64, ptr %129, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49)
@@ -34357,7 +34357,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit221:           ; preds = %290, %294, %297, %_
   %315 = call { i64, i64 } @_ZNK4llvm13LegalizerInfo9getActionERKNS_13LegalityQueryE(ptr noundef nonnull align 8 dereferenceable(121040) %.val197.val, ptr noundef nonnull align 8 dereferenceable(40) %74) #18
   %316 = extractvalue { i64, i64 } %315, 0
   %.sroa.0.0.extract.trunc.i224 = trunc i64 %316 to i8
-  switch i8 %.sroa.0.0.extract.trunc.i224, label %"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.argprom.argprom.exit225" [
+  switch i8 %.sroa.0.0.extract.trunc.i224, label %"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.exit225" [
     i8 7, label %317
     i8 0, label %317
     i8 8, label %317
@@ -34461,7 +34461,7 @@ _ZNK4llvm3LLT17changeElementSizeEj.exit232:       ; preds = %317, %336
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #18
   br label %_ZN4llvm5APIntD2Ev.exit268
 
-"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.argprom.argprom.exit225": ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit221
+"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.exit225": ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit221
   %361 = load ptr, ptr %0, align 8
   %.sroa.078.0.copyload = load i64, ptr %72, align 8
   store i64 %.sroa.078.0.copyload, ptr %85, align 8
@@ -34559,13 +34559,13 @@ _ZNK4llvm3LLT17changeElementSizeEj.exit232:       ; preds = %317, %336
   %393 = call { i64, i64 } @_ZNK4llvm13LegalizerInfo9getActionERKNS_13LegalityQueryE(ptr noundef nonnull align 8 dereferenceable(121040) %.val198.val, ptr noundef nonnull align 8 dereferenceable(40) %86) #18
   %394 = extractvalue { i64, i64 } %393, 0
   %.sroa.0.0.extract.trunc.i235 = trunc i64 %394 to i8
-  switch i8 %.sroa.0.0.extract.trunc.i235, label %"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.argprom.argprom.exit236" [
+  switch i8 %.sroa.0.0.extract.trunc.i235, label %"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.exit236" [
     i8 7, label %.critedge
     i8 0, label %.critedge
     i8 8, label %.critedge
   ]
 
-"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.argprom.argprom.exit236": ; preds = %"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.argprom.argprom.exit225"
+"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.exit236": ; preds = %"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.exit225"
   %395 = load i64, ptr %72, align 8
   store i64 %395, ptr %89, align 8
   %396 = getelementptr inbounds i8, ptr %89, i64 8
@@ -34587,7 +34587,7 @@ _ZNK4llvm3LLT17changeElementSizeEj.exit232:       ; preds = %317, %336
     i8 8, label %401
   ]
 
-401:                                              ; preds = %"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.argprom.argprom.exit236", %"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.argprom.argprom.exit236", %"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.argprom.argprom.exit236"
+401:                                              ; preds = %"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.exit236", %"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.exit236", %"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.exit236"
   %402 = load ptr, ptr %0, align 8
   %.sroa.072.0.copyload = load i64, ptr %72, align 8
   store i64 %.sroa.072.0.copyload, ptr %90, align 8
@@ -34646,7 +34646,7 @@ _ZNK4llvm3LLT17changeElementSizeEj.exit232:       ; preds = %317, %336
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #18
   br label %_ZN4llvm5APIntD2Ev.exit268
 
-.critedge:                                        ; preds = %"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.argprom.argprom.exit225", %"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.argprom.argprom.exit225", %"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.argprom.argprom.exit225", %"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.argprom.argprom.exit236"
+.critedge:                                        ; preds = %"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.exit225", %"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.exit225", %"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.exit225", %"_ZZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEENK3$_0clERKNS_13LegalityQueryE.exit236"
   %424 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %425 = load ptr, ptr %424, align 8
   %426 = load ptr, ptr %425, align 8
@@ -48355,7 +48355,7 @@ _ZNK4llvm12MachineInstr17memoperands_beginEv.exit: ; preds = %12, %14
   %.val74 = load ptr, ptr %70, align 8
   %71 = getelementptr i8, ptr %.val74, i64 572
   %.val74.val = load i32, ptr %71, align 4
-  %72 = call fastcc noundef zeroext i1 @_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.argprom.argprom(ptr %.val, i32 %.val74.val)
+  %72 = call fastcc noundef zeroext i1 @_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE(ptr %.val, i32 %.val74.val)
   %.in.v.i = select i1 %72, i64 408096, i64 408092
   %.in.i = getelementptr inbounds nuw i8, ptr %69, i64 %.in.v.i
   %73 = load i32, ptr %.in.i, align 4
@@ -62196,14 +62196,14 @@ define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper11lowerMe
 
 _ZNK4llvm6Triple10isOSDarwinEv.exit.i:            ; preds = %47
   %48 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %.val, i32 noundef 45) #18
-  br i1 %48, label %_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.argprom.argprom.exit, label %_ZNK4llvm8Function10hasOptSizeEv.exit.sink.split.i
+  br i1 %48, label %_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.exit, label %_ZNK4llvm8Function10hasOptSizeEv.exit.sink.split.i
 
 _ZNK4llvm8Function10hasOptSizeEv.exit.sink.split.i: ; preds = %_ZNK4llvm6Triple10isOSDarwinEv.exit.i, %47, %47, %47, %47, %47, %7
   %49 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %.val, i32 noundef 17) #18
   %50 = select i1 %49, i64 408088, i64 408084
-  br label %_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.argprom.argprom.exit
+  br label %_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.exit
 
-_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.argprom.argprom.exit: ; preds = %_ZNK4llvm6Triple10isOSDarwinEv.exit.i, %_ZNK4llvm8Function10hasOptSizeEv.exit.sink.split.i
+_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.exit: ; preds = %_ZNK4llvm6Triple10isOSDarwinEv.exit.i, %_ZNK4llvm8Function10hasOptSizeEv.exit.sink.split.i
   %.0.i = phi i64 [ 408088, %_ZNK4llvm6Triple10isOSDarwinEv.exit.i ], [ %50, %_ZNK4llvm8Function10hasOptSizeEv.exit.sink.split.i ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load ptr, ptr %51, align 8
@@ -62211,7 +62211,7 @@ _ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.argprom.argprom.exit: ;
   %.not = icmp eq ptr %53, null
   br i1 %.not, label %64, label %54
 
-54:                                               ; preds = %_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.argprom.argprom.exit
+54:                                               ; preds = %_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.exit
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 48
@@ -62224,8 +62224,8 @@ _ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.argprom.argprom.exit: ;
   %.not285 = select i1 %59, i1 true, i1 %63
   br label %64
 
-64:                                               ; preds = %54, %_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.argprom.argprom.exit
-  %.0128 = phi i1 [ false, %_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.argprom.argprom.exit ], [ %.not285, %54 ]
+64:                                               ; preds = %54, %_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.exit
+  %.0128 = phi i1 [ false, %_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.exit ], [ %.not285, %54 ]
   %.in.i = getelementptr inbounds nuw i8, ptr %38, i64 %.0.i
   %65 = load i32, ptr %.in.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
@@ -62302,7 +62302,7 @@ _ZNK4llvm5APInteqEm.exit.thread:                  ; preds = %_ZNK4llvm5APInt13ge
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 120
   %.sroa.0.0.copyload.i = load ptr, ptr %95, align 8
   store ptr %.sroa.0.0.copyload.i, ptr %12, align 8
-  %96 = call fastcc noundef zeroext i1 @_ZL29findGISelOptimalMemOpLoweringRSt6vectorIN4llvm3LLTESaIS1_EEjRKNS0_5MemOpEjjRKNS0_13AttributeListERKNS0_14TargetLoweringE.argelim(ptr noundef nonnull align 8 dereferenceable(24) %8, i32 noundef %65, ptr noundef nonnull align 8 dereferenceable(15) %11, i32 noundef %93, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(408123) %38)
+  %96 = call fastcc noundef zeroext i1 @_ZL29findGISelOptimalMemOpLoweringRSt6vectorIN4llvm3LLTESaIS1_EEjRKNS0_5MemOpEjjRKNS0_13AttributeListERKNS0_14TargetLoweringE(ptr noundef nonnull align 8 dereferenceable(24) %8, i32 noundef %65, ptr noundef nonnull align 8 dereferenceable(15) %11, i32 noundef %93, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(408123) %38)
   br i1 %96, label %97, label %_ZN4llvm16MachineIRBuilderD2Ev.exit
 
 97:                                               ; preds = %_ZNK4llvm5APInteqEm.exit.thread
@@ -62934,7 +62934,7 @@ _ZNSt6vectorIN4llvm3LLTESaIS1_EED2Ev.exit:        ; preds = %_ZNSt8optionalIN4ll
 declare noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm15MachineFunction13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(1041)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.argprom.argprom(ptr %.0.val, i32 %.8.val.572.val) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE(ptr %.0.val, i32 %.8.val.572.val) unnamed_addr #0 {
   %1 = and i32 %.8.val.572.val, -9
   %spec.select.i.i = icmp eq i32 %1, 1
   br i1 %spec.select.i.i, label %_ZNK4llvm8Function10hasOptSizeEv.exit.sink.split, label %2
@@ -62964,7 +62964,7 @@ _ZNK4llvm8Function10hasOptSizeEv.exit:            ; preds = %_ZNK4llvm8Function1
 declare noundef ptr @_ZN4llvm12getOpcodeDefEjNS_8RegisterERKNS_19MachineRegisterInfoE(i32 noundef, i32, ptr noundef nonnull align 8 dereferenceable(512)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL29findGISelOptimalMemOpLoweringRSt6vectorIN4llvm3LLTESaIS1_EEjRKNS0_5MemOpEjjRKNS0_13AttributeListERKNS0_14TargetLoweringE.argelim(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(15) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(408123) %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL29findGISelOptimalMemOpLoweringRSt6vectorIN4llvm3LLTESaIS1_EEjRKNS0_5MemOpEjjRKNS0_13AttributeListERKNS0_14TargetLoweringE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(15) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(408123) %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::TypeSize", align 8
   %8 = alloca %"class.llvm::TypeSize", align 8
   %9 = alloca %"class.llvm::TypeSize", align 8
@@ -63960,7 +63960,7 @@ _ZNK4llvm12MachineInstr17memoperands_beginEv.exit130: ; preds = %68, %71
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 120
   %.sroa.0.0.copyload.i131 = load ptr, ptr %86, align 8
   store ptr %.sroa.0.0.copyload.i131, ptr %14, align 8
-  %87 = call fastcc noundef zeroext i1 @_ZL29findGISelOptimalMemOpLoweringRSt6vectorIN4llvm3LLTESaIS1_EEjRKNS0_5MemOpEjjRKNS0_13AttributeListERKNS0_14TargetLoweringE.argelim(ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %82, ptr noundef nonnull align 8 dereferenceable(15) %13, i32 noundef %83, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(408123) %43)
+  %87 = call fastcc noundef zeroext i1 @_ZL29findGISelOptimalMemOpLoweringRSt6vectorIN4llvm3LLTESaIS1_EEjRKNS0_5MemOpEjjRKNS0_13AttributeListERKNS0_14TargetLoweringE(ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %82, ptr noundef nonnull align 8 dereferenceable(15) %13, i32 noundef %83, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(408123) %43)
   %.pre297 = load ptr, ptr %10, align 8
   br i1 %87, label %88, label %_ZN4llvm16MachineIRBuilderD2Ev.exit
 
@@ -64676,14 +64676,14 @@ define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper12lowerMe
 
 _ZNK4llvm6Triple10isOSDarwinEv.exit.i:            ; preds = %52
   %53 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %.val, i32 noundef 45) #18
-  br i1 %53, label %_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.argprom.argprom.exit, label %_ZNK4llvm8Function10hasOptSizeEv.exit.sink.split.i
+  br i1 %53, label %_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.exit, label %_ZNK4llvm8Function10hasOptSizeEv.exit.sink.split.i
 
 _ZNK4llvm8Function10hasOptSizeEv.exit.sink.split.i: ; preds = %_ZNK4llvm6Triple10isOSDarwinEv.exit.i, %52, %52, %52, %52, %52, %8
   %54 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %.val, i32 noundef 17) #18
   %55 = select i1 %54, i64 408116, i64 408112
-  br label %_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.argprom.argprom.exit
+  br label %_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.exit
 
-_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.argprom.argprom.exit: ; preds = %_ZNK4llvm6Triple10isOSDarwinEv.exit.i, %_ZNK4llvm8Function10hasOptSizeEv.exit.sink.split.i
+_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.exit: ; preds = %_ZNK4llvm6Triple10isOSDarwinEv.exit.i, %_ZNK4llvm8Function10hasOptSizeEv.exit.sink.split.i
   %.0.i = phi i64 [ 408116, %_ZNK4llvm6Triple10isOSDarwinEv.exit.i ], [ %55, %_ZNK4llvm8Function10hasOptSizeEv.exit.sink.split.i ]
   %.sroa.078.0.copyload.sroa.speculated = tail call i8 @llvm.umin.i8(i8 %6, i8 %5)
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -64692,7 +64692,7 @@ _ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.argprom.argprom.exit: ;
   %.not = icmp eq ptr %58, null
   br i1 %.not, label %69, label %59
 
-59:                                               ; preds = %_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.argprom.argprom.exit
+59:                                               ; preds = %_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.exit
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 48
@@ -64705,8 +64705,8 @@ _ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.argprom.argprom.exit: ;
   %.not266 = select i1 %64, i1 true, i1 %68
   br label %69
 
-69:                                               ; preds = %59, %_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.argprom.argprom.exit
-  %.0119 = phi i1 [ false, %_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.argprom.argprom.exit ], [ %.not266, %59 ]
+69:                                               ; preds = %59, %_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.exit
+  %.0119 = phi i1 [ false, %_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionE.exit ], [ %.not266, %59 ]
   %.in.i = getelementptr inbounds nuw i8, ptr %43, i64 %.0.i
   %70 = load i32, ptr %.in.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
@@ -64762,7 +64762,7 @@ _ZNK4llvm12MachineInstr17memoperands_beginEv.exit130: ; preds = %76, %79
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 120
   %.sroa.0.0.copyload.i131 = load ptr, ptr %93, align 8
   store ptr %.sroa.0.0.copyload.i131, ptr %13, align 8
-  %94 = call fastcc noundef zeroext i1 @_ZL29findGISelOptimalMemOpLoweringRSt6vectorIN4llvm3LLTESaIS1_EEjRKNS0_5MemOpEjjRKNS0_13AttributeListERKNS0_14TargetLoweringE.argelim(ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef %70, ptr noundef nonnull align 8 dereferenceable(15) %12, i32 noundef %90, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(408123) %43)
+  %94 = call fastcc noundef zeroext i1 @_ZL29findGISelOptimalMemOpLoweringRSt6vectorIN4llvm3LLTESaIS1_EEjRKNS0_5MemOpEjjRKNS0_13AttributeListERKNS0_14TargetLoweringE(ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef %70, ptr noundef nonnull align 8 dereferenceable(15) %12, i32 noundef %90, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(408123) %43)
   %.pre277 = load ptr, ptr %9, align 8
   br i1 %94, label %95, label %_ZN4llvm16MachineIRBuilderD2Ev.exit
 
@@ -66069,28 +66069,28 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8Constan
   %.val = load i32, ptr %0, align 8
   %.val2 = load ptr, ptr %1, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.val2, null
-  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZL27isNonZeroModBitWidthOrUndefRKN4llvm19MachineRegisterInfoENS0_8RegisterEjE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit", label %3
+  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZL27isNonZeroModBitWidthOrUndefRKN4llvm19MachineRegisterInfoENS0_8RegisterEjE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %3
 
 3:                                                ; preds = %2
   %4 = load i8, ptr %.val2, align 8
   %5 = icmp eq i8 %4, 17
-  br i1 %5, label %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntEKNS_8ConstantEEEDaPT0_.exit.i.i.i, label %"_ZSt10__invoke_rIbRZL27isNonZeroModBitWidthOrUndefRKN4llvm19MachineRegisterInfoENS0_8RegisterEjE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit"
+  br i1 %5, label %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntEKNS_8ConstantEEEDaPT0_.exit.i.i.i, label %"_ZSt10__invoke_rIbRZL27isNonZeroModBitWidthOrUndefRKN4llvm19MachineRegisterInfoENS0_8RegisterEjE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
 _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntEKNS_8ConstantEEEDaPT0_.exit.i.i.i: ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %.val2, i64 24
   %7 = zext i32 %.val to i64
   %8 = tail call noundef i64 @_ZNK4llvm5APInt4uremEm(ptr noundef nonnull align 8 dereferenceable(12) %6, i64 noundef %7) #18
   %9 = icmp ne i64 %8, 0
-  br label %"_ZSt10__invoke_rIbRZL27isNonZeroModBitWidthOrUndefRKN4llvm19MachineRegisterInfoENS0_8RegisterEjE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZL27isNonZeroModBitWidthOrUndefRKN4llvm19MachineRegisterInfoENS0_8RegisterEjE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
-"_ZSt10__invoke_rIbRZL27isNonZeroModBitWidthOrUndefRKN4llvm19MachineRegisterInfoENS0_8RegisterEjE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit": ; preds = %2, %3, %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntEKNS_8ConstantEEEDaPT0_.exit.i.i.i
+"_ZSt10__invoke_rIbRZL27isNonZeroModBitWidthOrUndefRKN4llvm19MachineRegisterInfoENS0_8RegisterEjE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %2, %3, %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntEKNS_8ConstantEEEDaPT0_.exit.i.i.i
   %10 = phi i1 [ %9, %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntEKNS_8ConstantEEEDaPT0_.exit.i.i.i ], [ true, %3 ], [ true, %2 ]
   ret i1 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8ConstantEEZL27isNonZeroModBitWidthOrUndefRKNS0_19MachineRegisterInfoENS0_8RegisterEjE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #11 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL27isNonZeroModBitWidthOrUndefRKN4llvm19MachineRegisterInfoENS1_8RegisterEjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL27isNonZeroModBitWidthOrUndefRKN4llvm19MachineRegisterInfoENS1_8RegisterEjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -66098,18 +66098,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8Constan
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL27isNonZeroModBitWidthOrUndefRKN4llvm19MachineRegisterInfoENS1_8RegisterEjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL27isNonZeroModBitWidthOrUndefRKN4llvm19MachineRegisterInfoENS1_8RegisterEjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL27isNonZeroModBitWidthOrUndefRKN4llvm19MachineRegisterInfoENS1_8RegisterEjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL27isNonZeroModBitWidthOrUndefRKN4llvm19MachineRegisterInfoENS1_8RegisterEjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i32, ptr %1, align 8
   store i32 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL27isNonZeroModBitWidthOrUndefRKN4llvm19MachineRegisterInfoENS1_8RegisterEjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL27isNonZeroModBitWidthOrUndefRKN4llvm19MachineRegisterInfoENS1_8RegisterEjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZL27isNonZeroModBitWidthOrUndefRKN4llvm19MachineRegisterInfoENS1_8RegisterEjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZL27isNonZeroModBitWidthOrUndefRKN4llvm19MachineRegisterInfoENS1_8RegisterEjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 

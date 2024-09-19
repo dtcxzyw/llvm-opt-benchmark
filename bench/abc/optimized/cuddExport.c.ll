@@ -1287,7 +1287,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDaVinci(ptr nocapture noundef readnone %0, 
   %64 = ptrtoint ptr %63 to i64
   %65 = and i64 %64, -2
   %66 = inttoptr i64 %65 to ptr
-  %67 = call fastcc i32 @ddDoDumpDaVinci.argprom(ptr noundef %66, ptr noundef %5, ptr noundef %35, ptr noundef %3, i64 noundef %31)
+  %67 = call fastcc i32 @ddDoDumpDaVinci(ptr noundef %66, ptr noundef %5, ptr noundef %35, ptr noundef %3, i64 noundef %31)
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %.thread.sink.split, label %69
 
@@ -1316,7 +1316,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDaVinci(ptr nocapture noundef readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ddDoDumpDaVinci.argprom(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ddDoDumpDaVinci(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 {
   %6 = ptrtoint ptr %0 to i64
   %7 = and i64 %4, %6
   %8 = udiv i64 %7, 40
@@ -1379,7 +1379,7 @@ define internal fastcc range(i32 0, 2) i32 @ddDoDumpDaVinci.argprom(ptr noundef 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds i8, ptr %0, i64 16
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call fastcc i32 @ddDoDumpDaVinci.argprom(ptr noundef %46, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4)
+  %47 = tail call fastcc i32 @ddDoDumpDaVinci(ptr noundef %46, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4)
   %.not52.not = icmp eq i32 %47, 0
   br i1 %.not52.not, label %65, label %48
 
@@ -1399,7 +1399,7 @@ define internal fastcc range(i32 0, 2) i32 @ddDoDumpDaVinci.argprom(ptr noundef 
   %58 = ptrtoint ptr %57 to i64
   %59 = and i64 %58, -2
   %60 = inttoptr i64 %59 to ptr
-  %61 = tail call fastcc i32 @ddDoDumpDaVinci.argprom(ptr noundef %60, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4)
+  %61 = tail call fastcc i32 @ddDoDumpDaVinci(ptr noundef %60, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4)
   %.not54.not = icmp eq i32 %61, 0
   br i1 %.not54.not, label %65, label %62
 

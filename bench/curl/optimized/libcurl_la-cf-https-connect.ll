@@ -57,7 +57,7 @@ if.then:                                          ; preds = %land.lhs.true5
 do.end:                                           ; preds = %land.lhs.true, %land.lhs.true5, %if.then, %entry
   %cf.val = phi ptr [ %0, %entry ], [ %cf.val.pr.pre, %if.then ], [ %0, %land.lhs.true5 ], [ %0, %land.lhs.true ]
   %tobool.not.i = icmp eq ptr %cf.val, null
-  br i1 %tobool.not.i, label %cf_hc_reset.argprom.exit, label %if.then.i
+  br i1 %tobool.not.i, label %cf_hc_reset.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %do.end
   %cf.i.i = getelementptr inbounds i8, ptr %cf.val, i64 48
@@ -102,9 +102,9 @@ cf_hc_baller_reset.exit16.i:                      ; preds = %if.then.i13.i, %cf_
   %div10.i = lshr i32 %6, 1
   %soft_eyeballs_timeout_ms.i = getelementptr inbounds i8, ptr %cf.val, i64 136
   store i32 %div10.i, ptr %soft_eyeballs_timeout_ms.i, align 8
-  br label %cf_hc_reset.argprom.exit
+  br label %cf_hc_reset.exit
 
-cf_hc_reset.argprom.exit:                         ; preds = %do.end, %cf_hc_baller_reset.exit16.i
+cf_hc_reset.exit:                                 ; preds = %do.end, %cf_hc_baller_reset.exit16.i
   %7 = load ptr, ptr @Curl_cfree, align 8
   tail call void %7(ptr noundef %0) #4
   ret void
@@ -283,7 +283,7 @@ land.lhs.true42:                                  ; preds = %if.then38
   br i1 %tobool43, label %if.then45, label %if.end49
 
 if.then45:                                        ; preds = %land.lhs.true42
-  tail call fastcc void @baller_connected.retelim(ptr noundef nonnull %cf, ptr noundef %data, ptr noundef nonnull %h3_baller36)
+  tail call fastcc void @baller_connected(ptr noundef nonnull %cf, ptr noundef %data, ptr noundef nonnull %h3_baller36)
   br label %do.body147
 
 if.end49:                                         ; preds = %sw.bb35, %land.lhs.true.i, %if.then38, %land.lhs.true42, %cf_hc_baller_is_active.exit
@@ -500,7 +500,7 @@ land.lhs.true83:                                  ; preds = %do.end79
   br i1 %tobool84, label %if.then86, label %if.end90
 
 if.then86:                                        ; preds = %land.lhs.true83
-  tail call fastcc void @baller_connected.retelim(ptr noundef nonnull %cf, ptr noundef %data, ptr noundef nonnull %h21_baller57)
+  tail call fastcc void @baller_connected(ptr noundef nonnull %cf, ptr noundef %data, ptr noundef nonnull %h21_baller57)
   br label %do.body147
 
 if.end90:                                         ; preds = %if.end56, %land.lhs.true.i115, %do.end79, %land.lhs.true83, %cf_hc_baller_is_active.exit121
@@ -640,7 +640,7 @@ do.end:                                           ; preds = %entry, %land.lhs.tr
   %3 = getelementptr i8, ptr %cf, i64 16
   %cf.val = load ptr, ptr %3, align 8
   %tobool.not.i = icmp eq ptr %cf.val, null
-  br i1 %tobool.not.i, label %cf_hc_reset.argprom.exit, label %if.then.i
+  br i1 %tobool.not.i, label %cf_hc_reset.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %do.end
   %cf.i.i = getelementptr inbounds i8, ptr %cf.val, i64 48
@@ -685,9 +685,9 @@ cf_hc_baller_reset.exit16.i:                      ; preds = %if.then.i13.i, %cf_
   %div10.i = lshr i32 %6, 1
   %soft_eyeballs_timeout_ms.i = getelementptr inbounds i8, ptr %cf.val, i64 136
   store i32 %div10.i, ptr %soft_eyeballs_timeout_ms.i, align 8
-  br label %cf_hc_reset.argprom.exit
+  br label %cf_hc_reset.exit
 
-cf_hc_reset.argprom.exit:                         ; preds = %do.end, %cf_hc_baller_reset.exit16.i
+cf_hc_reset.exit:                                 ; preds = %do.end, %cf_hc_baller_reset.exit16.i
   %connected = getelementptr inbounds i8, ptr %cf, i64 36
   %bf.load5 = load i8, ptr %connected, align 4
   %bf.clear6 = and i8 %bf.load5, -2
@@ -697,7 +697,7 @@ cf_hc_reset.argprom.exit:                         ; preds = %do.end, %cf_hc_ball
   %tobool7.not = icmp eq ptr %7, null
   br i1 %tobool7.not, label %if.end13, label %if.then8
 
-if.then8:                                         ; preds = %cf_hc_reset.argprom.exit
+if.then8:                                         ; preds = %cf_hc_reset.exit
   %8 = load ptr, ptr %7, align 8
   %do_close = getelementptr inbounds i8, ptr %8, i64 32
   %9 = load ptr, ptr %do_close, align 8
@@ -705,7 +705,7 @@ if.then8:                                         ; preds = %cf_hc_reset.argprom
   tail call void @Curl_conn_cf_discard_chain(ptr noundef nonnull %next, ptr noundef %data) #4
   br label %if.end13
 
-if.end13:                                         ; preds = %if.then8, %cf_hc_reset.argprom.exit
+if.end13:                                         ; preds = %if.then8, %cf_hc_reset.exit
   ret void
 }
 
@@ -894,7 +894,7 @@ if.then:                                          ; preds = %entry
 sw.bb:                                            ; preds = %if.then
   %0 = getelementptr i8, ptr %cf, i64 16
   %cf.val = load ptr, ptr %0, align 8
-  %call = tail call fastcc { i64, i32 } @cf_get_max_baller_time.argprom(ptr %cf.val, ptr noundef %data, i32 noundef 4)
+  %call = tail call fastcc { i64, i32 } @cf_get_max_baller_time(ptr %cf.val, ptr noundef %data, i32 noundef 4)
   %1 = extractvalue { i64, i32 } %call, 0
   %2 = extractvalue { i64, i32 } %call, 1
   store i64 %1, ptr %pres2, align 8
@@ -905,7 +905,7 @@ sw.bb:                                            ; preds = %if.then
 sw.bb1:                                           ; preds = %if.then
   %3 = getelementptr i8, ptr %cf, i64 16
   %cf.val11 = load ptr, ptr %3, align 8
-  %call4 = tail call fastcc { i64, i32 } @cf_get_max_baller_time.argprom(ptr %cf.val11, ptr noundef %data, i32 noundef 5)
+  %call4 = tail call fastcc { i64, i32 } @cf_get_max_baller_time(ptr %cf.val11, ptr noundef %data, i32 noundef 5)
   %4 = extractvalue { i64, i32 } %call4, 0
   %5 = extractvalue { i64, i32 } %call4, 1
   store i64 %4, ptr %pres2, align 8
@@ -1069,7 +1069,7 @@ declare { i64, i32 } @Curl_now() local_unnamed_addr #1
 declare void @Curl_expire(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @baller_connected.retelim(ptr noundef %cf, ptr noundef %data, ptr noundef %winner) unnamed_addr #0 {
+define internal fastcc void @baller_connected(ptr noundef %cf, ptr noundef %data, ptr noundef %winner) unnamed_addr #0 {
 entry:
   %ctx1 = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load ptr, ptr %ctx1, align 8
@@ -1243,7 +1243,7 @@ declare i32 @Curl_conn_cf_cntrl(ptr noundef, ptr noundef, i1 noundef zeroext, i3
 declare void @Curl_conn_cf_adjust_pollset(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i32 } @cf_get_max_baller_time.argprom(ptr nocapture readonly %cf.16.val, ptr noundef %data, i32 noundef range(i32 4, 6) %query) unnamed_addr #0 {
+define internal fastcc { i64, i32 } @cf_get_max_baller_time(ptr nocapture readonly %cf.16.val, ptr noundef %data, i32 noundef range(i32 4, 6) %query) unnamed_addr #0 {
 entry:
   %t = alloca %struct.curltime, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %t, i8 0, i64 16, i1 false)

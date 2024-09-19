@@ -277,7 +277,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
           cleanup
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_S5_St4lessIS5_ESaISt4pairIKS5_S5_EEES7_SaIS8_IS9_SC_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %51) #19
   %.val.i = load ptr, ptr %47, align 8
-  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E.argprom(ptr noundef %.val.i)
+  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef %.val.i)
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #19
   %63 = load ptr, ptr %43, align 8
   %64 = icmp eq ptr %63, null
@@ -890,14 +890,14 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 233:                                              ; preds = %227
   %234 = call i32 @fclose(ptr noundef nonnull %211)
   %.val = load ptr, ptr %229, align 8
-  call fastcc void @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E.argprom(ptr noundef %.val)
+  call fastcc void @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef %.val)
   br label %237
 
 235:                                              ; preds = %227
   %236 = landingpad { ptr, i32 }
           cleanup
   %.val30 = load ptr, ptr %229, align 8
-  call fastcc void @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E.argprom(ptr noundef %.val30)
+  call fastcc void @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef %.val30)
   br label %.body36
 
 237:                                              ; preds = %209, %233, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit51
@@ -972,20 +972,20 @@ define internal fastcc void @_ZN12_GLOBAL__N_116ListDependenciesEPKNS_19cmDepend
   %17 = phi ptr [ %.pre.i.i, %14 ], [ %10, %._crit_edge.i.i.i ]
   %.012.lcssa22.i.i.i = phi ptr [ %.012.lcssa21.i.i.i, %14 ], [ %.01317.i.i.i, %._crit_edge.i.i.i ]
   %18 = icmp ult ptr %17, %0
-  br i1 %18, label %select.unfold.i.i, label %_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE6insertERKS3_.argprom.exit
+  br i1 %18, label %select.unfold.i.i, label %_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE6insertERKS3_.exit
 
 select.unfold.i.i:                                ; preds = %16, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.012.lcssa21.i.i.i, %._crit_edge.thread.i.i.i ], [ %.012.lcssa22.i.i.i, %16 ]
   %19 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %8
-  br i1 %19, label %_ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.argprom.exit.i.i, label %20
+  br i1 %19, label %_ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i, label %20
 
 20:                                               ; preds = %select.unfold.i.i
   %21 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i.i, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = icmp ult ptr %0, %22
-  br label %_ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.argprom.exit.i.i
+  br label %_ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i
 
-_ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.argprom.exit.i.i: ; preds = %20, %select.unfold.i.i
+_ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i: ; preds = %20, %select.unfold.i.i
   %24 = phi i1 [ true, %select.unfold.i.i ], [ %23, %20 ]
   %25 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   %26 = getelementptr inbounds i8, ptr %25, i64 32
@@ -995,16 +995,16 @@ _ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4les
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, 1
   store i64 %29, ptr %27, align 8
-  br label %_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE6insertERKS3_.argprom.exit
+  br label %_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE6insertERKS3_.exit
 
-_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE6insertERKS3_.argprom.exit: ; preds = %16, %_ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.argprom.exit.i.i
+_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE6insertERKS3_.exit: ; preds = %16, %_ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i
   %30 = getelementptr i8, ptr %0, i64 24
   %.val18 = load ptr, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 8
   %.not38 = icmp eq ptr %.val18, %31
   br i1 %.not38, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE6insertERKS3_.argprom.exit
+.lr.ph:                                           ; preds = %_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE6insertERKS3_.exit
   %32 = getelementptr inbounds i8, ptr %0, i64 64
   br label %33
 
@@ -1014,7 +1014,7 @@ _ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE6insertERKS
   %35 = load ptr, ptr %34, align 8
   %.val.i.i = load ptr, ptr %7, align 8
   %.not2.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not2.i.i.i, label %_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE4findERKS3_.argprom.exit.thread, label %.lr.ph.i.i.i25
+  br i1 %.not2.i.i.i, label %_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE4findERKS3_.exit.thread, label %.lr.ph.i.i.i25
 
 .lr.ph.i.i.i25:                                   ; preds = %33, %.lr.ph.i.i.i25
   %.04.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i25 ], [ %.val.i.i, %33 ]
@@ -1027,23 +1027,23 @@ _ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE6insertERKS
   %.1.in.i.i.i = getelementptr i8, ptr %.04.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i26 = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i26, label %_ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.argprom.exit.i.i, label %.lr.ph.i.i.i25, !llvm.loop !18
+  br i1 %.not.i.i.i26, label %_ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i, label %.lr.ph.i.i.i25, !llvm.loop !18
 
-_ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.argprom.exit.i.i: ; preds = %.lr.ph.i.i.i25
+_ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i: ; preds = %.lr.ph.i.i.i25
   %39 = icmp eq ptr %.19.i.i.i, %8
-  br i1 %39, label %_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE4findERKS3_.argprom.exit.thread, label %_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE4findERKS3_.argprom.exit
+  br i1 %39, label %_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE4findERKS3_.exit.thread, label %_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE4findERKS3_.exit
 
-_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE4findERKS3_.argprom.exit: ; preds = %_ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.argprom.exit.i.i
+_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE4findERKS3_.exit: ; preds = %_ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i
   %40 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
   %41 = load ptr, ptr %40, align 8
   %42 = icmp ult ptr %35, %41
-  br i1 %42, label %_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE4findERKS3_.argprom.exit.thread, label %58
+  br i1 %42, label %_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE4findERKS3_.exit.thread, label %58
 
-_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE4findERKS3_.argprom.exit.thread: ; preds = %33, %_ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.argprom.exit.i.i, %_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE4findERKS3_.argprom.exit
+_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE4findERKS3_.exit.thread: ; preds = %33, %_ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i, %_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE4findERKS3_.exit
   %43 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #19
   br i1 %43, label %57, label %44
 
-44:                                               ; preds = %_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE4findERKS3_.argprom.exit.thread
+44:                                               ; preds = %_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE4findERKS3_.exit.thread
   %45 = getelementptr inbounds i8, ptr %35, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %45)
   %46 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEcm(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 noundef signext 46, i64 noundef -1) #19
@@ -1081,16 +1081,16 @@ _ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE4findERKS3_
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %57
 
-57:                                               ; preds = %.thread35, %_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE4findERKS3_.argprom.exit.thread
+57:                                               ; preds = %.thread35, %_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE4findERKS3_.exit.thread
   call fastcc void @_ZN12_GLOBAL__N_116ListDependenciesEPKNS_19cmDependInformationEP8_IO_FILEPSt3setIS2_St4lessIS2_ESaIS2_EE(ptr noundef %35, ptr noundef %1, ptr noundef %2)
   br label %58
 
-58:                                               ; preds = %_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE4findERKS3_.argprom.exit, %57
+58:                                               ; preds = %_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE4findERKS3_.exit, %57
   %59 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.031.039) #22
   %.not = icmp eq ptr %59, %31
   br i1 %.not, label %._crit_edge, label %33
 
-._crit_edge:                                      ; preds = %58, %_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE6insertERKS3_.argprom.exit
+._crit_edge:                                      ; preds = %58, %_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE6insertERKS3_.exit
   ret void
 }
 
@@ -1115,7 +1115,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_110cmLBDependD2Ev(ptr noundef nonnu
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_S5_St4lessIS5_ESaISt4pairIKS5_S5_EEES7_SaIS8_IS9_SC_EEED2Ev.exit: ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 1176
   %.val = load ptr, ptr %8, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E.argprom(ptr noundef %.val)
+  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef %.val)
   %9 = getelementptr inbounds i8, ptr %0, i64 1136
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 1144
@@ -1300,23 +1300,23 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E.argprom(ptr noundef %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %.not1 = icmp eq ptr %0, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.argprom.exit
-  %.02 = phi ptr [ %.0.val6, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.argprom.exit ], [ %0, %1 ]
+.lr.ph:                                           ; preds = %1, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit
+  %.02 = phi ptr [ %.0.val6, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit ], [ %0, %1 ]
   %2 = getelementptr i8, ptr %.02, i64 24
   %.0.val = load ptr, ptr %2, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E.argprom(ptr noundef %.0.val)
+  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef %.0.val)
   %3 = getelementptr i8, ptr %.02, i64 16
   %.0.val6 = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %.02, i64 64
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.argprom.exit, label %_ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.argprom.exit.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit, label %_ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.exit.i.i.i.i.i.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.argprom.exit.i.i.i.i.i.i: ; preds = %.lr.ph
+_ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %.lr.ph
   %6 = getelementptr inbounds i8, ptr %5, i64 128
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   %7 = getelementptr inbounds i8, ptr %5, i64 96
@@ -1325,11 +1325,11 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.argprom.exi
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #19
   %9 = getelementptr inbounds i8, ptr %5, i64 16
   %.val.i.i.i.i.i.i.i.i = load ptr, ptr %9, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E.argprom(ptr noundef %.val.i.i.i.i.i.i.i.i)
+  tail call fastcc void @_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val.i.i.i.i.i.i.i.i)
   tail call void @_ZdlPv(ptr noundef nonnull %5) #20
-  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.argprom.exit
+  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.argprom.exit: ; preds = %.lr.ph, %_ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.argprom.exit.i.i.i.i.i.i
+_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit: ; preds = %.lr.ph, %_ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.exit.i.i.i.i.i.i
   %10 = getelementptr inbounds i8, ptr %.02, i64 32
   store ptr null, ptr %4, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #19
@@ -1337,7 +1337,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   %.not = icmp eq ptr %.0.val6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
-._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.argprom.exit, %1
+._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit, %1
   ret void
 }
 
@@ -1345,9 +1345,9 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 define internal fastcc void @_ZNSt10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteIS1_EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %7, label %_ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.argprom.exit
+  br i1 %.not, label %7, label %_ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.exit
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.argprom.exit: ; preds = %1
+_ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.exit: ; preds = %1
   %3 = getelementptr inbounds i8, ptr %2, i64 128
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   %4 = getelementptr inbounds i8, ptr %2, i64 96
@@ -1356,17 +1356,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.argprom.exi
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   %6 = getelementptr inbounds i8, ptr %2, i64 16
   %.val.i.i = load ptr, ptr %6, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E.argprom(ptr noundef %.val.i.i)
+  tail call fastcc void @_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val.i.i)
   tail call void @_ZdlPv(ptr noundef nonnull %2) #20
   br label %7
 
-7:                                                ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.argprom.exit, %1
+7:                                                ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.exit, %1
   store ptr null, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E.argprom(ptr noundef %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %.not1 = icmp eq ptr %0, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -1374,7 +1374,7 @@ define internal fastcc void @_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformatio
   %.02 = phi ptr [ %.0.val6, %.lr.ph ], [ %0, %1 ]
   %2 = getelementptr i8, ptr %.02, i64 24
   %.0.val = load ptr, ptr %2, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E.argprom(ptr noundef %.0.val)
+  tail call fastcc void @_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.0.val)
   %3 = getelementptr i8, ptr %.02, i64 16
   %.0.val6 = load ptr, ptr %3, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.02) #20
@@ -2101,13 +2101,13 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %.1.in.i.i.i = getelementptr i8, ptr %.04.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE14_M_lower_boundEPSt13_Rb_tree_nodeISE_EPSt18_Rb_tree_node_baseRS7_.argprom.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !31
+  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE14_M_lower_boundEPSt13_Rb_tree_nodeISE_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !31
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE14_M_lower_boundEPSt13_Rb_tree_nodeISE_EPSt18_Rb_tree_node_baseRS7_.argprom.exit.i.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
+_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE14_M_lower_boundEPSt13_Rb_tree_nodeISE_EPSt18_Rb_tree_node_baseRS7_.exit.i.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
   %125 = icmp eq ptr %.19.i.i.i, %118
   br i1 %125, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteIS8_EESt4lessIS5_ESaISt4pairIKS5_SB_EEE4findERSF_.exit.thread, label %126
 
-126:                                              ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE14_M_lower_boundEPSt13_Rb_tree_nodeISE_EPSt18_Rb_tree_node_baseRS7_.argprom.exit.i.i
+126:                                              ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE14_M_lower_boundEPSt13_Rb_tree_nodeISE_EPSt18_Rb_tree_node_baseRS7_.exit.i.i
   %127 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
   %128 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %127)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteIS8_EESt4lessIS5_ESaISt4pairIKS5_SB_EEE4findERSF_.exit unwind label %129
@@ -2133,7 +2133,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN12
           cleanup
   br label %common.resume
 
-_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteIS8_EESt4lessIS5_ESaISt4pairIKS5_SB_EEE4findERSF_.exit.thread: ; preds = %_ZN12_GLOBAL__N_110cmLBDepend8FullPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE14_M_lower_boundEPSt13_Rb_tree_nodeISE_EPSt18_Rb_tree_node_baseRS7_.argprom.exit.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteIS8_EESt4lessIS5_ESaISt4pairIKS5_SB_EEE4findERSF_.exit
+_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteIS8_EESt4lessIS5_ESaISt4pairIKS5_SB_EEE4findERSF_.exit.thread: ; preds = %_ZN12_GLOBAL__N_110cmLBDepend8FullPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE14_M_lower_boundEPSt13_Rb_tree_nodeISE_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteIS8_EESt4lessIS5_ESaISt4pairIKS5_SB_EEE4findERSF_.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !32)
   %137 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #23
           to label %138 unwind label %135
@@ -2587,9 +2587,9 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %.sroa.01.0.ph.i.i = phi ptr [ %.sroa.083.0.i.i.i, %289 ], [ %.sroa.013.0.i51.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit12.i52.i.i.i ], [ %.sroa.013.0.i26.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit12.i27.i.i.i ], [ %.sroa.013.0.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit12.i.i.i.i ], [ %.08.lcssa.i.i.i16.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit38.i.i.i ]
   %303 = load ptr, ptr %179, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %303, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.argprom.exit.i.i.i, label %_ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.argprom.exit.i.i.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit.i.i.i, label %_ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.exit.i.i.i.i.i.i.i.i.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.argprom.exit.i.i.i.i.i.i.i.i.i: ; preds = %.thread15.i.i
+_ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.exit.i.i.i.i.i.i.i.i.i: ; preds = %.thread15.i.i
   %304 = getelementptr inbounds i8, ptr %303, i64 128
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %304) #19
   %305 = getelementptr inbounds i8, ptr %303, i64 96
@@ -2598,26 +2598,26 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.argprom.exi
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %306) #19
   %307 = getelementptr inbounds i8, ptr %303, i64 16
   %.val.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %307, align 8
-  call fastcc void @_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E.argprom(ptr noundef %.val.i.i.i.i.i.i.i.i.i.i.i)
+  call fastcc void @_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val.i.i.i.i.i.i.i.i.i.i.i)
   call void @_ZdlPv(ptr noundef nonnull %303) #20
-  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.argprom.exit.i.i.i
+  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit.i.i.i
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.argprom.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.argprom.exit.i.i.i.i.i.i.i.i.i, %.thread15.i.i
+_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.exit.i.i.i.i.i.i.i.i.i, %.thread15.i.i
   store ptr null, ptr %179, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %167) #19
   call void @_ZdlPv(ptr noundef nonnull %166) #20
   br label %308
 
-308:                                              ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.argprom.exit.i.i.i, %298, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
-  %.sroa.014.0.i = phi ptr [ %.19.i.i.i.i19, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ %166, %298 ], [ %.sroa.01.0.ph.i.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.argprom.exit.i.i.i ]
+308:                                              ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit.i.i.i, %298, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
+  %.sroa.014.0.i = phi ptr [ %.19.i.i.i.i19, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ %166, %298 ], [ %.sroa.01.0.ph.i.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit.i.i.i ]
   %309 = getelementptr inbounds i8, ptr %.sroa.014.0.i, i64 64
   %310 = load ptr, ptr %9, align 8
   %311 = load ptr, ptr %309, align 8
   store ptr %310, ptr %309, align 8
   %.not.i.i.i.i26 = icmp eq ptr %311, null
-  br i1 %.not.i.i.i.i26, label %_ZNSt10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.argprom.exit.i.i.i.i
+  br i1 %.not.i.i.i.i26, label %_ZNSt10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.exit.i.i.i.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.argprom.exit.i.i.i.i: ; preds = %308
+_ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.exit.i.i.i.i: ; preds = %308
   %312 = getelementptr inbounds i8, ptr %311, i64 128
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %312) #19
   %313 = getelementptr inbounds i8, ptr %311, i64 96
@@ -2626,7 +2626,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.argprom.exi
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %314) #19
   %315 = getelementptr inbounds i8, ptr %311, i64 16
   %.val.i.i.i.i.i.i = load ptr, ptr %315, align 8
-  call fastcc void @_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E.argprom(ptr noundef %.val.i.i.i.i.i.i)
+  call fastcc void @_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val.i.i.i.i.i.i)
   call void @_ZdlPv(ptr noundef nonnull %311) #20
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteIS1_EED2Ev.exit
 
@@ -2640,8 +2640,8 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.argprom.exi
   call fastcc void @_ZNSt10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #19
   br label %common.resume
 
-_ZNSt10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteIS1_EED2Ev.exit: ; preds = %308, %_ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.argprom.exit.i.i.i.i, %133
-  %.0 = phi ptr [ %.val12, %133 ], [ %137, %_ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.argprom.exit.i.i.i.i ], [ %137, %308 ]
+_ZNSt10unique_ptrIN12_GLOBAL__N_119cmDependInformationESt14default_deleteIS1_EED2Ev.exit: ; preds = %308, %_ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.exit.i.i.i.i, %133
+  %.0 = phi ptr [ %.val12, %133 ], [ %137, %_ZNKSt14default_deleteIN12_GLOBAL__N_119cmDependInformationEEclEPS1_.exit.i.i.i.i ], [ %137, %308 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #19
   ret ptr %.0
 }
@@ -3422,15 +3422,15 @@ _ZN12_GLOBAL__N_110cmLBDepend10DependWalkEPNS_19cmDependInformationE.exit: ; pre
 select.unfold.i.i.i:                              ; preds = %260, %._crit_edge.thread.i.i.i.i
   %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.012.lcssa21.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.012.lcssa22.i.i.i.i, %260 ]
   %263 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i, %248
-  br i1 %263, label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.argprom.exit.i.i.i, label %264
+  br i1 %263, label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i, label %264
 
 264:                                              ; preds = %select.unfold.i.i.i
   %265 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i.i.i, i64 32
   %266 = load ptr, ptr %265, align 8
   %267 = icmp ult ptr %252, %266
-  br label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.argprom.exit.i.i.i
+  br label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i
 
-_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.argprom.exit.i.i.i: ; preds = %264, %select.unfold.i.i.i
+_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i: ; preds = %264, %select.unfold.i.i.i
   %268 = phi i1 [ true, %select.unfold.i.i.i ], [ %267, %264 ]
   %269 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   %270 = getelementptr inbounds i8, ptr %269, i64 32
@@ -3441,7 +3441,7 @@ _ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4less
   store i64 %272, ptr %250, align 8
   br label %_ZN12_GLOBAL__N_119cmDependInformation15AddDependenciesEPS0_.exit
 
-_ZN12_GLOBAL__N_119cmDependInformation15AddDependenciesEPS0_.exit: ; preds = %251, %260, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.argprom.exit.i.i.i
+_ZN12_GLOBAL__N_119cmDependInformation15AddDependenciesEPS0_.exit: ; preds = %251, %260, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i
   %273 = getelementptr inbounds i8, ptr %.sroa.082.0160, i64 32
   %.not115 = icmp eq ptr %273, %244
   br i1 %.not115, label %.thread109, label %251
@@ -4715,15 +4715,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_110cmLBDepend13AddDependencyEPNS_19
 select.unfold.i.i.i:                              ; preds = %16, %._crit_edge.thread.i.i.i.i
   %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.012.lcssa21.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.012.lcssa22.i.i.i.i, %16 ]
   %19 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i, %8
-  br i1 %19, label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.argprom.exit.i.i.i, label %20
+  br i1 %19, label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i, label %20
 
 20:                                               ; preds = %select.unfold.i.i.i
   %21 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i.i.i, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = icmp ult ptr %5, %22
-  br label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.argprom.exit.i.i.i
+  br label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i
 
-_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.argprom.exit.i.i.i: ; preds = %20, %select.unfold.i.i.i
+_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i: ; preds = %20, %select.unfold.i.i.i
   %24 = phi i1 [ true, %select.unfold.i.i.i ], [ %23, %20 ]
   %25 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   %26 = getelementptr inbounds i8, ptr %25, i64 32
@@ -4735,7 +4735,7 @@ _ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4less
   store i64 %29, ptr %27, align 8
   br label %_ZN12_GLOBAL__N_119cmDependInformation15AddDependenciesEPS0_.exit
 
-_ZN12_GLOBAL__N_119cmDependInformation15AddDependenciesEPS0_.exit: ; preds = %3, %16, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.argprom.exit.i.i.i
+_ZN12_GLOBAL__N_119cmDependInformation15AddDependenciesEPS0_.exit: ; preds = %3, %16, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i
   ret void
 }
 
@@ -4830,7 +4830,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E.argprom(ptr noundef %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %.not1 = icmp eq ptr %0, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -4838,7 +4838,7 @@ define internal fastcc void @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformati
   %.02 = phi ptr [ %.0.val, %.lr.ph ], [ %0, %1 ]
   %2 = getelementptr i8, ptr %.02, i64 24
   %.0.val6 = load ptr, ptr %2, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E.argprom(ptr noundef %.0.val6)
+  tail call fastcc void @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef %.0.val6)
   %3 = getelementptr i8, ptr %.02, i64 16
   %.0.val = load ptr, ptr %3, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.02) #20

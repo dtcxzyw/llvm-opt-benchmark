@@ -3144,7 +3144,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %ReserveP
   call void @ResourceOwnerRemember(ptr noundef %57, i64 noundef %58, ptr noundef nonnull @buffer_pin_resowner_desc) #14
   %59 = getelementptr inbounds i8, ptr %9, i64 36
   %60 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %59, i32 noundef 1) #14
-  call fastcc void @FlushBuffer.argelim(ptr noundef %9, ptr noundef null, i32 noundef 2)
+  call fastcc void @FlushBuffer(ptr noundef %9, ptr noundef null, i32 noundef 2)
   call void @LWLockRelease(ptr noundef nonnull %59) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, ptr noundef nonnull align 4 dereferenceable(20) %9, i64 20, i1 false)
   %.val.i28 = load i32, ptr %53, align 4
@@ -5165,7 +5165,7 @@ BufTagMatchesRelFileLocator.exit41:               ; preds = %123
   call void @ResourceOwnerRemember(ptr noundef %139, i64 noundef %140, ptr noundef nonnull @buffer_pin_resowner_desc) #14
   %141 = getelementptr inbounds i8, ptr %80, i64 36
   %142 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %141, i32 noundef 1) #14
-  call fastcc void @FlushBuffer.argelim(ptr noundef nonnull %80, ptr noundef %13, i32 noundef 2)
+  call fastcc void @FlushBuffer(ptr noundef nonnull %80, ptr noundef %13, i32 noundef 2)
   call void @LWLockRelease(ptr noundef nonnull %141) #14
   %.val.i43 = load i32, ptr %135, align 4
   %143 = add i32 %.val.i43, 1
@@ -5226,7 +5226,7 @@ declare i64 @pgstat_prepare_io_time(i1 noundef zeroext) local_unnamed_addr #2
 declare void @pgstat_count_io_op_time(i32 noundef, i32 noundef, i32 noundef, i64, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @FlushBuffer.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @FlushBuffer(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.SpinDelayStatus, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct.SpinDelayStatus, align 8
@@ -5605,7 +5605,7 @@ BufTagMatchesRelFileLocator.exit54:               ; preds = %81
   %104 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %103, i32 noundef 1) #14
   %105 = getelementptr inbounds i8, ptr %.047, i64 16
   %106 = load ptr, ptr %105, align 8
-  call fastcc void @FlushBuffer.argelim(ptr noundef nonnull %29, ptr noundef %106, i32 noundef 2)
+  call fastcc void @FlushBuffer(ptr noundef nonnull %29, ptr noundef %106, i32 noundef 2)
   call void @LWLockRelease(ptr noundef nonnull %103) #14
   %.val.i56 = load i32, ptr %97, align 4
   %107 = add i32 %.val.i56, 1
@@ -5972,7 +5972,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %ReserveP
   call void @ResourceOwnerRemember(ptr noundef %56, i64 noundef %57, ptr noundef nonnull @buffer_pin_resowner_desc) #14
   %58 = getelementptr inbounds i8, ptr %13, i64 36
   %59 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %58, i32 noundef 1) #14
-  call fastcc void @FlushBuffer.argelim(ptr noundef %13, ptr noundef null, i32 noundef 2)
+  call fastcc void @FlushBuffer(ptr noundef %13, ptr noundef null, i32 noundef 2)
   call void @LWLockRelease(ptr noundef nonnull %58) #14
   %.val.i18 = load i32, ptr %52, align 4
   %60 = add i32 %.val.i18, 1
@@ -6005,7 +6005,7 @@ define dso_local void @FlushOneBuffer(i32 noundef %0) local_unnamed_addr #0 {
   %3 = load ptr, ptr @BufferDescriptors, align 8
   %4 = zext i32 %2 to i64
   %5 = getelementptr %union.BufferDescPadded, ptr %3, i64 %4
-  tail call fastcc void @FlushBuffer.argelim(ptr noundef %5, ptr noundef null, i32 noundef 2)
+  tail call fastcc void @FlushBuffer(ptr noundef %5, ptr noundef null, i32 noundef 2)
   ret void
 }
 
@@ -7971,7 +7971,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %63
   br label %.backedge.backedge
 
 85:                                               ; preds = %LockBufHdr.exit, %77, %62
-  call fastcc void @FlushBuffer.argelim(ptr noundef nonnull %41, ptr noundef null, i32 noundef %1)
+  call fastcc void @FlushBuffer(ptr noundef nonnull %41, ptr noundef null, i32 noundef %1)
   call void @LWLockRelease(ptr noundef nonnull %56) #14
   %86 = load i32, ptr @io_direct_flags, align 4
   %87 = and i32 %86, 1

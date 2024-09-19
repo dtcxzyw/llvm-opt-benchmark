@@ -591,7 +591,7 @@ define internal i32 @ethnl_set_coalesce(ptr nocapture noundef readonly %0, ptr n
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #5
   store i8 0, ptr %3, align 1, !annotation !8
   %.val = load ptr, ptr %0, align 8
-  %4 = call fastcc i32 @__ethnl_set_coalesce.argprom(ptr %.val, ptr noundef %1, ptr noundef nonnull %3)
+  %4 = call fastcc i32 @__ethnl_set_coalesce(ptr %.val, ptr noundef %1, ptr noundef nonnull %3)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %15, label %6
 
@@ -604,7 +604,7 @@ define internal i32 @ethnl_set_coalesce(ptr nocapture noundef readonly %0, ptr n
 
 11:                                               ; preds = %6
   %.val2 = load ptr, ptr %0, align 8
-  %12 = call fastcc i32 @__ethnl_set_coalesce.argprom(ptr %.val2, ptr noundef %1, ptr noundef nonnull %3)
+  %12 = call fastcc i32 @__ethnl_set_coalesce(ptr %.val2, ptr noundef %1, ptr noundef nonnull %3)
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %15, label %14
 
@@ -667,7 +667,7 @@ declare dso_local i32 @nla_put(ptr noundef, i32 noundef, i32 noundef, ptr nounde
 declare dso_local void @do_trace_netlink_extack(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__ethnl_set_coalesce.argprom(ptr %.0.val, ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.kernel_ethtool_coalesce, align 4
   %4 = alloca %struct.ethtool_coalesce, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #5

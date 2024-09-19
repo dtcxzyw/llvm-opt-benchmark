@@ -115,11 +115,11 @@ if.then.i.i.i:                                    ; preds = %if.end31.i
   %sh_prom.i.i.i.i = zext nneg i32 %sub.i8.i.i to i128
   %shl.i.i.i.i = shl nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i, %sh_prom.i.i.i.i
   %coerce1.sroa.0.0.extract.trunc.i.i.i.i = trunc i128 %shl.i.i.i.i to i64
-  br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit.i
+  br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.end31.i
   %cmp3.i.i.i = icmp ugt i32 %.sroa.speculated.i.i.i, 127
-  br i1 %cmp3.i.i.i, label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit.i, label %if.end5.i.i.i
+  br i1 %cmp3.i.i.i, label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i, label %if.end5.i.i.i
 
 if.end5.i.i.i:                                    ; preds = %if.end.i.i.i
   %sh_prom.i23.i.i.i = zext nneg i32 %.sroa.speculated.i.i.i to i128
@@ -139,18 +139,18 @@ if.end5.i.i.i:                                    ; preds = %if.end.i.i.i
 
 if.then21.i.i.i:                                  ; preds = %if.end5.i.i.i
   %coerce3.sroa.0.0.extract.trunc.i68.i.i.i = add nuw i64 %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i, 1
-  br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit.i
+  br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
 
 if.end27.i.i.i:                                   ; preds = %if.end5.i.i.i
   %cmp.i.i.i.i = icmp eq i128 %shl.i43.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i.i.i
-  br i1 %cmp.i.i.i.i, label %if.then31.i.i.i, label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit.i
+  br i1 %cmp.i.i.i.i, label %if.then31.i.i.i, label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
 
 if.then31.i.i.i:                                  ; preds = %if.end27.i.i.i
   %coerce3.sroa.0.0.extract.trunc.i.i.i.i.i.i = and i64 %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i, 1
   %spec.select.i.i.i = add nuw i64 %coerce3.sroa.0.0.extract.trunc.i.i.i.i.i.i, %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i
-  br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit.i
+  br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
 
-_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit.i: ; preds = %if.then31.i.i.i, %if.end27.i.i.i, %if.then21.i.i.i, %if.end.i.i.i, %if.then.i.i.i
+_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i: ; preds = %if.then31.i.i.i, %if.end27.i.i.i, %if.then21.i.i.i, %if.end.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ %coerce1.sroa.0.0.extract.trunc.i.i.i.i, %if.then.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i68.i.i.i, %if.then21.i.i.i ], [ 0, %if.end.i.i.i ], [ %spec.select.i.i.i, %if.then31.i.i.i ], [ %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i, %if.end27.i.i.i ]
   %add.i.i = add nsw i32 %.sroa.speculated.i.i.i, %hex_parse.val39.i
   %cmp.i9.i.i = icmp eq i64 %retval.0.i.i.i, 9007199254740992
@@ -164,12 +164,12 @@ _ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatE
   %cmp.i.i = or i1 %cmp1.i.i.i, %cmp.i274.i
   br i1 %cmp.i.i, label %if.then.i47.i, label %if.else.i45.i
 
-if.then.i47.i:                                    ; preds = %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit.i
+if.then.i47.i:                                    ; preds = %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
   %cond.i48.i = select i1 %negative.0.i, double 0xFFEFFFFFFFFFFFFF, double 0x7FEFFFFFFFFFFFFF
   store double %cond.i48.i, ptr %value, align 8
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIdEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
-if.else.i45.i:                                    ; preds = %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit.i
+if.else.i45.i:                                    ; preds = %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
   %cmp4.i.i = icmp eq i32 %spec.select7.i.i.i, -99999
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end9.i.i
 
@@ -282,11 +282,11 @@ if.then.i.i119.i:                                 ; preds = %if.end49.i
   %sh_prom.i.i.i122.i = zext nneg i32 %sub.i8.i120.i to i128
   %shl.i.i.i123.i = shl nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i121.i, %sh_prom.i.i.i122.i
   %coerce1.sroa.0.0.extract.trunc.i.i.i124.i = trunc i128 %shl.i.i.i123.i to i64
-  br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit125.i
+  br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit125.i
 
 if.end.i.i85.i:                                   ; preds = %if.end49.i
   %cmp3.i.i86.i = icmp ugt i32 %.sroa.speculated.i.i83.i, 127
-  br i1 %cmp3.i.i86.i, label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit125.i, label %if.end5.i.i87.i
+  br i1 %cmp3.i.i86.i, label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit125.i, label %if.end5.i.i87.i
 
 if.end5.i.i87.i:                                  ; preds = %if.end.i.i85.i
   %sh_prom.i23.i.i88.i = zext nneg i32 %.sroa.speculated.i.i83.i to i128
@@ -306,18 +306,18 @@ if.end5.i.i87.i:                                  ; preds = %if.end.i.i85.i
 
 if.then21.i.i117.i:                               ; preds = %if.end5.i.i87.i
   %coerce3.sroa.0.0.extract.trunc.i68.i.i118.i = add nuw i64 %coerce1.sroa.0.0.extract.trunc.i.i.i.i96.i, 1
-  br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit125.i
+  br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit125.i
 
 if.end27.i.i99.i:                                 ; preds = %if.end5.i.i87.i
   %cmp.i.i.i100.i = icmp eq i128 %shl.i43.i.i92.i, %coerce2.sroa.0.0.insert.ext.i.i.i.i97.i
-  br i1 %cmp.i.i.i100.i, label %if.then31.i.i114.i, label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit125.i
+  br i1 %cmp.i.i.i100.i, label %if.then31.i.i114.i, label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit125.i
 
 if.then31.i.i114.i:                               ; preds = %if.end27.i.i99.i
   %coerce3.sroa.0.0.extract.trunc.i.i.i.i.i115.i = and i64 %coerce1.sroa.0.0.extract.trunc.i.i.i.i96.i, 1
   %spec.select.i.i116.i = add nuw i64 %coerce3.sroa.0.0.extract.trunc.i.i.i.i.i115.i, %coerce1.sroa.0.0.extract.trunc.i.i.i.i96.i
-  br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit125.i
+  br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit125.i
 
-_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit125.i: ; preds = %if.then31.i.i114.i, %if.end27.i.i99.i, %if.then21.i.i117.i, %if.end.i.i85.i, %if.then.i.i119.i
+_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit125.i: ; preds = %if.then31.i.i114.i, %if.end27.i.i99.i, %if.then21.i.i117.i, %if.end.i.i85.i, %if.then.i.i119.i
   %retval.0.i.i101.i = phi i64 [ %coerce1.sroa.0.0.extract.trunc.i.i.i124.i, %if.then.i.i119.i ], [ %coerce3.sroa.0.0.extract.trunc.i68.i.i118.i, %if.then21.i.i117.i ], [ 0, %if.end.i.i85.i ], [ %spec.select.i.i116.i, %if.then31.i.i114.i ], [ %coerce1.sroa.0.0.extract.trunc.i.i.i.i96.i, %if.end27.i.i99.i ]
   %add.i102.i = add nsw i32 %.sroa.speculated.i.i83.i, %hex_parse38.val40.i
   %cmp.i9.i103.i = icmp eq i64 %retval.0.i.i101.i, 9007199254740992
@@ -331,12 +331,12 @@ _ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatE
   %cmp.i126.i = or i1 %cmp1.i.i107.i, %cmp.i126273.i
   br i1 %cmp.i126.i, label %if.then.i144.i, label %if.else.i127.i
 
-if.then.i144.i:                                   ; preds = %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit125.i
+if.then.i144.i:                                   ; preds = %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit125.i
   %cond.i146.i = select i1 %negative.0.i, double 0xFFEFFFFFFFFFFFFF, double 0x7FEFFFFFFFFFFFFF
   store double %cond.i146.i, ptr %value, align 8
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIdEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
-if.else.i127.i:                                   ; preds = %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit125.i
+if.else.i127.i:                                   ; preds = %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit125.i
   %cmp4.i129.i = icmp eq i32 %spec.select7.i.i109.i, -99999
   br i1 %cmp4.i129.i, label %if.then5.i141.i, label %if.end9.i131.i
 
@@ -872,11 +872,11 @@ if.then.i.i.i:                                    ; preds = %if.end32.i
   %sh_prom.i.i.i.i = zext nneg i32 %sub.i8.i.i to i128
   %shl.i.i.i.i = shl nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i, %sh_prom.i.i.i.i
   %coerce1.sroa.0.0.extract.trunc.i.i.i.i = trunc i128 %shl.i.i.i.i to i64
-  br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit.i
+  br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.end32.i
   %cmp3.i.i.i = icmp ugt i32 %.sroa.speculated.i.i.i, 127
-  br i1 %cmp3.i.i.i, label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit.i, label %if.end5.i.i.i
+  br i1 %cmp3.i.i.i, label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i, label %if.end5.i.i.i
 
 if.end5.i.i.i:                                    ; preds = %if.end.i.i.i
   %sh_prom.i23.i.i.i = zext nneg i32 %.sroa.speculated.i.i.i to i128
@@ -896,18 +896,18 @@ if.end5.i.i.i:                                    ; preds = %if.end.i.i.i
 
 if.then21.i.i.i:                                  ; preds = %if.end5.i.i.i
   %coerce3.sroa.0.0.extract.trunc.i68.i.i.i = add nuw i64 %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i, 1
-  br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit.i
+  br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
 
 if.end27.i.i.i:                                   ; preds = %if.end5.i.i.i
   %cmp.i.i.i.i = icmp eq i128 %shl.i43.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i.i.i
-  br i1 %cmp.i.i.i.i, label %if.then31.i.i.i, label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit.i
+  br i1 %cmp.i.i.i.i, label %if.then31.i.i.i, label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
 
 if.then31.i.i.i:                                  ; preds = %if.end27.i.i.i
   %coerce3.sroa.0.0.extract.trunc.i.i.i.i.i.i = and i64 %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i, 1
   %spec.select.i.i.i = add nuw i64 %coerce3.sroa.0.0.extract.trunc.i.i.i.i.i.i, %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i
-  br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit.i
+  br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
 
-_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit.i: ; preds = %if.then31.i.i.i, %if.end27.i.i.i, %if.then21.i.i.i, %if.end.i.i.i, %if.then.i.i.i
+_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i: ; preds = %if.then31.i.i.i, %if.end27.i.i.i, %if.then21.i.i.i, %if.end.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ %coerce1.sroa.0.0.extract.trunc.i.i.i.i, %if.then.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i68.i.i.i, %if.then21.i.i.i ], [ 0, %if.end.i.i.i ], [ %spec.select.i.i.i, %if.then31.i.i.i ], [ %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i, %if.end27.i.i.i ]
   %add.i.i = add nsw i32 %.sroa.speculated.i.i.i, %hex_parse.val39.i
   %cmp.i9.i.i = icmp eq i64 %retval.0.i.i.i, 16777216
@@ -921,12 +921,12 @@ _ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatE
   %cmp.i.i = or i1 %cmp1.i.i.i, %cmp.i277.i
   br i1 %cmp.i.i, label %if.then.i48.i, label %if.else.i45.i
 
-if.then.i48.i:                                    ; preds = %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit.i
+if.then.i48.i:                                    ; preds = %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
   %cond.i49.i = select i1 %negative.0.i, float 0xC7EFFFFFE0000000, float 0x47EFFFFFE0000000
   store float %cond.i49.i, ptr %value, align 4
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIfEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
-if.else.i45.i:                                    ; preds = %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit.i
+if.else.i45.i:                                    ; preds = %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
   %cmp4.i.i = icmp eq i32 %spec.select7.i.i.i, -99999
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end9.i.i
 
@@ -1039,11 +1039,11 @@ if.then.i.i120.i:                                 ; preds = %if.end50.i
   %sh_prom.i.i.i123.i = zext nneg i32 %sub.i8.i121.i to i128
   %shl.i.i.i124.i = shl nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i122.i, %sh_prom.i.i.i123.i
   %coerce1.sroa.0.0.extract.trunc.i.i.i125.i = trunc i128 %shl.i.i.i124.i to i64
-  br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit126.i
+  br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit126.i
 
 if.end.i.i86.i:                                   ; preds = %if.end50.i
   %cmp3.i.i87.i = icmp ugt i32 %.sroa.speculated.i.i84.i, 127
-  br i1 %cmp3.i.i87.i, label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit126.i, label %if.end5.i.i88.i
+  br i1 %cmp3.i.i87.i, label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit126.i, label %if.end5.i.i88.i
 
 if.end5.i.i88.i:                                  ; preds = %if.end.i.i86.i
   %sh_prom.i23.i.i89.i = zext nneg i32 %.sroa.speculated.i.i84.i to i128
@@ -1063,18 +1063,18 @@ if.end5.i.i88.i:                                  ; preds = %if.end.i.i86.i
 
 if.then21.i.i118.i:                               ; preds = %if.end5.i.i88.i
   %coerce3.sroa.0.0.extract.trunc.i68.i.i119.i = add nuw i64 %coerce1.sroa.0.0.extract.trunc.i.i.i.i97.i, 1
-  br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit126.i
+  br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit126.i
 
 if.end27.i.i100.i:                                ; preds = %if.end5.i.i88.i
   %cmp.i.i.i101.i = icmp eq i128 %shl.i43.i.i93.i, %coerce2.sroa.0.0.insert.ext.i.i.i.i98.i
-  br i1 %cmp.i.i.i101.i, label %if.then31.i.i115.i, label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit126.i
+  br i1 %cmp.i.i.i101.i, label %if.then31.i.i115.i, label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit126.i
 
 if.then31.i.i115.i:                               ; preds = %if.end27.i.i100.i
   %coerce3.sroa.0.0.extract.trunc.i.i.i.i.i116.i = and i64 %coerce1.sroa.0.0.extract.trunc.i.i.i.i97.i, 1
   %spec.select.i.i117.i = add nuw i64 %coerce3.sroa.0.0.extract.trunc.i.i.i.i.i116.i, %coerce1.sroa.0.0.extract.trunc.i.i.i.i97.i
-  br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit126.i
+  br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit126.i
 
-_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit126.i: ; preds = %if.then31.i.i115.i, %if.end27.i.i100.i, %if.then21.i.i118.i, %if.end.i.i86.i, %if.then.i.i120.i
+_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit126.i: ; preds = %if.then31.i.i115.i, %if.end27.i.i100.i, %if.then21.i.i118.i, %if.end.i.i86.i, %if.then.i.i120.i
   %retval.0.i.i102.i = phi i64 [ %coerce1.sroa.0.0.extract.trunc.i.i.i125.i, %if.then.i.i120.i ], [ %coerce3.sroa.0.0.extract.trunc.i68.i.i119.i, %if.then21.i.i118.i ], [ 0, %if.end.i.i86.i ], [ %spec.select.i.i117.i, %if.then31.i.i115.i ], [ %coerce1.sroa.0.0.extract.trunc.i.i.i.i97.i, %if.end27.i.i100.i ]
   %add.i103.i = add nsw i32 %.sroa.speculated.i.i84.i, %hex_parse39.val40.i
   %cmp.i9.i104.i = icmp eq i64 %retval.0.i.i102.i, 16777216
@@ -1088,12 +1088,12 @@ _ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatE
   %cmp.i127.i = or i1 %cmp1.i.i108.i, %cmp.i127276.i
   br i1 %cmp.i127.i, label %if.then.i145.i, label %if.else.i128.i
 
-if.then.i145.i:                                   ; preds = %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit126.i
+if.then.i145.i:                                   ; preds = %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit126.i
   %cond.i147.i = select i1 %negative.0.i, float 0xC7EFFFFFE0000000, float 0x47EFFFFFE0000000
   store float %cond.i147.i, ptr %value, align 4
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIfEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
-if.else.i128.i:                                   ; preds = %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.argprom.exit126.i
+if.else.i128.i:                                   ; preds = %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit126.i
   %cmp4.i130.i = icmp eq i32 %spec.select7.i.i110.i, -99999
   br i1 %cmp4.i130.i, label %if.then5.i142.i, label %if.end9.i132.i
 

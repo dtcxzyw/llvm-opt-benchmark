@@ -1141,7 +1141,7 @@ entry:
   %10 = load atomic i64, ptr %arrayidx.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %10 to ptr
   %cmp.i = icmp eq i64 %10, 0
-  br i1 %cmp.i, label %if.then.i, label %_ZN7rocksdb12_GLOBAL__N_115HashSkipListRep20GetInitializedBucketERKNS_5SliceE.argprom.exit
+  br i1 %cmp.i, label %if.then.i, label %_ZN7rocksdb12_GLOBAL__N_115HashSkipListRep20GetInitializedBucketERKNS_5SliceE.exit
 
 if.then.i:                                        ; preds = %entry
   %allocator_.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -1224,9 +1224,9 @@ _ZN7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEEC2ES6_PNS_9AllocatorE
   %arrayidx.i = getelementptr inbounds %"struct.std::atomic", ptr %27, i64 %rem.i.i
   %28 = ptrtoint ptr %call3.i to i64
   store atomic i64 %28, ptr %arrayidx.i release, align 8
-  br label %_ZN7rocksdb12_GLOBAL__N_115HashSkipListRep20GetInitializedBucketERKNS_5SliceE.argprom.exit
+  br label %_ZN7rocksdb12_GLOBAL__N_115HashSkipListRep20GetInitializedBucketERKNS_5SliceE.exit
 
-_ZN7rocksdb12_GLOBAL__N_115HashSkipListRep20GetInitializedBucketERKNS_5SliceE.argprom.exit: ; preds = %entry, %_ZN7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEEC2ES6_PNS_9AllocatorEii.exit.i
+_ZN7rocksdb12_GLOBAL__N_115HashSkipListRep20GetInitializedBucketERKNS_5SliceE.exit: ; preds = %entry, %_ZN7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEEC2ES6_PNS_9AllocatorEii.exit.i
   %bucket.0.i = phi ptr [ %call3.i, %_ZN7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEEC2ES6_PNS_9AllocatorEii.exit.i ], [ %atomic-temp.i.0.i.i.i, %entry ]
   call void @_ZN7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE6InsertERKS2_(ptr noundef nonnull align 8 dereferenceable(52) %bucket.0.i, ptr noundef nonnull align 8 dereferenceable(8) %key)
   ret void

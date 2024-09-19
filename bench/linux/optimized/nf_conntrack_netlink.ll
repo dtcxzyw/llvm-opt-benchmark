@@ -1393,7 +1393,7 @@ define internal fastcc void @nf_ct_put(ptr noundef %0) unnamed_addr #7 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc ptr @nfct_help.argprom(ptr %.176.val) unnamed_addr #7 align 16 {
+define internal fastcc ptr @nfct_help(ptr %.176.val) unnamed_addr #7 align 16 {
   %1 = icmp eq ptr %.176.val, null
   br i1 %1, label %14, label %2
 
@@ -2014,7 +2014,7 @@ define internal fastcc i32 @ctnetlink_exp_fill_info(ptr noundef %0, i32 noundef 
 241:                                              ; preds = %235
   %242 = getelementptr i8, ptr %36, i64 176
   %.val = load ptr, ptr %242, align 8
-  %243 = call fastcc ptr @nfct_help.argprom(ptr %.val)
+  %243 = call fastcc ptr @nfct_help(ptr %.val)
   %244 = icmp eq ptr %243, null
   br i1 %244, label %252, label %245
 
@@ -3078,7 +3078,7 @@ define internal i32 @ctnetlink_new_conntrack(ptr nocapture readonly %0, ptr noca
   br i1 %197, label %201, label %198
 
 198:                                              ; preds = %194
-  %199 = call fastcc i32 @ctnetlink_change_protoinfo.argprom(ptr noundef %73, ptr nonnull %196)
+  %199 = call fastcc i32 @ctnetlink_change_protoinfo(ptr noundef %73, ptr nonnull %196)
   %200 = icmp slt i32 %199, 0
   br i1 %200, label %.thread26, label %201
 
@@ -4213,7 +4213,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_change_seq_adj(p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ctnetlink_change_protoinfo.argprom(ptr noundef %0, ptr %.32.val) unnamed_addr #3 align 16 {
+define internal fastcc i32 @ctnetlink_change_protoinfo(ptr noundef %0, ptr %.32.val) unnamed_addr #3 align 16 {
   %2 = alloca [4 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5

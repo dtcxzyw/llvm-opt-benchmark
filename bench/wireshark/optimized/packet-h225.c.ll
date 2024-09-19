@@ -4105,7 +4105,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_h225_h225_RasMessa
   %38 = load i32, ptr @proto_h225, align 4
   %39 = call ptr @p_get_proto_data(ptr noundef %37, ptr noundef %35, i32 noundef %38, i32 noundef 0) #10
   %.not.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i, label %dissect_RasMessage_PDU.argprom.exit, label %40
+  br i1 %.not.i.i, label %dissect_RasMessage_PDU.exit, label %40
 
 40:                                               ; preds = %4
   %41 = load i32, ptr %7, align 4
@@ -4113,14 +4113,14 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_h225_h225_RasMessa
   store i32 %41, ptr %42, align 8
   %43 = load ptr, ptr @call_id_guid, align 8
   %.not12.i.i = icmp eq ptr %43, null
-  br i1 %.not12.i.i, label %dissect_RasMessage_PDU.argprom.exit, label %44
+  br i1 %.not12.i.i, label %dissect_RasMessage_PDU.exit, label %44
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds i8, ptr %39, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %45, ptr noundef nonnull align 4 dereferenceable(16) %43, i64 16, i1 false)
-  br label %dissect_RasMessage_PDU.argprom.exit
+  br label %dissect_RasMessage_PDU.exit
 
-dissect_RasMessage_PDU.argprom.exit:              ; preds = %4, %40, %44
+dissect_RasMessage_PDU.exit:                      ; preds = %4, %40, %44
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -4129,7 +4129,7 @@ dissect_RasMessage_PDU.argprom.exit:              ; preds = %4, %40, %44
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %ras_call_matching.exit
 
-48:                                               ; preds = %dissect_RasMessage_PDU.argprom.exit
+48:                                               ; preds = %dissect_RasMessage_PDU.exit
   %49 = load i32, ptr %12, align 8
   %50 = icmp slt i32 %49, 21
   br i1 %50, label %51, label %ras_call_matching.exit
@@ -4259,7 +4259,7 @@ dissect_RasMessage_PDU.argprom.exit:              ; preds = %4, %40, %44
 
 proto_item_set_hidden.exit.i:                     ; preds = %87, %78
   %126 = getelementptr inbounds i8, ptr %10, i64 20
-  %127 = call fastcc ptr @append_h225ras_call.argelim(ptr noundef %.0.i, ptr noundef nonnull %1, ptr noundef nonnull %126)
+  %127 = call fastcc ptr @append_h225ras_call(ptr noundef %.0.i, ptr noundef nonnull %1, ptr noundef nonnull %126)
   %.not104.i = icmp eq ptr %127, null
   br i1 %.not104.i, label %ras_call_matching.exit, label %proto_item_set_hidden.exit.thread.i
 
@@ -4442,7 +4442,7 @@ proto_item_set_generated.exit.sink.split.i:       ; preds = %207, %133
   store i32 %212, ptr %210, align 4
   br label %ras_call_matching.exit
 
-ras_call_matching.exit:                           ; preds = %dissect_RasMessage_PDU.argprom.exit, %48, %proto_item_set_hidden.exit.i, %proto_item_set_hidden.exit.thread.i, %130, %133, %136, %138, %proto_item_set_hidden.exit114.i, %proto_item_set_generated.exit117.i, %207, %proto_item_set_generated.exit.sink.split.i
+ras_call_matching.exit:                           ; preds = %dissect_RasMessage_PDU.exit, %48, %proto_item_set_hidden.exit.i, %proto_item_set_hidden.exit.thread.i, %130, %133, %136, %138, %proto_item_set_hidden.exit114.i, %proto_item_set_generated.exit117.i, %207, %proto_item_set_generated.exit.sink.split.i
   %213 = add i32 %28, 7
   %214 = ashr i32 %213, 3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -7654,7 +7654,7 @@ define internal i32 @dissect_h225_OCTET_STRING_SIZE_1_131(ptr noundef %0, i32 no
 declare nonnull ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @append_h225ras_call.argelim(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @append_h225ras_call(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = tail call ptr @wmem_file_scope() #10
   %5 = tail call noalias ptr @wmem_alloc(ptr noundef %4, i64 noundef 64) #10
   %6 = getelementptr inbounds i8, ptr %1, i64 20

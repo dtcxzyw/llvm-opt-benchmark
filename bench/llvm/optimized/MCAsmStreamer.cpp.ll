@@ -5488,8 +5488,8 @@ define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRe
   %6 = alloca %class.anon.306, align 8
   %7 = alloca %class.anon.309, align 8
   switch i64 %2, label %8 [
-    i64 0, label %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.argprom.exit.thread"
-    i64 1, label %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.argprom.exit.thread26"
+    i64 0, label %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.exit.thread"
+    i64 1, label %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.exit.thread26"
   ]
 
 8:                                                ; preds = %3
@@ -5688,7 +5688,7 @@ _ZL17isPrintableStringN4llvm9StringRefE.exit.thread.i: ; preds = %.lr.ph.i.i, %_
   %112 = getelementptr inbounds nuw i8, ptr %10, i64 224
   %113 = load ptr, ptr %112, align 8
   %.not11.i = icmp eq ptr %113, null
-  br i1 %.not11.i, label %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.argprom.exit", label %_ZN4llvm9StringRefC2EPKc.exit.i31.i
+  br i1 %.not11.i, label %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.exit", label %_ZN4llvm9StringRefC2EPKc.exit.i31.i
 
 _ZN4llvm9StringRefC2EPKc.exit.i31.i:              ; preds = %_ZL17isPrintableStringN4llvm9StringRefE.exit.thread.i
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -5806,7 +5806,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i.i:             ; preds = %145, %143
 
 167:                                              ; preds = %160
   %168 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %131, ptr noundef nonnull %5, i64 noundef 2) #21
-  br label %"_ZZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxEENK3$_3clEc.argprom.exit.i.i.i.i"
+  br label %"_ZZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxEENK3$_3clEc.exit.i.i.i.i"
 
 169:                                              ; preds = %160
   %170 = load i16, ptr %5, align 2
@@ -5814,9 +5814,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i.i:             ; preds = %145, %143
   %171 = load ptr, ptr %155, align 8
   %172 = getelementptr inbounds i8, ptr %171, i64 2
   store ptr %172, ptr %155, align 8
-  br label %"_ZZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxEENK3$_3clEc.argprom.exit.i.i.i.i"
+  br label %"_ZZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxEENK3$_3clEc.exit.i.i.i.i"
 
-"_ZZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxEENK3$_3clEc.argprom.exit.i.i.i.i": ; preds = %169, %167
+"_ZZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxEENK3$_3clEc.exit.i.i.i.i": ; preds = %169, %167
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
   br label %"_ZZZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxEENK3$_2clIZL13PrintByteListS0_S2_S4_E3$_3EEDaT_ENKUlhE_clEh.exit.i.i.i"
 
@@ -5824,7 +5824,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i.i:             ; preds = %145, %143
   call fastcc void @"_ZZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxEENK3$_1clEh"(ptr noundef nonnull readonly align 8 dereferenceable(8) %7, i8 noundef zeroext %157)
   br label %"_ZZZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxEENK3$_2clIZL13PrintByteListS0_S2_S4_E3$_3EEDaT_ENKUlhE_clEh.exit.i.i.i"
 
-"_ZZZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxEENK3$_2clIZL13PrintByteListS0_S2_S4_E3$_3EEDaT_ENKUlhE_clEh.exit.i.i.i": ; preds = %173, %"_ZZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxEENK3$_3clEc.argprom.exit.i.i.i.i"
+"_ZZZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxEENK3$_2clIZL13PrintByteListS0_S2_S4_E3$_3EEDaT_ENKUlhE_clEh.exit.i.i.i": ; preds = %173, %"_ZZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxEENK3$_3clEc.exit.i.i.i.i"
   %174 = load ptr, ptr %155, align 8
   %175 = load ptr, ptr %154, align 8
   %.not.i.i5.i.i = icmp ult ptr %174, %175
@@ -5868,7 +5868,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i6.i.i:            ; preds = %178, %176
 
 194:                                              ; preds = %184
   %195 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %131, ptr noundef nonnull %4, i64 noundef 2) #21
-  br label %"_ZZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxEENK3$_3clEc.argprom.exit.i13.i.i.i"
+  br label %"_ZZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxEENK3$_3clEc.exit.i13.i.i.i"
 
 196:                                              ; preds = %184
   %197 = load i16, ptr %4, align 2
@@ -5876,9 +5876,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i6.i.i:            ; preds = %178, %176
   %198 = load ptr, ptr %188, align 8
   %199 = getelementptr inbounds i8, ptr %198, i64 2
   store ptr %199, ptr %188, align 8
-  br label %"_ZZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxEENK3$_3clEc.argprom.exit.i13.i.i.i"
+  br label %"_ZZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxEENK3$_3clEc.exit.i13.i.i.i"
 
-"_ZZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxEENK3$_3clEc.argprom.exit.i13.i.i.i": ; preds = %196, %194
+"_ZZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxEENK3$_3clEc.exit.i13.i.i.i": ; preds = %196, %194
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
   br label %_ZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxE.exit.i
 
@@ -5886,11 +5886,11 @@ _ZN4llvm11raw_ostreamlsEc.exit.i6.i.i:            ; preds = %178, %176
   call fastcc void @"_ZZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxEENK3$_1clEh"(ptr noundef nonnull readonly align 8 dereferenceable(8) %7, i8 noundef zeroext %181)
   br label %_ZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxE.exit.i
 
-_ZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxE.exit.i: ; preds = %200, %"_ZZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxEENK3$_3clEc.argprom.exit.i13.i.i.i", %"_ZZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxEENK3$_0clIZL13PrintByteListS0_S2_S4_E3$_1EEDaRKT_.exit.i.i"
+_ZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxE.exit.i: ; preds = %200, %"_ZZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxEENK3$_3clEc.exit.i13.i.i.i", %"_ZZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxEENK3$_0clIZL13PrintByteListS0_S2_S4_E3$_1EEDaRKT_.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call fastcc void @_ZN12_GLOBAL__N_113MCAsmStreamer7EmitEOLEv(ptr noundef nonnull align 8 dereferenceable(744) %0)
-  br label %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.argprom.exit.thread"
+  br label %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.exit.thread"
 
 _ZN4llvm11raw_ostreamlsEPKc.exit16.i:             ; preds = %109, %108, %106, %94, %_ZN4llvm11raw_ostreamlsEPKc.exit21.i, %53, %52, %50, %_ZN4llvm11raw_ostreamlsEPKc.exit.i
   %.sroa.10.0.i = phi i64 [ %.sroa.speculated.i22.i, %_ZN4llvm11raw_ostreamlsEPKc.exit21.i ], [ %.sroa.speculated.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit.i ], [ %2, %50 ], [ %2, %52 ], [ %2, %53 ], [ %2, %94 ], [ %2, %106 ], [ %2, %108 ], [ %2, %109 ]
@@ -5898,33 +5898,33 @@ _ZN4llvm11raw_ostreamlsEPKc.exit16.i:             ; preds = %109, %108, %106, %9
   %202 = load ptr, ptr %201, align 8
   tail call fastcc void @_ZNK12_GLOBAL__N_113MCAsmStreamer17PrintQuotedStringEN4llvm9StringRefERNS1_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr %1, i64 %.sroa.10.0.i, ptr noundef nonnull align 8 dereferenceable(48) %202)
   tail call fastcc void @_ZN12_GLOBAL__N_113MCAsmStreamer7EmitEOLEv(ptr noundef nonnull align 8 dereferenceable(744) %0)
-  br label %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.argprom.exit.thread"
+  br label %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.exit.thread"
 
-"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.argprom.exit": ; preds = %_ZL17isPrintableStringN4llvm9StringRefE.exit.thread.i
+"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.exit": ; preds = %_ZL17isPrintableStringN4llvm9StringRefE.exit.thread.i
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %204 = load ptr, ptr %203, align 8
   %.not13 = icmp eq ptr %204, null
   br i1 %.not13, label %212, label %207
 
-"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.argprom.exit.thread26": ; preds = %3
+"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.exit.thread26": ; preds = %3
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %206 = load ptr, ptr %205, align 8
   %.not1327 = icmp eq ptr %206, null
   br i1 %.not1327, label %.lr.ph, label %207
 
-207:                                              ; preds = %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.argprom.exit.thread26", %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.argprom.exit"
-  %208 = phi ptr [ %206, %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.argprom.exit.thread26" ], [ %204, %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.argprom.exit" ]
+207:                                              ; preds = %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.exit.thread26", %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.exit"
+  %208 = phi ptr [ %206, %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.exit.thread26" ], [ %204, %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.exit" ]
   %209 = load ptr, ptr %208, align 8
   %210 = getelementptr inbounds i8, ptr %209, i64 64
   %211 = load ptr, ptr %210, align 8
   tail call void %211(ptr noundef nonnull align 8 dereferenceable(16) %208, ptr %1, i64 %2) #21
-  br label %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.argprom.exit.thread"
+  br label %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.exit.thread"
 
-212:                                              ; preds = %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.argprom.exit"
+212:                                              ; preds = %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.exit"
   %.not1423 = icmp eq i64 %2, 0
-  br i1 %.not1423, label %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.argprom.exit.thread", label %.lr.ph
+  br i1 %.not1423, label %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.exit.thread", label %.lr.ph
 
-.lr.ph:                                           ; preds = %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.argprom.exit.thread26", %212
+.lr.ph:                                           ; preds = %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.exit.thread26", %212
   %.pn.in = getelementptr inbounds nuw i8, ptr %0, i64 304
   %.pn = load ptr, ptr %.pn.in, align 8
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 248
@@ -5943,7 +5943,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.us:              ; preds = %.lr.ph, %_ZN4llvm11
   tail call fastcc void @_ZN12_GLOBAL__N_113MCAsmStreamer7EmitEOLEv(ptr noundef nonnull align 8 dereferenceable(744) %0)
   %220 = getelementptr inbounds i8, ptr %.024.us, i64 1
   %.not14.us = icmp eq ptr %220, %214
-  br i1 %.not14.us, label %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.argprom.exit.thread", label %_ZN4llvm11raw_ostreamlsEPKc.exit.us
+  br i1 %.not14.us, label %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.exit.thread", label %_ZN4llvm11raw_ostreamlsEPKc.exit.us
 
 _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %.lr.ph, %_ZN4llvm11raw_ostreamlsEPKc.exit
   %.024 = phi ptr [ %240, %_ZN4llvm11raw_ostreamlsEPKc.exit ], [ %1, %.lr.ph ]
@@ -5982,9 +5982,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %232, %234, %235
   tail call fastcc void @_ZN12_GLOBAL__N_113MCAsmStreamer7EmitEOLEv(ptr noundef nonnull align 8 dereferenceable(744) %0)
   %240 = getelementptr inbounds i8, ptr %.024, i64 1
   %.not14 = icmp eq ptr %240, %214
-  br i1 %.not14, label %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.argprom.exit.thread", label %_ZN4llvm9StringRefC2EPKc.exit.i
+  br i1 %.not14, label %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.exit.thread", label %_ZN4llvm9StringRefC2EPKc.exit.i
 
-"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.argprom.exit.thread": ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit.us, %212, %3, %_ZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxE.exit.i, %_ZN4llvm11raw_ostreamlsEPKc.exit16.i, %207
+"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.exit.thread": ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit.us, %212, %3, %_ZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxE.exit.i, %_ZN4llvm11raw_ostreamlsEPKc.exit16.i, %207
   ret void
 }
 

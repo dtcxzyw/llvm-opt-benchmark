@@ -4520,7 +4520,7 @@ define internal i32 @dissect_ldap_T_filter(i1 zeroext %0, ptr noundef %1, i32 no
   store ptr null, ptr @Filter_string, align 8
   store i32 0, ptr @Filter_elements, align 4
   store i32 0, ptr @Filter_length, align 4
-  %7 = tail call fastcc i32 @dissect_ldap_Filter.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
+  %7 = tail call fastcc i32 @dissect_ldap_Filter(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   store ptr null, ptr @Filter_string, align 8
   store ptr null, ptr @and_filter_string, align 8
   store i32 0, ptr @Filter_elements, align 4
@@ -4538,7 +4538,7 @@ define internal i32 @dissect_ldap_AttributeDescriptionList(i1 noundef zeroext %0
 declare i32 @dissect_ber_boolean(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ldap_Filter.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ldap_Filter(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
@@ -4671,7 +4671,7 @@ define internal i32 @dissect_ldap_T_or(i1 noundef zeroext %0, ptr noundef %1, i3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ldap_T_not(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = tail call fastcc i32 @dissect_ldap_Filter.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
+  %7 = tail call fastcc i32 @dissect_ldap_Filter(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   %8 = getelementptr inbounds i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 408
@@ -4840,7 +4840,7 @@ declare i32 @dissect_ber_set_of(i1 noundef zeroext, ptr noundef, ptr noundef, pt
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ldap_T_and_item(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = tail call fastcc i32 @dissect_ldap_Filter.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
+  %7 = tail call fastcc i32 @dissect_ldap_Filter(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   %8 = load ptr, ptr @and_filter_string, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %16, label %9
@@ -4868,7 +4868,7 @@ declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ldap_T_or_item(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = tail call fastcc i32 @dissect_ldap_Filter.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
+  %7 = tail call fastcc i32 @dissect_ldap_Filter(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   %8 = load ptr, ptr @or_filter_string, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %16, label %9

@@ -3034,12 +3034,12 @@ define hidden noundef zeroext i1 @_ZN18ObjectSynchronizer25is_async_deflation_ne
   %12 = icmp sgt i64 %11, 0
   %13 = icmp sgt i64 %10, %11
   %or.cond = and i1 %12, %13
-  br i1 %or.cond, label %14, label %_ZL29monitors_used_above_thresholdP11MonitorList.argprom.exit.thread
+  br i1 %or.cond, label %14, label %_ZL29monitors_used_above_thresholdP11MonitorList.exit.thread
 
 14:                                               ; preds = %6
   %15 = load i32, ptr @MonitorUsedDeflationThreshold, align 4
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %_ZL29monitors_used_above_thresholdP11MonitorList.argprom.exit.thread, label %17
+  br i1 %16, label %_ZL29monitors_used_above_thresholdP11MonitorList.exit.thread, label %17
 
 17:                                               ; preds = %14
   %18 = load i64, ptr @_ZL20_in_use_list_ceiling, align 8
@@ -3055,7 +3055,7 @@ define hidden noundef zeroext i1 @_ZN18ObjectSynchronizer25is_async_deflation_ne
   %.019.i = phi i64 [ %22, %21 ], [ %18, %17 ]
   %24 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN18ObjectSynchronizer12_in_use_listE, i64 8), align 8
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %_ZL29monitors_used_above_thresholdP11MonitorList.argprom.exit.thread, label %26
+  br i1 %25, label %_ZL29monitors_used_above_thresholdP11MonitorList.exit.thread, label %26
 
 26:                                               ; preds = %23
   %27 = load i64, ptr @NoAsyncDeflationProgressMax, align 8
@@ -3096,34 +3096,34 @@ define hidden noundef zeroext i1 @_ZN18ObjectSynchronizer25is_async_deflation_ne
   %46 = udiv i64 %45, %.1.i
   %47 = trunc i64 %46 to i32
   %48 = icmp slt i32 %44, %47
-  br i1 %48, label %49, label %_ZL29monitors_used_above_thresholdP11MonitorList.argprom.exit.thread
+  br i1 %48, label %49, label %_ZL29monitors_used_above_thresholdP11MonitorList.exit.thread
 
 49:                                               ; preds = %43
   %50 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not1.i = icmp eq ptr %50, null
-  br i1 %.not1.i, label %_ZL29monitors_used_above_thresholdP11MonitorList.argprom.exit, label %51
+  br i1 %.not1.i, label %_ZL29monitors_used_above_thresholdP11MonitorList.exit, label %51
 
 51:                                               ; preds = %49
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.74, i64 noundef %24, i64 noundef %.1.i, i64 noundef %46, i32 noundef %44)
-  br label %_ZL29monitors_used_above_thresholdP11MonitorList.argprom.exit
+  br label %_ZL29monitors_used_above_thresholdP11MonitorList.exit
 
-_ZL29monitors_used_above_thresholdP11MonitorList.argprom.exit: ; preds = %51, %49
+_ZL29monitors_used_above_thresholdP11MonitorList.exit: ; preds = %51, %49
   %52 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %52, null
   br i1 %.not, label %61, label %53
 
-53:                                               ; preds = %_ZL29monitors_used_above_thresholdP11MonitorList.argprom.exit
+53:                                               ; preds = %_ZL29monitors_used_above_thresholdP11MonitorList.exit
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.13)
   br label %61
 
-_ZL29monitors_used_above_thresholdP11MonitorList.argprom.exit.thread: ; preds = %43, %23, %14, %6
+_ZL29monitors_used_above_thresholdP11MonitorList.exit.thread: ; preds = %43, %23, %14, %6
   %54 = load i64, ptr @GuaranteedAsyncDeflationInterval, align 8
   %55 = icmp sgt i64 %54, 0
   %56 = icmp sgt i64 %10, %54
   %or.cond6 = and i1 %55, %56
   br i1 %or.cond6, label %57, label %61
 
-57:                                               ; preds = %_ZL29monitors_used_above_thresholdP11MonitorList.argprom.exit.thread
+57:                                               ; preds = %_ZL29monitors_used_above_thresholdP11MonitorList.exit.thread
   %58 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not8 = icmp eq ptr %58, null
   br i1 %.not8, label %60, label %59
@@ -3136,8 +3136,8 @@ _ZL29monitors_used_above_thresholdP11MonitorList.argprom.exit.thread: ; preds = 
   store i1 true, ptr @_ZL27_no_progress_skip_increment, align 1
   br label %61
 
-61:                                               ; preds = %_ZL29monitors_used_above_thresholdP11MonitorList.argprom.exit.thread, %53, %_ZL29monitors_used_above_thresholdP11MonitorList.argprom.exit, %5, %3, %60
-  %.0 = phi i1 [ true, %60 ], [ true, %3 ], [ true, %5 ], [ true, %_ZL29monitors_used_above_thresholdP11MonitorList.argprom.exit ], [ true, %53 ], [ false, %_ZL29monitors_used_above_thresholdP11MonitorList.argprom.exit.thread ]
+61:                                               ; preds = %_ZL29monitors_used_above_thresholdP11MonitorList.exit.thread, %53, %_ZL29monitors_used_above_thresholdP11MonitorList.exit, %5, %3, %60
+  %.0 = phi i1 [ true, %60 ], [ true, %3 ], [ true, %5 ], [ true, %_ZL29monitors_used_above_thresholdP11MonitorList.exit ], [ true, %53 ], [ false, %_ZL29monitors_used_above_thresholdP11MonitorList.exit.thread ]
   ret i1 %.0
 }
 
@@ -4931,13 +4931,13 @@ define hidden void @_ZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outpu
   %.sroa.0.03.i = phi ptr [ %6, %.lr.ph.i ], [ %10, %"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_0clEP13ObjectMonitor.exit.i" ]
   %9 = getelementptr inbounds i8, ptr %.sroa.0.03.i, i64 128
   %10 = load volatile ptr, ptr %9, align 8
-  br i1 %1, label %"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_1clEP13ObjectMonitor.argprom.argprom.exit.thread.i.i", label %11
+  br i1 %1, label %"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_1clEP13ObjectMonitor.exit.thread.i.i", label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %.sroa.0.03.i, i64 64
   %13 = load volatile ptr, ptr %12, align 8
   %magicptr.i.i.i = ptrtoint ptr %13 to i64
-  switch i64 %magicptr.i.i.i, label %"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_1clEP13ObjectMonitor.argprom.argprom.exit.thread.i.i" [
+  switch i64 %magicptr.i.i.i, label %"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_1clEP13ObjectMonitor.exit.thread.i.i" [
     i64 2, label %14
     i64 0, label %14
   ]
@@ -4961,20 +4961,20 @@ define hidden void @_ZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outpu
   %.0.i.i.i.i = or i64 %25, %28
   %29 = load volatile ptr, ptr %12, align 8
   %30 = icmp eq ptr %29, inttoptr (i64 2 to ptr)
-  br i1 %30, label %"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_1clEP13ObjectMonitor.argprom.argprom.exit.i.i", label %31
+  br i1 %30, label %"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_1clEP13ObjectMonitor.exit.i.i", label %31
 
 31:                                               ; preds = %14
   %32 = load volatile ptr, ptr %12, align 8
   %33 = ptrtoint ptr %32 to i64
   %34 = or i64 %.0.i.i.i.i, %33
-  br label %"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_1clEP13ObjectMonitor.argprom.argprom.exit.i.i"
+  br label %"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_1clEP13ObjectMonitor.exit.i.i"
 
-"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_1clEP13ObjectMonitor.argprom.argprom.exit.i.i": ; preds = %31, %14
+"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_1clEP13ObjectMonitor.exit.i.i": ; preds = %31, %14
   %.1.i.i.i.i = phi i64 [ %.0.i.i.i.i, %14 ], [ %34, %31 ]
   %.not.i.i = icmp eq i64 %.1.i.i.i.i, 0
-  br i1 %.not.i.i, label %"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_0clEP13ObjectMonitor.exit.i", label %"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_1clEP13ObjectMonitor.argprom.argprom.exit.thread.i.i"
+  br i1 %.not.i.i, label %"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_0clEP13ObjectMonitor.exit.i", label %"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_1clEP13ObjectMonitor.exit.thread.i.i"
 
-"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_1clEP13ObjectMonitor.argprom.argprom.exit.thread.i.i": ; preds = %"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_1clEP13ObjectMonitor.argprom.argprom.exit.i.i", %11, %8
+"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_1clEP13ObjectMonitor.exit.thread.i.i": ; preds = %"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_1clEP13ObjectMonitor.exit.i.i", %11, %8
   %35 = call noundef ptr @_ZNK13ObjectMonitor11object_peekEv(ptr noundef nonnull align 8 dereferenceable(200) %.sroa.0.03.i) #18
   %36 = load volatile i64, ptr %.sroa.0.03.i, align 8
   %37 = load ptr, ptr %7, align 8
@@ -5010,14 +5010,14 @@ define hidden void @_ZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outpu
   %65 = icmp eq ptr %64, inttoptr (i64 2 to ptr)
   br i1 %65, label %_ZNK13ObjectMonitor7is_busyEv.exit.i.i, label %66
 
-66:                                               ; preds = %"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_1clEP13ObjectMonitor.argprom.argprom.exit.thread.i.i"
+66:                                               ; preds = %"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_1clEP13ObjectMonitor.exit.thread.i.i"
   %67 = load volatile ptr, ptr %63, align 8
   %68 = ptrtoint ptr %67 to i64
   %69 = or i64 %.0.i.i.i, %68
   br label %_ZNK13ObjectMonitor7is_busyEv.exit.i.i
 
-_ZNK13ObjectMonitor7is_busyEv.exit.i.i:           ; preds = %66, %"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_1clEP13ObjectMonitor.argprom.argprom.exit.thread.i.i"
-  %.1.i.i.i = phi i64 [ %.0.i.i.i, %"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_1clEP13ObjectMonitor.argprom.argprom.exit.thread.i.i" ], [ %69, %66 ]
+_ZNK13ObjectMonitor7is_busyEv.exit.i.i:           ; preds = %66, %"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_1clEP13ObjectMonitor.exit.thread.i.i"
+  %.1.i.i.i = phi i64 [ %.0.i.i.i, %"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_1clEP13ObjectMonitor.exit.thread.i.i" ], [ %69, %66 ]
   %70 = icmp ne i64 %.1.i.i.i, 0
   %71 = zext i1 %70 to i32
   %72 = and i64 %36, 549755813632
@@ -5117,7 +5117,7 @@ _ZNK13ObjectMonitor7is_busyEv.exit16.i.i:         ; preds = %112, %98
   store ptr %45, ptr %44, align 8
   br label %"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_0clEP13ObjectMonitor.exit.i"
 
-"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_0clEP13ObjectMonitor.exit.i": ; preds = %123, %121, %"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_1clEP13ObjectMonitor.argprom.argprom.exit.i.i"
+"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_0clEP13ObjectMonitor.exit.i": ; preds = %123, %121, %"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_1clEP13ObjectMonitor.exit.i.i"
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %"_ZN18ObjectSynchronizer16monitors_iterateIZNS_26log_in_use_monitor_detailsEP12outputStreambE3$_0EEvT_.exit", label %8, !llvm.loop !45
 

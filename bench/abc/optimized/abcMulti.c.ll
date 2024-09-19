@@ -619,9 +619,9 @@ Abc_NtkMultiSetBoundsCnf.exit:                    ; preds = %.critedge4.i, %.cri
 
 .lr.ph.i64:                                       ; preds = %297
   %.not.i.i = icmp eq ptr %301, null
-  br i1 %.not.i.i, label %Extra_ProgressBarUpdate.argprom.exit.us.i, label %.lr.ph.split.i
+  br i1 %.not.i.i, label %Extra_ProgressBarUpdate.exit.us.i, label %.lr.ph.split.i
 
-Extra_ProgressBarUpdate.argprom.exit.us.i:        ; preds = %.lr.ph.i64, %318
+Extra_ProgressBarUpdate.exit.us.i:                ; preds = %.lr.ph.i64, %318
   %indvars.iv51.i = phi i64 [ %indvars.iv.next52.i, %318 ], [ 0, %.lr.ph.i64 ]
   %.val3745.us.i = phi ptr [ %.val37.us.i, %318 ], [ %.val3742.i, %.lr.ph.i64 ]
   %304 = getelementptr i8, ptr %.val3745.us.i, i64 8
@@ -649,18 +649,18 @@ Extra_ProgressBarUpdate.argprom.exit.us.i:        ; preds = %.lr.ph.i64, %318
     i32 2, label %318
   ]
 
-316:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit.us.i
+316:                                              ; preds = %Extra_ProgressBarUpdate.exit.us.i
   %317 = tail call fastcc ptr @Abc_NtkMulti_rec(ptr noundef %286, ptr noundef nonnull %313)
   br label %318
 
-318:                                              ; preds = %316, %Extra_ProgressBarUpdate.argprom.exit.us.i, %Extra_ProgressBarUpdate.argprom.exit.us.i
+318:                                              ; preds = %316, %Extra_ProgressBarUpdate.exit.us.i, %Extra_ProgressBarUpdate.exit.us.i
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
   %.val37.us.i = load ptr, ptr %299, align 8
   %319 = getelementptr i8, ptr %.val37.us.i, i64 4
   %.val37.val.us.i = load i32, ptr %319, align 4
   %320 = sext i32 %.val37.val.us.i to i64
   %321 = icmp slt i64 %indvars.iv.next52.i, %320
-  br i1 %321, label %Extra_ProgressBarUpdate.argprom.exit.us.i, label %.critedge.i60, !llvm.loop !13
+  br i1 %321, label %Extra_ProgressBarUpdate.exit.us.i, label %.critedge.i60, !llvm.loop !13
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i64, %340
   %indvars.iv.i65 = phi i64 [ %indvars.iv.next.i71, %340 ], [ 0, %.lr.ph.i64 ]
@@ -672,14 +672,14 @@ Extra_ProgressBarUpdate.argprom.exit.us.i:        ; preds = %.lr.ph.i64, %318
   %325 = load i32, ptr %301, align 4
   %326 = sext i32 %325 to i64
   %327 = icmp slt i64 %indvars.iv.i65, %326
-  br i1 %327, label %Extra_ProgressBarUpdate.argprom.exit.i, label %328
+  br i1 %327, label %Extra_ProgressBarUpdate.exit.i, label %328
 
 328:                                              ; preds = %.lr.ph.split.i
   %329 = trunc nuw nsw i64 %indvars.iv.i65 to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef nonnull %301, i32 noundef %329, ptr noundef null) #6
-  br label %Extra_ProgressBarUpdate.argprom.exit.i
+  br label %Extra_ProgressBarUpdate.exit.i
 
-Extra_ProgressBarUpdate.argprom.exit.i:           ; preds = %328, %.lr.ph.split.i
+Extra_ProgressBarUpdate.exit.i:                   ; preds = %328, %.lr.ph.split.i
   %.val32.i66 = load ptr, ptr %324, align 8
   %330 = getelementptr i8, ptr %324, i64 32
   %.val33.i67 = load ptr, ptr %330, align 8
@@ -699,11 +699,11 @@ Extra_ProgressBarUpdate.argprom.exit.i:           ; preds = %328, %.lr.ph.split.
     i32 2, label %340
   ]
 
-338:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit.i
+338:                                              ; preds = %Extra_ProgressBarUpdate.exit.i
   %339 = tail call fastcc ptr @Abc_NtkMulti_rec(ptr noundef %286, ptr noundef nonnull %335)
   br label %340
 
-340:                                              ; preds = %338, %Extra_ProgressBarUpdate.argprom.exit.i, %Extra_ProgressBarUpdate.argprom.exit.i
+340:                                              ; preds = %338, %Extra_ProgressBarUpdate.exit.i, %Extra_ProgressBarUpdate.exit.i
   %indvars.iv.next.i71 = add nuw nsw i64 %indvars.iv.i65, 1
   %.val37.i = load ptr, ptr %299, align 8
   %341 = getelementptr i8, ptr %.val37.i, i64 4
@@ -980,7 +980,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %or.cond, label %13, label %12
 
 12:                                               ; preds = %8
-  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %1, ptr noundef nonnull %.tr)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %1, ptr noundef nonnull %.tr)
   br label %.loopexit
 
 13:                                               ; preds = %8, %tailrecurse
@@ -1103,7 +1103,7 @@ tailrecurse.backedge:                             ; preds = %21, %53
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_PtrPushUnique.retelim(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -1216,7 +1216,7 @@ define void @Abc_NtkMultiCone_rec(ptr noundef %0, ptr nocapture noundef %1) loca
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %.tr.lcssa = phi ptr [ %0, %2 ], [ %19, %tailrecurse ]
-  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %1, ptr noundef nonnull %.tr.lcssa)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %1, ptr noundef nonnull %.tr.lcssa)
   ret void
 
 tailrecurse:                                      ; preds = %2, %tailrecurse

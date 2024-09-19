@@ -263,12 +263,12 @@ define internal noalias noundef ptr @_monitor(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %30 = load ptr, ptr @program_name, align 8
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %_call_external_program.argprom.exit, label %32
+  br i1 %31, label %_call_external_program.exit, label %32
 
 32:                                               ; preds = %28
   %33 = load i8, ptr %30, align 1
   %34 = icmp eq i8 %33, 0
-  br i1 %34, label %_call_external_program.argprom.exit, label %35
+  br i1 %34, label %_call_external_program.exit, label %35
 
 35:                                               ; preds = %32
   %36 = call i32 @get_log_level() #7
@@ -291,12 +291,12 @@ define internal noalias noundef ptr @_monitor(ptr noundef %0) #0 {
 46:                                               ; preds = %42
   %47 = call i32 @get_log_level() #7
   %48 = icmp sgt i32 %47, 4
-  br i1 %48, label %49, label %_call_external_program.argprom.exit
+  br i1 %48, label %49, label %_call_external_program.exit
 
 49:                                               ; preds = %46
   %50 = load ptr, ptr @program_name, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.23, ptr noundef %50) #7
-  br label %_call_external_program.argprom.exit
+  br label %_call_external_program.exit
 
 51:                                               ; preds = %42
   %52 = call i32 @fork() #7
@@ -306,7 +306,7 @@ define internal noalias noundef ptr @_monitor(ptr noundef %0) #0 {
 54:                                               ; preds = %51
   %55 = load ptr, ptr @program_name, align 8
   %56 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.24, ptr noundef %55) #7
-  br label %_call_external_program.argprom.exit
+  br label %_call_external_program.exit
 
 57:                                               ; preds = %51
   %58 = icmp eq i32 %52, 0
@@ -356,11 +356,11 @@ define internal noalias noundef ptr @_monitor(ptr noundef %0) #0 {
   %87 = tail call ptr @__errno_location() #8
   %88 = load i32, ptr %87, align 4
   %89 = icmp eq i32 %88, 4
-  br i1 %89, label %83, label %_call_external_program.argprom.exit
+  br i1 %89, label %83, label %_call_external_program.exit
 
 90:                                               ; preds = %83
   %91 = icmp eq i32 %84, 0
-  br i1 %91, label %92, label %_call_external_program.argprom.exit
+  br i1 %91, label %92, label %_call_external_program.exit
 
 92:                                               ; preds = %90
   %93 = call i32 @sleep(i32 noundef 1) #7
@@ -383,7 +383,7 @@ define internal noalias noundef ptr @_monitor(ptr noundef %0) #0 {
   %.0.ph.i = phi i32 [ %94, %92 ], [ %.0.ph.i.ph, %.outer.i.outer ]
   br label %83
 
-_call_external_program.argprom.exit:              ; preds = %90, %86, %28, %32, %46, %49, %54
+_call_external_program.exit:                      ; preds = %90, %86, %28, %32, %46, %49, %54
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -396,22 +396,22 @@ _call_external_program.argprom.exit:              ; preds = %90, %86, %28, %32, 
     i32 -6, label %109
   ]
 
-103:                                              ; preds = %_call_external_program.argprom.exit
+103:                                              ; preds = %_call_external_program.exit
   %104 = load i32, ptr %100, align 8
   %105 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 45, ptr noundef nonnull @.str.13, i32 noundef %104) #7
   br label %115
 
-106:                                              ; preds = %_call_external_program.argprom.exit
+106:                                              ; preds = %_call_external_program.exit
   %107 = load i32, ptr %100, align 8
   %108 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 45, ptr noundef nonnull @.str.14, i32 noundef %107) #7
   br label %115
 
-109:                                              ; preds = %_call_external_program.argprom.exit
+109:                                              ; preds = %_call_external_program.exit
   %110 = load i32, ptr %100, align 8
   %111 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 45, ptr noundef nonnull @.str.15, i32 noundef %110) #7
   br label %115
 
-112:                                              ; preds = %_call_external_program.argprom.exit
+112:                                              ; preds = %_call_external_program.exit
   %113 = call ptr @log_build_step_id_str(ptr noundef nonnull %100, ptr noundef nonnull %9, i32 noundef 33, i16 noundef zeroext 4) #7
   %114 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 45, ptr noundef nonnull @.str.16, ptr noundef nonnull %9) #7
   br label %115

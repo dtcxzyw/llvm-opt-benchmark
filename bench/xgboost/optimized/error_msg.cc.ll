@@ -360,13 +360,13 @@ define void @_ZN7xgboost5error17WarnManualUpdaterEv() local_unnamed_addr #3 pers
   %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7xgboost5error17WarnManualUpdaterEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENUlvE_8__invokeEv", ptr %4, align 8
   %5 = invoke noundef i32 @pthread_once(ptr noundef nonnull @_ZZN7xgboost5error17WarnManualUpdaterEvE4flag, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i unwind label %8
+          to label %_ZL14__gthread_oncePiPFvvE.exit.i unwind label %8
 
-_ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %0
+_ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %0
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %"_ZSt9call_onceIZN7xgboost5error17WarnManualUpdaterEvE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit", label %6
+  br i1 %.not.i, label %"_ZSt9call_onceIZN7xgboost5error17WarnManualUpdaterEvE3$_0JEEvRSt9once_flagOT_DpOT0_.exit", label %6
 
-6:                                                ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+6:                                                ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %5) #21
           to label %7 unwind label %8
 
@@ -380,7 +380,7 @@ _ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %0
   store ptr null, ptr %4, align 8
   resume { ptr, i32 } %9
 
-"_ZSt9call_onceIZN7xgboost5error17WarnManualUpdaterEvE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit": ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+"_ZSt9call_onceIZN7xgboost5error17WarnManualUpdaterEvE3$_0JEEvRSt9once_flagOT_DpOT0_.exit": ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
@@ -398,13 +398,13 @@ define void @_ZN7xgboost5error19WarnDeprecatedGPUIdEv() local_unnamed_addr #3 pe
   %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7xgboost5error19WarnDeprecatedGPUIdEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENUlvE_8__invokeEv", ptr %4, align 8
   %5 = invoke noundef i32 @pthread_once(ptr noundef nonnull @_ZZN7xgboost5error19WarnDeprecatedGPUIdEvE4flag, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i unwind label %8
+          to label %_ZL14__gthread_oncePiPFvvE.exit.i unwind label %8
 
-_ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %0
+_ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %0
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %"_ZSt9call_onceIZN7xgboost5error19WarnDeprecatedGPUIdEvE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit", label %6
+  br i1 %.not.i, label %"_ZSt9call_onceIZN7xgboost5error19WarnDeprecatedGPUIdEvE3$_0JEEvRSt9once_flagOT_DpOT0_.exit", label %6
 
-6:                                                ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+6:                                                ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %5) #21
           to label %7 unwind label %8
 
@@ -418,7 +418,7 @@ _ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %0
   store ptr null, ptr %4, align 8
   resume { ptr, i32 } %9
 
-"_ZSt9call_onceIZN7xgboost5error19WarnDeprecatedGPUIdEvE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit": ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+"_ZSt9call_onceIZN7xgboost5error19WarnDeprecatedGPUIdEvE3$_0JEEvRSt9once_flagOT_DpOT0_.exit": ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
@@ -436,13 +436,13 @@ define void @_ZN7xgboost5error16WarnEmptyDatasetEv() local_unnamed_addr #3 perso
   %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7xgboost5error16WarnEmptyDatasetEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENUlvE_8__invokeEv", ptr %4, align 8
   %5 = invoke noundef i32 @pthread_once(ptr noundef nonnull @_ZZN7xgboost5error16WarnEmptyDatasetEvE4flag, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i unwind label %8
+          to label %_ZL14__gthread_oncePiPFvvE.exit.i unwind label %8
 
-_ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %0
+_ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %0
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %"_ZSt9call_onceIZN7xgboost5error16WarnEmptyDatasetEvE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit", label %6
+  br i1 %.not.i, label %"_ZSt9call_onceIZN7xgboost5error16WarnEmptyDatasetEvE3$_0JEEvRSt9once_flagOT_DpOT0_.exit", label %6
 
-6:                                                ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+6:                                                ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %5) #21
           to label %7 unwind label %8
 
@@ -456,7 +456,7 @@ _ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %0
   store ptr null, ptr %4, align 8
   resume { ptr, i32 } %9
 
-"_ZSt9call_onceIZN7xgboost5error16WarnEmptyDatasetEvE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit": ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+"_ZSt9call_onceIZN7xgboost5error16WarnEmptyDatasetEvE3$_0JEEvRSt9once_flagOT_DpOT0_.exit": ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
@@ -481,13 +481,13 @@ define void @_ZN7xgboost5error17MismatchedDevicesEPKNS_7ContextES3_(ptr noundef 
   %9 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7xgboost5error17MismatchedDevicesEPKNS3_7ContextES7_E3$_0JEEvRS_OT_DpOT0_EUlvE_EERSA_ENUlvE_8__invokeEv", ptr %9, align 8
   %10 = invoke noundef i32 @pthread_once(ptr noundef nonnull @_ZZN7xgboost5error17MismatchedDevicesEPKNS_7ContextES3_E4flag, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i unwind label %13
+          to label %_ZL14__gthread_oncePiPFvvE.exit.i unwind label %13
 
-_ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %2
+_ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %2
   %.not.i = icmp eq i32 %10, 0
-  br i1 %.not.i, label %"_ZSt9call_onceIZN7xgboost5error17MismatchedDevicesEPKNS0_7ContextES4_E3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit", label %11
+  br i1 %.not.i, label %"_ZSt9call_onceIZN7xgboost5error17MismatchedDevicesEPKNS0_7ContextES4_E3$_0JEEvRSt9once_flagOT_DpOT0_.exit", label %11
 
-11:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+11:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %10) #21
           to label %12 unwind label %13
 
@@ -501,7 +501,7 @@ _ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %2
   store ptr null, ptr %9, align 8
   resume { ptr, i32 } %14
 
-"_ZSt9call_onceIZN7xgboost5error17MismatchedDevicesEPKNS0_7ContextES4_E3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit": ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+"_ZSt9call_onceIZN7xgboost5error17MismatchedDevicesEPKNS0_7ContextES4_E3$_0JEEvRSt9once_flagOT_DpOT0_.exit": ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   store ptr null, ptr %8, align 8
   store ptr null, ptr %9, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -639,7 +639,7 @@ define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7x
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %4 = tail call noundef zeroext i1 @_ZN7xgboost13ConsoleLogger9ShouldLogENS0_12LogVerbosityE(i32 noundef 1)
-  br i1 %4, label %5, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7xgboost5error17WarnManualUpdaterEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.argprom.exit"
+  br i1 %4, label %5, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7xgboost5error17WarnManualUpdaterEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.exit"
 
 5:                                                ; preds = %0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #10
@@ -672,7 +672,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   call void @_ZN7xgboost13ConsoleLoggerD1Ev(ptr noundef nonnull align 8 dereferenceable(380) %1) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #10
-  br label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7xgboost5error17WarnManualUpdaterEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.argprom.exit"
+  br label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7xgboost5error17WarnManualUpdaterEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.exit"
 
 12:                                               ; preds = %.noexc.i.i.i.i.i, %5
   %13 = landingpad { ptr, i32 }
@@ -700,7 +700,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #10
   resume { ptr, i32 } %.pn.pn.i.i.i.i.i
 
-"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7xgboost5error17WarnManualUpdaterEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.argprom.exit": ; preds = %0, %11
+"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7xgboost5error17WarnManualUpdaterEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.exit": ; preds = %0, %11
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
@@ -733,7 +733,7 @@ define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7x
           to label %10 unwind label %18
 
 10:                                               ; preds = %8
-  br i1 %9, label %11, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7xgboost5error19WarnDeprecatedGPUIdEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.argprom.exit"
+  br i1 %9, label %11, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7xgboost5error19WarnDeprecatedGPUIdEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.exit"
 
 11:                                               ; preds = %10
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #10
@@ -766,7 +766,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   call void @_ZN7xgboost13ConsoleLoggerD1Ev(ptr noundef nonnull align 8 dereferenceable(380) %3) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #10
-  br label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7xgboost5error19WarnDeprecatedGPUIdEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.argprom.exit"
+  br label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7xgboost5error19WarnDeprecatedGPUIdEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.exit"
 
 18:                                               ; preds = %8, %0
   %19 = landingpad { ptr, i32 }
@@ -804,7 +804,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #10
   resume { ptr, i32 } %.pn.pn.pn.i.i.i.i.i
 
-"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7xgboost5error19WarnDeprecatedGPUIdEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.argprom.exit": ; preds = %10, %17
+"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7xgboost5error19WarnDeprecatedGPUIdEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.exit": ; preds = %10, %17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
@@ -827,7 +827,7 @@ define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7x
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %4 = tail call noundef zeroext i1 @_ZN7xgboost13ConsoleLogger9ShouldLogENS0_12LogVerbosityE(i32 noundef 1)
-  br i1 %4, label %5, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7xgboost5error16WarnEmptyDatasetEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.argprom.exit"
+  br i1 %4, label %5, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7xgboost5error16WarnEmptyDatasetEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.exit"
 
 5:                                                ; preds = %0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #10
@@ -865,7 +865,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   call void @_ZN7xgboost13ConsoleLoggerD1Ev(ptr noundef nonnull align 8 dereferenceable(380) %1) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #10
-  br label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7xgboost5error16WarnEmptyDatasetEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.argprom.exit"
+  br label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7xgboost5error16WarnEmptyDatasetEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.exit"
 
 15:                                               ; preds = %.noexc.i.i.i.i.i, %5
   %16 = landingpad { ptr, i32 }
@@ -893,7 +893,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #10
   resume { ptr, i32 } %.pn.pn.i.i.i.i.i
 
-"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7xgboost5error16WarnEmptyDatasetEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.argprom.exit": ; preds = %0, %14
+"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7xgboost5error16WarnEmptyDatasetEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.exit": ; preds = %0, %14
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
@@ -923,7 +923,7 @@ define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7x
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %10 = tail call noundef zeroext i1 @_ZN7xgboost13ConsoleLogger9ShouldLogENS0_12LogVerbosityE(i32 noundef 1)
-  br i1 %10, label %11, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7xgboost5error17MismatchedDevicesEPKNS3_7ContextES7_E3$_0JEEvRS_OT_DpOT0_EUlvE_EERSA_ENKUlvE_clEv.argprom.exit"
+  br i1 %10, label %11, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7xgboost5error17MismatchedDevicesEPKNS3_7ContextES7_E3$_0JEEvRS_OT_DpOT0_EUlvE_EERSA_ENKUlvE_clEv.exit"
 
 11:                                               ; preds = %0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #10
@@ -1001,7 +1001,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   call void @_ZN7xgboost13ConsoleLoggerD1Ev(ptr noundef nonnull align 8 dereferenceable(380) %3) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #10
-  br label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7xgboost5error17MismatchedDevicesEPKNS3_7ContextES7_E3$_0JEEvRS_OT_DpOT0_EUlvE_EERSA_ENKUlvE_clEv.argprom.exit"
+  br label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7xgboost5error17MismatchedDevicesEPKNS3_7ContextES7_E3$_0JEEvRS_OT_DpOT0_EUlvE_EERSA_ENKUlvE_clEv.exit"
 
 37:                                               ; preds = %.noexc.i.i.i.i.i, %11
   %38 = landingpad { ptr, i32 }
@@ -1049,7 +1049,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #10
   resume { ptr, i32 } %.pn.pn.pn.pn.i.i.i.i.i
 
-"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7xgboost5error17MismatchedDevicesEPKNS3_7ContextES7_E3$_0JEEvRS_OT_DpOT0_EUlvE_EERSA_ENKUlvE_clEv.argprom.exit": ; preds = %0, %36
+"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7xgboost5error17MismatchedDevicesEPKNS3_7ContextES7_E3$_0JEEvRS_OT_DpOT0_EUlvE_EERSA_ENKUlvE_clEv.exit": ; preds = %0, %36
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)

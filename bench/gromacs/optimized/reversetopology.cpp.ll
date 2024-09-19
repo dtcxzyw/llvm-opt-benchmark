@@ -313,9 +313,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
 .loopexit.i:                                      ; preds = %._crit_edge17.split.us22.i, %.lr.ph.i, %26, %23
   %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next51.i, 94
-  br i1 %exitcond53.not.i, label %_ZL22low_make_reverse_ilistRKSt5arrayI15InteractionListLm94EEPK6t_atomPiRK17ReverseTopOptionsN3gmx8ArrayRefIKiEENSC_IiEE12AtomLinkRuleb.argprom.exit, label %19, !llvm.loop !9
+  br i1 %exitcond53.not.i, label %_ZL22low_make_reverse_ilistRKSt5arrayI15InteractionListLm94EEPK6t_atomPiRK17ReverseTopOptionsN3gmx8ArrayRefIKiEENSC_IiEE12AtomLinkRuleb.exit, label %19, !llvm.loop !9
 
-_ZL22low_make_reverse_ilistRKSt5arrayI15InteractionListLm94EEPK6t_atomPiRK17ReverseTopOptionsN3gmx8ArrayRefIKiEENSC_IiEE12AtomLinkRuleb.argprom.exit: ; preds = %.loopexit.i
+_ZL22low_make_reverse_ilistRKSt5arrayI15InteractionListLm94EEPK6t_atomPiRK17ReverseTopOptionsN3gmx8ArrayRefIKiEENSC_IiEE12AtomLinkRuleb.exit: ; preds = %.loopexit.i
   %57 = getelementptr inbounds i8, ptr %1, i64 8
   %58 = getelementptr inbounds i8, ptr %4, i64 8
   %59 = load ptr, ptr %58, align 8
@@ -324,14 +324,14 @@ _ZL22low_make_reverse_ilistRKSt5arrayI15InteractionListLm94EEPK6t_atomPiRK17Reve
   %.not.i.i = icmp eq ptr %59, %61
   br i1 %.not.i.i, label %65, label %62
 
-62:                                               ; preds = %_ZL22low_make_reverse_ilistRKSt5arrayI15InteractionListLm94EEPK6t_atomPiRK17ReverseTopOptionsN3gmx8ArrayRefIKiEENSC_IiEE12AtomLinkRuleb.argprom.exit
+62:                                               ; preds = %_ZL22low_make_reverse_ilistRKSt5arrayI15InteractionListLm94EEPK6t_atomPiRK17ReverseTopOptionsN3gmx8ArrayRefIKiEENSC_IiEE12AtomLinkRuleb.exit
   store i32 0, ptr %59, align 4
   %63 = load ptr, ptr %58, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 4
   store ptr %64, ptr %58, align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
-65:                                               ; preds = %_ZL22low_make_reverse_ilistRKSt5arrayI15InteractionListLm94EEPK6t_atomPiRK17ReverseTopOptionsN3gmx8ArrayRefIKiEENSC_IiEE12AtomLinkRuleb.argprom.exit
+65:                                               ; preds = %_ZL22low_make_reverse_ilistRKSt5arrayI15InteractionListLm94EEPK6t_atomPiRK17ReverseTopOptionsN3gmx8ArrayRefIKiEENSC_IiEE12AtomLinkRuleb.exit
   %66 = load ptr, ptr %4, align 8
   %67 = ptrtoint ptr %59 to i64
   %68 = ptrtoint ptr %66 to i64
@@ -717,20 +717,20 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIiSaIi
 .loopexit.i55:                                    ; preds = %._crit_edge17.split.us.us.us.i, %.lr.ph.i58, %155, %152
   %indvars.iv.next51.i56 = add nuw nsw i64 %indvars.iv50.i53, 1
   %exitcond53.not.i57 = icmp eq i64 %indvars.iv.next51.i56, 94
-  br i1 %exitcond53.not.i57, label %_ZL22low_make_reverse_ilistRKSt5arrayI15InteractionListLm94EEPK6t_atomPiRK17ReverseTopOptionsN3gmx8ArrayRefIKiEENSC_IiEE12AtomLinkRuleb.argprom.exit68, label %148, !llvm.loop !9
+  br i1 %exitcond53.not.i57, label %_ZL22low_make_reverse_ilistRKSt5arrayI15InteractionListLm94EEPK6t_atomPiRK17ReverseTopOptionsN3gmx8ArrayRefIKiEENSC_IiEE12AtomLinkRuleb.exit68, label %148, !llvm.loop !9
 
-_ZL22low_make_reverse_ilistRKSt5arrayI15InteractionListLm94EEPK6t_atomPiRK17ReverseTopOptionsN3gmx8ArrayRefIKiEENSC_IiEE12AtomLinkRuleb.argprom.exit68: ; preds = %.loopexit.i55
+_ZL22low_make_reverse_ilistRKSt5arrayI15InteractionListLm94EEPK6t_atomPiRK17ReverseTopOptionsN3gmx8ArrayRefIKiEENSC_IiEE12AtomLinkRuleb.exit68: ; preds = %.loopexit.i55
   %246 = load i32, ptr %1, align 8
   %247 = getelementptr inbounds i8, ptr %4, i64 48
   store i32 %246, ptr %247, align 8
   %.not.i.i.i69 = icmp eq ptr %.sroa.080.0, null
   br i1 %.not.i.i.i69, label %_ZNSt6vectorIiSaIiEED2Ev.exit70, label %248
 
-248:                                              ; preds = %_ZL22low_make_reverse_ilistRKSt5arrayI15InteractionListLm94EEPK6t_atomPiRK17ReverseTopOptionsN3gmx8ArrayRefIKiEENSC_IiEE12AtomLinkRuleb.argprom.exit68
+248:                                              ; preds = %_ZL22low_make_reverse_ilistRKSt5arrayI15InteractionListLm94EEPK6t_atomPiRK17ReverseTopOptionsN3gmx8ArrayRefIKiEENSC_IiEE12AtomLinkRuleb.exit68
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.080.0) #20
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit70
 
-_ZNSt6vectorIiSaIiEED2Ev.exit70:                  ; preds = %_ZL22low_make_reverse_ilistRKSt5arrayI15InteractionListLm94EEPK6t_atomPiRK17ReverseTopOptionsN3gmx8ArrayRefIKiEENSC_IiEE12AtomLinkRuleb.argprom.exit68, %248
+_ZNSt6vectorIiSaIiEED2Ev.exit70:                  ; preds = %_ZL22low_make_reverse_ilistRKSt5arrayI15InteractionListLm94EEPK6t_atomPiRK17ReverseTopOptionsN3gmx8ArrayRefIKiEENSC_IiEE12AtomLinkRuleb.exit68, %248
   ret void
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.thread, %122

@@ -8517,7 +8517,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i242:    ; preds = %269, %_ZNK5clang17D
   %.sroa.1330.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 32
   %.sroa.1330.0.copyload = load ptr, ptr %.sroa.1330.0..sroa_idx, align 8
   %.sroa.2331.0.copyload = load i16, ptr %33, align 8
-  call fastcc void @_ZL20PragmaLoopHintStringB5cxx11N5clang5TokenES0_.argprom.argelim(ptr dead_on_unwind noalias writable align 8 %7, ptr %.sroa.1334.0.copyload, ptr %.sroa.1330.0.copyload, i16 %.sroa.2331.0.copyload)
+  call fastcc void @_ZL20PragmaLoopHintStringB5cxx11N5clang5TokenES0_(ptr dead_on_unwind noalias writable align 8 %7, ptr %.sroa.1334.0.copyload, ptr %.sroa.1330.0.copyload, i16 %.sroa.2331.0.copyload)
   %294 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEERKS0_OT_(ptr noundef nonnull align 8 dereferenceable(26) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %6) #20
@@ -8624,7 +8624,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit260.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   %.sroa.1313.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 32
   %.sroa.1313.0.copyload = load ptr, ptr %.sroa.1313.0..sroa_idx, align 8
   %.sroa.2314.0.copyload = load i16, ptr %33, align 8
-  call fastcc void @_ZL20PragmaLoopHintStringB5cxx11N5clang5TokenES0_.argprom.argelim(ptr dead_on_unwind noalias writable align 8 %9, ptr %.sroa.1317.0.copyload, ptr %.sroa.1313.0.copyload, i16 %.sroa.2314.0.copyload)
+  call fastcc void @_ZL20PragmaLoopHintStringB5cxx11N5clang5TokenES0_(ptr dead_on_unwind noalias writable align 8 %9, ptr %.sroa.1317.0.copyload, ptr %.sroa.1313.0.copyload, i16 %.sroa.2314.0.copyload)
   %333 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEERKS0_OT_(ptr noundef nonnull align 8 dereferenceable(26) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %8) #20
@@ -8734,7 +8734,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread497:      ; preds = %_ZN4llvmneENS_9Stri
   %.sroa.1297.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 32
   %.sroa.1297.0.copyload = load ptr, ptr %.sroa.1297.0..sroa_idx, align 8
   %.sroa.2298.0.copyload = load i16, ptr %33, align 8
-  call fastcc void @_ZL20PragmaLoopHintStringB5cxx11N5clang5TokenES0_.argprom.argelim(ptr dead_on_unwind noalias writable align 8 %13, ptr %.sroa.1301.0.copyload, ptr %.sroa.1297.0.copyload, i16 %.sroa.2298.0.copyload)
+  call fastcc void @_ZL20PragmaLoopHintStringB5cxx11N5clang5TokenES0_(ptr dead_on_unwind noalias writable align 8 %13, ptr %.sroa.1301.0.copyload, ptr %.sroa.1297.0.copyload, i16 %.sroa.2298.0.copyload)
   %374 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEERKS0_OT_(ptr noundef nonnull align 8 dereferenceable(26) %12, ptr noundef nonnull align 8 dereferenceable(32) %13)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #20
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %12) #20
@@ -8797,7 +8797,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread484:      ; preds = %302, %_ZN4llvmeqENS
   %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 32
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
   %.sroa.2288.0.copyload = load i16, ptr %33, align 8
-  call fastcc void @_ZL20PragmaLoopHintStringB5cxx11N5clang5TokenES0_.argprom.argelim(ptr dead_on_unwind noalias writable align 8 %15, ptr %.sroa.1290.0.copyload, ptr %.sroa.1.0.copyload, i16 %.sroa.2288.0.copyload)
+  call fastcc void @_ZL20PragmaLoopHintStringB5cxx11N5clang5TokenES0_(ptr dead_on_unwind noalias writable align 8 %15, ptr %.sroa.1290.0.copyload, ptr %.sroa.1.0.copyload, i16 %.sroa.2288.0.copyload)
   %402 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #20
   %403 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #20
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr %402, i64 %403)
@@ -8954,7 +8954,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(26) ptr @_ZNK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20PragmaLoopHintStringB5cxx11N5clang5TokenES0_.argprom.argelim(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture readonly %.8.val, ptr readonly %.8.val1, i16 %.16.val3) unnamed_addr #0 {
+define internal fastcc void @_ZL20PragmaLoopHintStringB5cxx11N5clang5TokenES0_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture readonly %.8.val, ptr readonly %.8.val1, i16 %.16.val3) unnamed_addr #0 {
 _ZNK5clang5Token17getIdentifierInfoEv.exit:
   %1 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9123,7 +9123,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit.i:     ; preds = %4
   %41 = getelementptr inbounds i8, ptr %40, i64 16
   %42 = load i64, ptr %40, align 8
   %43 = and i64 %42, 4294967295
-  br label %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit
+  br label %_ZL13getIdentifierRKN5clang5TokenE.exit
 
 44:                                               ; preds = %4
   %45 = tail call noundef ptr @_ZN5clang3tok18getKeywordSpellingENS0_9TokenKindE(i16 noundef zeroext %.val71) #22
@@ -9132,15 +9132,15 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit.i:     ; preds = %4
 
 _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %44
   %46 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #20
-  br label %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit
+  br label %_ZL13getIdentifierRKN5clang5TokenE.exit
 
-_ZL13getIdentifierRKN5clang5TokenE.argprom.exit:  ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit.i, %_ZN4llvm9StringRefC2EPKc.exit.i
+_ZL13getIdentifierRKN5clang5TokenE.exit:          ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit.i, %_ZN4llvm9StringRefC2EPKc.exit.i
   %.sroa.4.0.i = phi i64 [ %43, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i ], [ %46, %_ZN4llvm9StringRefC2EPKc.exit.i ]
   %.sroa.0.0.i = phi ptr [ %41, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i ], [ %45, %_ZN4llvm9StringRefC2EPKc.exit.i ]
   %.not.i78 = icmp eq i64 %.sroa.4.0.i, 3
   br i1 %.not.i78, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread233
 
-_ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit
+_ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZL13getIdentifierRKN5clang5TokenE.exit
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %.sroa.0.0.i, ptr noundef nonnull dereferenceable(3) @.str.51, i64 3)
   %47 = icmp eq i32 %bcmp.i, 0
   br i1 %47, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread233
@@ -9157,8 +9157,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   %52 = call noundef zeroext i1 @_ZN5clang24BalancedDelimiterTracker16expectAndConsumeEjPKcNS_3tok9TokenKindE(ptr noundef nonnull align 8 dereferenceable(56) %8, i32 noundef 15, ptr noundef nonnull @.str.19, i16 noundef zeroext 0) #20
   br i1 %52, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread233
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread233:      ; preds = %44, %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %.0.i231 = phi i1 [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit ], [ false, %44 ]
+_ZN4llvmeqENS_9StringRefES0_.exit.thread233:      ; preds = %44, %_ZL13getIdentifierRKN5clang5TokenE.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit
+  %.0.i231 = phi i1 [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %_ZL13getIdentifierRKN5clang5TokenE.exit ], [ false, %44 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -9219,22 +9219,22 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit.i85:   ; preds = %89
   %93 = getelementptr inbounds i8, ptr %92, i64 16
   %94 = load i64, ptr %92, align 8
   %95 = and i64 %94, 4294967295
-  br label %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit86
+  br label %_ZL13getIdentifierRKN5clang5TokenE.exit86
 
 96:                                               ; preds = %89
   %97 = call noundef ptr @_ZN5clang3tok18getKeywordSpellingENS0_9TokenKindE(i16 noundef zeroext %.val73) #22
   %.not.i79 = icmp eq ptr %97, null
-  br i1 %.not.i79, label %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit86.thread, label %_ZN4llvm9StringRefC2EPKc.exit.i80
+  br i1 %.not.i79, label %_ZL13getIdentifierRKN5clang5TokenE.exit86.thread, label %_ZN4llvm9StringRefC2EPKc.exit.i80
 
 _ZN4llvm9StringRefC2EPKc.exit.i80:                ; preds = %96
   %98 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %97) #20
-  br label %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit86
+  br label %_ZL13getIdentifierRKN5clang5TokenE.exit86
 
-_ZL13getIdentifierRKN5clang5TokenE.argprom.exit86: ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit.i85, %_ZN4llvm9StringRefC2EPKc.exit.i80
+_ZL13getIdentifierRKN5clang5TokenE.exit86:        ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit.i85, %_ZN4llvm9StringRefC2EPKc.exit.i80
   %.sroa.4.0.i81 = phi i64 [ %95, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i85 ], [ %98, %_ZN4llvm9StringRefC2EPKc.exit.i80 ]
   %.sroa.0.0.i82 = phi ptr [ %93, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i85 ], [ %97, %_ZN4llvm9StringRefC2EPKc.exit.i80 ]
   switch i64 %.sroa.4.0.i81, label %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit.thread247 [
-    i64 0, label %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit86.thread
+    i64 0, label %_ZL13getIdentifierRKN5clang5TokenE.exit86.thread
     i64 5, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
     i64 4, label %_ZN4llvmeqENS_9StringRefES0_.exit.i11.i
     i64 13, label %_ZN4llvmeqENS_9StringRefES0_.exit.i22.i
@@ -9248,14 +9248,14 @@ _ZL13getIdentifierRKN5clang5TokenE.argprom.exit86: ; preds = %_ZNK5clang5Token17
     i64 10, label %_ZN4llvmeqENS_9StringRefES0_.exit.i154.i
   ]
 
-_ZL13getIdentifierRKN5clang5TokenE.argprom.exit86.thread: ; preds = %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit86, %96
+_ZL13getIdentifierRKN5clang5TokenE.exit86.thread: ; preds = %_ZL13getIdentifierRKN5clang5TokenE.exit86, %96
   call void @_ZN5clang6Parser4DiagERKNS_5TokenEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %9, ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(20) %35, i32 noundef 1728) #20
   %99 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %100 = load i8, ptr %99, align 8
   %101 = trunc i8 %100 to i1
   br i1 %101, label %102, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
 
-102:                                              ; preds = %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit86.thread
+102:                                              ; preds = %_ZL13getIdentifierRKN5clang5TokenE.exit86.thread
   %103 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %9, i64 25
@@ -9267,7 +9267,7 @@ _ZL13getIdentifierRKN5clang5TokenE.argprom.exit86.thread: ; preds = %_ZL13getIde
   store i8 0, ptr %105, align 1
   br label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
 
-_ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %102, %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit86.thread
+_ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %102, %_ZL13getIdentifierRKN5clang5TokenE.exit86.thread
   %109 = load ptr, ptr %9, align 8
   %.not.i.i.i = icmp eq ptr %109, null
   br i1 %.not.i.i.i, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %110
@@ -9300,17 +9300,17 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %102, %_ZL13getIdent
   call void @_ZdlPvm(ptr noundef nonnull %109, i64 noundef 928) #21
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i.i:            ; preds = %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit86
+_ZN4llvmeqENS_9StringRefES0_.exit.i.i:            ; preds = %_ZL13getIdentifierRKN5clang5TokenE.exit86
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %.sroa.0.0.i82, ptr noundef nonnull dereferenceable(5) @.str.66, i64 5)
   %124 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %124, label %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.i33.i
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i11.i:          ; preds = %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit86
+_ZN4llvmeqENS_9StringRefES0_.exit.i11.i:          ; preds = %_ZL13getIdentifierRKN5clang5TokenE.exit86
   %bcmp.i.i12.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %.sroa.0.0.i82, ptr noundef nonnull dereferenceable(4) @.str.67, i64 4)
   %125 = icmp eq i32 %bcmp.i.i12.i, 0
   br i1 %125, label %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit.thread, label %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit.thread247
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i22.i:          ; preds = %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit86
+_ZN4llvmeqENS_9StringRefES0_.exit.i22.i:          ; preds = %_ZL13getIdentifierRKN5clang5TokenE.exit86
   %bcmp.i.i23.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(13) %.sroa.0.0.i82, ptr noundef nonnull dereferenceable(13) @.str.68, i64 13)
   %126 = icmp eq i32 %bcmp.i.i23.i, 0
   br i1 %126, label %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.i66.i
@@ -9320,12 +9320,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i33.i:          ; preds = %_ZN4llvmeqENS_9Stri
   %127 = icmp eq i32 %bcmp.i.i34.i, 0
   br i1 %127, label %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit.thread, label %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit.thread247
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i44.i:          ; preds = %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit86
+_ZN4llvmeqENS_9StringRefES0_.exit.i44.i:          ; preds = %_ZL13getIdentifierRKN5clang5TokenE.exit86
   %bcmp.i.i45.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %.sroa.0.0.i82, ptr noundef nonnull dereferenceable(8) @.str.11, i64 8)
   %128 = icmp eq i32 %bcmp.i.i45.i, 0
   br i1 %128, label %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit.thread, label %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i55.i:          ; preds = %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit86
+_ZN4llvmeqENS_9StringRefES0_.exit.i55.i:          ; preds = %_ZL13getIdentifierRKN5clang5TokenE.exit86
   %bcmp.i.i56.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) %.sroa.0.0.i82, ptr noundef nonnull dereferenceable(9) @.str.70, i64 9)
   %129 = icmp eq i32 %bcmp.i.i56.i, 0
   br i1 %129, label %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit.thread, label %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit.thread247
@@ -9335,17 +9335,17 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i66.i:          ; preds = %_ZN4llvmeqENS_9Stri
   %130 = icmp eq i32 %bcmp.i.i67.i, 0
   br i1 %130, label %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.i110.i
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i77.i:          ; preds = %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit86
+_ZN4llvmeqENS_9StringRefES0_.exit.i77.i:          ; preds = %_ZL13getIdentifierRKN5clang5TokenE.exit86
   %bcmp.i.i78.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(19) %.sroa.0.0.i82, ptr noundef nonnull dereferenceable(19) @.str.72, i64 19)
   %131 = icmp eq i32 %bcmp.i.i78.i, 0
   br i1 %131, label %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit.thread, label %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit.thread247
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i88.i:          ; preds = %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit86
+_ZN4llvmeqENS_9StringRefES0_.exit.i88.i:          ; preds = %_ZL13getIdentifierRKN5clang5TokenE.exit86
   %bcmp.i.i89.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(14) %.sroa.0.0.i82, ptr noundef nonnull dereferenceable(14) @.str.73, i64 14)
   %132 = icmp eq i32 %bcmp.i.i89.i, 0
   br i1 %132, label %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit.thread, label %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit.thread247
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i99.i:          ; preds = %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit86
+_ZN4llvmeqENS_9StringRefES0_.exit.i99.i:          ; preds = %_ZL13getIdentifierRKN5clang5TokenE.exit86
   %bcmp.i.i100.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %.sroa.0.0.i82, ptr noundef nonnull dereferenceable(11) @.str.74, i64 11)
   %133 = icmp eq i32 %bcmp.i.i100.i, 0
   br i1 %133, label %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit.thread, label %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit.thread247
@@ -9360,17 +9360,17 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i121.i:         ; preds = %_ZN4llvmeqENS_9Stri
   %135 = icmp eq i32 %bcmp.i.i122.i, 0
   br i1 %135, label %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit.thread, label %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit.thread247
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i132.i:         ; preds = %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit86
+_ZN4llvmeqENS_9StringRefES0_.exit.i132.i:         ; preds = %_ZL13getIdentifierRKN5clang5TokenE.exit86
   %bcmp.i.i133.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %.sroa.0.0.i82, ptr noundef nonnull dereferenceable(6) @.str.77, i64 6)
   %136 = icmp eq i32 %bcmp.i.i133.i, 0
   br i1 %136, label %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit.thread, label %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit.thread247
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i143.i:         ; preds = %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit86
+_ZN4llvmeqENS_9StringRefES0_.exit.i143.i:         ; preds = %_ZL13getIdentifierRKN5clang5TokenE.exit86
   %bcmp.i.i144.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %.sroa.0.0.i82, ptr noundef nonnull dereferenceable(7) @.str.78, i64 7)
   %137 = icmp eq i32 %bcmp.i.i144.i, 0
   br i1 %137, label %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit.thread, label %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit.thread247
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i154.i:         ; preds = %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit86
+_ZN4llvmeqENS_9StringRefES0_.exit.i154.i:         ; preds = %_ZL13getIdentifierRKN5clang5TokenE.exit86
   %bcmp.i.i155.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(10) %.sroa.0.0.i82, ptr noundef nonnull dereferenceable(10) @.str.79, i64 10)
   %138 = icmp eq i32 %bcmp.i.i155.i, 0
   br i1 %138, label %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit.thread, label %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit.thread247
@@ -9380,7 +9380,7 @@ _ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit: ; preds =
   %.not = icmp eq i32 %bcmp.i.i166.i, 0
   br i1 %.not, label %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit.thread, label %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit.thread247
 
-_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit.thread247: ; preds = %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit86, %_ZN4llvmeqENS_9StringRefES0_.exit.i11.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i33.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i88.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i99.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i55.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i77.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i121.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i132.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i143.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i154.i, %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit
+_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit.thread247: ; preds = %_ZL13getIdentifierRKN5clang5TokenE.exit86, %_ZN4llvmeqENS_9StringRefES0_.exit.i11.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i33.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i88.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i99.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i55.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i77.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i121.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i132.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i143.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i154.i, %_ZN12_GLOBAL__N_127isAttributeSubjectMatchRuleEN4llvm9StringRefE.exit
   call void @_ZN5clang6Parser4DiagERKNS_5TokenEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %10, ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(20) %35, i32 noundef 1734) #20
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr nonnull %.sroa.0.0.i82, i64 %.sroa.4.0.i81)
   %139 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -9666,31 +9666,31 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit.i117:  ; preds = %248
   %252 = getelementptr inbounds i8, ptr %251, i64 16
   %253 = load i64, ptr %251, align 8
   %254 = and i64 %253, 4294967295
-  br label %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit118
+  br label %_ZL13getIdentifierRKN5clang5TokenE.exit118
 
 255:                                              ; preds = %248
   %256 = call noundef ptr @_ZN5clang3tok18getKeywordSpellingENS0_9TokenKindE(i16 noundef zeroext %.val75) #22
   %.not.i111 = icmp eq ptr %256, null
-  br i1 %.not.i111, label %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit118.thread, label %_ZN4llvm9StringRefC2EPKc.exit.i112
+  br i1 %.not.i111, label %_ZL13getIdentifierRKN5clang5TokenE.exit118.thread, label %_ZN4llvm9StringRefC2EPKc.exit.i112
 
 _ZN4llvm9StringRefC2EPKc.exit.i112:               ; preds = %255
   %257 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %256) #20
-  br label %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit118
+  br label %_ZL13getIdentifierRKN5clang5TokenE.exit118
 
-_ZL13getIdentifierRKN5clang5TokenE.argprom.exit118: ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit.i117, %_ZN4llvm9StringRefC2EPKc.exit.i112
+_ZL13getIdentifierRKN5clang5TokenE.exit118:       ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit.i117, %_ZN4llvm9StringRefC2EPKc.exit.i112
   %.sroa.4.0.i113 = phi i64 [ %254, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i117 ], [ %257, %_ZN4llvm9StringRefC2EPKc.exit.i112 ]
   %.sroa.0.0.i114 = phi ptr [ %252, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i117 ], [ %256, %_ZN4llvm9StringRefC2EPKc.exit.i112 ]
   switch i64 %.sroa.4.0.i113, label %_ZN4llvmeqENS_9StringRefES0_.exit122.thread [
-    i64 0, label %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit118.thread
+    i64 0, label %_ZL13getIdentifierRKN5clang5TokenE.exit118.thread
     i64 6, label %_ZN4llvmeqENS_9StringRefES0_.exit122
   ]
 
-_ZL13getIdentifierRKN5clang5TokenE.argprom.exit118.thread: ; preds = %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit118, %255
+_ZL13getIdentifierRKN5clang5TokenE.exit118.thread: ; preds = %_ZL13getIdentifierRKN5clang5TokenE.exit118, %255
   %258 = load i32, ptr %35, align 8
   call fastcc void @_ZL39diagnoseExpectedAttributeSubjectSubRuleRN5clang6ParserENS_4attr16SubjectMatchRuleEN4llvm9StringRefENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %.sroa.0211.0.extract.trunc245, ptr nonnull %.sroa.0.0.i82, i64 %.sroa.4.0.i81, i32 %258)
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit168.thread
 
-_ZN4llvmeqENS_9StringRefES0_.exit122:             ; preds = %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit118
+_ZN4llvmeqENS_9StringRefES0_.exit122:             ; preds = %_ZL13getIdentifierRKN5clang5TokenE.exit118
   %bcmp.i121 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %.sroa.0.0.i114, ptr noundef nonnull dereferenceable(6) @.str.52, i64 6)
   %259 = icmp eq i32 %bcmp.i121, 0
   br i1 %259, label %260, label %_ZN4llvmeqENS_9StringRefES0_.exit122.thread
@@ -9729,28 +9729,28 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit.i131:  ; preds = %266
   %270 = getelementptr inbounds i8, ptr %269, i64 16
   %271 = load i64, ptr %269, align 8
   %272 = and i64 %271, 4294967295
-  br label %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit132
+  br label %_ZL13getIdentifierRKN5clang5TokenE.exit132
 
 273:                                              ; preds = %266
   %274 = call noundef ptr @_ZN5clang3tok18getKeywordSpellingENS0_9TokenKindE(i16 noundef zeroext %.val77) #22
   %.not.i125 = icmp eq ptr %274, null
-  br i1 %.not.i125, label %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit132.thread, label %_ZN4llvm9StringRefC2EPKc.exit.i126
+  br i1 %.not.i125, label %_ZL13getIdentifierRKN5clang5TokenE.exit132.thread, label %_ZN4llvm9StringRefC2EPKc.exit.i126
 
 _ZN4llvm9StringRefC2EPKc.exit.i126:               ; preds = %273
   %275 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %274) #20
-  br label %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit132
+  br label %_ZL13getIdentifierRKN5clang5TokenE.exit132
 
-_ZL13getIdentifierRKN5clang5TokenE.argprom.exit132: ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit.i131, %_ZN4llvm9StringRefC2EPKc.exit.i126
+_ZL13getIdentifierRKN5clang5TokenE.exit132:       ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit.i131, %_ZN4llvm9StringRefC2EPKc.exit.i126
   %.sroa.4.0.i127 = phi i64 [ %272, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i131 ], [ %275, %_ZN4llvm9StringRefC2EPKc.exit.i126 ]
   %.sroa.0.0.i128 = phi ptr [ %270, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i131 ], [ %274, %_ZN4llvm9StringRefC2EPKc.exit.i126 ]
   %276 = icmp eq i64 %.sroa.4.0.i127, 0
-  br i1 %276, label %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit132.thread, label %277
+  br i1 %276, label %_ZL13getIdentifierRKN5clang5TokenE.exit132.thread, label %277
 
-_ZL13getIdentifierRKN5clang5TokenE.argprom.exit132.thread: ; preds = %273, %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit132
+_ZL13getIdentifierRKN5clang5TokenE.exit132.thread: ; preds = %273, %_ZL13getIdentifierRKN5clang5TokenE.exit132
   call fastcc void @_ZL39diagnoseExpectedAttributeSubjectSubRuleRN5clang6ParserENS_4attr16SubjectMatchRuleEN4llvm9StringRefENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %.sroa.0211.0.extract.trunc245, ptr nonnull %.sroa.0.0.i82, i64 %.sroa.4.0.i81, i32 %.sroa.01.0.copyload.i123)
   br label %.critedge69
 
-277:                                              ; preds = %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit132
+277:                                              ; preds = %_ZL13getIdentifierRKN5clang5TokenE.exit132
   %278 = call i64 %164(ptr nonnull %.sroa.0.0.i128, i64 %.sroa.4.0.i127, i1 noundef zeroext true) #20
   %279 = and i64 %278, 4294967296
   %.not274 = icmp eq i64 %279, 0
@@ -9786,7 +9786,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %277
   store i8 %290, ptr %289, align 1
   br i1 %287, label %_ZN5clang17DiagnosticBuilderD2Ev.exit168.thread, label %297
 
-_ZN4llvmeqENS_9StringRefES0_.exit122.thread:      ; preds = %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit118, %_ZN4llvmeqENS_9StringRefES0_.exit122
+_ZN4llvmeqENS_9StringRefES0_.exit122.thread:      ; preds = %_ZL13getIdentifierRKN5clang5TokenE.exit118, %_ZN4llvmeqENS_9StringRefES0_.exit122
   %291 = call i64 %164(ptr nonnull %.sroa.0.0.i114, i64 %.sroa.4.0.i113, i1 noundef zeroext false) #20
   %292 = and i64 %291, 4294967296
   %.not273 = icmp eq i64 %292, 0
@@ -9996,14 +9996,14 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   store ptr null, ptr %22, align 8
   br label %385
 
-.critedge69:                                      ; preds = %260, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit, %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit132.thread
+.critedge69:                                      ; preds = %260, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit, %_ZL13getIdentifierRKN5clang5TokenE.exit132.thread
   %379 = load i8, ptr %73, align 8
   %380 = load ptr, ptr %16, align 8
   %381 = and i8 %379, 1
   store i8 %381, ptr %380, align 1
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit168.thread
 
-_ZN5clang17DiagnosticBuilderD2Ev.exit168.thread:  ; preds = %284, %169, %297, %_ZL13getIdentifierRKN5clang5TokenE.argprom.exit118.thread, %294, %.critedge69
+_ZN5clang17DiagnosticBuilderD2Ev.exit168.thread:  ; preds = %284, %169, %297, %_ZL13getIdentifierRKN5clang5TokenE.exit118.thread, %294, %.critedge69
   %382 = load i8, ptr %55, align 8
   %383 = load ptr, ptr %11, align 8
   %384 = and i8 %382, 1
@@ -10828,7 +10828,7 @@ _ZN5clang6Parser13cutOffParsingEv.exit:           ; preds = %117, %121
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 656
   %129 = load ptr, ptr %128, align 8
   tail call void @_ZN5clang18SemaCodeCompletion21CodeCompleteAttributeENS_19AttributeCommonInfo6SyntaxENS0_19AttributeCompletionEPKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(16) %129, i32 noundef 1, i32 noundef 0, ptr noundef null) #20
-  tail call fastcc void @"_ZZN5clang6Parser21HandlePragmaAttributeEvENK3$_0clEv.argprom"(ptr %0)
+  tail call fastcc void @"_ZZN5clang6Parser21HandlePragmaAttributeEvENK3$_0clEv"(ptr %0)
   br label %390
 
 thread-pre-split142:                              ; preds = %139
@@ -10843,7 +10843,7 @@ thread-pre-split142:                              ; preds = %139
 ._crit_edge:                                      ; preds = %thread-pre-split142, %115
   call void @_ZN5clang6Parser4DiagERKNS_5TokenEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %10, ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(20) %25, i32 noundef 1724) #20
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %10) #20
-  call fastcc void @"_ZZN5clang6Parser21HandlePragmaAttributeEvENK3$_0clEv.argprom"(ptr %0)
+  call fastcc void @"_ZZN5clang6Parser21HandlePragmaAttributeEvENK3$_0clEv"(ptr %0)
   br label %390
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %115, %thread-pre-split142
@@ -10878,7 +10878,7 @@ _ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindE.exit: ; preds = %139
   br i1 %141, label %142, label %143
 
 142:                                              ; preds = %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindE.exit
-  tail call fastcc void @"_ZZN5clang6Parser21HandlePragmaAttributeEvENK3$_0clEv.argprom"(ptr %0)
+  tail call fastcc void @"_ZZN5clang6Parser21HandlePragmaAttributeEvENK3$_0clEv"(ptr %0)
   br label %390
 
 143:                                              ; preds = %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindE.exit
@@ -10886,7 +10886,7 @@ _ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindE.exit: ; preds = %139
   br i1 %144, label %145, label %197
 
 145:                                              ; preds = %143
-  tail call fastcc void @"_ZZN5clang6Parser21HandlePragmaAttributeEvENK3$_0clEv.argprom"(ptr %0)
+  tail call fastcc void @"_ZZN5clang6Parser21HandlePragmaAttributeEvENK3$_0clEv"(ptr %0)
   br label %390
 
 146:                                              ; preds = %100
@@ -11013,7 +11013,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit87:     ; preds = %175, %175, %175, %1
   br i1 %.not148, label %188, label %187
 
 187:                                              ; preds = %183
-  call fastcc void @"_ZZN5clang6Parser21HandlePragmaAttributeEvENK3$_0clEv.argprom"(ptr %0)
+  call fastcc void @"_ZZN5clang6Parser21HandlePragmaAttributeEvENK3$_0clEv"(ptr %0)
   br label %390
 
 188:                                              ; preds = %183, %178
@@ -11287,7 +11287,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit105:         ; preds = %_ZN5clang17Diagnost
 309:                                              ; preds = %305
   call fastcc void @_ZN12_GLOBAL__N_150createExpectedAttributeSubjectRulesTokenDiagnosticEjRN5clang16ParsedAttributesENS_41MissingAttributeSubjectRulesRecoveryPointERNS0_6ParserE(ptr dead_on_unwind noalias writable align 8 %17, i32 noundef 1732, ptr noundef nonnull align 8 dereferenceable(144) %68, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(2936) %0)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %17) #20
-  call fastcc void @"_ZZN5clang6Parser21HandlePragmaAttributeEvENK3$_0clEv.argprom"(ptr %0)
+  call fastcc void @"_ZZN5clang6Parser21HandlePragmaAttributeEvENK3$_0clEv"(ptr %0)
   br label %390
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit107:    ; preds = %305
@@ -11308,7 +11308,7 @@ _ZNK5clang14IdentifierInfo5isStrILm9EEEbRAT__Kc.exit: ; preds = %_ZNK5clang5Toke
 _ZNK5clang14IdentifierInfo5isStrILm9EEEbRAT__Kc.exit.thread: ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit107, %_ZNK5clang14IdentifierInfo5isStrILm9EEEbRAT__Kc.exit
   call fastcc void @_ZN12_GLOBAL__N_150createExpectedAttributeSubjectRulesTokenDiagnosticEjRN5clang16ParsedAttributesENS_41MissingAttributeSubjectRulesRecoveryPointERNS0_6ParserE(ptr dead_on_unwind noalias writable align 8 %18, i32 noundef 1732, ptr noundef nonnull align 8 dereferenceable(144) %68, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(2936) %0)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %18) #20
-  call fastcc void @"_ZZN5clang6Parser21HandlePragmaAttributeEvENK3$_0clEv.argprom"(ptr %0)
+  call fastcc void @"_ZZN5clang6Parser21HandlePragmaAttributeEvENK3$_0clEv"(ptr %0)
   br label %390
 
 318:                                              ; preds = %_ZNK5clang14IdentifierInfo5isStrILm9EEEbRAT__Kc.exit
@@ -11349,7 +11349,7 @@ _ZNK5clang17DiagnosticBuilderlsINS_3tok9TokenKindEvEERKS0_OT_.exit113: ; preds =
   %336 = getelementptr inbounds [10 x i64], ptr %332, i64 0, i64 %335
   store i64 64, ptr %336, align 8
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %19) #20
-  call fastcc void @"_ZZN5clang6Parser21HandlePragmaAttributeEvENK3$_0clEv.argprom"(ptr %0)
+  call fastcc void @"_ZZN5clang6Parser21HandlePragmaAttributeEvENK3$_0clEv"(ptr %0)
   br label %390
 
 337:                                              ; preds = %318
@@ -11448,7 +11448,7 @@ _ZN4llvm8DenseMapIiN5clang11SourceRangeENS_12DenseMapInfoIivEENS_6detail12DenseM
   br i1 %.not153, label %.loopexit, label %365
 
 .loopexit.sink.split:                             ; preds = %337, %343
-  call fastcc void @"_ZZN5clang6Parser21HandlePragmaAttributeEvENK3$_0clEv.argprom"(ptr %0)
+  call fastcc void @"_ZZN5clang6Parser21HandlePragmaAttributeEvENK3$_0clEv"(ptr %0)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm8DenseMapIiN5clang11SourceRangeENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS2_EEEC2ERKS8_.exit, %.loopexit.sink.split, %354
@@ -11469,7 +11469,7 @@ declare void @_ZN5clang4Sema23ActOnPragmaAttributePopENS_14SourceLocationEPKNS_1
 declare void @_ZN5clang4Sema29ActOnPragmaAttributeEmptyPushENS_14SourceLocationEPKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(17560), i32, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang6Parser21HandlePragmaAttributeEvENK3$_0clEv.argprom"(ptr nonnull %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN5clang6Parser21HandlePragmaAttributeEvENK3$_0clEv"(ptr nonnull %.0.val) unnamed_addr #0 align 2 {
   %1 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %1)
   store i16 1, ptr %1, align 2
@@ -11645,35 +11645,35 @@ _ZNK5clang14IdentifierInfo5isStrILm9EEEbRAT__Kc.exit.i: ; preds = %33
   %37 = getelementptr inbounds i8, ptr %35, i64 16
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %37, ptr noundef nonnull dereferenceable(8) @.str.59, i64 8)
   %38 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %38, label %_ZN12_GLOBAL__N_145getAttributeSubjectRulesRecoveryPointForTokenERKN5clang5TokenE.argprom.exit, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread.i
+  br i1 %38, label %_ZN12_GLOBAL__N_145getAttributeSubjectRulesRecoveryPointForTokenERKN5clang5TokenE.exit, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread.i
 
 _ZNK5clang14IdentifierInfo5isStrILm4EEEbRAT__Kc.exit.i: ; preds = %33
   %39 = getelementptr inbounds i8, ptr %35, i64 16
   %bcmp.i6.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %39, ptr noundef nonnull dereferenceable(3) @.str.51, i64 3)
   %40 = icmp eq i32 %bcmp.i6.i, 0
-  br i1 %40, label %_ZN12_GLOBAL__N_145getAttributeSubjectRulesRecoveryPointForTokenERKN5clang5TokenE.argprom.exit, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread.i
+  br i1 %40, label %_ZN12_GLOBAL__N_145getAttributeSubjectRulesRecoveryPointForTokenERKN5clang5TokenE.exit, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread.i
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit.thread.i: ; preds = %_ZNK5clang14IdentifierInfo5isStrILm4EEEbRAT__Kc.exit.i, %_ZNK5clang14IdentifierInfo5isStrILm9EEEbRAT__Kc.exit.i, %33, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i
   %41 = icmp eq i16 %.val58, 64
   %..i = select i1 %41, i32 2, i32 4
-  br label %_ZN12_GLOBAL__N_145getAttributeSubjectRulesRecoveryPointForTokenERKN5clang5TokenE.argprom.exit
+  br label %_ZN12_GLOBAL__N_145getAttributeSubjectRulesRecoveryPointForTokenERKN5clang5TokenE.exit
 
 switch.hole_check:                                ; preds = %5
   %switch.maskindex = zext nneg i16 %switch.tableidx to i32
   %switch.shifted = lshr i32 524225, %switch.maskindex
   %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %_ZN12_GLOBAL__N_145getAttributeSubjectRulesRecoveryPointForTokenERKN5clang5TokenE.argprom.exit, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.i
+  br i1 %switch.lobit, label %_ZN12_GLOBAL__N_145getAttributeSubjectRulesRecoveryPointForTokenERKN5clang5TokenE.exit, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.i
 
-_ZN12_GLOBAL__N_145getAttributeSubjectRulesRecoveryPointForTokenERKN5clang5TokenE.argprom.exit: ; preds = %switch.hole_check, %_ZNK5clang14IdentifierInfo5isStrILm9EEEbRAT__Kc.exit.i, %_ZNK5clang14IdentifierInfo5isStrILm4EEEbRAT__Kc.exit.i, %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread.i
+_ZN12_GLOBAL__N_145getAttributeSubjectRulesRecoveryPointForTokenERKN5clang5TokenE.exit: ; preds = %switch.hole_check, %_ZNK5clang14IdentifierInfo5isStrILm9EEEbRAT__Kc.exit.i, %_ZNK5clang14IdentifierInfo5isStrILm4EEEbRAT__Kc.exit.i, %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread.i
   %.0.i = phi i32 [ 1, %_ZNK5clang14IdentifierInfo5isStrILm9EEEbRAT__Kc.exit.i ], [ 3, %_ZNK5clang14IdentifierInfo5isStrILm4EEEbRAT__Kc.exit.i ], [ %..i, %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread.i ], [ 4, %switch.hole_check ]
   %42 = icmp eq i32 %3, 0
   br i1 %42, label %43, label %45
 
-43:                                               ; preds = %_ZN12_GLOBAL__N_145getAttributeSubjectRulesRecoveryPointForTokenERKN5clang5TokenE.argprom.exit
+43:                                               ; preds = %_ZN12_GLOBAL__N_145getAttributeSubjectRulesRecoveryPointForTokenERKN5clang5TokenE.exit
   %44 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.94) #20
   br label %45
 
-45:                                               ; preds = %43, %_ZN12_GLOBAL__N_145getAttributeSubjectRulesRecoveryPointForTokenERKN5clang5TokenE.argprom.exit
+45:                                               ; preds = %43, %_ZN12_GLOBAL__N_145getAttributeSubjectRulesRecoveryPointForTokenERKN5clang5TokenE.exit
   %46 = icmp ult i32 %3, 2
   %47 = icmp ugt i32 %.0.i, 1
   %or.cond = and i1 %46, %47
@@ -27513,8 +27513,8 @@ attributes #23 = { nounwind willreturn memory(read) }
 !63 = distinct !{!63, !64, !"_ZSt11make_uniqueIN12_GLOBAL__N_120PragmaCommentHandlerEJRN5clang4SemaEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !64 = distinct !{!64, !"_ZSt11make_uniqueIN12_GLOBAL__N_120PragmaCommentHandlerEJRN5clang4SemaEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !65 = !{!66}
-!66 = distinct !{!66, !67, !"_ZSt11make_uniqueIN12_GLOBAL__N_125PragmaFloatControlHandlerEJRN5clang4SemaEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!67 = distinct !{!67, !"_ZSt11make_uniqueIN12_GLOBAL__N_125PragmaFloatControlHandlerEJRN5clang4SemaEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!66 = distinct !{!66, !67, !"_ZSt11make_uniqueIN12_GLOBAL__N_125PragmaFloatControlHandlerEJRN5clang4SemaEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!67 = distinct !{!67, !"_ZSt11make_uniqueIN12_GLOBAL__N_125PragmaFloatControlHandlerEJRN5clang4SemaEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !68 = !{!69}
 !69 = distinct !{!69, !70, !"_ZSt11make_uniqueIN12_GLOBAL__N_127PragmaDetectMismatchHandlerEJRN5clang4SemaEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !70 = distinct !{!70, !"_ZSt11make_uniqueIN12_GLOBAL__N_127PragmaDetectMismatchHandlerEJRN5clang4SemaEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
@@ -27534,8 +27534,8 @@ attributes #23 = { nounwind willreturn memory(read) }
 !84 = distinct !{!84, !85, !"_ZSt11make_uniqueIN12_GLOBAL__N_114PragmaMSPragmaEJRA8_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !85 = distinct !{!85, !"_ZSt11make_uniqueIN12_GLOBAL__N_114PragmaMSPragmaEJRA8_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !86 = !{!87}
-!87 = distinct !{!87, !88, !"_ZSt11make_uniqueIN12_GLOBAL__N_114PragmaMSPragmaEJRA10_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!88 = distinct !{!88, !"_ZSt11make_uniqueIN12_GLOBAL__N_114PragmaMSPragmaEJRA10_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!87 = distinct !{!87, !88, !"_ZSt11make_uniqueIN12_GLOBAL__N_114PragmaMSPragmaEJRA10_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!88 = distinct !{!88, !"_ZSt11make_uniqueIN12_GLOBAL__N_114PragmaMSPragmaEJRA10_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !89 = !{!90}
 !90 = distinct !{!90, !91, !"_ZSt11make_uniqueIN12_GLOBAL__N_114PragmaMSPragmaEJRA9_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !91 = distinct !{!91, !"_ZSt11make_uniqueIN12_GLOBAL__N_114PragmaMSPragmaEJRA9_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
@@ -27543,14 +27543,14 @@ attributes #23 = { nounwind willreturn memory(read) }
 !93 = distinct !{!93, !94, !"_ZSt11make_uniqueIN12_GLOBAL__N_114PragmaMSPragmaEJRA8_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !94 = distinct !{!94, !"_ZSt11make_uniqueIN12_GLOBAL__N_114PragmaMSPragmaEJRA8_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !95 = !{!96}
-!96 = distinct !{!96, !97, !"_ZSt11make_uniqueIN12_GLOBAL__N_114PragmaMSPragmaEJRA16_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!97 = distinct !{!97, !"_ZSt11make_uniqueIN12_GLOBAL__N_114PragmaMSPragmaEJRA16_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!96 = distinct !{!96, !97, !"_ZSt11make_uniqueIN12_GLOBAL__N_114PragmaMSPragmaEJRA16_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!97 = distinct !{!97, !"_ZSt11make_uniqueIN12_GLOBAL__N_114PragmaMSPragmaEJRA16_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !98 = !{!99}
 !99 = distinct !{!99, !100, !"_ZSt11make_uniqueIN12_GLOBAL__N_114PragmaMSPragmaEJRA9_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !100 = distinct !{!100, !"_ZSt11make_uniqueIN12_GLOBAL__N_114PragmaMSPragmaEJRA9_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !101 = !{!102}
-!102 = distinct !{!102, !103, !"_ZSt11make_uniqueIN12_GLOBAL__N_114PragmaMSPragmaEJRA11_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!103 = distinct !{!103, !"_ZSt11make_uniqueIN12_GLOBAL__N_114PragmaMSPragmaEJRA11_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!102 = distinct !{!102, !103, !"_ZSt11make_uniqueIN12_GLOBAL__N_114PragmaMSPragmaEJRA11_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!103 = distinct !{!103, !"_ZSt11make_uniqueIN12_GLOBAL__N_114PragmaMSPragmaEJRA11_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !104 = !{!105}
 !105 = distinct !{!105, !106, !"_ZSt11make_uniqueIN12_GLOBAL__N_114PragmaMSPragmaEJRA9_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !106 = distinct !{!106, !"_ZSt11make_uniqueIN12_GLOBAL__N_114PragmaMSPragmaEJRA9_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
@@ -27573,17 +27573,17 @@ attributes #23 = { nounwind willreturn memory(read) }
 !123 = distinct !{!123, !124, !"_ZSt11make_uniqueIN12_GLOBAL__N_121PragmaLoopHintHandlerEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !124 = distinct !{!124, !"_ZSt11make_uniqueIN12_GLOBAL__N_121PragmaLoopHintHandlerEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !125 = !{!126}
-!126 = distinct !{!126, !127, !"_ZSt11make_uniqueIN12_GLOBAL__N_123PragmaUnrollHintHandlerEJRA7_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!127 = distinct !{!127, !"_ZSt11make_uniqueIN12_GLOBAL__N_123PragmaUnrollHintHandlerEJRA7_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!126 = distinct !{!126, !127, !"_ZSt11make_uniqueIN12_GLOBAL__N_123PragmaUnrollHintHandlerEJRA7_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!127 = distinct !{!127, !"_ZSt11make_uniqueIN12_GLOBAL__N_123PragmaUnrollHintHandlerEJRA7_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !128 = !{!129}
-!129 = distinct !{!129, !130, !"_ZSt11make_uniqueIN12_GLOBAL__N_123PragmaUnrollHintHandlerEJRA9_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!130 = distinct !{!130, !"_ZSt11make_uniqueIN12_GLOBAL__N_123PragmaUnrollHintHandlerEJRA9_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!129 = distinct !{!129, !130, !"_ZSt11make_uniqueIN12_GLOBAL__N_123PragmaUnrollHintHandlerEJRA9_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!130 = distinct !{!130, !"_ZSt11make_uniqueIN12_GLOBAL__N_123PragmaUnrollHintHandlerEJRA9_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !131 = !{!132}
-!132 = distinct !{!132, !133, !"_ZSt11make_uniqueIN12_GLOBAL__N_123PragmaUnrollHintHandlerEJRA15_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!133 = distinct !{!133, !"_ZSt11make_uniqueIN12_GLOBAL__N_123PragmaUnrollHintHandlerEJRA15_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!132 = distinct !{!132, !133, !"_ZSt11make_uniqueIN12_GLOBAL__N_123PragmaUnrollHintHandlerEJRA15_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!133 = distinct !{!133, !"_ZSt11make_uniqueIN12_GLOBAL__N_123PragmaUnrollHintHandlerEJRA15_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !134 = !{!135}
-!135 = distinct !{!135, !136, !"_ZSt11make_uniqueIN12_GLOBAL__N_123PragmaUnrollHintHandlerEJRA17_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!136 = distinct !{!136, !"_ZSt11make_uniqueIN12_GLOBAL__N_123PragmaUnrollHintHandlerEJRA17_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!135 = distinct !{!135, !136, !"_ZSt11make_uniqueIN12_GLOBAL__N_123PragmaUnrollHintHandlerEJRA17_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!136 = distinct !{!136, !"_ZSt11make_uniqueIN12_GLOBAL__N_123PragmaUnrollHintHandlerEJRA17_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !137 = !{!138}
 !138 = distinct !{!138, !139, !"_ZSt11make_uniqueIN12_GLOBAL__N_115PragmaFPHandlerEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !139 = distinct !{!139, !"_ZSt11make_uniqueIN12_GLOBAL__N_115PragmaFPHandlerEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}

@@ -103,7 +103,7 @@ define dso_local noundef ptr @_ZN5clang13CodeGenerator21GetDeclForMangledNameEN4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %7, align 8
   %8 = call noundef zeroext i1 @_ZNK5clang7CodeGen13CodeGenModule24lookupRepresentativeDeclEN4llvm9StringRefERNS_10GlobalDeclE(ptr noundef nonnull align 8 dereferenceable(3600) %.val, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(12) %4) #12
-  br i1 %8, label %9, label %_ZN12_GLOBAL__N_117CodeGeneratorImpl21GetDeclForMangledNameEN4llvm9StringRefE.argprom.exit
+  br i1 %8, label %9, label %_ZN12_GLOBAL__N_117CodeGeneratorImpl21GetDeclForMangledNameEN4llvm9StringRefE.exit
 
 9:                                                ; preds = %3
   %.0.copyload.i.i.i.i.i = load i64, ptr %4, align 8
@@ -132,7 +132,7 @@ define dso_local noundef ptr @_ZN5clang13CodeGenerator21GetDeclForMangledNameEN4
 
 26:                                               ; preds = %24
   %27 = load ptr, ptr %5, align 8
-  br label %_ZN12_GLOBAL__N_117CodeGeneratorImpl21GetDeclForMangledNameEN4llvm9StringRefE.argprom.exit
+  br label %_ZN12_GLOBAL__N_117CodeGeneratorImpl21GetDeclForMangledNameEN4llvm9StringRefE.exit
 
 28:                                               ; preds = %9
   %29 = add nsw i32 %21, -60
@@ -144,12 +144,12 @@ define dso_local noundef ptr @_ZN5clang13CodeGenerator21GetDeclForMangledNameEN4
 31:                                               ; preds = %28
   %32 = call noundef ptr @_ZNK5clang7TagDecl13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(128) %18) #12
   %.not17.i = icmp eq ptr %32, null
-  br i1 %.not17.i, label %33, label %_ZN12_GLOBAL__N_117CodeGeneratorImpl21GetDeclForMangledNameEN4llvm9StringRefE.argprom.exit
+  br i1 %.not17.i, label %33, label %_ZN12_GLOBAL__N_117CodeGeneratorImpl21GetDeclForMangledNameEN4llvm9StringRefE.exit
 
 33:                                               ; preds = %31, %28, %24
-  br label %_ZN12_GLOBAL__N_117CodeGeneratorImpl21GetDeclForMangledNameEN4llvm9StringRefE.argprom.exit
+  br label %_ZN12_GLOBAL__N_117CodeGeneratorImpl21GetDeclForMangledNameEN4llvm9StringRefE.exit
 
-_ZN12_GLOBAL__N_117CodeGeneratorImpl21GetDeclForMangledNameEN4llvm9StringRefE.argprom.exit: ; preds = %3, %26, %31, %33
+_ZN12_GLOBAL__N_117CodeGeneratorImpl21GetDeclForMangledNameEN4llvm9StringRefE.exit: ; preds = %3, %26, %31, %33
   %.0.i = phi ptr [ %27, %26 ], [ %18, %33 ], [ null, %3 ], [ %32, %31 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)

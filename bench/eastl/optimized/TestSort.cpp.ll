@@ -5461,7 +5461,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i1716: ; preds = %invoke.cont.i1714
 _ZN5eastl6vectorI10TestObjectNS_9allocatorEED2Ev.exit1717: ; preds = %invoke.cont.i1714, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1716
   %508 = load i32, ptr @gEASTL_TestLevel, align 4
   %cmp5996981 = icmp sgt i32 %508, -1
-  br i1 %cmp5996981, label %for.cond602.preheader.lr.ph, label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.argprom.argprom.exit2407
+  br i1 %cmp5996981, label %for.cond602.preheader.lr.ph, label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.exit2407
 
 for.cond602.preheader.lr.ph:                      ; preds = %_ZN5eastl6vectorI10TestObjectNS_9allocatorEED2Ev.exit1717
   %length.i5324 = getelementptr inbounds i8, ptr %run_stack.i, i64 8
@@ -5469,14 +5469,14 @@ for.cond602.preheader.lr.ph:                      ; preds = %_ZN5eastl6vectorI10
   %length3.i5990 = getelementptr inbounds i8, ptr %run_stack.i, i64 24
   br label %for.cond602.preheader
 
-for.cond602.preheader:                            ; preds = %for.cond602.preheader.lr.ph, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.argprom.argprom.exit2399
-  %i595.06988 = phi i32 [ 0, %for.cond602.preheader.lr.ph ], [ %add739, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.argprom.argprom.exit2399 ]
-  %toArray591.sroa.0.06987 = phi ptr [ null, %for.cond602.preheader.lr.ph ], [ %toArray591.sroa.0.3.lcssa, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.argprom.argprom.exit2399 ]
-  %toArray591.sroa.33.06986 = phi ptr [ null, %for.cond602.preheader.lr.ph ], [ %toArray591.sroa.33.1.lcssa, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.argprom.argprom.exit2399 ]
-  %toArray591.sroa.75.06985 = phi ptr [ null, %for.cond602.preheader.lr.ph ], [ %toArray591.sroa.75.1.lcssa, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.argprom.argprom.exit2399 ]
-  %toArraySaved592.sroa.0.06984 = phi ptr [ null, %for.cond602.preheader.lr.ph ], [ %toArraySaved592.sroa.0.1.lcssa, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.argprom.argprom.exit2399 ]
-  %toArraySaved592.sroa.25.06983 = phi ptr [ null, %for.cond602.preheader.lr.ph ], [ %toArraySaved592.sroa.25.1.lcssa, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.argprom.argprom.exit2399 ]
-  %toArraySaved592.sroa.46.06982 = phi ptr [ null, %for.cond602.preheader.lr.ph ], [ %toArraySaved592.sroa.46.1.lcssa, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.argprom.argprom.exit2399 ]
+for.cond602.preheader:                            ; preds = %for.cond602.preheader.lr.ph, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.exit2399
+  %i595.06988 = phi i32 [ 0, %for.cond602.preheader.lr.ph ], [ %add739, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.exit2399 ]
+  %toArray591.sroa.0.06987 = phi ptr [ null, %for.cond602.preheader.lr.ph ], [ %toArray591.sroa.0.3.lcssa, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.exit2399 ]
+  %toArray591.sroa.33.06986 = phi ptr [ null, %for.cond602.preheader.lr.ph ], [ %toArray591.sroa.33.1.lcssa, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.exit2399 ]
+  %toArray591.sroa.75.06985 = phi ptr [ null, %for.cond602.preheader.lr.ph ], [ %toArray591.sroa.75.1.lcssa, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.exit2399 ]
+  %toArraySaved592.sroa.0.06984 = phi ptr [ null, %for.cond602.preheader.lr.ph ], [ %toArraySaved592.sroa.0.1.lcssa, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.exit2399 ]
+  %toArraySaved592.sroa.25.06983 = phi ptr [ null, %for.cond602.preheader.lr.ph ], [ %toArraySaved592.sroa.25.1.lcssa, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.exit2399 ]
+  %toArraySaved592.sroa.46.06982 = phi ptr [ null, %for.cond602.preheader.lr.ph ], [ %toArraySaved592.sroa.46.1.lcssa, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.exit2399 ]
   %cmp6036958.not = icmp eq i32 %i595.06988, 0
   br i1 %cmp6036958.not, label %invoke.cont628, label %for.body604
 
@@ -5502,24 +5502,24 @@ if.else.i1721:                                    ; preds = %for.body604
   %mul.i.i.i1726 = ashr exact i64 %sub.ptr.sub.i.i1724, 3
   %cond.i.i.i1727 = select i1 %cmp.not.i.i.i1725, i64 1, i64 %mul.i.i.i1726
   %tobool.not.i.i.i1728 = icmp eq i64 %cond.i.i.i1727, 0
-  br i1 %tobool.not.i.i.i1728, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i, label %if.then.i.i.i1729
+  br i1 %tobool.not.i.i.i1728, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i, label %if.then.i.i.i1729
 
 if.then.i.i.i1729:                                ; preds = %if.else.i1721
   %mul.i6.i.i1730 = shl i64 %cond.i.i.i1727, 4
   %call.i.i.i.i.i1746 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %mul.i6.i.i1730, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-          to label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i unwind label %lpad606
+          to label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i unwind label %lpad606
 
-_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i: ; preds = %if.then.i.i.i1729, %if.else.i1721
+_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i: ; preds = %if.then.i.i.i1729, %if.else.i1721
   %retval.0.i.i.i1733 = phi ptr [ null, %if.else.i1721 ], [ %call.i.i.i.i.i1746, %if.then.i.i.i1729 ]
   br i1 %cmp.not.i.i.i1725, label %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPZ8TestSortvE17StableSortTestObjS2_S2_EET1_T_T0_S3_.exit.i.i, label %if.end.i.i.i.i.i.i.i.i.i1735
 
-if.end.i.i.i.i.i.i.i.i.i1735:                     ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i
+if.end.i.i.i.i.i.i.i.i.i1735:                     ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %retval.0.i.i.i1733, ptr align 8 %toArraySaved592.sroa.0.16961, i64 %sub.ptr.sub.i.i1724, i1 false)
   %add.ptr.i.i.i.i.i.i.i.i.i1737 = getelementptr inbounds i8, ptr %retval.0.i.i.i1733, i64 %sub.ptr.sub.i.i1724
   br label %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPZ8TestSortvE17StableSortTestObjS2_S2_EET1_T_T0_S3_.exit.i.i
 
-_ZN5eastl34uninitialized_move_ptr_if_noexceptIPZ8TestSortvE17StableSortTestObjS2_S2_EET1_T_T0_S3_.exit.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i1735, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i
-  %retval.0.i.i.i.i.i.i.i.i.i1738 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i1737, %if.end.i.i.i.i.i.i.i.i.i1735 ], [ %retval.0.i.i.i1733, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i ]
+_ZN5eastl34uninitialized_move_ptr_if_noexceptIPZ8TestSortvE17StableSortTestObjS2_S2_EET1_T_T0_S3_.exit.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i1735, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i
+  %retval.0.i.i.i.i.i.i.i.i.i1738 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i1737, %if.end.i.i.i.i.i.i.i.i.i1735 ], [ %retval.0.i.i.i1733, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i ]
   store i32 %n601.06962, ptr %retval.0.i.i.i.i.i.i.i.i.i1738, align 8
   %ref.tmp605.sroa.36233.0.retval.0.i.i.i.i.i.i.i.i.i1738.sroa_idx = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i.i.i1738, i64 8
   store i64 0, ptr %ref.tmp605.sroa.36233.0.retval.0.i.i.i.i.i.i.i.i.i1738.sroa_idx, align 8
@@ -5572,24 +5572,24 @@ if.else.i1758:                                    ; preds = %if.then612
   %mul.i.i.i1763 = ashr exact i64 %sub.ptr.sub.i.i1761, 3
   %cond.i.i.i1764 = select i1 %cmp.not.i.i.i1762, i64 1, i64 %mul.i.i.i1763
   %tobool.not.i.i.i1765 = icmp eq i64 %cond.i.i.i1764, 0
-  br i1 %tobool.not.i.i.i1765, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i1770, label %if.then.i.i.i1766
+  br i1 %tobool.not.i.i.i1765, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i1770, label %if.then.i.i.i1766
 
 if.then.i.i.i1766:                                ; preds = %if.else.i1758
   %mul.i6.i.i1767 = shl i64 %cond.i.i.i1764, 4
   %call.i.i.i.i.i1786 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %mul.i6.i.i1767, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-          to label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i1770 unwind label %lpad606
+          to label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i1770 unwind label %lpad606
 
-_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i1770: ; preds = %if.then.i.i.i1766, %if.else.i1758
+_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i1770: ; preds = %if.then.i.i.i1766, %if.else.i1758
   %retval.0.i.i.i1771 = phi ptr [ null, %if.else.i1758 ], [ %call.i.i.i.i.i1786, %if.then.i.i.i1766 ]
   br i1 %cmp.not.i.i.i1762, label %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPZ8TestSortvE17StableSortTestObjS2_S2_EET1_T_T0_S3_.exit.i.i1776, label %if.end.i.i.i.i.i.i.i.i.i1773
 
-if.end.i.i.i.i.i.i.i.i.i1773:                     ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i1770
+if.end.i.i.i.i.i.i.i.i.i1773:                     ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i1770
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %retval.0.i.i.i1771, ptr align 8 %toArraySaved592.sroa.0.5, i64 %sub.ptr.sub.i.i1761, i1 false)
   %add.ptr.i.i.i.i.i.i.i.i.i1775 = getelementptr inbounds i8, ptr %retval.0.i.i.i1771, i64 %sub.ptr.sub.i.i1761
   br label %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPZ8TestSortvE17StableSortTestObjS2_S2_EET1_T_T0_S3_.exit.i.i1776
 
-_ZN5eastl34uninitialized_move_ptr_if_noexceptIPZ8TestSortvE17StableSortTestObjS2_S2_EET1_T_T0_S3_.exit.i.i1776: ; preds = %if.end.i.i.i.i.i.i.i.i.i1773, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i1770
-  %retval.0.i.i.i.i.i.i.i.i.i1777 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i1775, %if.end.i.i.i.i.i.i.i.i.i1773 ], [ %retval.0.i.i.i1771, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i1770 ]
+_ZN5eastl34uninitialized_move_ptr_if_noexceptIPZ8TestSortvE17StableSortTestObjS2_S2_EET1_T_T0_S3_.exit.i.i1776: ; preds = %if.end.i.i.i.i.i.i.i.i.i1773, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i1770
+  %retval.0.i.i.i.i.i.i.i.i.i1777 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i1775, %if.end.i.i.i.i.i.i.i.i.i1773 ], [ %retval.0.i.i.i1771, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i1770 ]
   store i32 %n601.06962, ptr %retval.0.i.i.i.i.i.i.i.i.i1777, align 8
   %ref.tmp613.sroa.36229.0.retval.0.i.i.i.i.i.i.i.i.i1777.sroa_idx = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i.i.i1777, i64 8
   store i64 0, ptr %ref.tmp613.sroa.36229.0.retval.0.i.i.i.i.i.i.i.i.i1777.sroa_idx, align 8
@@ -5643,24 +5643,24 @@ if.else.i1799:                                    ; preds = %if.then619
   %mul.i.i.i1804 = ashr exact i64 %sub.ptr.sub.i.i1802, 3
   %cond.i.i.i1805 = select i1 %cmp.not.i.i.i1803, i64 1, i64 %mul.i.i.i1804
   %tobool.not.i.i.i1806 = icmp eq i64 %cond.i.i.i1805, 0
-  br i1 %tobool.not.i.i.i1806, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i1811, label %if.then.i.i.i1807
+  br i1 %tobool.not.i.i.i1806, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i1811, label %if.then.i.i.i1807
 
 if.then.i.i.i1807:                                ; preds = %if.else.i1799
   %mul.i6.i.i1808 = shl i64 %cond.i.i.i1805, 4
   %call.i.i.i.i.i1827 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %mul.i6.i.i1808, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-          to label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i1811 unwind label %lpad606
+          to label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i1811 unwind label %lpad606
 
-_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i1811: ; preds = %if.then.i.i.i1807, %if.else.i1799
+_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i1811: ; preds = %if.then.i.i.i1807, %if.else.i1799
   %retval.0.i.i.i1812 = phi ptr [ null, %if.else.i1799 ], [ %call.i.i.i.i.i1827, %if.then.i.i.i1807 ]
   br i1 %cmp.not.i.i.i1803, label %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPZ8TestSortvE17StableSortTestObjS2_S2_EET1_T_T0_S3_.exit.i.i1817, label %if.end.i.i.i.i.i.i.i.i.i1814
 
-if.end.i.i.i.i.i.i.i.i.i1814:                     ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i1811
+if.end.i.i.i.i.i.i.i.i.i1814:                     ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i1811
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %retval.0.i.i.i1812, ptr align 8 %toArraySaved592.sroa.0.6, i64 %sub.ptr.sub.i.i1802, i1 false)
   %add.ptr.i.i.i.i.i.i.i.i.i1816 = getelementptr inbounds i8, ptr %retval.0.i.i.i1812, i64 %sub.ptr.sub.i.i1802
   br label %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPZ8TestSortvE17StableSortTestObjS2_S2_EET1_T_T0_S3_.exit.i.i1817
 
-_ZN5eastl34uninitialized_move_ptr_if_noexceptIPZ8TestSortvE17StableSortTestObjS2_S2_EET1_T_T0_S3_.exit.i.i1817: ; preds = %if.end.i.i.i.i.i.i.i.i.i1814, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i1811
-  %retval.0.i.i.i.i.i.i.i.i.i1818 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i1816, %if.end.i.i.i.i.i.i.i.i.i1814 ], [ %retval.0.i.i.i1812, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i1811 ]
+_ZN5eastl34uninitialized_move_ptr_if_noexceptIPZ8TestSortvE17StableSortTestObjS2_S2_EET1_T_T0_S3_.exit.i.i1817: ; preds = %if.end.i.i.i.i.i.i.i.i.i1814, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i1811
+  %retval.0.i.i.i.i.i.i.i.i.i1818 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i1816, %if.end.i.i.i.i.i.i.i.i.i1814 ], [ %retval.0.i.i.i1812, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i1811 ]
   store i32 %n601.06962, ptr %retval.0.i.i.i.i.i.i.i.i.i1818, align 8
   %ref.tmp620.sroa.36225.0.retval.0.i.i.i.i.i.i.i.i.i1818.sroa_idx = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i.i.i1818, i64 8
   store i64 0, ptr %ref.tmp620.sroa.36225.0.retval.0.i.i.i.i.i.i.i.i.i1818.sroa_idx, align 8
@@ -5798,21 +5798,21 @@ invoke.cont628:                                   ; preds = %for.inc625, %for.co
   %sub.ptr.sub.i1885 = sub i64 %sub.ptr.lhs.cast.i1883, %sub.ptr.rhs.cast.i1884
   %sub.ptr.div.i1886 = ashr exact i64 %sub.ptr.sub.i1885, 4
   %cmp.i1892.not = icmp eq ptr %toArraySaved592.sroa.25.1.lcssa, %toArraySaved592.sroa.0.1.lcssa
-  br i1 %cmp.i1892.not, label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6resizeEm.exit, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i1904
+  br i1 %cmp.i1892.not, label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6resizeEm.exit, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i1904
 
-_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i1904: ; preds = %invoke.cont628
+_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i1904: ; preds = %invoke.cont628
   %cond.i12.i.i1908 = call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i1886, i64 1)
   %mul.i13.i.i1909 = shl i64 %cond.i12.i.i1908, 4
   %call.i.i.i.i.i1922 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %mul.i13.i.i1909, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6resizeEm.exit unwind label %lpad630.thread
 
-lpad630.thread:                                   ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i1904
+lpad630.thread:                                   ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i1904
   %520 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup741
 
-_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6resizeEm.exit: ; preds = %invoke.cont628, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i1904
-  %tempBuffer.sroa.0.2 = phi ptr [ %call.i.i.i.i.i1922, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i1904 ], [ null, %invoke.cont628 ]
+_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6resizeEm.exit: ; preds = %invoke.cont628, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i1904
+  %tempBuffer.sroa.0.2 = phi ptr [ %call.i.i.i.i.i1922, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i1904 ], [ null, %invoke.cont628 ]
   %521 = load i32, ptr @gEASTL_TestLevel, align 4
   %cmp6366971 = icmp sgt i32 %521, -6
   br i1 %cmp6366971, label %for.body637.lr.ph, label %for.end734
@@ -5871,8 +5871,8 @@ for.body644:                                      ; preds = %_ZN5eastl14random_s
   %exitcond7091.not = icmp eq i64 %inc648, %umax
   br i1 %exitcond7091.not, label %for.end649, label %for.body644, !llvm.loop !71
 
-lpad630:                                          ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i2361, %if.then.i2302, %invoke.cont703, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i2283, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i2191, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i2121, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i2050, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i, %invoke.cont728, %invoke.cont714, %invoke.cont699, %invoke.cont685, %invoke.cont672, %invoke.cont659
-  %toArray591.sroa.0.2 = phi ptr [ %toArray591.sroa.0.9, %invoke.cont728 ], [ %toArray591.sroa.0.8, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i2361 ], [ %toArray591.sroa.0.8, %invoke.cont714 ], [ %toArray591.sroa.0.8, %if.then.i2302 ], [ %toArray591.sroa.0.8, %invoke.cont703 ], [ %toArray591.sroa.0.767286741, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i2283 ], [ %toArray591.sroa.0.767286741, %invoke.cont699 ], [ %toArray591.sroa.0.667086715, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i2191 ], [ %toArray591.sroa.0.667086715, %invoke.cont685 ], [ %toArray591.sroa.0.566896696, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i2121 ], [ %toArray591.sroa.0.566896696, %invoke.cont672 ], [ %toArray591.sroa.0.466706677, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i2050 ], [ %toArray591.sroa.0.466706677, %invoke.cont659 ], [ %toArray591.sroa.0.36974, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i ]
+lpad630:                                          ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2361, %if.then.i2302, %invoke.cont703, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2283, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2191, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2121, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2050, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i, %invoke.cont728, %invoke.cont714, %invoke.cont699, %invoke.cont685, %invoke.cont672, %invoke.cont659
+  %toArray591.sroa.0.2 = phi ptr [ %toArray591.sroa.0.9, %invoke.cont728 ], [ %toArray591.sroa.0.8, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2361 ], [ %toArray591.sroa.0.8, %invoke.cont714 ], [ %toArray591.sroa.0.8, %if.then.i2302 ], [ %toArray591.sroa.0.8, %invoke.cont703 ], [ %toArray591.sroa.0.767286741, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2283 ], [ %toArray591.sroa.0.767286741, %invoke.cont699 ], [ %toArray591.sroa.0.667086715, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2191 ], [ %toArray591.sroa.0.667086715, %invoke.cont685 ], [ %toArray591.sroa.0.566896696, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2121 ], [ %toArray591.sroa.0.566896696, %invoke.cont672 ], [ %toArray591.sroa.0.466706677, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2050 ], [ %toArray591.sroa.0.466706677, %invoke.cont659 ], [ %toArray591.sroa.0.36974, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i ]
   %524 = landingpad { ptr, i32 }
           cleanup
   %tobool.not.i.i1948 = icmp eq ptr %tempBuffer.sroa.0.2, null
@@ -5887,28 +5887,28 @@ for.end649:                                       ; preds = %for.body644, %_ZN5e
   %sub.ptr.rhs.cast.i.i.i1956 = ptrtoint ptr %toArray591.sroa.0.36974 to i64
   %sub.ptr.sub.i.i.i1957 = sub i64 %sub.ptr.lhs.cast.i.i.i1955, %sub.ptr.rhs.cast.i.i.i1956
   %cmp.i.i.i1958 = icmp ugt i64 %sub.ptr.sub.i1885, %sub.ptr.sub.i.i.i1957
-  br i1 %cmp.i.i.i1958, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i, label %if.else.i.i.i1959
+  br i1 %cmp.i.i.i1958, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i, label %if.else.i.i.i1959
 
-_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i: ; preds = %for.end649
+_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i: ; preds = %for.end649
   %call.i.i.i.i.i.i.i1987 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %sub.ptr.sub.i1885, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %call.i.i.i.i.i.i.i.noexc1986 unwind label %lpad630
 
-call.i.i.i.i.i.i.i.noexc1986:                     ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i
-  br i1 %cmp.i1892.not, label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i, label %if.end.i.i.i.i.i.i.i1981
+call.i.i.i.i.i.i.i.noexc1986:                     ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i
+  br i1 %cmp.i1892.not, label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i, label %if.end.i.i.i.i.i.i.i1981
 
 if.end.i.i.i.i.i.i.i1981:                         ; preds = %call.i.i.i.i.i.i.i.noexc1986
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call.i.i.i.i.i.i.i1987, ptr nonnull align 8 %toArraySaved592.sroa.0.1.lcssa, i64 %sub.ptr.sub.i1885, i1 false)
-  br label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i
+  br label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i
 
-_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i1981, %call.i.i.i.i.i.i.i.noexc1986
+_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i1981, %call.i.i.i.i.i.i.i.noexc1986
   %tobool.not.i.i.i.i1983 = icmp eq ptr %toArray591.sroa.0.36974, null
-  br i1 %tobool.not.i.i.i.i1983, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i1984
+  br i1 %tobool.not.i.i.i.i1983, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i1984
 
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i1984: ; preds = %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i
+_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i1984: ; preds = %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i
   call void @_ZdaPv(ptr noundef nonnull %toArray591.sroa.0.36974) #12
-  br label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i
+  br label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i
 
-_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i1984, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i
+_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i1984, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i
   %add.ptr.i.i.i1985 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i1987, i64 %sub.ptr.sub.i1885
   br label %invoke.cont650
 
@@ -5946,10 +5946,10 @@ if.end.i.i.i.i.i.i1975:                           ; preds = %_ZN5eastl4copyIPKZ8
   %add.ptr.i.i.i.i.i.i1978 = getelementptr inbounds i8, ptr %toArray591.sroa.33.16973, i64 %sub.ptr.sub.i.i.i.i.i.i1977
   br label %invoke.cont650
 
-invoke.cont650:                                   ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i, %if.end.i.i.i.i16.i.i.i1966, %if.end.i.i.i.i.i.i1975, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i
-  %toArray591.sroa.75.2 = phi ptr [ %add.ptr.i.i.i1985, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i ], [ %toArray591.sroa.75.16972, %if.end.i.i.i.i16.i.i.i1966 ], [ %toArray591.sroa.75.16972, %if.end.i.i.i.i.i.i1975 ], [ %toArray591.sroa.75.16972, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i ]
-  %toArray591.sroa.33.2 = phi ptr [ %add.ptr.i.i.i1985, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i1967, %if.end.i.i.i.i16.i.i.i1966 ], [ %add.ptr.i.i.i.i.i.i1978, %if.end.i.i.i.i.i.i1975 ], [ %toArray591.sroa.33.16973, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i ]
-  %toArray591.sroa.0.4 = phi ptr [ %call.i.i.i.i.i.i.i1987, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i ], [ %toArray591.sroa.0.36974, %if.end.i.i.i.i16.i.i.i1966 ], [ %toArray591.sroa.0.36974, %if.end.i.i.i.i.i.i1975 ], [ %toArray591.sroa.0.36974, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i ]
+invoke.cont650:                                   ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i, %if.end.i.i.i.i16.i.i.i1966, %if.end.i.i.i.i.i.i1975, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i
+  %toArray591.sroa.75.2 = phi ptr [ %add.ptr.i.i.i1985, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i ], [ %toArray591.sroa.75.16972, %if.end.i.i.i.i16.i.i.i1966 ], [ %toArray591.sroa.75.16972, %if.end.i.i.i.i.i.i1975 ], [ %toArray591.sroa.75.16972, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i ]
+  %toArray591.sroa.33.2 = phi ptr [ %add.ptr.i.i.i1985, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i1967, %if.end.i.i.i.i16.i.i.i1966 ], [ %add.ptr.i.i.i.i.i.i1978, %if.end.i.i.i.i.i.i1975 ], [ %toArray591.sroa.33.16973, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i ]
+  %toArray591.sroa.0.4 = phi ptr [ %call.i.i.i.i.i.i.i1987, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i ], [ %toArray591.sroa.0.36974, %if.end.i.i.i.i16.i.i.i1966 ], [ %toArray591.sroa.0.36974, %if.end.i.i.i.i.i.i1975 ], [ %toArray591.sroa.0.36974, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i ]
   %cmp.not.i.i1988 = icmp eq ptr %toArray591.sroa.0.4, %toArray591.sroa.33.2
   %incdec.ptr.i.i1989 = getelementptr inbounds i8, ptr %toArray591.sroa.33.2, i64 -16
   %cmp2.not17.i.i1990 = icmp eq ptr %toArray591.sroa.0.4, %incdec.ptr.i.i1989
@@ -6022,28 +6022,28 @@ invoke.cont661:                                   ; preds = %invoke.cont659
   %sub.ptr.rhs.cast.i.i.i2023 = ptrtoint ptr %toArray591.sroa.0.466706677 to i64
   %sub.ptr.sub.i.i.i2024 = sub i64 %sub.ptr.lhs.cast.i.i.i2022, %sub.ptr.rhs.cast.i.i.i2023
   %cmp.i.i.i2025 = icmp ugt i64 %sub.ptr.sub.i1885, %sub.ptr.sub.i.i.i2024
-  br i1 %cmp.i.i.i2025, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i2050, label %if.else.i.i.i2026
+  br i1 %cmp.i.i.i2025, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2050, label %if.else.i.i.i2026
 
-_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i2050: ; preds = %invoke.cont661
+_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2050: ; preds = %invoke.cont661
   %call.i.i.i.i.i.i.i2060 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %sub.ptr.sub.i1885, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %call.i.i.i.i.i.i.i.noexc2059 unwind label %lpad630
 
-call.i.i.i.i.i.i.i.noexc2059:                     ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i2050
-  br i1 %cmp.i1892.not, label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i2053, label %if.end.i.i.i.i.i.i.i2052
+call.i.i.i.i.i.i.i.noexc2059:                     ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2050
+  br i1 %cmp.i1892.not, label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i2053, label %if.end.i.i.i.i.i.i.i2052
 
 if.end.i.i.i.i.i.i.i2052:                         ; preds = %call.i.i.i.i.i.i.i.noexc2059
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call.i.i.i.i.i.i.i2060, ptr nonnull align 8 %toArraySaved592.sroa.0.1.lcssa, i64 %sub.ptr.sub.i1885, i1 false)
-  br label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i2053
+  br label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i2053
 
-_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i2053: ; preds = %if.end.i.i.i.i.i.i.i2052, %call.i.i.i.i.i.i.i.noexc2059
+_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i2053: ; preds = %if.end.i.i.i.i.i.i.i2052, %call.i.i.i.i.i.i.i.noexc2059
   %tobool.not.i.i.i.i2055 = icmp eq ptr %toArray591.sroa.0.466706677, null
-  br i1 %tobool.not.i.i.i.i2055, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2057, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2056
+  br i1 %tobool.not.i.i.i.i2055, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2057, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2056
 
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2056: ; preds = %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i2053
+_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2056: ; preds = %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i2053
   call void @_ZdaPv(ptr noundef nonnull %toArray591.sroa.0.466706677) #12
-  br label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2057
+  br label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2057
 
-_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2057: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2056, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i2053
+_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2057: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2056, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i2053
   %add.ptr.i.i.i2058 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i2060, i64 %sub.ptr.sub.i1885
   br label %invoke.cont663
 
@@ -6080,10 +6080,10 @@ if.end.i.i.i.i.i.i2044:                           ; preds = %_ZN5eastl4copyIPKZ8
   %add.ptr.i.i.i.i.i.i2047 = getelementptr inbounds i8, ptr %toArray591.sroa.33.266696678, i64 %sub.ptr.sub.i.i.i.i.i.i2046
   br label %invoke.cont663
 
-invoke.cont663:                                   ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2057, %if.end.i.i.i.i16.i.i.i2033, %if.end.i.i.i.i.i.i2044, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2042
-  %toArray591.sroa.75.3 = phi ptr [ %add.ptr.i.i.i2058, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2057 ], [ %toArray591.sroa.75.266686679, %if.end.i.i.i.i16.i.i.i2033 ], [ %toArray591.sroa.75.266686679, %if.end.i.i.i.i.i.i2044 ], [ %toArray591.sroa.75.266686679, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2042 ]
-  %toArray591.sroa.33.3 = phi ptr [ %add.ptr.i.i.i2058, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2057 ], [ %add.ptr.i.i.i.i.i.i.i2034, %if.end.i.i.i.i16.i.i.i2033 ], [ %add.ptr.i.i.i.i.i.i2047, %if.end.i.i.i.i.i.i2044 ], [ %toArray591.sroa.33.266696678, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2042 ]
-  %toArray591.sroa.0.5 = phi ptr [ %call.i.i.i.i.i.i.i2060, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2057 ], [ %toArray591.sroa.0.466706677, %if.end.i.i.i.i16.i.i.i2033 ], [ %toArray591.sroa.0.466706677, %if.end.i.i.i.i.i.i2044 ], [ %toArray591.sroa.0.466706677, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2042 ]
+invoke.cont663:                                   ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2057, %if.end.i.i.i.i16.i.i.i2033, %if.end.i.i.i.i.i.i2044, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2042
+  %toArray591.sroa.75.3 = phi ptr [ %add.ptr.i.i.i2058, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2057 ], [ %toArray591.sroa.75.266686679, %if.end.i.i.i.i16.i.i.i2033 ], [ %toArray591.sroa.75.266686679, %if.end.i.i.i.i.i.i2044 ], [ %toArray591.sroa.75.266686679, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2042 ]
+  %toArray591.sroa.33.3 = phi ptr [ %add.ptr.i.i.i2058, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2057 ], [ %add.ptr.i.i.i.i.i.i.i2034, %if.end.i.i.i.i16.i.i.i2033 ], [ %add.ptr.i.i.i.i.i.i2047, %if.end.i.i.i.i.i.i2044 ], [ %toArray591.sroa.33.266696678, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2042 ]
+  %toArray591.sroa.0.5 = phi ptr [ %call.i.i.i.i.i.i.i2060, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2057 ], [ %toArray591.sroa.0.466706677, %if.end.i.i.i.i16.i.i.i2033 ], [ %toArray591.sroa.0.466706677, %if.end.i.i.i.i.i.i2044 ], [ %toArray591.sroa.0.466706677, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2042 ]
   %cmp.not.i2063 = icmp eq ptr %toArray591.sroa.0.5, %toArray591.sroa.33.3
   %incdec.ptr.i2064 = getelementptr inbounds i8, ptr %toArray591.sroa.33.3, i64 -16
   %cmp1.not34.i = icmp eq ptr %toArray591.sroa.0.5, %incdec.ptr.i2064
@@ -6184,28 +6184,28 @@ invoke.cont674:                                   ; preds = %invoke.cont672
   %sub.ptr.rhs.cast.i.i.i2094 = ptrtoint ptr %toArray591.sroa.0.566896696 to i64
   %sub.ptr.sub.i.i.i2095 = sub i64 %sub.ptr.lhs.cast.i.i.i2093, %sub.ptr.rhs.cast.i.i.i2094
   %cmp.i.i.i2096 = icmp ugt i64 %sub.ptr.sub.i1885, %sub.ptr.sub.i.i.i2095
-  br i1 %cmp.i.i.i2096, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i2121, label %if.else.i.i.i2097
+  br i1 %cmp.i.i.i2096, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2121, label %if.else.i.i.i2097
 
-_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i2121: ; preds = %invoke.cont674
+_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2121: ; preds = %invoke.cont674
   %call.i.i.i.i.i.i.i2131 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %sub.ptr.sub.i1885, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %call.i.i.i.i.i.i.i.noexc2130 unwind label %lpad630
 
-call.i.i.i.i.i.i.i.noexc2130:                     ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i2121
-  br i1 %cmp.i1892.not, label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i2124, label %if.end.i.i.i.i.i.i.i2123
+call.i.i.i.i.i.i.i.noexc2130:                     ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2121
+  br i1 %cmp.i1892.not, label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i2124, label %if.end.i.i.i.i.i.i.i2123
 
 if.end.i.i.i.i.i.i.i2123:                         ; preds = %call.i.i.i.i.i.i.i.noexc2130
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call.i.i.i.i.i.i.i2131, ptr nonnull align 8 %toArraySaved592.sroa.0.1.lcssa, i64 %sub.ptr.sub.i1885, i1 false)
-  br label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i2124
+  br label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i2124
 
-_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i2124: ; preds = %if.end.i.i.i.i.i.i.i2123, %call.i.i.i.i.i.i.i.noexc2130
+_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i2124: ; preds = %if.end.i.i.i.i.i.i.i2123, %call.i.i.i.i.i.i.i.noexc2130
   %tobool.not.i.i.i.i2126 = icmp eq ptr %toArray591.sroa.0.566896696, null
-  br i1 %tobool.not.i.i.i.i2126, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2128, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2127
+  br i1 %tobool.not.i.i.i.i2126, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2128, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2127
 
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2127: ; preds = %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i2124
+_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2127: ; preds = %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i2124
   call void @_ZdaPv(ptr noundef nonnull %toArray591.sroa.0.566896696) #12
-  br label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2128
+  br label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2128
 
-_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2128: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2127, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i2124
+_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2128: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2127, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i2124
   %add.ptr.i.i.i2129 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i2131, i64 %sub.ptr.sub.i1885
   br label %invoke.cont676
 
@@ -6242,10 +6242,10 @@ if.end.i.i.i.i.i.i2115:                           ; preds = %_ZN5eastl4copyIPKZ8
   %add.ptr.i.i.i.i.i.i2118 = getelementptr inbounds i8, ptr %toArray591.sroa.33.366886697, i64 %sub.ptr.sub.i.i.i.i.i.i2117
   br label %invoke.cont676
 
-invoke.cont676:                                   ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2128, %if.end.i.i.i.i16.i.i.i2104, %if.end.i.i.i.i.i.i2115, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2113
-  %toArray591.sroa.75.4 = phi ptr [ %add.ptr.i.i.i2129, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2128 ], [ %toArray591.sroa.75.366876698, %if.end.i.i.i.i16.i.i.i2104 ], [ %toArray591.sroa.75.366876698, %if.end.i.i.i.i.i.i2115 ], [ %toArray591.sroa.75.366876698, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2113 ]
-  %toArray591.sroa.33.4 = phi ptr [ %add.ptr.i.i.i2129, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2128 ], [ %add.ptr.i.i.i.i.i.i.i2105, %if.end.i.i.i.i16.i.i.i2104 ], [ %add.ptr.i.i.i.i.i.i2118, %if.end.i.i.i.i.i.i2115 ], [ %toArray591.sroa.33.366886697, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2113 ]
-  %toArray591.sroa.0.6 = phi ptr [ %call.i.i.i.i.i.i.i2131, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2128 ], [ %toArray591.sroa.0.566896696, %if.end.i.i.i.i16.i.i.i2104 ], [ %toArray591.sroa.0.566896696, %if.end.i.i.i.i.i.i2115 ], [ %toArray591.sroa.0.566896696, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2113 ]
+invoke.cont676:                                   ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2128, %if.end.i.i.i.i16.i.i.i2104, %if.end.i.i.i.i.i.i2115, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2113
+  %toArray591.sroa.75.4 = phi ptr [ %add.ptr.i.i.i2129, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2128 ], [ %toArray591.sroa.75.366876698, %if.end.i.i.i.i16.i.i.i2104 ], [ %toArray591.sroa.75.366876698, %if.end.i.i.i.i.i.i2115 ], [ %toArray591.sroa.75.366876698, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2113 ]
+  %toArray591.sroa.33.4 = phi ptr [ %add.ptr.i.i.i2129, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2128 ], [ %add.ptr.i.i.i.i.i.i.i2105, %if.end.i.i.i.i16.i.i.i2104 ], [ %add.ptr.i.i.i.i.i.i2118, %if.end.i.i.i.i.i.i2115 ], [ %toArray591.sroa.33.366886697, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2113 ]
+  %toArray591.sroa.0.6 = phi ptr [ %call.i.i.i.i.i.i.i2131, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2128 ], [ %toArray591.sroa.0.566896696, %if.end.i.i.i.i16.i.i.i2104 ], [ %toArray591.sroa.0.566896696, %if.end.i.i.i.i.i.i2115 ], [ %toArray591.sroa.0.566896696, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2113 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %insertValue.sroa.3.i)
   %cmp.not.i2133 = icmp eq ptr %toArray591.sroa.0.6, %toArray591.sroa.33.4
   %i.016.i = getelementptr inbounds i8, ptr %toArray591.sroa.0.6, i64 16
@@ -6319,28 +6319,28 @@ invoke.cont687:                                   ; preds = %invoke.cont685
   %sub.ptr.rhs.cast.i.i.i2164 = ptrtoint ptr %toArray591.sroa.0.667086715 to i64
   %sub.ptr.sub.i.i.i2165 = sub i64 %sub.ptr.lhs.cast.i.i.i2163, %sub.ptr.rhs.cast.i.i.i2164
   %cmp.i.i.i2166 = icmp ugt i64 %sub.ptr.sub.i1885, %sub.ptr.sub.i.i.i2165
-  br i1 %cmp.i.i.i2166, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i2191, label %if.else.i.i.i2167
+  br i1 %cmp.i.i.i2166, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2191, label %if.else.i.i.i2167
 
-_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i2191: ; preds = %invoke.cont687
+_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2191: ; preds = %invoke.cont687
   %call.i.i.i.i.i.i.i2201 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %sub.ptr.sub.i1885, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %call.i.i.i.i.i.i.i.noexc2200 unwind label %lpad630
 
-call.i.i.i.i.i.i.i.noexc2200:                     ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i2191
-  br i1 %cmp.i1892.not, label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i2194, label %if.end.i.i.i.i.i.i.i2193
+call.i.i.i.i.i.i.i.noexc2200:                     ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2191
+  br i1 %cmp.i1892.not, label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i2194, label %if.end.i.i.i.i.i.i.i2193
 
 if.end.i.i.i.i.i.i.i2193:                         ; preds = %call.i.i.i.i.i.i.i.noexc2200
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call.i.i.i.i.i.i.i2201, ptr nonnull align 8 %toArraySaved592.sroa.0.1.lcssa, i64 %sub.ptr.sub.i1885, i1 false)
-  br label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i2194
+  br label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i2194
 
-_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i2194: ; preds = %if.end.i.i.i.i.i.i.i2193, %call.i.i.i.i.i.i.i.noexc2200
+_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i2194: ; preds = %if.end.i.i.i.i.i.i.i2193, %call.i.i.i.i.i.i.i.noexc2200
   %tobool.not.i.i.i.i2196 = icmp eq ptr %toArray591.sroa.0.667086715, null
-  br i1 %tobool.not.i.i.i.i2196, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2198, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2197
+  br i1 %tobool.not.i.i.i.i2196, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2198, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2197
 
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2197: ; preds = %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i2194
+_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2197: ; preds = %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i2194
   call void @_ZdaPv(ptr noundef nonnull %toArray591.sroa.0.667086715) #12
-  br label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2198
+  br label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2198
 
-_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2198: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2197, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i2194
+_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2198: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2197, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i2194
   %add.ptr.i.i.i2199 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i2201, i64 %sub.ptr.sub.i1885
   %.pre7176 = ptrtoint ptr %call.i.i.i.i.i.i.i2201 to i64
   br label %invoke.cont689
@@ -6382,11 +6382,11 @@ if.end.i.i.i.i.i.i2185:                           ; preds = %_ZN5eastl4copyIPKZ8
   %add.ptr.i.i.i.i.i.i2188 = getelementptr inbounds i8, ptr %toArray591.sroa.33.467076716, i64 %sub.ptr.sub.i.i.i.i.i.i2187
   br label %invoke.cont689
 
-invoke.cont689:                                   ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2198, %if.end.i.i.i.i16.i.i.i2174, %if.end.i.i.i.i.i.i2185, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2183
-  %sub.ptr.rhs.cast.i2204.pre-phi = phi i64 [ %.pre7176, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2198 ], [ %sub.ptr.rhs.cast.i.i.i2164, %if.end.i.i.i.i16.i.i.i2174 ], [ %sub.ptr.rhs.cast.i.i.i2164, %if.end.i.i.i.i.i.i2185 ], [ %sub.ptr.rhs.cast.i.i.i2164, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2183 ]
-  %toArray591.sroa.75.5 = phi ptr [ %add.ptr.i.i.i2199, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2198 ], [ %toArray591.sroa.75.467066717, %if.end.i.i.i.i16.i.i.i2174 ], [ %toArray591.sroa.75.467066717, %if.end.i.i.i.i.i.i2185 ], [ %toArray591.sroa.75.467066717, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2183 ]
-  %toArray591.sroa.33.5 = phi ptr [ %add.ptr.i.i.i2199, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2198 ], [ %add.ptr.i.i.i.i.i.i.i2175, %if.end.i.i.i.i16.i.i.i2174 ], [ %add.ptr.i.i.i.i.i.i2188, %if.end.i.i.i.i.i.i2185 ], [ %toArray591.sroa.33.467076716, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2183 ]
-  %toArray591.sroa.0.7 = phi ptr [ %call.i.i.i.i.i.i.i2201, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2198 ], [ %toArray591.sroa.0.667086715, %if.end.i.i.i.i16.i.i.i2174 ], [ %toArray591.sroa.0.667086715, %if.end.i.i.i.i.i.i2185 ], [ %toArray591.sroa.0.667086715, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2183 ]
+invoke.cont689:                                   ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2198, %if.end.i.i.i.i16.i.i.i2174, %if.end.i.i.i.i.i.i2185, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2183
+  %sub.ptr.rhs.cast.i2204.pre-phi = phi i64 [ %.pre7176, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2198 ], [ %sub.ptr.rhs.cast.i.i.i2164, %if.end.i.i.i.i16.i.i.i2174 ], [ %sub.ptr.rhs.cast.i.i.i2164, %if.end.i.i.i.i.i.i2185 ], [ %sub.ptr.rhs.cast.i.i.i2164, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2183 ]
+  %toArray591.sroa.75.5 = phi ptr [ %add.ptr.i.i.i2199, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2198 ], [ %toArray591.sroa.75.467066717, %if.end.i.i.i.i16.i.i.i2174 ], [ %toArray591.sroa.75.467066717, %if.end.i.i.i.i.i.i2185 ], [ %toArray591.sroa.75.467066717, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2183 ]
+  %toArray591.sroa.33.5 = phi ptr [ %add.ptr.i.i.i2199, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2198 ], [ %add.ptr.i.i.i.i.i.i.i2175, %if.end.i.i.i.i16.i.i.i2174 ], [ %add.ptr.i.i.i.i.i.i2188, %if.end.i.i.i.i.i.i2185 ], [ %toArray591.sroa.33.467076716, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2183 ]
+  %toArray591.sroa.0.7 = phi ptr [ %call.i.i.i.i.i.i.i2201, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2198 ], [ %toArray591.sroa.0.667086715, %if.end.i.i.i.i16.i.i.i2174 ], [ %toArray591.sroa.0.667086715, %if.end.i.i.i.i.i.i2185 ], [ %toArray591.sroa.0.667086715, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2183 ]
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %run_stack.i)
   %sub.ptr.lhs.cast.i2203 = ptrtoint ptr %toArray591.sroa.33.5 to i64
   %sub.ptr.sub.i2205 = sub i64 %sub.ptr.lhs.cast.i2203, %sub.ptr.rhs.cast.i2204.pre-phi
@@ -8167,28 +8167,28 @@ invoke.cont701:                                   ; preds = %invoke.cont699
   %sub.ptr.lhs.cast.i.i.i2255 = ptrtoint ptr %toArray591.sroa.75.567266743 to i64
   %sub.ptr.sub.i.i.i2257 = sub i64 %sub.ptr.lhs.cast.i.i.i2255, %sub.ptr.rhs.cast.i220467296740
   %cmp.i.i.i2258 = icmp ugt i64 %sub.ptr.sub.i1885, %sub.ptr.sub.i.i.i2257
-  br i1 %cmp.i.i.i2258, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i2283, label %if.else.i.i.i2259
+  br i1 %cmp.i.i.i2258, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2283, label %if.else.i.i.i2259
 
-_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i2283: ; preds = %invoke.cont701
+_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2283: ; preds = %invoke.cont701
   %call.i.i.i.i.i.i.i2293 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %sub.ptr.sub.i1885, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %call.i.i.i.i.i.i.i.noexc2292 unwind label %lpad630
 
-call.i.i.i.i.i.i.i.noexc2292:                     ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i2283
-  br i1 %cmp.i1892.not, label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i2286, label %if.end.i.i.i.i.i.i.i2285
+call.i.i.i.i.i.i.i.noexc2292:                     ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2283
+  br i1 %cmp.i1892.not, label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i2286, label %if.end.i.i.i.i.i.i.i2285
 
 if.end.i.i.i.i.i.i.i2285:                         ; preds = %call.i.i.i.i.i.i.i.noexc2292
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call.i.i.i.i.i.i.i2293, ptr nonnull align 8 %toArraySaved592.sroa.0.1.lcssa, i64 %sub.ptr.sub.i1885, i1 false)
-  br label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i2286
+  br label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i2286
 
-_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i2286: ; preds = %if.end.i.i.i.i.i.i.i2285, %call.i.i.i.i.i.i.i.noexc2292
+_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i2286: ; preds = %if.end.i.i.i.i.i.i.i2285, %call.i.i.i.i.i.i.i.noexc2292
   %tobool.not.i.i.i.i2288 = icmp eq ptr %toArray591.sroa.0.767286741, null
-  br i1 %tobool.not.i.i.i.i2288, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2290, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2289
+  br i1 %tobool.not.i.i.i.i2288, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2290, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2289
 
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2289: ; preds = %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i2286
+_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2289: ; preds = %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i2286
   call void @_ZdaPv(ptr noundef nonnull %toArray591.sroa.0.767286741) #12
-  br label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2290
+  br label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2290
 
-_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2290: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2289, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i2286
+_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2290: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2289, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i2286
   %add.ptr.i.i.i2291 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i2293, i64 %sub.ptr.sub.i1885
   br label %invoke.cont703
 
@@ -8223,10 +8223,10 @@ if.end.i.i.i.i.i.i2277:                           ; preds = %_ZN5eastl4copyIPKZ8
   %add.ptr.i.i.i.i.i.i2280 = getelementptr inbounds i8, ptr %toArray591.sroa.33.567276742, i64 %sub.ptr.sub.i.i.i.i.i.i2279
   br label %invoke.cont703
 
-invoke.cont703:                                   ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2290, %if.end.i.i.i.i16.i.i.i2266, %if.then24.i.i.i2264, %if.end.i.i.i.i.i.i2277, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2275
-  %toArray591.sroa.75.6 = phi ptr [ %add.ptr.i.i.i2291, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2290 ], [ %toArray591.sroa.75.567266743, %if.end.i.i.i.i16.i.i.i2266 ], [ %toArray591.sroa.75.567266743, %if.then24.i.i.i2264 ], [ %toArray591.sroa.75.567266743, %if.end.i.i.i.i.i.i2277 ], [ %toArray591.sroa.75.567266743, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2275 ]
-  %toArray591.sroa.33.6 = phi ptr [ %add.ptr.i.i.i2291, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2290 ], [ %add.ptr.i.i.i.i.i.i.i2267, %if.end.i.i.i.i16.i.i.i2266 ], [ %toArray591.sroa.0.767286741, %if.then24.i.i.i2264 ], [ %add.ptr.i.i.i.i.i.i2280, %if.end.i.i.i.i.i.i2277 ], [ %toArray591.sroa.33.567276742, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2275 ]
-  %toArray591.sroa.0.8 = phi ptr [ %call.i.i.i.i.i.i.i2293, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2290 ], [ %toArray591.sroa.0.767286741, %if.end.i.i.i.i16.i.i.i2266 ], [ %toArray591.sroa.0.767286741, %if.then24.i.i.i2264 ], [ %toArray591.sroa.0.767286741, %if.end.i.i.i.i.i.i2277 ], [ %toArray591.sroa.0.767286741, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2275 ]
+invoke.cont703:                                   ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2290, %if.end.i.i.i.i16.i.i.i2266, %if.then24.i.i.i2264, %if.end.i.i.i.i.i.i2277, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2275
+  %toArray591.sroa.75.6 = phi ptr [ %add.ptr.i.i.i2291, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2290 ], [ %toArray591.sroa.75.567266743, %if.end.i.i.i.i16.i.i.i2266 ], [ %toArray591.sroa.75.567266743, %if.then24.i.i.i2264 ], [ %toArray591.sroa.75.567266743, %if.end.i.i.i.i.i.i2277 ], [ %toArray591.sroa.75.567266743, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2275 ]
+  %toArray591.sroa.33.6 = phi ptr [ %add.ptr.i.i.i2291, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2290 ], [ %add.ptr.i.i.i.i.i.i.i2267, %if.end.i.i.i.i16.i.i.i2266 ], [ %toArray591.sroa.0.767286741, %if.then24.i.i.i2264 ], [ %add.ptr.i.i.i.i.i.i2280, %if.end.i.i.i.i.i.i2277 ], [ %toArray591.sroa.33.567276742, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2275 ]
+  %toArray591.sroa.0.8 = phi ptr [ %call.i.i.i.i.i.i.i2293, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2290 ], [ %toArray591.sroa.0.767286741, %if.end.i.i.i.i16.i.i.i2266 ], [ %toArray591.sroa.0.767286741, %if.then24.i.i.i2264 ], [ %toArray591.sroa.0.767286741, %if.end.i.i.i.i.i.i2277 ], [ %toArray591.sroa.0.767286741, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2275 ]
   %call.i2295 = invoke noundef ptr @_ZN5eastl19GetDefaultAllocatorEv()
           to label %invoke.cont707 unwind label %lpad630
 
@@ -8292,28 +8292,28 @@ invoke.cont716:                                   ; preds = %invoke.cont714
   %sub.ptr.lhs.cast.i.i.i2333 = ptrtoint ptr %toArray591.sroa.75.6 to i64
   %sub.ptr.sub.i.i.i2335 = sub i64 %sub.ptr.lhs.cast.i.i.i2333, %sub.ptr.rhs.cast.i2298
   %cmp.i.i.i2336 = icmp ugt i64 %sub.ptr.sub.i1885, %sub.ptr.sub.i.i.i2335
-  br i1 %cmp.i.i.i2336, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i2361, label %if.else.i.i.i2337
+  br i1 %cmp.i.i.i2336, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2361, label %if.else.i.i.i2337
 
-_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i2361: ; preds = %invoke.cont716
+_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2361: ; preds = %invoke.cont716
   %call.i.i.i.i.i.i.i2371 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %sub.ptr.sub.i1885, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %call.i.i.i.i.i.i.i.noexc2370 unwind label %lpad630
 
-call.i.i.i.i.i.i.i.noexc2370:                     ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.argprom.exit.i.i.i.i2361
-  br i1 %cmp.i1892.not, label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i2364, label %if.end.i.i.i.i.i.i.i2363
+call.i.i.i.i.i.i.i.noexc2370:                     ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2361
+  br i1 %cmp.i1892.not, label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i2364, label %if.end.i.i.i.i.i.i.i2363
 
 if.end.i.i.i.i.i.i.i2363:                         ; preds = %call.i.i.i.i.i.i.i.noexc2370
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call.i.i.i.i.i.i.i2371, ptr nonnull align 8 %toArraySaved592.sroa.0.1.lcssa, i64 %sub.ptr.sub.i1885, i1 false)
-  br label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i2364
+  br label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i2364
 
-_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i2364: ; preds = %if.end.i.i.i.i.i.i.i2363, %call.i.i.i.i.i.i.i.noexc2370
+_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i2364: ; preds = %if.end.i.i.i.i.i.i.i2363, %call.i.i.i.i.i.i.i.noexc2370
   %tobool.not.i.i.i.i2366 = icmp eq ptr %toArray591.sroa.0.8, null
-  br i1 %tobool.not.i.i.i.i2366, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2368, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2367
+  br i1 %tobool.not.i.i.i.i2366, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2368, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2367
 
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2367: ; preds = %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i2364
+_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2367: ; preds = %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i2364
   call void @_ZdaPv(ptr noundef nonnull %toArray591.sroa.0.8) #12
-  br label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2368
+  br label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2368
 
-_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2368: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2367, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.argprom.exit.i.i.i2364
+_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2368: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2367, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE9DoReallocIPKS1_EEPS1_mT_S8_NS3_23should_move_or_copy_tagILb0EEE.exit.i.i.i2364
   %add.ptr.i.i.i2369 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i2371, i64 %sub.ptr.sub.i1885
   br label %invoke.cont718
 
@@ -8348,10 +8348,10 @@ if.end.i.i.i.i.i.i2355:                           ; preds = %_ZN5eastl4copyIPKZ8
   %add.ptr.i.i.i.i.i.i2358 = getelementptr inbounds i8, ptr %toArray591.sroa.33.6, i64 %sub.ptr.sub.i.i.i.i.i.i2357
   br label %invoke.cont718
 
-invoke.cont718:                                   ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2368, %if.end.i.i.i.i16.i.i.i2344, %if.then24.i.i.i2342, %if.end.i.i.i.i.i.i2355, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2353
-  %toArray591.sroa.75.7 = phi ptr [ %add.ptr.i.i.i2369, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2368 ], [ %toArray591.sroa.75.6, %if.end.i.i.i.i16.i.i.i2344 ], [ %toArray591.sroa.75.6, %if.then24.i.i.i2342 ], [ %toArray591.sroa.75.6, %if.end.i.i.i.i.i.i2355 ], [ %toArray591.sroa.75.6, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2353 ]
-  %toArray591.sroa.33.7 = phi ptr [ %add.ptr.i.i.i2369, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2368 ], [ %add.ptr.i.i.i.i.i.i.i2345, %if.end.i.i.i.i16.i.i.i2344 ], [ %toArray591.sroa.0.8, %if.then24.i.i.i2342 ], [ %add.ptr.i.i.i.i.i.i2358, %if.end.i.i.i.i.i.i2355 ], [ %toArray591.sroa.33.6, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2353 ]
-  %toArray591.sroa.0.9 = phi ptr [ %call.i.i.i.i.i.i.i2371, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.argprom.exit.i.i.i2368 ], [ %toArray591.sroa.0.8, %if.end.i.i.i.i16.i.i.i2344 ], [ %toArray591.sroa.0.8, %if.then24.i.i.i2342 ], [ %toArray591.sroa.0.8, %if.end.i.i.i.i.i.i2355 ], [ %toArray591.sroa.0.8, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2353 ]
+invoke.cont718:                                   ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2368, %if.end.i.i.i.i16.i.i.i2344, %if.then24.i.i.i2342, %if.end.i.i.i.i.i.i2355, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2353
+  %toArray591.sroa.75.7 = phi ptr [ %add.ptr.i.i.i2369, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2368 ], [ %toArray591.sroa.75.6, %if.end.i.i.i.i16.i.i.i2344 ], [ %toArray591.sroa.75.6, %if.then24.i.i.i2342 ], [ %toArray591.sroa.75.6, %if.end.i.i.i.i.i.i2355 ], [ %toArray591.sroa.75.6, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2353 ]
+  %toArray591.sroa.33.7 = phi ptr [ %add.ptr.i.i.i2369, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2368 ], [ %add.ptr.i.i.i.i.i.i.i2345, %if.end.i.i.i.i16.i.i.i2344 ], [ %toArray591.sroa.0.8, %if.then24.i.i.i2342 ], [ %add.ptr.i.i.i.i.i.i2358, %if.end.i.i.i.i.i.i2355 ], [ %toArray591.sroa.33.6, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2353 ]
+  %toArray591.sroa.0.9 = phi ptr [ %call.i.i.i.i.i.i.i2371, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2368 ], [ %toArray591.sroa.0.8, %if.end.i.i.i.i16.i.i.i2344 ], [ %toArray591.sroa.0.8, %if.then24.i.i.i2342 ], [ %toArray591.sroa.0.8, %if.end.i.i.i.i.i.i2355 ], [ %toArray591.sroa.0.8, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2353 ]
   %call.i.i = call fastcc noundef i32 @_ZN5eastl11MergeSorterIPZ8TestSortvE17StableSortTestObjS1_Z8TestSortvE17StableSortComparelLi16EE9sort_implES2_S2_S2_lS3_(ptr noundef %toArray591.sroa.0.9, ptr noundef %toArray591.sroa.33.7, ptr noundef %tempBuffer.sroa.0.2, i64 noundef 0)
   %cmp.not.i.i2373 = icmp eq i32 %call.i.i, 0
   %cmp.i.i.i.i.i.i2374 = icmp eq ptr %toArray591.sroa.33.7, %toArray591.sroa.0.9
@@ -8406,14 +8406,14 @@ for.end734:                                       ; preds = %for.inc732, %_ZN5ea
   %toArray591.sroa.33.1.lcssa = phi ptr [ %toArray591.sroa.33.06986, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6resizeEm.exit ], [ %toArray591.sroa.33.7, %for.inc732 ]
   %toArray591.sroa.0.3.lcssa = phi ptr [ %toArray591.sroa.0.06987, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6resizeEm.exit ], [ %toArray591.sroa.0.9, %for.inc732 ]
   %tobool.not.i.i2397 = icmp eq ptr %tempBuffer.sroa.0.2, null
-  br i1 %tobool.not.i.i2397, label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.argprom.argprom.exit2399, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i2398
+  br i1 %tobool.not.i.i2397, label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.exit2399, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i2398
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i2398: ; preds = %for.end734
   call void @_ZdaPv(ptr noundef nonnull %tempBuffer.sroa.0.2) #12
   %.pre7154 = load i32, ptr @gEASTL_TestLevel, align 4
-  br label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.argprom.argprom.exit2399
+  br label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.exit2399
 
-_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.argprom.argprom.exit2399: ; preds = %for.end734, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i2398
+_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.exit2399: ; preds = %for.end734, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i2398
   %575 = phi i32 [ %574, %for.end734 ], [ %.pre7154, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i2398 ]
   %cmp737 = icmp ult i32 %i595.06988, 5
   %cond738 = select i1 %cmp737, i32 1, i32 37
@@ -8423,28 +8423,28 @@ _ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.argprom.argp
   %cmp599 = icmp slt i32 %add739, %add598
   br i1 %cmp599, label %for.cond602.preheader, label %for.end740, !llvm.loop !90
 
-for.end740:                                       ; preds = %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.argprom.argprom.exit2399
+for.end740:                                       ; preds = %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.exit2399
   %tobool.not.i.i2401 = icmp eq ptr %toArraySaved592.sroa.0.1.lcssa, null
-  br i1 %tobool.not.i.i2401, label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.argprom.argprom.exit2403, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i2402
+  br i1 %tobool.not.i.i2401, label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.exit2403, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i2402
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i2402: ; preds = %for.end740
   call void @_ZdaPv(ptr noundef nonnull %toArraySaved592.sroa.0.1.lcssa) #12
-  br label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.argprom.argprom.exit2403
+  br label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.exit2403
 
-_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.argprom.argprom.exit2403: ; preds = %for.end740, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i2402
+_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.exit2403: ; preds = %for.end740, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i2402
   %tobool.not.i.i2405 = icmp eq ptr %toArray591.sroa.0.3.lcssa, null
-  br i1 %tobool.not.i.i2405, label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.argprom.argprom.exit2407, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i2406
+  br i1 %tobool.not.i.i2405, label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.exit2407, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i2406
 
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i2406: ; preds = %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.argprom.argprom.exit2403
+_ZN5eastl9allocator10deallocateEPvm.exit.i.i2406: ; preds = %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.exit2403
   call void @_ZdaPv(ptr noundef nonnull %toArray591.sroa.0.3.lcssa) #12
-  br label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.argprom.argprom.exit2407
+  br label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.exit2407
 
-_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.argprom.argprom.exit2407: ; preds = %_ZN5eastl6vectorI10TestObjectNS_9allocatorEED2Ev.exit1717, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.argprom.argprom.exit2403, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i2406
+_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.exit2407: ; preds = %_ZN5eastl6vectorI10TestObjectNS_9allocatorEED2Ev.exit1717, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.exit2403, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i2406
   %i.016.i.i14.i.i = getelementptr inbounds i8, ptr %intArraySorted, i64 4
   br label %for.cond749.preheader
 
-for.cond749.preheader:                            ; preds = %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.argprom.argprom.exit2407, %for.inc776
-  %i744.06992 = phi i64 [ 1, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.argprom.argprom.exit2407 ], [ %inc777, %for.inc776 ]
+for.cond749.preheader:                            ; preds = %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.exit2407, %for.inc776
+  %i744.06992 = phi i64 [ 1, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.exit2407 ], [ %inc777, %for.inc776 ]
   %add.ptr754.idx = shl nuw nsw i64 %i744.06992, 2
   %add.ptr759 = getelementptr inbounds i8, ptr %intArraySorted, i64 %add.ptr754.idx
   %cmp1.not17.i.i.i.i = icmp eq i64 %i744.06992, 1

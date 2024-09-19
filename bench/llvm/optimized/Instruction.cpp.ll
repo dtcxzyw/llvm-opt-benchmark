@@ -1266,25 +1266,25 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %5, %8
   %.02943.i.i.i.i.i.i = phi ptr [ %28, %27 ], [ %13, %.lr.ph.i.i.i.i.i.i.preheader ]
   %.029.val.i.i.i.i.i.i = load ptr, ptr %.02943.i.i.i.i.i.i, align 8
   %17 = tail call noundef zeroext i1 @_ZNK4llvm5Value10hasOneUserEv(ptr noundef nonnull align 8 dereferenceable(24) %.029.val.i.i.i.i.i.i) #21
-  br i1 %17, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.argprom.exit", label %18
+  br i1 %17, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.exit", label %18
 
 18:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %19 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i, i64 32
   %.val.i.i.i.i.i.i = load ptr, ptr %19, align 8
   %20 = tail call noundef zeroext i1 @_ZNK4llvm5Value10hasOneUserEv(ptr noundef nonnull align 8 dereferenceable(24) %.val.i.i.i.i.i.i) #21
-  br i1 %20, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", label %21
+  br i1 %20, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i, i64 64
   %.val30.i.i.i.i.i.i = load ptr, ptr %22, align 8
   %23 = tail call noundef zeroext i1 @_ZNK4llvm5Value10hasOneUserEv(ptr noundef nonnull align 8 dereferenceable(24) %.val30.i.i.i.i.i.i) #21
-  br i1 %23, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit14", label %24
+  br i1 %23, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit14", label %24
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i, i64 96
   %.val31.i.i.i.i.i.i = load ptr, ptr %25, align 8
   %26 = tail call noundef zeroext i1 @_ZNK4llvm5Value10hasOneUserEv(ptr noundef nonnull align 8 dereferenceable(24) %.val31.i.i.i.i.i.i) #21
-  br i1 %26, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit16", label %27
+  br i1 %26, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit16", label %27
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i, i64 128
@@ -1310,7 +1310,7 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %5, %8
 32:                                               ; preds = %._crit_edge.i.i.i.i.i.i
   %.029.val32.i.i.i.i.i.i = load ptr, ptr %.029.lcssa.i.i.i.i.i.i, align 8
   %33 = tail call noundef zeroext i1 @_ZNK4llvm5Value10hasOneUserEv(ptr noundef nonnull align 8 dereferenceable(24) %.029.val32.i.i.i.i.i.i) #21
-  br i1 %33, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.argprom.exit", label %34
+  br i1 %33, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.exit", label %34
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 32
@@ -1320,7 +1320,7 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %5, %8
   %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %35, %34 ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8
   %37 = tail call noundef zeroext i1 @_ZNK4llvm5Value10hasOneUserEv(ptr noundef nonnull align 8 dereferenceable(24) %.1.val.i.i.i.i.i.i) #21
-  br i1 %37, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.argprom.exit", label %38
+  br i1 %37, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.exit", label %38
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 32
@@ -1330,25 +1330,25 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %5, %8
   %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %39, %38 ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8
   %41 = tail call noundef zeroext i1 @_ZNK4llvm5Value10hasOneUserEv(ptr noundef nonnull align 8 dereferenceable(24) %.2.val.i.i.i.i.i.i) #21
-  br i1 %41, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.argprom.exit", label %42
+  br i1 %41, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.exit", label %42
 
 42:                                               ; preds = %40, %._crit_edge.i.i.i.i.i.i
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %18
+"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %18
   %43 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i, i64 32
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit14": ; preds = %21
+"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit14": ; preds = %21
   %44 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i, i64 64
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit16": ; preds = %24
+"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit16": ; preds = %24
   %45 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i, i64 96
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit14", %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit16", %32, %36, %40, %42
-  %.028.i.i.i.i.i.i = phi ptr [ %14, %42 ], [ %.029.lcssa.i.i.i.i.i.i, %32 ], [ %.1.i.i.i.i.i.i, %36 ], [ %.2.i.i.i.i.i.i, %40 ], [ %43, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %44, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit14" ], [ %45, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit16" ], [ %.02943.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit14", %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit16", %32, %36, %40, %42
+  %.028.i.i.i.i.i.i = phi ptr [ %14, %42 ], [ %.029.lcssa.i.i.i.i.i.i, %32 ], [ %.1.i.i.i.i.i.i, %36 ], [ %.2.i.i.i.i.i.i, %40 ], [ %43, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %44, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit14" ], [ %45, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_11Instruction22isOnlyUserOfAnyOperandEvE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit16" ], [ %.02943.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %46 = icmp ne ptr %14, %.028.i.i.i.i.i.i
   ret i1 %46
 }

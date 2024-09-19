@@ -733,7 +733,7 @@ define noundef i32 @mca_fcoll_dynamic_gen2_file_write_all(ptr noundef %0, ptr no
   %364 = mul nsw i32 %362, %363
   %365 = sext i32 %364 to i64
   %366 = getelementptr inbounds ptr, ptr %342, i64 %365
-  call fastcc void @shuffle_init.argelim(i32 noundef 0, i32 noundef %357, i32 noundef %358, ptr noundef %360, ptr noundef %366)
+  call fastcc void @shuffle_init(i32 noundef 0, i32 noundef %357, i32 noundef %358, ptr noundef %360, ptr noundef %366)
   %indvars.iv.next719 = add nuw nsw i64 %indvars.iv718, 1
   %exitcond723.not = icmp eq i64 %indvars.iv.next719, %wide.trip.count722
   br i1 %exitcond723.not, label %.loopexit559, label %355, !llvm.loop !17
@@ -806,7 +806,7 @@ define noundef i32 @mca_fcoll_dynamic_gen2_file_write_all(ptr noundef %0, ptr no
   %400 = mul nsw i32 %398, %399
   %401 = sext i32 %400 to i64
   %402 = getelementptr inbounds ptr, ptr %.0442632, i64 %401
-  call fastcc void @shuffle_init.argelim(i32 noundef %.0633, i32 noundef %393, i32 noundef %394, ptr noundef %396, ptr noundef %402)
+  call fastcc void @shuffle_init(i32 noundef %.0633, i32 noundef %393, i32 noundef %394, ptr noundef %396, ptr noundef %402)
   %indvars.iv.next731 = add nuw nsw i64 %indvars.iv730, 1
   %exitcond735.not = icmp eq i64 %indvars.iv.next731, %wide.trip.count734
   br i1 %exitcond735.not, label %._crit_edge627, label %.lr.ph626, !llvm.loop !19
@@ -1673,7 +1673,7 @@ declare i32 @ompi_fcoll_base_coll_allgatherv_array(ptr noundef, i32 noundef, ptr
 declare i32 @ompi_fcoll_base_sort_iovec(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @shuffle_init.argelim(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 216
   store i32 0, ptr %7, align 8

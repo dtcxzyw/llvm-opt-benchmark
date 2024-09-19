@@ -535,7 +535,7 @@ define dso_local noundef zeroext i1 @_ZN5cmsys11SystemTools6PutEnvERKNSt7__cxx11
   br label %12
 
 11:                                               ; preds = %1
-  tail call fastcc void @_ZN5cmsysL13kwsysUnPutEnvERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.retelim(ptr noundef nonnull align 8 dereferenceable(32) %0)
+  tail call fastcc void @_ZN5cmsysL13kwsysUnPutEnvERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0)
   br label %12
 
 12:                                               ; preds = %11, %4
@@ -547,7 +547,7 @@ define dso_local noundef zeroext i1 @_ZN5cmsys11SystemTools6PutEnvERKNSt7__cxx11
 declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5cmsysL13kwsysUnPutEnvERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.retelim(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 {
+define internal fastcc void @_ZN5cmsysL13kwsysUnPutEnvERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 61, i64 noundef 0) #34
   %.not = icmp eq i64 %3, -1
@@ -571,7 +571,7 @@ define internal fastcc void @_ZN5cmsysL13kwsysUnPutEnvERKNSt7__cxx1112basic_stri
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN5cmsys11SystemTools8UnPutEnvERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #5 align 2 {
-  tail call fastcc void @_ZN5cmsysL13kwsysUnPutEnvERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.retelim(ptr noundef nonnull align 8 dereferenceable(32) %0)
+  tail call fastcc void @_ZN5cmsysL13kwsysUnPutEnvERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0)
   ret i1 true
 }
 

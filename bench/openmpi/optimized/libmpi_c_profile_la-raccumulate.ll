@@ -165,7 +165,7 @@ ompi_win_invalid.exit.thread:                     ; preds = %19, %ompi_win_inval
   br label %127
 
 69:                                               ; preds = %57
-  %70 = call fastcc zeroext i1 @ompi_op_is_valid.argprom(ptr noundef %7, ptr noundef nonnull %59, ptr noundef %11)
+  %70 = call fastcc zeroext i1 @ompi_op_is_valid(ptr noundef %7, ptr noundef nonnull %59, ptr noundef %11)
   br i1 %70, label %84, label %71
 
 71:                                               ; preds = %69
@@ -218,7 +218,7 @@ ompi_win_invalid.exit.thread:                     ; preds = %19, %ompi_win_inval
   %.pre15.i = load i8, ptr @opal_uses_threads, align 1
   br label %.lr.ph.i
 
-97:                                               ; preds = %opal_pointer_array_get_item.argprom.exit.i
+97:                                               ; preds = %opal_pointer_array_get_item.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %98 = load i32, ptr @ompi_errcode_intern_lastused, align 4
   %99 = sext i32 %98 to i64
@@ -246,21 +246,21 @@ ompi_win_invalid.exit.thread:                     ; preds = %19, %ompi_win_inval
   %110 = getelementptr inbounds ptr, ptr %109, i64 %indvars.iv.i
   %111 = load ptr, ptr %110, align 8
   %112 = trunc i8 %108 to i1
-  br i1 %112, label %113, label %opal_pointer_array_get_item.argprom.exit.i
+  br i1 %112, label %113, label %opal_pointer_array_get_item.exit.i
 
 113:                                              ; preds = %107
   %114 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 32)) #5
   %.pre.i = load i8, ptr @opal_uses_threads, align 1
-  br label %opal_pointer_array_get_item.argprom.exit.i
+  br label %opal_pointer_array_get_item.exit.i
 
-opal_pointer_array_get_item.argprom.exit.i:       ; preds = %113, %107
+opal_pointer_array_get_item.exit.i:               ; preds = %113, %107
   %115 = phi i8 [ %108, %107 ], [ %.pre.i, %113 ]
   %116 = getelementptr inbounds i8, ptr %111, i64 16
   %117 = load i32, ptr %116, align 8
   %118 = icmp eq i32 %117, %92
   br i1 %118, label %119, label %97
 
-119:                                              ; preds = %opal_pointer_array_get_item.argprom.exit.i
+119:                                              ; preds = %opal_pointer_array_get_item.exit.i
   %120 = getelementptr inbounds i8, ptr %111, i64 20
   %121 = load i32, ptr %120, align 4
   br label %ompi_errcode_get_mpi_code.exit
@@ -284,7 +284,7 @@ declare i32 @ompi_errhandler_invoke(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare ptr @ompi_datatype_get_single_predefined_type_from_args(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @ompi_op_is_valid.argprom(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @ompi_op_is_valid(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 84
   %.val = load i32, ptr %4, align 4
   %5 = and i32 %.val, 1

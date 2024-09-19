@@ -291,7 +291,7 @@ gvusershape_find.exit.thread.i:                   ; preds = %gvusershape_find.ex
 40:                                               ; preds = %gvusershape_find.exit.thread.i
   %41 = load ptr, ptr @stderr, align 8
   %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.5, i64 noundef 104) #24
-  tail call fastcc void @graphviz_exit.argelim() #25
+  tail call fastcc void @graphviz_exit() #25
   unreachable
 
 gv_alloc.exit.i:                                  ; preds = %gvusershape_find.exit.thread.i
@@ -1214,7 +1214,7 @@ agxbsizeof.exit.i.i:                              ; preds = %agxbsizeof.exit.i
 32:                                               ; preds = %29
   %33 = load ptr, ptr @stderr, align 8
   %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.5, i64 noundef %spec.select34.i.i) #24
-  call fastcc void @graphviz_exit.argelim() #25
+  call fastcc void @graphviz_exit() #25
   unreachable
 
 35:                                               ; preds = %29
@@ -1235,7 +1235,7 @@ agxbsizeof.exit.i.i:                              ; preds = %agxbsizeof.exit.i
 42:                                               ; preds = %.thread.i
   %43 = load ptr, ptr @stderr, align 8
   %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.5, i64 noundef 62) #24
-  call fastcc void @graphviz_exit.argelim() #25
+  call fastcc void @graphviz_exit() #25
   unreachable
 
 gv_calloc.exit.i.i:                               ; preds = %.thread.i
@@ -1321,7 +1321,7 @@ agxbsizeof.exit.i.i118:                           ; preds = %agxbsizeof.exit.i11
 67:                                               ; preds = %64
   %68 = load ptr, ptr @stderr, align 8
   %69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.5, i64 noundef %spec.select34.i.i120) #24
-  call fastcc void @graphviz_exit.argelim() #25
+  call fastcc void @graphviz_exit() #25
   unreachable
 
 70:                                               ; preds = %64
@@ -1342,7 +1342,7 @@ agxbsizeof.exit.i.i118:                           ; preds = %agxbsizeof.exit.i11
 77:                                               ; preds = %.thread.i107
   %78 = load ptr, ptr @stderr, align 8
   %79 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull @.str.5, i64 noundef 62) #24
-  call fastcc void @graphviz_exit.argelim() #25
+  call fastcc void @graphviz_exit() #25
   unreachable
 
 gv_calloc.exit.i.i108:                            ; preds = %.thread.i107
@@ -1496,7 +1496,7 @@ find_attribute.exit:                              ; preds = %111
   %130 = load ptr, ptr @stderr, align 8
   %131 = add i64 %storemerge.i, 1
   %132 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %130, ptr noundef nonnull @.str.5, i64 noundef %131) #24
-  call fastcc void @graphviz_exit.argelim() #25
+  call fastcc void @graphviz_exit() #25
   unreachable
 
 strview_str.exit:                                 ; preds = %126
@@ -1656,7 +1656,7 @@ svg_units_convert.exit:                           ; preds = %sub_137.i, %.tail35
   %203 = load ptr, ptr @stderr, align 8
   %204 = add i64 %storemerge.i, 1
   %205 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %203, ptr noundef nonnull @.str.5, i64 noundef %204) #24
-  call fastcc void @graphviz_exit.argelim() #25
+  call fastcc void @graphviz_exit() #25
   unreachable
 
 strview_str.exit61:                               ; preds = %199
@@ -1816,7 +1816,7 @@ svg_units_convert.exit91:                         ; preds = %sub_137.i74, %.tail
   %276 = load ptr, ptr @stderr, align 8
   %277 = add i64 %storemerge.i, 1
   %278 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %276, ptr noundef nonnull @.str.5, i64 noundef %277) #24
-  call fastcc void @graphviz_exit.argelim() #25
+  call fastcc void @graphviz_exit() #25
   unreachable
 
 strview_str.exit102:                              ; preds = %272
@@ -1869,14 +1869,14 @@ find_attribute.exit.thread:                       ; preds = %svg_units_convert.e
   store i32 %.2, ptr %299, align 8
   %300 = getelementptr inbounds i8, ptr %0, i64 68
   store i32 %.226, ptr %300, align 4
-  br i1 %.not.i.i47, label %301, label %agxbfree.argprom.exit
+  br i1 %.not.i.i47, label %301, label %agxbfree.exit
 
 301:                                              ; preds = %.critedge
   %.val = load ptr, ptr %8, align 8
   call void @free(ptr noundef %.val) #21
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
-agxbfree.argprom.exit:                            ; preds = %.critedge, %301
+agxbfree.exit:                                    ; preds = %.critedge, %301
   ret void
 }
 
@@ -2403,7 +2403,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #9 {
+define internal fastcc void @graphviz_exit() unnamed_addr #9 {
   tail call void @exit(i32 noundef 1) #28
   unreachable
 }

@@ -182,12 +182,12 @@ define internal i32 @mca_part_base_close() #1 {
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %opal_pointer_array_get_item.argprom.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %opal_pointer_array_get_item.argprom.exit ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %opal_pointer_array_get_item.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %opal_pointer_array_get_item.exit ]
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_part_base_part, i64 88), align 8
   %8 = sext i32 %7 to i64
   %.not15 = icmp slt i64 %indvars.iv, %8
-  br i1 %.not15, label %9, label %opal_pointer_array_get_item.argprom.exit
+  br i1 %.not15, label %9, label %opal_pointer_array_get_item.exit
 
 9:                                                ; preds = %.lr.ph
   %10 = load i8, ptr @opal_uses_threads, align 1
@@ -205,20 +205,20 @@ define internal i32 @mca_part_base_close() #1 {
   %17 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = trunc i8 %15 to i1
-  br i1 %19, label %20, label %opal_pointer_array_get_item.argprom.exit
+  br i1 %19, label %20, label %opal_pointer_array_get_item.exit
 
 20:                                               ; preds = %14
   %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_part_base_part, i64 32)) #6
-  br label %opal_pointer_array_get_item.argprom.exit
+  br label %opal_pointer_array_get_item.exit
 
-opal_pointer_array_get_item.argprom.exit:         ; preds = %.lr.ph, %14, %20
+opal_pointer_array_get_item.exit:                 ; preds = %.lr.ph, %14, %20
   %.0.i = phi ptr [ null, %.lr.ph ], [ %18, %14 ], [ %18, %20 ]
   tail call void @free(ptr noundef %.0.i) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %opal_pointer_array_get_item.argprom.exit, %4
+._crit_edge:                                      ; preds = %opal_pointer_array_get_item.exit, %4
   %22 = load ptr, ptr @mca_part_base_part, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 48
   %24 = load ptr, ptr %23, align 8

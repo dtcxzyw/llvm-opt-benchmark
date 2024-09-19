@@ -244,14 +244,14 @@ put_str.exit.thread:                              ; preds = %28
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %61
-  tail call fastcc void @put_str.argelim(ptr noundef nonnull @.str.9, ptr noundef %5, ptr noundef %6)
+  tail call fastcc void @put_str(ptr noundef nonnull @.str.9, ptr noundef %5, ptr noundef %6)
   %71 = or i32 %3, 2
-  tail call fastcc void @jvp_dump_string.argelim(i64 %66, ptr %67, i32 noundef %71, ptr noundef %5, ptr noundef %6)
-  tail call fastcc void @put_str.argelim(ptr noundef nonnull @.str.10, ptr noundef %5, ptr noundef %6)
+  tail call fastcc void @jvp_dump_string(i64 %66, ptr %67, i32 noundef %71, ptr noundef %5, ptr noundef %6)
+  tail call fastcc void @put_str(ptr noundef nonnull @.str.10, ptr noundef %5, ptr noundef %6)
   br label %put_str.exit357
 
 72:                                               ; preds = %61
-  tail call fastcc void @put_str.argelim(ptr noundef nonnull @.str.11, ptr noundef %5, ptr noundef %6)
+  tail call fastcc void @put_str(ptr noundef nonnull @.str.11, ptr noundef %5, ptr noundef %6)
   br label %put_str.exit357
 
 73:                                               ; preds = %57
@@ -329,7 +329,7 @@ put_str.exit.thread:                              ; preds = %28
   br i1 %.not337, label %112, label %111
 
 111:                                              ; preds = %109
-  tail call fastcc void @put_str.argelim(ptr noundef nonnull %110, ptr noundef %5, ptr noundef %6)
+  tail call fastcc void @put_str(ptr noundef nonnull %110, ptr noundef %5, ptr noundef %6)
   br label %put_str.exit357
 
 112:                                              ; preds = %109
@@ -338,7 +338,7 @@ put_str.exit.thread:                              ; preds = %28
   br i1 %114, label %115, label %116
 
 115:                                              ; preds = %112
-  tail call fastcc void @put_str.argelim(ptr noundef nonnull @.str.12, ptr noundef %5, ptr noundef %6)
+  tail call fastcc void @put_str(ptr noundef nonnull @.str.12, ptr noundef %5, ptr noundef %6)
   br label %put_str.exit357
 
 116:                                              ; preds = %112
@@ -347,16 +347,16 @@ put_str.exit.thread:                              ; preds = %28
   %118 = fcmp olt double %.0315, 0xFFEFFFFFFFFFFFFF
   %.1 = select i1 %118, double 0xFFEFFFFFFFFFFFFF, double %.0315
   %119 = call ptr @jvp_dtoa_fmt(ptr noundef %0, ptr noundef nonnull %18, double noundef %.1) #11
-  call fastcc void @put_str.argelim(ptr noundef %119, ptr noundef %5, ptr noundef %6)
+  call fastcc void @put_str(ptr noundef %119, ptr noundef %5, ptr noundef %6)
   br label %put_str.exit357
 
 120:                                              ; preds = %57
   %121 = and i32 %3, 2
-  tail call fastcc void @jvp_dump_string.argelim(i64 %1, ptr %2, i32 noundef %121, ptr noundef %5, ptr noundef %6)
+  tail call fastcc void @jvp_dump_string(i64 %1, ptr %2, i32 noundef %121, ptr noundef %5, ptr noundef %6)
   br i1 %.not, label %put_str.exit357, label %122
 
 122:                                              ; preds = %120
-  tail call fastcc void @put_refcnt.argelim(ptr noundef %0, i32 noundef %24, ptr noundef %5, ptr noundef %6)
+  tail call fastcc void @put_refcnt(ptr noundef %0, i32 noundef %24, ptr noundef %5, ptr noundef %6)
   br label %put_str.exit357
 
 123:                                              ; preds = %57
@@ -543,7 +543,7 @@ put_str.exit379.thread:                           ; preds = %180
 
 put_char.exit382:                                 ; preds = %188, %194
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16)
-  call fastcc void @put_indent.argelim(i32 noundef %154, i32 noundef %3, ptr noundef %5, ptr noundef %6)
+  call fastcc void @put_indent(i32 noundef %154, i32 noundef %3, ptr noundef %5, ptr noundef %6)
   br label %195
 
 195:                                              ; preds = %put_str.exit379.thread453, %put_str.exit379.thread, %put_char.exit382, %put_str.exit379
@@ -556,8 +556,8 @@ put_char.exit382:                                 ; preds = %188, %194
   br i1 %.not335451, label %198, label %197
 
 197:                                              ; preds = %.loopexit490
-  call fastcc void @put_char.argelim(i8 noundef signext 10, ptr noundef %5, ptr noundef %6)
-  call fastcc void @put_indent.argelim(i32 noundef %4, i32 noundef %3, ptr noundef %5, ptr noundef %6)
+  call fastcc void @put_char(i8 noundef signext 10, ptr noundef %5, ptr noundef %6)
+  call fastcc void @put_indent(i32 noundef %4, i32 noundef %3, ptr noundef %5, ptr noundef %6)
   br label %198
 
 198:                                              ; preds = %197, %.loopexit490
@@ -616,7 +616,7 @@ put_char.exit388:                                 ; preds = %209, %215
   br i1 %.not, label %put_str.exit357, label %216
 
 216:                                              ; preds = %put_char.exit388
-  call fastcc void @put_refcnt.argelim(ptr noundef %0, i32 noundef %24, ptr noundef %5, ptr noundef %6)
+  call fastcc void @put_refcnt(ptr noundef %0, i32 noundef %24, ptr noundef %5, ptr noundef %6)
   br label %put_str.exit357
 
 217:                                              ; preds = %57
@@ -900,7 +900,7 @@ put_str.exit403.thread:                           ; preds = %313
 
 336:                                              ; preds = %335, %329
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
-  call fastcc void @put_indent.argelim(i32 noundef %248, i32 noundef %3, ptr noundef %5, ptr noundef %6)
+  call fastcc void @put_indent(i32 noundef %248, i32 noundef %3, ptr noundef %5, ptr noundef %6)
   br i1 %.not345, label %.critedge354, label %.thread470
 
 .thread470:                                       ; preds = %336
@@ -940,7 +940,7 @@ put_str.exit403.thread:                           ; preds = %313
 
 put_str.exit409:                                  ; preds = %341, %350
   %.not347460473485 = phi i1 [ %.not347460473489, %341 ], [ %.not347460473486, %350 ]
-  call fastcc void @jvp_dump_string.argelim(i64 %.sroa.020.0, ptr %.sroa.5.0, i32 noundef %249, ptr noundef %5, ptr noundef %6)
+  call fastcc void @jvp_dump_string(i64 %.sroa.020.0, ptr %.sroa.5.0, i32 noundef %249, ptr noundef %5, ptr noundef %6)
   call void @jv_free(i64 %.sroa.020.0, ptr %.sroa.5.0) #11
   br i1 %.not.i.i392, label %put_str.exit421, label %355
 
@@ -976,7 +976,7 @@ put_str.exit409:                                  ; preds = %341, %350
 
 .critedge354:                                     ; preds = %put_str.exit403, %336
   %.not347460476 = phi i1 [ false, %336 ], [ true, %put_str.exit403 ]
-  call fastcc void @jvp_dump_string.argelim(i64 %.sroa.020.0, ptr %.sroa.5.0, i32 noundef %249, ptr noundef %5, ptr noundef %6)
+  call fastcc void @jvp_dump_string(i64 %.sroa.020.0, ptr %.sroa.5.0, i32 noundef %249, ptr noundef %5, ptr noundef %6)
   call void @jv_free(i64 %.sroa.020.0, ptr %.sroa.5.0) #11
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
   store i8 58, ptr %10, align 1
@@ -1041,8 +1041,8 @@ put_char.exit427:                                 ; preds = %.thread481, %.threa
   br i1 %.not347458, label %389, label %388
 
 388:                                              ; preds = %.loopexit
-  call fastcc void @put_char.argelim(i8 noundef signext 10, ptr noundef %5, ptr noundef %6)
-  call fastcc void @put_indent.argelim(i32 noundef %4, i32 noundef %3, ptr noundef %5, ptr noundef %6)
+  call fastcc void @put_char(i8 noundef signext 10, ptr noundef %5, ptr noundef %6)
+  call fastcc void @put_indent(i32 noundef %4, i32 noundef %3, ptr noundef %5, ptr noundef %6)
   br label %389
 
 389:                                              ; preds = %388, %.loopexit
@@ -1101,7 +1101,7 @@ put_char.exit433:                                 ; preds = %400, %406
   br i1 %.not, label %put_str.exit357, label %407
 
 407:                                              ; preds = %put_char.exit433
-  call fastcc void @put_refcnt.argelim(ptr noundef %0, i32 noundef %24, ptr noundef %5, ptr noundef %6)
+  call fastcc void @put_refcnt(ptr noundef %0, i32 noundef %24, ptr noundef %5, ptr noundef %6)
   br label %put_str.exit357
 
 put_str.exit357:                                  ; preds = %231, %224, %137, %130, %101, %94, %91, %84, %81, %74, %.thread, %49, %59, %70, %72, %111, %116, %115, %105, %122, %120, %216, %put_char.exit388, %407, %put_char.exit433
@@ -1234,7 +1234,7 @@ declare i32 @jv_get_refcnt(i64, ptr) local_unnamed_addr #5
 declare i32 @jv_get_kind(i64, ptr) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @put_str.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #4 {
+define internal fastcc void @put_str(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #4 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %13, label %5
@@ -1264,7 +1264,7 @@ put_buf.exit:                                     ; preds = %5, %13
 declare { i64, ptr } @jv_invalid_get_msg(i64, ptr) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @jvp_dump_string.argelim(i64 %0, ptr %1, i32 noundef %2, ptr nocapture noundef %3, ptr noundef %4) unnamed_addr #4 {
+define internal fastcc void @jvp_dump_string(i64 %0, ptr %1, i32 noundef %2, ptr nocapture noundef %3, ptr noundef %4) unnamed_addr #4 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
@@ -1682,7 +1682,7 @@ declare double @jv_number_value(i64, ptr) local_unnamed_addr #5
 declare ptr @jvp_dtoa_fmt(ptr noundef, ptr noundef, double noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @put_refcnt.argelim(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #4 {
+define internal fastcc void @put_refcnt(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #4 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -1762,7 +1762,7 @@ declare i32 @jv_array_length(i64, ptr) local_unnamed_addr #5
 declare { i64, ptr } @jv_array_get(i64, ptr, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @put_char.argelim(i8 noundef signext %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #4 {
+define internal fastcc void @put_char(i8 noundef signext %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #4 {
   %4 = alloca i8, align 1
   store i8 %0, ptr %4, align 1
   %.not.i = icmp eq ptr %2, null
@@ -1789,7 +1789,7 @@ put_buf.exit:                                     ; preds = %5, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @put_indent.argelim(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #4 {
+define internal fastcc void @put_indent(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #4 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = and i32 %1, 64

@@ -130,13 +130,13 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   store i8 2, ptr %6, align 8, !alias.scope !22
   %15 = icmp eq i8 %12, 2
-  br i1 %15, label %16, label %"_ZN92_$LT$futures_util..future..ready..Ready$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h250513c93f9f830cE.argprom.exit"
+  br i1 %15, label %16, label %"_ZN92_$LT$futures_util..future..ready..Ready$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h250513c93f9f830cE.exit"
 
 16:                                               ; preds = %14
   tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.ec25b45a4614981445ba6ed85d1c9852.4, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ec25b45a4614981445ba6ed85d1c9852.6) #23, !noalias !22
   unreachable
 
-"_ZN92_$LT$futures_util..future..ready..Ready$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h250513c93f9f830cE.argprom.exit": ; preds = %14
+"_ZN92_$LT$futures_util..future..ready..Ready$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h250513c93f9f830cE.exit": ; preds = %14
   %17 = trunc nuw i8 %12 to i1
   store i8 3, ptr %6, align 8
   %.sroa.06.0.copyload = load i64, ptr %7, align 8
@@ -164,7 +164,7 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.9.sroa.11, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.9.sroa.11.0..sroa.9.0..sroa_idx.sroa_idx, i64 72, i1 false), !alias.scope !48
   br label %35
 
-25:                                               ; preds = %"_ZN92_$LT$futures_util..future..ready..Ready$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h250513c93f9f830cE.argprom.exit"
+25:                                               ; preds = %"_ZN92_$LT$futures_util..future..ready..Ready$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h250513c93f9f830cE.exit"
   %26 = icmp eq i64 %.sroa.06.0.copyload, -9223372036854775808
   br i1 %26, label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hb7567fcb2038c051E.exit", label %27
 
@@ -172,7 +172,7 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   invoke void @"_ZN4core3ptr45drop_in_place$LT$object_store..ObjectMeta$GT$17h8fbdb7954c00114dE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %7)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hb7567fcb2038c051E.exit" unwind label %30
 
-28:                                               ; preds = %"_ZN92_$LT$futures_util..future..ready..Ready$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h250513c93f9f830cE.argprom.exit"
+28:                                               ; preds = %"_ZN92_$LT$futures_util..future..ready..Ready$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h250513c93f9f830cE.exit"
   store i64 -9223372036854775808, ptr %7, align 8
   %29 = icmp eq i64 %.sroa.06.0.copyload, -9223372036854775808
   br i1 %29, label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hb7567fcb2038c051E.exit50", label %33
@@ -722,7 +722,7 @@ _ZN4core3ptr19swap_nonoverlapping17hf71b7df8c289e94bE.exit.i: ; preds = %.prehea
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %28, i64 80
   %.sroa.4.0.copyload.i.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !82
   %.not.i.i = icmp eq i64 %.sroa.12.0.lcssa.i.i, 0
-  br i1 %.not.i.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h8984bc41f49aaa0cE.argprom.exit.i", label %.lr.ph.i.i.preheader.i
+  br i1 %.not.i.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h8984bc41f49aaa0cE.exit.i", label %.lr.ph.i.i.preheader.i
 
 .lr.ph.i.i.preheader.i:                           ; preds = %27, %.thread.i
   %.sroa.4.0.copyload.i.i13.i = phi i64 [ %.sroa.4.0.copyload.i.i10.i, %.thread.i ], [ %.sroa.4.0.copyload.i.i.i, %27 ]
@@ -739,13 +739,13 @@ _ZN4core3ptr19swap_nonoverlapping17hf71b7df8c289e94bE.exit.i: ; preds = %.prehea
   %34 = getelementptr i8, ptr %33, i64 80
   %.val10.i.i.i = load i64, ptr %34, align 8, !noalias !82, !noundef !9
   %switch.selectcmp.i.not.i.i.i = icmp sgt i64 %.val10.i.i.i, %.sroa.4.0.copyload.i.i13.i
-  br i1 %switch.selectcmp.i.not.i.i.i, label %35, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h8984bc41f49aaa0cE.argprom.exit.i"
+  br i1 %switch.selectcmp.i.not.i.i.i, label %35, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h8984bc41f49aaa0cE.exit.i"
 
 35:                                               ; preds = %.lr.ph.i.i.i
   %36 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %11, i64 %.sroa.13.022.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %36, ptr noundef nonnull align 8 dereferenceable(88) %33, i64 88, i1 false), !noalias !82
   %.not8.i.i = icmp ult i64 %30, 2
-  br i1 %.not8.i.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h8984bc41f49aaa0cE.argprom.exit.i", label %.lr.ph.i.i.i
+  br i1 %.not8.i.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h8984bc41f49aaa0cE.exit.i", label %.lr.ph.i.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4core3ptr19swap_nonoverlapping17hf71b7df8c289e94bE.exit.i, %.lr.ph.i.i
   %.011.i.i = phi i64 [ %46, %.lr.ph.i.i ], [ 1, %_ZN4core3ptr19swap_nonoverlapping17hf71b7df8c289e94bE.exit.i ]
@@ -768,7 +768,7 @@ _ZN4core3ptr19swap_nonoverlapping17hf71b7df8c289e94bE.exit.i: ; preds = %.prehea
   %.not.not.not.i.i = icmp ult i64 %45, %21
   br i1 %.not.not.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h8984bc41f49aaa0cE.argprom.exit.i": ; preds = %35, %.lr.ph.i.i.i, %27
+"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h8984bc41f49aaa0cE.exit.i": ; preds = %35, %.lr.ph.i.i.i, %27
   %.sroa.4.0.copyload.i.i14.i = phi i64 [ %.sroa.4.0.copyload.i.i.i, %27 ], [ %.sroa.4.0.copyload.i.i13.i, %.lr.ph.i.i.i ], [ %.sroa.4.0.copyload.i.i13.i, %35 ]
   %.sroa.13.0.lcssa.i.i.i = phi i64 [ 0, %27 ], [ 0, %35 ], [ %.sroa.13.022.i.i.i, %.lr.ph.i.i.i ]
   %47 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %11, i64 %.sroa.13.0.lcssa.i.i.i
@@ -778,7 +778,7 @@ _ZN4core3ptr19swap_nonoverlapping17hf71b7df8c289e94bE.exit.i: ; preds = %.prehea
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.0.i.i)
   br label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17h8a4a345b056e6f10E.llvm.9530391023209721886.exit"
 
-"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17h8a4a345b056e6f10E.llvm.9530391023209721886.exit": ; preds = %14, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h8984bc41f49aaa0cE.argprom.exit.i"
+"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17h8a4a345b056e6f10E.llvm.9530391023209721886.exit": ; preds = %14, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h8984bc41f49aaa0cE.exit.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %3, i64 88, i1 false)
   br label %48
 
@@ -867,7 +867,7 @@ _ZN4core3ptr19swap_nonoverlapping17he38adb13301bfe9bE.exit.i: ; preds = %.prehea
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %28, i64 80
   %.sroa.4.0.copyload.i.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !96
   %.not.i.i = icmp eq i64 %.sroa.12.0.lcssa.i.i, 0
-  br i1 %.not.i.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h78a5022f29a6cc37E.argprom.exit.i", label %.lr.ph.i.i.preheader.i
+  br i1 %.not.i.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h78a5022f29a6cc37E.exit.i", label %.lr.ph.i.i.preheader.i
 
 .lr.ph.i.i.preheader.i:                           ; preds = %27, %.thread.i
   %.sroa.4.0.copyload.i.i13.i = phi i64 [ %.sroa.4.0.copyload.i.i10.i, %.thread.i ], [ %.sroa.4.0.copyload.i.i.i, %27 ]
@@ -884,13 +884,13 @@ _ZN4core3ptr19swap_nonoverlapping17he38adb13301bfe9bE.exit.i: ; preds = %.prehea
   %34 = getelementptr i8, ptr %33, i64 80
   %.val10.i.i.i = load i64, ptr %34, align 8, !noalias !96, !noundef !9
   %switch.selectcmp.i.not.i.i.i = icmp sgt i64 %.val10.i.i.i, %.sroa.4.0.copyload.i.i13.i
-  br i1 %switch.selectcmp.i.not.i.i.i, label %35, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h78a5022f29a6cc37E.argprom.exit.i"
+  br i1 %switch.selectcmp.i.not.i.i.i, label %35, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h78a5022f29a6cc37E.exit.i"
 
 35:                                               ; preds = %.lr.ph.i.i.i
   %36 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %11, i64 %.sroa.13.022.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %36, ptr noundef nonnull align 8 dereferenceable(88) %33, i64 88, i1 false), !noalias !96
   %.not8.i.i = icmp ult i64 %30, 2
-  br i1 %.not8.i.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h78a5022f29a6cc37E.argprom.exit.i", label %.lr.ph.i.i.i
+  br i1 %.not8.i.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h78a5022f29a6cc37E.exit.i", label %.lr.ph.i.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4core3ptr19swap_nonoverlapping17he38adb13301bfe9bE.exit.i, %.lr.ph.i.i
   %.011.i.i = phi i64 [ %46, %.lr.ph.i.i ], [ 1, %_ZN4core3ptr19swap_nonoverlapping17he38adb13301bfe9bE.exit.i ]
@@ -913,7 +913,7 @@ _ZN4core3ptr19swap_nonoverlapping17he38adb13301bfe9bE.exit.i: ; preds = %.prehea
   %.not.not.not.i.i = icmp ult i64 %45, %21
   br i1 %.not.not.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h78a5022f29a6cc37E.argprom.exit.i": ; preds = %35, %.lr.ph.i.i.i, %27
+"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h78a5022f29a6cc37E.exit.i": ; preds = %35, %.lr.ph.i.i.i, %27
   %.sroa.4.0.copyload.i.i14.i = phi i64 [ %.sroa.4.0.copyload.i.i.i, %27 ], [ %.sroa.4.0.copyload.i.i13.i, %.lr.ph.i.i.i ], [ %.sroa.4.0.copyload.i.i13.i, %35 ]
   %.sroa.13.0.lcssa.i.i.i = phi i64 [ 0, %27 ], [ 0, %35 ], [ %.sroa.13.022.i.i.i, %.lr.ph.i.i.i ]
   %47 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %11, i64 %.sroa.13.0.lcssa.i.i.i
@@ -923,7 +923,7 @@ _ZN4core3ptr19swap_nonoverlapping17he38adb13301bfe9bE.exit.i: ; preds = %.prehea
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.0.i.i)
   br label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17hecb6df11848a0a51E.llvm.9530391023209721886.exit"
 
-"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17hecb6df11848a0a51E.llvm.9530391023209721886.exit": ; preds = %14, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h78a5022f29a6cc37E.argprom.exit.i"
+"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17hecb6df11848a0a51E.llvm.9530391023209721886.exit": ; preds = %14, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h78a5022f29a6cc37E.exit.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %3, i64 88, i1 false)
   br label %48
 
@@ -939,7 +939,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %8
 
-7:                                                ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h8984bc41f49aaa0cE.argprom.exit", %3
+7:                                                ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h8984bc41f49aaa0cE.exit", %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 88, i1 false)
   ret void
 
@@ -994,7 +994,7 @@ _ZN4core3ptr19swap_nonoverlapping17hf71b7df8c289e94bE.exit: ; preds = %11
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %25, i64 80
   %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !99
   %.not.i = icmp eq i64 %.sroa.12.0.lcssa.i, 0
-  br i1 %.not.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h8984bc41f49aaa0cE.argprom.exit", label %.lr.ph.i.i.preheader
+  br i1 %.not.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h8984bc41f49aaa0cE.exit", label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %.thread, %24
   %.sroa.4.0.copyload.i.i13 = phi i64 [ %.sroa.4.0.copyload.i.i10, %.thread ], [ %.sroa.4.0.copyload.i.i, %24 ]
@@ -1011,13 +1011,13 @@ _ZN4core3ptr19swap_nonoverlapping17hf71b7df8c289e94bE.exit: ; preds = %11
   %31 = getelementptr i8, ptr %30, i64 80
   %.val10.i.i = load i64, ptr %31, align 8, !noalias !99, !noundef !9
   %switch.selectcmp.i.not.i.i = icmp sgt i64 %.val10.i.i, %.sroa.4.0.copyload.i.i13
-  br i1 %switch.selectcmp.i.not.i.i, label %32, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h8984bc41f49aaa0cE.argprom.exit"
+  br i1 %switch.selectcmp.i.not.i.i, label %32, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h8984bc41f49aaa0cE.exit"
 
 32:                                               ; preds = %.lr.ph.i.i
   %33 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %10, i64 %.sroa.13.022.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %33, ptr noundef nonnull align 8 dereferenceable(88) %30, i64 88, i1 false), !noalias !99
   %.not8.i = icmp ult i64 %27, 2
-  br i1 %.not8.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h8984bc41f49aaa0cE.argprom.exit", label %.lr.ph.i.i
+  br i1 %.not8.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h8984bc41f49aaa0cE.exit", label %.lr.ph.i.i
 
 .lr.ph.i:                                         ; preds = %_ZN4core3ptr19swap_nonoverlapping17hf71b7df8c289e94bE.exit, %.lr.ph.i
   %.011.i = phi i64 [ %43, %.lr.ph.i ], [ 1, %_ZN4core3ptr19swap_nonoverlapping17hf71b7df8c289e94bE.exit ]
@@ -1040,7 +1040,7 @@ _ZN4core3ptr19swap_nonoverlapping17hf71b7df8c289e94bE.exit: ; preds = %11
   %.not.not.not.i = icmp ult i64 %42, %17
   br i1 %.not.not.not.i, label %.lr.ph.i, label %._crit_edge.i
 
-"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h8984bc41f49aaa0cE.argprom.exit": ; preds = %.lr.ph.i.i, %32, %24
+"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h8984bc41f49aaa0cE.exit": ; preds = %.lr.ph.i.i, %32, %24
   %.sroa.4.0.copyload.i.i14 = phi i64 [ %.sroa.4.0.copyload.i.i, %24 ], [ %.sroa.4.0.copyload.i.i13, %32 ], [ %.sroa.4.0.copyload.i.i13, %.lr.ph.i.i ]
   %.sroa.13.0.lcssa.i.i = phi i64 [ 0, %24 ], [ %.sroa.13.022.i.i, %.lr.ph.i.i ], [ 0, %32 ]
   %44 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %10, i64 %.sroa.13.0.lcssa.i.i
@@ -1059,7 +1059,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %8
 
-7:                                                ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h78a5022f29a6cc37E.argprom.exit", %3
+7:                                                ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h78a5022f29a6cc37E.exit", %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 88, i1 false)
   ret void
 
@@ -1114,7 +1114,7 @@ _ZN4core3ptr19swap_nonoverlapping17he38adb13301bfe9bE.exit: ; preds = %11
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %25, i64 80
   %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !102
   %.not.i = icmp eq i64 %.sroa.12.0.lcssa.i, 0
-  br i1 %.not.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h78a5022f29a6cc37E.argprom.exit", label %.lr.ph.i.i.preheader
+  br i1 %.not.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h78a5022f29a6cc37E.exit", label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %.thread, %24
   %.sroa.4.0.copyload.i.i13 = phi i64 [ %.sroa.4.0.copyload.i.i10, %.thread ], [ %.sroa.4.0.copyload.i.i, %24 ]
@@ -1131,13 +1131,13 @@ _ZN4core3ptr19swap_nonoverlapping17he38adb13301bfe9bE.exit: ; preds = %11
   %31 = getelementptr i8, ptr %30, i64 80
   %.val10.i.i = load i64, ptr %31, align 8, !noalias !102, !noundef !9
   %switch.selectcmp.i.not.i.i = icmp sgt i64 %.val10.i.i, %.sroa.4.0.copyload.i.i13
-  br i1 %switch.selectcmp.i.not.i.i, label %32, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h78a5022f29a6cc37E.argprom.exit"
+  br i1 %switch.selectcmp.i.not.i.i, label %32, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h78a5022f29a6cc37E.exit"
 
 32:                                               ; preds = %.lr.ph.i.i
   %33 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %10, i64 %.sroa.13.022.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %33, ptr noundef nonnull align 8 dereferenceable(88) %30, i64 88, i1 false), !noalias !102
   %.not8.i = icmp ult i64 %27, 2
-  br i1 %.not8.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h78a5022f29a6cc37E.argprom.exit", label %.lr.ph.i.i
+  br i1 %.not8.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h78a5022f29a6cc37E.exit", label %.lr.ph.i.i
 
 .lr.ph.i:                                         ; preds = %_ZN4core3ptr19swap_nonoverlapping17he38adb13301bfe9bE.exit, %.lr.ph.i
   %.011.i = phi i64 [ %43, %.lr.ph.i ], [ 1, %_ZN4core3ptr19swap_nonoverlapping17he38adb13301bfe9bE.exit ]
@@ -1160,7 +1160,7 @@ _ZN4core3ptr19swap_nonoverlapping17he38adb13301bfe9bE.exit: ; preds = %11
   %.not.not.not.i = icmp ult i64 %42, %17
   br i1 %.not.not.not.i, label %.lr.ph.i, label %._crit_edge.i
 
-"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h78a5022f29a6cc37E.argprom.exit": ; preds = %.lr.ph.i.i, %32, %24
+"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h78a5022f29a6cc37E.exit": ; preds = %.lr.ph.i.i, %32, %24
   %.sroa.4.0.copyload.i.i14 = phi i64 [ %.sroa.4.0.copyload.i.i, %24 ], [ %.sroa.4.0.copyload.i.i13, %32 ], [ %.sroa.4.0.copyload.i.i13, %.lr.ph.i.i ]
   %.sroa.13.0.lcssa.i.i = phi i64 [ 0, %24 ], [ %.sroa.13.022.i.i, %.lr.ph.i.i ], [ 0, %32 ]
   %44 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %10, i64 %.sroa.13.0.lcssa.i.i
@@ -1750,8 +1750,8 @@ attributes #25 = { cold noreturn nounwind }
 !20 = !{!14}
 !21 = !{i8 0, i8 4}
 !22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN92_$LT$futures_util..future..ready..Ready$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h250513c93f9f830cE.argprom: argument 0"}
-!24 = distinct !{!24, !"_ZN92_$LT$futures_util..future..ready..Ready$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h250513c93f9f830cE.argprom"}
+!23 = distinct !{!23, !24, !"_ZN92_$LT$futures_util..future..ready..Ready$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h250513c93f9f830cE: argument 0"}
+!24 = distinct !{!24, !"_ZN92_$LT$futures_util..future..ready..Ready$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h250513c93f9f830cE"}
 !25 = !{!26}
 !26 = distinct !{!26, !27, !"_ZN53_$LT$S$u20$as$u20$futures_core..stream..TryStream$GT$13try_poll_next17hf5698616f6af9b2dE: argument 1"}
 !27 = distinct !{!27, !"_ZN53_$LT$S$u20$as$u20$futures_core..stream..TryStream$GT$13try_poll_next17hf5698616f6af9b2dE"}

@@ -688,30 +688,30 @@ declare void @_ZN6QTimer14singleShotImplEiN2Qt9TimerTypeEPK7QObjectPN9QtPrivate1
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN24GLibMainloopOnQEventLoop5setupEP7QObjectE3$_0Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseES3_PPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %0, label %"_ZN9QtPrivate7FunctorIZN24GLibMainloopOnQEventLoop5setupEP7QObjectE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.argprom.exit" [
+  switch i32 %0, label %"_ZN9QtPrivate7FunctorIZN24GLibMainloopOnQEventLoop5setupEP7QObjectE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.exit" [
     i32 0, label %6
     i32 1, label %9
   ]
 
 6:                                                ; preds = %5
   %7 = icmp eq ptr %1, null
-  br i1 %7, label %"_ZN9QtPrivate7FunctorIZN24GLibMainloopOnQEventLoop5setupEP7QObjectE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.argprom.exit", label %8
+  br i1 %7, label %"_ZN9QtPrivate7FunctorIZN24GLibMainloopOnQEventLoop5setupEP7QObjectE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.exit", label %8
 
 8:                                                ; preds = %6
   tail call void @_ZdlPv(ptr noundef nonnull %1) #15
-  br label %"_ZN9QtPrivate7FunctorIZN24GLibMainloopOnQEventLoop5setupEP7QObjectE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.argprom.exit"
+  br label %"_ZN9QtPrivate7FunctorIZN24GLibMainloopOnQEventLoop5setupEP7QObjectE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.exit"
 
 9:                                                ; preds = %5
   %10 = tail call i32 @g_main_depth()
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %"_ZN9QtPrivate7FunctorIZN24GLibMainloopOnQEventLoop5setupEP7QObjectE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.argprom.exit"
+  br i1 %11, label %12, label %"_ZN9QtPrivate7FunctorIZN24GLibMainloopOnQEventLoop5setupEP7QObjectE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.exit"
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %1, i64 16
   %14 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #16
   %15 = load ptr, ptr %13, align 8
   invoke void @_ZN24GLibMainloopOnQEventLoopC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(80) %14, ptr noundef %15)
-          to label %"_ZN9QtPrivate7FunctorIZN24GLibMainloopOnQEventLoop5setupEP7QObjectE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.argprom.exit" unwind label %16
+          to label %"_ZN9QtPrivate7FunctorIZN24GLibMainloopOnQEventLoop5setupEP7QObjectE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.exit" unwind label %16
 
 16:                                               ; preds = %12
   %17 = landingpad { ptr, i32 }
@@ -719,7 +719,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN24GLibMainloopOnQEven
   tail call void @_ZdlPv(ptr noundef nonnull %14) #15
   resume { ptr, i32 } %17
 
-"_ZN9QtPrivate7FunctorIZN24GLibMainloopOnQEventLoop5setupEP7QObjectE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.argprom.exit": ; preds = %12, %9, %6, %8, %5
+"_ZN9QtPrivate7FunctorIZN24GLibMainloopOnQEventLoop5setupEP7QObjectE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.exit": ; preds = %12, %9, %6, %8, %5
   ret void
 }
 

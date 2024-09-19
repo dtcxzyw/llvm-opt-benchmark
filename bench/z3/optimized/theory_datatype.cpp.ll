@@ -7398,7 +7398,7 @@ if.then:                                          ; preds = %for.body
   %bf.load.i.i = load i16, ptr %m_mark.i.i, align 4
   %bf.clear.i.i = and i16 %bf.load.i.i, 1
   %tobool.i.not.i = icmp eq i16 %bf.clear.i.i, 0
-  br i1 %tobool.i.not.i, label %if.then.i22, label %"_ZZN3smt15theory_datatype12get_seq_argsEPNS_5enodeERS2_ENK3$_0clES2_.argprom.exit"
+  br i1 %tobool.i.not.i, label %if.then.i22, label %"_ZZN3smt15theory_datatype12get_seq_argsEPNS_5enodeERS2_ENK3$_0clES2_.exit"
 
 if.then.i22:                                      ; preds = %if.then
   %bf.set.i.i = or disjoint i16 %bf.load.i.i, 1
@@ -7433,9 +7433,9 @@ _ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.i: ; preds = %if.then.i.i, %
   %9 = load i32, ptr %arrayidx10.i.i, align 4
   %inc.i.i = add i32 %9, 1
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
-  br label %"_ZZN3smt15theory_datatype12get_seq_argsEPNS_5enodeERS2_ENK3$_0clES2_.argprom.exit"
+  br label %"_ZZN3smt15theory_datatype12get_seq_argsEPNS_5enodeERS2_ENK3$_0clES2_.exit"
 
-"_ZZN3smt15theory_datatype12get_seq_argsEPNS_5enodeERS2_ENK3$_0clES2_.argprom.exit": ; preds = %if.then, %_ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.i
+"_ZZN3smt15theory_datatype12get_seq_argsEPNS_5enodeERS2_ENK3$_0clES2_.exit": ; preds = %if.then, %_ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.i
   store ptr %__begin1.sroa.0.093, ptr %sibling, align 8
   br label %for.end
 
@@ -7449,7 +7449,7 @@ for.inc:                                          ; preds = %for.body
   %.not.i = select i1 %cmp.i.i, i1 true, i1 %cmp4.i.i
   br i1 %.not.i, label %for.body, label %for.end
 
-for.end:                                          ; preds = %for.inc, %_ZN6vectorIPN3smt5enodeELb0EjE5resetEv.exit19, %"_ZZN3smt15theory_datatype12get_seq_argsEPNS_5enodeERS2_ENK3$_0clES2_.argprom.exit"
+for.end:                                          ; preds = %for.inc, %_ZN6vectorIPN3smt5enodeELb0EjE5resetEv.exit19, %"_ZZN3smt15theory_datatype12get_seq_argsEPNS_5enodeERS2_ENK3$_0clES2_.exit"
   %11 = load ptr, ptr %m_todo, align 8
   %cmp.i97 = icmp eq ptr %11, null
   br i1 %cmp.i97, label %for.end52, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.thread.lr.ph
@@ -7554,8 +7554,8 @@ for.body32.preheader:                             ; preds = %if.then26
   %m_args.i48.ptr = getelementptr inbounds i8, ptr %16, i64 32
   br label %for.body32
 
-for.body32:                                       ; preds = %for.body32.preheader, %"_ZZN3smt15theory_datatype12get_seq_argsEPNS_5enodeERS2_ENK3$_0clES2_.argprom.exit75"
-  %__begin4.096 = phi ptr [ %incdec.ptr, %"_ZZN3smt15theory_datatype12get_seq_argsEPNS_5enodeERS2_ENK3$_0clES2_.argprom.exit75" ], [ %m_args.i48.ptr, %for.body32.preheader ]
+for.body32:                                       ; preds = %for.body32.preheader, %"_ZZN3smt15theory_datatype12get_seq_argsEPNS_5enodeERS2_ENK3$_0clES2_.exit75"
+  %__begin4.096 = phi ptr [ %incdec.ptr, %"_ZZN3smt15theory_datatype12get_seq_argsEPNS_5enodeERS2_ENK3$_0clES2_.exit75" ], [ %m_args.i48.ptr, %for.body32.preheader ]
   %36 = load ptr, ptr %__begin4.096, align 8
   %37 = load ptr, ptr %ctx, align 8
   %m_app2enode.i = getelementptr inbounds i8, ptr %37, i64 9200
@@ -7568,7 +7568,7 @@ for.body32:                                       ; preds = %for.body32.preheade
   %bf.load.i.i54 = load i16, ptr %m_mark.i.i53, align 4
   %bf.clear.i.i55 = and i16 %bf.load.i.i54, 1
   %tobool.i.not.i56 = icmp eq i16 %bf.clear.i.i55, 0
-  br i1 %tobool.i.not.i56, label %if.then.i58, label %"_ZZN3smt15theory_datatype12get_seq_argsEPNS_5enodeERS2_ENK3$_0clES2_.argprom.exit75"
+  br i1 %tobool.i.not.i56, label %if.then.i58, label %"_ZZN3smt15theory_datatype12get_seq_argsEPNS_5enodeERS2_ENK3$_0clES2_.exit75"
 
 if.then.i58:                                      ; preds = %for.body32
   %bf.set.i.i59 = or disjoint i16 %bf.load.i.i54, 1
@@ -7674,14 +7674,14 @@ _ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.i66: ; preds = %_ZN6vectorIP
   %49 = load i32, ptr %arrayidx10.i.i69, align 4
   %inc.i.i70 = add i32 %49, 1
   store i32 %inc.i.i70, ptr %arrayidx10.i.i69, align 4
-  br label %"_ZZN3smt15theory_datatype12get_seq_argsEPNS_5enodeERS2_ENK3$_0clES2_.argprom.exit75"
+  br label %"_ZZN3smt15theory_datatype12get_seq_argsEPNS_5enodeERS2_ENK3$_0clES2_.exit75"
 
-"_ZZN3smt15theory_datatype12get_seq_argsEPNS_5enodeERS2_ENK3$_0clES2_.argprom.exit75": ; preds = %for.body32, %_ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.i66
+"_ZZN3smt15theory_datatype12get_seq_argsEPNS_5enodeERS2_ENK3$_0clES2_.exit75": ; preds = %for.body32, %_ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.i66
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin4.096, i64 8
   %cmp31.not = icmp eq ptr %incdec.ptr, %add.ptr.i51.ptr
   br i1 %cmp31.not, label %for.inc38, label %for.body32
 
-for.inc38:                                        ; preds = %"_ZZN3smt15theory_datatype12get_seq_argsEPNS_5enodeERS2_ENK3$_0clES2_.argprom.exit75", %land.rhs.i.i, %if.then26, %for.body11, %_ZN6vectorIPN3smt5enodeELb0EjE9push_backEOS2_.exit, %_ZNK8seq_util3str9is_concatEPK4expr.exit
+for.inc38:                                        ; preds = %"_ZZN3smt15theory_datatype12get_seq_argsEPNS_5enodeERS2_ENK3$_0clES2_.exit75", %land.rhs.i.i, %if.then26, %for.body11, %_ZN6vectorIPN3smt5enodeELb0EjE9push_backEOS2_.exit, %_ZNK8seq_util3str9is_concatEPK4expr.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = load ptr, ptr %m_todo, align 8
   %cmp.i = icmp eq ptr %50, null
@@ -12540,9 +12540,9 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit.i.i.i.i.i: ; preds = %if.th
   store i32 %inc.i.i.i.i.i.i, ptr %arrayidx10.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, 2
-  br i1 %exitcond.not.i.i.i.i.i, label %"_ZSt10__invoke_rI7svectorIN3sat7literalEjERZN3smt15theory_datatype26assert_update_field_axiomsEPNS4_5enodeEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit", label %for.bodythread-pre-split.i.i.i.i.i, !llvm.loop !23
+  br i1 %exitcond.not.i.i.i.i.i, label %"_ZSt10__invoke_rI7svectorIN3sat7literalEjERZN3smt15theory_datatype26assert_update_field_axiomsEPNS4_5enodeEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %for.bodythread-pre-split.i.i.i.i.i, !llvm.loop !23
 
-"_ZSt10__invoke_rI7svectorIN3sat7literalEjERZN3smt15theory_datatype26assert_update_field_axiomsEPNS4_5enodeEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit": ; preds = %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit.i.i.i.i.i
+"_ZSt10__invoke_rI7svectorIN3sat7literalEjERZN3smt15theory_datatype26assert_update_field_axiomsEPNS4_5enodeEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit.i.i.i.i.i
   ret void
 }
 
@@ -13282,14 +13282,14 @@ attributes #30 = { builtin nounwind }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZSt10__invoke_rI7svectorIN3sat7literalEjERZN3smt15theory_datatype26assert_update_field_axiomsEPNS4_5enodeEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom: %agg.result"}
-!12 = distinct !{!12, !"_ZSt10__invoke_rI7svectorIN3sat7literalEjERZN3smt15theory_datatype26assert_update_field_axiomsEPNS4_5enodeEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom"}
+!11 = distinct !{!11, !12, !"_ZSt10__invoke_rI7svectorIN3sat7literalEjERZN3smt15theory_datatype26assert_update_field_axiomsEPNS4_5enodeEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_: %agg.result"}
+!12 = distinct !{!12, !"_ZSt10__invoke_rI7svectorIN3sat7literalEjERZN3smt15theory_datatype26assert_update_field_axiomsEPNS4_5enodeEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_"}
 !13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZSt13__invoke_implI7svectorIN3sat7literalEjERZN3smt15theory_datatype26assert_update_field_axiomsEPNS4_5enodeEE3$_0JEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
-!15 = distinct !{!15, !"_ZSt13__invoke_implI7svectorIN3sat7literalEjERZN3smt15theory_datatype26assert_update_field_axiomsEPNS4_5enodeEE3$_0JEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!14 = distinct !{!14, !15, !"_ZSt13__invoke_implI7svectorIN3sat7literalEjERZN3smt15theory_datatype26assert_update_field_axiomsEPNS4_5enodeEE3$_0JEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!15 = distinct !{!15, !"_ZSt13__invoke_implI7svectorIN3sat7literalEjERZN3smt15theory_datatype26assert_update_field_axiomsEPNS4_5enodeEE3$_0JEET_St14__invoke_otherOT0_DpOT1_"}
 !16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZZN3smt15theory_datatype26assert_update_field_axiomsEPNS_5enodeEENK3$_0clEv.argprom: %agg.result"}
-!18 = distinct !{!18, !"_ZZN3smt15theory_datatype26assert_update_field_axiomsEPNS_5enodeEENK3$_0clEv.argprom"}
+!17 = distinct !{!17, !18, !"_ZZN3smt15theory_datatype26assert_update_field_axiomsEPNS_5enodeEENK3$_0clEv: %agg.result"}
+!18 = distinct !{!18, !"_ZZN3smt15theory_datatype26assert_update_field_axiomsEPNS_5enodeEENK3$_0clEv"}
 !19 = !{!17, !14, !11, !20}
 !20 = distinct !{!20, !21, !"_ZNSt17_Function_handlerIF7svectorIN3sat7literalEjEvEZN3smt15theory_datatype26assert_update_field_axiomsEPNS5_5enodeEE3$_0E9_M_invokeERKSt9_Any_data: %agg.result"}
 !21 = distinct !{!21, !"_ZNSt17_Function_handlerIF7svectorIN3sat7literalEjEvEZN3smt15theory_datatype26assert_update_field_axiomsEPNS5_5enodeEE3$_0E9_M_invokeERKSt9_Any_data"}
@@ -13323,14 +13323,14 @@ attributes #30 = { builtin nounwind }
 !49 = distinct !{!49, !5}
 !50 = distinct !{!50, !5}
 !51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZSt10__invoke_rI7svectorIN3sat7literalEjERZN3smt15theory_datatype26assert_update_field_axiomsEPNS4_5enodeEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom: %agg.result"}
-!53 = distinct !{!53, !"_ZSt10__invoke_rI7svectorIN3sat7literalEjERZN3smt15theory_datatype26assert_update_field_axiomsEPNS4_5enodeEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom"}
+!52 = distinct !{!52, !53, !"_ZSt10__invoke_rI7svectorIN3sat7literalEjERZN3smt15theory_datatype26assert_update_field_axiomsEPNS4_5enodeEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_: %agg.result"}
+!53 = distinct !{!53, !"_ZSt10__invoke_rI7svectorIN3sat7literalEjERZN3smt15theory_datatype26assert_update_field_axiomsEPNS4_5enodeEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_"}
 !54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZSt13__invoke_implI7svectorIN3sat7literalEjERZN3smt15theory_datatype26assert_update_field_axiomsEPNS4_5enodeEE3$_0JEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
-!56 = distinct !{!56, !"_ZSt13__invoke_implI7svectorIN3sat7literalEjERZN3smt15theory_datatype26assert_update_field_axiomsEPNS4_5enodeEE3$_0JEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!55 = distinct !{!55, !56, !"_ZSt13__invoke_implI7svectorIN3sat7literalEjERZN3smt15theory_datatype26assert_update_field_axiomsEPNS4_5enodeEE3$_0JEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!56 = distinct !{!56, !"_ZSt13__invoke_implI7svectorIN3sat7literalEjERZN3smt15theory_datatype26assert_update_field_axiomsEPNS4_5enodeEE3$_0JEET_St14__invoke_otherOT0_DpOT1_"}
 !57 = !{!58}
-!58 = distinct !{!58, !59, !"_ZZN3smt15theory_datatype26assert_update_field_axiomsEPNS_5enodeEENK3$_0clEv.argprom: %agg.result"}
-!59 = distinct !{!59, !"_ZZN3smt15theory_datatype26assert_update_field_axiomsEPNS_5enodeEENK3$_0clEv.argprom"}
+!58 = distinct !{!58, !59, !"_ZZN3smt15theory_datatype26assert_update_field_axiomsEPNS_5enodeEENK3$_0clEv: %agg.result"}
+!59 = distinct !{!59, !"_ZZN3smt15theory_datatype26assert_update_field_axiomsEPNS_5enodeEENK3$_0clEv"}
 !60 = !{!58, !55, !52}
 !61 = distinct !{!61, !5}
 !62 = distinct !{!62, !5}

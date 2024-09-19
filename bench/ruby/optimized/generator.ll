@@ -156,7 +156,7 @@ target triple = "x86_64-pc-linux-gnu"
 @fltoa.digits = internal unnamed_addr constant [11 x i8] c"0123456789\00", align 1
 @.str.101 = private unnamed_addr constant [3 x i8] c"C*\00", align 1
 @.str.102 = private unnamed_addr constant [4 x i8] c"raw\00", align 1
-@switch.table.generate_json_string.argelim = private unnamed_addr constant [6 x ptr] [ptr @.str.93, ptr @.str.91, ptr @.str.89, ptr @.str.89, ptr @.str.92, ptr @.str.90], align 8
+@switch.table.generate_json_string = private unnamed_addr constant [6 x ptr] [ptr @.str.93, ptr @.str.91, ptr @.str.89, ptr @.str.89, ptr @.str.92, ptr @.str.90], align 8
 
 ; Function Attrs: nounwind uwtable
 define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
@@ -1766,23 +1766,23 @@ define internal i64 @cState_to_h(i64 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %.pr.i.i = load i64, ptr @set_state_ivars.rbimpl_id, align 8
   %.not1.i.i = icmp eq i64 %.pr.i.i, 0
-  br i1 %.not1.i.i, label %.lr.ph.i.i, label %rbimpl_intern_const.argprom.exit.i
+  br i1 %.not1.i.i, label %.lr.ph.i.i, label %rbimpl_intern_const.exit.i
 
 .lr.ph.i.i:                                       ; preds = %1, %.lr.ph.i.i
   %5 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.79, i64 noundef 18) #15
   store i64 %5, ptr @set_state_ivars.rbimpl_id, align 8
   %.not.i.i = icmp eq i64 %5, 0
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %rbimpl_intern_const.argprom.exit.i, !llvm.loop !23
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %rbimpl_intern_const.exit.i, !llvm.loop !23
 
-rbimpl_intern_const.argprom.exit.i:               ; preds = %.lr.ph.i.i, %1
+rbimpl_intern_const.exit.i:                       ; preds = %.lr.ph.i.i, %1
   %.lcssa.i.i = phi i64 [ %.pr.i.i, %1 ], [ %5, %.lr.ph.i.i ]
   %6 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %.lcssa.i.i, i32 noundef 0) #15
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   br label %9
 
-9:                                                ; preds = %18, %rbimpl_intern_const.argprom.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %18 ], [ 0, %rbimpl_intern_const.argprom.exit.i ]
+9:                                                ; preds = %18, %rbimpl_intern_const.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %18 ], [ 0, %rbimpl_intern_const.exit.i ]
   %10 = load i64, ptr %7, align 8
   %11 = and i64 %10, 8192
   %.not.i12.i = icmp eq i64 %11, 0
@@ -2176,16 +2176,16 @@ cState_from_state_s.exit:                         ; preds = %3, %12, %15
   br i1 %.not.i5, label %23, label %22
 
 22:                                               ; preds = %cState_from_state_s.exit
-  call fastcc void @generate_json_fixnum.argprom.argelim(ptr noundef nonnull %20, i64 noundef %2)
-  br label %generate_json_integer.argprom.exit
+  call fastcc void @generate_json_fixnum(ptr noundef nonnull %20, i64 noundef %2)
+  br label %generate_json_integer.exit
 
 23:                                               ; preds = %cState_from_state_s.exit
   %24 = load i64, ptr @i_to_s, align 8
   %25 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %2, i64 noundef %24, i32 noundef 0) #15
   call fastcc void @fbuffer_append_str(ptr noundef nonnull %20, i64 noundef %25)
-  br label %generate_json_integer.argprom.exit
+  br label %generate_json_integer.exit
 
-generate_json_integer.argprom.exit:               ; preds = %22, %23
+generate_json_integer.exit:                       ; preds = %22, %23
   %26 = getelementptr inbounds i8, ptr %20, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %20, i64 16
@@ -2194,11 +2194,11 @@ generate_json_integer.argprom.exit:               ; preds = %22, %23
   %.not.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i, label %fbuffer_to_s.exit, label %31
 
-31:                                               ; preds = %generate_json_integer.argprom.exit
+31:                                               ; preds = %generate_json_integer.exit
   call void @ruby_xfree(ptr noundef nonnull %27) #15
   br label %fbuffer_to_s.exit
 
-fbuffer_to_s.exit:                                ; preds = %generate_json_integer.argprom.exit, %31
+fbuffer_to_s.exit:                                ; preds = %generate_json_integer.exit, %31
   call void @ruby_xfree(ptr noundef nonnull %20) #15
   %32 = call nonnull ptr @rb_utf8_encoding() #15
   %33 = call i64 @rb_enc_associate(i64 noundef %30, ptr noundef nonnull %32) #15
@@ -2239,7 +2239,7 @@ cState_from_state_s.exit:                         ; preds = %3, %12, %15
   %20 = call fastcc ptr @cState_prepare_buffer(i64 noundef %19)
   %21 = getelementptr i8, ptr %18, i64 112
   %.val = load i8, ptr %21, align 8
-  call fastcc void @generate_json_float.argprom.argelim(ptr noundef nonnull %20, i8 %.val, i64 noundef %2)
+  call fastcc void @generate_json_float(ptr noundef nonnull %20, i8 %.val, i64 noundef %2)
   %22 = getelementptr inbounds i8, ptr %20, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %20, i64 16
@@ -2303,7 +2303,7 @@ cState_from_state_s.exit:                         ; preds = %3, %12, %15
   %18 = call ptr @rb_check_typeddata(i64 noundef %.0.i, ptr noundef nonnull @JSON_Generator_State_type) #15
   %19 = load i64, ptr %4, align 8
   %20 = call fastcc ptr @cState_prepare_buffer(i64 noundef %19)
-  call fastcc void @generate_json_string.argelim(ptr noundef nonnull %20, ptr noundef %18, i64 noundef %2)
+  call fastcc void @generate_json_string(ptr noundef nonnull %20, ptr noundef %18, i64 noundef %2)
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %20, i64 16
@@ -2471,16 +2471,16 @@ cState_from_state_s.exit:                         ; preds = %3, %12, %15
 
 36:                                               ; preds = %32
   %37 = icmp ugt i64 %.0.i.i.i, %29
-  br i1 %37, label %38, label %generate_json_true.argprom.exit
+  br i1 %37, label %38, label %generate_json_true.exit
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds i8, ptr %20, i64 24
   %40 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %28, i64 noundef %.0.i.i.i, i64 noundef 1) #19
   store ptr %40, ptr %21, align 8
   store i64 %.0.i.i.i, ptr %39, align 8
-  br label %generate_json_true.argprom.exit
+  br label %generate_json_true.exit
 
-generate_json_true.argprom.exit:                  ; preds = %36, %38
+generate_json_true.exit:                          ; preds = %36, %38
   %41 = phi ptr [ %40, %38 ], [ %28, %36 ]
   %42 = getelementptr inbounds i8, ptr %41, i64 %31
   store i32 1702195828, ptr %42, align 1
@@ -2492,11 +2492,11 @@ generate_json_true.argprom.exit:                  ; preds = %36, %38
   %.not.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i, label %fbuffer_to_s.exit, label %47
 
-47:                                               ; preds = %generate_json_true.argprom.exit
+47:                                               ; preds = %generate_json_true.exit
   call void @ruby_xfree(ptr noundef nonnull %45) #15
   br label %fbuffer_to_s.exit
 
-fbuffer_to_s.exit:                                ; preds = %generate_json_true.argprom.exit, %47
+fbuffer_to_s.exit:                                ; preds = %generate_json_true.exit, %47
   call void @ruby_xfree(ptr noundef nonnull %20) #15
   %48 = call nonnull ptr @rb_utf8_encoding() #15
   %49 = call i64 @rb_enc_associate(i64 noundef %46, ptr noundef nonnull %48) #15
@@ -2569,16 +2569,16 @@ cState_from_state_s.exit:                         ; preds = %3, %12, %15
 
 36:                                               ; preds = %32
   %37 = icmp ugt i64 %.0.i.i.i, %29
-  br i1 %37, label %38, label %generate_json_false.argprom.exit
+  br i1 %37, label %38, label %generate_json_false.exit
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds i8, ptr %20, i64 24
   %40 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %28, i64 noundef %.0.i.i.i, i64 noundef 1) #19
   store ptr %40, ptr %21, align 8
   store i64 %.0.i.i.i, ptr %39, align 8
-  br label %generate_json_false.argprom.exit
+  br label %generate_json_false.exit
 
-generate_json_false.argprom.exit:                 ; preds = %36, %38
+generate_json_false.exit:                         ; preds = %36, %38
   %41 = phi ptr [ %40, %38 ], [ %28, %36 ]
   %42 = getelementptr inbounds i8, ptr %41, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %42, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.99, i64 5, i1 false)
@@ -2590,11 +2590,11 @@ generate_json_false.argprom.exit:                 ; preds = %36, %38
   %.not.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i, label %fbuffer_to_s.exit, label %47
 
-47:                                               ; preds = %generate_json_false.argprom.exit
+47:                                               ; preds = %generate_json_false.exit
   call void @ruby_xfree(ptr noundef nonnull %45) #15
   br label %fbuffer_to_s.exit
 
-fbuffer_to_s.exit:                                ; preds = %generate_json_false.argprom.exit, %47
+fbuffer_to_s.exit:                                ; preds = %generate_json_false.exit, %47
   call void @ruby_xfree(ptr noundef nonnull %20) #15
   %48 = call nonnull ptr @rb_utf8_encoding() #15
   %49 = call i64 @rb_enc_associate(i64 noundef %46, ptr noundef nonnull %48) #15
@@ -2667,16 +2667,16 @@ cState_from_state_s.exit:                         ; preds = %3, %12, %15
 
 36:                                               ; preds = %32
   %37 = icmp ugt i64 %.0.i.i.i, %29
-  br i1 %37, label %38, label %generate_json_null.argprom.exit
+  br i1 %37, label %38, label %generate_json_null.exit
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds i8, ptr %20, i64 24
   %40 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %28, i64 noundef %.0.i.i.i, i64 noundef 1) #19
   store ptr %40, ptr %21, align 8
   store i64 %.0.i.i.i, ptr %39, align 8
-  br label %generate_json_null.argprom.exit
+  br label %generate_json_null.exit
 
-generate_json_null.argprom.exit:                  ; preds = %36, %38
+generate_json_null.exit:                          ; preds = %36, %38
   %41 = phi ptr [ %40, %38 ], [ %28, %36 ]
   %42 = getelementptr inbounds i8, ptr %41, i64 %31
   store i32 1819047278, ptr %42, align 1
@@ -2688,11 +2688,11 @@ generate_json_null.argprom.exit:                  ; preds = %36, %38
   %.not.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i, label %fbuffer_to_s.exit, label %47
 
-47:                                               ; preds = %generate_json_null.argprom.exit
+47:                                               ; preds = %generate_json_null.exit
   call void @ruby_xfree(ptr noundef nonnull %45) #15
   br label %fbuffer_to_s.exit
 
-fbuffer_to_s.exit:                                ; preds = %generate_json_null.argprom.exit, %47
+fbuffer_to_s.exit:                                ; preds = %generate_json_null.exit, %47
   call void @ruby_xfree(ptr noundef nonnull %20) #15
   %48 = call nonnull ptr @rb_utf8_encoding() #15
   %49 = call i64 @rb_enc_associate(i64 noundef %46, ptr noundef nonnull %48) #15
@@ -3619,7 +3619,7 @@ rb_class_of.exit:                                 ; preds = %9, %12, %13, %14, %
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %27
-  tail call fastcc void @generate_json_string.argelim(ptr noundef %0, ptr noundef %2, i64 noundef %3)
+  tail call fastcc void @generate_json_string(ptr noundef %0, ptr noundef %2, i64 noundef %3)
   br label %142
 
 31:                                               ; preds = %27
@@ -3665,7 +3665,7 @@ rb_class_of.exit:                                 ; preds = %9, %12, %13, %14, %
 
 49:                                               ; preds = %45
   %50 = icmp ugt i64 %.0.i.i.i, %42
-  br i1 %50, label %51, label %generate_json_null.argprom.exit
+  br i1 %50, label %51, label %generate_json_null.exit
 
 51:                                               ; preds = %49
   %52 = getelementptr inbounds i8, ptr %0, i64 24
@@ -3673,9 +3673,9 @@ rb_class_of.exit:                                 ; preds = %9, %12, %13, %14, %
   store ptr %53, ptr %33, align 8
   store i64 %.0.i.i.i, ptr %52, align 8
   %.pre.i.i = load i64, ptr %43, align 8
-  br label %generate_json_null.argprom.exit
+  br label %generate_json_null.exit
 
-generate_json_null.argprom.exit:                  ; preds = %49, %51
+generate_json_null.exit:                          ; preds = %49, %51
   %54 = phi i64 [ %.pre.i.i, %51 ], [ %44, %49 ]
   %55 = phi ptr [ %53, %51 ], [ %41, %49 ]
   %56 = getelementptr inbounds i8, ptr %55, i64 %54
@@ -3721,7 +3721,7 @@ generate_json_null.argprom.exit:                  ; preds = %49, %51
 
 76:                                               ; preds = %72
   %77 = icmp ugt i64 %.0.i.i.i84, %69
-  br i1 %77, label %78, label %generate_json_false.argprom.exit
+  br i1 %77, label %78, label %generate_json_false.exit
 
 78:                                               ; preds = %76
   %79 = getelementptr inbounds i8, ptr %0, i64 24
@@ -3729,9 +3729,9 @@ generate_json_null.argprom.exit:                  ; preds = %49, %51
   store ptr %80, ptr %60, align 8
   store i64 %.0.i.i.i84, ptr %79, align 8
   %.pre.i.i85 = load i64, ptr %70, align 8
-  br label %generate_json_false.argprom.exit
+  br label %generate_json_false.exit
 
-generate_json_false.argprom.exit:                 ; preds = %76, %78
+generate_json_false.exit:                         ; preds = %76, %78
   %81 = phi i64 [ %.pre.i.i85, %78 ], [ %71, %76 ]
   %82 = phi ptr [ %80, %78 ], [ %68, %76 ]
   %83 = getelementptr inbounds i8, ptr %82, i64 %81
@@ -3777,7 +3777,7 @@ generate_json_false.argprom.exit:                 ; preds = %76, %78
 
 103:                                              ; preds = %99
   %104 = icmp ugt i64 %.0.i.i.i90, %96
-  br i1 %104, label %105, label %generate_json_true.argprom.exit
+  br i1 %104, label %105, label %generate_json_true.exit
 
 105:                                              ; preds = %103
   %106 = getelementptr inbounds i8, ptr %0, i64 24
@@ -3785,9 +3785,9 @@ generate_json_false.argprom.exit:                 ; preds = %76, %78
   store ptr %107, ptr %87, align 8
   store i64 %.0.i.i.i90, ptr %106, align 8
   %.pre.i.i91 = load i64, ptr %97, align 8
-  br label %generate_json_true.argprom.exit
+  br label %generate_json_true.exit
 
-generate_json_true.argprom.exit:                  ; preds = %103, %105
+generate_json_true.exit:                          ; preds = %103, %105
   %108 = phi i64 [ %.pre.i.i91, %105 ], [ %98, %103 ]
   %109 = phi ptr [ %107, %105 ], [ %95, %103 ]
   %110 = getelementptr inbounds i8, ptr %109, i64 %108
@@ -3803,7 +3803,7 @@ generate_json_true.argprom.exit:                  ; preds = %103, %105
   br i1 %.not92, label %116, label %115
 
 115:                                              ; preds = %113
-  tail call fastcc void @generate_json_fixnum.argprom.argelim(ptr noundef %0, i64 noundef %3)
+  tail call fastcc void @generate_json_fixnum(ptr noundef %0, i64 noundef %3)
   br label %142
 
 116:                                              ; preds = %113
@@ -3817,7 +3817,7 @@ generate_json_true.argprom.exit:                  ; preds = %103, %105
   br i1 %121, label %122, label %.critedge
 
 122:                                              ; preds = %117
-  tail call fastcc void @generate_json_bignum.argprom.argelim(ptr noundef %0, i64 noundef %3)
+  tail call fastcc void @generate_json_bignum(ptr noundef %0, i64 noundef %3)
   br label %142
 
 .critedge:                                        ; preds = %116, %117
@@ -3828,7 +3828,7 @@ generate_json_true.argprom.exit:                  ; preds = %103, %105
 125:                                              ; preds = %.critedge
   %126 = getelementptr i8, ptr %2, i64 112
   %.val = load i8, ptr %126, align 8
-  tail call fastcc void @generate_json_float.argprom.argelim(ptr noundef %0, i8 %.val, i64 noundef %3)
+  tail call fastcc void @generate_json_float(ptr noundef %0, i8 %.val, i64 noundef %3)
   br label %142
 
 127:                                              ; preds = %.critedge
@@ -3860,10 +3860,10 @@ generate_json_true.argprom.exit:                  ; preds = %103, %105
   %140 = load i64, ptr @i_to_s, align 8
   %141 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %3, i64 noundef %140, i32 noundef 0) #15
   tail call fastcc void @Check_Type(i64 noundef %141, i32 noundef 5)
-  tail call fastcc void @generate_json_string.argelim(ptr noundef %0, ptr noundef nonnull %2, i64 noundef %141)
+  tail call fastcc void @generate_json_string(ptr noundef %0, ptr noundef nonnull %2, i64 noundef %141)
   br label %142
 
-142:                                              ; preds = %26, %generate_json_null.argprom.exit, %generate_json_true.argprom.exit, %122, %139, %136, %125, %115, %generate_json_false.argprom.exit, %30, %22
+142:                                              ; preds = %26, %generate_json_null.exit, %generate_json_true.exit, %122, %139, %136, %125, %115, %generate_json_false.exit, %30, %22
   ret void
 }
 
@@ -4656,7 +4656,7 @@ fbuffer_append_char.exit112:                      ; preds = %196, %198
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @generate_json_string.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @generate_json_string(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca [6 x i8], align 1
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
@@ -5878,7 +5878,7 @@ switch.hole_check:                                ; preds = %435
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %550 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.generate_json_string.argelim, i64 0, i64 %550
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.generate_json_string, i64 0, i64 %550
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.loopexit.i
 
@@ -6117,7 +6117,7 @@ fbuffer_append_char.exit36:                       ; preds = %639, %641
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @generate_json_fixnum.argprom.argelim(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @generate_json_fixnum(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca [20 x i8], align 16
   %4 = ashr i64 %1, 1
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
@@ -6232,7 +6232,7 @@ fbuffer_append_long.exit:                         ; preds = %fltoa.exit.i, %ruby
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @generate_json_bignum.argprom.argelim(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @generate_json_bignum(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = load i64, ptr @i_to_s, align 8
   %4 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1, i64 noundef %3, i32 noundef 0) #15
   tail call fastcc void @fbuffer_append_str(ptr noundef %0, i64 noundef %4)
@@ -6240,7 +6240,7 @@ define internal fastcc void @generate_json_bignum.argprom.argelim(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @generate_json_float.argprom.argelim(ptr noundef %0, i8 %.112.val, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @generate_json_float(ptr noundef %0, i8 %.112.val, i64 noundef %1) unnamed_addr #0 {
   %3 = tail call double @rb_float_value(i64 noundef %1) #21
   %4 = load i64, ptr @i_to_s, align 8
   %5 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1, i64 noundef %4, i32 noundef 0) #15

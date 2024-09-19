@@ -2864,31 +2864,31 @@ ehcleanup.i.i.i.i:                                ; preds = %lpad5.i.i.i.i, %lpa
 invoke.cont42.i.i.i:                              ; preds = %if.then9.i.i.i.i, %new.cont.i.i.i.i, %invoke.cont.i.i.i.i
   store ptr null, ptr %languageTypes.i.i.i, align 8
   store ptr null, ptr %languageReplacementIndexes.i.i.i, align 8
-  invoke fastcc void @_ZN6icu_7512_GLOBAL__N_116AliasDataBuilder9readAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiPFvS8_EPFvPKDsER10UErrorCode.argprom(ptr noundef %call10.i.i.i, ptr noundef %strings.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %languageTypes.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %languageReplacementIndexes.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %languagesLength.i.i.i, ptr noundef nonnull @"_ZZN6icu_7512_GLOBAL__N_116AliasDataBuilder17readLanguageAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCodeEN3$_08__invokeES8_", ptr noundef nonnull @"_ZZN6icu_7512_GLOBAL__N_116AliasDataBuilder17readLanguageAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCodeEN3$_18__invokeEPKDs", ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN6icu_7512_GLOBAL__N_116AliasDataBuilder9readAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiPFvS8_EPFvPKDsER10UErrorCode(ptr noundef %call10.i.i.i, ptr noundef %strings.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %languageTypes.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %languageReplacementIndexes.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %languagesLength.i.i.i, ptr noundef nonnull @"_ZZN6icu_7512_GLOBAL__N_116AliasDataBuilder17readLanguageAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCodeEN3$_08__invokeES8_", ptr noundef nonnull @"_ZZN6icu_7512_GLOBAL__N_116AliasDataBuilder17readLanguageAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCodeEN3$_18__invokeEPKDs", ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont49.i.i.i unwind label %lpad43.i.i.i
 
 invoke.cont49.i.i.i:                              ; preds = %invoke.cont42.i.i.i
   store ptr null, ptr %scriptTypes.i.i.i, align 8
   store ptr null, ptr %scriptReplacementIndexes.i.i.i, align 8
-  invoke fastcc void @_ZN6icu_7512_GLOBAL__N_116AliasDataBuilder9readAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiPFvS8_EPFvPKDsER10UErrorCode.argprom(ptr noundef %call16.i.i.i, ptr noundef %strings.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %scriptTypes.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %scriptReplacementIndexes.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %scriptLength.i.i.i, ptr noundef nonnull @"_ZZN6icu_7512_GLOBAL__N_116AliasDataBuilder15readScriptAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCodeEN3$_08__invokeES8_", ptr noundef nonnull @"_ZZN6icu_7512_GLOBAL__N_116AliasDataBuilder15readScriptAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCodeEN3$_18__invokeEPKDs", ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN6icu_7512_GLOBAL__N_116AliasDataBuilder9readAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiPFvS8_EPFvPKDsER10UErrorCode(ptr noundef %call16.i.i.i, ptr noundef %strings.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %scriptTypes.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %scriptReplacementIndexes.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %scriptLength.i.i.i, ptr noundef nonnull @"_ZZN6icu_7512_GLOBAL__N_116AliasDataBuilder15readScriptAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCodeEN3$_08__invokeES8_", ptr noundef nonnull @"_ZZN6icu_7512_GLOBAL__N_116AliasDataBuilder15readScriptAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCodeEN3$_18__invokeEPKDs", ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont56.i.i.i unwind label %lpad50.i.i.i
 
 invoke.cont56.i.i.i:                              ; preds = %invoke.cont49.i.i.i
   store ptr null, ptr %territoryTypes.i.i.i, align 8
   store ptr null, ptr %territoryReplacementIndexes.i.i.i, align 8
-  invoke fastcc void @_ZN6icu_7512_GLOBAL__N_116AliasDataBuilder9readAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiPFvS8_EPFvPKDsER10UErrorCode.argprom(ptr noundef %call22.i.i.i, ptr noundef %strings.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %territoryTypes.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %territoryReplacementIndexes.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %territoryLength.i.i.i, ptr noundef nonnull @"_ZZN6icu_7512_GLOBAL__N_116AliasDataBuilder18readTerritoryAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCodeEN3$_08__invokeES8_", ptr noundef nonnull @"_ZZN6icu_7512_GLOBAL__N_116AliasDataBuilder18readTerritoryAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCodeEN3$_18__invokeEPKDs", ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN6icu_7512_GLOBAL__N_116AliasDataBuilder9readAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiPFvS8_EPFvPKDsER10UErrorCode(ptr noundef %call22.i.i.i, ptr noundef %strings.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %territoryTypes.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %territoryReplacementIndexes.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %territoryLength.i.i.i, ptr noundef nonnull @"_ZZN6icu_7512_GLOBAL__N_116AliasDataBuilder18readTerritoryAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCodeEN3$_08__invokeES8_", ptr noundef nonnull @"_ZZN6icu_7512_GLOBAL__N_116AliasDataBuilder18readTerritoryAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCodeEN3$_18__invokeEPKDs", ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont63.i.i.i unwind label %lpad57.i.i.i
 
 invoke.cont63.i.i.i:                              ; preds = %invoke.cont56.i.i.i
   store ptr null, ptr %variantTypes.i.i.i, align 8
   store ptr null, ptr %variantReplacementIndexes.i.i.i, align 8
-  invoke fastcc void @_ZN6icu_7512_GLOBAL__N_116AliasDataBuilder9readAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiPFvS8_EPFvPKDsER10UErrorCode.argprom(ptr noundef %call28.i.i.i, ptr noundef %strings.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %variantTypes.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %variantReplacementIndexes.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %variantLength.i.i.i, ptr noundef nonnull @"_ZZN6icu_7512_GLOBAL__N_116AliasDataBuilder16readVariantAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCodeEN3$_08__invokeES8_", ptr noundef nonnull @"_ZZN6icu_7512_GLOBAL__N_116AliasDataBuilder16readVariantAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCodeEN3$_18__invokeEPKDs", ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN6icu_7512_GLOBAL__N_116AliasDataBuilder9readAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiPFvS8_EPFvPKDsER10UErrorCode(ptr noundef %call28.i.i.i, ptr noundef %strings.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %variantTypes.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %variantReplacementIndexes.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %variantLength.i.i.i, ptr noundef nonnull @"_ZZN6icu_7512_GLOBAL__N_116AliasDataBuilder16readVariantAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCodeEN3$_08__invokeES8_", ptr noundef nonnull @"_ZZN6icu_7512_GLOBAL__N_116AliasDataBuilder16readVariantAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCodeEN3$_18__invokeEPKDs", ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont70.i.i.i unwind label %lpad64.i.i.i
 
 invoke.cont70.i.i.i:                              ; preds = %invoke.cont63.i.i.i
   store ptr null, ptr %subdivisionTypes.i.i.i, align 8
   store ptr null, ptr %subdivisionReplacementIndexes.i.i.i, align 8
-  invoke fastcc void @_ZN6icu_7512_GLOBAL__N_116AliasDataBuilder9readAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiPFvS8_EPFvPKDsER10UErrorCode.argprom(ptr noundef %call34.i.i.i, ptr noundef %strings.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %subdivisionTypes.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %subdivisionReplacementIndexes.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %subdivisionLength.i.i.i, ptr noundef nonnull @"_ZZN6icu_7512_GLOBAL__N_116AliasDataBuilder20readSubdivisionAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCodeEN3$_08__invokeES8_", ptr noundef nonnull @"_ZZN6icu_7512_GLOBAL__N_116AliasDataBuilder20readSubdivisionAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCodeEN3$_18__invokeEPKDs", ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN6icu_7512_GLOBAL__N_116AliasDataBuilder9readAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiPFvS8_EPFvPKDsER10UErrorCode(ptr noundef %call34.i.i.i, ptr noundef %strings.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %subdivisionTypes.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %subdivisionReplacementIndexes.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %subdivisionLength.i.i.i, ptr noundef nonnull @"_ZZN6icu_7512_GLOBAL__N_116AliasDataBuilder20readSubdivisionAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCodeEN3$_08__invokeES8_", ptr noundef nonnull @"_ZZN6icu_7512_GLOBAL__N_116AliasDataBuilder20readSubdivisionAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCodeEN3$_18__invokeEPKDs", ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont74.i.i.i unwind label %lpad71.i.i.i
 
 invoke.cont74.i.i.i:                              ; preds = %invoke.cont70.i.i.i
@@ -3858,9 +3858,9 @@ call.i.noexc:                                     ; preds = %if.else.i.i185, %_Z
   %194 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_19AliasData10gSingletonE, align 8
   %195 = icmp slt i32 %.pre.pr, 1
   store ptr %194, ptr %data.i, align 8
-  br i1 %195, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit178, label %invoke.cont
+  br i1 %195, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit178, label %invoke.cont
 
-_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit178: ; preds = %call.i.noexc
+_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit178: ; preds = %call.i.noexc
   %len.i179 = getelementptr inbounds i8, ptr %out, i64 56
   store i32 0, ptr %len.i179, align 8
   %196 = load ptr, ptr %out, align 8
@@ -3889,7 +3889,7 @@ _ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit178: ; preds = 
   invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %variantsBuff.i)
           to label %.noexc164 unwind label %lpad
 
-.noexc164:                                        ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit178
+.noexc164:                                        ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit178
   %idxprom.i = sext i32 %201 to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %200, i64 %idxprom.i
   %len.i160 = getelementptr inbounds i8, ptr %variantsBuff.i, i64 56
@@ -4342,14 +4342,14 @@ call.i.i.noexc:                                   ; preds = %call4.i86.noexc
 
 if.end.i.i:                                       ; preds = %call.i.i.noexc
   %cmp.i11.i = icmp eq ptr %call4.i8693, null
-  br i1 %cmp.i11.i, label %if.then11.i, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.argprom.exit.i
+  br i1 %cmp.i11.i, label %if.then11.i, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit.i
 
-_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.argprom.exit.i: ; preds = %if.end.i.i
+_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit.i: ; preds = %if.end.i.i
   %call.i12.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call4.i8693, ptr noundef nonnull readonly dereferenceable(1) %call.i.i94) #24
   %cmp11.i.i = icmp eq i32 %call.i12.i, 0
   br i1 %cmp11.i.i, label %for.inc30.i, label %if.then11.i
 
-if.then11.i:                                      ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.argprom.exit.i, %if.end.i.i
+if.then11.i:                                      ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit.i, %if.end.i.i
   invoke void @_ZN6icu_757UVector12setElementAtEPvi(ptr noundef nonnull align 8 dereferenceable(40) %variants.i, ptr noundef nonnull %call.i.i94, i32 noundef %i.07.i)
           to label %.noexc95 unwind label %lpad67.i.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -4381,7 +4381,7 @@ for.inc.i:                                        ; preds = %if.then25.i91, %cal
   %cmp19.i = icmp slt i32 %inc.i90, %247
   br i1 %cmp19.i, label %for.body20.i, label %if.then94.i, !llvm.loop !15
 
-for.inc30.i:                                      ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.argprom.exit.i, %call.i.i.noexc
+for.inc30.i:                                      ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit.i, %call.i.i.noexc
   %inc31.i = add nuw nsw i32 %i.07.i, 1
   %248 = load i32, ptr %count.i.i82, align 8
   %cmp.i92 = icmp slt i32 %inc31.i, %248
@@ -4472,14 +4472,14 @@ if.end113.i:                                      ; preds = %land.lhs.true105.i,
 call3.i.i.noexc:                                  ; preds = %.noexc58
   %258 = load ptr, ptr %script.i, align 8
   %tobool.not.i.i = icmp eq ptr %258, null
-  br i1 %tobool.not.i.i, label %if.end.i42, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.i
+  br i1 %tobool.not.i.i, label %if.end.i42, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i
 
-_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.i: ; preds = %call3.i.i.noexc
+_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i: ; preds = %call3.i.i.noexc
   %259 = load i8, ptr %258, align 1
   %cmp.i.not.i = icmp eq i8 %259, 0
   br i1 %cmp.i.not.i, label %if.end.i42, label %if.then.i
 
-if.then.i:                                        ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.i
+if.then.i:                                        ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i
   %call3.i4160 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %out, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %status.addr.i38)
           to label %call3.i41.noexc unwind label %lpad67.i.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -4495,17 +4495,17 @@ call3.i41.noexc:                                  ; preds = %if.then.i
   %call3.i12.i62 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %call3.i4160, ptr noundef %261, i32 noundef %263, ptr noundef nonnull align 4 dereferenceable(4) %status.addr.i38)
           to label %if.end.i42 unwind label %lpad67.i.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-if.end.i42:                                       ; preds = %.noexc61, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.i, %call3.i.i.noexc
+if.end.i42:                                       ; preds = %.noexc61, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i, %call3.i.i.noexc
   %264 = load ptr, ptr %region.i, align 8
   %tobool.not.i13.i = icmp eq ptr %264, null
-  br i1 %tobool.not.i13.i, label %if.end13.i, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit16.i
+  br i1 %tobool.not.i13.i, label %if.end13.i, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit16.i
 
-_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit16.i: ; preds = %if.end.i42
+_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit16.i: ; preds = %if.end.i42
   %265 = load i8, ptr %264, align 1
   %cmp.i15.not.i = icmp eq i8 %265, 0
   br i1 %cmp.i15.not.i, label %if.end13.i, label %if.then8.i
 
-if.then8.i:                                       ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit16.i
+if.then8.i:                                       ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit16.i
   %call9.i63 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %out, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %status.addr.i38)
           to label %call9.i.noexc unwind label %lpad67.i.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -4521,7 +4521,7 @@ call9.i.noexc:                                    ; preds = %if.then8.i
   %call3.i17.i65 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %call9.i63, ptr noundef %267, i32 noundef %269, ptr noundef nonnull align 4 dereferenceable(4) %status.addr.i38)
           to label %if.end13.i unwind label %lpad67.i.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-if.end13.i:                                       ; preds = %.noexc64, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit16.i, %if.end.i42
+if.end13.i:                                       ; preds = %.noexc64, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit16.i, %if.end.i42
   %count.i.i = getelementptr inbounds i8, ptr %replacer, i64 40
   %270 = load i32, ptr %count.i.i, align 8
   %cmp.i45 = icmp sgt i32 %270, 0
@@ -4530,28 +4530,28 @@ if.end13.i:                                       ; preds = %.noexc64, %_ZN6icu_
 if.then15.i:                                      ; preds = %if.end13.i
   %271 = load ptr, ptr %script.i, align 8
   %tobool.not.i18.i = icmp eq ptr %271, null
-  br i1 %tobool.not.i18.i, label %land.lhs.true.i57, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit21.i
+  br i1 %tobool.not.i18.i, label %land.lhs.true.i57, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit21.i
 
-_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit21.i: ; preds = %if.then15.i
+_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit21.i: ; preds = %if.then15.i
   %272 = load i8, ptr %271, align 1
   %cmp.i20.not.i = icmp eq i8 %272, 0
   br i1 %cmp.i20.not.i, label %land.lhs.true.i57, label %if.end22.i
 
-land.lhs.true.i57:                                ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit21.i, %if.then15.i
+land.lhs.true.i57:                                ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit21.i, %if.then15.i
   %273 = load ptr, ptr %region.i, align 8
   %tobool.not.i22.i = icmp eq ptr %273, null
-  br i1 %tobool.not.i22.i, label %if.then20.i, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit25.i
+  br i1 %tobool.not.i22.i, label %if.then20.i, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit25.i
 
-_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit25.i: ; preds = %land.lhs.true.i57
+_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit25.i: ; preds = %land.lhs.true.i57
   %274 = load i8, ptr %273, align 1
   %cmp.i24.not.i = icmp eq i8 %274, 0
   br i1 %cmp.i24.not.i, label %if.then20.i, label %if.end22.i
 
-if.then20.i:                                      ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit25.i, %land.lhs.true.i57
+if.then20.i:                                      ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit25.i, %land.lhs.true.i57
   %call21.i66 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %out, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %status.addr.i38)
           to label %if.end22.i unwind label %lpad67.i.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-if.end22.i:                                       ; preds = %if.then20.i, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit25.i, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit21.i
+if.end22.i:                                       ; preds = %if.then20.i, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit25.i, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit21.i
   invoke void @_ZN6icu_757UVector4sortEPFi8UElementS1_ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %variants.i, ptr noundef nonnull @"_ZZN6icu_7512_GLOBAL__N_113AliasReplacer14outputToStringERNS_10CharStringE10UErrorCodeEN3$_08__invokeE8UElementS6_", ptr noundef nonnull align 4 dereferenceable(4) %status.addr.i38)
           to label %.noexc67 unwind label %lpad67.i.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -4601,14 +4601,14 @@ if.end36.i:                                       ; preds = %for.end.i, %if.end1
   %extensions.i = getelementptr inbounds i8, ptr %replacer, i64 24
   %282 = load ptr, ptr %extensions.i, align 8
   %tobool.not.i28.i = icmp eq ptr %282, null
-  br i1 %tobool.not.i28.i, label %invoke.cont114.i, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit31.i
+  br i1 %tobool.not.i28.i, label %invoke.cont114.i, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit31.i
 
-_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit31.i: ; preds = %if.end36.i
+_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit31.i: ; preds = %if.end36.i
   %283 = load i8, ptr %282, align 1
   %cmp.i30.not.i = icmp eq i8 %283, 0
   br i1 %cmp.i30.not.i, label %invoke.cont114.i, label %if.then38.i
 
-if.then38.i:                                      ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit31.i
+if.then38.i:                                      ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit31.i
   invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp39.i, ptr noundef nonnull @.str.193)
           to label %.noexc73 unwind label %lpad67.i.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -4684,7 +4684,7 @@ lpad49.i:                                         ; preds = %invoke.cont50.i, %i
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %tmpLocale.i) #21
   br label %common.resume.i48
 
-invoke.cont114.i:                                 ; preds = %invoke.cont51.i, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit31.i, %if.end36.i
+invoke.cont114.i:                                 ; preds = %invoke.cont51.i, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit31.i, %if.end36.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.addr.i38)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i39)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i)
@@ -4928,7 +4928,7 @@ invoke.cont162.i:                                 ; preds = %if.end161.i
 invoke.cont168.i:                                 ; preds = %invoke.cont162.i
   %347 = load ptr, ptr %value.i, align 8
   %this.val.i = load ptr, ptr %data.i, align 8
-  %call171.i = invoke fastcc noundef zeroext i1 @_ZN6icu_7512_GLOBAL__N_113AliasReplacer18replaceSubdivisionENS_11StringPieceERNS_10CharStringER10UErrorCode.argprom.argelim(ptr %this.val.i, ptr %347, ptr noundef nonnull align 8 dereferenceable(60) %replacement.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call171.i = invoke fastcc noundef zeroext i1 @_ZN6icu_7512_GLOBAL__N_113AliasReplacer18replaceSubdivisionENS_11StringPieceERNS_10CharStringER10UErrorCode(ptr %this.val.i, ptr %347, ptr noundef nonnull align 8 dereferenceable(60) %replacement.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont170.i unwind label %lpad167.i
 
 invoke.cont170.i:                                 ; preds = %invoke.cont168.i
@@ -4947,7 +4947,7 @@ lpad167.i:                                        ; preds = %invoke.cont168.i, %
   br label %ehcleanup.i
 
 if.else.i:                                        ; preds = %invoke.cont162.i
-  %call178.i = invoke fastcc noundef zeroext i1 @_ZN6icu_7512_GLOBAL__N_113AliasReplacer28replaceTransformedExtensionsERNS_10CharStringES3_R10UErrorCode.argprom(ptr noundef nonnull align 8 dereferenceable(60) %value.i, ptr noundef nonnull align 8 dereferenceable(60) %replacement.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call178.i = invoke fastcc noundef zeroext i1 @_ZN6icu_7512_GLOBAL__N_113AliasReplacer28replaceTransformedExtensionsERNS_10CharStringES3_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %value.i, ptr noundef nonnull align 8 dereferenceable(60) %replacement.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont177.i unwind label %lpad167.i
 
 invoke.cont177.i:                                 ; preds = %if.else.i
@@ -5103,7 +5103,7 @@ invoke.cont:                                      ; preds = %call.i.noexc.thread
   call void @_ZN6icu_757UVectorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %variants.i) #21
   ret i1 %retval.0.i
 
-lpad:                                             ; preds = %_ZN6icu_7512_GLOBAL__N_19AliasData8loadDataER10UErrorCode.exit.i, %.noexc187, %if.then4.i.i, %land.lhs.true.i.i, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit178
+lpad:                                             ; preds = %_ZN6icu_7512_GLOBAL__N_19AliasData8loadDataER10UErrorCode.exit.i, %.noexc187, %if.then4.i.i, %land.lhs.true.i.i, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit178
   %361 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
@@ -7542,14 +7542,14 @@ if.end36:                                         ; preds = %land.lhs.true32, %i
           to label %call3.i.i.noexc unwind label %lpad.loopexit
 
 call3.i.i.noexc:                                  ; preds = %.noexc
-  br i1 %tobool.not.i.i, label %if.end.i, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.i
+  br i1 %tobool.not.i.i, label %if.end.i, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i
 
-_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.i: ; preds = %call3.i.i.noexc
+_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i: ; preds = %call3.i.i.noexc
   %12 = load i8, ptr %cond24228, align 1
   %cmp.i.not.i = icmp eq i8 %12, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
-if.then.i:                                        ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.i
+if.then.i:                                        ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i
   %call3.i22 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %typeKey, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %status.addr.i)
           to label %call3.i.noexc unwind label %lpad.loopexit
 
@@ -7563,16 +7563,16 @@ call3.i.noexc:                                    ; preds = %if.then.i
   %call3.i6.i24 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %call3.i22, ptr noundef %13, i32 noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %status.addr.i)
           to label %if.end.i unwind label %lpad.loopexit
 
-if.end.i:                                         ; preds = %.noexc23, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.i, %call3.i.i.noexc
+if.end.i:                                         ; preds = %.noexc23, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i, %call3.i.i.noexc
   %tobool.not.i7.i = icmp eq ptr %searchVariant.2, null
-  br i1 %tobool.not.i7.i, label %invoke.cont, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit10.i
+  br i1 %tobool.not.i7.i, label %invoke.cont, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit10.i
 
-_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit10.i: ; preds = %if.end.i
+_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit10.i: ; preds = %if.end.i
   %15 = load i8, ptr %searchVariant.2, align 1
   %cmp.i9.not.i = icmp eq i8 %15, 0
   br i1 %cmp.i9.not.i, label %invoke.cont, label %if.then7.i
 
-if.then7.i:                                       ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit10.i
+if.then7.i:                                       ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit10.i
   %call8.i25 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %typeKey, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %status.addr.i)
           to label %call8.i.noexc unwind label %lpad.loopexit
 
@@ -7586,7 +7586,7 @@ call8.i.noexc:                                    ; preds = %if.then7.i
   %call3.i11.i27 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %call8.i25, ptr noundef %16, i32 noundef %17, ptr noundef nonnull align 4 dereferenceable(4) %status.addr.i)
           to label %invoke.cont unwind label %lpad.loopexit
 
-invoke.cont:                                      ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit10.i, %if.end.i, %.noexc26
+invoke.cont:                                      ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit10.i, %if.end.i, %.noexc26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.addr.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i)
@@ -7625,7 +7625,7 @@ invoke.cont45:                                    ; preds = %if.end41
 if.end49:                                         ; preds = %invoke.cont45
   %22 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %22, 1
-  br i1 %cmp.i.i, label %if.end.i31, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit.thread
+  br i1 %cmp.i.i, label %if.end.i31, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit.thread
 
 if.end.i31:                                       ; preds = %if.end49
   %call2.i = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %call.i30, i32 noundef 95) #24
@@ -7673,7 +7673,7 @@ _ZN6icu_7512LocalPointerINS_10CharStringEEC2EPS1_R10UErrorCode.exit.i: ; preds =
 .noexc34:                                         ; preds = %_ZN6icu_7512LocalPointerINS_10CharStringEEC2EPS1_R10UErrorCode.exit.i
   %26 = load i32, ptr %status, align 4
   %cmp.i50.i = icmp slt i32 %26, 1
-  br i1 %cmp.i50.i, label %if.end14.i, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit.thread
+  br i1 %cmp.i50.i, label %if.end14.i, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit.thread
 
 lpad.i:                                           ; preds = %new.notnull.i
   %27 = landingpad { ptr, i32 }
@@ -7780,10 +7780,10 @@ if.end58.i:                                       ; preds = %if.else53.i, %if.th
   %spec.select182 = select i1 %cmp59.i, ptr %endOfField.1.i, ptr %start.1.i
   br label %invoke.cont50
 
-_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit.thread: ; preds = %.noexc34, %if.end49
+_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit.thread: ; preds = %.noexc34, %if.end49
   %32 = load ptr, ptr %script137, align 8
   %33 = load ptr, ptr %region, align 8
-  br label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.thread.i47
+  br label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread.i47
 
 invoke.cont50:                                    ; preds = %if.end58.i, %call24.i.noexc, %if.then44.i, %if.then26.i, %if.end40.thread10.i
   %replacedScript.4 = phi ptr [ %incdec.ptr.i, %if.then26.i ], [ %replacedScript.0, %if.then44.i ], [ %incdec.ptr.i, %if.end40.thread10.i ], [ null, %call24.i.noexc ], [ %replacedScript.1, %if.end58.i ]
@@ -7813,34 +7813,34 @@ cond.end58:                                       ; preds = %land.lhs.true52, %i
   %cond59.in.sroa.speculated = phi ptr [ null, %invoke.cont50 ], [ %spec.select180, %land.lhs.true52 ]
   %34 = load ptr, ptr %script137, align 8
   %tobool.not.i.i36 = icmp eq ptr %replacedScript.4112, null
-  br i1 %tobool.not.i.i36, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.i37
+  br i1 %tobool.not.i.i36, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i37
 
-_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.i37: ; preds = %cond.end58
+_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i37: ; preds = %cond.end58
   %35 = load i8, ptr %replacedScript.4112, align 1
   %.fr.i = freeze i8 %35
   %cmp.i.not.i38 = icmp eq i8 %.fr.i, 0
   %cmp.i39 = icmp eq ptr %34, null
   %cond.i = select i1 %cmp.i39, ptr %replacedScript.4112, ptr %34
   %spec.select.i = select i1 %cmp.i.not.i38, ptr %34, ptr %cond.i
-  br label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit
+  br label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit
 
-_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit: ; preds = %cond.end58, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.i37
-  %36 = phi ptr [ %spec.select.i, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.i37 ], [ %34, %cond.end58 ]
+_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit: ; preds = %cond.end58, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i37
+  %36 = phi ptr [ %spec.select.i, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i37 ], [ %34, %cond.end58 ]
   %37 = load ptr, ptr %region, align 8
   %tobool.not.i.i40 = icmp eq ptr %replacedRegion.3114, null
-  br i1 %tobool.not.i.i40, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.thread.i47, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.i41
+  br i1 %tobool.not.i.i40, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread.i47, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i41
 
-_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.thread.i47: ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit.thread, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit
-  %38 = phi ptr [ %33, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit.thread ], [ %37, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit ]
-  %39 = phi ptr [ %32, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit.thread ], [ %36, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit ]
-  %replacedExtensions.0118139162 = phi ptr [ null, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit.thread ], [ %replacedExtensions.0118, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit ]
-  %replacedVariant.1116141160 = phi ptr [ null, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit.thread ], [ %replacedVariant.1116, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit ]
-  %cond59.in.sroa.speculated145158 = phi ptr [ null, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit.thread ], [ %cond59.in.sroa.speculated, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit ]
-  %40 = phi ptr [ %32, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit.thread ], [ %34, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit ]
+_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread.i47: ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit.thread, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit
+  %38 = phi ptr [ %33, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit.thread ], [ %37, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit ]
+  %39 = phi ptr [ %32, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit.thread ], [ %36, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit ]
+  %replacedExtensions.0118139162 = phi ptr [ null, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit.thread ], [ %replacedExtensions.0118, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit ]
+  %replacedVariant.1116141160 = phi ptr [ null, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit.thread ], [ %replacedVariant.1116, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit ]
+  %cond59.in.sroa.speculated145158 = phi ptr [ null, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit.thread ], [ %cond59.in.sroa.speculated, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit ]
+  %40 = phi ptr [ %32, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit.thread ], [ %34, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit ]
   %cond84.i = select i1 %tobool.not.i.i, ptr %38, ptr null
-  br label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit48
+  br label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit48
 
-_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.i41: ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit
+_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i41: ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit
   %41 = load i8, ptr %replacedRegion.3114, align 1
   %.fr.i42 = freeze i8 %41
   %cmp.i.not.i43 = icmp eq i8 %.fr.i42, 0
@@ -7848,45 +7848,45 @@ _ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.i41: ; preds =
   %cond.i45 = select i1 %cmp.i44, ptr %replacedRegion.3114, ptr %37
   %cond8.i = select i1 %tobool.not.i.i, ptr %37, ptr null
   %spec.select.i46 = select i1 %cmp.i.not.i43, ptr %cond8.i, ptr %cond.i45
-  br label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit48
+  br label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit48
 
-_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit48: ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.thread.i47, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.i41
-  %42 = phi ptr [ %38, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.thread.i47 ], [ %37, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.i41 ]
-  %43 = phi ptr [ %39, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.thread.i47 ], [ %36, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.i41 ]
-  %replacedExtensions.0118139161 = phi ptr [ %replacedExtensions.0118139162, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.thread.i47 ], [ %replacedExtensions.0118, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.i41 ]
-  %replacedVariant.1116141159 = phi ptr [ %replacedVariant.1116141160, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.thread.i47 ], [ %replacedVariant.1116, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.i41 ]
-  %cond59.in.sroa.speculated145157 = phi ptr [ %cond59.in.sroa.speculated145158, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.thread.i47 ], [ %cond59.in.sroa.speculated, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.i41 ]
-  %44 = phi ptr [ %40, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.thread.i47 ], [ %34, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.i41 ]
-  %45 = phi ptr [ %cond84.i, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.thread.i47 ], [ %spec.select.i46, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.i41 ]
+_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit48: ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread.i47, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i41
+  %42 = phi ptr [ %38, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread.i47 ], [ %37, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i41 ]
+  %43 = phi ptr [ %39, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread.i47 ], [ %36, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i41 ]
+  %replacedExtensions.0118139161 = phi ptr [ %replacedExtensions.0118139162, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread.i47 ], [ %replacedExtensions.0118, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i41 ]
+  %replacedVariant.1116141159 = phi ptr [ %replacedVariant.1116141160, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread.i47 ], [ %replacedVariant.1116, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i41 ]
+  %cond59.in.sroa.speculated145157 = phi ptr [ %cond59.in.sroa.speculated145158, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread.i47 ], [ %cond59.in.sroa.speculated, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i41 ]
+  %44 = phi ptr [ %40, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread.i47 ], [ %34, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i41 ]
+  %45 = phi ptr [ %cond84.i, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread.i47 ], [ %spec.select.i46, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i41 ]
   %tobool.not.i.i49 = icmp eq ptr %replacedVariant.1116141159, null
-  br i1 %tobool.not.i.i49, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit61, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.i50
+  br i1 %tobool.not.i.i49, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit61, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i50
 
-_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.i50: ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit48
+_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i50: ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit48
   %46 = load i8, ptr %replacedVariant.1116141159, align 1
   %.fr.i51 = freeze i8 %46
   %cmp.i.not.i52 = icmp eq i8 %.fr.i51, 0
   %cond.i54 = select i1 %tobool.not.i7.i, ptr %replacedVariant.1116141159, ptr %searchVariant.2
   %spec.select.i57 = select i1 %cmp.i.not.i52, ptr null, ptr %cond.i54
-  br label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit61
+  br label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit61
 
-_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit61: ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit48, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.i50
-  %47 = phi ptr [ %spec.select.i57, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit.i50 ], [ null, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit48 ]
+_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit61: ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit48, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i50
+  %47 = phi ptr [ %spec.select.i57, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i50 ], [ null, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit48 ]
   %48 = load ptr, ptr %this, align 8
   %cmp.i62 = icmp eq ptr %48, null
   %cmp2.i = icmp eq ptr %cond59.in.sroa.speculated145157, null
   %or.cond.i63 = and i1 %cmp2.i, %cmp.i62
   br i1 %or.cond.i63, label %land.lhs.true70, label %if.end.i64
 
-if.end.i64:                                       ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit61
+if.end.i64:                                       ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit61
   %or.cond9.i = xor i1 %cmp2.i, %cmp.i62
-  br i1 %or.cond9.i, label %if.end84, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.argprom.exit
+  br i1 %or.cond9.i, label %if.end84, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit
 
-_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.argprom.exit: ; preds = %if.end.i64
+_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit: ; preds = %if.end.i64
   %call.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %48, ptr noundef nonnull readonly dereferenceable(1) %cond59.in.sroa.speculated145157) #24
   %cmp11.i = icmp eq i32 %call.i, 0
   br i1 %cmp11.i, label %land.lhs.true70, label %if.end84
 
-land.lhs.true70:                                  ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.argprom.exit61, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.argprom.exit
+land.lhs.true70:                                  ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit61, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit
   %cmp.i65 = icmp eq ptr %44, null
   %cmp2.i66 = icmp eq ptr %43, null
   %or.cond.i67 = and i1 %cmp2.i66, %cmp.i65
@@ -7894,14 +7894,14 @@ land.lhs.true70:                                  ; preds = %_ZN6icu_7512_GLOBAL
 
 if.end.i68:                                       ; preds = %land.lhs.true70
   %or.cond9.i69 = xor i1 %cmp2.i66, %cmp.i65
-  br i1 %or.cond9.i69, label %if.end84, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.argprom.exit74
+  br i1 %or.cond9.i69, label %if.end84, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit74
 
-_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.argprom.exit74: ; preds = %if.end.i68
+_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit74: ; preds = %if.end.i68
   %call.i71 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %44, ptr noundef nonnull readonly dereferenceable(1) %43) #24
   %cmp11.i72 = icmp eq i32 %call.i71, 0
   br i1 %cmp11.i72, label %land.lhs.true74, label %if.end84
 
-land.lhs.true74:                                  ; preds = %land.lhs.true70, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.argprom.exit74
+land.lhs.true74:                                  ; preds = %land.lhs.true70, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit74
   %cmp.i75 = icmp eq ptr %42, null
   %cmp2.i76 = icmp eq ptr %45, null
   %or.cond.i77 = and i1 %cmp.i75, %cmp2.i76
@@ -7909,17 +7909,17 @@ land.lhs.true74:                                  ; preds = %land.lhs.true70, %_
 
 if.end.i78:                                       ; preds = %land.lhs.true74
   %or.cond9.i79 = xor i1 %cmp.i75, %cmp2.i76
-  br i1 %or.cond9.i79, label %if.end84, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.argprom.exit84
+  br i1 %or.cond9.i79, label %if.end84, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit84
 
-_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.argprom.exit84: ; preds = %if.end.i78
+_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit84: ; preds = %if.end.i78
   %call.i81 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %42, ptr noundef nonnull readonly dereferenceable(1) %45) #24
   %cmp11.i82 = icmp eq i32 %call.i81, 0
   br i1 %cmp11.i82, label %land.lhs.true78, label %if.end84
 
-land.lhs.true78:                                  ; preds = %land.lhs.true74, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.argprom.exit84
+land.lhs.true78:                                  ; preds = %land.lhs.true74, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit84
   %cmp2.i86 = icmp eq ptr %47, null
   %or.cond.i87 = and i1 %tobool.not.i7.i, %cmp2.i86
-  br i1 %or.cond.i87, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.argprom.exit94, label %if.end.i88
+  br i1 %or.cond.i87, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit94, label %if.end.i88
 
 if.end.i88:                                       ; preds = %land.lhs.true78
   %or.cond9.i89 = xor i1 %tobool.not.i7.i, %cmp2.i86
@@ -7928,15 +7928,15 @@ if.end.i88:                                       ; preds = %land.lhs.true78
 if.end10.i90:                                     ; preds = %if.end.i88
   %call.i91 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %searchVariant.2, ptr noundef nonnull readonly dereferenceable(1) %47) #24
   %cmp11.i92 = icmp eq i32 %call.i91, 0
-  br label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.argprom.exit94
+  br label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit94
 
-_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.argprom.exit94: ; preds = %land.lhs.true78, %if.end10.i90
+_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit94: ; preds = %land.lhs.true78, %if.end10.i90
   %retval.0.i93 = phi i1 [ %cmp11.i92, %if.end10.i90 ], [ true, %land.lhs.true78 ]
   %cmp82 = icmp eq ptr %replacedExtensions.0118139161, null
   %or.cond = select i1 %retval.0.i93, i1 %cmp82, i1 false
   br i1 %or.cond, label %for.inc, label %if.end84
 
-if.end84:                                         ; preds = %if.end.i88, %if.end.i78, %if.end.i68, %if.end.i64, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.argprom.exit94, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.argprom.exit84, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.argprom.exit74, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.argprom.exit
+if.end84:                                         ; preds = %if.end.i88, %if.end.i78, %if.end.i68, %if.end.i64, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit94, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit84, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit74, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit
   store ptr %cond59.in.sroa.speculated145157, ptr %this, align 8
   store ptr %45, ptr %region, align 8
   store ptr %43, ptr %script137, align 8
@@ -7944,18 +7944,18 @@ if.end84:                                         ; preds = %if.end.i88, %if.end
 
 if.then89:                                        ; preds = %if.end84
   %tobool.not.i = icmp eq ptr %47, null
-  br i1 %tobool.not.i, label %if.else, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit
+  br i1 %tobool.not.i, label %if.else, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit
 
-_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit: ; preds = %if.then89
+_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit: ; preds = %if.then89
   %49 = load i8, ptr %47, align 1
   %cmp.i95.not = icmp eq i8 %49, 0
   br i1 %cmp.i95.not, label %if.else, label %if.then91
 
-if.then91:                                        ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit
+if.then91:                                        ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit
   invoke void @_ZN6icu_757UVector12setElementAtEPvi(ptr noundef nonnull align 8 dereferenceable(40) %variants28, ptr noundef nonnull %47, i32 noundef %variant_index.0202)
           to label %cleanup.thread unwind label %lpad.loopexit.split-lp
 
-if.else:                                          ; preds = %if.then89, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.argprom.exit
+if.else:                                          ; preds = %if.then89, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit
   invoke void @_ZN6icu_757UVector15removeElementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %variants28, i32 noundef %variant_index.0202)
           to label %cleanup.thread unwind label %lpad.loopexit.split-lp
 
@@ -7963,7 +7963,7 @@ cleanup.thread:                                   ; preds = %invoke.cont, %if.th
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %typeKey) #21
   br label %return
 
-for.inc:                                          ; preds = %invoke.cont45, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.argprom.exit94
+for.inc:                                          ; preds = %invoke.cont45, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit94
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %typeKey) #21
   %inc = add nuw nsw i32 %variant_index.0202, 1
   %exitcond.not = icmp eq i32 %inc, %cond226
@@ -7977,7 +7977,7 @@ return:                                           ; preds = %for.inc, %cond.end,
 declare ptr @locale_getKeywordsStart_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN6icu_7512_GLOBAL__N_113AliasReplacer18replaceSubdivisionENS_11StringPieceERNS_10CharStringER10UErrorCode.argprom.argelim(ptr nocapture readonly %this.72.val, ptr %subdivision.coerce0, ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN6icu_7512_GLOBAL__N_113AliasReplacer18replaceSubdivisionENS_11StringPieceERNS_10CharStringER10UErrorCode(ptr nocapture readonly %this.72.val, ptr %subdivision.coerce0, ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -8027,7 +8027,7 @@ return:                                           ; preds = %if.end, %cond.end, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN6icu_7512_GLOBAL__N_113AliasReplacer28replaceTransformedExtensionsERNS_10CharStringES3_R10UErrorCode.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %transformedExtensions, ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN6icu_7512_GLOBAL__N_113AliasReplacer28replaceTransformedExtensionsERNS_10CharStringES3_R10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %transformedExtensions, ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sink = alloca %"class.icu_75::CharStringByteSink", align 8
   %tlang = alloca %"class.icu_75::Locale", align 8
@@ -8578,7 +8578,7 @@ _ZN6icu_7515MaybeStackArrayIPNS_13UnicodeStringELi8EED2Ev.exit: ; preds = %for.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6icu_7512_GLOBAL__N_116AliasDataBuilder9readAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiPFvS8_EPFvPKDsER10UErrorCode.argprom(ptr noundef %alias, ptr noundef nonnull %strings, ptr nocapture noundef nonnull align 8 dereferenceable(8) %types, ptr nocapture noundef nonnull align 8 dereferenceable(8) %replacementIndexes, ptr nocapture noundef nonnull align 4 dereferenceable(4) %length, ptr nocapture noundef readonly %checkType, ptr nocapture noundef readonly %checkReplacement, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6icu_7512_GLOBAL__N_116AliasDataBuilder9readAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiPFvS8_EPFvPKDsER10UErrorCode(ptr noundef %alias, ptr noundef nonnull %strings, ptr nocapture noundef nonnull align 8 dereferenceable(8) %types, ptr nocapture noundef nonnull align 8 dereferenceable(8) %replacementIndexes, ptr nocapture noundef nonnull align 4 dereferenceable(4) %length, ptr nocapture noundef readonly %checkType, ptr nocapture noundef readonly %checkReplacement, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %res = alloca %"class.icu_75::LocalUResourceBundlePointer", align 8
   %0 = load i32, ptr %status, align 4
@@ -8838,14 +8838,14 @@ entry:
 define internal void @"_ZZN6icu_7512_GLOBAL__N_113AliasReplacer7replaceERKNS_6LocaleERNS_10CharStringER10UErrorCodeEN3$_18__invokeEPv"(ptr noundef %obj) #1 align 2 {
 entry:
   %isnull.i = icmp eq ptr %obj, null
-  br i1 %isnull.i, label %"_ZZN6icu_7512_GLOBAL__N_113AliasReplacer7replaceERKNS_6LocaleERNS_10CharStringER10UErrorCodeENK3$_1clEPv.argprom.exit", label %delete.notnull.i
+  br i1 %isnull.i, label %"_ZZN6icu_7512_GLOBAL__N_113AliasReplacer7replaceERKNS_6LocaleERNS_10CharStringER10UErrorCodeENK3$_1clEPv.exit", label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
   tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %obj) #21
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %obj) #21
-  br label %"_ZZN6icu_7512_GLOBAL__N_113AliasReplacer7replaceERKNS_6LocaleERNS_10CharStringER10UErrorCodeENK3$_1clEPv.argprom.exit"
+  br label %"_ZZN6icu_7512_GLOBAL__N_113AliasReplacer7replaceERKNS_6LocaleERNS_10CharStringER10UErrorCodeENK3$_1clEPv.exit"
 
-"_ZZN6icu_7512_GLOBAL__N_113AliasReplacer7replaceERKNS_6LocaleERNS_10CharStringER10UErrorCodeENK3$_1clEPv.argprom.exit": ; preds = %entry, %delete.notnull.i
+"_ZZN6icu_7512_GLOBAL__N_113AliasReplacer7replaceERKNS_6LocaleERNS_10CharStringER10UErrorCodeENK3$_1clEPv.exit": ; preds = %entry, %delete.notnull.i
   ret void
 }
 

@@ -528,7 +528,7 @@ define double @jvp_strtod(ptr nocapture noundef %0, ptr noundef %1, ptr noundef 
   %.012.i592.idx = phi i64 [ %.012.i592.add, %162 ], [ 0, %153 ]
   %.0.i593 = phi ptr [ %165, %162 ], [ %scevgep1145, %153 ]
   %exitcond1148 = icmp eq i64 %.012.i592.idx, 5
-  br i1 %exitcond1148, label %match.argprom.exit599, label %162
+  br i1 %exitcond1148, label %match.exit599, label %162
 
 162:                                              ; preds = %.preheader
   %.012.i592.ptr = getelementptr inbounds i8, ptr @.str.1, i64 %.012.i592.idx
@@ -543,9 +543,9 @@ define double @jvp_strtod(ptr nocapture noundef %0, ptr noundef %1, ptr noundef 
   %169 = or disjoint i32 %167, 32
   %spec.select.i596 = select i1 %or.cond.i595, i32 %169, i32 %167
   %.not15.i597 = icmp eq i32 %spec.select.i596, %164
-  br i1 %.not15.i597, label %.preheader, label %match.argprom.exit599, !llvm.loop !15
+  br i1 %.not15.i597, label %.preheader, label %match.exit599, !llvm.loop !15
 
-match.argprom.exit599:                            ; preds = %162, %.preheader
+match.exit599:                                    ; preds = %162, %.preheader
   %170 = phi i64 [ 7, %.preheader ], [ 2, %162 ]
   %171 = getelementptr i8, ptr %.9748, i64 %170
   %.13 = getelementptr inbounds i8, ptr %171, i64 1
@@ -1025,12 +1025,12 @@ Bfree.exit614:                                    ; preds = %297, %298
   %410 = fcmp une double %409, 0.000000e+00
   br i1 %410, label %412, label %411
 
-411:                                              ; preds = %sulp.argprom.exit645, %674, %1113, %746, %408, %396, %367
-  %.2407 = phi ptr [ %.4409, %1113 ], [ %.4409, %746 ], [ null, %367 ], [ null, %396 ], [ null, %408 ], [ %.4409, %674 ], [ %.4409, %sulp.argprom.exit645 ]
-  %.2400 = phi ptr [ %.4402, %1113 ], [ %.4402, %746 ], [ null, %367 ], [ null, %396 ], [ null, %408 ], [ %.4402, %674 ], [ %.4402, %sulp.argprom.exit645 ]
-  %.2397 = phi ptr [ null, %1113 ], [ %.234.lcssa.i, %746 ], [ null, %367 ], [ null, %396 ], [ null, %408 ], [ %.234.lcssa.i, %674 ], [ %.234.lcssa.i, %sulp.argprom.exit645 ]
-  %.2392 = phi ptr [ %.4394, %1113 ], [ %.4394, %746 ], [ null, %367 ], [ null, %396 ], [ null, %408 ], [ %.4394, %674 ], [ %.4394, %sulp.argprom.exit645 ]
-  %.2 = phi ptr [ %.3, %1113 ], [ %592, %746 ], [ null, %367 ], [ null, %396 ], [ null, %408 ], [ %.4, %674 ], [ %592, %sulp.argprom.exit645 ]
+411:                                              ; preds = %sulp.exit645, %674, %1113, %746, %408, %396, %367
+  %.2407 = phi ptr [ %.4409, %1113 ], [ %.4409, %746 ], [ null, %367 ], [ null, %396 ], [ null, %408 ], [ %.4409, %674 ], [ %.4409, %sulp.exit645 ]
+  %.2400 = phi ptr [ %.4402, %1113 ], [ %.4402, %746 ], [ null, %367 ], [ null, %396 ], [ null, %408 ], [ %.4402, %674 ], [ %.4402, %sulp.exit645 ]
+  %.2397 = phi ptr [ null, %1113 ], [ %.234.lcssa.i, %746 ], [ null, %367 ], [ null, %396 ], [ null, %408 ], [ %.234.lcssa.i, %674 ], [ %.234.lcssa.i, %sulp.exit645 ]
+  %.2392 = phi ptr [ %.4394, %1113 ], [ %.4394, %746 ], [ null, %367 ], [ null, %396 ], [ null, %408 ], [ %.4394, %674 ], [ %.4394, %sulp.exit645 ]
+  %.2 = phi ptr [ %.3, %1113 ], [ %592, %746 ], [ null, %367 ], [ null, %396 ], [ null, %408 ], [ %.4, %674 ], [ %592, %sulp.exit645 ]
   store double 0.000000e+00, ptr %10, align 8
   br label %265
 
@@ -1427,7 +1427,7 @@ Bfree.exit623:                                    ; preds = %573, %572, %565, %5
   %598 = load i32, ptr %597, align 4
   %599 = sub nsw i32 %596, %598
   %.not.i624 = icmp eq i32 %599, 0
-  br i1 %.not.i624, label %600, label %cmp.argprom.exit
+  br i1 %.not.i624, label %600, label %cmp.exit
 
 600:                                              ; preds = %591
   %601 = sext i32 %598 to i64
@@ -1451,26 +1451,26 @@ Bfree.exit623:                                    ; preds = %573, %572, %565, %5
 608:                                              ; preds = %604
   %609 = icmp ult i32 %605, %607
   %610 = select i1 %609, i32 -1, i32 1
-  br label %cmp.argprom.exit
+  br label %cmp.exit
 
 611:                                              ; preds = %604
   %.not24.i = icmp sgt i64 %.017.idx.i, 28
-  br i1 %.not24.i, label %604, label %cmp.argprom.exit.thread
+  br i1 %.not24.i, label %604, label %cmp.exit.thread
 
-cmp.argprom.exit:                                 ; preds = %591, %608
+cmp.exit:                                         ; preds = %591, %608
   %.0.i625 = phi i32 [ %610, %608 ], [ %599, %591 ]
   %612 = icmp slt i32 %.0.i625, 1
   %or.cond17 = and i1 %500, %612
   br i1 %or.cond17, label %613, label %614
 
-cmp.argprom.exit.thread:                          ; preds = %611
+cmp.exit.thread:                                  ; preds = %611
   br i1 %500, label %613, label %645
 
-613:                                              ; preds = %cmp.argprom.exit.thread, %cmp.argprom.exit
+613:                                              ; preds = %cmp.exit.thread, %cmp.exit
   %.not552 = icmp eq i32 %594, 0
-  br i1 %.not552, label %.thread761, label %cmp.argprom.exit636.thread
+  br i1 %.not552, label %.thread761, label %cmp.exit636.thread
 
-614:                                              ; preds = %cmp.argprom.exit
+614:                                              ; preds = %cmp.exit
   %615 = icmp slt i32 %.0.i625, 0
   br i1 %615, label %.thread761, label %713
 
@@ -1479,7 +1479,7 @@ cmp.argprom.exit.thread:                          ; preds = %611
   %617 = load i32, ptr %10, align 8
   %618 = icmp ne i32 %617, 0
   %or.cond20 = select i1 %616, i1 true, i1 %618
-  br i1 %or.cond20, label %cmp.argprom.exit636.thread, label %619
+  br i1 %or.cond20, label %cmp.exit636.thread, label %619
 
 619:                                              ; preds = %.thread761
   %620 = load i32, ptr %501, align 4
@@ -1488,7 +1488,7 @@ cmp.argprom.exit.thread:                          ; preds = %611
   %622 = and i32 %620, 2146435072
   %623 = icmp ult i32 %622, 112197633
   %or.cond581 = or i1 %.not565, %623
-  br i1 %or.cond581, label %cmp.argprom.exit636.thread, label %624
+  br i1 %or.cond581, label %cmp.exit636.thread, label %624
 
 624:                                              ; preds = %619
   %625 = getelementptr inbounds i8, ptr %592, i64 24
@@ -1496,7 +1496,7 @@ cmp.argprom.exit.thread:                          ; preds = %611
   %.not566 = icmp eq i32 %626, 0
   %627 = icmp slt i32 %596, 2
   %or.cond769 = and i1 %627, %.not566
-  br i1 %or.cond769, label %cmp.argprom.exit636.thread, label %628
+  br i1 %or.cond769, label %cmp.exit636.thread, label %628
 
 628:                                              ; preds = %624
   %629 = tail call fastcc ptr @lshift(ptr noundef %0, ptr noundef nonnull %592, i32 noundef 1)
@@ -1504,7 +1504,7 @@ cmp.argprom.exit.thread:                          ; preds = %611
   %631 = load i32, ptr %630, align 4
   %632 = load i32, ptr %597, align 4
   %.not.i626 = icmp eq i32 %631, %632
-  br i1 %.not.i626, label %633, label %cmp.argprom.exit636
+  br i1 %.not.i626, label %633, label %cmp.exit636
 
 633:                                              ; preds = %628
   %634 = sext i32 %631 to i64
@@ -1527,17 +1527,17 @@ cmp.argprom.exit.thread:                          ; preds = %611
 
 641:                                              ; preds = %637
   %642 = icmp ult i32 %638, %640
-  br i1 %642, label %cmp.argprom.exit636.thread, label %cmp.argprom.exit636.thread764
+  br i1 %642, label %cmp.exit636.thread, label %cmp.exit636.thread764
 
 643:                                              ; preds = %637
   %.not24.i635 = icmp sgt i64 %.017.idx.i631, 28
-  br i1 %.not24.i635, label %637, label %cmp.argprom.exit636.thread
+  br i1 %.not24.i635, label %637, label %cmp.exit636.thread
 
-cmp.argprom.exit636:                              ; preds = %628
+cmp.exit636:                                      ; preds = %628
   %644 = icmp sgt i32 %631, %632
-  br i1 %644, label %cmp.argprom.exit636.thread764, label %cmp.argprom.exit636.thread
+  br i1 %644, label %cmp.exit636.thread764, label %cmp.exit636.thread
 
-645:                                              ; preds = %cmp.argprom.exit.thread
+645:                                              ; preds = %cmp.exit.thread
   %.not559 = icmp eq i32 %594, 0
   %646 = load i32, ptr %501, align 4
   %647 = and i32 %646, 1048575
@@ -1578,33 +1578,33 @@ cmp.argprom.exit636:                              ; preds = %628
   %667 = add nuw i32 %666, 1048576
   store i32 %667, ptr %501, align 4
   store i32 0, ptr %10, align 8
-  br label %cmp.argprom.exit636.thread
+  br label %cmp.exit636.thread
 
 668:                                              ; preds = %645
   %669 = icmp ne i32 %647, 0
   %670 = load i32, ptr %10, align 8
   %671 = icmp ne i32 %670, 0
   %or.cond26 = select i1 %669, i1 true, i1 %671
-  br i1 %or.cond26, label %.loopexit783, label %cmp.argprom.exit636.thread764
+  br i1 %or.cond26, label %.loopexit783, label %cmp.exit636.thread764
 
-cmp.argprom.exit636.thread764:                    ; preds = %641, %668, %cmp.argprom.exit636
-  %672 = phi i32 [ %620, %cmp.argprom.exit636 ], [ %646, %668 ], [ %620, %641 ]
-  %.4 = phi ptr [ %629, %cmp.argprom.exit636 ], [ %592, %668 ], [ %629, %641 ]
+cmp.exit636.thread764:                            ; preds = %641, %668, %cmp.exit636
+  %672 = phi i32 [ %620, %cmp.exit636 ], [ %646, %668 ], [ %620, %641 ]
+  %.4 = phi ptr [ %629, %cmp.exit636 ], [ %592, %668 ], [ %629, %641 ]
   %.pre1154 = and i32 %672, 2146435072
   %673 = icmp ugt i32 %.pre1154, 112197632
   %or.cond1337.not = or i1 %673, %504
-  br i1 %or.cond1337.not, label %cmp.argprom.exit636.thread764._crit_edge, label %674
+  br i1 %or.cond1337.not, label %cmp.exit636.thread764._crit_edge, label %674
 
-674:                                              ; preds = %cmp.argprom.exit636.thread764
+674:                                              ; preds = %cmp.exit636.thread764
   %675 = icmp ugt i32 %.pre1154, 57671680
   %brmerge = or i1 %500, %675
-  br i1 %brmerge, label %cmp.argprom.exit636.thread, label %411
+  br i1 %brmerge, label %cmp.exit636.thread, label %411
 
-cmp.argprom.exit636.thread764._crit_edge:         ; preds = %cmp.argprom.exit636.thread764
+cmp.exit636.thread764._crit_edge:                 ; preds = %cmp.exit636.thread764
   %676 = add nsw i32 %.pre1154, -1
   store i32 %676, ptr %501, align 4
   store i32 -1, ptr %10, align 8
-  br i1 %500, label %826, label %cmp.argprom.exit636.thread
+  br i1 %500, label %826, label %cmp.exit636.thread
 
 .loopexit783:                                     ; preds = %668, %648, %659
   %.not561 = icmp eq i32 %.0387, 0
@@ -1613,13 +1613,13 @@ cmp.argprom.exit636.thread764._crit_edge:         ; preds = %cmp.argprom.exit636
 677:                                              ; preds = %.loopexit783
   %678 = and i32 %646, %.0387
   %.not563 = icmp eq i32 %678, 0
-  br i1 %.not563, label %cmp.argprom.exit636.thread, label %682
+  br i1 %.not563, label %cmp.exit636.thread, label %682
 
 679:                                              ; preds = %.loopexit783
   %680 = load i32, ptr %10, align 8
   %681 = and i32 %680, %.0388
   %.not562 = icmp eq i32 %681, 0
-  br i1 %.not562, label %cmp.argprom.exit636.thread, label %682
+  br i1 %.not562, label %cmp.exit636.thread, label %682
 
 682:                                              ; preds = %679, %677
   %683 = and i32 %646, 2146435072
@@ -1630,13 +1630,13 @@ cmp.argprom.exit636.thread764._crit_edge:         ; preds = %cmp.argprom.exit636
   br i1 %.not559, label %698, label %686
 
 686:                                              ; preds = %682
-  br i1 %504, label %sulp.argprom.exit, label %687
+  br i1 %504, label %sulp.exit, label %687
 
 687:                                              ; preds = %686
   %688 = lshr i32 %646, 20
   %689 = and i32 %688, 2047
   %690 = icmp ugt i32 %689, 106
-  br i1 %690, label %sulp.argprom.exit, label %691
+  br i1 %690, label %sulp.exit, label %691
 
 691:                                              ; preds = %687
   %692 = shl nuw nsw i32 %689, 20
@@ -1645,9 +1645,9 @@ cmp.argprom.exit636.thread764._crit_edge:         ; preds = %cmp.argprom.exit636
   %.sroa.0.4.insert.shift.i = shl nuw nsw i64 %.sroa.0.4.insert.ext.i, 32
   %694 = bitcast i64 %.sroa.0.4.insert.shift.i to double
   %695 = fmul double %685, %694
-  br label %sulp.argprom.exit
+  br label %sulp.exit
 
-sulp.argprom.exit:                                ; preds = %686, %687, %691
+sulp.exit:                                        ; preds = %686, %687, %691
   %.0.i638 = phi double [ %695, %691 ], [ %685, %687 ], [ %685, %686 ]
   %696 = load double, ptr %10, align 8
   %697 = fadd double %.0.i638, %696
@@ -1655,13 +1655,13 @@ sulp.argprom.exit:                                ; preds = %686, %687, %691
   br label %711
 
 698:                                              ; preds = %682
-  br i1 %504, label %sulp.argprom.exit645, label %699
+  br i1 %504, label %sulp.exit645, label %699
 
 699:                                              ; preds = %698
   %700 = lshr i32 %646, 20
   %701 = and i32 %700, 2047
   %702 = icmp ugt i32 %701, 106
-  br i1 %702, label %sulp.argprom.exit645, label %703
+  br i1 %702, label %sulp.exit645, label %703
 
 703:                                              ; preds = %699
   %704 = shl nuw nsw i32 %701, 20
@@ -1670,9 +1670,9 @@ sulp.argprom.exit:                                ; preds = %686, %687, %691
   %.sroa.0.4.insert.shift.i643 = shl nuw nsw i64 %.sroa.0.4.insert.ext.i642, 32
   %706 = bitcast i64 %.sroa.0.4.insert.shift.i643 to double
   %707 = fmul double %685, %706
-  br label %sulp.argprom.exit645
+  br label %sulp.exit645
 
-sulp.argprom.exit645:                             ; preds = %698, %699, %703
+sulp.exit645:                                     ; preds = %698, %699, %703
   %.0.i644 = phi double [ %707, %703 ], [ %685, %699 ], [ %685, %698 ]
   %708 = load double, ptr %10, align 8
   %709 = fsub double %708, %.0.i644
@@ -1680,15 +1680,15 @@ sulp.argprom.exit645:                             ; preds = %698, %699, %703
   %710 = fcmp une double %709, 0.000000e+00
   br i1 %710, label %711, label %411
 
-711:                                              ; preds = %sulp.argprom.exit645, %sulp.argprom.exit
+711:                                              ; preds = %sulp.exit645, %sulp.exit
   %712 = sub nsw i32 1, %594
-  br label %cmp.argprom.exit636.thread
+  br label %cmp.exit636.thread
 
 713:                                              ; preds = %614
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %714 = call fastcc double @b2d.argprom(ptr noundef nonnull %592, ptr noundef %6)
-  %715 = call fastcc double @b2d.argprom(ptr noundef %.4394, ptr noundef %7)
+  %714 = call fastcc double @b2d(ptr noundef nonnull %592, ptr noundef %6)
+  %715 = call fastcc double @b2d(ptr noundef %.4394, ptr noundef %7)
   %716 = load i32, ptr %6, align 4
   %717 = load i32, ptr %7, align 4
   %718 = sub nsw i32 %716, %717
@@ -1710,7 +1710,7 @@ sulp.argprom.exit645:                             ; preds = %698, %699, %703
   %.sroa.04.4.insert.mask.i = and i64 %726, 4294967295
   %.sroa.04.4.insert.insert.i = or disjoint i64 %.sroa.04.4.insert.shift.i, %.sroa.04.4.insert.mask.i
   %728 = bitcast i64 %.sroa.04.4.insert.insert.i to double
-  br label %ratio.argprom.exit
+  br label %ratio.exit
 
 729:                                              ; preds = %713
   %730 = bitcast double %715 to i64
@@ -1723,9 +1723,9 @@ sulp.argprom.exit645:                             ; preds = %698, %699, %703
   %.sroa.0.4.insert.mask.i = and i64 %730, 4294967295
   %.sroa.0.4.insert.insert.i = or disjoint i64 %.sroa.0.4.insert.shift.i647, %.sroa.0.4.insert.mask.i
   %733 = bitcast i64 %.sroa.0.4.insert.insert.i to double
-  br label %ratio.argprom.exit
+  br label %ratio.exit
 
-ratio.argprom.exit:                               ; preds = %724, %729
+ratio.exit:                                       ; preds = %724, %729
   %.sroa.04.0.i = phi double [ %728, %724 ], [ %714, %729 ]
   %.sroa.0.0.i = phi double [ %715, %724 ], [ %733, %729 ]
   %734 = fdiv double %.sroa.04.0.i, %.sroa.0.0.i
@@ -1734,7 +1734,7 @@ ratio.argprom.exit:                               ; preds = %724, %729
   %735 = fcmp ugt double %734, 2.000000e+00
   br i1 %735, label %751, label %736
 
-736:                                              ; preds = %ratio.argprom.exit
+736:                                              ; preds = %ratio.exit
   %.not554 = icmp eq i32 %594, 0
   br i1 %.not554, label %737, label %.thread766
 
@@ -1757,7 +1757,7 @@ ratio.argprom.exit:                               ; preds = %724, %729
   br i1 %or.cond29, label %.thread766, label %746
 
 746:                                              ; preds = %742
-  br i1 %500, label %cmp.argprom.exit636.thread, label %411
+  br i1 %500, label %cmp.exit636.thread, label %411
 
 747:                                              ; preds = %739
   %748 = fcmp olt double %734, 1.000000e+00
@@ -1766,7 +1766,7 @@ ratio.argprom.exit:                               ; preds = %724, %729
   %750 = fneg double %.0431
   br label %.thread766
 
-751:                                              ; preds = %ratio.argprom.exit
+751:                                              ; preds = %ratio.exit
   %752 = fmul double %734, 5.000000e-01
   %.not553 = icmp eq i32 %594, 0
   %753 = fneg double %752
@@ -1863,7 +1863,7 @@ ratio.argprom.exit:                               ; preds = %724, %729
 
 799:                                              ; preds = %786
   %spec.select770 = select i1 %500, i32 1, i32 %594
-  br label %cmp.argprom.exit636.thread
+  br label %cmp.exit636.thread
 
 800:                                              ; preds = %777
   %801 = add nsw i32 %760, -54525952
@@ -1904,14 +1904,14 @@ ratio.argprom.exit:                               ; preds = %724, %729
   %822 = fcmp olt double %816, 0x3FDFFFFF94A03595
   %823 = fcmp ogt double %816, 0x3FE0000035AFE535
   %or.cond39 = or i1 %822, %823
-  br i1 %or.cond39, label %cmp.argprom.exit636.thread, label %826
+  br i1 %or.cond39, label %cmp.exit636.thread, label %826
 
 824:                                              ; preds = %813
   %825 = fcmp olt double %816, 0x3FCFFFFF94A03595
-  br i1 %825, label %cmp.argprom.exit636.thread, label %826
+  br i1 %825, label %cmp.exit636.thread, label %826
 
-826:                                              ; preds = %809, %824, %821, %cmp.argprom.exit636.thread764._crit_edge, %774
-  %.5 = phi ptr [ %.4, %cmp.argprom.exit636.thread764._crit_edge ], [ %592, %774 ], [ %592, %809 ], [ %592, %821 ], [ %592, %824 ]
+826:                                              ; preds = %809, %824, %821, %cmp.exit636.thread764._crit_edge, %774
+  %.5 = phi ptr [ %.4, %cmp.exit636.thread764._crit_edge ], [ %592, %774 ], [ %592, %809 ], [ %592, %821 ], [ %592, %824 ]
   %.not.i654 = icmp eq ptr %.4409, null
   br i1 %.not.i654, label %Bfree.exit655, label %827
 
@@ -1998,14 +1998,14 @@ Bfree.exit661.backedge:                           ; preds = %857, %858
   store ptr %.5, ptr %860, align 8
   br label %Bfree.exit661.backedge
 
-cmp.argprom.exit636.thread:                       ; preds = %624, %641, %613, %824, %821, %cmp.argprom.exit636.thread764._crit_edge, %cmp.argprom.exit636, %.thread761, %619, %643, %799, %674, %746, %679, %677, %711, %665
-  %.sroa.16.0 = phi i32 [ %594, %674 ], [ %594, %679 ], [ %712, %711 ], [ %594, %677 ], [ 0, %665 ], [ 0, %746 ], [ %spec.select770, %799 ], [ 0, %643 ], [ %594, %.thread761 ], [ 0, %619 ], [ %594, %cmp.argprom.exit636.thread764._crit_edge ], [ 0, %cmp.argprom.exit636 ], [ 0, %824 ], [ %594, %821 ], [ %594, %613 ], [ 0, %641 ], [ 0, %624 ]
-  %.3 = phi ptr [ %.4, %674 ], [ %592, %679 ], [ %592, %711 ], [ %592, %677 ], [ %592, %665 ], [ %592, %746 ], [ %592, %799 ], [ %629, %643 ], [ %592, %.thread761 ], [ %592, %619 ], [ %.4, %cmp.argprom.exit636.thread764._crit_edge ], [ %629, %cmp.argprom.exit636 ], [ %592, %824 ], [ %592, %821 ], [ %592, %613 ], [ %629, %641 ], [ %592, %624 ]
-  %.not568 = phi i1 [ true, %674 ], [ true, %679 ], [ true, %711 ], [ true, %677 ], [ true, %665 ], [ true, %746 ], [ true, %799 ], [ true, %643 ], [ true, %.thread761 ], [ true, %619 ], [ true, %cmp.argprom.exit636.thread764._crit_edge ], [ true, %cmp.argprom.exit636 ], [ true, %824 ], [ true, %821 ], [ false, %613 ], [ true, %641 ], [ true, %624 ]
+cmp.exit636.thread:                               ; preds = %624, %641, %613, %824, %821, %cmp.exit636.thread764._crit_edge, %cmp.exit636, %.thread761, %619, %643, %799, %674, %746, %679, %677, %711, %665
+  %.sroa.16.0 = phi i32 [ %594, %674 ], [ %594, %679 ], [ %712, %711 ], [ %594, %677 ], [ 0, %665 ], [ 0, %746 ], [ %spec.select770, %799 ], [ 0, %643 ], [ %594, %.thread761 ], [ 0, %619 ], [ %594, %cmp.exit636.thread764._crit_edge ], [ 0, %cmp.exit636 ], [ 0, %824 ], [ %594, %821 ], [ %594, %613 ], [ 0, %641 ], [ 0, %624 ]
+  %.3 = phi ptr [ %.4, %674 ], [ %592, %679 ], [ %592, %711 ], [ %592, %677 ], [ %592, %665 ], [ %592, %746 ], [ %592, %799 ], [ %629, %643 ], [ %592, %.thread761 ], [ %592, %619 ], [ %.4, %cmp.exit636.thread764._crit_edge ], [ %629, %cmp.exit636 ], [ %592, %824 ], [ %592, %821 ], [ %592, %613 ], [ %629, %641 ], [ %592, %624 ]
+  %.not568 = phi i1 [ true, %674 ], [ true, %679 ], [ true, %711 ], [ true, %677 ], [ true, %665 ], [ true, %746 ], [ true, %799 ], [ true, %643 ], [ true, %.thread761 ], [ true, %619 ], [ true, %cmp.exit636.thread764._crit_edge ], [ true, %cmp.exit636 ], [ true, %824 ], [ true, %821 ], [ false, %613 ], [ true, %641 ], [ true, %624 ]
   %.not.i662 = icmp eq ptr %.4409, null
   br i1 %.not.i662, label %Bfree.exit663, label %862
 
-862:                                              ; preds = %cmp.argprom.exit636.thread
+862:                                              ; preds = %cmp.exit636.thread
   %863 = getelementptr inbounds i8, ptr %.4409, i64 8
   %864 = load i32, ptr %863, align 8
   %865 = icmp sgt i32 %864, 7
@@ -2023,7 +2023,7 @@ cmp.argprom.exit636.thread:                       ; preds = %624, %641, %613, %8
   store ptr %.4409, ptr %869, align 8
   br label %Bfree.exit663
 
-Bfree.exit663:                                    ; preds = %cmp.argprom.exit636.thread, %866, %867
+Bfree.exit663:                                    ; preds = %cmp.exit636.thread, %866, %867
   %.not.i664 = icmp eq ptr %.4402, null
   br i1 %.not.i664, label %Bfree.exit665, label %871
 
@@ -2282,13 +2282,13 @@ i2b.exit164.i:                                    ; preds = %941, %939
 
 983:                                              ; preds = %981, %978
   %.1111.i = phi ptr [ %982, %981 ], [ %.0110.i, %978 ]
-  %984 = tail call fastcc i32 @quorem.argprom(ptr noundef %.2.i, ptr noundef %.1111.i)
+  %984 = tail call fastcc i32 @quorem(ptr noundef %.2.i, ptr noundef %.1111.i)
   %.not143.i = icmp eq i32 %984, 0
   br i1 %.not143.i, label %985, label %988
 
 985:                                              ; preds = %983
   %986 = tail call fastcc ptr @multadd(ptr noundef nonnull %0, ptr noundef %.2.i, i32 noundef 10, i32 noundef 0)
-  %987 = tail call fastcc i32 @quorem.argprom(ptr noundef %986, ptr noundef %.1111.i)
+  %987 = tail call fastcc i32 @quorem(ptr noundef %986, ptr noundef %.1111.i)
   br label %988
 
 988:                                              ; preds = %985, %983
@@ -2334,7 +2334,7 @@ i2b.exit164.i:                                    ; preds = %941, %939
 
 1004:                                             ; preds = %997, %994
   %1005 = tail call fastcc ptr @multadd(ptr noundef %0, ptr noundef nonnull %.4210.i, i32 noundef 10, i32 noundef 0)
-  %1006 = tail call fastcc i32 @quorem.argprom(ptr noundef %1005, ptr noundef %.1111.i)
+  %1006 = tail call fastcc i32 @quorem(ptr noundef %1005, ptr noundef %.1111.i)
   %exitcond.not.i680 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i680, label %._crit_edge.i674, label %.lr.ph.i679, !llvm.loop !23
 
@@ -2383,7 +2383,7 @@ i2b.exit164.i:                                    ; preds = %941, %939
 
 1023:                                             ; preds = %1017, %1014
   %1024 = tail call fastcc ptr @multadd(ptr noundef %0, ptr noundef nonnull %.6215.i, i32 noundef 10, i32 noundef 0)
-  %1025 = tail call fastcc i32 @quorem.argprom(ptr noundef %1024, ptr noundef %.1111.i)
+  %1025 = tail call fastcc i32 @quorem(ptr noundef %1024, ptr noundef %.1111.i)
   %exitcond250.not.i = icmp eq i32 %1009, %413
   br i1 %exitcond250.not.i, label %._crit_edge218.i, label %.lr.ph217.i, !llvm.loop !24
 
@@ -2483,13 +2483,13 @@ Bfree.exit167.i:                                  ; preds = %1047, %1046, %Bfree
   %.sroa.0.4.insert.ext.i.i.i = zext i32 %1057 to i64
   %.sroa.0.4.insert.shift.i.i.i = shl nuw i64 %.sroa.0.4.insert.ext.i.i.i, 32
   %1058 = bitcast i64 %.sroa.0.4.insert.shift.i.i.i to double
-  br i1 %504, label %sulp.argprom.exit.i, label %1059
+  br i1 %504, label %sulp.exit.i, label %1059
 
 1059:                                             ; preds = %._crit_edge255.i
   %1060 = lshr i32 %.val160.i, 20
   %1061 = and i32 %1060, 2047
   %1062 = icmp ugt i32 %1061, 106
-  br i1 %1062, label %sulp.argprom.exit.i, label %1063
+  br i1 %1062, label %sulp.exit.i, label %1063
 
 1063:                                             ; preds = %1059
   %1064 = shl nuw nsw i32 %1061, 20
@@ -2498,9 +2498,9 @@ Bfree.exit167.i:                                  ; preds = %1047, %1046, %Bfree
   %.sroa.0.4.insert.shift.i.i676 = shl nuw nsw i64 %.sroa.0.4.insert.ext.i.i675, 32
   %1066 = bitcast i64 %.sroa.0.4.insert.shift.i.i676 to double
   %1067 = fmul double %1058, %1066
-  br label %sulp.argprom.exit.i
+  br label %sulp.exit.i
 
-sulp.argprom.exit.i:                              ; preds = %1063, %1059, %._crit_edge255.i
+sulp.exit.i:                                      ; preds = %1063, %1059, %._crit_edge255.i
   %.0.i.i677 = phi double [ %1067, %1063 ], [ %1058, %1059 ], [ %1058, %._crit_edge255.i ]
   %1068 = load double, ptr %10, align 8
   %1069 = fsub double %1068, %.0.i.i677
@@ -2520,13 +2520,13 @@ sulp.argprom.exit.i:                              ; preds = %1063, %1059, %._cri
   %.sroa.0.4.insert.ext.i.i169.i = zext i32 %1074 to i64
   %.sroa.0.4.insert.shift.i.i170.i = shl nuw i64 %.sroa.0.4.insert.ext.i.i169.i, 32
   %1075 = bitcast i64 %.sroa.0.4.insert.shift.i.i170.i to double
-  br i1 %504, label %sulp.argprom.exit175.i, label %1076
+  br i1 %504, label %sulp.exit175.i, label %1076
 
 1076:                                             ; preds = %._crit_edge251.i
   %1077 = lshr i32 %1071, 20
   %1078 = and i32 %1077, 2047
   %1079 = icmp ugt i32 %1078, 106
-  br i1 %1079, label %sulp.argprom.exit175.i, label %1080
+  br i1 %1079, label %sulp.exit175.i, label %1080
 
 1080:                                             ; preds = %1076
   %1081 = shl nuw nsw i32 %1078, 20
@@ -2535,9 +2535,9 @@ sulp.argprom.exit.i:                              ; preds = %1063, %1059, %._cri
   %.sroa.0.4.insert.shift.i173.i = shl nuw nsw i64 %.sroa.0.4.insert.ext.i172.i, 32
   %1083 = bitcast i64 %.sroa.0.4.insert.shift.i173.i to double
   %1084 = fmul double %1075, %1083
-  br label %sulp.argprom.exit175.i
+  br label %sulp.exit175.i
 
-sulp.argprom.exit175.i:                           ; preds = %1080, %1076, %._crit_edge251.i
+sulp.exit175.i:                                   ; preds = %1080, %1076, %._crit_edge251.i
   %.0.i174.i = phi double [ %1084, %1080 ], [ %1075, %1076 ], [ %1075, %._crit_edge251.i ]
   %1085 = load double, ptr %10, align 8
   %1086 = fadd double %.0.i174.i, %1085
@@ -2578,8 +2578,8 @@ sulp.argprom.exit175.i:                           ; preds = %1080, %1076, %._cri
 1106:                                             ; preds = %1103, %1099, %1094
   br i1 %.0118.i, label %._crit_edge255.i, label %._crit_edge251.i
 
-.sink.split.i:                                    ; preds = %sulp.argprom.exit175.i, %sulp.argprom.exit.i, %1051
-  %.sink.i = phi double [ %1069, %sulp.argprom.exit.i ], [ %1086, %sulp.argprom.exit175.i ], [ 0.000000e+00, %1051 ]
+.sink.split.i:                                    ; preds = %sulp.exit175.i, %sulp.exit.i, %1051
+  %.sink.i = phi double [ %1069, %sulp.exit.i ], [ %1086, %sulp.exit175.i ], [ 0.000000e+00, %1051 ]
   store double %.sink.i, ptr %10, align 8
   %1107 = bitcast double %.sink.i to i64
   %1108 = lshr i64 %1107, 32
@@ -2610,9 +2610,9 @@ bigcomp.exit:                                     ; preds = %.bigcomp.exit_crit_
   store double %1120, ptr %10, align 8
   br label %Bfree.exit616
 
-Bfree.exit616:                                    ; preds = %11, %.preheader790, %174, %154, %307, %306, %Bfree.exit614, %.loopexit794, %108, %151, %150, %1117, %1118, %265, %211, %148, %236, %223, %216, %182, %match.argprom.exit599
-  %.3743 = phi ptr [ %.9748, %148 ], [ %183, %182 ], [ %.13, %match.argprom.exit599 ], [ %.9748, %211 ], [ %.9748, %216 ], [ %.9748, %1117 ], [ %.9748, %1118 ], [ %.9748, %265 ], [ %.9748, %223 ], [ %.9748, %236 ], [ %.1404, %150 ], [ %.1404, %151 ], [ %1, %108 ], [ %1, %.loopexit794 ], [ %.9748, %Bfree.exit614 ], [ %.9748, %306 ], [ %.9748, %307 ], [ %.1404, %154 ], [ %.1404, %174 ], [ %19, %.preheader790 ], [ %1, %11 ]
-  %.2441 = phi i32 [ %.1440, %148 ], [ %.1440, %182 ], [ %.1440, %match.argprom.exit599 ], [ %.1440, %211 ], [ %.1440, %216 ], [ %.1440, %1117 ], [ %.1440, %1118 ], [ %.1440, %265 ], [ %.1440, %223 ], [ %.1440, %236 ], [ 0, %150 ], [ 0, %151 ], [ 0, %108 ], [ 0, %.loopexit794 ], [ %.1440, %Bfree.exit614 ], [ %.1440, %306 ], [ %.1440, %307 ], [ 0, %154 ], [ 0, %174 ], [ %.1440, %.preheader790 ], [ 0, %11 ]
+Bfree.exit616:                                    ; preds = %11, %.preheader790, %174, %154, %307, %306, %Bfree.exit614, %.loopexit794, %108, %151, %150, %1117, %1118, %265, %211, %148, %236, %223, %216, %182, %match.exit599
+  %.3743 = phi ptr [ %.9748, %148 ], [ %183, %182 ], [ %.13, %match.exit599 ], [ %.9748, %211 ], [ %.9748, %216 ], [ %.9748, %1117 ], [ %.9748, %1118 ], [ %.9748, %265 ], [ %.9748, %223 ], [ %.9748, %236 ], [ %.1404, %150 ], [ %.1404, %151 ], [ %1, %108 ], [ %1, %.loopexit794 ], [ %.9748, %Bfree.exit614 ], [ %.9748, %306 ], [ %.9748, %307 ], [ %.1404, %154 ], [ %.1404, %174 ], [ %19, %.preheader790 ], [ %1, %11 ]
+  %.2441 = phi i32 [ %.1440, %148 ], [ %.1440, %182 ], [ %.1440, %match.exit599 ], [ %.1440, %211 ], [ %.1440, %216 ], [ %.1440, %1117 ], [ %.1440, %1118 ], [ %.1440, %265 ], [ %.1440, %223 ], [ %.1440, %236 ], [ 0, %150 ], [ 0, %151 ], [ 0, %108 ], [ 0, %.loopexit794 ], [ %.1440, %Bfree.exit614 ], [ %.1440, %306 ], [ %.1440, %307 ], [ 0, %154 ], [ 0, %174 ], [ %.1440, %.preheader790 ], [ 0, %11 ]
   %.not572 = icmp eq ptr %2, null
   br i1 %.not572, label %1122, label %1121
 
@@ -2685,7 +2685,7 @@ Balloc.exit:                                      ; preds = %7, %9
 25:                                               ; preds = %23
   %26 = and i32 %22, 1
   %.not39.i = icmp eq i32 %26, 0
-  br i1 %.not39.i, label %27, label %lo0bits.argprom.exit.thread80
+  br i1 %.not39.i, label %27, label %lo0bits.exit.thread80
 
 27:                                               ; preds = %25
   %28 = and i32 %22, 2
@@ -2694,11 +2694,11 @@ Balloc.exit:                                      ; preds = %7, %9
 
 29:                                               ; preds = %27
   %30 = lshr exact i32 %22, 1
-  br label %lo0bits.argprom.exit.thread
+  br label %lo0bits.exit.thread
 
 31:                                               ; preds = %27
   %32 = lshr exact i32 %22, 2
-  br label %lo0bits.argprom.exit.thread
+  br label %lo0bits.exit.thread
 
 33:                                               ; preds = %23
   %34 = and i32 %22, 65528
@@ -2726,7 +2726,7 @@ Balloc.exit:                                      ; preds = %7, %9
   %.3.i = select i1 %.not36.i, i32 %44, i32 %.2.i
   %45 = and i32 %.3.i, 1
   %.not37.i = icmp eq i32 %45, 0
-  br i1 %.not37.i, label %46, label %lo0bits.argprom.exit
+  br i1 %.not37.i, label %46, label %lo0bits.exit
 
 46:                                               ; preds = %33
   %47 = add nuw nsw i32 %.329.i, 1
@@ -2734,15 +2734,15 @@ Balloc.exit:                                      ; preds = %7, %9
   %.not38.i = icmp eq i32 %.3.i, 0
   %spec.select86 = select i1 %.not38.i, i32 32, i32 %47
   %spec.select87 = select i1 %.not38.i, i32 %22, i32 %48
-  br label %lo0bits.argprom.exit.thread
+  br label %lo0bits.exit.thread
 
-lo0bits.argprom.exit:                             ; preds = %33
+lo0bits.exit:                                     ; preds = %33
   %.not35 = icmp eq i32 %.329.i, 0
-  br i1 %.not35, label %lo0bits.argprom.exit.thread80, label %lo0bits.argprom.exit.thread
+  br i1 %.not35, label %lo0bits.exit.thread80, label %lo0bits.exit.thread
 
-lo0bits.argprom.exit.thread:                      ; preds = %46, %29, %31, %lo0bits.argprom.exit
-  %.031.i79 = phi i32 [ %.329.i, %lo0bits.argprom.exit ], [ 1, %29 ], [ 2, %31 ], [ %spec.select86, %46 ]
-  %.07377 = phi i32 [ %.3.i, %lo0bits.argprom.exit ], [ %30, %29 ], [ %32, %31 ], [ %spec.select87, %46 ]
+lo0bits.exit.thread:                              ; preds = %46, %29, %31, %lo0bits.exit
+  %.031.i79 = phi i32 [ %.329.i, %lo0bits.exit ], [ 1, %29 ], [ 2, %31 ], [ %spec.select86, %46 ]
+  %.07377 = phi i32 [ %.3.i, %lo0bits.exit ], [ %30, %29 ], [ %32, %31 ], [ %spec.select87, %46 ]
   %49 = sub nuw nsw i32 32, %.031.i79
   %50 = shl i32 %spec.select, %49
   %51 = or i32 %50, %.07377
@@ -2750,14 +2750,14 @@ lo0bits.argprom.exit.thread:                      ; preds = %46, %29, %31, %lo0b
   %52 = lshr i32 %spec.select, %.031.i79
   br label %53
 
-lo0bits.argprom.exit.thread80:                    ; preds = %25, %lo0bits.argprom.exit
-  %.07384 = phi i32 [ %.3.i, %lo0bits.argprom.exit ], [ %22, %25 ]
+lo0bits.exit.thread80:                            ; preds = %25, %lo0bits.exit
+  %.07384 = phi i32 [ %.3.i, %lo0bits.exit ], [ %22, %25 ]
   store i32 %.07384, ptr %15, align 4
   br label %53
 
-53:                                               ; preds = %lo0bits.argprom.exit.thread80, %lo0bits.argprom.exit.thread
-  %.031.i78 = phi i32 [ 0, %lo0bits.argprom.exit.thread80 ], [ %.031.i79, %lo0bits.argprom.exit.thread ]
-  %.1 = phi i32 [ %spec.select, %lo0bits.argprom.exit.thread80 ], [ %52, %lo0bits.argprom.exit.thread ]
+53:                                               ; preds = %lo0bits.exit.thread80, %lo0bits.exit.thread
+  %.031.i78 = phi i32 [ 0, %lo0bits.exit.thread80 ], [ %.031.i79, %lo0bits.exit.thread ]
+  %.1 = phi i32 [ %spec.select, %lo0bits.exit.thread80 ], [ %52, %lo0bits.exit.thread ]
   %54 = getelementptr inbounds i8, ptr %.0.i, i64 28
   store i32 %.1, ptr %54, align 4
   %.not36 = icmp eq i32 %.1, 0
@@ -2773,7 +2773,7 @@ lo0bits.argprom.exit.thread80:                    ; preds = %25, %lo0bits.argpro
 58:                                               ; preds = %56
   %59 = and i32 %spec.select, 1
   %.not39.i39 = icmp eq i32 %59, 0
-  br i1 %.not39.i39, label %60, label %lo0bits.argprom.exit59
+  br i1 %.not39.i39, label %60, label %lo0bits.exit59
 
 60:                                               ; preds = %58
   %61 = and i32 %spec.select, 2
@@ -2782,11 +2782,11 @@ lo0bits.argprom.exit.thread80:                    ; preds = %25, %lo0bits.argpro
 
 62:                                               ; preds = %60
   %63 = lshr exact i32 %spec.select, 1
-  br label %lo0bits.argprom.exit59
+  br label %lo0bits.exit59
 
 64:                                               ; preds = %60
   %65 = lshr exact i32 %spec.select, 2
-  br label %lo0bits.argprom.exit59
+  br label %lo0bits.exit59
 
 66:                                               ; preds = %56
   %67 = and i32 %spec.select, 65528
@@ -2814,7 +2814,7 @@ lo0bits.argprom.exit.thread80:                    ; preds = %25, %lo0bits.argpro
   %.3.i56 = select i1 %.not36.i54, i32 %77, i32 %.2.i53
   %78 = and i32 %.3.i56, 1
   %.not37.i57 = icmp eq i32 %78, 0
-  br i1 %.not37.i57, label %79, label %lo0bits.argprom.exit59
+  br i1 %.not37.i57, label %79, label %lo0bits.exit59
 
 79:                                               ; preds = %66
   %80 = add nuw nsw i32 %.329.i55, 1
@@ -2822,9 +2822,9 @@ lo0bits.argprom.exit.thread80:                    ; preds = %25, %lo0bits.argpro
   %.not38.i58 = icmp eq i32 %.3.i56, 0
   %spec.select88 = select i1 %.not38.i58, i32 %spec.select, i32 %81
   %spec.select89 = select i1 %.not38.i58, i32 32, i32 %80
-  br label %lo0bits.argprom.exit59
+  br label %lo0bits.exit59
 
-lo0bits.argprom.exit59:                           ; preds = %79, %62, %64, %66, %58
+lo0bits.exit59:                                   ; preds = %79, %62, %64, %66, %58
   %.2 = phi i32 [ %spec.select, %58 ], [ %65, %64 ], [ %63, %62 ], [ %.3.i56, %66 ], [ %spec.select88, %79 ]
   %.031.i40 = phi i32 [ 0, %58 ], [ 2, %64 ], [ 1, %62 ], [ %.329.i55, %66 ], [ %spec.select89, %79 ]
   store i32 %.2, ptr %15, align 4
@@ -2832,9 +2832,9 @@ lo0bits.argprom.exit59:                           ; preds = %79, %62, %64, %66, 
   %82 = add nuw nsw i32 %.031.i40, 32
   br label %83
 
-83:                                               ; preds = %lo0bits.argprom.exit59, %53
-  %.031 = phi i32 [ %.031.i78, %53 ], [ %82, %lo0bits.argprom.exit59 ]
-  %.0 = phi i32 [ %55, %53 ], [ 1, %lo0bits.argprom.exit59 ]
+83:                                               ; preds = %lo0bits.exit59, %53
+  %.031 = phi i32 [ %.031.i78, %53 ], [ %82, %lo0bits.exit59 ]
+  %.0 = phi i32 [ %55, %53 ], [ 1, %lo0bits.exit59 ]
   br i1 %.not, label %88, label %84
 
 84:                                               ; preds = %83
@@ -3341,19 +3341,19 @@ define internal fastcc ptr @diff(ptr nocapture noundef %0, ptr noundef readonly 
 
 20:                                               ; preds = %13
   %.not24.i = icmp sgt i64 %.017.idx.i, 28
-  br i1 %.not24.i, label %13, label %cmp.argprom.exit
+  br i1 %.not24.i, label %13, label %cmp.exit
 
-cmp.argprom.exit:                                 ; preds = %20
+cmp.exit:                                         ; preds = %20
   %21 = load ptr, ptr %0, align 8
   %.not.i59 = icmp eq ptr %21, null
   br i1 %.not.i59, label %24, label %22
 
-22:                                               ; preds = %cmp.argprom.exit
+22:                                               ; preds = %cmp.exit
   %23 = load ptr, ptr %21, align 8
   store ptr %23, ptr %0, align 8
   br label %Balloc.exit
 
-24:                                               ; preds = %cmp.argprom.exit
+24:                                               ; preds = %cmp.exit
   %25 = tail call ptr @jv_mem_alloc(i64 noundef 32) #11
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   store i32 0, ptr %26, align 8
@@ -4035,12 +4035,12 @@ rv_alloc.exit:                                    ; preds = %153, %155
 223:                                              ; preds = %216
   %224 = fadd double %.promoted886, -5.000000e+00
   %225 = fcmp ogt double %224, %221
-  br i1 %225, label %cmp.argprom.exit637.thread720, label %226
+  br i1 %225, label %cmp.exit637.thread720, label %226
 
 226:                                              ; preds = %223
   %227 = fneg double %221
   %228 = fcmp olt double %224, %227
-  br i1 %228, label %cmp.argprom.exit637.thread, label %.loopexit762
+  br i1 %228, label %cmp.exit637.thread, label %.loopexit762
 
 229:                                              ; preds = %216
   %.not560 = icmp eq i32 %.0477708, 0
@@ -4242,13 +4242,13 @@ rv_alloc.exit:                                    ; preds = %153, %155
 
 330:                                              ; preds = %315
   %331 = icmp slt i32 %.0511700, 0
-  br i1 %331, label %cmp.argprom.exit637.thread, label %332
+  br i1 %331, label %cmp.exit637.thread, label %332
 
 332:                                              ; preds = %330
   %333 = load double, ptr %10, align 8
   %334 = fmul double %318, 5.000000e+00
   %335 = fcmp ugt double %333, %334
-  br i1 %335, label %cmp.argprom.exit637.thread720, label %cmp.argprom.exit637.thread
+  br i1 %335, label %cmp.exit637.thread720, label %cmp.exit637.thread
 
 .lr.ph911:                                        ; preds = %.lr.ph1208
   %336 = add nuw nsw i32 %.75089091207, 1
@@ -4533,7 +4533,7 @@ i2b.exit624:                                      ; preds = %409, %411
 
 458:                                              ; preds = %456, %454
   %.3422 = phi ptr [ %457, %456 ], [ %.2421, %454 ]
-  br i1 %or.cond, label %459, label %cmp.argprom.exit.thread
+  br i1 %or.cond, label %459, label %cmp.exit.thread
 
 459:                                              ; preds = %458
   %460 = getelementptr inbounds i8, ptr %.5452, i64 20
@@ -4541,7 +4541,7 @@ i2b.exit624:                                      ; preds = %409, %411
   %462 = getelementptr inbounds i8, ptr %.3422, i64 20
   %463 = load i32, ptr %462, align 4
   %.not.i626 = icmp eq i32 %461, %463
-  br i1 %.not.i626, label %464, label %cmp.argprom.exit
+  br i1 %.not.i626, label %464, label %cmp.exit
 
 464:                                              ; preds = %459
   %465 = sext i32 %461 to i64
@@ -4564,34 +4564,34 @@ i2b.exit624:                                      ; preds = %409, %411
 
 472:                                              ; preds = %468
   %473 = icmp ult i32 %469, %471
-  br i1 %473, label %cmp.argprom.exit.thread716, label %cmp.argprom.exit.thread
+  br i1 %473, label %cmp.exit.thread716, label %cmp.exit.thread
 
 474:                                              ; preds = %468
   %.not24.i = icmp sgt i64 %.017.idx.i, 28
-  br i1 %.not24.i, label %468, label %cmp.argprom.exit.thread
+  br i1 %.not24.i, label %468, label %cmp.exit.thread
 
-cmp.argprom.exit:                                 ; preds = %459
+cmp.exit:                                         ; preds = %459
   %475 = icmp slt i32 %461, %463
-  br i1 %475, label %cmp.argprom.exit.thread716, label %cmp.argprom.exit.thread
+  br i1 %475, label %cmp.exit.thread716, label %cmp.exit.thread
 
-cmp.argprom.exit.thread716:                       ; preds = %472, %cmp.argprom.exit
+cmp.exit.thread716:                               ; preds = %472, %cmp.exit
   %476 = add nsw i32 %.1485, -1
   %477 = tail call fastcc ptr @multadd(ptr noundef %0, ptr noundef nonnull %.5452, i32 noundef 10, i32 noundef 0)
-  br i1 %364, label %cmp.argprom.exit.thread, label %478
+  br i1 %364, label %cmp.exit.thread, label %478
 
-478:                                              ; preds = %cmp.argprom.exit.thread716
+478:                                              ; preds = %cmp.exit.thread716
   %479 = tail call fastcc ptr @multadd(ptr noundef %0, ptr noundef %.3427, i32 noundef 10, i32 noundef 0)
-  br label %cmp.argprom.exit.thread
+  br label %cmp.exit.thread
 
-cmp.argprom.exit.thread:                          ; preds = %474, %472, %cmp.argprom.exit.thread716, %478, %cmp.argprom.exit, %458
-  %.5516 = phi i32 [ %.0511700, %cmp.argprom.exit ], [ %.0511700, %458 ], [ %.0500703, %478 ], [ %.0500703, %cmp.argprom.exit.thread716 ], [ %.0511700, %472 ], [ %.0511700, %474 ]
-  %.9493 = phi i32 [ %.1485, %cmp.argprom.exit ], [ %.1485, %458 ], [ %476, %478 ], [ %476, %cmp.argprom.exit.thread716 ], [ %.1485, %472 ], [ %.1485, %474 ]
-  %.6453 = phi ptr [ %.5452, %cmp.argprom.exit ], [ %.5452, %458 ], [ %477, %478 ], [ %477, %cmp.argprom.exit.thread716 ], [ %.5452, %472 ], [ %.5452, %474 ]
-  %.5429 = phi ptr [ %.3427, %cmp.argprom.exit ], [ %.3427, %458 ], [ %479, %478 ], [ %.3427, %cmp.argprom.exit.thread716 ], [ %.3427, %472 ], [ %.3427, %474 ]
+cmp.exit.thread:                                  ; preds = %474, %472, %cmp.exit.thread716, %478, %cmp.exit, %458
+  %.5516 = phi i32 [ %.0511700, %cmp.exit ], [ %.0511700, %458 ], [ %.0500703, %478 ], [ %.0500703, %cmp.exit.thread716 ], [ %.0511700, %472 ], [ %.0511700, %474 ]
+  %.9493 = phi i32 [ %.1485, %cmp.exit ], [ %.1485, %458 ], [ %476, %478 ], [ %476, %cmp.exit.thread716 ], [ %.1485, %472 ], [ %.1485, %474 ]
+  %.6453 = phi ptr [ %.5452, %cmp.exit ], [ %.5452, %458 ], [ %477, %478 ], [ %477, %cmp.exit.thread716 ], [ %.5452, %472 ], [ %.5452, %474 ]
+  %.5429 = phi ptr [ %.3427, %cmp.exit ], [ %.3427, %458 ], [ %479, %478 ], [ %.3427, %cmp.exit.thread716 ], [ %.3427, %472 ], [ %.3427, %474 ]
   %480 = icmp slt i32 %.5516, 1
   br i1 %480, label %481, label %504
 
-481:                                              ; preds = %cmp.argprom.exit.thread
+481:                                              ; preds = %cmp.exit.thread
   switch i32 %spec.select, label %504 [
     i32 5, label %482
     i32 3, label %482
@@ -4599,7 +4599,7 @@ cmp.argprom.exit.thread:                          ; preds = %474, %472, %cmp.arg
 
 482:                                              ; preds = %481, %481
   %483 = icmp slt i32 %.5516, 0
-  br i1 %483, label %cmp.argprom.exit637.thread, label %484
+  br i1 %483, label %cmp.exit637.thread, label %484
 
 484:                                              ; preds = %482
   %485 = tail call fastcc ptr @multadd(ptr noundef %0, ptr noundef %.3422, i32 noundef 5, i32 noundef 0)
@@ -4608,7 +4608,7 @@ cmp.argprom.exit.thread:                          ; preds = %474, %472, %cmp.arg
   %488 = getelementptr inbounds i8, ptr %485, i64 20
   %489 = load i32, ptr %488, align 4
   %.not.i627 = icmp eq i32 %487, %489
-  br i1 %.not.i627, label %490, label %cmp.argprom.exit637
+  br i1 %.not.i627, label %490, label %cmp.exit637
 
 490:                                              ; preds = %484
   %491 = sext i32 %487 to i64
@@ -4631,34 +4631,34 @@ cmp.argprom.exit.thread:                          ; preds = %474, %472, %cmp.arg
 
 498:                                              ; preds = %494
   %499 = icmp ult i32 %495, %497
-  br i1 %499, label %cmp.argprom.exit637.thread, label %cmp.argprom.exit637.thread720
+  br i1 %499, label %cmp.exit637.thread, label %cmp.exit637.thread720
 
 500:                                              ; preds = %494
   %.not24.i636 = icmp sgt i64 %.017.idx.i632, 28
-  br i1 %.not24.i636, label %494, label %cmp.argprom.exit637.thread
+  br i1 %.not24.i636, label %494, label %cmp.exit637.thread
 
-cmp.argprom.exit637:                              ; preds = %484
+cmp.exit637:                                      ; preds = %484
   %.not742 = icmp sgt i32 %487, %489
-  br i1 %.not742, label %cmp.argprom.exit637.thread720, label %cmp.argprom.exit637.thread
+  br i1 %.not742, label %cmp.exit637.thread720, label %cmp.exit637.thread
 
-cmp.argprom.exit637.thread:                       ; preds = %500, %498, %482, %cmp.argprom.exit637, %330, %332, %226
-  %.1448 = phi ptr [ %66, %330 ], [ %66, %332 ], [ %.6453, %482 ], [ %.6453, %cmp.argprom.exit637 ], [ %66, %226 ], [ %.6453, %498 ], [ %.6453, %500 ]
-  %.1425 = phi ptr [ null, %330 ], [ null, %332 ], [ %.5429, %482 ], [ %.5429, %cmp.argprom.exit637 ], [ null, %226 ], [ %.5429, %498 ], [ %.5429, %500 ]
-  %.1420 = phi ptr [ null, %330 ], [ null, %332 ], [ %.3422, %482 ], [ %485, %cmp.argprom.exit637 ], [ null, %226 ], [ %485, %498 ], [ %485, %500 ]
+cmp.exit637.thread:                               ; preds = %500, %498, %482, %cmp.exit637, %330, %332, %226
+  %.1448 = phi ptr [ %66, %330 ], [ %66, %332 ], [ %.6453, %482 ], [ %.6453, %cmp.exit637 ], [ %66, %226 ], [ %.6453, %498 ], [ %.6453, %500 ]
+  %.1425 = phi ptr [ null, %330 ], [ null, %332 ], [ %.5429, %482 ], [ %.5429, %cmp.exit637 ], [ null, %226 ], [ %.5429, %498 ], [ %.5429, %500 ]
+  %.1420 = phi ptr [ null, %330 ], [ null, %332 ], [ %.3422, %482 ], [ %485, %cmp.exit637 ], [ null, %226 ], [ %485, %498 ], [ %485, %500 ]
   %501 = xor i32 %.0446711, -1
   br label %.loopexit753
 
-cmp.argprom.exit637.thread720:                    ; preds = %498, %cmp.argprom.exit637, %332, %223
-  %.5489 = phi i32 [ %.1485, %332 ], [ %.9493, %cmp.argprom.exit637 ], [ %.4488, %223 ], [ %.9493, %498 ]
-  %.0447 = phi ptr [ %66, %332 ], [ %.6453, %cmp.argprom.exit637 ], [ %66, %223 ], [ %.6453, %498 ]
-  %.0424 = phi ptr [ null, %332 ], [ %.5429, %cmp.argprom.exit637 ], [ null, %223 ], [ %.5429, %498 ]
-  %.0419 = phi ptr [ null, %332 ], [ %485, %cmp.argprom.exit637 ], [ null, %223 ], [ %485, %498 ]
+cmp.exit637.thread720:                            ; preds = %498, %cmp.exit637, %332, %223
+  %.5489 = phi i32 [ %.1485, %332 ], [ %.9493, %cmp.exit637 ], [ %.4488, %223 ], [ %.9493, %498 ]
+  %.0447 = phi ptr [ %66, %332 ], [ %.6453, %cmp.exit637 ], [ %66, %223 ], [ %.6453, %498 ]
+  %.0424 = phi ptr [ null, %332 ], [ %.5429, %cmp.exit637 ], [ null, %223 ], [ %.5429, %498 ]
+  %.0419 = phi ptr [ null, %332 ], [ %485, %cmp.exit637 ], [ null, %223 ], [ %485, %498 ]
   %502 = getelementptr inbounds i8, ptr %.0.i.i, i64 5
   store i8 49, ptr %.ptr746.ptr, align 1
   %503 = add nsw i32 %.5489, 1
   br label %.loopexit753
 
-504:                                              ; preds = %481, %cmp.argprom.exit.thread
+504:                                              ; preds = %481, %cmp.exit.thread
   br i1 %364, label %.preheader754.preheader, label %506
 
 .preheader754.preheader:                          ; preds = %504
@@ -4740,7 +4740,7 @@ Balloc.exit:                                      ; preds = %519, %521
   %.10434 = phi ptr [ %.9433, %539 ], [ %.12436, %657 ]
   %.11.idx = phi i64 [ 4, %539 ], [ %.11.add743, %657 ]
   %.11.ptr = getelementptr inbounds i8, ptr %.0.i.i, i64 %.11.idx
-  %543 = tail call fastcc i32 @quorem.argprom(ptr noundef %.8455, ptr noundef %.3422)
+  %543 = tail call fastcc i32 @quorem(ptr noundef %.8455, ptr noundef %.3422)
   %544 = add nsw i32 %543, 48
   %545 = getelementptr inbounds i8, ptr %.8455, i64 20
   %546 = load i32, ptr %545, align 4
@@ -4748,7 +4748,7 @@ Balloc.exit:                                      ; preds = %519, %521
   %548 = load i32, ptr %547, align 4
   %549 = sub nsw i32 %546, %548
   %.not.i640 = icmp eq i32 %549, 0
-  br i1 %.not.i640, label %550, label %cmp.argprom.exit650
+  br i1 %.not.i640, label %550, label %cmp.exit650
 
 550:                                              ; preds = %542
   %551 = sext i32 %548 to i64
@@ -4772,27 +4772,27 @@ Balloc.exit:                                      ; preds = %519, %521
 558:                                              ; preds = %554
   %559 = icmp ult i32 %555, %557
   %560 = select i1 %559, i32 -1, i32 1
-  br label %cmp.argprom.exit650
+  br label %cmp.exit650
 
 561:                                              ; preds = %554
   %.not24.i649 = icmp sgt i64 %.017.idx.i645, 28
-  br i1 %.not24.i649, label %554, label %cmp.argprom.exit650
+  br i1 %.not24.i649, label %554, label %cmp.exit650
 
-cmp.argprom.exit650:                              ; preds = %561, %542, %558
+cmp.exit650:                                      ; preds = %561, %542, %558
   %.0.i641 = phi i32 [ %560, %558 ], [ %549, %542 ], [ 0, %561 ]
   %562 = tail call fastcc ptr @diff(ptr noundef %0, ptr noundef %.3422, ptr noundef %.10434)
   %563 = getelementptr inbounds i8, ptr %562, i64 16
   %564 = load i32, ptr %563, align 8
   %.not574 = icmp eq i32 %564, 0
-  br i1 %.not574, label %565, label %cmp.argprom.exit661.thread
+  br i1 %.not574, label %565, label %cmp.exit661.thread
 
-565:                                              ; preds = %cmp.argprom.exit650
+565:                                              ; preds = %cmp.exit650
   %566 = load i32, ptr %545, align 4
   %567 = getelementptr inbounds i8, ptr %562, i64 20
   %568 = load i32, ptr %567, align 4
   %569 = sub nsw i32 %566, %568
   %.not.i651 = icmp eq i32 %569, 0
-  br i1 %.not.i651, label %570, label %cmp.argprom.exit661.thread
+  br i1 %.not.i651, label %570, label %cmp.exit661.thread
 
 570:                                              ; preds = %565
   %571 = sext i32 %568 to i64
@@ -4816,29 +4816,29 @@ cmp.argprom.exit650:                              ; preds = %561, %542, %558
 578:                                              ; preds = %574
   %579 = icmp ult i32 %575, %577
   %580 = select i1 %579, i32 -1, i32 1
-  br label %cmp.argprom.exit661
+  br label %cmp.exit661
 
 581:                                              ; preds = %574
   %.not24.i660 = icmp sgt i64 %.017.idx.i656, 28
-  br i1 %.not24.i660, label %574, label %cmp.argprom.exit661
+  br i1 %.not24.i660, label %574, label %cmp.exit661
 
-cmp.argprom.exit661:                              ; preds = %581, %578
+cmp.exit661:                                      ; preds = %581, %578
   %582 = phi i32 [ %580, %578 ], [ 0, %581 ]
   %.not.i662 = icmp eq ptr %562, null
-  br i1 %.not.i662, label %Bfree.exit663, label %cmp.argprom.exit661.thread
+  br i1 %.not.i662, label %Bfree.exit663, label %cmp.exit661.thread
 
-cmp.argprom.exit661.thread:                       ; preds = %cmp.argprom.exit650, %565, %cmp.argprom.exit661
-  %583 = phi i32 [ %582, %cmp.argprom.exit661 ], [ %569, %565 ], [ 1, %cmp.argprom.exit650 ]
+cmp.exit661.thread:                               ; preds = %cmp.exit650, %565, %cmp.exit661
+  %583 = phi i32 [ %582, %cmp.exit661 ], [ %569, %565 ], [ 1, %cmp.exit650 ]
   %584 = getelementptr inbounds i8, ptr %562, i64 8
   %585 = load i32, ptr %584, align 8
   %586 = icmp sgt i32 %585, 7
   br i1 %586, label %587, label %588
 
-587:                                              ; preds = %cmp.argprom.exit661.thread
+587:                                              ; preds = %cmp.exit661.thread
   tail call void @jv_mem_free(ptr noundef nonnull %562) #11
   br label %Bfree.exit663
 
-588:                                              ; preds = %cmp.argprom.exit661.thread
+588:                                              ; preds = %cmp.exit661.thread
   %589 = sext i32 %585 to i64
   %590 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %589
   %591 = load ptr, ptr %590, align 8
@@ -4846,8 +4846,8 @@ cmp.argprom.exit661.thread:                       ; preds = %cmp.argprom.exit650
   store ptr %562, ptr %590, align 8
   br label %Bfree.exit663
 
-Bfree.exit663:                                    ; preds = %cmp.argprom.exit661, %587, %588
-  %592 = phi i32 [ %582, %cmp.argprom.exit661 ], [ %583, %587 ], [ %583, %588 ]
+Bfree.exit663:                                    ; preds = %cmp.exit661, %587, %588
+  %592 = phi i32 [ %582, %cmp.exit661 ], [ %583, %587 ], [ %583, %588 ]
   %593 = icmp eq i32 %592, 0
   %or.cond26 = and i1 %540, %593
   %brmerge.not = select i1 %or.cond26, i1 %.not575, i1 false
@@ -4900,7 +4900,7 @@ Bfree.exit663:                                    ; preds = %cmp.argprom.exit661
   %617 = getelementptr inbounds i8, ptr %.3422, i64 20
   %618 = load i32, ptr %617, align 4
   %.not.i664 = icmp eq i32 %616, %618
-  br i1 %.not.i664, label %619, label %cmp.argprom.exit674
+  br i1 %.not.i664, label %619, label %cmp.exit674
 
 619:                                              ; preds = %613
   %620 = sext i32 %616 to i64
@@ -4923,29 +4923,29 @@ Bfree.exit663:                                    ; preds = %cmp.argprom.exit661
 
 627:                                              ; preds = %623
   %628 = icmp ult i32 %624, %626
-  br i1 %628, label %.thread732, label %cmp.argprom.exit674.thread726
+  br i1 %628, label %.thread732, label %cmp.exit674.thread726
 
 629:                                              ; preds = %623
   %.not24.i673 = icmp sgt i64 %.017.idx.i669, 28
   br i1 %.not24.i673, label %623, label %631
 
-cmp.argprom.exit674:                              ; preds = %613
+cmp.exit674:                                      ; preds = %613
   %630 = icmp sgt i32 %616, %618
-  br i1 %630, label %cmp.argprom.exit674.thread726, label %.thread732
+  br i1 %630, label %cmp.exit674.thread726, label %.thread732
 
 631:                                              ; preds = %629
   %632 = and i32 %543, 1
   %.not579 = icmp eq i32 %632, 0
-  br i1 %.not579, label %.thread732, label %cmp.argprom.exit674.thread726
+  br i1 %.not579, label %.thread732, label %cmp.exit674.thread726
 
-cmp.argprom.exit674.thread726:                    ; preds = %627, %631, %cmp.argprom.exit674
+cmp.exit674.thread726:                            ; preds = %627, %631, %cmp.exit674
   %633 = add nsw i32 %543, 49
   %634 = icmp eq i32 %544, 57
   br i1 %634, label %641, label %.thread732
 
-.thread732:                                       ; preds = %cmp.argprom.exit674, %627, %612, %cmp.argprom.exit674.thread726, %631, %608
-  %.1482 = phi i32 [ %633, %cmp.argprom.exit674.thread726 ], [ %544, %631 ], [ %544, %612 ], [ %544, %608 ], [ %544, %627 ], [ %544, %cmp.argprom.exit674 ]
-  %.10457 = phi ptr [ %614, %cmp.argprom.exit674.thread726 ], [ %614, %631 ], [ %.8455, %612 ], [ %.8455, %608 ], [ %614, %627 ], [ %614, %cmp.argprom.exit674 ]
+.thread732:                                       ; preds = %cmp.exit674, %627, %612, %cmp.exit674.thread726, %631, %608
+  %.1482 = phi i32 [ %633, %cmp.exit674.thread726 ], [ %544, %631 ], [ %544, %612 ], [ %544, %608 ], [ %544, %627 ], [ %544, %cmp.exit674 ]
+  %.10457 = phi ptr [ %614, %cmp.exit674.thread726 ], [ %614, %631 ], [ %.8455, %612 ], [ %.8455, %608 ], [ %614, %627 ], [ %614, %cmp.exit674 ]
   %635 = trunc i32 %.1482 to i8
   %636 = getelementptr inbounds i8, ptr %.11.ptr, i64 1
   store i8 %635, ptr %.11.ptr, align 1
@@ -4959,11 +4959,11 @@ cmp.argprom.exit674.thread726:                    ; preds = %627, %631, %cmp.arg
   %640 = icmp eq i32 %544, 57
   br i1 %640, label %641, label %642
 
-641:                                              ; preds = %639, %cmp.argprom.exit674.thread726, %594
-  %.9456 = phi ptr [ %614, %cmp.argprom.exit674.thread726 ], [ %.8455, %639 ], [ %.8455, %594 ]
+641:                                              ; preds = %639, %cmp.exit674.thread726, %594
+  %.9456 = phi ptr [ %614, %cmp.exit674.thread726 ], [ %.8455, %639 ], [ %.8455, %594 ]
   %.11.add = add nuw nsw i64 %.11.idx, 1
   store i8 57, ptr %.11.ptr, align 1
-  br label %cmp.argprom.exit685.thread739
+  br label %cmp.exit685.thread739
 
 642:                                              ; preds = %639
   %643 = trunc i32 %543 to i8
@@ -5003,7 +5003,7 @@ cmp.argprom.exit674.thread726:                    ; preds = %627, %631, %cmp.arg
   %.13460 = phi ptr [ %670, %669 ], [ %.6453, %.preheader754.preheader ]
   %.14.idx = phi i64 [ %.14.add, %669 ], [ 4, %.preheader754.preheader ]
   %.14.ptr = getelementptr inbounds i8, ptr %.0.i.i, i64 %.14.idx
-  %659 = tail call fastcc i32 @quorem.argprom(ptr noundef %.13460, ptr noundef %.3422)
+  %659 = tail call fastcc i32 @quorem(ptr noundef %.13460, ptr noundef %.3422)
   %660 = add nsw i32 %659, 48
   %661 = trunc i32 %660 to i8
   %.14.add = add nuw nsw i64 %.14.idx, 1
@@ -5040,7 +5040,7 @@ cmp.argprom.exit674.thread726:                    ; preds = %627, %631, %cmp.arg
   %674 = getelementptr inbounds i8, ptr %.3422, i64 20
   %675 = load i32, ptr %674, align 4
   %.not.i675 = icmp eq i32 %673, %675
-  br i1 %.not.i675, label %676, label %cmp.argprom.exit685
+  br i1 %.not.i675, label %676, label %cmp.exit685
 
 676:                                              ; preds = %.loopexit756
   %677 = sext i32 %673 to i64
@@ -5063,33 +5063,33 @@ cmp.argprom.exit674.thread726:                    ; preds = %627, %631, %cmp.arg
 
 684:                                              ; preds = %680
   %685 = icmp ult i32 %681, %683
-  br i1 %685, label %.preheader752.preheader, label %cmp.argprom.exit685.thread739
+  br i1 %685, label %.preheader752.preheader, label %cmp.exit685.thread739
 
 686:                                              ; preds = %680
   %.not24.i684 = icmp sgt i64 %.017.idx.i680, 28
-  br i1 %.not24.i684, label %680, label %cmp.argprom.exit685.thread
+  br i1 %.not24.i684, label %680, label %cmp.exit685.thread
 
-cmp.argprom.exit685:                              ; preds = %.loopexit756
+cmp.exit685:                                      ; preds = %.loopexit756
   %687 = icmp sgt i32 %673, %675
-  br i1 %687, label %cmp.argprom.exit685.thread739, label %.preheader752.preheader
+  br i1 %687, label %cmp.exit685.thread739, label %.preheader752.preheader
 
-cmp.argprom.exit685.thread:                       ; preds = %686
+cmp.exit685.thread:                               ; preds = %686
   %688 = and i32 %.2483, 1
   %.not577 = icmp eq i32 %688, 0
-  br i1 %.not577, label %.preheader752.preheader, label %cmp.argprom.exit685.thread739
+  br i1 %.not577, label %.preheader752.preheader, label %cmp.exit685.thread739
 
-.preheader752.preheader:                          ; preds = %684, %cmp.argprom.exit685, %cmp.argprom.exit685.thread
+.preheader752.preheader:                          ; preds = %684, %cmp.exit685, %cmp.exit685.thread
   br label %.preheader752
 
-cmp.argprom.exit685.thread739:                    ; preds = %684, %cmp.argprom.exit685.thread, %cmp.argprom.exit685, %641
-  %.11458 = phi ptr [ %.9456, %641 ], [ %671, %cmp.argprom.exit685 ], [ %671, %cmp.argprom.exit685.thread ], [ %671, %684 ]
-  %.4442 = phi ptr [ %.3441, %641 ], [ %.6444, %cmp.argprom.exit685 ], [ %.6444, %cmp.argprom.exit685.thread ], [ %.6444, %684 ]
-  %.11435 = phi ptr [ %.10434, %641 ], [ %.13437, %cmp.argprom.exit685 ], [ %.13437, %cmp.argprom.exit685.thread ], [ %.13437, %684 ]
-  %.12.idx = phi i64 [ %.11.add, %641 ], [ %.13.idx, %cmp.argprom.exit685 ], [ %.13.idx, %cmp.argprom.exit685.thread ], [ %.13.idx, %684 ]
+cmp.exit685.thread739:                            ; preds = %684, %cmp.exit685.thread, %cmp.exit685, %641
+  %.11458 = phi ptr [ %.9456, %641 ], [ %671, %cmp.exit685 ], [ %671, %cmp.exit685.thread ], [ %671, %684 ]
+  %.4442 = phi ptr [ %.3441, %641 ], [ %.6444, %cmp.exit685 ], [ %.6444, %cmp.exit685.thread ], [ %.6444, %684 ]
+  %.11435 = phi ptr [ %.10434, %641 ], [ %.13437, %cmp.exit685 ], [ %.13437, %cmp.exit685.thread ], [ %.13437, %684 ]
+  %.12.idx = phi i64 [ %.11.add, %641 ], [ %.13.idx, %cmp.exit685 ], [ %.13.idx, %cmp.exit685.thread ], [ %.13.idx, %684 ]
   br label %689
 
-689:                                              ; preds = %692, %cmp.argprom.exit685.thread739
-  %.15.idx = phi i64 [ %.12.idx, %cmp.argprom.exit685.thread739 ], [ %.15.add, %692 ]
+689:                                              ; preds = %692, %cmp.exit685.thread739
+  %.15.idx = phi i64 [ %.12.idx, %cmp.exit685.thread739 ], [ %.15.add, %692 ]
   %.15.add = add nsw i64 %.15.idx, -1
   %.ptr = getelementptr inbounds i8, ptr %.0.i.i, i64 %.15.add
   %690 = load i8, ptr %.ptr, align 1
@@ -5124,13 +5124,13 @@ cmp.argprom.exit685.thread739:                    ; preds = %684, %cmp.argprom.e
   %.ptr747.le = getelementptr inbounds i8, ptr %.0.i.i, i64 %.14.add
   br label %.loopexit753
 
-.loopexit753:                                     ; preds = %.preheader752, %.loopexit755, %696, %694, %642, %.thread732, %596, %cmp.argprom.exit637.thread720, %cmp.argprom.exit637.thread
-  %.10494 = phi i32 [ %501, %cmp.argprom.exit637.thread ], [ %503, %cmp.argprom.exit637.thread720 ], [ %695, %694 ], [ %.9493, %696 ], [ %.9493, %.thread732 ], [ %.9493, %642 ], [ %.9493, %596 ], [ %.9493, %.loopexit755 ], [ %.9493, %.preheader752 ]
-  %.7454 = phi ptr [ %.1448, %cmp.argprom.exit637.thread ], [ %.0447, %cmp.argprom.exit637.thread720 ], [ %.11458, %694 ], [ %.11458, %696 ], [ %.10457, %.thread732 ], [ %.8455, %642 ], [ %.8455, %596 ], [ %.13460, %.loopexit755 ], [ %671, %.preheader752 ]
-  %.2440 = phi ptr [ null, %cmp.argprom.exit637.thread ], [ null, %cmp.argprom.exit637.thread720 ], [ %.4442, %694 ], [ %.4442, %696 ], [ %.3441, %.thread732 ], [ %.3441, %642 ], [ %.3441, %596 ], [ null, %.loopexit755 ], [ %.6444, %.preheader752 ]
-  %.7431 = phi ptr [ %.1425, %cmp.argprom.exit637.thread ], [ %.0424, %cmp.argprom.exit637.thread720 ], [ %.11435, %694 ], [ %.11435, %696 ], [ %.10434, %.thread732 ], [ %.10434, %642 ], [ %.10434, %596 ], [ %.5429, %.loopexit755 ], [ %.13437, %.preheader752 ]
-  %.4423 = phi ptr [ %.1420, %cmp.argprom.exit637.thread ], [ %.0419, %cmp.argprom.exit637.thread720 ], [ %.3422, %694 ], [ %.3422, %696 ], [ %.3422, %.thread732 ], [ %.3422, %642 ], [ %.3422, %596 ], [ %.3422, %.loopexit755 ], [ %.3422, %.preheader752 ]
-  %.10 = phi ptr [ %.ptr746.ptr, %cmp.argprom.exit637.thread ], [ %502, %cmp.argprom.exit637.thread720 ], [ %.15.ptr.le, %694 ], [ %.15.ptr.le901, %696 ], [ %636, %.thread732 ], [ %645, %642 ], [ %600, %596 ], [ %.ptr747.le, %.loopexit755 ], [ %.16, %.preheader752 ]
+.loopexit753:                                     ; preds = %.preheader752, %.loopexit755, %696, %694, %642, %.thread732, %596, %cmp.exit637.thread720, %cmp.exit637.thread
+  %.10494 = phi i32 [ %501, %cmp.exit637.thread ], [ %503, %cmp.exit637.thread720 ], [ %695, %694 ], [ %.9493, %696 ], [ %.9493, %.thread732 ], [ %.9493, %642 ], [ %.9493, %596 ], [ %.9493, %.loopexit755 ], [ %.9493, %.preheader752 ]
+  %.7454 = phi ptr [ %.1448, %cmp.exit637.thread ], [ %.0447, %cmp.exit637.thread720 ], [ %.11458, %694 ], [ %.11458, %696 ], [ %.10457, %.thread732 ], [ %.8455, %642 ], [ %.8455, %596 ], [ %.13460, %.loopexit755 ], [ %671, %.preheader752 ]
+  %.2440 = phi ptr [ null, %cmp.exit637.thread ], [ null, %cmp.exit637.thread720 ], [ %.4442, %694 ], [ %.4442, %696 ], [ %.3441, %.thread732 ], [ %.3441, %642 ], [ %.3441, %596 ], [ null, %.loopexit755 ], [ %.6444, %.preheader752 ]
+  %.7431 = phi ptr [ %.1425, %cmp.exit637.thread ], [ %.0424, %cmp.exit637.thread720 ], [ %.11435, %694 ], [ %.11435, %696 ], [ %.10434, %.thread732 ], [ %.10434, %642 ], [ %.10434, %596 ], [ %.5429, %.loopexit755 ], [ %.13437, %.preheader752 ]
+  %.4423 = phi ptr [ %.1420, %cmp.exit637.thread ], [ %.0419, %cmp.exit637.thread720 ], [ %.3422, %694 ], [ %.3422, %696 ], [ %.3422, %.thread732 ], [ %.3422, %642 ], [ %.3422, %596 ], [ %.3422, %.loopexit755 ], [ %.3422, %.preheader752 ]
+  %.10 = phi ptr [ %.ptr746.ptr, %cmp.exit637.thread ], [ %502, %cmp.exit637.thread720 ], [ %.15.ptr.le, %694 ], [ %.15.ptr.le901, %696 ], [ %636, %.thread732 ], [ %645, %642 ], [ %600, %596 ], [ %.ptr747.le, %.loopexit755 ], [ %.16, %.preheader752 ]
   %.not.i686 = icmp eq ptr %.4423, null
   br i1 %.not.i686, label %Bfree.exit687, label %701
 
@@ -5364,13 +5364,13 @@ Bfree.exit:                                       ; preds = %54, %53, %20
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @quorem.argprom(ptr nocapture noundef %0, ptr noundef readonly %1) unnamed_addr #6 {
+define internal fastcc i32 @quorem(ptr nocapture noundef %0, ptr noundef readonly %1) unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = icmp slt i32 %6, %4
-  br i1 %7, label %cmp.argprom.exit.thread2, label %8
+  br i1 %7, label %cmp.exit.thread2, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %1, i64 24
@@ -5457,7 +5457,7 @@ define internal fastcc i32 @quorem.argprom(ptr nocapture noundef %0, ptr noundef
   %.072 = phi i32 [ %10, %._crit_edge ], [ %.173.lcssa, %.critedge ], [ %10, %8 ]
   %44 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %43, %44
-  br i1 %.not.i, label %45, label %cmp.argprom.exit
+  br i1 %.not.i, label %45, label %cmp.exit
 
 45:                                               ; preds = %42
   %46 = sext i32 %43 to i64
@@ -5479,23 +5479,23 @@ define internal fastcc i32 @quorem.argprom(ptr nocapture noundef %0, ptr noundef
 
 52:                                               ; preds = %48
   %53 = icmp ult i32 %49, %51
-  br i1 %53, label %cmp.argprom.exit.thread2, label %cmp.argprom.exit.thread.preheader
+  br i1 %53, label %cmp.exit.thread2, label %cmp.exit.thread.preheader
 
 54:                                               ; preds = %48
   %.not24.i = icmp sgt i64 %.017.idx.i, 28
-  br i1 %.not24.i, label %48, label %cmp.argprom.exit.thread.preheader
+  br i1 %.not24.i, label %48, label %cmp.exit.thread.preheader
 
-cmp.argprom.exit:                                 ; preds = %42
+cmp.exit:                                         ; preds = %42
   %.not4 = icmp slt i32 %43, %44
-  br i1 %.not4, label %cmp.argprom.exit.thread2, label %cmp.argprom.exit.thread.preheader
+  br i1 %.not4, label %cmp.exit.thread2, label %cmp.exit.thread.preheader
 
-cmp.argprom.exit.thread.preheader:                ; preds = %54, %52, %cmp.argprom.exit
-  br label %cmp.argprom.exit.thread
+cmp.exit.thread.preheader:                        ; preds = %54, %52, %cmp.exit
+  br label %cmp.exit.thread
 
-cmp.argprom.exit.thread:                          ; preds = %cmp.argprom.exit.thread.preheader, %cmp.argprom.exit.thread
-  %.171 = phi ptr [ %65, %cmp.argprom.exit.thread ], [ %.ptr80.ptr, %cmp.argprom.exit.thread.preheader ]
-  %.166 = phi ptr [ %55, %cmp.argprom.exit.thread ], [ %9, %cmp.argprom.exit.thread.preheader ]
-  %.163 = phi i64 [ %63, %cmp.argprom.exit.thread ], [ 0, %cmp.argprom.exit.thread.preheader ]
+cmp.exit.thread:                                  ; preds = %cmp.exit.thread.preheader, %cmp.exit.thread
+  %.171 = phi ptr [ %65, %cmp.exit.thread ], [ %.ptr80.ptr, %cmp.exit.thread.preheader ]
+  %.166 = phi ptr [ %55, %cmp.exit.thread ], [ %9, %cmp.exit.thread.preheader ]
+  %.163 = phi i64 [ %63, %cmp.exit.thread ], [ 0, %cmp.exit.thread.preheader ]
   %55 = getelementptr inbounds i8, ptr %.166, i64 4
   %56 = load i32, ptr %.166, align 4
   %57 = zext i32 %56 to i64
@@ -5509,9 +5509,9 @@ cmp.argprom.exit.thread:                          ; preds = %cmp.argprom.exit.th
   %65 = getelementptr inbounds i8, ptr %.171, i64 4
   store i32 %64, ptr %.171, align 4
   %.not83 = icmp ugt ptr %55, %12
-  br i1 %.not83, label %66, label %cmp.argprom.exit.thread, !llvm.loop !46
+  br i1 %.not83, label %66, label %cmp.exit.thread, !llvm.loop !46
 
-66:                                               ; preds = %cmp.argprom.exit.thread
+66:                                               ; preds = %cmp.exit.thread
   %67 = add i32 %17, 1
   %68 = sext i32 %.072 to i64
   %.idx85 = shl nsw i64 %68, 2
@@ -5519,7 +5519,7 @@ cmp.argprom.exit.thread:                          ; preds = %cmp.argprom.exit.th
   %.ptr87 = getelementptr i8, ptr %69, i64 24
   %70 = load i32, ptr %.ptr87, align 4
   %.not84 = icmp eq i32 %70, 0
-  br i1 %.not84, label %.preheader, label %cmp.argprom.exit.thread2
+  br i1 %.not84, label %.preheader, label %cmp.exit.thread2
 
 .preheader:                                       ; preds = %66
   %71 = icmp sgt i32 %.072, 1
@@ -5546,10 +5546,10 @@ cmp.argprom.exit.thread:                          ; preds = %cmp.argprom.exit.th
 .critedge2:                                       ; preds = %.lr.ph21, %73, %.preheader
   %.2.lcssa = phi i32 [ %.072, %.preheader ], [ %74, %73 ], [ %.219, %.lr.ph21 ]
   store i32 %.2.lcssa, ptr %5, align 4
-  br label %cmp.argprom.exit.thread2
+  br label %cmp.exit.thread2
 
-cmp.argprom.exit.thread2:                         ; preds = %52, %cmp.argprom.exit, %.critedge2, %66, %2
-  %.064 = phi i32 [ 0, %2 ], [ %67, %66 ], [ %67, %.critedge2 ], [ %17, %cmp.argprom.exit ], [ %17, %52 ]
+cmp.exit.thread2:                                 ; preds = %52, %cmp.exit, %.critedge2, %66, %2
+  %.064 = phi i32 [ 0, %2 ], [ %67, %66 ], [ %67, %.critedge2 ], [ %17, %cmp.exit ], [ %17, %52 ]
   ret i32 %.064
 }
 
@@ -5817,7 +5817,7 @@ jvp_freedtoa.exit:                                ; preds = %102, %103
 declare ptr @jv_mem_alloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc double @b2d.argprom(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #7 {
+define internal fastcc double @b2d(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #7 {
   %.ptr = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4

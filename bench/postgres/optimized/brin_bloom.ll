@@ -82,18 +82,18 @@ define dso_local range(i64 0, 2) i64 @brin_bloom_add_value(ptr nocapture noundef
 26:                                               ; preds = %21, %18
   %27 = phi double [ %25, %21 ], [ 3.724800e+04, %18 ]
   %.not19.i = icmp eq ptr %11, null
-  br i1 %.not19.i, label %brin_bloom_get_ndistinct.argprom.argprom.exit, label %28
+  br i1 %.not19.i, label %brin_bloom_get_ndistinct.exit, label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds i8, ptr %11, i64 8
   %30 = load double, ptr %29, align 8
   %31 = fcmp une double %30, 0.000000e+00
-  br i1 %31, label %32, label %brin_bloom_get_ndistinct.argprom.argprom.exit
+  br i1 %31, label %32, label %brin_bloom_get_ndistinct.exit
 
 32:                                               ; preds = %28
-  br label %brin_bloom_get_ndistinct.argprom.argprom.exit
+  br label %brin_bloom_get_ndistinct.exit
 
-brin_bloom_get_ndistinct.argprom.argprom.exit:    ; preds = %26, %28, %32
+brin_bloom_get_ndistinct.exit:                    ; preds = %26, %28, %32
   %33 = phi double [ %30, %32 ], [ -1.000000e-01, %28 ], [ -1.000000e-01, %26 ]
   %34 = fcmp olt double %33, 0.000000e+00
   %35 = fneg double %33
@@ -106,7 +106,7 @@ brin_bloom_get_ndistinct.argprom.argprom.exit:    ; preds = %26, %28, %32
   %41 = fptosi double %40 to i32
   br i1 %.not19.i, label %47, label %42
 
-42:                                               ; preds = %brin_bloom_get_ndistinct.argprom.argprom.exit
+42:                                               ; preds = %brin_bloom_get_ndistinct.exit
   %43 = getelementptr inbounds i8, ptr %11, i64 16
   %44 = load double, ptr %43, align 8
   %45 = fcmp une double %44, 0.000000e+00
@@ -115,8 +115,8 @@ brin_bloom_get_ndistinct.argprom.argprom.exit:    ; preds = %26, %28, %32
 46:                                               ; preds = %42
   br label %47
 
-47:                                               ; preds = %brin_bloom_get_ndistinct.argprom.argprom.exit, %42, %46
-  %48 = phi double [ %44, %46 ], [ 1.000000e-02, %42 ], [ 1.000000e-02, %brin_bloom_get_ndistinct.argprom.argprom.exit ]
+47:                                               ; preds = %brin_bloom_get_ndistinct.exit, %42, %46
+  %48 = phi double [ %44, %46 ], [ 1.000000e-02, %42 ], [ 1.000000e-02, %brin_bloom_get_ndistinct.exit ]
   %49 = sitofp i32 %41 to double
   %50 = tail call double @log(double noundef %48) #7
   %51 = fneg double %49

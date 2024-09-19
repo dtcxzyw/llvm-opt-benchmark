@@ -3543,7 +3543,7 @@ _ZN4LIEF2PE9Signature4hashERKSt6vectorIhSaIhEENS0_10ALGORITHMSE.exit105: ; preds
   %141 = ptrtoint ptr %138 to i64
   %142 = sub i64 %140, %141
   %143 = ashr exact i64 %142, 3
-  invoke fastcc void @"_ZSt7find_ifIN4LIEF12ref_iteratorIRKSt6vectorISt10unique_ptrINS0_2PE9AttributeESt14default_deleteIS5_EESaIS8_EEPKS5_N9__gnu_cxx17__normal_iteratorIPKS8_SA_EEEEZNKS4_9Signature5checkENSL_19VERIFICATION_CHECKSEE3$_0ET_SO_SO_T0_.argprom"(ptr dead_on_unwind noalias writable align 8 %18, ptr nonnull %102, i64 0, ptr nonnull %102, i64 %143)
+  invoke fastcc void @"_ZSt7find_ifIN4LIEF12ref_iteratorIRKSt6vectorISt10unique_ptrINS0_2PE9AttributeESt14default_deleteIS5_EESaIS8_EEPKS5_N9__gnu_cxx17__normal_iteratorIPKS8_SA_EEEEZNKS4_9Signature5checkENSL_19VERIFICATION_CHECKSEE3$_0ET_SO_SO_T0_"(ptr dead_on_unwind noalias writable align 8 %18, ptr nonnull %102, i64 0, ptr nonnull %102, i64 %143)
           to label %144 unwind label %135
 
 144:                                              ; preds = %137
@@ -3951,7 +3951,7 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit:             ; preds = %19, %22
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt7find_ifIN4LIEF12ref_iteratorIRKSt6vectorISt10unique_ptrINS0_2PE9AttributeESt14default_deleteIS5_EESaIS8_EEPKS5_N9__gnu_cxx17__normal_iteratorIPKS8_SA_EEEEZNKS4_9Signature5checkENSL_19VERIFICATION_CHECKSEE3$_0ET_SO_SO_T0_.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, i64 %.16.val, ptr nocapture readonly %.0.val1, i64 %.16.val3) unnamed_addr #3 {
+define internal fastcc void @"_ZSt7find_ifIN4LIEF12ref_iteratorIRKSt6vectorISt10unique_ptrINS0_2PE9AttributeESt14default_deleteIS5_EESaIS8_EEPKS5_N9__gnu_cxx17__normal_iteratorIPKS8_SA_EEEEZNKS4_9Signature5checkENSL_19VERIFICATION_CHECKSEE3$_0ET_SO_SO_T0_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, i64 %.16.val, ptr nocapture readonly %.0.val1, i64 %.16.val3) unnamed_addr #3 {
 _ZN4LIEF12ref_iteratorIRKSt6vectorISt10unique_ptrINS_2PE9AttributeESt14default_deleteIS4_EESaIS7_EEPKS4_N9__gnu_cxx17__normal_iteratorIPKS7_S9_EEEC2ERKSJ_.exit:
   %1 = load ptr, ptr %.0.val, align 8
   %2 = load ptr, ptr %.0.val1, align 8
@@ -40220,8 +40220,8 @@ attributes #28 = { nounwind willreturn memory(read) }
 !42 = distinct !{!42, !43, !"_ZNK4LIEF12ref_iteratorIRKSt6vectorISt10unique_ptrINS_2PE9AttributeESt14default_deleteIS4_EESaIS7_EEPKS4_N9__gnu_cxx17__normal_iteratorIPKS7_S9_EEE3endEv: argument 0"}
 !43 = distinct !{!43, !"_ZNK4LIEF12ref_iteratorIRKSt6vectorISt10unique_ptrINS_2PE9AttributeESt14default_deleteIS4_EESaIS7_EEPKS4_N9__gnu_cxx17__normal_iteratorIPKS7_S9_EEE3endEv"}
 !44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZSt9__find_ifIN4LIEF12ref_iteratorIRKSt6vectorISt10unique_ptrINS0_2PE9AttributeESt14default_deleteIS5_EESaIS8_EEPKS5_N9__gnu_cxx17__normal_iteratorIPKS8_SA_EEEENSF_5__ops10_Iter_predIZNKS4_9Signature5checkENSN_19VERIFICATION_CHECKSEE3$_0EEET_SR_SR_T0_.argprom: argument 0"}
-!46 = distinct !{!46, !"_ZSt9__find_ifIN4LIEF12ref_iteratorIRKSt6vectorISt10unique_ptrINS0_2PE9AttributeESt14default_deleteIS5_EESaIS8_EEPKS5_N9__gnu_cxx17__normal_iteratorIPKS8_SA_EEEENSF_5__ops10_Iter_predIZNKS4_9Signature5checkENSN_19VERIFICATION_CHECKSEE3$_0EEET_SR_SR_T0_.argprom"}
+!45 = distinct !{!45, !46, !"_ZSt9__find_ifIN4LIEF12ref_iteratorIRKSt6vectorISt10unique_ptrINS0_2PE9AttributeESt14default_deleteIS5_EESaIS8_EEPKS5_N9__gnu_cxx17__normal_iteratorIPKS8_SA_EEEENSF_5__ops10_Iter_predIZNKS4_9Signature5checkENSN_19VERIFICATION_CHECKSEE3$_0EEET_SR_SR_T0_: argument 0"}
+!46 = distinct !{!46, !"_ZSt9__find_ifIN4LIEF12ref_iteratorIRKSt6vectorISt10unique_ptrINS0_2PE9AttributeESt14default_deleteIS5_EESaIS8_EEPKS5_N9__gnu_cxx17__normal_iteratorIPKS8_SA_EEEENSF_5__ops10_Iter_predIZNKS4_9Signature5checkENSN_19VERIFICATION_CHECKSEE3$_0EEET_SR_SR_T0_"}
 !47 = !{!48}
 !48 = distinct !{!48, !49, !"_ZSt9__find_ifIN4LIEF12ref_iteratorIRKSt6vectorISt10unique_ptrINS0_2PE9AttributeESt14default_deleteIS5_EESaIS8_EEPKS5_N9__gnu_cxx17__normal_iteratorIPKS8_SA_EEEENSF_5__ops10_Iter_predIZNKS4_9Signature5checkENSN_19VERIFICATION_CHECKSEE3$_0EEET_SR_SR_T0_St18input_iterator_tag: argument 0"}
 !49 = distinct !{!49, !"_ZSt9__find_ifIN4LIEF12ref_iteratorIRKSt6vectorISt10unique_ptrINS0_2PE9AttributeESt14default_deleteIS5_EESaIS8_EEPKS5_N9__gnu_cxx17__normal_iteratorIPKS8_SA_EEEENSF_5__ops10_Iter_predIZNKS4_9Signature5checkENSN_19VERIFICATION_CHECKSEE3$_0EEET_SR_SR_T0_St18input_iterator_tag"}

@@ -1639,7 +1639,7 @@ define internal fastcc i32 @dissect_lorawan_data(ptr noundef %0, ptr noundef %1,
 
 25:                                               ; preds = %4
   %26 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 8, i32 noundef %10) #9
-  %27 = tail call fastcc i32 @dissect_lorawan_mac_commands.argprom(ptr noundef %26, ptr noundef %2, i32 noundef %3)
+  %27 = tail call fastcc i32 @dissect_lorawan_mac_commands(ptr noundef %26, ptr noundef %2, i32 noundef %3)
   %28 = add i32 %27, 8
   br label %29
 
@@ -1781,7 +1781,7 @@ decrypt_lorawan_frame_payload.exit:               ; preds = %82
   br i1 %.0131, label %91, label %93
 
 91:                                               ; preds = %87
-  %92 = call fastcc i32 @dissect_lorawan_mac_commands.argprom(ptr noundef %88, ptr noundef %2, i32 noundef %3)
+  %92 = call fastcc i32 @dissect_lorawan_mac_commands(ptr noundef %88, ptr noundef %2, i32 noundef %3)
   %.2150 = add i32 %92, %.1
   br label %99
 
@@ -1942,7 +1942,7 @@ declare i32 @gcry_cipher_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noun
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_lorawan_mac_commands.argprom(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_lorawan_mac_commands(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_lorawan_mac_commands_type, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #9
   %6 = load i32, ptr @ett_lorawan_mac_commands, align 4

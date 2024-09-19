@@ -19,15 +19,15 @@ entry:
   %0 = getelementptr i8, ptr %commit, i64 48
   %commit.val = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %commit.val, null
-  br i1 %tobool.not.i, label %if.else, label %patch_id_defined.argprom.exit
+  br i1 %tobool.not.i, label %if.else, label %patch_id_defined.exit
 
-patch_id_defined.argprom.exit:                    ; preds = %entry
+patch_id_defined.exit:                            ; preds = %entry
   %next.i = getelementptr inbounds i8, ptr %commit.val, i64 8
   %1 = load ptr, ptr %next.i, align 8
   %tobool2.not.i.not = icmp eq ptr %1, null
   br i1 %tobool2.not.i.not, label %if.then2, label %return
 
-if.then2:                                         ; preds = %patch_id_defined.argprom.exit
+if.then2:                                         ; preds = %patch_id_defined.exit
   %2 = load ptr, ptr %commit.val, align 8
   %oid4 = getelementptr inbounds i8, ptr %2, i64 4
   %oid6 = getelementptr inbounds i8, ptr %commit, i64 4
@@ -44,8 +44,8 @@ if.end9:                                          ; preds = %if.else, %if.then2
   %call10 = tail call i32 @diff_flush_patch_id(ptr noundef %options, ptr noundef %oid, i32 noundef %diff_header_only) #6
   br label %return
 
-return:                                           ; preds = %patch_id_defined.argprom.exit, %if.end9
-  %retval.0 = phi i32 [ %call10, %if.end9 ], [ -1, %patch_id_defined.argprom.exit ]
+return:                                           ; preds = %patch_id_defined.exit, %if.end9
+  %retval.0 = phi i32 [ %call10, %if.end9 ], [ -1, %patch_id_defined.exit ]
   ret i32 %retval.0
 }
 
@@ -128,15 +128,15 @@ land.lhs.true:                                    ; preds = %is_null_oid.exit
   %5 = getelementptr i8, ptr %4, i64 48
   %commit.val.i = load ptr, ptr %5, align 8
   %tobool.not.i.i10 = icmp eq ptr %commit.val.i, null
-  br i1 %tobool.not.i.i10, label %if.else.i, label %patch_id_defined.argprom.exit.i
+  br i1 %tobool.not.i.i10, label %if.else.i, label %patch_id_defined.exit.i
 
-patch_id_defined.argprom.exit.i:                  ; preds = %land.lhs.true
+patch_id_defined.exit.i:                          ; preds = %land.lhs.true
   %next.i.i = getelementptr inbounds i8, ptr %commit.val.i, i64 8
   %6 = load ptr, ptr %next.i.i, align 8
   %tobool2.not.i.not.i = icmp eq ptr %6, null
   br i1 %tobool2.not.i.not.i, label %if.then2.i, label %if.then
 
-if.then2.i:                                       ; preds = %patch_id_defined.argprom.exit.i
+if.then2.i:                                       ; preds = %patch_id_defined.exit.i
   %7 = load ptr, ptr %commit.val.i, align 8
   %oid4.i = getelementptr inbounds i8, ptr %7, i64 4
   %oid6.i = getelementptr inbounds i8, ptr %4, i64 4
@@ -158,8 +158,8 @@ commit_patch_id.exit.if.then_crit_edge:           ; preds = %commit_patch_id.exi
   %.pre = load ptr, ptr %commit, align 8
   br label %if.then
 
-if.then:                                          ; preds = %commit_patch_id.exit.if.then_crit_edge, %patch_id_defined.argprom.exit.i
-  %8 = phi ptr [ %.pre, %commit_patch_id.exit.if.then_crit_edge ], [ %4, %patch_id_defined.argprom.exit.i ]
+if.then:                                          ; preds = %commit_patch_id.exit.if.then_crit_edge, %patch_id_defined.exit.i
+  %8 = phi ptr [ %.pre, %commit_patch_id.exit.if.then_crit_edge ], [ %4, %patch_id_defined.exit.i ]
   %oid = getelementptr inbounds i8, ptr %8, i64 4
   %call6 = tail call ptr @oid_to_hex(ptr noundef nonnull %oid) #6
   %call7 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1, ptr noundef %call6) #6
@@ -210,15 +210,15 @@ land.lhs.true12:                                  ; preds = %is_null_oid.exit30
   %14 = getelementptr i8, ptr %13, i64 48
   %commit.val.i31 = load ptr, ptr %14, align 8
   %tobool.not.i.i32 = icmp eq ptr %commit.val.i31, null
-  br i1 %tobool.not.i.i32, label %if.else.i42, label %patch_id_defined.argprom.exit.i33
+  br i1 %tobool.not.i.i32, label %if.else.i42, label %patch_id_defined.exit.i33
 
-patch_id_defined.argprom.exit.i33:                ; preds = %land.lhs.true12
+patch_id_defined.exit.i33:                        ; preds = %land.lhs.true12
   %next.i.i34 = getelementptr inbounds i8, ptr %commit.val.i31, i64 8
   %15 = load ptr, ptr %next.i.i34, align 8
   %tobool2.not.i.not.i35 = icmp eq ptr %15, null
   br i1 %tobool2.not.i.not.i35, label %if.then2.i37, label %if.then17
 
-if.then2.i37:                                     ; preds = %patch_id_defined.argprom.exit.i33
+if.then2.i37:                                     ; preds = %patch_id_defined.exit.i33
   %16 = load ptr, ptr %commit.val.i31, align 8
   %oid4.i38 = getelementptr inbounds i8, ptr %16, i64 4
   %oid6.i39 = getelementptr inbounds i8, ptr %13, i64 4
@@ -240,8 +240,8 @@ commit_patch_id.exit44.if.then17_crit_edge:       ; preds = %commit_patch_id.exi
   %.pre52 = load ptr, ptr %commit13, align 8
   br label %if.then17
 
-if.then17:                                        ; preds = %commit_patch_id.exit44.if.then17_crit_edge, %patch_id_defined.argprom.exit.i33
-  %17 = phi ptr [ %.pre52, %commit_patch_id.exit44.if.then17_crit_edge ], [ %13, %patch_id_defined.argprom.exit.i33 ]
+if.then17:                                        ; preds = %commit_patch_id.exit44.if.then17_crit_edge, %patch_id_defined.exit.i33
+  %17 = phi ptr [ %.pre52, %commit_patch_id.exit44.if.then17_crit_edge ], [ %13, %patch_id_defined.exit.i33 ]
   %oid20 = getelementptr inbounds i8, ptr %17, i64 4
   %call21 = tail call ptr @oid_to_hex(ptr noundef nonnull %oid20) #6
   %call22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1, ptr noundef %call21) #6
@@ -306,15 +306,15 @@ entry:
   %0 = getelementptr i8, ptr %commit, i64 48
   %commit.val = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %commit.val, null
-  br i1 %tobool.not.i, label %if.else.i.i, label %patch_id_defined.argprom.exit
+  br i1 %tobool.not.i, label %if.else.i.i, label %patch_id_defined.exit
 
-patch_id_defined.argprom.exit:                    ; preds = %entry
+patch_id_defined.exit:                            ; preds = %entry
   %next.i = getelementptr inbounds i8, ptr %commit.val, i64 8
   %1 = load ptr, ptr %next.i, align 8
   %tobool2.not.i.not = icmp eq ptr %1, null
   br i1 %tobool2.not.i.not, label %if.then2.i.i, label %return
 
-if.then2.i.i:                                     ; preds = %patch_id_defined.argprom.exit
+if.then2.i.i:                                     ; preds = %patch_id_defined.exit
   %2 = getelementptr inbounds i8, ptr %patch, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %header_only_patch_id.i)
@@ -358,8 +358,8 @@ if.end4:                                          ; preds = %commit_patch_id.exi
   %call5 = call ptr @hashmap_get(ptr noundef %ids, ptr noundef nonnull %patch, ptr noundef null) #6
   br label %return
 
-return:                                           ; preds = %init_patch_id_entry.exit.thread, %patch_id_defined.argprom.exit, %if.end4
-  %retval.0 = phi ptr [ %call5, %if.end4 ], [ null, %patch_id_defined.argprom.exit ], [ null, %init_patch_id_entry.exit.thread ]
+return:                                           ; preds = %init_patch_id_entry.exit.thread, %patch_id_defined.exit, %if.end4
+  %retval.0 = phi ptr [ %call5, %if.end4 ], [ null, %patch_id_defined.exit ], [ null, %init_patch_id_entry.exit.thread ]
   ret ptr %retval.0
 }
 
@@ -390,15 +390,15 @@ entry:
   %0 = getelementptr i8, ptr %commit, i64 48
   %commit.val = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %commit.val, null
-  br i1 %tobool.not.i, label %if.end, label %patch_id_defined.argprom.exit
+  br i1 %tobool.not.i, label %if.end, label %patch_id_defined.exit
 
-patch_id_defined.argprom.exit:                    ; preds = %entry
+patch_id_defined.exit:                            ; preds = %entry
   %next.i = getelementptr inbounds i8, ptr %commit.val, i64 8
   %1 = load ptr, ptr %next.i, align 8
   %tobool2.not.i.not = icmp eq ptr %1, null
   br i1 %tobool2.not.i.not, label %if.end, label %return
 
-if.end:                                           ; preds = %entry, %patch_id_defined.argprom.exit
+if.end:                                           ; preds = %entry, %patch_id_defined.exit
   %call1 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 64) #6
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %header_only_patch_id.i)
   %commit1.i = getelementptr inbounds i8, ptr %call1, i64 56
@@ -406,15 +406,15 @@ if.end:                                           ; preds = %entry, %patch_id_de
   %diffopts.i = getelementptr inbounds i8, ptr %ids, i64 48
   %commit.val.i.i = load ptr, ptr %0, align 8
   %tobool.not.i.i.i = icmp eq ptr %commit.val.i.i, null
-  br i1 %tobool.not.i.i.i, label %if.else.i.i, label %patch_id_defined.argprom.exit.i.i
+  br i1 %tobool.not.i.i.i, label %if.else.i.i, label %patch_id_defined.exit.i.i
 
-patch_id_defined.argprom.exit.i.i:                ; preds = %if.end
+patch_id_defined.exit.i.i:                        ; preds = %if.end
   %next.i.i.i = getelementptr inbounds i8, ptr %commit.val.i.i, i64 8
   %2 = load ptr, ptr %next.i.i.i, align 8
   %tobool2.not.i.not.i.i = icmp eq ptr %2, null
   br i1 %tobool2.not.i.not.i.i, label %if.then2.i.i, label %if.then4
 
-if.then2.i.i:                                     ; preds = %patch_id_defined.argprom.exit.i.i
+if.then2.i.i:                                     ; preds = %patch_id_defined.exit.i.i
   %3 = load ptr, ptr %commit.val.i.i, align 8
   %oid4.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %oid6.i.i = getelementptr inbounds i8, ptr %commit, i64 4
@@ -432,7 +432,7 @@ commit_patch_id.exit.i:                           ; preds = %if.else.i.i, %if.th
   %tobool.not.i6 = icmp eq i32 %call10.i.i, 0
   br i1 %tobool.not.i6, label %if.end5, label %if.then4
 
-if.then4:                                         ; preds = %commit_patch_id.exit.i, %patch_id_defined.argprom.exit.i.i
+if.then4:                                         ; preds = %commit_patch_id.exit.i, %patch_id_defined.exit.i.i
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %header_only_patch_id.i)
   call void @free(ptr noundef nonnull %call1) #6
   br label %return
@@ -446,8 +446,8 @@ if.end5:                                          ; preds = %commit_patch_id.exi
   call void @hashmap_add(ptr noundef %ids, ptr noundef nonnull %call1) #6
   br label %return
 
-return:                                           ; preds = %patch_id_defined.argprom.exit, %if.end5, %if.then4
-  %retval.0 = phi ptr [ null, %if.then4 ], [ %call1, %if.end5 ], [ null, %patch_id_defined.argprom.exit ]
+return:                                           ; preds = %patch_id_defined.exit, %if.end5, %if.then4
+  %retval.0 = phi ptr [ null, %if.then4 ], [ %call1, %if.end5 ], [ null, %patch_id_defined.exit ]
   ret ptr %retval.0
 }
 

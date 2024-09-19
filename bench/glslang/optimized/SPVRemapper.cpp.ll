@@ -6809,20 +6809,20 @@ define internal void @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcS
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN3spv10spirvbin_t3$_0EE10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIN3spv10spirvbin_t3$_0EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIN3spv10spirvbin_t3$_0EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIN3spv10spirvbin_t3$_0EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIN3spv10spirvbin_t3$_0EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIN3spv10spirvbin_t3$_0EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIN3spv10spirvbin_t3$_0EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIN3spv10spirvbin_t3$_0EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIN3spv10spirvbin_t3$_0EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIN3spv10spirvbin_t3$_0EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIN3spv10spirvbin_t3$_0EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIN3spv10spirvbin_t3$_0EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIN3spv10spirvbin_t3$_0EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIN3spv10spirvbin_t3$_0EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIN3spv10spirvbin_t3$_0EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split", %3
   ret i1 false
 }
 
@@ -6836,20 +6836,20 @@ define internal void @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcS
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN3spv10spirvbin_t3$_1EE10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIN3spv10spirvbin_t3$_1EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIN3spv10spirvbin_t3$_1EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIN3spv10spirvbin_t3$_1EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIN3spv10spirvbin_t3$_1EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIN3spv10spirvbin_t3$_1EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIN3spv10spirvbin_t3$_1EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIN3spv10spirvbin_t3$_1EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIN3spv10spirvbin_t3$_1EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIN3spv10spirvbin_t3$_1EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIN3spv10spirvbin_t3$_1EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIN3spv10spirvbin_t3$_1EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIN3spv10spirvbin_t3$_1EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIN3spv10spirvbin_t3$_1EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIN3spv10spirvbin_t3$_1EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split", %3
   ret i1 false
 }
 
@@ -7045,20 +7045,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjENS0_3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjENS0_3$_2EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIN3spv3$_2EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIN3spv3$_2EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIN3spv3$_2EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIN3spv3$_2EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIN3spv3$_2EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIN3spv3$_2EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIN3spv3$_2EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIN3spv3$_2EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIN3spv3$_2EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIN3spv3$_2EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIN3spv3$_2EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIN3spv3$_2EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIN3spv3$_2EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIN3spv3$_2EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit.sink.split", %3
   ret i1 false
 }
 
@@ -7077,7 +7077,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t8applyMap
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t8applyMapEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #15 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t8applyMapEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t8applyMapEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -7085,18 +7085,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirv
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t8applyMapEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t8applyMapEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t8applyMapEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t8applyMapEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t8applyMapEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t8applyMapEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t8applyMapEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t8applyMapEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -7106,19 +7106,19 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %.val3 = load i32, ptr %1, align 4
   %.val4 = load i32, ptr %2, align 4
   %4 = tail call noundef zeroext i1 @_ZNK3spv10spirvbin_t9isStripOpENS_2OpEj(ptr noundef nonnull align 8 dereferenceable(473) %.val, i32 noundef %.val3, i32 noundef %.val4)
-  br i1 %4, label %5, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t10stripDebugEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br i1 %4, label %5, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t10stripDebugEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 5:                                                ; preds = %3
   tail call void @_ZN3spv10spirvbin_t9stripInstEj(ptr noundef nonnull align 8 dereferenceable(473) %.val, i32 noundef %.val4)
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t10stripDebugEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t10stripDebugEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
-"_ZSt10__invoke_rIbRZN3spv10spirvbin_t10stripDebugEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %3, %5
+"_ZSt10__invoke_rIbRZN3spv10spirvbin_t10stripDebugEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %3, %5
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t10stripDebugEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #15 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t10stripDebugEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t10stripDebugEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -7126,18 +7126,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t10stripDebugEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t10stripDebugEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t10stripDebugEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t10stripDebugEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t10stripDebugEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t10stripDebugEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t10stripDebugEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t10stripDebugEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -7148,20 +7148,20 @@ define internal void @"_ZNSt17_Function_handlerIFvRjEN3spv3$_5EE9_M_invokeERKSt9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRjEN3spv3$_5EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIN3spv3$_5EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIN3spv3$_5EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIN3spv3$_5EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIN3spv3$_5EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIN3spv3$_5EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIN3spv3$_5EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIN3spv3$_5EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIN3spv3$_5EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIN3spv3$_5EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIN3spv3$_5EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIN3spv3$_5EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIN3spv3$_5EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIN3spv3$_5EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIN3spv3$_5EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit.sink.split", %3
   ret i1 false
 }
 
@@ -7170,7 +7170,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %.val = load ptr, ptr %0, align 8
   %.val3 = load i32, ptr %1, align 4
   %.val4 = load i32, ptr %2, align 4
-  switch i32 %.val3, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t13stripDeadRefsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit" [
+  switch i32 %.val3, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t13stripDeadRefsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit" [
     i32 5, label %4
     i32 6, label %4
     i32 71, label %4
@@ -7203,7 +7203,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %17 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i.i, i64 8
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %12, %18
-  br i1 %19, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t13stripDeadRefsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %15, !llvm.loop !74
+  br i1 %19, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t13stripDeadRefsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %15, !llvm.loop !74
 
 20:                                               ; preds = %4
   %21 = getelementptr inbounds i8, ptr %.val, i64 296
@@ -7222,11 +7222,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %12, %32
-  br i1 %33, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t13stripDeadRefsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %.lr.ph.i.i.i.i.i.i.i
+  br i1 %33, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t13stripDeadRefsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %.lr.ph.i.i.i.i.i.i.i
 
 34:                                               ; preds = %37
   %35 = icmp eq i32 %12, %39
-  br i1 %35, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t13stripDeadRefsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !9
+  br i1 %35, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t13stripDeadRefsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !9
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %29, %34
   %.018.i.i.i.i.i.i.i = phi ptr [ %36, %34 ], [ %30, %29 ]
@@ -7244,15 +7244,15 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
 
 .loopexit.i.i.i:                                  ; preds = %37, %.lr.ph.i.i.i.i.i.i.i, %15, %20
   tail call void @_ZN3spv10spirvbin_t9stripInstEj(ptr noundef nonnull align 8 dereferenceable(473) %.val, i32 noundef %.val4)
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t13stripDeadRefsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t13stripDeadRefsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
-"_ZSt10__invoke_rIbRZN3spv10spirvbin_t13stripDeadRefsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %34, %16, %3, %29, %.loopexit.i.i.i
+"_ZSt10__invoke_rIbRZN3spv10spirvbin_t13stripDeadRefsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %34, %16, %3, %29, %.loopexit.i.i.i
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t13stripDeadRefsEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #15 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t13stripDeadRefsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t13stripDeadRefsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -7260,18 +7260,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t13stripDeadRefsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t13stripDeadRefsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t13stripDeadRefsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t13stripDeadRefsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t13stripDeadRefsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t13stripDeadRefsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t13stripDeadRefsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t13stripDeadRefsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -7775,7 +7775,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   br i1 %or.cond.not.i.i.i.i, label %_ZNK3spv10spirvbin_t15typeSizeInWordsEj.exit.thread.i.i.i, label %46
 
 _ZNK3spv10spirvbin_t15typeSizeInWordsEj.exit.thread.i.i.i: ; preds = %35
-  br i1 %44, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %.thread.i.i.i
+  br i1 %44, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %.thread.i.i.i
 
 46:                                               ; preds = %35
   %47 = add i32 %36, 2
@@ -7845,7 +7845,7 @@ _ZNK3spv10spirvbin_t13literalStringB5cxx11Ej.exit.i.i.i: ; preds = %68
   %78 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_jESaIS9_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %77, ptr noundef nonnull align 8 dereferenceable(32) %7)
   store i32 %61, ptr %78, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #24
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 79:                                               ; preds = %.thread.i.i.i
   %80 = getelementptr inbounds i8, ptr %12, i64 192
@@ -7858,7 +7858,7 @@ _ZNK3spv10spirvbin_t13literalStringB5cxx11Ej.exit.i.i.i: ; preds = %68
   %87 = load i32, ptr %86, align 4
   %88 = add nsw i32 %87, 1
   store i32 %88, ptr %86, align 4
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 89:                                               ; preds = %.thread.i.i.i
   %90 = add i32 %.val4, 2
@@ -7869,7 +7869,7 @@ _ZNK3spv10spirvbin_t13literalStringB5cxx11Ej.exit.i.i.i: ; preds = %68
   %95 = load i32, ptr %94, align 4
   %96 = getelementptr inbounds i8, ptr %12, i64 432
   store i32 %95, ptr %96, align 8
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 97:                                               ; preds = %.thread.i.i.i
   %98 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -7908,7 +7908,7 @@ _ZNK3spv10spirvbin_t5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   call void %110(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3spv10spirvbin_t12errorHandlerB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %8) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #24
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 111:                                              ; preds = %97
   store i32 %.val4, ptr %99, align 4
@@ -7921,7 +7921,7 @@ _ZNK3spv10spirvbin_t5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %118 = getelementptr inbounds i8, ptr %.val, i64 16
   %119 = load ptr, ptr %118, align 8
   store i32 %117, ptr %119, align 4
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 120:                                              ; preds = %.thread.i.i.i
   %121 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -7960,7 +7960,7 @@ _ZNK3spv10spirvbin_t5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   call void %134(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3spv10spirvbin_t12errorHandlerB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %10) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #24
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 135:                                              ; preds = %120
   %136 = getelementptr inbounds i8, ptr %12, i64 8
@@ -7979,7 +7979,7 @@ _ZNK3spv10spirvbin_t5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   store i32 %142, ptr %147, align 4
   %148 = load ptr, ptr %121, align 8
   store i32 0, ptr %148, align 4
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 149:                                              ; preds = %.thread.i.i.i
   %150 = call noundef zeroext i1 @_ZNK3spv10spirvbin_t9isConstOpENS_2OpE(ptr noundef nonnull align 8 dereferenceable(473) %12, i32 noundef %.val3)
@@ -7989,7 +7989,7 @@ _ZNK3spv10spirvbin_t5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %152 = getelementptr inbounds i8, ptr %12, i64 472
   %153 = load i8, ptr %152, align 8
   %154 = trunc i8 %153 to i1
-  br i1 %154, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %155
+  br i1 %154, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %155
 
 155:                                              ; preds = %151
   %156 = getelementptr inbounds i8, ptr %12, i64 264
@@ -8029,7 +8029,7 @@ _ZNK3spv10spirvbin_t5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %167 = phi i32 [ %.pre.i.i.i.i.i, %164 ], [ %159, %._crit_edge.i.i.i.i.i.i ]
   %.019.lcssa29.i.i.i.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i.i.i, %164 ], [ %.02024.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %168 = icmp slt i32 %167, %.val4
-  br i1 %168, label %select.unfold.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br i1 %168, label %select.unfold.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 select.unfold.i.i.i.i.i:                          ; preds = %166, %._crit_edge.thread.i.i.i.i.i.i
   %.sroa.4.0.i.ph.i.i.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i.i.i, %._crit_edge.thread.i.i.i.i.i.i ], [ %.019.lcssa29.i.i.i.i.i.i, %166 ]
@@ -8052,12 +8052,12 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IiNS5_11_Alloc_nodeE
   %178 = load i64, ptr %177, align 8
   %179 = add i64 %178, 1
   store i64 %179, ptr %177, align 8
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 180:                                              ; preds = %149
   %.off.i.i.i.i = add i32 %.val3, -19
   %switch.i39.i.i.i = icmp ult i32 %.off.i.i.i.i, 20
-  br i1 %switch.i39.i.i.i, label %181, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br i1 %switch.i39.i.i.i, label %181, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 181:                                              ; preds = %180
   %182 = getelementptr inbounds i8, ptr %12, i64 264
@@ -8097,7 +8097,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IiNS5_11_Alloc_nodeE
   %193 = phi i32 [ %.pre.i.i62.i.i.i, %190 ], [ %185, %._crit_edge.i.i.i49.i.i.i ]
   %.019.lcssa29.i.i.i50.i.i.i = phi ptr [ %.019.lcssa28.i.i.i60.i.i.i, %190 ], [ %.02024.i.i.i44.i.i.i, %._crit_edge.i.i.i49.i.i.i ]
   %194 = icmp slt i32 %193, %.val4
-  br i1 %194, label %select.unfold.i.i56.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br i1 %194, label %select.unfold.i.i56.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 select.unfold.i.i56.i.i.i:                        ; preds = %192, %._crit_edge.thread.i.i.i59.i.i.i
   %.sroa.4.0.i.ph.i.i57.i.i.i = phi ptr [ %.019.lcssa28.i.i.i60.i.i.i, %._crit_edge.thread.i.i.i59.i.i.i ], [ %.019.lcssa29.i.i.i50.i.i.i, %192 ]
@@ -8120,9 +8120,9 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IiNS5_11_Alloc_nodeE
   %204 = load i64, ptr %203, align 8
   %205 = add i64 %204, 1
   store i64 %205, ptr %203, align 8
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
-"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %_ZNK3spv10spirvbin_t15typeSizeInWordsEj.exit.thread.i.i.i, %_ZNK3spv10spirvbin_t13literalStringB5cxx11Ej.exit.i.i.i, %79, %89, %_ZNK3spv10spirvbin_t5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i, %111, %_ZNK3spv10spirvbin_t5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit37.i.i.i, %135, %151, %166, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i.i.i.i, %180, %192, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i58.i.i.i
+"_ZSt10__invoke_rIbRZN3spv10spirvbin_t14buildLocalMapsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %_ZNK3spv10spirvbin_t15typeSizeInWordsEj.exit.thread.i.i.i, %_ZNK3spv10spirvbin_t13literalStringB5cxx11Ej.exit.i.i.i, %79, %89, %_ZNK3spv10spirvbin_t5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i, %111, %_ZNK3spv10spirvbin_t5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit37.i.i.i, %135, %151, %166, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i.i.i.i, %180, %192, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i58.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
@@ -8134,7 +8134,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IiNS5_11_Alloc_nodeE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t14buildLocalMapsEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t14buildLocalMapsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t14buildLocalMapsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -8144,29 +8144,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t14buildLocalMapsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t14buildLocalMapsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t14buildLocalMapsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t14buildLocalMapsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t14buildLocalMapsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t14buildLocalMapsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t14buildLocalMapsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t14buildLocalMapsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #26
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t14buildLocalMapsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t14buildLocalMapsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t14buildLocalMapsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t14buildLocalMapsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -8665,7 +8665,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t14buildLo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t14buildLocalMapsEvE3$_1E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #15 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t14buildLocalMapsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t14buildLocalMapsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -8673,18 +8673,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirv
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t14buildLocalMapsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t14buildLocalMapsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t14buildLocalMapsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t14buildLocalMapsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t14buildLocalMapsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t14buildLocalMapsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t14buildLocalMapsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t14buildLocalMapsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -8709,7 +8709,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 4
   store ptr %10, ptr %4, align 8
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t11mapFnBodiesEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t11mapFnBodiesEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %.val, align 8
@@ -8764,15 +8764,15 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
   store ptr %31, ptr %4, align 8
   %33 = getelementptr inbounds i32, ptr %26, i64 %22
   store ptr %33, ptr %6, align 8
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t11mapFnBodiesEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t11mapFnBodiesEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
-"_ZSt10__invoke_rIbRZN3spv10spirvbin_t11mapFnBodiesEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %8, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i.i
+"_ZSt10__invoke_rIbRZN3spv10spirvbin_t11mapFnBodiesEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %8, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i.i
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t11mapFnBodiesEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #15 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -8780,18 +8780,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -8802,7 +8802,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %.val3 = load i32, ptr %1, align 4
   %.val4 = load i32, ptr %2, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  switch i32 %.val3, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t11mapFnBodiesEvE3$_1JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit" [
+  switch i32 %.val3, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t11mapFnBodiesEvE3$_1JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit" [
     i32 54, label %5
     i32 87, label %24
     i32 88, label %24
@@ -8857,7 +8857,7 @@ _ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE5clearEv.exit.i.
   %21 = load ptr, ptr %19, align 8
   %22 = getelementptr inbounds i32, ptr %21, i64 %20
   %23 = load i32, ptr %22, align 4
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t11mapFnBodiesEvE3$_1JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t11mapFnBodiesEvE3$_1JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 24:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
   %25 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -8869,9 +8869,9 @@ _ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE5clearEv.exit.i.
   store i32 %29, ptr %27, align 4
   %30 = load ptr, ptr %.val, align 8
   store i32 0, ptr %30, align 4
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t11mapFnBodiesEvE3$_1JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t11mapFnBodiesEvE3$_1JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
-"_ZSt10__invoke_rIbRZN3spv10spirvbin_t11mapFnBodiesEvE3$_1JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %3, %_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE5clearEv.exit.i.i.i, %24
+"_ZSt10__invoke_rIbRZN3spv10spirvbin_t11mapFnBodiesEvE3$_1JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %3, %_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE5clearEv.exit.i.i.i, %24
   %.sink6.i.i.i = phi i64 [ 32, %24 ], [ 16, %_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE5clearEv.exit.i.i.i ], [ 32, %3 ]
   %.sink.i.i.i = phi i32 [ %.val3, %24 ], [ %23, %_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE5clearEv.exit.i.i.i ], [ 0, %3 ]
   %31 = getelementptr inbounds i8, ptr %.val, i64 %.sink6.i.i.i
@@ -8883,7 +8883,7 @@ _ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE5clearEv.exit.i.
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t11mapFnBodiesEvE3$_1E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -8893,29 +8893,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #26
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -9224,7 +9224,7 @@ _ZN3spv10spirvbin_t12nextUnusedIdEj.exit.i.i.i:   ; preds = %59, %_ZNK3spv10spir
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t11mapFnBodiesEvE3$_2E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -9234,29 +9234,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirv
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #26
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t11mapFnBodiesEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -9268,7 +9268,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %.val3 = load i32, ptr %1, align 4
   %.val4 = load i32, ptr %2, align 4
   %6 = load ptr, ptr %.val, align 8
-  switch i32 %.val3, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit" [
+  switch i32 %.val3, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit" [
     i32 59, label %7
     i32 65, label %26
     i32 61, label %70
@@ -9282,7 +9282,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %12 = load i32, ptr %11, align 4
   %.mask.i.i.i = and i32 %12, -65536
   %13 = icmp eq i32 %.mask.i.i.i, 262144
-  br i1 %13, label %14, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br i1 %13, label %14, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 14:                                               ; preds = %7
   %15 = add i32 %.val4, 3
@@ -9290,7 +9290,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %17 = getelementptr inbounds i32, ptr %10, i64 %16
   %18 = load i32, ptr %17, align 4
   %switch.i.i.i = icmp ult i32 %18, 3
-  br i1 %switch.i.i.i, label %19, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br i1 %switch.i.i.i, label %19, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -9302,7 +9302,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   store ptr %21, ptr %5, align 8
   %25 = call { ptr, i8 } @_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKjSF_NS1_10_AllocNodeISaINS1_10_Hash_nodeIjLb0EEEEEEEESt4pairINS1_14_Node_iteratorIjLb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 4 dereferenceable(4) %24, ptr noundef nonnull align 4 dereferenceable(4) %24, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 26:                                               ; preds = %3
   %27 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -9326,7 +9326,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %.sroa.06.0.in.i.i.i.i.i.i = phi ptr [ %37, %36 ], [ %.sroa.06.0.i.i.i.i.i.i, %40 ]
   %.sroa.06.0.i.i.i.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %40
+  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %40
 
 40:                                               ; preds = %39
   %41 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i.i.i, i64 8
@@ -9344,7 +9344,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %51 = getelementptr inbounds ptr, ptr %50, i64 %49
   %52 = load ptr, ptr %51, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %52, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %53
+  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %53
 
 53:                                               ; preds = %44
   %54 = load ptr, ptr %52, align 8
@@ -9361,7 +9361,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %.018.i.i.i.i.i.i.i.i = phi ptr [ %60, %58 ], [ %54, %53 ]
   %60 = load ptr, ptr %.018.i.i.i.i.i.i.i.i, align 8
   %.not16.i.i.i.i.i.i.i.i = icmp eq ptr %60, null
-  br i1 %.not16.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %61
+  br i1 %.not16.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %61
 
 61:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   %62 = getelementptr inbounds i8, ptr %60, i64 8
@@ -9369,7 +9369,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %64 = zext i32 %63 to i64
   %65 = urem i64 %64, %48
   %.not17.i.i.i.i.i.i.i.i = icmp eq i64 %65, %49
-  br i1 %.not17.i.i.i.i.i.i.i.i, label %58, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", !llvm.loop !120
+  br i1 %.not17.i.i.i.i.i.i.i.i, label %58, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", !llvm.loop !120
 
 .loopexit40.i.i.i:                                ; preds = %58, %40, %53
   %66 = add i32 %.val4, 2
@@ -9379,7 +9379,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   store ptr %28, ptr %4, align 8
   %69 = call { ptr, i8 } @_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKjSF_NS1_10_AllocNodeISaINS1_10_Hash_nodeIjLb0EEEEEEEESt4pairINS1_14_Node_iteratorIjLb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull align 4 dereferenceable(4) %68, ptr noundef nonnull align 4 dereferenceable(4) %68, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 70:                                               ; preds = %3
   %71 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -9403,7 +9403,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %.sroa.06.0.in.i.i.i26.i.i.i = phi ptr [ %81, %80 ], [ %.sroa.06.0.i.i.i27.i.i.i, %84 ]
   %.sroa.06.0.i.i.i27.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i26.i.i.i, align 8
   %.not.i.i.i28.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i27.i.i.i, null
-  br i1 %.not.i.i.i28.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %84
+  br i1 %.not.i.i.i28.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %84
 
 84:                                               ; preds = %83
   %85 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i27.i.i.i, i64 8
@@ -9421,7 +9421,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %95 = getelementptr inbounds ptr, ptr %94, i64 %93
   %96 = load ptr, ptr %95, align 8
   %.not.i.i.i.i.i18.i.i.i = icmp eq ptr %96, null
-  br i1 %.not.i.i.i.i.i18.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %97
+  br i1 %.not.i.i.i.i.i18.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %97
 
 97:                                               ; preds = %88
   %98 = load ptr, ptr %96, align 8
@@ -9438,7 +9438,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %.018.i.i.i.i.i20.i.i.i = phi ptr [ %104, %102 ], [ %98, %97 ]
   %104 = load ptr, ptr %.018.i.i.i.i.i20.i.i.i, align 8
   %.not16.i.i.i.i.i21.i.i.i = icmp eq ptr %104, null
-  br i1 %.not16.i.i.i.i.i21.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %105
+  br i1 %.not16.i.i.i.i.i21.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %105
 
 105:                                              ; preds = %.lr.ph.i.i.i.i.i19.i.i.i
   %106 = getelementptr inbounds i8, ptr %104, i64 8
@@ -9446,7 +9446,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %108 = zext i32 %107 to i64
   %109 = urem i64 %108, %92
   %.not17.i.i.i.i.i22.i.i.i = icmp eq i64 %109, %93
-  br i1 %.not17.i.i.i.i.i22.i.i.i, label %102, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", !llvm.loop !120
+  br i1 %.not17.i.i.i.i.i22.i.i.i, label %102, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", !llvm.loop !120
 
 .loopexit.i.i.i:                                  ; preds = %102, %84, %97
   %110 = phi i32 [ %89, %97 ], [ %82, %84 ], [ %89, %102 ]
@@ -9458,15 +9458,15 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %116 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjjESaIS3_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %112, ptr noundef nonnull align 4 dereferenceable(4) %115)
   store i32 %110, ptr %116, align 4
   tail call void @_ZN3spv10spirvbin_t9stripInstEj(ptr noundef nonnull align 8 dereferenceable(473) %6, i32 noundef %.val4)
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
-"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i19.i.i.i, %105, %83, %.lr.ph.i.i.i.i.i.i.i.i, %61, %39, %3, %7, %14, %19, %44, %.loopexit40.i.i.i, %88, %.loopexit.i.i.i
+"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %.lr.ph.i.i.i.i.i19.i.i.i, %105, %83, %.lr.ph.i.i.i.i.i.i.i.i, %61, %39, %3, %7, %14, %19, %44, %.loopexit40.i.i.i, %88, %.loopexit.i.i.i
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t17forwardLoadStoresEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -9476,29 +9476,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #26
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -9767,7 +9767,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t17forward
   %.sroa.06.0.in.i.i.i.i.i = phi ptr [ %6, %5 ], [ %.sroa.06.0.i.i.i.i.i, %9 ]
   %.sroa.06.0.i.i.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i.i.i, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_1JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %9
+  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_1JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %9
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i.i, i64 8
@@ -9785,7 +9785,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t17forward
   %20 = getelementptr inbounds ptr, ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_1JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %22
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_1JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %22
 
 22:                                               ; preds = %13
   %23 = load ptr, ptr %21, align 8
@@ -9802,7 +9802,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t17forward
   %.018.i.i.i.i.i.i.i = phi ptr [ %29, %27 ], [ %23, %22 ]
   %29 = load ptr, ptr %.018.i.i.i.i.i.i.i, align 8
   %.not16.i.i.i.i.i.i.i = icmp eq ptr %29, null
-  br i1 %.not16.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_1JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %30
+  br i1 %.not16.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_1JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %30
 
 30:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %31 = getelementptr inbounds i8, ptr %29, i64 8
@@ -9810,21 +9810,21 @@ define internal void @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t17forward
   %33 = zext i32 %32 to i64
   %34 = urem i64 %33, %17
   %.not17.i.i.i.i.i.i.i = icmp eq i64 %34, %18
-  br i1 %.not17.i.i.i.i.i.i.i, label %27, label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_1JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", !llvm.loop !11
+  br i1 %.not17.i.i.i.i.i.i.i, label %27, label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_1JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", !llvm.loop !11
 
 _ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.i.i.i: ; preds = %27, %9, %22
   %35 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjjESaIS3_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %.val, ptr noundef nonnull align 4 dereferenceable(4) %1)
   %36 = load i32, ptr %35, align 4
   store i32 %36, ptr %1, align 4
-  br label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_1JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_1JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
-"_ZSt10__invoke_rIvRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_1JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i.i.i, %30, %8, %13, %_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.i.i.i
+"_ZSt10__invoke_rIvRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_1JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %.lr.ph.i.i.i.i.i.i.i, %30, %8, %13, %_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t17forwardLoadStoresEvE3$_1E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #15 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -9832,18 +9832,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirv
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -9854,7 +9854,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %.val3 = load i32, ptr %1, align 4
   %.val4 = load i32, ptr %2, align 4
   %5 = load ptr, ptr %.val, align 8
-  switch i32 %.val3, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit" [
+  switch i32 %.val3, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit" [
     i32 59, label %6
     i32 62, label %26
   ]
@@ -9867,7 +9867,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %11 = load i32, ptr %10, align 4
   %.mask.i.i.i = and i32 %11, -65536
   %12 = icmp eq i32 %.mask.i.i.i, 262144
-  br i1 %12, label %13, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br i1 %12, label %13, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 13:                                               ; preds = %6
   %14 = add i32 %.val4, 3
@@ -9875,7 +9875,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %16 = getelementptr inbounds i32, ptr %9, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 3
-  br i1 %18, label %19, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br i1 %18, label %19, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -9887,7 +9887,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   store ptr %21, ptr %4, align 8
   %25 = call { ptr, i8 } @_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKjSF_NS1_10_AllocNodeISaINS1_10_Hash_nodeIjLb0EEEEEEEESt4pairINS1_14_Node_iteratorIjLb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 4 dereferenceable(4) %24, ptr noundef nonnull align 4 dereferenceable(4) %24, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 26:                                               ; preds = %3
   %27 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -9911,7 +9911,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %.sroa.06.0.in.i.i.i.i.i.i = phi ptr [ %37, %36 ], [ %.sroa.06.0.i.i.i.i.i.i, %40 ]
   %.sroa.06.0.i.i.i.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %40
+  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %40
 
 40:                                               ; preds = %39
   %41 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i.i.i, i64 8
@@ -9929,7 +9929,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %51 = getelementptr inbounds ptr, ptr %50, i64 %49
   %52 = load ptr, ptr %51, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %52, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %53
+  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %53
 
 53:                                               ; preds = %44
   %54 = load ptr, ptr %52, align 8
@@ -9946,7 +9946,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %.018.i.i.i.i.i.i.i.i = phi ptr [ %60, %58 ], [ %54, %53 ]
   %60 = load ptr, ptr %.018.i.i.i.i.i.i.i.i, align 8
   %.not16.i.i.i.i.i.i.i.i = icmp eq ptr %60, null
-  br i1 %.not16.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %61
+  br i1 %.not16.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %61
 
 61:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   %62 = getelementptr inbounds i8, ptr %60, i64 8
@@ -9954,7 +9954,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %64 = zext i32 %63 to i64
   %65 = urem i64 %64, %48
   %.not17.i.i.i.i.i.i.i.i = icmp eq i64 %65, %49
-  br i1 %.not17.i.i.i.i.i.i.i.i, label %58, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", !llvm.loop !120
+  br i1 %.not17.i.i.i.i.i.i.i.i, label %58, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", !llvm.loop !120
 
 .loopexit.i.i.i:                                  ; preds = %58, %40, %53
   %66 = phi i32 [ %45, %53 ], [ %38, %40 ], [ %45, %58 ]
@@ -9966,15 +9966,15 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %72 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjjESaIS3_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %68, ptr noundef nonnull align 4 dereferenceable(4) %71)
   store i32 %66, ptr %72, align 4
   tail call void @_ZN3spv10spirvbin_t9stripInstEj(ptr noundef nonnull align 8 dereferenceable(473) %5, i32 noundef %.val4)
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
-"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %61, %39, %3, %6, %13, %19, %44, %.loopexit.i.i.i
+"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %61, %39, %3, %6, %13, %19, %44, %.loopexit.i.i.i
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t17forwardLoadStoresEvE3$_2E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -9984,29 +9984,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #26
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -10027,7 +10027,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t17forward
   %.sroa.06.0.in.i.i.i.i.i = phi ptr [ %6, %5 ], [ %.sroa.06.0.i.i.i.i.i, %9 ]
   %.sroa.06.0.i.i.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i.i.i, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_3JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %9
+  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_3JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %9
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i.i, i64 8
@@ -10045,7 +10045,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t17forward
   %20 = getelementptr inbounds ptr, ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_3JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %22
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_3JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %22
 
 22:                                               ; preds = %13
   %23 = load ptr, ptr %21, align 8
@@ -10062,7 +10062,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t17forward
   %.018.i.i.i.i.i.i.i = phi ptr [ %29, %27 ], [ %23, %22 ]
   %29 = load ptr, ptr %.018.i.i.i.i.i.i.i, align 8
   %.not16.i.i.i.i.i.i.i = icmp eq ptr %29, null
-  br i1 %.not16.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_3JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %30
+  br i1 %.not16.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_3JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %30
 
 30:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %31 = getelementptr inbounds i8, ptr %29, i64 8
@@ -10070,21 +10070,21 @@ define internal void @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t17forward
   %33 = zext i32 %32 to i64
   %34 = urem i64 %33, %17
   %.not17.i.i.i.i.i.i.i = icmp eq i64 %34, %18
-  br i1 %.not17.i.i.i.i.i.i.i, label %27, label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_3JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", !llvm.loop !11
+  br i1 %.not17.i.i.i.i.i.i.i, label %27, label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_3JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", !llvm.loop !11
 
 _ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.i.i.i: ; preds = %27, %9, %22
   %35 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjjESaIS3_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %.val, ptr noundef nonnull align 4 dereferenceable(4) %1)
   %36 = load i32, ptr %35, align 4
   store i32 %36, ptr %1, align 4
-  br label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_3JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_3JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
-"_ZSt10__invoke_rIvRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_3JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i.i.i, %30, %8, %13, %_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.i.i.i
+"_ZSt10__invoke_rIvRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_3JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %.lr.ph.i.i.i.i.i.i.i, %30, %8, %13, %_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t17forwardLoadStoresEvE3$_3E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #15 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_3E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_3E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -10092,18 +10092,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirv
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_3E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_3E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_3E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_3E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_3E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_3E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_3E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t17forwardLoadStoresEvE3$_3E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -10155,14 +10155,14 @@ _ZNK3spv10spirvbin_t10isFlowCtrlENS_2OpE.exit._crit_edge.i.i.i: ; preds = %_ZNK3
   %22 = getelementptr inbounds i32, ptr %19, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 7
-  br i1 %24, label %25, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br i1 %24, label %25, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 25:                                               ; preds = %18
   %26 = getelementptr inbounds i32, ptr %19, i64 %9
   %27 = load i32, ptr %26, align 4
   %.mask.i.i.i = and i32 %27, -65536
   %28 = icmp eq i32 %.mask.i.i.i, 262144
-  br i1 %28, label %29, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br i1 %28, label %29, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds i8, ptr %.val, i64 16
@@ -10174,7 +10174,7 @@ _ZNK3spv10spirvbin_t10isFlowCtrlENS_2OpE.exit._crit_edge.i.i.i: ; preds = %_ZNK3
   store ptr %31, ptr %4, align 8
   %35 = call { ptr, i8 } @_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKjSF_NS1_10_AllocNodeISaINS1_10_Hash_nodeIjLb0EEEEEEEESt4pairINS1_14_Node_iteratorIjLb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull align 4 dereferenceable(4) %34, ptr noundef nonnull align 4 dereferenceable(4) %34, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 36:                                               ; preds = %_ZNK3spv10spirvbin_t10isFlowCtrlENS_2OpE.exit.i.i.i, %3
   %37 = add i32 %.val3, -65
@@ -10254,10 +10254,10 @@ _ZNK3spv10spirvbin_t10isFlowCtrlENS_2OpE.exit._crit_edge.i.i.i: ; preds = %_ZNK3
   %80 = load ptr, ptr %8, align 8
   %81 = getelementptr inbounds i32, ptr %80, i64 %42
   %82 = tail call noundef i64 @_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS1_(ptr noundef nonnull align 8 dereferenceable(56) %79, ptr noundef nonnull align 4 dereferenceable(4) %81)
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 _ZNKSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5countERKj.exit.thread.i.i.i: ; preds = %72, %.lr.ph.i.i.i.i.i.i.i.i, %50, %55, %36
-  switch i32 %.val3, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit" [
+  switch i32 %.val3, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit" [
     i32 61, label %83
     i32 62, label %220
   ]
@@ -10283,7 +10283,7 @@ _ZNKSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5countERKj.exit.thread.i.i.
   %.sroa.06.0.in.i.i.i41.i.i.i = phi ptr [ %93, %92 ], [ %.sroa.06.0.i.i.i42.i.i.i, %96 ]
   %.sroa.06.0.i.i.i42.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i41.i.i.i, align 8
   %.not.i.i.i43.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i42.i.i.i, null
-  br i1 %.not.i.i.i43.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %96
+  br i1 %.not.i.i.i43.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %96
 
 96:                                               ; preds = %95
   %97 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i42.i.i.i, i64 8
@@ -10301,7 +10301,7 @@ _ZNKSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5countERKj.exit.thread.i.i.
   %107 = getelementptr inbounds ptr, ptr %106, i64 %105
   %108 = load ptr, ptr %107, align 8
   %.not.i.i.i.i.i33.i.i.i = icmp eq ptr %108, null
-  br i1 %.not.i.i.i.i.i33.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %109
+  br i1 %.not.i.i.i.i.i33.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %109
 
 109:                                              ; preds = %100
   %110 = load ptr, ptr %108, align 8
@@ -10318,7 +10318,7 @@ _ZNKSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5countERKj.exit.thread.i.i.
   %.018.i.i.i.i.i35.i.i.i = phi ptr [ %116, %114 ], [ %110, %109 ]
   %116 = load ptr, ptr %.018.i.i.i.i.i35.i.i.i, align 8
   %.not16.i.i.i.i.i36.i.i.i = icmp eq ptr %116, null
-  br i1 %.not16.i.i.i.i.i36.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %117
+  br i1 %.not16.i.i.i.i.i36.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %117
 
 117:                                              ; preds = %.lr.ph.i.i.i.i.i34.i.i.i
   %118 = getelementptr inbounds i8, ptr %116, i64 8
@@ -10326,7 +10326,7 @@ _ZNKSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5countERKj.exit.thread.i.i.
   %120 = zext i32 %119 to i64
   %121 = urem i64 %120, %104
   %.not17.i.i.i.i.i37.i.i.i = icmp eq i64 %121, %105
-  br i1 %.not17.i.i.i.i.i37.i.i.i, label %114, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", !llvm.loop !120
+  br i1 %.not17.i.i.i.i.i37.i.i.i, label %114, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", !llvm.loop !120
 
 .loopexit133.i.i.i:                               ; preds = %114, %96, %109
   %122 = phi i32 [ %101, %109 ], [ %94, %96 ], [ %101, %114 ]
@@ -10485,7 +10485,7 @@ _ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.
   %208 = load i32, ptr %207, align 4
   %209 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjiESaIS3_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %173, ptr noundef nonnull align 4 dereferenceable(4) %5)
   store i32 %208, ptr %209, align 4
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 _ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit.i.i.i: ; preds = %198, %180, %193
   %210 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjiESaIS3_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %173, ptr noundef nonnull align 4 dereferenceable(4) %5)
@@ -10494,14 +10494,14 @@ _ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit.
   %213 = load ptr, ptr %212, align 8
   %214 = load i32, ptr %213, align 4
   %.not31.i.i.i = icmp eq i32 %211, %214
-  br i1 %.not31.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %215
+  br i1 %.not31.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %215
 
 215:                                              ; preds = %_ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit.i.i.i
   %216 = load ptr, ptr %84, align 8
   %217 = call noundef i64 @_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERKj(ptr noundef nonnull align 8 dereferenceable(56) %216, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %218 = load ptr, ptr %123, align 8
   %219 = call noundef i64 @_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS1_(ptr noundef nonnull align 8 dereferenceable(56) %218, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 220:                                              ; preds = %_ZNKSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5countERKj.exit.thread.i.i.i
   %221 = getelementptr inbounds i8, ptr %.val, i64 16
@@ -10524,7 +10524,7 @@ _ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit.
   %.sroa.06.0.in.i.i.i65.i.i.i = phi ptr [ %230, %229 ], [ %.sroa.06.0.i.i.i66.i.i.i, %233 ]
   %.sroa.06.0.i.i.i66.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i65.i.i.i, align 8
   %.not.i.i.i67.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i66.i.i.i, null
-  br i1 %.not.i.i.i67.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %233
+  br i1 %.not.i.i.i67.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %233
 
 233:                                              ; preds = %232
   %234 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i66.i.i.i, i64 8
@@ -10542,7 +10542,7 @@ _ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit.
   %244 = getelementptr inbounds ptr, ptr %243, i64 %242
   %245 = load ptr, ptr %244, align 8
   %.not.i.i.i.i.i57.i.i.i = icmp eq ptr %245, null
-  br i1 %.not.i.i.i.i.i57.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %246
+  br i1 %.not.i.i.i.i.i57.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %246
 
 246:                                              ; preds = %237
   %247 = load ptr, ptr %245, align 8
@@ -10559,7 +10559,7 @@ _ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit.
   %.018.i.i.i.i.i59.i.i.i = phi ptr [ %253, %251 ], [ %247, %246 ]
   %253 = load ptr, ptr %.018.i.i.i.i.i59.i.i.i, align 8
   %.not16.i.i.i.i.i60.i.i.i = icmp eq ptr %253, null
-  br i1 %.not16.i.i.i.i.i60.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %254
+  br i1 %.not16.i.i.i.i.i60.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %254
 
 254:                                              ; preds = %.lr.ph.i.i.i.i.i58.i.i.i
   %255 = getelementptr inbounds i8, ptr %253, i64 8
@@ -10567,7 +10567,7 @@ _ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit.
   %257 = zext i32 %256 to i64
   %258 = urem i64 %257, %241
   %.not17.i.i.i.i.i61.i.i.i = icmp eq i64 %258, %242
-  br i1 %.not17.i.i.i.i.i61.i.i.i, label %251, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", !llvm.loop !120
+  br i1 %.not17.i.i.i.i.i61.i.i.i, label %251, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", !llvm.loop !120
 
 .loopexit123.i.i.i:                               ; preds = %251, %233, %246
   %259 = phi i32 [ %238, %246 ], [ %231, %233 ], [ %238, %251 ]
@@ -10737,7 +10737,7 @@ _ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit7
   %353 = load i32, ptr %352, align 4
   %354 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjiESaIS3_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %318, ptr noundef nonnull align 4 dereferenceable(4) %6)
   store i32 %353, ptr %354, align 4
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 _ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit90.i.i.i: ; preds = %343, %325, %338
   %355 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjiESaIS3_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %318, ptr noundef nonnull align 4 dereferenceable(4) %6)
@@ -10746,16 +10746,16 @@ _ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit9
   %358 = load ptr, ptr %357, align 8
   %359 = load i32, ptr %358, align 4
   %.not29.i.i.i = icmp eq i32 %356, %359
-  br i1 %.not29.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %360
+  br i1 %.not29.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %360
 
 360:                                              ; preds = %_ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit90.i.i.i
   %361 = load ptr, ptr %221, align 8
   %362 = call noundef i64 @_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERKj(ptr noundef nonnull align 8 dereferenceable(56) %361, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %363 = load ptr, ptr %260, align 8
   %364 = call noundef i64 @_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS1_(ptr noundef nonnull align 8 dereferenceable(56) %363, ptr noundef nonnull align 4 dereferenceable(4) %6)
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
-"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i58.i.i.i, %254, %232, %.lr.ph.i.i.i.i.i34.i.i.i, %117, %95, %18, %25, %29, %.loopexit136.i.i.i, %_ZNKSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5countERKj.exit.thread.i.i.i, %100, %.loopexit126.i.i.i, %_ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit.i.i.i, %215, %237, %.loopexit.i.i.i, %_ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit90.i.i.i, %360
+"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %.lr.ph.i.i.i.i.i58.i.i.i, %254, %232, %.lr.ph.i.i.i.i.i34.i.i.i, %117, %95, %18, %25, %29, %.loopexit136.i.i.i, %_ZNKSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5countERKj.exit.thread.i.i.i, %100, %.loopexit126.i.i.i, %_ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit.i.i.i, %215, %237, %.loopexit.i.i.i, %_ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit90.i.i.i, %360
   %.0.i.i.i = phi i1 [ true, %29 ], [ true, %.loopexit136.i.i.i ], [ true, %_ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit.i.i.i ], [ true, %215 ], [ true, %.loopexit126.i.i.i ], [ true, %_ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit90.i.i.i ], [ true, %360 ], [ true, %.loopexit.i.i.i ], [ false, %_ZNKSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5countERKj.exit.thread.i.i.i ], [ false, %18 ], [ false, %25 ], [ false, %100 ], [ false, %237 ], [ false, %95 ], [ false, %117 ], [ false, %.lr.ph.i.i.i.i.i34.i.i.i ], [ false, %232 ], [ false, %254 ], [ false, %.lr.ph.i.i.i.i.i58.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -10764,7 +10764,7 @@ _ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t12optLoadStoreEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -10774,29 +10774,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #26
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -11255,7 +11255,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %.val3 = load i32, ptr %1, align 4
   %.val4 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %.val3, 61
-  br i1 %4, label %5, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br i1 %4, label %5, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -11280,7 +11280,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %.sroa.06.0.in.i.i.i.i.i.i = phi ptr [ %17, %16 ], [ %.sroa.06.0.i.i.i.i.i.i, %20 ]
   %.sroa.06.0.i.i.i.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %20
+  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %20
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i.i.i, i64 8
@@ -11298,7 +11298,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %31 = getelementptr inbounds ptr, ptr %30, i64 %29
   %32 = load ptr, ptr %31, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %33
+  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %33
 
 33:                                               ; preds = %24
   %34 = load ptr, ptr %32, align 8
@@ -11315,7 +11315,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %.018.i.i.i.i.i.i.i.i = phi ptr [ %40, %38 ], [ %34, %33 ]
   %40 = load ptr, ptr %.018.i.i.i.i.i.i.i.i, align 8
   %.not16.i.i.i.i.i.i.i.i = icmp eq ptr %40, null
-  br i1 %.not16.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %41
+  br i1 %.not16.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %41
 
 41:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   %42 = getelementptr inbounds i8, ptr %40, i64 8
@@ -11323,7 +11323,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %44 = zext i32 %43 to i64
   %45 = urem i64 %44, %28
   %.not17.i.i.i.i.i.i.i.i = icmp eq i64 %45, %29
-  br i1 %.not17.i.i.i.i.i.i.i.i, label %38, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", !llvm.loop !120
+  br i1 %.not17.i.i.i.i.i.i.i.i, label %38, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", !llvm.loop !120
 
 .loopexit.i.i.i:                                  ; preds = %38, %20, %33
   %46 = getelementptr inbounds i8, ptr %.val, i64 16
@@ -11337,15 +11337,15 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %54 = getelementptr inbounds i32, ptr %53, i64 %52
   %55 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjjESaIS3_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %50, ptr noundef nonnull align 4 dereferenceable(4) %54)
   store i32 %49, ptr %55, align 4
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
-"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %41, %19, %3, %24, %.loopexit.i.i.i
+"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %41, %19, %3, %24, %.loopexit.i.i.i
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t12optLoadStoreEvE3$_2E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -11355,29 +11355,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #26
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -11388,7 +11388,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %.val3 = load ptr, ptr %4, align 8
   %.val4 = load i32, ptr %1, align 4
   %.val5 = load i32, ptr %2, align 4
-  switch i32 %.val4, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit" [
+  switch i32 %.val4, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit" [
     i32 61, label %8
     i32 62, label %46
     i32 59, label %._crit_edge33.i.i.i
@@ -11425,7 +11425,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %.sroa.06.0.in.i.i.i.i.i.i = phi ptr [ %17, %16 ], [ %.sroa.06.0.i.i.i.i.i.i, %20 ]
   %.sroa.06.0.i.i.i.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %20
+  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %20
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i.i.i, i64 8
@@ -11443,7 +11443,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %31 = getelementptr inbounds ptr, ptr %30, i64 %29
   %32 = load ptr, ptr %31, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %33
+  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %33
 
 33:                                               ; preds = %24
   %34 = load ptr, ptr %32, align 8
@@ -11460,7 +11460,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %.018.i.i.i.i.i.i.i.i = phi ptr [ %40, %38 ], [ %34, %33 ]
   %40 = load ptr, ptr %.018.i.i.i.i.i.i.i.i, align 8
   %.not16.i.i.i.i.i.i.i.i = icmp eq ptr %40, null
-  br i1 %.not16.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %41
+  br i1 %.not16.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %41
 
 41:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   %42 = getelementptr inbounds i8, ptr %40, i64 8
@@ -11468,7 +11468,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %44 = zext i32 %43 to i64
   %45 = urem i64 %44, %28
   %.not17.i.i.i.i.i.i.i.i = icmp eq i64 %45, %29
-  br i1 %.not17.i.i.i.i.i.i.i.i, label %38, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", !llvm.loop !120
+  br i1 %.not17.i.i.i.i.i.i.i.i, label %38, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", !llvm.loop !120
 
 46:                                               ; preds = %3
   %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.val3, i64 8
@@ -11490,7 +11490,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %.sroa.06.0.in.i.i.i19.i.i.i = phi ptr [ %51, %50 ], [ %.sroa.06.0.i.i.i20.i.i.i, %54 ]
   %.sroa.06.0.i.i.i20.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i19.i.i.i, align 8
   %.not.i.i.i21.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i20.i.i.i, null
-  br i1 %.not.i.i.i21.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %54
+  br i1 %.not.i.i.i21.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %54
 
 54:                                               ; preds = %53
   %55 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i20.i.i.i, i64 8
@@ -11508,7 +11508,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %65 = getelementptr inbounds ptr, ptr %64, i64 %63
   %66 = load ptr, ptr %65, align 8
   %.not.i.i.i.i.i11.i.i.i = icmp eq ptr %66, null
-  br i1 %.not.i.i.i.i.i11.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %67
+  br i1 %.not.i.i.i.i.i11.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %67
 
 67:                                               ; preds = %58
   %68 = load ptr, ptr %66, align 8
@@ -11525,7 +11525,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %.018.i.i.i.i.i13.i.i.i = phi ptr [ %74, %72 ], [ %68, %67 ]
   %74 = load ptr, ptr %.018.i.i.i.i.i13.i.i.i, align 8
   %.not16.i.i.i.i.i14.i.i.i = icmp eq ptr %74, null
-  br i1 %.not16.i.i.i.i.i14.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %75
+  br i1 %.not16.i.i.i.i.i14.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %75
 
 75:                                               ; preds = %.lr.ph.i.i.i.i.i12.i.i.i
   %76 = getelementptr inbounds i8, ptr %74, i64 8
@@ -11533,7 +11533,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %78 = zext i32 %77 to i64
   %79 = urem i64 %78, %62
   %.not17.i.i.i.i.i15.i.i.i = icmp eq i64 %79, %63
-  br i1 %.not17.i.i.i.i.i15.i.i.i, label %72, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", !llvm.loop !120
+  br i1 %.not17.i.i.i.i.i15.i.i.i, label %72, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", !llvm.loop !120
 
 80:                                               ; preds = %._crit_edge33.i.i.i
   %81 = getelementptr inbounds i8, ptr %.val, i64 16
@@ -11544,7 +11544,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %.sroa.06.0.in.i.i.i32.i.i.i = phi ptr [ %81, %80 ], [ %.sroa.06.0.i.i.i33.i.i.i, %84 ]
   %.sroa.06.0.i.i.i33.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i32.i.i.i, align 8
   %.not.i.i.i34.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i33.i.i.i, null
-  br i1 %.not.i.i.i34.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %84
+  br i1 %.not.i.i.i34.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %84
 
 84:                                               ; preds = %83
   %85 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i33.i.i.i, i64 8
@@ -11562,7 +11562,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %95 = getelementptr inbounds ptr, ptr %94, i64 %93
   %96 = load ptr, ptr %95, align 8
   %.not.i.i.i.i.i24.i.i.i = icmp eq ptr %96, null
-  br i1 %.not.i.i.i.i.i24.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %97
+  br i1 %.not.i.i.i.i.i24.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %97
 
 97:                                               ; preds = %88
   %98 = load ptr, ptr %96, align 8
@@ -11579,7 +11579,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %.018.i.i.i.i.i26.i.i.i = phi ptr [ %104, %102 ], [ %98, %97 ]
   %104 = load ptr, ptr %.018.i.i.i.i.i26.i.i.i, align 8
   %.not16.i.i.i.i.i27.i.i.i = icmp eq ptr %104, null
-  br i1 %.not16.i.i.i.i.i27.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %105
+  br i1 %.not16.i.i.i.i.i27.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %105
 
 105:                                              ; preds = %.lr.ph.i.i.i.i.i25.i.i.i
   %106 = getelementptr inbounds i8, ptr %104, i64 8
@@ -11587,13 +11587,13 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %108 = zext i32 %107 to i64
   %109 = urem i64 %108, %92
   %.not17.i.i.i.i.i28.i.i.i = icmp eq i64 %109, %93
-  br i1 %.not17.i.i.i.i.i28.i.i.i, label %102, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", !llvm.loop !120
+  br i1 %.not17.i.i.i.i.i28.i.i.i, label %102, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", !llvm.loop !120
 
 _ZNKSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5countERKj.exit.i.i.i: ; preds = %102, %84, %72, %54, %38, %20, %97, %67, %33
   tail call void @_ZN3spv10spirvbin_t9stripInstEj(ptr noundef nonnull align 8 dereferenceable(473) %.val3, i32 noundef %.val5)
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
-"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i25.i.i.i, %105, %83, %.lr.ph.i.i.i.i.i12.i.i.i, %75, %53, %.lr.ph.i.i.i.i.i.i.i.i, %41, %19, %3, %24, %58, %88, %_ZNKSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5countERKj.exit.i.i.i
+"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %.lr.ph.i.i.i.i.i25.i.i.i, %105, %83, %.lr.ph.i.i.i.i.i12.i.i.i, %75, %53, %.lr.ph.i.i.i.i.i.i.i.i, %41, %19, %3, %24, %58, %88, %_ZNKSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5countERKj.exit.i.i.i
   %.0.i.i.i = phi i1 [ true, %_ZNKSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5countERKj.exit.i.i.i ], [ false, %3 ], [ false, %24 ], [ false, %58 ], [ false, %88 ], [ false, %19 ], [ false, %41 ], [ false, %.lr.ph.i.i.i.i.i.i.i.i ], [ false, %53 ], [ false, %75 ], [ false, %.lr.ph.i.i.i.i.i12.i.i.i ], [ false, %83 ], [ false, %105 ], [ false, %.lr.ph.i.i.i.i.i25.i.i.i ]
   ret i1 %.0.i.i.i
 }
@@ -11639,7 +11639,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t12optLoad
   %.sroa.06.0.in.i.i.i.i.i = phi ptr [ %6, %5 ], [ %.sroa.06.0.i.i.i.i.i, %9 ]
   %.sroa.06.0.i.i.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i.i.i, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t12optLoadStoreEvE3$_4JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %9
+  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t12optLoadStoreEvE3$_4JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %9
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i.i, i64 8
@@ -11657,7 +11657,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t12optLoad
   %20 = getelementptr inbounds ptr, ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t12optLoadStoreEvE3$_4JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %22
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t12optLoadStoreEvE3$_4JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %22
 
 22:                                               ; preds = %13
   %23 = load ptr, ptr %21, align 8
@@ -11674,7 +11674,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t12optLoad
   %.018.i.i.i.i.i.i.i = phi ptr [ %29, %27 ], [ %23, %22 ]
   %29 = load ptr, ptr %.018.i.i.i.i.i.i.i, align 8
   %.not16.i.i.i.i.i.i.i = icmp eq ptr %29, null
-  br i1 %.not16.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t12optLoadStoreEvE3$_4JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %30
+  br i1 %.not16.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t12optLoadStoreEvE3$_4JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %30
 
 30:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %31 = getelementptr inbounds i8, ptr %29, i64 8
@@ -11682,21 +11682,21 @@ define internal void @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t12optLoad
   %33 = zext i32 %32 to i64
   %34 = urem i64 %33, %17
   %.not17.i.i.i.i.i.i.i = icmp eq i64 %34, %18
-  br i1 %.not17.i.i.i.i.i.i.i, label %27, label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t12optLoadStoreEvE3$_4JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", !llvm.loop !11
+  br i1 %.not17.i.i.i.i.i.i.i, label %27, label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t12optLoadStoreEvE3$_4JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", !llvm.loop !11
 
 _ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.i.i.i: ; preds = %27, %9, %22
   %35 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjjESaIS3_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %.val, ptr noundef nonnull align 4 dereferenceable(4) %1)
   %36 = load i32, ptr %35, align 4
   store i32 %36, ptr %1, align 4
-  br label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t12optLoadStoreEvE3$_4JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t12optLoadStoreEvE3$_4JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
-"_ZSt10__invoke_rIvRZN3spv10spirvbin_t12optLoadStoreEvE3$_4JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i.i.i, %30, %8, %13, %_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.i.i.i
+"_ZSt10__invoke_rIvRZN3spv10spirvbin_t12optLoadStoreEvE3$_4JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %.lr.ph.i.i.i.i.i.i.i, %30, %8, %13, %_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t12optLoadStoreEvE3$_4E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #15 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_4E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_4E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -11704,18 +11704,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirv
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_4E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_4E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_4E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_4E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_4E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_4E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_4E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t12optLoadStoreEvE3$_4E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -11816,7 +11816,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %.val = load ptr, ptr %0, align 8
   %.val3 = load i32, ptr %1, align 4
   %4 = icmp eq i32 %.val3, 57
-  br i1 %4, label %5, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t8dceFuncsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br i1 %4, label %5, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t8dceFuncsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 5:                                                ; preds = %3
   %.val4 = load i32, ptr %2, align 4
@@ -11840,7 +11840,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %.sroa.06.0.in.i.i.i.i.i = phi ptr [ %15, %14 ], [ %.sroa.06.0.i.i.i.i.i, %18 ]
   %.sroa.06.0.i.i.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i.i.i, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t8dceFuncsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %18
+  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t8dceFuncsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %18
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i.i, i64 8
@@ -11858,7 +11858,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %29 = getelementptr inbounds ptr, ptr %28, i64 %27
   %30 = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %30, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t8dceFuncsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %31
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t8dceFuncsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %31
 
 31:                                               ; preds = %22
   %32 = load ptr, ptr %30, align 8
@@ -11875,7 +11875,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %.018.i.i.i.i.i.i.i = phi ptr [ %38, %36 ], [ %32, %31 ]
   %38 = load ptr, ptr %.018.i.i.i.i.i.i.i, align 8
   %.not16.i.i.i.i.i.i.i = icmp eq ptr %38, null
-  br i1 %.not16.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t8dceFuncsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %39
+  br i1 %.not16.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t8dceFuncsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %39
 
 39:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %40 = getelementptr inbounds i8, ptr %38, i64 8
@@ -11883,7 +11883,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %42 = zext i32 %41 to i64
   %43 = urem i64 %42, %26
   %.not17.i.i.i.i.i.i.i = icmp eq i64 %43, %27
-  br i1 %.not17.i.i.i.i.i.i.i, label %36, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t8dceFuncsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", !llvm.loop !9
+  br i1 %.not17.i.i.i.i.i.i.i, label %36, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t8dceFuncsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", !llvm.loop !9
 
 _ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit.i.i.i: ; preds = %36, %18, %31
   %44 = phi i32 [ %23, %31 ], [ %16, %18 ], [ %23, %36 ]
@@ -11893,7 +11893,7 @@ _ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit.
   %47 = add nsw i32 %46, -1
   store i32 %47, ptr %45, align 4
   %48 = icmp slt i32 %46, 2
-  br i1 %48, label %49, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t8dceFuncsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br i1 %48, label %49, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t8dceFuncsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 49:                                               ; preds = %_ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit.i.i.i
   %50 = getelementptr inbounds i8, ptr %.val, i64 200
@@ -11975,15 +11975,15 @@ _ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE5eraseENSt8__det
   %85 = load i64, ptr %12, align 8
   %86 = add i64 %85, -1
   store i64 %86, ptr %12, align 8
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t8dceFuncsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t8dceFuncsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
-"_ZSt10__invoke_rIbRZN3spv10spirvbin_t8dceFuncsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i.i.i, %39, %17, %3, %22, %_ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit.i.i.i, %_ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE5eraseENSt8__detail14_Node_iteratorIS6_Lb0ELb0EEE.exit.i.i.i
+"_ZSt10__invoke_rIbRZN3spv10spirvbin_t8dceFuncsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %.lr.ph.i.i.i.i.i.i.i, %39, %17, %3, %22, %_ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit.i.i.i, %_ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE5eraseENSt8__detail14_Node_iteratorIS6_Lb0ELb0EEE.exit.i.i.i
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t8dceFuncsEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #15 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t8dceFuncsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t8dceFuncsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -11991,18 +11991,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t8dceFuncsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t8dceFuncsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t8dceFuncsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t8dceFuncsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t8dceFuncsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t8dceFuncsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t8dceFuncsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t8dceFuncsEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -12012,7 +12012,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %.val3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  switch i32 %.val, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t7dceVarsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit" [
+  switch i32 %.val, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t7dceVarsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit" [
     i32 59, label %6
     i32 15, label %16
   ]
@@ -12028,7 +12028,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %14 = load i32, ptr %13, align 4
   %15 = add nsw i32 %14, 1
   store i32 %15, ptr %13, align 4
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t7dceVarsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t7dceVarsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %5, i64 8
@@ -12037,7 +12037,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %20 = getelementptr inbounds i32, ptr %19, i64 %18
   %21 = load i32, ptr %20, align 4
   %22 = icmp ugt i32 %21, 327679
-  br i1 %22, label %.lr.ph.preheader.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t7dceVarsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br i1 %22, label %.lr.ph.preheader.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t7dceVarsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 .lr.ph.preheader.i.i.i:                           ; preds = %16
   %23 = lshr i32 %21, 16
@@ -12058,9 +12058,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   store i32 %32, ptr %30, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t7dceVarsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %.lr.ph.i.i.i, !llvm.loop !137
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t7dceVarsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %.lr.ph.i.i.i, !llvm.loop !137
 
-"_ZSt10__invoke_rIbRZN3spv10spirvbin_t7dceVarsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %.lr.ph.i.i.i, %3, %6, %16
+"_ZSt10__invoke_rIbRZN3spv10spirvbin_t7dceVarsEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %.lr.ph.i.i.i, %3, %6, %16
   %.010.i.i.i = phi i1 [ true, %6 ], [ false, %3 ], [ true, %16 ], [ true, %.lr.ph.i.i.i ]
   ret i1 %.010.i.i.i
 }
@@ -12111,7 +12111,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t7dceVarsE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t7dceVarsEvE3$_1E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #15 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t7dceVarsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t7dceVarsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -12119,18 +12119,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirv
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t7dceVarsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t7dceVarsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t7dceVarsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t7dceVarsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t7dceVarsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t7dceVarsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t7dceVarsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3spv10spirvbin_t7dceVarsEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -12143,7 +12143,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %.val4 = load i32, ptr %1, align 4
   %.val5 = load i32, ptr %2, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  switch i32 %.val4, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t7dceVarsEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit" [
+  switch i32 %.val4, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t7dceVarsEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit" [
     i32 59, label %7
     i32 71, label %6
     i32 5, label %6
@@ -12162,19 +12162,19 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %storemerge.i.i.i = load i32, ptr %12, align 4
   store i32 %storemerge.i.i.i, ptr %4, align 4
   %.not.i.i.i = icmp eq i32 %storemerge.i.i.i, 0
-  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t7dceVarsEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %13
+  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t7dceVarsEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %13
 
 13:                                               ; preds = %7
   %14 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjiESaIS3_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %.val3, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 1
-  br i1 %16, label %17, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t7dceVarsEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br i1 %16, label %17, label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t7dceVarsEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 17:                                               ; preds = %13
   call void @_ZN3spv10spirvbin_t9stripInstEj(ptr noundef nonnull align 8 dereferenceable(473) %.val, i32 noundef %.val5)
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t7dceVarsEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t7dceVarsEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
-"_ZSt10__invoke_rIbRZN3spv10spirvbin_t7dceVarsEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %3, %7, %13, %17
+"_ZSt10__invoke_rIbRZN3spv10spirvbin_t7dceVarsEvE3$_2JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %3, %7, %13, %17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   ret i1 true
 }
@@ -12220,7 +12220,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t8dceTypes
   %9 = load i64, ptr %5, align 8
   %10 = and i64 %8, %9
   %.not.i.i.i = icmp eq i64 %10, 0
-  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t8dceTypesEvE3$_0JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.argprom.exit", label %11
+  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t8dceTypesEvE3$_0JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %11
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds i8, ptr %0, i64 8
@@ -12229,9 +12229,9 @@ define internal void @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t8dceTypes
   %14 = load i32, ptr %13, align 4
   %15 = add nsw i32 %14, 1
   store i32 %15, ptr %13, align 4
-  br label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t8dceTypesEvE3$_0JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN3spv10spirvbin_t8dceTypesEvE3$_0JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
-"_ZSt10__invoke_rIvRZN3spv10spirvbin_t8dceTypesEvE3$_0JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.argprom.exit": ; preds = %2, %11
+"_ZSt10__invoke_rIvRZN3spv10spirvbin_t8dceTypesEvE3$_0JRjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %2, %11
   ret void
 }
 

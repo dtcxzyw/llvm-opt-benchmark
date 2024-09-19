@@ -26,7 +26,7 @@ define ptr @Gia_ManConvertAigToTruth_rec(ptr noundef %0, ptr noundef %1, ptr nou
   %12 = sdiv exact i64 %11, 12
   %13 = trunc i64 %12 to i32
   %14 = add nsw i32 %13, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %7, i32 noundef %14)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef %7, i32 noundef %14)
   %15 = getelementptr i8, ptr %7, i64 8
   %.val.i = load ptr, ptr %15, align 8
   %sext = shl i64 %12, 32
@@ -44,7 +44,7 @@ define ptr @Gia_ManConvertAigToTruth_rec(ptr noundef %0, ptr noundef %1, ptr nou
   %23 = sdiv exact i64 %22, 12
   %24 = trunc i64 %23 to i32
   %25 = add nsw i32 %24, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %20, i32 noundef %25)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef %20, i32 noundef %25)
   %26 = getelementptr i8, ptr %20, i64 8
   %.val.i88 = load ptr, ptr %26, align 8
   %sext91 = shl i64 %23, 32
@@ -201,7 +201,7 @@ Vec_IntFetch.exit:                                ; preds = %34, %47, %53
   %97 = getelementptr i8, ptr %4, i64 4
   %.val87 = load i32, ptr %97, align 4
   %98 = add nsw i32 %96, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %92, i32 noundef %98)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef %92, i32 noundef %98)
   %99 = getelementptr i8, ptr %92, i64 8
   %.val.i89 = load ptr, ptr %99, align 8
   %sext92 = shl i64 %95, 32
@@ -514,7 +514,7 @@ Gia_ManTruthCopy.exit:                            ; preds = %select.unfold.i, %s
   %106 = trunc i64 %105 to i32
   %.val78 = load i32, ptr %62, align 4
   %107 = add nsw i32 %106, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %101, i32 noundef %107)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef %101, i32 noundef %107)
   %108 = getelementptr i8, ptr %101, i64 8
   %.val.i = load ptr, ptr %108, align 8
   %sext = shl i64 %105, 32
@@ -657,7 +657,7 @@ Gia_ManTruthNot.exit:                             ; preds = %select.unfold.i102,
   %165 = load i32, ptr %164, align 4
   %166 = load ptr, ptr %161, align 8
   %167 = add nsw i32 %165, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %166, i32 noundef %167)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef %166, i32 noundef %167)
   %168 = getelementptr i8, ptr %166, i64 8
   %.val.i105 = load ptr, ptr %168, align 8
   %169 = sext i32 %165 to i64
@@ -1405,7 +1405,7 @@ declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #1
 declare void @Gia_ManSetRegNum(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

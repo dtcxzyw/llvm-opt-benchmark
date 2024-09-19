@@ -171,7 +171,7 @@ define internal i32 @bit_xfer(ptr noundef %0, ptr nocapture noundef %1, i32 noun
   %79 = load i16, ptr %32, align 8
   %80 = trunc i16 %79 to i8
   %.val = load ptr, ptr %4, align 8
-  %81 = tail call fastcc i32 @i2c_outb.argprom(ptr %.val, i8 noundef zeroext %80)
+  %81 = tail call fastcc i32 @i2c_outb(ptr %.val, i8 noundef zeroext %80)
   %82 = icmp eq i32 %81, 1
   %83 = or i1 %76, %82
   br i1 %83, label %84, label %.sink.split
@@ -411,7 +411,7 @@ define internal i32 @bit_xfer(ptr noundef %0, ptr nocapture noundef %1, i32 noun
   %235 = phi ptr [ %231, %227 ], [ %243, %242 ]
   %236 = load i8, ptr %235, align 1
   %.val17 = load ptr, ptr %4, align 8
-  %237 = tail call fastcc i32 @i2c_outb.argprom(ptr %.val17, i8 noundef zeroext %236)
+  %237 = tail call fastcc i32 @i2c_outb(ptr %.val17, i8 noundef zeroext %236)
   %238 = icmp sgt i32 %237, 0
   %239 = icmp eq i32 %237, 0
   %240 = and i1 %232, %239
@@ -1108,7 +1108,7 @@ define internal fastcc range(i32 -110, 2) i32 @try_address(ptr nocapture noundef
 11:                                               ; preds = %17, %7
   %12 = phi i32 [ 0, %7 ], [ %29, %17 ]
   %.val = load ptr, ptr %4, align 8
-  %13 = tail call fastcc i32 @i2c_outb.argprom(ptr %.val, i8 noundef zeroext %1)
+  %13 = tail call fastcc i32 @i2c_outb(ptr %.val, i8 noundef zeroext %1)
   %14 = icmp eq i32 %13, 1
   br i1 %14, label %.loopexit, label %15
 
@@ -1148,7 +1148,7 @@ define internal fastcc range(i32 -110, 2) i32 @try_address(ptr nocapture noundef
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -110, 2) i32 @i2c_outb.argprom(ptr nocapture readonly %.24.val, i8 noundef zeroext %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -110, 2) i32 @i2c_outb(ptr nocapture readonly %.24.val, i8 noundef zeroext %0) unnamed_addr #0 align 16 {
   %2 = zext i8 %0 to i32
   %3 = getelementptr inbounds i8, ptr %.24.val, i64 8
   %4 = getelementptr inbounds i8, ptr %.24.val, i64 56

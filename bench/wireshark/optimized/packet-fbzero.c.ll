@@ -186,7 +186,7 @@ define internal noundef i32 @dissect_fb_zero(ptr noundef %0, ptr noundef %1, ptr
   %8 = alloca ptr, align 8
   %9 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   %10 = icmp ult i32 %9, 3
-  br i1 %10, label %dissect_fb_zero_common.argprom.exit, label %11
+  br i1 %10, label %dissect_fb_zero_common.exit, label %11
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds i8, ptr %1, i64 8
@@ -663,16 +663,16 @@ dissect_fb_zero_unencrypt.exit.i:                 ; preds = %257, %37
   %.0.lcssa.i.i = phi i32 [ %.040.i, %37 ], [ %.1.i.i, %257 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  br label %dissect_fb_zero_common.argprom.exit
+  br label %dissect_fb_zero_common.exit
 
 260:                                              ; preds = %34
   %261 = load ptr, ptr %12, align 8
   tail call void @col_add_str(ptr noundef %261, i32 noundef 25, ptr noundef nonnull @.str.73) #3
   %262 = load i32, ptr @hf_fb_zero_payload, align 4
   %263 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %262, ptr noundef %0, i32 noundef %.040.i, i32 noundef -1, i32 noundef 0) #3
-  br label %dissect_fb_zero_common.argprom.exit
+  br label %dissect_fb_zero_common.exit
 
-dissect_fb_zero_common.argprom.exit:              ; preds = %4, %dissect_fb_zero_unencrypt.exit.i, %260
+dissect_fb_zero_common.exit:                      ; preds = %4, %dissect_fb_zero_unencrypt.exit.i, %260
   %.0.i = phi i32 [ 0, %4 ], [ %.0.lcssa.i.i, %dissect_fb_zero_unencrypt.exit.i ], [ %.040.i, %260 ]
   ret i32 %.0.i
 }

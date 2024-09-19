@@ -4511,7 +4511,7 @@ _ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc.exit1482: ; preds = %364
   ]
 
 2091:                                             ; preds = %2089
-  %2092 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t.argprom(ptr noundef %7, ptr %.014871541, ptr nonnull %.01443.ptr1548, i32 %2090)
+  %2092 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef %7, ptr %.014871541, ptr nonnull %.01443.ptr1548, i32 %2090)
   switch i32 %2092, label %2103 [
     i32 0, label %2093
     i32 -1, label %2094
@@ -4535,7 +4535,7 @@ _ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc.exit1482: ; preds = %364
   br i1 %.not1473, label %2102, label %2099
 
 2099:                                             ; preds = %2096
-  %2100 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t.argprom(ptr noundef %7, ptr nonnull %2098, ptr nonnull %.01443.ptr1548, i32 %2090)
+  %2100 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef %7, ptr nonnull %2098, ptr nonnull %.01443.ptr1548, i32 %2090)
   %2101 = icmp eq i32 %2100, -2
   br label %2103
 
@@ -4697,7 +4697,7 @@ declare void @_ZN25cmDependsJavaParserHelper10StartClassEPKc(ptr noundef nonnull
 declare void @_ZN25cmDependsJavaParserHelper8EndClassEv(ptr noundef nonnull align 8 dereferenceable(248)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t.argprom(ptr nocapture noundef nonnull %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #3 {
+define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr nocapture noundef nonnull %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #3 {
   %2 = alloca [5 x i32], align 16
   %.not.i = icmp eq i32 %.8.val, -2
   br i1 %.not.i, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6, label %3

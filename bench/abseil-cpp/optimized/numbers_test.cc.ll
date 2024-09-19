@@ -40462,7 +40462,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont5, %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.argprom(ptr noalias align 8 %gtest_ar, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
+  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
           to label %invoke.cont35 unwind label %lpad
 
 invoke.cont35:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -40669,7 +40669,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit73:          ; preds = %invoke.cont58, %if.end80, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i72
   store ptr null, ptr %message_.i58, align 8
-  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.argprom(ptr noalias align 8 %gtest_ar82, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
+  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar82, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
           to label %invoke.cont83 unwind label %lpad
 
 invoke.cont83:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit73
@@ -41004,7 +41004,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont5, %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.argprom(ptr noalias align 8 %gtest_ar, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
+  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
           to label %invoke.cont35 unwind label %lpad
 
 invoke.cont35:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -41211,7 +41211,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit73:          ; preds = %invoke.cont58, %if.end80, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i72
   store ptr null, ptr %message_.i58, align 8
-  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.argprom(ptr noalias align 8 %gtest_ar82, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
+  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar82, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
           to label %invoke.cont83 unwind label %lpad
 
 invoke.cont83:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit73
@@ -41546,7 +41546,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont5, %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.argprom(ptr noalias align 8 %gtest_ar, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
+  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
           to label %invoke.cont35 unwind label %lpad
 
 invoke.cont35:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -41753,7 +41753,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit73:          ; preds = %invoke.cont58, %if.end80, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i72
   store ptr null, ptr %message_.i58, align 8
-  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.argprom(ptr noalias align 8 %gtest_ar82, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
+  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar82, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
           to label %invoke.cont83 unwind label %lpad
 
 invoke.cont83:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit73
@@ -42088,7 +42088,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont5, %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.argprom(ptr noalias align 8 %gtest_ar, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
+  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
           to label %invoke.cont35 unwind label %lpad
 
 invoke.cont35:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -42295,7 +42295,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit73:          ; preds = %invoke.cont58, %if.end80, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i72
   store ptr null, ptr %message_.i58, align 8
-  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.argprom(ptr noalias align 8 %gtest_ar82, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
+  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar82, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
           to label %invoke.cont83 unwind label %lpad
 
 invoke.cont83:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit73
@@ -42630,7 +42630,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont5, %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.argprom(ptr noalias align 8 %gtest_ar, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
+  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
           to label %invoke.cont35 unwind label %lpad
 
 invoke.cont35:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -42837,7 +42837,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit73:          ; preds = %invoke.cont58, %if.end80, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i72
   store ptr null, ptr %message_.i58, align 8
-  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.argprom(ptr noalias align 8 %gtest_ar82, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
+  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar82, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
           to label %invoke.cont83 unwind label %lpad
 
 invoke.cont83:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit73
@@ -42951,7 +42951,7 @@ ehcleanup101:                                     ; preds = %lpad, %ehcleanup.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.argprom(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i.i.i4.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i.i.i.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -42964,7 +42964,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   tail call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
-  br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit
+  br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit
 
 if.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !812
@@ -42978,7 +42978,7 @@ if.end.i:                                         ; preds = %entry
 
 invoke.cont.i.i.i.i.i:                            ; preds = %if.end.i
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i)
-          to label %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !825
+          to label %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !825
 
 common.resume.i.i:                                ; preds = %ehcleanup.i.i, %lpad.i.i.i.i.i
   %common.resume.op.i.i = phi { ptr, i32 } [ %2, %lpad.i.i.i.i.i ], [ %.pn.i.i, %ehcleanup.i.i ]
@@ -42990,14 +42990,14 @@ lpad.i.i.i.i.i:                                   ; preds = %invoke.cont.i.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #28, !noalias !825
   br label %common.resume.i.i
 
-_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i: ; preds = %invoke.cont.i.i.i.i.i
+_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i: ; preds = %invoke.cont.i.i.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #28, !noalias !825
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i.i.i), !noalias !815
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !826
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i)
           to label %.noexc.i.i unwind label %lpad.i.i, !noalias !825
 
-.noexc.i.i:                                       ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i
+.noexc.i.i:                                       ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
   %add.ptr.i.i.i5.i.i = getelementptr inbounds i8, ptr %ss.i.i.i4.i.i, i64 16
   %value.val.i.i.i6.i.i = load i32, ptr %rhs, align 4, !noalias !831
   %call.i.i.i.i.i.i1.i.i.i7.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i5.i.i, i32 noundef %value.val.i.i.i6.i.i)
@@ -43017,9 +43017,9 @@ invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i.i9.
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i) #28, !noalias !825
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !826
   invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
-          to label %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit.i unwind label %lpad2.i.i
+          to label %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit.i unwind label %lpad2.i.i
 
-lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i
+lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i
@@ -43035,19 +43035,19 @@ ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #28
   br label %common.resume.i.i
 
-_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit.i: ; preds = %invoke.cont.i.i
+_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit.i: ; preds = %invoke.cont.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !812
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp1.i.i), !noalias !812
-  br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit
+  br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit
 
-_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit: ; preds = %if.then.i, %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit.i
+_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit: ; preds = %if.then.i, %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit.i
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.argprom(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i.i.i4.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i.i.i.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -43060,7 +43060,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   tail call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
-  br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit
+  br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit
 
 if.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !834
@@ -43074,7 +43074,7 @@ if.end.i:                                         ; preds = %entry
 
 invoke.cont.i.i.i.i.i:                            ; preds = %if.end.i
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i)
-          to label %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !847
+          to label %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !847
 
 common.resume.i.i:                                ; preds = %ehcleanup.i.i, %lpad.i.i.i.i.i
   %common.resume.op.i.i = phi { ptr, i32 } [ %2, %lpad.i.i.i.i.i ], [ %.pn.i.i, %ehcleanup.i.i ]
@@ -43086,14 +43086,14 @@ lpad.i.i.i.i.i:                                   ; preds = %invoke.cont.i.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #28, !noalias !847
   br label %common.resume.i.i
 
-_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i: ; preds = %invoke.cont.i.i.i.i.i
+_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i: ; preds = %invoke.cont.i.i.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #28, !noalias !847
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i.i.i), !noalias !837
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !848
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i)
           to label %.noexc.i.i unwind label %lpad.i.i, !noalias !847
 
-.noexc.i.i:                                       ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i
+.noexc.i.i:                                       ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
   %add.ptr.i.i.i5.i.i = getelementptr inbounds i8, ptr %ss.i.i.i4.i.i, i64 16
   %value.val.i.i.i6.i.i = load i32, ptr %rhs, align 4, !noalias !853
   %call.i.i.i.i.i.i1.i.i.i7.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i5.i.i, i32 noundef %value.val.i.i.i6.i.i)
@@ -43113,9 +43113,9 @@ invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i.i9.
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i) #28, !noalias !847
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !848
   invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
-          to label %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit.i unwind label %lpad2.i.i
+          to label %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit.i unwind label %lpad2.i.i
 
-lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i
+lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i
@@ -43131,19 +43131,19 @@ ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #28
   br label %common.resume.i.i
 
-_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit.i: ; preds = %invoke.cont.i.i
+_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit.i: ; preds = %invoke.cont.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !834
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp1.i.i), !noalias !834
-  br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit
+  br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit
 
-_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit: ; preds = %if.then.i, %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit.i
+_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit: ; preds = %if.then.i, %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit.i
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.argprom(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i.i.i4.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i.i.i.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -43156,7 +43156,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   tail call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
-  br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit
+  br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit
 
 if.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !856
@@ -43170,7 +43170,7 @@ if.end.i:                                         ; preds = %entry
 
 invoke.cont.i.i.i.i.i:                            ; preds = %if.end.i
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i)
-          to label %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !869
+          to label %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !869
 
 common.resume.i.i:                                ; preds = %ehcleanup.i.i, %lpad.i.i.i.i.i
   %common.resume.op.i.i = phi { ptr, i32 } [ %2, %lpad.i.i.i.i.i ], [ %.pn.i.i, %ehcleanup.i.i ]
@@ -43182,14 +43182,14 @@ lpad.i.i.i.i.i:                                   ; preds = %invoke.cont.i.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #28, !noalias !869
   br label %common.resume.i.i
 
-_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i: ; preds = %invoke.cont.i.i.i.i.i
+_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i: ; preds = %invoke.cont.i.i.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #28, !noalias !869
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i.i.i), !noalias !859
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !870
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i)
           to label %.noexc.i.i unwind label %lpad.i.i, !noalias !869
 
-.noexc.i.i:                                       ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i
+.noexc.i.i:                                       ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
   %add.ptr.i.i.i5.i.i = getelementptr inbounds i8, ptr %ss.i.i.i4.i.i, i64 16
   %value.val.i.i.i6.i.i = load i32, ptr %rhs, align 4, !noalias !875
   %call.i.i.i.i.i.i1.i.i.i7.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i5.i.i, i32 noundef %value.val.i.i.i6.i.i)
@@ -43209,9 +43209,9 @@ invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i.i9.
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i) #28, !noalias !869
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !870
   invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
-          to label %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit.i unwind label %lpad2.i.i
+          to label %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit.i unwind label %lpad2.i.i
 
-lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i
+lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i
@@ -43227,19 +43227,19 @@ ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #28
   br label %common.resume.i.i
 
-_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit.i: ; preds = %invoke.cont.i.i
+_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit.i: ; preds = %invoke.cont.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !856
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp1.i.i), !noalias !856
-  br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit
+  br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit
 
-_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit: ; preds = %if.then.i, %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit.i
+_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit: ; preds = %if.then.i, %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit.i
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.argprom(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i.i.i4.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i.i.i.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -43252,7 +43252,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   tail call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
-  br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit
+  br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit
 
 if.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !878
@@ -43266,7 +43266,7 @@ if.end.i:                                         ; preds = %entry
 
 invoke.cont.i.i.i.i.i:                            ; preds = %if.end.i
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i)
-          to label %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !891
+          to label %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !891
 
 common.resume.i.i:                                ; preds = %ehcleanup.i.i, %lpad.i.i.i.i.i
   %common.resume.op.i.i = phi { ptr, i32 } [ %2, %lpad.i.i.i.i.i ], [ %.pn.i.i, %ehcleanup.i.i ]
@@ -43278,14 +43278,14 @@ lpad.i.i.i.i.i:                                   ; preds = %invoke.cont.i.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #28, !noalias !891
   br label %common.resume.i.i
 
-_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i: ; preds = %invoke.cont.i.i.i.i.i
+_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i: ; preds = %invoke.cont.i.i.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #28, !noalias !891
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i.i.i), !noalias !881
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !892
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i)
           to label %.noexc.i.i unwind label %lpad.i.i, !noalias !891
 
-.noexc.i.i:                                       ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i
+.noexc.i.i:                                       ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
   %add.ptr.i.i.i5.i.i = getelementptr inbounds i8, ptr %ss.i.i.i4.i.i, i64 16
   %value.val.i.i.i6.i.i = load i32, ptr %rhs, align 4, !noalias !897
   %call.i.i.i.i.i.i1.i.i.i7.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i5.i.i, i32 noundef %value.val.i.i.i6.i.i)
@@ -43305,9 +43305,9 @@ invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i.i9.
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i) #28, !noalias !891
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !892
   invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
-          to label %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit.i unwind label %lpad2.i.i
+          to label %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit.i unwind label %lpad2.i.i
 
-lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i
+lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i
@@ -43323,19 +43323,19 @@ ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #28
   br label %common.resume.i.i
 
-_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit.i: ; preds = %invoke.cont.i.i
+_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit.i: ; preds = %invoke.cont.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !878
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp1.i.i), !noalias !878
-  br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit
+  br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit
 
-_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit: ; preds = %if.then.i, %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit.i
+_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit: ; preds = %if.then.i, %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit.i
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.argprom(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i.i.i4.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i.i.i.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -43348,7 +43348,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   tail call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
-  br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit
+  br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit
 
 if.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !900
@@ -43362,7 +43362,7 @@ if.end.i:                                         ; preds = %entry
 
 invoke.cont.i.i.i.i.i:                            ; preds = %if.end.i
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i)
-          to label %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !913
+          to label %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !913
 
 common.resume.i.i:                                ; preds = %ehcleanup.i.i, %lpad.i.i.i.i.i
   %common.resume.op.i.i = phi { ptr, i32 } [ %2, %lpad.i.i.i.i.i ], [ %.pn.i.i, %ehcleanup.i.i ]
@@ -43374,14 +43374,14 @@ lpad.i.i.i.i.i:                                   ; preds = %invoke.cont.i.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #28, !noalias !913
   br label %common.resume.i.i
 
-_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i: ; preds = %invoke.cont.i.i.i.i.i
+_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i: ; preds = %invoke.cont.i.i.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #28, !noalias !913
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i.i.i), !noalias !903
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !914
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i)
           to label %.noexc.i.i unwind label %lpad.i.i, !noalias !913
 
-.noexc.i.i:                                       ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i
+.noexc.i.i:                                       ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
   %add.ptr.i.i.i5.i.i = getelementptr inbounds i8, ptr %ss.i.i.i4.i.i, i64 16
   %value.val.i.i.i6.i.i = load i32, ptr %rhs, align 4, !noalias !919
   %call.i.i.i.i.i.i1.i.i.i7.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i5.i.i, i32 noundef %value.val.i.i.i6.i.i)
@@ -43401,9 +43401,9 @@ invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i.i9.
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i) #28, !noalias !913
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !914
   invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
-          to label %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit.i unwind label %lpad2.i.i
+          to label %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit.i unwind label %lpad2.i.i
 
-lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i
+lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i
@@ -43419,14 +43419,14 @@ ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #28
   br label %common.resume.i.i
 
-_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit.i: ; preds = %invoke.cont.i.i
+_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit.i: ; preds = %invoke.cont.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !900
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp1.i.i), !noalias !900
-  br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit
+  br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit
 
-_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit: ; preds = %if.then.i, %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit.i
+_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit: ; preds = %if.then.i, %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit.i
   ret void
 }
 
@@ -69631,7 +69631,7 @@ ehcleanup148.i:                                   ; preds = %ehcleanup147.i, %lp
 
 for.end.i:                                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit134.i
   invoke void @_ZNSt13random_device7_M_finiEv(ptr noundef nonnull align 8 dereferenceable(5000) %rd.i)
-          to label %_ZN12_GLOBAL__N_130test_random_integer_parse_baseIiEEvPFbSt17basic_string_viewIcSt11char_traitsIcEEPT_iE.argprom.exit unwind label %terminate.lpad.i.i
+          to label %_ZN12_GLOBAL__N_130test_random_integer_parse_baseIiEEvPFbSt17basic_string_viewIcSt11char_traitsIcEEPT_iE.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %for.end.i
   %61 = landingpad { ptr, i32 }
@@ -69655,7 +69655,7 @@ terminate.lpad.i135.i:                            ; preds = %ehcleanup149.i
 _ZNSt13random_deviceD2Ev.exit136.i:               ; preds = %ehcleanup149.i
   resume { ptr, i32 } %.pn21.pn.pn.pn.pn.i
 
-_ZN12_GLOBAL__N_130test_random_integer_parse_baseIiEEvPFbSt17basic_string_viewIcSt11char_traitsIcEEPT_iE.argprom.exit: ; preds = %for.end.i
+_ZN12_GLOBAL__N_130test_random_integer_parse_baseIiEEvPFbSt17basic_string_viewIcSt11char_traitsIcEEPT_iE.exit: ; preds = %for.end.i
   call void @llvm.lifetime.end.p0(i64 5000, ptr nonnull %rd.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rng.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %random_int.i)
@@ -70657,7 +70657,7 @@ ehcleanup148.i:                                   ; preds = %ehcleanup147.i, %lp
 
 for.end.i:                                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit133.i
   invoke void @_ZNSt13random_device7_M_finiEv(ptr noundef nonnull align 8 dereferenceable(5000) %rd.i)
-          to label %_ZN12_GLOBAL__N_130test_random_integer_parse_baseIlEEvPFbSt17basic_string_viewIcSt11char_traitsIcEEPT_iE.argprom.exit unwind label %terminate.lpad.i.i
+          to label %_ZN12_GLOBAL__N_130test_random_integer_parse_baseIlEEvPFbSt17basic_string_viewIcSt11char_traitsIcEEPT_iE.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %for.end.i
   %61 = landingpad { ptr, i32 }
@@ -70681,7 +70681,7 @@ terminate.lpad.i134.i:                            ; preds = %ehcleanup149.i
 _ZNSt13random_deviceD2Ev.exit135.i:               ; preds = %ehcleanup149.i
   resume { ptr, i32 } %.pn21.pn.pn.pn.pn.i
 
-_ZN12_GLOBAL__N_130test_random_integer_parse_baseIlEEvPFbSt17basic_string_viewIcSt11char_traitsIcEEPT_iE.argprom.exit: ; preds = %for.end.i
+_ZN12_GLOBAL__N_130test_random_integer_parse_baseIlEEvPFbSt17basic_string_viewIcSt11char_traitsIcEEPT_iE.exit: ; preds = %for.end.i
   call void @llvm.lifetime.end.p0(i64 5000, ptr nonnull %rd.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rng.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %random_int.i)
@@ -71595,7 +71595,7 @@ ehcleanup147.i:                                   ; preds = %ehcleanup146.i, %lp
 
 for.end.i:                                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit125.i
   invoke void @_ZNSt13random_device7_M_finiEv(ptr noundef nonnull align 8 dereferenceable(5000) %rd.i)
-          to label %_ZN12_GLOBAL__N_130test_random_integer_parse_baseIjEEvPFbSt17basic_string_viewIcSt11char_traitsIcEEPT_iE.argprom.exit unwind label %terminate.lpad.i.i
+          to label %_ZN12_GLOBAL__N_130test_random_integer_parse_baseIjEEvPFbSt17basic_string_viewIcSt11char_traitsIcEEPT_iE.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %for.end.i
   %62 = landingpad { ptr, i32 }
@@ -71619,7 +71619,7 @@ terminate.lpad.i126.i:                            ; preds = %ehcleanup148.i
 _ZNSt13random_deviceD2Ev.exit127.i:               ; preds = %ehcleanup148.i
   resume { ptr, i32 } %.pn21.pn.pn.pn.pn.i
 
-_ZN12_GLOBAL__N_130test_random_integer_parse_baseIjEEvPFbSt17basic_string_viewIcSt11char_traitsIcEEPT_iE.argprom.exit: ; preds = %for.end.i
+_ZN12_GLOBAL__N_130test_random_integer_parse_baseIjEEvPFbSt17basic_string_viewIcSt11char_traitsIcEEPT_iE.exit: ; preds = %for.end.i
   call void @llvm.lifetime.end.p0(i64 5000, ptr nonnull %rd.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rng.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %random_int.i)
@@ -72543,7 +72543,7 @@ ehcleanup147.i:                                   ; preds = %ehcleanup146.i, %lp
 
 for.end.i:                                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit125.i
   invoke void @_ZNSt13random_device7_M_finiEv(ptr noundef nonnull align 8 dereferenceable(5000) %rd.i)
-          to label %_ZN12_GLOBAL__N_130test_random_integer_parse_baseImEEvPFbSt17basic_string_viewIcSt11char_traitsIcEEPT_iE.argprom.exit unwind label %terminate.lpad.i.i
+          to label %_ZN12_GLOBAL__N_130test_random_integer_parse_baseImEEvPFbSt17basic_string_viewIcSt11char_traitsIcEEPT_iE.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %for.end.i
   %62 = landingpad { ptr, i32 }
@@ -72567,7 +72567,7 @@ terminate.lpad.i126.i:                            ; preds = %ehcleanup148.i
 _ZNSt13random_deviceD2Ev.exit127.i:               ; preds = %ehcleanup148.i
   resume { ptr, i32 } %.pn21.pn.pn.pn.pn.i
 
-_ZN12_GLOBAL__N_130test_random_integer_parse_baseImEEvPFbSt17basic_string_viewIcSt11char_traitsIcEEPT_iE.argprom.exit: ; preds = %for.end.i
+_ZN12_GLOBAL__N_130test_random_integer_parse_baseImEEvPFbSt17basic_string_viewIcSt11char_traitsIcEEPT_iE.exit: ; preds = %for.end.i
   call void @llvm.lifetime.end.p0(i64 5000, ptr nonnull %rd.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rng.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %random_int.i)
@@ -93034,15 +93034,15 @@ attributes #35 = { cold nounwind }
 !810 = distinct !{!810, !811, !"_ZN7testing8internal8EqHelper7CompareIffTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_: %agg.result"}
 !811 = distinct !{!811, !"_ZN7testing8internal8EqHelper7CompareIffTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_"}
 !812 = !{!813}
-!813 = distinct !{!813, !814, !"_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom: %agg.result"}
-!814 = distinct !{!814, !"_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom"}
+!813 = distinct !{!813, !814, !"_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_: %agg.result"}
+!814 = distinct !{!814, !"_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_"}
 !815 = !{!816, !818, !820, !813}
 !816 = distinct !{!816, !817, !"_ZN7testing8internal19FormatForComparisonIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_E6FormatB5cxx11ERKS4_: %agg.result"}
 !817 = distinct !{!817, !"_ZN7testing8internal19FormatForComparisonIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_E6FormatB5cxx11ERKS4_"}
-!818 = distinct !{!818, !819, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
-!819 = distinct !{!819, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
-!820 = distinct !{!820, !821, !"_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom: %agg.result"}
-!821 = distinct !{!821, !"_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom"}
+!818 = distinct !{!818, !819, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
+!819 = distinct !{!819, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
+!820 = distinct !{!820, !821, !"_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_: %agg.result"}
+!821 = distinct !{!821, !"_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_"}
 !822 = !{!823, !816, !818, !820, !813}
 !823 = distinct !{!823, !824, !"_ZN7testing13PrintToStringIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !824 = distinct !{!824, !"_ZN7testing13PrintToStringIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
@@ -93050,21 +93050,21 @@ attributes #35 = { cold nounwind }
 !826 = !{!827, !829, !820, !813}
 !827 = distinct !{!827, !828, !"_ZN7testing8internal19FormatForComparisonIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_E6FormatB5cxx11ERKS4_: %agg.result"}
 !828 = distinct !{!828, !"_ZN7testing8internal19FormatForComparisonIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_E6FormatB5cxx11ERKS4_"}
-!829 = distinct !{!829, !830, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
-!830 = distinct !{!830, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
+!829 = distinct !{!829, !830, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
+!830 = distinct !{!830, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
 !831 = !{!832, !827, !829, !820, !813}
 !832 = distinct !{!832, !833, !"_ZN7testing13PrintToStringIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !833 = distinct !{!833, !"_ZN7testing13PrintToStringIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
 !834 = !{!835}
-!835 = distinct !{!835, !836, !"_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom: %agg.result"}
-!836 = distinct !{!836, !"_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom"}
+!835 = distinct !{!835, !836, !"_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_: %agg.result"}
+!836 = distinct !{!836, !"_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_"}
 !837 = !{!838, !840, !842, !835}
 !838 = distinct !{!838, !839, !"_ZN7testing8internal19FormatForComparisonIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_E6FormatB5cxx11ERKS4_: %agg.result"}
 !839 = distinct !{!839, !"_ZN7testing8internal19FormatForComparisonIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_E6FormatB5cxx11ERKS4_"}
-!840 = distinct !{!840, !841, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
-!841 = distinct !{!841, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
-!842 = distinct !{!842, !843, !"_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom: %agg.result"}
-!843 = distinct !{!843, !"_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom"}
+!840 = distinct !{!840, !841, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
+!841 = distinct !{!841, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
+!842 = distinct !{!842, !843, !"_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_: %agg.result"}
+!843 = distinct !{!843, !"_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_"}
 !844 = !{!845, !838, !840, !842, !835}
 !845 = distinct !{!845, !846, !"_ZN7testing13PrintToStringIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !846 = distinct !{!846, !"_ZN7testing13PrintToStringIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
@@ -93072,21 +93072,21 @@ attributes #35 = { cold nounwind }
 !848 = !{!849, !851, !842, !835}
 !849 = distinct !{!849, !850, !"_ZN7testing8internal19FormatForComparisonIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_E6FormatB5cxx11ERKS4_: %agg.result"}
 !850 = distinct !{!850, !"_ZN7testing8internal19FormatForComparisonIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_E6FormatB5cxx11ERKS4_"}
-!851 = distinct !{!851, !852, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
-!852 = distinct !{!852, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
+!851 = distinct !{!851, !852, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
+!852 = distinct !{!852, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
 !853 = !{!854, !849, !851, !842, !835}
 !854 = distinct !{!854, !855, !"_ZN7testing13PrintToStringIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !855 = distinct !{!855, !"_ZN7testing13PrintToStringIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
 !856 = !{!857}
-!857 = distinct !{!857, !858, !"_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom: %agg.result"}
-!858 = distinct !{!858, !"_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom"}
+!857 = distinct !{!857, !858, !"_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_: %agg.result"}
+!858 = distinct !{!858, !"_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_"}
 !859 = !{!860, !862, !864, !857}
 !860 = distinct !{!860, !861, !"_ZN7testing8internal19FormatForComparisonIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_E6FormatB5cxx11ERKS4_: %agg.result"}
 !861 = distinct !{!861, !"_ZN7testing8internal19FormatForComparisonIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_E6FormatB5cxx11ERKS4_"}
-!862 = distinct !{!862, !863, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
-!863 = distinct !{!863, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
-!864 = distinct !{!864, !865, !"_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom: %agg.result"}
-!865 = distinct !{!865, !"_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom"}
+!862 = distinct !{!862, !863, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
+!863 = distinct !{!863, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
+!864 = distinct !{!864, !865, !"_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_: %agg.result"}
+!865 = distinct !{!865, !"_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_"}
 !866 = !{!867, !860, !862, !864, !857}
 !867 = distinct !{!867, !868, !"_ZN7testing13PrintToStringIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !868 = distinct !{!868, !"_ZN7testing13PrintToStringIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
@@ -93094,21 +93094,21 @@ attributes #35 = { cold nounwind }
 !870 = !{!871, !873, !864, !857}
 !871 = distinct !{!871, !872, !"_ZN7testing8internal19FormatForComparisonIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_E6FormatB5cxx11ERKS4_: %agg.result"}
 !872 = distinct !{!872, !"_ZN7testing8internal19FormatForComparisonIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_E6FormatB5cxx11ERKS4_"}
-!873 = distinct !{!873, !874, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
-!874 = distinct !{!874, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
+!873 = distinct !{!873, !874, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
+!874 = distinct !{!874, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
 !875 = !{!876, !871, !873, !864, !857}
 !876 = distinct !{!876, !877, !"_ZN7testing13PrintToStringIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !877 = distinct !{!877, !"_ZN7testing13PrintToStringIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
 !878 = !{!879}
-!879 = distinct !{!879, !880, !"_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom: %agg.result"}
-!880 = distinct !{!880, !"_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom"}
+!879 = distinct !{!879, !880, !"_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_: %agg.result"}
+!880 = distinct !{!880, !"_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_"}
 !881 = !{!882, !884, !886, !879}
 !882 = distinct !{!882, !883, !"_ZN7testing8internal19FormatForComparisonIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_E6FormatB5cxx11ERKS4_: %agg.result"}
 !883 = distinct !{!883, !"_ZN7testing8internal19FormatForComparisonIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_E6FormatB5cxx11ERKS4_"}
-!884 = distinct !{!884, !885, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
-!885 = distinct !{!885, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
-!886 = distinct !{!886, !887, !"_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom: %agg.result"}
-!887 = distinct !{!887, !"_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom"}
+!884 = distinct !{!884, !885, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
+!885 = distinct !{!885, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
+!886 = distinct !{!886, !887, !"_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_: %agg.result"}
+!887 = distinct !{!887, !"_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_"}
 !888 = !{!889, !882, !884, !886, !879}
 !889 = distinct !{!889, !890, !"_ZN7testing13PrintToStringIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !890 = distinct !{!890, !"_ZN7testing13PrintToStringIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
@@ -93116,21 +93116,21 @@ attributes #35 = { cold nounwind }
 !892 = !{!893, !895, !886, !879}
 !893 = distinct !{!893, !894, !"_ZN7testing8internal19FormatForComparisonIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_E6FormatB5cxx11ERKS4_: %agg.result"}
 !894 = distinct !{!894, !"_ZN7testing8internal19FormatForComparisonIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_E6FormatB5cxx11ERKS4_"}
-!895 = distinct !{!895, !896, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
-!896 = distinct !{!896, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
+!895 = distinct !{!895, !896, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
+!896 = distinct !{!896, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
 !897 = !{!898, !893, !895, !886, !879}
 !898 = distinct !{!898, !899, !"_ZN7testing13PrintToStringIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !899 = distinct !{!899, !"_ZN7testing13PrintToStringIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
 !900 = !{!901}
-!901 = distinct !{!901, !902, !"_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom: %agg.result"}
-!902 = distinct !{!902, !"_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom"}
+!901 = distinct !{!901, !902, !"_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_: %agg.result"}
+!902 = distinct !{!902, !"_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_"}
 !903 = !{!904, !906, !908, !901}
 !904 = distinct !{!904, !905, !"_ZN7testing8internal19FormatForComparisonIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_E6FormatB5cxx11ERKS4_: %agg.result"}
 !905 = distinct !{!905, !"_ZN7testing8internal19FormatForComparisonIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_E6FormatB5cxx11ERKS4_"}
-!906 = distinct !{!906, !907, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
-!907 = distinct !{!907, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
-!908 = distinct !{!908, !909, !"_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom: %agg.result"}
-!909 = distinct !{!909, !"_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom"}
+!906 = distinct !{!906, !907, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
+!907 = distinct !{!907, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
+!908 = distinct !{!908, !909, !"_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_: %agg.result"}
+!909 = distinct !{!909, !"_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_"}
 !910 = !{!911, !904, !906, !908, !901}
 !911 = distinct !{!911, !912, !"_ZN7testing13PrintToStringIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !912 = distinct !{!912, !"_ZN7testing13PrintToStringIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
@@ -93138,8 +93138,8 @@ attributes #35 = { cold nounwind }
 !914 = !{!915, !917, !908, !901}
 !915 = distinct !{!915, !916, !"_ZN7testing8internal19FormatForComparisonIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_E6FormatB5cxx11ERKS4_: %agg.result"}
 !916 = distinct !{!916, !"_ZN7testing8internal19FormatForComparisonIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_E6FormatB5cxx11ERKS4_"}
-!917 = distinct !{!917, !918, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
-!918 = distinct !{!918, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
+!917 = distinct !{!917, !918, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
+!918 = distinct !{!918, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
 !919 = !{!920, !915, !917, !908, !901}
 !920 = distinct !{!920, !921, !"_ZN7testing13PrintToStringIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !921 = distinct !{!921, !"_ZN7testing13PrintToStringIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
@@ -93662,8 +93662,8 @@ attributes #35 = { cold nounwind }
 !1438 = distinct !{!1438, !9}
 !1439 = distinct !{!1439, !9}
 !1440 = !{!1441}
-!1441 = distinct !{!1441, !1442, !"_ZN12_GLOBAL__N_114SimpleDtoaTest12ToNineDigitsB5cxx11Ed.argprom: %agg.result"}
-!1442 = distinct !{!1442, !"_ZN12_GLOBAL__N_114SimpleDtoaTest12ToNineDigitsB5cxx11Ed.argprom"}
+!1441 = distinct !{!1441, !1442, !"_ZN12_GLOBAL__N_114SimpleDtoaTest12ToNineDigitsB5cxx11Ed: %agg.result"}
+!1442 = distinct !{!1442, !"_ZN12_GLOBAL__N_114SimpleDtoaTest12ToNineDigitsB5cxx11Ed"}
 !1443 = distinct !{!1443, !9}
 !1444 = distinct !{!1444, !9}
 !1445 = distinct !{!1445, !9}

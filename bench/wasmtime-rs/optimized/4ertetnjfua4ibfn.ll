@@ -28,7 +28,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !3
   call void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9from_iter17h79a8126bb23735a9E"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %7, ptr nonnull align 8 %6), !noalias !3
   invoke void @_ZN14cranelift_isle5error4Span10new_single17h2a3162c379302a8aE(ptr nonnull sret({ { i64, i64, i64, i64 }, { i64, i64, i64, i64 } }) align 8 %4, ptr nonnull align 8 %9)
-          to label %"_ZN14cranelift_isle7overlap6Errors6report28_$u7b$$u7b$closure$u7d$$u7d$17h64e355ce232ef411E.argprom.exit" unwind label %11, !noalias !3
+          to label %"_ZN14cranelift_isle7overlap6Errors6report28_$u7b$$u7b$closure$u7d$$u7d$17h64e355ce232ef411E.exit" unwind label %11, !noalias !3
 
 11:                                               ; preds = %3
   %12 = landingpad { ptr, i32 }
@@ -45,7 +45,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 15:                                               ; preds = %11
   resume { ptr, i32 } %12
 
-"_ZN14cranelift_isle7overlap6Errors6report28_$u7b$$u7b$closure$u7d$$u7d$17h64e355ce232ef411E.argprom.exit": ; preds = %3
+"_ZN14cranelift_isle7overlap6Errors6report28_$u7b$$u7b$closure$u7d$$u7d$17h64e355ce232ef411E.exit": ; preds = %3
   %16 = getelementptr inbounds i8, ptr %0, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %17 = getelementptr inbounds i8, ptr %0, i64 8
@@ -165,8 +165,8 @@ attributes #11 = { noreturn }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{!4}
-!4 = distinct !{!4, !5, !"_ZN14cranelift_isle7overlap6Errors6report28_$u7b$$u7b$closure$u7d$$u7d$17h64e355ce232ef411E.argprom: argument 0"}
-!5 = distinct !{!5, !"_ZN14cranelift_isle7overlap6Errors6report28_$u7b$$u7b$closure$u7d$$u7d$17h64e355ce232ef411E.argprom"}
+!4 = distinct !{!4, !5, !"_ZN14cranelift_isle7overlap6Errors6report28_$u7b$$u7b$closure$u7d$$u7d$17h64e355ce232ef411E: argument 0"}
+!5 = distinct !{!5, !"_ZN14cranelift_isle7overlap6Errors6report28_$u7b$$u7b$closure$u7d$$u7d$17h64e355ce232ef411E"}
 !6 = !{}
 !7 = !{i64 8}
 !8 = !{i64 0, i64 6}

@@ -1697,9 +1697,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm2gi13PatternParser30parseInstructio
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   %48 = call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %47, ptr nonnull @.str.56, i64 10)
-  br i1 %48, label %65, label %"_ZZN4llvm2gi13PatternParser30parseInstructionPatternMIFlagsERNS0_18InstructionPatternEPKNS_7DagInitEENK3$_0clEPKNS_6RecordE.argprom.exit"
+  br i1 %48, label %65, label %"_ZZN4llvm2gi13PatternParser30parseInstructionPatternMIFlagsERNS0_18InstructionPatternEPKNS_7DagInitEENK3$_0clEPKNS_6RecordE.exit"
 
-"_ZZN4llvm2gi13PatternParser30parseInstructionPatternMIFlagsERNS0_18InstructionPatternEPKNS_7DagInitEENK3$_0clEPKNS_6RecordE.argprom.exit": ; preds = %45
+"_ZZN4llvm2gi13PatternParser30parseInstructionPatternMIFlagsERNS0_18InstructionPatternEPKNS_7DagInitEENK3$_0clEPKNS_6RecordE.exit": ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i = load ptr, ptr %49, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -1857,9 +1857,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit71:                ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   %103 = call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %102, ptr nonnull @.str.56, i64 10)
-  br i1 %103, label %120, label %"_ZZN4llvm2gi13PatternParser30parseInstructionPatternMIFlagsERNS0_18InstructionPatternEPKNS_7DagInitEENK3$_0clEPKNS_6RecordE.argprom.exit81"
+  br i1 %103, label %120, label %"_ZZN4llvm2gi13PatternParser30parseInstructionPatternMIFlagsERNS0_18InstructionPatternEPKNS_7DagInitEENK3$_0clEPKNS_6RecordE.exit81"
 
-"_ZZN4llvm2gi13PatternParser30parseInstructionPatternMIFlagsERNS0_18InstructionPatternEPKNS_7DagInitEENK3$_0clEPKNS_6RecordE.argprom.exit81": ; preds = %100
+"_ZZN4llvm2gi13PatternParser30parseInstructionPatternMIFlagsERNS0_18InstructionPatternEPKNS_7DagInitEENK3$_0clEPKNS_6RecordE.exit81": ; preds = %100
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i73 = load ptr, ptr %104, align 8
   %.sroa.2.0..sroa_idx.i74 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1945,8 +1945,8 @@ _ZN4llvm26getDagWithSpecificOperatorERKNS_4InitENS_9StringRefE.exit.thread92: ; 
   %137 = icmp ult i64 %indvars.iv.next, %136
   br i1 %137, label %38, label %.loopexit, !llvm.loop !143
 
-.loopexit:                                        ; preds = %_ZN4llvm26getDagWithSpecificOperatorERKNS_4InitENS_9StringRefE.exit.thread92, %33, %"_ZZN4llvm2gi13PatternParser30parseInstructionPatternMIFlagsERNS0_18InstructionPatternEPKNS_7DagInitEENK3$_0clEPKNS_6RecordE.argprom.exit81", %"_ZZN4llvm2gi13PatternParser30parseInstructionPatternMIFlagsERNS0_18InstructionPatternEPKNS_7DagInitEENK3$_0clEPKNS_6RecordE.argprom.exit", %_ZN4llvmplERKNS_5TwineES2_.exit71, %29, %22
-  %.0 = phi i1 [ false, %29 ], [ false, %_ZN4llvmplERKNS_5TwineES2_.exit71 ], [ false, %22 ], [ false, %"_ZZN4llvm2gi13PatternParser30parseInstructionPatternMIFlagsERNS0_18InstructionPatternEPKNS_7DagInitEENK3$_0clEPKNS_6RecordE.argprom.exit" ], [ false, %"_ZZN4llvm2gi13PatternParser30parseInstructionPatternMIFlagsERNS0_18InstructionPatternEPKNS_7DagInitEENK3$_0clEPKNS_6RecordE.argprom.exit81" ], [ true, %33 ], [ true, %_ZN4llvm26getDagWithSpecificOperatorERKNS_4InitENS_9StringRefE.exit.thread92 ]
+.loopexit:                                        ; preds = %_ZN4llvm26getDagWithSpecificOperatorERKNS_4InitENS_9StringRefE.exit.thread92, %33, %"_ZZN4llvm2gi13PatternParser30parseInstructionPatternMIFlagsERNS0_18InstructionPatternEPKNS_7DagInitEENK3$_0clEPKNS_6RecordE.exit81", %"_ZZN4llvm2gi13PatternParser30parseInstructionPatternMIFlagsERNS0_18InstructionPatternEPKNS_7DagInitEENK3$_0clEPKNS_6RecordE.exit", %_ZN4llvmplERKNS_5TwineES2_.exit71, %29, %22
+  %.0 = phi i1 [ false, %29 ], [ false, %_ZN4llvmplERKNS_5TwineES2_.exit71 ], [ false, %22 ], [ false, %"_ZZN4llvm2gi13PatternParser30parseInstructionPatternMIFlagsERNS0_18InstructionPatternEPKNS_7DagInitEENK3$_0clEPKNS_6RecordE.exit" ], [ false, %"_ZZN4llvm2gi13PatternParser30parseInstructionPatternMIFlagsERNS0_18InstructionPatternEPKNS_7DagInitEENK3$_0clEPKNS_6RecordE.exit81" ], [ true, %33 ], [ true, %_ZN4llvm26getDagWithSpecificOperatorERKNS_4InitENS_9StringRefE.exit.thread92 ]
   ret i1 %.0
 }
 
@@ -2047,7 +2047,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm2gi13PatternParser30parseInstructio
   br i1 %.not42, label %65, label %64
 
 64:                                               ; preds = %61
-  call fastcc void @"_ZZN4llvm2gi13PatternParser30parseInstructionPatternOperandERNS0_18InstructionPatternEPKNS_4InitEPKNS_10StringInitEENK3$_0clEv.retelim"(ptr noundef nonnull align 8 dereferenceable(24) %7)
+  call fastcc void @"_ZZN4llvm2gi13PatternParser30parseInstructionPatternOperandERNS0_18InstructionPatternEPKNS_4InitEPKNS_10StringInitEENK3$_0clEv"(ptr noundef nonnull align 8 dereferenceable(24) %7)
   br label %173
 
 65:                                               ; preds = %61
@@ -2130,7 +2130,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %78
   br i1 %.not43, label %105, label %106
 
 105:                                              ; preds = %99
-  call fastcc void @"_ZZN4llvm2gi13PatternParser30parseInstructionPatternOperandERNS0_18InstructionPatternEPKNS_4InitEPKNS_10StringInitEENK3$_0clEv.retelim"(ptr noundef nonnull align 8 dereferenceable(24) %7)
+  call fastcc void @"_ZZN4llvm2gi13PatternParser30parseInstructionPatternOperandERNS0_18InstructionPatternEPKNS_4InitEPKNS_10StringInitEENK3$_0clEv"(ptr noundef nonnull align 8 dereferenceable(24) %7)
   br label %173
 
 106:                                              ; preds = %99
@@ -2263,7 +2263,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %78
   br label %173
 
 172:                                              ; preds = %157
-  call fastcc void @"_ZZN4llvm2gi13PatternParser30parseInstructionPatternOperandERNS0_18InstructionPatternEPKNS_4InitEPKNS_10StringInitEENK3$_0clEv.retelim"(ptr noundef nonnull align 8 dereferenceable(24) %7)
+  call fastcc void @"_ZZN4llvm2gi13PatternParser30parseInstructionPatternOperandERNS0_18InstructionPatternEPKNS_4InitEPKNS_10StringInitEENK3$_0clEv"(ptr noundef nonnull align 8 dereferenceable(24) %7)
   br label %173
 
 173:                                              ; preds = %135, %65, %172, %159, %144, %126, %113, %105, %_ZN4llvmplERKNS_5TwineES2_.exit, %64, %47
@@ -2296,7 +2296,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm2gi13PatternParser30parseInstructionPatternOperandERNS0_18InstructionPatternEPKNS_4InitEPKNS_10StringInitEENK3$_0clEv.retelim"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm2gi13PatternParser30parseInstructionPatternOperandERNS0_18InstructionPatternEPKNS_4InitEPKNS_10StringInitEENK3$_0clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::Twine", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

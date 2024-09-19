@@ -9685,7 +9685,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %5
   %12 = add nuw nsw i64 %11, 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %9, i8 0, i64 %12, i1 false), !noalias !89
   %13 = icmp eq i64 %0, 0
-  br i1 %13, label %"_ZZN13sentencepiece25ConvertToUnicodeAlignmentESt17basic_string_viewIcSt11char_traitsIcEES3_PSt6vectorImSaImEEENK3$_0clES3_.argprom.exit", label %.lr.ph14.preheader.i
+  br i1 %13, label %"_ZZN13sentencepiece25ConvertToUnicodeAlignmentESt17basic_string_viewIcSt11char_traitsIcEES3_PSt6vectorImSaImEEENK3$_0clES3_.exit", label %.lr.ph14.preheader.i
 
 .lr.ph14.preheader.i:                             ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i, %.loopexit.i
   %.sroa.668.0 = phi ptr [ %10, %.loopexit.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ]
@@ -9723,9 +9723,9 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %5
   %27 = getelementptr inbounds i8, ptr %.sroa.5.010.i, i64 %20
   %28 = sub i64 %.sroa.0.09.i, %20
   %29 = icmp eq i64 %28, 0
-  br i1 %29, label %"_ZZN13sentencepiece25ConvertToUnicodeAlignmentESt17basic_string_viewIcSt11char_traitsIcEES3_PSt6vectorImSaImEEENK3$_0clES3_.argprom.exit", label %.lr.ph14.i, !llvm.loop !93
+  br i1 %29, label %"_ZZN13sentencepiece25ConvertToUnicodeAlignmentESt17basic_string_viewIcSt11char_traitsIcEES3_PSt6vectorImSaImEEENK3$_0clES3_.exit", label %.lr.ph14.i, !llvm.loop !93
 
-"_ZZN13sentencepiece25ConvertToUnicodeAlignmentESt17basic_string_viewIcSt11char_traitsIcEES3_PSt6vectorImSaImEEENK3$_0clES3_.argprom.exit": ; preds = %._crit_edge.i, %.loopexit.i
+"_ZZN13sentencepiece25ConvertToUnicodeAlignmentESt17basic_string_viewIcSt11char_traitsIcEES3_PSt6vectorImSaImEEENK3$_0clES3_.exit": ; preds = %._crit_edge.i, %.loopexit.i
   %.sroa.668.1 = phi ptr [ %10, %.loopexit.i ], [ %.sroa.668.0, %._crit_edge.i ]
   %.sroa.064.1 = phi ptr [ %9, %.loopexit.i ], [ %.sroa.064.0, %._crit_edge.i ]
   %.016.lcssa.i = phi i64 [ 0, %.loopexit.i ], [ %21, %._crit_edge.i ]
@@ -9736,14 +9736,14 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %5
   %32 = icmp ugt i64 %31, 2305843009213693951
   br i1 %32, label %.noexc.i35, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i18
 
-.noexc.i35:                                       ; preds = %"_ZZN13sentencepiece25ConvertToUnicodeAlignmentESt17basic_string_viewIcSt11char_traitsIcEES3_PSt6vectorImSaImEEENK3$_0clES3_.argprom.exit"
+.noexc.i35:                                       ; preds = %"_ZZN13sentencepiece25ConvertToUnicodeAlignmentESt17basic_string_viewIcSt11char_traitsIcEES3_PSt6vectorImSaImEEENK3$_0clES3_.exit"
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.121) #27
           to label %.noexc unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit.thread
 
 .noexc:                                           ; preds = %.noexc.i35
   unreachable
 
-_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i18: ; preds = %"_ZZN13sentencepiece25ConvertToUnicodeAlignmentESt17basic_string_viewIcSt11char_traitsIcEES3_PSt6vectorImSaImEEENK3$_0clES3_.argprom.exit"
+_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i18: ; preds = %"_ZZN13sentencepiece25ConvertToUnicodeAlignmentESt17basic_string_viewIcSt11char_traitsIcEES3_PSt6vectorImSaImEEENK3$_0clES3_.exit"
   %.not.i.i.i.i.i19 = icmp eq i64 %31, 0
   br i1 %.not.i.i.i.i.i19, label %.lr.ph14.preheader.i21, label %.loopexit.i20
 
@@ -12596,13 +12596,13 @@ attributes #29 = { nounwind willreturn memory(read) }
 !87 = distinct !{!87, !88, !"_ZNK13sentencepiece4util13StatusBuildercvNS0_6StatusEEv: argument 0"}
 !88 = distinct !{!88, !"_ZNK13sentencepiece4util13StatusBuildercvNS0_6StatusEEv"}
 !89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZZN13sentencepiece25ConvertToUnicodeAlignmentESt17basic_string_viewIcSt11char_traitsIcEES3_PSt6vectorImSaImEEENK3$_0clES3_.argprom: argument 0"}
-!91 = distinct !{!91, !"_ZZN13sentencepiece25ConvertToUnicodeAlignmentESt17basic_string_viewIcSt11char_traitsIcEES3_PSt6vectorImSaImEEENK3$_0clES3_.argprom"}
+!90 = distinct !{!90, !91, !"_ZZN13sentencepiece25ConvertToUnicodeAlignmentESt17basic_string_viewIcSt11char_traitsIcEES3_PSt6vectorImSaImEEENK3$_0clES3_: argument 0"}
+!91 = distinct !{!91, !"_ZZN13sentencepiece25ConvertToUnicodeAlignmentESt17basic_string_viewIcSt11char_traitsIcEES3_PSt6vectorImSaImEEENK3$_0clES3_"}
 !92 = distinct !{!92, !8}
 !93 = distinct !{!93, !8}
 !94 = !{!95}
-!95 = distinct !{!95, !96, !"_ZZN13sentencepiece25ConvertToUnicodeAlignmentESt17basic_string_viewIcSt11char_traitsIcEES3_PSt6vectorImSaImEEENK3$_0clES3_.argprom: argument 0"}
-!96 = distinct !{!96, !"_ZZN13sentencepiece25ConvertToUnicodeAlignmentESt17basic_string_viewIcSt11char_traitsIcEES3_PSt6vectorImSaImEEENK3$_0clES3_.argprom"}
+!95 = distinct !{!95, !96, !"_ZZN13sentencepiece25ConvertToUnicodeAlignmentESt17basic_string_viewIcSt11char_traitsIcEES3_PSt6vectorImSaImEEENK3$_0clES3_: argument 0"}
+!96 = distinct !{!96, !"_ZZN13sentencepiece25ConvertToUnicodeAlignmentESt17basic_string_viewIcSt11char_traitsIcEES3_PSt6vectorImSaImEEENK3$_0clES3_"}
 !97 = distinct !{!97, !8}
 !98 = distinct !{!98, !8}
 !99 = distinct !{!99, !8}

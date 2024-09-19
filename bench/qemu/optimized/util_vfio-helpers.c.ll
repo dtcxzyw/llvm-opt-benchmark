@@ -145,13 +145,13 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %cmp1.i = icmp ult i32 %index, 6
-  br i1 %cmp1.i, label %assert_bar_index_valid.argprom.exit, label %if.else.i
+  br i1 %cmp1.i, label %assert_bar_index_valid.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end
   tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 137, ptr noundef nonnull @__PRETTY_FUNCTION__.assert_bar_index_valid) #15
   unreachable
 
-assert_bar_index_valid.argprom.exit:              ; preds = %if.end
+assert_bar_index_valid.exit:                      ; preds = %if.end
   %bar_region_info = getelementptr inbounds i8, ptr %s, i64 136
   %idxprom = zext nneg i32 %index to i64
   %arrayidx = getelementptr [6 x %struct.vfio_region_info], ptr %bar_region_info, i64 0, i64 %idxprom
@@ -175,7 +175,7 @@ assert_bar_index_valid.argprom.exit:              ; preds = %if.end
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_qemu_vfio_pci_map_bar.exit
 
-land.lhs.true5.i.i:                               ; preds = %assert_bar_index_valid.argprom.exit
+land.lhs.true5.i.i:                               ; preds = %assert_bar_index_valid.exit
   %6 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i = and i32 %6, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
@@ -199,7 +199,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %index, i64 noundef %3, i64 noundef %size, i32 noundef %conv, ptr noundef %call7) #16
   br label %trace_qemu_vfio_pci_map_bar.exit
 
-trace_qemu_vfio_pci_map_bar.exit:                 ; preds = %assert_bar_index_valid.argprom.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
+trace_qemu_vfio_pci_map_bar.exit:                 ; preds = %assert_bar_index_valid.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %cmp12 = icmp eq ptr %call7, inttoptr (i64 -1 to ptr)
   br i1 %cmp12, label %if.then14, label %if.end16
@@ -636,7 +636,7 @@ for.body.i:                                       ; preds = %for.cond.i, %if.end
   br i1 %tobool125.not.i, label %for.cond.i, label %fail.i
 
 for.end.i:                                        ; preds = %for.cond.i
-  %call128.i = call fastcc i32 @qemu_vfio_pci_read_config.argelim(ptr noundef %call, ptr noundef %pci_cmd.i)
+  %call128.i = call fastcc i32 @qemu_vfio_pci_read_config(ptr noundef %call, ptr noundef %pci_cmd.i)
   %tobool129.not.i = icmp eq i32 %call128.i, 0
   br i1 %tobool129.not.i, label %if.end131.i, label %fail.i
 
@@ -644,7 +644,7 @@ if.end131.i:                                      ; preds = %for.end.i
   %36 = load i16, ptr %pci_cmd.i, align 2
   %37 = or i16 %36, 4
   store i16 %37, ptr %pci_cmd.i, align 2
-  %call134.i = call fastcc i32 @qemu_vfio_pci_write_config.argelim(ptr noundef %call, ptr noundef %pci_cmd.i)
+  %call134.i = call fastcc i32 @qemu_vfio_pci_write_config(ptr noundef %call, ptr noundef %pci_cmd.i)
   %tobool135.not.i = icmp eq i32 %call134.i, 0
   br i1 %tobool135.not.i, label %qemu_vfio_init_pci.exit.thread, label %fail.i
 
@@ -806,11 +806,11 @@ if.else16:                                        ; preds = %trace_qemu_vfio_dma
   %reass.sub117 = sub i64 %s.val42, %s.val
   %add.i = add i64 %reass.sub117, 1
   %cmp.i = icmp ult i64 %add.i, %size
-  br i1 %cmp.i, label %qemu_vfio_water_mark_reached.argprom.exit.thread, label %if.end19
+  br i1 %cmp.i, label %qemu_vfio_water_mark_reached.exit.thread, label %if.end19
 
-qemu_vfio_water_mark_reached.argprom.exit.thread: ; preds = %if.else16
+qemu_vfio_water_mark_reached.exit.thread:         ; preds = %if.else16
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 739, ptr noundef nonnull @__func__.qemu_vfio_water_mark_reached, ptr noundef nonnull @.str.53) #16
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit.cont
+  br label %glib_autoptr_cleanup_QemuLockable.exit.cont
 
 if.end19:                                         ; preds = %if.else16
   %nb_iova_ranges.i75 = getelementptr inbounds i8, ptr %s, i64 336
@@ -857,7 +857,7 @@ for.inc.i:                                        ; preds = %if.end.i, %for.body
 
 qemu_vfio_find_fixed_iova.exit:                   ; preds = %for.inc.i, %if.then21
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 701, ptr noundef nonnull @__func__.qemu_vfio_find_fixed_iova, ptr noundef nonnull @.str.54) #16
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit.cont119
+  br label %glib_autoptr_cleanup_QemuLockable.exit.cont119
 
 if.end.i48:                                       ; preds = %if.end.i
   %add30.i = add i64 %cond.i45, %size
@@ -959,8 +959,8 @@ qemu_vfio_add_mapping.exit:                       ; preds = %if.end19.i, %if.the
   br i1 %cmp32, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %qemu_vfio_add_mapping.exit
-  tail call fastcc void @qemu_vfio_undo_mapping.argprom(ptr noundef nonnull %s, ptr noundef nonnull %arrayidx.i51)
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit.cont
+  tail call fastcc void @qemu_vfio_undo_mapping(ptr noundef nonnull %s, ptr noundef nonnull %arrayidx.i51)
+  br label %glib_autoptr_cleanup_QemuLockable.exit.cont
 
 if.end34:                                         ; preds = %qemu_vfio_add_mapping.exit
   %28 = load i32, ptr %nr_mappings.i, align 8
@@ -1058,14 +1058,14 @@ for.inc.i89:                                      ; preds = %if.end.i84, %for.bo
 
 qemu_vfio_find_temp_iova.exit:                    ; preds = %for.inc.i89, %if.else35
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 725, ptr noundef nonnull @__func__.qemu_vfio_find_temp_iova, ptr noundef nonnull @.str.69) #16
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit.cont119
+  br label %glib_autoptr_cleanup_QemuLockable.exit.cont119
 
 if.end38:                                         ; preds = %if.end.i84
   %sub31.i = sub i64 %cond.i87, %size
   store i64 %sub31.i, ptr %10, align 8
   %call39 = tail call fastcc i32 @qemu_vfio_do_mapping(ptr noundef nonnull %s, ptr noundef %host, i64 noundef %size, i64 noundef %sub31.i, ptr noundef %errp)
   %cmp40 = icmp slt i32 %call39, 0
-  br i1 %cmp40, label %glib_autoptr_cleanup_QemuLockable.argprom.exit.cont, label %if.end44
+  br i1 %cmp40, label %glib_autoptr_cleanup_QemuLockable.exit.cont, label %if.end44
 
 if.end44:                                         ; preds = %trace_qemu_vfio_dump_mapping.exit.i, %if.end34, %if.end38, %if.then13
   %iova0.0 = phi i64 [ %sub31.i, %if.end38 ], [ %add, %if.then13 ], [ %cond.i45, %if.end34 ], [ %cond.i45, %trace_qemu_vfio_dump_mapping.exit.i ]
@@ -1104,23 +1104,23 @@ if.else.i.i101:                                   ; preds = %if.then.i.i99
 trace_qemu_vfio_dma_mapped.exit:                  ; preds = %if.end44, %land.lhs.true5.i.i96, %if.then8.i.i102, %if.else.i.i101
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i92)
   %tobool45.not = icmp eq ptr %iova, null
-  br i1 %tobool45.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit.cont119, label %if.then46
+  br i1 %tobool45.not, label %glib_autoptr_cleanup_QemuLockable.exit.cont119, label %if.then46
 
 if.then46:                                        ; preds = %trace_qemu_vfio_dma_mapped.exit
   store i64 %iova0.0, ptr %iova, align 8
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit.cont119
+  br label %glib_autoptr_cleanup_QemuLockable.exit.cont119
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit.cont119: ; preds = %if.then46, %trace_qemu_vfio_dma_mapped.exit, %qemu_vfio_find_fixed_iova.exit, %qemu_vfio_find_temp_iova.exit
+glib_autoptr_cleanup_QemuLockable.exit.cont119:   ; preds = %if.then46, %trace_qemu_vfio_dma_mapped.exit, %qemu_vfio_find_fixed_iova.exit, %qemu_vfio_find_temp_iova.exit
   %retval.0 = phi i32 [ -12, %qemu_vfio_find_fixed_iova.exit ], [ -12, %qemu_vfio_find_temp_iova.exit ], [ 0, %if.then46 ], [ 0, %trace_qemu_vfio_dma_mapped.exit ]
-  br i1 %tobool.i.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit.then, label %glib_autoptr_cleanup_QemuLockable.argprom.exit.cont
+  br i1 %tobool.i.not, label %glib_autoptr_cleanup_QemuLockable.exit.then, label %glib_autoptr_cleanup_QemuLockable.exit.cont
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit.then: ; preds = %glib_autoptr_cleanup_QemuLockable.argprom.exit.cont119
+glib_autoptr_cleanup_QemuLockable.exit.then:      ; preds = %glib_autoptr_cleanup_QemuLockable.exit.cont119
   %_ptr.val2.i.i.then.val = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit.cont
+  br label %glib_autoptr_cleanup_QemuLockable.exit.cont
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit.cont: ; preds = %qemu_vfio_water_mark_reached.argprom.exit.thread, %if.end38, %if.then33, %glib_autoptr_cleanup_QemuLockable.argprom.exit.cont119, %glib_autoptr_cleanup_QemuLockable.argprom.exit.then
-  %retval.0124126 = phi i32 [ %retval.0, %glib_autoptr_cleanup_QemuLockable.argprom.exit.then ], [ %retval.0, %glib_autoptr_cleanup_QemuLockable.argprom.exit.cont119 ], [ -12, %qemu_vfio_water_mark_reached.argprom.exit.thread ], [ %call39, %if.end38 ], [ %call31, %if.then33 ]
-  %_ptr.val2.i.i = phi ptr [ %_ptr.val2.i.i.then.val, %glib_autoptr_cleanup_QemuLockable.argprom.exit.then ], [ @qemu_mutex_unlock, %glib_autoptr_cleanup_QemuLockable.argprom.exit.cont119 ], [ @qemu_mutex_unlock, %qemu_vfio_water_mark_reached.argprom.exit.thread ], [ @qemu_mutex_unlock, %if.end38 ], [ @qemu_mutex_unlock, %if.then33 ]
+glib_autoptr_cleanup_QemuLockable.exit.cont:      ; preds = %qemu_vfio_water_mark_reached.exit.thread, %if.end38, %if.then33, %glib_autoptr_cleanup_QemuLockable.exit.cont119, %glib_autoptr_cleanup_QemuLockable.exit.then
+  %retval.0124126 = phi i32 [ %retval.0, %glib_autoptr_cleanup_QemuLockable.exit.then ], [ %retval.0, %glib_autoptr_cleanup_QemuLockable.exit.cont119 ], [ -12, %qemu_vfio_water_mark_reached.exit.thread ], [ %call39, %if.end38 ], [ %call31, %if.then33 ]
+  %_ptr.val2.i.i = phi ptr [ %_ptr.val2.i.i.then.val, %glib_autoptr_cleanup_QemuLockable.exit.then ], [ @qemu_mutex_unlock, %glib_autoptr_cleanup_QemuLockable.exit.cont119 ], [ @qemu_mutex_unlock, %qemu_vfio_water_mark_reached.exit.thread ], [ @qemu_mutex_unlock, %if.end38 ], [ @qemu_mutex_unlock, %if.then33 ]
   tail call void %_ptr.val2.i.i(ptr noundef %s) #16
   ret i32 %retval.0124126
 }
@@ -1373,7 +1373,7 @@ return:                                           ; preds = %trace_qemu_vfio_do_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @qemu_vfio_undo_mapping.argprom(ptr nocapture noundef %s, ptr noundef %mapping) unnamed_addr #0 {
+define internal fastcc void @qemu_vfio_undo_mapping(ptr nocapture noundef %s, ptr noundef %mapping) unnamed_addr #0 {
 entry:
   %unmap = alloca %struct.vfio_iommu_type1_dma_unmap, align 8
   store i32 24, ptr %unmap, align 8
@@ -1526,13 +1526,13 @@ if.then:                                          ; preds = %trace_qemu_vfio_dma
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.10, ptr noundef %call7) #16
   %11 = load i32, ptr %call6, align 4
   %sub9 = sub i32 0, %11
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
 if.end:                                           ; preds = %trace_qemu_vfio_dma_reset_temporary.exit
   store i64 549755813888, ptr %high_water_mark, align 8
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %if.end, %if.then
+glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.end, %if.then
   %retval.0 = phi i32 [ %sub9, %if.then ], [ 0, %if.end ]
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %s, ptr noundef nonnull @.str.49, i32 noundef 132) #16
   ret i32 %retval.0
@@ -1598,25 +1598,25 @@ trace_qemu_vfio_dma_unmap.exit.cont:              ; preds = %trace_qemu_vfio_dma
   tail call void %x.val2.i(ptr noundef %s) #16
   %call4 = call fastcc ptr @qemu_vfio_find_mapping(ptr noundef %s, ptr noundef nonnull %host, ptr noundef %index)
   %tobool5.not = icmp eq ptr %call4, null
-  br i1 %tobool5.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit.cont10, label %if.end7
+  br i1 %tobool5.not, label %glib_autoptr_cleanup_QemuLockable.exit.cont10, label %if.end7
 
 if.end7:                                          ; preds = %trace_qemu_vfio_dma_unmap.exit.cont
-  tail call fastcc void @qemu_vfio_undo_mapping.argprom(ptr noundef %s, ptr noundef nonnull %call4)
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit.cont10
+  tail call fastcc void @qemu_vfio_undo_mapping(ptr noundef %s, ptr noundef nonnull %call4)
+  br label %glib_autoptr_cleanup_QemuLockable.exit.cont10
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit.cont10: ; preds = %if.end7, %trace_qemu_vfio_dma_unmap.exit.cont
-  br i1 %tobool.i.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit.then, label %glib_autoptr_cleanup_QemuLockable.argprom.exit.cont
+glib_autoptr_cleanup_QemuLockable.exit.cont10:    ; preds = %if.end7, %trace_qemu_vfio_dma_unmap.exit.cont
+  br i1 %tobool.i.not, label %glib_autoptr_cleanup_QemuLockable.exit.then, label %glib_autoptr_cleanup_QemuLockable.exit.cont
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit.then: ; preds = %glib_autoptr_cleanup_QemuLockable.argprom.exit.cont10
+glib_autoptr_cleanup_QemuLockable.exit.then:      ; preds = %glib_autoptr_cleanup_QemuLockable.exit.cont10
   %_ptr.val2.i.i.then.val = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit.cont
+  br label %glib_autoptr_cleanup_QemuLockable.exit.cont
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit.cont: ; preds = %glib_autoptr_cleanup_QemuLockable.argprom.exit.cont10, %glib_autoptr_cleanup_QemuLockable.argprom.exit.then
-  %_ptr.val2.i.i = phi ptr [ %_ptr.val2.i.i.then.val, %glib_autoptr_cleanup_QemuLockable.argprom.exit.then ], [ @qemu_mutex_unlock, %glib_autoptr_cleanup_QemuLockable.argprom.exit.cont10 ]
+glib_autoptr_cleanup_QemuLockable.exit.cont:      ; preds = %glib_autoptr_cleanup_QemuLockable.exit.cont10, %glib_autoptr_cleanup_QemuLockable.exit.then
+  %_ptr.val2.i.i = phi ptr [ %_ptr.val2.i.i.then.val, %glib_autoptr_cleanup_QemuLockable.exit.then ], [ @qemu_mutex_unlock, %glib_autoptr_cleanup_QemuLockable.exit.cont10 ]
   tail call void %_ptr.val2.i.i(ptr noundef %s) #16
   br label %cleanup.cont
 
-cleanup.cont:                                     ; preds = %entry, %glib_autoptr_cleanup_QemuLockable.argprom.exit.cont
+cleanup.cont:                                     ; preds = %entry, %glib_autoptr_cleanup_QemuLockable.exit.cont
   ret void
 }
 
@@ -1642,7 +1642,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %1 = load ptr, ptr %mappings, align 8
   %arrayidx = getelementptr %struct.IOVAMapping, ptr %1, i64 %indvars.iv
-  tail call fastcc void @qemu_vfio_undo_mapping.argprom(ptr noundef nonnull %s, ptr noundef %arrayidx)
+  tail call fastcc void @qemu_vfio_undo_mapping(ptr noundef nonnull %s, ptr noundef %arrayidx)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %2 = load i32, ptr %nr_mappings, align 8
   %3 = sext i32 %2 to i64
@@ -1814,13 +1814,13 @@ define internal fastcc i32 @qemu_vfio_pci_init_bar(ptr noundef %s, i32 noundef %
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %cmp1.i = icmp ult i32 %index, 6
-  br i1 %cmp1.i, label %assert_bar_index_valid.argprom.exit, label %if.else.i
+  br i1 %cmp1.i, label %assert_bar_index_valid.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 137, ptr noundef nonnull @__PRETTY_FUNCTION__.assert_bar_index_valid) #15
   unreachable
 
-assert_bar_index_valid.argprom.exit:              ; preds = %entry
+assert_bar_index_valid.exit:                      ; preds = %entry
   %bar_region_info = getelementptr inbounds i8, ptr %s, i64 136
   %idxprom = zext nneg i32 %index to i64
   %arrayidx = getelementptr [6 x %struct.vfio_region_info], ptr %bar_region_info, i64 0, i64 %idxprom
@@ -1837,7 +1837,7 @@ assert_bar_index_valid.argprom.exit:              ; preds = %entry
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %assert_bar_index_valid.argprom.exit
+if.then:                                          ; preds = %assert_bar_index_valid.exit
   %call5 = tail call ptr @__errno_location() #14
   %1 = load i32, ptr %call5, align 4
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 149, ptr noundef nonnull @__func__.qemu_vfio_pci_init_bar, i32 noundef %1, ptr noundef nonnull @.str.35) #16
@@ -1845,7 +1845,7 @@ if.then:                                          ; preds = %assert_bar_index_va
   %sub = sub i32 0, %2
   br label %cleanup
 
-if.end:                                           ; preds = %assert_bar_index_valid.argprom.exit
+if.end:                                           ; preds = %assert_bar_index_valid.exit
   %call7 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.36, i32 noundef %index) #16
   %offset = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %3 = load i64, ptr %offset, align 8
@@ -1896,7 +1896,7 @@ cleanup:                                          ; preds = %trace_qemu_vfio_reg
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @qemu_vfio_pci_read_config.argelim(ptr nocapture noundef readonly %s, ptr noundef nonnull %buf) unnamed_addr #0 {
+define internal fastcc i32 @qemu_vfio_pci_read_config(ptr nocapture noundef readonly %s, ptr noundef nonnull %buf) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %offset = getelementptr inbounds i8, ptr %s, i64 128
@@ -1985,7 +1985,7 @@ cond.end:                                         ; preds = %do.end, %cond.false
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @qemu_vfio_pci_write_config.argelim(ptr nocapture noundef readonly %s, ptr noundef nonnull %buf) unnamed_addr #0 {
+define internal fastcc i32 @qemu_vfio_pci_write_config(ptr nocapture noundef readonly %s, ptr noundef nonnull %buf) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %offset = getelementptr inbounds i8, ptr %s, i64 128

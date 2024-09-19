@@ -683,9 +683,9 @@ if.end47.i.i:                                     ; preds = %if.then37.i.i, %if.
   %offset.1.i.i = phi i16 [ %add42.i.i, %if.then37.i.i ], [ %add2826.i.i, %if.then33.i.i ], [ %add28.i.i, %if.end23.i.i ]
   %length.2.i.i = phi i16 [ %conv34.i.i, %if.then37.i.i ], [ %conv34.i.i, %if.then33.i.i ], [ 0, %if.end23.i.i ]
   %cmp.i.i = icmp ult i16 %i.1.i.i, 32
-  br i1 %cmp.i.i, label %while.body.i.i, label %_ZN6icu_75L15expandGroupNameEPNS_10UCharNamesEPKtt15UCharNameChoicePct.argprom.exit, !llvm.loop !17
+  br i1 %cmp.i.i, label %while.body.i.i, label %_ZN6icu_75L15expandGroupNameEPNS_10UCharNamesEPKtt15UCharNameChoicePct.exit, !llvm.loop !17
 
-_ZN6icu_75L15expandGroupNameEPNS_10UCharNamesEPKtt15UCharNameChoicePct.argprom.exit: ; preds = %if.end47.i.i
+_ZN6icu_75L15expandGroupNameEPNS_10UCharNamesEPKtt15UCharNameChoicePct.exit: ; preds = %if.end47.i.i
   %conv4 = zext nneg i32 %6 to i64
   %arrayidx6.i = getelementptr inbounds [34 x i16], ptr %offsets.i, i64 0, i64 %conv4
   %18 = load i16, ptr %arrayidx6.i, align 2
@@ -706,8 +706,8 @@ if.then8:                                         ; preds = %if.else
   store i8 0, ptr %buffer, align 1
   br label %return
 
-return:                                           ; preds = %if.else, %if.then8, %_ZN6icu_75L15expandGroupNameEPNS_10UCharNamesEPKtt15UCharNameChoicePct.argprom.exit
-  %retval.0 = phi i16 [ %call12.i, %_ZN6icu_75L15expandGroupNameEPNS_10UCharNamesEPKtt15UCharNameChoicePct.argprom.exit ], [ 0, %if.then8 ], [ 0, %if.else ]
+return:                                           ; preds = %if.else, %if.then8, %_ZN6icu_75L15expandGroupNameEPNS_10UCharNamesEPKtt15UCharNameChoicePct.exit
+  %retval.0 = phi i16 [ %call12.i, %_ZN6icu_75L15expandGroupNameEPNS_10UCharNamesEPKtt15UCharNameChoicePct.exit ], [ 0, %if.then8 ], [ 0, %if.else ]
   ret i16 %retval.0
 }
 
@@ -1659,7 +1659,7 @@ if.then23:                                        ; preds = %if.then18
   %call.val = load i16, ptr %8, align 2
   %9 = getelementptr i8, ptr %add.ptr14.i, i64 4
   %call.val100 = load i16, ptr %9, align 2
-  %call25 = call fastcc noundef signext i8 @_ZN6icu_75L14enumGroupNamesEPNS_10UCharNamesEPKtiiPFaPvi15UCharNameChoicePKciES4_S5_.argprom(ptr noundef nonnull %names, i16 %call.val, i16 %call.val100, i32 noundef %start.addr.0, i32 noundef %sub, ptr noundef %fn, ptr noundef %context, i32 noundef %nameChoice)
+  %call25 = call fastcc noundef signext i8 @_ZN6icu_75L14enumGroupNamesEPNS_10UCharNamesEPKtiiPFaPvi15UCharNameChoicePKciES4_S5_(ptr noundef nonnull %names, i16 %call.val, i16 %call.val100, i32 noundef %start.addr.0, i32 noundef %sub, ptr noundef %fn, ptr noundef %context, i32 noundef %nameChoice)
   br label %return
 
 if.else:                                          ; preds = %if.end14
@@ -1688,7 +1688,7 @@ if.then37:                                        ; preds = %if.then34
   %call.val101 = load i16, ptr %15, align 2
   %16 = getelementptr i8, ptr %add.ptr14.i, i64 4
   %call.val102 = load i16, ptr %16, align 2
-  %call43 = call fastcc noundef signext i8 @_ZN6icu_75L14enumGroupNamesEPNS_10UCharNamesEPKtiiPFaPvi15UCharNameChoicePKciES4_S5_.argprom(ptr noundef nonnull %names, i16 %call.val101, i16 %call.val102, i32 noundef %start.addr.0, i32 noundef %14, ptr noundef %fn, ptr noundef %context, i32 noundef %nameChoice)
+  %call43 = call fastcc noundef signext i8 @_ZN6icu_75L14enumGroupNamesEPNS_10UCharNamesEPKtiiPFaPvi15UCharNameChoicePKciES4_S5_(ptr noundef nonnull %names, i16 %call.val101, i16 %call.val102, i32 noundef %start.addr.0, i32 noundef %14, ptr noundef %fn, ptr noundef %context, i32 noundef %nameChoice)
   %tobool44.not = icmp eq i8 %call43, 0
   br i1 %tobool44.not, label %return, label %if.end46
 
@@ -1771,7 +1771,7 @@ while.body:                                       ; preds = %land.rhs.lr.ph, %if
   %group.1.val = load i16, ptr %20, align 2
   %21 = getelementptr i8, ptr %group.1185226, i64 4
   %group.1.val103 = load i16, ptr %21, align 2
-  %call92 = call fastcc noundef signext i8 @_ZN6icu_75L14enumGroupNamesEPNS_10UCharNamesEPKtiiPFaPvi15UCharNameChoicePKciES4_S5_.argprom(ptr noundef %names, i16 %group.1.val, i16 %group.1.val103, i32 noundef %shl87, i32 noundef %19, ptr noundef %fn, ptr noundef %context, i32 noundef %nameChoice)
+  %call92 = call fastcc noundef signext i8 @_ZN6icu_75L14enumGroupNamesEPNS_10UCharNamesEPKtiiPFaPvi15UCharNameChoicePKciES4_S5_(ptr noundef %names, i16 %group.1.val, i16 %group.1.val103, i32 noundef %shl87, i32 noundef %19, ptr noundef %fn, ptr noundef %context, i32 noundef %nameChoice)
   %tobool93.not = icmp eq i8 %call92, 0
   br i1 %tobool93.not, label %return, label %if.end95
 
@@ -1849,7 +1849,7 @@ if.then131:                                       ; preds = %land.lhs.true126
   %group.1.val104 = load i16, ptr %27, align 2
   %28 = getelementptr i8, ptr %group.1185.lcssa, i64 4
   %group.1.val105 = load i16, ptr %28, align 2
-  %call137 = call fastcc noundef signext i8 @_ZN6icu_75L14enumGroupNamesEPNS_10UCharNamesEPKtiiPFaPvi15UCharNameChoicePKciES4_S5_.argprom(ptr noundef %names, i16 %group.1.val104, i16 %group.1.val105, i32 noundef %26, i32 noundef %sub, ptr noundef %fn, ptr noundef %context, i32 noundef %nameChoice)
+  %call137 = call fastcc noundef signext i8 @_ZN6icu_75L14enumGroupNamesEPNS_10UCharNamesEPKtiiPFaPvi15UCharNameChoicePKciES4_S5_(ptr noundef %names, i16 %group.1.val104, i16 %group.1.val105, i32 noundef %26, i32 noundef %sub, ptr noundef %fn, ptr noundef %context, i32 noundef %nameChoice)
   br label %return
 
 if.else138:                                       ; preds = %if.end95, %if.end78, %land.lhs.true126
@@ -2482,7 +2482,7 @@ sw.bb.i:                                          ; preds = %while.body.i
   %add.ptr2.i = getelementptr inbounds i8, ptr %range.073.i, i64 12
   %7 = load i8, ptr %add.ptr2.i, align 1
   %cmp.not1.i.i = icmp eq i8 %7, 0
-  br i1 %cmp.not1.i.i, label %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit.i, label %while.body.i.i
+  br i1 %cmp.not1.i.i, label %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %sw.bb.i, %while.body.i.i
   %8 = phi i8 [ %10, %while.body.i.i ], [ %7, %sw.bb.i ]
@@ -2501,9 +2501,9 @@ while.body.i.i:                                   ; preds = %sw.bb.i, %while.bod
   %inc.i.i = add nuw nsw i32 %length.02.i.i, 1
   %10 = load i8, ptr %incdec.ptr.i.i, align 1
   %cmp.not.i.i = icmp eq i8 %10, 0
-  br i1 %cmp.not.i.i, label %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit.i, label %while.body.i.i, !llvm.loop !47
+  br i1 %cmp.not.i.i, label %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.i, label %while.body.i.i, !llvm.loop !47
 
-_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit.i: ; preds = %while.body.i.i, %sw.bb.i
+_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.i:    ; preds = %while.body.i.i, %sw.bb.i
   %length.0.lcssa.i.i = phi i32 [ 0, %sw.bb.i ], [ %inc.i.i, %while.body.i.i ]
   %variant.i = getelementptr inbounds i8, ptr %range.073.i, i64 9
   %11 = load i8, ptr %variant.i, align 1
@@ -2520,7 +2520,7 @@ sw.bb5.i:                                         ; preds = %while.body.i
   %add.ptr10.i = getelementptr inbounds i16, ptr %add.ptr6.i, i64 %idx.ext9.i
   %13 = load i8, ptr %add.ptr10.i, align 1
   %cmp.not1.i29.i = icmp eq i8 %13, 0
-  br i1 %cmp.not1.i29.i, label %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit44.i, label %while.body.i30.i
+  br i1 %cmp.not1.i29.i, label %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit44.i, label %while.body.i30.i
 
 while.body.i30.i:                                 ; preds = %sw.bb5.i, %while.body.i30.i
   %14 = phi i8 [ %16, %while.body.i30.i ], [ %13, %sw.bb5.i ]
@@ -2539,14 +2539,14 @@ while.body.i30.i:                                 ; preds = %sw.bb5.i, %while.bo
   %inc.i41.i = add nuw nsw i32 %length.02.i32.i, 1
   %16 = load i8, ptr %incdec.ptr.i33.i, align 1
   %cmp.not.i42.i = icmp eq i8 %16, 0
-  br i1 %cmp.not.i42.i, label %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit44.i, label %while.body.i30.i, !llvm.loop !47
+  br i1 %cmp.not.i42.i, label %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit44.i, label %while.body.i30.i, !llvm.loop !47
 
-_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit44.i: ; preds = %while.body.i30.i, %sw.bb5.i
+_ZN6icu_75L19calcStringSetLengthEPjPKc.exit44.i:  ; preds = %while.body.i30.i, %sw.bb5.i
   %length.0.lcssa.i43.i = phi i32 [ 0, %sw.bb5.i ], [ %inc.i41.i, %while.body.i30.i ]
   %cmp1566.not.i = icmp eq i8 %12, 0
   br i1 %cmp1566.not.i, label %for.end29.i, label %for.body.preheader.i
 
-for.body.preheader.i:                             ; preds = %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit44.i
+for.body.preheader.i:                             ; preds = %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit44.i
   %17 = sext i32 %length.0.lcssa.i43.i to i64
   %18 = getelementptr i8, ptr %add.ptr10.i, i64 %17
   %add.ptr14.i = getelementptr i8, ptr %18, i64 1
@@ -2565,13 +2565,13 @@ for.body19.preheader.i:                           ; preds = %for.body.i
   %conv16.i = zext i16 %19 to i32
   br label %for.body19.i
 
-for.body19.i:                                     ; preds = %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit60.i, %for.body19.preheader.i
-  %maxFactorLength.064.i = phi i32 [ %spec.select27.i, %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit60.i ], [ 0, %for.body19.preheader.i ]
-  %factor.063.i = phi i32 [ %dec.i, %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit60.i ], [ %conv16.i, %for.body19.preheader.i ]
-  %s.162.i = phi ptr [ %add.ptr23.i, %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit60.i ], [ %s.068.i, %for.body19.preheader.i ]
+for.body19.i:                                     ; preds = %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit60.i, %for.body19.preheader.i
+  %maxFactorLength.064.i = phi i32 [ %spec.select27.i, %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit60.i ], [ 0, %for.body19.preheader.i ]
+  %factor.063.i = phi i32 [ %dec.i, %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit60.i ], [ %conv16.i, %for.body19.preheader.i ]
+  %s.162.i = phi ptr [ %add.ptr23.i, %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit60.i ], [ %s.068.i, %for.body19.preheader.i ]
   %20 = load i8, ptr %s.162.i, align 1
   %cmp.not1.i45.i = icmp eq i8 %20, 0
-  br i1 %cmp.not1.i45.i, label %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit60.i, label %while.body.i46.i
+  br i1 %cmp.not1.i45.i, label %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit60.i, label %while.body.i46.i
 
 while.body.i46.i:                                 ; preds = %for.body19.i, %while.body.i46.i
   %21 = phi i8 [ %23, %while.body.i46.i ], [ %20, %for.body19.i ]
@@ -2590,9 +2590,9 @@ while.body.i46.i:                                 ; preds = %for.body19.i, %whil
   %inc.i57.i = add nuw nsw i32 %length.02.i48.i, 1
   %23 = load i8, ptr %incdec.ptr.i49.i, align 1
   %cmp.not.i58.i = icmp eq i8 %23, 0
-  br i1 %cmp.not.i58.i, label %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit60.i, label %while.body.i46.i, !llvm.loop !47
+  br i1 %cmp.not.i58.i, label %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit60.i, label %while.body.i46.i, !llvm.loop !47
 
-_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit60.i: ; preds = %while.body.i46.i, %for.body19.i
+_ZN6icu_75L19calcStringSetLengthEPjPKc.exit60.i:  ; preds = %while.body.i46.i, %for.body19.i
   %length.0.lcssa.i59.i = phi i32 [ 0, %for.body19.i ], [ %inc.i57.i, %while.body.i46.i ]
   %add21.i = add nsw i32 %length.0.lcssa.i59.i, 1
   %idx.ext22.i = sext i32 %add21.i to i64
@@ -2602,21 +2602,21 @@ _ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit60.i: ; preds = %while.body.i
   %cmp18.i = icmp sgt i32 %factor.063.i, 1
   br i1 %cmp18.i, label %for.body19.i, label %for.end.i, !llvm.loop !48
 
-for.end.i:                                        ; preds = %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit60.i, %for.body.i
-  %s.1.lcssa.i = phi ptr [ %s.068.i, %for.body.i ], [ %add.ptr23.i, %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit60.i ]
-  %maxFactorLength.0.lcssa.i = phi i32 [ 0, %for.body.i ], [ %spec.select27.i, %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit60.i ]
+for.end.i:                                        ; preds = %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit60.i, %for.body.i
+  %s.1.lcssa.i = phi ptr [ %s.068.i, %for.body.i ], [ %add.ptr23.i, %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit60.i ]
+  %maxFactorLength.0.lcssa.i = phi i32 [ 0, %for.body.i ], [ %spec.select27.i, %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit60.i ]
   %add27.i = add nsw i32 %maxFactorLength.0.lcssa.i, %length.067.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %idx.ext9.i
   br i1 %exitcond.not.i, label %for.end29.i, label %for.body.i, !llvm.loop !49
 
-for.end29.i:                                      ; preds = %for.end.i, %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit44.i
-  %length.0.lcssa.i = phi i32 [ %length.0.lcssa.i43.i, %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit44.i ], [ %add27.i, %for.end.i ]
+for.end29.i:                                      ; preds = %for.end.i, %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit44.i
+  %length.0.lcssa.i = phi i32 [ %length.0.lcssa.i43.i, %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit44.i ], [ %add27.i, %for.end.i ]
   %spec.select28.i = tail call i32 @llvm.smax.i32(i32 %length.0.lcssa.i, i32 %maxNameLength.addr.074.i)
   br label %sw.epilog.i
 
-sw.epilog.i:                                      ; preds = %for.end29.i, %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit.i, %while.body.i
-  %maxNameLength.addr.1.i = phi i32 [ %maxNameLength.addr.074.i, %while.body.i ], [ %spec.select.i, %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit.i ], [ %spec.select28.i, %for.end29.i ]
+sw.epilog.i:                                      ; preds = %for.end29.i, %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.i, %while.body.i
+  %maxNameLength.addr.1.i = phi i32 [ %maxNameLength.addr.074.i, %while.body.i ], [ %spec.select.i, %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.i ], [ %spec.select28.i, %for.end29.i ]
   %size.i = getelementptr inbounds i8, ptr %range.073.i, i64 10
   %24 = load i16, ptr %size.i, align 2
   %idx.ext34.i = zext i16 %24 to i64
@@ -2629,14 +2629,14 @@ for.body.i5.preheader:                            ; preds = %sw.epilog.i, %for.e
   %maxNameLength.addr.06.i.ph = phi i32 [ 0, %for.end ], [ %maxNameLength.addr.1.i, %sw.epilog.i ]
   br label %for.body.i5
 
-for.body.i5:                                      ; preds = %for.body.i5.preheader, %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit.i22
-  %indvars.iv.i6 = phi i64 [ %indvars.iv.next.i25, %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit.i22 ], [ 0, %for.body.i5.preheader ]
-  %maxNameLength.addr.06.i = phi i32 [ %spec.select.i24, %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit.i22 ], [ %maxNameLength.addr.06.i.ph, %for.body.i5.preheader ]
+for.body.i5:                                      ; preds = %for.body.i5.preheader, %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.i22
+  %indvars.iv.i6 = phi i64 [ %indvars.iv.next.i25, %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.i22 ], [ 0, %for.body.i5.preheader ]
+  %maxNameLength.addr.06.i = phi i32 [ %spec.select.i24, %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.i22 ], [ %maxNameLength.addr.06.i.ph, %for.body.i5.preheader ]
   %arrayidx.i7 = getelementptr inbounds [33 x ptr], ptr @_ZN6icu_75L12charCatNamesE, i64 0, i64 %indvars.iv.i6
   %25 = load ptr, ptr %arrayidx.i7, align 8
   %26 = load i8, ptr %25, align 1
   %cmp.not1.i.i8 = icmp eq i8 %26, 0
-  br i1 %cmp.not1.i.i8, label %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit.i22, label %while.body.i.i9
+  br i1 %cmp.not1.i.i8, label %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.i22, label %while.body.i.i9
 
 while.body.i.i9:                                  ; preds = %for.body.i5, %while.body.i.i9
   %27 = phi i8 [ %29, %while.body.i.i9 ], [ %26, %for.body.i5 ]
@@ -2655,20 +2655,20 @@ while.body.i.i9:                                  ; preds = %for.body.i5, %while
   %inc.i.i20 = add nuw nsw i32 %length.02.i.i11, 1
   %29 = load i8, ptr %incdec.ptr.i.i12, align 1
   %cmp.not.i.i21 = icmp eq i8 %29, 0
-  br i1 %cmp.not.i.i21, label %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit.loopexit.i, label %while.body.i.i9, !llvm.loop !47
+  br i1 %cmp.not.i.i21, label %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.loopexit.i, label %while.body.i.i9, !llvm.loop !47
 
-_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit.loopexit.i: ; preds = %while.body.i.i9
+_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.loopexit.i: ; preds = %while.body.i.i9
   %30 = add nuw nsw i32 %length.02.i.i11, 10
-  br label %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit.i22
+  br label %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.i22
 
-_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit.i22: ; preds = %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit.loopexit.i, %for.body.i5
-  %length.0.lcssa.i.i23 = phi i32 [ 9, %for.body.i5 ], [ %30, %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit.loopexit.i ]
+_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.i22:  ; preds = %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.loopexit.i, %for.body.i5
+  %length.0.lcssa.i.i23 = phi i32 [ 9, %for.body.i5 ], [ %30, %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.loopexit.i ]
   %spec.select.i24 = tail call i32 @llvm.smax.i32(i32 %length.0.lcssa.i.i23, i32 %maxNameLength.addr.06.i)
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i6, 1
   %exitcond.not.i26 = icmp eq i64 %indvars.iv.next.i25, 33
   br i1 %exitcond.not.i26, label %_ZN6icu_75L22calcExtNameSetsLengthsEi.exit, label %for.body.i5, !llvm.loop !51
 
-_ZN6icu_75L22calcExtNameSetsLengthsEi.exit:       ; preds = %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit.i22
+_ZN6icu_75L22calcExtNameSetsLengthsEi.exit:       ; preds = %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.i22
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %offsets.i)
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %lengths.i)
   %add.ptr.i28 = getelementptr inbounds i8, ptr %3, i64 16
@@ -2819,7 +2819,7 @@ land.rhs.us.i.i:                                  ; preds = %if.end28.i, %if.end
   %50 = load i8, ptr %line.02.us.i.i, align 1
   %conv.us.i.i = zext i8 %50 to i16
   %cmp2.not.us.i.i = icmp eq i8 %50, 59
-  br i1 %cmp2.not.us.i.i, label %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.argprom.exit.i, label %while.body.us.i.i
+  br i1 %cmp2.not.us.i.i, label %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.i, label %while.body.us.i.i
 
 while.body.us.i.i:                                ; preds = %land.rhs.us.i.i
   %cmp5.not.us.i.i = icmp ugt i16 %31, %conv.us.i.i
@@ -2912,7 +2912,7 @@ if.end57.us.i.i:                                  ; preds = %if.then25.us.i.i, %
   %line.2.us.i.i = phi ptr [ %incdec.ptr.us.i.i, %if.then.us.i.i ], [ %line.3.us.i.i, %if.then25.us.i.i ], [ %line.3.us.i.i, %if.end55.us.i.i ]
   %length.1.us.i.i = phi i32 [ %inc.us.i.i, %if.then.us.i.i ], [ %inc36.us.i.i, %if.then25.us.i.i ], [ %add.us.i.i, %if.end55.us.i.i ]
   %cmp.not.us.i.i = icmp eq ptr %line.2.us.i.i, %add.ptr30.i
-  br i1 %cmp.not.us.i.i, label %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.argprom.exit.thread.i, label %land.rhs.us.i.i, !llvm.loop !52
+  br i1 %cmp.not.us.i.i, label %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.thread.i, label %land.rhs.us.i.i, !llvm.loop !52
 
 land.rhs.i.i:                                     ; preds = %if.end28.i, %if.end57.i.i
   %length.03.i.i = phi i32 [ %length.1.i.i, %if.end57.i.i ], [ 0, %if.end28.i ]
@@ -2921,7 +2921,7 @@ land.rhs.i.i:                                     ; preds = %if.end28.i, %if.end
   %61 = load i8, ptr %line.02.i.i, align 1
   %conv.i.i = zext i8 %61 to i16
   %cmp2.not.i.i = icmp eq i8 %61, 59
-  br i1 %cmp2.not.i.i, label %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.argprom.exit.i, label %while.body.i31.i
+  br i1 %cmp2.not.i.i, label %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.i, label %while.body.i31.i
 
 while.body.i31.i:                                 ; preds = %land.rhs.i.i
   %cmp5.not.i.i = icmp ugt i16 %31, %conv.i.i
@@ -2992,7 +2992,7 @@ if.then44.i.i:                                    ; preds = %if.else37.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr1.i30, i64 %idx.ext.i.i
   %69 = load i8, ptr %add.ptr.i.i, align 1
   %cmp.not1.i.i.i = icmp eq i8 %69, 0
-  br i1 %cmp.not1.i.i.i, label %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit.i.i, label %while.body.i.i.i
+  br i1 %cmp.not1.i.i.i, label %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.i.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.then44.i.i, %while.body.i.i.i
   %70 = phi i8 [ %72, %while.body.i.i.i ], [ %69, %if.then44.i.i ]
@@ -3011,16 +3011,16 @@ while.body.i.i.i:                                 ; preds = %if.then44.i.i, %whi
   %inc.i.i.i = add nuw nsw i32 %length.02.i.i.i, 1
   %72 = load i8, ptr %incdec.ptr.i.i.i, align 1
   %cmp.not.i.i.i = icmp eq i8 %72, 0
-  br i1 %cmp.not.i.i.i, label %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit.i.i, label %while.body.i.i.i, !llvm.loop !47
+  br i1 %cmp.not.i.i.i, label %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.i.i, label %while.body.i.i.i, !llvm.loop !47
 
-_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit.i.i: ; preds = %while.body.i.i.i, %if.then44.i.i
+_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.i.i:  ; preds = %while.body.i.i.i, %if.then44.i.i
   %length.0.lcssa.i.i.i = phi i32 [ 0, %if.then44.i.i ], [ %inc.i.i.i, %while.body.i.i.i ]
   %conv46.i.i = trunc i32 %length.0.lcssa.i.i.i to i8
   store i8 %conv46.i.i, ptr %arrayidx41.i.i, align 1
   br label %if.end55.i.i
 
-if.end55.i.i:                                     ; preds = %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit.i.i, %if.else37.i.i
-  %tokenLength.0.i.i = phi i32 [ %length.0.lcssa.i.i.i, %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit.i.i ], [ %conv42.i.i, %if.else37.i.i ]
+if.end55.i.i:                                     ; preds = %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.i.i, %if.else37.i.i
+  %tokenLength.0.i.i = phi i32 [ %length.0.lcssa.i.i.i, %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.i.i ], [ %conv42.i.i, %if.else37.i.i ]
   %add.i.i = add nsw i32 %tokenLength.0.i.i, %length.03.i.i
   br label %if.end57.i.i
 
@@ -3028,21 +3028,21 @@ if.end57.i.i:                                     ; preds = %if.end55.i.i, %if.t
   %line.2.i.i = phi ptr [ %incdec.ptr.i30.i, %if.then.i32.i ], [ %line.3.i.i, %if.then25.i.i ], [ %line.3.i.i, %if.end55.i.i ]
   %length.1.i.i = phi i32 [ %inc.i33.i, %if.then.i32.i ], [ %inc36.i.i, %if.then25.i.i ], [ %add.i.i, %if.end55.i.i ]
   %cmp.not.i.i46 = icmp eq ptr %line.2.i.i, %add.ptr30.i
-  br i1 %cmp.not.i.i46, label %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.argprom.exit.thread.i, label %land.rhs.i.i, !llvm.loop !52
+  br i1 %cmp.not.i.i46, label %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.thread.i, label %land.rhs.i.i, !llvm.loop !52
 
-_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.argprom.exit.thread.i: ; preds = %if.end57.i.i, %if.end57.us.i.i
+_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.thread.i: ; preds = %if.end57.i.i, %if.end57.us.i.i
   %length.0.lcssa.i.ph.i = phi i32 [ %length.1.us.i.i, %if.end57.us.i.i ], [ %length.1.i.i, %if.end57.i.i ]
   %spec.select202.i = tail call i32 @llvm.smax.i32(i32 %length.0.lcssa.i.ph.i, i32 %maxNameLength.addr.1188.i)
   br label %for.inc.i
 
-_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.argprom.exit.i: ; preds = %land.rhs.i.i, %land.rhs.us.i.i
+_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.i: ; preds = %land.rhs.i.i, %land.rhs.us.i.i
   %length.0.lcssa.i.i52 = phi i32 [ %length.03.us.i.i, %land.rhs.us.i.i ], [ %length.03.i.i, %land.rhs.i.i ]
   %line.1.i.i = phi ptr [ %incdec.ptr.us.i.i, %land.rhs.us.i.i ], [ %incdec.ptr.i30.i, %land.rhs.i.i ]
   %spec.select.i53 = tail call i32 @llvm.smax.i32(i32 %length.0.lcssa.i.i52, i32 %maxNameLength.addr.1188.i)
   %cmp35.i = icmp eq ptr %line.1.i.i, %add.ptr30.i
   br i1 %cmp35.i, label %for.inc.i, label %land.rhs.lr.ph.i36.i
 
-land.rhs.lr.ph.i36.i:                             ; preds = %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.argprom.exit.i
+land.rhs.lr.ph.i36.i:                             ; preds = %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.i
   br i1 %cmp.not.i31, label %land.rhs.us.i114.i, label %land.rhs.i38.i
 
 land.rhs.us.i114.i:                               ; preds = %land.rhs.lr.ph.i36.i, %if.end57.us.i131.i
@@ -3052,7 +3052,7 @@ land.rhs.us.i114.i:                               ; preds = %land.rhs.lr.ph.i36.
   %73 = load i8, ptr %line.02.us.i116.i, align 1
   %conv.us.i118.i = zext i8 %73 to i16
   %cmp2.not.us.i119.i = icmp eq i8 %73, 59
-  br i1 %cmp2.not.us.i119.i, label %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.argprom.exit180.i, label %while.body.us.i120.i
+  br i1 %cmp2.not.us.i119.i, label %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit180.i, label %while.body.us.i120.i
 
 while.body.us.i120.i:                             ; preds = %land.rhs.us.i114.i
   %cmp5.not.us.i121.i = icmp ugt i16 %31, %conv.us.i118.i
@@ -3145,7 +3145,7 @@ if.end57.us.i131.i:                               ; preds = %if.then25.us.i164.i
   %line.2.us.i132.i = phi ptr [ %incdec.ptr.us.i117.i, %if.then.us.i122.i ], [ %line.3.us.i140.i, %if.then25.us.i164.i ], [ %line.3.us.i140.i, %if.end55.us.i161.i ]
   %length.1.us.i133.i = phi i32 [ %inc.us.i130.i, %if.then.us.i122.i ], [ %inc36.us.i172.i, %if.then25.us.i164.i ], [ %add.us.i163.i, %if.end55.us.i161.i ]
   %cmp.not.us.i134.i = icmp eq ptr %line.2.us.i132.i, %add.ptr30.i
-  br i1 %cmp.not.us.i134.i, label %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.argprom.exit180.i, label %land.rhs.us.i114.i, !llvm.loop !52
+  br i1 %cmp.not.us.i134.i, label %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit180.i, label %land.rhs.us.i114.i, !llvm.loop !52
 
 land.rhs.i38.i:                                   ; preds = %land.rhs.lr.ph.i36.i, %if.end57.i55.i
   %length.03.i39.i = phi i32 [ %length.1.i57.i, %if.end57.i55.i ], [ 0, %land.rhs.lr.ph.i36.i ]
@@ -3154,7 +3154,7 @@ land.rhs.i38.i:                                   ; preds = %land.rhs.lr.ph.i36.
   %84 = load i8, ptr %line.02.i40.i, align 1
   %conv.i42.i = zext i8 %84 to i16
   %cmp2.not.i43.i = icmp eq i8 %84, 59
-  br i1 %cmp2.not.i43.i, label %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.argprom.exit180.i, label %while.body.i44.i
+  br i1 %cmp2.not.i43.i, label %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit180.i, label %while.body.i44.i
 
 while.body.i44.i:                                 ; preds = %land.rhs.i38.i
   %cmp5.not.i45.i = icmp ugt i16 %31, %conv.i42.i
@@ -3225,7 +3225,7 @@ if.then44.i78.i:                                  ; preds = %if.else37.i70.i
   %add.ptr.i80.i = getelementptr inbounds i8, ptr %add.ptr1.i30, i64 %idx.ext.i79.i
   %92 = load i8, ptr %add.ptr.i80.i, align 1
   %cmp.not1.i.i81.i = icmp eq i8 %92, 0
-  br i1 %cmp.not1.i.i81.i, label %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit.i95.i, label %while.body.i.i82.i
+  br i1 %cmp.not1.i.i81.i, label %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.i95.i, label %while.body.i.i82.i
 
 while.body.i.i82.i:                               ; preds = %if.then44.i78.i, %while.body.i.i82.i
   %93 = phi i8 [ %95, %while.body.i.i82.i ], [ %92, %if.then44.i78.i ]
@@ -3244,16 +3244,16 @@ while.body.i.i82.i:                               ; preds = %if.then44.i78.i, %w
   %inc.i.i93.i = add nuw nsw i32 %length.02.i.i84.i, 1
   %95 = load i8, ptr %incdec.ptr.i.i85.i, align 1
   %cmp.not.i.i94.i = icmp eq i8 %95, 0
-  br i1 %cmp.not.i.i94.i, label %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit.i95.i, label %while.body.i.i82.i, !llvm.loop !47
+  br i1 %cmp.not.i.i94.i, label %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.i95.i, label %while.body.i.i82.i, !llvm.loop !47
 
-_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit.i95.i: ; preds = %while.body.i.i82.i, %if.then44.i78.i
+_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.i95.i: ; preds = %while.body.i.i82.i, %if.then44.i78.i
   %length.0.lcssa.i.i96.i = phi i32 [ 0, %if.then44.i78.i ], [ %inc.i.i93.i, %while.body.i.i82.i ]
   %conv46.i97.i = trunc i32 %length.0.lcssa.i.i96.i to i8
   store i8 %conv46.i97.i, ptr %arrayidx41.i72.i, align 1
   br label %if.end55.i75.i
 
-if.end55.i75.i:                                   ; preds = %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit.i95.i, %if.else37.i70.i
-  %tokenLength.0.i76.i = phi i32 [ %length.0.lcssa.i.i96.i, %_ZN6icu_75L19calcStringSetLengthEPjPKc.argprom.exit.i95.i ], [ %conv42.i73.i, %if.else37.i70.i ]
+if.end55.i75.i:                                   ; preds = %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.i95.i, %if.else37.i70.i
+  %tokenLength.0.i76.i = phi i32 [ %length.0.lcssa.i.i96.i, %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.i95.i ], [ %conv42.i73.i, %if.else37.i70.i ]
   %add.i77.i = add nsw i32 %tokenLength.0.i76.i, %length.03.i39.i
   br label %if.end57.i55.i
 
@@ -3261,15 +3261,15 @@ if.end57.i55.i:                                   ; preds = %if.end55.i75.i, %if
   %line.2.i56.i = phi ptr [ %incdec.ptr.i41.i, %if.then.i46.i ], [ %line.3.i66.i, %if.then25.i98.i ], [ %line.3.i66.i, %if.end55.i75.i ]
   %length.1.i57.i = phi i32 [ %inc.i54.i, %if.then.i46.i ], [ %inc36.i106.i, %if.then25.i98.i ], [ %add.i77.i, %if.end55.i75.i ]
   %cmp.not.i58.i54 = icmp eq ptr %line.2.i56.i, %add.ptr30.i
-  br i1 %cmp.not.i58.i54, label %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.argprom.exit180.i, label %land.rhs.i38.i, !llvm.loop !52
+  br i1 %cmp.not.i58.i54, label %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit180.i, label %land.rhs.i38.i, !llvm.loop !52
 
-_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.argprom.exit180.i: ; preds = %if.end57.i55.i, %land.rhs.i38.i, %if.end57.us.i131.i, %land.rhs.us.i114.i
+_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit180.i: ; preds = %if.end57.i55.i, %land.rhs.i38.i, %if.end57.us.i131.i, %land.rhs.us.i114.i
   %length.0.lcssa.i59.i55 = phi i32 [ %length.1.us.i133.i, %if.end57.us.i131.i ], [ %length.03.us.i115.i, %land.rhs.us.i114.i ], [ %length.1.i57.i, %if.end57.i55.i ], [ %length.03.i39.i, %land.rhs.i38.i ]
   %spec.select29.i = tail call i32 @llvm.smax.i32(i32 %length.0.lcssa.i59.i55, i32 %spec.select.i53)
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.argprom.exit180.i, %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.argprom.exit.i, %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.argprom.exit.thread.i, %for.body.i38
-  %maxNameLength.addr.2.i = phi i32 [ %maxNameLength.addr.1188.i, %for.body.i38 ], [ %spec.select.i53, %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.argprom.exit.i ], [ %spec.select29.i, %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.argprom.exit180.i ], [ %spec.select202.i, %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.argprom.exit.thread.i ]
+for.inc.i:                                        ; preds = %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit180.i, %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.i, %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.thread.i, %for.body.i38
+  %maxNameLength.addr.2.i = phi i32 [ %maxNameLength.addr.1188.i, %for.body.i38 ], [ %spec.select.i53, %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.i ], [ %spec.select29.i, %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit180.i ], [ %spec.select202.i, %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.thread.i ]
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i39, 1
   %exitcond.not.i48 = icmp eq i64 %indvars.iv.next.i47, 32
   br i1 %exitcond.not.i48, label %for.end.i49, label %for.body.i38, !llvm.loop !53
@@ -3311,7 +3311,7 @@ entry:
   store i32 0, ptr %errorCode.i, align 4
   %call.i = call fastcc noundef signext i8 @_ZN6icu_75L19calcNameSetsLengthsEP10UErrorCode(ptr noundef %errorCode.i)
   %tobool.not.i = icmp eq i8 %call.i, 0
-  br i1 %tobool.not.i, label %_ZL13charSetToUSetPjPK9USetAdder.argprom.exit, label %for.body.i
+  br i1 %tobool.not.i, label %_ZL13charSetToUSetPjPK9USetAdder.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %length.02.i = phi i32 [ %length.1.i, %for.inc.i ], [ 0, %entry ]
@@ -3343,7 +3343,7 @@ for.inc.i:                                        ; preds = %if.then6.i, %for.bo
 for.end.i:                                        ; preds = %for.inc.i
   call void @u_charsToUChars_75(ptr noundef nonnull %cs.i, ptr noundef nonnull %us.i, i32 noundef %length.1.i)
   %cmp143.i = icmp sgt i32 %length.1.i, 0
-  br i1 %cmp143.i, label %for.body15.lr.ph.i, label %_ZL13charSetToUSetPjPK9USetAdder.argprom.exit
+  br i1 %cmp143.i, label %for.body15.lr.ph.i, label %_ZL13charSetToUSetPjPK9USetAdder.exit
 
 for.body15.lr.ph.i:                               ; preds = %for.end.i
   %add.i = getelementptr inbounds i8, ptr %sa, i64 8
@@ -3373,9 +3373,9 @@ if.then24.i:                                      ; preds = %lor.lhs.false.i, %f
 for.inc29.i:                                      ; preds = %if.then24.i, %lor.lhs.false.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond6.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond6.not.i, label %_ZL13charSetToUSetPjPK9USetAdder.argprom.exit, label %for.body15.i, !llvm.loop !56
+  br i1 %exitcond6.not.i, label %_ZL13charSetToUSetPjPK9USetAdder.exit, label %for.body15.i, !llvm.loop !56
 
-_ZL13charSetToUSetPjPK9USetAdder.argprom.exit:    ; preds = %for.inc29.i, %entry, %for.end.i
+_ZL13charSetToUSetPjPK9USetAdder.exit:            ; preds = %for.inc29.i, %entry, %for.end.i
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %us.i)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %cs.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %errorCode.i)
@@ -4524,7 +4524,7 @@ if.end110:                                        ; preds = %if.then109, %while.
 declare signext i8 @u_charType_75(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_75L14enumGroupNamesEPNS_10UCharNamesEPKtiiPFaPvi15UCharNameChoicePKciES4_S5_.argprom(ptr nocapture noundef readonly %names, i16 %group.2.val, i16 %group.4.val, i32 noundef %start, i32 noundef range(i32 -2147483648, 2147483647) %end, ptr noundef readonly %fn, ptr noundef %context, i32 noundef range(i32 -2147483648, 4) %nameChoice) unnamed_addr #0 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_75L14enumGroupNamesEPNS_10UCharNamesEPKtiiPFaPvi15UCharNameChoicePKciES4_S5_(ptr nocapture noundef readonly %names, i16 %group.2.val, i16 %group.4.val, i32 noundef %start, i32 noundef range(i32 -2147483648, 2147483647) %end, ptr noundef readonly %fn, ptr noundef %context, i32 noundef range(i32 -2147483648, 4) %nameChoice) unnamed_addr #0 {
 entry:
   %offsets = alloca [34 x i16], align 16
   %lengths = alloca [34 x i16], align 16

@@ -779,7 +779,7 @@ define void @Abc_NtkTraverseSupersXor_rec(ptr noundef %0, ptr noundef %1, ptr no
   %.val3.i100 = load i32, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %.val2.i99, i64 224
   %7 = add nsw i32 %.val3.i100, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %6, i32 noundef %7)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %6, i32 noundef %7)
   %8 = getelementptr i8, ptr %.val2.i99, i64 232
   %.val.i.i.i101 = load ptr, ptr %8, align 8
   %9 = sext i32 %.val3.i100 to i64
@@ -799,7 +799,7 @@ define void @Abc_NtkTraverseSupersXor_rec(ptr noundef %0, ptr noundef %1, ptr no
   %.val66 = load i32, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %.val.i105, i64 224
   %17 = add nsw i32 %.val66, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %16, i32 noundef %17)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %16, i32 noundef %17)
   %18 = getelementptr i8, ptr %.val.i105, i64 232
   %.val.i.i.i70 = load ptr, ptr %18, align 8
   %19 = sext i32 %.val66 to i64
@@ -1106,7 +1106,7 @@ tailrecurse:                                      ; preds = %23
   %.val3.i = load i32, ptr %157, align 8
   %158 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %159 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %158, i32 noundef %159)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %158, i32 noundef %159)
   %160 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %160, align 8
   %161 = sext i32 %.val3.i to i64
@@ -1129,7 +1129,7 @@ define void @Abc_NtkTraverseSupersAnd_rec(ptr nocapture noundef %0, ptr noundef 
   %.val3.i = load i32, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %6 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %5, i32 noundef %6)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %5, i32 noundef %6)
   %7 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %7, align 8
   %8 = sext i32 %.val3.i to i64
@@ -1145,7 +1145,7 @@ define void @Abc_NtkTraverseSupersAnd_rec(ptr nocapture noundef %0, ptr noundef 
   %.val53 = load i32, ptr %4, align 8
   %14 = getelementptr inbounds i8, ptr %.val.i, i64 224
   %15 = add nsw i32 %.val53, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %14, i32 noundef %15)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %14, i32 noundef %15)
   %16 = getelementptr i8, ptr %.val.i, i64 232
   %.val.i.i.i57 = load ptr, ptr %16, align 8
   %17 = sext i32 %.val53 to i64
@@ -2468,7 +2468,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %80 = icmp sgt i32 %.val93.us, 0
   %81 = icmp sgt i32 %74, 2
   %82 = select i1 %80, i1 %81, i1 false
-  br i1 %82, label %.lr.ph.i.us, label %Vec_IntTwoCountCommon.argprom.exit.us
+  br i1 %82, label %.lr.ph.i.us, label %Vec_IntTwoCountCommon.exit.us
 
 .lr.ph.i.us:                                      ; preds = %65, %96
   %.07.i.us = phi i32 [ %.1.i.us, %96 ], [ 0, %65 ]
@@ -2504,9 +2504,9 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %97 = icmp ult ptr %.120.i.us, %77
   %98 = icmp ult ptr %.122.i.us, %79
   %99 = select i1 %97, i1 %98, i1 false
-  br i1 %99, label %.lr.ph.i.us, label %Vec_IntTwoCountCommon.argprom.exit.us, !llvm.loop !42
+  br i1 %99, label %.lr.ph.i.us, label %Vec_IntTwoCountCommon.exit.us, !llvm.loop !42
 
-Vec_IntTwoCountCommon.argprom.exit.us:            ; preds = %96, %65
+Vec_IntTwoCountCommon.exit.us:                    ; preds = %96, %65
   %.0.lcssa.i.us = phi i32 [ 0, %65 ], [ %.1.i.us, %96 ]
   %100 = getelementptr inbounds i8, ptr %.val94.us, i64 -8
   store ptr %100, ptr %59, align 8
@@ -2522,7 +2522,7 @@ Vec_IntTwoCountCommon.argprom.exit.us:            ; preds = %96, %65
   %107 = icmp slt i32 %.0.lcssa.i.us, 2
   br i1 %107, label %119, label %108
 
-108:                                              ; preds = %Vec_IntTwoCountCommon.argprom.exit.us
+108:                                              ; preds = %Vec_IntTwoCountCommon.exit.us
   %.val92.us = load ptr, ptr %59, align 8
   %109 = getelementptr inbounds i8, ptr %.val92.us, i64 4
   %110 = load i32, ptr %109, align 4
@@ -2542,11 +2542,11 @@ Vec_IntTwoCountCommon.argprom.exit.us:            ; preds = %96, %65
 118:                                              ; preds = %115, %108
   br label %119
 
-119:                                              ; preds = %118, %115, %Vec_IntTwoCountCommon.argprom.exit.us, %61
-  %.279.us = phi ptr [ %.178114.us, %61 ], [ %.178114.us, %Vec_IntTwoCountCommon.argprom.exit.us ], [ %63, %118 ], [ %.178114.us, %115 ]
-  %.272.us = phi ptr [ %.171116.us, %61 ], [ %.171116.us, %Vec_IntTwoCountCommon.argprom.exit.us ], [ %58, %118 ], [ %.171116.us, %115 ]
-  %.269.us = phi i32 [ %.168117.us, %61 ], [ %.168117.us, %Vec_IntTwoCountCommon.argprom.exit.us ], [ %.0.lcssa.i.us, %118 ], [ %.168117.us, %115 ]
-  %.2.us = phi i32 [ %.1118.us, %61 ], [ %.1118.us, %Vec_IntTwoCountCommon.argprom.exit.us ], [ %113, %118 ], [ %.1118.us, %115 ]
+119:                                              ; preds = %118, %115, %Vec_IntTwoCountCommon.exit.us, %61
+  %.279.us = phi ptr [ %.178114.us, %61 ], [ %.178114.us, %Vec_IntTwoCountCommon.exit.us ], [ %63, %118 ], [ %.178114.us, %115 ]
+  %.272.us = phi ptr [ %.171116.us, %61 ], [ %.171116.us, %Vec_IntTwoCountCommon.exit.us ], [ %58, %118 ], [ %.171116.us, %115 ]
+  %.269.us = phi i32 [ %.168117.us, %61 ], [ %.168117.us, %Vec_IntTwoCountCommon.exit.us ], [ %.0.lcssa.i.us, %118 ], [ %.168117.us, %115 ]
+  %.2.us = phi i32 [ %.1118.us, %61 ], [ %.1118.us, %Vec_IntTwoCountCommon.exit.us ], [ %113, %118 ], [ %.1118.us, %115 ]
   %120 = icmp sgt i64 %indvars.iv141, 1
   br i1 %120, label %61, label %..critedge6.loopexit_crit_edge.us, !llvm.loop !43
 
@@ -3066,7 +3066,7 @@ Vec_IntPush.exit48.i:                             ; preds = %186, %Vec_IntGrow.e
 
 .preheader.i:                                     ; preds = %Vec_IntPush.exit55.i, %.preheader5.i
   %197 = icmp ult ptr %.029.lcssa.i, %92
-  br i1 %197, label %.lr.ph12.i, label %Vec_IntTwoSplit.argprom.exit
+  br i1 %197, label %.lr.ph12.i, label %Vec_IntTwoSplit.exit
 
 .lr.ph10.i:                                       ; preds = %.preheader5.i, %Vec_IntPush.exit55.i
   %.29.i = phi ptr [ %198, %Vec_IntPush.exit55.i ], [ %.0.lcssa.i, %.preheader5.i ]
@@ -3204,9 +3204,9 @@ Vec_IntPush.exit62.i:                             ; preds = %252, %Vec_IntGrow.e
   %258 = getelementptr inbounds i32, ptr %254, i64 %257
   store i32 %230, ptr %258, align 4
   %259 = icmp ult ptr %229, %92
-  br i1 %259, label %.lr.ph12.i, label %Vec_IntTwoSplit.argprom.exit, !llvm.loop !49
+  br i1 %259, label %.lr.ph12.i, label %Vec_IntTwoSplit.exit, !llvm.loop !49
 
-Vec_IntTwoSplit.argprom.exit:                     ; preds = %Vec_IntPush.exit62.i, %.preheader.i
+Vec_IntTwoSplit.exit:                             ; preds = %Vec_IntPush.exit62.i, %.preheader.i
   %260 = load ptr, ptr %3, align 8
   %261 = getelementptr inbounds i8, ptr %260, i64 8
   %262 = load ptr, ptr %261, align 8
@@ -3233,11 +3233,11 @@ Vec_IntTwoSplit.argprom.exit:                     ; preds = %Vec_IntPush.exit62.
   %278 = icmp eq i32 %276, %277
   br i1 %278, label %279, label %.Vec_IntGrow.exit10_crit_edge.i94
 
-.Vec_IntGrow.exit10_crit_edge.i94:                ; preds = %Vec_IntTwoSplit.argprom.exit
+.Vec_IntGrow.exit10_crit_edge.i94:                ; preds = %Vec_IntTwoSplit.exit
   %.pre.i96 = load ptr, ptr %51, align 8
   br label %Vec_IntPush.exit100
 
-279:                                              ; preds = %Vec_IntTwoSplit.argprom.exit
+279:                                              ; preds = %Vec_IntTwoSplit.exit
   %280 = icmp slt i32 %276, 16
   br i1 %280, label %281, label %288
 
@@ -4432,7 +4432,7 @@ declare void @Aig_ManStop(ptr noundef) local_unnamed_addr #4
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #2 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

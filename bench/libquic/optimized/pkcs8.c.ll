@@ -187,7 +187,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   tail call void @ERR_put_error(i32 noundef 19, i32 noundef 0, i32 noundef 103, ptr noundef nonnull @.str, i32 noundef 475) #12
-  br label %pkcs12_item_decrypt_d2i.argprom.exit
+  br label %pkcs12_item_decrypt_d2i.exit
 
 if.end.i:                                         ; preds = %entry
   %3 = load ptr, ptr %out.i, align 8
@@ -204,9 +204,9 @@ if.then3.i:                                       ; preds = %if.end.i
 
 if.end4.i:                                        ; preds = %if.then3.i, %if.end.i
   call void @free(ptr noundef %3) #12
-  br label %pkcs12_item_decrypt_d2i.argprom.exit
+  br label %pkcs12_item_decrypt_d2i.exit
 
-pkcs12_item_decrypt_d2i.argprom.exit:             ; preds = %if.then.i, %if.end4.i
+pkcs12_item_decrypt_d2i.exit:                     ; preds = %if.then.i, %if.end4.i
   %retval.0.i = phi ptr [ %call1.i, %if.end4.i ], [ null, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %out.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
@@ -315,7 +315,7 @@ if.end3.i:                                        ; preds = %if.end.i
   %data.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %call4.i = call fastcc i32 @pbe_crypt(ptr noundef nonnull readonly %pbe.0, ptr noundef %pass_raw, i64 noundef %pass_raw_len, ptr noundef nonnull %2, i64 noundef %conv.i, ptr noundef %data.i, ptr noundef %crypt_len.i, i32 noundef 1)
   %tobool5.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool5.not.i, label %if.then6.i, label %pkcs12_item_i2d_encrypt.argprom.exit
+  br i1 %tobool5.not.i, label %if.then6.i, label %pkcs12_item_i2d_encrypt.exit
 
 if.then6.i:                                       ; preds = %if.end3.i
   call void @ERR_put_error(i32 noundef 19, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 534) #12
@@ -323,7 +323,7 @@ if.then6.i:                                       ; preds = %if.end3.i
   call void @free(ptr noundef %3) #12
   br label %if.then14
 
-pkcs12_item_i2d_encrypt.argprom.exit:             ; preds = %if.end3.i
+pkcs12_item_i2d_encrypt.exit:                     ; preds = %if.end3.i
   %4 = load i64, ptr %crypt_len.i, align 8
   %conv8.i = trunc i64 %4 to i32
   store i32 %conv8.i, ptr %call.i, align 8
@@ -347,8 +347,8 @@ err:                                              ; preds = %if.then14, %if.then
   call void @X509_SIG_free(ptr noundef %call) #12
   br label %return
 
-return:                                           ; preds = %pkcs12_item_i2d_encrypt.argprom.exit, %err
-  %retval.0 = phi ptr [ null, %err ], [ %call, %pkcs12_item_i2d_encrypt.argprom.exit ]
+return:                                           ; preds = %pkcs12_item_i2d_encrypt.exit, %err
+  %retval.0 = phi ptr [ null, %err ], [ %call, %pkcs12_item_i2d_encrypt.exit ]
   ret ptr %retval.0
 }
 

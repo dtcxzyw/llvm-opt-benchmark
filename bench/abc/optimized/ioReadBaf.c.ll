@@ -405,14 +405,14 @@ Vec_PtrFree.exit:                                 ; preds = %159, %161
   %169 = load i32, ptr %164, align 4
   %170 = sext i32 %169 to i64
   %171 = icmp slt i64 %indvars.iv, %170
-  br i1 %171, label %Extra_ProgressBarUpdate.argprom.exit, label %172
+  br i1 %171, label %Extra_ProgressBarUpdate.exit, label %172
 
 172:                                              ; preds = %168, %167
   %173 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %164, i32 noundef %173, ptr noundef null) #8
-  br label %Extra_ProgressBarUpdate.argprom.exit
+  br label %Extra_ProgressBarUpdate.exit
 
-Extra_ProgressBarUpdate.argprom.exit:             ; preds = %168, %172
+Extra_ProgressBarUpdate.exit:                     ; preds = %168, %172
   %174 = shl nuw nsw i64 %indvars.iv, 1
   %175 = getelementptr inbounds i32, ptr %158, i64 %174
   %176 = load i32, ptr %175, align 4
@@ -445,7 +445,7 @@ Extra_ProgressBarUpdate.argprom.exit:             ; preds = %168, %172
   %202 = icmp eq i32 %200, %201
   br i1 %202, label %203, label %Vec_PtrPush.exit184
 
-203:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit
+203:                                              ; preds = %Extra_ProgressBarUpdate.exit
   %204 = icmp slt i32 %200, 16
   br i1 %204, label %Vec_PtrGrow.exit.i183, label %206
 
@@ -467,8 +467,8 @@ Vec_PtrPush.exit184.sink.split:                   ; preds = %206, %Vec_PtrGrow.e
   store i32 %.sink, ptr %48, align 8
   br label %Vec_PtrPush.exit184
 
-Vec_PtrPush.exit184:                              ; preds = %Vec_PtrPush.exit184.sink.split, %Extra_ProgressBarUpdate.argprom.exit
-  %211 = phi ptr [ %.val, %Extra_ProgressBarUpdate.argprom.exit ], [ %.sink260, %Vec_PtrPush.exit184.sink.split ]
+Vec_PtrPush.exit184:                              ; preds = %Vec_PtrPush.exit184.sink.split, %Extra_ProgressBarUpdate.exit
+  %211 = phi ptr [ %.val, %Extra_ProgressBarUpdate.exit ], [ %.sink260, %Vec_PtrPush.exit184.sink.split ]
   %212 = add nsw i32 %200, 1
   store i32 %212, ptr %50, align 4
   %213 = sext i32 %200 to i64

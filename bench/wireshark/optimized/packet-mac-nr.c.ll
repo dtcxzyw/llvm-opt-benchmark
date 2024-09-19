@@ -2624,7 +2624,7 @@ proto_item_set_generated.exit150:                 ; preds = %156, %153, %147, %p
   %175 = getelementptr inbounds i8, ptr %12, i64 40
   store i32 %174, ptr %175, align 8
   %176 = load i8, ptr %62, align 2
-  switch i8 %176, label %dissect_pcch.argprom.exit [
+  switch i8 %176, label %dissect_pcch.exit [
     i8 1, label %177
     i8 2, label %192
     i8 3, label %257
@@ -2640,7 +2640,7 @@ proto_item_set_generated.exit150:                 ; preds = %156, %153, %147, %p
   %180 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %179, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #12
   %181 = load i32, ptr @global_mac_nr_attempt_rrc_decode, align 4
   %.not.i151 = icmp eq i32 %181, 0
-  br i1 %.not.i151, label %dissect_pcch.argprom.exit, label %182
+  br i1 %.not.i151, label %dissect_pcch.exit, label %182
 
 182:                                              ; preds = %177
   %183 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 0) #12
@@ -2663,7 +2663,7 @@ proto_item_set_generated.exit150:                 ; preds = %156, %153, %147, %p
 proto_item_set_hidden.exit.i:                     ; preds = %187, %184, %182
   %191 = load ptr, ptr @nr_rrc_pcch_handle, align 8
   tail call fastcc void @call_with_catch_all(ptr noundef %191, ptr noundef %183, ptr noundef nonnull %1, ptr noundef %19)
-  br label %dissect_pcch.argprom.exit
+  br label %dissect_pcch.exit
 
 192:                                              ; preds = %proto_item_set_generated.exit150
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -2778,27 +2778,27 @@ dissect_rar.exit:                                 ; preds = %245, %247
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  br label %dissect_pcch.argprom.exit
+  br label %dissect_pcch.exit
 
 257:                                              ; preds = %proto_item_set_generated.exit150, %proto_item_set_generated.exit150
-  tail call fastcc void @dissect_ulsch_or_dlsch.argprom.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %19, ptr noundef %17, ptr noundef %22, ptr noundef nonnull %12)
-  br label %dissect_pcch.argprom.exit
+  tail call fastcc void @dissect_ulsch_or_dlsch(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %19, ptr noundef %17, ptr noundef %22, ptr noundef nonnull %12)
+  br label %dissect_pcch.exit
 
 258:                                              ; preds = %proto_item_set_generated.exit150
-  tail call fastcc void @dissect_bcch.argprom.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %19, ptr noundef %17, ptr noundef %22)
-  br label %dissect_pcch.argprom.exit
+  tail call fastcc void @dissect_bcch(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %19, ptr noundef %17, ptr noundef %22)
+  br label %dissect_pcch.exit
 
 259:                                              ; preds = %proto_item_set_generated.exit150
-  tail call fastcc void @dissect_bcch.argprom.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %19, ptr noundef %17, ptr noundef %22)
-  br label %dissect_pcch.argprom.exit
+  tail call fastcc void @dissect_bcch(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %19, ptr noundef %17, ptr noundef %22)
+  br label %dissect_pcch.exit
 
-dissect_pcch.argprom.exit:                        ; preds = %proto_item_set_hidden.exit.i, %177, %proto_item_set_generated.exit150, %259, %258, %257, %dissect_rar.exit
+dissect_pcch.exit:                                ; preds = %proto_item_set_hidden.exit.i, %177, %proto_item_set_generated.exit150, %259, %258, %257, %dissect_rar.exit
   %260 = load i32, ptr @mac_nr_tap, align 4
   call void @tap_queue_packet(i32 noundef %260, ptr noundef %1, ptr noundef nonnull %12) #12
   br label %261
 
-261:                                              ; preds = %dissect_pcch.argprom.exit, %24
-  %.0 = phi i32 [ 0, %24 ], [ -1, %dissect_pcch.argprom.exit ]
+261:                                              ; preds = %dissect_pcch.exit, %24
+  %.0 = phi i32 [ 0, %24 ], [ -1, %dissect_pcch.exit ]
   ret i32 %.0
 }
 
@@ -2964,7 +2964,7 @@ declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 n
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ulsch_or_dlsch.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_ulsch_or_dlsch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -3364,7 +3364,7 @@ lookup_rlc_bearer_from_lcid.exit:                 ; preds = %get_rlc_seqnum_leng
   %190 = load i8, ptr %30, align 1
   %191 = load i16, ptr %41, align 2
   %192 = trunc i32 %185 to i8
-  call fastcc void @call_rlc_dissector.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %187, i16 noundef zeroext %189, i8 noundef zeroext 2, i8 noundef zeroext %190, i16 noundef zeroext %191, i8 noundef zeroext 5, i8 noundef zeroext %192, i8 noundef zeroext %.07)
+  call fastcc void @call_rlc_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %187, i16 noundef zeroext %189, i8 noundef zeroext 2, i8 noundef zeroext %190, i16 noundef zeroext %191, i8 noundef zeroext 5, i8 noundef zeroext %192, i8 noundef zeroext %.07)
   br label %lookup_rlc_bearer_from_lcid.exit.thread
 
 193:                                              ; preds = %lookup_rlc_bearer_from_lcid.exit, %lookup_rlc_bearer_from_lcid.exit
@@ -3374,7 +3374,7 @@ lookup_rlc_bearer_from_lcid.exit:                 ; preds = %get_rlc_seqnum_leng
   %197 = load i8, ptr %30, align 1
   %198 = load i16, ptr %41, align 2
   %199 = trunc i32 %185 to i8
-  call fastcc void @call_rlc_dissector.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %194, i16 noundef zeroext %196, i8 noundef zeroext 4, i8 noundef zeroext %197, i16 noundef zeroext %198, i8 noundef zeroext 5, i8 noundef zeroext %199, i8 noundef zeroext %.07)
+  call fastcc void @call_rlc_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %194, i16 noundef zeroext %196, i8 noundef zeroext 4, i8 noundef zeroext %197, i16 noundef zeroext %198, i8 noundef zeroext 5, i8 noundef zeroext %199, i8 noundef zeroext %.07)
   br label %lookup_rlc_bearer_from_lcid.exit.thread
 
 200:                                              ; preds = %lookup_rlc_bearer_from_lcid.exit
@@ -3384,7 +3384,7 @@ lookup_rlc_bearer_from_lcid.exit:                 ; preds = %get_rlc_seqnum_leng
   %204 = load i8, ptr %30, align 1
   %205 = load i16, ptr %41, align 2
   %206 = trunc i32 %185 to i8
-  call fastcc void @call_rlc_dissector.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %201, i16 noundef zeroext %203, i8 noundef zeroext 1, i8 noundef zeroext %204, i16 noundef zeroext %205, i8 noundef zeroext 5, i8 noundef zeroext %206, i8 noundef zeroext 0)
+  call fastcc void @call_rlc_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %201, i16 noundef zeroext %203, i8 noundef zeroext 1, i8 noundef zeroext %204, i16 noundef zeroext %205, i8 noundef zeroext 5, i8 noundef zeroext %206, i8 noundef zeroext 0)
   br label %lookup_rlc_bearer_from_lcid.exit.thread
 
 207:                                              ; preds = %148
@@ -3412,7 +3412,7 @@ lookup_rlc_bearer_from_lcid.exit:                 ; preds = %get_rlc_seqnum_leng
   %221 = trunc i32 %214 to i16
   %222 = load i8, ptr %30, align 1
   %223 = load i16, ptr %41, align 2
-  call fastcc void @call_rlc_dissector.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %220, i16 noundef zeroext %221, i8 noundef zeroext 4, i8 noundef zeroext %222, i16 noundef zeroext %223, i8 noundef zeroext 4, i8 noundef zeroext %50, i8 noundef zeroext 12)
+  call fastcc void @call_rlc_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %220, i16 noundef zeroext %221, i8 noundef zeroext 4, i8 noundef zeroext %222, i16 noundef zeroext %223, i8 noundef zeroext 4, i8 noundef zeroext %50, i8 noundef zeroext 12)
   br label %lookup_rlc_bearer_from_lcid.exit.thread
 
 224:                                              ; preds = %207
@@ -3741,7 +3741,7 @@ lookup_rlc_bearer_from_lcid.exit.thread:          ; preds = %164, %178, %172, %.
 382:                                              ; preds = %380
   %383 = load i32, ptr @hf_mac_nr_control_me_phr_ph_type2_spcell, align 4
   %384 = load i32, ptr @hf_mac_nr_control_me_phr_pcmax_f_c_type2_spcell, align 4
-  %385 = call fastcc ptr @dissect_me_phr_ph.argprom(ptr noundef %0, ptr noundef %45, i32 noundef %383, i32 noundef %384, ptr noundef %19, ptr noundef %7)
+  %385 = call fastcc ptr @dissect_me_phr_ph(ptr noundef %0, ptr noundef %45, i32 noundef %383, i32 noundef %384, ptr noundef %19, ptr noundef %7)
   %386 = load i32, ptr %19, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %385, ptr noundef nonnull @.str.1178, i32 noundef %386) #12
   br label %387
@@ -3749,7 +3749,7 @@ lookup_rlc_bearer_from_lcid.exit.thread:          ; preds = %164, %178, %172, %.
 387:                                              ; preds = %382, %380
   %388 = load i32, ptr @hf_mac_nr_control_me_phr_ph_type1_pcell, align 4
   %389 = load i32, ptr @hf_mac_nr_control_me_phr_pcmax_f_c_type1_pcell, align 4
-  %390 = call fastcc ptr @dissect_me_phr_ph.argprom(ptr noundef %0, ptr noundef %45, i32 noundef %388, i32 noundef %389, ptr noundef %19, ptr noundef %7)
+  %390 = call fastcc ptr @dissect_me_phr_ph(ptr noundef %0, ptr noundef %45, i32 noundef %388, i32 noundef %389, ptr noundef %19, ptr noundef %7)
   %391 = load i32, ptr %19, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %390, ptr noundef nonnull @.str.1179, i32 noundef %391) #12
   %392 = zext i8 %367 to i32
@@ -3769,7 +3769,7 @@ lookup_rlc_bearer_from_lcid.exit.thread:          ; preds = %164, %178, %172, %.
   %400 = load ptr, ptr %399, align 8
   %401 = load i32, ptr %400, align 4
   %402 = load i32, ptr @hf_mac_nr_control_me_phr_pcmax_f_c_typeX, align 4
-  %403 = call fastcc ptr @dissect_me_phr_ph.argprom(ptr noundef %0, ptr noundef %45, i32 noundef %401, i32 noundef %402, ptr noundef %19, ptr noundef %7)
+  %403 = call fastcc ptr @dissect_me_phr_ph(ptr noundef %0, ptr noundef %45, i32 noundef %401, i32 noundef %402, ptr noundef %19, ptr noundef %7)
   %404 = load i32, ptr %19, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %403, ptr noundef nonnull @.str.1180, i32 noundef %394, i32 noundef %404) #12
   br label %405
@@ -3795,7 +3795,7 @@ lookup_rlc_bearer_from_lcid.exit.thread:          ; preds = %164, %178, %172, %.
   %412 = load ptr, ptr %411, align 8
   %413 = load i32, ptr %412, align 4
   %414 = load i32, ptr @hf_mac_nr_control_me_phr_pcmax_f_c_typeX, align 4
-  %415 = call fastcc ptr @dissect_me_phr_ph.argprom(ptr noundef %0, ptr noundef %45, i32 noundef %413, i32 noundef %414, ptr noundef %19, ptr noundef %7)
+  %415 = call fastcc ptr @dissect_me_phr_ph(ptr noundef %0, ptr noundef %45, i32 noundef %413, i32 noundef %414, ptr noundef %19, ptr noundef %7)
   %416 = load i32, ptr %19, align 4
   %417 = trunc i64 %indvars.iv69 to i32
   %418 = add i32 %417, 8
@@ -4896,7 +4896,7 @@ write_pdu_label_and_info_literal.exit:            ; preds = %953, %952, %930, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bcch.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
+define internal fastcc void @dissect_bcch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #12
   %7 = getelementptr inbounds i8, ptr %4, i64 2
   %8 = load i8, ptr %7, align 2
@@ -5126,7 +5126,7 @@ declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) loca
 declare ptr @proto_tree_add_bits_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @call_rlc_dissector.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5, i8 noundef zeroext range(i8 1, 5) %6, i8 noundef zeroext %7, i16 noundef zeroext %8, i8 noundef zeroext range(i8 4, 6) %9, i8 noundef zeroext %10, i8 noundef zeroext %11) unnamed_addr #0 {
+define internal fastcc void @call_rlc_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5, i8 noundef zeroext range(i8 1, 5) %6, i8 noundef zeroext %7, i16 noundef zeroext %8, i8 noundef zeroext range(i8 4, 6) %9, i8 noundef zeroext %10, i8 noundef zeroext %11) unnamed_addr #0 {
   %13 = zext i16 %5 to i32
   %14 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %4, i32 noundef %13) #12
   %15 = tail call ptr @wmem_file_scope() #12
@@ -5215,7 +5215,7 @@ declare void @proto_tree_add_bitmask_list(ptr noundef, ptr noundef, i32 noundef,
 declare i32 @tvb_get_letoh24(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @dissect_me_phr_ph.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @dissect_me_phr_ph(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_mac_nr_control_me_phr_entry, align 4
   %9 = load i32, ptr %5, align 4

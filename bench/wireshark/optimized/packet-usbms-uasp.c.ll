@@ -528,14 +528,14 @@ create_itlq_nexus.exit:                           ; preds = %58, %67
   store i32 0, ptr %111, align 16
   %112 = call ptr @wmem_tree_lookup32_array_le(ptr noundef %.val, ptr noundef nonnull %12) #5
   %.not.i116 = icmp eq ptr %112, null
-  br i1 %.not.i116, label %get_itlq_nexus.argprom.exit.thread, label %113
+  br i1 %.not.i116, label %get_itlq_nexus.exit.thread, label %113
 
 113:                                              ; preds = %98
   %114 = load i16, ptr %112, align 8
   %.not8.i = icmp eq i16 %114, %19
-  br i1 %.not8.i, label %115, label %get_itlq_nexus.argprom.exit.thread
+  br i1 %.not8.i, label %115, label %get_itlq_nexus.exit.thread
 
-get_itlq_nexus.argprom.exit.thread:               ; preds = %98, %113
+get_itlq_nexus.exit.thread:                       ; preds = %98, %113
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
   br label %175
@@ -597,14 +597,14 @@ get_itlq_nexus.argprom.exit.thread:               ; preds = %98, %113
   store i32 0, ptr %144, align 16
   %145 = call ptr @wmem_tree_lookup32_array_le(ptr noundef %.val110, ptr noundef nonnull %10) #5
   %.not.i118 = icmp eq ptr %145, null
-  br i1 %.not.i118, label %get_itlq_nexus.argprom.exit122.thread, label %146
+  br i1 %.not.i118, label %get_itlq_nexus.exit122.thread, label %146
 
 146:                                              ; preds = %137
   %147 = load i16, ptr %145, align 8
   %.not8.i119 = icmp eq i16 %147, %19
-  br i1 %.not8.i119, label %148, label %get_itlq_nexus.argprom.exit122.thread
+  br i1 %.not8.i119, label %148, label %get_itlq_nexus.exit122.thread
 
-get_itlq_nexus.argprom.exit122.thread:            ; preds = %137, %146
+get_itlq_nexus.exit122.thread:                    ; preds = %137, %146
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   %.val112.pre = load i32, ptr %142, align 4
@@ -618,9 +618,9 @@ get_itlq_nexus.argprom.exit122.thread:            ; preds = %137, %146
   store i32 %149, ptr %150, align 4
   br label %151
 
-151:                                              ; preds = %get_itlq_nexus.argprom.exit122.thread, %148
-  %.val112 = phi i32 [ %.val112.pre, %get_itlq_nexus.argprom.exit122.thread ], [ %149, %148 ]
-  %.0.i121136 = phi ptr [ null, %get_itlq_nexus.argprom.exit122.thread ], [ %145, %148 ]
+151:                                              ; preds = %get_itlq_nexus.exit122.thread, %148
+  %.val112 = phi i32 [ %.val112.pre, %get_itlq_nexus.exit122.thread ], [ %149, %148 ]
+  %.0.i121136 = phi ptr [ null, %get_itlq_nexus.exit122.thread ], [ %145, %148 ]
   %152 = getelementptr inbounds i8, ptr %5, i64 8
   %153 = load ptr, ptr %152, align 8
   %154 = zext i16 %19 to i64
@@ -647,14 +647,14 @@ get_itlq_nexus.argprom.exit122.thread:            ; preds = %137, %146
   store i32 0, ptr %163, align 16
   %164 = call ptr @wmem_tree_lookup32_array_le(ptr noundef %.val111, ptr noundef nonnull %8) #5
   %.not.i123 = icmp eq ptr %164, null
-  br i1 %.not.i123, label %get_itlq_nexus.argprom.exit127.thread, label %165
+  br i1 %.not.i123, label %get_itlq_nexus.exit127.thread, label %165
 
 165:                                              ; preds = %156
   %166 = load i16, ptr %164, align 8
   %.not8.i124 = icmp eq i16 %166, %19
-  br i1 %.not8.i124, label %167, label %get_itlq_nexus.argprom.exit127.thread
+  br i1 %.not8.i124, label %167, label %get_itlq_nexus.exit127.thread
 
-get_itlq_nexus.argprom.exit127.thread:            ; preds = %156, %165
+get_itlq_nexus.exit127.thread:                    ; preds = %156, %165
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
   %.val113.pre = load i32, ptr %161, align 4
@@ -668,9 +668,9 @@ get_itlq_nexus.argprom.exit127.thread:            ; preds = %156, %165
   store i32 %168, ptr %169, align 8
   br label %170
 
-170:                                              ; preds = %get_itlq_nexus.argprom.exit127.thread, %167
-  %.val113 = phi i32 [ %.val113.pre, %get_itlq_nexus.argprom.exit127.thread ], [ %168, %167 ]
-  %.0.i126140 = phi ptr [ null, %get_itlq_nexus.argprom.exit127.thread ], [ %164, %167 ]
+170:                                              ; preds = %get_itlq_nexus.exit127.thread, %167
+  %.val113 = phi i32 [ %.val113.pre, %get_itlq_nexus.exit127.thread ], [ %168, %167 ]
+  %.0.i126140 = phi ptr [ null, %get_itlq_nexus.exit127.thread ], [ %164, %167 ]
   %171 = getelementptr inbounds i8, ptr %5, i64 16
   %172 = load ptr, ptr %171, align 8
   %173 = zext i16 %19 to i64
@@ -678,8 +678,8 @@ get_itlq_nexus.argprom.exit127.thread:            ; preds = %156, %165
   call void @wmem_tree_insert32(ptr noundef %172, i32 noundef %.val113, ptr noundef %174) #5
   br label %175
 
-175:                                              ; preds = %get_itlq_nexus.argprom.exit.thread, %124, %115, %92, %.thread, %170, %151, %132, %127, %17
-  %.0100 = phi ptr [ null, %17 ], [ %.0.i126140, %170 ], [ %.0.i121136, %151 ], [ null, %132 ], [ null, %127 ], [ %112, %124 ], [ %112, %115 ], [ %.0.i115, %.thread ], [ %.0.i115, %92 ], [ null, %get_itlq_nexus.argprom.exit.thread ]
+175:                                              ; preds = %get_itlq_nexus.exit.thread, %124, %115, %92, %.thread, %170, %151, %132, %127, %17
+  %.0100 = phi ptr [ null, %17 ], [ %.0.i126140, %170 ], [ %.0.i121136, %151 ], [ null, %132 ], [ null, %127 ], [ %112, %124 ], [ %112, %115 ], [ %.0.i115, %.thread ], [ %.0.i115, %92 ], [ null, %get_itlq_nexus.exit.thread ]
   call fastcc void @add_uasp_tag_links(ptr noundef %0, ptr noundef %3, ptr noundef %.0100, i32 noundef %22)
   %176 = call i32 @tvb_captured_length(ptr noundef %0) #5
   br label %177
@@ -743,14 +743,14 @@ proto_item_set_generated.exit:                    ; preds = %6, %21, %24
   store i32 0, ptr %33, align 16
   %34 = call ptr @wmem_tree_lookup32_array_le(ptr noundef %.val31, ptr noundef nonnull %8) #5
   %.not.i32 = icmp eq ptr %34, null
-  br i1 %.not.i32, label %get_itlq_nexus.argprom.exit.thread, label %35
+  br i1 %.not.i32, label %get_itlq_nexus.exit.thread, label %35
 
 35:                                               ; preds = %proto_item_set_generated.exit
   %36 = load i16, ptr %34, align 8
   %.not8.i = icmp eq i16 %36, %.0
-  br i1 %.not8.i, label %37, label %get_itlq_nexus.argprom.exit.thread
+  br i1 %.not8.i, label %37, label %get_itlq_nexus.exit.thread
 
-get_itlq_nexus.argprom.exit.thread:               ; preds = %proto_item_set_generated.exit, %35
+get_itlq_nexus.exit.thread:                       ; preds = %proto_item_set_generated.exit, %35
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
   br label %48
@@ -780,7 +780,7 @@ get_itlq_nexus.argprom.exit.thread:               ; preds = %proto_item_set_gene
   call void @dissect_scsi_payload(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %12, ptr noundef nonnull %45, ptr noundef %47, i32 noundef 0) #5
   br label %48
 
-48:                                               ; preds = %get_itlq_nexus.argprom.exit.thread, %43
+48:                                               ; preds = %get_itlq_nexus.exit.thread, %43
   %49 = call i32 @tvb_captured_length(ptr noundef %0) #5
   ret i32 %49
 }

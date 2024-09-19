@@ -330,7 +330,7 @@ define void @_ZN6opencc8TextDictC2ERKSt10shared_ptrINS_7LexiconEE(ptr nocapture 
   %6 = getelementptr i8, ptr %.val, i64 8
   %.val.val3 = load ptr, ptr %6, align 8
   %.not8.i = icmp eq ptr %.val.val, %.val.val3
-  br i1 %.not8.i, label %_ZL15GetKeyMaxLengthRKSt10shared_ptrIN6opencc7LexiconEE.argprom.argprom.exit, label %.lr.ph.i
+  br i1 %.not8.i, label %_ZL15GetKeyMaxLengthRKSt10shared_ptrIN6opencc7LexiconEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %.010.i = phi i64 [ %.sroa.speculated.i, %.lr.ph.i ], [ 0, %2 ]
@@ -347,9 +347,9 @@ define void @_ZN6opencc8TextDictC2ERKSt10shared_ptrINS_7LexiconEE(ptr nocapture 
   %.sroa.speculated.i = call i64 @llvm.umax.i64(i64 %11, i64 %.010.i)
   %12 = getelementptr inbounds i8, ptr %.sroa.02.09.i, i64 8
   %.not.i = icmp eq ptr %12, %.val.val3
-  br i1 %.not.i, label %_ZL15GetKeyMaxLengthRKSt10shared_ptrIN6opencc7LexiconEE.argprom.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZL15GetKeyMaxLengthRKSt10shared_ptrIN6opencc7LexiconEE.exit, label %.lr.ph.i
 
-_ZL15GetKeyMaxLengthRKSt10shared_ptrIN6opencc7LexiconEE.argprom.argprom.exit: ; preds = %.lr.ph.i, %2
+_ZL15GetKeyMaxLengthRKSt10shared_ptrIN6opencc7LexiconEE.exit: ; preds = %.lr.ph.i, %2
   %.0.lcssa.i = phi i64 [ 0, %2 ], [ %.sroa.speculated.i, %.lr.ph.i ]
   store i64 %.0.lcssa.i, ptr %5, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 24
@@ -362,7 +362,7 @@ _ZL15GetKeyMaxLengthRKSt10shared_ptrIN6opencc7LexiconEE.argprom.argprom.exit: ; 
   %.not.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN6opencc7LexiconEEC2ERKS2_.exit, label %18
 
-18:                                               ; preds = %_ZL15GetKeyMaxLengthRKSt10shared_ptrIN6opencc7LexiconEE.argprom.argprom.exit
+18:                                               ; preds = %_ZL15GetKeyMaxLengthRKSt10shared_ptrIN6opencc7LexiconEE.exit
   %19 = getelementptr inbounds i8, ptr %17, i64 8
   %20 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %20, 0
@@ -378,7 +378,7 @@ _ZL15GetKeyMaxLengthRKSt10shared_ptrIN6opencc7LexiconEE.argprom.argprom.exit: ; 
   %25 = atomicrmw volatile add ptr %19, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN6opencc7LexiconEEC2ERKS2_.exit
 
-_ZNSt10shared_ptrIN6opencc7LexiconEEC2ERKS2_.exit: ; preds = %_ZL15GetKeyMaxLengthRKSt10shared_ptrIN6opencc7LexiconEE.argprom.argprom.exit, %21, %24
+_ZNSt10shared_ptrIN6opencc7LexiconEEC2ERKS2_.exit: ; preds = %_ZL15GetKeyMaxLengthRKSt10shared_ptrIN6opencc7LexiconEE.exit, %21, %24
   ret void
 }
 

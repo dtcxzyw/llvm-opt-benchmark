@@ -1134,7 +1134,7 @@ define i32 @dissect_rpc_opaque_auth(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %.thread
 
 .thread:                                          ; preds = %4, %10, %8
-  %13 = tail call fastcc i32 @dissect_rpc_cred.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3)
+  %13 = tail call fastcc i32 @dissect_rpc_cred(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3)
   ret i32 %13
 }
 
@@ -1143,7 +1143,7 @@ declare ptr @find_conversation_pinfo(ptr noundef, i32 noundef) local_unnamed_add
 declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rpc_cred.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_rpc_cred(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %2) #16
   %7 = add i32 %2, 4
@@ -1184,7 +1184,7 @@ rpc_roundup.exit:                                 ; preds = %4
 
 23:                                               ; preds = %15
   %24 = add i32 %2, 8
-  tail call fastcc void @dissect_rpc_authunix_cred.retelim(ptr noundef %0, ptr noundef %18, i32 noundef %24)
+  tail call fastcc void @dissect_rpc_authunix_cred(ptr noundef %0, ptr noundef %18, i32 noundef %24)
   br label %dissect_rpc_authdes_cred.exit
 
 25:                                               ; preds = %15
@@ -1252,7 +1252,7 @@ rpc_roundup.exit:                                 ; preds = %4
   %76 = add i32 %2, 24
   %77 = icmp eq i32 %65, 3
   %78 = zext i1 %77 to i32
-  %79 = tail call fastcc range(i32 0, 268435453) i32 @dissect_rpc_authgss_context.argprom(ptr noundef %18, ptr noundef %0, i32 noundef %76, ptr noundef readonly %3, i32 noundef 0, i32 noundef %78)
+  %79 = tail call fastcc range(i32 0, 268435453) i32 @dissect_rpc_authgss_context(ptr noundef %18, ptr noundef %0, i32 noundef %76, ptr noundef readonly %3, i32 noundef 0, i32 noundef %78)
   br label %dissect_rpc_authdes_cred.exit
 
 80:                                               ; preds = %15
@@ -2511,7 +2511,7 @@ declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_rpc_authunix_cred.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_rpc_authunix_cred(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %2) #16
   %5 = load i32, ptr @hf_rpc_auth_stamp, align 4
   %6 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef %4) #16
@@ -2686,7 +2686,7 @@ define internal fastcc noundef i32 @dissect_rpc_authunix_groups(ptr noundef %0, 
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 268435453) i32 @dissect_rpc_authgss_context.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 268435453) i32 @dissect_rpc_authgss_context(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca [2 x %struct._wmem_tree_key_t], align 16
   %9 = alloca [4 x i32], align 16
@@ -3240,7 +3240,7 @@ show_rpc_fraginfo.exit:                           ; preds = %39, %show_rpc_fragm
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %211, %208, %205, %202
-  %215 = call fastcc i32 @dissect_rpc_cred.argprom(ptr noundef %0, ptr noundef %38, i32 noundef %112, ptr noundef nonnull %1)
+  %215 = call fastcc i32 @dissect_rpc_cred(ptr noundef %0, ptr noundef %38, i32 noundef %112, ptr noundef nonnull %1)
   %216 = call fastcc i32 @dissect_rpc_verf(ptr noundef %0, ptr noundef %38, i32 noundef %215, i32 noundef 0, ptr noundef nonnull %1)
   %217 = getelementptr inbounds i8, ptr %.1, i64 36
   store i32 1, ptr %217, align 4
@@ -3839,7 +3839,7 @@ proto_item_set_generated.exit624:                 ; preds = %proto_item_set_gene
   br label %533
 
 501:                                              ; preds = %497
-  %502 = call fastcc i32 @dissect_rpc_authgss_initres.argprom(ptr noundef %.0499, ptr noundef %.0514, i32 noundef %.2512, ptr noundef nonnull %1)
+  %502 = call fastcc i32 @dissect_rpc_authgss_initres(ptr noundef %.0499, ptr noundef %.0514, i32 noundef %.2512, ptr noundef nonnull %1)
   br label %533
 
 503:                                              ; preds = %496
@@ -4219,7 +4219,7 @@ rpc_roundup.exit:                                 ; preds = %5
   %22 = load i32, ptr @hf_rpc_auth_length, align 4
   %23 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %22, ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef %12) #16
   %24 = add i32 %2, 8
-  tail call fastcc void @dissect_rpc_authunix_cred.retelim(ptr noundef %0, ptr noundef %18, i32 noundef %24)
+  tail call fastcc void @dissect_rpc_authunix_cred(ptr noundef %0, ptr noundef %18, i32 noundef %24)
   br label %53
 
 25:                                               ; preds = %15
@@ -4282,8 +4282,8 @@ declare i32 @proto_is_protocol_enabled(ptr noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rpc_authgss_initres.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = tail call fastcc i32 @dissect_rpc_authgss_context.argprom(ptr noundef %1, ptr noundef %0, i32 noundef %2, ptr noundef %3, i32 noundef 1, i32 noundef 0)
+define internal fastcc i32 @dissect_rpc_authgss_initres(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+  %5 = tail call fastcc i32 @dissect_rpc_authgss_context(ptr noundef %1, ptr noundef %0, i32 noundef %2, ptr noundef %3, i32 noundef 1, i32 noundef 0)
   %6 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %5) #16
   %7 = load i32, ptr @hf_rpc_authgss_major, align 4
   %8 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef %6) #16
@@ -4479,13 +4479,13 @@ define internal fastcc range(i32 0, 2) i32 @dissect_rpc_tcp_common(ptr noundef %
   %.03950 = phi i32 [ 0, %.lr.ph ], [ %107, %106 ]
   %14 = load i32, ptr @proto_rpc, align 4
   %15 = load i32, ptr @ett_rpc, align 4
-  %16 = tail call fastcc i32 @dissect_rpc_fragment.argprom(ptr noundef %0, i32 noundef %.03950, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %14, i32 noundef %15, i32 noundef %.03752, ptr noundef %4, ptr noundef %5)
+  %16 = tail call fastcc i32 @dissect_rpc_fragment(ptr noundef %0, i32 noundef %.03950, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %14, i32 noundef %15, i32 noundef %.03752, ptr noundef %4, ptr noundef %5)
   %17 = icmp eq i32 %16, 0
   %or.cond = and i1 %13, %17
   %18 = load i32, ptr @rpc_find_fragment_start, align 4
   %19 = icmp ne i32 %18, 0
   %or.cond3 = select i1 %or.cond, i1 %19, i1 false
-  br i1 %or.cond3, label %20, label %find_and_dissect_rpc_fragment.argprom.exit
+  br i1 %or.cond3, label %20, label %find_and_dissect_rpc_fragment.exit
 
 20:                                               ; preds = %12
   %21 = load i32, ptr @proto_rpc, align 4
@@ -4600,7 +4600,7 @@ find_rpc_over_tcp_reply_start.exit.i:             ; preds = %60
   br i1 %83, label %.thread, label %84
 
 84:                                               ; preds = %find_rpc_over_tcp_reply_start.exit.i
-  %85 = tail call fastcc i32 @dissect_rpc_fragment.argprom(ptr noundef %0, i32 noundef %82, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %21, i32 noundef %22, i32 noundef 1, ptr noundef %4, ptr noundef %5)
+  %85 = tail call fastcc i32 @dissect_rpc_fragment(ptr noundef %0, i32 noundef %82, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %21, i32 noundef %22, i32 noundef 1, ptr noundef %4, ptr noundef %5)
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %.thread, label %87
 
@@ -4609,14 +4609,14 @@ find_rpc_over_tcp_reply_start.exit.i:             ; preds = %60
   %89 = sub i32 %82, %.03950
   %90 = select i1 %88, i32 %89, i32 0
   %.0.i = add i32 %90, %85
-  br label %find_and_dissect_rpc_fragment.argprom.exit
+  br label %find_and_dissect_rpc_fragment.exit
 
-find_and_dissect_rpc_fragment.argprom.exit:       ; preds = %87, %12
+find_and_dissect_rpc_fragment.exit:               ; preds = %87, %12
   %.0 = phi i32 [ %16, %12 ], [ %.0.i, %87 ]
   %91 = icmp slt i32 %.0, 0
   br i1 %91, label %.thread, label %92
 
-92:                                               ; preds = %find_and_dissect_rpc_fragment.argprom.exit
+92:                                               ; preds = %find_and_dissect_rpc_fragment.exit
   %93 = icmp eq i32 %.0, 0
   br i1 %93, label %.thread, label %94
 
@@ -4648,13 +4648,13 @@ find_and_dissect_rpc_fragment.argprom.exit:       ; preds = %87, %12
   %.not = icmp eq i32 %108, 0
   br i1 %.not, label %.thread, label %12, !llvm.loop !14
 
-.thread:                                          ; preds = %find_and_dissect_rpc_fragment.argprom.exit, %92, %106, %.preheader.i.i, %25, %20, %84, %find_rpc_over_tcp_reply_start.exit.i, %.backedge.i.i, %6
-  %.040 = phi i32 [ 0, %6 ], [ %.03851, %.backedge.i.i ], [ 1, %find_and_dissect_rpc_fragment.argprom.exit ], [ %.03851, %92 ], [ 1, %106 ], [ %.03851, %.preheader.i.i ], [ %.03851, %25 ], [ %.03851, %20 ], [ %.03851, %84 ], [ %.03851, %find_rpc_over_tcp_reply_start.exit.i ]
+.thread:                                          ; preds = %find_and_dissect_rpc_fragment.exit, %92, %106, %.preheader.i.i, %25, %20, %84, %find_rpc_over_tcp_reply_start.exit.i, %.backedge.i.i, %6
+  %.040 = phi i32 [ 0, %6 ], [ %.03851, %.backedge.i.i ], [ 1, %find_and_dissect_rpc_fragment.exit ], [ %.03851, %92 ], [ 1, %106 ], [ %.03851, %.preheader.i.i ], [ %.03851, %25 ], [ %.03851, %20 ], [ %.03851, %84 ], [ %.03851, %find_rpc_over_tcp_reply_start.exit.i ]
   ret i32 %.040
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rpc_fragment.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, i32 noundef %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7, ptr noundef readonly %8, ptr noundef readonly %9) unnamed_addr #0 {
+define internal fastcc i32 @dissect_rpc_fragment(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, i32 noundef %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7, ptr noundef readonly %8, ptr noundef readonly %9) unnamed_addr #0 {
   %11 = alloca %struct._rpc_fragment_key, align 4
   %12 = icmp eq ptr %2, null
   br i1 %12, label %153, label %13
@@ -4764,7 +4764,7 @@ define internal fastcc i32 @dissect_rpc_fragment.argprom(ptr noundef %0, i32 nou
   %64 = getelementptr inbounds i8, ptr %2, i64 272
   %65 = load i32, ptr %64, align 8
   store i32 1, ptr %64, align 8
-  %66 = tail call fastcc i32 @call_message_dissector.argprom(ptr noundef %0, ptr noundef %62, ptr noundef %2, ptr noundef %3, ptr noundef %62, ptr noundef null, i32 noundef %., i32 noundef %21, i32 noundef %7, i32 noundef 0)
+  %66 = tail call fastcc i32 @call_message_dissector(ptr noundef %0, ptr noundef %62, ptr noundef %2, ptr noundef %3, ptr noundef %62, ptr noundef null, i32 noundef %., i32 noundef %21, i32 noundef %7, i32 noundef 0)
   store i32 %65, ptr %64, align 8
   %.not207 = icmp eq i32 %66, 0
   %.214 = select i1 %.not207, i32 0, i32 %27
@@ -4908,7 +4908,7 @@ define internal fastcc i32 @dissect_rpc_fragment.argprom(ptr noundef %0, i32 nou
 151:                                              ; preds = %78, %81, %147
   %.0187 = phi ptr [ %122, %147 ], [ null, %81 ], [ null, %78 ]
   %.0186 = phi ptr [ %150, %147 ], [ %62, %81 ], [ %62, %78 ]
-  %152 = call fastcc i32 @call_message_dissector.argprom(ptr noundef %0, ptr noundef %.0186, ptr noundef %2, ptr noundef %3, ptr noundef %62, ptr noundef %.0187, i32 noundef %., i32 noundef %21, i32 noundef %7, i32 noundef %.0188)
+  %152 = call fastcc i32 @call_message_dissector(ptr noundef %0, ptr noundef %.0186, ptr noundef %2, ptr noundef %3, ptr noundef %62, ptr noundef %.0187, i32 noundef %., i32 noundef %21, i32 noundef %7, i32 noundef %.0188)
   %.not211 = icmp eq i32 %152, 0
   %.215 = select i1 %.not211, i32 0, i32 %27
   br label %153
@@ -4925,7 +4925,7 @@ declare nonnull ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @call_message_dissector.argprom(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 1, 3) %6, i32 noundef %7, i32 noundef range(i32 0, 2) %8, i32 noundef %9) unnamed_addr #0 {
+define internal fastcc i32 @call_message_dissector(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 1, 3) %6, i32 noundef %7, i32 noundef range(i32 0, 2) %8, i32 noundef %9) unnamed_addr #0 {
   %11 = alloca i32, align 4
   %12 = alloca ptr, align 8
   %13 = alloca i32, align 4

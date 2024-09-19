@@ -4772,7 +4772,7 @@ define range(i32 0, 4) i32 @str_2_slurmdb_admin_level(ptr noundef %0) local_unna
 define ptr @slurmdb_get_hierarchical_sorted_assoc_list(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @list_create(ptr noundef null) #20
   %3 = tail call ptr @slurmdb_get_acct_hierarchical_rec_list(ptr noundef %0)
-  tail call fastcc void @_append_hierarchical_children_ret_list.retelim(ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @_append_hierarchical_children_ret_list(ptr noundef %2, ptr noundef %3)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
@@ -4931,12 +4931,12 @@ define ptr @slurmdb_get_acct_hierarchical_rec_list(ptr noundef %0) local_unnamed
 .outer._crit_edge:                                ; preds = %.outer, %16, %1
   call void @list_iterator_destroy(ptr noundef %6) #20
   call void @xhash_free_ptr(ptr noundef nonnull %2) #20
-  call fastcc void @_sort_slurmdb_hierarchical_rec_list.retelim(ptr noundef %5)
+  call fastcc void @_sort_slurmdb_hierarchical_rec_list(ptr noundef %5)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_append_hierarchical_children_ret_list.retelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_append_hierarchical_children_ret_list(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %3
 
@@ -4963,7 +4963,7 @@ define internal fastcc void @_append_hierarchical_children_ret_list.retelim(ptr 
 
 13:                                               ; preds = %.lr.ph
   %14 = load ptr, ptr %10, align 8
-  tail call fastcc void @_append_hierarchical_children_ret_list.retelim(ptr noundef nonnull %0, ptr noundef %14)
+  tail call fastcc void @_append_hierarchical_children_ret_list(ptr noundef nonnull %0, ptr noundef %14)
   br label %15
 
 15:                                               ; preds = %13, %.lr.ph
@@ -5037,7 +5037,7 @@ declare ptr @xhash_get(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 declare void @xhash_free_ptr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_sort_slurmdb_hierarchical_rec_list.retelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_sort_slurmdb_hierarchical_rec_list(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call i32 @list_count(ptr noundef %0) #20
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %14, label %3
@@ -5059,7 +5059,7 @@ define internal fastcc void @_sort_slurmdb_hierarchical_rec_list.retelim(ptr nou
 
 10:                                               ; preds = %.lr.ph
   %11 = load ptr, ptr %7, align 8
-  tail call fastcc void @_sort_slurmdb_hierarchical_rec_list.retelim(ptr noundef %11)
+  tail call fastcc void @_sort_slurmdb_hierarchical_rec_list(ptr noundef %11)
   br label %12
 
 12:                                               ; preds = %10, %.lr.ph

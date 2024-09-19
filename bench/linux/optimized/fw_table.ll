@@ -65,7 +65,7 @@ default.unreachable20:                            ; preds = %6
   br i1 %25, label %31, label %.loopexit
 
 31:                                               ; preds = %28
-  switch i32 %7, label %acpi_get_entry_type.argprom.exit [
+  switch i32 %7, label %acpi_get_entry_type.exit [
     i32 0, label %32
     i32 1, label %35
     i32 4, label %41
@@ -75,24 +75,24 @@ default.unreachable20:                            ; preds = %6
 32:                                               ; preds = %31
   %33 = load i8, ptr %.sroa.0.0, align 1
   %34 = zext i8 %33 to i64
-  br label %acpi_get_entry_type.argprom.exit
+  br label %acpi_get_entry_type.exit
 
 35:                                               ; preds = %31
   %36 = load i16, ptr %.sroa.0.0, align 1
   %37 = zext i16 %36 to i64
-  br label %acpi_get_entry_type.argprom.exit
+  br label %acpi_get_entry_type.exit
 
 38:                                               ; preds = %31
   %39 = load i8, ptr %.sroa.0.0, align 1
   %40 = zext i8 %39 to i64
-  br label %acpi_get_entry_type.argprom.exit
+  br label %acpi_get_entry_type.exit
 
 41:                                               ; preds = %31
   %42 = load i8, ptr %.sroa.0.0, align 1
   %43 = zext i8 %42 to i64
-  br label %acpi_get_entry_type.argprom.exit
+  br label %acpi_get_entry_type.exit
 
-acpi_get_entry_type.argprom.exit:                 ; preds = %31, %32, %35, %38, %41
+acpi_get_entry_type.exit:                         ; preds = %31, %32, %35, %38, %41
   %44 = phi i64 [ %43, %41 ], [ %40, %38 ], [ %37, %35 ], [ %34, %32 ], [ 0, %31 ]
   br label %47
 
@@ -101,8 +101,8 @@ acpi_get_entry_type.argprom.exit:                 ; preds = %31, %32, %35, %38, 
   %46 = icmp eq i64 %indvars.iv.next, %27
   br i1 %46, label %.loopexit, label %47, !llvm.loop !6
 
-47:                                               ; preds = %45, %acpi_get_entry_type.argprom.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %acpi_get_entry_type.argprom.exit ]
+47:                                               ; preds = %45, %acpi_get_entry_type.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %acpi_get_entry_type.exit ]
   %48 = getelementptr %struct.acpi_subtable_proc, ptr %3, i64 %indvars.iv
   %49 = load i32, ptr %48, align 8
   %50 = sext i32 %49 to i64
@@ -150,7 +150,7 @@ acpi_get_entry_type.argprom.exit:                 ; preds = %31, %32, %35, %38, 
 
 .loopexit:                                        ; preds = %45, %71, %28
   %76 = phi i32 [ %75, %71 ], [ %30, %28 ], [ %30, %45 ]
-  %77 = tail call fastcc i64 @acpi_get_entry_length.argprom(ptr %.sroa.0.0, i32 %7) #7
+  %77 = tail call fastcc i64 @acpi_get_entry_length(ptr %.sroa.0.0, i32 %7) #7
   %78 = icmp eq i64 %77, 0
   br i1 %78, label %79, label %82
 
@@ -216,7 +216,7 @@ define internal fastcc range(i32 0, 5) i32 @acpi_get_subtable_type(ptr nocapture
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(argmem: read)
-define internal fastcc range(i64 0, 4294967296) i64 @acpi_get_entry_length.argprom(ptr nocapture readonly %.0.val, i32 %.8.val) unnamed_addr #4 section ".init.text" align 16 {
+define internal fastcc range(i64 0, 4294967296) i64 @acpi_get_entry_length(ptr nocapture readonly %.0.val, i32 %.8.val) unnamed_addr #4 section ".init.text" align 16 {
   switch i32 %.8.val, label %21 [
     i32 0, label %1
     i32 1, label %5

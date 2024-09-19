@@ -79,7 +79,7 @@ define noundef zeroext i1 @"_ZN80_$LT$base64..display..FormatterSink$u20$as$u20$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   %7 = load i64, ptr %5, align 8, !range !9, !alias.scope !6, !noundef !4
   %trunc.i = trunc nuw i64 %7 to i1
-  br i1 %trunc.i, label %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb72ea1325e745f7cE.argprom.exit"
+  br i1 %trunc.i, label %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb72ea1325e745f7cE.exit"
 
 8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !6
@@ -88,7 +88,7 @@ define noundef zeroext i1 @"_ZN80_$LT$base64..display..FormatterSink$u20$as$u20$
   call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.563ef019a64827af2993a0386c5e69fb.6, i64 noundef 24, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.563ef019a64827af2993a0386c5e69fb.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.563ef019a64827af2993a0386c5e69fb.8) #7, !noalias !6
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb72ea1325e745f7cE.argprom.exit": ; preds = %3
+"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb72ea1325e745f7cE.exit": ; preds = %3
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !6, !nonnull !4, !align !10, !noundef !4
   %12 = getelementptr inbounds i8, ptr %5, i64 16
@@ -156,7 +156,7 @@ attributes #7 = { noreturn }
 !4 = !{}
 !5 = !{i64 8}
 !6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb72ea1325e745f7cE.argprom: argument 0"}
-!8 = distinct !{!8, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb72ea1325e745f7cE.argprom"}
+!7 = distinct !{!7, !8, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb72ea1325e745f7cE: argument 0"}
+!8 = distinct !{!8, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb72ea1325e745f7cE"}
 !9 = !{i64 0, i64 2}
 !10 = !{i64 1}

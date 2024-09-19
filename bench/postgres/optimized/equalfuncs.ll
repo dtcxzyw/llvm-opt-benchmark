@@ -1072,7 +1072,7 @@ tailrecurse.backedge:                             ; preds = %9, %9, %9, %9, %325
 432:                                              ; preds = %9
   %433 = getelementptr i8, ptr %.tr1096, i64 8
   %.val538 = load ptr, ptr %433, align 8
-  %434 = tail call fastcc zeroext i1 @_equalVariableShowStmt.argprom(ptr %.val538, ptr noundef %.tr5971097)
+  %434 = tail call fastcc zeroext i1 @_equalVariableShowStmt(ptr %.val538, ptr noundef %.tr5971097)
   br label %_equalGroupingFunc.exit
 
 435:                                              ; preds = %9
@@ -1260,7 +1260,7 @@ tailrecurse.backedge:                             ; preds = %9, %9, %9, %9, %325
 530:                                              ; preds = %9
   %531 = getelementptr i8, ptr %.tr1096, i64 8
   %.val539 = load ptr, ptr %531, align 8
-  %532 = tail call fastcc zeroext i1 @_equalClosePortalStmt.argprom(ptr %.val539, ptr noundef %.tr5971097)
+  %532 = tail call fastcc zeroext i1 @_equalClosePortalStmt(ptr %.val539, ptr noundef %.tr5971097)
   br label %_equalGroupingFunc.exit
 
 533:                                              ; preds = %9
@@ -1334,13 +1334,13 @@ tailrecurse.backedge:                             ; preds = %9, %9, %9, %9, %325
 567:                                              ; preds = %9
   %568 = getelementptr i8, ptr %.tr1096, i64 8
   %.val540 = load ptr, ptr %568, align 8
-  %569 = tail call fastcc zeroext i1 @_equalListenStmt.argprom(ptr %.val540, ptr noundef %.tr5971097)
+  %569 = tail call fastcc zeroext i1 @_equalListenStmt(ptr %.val540, ptr noundef %.tr5971097)
   br label %_equalGroupingFunc.exit
 
 570:                                              ; preds = %9
   %571 = getelementptr i8, ptr %.tr1096, i64 8
   %.val541 = load ptr, ptr %571, align 8
-  %572 = tail call fastcc zeroext i1 @_equalUnlistenStmt.argprom(ptr %.val541, ptr noundef %.tr5971097)
+  %572 = tail call fastcc zeroext i1 @_equalUnlistenStmt(ptr %.val541, ptr noundef %.tr5971097)
   br label %_equalGroupingFunc.exit
 
 573:                                              ; preds = %9
@@ -1370,7 +1370,7 @@ tailrecurse.backedge:                             ; preds = %9, %9, %9, %9, %325
 585:                                              ; preds = %9
   %586 = getelementptr i8, ptr %.tr1096, i64 8
   %.val542 = load ptr, ptr %586, align 8
-  %587 = tail call fastcc zeroext i1 @_equalLoadStmt.argprom(ptr %.val542, ptr noundef %.tr5971097)
+  %587 = tail call fastcc zeroext i1 @_equalLoadStmt(ptr %.val542, ptr noundef %.tr5971097)
   br label %_equalGroupingFunc.exit
 
 588:                                              ; preds = %9
@@ -1384,7 +1384,7 @@ tailrecurse.backedge:                             ; preds = %9, %9, %9, %9, %325
 592:                                              ; preds = %9
   %593 = getelementptr i8, ptr %.tr1096, i64 8
   %.val543 = load ptr, ptr %593, align 8
-  %594 = tail call fastcc zeroext i1 @_equalAlterDatabaseRefreshCollStmt.argprom(ptr %.val543, ptr noundef %.tr5971097)
+  %594 = tail call fastcc zeroext i1 @_equalAlterDatabaseRefreshCollStmt(ptr %.val543, ptr noundef %.tr5971097)
   br label %_equalGroupingFunc.exit
 
 595:                                              ; preds = %9
@@ -1580,7 +1580,7 @@ tailrecurse.backedge:                             ; preds = %9, %9, %9, %9, %325
 695:                                              ; preds = %9
   %696 = getelementptr i8, ptr %.tr1096, i64 8
   %.val548 = load ptr, ptr %696, align 8
-  %697 = tail call fastcc zeroext i1 @_equalFloat.argprom(ptr %.val548, ptr noundef %.tr5971097)
+  %697 = tail call fastcc zeroext i1 @_equalFloat(ptr %.val548, ptr noundef %.tr5971097)
   br label %_equalGroupingFunc.exit
 
 698:                                              ; preds = %9
@@ -1596,13 +1596,13 @@ tailrecurse.backedge:                             ; preds = %9, %9, %9, %9, %325
 703:                                              ; preds = %9
   %704 = getelementptr i8, ptr %.tr1096, i64 8
   %.val551 = load ptr, ptr %704, align 8
-  %705 = tail call fastcc zeroext i1 @_equalString.argprom(ptr %.val551, ptr noundef %.tr5971097)
+  %705 = tail call fastcc zeroext i1 @_equalString(ptr %.val551, ptr noundef %.tr5971097)
   br label %_equalGroupingFunc.exit
 
 706:                                              ; preds = %9
   %707 = getelementptr i8, ptr %.tr1096, i64 8
   %.val552 = load ptr, ptr %707, align 8
-  %708 = tail call fastcc zeroext i1 @_equalBitString.argprom(ptr %.val552, ptr noundef %.tr5971097)
+  %708 = tail call fastcc zeroext i1 @_equalBitString(ptr %.val552, ptr noundef %.tr5971097)
   br label %_equalGroupingFunc.exit
 
 709:                                              ; preds = %9, %9, %9, %9
@@ -8695,7 +8695,7 @@ define internal fastcc zeroext i1 @_equalVariableSetStmt(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalVariableShowStmt.argprom(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalVariableShowStmt(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -11485,7 +11485,7 @@ define internal fastcc zeroext i1 @_equalDeclareCursorStmt(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalClosePortalStmt.argprom(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalClosePortalStmt(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -12588,7 +12588,7 @@ define internal fastcc noundef zeroext i1 @_equalNotifyStmt(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalListenStmt.argprom(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalListenStmt(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -12616,7 +12616,7 @@ define internal fastcc noundef zeroext i1 @_equalListenStmt.argprom(ptr readonly
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalUnlistenStmt.argprom(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalUnlistenStmt(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -12937,7 +12937,7 @@ define internal fastcc zeroext i1 @_equalViewStmt(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalLoadStmt.argprom(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalLoadStmt(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -13035,7 +13035,7 @@ define internal fastcc zeroext i1 @_equalAlterDatabaseStmt(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalAlterDatabaseRefreshCollStmt.argprom(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalAlterDatabaseRefreshCollStmt(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -14684,7 +14684,7 @@ define internal fastcc zeroext i1 @_equalExtensibleNode(ptr noundef nonnull %0, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalFloat.argprom(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalFloat(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -14712,7 +14712,7 @@ define internal fastcc noundef zeroext i1 @_equalFloat.argprom(ptr readonly %.8.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalString.argprom(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalString(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -14740,7 +14740,7 @@ define internal fastcc noundef zeroext i1 @_equalString.argprom(ptr readonly %.8
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalBitString.argprom(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalBitString(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8

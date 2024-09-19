@@ -962,7 +962,7 @@ _ZNSt8functionIFvN4llvm5ErrorEEEC2ERKS3_.exit.i:  ; preds = %145, %_ZNSt8functio
   br label %_ZN4llvm13DIDumpOptionsC2ERKS0_.exit
 
 _ZN4llvm13DIDumpOptionsC2ERKS0_.exit:             ; preds = %_ZNSt8functionIFvN4llvm5ErrorEEEC2ERKS3_.exit.i, %156
-  call fastcc void @"_ZZNK4llvm14RangeListEntry4dumpERNS_11raw_ostreamEhhRmNS_13DIDumpOptionsENS_12function_refIFSt8optionalINS_6object16SectionedAddressEEjEEEENK3$_0clES2_RKS0_hS4_.argprom"(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(40) %0, i8 noundef zeroext %2, ptr noundef %11)
+  call fastcc void @"_ZZNK4llvm14RangeListEntry4dumpERNS_11raw_ostreamEhhRmNS_13DIDumpOptionsENS_12function_refIFSt8optionalINS_6object16SectionedAddressEEjEEEENK3$_0clES2_RKS0_hS4_"(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(40) %0, i8 noundef zeroext %2, ptr noundef %11)
   %164 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %165 = load ptr, ptr %164, align 8
   %.not.i.i.i = icmp eq ptr %165, null
@@ -1164,7 +1164,7 @@ _ZNSt8functionIFvN4llvm5ErrorEEEC2ERKS3_.exit.i66: ; preds = %244, %_ZNSt8functi
   br label %_ZN4llvm13DIDumpOptionsC2ERKS0_.exit68
 
 _ZN4llvm13DIDumpOptionsC2ERKS0_.exit68:           ; preds = %_ZNSt8functionIFvN4llvm5ErrorEEEC2ERKS3_.exit.i66, %255
-  call fastcc void @"_ZZNK4llvm14RangeListEntry4dumpERNS_11raw_ostreamEhhRmNS_13DIDumpOptionsENS_12function_refIFSt8optionalINS_6object16SectionedAddressEEjEEEENK3$_0clES2_RKS0_hS4_.argprom"(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(40) %0, i8 noundef zeroext %2, ptr noundef %14)
+  call fastcc void @"_ZZNK4llvm14RangeListEntry4dumpERNS_11raw_ostreamEhhRmNS_13DIDumpOptionsENS_12function_refIFSt8optionalINS_6object16SectionedAddressEEjEEEENK3$_0clES2_RKS0_hS4_"(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(40) %0, i8 noundef zeroext %2, ptr noundef %14)
   %263 = getelementptr inbounds nuw i8, ptr %14, i64 144
   %264 = load ptr, ptr %263, align 8
   %.not.i.i.i69 = icmp eq ptr %264, null
@@ -1503,7 +1503,7 @@ _ZNSt8functionIFvN4llvm5ErrorEEEC2ERKS3_.exit.i105: ; preds = %415, %_ZNSt8funct
   br label %_ZN4llvm13DIDumpOptionsC2ERKS0_.exit107
 
 _ZN4llvm13DIDumpOptionsC2ERKS0_.exit107:          ; preds = %_ZNSt8functionIFvN4llvm5ErrorEEEC2ERKS3_.exit.i105, %426
-  call fastcc void @"_ZZNK4llvm14RangeListEntry4dumpERNS_11raw_ostreamEhhRmNS_13DIDumpOptionsENS_12function_refIFSt8optionalINS_6object16SectionedAddressEEjEEEENK3$_0clES2_RKS0_hS4_.argprom"(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(40) %0, i8 noundef zeroext %2, ptr noundef %19)
+  call fastcc void @"_ZZNK4llvm14RangeListEntry4dumpERNS_11raw_ostreamEhhRmNS_13DIDumpOptionsENS_12function_refIFSt8optionalINS_6object16SectionedAddressEEjEEEENK3$_0clES2_RKS0_hS4_"(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(40) %0, i8 noundef zeroext %2, ptr noundef %19)
   %434 = getelementptr inbounds nuw i8, ptr %19, i64 144
   %435 = load ptr, ptr %434, align 8
   %.not.i.i.i108 = icmp eq ptr %435, null
@@ -1715,7 +1715,7 @@ _ZNSt8functionIFvN4llvm5ErrorEEEC2ERKS3_.exit.i129: ; preds = %522, %_ZNSt8funct
   br label %_ZN4llvm13DIDumpOptionsC2ERKS0_.exit131
 
 _ZN4llvm13DIDumpOptionsC2ERKS0_.exit131:          ; preds = %_ZNSt8functionIFvN4llvm5ErrorEEEC2ERKS3_.exit.i129, %533
-  call fastcc void @"_ZZNK4llvm14RangeListEntry4dumpERNS_11raw_ostreamEhhRmNS_13DIDumpOptionsENS_12function_refIFSt8optionalINS_6object16SectionedAddressEEjEEEENK3$_0clES2_RKS0_hS4_.argprom"(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(40) %0, i8 noundef zeroext %2, ptr noundef %23)
+  call fastcc void @"_ZZNK4llvm14RangeListEntry4dumpERNS_11raw_ostreamEhhRmNS_13DIDumpOptionsENS_12function_refIFSt8optionalINS_6object16SectionedAddressEEjEEEENK3$_0clES2_RKS0_hS4_"(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(40) %0, i8 noundef zeroext %2, ptr noundef %23)
   %541 = getelementptr inbounds nuw i8, ptr %23, i64 144
   %542 = load ptr, ptr %541, align 8
   %.not.i.i.i132 = icmp eq ptr %542, null
@@ -1901,7 +1901,7 @@ declare { ptr, i64 } @_ZN4llvm5dwarf23RangeListEncodingStringEj(i32 noundef) loc
 declare void @_ZN4llvm14DWARFFormValue11dumpAddressERNS_11raw_ostreamEhm(ptr noundef nonnull align 8 dereferenceable(48), i8 noundef zeroext, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK4llvm14RangeListEntry4dumpERNS_11raw_ostreamEhhRmNS_13DIDumpOptionsENS_12function_refIFSt8optionalINS_6object16SectionedAddressEEjEEEENK3$_0clES2_RKS0_hS4_.argprom"(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i8 noundef zeroext %2, ptr noundef nonnull %3) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK4llvm14RangeListEntry4dumpERNS_11raw_ostreamEhhRmNS_13DIDumpOptionsENS_12function_refIFSt8optionalINS_6object16SectionedAddressEEjEEEENK3$_0clES2_RKS0_hS4_"(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i8 noundef zeroext %2, ptr noundef nonnull %3) unnamed_addr #0 align 2 {
   %5 = alloca %"struct.llvm::DWARFAddressRange", align 8
   %6 = alloca %"struct.llvm::DIDumpOptions", align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 20

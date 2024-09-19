@@ -105,7 +105,7 @@ define hidden void @funnel_deregister_menus(ptr noundef %0) local_unnamed_addr #
   store ptr %0, ptr %3, align 8
   %.0191.i = load ptr, ptr @registered_menus, align 8
   %.not2.i = icmp eq ptr %.0191.i, null
-  br i1 %.not2.i, label %funnel_remove_menu.argprom.exit, label %.lr.ph.i
+  br i1 %.not2.i, label %funnel_remove_menu.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %21
   %.0194.i = phi ptr [ %.019.i, %21 ], [ %.0191.i, %1 ]
@@ -149,15 +149,15 @@ define hidden void @funnel_deregister_menus(ptr noundef %0) local_unnamed_addr #
   %.1.i = phi ptr [ %.0194.i, %19 ], [ %.03.i, %18 ]
   %.019.i = load ptr, ptr %.120.in.i, align 8
   %.not.i = icmp eq ptr %.019.i, null
-  br i1 %.not.i, label %funnel_remove_menu.argprom.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not.i, label %funnel_remove_menu.exit, label %.lr.ph.i, !llvm.loop !6
 
-funnel_remove_menu.argprom.exit:                  ; preds = %21, %1
+funnel_remove_menu.exit:                          ; preds = %21, %1
   %22 = load ptr, ptr @removed_menus, align 8
   %.not.i4 = icmp eq ptr %22, null
   br i1 %.not.i4, label %funnel_insert_menu.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %funnel_remove_menu.argprom.exit, %.preheader.i
-  %.0.i = phi ptr [ %24, %.preheader.i ], [ %22, %funnel_remove_menu.argprom.exit ]
+.preheader.i:                                     ; preds = %funnel_remove_menu.exit, %.preheader.i
+  %.0.i = phi ptr [ %24, %.preheader.i ], [ %22, %funnel_remove_menu.exit ]
   %23 = getelementptr inbounds i8, ptr %.0.i, i64 48
   %24 = load ptr, ptr %23, align 8
   %.not10.i = icmp eq ptr %24, null
@@ -167,12 +167,12 @@ funnel_insert_menu.exit.loopexit:                 ; preds = %.preheader.i
   %25 = getelementptr inbounds i8, ptr %.0.i, i64 48
   br label %funnel_insert_menu.exit
 
-funnel_insert_menu.exit:                          ; preds = %funnel_insert_menu.exit.loopexit, %funnel_remove_menu.argprom.exit
-  %.sink.i = phi ptr [ @removed_menus, %funnel_remove_menu.argprom.exit ], [ %25, %funnel_insert_menu.exit.loopexit ]
+funnel_insert_menu.exit:                          ; preds = %funnel_insert_menu.exit.loopexit, %funnel_remove_menu.exit
+  %.sink.i = phi ptr [ @removed_menus, %funnel_remove_menu.exit ], [ %25, %funnel_insert_menu.exit.loopexit ]
   store ptr %2, ptr %.sink.i, align 8
   %26 = load ptr, ptr @registered_packet_menus, align 8
   %.not1.i = icmp eq ptr %26, null
-  br i1 %.not1.i, label %funnel_clear_packet_menu.argprom.exit, label %.lr.ph.i5
+  br i1 %.not1.i, label %funnel_clear_packet_menu.exit, label %.lr.ph.i5
 
 .lr.ph.i5:                                        ; preds = %funnel_insert_menu.exit, %36
   %27 = phi ptr [ %37, %36 ], [ %26, %funnel_insert_menu.exit ]
@@ -197,9 +197,9 @@ funnel_insert_menu.exit:                          ; preds = %funnel_insert_menu.
   tail call void @g_free(ptr noundef nonnull %27) #7
   %37 = load ptr, ptr @registered_packet_menus, align 8
   %.not.i6 = icmp eq ptr %37, null
-  br i1 %.not.i6, label %funnel_clear_packet_menu.argprom.exit, label %.lr.ph.i5, !llvm.loop !7
+  br i1 %.not.i6, label %funnel_clear_packet_menu.exit, label %.lr.ph.i5, !llvm.loop !7
 
-funnel_clear_packet_menu.argprom.exit:            ; preds = %36, %funnel_insert_menu.exit
+funnel_clear_packet_menu.exit:                    ; preds = %36, %funnel_insert_menu.exit
   store ptr null, ptr @registered_packet_menus, align 8
   store i1 true, ptr @packet_menus_modified, align 4
   ret void
@@ -332,21 +332,21 @@ define void @funnel_register_packet_menu(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr null, ptr %13, align 8
   %14 = load ptr, ptr @registered_packet_menus, align 8
   %.not.i = icmp eq ptr %14, null
-  br i1 %.not.i, label %funnel_insert_packet_menu.argprom.exit, label %.preheader.i
+  br i1 %.not.i, label %funnel_insert_packet_menu.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %5, %.preheader.i
   %.0.i = phi ptr [ %16, %.preheader.i ], [ %14, %5 ]
   %15 = getelementptr inbounds i8, ptr %.0.i, i64 40
   %16 = load ptr, ptr %15, align 8
   %.not10.i = icmp eq ptr %16, null
-  br i1 %.not10.i, label %funnel_insert_packet_menu.argprom.exit.loopexit, label %.preheader.i, !llvm.loop !12
+  br i1 %.not10.i, label %funnel_insert_packet_menu.exit.loopexit, label %.preheader.i, !llvm.loop !12
 
-funnel_insert_packet_menu.argprom.exit.loopexit:  ; preds = %.preheader.i
+funnel_insert_packet_menu.exit.loopexit:          ; preds = %.preheader.i
   %17 = getelementptr inbounds i8, ptr %.0.i, i64 40
-  br label %funnel_insert_packet_menu.argprom.exit
+  br label %funnel_insert_packet_menu.exit
 
-funnel_insert_packet_menu.argprom.exit:           ; preds = %funnel_insert_packet_menu.argprom.exit.loopexit, %5
-  %.sink.i = phi ptr [ @registered_packet_menus, %5 ], [ %17, %funnel_insert_packet_menu.argprom.exit.loopexit ]
+funnel_insert_packet_menu.exit:                   ; preds = %funnel_insert_packet_menu.exit.loopexit, %5
+  %.sink.i = phi ptr [ @registered_packet_menus, %5 ], [ %17, %funnel_insert_packet_menu.exit.loopexit ]
   store ptr %6, ptr %.sink.i, align 8
   store i1 true, ptr @packet_menus_modified, align 4
   ret void
@@ -409,7 +409,7 @@ funnel_clear_menu.exit:                           ; preds = %.lr.ph.i, %0
   store ptr null, ptr @registered_menus, align 8
   %7 = load ptr, ptr @registered_packet_menus, align 8
   %.not1.i = icmp eq ptr %7, null
-  br i1 %.not1.i, label %funnel_clear_packet_menu.argprom.exit, label %.lr.ph.i1
+  br i1 %.not1.i, label %funnel_clear_packet_menu.exit, label %.lr.ph.i1
 
 .lr.ph.i1:                                        ; preds = %funnel_clear_menu.exit, %17
   %8 = phi ptr [ %18, %17 ], [ %7, %funnel_clear_menu.exit ]
@@ -434,16 +434,16 @@ funnel_clear_menu.exit:                           ; preds = %.lr.ph.i, %0
   tail call void @g_free(ptr noundef nonnull %8) #7
   %18 = load ptr, ptr @registered_packet_menus, align 8
   %.not.i2 = icmp eq ptr %18, null
-  br i1 %.not.i2, label %funnel_clear_packet_menu.argprom.exit, label %.lr.ph.i1, !llvm.loop !7
+  br i1 %.not.i2, label %funnel_clear_packet_menu.exit, label %.lr.ph.i1, !llvm.loop !7
 
-funnel_clear_packet_menu.argprom.exit:            ; preds = %17, %funnel_clear_menu.exit
+funnel_clear_packet_menu.exit:                    ; preds = %17, %funnel_clear_menu.exit
   store ptr null, ptr @registered_packet_menus, align 8
   %.014.i = load ptr, ptr @registered_console_menus, align 8
   %.not15.i = icmp eq ptr %.014.i, null
   br i1 %.not15.i, label %funnel_clear_console_menu.exit, label %.lr.ph.i3
 
-.lr.ph.i3:                                        ; preds = %funnel_clear_packet_menu.argprom.exit, %27
-  %.016.i = phi ptr [ %.0.i, %27 ], [ %.014.i, %funnel_clear_packet_menu.argprom.exit ]
+.lr.ph.i3:                                        ; preds = %funnel_clear_packet_menu.exit, %27
+  %.016.i = phi ptr [ %.0.i, %27 ], [ %.014.i, %funnel_clear_packet_menu.exit ]
   %19 = load ptr, ptr %.016.i, align 8
   %20 = load ptr, ptr %19, align 8
   tail call void @g_free(ptr noundef %20) #7
@@ -475,8 +475,8 @@ funnel_clear_packet_menu.argprom.exit:            ; preds = %17, %funnel_clear_m
   %.pre.i = load ptr, ptr @registered_console_menus, align 8
   br label %funnel_clear_console_menu.exit
 
-funnel_clear_console_menu.exit:                   ; preds = %funnel_clear_packet_menu.argprom.exit, %._crit_edge.loopexit.i
-  %30 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ null, %funnel_clear_packet_menu.argprom.exit ]
+funnel_clear_console_menu.exit:                   ; preds = %funnel_clear_packet_menu.exit, %._crit_edge.loopexit.i
+  %30 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ null, %funnel_clear_packet_menu.exit ]
   tail call void @g_slist_free(ptr noundef %30) #7
   store ptr null, ptr @registered_console_menus, align 8
   ret void

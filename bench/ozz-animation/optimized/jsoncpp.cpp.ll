@@ -21388,7 +21388,7 @@ define internal fastcc void @_ZN4JsonL20valueToQuotedStringNB5cxx11EPKcj(ptr dea
   %21 = phi i8 [ 34, %.lr.ph.i ], [ %19, %18 ]
   %.03.idx.i = phi i64 [ 0, %.lr.ph.i ], [ %.03.add.i, %18 ]
   %22 = icmp eq i8 %21, %17
-  br i1 %22, label %_ZN4JsonL8strnpbrkEPKcS1_m.argprom.exit, label %18
+  br i1 %22, label %_ZN4JsonL8strnpbrkEPKcS1_m.exit, label %18
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds i8, ptr %.0144.i, i64 1
@@ -21404,7 +21404,7 @@ define internal fastcc void @_ZN4JsonL20valueToQuotedStringNB5cxx11EPKcj(ptr dea
   %.079.i = phi ptr [ %27, %26 ], [ %1, %23 ]
   %28 = load i8, ptr %.079.i, align 1
   %or.cond.i = icmp ult i8 %28, 32
-  br i1 %or.cond.i, label %_ZN4JsonL8strnpbrkEPKcS1_m.argprom.exit, label %26
+  br i1 %or.cond.i, label %_ZN4JsonL8strnpbrkEPKcS1_m.exit, label %26
 
 .loopexit40:                                      ; preds = %26, %14
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #41
@@ -21452,7 +21452,7 @@ define internal fastcc void @_ZN4JsonL20valueToQuotedStringNB5cxx11EPKcj(ptr dea
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #41
   br label %88
 
-_ZN4JsonL8strnpbrkEPKcS1_m.argprom.exit:          ; preds = %20, %.lr.ph.i36
+_ZN4JsonL8strnpbrkEPKcS1_m.exit:                  ; preds = %20, %.lr.ph.i36
   %42 = shl i32 %2, 1
   %43 = add i32 %42, 3
   %44 = zext i32 %43 to i64
@@ -21460,7 +21460,7 @@ _ZN4JsonL8strnpbrkEPKcS1_m.argprom.exit:          ; preds = %20, %.lr.ph.i36
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %44)
           to label %45 unwind label %.loopexit.split-lp
 
-45:                                               ; preds = %_ZN4JsonL8strnpbrkEPKcS1_m.argprom.exit
+45:                                               ; preds = %_ZN4JsonL8strnpbrkEPKcS1_m.exit
   %46 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.85)
           to label %.lr.ph unwind label %.loopexit.split-lp
 
@@ -21482,7 +21482,7 @@ _ZN4JsonL8strnpbrkEPKcS1_m.argprom.exit:          ; preds = %20, %.lr.ph.i36
           cleanup
   br label %86
 
-.loopexit.split-lp:                               ; preds = %_ZN4JsonL8strnpbrkEPKcS1_m.argprom.exit, %45, %._crit_edge
+.loopexit.split-lp:                               ; preds = %_ZN4JsonL8strnpbrkEPKcS1_m.exit, %45, %._crit_edge
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %86

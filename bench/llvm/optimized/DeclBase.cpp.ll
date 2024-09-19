@@ -15320,7 +15320,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit84.thread:    ; preds = %_ZNK4llvm12VersionT
   store i64 %30, ptr %35, align 8
   %36 = and i64 %.val82.val, 8388608
   %.not.i = icmp eq i64 %36, 0
-  br i1 %.not.i, label %_ZL19getRealizedPlatformPKN5clang16AvailabilityAttrERKNS_10ASTContextE.argprom.argprom.exit, label %37
+  br i1 %.not.i, label %_ZL19getRealizedPlatformPKN5clang16AvailabilityAttrERKNS_10ASTContextE.exit, label %37
 
 37:                                               ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit84.thread
   %38 = call noundef i64 @_ZNK4llvm9StringRef5rfindES0_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull @.str.225, i64 14) #27
@@ -15331,21 +15331,21 @@ _ZNK4llvm12VersionTuple5emptyEv.exit84.thread:    ; preds = %_ZNK4llvm12VersionT
   %40 = load i64, ptr %35, align 8
   %41 = call i64 @llvm.umin.i64(i64 %38, i64 %40)
   %42 = load ptr, ptr %6, align 8
-  br label %_ZL19getRealizedPlatformPKN5clang16AvailabilityAttrERKNS_10ASTContextE.argprom.argprom.exit
+  br label %_ZL19getRealizedPlatformPKN5clang16AvailabilityAttrERKNS_10ASTContextE.exit
 
 43:                                               ; preds = %37
   %.sroa.0.0.copyload3.i = load ptr, ptr %6, align 8
   %.sroa.4.0.copyload5.i = load i64, ptr %35, align 8
-  br label %_ZL19getRealizedPlatformPKN5clang16AvailabilityAttrERKNS_10ASTContextE.argprom.argprom.exit
+  br label %_ZL19getRealizedPlatformPKN5clang16AvailabilityAttrERKNS_10ASTContextE.exit
 
-_ZL19getRealizedPlatformPKN5clang16AvailabilityAttrERKNS_10ASTContextE.argprom.argprom.exit: ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit84.thread, %39, %43
+_ZL19getRealizedPlatformPKN5clang16AvailabilityAttrERKNS_10ASTContextE.exit: ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit84.thread, %39, %43
   %.sroa.0.0.i = phi ptr [ %42, %39 ], [ %.sroa.0.0.copyload3.i, %43 ], [ %28, %_ZNK4llvm12VersionTuple5emptyEv.exit84.thread ]
   %.sroa.4.0.i = phi i64 [ %41, %39 ], [ %.sroa.4.0.copyload5.i, %43 ], [ %30, %_ZNK4llvm12VersionTuple5emptyEv.exit84.thread ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %.not.i.i = icmp eq i64 %.sroa.4.0.i, %.sroa.2.0.copyload.i89
   br i1 %.not.i.i, label %44, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
-44:                                               ; preds = %_ZL19getRealizedPlatformPKN5clang16AvailabilityAttrERKNS_10ASTContextE.argprom.argprom.exit
+44:                                               ; preds = %_ZL19getRealizedPlatformPKN5clang16AvailabilityAttrERKNS_10ASTContextE.exit
   %45 = icmp eq i64 %.sroa.2.0.copyload.i89, 0
   br i1 %45, label %_ZN4llvmneENS_9StringRefES0_.exit.thread193, label %_ZN4llvmneENS_9StringRefES0_.exit
 
@@ -15831,8 +15831,8 @@ _ZN4llvm11raw_ostreamlsEc.exit161:                ; preds = %283, %285
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #27
   br label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
-_ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit.thread, %_ZL19getRealizedPlatformPKN5clang16AvailabilityAttrERKNS_10ASTContextE.argprom.argprom.exit, %_ZN4llvmneENS_9StringRefES0_.exit, %.critedge4
-  %.0 = phi i32 [ %.1, %.critedge4 ], [ 0, %_ZN4llvmneENS_9StringRefES0_.exit ], [ 0, %_ZL19getRealizedPlatformPKN5clang16AvailabilityAttrERKNS_10ASTContextE.argprom.argprom.exit ], [ 0, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread ]
+_ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit.thread, %_ZL19getRealizedPlatformPKN5clang16AvailabilityAttrERKNS_10ASTContextE.exit, %_ZN4llvmneENS_9StringRefES0_.exit, %.critedge4
+  %.0 = phi i32 [ %.1, %.critedge4 ], [ 0, %_ZN4llvmneENS_9StringRefES0_.exit ], [ 0, %_ZL19getRealizedPlatformPKN5clang16AvailabilityAttrERKNS_10ASTContextE.exit ], [ 0, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread ]
   ret i32 %.0
 }
 
@@ -15944,7 +15944,7 @@ _ZNK5clang4Decl13getASTContextEv.exit:            ; preds = %1, %._crit_edge.i.i
   store i64 %52, ptr %40, align 8
   %53 = and i64 %.val20.val, 8388608
   %.not.i = icmp eq i64 %53, 0
-  br i1 %.not.i, label %_ZL19getRealizedPlatformPKN5clang16AvailabilityAttrERKNS_10ASTContextE.argprom.argprom.exit, label %54
+  br i1 %.not.i, label %_ZL19getRealizedPlatformPKN5clang16AvailabilityAttrERKNS_10ASTContextE.exit, label %54
 
 54:                                               ; preds = %47
   %55 = call noundef i64 @_ZNK4llvm9StringRef5rfindES0_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull @.str.225, i64 14) #27
@@ -15955,21 +15955,21 @@ _ZNK5clang4Decl13getASTContextEv.exit:            ; preds = %1, %._crit_edge.i.i
   %57 = load i64, ptr %40, align 8
   %58 = call i64 @llvm.umin.i64(i64 %55, i64 %57)
   %59 = load ptr, ptr %2, align 8
-  br label %_ZL19getRealizedPlatformPKN5clang16AvailabilityAttrERKNS_10ASTContextE.argprom.argprom.exit
+  br label %_ZL19getRealizedPlatformPKN5clang16AvailabilityAttrERKNS_10ASTContextE.exit
 
 60:                                               ; preds = %54
   %.sroa.0.0.copyload3.i = load ptr, ptr %2, align 8
   %.sroa.4.0.copyload5.i = load i64, ptr %40, align 8
-  br label %_ZL19getRealizedPlatformPKN5clang16AvailabilityAttrERKNS_10ASTContextE.argprom.argprom.exit
+  br label %_ZL19getRealizedPlatformPKN5clang16AvailabilityAttrERKNS_10ASTContextE.exit
 
-_ZL19getRealizedPlatformPKN5clang16AvailabilityAttrERKNS_10ASTContextE.argprom.argprom.exit: ; preds = %47, %56, %60
+_ZL19getRealizedPlatformPKN5clang16AvailabilityAttrERKNS_10ASTContextE.exit: ; preds = %47, %56, %60
   %.sroa.0.0.i = phi ptr [ %59, %56 ], [ %.sroa.0.0.copyload3.i, %60 ], [ %50, %47 ]
   %.sroa.4.0.i = phi i64 [ %58, %56 ], [ %.sroa.4.0.copyload5.i, %60 ], [ %52, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %.not.i.i = icmp eq i64 %.sroa.4.0.i, %.sroa.2.0.copyload.i
   br i1 %.not.i.i, label %61, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
-61:                                               ; preds = %_ZL19getRealizedPlatformPKN5clang16AvailabilityAttrERKNS_10ASTContextE.argprom.argprom.exit
+61:                                               ; preds = %_ZL19getRealizedPlatformPKN5clang16AvailabilityAttrERKNS_10ASTContextE.exit
   br i1 %41, label %_ZN4llvmneENS_9StringRefES0_.exit.thread37, label %_ZN4llvmneENS_9StringRefES0_.exit
 
 _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %61
@@ -15989,7 +15989,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread37:       ; preds = %61, %_ZN4llvmneENS_
   %or.cond41 = select i1 %or.cond.i, i1 %65, i1 false
   br i1 %or.cond41, label %_ZN4llvmneENS_9StringRefES0_.exit.thread, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread
 
-_ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread37, %_ZL19getRealizedPlatformPKN5clang16AvailabilityAttrERKNS_10ASTContextE.argprom.argprom.exit, %42, %_ZN4llvmneENS_9StringRefES0_.exit
+_ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread37, %_ZL19getRealizedPlatformPKN5clang16AvailabilityAttrERKNS_10ASTContextE.exit, %42, %_ZN4llvmneENS_9StringRefES0_.exit
   %66 = getelementptr inbounds i8, ptr %.045, i64 8
   %.not = icmp eq ptr %66, %38
   br i1 %.not, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread, label %42

@@ -914,21 +914,21 @@ lor.lhs.false.i:                                  ; preds = %entry
   %cmp.i.i.i = icmp ne i64 %and.i.i.i, 0
   %cmp.i.not.i.i = icmp eq ptr %obj.val.i, @Py_GenericAliasType
   %or.cond.i = or i1 %cmp.i.not.i.i, %cmp.i.i.i
-  br i1 %or.cond.i, label %lor.lhs.false, label %PyObject_TypeCheck.argprom.exit.i
+  br i1 %or.cond.i, label %lor.lhs.false, label %PyObject_TypeCheck.exit.i
 
-PyObject_TypeCheck.argprom.exit.i:                ; preds = %lor.lhs.false.i
+PyObject_TypeCheck.exit.i:                        ; preds = %lor.lhs.false.i
   %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %obj.val.i, ptr noundef nonnull @Py_GenericAliasType) #5
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %lor.lhs.false4.i, label %lor.lhs.false
 
-lor.lhs.false4.i:                                 ; preds = %PyObject_TypeCheck.argprom.exit.i
+lor.lhs.false4.i:                                 ; preds = %PyObject_TypeCheck.exit.i
   %obj.val5.i = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %obj.val5.i, @_PyUnion_Type
   %cmp.i8.not.i.not = icmp eq ptr %obj.val5.i, @_PyTypeAlias_Type
   %or.cond = or i1 %cmp.i.not.i, %cmp.i8.not.i.not
   br i1 %or.cond, label %lor.lhs.false, label %return
 
-lor.lhs.false:                                    ; preds = %entry, %lor.lhs.false.i, %PyObject_TypeCheck.argprom.exit.i, %lor.lhs.false4.i
+lor.lhs.false:                                    ; preds = %entry, %lor.lhs.false.i, %PyObject_TypeCheck.exit.i, %lor.lhs.false4.i
   %cmp.i6 = icmp eq ptr %other, @_Py_NoneStruct
   br i1 %cmp.i6, label %if.end, label %lor.lhs.false.i7
 
@@ -941,21 +941,21 @@ lor.lhs.false.i7:                                 ; preds = %lor.lhs.false
   %cmp.i.i.i11 = icmp ne i64 %and.i.i.i10, 0
   %cmp.i.not.i.i12 = icmp eq ptr %obj.val.i8, @Py_GenericAliasType
   %or.cond.i13 = or i1 %cmp.i.not.i.i12, %cmp.i.i.i11
-  br i1 %or.cond.i13, label %if.end, label %PyObject_TypeCheck.argprom.exit.i14
+  br i1 %or.cond.i13, label %if.end, label %PyObject_TypeCheck.exit.i14
 
-PyObject_TypeCheck.argprom.exit.i14:              ; preds = %lor.lhs.false.i7
+PyObject_TypeCheck.exit.i14:                      ; preds = %lor.lhs.false.i7
   %call2.i.i15 = tail call i32 @PyType_IsSubtype(ptr noundef %obj.val.i8, ptr noundef nonnull @Py_GenericAliasType) #5
   %tobool3.i.not.i16 = icmp eq i32 %call2.i.i15, 0
   br i1 %tobool3.i.not.i16, label %lor.lhs.false4.i18, label %if.end
 
-lor.lhs.false4.i18:                               ; preds = %PyObject_TypeCheck.argprom.exit.i14
+lor.lhs.false4.i18:                               ; preds = %PyObject_TypeCheck.exit.i14
   %obj.val5.i19 = load ptr, ptr %2, align 8
   %cmp.i.not.i20 = icmp eq ptr %obj.val5.i19, @_PyUnion_Type
   %cmp.i8.not.i22.not = icmp eq ptr %obj.val5.i19, @_PyTypeAlias_Type
   %or.cond64 = or i1 %cmp.i.not.i20, %cmp.i8.not.i22.not
   br i1 %or.cond64, label %if.end, label %return
 
-if.end:                                           ; preds = %lor.lhs.false, %lor.lhs.false.i7, %PyObject_TypeCheck.argprom.exit.i14, %lor.lhs.false4.i18
+if.end:                                           ; preds = %lor.lhs.false, %lor.lhs.false.i7, %PyObject_TypeCheck.exit.i14, %lor.lhs.false4.i18
   br i1 %cmp.i5, label %if.then.i, label %if.end.i26
 
 if.then.i:                                        ; preds = %if.end
@@ -1035,29 +1035,29 @@ for.body.i.us.i:                                  ; preds = %for.cond.i.us.i, %f
   %17 = getelementptr i8, ptr %16, i64 8
   %left.val.i.i.us.i = load ptr, ptr %17, align 8
   %cmp.i.not.i.i.i.us.i = icmp eq ptr %left.val.i.i.us.i, @Py_GenericAliasType
-  br i1 %cmp.i.not.i.i.i.us.i, label %land.rhs.i.i.us.i, label %PyObject_TypeCheck.argprom.exit.i.i.us.i
+  br i1 %cmp.i.not.i.i.i.us.i, label %land.rhs.i.i.us.i, label %PyObject_TypeCheck.exit.i.i.us.i
 
-PyObject_TypeCheck.argprom.exit.i.i.us.i:         ; preds = %for.body.i.us.i
+PyObject_TypeCheck.exit.i.i.us.i:                 ; preds = %for.body.i.us.i
   %call2.i.i.i.us.i = tail call i32 @PyType_IsSubtype(ptr noundef %left.val.i.i.us.i, ptr noundef nonnull @Py_GenericAliasType) #5
   %tobool3.i.not.i.i.us.i = icmp eq i32 %call2.i.i.i.us.i, 0
   br i1 %tobool3.i.not.i.i.us.i, label %cond.false.i.i.us.i, label %land.rhs.i.i.us.i
 
-land.rhs.i.i.us.i:                                ; preds = %PyObject_TypeCheck.argprom.exit.i.i.us.i, %for.body.i.us.i
+land.rhs.i.i.us.i:                                ; preds = %PyObject_TypeCheck.exit.i.i.us.i, %for.body.i.us.i
   %right.val.i.i.us.i = load ptr, ptr %15, align 8
   %cmp.i.not.i5.i.i.us.i = icmp eq ptr %right.val.i.i.us.i, @Py_GenericAliasType
-  br i1 %cmp.i.not.i5.i.i.us.i, label %cond.true.i.i.us.i, label %PyObject_TypeCheck.argprom.exit10.i.i.us.i
+  br i1 %cmp.i.not.i5.i.i.us.i, label %cond.true.i.i.us.i, label %PyObject_TypeCheck.exit10.i.i.us.i
 
-PyObject_TypeCheck.argprom.exit10.i.i.us.i:       ; preds = %land.rhs.i.i.us.i
+PyObject_TypeCheck.exit10.i.i.us.i:               ; preds = %land.rhs.i.i.us.i
   %call2.i7.i.i.us.i = tail call i32 @PyType_IsSubtype(ptr noundef %right.val.i.i.us.i, ptr noundef nonnull @Py_GenericAliasType) #5
   %tobool3.i8.not.i.i.us.i = icmp eq i32 %call2.i7.i.i.us.i, 0
   br i1 %tobool3.i8.not.i.i.us.i, label %cond.false.i.i.us.i, label %cond.true.i.i.us.i
 
-cond.false.i.i.us.i:                              ; preds = %PyObject_TypeCheck.argprom.exit10.i.i.us.i, %PyObject_TypeCheck.argprom.exit.i.i.us.i
+cond.false.i.i.us.i:                              ; preds = %PyObject_TypeCheck.exit10.i.i.us.i, %PyObject_TypeCheck.exit.i.i.us.i
   %cmp.i.i.us.i = icmp eq ptr %16, %14
   %conv.i.i.us.i = zext i1 %cmp.i.i.us.i to i32
   br label %is_same.exit.i.us.i
 
-cond.true.i.i.us.i:                               ; preds = %PyObject_TypeCheck.argprom.exit10.i.i.us.i, %land.rhs.i.i.us.i
+cond.true.i.i.us.i:                               ; preds = %PyObject_TypeCheck.exit10.i.i.us.i, %land.rhs.i.i.us.i
   %call4.i.i.us.i = tail call i32 @PyObject_RichCompareBool(ptr noundef nonnull %16, ptr noundef nonnull %14, i32 noundef 2) #5
   br label %is_same.exit.i.us.i
 

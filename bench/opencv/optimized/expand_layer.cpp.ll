@@ -1066,7 +1066,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ExpandLayerImpl8finalizeERKNS_11_In
   %10 = sext i32 %.val to i64
   %.idx = shl nsw i64 %10, 2
   %.not = icmp eq i32 %.val, 0
-  br i1 %.not, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit, label %11
+  br i1 %.not, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit, label %11
 
 11:                                               ; preds = %6
   %12 = icmp slt i32 %.val, 0
@@ -1086,14 +1086,14 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %11
 .noexc37:                                         ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %14, ptr align 4 %.val25, i64 %.idx, i1 false)
   %15 = getelementptr inbounds i8, ptr %14, i64 %.idx
-  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
+  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i.i:                ; preds = %13, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit: ; preds = %6, %.noexc37
+_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %6, %.noexc37
   %.sroa.13.1 = phi ptr [ %15, %.noexc37 ], [ null, %6 ]
   %.sroa.083.2 = phi ptr [ %14, %.noexc37 ], [ null, %6 ]
   %17 = getelementptr inbounds i8, ptr %0, i64 128
@@ -1101,7 +1101,7 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit: ; preds = %6, %.noexc
   %19 = trunc i8 %18 to i1
   br i1 %19, label %20, label %_ZNSt6vectorIiSaIiEEaSESt16initializer_listIiE.exit
 
-20:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
+20:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
   %21 = load i32, ptr %.sroa.083.2, align 4
   store i32 %21, ptr %5, align 4
   %22 = ptrtoint ptr %.sroa.13.1 to i64
@@ -1153,9 +1153,9 @@ _ZSt22__uninitialized_copy_aIPKiPiiET0_T_S4_S3_RSaIT1_E.exit.i51: ; preds = %32,
           cleanup
   br label %87
 
-_ZNSt6vectorIiSaIiEEaSESt16initializer_listIiE.exit: ; preds = %30, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i57, %_ZSt22__uninitialized_copy_aIPKiPiiET0_T_S4_S3_RSaIT1_E.exit.i51, %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
-  %.sroa.13.0 = phi ptr [ %.sroa.13.1, %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit ], [ %28, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i57 ], [ %33, %_ZSt22__uninitialized_copy_aIPKiPiiET0_T_S4_S3_RSaIT1_E.exit.i51 ], [ %31, %30 ]
-  %.sroa.083.0 = phi ptr [ %.sroa.083.2, %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit ], [ %27, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i57 ], [ %.sroa.083.2, %_ZSt22__uninitialized_copy_aIPKiPiiET0_T_S4_S3_RSaIT1_E.exit.i51 ], [ %.sroa.083.2, %30 ]
+_ZNSt6vectorIiSaIiEEaSESt16initializer_listIiE.exit: ; preds = %30, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i57, %_ZSt22__uninitialized_copy_aIPKiPiiET0_T_S4_S3_RSaIT1_E.exit.i51, %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
+  %.sroa.13.0 = phi ptr [ %.sroa.13.1, %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit ], [ %28, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i57 ], [ %33, %_ZSt22__uninitialized_copy_aIPKiPiiET0_T_S4_S3_RSaIT1_E.exit.i51 ], [ %31, %30 ]
+  %.sroa.083.0 = phi ptr [ %.sroa.083.2, %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit ], [ %27, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i57 ], [ %.sroa.083.2, %_ZSt22__uninitialized_copy_aIPKiPiiET0_T_S4_S3_RSaIT1_E.exit.i51 ], [ %.sroa.083.2, %30 ]
   %37 = ptrtoint ptr %.sroa.13.0 to i64
   %38 = ptrtoint ptr %.sroa.083.0 to i64
   %39 = sub i64 %37, %38

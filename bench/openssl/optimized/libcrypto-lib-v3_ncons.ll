@@ -172,7 +172,7 @@ return:                                           ; preds = %for.cond, %for.cond
 define internal noundef i32 @i2r_NAME_CONSTRAINTS(ptr nocapture readnone %method, ptr nocapture noundef readonly %a, ptr noundef %bp, i32 noundef %ind) #1 {
 entry:
   %0 = load ptr, ptr %a, align 8
-  tail call fastcc void @do_i2r_name_constraints.argprom.retelim(ptr noundef %0, ptr noundef %bp, i32 noundef %ind, ptr noundef nonnull @.str.10)
+  tail call fastcc void @do_i2r_name_constraints(ptr noundef %0, ptr noundef %bp, i32 noundef %ind, ptr noundef nonnull @.str.10)
   %1 = load ptr, ptr %a, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -190,7 +190,7 @@ if.then:                                          ; preds = %land.lhs.true
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
   %excludedSubtrees4 = getelementptr inbounds i8, ptr %a, i64 8
   %3 = load ptr, ptr %excludedSubtrees4, align 8
-  tail call fastcc void @do_i2r_name_constraints.argprom.retelim(ptr noundef %3, ptr noundef %bp, i32 noundef %ind, ptr noundef nonnull @.str.12)
+  tail call fastcc void @do_i2r_name_constraints(ptr noundef %3, ptr noundef %bp, i32 noundef %ind, ptr noundef nonnull @.str.12)
   ret i32 1
 }
 
@@ -399,7 +399,7 @@ if.end20:                                         ; preds = %land.lhs.true11, %l
   %tobool.not.i = icmp eq ptr %call7.val34, null
   %spec.store.select.i = zext i1 %tobool.not.i to i32
   %tobool1.not.i = icmp eq ptr %call7.val, null
-  br i1 %tobool1.not.i, label %nc_minmax_valid.argprom.exit, label %if.then2.i
+  br i1 %tobool1.not.i, label %nc_minmax_valid.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end20
   %call.i = tail call ptr @ASN1_INTEGER_to_BN(ptr noundef nonnull %call7.val, ptr noundef null) #9
@@ -417,14 +417,14 @@ if.then6.i:                                       ; preds = %lor.lhs.false.i, %i
 if.end7.i:                                        ; preds = %if.then6.i, %lor.lhs.false.i
   %ok.1.i = phi i32 [ 0, %if.then6.i ], [ %spec.store.select.i, %lor.lhs.false.i ]
   tail call void @BN_free(ptr noundef %call.i) #9
-  br label %nc_minmax_valid.argprom.exit
+  br label %nc_minmax_valid.exit
 
-nc_minmax_valid.argprom.exit:                     ; preds = %if.end20, %if.end7.i
+nc_minmax_valid.exit:                             ; preds = %if.end20, %if.end7.i
   %ok.0.i = phi i32 [ %ok.1.i, %if.end7.i ], [ %spec.store.select.i, %if.end20 ]
   %tobool.not = icmp eq i32 %ok.0.i, 0
   br i1 %tobool.not, label %return, label %if.end23
 
-if.end23:                                         ; preds = %nc_minmax_valid.argprom.exit
+if.end23:                                         ; preds = %nc_minmax_valid.exit
   %cmp24 = icmp eq i32 %match.056, 2
   br i1 %cmp24, label %for.inc, label %if.end26
 
@@ -490,7 +490,7 @@ if.end63.us:                                      ; preds = %lor.lhs.false52.us
   %tobool.not.i36.us = icmp eq ptr %call48.val35.us, null
   %spec.store.select.i37.us = zext i1 %tobool.not.i36.us to i32
   %tobool1.not.i38.us = icmp eq ptr %call48.val.us, null
-  br i1 %tobool1.not.i38.us, label %nc_minmax_valid.argprom.exit49.us, label %if.then2.i39.us
+  br i1 %tobool1.not.i38.us, label %nc_minmax_valid.exit49.us, label %if.then2.i39.us
 
 if.then2.i39.us:                                  ; preds = %if.end63.us
   %call.i40.us = tail call ptr @ASN1_INTEGER_to_BN(ptr noundef nonnull %call48.val.us, ptr noundef null) #9
@@ -508,14 +508,14 @@ if.then6.i48.us:                                  ; preds = %lor.lhs.false.i42.u
 if.end7.i45.us:                                   ; preds = %if.then6.i48.us, %lor.lhs.false.i42.us
   %ok.1.i46.us = phi i32 [ 0, %if.then6.i48.us ], [ %spec.store.select.i37.us, %lor.lhs.false.i42.us ]
   tail call void @BN_free(ptr noundef %call.i40.us) #9
-  br label %nc_minmax_valid.argprom.exit49.us
+  br label %nc_minmax_valid.exit49.us
 
-nc_minmax_valid.argprom.exit49.us:                ; preds = %if.end7.i45.us, %if.end63.us
+nc_minmax_valid.exit49.us:                        ; preds = %if.end7.i45.us, %if.end63.us
   %ok.0.i47.us = phi i32 [ %ok.1.i46.us, %if.end7.i45.us ], [ %spec.store.select.i37.us, %if.end63.us ]
   %tobool65.not.us = icmp eq i32 %ok.0.i47.us, 0
   br i1 %tobool65.not.us, label %return, label %if.end67.us
 
-if.end67.us:                                      ; preds = %nc_minmax_valid.argprom.exit49.us
+if.end67.us:                                      ; preds = %nc_minmax_valid.exit49.us
   %26 = load ptr, ptr %call48.us, align 8
   %call69.us = tail call fastcc i32 @nc_match_single(i32 noundef 0, ptr noundef nonnull %gen, ptr noundef %26)
   switch i32 %call69.us, label %return [
@@ -547,7 +547,7 @@ lor.lhs.false52:                                  ; preds = %for.body45
   %tobool.not.i36 = icmp eq ptr %call48.val35, null
   %spec.store.select.i37 = zext i1 %tobool.not.i36 to i32
   %tobool1.not.i38 = icmp eq ptr %call48.val, null
-  br i1 %tobool1.not.i38, label %nc_minmax_valid.argprom.exit49, label %if.then2.i39
+  br i1 %tobool1.not.i38, label %nc_minmax_valid.exit49, label %if.then2.i39
 
 if.then2.i39:                                     ; preds = %lor.lhs.false52
   %call.i40 = tail call ptr @ASN1_INTEGER_to_BN(ptr noundef nonnull %call48.val, ptr noundef null) #9
@@ -565,14 +565,14 @@ if.then6.i48:                                     ; preds = %lor.lhs.false.i42, 
 if.end7.i45:                                      ; preds = %if.then6.i48, %lor.lhs.false.i42
   %ok.1.i46 = phi i32 [ 0, %if.then6.i48 ], [ %spec.store.select.i37, %lor.lhs.false.i42 ]
   tail call void @BN_free(ptr noundef %call.i40) #9
-  br label %nc_minmax_valid.argprom.exit49
+  br label %nc_minmax_valid.exit49
 
-nc_minmax_valid.argprom.exit49:                   ; preds = %lor.lhs.false52, %if.end7.i45
+nc_minmax_valid.exit49:                           ; preds = %lor.lhs.false52, %if.end7.i45
   %ok.0.i47 = phi i32 [ %ok.1.i46, %if.end7.i45 ], [ %spec.store.select.i37, %lor.lhs.false52 ]
   %tobool65.not = icmp eq i32 %ok.0.i47, 0
   br i1 %tobool65.not, label %return, label %if.end67
 
-if.end67:                                         ; preds = %nc_minmax_valid.argprom.exit49
+if.end67:                                         ; preds = %nc_minmax_valid.exit49
   %33 = load ptr, ptr %call48, align 8
   %call69 = tail call fastcc i32 @nc_match_single(i32 noundef %effective_type.0.fr, ptr noundef nonnull %gen, ptr noundef %33)
   switch i32 %call69, label %return [
@@ -593,8 +593,8 @@ return.loopexit:                                  ; preds = %if.end67.us
 return.loopexit82:                                ; preds = %if.end67
   br label %return
 
-return:                                           ; preds = %if.else, %nc_minmax_valid.argprom.exit, %nc_minmax_valid.argprom.exit49, %for.inc77, %nc_minmax_valid.argprom.exit49.us, %for.inc77.us, %if.end67, %if.end67.us, %return.loopexit82, %return.loopexit, %for.cond41.preheader, %for.end
-  %retval.0 = phi i32 [ 47, %for.end ], [ 0, %for.cond41.preheader ], [ %call69.us, %if.end67.us ], [ %call69, %if.end67 ], [ 49, %nc_minmax_valid.argprom.exit49.us ], [ 0, %for.inc77.us ], [ 48, %return.loopexit ], [ 49, %nc_minmax_valid.argprom.exit49 ], [ 0, %for.inc77 ], [ 48, %return.loopexit82 ], [ %call31, %if.else ], [ 49, %nc_minmax_valid.argprom.exit ]
+return:                                           ; preds = %if.else, %nc_minmax_valid.exit, %nc_minmax_valid.exit49, %for.inc77, %nc_minmax_valid.exit49.us, %for.inc77.us, %if.end67, %if.end67.us, %return.loopexit82, %return.loopexit, %for.cond41.preheader, %for.end
+  %retval.0 = phi i32 [ 47, %for.end ], [ 0, %for.cond41.preheader ], [ %call69.us, %if.end67.us ], [ %call69, %if.end67 ], [ 49, %nc_minmax_valid.exit49.us ], [ 0, %for.inc77.us ], [ 48, %return.loopexit ], [ 49, %nc_minmax_valid.exit49 ], [ 0, %for.inc77 ], [ 48, %return.loopexit82 ], [ %call31, %if.else ], [ 49, %nc_minmax_valid.exit ]
   ret i32 %retval.0
 }
 
@@ -791,7 +791,7 @@ declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #2
 declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_i2r_name_constraints.argprom.retelim(ptr noundef %trees, ptr noundef %bp, i32 noundef %ind, ptr noundef %name) unnamed_addr #1 {
+define internal fastcc void @do_i2r_name_constraints(ptr noundef %trees, ptr noundef %bp, i32 noundef %ind, ptr noundef %name) unnamed_addr #1 {
 entry:
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %trees) #9
   %cmp = icmp sgt i32 %call1, 0

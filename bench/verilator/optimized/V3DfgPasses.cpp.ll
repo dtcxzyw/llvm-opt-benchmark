@@ -1258,20 +1258,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %.not6.i.i = icmp eq ptr %22, %23
   br i1 %.not6.i.i, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZL9getPrefixRKS8_E3$_0ET0_T_SE_SD_T1_.exit.i", label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.noexc, %"_ZZL9getPrefixRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEh.argprom.exit.i.i"
-  %.sroa.0.08.i.i = phi ptr [ %33, %"_ZZL9getPrefixRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEh.argprom.exit.i.i" ], [ %24, %.noexc ]
-  %.sroa.03.07.i.i = phi ptr [ %32, %"_ZZL9getPrefixRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEh.argprom.exit.i.i" ], [ %22, %.noexc ]
+.lr.ph.i.i:                                       ; preds = %.noexc, %"_ZZL9getPrefixRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEh.exit.i.i"
+  %.sroa.0.08.i.i = phi ptr [ %33, %"_ZZL9getPrefixRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEh.exit.i.i" ], [ %24, %.noexc ]
+  %.sroa.03.07.i.i = phi ptr [ %32, %"_ZZL9getPrefixRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEh.exit.i.i" ], [ %22, %.noexc ]
   %25 = load i8, ptr %.sroa.03.07.i.i, align 1
   %26 = icmp eq i8 %25, 32
-  br i1 %26, label %"_ZZL9getPrefixRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEh.argprom.exit.i.i", label %27
+  br i1 %26, label %"_ZZL9getPrefixRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEh.exit.i.i", label %27
 
 27:                                               ; preds = %.lr.ph.i.i
   %28 = zext i8 %25 to i32
   %29 = tail call i32 @tolower(i32 noundef %28) #30
   %30 = trunc i32 %29 to i8
-  br label %"_ZZL9getPrefixRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEh.argprom.exit.i.i"
+  br label %"_ZZL9getPrefixRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEh.exit.i.i"
 
-"_ZZL9getPrefixRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEh.argprom.exit.i.i": ; preds = %27, %.lr.ph.i.i
+"_ZZL9getPrefixRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEh.exit.i.i": ; preds = %27, %.lr.ph.i.i
   %31 = phi i8 [ %30, %27 ], [ 45, %.lr.ph.i.i ]
   store i8 %31, ptr %.sroa.0.08.i.i, align 1
   %32 = getelementptr inbounds i8, ptr %.sroa.03.07.i.i, i64 1
@@ -1279,7 +1279,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %.not.i.i = icmp eq ptr %32, %23
   br i1 %.not.i.i, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZL9getPrefixRKS8_E3$_0ET0_T_SE_SD_T1_.exit.i", label %.lr.ph.i.i, !llvm.loop !10
 
-"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZL9getPrefixRKS8_E3$_0ET0_T_SE_SD_T1_.exit.i": ; preds = %"_ZZL9getPrefixRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEh.argprom.exit.i.i", %.noexc
+"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZL9getPrefixRKS8_E3$_0ET0_T_SE_SD_T1_.exit.i": ; preds = %"_ZZL9getPrefixRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEh.exit.i.i", %.noexc
   %34 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.39)
           to label %37 unwind label %35
 
@@ -1895,20 +1895,20 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %.not6.i = icmp eq ptr %110, %111
   br i1 %.not6.i, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZN24V3DfgOptimizationContextD1EvE3$_0ET0_T_SD_SC_T1_.exit", label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %109, %"_ZZN24V3DfgOptimizationContextD1EvENK3$_0clEh.argprom.exit.i"
-  %.sroa.0.08.i = phi ptr [ %121, %"_ZZN24V3DfgOptimizationContextD1EvENK3$_0clEh.argprom.exit.i" ], [ %112, %109 ]
-  %.sroa.03.07.i = phi ptr [ %120, %"_ZZN24V3DfgOptimizationContextD1EvENK3$_0clEh.argprom.exit.i" ], [ %110, %109 ]
+.lr.ph.i:                                         ; preds = %109, %"_ZZN24V3DfgOptimizationContextD1EvENK3$_0clEh.exit.i"
+  %.sroa.0.08.i = phi ptr [ %121, %"_ZZN24V3DfgOptimizationContextD1EvENK3$_0clEh.exit.i" ], [ %112, %109 ]
+  %.sroa.03.07.i = phi ptr [ %120, %"_ZZN24V3DfgOptimizationContextD1EvENK3$_0clEh.exit.i" ], [ %110, %109 ]
   %113 = load i8, ptr %.sroa.03.07.i, align 1
   %114 = icmp eq i8 %113, 32
-  br i1 %114, label %"_ZZN24V3DfgOptimizationContextD1EvENK3$_0clEh.argprom.exit.i", label %115
+  br i1 %114, label %"_ZZN24V3DfgOptimizationContextD1EvENK3$_0clEh.exit.i", label %115
 
 115:                                              ; preds = %.lr.ph.i
   %116 = zext i8 %113 to i32
   %117 = call i32 @tolower(i32 noundef %116) #30
   %118 = trunc i32 %117 to i8
-  br label %"_ZZN24V3DfgOptimizationContextD1EvENK3$_0clEh.argprom.exit.i"
+  br label %"_ZZN24V3DfgOptimizationContextD1EvENK3$_0clEh.exit.i"
 
-"_ZZN24V3DfgOptimizationContextD1EvENK3$_0clEh.argprom.exit.i": ; preds = %115, %.lr.ph.i
+"_ZZN24V3DfgOptimizationContextD1EvENK3$_0clEh.exit.i": ; preds = %115, %.lr.ph.i
   %119 = phi i8 [ %118, %115 ], [ 95, %.lr.ph.i ]
   store i8 %119, ptr %.sroa.0.08.i, align 1
   %120 = getelementptr inbounds i8, ptr %.sroa.03.07.i, i64 1
@@ -1916,7 +1916,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %.not.i = icmp eq ptr %120, %111
   br i1 %.not.i, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZN24V3DfgOptimizationContextD1EvE3$_0ET0_T_SD_SC_T1_.exit", label %.lr.ph.i, !llvm.loop !12
 
-"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZN24V3DfgOptimizationContextD1EvE3$_0ET0_T_SD_SC_T1_.exit": ; preds = %"_ZZN24V3DfgOptimizationContextD1EvENK3$_0clEh.argprom.exit.i", %109
+"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZN24V3DfgOptimizationContextD1EvE3$_0ET0_T_SD_SC_T1_.exit": ; preds = %"_ZZN24V3DfgOptimizationContextD1EvENK3$_0clEh.exit.i", %109
   invoke void @_ZNK9V3Options14hierTopDataDirB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %23, ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds (i8, ptr @v3Global, i64 152))
           to label %122 unwind label %201
 
@@ -10921,13 +10921,13 @@ define internal void @"_ZNSt17_Function_handlerIFvR7DfgEdgeEZN11V3DfgPasses10inl
   %11 = load i64, ptr %10, align 4
   %12 = and i64 %11, 16
   %.not2.i.i.i = icmp eq i64 %12, 0
-  br i1 %.not2.i.i.i, label %13, label %"_ZSt10__invoke_rIvRZN11V3DfgPasses10inlineVarsER8DfgGraphE3$_0JR7DfgEdgeEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br i1 %.not2.i.i.i, label %13, label %"_ZSt10__invoke_rIvRZN11V3DfgPasses10inlineVarsER8DfgGraphE3$_0JR7DfgEdgeEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 13:                                               ; preds = %7, %2
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %.val)
-  br label %"_ZSt10__invoke_rIvRZN11V3DfgPasses10inlineVarsER8DfgGraphE3$_0JR7DfgEdgeEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN11V3DfgPasses10inlineVarsER8DfgGraphE3$_0JR7DfgEdgeEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
-"_ZSt10__invoke_rIvRZN11V3DfgPasses10inlineVarsER8DfgGraphE3$_0JR7DfgEdgeEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %7, %13
+"_ZSt10__invoke_rIvRZN11V3DfgPasses10inlineVarsER8DfgGraphE3$_0JR7DfgEdgeEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %7, %13
   ret void
 }
 
@@ -11135,14 +11135,14 @@ _ZN7AstNode9privateAsI6AstVarPS_EEPT_S2_.exit.i:  ; preds = %14, %5
   %30 = getelementptr inbounds i8, ptr %1, i64 72
   %31 = load ptr, ptr %30, align 8
   %.not.i.i.i.i = icmp eq ptr %31, %29
-  br i1 %.not.i.i.i.i, label %"_ZZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextENK3$_1clEP9AstVarRef.argprom.exit", label %32
+  br i1 %.not.i.i.i.i, label %"_ZZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextENK3$_1clEP9AstVarRef.exit", label %32
 
 32:                                               ; preds = %27
   store ptr %29, ptr %30, align 8
   %33 = load i64, ptr @_ZN7AstNode12s_editCntGblE, align 8
   %34 = add i64 %33, 1
   store i64 %34, ptr @_ZN7AstNode12s_editCntGblE, align 8
-  br label %"_ZZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextENK3$_1clEP9AstVarRef.argprom.exit"
+  br label %"_ZZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextENK3$_1clEP9AstVarRef.exit"
 
 35:                                               ; preds = %2
   %36 = getelementptr inbounds i8, ptr %1, i64 48
@@ -11193,7 +11193,7 @@ _ZN7AstNode9privateAsI6AstVarPS_EEPT_S2_.exit.i:  ; preds = %14, %5
   %60 = getelementptr inbounds i8, ptr %1, i64 24
   %61 = load ptr, ptr %60, align 8
   %.not21 = icmp eq ptr %61, null
-  br i1 %.not21, label %"_ZZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextENK3$_1clEP9AstVarRef.argprom.exit", label %62
+  br i1 %.not21, label %"_ZZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextENK3$_1clEP9AstVarRef.exit", label %62
 
 62:                                               ; preds = %59
   %63 = getelementptr inbounds i8, ptr %0, i64 8
@@ -11202,9 +11202,9 @@ _ZN7AstNode9privateAsI6AstVarPS_EEPT_S2_.exit.i:  ; preds = %14, %5
   %66 = getelementptr inbounds i8, ptr %65, i64 8
   store ptr %66, ptr %64, align 8
   store ptr %61, ptr %65, align 8
-  br label %"_ZZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextENK3$_1clEP9AstVarRef.argprom.exit"
+  br label %"_ZZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextENK3$_1clEP9AstVarRef.exit"
 
-"_ZZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextENK3$_1clEP9AstVarRef.argprom.exit": ; preds = %32, %27, %59, %62
+"_ZZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextENK3$_1clEP9AstVarRef.exit": ; preds = %32, %27, %59, %62
   ret void
 }
 

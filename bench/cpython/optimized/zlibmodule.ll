@@ -418,22 +418,22 @@ while.end.i:                                      ; preds = %while.body.i, %if.t
   %conv8.i = trunc nuw i64 %len2.0.lcssa.i to i32
   %call9.i = call i64 @adler32(i64 noundef %conv7.i, ptr noundef %buf.0.lcssa.i, i32 noundef %conv8.i) #6
   call void @PyEval_RestoreThread(ptr noundef %call.i) #6
-  br label %zlib_adler32_impl.argprom.exit
+  br label %zlib_adler32_impl.exit
 
 if.else.i:                                        ; preds = %skip_optional
   %conv11.i = zext i32 %value.0 to i64
   %conv14.i = trunc i64 %data.val6 to i32
   %call15.i = call i64 @adler32(i64 noundef %conv11.i, ptr noundef %data.val, i32 noundef %conv14.i) #6
-  br label %zlib_adler32_impl.argprom.exit
+  br label %zlib_adler32_impl.exit
 
-zlib_adler32_impl.argprom.exit:                   ; preds = %while.end.i, %if.else.i
+zlib_adler32_impl.exit:                           ; preds = %while.end.i, %if.else.i
   %value.addr.1.in.i = phi i64 [ %call9.i, %while.end.i ], [ %call15.i, %if.else.i ]
   %conv17.i = and i64 %value.addr.1.in.i, 4294967295
   %call18.i = call ptr @PyLong_FromUnsignedLong(i64 noundef %conv17.i) #6
   br label %exit
 
-exit:                                             ; preds = %land.lhs.true13, %if.end, %lor.lhs.false, %zlib_adler32_impl.argprom.exit
-  %return_value.0 = phi ptr [ null, %if.end ], [ %call18.i, %zlib_adler32_impl.argprom.exit ], [ null, %land.lhs.true13 ], [ null, %lor.lhs.false ]
+exit:                                             ; preds = %land.lhs.true13, %if.end, %lor.lhs.false, %zlib_adler32_impl.exit
+  %return_value.0 = phi ptr [ null, %if.end ], [ %call18.i, %zlib_adler32_impl.exit ], [ null, %land.lhs.true13 ], [ null, %lor.lhs.false ]
   %obj = getelementptr inbounds i8, ptr %data, i64 8
   %4 = load ptr, ptr %obj, align 8
   %tobool19.not = icmp eq ptr %4, null
@@ -700,7 +700,7 @@ if.then32.i:                                      ; preds = %do.end29.i
 if.else.i:                                        ; preds = %do.end29.i
   %22 = getelementptr inbounds i8, ptr %zst.i, i64 48
   %zst.val13.i = load ptr, ptr %22, align 8
-  call fastcc void @zlib_error.argprom(ptr noundef %call.i.i, ptr %zst.val13.i, i32 noundef %call30.i, ptr noundef nonnull @.str.14)
+  call fastcc void @zlib_error(ptr noundef %call.i.i, ptr %zst.val13.i, i32 noundef %call30.i, ptr noundef nonnull @.str.14)
   br label %error.i
 
 error.i:                                          ; preds = %if.else.i, %if.then32.i, %if.then22.i, %if.then15.i, %if.else.i.i, %if.then11.i.i, %sw.bb4.i, %sw.bb3.i, %OutputBuffer_InitAndGrow.exit.thread.i
@@ -1108,26 +1108,26 @@ while.end.i:                                      ; preds = %while.body.i, %if.t
   %conv8.i = trunc nuw nsw i64 %len2.0.lcssa.i to i32
   %call9.i = call i64 @crc32(i64 noundef %conv7.i, ptr noundef %buf.0.lcssa.i, i32 noundef %conv8.i) #6
   call void @PyEval_RestoreThread(ptr noundef %call.i) #6
-  br label %zlib_crc32_impl.argprom.exit
+  br label %zlib_crc32_impl.exit
 
 if.else.i:                                        ; preds = %skip_optional
   %conv11.i = zext i32 %value.0 to i64
   %conv14.i = trunc i64 %data.val7 to i32
   %call15.i = call i64 @crc32(i64 noundef %conv11.i, ptr noundef %data.val, i32 noundef %conv14.i) #6
-  br label %zlib_crc32_impl.argprom.exit
+  br label %zlib_crc32_impl.exit
 
-zlib_crc32_impl.argprom.exit:                     ; preds = %while.end.i, %if.else.i
+zlib_crc32_impl.exit:                             ; preds = %while.end.i, %if.else.i
   %value.addr.1.in.i = phi i64 [ %call9.i, %while.end.i ], [ %call15.i, %if.else.i ]
   %4 = and i64 %value.addr.1.in.i, 4294967295
   %cmp19 = icmp eq i64 %4, 4294967295
   br i1 %cmp19, label %land.lhs.true21, label %if.end25
 
-land.lhs.true21:                                  ; preds = %zlib_crc32_impl.argprom.exit
+land.lhs.true21:                                  ; preds = %zlib_crc32_impl.exit
   %call22 = call ptr @PyErr_Occurred() #6
   %tobool23.not = icmp eq ptr %call22, null
   br i1 %tobool23.not, label %if.end25, label %exit
 
-if.end25:                                         ; preds = %land.lhs.true21, %zlib_crc32_impl.argprom.exit
+if.end25:                                         ; preds = %land.lhs.true21, %zlib_crc32_impl.exit
   %call27 = call ptr @PyLong_FromUnsignedLong(i64 noundef %4) #6
   br label %exit
 
@@ -1485,7 +1485,7 @@ do.end37.i:                                       ; preds = %do.cond34.i
 if.then39.i:                                      ; preds = %do.end37.i
   %27 = getelementptr inbounds i8, ptr %zst.i, i64 48
   %zst.val16.i = load ptr, ptr %27, align 8
-  call fastcc void @zlib_error.argprom(ptr noundef %call.i.i, ptr %zst.val16.i, i32 noundef %call25.i, ptr noundef nonnull @.str.37)
+  call fastcc void @zlib_error(ptr noundef %call.i.i, ptr %zst.val16.i, i32 noundef %call25.i, ptr noundef nonnull @.str.37)
   br label %error.i
 
 if.end41.i:                                       ; preds = %do.end37.i
@@ -1495,7 +1495,7 @@ if.end41.i:                                       ; preds = %do.end37.i
 if.then44.i:                                      ; preds = %if.end41.i
   %28 = getelementptr inbounds i8, ptr %zst.i, i64 48
   %zst.val.i = load ptr, ptr %28, align 8
-  call fastcc void @zlib_error.argprom(ptr noundef %call.i.i, ptr %zst.val.i, i32 noundef %call40.i, ptr noundef nonnull @.str.38)
+  call fastcc void @zlib_error(ptr noundef %call.i.i, ptr %zst.val.i, i32 noundef %call40.i, ptr noundef nonnull @.str.38)
   br label %error.i
 
 if.end45.i:                                       ; preds = %if.end41.i
@@ -1766,22 +1766,22 @@ if.then11.i.i:                                    ; preds = %if.then6.i.i
   %ZlibError.i.i = getelementptr inbounds i8, ptr %call.i.i35, i64 24
   %17 = load ptr, ptr %ZlibError.i.i, align 8
   %call.i32.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %17, ptr noundef nonnull @.str.19, i32 noundef %call16.i, ptr noundef nonnull @.str.42) #6
-  br label %zlib_error.argprom.exit.i
+  br label %zlib_error.exit.i
 
 if.else.i.i:                                      ; preds = %sw.bb8.i.i, %sw.bb7.i.i, %if.then6.i.i, %sw.default.i
   %zmsg.1.ph.i.i = phi ptr [ %zmsg.0.i.i, %sw.default.i ], [ @.str.17, %sw.bb7.i.i ], [ @.str.18, %sw.bb8.i.i ], [ @.str.16, %if.then6.i.i ]
   %ZlibError12.i.i = getelementptr inbounds i8, ptr %call.i.i35, i64 24
   %18 = load ptr, ptr %ZlibError12.i.i, align 8
   %call13.i.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.20, i32 noundef %call16.i, ptr noundef nonnull @.str.42, ptr noundef nonnull %zmsg.1.ph.i.i) #6
-  br label %zlib_error.argprom.exit.i
+  br label %zlib_error.exit.i
 
-zlib_error.argprom.exit.i:                        ; preds = %if.else.i.i, %if.then11.i.i
+zlib_error.exit.i:                                ; preds = %if.else.i.i, %if.then11.i.i
   %19 = load i64, ptr %call2.i, align 8
   %20 = and i64 %19, 2147483648
   %cmp.i69.not.i = icmp eq i64 %20, 0
   br i1 %cmp.i69.not.i, label %if.end.i.i, label %exit
 
-if.end.i.i:                                       ; preds = %zlib_error.argprom.exit.i
+if.end.i.i:                                       ; preds = %zlib_error.exit.i
   %dec.i.i = add i64 %19, -1
   store i64 %dec.i.i, ptr %call2.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
@@ -1791,8 +1791,8 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   call void @_Py_Dealloc(ptr noundef nonnull %call2.i) #6
   br label %exit
 
-exit:                                             ; preds = %if.then1.i.i, %if.end.i.i, %zlib_error.argprom.exit.i, %Py_DECREF.exit38.i, %Py_DECREF.exit47.i, %if.then1.i54.i, %if.end.i51.i, %if.then24.i, %if.then21.i, %sw.bb.i, %if.end.i, %if.then.i, %land.lhs.true20, %cond.end9
-  %return_value.0 = phi ptr [ null, %land.lhs.true20 ], [ null, %cond.end9 ], [ null, %Py_DECREF.exit38.i ], [ null, %Py_DECREF.exit47.i ], [ null, %if.then.i ], [ null, %if.end.i ], [ null, %if.then24.i ], [ null, %if.then1.i54.i ], [ null, %if.end.i51.i ], [ %call2.i, %if.then21.i ], [ %call2.i, %sw.bb.i ], [ null, %zlib_error.argprom.exit.i ], [ null, %if.then1.i.i ], [ null, %if.end.i.i ]
+exit:                                             ; preds = %if.then1.i.i, %if.end.i.i, %zlib_error.exit.i, %Py_DECREF.exit38.i, %Py_DECREF.exit47.i, %if.then1.i54.i, %if.end.i51.i, %if.then24.i, %if.then21.i, %sw.bb.i, %if.end.i, %if.then.i, %land.lhs.true20, %cond.end9
+  %return_value.0 = phi ptr [ null, %land.lhs.true20 ], [ null, %cond.end9 ], [ null, %Py_DECREF.exit38.i ], [ null, %Py_DECREF.exit47.i ], [ null, %if.then.i ], [ null, %if.end.i ], [ null, %if.then24.i ], [ null, %if.then1.i54.i ], [ null, %if.end.i51.i ], [ %call2.i, %if.then21.i ], [ %call2.i, %sw.bb.i ], [ null, %zlib_error.exit.i ], [ null, %if.then1.i.i ], [ null, %if.end.i.i ]
   ret ptr %return_value.0
 }
 
@@ -1859,7 +1859,7 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @deflateEnd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zlib_error.argprom(ptr nocapture noundef readonly %state, ptr %zst.48.val, i32 noundef %err, ptr noundef %msg) unnamed_addr #0 {
+define internal fastcc void @zlib_error(ptr nocapture noundef readonly %state, ptr %zst.48.val, i32 noundef %err, ptr noundef %msg) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i32 %err, -6
   %zmsg.0 = select i1 %cmp.not, ptr @.str.15, ptr %zst.48.val
@@ -3977,7 +3977,7 @@ if.then57.i:                                      ; preds = %if.end55.i
 if.then61.i:                                      ; preds = %if.then57.i
   %17 = getelementptr i8, ptr %self, i64 64
   %zst.val.i = load ptr, ptr %17, align 8
-  call fastcc void @zlib_error.argprom(ptr noundef %call.i.i, ptr %zst.val.i, i32 noundef %call59.i, ptr noundef nonnull @.str.38)
+  call fastcc void @zlib_error(ptr noundef %call.i.i, ptr %zst.val.i, i32 noundef %call59.i, ptr noundef nonnull @.str.38)
   br label %abort.i
 
 if.end64.i:                                       ; preds = %if.then57.i, %if.end55.i
@@ -4742,22 +4742,22 @@ if.then11.i:                                      ; preds = %if.then6.i
   %ZlibError.i = getelementptr inbounds i8, ptr %call, i64 24
   %19 = load ptr, ptr %ZlibError.i, align 8
   %call.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %19, ptr noundef nonnull @.str.19, i32 noundef %call25, ptr noundef nonnull @.str.42) #6
-  br label %zlib_error.argprom.exit
+  br label %zlib_error.exit
 
 if.else.i:                                        ; preds = %sw.bb8.i, %sw.bb7.i, %if.then6.i, %sw.default
   %zmsg.1.ph.i = phi ptr [ %zmsg.0.i, %sw.default ], [ @.str.17, %sw.bb7.i ], [ @.str.18, %sw.bb8.i ], [ @.str.16, %if.then6.i ]
   %ZlibError12.i = getelementptr inbounds i8, ptr %call, i64 24
   %20 = load ptr, ptr %ZlibError12.i, align 8
   %call13.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %20, ptr noundef nonnull @.str.20, i32 noundef %call25, ptr noundef nonnull @.str.42, ptr noundef nonnull %zmsg.1.ph.i) #6
-  br label %zlib_error.argprom.exit
+  br label %zlib_error.exit
 
-zlib_error.argprom.exit:                          ; preds = %if.then11.i, %if.else.i
+zlib_error.exit:                                  ; preds = %if.then11.i, %if.else.i
   %21 = load i64, ptr %call2, align 8
   %22 = and i64 %21, 2147483648
   %cmp.i103.not = icmp eq i64 %22, 0
   br i1 %cmp.i103.not, label %if.end.i, label %return
 
-if.end.i:                                         ; preds = %zlib_error.argprom.exit
+if.end.i:                                         ; preds = %zlib_error.exit
   %dec.i = add i64 %21, -1
   store i64 %dec.i, ptr %call2, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
@@ -4767,8 +4767,8 @@ if.then1.i:                                       ; preds = %if.end.i
   call void @_Py_Dealloc(ptr noundef nonnull %call2) #6
   br label %return
 
-return:                                           ; preds = %if.end.i, %if.then1.i, %zlib_error.argprom.exit, %sw.bb, %if.then29, %if.end.i59, %if.then1.i62, %if.then32, %if.end.i77, %if.then1.i80, %if.then16, %if.end, %entry, %Py_DECREF.exit46, %Py_DECREF.exit55, %Py_DECREF.exit73
-  %retval.0 = phi ptr [ null, %Py_DECREF.exit73 ], [ null, %Py_DECREF.exit46 ], [ null, %Py_DECREF.exit55 ], [ null, %entry ], [ null, %if.end ], [ null, %if.then16 ], [ null, %if.then1.i80 ], [ null, %if.end.i77 ], [ null, %if.then32 ], [ null, %if.then1.i62 ], [ null, %if.end.i59 ], [ %call2, %if.then29 ], [ %call2, %sw.bb ], [ null, %zlib_error.argprom.exit ], [ null, %if.then1.i ], [ null, %if.end.i ]
+return:                                           ; preds = %if.end.i, %if.then1.i, %zlib_error.exit, %sw.bb, %if.then29, %if.end.i59, %if.then1.i62, %if.then32, %if.end.i77, %if.then1.i80, %if.then16, %if.end, %entry, %Py_DECREF.exit46, %Py_DECREF.exit55, %Py_DECREF.exit73
+  %retval.0 = phi ptr [ null, %Py_DECREF.exit73 ], [ null, %Py_DECREF.exit46 ], [ null, %Py_DECREF.exit55 ], [ null, %entry ], [ null, %if.end ], [ null, %if.then16 ], [ null, %if.then1.i80 ], [ null, %if.end.i77 ], [ null, %if.then32 ], [ null, %if.then1.i62 ], [ null, %if.end.i59 ], [ %call2, %if.then29 ], [ %call2, %sw.bb ], [ null, %zlib_error.exit ], [ null, %if.then1.i ], [ null, %if.end.i ]
   ret ptr %retval.0
 }
 
@@ -5189,7 +5189,7 @@ if.else.i41.i.i.i:                                ; preds = %sw.bb8.i.i.i.i, %sw
 if.then42.i.i.i:                                  ; preds = %do.end30.i.i.i
   %35 = getelementptr i8, ptr %self, i64 64
   %zst.val.i.i.i = load ptr, ptr %35, align 8
-  call fastcc void @zlib_error.argprom(ptr noundef %call1.i.i.i, ptr %zst.val.i.i.i, i32 noundef %err.2.i.i.i, ptr noundef nonnull @.str.37)
+  call fastcc void @zlib_error(ptr noundef %call1.i.i.i, ptr %zst.val.i.i.i, i32 noundef %err.2.i.i.i, ptr noundef nonnull @.str.37)
   br label %do.body56.i.i.i
 
 if.end45.i.i.i:                                   ; preds = %if.then32.if.end45_crit_edge.i.i.i, %do.end30.i.i.i, %do.end30.i.i.i

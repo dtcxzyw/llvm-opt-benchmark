@@ -82,7 +82,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC2EONS0_7_Typ
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
   %22 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %22, null
-  br i1 %.not, label %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.argprom.exit", label %23
+  br i1 %.not, label %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.exit", label %23
 
 23:                                               ; preds = %19
   %24 = invoke ptr @_ZN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry33GetConcreteTypeFromSchemaTypeNameERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(8) %6)
@@ -99,7 +99,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC2EONS0_7_Typ
   %26 = load ptr, ptr %4, align 8
   %27 = icmp eq ptr %25, %26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br i1 %27, label %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.argprom.exit15", label %28
+  br i1 %27, label %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.exit15", label %28
 
 28:                                               ; preds = %.noexc6
   %29 = load ptr, ptr %6, align 8
@@ -129,14 +129,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i.i: ; preds = %37
   %43 = ptrtoint ptr %42 to i64
   %44 = and i64 %43, 7
   %.not.i5.i.i = icmp eq i64 %44, 0
-  br i1 %.not.i5.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.argprom.exit15.sink.split", label %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.argprom.exit15.sink.split.sink.split"
+  br i1 %.not.i5.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.exit15.sink.split", label %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.exit15.sink.split.sink.split"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.argprom.exit": ; preds = %19
+"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.exit": ; preds = %19
   %45 = load ptr, ptr %0, align 8
   %.not17 = icmp eq ptr %45, null
-  br i1 %.not17, label %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.argprom.exit15", label %46
+  br i1 %.not17, label %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.exit15", label %46
 
-46:                                               ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.argprom.exit"
+46:                                               ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.exit"
   %47 = invoke ptr @_ZN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry33GetConcreteTypeFromSchemaTypeNameERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %.noexc13 unwind label %74
 
@@ -151,7 +151,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i.i: ; preds = %37
   %49 = load ptr, ptr %3, align 8
   %50 = icmp eq ptr %48, %49
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br i1 %50, label %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.argprom.exit15", label %51
+  br i1 %50, label %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.exit15", label %51
 
 51:                                               ; preds = %.noexc14
   %52 = load ptr, ptr %0, align 8
@@ -181,23 +181,23 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i.i10: ; preds = %
   %66 = ptrtoint ptr %65 to i64
   %67 = and i64 %66, 7
   %.not.i5.i.i11 = icmp eq i64 %67, 0
-  br i1 %.not.i5.i.i11, label %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.argprom.exit15.sink.split", label %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.argprom.exit15.sink.split.sink.split"
+  br i1 %.not.i5.i.i11, label %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.exit15.sink.split", label %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.exit15.sink.split.sink.split"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.argprom.exit15.sink.split.sink.split": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i.i10, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i.i
+"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.exit15.sink.split.sink.split": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i.i10, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i.i
   %.sink = phi i64 [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i.i ], [ %66, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i.i10 ]
   %.sink18.ph = phi ptr [ %6, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i.i ], [ %0, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i.i10 ]
   %68 = and i64 %.sink, -8
   %69 = inttoptr i64 %68 to ptr
   %70 = atomicrmw sub ptr %69, i32 2 release, align 4
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.argprom.exit15.sink.split"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.exit15.sink.split"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.argprom.exit15.sink.split": ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.argprom.exit15.sink.split.sink.split", %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i.i10, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i.i
-  %.sink18 = phi ptr [ %6, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i.i ], [ %0, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i.i10 ], [ %.sink18.ph, %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.argprom.exit15.sink.split.sink.split" ]
+"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.exit15.sink.split": ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.exit15.sink.split.sink.split", %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i.i10, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i.i
+  %.sink18 = phi ptr [ %6, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i.i ], [ %0, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i.i10 ], [ %.sink18.ph, %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.exit15.sink.split.sink.split" ]
   %71 = load i64, ptr %.sink18, align 8
   store i64 %71, ptr %20, align 8
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.argprom.exit15"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.exit15"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.argprom.exit15": ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.argprom.exit15.sink.split", %.noexc6, %.noexc14, %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.argprom.exit"
+"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.exit15": ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.exit15.sink.split", %.noexc6, %.noexc14, %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.exit"
   ret void
 
 72:                                               ; preds = %2

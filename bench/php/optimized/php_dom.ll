@@ -11644,7 +11644,7 @@ dom_object_get_node.exit:                         ; preds = %.critedge
 
 18:                                               ; preds = %14
   %.val = load ptr, ptr %15, align 8
-  tail call fastcc void @dom_update_refcount_after_clone.argprom(ptr noundef nonnull %2, ptr %.val, ptr noundef nonnull %5, ptr noundef nonnull %17)
+  tail call fastcc void @dom_update_refcount_after_clone(ptr noundef nonnull %2, ptr %.val, ptr noundef nonnull %5, ptr noundef nonnull %17)
   br label %dom_object_get_node.exit.thread
 
 dom_object_get_node.exit.thread:                  ; preds = %.critedge, %dom_object_get_node.exit, %18, %14, %10
@@ -12467,7 +12467,7 @@ php_dom_create_fake_namespace_decl_node_ptr.exit: ; preds = %21, %29
   %43 = getelementptr inbounds i8, ptr %5, i64 -24
   %44 = getelementptr i8, ptr %8, i64 64
   %.val = load ptr, ptr %44, align 8
-  tail call fastcc void @dom_update_refcount_after_clone.argprom(ptr noundef nonnull %2, ptr %.val, ptr noundef nonnull %43, ptr noundef nonnull %.0.i19)
+  tail call fastcc void @dom_update_refcount_after_clone(ptr noundef nonnull %2, ptr %.val, ptr noundef nonnull %43, ptr noundef nonnull %.0.i19)
   tail call void @zend_objects_clone_members(ptr noundef nonnull %5, ptr noundef nonnull %0) #16
   ret ptr %5
 }
@@ -14771,7 +14771,7 @@ declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @zend_std_get_property_ptr_ptr(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dom_update_refcount_after_clone.argprom(ptr nocapture noundef readonly %0, ptr readnone %.64.val, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dom_update_refcount_after_clone(ptr nocapture noundef readonly %0, ptr readnone %.64.val, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %2, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %.64.val

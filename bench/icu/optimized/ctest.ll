@@ -403,7 +403,7 @@ if.else:                                          ; preds = %first_line_err.exit
 
 if.end:                                           ; preds = %if.else, %if.then
   call void @llvm.va_start.p0(ptr nonnull %ap)
-  call fastcc void @vlog_err.argprom(ptr noundef %pattern, ptr noundef %ap)
+  call fastcc void @vlog_err(ptr noundef %pattern, ptr noundef %ap)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
@@ -1039,7 +1039,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @vlog_err.argprom(ptr nocapture noundef readonly %pattern, ptr noundef nonnull %ap) unnamed_addr #2 {
+define internal fastcc void @vlog_err(ptr nocapture noundef readonly %pattern, ptr noundef nonnull %ap) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr @ERR_MSG, align 4
   %cmp = icmp eq i32 %0, 0
@@ -1167,7 +1167,7 @@ first_line_err.exit:                              ; preds = %if.end.i.i, %if.the
   %3 = load i32, ptr %ONE_ERROR.ERROR_COUNT, align 4
   %inc7 = add nsw i32 %3, 1
   store i32 %inc7, ptr %ONE_ERROR.ERROR_COUNT, align 4
-  call fastcc void @vlog_err.argprom(ptr noundef %pattern, ptr noundef %ap)
+  call fastcc void @vlog_err(ptr noundef %pattern, ptr noundef %ap)
   br label %if.end21
 
 if.else9:                                         ; preds = %if.then
@@ -1199,7 +1199,7 @@ first_line_err.exit12:                            ; preds = %if.end.i.i7, %if.th
   %5 = load i32, ptr %ONE_ERROR.ERROR_COUNT16, align 4
   %inc18 = add nsw i32 %5, 1
   store i32 %inc18, ptr %ONE_ERROR.ERROR_COUNT16, align 4
-  call fastcc void @vlog_err.argprom(ptr noundef %pattern, ptr noundef %ap)
+  call fastcc void @vlog_err(ptr noundef %pattern, ptr noundef %ap)
   br label %if.end21
 
 if.end21:                                         ; preds = %first_line_err.exit, %if.else9, %first_line_err.exit12
@@ -1224,7 +1224,7 @@ entry:
   call void @llvm.va_start.p0(ptr nonnull %ap)
   %0 = load i32, ptr @VERBOSITY, align 4
   %cmp.i = icmp eq i32 %0, 0
-  br i1 %cmp.i, label %vlog_verbose.argprom.exit, label %if.end.i
+  br i1 %cmp.i, label %vlog_verbose.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %.b.i.i.i = load i1, ptr @ON_LINE, align 1
@@ -1270,9 +1270,9 @@ lor.lhs.false.i:                                  ; preds = %first_line_verbose.
 if.end13.sink.split.i:                            ; preds = %lor.lhs.false.i, %first_line_verbose.exit.i
   %.sink.i = phi i1 [ true, %first_line_verbose.exit.i ], [ %cmp10.not.i, %lor.lhs.false.i ]
   store i1 %.sink.i, ptr @HANGING_OUTPUT, align 1
-  br label %vlog_verbose.argprom.exit
+  br label %vlog_verbose.exit
 
-vlog_verbose.argprom.exit:                        ; preds = %entry, %if.end13.sink.split.i
+vlog_verbose.exit:                                ; preds = %entry, %if.end13.sink.split.i
   call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
@@ -1310,7 +1310,7 @@ if.then2:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then2, %if.then
-  call fastcc void @vlog_err.argprom(ptr noundef %pattern, ptr noundef %ap)
+  call fastcc void @vlog_err(ptr noundef %pattern, ptr noundef %ap)
   br label %if.end6
 
 if.else:                                          ; preds = %go_offline_err.exit

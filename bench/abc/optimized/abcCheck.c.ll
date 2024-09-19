@@ -698,38 +698,38 @@ Abc_NtkCheckPos.exit.thread:                      ; preds = %.critedge.preheader
   %wide.trip.count = zext nneg i32 %.val121 to i64
   br label %289
 
-289:                                              ; preds = %.lr.ph273, %Abc_NtkCheckNet.argprom.exit
-  %indvars.iv316 = phi i64 [ 0, %.lr.ph273 ], [ %indvars.iv.next317, %Abc_NtkCheckNet.argprom.exit ]
+289:                                              ; preds = %.lr.ph273, %Abc_NtkCheckNet.exit
+  %indvars.iv316 = phi i64 [ 0, %.lr.ph273 ], [ %indvars.iv.next317, %Abc_NtkCheckNet.exit ]
   %290 = getelementptr inbounds ptr, ptr %.val131.val, i64 %indvars.iv316
   %291 = load ptr, ptr %290, align 8
   %292 = icmp eq ptr %291, null
-  br i1 %292, label %Abc_NtkCheckNet.argprom.exit, label %293
+  br i1 %292, label %Abc_NtkCheckNet.exit, label %293
 
 293:                                              ; preds = %289
   %294 = getelementptr i8, ptr %291, i64 20
   %.val135 = load i32, ptr %294, align 4
   %295 = and i32 %.val135, 15
   %.not216 = icmp eq i32 %295, 6
-  br i1 %.not216, label %296, label %Abc_NtkCheckNet.argprom.exit
+  br i1 %.not216, label %296, label %Abc_NtkCheckNet.exit
 
 296:                                              ; preds = %293
   %297 = getelementptr i8, ptr %291, i64 28
   %.val.i159 = load i32, ptr %297, align 4
   %298 = icmp eq i32 %.val.i159, 0
-  br i1 %298, label %Abc_NtkCheckNet.argprom.exit.thread, label %299
+  br i1 %298, label %Abc_NtkCheckNet.exit.thread, label %299
 
 299:                                              ; preds = %296
   %300 = icmp sgt i32 %.val.i159, 1
-  br i1 %300, label %Abc_NtkCheckNet.argprom.exit.thread, label %Abc_NtkCheckNet.argprom.exit
+  br i1 %300, label %Abc_NtkCheckNet.exit.thread, label %Abc_NtkCheckNet.exit
 
-Abc_NtkCheckNet.argprom.exit.thread:              ; preds = %296, %299
+Abc_NtkCheckNet.exit.thread:                      ; preds = %296, %299
   %.str.40.sink.i = phi ptr [ @.str.39, %296 ], [ @.str.40, %299 ]
   %301 = load ptr, ptr @stdout, align 8
   %302 = tail call ptr @Abc_ObjName(ptr noundef nonnull %291) #11
   %303 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %301, ptr noundef nonnull %.str.40.sink.i, ptr noundef %302) #11
   br label %Abc_NtkCheckNames.exit.thread
 
-Abc_NtkCheckNet.argprom.exit:                     ; preds = %299, %293, %289
+Abc_NtkCheckNet.exit:                             ; preds = %299, %293, %289
   %indvars.iv.next317 = add nuw nsw i64 %indvars.iv316, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next317, %wide.trip.count
   br i1 %exitcond.not, label %.critedge2, label %289, !llvm.loop !13
@@ -742,8 +742,8 @@ Abc_NtkCheckNet.argprom.exit:                     ; preds = %299, %293, %289
   %307 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 56, i64 1, ptr %306)
   br label %Abc_NtkCheckNames.exit.thread
 
-.critedge2:                                       ; preds = %Abc_NtkCheckNet.argprom.exit, %284, %304
-  %308 = phi ptr [ %285, %284 ], [ %277, %304 ], [ %285, %Abc_NtkCheckNet.argprom.exit ]
+.critedge2:                                       ; preds = %Abc_NtkCheckNet.exit, %284, %304
+  %308 = phi ptr [ %285, %284 ], [ %277, %304 ], [ %285, %Abc_NtkCheckNet.exit ]
   %.val109 = load i32, ptr %0, align 8
   %.not217 = icmp eq i32 %.val109, 3
   br i1 %.not217, label %312, label %.preheader
@@ -1084,7 +1084,7 @@ Abc_NtkCheckNode.exit:                            ; preds = %380, %359, %358, %3
   %467 = getelementptr i8, ptr %466, i64 28
   %.val48.i184 = load i32, ptr %467, align 4
   %.not26.i = icmp eq i32 %.val48.i184, 1
-  br i1 %.not26.i, label %Abc_NtkCheckLatch.argprom.exit, label %Abc_NtkCheckLatch.argprom.exit.thread.loopexit
+  br i1 %.not26.i, label %Abc_NtkCheckLatch.exit, label %Abc_NtkCheckLatch.exit.thread.loopexit
 
 .thread:                                          ; preds = %459
   %468 = load ptr, ptr @stdout, align 8
@@ -1116,15 +1116,15 @@ Abc_NtkCheckNode.exit:                            ; preds = %380, %359, %358, %3
   %481 = getelementptr i8, ptr %480, i64 28
   %.val48.i184338 = load i32, ptr %481, align 4
   %.not26.i339 = icmp eq i32 %.val48.i184338, 1
-  br i1 %.not26.i339, label %Abc_NtkCheckNames.exit.thread, label %Abc_NtkCheckLatch.argprom.exit.thread
+  br i1 %.not26.i339, label %Abc_NtkCheckNames.exit.thread, label %Abc_NtkCheckLatch.exit.thread
 
-Abc_NtkCheckLatch.argprom.exit.thread.loopexit:   ; preds = %462
+Abc_NtkCheckLatch.exit.thread.loopexit:           ; preds = %462
   %482 = getelementptr i8, ptr %413, i64 48
-  br label %Abc_NtkCheckLatch.argprom.exit.thread
+  br label %Abc_NtkCheckLatch.exit.thread
 
-Abc_NtkCheckLatch.argprom.exit.thread:            ; preds = %Abc_NtkCheckLatch.argprom.exit.thread.loopexit, %.thread
-  %483 = phi ptr [ %480, %.thread ], [ %466, %Abc_NtkCheckLatch.argprom.exit.thread.loopexit ]
-  %484 = phi ptr [ %477, %.thread ], [ %482, %Abc_NtkCheckLatch.argprom.exit.thread.loopexit ]
+Abc_NtkCheckLatch.exit.thread:                    ; preds = %Abc_NtkCheckLatch.exit.thread.loopexit, %.thread
+  %483 = phi ptr [ %480, %.thread ], [ %466, %Abc_NtkCheckLatch.exit.thread.loopexit ]
+  %484 = phi ptr [ %477, %.thread ], [ %482, %Abc_NtkCheckLatch.exit.thread.loopexit ]
   %485 = load ptr, ptr @stdout, align 8
   %486 = tail call ptr @Abc_ObjName(ptr noundef nonnull %483) #11
   %.val30.i185 = load ptr, ptr %413, align 8
@@ -1142,16 +1142,16 @@ Abc_NtkCheckLatch.argprom.exit.thread:            ; preds = %Abc_NtkCheckLatch.a
   %493 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %485, ptr noundef nonnull @.str.51, ptr noundef %486, i32 noundef %.val49.i) #11
   br label %Abc_NtkCheckNames.exit.thread
 
-Abc_NtkCheckLatch.argprom.exit:                   ; preds = %462
+Abc_NtkCheckLatch.exit:                           ; preds = %462
   %.not102 = icmp eq i32 %.4.i, 0
-  br i1 %.not102, label %Abc_NtkCheckNames.exit.thread, label %Abc_NtkCheckLatch.argprom.exit._crit_edge
+  br i1 %.not102, label %Abc_NtkCheckNames.exit.thread, label %Abc_NtkCheckLatch.exit._crit_edge
 
-Abc_NtkCheckLatch.argprom.exit._crit_edge:        ; preds = %Abc_NtkCheckLatch.argprom.exit
+Abc_NtkCheckLatch.exit._crit_edge:                ; preds = %Abc_NtkCheckLatch.exit
   %.pre328 = load ptr, ptr %18, align 8
   br label %494
 
-494:                                              ; preds = %Abc_NtkCheckLatch.argprom.exit._crit_edge, %.lr.ph282
-  %495 = phi ptr [ %.pre328, %Abc_NtkCheckLatch.argprom.exit._crit_edge ], [ %410, %.lr.ph282 ]
+494:                                              ; preds = %Abc_NtkCheckLatch.exit._crit_edge, %.lr.ph282
+  %495 = phi ptr [ %.pre328, %Abc_NtkCheckLatch.exit._crit_edge ], [ %410, %.lr.ph282 ]
   %indvars.iv.next323 = add nuw nsw i64 %indvars.iv322, 1
   %496 = getelementptr i8, ptr %495, i64 4
   %.val123 = load i32, ptr %496, align 4
@@ -1179,8 +1179,8 @@ Abc_NtkCheckLatch.argprom.exit._crit_edge:        ; preds = %Abc_NtkCheckLatch.a
   %507 = tail call i32 @Abc_NtkCheck(ptr noundef nonnull %505)
   br label %Abc_NtkCheckNames.exit.thread
 
-Abc_NtkCheckNames.exit.thread:                    ; preds = %270, %Abc_NtkCheckLatch.argprom.exit, %.thread, %Abc_NtkCheckPos.exit.thread, %Abc_ObjNameNet.exit53.i, %Abc_ObjNameNet.exit44.i, %Abc_ObjNameNet.exit.i, %330, %253, %208, %231, %223, %217, %185, %148, %164, %157, %133, %Vec_IntFree.exit61.i, %Vec_IntFree.exit.i, %104, %77, %Abc_NtkCheckLatch.argprom.exit.thread, %Abc_NtkCheckNet.argprom.exit.thread, %503, %506, %312, %Abc_NtkCheckPos.exit, %Abc_NtkCheckNames.exit, %500, %305, %40, %27, %14, %7, %2
-  %.071 = phi i32 [ 0, %14 ], [ 0, %27 ], [ 0, %40 ], [ 0, %500 ], [ 0, %305 ], [ 0, %7 ], [ 0, %2 ], [ 0, %Abc_NtkCheckNames.exit ], [ 1, %Abc_NtkCheckPos.exit ], [ 0, %312 ], [ 1, %506 ], [ 1, %503 ], [ 0, %Abc_NtkCheckNet.argprom.exit.thread ], [ 0, %Abc_NtkCheckLatch.argprom.exit.thread ], [ 0, %77 ], [ 0, %104 ], [ 0, %Vec_IntFree.exit.i ], [ 0, %Vec_IntFree.exit61.i ], [ 0, %133 ], [ 0, %157 ], [ 0, %164 ], [ 0, %148 ], [ 0, %185 ], [ 0, %217 ], [ 0, %223 ], [ 0, %231 ], [ 0, %208 ], [ 0, %253 ], [ 0, %330 ], [ 0, %Abc_ObjNameNet.exit.i ], [ 0, %Abc_ObjNameNet.exit44.i ], [ 0, %Abc_ObjNameNet.exit53.i ], [ 1, %Abc_NtkCheckPos.exit.thread ], [ 0, %.thread ], [ 0, %Abc_NtkCheckLatch.argprom.exit ], [ 0, %270 ]
+Abc_NtkCheckNames.exit.thread:                    ; preds = %270, %Abc_NtkCheckLatch.exit, %.thread, %Abc_NtkCheckPos.exit.thread, %Abc_ObjNameNet.exit53.i, %Abc_ObjNameNet.exit44.i, %Abc_ObjNameNet.exit.i, %330, %253, %208, %231, %223, %217, %185, %148, %164, %157, %133, %Vec_IntFree.exit61.i, %Vec_IntFree.exit.i, %104, %77, %Abc_NtkCheckLatch.exit.thread, %Abc_NtkCheckNet.exit.thread, %503, %506, %312, %Abc_NtkCheckPos.exit, %Abc_NtkCheckNames.exit, %500, %305, %40, %27, %14, %7, %2
+  %.071 = phi i32 [ 0, %14 ], [ 0, %27 ], [ 0, %40 ], [ 0, %500 ], [ 0, %305 ], [ 0, %7 ], [ 0, %2 ], [ 0, %Abc_NtkCheckNames.exit ], [ 1, %Abc_NtkCheckPos.exit ], [ 0, %312 ], [ 1, %506 ], [ 1, %503 ], [ 0, %Abc_NtkCheckNet.exit.thread ], [ 0, %Abc_NtkCheckLatch.exit.thread ], [ 0, %77 ], [ 0, %104 ], [ 0, %Vec_IntFree.exit.i ], [ 0, %Vec_IntFree.exit61.i ], [ 0, %133 ], [ 0, %157 ], [ 0, %164 ], [ 0, %148 ], [ 0, %185 ], [ 0, %217 ], [ 0, %223 ], [ 0, %231 ], [ 0, %208 ], [ 0, %253 ], [ 0, %330 ], [ 0, %Abc_ObjNameNet.exit.i ], [ 0, %Abc_ObjNameNet.exit44.i ], [ 0, %Abc_ObjNameNet.exit53.i ], [ 1, %Abc_NtkCheckPos.exit.thread ], [ 0, %.thread ], [ 0, %Abc_NtkCheckLatch.exit ], [ 0, %270 ]
   ret i32 %.071
 }
 
@@ -1962,7 +1962,7 @@ Vec_PtrAlloc.exit:                                ; preds = %1, %7
   %12 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %11, ptr %12, align 8
   %13 = icmp sgt i32 %.val24.val, 0
-  br i1 %13, label %.lr.ph, label %Vec_PtrSort.argprom.exit
+  br i1 %13, label %.lr.ph, label %Vec_PtrSort.exit
 
 .lr.ph:                                           ; preds = %Vec_PtrAlloc.exit, %Vec_PtrPush.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %Vec_PtrPush.exit ], [ 0, %Vec_PtrAlloc.exit ]
@@ -2045,15 +2045,15 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.pre = load i32, ptr %6, align 4
   %.pre48.pre.pre = load ptr, ptr %12, align 8
   %48 = icmp slt i32 %.pre, 2
-  br i1 %48, label %Vec_PtrSort.argprom.exit, label %49
+  br i1 %48, label %Vec_PtrSort.exit, label %49
 
 49:                                               ; preds = %.critedge
   %50 = zext nneg i32 %.pre to i64
   tail call void @qsort(ptr noundef %.pre48.pre.pre, i64 noundef %50, i64 noundef 8, ptr noundef nonnull @Abc_NtkNamesCompare) #11
   %.val35.pre = load ptr, ptr %2, align 8
-  br label %Vec_PtrSort.argprom.exit
+  br label %Vec_PtrSort.exit
 
-Vec_PtrSort.argprom.exit:                         ; preds = %Vec_PtrAlloc.exit, %.critedge, %49
+Vec_PtrSort.exit:                                 ; preds = %Vec_PtrAlloc.exit, %.critedge, %49
   %.pre48.pre52 = phi ptr [ %.pre48.pre.pre, %.critedge ], [ %.pre48.pre.pre, %49 ], [ %11, %Vec_PtrAlloc.exit ]
   %.val35 = phi ptr [ %.val23, %.critedge ], [ %.val35.pre, %49 ], [ %.val24, %Vec_PtrAlloc.exit ]
   %51 = getelementptr i8, ptr %.val35, i64 4
@@ -2061,7 +2061,7 @@ Vec_PtrSort.argprom.exit:                         ; preds = %Vec_PtrAlloc.exit, 
   %52 = icmp sgt i32 %.val.val36, 1
   br i1 %52, label %.lr.ph39, label %._crit_edge
 
-.lr.ph39:                                         ; preds = %Vec_PtrSort.argprom.exit
+.lr.ph39:                                         ; preds = %Vec_PtrSort.exit
   %invariant.gep = getelementptr i8, ptr %.pre48.pre52, i64 -8
   br label %53
 
@@ -2092,7 +2092,7 @@ Vec_PtrSort.argprom.exit:                         ; preds = %Vec_PtrAlloc.exit, 
   %63 = icmp slt i64 %indvars.iv.next42, %62
   br i1 %63, label %53, label %._crit_edge.thread, !llvm.loop !30
 
-._crit_edge:                                      ; preds = %Vec_PtrSort.argprom.exit
+._crit_edge:                                      ; preds = %Vec_PtrSort.exit
   %.not.i30 = icmp eq ptr %.pre48.pre52, null
   br i1 %.not.i30, label %Vec_PtrFree.exit, label %._crit_edge.thread
 
@@ -2134,7 +2134,7 @@ Vec_PtrAlloc.exit:                                ; preds = %1, %7
   %12 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %11, ptr %12, align 8
   %13 = icmp sgt i32 %.val24.val, 0
-  br i1 %13, label %.lr.ph, label %Vec_PtrSort.argprom.exit
+  br i1 %13, label %.lr.ph, label %Vec_PtrSort.exit
 
 .lr.ph:                                           ; preds = %Vec_PtrAlloc.exit, %Vec_PtrPush.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %Vec_PtrPush.exit ], [ 0, %Vec_PtrAlloc.exit ]
@@ -2217,15 +2217,15 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.pre = load i32, ptr %6, align 4
   %.pre48.pre.pre = load ptr, ptr %12, align 8
   %48 = icmp slt i32 %.pre, 2
-  br i1 %48, label %Vec_PtrSort.argprom.exit, label %49
+  br i1 %48, label %Vec_PtrSort.exit, label %49
 
 49:                                               ; preds = %.critedge
   %50 = zext nneg i32 %.pre to i64
   tail call void @qsort(ptr noundef %.pre48.pre.pre, i64 noundef %50, i64 noundef 8, ptr noundef nonnull @Abc_NtkNamesCompare) #11
   %.val35.pre = load ptr, ptr %2, align 8
-  br label %Vec_PtrSort.argprom.exit
+  br label %Vec_PtrSort.exit
 
-Vec_PtrSort.argprom.exit:                         ; preds = %Vec_PtrAlloc.exit, %.critedge, %49
+Vec_PtrSort.exit:                                 ; preds = %Vec_PtrAlloc.exit, %.critedge, %49
   %.pre48.pre52 = phi ptr [ %.pre48.pre.pre, %.critedge ], [ %.pre48.pre.pre, %49 ], [ %11, %Vec_PtrAlloc.exit ]
   %.val35 = phi ptr [ %.val23, %.critedge ], [ %.val35.pre, %49 ], [ %.val24, %Vec_PtrAlloc.exit ]
   %51 = getelementptr i8, ptr %.val35, i64 4
@@ -2233,7 +2233,7 @@ Vec_PtrSort.argprom.exit:                         ; preds = %Vec_PtrAlloc.exit, 
   %52 = icmp sgt i32 %.val.val36, 1
   br i1 %52, label %.lr.ph39, label %._crit_edge
 
-.lr.ph39:                                         ; preds = %Vec_PtrSort.argprom.exit
+.lr.ph39:                                         ; preds = %Vec_PtrSort.exit
   %invariant.gep = getelementptr i8, ptr %.pre48.pre52, i64 -8
   br label %53
 
@@ -2264,7 +2264,7 @@ Vec_PtrSort.argprom.exit:                         ; preds = %Vec_PtrAlloc.exit, 
   %63 = icmp slt i64 %indvars.iv.next42, %62
   br i1 %63, label %53, label %._crit_edge.thread, !llvm.loop !32
 
-._crit_edge:                                      ; preds = %Vec_PtrSort.argprom.exit
+._crit_edge:                                      ; preds = %Vec_PtrSort.exit
   %.not.i30 = icmp eq ptr %.pre48.pre52, null
   br i1 %.not.i30, label %Vec_PtrFree.exit, label %._crit_edge.thread
 

@@ -47,7 +47,7 @@ define range(i32 0, 2) i32 @Abc_NtkExtractSequentialDcs(ptr noundef %0, i32 noun
   %.sink68 = phi i32 [ %1, %.split48 ], [ 0, %9 ]
   %14 = tail call fastcc ptr @Abc_NtkTransitionRelation(ptr noundef %7, ptr noundef nonnull %0, i32 noundef %.sink68)
   tail call void @Cudd_Ref(ptr noundef %14) #8
-  %15 = tail call fastcc ptr @Abc_NtkInitStateAndVarMap.argelim(ptr noundef %7, ptr noundef nonnull %0)
+  %15 = tail call fastcc ptr @Abc_NtkInitStateAndVarMap(ptr noundef %7, ptr noundef nonnull %0)
   tail call void @Cudd_Ref(ptr noundef %15) #8
   %16 = tail call fastcc ptr @Abc_NtkComputeUnreachable(ptr noundef %7, ptr noundef nonnull %0, ptr noundef %14, ptr noundef %15, i32 noundef %.sink68)
   tail call void @Cudd_Ref(ptr noundef %16) #8
@@ -627,13 +627,13 @@ Vec_AttGrow.exit.i.i:                             ; preds = %52, %38, %22
   %63 = getelementptr inbounds ptr, ptr %61, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %66, label %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit
+  br i1 %65, label %66, label %Abc_ObjGlobalBdd.exit
 
 66:                                               ; preds = %Vec_AttGrow.exit.i.i
   %67 = getelementptr inbounds i8, ptr %.val60.val.val.val, i64 32
   %68 = load ptr, ptr %67, align 8
   %.not18.i.i = icmp eq ptr %68, null
-  br i1 %.not18.i.i, label %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit, label %69
+  br i1 %.not18.i.i, label %Abc_ObjGlobalBdd.exit, label %69
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds i8, ptr %.val60.val.val.val, i64 16
@@ -645,9 +645,9 @@ Vec_AttGrow.exit.i.i:                             ; preds = %52, %38, %22
   %.pre.i.i = load ptr, ptr %60, align 8
   %.phi.trans.insert.i.i = getelementptr inbounds ptr, ptr %.pre.i.i, i64 %62
   %.pre19.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
-  br label %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit
+  br label %Abc_ObjGlobalBdd.exit
 
-Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit: ; preds = %Vec_AttGrow.exit.i.i, %66, %69
+Abc_ObjGlobalBdd.exit:                            ; preds = %Vec_AttGrow.exit.i.i, %66, %69
   %75 = phi ptr [ %.pre19.i.i, %69 ], [ null, %66 ], [ %64, %Vec_AttGrow.exit.i.i ]
   %76 = tail call ptr @Cudd_bddXnor(ptr noundef nonnull %0, ptr noundef %26, ptr noundef %75) #8
   tail call void @Cudd_Ref(ptr noundef %76) #8
@@ -658,9 +658,9 @@ Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit: ; preds = %Vec_AttGrow.ex
   %.pre = load ptr, ptr %12, align 8
   br label %78
 
-78:                                               ; preds = %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit, %.lr.ph
-  %79 = phi ptr [ %.pre, %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit ], [ %16, %.lr.ph ]
-  %.1 = phi ptr [ %77, %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit ], [ %.04965, %.lr.ph ]
+78:                                               ; preds = %Abc_ObjGlobalBdd.exit, %.lr.ph
+  %79 = phi ptr [ %.pre, %Abc_ObjGlobalBdd.exit ], [ %16, %.lr.ph ]
+  %.1 = phi ptr [ %77, %Abc_ObjGlobalBdd.exit ], [ %.04965, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %80 = getelementptr i8, ptr %79, i64 4
   %.val = load i32, ptr %80, align 4
@@ -708,7 +708,7 @@ Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit: ; preds = %Vec_AttGrow.ex
 declare void @Cudd_Ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @Abc_NtkInitStateAndVarMap.argelim(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @Abc_NtkInitStateAndVarMap(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64

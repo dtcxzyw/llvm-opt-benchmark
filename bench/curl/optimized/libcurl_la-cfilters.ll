@@ -633,7 +633,7 @@ Curl_conn_ev_update_info.exit:                    ; preds = %for.inc.us.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %connected.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %appconnected.i)
   %tobool.not.i = icmp eq ptr %.val, null
-  br i1 %tobool.not.i, label %conn_report_connect_stats.argprom.exit, label %if.then.i
+  br i1 %tobool.not.i, label %conn_report_connect_stats.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %Curl_conn_ev_update_info.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %connected.i, i8 0, i64 16, i1 false)
@@ -665,13 +665,13 @@ if.end.i:                                         ; preds = %if.then3.i, %if.the
   %19 = load i32, ptr %tv_usec10.i, align 8
   %tobool11.i = icmp ne i32 %19, 0
   %or.cond1.i = select i1 %tobool8.i, i1 true, i1 %tobool11.i
-  br i1 %or.cond1.i, label %if.then12.i, label %conn_report_connect_stats.argprom.exit
+  br i1 %or.cond1.i, label %if.then12.i, label %conn_report_connect_stats.exit
 
 if.then12.i:                                      ; preds = %if.end.i
   call void @Curl_pgrsTimeWas(ptr noundef nonnull %data, i32 noundef 6, i64 %18, i32 %19) #11
-  br label %conn_report_connect_stats.argprom.exit
+  br label %conn_report_connect_stats.exit
 
-conn_report_connect_stats.argprom.exit:           ; preds = %Curl_conn_ev_update_info.exit, %if.end.i, %if.then12.i
+conn_report_connect_stats.exit:                   ; preds = %Curl_conn_ev_update_info.exit, %if.end.i, %if.then12.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %connected.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %appconnected.i)
   %20 = load ptr, ptr %conn, align 8
@@ -691,7 +691,7 @@ if.then18:                                        ; preds = %if.then8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %connected.i18)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %appconnected.i19)
   %tobool.not.i20 = icmp eq ptr %.val17, null
-  br i1 %tobool.not.i20, label %conn_report_connect_stats.argprom.exit37, label %if.then.i21
+  br i1 %tobool.not.i20, label %conn_report_connect_stats.exit37, label %if.then.i21
 
 if.then.i21:                                      ; preds = %if.then18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %connected.i18, i8 0, i64 16, i1 false)
@@ -723,19 +723,19 @@ if.end.i28:                                       ; preds = %if.then3.i36, %if.t
   %32 = load i32, ptr %tv_usec10.i32, align 8
   %tobool11.i33 = icmp ne i32 %32, 0
   %or.cond1.i34 = select i1 %tobool8.i31, i1 true, i1 %tobool11.i33
-  br i1 %or.cond1.i34, label %if.then12.i35, label %conn_report_connect_stats.argprom.exit37
+  br i1 %or.cond1.i34, label %if.then12.i35, label %conn_report_connect_stats.exit37
 
 if.then12.i35:                                    ; preds = %if.end.i28
   call void @Curl_pgrsTimeWas(ptr noundef nonnull %data, i32 noundef 6, i64 %31, i32 %32) #11
-  br label %conn_report_connect_stats.argprom.exit37
+  br label %conn_report_connect_stats.exit37
 
-conn_report_connect_stats.argprom.exit37:         ; preds = %if.then18, %if.end.i28, %if.then12.i35
+conn_report_connect_stats.exit37:                 ; preds = %if.then18, %if.end.i28, %if.then12.i35
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %connected.i18)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %appconnected.i19)
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end, %conn_report_connect_stats.argprom.exit37, %conn_report_connect_stats.argprom.exit, %entry
-  %retval.0 = phi i32 [ 2, %entry ], [ 0, %if.end ], [ %call, %conn_report_connect_stats.argprom.exit37 ], [ 0, %conn_report_connect_stats.argprom.exit ], [ 0, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.end, %conn_report_connect_stats.exit37, %conn_report_connect_stats.exit, %entry
+  %retval.0 = phi i32 [ 2, %entry ], [ 0, %if.end ], [ %call, %conn_report_connect_stats.exit37 ], [ 0, %conn_report_connect_stats.exit ], [ 0, %land.lhs.true ]
   ret i32 %retval.0
 }
 
@@ -772,9 +772,9 @@ for.inc.us.i.us.i:                                ; preds = %if.end.us.i.us.i, %
   br i1 %tobool.not.us.i.us.i, label %for.inc.us.i, label %for.body.us.i.us.i, !llvm.loop !10
 
 for.inc.us.i:                                     ; preds = %for.inc.us.i.us.i, %for.body.us.i
-  br i1 %cmp.us.i, label %for.body.us.i, label %cf_cntrl_all.argprom.exit, !llvm.loop !11
+  br i1 %cmp.us.i, label %for.body.us.i, label %cf_cntrl_all.exit, !llvm.loop !11
 
-cf_cntrl_all.argprom.exit:                        ; preds = %for.inc.us.i
+cf_cntrl_all.exit:                                ; preds = %for.inc.us.i
   ret void
 }
 
@@ -1344,9 +1344,9 @@ for.inc.us.i.us.i:                                ; preds = %if.end.us.i.us.i, %
   br i1 %tobool.not.us.i.us.i, label %for.inc.us.i, label %for.body.us.i.us.i, !llvm.loop !10
 
 for.inc.us.i:                                     ; preds = %for.inc.us.i.us.i, %for.body.us.i
-  br i1 %cmp.us.i, label %for.body.us.i, label %cf_cntrl_all.argprom.exit, !llvm.loop !11
+  br i1 %cmp.us.i, label %for.body.us.i, label %cf_cntrl_all.exit, !llvm.loop !11
 
-cf_cntrl_all.argprom.exit:                        ; preds = %for.inc.us.i
+cf_cntrl_all.exit:                                ; preds = %for.inc.us.i
   ret void
 }
 
@@ -1383,9 +1383,9 @@ for.inc.us.i.us.i:                                ; preds = %if.end.us.i.us.i, %
   br i1 %tobool.not.us.i.us.i, label %for.inc.us.i, label %for.body.us.i.us.i, !llvm.loop !10
 
 for.inc.us.i:                                     ; preds = %for.inc.us.i.us.i, %for.body.us.i
-  br i1 %cmp.us.i, label %for.body.us.i, label %cf_cntrl_all.argprom.exit, !llvm.loop !11
+  br i1 %cmp.us.i, label %for.body.us.i, label %cf_cntrl_all.exit, !llvm.loop !11
 
-cf_cntrl_all.argprom.exit:                        ; preds = %for.inc.us.i
+cf_cntrl_all.exit:                                ; preds = %for.inc.us.i
   ret void
 }
 
@@ -1416,7 +1416,7 @@ for.body.i.i:                                     ; preds = %for.body.i, %for.in
 if.end.i.i:                                       ; preds = %for.body.i.i
   %call.i.i = tail call i32 %3(ptr noundef nonnull %cf.addr.07.i.i, ptr noundef %data, i32 noundef 4, i32 noundef 0, ptr noundef null) #11
   %tobool4.i.i = icmp eq i32 %call.i.i, 0
-  br i1 %tobool4.i.i, label %for.inc.i.i, label %cf_cntrl_all.argprom.exit
+  br i1 %tobool4.i.i, label %for.inc.i.i, label %cf_cntrl_all.exit
 
 for.inc.i.i:                                      ; preds = %if.end.i.i, %for.body.i.i
   %next.i.i = getelementptr inbounds i8, ptr %cf.addr.07.i.i, i64 8
@@ -1425,9 +1425,9 @@ for.inc.i.i:                                      ; preds = %if.end.i.i, %for.bo
   br i1 %tobool.not.i.i, label %for.inc.i, label %for.body.i.i, !llvm.loop !10
 
 for.inc.i:                                        ; preds = %for.inc.i.i, %for.body.i
-  br i1 %cmp.i, label %for.body.i, label %cf_cntrl_all.argprom.exit, !llvm.loop !11
+  br i1 %cmp.i, label %for.body.i, label %cf_cntrl_all.exit, !llvm.loop !11
 
-cf_cntrl_all.argprom.exit:                        ; preds = %for.inc.i, %if.end.i.i
+cf_cntrl_all.exit:                                ; preds = %for.inc.i, %if.end.i.i
   %.us-phi.i = phi i32 [ %call.i.i, %if.end.i.i ], [ 0, %for.inc.i ]
   ret i32 %.us-phi.i
 }
@@ -1459,7 +1459,7 @@ for.body.i.i:                                     ; preds = %for.body.i, %for.in
 if.end.i.i:                                       ; preds = %for.body.i.i
   %call.i.i = tail call i32 %3(ptr noundef nonnull %cf.addr.07.i.i, ptr noundef %data, i32 noundef 5, i32 noundef 0, ptr noundef null) #11
   %tobool4.i.i = icmp eq i32 %call.i.i, 0
-  br i1 %tobool4.i.i, label %for.inc.i.i, label %cf_cntrl_all.argprom.exit
+  br i1 %tobool4.i.i, label %for.inc.i.i, label %cf_cntrl_all.exit
 
 for.inc.i.i:                                      ; preds = %if.end.i.i, %for.body.i.i
   %next.i.i = getelementptr inbounds i8, ptr %cf.addr.07.i.i, i64 8
@@ -1468,9 +1468,9 @@ for.inc.i.i:                                      ; preds = %if.end.i.i, %for.bo
   br i1 %tobool.not.i.i, label %for.inc.i, label %for.body.i.i, !llvm.loop !10
 
 for.inc.i:                                        ; preds = %for.inc.i.i, %for.body.i
-  br i1 %cmp.i, label %for.body.i, label %cf_cntrl_all.argprom.exit, !llvm.loop !11
+  br i1 %cmp.i, label %for.body.i, label %cf_cntrl_all.exit, !llvm.loop !11
 
-cf_cntrl_all.argprom.exit:                        ; preds = %for.inc.i, %if.end.i.i
+cf_cntrl_all.exit:                                ; preds = %for.inc.i, %if.end.i.i
   %.us-phi.i = phi i32 [ %call.i.i, %if.end.i.i ], [ 0, %for.inc.i ]
   ret i32 %.us-phi.i
 }
@@ -1510,9 +1510,9 @@ for.inc.us.i.us.i:                                ; preds = %if.end.us.i.us.i, %
   br i1 %tobool.not.us.i.us.i, label %for.inc.us.i, label %for.body.us.i.us.i, !llvm.loop !10
 
 for.inc.us.i:                                     ; preds = %for.inc.us.i.us.i, %for.body.us.i
-  br i1 %cmp.us.i, label %for.body.us.i, label %cf_cntrl_all.argprom.exit, !llvm.loop !11
+  br i1 %cmp.us.i, label %for.body.us.i, label %cf_cntrl_all.exit, !llvm.loop !11
 
-cf_cntrl_all.argprom.exit:                        ; preds = %for.inc.us.i
+cf_cntrl_all.exit:                                ; preds = %for.inc.us.i
   ret void
 }
 
@@ -1552,9 +1552,9 @@ for.inc.us.i.us.i:                                ; preds = %if.end.us.i.us.i, %
   br i1 %tobool.not.us.i.us.i, label %for.inc.us.i, label %for.body.us.i.us.i, !llvm.loop !10
 
 for.inc.us.i:                                     ; preds = %for.inc.us.i.us.i, %for.body.us.i
-  br i1 %cmp.us.i, label %for.body.us.i, label %cf_cntrl_all.argprom.exit, !llvm.loop !11
+  br i1 %cmp.us.i, label %for.body.us.i, label %cf_cntrl_all.exit, !llvm.loop !11
 
-cf_cntrl_all.argprom.exit:                        ; preds = %for.inc.us.i
+cf_cntrl_all.exit:                                ; preds = %for.inc.us.i
   ret void
 }
 
@@ -1586,7 +1586,7 @@ for.body.i.i:                                     ; preds = %for.body.i, %for.in
 if.end.i.i:                                       ; preds = %for.body.i.i
   %call.i.i = tail call i32 %3(ptr noundef nonnull %cf.addr.07.i.i, ptr noundef %data, i32 noundef 6, i32 noundef %conv, ptr noundef null) #11
   %tobool4.i.i = icmp eq i32 %call.i.i, 0
-  br i1 %tobool4.i.i, label %for.inc.i.i, label %cf_cntrl_all.argprom.exit
+  br i1 %tobool4.i.i, label %for.inc.i.i, label %cf_cntrl_all.exit
 
 for.inc.i.i:                                      ; preds = %if.end.i.i, %for.body.i.i
   %next.i.i = getelementptr inbounds i8, ptr %cf.addr.07.i.i, i64 8
@@ -1595,9 +1595,9 @@ for.inc.i.i:                                      ; preds = %if.end.i.i, %for.bo
   br i1 %tobool.not.i.i, label %for.inc.i, label %for.body.i.i, !llvm.loop !10
 
 for.inc.i:                                        ; preds = %for.inc.i.i, %for.body.i
-  br i1 %cmp.i, label %for.body.i, label %cf_cntrl_all.argprom.exit, !llvm.loop !11
+  br i1 %cmp.i, label %for.body.i, label %cf_cntrl_all.exit, !llvm.loop !11
 
-cf_cntrl_all.argprom.exit:                        ; preds = %for.inc.i, %if.end.i.i
+cf_cntrl_all.exit:                                ; preds = %for.inc.i, %if.end.i.i
   %.us-phi.i = phi i32 [ %call.i.i, %if.end.i.i ], [ 0, %for.inc.i ]
   ret i32 %.us-phi.i
 }
@@ -1899,7 +1899,7 @@ entry:
   %socks = alloca [5 x i32], align 16
   %call = call i32 %get_socks_cb(ptr noundef %data, ptr noundef nonnull %socks) #11
   %tobool.not.i = icmp eq i32 %call, 0
-  br i1 %tobool.not.i, label %ps_add.argprom.exit, label %for.cond.preheader.i
+  br i1 %tobool.not.i, label %ps_add.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %entry
   %num.i.i = getelementptr inbounds i8, ptr %ps, i64 20
@@ -1914,13 +1914,13 @@ for.body.i:                                       ; preds = %for.inc.i, %for.con
   %or.i = shl nuw nsw i32 65537, %0
   %and.i = and i32 %or.i, %call
   %tobool2.not.i = icmp eq i32 %and.i, 0
-  br i1 %tobool2.not.i, label %ps_add.argprom.exit, label %lor.lhs.false.i
+  br i1 %tobool2.not.i, label %ps_add.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i
   %arrayidx.i = getelementptr inbounds i32, ptr %socks, i64 %indvars.iv.i
   %1 = load i32, ptr %arrayidx.i, align 4
   %cmp3.i = icmp sgt i32 %1, -1
-  br i1 %cmp3.i, label %if.end.i, label %ps_add.argprom.exit
+  br i1 %cmp3.i, label %if.end.i, label %ps_add.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %and6.i = and i32 %shl.i, %call
@@ -2059,9 +2059,9 @@ if.then62.i62.i:                                  ; preds = %for.end.i60.i, %for
 for.inc.i:                                        ; preds = %if.then62.i62.i, %for.end.i60.i, %if.then9.i68.i, %if.then62.i35.i, %for.end.i33.i, %if.then9.i41.i, %if.then62.i.i, %for.end.i.i, %if.then9.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %exitcond.not.i, label %ps_add.argprom.exit, label %for.body.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %ps_add.exit, label %for.body.i, !llvm.loop !20
 
-ps_add.argprom.exit:                              ; preds = %for.body.i, %lor.lhs.false.i, %for.inc.i, %entry
+ps_add.exit:                                      ; preds = %for.body.i, %lor.lhs.false.i, %for.inc.i, %entry
   ret void
 }
 

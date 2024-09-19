@@ -640,21 +640,21 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread: ; preds = %14, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   %.val = load ptr, ptr %2, align 8
   %20 = icmp eq ptr %.val, null
-  br i1 %20, label %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.argprom.exit, label %21
+  br i1 %20, label %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.exit, label %21
 
 21:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread
   %22 = call ptr @__dynamic_cast(ptr nonnull %.val, ptr nonnull @_ZTIN5osgeo4proj3crs3CRSE, ptr nonnull @_ZTIN5osgeo4proj3crs11GeodeticCRSE, i64 -1) #21
   %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.argprom.exit, label %23
+  br i1 %.not.i, label %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.exit, label %23
 
 23:                                               ; preds = %21
   %24 = call noundef zeroext i1 @_ZNK5osgeo4proj3crs11GeodeticCRS12isGeocentricEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #22
-  br i1 %24, label %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.argprom.exit, label %25
+  br i1 %24, label %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.exit, label %25
 
 25:                                               ; preds = %23
   %26 = call ptr @__dynamic_cast(ptr nonnull %22, ptr nonnull @_ZTIN5osgeo4proj3crs11GeodeticCRSE, ptr nonnull @_ZTIN5osgeo4proj3crs13GeographicCRSE, i64 0) #21
   %.not10.i = icmp eq ptr %26, null
-  br i1 %.not10.i, label %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.argprom.exit, label %27
+  br i1 %.not10.i, label %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.exit, label %27
 
 27:                                               ; preds = %25
   %28 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs13GeographicCRS16coordinateSystemEv(ptr noundef nonnull align 8 dereferenceable(24) %26) #22
@@ -668,27 +668,27 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %36 = sub i64 %34, %35
   %37 = icmp eq i64 %36, 32
   %.str.23..str.24.i = select i1 %37, ptr @.str.23, ptr @.str.24
-  br label %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.argprom.exit
+  br label %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.exit
 
-_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.argprom.exit: ; preds = %27, %25, %23, %21, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread
+_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.exit: ; preds = %27, %25, %23, %21, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread
   %.0.i = phi ptr [ @.str.22, %23 ], [ %.str.23..str.24.i, %27 ], [ @.str.6, %25 ], [ @.str.6, %21 ], [ @.str.6, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ]
   %.val20 = load ptr, ptr %3, align 8
   %38 = icmp eq ptr %.val20, null
-  br i1 %38, label %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.argprom.exit25, label %39
+  br i1 %38, label %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.exit25, label %39
 
-39:                                               ; preds = %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.argprom.exit
+39:                                               ; preds = %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.exit
   %40 = call ptr @__dynamic_cast(ptr nonnull %.val20, ptr nonnull @_ZTIN5osgeo4proj3crs3CRSE, ptr nonnull @_ZTIN5osgeo4proj3crs11GeodeticCRSE, i64 -1) #21
   %.not.i21 = icmp eq ptr %40, null
-  br i1 %.not.i21, label %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.argprom.exit25, label %41
+  br i1 %.not.i21, label %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.exit25, label %41
 
 41:                                               ; preds = %39
   %42 = call noundef zeroext i1 @_ZNK5osgeo4proj3crs11GeodeticCRS12isGeocentricEv(ptr noundef nonnull align 8 dereferenceable(16) %40) #22
-  br i1 %42, label %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.argprom.exit25, label %43
+  br i1 %42, label %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.exit25, label %43
 
 43:                                               ; preds = %41
   %44 = call ptr @__dynamic_cast(ptr nonnull %40, ptr nonnull @_ZTIN5osgeo4proj3crs11GeodeticCRSE, ptr nonnull @_ZTIN5osgeo4proj3crs13GeographicCRSE, i64 0) #21
   %.not10.i22 = icmp eq ptr %44, null
-  br i1 %.not10.i22, label %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.argprom.exit25, label %45
+  br i1 %.not10.i22, label %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.exit25, label %45
 
 45:                                               ; preds = %43
   %46 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs13GeographicCRS16coordinateSystemEv(ptr noundef nonnull align 8 dereferenceable(24) %44) #22
@@ -702,10 +702,10 @@ _ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.ar
   %54 = sub i64 %52, %53
   %55 = icmp eq i64 %54, 32
   %.str.23..str.24.i23 = select i1 %55, ptr @.str.23, ptr @.str.24
-  br label %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.argprom.exit25
+  br label %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.exit25
 
-_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.argprom.exit25: ; preds = %45, %43, %41, %39, %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.argprom.exit
-  %.0.i24 = phi ptr [ @.str.22, %41 ], [ %.str.23..str.24.i23, %45 ], [ @.str.6, %43 ], [ @.str.6, %39 ], [ @.str.6, %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.argprom.exit ]
+_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.exit25: ; preds = %45, %43, %41, %39, %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.exit
+  %.0.i24 = phi ptr [ @.str.22, %41 ], [ %.str.23..str.24.i23, %45 ], [ @.str.6, %43 ], [ @.str.6, %39 ], [ @.str.6, %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.exit ]
   %56 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0.i, ptr noundef nonnull dereferenceable(1) %.0.i24) #22
   %57 = icmp eq i32 %56, 0
   %spec.select = select i1 %57, ptr @.str.6, ptr %.0.i
@@ -724,9 +724,9 @@ _ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.ar
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   br label %74
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread26: ; preds = %6, %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.argprom.exit25, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %.015 = phi ptr [ @.str.6, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %spec.select, %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.argprom.exit25 ], [ @.str.6, %6 ]
-  %.0 = phi ptr [ @.str.6, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %spec.select19, %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.argprom.exit25 ], [ @.str.6, %6 ]
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread26: ; preds = %6, %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.exit25, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
+  %.015 = phi ptr [ @.str.6, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %spec.select, %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.exit25 ], [ @.str.6, %6 ]
+  %.0 = phi ptr [ @.str.6, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %spec.select19, %_ZN5osgeo4proj9operationL18getCRSQualifierStrERKSt10shared_ptrINS0_3crs3CRSEE.exit25 ], [ @.str.6, %6 ]
   %62 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.7)
           to label %63 unwind label %60
 
@@ -2405,7 +2405,7 @@ define hidden noundef zeroext i1 @_ZN5osgeo4proj9operation23areEquivalentParamet
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %8
-  invoke fastcc void @_ZN5osgeo4proj9operationL28buildSetEquivalentParametersB5cxx11Ev.argprom()
+  invoke fastcc void @_ZN5osgeo4proj9operationL28buildSetEquivalentParametersB5cxx11Ev()
           to label %11 unwind label %43
 
 11:                                               ; preds = %10
@@ -2554,7 +2554,7 @@ _ZNKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5osgeo4proj9operationL28buildSetEquivalentParametersB5cxx11Ev.argprom() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5osgeo4proj9operationL28buildSetEquivalentParametersB5cxx11Ev() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 .preheader.preheader:
   %0 = alloca [11 x [7 x ptr]], align 16
   %1 = alloca %"class.std::__cxx11::basic_string", align 8

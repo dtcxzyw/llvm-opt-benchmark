@@ -2037,7 +2037,7 @@ entry:
   %0 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 8
   %cmp.i.not3.i.i.i = icmp eq ptr %0, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.not3.i.i.i, label %"_ZSt10__invoke_rIvRZN7rocksdb21OptimisticTransaction26CommitWithParallelValidateEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %for.body.i.i.i
+  br i1 %cmp.i.not3.i.i.i, label %"_ZSt10__invoke_rIvRZN7rocksdb21OptimisticTransaction26CommitWithParallelValidateEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %entry, %for.body.i.i.i
   %__begin2.sroa.0.04.i.i.i = phi ptr [ %call.i.i.i.i, %for.body.i.i.i ], [ %0, %entry ]
@@ -2046,9 +2046,9 @@ for.body.i.i.i:                                   ; preds = %entry, %for.body.i.
   tail call void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
   %call.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.04.i.i.i) #19
   %cmp.i.not.i.i.i = icmp eq ptr %call.i.i.i.i, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.not.i.i.i, label %"_ZSt10__invoke_rIvRZN7rocksdb21OptimisticTransaction26CommitWithParallelValidateEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %for.body.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %"_ZSt10__invoke_rIvRZN7rocksdb21OptimisticTransaction26CommitWithParallelValidateEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %for.body.i.i.i
 
-"_ZSt10__invoke_rIvRZN7rocksdb21OptimisticTransaction26CommitWithParallelValidateEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %for.body.i.i.i, %entry
+"_ZSt10__invoke_rIvRZN7rocksdb21OptimisticTransaction26CommitWithParallelValidateEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %for.body.i.i.i, %entry
   ret void
 }
 

@@ -57,7 +57,7 @@ define void @dot_init_node_edge(ptr noundef %0) local_unnamed_addr #0 {
 16:                                               ; preds = %.lr.ph
   %17 = load ptr, ptr @stderr, align 8
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.2, i64 noundef 40) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 gv_calloc.exit.i:                                 ; preds = %.lr.ph
@@ -74,7 +74,7 @@ gv_calloc.exit.i:                                 ; preds = %.lr.ph
 25:                                               ; preds = %gv_calloc.exit.i
   %26 = load ptr, ptr @stderr, align 8
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.2, i64 noundef 40) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 gv_calloc.exit15.i:                               ; preds = %gv_calloc.exit.i
@@ -91,7 +91,7 @@ gv_calloc.exit15.i:                               ; preds = %gv_calloc.exit.i
 34:                                               ; preds = %gv_calloc.exit15.i
   %35 = load ptr, ptr @stderr, align 8
   %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.2, i64 noundef 24) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 gv_calloc.exit16.i:                               ; preds = %gv_calloc.exit15.i
@@ -108,7 +108,7 @@ gv_calloc.exit16.i:                               ; preds = %gv_calloc.exit15.i
 43:                                               ; preds = %gv_calloc.exit16.i
   %44 = load ptr, ptr @stderr, align 8
   %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.2, i64 noundef 24) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 gv_calloc.exit17.i:                               ; preds = %gv_calloc.exit16.i
@@ -125,7 +125,7 @@ gv_calloc.exit17.i:                               ; preds = %gv_calloc.exit16.i
 52:                                               ; preds = %gv_calloc.exit17.i
   %53 = load ptr, ptr @stderr, align 8
   %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.2, i64 noundef 24) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 dot_init_node.exit:                               ; preds = %gv_calloc.exit17.i
@@ -601,7 +601,7 @@ define void @dot_layout(ptr noundef %0) local_unnamed_addr #0 {
 38:                                               ; preds = %.lr.ph.i
   %39 = load ptr, ptr @stderr, align 8
   %40 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.2, i64 noundef 104) #16
-  call fastcc void @graphviz_exit.argelim() #17
+  call fastcc void @graphviz_exit() #17
   unreachable
 
 initSubg.exit.i:                                  ; preds = %.lr.ph.i
@@ -838,7 +838,7 @@ copyClusterInfo.exit.critedge.i:                  ; preds = %resetCoord.exit.i
 183:                                              ; preds = %copyClusterInfo.exit.critedge.i
   %184 = load ptr, ptr @stderr, align 8
   %185 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef nonnull @.str.2, i64 noundef 8) #16
-  call fastcc void @graphviz_exit.argelim() #17
+  call fastcc void @graphviz_exit() #17
   unreachable
 
 gv_calloc.exit:                                   ; preds = %copyClusterInfo.exit.critedge.i
@@ -925,7 +925,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.1, i64 noundef %0, i64 noundef %1) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 8:                                                ; preds = %4
@@ -937,7 +937,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul i64 %1, %0
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.2, i64 noundef %13) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 15:                                               ; preds = %.thread, %8
@@ -949,7 +949,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #4 {
+define internal fastcc void @graphviz_exit() unnamed_addr #4 {
   tail call void @exit(i32 noundef 1) #18
   unreachable
 }
@@ -1196,7 +1196,7 @@ define internal fastcc void @attach_phase_attrs(ptr noundef %0, i32 noundef rang
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %6 = tail call ptr @agfstnode(ptr noundef %0) #14
   %.not30 = icmp eq ptr %6, null
-  br i1 %.not30, label %agxbfree.argprom.exit, label %agxbsizeof.exit.i.i.lr.ph
+  br i1 %.not30, label %agxbfree.exit, label %agxbsizeof.exit.i.i.lr.ph
 
 agxbsizeof.exit.i.i.lr.ph:                        ; preds = %2
   %7 = getelementptr inbounds i8, ptr %3, i64 31
@@ -1211,7 +1211,7 @@ agxbsizeof.exit.i.i:                              ; preds = %agxbsizeof.exit.i.i
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 360
   %14 = load i32, ptr %13, align 8
-  call void (ptr, ptr, ...) @agxbprint.argelim(ptr noundef %3, ptr nonnull poison, i32 noundef %14)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %3, ptr nonnull poison, i32 noundef %14)
   %.val.i.i.i = load i8, ptr %7, align 1
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
   %15 = load i64, ptr %8, align 8
@@ -1275,7 +1275,7 @@ agxbsizeof.exit.i.i17:                            ; preds = %agxbuse.exit
   %35 = load ptr, ptr %11, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 364
   %37 = load i32, ptr %36, align 4
-  call void (ptr, ptr, ...) @agxbprint.argelim(ptr noundef %3, ptr nonnull poison, i32 noundef %37)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %3, ptr nonnull poison, i32 noundef %37)
   %.val.i.i.i14 = load i8, ptr %7, align 1
   %.not.i.i.i15 = icmp eq i8 %.val.i.i.i14, -1
   %38 = load i64, ptr %8, align 8
@@ -1343,14 +1343,14 @@ agxbuse.exit29:                                   ; preds = %agxbclear.exit.thre
 ._crit_edge:                                      ; preds = %58
   %.val13.pre = load i8, ptr %7, align 1
   %60 = icmp eq i8 %.val13.pre, -1
-  br i1 %60, label %61, label %agxbfree.argprom.exit
+  br i1 %60, label %61, label %agxbfree.exit
 
 61:                                               ; preds = %._crit_edge
   %.val = load ptr, ptr %3, align 8
   call void @free(ptr noundef %.val) #14
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
-agxbfree.argprom.exit:                            ; preds = %2, %._crit_edge, %61
+agxbfree.exit:                                    ; preds = %2, %._crit_edge, %61
   ret void
 }
 
@@ -1372,7 +1372,7 @@ declare void @dot_compoundEdges(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define internal void @agxbprint.argelim(ptr nocapture noundef nonnull %0, ptr nocapture readnone %1, ...) unnamed_addr #0 {
+define internal void @agxbprint(ptr nocapture noundef nonnull %0, ptr nocapture readnone %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -1385,7 +1385,7 @@ define internal void @agxbprint.argelim(ptr nocapture noundef nonnull %0, ptr no
 
 7:                                                ; preds = %2
   call void @llvm.va_end.p0(ptr nonnull %4)
-  br label %vagxbprint.argprom.exit
+  br label %vagxbprint.exit
 
 8:                                                ; preds = %2
   %narrow.i = add nuw i32 %5, 1
@@ -1440,7 +1440,7 @@ agxbnext.exit.i:                                  ; preds = %25, %22
   %30 = phi ptr [ %24, %22 ], [ %29, %25 ]
   %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef nonnull @.str.10, ptr noundef nonnull %4) #14
   %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %33, label %vagxbprint.argprom.exit
+  br i1 %32, label %33, label %vagxbprint.exit
 
 33:                                               ; preds = %agxbnext.exit.i
   %.val.i = load i8, ptr %10, align 1
@@ -1451,7 +1451,7 @@ agxbnext.exit.i:                                  ; preds = %25, %22
   %35 = trunc i32 %31 to i8
   %36 = add i8 %.val.i, %35
   store i8 %36, ptr %10, align 1
-  br label %vagxbprint.argprom.exit
+  br label %vagxbprint.exit
 
 37:                                               ; preds = %33
   %38 = zext nneg i32 %31 to i64
@@ -1459,9 +1459,9 @@ agxbnext.exit.i:                                  ; preds = %25, %22
   %40 = load i64, ptr %39, align 8
   %41 = add i64 %40, %38
   store i64 %41, ptr %39, align 8
-  br label %vagxbprint.argprom.exit
+  br label %vagxbprint.exit
 
-vagxbprint.argprom.exit:                          ; preds = %7, %agxbnext.exit.i, %34, %37
+vagxbprint.exit:                                  ; preds = %7, %agxbnext.exit.i, %34, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)
   ret void
@@ -1504,7 +1504,7 @@ agxbsizeof.exit:                                  ; preds = %2
 15:                                               ; preds = %12
   %16 = load ptr, ptr @stderr, align 8
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.2, i64 noundef %spec.select34) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 18:                                               ; preds = %12
@@ -1527,7 +1527,7 @@ agxbsizeof.exit:                                  ; preds = %2
 27:                                               ; preds = %23
   %28 = load ptr, ptr @stderr, align 8
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.2, i64 noundef %spec.select) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 gv_calloc.exit:                                   ; preds = %23

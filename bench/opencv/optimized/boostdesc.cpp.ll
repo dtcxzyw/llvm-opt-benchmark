@@ -3034,8 +3034,8 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit.i94: ; preds = %_ZNSt6vectorI
   %480 = getelementptr inbounds i8, ptr %449, i64 12
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit._crit_edge
-  %indvars.iv215 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next216, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit._crit_edge ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit._crit_edge
+  %indvars.iv215 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next216, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit._crit_edge ]
   %481 = load ptr, ptr %102, align 8
   %482 = getelementptr inbounds i32, ptr %481, i64 %indvars.iv215
   %483 = load i32, ptr %482, align 4
@@ -3076,9 +3076,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit.i94: ; preds = %_ZNSt6vectorI
   %518 = add nsw i32 %517, %511
   %519 = add i32 %515, %513
   %.not.i105 = icmp eq i32 %518, %519
-  br i1 %.not.i105, label %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit.thread, label %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit
+  br i1 %.not.i105, label %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit.thread, label %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit
 
-_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit: ; preds = %.lr.ph
+_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit: ; preds = %.lr.ph
   %520 = load ptr, ptr %106, align 8
   %521 = getelementptr inbounds float, ptr %520, i64 %indvars.iv215
   %522 = load float, ptr %521, align 4
@@ -3105,16 +3105,16 @@ _ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argp
   %543 = fdiv float %542, %538
   %544 = fsub float %543, %522
   %545 = fcmp ult float %544, 0.000000e+00
-  br i1 %545, label %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit._crit_edge, label %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit.thread
+  br i1 %545, label %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit._crit_edge, label %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit.thread
 
-_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit.thread: ; preds = %.lr.ph, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit
+_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit.thread: ; preds = %.lr.ph, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit
   %546 = and i64 %indvars.iv215, 7
   %547 = getelementptr inbounds [8 x i8], ptr %29, i64 0, i64 %546
   %548 = load i8, ptr %547, align 1
-  br label %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit._crit_edge
+  br label %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit._crit_edge
 
-_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit._crit_edge: ; preds = %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit.thread
-  %549 = phi i8 [ %548, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit.thread ], [ 0, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit ]
+_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit._crit_edge: ; preds = %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit.thread
+  %549 = phi i8 [ %548, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit.thread ], [ 0, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit ]
   %550 = lshr i64 %indvars.iv215, 3
   %551 = and i64 %550, 536870911
   %552 = getelementptr inbounds i8, ptr %477, i64 %551
@@ -3149,7 +3149,7 @@ _ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argp
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #19
   resume { ptr, i32 } %eh.lpad-body
 
-thread-pre-split.loopexit:                        ; preds = %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit._crit_edge
+thread-pre-split.loopexit:                        ; preds = %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit._crit_edge
   %.pr.pre = load i32, ptr %99, align 4
   br label %thread-pre-split
 
@@ -3218,16 +3218,16 @@ thread-pre-split:                                 ; preds = %thread-pre-split.lo
   %605 = add nsw i32 %604, %598
   %606 = add i32 %602, %600
   %.not.i106 = icmp eq i32 %605, %606
-  br i1 %.not.i106, label %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit107.thread, label %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit107
+  br i1 %.not.i106, label %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit107.thread, label %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit107
 
-_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit107.thread: ; preds = %576
+_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit107.thread: ; preds = %576
   %607 = lshr i64 %indvars.iv218, 6
   %608 = getelementptr inbounds [8 x i64], ptr %31, i64 0, i64 %607
   %609 = and i64 %indvars.iv218, 63
   %610 = shl nuw i64 1, %609
   br label %639
 
-_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit107: ; preds = %576
+_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit107: ; preds = %576
   %611 = getelementptr inbounds float, ptr %574, i64 %indvars.iv218
   %612 = load float, ptr %611, align 4
   %613 = getelementptr inbounds i32, ptr %575, i64 %indvars.iv218
@@ -3258,15 +3258,15 @@ _ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argp
   %638 = shl nuw i64 1, %637
   br i1 %634, label %644, label %639
 
-639:                                              ; preds = %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit107.thread, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit107
-  %640 = phi i64 [ %610, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit107.thread ], [ %638, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit107 ]
-  %641 = phi ptr [ %608, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit107.thread ], [ %636, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit107 ]
+639:                                              ; preds = %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit107.thread, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit107
+  %640 = phi i64 [ %610, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit107.thread ], [ %638, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit107 ]
+  %641 = phi ptr [ %608, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit107.thread ], [ %636, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit107 ]
   %642 = load i64, ptr %641, align 8
   %643 = or i64 %642, %640
   store i64 %643, ptr %641, align 8
   br label %_ZNSt6bitsetILm512EE9referenceaSEb.exit
 
-644:                                              ; preds = %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit107
+644:                                              ; preds = %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit107
   %645 = xor i64 %638, -1
   %646 = load i64, ptr %636, align 8
   %647 = and i64 %646, %645
@@ -3441,13 +3441,13 @@ _ZNSt6bitsetILm512EE9referenceaSEb.exit:          ; preds = %639, %644
   %761 = add nsw i32 %760, %754
   %762 = add i32 %758, %756
   %.not.i108 = icmp eq i32 %761, %762
-  br i1 %.not.i108, label %._ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit109.thread_crit_edge, label %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit109
+  br i1 %.not.i108, label %._ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit109.thread_crit_edge, label %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit109
 
-._ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit109.thread_crit_edge: ; preds = %732
+._ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit109.thread_crit_edge: ; preds = %732
   %.pre248 = load i64, ptr %731, align 8
-  br label %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit109.thread
+  br label %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit109.thread
 
-_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit109: ; preds = %732
+_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit109: ; preds = %732
   %763 = load i64, ptr %727, align 8
   %764 = mul i64 %763, %indvars.iv233
   %765 = getelementptr inbounds i8, ptr %726, i64 %764
@@ -3479,17 +3479,17 @@ _ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argp
   %791 = fsub float %790, %767
   %792 = fcmp ult float %791, 0.000000e+00
   %.pre249 = load i64, ptr %731, align 8
-  br i1 %792, label %798, label %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit109.thread
+  br i1 %792, label %798, label %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit109.thread
 
-_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit109.thread: ; preds = %._ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit109.thread_crit_edge, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit109
-  %793 = phi i64 [ %.pre248, %._ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit109.thread_crit_edge ], [ %.pre249, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit109 ]
+_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit109.thread: ; preds = %._ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit109.thread_crit_edge, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit109
+  %793 = phi i64 [ %.pre248, %._ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit109.thread_crit_edge ], [ %.pre249, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit109 ]
   %794 = mul i64 %793, %indvars.iv233
   %795 = getelementptr inbounds i8, ptr %730, i64 %794
   %796 = getelementptr inbounds float, ptr %795, i64 %indvars.iv228
   %797 = load float, ptr %796, align 4
   br label %804
 
-798:                                              ; preds = %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit109
+798:                                              ; preds = %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit109
   %799 = mul i64 %.pre249, %indvars.iv233
   %800 = getelementptr inbounds i8, ptr %730, i64 %799
   %801 = getelementptr inbounds float, ptr %800, i64 %indvars.iv228
@@ -3497,8 +3497,8 @@ _ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argp
   %803 = fneg float %802
   br label %804
 
-804:                                              ; preds = %798, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit109.thread
-  %805 = phi float [ %797, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.argprom.exit109.thread ], [ %803, %798 ]
+804:                                              ; preds = %798, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit109.thread
+  %805 = phi float [ %797, %_ZN2cv11xfeatures2dL17computeWLResponseEiiiiifiRKSt6vectorINS_3MatESaIS2_EE.exit109.thread ], [ %803, %798 ]
   %806 = fadd float %.075196, %805
   %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
   %exitcond232.not = icmp eq i64 %indvars.iv.next229, %wide.trip.count231
@@ -3868,8 +3868,8 @@ attributes #23 = { noreturn nounwind }
 !16 = !{!17, !19}
 !17 = distinct !{!17, !18, !"_ZSt11make_sharedIN2cv11xfeatures2d14BoostDesc_ImplEJRKiRKbRKfEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_: argument 0"}
 !18 = distinct !{!18, !"_ZSt11make_sharedIN2cv11xfeatures2d14BoostDesc_ImplEJRKiRKbRKfEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_"}
-!19 = distinct !{!19, !20, !"_ZN2cvL7makePtrINS_11xfeatures2d14BoostDesc_ImplEJibfEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!20 = distinct !{!20, !"_ZN2cvL7makePtrINS_11xfeatures2d14BoostDesc_ImplEJibfEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!19 = distinct !{!19, !20, !"_ZN2cvL7makePtrINS_11xfeatures2d14BoostDesc_ImplEJibfEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!20 = distinct !{!20, !"_ZN2cvL7makePtrINS_11xfeatures2d14BoostDesc_ImplEJibfEEENS_3PtrIT_EEDpRKT0_"}
 !21 = !{!22}
 !22 = distinct !{!22, !23, !"_ZNK2cv11xfeatures2d9BoostDesc14getDefaultNameB5cxx11Ev: argument 0"}
 !23 = distinct !{!23, !"_ZNK2cv11xfeatures2d9BoostDesc14getDefaultNameB5cxx11Ev"}

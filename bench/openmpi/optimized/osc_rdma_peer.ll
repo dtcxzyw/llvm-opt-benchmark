@@ -195,7 +195,7 @@ define internal fastcc range(i32 -12, 1) i32 @ompi_osc_rdma_peer_btl_endpoint(pt
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %13, 1
   %.not.i.i.i.i = icmp eq i64 %14, 0
-  br i1 %.not.i.i.i.i, label %ompi_comm_peer_lookup.argprom.exit, label %15
+  br i1 %.not.i.i.i.i, label %ompi_comm_peer_lookup.exit, label %15
 
 15:                                               ; preds = %4
   %16 = lshr i64 %13, 1
@@ -208,7 +208,7 @@ define internal fastcc range(i32 -12, 1) i32 @ompi_osc_rdma_peer_btl_endpoint(pt
   %22 = ptrtoint ptr %19 to i64
   %23 = cmpxchg volatile ptr %21, i64 %13, i64 %22 acquire monotonic, align 8
   %24 = extractvalue { i64, i1 } %23, 1
-  br i1 %24, label %25, label %ompi_comm_peer_lookup.argprom.exit
+  br i1 %24, label %25, label %ompi_comm_peer_lookup.exit
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds i8, ptr %19, i64 8
@@ -218,23 +218,23 @@ define internal fastcc range(i32 -12, 1) i32 @ompi_osc_rdma_peer_btl_endpoint(pt
 
 29:                                               ; preds = %25
   %30 = atomicrmw volatile add ptr %26, i32 1 monotonic, align 4
-  br label %ompi_comm_peer_lookup.argprom.exit
+  br label %ompi_comm_peer_lookup.exit
 
 31:                                               ; preds = %25
   %32 = load volatile i32, ptr %26, align 4
   %33 = add nsw i32 %32, 1
   store volatile i32 %33, ptr %26, align 4
   %34 = load volatile i32, ptr %26, align 4
-  br label %ompi_comm_peer_lookup.argprom.exit
+  br label %ompi_comm_peer_lookup.exit
 
-ompi_comm_peer_lookup.argprom.exit:               ; preds = %4, %15, %29, %31
+ompi_comm_peer_lookup.exit:                       ; preds = %4, %15, %29, %31
   %.0.i.i.i.i = phi ptr [ %12, %4 ], [ %19, %31 ], [ %19, %29 ], [ %19, %15 ]
   %35 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 72
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %mca_bml_base_get_endpoint.exit
 
-38:                                               ; preds = %ompi_comm_peer_lookup.argprom.exit
+38:                                               ; preds = %ompi_comm_peer_lookup.exit
   %39 = load i8, ptr @opal_uses_threads, align 1
   %40 = trunc i8 %39 to i1
   br i1 %40, label %41, label %.thread.i
@@ -259,7 +259,7 @@ ompi_comm_peer_lookup.argprom.exit:               ; preds = %4, %15, %29, %31
   %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_bml_lock, i64 16)) #12
   br label %mca_bml_base_get_endpoint.exit
 
-mca_bml_base_get_endpoint.exit:                   ; preds = %ompi_comm_peer_lookup.argprom.exit, %46, %49
+mca_bml_base_get_endpoint.exit:                   ; preds = %ompi_comm_peer_lookup.exit, %46, %49
   %51 = load ptr, ptr %35, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 1072
   %53 = load i8, ptr %52, align 16

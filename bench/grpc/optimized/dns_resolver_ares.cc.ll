@@ -1566,9 +1566,9 @@ call.i.noexc:                                     ; preds = %entry
   %service_config_json_.i.i = getelementptr inbounds i8, ptr %call.i1, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %txt_request_.i.i, i8 0, i64 32, i1 false), !noalias !16
   invoke void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %on_resolved_mu_.i.i)
-          to label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperEED2Ev.argprom.exit.i.i unwind label %lpad3.i.i, !noalias !16
+          to label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperEED2Ev.exit.i.i unwind label %lpad3.i.i, !noalias !16
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperEED2Ev.argprom.exit.i.i: ; preds = %call.i.noexc
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperEED2Ev.exit.i.i: ; preds = %call.i.noexc
   %1 = atomicrmw add ptr %refs_.i.i.i, i64 1 monotonic, align 8, !noalias !19
   %on_hostname_resolved_11.i.i = getelementptr inbounds i8, ptr %call.i1, i64 32
   %cb1.i.i.i = getelementptr inbounds i8, ptr %call.i1, i64 40
@@ -1593,7 +1593,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18Ar
   %call38.i.i = invoke noundef ptr %2(ptr noundef %call20.i.i, ptr noundef %call26.i.i, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %on_hostname_resolved_11.i.i, ptr noundef nonnull %addresses_.i.i, i32 noundef %5)
           to label %invoke.cont37.i.i unwind label %lpad6.i.i, !noalias !16
 
-invoke.cont37.i.i:                                ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperEED2Ev.argprom.exit.i.i
+invoke.cont37.i.i:                                ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperEED2Ev.exit.i.i
   %6 = load ptr, ptr %hostname_request_.i.i, align 8, !noalias !16
   store ptr %call38.i.i, ptr %hostname_request_.i.i, align 8, !noalias !16
   %tobool.not.i.i.i.i = icmp eq ptr %6, null
@@ -1638,7 +1638,7 @@ lpad3.i.i:                                        ; preds = %call.i.noexc
           cleanup
   br label %ehcleanup153.i.i
 
-lpad6.i.i:                                        ; preds = %if.then142.i.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperEED2Ev.argprom.exit53.i.i, %if.then88.i.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperEED2Ev.argprom.exit28.i.i, %if.then.i.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperEED2Ev.argprom.exit.i.i
+lpad6.i.i:                                        ; preds = %if.then142.i.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperEED2Ev.exit53.i.i, %if.then88.i.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperEED2Ev.exit28.i.i, %if.then.i.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperEED2Ev.exit.i.i
   %13 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %on_resolved_mu_.i.i)
@@ -1656,9 +1656,9 @@ do.end.i.i:                                       ; preds = %if.then.i.i, %_ZNSt
   %enable_srv_queries_.i.i = getelementptr inbounds i8, ptr %resolver_.val10.i.i, i64 537
   %16 = load i8, ptr %enable_srv_queries_.i.i, align 1, !noalias !16
   %tobool.i.i = trunc i8 %16 to i1
-  br i1 %tobool.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperEED2Ev.argprom.exit28.i.i, label %if.end98.i.i
+  br i1 %tobool.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperEED2Ev.exit28.i.i, label %if.end98.i.i
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperEED2Ev.argprom.exit28.i.i: ; preds = %do.end.i.i
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperEED2Ev.exit28.i.i: ; preds = %do.end.i.i
   %17 = atomicrmw add ptr %refs_.i.i.i, i64 1 monotonic, align 8, !noalias !22
   %on_srv_resolved_57.i.i = getelementptr inbounds i8, ptr %call.i1, i64 72
   %cb1.i29.i.i = getelementptr inbounds i8, ptr %call.i1, i64 80
@@ -1681,7 +1681,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18Ar
   %call85.i.i = invoke noundef ptr %18(ptr noundef %call66.i.i, ptr noundef %call72.i.i, ptr noundef %19, ptr noundef nonnull %on_srv_resolved_57.i.i, ptr noundef nonnull %balancer_addresses_.i.i, i32 noundef %20)
           to label %invoke.cont84.i.i unwind label %lpad6.i.i, !noalias !16
 
-invoke.cont84.i.i:                                ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperEED2Ev.argprom.exit28.i.i
+invoke.cont84.i.i:                                ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperEED2Ev.exit28.i.i
   %21 = load ptr, ptr %srv_request_.i.i, align 8, !noalias !16
   store ptr %call85.i.i, ptr %srv_request_.i.i, align 8, !noalias !16
   %tobool.not.i.i35.i.i = icmp eq ptr %21, null
@@ -1730,9 +1730,9 @@ if.end98.i.i:                                     ; preds = %if.then88.if.end98_
   %request_service_config_.i.i = getelementptr inbounds i8, ptr %resolver_.val8.i.i, i64 536
   %27 = load i8, ptr %request_service_config_.i.i, align 8, !noalias !16
   %tobool102.i.i = trunc i8 %27 to i1
-  br i1 %tobool102.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperEED2Ev.argprom.exit53.i.i, label %if.end152.i.i
+  br i1 %tobool102.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperEED2Ev.exit53.i.i, label %if.end152.i.i
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperEED2Ev.argprom.exit53.i.i: ; preds = %if.end98.i.i
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperEED2Ev.exit53.i.i: ; preds = %if.end98.i.i
   %28 = atomicrmw add ptr %refs_.i.i.i, i64 1 monotonic, align 8, !noalias !25
   %on_txt_resolved_111.i.i = getelementptr inbounds i8, ptr %call.i1, i64 112
   %cb1.i54.i.i = getelementptr inbounds i8, ptr %call.i1, i64 120
@@ -1755,7 +1755,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18Ar
   %call139.i.i = invoke noundef ptr %29(ptr noundef %call120.i.i, ptr noundef %call126.i.i, ptr noundef %30, ptr noundef nonnull %on_txt_resolved_111.i.i, ptr noundef nonnull %service_config_json_.i.i, i32 noundef %31)
           to label %invoke.cont138.i.i unwind label %lpad6.i.i, !noalias !16
 
-invoke.cont138.i.i:                               ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperEED2Ev.argprom.exit53.i.i
+invoke.cont138.i.i:                               ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperEED2Ev.exit53.i.i
   %32 = load ptr, ptr %txt_request_.i.i, align 8, !noalias !16
   store ptr %call139.i.i, ptr %txt_request_.i.i, align 8, !noalias !16
   %tobool.not.i.i60.i.i = icmp eq ptr %32, null
@@ -2839,16 +2839,16 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit4:       ; preds = %if.end15
   %refs_.i = getelementptr inbounds i8, ptr %this, i64 8
   %11 = atomicrmw sub ptr %refs_.i, i64 1 acq_rel, align 8
   %cmp.i.i5 = icmp eq i64 %11, 1
-  br i1 %cmp.i.i5, label %if.then.i, label %_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperENS_11UnrefDeleteEE5UnrefERKNS_13DebugLocationEPKc.argprom.exit
+  br i1 %cmp.i.i5, label %if.then.i, label %_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperENS_11UnrefDeleteEE5UnrefERKNS_13DebugLocationEPKc.exit
 
 if.then.i:                                        ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit4
   %vtable.i.i = load ptr, ptr %this, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %12 = load ptr, ptr %vfn.i.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(176) %this) #23
-  br label %_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperENS_11UnrefDeleteEE5UnrefERKNS_13DebugLocationEPKc.argprom.exit
+  br label %_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperENS_11UnrefDeleteEE5UnrefERKNS_13DebugLocationEPKc.exit
 
-_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperENS_11UnrefDeleteEE5UnrefERKNS_13DebugLocationEPKc.argprom.exit: ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit4, %if.then.i
+_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperENS_11UnrefDeleteEE5UnrefERKNS_13DebugLocationEPKc.exit: ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit4, %if.then.i
   ret void
 }
 
@@ -3070,22 +3070,22 @@ _ZNSt10unique_ptrI17grpc_ares_requestSt14default_deleteIS0_EED2Ev.exit41: ; pred
   store ptr null, ptr %hostname_request_, align 8
   %resolver_.val = load ptr, ptr %resolver_, align 8
   %cmp.not.i42 = icmp eq ptr %resolver_.val, null
-  br i1 %cmp.not.i42, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolverEED2Ev.argprom.exit, label %if.then.i43
+  br i1 %cmp.not.i42, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolverEED2Ev.exit, label %if.then.i43
 
 if.then.i43:                                      ; preds = %_ZNSt10unique_ptrI17grpc_ares_requestSt14default_deleteIS0_EED2Ev.exit41
   %refs_.i.i44 = getelementptr inbounds i8, ptr %resolver_.val, i64 8
   %26 = atomicrmw sub ptr %refs_.i.i44, i64 1 acq_rel, align 8
   %cmp.i.i.i45 = icmp eq i64 %26, 1
-  br i1 %cmp.i.i.i45, label %if.then.i.i46, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolverEED2Ev.argprom.exit
+  br i1 %cmp.i.i.i45, label %if.then.i.i46, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolverEED2Ev.exit
 
 if.then.i.i46:                                    ; preds = %if.then.i43
   %vtable.i.i.i47 = load ptr, ptr %resolver_.val, align 8
   %vfn.i.i.i48 = getelementptr inbounds i8, ptr %vtable.i.i.i47, i64 16
   %27 = load ptr, ptr %vfn.i.i.i48, align 8
   tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %resolver_.val) #23
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolverEED2Ev.argprom.exit
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolverEED2Ev.exit
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolverEED2Ev.argprom.exit: ; preds = %_ZNSt10unique_ptrI17grpc_ares_requestSt14default_deleteIS0_EED2Ev.exit41, %if.then.i43, %if.then.i.i46
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolverEED2Ev.exit: ; preds = %_ZNSt10unique_ptrI17grpc_ares_requestSt14default_deleteIS0_EED2Ev.exit41, %if.then.i43, %if.then.i.i46
   %on_resolved_mu_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %on_resolved_mu_) #23
   ret void
@@ -7055,7 +7055,7 @@ lpad1:                                            ; preds = %invoke.cont
   %3 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
-          to label %_ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestEEclEPS3_.argprom.exit.i17 unwind label %terminate.lpad.i
+          to label %_ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestEEclEPS3_.exit.i17 unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad1
   %4 = landingpad { ptr, i32 }
@@ -7135,15 +7135,15 @@ lpad5:                                            ; preds = %invoke.cont4
   %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #23
-  br label %_ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestEEclEPS3_.argprom.exit.i17
+  br label %_ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestEEclEPS3_.exit.i17
 
 ehcleanup:                                        ; preds = %entry
   %19 = landingpad { ptr, i32 }
           cleanup
   %cmp.not.i16 = icmp eq ptr %arg, null
-  br i1 %cmp.not.i16, label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestESt14default_deleteIS3_EED2Ev.exit20, label %_ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestEEclEPS3_.argprom.exit.i17
+  br i1 %cmp.not.i16, label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestESt14default_deleteIS3_EED2Ev.exit20, label %_ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestEEclEPS3_.exit.i17
 
-_ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestEEclEPS3_.argprom.exit.i17: ; preds = %lpad5, %lpad1, %ehcleanup
+_ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestEEclEPS3_.exit.i17: ; preds = %lpad5, %lpad1, %ehcleanup
   %.pn26 = phi { ptr, i32 } [ %19, %ehcleanup ], [ %3, %lpad1 ], [ %18, %lpad5 ]
   %vtable.i.i18 = load ptr, ptr %arg, align 8
   %vfn.i.i19 = getelementptr inbounds i8, ptr %vtable.i.i18, i64 8
@@ -7151,8 +7151,8 @@ _ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestEE
   call void %20(ptr noundef nonnull align 8 dereferenceable(168) %arg) #23
   br label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestESt14default_deleteIS3_EED2Ev.exit20
 
-_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestESt14default_deleteIS3_EED2Ev.exit20: ; preds = %ehcleanup, %_ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestEEclEPS3_.argprom.exit.i17
-  %.pn27 = phi { ptr, i32 } [ %19, %ehcleanup ], [ %.pn26, %_ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestEEclEPS3_.argprom.exit.i17 ]
+_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestESt14default_deleteIS3_EED2Ev.exit20: ; preds = %ehcleanup, %_ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestEEclEPS3_.exit.i17
+  %.pn27 = phi { ptr, i32 } [ %19, %ehcleanup ], [ %.pn26, %_ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestEEclEPS3_.exit.i17 ]
   resume { ptr, i32 } %.pn27
 }
 
@@ -8752,22 +8752,22 @@ entry:
   %_M_impl = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_impl, align 8
   %isnull.i = icmp eq ptr %0, null
-  br i1 %isnull.i, label %_ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_115AresDNSResolverEEclEPS2_.argprom.exit, label %delete.notnull.i
+  br i1 %isnull.i, label %_ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_115AresDNSResolverEEclEPS2_.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
-  br label %_ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_115AresDNSResolverEEclEPS2_.argprom.exit
+  br label %_ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_115AresDNSResolverEEclEPS2_.exit
 
-_ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_115AresDNSResolverEEclEPS2_.argprom.exit: ; preds = %entry, %delete.notnull.i
+_ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_115AresDNSResolverEEclEPS2_.exit: ; preds = %entry, %delete.notnull.i
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt19_Sp_counted_deleterIPN9grpc_core12_GLOBAL__N_115AresDNSResolverESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN9grpc_core12_GLOBAL__N_115AresDNSResolverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN9grpc_core12_GLOBAL__N_115AresDNSResolverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
@@ -8879,14 +8879,14 @@ attributes #27 = { noreturn }
 !17 = distinct !{!17, !18, !"_ZN9grpc_core14MakeOrphanableINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperEJNS_13RefCountedPtrINS_8ResolverEEEEEESt10unique_ptrIT_NS_16OrphanableDeleteEEDpOT0_: %agg.result"}
 !18 = distinct !{!18, !"_ZN9grpc_core14MakeOrphanableINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperEJNS_13RefCountedPtrINS_8ResolverEEEEEESt10unique_ptrIT_NS_16OrphanableDeleteEEDpOT0_"}
 !19 = !{!20, !17}
-!20 = distinct !{!20, !21, !"_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc.argprom: %agg.result"}
-!21 = distinct !{!21, !"_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc.argprom"}
+!20 = distinct !{!20, !21, !"_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc: %agg.result"}
+!21 = distinct !{!21, !"_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc"}
 !22 = !{!23, !17}
-!23 = distinct !{!23, !24, !"_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc.argprom: %agg.result"}
-!24 = distinct !{!24, !"_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc.argprom"}
+!23 = distinct !{!23, !24, !"_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc: %agg.result"}
+!24 = distinct !{!24, !"_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc"}
 !25 = !{!26, !17}
-!26 = distinct !{!26, !27, !"_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc.argprom: %agg.result"}
-!27 = distinct !{!27, !"_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc.argprom"}
+!26 = distinct !{!26, !27, !"_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc: %agg.result"}
+!27 = distinct !{!27, !"_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc"}
 !28 = distinct !{!28, !29}
 !29 = !{!"llvm.loop.mustprogress"}
 !30 = distinct !{!30, !29}

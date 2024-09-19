@@ -1764,7 +1764,7 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEEvT_S7_.exit: ;
   %.val = load ptr, ptr %6, align 8
   %50 = getelementptr inbounds i8, ptr %6, i64 8
   %.val21 = load ptr, ptr %50, align 8
-  invoke fastcc void @_ZN2cvL9gfPolyDivERKSt6vectorIhSaIhEES4_iRS2_.argprom(ptr %.val, ptr %.val21, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke fastcc void @_ZN2cvL9gfPolyDivERKSt6vectorIhSaIhEES4_iRS2_(ptr %.val, ptr %.val21, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(24) %11)
           to label %51 unwind label %73
 
 51:                                               ; preds = %46
@@ -1903,7 +1903,7 @@ declare void @_ZN2cv7hconcatERKNS_11_InputArrayES2_RKNS_12_OutputArrayE(ptr noun
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL9gfPolyDivERKSt6vectorIhSaIhEES4_iRS2_.argprom(ptr %.0.val, ptr %.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL9gfPolyDivERKSt6vectorIhSaIhEES4_iRS2_(ptr %.0.val, ptr %.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = ptrtoint ptr %.8.val to i64
   %5 = ptrtoint ptr %.0.val to i64
   %6 = sub i64 %4, %5
@@ -3924,7 +3924,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i38: ; preds = %_ZNSt6vectorIhS
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   %.val = load ptr, ptr %6, align 8
   %.val31 = load ptr, ptr %55, align 8
-  invoke fastcc void @_ZN2cvL9gfPolyDivERKSt6vectorIhSaIhEES4_iRS2_.argprom(ptr %.val, ptr %.val31, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %.fr97, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke fastcc void @_ZN2cvL9gfPolyDivERKSt6vectorIhSaIhEES4_iRS2_(ptr %.val, ptr %.val31, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %.fr97, ptr noundef nonnull align 8 dereferenceable(24) %11)
           to label %106 unwind label %.loopexit81
 
 106:                                              ; preds = %105

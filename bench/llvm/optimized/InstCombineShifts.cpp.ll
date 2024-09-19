@@ -1969,7 +1969,7 @@ _ZN4llvm5APIntD2Ev.exit109:                       ; preds = %_ZN4llvm5APIntD2Ev.
   %.0.in.i117 = select i1 %214, ptr %203, ptr %215
   %.0.i118 = load i64, ptr %.0.in.i117, align 8
   %216 = trunc i64 %.0.i118 to i32
-  %217 = tail call fastcc noundef ptr @_ZL15getShiftedValuePN4llvm5ValueEjbRNS_16InstCombinerImplERKNS_10DataLayoutE.argprom(ptr noundef nonnull %1, i32 noundef %216, i1 noundef zeroext %27, ptr noundef nonnull align 8 dereferenceable(1088) %0)
+  %217 = tail call fastcc noundef ptr @_ZL15getShiftedValuePN4llvm5ValueEjbRNS_16InstCombinerImplERKNS_10DataLayoutE(ptr noundef nonnull %1, i32 noundef %216, i1 noundef zeroext %27, ptr noundef nonnull align 8 dereferenceable(1088) %0)
   %218 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %219 = load ptr, ptr %218, align 8
   %220 = icmp eq ptr %219, null
@@ -2091,7 +2091,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit:                 ; preds = %250
 
 280:                                              ; preds = %277, %262
   %.val = load i8, ptr %3, align 8
-  %281 = tail call fastcc noundef zeroext i1 @_ZL28canShiftBinOpWithConstantRHSRN4llvm14BinaryOperatorEPS0_.argprom(i8 %.val, ptr noundef nonnull %1)
+  %281 = tail call fastcc noundef zeroext i1 @_ZL28canShiftBinOpWithConstantRHSRN4llvm14BinaryOperatorEPS0_(i8 %.val, ptr noundef nonnull %1)
   br i1 %281, label %282, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_11apint_matchEEEbPT_RKT0_.exit.thread
 
 282:                                              ; preds = %280
@@ -2220,7 +2220,7 @@ _ZNK4llvm4User10getOperandEj.exit10.i.i:          ; preds = %337, %334
 
 356:                                              ; preds = %352
   %.val104 = load i8, ptr %3, align 8
-  %357 = call fastcc noundef zeroext i1 @_ZL28canShiftBinOpWithConstantRHSRN4llvm14BinaryOperatorEPS0_.argprom(i8 %.val104, ptr noundef nonnull %320)
+  %357 = call fastcc noundef zeroext i1 @_ZL28canShiftBinOpWithConstantRHSRN4llvm14BinaryOperatorEPS0_(i8 %.val104, ptr noundef nonnull %320)
   br i1 %357, label %358, label %.critedge2
 
 358:                                              ; preds = %356
@@ -2339,7 +2339,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i.i.i141:        ; preds = %_ZNK4llvm4User10get
 
 423:                                              ; preds = %419
   %.val105 = load i8, ptr %3, align 8
-  %424 = call fastcc noundef zeroext i1 @_ZL28canShiftBinOpWithConstantRHSRN4llvm14BinaryOperatorEPS0_.argprom(i8 %.val105, ptr noundef nonnull %399)
+  %424 = call fastcc noundef zeroext i1 @_ZL28canShiftBinOpWithConstantRHSRN4llvm14BinaryOperatorEPS0_(i8 %.val105, ptr noundef nonnull %399)
   br i1 %424, label %425, label %.critedge4
 
 425:                                              ; preds = %423
@@ -4388,7 +4388,7 @@ _ZN4llvm19InstructionWorklist19pushUsersToWorkListERNS_11InstructionE.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL15getShiftedValuePN4llvm5ValueEjbRNS_16InstCombinerImplERKNS_10DataLayoutE.argprom(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(1088) %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL15getShiftedValuePN4llvm5ValueEjbRNS_16InstCombinerImplERKNS_10DataLayoutE(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(1088) %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca ptr, align 8
@@ -4513,7 +4513,7 @@ _ZN4llvm13IRBuilderBase23CreateInsertNUWNSWBinOpENS_11Instruction9BinaryOpsEPNS_
 _ZNK4llvm4User10getOperandEj.exit:                ; preds = %66, %69
   %74 = phi ptr [ %68, %66 ], [ %73, %69 ]
   %75 = load ptr, ptr %74, align 8
-  %76 = tail call fastcc noundef ptr @_ZL15getShiftedValuePN4llvm5ValueEjbRNS_16InstCombinerImplERKNS_10DataLayoutE.argprom(ptr noundef %75, i32 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(1088) %3)
+  %76 = tail call fastcc noundef ptr @_ZL15getShiftedValuePN4llvm5ValueEjbRNS_16InstCombinerImplERKNS_10DataLayoutE(ptr noundef %75, i32 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(1088) %3)
   %77 = load i32, ptr %63, align 4
   %78 = and i32 %77, 1073741824
   %.not.i.i.i = icmp eq i32 %78, 0
@@ -4598,7 +4598,7 @@ _ZNK4llvm4User10getOperandEj.exit90:              ; preds = %106, %109
   %114 = phi ptr [ %108, %106 ], [ %113, %109 ]
   %115 = getelementptr inbounds i8, ptr %114, i64 32
   %116 = load ptr, ptr %115, align 8
-  %117 = tail call fastcc noundef ptr @_ZL15getShiftedValuePN4llvm5ValueEjbRNS_16InstCombinerImplERKNS_10DataLayoutE.argprom(ptr noundef %116, i32 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(1088) %3)
+  %117 = tail call fastcc noundef ptr @_ZL15getShiftedValuePN4llvm5ValueEjbRNS_16InstCombinerImplERKNS_10DataLayoutE(ptr noundef %116, i32 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(1088) %3)
   %118 = load i32, ptr %63, align 4
   %119 = and i32 %118, 1073741824
   %.not.i.i.i91 = icmp eq i32 %119, 0
@@ -4943,7 +4943,7 @@ _ZNK4llvm4User10getOperandEj.exit106:             ; preds = %274, %277
   %282 = phi ptr [ %276, %274 ], [ %281, %277 ]
   %283 = getelementptr inbounds i8, ptr %282, i64 32
   %284 = load ptr, ptr %283, align 8
-  %285 = tail call fastcc noundef ptr @_ZL15getShiftedValuePN4llvm5ValueEjbRNS_16InstCombinerImplERKNS_10DataLayoutE.argprom(ptr noundef %284, i32 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(1088) %3)
+  %285 = tail call fastcc noundef ptr @_ZL15getShiftedValuePN4llvm5ValueEjbRNS_16InstCombinerImplERKNS_10DataLayoutE(ptr noundef %284, i32 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(1088) %3)
   %286 = load i32, ptr %271, align 4
   %287 = and i32 %286, 1073741824
   %.not.i.i.i107 = icmp eq i32 %287, 0
@@ -5029,7 +5029,7 @@ _ZNK4llvm4User10getOperandEj.exit117:             ; preds = %316, %319
   %324 = phi ptr [ %318, %316 ], [ %323, %319 ]
   %325 = getelementptr inbounds i8, ptr %324, i64 64
   %326 = load ptr, ptr %325, align 8
-  %327 = tail call fastcc noundef ptr @_ZL15getShiftedValuePN4llvm5ValueEjbRNS_16InstCombinerImplERKNS_10DataLayoutE.argprom(ptr noundef %326, i32 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(1088) %3)
+  %327 = tail call fastcc noundef ptr @_ZL15getShiftedValuePN4llvm5ValueEjbRNS_16InstCombinerImplERKNS_10DataLayoutE(ptr noundef %326, i32 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(1088) %3)
   %328 = load i32, ptr %271, align 4
   %329 = and i32 %328, 1073741824
   %.not.i.i.i118 = icmp eq i32 %329, 0
@@ -5110,7 +5110,7 @@ _ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i125:    ; preds = %353, %349
   %363 = load ptr, ptr %360, align 8
   %364 = getelementptr inbounds %"class.llvm::Use", ptr %363, i64 %indvars.iv
   %365 = load ptr, ptr %364, align 8
-  %366 = tail call fastcc noundef ptr @_ZL15getShiftedValuePN4llvm5ValueEjbRNS_16InstCombinerImplERKNS_10DataLayoutE.argprom(ptr noundef %365, i32 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(1088) %3)
+  %366 = tail call fastcc noundef ptr @_ZL15getShiftedValuePN4llvm5ValueEjbRNS_16InstCombinerImplERKNS_10DataLayoutE(ptr noundef %365, i32 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(1088) %3)
   %367 = load ptr, ptr %360, align 8
   %368 = getelementptr inbounds %"class.llvm::Use", ptr %367, i64 %indvars.iv
   %369 = load ptr, ptr %368, align 8
@@ -5267,7 +5267,7 @@ _ZN4llvm13IRBuilderBase9CreateShlEPNS_5ValueEmRKNS_5TwineEbb.exit: ; preds = %_Z
 declare hidden noundef ptr @_ZN4llvm16InstCombinerImpl24foldBinOpIntoSelectOrPhiERNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(1088), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL28canShiftBinOpWithConstantRHSRN4llvm14BinaryOperatorEPS0_.argprom(i8 %.0.val, ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL28canShiftBinOpWithConstantRHSRN4llvm14BinaryOperatorEPS0_(i8 %.0.val, ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = alloca %"struct.llvm::PatternMatch::BinaryOp_match.179", align 8
   %3 = load i8, ptr %0, align 8
   switch i8 %3, label %22 [
@@ -9390,21 +9390,21 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_12OneUse_matchINS0_25OverflowingBinar
   store i64 %207, ptr %.sroa.3562.0..sroa_idx, align 8
   %274 = load ptr, ptr %147, align 8
   %.not.i.i.i.i306 = icmp eq ptr %274, null
-  br i1 %.not.i.i.i.i306, label %"_ZZN4llvm16InstCombinerImpl9visitLShrERNS_14BinaryOperatorEENK3$_0clENS_11Instruction9BinaryOpsE.argprom.exit", label %_ZNK4llvm5Value9hasOneUseEv.exit.i.i307
+  br i1 %.not.i.i.i.i306, label %"_ZZN4llvm16InstCombinerImpl9visitLShrERNS_14BinaryOperatorEENK3$_0clENS_11Instruction9BinaryOpsE.exit", label %_ZNK4llvm5Value9hasOneUseEv.exit.i.i307
 
 _ZNK4llvm5Value9hasOneUseEv.exit.i.i307:          ; preds = %.critedge4
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 8
   %276 = load ptr, ptr %275, align 8
   %277 = icmp eq ptr %276, null
-  br i1 %277, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_12OneUse_matchINS0_17AnyBinaryOp_matchINS0_25OverflowingBinaryOp_matchINS0_7bind_tyIS2_EENS0_14specificval_tyELj25ELj1ELb0EEES7_Lb1EEEEEEEbPT_RKT0_.exit, label %"_ZZN4llvm16InstCombinerImpl9visitLShrERNS_14BinaryOperatorEENK3$_0clENS_11Instruction9BinaryOpsE.argprom.exit"
+  br i1 %277, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_12OneUse_matchINS0_17AnyBinaryOp_matchINS0_25OverflowingBinaryOp_matchINS0_7bind_tyIS2_EENS0_14specificval_tyELj25ELj1ELb0EEES7_Lb1EEEEEEEbPT_RKT0_.exit, label %"_ZZN4llvm16InstCombinerImpl9visitLShrERNS_14BinaryOperatorEENK3$_0clENS_11Instruction9BinaryOpsE.exit"
 
 _ZN4llvm12PatternMatch5matchINS_5ValueENS0_12OneUse_matchINS0_17AnyBinaryOp_matchINS0_25OverflowingBinaryOp_matchINS0_7bind_tyIS2_EENS0_14specificval_tyELj25ELj1ELb0EEES7_Lb1EEEEEEEbPT_RKT0_.exit: ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit.i.i307
   %278 = call noundef zeroext i1 @_ZN4llvm12PatternMatch17AnyBinaryOp_matchINS0_25OverflowingBinaryOp_matchINS0_7bind_tyINS_5ValueEEENS0_14specificval_tyELj25ELj1ELb0EEES5_Lb1EE5matchIS4_EEbPT_(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull %140)
-  br i1 %278, label %279, label %"_ZZN4llvm16InstCombinerImpl9visitLShrERNS_14BinaryOperatorEENK3$_0clENS_11Instruction9BinaryOpsE.argprom.exit"
+  br i1 %278, label %279, label %"_ZZN4llvm16InstCombinerImpl9visitLShrERNS_14BinaryOperatorEENK3$_0clENS_11Instruction9BinaryOpsE.exit"
 
 279:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_12OneUse_matchINS0_17AnyBinaryOp_matchINS0_25OverflowingBinaryOp_matchINS0_7bind_tyIS2_EENS0_14specificval_tyELj25ELj1ELb0EEES7_Lb1EEEEEEEbPT_RKT0_.exit
   %280 = load i8, ptr %140, align 8
-  switch i8 %280, label %"_ZZN4llvm16InstCombinerImpl9visitLShrERNS_14BinaryOperatorEENK3$_0clENS_11Instruction9BinaryOpsE.argprom.exit" [
+  switch i8 %280, label %"_ZZN4llvm16InstCombinerImpl9visitLShrERNS_14BinaryOperatorEENK3$_0clENS_11Instruction9BinaryOpsE.exit" [
     i8 42, label %281
     i8 57, label %281
     i8 58, label %281
@@ -9421,7 +9421,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_12OneUse_matchINS0_17AnyBinaryOp_matc
   %285 = load i8, ptr %284, align 1
   %286 = and i8 %285, 2
   %.not617 = icmp eq i8 %286, 0
-  br i1 %.not617, label %"_ZZN4llvm16InstCombinerImpl9visitLShrERNS_14BinaryOperatorEENK3$_0clENS_11Instruction9BinaryOpsE.argprom.exit", label %287
+  br i1 %.not617, label %"_ZZN4llvm16InstCombinerImpl9visitLShrERNS_14BinaryOperatorEENK3$_0clENS_11Instruction9BinaryOpsE.exit", label %287
 
 287:                                              ; preds = %283, %281
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9476,14 +9476,14 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_12OneUse_matchINS0_17AnyBinaryOp_matc
   store i8 %320, ptr %317, align 1
   br label %_ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit
 
-"_ZZN4llvm16InstCombinerImpl9visitLShrERNS_14BinaryOperatorEENK3$_0clENS_11Instruction9BinaryOpsE.argprom.exit": ; preds = %.critedge4, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i307, %279, %283, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_12OneUse_matchINS0_17AnyBinaryOp_matchINS0_25OverflowingBinaryOp_matchINS0_7bind_tyIS2_EENS0_14specificval_tyELj25ELj1ELb0EEES7_Lb1EEEEEEEbPT_RKT0_.exit
+"_ZZN4llvm16InstCombinerImpl9visitLShrERNS_14BinaryOperatorEENK3$_0clENS_11Instruction9BinaryOpsE.exit": ; preds = %.critedge4, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i307, %279, %283, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_12OneUse_matchINS0_17AnyBinaryOp_matchINS0_25OverflowingBinaryOp_matchINS0_7bind_tyIS2_EENS0_14specificval_tyELj25ELj1ELb0EEES7_Lb1EEEEEEEbPT_RKT0_.exit
   store ptr %7, ptr %25, align 8
   %.sroa.297.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 8
   store i8 0, ptr %.sroa.297.0..sroa_idx, align 8
   %321 = call noundef zeroext i1 @_ZN4llvm12PatternMatch5matchINS_5ValueENS0_11apint_matchEEEbPT_RKT0_(ptr noundef %141, ptr noundef nonnull align 8 dereferenceable(9) %25)
   br i1 %321, label %322, label %.critedge14
 
-322:                                              ; preds = %"_ZZN4llvm16InstCombinerImpl9visitLShrERNS_14BinaryOperatorEENK3$_0clENS_11Instruction9BinaryOpsE.argprom.exit"
+322:                                              ; preds = %"_ZZN4llvm16InstCombinerImpl9visitLShrERNS_14BinaryOperatorEENK3$_0clENS_11Instruction9BinaryOpsE.exit"
   %323 = load ptr, ptr %7, align 8
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 8
   %325 = load i32, ptr %324, align 8
@@ -10632,7 +10632,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit418:              ; preds = %_ZNK4llvm5Value9has
   call void @_ZN4llvm8ZExtInstC1EPNS_5ValueEPNS_4TypeERKNS_5TwineENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %929, ptr noundef %928, ptr noundef nonnull %143, ptr noundef nonnull align 8 dereferenceable(34) %89, ptr null, i64 0) #13
   br label %_ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit
 
-.critedge14:                                      ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit415.thread, %881, %879, %876, %874, %868, %871, %865, %_ZNK4llvm5Value9hasOneUseEv.exit418, %863, %_ZNK4llvm4Type18isIntOrIntVectorTyEj.exit, %_ZNK4llvm4Type18isIntOrIntVectorTyEj.exit409, %"_ZZN4llvm16InstCombinerImpl9visitLShrERNS_14BinaryOperatorEENK3$_0clENS_11Instruction9BinaryOpsE.argprom.exit"
+.critedge14:                                      ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit415.thread, %881, %879, %876, %874, %868, %871, %865, %_ZNK4llvm5Value9hasOneUseEv.exit418, %863, %_ZNK4llvm4Type18isIntOrIntVectorTyEj.exit, %_ZNK4llvm4Type18isIntOrIntVectorTyEj.exit409, %"_ZZN4llvm16InstCombinerImpl9visitLShrERNS_14BinaryOperatorEENK3$_0clENS_11Instruction9BinaryOpsE.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %90, ptr noundef nonnull align 8 dereferenceable(64) %100, i64 64, i1 false)
   %931 = getelementptr inbounds nuw i8, ptr %90, i64 32
   store ptr %1, ptr %931, align 8, !alias.scope !135
@@ -11698,13 +11698,13 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl53foldVariableSignZeroExten
   %17 = load ptr, ptr %5, align 8
   %18 = getelementptr inbounds i8, ptr %1, i64 8
   %.val = load ptr, ptr %18, align 8
-  %19 = call fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl53foldVariableSignZeroExtensionOfVariableHighBitExtractERNS_14BinaryOperatorEENK3$_0clEPNS_8ConstantEPNS_5ValueE.argprom"(ptr noundef %17, ptr %.val)
+  %19 = call fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl53foldVariableSignZeroExtensionOfVariableHighBitExtractERNS_14BinaryOperatorEENK3$_0clEPNS_8ConstantEPNS_5ValueE"(ptr noundef %17, ptr %.val)
   br i1 %19, label %20, label %.critedge
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %6, align 8
   %.val19 = load ptr, ptr %18, align 8
-  %22 = call fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl53foldVariableSignZeroExtensionOfVariableHighBitExtractERNS_14BinaryOperatorEENK3$_0clEPNS_8ConstantEPNS_5ValueE.argprom"(ptr noundef %21, ptr %.val19)
+  %22 = call fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl53foldVariableSignZeroExtensionOfVariableHighBitExtractERNS_14BinaryOperatorEENK3$_0clEPNS_8ConstantEPNS_5ValueE"(ptr noundef %21, ptr %.val19)
   br i1 %22, label %23, label %.critedge
 
 23:                                               ; preds = %20
@@ -11847,7 +11847,7 @@ _ZN4llvm12PatternMatch16match_combine_orINS0_14CastInst_matchINS0_14specificval_
   %.0104 = phi ptr [ %70, %_ZN4llvm12PatternMatch14CastInst_matchINS0_14specificval_tyENS_8ZExtInstEE5matchINS_5ValueEEEbPT_.exit.i.i.i.i.i.i ], [ %83, %_ZN4llvm12PatternMatch14CastInst_matchINS0_14specificval_tyENS_8ZExtInstEE5matchINS_5ValueEEEbPT_.exit.i.i.i.i.i ], [ %83, %_ZN4llvm12PatternMatch16match_combine_orINS0_14CastInst_matchINS0_14specificval_tyENS_8ZExtInstEEES3_E5matchINS_5ValueEEEbPT_.exit.i.i.i.i ], [ %70, %_ZN4llvm12PatternMatch16match_combine_orINS0_14CastInst_matchINS0_14specificval_tyENS_8ZExtInstEEES3_E5matchINS_5ValueEEEbPT_.exit.i.i.i.i.i ]
   %95 = getelementptr i8, ptr %.sink.i.i, i64 8
   %.val20 = load ptr, ptr %95, align 8
-  %96 = call fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl53foldVariableSignZeroExtensionOfVariableHighBitExtractERNS_14BinaryOperatorEENK3$_0clEPNS_8ConstantEPNS_5ValueE.argprom"(ptr noundef nonnull %.0104, ptr %.val20)
+  %96 = call fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl53foldVariableSignZeroExtensionOfVariableHighBitExtractERNS_14BinaryOperatorEENK3$_0clEPNS_8ConstantEPNS_5ValueE"(ptr noundef nonnull %.0104, ptr %.val20)
   br i1 %96, label %97, label %.critedge
 
 97:                                               ; preds = %94
@@ -11921,7 +11921,7 @@ _ZN4llvm12PatternMatch5matchINS_14BinaryOperatorENS0_17AnyBinaryOp_matchINS0_12O
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl53foldVariableSignZeroExtensionOfVariableHighBitExtractERNS_14BinaryOperatorEENK3$_0clEPNS_8ConstantEPNS_5ValueE.argprom"(ptr noundef %0, ptr nonnull %.8.val) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl53foldVariableSignZeroExtensionOfVariableHighBitExtractERNS_14BinaryOperatorEENK3$_0clEPNS_8ConstantEPNS_5ValueE"(ptr noundef %0, ptr nonnull %.8.val) unnamed_addr #0 align 2 {
   %2 = alloca %"struct.llvm::PatternMatch::cstval_pred_ty", align 8
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

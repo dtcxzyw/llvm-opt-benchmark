@@ -3843,7 +3843,7 @@ _ZL28AddObjCXXARCLibstdcxxDefinesRKN5clang11LangOptionsERNS_12MacroBuilderE.exit
   %684 = getelementptr inbounds nuw i8, ptr %614, i64 260
   %685 = load i32, ptr %684, align 4
   %686 = icmp eq i32 %685, 37
-  br i1 %686, label %687, label %_ZL34InitializeStandardPredefinedMacrosRKN5clang10TargetInfoERKNS_11LangOptionsERKNS_15FrontendOptionsERNS_12MacroBuilderE.argprom.exit
+  br i1 %686, label %687, label %_ZL34InitializeStandardPredefinedMacrosRKN5clang10TargetInfoERKNS_11LangOptionsERKNS_15FrontendOptionsERNS_12MacroBuilderE.exit
 
 687:                                              ; preds = %640
   %688 = getelementptr inbounds nuw i8, ptr %614, i64 216
@@ -3877,7 +3877,7 @@ _ZL28AddObjCXXARCLibstdcxxDefinesRKN5clang11LangOptionsERNS_12MacroBuilderE.exit
   store i8 1, ptr %702, align 1
   store i32 %.0.i.i, ptr %66, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_(ptr noundef nonnull align 8 dereferenceable(8) %202, ptr noundef nonnull align 8 dereferenceable(34) %65, ptr noundef nonnull align 8 dereferenceable(34) %66)
-  br label %_ZL34InitializeStandardPredefinedMacrosRKN5clang10TargetInfoERKNS_11LangOptionsERKNS_15FrontendOptionsERNS_12MacroBuilderE.argprom.exit
+  br label %_ZL34InitializeStandardPredefinedMacrosRKN5clang10TargetInfoERKNS_11LangOptionsERKNS_15FrontendOptionsERNS_12MacroBuilderE.exit
 
 703:                                              ; preds = %612
   %704 = load i64, ptr %615, align 8
@@ -5035,7 +5035,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %854, %853, %851, %8
   %1149 = load i64, ptr %1012, align 8
   %1150 = and i64 %1149, 1024
   %.not164.i = icmp eq i64 %1150, 0
-  br i1 %.not164.i, label %_ZL34InitializeStandardPredefinedMacrosRKN5clang10TargetInfoERKNS_11LangOptionsERKNS_15FrontendOptionsERNS_12MacroBuilderE.argprom.exit, label %1151
+  br i1 %.not164.i, label %_ZL34InitializeStandardPredefinedMacrosRKN5clang10TargetInfoERKNS_11LangOptionsERKNS_15FrontendOptionsERNS_12MacroBuilderE.exit, label %1151
 
 1151:                                             ; preds = %1148
   %1152 = getelementptr inbounds nuw i8, ptr %615, i64 808
@@ -5054,7 +5054,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %854, %853, %851, %8
   store i8 1, ptr %1158, align 1
   store ptr %1152, ptr %192, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_(ptr noundef nonnull align 8 dereferenceable(8) %202, ptr noundef nonnull align 8 dereferenceable(34) %191, ptr noundef nonnull align 8 dereferenceable(34) %192)
-  br label %_ZL34InitializeStandardPredefinedMacrosRKN5clang10TargetInfoERKNS_11LangOptionsERKNS_15FrontendOptionsERNS_12MacroBuilderE.argprom.exit
+  br label %_ZL34InitializeStandardPredefinedMacrosRKN5clang10TargetInfoERKNS_11LangOptionsERKNS_15FrontendOptionsERNS_12MacroBuilderE.exit
 
 1159:                                             ; preds = %1151
   %1160 = getelementptr inbounds nuw i8, ptr %193, i64 32
@@ -5068,9 +5068,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %854, %853, %851, %8
   store ptr @.str.39, ptr %194, align 8
   store i8 3, ptr %1162, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_(ptr noundef nonnull align 8 dereferenceable(8) %202, ptr noundef nonnull align 8 dereferenceable(34) %193, ptr noundef nonnull align 8 dereferenceable(34) %194)
-  br label %_ZL34InitializeStandardPredefinedMacrosRKN5clang10TargetInfoERKNS_11LangOptionsERKNS_15FrontendOptionsERNS_12MacroBuilderE.argprom.exit
+  br label %_ZL34InitializeStandardPredefinedMacrosRKN5clang10TargetInfoERKNS_11LangOptionsERKNS_15FrontendOptionsERNS_12MacroBuilderE.exit
 
-_ZL34InitializeStandardPredefinedMacrosRKN5clang10TargetInfoERKNS_11LangOptionsERKNS_15FrontendOptionsERNS_12MacroBuilderE.argprom.exit: ; preds = %640, %687, %1148, %1154, %1159
+_ZL34InitializeStandardPredefinedMacrosRKN5clang10TargetInfoERKNS_11LangOptionsERKNS_15FrontendOptionsERNS_12MacroBuilderE.exit: ; preds = %640, %687, %1148, %1154, %1159
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %39)
@@ -5239,7 +5239,7 @@ _ZL34InitializeStandardPredefinedMacrosRKN5clang10TargetInfoERKNS_11LangOptionsE
   %.not.i73 = icmp eq i64 %1166, 0
   br i1 %.not.i73, label %1172, label %1167
 
-1167:                                             ; preds = %_ZL34InitializeStandardPredefinedMacrosRKN5clang10TargetInfoERKNS_11LangOptionsERKNS_15FrontendOptionsERNS_12MacroBuilderE.argprom.exit
+1167:                                             ; preds = %_ZL34InitializeStandardPredefinedMacrosRKN5clang10TargetInfoERKNS_11LangOptionsERKNS_15FrontendOptionsERNS_12MacroBuilderE.exit
   %1168 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %1169 = getelementptr inbounds nuw i8, ptr %27, i64 33
   store i8 1, ptr %1169, align 1
@@ -5254,8 +5254,8 @@ _ZL34InitializeStandardPredefinedMacrosRKN5clang10TargetInfoERKNS_11LangOptionsE
   %.pre.i74 = load i64, ptr %1164, align 8
   br label %1172
 
-1172:                                             ; preds = %1167, %_ZL34InitializeStandardPredefinedMacrosRKN5clang10TargetInfoERKNS_11LangOptionsERKNS_15FrontendOptionsERNS_12MacroBuilderE.argprom.exit
-  %1173 = phi i64 [ %.pre.i74, %1167 ], [ %1165, %_ZL34InitializeStandardPredefinedMacrosRKN5clang10TargetInfoERKNS_11LangOptionsERKNS_15FrontendOptionsERNS_12MacroBuilderE.argprom.exit ]
+1172:                                             ; preds = %1167, %_ZL34InitializeStandardPredefinedMacrosRKN5clang10TargetInfoERKNS_11LangOptionsERKNS_15FrontendOptionsERNS_12MacroBuilderE.exit
+  %1173 = phi i64 [ %.pre.i74, %1167 ], [ %1165, %_ZL34InitializeStandardPredefinedMacrosRKN5clang10TargetInfoERKNS_11LangOptionsERKNS_15FrontendOptionsERNS_12MacroBuilderE.exit ]
   %1174 = and i64 %1173, 4194304
   %spec.select.i.i = icmp ne i64 %1174, 0
   %1175 = and i64 %1173, 6291456
@@ -5817,20 +5817,20 @@ _ZL24AddImplicitIncludeMacrosRN5clang12MacroBuilderEN4llvm9StringRefE.exit: ; pr
 
 1402:                                             ; preds = %1389
   %1403 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %.val.i, i8 noundef zeroext 10) #13
-  br label %_ZL18AddImplicitIncludeRN5clang12MacroBuilderEN4llvm9StringRefE.argprom.exit.i
+  br label %_ZL18AddImplicitIncludeRN5clang12MacroBuilderEN4llvm9StringRefE.exit.i
 
 1404:                                             ; preds = %1389
   %1405 = getelementptr inbounds i8, ptr %1399, i64 1
   store ptr %1405, ptr %1398, align 8
   store i8 10, ptr %1399, align 1
-  br label %_ZL18AddImplicitIncludeRN5clang12MacroBuilderEN4llvm9StringRefE.argprom.exit.i
+  br label %_ZL18AddImplicitIncludeRN5clang12MacroBuilderEN4llvm9StringRefE.exit.i
 
-_ZL18AddImplicitIncludeRN5clang12MacroBuilderEN4llvm9StringRefE.argprom.exit.i: ; preds = %1404, %1402
+_ZL18AddImplicitIncludeRN5clang12MacroBuilderEN4llvm9StringRefE.exit.i: ; preds = %1404, %1402
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   br label %_ZL21AddImplicitIncludePCHRN5clang12MacroBuilderERNS_12PreprocessorERKNS_18PCHContainerReaderEN4llvm9StringRefE.exit
 
-_ZL21AddImplicitIncludePCHRN5clang12MacroBuilderERNS_12PreprocessorERKNS_18PCHContainerReaderEN4llvm9StringRefE.exit: ; preds = %1375, %_ZL18AddImplicitIncludeRN5clang12MacroBuilderEN4llvm9StringRefE.argprom.exit.i
+_ZL21AddImplicitIncludePCHRN5clang12MacroBuilderERNS_12PreprocessorERKNS_18PCHContainerReaderEN4llvm9StringRefE.exit: ; preds = %1375, %_ZL18AddImplicitIncludeRN5clang12MacroBuilderEN4llvm9StringRefE.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
@@ -5861,8 +5861,8 @@ _ZL21AddImplicitIncludePCHRN5clang12MacroBuilderERNS_12PreprocessorERKNS_18PCHCo
   %1422 = and i64 %1415, 4294967295
   br label %1423
 
-1423:                                             ; preds = %.lr.ph108, %_ZL18AddImplicitIncludeRN5clang12MacroBuilderEN4llvm9StringRefE.argprom.exit
-  %indvars.iv115 = phi i64 [ 0, %.lr.ph108 ], [ %indvars.iv.next116, %_ZL18AddImplicitIncludeRN5clang12MacroBuilderEN4llvm9StringRefE.argprom.exit ]
+1423:                                             ; preds = %.lr.ph108, %_ZL18AddImplicitIncludeRN5clang12MacroBuilderEN4llvm9StringRefE.exit
+  %indvars.iv115 = phi i64 [ 0, %.lr.ph108 ], [ %indvars.iv.next116, %_ZL18AddImplicitIncludeRN5clang12MacroBuilderEN4llvm9StringRefE.exit ]
   %1424 = load ptr, ptr %1407, align 8
   %1425 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %1424, i64 %indvars.iv115
   %1426 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1425) #13
@@ -5889,22 +5889,22 @@ _ZL21AddImplicitIncludePCHRN5clang12MacroBuilderERNS_12PreprocessorERKNS_18PCHCo
 
 1432:                                             ; preds = %1423
   %1433 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %.val, i8 noundef zeroext 10) #13
-  br label %_ZL18AddImplicitIncludeRN5clang12MacroBuilderEN4llvm9StringRefE.argprom.exit
+  br label %_ZL18AddImplicitIncludeRN5clang12MacroBuilderEN4llvm9StringRefE.exit
 
 1434:                                             ; preds = %1423
   %1435 = getelementptr inbounds i8, ptr %1429, i64 1
   store ptr %1435, ptr %1428, align 8
   store i8 10, ptr %1429, align 1
-  br label %_ZL18AddImplicitIncludeRN5clang12MacroBuilderEN4llvm9StringRefE.argprom.exit
+  br label %_ZL18AddImplicitIncludeRN5clang12MacroBuilderEN4llvm9StringRefE.exit
 
-_ZL18AddImplicitIncludeRN5clang12MacroBuilderEN4llvm9StringRefE.argprom.exit: ; preds = %1432, %1434
+_ZL18AddImplicitIncludeRN5clang12MacroBuilderEN4llvm9StringRefE.exit: ; preds = %1432, %1434
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %.not66 = icmp eq i64 %indvars.iv.next116, %1422
   br i1 %.not66, label %._crit_edge109, label %1423, !llvm.loop !103
 
-._crit_edge109:                                   ; preds = %_ZL18AddImplicitIncludeRN5clang12MacroBuilderEN4llvm9StringRefE.argprom.exit, %1406
+._crit_edge109:                                   ; preds = %_ZL18AddImplicitIncludeRN5clang12MacroBuilderEN4llvm9StringRefE.exit, %1406
   %1436 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %1437 = load i32, ptr %1436, align 8
   %1438 = getelementptr inbounds nuw i8, ptr %1, i64 228
@@ -9759,7 +9759,7 @@ _ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12Ma
   store ptr @.str.179, ptr %402, align 8
   store i8 3, ptr %1720, align 8
   %1722 = load i32, ptr %1583, align 4
-  call fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE.argprom(ptr noundef nonnull align 8 dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(34) %402, i32 noundef %1722, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(34) %402, i32 noundef %1722, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %1723 = getelementptr inbounds nuw i8, ptr %403, i64 32
   %1724 = getelementptr inbounds nuw i8, ptr %403, i64 33
   store i8 1, ptr %1724, align 1
@@ -9821,7 +9821,7 @@ _ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12Ma
   %1743 = sext i32 %switch.tableidx1308 to i64
   %switch.gep1309 = getelementptr inbounds [9 x i32], ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 0, i64 %1743
   %switch.load1310 = load i32, ptr %switch.gep1309, align 4
-  call fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE.argprom(ptr noundef nonnull align 8 dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(34) %406, i32 noundef %switch.load1310, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(34) %406, i32 noundef %switch.load1310, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %1744 = getelementptr inbounds nuw i8, ptr %407, i64 32
   %1745 = getelementptr inbounds nuw i8, ptr %407, i64 33
   store i8 1, ptr %1745, align 1
@@ -9879,7 +9879,7 @@ _ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12Ma
   store ptr @.str.182, ptr %410, align 8
   store i8 3, ptr %1761, align 8
   %1763 = load i32, ptr %1595, align 8
-  call fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE.argprom(ptr noundef nonnull align 8 dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(34) %410, i32 noundef %1763, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(34) %410, i32 noundef %1763, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %1764 = getelementptr inbounds nuw i8, ptr %411, i64 32
   %1765 = getelementptr inbounds nuw i8, ptr %411, i64 33
   store i8 1, ptr %1765, align 1
@@ -9910,7 +9910,7 @@ _ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12Ma
   store ptr @.str.183, ptr %412, align 8
   store i8 3, ptr %1772, align 8
   %1774 = load i32, ptr %1599, align 4
-  call fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE.argprom(ptr noundef nonnull align 8 dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(34) %412, i32 noundef %1774, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(34) %412, i32 noundef %1774, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %1775 = getelementptr inbounds nuw i8, ptr %413, i64 32
   %1776 = getelementptr inbounds nuw i8, ptr %413, i64 33
   store i8 1, ptr %1776, align 1
@@ -9941,7 +9941,7 @@ _ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12Ma
   store ptr @.str.180, ptr %414, align 8
   store i8 3, ptr %1783, align 8
   %1785 = load i32, ptr %1587, align 8
-  call fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE.argprom(ptr noundef nonnull align 8 dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(34) %414, i32 noundef %1785, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(34) %414, i32 noundef %1785, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %1786 = getelementptr inbounds nuw i8, ptr %415, i64 32
   %1787 = getelementptr inbounds nuw i8, ptr %415, i64 33
   store i8 1, ptr %1787, align 1
@@ -10118,7 +10118,7 @@ _ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12Ma
   %1847 = sext i32 %switch.tableidx1316 to i64
   %switch.gep1317 = getelementptr inbounds [9 x i32], ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 0, i64 %1847
   %switch.load1318 = load i32, ptr %switch.gep1317, align 4
-  call fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE.argprom(ptr noundef nonnull align 8 dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(34) %422, i32 noundef %switch.load1318, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(34) %422, i32 noundef %switch.load1318, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %1848 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %1849 = load i64, ptr %1848, align 8
   %1850 = and i64 %1849, 1
@@ -12312,7 +12312,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit21:                ; preds = %_ZN4llvmplERKNS_5Tw
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(841) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(841) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = alloca %class.anon.352, align 8
   %7 = alloca %class.anon.352, align 8
@@ -12339,7 +12339,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %4, %11
   store ptr %1, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %5, ptr %.sroa.4.0..sroa_idx, align 8
-  call fastcc void @"_ZN4llvm8for_eachINS_9StringRefEZL9DefineFmtRKN5clang11LangOptionsERKNS_5TwineENS2_23TransferrableTargetInfo7IntTypeERKNS2_10TargetInfoERNS2_12MacroBuilderEE3$_0EET0_OT_SH_.argprom"(ptr dead_on_unwind noalias writable align 8 %7, ptr nonnull %16, i64 %17, ptr noundef nonnull byval(%class.anon.352) align 8 %6)
+  call fastcc void @"_ZN4llvm8for_eachINS_9StringRefEZL9DefineFmtRKN5clang11LangOptionsERKNS_5TwineENS2_23TransferrableTargetInfo7IntTypeERKNS2_10TargetInfoERNS2_12MacroBuilderEE3$_0EET0_OT_SH_"(ptr dead_on_unwind noalias writable align 8 %7, ptr nonnull %16, i64 %17, ptr noundef nonnull byval(%class.anon.352) align 8 %6)
   %18 = load i64, ptr %0, align 8
   %19 = and i64 %18, 8
   %.not = icmp eq i64 %19, 0
@@ -12352,7 +12352,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %4, %11
   store ptr %1, ptr %.sroa.3.0..sroa_idx3, align 8
   %.sroa.4.0..sroa_idx5 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %5, ptr %.sroa.4.0..sroa_idx5, align 8
-  call fastcc void @"_ZN4llvm8for_eachINS_9StringRefEZL9DefineFmtRKN5clang11LangOptionsERKNS_5TwineENS2_23TransferrableTargetInfo7IntTypeERKNS2_10TargetInfoERNS2_12MacroBuilderEE3$_0EET0_OT_SH_.argprom"(ptr dead_on_unwind noalias writable align 8 %9, ptr nonnull @.str.444, i64 2, ptr noundef nonnull byval(%class.anon.352) align 8 %8)
+  call fastcc void @"_ZN4llvm8for_eachINS_9StringRefEZL9DefineFmtRKN5clang11LangOptionsERKNS_5TwineENS2_23TransferrableTargetInfo7IntTypeERKNS2_10TargetInfoERNS2_12MacroBuilderEE3$_0EET0_OT_SH_"(ptr dead_on_unwind noalias writable align 8 %9, ptr nonnull @.str.444, i64 2, ptr noundef nonnull byval(%class.anon.352) align 8 %8)
   br label %21
 
 21:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit, %20
@@ -13139,7 +13139,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit68:                ; preds = %_ZL10DefineTypeRKN4
   store i8 %.sink152, ptr %.sroa.5124.0..sroa_idx, align 8
   %.sroa.7125.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 33
   store i8 %.sink151, ptr %.sroa.7125.0..sroa_idx, align 1
-  call fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE.argprom(ptr noundef nonnull align 8 dereferenceable(841) %0, ptr noundef nonnull align 8 dereferenceable(34) %8, i32 noundef %.1, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(841) %0, ptr noundef nonnull align 8 dereferenceable(34) %8, i32 noundef %.1, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %46 = call noundef ptr @_ZNK5clang10TargetInfo21getTypeConstantSuffixENS_23TransferrableTargetInfo7IntTypeE(ptr noundef nonnull align 8 dereferenceable(489) %2, i32 noundef %.1) #13
   %.not.i69 = icmp eq ptr %46, null
   br i1 %.not.i69, label %_ZN4llvm9StringRefC2EPKc.exit, label %47
@@ -13403,7 +13403,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit110:               ; preds = %42, %44
   store i8 %.sink189, ptr %.sroa.5118.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 33
   store i8 %.sink188, ptr %.sroa.7.0..sroa_idx, align 1
-  call fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE.argprom(ptr noundef nonnull align 8 dereferenceable(841) %0, ptr noundef nonnull align 8 dereferenceable(34) %12, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(841) %0, ptr noundef nonnull align 8 dereferenceable(34) %12, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(8) %4)
   br label %46
 
 46:                                               ; preds = %5, %_ZN4llvmplERKNS_5TwineES2_.exit110
@@ -13547,7 +13547,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit110:               ; preds = %42, %44
   store i8 %.sink189, ptr %.sroa.5118.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 33
   store i8 %.sink188, ptr %.sroa.7.0..sroa_idx, align 1
-  call fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE.argprom(ptr noundef nonnull align 8 dereferenceable(841) %0, ptr noundef nonnull align 8 dereferenceable(34) %12, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(841) %0, ptr noundef nonnull align 8 dereferenceable(34) %12, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(8) %4)
   br label %46
 
 46:                                               ; preds = %5, %_ZN4llvmplERKNS_5TwineES2_.exit110
@@ -14370,7 +14370,7 @@ declare noundef ptr @_ZN5clang10TargetInfo11getTypeNameENS_23TransferrableTarget
 declare noundef ptr @_ZN5clang10TargetInfo21getTypeFormatModifierENS_23TransferrableTargetInfo7IntTypeE(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm8for_eachINS_9StringRefEZL9DefineFmtRKN5clang11LangOptionsERKNS_5TwineENS2_23TransferrableTargetInfo7IntTypeERKNS2_10TargetInfoERNS2_12MacroBuilderEE3$_0EET0_OT_SH_.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr readonly %.0.val, i64 %.8.val, ptr nocapture noundef readonly byval(%class.anon.352) align 8 %1) unnamed_addr #0 {
+define internal fastcc void @"_ZN4llvm8for_eachINS_9StringRefEZL9DefineFmtRKN5clang11LangOptionsERKNS_5TwineENS2_23TransferrableTargetInfo7IntTypeERKNS2_10TargetInfoERNS2_12MacroBuilderEE3$_0EET0_OT_SH_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr readonly %.0.val, i64 %.8.val, ptr nocapture noundef readonly byval(%class.anon.352) align 8 %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8

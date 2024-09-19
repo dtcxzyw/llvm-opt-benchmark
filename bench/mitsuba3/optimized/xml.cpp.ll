@@ -7656,7 +7656,7 @@ define internal fastcc void @_ZN7mitsuba3xml6detailL9parse_xmlERNS1_9XMLSourceER
   %361 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %360, i1 true)
   %362 = shl nuw nsw i64 %361, 1
   %363 = xor i64 %362, 126
-  tail call fastcc void @"_ZNSt3__111__introsortINS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_Lb0EEEvT1_SV_T0_NS_15iterator_traitsISV_E15difference_typeEb.argprom"(ptr noundef %352, ptr noundef %354, i64 noundef %363, i1 noundef zeroext true)
+  tail call fastcc void @"_ZNSt3__111__introsortINS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_Lb0EEEvT1_SV_T0_NS_15iterator_traitsISV_E15difference_typeEb"(ptr noundef %352, ptr noundef %354, i64 noundef %363, i1 noundef zeroext true)
   invoke void @_ZNK4pugi8xml_node10attributesEv(ptr dead_on_unwind nonnull writable sret(%"class.pugi::xml_object_range") align 8 %34, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %364 unwind label %.loopexit.split-lp1530.loopexit.split-lp
 
@@ -20780,7 +20780,7 @@ declare void @_ZN7mitsuba10Properties13set_transformERKNSt3__112basic_stringIcNS
 declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZNSt3__111__introsortINS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_Lb0EEEvT1_SV_T0_NS_15iterator_traitsISV_E15difference_typeEb.argprom"(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNSt3__111__introsortINS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_Lb0EEEvT1_SV_T0_NS_15iterator_traitsISV_E15difference_typeEb"(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__1::tuple", align 8
   %.sroa.0.i.i.i.i.i4.i.i.i.i.i.i93 = alloca %"struct.std::__1::basic_string<char>::__long", align 8
   %.sroa.0.i.i.i.i.i.i.i.i.i.i.i94 = alloca %"struct.std::__1::basic_string<char>::__long", align 8
@@ -20835,8 +20835,8 @@ define internal fastcc void @"_ZNSt3__111__introsortINS_17_ClassicAlgPolicyERZN7
   %30 = sub i64 %23, %29
   %31 = sdiv exact i64 %30, 56
   switch i64 %31, label %61 [
-    i64 0, label %"_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_SU_EET1_SV_SV_T2_RT0_.argprom.exit"
-    i64 1, label %"_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_SU_EET1_SV_SV_T2_RT0_.argprom.exit"
+    i64 0, label %"_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_SU_EET1_SV_SV_T2_RT0_.exit"
+    i64 1, label %"_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_SU_EET1_SV_SV_T2_RT0_.exit"
     i64 2, label %32
     i64 3, label %52
     i64 4, label %54
@@ -20860,7 +20860,7 @@ define internal fastcc void @"_ZNSt3__111__introsortINS_17_ClassicAlgPolicyERZN7
   %40 = zext nneg i8 %39 to i64
   %41 = select i1 %.not.i.i2.i, i64 %40, i64 %.val47
   %42 = icmp ugt i64 %37, %41
-  br i1 %42, label %43, label %"_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_SU_EET1_SV_SV_T2_RT0_.argprom.exit"
+  br i1 %42, label %43, label %"_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_SU_EET1_SV_SV_T2_RT0_.exit"
 
 43:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
@@ -20883,25 +20883,25 @@ define internal fastcc void @"_ZNSt3__111__introsortINS_17_ClassicAlgPolicyERZN7
   %51 = and i8 %50, 1
   store i8 %51, ptr %46, align 1
   store i8 %49, ptr %47, align 1
-  br label %"_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_SU_EET1_SV_SV_T2_RT0_.argprom.exit"
+  br label %"_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_SU_EET1_SV_SV_T2_RT0_.exit"
 
 52:                                               ; preds = %.backedge
   %53 = getelementptr inbounds i8, ptr %.021, i64 56
-  call fastcc void @"_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEjT1_SV_SV_T0_.argprom.argelim"(ptr noundef %.021, ptr noundef nonnull %53, ptr noundef nonnull %24)
-  br label %"_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_SU_EET1_SV_SV_T2_RT0_.argprom.exit"
+  call fastcc void @"_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEjT1_SV_SV_T0_"(ptr noundef %.021, ptr noundef nonnull %53, ptr noundef nonnull %24)
+  br label %"_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_SU_EET1_SV_SV_T2_RT0_.exit"
 
 54:                                               ; preds = %.backedge
   %55 = getelementptr inbounds i8, ptr %.021, i64 56
   %56 = getelementptr inbounds i8, ptr %.021, i64 112
-  call fastcc void @"_ZNSt3__17__sort4B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_SV_SV_T0_.argprom"(ptr noundef %.021, ptr noundef nonnull %55, ptr noundef nonnull %56, ptr noundef nonnull %24)
-  br label %"_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_SU_EET1_SV_SV_T2_RT0_.argprom.exit"
+  call fastcc void @"_ZNSt3__17__sort4B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_SV_SV_T0_"(ptr noundef %.021, ptr noundef nonnull %55, ptr noundef nonnull %56, ptr noundef nonnull %24)
+  br label %"_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_SU_EET1_SV_SV_T2_RT0_.exit"
 
 57:                                               ; preds = %.backedge
   %58 = getelementptr inbounds i8, ptr %.021, i64 56
   %59 = getelementptr inbounds i8, ptr %.021, i64 112
   %60 = getelementptr inbounds i8, ptr %.021, i64 168
-  call fastcc void @"_ZNSt3__124__sort5_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_TnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSX_SX_SX_SX_SX_SW_.argprom"(ptr noundef %.021, ptr noundef nonnull %58, ptr noundef nonnull %59, ptr noundef nonnull %60, ptr noundef nonnull %24)
-  br label %"_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_SU_EET1_SV_SV_T2_RT0_.argprom.exit"
+  call fastcc void @"_ZNSt3__124__sort5_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_TnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSX_SX_SX_SX_SX_SW_"(ptr noundef %.021, ptr noundef nonnull %58, ptr noundef nonnull %59, ptr noundef nonnull %60, ptr noundef nonnull %24)
+  br label %"_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_SU_EET1_SV_SV_T2_RT0_.exit"
 
 61:                                               ; preds = %.backedge
   %62 = icmp slt i64 %30, 1344
@@ -20913,12 +20913,12 @@ define internal fastcc void @"_ZNSt3__111__introsortINS_17_ClassicAlgPolicyERZN7
 
 65:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
-  br i1 %64, label %"_ZNSt3__116__insertion_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_T0_.argprom.exit", label %.preheader.i
+  br i1 %64, label %"_ZNSt3__116__insertion_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_T0_.exit", label %.preheader.i
 
 .preheader.i:                                     ; preds = %65
   %storemerge8.i = getelementptr inbounds i8, ptr %.021, i64 56
   %.not9.i = icmp eq ptr %storemerge8.i, %.022.ph
-  br i1 %.not9.i, label %"_ZNSt3__116__insertion_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_T0_.argprom.exit", label %.lr.ph.i
+  br i1 %.not9.i, label %"_ZNSt3__116__insertion_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_T0_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %66 = getelementptr inbounds i8, ptr %11, i64 24
@@ -21069,20 +21069,20 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
 131:                                              ; preds = %_ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bEEaSB8ne190000EOS7_.exit29.i, %71
   %storemerge.i = getelementptr inbounds i8, ptr %storemerge11.i, i64 56
   %.not.i = icmp eq ptr %storemerge.i, %.022.ph
-  br i1 %.not.i, label %"_ZNSt3__116__insertion_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_T0_.argprom.exit", label %71, !llvm.loop !334
+  br i1 %.not.i, label %"_ZNSt3__116__insertion_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_T0_.exit", label %71, !llvm.loop !334
 
-"_ZNSt3__116__insertion_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_T0_.argprom.exit": ; preds = %131, %65, %.preheader.i
+"_ZNSt3__116__insertion_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_T0_.exit": ; preds = %131, %65, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11)
-  br label %"_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_SU_EET1_SV_SV_T2_RT0_.argprom.exit"
+  br label %"_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_SU_EET1_SV_SV_T2_RT0_.exit"
 
 132:                                              ; preds = %63
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
-  br i1 %64, label %"_ZNSt3__126__insertion_sort_unguardedB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_T0_.argprom.exit", label %.preheader.i52
+  br i1 %64, label %"_ZNSt3__126__insertion_sort_unguardedB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_T0_.exit", label %.preheader.i52
 
 .preheader.i52:                                   ; preds = %132
   %storemerge8.i53 = getelementptr inbounds i8, ptr %.021, i64 56
   %.not9.i54 = icmp eq ptr %storemerge8.i53, %.022.ph
-  br i1 %.not9.i54, label %"_ZNSt3__126__insertion_sort_unguardedB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_T0_.argprom.exit", label %.lr.ph.i55
+  br i1 %.not9.i54, label %"_ZNSt3__126__insertion_sort_unguardedB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_T0_.exit", label %.lr.ph.i55
 
 .lr.ph.i55:                                       ; preds = %.preheader.i52
   %133 = getelementptr inbounds i8, ptr %10, i64 24
@@ -21228,11 +21228,11 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
 198:                                              ; preds = %_ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bEEaSB8ne190000EOS7_.exit25.i, %138
   %storemerge.i62 = getelementptr inbounds i8, ptr %storemerge11.i56, i64 56
   %.not.i63 = icmp eq ptr %storemerge.i62, %.022.ph
-  br i1 %.not.i63, label %"_ZNSt3__126__insertion_sort_unguardedB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_T0_.argprom.exit", label %138, !llvm.loop !336
+  br i1 %.not.i63, label %"_ZNSt3__126__insertion_sort_unguardedB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_T0_.exit", label %138, !llvm.loop !336
 
-"_ZNSt3__126__insertion_sort_unguardedB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_T0_.argprom.exit": ; preds = %198, %132, %.preheader.i52
+"_ZNSt3__126__insertion_sort_unguardedB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_T0_.exit": ; preds = %198, %132, %.preheader.i52
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
-  br label %"_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_SU_EET1_SV_SV_T2_RT0_.argprom.exit"
+  br label %"_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_SU_EET1_SV_SV_T2_RT0_.exit"
 
 199:                                              ; preds = %61
   %200 = icmp eq i64 %.0, 0
@@ -21240,7 +21240,7 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
 
 201:                                              ; preds = %199
   %202 = icmp eq ptr %.021, %.022.ph
-  br i1 %202, label %"_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_SU_EET1_SV_SV_T2_RT0_.argprom.exit", label %203
+  br i1 %202, label %"_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_SU_EET1_SV_SV_T2_RT0_.exit", label %203
 
 203:                                              ; preds = %201
   %204 = add nsw i64 %31, -2
@@ -21252,12 +21252,12 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
   %210 = getelementptr inbounds i8, ptr %5, i64 25
   br label %211
 
-211:                                              ; preds = %"_ZNSt3__111__sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_OT0_NS_15iterator_traitsISV_E15difference_typeESV_.argprom.exit", %203
-  %.01.i.i.i = phi i64 [ %205, %203 ], [ %315, %"_ZNSt3__111__sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_OT0_NS_15iterator_traitsISV_E15difference_typeESV_.argprom.exit" ]
+211:                                              ; preds = %"_ZNSt3__111__sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_OT0_NS_15iterator_traitsISV_E15difference_typeESV_.exit", %203
+  %.01.i.i.i = phi i64 [ %205, %203 ], [ %315, %"_ZNSt3__111__sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_OT0_NS_15iterator_traitsISV_E15difference_typeESV_.exit" ]
   %212 = getelementptr inbounds %"class.std::__1::tuple", ptr %.021, i64 %.01.i.i.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %213 = icmp slt i64 %205, %.01.i.i.i
-  br i1 %213, label %"_ZNSt3__111__sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_OT0_NS_15iterator_traitsISV_E15difference_typeESV_.argprom.exit", label %214
+  br i1 %213, label %"_ZNSt3__111__sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_OT0_NS_15iterator_traitsISV_E15difference_typeESV_.exit", label %214
 
 214:                                              ; preds = %211
   %215 = shl nsw i64 %.01.i.i.i, 1
@@ -21315,7 +21315,7 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
   %243 = zext nneg i8 %242 to i64
   %244 = select i1 %.not.i.i2.i44.i, i64 %243, i64 %.val38.i
   %245 = icmp ugt i64 %240, %244
-  br i1 %245, label %"_ZNSt3__111__sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_OT0_NS_15iterator_traitsISV_E15difference_typeESV_.argprom.exit", label %246
+  br i1 %245, label %"_ZNSt3__111__sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_OT0_NS_15iterator_traitsISV_E15difference_typeESV_.exit", label %246
 
 246:                                              ; preds = %234
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %212, i64 24, i1 false)
@@ -21468,15 +21468,15 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
   store i8 %314, ptr %302, align 1
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %206) #30
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #30
-  br label %"_ZNSt3__111__sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_OT0_NS_15iterator_traitsISV_E15difference_typeESV_.argprom.exit"
+  br label %"_ZNSt3__111__sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_OT0_NS_15iterator_traitsISV_E15difference_typeESV_.exit"
 
-"_ZNSt3__111__sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_OT0_NS_15iterator_traitsISV_E15difference_typeESV_.argprom.exit": ; preds = %211, %234, %_ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bEEaSB8ne190000EOS7_.exit52.i
+"_ZNSt3__111__sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_OT0_NS_15iterator_traitsISV_E15difference_typeESV_.exit": ; preds = %211, %234, %_ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bEEaSB8ne190000EOS7_.exit52.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   %315 = add nsw i64 %.01.i.i.i, -1
   %.not.i.i.i72 = icmp eq i64 %.01.i.i.i, 0
   br i1 %.not.i.i.i72, label %.lr.ph.i.i.i, label %211, !llvm.loop !338
 
-.lr.ph.i.i.i:                                     ; preds = %"_ZNSt3__111__sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_OT0_NS_15iterator_traitsISV_E15difference_typeESV_.argprom.exit"
+.lr.ph.i.i.i:                                     ; preds = %"_ZNSt3__111__sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_OT0_NS_15iterator_traitsISV_E15difference_typeESV_.exit"
   %316 = udiv exact i64 %30, 56
   %317 = getelementptr inbounds i8, ptr %9, i64 24
   %318 = getelementptr inbounds i8, ptr %.021, i64 24
@@ -21491,9 +21491,9 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
   %327 = getelementptr inbounds i8, ptr %8, i64 25
   br label %328
 
-328:                                              ; preds = %"_ZNSt3__110__pop_heapB8ne190000INS_17_ClassicAlgPolicyEZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SU_RT0_NS_15iterator_traitsISU_E15difference_typeE.argprom.exit.i.i.i", %.lr.ph.i.i.i
-  %.07.i.i.i = phi i64 [ %316, %.lr.ph.i.i.i ], [ %485, %"_ZNSt3__110__pop_heapB8ne190000INS_17_ClassicAlgPolicyEZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SU_RT0_NS_15iterator_traitsISU_E15difference_typeE.argprom.exit.i.i.i" ]
-  %.0136.i.i.i = phi ptr [ %.022.ph, %.lr.ph.i.i.i ], [ %373, %"_ZNSt3__110__pop_heapB8ne190000INS_17_ClassicAlgPolicyEZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SU_RT0_NS_15iterator_traitsISU_E15difference_typeE.argprom.exit.i.i.i" ]
+328:                                              ; preds = %"_ZNSt3__110__pop_heapB8ne190000INS_17_ClassicAlgPolicyEZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SU_RT0_NS_15iterator_traitsISU_E15difference_typeE.exit.i.i.i", %.lr.ph.i.i.i
+  %.07.i.i.i = phi i64 [ %316, %.lr.ph.i.i.i ], [ %485, %"_ZNSt3__110__pop_heapB8ne190000INS_17_ClassicAlgPolicyEZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SU_RT0_NS_15iterator_traitsISU_E15difference_typeE.exit.i.i.i" ]
+  %.0136.i.i.i = phi ptr [ %.022.ph, %.lr.ph.i.i.i ], [ %373, %"_ZNSt3__110__pop_heapB8ne190000INS_17_ClassicAlgPolicyEZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SU_RT0_NS_15iterator_traitsISU_E15difference_typeE.exit.i.i.i" ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.021, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.021, i8 0, i64 24, i1 false)
@@ -21582,9 +21582,9 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
   %370 = and i8 %368, 1
   store i8 %370, ptr %369, align 1
   %371 = icmp sgt i64 %.1.i.i.i.i.i, %331
-  br i1 %371, label %"_ZNSt3__117__floyd_sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EET1_SV_OT0_NS_15iterator_traitsISV_E15difference_typeE.argprom.exit.i.i.i.i", label %332, !llvm.loop !339
+  br i1 %371, label %"_ZNSt3__117__floyd_sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EET1_SV_OT0_NS_15iterator_traitsISV_E15difference_typeE.exit.i.i.i.i", label %332, !llvm.loop !339
 
-"_ZNSt3__117__floyd_sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EET1_SV_OT0_NS_15iterator_traitsISV_E15difference_typeE.argprom.exit.i.i.i.i": ; preds = %_ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bEEaSB8ne190000EOS7_.exit.i.i.i.i.i
+"_ZNSt3__117__floyd_sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EET1_SV_OT0_NS_15iterator_traitsISV_E15difference_typeE.exit.i.i.i.i": ; preds = %_ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bEEaSB8ne190000EOS7_.exit.i.i.i.i.i
   %372 = getelementptr inbounds i8, ptr %.15.i.i.i.i.i, i64 48
   %373 = getelementptr inbounds i8, ptr %.0136.i.i.i, i64 -56
   %374 = icmp eq ptr %.15.i.i.i.i.i, %373
@@ -21593,7 +21593,7 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
   %.not16.i.i.i.i.i.i.i.i = icmp eq i8 %376, 0
   br i1 %374, label %377, label %388
 
-377:                                              ; preds = %"_ZNSt3__117__floyd_sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EET1_SV_OT0_NS_15iterator_traitsISV_E15difference_typeE.argprom.exit.i.i.i.i"
+377:                                              ; preds = %"_ZNSt3__117__floyd_sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EET1_SV_OT0_NS_15iterator_traitsISV_E15difference_typeE.exit.i.i.i.i"
   br i1 %.not16.i.i.i.i.i.i.i.i, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_.exit.i.i.i.i.i.i, label %378
 
 378:                                              ; preds = %377
@@ -21624,9 +21624,9 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
   %386 = load i8, ptr %319, align 8
   %387 = and i8 %386, 1
   store i8 %387, ptr %372, align 1
-  br label %"_ZNSt3__110__pop_heapB8ne190000INS_17_ClassicAlgPolicyEZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SU_RT0_NS_15iterator_traitsISU_E15difference_typeE.argprom.exit.i.i.i"
+  br label %"_ZNSt3__110__pop_heapB8ne190000INS_17_ClassicAlgPolicyEZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SU_RT0_NS_15iterator_traitsISU_E15difference_typeE.exit.i.i.i"
 
-388:                                              ; preds = %"_ZNSt3__117__floyd_sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EET1_SV_OT0_NS_15iterator_traitsISV_E15difference_typeE.argprom.exit.i.i.i.i"
+388:                                              ; preds = %"_ZNSt3__117__floyd_sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EET1_SV_OT0_NS_15iterator_traitsISV_E15difference_typeE.exit.i.i.i.i"
   br i1 %.not16.i.i.i.i.i.i.i.i, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_.exit.i.i14.i.i.i.i, label %389
 
 389:                                              ; preds = %388
@@ -21699,7 +21699,7 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
   %417 = sub i64 %416, %29
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
   %418 = icmp sgt i64 %417, 56
-  br i1 %418, label %419, label %"_ZNSt3__19__sift_upB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_OT0_NS_15iterator_traitsISV_E15difference_typeE.argprom.exit.i.i.i.i"
+  br i1 %418, label %419, label %"_ZNSt3__19__sift_upB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_OT0_NS_15iterator_traitsISV_E15difference_typeE.exit.i.i.i.i"
 
 419:                                              ; preds = %_ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bEEaSB8ne190000EOS7_.exit20.i.i.i.i
   %420 = udiv exact i64 %417, 56
@@ -21723,7 +21723,7 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
   %432 = zext nneg i8 %431 to i64
   %433 = select i1 %.not.i.i2.i.i23.i.i.i.i, i64 %432, i64 %.val18.i.i.i.i.i
   %434 = icmp ugt i64 %429, %433
-  br i1 %434, label %435, label %"_ZNSt3__19__sift_upB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_OT0_NS_15iterator_traitsISV_E15difference_typeE.argprom.exit.i.i.i.i"
+  br i1 %434, label %435, label %"_ZNSt3__19__sift_upB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_OT0_NS_15iterator_traitsISV_E15difference_typeE.exit.i.i.i.i"
 
 435:                                              ; preds = %419
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %.15.i.i.i.i.i, i64 24, i1 false)
@@ -21839,19 +21839,19 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
   store i8 %484, ptr %472, align 1
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %323) #30
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #30
-  br label %"_ZNSt3__19__sift_upB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_OT0_NS_15iterator_traitsISV_E15difference_typeE.argprom.exit.i.i.i.i"
+  br label %"_ZNSt3__19__sift_upB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_OT0_NS_15iterator_traitsISV_E15difference_typeE.exit.i.i.i.i"
 
-"_ZNSt3__19__sift_upB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_OT0_NS_15iterator_traitsISV_E15difference_typeE.argprom.exit.i.i.i.i": ; preds = %_ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bEEaSB8ne190000EOS7_.exit24.i.i.i.i.i, %419, %_ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bEEaSB8ne190000EOS7_.exit20.i.i.i.i
+"_ZNSt3__19__sift_upB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_OT0_NS_15iterator_traitsISV_E15difference_typeE.exit.i.i.i.i": ; preds = %_ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bEEaSB8ne190000EOS7_.exit24.i.i.i.i.i, %419, %_ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bEEaSB8ne190000EOS7_.exit20.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
-  br label %"_ZNSt3__110__pop_heapB8ne190000INS_17_ClassicAlgPolicyEZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SU_RT0_NS_15iterator_traitsISU_E15difference_typeE.argprom.exit.i.i.i"
+  br label %"_ZNSt3__110__pop_heapB8ne190000INS_17_ClassicAlgPolicyEZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SU_RT0_NS_15iterator_traitsISU_E15difference_typeE.exit.i.i.i"
 
-"_ZNSt3__110__pop_heapB8ne190000INS_17_ClassicAlgPolicyEZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SU_RT0_NS_15iterator_traitsISU_E15difference_typeE.argprom.exit.i.i.i": ; preds = %"_ZNSt3__19__sift_upB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_OT0_NS_15iterator_traitsISV_E15difference_typeE.argprom.exit.i.i.i.i", %_ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bEEaSB8ne190000EOS7_.exit.i.i.i.i
+"_ZNSt3__110__pop_heapB8ne190000INS_17_ClassicAlgPolicyEZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SU_RT0_NS_15iterator_traitsISU_E15difference_typeE.exit.i.i.i": ; preds = %"_ZNSt3__19__sift_upB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_OT0_NS_15iterator_traitsISV_E15difference_typeE.exit.i.i.i.i", %_ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bEEaSB8ne190000EOS7_.exit.i.i.i.i
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %317) #30
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #30
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
   %485 = add nsw i64 %.07.i.i.i, -1
   %486 = icmp sgt i64 %.07.i.i.i, 2
-  br i1 %486, label %328, label %"_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_SU_EET1_SV_SV_T2_RT0_.argprom.exit", !llvm.loop !341
+  br i1 %486, label %328, label %"_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_SU_EET1_SV_SV_T2_RT0_.exit", !llvm.loop !341
 
 487:                                              ; preds = %199
   %488 = add nsw i64 %.0, -1
@@ -21861,16 +21861,16 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
   br i1 %490, label %492, label %507
 
 492:                                              ; preds = %487
-  call fastcc void @"_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEjT1_SV_SV_T0_.argprom.argelim"(ptr noundef %.021, ptr noundef %491, ptr noundef nonnull %24)
+  call fastcc void @"_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEjT1_SV_SV_T0_"(ptr noundef %.021, ptr noundef %491, ptr noundef nonnull %24)
   %493 = getelementptr inbounds i8, ptr %.021, i64 56
   %494 = add nsw i64 %489, -1
   %495 = getelementptr inbounds %"class.std::__1::tuple", ptr %.021, i64 %494
-  call fastcc void @"_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEjT1_SV_SV_T0_.argprom.argelim"(ptr noundef nonnull %493, ptr noundef %495, ptr noundef nonnull %25)
+  call fastcc void @"_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEjT1_SV_SV_T0_"(ptr noundef nonnull %493, ptr noundef %495, ptr noundef nonnull %25)
   %496 = getelementptr inbounds i8, ptr %.021, i64 112
   %497 = add nuw nsw i64 %489, 1
   %498 = getelementptr inbounds %"class.std::__1::tuple", ptr %.021, i64 %497
-  call fastcc void @"_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEjT1_SV_SV_T0_.argprom.argelim"(ptr noundef nonnull %496, ptr noundef nonnull %498, ptr noundef nonnull %26)
-  call fastcc void @"_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEjT1_SV_SV_T0_.argprom.argelim"(ptr noundef %495, ptr noundef %491, ptr noundef nonnull %498)
+  call fastcc void @"_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEjT1_SV_SV_T0_"(ptr noundef nonnull %496, ptr noundef nonnull %498, ptr noundef nonnull %26)
+  call fastcc void @"_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEjT1_SV_SV_T0_"(ptr noundef %495, ptr noundef %491, ptr noundef nonnull %498)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i74)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i.i.i.i.i.i.i.i.i74, ptr noundef nonnull align 8 dereferenceable(24) %.021, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.021, ptr noundef nonnull align 8 dereferenceable(24) %491, i64 24, i1 false)
@@ -21894,7 +21894,7 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
   br label %508
 
 507:                                              ; preds = %487
-  call fastcc void @"_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEjT1_SV_SV_T0_.argprom.argelim"(ptr noundef %491, ptr noundef %.021, ptr noundef nonnull %24)
+  call fastcc void @"_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEjT1_SV_SV_T0_"(ptr noundef %491, ptr noundef %.021, ptr noundef nonnull %24)
   br label %508
 
 508:                                              ; preds = %507, %492
@@ -22134,15 +22134,15 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_
   %614 = load i8, ptr %613, align 8
   %615 = and i8 %614, 1
   %.not16.i.i6.i.i46.i = icmp eq i8 %615, 0
-  br i1 %.not16.i.i6.i.i46.i, label %"_ZNSt3__131__partition_with_equals_on_leftB8ne190000INS_17_ClassicAlgPolicyEPNS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES8_bEEERZN7mitsuba3xml6detailL9parse_xmlERNSD_9XMLSourceERNSD_15XMLParseContextERN4pugi8xml_nodeENSC_3TagERNSB_10PropertiesERNS_6vectorIS9_NS6_IS9_EEEERmibbE3$_0EET0_SV_SV_T1_.argprom.exit", label %616
+  br i1 %.not16.i.i6.i.i46.i, label %"_ZNSt3__131__partition_with_equals_on_leftB8ne190000INS_17_ClassicAlgPolicyEPNS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES8_bEEERZN7mitsuba3xml6detailL9parse_xmlERNSD_9XMLSourceERNSD_15XMLParseContextERN4pugi8xml_nodeENSC_3TagERNSB_10PropertiesERNS_6vectorIS9_NS6_IS9_EEEERmibbE3$_0EET0_SV_SV_T1_.exit", label %616
 
 616:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_.exit.i.i45.i
   %617 = getelementptr inbounds i8, ptr %.3.lcssa.i, i64 -16
   %618 = load ptr, ptr %617, align 8
   call void @_ZdlPv(ptr noundef %618) #33
-  br label %"_ZNSt3__131__partition_with_equals_on_leftB8ne190000INS_17_ClassicAlgPolicyEPNS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES8_bEEERZN7mitsuba3xml6detailL9parse_xmlERNSD_9XMLSourceERNSD_15XMLParseContextERN4pugi8xml_nodeENSC_3TagERNSB_10PropertiesERNS_6vectorIS9_NS6_IS9_EEEERmibbE3$_0EET0_SV_SV_T1_.argprom.exit"
+  br label %"_ZNSt3__131__partition_with_equals_on_leftB8ne190000INS_17_ClassicAlgPolicyEPNS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES8_bEEERZN7mitsuba3xml6detailL9parse_xmlERNSD_9XMLSourceERNSD_15XMLParseContextERN4pugi8xml_nodeENSC_3TagERNSB_10PropertiesERNS_6vectorIS9_NS6_IS9_EEEERmibbE3$_0EET0_SV_SV_T1_.exit"
 
-"_ZNSt3__131__partition_with_equals_on_leftB8ne190000INS_17_ClassicAlgPolicyEPNS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES8_bEEERZN7mitsuba3xml6detailL9parse_xmlERNSD_9XMLSourceERNSD_15XMLParseContextERN4pugi8xml_nodeENSC_3TagERNSB_10PropertiesERNS_6vectorIS9_NS6_IS9_EEEERmibbE3$_0EET0_SV_SV_T1_.argprom.exit": ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_.exit.i.i45.i, %616
+"_ZNSt3__131__partition_with_equals_on_leftB8ne190000INS_17_ClassicAlgPolicyEPNS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES8_bEEERZN7mitsuba3xml6detailL9parse_xmlERNSD_9XMLSourceERNSD_15XMLParseContextERN4pugi8xml_nodeENSC_3TagERNSB_10PropertiesERNS_6vectorIS9_NS6_IS9_EEEERmibbE3$_0EET0_SV_SV_T1_.exit": ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_.exit.i.i45.i, %616
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %613, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
   store i8 0, ptr %13, align 8
   store i8 0, ptr %17, align 1
@@ -22155,8 +22155,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %"_ZNSt3__131__partition_with_equals_on_leftB8ne190000INS_17_ClassicAlgPolicyEPNS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES8_bEEERZN7mitsuba3xml6detailL9parse_xmlERNSD_9XMLSourceERNSD_15XMLParseContextERN4pugi8xml_nodeENSC_3TagERNSB_10PropertiesERNS_6vectorIS9_NS6_IS9_EEEERmibbE3$_0EET0_SV_SV_T1_.argprom.exit", %723
-  %.021.be = phi ptr [ %.3.lcssa.i, %"_ZNSt3__131__partition_with_equals_on_leftB8ne190000INS_17_ClassicAlgPolicyEPNS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES8_bEEERZN7mitsuba3xml6detailL9parse_xmlERNSD_9XMLSourceERNSD_15XMLParseContextERN4pugi8xml_nodeENSC_3TagERNSB_10PropertiesERNS_6vectorIS9_NS6_IS9_EEEERmibbE3$_0EET0_SV_SV_T1_.argprom.exit" ], [ %.1.lcssa.i, %723 ]
+.backedge.backedge:                               ; preds = %"_ZNSt3__131__partition_with_equals_on_leftB8ne190000INS_17_ClassicAlgPolicyEPNS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES8_bEEERZN7mitsuba3xml6detailL9parse_xmlERNSD_9XMLSourceERNSD_15XMLParseContextERN4pugi8xml_nodeENSC_3TagERNSB_10PropertiesERNS_6vectorIS9_NS6_IS9_EEEERmibbE3$_0EET0_SV_SV_T1_.exit", %723
+  %.021.be = phi ptr [ %.3.lcssa.i, %"_ZNSt3__131__partition_with_equals_on_leftB8ne190000INS_17_ClassicAlgPolicyEPNS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES8_bEEERZN7mitsuba3xml6detailL9parse_xmlERNSD_9XMLSourceERNSD_15XMLParseContextERN4pugi8xml_nodeENSC_3TagERNSB_10PropertiesERNS_6vectorIS9_NS6_IS9_EEEERmibbE3$_0EET0_SV_SV_T1_.exit" ], [ %.1.lcssa.i, %723 ]
   br label %.backedge, !llvm.loop !348
 
 622:                                              ; preds = %508, %509
@@ -22363,15 +22363,15 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_
   %711 = load i8, ptr %710, align 8
   %712 = and i8 %711, 1
   %.not16.i.i6.i.i40.i = icmp eq i8 %712, 0
-  br i1 %.not16.i.i6.i.i40.i, label %"_ZNSt3__132__partition_with_equals_on_rightB8ne190000INS_17_ClassicAlgPolicyEPNS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES8_bEEERZN7mitsuba3xml6detailL9parse_xmlERNSD_9XMLSourceERNSD_15XMLParseContextERN4pugi8xml_nodeENSC_3TagERNSB_10PropertiesERNS_6vectorIS9_NS6_IS9_EEEERmibbE3$_0EENS_4pairIT0_bEESW_SW_T1_.argprom.exit", label %713
+  br i1 %.not16.i.i6.i.i40.i, label %"_ZNSt3__132__partition_with_equals_on_rightB8ne190000INS_17_ClassicAlgPolicyEPNS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES8_bEEERZN7mitsuba3xml6detailL9parse_xmlERNSD_9XMLSourceERNSD_15XMLParseContextERN4pugi8xml_nodeENSC_3TagERNSB_10PropertiesERNS_6vectorIS9_NS6_IS9_EEEERmibbE3$_0EENS_4pairIT0_bEESW_SW_T1_.exit", label %713
 
 713:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_.exit.i.i39.i
   %714 = getelementptr inbounds i8, ptr %.1.lcssa.i, i64 -16
   %715 = load ptr, ptr %714, align 8
   call void @_ZdlPv(ptr noundef %715) #33
-  br label %"_ZNSt3__132__partition_with_equals_on_rightB8ne190000INS_17_ClassicAlgPolicyEPNS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES8_bEEERZN7mitsuba3xml6detailL9parse_xmlERNSD_9XMLSourceERNSD_15XMLParseContextERN4pugi8xml_nodeENSC_3TagERNSB_10PropertiesERNS_6vectorIS9_NS6_IS9_EEEERmibbE3$_0EENS_4pairIT0_bEESW_SW_T1_.argprom.exit"
+  br label %"_ZNSt3__132__partition_with_equals_on_rightB8ne190000INS_17_ClassicAlgPolicyEPNS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES8_bEEERZN7mitsuba3xml6detailL9parse_xmlERNSD_9XMLSourceERNSD_15XMLParseContextERN4pugi8xml_nodeENSC_3TagERNSB_10PropertiesERNS_6vectorIS9_NS6_IS9_EEEERmibbE3$_0EENS_4pairIT0_bEESW_SW_T1_.exit"
 
-"_ZNSt3__132__partition_with_equals_on_rightB8ne190000INS_17_ClassicAlgPolicyEPNS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES8_bEEERZN7mitsuba3xml6detailL9parse_xmlERNSD_9XMLSourceERNSD_15XMLParseContextERN4pugi8xml_nodeENSC_3TagERNSB_10PropertiesERNS_6vectorIS9_NS6_IS9_EEEERmibbE3$_0EENS_4pairIT0_bEESW_SW_T1_.argprom.exit": ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_.exit.i.i39.i, %713
+"_ZNSt3__132__partition_with_equals_on_rightB8ne190000INS_17_ClassicAlgPolicyEPNS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES8_bEEERZN7mitsuba3xml6detailL9parse_xmlERNSD_9XMLSourceERNSD_15XMLParseContextERN4pugi8xml_nodeENSC_3TagERNSB_10PropertiesERNS_6vectorIS9_NS6_IS9_EEEERmibbE3$_0EENS_4pairIT0_bEESW_SW_T1_.exit": ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_.exit.i.i39.i, %713
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %710, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
   store i8 0, ptr %18, align 8
   store i8 0, ptr %22, align 1
@@ -22384,22 +22384,22 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   br i1 %656, label %724, label %719
 
-719:                                              ; preds = %"_ZNSt3__132__partition_with_equals_on_rightB8ne190000INS_17_ClassicAlgPolicyEPNS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES8_bEEERZN7mitsuba3xml6detailL9parse_xmlERNSD_9XMLSourceERNSD_15XMLParseContextERN4pugi8xml_nodeENSC_3TagERNSB_10PropertiesERNS_6vectorIS9_NS6_IS9_EEEERmibbE3$_0EENS_4pairIT0_bEESW_SW_T1_.argprom.exit"
-  %720 = call fastcc noundef zeroext i1 @"_ZNSt3__127__insertion_sort_incompleteB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEbT1_SV_T0_.argprom"(ptr noundef %.021, ptr noundef nonnull %686)
-  %721 = call fastcc noundef zeroext i1 @"_ZNSt3__127__insertion_sort_incompleteB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEbT1_SV_T0_.argprom"(ptr noundef nonnull %.1.lcssa.i, ptr noundef %.022.ph)
+719:                                              ; preds = %"_ZNSt3__132__partition_with_equals_on_rightB8ne190000INS_17_ClassicAlgPolicyEPNS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES8_bEEERZN7mitsuba3xml6detailL9parse_xmlERNSD_9XMLSourceERNSD_15XMLParseContextERN4pugi8xml_nodeENSC_3TagERNSB_10PropertiesERNS_6vectorIS9_NS6_IS9_EEEERmibbE3$_0EENS_4pairIT0_bEESW_SW_T1_.exit"
+  %720 = call fastcc noundef zeroext i1 @"_ZNSt3__127__insertion_sort_incompleteB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEbT1_SV_T0_"(ptr noundef %.021, ptr noundef nonnull %686)
+  %721 = call fastcc noundef zeroext i1 @"_ZNSt3__127__insertion_sort_incompleteB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEbT1_SV_T0_"(ptr noundef nonnull %.1.lcssa.i, ptr noundef %.022.ph)
   br i1 %721, label %722, label %723
 
 722:                                              ; preds = %719
-  br i1 %720, label %"_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_SU_EET1_SV_SV_T2_RT0_.argprom.exit", label %.outer, !llvm.loop !348
+  br i1 %720, label %"_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_SU_EET1_SV_SV_T2_RT0_.exit", label %.outer, !llvm.loop !348
 
 723:                                              ; preds = %719
   br i1 %720, label %.backedge.backedge, label %724
 
-724:                                              ; preds = %723, %"_ZNSt3__132__partition_with_equals_on_rightB8ne190000INS_17_ClassicAlgPolicyEPNS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES8_bEEERZN7mitsuba3xml6detailL9parse_xmlERNSD_9XMLSourceERNSD_15XMLParseContextERN4pugi8xml_nodeENSC_3TagERNSB_10PropertiesERNS_6vectorIS9_NS6_IS9_EEEERmibbE3$_0EENS_4pairIT0_bEESW_SW_T1_.argprom.exit"
-  call fastcc void @"_ZNSt3__111__introsortINS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_Lb0EEEvT1_SV_T0_NS_15iterator_traitsISV_E15difference_typeEb.argprom"(ptr noundef %.021, ptr noundef nonnull %686, i64 noundef %488, i1 noundef zeroext %28)
+724:                                              ; preds = %723, %"_ZNSt3__132__partition_with_equals_on_rightB8ne190000INS_17_ClassicAlgPolicyEPNS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES8_bEEERZN7mitsuba3xml6detailL9parse_xmlERNSD_9XMLSourceERNSD_15XMLParseContextERN4pugi8xml_nodeENSC_3TagERNSB_10PropertiesERNS_6vectorIS9_NS6_IS9_EEEERmibbE3$_0EENS_4pairIT0_bEESW_SW_T1_.exit"
+  call fastcc void @"_ZNSt3__111__introsortINS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_Lb0EEEvT1_SV_T0_NS_15iterator_traitsISV_E15difference_typeEb"(ptr noundef %.021, ptr noundef nonnull %686, i64 noundef %488, i1 noundef zeroext %28)
   br label %.outer26, !llvm.loop !348
 
-"_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_SU_EET1_SV_SV_T2_RT0_.argprom.exit": ; preds = %722, %.backedge, %.backedge, %"_ZNSt3__110__pop_heapB8ne190000INS_17_ClassicAlgPolicyEZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SU_RT0_NS_15iterator_traitsISU_E15difference_typeE.argprom.exit.i.i.i", %201, %"_ZNSt3__116__insertion_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_T0_.argprom.exit", %"_ZNSt3__126__insertion_sort_unguardedB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_T0_.argprom.exit", %32, %43, %57, %54, %52
+"_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_SU_EET1_SV_SV_T2_RT0_.exit": ; preds = %722, %.backedge, %.backedge, %"_ZNSt3__110__pop_heapB8ne190000INS_17_ClassicAlgPolicyEZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SU_RT0_NS_15iterator_traitsISU_E15difference_typeE.exit.i.i.i", %201, %"_ZNSt3__116__insertion_sortB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_T0_.exit", %"_ZNSt3__126__insertion_sort_unguardedB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_T0_.exit", %32, %43, %57, %54, %52
   ret void
 }
 
@@ -22407,7 +22407,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZNSt3__124__sort5_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_TnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSX_SX_SX_SX_SX_SW_.argprom"(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #21 {
+define internal fastcc void @"_ZNSt3__124__sort5_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_TnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSX_SX_SX_SX_SX_SW_"(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #21 {
   %.sroa.0.i.i.i.i.i4.i.i.i.i.i30.i = alloca %"struct.std::__1::basic_string<char>::__long", align 8
   %.sroa.0.i.i.i.i.i.i.i.i.i.i31.i = alloca %"struct.std::__1::basic_string<char>::__long", align 8
   %.sroa.0.i.i.i.i.i4.i.i.i.i.i26.i = alloca %"struct.std::__1::basic_string<char>::__long", align 8
@@ -22416,7 +22416,7 @@ define internal fastcc void @"_ZNSt3__124__sort5_maybe_branchlessB8ne190000INS_1
   %.sroa.0.i.i.i.i.i.i.i.i.i.i23.i = alloca %"struct.std::__1::basic_string<char>::__long", align 8
   %.sroa.0.i.i.i.i.i4.i.i.i.i.i.i = alloca %"struct.std::__1::basic_string<char>::__long", align 8
   %.sroa.0.i.i.i.i.i.i.i.i.i.i.i = alloca %"struct.std::__1::basic_string<char>::__long", align 8
-  tail call fastcc void @"_ZNSt3__17__sort4B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_SV_SV_T0_.argprom"(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @"_ZNSt3__17__sort4B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_SV_SV_T0_"(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %.val16.i = load i8, ptr %4, align 8
   %6 = getelementptr i8, ptr %4, i64 8
   %.val17.i = load i64, ptr %6, align 8
@@ -22434,7 +22434,7 @@ define internal fastcc void @"_ZNSt3__124__sort5_maybe_branchlessB8ne190000INS_1
   %14 = zext nneg i8 %13 to i64
   %15 = select i1 %.not.i.i2.i.i, i64 %14, i64 %.val19.i
   %16 = icmp ugt i64 %11, %15
-  br i1 %16, label %17, label %"_ZNSt3__17__sort5B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_SV_SV_SV_T0_.argprom.exit"
+  br i1 %16, label %17, label %"_ZNSt3__17__sort5B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_SV_SV_SV_T0_.exit"
 
 17:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i)
@@ -22473,7 +22473,7 @@ define internal fastcc void @"_ZNSt3__124__sort5_maybe_branchlessB8ne190000INS_1
   %33 = zext nneg i8 %32 to i64
   %34 = select i1 %.not.i.i2.i21.i, i64 %33, i64 %.val15.i
   %35 = icmp ugt i64 %30, %34
-  br i1 %35, label %36, label %"_ZNSt3__17__sort5B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_SV_SV_SV_T0_.argprom.exit"
+  br i1 %35, label %36, label %"_ZNSt3__17__sort5B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_SV_SV_SV_T0_.exit"
 
 36:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i23.i)
@@ -22510,7 +22510,7 @@ define internal fastcc void @"_ZNSt3__124__sort5_maybe_branchlessB8ne190000INS_1
   %50 = zext nneg i8 %49 to i64
   %51 = select i1 %.not.i.i2.i25.i, i64 %50, i64 %.val11.i
   %52 = icmp ugt i64 %47, %51
-  br i1 %52, label %53, label %"_ZNSt3__17__sort5B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_SV_SV_SV_T0_.argprom.exit"
+  br i1 %52, label %53, label %"_ZNSt3__17__sort5B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_SV_SV_SV_T0_.exit"
 
 53:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i27.i)
@@ -22547,7 +22547,7 @@ define internal fastcc void @"_ZNSt3__124__sort5_maybe_branchlessB8ne190000INS_1
   %67 = zext nneg i8 %66 to i64
   %68 = select i1 %.not.i.i2.i29.i, i64 %67, i64 %.val7.i
   %69 = icmp ugt i64 %64, %68
-  br i1 %69, label %70, label %"_ZNSt3__17__sort5B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_SV_SV_SV_T0_.argprom.exit"
+  br i1 %69, label %70, label %"_ZNSt3__17__sort5B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_SV_SV_SV_T0_.exit"
 
 70:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i31.i)
@@ -22568,14 +22568,14 @@ define internal fastcc void @"_ZNSt3__124__sort5_maybe_branchlessB8ne190000INS_1
   %76 = and i8 %75, 1
   store i8 %76, ptr %72, align 1
   store i8 %74, ptr %55, align 1
-  br label %"_ZNSt3__17__sort5B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_SV_SV_SV_T0_.argprom.exit"
+  br label %"_ZNSt3__17__sort5B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_SV_SV_SV_T0_.exit"
 
-"_ZNSt3__17__sort5B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_SV_SV_SV_T0_.argprom.exit": ; preds = %5, %17, %36, %53, %70
+"_ZNSt3__17__sort5B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_SV_SV_SV_T0_.exit": ; preds = %5, %17, %36, %53, %70
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEjT1_SV_SV_T0_.argprom.argelim"(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #21 {
+define internal fastcc void @"_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEjT1_SV_SV_T0_"(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #21 {
   %.sroa.0.i.i.i.i.i4.i.i.i.i.i43 = alloca %"struct.std::__1::basic_string<char>::__long", align 8
   %.sroa.0.i.i.i.i.i.i.i.i.i.i44 = alloca %"struct.std::__1::basic_string<char>::__long", align 8
   %.sroa.0.i.i.i.i.i4.i.i.i.i.i39 = alloca %"struct.std::__1::basic_string<char>::__long", align 8
@@ -22757,7 +22757,7 @@ define internal fastcc void @"_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicy
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZNSt3__127__insertion_sort_incompleteB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEbT1_SV_T0_.argprom"(ptr noundef %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZNSt3__127__insertion_sort_incompleteB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEbT1_SV_T0_"(ptr noundef %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i.i.i4.i.i.i.i.i = alloca %"struct.std::__1::basic_string<char>::__long", align 8
   %.sroa.0.i.i.i.i.i.i.i.i.i.i = alloca %"struct.std::__1::basic_string<char>::__long", align 8
   %3 = alloca %"class.std::__1::tuple", align 8
@@ -22821,14 +22821,14 @@ define internal fastcc noundef zeroext i1 @"_ZNSt3__127__insertion_sort_incomple
 30:                                               ; preds = %2
   %31 = getelementptr inbounds i8, ptr %0, i64 56
   %32 = getelementptr inbounds i8, ptr %1, i64 -56
-  tail call fastcc void @"_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEjT1_SV_SV_T0_.argprom.argelim"(ptr noundef %0, ptr noundef nonnull %31, ptr noundef nonnull %32)
+  tail call fastcc void @"_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEjT1_SV_SV_T0_"(ptr noundef %0, ptr noundef nonnull %31, ptr noundef nonnull %32)
   br label %.loopexit
 
 33:                                               ; preds = %2
   %34 = getelementptr inbounds i8, ptr %0, i64 56
   %35 = getelementptr inbounds i8, ptr %0, i64 112
   %36 = getelementptr inbounds i8, ptr %1, i64 -56
-  tail call fastcc void @"_ZNSt3__17__sort4B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_SV_SV_T0_.argprom"(ptr noundef %0, ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef nonnull %36)
+  tail call fastcc void @"_ZNSt3__17__sort4B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_SV_SV_T0_"(ptr noundef %0, ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef nonnull %36)
   br label %.loopexit
 
 37:                                               ; preds = %2
@@ -22836,13 +22836,13 @@ define internal fastcc noundef zeroext i1 @"_ZNSt3__127__insertion_sort_incomple
   %39 = getelementptr inbounds i8, ptr %0, i64 112
   %40 = getelementptr inbounds i8, ptr %0, i64 168
   %41 = getelementptr inbounds i8, ptr %1, i64 -56
-  tail call fastcc void @"_ZNSt3__124__sort5_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_TnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSX_SX_SX_SX_SX_SW_.argprom"(ptr noundef %0, ptr noundef nonnull %38, ptr noundef nonnull %39, ptr noundef nonnull %40, ptr noundef nonnull %41)
+  tail call fastcc void @"_ZNSt3__124__sort5_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_TnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSX_SX_SX_SX_SX_SW_"(ptr noundef %0, ptr noundef nonnull %38, ptr noundef nonnull %39, ptr noundef nonnull %40, ptr noundef nonnull %41)
   br label %.loopexit
 
 42:                                               ; preds = %2
   %43 = getelementptr inbounds i8, ptr %0, i64 112
   %44 = getelementptr inbounds i8, ptr %0, i64 56
-  tail call fastcc void @"_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEjT1_SV_SV_T0_.argprom.argelim"(ptr noundef %0, ptr noundef nonnull %44, ptr noundef nonnull %43)
+  tail call fastcc void @"_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEjT1_SV_SV_T0_"(ptr noundef %0, ptr noundef nonnull %44, ptr noundef nonnull %43)
   %45 = getelementptr inbounds i8, ptr %0, i64 168
   %.not17 = icmp eq ptr %45, %1
   br i1 %.not17, label %.loopexit, label %.lr.ph
@@ -23013,14 +23013,14 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZNSt3__17__sort4B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_SV_SV_T0_.argprom"(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #21 {
+define internal fastcc void @"_ZNSt3__17__sort4B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_SV_SV_SV_T0_"(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #21 {
   %.sroa.0.i.i.i.i.i4.i.i.i.i.i21 = alloca %"struct.std::__1::basic_string<char>::__long", align 8
   %.sroa.0.i.i.i.i.i.i.i.i.i.i22 = alloca %"struct.std::__1::basic_string<char>::__long", align 8
   %.sroa.0.i.i.i.i.i4.i.i.i.i.i17 = alloca %"struct.std::__1::basic_string<char>::__long", align 8
   %.sroa.0.i.i.i.i.i.i.i.i.i.i18 = alloca %"struct.std::__1::basic_string<char>::__long", align 8
   %.sroa.0.i.i.i.i.i4.i.i.i.i.i = alloca %"struct.std::__1::basic_string<char>::__long", align 8
   %.sroa.0.i.i.i.i.i.i.i.i.i.i = alloca %"struct.std::__1::basic_string<char>::__long", align 8
-  tail call fastcc void @"_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEjT1_SV_SV_T0_.argprom.argelim"(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  tail call fastcc void @"_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEjT1_SV_SV_T0_"(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %.val11 = load i8, ptr %3, align 8
   %5 = getelementptr i8, ptr %3, i64 8
   %.val12 = load i64, ptr %5, align 8
@@ -29178,7 +29178,7 @@ _ZNSt3__113unordered_mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcE
 
 95:                                               ; preds = %94
   call void @_ZNSt13exception_ptrD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #30
-  br label %"_ZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4Pool.argprom.exit"
+  br label %"_ZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4Pool.exit"
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %92
   %.pn = phi { ptr, i32 } [ %93, %92 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit96, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp97, %.loopexit.split-lp.loopexit.split-lp ]
@@ -29214,7 +29214,7 @@ _ZNSt3__113unordered_mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcE
   store i32 %112, ptr %111, align 8
   %113 = trunc i64 %107 to i32
   %114 = invoke noundef ptr @task_submit_dep(ptr noundef null, ptr noundef %101, i32 noundef %113, i32 noundef 1, ptr noundef nonnull @"_ZZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4PoolENUljPvE_8__invokeEjS13_", ptr noundef nonnull %108, i32 noundef 0, ptr noundef nonnull @"_ZZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4PoolENUlPvE_8__invokeES13_", i32 noundef 1)
-          to label %"_ZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4Pool.argprom.exit" unwind label %117
+          to label %"_ZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4Pool.exit" unwind label %117
 
 115:                                              ; preds = %.noexc
   %116 = landingpad { ptr, i32 }
@@ -29229,22 +29229,22 @@ _ZNSt3__113unordered_mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcE
 
 119:                                              ; preds = %96
   invoke fastcc void @"_ZZN7mitsuba3xml6detailL16instantiate_nodeERNS1_15XMLParseContextERKNSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEERNS_17ThreadEnvironmentERNS4_13unordered_mapISA_P4TaskNS4_4hashISA_EENS4_8equal_toISA_EENS8_INS4_4pairISB_SH_EEEEEEbENK3$_0clEv"(ptr noundef nonnull align 8 dereferenceable(44) %10)
-          to label %"_ZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4Pool.argprom.exit" unwind label %117
+          to label %"_ZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4Pool.exit" unwind label %117
 
-"_ZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4Pool.argprom.exit": ; preds = %110, %119, %95
+"_ZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4Pool.exit": ; preds = %110, %119, %95
   %.1 = phi ptr [ null, %95 ], [ null, %119 ], [ %114, %110 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %65) #30
   %120 = load ptr, ptr %8, align 8
   %.not.i.i63 = icmp eq ptr %120, null
   br i1 %.not.i.i63, label %_ZNSt3__16vectorIP4TaskNS_9allocatorIS2_EEED2B8ne190000Ev.exit, label %121
 
-121:                                              ; preds = %"_ZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4Pool.argprom.exit"
+121:                                              ; preds = %"_ZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4Pool.exit"
   %122 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %120, ptr %122, align 8
   call void @_ZdlPv(ptr noundef nonnull %120) #33
   br label %_ZNSt3__16vectorIP4TaskNS_9allocatorIS2_EEED2B8ne190000Ev.exit
 
-_ZNSt3__16vectorIP4TaskNS_9allocatorIS2_EEED2B8ne190000Ev.exit: ; preds = %"_ZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4Pool.argprom.exit", %121
+_ZNSt3__16vectorIP4TaskNS_9allocatorIS2_EEED2B8ne190000Ev.exit: ; preds = %"_ZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4Pool.exit", %121
   %123 = load ptr, ptr %7, align 8
   %.not.i.i64 = icmp eq ptr %123, null
   br i1 %.not.i.i64, label %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba14NamedReferenceEEENS5_ISA_EEED2B8ne190000Ev.exit, label %124
@@ -31867,15 +31867,15 @@ define internal void @"_ZZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4PoolENUlPvE_8__invokeES13_"(ptr noundef %0) #0 align 2 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %"_ZZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4PoolENKUlPvE_clES13_.argprom.exit", label %3
+  br i1 %2, label %"_ZZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4PoolENKUlPvE_clES13_.exit", label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #30
   tail call void @_ZdlPv(ptr noundef nonnull %0) #33
-  br label %"_ZZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4PoolENKUlPvE_clES13_.argprom.exit"
+  br label %"_ZZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4PoolENKUlPvE_clES13_.exit"
 
-"_ZZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4PoolENKUlPvE_clES13_.argprom.exit": ; preds = %1, %3
+"_ZZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4PoolENKUlPvE_clES13_.exit": ; preds = %1, %3
   ret void
 }
 
@@ -35075,7 +35075,7 @@ define internal void @"_ZNSt3__110__function6__funcIZN7mitsuba3xml11load_stringE
   %29 = sub nsw i64 %.val2, %28
   store i64 %29, ptr %7, align 8, !noalias !523
   invoke void @_ZN10tinyformat6formatIJilEEENSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %0, ptr noundef nonnull @.str.91, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %"_ZNSt3__110__function12__alloc_funcIZN7mitsuba3xml11load_stringERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESB_NS_6vectorINS_5tupleIJS9_S9_bEEENS7_ISE_EEEEbE3$_0NS7_ISH_EEFS9_lEEclB8ne190000EOl.argprom.exit" unwind label %.loopexit.split-lp.i.i.i.i.i
+          to label %"_ZNSt3__110__function12__alloc_funcIZN7mitsuba3xml11load_stringERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESB_NS_6vectorINS_5tupleIJS9_S9_bEEENS7_ISE_EEEEbE3$_0NS7_ISH_EEFS9_lEEclB8ne190000EOl.exit" unwind label %.loopexit.split-lp.i.i.i.i.i
 
 .loopexit.i.i.i.i.i:                              ; preds = %16
   %lpad.loopexit.i.i.i.i.i = landingpad { ptr, i32 }
@@ -35123,7 +35123,7 @@ define internal void @"_ZNSt3__110__function6__funcIZN7mitsuba3xml11load_stringE
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %41, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false), !noalias !528
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #30, !noalias !523
-  br label %"_ZNSt3__110__function12__alloc_funcIZN7mitsuba3xml11load_stringERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESB_NS_6vectorINS_5tupleIJS9_S9_bEEENS7_ISE_EEEEbE3$_0NS7_ISH_EEFS9_lEEclB8ne190000EOl.argprom.exit"
+  br label %"_ZNSt3__110__function12__alloc_funcIZN7mitsuba3xml11load_stringERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESB_NS_6vectorINS_5tupleIJS9_S9_bEEENS7_ISE_EEEEbE3$_0NS7_ISH_EEFS9_lEEclB8ne190000EOl.exit"
 
 43:                                               ; preds = %40
   %44 = landingpad { ptr, i32 }
@@ -35136,7 +35136,7 @@ define internal void @"_ZNSt3__110__function6__funcIZN7mitsuba3xml11load_stringE
   call void @_ZNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %4) #30
   resume { ptr, i32 } %.pn.i.i.i.i.i
 
-"_ZNSt3__110__function12__alloc_funcIZN7mitsuba3xml11load_stringERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESB_NS_6vectorINS_5tupleIJS9_S9_bEEENS7_ISE_EEEEbE3$_0NS7_ISH_EEFS9_lEEclB8ne190000EOl.argprom.exit": ; preds = %27, %42
+"_ZNSt3__110__function12__alloc_funcIZN7mitsuba3xml11load_stringERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESB_NS_6vectorINS_5tupleIJS9_S9_bEEENS7_ISE_EEEEbE3$_0NS7_ISH_EEFS9_lEEclB8ne190000EOl.exit": ; preds = %27, %42
   %46 = load ptr, ptr @_ZTTNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, align 8, !noalias !523
   store ptr %46, ptr %4, align 8, !noalias !523
   %47 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), align 8, !noalias !523
@@ -35857,14 +35857,14 @@ attributes #34 = { nounwind willreturn memory(read) }
 !512 = distinct !{!512, !11}
 !513 = distinct !{!513, !11}
 !514 = !{!515, !517, !519, !521}
-!515 = distinct !{!515, !516, !"_ZZN7mitsuba3xml11load_stringERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_NS1_6vectorINS1_5tupleIJS7_S7_bEEENS5_ISC_EEEEbENK3$_0clEl.argprom: argument 0"}
-!516 = distinct !{!516, !"_ZZN7mitsuba3xml11load_stringERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_NS1_6vectorINS1_5tupleIJS7_S7_bEEENS5_ISC_EEEEbENK3$_0clEl.argprom"}
-!517 = distinct !{!517, !518, !"_ZNSt3__18__invokeB8ne190000IRZN7mitsuba3xml11load_stringERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESA_NS_6vectorINS_5tupleIJS8_S8_bEEENS6_ISD_EEEEbE3$_0JlEEEDTclclsr3stdE7declvalIT_EEspclsr3stdE7declvalIT0_EEEEOSI_DpOSJ_.argprom: argument 0"}
-!518 = distinct !{!518, !"_ZNSt3__18__invokeB8ne190000IRZN7mitsuba3xml11load_stringERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESA_NS_6vectorINS_5tupleIJS8_S8_bEEENS6_ISD_EEEEbE3$_0JlEEEDTclclsr3stdE7declvalIT_EEspclsr3stdE7declvalIT0_EEEEOSI_DpOSJ_.argprom"}
-!519 = distinct !{!519, !520, !"_ZNSt3__128__invoke_void_return_wrapperINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEELb0EE6__callB8ne190000IJRZN7mitsuba3xml11load_stringERKS6_SC_NS_6vectorINS_5tupleIJS6_S6_bEEENS4_ISF_EEEEbE3$_0lEEES6_DpOT_.argprom: argument 0"}
-!520 = distinct !{!520, !"_ZNSt3__128__invoke_void_return_wrapperINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEELb0EE6__callB8ne190000IJRZN7mitsuba3xml11load_stringERKS6_SC_NS_6vectorINS_5tupleIJS6_S6_bEEENS4_ISF_EEEEbE3$_0lEEES6_DpOT_.argprom"}
-!521 = distinct !{!521, !522, !"_ZNSt3__110__function12__alloc_funcIZN7mitsuba3xml11load_stringERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESB_NS_6vectorINS_5tupleIJS9_S9_bEEENS7_ISE_EEEEbE3$_0NS7_ISH_EEFS9_lEEclB8ne190000EOl.argprom: argument 0"}
-!522 = distinct !{!522, !"_ZNSt3__110__function12__alloc_funcIZN7mitsuba3xml11load_stringERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESB_NS_6vectorINS_5tupleIJS9_S9_bEEENS7_ISE_EEEEbE3$_0NS7_ISH_EEFS9_lEEclB8ne190000EOl.argprom"}
+!515 = distinct !{!515, !516, !"_ZZN7mitsuba3xml11load_stringERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_NS1_6vectorINS1_5tupleIJS7_S7_bEEENS5_ISC_EEEEbENK3$_0clEl: argument 0"}
+!516 = distinct !{!516, !"_ZZN7mitsuba3xml11load_stringERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_NS1_6vectorINS1_5tupleIJS7_S7_bEEENS5_ISC_EEEEbENK3$_0clEl"}
+!517 = distinct !{!517, !518, !"_ZNSt3__18__invokeB8ne190000IRZN7mitsuba3xml11load_stringERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESA_NS_6vectorINS_5tupleIJS8_S8_bEEENS6_ISD_EEEEbE3$_0JlEEEDTclclsr3stdE7declvalIT_EEspclsr3stdE7declvalIT0_EEEEOSI_DpOSJ_: argument 0"}
+!518 = distinct !{!518, !"_ZNSt3__18__invokeB8ne190000IRZN7mitsuba3xml11load_stringERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESA_NS_6vectorINS_5tupleIJS8_S8_bEEENS6_ISD_EEEEbE3$_0JlEEEDTclclsr3stdE7declvalIT_EEspclsr3stdE7declvalIT0_EEEEOSI_DpOSJ_"}
+!519 = distinct !{!519, !520, !"_ZNSt3__128__invoke_void_return_wrapperINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEELb0EE6__callB8ne190000IJRZN7mitsuba3xml11load_stringERKS6_SC_NS_6vectorINS_5tupleIJS6_S6_bEEENS4_ISF_EEEEbE3$_0lEEES6_DpOT_: argument 0"}
+!520 = distinct !{!520, !"_ZNSt3__128__invoke_void_return_wrapperINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEELb0EE6__callB8ne190000IJRZN7mitsuba3xml11load_stringERKS6_SC_NS_6vectorINS_5tupleIJS6_S6_bEEENS4_ISF_EEEEbE3$_0lEEES6_DpOT_"}
+!521 = distinct !{!521, !522, !"_ZNSt3__110__function12__alloc_funcIZN7mitsuba3xml11load_stringERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESB_NS_6vectorINS_5tupleIJS9_S9_bEEENS7_ISE_EEEEbE3$_0NS7_ISH_EEFS9_lEEclB8ne190000EOl: argument 0"}
+!522 = distinct !{!522, !"_ZNSt3__110__function12__alloc_funcIZN7mitsuba3xml11load_stringERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESB_NS_6vectorINS_5tupleIJS9_S9_bEEENS7_ISE_EEEEbE3$_0NS7_ISH_EEFS9_lEEclB8ne190000EOl"}
 !523 = !{!524, !515, !517, !519, !521}
 !524 = distinct !{!524, !525, !"_ZN7mitsuba3xml6detailL13string_offsetERKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEl: argument 0"}
 !525 = distinct !{!525, !"_ZN7mitsuba3xml6detailL13string_offsetERKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEl"}

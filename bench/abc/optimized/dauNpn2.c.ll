@@ -533,14 +533,14 @@ define noundef ptr @Dau_ParseFormulaAigTest() local_unnamed_addr #4 {
 
 3:                                                ; preds = %0, %3
   %.08 = phi i32 [ 0, %0 ], [ %4, %3 ]
-  tail call fastcc void @Gia_ManAppendCi.retelim(ptr noundef nonnull %1)
+  tail call fastcc void @Gia_ManAppendCi(ptr noundef nonnull %1)
   %4 = add nuw nsw i32 %.08, 1
   %exitcond.not = icmp eq i32 %4, 5
   br i1 %exitcond.not, label %5, label %3, !llvm.loop !8
 
 5:                                                ; preds = %3
   %6 = tail call i32 @Dau_ParseFormulaAig_rec(ptr noundef nonnull %1, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 37))
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %1, i32 noundef %6)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %1, i32 noundef %6)
   ret ptr %1
 }
 
@@ -549,7 +549,7 @@ declare ptr @Gia_ManStart(i32 noundef) local_unnamed_addr #5
 declare void @Gia_ManHashAlloc(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCi.retelim(ptr nocapture noundef %0) unnamed_addr #4 {
+define internal fastcc void @Gia_ManAppendCi(ptr nocapture noundef %0) unnamed_addr #4 {
   %2 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %3 = load i64, ptr %2, align 4
   %4 = or i64 %3, 2684354559
@@ -642,7 +642,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #4 {
+define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #4 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648
@@ -872,7 +872,7 @@ define noundef ptr @Dau_ConstructAigFromFile(ptr nocapture noundef readonly %0) 
 
 8:                                                ; preds = %1, %8
   %.012 = phi i32 [ 0, %1 ], [ %9, %8 ]
-  tail call fastcc void @Gia_ManAppendCi.retelim(ptr noundef nonnull %4)
+  tail call fastcc void @Gia_ManAppendCi(ptr noundef nonnull %4)
   %9 = add nuw nsw i32 %.012, 1
   %exitcond.not = icmp eq i32 %9, 5
   br i1 %exitcond.not, label %.preheader, label %8, !llvm.loop !10
@@ -906,7 +906,7 @@ define noundef ptr @Dau_ConstructAigFromFile(ptr nocapture noundef readonly %0) 
   %25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #27
   %26 = getelementptr inbounds i8, ptr %7, i64 %25
   %27 = call i32 @Dau_ParseFormulaAig_rec(ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %26)
-  call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %4, i32 noundef %27)
+  call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %4, i32 noundef %27)
   %28 = add nuw nsw i32 %.01114, 1
   %29 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 1000, ptr noundef %3)
   %.not = icmp eq ptr %29, null

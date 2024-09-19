@@ -1131,7 +1131,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %25, %
   %41 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store ptr %20, ptr %41, align 8, !noalias !6
   %42 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
-          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_DataSourceRenderPassEED2Ev.argprom.exit unwind label %43, !noalias !6
+          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_DataSourceRenderPassEED2Ev.exit unwind label %43, !noalias !6
 
 43:                                               ; preds = %40
   %44 = landingpad { ptr, i32 }
@@ -1183,7 +1183,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %25, %
   call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 48) #22, !noalias !6
   br label %.body
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_DataSourceRenderPassEED2Ev.argprom.exit: ; preds = %40
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_DataSourceRenderPassEED2Ev.exit: ; preds = %40
   %60 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i32 1, ptr %60, align 8, !noalias !6
   %61 = getelementptr inbounds nuw i8, ptr %42, i64 12
@@ -1213,7 +1213,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_DataSource
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %67
 
-67:                                               ; preds = %66, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_DataSourceRenderPassEED2Ev.argprom.exit
+67:                                               ; preds = %66, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_DataSourceRenderPassEED2Ev.exit
   ret void
 }
 
@@ -1245,7 +1245,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__34UsdImagingDataSourceRenderPa
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit: ; preds = %5, %14
   %.sroa.7.0 = phi i64 [ %20, %14 ], [ 0, %5 ]
   %.sroa.11.0 = phi i64 [ %19, %14 ], [ 0, %5 ]
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_DataSourceRenderPass16GetPropertyNamesEv.retelim()
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_DataSourceRenderPass16GetPropertyNamesEv()
           to label %21 unwind label %101
 
 21:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit
@@ -1481,7 +1481,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit14: ; preds = %113
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_DataSourceRenderPass16GetPropertyNamesEv.retelim() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_DataSourceRenderPass16GetPropertyNamesEv() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca [2 x %"class.pxrInternal_v0_24__pxrReserved__::TfToken"], align 8
   %2 = alloca %"class.std::allocator", align 1
   %3 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_DataSourceRenderPass16GetPropertyNamesEvE5names acquire, align 8
@@ -2119,7 +2119,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %25, %
   %41 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store ptr %20, ptr %41, align 8, !noalias !17
   %42 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
-          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_DataSourceRenderSettingsEED2Ev.argprom.exit unwind label %43, !noalias !17
+          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_DataSourceRenderSettingsEED2Ev.exit unwind label %43, !noalias !17
 
 43:                                               ; preds = %40
   %44 = landingpad { ptr, i32 }
@@ -2171,7 +2171,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %25, %
   call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 48) #22, !noalias !17
   br label %.body
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_DataSourceRenderSettingsEED2Ev.argprom.exit: ; preds = %40
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_DataSourceRenderSettingsEED2Ev.exit: ; preds = %40
   %60 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i32 1, ptr %60, align 8, !noalias !17
   %61 = getelementptr inbounds nuw i8, ptr %42, i64 12
@@ -2201,7 +2201,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_DataSource
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %67
 
-67:                                               ; preds = %66, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_DataSourceRenderSettingsEED2Ev.argprom.exit
+67:                                               ; preds = %66, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_DataSourceRenderSettingsEED2Ev.exit
   ret void
 }
 
@@ -2233,7 +2233,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__38UsdImagingDataSourceRenderSe
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit: ; preds = %5, %14
   %.sroa.7.0 = phi i64 [ %20, %14 ], [ 0, %5 ]
   %.sroa.11.0 = phi i64 [ %19, %14 ], [ 0, %5 ]
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_DataSourceRenderSettings16GetPropertyNamesEv.retelim()
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_DataSourceRenderSettings16GetPropertyNamesEv()
           to label %21 unwind label %101
 
 21:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit
@@ -2477,7 +2477,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit14: ; preds = %115
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_DataSourceRenderSettings16GetPropertyNamesEv.retelim() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_DataSourceRenderSettings16GetPropertyNamesEv() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::vector", align 8
   %2 = alloca [3 x %"class.pxrInternal_v0_24__pxrReserved__::TfToken"], align 8
   %3 = alloca %"class.std::allocator", align 1
@@ -2985,7 +2985,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %25, %
   %41 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store ptr %20, ptr %41, align 8, !noalias !20
   %42 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
-          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_DataSourceRenderProductEED2Ev.argprom.exit unwind label %43, !noalias !20
+          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_DataSourceRenderProductEED2Ev.exit unwind label %43, !noalias !20
 
 43:                                               ; preds = %40
   %44 = landingpad { ptr, i32 }
@@ -3037,7 +3037,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %25, %
   call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 48) #22, !noalias !20
   br label %.body
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_DataSourceRenderProductEED2Ev.argprom.exit: ; preds = %40
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_DataSourceRenderProductEED2Ev.exit: ; preds = %40
   %60 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i32 1, ptr %60, align 8, !noalias !20
   %61 = getelementptr inbounds nuw i8, ptr %42, i64 12
@@ -3067,7 +3067,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_DataSource
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %67
 
-67:                                               ; preds = %66, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_DataSourceRenderProductEED2Ev.argprom.exit
+67:                                               ; preds = %66, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_DataSourceRenderProductEED2Ev.exit
   ret void
 }
 
@@ -3099,7 +3099,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__37UsdImagingDataSourceRenderPr
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit: ; preds = %5, %14
   %.sroa.7.0 = phi i64 [ %20, %14 ], [ 0, %5 ]
   %.sroa.11.0 = phi i64 [ %19, %14 ], [ 0, %5 ]
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_DataSourceRenderProduct16GetPropertyNamesEv.retelim()
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_DataSourceRenderProduct16GetPropertyNamesEv()
           to label %21 unwind label %101
 
 21:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit
@@ -3343,7 +3343,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit14: ; preds = %115
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_DataSourceRenderProduct16GetPropertyNamesEv.retelim() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_DataSourceRenderProduct16GetPropertyNamesEv() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::vector", align 8
   %2 = alloca [3 x %"class.pxrInternal_v0_24__pxrReserved__::TfToken"], align 8
   %3 = alloca %"class.std::allocator", align 1
@@ -3851,7 +3851,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %25, %
   %41 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store ptr %20, ptr %41, align 8, !noalias !23
   %42 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
-          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DataSourceRenderVarEED2Ev.argprom.exit unwind label %43, !noalias !23
+          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DataSourceRenderVarEED2Ev.exit unwind label %43, !noalias !23
 
 43:                                               ; preds = %40
   %44 = landingpad { ptr, i32 }
@@ -3903,7 +3903,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %25, %
   call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 48) #22, !noalias !23
   br label %.body
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DataSourceRenderVarEED2Ev.argprom.exit: ; preds = %40
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DataSourceRenderVarEED2Ev.exit: ; preds = %40
   %60 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i32 1, ptr %60, align 8, !noalias !23
   %61 = getelementptr inbounds nuw i8, ptr %42, i64 12
@@ -3933,7 +3933,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DataSource
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %67
 
-67:                                               ; preds = %66, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DataSourceRenderVarEED2Ev.argprom.exit
+67:                                               ; preds = %66, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DataSourceRenderVarEED2Ev.exit
   ret void
 }
 
@@ -3965,7 +3965,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__33UsdImagingDataSourceRenderVa
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit: ; preds = %5, %14
   %.sroa.7.0 = phi i64 [ %20, %14 ], [ 0, %5 ]
   %.sroa.11.0 = phi i64 [ %19, %14 ], [ 0, %5 ]
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DataSourceRenderVar16GetPropertyNamesEv.retelim()
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DataSourceRenderVar16GetPropertyNamesEv()
           to label %21 unwind label %101
 
 21:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit
@@ -4209,7 +4209,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit14: ; preds = %115
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DataSourceRenderVar16GetPropertyNamesEv.retelim() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DataSourceRenderVar16GetPropertyNamesEv() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::vector", align 8
   %2 = alloca [1 x %"class.pxrInternal_v0_24__pxrReserved__::TfToken"], align 8
   %3 = alloca %"class.std::allocator", align 1
@@ -6281,7 +6281,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_DataSourceRenderPassD2Ev.e
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_DataSourceRenderPass8GetNamesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_DataSourceRenderPass16GetPropertyNamesEv.retelim()
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_DataSourceRenderPass16GetPropertyNamesEv()
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_DataSourceRenderPass16GetPropertyNamesEvE5names, i64 8), align 8
   %4 = load ptr, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_DataSourceRenderPass16GetPropertyNamesEvE5names, align 8
   %5 = ptrtoint ptr %3 to i64
@@ -8573,7 +8573,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_DataSourceRenderSettingsD2
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_DataSourceRenderSettings8GetNamesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_DataSourceRenderSettings16GetPropertyNamesEv.retelim()
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_DataSourceRenderSettings16GetPropertyNamesEv()
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_DataSourceRenderSettings16GetPropertyNamesEvE5names, i64 8), align 8
   %4 = load ptr, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_DataSourceRenderSettings16GetPropertyNamesEvE5names, align 8
   %5 = ptrtoint ptr %3 to i64
@@ -12888,7 +12888,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_DataSourceRenderProductD2E
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_DataSourceRenderProduct8GetNamesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_DataSourceRenderProduct16GetPropertyNamesEv.retelim()
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_DataSourceRenderProduct16GetPropertyNamesEv()
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_DataSourceRenderProduct16GetPropertyNamesEvE5names, i64 8), align 8
   %4 = load ptr, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_DataSourceRenderProduct16GetPropertyNamesEvE5names, align 8
   %5 = ptrtoint ptr %3 to i64
@@ -14296,7 +14296,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DataSourceRenderVarD2Ev.ex
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DataSourceRenderVar8GetNamesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DataSourceRenderVar16GetPropertyNamesEv.retelim()
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DataSourceRenderVar16GetPropertyNamesEv()
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DataSourceRenderVar16GetPropertyNamesEvE5names, i64 8), align 8
   %4 = load ptr, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DataSourceRenderVar16GetPropertyNamesEvE5names, align 8
   %5 = ptrtoint ptr %3 to i64

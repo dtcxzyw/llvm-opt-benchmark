@@ -257,7 +257,7 @@ define hidden void @"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$
 .body.i.i:                                        ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE.argprom"(ptr nonnull %6, ptr nonnull %10) #23, !noalias !86
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE"(ptr nonnull %6, ptr nonnull %10) #23, !noalias !86
   store i64 0, ptr %0, align 8, !alias.scope !66, !noalias !74
   resume { ptr, i32 } %12
 
@@ -424,7 +424,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h7373503598d5603dE.l
 .body.i:                                          ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE.argprom"(ptr nonnull %6, ptr nonnull %10) #23, !noalias !139
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE"(ptr nonnull %6, ptr nonnull %10) #23, !noalias !139
   store i64 0, ptr %0, align 8, !noalias !128
   resume { ptr, i32 } %12
 
@@ -634,7 +634,7 @@ define hidden void @"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP
 8:                                                ; preds = %4
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE.argprom"(ptr nonnull %2, ptr nonnull %6) #23, !noalias !173
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE"(ptr nonnull %2, ptr nonnull %6) #23, !noalias !173
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %4
@@ -698,7 +698,7 @@ define hidden void @"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$cor
 12:                                               ; preds = %8
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE.argprom"(ptr nonnull %6, ptr nonnull %10) #23, !noalias !189
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE"(ptr nonnull %6, ptr nonnull %10) #23, !noalias !189
   resume { ptr, i32 } %13
 
 14:                                               ; preds = %8
@@ -1648,7 +1648,7 @@ define hidden void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20
 6:                                                ; preds = %1
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE.argprom"(ptr %2, ptr nonnull %4) #23
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE"(ptr %2, ptr nonnull %4) #23
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %1
@@ -1659,13 +1659,13 @@ define hidden void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20
   %13 = icmp ult i64 %12, -9223372036854775807
   tail call void @llvm.assume(i1 %13)
   %14 = icmp eq i64 %10, 0
-  br i1 %14, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE.argprom.exit", label %15
+  br i1 %14, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE.exit", label %15
 
 15:                                               ; preds = %8
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %10, i64 noundef %12) #22
-  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE.argprom.exit"
+  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE.exit"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE.argprom.exit": ; preds = %8, %15
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE.exit": ; preds = %8, %15
   ret void
 }
 
@@ -2132,7 +2132,7 @@ define hidden void @_ZN5tokio7runtime4task3raw17drop_abort_handle17h543fbe3df94f
 
 .body.i.i.i:                                      ; preds = %19, %5
   %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %20, %19 ], [ %6, %5 ]
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha7cf886d95d4eaddE.argprom"(ptr nonnull %0) #23
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha7cf886d95d4eaddE"(ptr nonnull %0) #23
   resume { ptr, i32 } %eh.lpad-body.i.i.i
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7dealloc17hbebfeb06592bb187E.exit.i": ; preds = %12, %8
@@ -2192,7 +2192,7 @@ define hidden void @_ZN5tokio7runtime4task3raw17drop_abort_handle17hae187184dc19
 
 .body.i.i.i:                                      ; preds = %19, %5
   %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %20, %19 ], [ %6, %5 ]
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h88507e764233f5d5E.argprom"(ptr nonnull %0) #23
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h88507e764233f5d5E"(ptr nonnull %0) #23
   resume { ptr, i32 } %eh.lpad-body.i.i.i
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7dealloc17h355598ed4bca0c08E.exit.i": ; preds = %12, %8
@@ -2244,7 +2244,7 @@ common.resume.i:                                  ; preds = %.body.i.i.i.i, %13
 13:                                               ; preds = %6
   %14 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE.argprom"(ptr nonnull %9, ptr nonnull %11) #23, !noalias !476
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE"(ptr nonnull %9, ptr nonnull %11) #23, !noalias !476
   br label %common.resume.i
 
 15:                                               ; preds = %6
@@ -2310,7 +2310,7 @@ common.resume.i:                                  ; preds = %.body.i.i.i.i, %13
 
 .body.i.i.i.i:                                    ; preds = %41, %27
   %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %42, %41 ], [ %28, %27 ]
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h88507e764233f5d5E.argprom"(ptr nonnull %23) #23
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h88507e764233f5d5E"(ptr nonnull %23) #23
   br label %common.resume.i
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7dealloc17h355598ed4bca0c08E.exit.i.i": ; preds = %34, %30
@@ -2363,7 +2363,7 @@ common.resume.i:                                  ; preds = %.body.i.i.i.i, %13
 13:                                               ; preds = %6
   %14 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE.argprom"(ptr nonnull %9, ptr nonnull %11) #23, !noalias !501
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE"(ptr nonnull %9, ptr nonnull %11) #23, !noalias !501
   br label %common.resume.i
 
 15:                                               ; preds = %6
@@ -2429,7 +2429,7 @@ common.resume.i:                                  ; preds = %.body.i.i.i.i, %13
 
 .body.i.i.i.i:                                    ; preds = %41, %27
   %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %42, %41 ], [ %28, %27 ]
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha7cf886d95d4eaddE.argprom"(ptr nonnull %23) #23
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha7cf886d95d4eaddE"(ptr nonnull %23) #23
   br label %common.resume.i
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7dealloc17hbebfeb06592bb187E.exit.i.i": ; preds = %34, %30
@@ -2456,10 +2456,10 @@ define hidden void @_ZN5tokio7runtime4task3raw4poll17h6210af25b92ee7d3E(ptr noun
     i8 0, label %10
     i8 1, label %44
     i8 2, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17h202a929924ef1a4bE.exit"
-    i8 3, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.argprom.exit.thread8.i"
+    i8 3, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.exit.thread8.i"
   ]
 
-default.unreachable:                              ; preds = %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.argprom.exit.i", %1
+default.unreachable:                              ; preds = %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.exit.i", %1
   unreachable
 
 10:                                               ; preds = %1
@@ -2534,7 +2534,7 @@ common.resume.i:                                  ; preds = %.body.i.i.i, %.body
 34:                                               ; preds = %28
   %35 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE.argprom"(ptr nonnull %31, ptr nonnull %32) #23, !noalias !535
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE"(ptr nonnull %31, ptr nonnull %32) #23, !noalias !535
   br label %common.resume.i
 
 36:                                               ; preds = %28
@@ -2582,18 +2582,18 @@ _ZN5tokio7runtime4task7harness11cancel_task17h82339dbac2a90a00E.exit.i.i: ; pred
   store i8 6, ptr %56, align 1
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17hec8cb647c785bf4cE"(ptr noundef nonnull align 8 %45, ptr noalias nocapture noundef nonnull align 8 dereferenceable(432) %5)
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %5)
-  br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.argprom.exit.thread.i"
+  br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.exit.thread.i"
 
 57:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.6.i.i.i)
   %58 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h6831ece2b2e4cfbcE(ptr noundef nonnull align 8 %0), !range !315
   %59 = icmp eq i8 %58, 3
-  br i1 %59, label %61, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.argprom.exit.i"
+  br i1 %59, label %61, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.exit.i"
 
 60:                                               ; preds = %43, %36, %.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.6.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.argprom.exit.thread.i"
+  br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.exit.thread.i"
 
 61:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
@@ -2625,23 +2625,23 @@ _ZN5tokio7runtime4task7harness11cancel_task17h82339dbac2a90a00E.exit11.i.i: ; pr
   store i8 6, ptr %72, align 1
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17hec8cb647c785bf4cE"(ptr noundef nonnull align 8 %16, ptr noalias nocapture noundef nonnull align 8 dereferenceable(432) %3)
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %3)
-  br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.argprom.exit.i"
+  br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.exit.i"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.argprom.exit.i": ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17h82339dbac2a90a00E.exit11.i.i, %57
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.exit.i": ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17h82339dbac2a90a00E.exit11.i.i, %57
   %73 = call noundef i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17hcb9552254fd2606fE"(i8 noundef %58), !range !315
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   switch i8 %73, label %default.unreachable [
-    i8 0, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.argprom.exit.thread.i"
+    i8 0, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.exit.thread.i"
     i8 1, label %74
     i8 2, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17h202a929924ef1a4bE.exit"
-    i8 3, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.argprom.exit.thread8.i"
+    i8 3, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.exit.thread8.i"
   ]
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.argprom.exit.thread.i": ; preds = %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.argprom.exit.i", %60, %_ZN5tokio7runtime4task7harness11cancel_task17h82339dbac2a90a00E.exit.i.i
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.exit.thread.i": ; preds = %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.exit.i", %60, %_ZN5tokio7runtime4task7harness11cancel_task17h82339dbac2a90a00E.exit.i.i
   call fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete17h618efbb837cc104cE"(ptr noundef nonnull %0)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17h202a929924ef1a4bE.exit"
 
-74:                                               ; preds = %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.argprom.exit.i"
+74:                                               ; preds = %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.exit.i"
   %75 = call noundef nonnull ptr @_ZN5tokio7runtime4task3raw7RawTask8from_raw17h58861ca3cbad23e5E(ptr noundef nonnull %0)
   call void @"_ZN5tokio7runtime9scheduler14current_thread134_$LT$impl$u20$tokio..runtime..task..Schedule$u20$for$u20$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$8schedule17hce4f290ca67a1caaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %16, ptr noundef nonnull %75)
   %76 = call noundef zeroext i1 @_ZN5tokio7runtime4task5state5State7ref_dec17hf392b75416d9c34cE(ptr noundef nonnull align 8 %0)
@@ -2690,26 +2690,26 @@ _ZN5tokio7runtime4task7harness11cancel_task17h82339dbac2a90a00E.exit11.i.i: ; pr
 
 .body.i.i.i.i:                                    ; preds = %92, %78
   %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %93, %92 ], [ %79, %78 ]
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h88507e764233f5d5E.argprom"(ptr nonnull %0) #23
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h88507e764233f5d5E"(ptr nonnull %0) #23
   br label %common.resume.i
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7dealloc17h355598ed4bca0c08E.exit.i.i": ; preds = %85, %81
   call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef 512, i64 noundef 128) #22
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17h202a929924ef1a4bE.exit"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.argprom.exit.thread8.i": ; preds = %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.argprom.exit.i", %1
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.exit.thread8.i": ; preds = %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.exit.i", %1
   %94 = getelementptr inbounds i8, ptr %0, i64 32
   invoke void @"_ZN4core3ptr204drop_in_place$LT$tokio..runtime..task..core..Core$LT$ockam_node..async_drop..AsyncDrop..run..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$GT$17h3af0450326ff7fa4E"(ptr noundef nonnull align 8 %94)
           to label %98 unwind label %95
 
-95:                                               ; preds = %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.argprom.exit.thread8.i"
+95:                                               ; preds = %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.exit.thread8.i"
   %96 = landingpad { ptr, i32 }
           cleanup
   %97 = getelementptr inbounds i8, ptr %0, i64 480
   invoke void @"_ZN4core3ptr56drop_in_place$LT$tokio..runtime..task..core..Trailer$GT$17h924b0448c269c367E.llvm.14780125840797112574"(ptr noundef nonnull align 8 %97) #23
           to label %.body.i.i.i unwind label %107
 
-98:                                               ; preds = %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.argprom.exit.thread8.i"
+98:                                               ; preds = %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.exit.thread8.i"
   %99 = getelementptr inbounds i8, ptr %0, i64 496
   call void @llvm.experimental.noalias.scope.decl(metadata !557)
   call void @llvm.experimental.noalias.scope.decl(metadata !560)
@@ -2741,14 +2741,14 @@ _ZN5tokio7runtime4task7harness11cancel_task17h82339dbac2a90a00E.exit11.i.i: ; pr
 
 .body.i.i.i:                                      ; preds = %109, %95
   %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %110, %109 ], [ %96, %95 ]
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h88507e764233f5d5E.argprom"(ptr nonnull %0) #23
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h88507e764233f5d5E"(ptr nonnull %0) #23
   br label %common.resume.i
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7dealloc17h355598ed4bca0c08E.exit.i": ; preds = %102, %98
   call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef 512, i64 noundef 128) #22
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17h202a929924ef1a4bE.exit"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17h202a929924ef1a4bE.exit": ; preds = %1, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.argprom.exit.i", %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.argprom.exit.thread.i", %74, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7dealloc17h355598ed4bca0c08E.exit.i.i", %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7dealloc17h355598ed4bca0c08E.exit.i"
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17h202a929924ef1a4bE.exit": ; preds = %1, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.exit.i", %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5e31826eebcfa479E.exit.thread.i", %74, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7dealloc17h355598ed4bca0c08E.exit.i.i", %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7dealloc17h355598ed4bca0c08E.exit.i"
   ret void
 }
 
@@ -2767,10 +2767,10 @@ define hidden void @_ZN5tokio7runtime4task3raw4poll17hea44c5020dc384cbE(ptr noun
     i8 0, label %10
     i8 1, label %44
     i8 2, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17h3d8a51b224704672E.exit"
-    i8 3, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.argprom.exit.thread8.i"
+    i8 3, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.exit.thread8.i"
   ]
 
-default.unreachable:                              ; preds = %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.argprom.exit.i", %1
+default.unreachable:                              ; preds = %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.exit.i", %1
   unreachable
 
 10:                                               ; preds = %1
@@ -2845,7 +2845,7 @@ common.resume.i:                                  ; preds = %.body.i.i.i, %.body
 34:                                               ; preds = %28
   %35 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE.argprom"(ptr nonnull %31, ptr nonnull %32) #23, !noalias !586
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE"(ptr nonnull %31, ptr nonnull %32) #23, !noalias !586
   br label %common.resume.i
 
 36:                                               ; preds = %28
@@ -2893,18 +2893,18 @@ _ZN5tokio7runtime4task7harness11cancel_task17ha46b26abf9ae092fE.exit.i.i: ; pred
   store i8 6, ptr %56, align 1
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h0cc5dc84cb11680fE"(ptr noundef nonnull align 8 %45, ptr noalias nocapture noundef nonnull align 8 dereferenceable(432) %5)
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %5)
-  br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.argprom.exit.thread.i"
+  br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.exit.thread.i"
 
 57:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.6.i.i.i)
   %58 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h6831ece2b2e4cfbcE(ptr noundef nonnull align 8 %0), !range !315
   %59 = icmp eq i8 %58, 3
-  br i1 %59, label %61, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.argprom.exit.i"
+  br i1 %59, label %61, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.exit.i"
 
 60:                                               ; preds = %43, %36, %.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.6.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.argprom.exit.thread.i"
+  br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.exit.thread.i"
 
 61:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
@@ -2936,23 +2936,23 @@ _ZN5tokio7runtime4task7harness11cancel_task17ha46b26abf9ae092fE.exit11.i.i: ; pr
   store i8 6, ptr %72, align 1
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h0cc5dc84cb11680fE"(ptr noundef nonnull align 8 %16, ptr noalias nocapture noundef nonnull align 8 dereferenceable(432) %3)
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %3)
-  br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.argprom.exit.i"
+  br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.exit.i"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.argprom.exit.i": ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17ha46b26abf9ae092fE.exit11.i.i, %57
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.exit.i": ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17ha46b26abf9ae092fE.exit11.i.i, %57
   %73 = call noundef i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17hcb9552254fd2606fE"(i8 noundef %58), !range !315
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   switch i8 %73, label %default.unreachable [
-    i8 0, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.argprom.exit.thread.i"
+    i8 0, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.exit.thread.i"
     i8 1, label %74
     i8 2, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17h3d8a51b224704672E.exit"
-    i8 3, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.argprom.exit.thread8.i"
+    i8 3, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.exit.thread8.i"
   ]
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.argprom.exit.thread.i": ; preds = %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.argprom.exit.i", %60, %_ZN5tokio7runtime4task7harness11cancel_task17ha46b26abf9ae092fE.exit.i.i
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.exit.thread.i": ; preds = %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.exit.i", %60, %_ZN5tokio7runtime4task7harness11cancel_task17ha46b26abf9ae092fE.exit.i.i
   call fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete17h2fda875406879416E"(ptr noundef nonnull %0)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17h3d8a51b224704672E.exit"
 
-74:                                               ; preds = %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.argprom.exit.i"
+74:                                               ; preds = %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.exit.i"
   %75 = call noundef nonnull ptr @_ZN5tokio7runtime4task3raw7RawTask8from_raw17h58861ca3cbad23e5E(ptr noundef nonnull %0)
   call void @"_ZN5tokio7runtime9scheduler12multi_thread6worker140_$LT$impl$u20$tokio..runtime..task..Schedule$u20$for$u20$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$9yield_now17ha76b6905ae0febe9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %16, ptr noundef nonnull %75)
   %76 = call noundef zeroext i1 @_ZN5tokio7runtime4task5state5State7ref_dec17hf392b75416d9c34cE(ptr noundef nonnull align 8 %0)
@@ -3001,26 +3001,26 @@ _ZN5tokio7runtime4task7harness11cancel_task17ha46b26abf9ae092fE.exit11.i.i: ; pr
 
 .body.i.i.i.i:                                    ; preds = %92, %78
   %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %93, %92 ], [ %79, %78 ]
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha7cf886d95d4eaddE.argprom"(ptr nonnull %0) #23
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha7cf886d95d4eaddE"(ptr nonnull %0) #23
   br label %common.resume.i
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7dealloc17hbebfeb06592bb187E.exit.i.i": ; preds = %85, %81
   call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef 512, i64 noundef 128) #22
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17h3d8a51b224704672E.exit"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.argprom.exit.thread8.i": ; preds = %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.argprom.exit.i", %1
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.exit.thread8.i": ; preds = %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.exit.i", %1
   %94 = getelementptr inbounds i8, ptr %0, i64 32
   invoke void @"_ZN4core3ptr210drop_in_place$LT$tokio..runtime..task..core..Core$LT$ockam_node..async_drop..AsyncDrop..run..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h812d1ad2c7d1348dE"(ptr noundef nonnull align 8 %94)
           to label %98 unwind label %95
 
-95:                                               ; preds = %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.argprom.exit.thread8.i"
+95:                                               ; preds = %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.exit.thread8.i"
   %96 = landingpad { ptr, i32 }
           cleanup
   %97 = getelementptr inbounds i8, ptr %0, i64 480
   invoke void @"_ZN4core3ptr56drop_in_place$LT$tokio..runtime..task..core..Trailer$GT$17h924b0448c269c367E.llvm.14780125840797112574"(ptr noundef nonnull align 8 %97) #23
           to label %.body.i.i.i unwind label %107
 
-98:                                               ; preds = %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.argprom.exit.thread8.i"
+98:                                               ; preds = %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.exit.thread8.i"
   %99 = getelementptr inbounds i8, ptr %0, i64 496
   call void @llvm.experimental.noalias.scope.decl(metadata !608)
   call void @llvm.experimental.noalias.scope.decl(metadata !611)
@@ -3052,14 +3052,14 @@ _ZN5tokio7runtime4task7harness11cancel_task17ha46b26abf9ae092fE.exit11.i.i: ; pr
 
 .body.i.i.i:                                      ; preds = %109, %95
   %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %110, %109 ], [ %96, %95 ]
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha7cf886d95d4eaddE.argprom"(ptr nonnull %0) #23
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha7cf886d95d4eaddE"(ptr nonnull %0) #23
   br label %common.resume.i
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7dealloc17hbebfeb06592bb187E.exit.i": ; preds = %102, %98
   call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef 512, i64 noundef 128) #22
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17h3d8a51b224704672E.exit"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17h3d8a51b224704672E.exit": ; preds = %1, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.argprom.exit.i", %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.argprom.exit.thread.i", %74, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7dealloc17hbebfeb06592bb187E.exit.i.i", %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7dealloc17hbebfeb06592bb187E.exit.i"
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17h3d8a51b224704672E.exit": ; preds = %1, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.exit.i", %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h9d6db5f78fab901cE.exit.thread.i", %74, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7dealloc17hbebfeb06592bb187E.exit.i.i", %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7dealloc17hbebfeb06592bb187E.exit.i"
   ret void
 }
 
@@ -3182,7 +3182,7 @@ define hidden void @_ZN5tokio7runtime4task3raw7dealloc17ha411e2971214cff7E(ptr n
 
 .body.i.i:                                        ; preds = %17, %3
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %18, %17 ], [ %4, %3 ]
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h88507e764233f5d5E.argprom"(ptr nonnull %0) #23
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h88507e764233f5d5E"(ptr nonnull %0) #23
   resume { ptr, i32 } %eh.lpad-body.i.i
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7dealloc17h355598ed4bca0c08E.exit": ; preds = %6, %10
@@ -3235,7 +3235,7 @@ define hidden void @_ZN5tokio7runtime4task3raw7dealloc17had5dfefd3ad41521E(ptr n
 
 .body.i.i:                                        ; preds = %17, %3
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %18, %17 ], [ %4, %3 ]
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha7cf886d95d4eaddE.argprom"(ptr nonnull %0) #23
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha7cf886d95d4eaddE"(ptr nonnull %0) #23
   resume { ptr, i32 } %eh.lpad-body.i.i
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7dealloc17hbebfeb06592bb187E.exit": ; preds = %6, %10
@@ -3322,7 +3322,7 @@ define hidden void @_ZN5tokio7runtime4task3raw8shutdown17h2896ad9c2cef522eE(ptr 
 
 .body.i.i.i.i:                                    ; preds = %23, %9
   %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %24, %23 ], [ %10, %9 ]
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha7cf886d95d4eaddE.argprom"(ptr nonnull %0) #23
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha7cf886d95d4eaddE"(ptr nonnull %0) #23
   resume { ptr, i32 } %eh.lpad-body.i.i.i.i
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7dealloc17hbebfeb06592bb187E.exit.i.i": ; preds = %16, %12
@@ -3422,7 +3422,7 @@ define hidden void @_ZN5tokio7runtime4task3raw8shutdown17hc255675a6c2096faE(ptr 
 
 .body.i.i.i.i:                                    ; preds = %23, %9
   %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %24, %23 ], [ %10, %9 ]
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h88507e764233f5d5E.argprom"(ptr nonnull %0) #23
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h88507e764233f5d5E"(ptr nonnull %0) #23
   resume { ptr, i32 } %eh.lpad-body.i.i.i.i
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7dealloc17h355598ed4bca0c08E.exit.i.i": ; preds = %16, %12
@@ -3643,7 +3643,7 @@ common.resume:                                    ; preds = %.body.i.i, %14
 14:                                               ; preds = %8
   %15 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE.argprom"(ptr nonnull %11, ptr nonnull %12) #23, !noalias !697
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE"(ptr nonnull %11, ptr nonnull %12) #23, !noalias !697
   br label %common.resume
 
 16:                                               ; preds = %8
@@ -3719,7 +3719,7 @@ common.resume:                                    ; preds = %.body.i.i, %14
 
 .body.i.i:                                        ; preds = %46, %32
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %47, %46 ], [ %33, %32 ]
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha7cf886d95d4eaddE.argprom"(ptr nonnull %30) #23
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha7cf886d95d4eaddE"(ptr nonnull %30) #23
   br label %common.resume
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7dealloc17hbebfeb06592bb187E.exit": ; preds = %35, %39
@@ -3771,7 +3771,7 @@ common.resume:                                    ; preds = %.body.i.i, %14
 14:                                               ; preds = %8
   %15 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE.argprom"(ptr nonnull %11, ptr nonnull %12) #23, !noalias !723
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE"(ptr nonnull %11, ptr nonnull %12) #23, !noalias !723
   br label %common.resume
 
 16:                                               ; preds = %8
@@ -3847,7 +3847,7 @@ common.resume:                                    ; preds = %.body.i.i, %14
 
 .body.i.i:                                        ; preds = %46, %32
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %47, %46 ], [ %33, %32 ]
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h88507e764233f5d5E.argprom"(ptr nonnull %30) #23
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h88507e764233f5d5E"(ptr nonnull %30) #23
   br label %common.resume
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7dealloc17h355598ed4bca0c08E.exit": ; preds = %35, %39
@@ -4070,7 +4070,7 @@ define hidden void @"_ZN70_$LT$std..thread..Packet$LT$T$GT$$u20$as$u20$core..ops
 .body:                                            ; preds = %9
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE.argprom"(ptr nonnull %7, ptr nonnull %11) #23, !noalias !773
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE"(ptr nonnull %7, ptr nonnull %11) #23, !noalias !773
   store i64 0, ptr %2, align 8
   resume { ptr, i32 } %13
 
@@ -4142,7 +4142,7 @@ define hidden void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..op
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE.argprom"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #7 {
+define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5768605e9e22921fE"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #7 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = icmp ne ptr %.8.val, null
@@ -4165,7 +4165,7 @@ define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u2
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h88507e764233f5d5E.argprom"(ptr %.0.val) unnamed_addr #7 {
+define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h88507e764233f5d5E"(ptr %.0.val) unnamed_addr #7 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 512, i64 noundef 128) #22
@@ -4173,7 +4173,7 @@ define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u2
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha7cf886d95d4eaddE.argprom"(ptr %.0.val) unnamed_addr #7 {
+define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha7cf886d95d4eaddE"(ptr %.0.val) unnamed_addr #7 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 512, i64 noundef 128) #22

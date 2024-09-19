@@ -2473,17 +2473,17 @@ rdp_get_conversation_data.exit:                   ; preds = %22, %17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %81, i8 0, i64 56, i1 false)
   %82 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #12
   %83 = icmp slt i32 %82, 6
-  br i1 %83, label %dissect_rdp_rdstls.argprom.exit.thread, label %84
+  br i1 %83, label %dissect_rdp_rdstls.exit.thread, label %84
 
 84:                                               ; preds = %34
   %85 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 0, i32 noundef -2147483648) #12
   %.not.i = icmp eq i16 %85, 1
-  br i1 %.not.i, label %86, label %dissect_rdp_rdstls.argprom.exit.thread
+  br i1 %.not.i, label %86, label %dissect_rdp_rdstls.exit.thread
 
 86:                                               ; preds = %84
   %87 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 2, i32 noundef -2147483648) #12
   %88 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 4, i32 noundef -2147483648) #12
-  switch i16 %87, label %dissect_rdp_rdstls.argprom.exit.thread [
+  switch i16 %87, label %dissect_rdp_rdstls.exit.thread [
     i16 1, label %89
     i16 2, label %92
     i16 4, label %112
@@ -2491,7 +2491,7 @@ rdp_get_conversation_data.exit:                   ; preds = %22, %17
 
 89:                                               ; preds = %86
   %.not66.i = icmp eq i16 %88, 1
-  br i1 %.not66.i, label %90, label %dissect_rdp_rdstls.argprom.exit.thread
+  br i1 %.not66.i, label %90, label %dissect_rdp_rdstls.exit.thread
 
 90:                                               ; preds = %89
   %91 = load i32, ptr @hf_rdp_rdstls_dataTypeCapabilities, align 4
@@ -2499,7 +2499,7 @@ rdp_get_conversation_data.exit:                   ; preds = %22, %17
 
 92:                                               ; preds = %86
   %93 = load i32, ptr @hf_rdp_rdstls_dataTypeAuthReq, align 4
-  switch i16 %88, label %dissect_rdp_rdstls.argprom.exit.thread [
+  switch i16 %88, label %dissect_rdp_rdstls.exit.thread [
     i16 1, label %97
     i16 2, label %94
   ]
@@ -2507,7 +2507,7 @@ rdp_get_conversation_data.exit:                   ; preds = %22, %17
 94:                                               ; preds = %92
   %95 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 6) #12
   %96 = icmp slt i32 %95, 4
-  br i1 %96, label %dissect_rdp_rdstls.argprom.exit.thread, label %97
+  br i1 %96, label %dissect_rdp_rdstls.exit.thread, label %97
 
 97:                                               ; preds = %94, %92
   %.063.i = phi i32 [ 4, %92 ], [ 1, %94 ]
@@ -2521,7 +2521,7 @@ rdp_get_conversation_data.exit:                   ; preds = %22, %17
   %.1623.i = phi i32 [ %.061.i, %97 ], [ %110, %107 ]
   %99 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1623.i) #12
   %100 = icmp slt i32 %99, 2
-  br i1 %100, label %dissect_rdp_rdstls.argprom.exit.thread, label %101
+  br i1 %100, label %dissect_rdp_rdstls.exit.thread, label %101
 
 101:                                              ; preds = %98
   %102 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.1623.i, i32 noundef -2147483648) #12
@@ -2529,7 +2529,7 @@ rdp_get_conversation_data.exit:                   ; preds = %22, %17
   %104 = add i32 %.1623.i, 2
   %105 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %104) #12
   %106 = icmp slt i32 %105, %103
-  br i1 %106, label %dissect_rdp_rdstls.argprom.exit.thread, label %107
+  br i1 %106, label %dissect_rdp_rdstls.exit.thread, label %107
 
 107:                                              ; preds = %101
   %108 = add i32 %.15.i, 2
@@ -2541,7 +2541,7 @@ rdp_get_conversation_data.exit:                   ; preds = %22, %17
 
 112:                                              ; preds = %86
   %.not65.i = icmp eq i16 %88, 1
-  br i1 %.not65.i, label %113, label %dissect_rdp_rdstls.argprom.exit.thread
+  br i1 %.not65.i, label %113, label %dissect_rdp_rdstls.exit.thread
 
 113:                                              ; preds = %112
   %114 = load i32, ptr @hf_rdp_rdstls_dataTypeAuthResp, align 4
@@ -2560,7 +2560,7 @@ rdp_get_conversation_data.exit:                   ; preds = %22, %17
   %121 = load i32, ptr @hf_rdp_rdstls_pduType, align 4
   %122 = call ptr @proto_tree_add_item(ptr noundef %118, i32 noundef %121, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #12
   %123 = call ptr @proto_tree_add_item(ptr noundef %118, i32 noundef %.057.i, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648) #12
-  switch i16 %87, label %dissect_rdp_rdstls.argprom.exit [
+  switch i16 %87, label %dissect_rdp_rdstls.exit [
     i16 1, label %124
     i16 2, label %129
     i16 4, label %134
@@ -2572,7 +2572,7 @@ rdp_get_conversation_data.exit:                   ; preds = %22, %17
   call void @col_set_str(ptr noundef %126, i32 noundef 25, ptr noundef nonnull @.str.978) #12
   %127 = load i32, ptr @hf_rdp_rdstls_supportedVersions, align 4
   %128 = call ptr @proto_tree_add_item(ptr noundef %118, i32 noundef %127, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648) #12
-  br label %dissect_rdp_rdstls.argprom.exit
+  br label %dissect_rdp_rdstls.exit
 
 129:                                              ; preds = %.loopexit.i
   %130 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2580,7 +2580,7 @@ rdp_get_conversation_data.exit:                   ; preds = %22, %17
   call void @col_set_str(ptr noundef %131, i32 noundef 25, ptr noundef nonnull @.str.979) #12
   %132 = add i32 %.056.i, -6
   %133 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef 6, ptr noundef %1, ptr noundef %118, ptr noundef %.058.i, i32 noundef %132)
-  br label %dissect_rdp_rdstls.argprom.exit
+  br label %dissect_rdp_rdstls.exit
 
 134:                                              ; preds = %.loopexit.i
   %135 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2588,9 +2588,9 @@ rdp_get_conversation_data.exit:                   ; preds = %22, %17
   call void @col_set_str(ptr noundef %136, i32 noundef 25, ptr noundef nonnull @.str.980) #12
   %137 = load i32, ptr @hf_rdp_rdstls_resultCode, align 4
   %138 = call ptr @proto_tree_add_item(ptr noundef %118, i32 noundef %137, ptr noundef %0, i32 noundef 6, i32 noundef 4, i32 noundef -2147483648) #12
-  br label %dissect_rdp_rdstls.argprom.exit
+  br label %dissect_rdp_rdstls.exit
 
-dissect_rdp_rdstls.argprom.exit.thread:           ; preds = %98, %101, %34, %84, %89, %94, %92, %112, %86
+dissect_rdp_rdstls.exit.thread:                   ; preds = %98, %101, %34, %84, %89, %94, %92, %112, %86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
@@ -2600,7 +2600,7 @@ dissect_rdp_rdstls.argprom.exit.thread:           ; preds = %98, %101, %34, %84,
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %13)
   br label %139
 
-dissect_rdp_rdstls.argprom.exit:                  ; preds = %.loopexit.i, %124, %129, %134
+dissect_rdp_rdstls.exit:                          ; preds = %.loopexit.i, %124, %129, %134
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
@@ -2610,24 +2610,24 @@ dissect_rdp_rdstls.argprom.exit:                  ; preds = %.loopexit.i, %124, 
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %13)
   br label %297
 
-139:                                              ; preds = %dissect_rdp_rdstls.argprom.exit.thread, %rdp_get_conversation_data.exit
+139:                                              ; preds = %dissect_rdp_rdstls.exit.thread, %rdp_get_conversation_data.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %140 = call i32 @tvb_captured_length(ptr noundef %0) #12
   %141 = icmp ult i32 %140, 3
-  br i1 %141, label %dissect_rdp_fastpath.argprom.exit, label %142
+  br i1 %141, label %dissect_rdp_fastpath.exit, label %142
 
 142:                                              ; preds = %139
   %143 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #12
   %144 = zext i8 %143 to i32
   %145 = and i32 %144, 3
   %.not.i17 = icmp eq i32 %145, 0
-  br i1 %.not.i17, label %146, label %dissect_rdp_fastpath.argprom.exit
+  br i1 %.not.i17, label %146, label %dissect_rdp_fastpath.exit
 
 146:                                              ; preds = %142
   %147 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #12
   %148 = icmp eq i8 %147, 0
-  br i1 %148, label %dissect_rdp_fastpath.argprom.exit, label %149
+  br i1 %148, label %dissect_rdp_fastpath.exit, label %149
 
 149:                                              ; preds = %146
   %150 = zext nneg i8 %147 to i32
@@ -2648,7 +2648,7 @@ dissect_rdp_rdstls.argprom.exit:                  ; preds = %.loopexit.i, %124, 
   %.0145.i = phi i32 [ %157, %151 ], [ %150, %149 ]
   %159 = call i32 @tvb_captured_length(ptr noundef %0) #12
   %.not156.i = icmp eq i32 %.0145.i, %159
-  br i1 %.not156.i, label %160, label %dissect_rdp_fastpath.argprom.exit
+  br i1 %.not156.i, label %160, label %dissect_rdp_fastpath.exit
 
 160:                                              ; preds = %158
   %161 = call ptr @find_conversation_pinfo(ptr noundef %1, i32 noundef 0) #12
@@ -2728,7 +2728,7 @@ rdp_isServerAddressTarget.exit.i:                 ; preds = %186, %179, %171, %1
   %spec.select.i = add nuw nsw i32 %.0147.i, %spec.select.v.i
   %208 = add nsw i32 %.0145.i, -1
   %209 = icmp ult i32 %spec.select.i, %208
-  br i1 %209, label %.lr.ph19.i, label %dissect_rdp_fastpath.argprom.exit
+  br i1 %209, label %.lr.ph19.i, label %dissect_rdp_fastpath.exit
 
 210:                                              ; preds = %rdp_isServerAddressTarget.exit.i
   %211 = lshr exact i32 %144, 2
@@ -2746,7 +2746,7 @@ rdp_isServerAddressTarget.exit.i:                 ; preds = %186, %179, %171, %1
   %216 = add nuw nsw i32 %spec.select2.i, 1
   %.pre.i = load i32, ptr %5, align 4
   %217 = icmp eq i32 %.pre.i, 0
-  br i1 %217, label %dissect_rdp_fastpath.argprom.exit, label %.lr.ph.i.preheader
+  br i1 %217, label %dissect_rdp_fastpath.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %213, %210
   %.217.i.ph = phi i32 [ %spec.select2.i, %210 ], [ %216, %213 ]
@@ -2860,7 +2860,7 @@ default.unreachable:                              ; preds = %.lr.ph.i
   %264 = add nuw i32 %.014916.i, 1
   %265 = load i32, ptr %5, align 4
   %266 = icmp ult i32 %264, %265
-  br i1 %266, label %.lr.ph.i, label %dissect_rdp_fastpath.argprom.exit, !llvm.loop !7
+  br i1 %266, label %.lr.ph.i, label %dissect_rdp_fastpath.exit, !llvm.loop !7
 
 .lr.ph19.i:                                       ; preds = %207, %291
   %.318.i = phi i32 [ %295, %291 ], [ %spec.select.i, %207 ]
@@ -2911,16 +2911,16 @@ switch.lookup:                                    ; preds = %.lr.ph19.i
   %294 = add nuw nsw i32 %272, 2
   %295 = add i32 %294, %.4.i
   %296 = icmp ult i32 %295, %208
-  br i1 %296, label %.lr.ph19.i, label %dissect_rdp_fastpath.argprom.exit, !llvm.loop !8
+  br i1 %296, label %.lr.ph19.i, label %dissect_rdp_fastpath.exit, !llvm.loop !8
 
-dissect_rdp_fastpath.argprom.exit:                ; preds = %262, %291, %139, %142, %146, %158, %207, %213
+dissect_rdp_fastpath.exit:                        ; preds = %262, %291, %139, %142, %146, %158, %207, %213
   %.0143.i = phi i32 [ 0, %139 ], [ 0, %142 ], [ 0, %146 ], [ 0, %158 ], [ 1, %207 ], [ 1, %213 ], [ 1, %291 ], [ 1, %262 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %297
 
-297:                                              ; preds = %dissect_rdp_rdstls.argprom.exit, %4, %dissect_rdp_fastpath.argprom.exit
-  %.0 = phi i32 [ %.0143.i, %dissect_rdp_fastpath.argprom.exit ], [ 1, %4 ], [ 1, %dissect_rdp_rdstls.argprom.exit ]
+297:                                              ; preds = %dissect_rdp_rdstls.exit, %4, %dissect_rdp_fastpath.exit
+  %.0 = phi i32 [ %.0143.i, %dissect_rdp_fastpath.exit ], [ 1, %4 ], [ 1, %dissect_rdp_rdstls.exit ]
   ret i32 %.0
 }
 
@@ -4542,7 +4542,7 @@ define internal i32 @dissect_rdp_SendData(ptr noundef %0, ptr noundef %1, ptr no
   %343 = call ptr @proto_item_add_subtree(ptr noundef %341, i32 noundef %342) #12
   %344 = load ptr, ptr %307, align 8
   call void @col_append_sep_str(ptr noundef %344, i32 noundef 25, ptr noundef nonnull @.str.993, ptr noundef nonnull @.str.1001) #12
-  %345 = call fastcc i32 @dissect_rdp_securityHeader.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %343, ptr noundef nonnull %320, i32 noundef 1, ptr noundef null)
+  %345 = call fastcc i32 @dissect_rdp_securityHeader(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %343, ptr noundef nonnull %320, i32 noundef 1, ptr noundef null)
   %346 = load i32, ptr %10, align 4
   %347 = and i32 %346, 8
   %.not130 = icmp eq i32 %347, 0
@@ -4563,7 +4563,7 @@ define internal i32 @dissect_rdp_SendData(ptr noundef %0, ptr noundef %1, ptr no
   %355 = call ptr @proto_tree_add_item(ptr noundef %317, i32 noundef %354, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #12
   %356 = load i32, ptr @ett_rdp_validClientLicenseData, align 4
   %357 = call ptr @proto_item_add_subtree(ptr noundef %355, i32 noundef %356) #12
-  %358 = call fastcc i32 @dissect_rdp_securityHeader.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %357, ptr noundef nonnull %320, i32 noundef 1, ptr noundef null)
+  %358 = call fastcc i32 @dissect_rdp_securityHeader(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %357, ptr noundef nonnull %320, i32 noundef 1, ptr noundef null)
   %359 = load i32, ptr %10, align 4
   %360 = and i32 %359, 8
   %.not129 = icmp eq i32 %360, 0
@@ -4621,7 +4621,7 @@ define internal i32 @dissect_rdp_SendData(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %384, label %385, label %.critedge
 
 385:                                              ; preds = %381
-  %386 = call fastcc i32 @dissect_rdp_securityHeader.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %317, ptr noundef nonnull %320, i32 noundef 0, ptr noundef nonnull %10)
+  %386 = call fastcc i32 @dissect_rdp_securityHeader(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %317, ptr noundef nonnull %320, i32 noundef 0, ptr noundef nonnull %10)
   %387 = load i32, ptr %10, align 4
   %388 = and i32 %387, 8
   %.not127 = icmp eq i32 %388, 0
@@ -4651,15 +4651,15 @@ define internal i32 @dissect_rdp_SendData(ptr noundef %0, ptr noundef %1, ptr no
   ]
 
 400:                                              ; preds = %397
-  call fastcc void @dissect_rdp_demandActivePDU.argelim(ptr noundef %0, i32 noundef %394, ptr noundef nonnull %1, ptr noundef %393)
+  call fastcc void @dissect_rdp_demandActivePDU(ptr noundef %0, i32 noundef %394, ptr noundef nonnull %1, ptr noundef %393)
   br label %405
 
 401:                                              ; preds = %397
-  call fastcc void @dissect_rdp_confirmActivePDU.argelim(ptr noundef %0, i32 noundef %394, ptr noundef nonnull %1, ptr noundef %393)
+  call fastcc void @dissect_rdp_confirmActivePDU(ptr noundef %0, i32 noundef %394, ptr noundef nonnull %1, ptr noundef %393)
   br label %405
 
 .thread:                                          ; preds = %389, %397
-  call fastcc void @dissect_rdp_shareDataHeader.argelim(ptr noundef %0, i32 noundef %394, ptr noundef nonnull %1, ptr noundef %393)
+  call fastcc void @dissect_rdp_shareDataHeader(ptr noundef %0, i32 noundef %394, ptr noundef nonnull %1, ptr noundef %393)
   br label %405
 
 402:                                              ; preds = %385
@@ -4676,7 +4676,7 @@ define internal i32 @dissect_rdp_SendData(ptr noundef %0, ptr noundef %1, ptr no
 .critedge:                                        ; preds = %4, %381
   %407 = load ptr, ptr %307, align 8
   call void @col_append_sep_str(ptr noundef %407, i32 noundef 25, ptr noundef nonnull @.str.993, ptr noundef nonnull @.str.1003) #12
-  %408 = call fastcc i32 @dissect_rdp_securityHeader.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %317, ptr noundef %320, i32 noundef 0, ptr noundef nonnull %10)
+  %408 = call fastcc i32 @dissect_rdp_securityHeader(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %317, ptr noundef %320, i32 noundef 0, ptr noundef nonnull %10)
   %409 = load i32, ptr %10, align 4
   %410 = and i32 %409, 8
   %.not126 = icmp eq i32 %410, 0
@@ -5277,7 +5277,7 @@ rdp_isServerAddressTarget.exit85:                 ; preds = %127, %132, %135, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdp_securityHeader.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, i32 noundef range(i32 0, 2) %4, ptr noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_rdp_securityHeader(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, i32 noundef range(i32 0, 2) %4, ptr noundef writeonly %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca [8 x %struct.rdp_field_info_t], align 16
   %9 = alloca [3 x %struct.rdp_field_info_t], align 16
@@ -5443,7 +5443,7 @@ dissect_rdp_basicSecurityHeader.exit:             ; preds = %16, %68
 declare i32 @t124_get_last_channelId() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_rdp_demandActivePDU.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_rdp_demandActivePDU(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [7 x %struct.rdp_field_info_t], align 16
@@ -5501,7 +5501,7 @@ define internal fastcc void @dissect_rdp_demandActivePDU.argelim(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_rdp_confirmActivePDU.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_rdp_confirmActivePDU(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [8 x %struct.rdp_field_info_t], align 16
@@ -5560,7 +5560,7 @@ define internal fastcc void @dissect_rdp_confirmActivePDU.argelim(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_rdp_shareDataHeader.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_rdp_shareDataHeader(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4

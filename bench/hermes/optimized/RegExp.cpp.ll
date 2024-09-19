@@ -1044,16 +1044,16 @@ _ZN6hermes2vm5vmisaINS0_8JSObjectEEEbNS0_11HermesValueE.exit.i.i: ; preds = %_ZN
   %bf.load.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %8, align 4
   %9 = add i32 %bf.load.i.i.i.i.i.i.i.i.i.i.i, -436207616
   %10 = icmp ult i32 %9, 855638016
-  br i1 %10, label %_ZN6hermes2vmL17thisIsRegExpProtoERNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %cond.false.i.i
+  br i1 %10, label %_ZN6hermes2vmL17thisIsRegExpProtoERNS0_7RuntimeENS0_10NativeArgsE.exit, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %if.then.thread49, %_ZN6hermes2vm5vmisaINS0_8JSObjectEEEbNS0_11HermesValueE.exit.i.i
   %runtime.val43 = phi i64 [ %runtime.val, %_ZN6hermes2vm5vmisaINS0_8JSObjectEEEbNS0_11HermesValueE.exit.i.i ], [ %runtime.val50, %if.then.thread49 ]
   %retval.sroa.0.0.copyload.i.i.pre.i = load i64, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, align 8
   %.pre.i = and i64 %retval.sroa.0.0.copyload.i.i.pre.i, 281474976710655
   %.pre2.i = inttoptr i64 %.pre.i to ptr
-  br label %_ZN6hermes2vmL17thisIsRegExpProtoERNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
+  br label %_ZN6hermes2vmL17thisIsRegExpProtoERNS0_7RuntimeENS0_10NativeArgsE.exit
 
-_ZN6hermes2vmL17thisIsRegExpProtoERNS0_7RuntimeENS0_10NativeArgsE.argprom.exit: ; preds = %_ZN6hermes2vm5vmisaINS0_8JSObjectEEEbNS0_11HermesValueE.exit.i.i, %cond.false.i.i
+_ZN6hermes2vmL17thisIsRegExpProtoERNS0_7RuntimeENS0_10NativeArgsE.exit: ; preds = %_ZN6hermes2vm5vmisaINS0_8JSObjectEEEbNS0_11HermesValueE.exit.i.i, %cond.false.i.i
   %runtime.val42 = phi i64 [ %runtime.val, %_ZN6hermes2vm5vmisaINS0_8JSObjectEEEbNS0_11HermesValueE.exit.i.i ], [ %runtime.val43, %cond.false.i.i ]
   %.pre-phi.i = phi ptr [ %8, %_ZN6hermes2vm5vmisaINS0_8JSObjectEEEbNS0_11HermesValueE.exit.i.i ], [ %.pre2.i, %cond.false.i.i ]
   %and.i.i.i8 = and i64 %runtime.val42, 281474976710655
@@ -1061,7 +1061,7 @@ _ZN6hermes2vmL17thisIsRegExpProtoERNS0_7RuntimeENS0_10NativeArgsE.argprom.exit: 
   %cmp.i = icmp eq ptr %.pre-phi.i, %11
   br i1 %cmp.i, label %return, label %if.end
 
-if.end:                                           ; preds = %_ZN6hermes2vmL17thisIsRegExpProtoERNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
+if.end:                                           ; preds = %_ZN6hermes2vmL17thisIsRegExpProtoERNS0_7RuntimeENS0_10NativeArgsE.exit
   %rightKind_.i3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store i32 1, ptr %rightKind_.i3.i, align 8
   %leftSize_.i4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
@@ -1141,9 +1141,9 @@ sw.bb62:                                          ; preds = %if.end10
 sw.default:                                       ; preds = %if.end10
   unreachable
 
-return:                                           ; preds = %_ZN6hermes2vmL17thisIsRegExpProtoERNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, %sw.bb62, %sw.bb53, %sw.bb44, %sw.bb35, %sw.bb26, %sw.bb18, %sw.bb, %if.end
-  %retval.sroa.0.0 = phi i32 [ 1, %sw.bb62 ], [ 1, %sw.bb53 ], [ 1, %sw.bb44 ], [ 1, %sw.bb35 ], [ 1, %sw.bb26 ], [ 1, %sw.bb18 ], [ 1, %sw.bb ], [ %call9, %if.end ], [ 1, %_ZN6hermes2vmL17thisIsRegExpProtoERNS0_7RuntimeENS0_10NativeArgsE.argprom.exit ]
-  %retval.sroa.10.0 = phi i64 [ %or.i.i28, %sw.bb62 ], [ %or.i.i25, %sw.bb53 ], [ %or.i.i22, %sw.bb44 ], [ %or.i.i19, %sw.bb35 ], [ %or.i.i16, %sw.bb26 ], [ %or.i.i13, %sw.bb18 ], [ %or.i.i, %sw.bb ], [ undef, %if.end ], [ -1688849860263936, %_ZN6hermes2vmL17thisIsRegExpProtoERNS0_7RuntimeENS0_10NativeArgsE.argprom.exit ]
+return:                                           ; preds = %_ZN6hermes2vmL17thisIsRegExpProtoERNS0_7RuntimeENS0_10NativeArgsE.exit, %sw.bb62, %sw.bb53, %sw.bb44, %sw.bb35, %sw.bb26, %sw.bb18, %sw.bb, %if.end
+  %retval.sroa.0.0 = phi i32 [ 1, %sw.bb62 ], [ 1, %sw.bb53 ], [ 1, %sw.bb44 ], [ 1, %sw.bb35 ], [ 1, %sw.bb26 ], [ 1, %sw.bb18 ], [ 1, %sw.bb ], [ %call9, %if.end ], [ 1, %_ZN6hermes2vmL17thisIsRegExpProtoERNS0_7RuntimeENS0_10NativeArgsE.exit ]
+  %retval.sroa.10.0 = phi i64 [ %or.i.i28, %sw.bb62 ], [ %or.i.i25, %sw.bb53 ], [ %or.i.i22, %sw.bb44 ], [ %or.i.i19, %sw.bb35 ], [ %or.i.i16, %sw.bb26 ], [ %or.i.i13, %sw.bb18 ], [ %or.i.i, %sw.bb ], [ undef, %if.end ], [ -1688849860263936, %_ZN6hermes2vmL17thisIsRegExpProtoERNS0_7RuntimeENS0_10NativeArgsE.exit ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.10.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -5612,7 +5612,7 @@ for.end247:                                       ; preds = %if.end244, %_ZN6her
 
 if.then249:                                       ; preds = %for.end247
   call void @_ZN4llvh11SmallVectorIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELj4EEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp251, ptr noundef nonnull align 8 dereferenceable(64) %matchResult)
-  %call258 = call fastcc ptr @_ZN6hermes2vmL30makeMatchIndicesIndexPairArrayERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEEN4llvh11SmallVectorINS_8OptValueINS0_16RegExpMatchRangeEEELj4EEENS3_INS0_8JSObjectEEEb.argprom(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %agg.tmp251, ptr nonnull %call191, i1 noundef zeroext %83)
+  %call258 = call fastcc ptr @_ZN6hermes2vmL30makeMatchIndicesIndexPairArrayERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEEN4llvh11SmallVectorINS_8OptValueINS0_16RegExpMatchRangeEEELj4EEENS3_INS0_8JSObjectEEEb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %agg.tmp251, ptr nonnull %call191, i1 noundef zeroext %83)
   %98 = load ptr, ptr %agg.tmp251, align 8
   %add.ptr.i.i.i.i181 = getelementptr inbounds i8, ptr %agg.tmp251, i64 16
   %cmp.i.i.i182 = icmp eq ptr %98, %add.ptr.i.i.i.i181
@@ -5965,7 +5965,7 @@ _ZN6hermes2vm6HandleINS0_15StringPrimitiveEEC2ERNS0_15HandleRootOwnerEPS2_.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @_ZN6hermes2vmL30makeMatchIndicesIndexPairArrayERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEEN4llvh11SmallVectorINS_8OptValueINS0_16RegExpMatchRangeEEELj4EEENS3_INS0_8JSObjectEEEb.argprom(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef nonnull readonly %indices, ptr nocapture readonly %mappingObj.coerce, i1 noundef zeroext %hasGroups) unnamed_addr #0 {
+define internal fastcc ptr @_ZN6hermes2vmL30makeMatchIndicesIndexPairArrayERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEEN4llvh11SmallVectorINS_8OptValueINS0_16RegExpMatchRangeEEELj4EEENS3_INS0_8JSObjectEEEb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef nonnull readonly %indices, ptr nocapture readonly %mappingObj.coerce, i1 noundef zeroext %hasGroups) unnamed_addr #0 {
 entry:
   %Size.i = getelementptr inbounds i8, ptr %indices, i64 8
   %0 = load i32, ptr %Size.i, align 8

@@ -1110,7 +1110,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7memprof13CallStackTrie13buildMIBNo
   %.val = load ptr, ptr %3, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 8
   %.val28 = load ptr, ptr %13, align 8
-  %14 = tail call fastcc noundef ptr @_ZL13createMIBNodeRN4llvm11LLVMContextERSt6vectorImSaImEENS_14AllocationTypeEm.argprom(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.val, ptr %.val28, i8 noundef zeroext %7, i64 noundef %12)
+  %14 = tail call fastcc noundef ptr @_ZL13createMIBNodeRN4llvm11LLVMContextERSt6vectorImSaImEENS_14AllocationTypeEm(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.val, ptr %.val28, i8 noundef zeroext %7, i64 noundef %12)
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1299,7 +1299,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %60, %_ZNSt6vectorIm
   %.val29 = load ptr, ptr %3, align 8
   %99 = getelementptr inbounds i8, ptr %3, i64 8
   %.val30 = load ptr, ptr %99, align 8
-  %100 = tail call fastcc noundef ptr @_ZL13createMIBNodeRN4llvm11LLVMContextERSt6vectorImSaImEENS_14AllocationTypeEm.argprom(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.val29, ptr %.val30, i8 noundef zeroext 1, i64 noundef %98)
+  %100 = tail call fastcc noundef ptr @_ZL13createMIBNodeRN4llvm11LLVMContextERSt6vectorImSaImEENS_14AllocationTypeEm(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.val29, ptr %.val30, i8 noundef zeroext 1, i64 noundef %98)
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1375,7 +1375,7 @@ _ZNSt6vectorIPN4llvm8MetadataESaIS2_EE9push_backEOS2_.exit: ; preds = %49, %_ZNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL13createMIBNodeRN4llvm11LLVMContextERSt6vectorImSaImEENS_14AllocationTypeEm.argprom(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %.0.val, ptr %.8.val, i8 noundef zeroext %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL13createMIBNodeRN4llvm11LLVMContextERSt6vectorImSaImEENS_14AllocationTypeEm(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %.0.val, ptr %.8.val, i8 noundef zeroext %1, i64 noundef %2) unnamed_addr #0 {
 _ZNSt6vectorIPN4llvm8MetadataESaIS2_EE9push_backEOS2_.exit:
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = ptrtoint ptr %.8.val to i64

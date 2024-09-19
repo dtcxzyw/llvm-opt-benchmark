@@ -3122,7 +3122,7 @@ if.end152:                                        ; preds = %lor.lhs.false135
   %call155 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %code) #23
   %call158 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %code) #23
   %call161 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %code) #23
-  call fastcc void @"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZN4node6crypto7TLSWrap8ClearOutEvE3$_0ET0_T_SF_SE_T1_.argelim"(ptr %call155, ptr %call158, ptr %call161)
+  call fastcc void @"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZN4node6crypto7TLSWrap8ClearOutEvE3$_0ET0_T_SF_SE_T1_"(ptr %call155, ptr %call158, ptr %call161)
   %69 = load ptr, ptr %realm_.i, align 8
   %env_.i.i83 = getelementptr inbounds i8, ptr %69, i64 176
   %70 = load ptr, ptr %env_.i.i83, align 8
@@ -3441,21 +3441,21 @@ _ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit81: ; preds = %if.else, %if.end.
   store ptr %this, ptr %ref.tmp, align 8
   %49 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   call void @_ZN4node17BaseObjectPtrImplINS_6crypto7TLSWrapELb0EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(8) %strong_ref)
-  call fastcc void @"_ZN4node11Environment12SetImmediateIZNS_6crypto7TLSWrap6EncOutEvE3$_0EEvOT_NS_13CallbackFlags5FlagsE.argelim"(ptr noundef nonnull align 8 dereferenceable(2872) %48, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  call fastcc void @"_ZN4node11Environment12SetImmediateIZNS_6crypto7TLSWrap6EncOutEvE3$_0EEvOT_NS_13CallbackFlags5FlagsE"(ptr noundef nonnull align 8 dereferenceable(2872) %48, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
   %ref.tmp.val = load ptr, ptr %49, align 8
   %cmp.not.i.i = icmp eq ptr %ref.tmp.val, null
-  br i1 %cmp.not.i.i, label %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.argprom.exit", label %if.then.i.i
+  br i1 %cmp.not.i.i, label %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit81
   call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.val) #23
-  br label %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.argprom.exit"
+  br label %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.exit"
 
-"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.argprom.exit": ; preds = %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit81, %if.then.i.i
+"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.exit": ; preds = %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit81, %if.then.i.i
   %50 = load ptr, ptr %strong_ref, align 8
   %cmp.not.i = icmp eq ptr %50, null
   br i1 %cmp.not.i, label %cleanup.cont, label %if.then.i
 
-if.then.i:                                        ; preds = %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.argprom.exit"
+if.then.i:                                        ; preds = %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.exit"
   call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %50) #23
   br label %cleanup.cont
 
@@ -3562,25 +3562,25 @@ _ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit: ; preds = %if.then64, %if.end.
   store ptr %this, ptr %ref.tmp69, align 8
   %74 = getelementptr inbounds i8, ptr %ref.tmp69, i64 8
   call void @_ZN4node17BaseObjectPtrImplINS_6crypto7TLSWrapELb0EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %74, ptr noundef nonnull align 8 dereferenceable(8) %strong_ref67)
-  call fastcc void @"_ZN4node11Environment12SetImmediateIZNS_6crypto7TLSWrap6EncOutEvE3$_1EEvOT_NS_13CallbackFlags5FlagsE.argelim"(ptr noundef nonnull align 8 dereferenceable(2872) %73, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp69)
+  call fastcc void @"_ZN4node11Environment12SetImmediateIZNS_6crypto7TLSWrap6EncOutEvE3$_1EEvOT_NS_13CallbackFlags5FlagsE"(ptr noundef nonnull align 8 dereferenceable(2872) %73, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp69)
   %ref.tmp69.val = load ptr, ptr %74, align 8
   %cmp.not.i.i83 = icmp eq ptr %ref.tmp69.val, null
-  br i1 %cmp.not.i.i83, label %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.argprom.exit", label %if.then.i.i84
+  br i1 %cmp.not.i.i83, label %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.exit", label %if.then.i.i84
 
 if.then.i.i84:                                    ; preds = %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit
   call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69.val) #23
-  br label %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.argprom.exit"
+  br label %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.exit"
 
-"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.argprom.exit": ; preds = %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit, %if.then.i.i84
+"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.exit": ; preds = %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit, %if.then.i.i84
   %75 = load ptr, ptr %strong_ref67, align 8
   %cmp.not.i85 = icmp eq ptr %75, null
   br i1 %cmp.not.i85, label %_ZN4node17BaseObjectPtrImplINS_6crypto7TLSWrapELb0EED2Ev.exit88, label %if.then.i86
 
-if.then.i86:                                      ; preds = %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.argprom.exit"
+if.then.i86:                                      ; preds = %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.exit"
   call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %75) #23
   br label %_ZN4node17BaseObjectPtrImplINS_6crypto7TLSWrapELb0EED2Ev.exit88
 
-_ZN4node17BaseObjectPtrImplINS_6crypto7TLSWrapELb0EED2Ev.exit88: ; preds = %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.argprom.exit", %if.then.i86
+_ZN4node17BaseObjectPtrImplINS_6crypto7TLSWrapELb0EED2Ev.exit88: ; preds = %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.exit", %if.then.i86
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #23
   br label %cleanup
 
@@ -3594,7 +3594,7 @@ if.then.i.i90:                                    ; preds = %cleanup
   call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %76) #23
   br label %cleanup.cont
 
-cleanup.cont:                                     ; preds = %if.then.i.i90, %cleanup, %if.then.i, %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.argprom.exit", %lor.lhs.false, %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit92, %if.end.i113, %if.then15, %if.end.i135, %if.then8, %if.end.i146, %if.then5, %if.end.i157, %if.then2, %if.end.i168, %if.then
+cleanup.cont:                                     ; preds = %if.then.i.i90, %cleanup, %if.then.i, %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.exit", %lor.lhs.false, %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit92, %if.end.i113, %if.then15, %if.end.i135, %if.then8, %if.end.i146, %if.then5, %if.end.i157, %if.then2, %if.end.i168, %if.then
   ret void
 }
 
@@ -3647,7 +3647,7 @@ return:                                           ; preds = %entry, %do.end8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4node11Environment12SetImmediateIZNS_6crypto7TLSWrap6EncOutEvE3$_0EEvOT_NS_13CallbackFlags5FlagsE.argelim"(ptr noundef nonnull align 8 dereferenceable(2872) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %cb) unnamed_addr #3 align 2 {
+define internal fastcc void @"_ZN4node11Environment12SetImmediateIZNS_6crypto7TLSWrap6EncOutEvE3$_0EEvOT_NS_13CallbackFlags5FlagsE"(ptr noundef nonnull align 8 dereferenceable(2872) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %cb) unnamed_addr #3 align 2 {
 entry:
   %native_immediates_ = getelementptr inbounds i8, ptr %this, i64 2432
   %call.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28, !noalias !10
@@ -3755,7 +3755,7 @@ declare void @_ZN4node10StreamBase5WriteEP8uv_buf_tmP11uv_stream_sN2v85LocalINS5
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4node11Environment12SetImmediateIZNS_6crypto7TLSWrap6EncOutEvE3$_1EEvOT_NS_13CallbackFlags5FlagsE.argelim"(ptr noundef nonnull align 8 dereferenceable(2872) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %cb) unnamed_addr #3 align 2 {
+define internal fastcc void @"_ZN4node11Environment12SetImmediateIZNS_6crypto7TLSWrap6EncOutEvE3$_1EEvOT_NS_13CallbackFlags5FlagsE"(ptr noundef nonnull align 8 dereferenceable(2872) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %cb) unnamed_addr #3 align 2 {
 entry:
   %native_immediates_ = getelementptr inbounds i8, ptr %this, i64 2432
   %call.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28, !noalias !15
@@ -4405,17 +4405,17 @@ if.end:                                           ; preds = %entry
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZN4node6crypto7TLSWrap8ClearOutEvE3$_0ET0_T_SF_SE_T1_.argelim"(ptr readonly %__first.coerce, ptr readnone %__last.coerce, ptr writeonly %__result.coerce) unnamed_addr #3 {
+define internal fastcc void @"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZN4node6crypto7TLSWrap8ClearOutEvE3$_0ET0_T_SF_SE_T1_"(ptr readonly %__first.coerce, ptr readnone %__last.coerce, ptr writeonly %__result.coerce) unnamed_addr #3 {
 entry:
   %cmp.i.not6 = icmp eq ptr %__first.coerce, %__last.coerce
   br i1 %cmp.i.not6, label %for.end, label %for.body
 
-for.body:                                         ; preds = %entry, %"_ZZN4node6crypto7TLSWrap8ClearOutEvENK3$_0clEc.argprom.exit"
-  %__result.sroa.0.08 = phi ptr [ %incdec.ptr.i2, %"_ZZN4node6crypto7TLSWrap8ClearOutEvENK3$_0clEc.argprom.exit" ], [ %__result.coerce, %entry ]
-  %__first.sroa.0.07 = phi ptr [ %incdec.ptr.i, %"_ZZN4node6crypto7TLSWrap8ClearOutEvENK3$_0clEc.argprom.exit" ], [ %__first.coerce, %entry ]
+for.body:                                         ; preds = %entry, %"_ZZN4node6crypto7TLSWrap8ClearOutEvENK3$_0clEc.exit"
+  %__result.sroa.0.08 = phi ptr [ %incdec.ptr.i2, %"_ZZN4node6crypto7TLSWrap8ClearOutEvENK3$_0clEc.exit" ], [ %__result.coerce, %entry ]
+  %__first.sroa.0.07 = phi ptr [ %incdec.ptr.i, %"_ZZN4node6crypto7TLSWrap8ClearOutEvENK3$_0clEc.exit" ], [ %__first.coerce, %entry ]
   %0 = load i8, ptr %__first.sroa.0.07, align 1
   %cmp.i1 = icmp eq i8 %0, 32
-  br i1 %cmp.i1, label %"_ZZN4node6crypto7TLSWrap8ClearOutEvENK3$_0clEc.argprom.exit", label %cond.false.i
+  br i1 %cmp.i1, label %"_ZZN4node6crypto7TLSWrap8ClearOutEvENK3$_0clEc.exit", label %cond.false.i
 
 cond.false.i:                                     ; preds = %for.body
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #23
@@ -4424,9 +4424,9 @@ cond.false.i:                                     ; preds = %for.body
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %1 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i.i.i.i = tail call noundef signext i8 %1(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i.i, i8 noundef signext %0) #23
-  br label %"_ZZN4node6crypto7TLSWrap8ClearOutEvENK3$_0clEc.argprom.exit"
+  br label %"_ZZN4node6crypto7TLSWrap8ClearOutEvENK3$_0clEc.exit"
 
-"_ZZN4node6crypto7TLSWrap8ClearOutEvENK3$_0clEc.argprom.exit": ; preds = %for.body, %cond.false.i
+"_ZZN4node6crypto7TLSWrap8ClearOutEvENK3$_0clEc.exit": ; preds = %for.body, %cond.false.i
   %cond.i = phi i8 [ %call.i.i.i.i, %cond.false.i ], [ 95, %for.body ]
   store i8 %cond.i, ptr %__result.sroa.0.08, align 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.sroa.0.07, i64 1
@@ -4434,7 +4434,7 @@ cond.false.i:                                     ; preds = %for.body
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %__last.coerce
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !20
 
-for.end:                                          ; preds = %"_ZZN4node6crypto7TLSWrap8ClearOutEvENK3$_0clEc.argprom.exit", %entry
+for.end:                                          ; preds = %"_ZZN4node6crypto7TLSWrap8ClearOutEvENK3$_0clEc.exit", %entry
   ret void
 }
 
@@ -18152,27 +18152,27 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %callback_.val = load ptr, ptr %0, align 8
   %cmp.not.i.i = icmp eq ptr %callback_.val, null
-  br i1 %cmp.not.i.i, label %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.argprom.exit", label %if.then.i.i
+  br i1 %cmp.not.i.i, label %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %callback_.val) #23
-  br label %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.argprom.exit"
+  br label %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.exit"
 
-"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.argprom.exit": ; preds = %entry, %if.then.i.i
+"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.exit": ; preds = %entry, %if.then.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %next_.i, align 8
   %cmp.not.i.i1 = icmp eq ptr %1, null
   br i1 %cmp.not.i.i1, label %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit, label %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
 
-_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i: ; preds = %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.argprom.exit"
+_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i: ; preds = %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.exit"
   %vtable.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(24) %1) #23
   br label %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit
 
-_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.argprom.exit", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
+_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.exit", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
   store ptr null, ptr %next_.i, align 8
   ret void
 }
@@ -18183,27 +18183,27 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %callback_.val.i = load ptr, ptr %0, align 8
   %cmp.not.i.i.i = icmp eq ptr %callback_.val.i, null
-  br i1 %cmp.not.i.i.i, label %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.argprom.exit.i", label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.exit.i", label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %callback_.val.i) #23
-  br label %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.argprom.exit.i"
+  br label %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.exit.i"
 
-"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.argprom.exit.i": ; preds = %if.then.i.i.i, %entry
+"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.exit.i": ; preds = %if.then.i.i.i, %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %next_.i.i, align 8
   %cmp.not.i.i1.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i1.i, label %"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6crypto7TLSWrap6EncOutEvE3$_0ED2Ev.exit", label %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
 
-_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i: ; preds = %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.argprom.exit.i"
+_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i: ; preds = %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.exit.i"
   %vtable.i.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(24) %1) #23
   br label %"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6crypto7TLSWrap6EncOutEvE3$_0ED2Ev.exit"
 
-"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6crypto7TLSWrap6EncOutEvE3$_0ED2Ev.exit": ; preds = %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.argprom.exit.i", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
+"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6crypto7TLSWrap6EncOutEvE3$_0ED2Ev.exit": ; preds = %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_0D2Ev.exit.i", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
@@ -18251,27 +18251,27 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %callback_.val = load ptr, ptr %0, align 8
   %cmp.not.i.i = icmp eq ptr %callback_.val, null
-  br i1 %cmp.not.i.i, label %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.argprom.exit", label %if.then.i.i
+  br i1 %cmp.not.i.i, label %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %callback_.val) #23
-  br label %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.argprom.exit"
+  br label %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.exit"
 
-"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.argprom.exit": ; preds = %entry, %if.then.i.i
+"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.exit": ; preds = %entry, %if.then.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %next_.i, align 8
   %cmp.not.i.i1 = icmp eq ptr %1, null
   br i1 %cmp.not.i.i1, label %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit, label %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
 
-_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i: ; preds = %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.argprom.exit"
+_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i: ; preds = %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.exit"
   %vtable.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(24) %1) #23
   br label %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit
 
-_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.argprom.exit", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
+_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.exit", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
   store ptr null, ptr %next_.i, align 8
   ret void
 }
@@ -18282,27 +18282,27 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %callback_.val.i = load ptr, ptr %0, align 8
   %cmp.not.i.i.i = icmp eq ptr %callback_.val.i, null
-  br i1 %cmp.not.i.i.i, label %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.argprom.exit.i", label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.exit.i", label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %callback_.val.i) #23
-  br label %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.argprom.exit.i"
+  br label %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.exit.i"
 
-"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.argprom.exit.i": ; preds = %if.then.i.i.i, %entry
+"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.exit.i": ; preds = %if.then.i.i.i, %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %next_.i.i, align 8
   %cmp.not.i.i1.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i1.i, label %"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6crypto7TLSWrap6EncOutEvE3$_1ED2Ev.exit", label %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
 
-_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i: ; preds = %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.argprom.exit.i"
+_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i: ; preds = %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.exit.i"
   %vtable.i.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(24) %1) #23
   br label %"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6crypto7TLSWrap6EncOutEvE3$_1ED2Ev.exit"
 
-"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6crypto7TLSWrap6EncOutEvE3$_1ED2Ev.exit": ; preds = %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.argprom.exit.i", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
+"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6crypto7TLSWrap6EncOutEvE3$_1ED2Ev.exit": ; preds = %"_ZZN4node6crypto7TLSWrap6EncOutEvEN3$_1D2Ev.exit.i", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
@@ -18909,27 +18909,27 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %callback_.val = load ptr, ptr %0, align 8
   %cmp.not.i.i = icmp eq ptr %callback_.val, null
-  br i1 %cmp.not.i.i, label %"_ZZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sEN3$_0D2Ev.argprom.exit", label %if.then.i.i
+  br i1 %cmp.not.i.i, label %"_ZZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sEN3$_0D2Ev.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %callback_.val) #23
-  br label %"_ZZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sEN3$_0D2Ev.argprom.exit"
+  br label %"_ZZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sEN3$_0D2Ev.exit"
 
-"_ZZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sEN3$_0D2Ev.argprom.exit": ; preds = %entry, %if.then.i.i
+"_ZZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sEN3$_0D2Ev.exit": ; preds = %entry, %if.then.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %next_.i, align 8
   %cmp.not.i.i1 = icmp eq ptr %1, null
   br i1 %cmp.not.i.i1, label %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit, label %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
 
-_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i: ; preds = %"_ZZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sEN3$_0D2Ev.argprom.exit"
+_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i: ; preds = %"_ZZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sEN3$_0D2Ev.exit"
   %vtable.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(24) %1) #23
   br label %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit
 
-_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_ZZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sEN3$_0D2Ev.argprom.exit", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
+_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_ZZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sEN3$_0D2Ev.exit", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
   store ptr null, ptr %next_.i, align 8
   ret void
 }
@@ -18940,27 +18940,27 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %callback_.val.i = load ptr, ptr %0, align 8
   %cmp.not.i.i.i = icmp eq ptr %callback_.val.i, null
-  br i1 %cmp.not.i.i.i, label %"_ZZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sEN3$_0D2Ev.argprom.exit.i", label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %"_ZZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sEN3$_0D2Ev.exit.i", label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %callback_.val.i) #23
-  br label %"_ZZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sEN3$_0D2Ev.argprom.exit.i"
+  br label %"_ZZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sEN3$_0D2Ev.exit.i"
 
-"_ZZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sEN3$_0D2Ev.argprom.exit.i": ; preds = %if.then.i.i.i, %entry
+"_ZZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sEN3$_0D2Ev.exit.i": ; preds = %if.then.i.i.i, %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %next_.i.i, align 8
   %cmp.not.i.i1.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i1.i, label %"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sE3$_0ED2Ev.exit", label %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
 
-_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i: ; preds = %"_ZZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sEN3$_0D2Ev.argprom.exit.i"
+_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i: ; preds = %"_ZZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sEN3$_0D2Ev.exit.i"
   %vtable.i.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(24) %1) #23
   br label %"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sE3$_0ED2Ev.exit"
 
-"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sE3$_0ED2Ev.exit": ; preds = %"_ZZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sEN3$_0D2Ev.argprom.exit.i", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
+"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sE3$_0ED2Ev.exit": ; preds = %"_ZZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sEN3$_0D2Ev.exit.i", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
@@ -18973,7 +18973,7 @@ entry:
   %current_empty_write_.i = getelementptr inbounds i8, ptr %callback_.val, i64 344
   %0 = load ptr, ptr %current_empty_write_.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %0, null
-  br i1 %cmp.i.not.i.i, label %"_ZZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sENK3$_0clEPNS_11EnvironmentE.argprom.exit", label %if.end.i.i
+  br i1 %cmp.i.not.i.i, label %"_ZZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sENK3$_0clEPNS_11EnvironmentE.exit", label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
   %realm_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -19020,13 +19020,13 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNK4node10BaseObje
   %14 = inttoptr i64 %sub.i29.i.i.i.i to ptr
   %15 = load i64, ptr %14, align 8
   %16 = inttoptr i64 %15 to ptr
-  br label %"_ZZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sENK3$_0clEPNS_11EnvironmentE.argprom.exit"
+  br label %"_ZZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sENK3$_0clEPNS_11EnvironmentE.exit"
 
 if.end.i.i.i3.i.i:                                ; preds = %_ZNK4node10BaseObject6objectEv.exit.i.i
   %call7.i.i.i.i.i = tail call noundef ptr @_ZN2v86Object38SlowGetAlignedPointerFromInternalFieldEi(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i.i.i, i32 noundef 2) #23
-  br label %"_ZZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sENK3$_0clEPNS_11EnvironmentE.argprom.exit"
+  br label %"_ZZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sENK3$_0clEPNS_11EnvironmentE.exit"
 
-"_ZZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sENK3$_0clEPNS_11EnvironmentE.argprom.exit": ; preds = %entry, %if.then.i.i.i.i.i, %if.end.i.i.i3.i.i
+"_ZZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sENK3$_0clEPNS_11EnvironmentE.exit": ; preds = %entry, %if.then.i.i.i.i.i, %if.end.i.i.i3.i.i
   %retval.0.i.i = phi ptr [ null, %entry ], [ %16, %if.then.i.i.i.i.i ], [ %call7.i.i.i.i.i, %if.end.i.i.i3.i.i ]
   %vtable.i = load ptr, ptr %callback_.val, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 256
@@ -20237,15 +20237,15 @@ attributes #29 = { nounwind allocsize(1) }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = !{!11, !13}
-!11 = distinct !{!11, !12, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_6crypto7TLSWrap6EncOutEvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
-!12 = distinct !{!12, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_6crypto7TLSWrap6EncOutEvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
-!13 = distinct !{!13, !14, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_6crypto7TLSWrap6EncOutEvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE.argprom: %agg.result"}
-!14 = distinct !{!14, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_6crypto7TLSWrap6EncOutEvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE.argprom"}
+!11 = distinct !{!11, !12, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_6crypto7TLSWrap6EncOutEvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!12 = distinct !{!12, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_6crypto7TLSWrap6EncOutEvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!13 = distinct !{!13, !14, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_6crypto7TLSWrap6EncOutEvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE: %agg.result"}
+!14 = distinct !{!14, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_6crypto7TLSWrap6EncOutEvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE"}
 !15 = !{!16, !18}
-!16 = distinct !{!16, !17, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_6crypto7TLSWrap6EncOutEvE3$_1EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
-!17 = distinct !{!17, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_6crypto7TLSWrap6EncOutEvE3$_1EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
-!18 = distinct !{!18, !19, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_6crypto7TLSWrap6EncOutEvE3$_1EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE.argprom: %agg.result"}
-!19 = distinct !{!19, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_6crypto7TLSWrap6EncOutEvE3$_1EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE.argprom"}
+!16 = distinct !{!16, !17, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_6crypto7TLSWrap6EncOutEvE3$_1EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!17 = distinct !{!17, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_6crypto7TLSWrap6EncOutEvE3$_1EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!18 = distinct !{!18, !19, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_6crypto7TLSWrap6EncOutEvE3$_1EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE: %agg.result"}
+!19 = distinct !{!19, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_6crypto7TLSWrap6EncOutEvE3$_1EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE"}
 !20 = distinct !{!20, !6}
 !21 = !{!22}
 !22 = distinct !{!22, !23, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: %agg.result"}
@@ -20254,10 +20254,10 @@ attributes #29 = { nounwind allocsize(1) }
 !25 = distinct !{!25, !6}
 !26 = distinct !{!26, !6}
 !27 = !{!28, !30}
-!28 = distinct !{!28, !29, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_6crypto7TLSWrap7DoWriteEPNS0_9WriteWrapEP8uv_buf_tmP11uv_stream_sE3$_0EEJSE_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
-!29 = distinct !{!29, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_6crypto7TLSWrap7DoWriteEPNS0_9WriteWrapEP8uv_buf_tmP11uv_stream_sE3$_0EEJSE_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
-!30 = distinct !{!30, !31, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISF_EEOT_NS_13CallbackFlags5FlagsE.argprom: %agg.result"}
-!31 = distinct !{!31, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISF_EEOT_NS_13CallbackFlags5FlagsE.argprom"}
+!28 = distinct !{!28, !29, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_6crypto7TLSWrap7DoWriteEPNS0_9WriteWrapEP8uv_buf_tmP11uv_stream_sE3$_0EEJSE_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!29 = distinct !{!29, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_6crypto7TLSWrap7DoWriteEPNS0_9WriteWrapEP8uv_buf_tmP11uv_stream_sE3$_0EEJSE_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!30 = distinct !{!30, !31, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISF_EEOT_NS_13CallbackFlags5FlagsE: %agg.result"}
+!31 = distinct !{!31, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISF_EEOT_NS_13CallbackFlags5FlagsE"}
 !32 = distinct !{!32, !6}
 !33 = !{!34}
 !34 = distinct !{!34, !35, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}

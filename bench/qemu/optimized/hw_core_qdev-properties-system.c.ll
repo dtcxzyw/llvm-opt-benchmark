@@ -916,32 +916,32 @@ entry:
   %add.i.i.i = add i64 %call.val3, 1
   %cmp3.i.i.i = icmp eq i64 %call.val, %add.i.i.i
   %or.cond.i.i.i = or i1 %cmp.not.i.i.i, %cmp3.i.i.i
-  br i1 %or.cond.i.i.i, label %range_is_empty.argprom.exit.i, label %if.else.i.i.i
+  br i1 %or.cond.i.i.i, label %range_is_empty.exit.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %entry
   call void @__assert_fail(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.58, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #12
   unreachable
 
-range_is_empty.argprom.exit.i:                    ; preds = %entry
+range_is_empty.exit.i:                            ; preds = %entry
   %cmp.i.i = icmp ugt i64 %call.val, %call.val3
-  br i1 %cmp.i.i, label %if.else.i, label %range_upb.argprom.exit
+  br i1 %cmp.i.i, label %if.else.i, label %range_upb.exit
 
-if.else.i:                                        ; preds = %range_is_empty.argprom.exit.i
+if.else.i:                                        ; preds = %range_is_empty.exit.i
   call void @__assert_fail(ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.range_lob) #12
   unreachable
 
-range_upb.argprom.exit:                           ; preds = %range_is_empty.argprom.exit.i
+range_upb.exit:                                   ; preds = %range_is_empty.exit.i
   %type = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load i32, ptr %type, align 8
   %call5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buffer, i64 noundef 64, ptr noundef nonnull @.str.55, i64 noundef %call.val, i64 noundef %call.val3, i32 noundef %1) #10
   %cmp = icmp ult i32 %call5, 64
   br i1 %cmp, label %if.end, label %if.else
 
-if.else:                                          ; preds = %range_upb.argprom.exit
+if.else:                                          ; preds = %range_upb.exit
   call void @__assert_fail(ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.9, i32 noundef 709, ptr noundef nonnull @__PRETTY_FUNCTION__.get_reserved_region) #12
   unreachable
 
-if.end:                                           ; preds = %range_upb.argprom.exit
+if.end:                                           ; preds = %range_upb.exit
   %call7 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %p, ptr noundef %errp) #10
   ret void
 }
@@ -1718,21 +1718,21 @@ entry:
   %add.i.i = add i64 %upb, 1
   %cmp3.i.i = icmp eq i64 %lob, %add.i.i
   %or.cond.i.i = or i1 %cmp.not.i.i, %cmp3.i.i
-  br i1 %or.cond.i.i, label %range_is_empty.argprom.exit, label %if.else.i.i
+  br i1 %or.cond.i.i, label %range_is_empty.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.58, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #12
   unreachable
 
-range_is_empty.argprom.exit:                      ; preds = %entry
+range_is_empty.exit:                              ; preds = %entry
   %cmp.i = icmp ugt i64 %lob, %upb
   br i1 %cmp.i, label %if.else, label %if.end
 
-if.else:                                          ; preds = %range_is_empty.argprom.exit
+if.else:                                          ; preds = %range_is_empty.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58, i32 noundef 77, ptr noundef nonnull @__PRETTY_FUNCTION__.range_set_bounds) #12
   unreachable
 
-if.end:                                           ; preds = %range_is_empty.argprom.exit
+if.end:                                           ; preds = %range_is_empty.exit
   ret void
 }
 

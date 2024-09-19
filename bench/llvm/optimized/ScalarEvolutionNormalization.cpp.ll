@@ -1630,7 +1630,7 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbPKNS_14SCEVAddRecE
   %.01118.i.i.i = phi ptr [ %17, %16 ], [ %7, %9 ]
   %14 = load ptr, ptr %.01118.i.i.i, align 8
   %15 = icmp eq ptr %14, %.val1
-  br i1 %15, label %"_ZZN4llvm22normalizeForPostIncUseEPKNS_4SCEVERKNS_11SmallPtrSetIPKNS_4LoopELj2EEERNS_15ScalarEvolutionEbENK3$_0clEPKNS_14SCEVAddRecExprE.argprom.exit", label %16
+  br i1 %15, label %"_ZZN4llvm22normalizeForPostIncUseEPKNS_4SCEVERKNS_11SmallPtrSetIPKNS_4LoopELj2EEERNS_15ScalarEvolutionEbENK3$_0clEPKNS_14SCEVAddRecExprE.exit", label %16
 
 16:                                               ; preds = %.lr.ph.i.i.i
   %17 = getelementptr inbounds i8, ptr %.01118.i.i.i, i64 8
@@ -1639,7 +1639,7 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbPKNS_14SCEVAddRecE
 
 ._crit_edge.i.i.i:                                ; preds = %16, %9
   %18 = getelementptr inbounds ptr, ptr %6, i64 %12
-  br label %"_ZZN4llvm22normalizeForPostIncUseEPKNS_4SCEVERKNS_11SmallPtrSetIPKNS_4LoopELj2EEERNS_15ScalarEvolutionEbENK3$_0clEPKNS_14SCEVAddRecExprE.argprom.exit"
+  br label %"_ZZN4llvm22normalizeForPostIncUseEPKNS_4SCEVERKNS_11SmallPtrSetIPKNS_4LoopELj2EEERNS_15ScalarEvolutionEbENK3$_0clEPKNS_14SCEVAddRecExprE.exit"
 
 19:                                               ; preds = %2
   %20 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %.val, ptr noundef %.val1) #7
@@ -1651,7 +1651,7 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbPKNS_14SCEVAddRecE
 ._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i: ; preds = %19
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.val, i64 20
   %.pre5.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
-  br label %"_ZZN4llvm22normalizeForPostIncUseEPKNS_4SCEVERKNS_11SmallPtrSetIPKNS_4LoopELj2EEERNS_15ScalarEvolutionEbENK3$_0clEPKNS_14SCEVAddRecExprE.argprom.exit"
+  br label %"_ZZN4llvm22normalizeForPostIncUseEPKNS_4SCEVERKNS_11SmallPtrSetIPKNS_4LoopELj2EEERNS_15ScalarEvolutionEbENK3$_0clEPKNS_14SCEVAddRecExprE.exit"
 
 21:                                               ; preds = %19
   %22 = icmp eq ptr %.pre.i.i, %.pre4.i.i
@@ -1662,9 +1662,9 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbPKNS_14SCEVAddRecE
   %.v.v.i14.i.i.i = select i1 %22, i32 %24, i32 %26
   %.v.i15.i.i.i = zext i32 %.v.v.i14.i.i.i to i64
   %27 = getelementptr inbounds ptr, ptr %.pre.i.i, i64 %.v.i15.i.i.i
-  br label %"_ZZN4llvm22normalizeForPostIncUseEPKNS_4SCEVERKNS_11SmallPtrSetIPKNS_4LoopELj2EEERNS_15ScalarEvolutionEbENK3$_0clEPKNS_14SCEVAddRecExprE.argprom.exit"
+  br label %"_ZZN4llvm22normalizeForPostIncUseEPKNS_4SCEVERKNS_11SmallPtrSetIPKNS_4LoopELj2EEERNS_15ScalarEvolutionEbENK3$_0clEPKNS_14SCEVAddRecExprE.exit"
 
-"_ZZN4llvm22normalizeForPostIncUseEPKNS_4SCEVERKNS_11SmallPtrSetIPKNS_4LoopELj2EEERNS_15ScalarEvolutionEbENK3$_0clEPKNS_14SCEVAddRecExprE.argprom.exit": ; preds = %.lr.ph.i.i.i, %._crit_edge.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i, %21
+"_ZZN4llvm22normalizeForPostIncUseEPKNS_4SCEVERKNS_11SmallPtrSetIPKNS_4LoopELj2EEERNS_15ScalarEvolutionEbENK3$_0clEPKNS_14SCEVAddRecExprE.exit": ; preds = %.lr.ph.i.i.i, %._crit_edge.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i, %21
   %28 = phi i32 [ %11, %._crit_edge.i.i.i ], [ %24, %21 ], [ %.pre5.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i ], [ %11, %.lr.ph.i.i.i ]
   %29 = phi ptr [ %6, %._crit_edge.i.i.i ], [ %.pre4.i.i, %21 ], [ %.pre4.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i ], [ %6, %.lr.ph.i.i.i ]
   %30 = phi ptr [ %6, %._crit_edge.i.i.i ], [ %.pre.i.i, %21 ], [ %.pre.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i ], [ %6, %.lr.ph.i.i.i ]
@@ -1705,7 +1705,7 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbPKNS_14SCEVAddRecE
   %.01118.i.i.i = phi ptr [ %17, %16 ], [ %7, %9 ]
   %14 = load ptr, ptr %.01118.i.i.i, align 8
   %15 = icmp eq ptr %14, %.val1
-  br i1 %15, label %"_ZZN4llvm24denormalizeForPostIncUseEPKNS_4SCEVERKNS_11SmallPtrSetIPKNS_4LoopELj2EEERNS_15ScalarEvolutionEENK3$_0clEPKNS_14SCEVAddRecExprE.argprom.exit", label %16
+  br i1 %15, label %"_ZZN4llvm24denormalizeForPostIncUseEPKNS_4SCEVERKNS_11SmallPtrSetIPKNS_4LoopELj2EEERNS_15ScalarEvolutionEENK3$_0clEPKNS_14SCEVAddRecExprE.exit", label %16
 
 16:                                               ; preds = %.lr.ph.i.i.i
   %17 = getelementptr inbounds i8, ptr %.01118.i.i.i, i64 8
@@ -1714,7 +1714,7 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbPKNS_14SCEVAddRecE
 
 ._crit_edge.i.i.i:                                ; preds = %16, %9
   %18 = getelementptr inbounds ptr, ptr %6, i64 %12
-  br label %"_ZZN4llvm24denormalizeForPostIncUseEPKNS_4SCEVERKNS_11SmallPtrSetIPKNS_4LoopELj2EEERNS_15ScalarEvolutionEENK3$_0clEPKNS_14SCEVAddRecExprE.argprom.exit"
+  br label %"_ZZN4llvm24denormalizeForPostIncUseEPKNS_4SCEVERKNS_11SmallPtrSetIPKNS_4LoopELj2EEERNS_15ScalarEvolutionEENK3$_0clEPKNS_14SCEVAddRecExprE.exit"
 
 19:                                               ; preds = %2
   %20 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %.val, ptr noundef %.val1) #7
@@ -1726,7 +1726,7 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbPKNS_14SCEVAddRecE
 ._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i: ; preds = %19
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.val, i64 20
   %.pre5.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
-  br label %"_ZZN4llvm24denormalizeForPostIncUseEPKNS_4SCEVERKNS_11SmallPtrSetIPKNS_4LoopELj2EEERNS_15ScalarEvolutionEENK3$_0clEPKNS_14SCEVAddRecExprE.argprom.exit"
+  br label %"_ZZN4llvm24denormalizeForPostIncUseEPKNS_4SCEVERKNS_11SmallPtrSetIPKNS_4LoopELj2EEERNS_15ScalarEvolutionEENK3$_0clEPKNS_14SCEVAddRecExprE.exit"
 
 21:                                               ; preds = %19
   %22 = icmp eq ptr %.pre.i.i, %.pre4.i.i
@@ -1737,9 +1737,9 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbPKNS_14SCEVAddRecE
   %.v.v.i14.i.i.i = select i1 %22, i32 %24, i32 %26
   %.v.i15.i.i.i = zext i32 %.v.v.i14.i.i.i to i64
   %27 = getelementptr inbounds ptr, ptr %.pre.i.i, i64 %.v.i15.i.i.i
-  br label %"_ZZN4llvm24denormalizeForPostIncUseEPKNS_4SCEVERKNS_11SmallPtrSetIPKNS_4LoopELj2EEERNS_15ScalarEvolutionEENK3$_0clEPKNS_14SCEVAddRecExprE.argprom.exit"
+  br label %"_ZZN4llvm24denormalizeForPostIncUseEPKNS_4SCEVERKNS_11SmallPtrSetIPKNS_4LoopELj2EEERNS_15ScalarEvolutionEENK3$_0clEPKNS_14SCEVAddRecExprE.exit"
 
-"_ZZN4llvm24denormalizeForPostIncUseEPKNS_4SCEVERKNS_11SmallPtrSetIPKNS_4LoopELj2EEERNS_15ScalarEvolutionEENK3$_0clEPKNS_14SCEVAddRecExprE.argprom.exit": ; preds = %.lr.ph.i.i.i, %._crit_edge.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i, %21
+"_ZZN4llvm24denormalizeForPostIncUseEPKNS_4SCEVERKNS_11SmallPtrSetIPKNS_4LoopELj2EEERNS_15ScalarEvolutionEENK3$_0clEPKNS_14SCEVAddRecExprE.exit": ; preds = %.lr.ph.i.i.i, %._crit_edge.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i, %21
   %28 = phi i32 [ %11, %._crit_edge.i.i.i ], [ %24, %21 ], [ %.pre5.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i ], [ %11, %.lr.ph.i.i.i ]
   %29 = phi ptr [ %6, %._crit_edge.i.i.i ], [ %.pre4.i.i, %21 ], [ %.pre4.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i ], [ %6, %.lr.ph.i.i.i ]
   %30 = phi ptr [ %6, %._crit_edge.i.i.i ], [ %.pre.i.i, %21 ], [ %.pre.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i ], [ %6, %.lr.ph.i.i.i ]

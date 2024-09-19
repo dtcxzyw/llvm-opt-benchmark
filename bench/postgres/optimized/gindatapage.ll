@@ -2142,7 +2142,7 @@ addItemsToLeaf.exit.thread.i:                     ; preds = %.loopexit.sink.spli
 addItemsToLeaf.exit.i:                            ; preds = %.critedge.thread.i.i, %251
   %.0.i.i17 = phi i1 [ %.2.i.i, %.critedge.thread.i.i ], [ %.3.i.i, %251 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  br i1 %.0.i.i17, label %260, label %dataBeginPlaceToPageLeaf.argprom.exit
+  br i1 %.0.i.i17, label %260, label %dataBeginPlaceToPageLeaf.exit
 
 260:                                              ; preds = %addItemsToLeaf.exit.i, %addItemsToLeaf.exit.thread.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
@@ -2574,7 +2574,7 @@ leafRepackItems.exit.i:                           ; preds = %394, %375
   br i1 %.0128.i, label %455, label %465
 
 455:                                              ; preds = %453
-  br i1 %454, label %456, label %dataBeginPlaceToPageLeaf.argprom.exit
+  br i1 %454, label %456, label %dataBeginPlaceToPageLeaf.exit
 
 456:                                              ; preds = %455
   %457 = call i32 @BufferGetBlockNumber(i32 noundef %1) #11
@@ -2588,7 +2588,7 @@ leafRepackItems.exit.i:                           ; preds = %394, %375
   br label %.sink.split.i
 
 465:                                              ; preds = %453
-  br i1 %454, label %466, label %dataBeginPlaceToPageLeaf.argprom.exit
+  br i1 %454, label %466, label %dataBeginPlaceToPageLeaf.exit
 
 466:                                              ; preds = %465
   %467 = call i32 @BufferGetBlockNumber(i32 noundef %1) #11
@@ -2796,7 +2796,7 @@ dataPlaceToPageLeafSplit.exit.i:                  ; preds = %558
   br i1 %.0128.i, label %565, label %576
 
 565:                                              ; preds = %dataPlaceToPageLeafSplit.exit.i
-  br i1 %564, label %566, label %dataBeginPlaceToPageLeaf.argprom.exit
+  br i1 %564, label %566, label %dataBeginPlaceToPageLeaf.exit
 
 566:                                              ; preds = %565
   %567 = call i32 @BufferGetBlockNumber(i32 noundef %1) #11
@@ -2811,7 +2811,7 @@ dataPlaceToPageLeafSplit.exit.i:                  ; preds = %558
   br label %.sink.split.i
 
 576:                                              ; preds = %dataPlaceToPageLeafSplit.exit.i
-  br i1 %564, label %577, label %dataBeginPlaceToPageLeaf.argprom.exit
+  br i1 %564, label %577, label %dataBeginPlaceToPageLeaf.exit
 
 577:                                              ; preds = %576
   %578 = call i32 @BufferGetBlockNumber(i32 noundef %1) #11
@@ -2829,9 +2829,9 @@ dataPlaceToPageLeafSplit.exit.i:                  ; preds = %558
   %.sink.i = phi i32 [ 697, %566 ], [ 701, %577 ], [ 611, %456 ], [ 615, %466 ]
   %.ph.i = phi i32 [ 2, %566 ], [ 2, %577 ], [ 1, %456 ], [ 1, %466 ]
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink.i, ptr noundef nonnull @__func__.dataBeginPlaceToPageLeaf) #11
-  br label %dataBeginPlaceToPageLeaf.argprom.exit
+  br label %dataBeginPlaceToPageLeaf.exit
 
-dataBeginPlaceToPageLeaf.argprom.exit:            ; preds = %addItemsToLeaf.exit.i, %455, %465, %565, %576, %.sink.split.i
+dataBeginPlaceToPageLeaf.exit:                    ; preds = %addItemsToLeaf.exit.i, %455, %465, %565, %576, %.sink.split.i
   %.2.sink.i = phi i32 [ %.1.i, %addItemsToLeaf.exit.i ], [ %.2.i, %.sink.split.i ], [ %.2.i, %565 ], [ %.2.i, %576 ], [ %.2.i, %455 ], [ %.2.i, %465 ]
   %.0.i = phi i32 [ 0, %addItemsToLeaf.exit.i ], [ %.ph.i, %.sink.split.i ], [ 2, %565 ], [ 2, %576 ], [ 1, %455 ], [ 1, %465 ]
   %587 = load i32, ptr %42, align 4
@@ -2839,7 +2839,7 @@ dataBeginPlaceToPageLeaf.argprom.exit:            ; preds = %addItemsToLeaf.exit
   store i32 %588, ptr %42, align 4
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %15)
-  br label %dataBeginPlaceToPageInternal.argprom.exit
+  br label %dataBeginPlaceToPageInternal.exit
 
 BufferGetPage.exit.i21:                           ; preds = %BufferGetPage.exit
   %589 = getelementptr inbounds i8, ptr %25, i64 4
@@ -2848,7 +2848,7 @@ BufferGetPage.exit.i21:                           ; preds = %BufferGetPage.exit
   %.neg.i = mul nsw i64 %591, -10
   %592 = add nsw i64 %.neg.i, 8152
   %593 = icmp ult i64 %592, 10
-  br i1 %593, label %BufferGetPage.exit.i.i, label %dataBeginPlaceToPageInternal.argprom.exit
+  br i1 %593, label %BufferGetPage.exit.i.i, label %dataBeginPlaceToPageInternal.exit
 
 BufferGetPage.exit.thread.i:                      ; preds = %BufferGetPage.exit.thread
   %594 = getelementptr inbounds i8, ptr %37, i64 4
@@ -2857,7 +2857,7 @@ BufferGetPage.exit.thread.i:                      ; preds = %BufferGetPage.exit.
   %.neg2.i = mul nsw i64 %596, -10
   %597 = add nsw i64 %.neg2.i, 8152
   %598 = icmp ult i64 %597, 10
-  br i1 %598, label %BufferGetPage.exit.i.i, label %dataBeginPlaceToPageInternal.argprom.exit
+  br i1 %598, label %BufferGetPage.exit.i.i, label %dataBeginPlaceToPageInternal.exit
 
 BufferGetPage.exit.i.i:                           ; preds = %BufferGetPage.exit.thread.i, %BufferGetPage.exit.i21
   %599 = phi i16 [ %590, %BufferGetPage.exit.i21 ], [ %595, %BufferGetPage.exit.thread.i ]
@@ -2990,10 +2990,10 @@ dataSplitPageInternal.exit.i:                     ; preds = %658, %647
   store ptr %609, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8200, ptr nonnull %10)
-  br label %dataBeginPlaceToPageInternal.argprom.exit
+  br label %dataBeginPlaceToPageInternal.exit
 
-dataBeginPlaceToPageInternal.argprom.exit:        ; preds = %dataSplitPageInternal.exit.i, %BufferGetPage.exit.thread.i, %BufferGetPage.exit.i21, %dataBeginPlaceToPageLeaf.argprom.exit
-  %.0 = phi i32 [ %.0.i, %dataBeginPlaceToPageLeaf.argprom.exit ], [ 2, %dataSplitPageInternal.exit.i ], [ 1, %BufferGetPage.exit.i21 ], [ 1, %BufferGetPage.exit.thread.i ]
+dataBeginPlaceToPageInternal.exit:                ; preds = %dataSplitPageInternal.exit.i, %BufferGetPage.exit.thread.i, %BufferGetPage.exit.i21, %dataBeginPlaceToPageLeaf.exit
+  %.0 = phi i32 [ %.0.i, %dataBeginPlaceToPageLeaf.exit ], [ 2, %dataSplitPageInternal.exit.i ], [ 1, %BufferGetPage.exit.i21 ], [ 1, %BufferGetPage.exit.thread.i ]
   ret i32 %.0
 }
 
@@ -3125,7 +3125,7 @@ dataPlaceToPageLeafRecompress.exit.i:             ; preds = %._crit_edge.loopexi
   %72 = getelementptr inbounds i8, ptr %71, i64 114
   %73 = load i8, ptr %72, align 2
   %74 = icmp eq i8 %73, 112
-  br i1 %74, label %75, label %dataExecPlaceToPageLeaf.argprom.exit
+  br i1 %74, label %75, label %dataExecPlaceToPageLeaf.exit
 
 75:                                               ; preds = %dataPlaceToPageLeafRecompress.exit.i
   %76 = load i32, ptr @wal_level, align 4
@@ -3136,19 +3136,19 @@ dataPlaceToPageLeafRecompress.exit.i:             ; preds = %._crit_edge.loopexi
   %79 = getelementptr inbounds i8, ptr %69, i64 40
   %80 = load i32, ptr %79, align 8
   %81 = icmp eq i32 %80, 0
-  br i1 %81, label %82, label %dataExecPlaceToPageLeaf.argprom.exit
+  br i1 %81, label %82, label %dataExecPlaceToPageLeaf.exit
 
 82:                                               ; preds = %78
   %83 = getelementptr inbounds i8, ptr %69, i64 48
   %84 = load i32, ptr %83, align 8
   %85 = icmp eq i32 %84, 0
-  br i1 %85, label %86, label %dataExecPlaceToPageLeaf.argprom.exit
+  br i1 %85, label %86, label %dataExecPlaceToPageLeaf.exit
 
 86:                                               ; preds = %82, %75
   %87 = getelementptr inbounds i8, ptr %0, i64 105
   %88 = load i8, ptr %87, align 1
   %89 = trunc i8 %88 to i1
-  br i1 %89, label %dataExecPlaceToPageLeaf.argprom.exit, label %90
+  br i1 %89, label %dataExecPlaceToPageLeaf.exit, label %90
 
 90:                                               ; preds = %86
   tail call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %1, i8 noundef zeroext 8) #11
@@ -3157,7 +3157,7 @@ dataPlaceToPageLeafRecompress.exit.i:             ; preds = %._crit_edge.loopexi
   %93 = getelementptr inbounds i8, ptr %5, i64 48
   %94 = load i32, ptr %93, align 8
   tail call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef %92, i32 noundef %94) #11
-  br label %dataExecPlaceToPageLeaf.argprom.exit
+  br label %dataExecPlaceToPageLeaf.exit
 
 BufferGetPage.exit.i:                             ; preds = %BufferGetPage.exit.thread, %BufferGetPage.exit
   %.pre-phi = phi i64 [ %15, %BufferGetPage.exit ], [ %27, %BufferGetPage.exit.thread ]
@@ -3230,7 +3230,7 @@ GinDataPageAddPostingItem.exit.i:                 ; preds = %123, %116, %112
   %138 = getelementptr inbounds i8, ptr %137, i64 114
   %139 = load i8, ptr %138, align 2
   %140 = icmp eq i8 %139, 112
-  br i1 %140, label %141, label %dataExecPlaceToPageLeaf.argprom.exit
+  br i1 %140, label %141, label %dataExecPlaceToPageLeaf.exit
 
 141:                                              ; preds = %GinDataPageAddPostingItem.exit.i
   %142 = load i32, ptr @wal_level, align 4
@@ -3241,28 +3241,28 @@ GinDataPageAddPostingItem.exit.i:                 ; preds = %123, %116, %112
   %145 = getelementptr inbounds i8, ptr %135, i64 40
   %146 = load i32, ptr %145, align 8
   %147 = icmp eq i32 %146, 0
-  br i1 %147, label %148, label %dataExecPlaceToPageLeaf.argprom.exit
+  br i1 %147, label %148, label %dataExecPlaceToPageLeaf.exit
 
 148:                                              ; preds = %144
   %149 = getelementptr inbounds i8, ptr %135, i64 48
   %150 = load i32, ptr %149, align 8
   %151 = icmp eq i32 %150, 0
-  br i1 %151, label %152, label %dataExecPlaceToPageLeaf.argprom.exit
+  br i1 %151, label %152, label %dataExecPlaceToPageLeaf.exit
 
 152:                                              ; preds = %148, %141
   %153 = getelementptr inbounds i8, ptr %0, i64 105
   %154 = load i8, ptr %153, align 1
   %155 = trunc i8 %154 to i1
-  br i1 %155, label %dataExecPlaceToPageLeaf.argprom.exit, label %156
+  br i1 %155, label %dataExecPlaceToPageLeaf.exit, label %156
 
 156:                                              ; preds = %152
   store i16 %96, ptr @dataExecPlaceToPageInternal.data, align 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @dataExecPlaceToPageInternal.data, i64 2), ptr noundef nonnull readonly align 2 dereferenceable(10) %3, i64 10, i1 false)
   tail call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %1, i8 noundef zeroext 8) #11
   tail call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef nonnull @dataExecPlaceToPageInternal.data, i32 noundef 12) #11
-  br label %dataExecPlaceToPageLeaf.argprom.exit
+  br label %dataExecPlaceToPageLeaf.exit
 
-dataExecPlaceToPageLeaf.argprom.exit:             ; preds = %156, %152, %148, %144, %GinDataPageAddPostingItem.exit.i, %90, %86, %82, %78, %dataPlaceToPageLeafRecompress.exit.i
+dataExecPlaceToPageLeaf.exit:                     ; preds = %156, %152, %148, %144, %GinDataPageAddPostingItem.exit.i, %90, %86, %82, %78, %dataPlaceToPageLeafRecompress.exit.i
   ret void
 }
 

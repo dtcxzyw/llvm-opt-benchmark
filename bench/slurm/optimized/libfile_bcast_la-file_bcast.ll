@@ -702,7 +702,7 @@ _get_block_none.exit.i:                           ; preds = %82, %84
 101:                                              ; preds = %100, %99
   %102 = load i64, ptr getelementptr inbounds (i8, ptr @f_stat, i64 48), align 8
   %.not.i.i = icmp eq i64 %102, 0
-  br i1 %.not.i.i, label %_get_block_lz4.argprom.exit.i, label %103
+  br i1 %.not.i.i, label %_get_block_lz4.exit.i, label %103
 
 103:                                              ; preds = %101
   %104 = load i64, ptr @_get_block_lz4.remaining, align 8
@@ -748,9 +748,9 @@ _get_block_none.exit.i:                           ; preds = %82, %84
   %127 = sub nsw i64 %126, %124
   store i64 %127, ptr @_get_block_lz4.remaining, align 8
   %128 = icmp ne i64 %126, %124
-  br label %_get_block_lz4.argprom.exit.i
+  br label %_get_block_lz4.exit.i
 
-_get_block_lz4.argprom.exit.i:                    ; preds = %121, %101
+_get_block_lz4.exit.i:                            ; preds = %121, %101
   %.168 = phi i32 [ %.06771, %101 ], [ %122, %121 ]
   %storemerge.i.i = phi i1 [ false, %101 ], [ %128, %121 ]
   %.0.i.i = phi i32 [ 0, %101 ], [ %119, %121 ]
@@ -800,10 +800,10 @@ _get_block_none.exit25.i:                         ; preds = %132, %134
   %148 = icmp ne i64 %140, %145
   br label %_next_block.exit
 
-_next_block.exit:                                 ; preds = %_get_block_none.exit.i, %_get_block_lz4.argprom.exit.i, %_get_block_none.exit25.i
-  %.2 = phi i32 [ %144, %_get_block_none.exit25.i ], [ %.168, %_get_block_lz4.argprom.exit.i ], [ %94, %_get_block_none.exit.i ]
-  %.166 = phi i1 [ %148, %_get_block_none.exit25.i ], [ %storemerge.i.i, %_get_block_lz4.argprom.exit.i ], [ %98, %_get_block_none.exit.i ]
-  %.0.i = phi i32 [ %144, %_get_block_none.exit25.i ], [ %.0.i.i, %_get_block_lz4.argprom.exit.i ], [ %94, %_get_block_none.exit.i ]
+_next_block.exit:                                 ; preds = %_get_block_none.exit.i, %_get_block_lz4.exit.i, %_get_block_none.exit25.i
+  %.2 = phi i32 [ %144, %_get_block_none.exit25.i ], [ %.168, %_get_block_lz4.exit.i ], [ %94, %_get_block_none.exit.i ]
+  %.166 = phi i1 [ %148, %_get_block_none.exit25.i ], [ %storemerge.i.i, %_get_block_lz4.exit.i ], [ %98, %_get_block_none.exit.i ]
+  %.0.i = phi i32 [ %144, %_get_block_none.exit25.i ], [ %.0.i.i, %_get_block_lz4.exit.i ], [ %94, %_get_block_none.exit.i ]
   store i32 %.0.i, ptr %67, align 8
   %149 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #13
   call void @slurm_diff_tv_str(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 20, ptr noundef null, i64 noundef 0, ptr noundef nonnull %9) #13

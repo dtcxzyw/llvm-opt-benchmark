@@ -1282,24 +1282,24 @@ for.end.i:                                        ; preds = %unpack_one.exit.i, 
   call void @end_odb_transaction() #13
   %166 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i.i.i = icmp eq i32 %166, 0
-  br i1 %tobool1.not.i.i.i, label %stop_progress.argprom.exit.i, label %if.end3.i.i.i
+  br i1 %tobool1.not.i.i.i, label %stop_progress.exit.i, label %if.end3.i.i.i
 
 if.end3.i.i.i:                                    ; preds = %for.end.i
   %call.i.i41.i = call ptr @gettext(ptr noundef nonnull @.str.28) #13
-  br label %stop_progress.argprom.exit.i
+  br label %stop_progress.exit.i
 
-stop_progress.argprom.exit.i:                     ; preds = %if.end3.i.i.i, %for.end.i
+stop_progress.exit.i:                             ; preds = %if.end3.i.i.i, %for.end.i
   %retval.0.i.i42.i = phi ptr [ %call.i.i41.i, %if.end3.i.i.i ], [ @.str.28, %for.end.i ]
   call void @stop_progress_msg(ptr noundef nonnull @progress, ptr noundef %retval.0.i.i42.i) #13
   %167 = load ptr, ptr @delta_list, align 8
   %tobool21.not.i = icmp eq ptr %167, null
   br i1 %tobool21.not.i, label %unpack_all.exit, label %if.then22.i
 
-if.then22.i:                                      ; preds = %stop_progress.argprom.exit.i
+if.then22.i:                                      ; preds = %stop_progress.exit.i
   call void (ptr, ...) @die(ptr noundef nonnull @.str.13) #16
   unreachable
 
-unpack_all.exit:                                  ; preds = %stop_progress.argprom.exit.i
+unpack_all.exit:                                  ; preds = %stop_progress.exit.i
   %168 = load ptr, ptr @the_repository, align 8
   %hash_algo46 = getelementptr inbounds i8, ptr %168, i64 256
   %169 = load ptr, ptr %hash_algo46, align 8
@@ -2565,7 +2565,7 @@ if.end43:                                         ; preds = %if.end37
   %bf.clear.i = and i32 %bf.lshr.i, 7
   %call.i.i = call i32 @write_object_file_flags(ptr noundef %call27.val, i64 noundef %call27.val18, i32 noundef %bf.clear.i, ptr noundef nonnull %oid.i, i32 noundef 0) #13
   %cmp.i = icmp slt i32 %call.i.i, 0
-  br i1 %cmp.i, label %if.then.i, label %write_cached_object.argprom.exit
+  br i1 %cmp.i, label %if.then.i, label %write_cached_object.exit
 
 if.then.i:                                        ; preds = %if.end43
   %oid1.i = getelementptr inbounds i8, ptr %obj, i64 4
@@ -2573,15 +2573,15 @@ if.then.i:                                        ; preds = %if.end43
   call void (ptr, ...) @die(ptr noundef nonnull @.str.34, ptr noundef %call2.i) #16
   unreachable
 
-write_cached_object.argprom.exit:                 ; preds = %if.end43
+write_cached_object.exit:                         ; preds = %if.end43
   %bf.load3.i = load i32, ptr %obj, align 4
   %bf.set.i = or i32 %bf.load3.i, 33554432
   store i32 %bf.set.i, ptr %obj, align 4
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid.i)
   br label %return
 
-return:                                           ; preds = %if.end, %entry, %write_cached_object.argprom.exit, %if.end21
-  %retval.0 = phi i32 [ 0, %write_cached_object.argprom.exit ], [ 0, %if.end21 ], [ 1, %entry ], [ 0, %if.end ]
+return:                                           ; preds = %if.end, %entry, %write_cached_object.exit, %if.end21
+  %retval.0 = phi i32 [ 0, %write_cached_object.exit ], [ 0, %if.end21 ], [ 1, %entry ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 

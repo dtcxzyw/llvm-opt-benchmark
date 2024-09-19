@@ -4514,14 +4514,14 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   %res_fis.i.i = getelementptr inbounds i8, ptr %11, i64 2464
   %13 = load ptr, ptr %res_fis.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %13, null
-  br i1 %tobool.not.i.i, label %ahci_write_fis_sdb.argprom.exit.i, label %lor.lhs.false.i.i
+  br i1 %tobool.not.i.i, label %ahci_write_fis_sdb.exit.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i
   %cmd.i.i = getelementptr inbounds i8, ptr %11, i64 2396
   %14 = load i32, ptr %cmd.i.i, align 4
   %and.i.i = and i32 %14, 16
   %tobool1.not.i.i = icmp eq i32 %and.i.i, 0
-  br i1 %tobool1.not.i.i, label %ahci_write_fis_sdb.argprom.exit.i, label %if.end.i.i
+  br i1 %tobool1.not.i.i, label %ahci_write_fis_sdb.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %arrayidx.i.i = getelementptr i8, ptr %13, i64 88
@@ -4569,14 +4569,14 @@ if.else.i.i:                                      ; preds = %if.end.i.i
   %27 = load i8, ptr %flags.i.i, align 1
   %28 = and i8 %27, 64
   %tobool33.not.i.i = icmp eq i8 %28, 0
-  br i1 %tobool33.not.i.i, label %ahci_write_fis_sdb.argprom.exit.i, label %if.end36.sink.split.i.i
+  br i1 %tobool33.not.i.i, label %ahci_write_fis_sdb.exit.i, label %if.end36.sink.split.i.i
 
 if.end36.sink.split.i.i:                          ; preds = %if.else.i.i, %if.end.i.i
   %.sink.i.i = phi i32 [ 30, %if.end.i.i ], [ 3, %if.else.i.i ]
   tail call fastcc void @ahci_trigger_irq(ptr noundef %12, ptr noundef nonnull %11, i32 noundef %.sink.i.i)
-  br label %ahci_write_fis_sdb.argprom.exit.i
+  br label %ahci_write_fis_sdb.exit.i
 
-ahci_write_fis_sdb.argprom.exit.i:                ; preds = %if.end36.sink.split.i.i, %if.else.i.i, %lor.lhs.false.i.i, %if.end.i
+ahci_write_fis_sdb.exit.i:                        ; preds = %if.end36.sink.split.i.i, %if.else.i.i, %lor.lhs.false.i.i, %if.end.i
   %29 = load ptr, ptr %opaque, align 8
   %hba3.i = getelementptr inbounds i8, ptr %29, i64 2440
   %30 = load ptr, ptr %hba3.i, align 8
@@ -4592,7 +4592,7 @@ ahci_write_fis_sdb.argprom.exit.i:                ; preds = %if.end36.sink.split
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %ncq_finish.exit
 
-land.lhs.true5.i.i.i:                             ; preds = %ahci_write_fis_sdb.argprom.exit.i
+land.lhs.true5.i.i.i:                             ; preds = %ahci_write_fis_sdb.exit.i
   %35 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i = and i32 %35, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -4618,7 +4618,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.156, ptr noundef %30, i32 noundef %31, i32 noundef %conv12.i.i.i) #12
   br label %ncq_finish.exit
 
-ncq_finish.exit:                                  ; preds = %ahci_write_fis_sdb.argprom.exit.i, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
+ncq_finish.exit:                                  ; preds = %ahci_write_fis_sdb.exit.i, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   %39 = load ptr, ptr %opaque, align 8
   %blk.i = getelementptr inbounds i8, ptr %39, i64 864

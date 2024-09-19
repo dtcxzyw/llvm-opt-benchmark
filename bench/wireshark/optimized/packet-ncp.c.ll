@@ -1457,7 +1457,7 @@ define internal fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, 
 
 97:                                               ; preds = %90
   %98 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 4), align 2
-  call fastcc void @mncp_hash_insert.retelim(ptr noundef %81, i32 noundef %72, i8 noundef zeroext %98, ptr noundef nonnull %1)
+  call fastcc void @mncp_hash_insert(ptr noundef %81, i32 noundef %72, i8 noundef zeroext %98, ptr noundef nonnull %1)
   br label %154
 
 99:                                               ; preds = %89
@@ -1466,7 +1466,7 @@ define internal fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, 
   %102 = load i32, ptr %79, align 8
   %103 = tail call nonnull ptr @conversation_new(i32 noundef %100, ptr noundef nonnull %75, ptr noundef nonnull %76, i32 noundef 6, i32 noundef %101, i32 noundef %102, i32 noundef 0) #6
   %104 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 4), align 2
-  tail call fastcc void @mncp_hash_insert.retelim(ptr noundef %103, i32 noundef %72, i8 noundef zeroext %104, ptr noundef nonnull %1)
+  tail call fastcc void @mncp_hash_insert(ptr noundef %103, i32 noundef %72, i8 noundef zeroext %104, ptr noundef nonnull %1)
   br label %154
 
 105:                                              ; preds = %88
@@ -1521,7 +1521,7 @@ define internal fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, 
 
 130:                                              ; preds = %123
   %131 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 4), align 2
-  call fastcc void @mncp_hash_insert.retelim(ptr noundef %81, i32 noundef %72, i8 noundef zeroext %131, ptr noundef nonnull %1)
+  call fastcc void @mncp_hash_insert(ptr noundef %81, i32 noundef %72, i8 noundef zeroext %131, ptr noundef nonnull %1)
   br label %154
 
 132:                                              ; preds = %122
@@ -1530,7 +1530,7 @@ define internal fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, 
   %135 = load i32, ptr %79, align 8
   %136 = tail call nonnull ptr @conversation_new(i32 noundef %133, ptr noundef nonnull %75, ptr noundef nonnull %76, i32 noundef 6, i32 noundef %134, i32 noundef %135, i32 noundef 0) #6
   %137 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 4), align 2
-  tail call fastcc void @mncp_hash_insert.retelim(ptr noundef %136, i32 noundef %72, i8 noundef zeroext %137, ptr noundef nonnull %1)
+  tail call fastcc void @mncp_hash_insert(ptr noundef %136, i32 noundef %72, i8 noundef zeroext %137, ptr noundef nonnull %1)
   br label %154
 
 138:                                              ; preds = %121
@@ -1975,7 +1975,7 @@ declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @find_conversation(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mncp_hash_insert.retelim(ptr noundef nonnull %0, i32 noundef range(i32 0, 65536) %1, i8 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @mncp_hash_insert(ptr noundef nonnull %0, i32 noundef range(i32 0, 65536) %1, i8 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call ptr @wmem_file_scope() #6
   %6 = tail call noalias ptr @wmem_alloc(ptr noundef %5, i64 noundef 16) #6
   store ptr %0, ptr %6, align 8

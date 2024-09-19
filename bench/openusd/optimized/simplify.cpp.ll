@@ -2125,25 +2125,25 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIP
 .loopexit388:                                     ; preds = %366
   %lpad.loopexit390 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.argprom.exitthread-pre-split
+  br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.exitthread-pre-split
 
 .loopexit.split-lp389.loopexit:                   ; preds = %318, %284
   %lpad.loopexit393 = landingpad { ptr, i32 }
           cleanup
   store ptr %286, ptr %23, align 8
-  br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.argprom.exit
+  br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.exit
 
 .loopexit.split-lp389.loopexit.split-lp:          ; preds = %312, %._crit_edge
   %lpad.loopexit.split-lp394 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.argprom.exitthread-pre-split
+  br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.exitthread-pre-split
 
 329:                                              ; preds = %287
   %330 = landingpad { ptr, i32 }
           cleanup
   store ptr %286, ptr %23, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %24) #23
-  br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.argprom.exit
+  br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i, %305
   %331 = phi ptr [ %326, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %306, %305 ]
@@ -2697,7 +2697,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd
 575:                                              ; preds = %573, %556, %554, %479, %457, %455, %453, %372
   %.pn = phi { ptr, i32 } [ %574, %573 ], [ %373, %372 ], [ %557, %556 ], [ %555, %554 ], [ %480, %479 ], [ %458, %457 ], [ %456, %455 ], [ %454, %453 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %25) #23
-  br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.argprom.exitthread-pre-split
+  br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.exitthread-pre-split
 
 ._crit_edge449:                                   ; preds = %564, %.preheader387
   %576 = phi ptr [ %344, %.preheader387 ], [ %567, %564 ]
@@ -2718,14 +2718,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd
 580:                                              ; preds = %._crit_edge449
   %581 = getelementptr inbounds i8, ptr %33, i64 16
   %.not529 = icmp eq i64 %577, 0
-  br i1 %.not529, label %586, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.argprom.exit.i
+  br i1 %.not529, label %586, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.exit.i
 
-_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.argprom.exit.i: ; preds = %580
+_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.exit.i: ; preds = %580
   %582 = mul nuw nsw i64 %577, 24
   %583 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %582) #27
-          to label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE13_M_deallocateEPS2_m.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i: ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.argprom.exit.i
+_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.exit.i
   %584 = getelementptr inbounds i8, ptr %33, i64 8
   store ptr %583, ptr %33, align 8
   store ptr %583, ptr %584, align 8
@@ -2733,9 +2733,9 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimp
   store ptr %585, ptr %581, align 8
   br label %586
 
-586:                                              ; preds = %580, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i
-  %587 = phi ptr [ null, %580 ], [ %585, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i ]
-  %.val.i.i = phi ptr [ null, %580 ], [ %583, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i ]
+586:                                              ; preds = %580, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE13_M_deallocateEPS2_m.exit.i
+  %587 = phi ptr [ null, %580 ], [ %585, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE13_M_deallocateEPS2_m.exit.i ]
+  %.val.i.i = phi ptr [ null, %580 ], [ %583, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE13_M_deallocateEPS2_m.exit.i ]
   %588 = getelementptr inbounds nuw i8, ptr %576, i64 8
   %589 = load double, ptr %588, align 8
   %590 = fadd double %589, -1.000000e+00
@@ -2745,7 +2745,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimp
 592:                                              ; preds = %586
   %593 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.not.i241 = icmp eq ptr %.val.i.i, %587
-  br i1 %.not.i241, label %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i, label %594
+  br i1 %.not.i241, label %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i, label %594
 
 594:                                              ; preds = %592
   store double %590, ptr %.val.i.i, align 8
@@ -2759,11 +2759,11 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimp
   store ptr %595, ptr %593, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE9push_backERKS2_.exit
 
-_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i: ; preds = %592
+_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %592
   %596 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
-          to label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit20.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit20.i.i: ; preds = %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i
+_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i: ; preds = %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   store double %590, ptr %596, align 8
   %.sroa.6306.0..sroa_idx307 = getelementptr inbounds i8, ptr %596, i64 8
   store i32 %591, ptr %.sroa.6306.0..sroa_idx307, align 8
@@ -2775,11 +2775,11 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKno
   %.not.i21.i.i = icmp eq ptr %587, null
   br i1 %.not.i21.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %598
 
-598:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit20.i.i
+598:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i
   call void @_ZdlPvm(ptr noundef nonnull %.val.i.i, i64 noundef 0) #25
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %598, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit20.i.i
+_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %598, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i
   store ptr %596, ptr %33, align 8
   store ptr %597, ptr %593, align 8
   store ptr %597, ptr %581, align 8
@@ -2850,7 +2850,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKno
   %625 = ptrtoint ptr %604 to i64
   %626 = sub i64 %624, %625
   %627 = icmp eq i64 %626, 9223372036854775800
-  br i1 %627, label %628, label %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i248
+  br i1 %627, label %628, label %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i248
 
 628:                                              ; preds = %623
   store ptr %602, ptr %593, align 8
@@ -2858,7 +2858,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKno
   store ptr %604, ptr %33, align 8
   br label %.invoke
 
-_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i248: ; preds = %623
+_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i248: ; preds = %623
   %629 = sdiv exact i64 %626, 24
   %630 = icmp eq ptr %602, %604
   %.sroa.speculated.i.i.i249 = select i1 %630, i64 1, i64 %629
@@ -2867,15 +2867,15 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKn
   %633 = call i64 @llvm.umin.i64(i64 %631, i64 384307168202282325)
   %634 = select i1 %632, i64 384307168202282325, i64 %633
   %.not.i.i.i250 = icmp eq i64 %634, 0
-  br i1 %.not.i.i.i250, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.argprom.exit.i.i251, label %635
+  br i1 %.not.i.i.i250, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.exit.i.i251, label %635
 
-635:                                              ; preds = %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i248
+635:                                              ; preds = %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i248
   %636 = mul nuw nsw i64 %634, 24
   %637 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %636) #27
-          to label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.argprom.exit.i.i251 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.exit.i.i251 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.argprom.exit.i.i251: ; preds = %635, %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i248
-  %638 = phi ptr [ null, %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i248 ], [ %637, %635 ]
+_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.exit.i.i251: ; preds = %635, %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i248
+  %638 = phi ptr [ null, %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i248 ], [ %637, %635 ]
   %639 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_EditSimplifyKnotInfo", ptr %638, i64 %629
   store double %607, ptr %639, align 8
   %.sroa.4.0..sroa_idx297 = getelementptr inbounds i8, ptr %639, i64 8
@@ -2885,22 +2885,22 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimp
   %.sroa.6.0..sroa_idx301 = getelementptr inbounds i8, ptr %639, i64 13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.6.0..sroa_idx301, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.6, i64 11, i1 false)
   %640 = icmp sgt i64 %626, 0
-  br i1 %640, label %641, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit20.i.i252
+  br i1 %640, label %641, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i252
 
-641:                                              ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.argprom.exit.i.i251
+641:                                              ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.exit.i.i251
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %638, ptr align 8 %604, i64 %626, i1 false)
-  br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit20.i.i252
+  br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i252
 
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit20.i.i252: ; preds = %641, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.argprom.exit.i.i251
+_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i252: ; preds = %641, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.exit.i.i251
   %642 = getelementptr inbounds i8, ptr %638, i64 %626
   %.not.i21.i.i253 = icmp eq ptr %604, null
   br i1 %.not.i21.i.i253, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i254, label %643
 
-643:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit20.i.i252
+643:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i252
   call void @_ZdlPvm(ptr noundef nonnull %604, i64 noundef %626) #25
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i254
 
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i254: ; preds = %643, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit20.i.i252
+_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i254: ; preds = %643, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i252
   %644 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_EditSimplifyKnotInfo", ptr %638, i64 %634
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE9push_backERKS2_.exit257
 
@@ -2922,7 +2922,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKno
   store ptr %604, ptr %33, align 8
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %586, %._crit_edge466, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.argprom.exit.i, %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i, %684
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %586, %._crit_edge466, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.exit.i, %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i, %684
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   %.val160.pre = load ptr, ptr %33, align 8
@@ -2932,7 +2932,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKno
   %.val160 = phi ptr [ %.val, %.loopexit ], [ %.val, %.loopexit.split-lp.loopexit ], [ %604, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.val160.pre, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit382, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit385, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %.not.i.i.i258 = icmp eq ptr %.val160, null
-  br i1 %.not.i.i.i258, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.argprom.exitthread-pre-split, label %645
+  br i1 %.not.i.i.i258, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.exitthread-pre-split, label %645
 
 645:                                              ; preds = %.loopexit.split-lp
   %646 = getelementptr inbounds i8, ptr %33, i64 16
@@ -2941,7 +2941,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKno
   %648 = ptrtoint ptr %.val160 to i64
   %649 = sub i64 %647, %648
   call void @_ZdlPvm(ptr noundef nonnull %.val160, i64 noundef %649) #25
-  br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.argprom.exitthread-pre-split
+  br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.exitthread-pre-split
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE9push_backERKS2_.exit257: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i254, %622
   %650 = phi ptr [ %638, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i254 ], [ %604, %622 ]
@@ -3004,9 +3004,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKno
   %675 = ptrtoint ptr %.val.i.i260 to i64
   %676 = sub i64 %674, %675
   %677 = icmp eq i64 %676, 9223372036854775800
-  br i1 %677, label %.invoke, label %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i261
+  br i1 %677, label %.invoke, label %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i261
 
-_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i261: ; preds = %673
+_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i261: ; preds = %673
   %678 = sdiv exact i64 %676, 24
   %679 = icmp eq ptr %669, %.val.i.i260
   %.sroa.speculated.i.i.i262 = select i1 %679, i64 1, i64 %678
@@ -3015,15 +3015,15 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKn
   %682 = call i64 @llvm.umin.i64(i64 %680, i64 384307168202282325)
   %683 = select i1 %681, i64 384307168202282325, i64 %682
   %.not.i.i.i263 = icmp eq i64 %683, 0
-  br i1 %.not.i.i.i263, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.argprom.exit.i.i264, label %684
+  br i1 %.not.i.i.i263, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.exit.i.i264, label %684
 
-684:                                              ; preds = %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i261
+684:                                              ; preds = %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i261
   %685 = mul nuw nsw i64 %683, 24
   %686 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %685) #27
-          to label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.argprom.exit.i.i264 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.exit.i.i264 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.argprom.exit.i.i264: ; preds = %684, %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i261
-  %687 = phi ptr [ null, %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i261 ], [ %686, %684 ]
+_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.exit.i.i264: ; preds = %684, %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i261
+  %687 = phi ptr [ null, %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i261 ], [ %686, %684 ]
   %688 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_EditSimplifyKnotInfo", ptr %687, i64 %678
   store double %666, ptr %688, align 8
   %.sroa.6306.0..sroa_idx311 = getelementptr inbounds i8, ptr %688, i64 8
@@ -3033,23 +3033,23 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimp
   %.sroa.10.0..sroa_idx321 = getelementptr inbounds i8, ptr %688, i64 13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.10.0..sroa_idx321, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.10, i64 11, i1 false)
   %689 = icmp sgt i64 %676, 0
-  br i1 %689, label %690, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit20.i.i265
+  br i1 %689, label %690, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i265
 
-690:                                              ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.argprom.exit.i.i264
+690:                                              ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.exit.i.i264
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %687, ptr align 8 %.val.i.i260, i64 %676, i1 false)
-  br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit20.i.i265
+  br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i265
 
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit20.i.i265: ; preds = %690, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.argprom.exit.i.i264
+_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i265: ; preds = %690, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.exit.i.i264
   %691 = getelementptr inbounds i8, ptr %687, i64 %676
   %692 = getelementptr inbounds i8, ptr %691, i64 24
   %.not.i21.i.i266 = icmp eq ptr %.val.i.i260, null
   br i1 %.not.i21.i.i266, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i267, label %693
 
-693:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit20.i.i265
+693:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i265
   call void @_ZdlPvm(ptr noundef nonnull %.val.i.i260, i64 noundef %676) #25
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i267
 
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i267: ; preds = %693, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit20.i.i265
+_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i267: ; preds = %693, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i265
   store ptr %687, ptr %33, align 8
   store ptr %692, ptr %593, align 8
   %694 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_EditSimplifyKnotInfo", ptr %687, i64 %683
@@ -3242,21 +3242,21 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_
 .loopexit381:                                     ; preds = %739, %.loopexit381.sink.split, %754, %699
   %.val162 = load ptr, ptr %33, align 8
   %.not.i.i.i278 = icmp eq ptr %.val162, null
-  br i1 %.not.i.i.i278, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.argprom.exit279, label %756
+  br i1 %.not.i.i.i278, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.exit279, label %756
 
 756:                                              ; preds = %.loopexit381
   %757 = ptrtoint ptr %.val163 to i64
   %758 = ptrtoint ptr %.val162 to i64
   %759 = sub i64 %757, %758
   call void @_ZdlPvm(ptr noundef nonnull %.val162, i64 noundef %759) #25
-  br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.argprom.exit279
+  br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.exit279
 
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.argprom.exit279: ; preds = %.loopexit381, %756
+_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.exit279: ; preds = %.loopexit381, %756
   %760 = load ptr, ptr %23, align 8
   %.not.i.i.i280 = icmp eq ptr %760, null
   br i1 %.not.i.i.i280, label %_ZN32pxrInternal_v0_24__pxrReserved__8TsSplineaSERKS0_.exit, label %761
 
-761:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.argprom.exit279
+761:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.exit279
   %762 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %763 = load ptr, ptr %762, align 8
   %764 = ptrtoint ptr %763 to i64
@@ -3265,7 +3265,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKno
   call void @_ZdlPvm(ptr noundef nonnull %760, i64 noundef %766) #25
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TsSplineaSERKS0_.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TsSplineaSERKS0_.exit: ; preds = %246, %761, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.argprom.exit279, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, %193, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit203, %192
+_ZN32pxrInternal_v0_24__pxrReserved__8TsSplineaSERKS0_.exit: ; preds = %246, %761, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.exit279, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, %193, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit203, %192
   %767 = load ptr, ptr %20, align 8
   %768 = load ptr, ptr %184, align 8
   %.not4.i.i.i.i = icmp eq ptr %767, %768
@@ -3398,18 +3398,18 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZN32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret void
 
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.argprom.exitthread-pre-split: ; preds = %575, %.loopexit.split-lp, %645, %.loopexit.split-lp389.loopexit.split-lp, %.loopexit388
+_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.exitthread-pre-split: ; preds = %575, %.loopexit.split-lp, %645, %.loopexit.split-lp389.loopexit.split-lp, %.loopexit388
   %.pn142.ph = phi { ptr, i32 } [ %lpad.loopexit.split-lp394, %.loopexit.split-lp389.loopexit.split-lp ], [ %lpad.loopexit390, %.loopexit388 ], [ %lpad.phi, %645 ], [ %lpad.phi, %.loopexit.split-lp ], [ %.pn, %575 ]
   %.pr = load ptr, ptr %23, align 8
-  br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.argprom.exit
+  br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.argprom.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.argprom.exitthread-pre-split, %.loopexit.split-lp389.loopexit, %329
-  %819 = phi ptr [ %.pr, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.argprom.exitthread-pre-split ], [ %286, %.loopexit.split-lp389.loopexit ], [ %286, %329 ]
-  %.pn142 = phi { ptr, i32 } [ %.pn142.ph, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.argprom.exitthread-pre-split ], [ %lpad.loopexit393, %.loopexit.split-lp389.loopexit ], [ %330, %329 ]
+_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.exitthread-pre-split, %.loopexit.split-lp389.loopexit, %329
+  %819 = phi ptr [ %.pr, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.exitthread-pre-split ], [ %286, %.loopexit.split-lp389.loopexit ], [ %286, %329 ]
+  %.pn142 = phi { ptr, i32 } [ %.pn142.ph, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.exitthread-pre-split ], [ %lpad.loopexit393, %.loopexit.split-lp389.loopexit ], [ %330, %329 ]
   %.not.i.i.i290 = icmp eq ptr %819, null
   br i1 %.not.i.i.i290, label %_ZNSt6vectorIdSaIdEED2Ev.exit291, label %820
 
-820:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.argprom.exit
+820:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.exit
   %821 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %822 = load ptr, ptr %821, align 8
   %823 = ptrtoint ptr %822 to i64
@@ -3418,8 +3418,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKno
   call void @_ZdlPvm(ptr noundef nonnull %819, i64 noundef %825) #25
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit291
 
-_ZNSt6vectorIdSaIdEED2Ev.exit291:                 ; preds = %820, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.argprom.exit, %275, %273
-  %.pn142.pn = phi { ptr, i32 } [ %276, %275 ], [ %274, %273 ], [ %.pn142, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.argprom.exit ], [ %.pn142, %820 ]
+_ZNSt6vectorIdSaIdEED2Ev.exit291:                 ; preds = %820, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.exit, %275, %273
+  %.pn142.pn = phi { ptr, i32 } [ %276, %275 ], [ %274, %273 ], [ %.pn142, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EED2Ev.exit ], [ %.pn142, %820 ]
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
   br label %826
 
@@ -6991,15 +6991,15 @@ define internal fastcc void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImE
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %.not1.i = icmp eq i64 %.sroa.2.0.copyload, %.sroa.0.0.copyload
-  br i1 %.not1.i, label %"_ZNK3tbb6detail2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPKPN32pxrInternal_v0_24__pxrReserved__8TsSplineESt6vectorIS7_SaIS7_EEEEZNS5_27TsSimplifySplinesInParallelERKSC_RKSA_INS5_15GfMultiIntervalESaISG_EEddE3$_0S7_EclENS0_2d113blocked_rangeImEE.argprom.exit", label %.lr.ph.i
+  br i1 %.not1.i, label %"_ZNK3tbb6detail2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPKPN32pxrInternal_v0_24__pxrReserved__8TsSplineESt6vectorIS7_SaIS7_EEEEZNS5_27TsSimplifySplinesInParallelERKSC_RKSA_INS5_15GfMultiIntervalESaISG_EEddE3$_0S7_EclENS0_2d113blocked_rangeImEE.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   br label %8
 
-8:                                                ; preds = %"_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN32pxrInternal_v0_24__pxrReserved__27TsSimplifySplinesInParallelERKSt6vectorIPNS3_8TsSplineESaIS6_EERKS4_INS3_15GfMultiIntervalESaISB_EEddE3$_0E4callIRKS6_NS1_11feeder_implISG_S6_EEEEDTcmclfp_clsr3stdE7forwardIT_Efp0_EEcvv_EERKSG_OSN_PT0_.argprom.exit.i", %.lr.ph.i
-  %.02.i = phi i64 [ %.sroa.2.0.copyload, %.lr.ph.i ], [ %24, %"_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN32pxrInternal_v0_24__pxrReserved__27TsSimplifySplinesInParallelERKSt6vectorIPNS3_8TsSplineESaIS6_EERKS4_INS3_15GfMultiIntervalESaISB_EEddE3$_0E4callIRKS6_NS1_11feeder_implISG_S6_EEEEDTcmclfp_clsr3stdE7forwardIT_Efp0_EEcvv_EERKSG_OSN_PT0_.argprom.exit.i" ]
+8:                                                ; preds = %"_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN32pxrInternal_v0_24__pxrReserved__27TsSimplifySplinesInParallelERKSt6vectorIPNS3_8TsSplineESaIS6_EERKS4_INS3_15GfMultiIntervalESaISB_EEddE3$_0E4callIRKS6_NS1_11feeder_implISG_S6_EEEEDTcmclfp_clsr3stdE7forwardIT_Efp0_EEcvv_EERKSG_OSN_PT0_.exit.i", %.lr.ph.i
+  %.02.i = phi i64 [ %.sroa.2.0.copyload, %.lr.ph.i ], [ %24, %"_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN32pxrInternal_v0_24__pxrReserved__27TsSimplifySplinesInParallelERKSt6vectorIPNS3_8TsSplineESaIS6_EERKS4_INS3_15GfMultiIntervalESaISB_EEddE3$_0E4callIRKS6_NS1_11feeder_implISG_S6_EEEEDTcmclfp_clsr3stdE7forwardIT_Efp0_EEcvv_EERKSG_OSN_PT0_.exit.i" ]
   %9 = load ptr, ptr %6, align 32
   %10 = load ptr, ptr %5, align 8
   %11 = getelementptr inbounds ptr, ptr %10, i64 %.02.i
@@ -7019,7 +7019,7 @@ define internal fastcc void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImE
 17:                                               ; preds = %8
   %18 = load ptr, ptr %7, align 8
   invoke void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__10GfIntervalES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %18)
-          to label %"_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN32pxrInternal_v0_24__pxrReserved__27TsSimplifySplinesInParallelERKSt6vectorIPNS3_8TsSplineESaIS6_EERKS4_INS3_15GfMultiIntervalESaISB_EEddE3$_0E4callIRKS6_NS1_11feeder_implISG_S6_EEEEDTcmclfp_clsr3stdE7forwardIT_Efp0_EEcvv_EERKSG_OSN_PT0_.argprom.exit.i" unwind label %19
+          to label %"_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN32pxrInternal_v0_24__pxrReserved__27TsSimplifySplinesInParallelERKSt6vectorIPNS3_8TsSplineESaIS6_EERKS4_INS3_15GfMultiIntervalESaISB_EEddE3$_0E4callIRKS6_NS1_11feeder_implISG_S6_EEEEDTcmclfp_clsr3stdE7forwardIT_Efp0_EEcvv_EERKSG_OSN_PT0_.exit.i" unwind label %19
 
 19:                                               ; preds = %17
   %20 = landingpad { ptr, i32 }
@@ -7034,14 +7034,14 @@ define internal fastcc void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImE
   call void @_ZN32pxrInternal_v0_24__pxrReserved__15GfMultiIntervalD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #23
   resume { ptr, i32 } %23
 
-"_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN32pxrInternal_v0_24__pxrReserved__27TsSimplifySplinesInParallelERKSt6vectorIPNS3_8TsSplineESaIS6_EERKS4_INS3_15GfMultiIntervalESaISB_EEddE3$_0E4callIRKS6_NS1_11feeder_implISG_S6_EEEEDTcmclfp_clsr3stdE7forwardIT_Efp0_EEcvv_EERKSG_OSN_PT0_.argprom.exit.i": ; preds = %17
+"_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN32pxrInternal_v0_24__pxrReserved__27TsSimplifySplinesInParallelERKSt6vectorIPNS3_8TsSplineESaIS6_EERKS4_INS3_15GfMultiIntervalESaISB_EEddE3$_0E4callIRKS6_NS1_11feeder_implISG_S6_EEEEDTcmclfp_clsr3stdE7forwardIT_Efp0_EEcvv_EERKSG_OSN_PT0_.exit.i": ; preds = %17
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %24 = add i64 %.02.i, 1
   %.not.i = icmp eq i64 %24, %.sroa.0.0.copyload
-  br i1 %.not.i, label %"_ZNK3tbb6detail2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPKPN32pxrInternal_v0_24__pxrReserved__8TsSplineESt6vectorIS7_SaIS7_EEEEZNS5_27TsSimplifySplinesInParallelERKSC_RKSA_INS5_15GfMultiIntervalESaISG_EEddE3$_0S7_EclENS0_2d113blocked_rangeImEE.argprom.exit", label %8, !llvm.loop !40
+  br i1 %.not.i, label %"_ZNK3tbb6detail2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPKPN32pxrInternal_v0_24__pxrReserved__8TsSplineESt6vectorIS7_SaIS7_EEEEZNS5_27TsSimplifySplinesInParallelERKSC_RKSA_INS5_15GfMultiIntervalESaISG_EEddE3$_0S7_EclENS0_2d113blocked_rangeImEE.exit", label %8, !llvm.loop !40
 
-"_ZNK3tbb6detail2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPKPN32pxrInternal_v0_24__pxrReserved__8TsSplineESt6vectorIS7_SaIS7_EEEEZNS5_27TsSimplifySplinesInParallelERKSC_RKSA_INS5_15GfMultiIntervalESaISG_EEddE3$_0S7_EclENS0_2d113blocked_rangeImEE.argprom.exit": ; preds = %"_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN32pxrInternal_v0_24__pxrReserved__27TsSimplifySplinesInParallelERKSt6vectorIPNS3_8TsSplineESaIS6_EERKS4_INS3_15GfMultiIntervalESaISB_EEddE3$_0E4callIRKS6_NS1_11feeder_implISG_S6_EEEEDTcmclfp_clsr3stdE7forwardIT_Efp0_EEcvv_EERKSG_OSN_PT0_.argprom.exit.i", %2
+"_ZNK3tbb6detail2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPKPN32pxrInternal_v0_24__pxrReserved__8TsSplineESt6vectorIS7_SaIS7_EEEEZNS5_27TsSimplifySplinesInParallelERKSC_RKSA_INS5_15GfMultiIntervalESaISG_EEddE3$_0S7_EclENS0_2d113blocked_rangeImEE.exit": ; preds = %"_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN32pxrInternal_v0_24__pxrReserved__27TsSimplifySplinesInParallelERKSt6vectorIPNS3_8TsSplineESaIS6_EERKS4_INS3_15GfMultiIntervalESaISB_EEddE3$_0E4callIRKS6_NS1_11feeder_implISG_S6_EEEEDTcmclfp_clsr3stdE7forwardIT_Efp0_EEcvv_EERKSG_OSN_PT0_.exit.i", %2
   ret void
 }
 

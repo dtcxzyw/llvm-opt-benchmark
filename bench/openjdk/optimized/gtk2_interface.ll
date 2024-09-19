@@ -3826,7 +3826,7 @@ define internal ptr @gtk2_get_setting(ptr noundef %0, i32 noundef %1) #0 {
   %35 = load ptr, ptr %34, align 8
   %36 = call ptr %35(ptr noundef nonnull %0, ptr noundef nonnull @.str.184) #18
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %get_boolean_property.argprom.exit, label %38
+  br i1 %37, label %get_boolean_property.exit, label %38
 
 38:                                               ; preds = %29
   %39 = load ptr, ptr @create_Boolean.cid, align 8
@@ -3856,9 +3856,9 @@ define internal ptr @gtk2_get_setting(ptr noundef %0, i32 noundef %1) #0 {
   %54 = getelementptr inbounds i8, ptr %53, i64 184
   %55 = load ptr, ptr %54, align 8
   call void %55(ptr noundef nonnull %0, ptr noundef nonnull %36) #18
-  br label %get_boolean_property.argprom.exit
+  br label %get_boolean_property.exit
 
-get_boolean_property.argprom.exit:                ; preds = %29, %.sink.split.i.i.i
+get_boolean_property.exit:                        ; preds = %29, %.sink.split.i.i.i
   %.0.i.i.i = phi ptr [ null, %29 ], [ %.0.ph.i.i.i, %.sink.split.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -3877,7 +3877,7 @@ get_boolean_property.argprom.exit:                ; preds = %29, %.sink.split.i.
   %61 = load ptr, ptr %60, align 8
   %62 = call ptr %61(ptr noundef nonnull %0, ptr noundef nonnull @.str.187) #18
   %63 = icmp eq ptr %62, null
-  br i1 %63, label %get_integer_property.argprom.exit, label %64
+  br i1 %63, label %get_integer_property.exit, label %64
 
 64:                                               ; preds = %56
   %65 = load ptr, ptr @create_Integer.cid, align 8
@@ -3907,16 +3907,16 @@ get_boolean_property.argprom.exit:                ; preds = %29, %.sink.split.i.
   %80 = getelementptr inbounds i8, ptr %79, i64 184
   %81 = load ptr, ptr %80, align 8
   call void %81(ptr noundef nonnull %0, ptr noundef nonnull %62) #18
-  br label %get_integer_property.argprom.exit
+  br label %get_integer_property.exit
 
-get_integer_property.argprom.exit:                ; preds = %56, %.sink.split.i.i.i9
+get_integer_property.exit:                        ; preds = %56, %.sink.split.i.i.i9
   %.0.i.i.i11 = phi ptr [ null, %56 ], [ %.0.ph.i.i.i10, %.sink.split.i.i.i9 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %82
 
-82:                                               ; preds = %2, %get_integer_property.argprom.exit, %get_boolean_property.argprom.exit, %20, %11
-  %.0 = phi ptr [ %.0.i.i.i11, %get_integer_property.argprom.exit ], [ %.0.i.i.i, %get_boolean_property.argprom.exit ], [ %26, %20 ], [ %17, %11 ], [ null, %2 ]
+82:                                               ; preds = %2, %get_integer_property.exit, %get_boolean_property.exit, %20, %11
+  %.0 = phi ptr [ %.0.i.i.i11, %get_integer_property.exit ], [ %.0.i.i.i, %get_boolean_property.exit ], [ %26, %20 ], [ %17, %11 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -4555,16 +4555,16 @@ init_containers.exit:                             ; preds = %3, %6
   %32 = load ptr, ptr %31, align 8
   %33 = tail call ptr %32(ptr noundef nonnull %0, ptr noundef nonnull @.str.190) #18
   %.not.i = icmp eq ptr %33, null
-  br i1 %.not.i, label %throw_exception.argprom.exit, label %34
+  br i1 %.not.i, label %throw_exception.exit, label %34
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %0, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 112
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i32 %37(ptr noundef nonnull %0, ptr noundef nonnull %33, ptr noundef nonnull @convertionBuffer) #18
-  br label %throw_exception.argprom.exit
+  br label %throw_exception.exit
 
-throw_exception.argprom.exit:                     ; preds = %28, %34
+throw_exception.exit:                             ; preds = %28, %34
   %39 = load ptr, ptr %0, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 184
   %41 = load ptr, ptr %40, align 8
@@ -4634,7 +4634,7 @@ throw_exception.argprom.exit:                     ; preds = %28, %34
   tail call void %78(ptr noundef %74) #18
   br label %79
 
-79:                                               ; preds = %64, %throw_exception.argprom.exit
+79:                                               ; preds = %64, %throw_exception.exit
   ret void
 }
 

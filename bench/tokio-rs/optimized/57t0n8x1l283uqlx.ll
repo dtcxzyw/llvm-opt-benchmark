@@ -534,13 +534,13 @@ common.resume:                                    ; preds = %12, %9, %22
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %2), !noalias !74
   %26 = atomicrmw add ptr %19, i64 1 monotonic, align 8
   %27 = icmp slt i64 %26, 0
-  br i1 %27, label %28, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h636d0b8b1edb7645E.argprom.exit"
+  br i1 %27, label %28, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h636d0b8b1edb7645E.exit"
 
 28:                                               ; preds = %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h1411ee9e8b5adb96E.exit"
   tail call void @llvm.trap()
   unreachable
 
-"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h636d0b8b1edb7645E.argprom.exit": ; preds = %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h1411ee9e8b5adb96E.exit"
+"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h636d0b8b1edb7645E.exit": ; preds = %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h1411ee9e8b5adb96E.exit"
   %29 = insertvalue { ptr, ptr } poison, ptr %19, 0
   %30 = insertvalue { ptr, ptr } %29, ptr %19, 1
   ret { ptr, ptr } %30
@@ -560,7 +560,7 @@ define hidden i24 @_ZN5tokio7runtime4coop12poll_proceed17h8e5fe15c124786d4E.llvm
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4)
   %.val = load ptr, ptr %0, align 8
   %5 = load i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit5STATE17h5f8ec821a32f13ccE, align 1, !noundef !5
-  switch i8 %5, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h9f1d8bc199224f6dE.argprom.exit" [
+  switch i8 %5, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h9f1d8bc199224f6dE.exit" [
     i8 0, label %6
     i8 1, label %7
   ]
@@ -591,7 +591,7 @@ define hidden i24 @_ZN5tokio7runtime4coop12poll_proceed17h8e5fe15c124786d4E.llvm
   %19 = getelementptr inbounds i8, ptr %.val, i64 8
   %20 = load ptr, ptr %19, align 8, !noundef !5
   call void %18(ptr noundef %20)
-  br label %"_ZN5tokio7runtime7context6budget28_$u7b$$u7b$closure$u7d$$u7d$17hc02f3b4bfd534881E.argprom.exit.i"
+  br label %"_ZN5tokio7runtime7context6budget28_$u7b$$u7b$closure$u7d$$u7d$17hc02f3b4bfd534881E.exit.i"
 
 21:                                               ; preds = %7
   %22 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 76), align 4
@@ -599,17 +599,17 @@ define hidden i24 @_ZN5tokio7runtime4coop12poll_proceed17h8e5fe15c124786d4E.llvm
   %24 = load i8, ptr %10, align 1
   store i8 %23, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 76), align 4
   store i8 %24, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 77), align 1
-  br label %"_ZN5tokio7runtime7context6budget28_$u7b$$u7b$closure$u7d$$u7d$17hc02f3b4bfd534881E.argprom.exit.i"
+  br label %"_ZN5tokio7runtime7context6budget28_$u7b$$u7b$closure$u7d$$u7d$17hc02f3b4bfd534881E.exit.i"
 
-"_ZN5tokio7runtime7context6budget28_$u7b$$u7b$closure$u7d$$u7d$17hc02f3b4bfd534881E.argprom.exit.i": ; preds = %21, %14
+"_ZN5tokio7runtime7context6budget28_$u7b$$u7b$closure$u7d$$u7d$17hc02f3b4bfd534881E.exit.i": ; preds = %21, %14
   %.sroa.0.0.i.i.i = phi i8 [ 0, %21 ], [ 1, %14 ]
   %.sroa.3.0.insert.insert.i.i.i = phi i16 [ %22, %21 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
-  br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h9f1d8bc199224f6dE.argprom.exit"
+  br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h9f1d8bc199224f6dE.exit"
 
-"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h9f1d8bc199224f6dE.argprom.exit": ; preds = %1, %"_ZN5tokio7runtime7context6budget28_$u7b$$u7b$closure$u7d$$u7d$17hc02f3b4bfd534881E.argprom.exit.i"
-  %.sroa.3.0.i = phi i16 [ %.sroa.3.0.insert.insert.i.i.i, %"_ZN5tokio7runtime7context6budget28_$u7b$$u7b$closure$u7d$$u7d$17hc02f3b4bfd534881E.argprom.exit.i" ], [ undef, %1 ]
-  %.sroa.0.0.i = phi i8 [ %.sroa.0.0.i.i.i, %"_ZN5tokio7runtime7context6budget28_$u7b$$u7b$closure$u7d$$u7d$17hc02f3b4bfd534881E.argprom.exit.i" ], [ 2, %1 ]
+"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h9f1d8bc199224f6dE.exit": ; preds = %1, %"_ZN5tokio7runtime7context6budget28_$u7b$$u7b$closure$u7d$$u7d$17hc02f3b4bfd534881E.exit.i"
+  %.sroa.3.0.i = phi i16 [ %.sroa.3.0.insert.insert.i.i.i, %"_ZN5tokio7runtime7context6budget28_$u7b$$u7b$closure$u7d$$u7d$17hc02f3b4bfd534881E.exit.i" ], [ undef, %1 ]
+  %.sroa.0.0.i = phi i8 [ %.sroa.0.0.i.i.i, %"_ZN5tokio7runtime7context6budget28_$u7b$$u7b$closure$u7d$$u7d$17hc02f3b4bfd534881E.exit.i" ], [ 2, %1 ]
   %.sroa.3.0.insert.ext.i = zext i16 %.sroa.3.0.i to i24
   %.sroa.3.0.insert.shift.i = shl nuw i24 %.sroa.3.0.insert.ext.i, 8
   %.sroa.0.0.insert.ext.i = zext nneg i8 %.sroa.0.0.i to i24
@@ -618,7 +618,7 @@ define hidden i24 @_ZN5tokio7runtime4coop12poll_proceed17h8e5fe15c124786d4E.llvm
   %25 = invoke { i8, i8 } @_ZN5tokio7runtime4coop6Budget13unconstrained17h24706ce45bec0f40E()
           to label %26 unwind label %33
 
-26:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h9f1d8bc199224f6dE.argprom.exit"
+26:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h9f1d8bc199224f6dE.exit"
   %27 = extractvalue { i8, i8 } %25, 0
   %28 = extractvalue { i8, i8 } %25, 1
   %29 = and i8 %27, 1
@@ -646,7 +646,7 @@ define hidden i24 @_ZN5tokio7runtime4coop12poll_proceed17h8e5fe15c124786d4E.llvm
 "_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$core..task..poll..Poll$LT$tokio..runtime..coop..RestoreOnPending$GT$$C$std..thread..local..AccessError$GT$$GT$17h96a6b4baaad3d28eE.exit": ; preds = %33, %35
   resume { ptr, i32 } %34
 
-33:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h9f1d8bc199224f6dE.argprom.exit"
+33:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h9f1d8bc199224f6dE.exit"
   %34 = landingpad { ptr, i32 }
           cleanup
   %cond.i = icmp eq i8 %.sroa.0.0.i, 0

@@ -5222,7 +5222,7 @@ statistic_proc_security_check.exit.thread:        ; preds = %59, %57, %54, %stat
   %.1148.i = phi double [ %262, %257 ], [ %.0147.i, %248 ]
   %264 = fcmp olt double %.1150.i, %.1148.i
   %265 = select i1 %264, double %.1150.i, double %.1148.i
-  br label %eqjoinsel_inner.argprom.exit
+  br label %eqjoinsel_inner.exit
 
 266:                                              ; preds = %.thread92, %93
   %267 = phi i8 [ %92, %.thread92 ], [ %97, %93 ]
@@ -5261,13 +5261,13 @@ statistic_proc_security_check.exit.thread:        ; preds = %59, %57, %54, %stat
 
 285:                                              ; preds = %279
   %286 = fdiv double %283, %26
-  br label %eqjoinsel_inner.argprom.exit
+  br label %eqjoinsel_inner.exit
 
 287:                                              ; preds = %279
   %288 = fdiv double %283, %27
-  br label %eqjoinsel_inner.argprom.exit
+  br label %eqjoinsel_inner.exit
 
-eqjoinsel_inner.argprom.exit:                     ; preds = %263, %285, %287
+eqjoinsel_inner.exit:                             ; preds = %263, %285, %287
   %289 = phi i8 [ %97, %263 ], [ %267, %285 ], [ %267, %287 ]
   %290 = phi i8 [ %96, %263 ], [ %268, %285 ], [ %268, %287 ]
   %.058104 = phi ptr [ %78, %263 ], [ %.058105, %285 ], [ %.058105, %287 ]
@@ -5287,7 +5287,7 @@ eqjoinsel_inner.argprom.exit:                     ; preds = %263, %285, %287
     i32 5, label %293
   ]
 
-293:                                              ; preds = %eqjoinsel_inner.argprom.exit, %eqjoinsel_inner.argprom.exit
+293:                                              ; preds = %eqjoinsel_inner.exit, %eqjoinsel_inner.exit
   %294 = getelementptr inbounds i8, ptr %23, i64 16
   %295 = load ptr, ptr %294, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
@@ -5330,7 +5330,7 @@ find_join_input_rel.exit:                         ; preds = %304
   %312 = trunc i8 %289 to i1
   %313 = getelementptr inbounds i8, ptr %6, i64 8
   %.val = load ptr, ptr %313, align 8
-  %314 = call fastcc double @eqjoinsel_semi.argprom(i32 noundef %28, i32 noundef %25, ptr %.val, double noundef %26, double noundef %27, i1 noundef zeroext %311, i1 noundef zeroext %312, ptr noundef %9, ptr noundef %10, ptr noundef %.0578798, i1 noundef zeroext %.05985100, i1 noundef zeroext %.060102, ptr noundef %.0.i78)
+  %314 = call fastcc double @eqjoinsel_semi(i32 noundef %28, i32 noundef %25, ptr %.val, double noundef %26, double noundef %27, i1 noundef zeroext %311, i1 noundef zeroext %312, ptr noundef %9, ptr noundef %10, ptr noundef %.0578798, i1 noundef zeroext %.05985100, i1 noundef zeroext %.060102, ptr noundef %.0.i78)
   br label %325
 
 315:                                              ; preds = %find_join_input_rel.exit
@@ -5348,7 +5348,7 @@ find_join_input_rel.exit:                         ; preds = %304
   %322 = trunc i8 %290 to i1
   %323 = getelementptr inbounds i8, ptr %5, i64 8
   %.val72 = load ptr, ptr %323, align 8
-  %324 = call fastcc double @eqjoinsel_semi.argprom(i32 noundef %320, i32 noundef %25, ptr %.val72, double noundef %27, double noundef %26, i1 noundef zeroext %321, i1 noundef zeroext %322, ptr noundef %10, ptr noundef %9, ptr noundef %.058104, i1 noundef zeroext %.060102, i1 noundef zeroext %.05985100, ptr noundef %.0.i78)
+  %324 = call fastcc double @eqjoinsel_semi(i32 noundef %320, i32 noundef %25, ptr %.val72, double noundef %27, double noundef %26, i1 noundef zeroext %321, i1 noundef zeroext %322, ptr noundef %10, ptr noundef %9, ptr noundef %.058104, i1 noundef zeroext %.060102, i1 noundef zeroext %.05985100, ptr noundef %.0.i78)
   br label %325
 
 325:                                              ; preds = %319, %310
@@ -5360,7 +5360,7 @@ find_join_input_rel.exit:                         ; preds = %304
   %.1. = select i1 %329, double %.1, double %328
   br label %334
 
-330:                                              ; preds = %eqjoinsel_inner.argprom.exit
+330:                                              ; preds = %eqjoinsel_inner.exit
   %331 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   call void @llvm.assume(i1 %331)
   %332 = load i32, ptr %291, align 8
@@ -5368,8 +5368,8 @@ find_join_input_rel.exit:                         ; preds = %304
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2411, ptr noundef nonnull @__func__.eqjoinsel) #13
   unreachable
 
-334:                                              ; preds = %eqjoinsel_inner.argprom.exit, %eqjoinsel_inner.argprom.exit, %eqjoinsel_inner.argprom.exit, %325
-  %.0 = phi double [ %.1., %325 ], [ %.0.i77, %eqjoinsel_inner.argprom.exit ], [ %.0.i77, %eqjoinsel_inner.argprom.exit ], [ %.0.i77, %eqjoinsel_inner.argprom.exit ]
+334:                                              ; preds = %eqjoinsel_inner.exit, %eqjoinsel_inner.exit, %eqjoinsel_inner.exit, %325
+  %.0 = phi double [ %.1., %325 ], [ %.0.i77, %eqjoinsel_inner.exit ], [ %.0.i77, %eqjoinsel_inner.exit ], [ %.0.i77, %eqjoinsel_inner.exit ]
   call void @free_attstatsslot(ptr noundef nonnull %9) #13
   call void @free_attstatsslot(ptr noundef nonnull %10) #13
   %335 = load ptr, ptr %29, align 8
@@ -5476,7 +5476,7 @@ list_length.exit.thread:                          ; preds = %6, %list_length.exi
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @eqjoinsel_semi.argprom(i32 noundef %0, i32 noundef %1, ptr readonly %.8.val, double noundef %2, double noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr nocapture noundef nonnull readonly %6, ptr nocapture noundef nonnull readonly %7, ptr noundef readonly %8, i1 noundef zeroext %9, i1 noundef zeroext %10, ptr nocapture noundef nonnull readonly %11) unnamed_addr #0 {
+define internal fastcc double @eqjoinsel_semi(i32 noundef %0, i32 noundef %1, ptr readonly %.8.val, double noundef %2, double noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr nocapture noundef nonnull readonly %6, ptr nocapture noundef nonnull readonly %7, ptr noundef readonly %8, i1 noundef zeroext %9, i1 noundef zeroext %10, ptr nocapture noundef nonnull readonly %11) unnamed_addr #0 {
   %13 = alloca %union.anon.8, align 8
   %14 = alloca %struct.FmgrInfo, align 8
   %.not = icmp eq ptr %.8.val, null
@@ -5900,15 +5900,15 @@ list_length.exit.i:                               ; preds = %21
   %29 = getelementptr inbounds i8, ptr %.val, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = icmp sgt i32 %30, 1
-  br i1 %31, label %get_rightop.argprom.exit, label %is_opclause.exit.thread
+  br i1 %31, label %get_rightop.exit, label %is_opclause.exit.thread
 
-get_rightop.argprom.exit:                         ; preds = %list_length.exit.i
+get_rightop.exit:                                 ; preds = %list_length.exit.i
   %32 = getelementptr i8, ptr %.val.i, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %is_opclause.exit.thread, label %34
 
-34:                                               ; preds = %get_rightop.argprom.exit
+34:                                               ; preds = %get_rightop.exit
   call void @examine_variable(ptr noundef %0, ptr noundef %28, i32 noundef 0, ptr noundef nonnull %10)
   call void @examine_variable(ptr noundef %0, ptr noundef nonnull %33, i32 noundef 0, ptr noundef nonnull %11)
   call void @get_op_opfamily_properties(i32 noundef %23, i32 noundef %2, i1 noundef zeroext false, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14) #13
@@ -6014,19 +6014,19 @@ get_rightop.argprom.exit:                         ; preds = %list_length.exit.i
   br i1 %.0, label %103, label %99
 
 99:                                               ; preds = %98
-  %100 = call fastcc zeroext i1 @get_variable_range.argprom(ptr noundef %10, i32 noundef %.0164, i32 noundef %25, ptr noundef %15, ptr noundef %16)
+  %100 = call fastcc zeroext i1 @get_variable_range(ptr noundef %10, i32 noundef %.0164, i32 noundef %25, ptr noundef %15, ptr noundef %16)
   br i1 %100, label %101, label %206
 
 101:                                              ; preds = %99
-  %102 = call fastcc zeroext i1 @get_variable_range.argprom(ptr noundef %11, i32 noundef %.0163, i32 noundef %25, ptr noundef %17, ptr noundef %18)
+  %102 = call fastcc zeroext i1 @get_variable_range(ptr noundef %11, i32 noundef %.0163, i32 noundef %25, ptr noundef %17, ptr noundef %18)
   br i1 %102, label %107, label %206
 
 103:                                              ; preds = %98
-  %104 = call fastcc zeroext i1 @get_variable_range.argprom(ptr noundef %10, i32 noundef %.0164, i32 noundef %25, ptr noundef %16, ptr noundef %15)
+  %104 = call fastcc zeroext i1 @get_variable_range(ptr noundef %10, i32 noundef %.0164, i32 noundef %25, ptr noundef %16, ptr noundef %15)
   br i1 %104, label %105, label %206
 
 105:                                              ; preds = %103
-  %106 = call fastcc zeroext i1 @get_variable_range.argprom(ptr noundef %11, i32 noundef %.0163, i32 noundef %25, ptr noundef %18, ptr noundef %17)
+  %106 = call fastcc zeroext i1 @get_variable_range(ptr noundef %11, i32 noundef %.0163, i32 noundef %25, ptr noundef %18, ptr noundef %17)
   br i1 %106, label %107, label %206
 
 107:                                              ; preds = %105, %101
@@ -6258,7 +6258,7 @@ get_rightop.argprom.exit:                         ; preds = %list_length.exit.i
   call void %217(ptr noundef nonnull %214) #13
   br label %is_opclause.exit.thread
 
-is_opclause.exit.thread:                          ; preds = %21, %list_length.exit.i, %9, %212, %215, %get_rightop.argprom.exit, %is_opclause.exit
+is_opclause.exit.thread:                          ; preds = %21, %list_length.exit.i, %9, %212, %215, %get_rightop.exit, %is_opclause.exit
   ret void
 }
 
@@ -6267,7 +6267,7 @@ declare void @get_op_opfamily_properties(i32 noundef, i32 noundef, i1 noundef ze
 declare i32 @get_opfamily_member(i32 noundef, i32 noundef, i32 noundef, i16 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @get_variable_range.argprom(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc zeroext i1 @get_variable_range(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i8, align 1
@@ -9312,9 +9312,9 @@ add_predicate_to_index_quals.exit:                ; preds = %107, %._crit_edge.i
   %181 = phi i32 [ %.pr.i, %177 ], [ %175, %167 ]
   %.0.i224 = phi ptr [ %179, %177 ], [ %174, %167 ]
   %182 = icmp eq i32 %181, 7
-  br i1 %182, label %187, label %gincost_opexpr.argprom.argprom.argprom.exit.thread
+  br i1 %182, label %187, label %gincost_opexpr.exit.thread
 
-gincost_opexpr.argprom.argprom.argprom.exit.thread: ; preds = %180
+gincost_opexpr.exit.thread:                       ; preds = %180
   %183 = load double, ptr %138, align 8
   %184 = fadd double %183, 1.000000e+00
   store double %184, ptr %138, align 8
@@ -9327,9 +9327,9 @@ gincost_opexpr.argprom.argprom.argprom.exit.thread: ; preds = %180
   %188 = getelementptr inbounds i8, ptr %.0.i224, i64 32
   %189 = load i8, ptr %188, align 8
   %190 = trunc i8 %189 to i1
-  br i1 %190, label %.thread236, label %gincost_opexpr.argprom.argprom.argprom.exit
+  br i1 %190, label %.thread236, label %gincost_opexpr.exit
 
-gincost_opexpr.argprom.argprom.argprom.exit:      ; preds = %187
+gincost_opexpr.exit:                              ; preds = %187
   %191 = getelementptr inbounds i8, ptr %.0.i224, i64 24
   %192 = load i64, ptr %191, align 8
   %193 = call fastcc zeroext i1 @gincost_pattern(ptr noundef readonly %22, i32 noundef %169, i32 noundef %.val, i64 noundef %192, ptr noundef %18)
@@ -9501,13 +9501,13 @@ estimate_array_length.exit:                       ; preds = %227, %231, %245, %2
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   %272 = load double, ptr %134, align 8
   %273 = fmul double %.018.i, %272
-  br label %gincost_scalararrayopexpr.argprom.argprom.argprom.exit
+  br label %gincost_scalararrayopexpr.exit
 
 274:                                              ; preds = %207
   %275 = getelementptr inbounds i8, ptr %.043.i, i64 32
   %276 = load i8, ptr %275, align 8
   %277 = trunc i8 %276 to i1
-  br i1 %277, label %gincost_scalararrayopexpr.argprom.argprom.argprom.exit.thread, label %278
+  br i1 %277, label %gincost_scalararrayopexpr.exit.thread, label %278
 
 278:                                              ; preds = %274
   %279 = getelementptr inbounds i8, ptr %.043.i, i64 24
@@ -9526,7 +9526,7 @@ estimate_array_length.exit:                       ; preds = %227, %231, %245, %2
   call void @deconstruct_array(ptr noundef %282, i32 noundef %285, i32 noundef %287, i1 noundef zeroext %289, i8 noundef signext %290, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %14) #13
   %291 = load i32, ptr %14, align 4
   %292 = icmp sgt i32 %291, 0
-  br i1 %292, label %.lr.ph.i225, label %gincost_scalararrayopexpr.argprom.argprom.argprom.exit.thread
+  br i1 %292, label %.lr.ph.i225, label %gincost_scalararrayopexpr.exit.thread
 
 .lr.ph.i225:                                      ; preds = %278
   %293 = sext i16 %195 to i64
@@ -9593,7 +9593,7 @@ estimate_array_length.exit:                       ; preds = %227, %231, %245, %2
 
 ._crit_edge.i229:                                 ; preds = %321
   %325 = icmp eq i32 %.1.i227, 0
-  br i1 %325, label %gincost_scalararrayopexpr.argprom.argprom.argprom.exit.thread, label %326
+  br i1 %325, label %gincost_scalararrayopexpr.exit.thread, label %326
 
 326:                                              ; preds = %._crit_edge.i229
   %327 = sitofp i32 %.1.i227 to double
@@ -9611,9 +9611,9 @@ estimate_array_length.exit:                       ; preds = %227, %231, %245, %2
   store double %336, ptr %139, align 8
   %337 = load double, ptr %134, align 8
   %338 = fmul double %337, %327
-  br label %gincost_scalararrayopexpr.argprom.argprom.argprom.exit
+  br label %gincost_scalararrayopexpr.exit
 
-gincost_scalararrayopexpr.argprom.argprom.argprom.exit.thread: ; preds = %274, %._crit_edge.i229, %278
+gincost_scalararrayopexpr.exit.thread:            ; preds = %274, %._crit_edge.i229, %278
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
@@ -9623,7 +9623,7 @@ gincost_scalararrayopexpr.argprom.argprom.argprom.exit.thread: ; preds = %274, %
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %17)
   br label %.thread236
 
-gincost_scalararrayopexpr.argprom.argprom.argprom.exit: ; preds = %estimate_array_length.exit, %326
+gincost_scalararrayopexpr.exit:                   ; preds = %estimate_array_length.exit, %326
   %storemerge = phi double [ %273, %estimate_array_length.exit ], [ %338, %326 ]
   store double %storemerge, ptr %134, align 8
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11)
@@ -9643,15 +9643,15 @@ gincost_scalararrayopexpr.argprom.argprom.argprom.exit: ; preds = %estimate_arra
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 7710, ptr noundef nonnull @__func__.gincostestimate) #13
   unreachable
 
-343:                                              ; preds = %gincost_scalararrayopexpr.argprom.argprom.argprom.exit, %gincost_opexpr.argprom.argprom.argprom.exit.thread, %gincost_opexpr.argprom.argprom.argprom.exit
+343:                                              ; preds = %gincost_scalararrayopexpr.exit, %gincost_opexpr.exit.thread, %gincost_opexpr.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv299, 1
   %344 = load i32, ptr %156, align 4
   %345 = sext i32 %344 to i64
   %346 = icmp slt i64 %indvars.iv.next, %345
   br i1 %346, label %.lr.ph300, label %.thread236
 
-.thread236:                                       ; preds = %187, %343, %gincost_opexpr.argprom.argprom.argprom.exit, %.lr.ph, %.lr.ph306, %gincost_scalararrayopexpr.argprom.argprom.argprom.exit.thread
-  %.3 = phi i1 [ false, %gincost_scalararrayopexpr.argprom.argprom.argprom.exit.thread ], [ %.0189259305, %.lr.ph306 ], [ %.0189259305, %.lr.ph ], [ false, %gincost_opexpr.argprom.argprom.argprom.exit ], [ true, %343 ], [ false, %187 ]
+.thread236:                                       ; preds = %187, %343, %gincost_opexpr.exit, %.lr.ph, %.lr.ph306, %gincost_scalararrayopexpr.exit.thread
+  %.3 = phi i1 [ false, %gincost_scalararrayopexpr.exit.thread ], [ %.0189259305, %.lr.ph306 ], [ %.0189259305, %.lr.ph ], [ false, %gincost_opexpr.exit ], [ true, %343 ], [ false, %187 ]
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274304, 1
   %347 = load i32, ptr %136, align 4
   %348 = sext i32 %347 to i64

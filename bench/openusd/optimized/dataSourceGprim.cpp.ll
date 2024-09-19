@@ -1028,7 +1028,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit57: ; preds = %_ZN32pxrInt
           to label %128 unwind label %206
 
 128:                                              ; preds = %125
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L6_MergeERKSt6vectorINS_34UsdImagingDataSourceCustomPrimvars7MappingESaIS2_EES6_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L6_MergeERKSt6vectorINS_34UsdImagingDataSourceCustomPrimvars7MappingESaIS2_EES6_(ptr noundef nonnull align 8 dereferenceable(24) %10)
           to label %129 unwind label %208
 
 129:                                              ; preds = %128
@@ -2444,7 +2444,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #7
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L6_MergeERKSt6vectorINS_34UsdImagingDataSourceCustomPrimvars7MappingESaIS2_EES6_.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L6_MergeERKSt6vectorINS_34UsdImagingDataSourceCustomPrimvars7MappingESaIS2_EES6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__34UsdImagingDataSourceCustomPrimvars7MappingESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN32pxrInternal_v0_24__pxrReserved__L25_GetCustomPrimvarMappingsERKNS_7UsdPrimEE9forCurves, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN32pxrInternal_v0_24__pxrReserved__L25_GetCustomPrimvarMappingsERKNS_7UsdPrimEE13forPointBased)
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8

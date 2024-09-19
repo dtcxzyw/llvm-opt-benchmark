@@ -3812,7 +3812,7 @@ define internal fastcc i32 @ext4_add_entry(ptr noundef %0, ptr noundef %1, ptr n
   %.val = load ptr, ptr %230, align 8
   %231 = getelementptr i8, ptr %170, i64 -8
   %.val59 = load ptr, ptr %231, align 8
-  call fastcc void @dx_insert_block.argprom(ptr %.val, ptr %.val59, i32 noundef %202, i32 noundef %229)
+  call fastcc void @dx_insert_block(ptr %.val, ptr %.val59, i32 noundef %202, i32 noundef %229)
   %232 = call fastcc i32 @ext4_handle_dirty_dx_node(ptr noundef %0, ptr noundef %15, ptr noundef %228)
   %233 = icmp eq i32 %232, 0
   br i1 %233, label %234, label %.thread73
@@ -8091,7 +8091,7 @@ define internal fastcc range(i32 0, 2) i32 @ext4_dx_csum_verify(ptr noundef %0, 
   %.val2 = load i32, ptr %68, align 8
   %69 = getelementptr i8, ptr %24, i64 872
   %.val.val = load ptr, ptr %69, align 8
-  %70 = tail call fastcc i32 @ext4_dx_csum.argprom.argprom(ptr %.val.val, i32 %.val2, ptr noundef %1, i32 noundef %49, i32 noundef %64, ptr noundef %65)
+  %70 = tail call fastcc i32 @ext4_dx_csum(ptr %.val.val, i32 %.val2, ptr noundef %1, i32 noundef %49, i32 noundef %64, ptr noundef %65)
   %71 = icmp eq i32 %67, %70
   %72 = zext i1 %71 to i32
   br label %.thread7
@@ -8102,7 +8102,7 @@ define internal fastcc range(i32 0, 2) i32 @ext4_dx_csum_verify(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ext4_dx_csum.argprom.argprom(ptr nocapture readonly %.40.val.872.val, i32 %.840.val, ptr noundef %0, i32 noundef range(i32 0, 33) %1, i32 noundef range(i32 0, 65536) %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ext4_dx_csum(ptr nocapture readonly %.40.val.872.val, i32 %.840.val, ptr noundef %0, i32 noundef range(i32 0, 33) %1, i32 noundef range(i32 0, 65536) %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.anon.16, align 8
   %6 = alloca %struct.anon.16, align 8
   %7 = alloca %struct.anon.16, align 8
@@ -8351,7 +8351,7 @@ define internal fastcc i32 @add_dirent_to_buf(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @dx_insert_block.argprom(ptr %.8.val, ptr %.16.val, i32 noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @dx_insert_block(ptr %.8.val, ptr %.16.val, i32 noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %.8.val, i64 2
   %4 = load i16, ptr %3, align 2
   %5 = load i16, ptr %.8.val, align 2
@@ -8501,7 +8501,7 @@ define internal fastcc i32 @ext4_handle_dirty_dx_node(ptr noundef %0, ptr nounde
   %.val2 = load i32, ptr %69, align 8
   %70 = getelementptr i8, ptr %27, i64 872
   %.val.val = load ptr, ptr %70, align 8
-  %71 = tail call fastcc i32 @ext4_dx_csum.argprom.argprom(ptr %.val.val, i32 %.val2, ptr noundef %5, i32 noundef %52, i32 noundef %67, ptr noundef %68)
+  %71 = tail call fastcc i32 @ext4_dx_csum(ptr %.val.val, i32 %.val2, ptr noundef %5, i32 noundef %52, i32 noundef %67, ptr noundef %68)
   %72 = getelementptr inbounds i8, ptr %68, i64 4
   store i32 %71, ptr %72, align 4
   br label %.thread7

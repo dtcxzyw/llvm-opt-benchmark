@@ -331,7 +331,7 @@ define hidden zeroext range(i8 0, 2) i8 @stepControl_handleStep(ptr noundef %0, 
   %130 = getelementptr inbounds i8, ptr %9, i64 24
   %131 = load ptr, ptr %130, align 8
   %132 = icmp eq ptr %129, %131
-  br i1 %132, label %133, label %findLineNumber.argprom.exit
+  br i1 %132, label %133, label %findLineNumber.exit
 
 133:                                              ; preds = %128
   %134 = load ptr, ptr @gdata, align 8
@@ -359,7 +359,7 @@ define hidden zeroext range(i8 0, 2) i8 @stepControl_handleStep(ptr noundef %0, 
   %147 = icmp ne i64 %142, -1
   %148 = icmp sgt i32 %146, 0
   %or.cond.i = and i1 %147, %148
-  br i1 %or.cond.i, label %.preheader.i, label %findLineNumber.argprom.exit
+  br i1 %or.cond.i, label %.preheader.i, label %findLineNumber.exit
 
 .preheader.i:                                     ; preds = %139
   %149 = icmp ugt i32 %146, 1
@@ -390,16 +390,16 @@ define hidden zeroext range(i8 0, 2) i8 @stepControl_handleStep(ptr noundef %0, 
   %154 = getelementptr %struct.jvmtiLineNumberEntry, ptr %144, i64 %.0.lcssa.i
   %155 = getelementptr i8, ptr %154, i64 -8
   %156 = load i32, ptr %155, align 8
-  br label %findLineNumber.argprom.exit
+  br label %findLineNumber.exit
 
-findLineNumber.argprom.exit:                      ; preds = %._crit_edge.i, %139, %128
+findLineNumber.exit:                              ; preds = %._crit_edge.i, %139, %128
   %.0 = phi i32 [ -1, %128 ], [ %156, %._crit_edge.i ], [ -1, %139 ]
   %157 = load i32, ptr %116, align 8
   %.not75 = icmp eq i32 %.0, %157
   %.pre101 = load ptr, ptr @gdata, align 8
   br i1 %.not75, label %163, label %158
 
-158:                                              ; preds = %findLineNumber.argprom.exit
+158:                                              ; preds = %findLineNumber.exit
   %159 = getelementptr inbounds i8, ptr %.pre101, i64 528
   %160 = load i32, ptr %159, align 8
   %161 = and i32 %160, 16
@@ -412,9 +412,9 @@ findLineNumber.argprom.exit:                      ; preds = %._crit_edge.i, %139
   %.pre100 = load ptr, ptr @gdata, align 8
   br label %163
 
-163:                                              ; preds = %162, %158, %findLineNumber.argprom.exit
-  %164 = phi ptr [ %.pre100, %162 ], [ %.pre101, %158 ], [ %.pre101, %findLineNumber.argprom.exit ]
-  %.3 = phi i8 [ 1, %162 ], [ 1, %158 ], [ 0, %findLineNumber.argprom.exit ]
+163:                                              ; preds = %162, %158, %findLineNumber.exit
+  %164 = phi ptr [ %.pre100, %162 ], [ %.pre101, %158 ], [ %.pre101, %findLineNumber.exit ]
+  %.3 = phi i8 [ 1, %162 ], [ 1, %158 ], [ 0, %findLineNumber.exit ]
   %165 = getelementptr inbounds i8, ptr %164, i64 528
   %166 = load i32, ptr %165, align 8
   %167 = and i32 %166, 2
@@ -1082,7 +1082,7 @@ getLineNumberTable.exit:                          ; preds = %70, %73, %81
   %97 = icmp ne i64 %92, -1
   %98 = icmp sgt i32 %96, 0
   %or.cond.i = and i1 %97, %98
-  br i1 %or.cond.i, label %.preheader.i, label %findLineNumber.argprom.exit
+  br i1 %or.cond.i, label %.preheader.i, label %findLineNumber.exit
 
 .preheader.i:                                     ; preds = %91
   %99 = icmp ugt i32 %96, 1
@@ -1113,15 +1113,15 @@ getLineNumberTable.exit:                          ; preds = %70, %73, %81
   %104 = getelementptr %struct.jvmtiLineNumberEntry, ptr %94, i64 %.0.lcssa.i
   %105 = getelementptr i8, ptr %104, i64 -8
   %106 = load i32, ptr %105, align 8
-  br label %findLineNumber.argprom.exit
+  br label %findLineNumber.exit
 
-findLineNumber.argprom.exit:                      ; preds = %91, %._crit_edge.i
+findLineNumber.exit:                              ; preds = %91, %._crit_edge.i
   %.011.i = phi i32 [ %106, %._crit_edge.i ], [ -1, %91 ]
   store i32 %.011.i, ptr %7, align 8
   br label %getFrameLocation.exit.thread52
 
-getFrameLocation.exit.thread52:                   ; preds = %50, %findLineNumber.argprom.exit, %getFrameLocation.exit
-  %.0.i50 = phi i32 [ 0, %findLineNumber.argprom.exit ], [ %60, %getFrameLocation.exit ], [ %56, %50 ]
+getFrameLocation.exit.thread52:                   ; preds = %50, %findLineNumber.exit, %getFrameLocation.exit
+  %.0.i50 = phi i32 [ 0, %findLineNumber.exit ], [ %60, %getFrameLocation.exit ], [ %56, %50 ]
   %107 = load ptr, ptr @gdata, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 528
   %109 = load i32, ptr %108, align 8

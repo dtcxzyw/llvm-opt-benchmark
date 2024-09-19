@@ -2611,7 +2611,7 @@ _ZNSt10shared_ptrIN3cfg4flowEEC2ERKS2_.exit:      ; preds = %245, %253, %256
 284:                                              ; preds = %282
   %285 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3cfg13resolved_confB5cxx11E, i64 24), align 8
   %.not23.i = icmp eq ptr %285, getelementptr inbounds (i8, ptr @_ZN3cfg13resolved_confB5cxx11E, i64 8)
-  br i1 %.not23.i, label %_ZN3cfgL19print_available_cfgERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_.argprom.exit, label %.lr.ph26.i
+  br i1 %.not23.i, label %_ZN3cfgL19print_available_cfgERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_.exit, label %.lr.ph26.i
 
 .lr.ph26.i:                                       ; preds = %284, %._crit_edge22.i
   %.sroa.09.024.i = phi ptr [ %346, %._crit_edge22.i ], [ %285, %284 ]
@@ -2807,7 +2807,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #27
   %346 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.09.024.i) #28
   %.not.i = icmp eq ptr %346, getelementptr inbounds (i8, ptr @_ZN3cfg13resolved_confB5cxx11E, i64 8)
-  br i1 %.not.i, label %_ZN3cfgL19print_available_cfgERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_.argprom.exit, label %.lr.ph26.i
+  br i1 %.not.i, label %_ZN3cfgL19print_available_cfgERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_.exit, label %.lr.ph26.i
 
 .body37.i:                                        ; preds = %341, %340, %329, %295
   %.pn30.i = phi { ptr, i32 } [ %342, %341 ], [ %.pn.pn.i, %340 ], [ %330, %329 ], [ %296, %295 ]
@@ -2829,7 +2829,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #27
   br label %.body207
 
-_ZN3cfgL19print_available_cfgERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_.argprom.exit: ; preds = %._crit_edge22.i, %284
+_ZN3cfgL19print_available_cfgERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_.exit: ; preds = %._crit_edge22.i, %284
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #27
@@ -6788,8 +6788,8 @@ _ZNSt6vectorIN2cv4gapi3wip6onevpl8CfgParamESaIS4_EED2Ev.exit: ; preds = %_ZSt8_D
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %85) #27
   br label %1923
 
-1879:                                             ; preds = %_ZN3cfgL19print_available_cfgERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_.argprom.exit, %404, %_ZNSt6vectorIN2cv4gapi3wip6onevpl8CfgParamESaIS4_EED2Ev.exit
-  %.1 = phi i32 [ %.2, %_ZNSt6vectorIN2cv4gapi3wip6onevpl8CfgParamESaIS4_EED2Ev.exit ], [ -1, %_ZN3cfgL19print_available_cfgERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_.argprom.exit ], [ -1, %404 ]
+1879:                                             ; preds = %_ZN3cfgL19print_available_cfgERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_.exit, %404, %_ZNSt6vectorIN2cv4gapi3wip6onevpl8CfgParamESaIS4_EED2Ev.exit
+  %.1 = phi i32 [ %.2, %_ZNSt6vectorIN2cv4gapi3wip6onevpl8CfgParamESaIS4_EED2Ev.exit ], [ -1, %_ZN3cfgL19print_available_cfgERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_.exit ], [ -1, %404 ]
   %1880 = load ptr, ptr %247, align 8
   %.not.i.i.i455 = icmp eq ptr %1880, null
   br i1 %.not.i.i.i455, label %_ZNSt10shared_ptrIN3cfg4flowEED2Ev.exit, label %1881

@@ -236,10 +236,10 @@ do_range_limit.exit.i:                            ; preds = %103, %101
   br i1 %.not.i38, label %.preheader.i, label %.preheader15.i
 
 .preheader15.i:                                   ; preds = %do_range_limit.exit.i
-  br i1 %110, label %.lr.ph.i, label %do_range_limit_days_relative.argprom.exit
+  br i1 %110, label %.lr.ph.i, label %do_range_limit_days_relative.exit
 
 .preheader.i:                                     ; preds = %do_range_limit.exit.i
-  br i1 %110, label %dec_month.exit.i, label %do_range_limit_days_relative.argprom.exit
+  br i1 %110, label %dec_month.exit.i, label %do_range_limit_days_relative.exit
 
 dec_month.exit.i:                                 ; preds = %.preheader.i, %.critedge18.i
   %111 = phi i64 [ %124, %.critedge18.i ], [ %.pr46.pre, %.preheader.i ]
@@ -276,7 +276,7 @@ dec_month.exit.i:                                 ; preds = %.preheader.i, %.cri
   %124 = add nsw i64 %111, -1
   store i64 %124, ptr %72, align 8
   %125 = icmp slt i64 %123, 0
-  br i1 %125, label %dec_month.exit.i, label %do_range_limit_days_relative.argprom.exit
+  br i1 %125, label %dec_month.exit.i, label %do_range_limit_days_relative.exit
 
 .lr.ph.i:                                         ; preds = %.preheader15.i, %inc_month.exit.i
   %126 = phi i64 [ %137, %inc_month.exit.i ], [ %.pr46.pre, %.preheader15.i ]
@@ -313,14 +313,14 @@ inc_month.exit.i:                                 ; preds = %.critedge20.i, %130
   %139 = zext i1 %138 to i64
   %.3.i = add nsw i64 %.218.i, %139
   %140 = icmp slt i64 %136, 0
-  br i1 %140, label %.lr.ph.i, label %do_range_limit_days_relative.argprom.exit
+  br i1 %140, label %.lr.ph.i, label %do_range_limit_days_relative.exit
 
-do_range_limit_days_relative.argprom.exit:        ; preds = %inc_month.exit.i, %.critedge18.i, %.preheader15.i, %.preheader.i
+do_range_limit_days_relative.exit:                ; preds = %inc_month.exit.i, %.critedge18.i, %.preheader15.i, %.preheader.i
   %141 = phi i64 [ %.pr46.pre, %.preheader.i ], [ %.pr46.pre, %.preheader15.i ], [ %124, %.critedge18.i ], [ %137, %inc_month.exit.i ]
   %142 = icmp slt i64 %141, 0
   br i1 %142, label %143, label %150
 
-143:                                              ; preds = %do_range_limit_days_relative.argprom.exit
+143:                                              ; preds = %do_range_limit_days_relative.exit
   %.neg.i41 = xor i64 %141, -1
   %144 = udiv i64 %.neg.i41, 12
   %.neg24.i42 = xor i64 %144, -1
@@ -333,8 +333,8 @@ do_range_limit_days_relative.argprom.exit:        ; preds = %inc_month.exit.i, %
   store i64 %149, ptr %72, align 8
   br label %150
 
-150:                                              ; preds = %143, %do_range_limit_days_relative.argprom.exit
-  %151 = phi i64 [ %149, %143 ], [ %141, %do_range_limit_days_relative.argprom.exit ]
+150:                                              ; preds = %143, %do_range_limit_days_relative.exit
+  %151 = phi i64 [ %149, %143 ], [ %141, %do_range_limit_days_relative.exit ]
   %.fr.i40 = freeze i64 %151
   %.not.i39 = icmp slt i64 %.fr.i40, 12
   br i1 %.not.i39, label %do_range_limit.exit43, label %152

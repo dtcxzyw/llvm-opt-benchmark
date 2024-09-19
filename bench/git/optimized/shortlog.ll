@@ -156,14 +156,14 @@ if.end5:                                          ; preds = %if.then4, %if.else,
   %nr.i = getelementptr inbounds i8, ptr %log, i64 112
   %7 = load i64, ptr %nr.i, align 8
   %tobool.not.i = icmp eq i64 %7, 0
-  br i1 %tobool.not.i, label %insert_records_from_trailers.argprom.exit, label %if.end.i
+  br i1 %tobool.not.i, label %insert_records_from_trailers.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end5
   %8 = load ptr, ptr @the_repository, align 8
   %call.i = call ptr @repo_logmsg_reencode(ptr noundef %8, ptr noundef %commit, ptr noundef null, ptr noundef %ctx.val) #16
   %call1.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(1) @.str.26) #17
   %tobool2.not.i = icmp eq ptr %call1.i, null
-  br i1 %tobool2.not.i, label %insert_records_from_trailers.argprom.exit, label %if.end4.i
+  br i1 %tobool2.not.i, label %insert_records_from_trailers.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
   call void @trailer_iterator_init(ptr noundef nonnull %iter.i, ptr noundef nonnull %call1.i) #16
@@ -218,9 +218,9 @@ while.end.i:                                      ; preds = %while.cond.backedge
   call void @strbuf_release(ptr noundef nonnull %ident.i) #16
   %13 = load ptr, ptr @the_repository, align 8
   call void @repo_unuse_commit_buffer(ptr noundef %13, ptr noundef %commit, ptr noundef %call.i) #16
-  br label %insert_records_from_trailers.argprom.exit
+  br label %insert_records_from_trailers.exit
 
-insert_records_from_trailers.argprom.exit:        ; preds = %if.end5, %if.end.i, %while.end.i
+insert_records_from_trailers.exit:                ; preds = %if.end5, %if.end.i, %while.end.i
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %iter.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ident.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buf.i10)
@@ -230,7 +230,7 @@ insert_records_from_trailers.argprom.exit:        ; preds = %if.end5, %if.end.i,
   %tobool.not10.i = icmp eq ptr %14, null
   br i1 %tobool.not10.i, label %insert_records_from_format.exit, label %land.rhs.lr.ph.i
 
-land.rhs.lr.ph.i:                                 ; preds = %insert_records_from_trailers.argprom.exit
+land.rhs.lr.ph.i:                                 ; preds = %insert_records_from_trailers.exit
   %nr.i11 = getelementptr inbounds i8, ptr %log, i64 152
   %len2.i.i12 = getelementptr inbounds i8, ptr %buf.i10, i64 8
   %buf.i.i13 = getelementptr inbounds i8, ptr %buf.i10, i64 16
@@ -288,7 +288,7 @@ for.inc.i:                                        ; preds = %if.then.i, %lor.lhs
   %cmp.i = icmp ult ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.i, label %for.body.i, label %insert_records_from_format.exit
 
-insert_records_from_format.exit:                  ; preds = %for.inc.i, %land.rhs.lr.ph.i, %insert_records_from_trailers.argprom.exit
+insert_records_from_format.exit:                  ; preds = %for.inc.i, %land.rhs.lr.ph.i, %insert_records_from_trailers.exit
   call void @strbuf_release(ptr noundef nonnull %buf.i10) #16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buf.i10)
   call void @strmap_clear(ptr noundef nonnull %dups, i32 noundef 0) #16

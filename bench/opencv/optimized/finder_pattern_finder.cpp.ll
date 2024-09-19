@@ -12735,7 +12735,7 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit.i.i.i: ; preds = %24
 _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit19.i.i.i: ; preds = %38, %34, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit.i.i.i
   %.111.i.i.i = phi i64 [ %.1.i.i.i, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit.i.i.i ], [ %.19.i.i.i, %34 ], [ %.19.i.i.i, %38 ]
   %.not.i.i.i = icmp eq i64 %.010.i.i.i, 0
-  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_RT0_.argprom.exit.i.i", label %17
+  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_RT0_.exit.i.i", label %17
 
 42:                                               ; preds = %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEEC2ERKS3_.exit.thread.i.i.i
   %43 = landingpad { ptr, i32 }
@@ -12781,13 +12781,13 @@ common.resume:                                    ; preds = %common.resume.sink.
   %common.resume.op = phi { ptr, i32 } [ %43, %53 ], [ %43, %42 ], [ %111, %121 ], [ %111, %110 ], [ %436, %446 ], [ %436, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit12.i.i.i ], [ %484, %494 ], [ %484, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit12.i12.i.i ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_RT0_.argprom.exit.i.i": ; preds = %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit19.i.i.i
+"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_RT0_.exit.i.i": ; preds = %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit19.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %60 = icmp sgt i64 %.lcssa148, 8
   br i1 %60, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_T0_.exit"
 
-.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_RT0_.argprom.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_RT0_.argprom.exit"
-  %.sroa.0.03.i.i = phi ptr [ %61, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_RT0_.argprom.exit" ], [ %storemerge56.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_RT0_.argprom.exit.i.i" ]
+.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_RT0_.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_RT0_.exit"
+  %.sroa.0.03.i.i = phi ptr [ %61, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_RT0_.exit" ], [ %storemerge56.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_RT0_.exit.i.i" ]
   %61 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %62 = load ptr, ptr %61, align 8
@@ -12854,7 +12854,7 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEEC2ERKS3_.exit.i: ; preds = %63, %.l
           to label %92 unwind label %110
 
 92:                                               ; preds = %91
-  br i1 %.not.i.i.i18, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_RT0_.argprom.exit", label %93
+  br i1 %.not.i.i.i18, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_RT0_.exit", label %93
 
 93:                                               ; preds = %92
   %94 = getelementptr inbounds i8, ptr %62, i64 8
@@ -12878,7 +12878,7 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEEC2ERKS3_.exit.i: ; preds = %63, %.l
   %104 = add i32 %103, -1
   store i32 %104, ptr %94, align 8
   %105 = icmp eq i32 %104, 0
-  br i1 %105, label %106, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_RT0_.argprom.exit"
+  br i1 %105, label %106, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_RT0_.exit"
 
 106:                                              ; preds = %102
   store i32 -559026175, ptr %94, align 8
@@ -12886,7 +12886,7 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEEC2ERKS3_.exit.i: ; preds = %63, %.l
   %108 = getelementptr inbounds i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8
   tail call void %109(ptr noundef nonnull align 8 dereferenceable(12) %62) #23
-  br label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_RT0_.argprom.exit"
+  br label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_RT0_.exit"
 
 110:                                              ; preds = %91
   %111 = landingpad { ptr, i32 }
@@ -12917,7 +12917,7 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEEC2ERKS3_.exit.i: ; preds = %63, %.l
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %common.resume.sink.split, label %common.resume
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_RT0_.argprom.exit": ; preds = %92, %102, %106
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_RT0_.exit": ; preds = %92, %102, %106
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %125 = icmp sgt i64 %85, 8
   br i1 %125, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_T0_.exit", !llvm.loop !81
@@ -12930,11 +12930,11 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEEC2ERKS3_.exit.i: ; preds = %63, %.l
   %128 = lshr i64 %126, 1
   %129 = getelementptr inbounds %"class.zxing::Ref.35", ptr %0, i64 %128
   %130 = getelementptr inbounds i8, ptr %storemerge56157, i64 -8
-  %131 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom"(ptr nonnull %11, ptr %129)
+  %131 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_"(ptr nonnull %11, ptr %129)
   br i1 %131, label %132, label %267
 
 132:                                              ; preds = %.lr.ph158
-  %133 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom"(ptr %129, ptr nonnull %130)
+  %133 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_"(ptr %129, ptr nonnull %130)
   br i1 %133, label %134, label %178
 
 134:                                              ; preds = %132
@@ -13027,7 +13027,7 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEEC2ERKS3_.exit.i.i.i.i: ; preds = %1
   br i1 %177, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_SM_T0_.exit.i.preheader"
 
 178:                                              ; preds = %132
-  %179 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom"(ptr nonnull %11, ptr nonnull %130)
+  %179 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_"(ptr nonnull %11, ptr nonnull %130)
   %180 = load ptr, ptr %0, align 8
   %.not.i.i.i.i26.i.i = icmp eq ptr %180, null
   br i1 %179, label %181, label %224
@@ -13207,7 +13207,7 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEEC2ERKS3_.exit.i.i33.i.i: ; preds = 
   br i1 %266, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_SM_T0_.exit.i.preheader"
 
 267:                                              ; preds = %.lr.ph158
-  %268 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom"(ptr nonnull %11, ptr nonnull %130)
+  %268 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_"(ptr nonnull %11, ptr nonnull %130)
   br i1 %268, label %269, label %313
 
 269:                                              ; preds = %267
@@ -13300,7 +13300,7 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEEC2ERKS3_.exit.i.i39.i.i: ; preds = 
   br i1 %312, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_SM_T0_.exit.i.preheader"
 
 313:                                              ; preds = %267
-  %314 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom"(ptr %129, ptr nonnull %130)
+  %314 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_"(ptr %129, ptr nonnull %130)
   %315 = load ptr, ptr %0, align 8
   %.not.i.i.i.i44.i.i = icmp eq ptr %315, null
   br i1 %314, label %316, label %359
@@ -13552,7 +13552,7 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit.i.i.i17: ; preds = %423, 
   %429 = add i32 %428, -1
   store i32 %429, ptr %427, align 8
   %430 = icmp eq i32 %429, 0
-  br i1 %430, label %431, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i.i"
+  br i1 %430, label %431, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i.i"
 
 431:                                              ; preds = %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit.i.i.i17
   store i32 -559026175, ptr %427, align 8
@@ -13560,7 +13560,7 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit.i.i.i17: ; preds = %423, 
   %433 = getelementptr inbounds i8, ptr %432, i64 8
   %434 = load ptr, ptr %433, align 8
   tail call void %434(ptr noundef nonnull align 8 dereferenceable(12) %406) #23
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i.i"
 
 435:                                              ; preds = %.noexc.i.i.i, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEEC2ERKS3_.exit7.i.i.i
   %436 = landingpad { ptr, i32 }
@@ -13594,16 +13594,16 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit12.i.i.i: ; preds = %442, 
   %450 = icmp eq i32 %449, 0
   br i1 %450, label %common.resume.sink.split, label %common.resume
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i.i": ; preds = %431, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit.i.i.i17
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i.i": ; preds = %431, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit.i.i.i17
   %451 = fcmp ogt float %416, %417
   br i1 %451, label %452, label %.preheader.i.i
 
-452:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i.i"
+452:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i.i"
   %453 = getelementptr inbounds i8, ptr %.sroa.019.1.i.i, i64 8
   br label %405, !llvm.loop !82
 
-.preheader.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit16.i.i"
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit16.i.i" ], [ %.sroa.0.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i.i" ]
+.preheader.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit16.i.i"
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit16.i.i" ], [ %.sroa.0.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i.i" ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
   %454 = load ptr, ptr %0, align 8
   %.not.i.i.i8.i.i = icmp eq ptr %454, null
@@ -13658,7 +13658,7 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit.i15.i.i: ; preds = %471, 
   %477 = add i32 %476, -1
   store i32 %477, ptr %475, align 8
   %478 = icmp eq i32 %477, 0
-  br i1 %478, label %479, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit16.i.i"
+  br i1 %478, label %479, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit16.i.i"
 
 479:                                              ; preds = %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit.i15.i.i
   store i32 -559026175, ptr %475, align 8
@@ -13666,7 +13666,7 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit.i15.i.i: ; preds = %471, 
   %481 = getelementptr inbounds i8, ptr %480, i64 8
   %482 = load ptr, ptr %481, align 8
   tail call void %482(ptr noundef nonnull align 8 dereferenceable(12) %454) #23
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit16.i.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit16.i.i"
 
 483:                                              ; preds = %.noexc.i14.i.i, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEEC2ERKS3_.exit7.i11.i.i
   %484 = landingpad { ptr, i32 }
@@ -13700,11 +13700,11 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit12.i12.i.i: ; preds = %490
   %498 = icmp eq i32 %497, 0
   br i1 %498, label %common.resume.sink.split, label %common.resume
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit16.i.i": ; preds = %479, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit.i15.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit16.i.i": ; preds = %479, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit.i15.i.i
   %499 = fcmp ogt float %464, %465
   br i1 %499, label %.preheader.i.i, label %500, !llvm.loop !83
 
-500:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit16.i.i"
+500:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit16.i.i"
   %501 = icmp ult ptr %.sroa.019.1.i.i, %.sroa.0.1.i.i
   br i1 %501, label %502, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEET_SM_SM_T0_.exit"
 
@@ -13817,12 +13817,12 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPa
   %554 = icmp sgt i64 %553, 16
   br i1 %554, label %13, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_T0_.exit", !llvm.loop !80
 
-"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEET_SM_SM_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_RT0_.argprom.exit", %3, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_RT0_.argprom.exit.i.i"
+"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEET_SM_SM_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_RT0_.exit", %3, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_RT0_.exit.i.i"
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom"(ptr nocapture readonly %0, ptr nocapture readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_"(ptr nocapture readonly %0, ptr nocapture readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEEC2ERKS3_.exit, label %4
@@ -13948,7 +13948,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %10 = getelementptr inbounds %"class.zxing::Ref.35", ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
   %12 = getelementptr inbounds %"class.zxing::Ref.35", ptr %0, i64 %11
-  %13 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom"(ptr %10, ptr nonnull %12)
+  %13 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_"(ptr %10, ptr nonnull %12)
   %spec.select = select i1 %13, i64 %11, i64 %9
   %14 = getelementptr inbounds %"class.zxing::Ref.35", ptr %0, i64 %spec.select
   %15 = getelementptr inbounds %"class.zxing::Ref.35", ptr %0, i64 %.050
@@ -14118,7 +14118,7 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit.i.i: ; preds = %83, %79
   %89 = add i32 %88, -1
   store i32 %89, ptr %87, align 8
   %90 = icmp eq i32 %89, 0
-  br i1 %90, label %91, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.argprom.exit.i"
+  br i1 %90, label %91, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.exit.i"
 
 91:                                               ; preds = %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit.i.i
   store i32 -559026175, ptr %87, align 8
@@ -14126,7 +14126,7 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit.i.i: ; preds = %83, %79
   %93 = getelementptr inbounds i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8
   tail call void %94(ptr noundef nonnull align 8 dereferenceable(12) %69) #23
-  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.argprom.exit.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.exit.i"
 
 95:                                               ; preds = %.noexc.i.i, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEEC2ERKS3_.exit8.i.i
   %96 = landingpad { ptr, i32 }
@@ -14167,11 +14167,11 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit13.i.i: ; preds = %101, %9
   tail call void %113(ptr noundef nonnull align 8 dereferenceable(12) %69) #23
   br label %.body
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.argprom.exit.i": ; preds = %91, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.exit.i": ; preds = %91, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit.i.i
   %114 = fcmp ogt float %77, %78
   br i1 %114, label %115, label %.critedge.i.thread46.loopexit
 
-115:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.argprom.exit.i"
+115:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.exit.i"
   %116 = getelementptr inbounds %"class.zxing::Ref.35", ptr %0, i64 %.011.i
   %117 = load ptr, ptr %68, align 8
   %.not.i.i.i = icmp eq ptr %117, null
@@ -14210,8 +14210,8 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEEaSERKS3_.exit.i: ; preds = %129, %1
   %133 = icmp sgt i64 %.0912.i, %1
   br i1 %133, label %.lr.ph.i, label %.critedge.i.thread46.loopexit, !llvm.loop !86
 
-.critedge.i.thread46.loopexit:                    ; preds = %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEEaSERKS3_.exit.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.argprom.exit.i"
-  %.0.lcssa.i.ph.pn.ph = phi i64 [ %.011.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.argprom.exit.i" ], [ %.0912.i, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEEaSERKS3_.exit.i ]
+.critedge.i.thread46.loopexit:                    ; preds = %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEEaSERKS3_.exit.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.exit.i"
+  %.0.lcssa.i.ph.pn.ph = phi i64 [ %.011.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.exit.i" ], [ %.0912.i, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEEaSERKS3_.exit.i ]
   %.pre = load i32, ptr %67, align 8
   br label %.critedge.i.thread46
 
@@ -14313,7 +14313,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
 5:                                                ; preds = %.lr.ph, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit
   %.sroa.014.027 = phi ptr [ %.sroa.014.024, %.lr.ph ], [ %.sroa.014.0, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit ]
   %.pn26 = phi ptr [ %0, %.lr.ph ], [ %.sroa.014.027, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit ]
-  %6 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom"(ptr nonnull %.sroa.014.027, ptr %0)
+  %6 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_"(ptr nonnull %.sroa.014.027, ptr %0)
   br i1 %6, label %7, label %63
 
 7:                                                ; preds = %5
@@ -15096,7 +15096,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i: ; preds = %24
 _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i: ; preds = %38, %34, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i
   %.111.i.i.i = phi i64 [ %.1.i.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i ], [ %.19.i.i.i, %34 ], [ %.19.i.i.i, %38 ]
   %.not.i.i.i = icmp eq i64 %.010.i.i.i, 0
-  br i1 %.not.i.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_RT0_.argprom.exit.i.i, label %17
+  br i1 %.not.i.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_RT0_.exit.i.i, label %17
 
 42:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i
   %43 = landingpad { ptr, i32 }
@@ -15142,13 +15142,13 @@ common.resume:                                    ; preds = %common.resume.sink.
   %common.resume.op = phi { ptr, i32 } [ %43, %53 ], [ %43, %42 ], [ %110, %120 ], [ %110, %109 ], [ %423, %433 ], [ %423, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit12.i.i.i ], [ %471, %481 ], [ %471, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit12.i12.i.i ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
-_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_RT0_.argprom.exit.i.i: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i
+_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_RT0_.exit.i.i: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %60 = icmp sgt i64 %.lcssa148, 8
   br i1 %60, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_T0_.exit
 
-.lr.ph.i9.i:                                      ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_RT0_.argprom.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_RT0_.argprom.exit
-  %.sroa.0.03.i.i = phi ptr [ %61, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_RT0_.argprom.exit ], [ %storemerge56.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_RT0_.argprom.exit.i.i ]
+.lr.ph.i9.i:                                      ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_RT0_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_RT0_.exit
+  %.sroa.0.03.i.i = phi ptr [ %61, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_RT0_.exit ], [ %storemerge56.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_RT0_.exit.i.i ]
   %61 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %62 = load ptr, ptr %61, align 8
@@ -15215,7 +15215,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
           to label %91 unwind label %109
 
 91:                                               ; preds = %90
-  br i1 %.not.i.i.i18, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_RT0_.argprom.exit, label %92
+  br i1 %.not.i.i.i18, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_RT0_.exit, label %92
 
 92:                                               ; preds = %91
   %93 = getelementptr inbounds i8, ptr %62, i64 8
@@ -15239,7 +15239,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
   %103 = add i32 %102, -1
   store i32 %103, ptr %93, align 8
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %105, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_RT0_.argprom.exit
+  br i1 %104, label %105, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_RT0_.exit
 
 105:                                              ; preds = %101
   store i32 -559026175, ptr %93, align 8
@@ -15247,7 +15247,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
   %107 = getelementptr inbounds i8, ptr %106, i64 8
   %108 = load ptr, ptr %107, align 8
   tail call void %108(ptr noundef nonnull align 8 dereferenceable(12) %62) #23
-  br label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_RT0_.argprom.exit
+  br label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_RT0_.exit
 
 109:                                              ; preds = %90
   %110 = landingpad { ptr, i32 }
@@ -15278,7 +15278,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %common.resume.sink.split, label %common.resume
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_RT0_.argprom.exit: ; preds = %91, %101, %105
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_RT0_.exit: ; preds = %91, %101, %105
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %124 = icmp sgt i64 %84, 8
   br i1 %124, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_T0_.exit, !llvm.loop !93
@@ -15291,11 +15291,11 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13Finder
   %127 = lshr i64 %125, 1
   %128 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %127
   %129 = getelementptr inbounds i8, ptr %storemerge56157, i64 -8
-  %130 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nonnull %11, ptr %128)
+  %130 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr %128)
   br i1 %130, label %131, label %260
 
 131:                                              ; preds = %.lr.ph158
-  %132 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr %128, ptr nonnull %129)
+  %132 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr %128, ptr nonnull %129)
   br i1 %132, label %133, label %175
 
 133:                                              ; preds = %131
@@ -15388,7 +15388,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit8.i.i.i.i: ; preds = %166,
   br i1 %174, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
 175:                                              ; preds = %131
-  %176 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nonnull %11, ptr nonnull %129)
+  %176 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr nonnull %129)
   %177 = load ptr, ptr %0, align 8
   %.not.i.i.i.i26.i.i = icmp eq ptr %177, null
   br i1 %176, label %178, label %219
@@ -15568,7 +15568,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit8.i.i40.i.i: ; preds = %25
   br i1 %259, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
 260:                                              ; preds = %.lr.ph158
-  %261 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nonnull %11, ptr nonnull %129)
+  %261 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr nonnull %129)
   br i1 %261, label %262, label %304
 
 262:                                              ; preds = %260
@@ -15661,7 +15661,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit8.i.i48.i.i: ; preds = %29
   br i1 %303, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
 304:                                              ; preds = %260
-  %305 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr %128, ptr nonnull %129)
+  %305 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr %128, ptr nonnull %129)
   %306 = load ptr, ptr %0, align 8
   %.not.i.i.i.i50.i.i = icmp eq ptr %306, null
   br i1 %305, label %307, label %348
@@ -15913,7 +15913,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i17: ; preds = %410, %405
   %416 = add i32 %415, -1
   store i32 %416, ptr %414, align 8
   %417 = icmp eq i32 %416, 0
-  br i1 %417, label %418, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i
+  br i1 %417, label %418, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i
 
 418:                                              ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i17
   store i32 -559026175, ptr %414, align 8
@@ -15921,7 +15921,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i17: ; preds = %410, %405
   %420 = getelementptr inbounds i8, ptr %419, i64 8
   %421 = load ptr, ptr %420, align 8
   tail call void %421(ptr noundef nonnull align 8 dereferenceable(12) %393) #23
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i
 
 422:                                              ; preds = %.noexc.i.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit7.i.i.i
   %423 = landingpad { ptr, i32 }
@@ -15955,16 +15955,16 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit12.i.i.i: ; preds = %429, %424
   %437 = icmp eq i32 %436, 0
   br i1 %437, label %common.resume.sink.split, label %common.resume
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i: ; preds = %418, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i17
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i: ; preds = %418, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i17
   %438 = fcmp ogt float %403, %404
   br i1 %438, label %439, label %.preheader.i.i
 
-439:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i
+439:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i
   %440 = getelementptr inbounds i8, ptr %.sroa.019.1.i.i, i64 8
   br label %392, !llvm.loop !94
 
-.preheader.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit16.i.i
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit16.i.i ], [ %.sroa.0.0.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i ]
+.preheader.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit16.i.i
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit16.i.i ], [ %.sroa.0.0.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
   %441 = load ptr, ptr %0, align 8
   %.not.i.i.i8.i.i = icmp eq ptr %441, null
@@ -16019,7 +16019,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i15.i.i: ; preds = %458, %453
   %464 = add i32 %463, -1
   store i32 %464, ptr %462, align 8
   %465 = icmp eq i32 %464, 0
-  br i1 %465, label %466, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit16.i.i
+  br i1 %465, label %466, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit16.i.i
 
 466:                                              ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i15.i.i
   store i32 -559026175, ptr %462, align 8
@@ -16027,7 +16027,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i15.i.i: ; preds = %458, %453
   %468 = getelementptr inbounds i8, ptr %467, i64 8
   %469 = load ptr, ptr %468, align 8
   tail call void %469(ptr noundef nonnull align 8 dereferenceable(12) %441) #23
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit16.i.i
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit16.i.i
 
 470:                                              ; preds = %.noexc.i14.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit7.i11.i.i
   %471 = landingpad { ptr, i32 }
@@ -16061,11 +16061,11 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit12.i12.i.i: ; preds = %477, %4
   %485 = icmp eq i32 %484, 0
   br i1 %485, label %common.resume.sink.split, label %common.resume
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit16.i.i: ; preds = %466, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i15.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit16.i.i: ; preds = %466, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i15.i.i
   %486 = fcmp ogt float %451, %452
   br i1 %486, label %.preheader.i.i, label %487, !llvm.loop !95
 
-487:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit16.i.i
+487:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit16.i.i
   %488 = icmp ult ptr %.sroa.019.1.i.i, %.sroa.0.1.i.i
   br i1 %488, label %489, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEET_SH_SH_T0_.exit
 
@@ -16178,12 +16178,12 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS
   %539 = icmp sgt i64 %538, 16
   br i1 %539, label %13, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_T0_.exit, !llvm.loop !92
 
-_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEET_SH_SH_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_RT0_.argprom.exit, %3, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_RT0_.argprom.exit.i.i
+_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEET_SH_SH_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_RT0_.exit, %3, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_RT0_.exit.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nocapture readonly %0, ptr nocapture readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nocapture readonly %0, ptr nocapture readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit, label %4
@@ -16309,7 +16309,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   %10 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
   %12 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %11
-  %13 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr %10, ptr nonnull %12)
+  %13 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr %10, ptr nonnull %12)
   %spec.select = select i1 %13, i64 %11, i64 %9
   %14 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %spec.select
   %15 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %.050
@@ -16479,7 +16479,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i: ; preds = %83, %79
   %89 = add i32 %88, -1
   store i32 %89, ptr %87, align 8
   %90 = icmp eq i32 %89, 0
-  br i1 %90, label %91, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i
+  br i1 %90, label %91, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i
 
 91:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i
   store i32 -559026175, ptr %87, align 8
@@ -16487,7 +16487,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i: ; preds = %83, %79
   %93 = getelementptr inbounds i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8
   tail call void %94(ptr noundef nonnull align 8 dereferenceable(12) %69) #23
-  br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i
+  br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i
 
 95:                                               ; preds = %.noexc.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit8.i.i
   %96 = landingpad { ptr, i32 }
@@ -16528,11 +16528,11 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit13.i.i: ; preds = %101, %97, %
   tail call void %113(ptr noundef nonnull align 8 dereferenceable(12) %69) #23
   br label %.body
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i: ; preds = %91, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i: ; preds = %91, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i
   %114 = fcmp ogt float %77, %78
   br i1 %114, label %115, label %.critedge.i.thread46.loopexit
 
-115:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i
+115:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i
   %116 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %.011.i
   %117 = load ptr, ptr %68, align 8
   %.not.i.i.i = icmp eq ptr %117, null
@@ -16571,8 +16571,8 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %129, %124, 
   %133 = icmp sgt i64 %.0912.i, %1
   br i1 %133, label %.lr.ph.i, label %.critedge.i.thread46.loopexit, !llvm.loop !98
 
-.critedge.i.thread46.loopexit:                    ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i
-  %.0.lcssa.i.ph.pn.ph = phi i64 [ %.011.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i ], [ %.0912.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i ]
+.critedge.i.thread46.loopexit:                    ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i
+  %.0.lcssa.i.ph.pn.ph = phi i64 [ %.011.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i ], [ %.0912.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i ]
   %.pre = load i32, ptr %67, align 8
   br label %.critedge.i.thread46
 
@@ -16669,7 +16669,7 @@ define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iterat
 5:                                                ; preds = %.lr.ph, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit
   %.sroa.014.027 = phi ptr [ %.sroa.014.024, %.lr.ph ], [ %.sroa.014.0, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit ]
   %.pn26 = phi ptr [ %0, %.lr.ph ], [ %.sroa.014.027, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit ]
-  %6 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nonnull %.sroa.014.027, ptr %0)
+  %6 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %.sroa.014.027, ptr %0)
   br i1 %6, label %7, label %62
 
 7:                                                ; preds = %5
@@ -17422,7 +17422,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i: ; preds = %24
 _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i: ; preds = %38, %34, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i
   %.111.i.i.i = phi i64 [ %.1.i.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i ], [ %.19.i.i.i, %34 ], [ %.19.i.i.i, %38 ]
   %.not.i.i.i = icmp eq i64 %.010.i.i.i, 0
-  br i1 %.not.i.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_RT0_.argprom.exit.i.i, label %17
+  br i1 %.not.i.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_RT0_.exit.i.i, label %17
 
 42:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i
   %43 = landingpad { ptr, i32 }
@@ -17468,13 +17468,13 @@ common.resume:                                    ; preds = %common.resume.sink.
   %common.resume.op = phi { ptr, i32 } [ %43, %53 ], [ %43, %42 ], [ %110, %120 ], [ %110, %109 ], [ %lpad.phi60.i.i, %454 ], [ %lpad.phi60.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit11.i.i.i ], [ %lpad.phi71.i.i, %522 ], [ %lpad.phi71.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit11.i11.i.i ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
-_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_RT0_.argprom.exit.i.i: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i
+_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_RT0_.exit.i.i: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %60 = icmp sgt i64 %.lcssa233, 8
   br i1 %60, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_T0_.exit
 
-.lr.ph.i9.i:                                      ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_RT0_.argprom.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_RT0_.argprom.exit
-  %.sroa.0.03.i.i = phi ptr [ %61, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_RT0_.argprom.exit ], [ %storemerge82.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_RT0_.argprom.exit.i.i ]
+.lr.ph.i9.i:                                      ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_RT0_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_RT0_.exit
+  %.sroa.0.03.i.i = phi ptr [ %61, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_RT0_.exit ], [ %storemerge82.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_RT0_.exit.i.i ]
   %61 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %62 = load ptr, ptr %61, align 8
@@ -17541,7 +17541,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
           to label %91 unwind label %109
 
 91:                                               ; preds = %90
-  br i1 %.not.i.i.i21, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_RT0_.argprom.exit, label %92
+  br i1 %.not.i.i.i21, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_RT0_.exit, label %92
 
 92:                                               ; preds = %91
   %93 = getelementptr inbounds i8, ptr %62, i64 8
@@ -17565,7 +17565,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
   %103 = add i32 %102, -1
   store i32 %103, ptr %93, align 8
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %105, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_RT0_.argprom.exit
+  br i1 %104, label %105, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_RT0_.exit
 
 105:                                              ; preds = %101
   store i32 -559026175, ptr %93, align 8
@@ -17573,7 +17573,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
   %107 = getelementptr inbounds i8, ptr %106, i64 8
   %108 = load ptr, ptr %107, align 8
   tail call void %108(ptr noundef nonnull align 8 dereferenceable(12) %62) #23
-  br label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_RT0_.argprom.exit
+  br label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_RT0_.exit
 
 109:                                              ; preds = %90
   %110 = landingpad { ptr, i32 }
@@ -17604,7 +17604,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %common.resume.sink.split, label %common.resume
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_RT0_.argprom.exit: ; preds = %91, %101, %105
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_RT0_.exit: ; preds = %91, %101, %105
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %124 = icmp sgt i64 %84, 8
   br i1 %124, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_T0_.exit, !llvm.loop !115
@@ -17617,11 +17617,11 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13Finder
   %127 = lshr i64 %125, 1
   %128 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %127
   %129 = getelementptr inbounds i8, ptr %storemerge82246, i64 -8
-  %130 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nonnull %11, ptr %128)
+  %130 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr %128)
   br i1 %130, label %131, label %260
 
 131:                                              ; preds = %.lr.ph247
-  %132 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr %128, ptr nonnull %129)
+  %132 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr %128, ptr nonnull %129)
   br i1 %132, label %133, label %175
 
 133:                                              ; preds = %131
@@ -17714,7 +17714,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit8.i.i.i.i: ; preds = %166,
   br i1 %174, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
 175:                                              ; preds = %131
-  %176 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nonnull %11, ptr nonnull %129)
+  %176 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr nonnull %129)
   %177 = load ptr, ptr %0, align 8
   %.not.i.i.i.i26.i.i = icmp eq ptr %177, null
   br i1 %176, label %178, label %219
@@ -17894,7 +17894,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit8.i.i40.i.i: ; preds = %25
   br i1 %259, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
 260:                                              ; preds = %.lr.ph247
-  %261 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nonnull %11, ptr nonnull %129)
+  %261 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr nonnull %129)
   br i1 %261, label %262, label %304
 
 262:                                              ; preds = %260
@@ -17987,7 +17987,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit8.i.i48.i.i: ; preds = %29
   br i1 %303, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
 304:                                              ; preds = %260
-  %305 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr %128, ptr nonnull %129)
+  %305 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr %128, ptr nonnull %129)
   %306 = load ptr, ptr %0, align 8
   %.not.i.i.i.i50.i.i = icmp eq ptr %306, null
   br i1 %305, label %307, label %348
@@ -18227,7 +18227,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.i.i.i: ; preds = %394, %3
 
 .noexc16.i.i:                                     ; preds = %406
   %408 = invoke noundef i32 @_ZNK5zxing6qrcode13FinderPattern8getCountEv(ptr noundef nonnull align 8 dereferenceable(40) %398)
-          to label %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.i.i unwind label %444
+          to label %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.exit.i.i unwind label %444
 
 409:                                              ; preds = %.noexc15.i.i
   %410 = getelementptr inbounds i8, ptr %393, i64 32
@@ -18253,7 +18253,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.i.i.i: ; preds = %394, %3
 
 420:                                              ; preds = %409
   %421 = icmp ult i32 %.19.i.i.i19, %.1.i.i.i20
-  br label %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.thread.i.i
+  br label %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.exit.thread.i.i
 
 422:                                              ; preds = %409
   %423 = invoke noundef float @_ZNK5zxing6qrcode13FinderPattern22getEstimatedModuleSizeEv(ptr noundef nonnull align 8 dereferenceable(40) %393)
@@ -18265,14 +18265,14 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.i.i.i: ; preds = %394, %3
 
 .noexc19.i.i:                                     ; preds = %.noexc18.i.i
   %425 = fcmp ogt float %423, %424
-  br label %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.thread.i.i
+  br label %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.exit.thread.i.i
 
-_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.i.i: ; preds = %.noexc16.i.i
+_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.exit.i.i: ; preds = %.noexc16.i.i
   %426 = icmp sgt i32 %407, %408
-  br i1 %.not.i.i4.i.i.i, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i18, label %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.thread.i.i
+  br i1 %.not.i.i4.i.i.i, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i18, label %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.exit.thread.i.i
 
-_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.thread.i.i: ; preds = %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.i.i, %.noexc19.i.i, %420
-  %.010.i56.i.i = phi i1 [ %426, %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.i.i ], [ %425, %.noexc19.i.i ], [ %421, %420 ]
+_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.exit.thread.i.i: ; preds = %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.exit.i.i, %.noexc19.i.i, %420
+  %.010.i56.i.i = phi i1 [ %426, %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.exit.i.i ], [ %425, %.noexc19.i.i ], [ %421, %420 ]
   %427 = getelementptr inbounds i8, ptr %398, i64 8
   %428 = load i32, ptr %427, align 8
   %429 = add i32 %428, -1
@@ -18280,7 +18280,7 @@ _ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEE
   %430 = icmp eq i32 %429, 0
   br i1 %430, label %431, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i18
 
-431:                                              ; preds = %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.thread.i.i
+431:                                              ; preds = %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.exit.thread.i.i
   store i32 -559026175, ptr %427, align 8
   %432 = load ptr, ptr %398, align 8
   %433 = getelementptr inbounds i8, ptr %432, i64 8
@@ -18288,9 +18288,9 @@ _ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEE
   tail call void %434(ptr noundef nonnull align 8 dereferenceable(12) %398) #23
   br label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i18
 
-_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i18: ; preds = %431, %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.thread.i.i, %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.i.i
-  %.010.i57.i.i = phi i1 [ %.010.i56.i.i, %431 ], [ %.010.i56.i.i, %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.thread.i.i ], [ %426, %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.i.i ]
-  br i1 %.not.i.i.i.i.i16, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i, label %435
+_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i18: ; preds = %431, %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.exit.thread.i.i, %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.exit.i.i
+  %.010.i57.i.i = phi i1 [ %.010.i56.i.i, %431 ], [ %.010.i56.i.i, %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.exit.thread.i.i ], [ %426, %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.exit.i.i ]
+  br i1 %.not.i.i.i.i.i16, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i, label %435
 
 435:                                              ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i18
   %436 = getelementptr inbounds i8, ptr %393, i64 8
@@ -18298,7 +18298,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i18: ; preds = %431, %_ZN
   %438 = add i32 %437, -1
   store i32 %438, ptr %436, align 8
   %439 = icmp eq i32 %438, 0
-  br i1 %439, label %440, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i
+  br i1 %439, label %440, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i
 
 440:                                              ; preds = %435
   store i32 -559026175, ptr %436, align 8
@@ -18306,7 +18306,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i18: ; preds = %431, %_ZN
   %442 = getelementptr inbounds i8, ptr %441, i64 8
   %443 = load ptr, ptr %442, align 8
   tail call void %443(ptr noundef nonnull align 8 dereferenceable(12) %393) #23
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i
 
 .thread.i.i:                                      ; preds = %.noexc18.i.i, %422
   %lpad.thr_comm.i.i = landingpad { ptr, i32 }
@@ -18347,15 +18347,15 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit11.i.i.i: ; preds = %450, %445
   %458 = icmp eq i32 %457, 0
   br i1 %458, label %common.resume.sink.split, label %common.resume
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i: ; preds = %440, %435, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i18
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i: ; preds = %440, %435, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i18
   br i1 %.010.i57.i.i, label %459, label %.preheader.i.i
 
-459:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i
+459:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i
   %460 = getelementptr inbounds i8, ptr %.sroa.040.1.i.i, i64 8
   br label %392, !llvm.loop !116
 
-.preheader.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit14.i.i
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit14.i.i ], [ %.sroa.0.0.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i ]
+.preheader.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit14.i.i
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit14.i.i ], [ %.sroa.0.0.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
   %461 = load ptr, ptr %0, align 8
   %.not.i.i.i8.i.i = icmp eq ptr %461, null
@@ -18398,7 +18398,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.i9.i.i: ; preds = %462, %
 
 .noexc33.i.i:                                     ; preds = %474
   %476 = invoke noundef i32 @_ZNK5zxing6qrcode13FinderPattern8getCountEv(ptr noundef nonnull align 8 dereferenceable(40) %466)
-          to label %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom.exit37.i.i unwind label %512
+          to label %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.exit37.i.i unwind label %512
 
 477:                                              ; preds = %.noexc32.i.i
   %478 = getelementptr inbounds i8, ptr %461, i64 32
@@ -18424,7 +18424,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.i9.i.i: ; preds = %462, %
 
 488:                                              ; preds = %477
   %489 = icmp ult i32 %.19.i25.i.i, %.1.i29.i.i
-  br label %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom.exit37.thread.i.i
+  br label %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.exit37.thread.i.i
 
 490:                                              ; preds = %477
   %491 = invoke noundef float @_ZNK5zxing6qrcode13FinderPattern22getEstimatedModuleSizeEv(ptr noundef nonnull align 8 dereferenceable(40) %461)
@@ -18436,14 +18436,14 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.i9.i.i: ; preds = %462, %
 
 .noexc36.i.i:                                     ; preds = %.noexc35.i.i
   %493 = fcmp ogt float %491, %492
-  br label %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom.exit37.thread.i.i
+  br label %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.exit37.thread.i.i
 
-_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom.exit37.i.i: ; preds = %.noexc33.i.i
+_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.exit37.i.i: ; preds = %.noexc33.i.i
   %494 = icmp sgt i32 %475, %476
-  br i1 %.not.i.i4.i10.i.i, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i13.i.i, label %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom.exit37.thread.i.i
+  br i1 %.not.i.i4.i10.i.i, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i13.i.i, label %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.exit37.thread.i.i
 
-_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom.exit37.thread.i.i: ; preds = %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom.exit37.i.i, %.noexc36.i.i, %488
-  %.010.i2162.i.i = phi i1 [ %494, %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom.exit37.i.i ], [ %493, %.noexc36.i.i ], [ %489, %488 ]
+_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.exit37.thread.i.i: ; preds = %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.exit37.i.i, %.noexc36.i.i, %488
+  %.010.i2162.i.i = phi i1 [ %494, %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.exit37.i.i ], [ %493, %.noexc36.i.i ], [ %489, %488 ]
   %495 = getelementptr inbounds i8, ptr %466, i64 8
   %496 = load i32, ptr %495, align 8
   %497 = add i32 %496, -1
@@ -18451,7 +18451,7 @@ _ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEE
   %498 = icmp eq i32 %497, 0
   br i1 %498, label %499, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i13.i.i
 
-499:                                              ; preds = %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom.exit37.thread.i.i
+499:                                              ; preds = %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.exit37.thread.i.i
   store i32 -559026175, ptr %495, align 8
   %500 = load ptr, ptr %466, align 8
   %501 = getelementptr inbounds i8, ptr %500, i64 8
@@ -18459,9 +18459,9 @@ _ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEE
   tail call void %502(ptr noundef nonnull align 8 dereferenceable(12) %466) #23
   br label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i13.i.i
 
-_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i13.i.i: ; preds = %499, %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom.exit37.thread.i.i, %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom.exit37.i.i
-  %.010.i2163.i.i = phi i1 [ %.010.i2162.i.i, %499 ], [ %.010.i2162.i.i, %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom.exit37.thread.i.i ], [ %494, %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom.exit37.i.i ]
-  br i1 %.not.i.i.i8.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit14.i.i, label %503
+_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i13.i.i: ; preds = %499, %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.exit37.thread.i.i, %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.exit37.i.i
+  %.010.i2163.i.i = phi i1 [ %.010.i2162.i.i, %499 ], [ %.010.i2162.i.i, %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.exit37.thread.i.i ], [ %494, %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.exit37.i.i ]
+  br i1 %.not.i.i.i8.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit14.i.i, label %503
 
 503:                                              ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i13.i.i
   %504 = getelementptr inbounds i8, ptr %461, i64 8
@@ -18469,7 +18469,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i13.i.i: ; preds = %499, %_ZN
   %506 = add i32 %505, -1
   store i32 %506, ptr %504, align 8
   %507 = icmp eq i32 %506, 0
-  br i1 %507, label %508, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit14.i.i
+  br i1 %507, label %508, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit14.i.i
 
 508:                                              ; preds = %503
   store i32 -559026175, ptr %504, align 8
@@ -18477,7 +18477,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i13.i.i: ; preds = %499, %_ZN
   %510 = getelementptr inbounds i8, ptr %509, i64 8
   %511 = load ptr, ptr %510, align 8
   tail call void %511(ptr noundef nonnull align 8 dereferenceable(12) %461) #23
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit14.i.i
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit14.i.i
 
 .thread68.i.i:                                    ; preds = %.noexc35.i.i, %490
   %lpad.thr_comm66.i.i = landingpad { ptr, i32 }
@@ -18518,10 +18518,10 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit11.i11.i.i: ; preds = %518, %5
   %526 = icmp eq i32 %525, 0
   br i1 %526, label %common.resume.sink.split, label %common.resume
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit14.i.i: ; preds = %508, %503, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i13.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit14.i.i: ; preds = %508, %503, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i13.i.i
   br i1 %.010.i2163.i.i, label %.preheader.i.i, label %527, !llvm.loop !117
 
-527:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit14.i.i
+527:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit14.i.i
   %528 = icmp ult ptr %.sroa.040.1.i.i, %.sroa.0.1.i.i
   br i1 %528, label %529, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEET_SH_SH_T0_.exit
 
@@ -18634,12 +18634,12 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS
   %579 = icmp sgt i64 %578, 16
   br i1 %579, label %13, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_T0_.exit, !llvm.loop !114
 
-_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEET_SH_SH_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_RT0_.argprom.exit, %3, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_RT0_.argprom.exit.i.i
+_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEET_SH_SH_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_RT0_.exit, %3, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_RT0_.exit.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nocapture readonly %0, ptr nocapture readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nocapture readonly %0, ptr nocapture readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.zxing::Ref.21", align 8
   %4 = alloca %"class.zxing::Ref.21", align 8
   %5 = load ptr, ptr %0, align 8
@@ -18668,7 +18668,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit: ; preds = %6, %2
 
 15:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit, %11
   store ptr %10, ptr %4, align 8
-  %16 = invoke fastcc noundef zeroext i1 @_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom(ptr noundef %3, ptr noundef %4)
+  %16 = invoke fastcc noundef zeroext i1 @_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_(ptr noundef %3, ptr noundef %4)
           to label %17 unwind label %36
 
 17:                                               ; preds = %15
@@ -18772,7 +18772,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   %12 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %11
   %13 = or disjoint i64 %10, 1
   %14 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %13
-  %15 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr %12, ptr nonnull %14)
+  %15 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr %12, ptr nonnull %14)
   %spec.select = select i1 %15, i64 %13, i64 %11
   %16 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %spec.select
   %17 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %.047
@@ -18917,7 +18917,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.i.i: ; preds = %72, %.lr.
 
 79:                                               ; preds = %76, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.i.i
   store ptr %63, ptr %6, align 8
-  %80 = invoke fastcc noundef zeroext i1 @_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom(ptr noundef %5, ptr noundef %6)
+  %80 = invoke fastcc noundef zeroext i1 @_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_(ptr noundef %5, ptr noundef %6)
           to label %81 unwind label %99
 
 81:                                               ; preds = %79
@@ -18939,7 +18939,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.i.i: ; preds = %72, %.lr.
   br label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i: ; preds = %86, %82, %81
-  br i1 %.not.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i, label %90
+  br i1 %.not.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i, label %90
 
 90:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i
   %91 = getelementptr inbounds i8, ptr %71, i64 8
@@ -18947,7 +18947,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i: ; preds = %86, %82, %81
   %93 = add i32 %92, -1
   store i32 %93, ptr %91, align 8
   %94 = icmp eq i32 %93, 0
-  br i1 %94, label %95, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i
+  br i1 %94, label %95, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i
 
 95:                                               ; preds = %90
   store i32 -559026175, ptr %91, align 8
@@ -18955,7 +18955,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i: ; preds = %86, %82, %81
   %97 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8
   tail call void %98(ptr noundef nonnull align 8 dereferenceable(12) %71) #23
-  br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i
+  br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i
 
 99:                                               ; preds = %79
   %100 = landingpad { ptr, i32 }
@@ -18996,12 +18996,12 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit12.i.i: ; preds = %105, %101, 
   tail call void %117(ptr noundef nonnull align 8 dereferenceable(12) %71) #23
   br label %.body
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i: ; preds = %95, %90, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i: ; preds = %95, %90, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br i1 %80, label %118, label %.critedge.i
 
-118:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i
+118:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i
   %119 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %.011.i
   %120 = load ptr, ptr %70, align 8
   %.not.i.i.i = icmp eq ptr %120, null
@@ -19040,8 +19040,8 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %132, %127, 
   %136 = icmp sgt i64 %.0912.i, %1
   br i1 %136, label %.lr.ph.i, label %.critedge.i, !llvm.loop !120
 
-.critedge.i:                                      ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit
-  %.0.lcssa.i = phi i64 [ %.1, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit ], [ %.011.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i ], [ %.0912.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i ]
+.critedge.i:                                      ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit
+  %.0.lcssa.i = phi i64 [ %.1, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit ], [ %.011.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i ], [ %.0912.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i ]
   %137 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %.0.lcssa.i
   br i1 %.not.i.i28, label %142, label %138
 
@@ -19119,7 +19119,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit31: ; preds = %.body, %163, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call noundef i32 @_ZNK5zxing6qrcode13FinderPattern8getCountEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
   %5 = load ptr, ptr %1, align 8
@@ -19191,7 +19191,7 @@ define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iterat
 5:                                                ; preds = %.lr.ph, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit
   %.sroa.014.027 = phi ptr [ %.sroa.014.024, %.lr.ph ], [ %.sroa.014.0, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit ]
   %.pn26 = phi ptr [ %0, %.lr.ph ], [ %.sroa.014.027, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit ]
-  %6 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nonnull %.sroa.014.027, ptr %0)
+  %6 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %.sroa.014.027, ptr %0)
   br i1 %6, label %7, label %62
 
 7:                                                ; preds = %5
@@ -19372,7 +19372,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.i: ; preds = %11, %10
 
 19:                                               ; preds = %15, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.i
   store ptr %14, ptr %3, align 8
-  %20 = invoke fastcc noundef zeroext i1 @_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.argprom(ptr noundef %2, ptr noundef %3)
+  %20 = invoke fastcc noundef zeroext i1 @_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_(ptr noundef %2, ptr noundef %3)
           to label %21 unwind label %39
 
 21:                                               ; preds = %19
@@ -19658,7 +19658,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i: ; preds = %24
 _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i: ; preds = %38, %34, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i
   %.111.i.i.i = phi i64 [ %.1.i.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i ], [ %.19.i.i.i, %34 ], [ %.19.i.i.i, %38 ]
   %.not.i.i.i = icmp eq i64 %.010.i.i.i, 0
-  br i1 %.not.i.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_RT0_.argprom.exit.i.i, label %17
+  br i1 %.not.i.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_RT0_.exit.i.i, label %17
 
 42:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i
   %43 = landingpad { ptr, i32 }
@@ -19704,13 +19704,13 @@ common.resume:                                    ; preds = %common.resume.sink.
   %common.resume.op = phi { ptr, i32 } [ %43, %53 ], [ %43, %42 ], [ %110, %120 ], [ %110, %109 ], [ %423, %433 ], [ %423, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit12.i.i.i ], [ %471, %481 ], [ %471, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit12.i12.i.i ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
-_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_RT0_.argprom.exit.i.i: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i
+_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_RT0_.exit.i.i: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %60 = icmp sgt i64 %.lcssa148, 8
   br i1 %60, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_T0_.exit
 
-.lr.ph.i9.i:                                      ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_RT0_.argprom.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_RT0_.argprom.exit
-  %.sroa.0.03.i.i = phi ptr [ %61, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_RT0_.argprom.exit ], [ %storemerge56.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_RT0_.argprom.exit.i.i ]
+.lr.ph.i9.i:                                      ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_RT0_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_RT0_.exit
+  %.sroa.0.03.i.i = phi ptr [ %61, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_RT0_.exit ], [ %storemerge56.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_RT0_.exit.i.i ]
   %61 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %62 = load ptr, ptr %61, align 8
@@ -19777,7 +19777,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
           to label %91 unwind label %109
 
 91:                                               ; preds = %90
-  br i1 %.not.i.i.i18, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_RT0_.argprom.exit, label %92
+  br i1 %.not.i.i.i18, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_RT0_.exit, label %92
 
 92:                                               ; preds = %91
   %93 = getelementptr inbounds i8, ptr %62, i64 8
@@ -19801,7 +19801,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
   %103 = add i32 %102, -1
   store i32 %103, ptr %93, align 8
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %105, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_RT0_.argprom.exit
+  br i1 %104, label %105, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_RT0_.exit
 
 105:                                              ; preds = %101
   store i32 -559026175, ptr %93, align 8
@@ -19809,7 +19809,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
   %107 = getelementptr inbounds i8, ptr %106, i64 8
   %108 = load ptr, ptr %107, align 8
   tail call void %108(ptr noundef nonnull align 8 dereferenceable(12) %62) #23
-  br label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_RT0_.argprom.exit
+  br label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_RT0_.exit
 
 109:                                              ; preds = %90
   %110 = landingpad { ptr, i32 }
@@ -19840,7 +19840,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %common.resume.sink.split, label %common.resume
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_RT0_.argprom.exit: ; preds = %91, %101, %105
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_RT0_.exit: ; preds = %91, %101, %105
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %124 = icmp sgt i64 %84, 8
   br i1 %124, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_T0_.exit, !llvm.loop !124
@@ -19853,11 +19853,11 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13Finder
   %127 = lshr i64 %125, 1
   %128 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %127
   %129 = getelementptr inbounds i8, ptr %storemerge56157, i64 -8
-  %130 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nonnull %11, ptr %128)
+  %130 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr %128)
   br i1 %130, label %131, label %260
 
 131:                                              ; preds = %.lr.ph158
-  %132 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr %128, ptr nonnull %129)
+  %132 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr %128, ptr nonnull %129)
   br i1 %132, label %133, label %175
 
 133:                                              ; preds = %131
@@ -19950,7 +19950,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit8.i.i.i.i: ; preds = %166,
   br i1 %174, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
 175:                                              ; preds = %131
-  %176 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nonnull %11, ptr nonnull %129)
+  %176 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr nonnull %129)
   %177 = load ptr, ptr %0, align 8
   %.not.i.i.i.i26.i.i = icmp eq ptr %177, null
   br i1 %176, label %178, label %219
@@ -20130,7 +20130,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit8.i.i40.i.i: ; preds = %25
   br i1 %259, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
 260:                                              ; preds = %.lr.ph158
-  %261 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nonnull %11, ptr nonnull %129)
+  %261 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr nonnull %129)
   br i1 %261, label %262, label %304
 
 262:                                              ; preds = %260
@@ -20223,7 +20223,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit8.i.i48.i.i: ; preds = %29
   br i1 %303, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
 304:                                              ; preds = %260
-  %305 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr %128, ptr nonnull %129)
+  %305 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr %128, ptr nonnull %129)
   %306 = load ptr, ptr %0, align 8
   %.not.i.i.i.i50.i.i = icmp eq ptr %306, null
   br i1 %305, label %307, label %348
@@ -20475,7 +20475,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i17: ; preds = %410, %405
   %416 = add i32 %415, -1
   store i32 %416, ptr %414, align 8
   %417 = icmp eq i32 %416, 0
-  br i1 %417, label %418, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i
+  br i1 %417, label %418, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i
 
 418:                                              ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i17
   store i32 -559026175, ptr %414, align 8
@@ -20483,7 +20483,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i17: ; preds = %410, %405
   %420 = getelementptr inbounds i8, ptr %419, i64 8
   %421 = load ptr, ptr %420, align 8
   tail call void %421(ptr noundef nonnull align 8 dereferenceable(12) %393) #23
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i
 
 422:                                              ; preds = %.noexc.i.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit7.i.i.i
   %423 = landingpad { ptr, i32 }
@@ -20517,16 +20517,16 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit12.i.i.i: ; preds = %429, %424
   %437 = icmp eq i32 %436, 0
   br i1 %437, label %common.resume.sink.split, label %common.resume
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i: ; preds = %418, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i17
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i: ; preds = %418, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i17
   %438 = icmp sgt i32 %403, %404
   br i1 %438, label %439, label %.preheader.i.i
 
-439:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i
+439:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i
   %440 = getelementptr inbounds i8, ptr %.sroa.019.1.i.i, i64 8
   br label %392, !llvm.loop !125
 
-.preheader.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit16.i.i
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit16.i.i ], [ %.sroa.0.0.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i ]
+.preheader.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit16.i.i
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit16.i.i ], [ %.sroa.0.0.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
   %441 = load ptr, ptr %0, align 8
   %.not.i.i.i8.i.i = icmp eq ptr %441, null
@@ -20581,7 +20581,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i15.i.i: ; preds = %458, %453
   %464 = add i32 %463, -1
   store i32 %464, ptr %462, align 8
   %465 = icmp eq i32 %464, 0
-  br i1 %465, label %466, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit16.i.i
+  br i1 %465, label %466, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit16.i.i
 
 466:                                              ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i15.i.i
   store i32 -559026175, ptr %462, align 8
@@ -20589,7 +20589,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i15.i.i: ; preds = %458, %453
   %468 = getelementptr inbounds i8, ptr %467, i64 8
   %469 = load ptr, ptr %468, align 8
   tail call void %469(ptr noundef nonnull align 8 dereferenceable(12) %441) #23
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit16.i.i
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit16.i.i
 
 470:                                              ; preds = %.noexc.i14.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit7.i11.i.i
   %471 = landingpad { ptr, i32 }
@@ -20623,11 +20623,11 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit12.i12.i.i: ; preds = %477, %4
   %485 = icmp eq i32 %484, 0
   br i1 %485, label %common.resume.sink.split, label %common.resume
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit16.i.i: ; preds = %466, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i15.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit16.i.i: ; preds = %466, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i15.i.i
   %486 = icmp sgt i32 %451, %452
   br i1 %486, label %.preheader.i.i, label %487, !llvm.loop !126
 
-487:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit16.i.i
+487:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit16.i.i
   %488 = icmp ult ptr %.sroa.019.1.i.i, %.sroa.0.1.i.i
   br i1 %488, label %489, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEET_SH_SH_T0_.exit
 
@@ -20740,12 +20740,12 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS
   %539 = icmp sgt i64 %538, 16
   br i1 %539, label %13, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_T0_.exit, !llvm.loop !123
 
-_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEET_SH_SH_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_RT0_.argprom.exit, %3, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_RT0_.argprom.exit.i.i
+_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEET_SH_SH_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_RT0_.exit, %3, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_RT0_.exit.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nocapture readonly %0, ptr nocapture readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nocapture readonly %0, ptr nocapture readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit, label %4
@@ -20871,7 +20871,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   %10 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
   %12 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %11
-  %13 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr %10, ptr nonnull %12)
+  %13 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr %10, ptr nonnull %12)
   %spec.select = select i1 %13, i64 %11, i64 %9
   %14 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %spec.select
   %15 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %.050
@@ -21041,7 +21041,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i: ; preds = %83, %79
   %89 = add i32 %88, -1
   store i32 %89, ptr %87, align 8
   %90 = icmp eq i32 %89, 0
-  br i1 %90, label %91, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i
+  br i1 %90, label %91, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i
 
 91:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i
   store i32 -559026175, ptr %87, align 8
@@ -21049,7 +21049,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i: ; preds = %83, %79
   %93 = getelementptr inbounds i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8
   tail call void %94(ptr noundef nonnull align 8 dereferenceable(12) %69) #23
-  br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i
+  br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i
 
 95:                                               ; preds = %.noexc.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit8.i.i
   %96 = landingpad { ptr, i32 }
@@ -21090,11 +21090,11 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit13.i.i: ; preds = %101, %97, %
   tail call void %113(ptr noundef nonnull align 8 dereferenceable(12) %69) #23
   br label %.body
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i: ; preds = %91, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i: ; preds = %91, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i
   %114 = icmp sgt i32 %77, %78
   br i1 %114, label %115, label %.critedge.i.thread46.loopexit
 
-115:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i
+115:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i
   %116 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %.011.i
   %117 = load ptr, ptr %68, align 8
   %.not.i.i.i = icmp eq ptr %117, null
@@ -21133,8 +21133,8 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %129, %124, 
   %133 = icmp sgt i64 %.0912.i, %1
   br i1 %133, label %.lr.ph.i, label %.critedge.i.thread46.loopexit, !llvm.loop !129
 
-.critedge.i.thread46.loopexit:                    ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i
-  %.0.lcssa.i.ph.pn.ph = phi i64 [ %.011.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i ], [ %.0912.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i ]
+.critedge.i.thread46.loopexit:                    ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i
+  %.0.lcssa.i.ph.pn.ph = phi i64 [ %.011.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i ], [ %.0912.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i ]
   %.pre = load i32, ptr %67, align 8
   br label %.critedge.i.thread46
 
@@ -21231,7 +21231,7 @@ define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iterat
 5:                                                ; preds = %.lr.ph, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit
   %.sroa.014.027 = phi ptr [ %.sroa.014.024, %.lr.ph ], [ %.sroa.014.0, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit ]
   %.pn26 = phi ptr [ %0, %.lr.ph ], [ %.sroa.014.027, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit ]
-  %6 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nonnull %.sroa.014.027, ptr %0)
+  %6 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %.sroa.014.027, ptr %0)
   br i1 %6, label %7, label %62
 
 7:                                                ; preds = %5
@@ -23728,7 +23728,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i: ; preds = %24
 _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i: ; preds = %38, %34, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i
   %.111.i.i.i = phi i64 [ %.1.i.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i ], [ %.19.i.i.i, %34 ], [ %.19.i.i.i, %38 ]
   %.not.i.i.i = icmp eq i64 %.010.i.i.i, 0
-  br i1 %.not.i.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_RT0_.argprom.exit.i.i, label %17
+  br i1 %.not.i.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_RT0_.exit.i.i, label %17
 
 42:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i
   %43 = landingpad { ptr, i32 }
@@ -23774,13 +23774,13 @@ common.resume:                                    ; preds = %common.resume.sink.
   %common.resume.op = phi { ptr, i32 } [ %43, %53 ], [ %43, %42 ], [ %110, %120 ], [ %110, %109 ], [ %.pn.i.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit12.i.i.i ], [ %.pn.i13.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit12.i12.i.i ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
-_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_RT0_.argprom.exit.i.i: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i
+_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_RT0_.exit.i.i: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %60 = icmp sgt i64 %.lcssa198, 8
   br i1 %60, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_T0_.exit
 
-.lr.ph.i9.i:                                      ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_RT0_.argprom.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_RT0_.argprom.exit
-  %.sroa.0.03.i.i = phi ptr [ %61, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_RT0_.argprom.exit ], [ %storemerge71.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_RT0_.argprom.exit.i.i ]
+.lr.ph.i9.i:                                      ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_RT0_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_RT0_.exit
+  %.sroa.0.03.i.i = phi ptr [ %61, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_RT0_.exit ], [ %storemerge71.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_RT0_.exit.i.i ]
   %61 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %62 = load ptr, ptr %61, align 8
@@ -23847,7 +23847,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
           to label %91 unwind label %109
 
 91:                                               ; preds = %90
-  br i1 %.not.i.i.i18, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_RT0_.argprom.exit, label %92
+  br i1 %.not.i.i.i18, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_RT0_.exit, label %92
 
 92:                                               ; preds = %91
   %93 = getelementptr inbounds i8, ptr %62, i64 8
@@ -23871,7 +23871,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
   %103 = add i32 %102, -1
   store i32 %103, ptr %93, align 8
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %105, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_RT0_.argprom.exit
+  br i1 %104, label %105, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_RT0_.exit
 
 105:                                              ; preds = %101
   store i32 -559026175, ptr %93, align 8
@@ -23879,7 +23879,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
   %107 = getelementptr inbounds i8, ptr %106, i64 8
   %108 = load ptr, ptr %107, align 8
   tail call void %108(ptr noundef nonnull align 8 dereferenceable(12) %62) #23
-  br label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_RT0_.argprom.exit
+  br label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_RT0_.exit
 
 109:                                              ; preds = %90
   %110 = landingpad { ptr, i32 }
@@ -23910,7 +23910,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %common.resume.sink.split, label %common.resume
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_RT0_.argprom.exit: ; preds = %91, %101, %105
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_RT0_.exit: ; preds = %91, %101, %105
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %124 = icmp sgt i64 %84, 8
   br i1 %124, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_T0_.exit, !llvm.loop !142
@@ -23923,11 +23923,11 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13Finder
   %127 = lshr i64 %125, 1
   %128 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %127
   %129 = getelementptr inbounds i8, ptr %storemerge71211, i64 -8
-  %130 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nonnull %11, ptr %128)
+  %130 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr %128)
   br i1 %130, label %131, label %260
 
 131:                                              ; preds = %.lr.ph212
-  %132 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr %128, ptr nonnull %129)
+  %132 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr %128, ptr nonnull %129)
   br i1 %132, label %133, label %175
 
 133:                                              ; preds = %131
@@ -24020,7 +24020,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit8.i.i.i.i: ; preds = %166,
   br i1 %174, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
 175:                                              ; preds = %131
-  %176 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nonnull %11, ptr nonnull %129)
+  %176 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr nonnull %129)
   %177 = load ptr, ptr %0, align 8
   %.not.i.i.i.i26.i.i = icmp eq ptr %177, null
   br i1 %176, label %178, label %219
@@ -24200,7 +24200,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit8.i.i40.i.i: ; preds = %25
   br i1 %259, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
 260:                                              ; preds = %.lr.ph212
-  %261 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nonnull %11, ptr nonnull %129)
+  %261 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr nonnull %129)
   br i1 %261, label %262, label %304
 
 262:                                              ; preds = %260
@@ -24293,7 +24293,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit8.i.i48.i.i: ; preds = %29
   br i1 %303, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
 304:                                              ; preds = %260
-  %305 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr %128, ptr nonnull %129)
+  %305 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr %128, ptr nonnull %129)
   %306 = load ptr, ptr %0, align 8
   %.not.i.i.i.i50.i.i = icmp eq ptr %306, null
   br i1 %305, label %307, label %348
@@ -24556,7 +24556,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i17: ; preds = %417, %412
   %423 = add i32 %422, -1
   store i32 %423, ptr %421, align 8
   %424 = icmp eq i32 %423, 0
-  br i1 %424, label %425, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i
+  br i1 %424, label %425, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i
 
 425:                                              ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i17
   store i32 -559026175, ptr %421, align 8
@@ -24564,7 +24564,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i17: ; preds = %417, %412
   %427 = getelementptr inbounds i8, ptr %426, i64 8
   %428 = load ptr, ptr %427, align 8
   tail call void %428(ptr noundef nonnull align 8 dereferenceable(12) %393) #23
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i
 
 429:                                              ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit7.i.i.i
   %430 = landingpad { ptr, i32 }
@@ -24597,16 +24597,16 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit12.i.i.i: ; preds = %437, %431
   %444 = icmp eq i32 %443, 0
   br i1 %444, label %common.resume.sink.split, label %common.resume
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i: ; preds = %425, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i17
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i: ; preds = %425, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i17
   %445 = fcmp olt float %406, %410
   br i1 %445, label %446, label %.preheader.i.i
 
-446:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i
+446:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i
   %447 = getelementptr inbounds i8, ptr %.sroa.021.1.i.i, i64 8
   br label %392, !llvm.loop !143
 
-.preheader.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit18.i.i
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit18.i.i ], [ %.sroa.0.0.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i ]
+.preheader.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit18.i.i
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit18.i.i ], [ %.sroa.0.0.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
   %448 = load ptr, ptr %0, align 8
   %.not.i.i.i8.i.i = icmp eq ptr %448, null
@@ -24672,7 +24672,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i17.i.i: ; preds = %472, %467
   %478 = add i32 %477, -1
   store i32 %478, ptr %476, align 8
   %479 = icmp eq i32 %478, 0
-  br i1 %479, label %480, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit18.i.i
+  br i1 %479, label %480, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit18.i.i
 
 480:                                              ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i17.i.i
   store i32 -559026175, ptr %476, align 8
@@ -24680,7 +24680,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i17.i.i: ; preds = %472, %467
   %482 = getelementptr inbounds i8, ptr %481, i64 8
   %483 = load ptr, ptr %482, align 8
   tail call void %483(ptr noundef nonnull align 8 dereferenceable(12) %448) #23
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit18.i.i
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit18.i.i
 
 484:                                              ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit7.i11.i.i
   %485 = landingpad { ptr, i32 }
@@ -24713,11 +24713,11 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit12.i12.i.i: ; preds = %492, %4
   %499 = icmp eq i32 %498, 0
   br i1 %499, label %common.resume.sink.split, label %common.resume
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit18.i.i: ; preds = %480, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i17.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit18.i.i: ; preds = %480, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i17.i.i
   %500 = fcmp olt float %461, %465
   br i1 %500, label %.preheader.i.i, label %501, !llvm.loop !144
 
-501:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit18.i.i
+501:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit18.i.i
   %502 = icmp ult ptr %.sroa.021.1.i.i, %.sroa.0.1.i.i
   br i1 %502, label %503, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEET_SH_SH_T0_.exit
 
@@ -24830,12 +24830,12 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS
   %553 = icmp sgt i64 %552, 16
   br i1 %553, label %13, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_T0_.exit, !llvm.loop !141
 
-_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEET_SH_SH_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_RT0_.argprom.exit, %3, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_RT0_.argprom.exit.i.i
+_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEET_SH_SH_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_RT0_.exit, %3, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_RT0_.exit.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nocapture readonly %0, ptr nocapture readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nocapture readonly %0, ptr nocapture readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit, label %4
@@ -24971,7 +24971,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   %10 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
   %12 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %11
-  %13 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr %10, ptr nonnull %12)
+  %13 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr %10, ptr nonnull %12)
   %spec.select = select i1 %13, i64 %11, i64 %9
   %14 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %spec.select
   %15 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %.050
@@ -25152,7 +25152,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i: ; preds = %90, %86
   %96 = add i32 %95, -1
   store i32 %96, ptr %94, align 8
   %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i
+  br i1 %97, label %98, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i
 
 98:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i
   store i32 -559026175, ptr %94, align 8
@@ -25160,7 +25160,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i: ; preds = %90, %86
   %100 = getelementptr inbounds i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8
   tail call void %101(ptr noundef nonnull align 8 dereferenceable(12) %69) #23
-  br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i
+  br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i
 
 102:                                              ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit8.i.i
   %103 = landingpad { ptr, i32 }
@@ -25200,11 +25200,11 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit13.i.i: ; preds = %109, %104, 
   tail call void %120(ptr noundef nonnull align 8 dereferenceable(12) %69) #23
   br label %.body
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i: ; preds = %98, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i: ; preds = %98, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i
   %121 = fcmp olt float %80, %84
   br i1 %121, label %122, label %.critedge.i.thread46.loopexit
 
-122:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i
+122:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i
   %123 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %.015.i
   %124 = load ptr, ptr %68, align 8
   %.not.i.i.i = icmp eq ptr %124, null
@@ -25243,8 +25243,8 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %136, %131, 
   %140 = icmp sgt i64 %.0916.i, %1
   br i1 %140, label %.lr.ph.i, label %.critedge.i.thread46.loopexit, !llvm.loop !147
 
-.critedge.i.thread46.loopexit:                    ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i
-  %.0.lcssa.i.ph.pn.ph = phi i64 [ %.015.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i ], [ %.0916.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i ]
+.critedge.i.thread46.loopexit:                    ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i
+  %.0.lcssa.i.ph.pn.ph = phi i64 [ %.015.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i ], [ %.0916.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i ]
   %.pre = load i32, ptr %67, align 8
   br label %.critedge.i.thread46
 
@@ -25341,7 +25341,7 @@ define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iterat
 5:                                                ; preds = %.lr.ph, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit
   %.sroa.014.027 = phi ptr [ %.sroa.014.024, %.lr.ph ], [ %.sroa.014.0, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit ]
   %.pn26 = phi ptr [ %0, %.lr.ph ], [ %.sroa.014.027, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit ]
-  %6 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nonnull %.sroa.014.027, ptr %0)
+  %6 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %.sroa.014.027, ptr %0)
   br i1 %6, label %7, label %62
 
 7:                                                ; preds = %5
@@ -25798,7 +25798,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i: ; preds = %24
 _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i: ; preds = %38, %34, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i
   %.111.i.i.i = phi i64 [ %.1.i.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i ], [ %.19.i.i.i, %34 ], [ %.19.i.i.i, %38 ]
   %.not.i.i.i = icmp eq i64 %.010.i.i.i, 0
-  br i1 %.not.i.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_RT0_.argprom.exit.i.i, label %17
+  br i1 %.not.i.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_RT0_.exit.i.i, label %17
 
 42:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i
   %43 = landingpad { ptr, i32 }
@@ -25844,13 +25844,13 @@ common.resume:                                    ; preds = %common.resume.sink.
   %common.resume.op = phi { ptr, i32 } [ %43, %53 ], [ %43, %42 ], [ %110, %120 ], [ %110, %109 ], [ %.pn.i.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit12.i.i.i ], [ %.pn.i13.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit12.i12.i.i ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
-_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_RT0_.argprom.exit.i.i: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i
+_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_RT0_.exit.i.i: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %60 = icmp sgt i64 %.lcssa198, 8
   br i1 %60, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_T0_.exit
 
-.lr.ph.i9.i:                                      ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_RT0_.argprom.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_RT0_.argprom.exit
-  %.sroa.0.03.i.i = phi ptr [ %61, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_RT0_.argprom.exit ], [ %storemerge71.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_RT0_.argprom.exit.i.i ]
+.lr.ph.i9.i:                                      ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_RT0_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_RT0_.exit
+  %.sroa.0.03.i.i = phi ptr [ %61, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_RT0_.exit ], [ %storemerge71.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_RT0_.exit.i.i ]
   %61 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %62 = load ptr, ptr %61, align 8
@@ -25917,7 +25917,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
           to label %91 unwind label %109
 
 91:                                               ; preds = %90
-  br i1 %.not.i.i.i18, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_RT0_.argprom.exit, label %92
+  br i1 %.not.i.i.i18, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_RT0_.exit, label %92
 
 92:                                               ; preds = %91
   %93 = getelementptr inbounds i8, ptr %62, i64 8
@@ -25941,7 +25941,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
   %103 = add i32 %102, -1
   store i32 %103, ptr %93, align 8
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %105, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_RT0_.argprom.exit
+  br i1 %104, label %105, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_RT0_.exit
 
 105:                                              ; preds = %101
   store i32 -559026175, ptr %93, align 8
@@ -25949,7 +25949,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
   %107 = getelementptr inbounds i8, ptr %106, i64 8
   %108 = load ptr, ptr %107, align 8
   tail call void %108(ptr noundef nonnull align 8 dereferenceable(12) %62) #23
-  br label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_RT0_.argprom.exit
+  br label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_RT0_.exit
 
 109:                                              ; preds = %90
   %110 = landingpad { ptr, i32 }
@@ -25980,7 +25980,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %common.resume.sink.split, label %common.resume
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_RT0_.argprom.exit: ; preds = %91, %101, %105
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_RT0_.exit: ; preds = %91, %101, %105
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %124 = icmp sgt i64 %84, 8
   br i1 %124, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_T0_.exit, !llvm.loop !151
@@ -25993,11 +25993,11 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13Finder
   %127 = lshr i64 %125, 1
   %128 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %127
   %129 = getelementptr inbounds i8, ptr %storemerge71211, i64 -8
-  %130 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nonnull %11, ptr %128)
+  %130 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr %128)
   br i1 %130, label %131, label %260
 
 131:                                              ; preds = %.lr.ph212
-  %132 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr %128, ptr nonnull %129)
+  %132 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr %128, ptr nonnull %129)
   br i1 %132, label %133, label %175
 
 133:                                              ; preds = %131
@@ -26090,7 +26090,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit8.i.i.i.i: ; preds = %166,
   br i1 %174, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
 175:                                              ; preds = %131
-  %176 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nonnull %11, ptr nonnull %129)
+  %176 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr nonnull %129)
   %177 = load ptr, ptr %0, align 8
   %.not.i.i.i.i26.i.i = icmp eq ptr %177, null
   br i1 %176, label %178, label %219
@@ -26270,7 +26270,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit8.i.i40.i.i: ; preds = %25
   br i1 %259, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
 260:                                              ; preds = %.lr.ph212
-  %261 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nonnull %11, ptr nonnull %129)
+  %261 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr nonnull %129)
   br i1 %261, label %262, label %304
 
 262:                                              ; preds = %260
@@ -26363,7 +26363,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit8.i.i48.i.i: ; preds = %29
   br i1 %303, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
 304:                                              ; preds = %260
-  %305 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr %128, ptr nonnull %129)
+  %305 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr %128, ptr nonnull %129)
   %306 = load ptr, ptr %0, align 8
   %.not.i.i.i.i50.i.i = icmp eq ptr %306, null
   br i1 %305, label %307, label %348
@@ -26626,7 +26626,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i17: ; preds = %417, %412
   %423 = add i32 %422, -1
   store i32 %423, ptr %421, align 8
   %424 = icmp eq i32 %423, 0
-  br i1 %424, label %425, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i
+  br i1 %424, label %425, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i
 
 425:                                              ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i17
   store i32 -559026175, ptr %421, align 8
@@ -26634,7 +26634,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i17: ; preds = %417, %412
   %427 = getelementptr inbounds i8, ptr %426, i64 8
   %428 = load ptr, ptr %427, align 8
   tail call void %428(ptr noundef nonnull align 8 dereferenceable(12) %393) #23
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i
 
 429:                                              ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit7.i.i.i
   %430 = landingpad { ptr, i32 }
@@ -26667,16 +26667,16 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit12.i.i.i: ; preds = %437, %431
   %444 = icmp eq i32 %443, 0
   br i1 %444, label %common.resume.sink.split, label %common.resume
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i: ; preds = %425, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i17
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i: ; preds = %425, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i17
   %445 = fcmp olt float %406, %410
   br i1 %445, label %446, label %.preheader.i.i
 
-446:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i
+446:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i
   %447 = getelementptr inbounds i8, ptr %.sroa.021.1.i.i, i64 8
   br label %392, !llvm.loop !152
 
-.preheader.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit18.i.i
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit18.i.i ], [ %.sroa.0.0.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i ]
+.preheader.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit18.i.i
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit18.i.i ], [ %.sroa.0.0.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
   %448 = load ptr, ptr %0, align 8
   %.not.i.i.i8.i.i = icmp eq ptr %448, null
@@ -26742,7 +26742,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i17.i.i: ; preds = %472, %467
   %478 = add i32 %477, -1
   store i32 %478, ptr %476, align 8
   %479 = icmp eq i32 %478, 0
-  br i1 %479, label %480, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit18.i.i
+  br i1 %479, label %480, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit18.i.i
 
 480:                                              ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i17.i.i
   store i32 -559026175, ptr %476, align 8
@@ -26750,7 +26750,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i17.i.i: ; preds = %472, %467
   %482 = getelementptr inbounds i8, ptr %481, i64 8
   %483 = load ptr, ptr %482, align 8
   tail call void %483(ptr noundef nonnull align 8 dereferenceable(12) %448) #23
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit18.i.i
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit18.i.i
 
 484:                                              ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit7.i11.i.i
   %485 = landingpad { ptr, i32 }
@@ -26783,11 +26783,11 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit12.i12.i.i: ; preds = %492, %4
   %499 = icmp eq i32 %498, 0
   br i1 %499, label %common.resume.sink.split, label %common.resume
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit18.i.i: ; preds = %480, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i17.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit18.i.i: ; preds = %480, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i17.i.i
   %500 = fcmp olt float %461, %465
   br i1 %500, label %.preheader.i.i, label %501, !llvm.loop !153
 
-501:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit18.i.i
+501:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit18.i.i
   %502 = icmp ult ptr %.sroa.021.1.i.i, %.sroa.0.1.i.i
   br i1 %502, label %503, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEET_SH_SH_T0_.exit
 
@@ -26900,12 +26900,12 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS
   %553 = icmp sgt i64 %552, 16
   br i1 %553, label %13, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_T0_.exit, !llvm.loop !150
 
-_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEET_SH_SH_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_RT0_.argprom.exit, %3, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_RT0_.argprom.exit.i.i
+_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEET_SH_SH_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_RT0_.exit, %3, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_RT0_.exit.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nocapture readonly %0, ptr nocapture readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nocapture readonly %0, ptr nocapture readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit, label %4
@@ -27041,7 +27041,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   %10 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
   %12 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %11
-  %13 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr %10, ptr nonnull %12)
+  %13 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr %10, ptr nonnull %12)
   %spec.select = select i1 %13, i64 %11, i64 %9
   %14 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %spec.select
   %15 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %.050
@@ -27222,7 +27222,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i: ; preds = %90, %86
   %96 = add i32 %95, -1
   store i32 %96, ptr %94, align 8
   %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i
+  br i1 %97, label %98, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i
 
 98:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i
   store i32 -559026175, ptr %94, align 8
@@ -27230,7 +27230,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i: ; preds = %90, %86
   %100 = getelementptr inbounds i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8
   tail call void %101(ptr noundef nonnull align 8 dereferenceable(12) %69) #23
-  br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i
+  br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i
 
 102:                                              ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit8.i.i
   %103 = landingpad { ptr, i32 }
@@ -27270,11 +27270,11 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit13.i.i: ; preds = %109, %104, 
   tail call void %120(ptr noundef nonnull align 8 dereferenceable(12) %69) #23
   br label %.body
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i: ; preds = %98, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i: ; preds = %98, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i
   %121 = fcmp olt float %80, %84
   br i1 %121, label %122, label %.critedge.i.thread46.loopexit
 
-122:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i
+122:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i
   %123 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %.015.i
   %124 = load ptr, ptr %68, align 8
   %.not.i.i.i = icmp eq ptr %124, null
@@ -27313,8 +27313,8 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %136, %131, 
   %140 = icmp sgt i64 %.0916.i, %1
   br i1 %140, label %.lr.ph.i, label %.critedge.i.thread46.loopexit, !llvm.loop !156
 
-.critedge.i.thread46.loopexit:                    ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i
-  %.0.lcssa.i.ph.pn.ph = phi i64 [ %.015.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i ], [ %.0916.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i ]
+.critedge.i.thread46.loopexit:                    ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i
+  %.0.lcssa.i.ph.pn.ph = phi i64 [ %.015.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i ], [ %.0916.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i ]
   %.pre = load i32, ptr %67, align 8
   br label %.critedge.i.thread46
 
@@ -27411,7 +27411,7 @@ define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iterat
 5:                                                ; preds = %.lr.ph, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit
   %.sroa.014.027 = phi ptr [ %.sroa.014.024, %.lr.ph ], [ %.sroa.014.0, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit ]
   %.pn26 = phi ptr [ %0, %.lr.ph ], [ %.sroa.014.027, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit ]
-  %6 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nonnull %.sroa.014.027, ptr %0)
+  %6 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %.sroa.014.027, ptr %0)
   br i1 %6, label %7, label %62
 
 7:                                                ; preds = %5
@@ -29815,7 +29815,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i: ; preds = %36, %_ZN5zxing6
   %41 = add i32 %40, -1
   store i32 %41, ptr %8, align 8
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5zxing6qrcode12_GLOBAL__N_116CenterComparatorEEclINS2_3RefINS3_13FinderPatternEEENS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.argprom.exit
+  br i1 %42, label %43, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5zxing6qrcode12_GLOBAL__N_116CenterComparatorEEclINS2_3RefINS3_13FinderPatternEEENS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit
 
 43:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i
   store i32 -559026175, ptr %8, align 8
@@ -29823,7 +29823,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i: ; preds = %36, %_ZN5zxing6
   %45 = getelementptr inbounds i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(12) %3) #23
-  br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5zxing6qrcode12_GLOBAL__N_116CenterComparatorEEclINS2_3RefINS3_13FinderPatternEEENS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.argprom.exit
+  br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5zxing6qrcode12_GLOBAL__N_116CenterComparatorEEclINS2_3RefINS3_13FinderPatternEEENS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit
 
 47:                                               ; preds = %.noexc12.i, %24, %.noexc10.i, %20, %.noexc.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit8.i
   %48 = landingpad { ptr, i32 }
@@ -29865,10 +29865,10 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit18.i: ; preds = %54, %49, %47
   %.pre = load i32, ptr %8, align 8
   br label %83
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5zxing6qrcode12_GLOBAL__N_116CenterComparatorEEclINS2_3RefINS3_13FinderPatternEEENS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.argprom.exit: ; preds = %43, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5zxing6qrcode12_GLOBAL__N_116CenterComparatorEEclINS2_3RefINS3_13FinderPatternEEENS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit: ; preds = %43, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i
   br i1 %.0.i.i, label %66, label %91
 
-66:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5zxing6qrcode12_GLOBAL__N_116CenterComparatorEEclINS2_3RefINS3_13FinderPatternEEENS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.argprom.exit
+66:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5zxing6qrcode12_GLOBAL__N_116CenterComparatorEEclINS2_3RefINS3_13FinderPatternEEENS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit
   %67 = load ptr, ptr %.sroa.0.0, align 8
   %.not.i.i2 = icmp eq ptr %67, null
   br i1 %.not.i.i2, label %72, label %68
@@ -29923,7 +29923,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit: ; preds = %72, %74, %79
 _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit18.i, %83, %87
   resume { ptr, i32 } %48
 
-91:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5zxing6qrcode12_GLOBAL__N_116CenterComparatorEEclINS2_3RefINS3_13FinderPatternEEENS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.argprom.exit
+91:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5zxing6qrcode12_GLOBAL__N_116CenterComparatorEEclINS2_3RefINS3_13FinderPatternEEENS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit
   %92 = load i32, ptr %8, align 8
   %93 = add i32 %92, 1
   store i32 %93, ptr %8, align 8
@@ -30058,7 +30058,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i: ; preds = %24
 _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i: ; preds = %38, %34, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i
   %.111.i.i.i = phi i64 [ %.1.i.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i ], [ %.19.i.i.i, %34 ], [ %.19.i.i.i, %38 ]
   %.not.i.i.i = icmp eq i64 %.010.i.i.i, 0
-  br i1 %.not.i.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_RT0_.argprom.exit.i.i, label %17
+  br i1 %.not.i.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_RT0_.exit.i.i, label %17
 
 42:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i
   %43 = landingpad { ptr, i32 }
@@ -30104,13 +30104,13 @@ common.resume:                                    ; preds = %common.resume.sink.
   %common.resume.op = phi { ptr, i32 } [ %43, %53 ], [ %43, %42 ], [ %110, %120 ], [ %110, %109 ], [ %430, %440 ], [ %430, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit17.i.i.i ], [ %484, %494 ], [ %484, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit17.i12.i.i ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
-_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_RT0_.argprom.exit.i.i: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i
+_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_RT0_.exit.i.i: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %60 = icmp sgt i64 %.lcssa148, 8
   br i1 %60, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_T0_.exit
 
-.lr.ph.i9.i:                                      ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_RT0_.argprom.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_RT0_.argprom.exit
-  %.sroa.0.03.i.i = phi ptr [ %61, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_RT0_.argprom.exit ], [ %storemerge56.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_RT0_.argprom.exit.i.i ]
+.lr.ph.i9.i:                                      ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_RT0_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_RT0_.exit
+  %.sroa.0.03.i.i = phi ptr [ %61, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_RT0_.exit ], [ %storemerge56.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_RT0_.exit.i.i ]
   %61 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %62 = load ptr, ptr %61, align 8
@@ -30177,7 +30177,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
           to label %91 unwind label %109
 
 91:                                               ; preds = %90
-  br i1 %.not.i.i.i18, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_RT0_.argprom.exit, label %92
+  br i1 %.not.i.i.i18, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_RT0_.exit, label %92
 
 92:                                               ; preds = %91
   %93 = getelementptr inbounds i8, ptr %62, i64 8
@@ -30201,7 +30201,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
   %103 = add i32 %102, -1
   store i32 %103, ptr %93, align 8
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %105, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_RT0_.argprom.exit
+  br i1 %104, label %105, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_RT0_.exit
 
 105:                                              ; preds = %101
   store i32 -559026175, ptr %93, align 8
@@ -30209,7 +30209,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
   %107 = getelementptr inbounds i8, ptr %106, i64 8
   %108 = load ptr, ptr %107, align 8
   tail call void %108(ptr noundef nonnull align 8 dereferenceable(12) %62) #23
-  br label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_RT0_.argprom.exit
+  br label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_RT0_.exit
 
 109:                                              ; preds = %90
   %110 = landingpad { ptr, i32 }
@@ -30240,7 +30240,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %common.resume.sink.split, label %common.resume
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_RT0_.argprom.exit: ; preds = %91, %101, %105
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_RT0_.exit: ; preds = %91, %101, %105
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %124 = icmp sgt i64 %84, 8
   br i1 %124, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_T0_.exit, !llvm.loop !169
@@ -30253,11 +30253,11 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13Finder
   %127 = lshr i64 %125, 1
   %128 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %127
   %129 = getelementptr inbounds i8, ptr %storemerge56157, i64 -8
-  %130 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nonnull %11, ptr %128)
+  %130 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr %128)
   br i1 %130, label %131, label %260
 
 131:                                              ; preds = %.lr.ph158
-  %132 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr %128, ptr nonnull %129)
+  %132 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr %128, ptr nonnull %129)
   br i1 %132, label %133, label %175
 
 133:                                              ; preds = %131
@@ -30350,7 +30350,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit8.i.i.i.i: ; preds = %166,
   br i1 %174, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
 175:                                              ; preds = %131
-  %176 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nonnull %11, ptr nonnull %129)
+  %176 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr nonnull %129)
   %177 = load ptr, ptr %0, align 8
   %.not.i.i.i.i26.i.i = icmp eq ptr %177, null
   br i1 %176, label %178, label %219
@@ -30530,7 +30530,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit8.i.i40.i.i: ; preds = %25
   br i1 %259, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
 260:                                              ; preds = %.lr.ph158
-  %261 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nonnull %11, ptr nonnull %129)
+  %261 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr nonnull %129)
   br i1 %261, label %262, label %304
 
 262:                                              ; preds = %260
@@ -30623,7 +30623,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit8.i.i48.i.i: ; preds = %29
   br i1 %303, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
 304:                                              ; preds = %260
-  %305 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr %128, ptr nonnull %129)
+  %305 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr %128, ptr nonnull %129)
   %306 = load ptr, ptr %0, align 8
   %.not.i.i.i.i50.i.i = icmp eq ptr %306, null
   br i1 %305, label %307, label %348
@@ -30867,7 +30867,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit7.i.i.i: ; preds = %399, %
 
 .noexc10.i.i.i:                                   ; preds = %.noexc9.i.i.i
   %408 = icmp sgt i32 %406, %407
-  br label %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.i.i.i
+  br label %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.exit.i.i.i
 
 409:                                              ; preds = %.noexc8.i.i.i
   %410 = invoke noundef float @_ZNK5zxing6qrcode13FinderPattern22getEstimatedModuleSizeEv(ptr noundef nonnull align 8 dereferenceable(40) %393)
@@ -30879,9 +30879,9 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit7.i.i.i: ; preds = %399, %
 
 .noexc12.i.i.i:                                   ; preds = %.noexc11.i.i.i
   %412 = fcmp ogt float %410, %411
-  br label %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.i.i.i
+  br label %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.exit.i.i.i
 
-_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.i.i.i: ; preds = %.noexc12.i.i.i, %.noexc10.i.i.i
+_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.exit.i.i.i: ; preds = %.noexc12.i.i.i, %.noexc10.i.i.i
   %.0.i.i.i.i = phi i1 [ %408, %.noexc10.i.i.i ], [ %412, %.noexc12.i.i.i ]
   %413 = getelementptr inbounds i8, ptr %398, i64 8
   %414 = load i32, ptr %413, align 8
@@ -30890,7 +30890,7 @@ _ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES
   %416 = icmp eq i32 %415, 0
   br i1 %416, label %417, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i17
 
-417:                                              ; preds = %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.i.i.i
+417:                                              ; preds = %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.exit.i.i.i
   store i32 -559026175, ptr %413, align 8
   %418 = load ptr, ptr %398, align 8
   %419 = getelementptr inbounds i8, ptr %418, i64 8
@@ -30898,13 +30898,13 @@ _ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES
   tail call void %420(ptr noundef nonnull align 8 dereferenceable(12) %398) #23
   br label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i17
 
-_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i17: ; preds = %417, %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.i.i.i
+_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i17: ; preds = %417, %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.exit.i.i.i
   %421 = getelementptr inbounds i8, ptr %393, i64 8
   %422 = load i32, ptr %421, align 8
   %423 = add i32 %422, -1
   store i32 %423, ptr %421, align 8
   %424 = icmp eq i32 %423, 0
-  br i1 %424, label %425, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i
+  br i1 %424, label %425, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i
 
 425:                                              ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i17
   store i32 -559026175, ptr %421, align 8
@@ -30912,7 +30912,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i17: ; preds = %417, %_ZN
   %427 = getelementptr inbounds i8, ptr %426, i64 8
   %428 = load ptr, ptr %427, align 8
   tail call void %428(ptr noundef nonnull align 8 dereferenceable(12) %393) #23
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i
 
 429:                                              ; preds = %.noexc11.i.i.i, %409, %.noexc9.i.i.i, %405, %.noexc.i.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit7.i.i.i
   %430 = landingpad { ptr, i32 }
@@ -30946,15 +30946,15 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit17.i.i.i: ; preds = %436, %431
   %444 = icmp eq i32 %443, 0
   br i1 %444, label %common.resume.sink.split, label %common.resume
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i: ; preds = %425, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i17
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i: ; preds = %425, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i17
   br i1 %.0.i.i.i.i, label %445, label %.preheader.i.i
 
-445:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i
+445:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i
   %446 = getelementptr inbounds i8, ptr %.sroa.027.1.i.i, i64 8
   br label %392, !llvm.loop !170
 
-.preheader.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit24.i.i
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit24.i.i ], [ %.sroa.0.0.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit.i.i ]
+.preheader.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit24.i.i
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit24.i.i ], [ %.sroa.0.0.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
   %447 = load ptr, ptr %0, align 8
   %.not.i.i.i8.i.i = icmp eq ptr %447, null
@@ -31001,7 +31001,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit7.i11.i.i: ; preds = %453,
 
 .noexc10.i18.i.i:                                 ; preds = %.noexc9.i17.i.i
   %462 = icmp sgt i32 %460, %461
-  br label %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.i19.i.i
+  br label %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.exit.i19.i.i
 
 463:                                              ; preds = %.noexc8.i15.i.i
   %464 = invoke noundef float @_ZNK5zxing6qrcode13FinderPattern22getEstimatedModuleSizeEv(ptr noundef nonnull align 8 dereferenceable(40) %447)
@@ -31013,9 +31013,9 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit7.i11.i.i: ; preds = %453,
 
 .noexc12.i23.i.i:                                 ; preds = %.noexc11.i22.i.i
   %466 = fcmp ogt float %464, %465
-  br label %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.i19.i.i
+  br label %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.exit.i19.i.i
 
-_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.i19.i.i: ; preds = %.noexc12.i23.i.i, %.noexc10.i18.i.i
+_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.exit.i19.i.i: ; preds = %.noexc12.i23.i.i, %.noexc10.i18.i.i
   %.0.i.i20.i.i = phi i1 [ %462, %.noexc10.i18.i.i ], [ %466, %.noexc12.i23.i.i ]
   %467 = getelementptr inbounds i8, ptr %452, i64 8
   %468 = load i32, ptr %467, align 8
@@ -31024,7 +31024,7 @@ _ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES
   %470 = icmp eq i32 %469, 0
   br i1 %470, label %471, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i21.i.i
 
-471:                                              ; preds = %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.i19.i.i
+471:                                              ; preds = %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.exit.i19.i.i
   store i32 -559026175, ptr %467, align 8
   %472 = load ptr, ptr %452, align 8
   %473 = getelementptr inbounds i8, ptr %472, i64 8
@@ -31032,13 +31032,13 @@ _ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES
   tail call void %474(ptr noundef nonnull align 8 dereferenceable(12) %452) #23
   br label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i21.i.i
 
-_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i21.i.i: ; preds = %471, %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.i19.i.i
+_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i21.i.i: ; preds = %471, %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.exit.i19.i.i
   %475 = getelementptr inbounds i8, ptr %447, i64 8
   %476 = load i32, ptr %475, align 8
   %477 = add i32 %476, -1
   store i32 %477, ptr %475, align 8
   %478 = icmp eq i32 %477, 0
-  br i1 %478, label %479, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit24.i.i
+  br i1 %478, label %479, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit24.i.i
 
 479:                                              ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i21.i.i
   store i32 -559026175, ptr %475, align 8
@@ -31046,7 +31046,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i21.i.i: ; preds = %471, %_ZN
   %481 = getelementptr inbounds i8, ptr %480, i64 8
   %482 = load ptr, ptr %481, align 8
   tail call void %482(ptr noundef nonnull align 8 dereferenceable(12) %447) #23
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit24.i.i
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit24.i.i
 
 483:                                              ; preds = %.noexc11.i22.i.i, %463, %.noexc9.i17.i.i, %459, %.noexc.i14.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit7.i11.i.i
   %484 = landingpad { ptr, i32 }
@@ -31080,10 +31080,10 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit17.i12.i.i: ; preds = %490, %4
   %498 = icmp eq i32 %497, 0
   br i1 %498, label %common.resume.sink.split, label %common.resume
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit24.i.i: ; preds = %479, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i21.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit24.i.i: ; preds = %479, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i21.i.i
   br i1 %.0.i.i20.i.i, label %.preheader.i.i, label %499, !llvm.loop !171
 
-499:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom.exit24.i.i
+499:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit24.i.i
   %500 = icmp ult ptr %.sroa.027.1.i.i, %.sroa.0.1.i.i
   br i1 %500, label %501, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEET_SH_SH_T0_.exit
 
@@ -31196,12 +31196,12 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS
   %551 = icmp sgt i64 %550, 16
   br i1 %551, label %13, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_T0_.exit, !llvm.loop !168
 
-_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEET_SH_SH_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_RT0_.argprom.exit, %3, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_RT0_.argprom.exit.i.i
+_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEET_SH_SH_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_RT0_.exit, %3, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_RT0_.exit.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nocapture readonly %0, ptr nocapture readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nocapture readonly %0, ptr nocapture readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit, label %4
@@ -31247,7 +31247,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit7: ; preds = %_ZN5zxing3Re
 
 .noexc10:                                         ; preds = %.noexc9
   %18 = icmp sgt i32 %16, %17
-  br label %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.argprom.exit
+  br label %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.exit
 
 19:                                               ; preds = %.noexc8
   %20 = invoke noundef float @_ZNK5zxing6qrcode13FinderPattern22getEstimatedModuleSizeEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
@@ -31259,9 +31259,9 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit7: ; preds = %_ZN5zxing3Re
 
 .noexc12:                                         ; preds = %.noexc11
   %22 = fcmp ogt float %20, %21
-  br label %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.argprom.exit
+  br label %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.exit
 
-_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.argprom.exit: ; preds = %.noexc10, %.noexc12
+_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.exit: ; preds = %.noexc10, %.noexc12
   %.0.i = phi i1 [ %18, %.noexc10 ], [ %22, %.noexc12 ]
   %23 = getelementptr inbounds i8, ptr %8, i64 8
   %24 = load i32, ptr %23, align 8
@@ -31270,7 +31270,7 @@ _ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit
 
-27:                                               ; preds = %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.argprom.exit
+27:                                               ; preds = %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.exit
   store i32 -559026175, ptr %23, align 8
   %28 = load ptr, ptr %8, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 8
@@ -31278,7 +31278,7 @@ _ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES
   tail call void %30(ptr noundef nonnull align 8 dereferenceable(12) %8) #23
   br label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit
 
-_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit: ; preds = %27, %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.argprom.exit
+_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit: ; preds = %27, %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.exit
   %31 = getelementptr inbounds i8, ptr %3, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = add i32 %32, -1
@@ -31355,7 +31355,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   %10 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
   %12 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %11
-  %13 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr %10, ptr nonnull %12)
+  %13 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr %10, ptr nonnull %12)
   %spec.select = select i1 %13, i64 %11, i64 %9
   %14 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %spec.select
   %15 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %.050
@@ -31518,7 +31518,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit8.i.i: ; preds = %74, %_ZN
 
 .noexc11.i.i:                                     ; preds = %.noexc10.i.i
   %82 = icmp sgt i32 %80, %81
-  br label %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.i.i
+  br label %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.exit.i.i
 
 83:                                               ; preds = %.noexc9.i.i
   %84 = invoke noundef float @_ZNK5zxing6qrcode13FinderPattern22getEstimatedModuleSizeEv(ptr noundef nonnull align 8 dereferenceable(40) %69)
@@ -31530,9 +31530,9 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit8.i.i: ; preds = %74, %_ZN
 
 .noexc13.i.i:                                     ; preds = %.noexc12.i.i
   %86 = fcmp ogt float %84, %85
-  br label %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.i.i
+  br label %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.exit.i.i
 
-_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.i.i: ; preds = %.noexc13.i.i, %.noexc11.i.i
+_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.exit.i.i: ; preds = %.noexc13.i.i, %.noexc11.i.i
   %.0.i.i.i = phi i1 [ %82, %.noexc11.i.i ], [ %86, %.noexc13.i.i ]
   %87 = load i32, ptr %67, align 8
   %88 = add i32 %87, -1
@@ -31540,7 +31540,7 @@ _ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %90, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i
 
-90:                                               ; preds = %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.i.i
+90:                                               ; preds = %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.exit.i.i
   store i32 -559026175, ptr %67, align 8
   %91 = load ptr, ptr %61, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 8
@@ -31548,13 +31548,13 @@ _ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES
   tail call void %93(ptr noundef nonnull align 8 dereferenceable(12) %61) #23
   br label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i
 
-_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i: ; preds = %90, %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.i.i
+_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i: ; preds = %90, %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.exit.i.i
   %94 = getelementptr inbounds i8, ptr %69, i64 8
   %95 = load i32, ptr %94, align 8
   %96 = add i32 %95, -1
   store i32 %96, ptr %94, align 8
   %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i
+  br i1 %97, label %98, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i
 
 98:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i
   store i32 -559026175, ptr %94, align 8
@@ -31562,7 +31562,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i: ; preds = %90, %_ZN5zxin
   %100 = getelementptr inbounds i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8
   tail call void %101(ptr noundef nonnull align 8 dereferenceable(12) %69) #23
-  br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i
+  br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i
 
 102:                                              ; preds = %.noexc12.i.i, %83, %.noexc10.i.i, %79, %.noexc.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit8.i.i
   %103 = landingpad { ptr, i32 }
@@ -31603,10 +31603,10 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit18.i.i: ; preds = %108, %104, 
   tail call void %120(ptr noundef nonnull align 8 dereferenceable(12) %69) #23
   br label %.body
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i: ; preds = %98, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i: ; preds = %98, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i
   br i1 %.0.i.i.i, label %121, label %.critedge.i.thread46.loopexit
 
-121:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i
+121:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i
   %122 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %.011.i
   %123 = load ptr, ptr %68, align 8
   %.not.i.i10.i = icmp eq ptr %123, null
@@ -31645,8 +31645,8 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %135, %130, 
   %139 = icmp sgt i64 %.0912.i, %1
   br i1 %139, label %.lr.ph.i, label %.critedge.i.thread46.loopexit, !llvm.loop !174
 
-.critedge.i.thread46.loopexit:                    ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i
-  %.0.lcssa.i.ph.pn.ph = phi i64 [ %.011.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.argprom.exit.i ], [ %.0912.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i ]
+.critedge.i.thread46.loopexit:                    ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i
+  %.0.lcssa.i.ph.pn.ph = phi i64 [ %.011.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i ], [ %.0912.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i ]
   %.pre = load i32, ptr %67, align 8
   br label %.critedge.i.thread46
 
@@ -31743,7 +31743,7 @@ define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iterat
 5:                                                ; preds = %.lr.ph, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit
   %.sroa.014.027 = phi ptr [ %.sroa.014.024, %.lr.ph ], [ %.sroa.014.0, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit ]
   %.pn26 = phi ptr [ %0, %.lr.ph ], [ %.sroa.014.027, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit ]
-  %6 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_.argprom(ptr nonnull %.sroa.014.027, ptr %0)
+  %6 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %.sroa.014.027, ptr %0)
   br i1 %6, label %7, label %62
 
 7:                                                ; preds = %5
@@ -31939,7 +31939,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit8.i: ; preds = %13, %_ZN5z
 
 .noexc11.i:                                       ; preds = %.noexc10.i
   %22 = icmp sgt i32 %20, %21
-  br label %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.i
+  br label %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.exit.i
 
 23:                                               ; preds = %.noexc9.i
   %24 = invoke noundef float @_ZNK5zxing6qrcode13FinderPattern22getEstimatedModuleSizeEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
@@ -31951,9 +31951,9 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit8.i: ; preds = %13, %_ZN5z
 
 .noexc13.i:                                       ; preds = %.noexc12.i
   %26 = fcmp ogt float %24, %25
-  br label %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.i
+  br label %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.exit.i
 
-_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.i: ; preds = %.noexc13.i, %.noexc11.i
+_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.exit.i: ; preds = %.noexc13.i, %.noexc11.i
   %.0.i.i = phi i1 [ %22, %.noexc11.i ], [ %26, %.noexc13.i ]
   %27 = getelementptr inbounds i8, ptr %12, i64 8
   %28 = load i32, ptr %27, align 8
@@ -31962,7 +31962,7 @@ _ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i
 
-31:                                               ; preds = %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.i
+31:                                               ; preds = %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.exit.i
   store i32 -559026175, ptr %27, align 8
   %32 = load ptr, ptr %12, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 8
@@ -31970,12 +31970,12 @@ _ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(12) %12) #23
   br label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i
 
-_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i: ; preds = %31, %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.argprom.exit.i
+_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i: ; preds = %31, %_ZN5zxing6qrcode12_GLOBAL__N_114BestComparatorclENS_3RefINS0_13FinderPatternEEES5_.exit.i
   %35 = load i32, ptr %7, align 8
   %36 = add i32 %35, -1
   store i32 %36, ptr %7, align 8
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS2_3RefINS3_13FinderPatternEEENS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.argprom.exit
+  br i1 %37, label %38, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS2_3RefINS3_13FinderPatternEEENS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit
 
 38:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i
   store i32 -559026175, ptr %7, align 8
@@ -31983,7 +31983,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i: ; preds = %31, %_ZN5zxing6
   %40 = getelementptr inbounds i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   tail call void %41(ptr noundef nonnull align 8 dereferenceable(12) %2) #23
-  br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS2_3RefINS3_13FinderPatternEEENS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.argprom.exit
+  br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS2_3RefINS3_13FinderPatternEEENS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit
 
 42:                                               ; preds = %.noexc12.i, %23, %.noexc10.i, %19, %.noexc.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit8.i
   %43 = landingpad { ptr, i32 }
@@ -32025,10 +32025,10 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit18.i: ; preds = %49, %44, %42
   %.pre = load i32, ptr %7, align 8
   br label %78
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS2_3RefINS3_13FinderPatternEEENS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.argprom.exit: ; preds = %38, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS2_3RefINS3_13FinderPatternEEENS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit: ; preds = %38, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i
   br i1 %.0.i.i, label %61, label %86
 
-61:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS2_3RefINS3_13FinderPatternEEENS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.argprom.exit
+61:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS2_3RefINS3_13FinderPatternEEENS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit
   %62 = load ptr, ptr %.sroa.0.0, align 8
   %.not.i.i2 = icmp eq ptr %62, null
   br i1 %.not.i.i2, label %67, label %63
@@ -32083,7 +32083,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit: ; preds = %67, %69, %74
 _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit18.i, %78, %82
   resume { ptr, i32 } %43
 
-86:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS2_3RefINS3_13FinderPatternEEENS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.argprom.exit
+86:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS2_3RefINS3_13FinderPatternEEENS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit
   %87 = load i32, ptr %7, align 8
   %88 = add i32 %87, 1
   store i32 %88, ptr %7, align 8

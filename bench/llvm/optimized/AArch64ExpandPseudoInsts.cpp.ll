@@ -2927,11 +2927,11 @@ _ZN4llvm8DebugLocD2Ev.exit668:                    ; preds = %_ZN4llvm10MIMetadat
   br label %1649
 
 1105:                                             ; preds = %402
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo12expandMOVImmERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEj.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, i32 noundef 32)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo12expandMOVImmERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, i32 noundef 32)
   br label %1649
 
 1106:                                             ; preds = %402
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo12expandMOVImmERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEj.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, i32 noundef 64)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo12expandMOVImmERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, i32 noundef 64)
   br label %1649
 
 1107:                                             ; preds = %402
@@ -3004,19 +3004,19 @@ _ZN4llvm8DebugLocD2Ev.exit677:                    ; preds = %_ZN4llvm10MIMetadat
   br label %1649
 
 1129:                                             ; preds = %402
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo14expandCMP_SWAPERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjjjjjRS6_.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, i32 noundef 4215, i32 noundef 6681, i32 noundef 6853, i32 noundef 0, i32 noundef 11, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo14expandCMP_SWAPERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjjjjjRS6_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, i32 noundef 4215, i32 noundef 6681, i32 noundef 6853, i32 noundef 0, i32 noundef 11, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %1649
 
 1130:                                             ; preds = %402
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo14expandCMP_SWAPERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjjjjjRS6_.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, i32 noundef 4216, i32 noundef 6682, i32 noundef 6853, i32 noundef 8, i32 noundef 11, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo14expandCMP_SWAPERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjjjjjRS6_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, i32 noundef 4216, i32 noundef 6682, i32 noundef 6853, i32 noundef 8, i32 noundef 11, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %1649
 
 1131:                                             ; preds = %402
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo14expandCMP_SWAPERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjjjjjRS6_.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, i32 noundef 4217, i32 noundef 6683, i32 noundef 6852, i32 noundef 0, i32 noundef 11, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo14expandCMP_SWAPERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjjjjjRS6_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, i32 noundef 4217, i32 noundef 6683, i32 noundef 6852, i32 noundef 0, i32 noundef 11, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %1649
 
 1132:                                             ; preds = %402
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo14expandCMP_SWAPERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjjjjjRS6_.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, i32 noundef 4218, i32 noundef 6684, i32 noundef 6855, i32 noundef 0, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo14expandCMP_SWAPERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjjjjjRS6_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, i32 noundef 4218, i32 noundef 6684, i32 noundef 6855, i32 noundef 0, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %1649
 
 1133:                                             ; preds = %402, %402, %402, %402
@@ -3862,7 +3862,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   br label %1649
 
 1531:                                             ; preds = %402, %402
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo16expandSetTagLoopERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERS6_.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo16expandSetTagLoopERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERS6_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %1649
 
 1532:                                             ; preds = %402, %402
@@ -3870,47 +3870,47 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   unreachable
 
 1533:                                             ; preds = %402
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo18expandSVESpillFillERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjj.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, i32 noundef 6800, i32 noundef 4)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo18expandSVESpillFillERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, i32 noundef 6800, i32 noundef 4)
   br label %1649
 
 1534:                                             ; preds = %402
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo18expandSVESpillFillERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjj.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, i32 noundef 6800, i32 noundef 3)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo18expandSVESpillFillERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, i32 noundef 6800, i32 noundef 3)
   br label %1649
 
 1535:                                             ; preds = %402
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo18expandSVESpillFillERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjj.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, i32 noundef 6800, i32 noundef 2)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo18expandSVESpillFillERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, i32 noundef 6800, i32 noundef 2)
   br label %1649
 
 1536:                                             ; preds = %402
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo18expandSVESpillFillERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjj.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, i32 noundef 6797, i32 noundef 2)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo18expandSVESpillFillERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, i32 noundef 6797, i32 noundef 2)
   br label %1649
 
 1537:                                             ; preds = %402
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo18expandSVESpillFillERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjj.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, i32 noundef 4455, i32 noundef 4)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo18expandSVESpillFillERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, i32 noundef 4455, i32 noundef 4)
   br label %1649
 
 1538:                                             ; preds = %402
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo18expandSVESpillFillERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjj.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, i32 noundef 4455, i32 noundef 3)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo18expandSVESpillFillERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, i32 noundef 4455, i32 noundef 3)
   br label %1649
 
 1539:                                             ; preds = %402
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo18expandSVESpillFillERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjj.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, i32 noundef 4455, i32 noundef 2)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo18expandSVESpillFillERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, i32 noundef 4455, i32 noundef 2)
   br label %1649
 
 1540:                                             ; preds = %402
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo18expandSVESpillFillERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjj.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, i32 noundef 4452, i32 noundef 2)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo18expandSVESpillFillERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, i32 noundef 4452, i32 noundef 2)
   br label %1649
 
 1541:                                             ; preds = %402, %402
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo19expandCALL_RVMARKERERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo19expandCALL_RVMARKERERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2)
   br label %1649
 
 1542:                                             ; preds = %402
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo14expandCALL_BTIERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo14expandCALL_BTIERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2)
   br label %1649
 
 1543:                                             ; preds = %402
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo28expandStoreSwiftAsyncContextERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo28expandStoreSwiftAsyncContextERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2)
   br label %1649
 
 1544:                                             ; preds = %402
@@ -3946,7 +3946,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val381.val = load ptr, ptr %.sroa.0833.0.copyload, align 8
   %1555 = getelementptr i8, ptr %.sroa.0833.0.copyload, i64 20
   %.val381.val507 = load i16, ptr %1555, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val.val, i16 %.val.val506, ptr %.val381.val, i16 %.val381.val507, i32 noundef 3831, i32 noundef 3833)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val.val, i16 %.val.val506, ptr %.val381.val, i16 %.val381.val507, i32 noundef 3831, i32 noundef 3833)
   br label %1649
 
 1556:                                             ; preds = %402
@@ -3958,7 +3958,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val383.val = load ptr, ptr %.sroa.0829.0.copyload, align 8
   %1558 = getelementptr i8, ptr %.sroa.0829.0.copyload, i64 20
   %.val383.val505 = load i16, ptr %1558, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val382.val, i16 %.val382.val504, ptr %.val383.val, i16 %.val383.val505, i32 noundef 3875, i32 noundef 3877)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val382.val, i16 %.val382.val504, ptr %.val383.val, i16 %.val383.val505, i32 noundef 3875, i32 noundef 3877)
   br label %1649
 
 1559:                                             ; preds = %402
@@ -3970,7 +3970,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val385.val = load ptr, ptr %.sroa.0825.0.copyload, align 8
   %1561 = getelementptr i8, ptr %.sroa.0825.0.copyload, i64 20
   %.val385.val503 = load i16, ptr %1561, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val384.val, i16 %.val384.val502, ptr %.val385.val, i16 %.val385.val503, i32 noundef 3997, i32 noundef 3999)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val384.val, i16 %.val384.val502, ptr %.val385.val, i16 %.val385.val503, i32 noundef 3997, i32 noundef 3999)
   br label %1649
 
 1562:                                             ; preds = %402
@@ -3982,7 +3982,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val387.val = load ptr, ptr %.sroa.0821.0.copyload, align 8
   %1564 = getelementptr i8, ptr %.sroa.0821.0.copyload, i64 20
   %.val387.val501 = load i16, ptr %1564, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val386.val, i16 %.val386.val500, ptr %.val387.val, i16 %.val387.val501, i32 noundef 3847, i32 noundef 3849)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val386.val, i16 %.val386.val500, ptr %.val387.val, i16 %.val387.val501, i32 noundef 3847, i32 noundef 3849)
   br label %1649
 
 1565:                                             ; preds = %402
@@ -3994,7 +3994,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val389.val = load ptr, ptr %.sroa.0817.0.copyload, align 8
   %1567 = getelementptr i8, ptr %.sroa.0817.0.copyload, i64 20
   %.val389.val499 = load i16, ptr %1567, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val388.val, i16 %.val388.val498, ptr %.val389.val, i16 %.val389.val499, i32 noundef 4303, i32 noundef 4305)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val388.val, i16 %.val388.val498, ptr %.val389.val, i16 %.val389.val499, i32 noundef 4303, i32 noundef 4305)
   br label %1649
 
 1568:                                             ; preds = %402
@@ -4006,7 +4006,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val391.val = load ptr, ptr %.sroa.0813.0.copyload, align 8
   %1570 = getelementptr i8, ptr %.sroa.0813.0.copyload, i64 20
   %.val391.val497 = load i16, ptr %1570, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val390.val, i16 %.val390.val496, ptr %.val391.val, i16 %.val391.val497, i32 noundef 4326, i32 noundef 4328)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val390.val, i16 %.val390.val496, ptr %.val391.val, i16 %.val391.val497, i32 noundef 4326, i32 noundef 4328)
   br label %1649
 
 1571:                                             ; preds = %402
@@ -4018,7 +4018,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val393.val = load ptr, ptr %.sroa.0809.0.copyload, align 8
   %1573 = getelementptr i8, ptr %.sroa.0809.0.copyload, i64 20
   %.val393.val495 = load i16, ptr %1573, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val392.val, i16 %.val392.val494, ptr %.val393.val, i16 %.val393.val495, i32 noundef 4343, i32 noundef 4345)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val392.val, i16 %.val392.val494, ptr %.val393.val, i16 %.val393.val495, i32 noundef 4343, i32 noundef 4345)
   br label %1649
 
 1574:                                             ; preds = %402
@@ -4030,7 +4030,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val395.val = load ptr, ptr %.sroa.0805.0.copyload, align 8
   %1576 = getelementptr i8, ptr %.sroa.0805.0.copyload, i64 20
   %.val395.val493 = load i16, ptr %1576, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val394.val, i16 %.val394.val492, ptr %.val395.val, i16 %.val395.val493, i32 noundef 4315, i32 noundef 4317)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val394.val, i16 %.val394.val492, ptr %.val395.val, i16 %.val395.val493, i32 noundef 4315, i32 noundef 4317)
   br label %1649
 
 1577:                                             ; preds = %402
@@ -4042,7 +4042,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val397.val = load ptr, ptr %.sroa.0801.0.copyload, align 8
   %1579 = getelementptr i8, ptr %.sroa.0801.0.copyload, i64 20
   %.val397.val491 = load i16, ptr %1579, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val396.val, i16 %.val396.val490, ptr %.val397.val, i16 %.val397.val491, i32 noundef 3830, i32 noundef 3832)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val396.val, i16 %.val396.val490, ptr %.val397.val, i16 %.val397.val491, i32 noundef 3830, i32 noundef 3832)
   br label %1649
 
 1580:                                             ; preds = %402
@@ -4054,7 +4054,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val399.val = load ptr, ptr %.sroa.0797.0.copyload, align 8
   %1582 = getelementptr i8, ptr %.sroa.0797.0.copyload, i64 20
   %.val399.val489 = load i16, ptr %1582, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val398.val, i16 %.val398.val488, ptr %.val399.val, i16 %.val399.val489, i32 noundef 3874, i32 noundef 3876)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val398.val, i16 %.val398.val488, ptr %.val399.val, i16 %.val399.val489, i32 noundef 3874, i32 noundef 3876)
   br label %1649
 
 1583:                                             ; preds = %402
@@ -4066,7 +4066,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val401.val = load ptr, ptr %.sroa.0793.0.copyload, align 8
   %1585 = getelementptr i8, ptr %.sroa.0793.0.copyload, i64 20
   %.val401.val487 = load i16, ptr %1585, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val400.val, i16 %.val400.val486, ptr %.val401.val, i16 %.val401.val487, i32 noundef 3996, i32 noundef 3998)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val400.val, i16 %.val400.val486, ptr %.val401.val, i16 %.val401.val487, i32 noundef 3996, i32 noundef 3998)
   br label %1649
 
 1586:                                             ; preds = %402
@@ -4078,7 +4078,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val403.val = load ptr, ptr %.sroa.0789.0.copyload, align 8
   %1588 = getelementptr i8, ptr %.sroa.0789.0.copyload, i64 20
   %.val403.val485 = load i16, ptr %1588, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val402.val, i16 %.val402.val484, ptr %.val403.val, i16 %.val403.val485, i32 noundef 3846, i32 noundef 3848)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val402.val, i16 %.val402.val484, ptr %.val403.val, i16 %.val403.val485, i32 noundef 3846, i32 noundef 3848)
   br label %1649
 
 1589:                                             ; preds = %402
@@ -4090,7 +4090,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val405.val = load ptr, ptr %.sroa.0785.0.copyload, align 8
   %1591 = getelementptr i8, ptr %.sroa.0785.0.copyload, i64 20
   %.val405.val483 = load i16, ptr %1591, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val404.val, i16 %.val404.val482, ptr %.val405.val, i16 %.val405.val483, i32 noundef 4302, i32 noundef 4304)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val404.val, i16 %.val404.val482, ptr %.val405.val, i16 %.val405.val483, i32 noundef 4302, i32 noundef 4304)
   br label %1649
 
 1592:                                             ; preds = %402
@@ -4102,7 +4102,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val407.val = load ptr, ptr %.sroa.0781.0.copyload, align 8
   %1594 = getelementptr i8, ptr %.sroa.0781.0.copyload, i64 20
   %.val407.val481 = load i16, ptr %1594, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val406.val, i16 %.val406.val480, ptr %.val407.val, i16 %.val407.val481, i32 noundef 4325, i32 noundef 4327)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val406.val, i16 %.val406.val480, ptr %.val407.val, i16 %.val407.val481, i32 noundef 4325, i32 noundef 4327)
   br label %1649
 
 1595:                                             ; preds = %402
@@ -4114,7 +4114,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val409.val = load ptr, ptr %.sroa.0777.0.copyload, align 8
   %1597 = getelementptr i8, ptr %.sroa.0777.0.copyload, i64 20
   %.val409.val479 = load i16, ptr %1597, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val408.val, i16 %.val408.val478, ptr %.val409.val, i16 %.val409.val479, i32 noundef 4342, i32 noundef 4344)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val408.val, i16 %.val408.val478, ptr %.val409.val, i16 %.val409.val479, i32 noundef 4342, i32 noundef 4344)
   br label %1649
 
 1598:                                             ; preds = %402
@@ -4126,7 +4126,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val411.val = load ptr, ptr %.sroa.0773.0.copyload, align 8
   %1600 = getelementptr i8, ptr %.sroa.0773.0.copyload, i64 20
   %.val411.val477 = load i16, ptr %1600, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val410.val, i16 %.val410.val476, ptr %.val411.val, i16 %.val411.val477, i32 noundef 4314, i32 noundef 4316)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val410.val, i16 %.val410.val476, ptr %.val411.val, i16 %.val411.val477, i32 noundef 4314, i32 noundef 4316)
   br label %1649
 
 1601:                                             ; preds = %402
@@ -4138,7 +4138,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val413.val = load ptr, ptr %.sroa.0769.0.copyload, align 8
   %1603 = getelementptr i8, ptr %.sroa.0769.0.copyload, i64 20
   %.val413.val475 = load i16, ptr %1603, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val412.val, i16 %.val412.val474, ptr %.val413.val, i16 %.val413.val475, i32 noundef 3835, i32 noundef 3837)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val412.val, i16 %.val412.val474, ptr %.val413.val, i16 %.val413.val475, i32 noundef 3835, i32 noundef 3837)
   br label %1649
 
 1604:                                             ; preds = %402
@@ -4150,7 +4150,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val415.val = load ptr, ptr %.sroa.0765.0.copyload, align 8
   %1606 = getelementptr i8, ptr %.sroa.0765.0.copyload, i64 20
   %.val415.val473 = load i16, ptr %1606, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val414.val, i16 %.val414.val472, ptr %.val415.val, i16 %.val415.val473, i32 noundef 3879, i32 noundef 3881)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val414.val, i16 %.val414.val472, ptr %.val415.val, i16 %.val415.val473, i32 noundef 3879, i32 noundef 3881)
   br label %1649
 
 1607:                                             ; preds = %402
@@ -4162,7 +4162,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val417.val = load ptr, ptr %.sroa.0761.0.copyload, align 8
   %1609 = getelementptr i8, ptr %.sroa.0761.0.copyload, i64 20
   %.val417.val471 = load i16, ptr %1609, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val416.val, i16 %.val416.val470, ptr %.val417.val, i16 %.val417.val471, i32 noundef 4001, i32 noundef 4003)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val416.val, i16 %.val416.val470, ptr %.val417.val, i16 %.val417.val471, i32 noundef 4001, i32 noundef 4003)
   br label %1649
 
 1610:                                             ; preds = %402
@@ -4174,7 +4174,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val419.val = load ptr, ptr %.sroa.0757.0.copyload, align 8
   %1612 = getelementptr i8, ptr %.sroa.0757.0.copyload, i64 20
   %.val419.val469 = load i16, ptr %1612, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val418.val, i16 %.val418.val468, ptr %.val419.val, i16 %.val419.val469, i32 noundef 3851, i32 noundef 3853)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val418.val, i16 %.val418.val468, ptr %.val419.val, i16 %.val419.val469, i32 noundef 3851, i32 noundef 3853)
   br label %1649
 
 1613:                                             ; preds = %402
@@ -4186,7 +4186,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val421.val = load ptr, ptr %.sroa.0753.0.copyload, align 8
   %1615 = getelementptr i8, ptr %.sroa.0753.0.copyload, i64 20
   %.val421.val467 = load i16, ptr %1615, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val420.val, i16 %.val420.val466, ptr %.val421.val, i16 %.val421.val467, i32 noundef 4307, i32 noundef 4309)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val420.val, i16 %.val420.val466, ptr %.val421.val, i16 %.val421.val467, i32 noundef 4307, i32 noundef 4309)
   br label %1649
 
 1616:                                             ; preds = %402
@@ -4198,7 +4198,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val423.val = load ptr, ptr %.sroa.0749.0.copyload, align 8
   %1618 = getelementptr i8, ptr %.sroa.0749.0.copyload, i64 20
   %.val423.val465 = load i16, ptr %1618, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val422.val, i16 %.val422.val464, ptr %.val423.val, i16 %.val423.val465, i32 noundef 4330, i32 noundef 4332)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val422.val, i16 %.val422.val464, ptr %.val423.val, i16 %.val423.val465, i32 noundef 4330, i32 noundef 4332)
   br label %1649
 
 1619:                                             ; preds = %402
@@ -4210,7 +4210,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val425.val = load ptr, ptr %.sroa.0745.0.copyload, align 8
   %1621 = getelementptr i8, ptr %.sroa.0745.0.copyload, i64 20
   %.val425.val463 = load i16, ptr %1621, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val424.val, i16 %.val424.val462, ptr %.val425.val, i16 %.val425.val463, i32 noundef 4347, i32 noundef 4349)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val424.val, i16 %.val424.val462, ptr %.val425.val, i16 %.val425.val463, i32 noundef 4347, i32 noundef 4349)
   br label %1649
 
 1622:                                             ; preds = %402
@@ -4222,7 +4222,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val427.val = load ptr, ptr %.sroa.0741.0.copyload, align 8
   %1624 = getelementptr i8, ptr %.sroa.0741.0.copyload, i64 20
   %.val427.val461 = load i16, ptr %1624, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val426.val, i16 %.val426.val460, ptr %.val427.val, i16 %.val427.val461, i32 noundef 4319, i32 noundef 4321)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val426.val, i16 %.val426.val460, ptr %.val427.val, i16 %.val427.val461, i32 noundef 4319, i32 noundef 4321)
   br label %1649
 
 1625:                                             ; preds = %402
@@ -4234,7 +4234,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val429.val = load ptr, ptr %.sroa.0737.0.copyload, align 8
   %1627 = getelementptr i8, ptr %.sroa.0737.0.copyload, i64 20
   %.val429.val459 = load i16, ptr %1627, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val428.val, i16 %.val428.val458, ptr %.val429.val, i16 %.val429.val459, i32 noundef 3834, i32 noundef 3836)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val428.val, i16 %.val428.val458, ptr %.val429.val, i16 %.val429.val459, i32 noundef 3834, i32 noundef 3836)
   br label %1649
 
 1628:                                             ; preds = %402
@@ -4246,7 +4246,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val431.val = load ptr, ptr %.sroa.0733.0.copyload, align 8
   %1630 = getelementptr i8, ptr %.sroa.0733.0.copyload, i64 20
   %.val431.val457 = load i16, ptr %1630, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val430.val, i16 %.val430.val456, ptr %.val431.val, i16 %.val431.val457, i32 noundef 3878, i32 noundef 3880)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val430.val, i16 %.val430.val456, ptr %.val431.val, i16 %.val431.val457, i32 noundef 3878, i32 noundef 3880)
   br label %1649
 
 1631:                                             ; preds = %402
@@ -4258,7 +4258,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val433.val = load ptr, ptr %.sroa.0729.0.copyload, align 8
   %1633 = getelementptr i8, ptr %.sroa.0729.0.copyload, i64 20
   %.val433.val455 = load i16, ptr %1633, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val432.val, i16 %.val432.val454, ptr %.val433.val, i16 %.val433.val455, i32 noundef 4000, i32 noundef 4002)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val432.val, i16 %.val432.val454, ptr %.val433.val, i16 %.val433.val455, i32 noundef 4000, i32 noundef 4002)
   br label %1649
 
 1634:                                             ; preds = %402
@@ -4270,7 +4270,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val435.val = load ptr, ptr %.sroa.0725.0.copyload, align 8
   %1636 = getelementptr i8, ptr %.sroa.0725.0.copyload, i64 20
   %.val435.val453 = load i16, ptr %1636, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val434.val, i16 %.val434.val452, ptr %.val435.val, i16 %.val435.val453, i32 noundef 3850, i32 noundef 3852)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val434.val, i16 %.val434.val452, ptr %.val435.val, i16 %.val435.val453, i32 noundef 3850, i32 noundef 3852)
   br label %1649
 
 1637:                                             ; preds = %402
@@ -4282,7 +4282,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val437.val = load ptr, ptr %.sroa.0721.0.copyload, align 8
   %1639 = getelementptr i8, ptr %.sroa.0721.0.copyload, i64 20
   %.val437.val451 = load i16, ptr %1639, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val436.val, i16 %.val436.val450, ptr %.val437.val, i16 %.val437.val451, i32 noundef 4306, i32 noundef 4308)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val436.val, i16 %.val436.val450, ptr %.val437.val, i16 %.val437.val451, i32 noundef 4306, i32 noundef 4308)
   br label %1649
 
 1640:                                             ; preds = %402
@@ -4294,7 +4294,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val439.val = load ptr, ptr %.sroa.0717.0.copyload, align 8
   %1642 = getelementptr i8, ptr %.sroa.0717.0.copyload, i64 20
   %.val439.val449 = load i16, ptr %1642, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val438.val, i16 %.val438.val448, ptr %.val439.val, i16 %.val439.val449, i32 noundef 4329, i32 noundef 4331)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val438.val, i16 %.val438.val448, ptr %.val439.val, i16 %.val439.val449, i32 noundef 4329, i32 noundef 4331)
   br label %1649
 
 1643:                                             ; preds = %402
@@ -4306,7 +4306,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val441.val = load ptr, ptr %.sroa.0713.0.copyload, align 8
   %1645 = getelementptr i8, ptr %.sroa.0713.0.copyload, i64 20
   %.val441.val447 = load i16, ptr %1645, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val440.val, i16 %.val440.val446, ptr %.val441.val, i16 %.val441.val447, i32 noundef 4346, i32 noundef 4348)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val440.val, i16 %.val440.val446, ptr %.val441.val, i16 %.val441.val447, i32 noundef 4346, i32 noundef 4348)
   br label %1649
 
 1646:                                             ; preds = %402
@@ -4318,7 +4318,7 @@ _ZN4llvm8DebugLocD2Ev.exit709:                    ; preds = %_ZN4llvm10MIMetadat
   %.val443.val = load ptr, ptr %.sroa.0.0.copyload710, align 8
   %1648 = getelementptr i8, ptr %.sroa.0.0.copyload710, i64 20
   %.val443.val445 = load i16, ptr %1648, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val442.val, i16 %.val442.val444, ptr %.val443.val, i16 %.val443.val445, i32 noundef 4318, i32 noundef 4320)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr %.val442.val, i16 %.val442.val444, ptr %.val443.val, i16 %.val443.val445, i32 noundef 4318, i32 noundef 4320)
   br label %1649
 
 1649:                                             ; preds = %402, %1548, %1550, %1544, %1546, %563, %1646, %1643, %1640, %1637, %1634, %1631, %1628, %1625, %1622, %1619, %1616, %1613, %1610, %1607, %1604, %1601, %1598, %1595, %1592, %1589, %1586, %1583, %1580, %1577, %1574, %1571, %1568, %1565, %1562, %1559, %1556, %1553, %1552, %1543, %1542, %1541, %1540, %1539, %1538, %1537, %1536, %1535, %1534, %1533, %1531, %_ZN4llvm8DebugLocD2Ev.exit709, %_ZN4llvm8DebugLocD2Ev.exit700, %_ZN4llvm8DebugLocD2Ev.exit690, %_ZN12_GLOBAL__N_119AArch64ExpandPseudo18expandCMP_SWAP_128ERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERS6_.exit, %1132, %1131, %1130, %1129, %_ZN4llvm8DebugLocD2Ev.exit677, %1106, %1105, %_ZN4llvm8DebugLocD2Ev.exit668, %_ZN4llvm8DebugLocD2Ev.exit659, %_ZL14transferImpOpsRN4llvm12MachineInstrERNS_19MachineInstrBuilderES3_.exit650, %_ZN4llvm8DebugLocD2Ev.exit612, %_ZN4llvm8DebugLocD2Ev.exit594, %672, %_ZN4llvm8DebugLocD2Ev.exit, %_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expand_DestructiveOpERN4llvm12MachineInstrERNS1_17MachineBasicBlockENS1_26MachineInstrBundleIteratorIS2_Lb0EEE.exit
@@ -4607,7 +4607,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK
 declare noundef i32 @_ZN4llvm19MachineConstantPool20getConstantPoolIndexEPKNS_8ConstantENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i8) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo12expandMOVImmERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEj.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2, i32 noundef range(i32 32, 65) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo12expandMOVImmERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2, i32 noundef range(i32 32, 65) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::MachineOperand", align 8
   %6 = alloca %"class.llvm::MachineOperand", align 8
   %7 = alloca %"class.llvm::MachineOperand", align 8
@@ -5544,7 +5544,7 @@ _ZN4llvm11SmallVectorINS_11AArch64_IMM12ImmInsnModelELj4EED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo14expandCMP_SWAPERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjjjjjRS6_.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2, i32 noundef range(i32 4215, 4219) %3, i32 noundef range(i32 6681, 6685) %4, i32 noundef range(i32 6852, 6856) %5, i32 noundef %6, i32 noundef range(i32 11, 13) %7, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %8) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo14expandCMP_SWAPERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjjjjjRS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2, i32 noundef range(i32 4215, 4219) %3, i32 noundef range(i32 6681, 6685) %4, i32 noundef range(i32 6852, 6856) %5, i32 noundef %6, i32 noundef range(i32 11, 13) %7, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %8) unnamed_addr #0 align 2 {
   %10 = alloca %"class.llvm::MachineOperand", align 8
   %11 = alloca %"class.llvm::MachineOperand", align 8
   %12 = alloca %"class.llvm::MachineOperand", align 8
@@ -5951,7 +5951,7 @@ declare void @_ZN4llvm15emitFrameOffsetERNS_17MachineBasicBlockENS_26MachineInst
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo16expandSetTagLoopERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERS6_.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo16expandSetTagLoopERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::MachineOperand", align 8
   %6 = alloca %"class.llvm::MachineOperand", align 8
   %7 = alloca %"class.llvm::MachineOperand", align 8
@@ -6153,7 +6153,7 @@ _ZN4llvm10MIMetadataD2Ev.exit96:                  ; preds = %_ZN4llvm10MIMetadat
   br label %_ZN4llvm8DebugLocD2Ev.exit98
 
 _ZN4llvm8DebugLocD2Ev.exit98:                     ; preds = %_ZN4llvm10MIMetadataD2Ev.exit96, %96
-  call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo12expandMOVImmERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEj.retelim(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %89, i32 noundef 64)
+  call fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo12expandMOVImmERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %89, i32 noundef 64)
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %98 = load ptr, ptr %97, align 8
   %99 = call noundef ptr @_ZN4llvm15MachineFunction23CreateMachineBasicBlockEPKNS_10BasicBlockESt8optionalINS_10UniqueBBIDEE(ptr noundef nonnull align 8 dereferenceable(1041) %43, ptr noundef %98, i64 undef, i8 0) #14
@@ -6526,7 +6526,7 @@ _ZN4llvm8DebugLocD2Ev.exit124:                    ; preds = %_ZN4llvm12LivePhysR
 declare void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo18expandSVESpillFillERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjj.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2, i32 noundef range(i32 4452, 6801) %3, i32 noundef range(i32 2, 5) %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo18expandSVESpillFillERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2, i32 noundef range(i32 4452, 6801) %3, i32 noundef range(i32 2, 5) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::MachineOperand", align 8
   %7 = alloca %"class.llvm::MachineOperand", align 8
   %8 = alloca %"class.llvm::MachineOperand", align 8
@@ -6675,7 +6675,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm10MIMetadat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo19expandCALL_RVMARKERERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo19expandCALL_RVMARKERERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::MachineOperand", align 8
   %5 = alloca %"class.llvm::MachineOperand", align 8
   %6 = alloca %"class.llvm::MachineOperand", align 8
@@ -6877,7 +6877,7 @@ _ZN4llvm8DebugLocD2Ev.exit42:                     ; preds = %_ZN4llvm10MIMetadat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo14expandCALL_BTIERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo14expandCALL_BTIERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::MachineOperand", align 8
   %5 = alloca %"class.llvm::MIMetadata", align 8
   %6 = alloca %"class.llvm::DebugLoc", align 8
@@ -7016,7 +7016,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm10MIMetadat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo28expandStoreSwiftAsyncContextERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo28expandStoreSwiftAsyncContextERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::MachineOperand", align 8
   %5 = alloca %"class.llvm::MachineOperand", align 8
   %6 = alloca %"class.llvm::MachineOperand", align 8
@@ -8345,7 +8345,7 @@ _ZN4llvm8DebugLocD2Ev.exit85:                     ; preds = %177, %_ZN4llvm8Debu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj.argprom.argprom.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2, ptr readonly %.0.val.0.val, i16 %.0.val.20.val, ptr readonly %.0.val1.0.val, i16 %.0.val1.20.val, i32 noundef range(i32 3830, 4348) %3, i32 noundef range(i32 3832, 4350) %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expandMultiVecPseudoERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_19TargetRegisterClassES7_jj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2, ptr readonly %.0.val.0.val, i16 %.0.val.20.val, ptr readonly %.0.val1.0.val, i16 %.0.val1.20.val, i32 noundef range(i32 3830, 4348) %3, i32 noundef range(i32 3832, 4350) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::MIMetadata", align 8
   %7 = alloca %"class.llvm::DebugLoc", align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32

@@ -3205,7 +3205,7 @@ define dso_local range(i32 -1, 1) i32 @io_initial_client_connect(ptr noundef %0,
 
 28:                                               ; preds = %23
   tail call void @fd_set_blocking(i32 noundef %24) #9
-  tail call fastcc void @_send_io_init_msg.retelim(i32 noundef %24, ptr noundef %0, ptr noundef %1, i1 noundef zeroext true)
+  tail call fastcc void @_send_io_init_msg(i32 noundef %24, ptr noundef %0, ptr noundef %1, i1 noundef zeroext true)
   %29 = tail call i32 @get_log_level() #9
   %30 = icmp sgt i32 %29, 8
   br i1 %30, label %31, label %32
@@ -3264,7 +3264,7 @@ declare i32 @slurm_open_stream(ptr noundef, i1 noundef zeroext) local_unnamed_ad
 declare void @fd_set_blocking(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_send_io_init_msg.retelim(i32 noundef range(i32 0, -2147483648) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @_send_io_init_msg(i32 noundef range(i32 0, -2147483648) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.io_init_msg_t, align 8
   %6 = load ptr, ptr %1, align 8
   %7 = tail call ptr @xstrdup(ptr noundef %6) #9
@@ -3371,7 +3371,7 @@ define dso_local range(i32 -1, 1) i32 @io_client_connect(ptr noundef %0, ptr nou
 
 20:                                               ; preds = %15
   tail call void @fd_set_blocking(i32 noundef %16) #9
-  tail call fastcc void @_send_io_init_msg.retelim(i32 noundef %16, ptr noundef %0, ptr noundef %1, i1 noundef zeroext false)
+  tail call fastcc void @_send_io_init_msg(i32 noundef %16, ptr noundef %0, ptr noundef %1, i1 noundef zeroext false)
   %21 = tail call i32 @get_log_level() #9
   %22 = icmp sgt i32 %21, 8
   br i1 %22, label %23, label %24

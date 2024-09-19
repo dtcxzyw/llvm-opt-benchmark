@@ -650,13 +650,13 @@ ossl_pkey_new.exit:                               ; preds = %15
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @ossl_pkey_s_generate_parameters(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
-  %4 = tail call fastcc i64 @pkey_generate.argelim(i32 noundef %0, ptr noundef %1, i32 noundef 1)
+  %4 = tail call fastcc i64 @pkey_generate(i32 noundef %0, ptr noundef %1, i32 noundef 1)
   ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @ossl_pkey_s_generate_key(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
-  %4 = tail call fastcc i64 @pkey_generate.argelim(i32 noundef %0, ptr noundef %1, i32 noundef 0)
+  %4 = tail call fastcc i64 @pkey_generate(i32 noundef %0, ptr noundef %1, i32 noundef 0)
   ret i64 %4
 }
 
@@ -2520,7 +2520,7 @@ declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @ossl_obj2bio(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @pkey_generate.argelim(i32 noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc i64 @pkey_generate(i32 noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca [2 x i64], align 16
   %6 = alloca i64, align 8

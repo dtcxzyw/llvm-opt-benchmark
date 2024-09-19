@@ -687,14 +687,14 @@ do.end88.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
   %sub.ptr.rhs.cast90.i.i.i = ptrtoint ptr %op.03.i.i.i to i64
   %sub.ptr.sub91.i.i.i = sub i64 %sub.ptr.lhs.cast89.i.i.i, %sub.ptr.rhs.cast90.i.i.i
   %cmp92.i.i.i = icmp slt i64 %sub.ptr.sub91.i.i.i, 4
-  br i1 %cmp92.i.i.i, label %do.cond.i, label %ZSTD_compressSubBlock_sequences.argprom.exit.i.i
+  br i1 %cmp92.i.i.i, label %do.cond.i, label %ZSTD_compressSubBlock_sequences.exit.i.i
 
-ZSTD_compressSubBlock_sequences.argprom.exit.i.i: ; preds = %do.end88.i.i.i
+ZSTD_compressSubBlock_sequences.exit.i.i:         ; preds = %do.end88.i.i.i
   %sub.ptr.sub100.i.i.i = sub i64 %sub.ptr.lhs.cast89.i.i.i, %sub.ptr.rhs.cast17.i.i
   %cmp.i31.i.i = icmp ult i64 %sub.ptr.sub100.i.i.i, -119
   br i1 %cmp.i31.i.i, label %do.end34.i.i, label %ZSTD_compressSubBlock_multi.exit
 
-do.end34.i.i:                                     ; preds = %ZSTD_compressSubBlock_sequences.argprom.exit.i.i
+do.end34.i.i:                                     ; preds = %ZSTD_compressSubBlock_sequences.exit.i.i
   %cmp35.i.i = icmp eq i64 %sub.ptr.sub100.i.i.i, 0
   br i1 %cmp35.i.i, label %do.cond.i, label %ZSTD_compressSubBlock.exit.i
 
@@ -908,8 +908,8 @@ do.end136.i:                                      ; preds = %for.end.i, %do.end1
   %sub.ptr.sub139.i = sub i64 %sub.ptr.lhs.cast137.i, %sub.ptr.rhs.cast138.i
   br label %ZSTD_compressSubBlock_multi.exit
 
-ZSTD_compressSubBlock_multi.exit:                 ; preds = %ZSTD_compressSubBlock_literal.exit.i.i, %if.end14.i.i, %if.end53.i.i.i, %if.end53.thread.i.i.i, %ZSTD_compressSubBlock_sequences.argprom.exit.i.i, %ZSTD_compressSubBlock.exit.i, %land.lhs.true74.i, %if.end.i.i, %ZSTD_needSequenceEntropyTables.exit.i, %if.then84.i, %ZSTD_noCompressBlock.exit.i, %do.end136.i
-  %retval.0.i = phi i64 [ %sub.ptr.sub139.i, %do.end136.i ], [ 0, %ZSTD_needSequenceEntropyTables.exit.i ], [ %add3.i118.i, %ZSTD_noCompressBlock.exit.i ], [ 0, %land.lhs.true74.i ], [ 0, %if.end.i.i ], [ -70, %if.then84.i ], [ %sub.ptr.sub41.i.i, %ZSTD_compressSubBlock.exit.i ], [ -70, %if.end14.i.i ], [ %call60.i.i.i, %if.end53.i.i.i ], [ %call609.i.i.i, %if.end53.thread.i.i.i ], [ %sub.ptr.sub100.i.i.i, %ZSTD_compressSubBlock_sequences.argprom.exit.i.i ], [ %retval.0.i.i96.i, %ZSTD_compressSubBlock_literal.exit.i.i ]
+ZSTD_compressSubBlock_multi.exit:                 ; preds = %ZSTD_compressSubBlock_literal.exit.i.i, %if.end14.i.i, %if.end53.i.i.i, %if.end53.thread.i.i.i, %ZSTD_compressSubBlock_sequences.exit.i.i, %ZSTD_compressSubBlock.exit.i, %land.lhs.true74.i, %if.end.i.i, %ZSTD_needSequenceEntropyTables.exit.i, %if.then84.i, %ZSTD_noCompressBlock.exit.i, %do.end136.i
+  %retval.0.i = phi i64 [ %sub.ptr.sub139.i, %do.end136.i ], [ 0, %ZSTD_needSequenceEntropyTables.exit.i ], [ %add3.i118.i, %ZSTD_noCompressBlock.exit.i ], [ 0, %land.lhs.true74.i ], [ 0, %if.end.i.i ], [ -70, %if.then84.i ], [ %sub.ptr.sub41.i.i, %ZSTD_compressSubBlock.exit.i ], [ -70, %if.end14.i.i ], [ %call60.i.i.i, %if.end53.i.i.i ], [ %call609.i.i.i, %if.end53.thread.i.i.i ], [ %sub.ptr.sub100.i.i.i, %ZSTD_compressSubBlock_sequences.exit.i.i ], [ %retval.0.i.i96.i, %ZSTD_compressSubBlock_literal.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %rep.i)
   br label %return
 

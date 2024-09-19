@@ -94,13 +94,13 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %locale, i64 40
   %locale.val = load ptr, ptr %1, align 8
-  %call = tail call fastcc noundef signext i16 @_ZN12_GLOBAL__N_123getMinGroupingForLocaleERKN6icu_756LocaleE.argprom(ptr %locale.val)
+  %call = tail call fastcc noundef signext i16 @_ZN12_GLOBAL__N_123getMinGroupingForLocaleERKN6icu_756LocaleE(ptr %locale.val)
   br label %if.end13.sink.split
 
 if.then6:                                         ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %locale, i64 40
   %locale.val7 = load ptr, ptr %2, align 8
-  %call7 = tail call fastcc noundef signext i16 @_ZN12_GLOBAL__N_123getMinGroupingForLocaleERKN6icu_756LocaleE.argprom(ptr %locale.val7)
+  %call7 = tail call fastcc noundef signext i16 @_ZN12_GLOBAL__N_123getMinGroupingForLocaleERKN6icu_756LocaleE(ptr %locale.val7)
   %conv8 = sext i16 %call7 to i32
   %call9 = tail call i32 @uprv_max_75(i32 noundef 2, i32 noundef %conv8)
   %conv10 = trunc i32 %call9 to i16
@@ -142,7 +142,7 @@ return:                                           ; preds = %if.end13, %if.end19
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext i16 @_ZN12_GLOBAL__N_123getMinGroupingForLocaleERKN6icu_756LocaleE.argprom(ptr %locale.40.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef signext i16 @_ZN12_GLOBAL__N_123getMinGroupingForLocaleERKN6icu_756LocaleE(ptr %locale.40.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %localStatus = alloca i32, align 4
   %bundle = alloca %"class.icu_75::LocalUResourceBundlePointer", align 8

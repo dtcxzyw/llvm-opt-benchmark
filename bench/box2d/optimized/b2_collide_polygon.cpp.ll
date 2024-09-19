@@ -90,7 +90,7 @@ if.end10:                                         ; preds = %if.end5, %if.else
   %mul6.i28.i = fmul float %xf2.sroa.11.0, %8
   %10 = tail call float @llvm.fmuladd.f32(float %fneg.i.i, float %7, float %mul6.i28.i)
   %cmp1.i = icmp sgt i32 %3, 0
-  br i1 %cmp1.i, label %for.body.preheader.i, label %_ZL18b2FindIncidentEdgeP12b2ClipVertexPK14b2PolygonShapeRK11b2TransformiS3_S6_.argprom.exit
+  br i1 %cmp1.i, label %for.body.preheader.i, label %_ZL18b2FindIncidentEdgeP12b2ClipVertexPK14b2PolygonShapeRK11b2TransformiS3_S6_.exit
 
 for.body.preheader.i:                             ; preds = %if.end10
   %wide.trip.count.i = zext nneg i32 %3 to i64
@@ -112,9 +112,9 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %index.1.i = select i1 %cmp9.i, i32 %14, i32 %index.04.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL18b2FindIncidentEdgeP12b2ClipVertexPK14b2PolygonShapeRK11b2TransformiS3_S6_.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %_ZL18b2FindIncidentEdgeP12b2ClipVertexPK14b2PolygonShapeRK11b2TransformiS3_S6_.exit, label %for.body.i, !llvm.loop !4
 
-_ZL18b2FindIncidentEdgeP12b2ClipVertexPK14b2PolygonShapeRK11b2TransformiS3_S6_.argprom.exit: ; preds = %for.body.i, %if.end10
+_ZL18b2FindIncidentEdgeP12b2ClipVertexPK14b2PolygonShapeRK11b2TransformiS3_S6_.exit: ; preds = %for.body.i, %if.end10
   %index.0.lcssa.i = phi i32 [ 0, %if.end10 ], [ %index.1.i, %for.body.i ]
   %m_vertices.i = getelementptr inbounds i8, ptr %poly2.0, i64 24
   %add.i = add nsw i32 %index.0.lcssa.i, 1
@@ -195,7 +195,7 @@ _ZL18b2FindIncidentEdgeP12b2ClipVertexPK14b2PolygonShapeRK11b2TransformiS3_S6_.a
   %cmp.i = fcmp olt float %sqrt.i.i, 0x3E80000000000000
   br i1 %cmp.i, label %_ZN6b2Vec29NormalizeEv.exit, label %if.end.i
 
-if.end.i:                                         ; preds = %_ZL18b2FindIncidentEdgeP12b2ClipVertexPK14b2PolygonShapeRK11b2TransformiS3_S6_.argprom.exit
+if.end.i:                                         ; preds = %_ZL18b2FindIncidentEdgeP12b2ClipVertexPK14b2PolygonShapeRK11b2TransformiS3_S6_.exit
   %div.i = fdiv float 1.000000e+00, %sqrt.i.i
   %mul.i = fmul float %sub.i, %div.i
   %localTangent.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %mul.i, i64 0
@@ -203,8 +203,8 @@ if.end.i:                                         ; preds = %_ZL18b2FindIncident
   %localTangent.sroa.0.4.vec.insert = insertelement <2 x float> %localTangent.sroa.0.0.vec.insert, float %mul2.i, i64 1
   br label %_ZN6b2Vec29NormalizeEv.exit
 
-_ZN6b2Vec29NormalizeEv.exit:                      ; preds = %_ZL18b2FindIncidentEdgeP12b2ClipVertexPK14b2PolygonShapeRK11b2TransformiS3_S6_.argprom.exit, %if.end.i
-  %localTangent.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i, %_ZL18b2FindIncidentEdgeP12b2ClipVertexPK14b2PolygonShapeRK11b2TransformiS3_S6_.argprom.exit ], [ %localTangent.sroa.0.4.vec.insert, %if.end.i ]
+_ZN6b2Vec29NormalizeEv.exit:                      ; preds = %_ZL18b2FindIncidentEdgeP12b2ClipVertexPK14b2PolygonShapeRK11b2TransformiS3_S6_.exit, %if.end.i
+  %localTangent.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i, %_ZL18b2FindIncidentEdgeP12b2ClipVertexPK14b2PolygonShapeRK11b2TransformiS3_S6_.exit ], [ %localTangent.sroa.0.4.vec.insert, %if.end.i ]
   %localTangent.sroa.0.4.vec.extract121 = extractelement <2 x float> %localTangent.sroa.0.0, i64 1
   %localTangent.sroa.0.0.vec.extract116 = extractelement <2 x float> %localTangent.sroa.0.0, i64 0
   %mul1.i = fneg float %localTangent.sroa.0.0.vec.extract116

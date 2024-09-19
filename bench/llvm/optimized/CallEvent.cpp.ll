@@ -3361,7 +3361,7 @@ _ZL26castArgToParamTypeIfNeededRKN5clang4ento9CallEventEjNS0_4SValERNS0_11SValBu
   %116 = load ptr, ptr %115, align 16
   %117 = call noundef ptr @_ZNK5clang4Type14getAsUnionTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %116) #18
   %.not.i.i = icmp eq ptr %117, null
-  br i1 %.not.i.i, label %_ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValBuilderE.argprom.exit, label %118
+  br i1 %.not.i.i, label %_ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValBuilderE.exit, label %118
 
 118:                                              ; preds = %_ZL26castArgToParamTypeIfNeededRKN5clang4ento9CallEventEjNS0_4SValERNS0_11SValBuilderE.exit
   %119 = call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %117) #18
@@ -3369,7 +3369,7 @@ _ZL26castArgToParamTypeIfNeededRKN5clang4ento9CallEventEjNS0_4SValERNS0_11SValBu
   %121 = load i32, ptr %120, align 4
   %122 = and i32 %121, 256
   %.not.i.i.i54 = icmp eq i32 %122, 0
-  br i1 %.not.i.i.i54, label %_ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValBuilderE.argprom.exit, label %123
+  br i1 %.not.i.i.i54, label %_ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValBuilderE.exit, label %123
 
 123:                                              ; preds = %118
   %124 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %119) #18
@@ -3390,11 +3390,11 @@ _ZL26castArgToParamTypeIfNeededRKN5clang4ento9CallEventEjNS0_4SValERNS0_11SValBu
 133:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
   %134 = getelementptr inbounds i8, ptr %.sroa.07.1.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %134, %127
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValBuilderE.argprom.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !60
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValBuilderE.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !60
 
 135:                                              ; preds = %123
   %.not2.i3.i.i.i.i.i.i = icmp eq i64 %126, 0
-  br i1 %.not2.i3.i.i.i.i.i.i, label %_ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValBuilderE.argprom.exit, label %.lr.ph.i4.i.i.i.i.i.i
+  br i1 %.not2.i3.i.i.i.i.i.i, label %_ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValBuilderE.exit, label %.lr.ph.i4.i.i.i.i.i.i
 
 .lr.ph.i4.i.i.i.i.i.i:                            ; preds = %135, %140
   %.sroa.0.1.i.i.i.i.i.i = phi ptr [ %141, %140 ], [ %127, %135 ]
@@ -3407,13 +3407,13 @@ _ZL26castArgToParamTypeIfNeededRKN5clang4ento9CallEventEjNS0_4SValERNS0_11SValBu
 140:                                              ; preds = %.lr.ph.i4.i.i.i.i.i.i
   %141 = getelementptr inbounds i8, ptr %.sroa.0.1.i.i.i.i.i.i, i64 8
   %.not.i5.i.i.i.i.i.i = icmp eq ptr %141, %125
-  br i1 %.not.i5.i.i.i.i.i.i, label %_ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValBuilderE.argprom.exit, label %.lr.ph.i4.i.i.i.i.i.i, !llvm.loop !60
+  br i1 %.not.i5.i.i.i.i.i.i, label %_ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValBuilderE.exit, label %.lr.ph.i4.i.i.i.i.i.i, !llvm.loop !60
 
 _ZL18isTransparentUnionN5clang8QualTypeE.exit.i:  ; preds = %.lr.ph.i4.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.sroa.07.0.i.i.i.i.i.i = phi ptr [ %.sroa.07.1.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %125, %.lr.ph.i4.i.i.i.i.i.i ]
   %.sroa.0.0.i.i.i.i.i.i = phi ptr [ %127, %.lr.ph.i.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i.i.i.i, %.lr.ph.i4.i.i.i.i.i.i ]
   %.not.i57 = icmp eq ptr %.sroa.07.0.i.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i.i
-  br i1 %.not.i57, label %_ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValBuilderE.argprom.exit, label %142
+  br i1 %.not.i57, label %_ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValBuilderE.exit, label %142
 
 142:                                              ; preds = %_ZL18isTransparentUnionN5clang8QualTypeE.exit.i
   %143 = and i64 %.val, -16
@@ -3473,7 +3473,7 @@ _ZL18isTransparentUnionN5clang8QualTypeE.exit38.i: ; preds = %.lr.ph.i4.i.i.i.i.
   %.sroa.07.0.i.i.i.i.i33.i = phi ptr [ %.sroa.07.1.i.i.i.i.i36.i, %.lr.ph.i.i.i.i.i.i35.i ], [ %154, %.lr.ph.i4.i.i.i.i.i29.i ]
   %.sroa.0.0.i.i.i.i.i34.i = phi ptr [ %156, %.lr.ph.i.i.i.i.i.i35.i ], [ %.sroa.0.1.i.i.i.i.i30.i, %.lr.ph.i4.i.i.i.i.i29.i ]
   %.not9.i = icmp eq ptr %.sroa.07.0.i.i.i.i.i33.i, %.sroa.0.0.i.i.i.i.i34.i
-  br i1 %.not9.i, label %_ZL18isTransparentUnionN5clang8QualTypeE.exit38.thread.i, label %_ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValBuilderE.argprom.exit
+  br i1 %.not9.i, label %_ZL18isTransparentUnionN5clang8QualTypeE.exit38.thread.i, label %_ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValBuilderE.exit
 
 _ZL18isTransparentUnionN5clang8QualTypeE.exit38.thread.i: ; preds = %169, %162, %_ZL18isTransparentUnionN5clang8QualTypeE.exit38.i, %164, %147, %142
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
@@ -3482,9 +3482,9 @@ _ZL18isTransparentUnionN5clang8QualTypeE.exit38.thread.i: ; preds = %169, %162, 
   %171 = call ptr @_ZN4llvm20ImmutableListFactoryIN5clang4ento4SValEE6concatIRS3_EENS_13ImmutableListIS3_EEOT_S8_(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(9) %7, ptr null)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %172 = call noundef ptr @_ZN5clang4ento17BasicValueFactory18getCompoundValDataENS_8QualTypeEN4llvm13ImmutableListINS0_4SValEEE(ptr noundef nonnull align 8 dereferenceable(144) %27, i64 %.val50, ptr %171) #18
-  br label %_ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValBuilderE.argprom.exit
+  br label %_ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValBuilderE.exit
 
-_ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValBuilderE.argprom.exit: ; preds = %140, %133, %_ZL26castArgToParamTypeIfNeededRKN5clang4ento9CallEventEjNS0_4SValERNS0_11SValBuilderE.exit, %118, %135, %_ZL18isTransparentUnionN5clang8QualTypeE.exit.i, %_ZL18isTransparentUnionN5clang8QualTypeE.exit38.i, %_ZL18isTransparentUnionN5clang8QualTypeE.exit38.thread.i
+_ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValBuilderE.exit: ; preds = %140, %133, %_ZL26castArgToParamTypeIfNeededRKN5clang4ento9CallEventEjNS0_4SValERNS0_11SValBuilderE.exit, %118, %135, %_ZL18isTransparentUnionN5clang8QualTypeE.exit.i, %_ZL18isTransparentUnionN5clang8QualTypeE.exit38.i, %_ZL18isTransparentUnionN5clang8QualTypeE.exit38.thread.i
   %.sroa.023.0.i = phi ptr [ %172, %_ZL18isTransparentUnionN5clang8QualTypeE.exit38.thread.i ], [ %.sroa.024.0.i, %_ZL18isTransparentUnionN5clang8QualTypeE.exit38.i ], [ %.sroa.024.0.i, %_ZL18isTransparentUnionN5clang8QualTypeE.exit.i ], [ %.sroa.024.0.i, %_ZL26castArgToParamTypeIfNeededRKN5clang4ento9CallEventEjNS0_4SValERNS0_11SValBuilderE.exit ], [ %.sroa.024.0.i, %118 ], [ %.sroa.024.0.i, %135 ], [ %.sroa.024.0.i, %133 ], [ %.sroa.024.0.i, %140 ]
   %.sroa.324.0.i = phi i8 [ 5, %_ZL18isTransparentUnionN5clang8QualTypeE.exit38.thread.i ], [ %.sroa.5.0.i, %_ZL18isTransparentUnionN5clang8QualTypeE.exit38.i ], [ %.sroa.5.0.i, %_ZL18isTransparentUnionN5clang8QualTypeE.exit.i ], [ %.sroa.5.0.i, %_ZL26castArgToParamTypeIfNeededRKN5clang4ento9CallEventEjNS0_4SValERNS0_11SValBuilderE.exit ], [ %.sroa.5.0.i, %118 ], [ %.sroa.5.0.i, %135 ], [ %.sroa.5.0.i, %133 ], [ %.sroa.5.0.i, %140 ]
   store ptr %110, ptr %12, align 8
@@ -3494,7 +3494,7 @@ _ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValB
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang4ento4SValES4_ELb1EE9push_backERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %12)
   br label %173
 
-173:                                              ; preds = %54, %_ZNK5clang4ento9CallEvent29isArgumentConstructedDirectlyEj.exit, %_ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValBuilderE.argprom.exit
+173:                                              ; preds = %54, %_ZNK5clang4ento9CallEvent29isArgumentConstructedDirectlyEj.exit, %_ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValBuilderE.exit
   %174 = getelementptr inbounds i8, ptr %.04979, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %175 = icmp ne ptr %174, %18
@@ -4955,15 +4955,15 @@ define dso_local void @_ZNK5clang4ento14ObjCMethodCall25getExtraInvalidatedValue
   %17 = load i8, ptr %16, align 8
   %18 = and i8 %17, -2
   %spec.select.i.i.i.i.i.i.i.i.not.i.i = icmp eq i8 %18, 118
-  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i.i, label %19, label %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.argprom.exit.i
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i.i, label %19, label %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.exit.i
 
 19:                                               ; preds = %9
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef ptr @_ZN5clang4Expr12IgnoreParensEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #19
-  br label %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.argprom.exit.i
+  br label %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.exit.i
 
-_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.argprom.exit.i: ; preds = %19, %9
+_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.exit.i: ; preds = %19, %9
   %.0.i.i = phi ptr [ %22, %19 ], [ %16, %9 ]
   %23 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %.0.copyload.i.i.i.i.i = load i64, ptr %23, align 8
@@ -4971,12 +4971,12 @@ _ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.argprom.exi
   %.not.i.i = icmp eq i64 %24, 0
   br i1 %.not.i.i, label %25, label %28
 
-25:                                               ; preds = %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.argprom.exit.i
+25:                                               ; preds = %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.exit.i
   %26 = and i64 %.0.copyload.i.i.i.i.i, -8
   %27 = inttoptr i64 %26 to ptr
   br label %_ZNK5clang4ento14ObjCMethodCall19getAccessedPropertyEv.exit
 
-28:                                               ; preds = %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.argprom.exit.i, %3
+28:                                               ; preds = %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.exit.i, %3
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 48
   %31 = load ptr, ptr %30, align 8
@@ -5202,15 +5202,15 @@ define dso_local noundef ptr @_ZNK5clang4ento14ObjCMethodCall19getAccessedProper
   %12 = load i8, ptr %11, align 8
   %13 = and i8 %12, -2
   %spec.select.i.i.i.i.i.i.i.i.not.i = icmp eq i8 %13, 118
-  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i, label %14, label %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.argprom.exit
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i, label %14, label %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.exit
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef ptr @_ZN5clang4Expr12IgnoreParensEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #19
-  br label %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.argprom.exit
+  br label %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.exit
 
-_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.argprom.exit: ; preds = %4, %14
+_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.exit: ; preds = %4, %14
   %.0.i = phi ptr [ %17, %14 ], [ %11, %4 ]
   %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %.0.copyload.i.i.i.i = load i64, ptr %18, align 8
@@ -5218,12 +5218,12 @@ _ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.argprom.exi
   %.not.i = icmp eq i64 %19, 0
   br i1 %.not.i, label %20, label %23
 
-20:                                               ; preds = %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.argprom.exit
+20:                                               ; preds = %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.exit
   %21 = and i64 %.0.copyload.i.i.i.i, -8
   %22 = inttoptr i64 %21 to ptr
   br label %34
 
-23:                                               ; preds = %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.argprom.exit, %1
+23:                                               ; preds = %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.exit, %1
   %24 = load ptr, ptr %0, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 48
   %26 = load ptr, ptr %25, align 8
@@ -5458,27 +5458,27 @@ _ZN4llvm16dyn_cast_or_nullIN5clang16PseudoObjectExprEKNS1_4StmtEEEDaPT0_.exit: ;
   %20 = load i8, ptr %19, align 8
   %21 = and i8 %20, -2
   %spec.select.i.i.i.i.i.i.i.i.not.i = icmp eq i8 %21, 118
-  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i, label %22, label %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.argprom.exit
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i, label %22, label %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.exit
 
 22:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang16PseudoObjectExprEKNS1_4StmtEEEDaPT0_.exit
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef ptr @_ZN5clang4Expr12IgnoreParensEv(ptr noundef nonnull align 8 dereferenceable(16) %24) #19
   %.pre = load i8, ptr %25, align 8
-  br label %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.argprom.exit
+  br label %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.exit
 
-_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.argprom.exit: ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang16PseudoObjectExprEKNS1_4StmtEEEDaPT0_.exit, %22
+_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.exit: ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang16PseudoObjectExprEKNS1_4StmtEEEDaPT0_.exit, %22
   %26 = phi i8 [ %.pre, %22 ], [ %20, %_ZN4llvm16dyn_cast_or_nullIN5clang16PseudoObjectExprEKNS1_4StmtEEEDaPT0_.exit ]
   switch i8 %26, label %_ZN4llvm16dyn_cast_or_nullIN5clang16PseudoObjectExprEKNS1_4StmtEEEDaPT0_.exit.thread [
     i8 32, label %28
     i8 28, label %27
   ]
 
-27:                                               ; preds = %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.argprom.exit
+27:                                               ; preds = %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.exit
   br label %28
 
-28:                                               ; preds = %27, %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.argprom.exit
-  %.0.ph = phi i32 [ 0, %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.argprom.exit ], [ 1, %27 ]
+28:                                               ; preds = %27, %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.exit
+  %.0.ph = phi i32 [ 0, %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.exit ], [ 1, %27 ]
   %29 = ptrtoint ptr %14 to i64
   %30 = and i64 %29, -7
   %31 = shl nuw nsw i32 %.0.ph, 1
@@ -5488,7 +5488,7 @@ _ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.argprom.exi
   store ptr %34, ptr %2, align 8
   br label %41
 
-_ZN4llvm16dyn_cast_or_nullIN5clang16PseudoObjectExprEKNS1_4StmtEEEDaPT0_.exit.thread: ; preds = %4, %15, %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.argprom.exit
+_ZN4llvm16dyn_cast_or_nullIN5clang16PseudoObjectExprEKNS1_4StmtEEEDaPT0_.exit.thread: ; preds = %4, %15, %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.exit
   store ptr inttoptr (i64 2 to ptr), ptr %2, align 8
   br label %41
 
@@ -12058,14 +12058,14 @@ attributes #22 = { builtin nounwind allocsize(0) }
 !49 = distinct !{!49, !"_ZN4llvm15handleErrorImplIZNK5clang4ento15AnyFunctionCall20getRuntimeDefinitionEvE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS7_EEOT_DpOT0_"}
 !50 = !{!48, !45}
 !51 = !{!52, !48, !45}
-!52 = distinct !{!52, !53, !"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang8cross_tu10IndexErrorEEE5applyIZNKS1_4ento15AnyFunctionCall20getRuntimeDefinitionEvE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISG_EE.argprom: argument 0"}
-!53 = distinct !{!53, !"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang8cross_tu10IndexErrorEEE5applyIZNKS1_4ento15AnyFunctionCall20getRuntimeDefinitionEvE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISG_EE.argprom"}
+!52 = distinct !{!52, !53, !"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang8cross_tu10IndexErrorEEE5applyIZNKS1_4ento15AnyFunctionCall20getRuntimeDefinitionEvE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISG_EE: argument 0"}
+!53 = distinct !{!53, !"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang8cross_tu10IndexErrorEEE5applyIZNKS1_4ento15AnyFunctionCall20getRuntimeDefinitionEvE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISG_EE"}
 !54 = !{!55, !45}
 !55 = distinct !{!55, !56, !"_ZN4llvm15handleErrorImplIZNK5clang4ento15AnyFunctionCall20getRuntimeDefinitionEvE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS7_EEOT_DpOT0_: argument 0"}
 !56 = distinct !{!56, !"_ZN4llvm15handleErrorImplIZNK5clang4ento15AnyFunctionCall20getRuntimeDefinitionEvE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS7_EEOT_DpOT0_"}
 !57 = !{!58, !55, !45}
-!58 = distinct !{!58, !59, !"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang8cross_tu10IndexErrorEEE5applyIZNKS1_4ento15AnyFunctionCall20getRuntimeDefinitionEvE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISG_EE.argprom: argument 0"}
-!59 = distinct !{!59, !"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang8cross_tu10IndexErrorEEE5applyIZNKS1_4ento15AnyFunctionCall20getRuntimeDefinitionEvE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISG_EE.argprom"}
+!58 = distinct !{!58, !59, !"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang8cross_tu10IndexErrorEEE5applyIZNKS1_4ento15AnyFunctionCall20getRuntimeDefinitionEvE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISG_EE: argument 0"}
+!59 = distinct !{!59, !"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang8cross_tu10IndexErrorEEE5applyIZNKS1_4ento15AnyFunctionCall20getRuntimeDefinitionEvE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISG_EE"}
 !60 = distinct !{!60, !5}
 !61 = distinct !{!61, !5}
 !62 = distinct !{!62, !5}

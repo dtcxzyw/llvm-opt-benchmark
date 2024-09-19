@@ -7215,19 +7215,19 @@ do.end5.i.i.i:                                    ; preds = %if.then.i10
   %dec.i.i.i = add i32 %24, -1
   store i32 %dec.i.i.i, ptr %refs_.i.i.i, align 4
   %cmp7.i.i.i = icmp eq i32 %dec.i.i.i, 0
-  br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_11ZlibContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.argprom.exit
+  br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_11ZlibContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.exit
 
 if.then8.i.i.i:                                   ; preds = %do.end5.i.i.i
   call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #22
-  br label %_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_11ZlibContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.argprom.exit
+  br label %_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_11ZlibContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.exit
 
-_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_11ZlibContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.argprom.exit: ; preds = %do.end5.i.i.i, %if.then8.i.i.i
+_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_11ZlibContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.exit: ; preds = %do.end5.i.i.i, %if.then8.i.i.i
   %unreported_allocations_.i.i = getelementptr inbounds i8, ptr %this, i64 224
   %25 = atomicrmw xchg ptr %unreported_allocations_.i.i, i64 0 monotonic, align 8
   %cmp.i.i = icmp eq i64 %25, 0
-  br i1 %cmp.i.i, label %_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10AllocScopeD2Ev.argprom.exit, label %do.body.i.i
+  br i1 %cmp.i.i, label %_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10AllocScopeD2Ev.exit, label %do.body.i.i
 
-do.body.i.i:                                      ; preds = %_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_11ZlibContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.argprom.exit
+do.body.i.i:                                      ; preds = %_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_11ZlibContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.exit
   %cmp2.i.i = icmp slt i64 %25, 0
   %zlib_memory_.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %26 = load i64, ptr %zlib_memory_.i.i, align 8
@@ -7251,9 +7251,9 @@ do.end9.i.i:                                      ; preds = %do.body.i.i
   %isolate_.i.i.i = getelementptr inbounds i8, ptr %28, i64 88
   %29 = load ptr, ptr %isolate_.i.i.i, align 8
   %call13.i.i = call noundef i64 @_ZN2v87Isolate37AdjustAmountOfExternalAllocatedMemoryEl(ptr noundef nonnull align 1 dereferenceable(1) %29, i64 noundef %25) #22
-  br label %_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10AllocScopeD2Ev.argprom.exit
+  br label %_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10AllocScopeD2Ev.exit
 
-_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10AllocScopeD2Ev.argprom.exit: ; preds = %_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_11ZlibContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.argprom.exit, %do.end9.i.i
+_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10AllocScopeD2Ev.exit: ; preds = %_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_11ZlibContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.exit, %do.end9.i.i
   ret void
 }
 
@@ -9005,15 +9005,15 @@ if.then:                                          ; preds = %entry
   %spec.select.i = select i1 %cmp.not.i, ptr @.str.178, ptr %this.val1
   %switch.tableidx = add i32 %0, 6
   %2 = icmp ult i32 %switch.tableidx, 9
-  br i1 %2, label %switch.lookup, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom.exit
+  br i1 %2, label %switch.lookup, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit
 
 switch.lookup:                                    ; preds = %if.then
   %3 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv.27, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom.exit
+  br label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit
 
-_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom.exit: ; preds = %if.then, %switch.lookup
+_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit: ; preds = %if.then, %switch.lookup
   %retval.0.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.174, %if.then ]
   store ptr %spec.select.i, ptr %agg.result, align 8, !alias.scope !45
   %code3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -9058,15 +9058,15 @@ if.then11:                                        ; preds = %sw.epilog
   %spec.select.i5 = select i1 %cmp.not.i4, ptr @.str.179, ptr %this.val3
   %switch.tableidx22 = add i32 %5, 6
   %7 = icmp ult i32 %switch.tableidx22, 9
-  br i1 %7, label %switch.lookup21, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom.exit18
+  br i1 %7, label %switch.lookup21, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit18
 
 switch.lookup21:                                  ; preds = %if.then11
   %8 = zext nneg i32 %switch.tableidx22 to i64
   %switch.gep23 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv.27, i64 0, i64 %8
   %switch.load24 = load ptr, ptr %switch.gep23, align 8
-  br label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom.exit18
+  br label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit18
 
-_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom.exit18: ; preds = %if.then11, %switch.lookup21
+_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit18: ; preds = %if.then11, %switch.lookup21
   %retval.0.i.i7 = phi ptr [ %switch.load24, %switch.lookup21 ], [ @.str.174, %if.then11 ]
   store ptr %spec.select.i5, ptr %agg.result, align 8, !alias.scope !48
   %code3.i.i8 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -9128,15 +9128,15 @@ if.then18.i:                                      ; preds = %sw.epilog.i
   %spec.select.i.i = select i1 %cmp.not.i.i, ptr @.str.173, ptr %this.val1.i
   %switch.tableidx26 = add i32 %12, 6
   %14 = icmp ult i32 %switch.tableidx26, 9
-  br i1 %14, label %switch.lookup25, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom.exit.i
+  br i1 %14, label %switch.lookup25, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit.i
 
 switch.lookup25:                                  ; preds = %if.then18.i
   %15 = zext nneg i32 %switch.tableidx26 to i64
   %switch.gep27 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv.27, i64 0, i64 %15
   %switch.load28 = load ptr, ptr %switch.gep27, align 8
-  br label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom.exit.i
+  br label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit.i
 
-_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom.exit.i: ; preds = %if.then18.i, %switch.lookup25
+_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit.i: ; preds = %if.then18.i, %switch.lookup25
   %retval.0.i.i.i = phi ptr [ %switch.load28, %switch.lookup25 ], [ @.str.174, %if.then18.i ]
   store ptr %spec.select.i.i, ptr %agg.result, align 8, !alias.scope !54
   %code3.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -9149,7 +9149,7 @@ if.end19.i:                                       ; preds = %sw.epilog.i, %if.en
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !51
   br label %return
 
-return:                                           ; preds = %if.end19.i, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom.exit.i, %if.then.i, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom.exit18, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom.exit
+return:                                           ; preds = %if.end19.i, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit.i, %if.then.i, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit18, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit
   ret void
 }
 
@@ -9214,16 +9214,16 @@ sw.bb4.i:                                         ; preds = %entry
   %cmp.not.i8.i = icmp eq ptr %this.val5.i, null
   %code3.i.i12.i = getelementptr inbounds i8, ptr %err, i64 8
   %err4.i.i13.i = getelementptr inbounds i8, ptr %err, i64 16
-  br i1 %cmp.i.i.i, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom.exit22.i, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom.exit37.i
+  br i1 %cmp.i.i.i, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit22.i, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit37.i
 
-_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom.exit22.i: ; preds = %sw.bb4.i
+_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit22.i: ; preds = %sw.bb4.i
   %spec.select.i9.i = select i1 %cmp.not.i8.i, ptr @.str.184, ptr %this.val5.i
   store ptr %spec.select.i9.i, ptr %err, align 8, !alias.scope !63
   store ptr @.str.8, ptr %code3.i.i12.i, align 8, !alias.scope !63
   store i32 2, ptr %err4.i.i13.i, align 8, !alias.scope !63
   br label %if.end
 
-_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom.exit37.i: ; preds = %sw.bb4.i
+_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit37.i: ; preds = %sw.bb4.i
   %spec.select.i24.i = select i1 %cmp.not.i8.i, ptr @.str.185, ptr %this.val5.i
   store ptr %spec.select.i24.i, ptr %err, align 8, !alias.scope !66
   store ptr @.str.8, ptr %code3.i.i12.i, align 8, !alias.scope !66
@@ -9236,16 +9236,16 @@ sw.default.i:                                     ; preds = %entry
   %cmp.not.i38.i = icmp eq ptr %this.val1.i, null
   %spec.select.i39.i = select i1 %cmp.not.i38.i, ptr @.str.186, ptr %this.val1.i
   %9 = icmp ugt i32 %0, -7
-  br i1 %9, label %switch.lookup, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom.exit52.i
+  br i1 %9, label %switch.lookup, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit52.i
 
 switch.lookup:                                    ; preds = %sw.default.i
   %switch.tableidx5 = add nsw i32 %0, 6
   %10 = sext i32 %switch.tableidx5 to i64
   %switch.gep6 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10CheckErrorEv.28, i64 0, i64 %10
   %switch.load7 = load ptr, ptr %switch.gep6, align 8
-  br label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom.exit52.i
+  br label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit52.i
 
-_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom.exit52.i: ; preds = %sw.default.i, %switch.lookup
+_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit52.i: ; preds = %sw.default.i, %switch.lookup
   %retval.0.i.i41.i = phi ptr [ %switch.load7, %switch.lookup ], [ @.str.174, %sw.default.i ]
   store ptr %spec.select.i39.i, ptr %err, align 8, !alias.scope !69
   %code3.i.i42.i = getelementptr inbounds i8, ptr %err, i64 8
@@ -9254,7 +9254,7 @@ _ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom.exit52.i: ; pr
   store i32 %0, ptr %err4.i.i43.i, align 8, !alias.scope !69
   br label %if.end
 
-if.end:                                           ; preds = %if.then.i, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom.exit22.i, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom.exit37.i, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom.exit52.i
+if.end:                                           ; preds = %if.then.i, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit22.i, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit37.i, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit52.i
   call fastcc void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE9EmitErrorERKNS0_16CompressionErrorE(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull align 8 dereferenceable(20) %err)
   br label %return
 
@@ -9824,16 +9824,16 @@ _ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i: ; pre
 _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i, %arraydestroy.body.i.i
   store ptr null, ptr %arraydestroy.element.i.i, align 8
   %arraydestroy.done.i.i = icmp eq ptr %arraydestroy.element.i.i, %arg_convertibles.i.i
-  br i1 %arraydestroy.done.i.i, label %_ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.argprom.exit, label %arraydestroy.body.i.i
+  br i1 %arraydestroy.done.i.i, label %_ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.exit, label %arraydestroy.body.i.i
 
-_ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i
+_ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.exit: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_convertibles.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg1_name.addr.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %arg_type.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg_value.i)
   br label %do.end
 
-do.end:                                           ; preds = %if.end, %_ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.argprom.exit
+do.end:                                           ; preds = %if.end, %_ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.exit
   %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %14 = load ptr, ptr %vfn, align 8
@@ -12086,19 +12086,19 @@ do.end5.i.i.i:                                    ; preds = %if.then.i11
   %dec.i.i.i = add i32 %25, -1
   store i32 %dec.i.i.i, ptr %refs_.i.i.i, align 4
   %cmp7.i.i.i = icmp eq i32 %dec.i.i.i, 0
-  br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_20BrotliEncoderContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.argprom.exit
+  br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_20BrotliEncoderContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.exit
 
 if.then8.i.i.i:                                   ; preds = %do.end5.i.i.i
   call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #22
-  br label %_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_20BrotliEncoderContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.argprom.exit
+  br label %_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_20BrotliEncoderContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.exit
 
-_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_20BrotliEncoderContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.argprom.exit: ; preds = %do.end5.i.i.i, %if.then8.i.i.i
+_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_20BrotliEncoderContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.exit: ; preds = %do.end5.i.i.i, %if.then8.i.i.i
   %unreported_allocations_.i.i = getelementptr inbounds i8, ptr %this, i64 224
   %26 = atomicrmw xchg ptr %unreported_allocations_.i.i, i64 0 monotonic, align 8
   %cmp.i.i = icmp eq i64 %26, 0
-  br i1 %cmp.i.i, label %_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE10AllocScopeD2Ev.argprom.exit, label %do.body.i.i
+  br i1 %cmp.i.i, label %_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE10AllocScopeD2Ev.exit, label %do.body.i.i
 
-do.body.i.i:                                      ; preds = %_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_20BrotliEncoderContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.argprom.exit
+do.body.i.i:                                      ; preds = %_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_20BrotliEncoderContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.exit
   %cmp2.i.i = icmp slt i64 %26, 0
   %zlib_memory_.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %27 = load i64, ptr %zlib_memory_.i.i, align 8
@@ -12122,9 +12122,9 @@ do.end9.i.i:                                      ; preds = %do.body.i.i
   %isolate_.i.i.i = getelementptr inbounds i8, ptr %29, i64 88
   %30 = load ptr, ptr %isolate_.i.i.i, align 8
   %call13.i.i = call noundef i64 @_ZN2v87Isolate37AdjustAmountOfExternalAllocatedMemoryEl(ptr noundef nonnull align 1 dereferenceable(1) %30, i64 noundef %26) #22
-  br label %_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE10AllocScopeD2Ev.argprom.exit
+  br label %_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE10AllocScopeD2Ev.exit
 
-_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE10AllocScopeD2Ev.argprom.exit: ; preds = %_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_20BrotliEncoderContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.argprom.exit, %do.end9.i.i
+_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE10AllocScopeD2Ev.exit: ; preds = %_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_20BrotliEncoderContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.exit, %do.end9.i.i
   ret void
 }
 
@@ -14830,19 +14830,19 @@ do.end5.i.i.i:                                    ; preds = %if.then.i11
   %dec.i.i.i = add i32 %29, -1
   store i32 %dec.i.i.i, ptr %refs_.i.i.i, align 4
   %cmp7.i.i.i = icmp eq i32 %dec.i.i.i, 0
-  br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_20BrotliDecoderContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.argprom.exit
+  br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_20BrotliDecoderContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.exit
 
 if.then8.i.i.i:                                   ; preds = %do.end5.i.i.i
   call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #22
-  br label %_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_20BrotliDecoderContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.argprom.exit
+  br label %_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_20BrotliDecoderContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.exit
 
-_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_20BrotliDecoderContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.argprom.exit: ; preds = %do.end5.i.i.i, %if.then8.i.i.i
+_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_20BrotliDecoderContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.exit: ; preds = %do.end5.i.i.i, %if.then8.i.i.i
   %unreported_allocations_.i.i = getelementptr inbounds i8, ptr %this, i64 224
   %30 = atomicrmw xchg ptr %unreported_allocations_.i.i, i64 0 monotonic, align 8
   %cmp.i.i = icmp eq i64 %30, 0
-  br i1 %cmp.i.i, label %_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE10AllocScopeD2Ev.argprom.exit, label %do.body.i.i
+  br i1 %cmp.i.i, label %_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE10AllocScopeD2Ev.exit, label %do.body.i.i
 
-do.body.i.i:                                      ; preds = %_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_20BrotliDecoderContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.argprom.exit
+do.body.i.i:                                      ; preds = %_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_20BrotliDecoderContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.exit
   %cmp2.i.i = icmp slt i64 %30, 0
   %zlib_memory_.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %31 = load i64, ptr %zlib_memory_.i.i, align 8
@@ -14866,9 +14866,9 @@ do.end9.i.i:                                      ; preds = %do.body.i.i
   %isolate_.i.i.i = getelementptr inbounds i8, ptr %33, i64 88
   %34 = load ptr, ptr %isolate_.i.i.i, align 8
   %call13.i.i = call noundef i64 @_ZN2v87Isolate37AdjustAmountOfExternalAllocatedMemoryEl(ptr noundef nonnull align 1 dereferenceable(1) %34, i64 noundef %30) #22
-  br label %_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE10AllocScopeD2Ev.argprom.exit
+  br label %_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE10AllocScopeD2Ev.exit
 
-_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE10AllocScopeD2Ev.argprom.exit: ; preds = %_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_20BrotliDecoderContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.argprom.exit, %do.end9.i.i
+_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE10AllocScopeD2Ev.exit: ; preds = %_ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_117CompressionStreamINS1_20BrotliDecoderContextEE19AfterThreadPoolWorkEiEUlvE_ED2Ev.exit, %do.end9.i.i
   ret void
 }
 
@@ -15465,41 +15465,41 @@ attributes #26 = { cold }
 !43 = distinct !{!43, !44, !"_ZN4node12_GLOBAL__N_111ZlibContext13SetDictionaryEv: %agg.result"}
 !44 = distinct !{!44, !"_ZN4node12_GLOBAL__N_111ZlibContext13SetDictionaryEv"}
 !45 = !{!46}
-!46 = distinct !{!46, !47, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom: %agg.result"}
-!47 = distinct !{!47, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom"}
+!46 = distinct !{!46, !47, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc: %agg.result"}
+!47 = distinct !{!47, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc"}
 !48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom: %agg.result"}
-!50 = distinct !{!50, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom"}
+!49 = distinct !{!49, !50, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc: %agg.result"}
+!50 = distinct !{!50, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc"}
 !51 = !{!52}
 !52 = distinct !{!52, !53, !"_ZN4node12_GLOBAL__N_111ZlibContext13SetDictionaryEv: %agg.result"}
 !53 = distinct !{!53, !"_ZN4node12_GLOBAL__N_111ZlibContext13SetDictionaryEv"}
 !54 = !{!55, !52}
-!55 = distinct !{!55, !56, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom: %agg.result"}
-!56 = distinct !{!56, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom"}
+!55 = distinct !{!55, !56, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc: %agg.result"}
+!56 = distinct !{!56, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc"}
 !57 = !{!58}
 !58 = distinct !{!58, !59, !"_ZNK4node12_GLOBAL__N_111ZlibContext12GetErrorInfoEv: %agg.result"}
 !59 = distinct !{!59, !"_ZNK4node12_GLOBAL__N_111ZlibContext12GetErrorInfoEv"}
 !60 = !{!61, !58}
-!61 = distinct !{!61, !62, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom: %agg.result"}
-!62 = distinct !{!62, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom"}
+!61 = distinct !{!61, !62, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc: %agg.result"}
+!62 = distinct !{!62, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc"}
 !63 = !{!64, !58}
-!64 = distinct !{!64, !65, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom: %agg.result"}
-!65 = distinct !{!65, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom"}
+!64 = distinct !{!64, !65, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc: %agg.result"}
+!65 = distinct !{!65, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc"}
 !66 = !{!67, !58}
-!67 = distinct !{!67, !68, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom: %agg.result"}
-!68 = distinct !{!68, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom"}
+!67 = distinct !{!67, !68, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc: %agg.result"}
+!68 = distinct !{!68, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc"}
 !69 = !{!70, !58}
-!70 = distinct !{!70, !71, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom: %agg.result"}
-!71 = distinct !{!71, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.argprom"}
+!70 = distinct !{!70, !71, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc: %agg.result"}
+!71 = distinct !{!71, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc"}
 !72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZNK4node12_GLOBAL__N_120BrotliEncoderContext12GetErrorInfoEv.argprom: %agg.result"}
-!74 = distinct !{!74, !"_ZNK4node12_GLOBAL__N_120BrotliEncoderContext12GetErrorInfoEv.argprom"}
+!73 = distinct !{!73, !74, !"_ZNK4node12_GLOBAL__N_120BrotliEncoderContext12GetErrorInfoEv: %agg.result"}
+!74 = distinct !{!74, !"_ZNK4node12_GLOBAL__N_120BrotliEncoderContext12GetErrorInfoEv"}
 !75 = !{!76}
 !76 = distinct !{!76, !77, !"_ZN4node12_GLOBAL__N_120BrotliEncoderContext4InitEPFPvS2_mEPFvS2_S2_ES2_: %agg.result"}
 !77 = distinct !{!77, !"_ZN4node12_GLOBAL__N_120BrotliEncoderContext4InitEPFPvS2_mEPFvS2_S2_ES2_"}
 !78 = !{!79}
-!79 = distinct !{!79, !80, !"_ZN4node12_GLOBAL__N_120BrotliEncoderContext9SetParamsEij.argprom: %agg.result"}
-!80 = distinct !{!80, !"_ZN4node12_GLOBAL__N_120BrotliEncoderContext9SetParamsEij.argprom"}
+!79 = distinct !{!79, !80, !"_ZN4node12_GLOBAL__N_120BrotliEncoderContext9SetParamsEij: %agg.result"}
+!80 = distinct !{!80, !"_ZN4node12_GLOBAL__N_120BrotliEncoderContext9SetParamsEij"}
 !81 = distinct !{!81, !10}
 !82 = !{!83}
 !83 = distinct !{!83, !84, !"_ZN4node12_GLOBAL__N_120BrotliEncoderContext11ResetStreamEv: %agg.result"}
@@ -15512,8 +15512,8 @@ attributes #26 = { cold }
 !90 = distinct !{!90, !91, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
 !91 = distinct !{!91, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
 !92 = !{!93}
-!93 = distinct !{!93, !94, !"_ZNK4node12_GLOBAL__N_120BrotliEncoderContext12GetErrorInfoEv.argprom: %agg.result"}
-!94 = distinct !{!94, !"_ZNK4node12_GLOBAL__N_120BrotliEncoderContext12GetErrorInfoEv.argprom"}
+!93 = distinct !{!93, !94, !"_ZNK4node12_GLOBAL__N_120BrotliEncoderContext12GetErrorInfoEv: %agg.result"}
+!94 = distinct !{!94, !"_ZNK4node12_GLOBAL__N_120BrotliEncoderContext12GetErrorInfoEv"}
 !95 = !{!96}
 !96 = distinct !{!96, !97, !"_ZNK4node12_GLOBAL__N_120BrotliDecoderContext12GetErrorInfoEv: %agg.result"}
 !97 = distinct !{!97, !"_ZNK4node12_GLOBAL__N_120BrotliDecoderContext12GetErrorInfoEv"}
@@ -15521,8 +15521,8 @@ attributes #26 = { cold }
 !99 = distinct !{!99, !100, !"_ZN4node12_GLOBAL__N_120BrotliDecoderContext4InitEPFPvS2_mEPFvS2_S2_ES2_: %agg.result"}
 !100 = distinct !{!100, !"_ZN4node12_GLOBAL__N_120BrotliDecoderContext4InitEPFPvS2_mEPFvS2_S2_ES2_"}
 !101 = !{!102}
-!102 = distinct !{!102, !103, !"_ZN4node12_GLOBAL__N_120BrotliDecoderContext9SetParamsEij.argprom: %agg.result"}
-!103 = distinct !{!103, !"_ZN4node12_GLOBAL__N_120BrotliDecoderContext9SetParamsEij.argprom"}
+!102 = distinct !{!102, !103, !"_ZN4node12_GLOBAL__N_120BrotliDecoderContext9SetParamsEij: %agg.result"}
+!103 = distinct !{!103, !"_ZN4node12_GLOBAL__N_120BrotliDecoderContext9SetParamsEij"}
 !104 = distinct !{!104, !10}
 !105 = !{!106}
 !106 = distinct !{!106, !107, !"_ZN4node12_GLOBAL__N_120BrotliDecoderContext11ResetStreamEv: %agg.result"}

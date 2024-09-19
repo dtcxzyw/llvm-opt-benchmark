@@ -672,17 +672,17 @@ entry:
 
 sw.bb.i.i:                                        ; preds = %entry
   tail call void @_ZN4pbrt7RGBFilm8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsE(ptr noundef nonnull readonly align 8 dereferenceable(168) %0, <2 x float> %p.coerce, <2 x float> %v.coerce0, <2 x float> %v.coerce1, ptr noundef nonnull align 4 dereferenceable(32) %lambda)
-  br label %"_ZN4pbrt13TaggedPointerIJNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEE8DispatchIRZNS_4Film8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsEE3$_0EEDcOT_.argprom.exit"
+  br label %"_ZN4pbrt13TaggedPointerIJNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEE8DispatchIRZNS_4Film8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsEE3$_0EEDcOT_.exit"
 
 sw.bb3.i.i:                                       ; preds = %entry
   tail call void @_ZN4pbrt11GBufferFilm8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsE(ptr noundef nonnull readonly align 8 dereferenceable(872) %0, <2 x float> %p.coerce, <2 x float> %v.coerce0, <2 x float> %v.coerce1, ptr noundef nonnull align 4 dereferenceable(32) %lambda)
-  br label %"_ZN4pbrt13TaggedPointerIJNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEE8DispatchIRZNS_4Film8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsEE3$_0EEDcOT_.argprom.exit"
+  br label %"_ZN4pbrt13TaggedPointerIJNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEE8DispatchIRZNS_4Film8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsEE3$_0EEDcOT_.exit"
 
 sw.default.i.i:                                   ; preds = %entry
   tail call void @_ZN4pbrt12SpectralFilm8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsE(ptr noundef nonnull readonly align 8 dereferenceable(180) %0, <2 x float> %p.coerce, <2 x float> %v.coerce0, <2 x float> %v.coerce1, ptr noundef nonnull align 4 dereferenceable(32) %lambda)
-  br label %"_ZN4pbrt13TaggedPointerIJNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEE8DispatchIRZNS_4Film8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsEE3$_0EEDcOT_.argprom.exit"
+  br label %"_ZN4pbrt13TaggedPointerIJNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEE8DispatchIRZNS_4Film8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsEE3$_0EEDcOT_.exit"
 
-"_ZN4pbrt13TaggedPointerIJNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEE8DispatchIRZNS_4Film8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsEE3$_0EEDcOT_.argprom.exit": ; preds = %sw.bb.i.i, %sw.bb3.i.i, %sw.default.i.i
+"_ZN4pbrt13TaggedPointerIJNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEE8DispatchIRZNS_4Film8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsEE3$_0EEDcOT_.exit": ; preds = %sw.bb.i.i, %sw.bb3.i.i, %sw.default.i.i
   ret void
 }
 
@@ -722,7 +722,7 @@ lpad.i.i.i:                                       ; preds = %sw.bb.i.i
 "_ZZN4pbrt4Film10WriteImageENS_13ImageMetadataEfENK3$_0clIPNS_7RGBFilmEEEDaT_.exit.i.i": ; preds = %sw.bb.i.i
   call void @_ZN4pbrt13ImageMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %agg.tmp.i.i.i) #23
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %agg.tmp.i.i.i)
-  br label %"_ZN4pbrt13TaggedPointerIJNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEE11DispatchCPUIRZNS_4Film10WriteImageENS_13ImageMetadataEfE3$_0EEDcOT_.argprom.exit"
+  br label %"_ZN4pbrt13TaggedPointerIJNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEE11DispatchCPUIRZNS_4Film10WriteImageENS_13ImageMetadataEfE3$_0EEDcOT_.exit"
 
 sw.bb3.i.i:                                       ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 304, ptr nonnull %agg.tmp.i5.i.i)
@@ -738,7 +738,7 @@ lpad.i6.i.i:                                      ; preds = %sw.bb3.i.i
 "_ZZN4pbrt4Film10WriteImageENS_13ImageMetadataEfENK3$_0clIPNS_11GBufferFilmEEEDaT_.exit.i.i": ; preds = %sw.bb3.i.i
   call void @_ZN4pbrt13ImageMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %agg.tmp.i5.i.i) #23
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %agg.tmp.i5.i.i)
-  br label %"_ZN4pbrt13TaggedPointerIJNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEE11DispatchCPUIRZNS_4Film10WriteImageENS_13ImageMetadataEfE3$_0EEDcOT_.argprom.exit"
+  br label %"_ZN4pbrt13TaggedPointerIJNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEE11DispatchCPUIRZNS_4Film10WriteImageENS_13ImageMetadataEfE3$_0EEDcOT_.exit"
 
 sw.default.i.i:                                   ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 304, ptr nonnull %agg.tmp.i7.i.i)
@@ -754,9 +754,9 @@ lpad.i8.i.i:                                      ; preds = %sw.default.i.i
 "_ZZN4pbrt4Film10WriteImageENS_13ImageMetadataEfENK3$_0clIPNS_12SpectralFilmEEEDaT_.exit.i.i": ; preds = %sw.default.i.i
   call void @_ZN4pbrt13ImageMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %agg.tmp.i7.i.i) #23
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %agg.tmp.i7.i.i)
-  br label %"_ZN4pbrt13TaggedPointerIJNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEE11DispatchCPUIRZNS_4Film10WriteImageENS_13ImageMetadataEfE3$_0EEDcOT_.argprom.exit"
+  br label %"_ZN4pbrt13TaggedPointerIJNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEE11DispatchCPUIRZNS_4Film10WriteImageENS_13ImageMetadataEfE3$_0EEDcOT_.exit"
 
-"_ZN4pbrt13TaggedPointerIJNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEE11DispatchCPUIRZNS_4Film10WriteImageENS_13ImageMetadataEfE3$_0EEDcOT_.argprom.exit": ; preds = %"_ZZN4pbrt4Film10WriteImageENS_13ImageMetadataEfENK3$_0clIPNS_7RGBFilmEEEDaT_.exit.i.i", %"_ZZN4pbrt4Film10WriteImageENS_13ImageMetadataEfENK3$_0clIPNS_11GBufferFilmEEEDaT_.exit.i.i", %"_ZZN4pbrt4Film10WriteImageENS_13ImageMetadataEfENK3$_0clIPNS_12SpectralFilmEEEDaT_.exit.i.i"
+"_ZN4pbrt13TaggedPointerIJNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEE11DispatchCPUIRZNS_4Film10WriteImageENS_13ImageMetadataEfE3$_0EEDcOT_.exit": ; preds = %"_ZZN4pbrt4Film10WriteImageENS_13ImageMetadataEfENK3$_0clIPNS_7RGBFilmEEEDaT_.exit.i.i", %"_ZZN4pbrt4Film10WriteImageENS_13ImageMetadataEfENK3$_0clIPNS_11GBufferFilmEEEDaT_.exit.i.i", %"_ZZN4pbrt4Film10WriteImageENS_13ImageMetadataEfENK3$_0clIPNS_12SpectralFilmEEEDaT_.exit.i.i"
   ret void
 }
 
@@ -775,17 +775,17 @@ entry:
 
 sw.bb.i.i:                                        ; preds = %entry
   tail call void @_ZN4pbrt7RGBFilm8GetImageEPNS_13ImageMetadataEf(ptr sret(%"class.pbrt::Image") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef %metadata, float noundef %splatScale)
-  br label %"_ZN4pbrt13TaggedPointerIJNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEE11DispatchCPUIRZNS_4Film8GetImageEPNS_13ImageMetadataEfE3$_0EEDcOT_.argprom.argprom.exit"
+  br label %"_ZN4pbrt13TaggedPointerIJNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEE11DispatchCPUIRZNS_4Film8GetImageEPNS_13ImageMetadataEfE3$_0EEDcOT_.exit"
 
 sw.bb3.i.i:                                       ; preds = %entry
   tail call void @_ZN4pbrt11GBufferFilm8GetImageEPNS_13ImageMetadataEf(ptr sret(%"class.pbrt::Image") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(872) %0, ptr noundef %metadata, float noundef %splatScale)
-  br label %"_ZN4pbrt13TaggedPointerIJNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEE11DispatchCPUIRZNS_4Film8GetImageEPNS_13ImageMetadataEfE3$_0EEDcOT_.argprom.argprom.exit"
+  br label %"_ZN4pbrt13TaggedPointerIJNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEE11DispatchCPUIRZNS_4Film8GetImageEPNS_13ImageMetadataEfE3$_0EEDcOT_.exit"
 
 sw.default.i.i:                                   ; preds = %entry
   tail call void @_ZN4pbrt12SpectralFilm8GetImageEPNS_13ImageMetadataEf(ptr sret(%"class.pbrt::Image") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(180) %0, ptr noundef %metadata, float noundef %splatScale)
-  br label %"_ZN4pbrt13TaggedPointerIJNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEE11DispatchCPUIRZNS_4Film8GetImageEPNS_13ImageMetadataEfE3$_0EEDcOT_.argprom.argprom.exit"
+  br label %"_ZN4pbrt13TaggedPointerIJNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEE11DispatchCPUIRZNS_4Film8GetImageEPNS_13ImageMetadataEfE3$_0EEDcOT_.exit"
 
-"_ZN4pbrt13TaggedPointerIJNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEE11DispatchCPUIRZNS_4Film8GetImageEPNS_13ImageMetadataEfE3$_0EEDcOT_.argprom.argprom.exit": ; preds = %sw.bb.i.i, %sw.bb3.i.i, %sw.default.i.i
+"_ZN4pbrt13TaggedPointerIJNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEE11DispatchCPUIRZNS_4Film8GetImageEPNS_13ImageMetadataEfE3$_0EEDcOT_.exit": ; preds = %sw.bb.i.i, %sw.bb3.i.i, %sw.default.i.i
   ret void
 }
 
@@ -22693,7 +22693,7 @@ entry:
   %writeFP16.i.i.i = getelementptr inbounds i8, ptr %0, i64 92
   %4 = load i8, ptr %writeFP16.i.i.i, align 4
   %tobool.i.i.i = trunc i8 %4 to i1
-  br i1 %tobool.i.i.i, label %land.rhs.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt7RGBFilm8GetImageEPNS0_13ImageMetadataEfE3$_0JNS0_6Point2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
+  br i1 %tobool.i.i.i, label %land.rhs.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt7RGBFilm8GetImageEPNS0_13ImageMetadataEfE3$_0JNS0_6Point2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
 land.rhs.i.i.i:                                   ; preds = %entry
   %rgb.sroa.0.0.vec.extract.i.i.i = extractelement <2 x float> %call.fca.0.extract.i.i.i, i64 0
@@ -22721,7 +22721,7 @@ while.body.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.
 _ZSt3maxIfET_St16initializer_listIS0_E.exit.i.i.i: ; preds = %while.body.i.i.i.i.i
   %8 = load float, ptr %spec.select.i.i.i.i.i, align 4
   %cmp.i.i.i = fcmp ogt float %8, 6.550400e+04
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt7RGBFilm8GetImageEPNS0_13ImageMetadataEfE3$_0JNS0_6Point2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt7RGBFilm8GetImageEPNS0_13ImageMetadataEfE3$_0JNS0_6Point2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
 if.then.i.i.i:                                    ; preds = %_ZSt3maxIfET_St16initializer_listIS0_E.exit.i.i.i
   %cmp7.i.i.i = fcmp ogt float %rgb.sroa.0.0.vec.extract.i.i.i, 6.550400e+04
@@ -22736,9 +22736,9 @@ if.then.i.i.i:                                    ; preds = %_ZSt3maxIfET_St16in
   %9 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = atomicrmw add ptr %10, i32 1 seq_cst, align 4
-  br label %"_ZSt10__invoke_rIvRZN4pbrt7RGBFilm8GetImageEPNS0_13ImageMetadataEfE3$_0JNS0_6Point2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4pbrt7RGBFilm8GetImageEPNS0_13ImageMetadataEfE3$_0JNS0_6Point2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
-"_ZSt10__invoke_rIvRZN4pbrt7RGBFilm8GetImageEPNS0_13ImageMetadataEfE3$_0JNS0_6Point2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit": ; preds = %entry, %_ZSt3maxIfET_St16initializer_listIS0_E.exit.i.i.i, %if.then.i.i.i
+"_ZSt10__invoke_rIvRZN4pbrt7RGBFilm8GetImageEPNS0_13ImageMetadataEfE3$_0JNS0_6Point2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %entry, %_ZSt3maxIfET_St16initializer_listIS0_E.exit.i.i.i, %if.then.i.i.i
   %rgb.sroa.0.0.i.i.i = phi <2 x float> [ %rgb.sroa.0.2.i.i.i, %if.then.i.i.i ], [ %call.fca.0.extract.i.i.i, %_ZSt3maxIfET_St16initializer_listIS0_E.exit.i.i.i ], [ %call.fca.0.extract.i.i.i, %entry ]
   %rgb.sroa.9.0.i.i.i = phi float [ %rgb.sroa.9.1.i.i.i, %if.then.i.i.i ], [ %call.fca.1.extract.i.i.i, %_ZSt3maxIfET_St16initializer_listIS0_E.exit.i.i.i ], [ %call.fca.1.extract.i.i.i, %entry ]
   %p.sroa.0.0.extract.trunc.i.i.i = trunc i64 %__args.val to i32
@@ -23901,7 +23901,7 @@ _ZNK4pbrt17VarianceEstimatorIfE16RelativeVarianceEv.exit129.i.i.i: ; preds = %co
   %85 = load float, ptr %arrayidx192.i.i.i, align 8
   %cmp2.i132.i.i.i = fcmp oeq float %85, 0.000000e+00
   %or.cond.i133.i.i.i = select i1 %cmp.i131.i.i.i, i1 true, i1 %cmp2.i132.i.i.i
-  br i1 %or.cond.i133.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt11GBufferFilm8GetImageEPNS0_13ImageMetadataEfE3$_0JNS0_6Point2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit", label %cond.false.i134.i.i.i
+  br i1 %or.cond.i133.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt11GBufferFilm8GetImageEPNS0_13ImageMetadataEfE3$_0JNS0_6Point2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit", label %cond.false.i134.i.i.i
 
 cond.false.i134.i.i.i:                            ; preds = %_ZNK4pbrt17VarianceEstimatorIfE16RelativeVarianceEv.exit129.i.i.i
   %cmp.i.i135.i.i.i = icmp ugt i64 %84, 1
@@ -23911,9 +23911,9 @@ cond.false.i134.i.i.i:                            ; preds = %_ZNK4pbrt17Variance
   %div.i.i139.i.i.i = fdiv float %86, %conv.i.i138.i.i.i
   %cond.i.i140.i.i.i = select i1 %cmp.i.i135.i.i.i, float %div.i.i139.i.i.i, float 0.000000e+00
   %div.i141.i.i.i = fdiv float %cond.i.i140.i.i.i, %85
-  br label %"_ZSt10__invoke_rIvRZN4pbrt11GBufferFilm8GetImageEPNS0_13ImageMetadataEfE3$_0JNS0_6Point2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4pbrt11GBufferFilm8GetImageEPNS0_13ImageMetadataEfE3$_0JNS0_6Point2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
-"_ZSt10__invoke_rIvRZN4pbrt11GBufferFilm8GetImageEPNS0_13ImageMetadataEfE3$_0JNS0_6Point2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit": ; preds = %_ZNK4pbrt17VarianceEstimatorIfE16RelativeVarianceEv.exit129.i.i.i, %cond.false.i134.i.i.i
+"_ZSt10__invoke_rIvRZN4pbrt11GBufferFilm8GetImageEPNS0_13ImageMetadataEfE3$_0JNS0_6Point2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %_ZNK4pbrt17VarianceEstimatorIfE16RelativeVarianceEv.exit129.i.i.i, %cond.false.i134.i.i.i
   %cond.i142.i.i.i = phi float [ %div.i141.i.i.i, %cond.false.i134.i.i.i ], [ 0.000000e+00, %_ZNK4pbrt17VarianceEstimatorIfE16RelativeVarianceEv.exit129.i.i.i ]
   %arrayinit.element210.i.i.i = getelementptr inbounds i8, ptr %ref.tmp201.i.i.i, i64 8
   store float %cond.i142.i.i.i, ptr %arrayinit.element210.i.i.i, align 4
@@ -24772,7 +24772,7 @@ if.end11.i.i.i:                                   ; preds = %if.end11.loopexit.i
   %nBuckets.i.i.i = getelementptr inbounds i8, ptr %0, i64 96
   %19 = load i32, ptr %nBuckets.i.i.i, align 8
   %cmp2645.i.i.i = icmp sgt i32 %19, 0
-  br i1 %cmp2645.i.i.i, label %for.body27.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12SpectralFilm8GetImageEPNS0_13ImageMetadataEfE3$_0JNS0_6Point2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
+  br i1 %cmp2645.i.i.i, label %for.body27.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12SpectralFilm8GetImageEPNS0_13ImageMetadataEfE3$_0JNS0_6Point2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
 for.body27.lr.ph.i.i.i:                           ; preds = %if.end11.i.i.i
   %weightSums.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 64
@@ -24829,9 +24829,9 @@ if.end48.i.i.i:                                   ; preds = %if.then45.i.i.i, %i
   %37 = load i32, ptr %nBuckets.i.i.i, align 8
   %38 = sext i32 %37 to i64
   %cmp26.i.i.i = icmp slt i64 %indvars.iv.next.i.i.i, %38
-  br i1 %cmp26.i.i.i, label %for.body27.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12SpectralFilm8GetImageEPNS0_13ImageMetadataEfE3$_0JNS0_6Point2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit", !llvm.loop !96
+  br i1 %cmp26.i.i.i, label %for.body27.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12SpectralFilm8GetImageEPNS0_13ImageMetadataEfE3$_0JNS0_6Point2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit", !llvm.loop !96
 
-"_ZSt10__invoke_rIvRZN4pbrt12SpectralFilm8GetImageEPNS0_13ImageMetadataEfE3$_0JNS0_6Point2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit": ; preds = %if.end48.i.i.i, %if.end11.i.i.i
+"_ZSt10__invoke_rIvRZN4pbrt12SpectralFilm8GetImageEPNS0_13ImageMetadataEfE3$_0JNS0_6Point2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %if.end48.i.i.i, %if.end11.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rgb.sroa.0.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %rgb.sroa.7.i.i.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp.i.i.i)

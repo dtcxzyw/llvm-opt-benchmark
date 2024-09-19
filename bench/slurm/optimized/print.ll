@@ -268,16 +268,16 @@ define dso_local noundef i32 @_print_account(ptr noundef %0, i32 noundef %1, i1 
   ]
 
 5:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.2, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.2, i32 noundef %1, i1 noundef zeroext %2)
   br label %9
 
 6:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.3, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.3, i32 noundef %1, i1 noundef zeroext %2)
   br label %9
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %0, align 8
-  tail call fastcc void @_print_str.argelim(ptr noundef %8, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef %8, i32 noundef %1, i1 noundef zeroext %2)
   br label %9
 
 9:                                                ; preds = %6, %7, %5
@@ -293,7 +293,7 @@ define dso_local noundef i32 @_print_account(ptr noundef %0, i32 noundef %1, i1 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @_print_str.argelim(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #4 {
+define internal fastcc void @_print_str(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #4 {
   %4 = alloca [64 x i8], align 16
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %5, label %10
@@ -348,18 +348,18 @@ define dso_local noundef i32 @_print_job_job_id(ptr noundef %0, i32 noundef %1, 
   ]
 
 6:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.5, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.5, i32 noundef %1, i1 noundef zeroext %2)
   br label %12
 
 7:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.6, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.6, i32 noundef %1, i1 noundef zeroext %2)
   br label %12
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.7, i32 noundef %10) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
   br label %12
 
 12:                                               ; preds = %7, %8, %6
@@ -402,7 +402,7 @@ define dso_local noundef i32 @_print_age_priority_normalized(ptr noundef %0, i32
   ]
 
 8:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.8, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.8, i32 noundef %1, i1 noundef zeroext %2)
   br label %30
 
 9:                                                ; preds = %4
@@ -410,7 +410,7 @@ define dso_local noundef i32 @_print_age_priority_normalized(ptr noundef %0, i32
   %11 = uitofp i32 %10 to double
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef %11) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %7, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %7, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %30
 
@@ -423,7 +423,7 @@ define dso_local noundef i32 @_print_age_priority_normalized(ptr noundef %0, i32
 17:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef 0.000000e+00) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %30
 
@@ -445,7 +445,7 @@ define dso_local noundef i32 @_print_age_priority_normalized(ptr noundef %0, i32
   %.0 = phi double [ %27, %21 ], [ 0.000000e+00, %19 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.30, double noundef %.0) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %30
 
@@ -473,7 +473,7 @@ define dso_local noundef i32 @_print_age_priority_weighted(ptr noundef %0, i32 n
   ]
 
 8:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.8, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.8, i32 noundef %1, i1 noundef zeroext %2)
   br label %25
 
 9:                                                ; preds = %4
@@ -481,7 +481,7 @@ define dso_local noundef i32 @_print_age_priority_weighted(ptr noundef %0, i32 n
   %11 = uitofp i32 %10 to double
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef %11) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %7, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %7, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %25
 
@@ -494,7 +494,7 @@ define dso_local noundef i32 @_print_age_priority_weighted(ptr noundef %0, i32 n
 17:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef 0.000000e+00) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %25
 
@@ -505,7 +505,7 @@ define dso_local noundef i32 @_print_age_priority_weighted(ptr noundef %0, i32 n
   %23 = load double, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef %23) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %25
 
@@ -533,7 +533,7 @@ define dso_local noundef i32 @_print_assoc_priority_normalized(ptr noundef %0, i
   ]
 
 8:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.9, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.9, i32 noundef %1, i1 noundef zeroext %2)
   br label %30
 
 9:                                                ; preds = %4
@@ -541,7 +541,7 @@ define dso_local noundef i32 @_print_assoc_priority_normalized(ptr noundef %0, i
   %11 = uitofp i32 %10 to double
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef %11) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %7, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %7, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %30
 
@@ -554,7 +554,7 @@ define dso_local noundef i32 @_print_assoc_priority_normalized(ptr noundef %0, i
 17:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef 0.000000e+00) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %30
 
@@ -576,7 +576,7 @@ define dso_local noundef i32 @_print_assoc_priority_normalized(ptr noundef %0, i
   %.0 = phi double [ %27, %21 ], [ 0.000000e+00, %19 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.30, double noundef %.0) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %30
 
@@ -604,7 +604,7 @@ define dso_local noundef i32 @_print_assoc_priority_weighted(ptr noundef %0, i32
   ]
 
 8:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.9, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.9, i32 noundef %1, i1 noundef zeroext %2)
   br label %25
 
 9:                                                ; preds = %4
@@ -612,7 +612,7 @@ define dso_local noundef i32 @_print_assoc_priority_weighted(ptr noundef %0, i32
   %11 = uitofp i32 %10 to double
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef %11) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %7, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %7, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %25
 
@@ -625,7 +625,7 @@ define dso_local noundef i32 @_print_assoc_priority_weighted(ptr noundef %0, i32
 17:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef 0.000000e+00) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %25
 
@@ -636,7 +636,7 @@ define dso_local noundef i32 @_print_assoc_priority_weighted(ptr noundef %0, i32
   %23 = load double, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef %23) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %25
 
@@ -658,13 +658,13 @@ define dso_local noundef i32 @_print_cluster_name(ptr noundef readonly %0, i32 n
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.10, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.10, i32 noundef %1, i1 noundef zeroext %2)
   br label %10
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  tail call fastcc void @_print_str.argelim(ptr noundef %9, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef %9, i32 noundef %1, i1 noundef zeroext %2)
   br label %10
 
 10:                                               ; preds = %7, %6
@@ -691,7 +691,7 @@ define dso_local noundef i32 @_print_fs_priority_normalized(ptr noundef %0, i32 
   ]
 
 8:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.11, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.11, i32 noundef %1, i1 noundef zeroext %2)
   br label %30
 
 9:                                                ; preds = %4
@@ -699,7 +699,7 @@ define dso_local noundef i32 @_print_fs_priority_normalized(ptr noundef %0, i32 
   %11 = uitofp i32 %10 to double
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef %11) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %7, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %7, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %30
 
@@ -712,7 +712,7 @@ define dso_local noundef i32 @_print_fs_priority_normalized(ptr noundef %0, i32 
 17:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef 0.000000e+00) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %30
 
@@ -734,7 +734,7 @@ define dso_local noundef i32 @_print_fs_priority_normalized(ptr noundef %0, i32 
   %.0 = phi double [ %27, %21 ], [ 0.000000e+00, %19 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.30, double noundef %.0) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %30
 
@@ -762,7 +762,7 @@ define dso_local noundef i32 @_print_fs_priority_weighted(ptr noundef %0, i32 no
   ]
 
 8:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.11, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.11, i32 noundef %1, i1 noundef zeroext %2)
   br label %25
 
 9:                                                ; preds = %4
@@ -770,7 +770,7 @@ define dso_local noundef i32 @_print_fs_priority_weighted(ptr noundef %0, i32 no
   %11 = uitofp i32 %10 to double
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef %11) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %7, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %7, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %25
 
@@ -783,7 +783,7 @@ define dso_local noundef i32 @_print_fs_priority_weighted(ptr noundef %0, i32 no
 17:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef 0.000000e+00) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %25
 
@@ -794,7 +794,7 @@ define dso_local noundef i32 @_print_fs_priority_weighted(ptr noundef %0, i32 no
   %23 = load double, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef %23) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %25
 
@@ -820,11 +820,11 @@ define dso_local noundef i32 @_print_job_priority_normalized(ptr noundef %0, i32
   ]
 
 6:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.12, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.12, i32 noundef %1, i1 noundef zeroext %2)
   br label %57
 
 7:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.3, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.3, i32 noundef %1, i1 noundef zeroext %2)
   br label %57
 
 8:                                                ; preds = %4
@@ -835,7 +835,7 @@ define dso_local noundef i32 @_print_job_priority_normalized(ptr noundef %0, i32
 
 12:                                               ; preds = %8
   %13 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.13, double noundef %10) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
   br label %57
 
 14:                                               ; preds = %8
@@ -898,7 +898,7 @@ get_priority_from_factors.exit:                   ; preds = %49, %14
   %.2.i = select i1 %54, double 1.000000e+00, double %.0.lcssa.i
   %55 = fdiv double %.2.i, 0x41EFFFFFFFE00000
   %56 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.13, double noundef %55) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
   br label %57
 
 57:                                               ; preds = %7, %get_priority_from_factors.exit, %12, %6
@@ -926,11 +926,11 @@ define dso_local noundef i32 @_print_job_priority_weighted(ptr noundef %0, i32 n
   ]
 
 6:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.12, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.12, i32 noundef %1, i1 noundef zeroext %2)
   br label %55
 
 7:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.3, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.3, i32 noundef %1, i1 noundef zeroext %2)
   br label %55
 
 8:                                                ; preds = %4
@@ -1003,7 +1003,7 @@ get_priority_from_factors.exit:                   ; preds = %8, %._crit_edge.i
   %.021.i = phi double [ %.2.i, %._crit_edge.i ], [ %10, %8 ]
   %53 = fptosi double %.021.i to i64
   %54 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.14, i64 noundef %53) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
   br label %55
 
 55:                                               ; preds = %7, %get_priority_from_factors.exit, %6
@@ -1030,7 +1030,7 @@ define dso_local noundef i32 @_print_js_priority_normalized(ptr noundef %0, i32 
   ]
 
 8:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.15, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.15, i32 noundef %1, i1 noundef zeroext %2)
   br label %30
 
 9:                                                ; preds = %4
@@ -1038,7 +1038,7 @@ define dso_local noundef i32 @_print_js_priority_normalized(ptr noundef %0, i32 
   %11 = uitofp i32 %10 to double
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef %11) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %7, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %7, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %30
 
@@ -1051,7 +1051,7 @@ define dso_local noundef i32 @_print_js_priority_normalized(ptr noundef %0, i32 
 17:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef 0.000000e+00) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %30
 
@@ -1073,7 +1073,7 @@ define dso_local noundef i32 @_print_js_priority_normalized(ptr noundef %0, i32 
   %.0 = phi double [ %27, %21 ], [ 0.000000e+00, %19 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.30, double noundef %.0) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %30
 
@@ -1101,7 +1101,7 @@ define dso_local noundef i32 @_print_js_priority_weighted(ptr noundef %0, i32 no
   ]
 
 8:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.15, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.15, i32 noundef %1, i1 noundef zeroext %2)
   br label %25
 
 9:                                                ; preds = %4
@@ -1109,7 +1109,7 @@ define dso_local noundef i32 @_print_js_priority_weighted(ptr noundef %0, i32 no
   %11 = uitofp i32 %10 to double
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef %11) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %7, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %7, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %25
 
@@ -1122,7 +1122,7 @@ define dso_local noundef i32 @_print_js_priority_weighted(ptr noundef %0, i32 no
 17:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef 0.000000e+00) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %25
 
@@ -1133,7 +1133,7 @@ define dso_local noundef i32 @_print_js_priority_weighted(ptr noundef %0, i32 no
   %23 = load double, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef %23) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %25
 
@@ -1161,7 +1161,7 @@ define dso_local noundef i32 @_print_part_priority_normalized(ptr noundef %0, i3
   ]
 
 8:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.16, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.16, i32 noundef %1, i1 noundef zeroext %2)
   br label %30
 
 9:                                                ; preds = %4
@@ -1169,7 +1169,7 @@ define dso_local noundef i32 @_print_part_priority_normalized(ptr noundef %0, i3
   %11 = uitofp i32 %10 to double
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef %11) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %7, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %7, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %30
 
@@ -1182,7 +1182,7 @@ define dso_local noundef i32 @_print_part_priority_normalized(ptr noundef %0, i3
 17:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef 0.000000e+00) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %30
 
@@ -1204,7 +1204,7 @@ define dso_local noundef i32 @_print_part_priority_normalized(ptr noundef %0, i3
   %.0 = phi double [ %27, %21 ], [ 0.000000e+00, %19 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.30, double noundef %.0) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %30
 
@@ -1232,7 +1232,7 @@ define dso_local noundef i32 @_print_part_priority_weighted(ptr noundef %0, i32 
   ]
 
 8:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.16, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.16, i32 noundef %1, i1 noundef zeroext %2)
   br label %25
 
 9:                                                ; preds = %4
@@ -1240,7 +1240,7 @@ define dso_local noundef i32 @_print_part_priority_weighted(ptr noundef %0, i32 
   %11 = uitofp i32 %10 to double
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef %11) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %7, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %7, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %25
 
@@ -1253,7 +1253,7 @@ define dso_local noundef i32 @_print_part_priority_weighted(ptr noundef %0, i32 
 17:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef 0.000000e+00) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %25
 
@@ -1264,7 +1264,7 @@ define dso_local noundef i32 @_print_part_priority_weighted(ptr noundef %0, i32 
   %23 = load double, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef %23) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %25
 
@@ -1289,17 +1289,17 @@ define dso_local noundef i32 @_print_partition(ptr noundef %0, i32 noundef %1, i
   ]
 
 5:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.16, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.16, i32 noundef %1, i1 noundef zeroext %2)
   br label %10
 
 6:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.3, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.3, i32 noundef %1, i1 noundef zeroext %2)
   br label %10
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
-  tail call fastcc void @_print_str.argelim(ptr noundef %9, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef %9, i32 noundef %1, i1 noundef zeroext %2)
   br label %10
 
 10:                                               ; preds = %6, %7, %5
@@ -1323,17 +1323,17 @@ define dso_local noundef i32 @_print_qos_name(ptr noundef %0, i32 noundef %1, i1
   ]
 
 5:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.17, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.17, i32 noundef %1, i1 noundef zeroext %2)
   br label %10
 
 6:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.3, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.3, i32 noundef %1, i1 noundef zeroext %2)
   br label %10
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
-  tail call fastcc void @_print_str.argelim(ptr noundef %9, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef %9, i32 noundef %1, i1 noundef zeroext %2)
   br label %10
 
 10:                                               ; preds = %6, %7, %5
@@ -1360,7 +1360,7 @@ define dso_local noundef i32 @_print_qos_priority_normalized(ptr noundef %0, i32
   ]
 
 8:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.18, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.18, i32 noundef %1, i1 noundef zeroext %2)
   br label %30
 
 9:                                                ; preds = %4
@@ -1368,7 +1368,7 @@ define dso_local noundef i32 @_print_qos_priority_normalized(ptr noundef %0, i32
   %11 = uitofp i32 %10 to double
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef %11) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %7, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %7, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %30
 
@@ -1381,7 +1381,7 @@ define dso_local noundef i32 @_print_qos_priority_normalized(ptr noundef %0, i32
 17:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef 0.000000e+00) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %30
 
@@ -1403,7 +1403,7 @@ define dso_local noundef i32 @_print_qos_priority_normalized(ptr noundef %0, i32
   %.0 = phi double [ %27, %21 ], [ 0.000000e+00, %19 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.30, double noundef %.0) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %30
 
@@ -1431,7 +1431,7 @@ define dso_local noundef i32 @_print_qos_priority_weighted(ptr noundef %0, i32 n
   ]
 
 8:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.18, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.18, i32 noundef %1, i1 noundef zeroext %2)
   br label %25
 
 9:                                                ; preds = %4
@@ -1439,7 +1439,7 @@ define dso_local noundef i32 @_print_qos_priority_weighted(ptr noundef %0, i32 n
   %11 = uitofp i32 %10 to double
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef %11) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %7, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %7, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %25
 
@@ -1452,7 +1452,7 @@ define dso_local noundef i32 @_print_qos_priority_weighted(ptr noundef %0, i32 n
 17:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef 0.000000e+00) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %25
 
@@ -1463,7 +1463,7 @@ define dso_local noundef i32 @_print_qos_priority_weighted(ptr noundef %0, i32 n
   %23 = load double, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef %23) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %25
 
@@ -1491,13 +1491,13 @@ define dso_local noundef i32 @_print_site_priority(ptr noundef %0, i32 noundef %
   ]
 
 8:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.19, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.19, i32 noundef %1, i1 noundef zeroext %2)
   br label %26
 
 9:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef 1.000000e+00) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %7, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %7, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %26
 
@@ -1510,7 +1510,7 @@ define dso_local noundef i32 @_print_site_priority(ptr noundef %0, i32 noundef %
 15:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef 0.000000e+00) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %26
 
@@ -1524,7 +1524,7 @@ define dso_local noundef i32 @_print_site_priority(ptr noundef %0, i32 noundef %
   %24 = sitofp i64 %23 to double
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef %24) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %26
 
@@ -1551,11 +1551,11 @@ define dso_local noundef i32 @_print_job_nice(ptr noundef %0, i32 noundef %1, i1
   ]
 
 7:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.20, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.20, i32 noundef %1, i1 noundef zeroext %2)
   br label %23
 
 8:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.3, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.3, i32 noundef %1, i1 noundef zeroext %2)
   br label %23
 
 9:                                                ; preds = %4
@@ -1567,7 +1567,7 @@ define dso_local noundef i32 @_print_job_nice(ptr noundef %0, i32 noundef %1, i1
 13:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %14 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef 0.000000e+00) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %23
 
@@ -1580,7 +1580,7 @@ define dso_local noundef i32 @_print_job_nice(ptr noundef %0, i32 noundef %1, i1
   %21 = sitofp i64 %20 to double
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %22 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef %21) #8
-  call fastcc void @_print_str.argelim(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %23
 
@@ -1605,18 +1605,18 @@ define dso_local noundef i32 @_print_job_user_name(ptr noundef %0, i32 noundef %
   ]
 
 5:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.21, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.21, i32 noundef %1, i1 noundef zeroext %2)
   br label %11
 
 6:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.3, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.3, i32 noundef %1, i1 noundef zeroext %2)
   br label %11
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 56
   %9 = load i32, ptr %8, align 8
   %10 = tail call ptr @uid_to_string_cached(i32 noundef %9) #8
-  tail call fastcc void @_print_str.argelim(ptr noundef %10, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef %10, i32 noundef %1, i1 noundef zeroext %2)
   br label %11
 
 11:                                               ; preds = %6, %7, %5
@@ -1643,11 +1643,11 @@ define dso_local noundef i32 @_print_tres_normalized(ptr noundef %0, i32 noundef
   ]
 
 6:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.22, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.22, i32 noundef %1, i1 noundef zeroext %2)
   br label %46
 
 7:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.3, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.3, i32 noundef %1, i1 noundef zeroext %2)
   br label %46
 
 8:                                                ; preds = %4
@@ -1657,7 +1657,7 @@ define dso_local noundef i32 @_print_tres_normalized(ptr noundef %0, i32 noundef
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %8
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.3, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.3, i32 noundef %1, i1 noundef zeroext %2)
   br label %46
 
 13:                                               ; preds = %8
@@ -1724,7 +1724,7 @@ define dso_local noundef i32 @_print_tres_normalized(ptr noundef %0, i32 noundef
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %13
   %45 = phi ptr [ %.pre32, %._crit_edge.loopexit ], [ %16, %13 ]
-  call fastcc void @_print_str.argelim(ptr noundef %45, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef %45, i32 noundef %1, i1 noundef zeroext %2)
   call void @slurm_xfree(ptr noundef nonnull %5) #8
   br label %46
 
@@ -1758,12 +1758,12 @@ define dso_local noundef i32 @_print_tres_weighted(ptr noundef %0, i32 noundef %
   ]
 
 6:                                                ; preds = %4
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.22, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.22, i32 noundef %1, i1 noundef zeroext %2)
   br label %42
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr @weight_tres, align 8
-  tail call fastcc void @_print_str.argelim(ptr noundef %8, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef %8, i32 noundef %1, i1 noundef zeroext %2)
   br label %42
 
 9:                                                ; preds = %4
@@ -1773,7 +1773,7 @@ define dso_local noundef i32 @_print_tres_weighted(ptr noundef %0, i32 noundef %
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %9
-  tail call fastcc void @_print_str.argelim(ptr noundef nonnull @.str.3, i32 noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @_print_str(ptr noundef nonnull @.str.3, i32 noundef %1, i1 noundef zeroext %2)
   br label %42
 
 14:                                               ; preds = %9
@@ -1835,7 +1835,7 @@ define dso_local noundef i32 @_print_tres_weighted(ptr noundef %0, i32 noundef %
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %14
   %41 = phi ptr [ %.pre30, %._crit_edge.loopexit ], [ %17, %14 ]
-  call fastcc void @_print_str.argelim(ptr noundef %41, i32 noundef %1, i1 noundef zeroext %2)
+  call fastcc void @_print_str(ptr noundef %41, i32 noundef %1, i1 noundef zeroext %2)
   call void @slurm_xfree(ptr noundef nonnull %5) #8
   br label %42
 

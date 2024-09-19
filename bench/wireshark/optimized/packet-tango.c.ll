@@ -1194,7 +1194,7 @@ define internal range(i32 0, 2) i32 @dissect_tango(ptr noundef %0, ptr noundef %
   %17 = getelementptr i8, ptr %4, i64 24
   %.val965 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %.val965, null
-  br i1 %.not.i, label %decode_user_exception.argprom.exit, label %18
+  br i1 %.not.i, label %decode_user_exception.exit, label %18
 
 18:                                               ; preds = %16
   %19 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val965, ptr noundef nonnull dereferenceable(24) @.str.750) #5
@@ -1206,7 +1206,7 @@ define internal range(i32 0, 2) i32 @dissect_tango(ptr noundef %0, ptr noundef %
   %.val.i = load ptr, ptr %22, align 8
   tail call void @col_set_str(ptr noundef %.val.i, i32 noundef 34, ptr noundef nonnull @.str.646) #4
   %.not.i.i = icmp eq ptr %2, null
-  br i1 %.not.i.i, label %start_dissecting.argprom.exit.i, label %23
+  br i1 %.not.i.i, label %start_dissecting.exit.i, label %23
 
 23:                                               ; preds = %21
   %24 = load i32, ptr @proto_tango, align 4
@@ -1215,9 +1215,9 @@ define internal range(i32 0, 2) i32 @dissect_tango(ptr noundef %0, ptr noundef %
   %27 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %24, ptr noundef %0, i32 noundef %25, i32 noundef %26, i32 noundef 0) #4
   %28 = load i32, ptr @ett_tango, align 4
   %29 = tail call ptr @proto_item_add_subtree(ptr noundef %27, i32 noundef %28) #4
-  br label %start_dissecting.argprom.exit.i
+  br label %start_dissecting.exit.i
 
-start_dissecting.argprom.exit.i:                  ; preds = %23, %21
+start_dissecting.exit.i:                          ; preds = %23, %21
   %.0.i.i = phi ptr [ %29, %23 ], [ null, %21 ]
   %30 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %3, i32 noundef %8, i32 noundef 12) #4
   %31 = load i32, ptr @hf_Tango_DevFailed_errors_loop, align 4
@@ -1225,10 +1225,10 @@ start_dissecting.argprom.exit.i:                  ; preds = %23, %21
   %33 = add i32 %32, -4
   %34 = tail call ptr @proto_tree_add_uint(ptr noundef %.0.i.i, i32 noundef %31, ptr noundef %0, i32 noundef %33, i32 noundef 4, i32 noundef %30) #4
   %.not.i27.i = icmp eq i32 %30, 0
-  br i1 %.not.i27.i, label %decode_user_exception.argprom.exit, label %.lr.ph.i.i
+  br i1 %.not.i27.i, label %decode_user_exception.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %start_dissecting.argprom.exit.i, %.lr.ph.i.i
-  %.01.i.i = phi i32 [ %43, %.lr.ph.i.i ], [ 0, %start_dissecting.argprom.exit.i ]
+.lr.ph.i.i:                                       ; preds = %start_dissecting.exit.i, %.lr.ph.i.i
+  %.01.i.i = phi i32 [ %43, %.lr.ph.i.i ], [ 0, %start_dissecting.exit.i ]
   %35 = load i32, ptr @hf_Tango_DevError_reason, align 4
   tail call void @giop_add_CDR_string(ptr noundef %.0.i.i, ptr noundef %0, ptr noundef nonnull %3, i32 noundef %8, i32 noundef 12, i32 noundef %35) #4
   %36 = tail call i32 @get_CDR_enum(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %8, i32 noundef 12) #4
@@ -1242,19 +1242,19 @@ start_dissecting.argprom.exit.i:                  ; preds = %23, %21
   tail call void @giop_add_CDR_string(ptr noundef %.0.i.i, ptr noundef %0, ptr noundef nonnull %3, i32 noundef %8, i32 noundef 12, i32 noundef %42) #4
   %43 = add nuw i32 %.01.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %43, %30
-  br i1 %exitcond.not.i.i, label %decode_user_exception.argprom.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %exitcond.not.i.i, label %decode_user_exception.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 44:                                               ; preds = %18
   %45 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val965, ptr noundef nonnull dereferenceable(29) @.str.751) #5
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %decode_user_exception.argprom.exit
+  br i1 %46, label %47, label %decode_user_exception.exit
 
 47:                                               ; preds = %44
   %48 = getelementptr i8, ptr %1, i64 8
   %.val26.i = load ptr, ptr %48, align 8
   tail call void @col_set_str(ptr noundef %.val26.i, i32 noundef 34, ptr noundef nonnull @.str.646) #4
   %.not.i28.i = icmp eq ptr %2, null
-  br i1 %.not.i28.i, label %start_dissecting.argprom.exit30.i, label %49
+  br i1 %.not.i28.i, label %start_dissecting.exit30.i, label %49
 
 49:                                               ; preds = %47
   %50 = load i32, ptr @proto_tango, align 4
@@ -1263,9 +1263,9 @@ start_dissecting.argprom.exit.i:                  ; preds = %23, %21
   %53 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %50, ptr noundef %0, i32 noundef %51, i32 noundef %52, i32 noundef 0) #4
   %54 = load i32, ptr @ett_tango, align 4
   %55 = tail call ptr @proto_item_add_subtree(ptr noundef %53, i32 noundef %54) #4
-  br label %start_dissecting.argprom.exit30.i
+  br label %start_dissecting.exit30.i
 
-start_dissecting.argprom.exit30.i:                ; preds = %49, %47
+start_dissecting.exit30.i:                        ; preds = %49, %47
   %.0.i29.i = phi ptr [ %55, %49 ], [ null, %47 ]
   %56 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %3, i32 noundef %8, i32 noundef 12) #4
   %57 = load i32, ptr @hf_Tango_MultiDevFailed_errors_loop, align 4
@@ -1273,10 +1273,10 @@ start_dissecting.argprom.exit30.i:                ; preds = %49, %47
   %59 = add i32 %58, -4
   %60 = tail call ptr @proto_tree_add_uint(ptr noundef %.0.i29.i, i32 noundef %57, ptr noundef %0, i32 noundef %59, i32 noundef 4, i32 noundef %56) #4
   %.not.i31.i = icmp eq i32 %56, 0
-  br i1 %.not.i31.i, label %decode_user_exception.argprom.exit, label %.lr.ph.i32.i
+  br i1 %.not.i31.i, label %decode_user_exception.exit, label %.lr.ph.i32.i
 
-.lr.ph.i32.i:                                     ; preds = %start_dissecting.argprom.exit30.i, %decode_Tango_NamedDevError_st.argprom.exit.i.i
-  %.01.i33.i = phi i32 [ %81, %decode_Tango_NamedDevError_st.argprom.exit.i.i ], [ 0, %start_dissecting.argprom.exit30.i ]
+.lr.ph.i32.i:                                     ; preds = %start_dissecting.exit30.i, %decode_Tango_NamedDevError_st.exit.i.i
+  %.01.i33.i = phi i32 [ %81, %decode_Tango_NamedDevError_st.exit.i.i ], [ 0, %start_dissecting.exit30.i ]
   %61 = load i32, ptr @hf_Tango_NamedDevError_name, align 4
   tail call void @giop_add_CDR_string(ptr noundef %.0.i29.i, ptr noundef %0, ptr noundef nonnull %3, i32 noundef %8, i32 noundef 12, i32 noundef %61) #4
   %62 = load i32, ptr @hf_Tango_NamedDevError_index_in_call, align 4
@@ -1290,7 +1290,7 @@ start_dissecting.argprom.exit30.i:                ; preds = %49, %47
   %70 = add i32 %69, -4
   %71 = tail call ptr @proto_tree_add_uint(ptr noundef %.0.i29.i, i32 noundef %68, ptr noundef %0, i32 noundef %70, i32 noundef 4, i32 noundef %67) #4
   %.not.i.i.i = icmp eq i32 %67, 0
-  br i1 %.not.i.i.i, label %decode_Tango_NamedDevError_st.argprom.exit.i.i, label %.lr.ph.i.i.i
+  br i1 %.not.i.i.i, label %decode_Tango_NamedDevError_st.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i32.i, %.lr.ph.i.i.i
   %.01.i.i.i = phi i32 [ %80, %.lr.ph.i.i.i ], [ 0, %.lr.ph.i32.i ]
@@ -1307,16 +1307,16 @@ start_dissecting.argprom.exit30.i:                ; preds = %49, %47
   tail call void @giop_add_CDR_string(ptr noundef %.0.i29.i, ptr noundef %0, ptr noundef nonnull %3, i32 noundef %8, i32 noundef 12, i32 noundef %79) #4
   %80 = add nuw i32 %.01.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %80, %67
-  br i1 %exitcond.not.i.i.i, label %decode_Tango_NamedDevError_st.argprom.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !6
+  br i1 %exitcond.not.i.i.i, label %decode_Tango_NamedDevError_st.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !6
 
-decode_Tango_NamedDevError_st.argprom.exit.i.i:   ; preds = %.lr.ph.i.i.i, %.lr.ph.i32.i
+decode_Tango_NamedDevError_st.exit.i.i:           ; preds = %.lr.ph.i.i.i, %.lr.ph.i32.i
   %81 = add nuw i32 %.01.i33.i, 1
   %exitcond.not.i34.i = icmp eq i32 %81, %56
-  br i1 %exitcond.not.i34.i, label %decode_user_exception.argprom.exit, label %.lr.ph.i32.i, !llvm.loop !7
+  br i1 %exitcond.not.i34.i, label %decode_user_exception.exit, label %.lr.ph.i32.i, !llvm.loop !7
 
 82:                                               ; preds = %7
   %switch = icmp eq i8 %10, 0
-  br i1 %switch, label %.thread, label %decode_user_exception.argprom.exit
+  br i1 %switch, label %.thread, label %decode_user_exception.exit
 
 .thread:                                          ; preds = %12, %82
   %83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(14) @.str.710) #5
@@ -1345,71 +1345,71 @@ decode_Tango_NamedDevError_st.argprom.exit.i.i:   ; preds = %.lr.ph.i.i.i, %.lr.
   %94 = load i32, ptr @hf_operationrequest, align 4
   %95 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %94, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %5) #4
   %.not.i.i1006 = icmp eq ptr %95, null
-  br i1 %.not.i.i1006, label %process_RequestOperation.argprom.exit, label %96
+  br i1 %.not.i.i1006, label %process_RequestOperation.exit, label %96
 
 96:                                               ; preds = %93
   %97 = getelementptr inbounds i8, ptr %95, i64 32
   %98 = load ptr, ptr %97, align 8
   %.not5.i.i = icmp eq ptr %98, null
-  br i1 %.not5.i.i, label %process_RequestOperation.argprom.exit, label %99
+  br i1 %.not5.i.i, label %process_RequestOperation.exit, label %99
 
 99:                                               ; preds = %96
   %100 = getelementptr inbounds i8, ptr %98, i64 28
   %101 = load i32, ptr %100, align 4
   %102 = or i32 %101, 2
   store i32 %102, ptr %100, align 4
-  br label %process_RequestOperation.argprom.exit
+  br label %process_RequestOperation.exit
 
-process_RequestOperation.argprom.exit:            ; preds = %93, %96, %99
+process_RequestOperation.exit:                    ; preds = %93, %96, %99
   %103 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %103, align 8
   tail call void @col_set_str(ptr noundef %.val, i32 noundef 34, ptr noundef nonnull @.str.646) #4
   %.not.i1007 = icmp eq ptr %2, null
-  br i1 %.not.i1007, label %start_dissecting.argprom.exit, label %104
+  br i1 %.not.i1007, label %start_dissecting.exit, label %104
 
-104:                                              ; preds = %process_RequestOperation.argprom.exit
+104:                                              ; preds = %process_RequestOperation.exit
   %105 = load i32, ptr @proto_tango, align 4
   %106 = load i32, ptr %3, align 4
   %107 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %106) #4
   %108 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %105, ptr noundef %0, i32 noundef %106, i32 noundef %107, i32 noundef 0) #4
   %109 = load i32, ptr @ett_tango, align 4
   %110 = tail call ptr @proto_item_add_subtree(ptr noundef %108, i32 noundef %109) #4
-  br label %start_dissecting.argprom.exit
+  br label %start_dissecting.exit
 
-start_dissecting.argprom.exit:                    ; preds = %process_RequestOperation.argprom.exit, %104
-  %.0.i1008 = phi ptr [ %110, %104 ], [ null, %process_RequestOperation.argprom.exit ]
+start_dissecting.exit:                            ; preds = %process_RequestOperation.exit, %104
+  %.0.i1008 = phi ptr [ %110, %104 ], [ null, %process_RequestOperation.exit ]
   %111 = load i8, ptr %9, align 1
   switch i8 %111, label %120 [
     i8 0, label %112
     i8 1, label %114
   ]
 
-112:                                              ; preds = %start_dissecting.argprom.exit
+112:                                              ; preds = %start_dissecting.exit
   %113 = load i32, ptr @hf_Tango_Device_command_inout_command, align 4
   tail call void @giop_add_CDR_string(ptr noundef %.0.i1008, ptr noundef %0, ptr noundef %3, i32 noundef %8, i32 noundef 12, i32 noundef %113) #4
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0.i1008, ptr noundef %95, ptr noundef %3, i32 noundef %8, i32 noundef 12, ptr noundef nonnull %4) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
-114:                                              ; preds = %start_dissecting.argprom.exit
+114:                                              ; preds = %start_dissecting.exit
   %115 = getelementptr inbounds i8, ptr %4, i64 16
   %116 = load i32, ptr %115, align 8
   switch i32 %116, label %118 [
     i32 0, label %117
-    i32 1, label %decode_user_exception.argprom.exit
+    i32 1, label %decode_user_exception.exit
   ]
 
 117:                                              ; preds = %114
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0.i1008, ptr noundef %95, ptr noundef %3, i32 noundef %8, i32 noundef 12, ptr noundef nonnull %4) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
 118:                                              ; preds = %114
   %119 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %95, ptr noundef nonnull @ei_tango_unknown_exception, ptr noundef nonnull @.str.753, i32 noundef %116) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
-120:                                              ; preds = %start_dissecting.argprom.exit
+120:                                              ; preds = %start_dissecting.exit
   %121 = zext i8 %111 to i32
   %122 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %95, ptr noundef nonnull @ei_tango_unknown_giop_msg, ptr noundef nonnull @.str.754, i32 noundef %121) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
 123:                                              ; preds = %86, %.thread
   %124 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(21) @.str.711) #5
@@ -1438,53 +1438,53 @@ start_dissecting.argprom.exit:                    ; preds = %process_RequestOper
   %135 = load i32, ptr @hf_operationrequest, align 4
   %136 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %135, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %5) #4
   %.not.i.i1009 = icmp eq ptr %136, null
-  br i1 %.not.i.i1009, label %process_RequestOperation.argprom.exit1011, label %137
+  br i1 %.not.i.i1009, label %process_RequestOperation.exit1011, label %137
 
 137:                                              ; preds = %134
   %138 = getelementptr inbounds i8, ptr %136, i64 32
   %139 = load ptr, ptr %138, align 8
   %.not5.i.i1010 = icmp eq ptr %139, null
-  br i1 %.not5.i.i1010, label %process_RequestOperation.argprom.exit1011, label %140
+  br i1 %.not5.i.i1010, label %process_RequestOperation.exit1011, label %140
 
 140:                                              ; preds = %137
   %141 = getelementptr inbounds i8, ptr %139, i64 28
   %142 = load i32, ptr %141, align 4
   %143 = or i32 %142, 2
   store i32 %143, ptr %141, align 4
-  br label %process_RequestOperation.argprom.exit1011
+  br label %process_RequestOperation.exit1011
 
-process_RequestOperation.argprom.exit1011:        ; preds = %134, %137, %140
+process_RequestOperation.exit1011:                ; preds = %134, %137, %140
   %144 = getelementptr i8, ptr %1, i64 8
   %.val921 = load ptr, ptr %144, align 8
   tail call void @col_set_str(ptr noundef %.val921, i32 noundef 34, ptr noundef nonnull @.str.646) #4
   %.not.i1012 = icmp eq ptr %2, null
-  br i1 %.not.i1012, label %start_dissecting.argprom.exit1014, label %145
+  br i1 %.not.i1012, label %start_dissecting.exit1014, label %145
 
-145:                                              ; preds = %process_RequestOperation.argprom.exit1011
+145:                                              ; preds = %process_RequestOperation.exit1011
   %146 = load i32, ptr @proto_tango, align 4
   %147 = load i32, ptr %3, align 4
   %148 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %147) #4
   %149 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %146, ptr noundef %0, i32 noundef %147, i32 noundef %148, i32 noundef 0) #4
   %150 = load i32, ptr @ett_tango, align 4
   %151 = tail call ptr @proto_item_add_subtree(ptr noundef %149, i32 noundef %150) #4
-  br label %start_dissecting.argprom.exit1014
+  br label %start_dissecting.exit1014
 
-start_dissecting.argprom.exit1014:                ; preds = %process_RequestOperation.argprom.exit1011, %145
-  %.0.i1013 = phi ptr [ %151, %145 ], [ null, %process_RequestOperation.argprom.exit1011 ]
+start_dissecting.exit1014:                        ; preds = %process_RequestOperation.exit1011, %145
+  %.0.i1013 = phi ptr [ %151, %145 ], [ null, %process_RequestOperation.exit1011 ]
   %152 = load i8, ptr %9, align 1
   switch i8 %152, label %173 [
     i8 0, label %153
     i8 1, label %161
   ]
 
-153:                                              ; preds = %start_dissecting.argprom.exit1014
+153:                                              ; preds = %start_dissecting.exit1014
   %154 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %3, i32 noundef %8, i32 noundef 12) #4
   %155 = load i32, ptr @hf_Tango_Device_get_attribute_config_names_loop, align 4
   %156 = load i32, ptr %3, align 4
   %157 = add i32 %156, -4
   %158 = tail call ptr @proto_tree_add_uint(ptr noundef %.0.i1013, i32 noundef %155, ptr noundef %0, i32 noundef %157, i32 noundef 4, i32 noundef %154) #4
   %.not5.i = icmp eq i32 %154, 0
-  br i1 %.not5.i, label %decode_user_exception.argprom.exit, label %.lr.ph4.i
+  br i1 %.not5.i, label %decode_user_exception.exit, label %.lr.ph4.i
 
 .lr.ph4.i:                                        ; preds = %153, %.lr.ph4.i
   %.0393.i = phi i32 [ %160, %.lr.ph4.i ], [ 0, %153 ]
@@ -1492,14 +1492,14 @@ start_dissecting.argprom.exit1014:                ; preds = %process_RequestOper
   tail call void @giop_add_CDR_string(ptr noundef %.0.i1013, ptr noundef %0, ptr noundef nonnull %3, i32 noundef %8, i32 noundef 12, i32 noundef %159) #4
   %160 = add nuw i32 %.0393.i, 1
   %exitcond7.not.i = icmp eq i32 %160, %154
-  br i1 %exitcond7.not.i, label %decode_user_exception.argprom.exit, label %.lr.ph4.i, !llvm.loop !8
+  br i1 %exitcond7.not.i, label %decode_user_exception.exit, label %.lr.ph4.i, !llvm.loop !8
 
-161:                                              ; preds = %start_dissecting.argprom.exit1014
+161:                                              ; preds = %start_dissecting.exit1014
   %162 = getelementptr inbounds i8, ptr %4, i64 16
   %163 = load i32, ptr %162, align 8
   switch i32 %163, label %171 [
     i32 0, label %164
-    i32 1, label %decode_user_exception.argprom.exit
+    i32 1, label %decode_user_exception.exit
   ]
 
 164:                                              ; preds = %161
@@ -1509,23 +1509,23 @@ start_dissecting.argprom.exit1014:                ; preds = %process_RequestOper
   %168 = add i32 %167, -4
   %169 = tail call ptr @proto_tree_add_uint(ptr noundef %.0.i1013, i32 noundef %166, ptr noundef %0, i32 noundef %168, i32 noundef 4, i32 noundef %165) #4
   %.not.i1015 = icmp eq i32 %165, 0
-  br i1 %.not.i1015, label %decode_user_exception.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i1015, label %decode_user_exception.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %164, %.lr.ph.i
   %.02.i = phi i32 [ %170, %.lr.ph.i ], [ 0, %164 ]
-  tail call fastcc void @decode_Tango_AttributeConfig_st.argprom(ptr noundef %0, ptr noundef %.0.i1013, ptr noundef nonnull %3, i32 noundef %8)
+  tail call fastcc void @decode_Tango_AttributeConfig_st(ptr noundef %0, ptr noundef %.0.i1013, ptr noundef nonnull %3, i32 noundef %8)
   %170 = add nuw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %170, %165
-  br i1 %exitcond.not.i, label %decode_user_exception.argprom.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %decode_user_exception.exit, label %.lr.ph.i, !llvm.loop !9
 
 171:                                              ; preds = %161
   %172 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %136, ptr noundef nonnull @ei_tango_unknown_exception, ptr noundef nonnull @.str.753, i32 noundef %163) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
-173:                                              ; preds = %start_dissecting.argprom.exit1014
+173:                                              ; preds = %start_dissecting.exit1014
   %174 = zext i8 %152 to i32
   %175 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %136, ptr noundef nonnull @ei_tango_unknown_giop_msg, ptr noundef nonnull @.str.754, i32 noundef %174) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
 176:                                              ; preds = %127, %123
   %177 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(21) @.str.712) #5
@@ -1554,75 +1554,75 @@ start_dissecting.argprom.exit1014:                ; preds = %process_RequestOper
   %188 = load i32, ptr @hf_operationrequest, align 4
   %189 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %188, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %5) #4
   %.not.i.i1016 = icmp eq ptr %189, null
-  br i1 %.not.i.i1016, label %process_RequestOperation.argprom.exit1018, label %190
+  br i1 %.not.i.i1016, label %process_RequestOperation.exit1018, label %190
 
 190:                                              ; preds = %187
   %191 = getelementptr inbounds i8, ptr %189, i64 32
   %192 = load ptr, ptr %191, align 8
   %.not5.i.i1017 = icmp eq ptr %192, null
-  br i1 %.not5.i.i1017, label %process_RequestOperation.argprom.exit1018, label %193
+  br i1 %.not5.i.i1017, label %process_RequestOperation.exit1018, label %193
 
 193:                                              ; preds = %190
   %194 = getelementptr inbounds i8, ptr %192, i64 28
   %195 = load i32, ptr %194, align 4
   %196 = or i32 %195, 2
   store i32 %196, ptr %194, align 4
-  br label %process_RequestOperation.argprom.exit1018
+  br label %process_RequestOperation.exit1018
 
-process_RequestOperation.argprom.exit1018:        ; preds = %187, %190, %193
+process_RequestOperation.exit1018:                ; preds = %187, %190, %193
   %197 = getelementptr i8, ptr %1, i64 8
   %.val922 = load ptr, ptr %197, align 8
   tail call void @col_set_str(ptr noundef %.val922, i32 noundef 34, ptr noundef nonnull @.str.646) #4
   %.not.i1019 = icmp eq ptr %2, null
-  br i1 %.not.i1019, label %start_dissecting.argprom.exit1021, label %198
+  br i1 %.not.i1019, label %start_dissecting.exit1021, label %198
 
-198:                                              ; preds = %process_RequestOperation.argprom.exit1018
+198:                                              ; preds = %process_RequestOperation.exit1018
   %199 = load i32, ptr @proto_tango, align 4
   %200 = load i32, ptr %3, align 4
   %201 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %200) #4
   %202 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %199, ptr noundef %0, i32 noundef %200, i32 noundef %201, i32 noundef 0) #4
   %203 = load i32, ptr @ett_tango, align 4
   %204 = tail call ptr @proto_item_add_subtree(ptr noundef %202, i32 noundef %203) #4
-  br label %start_dissecting.argprom.exit1021
+  br label %start_dissecting.exit1021
 
-start_dissecting.argprom.exit1021:                ; preds = %process_RequestOperation.argprom.exit1018, %198
-  %.0.i1020 = phi ptr [ %204, %198 ], [ null, %process_RequestOperation.argprom.exit1018 ]
+start_dissecting.exit1021:                        ; preds = %process_RequestOperation.exit1018, %198
+  %.0.i1020 = phi ptr [ %204, %198 ], [ null, %process_RequestOperation.exit1018 ]
   %205 = load i8, ptr %9, align 1
   switch i8 %205, label %218 [
     i8 0, label %206
     i8 1, label %213
   ]
 
-206:                                              ; preds = %start_dissecting.argprom.exit1021
+206:                                              ; preds = %start_dissecting.exit1021
   %207 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %3, i32 noundef %8, i32 noundef 12) #4
   %208 = load i32, ptr @hf_Tango_Device_set_attribute_config_new_conf_loop, align 4
   %209 = load i32, ptr %3, align 4
   %210 = add i32 %209, -4
   %211 = tail call ptr @proto_tree_add_uint(ptr noundef %.0.i1020, i32 noundef %208, ptr noundef %0, i32 noundef %210, i32 noundef 4, i32 noundef %207) #4
   %.not.i1022 = icmp eq i32 %207, 0
-  br i1 %.not.i1022, label %decode_user_exception.argprom.exit, label %.lr.ph.i1023
+  br i1 %.not.i1022, label %decode_user_exception.exit, label %.lr.ph.i1023
 
 .lr.ph.i1023:                                     ; preds = %206, %.lr.ph.i1023
   %.01.i = phi i32 [ %212, %.lr.ph.i1023 ], [ 0, %206 ]
-  tail call fastcc void @decode_Tango_AttributeConfig_st.argprom(ptr noundef %0, ptr noundef %.0.i1020, ptr noundef nonnull %3, i32 noundef %8)
+  tail call fastcc void @decode_Tango_AttributeConfig_st(ptr noundef %0, ptr noundef %.0.i1020, ptr noundef nonnull %3, i32 noundef %8)
   %212 = add nuw i32 %.01.i, 1
   %exitcond.not.i1024 = icmp eq i32 %212, %207
-  br i1 %exitcond.not.i1024, label %decode_user_exception.argprom.exit, label %.lr.ph.i1023, !llvm.loop !10
+  br i1 %exitcond.not.i1024, label %decode_user_exception.exit, label %.lr.ph.i1023, !llvm.loop !10
 
-213:                                              ; preds = %start_dissecting.argprom.exit1021
+213:                                              ; preds = %start_dissecting.exit1021
   %214 = getelementptr inbounds i8, ptr %4, i64 16
   %215 = load i32, ptr %214, align 8
   %switch.i = icmp ult i32 %215, 2
-  br i1 %switch.i, label %decode_user_exception.argprom.exit, label %216
+  br i1 %switch.i, label %decode_user_exception.exit, label %216
 
 216:                                              ; preds = %213
   %217 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %189, ptr noundef nonnull @ei_tango_unknown_exception, ptr noundef nonnull @.str.753, i32 noundef %215) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
-218:                                              ; preds = %start_dissecting.argprom.exit1021
+218:                                              ; preds = %start_dissecting.exit1021
   %219 = zext i8 %205 to i32
   %220 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %189, ptr noundef nonnull @ei_tango_unknown_giop_msg, ptr noundef nonnull @.str.754, i32 noundef %219) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
 221:                                              ; preds = %180, %176
   %222 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(16) @.str.713) #5
@@ -1651,53 +1651,53 @@ start_dissecting.argprom.exit1021:                ; preds = %process_RequestOper
   %233 = load i32, ptr @hf_operationrequest, align 4
   %234 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %233, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %5) #4
   %.not.i.i1025 = icmp eq ptr %234, null
-  br i1 %.not.i.i1025, label %process_RequestOperation.argprom.exit1027, label %235
+  br i1 %.not.i.i1025, label %process_RequestOperation.exit1027, label %235
 
 235:                                              ; preds = %232
   %236 = getelementptr inbounds i8, ptr %234, i64 32
   %237 = load ptr, ptr %236, align 8
   %.not5.i.i1026 = icmp eq ptr %237, null
-  br i1 %.not5.i.i1026, label %process_RequestOperation.argprom.exit1027, label %238
+  br i1 %.not5.i.i1026, label %process_RequestOperation.exit1027, label %238
 
 238:                                              ; preds = %235
   %239 = getelementptr inbounds i8, ptr %237, i64 28
   %240 = load i32, ptr %239, align 4
   %241 = or i32 %240, 2
   store i32 %241, ptr %239, align 4
-  br label %process_RequestOperation.argprom.exit1027
+  br label %process_RequestOperation.exit1027
 
-process_RequestOperation.argprom.exit1027:        ; preds = %232, %235, %238
+process_RequestOperation.exit1027:                ; preds = %232, %235, %238
   %242 = getelementptr i8, ptr %1, i64 8
   %.val923 = load ptr, ptr %242, align 8
   tail call void @col_set_str(ptr noundef %.val923, i32 noundef 34, ptr noundef nonnull @.str.646) #4
   %.not.i1028 = icmp eq ptr %2, null
-  br i1 %.not.i1028, label %start_dissecting.argprom.exit1030, label %243
+  br i1 %.not.i1028, label %start_dissecting.exit1030, label %243
 
-243:                                              ; preds = %process_RequestOperation.argprom.exit1027
+243:                                              ; preds = %process_RequestOperation.exit1027
   %244 = load i32, ptr @proto_tango, align 4
   %245 = load i32, ptr %3, align 4
   %246 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %245) #4
   %247 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %244, ptr noundef %0, i32 noundef %245, i32 noundef %246, i32 noundef 0) #4
   %248 = load i32, ptr @ett_tango, align 4
   %249 = tail call ptr @proto_item_add_subtree(ptr noundef %247, i32 noundef %248) #4
-  br label %start_dissecting.argprom.exit1030
+  br label %start_dissecting.exit1030
 
-start_dissecting.argprom.exit1030:                ; preds = %process_RequestOperation.argprom.exit1027, %243
-  %.0.i1029 = phi ptr [ %249, %243 ], [ null, %process_RequestOperation.argprom.exit1027 ]
+start_dissecting.exit1030:                        ; preds = %process_RequestOperation.exit1027, %243
+  %.0.i1029 = phi ptr [ %249, %243 ], [ null, %process_RequestOperation.exit1027 ]
   %250 = load i8, ptr %9, align 1
   switch i8 %250, label %271 [
     i8 0, label %251
     i8 1, label %259
   ]
 
-251:                                              ; preds = %start_dissecting.argprom.exit1030
+251:                                              ; preds = %start_dissecting.exit1030
   %252 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %3, i32 noundef %8, i32 noundef 12) #4
   %253 = load i32, ptr @hf_Tango_Device_read_attributes_names_loop, align 4
   %254 = load i32, ptr %3, align 4
   %255 = add i32 %254, -4
   %256 = tail call ptr @proto_tree_add_uint(ptr noundef %.0.i1029, i32 noundef %253, ptr noundef %0, i32 noundef %255, i32 noundef 4, i32 noundef %252) #4
   %.not5.i1035 = icmp eq i32 %252, 0
-  br i1 %.not5.i1035, label %decode_user_exception.argprom.exit, label %.lr.ph4.i1036
+  br i1 %.not5.i1035, label %decode_user_exception.exit, label %.lr.ph4.i1036
 
 .lr.ph4.i1036:                                    ; preds = %251, %.lr.ph4.i1036
   %.0393.i1037 = phi i32 [ %258, %.lr.ph4.i1036 ], [ 0, %251 ]
@@ -1705,14 +1705,14 @@ start_dissecting.argprom.exit1030:                ; preds = %process_RequestOper
   tail call void @giop_add_CDR_string(ptr noundef %.0.i1029, ptr noundef %0, ptr noundef nonnull %3, i32 noundef %8, i32 noundef 12, i32 noundef %257) #4
   %258 = add nuw i32 %.0393.i1037, 1
   %exitcond7.not.i1038 = icmp eq i32 %258, %252
-  br i1 %exitcond7.not.i1038, label %decode_user_exception.argprom.exit, label %.lr.ph4.i1036, !llvm.loop !11
+  br i1 %exitcond7.not.i1038, label %decode_user_exception.exit, label %.lr.ph4.i1036, !llvm.loop !11
 
-259:                                              ; preds = %start_dissecting.argprom.exit1030
+259:                                              ; preds = %start_dissecting.exit1030
   %260 = getelementptr inbounds i8, ptr %4, i64 16
   %261 = load i32, ptr %260, align 8
   switch i32 %261, label %269 [
     i32 0, label %262
-    i32 1, label %decode_user_exception.argprom.exit
+    i32 1, label %decode_user_exception.exit
   ]
 
 262:                                              ; preds = %259
@@ -1722,23 +1722,23 @@ start_dissecting.argprom.exit1030:                ; preds = %process_RequestOper
   %266 = add i32 %265, -4
   %267 = tail call ptr @proto_tree_add_uint(ptr noundef %.0.i1029, i32 noundef %264, ptr noundef %0, i32 noundef %266, i32 noundef 4, i32 noundef %263) #4
   %.not.i1031 = icmp eq i32 %263, 0
-  br i1 %.not.i1031, label %decode_user_exception.argprom.exit, label %.lr.ph.i1032
+  br i1 %.not.i1031, label %decode_user_exception.exit, label %.lr.ph.i1032
 
 .lr.ph.i1032:                                     ; preds = %262, %.lr.ph.i1032
   %.02.i1033 = phi i32 [ %268, %.lr.ph.i1032 ], [ 0, %262 ]
-  tail call fastcc void @decode_Tango_AttributeValue_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %.0.i1029, ptr noundef %234, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %8)
+  tail call fastcc void @decode_Tango_AttributeValue_st(ptr noundef %0, ptr noundef %1, ptr noundef %.0.i1029, ptr noundef %234, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %8)
   %268 = add nuw i32 %.02.i1033, 1
   %exitcond.not.i1034 = icmp eq i32 %268, %263
-  br i1 %exitcond.not.i1034, label %decode_user_exception.argprom.exit, label %.lr.ph.i1032, !llvm.loop !12
+  br i1 %exitcond.not.i1034, label %decode_user_exception.exit, label %.lr.ph.i1032, !llvm.loop !12
 
 269:                                              ; preds = %259
   %270 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %234, ptr noundef nonnull @ei_tango_unknown_exception, ptr noundef nonnull @.str.753, i32 noundef %261) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
-271:                                              ; preds = %start_dissecting.argprom.exit1030
+271:                                              ; preds = %start_dissecting.exit1030
   %272 = zext i8 %250 to i32
   %273 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %234, ptr noundef nonnull @ei_tango_unknown_giop_msg, ptr noundef nonnull @.str.754, i32 noundef %272) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
 274:                                              ; preds = %225, %221
   %275 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(17) @.str.714) #5
@@ -1767,75 +1767,75 @@ start_dissecting.argprom.exit1030:                ; preds = %process_RequestOper
   %286 = load i32, ptr @hf_operationrequest, align 4
   %287 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %286, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %5) #4
   %.not.i.i1039 = icmp eq ptr %287, null
-  br i1 %.not.i.i1039, label %process_RequestOperation.argprom.exit1041, label %288
+  br i1 %.not.i.i1039, label %process_RequestOperation.exit1041, label %288
 
 288:                                              ; preds = %285
   %289 = getelementptr inbounds i8, ptr %287, i64 32
   %290 = load ptr, ptr %289, align 8
   %.not5.i.i1040 = icmp eq ptr %290, null
-  br i1 %.not5.i.i1040, label %process_RequestOperation.argprom.exit1041, label %291
+  br i1 %.not5.i.i1040, label %process_RequestOperation.exit1041, label %291
 
 291:                                              ; preds = %288
   %292 = getelementptr inbounds i8, ptr %290, i64 28
   %293 = load i32, ptr %292, align 4
   %294 = or i32 %293, 2
   store i32 %294, ptr %292, align 4
-  br label %process_RequestOperation.argprom.exit1041
+  br label %process_RequestOperation.exit1041
 
-process_RequestOperation.argprom.exit1041:        ; preds = %285, %288, %291
+process_RequestOperation.exit1041:                ; preds = %285, %288, %291
   %295 = getelementptr i8, ptr %1, i64 8
   %.val924 = load ptr, ptr %295, align 8
   tail call void @col_set_str(ptr noundef %.val924, i32 noundef 34, ptr noundef nonnull @.str.646) #4
   %.not.i1042 = icmp eq ptr %2, null
-  br i1 %.not.i1042, label %start_dissecting.argprom.exit1044, label %296
+  br i1 %.not.i1042, label %start_dissecting.exit1044, label %296
 
-296:                                              ; preds = %process_RequestOperation.argprom.exit1041
+296:                                              ; preds = %process_RequestOperation.exit1041
   %297 = load i32, ptr @proto_tango, align 4
   %298 = load i32, ptr %3, align 4
   %299 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %298) #4
   %300 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %297, ptr noundef %0, i32 noundef %298, i32 noundef %299, i32 noundef 0) #4
   %301 = load i32, ptr @ett_tango, align 4
   %302 = tail call ptr @proto_item_add_subtree(ptr noundef %300, i32 noundef %301) #4
-  br label %start_dissecting.argprom.exit1044
+  br label %start_dissecting.exit1044
 
-start_dissecting.argprom.exit1044:                ; preds = %process_RequestOperation.argprom.exit1041, %296
-  %.0.i1043 = phi ptr [ %302, %296 ], [ null, %process_RequestOperation.argprom.exit1041 ]
+start_dissecting.exit1044:                        ; preds = %process_RequestOperation.exit1041, %296
+  %.0.i1043 = phi ptr [ %302, %296 ], [ null, %process_RequestOperation.exit1041 ]
   %303 = load i8, ptr %9, align 1
   switch i8 %303, label %316 [
     i8 0, label %304
     i8 1, label %311
   ]
 
-304:                                              ; preds = %start_dissecting.argprom.exit1044
+304:                                              ; preds = %start_dissecting.exit1044
   %305 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %3, i32 noundef %8, i32 noundef 12) #4
   %306 = load i32, ptr @hf_Tango_Device_write_attributes_values_loop, align 4
   %307 = load i32, ptr %3, align 4
   %308 = add i32 %307, -4
   %309 = tail call ptr @proto_tree_add_uint(ptr noundef %.0.i1043, i32 noundef %306, ptr noundef %0, i32 noundef %308, i32 noundef 4, i32 noundef %305) #4
   %.not.i1046 = icmp eq i32 %305, 0
-  br i1 %.not.i1046, label %decode_user_exception.argprom.exit, label %.lr.ph.i1047
+  br i1 %.not.i1046, label %decode_user_exception.exit, label %.lr.ph.i1047
 
 .lr.ph.i1047:                                     ; preds = %304, %.lr.ph.i1047
   %.01.i1048 = phi i32 [ %310, %.lr.ph.i1047 ], [ 0, %304 ]
-  tail call fastcc void @decode_Tango_AttributeValue_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %.0.i1043, ptr noundef %287, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %8)
+  tail call fastcc void @decode_Tango_AttributeValue_st(ptr noundef %0, ptr noundef %1, ptr noundef %.0.i1043, ptr noundef %287, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %8)
   %310 = add nuw i32 %.01.i1048, 1
   %exitcond.not.i1049 = icmp eq i32 %310, %305
-  br i1 %exitcond.not.i1049, label %decode_user_exception.argprom.exit, label %.lr.ph.i1047, !llvm.loop !13
+  br i1 %exitcond.not.i1049, label %decode_user_exception.exit, label %.lr.ph.i1047, !llvm.loop !13
 
-311:                                              ; preds = %start_dissecting.argprom.exit1044
+311:                                              ; preds = %start_dissecting.exit1044
   %312 = getelementptr inbounds i8, ptr %4, i64 16
   %313 = load i32, ptr %312, align 8
   %switch.i1045 = icmp ult i32 %313, 2
-  br i1 %switch.i1045, label %decode_user_exception.argprom.exit, label %314
+  br i1 %switch.i1045, label %decode_user_exception.exit, label %314
 
 314:                                              ; preds = %311
   %315 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %287, ptr noundef nonnull @ei_tango_unknown_exception, ptr noundef nonnull @.str.753, i32 noundef %313) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
-316:                                              ; preds = %start_dissecting.argprom.exit1044
+316:                                              ; preds = %start_dissecting.exit1044
   %317 = zext i8 %303 to i32
   %318 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %287, ptr noundef nonnull @ei_tango_unknown_giop_msg, ptr noundef nonnull @.str.754, i32 noundef %317) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
 319:                                              ; preds = %278, %274
   %320 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(5) @.str.715) #5
@@ -1864,58 +1864,58 @@ start_dissecting.argprom.exit1044:                ; preds = %process_RequestOper
   %331 = load i32, ptr @hf_operationrequest, align 4
   %332 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %331, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %5) #4
   %.not.i.i1050 = icmp eq ptr %332, null
-  br i1 %.not.i.i1050, label %process_RequestOperation.argprom.exit1052, label %333
+  br i1 %.not.i.i1050, label %process_RequestOperation.exit1052, label %333
 
 333:                                              ; preds = %330
   %334 = getelementptr inbounds i8, ptr %332, i64 32
   %335 = load ptr, ptr %334, align 8
   %.not5.i.i1051 = icmp eq ptr %335, null
-  br i1 %.not5.i.i1051, label %process_RequestOperation.argprom.exit1052, label %336
+  br i1 %.not5.i.i1051, label %process_RequestOperation.exit1052, label %336
 
 336:                                              ; preds = %333
   %337 = getelementptr inbounds i8, ptr %335, i64 28
   %338 = load i32, ptr %337, align 4
   %339 = or i32 %338, 2
   store i32 %339, ptr %337, align 4
-  br label %process_RequestOperation.argprom.exit1052
+  br label %process_RequestOperation.exit1052
 
-process_RequestOperation.argprom.exit1052:        ; preds = %330, %333, %336
+process_RequestOperation.exit1052:                ; preds = %330, %333, %336
   %340 = getelementptr i8, ptr %1, i64 8
   %.val925 = load ptr, ptr %340, align 8
   tail call void @col_set_str(ptr noundef %.val925, i32 noundef 34, ptr noundef nonnull @.str.646) #4
   %.not.i1053 = icmp eq ptr %2, null
-  br i1 %.not.i1053, label %start_dissecting.argprom.exit1055, label %341
+  br i1 %.not.i1053, label %start_dissecting.exit1055, label %341
 
-341:                                              ; preds = %process_RequestOperation.argprom.exit1052
+341:                                              ; preds = %process_RequestOperation.exit1052
   %342 = load i32, ptr @proto_tango, align 4
   %343 = load i32, ptr %3, align 4
   %344 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %343) #4
   %345 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %342, ptr noundef %0, i32 noundef %343, i32 noundef %344, i32 noundef 0) #4
   %346 = load i32, ptr @ett_tango, align 4
   %347 = tail call ptr @proto_item_add_subtree(ptr noundef %345, i32 noundef %346) #4
-  br label %start_dissecting.argprom.exit1055
+  br label %start_dissecting.exit1055
 
-start_dissecting.argprom.exit1055:                ; preds = %process_RequestOperation.argprom.exit1052, %341
+start_dissecting.exit1055:                        ; preds = %process_RequestOperation.exit1052, %341
   %348 = load i8, ptr %9, align 1
   switch i8 %348, label %354 [
-    i8 0, label %decode_user_exception.argprom.exit
+    i8 0, label %decode_user_exception.exit
     i8 1, label %349
   ]
 
-349:                                              ; preds = %start_dissecting.argprom.exit1055
+349:                                              ; preds = %start_dissecting.exit1055
   %350 = getelementptr inbounds i8, ptr %4, i64 16
   %351 = load i32, ptr %350, align 8
   %switch.i1056 = icmp ult i32 %351, 2
-  br i1 %switch.i1056, label %decode_user_exception.argprom.exit, label %352
+  br i1 %switch.i1056, label %decode_user_exception.exit, label %352
 
 352:                                              ; preds = %349
   %353 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %332, ptr noundef nonnull @ei_tango_unknown_exception, ptr noundef nonnull @.str.753, i32 noundef %351) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
-354:                                              ; preds = %start_dissecting.argprom.exit1055
+354:                                              ; preds = %start_dissecting.exit1055
   %355 = zext i8 %348 to i32
   %356 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %332, ptr noundef nonnull @ei_tango_unknown_giop_msg, ptr noundef nonnull @.str.754, i32 noundef %355) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
 357:                                              ; preds = %323, %319
   %358 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(10) @.str.716) #5
@@ -1932,12 +1932,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %363, label %364, label %368
 
 364:                                              ; preds = %361, %360
-  %365 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %365 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %366 = getelementptr i8, ptr %1, i64 8
   %.val926 = load ptr, ptr %366, align 8
-  %367 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val926, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_black_box.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %367, ptr noundef %365, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %367 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val926, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_black_box(ptr noundef %0, ptr noundef %1, ptr noundef %367, ptr noundef %365, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 368:                                              ; preds = %361, %357
   %369 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(5) @.str.717) #5
@@ -1954,12 +1954,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %374, label %375, label %379
 
 375:                                              ; preds = %372, %371
-  %376 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %376 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %377 = getelementptr i8, ptr %1, i64 8
   %.val927 = load ptr, ptr %377, align 8
-  %378 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val927, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_info.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %378, ptr noundef %376, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %378 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val927, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_info(ptr noundef %0, ptr noundef %1, ptr noundef %378, ptr noundef %376, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 379:                                              ; preds = %372, %368
   %380 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(19) @.str.718) #5
@@ -1976,12 +1976,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %385, label %386, label %390
 
 386:                                              ; preds = %383, %382
-  %387 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %387 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %388 = getelementptr i8, ptr %1, i64 8
   %.val928 = load ptr, ptr %388, align 8
-  %389 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val928, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_command_list_query.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %389, ptr noundef %387, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %389 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val928, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_command_list_query(ptr noundef %0, ptr noundef %1, ptr noundef %389, ptr noundef %387, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 390:                                              ; preds = %383, %379
   %391 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(14) @.str.719) #5
@@ -1998,12 +1998,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %396, label %397, label %401
 
 397:                                              ; preds = %394, %393
-  %398 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %398 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %399 = getelementptr i8, ptr %1, i64 8
   %.val929 = load ptr, ptr %399, align 8
-  %400 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val929, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_command_query.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %400, ptr noundef %398, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %400 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val929, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_command_query(ptr noundef %0, ptr noundef %1, ptr noundef %400, ptr noundef %398, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 401:                                              ; preds = %394, %390
   %402 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(16) @.str.720) #5
@@ -2020,12 +2020,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %407, label %408, label %412
 
 408:                                              ; preds = %405, %404
-  %409 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %409 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %410 = getelementptr i8, ptr %1, i64 8
   %.val930 = load ptr, ptr %410, align 8
-  %411 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val930, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_2_command_inout_2.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %411, ptr noundef %409, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %411 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val930, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_2_command_inout_2(ptr noundef %0, ptr noundef %1, ptr noundef %411, ptr noundef %409, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 412:                                              ; preds = %405, %401
   %413 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(18) @.str.721) #5
@@ -2042,12 +2042,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %418, label %419, label %423
 
 419:                                              ; preds = %416, %415
-  %420 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %420 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %421 = getelementptr i8, ptr %1, i64 8
   %.val931 = load ptr, ptr %421, align 8
-  %422 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val931, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_2_read_attributes_2.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %422, ptr noundef %420, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %422 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val931, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_2_read_attributes_2(ptr noundef %0, ptr noundef %1, ptr noundef %422, ptr noundef %420, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 423:                                              ; preds = %416, %412
   %424 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(23) @.str.722) #5
@@ -2064,12 +2064,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %429, label %430, label %434
 
 430:                                              ; preds = %427, %426
-  %431 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %431 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %432 = getelementptr i8, ptr %1, i64 8
   %.val932 = load ptr, ptr %432, align 8
-  %433 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val932, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_2_get_attribute_config_2.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %433, ptr noundef %431, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %433 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val932, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_2_get_attribute_config_2(ptr noundef %0, ptr noundef %1, ptr noundef %433, ptr noundef %431, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 434:                                              ; preds = %427, %423
   %435 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(21) @.str.723) #5
@@ -2086,12 +2086,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %440, label %441, label %445
 
 441:                                              ; preds = %438, %437
-  %442 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %442 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %443 = getelementptr i8, ptr %1, i64 8
   %.val933 = load ptr, ptr %443, align 8
-  %444 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val933, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_2_command_list_query_2.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %444, ptr noundef %442, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %444 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val933, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_2_command_list_query_2(ptr noundef %0, ptr noundef %1, ptr noundef %444, ptr noundef %442, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 445:                                              ; preds = %438, %434
   %446 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(16) @.str.724) #5
@@ -2108,12 +2108,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %451, label %452, label %456
 
 452:                                              ; preds = %449, %448
-  %453 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %453 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %454 = getelementptr i8, ptr %1, i64 8
   %.val934 = load ptr, ptr %454, align 8
-  %455 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val934, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_2_command_query_2.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %455, ptr noundef %453, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %455 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val934, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_2_command_query_2(ptr noundef %0, ptr noundef %1, ptr noundef %455, ptr noundef %453, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 456:                                              ; preds = %449, %445
   %457 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(24) @.str.725) #5
@@ -2130,12 +2130,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %462, label %463, label %467
 
 463:                                              ; preds = %460, %459
-  %464 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %464 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %465 = getelementptr i8, ptr %1, i64 8
   %.val935 = load ptr, ptr %465, align 8
-  %466 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val935, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_2_command_inout_history_2.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %466, ptr noundef %464, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %466 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val935, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_2_command_inout_history_2(ptr noundef %0, ptr noundef %1, ptr noundef %466, ptr noundef %464, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 467:                                              ; preds = %460, %456
   %468 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(25) @.str.726) #5
@@ -2152,12 +2152,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %473, label %474, label %478
 
 474:                                              ; preds = %471, %470
-  %475 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %475 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %476 = getelementptr i8, ptr %1, i64 8
   %.val936 = load ptr, ptr %476, align 8
-  %477 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val936, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_2_read_attribute_history_2.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %477, ptr noundef %475, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %477 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val936, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_2_read_attribute_history_2(ptr noundef %0, ptr noundef %1, ptr noundef %477, ptr noundef %475, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 478:                                              ; preds = %471, %467
   %479 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(18) @.str.727) #5
@@ -2174,12 +2174,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %484, label %485, label %489
 
 485:                                              ; preds = %482, %481
-  %486 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %486 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %487 = getelementptr i8, ptr %1, i64 8
   %.val937 = load ptr, ptr %487, align 8
-  %488 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val937, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_3_read_attributes_3.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %488, ptr noundef %486, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %488 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val937, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_3_read_attributes_3(ptr noundef %0, ptr noundef %1, ptr noundef %488, ptr noundef %486, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 489:                                              ; preds = %482, %478
   %490 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(19) @.str.728) #5
@@ -2196,12 +2196,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %495, label %496, label %500
 
 496:                                              ; preds = %493, %492
-  %497 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %497 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %498 = getelementptr i8, ptr %1, i64 8
   %.val938 = load ptr, ptr %498, align 8
-  %499 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val938, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_3_write_attributes_3.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %499, ptr noundef %497, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %499 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val938, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_3_write_attributes_3(ptr noundef %0, ptr noundef %1, ptr noundef %499, ptr noundef %497, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 500:                                              ; preds = %493, %489
   %501 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(25) @.str.729) #5
@@ -2218,12 +2218,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %506, label %507, label %511
 
 507:                                              ; preds = %504, %503
-  %508 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %508 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %509 = getelementptr i8, ptr %1, i64 8
   %.val939 = load ptr, ptr %509, align 8
-  %510 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val939, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_3_read_attribute_history_3.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %510, ptr noundef %508, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %510 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val939, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_3_read_attribute_history_3(ptr noundef %0, ptr noundef %1, ptr noundef %510, ptr noundef %508, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 511:                                              ; preds = %504, %500
   %512 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(7) @.str.730) #5
@@ -2240,12 +2240,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %517, label %518, label %522
 
 518:                                              ; preds = %515, %514
-  %519 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %519 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %520 = getelementptr i8, ptr %1, i64 8
   %.val940 = load ptr, ptr %520, align 8
-  %521 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val940, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_3_info_3.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %521, ptr noundef %519, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %521 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val940, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_3_info_3(ptr noundef %0, ptr noundef %1, ptr noundef %521, ptr noundef %519, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 522:                                              ; preds = %515, %511
   %523 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(23) @.str.731) #5
@@ -2262,12 +2262,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %528, label %529, label %533
 
 529:                                              ; preds = %526, %525
-  %530 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %530 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %531 = getelementptr i8, ptr %1, i64 8
   %.val941 = load ptr, ptr %531, align 8
-  %532 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val941, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_3_get_attribute_config_3.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %532, ptr noundef %530, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %532 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val941, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_3_get_attribute_config_3(ptr noundef %0, ptr noundef %1, ptr noundef %532, ptr noundef %530, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 533:                                              ; preds = %526, %522
   %534 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(23) @.str.732) #5
@@ -2284,12 +2284,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %539, label %540, label %544
 
 540:                                              ; preds = %537, %536
-  %541 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %541 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %542 = getelementptr i8, ptr %1, i64 8
   %.val942 = load ptr, ptr %542, align 8
-  %543 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val942, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_3_set_attribute_config_3.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %543, ptr noundef %541, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %543 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val942, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_3_set_attribute_config_3(ptr noundef %0, ptr noundef %1, ptr noundef %543, ptr noundef %541, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 544:                                              ; preds = %537, %533
   %545 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(25) @.str.733) #5
@@ -2306,12 +2306,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %550, label %551, label %555
 
 551:                                              ; preds = %548, %547
-  %552 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %552 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %553 = getelementptr i8, ptr %1, i64 8
   %.val943 = load ptr, ptr %553, align 8
-  %554 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val943, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_4_read_attribute_history_4.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %554, ptr noundef %552, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %554 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val943, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_4_read_attribute_history_4(ptr noundef %0, ptr noundef %1, ptr noundef %554, ptr noundef %552, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 555:                                              ; preds = %548, %544
   %556 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(24) @.str.734) #5
@@ -2328,12 +2328,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %561, label %562, label %566
 
 562:                                              ; preds = %559, %558
-  %563 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %563 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %564 = getelementptr i8, ptr %1, i64 8
   %.val944 = load ptr, ptr %564, align 8
-  %565 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val944, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_4_command_inout_history_4.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %565, ptr noundef %563, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %565 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val944, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_4_command_inout_history_4(ptr noundef %0, ptr noundef %1, ptr noundef %565, ptr noundef %563, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 566:                                              ; preds = %559, %555
   %567 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(16) @.str.735) #5
@@ -2350,12 +2350,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %572, label %573, label %577
 
 573:                                              ; preds = %570, %569
-  %574 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %574 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %575 = getelementptr i8, ptr %1, i64 8
   %.val945 = load ptr, ptr %575, align 8
-  %576 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val945, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_4_command_inout_4.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %576, ptr noundef %574, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %576 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val945, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_4_command_inout_4(ptr noundef %0, ptr noundef %1, ptr noundef %576, ptr noundef %574, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 577:                                              ; preds = %570, %566
   %578 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(18) @.str.736) #5
@@ -2372,12 +2372,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %583, label %584, label %588
 
 584:                                              ; preds = %581, %580
-  %585 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %585 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %586 = getelementptr i8, ptr %1, i64 8
   %.val946 = load ptr, ptr %586, align 8
-  %587 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val946, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_4_read_attributes_4.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %587, ptr noundef %585, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %587 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val946, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_4_read_attributes_4(ptr noundef %0, ptr noundef %1, ptr noundef %587, ptr noundef %585, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 588:                                              ; preds = %581, %577
   %589 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(19) @.str.737) #5
@@ -2394,12 +2394,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %594, label %595, label %599
 
 595:                                              ; preds = %592, %591
-  %596 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %596 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %597 = getelementptr i8, ptr %1, i64 8
   %.val947 = load ptr, ptr %597, align 8
-  %598 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val947, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_4_write_attributes_4.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %598, ptr noundef %596, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %598 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val947, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_4_write_attributes_4(ptr noundef %0, ptr noundef %1, ptr noundef %598, ptr noundef %596, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 599:                                              ; preds = %592, %588
   %600 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(23) @.str.738) #5
@@ -2416,12 +2416,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %605, label %606, label %610
 
 606:                                              ; preds = %603, %602
-  %607 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %607 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %608 = getelementptr i8, ptr %1, i64 8
   %.val948 = load ptr, ptr %608, align 8
-  %609 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val948, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_4_set_attribute_config_4.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %609, ptr noundef %607, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %609 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val948, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_4_set_attribute_config_4(ptr noundef %0, ptr noundef %1, ptr noundef %609, ptr noundef %607, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 610:                                              ; preds = %603, %599
   %611 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(24) @.str.739) #5
@@ -2438,12 +2438,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %616, label %617, label %621
 
 617:                                              ; preds = %614, %613
-  %618 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %618 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %619 = getelementptr i8, ptr %1, i64 8
   %.val949 = load ptr, ptr %619, align 8
-  %620 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val949, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_4_write_read_attributes_4.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %620, ptr noundef %618, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %620 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val949, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_4_write_read_attributes_4(ptr noundef %0, ptr noundef %1, ptr noundef %620, ptr noundef %618, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 621:                                              ; preds = %614, %610
   %622 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(23) @.str.740) #5
@@ -2460,12 +2460,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %627, label %628, label %632
 
 628:                                              ; preds = %625, %624
-  %629 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %629 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %630 = getelementptr i8, ptr %1, i64 8
   %.val950 = load ptr, ptr %630, align 8
-  %631 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val950, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_5_get_attribute_config_5.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %631, ptr noundef %629, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %631 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val950, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_5_get_attribute_config_5(ptr noundef %0, ptr noundef %1, ptr noundef %631, ptr noundef %629, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 632:                                              ; preds = %625, %621
   %633 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(23) @.str.741) #5
@@ -2482,12 +2482,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %638, label %639, label %643
 
 639:                                              ; preds = %636, %635
-  %640 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %640 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %641 = getelementptr i8, ptr %1, i64 8
   %.val951 = load ptr, ptr %641, align 8
-  %642 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val951, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_5_set_attribute_config_5.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %642, ptr noundef %640, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %642 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val951, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_5_set_attribute_config_5(ptr noundef %0, ptr noundef %1, ptr noundef %642, ptr noundef %640, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 643:                                              ; preds = %636, %632
   %644 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(18) @.str.742) #5
@@ -2504,12 +2504,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %649, label %650, label %654
 
 650:                                              ; preds = %647, %646
-  %651 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %651 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %652 = getelementptr i8, ptr %1, i64 8
   %.val952 = load ptr, ptr %652, align 8
-  %653 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val952, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_5_read_attributes_5.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %653, ptr noundef %651, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %653 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val952, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_5_read_attributes_5(ptr noundef %0, ptr noundef %1, ptr noundef %653, ptr noundef %651, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 654:                                              ; preds = %647, %643
   %655 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(24) @.str.743) #5
@@ -2526,12 +2526,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %660, label %661, label %665
 
 661:                                              ; preds = %658, %657
-  %662 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %662 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %663 = getelementptr i8, ptr %1, i64 8
   %.val953 = load ptr, ptr %663, align 8
-  %664 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val953, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_5_write_read_attributes_5.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %664, ptr noundef %662, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %664 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val953, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_5_write_read_attributes_5(ptr noundef %0, ptr noundef %1, ptr noundef %664, ptr noundef %662, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 665:                                              ; preds = %658, %654
   %666 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(25) @.str.744) #5
@@ -2548,12 +2548,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %671, label %672, label %676
 
 672:                                              ; preds = %669, %668
-  %673 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %673 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %674 = getelementptr i8, ptr %1, i64 8
   %.val954 = load ptr, ptr %674, align 8
-  %675 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val954, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_5_read_attribute_history_5.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %675, ptr noundef %673, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %675 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val954, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_5_read_attribute_history_5(ptr noundef %0, ptr noundef %1, ptr noundef %675, ptr noundef %673, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 676:                                              ; preds = %669, %665
   %677 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(18) @.str.745) #5
@@ -2570,12 +2570,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %682, label %683, label %687
 
 683:                                              ; preds = %680, %679
-  %684 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %684 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %685 = getelementptr i8, ptr %1, i64 8
   %.val955 = load ptr, ptr %685, align 8
-  %686 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val955, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_5_get_pipe_config_5.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %686, ptr noundef %684, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %686 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val955, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_5_get_pipe_config_5(ptr noundef %0, ptr noundef %1, ptr noundef %686, ptr noundef %684, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 687:                                              ; preds = %680, %676
   %688 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(18) @.str.746) #5
@@ -2592,12 +2592,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %693, label %694, label %698
 
 694:                                              ; preds = %691, %690
-  %695 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %695 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %696 = getelementptr i8, ptr %1, i64 8
   %.val956 = load ptr, ptr %696, align 8
-  %697 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val956, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_5_set_pipe_config_5.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %697, ptr noundef %695, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %697 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val956, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_5_set_pipe_config_5(ptr noundef %0, ptr noundef %1, ptr noundef %697, ptr noundef %695, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 698:                                              ; preds = %691, %687
   %699 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(12) @.str.747) #5
@@ -2614,12 +2614,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %704, label %705, label %709
 
 705:                                              ; preds = %702, %701
-  %706 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %706 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %707 = getelementptr i8, ptr %1, i64 8
   %.val957 = load ptr, ptr %707, align 8
-  %708 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val957, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_5_read_pipe_5.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %708, ptr noundef %706, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %708 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val957, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_5_read_pipe_5(ptr noundef %0, ptr noundef %1, ptr noundef %708, ptr noundef %706, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 709:                                              ; preds = %702, %698
   %710 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(13) @.str.748) #5
@@ -2636,12 +2636,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %715, label %716, label %720
 
 716:                                              ; preds = %713, %712
-  %717 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %717 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %718 = getelementptr i8, ptr %1, i64 8
   %.val958 = load ptr, ptr %718, align 8
-  %719 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val958, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_5_write_pipe_5.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %719, ptr noundef %717, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %719 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val958, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_5_write_pipe_5(ptr noundef %0, ptr noundef %1, ptr noundef %719, ptr noundef %717, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 720:                                              ; preds = %713, %709
   %721 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(18) @.str.749) #5
@@ -2658,12 +2658,12 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %726, label %727, label %731
 
 727:                                              ; preds = %724, %723
-  %728 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %728 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %729 = getelementptr i8, ptr %1, i64 8
   %.val959 = load ptr, ptr %729, align 8
-  %730 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val959, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_Tango_Device_5_write_read_pipe_5.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %730, ptr noundef %728, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %730 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val959, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_Tango_Device_5_write_read_pipe_5(ptr noundef %0, ptr noundef %1, ptr noundef %730, ptr noundef %728, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 731:                                              ; preds = %724, %720
   %732 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(10) @get_Tango_Device_name_at) #5
@@ -2671,7 +2671,7 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %733, label %734, label %743
 
 734:                                              ; preds = %731
-  br i1 %11, label %decode_user_exception.argprom.exit, label %735
+  br i1 %11, label %decode_user_exception.exit, label %735
 
 735:                                              ; preds = %734
   %736 = getelementptr inbounds i8, ptr %4, i64 16
@@ -2682,10 +2682,10 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
 739:                                              ; preds = %735
   %740 = getelementptr i8, ptr %1, i64 8
   %.val960 = load ptr, ptr %740, align 8
-  %741 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val960, ptr noundef %2, ptr noundef %3)
+  %741 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val960, ptr noundef %2, ptr noundef %3)
   %742 = load i32, ptr @hf_get_Tango_Device_name_name, align 4
   tail call void @giop_add_CDR_string(ptr noundef %741, ptr noundef %0, ptr noundef %3, i32 noundef %8, i32 noundef 12, i32 noundef %742) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
 743:                                              ; preds = %731
   %744 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(17) @get_Tango_Device_description_at) #5
@@ -2702,10 +2702,10 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
 747:                                              ; preds = %.thread1061
   %748 = getelementptr i8, ptr %1, i64 8
   %.val961 = load ptr, ptr %748, align 8
-  %749 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val961, ptr noundef %2, ptr noundef %3)
+  %749 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val961, ptr noundef %2, ptr noundef %3)
   %750 = load i32, ptr @hf_get_Tango_Device_description_description, align 4
   tail call void @giop_add_CDR_string(ptr noundef %749, ptr noundef %0, ptr noundef %3, i32 noundef %8, i32 noundef 12, i32 noundef %750) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
 .thread1059:                                      ; preds = %735, %743, %.thread1061
   %751 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(11) @get_Tango_Device_state_at) #5
@@ -2713,7 +2713,7 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
   br i1 %752, label %753, label %761
 
 753:                                              ; preds = %.thread1059
-  br i1 %11, label %decode_user_exception.argprom.exit, label %754
+  br i1 %11, label %decode_user_exception.exit, label %754
 
 754:                                              ; preds = %753
   %755 = getelementptr inbounds i8, ptr %4, i64 16
@@ -2724,9 +2724,9 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
 758:                                              ; preds = %754
   %759 = getelementptr i8, ptr %1, i64 8
   %.val962 = load ptr, ptr %759, align 8
-  %760 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val962, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_get_Tango_Device_state_at.argprom(ptr noundef %0, ptr noundef %760, ptr noundef %3, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %760 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val962, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_get_Tango_Device_state_at(ptr noundef %0, ptr noundef %760, ptr noundef %3, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 761:                                              ; preds = %.thread1059
   %762 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(12) @get_Tango_Device_status_at) #5
@@ -2743,33 +2743,33 @@ start_dissecting.argprom.exit1055:                ; preds = %process_RequestOper
 765:                                              ; preds = %.thread1065
   %766 = getelementptr i8, ptr %1, i64 8
   %.val963 = load ptr, ptr %766, align 8
-  %767 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val963, ptr noundef %2, ptr noundef %3)
+  %767 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val963, ptr noundef %2, ptr noundef %3)
   %768 = load i32, ptr @hf_get_Tango_Device_status_status, align 4
   tail call void @giop_add_CDR_string(ptr noundef %767, ptr noundef %0, ptr noundef %3, i32 noundef %8, i32 noundef 12, i32 noundef %768) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
 .thread1063:                                      ; preds = %754, %761, %.thread1065
   %769 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(14) @get_Tango_Device_adm_name_at) #5
   %770 = icmp ne i32 %769, 0
   %brmerge1073 = or i1 %11, %770
-  br i1 %brmerge1073, label %decode_user_exception.argprom.exit, label %771
+  br i1 %brmerge1073, label %decode_user_exception.exit, label %771
 
 771:                                              ; preds = %.thread1063
   %772 = getelementptr inbounds i8, ptr %4, i64 16
   %773 = load i32, ptr %772, align 8
   %774 = icmp eq i32 %773, 0
-  br i1 %774, label %775, label %decode_user_exception.argprom.exit
+  br i1 %774, label %775, label %decode_user_exception.exit
 
 775:                                              ; preds = %771
   %776 = getelementptr i8, ptr %1, i64 8
   %.val964 = load ptr, ptr %776, align 8
-  %777 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val964, ptr noundef %2, ptr noundef %3)
+  %777 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val964, ptr noundef %2, ptr noundef %3)
   %778 = load i32, ptr @hf_get_Tango_Device_adm_name_adm_name, align 4
   tail call void @giop_add_CDR_string(ptr noundef %777, ptr noundef %0, ptr noundef %3, i32 noundef %8, i32 noundef 12, i32 noundef %778) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
-decode_user_exception.argprom.exit:               ; preds = %decode_Tango_NamedDevError_st.argprom.exit.i.i, %.lr.ph.i.i, %.lr.ph.i1047, %.lr.ph.i1032, %.lr.ph4.i1036, %.lr.ph.i1023, %.lr.ph.i, %.lr.ph4.i, %734, %753, %.thread1063, %354, %352, %349, %start_dissecting.argprom.exit1055, %316, %314, %311, %304, %271, %269, %262, %259, %251, %218, %216, %213, %206, %173, %171, %164, %161, %153, %120, %118, %117, %114, %112, %start_dissecting.argprom.exit30.i, %44, %start_dissecting.argprom.exit.i, %16, %82, %771, %775, %765, %758, %747, %739, %727, %716, %705, %694, %683, %672, %661, %650, %639, %628, %617, %606, %595, %584, %573, %562, %551, %540, %529, %518, %507, %496, %485, %474, %463, %452, %441, %430, %419, %408, %397, %386, %375, %364
-  %.0 = phi i32 [ 1, %364 ], [ 1, %375 ], [ 1, %386 ], [ 1, %397 ], [ 1, %408 ], [ 1, %419 ], [ 1, %430 ], [ 1, %441 ], [ 1, %452 ], [ 1, %463 ], [ 1, %474 ], [ 1, %485 ], [ 1, %496 ], [ 1, %507 ], [ 1, %518 ], [ 1, %529 ], [ 1, %540 ], [ 1, %551 ], [ 1, %562 ], [ 1, %573 ], [ 1, %584 ], [ 1, %595 ], [ 1, %606 ], [ 1, %617 ], [ 1, %628 ], [ 1, %639 ], [ 1, %650 ], [ 1, %661 ], [ 1, %672 ], [ 1, %683 ], [ 1, %694 ], [ 1, %705 ], [ 1, %716 ], [ 1, %727 ], [ 1, %739 ], [ 1, %747 ], [ 1, %758 ], [ 1, %765 ], [ 1, %775 ], [ 0, %82 ], [ 0, %.thread1063 ], [ 0, %771 ], [ 0, %16 ], [ 0, %44 ], [ 1, %start_dissecting.argprom.exit.i ], [ 1, %start_dissecting.argprom.exit30.i ], [ 1, %112 ], [ %116, %114 ], [ 1, %117 ], [ 1, %118 ], [ 1, %120 ], [ 1, %153 ], [ %163, %161 ], [ 1, %164 ], [ 1, %171 ], [ 1, %173 ], [ 1, %206 ], [ 1, %213 ], [ 1, %216 ], [ 1, %218 ], [ 1, %251 ], [ %261, %259 ], [ 1, %262 ], [ 1, %269 ], [ 1, %271 ], [ 1, %304 ], [ 1, %311 ], [ 1, %314 ], [ 1, %316 ], [ 1, %start_dissecting.argprom.exit1055 ], [ 1, %349 ], [ 1, %352 ], [ 1, %354 ], [ 0, %753 ], [ 0, %734 ], [ 1, %.lr.ph4.i ], [ 1, %.lr.ph.i ], [ 1, %.lr.ph.i1023 ], [ 1, %.lr.ph4.i1036 ], [ 1, %.lr.ph.i1032 ], [ 1, %.lr.ph.i1047 ], [ 1, %.lr.ph.i.i ], [ 1, %decode_Tango_NamedDevError_st.argprom.exit.i.i ]
+decode_user_exception.exit:                       ; preds = %decode_Tango_NamedDevError_st.exit.i.i, %.lr.ph.i.i, %.lr.ph.i1047, %.lr.ph.i1032, %.lr.ph4.i1036, %.lr.ph.i1023, %.lr.ph.i, %.lr.ph4.i, %734, %753, %.thread1063, %354, %352, %349, %start_dissecting.exit1055, %316, %314, %311, %304, %271, %269, %262, %259, %251, %218, %216, %213, %206, %173, %171, %164, %161, %153, %120, %118, %117, %114, %112, %start_dissecting.exit30.i, %44, %start_dissecting.exit.i, %16, %82, %771, %775, %765, %758, %747, %739, %727, %716, %705, %694, %683, %672, %661, %650, %639, %628, %617, %606, %595, %584, %573, %562, %551, %540, %529, %518, %507, %496, %485, %474, %463, %452, %441, %430, %419, %408, %397, %386, %375, %364
+  %.0 = phi i32 [ 1, %364 ], [ 1, %375 ], [ 1, %386 ], [ 1, %397 ], [ 1, %408 ], [ 1, %419 ], [ 1, %430 ], [ 1, %441 ], [ 1, %452 ], [ 1, %463 ], [ 1, %474 ], [ 1, %485 ], [ 1, %496 ], [ 1, %507 ], [ 1, %518 ], [ 1, %529 ], [ 1, %540 ], [ 1, %551 ], [ 1, %562 ], [ 1, %573 ], [ 1, %584 ], [ 1, %595 ], [ 1, %606 ], [ 1, %617 ], [ 1, %628 ], [ 1, %639 ], [ 1, %650 ], [ 1, %661 ], [ 1, %672 ], [ 1, %683 ], [ 1, %694 ], [ 1, %705 ], [ 1, %716 ], [ 1, %727 ], [ 1, %739 ], [ 1, %747 ], [ 1, %758 ], [ 1, %765 ], [ 1, %775 ], [ 0, %82 ], [ 0, %.thread1063 ], [ 0, %771 ], [ 0, %16 ], [ 0, %44 ], [ 1, %start_dissecting.exit.i ], [ 1, %start_dissecting.exit30.i ], [ 1, %112 ], [ %116, %114 ], [ 1, %117 ], [ 1, %118 ], [ 1, %120 ], [ 1, %153 ], [ %163, %161 ], [ 1, %164 ], [ 1, %171 ], [ 1, %173 ], [ 1, %206 ], [ 1, %213 ], [ 1, %216 ], [ 1, %218 ], [ 1, %251 ], [ %261, %259 ], [ 1, %262 ], [ 1, %269 ], [ 1, %271 ], [ 1, %304 ], [ 1, %311 ], [ 1, %314 ], [ 1, %316 ], [ 1, %start_dissecting.exit1055 ], [ 1, %349 ], [ 1, %352 ], [ 1, %354 ], [ 0, %753 ], [ 0, %734 ], [ 1, %.lr.ph4.i ], [ 1, %.lr.ph.i ], [ 1, %.lr.ph.i1023 ], [ 1, %.lr.ph4.i1036 ], [ 1, %.lr.ph.i1032 ], [ 1, %.lr.ph.i1047 ], [ 1, %.lr.ph.i.i ], [ 1, %decode_Tango_NamedDevError_st.exit.i.i ]
   ret i32 %.0
 }
 
@@ -2781,7 +2781,7 @@ declare i32 @is_big_endian(ptr noundef) local_unnamed_addr #1
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i8 %.7.val, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @process_RequestOperation(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i8 %.7.val, ptr noundef %3) unnamed_addr #0 {
   %5 = icmp eq i8 %.7.val, 1
   br i1 %5, label %6, label %9
 
@@ -2815,7 +2815,7 @@ proto_item_set_generated.exit:                    ; preds = %9, %12, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc ptr @start_dissecting(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   tail call void @col_set_str(ptr noundef %.8.val, i32 noundef 34, ptr noundef nonnull @.str.646) #4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %4
@@ -2835,7 +2835,7 @@ define internal fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.8.val
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_black_box.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_black_box(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %29 [
@@ -2890,7 +2890,7 @@ define internal fastcc void @decode_Tango_Device_black_box.argprom(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_info.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %25 [
@@ -2936,7 +2936,7 @@ define internal fastcc void @decode_Tango_Device_info.argprom(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_command_list_query.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_command_list_query(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
@@ -2963,7 +2963,7 @@ define internal fastcc void @decode_Tango_Device_command_list_query.argprom(ptr 
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %.01 = phi i32 [ %19, %.lr.ph ], [ 0, %13 ]
-  tail call fastcc void @decode_Tango_DevCmdInfo_st.argprom(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_DevCmdInfo_st(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   %19 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %19, %14
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
@@ -2982,7 +2982,7 @@ define internal fastcc void @decode_Tango_Device_command_list_query.argprom(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_command_query.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_command_query(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %18 [
@@ -3004,7 +3004,7 @@ define internal fastcc void @decode_Tango_Device_command_query.argprom(ptr nound
   ]
 
 15:                                               ; preds = %12
-  tail call fastcc void @decode_Tango_DevCmdInfo_st.argprom(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_DevCmdInfo_st(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %6)
   br label %21
 
 16:                                               ; preds = %12
@@ -3021,7 +3021,7 @@ define internal fastcc void @decode_Tango_Device_command_query.argprom(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_2_command_inout_2.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_2_command_inout_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %23 [
@@ -3066,7 +3066,7 @@ define internal fastcc void @decode_Tango_Device_2_command_inout_2.argprom(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_2_read_attributes_2.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_2_read_attributes_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %35 [
@@ -3118,7 +3118,7 @@ define internal fastcc void @decode_Tango_Device_2_read_attributes_2.argprom(ptr
 
 .lr.ph:                                           ; preds = %26, %.lr.ph
   %.01 = phi i32 [ %32, %.lr.ph ], [ 0, %26 ]
-  tail call fastcc void @decode_Tango_AttributeValue_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6)
+  tail call fastcc void @decode_Tango_AttributeValue_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6)
   %32 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %32, %27
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
@@ -3137,7 +3137,7 @@ define internal fastcc void @decode_Tango_Device_2_read_attributes_2.argprom(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_2_get_attribute_config_2.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_2_get_attribute_config_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %79 [
@@ -3179,8 +3179,8 @@ define internal fastcc void @decode_Tango_Device_2_get_attribute_config_2.argpro
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %21, %decode_Tango_AttributeConfig_2_st.argprom.exit
-  %.02 = phi i32 [ %76, %decode_Tango_AttributeConfig_2_st.argprom.exit ], [ 0, %21 ]
+.lr.ph:                                           ; preds = %21, %decode_Tango_AttributeConfig_2_st.exit
+  %.02 = phi i32 [ %76, %decode_Tango_AttributeConfig_2_st.exit ], [ 0, %21 ]
   %27 = load i32, ptr @hf_Tango_AttributeConfig_2_name, align 4
   tail call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12, i32 noundef %27) #4
   %28 = tail call i32 @get_CDR_enum(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12) #4
@@ -3241,7 +3241,7 @@ define internal fastcc void @decode_Tango_Device_2_get_attribute_config_2.argpro
   %72 = add i32 %71, -4
   %73 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %70, ptr noundef %0, i32 noundef %72, i32 noundef 4, i32 noundef %69) #4
   %.not.i = icmp eq i32 %69, 0
-  br i1 %.not.i, label %decode_Tango_AttributeConfig_2_st.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %decode_Tango_AttributeConfig_2_st.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %.lr.ph.i
   %.01.i = phi i32 [ %75, %.lr.ph.i ], [ 0, %.lr.ph ]
@@ -3249,9 +3249,9 @@ define internal fastcc void @decode_Tango_Device_2_get_attribute_config_2.argpro
   tail call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12, i32 noundef %74) #4
   %75 = add nuw i32 %.01.i, 1
   %exitcond.not.i = icmp eq i32 %75, %69
-  br i1 %exitcond.not.i, label %decode_Tango_AttributeConfig_2_st.argprom.exit, label %.lr.ph.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %decode_Tango_AttributeConfig_2_st.exit, label %.lr.ph.i, !llvm.loop !19
 
-decode_Tango_AttributeConfig_2_st.argprom.exit:   ; preds = %.lr.ph.i, %.lr.ph
+decode_Tango_AttributeConfig_2_st.exit:           ; preds = %.lr.ph.i, %.lr.ph
   %76 = add nuw i32 %.02, 1
   %exitcond.not = icmp eq i32 %76, %22
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
@@ -3265,12 +3265,12 @@ decode_Tango_AttributeConfig_2_st.argprom.exit:   ; preds = %.lr.ph.i, %.lr.ph
   %81 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_tango_unknown_giop_msg, ptr noundef nonnull @.str.754, i32 noundef %80) #4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %decode_Tango_AttributeConfig_2_st.argprom.exit, %.lr.ph4, %21, %10, %77, %18, %79
+.loopexit:                                        ; preds = %decode_Tango_AttributeConfig_2_st.exit, %.lr.ph4, %21, %10, %77, %18, %79
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_2_command_list_query_2.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_2_command_list_query_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
@@ -3297,7 +3297,7 @@ define internal fastcc void @decode_Tango_Device_2_command_list_query_2.argprom(
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %.01 = phi i32 [ %19, %.lr.ph ], [ 0, %13 ]
-  tail call fastcc void @decode_Tango_DevCmdInfo_2_st.argprom(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_DevCmdInfo_2_st(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   %19 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %19, %14
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
@@ -3316,7 +3316,7 @@ define internal fastcc void @decode_Tango_Device_2_command_list_query_2.argprom(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_2_command_query_2.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_2_command_query_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %18 [
@@ -3338,7 +3338,7 @@ define internal fastcc void @decode_Tango_Device_2_command_query_2.argprom(ptr n
   ]
 
 15:                                               ; preds = %12
-  tail call fastcc void @decode_Tango_DevCmdInfo_2_st.argprom(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_DevCmdInfo_2_st(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %6)
   br label %21
 
 16:                                               ; preds = %12
@@ -3355,7 +3355,7 @@ define internal fastcc void @decode_Tango_Device_2_command_query_2.argprom(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_2_command_inout_history_2.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_2_command_inout_history_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %64 [
@@ -3390,8 +3390,8 @@ define internal fastcc void @decode_Tango_Device_2_command_inout_history_2.argpr
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %20, %decode_Tango_DevCmdHistory_st.argprom.exit
-  %.01 = phi i32 [ %61, %decode_Tango_DevCmdHistory_st.argprom.exit ], [ 0, %20 ]
+.lr.ph:                                           ; preds = %20, %decode_Tango_DevCmdHistory_st.exit
+  %.01 = phi i32 [ %61, %decode_Tango_DevCmdHistory_st.exit ], [ 0, %20 ]
   %26 = load i32, ptr @hf_Tango_TimeVal_tv_sec, align 4
   %27 = load i32, ptr %4, align 4
   %28 = add i32 %27, -4
@@ -3420,7 +3420,7 @@ define internal fastcc void @decode_Tango_Device_2_command_inout_history_2.argpr
   %50 = add i32 %49, -4
   %51 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %48, ptr noundef %0, i32 noundef %50, i32 noundef 4, i32 noundef %47) #4
   %.not.i = icmp eq i32 %47, 0
-  br i1 %.not.i, label %decode_Tango_DevCmdHistory_st.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %decode_Tango_DevCmdHistory_st.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %.lr.ph.i
   %.01.i = phi i32 [ %60, %.lr.ph.i ], [ 0, %.lr.ph ]
@@ -3437,9 +3437,9 @@ define internal fastcc void @decode_Tango_Device_2_command_inout_history_2.argpr
   tail call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12, i32 noundef %59) #4
   %60 = add nuw i32 %.01.i, 1
   %exitcond.not.i = icmp eq i32 %60, %47
-  br i1 %exitcond.not.i, label %decode_Tango_DevCmdHistory_st.argprom.exit, label %.lr.ph.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %decode_Tango_DevCmdHistory_st.exit, label %.lr.ph.i, !llvm.loop !22
 
-decode_Tango_DevCmdHistory_st.argprom.exit:       ; preds = %.lr.ph.i, %.lr.ph
+decode_Tango_DevCmdHistory_st.exit:               ; preds = %.lr.ph.i, %.lr.ph
   %61 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %61, %21
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
@@ -3453,12 +3453,12 @@ decode_Tango_DevCmdHistory_st.argprom.exit:       ; preds = %.lr.ph.i, %.lr.ph
   %66 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_tango_unknown_giop_msg, ptr noundef nonnull @.str.754, i32 noundef %65) #4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %decode_Tango_DevCmdHistory_st.argprom.exit, %20, %62, %17, %64, %10
+.loopexit:                                        ; preds = %decode_Tango_DevCmdHistory_st.exit, %20, %62, %17, %64, %10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_2_read_attribute_history_2.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_2_read_attribute_history_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %49 [
@@ -3493,22 +3493,22 @@ define internal fastcc void @decode_Tango_Device_2_read_attribute_history_2.argp
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %20, %decode_Tango_DevAttrHistory_st.argprom.exit
-  %.01 = phi i32 [ %46, %decode_Tango_DevAttrHistory_st.argprom.exit ], [ 0, %20 ]
+.lr.ph:                                           ; preds = %20, %decode_Tango_DevAttrHistory_st.exit
+  %.01 = phi i32 [ %46, %decode_Tango_DevAttrHistory_st.exit ], [ 0, %20 ]
   %26 = load i32, ptr @hf_Tango_DevAttrHistory_attr_failed, align 4
   %27 = load i32, ptr %4, align 4
   %28 = add i32 %27, -1
   %29 = tail call i32 @get_CDR_boolean(ptr noundef %0, ptr noundef nonnull %4) #4
   %30 = sext i32 %29 to i64
   %31 = tail call ptr @proto_tree_add_boolean(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef %28, i32 noundef 1, i64 noundef %30) #4
-  tail call fastcc void @decode_Tango_AttributeValue_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6)
+  tail call fastcc void @decode_Tango_AttributeValue_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6)
   %32 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12) #4
   %33 = load i32, ptr @hf_Tango_DevAttrHistory_errors_loop, align 4
   %34 = load i32, ptr %4, align 4
   %35 = add i32 %34, -4
   %36 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %33, ptr noundef %0, i32 noundef %35, i32 noundef 4, i32 noundef %32) #4
   %.not.i = icmp eq i32 %32, 0
-  br i1 %.not.i, label %decode_Tango_DevAttrHistory_st.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %decode_Tango_DevAttrHistory_st.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %.lr.ph.i
   %.01.i = phi i32 [ %45, %.lr.ph.i ], [ 0, %.lr.ph ]
@@ -3525,9 +3525,9 @@ define internal fastcc void @decode_Tango_Device_2_read_attribute_history_2.argp
   tail call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12, i32 noundef %44) #4
   %45 = add nuw i32 %.01.i, 1
   %exitcond.not.i = icmp eq i32 %45, %32
-  br i1 %exitcond.not.i, label %decode_Tango_DevAttrHistory_st.argprom.exit, label %.lr.ph.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %decode_Tango_DevAttrHistory_st.exit, label %.lr.ph.i, !llvm.loop !24
 
-decode_Tango_DevAttrHistory_st.argprom.exit:      ; preds = %.lr.ph.i, %.lr.ph
+decode_Tango_DevAttrHistory_st.exit:              ; preds = %.lr.ph.i, %.lr.ph
   %46 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %46, %21
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
@@ -3541,12 +3541,12 @@ decode_Tango_DevAttrHistory_st.argprom.exit:      ; preds = %.lr.ph.i, %.lr.ph
   %51 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_tango_unknown_giop_msg, ptr noundef nonnull @.str.754, i32 noundef %50) #4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %decode_Tango_DevAttrHistory_st.argprom.exit, %20, %47, %17, %49, %10
+.loopexit:                                        ; preds = %decode_Tango_DevAttrHistory_st.exit, %20, %47, %17, %49, %10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_3_read_attributes_3.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_3_read_attributes_3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %35 [
@@ -3598,7 +3598,7 @@ define internal fastcc void @decode_Tango_Device_3_read_attributes_3.argprom(ptr
 
 .lr.ph:                                           ; preds = %26, %.lr.ph
   %.01 = phi i32 [ %32, %.lr.ph ], [ 0, %26 ]
-  tail call fastcc void @decode_Tango_AttributeValue_3_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6)
+  tail call fastcc void @decode_Tango_AttributeValue_3_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6)
   %32 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %32, %27
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
@@ -3617,7 +3617,7 @@ define internal fastcc void @decode_Tango_Device_3_read_attributes_3.argprom(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_3_write_attributes_3.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_3_write_attributes_3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
@@ -3636,7 +3636,7 @@ define internal fastcc void @decode_Tango_Device_3_write_attributes_3.argprom(pt
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %.01 = phi i32 [ %16, %.lr.ph ], [ 0, %10 ]
-  tail call fastcc void @decode_Tango_AttributeValue_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6)
+  tail call fastcc void @decode_Tango_AttributeValue_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6)
   %16 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %16, %11
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !28
@@ -3661,7 +3661,7 @@ define internal fastcc void @decode_Tango_Device_3_write_attributes_3.argprom(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_3_read_attribute_history_3.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_3_read_attribute_history_3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %35 [
@@ -3704,7 +3704,7 @@ define internal fastcc void @decode_Tango_Device_3_read_attribute_history_3.argp
   %29 = tail call i32 @get_CDR_boolean(ptr noundef %0, ptr noundef nonnull %4) #4
   %30 = sext i32 %29 to i64
   %31 = tail call ptr @proto_tree_add_boolean(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef %28, i32 noundef 1, i64 noundef %30) #4
-  tail call fastcc void @decode_Tango_AttributeValue_3_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6)
+  tail call fastcc void @decode_Tango_AttributeValue_3_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6)
   %32 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %32, %21
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !29
@@ -3723,7 +3723,7 @@ define internal fastcc void @decode_Tango_Device_3_read_attribute_history_3.argp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_3_info_3.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_3_info_3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %26 [
@@ -3771,7 +3771,7 @@ define internal fastcc void @decode_Tango_Device_3_info_3.argprom(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_3_get_attribute_config_3.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_3_get_attribute_config_3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %30 [
@@ -3815,7 +3815,7 @@ define internal fastcc void @decode_Tango_Device_3_get_attribute_config_3.argpro
 
 .lr.ph:                                           ; preds = %21, %.lr.ph
   %.02 = phi i32 [ %27, %.lr.ph ], [ 0, %21 ]
-  tail call fastcc void @decode_Tango_AttributeConfig_3_st.argprom(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_AttributeConfig_3_st(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   %27 = add nuw i32 %.02, 1
   %exitcond.not = icmp eq i32 %27, %22
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
@@ -3834,7 +3834,7 @@ define internal fastcc void @decode_Tango_Device_3_get_attribute_config_3.argpro
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_3_set_attribute_config_3.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_3_set_attribute_config_3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
@@ -3853,7 +3853,7 @@ define internal fastcc void @decode_Tango_Device_3_set_attribute_config_3.argpro
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %.01 = phi i32 [ %16, %.lr.ph ], [ 0, %10 ]
-  tail call fastcc void @decode_Tango_AttributeConfig_3_st.argprom(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_AttributeConfig_3_st(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   %16 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %16, %11
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
@@ -3878,7 +3878,7 @@ define internal fastcc void @decode_Tango_Device_3_set_attribute_config_3.argpro
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_4_read_attribute_history_4.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_4_read_attribute_history_4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %173 [
@@ -3894,14 +3894,14 @@ define internal fastcc void @decode_Tango_Device_4_read_attribute_history_4.argp
   %14 = add i32 %13, -4
   %15 = tail call i32 @get_CDR_long(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12) #4
   %16 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef %15) #4
-  br label %decode_Tango_DevAttrHistory_4_st.argprom.exit
+  br label %decode_Tango_DevAttrHistory_4_st.exit
 
 17:                                               ; preds = %7
   %18 = getelementptr inbounds i8, ptr %5, i64 16
   %19 = load i32, ptr %18, align 8
   switch i32 %19, label %171 [
     i32 0, label %20
-    i32 1, label %decode_Tango_DevAttrHistory_4_st.argprom.exit
+    i32 1, label %decode_Tango_DevAttrHistory_4_st.exit
   ]
 
 20:                                               ; preds = %17
@@ -4133,7 +4133,7 @@ define internal fastcc void @decode_Tango_Device_4_read_attribute_history_4.argp
   %158 = add i32 %157, -4
   %159 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %156, ptr noundef %0, i32 noundef %158, i32 noundef 4, i32 noundef %155) #4
   %.not45.i = icmp eq i32 %155, 0
-  br i1 %.not45.i, label %decode_Tango_DevAttrHistory_4_st.argprom.exit, label %.lr.ph35.i
+  br i1 %.not45.i, label %decode_Tango_DevAttrHistory_4_st.exit, label %.lr.ph35.i
 
 .lr.ph35.i:                                       ; preds = %._crit_edge32.i, %.lr.ph35.i
   %.033.i = phi i32 [ %170, %.lr.ph35.i ], [ 0, %._crit_edge32.i ]
@@ -4149,23 +4149,23 @@ define internal fastcc void @decode_Tango_Device_4_read_attribute_history_4.argp
   %169 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %165, ptr noundef %0, i32 noundef %167, i32 noundef 4, i32 noundef %168) #4
   %170 = add nuw i32 %.033.i, 1
   %exitcond53.not.i = icmp eq i32 %170, %155
-  br i1 %exitcond53.not.i, label %decode_Tango_DevAttrHistory_4_st.argprom.exit, label %.lr.ph35.i, !llvm.loop !42
+  br i1 %exitcond53.not.i, label %decode_Tango_DevAttrHistory_4_st.exit, label %.lr.ph35.i, !llvm.loop !42
 
 171:                                              ; preds = %17
   %172 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_tango_unknown_exception, ptr noundef nonnull @.str.753, i32 noundef %19) #4
-  br label %decode_Tango_DevAttrHistory_4_st.argprom.exit
+  br label %decode_Tango_DevAttrHistory_4_st.exit
 
 173:                                              ; preds = %7
   %174 = zext i8 %9 to i32
   %175 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_tango_unknown_giop_msg, ptr noundef nonnull @.str.754, i32 noundef %174) #4
-  br label %decode_Tango_DevAttrHistory_4_st.argprom.exit
+  br label %decode_Tango_DevAttrHistory_4_st.exit
 
-decode_Tango_DevAttrHistory_4_st.argprom.exit:    ; preds = %.lr.ph35.i, %._crit_edge32.i, %171, %17, %173, %10
+decode_Tango_DevAttrHistory_4_st.exit:            ; preds = %.lr.ph35.i, %._crit_edge32.i, %171, %17, %173, %10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_4_command_inout_history_4.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_4_command_inout_history_4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %118 [
@@ -4323,7 +4323,7 @@ define internal fastcc void @decode_Tango_Device_4_command_inout_history_4.argpr
   %98 = add i32 %97, -4
   %99 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %96, ptr noundef %0, i32 noundef %98, i32 noundef 4, i32 noundef %95) #4
   %.not25.i = icmp eq i32 %95, 0
-  br i1 %.not25.i, label %decode_Tango_DevCmdHistory_4_st.argprom.exit, label %.lr.ph19.i
+  br i1 %.not25.i, label %decode_Tango_DevCmdHistory_4_st.exit, label %.lr.ph19.i
 
 .lr.ph19.i:                                       ; preds = %._crit_edge16.i, %.lr.ph19.i
   %.017.i = phi i32 [ %110, %.lr.ph19.i ], [ 0, %._crit_edge16.i ]
@@ -4339,9 +4339,9 @@ define internal fastcc void @decode_Tango_Device_4_command_inout_history_4.argpr
   %109 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %105, ptr noundef %0, i32 noundef %107, i32 noundef 4, i32 noundef %108) #4
   %110 = add nuw i32 %.017.i, 1
   %exitcond29.not.i = icmp eq i32 %110, %95
-  br i1 %exitcond29.not.i, label %decode_Tango_DevCmdHistory_4_st.argprom.exit, label %.lr.ph19.i, !llvm.loop !48
+  br i1 %exitcond29.not.i, label %decode_Tango_DevCmdHistory_4_st.exit, label %.lr.ph19.i, !llvm.loop !48
 
-decode_Tango_DevCmdHistory_4_st.argprom.exit:     ; preds = %.lr.ph19.i, %._crit_edge16.i
+decode_Tango_DevCmdHistory_4_st.exit:             ; preds = %.lr.ph19.i, %._crit_edge16.i
   %111 = load i32, ptr @hf_Tango_DevCmdHistory_4_cmd_type, align 4
   %112 = load i32, ptr %4, align 4
   %113 = add i32 %112, -4
@@ -4358,12 +4358,12 @@ decode_Tango_DevCmdHistory_4_st.argprom.exit:     ; preds = %.lr.ph19.i, %._crit
   %120 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_tango_unknown_giop_msg, ptr noundef nonnull @.str.754, i32 noundef %119) #4
   br label %121
 
-121:                                              ; preds = %decode_Tango_DevCmdHistory_4_st.argprom.exit, %116, %17, %118, %10
+121:                                              ; preds = %decode_Tango_DevCmdHistory_4_st.exit, %116, %17, %118, %10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_4_command_inout_4.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_4_command_inout_4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %23 [
@@ -4380,7 +4380,7 @@ define internal fastcc void @decode_Tango_Device_4_command_inout_4.argprom(ptr n
   %14 = load i32, ptr %4, align 4
   %15 = add i32 %14, -4
   %16 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %15, i32 noundef 4, i32 noundef %12) #4
-  tail call fastcc void @decode_Tango_ClntIdent_un.argprom(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_ClntIdent_un(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   br label %26
 
 17:                                               ; preds = %7
@@ -4409,7 +4409,7 @@ define internal fastcc void @decode_Tango_Device_4_command_inout_4.argprom(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_4_read_attributes_4.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_4_read_attributes_4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %35 [
@@ -4440,7 +4440,7 @@ define internal fastcc void @decode_Tango_Device_4_read_attributes_4.argprom(ptr
   %20 = load i32, ptr %4, align 4
   %21 = add i32 %20, -4
   %22 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %21, i32 noundef 4, i32 noundef %18) #4
-  tail call fastcc void @decode_Tango_ClntIdent_un.argprom(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_ClntIdent_un(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   br label %.loopexit
 
 23:                                               ; preds = %7
@@ -4462,7 +4462,7 @@ define internal fastcc void @decode_Tango_Device_4_read_attributes_4.argprom(ptr
 
 .lr.ph:                                           ; preds = %26, %.lr.ph
   %.01 = phi i32 [ %32, %.lr.ph ], [ 0, %26 ]
-  tail call fastcc void @decode_Tango_AttributeValue_4_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_AttributeValue_4_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   %32 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %32, %27
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !50
@@ -4481,7 +4481,7 @@ define internal fastcc void @decode_Tango_Device_4_read_attributes_4.argprom(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_4_write_attributes_4.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_4_write_attributes_4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
@@ -4500,13 +4500,13 @@ define internal fastcc void @decode_Tango_Device_4_write_attributes_4.argprom(pt
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %.01 = phi i32 [ %16, %.lr.ph ], [ 0, %10 ]
-  tail call fastcc void @decode_Tango_AttributeValue_4_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_AttributeValue_4_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   %16 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %16, %11
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
-  tail call fastcc void @decode_Tango_ClntIdent_un.argprom(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_ClntIdent_un(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   br label %25
 
 17:                                               ; preds = %7
@@ -4529,7 +4529,7 @@ define internal fastcc void @decode_Tango_Device_4_write_attributes_4.argprom(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_4_set_attribute_config_4.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_4_set_attribute_config_4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
@@ -4548,13 +4548,13 @@ define internal fastcc void @decode_Tango_Device_4_set_attribute_config_4.argpro
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %.01 = phi i32 [ %16, %.lr.ph ], [ 0, %10 ]
-  tail call fastcc void @decode_Tango_AttributeConfig_3_st.argprom(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_AttributeConfig_3_st(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   %16 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %16, %11
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
-  tail call fastcc void @decode_Tango_ClntIdent_un.argprom(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_ClntIdent_un(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   br label %25
 
 17:                                               ; preds = %7
@@ -4577,7 +4577,7 @@ define internal fastcc void @decode_Tango_Device_4_set_attribute_config_4.argpro
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_4_write_read_attributes_4.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_4_write_read_attributes_4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %29 [
@@ -4596,13 +4596,13 @@ define internal fastcc void @decode_Tango_Device_4_write_read_attributes_4.argpr
 
 .lr.ph3:                                          ; preds = %10, %.lr.ph3
   %.0502 = phi i32 [ %16, %.lr.ph3 ], [ 0, %10 ]
-  tail call fastcc void @decode_Tango_AttributeValue_4_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_AttributeValue_4_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   %16 = add nuw i32 %.0502, 1
   %exitcond5.not = icmp eq i32 %16, %11
   br i1 %exitcond5.not, label %._crit_edge, label %.lr.ph3, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph3, %10
-  tail call fastcc void @decode_Tango_ClntIdent_un.argprom(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_ClntIdent_un(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   br label %.loopexit
 
 17:                                               ; preds = %7
@@ -4624,7 +4624,7 @@ define internal fastcc void @decode_Tango_Device_4_write_read_attributes_4.argpr
 
 .lr.ph:                                           ; preds = %20, %.lr.ph
   %.01 = phi i32 [ %26, %.lr.ph ], [ 0, %20 ]
-  tail call fastcc void @decode_Tango_AttributeValue_4_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_AttributeValue_4_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   %26 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %26, %21
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !54
@@ -4643,7 +4643,7 @@ define internal fastcc void @decode_Tango_Device_4_write_read_attributes_4.argpr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_5_get_attribute_config_5.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_5_get_attribute_config_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %30 [
@@ -4687,7 +4687,7 @@ define internal fastcc void @decode_Tango_Device_5_get_attribute_config_5.argpro
 
 .lr.ph:                                           ; preds = %21, %.lr.ph
   %.02 = phi i32 [ %27, %.lr.ph ], [ 0, %21 ]
-  tail call fastcc void @decode_Tango_AttributeConfig_5_st.argprom(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_AttributeConfig_5_st(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   %27 = add nuw i32 %.02, 1
   %exitcond.not = icmp eq i32 %27, %22
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !56
@@ -4706,7 +4706,7 @@ define internal fastcc void @decode_Tango_Device_5_get_attribute_config_5.argpro
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_5_set_attribute_config_5.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_5_set_attribute_config_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
@@ -4725,13 +4725,13 @@ define internal fastcc void @decode_Tango_Device_5_set_attribute_config_5.argpro
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %.01 = phi i32 [ %16, %.lr.ph ], [ 0, %10 ]
-  tail call fastcc void @decode_Tango_AttributeConfig_5_st.argprom(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_AttributeConfig_5_st(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   %16 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %16, %11
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
-  tail call fastcc void @decode_Tango_ClntIdent_un.argprom(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_ClntIdent_un(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   br label %25
 
 17:                                               ; preds = %7
@@ -4754,7 +4754,7 @@ define internal fastcc void @decode_Tango_Device_5_set_attribute_config_5.argpro
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_5_read_attributes_5.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_5_read_attributes_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %35 [
@@ -4785,7 +4785,7 @@ define internal fastcc void @decode_Tango_Device_5_read_attributes_5.argprom(ptr
   %20 = load i32, ptr %4, align 4
   %21 = add i32 %20, -4
   %22 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %21, i32 noundef 4, i32 noundef %18) #4
-  tail call fastcc void @decode_Tango_ClntIdent_un.argprom(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_ClntIdent_un(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   br label %.loopexit
 
 23:                                               ; preds = %7
@@ -4807,7 +4807,7 @@ define internal fastcc void @decode_Tango_Device_5_read_attributes_5.argprom(ptr
 
 .lr.ph:                                           ; preds = %26, %.lr.ph
   %.01 = phi i32 [ %32, %.lr.ph ], [ 0, %26 ]
-  tail call fastcc void @decode_Tango_AttributeValue_5_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_AttributeValue_5_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   %32 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %32, %27
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !59
@@ -4826,7 +4826,7 @@ define internal fastcc void @decode_Tango_Device_5_read_attributes_5.argprom(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_5_write_read_attributes_5.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_5_write_read_attributes_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %36 [
@@ -4845,7 +4845,7 @@ define internal fastcc void @decode_Tango_Device_5_write_read_attributes_5.argpr
 
 .lr.ph3:                                          ; preds = %10, %.lr.ph3
   %.0642 = phi i32 [ %16, %.lr.ph3 ], [ 0, %10 ]
-  tail call fastcc void @decode_Tango_AttributeValue_4_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_AttributeValue_4_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   %16 = add nuw i32 %.0642, 1
   %exitcond10.not = icmp eq i32 %16, %11
   br i1 %exitcond10.not, label %._crit_edge, label %.lr.ph3, !llvm.loop !60
@@ -4868,7 +4868,7 @@ define internal fastcc void @decode_Tango_Device_5_write_read_attributes_5.argpr
   br i1 %exitcond11.not, label %._crit_edge7, label %.lr.ph6, !llvm.loop !61
 
 ._crit_edge7:                                     ; preds = %.lr.ph6, %._crit_edge
-  tail call fastcc void @decode_Tango_ClntIdent_un.argprom(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_ClntIdent_un(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   br label %.loopexit
 
 24:                                               ; preds = %7
@@ -4890,7 +4890,7 @@ define internal fastcc void @decode_Tango_Device_5_write_read_attributes_5.argpr
 
 .lr.ph:                                           ; preds = %27, %.lr.ph
   %.01 = phi i32 [ %33, %.lr.ph ], [ 0, %27 ]
-  tail call fastcc void @decode_Tango_AttributeValue_5_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_AttributeValue_5_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   %33 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %33, %28
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !62
@@ -4909,7 +4909,7 @@ define internal fastcc void @decode_Tango_Device_5_write_read_attributes_5.argpr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_5_read_attribute_history_5.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_5_read_attribute_history_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %183 [
@@ -4925,14 +4925,14 @@ define internal fastcc void @decode_Tango_Device_5_read_attribute_history_5.argp
   %14 = add i32 %13, -4
   %15 = tail call i32 @get_CDR_long(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12) #4
   %16 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef %15) #4
-  br label %decode_Tango_DevAttrHistory_5_st.argprom.exit
+  br label %decode_Tango_DevAttrHistory_5_st.exit
 
 17:                                               ; preds = %7
   %18 = getelementptr inbounds i8, ptr %5, i64 16
   %19 = load i32, ptr %18, align 8
   switch i32 %19, label %181 [
     i32 0, label %20
-    i32 1, label %decode_Tango_DevAttrHistory_5_st.argprom.exit
+    i32 1, label %decode_Tango_DevAttrHistory_5_st.exit
   ]
 
 20:                                               ; preds = %17
@@ -5174,7 +5174,7 @@ define internal fastcc void @decode_Tango_Device_5_read_attribute_history_5.argp
   %168 = add i32 %167, -4
   %169 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %166, ptr noundef %0, i32 noundef %168, i32 noundef 4, i32 noundef %165) #4
   %.not45.i = icmp eq i32 %165, 0
-  br i1 %.not45.i, label %decode_Tango_DevAttrHistory_5_st.argprom.exit, label %.lr.ph35.i
+  br i1 %.not45.i, label %decode_Tango_DevAttrHistory_5_st.exit, label %.lr.ph35.i
 
 .lr.ph35.i:                                       ; preds = %._crit_edge32.i, %.lr.ph35.i
   %.033.i = phi i32 [ %180, %.lr.ph35.i ], [ 0, %._crit_edge32.i ]
@@ -5190,23 +5190,23 @@ define internal fastcc void @decode_Tango_Device_5_read_attribute_history_5.argp
   %179 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %175, ptr noundef %0, i32 noundef %177, i32 noundef 4, i32 noundef %178) #4
   %180 = add nuw i32 %.033.i, 1
   %exitcond53.not.i = icmp eq i32 %180, %165
-  br i1 %exitcond53.not.i, label %decode_Tango_DevAttrHistory_5_st.argprom.exit, label %.lr.ph35.i, !llvm.loop !72
+  br i1 %exitcond53.not.i, label %decode_Tango_DevAttrHistory_5_st.exit, label %.lr.ph35.i, !llvm.loop !72
 
 181:                                              ; preds = %17
   %182 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_tango_unknown_exception, ptr noundef nonnull @.str.753, i32 noundef %19) #4
-  br label %decode_Tango_DevAttrHistory_5_st.argprom.exit
+  br label %decode_Tango_DevAttrHistory_5_st.exit
 
 183:                                              ; preds = %7
   %184 = zext i8 %9 to i32
   %185 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_tango_unknown_giop_msg, ptr noundef nonnull @.str.754, i32 noundef %184) #4
-  br label %decode_Tango_DevAttrHistory_5_st.argprom.exit
+  br label %decode_Tango_DevAttrHistory_5_st.exit
 
-decode_Tango_DevAttrHistory_5_st.argprom.exit:    ; preds = %.lr.ph35.i, %._crit_edge32.i, %181, %17, %183, %10
+decode_Tango_DevAttrHistory_5_st.exit:            ; preds = %.lr.ph35.i, %._crit_edge32.i, %181, %17, %183, %10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_5_get_pipe_config_5.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_5_get_pipe_config_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %30 [
@@ -5250,7 +5250,7 @@ define internal fastcc void @decode_Tango_Device_5_get_pipe_config_5.argprom(ptr
 
 .lr.ph:                                           ; preds = %21, %.lr.ph
   %.02 = phi i32 [ %27, %.lr.ph ], [ 0, %21 ]
-  tail call fastcc void @decode_Tango_PipeConfig_st.argprom(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_PipeConfig_st(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   %27 = add nuw i32 %.02, 1
   %exitcond.not = icmp eq i32 %27, %22
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !74
@@ -5269,7 +5269,7 @@ define internal fastcc void @decode_Tango_Device_5_get_pipe_config_5.argprom(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_5_set_pipe_config_5.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_5_set_pipe_config_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
@@ -5288,13 +5288,13 @@ define internal fastcc void @decode_Tango_Device_5_set_pipe_config_5.argprom(ptr
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %.01 = phi i32 [ %16, %.lr.ph ], [ 0, %10 ]
-  tail call fastcc void @decode_Tango_PipeConfig_st.argprom(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_PipeConfig_st(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   %16 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %16, %11
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
-  tail call fastcc void @decode_Tango_ClntIdent_un.argprom(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_ClntIdent_un(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   br label %25
 
 17:                                               ; preds = %7
@@ -5317,7 +5317,7 @@ define internal fastcc void @decode_Tango_Device_5_set_pipe_config_5.argprom(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_5_read_pipe_5.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_5_read_pipe_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %18 [
@@ -5328,7 +5328,7 @@ define internal fastcc void @decode_Tango_Device_5_read_pipe_5.argprom(ptr nound
 10:                                               ; preds = %7
   %11 = load i32, ptr @hf_Tango_Device_5_read_pipe_5_name, align 4
   tail call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef %4, i32 noundef %6, i32 noundef 12, i32 noundef %11) #4
-  tail call fastcc void @decode_Tango_ClntIdent_un.argprom(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_ClntIdent_un(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %6)
   br label %21
 
 12:                                               ; preds = %7
@@ -5340,7 +5340,7 @@ define internal fastcc void @decode_Tango_Device_5_read_pipe_5.argprom(ptr nound
   ]
 
 15:                                               ; preds = %12
-  tail call fastcc void @decode_Tango_DevPipeData_st.argprom(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_DevPipeData_st(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %6)
   br label %21
 
 16:                                               ; preds = %12
@@ -5357,7 +5357,7 @@ define internal fastcc void @decode_Tango_Device_5_read_pipe_5.argprom(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_5_write_pipe_5.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_5_write_pipe_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %16 [
@@ -5366,8 +5366,8 @@ define internal fastcc void @decode_Tango_Device_5_write_pipe_5.argprom(ptr noun
   ]
 
 10:                                               ; preds = %7
-  tail call fastcc void @decode_Tango_DevPipeData_st.argprom(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %6)
-  tail call fastcc void @decode_Tango_ClntIdent_un.argprom(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_DevPipeData_st(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_ClntIdent_un(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %6)
   br label %19
 
 11:                                               ; preds = %7
@@ -5390,7 +5390,7 @@ define internal fastcc void @decode_Tango_Device_5_write_pipe_5.argprom(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_5_write_read_pipe_5.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_5_write_read_pipe_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %17 [
@@ -5399,8 +5399,8 @@ define internal fastcc void @decode_Tango_Device_5_write_read_pipe_5.argprom(ptr
   ]
 
 10:                                               ; preds = %7
-  tail call fastcc void @decode_Tango_DevPipeData_st.argprom(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %6)
-  tail call fastcc void @decode_Tango_ClntIdent_un.argprom(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_DevPipeData_st(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_ClntIdent_un(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %6)
   br label %20
 
 11:                                               ; preds = %7
@@ -5412,7 +5412,7 @@ define internal fastcc void @decode_Tango_Device_5_write_read_pipe_5.argprom(ptr
   ]
 
 14:                                               ; preds = %11
-  tail call fastcc void @decode_Tango_DevPipeData_st.argprom(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %6)
+  tail call fastcc void @decode_Tango_DevPipeData_st(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %6)
   br label %20
 
 15:                                               ; preds = %11
@@ -5429,7 +5429,7 @@ define internal fastcc void @decode_Tango_Device_5_write_read_pipe_5.argprom(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_get_Tango_Device_state_at.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @decode_get_Tango_Device_state_at(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @get_CDR_enum(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef 12) #4
   %6 = load i32, ptr @hf_get_Tango_Device_state_state, align 4
   %7 = load i32, ptr %2, align 4
@@ -5467,7 +5467,7 @@ declare void @get_CDR_any(ptr noundef, ptr noundef, ptr noundef, ptr noundef, pt
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_AttributeConfig_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_AttributeConfig_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_Tango_AttributeConfig_name, align 4
   tail call void @giop_add_CDR_string(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef 12, i32 noundef %5) #4
   %6 = tail call i32 @get_CDR_enum(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef 12) #4
@@ -5538,7 +5538,7 @@ define internal fastcc void @decode_Tango_AttributeConfig_st.argprom(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_AttributeValue_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_AttributeValue_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %6, i32 noundef 12, ptr noundef %5) #4
   %8 = tail call i32 @get_CDR_enum(ptr noundef %0, ptr noundef %4, i32 noundef %6, i32 noundef 12) #4
   %9 = load i32, ptr @hf_Tango_AttributeValue_quality, align 4
@@ -5576,7 +5576,7 @@ define internal fastcc void @decode_Tango_AttributeValue_st.argprom(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_DevCmdInfo_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_DevCmdInfo_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_Tango_DevCmdInfo_cmd_name, align 4
   tail call void @giop_add_CDR_string(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef 12, i32 noundef %5) #4
   %6 = load i32, ptr @hf_Tango_DevCmdInfo_cmd_tag, align 4
@@ -5602,7 +5602,7 @@ define internal fastcc void @decode_Tango_DevCmdInfo_st.argprom(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_DevCmdInfo_2_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_DevCmdInfo_2_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_Tango_DevCmdInfo_2_cmd_name, align 4
   tail call void @giop_add_CDR_string(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef 12, i32 noundef %5) #4
   %6 = tail call i32 @get_CDR_enum(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef 12) #4
@@ -5637,7 +5637,7 @@ declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 n
 declare i32 @get_CDR_boolean(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_AttributeValue_3_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_AttributeValue_3_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %6, i32 noundef 12, ptr noundef %5) #4
   %8 = tail call i32 @get_CDR_enum(ptr noundef %0, ptr noundef %4, i32 noundef %6, i32 noundef 12) #4
   %9 = load i32, ptr @hf_Tango_AttributeValue_3_quality, align 4
@@ -5711,7 +5711,7 @@ define internal fastcc void @decode_Tango_AttributeValue_3_st.argprom(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_AttributeConfig_3_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_AttributeConfig_3_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_Tango_AttributeConfig_3_name, align 4
   tail call void @giop_add_CDR_string(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef 12, i32 noundef %5) #4
   %6 = tail call i32 @get_CDR_enum(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef 12) #4
@@ -5762,8 +5762,8 @@ define internal fastcc void @decode_Tango_AttributeConfig_3_st.argprom(ptr nound
   %42 = load i32, ptr %2, align 4
   %43 = add i32 %42, -4
   %44 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %41, ptr noundef %0, i32 noundef %43, i32 noundef 4, i32 noundef %40) #4
-  tail call fastcc void @decode_Tango_AttributeAlarm_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3)
-  tail call fastcc void @decode_Tango_EventProperties_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3)
+  tail call fastcc void @decode_Tango_AttributeAlarm_st(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3)
+  tail call fastcc void @decode_Tango_EventProperties_st(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3)
   %45 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %3, i32 noundef 12) #4
   %46 = load i32, ptr @hf_Tango_AttributeConfig_3_extensions_loop, align 4
   %47 = load i32, ptr %2, align 4
@@ -5802,7 +5802,7 @@ define internal fastcc void @decode_Tango_AttributeConfig_3_st.argprom(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_AttributeAlarm_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_AttributeAlarm_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_Tango_AttributeAlarm_min_alarm, align 4
   tail call void @giop_add_CDR_string(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef 12, i32 noundef %5) #4
   %6 = load i32, ptr @hf_Tango_AttributeAlarm_max_alarm, align 4
@@ -5836,7 +5836,7 @@ define internal fastcc void @decode_Tango_AttributeAlarm_st.argprom(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_EventProperties_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_EventProperties_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_Tango_ChangeEventProp_rel_change, align 4
   tail call void @giop_add_CDR_string(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef 12, i32 noundef %5) #4
   %6 = load i32, ptr @hf_Tango_ChangeEventProp_abs_change, align 4
@@ -5847,7 +5847,7 @@ define internal fastcc void @decode_Tango_EventProperties_st.argprom(ptr noundef
   %10 = add i32 %9, -4
   %11 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %10, i32 noundef 4, i32 noundef %7) #4
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %decode_Tango_ChangeEventProp_st.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %decode_Tango_ChangeEventProp_st.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %.01.i = phi i32 [ %13, %.lr.ph.i ], [ 0, %4 ]
@@ -5855,9 +5855,9 @@ define internal fastcc void @decode_Tango_EventProperties_st.argprom(ptr noundef
   tail call void @giop_add_CDR_string(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %2, i32 noundef %3, i32 noundef 12, i32 noundef %12) #4
   %13 = add nuw i32 %.01.i, 1
   %exitcond.not.i = icmp eq i32 %13, %7
-  br i1 %exitcond.not.i, label %decode_Tango_ChangeEventProp_st.argprom.exit, label %.lr.ph.i, !llvm.loop !81
+  br i1 %exitcond.not.i, label %decode_Tango_ChangeEventProp_st.exit, label %.lr.ph.i, !llvm.loop !81
 
-decode_Tango_ChangeEventProp_st.argprom.exit:     ; preds = %.lr.ph.i, %4
+decode_Tango_ChangeEventProp_st.exit:             ; preds = %.lr.ph.i, %4
   %14 = load i32, ptr @hf_Tango_PeriodicEventProp_period, align 4
   tail call void @giop_add_CDR_string(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %2, i32 noundef %3, i32 noundef 12, i32 noundef %14) #4
   %15 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %3, i32 noundef 12) #4
@@ -5866,17 +5866,17 @@ decode_Tango_ChangeEventProp_st.argprom.exit:     ; preds = %.lr.ph.i, %4
   %18 = add i32 %17, -4
   %19 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %16, ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef %15) #4
   %.not.i23 = icmp eq i32 %15, 0
-  br i1 %.not.i23, label %decode_Tango_PeriodicEventProp_st.argprom.exit, label %.lr.ph.i24
+  br i1 %.not.i23, label %decode_Tango_PeriodicEventProp_st.exit, label %.lr.ph.i24
 
-.lr.ph.i24:                                       ; preds = %decode_Tango_ChangeEventProp_st.argprom.exit, %.lr.ph.i24
-  %.01.i25 = phi i32 [ %21, %.lr.ph.i24 ], [ 0, %decode_Tango_ChangeEventProp_st.argprom.exit ]
+.lr.ph.i24:                                       ; preds = %decode_Tango_ChangeEventProp_st.exit, %.lr.ph.i24
+  %.01.i25 = phi i32 [ %21, %.lr.ph.i24 ], [ 0, %decode_Tango_ChangeEventProp_st.exit ]
   %20 = load i32, ptr @hf_Tango_PeriodicEventProp_extensions, align 4
   tail call void @giop_add_CDR_string(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %2, i32 noundef %3, i32 noundef 12, i32 noundef %20) #4
   %21 = add nuw i32 %.01.i25, 1
   %exitcond.not.i26 = icmp eq i32 %21, %15
-  br i1 %exitcond.not.i26, label %decode_Tango_PeriodicEventProp_st.argprom.exit, label %.lr.ph.i24, !llvm.loop !82
+  br i1 %exitcond.not.i26, label %decode_Tango_PeriodicEventProp_st.exit, label %.lr.ph.i24, !llvm.loop !82
 
-decode_Tango_PeriodicEventProp_st.argprom.exit:   ; preds = %.lr.ph.i24, %decode_Tango_ChangeEventProp_st.argprom.exit
+decode_Tango_PeriodicEventProp_st.exit:           ; preds = %.lr.ph.i24, %decode_Tango_ChangeEventProp_st.exit
   %22 = load i32, ptr @hf_Tango_ArchiveEventProp_rel_change, align 4
   tail call void @giop_add_CDR_string(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %2, i32 noundef %3, i32 noundef 12, i32 noundef %22) #4
   %23 = load i32, ptr @hf_Tango_ArchiveEventProp_abs_change, align 4
@@ -5889,30 +5889,30 @@ decode_Tango_PeriodicEventProp_st.argprom.exit:   ; preds = %.lr.ph.i24, %decode
   %28 = add i32 %27, -4
   %29 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %26, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %25) #4
   %.not.i27 = icmp eq i32 %25, 0
-  br i1 %.not.i27, label %decode_Tango_ArchiveEventProp_st.argprom.exit, label %.lr.ph.i28
+  br i1 %.not.i27, label %decode_Tango_ArchiveEventProp_st.exit, label %.lr.ph.i28
 
-.lr.ph.i28:                                       ; preds = %decode_Tango_PeriodicEventProp_st.argprom.exit, %.lr.ph.i28
-  %.01.i29 = phi i32 [ %31, %.lr.ph.i28 ], [ 0, %decode_Tango_PeriodicEventProp_st.argprom.exit ]
+.lr.ph.i28:                                       ; preds = %decode_Tango_PeriodicEventProp_st.exit, %.lr.ph.i28
+  %.01.i29 = phi i32 [ %31, %.lr.ph.i28 ], [ 0, %decode_Tango_PeriodicEventProp_st.exit ]
   %30 = load i32, ptr @hf_Tango_ArchiveEventProp_extensions, align 4
   tail call void @giop_add_CDR_string(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %2, i32 noundef %3, i32 noundef 12, i32 noundef %30) #4
   %31 = add nuw i32 %.01.i29, 1
   %exitcond.not.i30 = icmp eq i32 %31, %25
-  br i1 %exitcond.not.i30, label %decode_Tango_ArchiveEventProp_st.argprom.exit, label %.lr.ph.i28, !llvm.loop !83
+  br i1 %exitcond.not.i30, label %decode_Tango_ArchiveEventProp_st.exit, label %.lr.ph.i28, !llvm.loop !83
 
-decode_Tango_ArchiveEventProp_st.argprom.exit:    ; preds = %.lr.ph.i28, %decode_Tango_PeriodicEventProp_st.argprom.exit
+decode_Tango_ArchiveEventProp_st.exit:            ; preds = %.lr.ph.i28, %decode_Tango_PeriodicEventProp_st.exit
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_ClntIdent_un.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_ClntIdent_un(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @get_CDR_enum(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef 12) #4
   %6 = load i32, ptr @hf_Tango_ClntIdent_ClntIdent, align 4
   %7 = load i32, ptr %2, align 4
   %8 = add i32 %7, -4
   %9 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %8, i32 noundef 4, i32 noundef %5) #4
-  switch i32 %5, label %decode_Tango_JavaClntIdent_st.argprom.exit [
+  switch i32 %5, label %decode_Tango_JavaClntIdent_st.exit [
     i32 0, label %10
-    i32 1, label %decode_Tango_JavaClntIdent_st.argprom.exit.critedge
+    i32 1, label %decode_Tango_JavaClntIdent_st.exit.critedge
   ]
 
 10:                                               ; preds = %4
@@ -5921,9 +5921,9 @@ define internal fastcc void @decode_Tango_ClntIdent_un.argprom(ptr noundef %0, p
   %13 = add i32 %12, -4
   %14 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %3, i32 noundef 12) #4
   %15 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef %14) #4
-  br label %decode_Tango_JavaClntIdent_st.argprom.exit
+  br label %decode_Tango_JavaClntIdent_st.exit
 
-decode_Tango_JavaClntIdent_st.argprom.exit.critedge: ; preds = %4
+decode_Tango_JavaClntIdent_st.exit.critedge:      ; preds = %4
   %16 = load i32, ptr @hf_Tango_JavaClntIdent_MainClass, align 4
   tail call void @giop_add_CDR_string(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %2, i32 noundef %3, i32 noundef 12, i32 noundef %16) #4
   %17 = load i32, ptr @hf_Tango_JavaClntIdent_uuid, align 4
@@ -5936,9 +5936,9 @@ decode_Tango_JavaClntIdent_st.argprom.exit.critedge: ; preds = %4
   %24 = add i32 %23, -8
   %25 = tail call i64 @get_CDR_ulong_long(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %3, i32 noundef 12) #4
   %26 = tail call ptr @proto_tree_add_uint64(ptr noundef %1, i32 noundef %22, ptr noundef %0, i32 noundef %24, i32 noundef 8, i64 noundef %25) #4
-  br label %decode_Tango_JavaClntIdent_st.argprom.exit
+  br label %decode_Tango_JavaClntIdent_st.exit
 
-decode_Tango_JavaClntIdent_st.argprom.exit:       ; preds = %decode_Tango_JavaClntIdent_st.argprom.exit.critedge, %4, %10
+decode_Tango_JavaClntIdent_st.exit:               ; preds = %decode_Tango_JavaClntIdent_st.exit.critedge, %4, %10
   ret void
 }
 
@@ -5947,8 +5947,8 @@ declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare i64 @get_CDR_ulong_long(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_AttributeValue_4_st.argprom(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
-  tail call fastcc void @decode_Tango_AttrValUnion_un.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
+define internal fastcc void @decode_Tango_AttributeValue_4_st(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+  tail call fastcc void @decode_Tango_AttrValUnion_un(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   %6 = tail call i32 @get_CDR_enum(ptr noundef %0, ptr noundef %3, i32 noundef %4, i32 noundef 12) #4
   %7 = load i32, ptr @hf_Tango_AttributeValue_4_quality, align 4
   %8 = load i32, ptr %3, align 4
@@ -6026,7 +6026,7 @@ define internal fastcc void @decode_Tango_AttributeValue_4_st.argprom(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_AttrValUnion_un.argprom(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_AttrValUnion_un(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = tail call i32 @get_CDR_enum(ptr noundef %0, ptr noundef %3, i32 noundef %4, i32 noundef 12) #4
@@ -6319,8 +6319,8 @@ define internal fastcc void @decode_Tango_AttrValUnion_un.argprom(ptr noundef %0
   %176 = getelementptr inbounds i8, ptr %1, i64 408
   br label %177
 
-177:                                              ; preds = %.lr.ph, %decode_Tango_DevEncoded_st.argprom.exit
-  %.012 = phi i32 [ 0, %.lr.ph ], [ %195, %decode_Tango_DevEncoded_st.argprom.exit ]
+177:                                              ; preds = %.lr.ph, %decode_Tango_DevEncoded_st.exit
+  %.012 = phi i32 [ 0, %.lr.ph ], [ %195, %decode_Tango_DevEncoded_st.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %178 = load i32, ptr @hf_Tango_DevEncoded_encoded_format, align 4
   call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %3, i32 noundef %4, i32 noundef 12, i32 noundef %178) #4
@@ -6331,7 +6331,7 @@ define internal fastcc void @decode_Tango_AttrValUnion_un.argprom(ptr noundef %0
   %183 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %180, ptr noundef %0, i32 noundef %182, i32 noundef 4, i32 noundef %179) #4
   %184 = icmp ne i32 %179, 0
   %or.cond.i = and i1 %175, %184
-  br i1 %or.cond.i, label %185, label %decode_Tango_DevEncoded_st.argprom.exit
+  br i1 %or.cond.i, label %185, label %decode_Tango_DevEncoded_st.exit
 
 185:                                              ; preds = %177
   %186 = load ptr, ptr %176, align 8
@@ -6344,9 +6344,9 @@ define internal fastcc void @decode_Tango_AttrValUnion_un.argprom(ptr noundef %0
   %192 = sub i32 %191, %179
   %193 = load ptr, ptr %6, align 8
   %194 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef nonnull %2, i32 noundef %190, ptr noundef %0, i32 noundef %192, i32 noundef %179, ptr noundef %193, ptr noundef nonnull @.str.755, ptr noundef %189) #4
-  br label %decode_Tango_DevEncoded_st.argprom.exit
+  br label %decode_Tango_DevEncoded_st.exit
 
-decode_Tango_DevEncoded_st.argprom.exit:          ; preds = %177, %185
+decode_Tango_DevEncoded_st.exit:                  ; preds = %177, %185
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %195 = add nuw i32 %.012, 1
   %exitcond.not = icmp eq i32 %195, %170
@@ -6361,7 +6361,7 @@ decode_Tango_DevEncoded_st.argprom.exit:          ; preds = %177, %185
   %202 = tail call ptr @proto_tree_add_boolean(ptr noundef %2, i32 noundef %197, ptr noundef %0, i32 noundef %199, i32 noundef 1, i64 noundef %201) #4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %decode_Tango_DevEncoded_st.argprom.exit, %.lr.ph14, %.lr.ph16, %.lr.ph18, %.lr.ph20, %.lr.ph22, %.lr.ph24, %.lr.ph26, %.lr.ph28, %.lr.ph30, %.lr.ph32, %.lr.ph34, %169, %151, %143, %131, %119, %106, %75, %63, %51, %39, %26, %13, %5, %87, %95, %196, %163
+.loopexit:                                        ; preds = %decode_Tango_DevEncoded_st.exit, %.lr.ph14, %.lr.ph16, %.lr.ph18, %.lr.ph20, %.lr.ph22, %.lr.ph24, %.lr.ph26, %.lr.ph28, %.lr.ph30, %.lr.ph32, %.lr.ph34, %169, %151, %143, %131, %119, %106, %75, %63, %51, %39, %26, %13, %5, %87, %95, %196, %163
   ret void
 }
 
@@ -6388,7 +6388,7 @@ declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr nou
 declare zeroext i16 @get_CDR_ushort(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_AttributeConfig_5_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_AttributeConfig_5_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_Tango_AttributeConfig_5_name, align 4
   tail call void @giop_add_CDR_string(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef 12, i32 noundef %5) #4
   %6 = tail call i32 @get_CDR_enum(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef 12) #4
@@ -6470,8 +6470,8 @@ define internal fastcc void @decode_Tango_AttributeConfig_5_st.argprom(ptr nound
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
-  tail call fastcc void @decode_Tango_AttributeAlarm_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3)
-  tail call fastcc void @decode_Tango_EventProperties_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3)
+  tail call fastcc void @decode_Tango_AttributeAlarm_st(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3)
+  tail call fastcc void @decode_Tango_EventProperties_st(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3)
   %65 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %3, i32 noundef 12) #4
   %66 = load i32, ptr @hf_Tango_AttributeConfig_5_extensions_loop, align 4
   %67 = load i32, ptr %2, align 4
@@ -6510,8 +6510,8 @@ define internal fastcc void @decode_Tango_AttributeConfig_5_st.argprom(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_AttributeValue_5_st.argprom(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
-  tail call fastcc void @decode_Tango_AttrValUnion_un.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
+define internal fastcc void @decode_Tango_AttributeValue_5_st(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+  tail call fastcc void @decode_Tango_AttrValUnion_un(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   %6 = tail call i32 @get_CDR_enum(ptr noundef %0, ptr noundef %3, i32 noundef %4, i32 noundef 12) #4
   %7 = load i32, ptr @hf_Tango_AttributeValue_5_quality, align 4
   %8 = load i32, ptr %3, align 4
@@ -6594,7 +6594,7 @@ define internal fastcc void @decode_Tango_AttributeValue_5_st.argprom(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_PipeConfig_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_PipeConfig_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_Tango_PipeConfig_name, align 4
   tail call void @giop_add_CDR_string(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef 12, i32 noundef %5) #4
   %6 = load i32, ptr @hf_Tango_PipeConfig_description, align 4
@@ -6632,7 +6632,7 @@ define internal fastcc void @decode_Tango_PipeConfig_st.argprom(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_DevPipeData_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_DevPipeData_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_Tango_DevPipeData_name, align 4
   tail call void @giop_add_CDR_string(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef 12, i32 noundef %5) #4
   %6 = load i32, ptr @hf_Tango_TimeVal_tv_sec, align 4

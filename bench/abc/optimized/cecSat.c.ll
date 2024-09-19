@@ -429,12 +429,12 @@ define void @Cec2_CollectSuper_rec(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 tailrecurse.outer._crit_edge:                     ; preds = %.lr.ph.split.us, %24, %.split.split.us, %.split18, %.lr.ph.split, %59, %63, %5
   %.tr27.lcssa = phi ptr [ %1, %5 ], [ %.tr2733, %63 ], [ %.tr2733, %59 ], [ %.tr2733, %.lr.ph.split ], [ %81, %.split18 ], [ %44, %.split.split.us ], [ %.tr27.ph63, %24 ], [ %.tr27.ph63, %.lr.ph.split.us ]
-  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %2, ptr noundef %.tr27.lcssa)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %2, ptr noundef %.tr27.lcssa)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_PtrPushUnique.retelim(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -971,7 +971,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %119 = and i64 %118, 536870911
   %120 = sub nsw i64 0, %119
   %121 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %117, i64 %120
-  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %3, ptr noundef nonnull %121)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %3, ptr noundef nonnull %121)
   %122 = load i64, ptr %110, align 4
   %123 = lshr i64 %122, 32
   %124 = and i64 %123, 536870911
@@ -981,7 +981,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %128 = and i64 %127, 536870911
   %129 = sub nsw i64 0, %128
   %130 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %126, i64 %129
-  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %3, ptr noundef nonnull %130)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %3, ptr noundef nonnull %130)
   %131 = load i64, ptr %110, align 4
   %132 = and i64 %131, 536870911
   %133 = sub nsw i64 0, %132
@@ -991,7 +991,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %137 = and i64 %136, 536870911
   %138 = sub nsw i64 0, %137
   %139 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %134, i64 %138
-  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %3, ptr noundef nonnull %139)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %3, ptr noundef nonnull %139)
   %140 = load i64, ptr %110, align 4
   %141 = lshr i64 %140, 32
   %142 = and i64 %141, 536870911
@@ -1002,7 +1002,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %147 = and i64 %146, 536870911
   %148 = sub nsw i64 0, %147
   %149 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %144, i64 %148
-  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %3, ptr noundef nonnull %149)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %3, ptr noundef nonnull %149)
   %.val85102 = load i32, ptr %106, align 4
   %150 = icmp sgt i32 %.val85102, 0
   br i1 %150, label %.lr.ph, label %.critedge2
@@ -2004,7 +2004,7 @@ define void @Cec2_ManSimClassRefineOne(ptr nocapture noundef readonly %0, i32 no
   %.0.in89 = getelementptr inbounds i32, ptr %.val44, i64 %.pn88
   %.090 = load i32, ptr %.0.in89, align 4
   %4 = icmp sgt i32 %.090, 0
-  br i1 %4, label %.lr.ph, label %Cec2_ObjSimEqual.argprom.argprom.exit.thread74
+  br i1 %4, label %.lr.ph, label %Cec2_ObjSimEqual.exit.thread74
 
 .lr.ph:                                           ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 816
@@ -2020,7 +2020,7 @@ define void @Cec2_ManSimClassRefineOne(ptr nocapture noundef readonly %0, i32 no
   %11 = load i64, ptr %10, align 8
   %12 = icmp sgt i32 %.val42.fr, 0
   %wide.trip.count.i = zext nneg i32 %.val42.fr to i64
-  br i1 %12, label %.lr.ph.split.us, label %Cec2_ObjSimEqual.argprom.argprom.exit.thread74
+  br i1 %12, label %.lr.ph.split.us, label %Cec2_ObjSimEqual.exit.thread74
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.loopexit79.us
   %.092.us = phi i32 [ %.0.us, %.loopexit79.us ], [ %.090, %.lr.ph ]
@@ -2042,7 +2042,7 @@ define void @Cec2_ManSimClassRefineOne(ptr nocapture noundef readonly %0, i32 no
   %23 = load i64, ptr %22, align 8
   %24 = xor i64 %23, %21
   %.not.i.us = icmp eq i64 %24, -1
-  br i1 %.not.i.us, label %25, label %Cec2_ObjSimEqual.argprom.argprom.exit
+  br i1 %.not.i.us, label %25, label %Cec2_ObjSimEqual.exit
 
 25:                                               ; preds = %.lr.ph.i.us
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
@@ -2056,7 +2056,7 @@ define void @Cec2_ManSimClassRefineOne(ptr nocapture noundef readonly %0, i32 no
   %28 = getelementptr inbounds i64, ptr %15, i64 %indvars.iv15.i.us
   %29 = load i64, ptr %28, align 8
   %.not21.i.us = icmp eq i64 %27, %29
-  br i1 %.not21.i.us, label %30, label %Cec2_ObjSimEqual.argprom.argprom.exit
+  br i1 %.not21.i.us, label %30, label %Cec2_ObjSimEqual.exit
 
 30:                                               ; preds = %.lr.ph8.i.us
   %indvars.iv.next16.i.us = add nuw nsw i64 %indvars.iv15.i.us, 1
@@ -2068,9 +2068,9 @@ define void @Cec2_ManSimClassRefineOne(ptr nocapture noundef readonly %0, i32 no
   %.0.in.us = getelementptr inbounds i32, ptr %.val44, i64 %.pn.us
   %.0.us = load i32, ptr %.0.in.us, align 4
   %31 = icmp sgt i32 %.0.us, 0
-  br i1 %31, label %.lr.ph.split.us, label %Cec2_ObjSimEqual.argprom.argprom.exit.thread74, !llvm.loop !31
+  br i1 %31, label %.lr.ph.split.us, label %Cec2_ObjSimEqual.exit.thread74, !llvm.loop !31
 
-Cec2_ObjSimEqual.argprom.argprom.exit:            ; preds = %.lr.ph.i.us, %.lr.ph8.i.us
+Cec2_ObjSimEqual.exit:                            ; preds = %.lr.ph.i.us, %.lr.ph8.i.us
   %32 = getelementptr i8, ptr %0, i64 192
   %.val48 = load ptr, ptr %32, align 8
   %33 = zext nneg i32 %.092.us to i64
@@ -2084,7 +2084,7 @@ Cec2_ObjSimEqual.argprom.argprom.exit:            ; preds = %.lr.ph.i.us, %.lr.p
   %38 = icmp sgt i32 %.03996, 0
   br i1 %38, label %.lr.ph100, label %._crit_edge
 
-.lr.ph100:                                        ; preds = %Cec2_ObjSimEqual.argprom.argprom.exit
+.lr.ph100:                                        ; preds = %Cec2_ObjSimEqual.exit
   %39 = and i32 %.092.us, 268435455
   br label %40
 
@@ -2137,7 +2137,7 @@ Cec2_ObjSimEqual.argprom.argprom.exit:            ; preds = %.lr.ph.i.us, %.lr.p
   %57 = getelementptr inbounds i64, ptr %47, i64 %indvars.iv15.i67
   %58 = load i64, ptr %57, align 8
   %.not21.i68 = icmp eq i64 %56, %58
-  br i1 %.not21.i68, label %54, label %Cec2_ObjSimEqual.argprom.argprom.exit71
+  br i1 %.not21.i68, label %54, label %Cec2_ObjSimEqual.exit71
 
 59:                                               ; preds = %.lr.ph.i58
   %indvars.iv.next.i61 = add nuw nsw i64 %indvars.iv.i59, 1
@@ -2152,7 +2152,7 @@ Cec2_ObjSimEqual.argprom.argprom.exit:            ; preds = %.lr.ph.i.us, %.lr.p
   %63 = load i64, ptr %62, align 8
   %64 = xor i64 %63, %61
   %.not.i60 = icmp eq i64 %64, -1
-  br i1 %.not.i60, label %59, label %Cec2_ObjSimEqual.argprom.argprom.exit71
+  br i1 %.not.i60, label %59, label %Cec2_ObjSimEqual.exit71
 
 .loopexit:                                        ; preds = %59, %54, %.preheader.i63, %.preheader1.i54
   %65 = sext i32 %.13897 to i64
@@ -2161,7 +2161,7 @@ Cec2_ObjSimEqual.argprom.argprom.exit:            ; preds = %.lr.ph.i.us, %.lr.p
   %.pre = zext nneg i32 %.03999 to i64
   br label %74
 
-Cec2_ObjSimEqual.argprom.argprom.exit71:          ; preds = %.lr.ph.i58, %.lr.ph8.i66
+Cec2_ObjSimEqual.exit71:                          ; preds = %.lr.ph.i58, %.lr.ph8.i66
   %.val49 = load ptr, ptr %32, align 8
   %67 = zext nneg i32 %.03999 to i64
   %68 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val49, i64 %67
@@ -2175,20 +2175,20 @@ Cec2_ObjSimEqual.argprom.argprom.exit71:          ; preds = %.lr.ph.i58, %.lr.ph
   store i32 %.03999, ptr %73, align 4
   br label %74
 
-74:                                               ; preds = %.loopexit, %Cec2_ObjSimEqual.argprom.argprom.exit71
-  %.pre-phi = phi i64 [ %.pre, %.loopexit ], [ %67, %Cec2_ObjSimEqual.argprom.argprom.exit71 ]
-  %.2 = phi i32 [ %.03999, %.loopexit ], [ %.13897, %Cec2_ObjSimEqual.argprom.argprom.exit71 ]
-  %.1 = phi i32 [ %.03698, %.loopexit ], [ %.03999, %Cec2_ObjSimEqual.argprom.argprom.exit71 ]
+74:                                               ; preds = %.loopexit, %Cec2_ObjSimEqual.exit71
+  %.pre-phi = phi i64 [ %.pre, %.loopexit ], [ %67, %Cec2_ObjSimEqual.exit71 ]
+  %.2 = phi i32 [ %.03999, %.loopexit ], [ %.13897, %Cec2_ObjSimEqual.exit71 ]
+  %.1 = phi i32 [ %.03698, %.loopexit ], [ %.03999, %Cec2_ObjSimEqual.exit71 ]
   %.val47 = load ptr, ptr %3, align 8
   %75 = getelementptr inbounds i32, ptr %.val47, i64 %.pre-phi
   %.039 = load i32, ptr %75, align 4
   %76 = icmp sgt i32 %.039, 0
   br i1 %76, label %40, label %._crit_edge, !llvm.loop !32
 
-._crit_edge:                                      ; preds = %74, %Cec2_ObjSimEqual.argprom.argprom.exit
-  %.val52 = phi ptr [ %.val46, %Cec2_ObjSimEqual.argprom.argprom.exit ], [ %.val47, %74 ]
-  %.138.lcssa = phi i32 [ %.03791.us, %Cec2_ObjSimEqual.argprom.argprom.exit ], [ %.2, %74 ]
-  %.036.lcssa = phi i32 [ %.092.us, %Cec2_ObjSimEqual.argprom.argprom.exit ], [ %.1, %74 ]
+._crit_edge:                                      ; preds = %74, %Cec2_ObjSimEqual.exit
+  %.val52 = phi ptr [ %.val46, %Cec2_ObjSimEqual.exit ], [ %.val47, %74 ]
+  %.138.lcssa = phi i32 [ %.03791.us, %Cec2_ObjSimEqual.exit ], [ %.2, %74 ]
+  %.036.lcssa = phi i32 [ %.092.us, %Cec2_ObjSimEqual.exit ], [ %.1, %74 ]
   %77 = sext i32 %.138.lcssa to i64
   %78 = getelementptr inbounds i32, ptr %.val52, i64 %77
   store i32 -1, ptr %78, align 4
@@ -2196,9 +2196,9 @@ Cec2_ObjSimEqual.argprom.argprom.exit71:          ; preds = %.lr.ph.i58, %.lr.ph
   %79 = sext i32 %.036.lcssa to i64
   %80 = getelementptr inbounds i32, ptr %.val53, i64 %79
   store i32 -1, ptr %80, align 4
-  br label %Cec2_ObjSimEqual.argprom.argprom.exit.thread74
+  br label %Cec2_ObjSimEqual.exit.thread74
 
-Cec2_ObjSimEqual.argprom.argprom.exit.thread74:   ; preds = %.loopexit79.us, %.lr.ph, %2, %._crit_edge
+Cec2_ObjSimEqual.exit.thread74:                   ; preds = %.loopexit79.us, %.lr.ph, %2, %._crit_edge
   ret void
 }
 

@@ -3840,7 +3840,7 @@ land.lhs.true:                                    ; preds = %if.end302
   %reports.val34 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i, align 8
   %143 = getelementptr i8, ptr %142, i64 124
   %grey.val = load i32, ptr %143, align 4
-  %call310 = invoke fastcc noundef zeroext i1 @_ZN3ue2L14requiresDedupeERKNS_8NGHolderERKNS_8flat_setIjSt4lessIjESaIjEEERKNS_4GreyE.argprom(ptr noundef nonnull align 8 dereferenceable(136) %140, ptr %reports.val, i64 %reports.val34, i32 %grey.val)
+  %call310 = invoke fastcc noundef zeroext i1 @_ZN3ue2L14requiresDedupeERKNS_8NGHolderERKNS_8flat_setIjSt4lessIjESaIjEEERKNS_4GreyE(ptr noundef nonnull align 8 dereferenceable(136) %140, ptr %reports.val, i64 %reports.val34, i32 %grey.val)
           to label %invoke.cont309 unwind label %lpad297
 
 invoke.cont309:                                   ; preds = %land.lhs.true
@@ -3915,7 +3915,7 @@ land.lhs.true365.peel:                            ; preds = %if.end361.peel
   %reports.val36 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i, align 8
   %150 = getelementptr i8, ptr %149, i64 124
   %grey370.peel.val = load i32, ptr %150, align 4
-  %call372.peel = invoke fastcc noundef zeroext i1 @_ZN3ue2L14requiresDedupeERKNS_8NGHolderERKNS_8flat_setIjSt4lessIjESaIjEEERKNS_4GreyE.argprom(ptr noundef nonnull align 8 dereferenceable(136) %.pre201, ptr %reports.val35, i64 %reports.val36, i32 %grey370.peel.val)
+  %call372.peel = invoke fastcc noundef zeroext i1 @_ZN3ue2L14requiresDedupeERKNS_8NGHolderERKNS_8flat_setIjSt4lessIjESaIjEEERKNS_4GreyE(ptr noundef nonnull align 8 dereferenceable(136) %.pre201, ptr %reports.val35, i64 %reports.val36, i32 %grey370.peel.val)
           to label %invoke.cont371.peel unwind label %lpad356
 
 invoke.cont371.peel:                              ; preds = %land.lhs.true365.peel
@@ -4186,7 +4186,7 @@ ehcleanup466:                                     ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3ue2L14requiresDedupeERKNS_8NGHolderERKNS_8flat_setIjSt4lessIjESaIjEEERKNS_4GreyE.argprom(ptr noundef nonnull align 8 dereferenceable(136) %h, ptr readonly %reports.0.val, i64 %reports.8.val, i32 %grey.100.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN3ue2L14requiresDedupeERKNS_8NGHolderERKNS_8flat_setIjSt4lessIjESaIjEEERKNS_4GreyE(ptr noundef nonnull align 8 dereferenceable(136) %h, ptr readonly %reports.0.val, i64 %reports.8.val, i32 %grey.100.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %repeats = alloca %"class.std::vector.358", align 8
   %reports.8.val.fr = freeze i64 %reports.8.val

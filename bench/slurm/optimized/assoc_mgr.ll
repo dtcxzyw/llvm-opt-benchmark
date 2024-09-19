@@ -1053,7 +1053,7 @@ _running_cache.exit:                              ; preds = %16, %14
 
 46:                                               ; preds = %45, %43
   store ptr %40, ptr @assoc_mgr_qos_list, align 8
-  tail call fastcc void @_post_qos_list.retelim(ptr noundef nonnull %40)
+  tail call fastcc void @_post_qos_list(ptr noundef nonnull %40)
   tail call void @assoc_mgr_unlock(ptr noundef nonnull @__const._refresh_assoc_mgr_qos_list.locks)
   br label %_get_assoc_mgr_qos_list.exit.thread
 
@@ -1155,7 +1155,7 @@ _get_assoc_mgr_qos_list.exit.thread:              ; preds = %41, %46, %34, %32
   br label %_get_assoc_mgr_assoc_list.exit.thread
 
 87:                                               ; preds = %78
-  call fastcc void @_post_assoc_list.retelim()
+  call fastcc void @_post_assoc_list()
   call void @assoc_mgr_unlock(ptr noundef nonnull @__const._refresh_assoc_mgr_assoc_list.locks)
   br label %_get_assoc_mgr_assoc_list.exit.thread
 
@@ -1268,7 +1268,7 @@ _get_assoc_mgr_assoc_list.exit:                   ; preds = %80
   br label %_get_assoc_mgr_wckey_list.exit.thread
 
 125:                                              ; preds = %116
-  call fastcc void @_post_wckey_list.retelim(ptr noundef %117)
+  call fastcc void @_post_wckey_list(ptr noundef %117)
   call void @assoc_mgr_unlock(ptr noundef nonnull @__const._refresh_assoc_wckey_list.locks)
   br label %_get_assoc_mgr_wckey_list.exit.thread
 
@@ -1348,7 +1348,7 @@ _get_assoc_mgr_wckey_list.exit:                   ; preds = %118
   br i1 %.not11.i50, label %_get_assoc_mgr_res_list.exit.thread, label %_get_assoc_mgr_res_list.exit
 
 153:                                              ; preds = %149
-  call fastcc void @_post_res_list.retelim(ptr noundef nonnull %150)
+  call fastcc void @_post_res_list(ptr noundef nonnull %150)
   call void @assoc_mgr_unlock(ptr noundef nonnull @__const._refresh_assoc_mgr_res_list.locks)
   br label %_get_assoc_mgr_res_list.exit.thread
 
@@ -1490,7 +1490,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_assoc_mgr_user_list(ptr nounde
   br label %18
 
 17:                                               ; preds = %11
-  call fastcc void @_post_user_list.retelim(ptr noundef nonnull %12)
+  call fastcc void @_post_user_list(ptr noundef nonnull %12)
   call void @assoc_mgr_unlock(ptr noundef nonnull @__const._refresh_assoc_mgr_user_list.locks)
   br label %18
 
@@ -8262,7 +8262,7 @@ _set_assoc_norm_priority.exit469:                 ; preds = %466, %468
 492:                                              ; preds = %489, %486
   %493 = phi ptr [ %.pre, %489 ], [ %480, %486 ]
   %494 = phi ptr [ %491, %489 ], [ %488, %486 ]
-  tail call fastcc void @_addto_used_info.retelim(ptr noundef %494, ptr noundef %493)
+  tail call fastcc void @_addto_used_info(ptr noundef %494, ptr noundef %493)
   br label %495
 
 495:                                              ; preds = %492, %481, %478
@@ -8704,12 +8704,12 @@ select.unfold37._crit_edge.i495:                  ; preds = %.critedge.i487, %se
   %657 = getelementptr inbounds i8, ptr %.lcssa826, i64 16
   %658 = load ptr, ptr %657, align 8
   store ptr %658, ptr %.246.i491.lcssa, align 8
-  tail call fastcc void @_set_assoc_parent_and_user.retelim(ptr noundef %577)
+  tail call fastcc void @_set_assoc_parent_and_user(ptr noundef %577)
   br label %660
 
 659:                                              ; preds = %634, %._crit_edge613
   %.1 = phi i1 [ %633, %._crit_edge613 ], [ %spec.select460518, %634 ]
-  tail call fastcc void @_set_assoc_parent_and_user.retelim(ptr noundef %577)
+  tail call fastcc void @_set_assoc_parent_and_user(ptr noundef %577)
   br i1 %.1, label %660, label %683
 
 660:                                              ; preds = %.thread519, %659
@@ -8782,7 +8782,7 @@ _add_assoc_hash.exit:                             ; preds = %666, %669
 
 _add_potential_coord_children.exit:               ; preds = %.lr.ph624, %692
   %.b364 = load i1, ptr @setup_children, align 4
-  br i1 %.b364, label %694, label %_set_children_level_shares.argprom.argprom.exit
+  br i1 %.b364, label %694, label %_set_children_level_shares.exit
 
 694:                                              ; preds = %_add_potential_coord_children.exit
   %695 = getelementptr inbounds i8, ptr %686, i64 312
@@ -8790,12 +8790,12 @@ _add_potential_coord_children.exit:               ; preds = %.lr.ph624, %692
   %697 = getelementptr inbounds i8, ptr %696, i64 8
   %698 = load ptr, ptr %697, align 8
   %.not380 = icmp eq ptr %698, null
-  br i1 %.not380, label %_set_children_level_shares.argprom.argprom.exit, label %699
+  br i1 %.not380, label %_set_children_level_shares.exit, label %699
 
 699:                                              ; preds = %694
   %700 = tail call i32 @list_is_empty(ptr noundef nonnull %698) #20
   %.not381 = icmp eq i32 %700, 0
-  br i1 %.not381, label %701, label %_set_children_level_shares.argprom.argprom.exit
+  br i1 %.not381, label %701, label %_set_children_level_shares.exit
 
 701:                                              ; preds = %699
   %702 = tail call fastcc i32 @_get_children_level_shares(ptr noundef %686)
@@ -8803,12 +8803,12 @@ _add_potential_coord_children.exit:               ; preds = %.lr.ph624, %692
   %703 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %703, align 8
   %.not.i500 = icmp eq ptr %.val.val, null
-  br i1 %.not.i500, label %_set_children_level_shares.argprom.argprom.exit, label %704
+  br i1 %.not.i500, label %_set_children_level_shares.exit, label %704
 
 704:                                              ; preds = %701
   %705 = tail call i32 @list_is_empty(ptr noundef nonnull %.val.val) #20
   %.not8.i = icmp eq i32 %705, 0
-  br i1 %.not8.i, label %706, label %_set_children_level_shares.argprom.argprom.exit
+  br i1 %.not8.i, label %706, label %_set_children_level_shares.exit
 
 706:                                              ; preds = %704
   %707 = tail call ptr @list_iterator_create(ptr noundef nonnull %.val.val) #20
@@ -8828,27 +8828,27 @@ _add_potential_coord_children.exit:               ; preds = %.lr.ph624, %692
 
 ._crit_edge.i503:                                 ; preds = %.lr.ph.i501, %706
   tail call void @list_iterator_destroy(ptr noundef %707) #20
-  br label %_set_children_level_shares.argprom.argprom.exit
+  br label %_set_children_level_shares.exit
 
-_set_children_level_shares.argprom.argprom.exit:  ; preds = %._crit_edge.i503, %704, %701, %_add_potential_coord_children.exit, %694, %699
+_set_children_level_shares.exit:                  ; preds = %._crit_edge.i503, %704, %701, %_add_potential_coord_children.exit, %694, %699
   %714 = getelementptr inbounds i8, ptr %686, i64 144
   %715 = load ptr, ptr %714, align 8
   %.not382 = icmp eq ptr %715, null
   br i1 %.not382, label %.backedge, label %717
 
-.backedge:                                        ; preds = %_addto_used_info.exit, %721, %_set_children_level_shares.argprom.argprom.exit
+.backedge:                                        ; preds = %_addto_used_info.exit, %721, %_set_children_level_shares.exit
   %716 = tail call ptr @list_next(ptr noundef %564) #20
   %.not374 = icmp eq ptr %716, null
   br i1 %.not374, label %._crit_edge625, label %.lr.ph624, !llvm.loop !68
 
-717:                                              ; preds = %_set_children_level_shares.argprom.argprom.exit
+717:                                              ; preds = %_set_children_level_shares.exit
   %718 = getelementptr inbounds i8, ptr %686, i64 312
   %719 = load ptr, ptr %718, align 8
   %.not383 = icmp eq ptr %715, %719
   br i1 %.not383, label %721, label %720
 
 720:                                              ; preds = %717
-  tail call fastcc void @_addto_used_info.retelim(ptr noundef %719, ptr noundef nonnull %715)
+  tail call fastcc void @_addto_used_info(ptr noundef %719, ptr noundef nonnull %715)
   %.pre710 = load ptr, ptr %718, align 8
   br label %721
 
@@ -10140,7 +10140,7 @@ _set_qos_norm_priority.exit417:                   ; preds = %.lr.ph447, %485
 
 495:                                              ; preds = %474
   %496 = load ptr, ptr @assoc_mgr_qos_list, align 8
-  tail call fastcc void @_post_qos_list.retelim(ptr noundef %496)
+  tail call fastcc void @_post_qos_list(ptr noundef %496)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_set_qos_norm_priority.exit417, %6, %475, %474, %495
@@ -11103,7 +11103,7 @@ define internal fastcc void @_set_user_default_acct(ptr noundef %0, ptr noundef 
 declare ptr @slurmdb_create_assoc_usage(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_addto_used_info.retelim(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_addto_used_info(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -11450,7 +11450,7 @@ _set_assoc_norm_priority.exit:                    ; preds = %32, %34
 declare void @slurmdb_sort_hierarchical_assoc_list(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_assoc_parent_and_user.retelim(ptr noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @_set_assoc_parent_and_user(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr @assoc_mgr_assoc_list, align 8
   %.not = icmp eq ptr %3, null
@@ -12237,7 +12237,7 @@ define void @assoc_mgr_update_qos_usage(ptr nocapture noundef readonly %0, x86_f
 declare ptr @slurm_bit_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_post_qos_list.retelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_post_qos_list(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call ptr @list_iterator_create(ptr noundef %0) #20
   store i32 0, ptr @g_qos_count, align 4
   store i32 0, ptr @g_qos_max_priority, align 4
@@ -12515,7 +12515,7 @@ _refresh_assoc_mgr_qos_list.exit.thread:          ; preds = %16
 
 20:                                               ; preds = %16
   tail call void @assoc_mgr_lock(ptr noundef nonnull @__const._refresh_assoc_mgr_qos_list.locks)
-  tail call fastcc void @_post_qos_list.retelim(ptr noundef nonnull %18)
+  tail call fastcc void @_post_qos_list(ptr noundef nonnull %18)
   %21 = load ptr, ptr @assoc_mgr_qos_list, align 8
   %.not17.i = icmp eq ptr %21, null
   br i1 %.not17.i, label %_refresh_assoc_mgr_qos_list.exit, label %22
@@ -12585,7 +12585,7 @@ _refresh_assoc_mgr_user_list.exit.thread:         ; preds = %39
   br label %_running_cache.exit
 
 44:                                               ; preds = %39
-  call fastcc void @_post_user_list.retelim(ptr noundef nonnull %42)
+  call fastcc void @_post_user_list(ptr noundef nonnull %42)
   call void @assoc_mgr_lock(ptr noundef nonnull @__const._refresh_assoc_mgr_user_list.locks)
   %45 = load ptr, ptr @assoc_mgr_user_list, align 8
   %.not7.i = icmp eq ptr %45, null
@@ -12644,7 +12644,7 @@ _refresh_assoc_mgr_user_list.exit:                ; preds = %44, %46
   br i1 %.not26.i, label %_refresh_assoc_mgr_assoc_list.exit, label %64
 
 64:                                               ; preds = %62
-  call fastcc void @_post_assoc_list.retelim()
+  call fastcc void @_post_assoc_list()
   %.not27.i = icmp eq ptr %57, null
   br i1 %.not27.i, label %65, label %66
 
@@ -12907,7 +12907,7 @@ _refresh_assoc_wckey_list.exit.thread:            ; preds = %190
   br label %_running_cache.exit
 
 192:                                              ; preds = %190
-  call fastcc void @_post_wckey_list.retelim(ptr noundef %187)
+  call fastcc void @_post_wckey_list(ptr noundef %187)
   call void @assoc_mgr_lock(ptr noundef nonnull @__const._refresh_assoc_wckey_list.locks)
   %193 = load ptr, ptr @assoc_mgr_wckey_list, align 8
   %.not12.i = icmp eq ptr %193, null
@@ -12969,7 +12969,7 @@ _refresh_assoc_mgr_res_list.exit.thread:          ; preds = %210
 
 212:                                              ; preds = %210
   call void @assoc_mgr_lock(ptr noundef nonnull @__const._refresh_assoc_mgr_res_list.locks)
-  call fastcc void @_post_res_list.retelim(ptr noundef nonnull %206)
+  call fastcc void @_post_res_list(ptr noundef nonnull %206)
   %213 = load ptr, ptr @assoc_mgr_res_list, align 8
   %.not12.i35 = icmp eq ptr %213, null
   br i1 %.not12.i35, label %_refresh_assoc_mgr_res_list.exit, label %214
@@ -14321,7 +14321,7 @@ define range(i32 -1, 15) i32 @load_assoc_mgr_state(i1 noundef zeroext %0) local_
   store ptr null, ptr @assoc_mgr_assoc_list, align 8
   %67 = load ptr, ptr %66, align 8
   store ptr %67, ptr @assoc_mgr_assoc_list, align 8
-  call fastcc void @_post_assoc_list.retelim()
+  call fastcc void @_post_assoc_list()
   %68 = call i32 @get_log_level() #20
   %69 = icmp sgt i32 %68, 4
   br i1 %69, label %70, label %73
@@ -14370,7 +14370,7 @@ define range(i32 -1, 15) i32 @load_assoc_mgr_state(i1 noundef zeroext %0) local_
   store ptr null, ptr @assoc_mgr_user_list, align 8
   %89 = load ptr, ptr %88, align 8
   store ptr %89, ptr @assoc_mgr_user_list, align 8
-  call fastcc void @_post_user_list.retelim(ptr noundef %89)
+  call fastcc void @_post_user_list(ptr noundef %89)
   %90 = call i32 @get_log_level() #20
   %91 = icmp sgt i32 %90, 4
   br i1 %91, label %92, label %95
@@ -14419,7 +14419,7 @@ define range(i32 -1, 15) i32 @load_assoc_mgr_state(i1 noundef zeroext %0) local_
   store ptr null, ptr @assoc_mgr_res_list, align 8
   %111 = load ptr, ptr %110, align 8
   store ptr %111, ptr @assoc_mgr_res_list, align 8
-  call fastcc void @_post_res_list.retelim(ptr noundef %111)
+  call fastcc void @_post_res_list(ptr noundef %111)
   %112 = call i32 @get_log_level() #20
   %113 = icmp sgt i32 %112, 4
   br i1 %113, label %114, label %117
@@ -14477,7 +14477,7 @@ define range(i32 -1, 15) i32 @load_assoc_mgr_state(i1 noundef zeroext %0) local_
   store ptr null, ptr @assoc_mgr_qos_list, align 8
   %136 = load ptr, ptr %135, align 8
   store ptr %136, ptr @assoc_mgr_qos_list, align 8
-  call fastcc void @_post_qos_list.retelim(ptr noundef %136)
+  call fastcc void @_post_qos_list(ptr noundef %136)
   %137 = call i32 @get_log_level() #20
   %138 = icmp sgt i32 %137, 4
   br i1 %138, label %139, label %142
@@ -14586,7 +14586,7 @@ define range(i32 -1, 15) i32 @load_assoc_mgr_state(i1 noundef zeroext %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_post_assoc_list.retelim() unnamed_addr #0 {
+define internal fastcc void @_post_assoc_list() unnamed_addr #0 {
   store i32 0, ptr @g_assoc_max_priority, align 4
   %1 = load ptr, ptr @assoc_mgr_assoc_list, align 8
   %.not = icmp eq ptr %1, null
@@ -14604,7 +14604,7 @@ define internal fastcc void @_post_assoc_list.retelim() unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %2, %_add_assoc_hash.exit
   %6 = phi ptr [ %29, %_add_assoc_hash.exit ], [ %5, %2 ]
-  tail call fastcc void @_set_assoc_parent_and_user.retelim(ptr noundef %6)
+  tail call fastcc void @_set_assoc_parent_and_user(ptr noundef %6)
   %7 = getelementptr inbounds i8, ptr %6, i64 132
   %8 = load i32, ptr %7, align 4
   %9 = load ptr, ptr @assoc_hash_id, align 8
@@ -14737,7 +14737,7 @@ _add_assoc_hash.exit:                             ; preds = %12, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_post_user_list.retelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_post_user_list(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.timeval, align 8
   %3 = alloca %struct.timeval, align 8
   %4 = alloca [20 x i8], align 16
@@ -14829,7 +14829,7 @@ define internal fastcc void @_post_user_list.retelim(ptr noundef %0) unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_post_res_list.retelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_post_res_list(ptr noundef %0) unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   %3 = load ptr, ptr @slurmdbd_conf, align 8
   %4 = icmp ne ptr %3, null
@@ -16556,7 +16556,7 @@ declare ptr @acct_storage_g_get_assocs(ptr noundef, i32 noundef, ptr noundef) lo
 declare ptr @acct_storage_g_get_wckeys(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_post_wckey_list.retelim(ptr noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @_post_wckey_list(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = tail call ptr @list_iterator_create(ptr noundef nonnull %0) #20
   %4 = tail call ptr @list_next(ptr noundef %3) #20

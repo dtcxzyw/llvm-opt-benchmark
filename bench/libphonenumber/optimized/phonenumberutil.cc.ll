@@ -19223,7 +19223,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 
 108:                                              ; preds = %106
   %.val = load i64, ptr %14, align 8
-  %109 = invoke fastcc noundef zeroext i1 @_ZN4i18n12phonenumbers12_GLOBAL__N_132IsNationalNumberSuffixOfTheOtherERKNS0_11PhoneNumberES4_.argprom(i64 %.val, ptr noundef nonnull align 8 dereferenceable(72) %5)
+  %109 = invoke fastcc noundef zeroext i1 @_ZN4i18n12phonenumbers12_GLOBAL__N_132IsNationalNumberSuffixOfTheOtherERKNS0_11PhoneNumberES4_(i64 %.val, ptr noundef nonnull align 8 dereferenceable(72) %5)
           to label %110 unwind label %97
 
 110:                                              ; preds = %108
@@ -19245,7 +19245,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 
 117:                                              ; preds = %116
   %.val15 = load i64, ptr %14, align 8
-  %118 = invoke fastcc noundef zeroext i1 @_ZN4i18n12phonenumbers12_GLOBAL__N_132IsNationalNumberSuffixOfTheOtherERKNS0_11PhoneNumberES4_.argprom(i64 %.val15, ptr noundef nonnull align 8 dereferenceable(72) %5)
+  %118 = invoke fastcc noundef zeroext i1 @_ZN4i18n12phonenumbers12_GLOBAL__N_132IsNationalNumberSuffixOfTheOtherERKNS0_11PhoneNumberES4_(i64 %.val15, ptr noundef nonnull align 8 dereferenceable(72) %5)
           to label %119 unwind label %97
 
 119:                                              ; preds = %117
@@ -19267,7 +19267,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 declare noundef zeroext i1 @_ZN4i18n12phonenumbers13ExactlySameAsERKNS0_11PhoneNumberES3_(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4i18n12phonenumbers12_GLOBAL__N_132IsNationalNumberSuffixOfTheOtherERKNS0_11PhoneNumberES4_.argprom(i64 %.48.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4i18n12phonenumbers12_GLOBAL__N_132IsNationalNumberSuffixOfTheOtherERKNS0_11PhoneNumberES4_(i64 %.48.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN4i18n12phonenumbers10SimpleItoaB5cxx11Em(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %2, i64 noundef %.48.val)

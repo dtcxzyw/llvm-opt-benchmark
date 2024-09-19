@@ -310,7 +310,7 @@ define i32 @mca_topo_base_dist_graph_distribute(ptr nocapture readnone %0, ptr n
   %155 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_topo_base_comm_dist_graph_2_2_0_t_class, i64 40), align 8
   %156 = load ptr, ptr %155, align 8
   %.not6.i.i = icmp eq ptr %156, null
-  br i1 %.not6.i.i, label %opal_obj_new.argprom.exit.thread310, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %opal_obj_new.exit.thread310, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %153, %.lr.ph.i.i
   %157 = phi ptr [ %159, %.lr.ph.i.i ], [ %156, %153 ]
@@ -319,9 +319,9 @@ define i32 @mca_topo_base_dist_graph_distribute(ptr nocapture readnone %0, ptr n
   %158 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %159 = load ptr, ptr %158, align 8
   %.not.i.i = icmp eq ptr %159, null
-  br i1 %.not.i.i, label %opal_obj_new.argprom.exit.thread310, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %opal_obj_new.exit.thread310, label %.lr.ph.i.i, !llvm.loop !10
 
-opal_obj_new.argprom.exit.thread310:              ; preds = %.lr.ph.i.i, %153
+opal_obj_new.exit.thread310:                      ; preds = %.lr.ph.i.i, %153
   %160 = load i32, ptr %20, align 4
   %161 = getelementptr inbounds i8, ptr %148, i64 48
   store i32 %160, ptr %161, align 8
@@ -336,7 +336,7 @@ opal_obj_new.argprom.exit.thread310:              ; preds = %.lr.ph.i.i, %153
   %168 = icmp sgt i32 %160, 0
   br i1 %168, label %169, label %180
 
-169:                                              ; preds = %opal_obj_new.argprom.exit.thread310
+169:                                              ; preds = %opal_obj_new.exit.thread310
   %170 = zext nneg i32 %160 to i64
   %171 = shl nuw nsw i64 %170, 2
   %172 = tail call noalias ptr @malloc(i64 noundef %171) #10
@@ -355,7 +355,7 @@ opal_obj_new.argprom.exit.thread310:              ; preds = %.lr.ph.i.i, %153
   %179 = icmp eq ptr %177, null
   br i1 %179, label %.thread311.thread.thread330, label %180
 
-180:                                              ; preds = %175, %176, %opal_obj_new.argprom.exit.thread310
+180:                                              ; preds = %175, %176, %opal_obj_new.exit.thread310
   %181 = icmp sgt i32 %163, 0
   br i1 %181, label %182, label %193
 

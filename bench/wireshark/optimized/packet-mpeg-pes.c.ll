@@ -559,7 +559,7 @@ define internal range(i32 0, 2) i32 @dissect_mpeg_pes(ptr noundef %0, ptr nounde
   %102 = load i32, ptr @hf_mpeg_pes_stuffing_length, align 4
   %103 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %102, ptr noundef %0, i32 noundef %99, i32 noundef 1, i32 noundef 0) #3
   %.not.i = icmp eq i8 %101, 0
-  br i1 %.not.i, label %dissect_mpeg_pes_pack_header.argprom.exit, label %104
+  br i1 %.not.i, label %dissect_mpeg_pes_pack_header.exit, label %104
 
 104:                                              ; preds = %65
   %105 = add i32 %22, 80
@@ -567,9 +567,9 @@ define internal range(i32 0, 2) i32 @dissect_mpeg_pes(ptr noundef %0, ptr nounde
   %107 = load i32, ptr @hf_mpeg_pes_stuffing, align 4
   %108 = sdiv i32 %105, 8
   %109 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %107, ptr noundef %0, i32 noundef %108, i32 noundef %106, i32 noundef 0) #3
-  br label %dissect_mpeg_pes_pack_header.argprom.exit
+  br label %dissect_mpeg_pes_pack_header.exit
 
-dissect_mpeg_pes_pack_header.argprom.exit:        ; preds = %65, %104
+dissect_mpeg_pes_pack_header.exit:                ; preds = %65, %104
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %206
 
@@ -653,7 +653,7 @@ dissect_mpeg_pes_pack_header.argprom.exit:        ; preds = %65, %104
   %160 = zext i8 %159 to i32
   %161 = sdiv i32 %149, 8
   %162 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %161, i32 noundef %158) #3
-  call fastcc void @dissect_mpeg_pes_header_data.argprom.retelim(ptr noundef %162, ptr noundef %2, i32 noundef %160)
+  call fastcc void @dissect_mpeg_pes_header_data(ptr noundef %162, ptr noundef %2, i32 noundef %160)
   %163 = shl nuw nsw i32 %158, 3
   %164 = add i32 %163, %149
   %165 = icmp ne i32 %.0158, 0
@@ -730,8 +730,8 @@ dissect_mpeg_pes_pack_header.argprom.exit:        ; preds = %65, %104
   %205 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %203, ptr noundef %0, i32 noundef %204, i32 noundef -1, i32 noundef 0) #3
   br label %206
 
-206:                                              ; preds = %23, %47, %110, %dissect_mpeg_pes_pack_header.argprom.exit, %127, %201, %202, %191, %181, %188, %186, %174, %115, %54, %36, %8, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %8 ], [ 1, %36 ], [ 1, %54 ], [ 1, %115 ], [ 1, %174 ], [ 1, %186 ], [ 1, %188 ], [ 1, %181 ], [ 1, %191 ], [ 1, %202 ], [ 1, %201 ], [ 1, %127 ], [ 1, %dissect_mpeg_pes_pack_header.argprom.exit ], [ 1, %110 ], [ 1, %47 ], [ 1, %23 ]
+206:                                              ; preds = %23, %47, %110, %dissect_mpeg_pes_pack_header.exit, %127, %201, %202, %191, %181, %188, %186, %174, %115, %54, %36, %8, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %8 ], [ 1, %36 ], [ 1, %54 ], [ 1, %115 ], [ 1, %174 ], [ 1, %186 ], [ 1, %188 ], [ 1, %181 ], [ 1, %191 ], [ 1, %202 ], [ 1, %201 ], [ 1, %127 ], [ 1, %dissect_mpeg_pes_pack_header.exit ], [ 1, %110 ], [ 1, %47 ], [ 1, %23 ]
   ret i32 %.0
 }
 
@@ -787,7 +787,7 @@ declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mpeg_pes_header_data.argprom.retelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #0 {
+define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca %struct.nstime_t, align 8

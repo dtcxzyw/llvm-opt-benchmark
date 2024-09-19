@@ -736,12 +736,12 @@ declare void @object_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_stream_bucket_prepend(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
-  tail call fastcc void @php_stream_bucket_attach.argprom(i32 noundef 0, ptr noundef %0)
+  tail call fastcc void @php_stream_bucket_attach(i32 noundef 0, ptr noundef %0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_stream_bucket_attach.argprom(i32 noundef range(i32 0, 2) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @php_stream_bucket_attach(i32 noundef range(i32 0, 2) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 2
@@ -947,7 +947,7 @@ define internal fastcc void @php_stream_bucket_attach.argprom(i32 noundef range(
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_stream_bucket_append(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
-  tail call fastcc void @php_stream_bucket_attach.argprom(i32 noundef 1, ptr noundef %0)
+  tail call fastcc void @php_stream_bucket_attach(i32 noundef 1, ptr noundef %0)
   ret void
 }
 

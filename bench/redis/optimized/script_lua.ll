@@ -1183,16 +1183,16 @@ lor.lhs.false.i:                                  ; preds = %entry
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry
   %call.i.i = tail call ptr @sdsnew(ptr noundef nonnull @.str.116) #11
   tail call void @luaPushErrorBuff(ptr noundef %lua, ptr noundef %call.i.i)
-  br label %luaRedisReturnSingleFieldTable.argprom.exit
+  br label %luaRedisReturnSingleFieldTable.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   tail call void @lua_createtable(ptr noundef %lua, i32 noundef 0, i32 noundef 0) #11
   tail call void @lua_pushstring(ptr noundef %lua, ptr noundef nonnull @.str.106) #11
   tail call void @lua_pushvalue(ptr noundef %lua, i32 noundef -3) #11
   tail call void @lua_settable(ptr noundef %lua, i32 noundef -3) #11
-  br label %luaRedisReturnSingleFieldTable.argprom.exit
+  br label %luaRedisReturnSingleFieldTable.exit
 
-luaRedisReturnSingleFieldTable.argprom.exit:      ; preds = %if.then.i, %if.end.i
+luaRedisReturnSingleFieldTable.exit:              ; preds = %if.then.i, %if.end.i
   ret i32 1
 }
 

@@ -57,7 +57,7 @@ entry:
   store i64 0, ptr %extent_sn_next, align 8
   %cond = select i1 %metadata_use_hooks, ptr %extent_hooks, ptr @ehooks_default_extent_hooks
   call void @ehooks_init(ptr noundef nonnull %fake_ehooks, ptr noundef %cond, i32 noundef %ind) #9
-  %call = call fastcc ptr @base_block_alloc.argelim(ptr noundef %tsdn, ptr noundef null, ptr noundef nonnull %fake_ehooks, ptr noundef nonnull %pind_last, ptr noundef nonnull %extent_sn_next, i64 noundef 3960, i64 noundef 8)
+  %call = call fastcc ptr @base_block_alloc(ptr noundef %tsdn, ptr noundef null, ptr noundef nonnull %fake_ehooks, ptr noundef nonnull %pind_last, ptr noundef nonnull %extent_sn_next, i64 noundef 3960, i64 noundef 8)
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
@@ -91,7 +91,7 @@ if.end:                                           ; preds = %entry
 
 if.then9:                                         ; preds = %if.end
   %6 = load i64, ptr %call, align 8
-  call fastcc void @base_unmap.argelim(ptr noundef %tsdn, ptr noundef nonnull %fake_ehooks, ptr noundef nonnull %call, i64 noundef %6)
+  call fastcc void @base_unmap(ptr noundef %tsdn, ptr noundef nonnull %fake_ehooks, ptr noundef nonnull %call, i64 noundef %6)
   br label %return
 
 if.end10:                                         ; preds = %if.end
@@ -143,7 +143,7 @@ return:                                           ; preds = %entry, %for.end, %i
 declare void @ehooks_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @base_block_alloc.argelim(ptr noundef %tsdn, ptr noundef %base, ptr nocapture noundef readonly %ehooks, ptr nocapture noundef %pind_last, ptr nocapture noundef %extent_sn_next, i64 noundef %size, i64 noundef range(i64 0, -7) %alignment) unnamed_addr #1 {
+define internal fastcc ptr @base_block_alloc(ptr noundef %tsdn, ptr noundef %base, ptr nocapture noundef readonly %ehooks, ptr nocapture noundef %pind_last, ptr nocapture noundef %extent_sn_next, i64 noundef %size, i64 noundef range(i64 0, -7) %alignment) unnamed_addr #1 {
 entry:
   %zero.i = alloca i8, align 1
   %commit.i = alloca i8, align 1
@@ -351,7 +351,7 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i50, %if.the
   %auto_thp_switched.i = getelementptr inbounds i8, ptr %base, i64 144
   %25 = load i8, ptr %auto_thp_switched.i, align 8
   %tobool.i = trunc i8 %25 to i1
-  br i1 %tobool.i, label %base_auto_thp_switch.argprom.exit, label %if.end.i52
+  br i1 %tobool.i, label %base_auto_thp_switch.exit, label %if.end.i52
 
 if.end.i52:                                       ; preds = %malloc_mutex_lock.exit
   %base.val.i = load i32, ptr %base, align 8
@@ -367,11 +367,11 @@ while.cond.i.i:                                   ; preds = %if.end.i52, %while.
   %27 = load ptr, ptr %next.i.i, align 8
   %cmp.not.i.i53 = icmp eq ptr %27, null
   %inc.i.i54 = add i64 %n_blocks.0.i.i, 1
-  br i1 %cmp.not.i.i53, label %base_get_num_blocks.argprom.exit.i, label %while.cond.i.i, !llvm.loop !7
+  br i1 %cmp.not.i.i53, label %base_get_num_blocks.exit.i, label %while.cond.i.i, !llvm.loop !7
 
-base_get_num_blocks.argprom.exit.i:               ; preds = %while.cond.i.i
+base_get_num_blocks.exit.i:                       ; preds = %while.cond.i.i
   %cmp3.i55 = icmp eq i64 %n_blocks.0.i.i, 2
-  br i1 %cmp3.i55, label %if.end10.i, label %base_auto_thp_switch.argprom.exit
+  br i1 %cmp3.i55, label %if.end10.i, label %base_auto_thp_switch.exit
 
 while.cond.i15.i:                                 ; preds = %if.end.i52, %while.cond.i15.i
   %b.0.i16.i = phi ptr [ %28, %while.cond.i15.i ], [ %base.val14.i, %if.end.i52 ]
@@ -384,9 +384,9 @@ while.cond.i15.i:                                 ; preds = %if.end.i52, %while.
 
 if.end7.i:                                        ; preds = %while.cond.i15.i
   %cmp5.i = icmp eq i64 %n_blocks.0.i17.i, 5
-  br i1 %cmp5.i, label %if.end10.i, label %base_auto_thp_switch.argprom.exit
+  br i1 %cmp5.i, label %if.end10.i, label %base_auto_thp_switch.exit
 
-if.end10.i:                                       ; preds = %if.end7.i, %base_get_num_blocks.argprom.exit.i
+if.end10.i:                                       ; preds = %if.end7.i, %base_get_num_blocks.exit.i
   store i8 1, ptr %auto_thp_switched.i, align 8
   %cmp14.not2.i = icmp eq ptr %base.val14.i, null
   br i1 %cmp14.not2.i, label %if.then35, label %do.end16.lr.ph.i
@@ -411,22 +411,22 @@ do.end16.i:                                       ; preds = %do.end16.i, %do.end
   %next.i = getelementptr inbounds i8, ptr %block.03.i, i64 8
   %block.0.i = load ptr, ptr %next.i, align 8
   %cmp14.not.i = icmp eq ptr %block.0.i, null
-  br i1 %cmp14.not.i, label %base_auto_thp_switch.argprom.exit.loopexit, label %do.end16.i, !llvm.loop !8
+  br i1 %cmp14.not.i, label %base_auto_thp_switch.exit.loopexit, label %do.end16.i, !llvm.loop !8
 
-base_auto_thp_switch.argprom.exit.loopexit:       ; preds = %do.end16.i
+base_auto_thp_switch.exit.loopexit:               ; preds = %do.end16.i
   %.pre = load i8, ptr %auto_thp_switched.i, align 8
-  br label %base_auto_thp_switch.argprom.exit
+  br label %base_auto_thp_switch.exit
 
-base_auto_thp_switch.argprom.exit:                ; preds = %base_auto_thp_switch.argprom.exit.loopexit, %malloc_mutex_lock.exit, %base_get_num_blocks.argprom.exit.i, %if.end7.i
-  %33 = phi i8 [ %.pre, %base_auto_thp_switch.argprom.exit.loopexit ], [ %25, %malloc_mutex_lock.exit ], [ %25, %base_get_num_blocks.argprom.exit.i ], [ %25, %if.end7.i ]
+base_auto_thp_switch.exit:                        ; preds = %base_auto_thp_switch.exit.loopexit, %malloc_mutex_lock.exit, %base_get_num_blocks.exit.i, %if.end7.i
+  %33 = phi i8 [ %.pre, %base_auto_thp_switch.exit.loopexit ], [ %25, %malloc_mutex_lock.exit ], [ %25, %base_get_num_blocks.exit.i ], [ %25, %if.end7.i ]
   %tobool = trunc i8 %33 to i1
   br i1 %tobool, label %if.then35, label %if.end37
 
-if.then35:                                        ; preds = %if.end10.i, %base_auto_thp_switch.argprom.exit
+if.then35:                                        ; preds = %if.end10.i, %base_auto_thp_switch.exit
   %call36 = call zeroext i1 @pages_huge(ptr noundef nonnull %addr.0.i68, i64 noundef %cond24) #9
   br label %if.end37
 
-if.end37:                                         ; preds = %if.then35, %base_auto_thp_switch.argprom.exit
+if.end37:                                         ; preds = %if.then35, %base_auto_thp_switch.exit
   %locked.i59 = getelementptr inbounds i8, ptr %base, i64 136
   store atomic i8 0, ptr %locked.i59 monotonic, align 1
   %call1.i60 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #9
@@ -486,7 +486,7 @@ return:                                           ; preds = %base_map.exit.threa
 declare zeroext i1 @malloc_mutex_init(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @base_unmap.argelim(ptr noundef %tsdn, ptr nocapture noundef readonly %ehooks, ptr noundef %addr, i64 noundef %size) unnamed_addr #1 {
+define internal fastcc void @base_unmap(ptr noundef %tsdn, ptr nocapture noundef readonly %ehooks, ptr noundef %addr, i64 noundef %size) unnamed_addr #1 {
 entry:
   %ptr.i.i = getelementptr inbounds i8, ptr %ehooks, i64 8
   %0 = load atomic i64, ptr %ptr.i.i acquire, align 8
@@ -954,7 +954,7 @@ do.body:                                          ; preds = %do.body, %entry
   %next1 = getelementptr inbounds i8, ptr %next.0, i64 8
   %1 = load ptr, ptr %next1, align 8
   %2 = load i64, ptr %next.0, align 8
-  tail call fastcc void @base_unmap.argelim(ptr noundef %tsdn, ptr noundef nonnull %ehooks_base.i, ptr noundef nonnull %next.0, i64 noundef %2)
+  tail call fastcc void @base_unmap(ptr noundef %tsdn, ptr noundef nonnull %ehooks_base.i, ptr noundef nonnull %next.0, i64 noundef %2)
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !9
 
@@ -1096,7 +1096,7 @@ if.then12:                                        ; preds = %for.cond, %if.end.i
   %call1.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #9
   %pind_last.i = getelementptr inbounds i8, ptr %base, i64 148
   %extent_sn_next.i = getelementptr inbounds i8, ptr %base, i64 152
-  %call3.i = tail call fastcc ptr @base_block_alloc.argelim(ptr noundef %tsdn, ptr noundef nonnull %base, ptr noundef nonnull %ehooks_base.i.i, ptr noundef nonnull %pind_last.i, ptr noundef nonnull %extent_sn_next.i, i64 noundef %and3, i64 noundef %and)
+  %call3.i = tail call fastcc ptr @base_block_alloc(ptr noundef %tsdn, ptr noundef nonnull %base, ptr noundef nonnull %ehooks_base.i.i, ptr noundef nonnull %pind_last.i, ptr noundef nonnull %extent_sn_next.i, i64 noundef %and3, i64 noundef %and)
   %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #9
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %if.end.i.i, label %if.then.i.i29

@@ -131,9 +131,9 @@ Saig_ManStartMap2.exit80:                         ; preds = %.lr.ph.preheader.i7
   %53 = add nsw i32 %.val48, %52
   %.val49 = load ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %.val49, null
-  br i1 %.not.i, label %.sink.split, label %Aig_ManObj.argprom.exit
+  br i1 %.not.i, label %.sink.split, label %Aig_ManObj.exit
 
-Aig_ManObj.argprom.exit:                          ; preds = %50
+Aig_ManObj.exit:                                  ; preds = %50
   %.val47 = load ptr, ptr %36, align 8
   %54 = getelementptr i8, ptr %.val47, i64 8
   %.val47.val = load ptr, ptr %54, align 8
@@ -148,10 +148,10 @@ Aig_ManObj.argprom.exit:                          ; preds = %50
   %62 = icmp eq ptr %61, null
   br i1 %62, label %.sink.split, label %63
 
-63:                                               ; preds = %Aig_ManObj.argprom.exit
+63:                                               ; preds = %Aig_ManObj.exit
   %.val62 = load ptr, ptr %37, align 8
   %.not.i82 = icmp eq ptr %.val62, null
-  br i1 %.not.i82, label %Aig_ObjRepr.argprom.exit, label %64
+  br i1 %.not.i82, label %Aig_ObjRepr.exit, label %64
 
 64:                                               ; preds = %63
   %65 = getelementptr inbounds i8, ptr %61, i64 36
@@ -159,9 +159,9 @@ Aig_ManObj.argprom.exit:                          ; preds = %50
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds ptr, ptr %.val62, i64 %67
   %69 = load ptr, ptr %68, align 8
-  br label %Aig_ObjRepr.argprom.exit
+  br label %Aig_ObjRepr.exit
 
-Aig_ObjRepr.argprom.exit:                         ; preds = %63, %64
+Aig_ObjRepr.exit:                                 ; preds = %63, %64
   %70 = phi ptr [ %69, %64 ], [ null, %63 ]
   %71 = icmp eq ptr %70, null
   %spec.select = select i1 %71, ptr %61, ptr %70
@@ -175,9 +175,9 @@ Aig_ObjRepr.argprom.exit:                         ; preds = %63, %64
   %76 = getelementptr inbounds i32, ptr %.val8.i, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = icmp eq i32 %77, -1
-  br i1 %78, label %79, label %Aig_ManObj.argprom.exit90
+  br i1 %78, label %79, label %Aig_ManObj.exit90
 
-79:                                               ; preds = %Aig_ObjRepr.argprom.exit
+79:                                               ; preds = %Aig_ObjRepr.exit
   %80 = or disjoint i32 %73, 1
   %81 = sext i32 %80 to i64
   store i32 %.val48, ptr %76, align 4
@@ -194,15 +194,15 @@ Aig_ObjRepr.argprom.exit:                         ; preds = %63, %64
   %.val60.pre = load i32, ptr %51, align 4
   %.pre107 = shl nsw i32 %spec.select.val68.pre, 1
   %.pre108 = sext i32 %.pre107 to i64
-  br label %Aig_ManObj.argprom.exit90
+  br label %Aig_ManObj.exit90
 
-Aig_ManObj.argprom.exit90:                        ; preds = %79, %Aig_ObjRepr.argprom.exit
-  %.pre-phi109 = phi i64 [ %.pre108, %79 ], [ %75, %Aig_ObjRepr.argprom.exit ]
-  %.pre-phi = phi i32 [ %.pre107, %79 ], [ %73, %Aig_ObjRepr.argprom.exit ]
-  %.val60 = phi i32 [ %.val60.pre, %79 ], [ %.val48, %Aig_ObjRepr.argprom.exit ]
-  %.val.i89 = phi ptr [ %.val.i89.pre, %79 ], [ %.val45, %Aig_ObjRepr.argprom.exit ]
-  %.val50 = phi ptr [ %.val50.pre, %79 ], [ %45, %Aig_ObjRepr.argprom.exit ]
-  %.val8.i86 = phi ptr [ %.val8.i86.pre, %79 ], [ %.val8.i, %Aig_ObjRepr.argprom.exit ]
+Aig_ManObj.exit90:                                ; preds = %79, %Aig_ObjRepr.exit
+  %.pre-phi109 = phi i64 [ %.pre108, %79 ], [ %75, %Aig_ObjRepr.exit ]
+  %.pre-phi = phi i32 [ %.pre107, %79 ], [ %73, %Aig_ObjRepr.exit ]
+  %.val60 = phi i32 [ %.val60.pre, %79 ], [ %.val48, %Aig_ObjRepr.exit ]
+  %.val.i89 = phi ptr [ %.val.i89.pre, %79 ], [ %.val45, %Aig_ObjRepr.exit ]
+  %.val50 = phi ptr [ %.val50.pre, %79 ], [ %45, %Aig_ObjRepr.exit ]
+  %.val8.i86 = phi ptr [ %.val8.i86.pre, %79 ], [ %.val8.i, %Aig_ObjRepr.exit ]
   %83 = or disjoint i32 %.pre-phi, 1
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds i32, ptr %.val8.i86, i64 %84
@@ -220,10 +220,10 @@ Aig_ManObj.argprom.exit90:                        ; preds = %79, %Aig_ObjRepr.ar
   %95 = add nsw i32 %94, %.val60
   br label %.sink.split
 
-.sink.split:                                      ; preds = %Aig_ManObj.argprom.exit, %50, %Aig_ManObj.argprom.exit90
-  %.sink119 = phi i32 [ %95, %Aig_ManObj.argprom.exit90 ], [ %53, %50 ], [ %53, %Aig_ManObj.argprom.exit ]
-  %.val61.sink = phi i32 [ %.val61, %Aig_ManObj.argprom.exit90 ], [ %.val48, %50 ], [ %.val48, %Aig_ManObj.argprom.exit ]
-  %.sink = phi i32 [ %86, %Aig_ManObj.argprom.exit90 ], [ %.097, %50 ], [ %.097, %Aig_ManObj.argprom.exit ]
+.sink.split:                                      ; preds = %Aig_ManObj.exit, %50, %Aig_ManObj.exit90
+  %.sink119 = phi i32 [ %95, %Aig_ManObj.exit90 ], [ %53, %50 ], [ %53, %Aig_ManObj.exit ]
+  %.val61.sink = phi i32 [ %.val61, %Aig_ManObj.exit90 ], [ %.val48, %50 ], [ %.val48, %Aig_ManObj.exit ]
+  %.sink = phi i32 [ %86, %Aig_ManObj.exit90 ], [ %.097, %50 ], [ %.097, %Aig_ManObj.exit ]
   %.val59.sink = load ptr, ptr %19, align 8
   %96 = shl nsw i32 %.sink119, 1
   %97 = getelementptr i8, ptr %.val59.sink, i64 8
@@ -427,7 +427,7 @@ Saig_ManStartMap1.exit:                           ; preds = %.lr.ph.preheader.i,
   %72 = ptrtoint ptr %.val118 to i64
   %73 = and i64 %72, -2
   %.not.i = icmp eq i64 %73, 0
-  br i1 %.not.i, label %Aig_ObjChild0Copy.argprom.exit, label %74
+  br i1 %.not.i, label %Aig_ObjChild0Copy.exit, label %74
 
 74:                                               ; preds = %70
   %75 = inttoptr i64 %73 to ptr
@@ -437,18 +437,18 @@ Saig_ManStartMap1.exit:                           ; preds = %.lr.ph.preheader.i,
   %79 = ptrtoint ptr %77 to i64
   %80 = xor i64 %78, %79
   %81 = inttoptr i64 %80 to ptr
-  br label %Aig_ObjChild0Copy.argprom.exit
+  br label %Aig_ObjChild0Copy.exit
 
-Aig_ObjChild0Copy.argprom.exit:                   ; preds = %70, %74
+Aig_ObjChild0Copy.exit:                           ; preds = %70, %74
   %82 = phi ptr [ %81, %74 ], [ null, %70 ]
   %83 = getelementptr i8, ptr %63, i64 16
   %.val121 = load ptr, ptr %83, align 8
   %84 = ptrtoint ptr %.val121 to i64
   %85 = and i64 %84, -2
   %.not.i136 = icmp eq i64 %85, 0
-  br i1 %.not.i136, label %Aig_ObjChild1Copy.argprom.exit, label %86
+  br i1 %.not.i136, label %Aig_ObjChild1Copy.exit, label %86
 
-86:                                               ; preds = %Aig_ObjChild0Copy.argprom.exit
+86:                                               ; preds = %Aig_ObjChild0Copy.exit
   %87 = inttoptr i64 %85 to ptr
   %88 = getelementptr inbounds i8, ptr %87, i64 40
   %89 = load ptr, ptr %88, align 8
@@ -456,18 +456,18 @@ Aig_ObjChild0Copy.argprom.exit:                   ; preds = %70, %74
   %91 = ptrtoint ptr %89 to i64
   %92 = xor i64 %90, %91
   %93 = inttoptr i64 %92 to ptr
-  br label %Aig_ObjChild1Copy.argprom.exit
+  br label %Aig_ObjChild1Copy.exit
 
-Aig_ObjChild1Copy.argprom.exit:                   ; preds = %Aig_ObjChild0Copy.argprom.exit, %86
-  %94 = phi ptr [ %93, %86 ], [ null, %Aig_ObjChild0Copy.argprom.exit ]
+Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.exit, %86
+  %94 = phi ptr [ %93, %86 ], [ null, %Aig_ObjChild0Copy.exit ]
   %95 = tail call ptr @Aig_And(ptr noundef %22, ptr noundef %82, ptr noundef %94) #11
   %96 = getelementptr inbounds i8, ptr %63, i64 40
   store ptr %95, ptr %96, align 8
   %.pre = load ptr, ptr %3, align 8
   br label %.critedge2
 
-.critedge2:                                       ; preds = %Aig_ObjChild1Copy.argprom.exit, %65, %.lr.ph151
-  %97 = phi ptr [ %.pre, %Aig_ObjChild1Copy.argprom.exit ], [ %60, %65 ], [ %60, %.lr.ph151 ]
+.critedge2:                                       ; preds = %Aig_ObjChild1Copy.exit, %65, %.lr.ph151
+  %97 = phi ptr [ %.pre, %Aig_ObjChild1Copy.exit ], [ %60, %65 ], [ %60, %.lr.ph151 ]
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
   %98 = getelementptr i8, ptr %97, i64 4
   %.val100 = load i32, ptr %98, align 4
@@ -475,13 +475,13 @@ Aig_ObjChild1Copy.argprom.exit:                   ; preds = %Aig_ObjChild0Copy.a
   %100 = icmp slt i64 %indvars.iv.next171, %99
   br i1 %100, label %.lr.ph151, label %.critedge4.preheader, !llvm.loop !10
 
-.critedge6.preheader:                             ; preds = %Aig_ObjChild0Copy.argprom.exit138, %.critedge4.preheader
+.critedge6.preheader:                             ; preds = %Aig_ObjChild0Copy.exit138, %.critedge4.preheader
   %.val112155 = load i32, ptr %26, align 8
   %101 = icmp sgt i32 %.val112155, 0
   br i1 %101, label %.lr.ph157, label %.critedge8.preheader
 
-.lr.ph154:                                        ; preds = %.critedge4.preheader, %Aig_ObjChild0Copy.argprom.exit138
-  %indvars.iv173 = phi i64 [ %indvars.iv.next174, %Aig_ObjChild0Copy.argprom.exit138 ], [ 0, %.critedge4.preheader ]
+.lr.ph154:                                        ; preds = %.critedge4.preheader, %Aig_ObjChild0Copy.exit138
+  %indvars.iv173 = phi i64 [ %indvars.iv.next174, %Aig_ObjChild0Copy.exit138 ], [ 0, %.critedge4.preheader ]
   %102 = load ptr, ptr %35, align 8
   %103 = getelementptr i8, ptr %102, i64 8
   %.val103 = load ptr, ptr %103, align 8
@@ -492,7 +492,7 @@ Aig_ObjChild1Copy.argprom.exit:                   ; preds = %Aig_ObjChild0Copy.a
   %107 = ptrtoint ptr %.val119 to i64
   %108 = and i64 %107, -2
   %.not.i137 = icmp eq i64 %108, 0
-  br i1 %.not.i137, label %Aig_ObjChild0Copy.argprom.exit138, label %109
+  br i1 %.not.i137, label %Aig_ObjChild0Copy.exit138, label %109
 
 109:                                              ; preds = %.lr.ph154
   %110 = inttoptr i64 %108 to ptr
@@ -502,9 +502,9 @@ Aig_ObjChild1Copy.argprom.exit:                   ; preds = %Aig_ObjChild0Copy.a
   %114 = ptrtoint ptr %112 to i64
   %115 = xor i64 %113, %114
   %116 = inttoptr i64 %115 to ptr
-  br label %Aig_ObjChild0Copy.argprom.exit138
+  br label %Aig_ObjChild0Copy.exit138
 
-Aig_ObjChild0Copy.argprom.exit138:                ; preds = %.lr.ph154, %109
+Aig_ObjChild0Copy.exit138:                        ; preds = %.lr.ph154, %109
   %117 = phi ptr [ %116, %109 ], [ null, %.lr.ph154 ]
   %118 = tail call ptr @Aig_ObjCreateCo(ptr noundef %22, ptr noundef %117) #11
   %119 = getelementptr inbounds i8, ptr %105, i64 40
@@ -515,15 +515,15 @@ Aig_ObjChild0Copy.argprom.exit138:                ; preds = %.lr.ph154, %109
   %121 = icmp slt i64 %indvars.iv.next174, %120
   br i1 %121, label %.lr.ph154, label %.critedge6.preheader, !llvm.loop !11
 
-.critedge8.preheader:                             ; preds = %Aig_ObjChild0Copy.argprom.exit140, %.critedge6.preheader
+.critedge8.preheader:                             ; preds = %Aig_ObjChild0Copy.exit140, %.critedge6.preheader
   %122 = load ptr, ptr %3, align 8
   %123 = getelementptr i8, ptr %122, i64 4
   %.val158 = load i32, ptr %123, align 4
   %124 = icmp sgt i32 %.val158, 0
   br i1 %124, label %.lr.ph161, label %.critedge10
 
-.lr.ph157:                                        ; preds = %.critedge6.preheader, %Aig_ObjChild0Copy.argprom.exit140
-  %.4156 = phi i32 [ %144, %Aig_ObjChild0Copy.argprom.exit140 ], [ 0, %.critedge6.preheader ]
+.lr.ph157:                                        ; preds = %.critedge6.preheader, %Aig_ObjChild0Copy.exit140
+  %.4156 = phi i32 [ %144, %Aig_ObjChild0Copy.exit140 ], [ 0, %.critedge6.preheader ]
   %125 = load ptr, ptr %35, align 8
   %.val123 = load i32, ptr %34, align 8
   %126 = add nsw i32 %.val123, %.4156
@@ -537,7 +537,7 @@ Aig_ObjChild0Copy.argprom.exit138:                ; preds = %.lr.ph154, %109
   %132 = ptrtoint ptr %.val120 to i64
   %133 = and i64 %132, -2
   %.not.i139 = icmp eq i64 %133, 0
-  br i1 %.not.i139, label %Aig_ObjChild0Copy.argprom.exit140, label %134
+  br i1 %.not.i139, label %Aig_ObjChild0Copy.exit140, label %134
 
 134:                                              ; preds = %.lr.ph157
   %135 = inttoptr i64 %133 to ptr
@@ -547,9 +547,9 @@ Aig_ObjChild0Copy.argprom.exit138:                ; preds = %.lr.ph154, %109
   %139 = ptrtoint ptr %137 to i64
   %140 = xor i64 %138, %139
   %141 = inttoptr i64 %140 to ptr
-  br label %Aig_ObjChild0Copy.argprom.exit140
+  br label %Aig_ObjChild0Copy.exit140
 
-Aig_ObjChild0Copy.argprom.exit140:                ; preds = %.lr.ph157, %134
+Aig_ObjChild0Copy.exit140:                        ; preds = %.lr.ph157, %134
   %142 = phi ptr [ %141, %134 ], [ null, %.lr.ph157 ]
   %143 = getelementptr inbounds i8, ptr %130, i64 40
   store ptr %142, ptr %143, align 8
@@ -994,7 +994,7 @@ Saig_ManStartMap1.exit:                           ; preds = %.lr.ph.preheader.i,
   %156 = ptrtoint ptr %.val211 to i64
   %157 = and i64 %156, -2
   %.not.i = icmp eq i64 %157, 0
-  br i1 %.not.i, label %Aig_ObjChild0Copy.argprom.exit, label %158
+  br i1 %.not.i, label %Aig_ObjChild0Copy.exit, label %158
 
 158:                                              ; preds = %154
   %159 = inttoptr i64 %157 to ptr
@@ -1004,18 +1004,18 @@ Saig_ManStartMap1.exit:                           ; preds = %.lr.ph.preheader.i,
   %163 = ptrtoint ptr %161 to i64
   %164 = xor i64 %162, %163
   %165 = inttoptr i64 %164 to ptr
-  br label %Aig_ObjChild0Copy.argprom.exit
+  br label %Aig_ObjChild0Copy.exit
 
-Aig_ObjChild0Copy.argprom.exit:                   ; preds = %154, %158
+Aig_ObjChild0Copy.exit:                           ; preds = %154, %158
   %166 = phi ptr [ %165, %158 ], [ null, %154 ]
   %167 = getelementptr i8, ptr %147, i64 16
   %.val212 = load ptr, ptr %167, align 8
   %168 = ptrtoint ptr %.val212 to i64
   %169 = and i64 %168, -2
   %.not.i258 = icmp eq i64 %169, 0
-  br i1 %.not.i258, label %Aig_ObjChild1Copy.argprom.exit, label %170
+  br i1 %.not.i258, label %Aig_ObjChild1Copy.exit, label %170
 
-170:                                              ; preds = %Aig_ObjChild0Copy.argprom.exit
+170:                                              ; preds = %Aig_ObjChild0Copy.exit
   %171 = inttoptr i64 %169 to ptr
   %172 = getelementptr inbounds i8, ptr %171, i64 40
   %173 = load ptr, ptr %172, align 8
@@ -1023,10 +1023,10 @@ Aig_ObjChild0Copy.argprom.exit:                   ; preds = %154, %158
   %175 = ptrtoint ptr %173 to i64
   %176 = xor i64 %174, %175
   %177 = inttoptr i64 %176 to ptr
-  br label %Aig_ObjChild1Copy.argprom.exit
+  br label %Aig_ObjChild1Copy.exit
 
-Aig_ObjChild1Copy.argprom.exit:                   ; preds = %Aig_ObjChild0Copy.argprom.exit, %170
-  %178 = phi ptr [ %177, %170 ], [ null, %Aig_ObjChild0Copy.argprom.exit ]
+Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.exit, %170
+  %178 = phi ptr [ %177, %170 ], [ null, %Aig_ObjChild0Copy.exit ]
   %179 = tail call ptr @Aig_And(ptr noundef %24, ptr noundef %166, ptr noundef %178) #11
   %180 = getelementptr inbounds i8, ptr %147, i64 40
   store ptr %179, ptr %180, align 8
@@ -1052,7 +1052,7 @@ Aig_ObjChild1Copy.argprom.exit:                   ; preds = %Aig_ObjChild0Copy.a
   %.not274 = icmp eq ptr %.val257, null
   br i1 %.not274, label %.critedge6, label %192
 
-192:                                              ; preds = %Aig_ObjChild1Copy.argprom.exit
+192:                                              ; preds = %Aig_ObjChild1Copy.exit
   %.val191 = load ptr, ptr %5, align 8
   %.val193 = load i32, ptr %184, align 4
   %193 = getelementptr i8, ptr %.val191, i64 4
@@ -1069,7 +1069,7 @@ Aig_ObjChild1Copy.argprom.exit:                   ; preds = %Aig_ObjChild0Copy.a
   %200 = sext i32 %199 to i64
   %201 = getelementptr inbounds i32, ptr %.val8.i, i64 %200
   %202 = load i32, ptr %201, align 4
-  br label %Aig_ManObj.argprom.exit
+  br label %Aig_ManObj.exit
 
 203:                                              ; preds = %192
   %204 = mul nsw i32 %.val191.val, %90
@@ -1080,9 +1080,9 @@ Aig_ObjChild1Copy.argprom.exit:                   ; preds = %Aig_ObjChild0Copy.a
   %209 = getelementptr inbounds i32, ptr %.val8.i, i64 %208
   %210 = load i32, ptr %209, align 4
   %211 = add nsw i32 %112, %210
-  br label %Aig_ManObj.argprom.exit
+  br label %Aig_ManObj.exit
 
-Aig_ManObj.argprom.exit:                          ; preds = %203, %195
+Aig_ManObj.exit:                                  ; preds = %203, %195
   %.0273 = phi i32 [ %202, %195 ], [ %211, %203 ]
   %.pn.in = phi i32 [ %198, %195 ], [ %206, %203 ]
   %.pn = sext i32 %.pn.in to i64
@@ -1118,7 +1118,7 @@ Aig_ManObj.argprom.exit:                          ; preds = %203, %195
   %.not.i266 = icmp eq ptr %232, null
   br i1 %.not.i266, label %Aig_ObjPhaseReal.exit, label %233
 
-233:                                              ; preds = %Aig_ManObj.argprom.exit
+233:                                              ; preds = %Aig_ManObj.exit
   %234 = ptrtoint ptr %232 to i64
   %235 = and i64 %234, -2
   %236 = inttoptr i64 %235 to ptr
@@ -1131,8 +1131,8 @@ Aig_ManObj.argprom.exit:                          ; preds = %203, %195
   %243 = and i32 %242, 1
   br label %Aig_ObjPhaseReal.exit
 
-Aig_ObjPhaseReal.exit:                            ; preds = %Aig_ManObj.argprom.exit, %233
-  %244 = phi i32 [ %243, %233 ], [ 1, %Aig_ManObj.argprom.exit ]
+Aig_ObjPhaseReal.exit:                            ; preds = %Aig_ManObj.exit, %233
+  %244 = phi i32 [ %243, %233 ], [ 1, %Aig_ManObj.exit ]
   %245 = xor i32 %244, %231
   %246 = ptrtoint ptr %226 to i64
   %247 = zext nneg i32 %245 to i64
@@ -1141,7 +1141,7 @@ Aig_ObjPhaseReal.exit:                            ; preds = %Aig_ManObj.argprom.
   store ptr %249, ptr %180, align 8
   br label %.critedge6
 
-.critedge6:                                       ; preds = %Aig_ObjPhaseReal.exit, %149, %143, %Aig_ObjChild1Copy.argprom.exit
+.critedge6:                                       ; preds = %Aig_ObjPhaseReal.exit, %149, %143, %Aig_ObjChild1Copy.exit
   %indvars.iv.next318 = add nuw nsw i64 %indvars.iv317, 1
   %250 = load ptr, ptr %5, align 8
   %251 = getelementptr i8, ptr %250, i64 4
@@ -1150,13 +1150,13 @@ Aig_ObjPhaseReal.exit:                            ; preds = %Aig_ManObj.argprom.
   %253 = icmp slt i64 %indvars.iv.next318, %252
   br i1 %253, label %143, label %.critedge8.preheader, !llvm.loop !22
 
-.critedge10.preheader:                            ; preds = %Aig_ObjChild0Copy.argprom.exit268, %.critedge8.preheader
+.critedge10.preheader:                            ; preds = %Aig_ObjChild0Copy.exit268, %.critedge8.preheader
   %.val200302 = load i32, ptr %94, align 8
   %254 = icmp sgt i32 %.val200302, 0
   br i1 %254, label %.lr.ph304, label %.critedge12
 
-.lr.ph301:                                        ; preds = %.critedge8.preheader, %Aig_ObjChild0Copy.argprom.exit268
-  %indvars.iv320 = phi i64 [ %indvars.iv.next321, %Aig_ObjChild0Copy.argprom.exit268 ], [ 0, %.critedge8.preheader ]
+.lr.ph301:                                        ; preds = %.critedge8.preheader, %Aig_ObjChild0Copy.exit268
+  %indvars.iv320 = phi i64 [ %indvars.iv.next321, %Aig_ObjChild0Copy.exit268 ], [ 0, %.critedge8.preheader ]
   %255 = load ptr, ptr %93, align 8
   %256 = getelementptr i8, ptr %255, i64 8
   %.val177 = load ptr, ptr %256, align 8
@@ -1167,7 +1167,7 @@ Aig_ObjPhaseReal.exit:                            ; preds = %Aig_ManObj.argprom.
   %260 = ptrtoint ptr %.val210 to i64
   %261 = and i64 %260, -2
   %.not.i267 = icmp eq i64 %261, 0
-  br i1 %.not.i267, label %Aig_ObjChild0Copy.argprom.exit268, label %262
+  br i1 %.not.i267, label %Aig_ObjChild0Copy.exit268, label %262
 
 262:                                              ; preds = %.lr.ph301
   %263 = inttoptr i64 %261 to ptr
@@ -1177,9 +1177,9 @@ Aig_ObjPhaseReal.exit:                            ; preds = %Aig_ManObj.argprom.
   %267 = ptrtoint ptr %265 to i64
   %268 = xor i64 %266, %267
   %269 = inttoptr i64 %268 to ptr
-  br label %Aig_ObjChild0Copy.argprom.exit268
+  br label %Aig_ObjChild0Copy.exit268
 
-Aig_ObjChild0Copy.argprom.exit268:                ; preds = %.lr.ph301, %262
+Aig_ObjChild0Copy.exit268:                        ; preds = %.lr.ph301, %262
   %270 = phi ptr [ %269, %262 ], [ null, %.lr.ph301 ]
   %271 = tail call ptr @Aig_ObjCreateCo(ptr noundef %24, ptr noundef %270) #11
   %272 = getelementptr inbounds i8, ptr %258, i64 40
@@ -1208,8 +1208,8 @@ Aig_ObjChild0Copy.argprom.exit268:                ; preds = %.lr.ph301, %262
   %285 = icmp slt i64 %indvars.iv.next321, %284
   br i1 %285, label %.lr.ph301, label %.critedge10.preheader, !llvm.loop !23
 
-.lr.ph304:                                        ; preds = %.critedge10.preheader, %Aig_ObjChild0Copy.argprom.exit270
-  %.6303 = phi i32 [ %316, %Aig_ObjChild0Copy.argprom.exit270 ], [ 0, %.critedge10.preheader ]
+.lr.ph304:                                        ; preds = %.critedge10.preheader, %Aig_ObjChild0Copy.exit270
+  %.6303 = phi i32 [ %316, %Aig_ObjChild0Copy.exit270 ], [ 0, %.critedge10.preheader ]
   %286 = load ptr, ptr %93, align 8
   %.val213 = load i32, ptr %92, align 8
   %287 = add nsw i32 %.val213, %.6303
@@ -1223,7 +1223,7 @@ Aig_ObjChild0Copy.argprom.exit268:                ; preds = %.lr.ph301, %262
   %293 = ptrtoint ptr %.val209 to i64
   %294 = and i64 %293, -2
   %.not.i269 = icmp eq i64 %294, 0
-  br i1 %.not.i269, label %Aig_ObjChild0Copy.argprom.exit270, label %295
+  br i1 %.not.i269, label %Aig_ObjChild0Copy.exit270, label %295
 
 295:                                              ; preds = %.lr.ph304
   %296 = inttoptr i64 %294 to ptr
@@ -1233,9 +1233,9 @@ Aig_ObjChild0Copy.argprom.exit268:                ; preds = %.lr.ph301, %262
   %300 = ptrtoint ptr %298 to i64
   %301 = xor i64 %299, %300
   %302 = inttoptr i64 %301 to ptr
-  br label %Aig_ObjChild0Copy.argprom.exit270
+  br label %Aig_ObjChild0Copy.exit270
 
-Aig_ObjChild0Copy.argprom.exit270:                ; preds = %.lr.ph304, %295
+Aig_ObjChild0Copy.exit270:                        ; preds = %.lr.ph304, %295
   %303 = phi ptr [ %302, %295 ], [ null, %.lr.ph304 ]
   %304 = getelementptr inbounds i8, ptr %291, i64 40
   store ptr %303, ptr %304, align 8
@@ -1262,8 +1262,8 @@ Aig_ObjChild0Copy.argprom.exit270:                ; preds = %.lr.ph304, %295
   %317 = icmp slt i32 %316, %.val200
   br i1 %317, label %.lr.ph304, label %.critedge12, !llvm.loop !24
 
-.critedge12:                                      ; preds = %Aig_ObjChild0Copy.argprom.exit270, %.critedge10.preheader
-  %.val199305 = phi i32 [ %.val200302, %.critedge10.preheader ], [ %.val200, %Aig_ObjChild0Copy.argprom.exit270 ]
+.critedge12:                                      ; preds = %Aig_ObjChild0Copy.exit270, %.critedge10.preheader
+  %.val199305 = phi i32 [ %.val200302, %.critedge10.preheader ], [ %.val200, %Aig_ObjChild0Copy.exit270 ]
   %318 = icmp eq i32 %.1308, %82
   br i1 %318, label %.critedge12._crit_edge, label %.preheader275
 

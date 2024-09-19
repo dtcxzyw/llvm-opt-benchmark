@@ -834,12 +834,12 @@ define dso_local void @intel_wait_for_pipe_scanline_stopped(ptr nocapture nounde
   %.val = load ptr, ptr %0, align 8
   %2 = getelementptr i8, ptr %0, i64 1648
   %.val1 = load i32, ptr %2, align 8
-  tail call fastcc void @wait_for_pipe_scanline_moving.argprom(ptr %.val, i32 %.val1, i1 noundef zeroext false)
+  tail call fastcc void @wait_for_pipe_scanline_moving(ptr %.val, i32 %.val1, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @wait_for_pipe_scanline_moving.argprom(ptr %.0.val, i32 %.1648.val, i1 noundef zeroext %0) unnamed_addr #0 align 16 {
+define internal fastcc void @wait_for_pipe_scanline_moving(ptr %.0.val, i32 %.1648.val, i1 noundef zeroext %0) unnamed_addr #0 align 16 {
   %2 = tail call i64 @ktime_get_raw() #10
   %3 = add i64 %2, 100000000
   %4 = tail call i32 @__SCT__might_resched() #10
@@ -911,7 +911,7 @@ define dso_local void @intel_wait_for_pipe_scanline_moving(ptr nocapture noundef
   %.val = load ptr, ptr %0, align 8
   %2 = getelementptr i8, ptr %0, i64 1648
   %.val1 = load i32, ptr %2, align 8
-  tail call fastcc void @wait_for_pipe_scanline_moving.argprom(ptr %.val, i32 %.val1, i1 noundef zeroext true)
+  tail call fastcc void @wait_for_pipe_scanline_moving(ptr %.val, i32 %.val1, i1 noundef zeroext true)
   ret void
 }
 

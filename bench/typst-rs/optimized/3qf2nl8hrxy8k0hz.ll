@@ -819,16 +819,16 @@ define hidden void @"_ZN68_$LT$typst..layout..frame..GroupItem$u20$as$u20$core..
   %.not.i.i.i.i = icmp eq i64 %.pr16.i13, 0
   %74 = lshr i64 %.val.i14, %.pre-phi
   %.0.i.i.i.i = select i1 %.not.i.i.i.i, i64 0, i64 %74
-  br label %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.argprom.exit.i"
+  br label %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.exit.i"
 
 75:                                               ; preds = %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.1287454497751845056.exit.i"
   %76 = add i64 %8, 16
   store i64 %76, ptr %7, align 8, !alias.scope !190, !noalias !177
   %.pre22.i = shl i64 %76, 3
   %.pre24.i = and i64 %.pre22.i, 56
-  br label %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.argprom.exit.i"
+  br label %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.exit.i"
 
-"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.argprom.exit.i": ; preds = %75, %49
+"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.exit.i": ; preds = %75, %49
   %.pre-phi25.i = phi i64 [ %.pre-phi21.i11, %49 ], [ %.pre24.i, %75 ]
   %.pre-phi23.i = phi i64 [ %.pre-phi.i12, %49 ], [ %.pre22.i, %75 ]
   %77 = phi i64 [ %.0.i.i.i.i, %49 ], [ %47, %75 ]
@@ -840,7 +840,7 @@ define hidden void @"_ZN68_$LT$typst..layout..frame..GroupItem$u20$as$u20$core..
   %83 = icmp ugt i64 %78, 8
   br i1 %83, label %110, label %84
 
-84:                                               ; preds = %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.argprom.exit.i"
+84:                                               ; preds = %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.exit.i"
   %85 = getelementptr inbounds i8, ptr %1, i64 24
   %86 = load i64, ptr %85, align 8, !alias.scope !201, !noalias !177, !noundef !4
   %87 = xor i64 %86, %82
@@ -874,7 +874,7 @@ define hidden void @"_ZN68_$LT$typst..layout..frame..GroupItem$u20$as$u20$core..
   %.0.i.i.i7.i = select i1 %.not.i.i.i6.i, i64 0, i64 %109
   br label %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i
 
-110:                                              ; preds = %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.argprom.exit.i"
+110:                                              ; preds = %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.exit.i"
   %111 = add i64 %78, 8
   store i64 %111, ptr %7, align 8, !alias.scope !201, !noalias !177
   br label %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i
@@ -1328,16 +1328,16 @@ define hidden void @"_ZN68_$LT$typst..visualize..pattern..Repr$u20$as$u20$core..
   %77 = lshr i64 %.val4, %76
   %.0.i.i.i = select i1 %.not.i.i.i, i64 0, i64 %77
   store i64 %.0.i.i.i, ptr %14, align 8, !alias.scope !287
-  br label %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.argprom.exit"
+  br label %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.exit"
 
 78:                                               ; preds = %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.1287454497751845056.exit"
   %79 = add i64 %.pr16, 8
   store i64 %79, ptr %9, align 8, !alias.scope !287
   %.pre20 = shl i64 %79, 3
   %.pre22 = and i64 %.pre20, 56
-  br label %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.argprom.exit"
+  br label %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.exit"
 
-"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.argprom.exit": ; preds = %52, %78
+"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.exit": ; preds = %52, %78
   %.pre-phi23 = phi i64 [ %.pre-phi19, %52 ], [ %.pre22, %78 ]
   %.pre-phi21 = phi i64 [ %.pre-phi, %52 ], [ %.pre20, %78 ]
   %80 = phi i64 [ %.0.i.i.i, %52 ], [ %50, %78 ]
@@ -1349,7 +1349,7 @@ define hidden void @"_ZN68_$LT$typst..visualize..pattern..Repr$u20$as$u20$core..
   %85 = icmp ugt i64 %.pr17, 8
   br i1 %85, label %112, label %86
 
-86:                                               ; preds = %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.argprom.exit"
+86:                                               ; preds = %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.exit"
   %87 = getelementptr inbounds i8, ptr %1, i64 24
   %88 = load i64, ptr %87, align 8, !alias.scope !297, !noundef !4
   %89 = xor i64 %88, %84
@@ -1383,7 +1383,7 @@ define hidden void @"_ZN68_$LT$typst..visualize..pattern..Repr$u20$as$u20$core..
   %.0.i.i6 = select i1 %.not.i.i5, i64 0, i64 %111
   br label %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.1287454497751845056.exit7"
 
-112:                                              ; preds = %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.argprom.exit"
+112:                                              ; preds = %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.exit"
   %113 = add i64 %.pr17, 8
   store i64 %113, ptr %9, align 8, !alias.scope !297
   %.pre24 = shl i64 %113, 3
@@ -1434,16 +1434,16 @@ define hidden void @"_ZN68_$LT$typst..visualize..pattern..Repr$u20$as$u20$core..
   %144 = sub nsw i64 64, %.pre-phi25
   %145 = lshr i64 %.val, %144
   %.0.i.i.i9 = select i1 %.not.i.i.i8, i64 0, i64 %145
-  br label %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.argprom.exit10"
+  br label %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.exit10"
 
 146:                                              ; preds = %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.1287454497751845056.exit7"
   %147 = add i64 %115, 8
   store i64 %147, ptr %9, align 8, !alias.scope !305
   %.pre28 = shl i64 %147, 3
   %.pre30 = and i64 %.pre28, 56
-  br label %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.argprom.exit10"
+  br label %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.exit10"
 
-"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.argprom.exit10": ; preds = %120, %146
+"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.exit10": ; preds = %120, %146
   %.pre-phi31 = phi i64 [ %.pre-phi27, %120 ], [ %.pre30, %146 ]
   %.pre-phi29 = phi i64 [ %.pre-phi25, %120 ], [ %.pre28, %146 ]
   %148 = phi i64 [ %.0.i.i.i9, %120 ], [ %118, %146 ]
@@ -1460,7 +1460,7 @@ define hidden void @"_ZN68_$LT$typst..visualize..pattern..Repr$u20$as$u20$core..
   %157 = icmp ugt i64 %149, 8
   br i1 %157, label %184, label %158
 
-158:                                              ; preds = %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.argprom.exit10"
+158:                                              ; preds = %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.exit10"
   %159 = getelementptr inbounds i8, ptr %1, i64 24
   %160 = load i64, ptr %159, align 8, !alias.scope !316, !noundef !4
   %161 = xor i64 %160, %156
@@ -1495,7 +1495,7 @@ define hidden void @"_ZN68_$LT$typst..visualize..pattern..Repr$u20$as$u20$core..
   store i64 %.0.i.i.i12, ptr %14, align 8, !alias.scope !316
   br label %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit
 
-184:                                              ; preds = %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.argprom.exit10"
+184:                                              ; preds = %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.exit10"
   %185 = add i64 %149, 8
   store i64 %185, ptr %9, align 8, !alias.scope !316
   br label %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit
@@ -5291,8 +5291,8 @@ attributes #21 = { cold noreturn nounwind }
 !192 = distinct !{!192, !"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17h8c7479c728e882c9E.llvm.1287454497751845056"}
 !193 = distinct !{!193, !194, !"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.1287454497751845056: argument 0"}
 !194 = distinct !{!194, !"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.1287454497751845056"}
-!195 = distinct !{!195, !196, !"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.argprom: argument 0"}
-!196 = distinct !{!196, !"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.argprom"}
+!195 = distinct !{!195, !196, !"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E: argument 0"}
+!196 = distinct !{!196, !"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E"}
 !197 = !{!198, !191, !193, !195, !181}
 !198 = distinct !{!198, !199, !"_ZN73_$LT$siphasher..sip128..Sip13Rounds$u20$as$u20$siphasher..sip128..Sip$GT$8c_rounds17h2d7d97b615b20868E.llvm.1287454497751845056: argument 0"}
 !199 = distinct !{!199, !"_ZN73_$LT$siphasher..sip128..Sip13Rounds$u20$as$u20$siphasher..sip128..Sip$GT$8c_rounds17h2d7d97b615b20868E.llvm.1287454497751845056"}
@@ -5388,8 +5388,8 @@ attributes #21 = { cold noreturn nounwind }
 !289 = distinct !{!289, !"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17h8c7479c728e882c9E.llvm.1287454497751845056"}
 !290 = distinct !{!290, !291, !"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.1287454497751845056: argument 0"}
 !291 = distinct !{!291, !"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.1287454497751845056"}
-!292 = distinct !{!292, !293, !"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.argprom: argument 0"}
-!293 = distinct !{!293, !"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.argprom"}
+!292 = distinct !{!292, !293, !"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E: argument 0"}
+!293 = distinct !{!293, !"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E"}
 !294 = !{!295, !288, !290, !292}
 !295 = distinct !{!295, !296, !"_ZN73_$LT$siphasher..sip128..Sip13Rounds$u20$as$u20$siphasher..sip128..Sip$GT$8c_rounds17h2d7d97b615b20868E.llvm.1287454497751845056: argument 0"}
 !296 = distinct !{!296, !"_ZN73_$LT$siphasher..sip128..Sip13Rounds$u20$as$u20$siphasher..sip128..Sip$GT$8c_rounds17h2d7d97b615b20868E.llvm.1287454497751845056"}
@@ -5406,8 +5406,8 @@ attributes #21 = { cold noreturn nounwind }
 !307 = distinct !{!307, !"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17h8c7479c728e882c9E.llvm.1287454497751845056"}
 !308 = distinct !{!308, !309, !"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.1287454497751845056: argument 0"}
 !309 = distinct !{!309, !"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.1287454497751845056"}
-!310 = distinct !{!310, !311, !"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.argprom: argument 0"}
-!311 = distinct !{!311, !"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.argprom"}
+!310 = distinct !{!310, !311, !"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E: argument 0"}
+!311 = distinct !{!311, !"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E"}
 !312 = !{!313, !306, !308, !310}
 !313 = distinct !{!313, !314, !"_ZN73_$LT$siphasher..sip128..Sip13Rounds$u20$as$u20$siphasher..sip128..Sip$GT$8c_rounds17h2d7d97b615b20868E.llvm.1287454497751845056: argument 0"}
 !314 = distinct !{!314, !"_ZN73_$LT$siphasher..sip128..Sip13Rounds$u20$as$u20$siphasher..sip128..Sip$GT$8c_rounds17h2d7d97b615b20868E.llvm.1287454497751845056"}

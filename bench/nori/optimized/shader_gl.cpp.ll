@@ -318,7 +318,7 @@ define hidden void @_ZN7nanogui6ShaderC2EPNS_10RenderPassERKNSt7__cxx1112basic_s
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc58
   %92 = load i32, ptr %15, align 4
-  invoke fastcc void @"_ZZN7nanogui6ShaderC1EPNS_10RenderPassERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_NS0_9BlendModeEENK3$_0clENS0_10BufferTypeESA_ij.argprom"(ptr nonnull %0, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef %85, i32 noundef %92)
+  invoke fastcc void @"_ZZN7nanogui6ShaderC1EPNS_10RenderPassERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_NS0_9BlendModeEENK3$_0clENS0_10BufferTypeESA_ij"(ptr nonnull %0, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef %85, i32 noundef %92)
           to label %93 unwind label %99
 
 93:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -381,7 +381,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit63: ; preds = %.noexc60
   %111 = load i32, ptr %20, align 4
-  invoke fastcc void @"_ZZN7nanogui6ShaderC1EPNS_10RenderPassERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_NS0_9BlendModeEENK3$_0clENS0_10BufferTypeESA_ij.argprom"(ptr nonnull %0, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef %104, i32 noundef %111)
+  invoke fastcc void @"_ZZN7nanogui6ShaderC1EPNS_10RenderPassERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_NS0_9BlendModeEENK3$_0clENS0_10BufferTypeESA_ij"(ptr nonnull %0, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef %104, i32 noundef %111)
           to label %112 unwind label %118
 
 112:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit63
@@ -717,7 +717,7 @@ declare void @glGetActiveAttrib(i32 noundef, i32 noundef, i32 noundef, ptr nound
 declare i32 @glGetAttribLocation(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN7nanogui6ShaderC1EPNS_10RenderPassERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_NS0_9BlendModeEENK3$_0clENS0_10BufferTypeESA_ij.argprom"(ptr %.0.val, i32 noundef range(i32 1, 8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN7nanogui6ShaderC1EPNS_10RenderPassERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_NS0_9BlendModeEENK3$_0clENS0_10BufferTypeESA_ij"(ptr %.0.val, i32 noundef range(i32 1, 8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %.0.val, i64 56
   %6 = tail call ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %.not = icmp eq ptr %6, null

@@ -109,7 +109,7 @@ define dso_local range(i32 0, 2) i32 @cmListFileLexer_yylex(ptr noundef %0, ptr 
   br i1 %.not28.i, label %30, label %31
 
 30:                                               ; preds = %28
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.27) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.27) #29
   unreachable
 
 31:                                               ; preds = %28
@@ -136,7 +136,7 @@ define dso_local range(i32 0, 2) i32 @cmListFileLexer_yylex(ptr noundef %0, ptr 
   br i1 %.not30.i, label %42, label %43
 
 42:                                               ; preds = %38
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.27) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.27) #29
   unreachable
 
 43:                                               ; preds = %38
@@ -154,7 +154,7 @@ cmListFileLexer_yyensure_buffer_stack.exit:       ; preds = %31, %34, %43
   br i1 %.not.i287, label %48, label %49
 
 48:                                               ; preds = %cmListFileLexer_yyensure_buffer_stack.exit
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.2) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #29
   unreachable
 
 49:                                               ; preds = %cmListFileLexer_yyensure_buffer_stack.exit
@@ -167,7 +167,7 @@ cmListFileLexer_yyensure_buffer_stack.exit:       ; preds = %31, %34, %43
   br i1 %.not14.i, label %53, label %cmListFileLexer_yy_create_buffer.exit
 
 53:                                               ; preds = %49
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.2) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #29
   unreachable
 
 cmListFileLexer_yy_create_buffer.exit:            ; preds = %49
@@ -1771,7 +1771,7 @@ yy_try_NUL_trans.exit:                            ; preds = %790, %774
   br i1 %808, label %809, label %810
 
 809:                                              ; preds = %805
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.24) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.24) #29
   unreachable
 
 810:                                              ; preds = %805
@@ -1874,7 +1874,7 @@ yy_try_NUL_trans.exit:                            ; preds = %790, %774
   br i1 %.not110.i, label %.loopexit.i, label %858
 
 .loopexit.i:                                      ; preds = %849, %.thread.i404
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.25) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.25) #29
   unreachable
 
 858:                                              ; preds = %849
@@ -2065,7 +2065,7 @@ cmListFileLexerInput.exit.i:                      ; preds = %911, %908, %906, %.
   br i1 %.not112.i, label %965, label %966
 
 965:                                              ; preds = %947
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.26) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.26) #29
   unreachable
 
 966:                                              ; preds = %947
@@ -2317,7 +2317,7 @@ yy_get_next_buffer.exit.thread439:                ; preds = %816, %yy_get_next_b
   br i1 %exitcond.not.i436, label %.outer.backedge, label %.lr.ph31.i424, !llvm.loop !10
 
 1095:                                             ; preds = %.loopexit442
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.1) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.1) #29
   unreachable
 
 default.unreachable685:                           ; preds = %yy_get_next_buffer.exit
@@ -2335,7 +2335,7 @@ define dso_local nonnull ptr @cmListFileLexer_yy_create_buffer(ptr noundef %0, i
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.2) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #29
   unreachable
 
 6:                                                ; preds = %3
@@ -2350,7 +2350,7 @@ define dso_local nonnull ptr @cmListFileLexer_yy_create_buffer(ptr noundef %0, i
   br i1 %.not14, label %12, label %13
 
 12:                                               ; preds = %6
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.2) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #29
   unreachable
 
 13:                                               ; preds = %6
@@ -2364,7 +2364,7 @@ define dso_local nonnull ptr @cmListFileLexer_yy_create_buffer(ptr noundef %0, i
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @yy_fatal_error.argprom(ptr noundef %0) unnamed_addr #2 {
+define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #2 {
   %2 = load ptr, ptr @stderr, align 8
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.28, ptr noundef %0) #33
   tail call void @exit(i32 noundef 2) #34
@@ -2393,7 +2393,7 @@ define dso_local void @cmListFileLexer_yyrestart(ptr noundef %0, ptr nocapture n
   br i1 %.not28.i, label %12, label %13
 
 12:                                               ; preds = %10
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.27) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.27) #29
   unreachable
 
 13:                                               ; preds = %10
@@ -2420,7 +2420,7 @@ define dso_local void @cmListFileLexer_yyrestart(ptr noundef %0, ptr nocapture n
   br i1 %.not30.i, label %24, label %25
 
 24:                                               ; preds = %20
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.27) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.27) #29
   unreachable
 
 25:                                               ; preds = %20
@@ -2438,7 +2438,7 @@ cmListFileLexer_yyensure_buffer_stack.exit:       ; preds = %13, %16, %25
   br i1 %.not.i18, label %31, label %32
 
 31:                                               ; preds = %cmListFileLexer_yyensure_buffer_stack.exit
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.2) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #29
   unreachable
 
 32:                                               ; preds = %cmListFileLexer_yyensure_buffer_stack.exit
@@ -2451,7 +2451,7 @@ cmListFileLexer_yyensure_buffer_stack.exit:       ; preds = %13, %16, %25
   br i1 %.not14.i, label %36, label %37
 
 36:                                               ; preds = %32
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.2) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #29
   unreachable
 
 37:                                               ; preds = %32
@@ -2618,7 +2618,7 @@ define dso_local void @cmListFileLexer_yy_switch_to_buffer(ptr noundef %0, ptr n
   br i1 %.not28.i, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.27) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.27) #29
   unreachable
 
 8:                                                ; preds = %5
@@ -2647,7 +2647,7 @@ define dso_local void @cmListFileLexer_yy_switch_to_buffer(ptr noundef %0, ptr n
   br i1 %.not30.i, label %21, label %22
 
 21:                                               ; preds = %17
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.27) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.27) #29
   unreachable
 
 22:                                               ; preds = %17
@@ -2862,7 +2862,7 @@ define dso_local void @cmListFileLexer_yypush_buffer_state(ptr noundef %0, ptr n
   br i1 %.not28.i, label %9, label %10
 
 9:                                                ; preds = %7
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.27) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.27) #29
   unreachable
 
 10:                                               ; preds = %7
@@ -2891,7 +2891,7 @@ define dso_local void @cmListFileLexer_yypush_buffer_state(ptr noundef %0, ptr n
   br i1 %.not30.i, label %23, label %24
 
 23:                                               ; preds = %19
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.27) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.27) #29
   unreachable
 
 24:                                               ; preds = %19
@@ -3086,7 +3086,7 @@ define dso_local noundef ptr @cmListFileLexer_yy_scan_buffer(ptr noundef %0, i64
   br i1 %.not27, label %15, label %16
 
 15:                                               ; preds = %13
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.3) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #29
   unreachable
 
 16:                                               ; preds = %13
@@ -3149,7 +3149,7 @@ define dso_local nonnull ptr @cmListFileLexer_yy_scan_bytes(ptr nocapture nounde
   br label %17
 
 12:                                               ; preds = %3
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.4) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.4) #29
   unreachable
 
 ._crit_edge:                                      ; preds = %.preheader
@@ -3167,11 +3167,11 @@ define dso_local nonnull ptr @cmListFileLexer_yy_scan_bytes(ptr nocapture nounde
   br i1 %.not27.i, label %19, label %21
 
 19:                                               ; preds = %17
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.3) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #29
   unreachable
 
 20:                                               ; preds = %._crit_edge
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.5) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.5) #29
   unreachable
 
 21:                                               ; preds = %17
@@ -3308,7 +3308,7 @@ define dso_local void @cmListFileLexer_yyset_lineno(i32 noundef %0, ptr nocaptur
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.6) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.6) #29
   unreachable
 
 11:                                               ; preds = %5
@@ -3333,7 +3333,7 @@ define dso_local void @cmListFileLexer_yyset_column(i32 noundef %0, ptr nocaptur
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.7) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.7) #29
   unreachable
 
 11:                                               ; preds = %5

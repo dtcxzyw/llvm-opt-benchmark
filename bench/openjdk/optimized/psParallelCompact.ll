@@ -6201,7 +6201,7 @@ define hidden void @_ZN17PSParallelCompact19adjust_in_old_spaceEPVj(ptr noundef 
   %5 = getelementptr inbounds i8, ptr %2, i64 40
   %6 = load volatile ptr, ptr %5, align 8
   %7 = icmp eq ptr %4, %6
-  br i1 %7, label %"_ZN17PSParallelCompact22adjust_in_space_helperIZNS_19adjust_in_old_spaceEPVjE3$_0EEvNS_7SpaceIdES2_OT_.argprom.exit", label %.preheader.i
+  br i1 %7, label %"_ZN17PSParallelCompact22adjust_in_space_helperIZNS_19adjust_in_old_spaceEPVjE3$_0EEvNS_7SpaceIdES2_OT_.exit", label %.preheader.i
 
 .preheader.i:                                     ; preds = %1
   %8 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 2, ptr %0) #25, !srcloc !21
@@ -6209,10 +6209,10 @@ define hidden void @_ZN17PSParallelCompact19adjust_in_old_spaceEPVj(ptr noundef 
   %.idx3.i = shl nuw nsw i64 %9, 19
   %10 = getelementptr inbounds i8, ptr %4, i64 %.idx3.i
   %.not4.i = icmp ult ptr %10, %6
-  br i1 %.not4.i, label %.lr.ph.i, label %"_ZN17PSParallelCompact22adjust_in_space_helperIZNS_19adjust_in_old_spaceEPVjE3$_0EEvNS_7SpaceIdES2_OT_.argprom.exit"
+  br i1 %.not4.i, label %.lr.ph.i, label %"_ZN17PSParallelCompact22adjust_in_space_helperIZNS_19adjust_in_old_spaceEPVjE3$_0EEvNS_7SpaceIdES2_OT_.exit"
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_0clEPP12HeapWordImplS5_.argprom.exit.i"
-  %11 = phi ptr [ %202, %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_0clEPP12HeapWordImplS5_.argprom.exit.i" ], [ %10, %.preheader.i ]
+.lr.ph.i:                                         ; preds = %.preheader.i, %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_0clEPP12HeapWordImplS5_.exit.i"
+  %11 = phi ptr [ %202, %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_0clEPP12HeapWordImplS5_.exit.i" ], [ %10, %.preheader.i ]
   %12 = getelementptr inbounds i8, ptr %11, i64 1048576
   %13 = icmp ult ptr %12, %6
   %14 = select i1 %13, ptr %12, ptr %6
@@ -6267,14 +6267,14 @@ _ZNK7oopDesc5klassEv.exit.i.i.i.i:                ; preds = %40, %30
 47:                                               ; preds = %45
   %48 = lshr i32 %43, 3
   %49 = zext nneg i32 %48 to i64
-  br label %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.argprom.exit.i.i"
+  br label %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.exit.i.i"
 
 50:                                               ; preds = %45
   %51 = load ptr, ptr %.0.i.i.i.i.i, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 256
   %53 = load ptr, ptr %52, align 8
   %54 = tail call noundef i64 %53(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i.i.i, ptr noundef nonnull %26) #25
-  br label %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.argprom.exit.i.i"
+  br label %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.exit.i.i"
 
 55:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i.i.i
   %56 = icmp slt i32 %43, 0
@@ -6300,16 +6300,16 @@ _ZNK7oopDesc5klassEv.exit.i.i.i.i:                ; preds = %40, %30
   %74 = sext i32 %73 to i64
   %75 = and i64 %72, %74
   %76 = lshr i64 %75, 3
-  br label %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.argprom.exit.i.i"
+  br label %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.exit.i.i"
 
 77:                                               ; preds = %55
   %78 = load ptr, ptr %.0.i.i.i.i.i, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 256
   %80 = load ptr, ptr %79, align 8
   %81 = tail call noundef i64 %80(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i.i.i, ptr noundef nonnull %26) #25
-  br label %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.argprom.exit.i.i"
+  br label %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.exit.i.i"
 
-"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.argprom.exit.i.i": ; preds = %77, %57, %50, %47
+"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.exit.i.i": ; preds = %77, %57, %50, %47
   %.0.i6.i.i.i.i = phi i64 [ %54, %50 ], [ %49, %47 ], [ %76, %57 ], [ %81, %77 ]
   %82 = ptrtoint ptr %14 to i64
   %83 = sub i64 %82, %16
@@ -6323,10 +6323,10 @@ _ZNK7oopDesc5klassEv.exit.i.i.i.i:                ; preds = %40, %30
   %90 = getelementptr inbounds ptr, ptr %26, i64 %.0.i6.i.i.i.i
   br label %91
 
-91:                                               ; preds = %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.argprom.exit.i.i", %.lr.ph.i
-  %.0.i.i = phi ptr [ %90, %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.argprom.exit.i.i" ], [ %11, %.lr.ph.i ]
+91:                                               ; preds = %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.exit.i.i", %.lr.ph.i
+  %.0.i.i = phi ptr [ %90, %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.exit.i.i" ], [ %11, %.lr.ph.i ]
   %92 = icmp ult ptr %.0.i.i, %14
-  br i1 %92, label %.lr.ph.i.i, label %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_0clEPP12HeapWordImplS5_.argprom.exit.i"
+  br i1 %92, label %.lr.ph.i.i, label %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_0clEPP12HeapWordImplS5_.exit.i"
 
 .lr.ph.i.i:                                       ; preds = %91
   %93 = ptrtoint ptr %14 to i64
@@ -6334,8 +6334,8 @@ _ZNK7oopDesc5klassEv.exit.i.i.i.i:                ; preds = %40, %30
   %95 = lshr i64 %94, 3
   br label %96
 
-96:                                               ; preds = %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.argprom.exit28.i.i", %.lr.ph.i.i
-  %.13.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %198, %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.argprom.exit28.i.i" ]
+96:                                               ; preds = %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.exit28.i.i", %.lr.ph.i.i
+  %.13.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %198, %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.exit28.i.i" ]
   %97 = load ptr, ptr @_ZN17PSParallelCompact12_mark_bitmapE, align 8
   %98 = ptrtoint ptr %.13.i.i to i64
   %99 = ptrtoint ptr %97 to i64
@@ -6400,7 +6400,7 @@ _ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit.i.i: ; preds = %123, 
   %135 = shl i64 %134, %103
   %136 = getelementptr inbounds ptr, ptr %97, i64 %135
   %.not21.i.i = icmp ult ptr %136, %14
-  br i1 %.not21.i.i, label %137, label %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_0clEPP12HeapWordImplS5_.argprom.exit.i"
+  br i1 %.not21.i.i, label %137, label %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_0clEPP12HeapWordImplS5_.exit.i"
 
 137:                                              ; preds = %_ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit.i.i
   %138 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -6439,14 +6439,14 @@ _ZNK7oopDesc5klassEv.exit.i.i24.i.i:              ; preds = %151, %141
 158:                                              ; preds = %156
   %159 = lshr i32 %154, 3
   %160 = zext nneg i32 %159 to i64
-  br label %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.argprom.exit28.i.i"
+  br label %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.exit28.i.i"
 
 161:                                              ; preds = %156
   %162 = load ptr, ptr %.0.i.i.i25.i.i, align 8
   %163 = getelementptr inbounds i8, ptr %162, i64 256
   %164 = load ptr, ptr %163, align 8
   %165 = tail call noundef i64 %164(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i25.i.i, ptr noundef nonnull %136) #25
-  br label %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.argprom.exit28.i.i"
+  br label %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.exit28.i.i"
 
 166:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i24.i.i
   %167 = icmp slt i32 %154, 0
@@ -6472,16 +6472,16 @@ _ZNK7oopDesc5klassEv.exit.i.i24.i.i:              ; preds = %151, %141
   %185 = sext i32 %184 to i64
   %186 = and i64 %183, %185
   %187 = lshr i64 %186, 3
-  br label %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.argprom.exit28.i.i"
+  br label %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.exit28.i.i"
 
 188:                                              ; preds = %166
   %189 = load ptr, ptr %.0.i.i.i25.i.i, align 8
   %190 = getelementptr inbounds i8, ptr %189, i64 256
   %191 = load ptr, ptr %190, align 8
   %192 = tail call noundef i64 %191(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i25.i.i, ptr noundef nonnull %136) #25
-  br label %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.argprom.exit28.i.i"
+  br label %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.exit28.i.i"
 
-"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.argprom.exit28.i.i": ; preds = %188, %168, %161, %158
+"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.exit28.i.i": ; preds = %188, %168, %161, %158
   %.0.i6.i.i26.i.i = phi i64 [ %165, %161 ], [ %160, %158 ], [ %187, %168 ], [ %192, %188 ]
   %193 = getelementptr inbounds i8, ptr %.0.i.i.i25.i.i, i64 12
   %194 = load i32, ptr %193, align 4
@@ -6491,17 +6491,17 @@ _ZNK7oopDesc5klassEv.exit.i.i24.i.i:              ; preds = %151, %141
   tail call void %197(ptr noundef nonnull @_ZL25pc_adjust_pointer_closure, ptr noundef nonnull %136, ptr noundef nonnull %.0.i.i.i25.i.i, ptr %11, i64 %95) #25
   %198 = getelementptr inbounds ptr, ptr %136, i64 %.0.i6.i.i26.i.i
   %199 = icmp ult ptr %198, %14
-  br i1 %199, label %96, label %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_0clEPP12HeapWordImplS5_.argprom.exit.i", !llvm.loop !30
+  br i1 %199, label %96, label %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_0clEPP12HeapWordImplS5_.exit.i", !llvm.loop !30
 
-"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_0clEPP12HeapWordImplS5_.argprom.exit.i": ; preds = %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.argprom.exit28.i.i", %_ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit.i.i, %91
+"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_0clEPP12HeapWordImplS5_.exit.i": ; preds = %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_1clEPP12HeapWordImplS5_S5_.exit28.i.i", %_ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit.i.i, %91
   %200 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 2, ptr %0) #25, !srcloc !21
   %201 = zext i32 %200 to i64
   %.idx.i = shl nuw nsw i64 %201, 19
   %202 = getelementptr inbounds i8, ptr %4, i64 %.idx.i
   %.not.i = icmp ult ptr %202, %6
-  br i1 %.not.i, label %.lr.ph.i, label %"_ZN17PSParallelCompact22adjust_in_space_helperIZNS_19adjust_in_old_spaceEPVjE3$_0EEvNS_7SpaceIdES2_OT_.argprom.exit", !llvm.loop !31
+  br i1 %.not.i, label %.lr.ph.i, label %"_ZN17PSParallelCompact22adjust_in_space_helperIZNS_19adjust_in_old_spaceEPVjE3$_0EEvNS_7SpaceIdES2_OT_.exit", !llvm.loop !31
 
-"_ZN17PSParallelCompact22adjust_in_space_helperIZNS_19adjust_in_old_spaceEPVjE3$_0EEvNS_7SpaceIdES2_OT_.argprom.exit": ; preds = %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_0clEPP12HeapWordImplS5_.argprom.exit.i", %1, %.preheader.i
+"_ZN17PSParallelCompact22adjust_in_space_helperIZNS_19adjust_in_old_spaceEPVjE3$_0EEvNS_7SpaceIdES2_OT_.exit": ; preds = %"_ZZN17PSParallelCompact19adjust_in_old_spaceEPVjENK3$_0clEPP12HeapWordImplS5_.exit.i", %1, %.preheader.i
   ret void
 }
 
@@ -6515,7 +6515,7 @@ define hidden void @_ZN17PSParallelCompact21adjust_in_young_spaceENS_7SpaceIdEPV
   %8 = getelementptr inbounds i8, ptr %5, i64 40
   %9 = load volatile ptr, ptr %8, align 8
   %10 = icmp eq ptr %7, %9
-  br i1 %10, label %"_ZN17PSParallelCompact22adjust_in_space_helperIZNS_21adjust_in_young_spaceENS_7SpaceIdEPVjE3$_0EEvS1_S3_OT_.argprom.exit", label %.preheader.i
+  br i1 %10, label %"_ZN17PSParallelCompact22adjust_in_space_helperIZNS_21adjust_in_young_spaceENS_7SpaceIdEPVjE3$_0EEvS1_S3_OT_.exit", label %.preheader.i
 
 .preheader.i:                                     ; preds = %2
   %11 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 2, ptr %1) #25, !srcloc !21
@@ -6523,10 +6523,10 @@ define hidden void @_ZN17PSParallelCompact21adjust_in_young_spaceENS_7SpaceIdEPV
   %.idx3.i = shl nuw nsw i64 %12, 19
   %13 = getelementptr inbounds i8, ptr %7, i64 %.idx3.i
   %.not4.i = icmp ult ptr %13, %9
-  br i1 %.not4.i, label %.lr.ph.i.i, label %"_ZN17PSParallelCompact22adjust_in_space_helperIZNS_21adjust_in_young_spaceENS_7SpaceIdEPVjE3$_0EEvS1_S3_OT_.argprom.exit"
+  br i1 %.not4.i, label %.lr.ph.i.i, label %"_ZN17PSParallelCompact22adjust_in_space_helperIZNS_21adjust_in_young_spaceENS_7SpaceIdEPVjE3$_0EEvS1_S3_OT_.exit"
 
-.lr.ph.i.i:                                       ; preds = %.preheader.i, %"_ZZN17PSParallelCompact21adjust_in_young_spaceENS_7SpaceIdEPVjENK3$_0clEPP12HeapWordImplS6_.argprom.exit.i"
-  %14 = phi ptr [ %125, %"_ZZN17PSParallelCompact21adjust_in_young_spaceENS_7SpaceIdEPVjENK3$_0clEPP12HeapWordImplS6_.argprom.exit.i" ], [ %13, %.preheader.i ]
+.lr.ph.i.i:                                       ; preds = %.preheader.i, %"_ZZN17PSParallelCompact21adjust_in_young_spaceENS_7SpaceIdEPVjENK3$_0clEPP12HeapWordImplS6_.exit.i"
+  %14 = phi ptr [ %125, %"_ZZN17PSParallelCompact21adjust_in_young_spaceENS_7SpaceIdEPVjENK3$_0clEPP12HeapWordImplS6_.exit.i" ], [ %13, %.preheader.i ]
   %15 = getelementptr inbounds i8, ptr %14, i64 1048576
   %16 = icmp ult ptr %15, %9
   %17 = select i1 %16, ptr %15, ptr %9
@@ -6599,7 +6599,7 @@ _ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit.i.i: ; preds = %46, %
   %58 = shl i64 %57, %26
   %59 = getelementptr inbounds ptr, ptr %20, i64 %58
   %.not.i.i = icmp ult ptr %59, %17
-  br i1 %.not.i.i, label %60, label %"_ZZN17PSParallelCompact21adjust_in_young_spaceENS_7SpaceIdEPVjENK3$_0clEPP12HeapWordImplS6_.argprom.exit.i"
+  br i1 %.not.i.i, label %60, label %"_ZZN17PSParallelCompact21adjust_in_young_spaceENS_7SpaceIdEPVjENK3$_0clEPP12HeapWordImplS6_.exit.i"
 
 60:                                               ; preds = %_ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit.i.i
   %61 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -6690,17 +6690,17 @@ _ZN7oopDesc16oop_iterate_sizeI22PCAdjustPointerClosureEEmPT_.exit.i.i: ; preds =
   tail call void %120(ptr noundef nonnull @_ZL25pc_adjust_pointer_closure, ptr noundef nonnull %59, ptr noundef nonnull %.0.i.i.i.i) #25
   %121 = getelementptr inbounds ptr, ptr %59, i64 %.0.i4.i.i.i
   %122 = icmp ult ptr %121, %17
-  br i1 %122, label %19, label %"_ZZN17PSParallelCompact21adjust_in_young_spaceENS_7SpaceIdEPVjENK3$_0clEPP12HeapWordImplS6_.argprom.exit.i", !llvm.loop !32
+  br i1 %122, label %19, label %"_ZZN17PSParallelCompact21adjust_in_young_spaceENS_7SpaceIdEPVjENK3$_0clEPP12HeapWordImplS6_.exit.i", !llvm.loop !32
 
-"_ZZN17PSParallelCompact21adjust_in_young_spaceENS_7SpaceIdEPVjENK3$_0clEPP12HeapWordImplS6_.argprom.exit.i": ; preds = %_ZN7oopDesc16oop_iterate_sizeI22PCAdjustPointerClosureEEmPT_.exit.i.i, %_ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit.i.i
+"_ZZN17PSParallelCompact21adjust_in_young_spaceENS_7SpaceIdEPVjENK3$_0clEPP12HeapWordImplS6_.exit.i": ; preds = %_ZN7oopDesc16oop_iterate_sizeI22PCAdjustPointerClosureEEmPT_.exit.i.i, %_ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit.i.i
   %123 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 2, ptr %1) #25, !srcloc !21
   %124 = zext i32 %123 to i64
   %.idx.i = shl nuw nsw i64 %124, 19
   %125 = getelementptr inbounds i8, ptr %7, i64 %.idx.i
   %.not.i = icmp ult ptr %125, %9
-  br i1 %.not.i, label %.lr.ph.i.i, label %"_ZN17PSParallelCompact22adjust_in_space_helperIZNS_21adjust_in_young_spaceENS_7SpaceIdEPVjE3$_0EEvS1_S3_OT_.argprom.exit", !llvm.loop !33
+  br i1 %.not.i, label %.lr.ph.i.i, label %"_ZN17PSParallelCompact22adjust_in_space_helperIZNS_21adjust_in_young_spaceENS_7SpaceIdEPVjE3$_0EEvS1_S3_OT_.exit", !llvm.loop !33
 
-"_ZN17PSParallelCompact22adjust_in_space_helperIZNS_21adjust_in_young_spaceENS_7SpaceIdEPVjE3$_0EEvS1_S3_OT_.argprom.exit": ; preds = %"_ZZN17PSParallelCompact21adjust_in_young_spaceENS_7SpaceIdEPVjENK3$_0clEPP12HeapWordImplS6_.argprom.exit.i", %2, %.preheader.i
+"_ZN17PSParallelCompact22adjust_in_space_helperIZNS_21adjust_in_young_spaceENS_7SpaceIdEPVjE3$_0EEvS1_S3_OT_.exit": ; preds = %"_ZZN17PSParallelCompact21adjust_in_young_spaceENS_7SpaceIdEPVjENK3$_0clEPP12HeapWordImplS6_.exit.i", %2, %.preheader.i
   ret void
 }
 

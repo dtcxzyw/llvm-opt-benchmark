@@ -1255,7 +1255,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @"_ZN89_$LT$tree_sitter_h
   store ptr @"_ZN89_$LT$tree_sitter_highlight..STANDARD_CAPTURE_NAMES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h658768f130e02a4bE", ptr %4, align 8
   %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN89_$LT$tree_sitter_highlight..STANDARD_CAPTURE_NAMES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h658768f130e02a4bE", i64 48) acquire, align 8, !noalias !112
   %6 = icmp eq i32 %5, 4
-  br i1 %6, label %_ZN3std4sync4once4Once9call_once17h5d374b5de345e2aeE.argprom.exit, label %7
+  br i1 %6, label %_ZN3std4sync4once4Once9call_once17h5d374b5de345e2aeE.exit, label %7
 
 7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !112
@@ -1265,9 +1265,9 @@ define noundef nonnull align 8 dereferenceable(48) ptr @"_ZN89_$LT$tree_sitter_h
   call void @_ZN3std10sys_common4once5futex4Once4call17hd4ec3d71b5b2cdf1E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN89_$LT$tree_sitter_highlight..STANDARD_CAPTURE_NAMES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h658768f130e02a4bE", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7846843607c3237cb579c64a79ba54af.28)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !112
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !112
-  br label %_ZN3std4sync4once4Once9call_once17h5d374b5de345e2aeE.argprom.exit
+  br label %_ZN3std4sync4once4Once9call_once17h5d374b5de345e2aeE.exit
 
-_ZN3std4sync4once4Once9call_once17h5d374b5de345e2aeE.argprom.exit: ; preds = %1, %7
+_ZN3std4sync4once4Once9call_once17h5d374b5de345e2aeE.exit: ; preds = %1, %7
   %8 = load ptr, ptr %4, align 8, !nonnull !4, !align !11, !noundef !4
   %9 = load ptr, ptr %8, align 8, !noundef !4
   %10 = icmp ne ptr %9, null
@@ -1489,8 +1489,8 @@ attributes #17 = { cold noreturn nounwind }
 !6 = distinct !{!6, !7, !"_ZN21tree_sitter_highlight11Highlighter3new17hcc20723a1fa0746cE: argument 0"}
 !7 = distinct !{!7, !"_ZN21tree_sitter_highlight11Highlighter3new17hcc20723a1fa0746cE"}
 !8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN3std4sync4once4Once9call_once17h5d374b5de345e2aeE.argprom: argument 0"}
-!10 = distinct !{!10, !"_ZN3std4sync4once4Once9call_once17h5d374b5de345e2aeE.argprom"}
+!9 = distinct !{!9, !10, !"_ZN3std4sync4once4Once9call_once17h5d374b5de345e2aeE: argument 0"}
+!10 = distinct !{!10, !"_ZN3std4sync4once4Once9call_once17h5d374b5de345e2aeE"}
 !11 = !{i64 8}
 !12 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !13 = !{!14}
@@ -1593,9 +1593,9 @@ attributes #17 = { cold noreturn nounwind }
 !110 = distinct !{!110, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E"}
 !111 = distinct !{!111, !110, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E: argument 1"}
 !112 = !{!113}
-!113 = distinct !{!113, !114, !"_ZN3std4sync4once4Once9call_once17h5d374b5de345e2aeE.argprom: argument 0"}
-!114 = distinct !{!114, !"_ZN3std4sync4once4Once9call_once17h5d374b5de345e2aeE.argprom"}
+!113 = distinct !{!113, !114, !"_ZN3std4sync4once4Once9call_once17h5d374b5de345e2aeE: argument 0"}
+!114 = distinct !{!114, !"_ZN3std4sync4once4Once9call_once17h5d374b5de345e2aeE"}
 !115 = !{!116}
-!116 = distinct !{!116, !117, !"_ZN3std4sync4once4Once9call_once17h5d374b5de345e2aeE.argprom: argument 0"}
-!117 = distinct !{!117, !"_ZN3std4sync4once4Once9call_once17h5d374b5de345e2aeE.argprom"}
+!116 = distinct !{!116, !117, !"_ZN3std4sync4once4Once9call_once17h5d374b5de345e2aeE: argument 0"}
+!117 = distinct !{!117, !"_ZN3std4sync4once4Once9call_once17h5d374b5de345e2aeE"}
 !118 = !{i8 0, i8 3}

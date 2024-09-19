@@ -82,7 +82,7 @@ if.end:                                           ; preds = %entry
 
 if.then7:                                         ; preds = %if.end.thread, %if.end
   %argv.val = load ptr, ptr %argv, align 8
-  %call8 = tail call fastcc i32 @printHelp.argprom(i32 noundef %call1, ptr %argv.val)
+  %call8 = tail call fastcc i32 @printHelp(i32 noundef %call1, ptr %argv.val)
   br label %return
 
 if.end9:                                          ; preds = %if.end
@@ -103,7 +103,7 @@ if.end9:                                          ; preds = %if.end
 
 if.then15:                                        ; preds = %if.end9
   %argv.val48 = load ptr, ptr %argv, align 8
-  %call16 = tail call fastcc i32 @printHelp.argprom(i32 noundef %call1, ptr %argv.val48)
+  %call16 = tail call fastcc i32 @printHelp(i32 noundef %call1, ptr %argv.val48)
   br label %return
 
 if.else17:                                        ; preds = %if.end9
@@ -115,7 +115,7 @@ if.else17:                                        ; preds = %if.end9
 
 if.then21:                                        ; preds = %if.else17
   %argv.val49 = load ptr, ptr %argv, align 8
-  %call22 = tail call fastcc i32 @printHelp.argprom(i32 noundef %call1, ptr %argv.val49)
+  %call22 = tail call fastcc i32 @printHelp(i32 noundef %call1, ptr %argv.val49)
   br label %return
 
 if.end23:                                         ; preds = %if.else17
@@ -298,7 +298,7 @@ declare i32 @u_parseArgs(i32 noundef, ptr noundef, i32 noundef, ptr noundef) loc
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: cold nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @printHelp.argprom(i32 noundef %argc, ptr %argv.0.val) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 2) i32 @printHelp(i32 noundef %argc, ptr %argv.0.val) unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef %argv.0.val) #13

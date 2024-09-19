@@ -3919,7 +3919,7 @@ define dso_local i32 @nfs4_proc_setclientid(ptr noundef %0, i32 noundef %1, i16 
   %63 = add i64 %62, 33
   %64 = getelementptr i8, ptr %0, i64 792
   %.val = load ptr, ptr %64, align 8
-  %65 = call fastcc i64 @nfs4_get_uniquifier.argprom(ptr %.val, ptr noundef nonnull %7)
+  %65 = call fastcc i64 @nfs4_get_uniquifier(ptr %.val, ptr noundef nonnull %7)
   %66 = icmp eq i64 %65, 0
   %67 = add i64 %65, 1
   %68 = select i1 %66, i64 0, i64 %67
@@ -3976,7 +3976,7 @@ define dso_local i32 @nfs4_proc_setclientid(ptr noundef %0, i32 noundef %1, i16 
   call void @__rcu_read_unlock() #22
   %98 = getelementptr i8, ptr %0, i64 792
   %.val8 = load ptr, ptr %98, align 8
-  %99 = call fastcc i64 @nfs4_get_uniquifier.argprom(ptr %.val8, ptr noundef nonnull %6)
+  %99 = call fastcc i64 @nfs4_get_uniquifier(ptr %.val8, ptr noundef nonnull %6)
   %100 = icmp eq i64 %99, 0
   %101 = add i64 %99, 1
   %102 = select i1 %100, i64 0, i64 %101
@@ -11569,7 +11569,7 @@ define internal void @nfs4_setclientid_done(ptr nocapture noundef readonly %0, p
 declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @nfs4_get_uniquifier.argprom(ptr %.792.val, ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc i64 @nfs4_get_uniquifier(ptr %.792.val, ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = load i32, ptr @nfs_net_id, align 4
   tail call void @__rcu_read_lock() #22
   %3 = getelementptr inbounds i8, ptr %.792.val, i64 2536

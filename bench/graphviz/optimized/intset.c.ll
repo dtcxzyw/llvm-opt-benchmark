@@ -51,7 +51,7 @@ define internal noalias noundef ptr @mkIntItem(ptr nocapture noundef readonly %0
 5:                                                ; preds = %2
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.1, i64 noundef 24) #13
-  tail call fastcc void @graphviz_exit.argelim() #14
+  tail call fastcc void @graphviz_exit() #14
   unreachable
 
 gv_alloc.exit:                                    ; preds = %2
@@ -78,7 +78,7 @@ define internal range(i32 -1, 2) i32 @cmpid(ptr nocapture readnone %0, ptr nocap
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #6 {
+define internal fastcc void @graphviz_exit() unnamed_addr #6 {
   tail call void @exit(i32 noundef 1) #15
   unreachable
 }

@@ -1271,14 +1271,14 @@ Saig_ObjIsLi.exit:                                ; preds = %Saig_ObjIsPo.exit
   %57 = and i32 %.067135, 1
   %58 = add nuw nsw i32 %57, 3
   %59 = add i32 %58, %56
-  br label %Aig_ManObj.argprom.exit
+  br label %Aig_ManObj.exit
 
 60:                                               ; preds = %53
   %61 = load i32, ptr %27, align 4
   %62 = mul nsw i32 %61, 5
-  br label %Aig_ManObj.argprom.exit
+  br label %Aig_ManObj.exit
 
-Aig_ManObj.argprom.exit:                          ; preds = %60, %54
+Aig_ManObj.exit:                                  ; preds = %60, %54
   %.sink158 = phi i32 [ %62, %60 ], [ %59, %54 ]
   %.val97.sink = load ptr, ptr %30, align 8
   %63 = sext i32 %.sink158 to i64
@@ -1303,7 +1303,7 @@ Aig_ManObj.argprom.exit:                          ; preds = %60, %54
   %.not115 = icmp eq i32 %77, 0
   br i1 %.not115, label %78, label %.critedge121
 
-78:                                               ; preds = %Aig_ManObj.argprom.exit
+78:                                               ; preds = %Aig_ManObj.exit
   %79 = getelementptr i8, ptr %70, i64 24
   %.val79 = load i64, ptr %79, align 8
   %80 = and i64 %.val79, 7
@@ -1393,7 +1393,7 @@ Saig_ManSimInfo2Not.exit109.thread:               ; preds = %110, %115, %Saig_Ma
   tail call void @Saig_ManSetAndDriveImplications_rec(ptr noundef nonnull %0, ptr noundef nonnull %70, i32 noundef %.tr118, i32 noundef %3, ptr noundef %4)
   br label %.critedge121
 
-.critedge121:                                     ; preds = %115, %Saig_ManSimInfo2Not.exit109.thread, %Aig_ManObj.argprom.exit, %81
+.critedge121:                                     ; preds = %115, %Saig_ManSimInfo2Not.exit109.thread, %Aig_ManObj.exit, %81
   %118 = add nuw nsw i32 %.068134, 1
   %119 = load i64, ptr %28, align 8
   %120 = trunc i64 %119 to i32

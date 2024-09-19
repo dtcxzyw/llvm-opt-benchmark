@@ -4221,7 +4221,7 @@ invoke.cont1.i:                                   ; preds = %cond.end.i.i.i.i.i.
   %13 = load ptr, ptr %cc.i, align 8, !noalias !70
   %14 = getelementptr i8, ptr %13, i64 272
   %.val = load i32, ptr %14, align 8
-  invoke fastcc void @_ZN3ue2L27makeCheckLiteralInstructionERKNS_15rose_literal_idEmRNS_11RoseProgramERKNS_14CompileContextE.argprom(ptr noundef nonnull align 8 dereferenceable(124) %storemerge.i.i.i.i.i.i.i, i64 noundef %12, ptr noundef nonnull align 8 dereferenceable(24) %lit_program, i32 %.val)
+  invoke fastcc void @_ZN3ue2L27makeCheckLiteralInstructionERKNS_15rose_literal_idEmRNS_11RoseProgramERKNS_14CompileContextE(ptr noundef nonnull align 8 dereferenceable(124) %storemerge.i.i.i.i.i.i.i, i64 noundef %12, ptr noundef nonnull align 8 dereferenceable(24) %lit_program, i32 %.val)
           to label %if.end.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i
 
 lpad.loopexit.i:                                  ; preds = %if.end12.i.i.i.i.i.i.i, %if.end7.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i
@@ -4665,7 +4665,7 @@ invoke.cont11.i:                                  ; preds = %cond.end.i.i.i.i.i1
   %call12.i.val = load ptr, ptr %storemerge.i.i.i.i.i122, align 8, !noalias !80
   %63 = getelementptr i8, ptr %storemerge.i.i.i.i.i122, i64 8
   %call12.i.val55 = load i64, ptr %63, align 8, !noalias !107
-  invoke fastcc void @_ZN3ue2L27makePushDelayedInstructionsERKNS_14RoseLiteralMapERNS_12ProgramBuildERKNS_8flat_setIjSt4lessIjESaIjEEERNS_11RoseProgramE.argprom(ptr noundef nonnull align 8 dereferenceable(136) %literals10.i, ptr noundef nonnull align 8 dereferenceable(240) %prog_build, ptr %call12.i.val, i64 %call12.i.val55, ptr noundef nonnull align 8 dereferenceable(24) %lit_program)
+  invoke fastcc void @_ZN3ue2L27makePushDelayedInstructionsERKNS_14RoseLiteralMapERNS_12ProgramBuildERKNS_8flat_setIjSt4lessIjESaIjEEERNS_11RoseProgramE(ptr noundef nonnull align 8 dereferenceable(136) %literals10.i, ptr noundef nonnull align 8 dereferenceable(240) %prog_build, ptr %call12.i.val, i64 %call12.i.val55, ptr noundef nonnull align 8 dereferenceable(24) %lit_program)
           to label %invoke.cont13.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont13.i:                                  ; preds = %invoke.cont11.i
@@ -13442,7 +13442,7 @@ invoke.cont14:                                    ; preds = %cond.end.i.i.i.i.i.
   %27 = load ptr, ptr %cc, align 8
   %28 = getelementptr i8, ptr %27, i64 272
   %.val = load i32, ptr %28, align 8
-  invoke fastcc void @_ZN3ue2L27makeCheckLiteralInstructionERKNS_15rose_literal_idEmRNS_11RoseProgramERKNS_14CompileContextE.argprom(ptr noundef nonnull align 8 dereferenceable(124) %storemerge.i.i.i.i.i.i, i64 noundef %26, ptr noundef nonnull align 8 dereferenceable(24) %prog, i32 %.val)
+  invoke fastcc void @_ZN3ue2L27makeCheckLiteralInstructionERKNS_15rose_literal_idEmRNS_11RoseProgramERKNS_14CompileContextE(ptr noundef nonnull align 8 dereferenceable(124) %storemerge.i.i.i.i.i.i, i64 noundef %26, ptr noundef nonnull align 8 dereferenceable(24) %prog, i32 %.val)
           to label %if.end17 unwind label %lpad10.loopexit.loopexit
 
 lpad10.loopexit.loopexit:                         ; preds = %invoke.cont9, %if.end17, %if.else.i.i, %invoke.cont14, %invoke.cont22
@@ -13549,7 +13549,7 @@ invoke.cont22:                                    ; preds = %cond.end.i.i.i.i.i5
   %call23.val = load ptr, ptr %storemerge.i.i.i.i.i62, align 8, !noalias !80
   %40 = getelementptr i8, ptr %storemerge.i.i.i.i.i62, i64 8
   %call23.val12 = load i64, ptr %40, align 8, !noalias !107
-  invoke fastcc void @_ZN3ue2L27makePushDelayedInstructionsERKNS_14RoseLiteralMapERNS_12ProgramBuildERKNS_8flat_setIjSt4lessIjESaIjEEERNS_11RoseProgramE.argprom(ptr noundef nonnull align 8 dereferenceable(136) %literals19, ptr noundef nonnull align 8 dereferenceable(240) %prog_build, ptr %call23.val, i64 %call23.val12, ptr noundef nonnull align 8 dereferenceable(24) %prog)
+  invoke fastcc void @_ZN3ue2L27makePushDelayedInstructionsERKNS_14RoseLiteralMapERNS_12ProgramBuildERKNS_8flat_setIjSt4lessIjESaIjEEERNS_11RoseProgramE(ptr noundef nonnull align 8 dereferenceable(136) %literals19, ptr noundef nonnull align 8 dereferenceable(240) %prog_build, ptr %call23.val, i64 %call23.val12, ptr noundef nonnull align 8 dereferenceable(24) %prog)
           to label %invoke.cont25 unwind label %lpad10.loopexit.loopexit
 
 invoke.cont25:                                    ; preds = %invoke.cont22
@@ -13712,7 +13712,7 @@ ehcleanup42:                                      ; preds = %lpad39, %ehcleanup,
 declare noundef zeroext i1 @_ZNK3ue213RoseBuildImpl9isDelayedEj(ptr noundef nonnull align 8 dereferenceable(780), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L27makeCheckLiteralInstructionERKNS_15rose_literal_idEmRNS_11RoseProgramERKNS_14CompileContextE.argprom(ptr noundef nonnull align 8 dereferenceable(124) %lit, i64 noundef %longLitLengthThreshold, ptr noundef nonnull align 8 dereferenceable(24) %program, i32 %cc.272.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L27makeCheckLiteralInstructionERKNS_15rose_literal_idEmRNS_11RoseProgramERKNS_14CompileContextE(ptr noundef nonnull align 8 dereferenceable(124) %lit, i64 noundef %longLitLengthThreshold, ptr noundef nonnull align 8 dereferenceable(24) %program, i32 %cc.272.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp6.i164 = alloca %"class.std::unique_ptr", align 8
   %__dnew.i.i.i131 = alloca i64, align 8
@@ -14573,7 +14573,7 @@ _ZNSt6vectorIN3ue29LookEntryESaIS1_EED2Ev.exit72: ; preds = %if.then.i.i.i71, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L27makePushDelayedInstructionsERKNS_14RoseLiteralMapERNS_12ProgramBuildERKNS_8flat_setIjSt4lessIjESaIjEEERNS_11RoseProgramE.argprom(ptr noundef nonnull align 8 dereferenceable(136) %literals, ptr noundef nonnull readonly align 8 dereferenceable(240) %prog_build, ptr readonly %delayed_ids.0.val, i64 %delayed_ids.8.val, ptr noundef nonnull align 8 dereferenceable(24) %program) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L27makePushDelayedInstructionsERKNS_14RoseLiteralMapERNS_12ProgramBuildERKNS_8flat_setIjSt4lessIjESaIjEEERNS_11RoseProgramE(ptr noundef nonnull align 8 dereferenceable(136) %literals, ptr noundef nonnull readonly align 8 dereferenceable(240) %prog_build, ptr readonly %delayed_ids.0.val, i64 %delayed_ids.8.val, ptr noundef nonnull align 8 dereferenceable(24) %program) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %agg.tmp6.i = alloca %"class.std::unique_ptr", align 8
   %__val.i.i.i.i.i.i = alloca %"class.ue2::RoseInstrPushDelayed", align 8
@@ -15234,7 +15234,7 @@ if.end9:                                          ; preds = %if.then6, %if.end
   %reports.val = load ptr, ptr %reports, align 8
   %11 = getelementptr i8, ptr %0, i64 72
   %reports.val9 = load i64, ptr %11, align 8
-  invoke fastcc void @_ZN3ue2L11makeCatchupERKNS_13ReportManagerEbRKNS_8flat_setIjSt4lessIjESaIjEEERNS_11RoseProgramE.argprom(ptr noundef nonnull align 8 dereferenceable(505) %9, i1 noundef zeroext %tobool10, ptr %reports.val, i64 %reports.val9, ptr noundef nonnull align 8 dereferenceable(24) %agg.result)
+  invoke fastcc void @_ZN3ue2L11makeCatchupERKNS_13ReportManagerEbRKNS_8flat_setIjSt4lessIjESaIjEEERNS_11RoseProgramE(ptr noundef nonnull align 8 dereferenceable(505) %9, i1 noundef zeroext %tobool10, ptr %reports.val, i64 %reports.val9, ptr noundef nonnull align 8 dereferenceable(24) %agg.result)
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %if.end9
@@ -15949,7 +15949,7 @@ _ZNSt10unique_ptrIN3ue224RoseInstrCheckNotHandledESt14default_deleteIS1_EED2Ev.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L11makeCatchupERKNS_13ReportManagerEbRKNS_8flat_setIjSt4lessIjESaIjEEERNS_11RoseProgramE.argprom(ptr noundef nonnull align 8 dereferenceable(505) %rm, i1 noundef zeroext %needs_catchup, ptr %reports.0.val, i64 %reports.8.val, ptr noundef nonnull align 8 dereferenceable(24) %program) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L11makeCatchupERKNS_13ReportManagerEbRKNS_8flat_setIjSt4lessIjESaIjEEERNS_11RoseProgramE(ptr noundef nonnull align 8 dereferenceable(505) %rm, i1 noundef zeroext %needs_catchup, ptr %reports.0.val, i64 %reports.8.val, ptr noundef nonnull align 8 dereferenceable(24) %program) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp6.i = alloca %"class.std::unique_ptr", align 8
   br i1 %needs_catchup, label %if.end, label %cleanup.cont
@@ -20903,7 +20903,7 @@ if.end18:                                         ; preds = %_ZNSt10unique_ptrIN
   %reports.val = load ptr, ptr %reports, align 8
   %42 = getelementptr i8, ptr %v.coerce0, i64 72
   %reports.val14 = load i64, ptr %42, align 8
-  call fastcc void @_ZN3ue2L11makeCatchupERKNS_13ReportManagerEbRKNS_8flat_setIjSt4lessIjESaIjEEERNS_11RoseProgramE.argprom(ptr noundef nonnull align 8 dereferenceable(505) %41, i1 noundef zeroext %needs_catchup, ptr %reports.val, i64 %reports.val14, ptr noundef nonnull align 8 dereferenceable(24) %program)
+  call fastcc void @_ZN3ue2L11makeCatchupERKNS_13ReportManagerEbRKNS_8flat_setIjSt4lessIjESaIjEEERNS_11RoseProgramE(ptr noundef nonnull align 8 dereferenceable(505) %41, i1 noundef zeroext %needs_catchup, ptr %reports.val, i64 %reports.val14, ptr noundef nonnull align 8 dereferenceable(24) %program)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %report_block) #29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %report_block, i8 0, i64 24, i1 false)
   %call.i10.i = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #27

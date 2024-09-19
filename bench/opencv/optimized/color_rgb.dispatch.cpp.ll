@@ -1068,15 +1068,15 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_18RGB2
   store i32 %7, ptr %23, align 4
   %113 = getelementptr inbounds i8, ptr %23, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %113, ptr noundef nonnull align 4 dereferenceable(12) @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_18RGB2GrayIfEC1EiiPKfE7coeffs0, i64 12, i1 false)
-  br i1 %8, label %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_18RGB2GrayIfEC2EiiPKf.argprom.exit, label %114
+  br i1 %8, label %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_18RGB2GrayIfEC2EiiPKf.exit, label %114
 
 114:                                              ; preds = %112
   %115 = getelementptr inbounds i8, ptr %23, i64 12
   store float 0x3FBD2F1AA0000000, ptr %113, align 4
   store float 0x3FD322D0E0000000, ptr %115, align 4
-  br label %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_18RGB2GrayIfEC2EiiPKf.argprom.exit
+  br label %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_18RGB2GrayIfEC2EiiPKf.exit
 
-_ZN2cv3hal12cpu_baseline12_GLOBAL__N_18RGB2GrayIfEC2EiiPKf.argprom.exit: ; preds = %112, %114
+_ZN2cv3hal12cpu_baseline12_GLOBAL__N_18RGB2GrayIfEC2EiiPKf.exit: ; preds = %112, %114
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
   store i32 0, ptr %10, align 4
@@ -1101,13 +1101,13 @@ _ZN2cv3hal12cpu_baseline12_GLOBAL__N_18RGB2GrayIfEC2EiiPKf.argprom.exit: ; preds
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, double noundef %125)
           to label %_ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_18RGB2GrayIfEEEEvPKhmPhmiiRKT_.exit unwind label %126
 
-126:                                              ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_18RGB2GrayIfEC2EiiPKf.argprom.exit
+126:                                              ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_18RGB2GrayIfEC2EiiPKf.exit
   %127 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #12
   br label %.body
 
-_ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_18RGB2GrayIfEEEEvPKhmPhmiiRKT_.exit: ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_18RGB2GrayIfEC2EiiPKf.argprom.exit
+_ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_18RGB2GrayIfEEEEvPKhmPhmiiRKT_.exit: ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_18RGB2GrayIfEC2EiiPKf.exit
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11)
@@ -3711,7 +3711,7 @@ _ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi1ELin1ELin1EEENS3_ILi2ELin1ELin1E
 define hidden void @_ZN2cv18cvtColorRGBA2mRGBAERKNS_11_InputArrayERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::utils::trace::details::Region", align 8
   %4 = alloca %"struct.cv::impl::(anonymous namespace)::CvtHelper.13", align 8
-  call fastcc void @_ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi4ELin1ELin1EEES4_NS3_ILi0ELin1ELin1EEELNS1_10SizePolicyE4EEC2ERKNS_11_InputArrayERKNS_12_OutputArrayEi.argelim(ptr noundef nonnull align 8 dereferenceable(208) %4, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  call fastcc void @_ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi4ELin1ELin1EEES4_NS3_ILi0ELin1ELin1EEELNS1_10SizePolicyE4EEC2ERKNS_11_InputArrayERKNS_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(208) %4, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 80
@@ -3776,7 +3776,7 @@ define hidden void @_ZN2cv18cvtColorRGBA2mRGBAERKNS_11_InputArrayERKNS_12_Output
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi4ELin1ELin1EEES4_NS3_ILi0ELin1ELin1EEELNS1_10SizePolicyE4EEC2ERKNS_11_InputArrayERKNS_12_OutputArrayEi.argelim(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi4ELin1ELin1EEES4_NS3_ILi0ELin1ELin1EEELNS1_10SizePolicyE4EEC2ERKNS_11_InputArrayERKNS_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.cv::_OutputArray", align 8
@@ -3974,7 +3974,7 @@ _ZNK2cv11_InputArray6getMatEi.exit25:             ; preds = %73, %75
 define hidden void @_ZN2cv18cvtColormRGBA2RGBAERKNS_11_InputArrayERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::utils::trace::details::Region", align 8
   %4 = alloca %"struct.cv::impl::(anonymous namespace)::CvtHelper.13", align 8
-  call fastcc void @_ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi4ELin1ELin1EEES4_NS3_ILi0ELin1ELin1EEELNS1_10SizePolicyE4EEC2ERKNS_11_InputArrayERKNS_12_OutputArrayEi.argelim(ptr noundef nonnull align 8 dereferenceable(208) %4, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  call fastcc void @_ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi4ELin1ELin1EEES4_NS3_ILi0ELin1ELin1EEELNS1_10SizePolicyE4EEC2ERKNS_11_InputArrayERKNS_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(208) %4, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 80
@@ -5470,13 +5470,13 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %24 = getelementptr inbounds i8, ptr %21, i64 %23
   br label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIhEclEPKhPhi.argprom.exit
-  %.015 = phi i32 [ %43, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIhEclEPKhPhi.argprom.exit ], [ %4, %.lr.ph.split.preheader ]
-  %.01014 = phi ptr [ %47, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIhEclEPKhPhi.argprom.exit ], [ %19, %.lr.ph.split.preheader ]
-  %.01113 = phi ptr [ %45, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIhEclEPKhPhi.argprom.exit ], [ %24, %.lr.ph.split.preheader ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIhEclEPKhPhi.exit
+  %.015 = phi i32 [ %43, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIhEclEPKhPhi.exit ], [ %4, %.lr.ph.split.preheader ]
+  %.01014 = phi ptr [ %47, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIhEclEPKhPhi.exit ], [ %19, %.lr.ph.split.preheader ]
+  %.01113 = phi ptr [ %45, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIhEclEPKhPhi.exit ], [ %24, %.lr.ph.split.preheader ]
   %25 = load i32, ptr %10, align 8
   %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIhEclEPKhPhi.argprom.exit
+  br i1 %26, label %.lr.ph.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIhEclEPKhPhi.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.split
   %27 = load ptr, ptr %11, align 8
@@ -5501,7 +5501,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %35 = getelementptr inbounds i8, ptr %.03.us.i, i64 1
   %36 = getelementptr inbounds i8, ptr %.0141.us.i, i64 %29
   %exitcond5.not.i = icmp eq i32 %34, %25
-  br i1 %exitcond5.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIhEclEPKhPhi.argprom.exit, label %.lr.ph.split.us.i, !llvm.loop !72
+  br i1 %exitcond5.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIhEclEPKhPhi.exit, label %.lr.ph.split.us.i, !llvm.loop !72
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %.03.i = phi ptr [ %41, %.lr.ph.split.i ], [ %.01113, %.lr.ph.i ]
@@ -5517,9 +5517,9 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %41 = getelementptr inbounds i8, ptr %.03.i, i64 1
   %42 = getelementptr inbounds i8, ptr %.0141.i, i64 %29
   %exitcond.not.i = icmp eq i32 %40, %25
-  br i1 %exitcond.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIhEclEPKhPhi.argprom.exit, label %.lr.ph.split.i, !llvm.loop !72
+  br i1 %exitcond.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIhEclEPKhPhi.exit, label %.lr.ph.split.i, !llvm.loop !72
 
-_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIhEclEPKhPhi.argprom.exit: ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.lr.ph.split
+_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIhEclEPKhPhi.exit: ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.lr.ph.split
   %43 = add nsw i32 %.015, 1
   %44 = load i64, ptr %5, align 8
   %45 = getelementptr inbounds i8, ptr %.01113, i64 %44
@@ -5529,7 +5529,7 @@ _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIhEclEPKhPhi.argprom.exit: ; pre
   %49 = icmp slt i32 %43, %48
   br i1 %49, label %.lr.ph.split, label %._crit_edge, !llvm.loop !73
 
-._crit_edge:                                      ; preds = %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIhEclEPKhPhi.argprom.exit, %.lr.ph, %2
+._crit_edge:                                      ; preds = %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIhEclEPKhPhi.exit, %.lr.ph, %2
   %50 = getelementptr inbounds i8, ptr %3, i64 8
   %51 = load i32, ptr %50, align 8
   %.not.i = icmp eq i32 %51, 0
@@ -5596,13 +5596,13 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %24 = getelementptr inbounds i8, ptr %21, i64 %23
   br label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.argprom.exit
-  %.015 = phi i32 [ %43, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.argprom.exit ], [ %4, %.lr.ph.split.preheader ]
-  %.01014 = phi ptr [ %47, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.argprom.exit ], [ %19, %.lr.ph.split.preheader ]
-  %.01113 = phi ptr [ %45, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.argprom.exit ], [ %24, %.lr.ph.split.preheader ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.exit
+  %.015 = phi i32 [ %43, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.exit ], [ %4, %.lr.ph.split.preheader ]
+  %.01014 = phi ptr [ %47, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.exit ], [ %19, %.lr.ph.split.preheader ]
+  %.01113 = phi ptr [ %45, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.exit ], [ %24, %.lr.ph.split.preheader ]
   %25 = load i32, ptr %10, align 8
   %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.argprom.exit
+  br i1 %26, label %.lr.ph.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.split
   %27 = load ptr, ptr %11, align 8
@@ -5627,7 +5627,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %35 = getelementptr inbounds i8, ptr %.03.us.i, i64 2
   %36 = getelementptr inbounds i16, ptr %.0141.us.i, i64 %29
   %exitcond5.not.i = icmp eq i32 %34, %25
-  br i1 %exitcond5.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.argprom.exit, label %.lr.ph.split.us.i, !llvm.loop !74
+  br i1 %exitcond5.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.exit, label %.lr.ph.split.us.i, !llvm.loop !74
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %.03.i = phi ptr [ %41, %.lr.ph.split.i ], [ %.01113, %.lr.ph.i ]
@@ -5643,9 +5643,9 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %41 = getelementptr inbounds i8, ptr %.03.i, i64 2
   %42 = getelementptr inbounds i16, ptr %.0141.i, i64 %29
   %exitcond.not.i = icmp eq i32 %40, %25
-  br i1 %exitcond.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.argprom.exit, label %.lr.ph.split.i, !llvm.loop !74
+  br i1 %exitcond.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.exit, label %.lr.ph.split.i, !llvm.loop !74
 
-_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.argprom.exit: ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.lr.ph.split
+_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.exit: ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.lr.ph.split
   %43 = add nsw i32 %.015, 1
   %44 = load i64, ptr %5, align 8
   %45 = getelementptr inbounds i8, ptr %.01113, i64 %44
@@ -5655,7 +5655,7 @@ _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.argprom.exit: ; pre
   %49 = icmp slt i32 %43, %48
   br i1 %49, label %.lr.ph.split, label %._crit_edge, !llvm.loop !75
 
-._crit_edge:                                      ; preds = %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.argprom.exit, %.lr.ph, %2
+._crit_edge:                                      ; preds = %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.exit, %.lr.ph, %2
   %50 = getelementptr inbounds i8, ptr %3, i64 8
   %51 = load i32, ptr %50, align 8
   %.not.i = icmp eq i32 %51, 0
@@ -5722,13 +5722,13 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %24 = getelementptr inbounds i8, ptr %21, i64 %23
   br label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIfEclEPKfPfi.argprom.exit
-  %.015 = phi i32 [ %43, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIfEclEPKfPfi.argprom.exit ], [ %4, %.lr.ph.split.preheader ]
-  %.01014 = phi ptr [ %47, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIfEclEPKfPfi.argprom.exit ], [ %19, %.lr.ph.split.preheader ]
-  %.01113 = phi ptr [ %45, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIfEclEPKfPfi.argprom.exit ], [ %24, %.lr.ph.split.preheader ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIfEclEPKfPfi.exit
+  %.015 = phi i32 [ %43, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIfEclEPKfPfi.exit ], [ %4, %.lr.ph.split.preheader ]
+  %.01014 = phi ptr [ %47, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIfEclEPKfPfi.exit ], [ %19, %.lr.ph.split.preheader ]
+  %.01113 = phi ptr [ %45, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIfEclEPKfPfi.exit ], [ %24, %.lr.ph.split.preheader ]
   %25 = load i32, ptr %10, align 8
   %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIfEclEPKfPfi.argprom.exit
+  br i1 %26, label %.lr.ph.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIfEclEPKfPfi.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.split
   %27 = load ptr, ptr %11, align 8
@@ -5753,7 +5753,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %35 = getelementptr inbounds i8, ptr %.03.us.i, i64 4
   %36 = getelementptr inbounds float, ptr %.0141.us.i, i64 %29
   %exitcond5.not.i = icmp eq i32 %34, %25
-  br i1 %exitcond5.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIfEclEPKfPfi.argprom.exit, label %.lr.ph.split.us.i, !llvm.loop !76
+  br i1 %exitcond5.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIfEclEPKfPfi.exit, label %.lr.ph.split.us.i, !llvm.loop !76
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %.03.i = phi ptr [ %41, %.lr.ph.split.i ], [ %.01113, %.lr.ph.i ]
@@ -5769,9 +5769,9 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %41 = getelementptr inbounds i8, ptr %.03.i, i64 4
   %42 = getelementptr inbounds float, ptr %.0141.i, i64 %29
   %exitcond.not.i = icmp eq i32 %40, %25
-  br i1 %exitcond.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIfEclEPKfPfi.argprom.exit, label %.lr.ph.split.i, !llvm.loop !76
+  br i1 %exitcond.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIfEclEPKfPfi.exit, label %.lr.ph.split.i, !llvm.loop !76
 
-_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIfEclEPKfPfi.argprom.exit: ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.lr.ph.split
+_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIfEclEPKfPfi.exit: ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.lr.ph.split
   %43 = add nsw i32 %.015, 1
   %44 = load i64, ptr %5, align 8
   %45 = getelementptr inbounds i8, ptr %.01113, i64 %44
@@ -5781,7 +5781,7 @@ _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIfEclEPKfPfi.argprom.exit: ; pre
   %49 = icmp slt i32 %43, %48
   br i1 %49, label %.lr.ph.split, label %._crit_edge, !llvm.loop !77
 
-._crit_edge:                                      ; preds = %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIfEclEPKfPfi.argprom.exit, %.lr.ph, %2
+._crit_edge:                                      ; preds = %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIfEclEPKfPfi.exit, %.lr.ph, %2
   %50 = getelementptr inbounds i8, ptr %3, i64 8
   %51 = load i32, ptr %50, align 8
   %.not.i = icmp eq i32 %51, 0
@@ -5848,13 +5848,13 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %24 = getelementptr inbounds i8, ptr %21, i64 %23
   br label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111RGB5x52GrayclEPKhPhi.argprom.exit
-  %.015 = phi i32 [ %65, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111RGB5x52GrayclEPKhPhi.argprom.exit ], [ %4, %.lr.ph.split.preheader ]
-  %.01014 = phi ptr [ %69, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111RGB5x52GrayclEPKhPhi.argprom.exit ], [ %19, %.lr.ph.split.preheader ]
-  %.01113 = phi ptr [ %67, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111RGB5x52GrayclEPKhPhi.argprom.exit ], [ %24, %.lr.ph.split.preheader ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111RGB5x52GrayclEPKhPhi.exit
+  %.015 = phi i32 [ %65, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111RGB5x52GrayclEPKhPhi.exit ], [ %4, %.lr.ph.split.preheader ]
+  %.01014 = phi ptr [ %69, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111RGB5x52GrayclEPKhPhi.exit ], [ %19, %.lr.ph.split.preheader ]
+  %.01113 = phi ptr [ %67, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111RGB5x52GrayclEPKhPhi.exit ], [ %24, %.lr.ph.split.preheader ]
   %25 = load i32, ptr %10, align 8
   %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111RGB5x52GrayclEPKhPhi.argprom.exit
+  br i1 %26, label %.lr.ph.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111RGB5x52GrayclEPKhPhi.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.split
   %27 = load ptr, ptr %11, align 8
@@ -5889,7 +5889,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %45 = getelementptr inbounds i8, ptr %.03.us.i, i64 2
   %46 = getelementptr inbounds i8, ptr %.0182.us.i, i64 1
   %exitcond5.not.i = icmp eq i32 %44, %25
-  br i1 %exitcond5.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111RGB5x52GrayclEPKhPhi.argprom.exit, label %.lr.ph.split.us.i, !llvm.loop !78
+  br i1 %exitcond5.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111RGB5x52GrayclEPKhPhi.exit, label %.lr.ph.split.us.i, !llvm.loop !78
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %.03.i = phi ptr [ %63, %.lr.ph.split.i ], [ %.01113, %.lr.ph.i ]
@@ -5918,9 +5918,9 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %63 = getelementptr inbounds i8, ptr %.03.i, i64 2
   %64 = getelementptr inbounds i8, ptr %.0182.i, i64 1
   %exitcond.not.i = icmp eq i32 %62, %25
-  br i1 %exitcond.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111RGB5x52GrayclEPKhPhi.argprom.exit, label %.lr.ph.split.i, !llvm.loop !78
+  br i1 %exitcond.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111RGB5x52GrayclEPKhPhi.exit, label %.lr.ph.split.i, !llvm.loop !78
 
-_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111RGB5x52GrayclEPKhPhi.argprom.exit: ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.lr.ph.split
+_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111RGB5x52GrayclEPKhPhi.exit: ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.lr.ph.split
   %65 = add nsw i32 %.015, 1
   %66 = load i64, ptr %5, align 8
   %67 = getelementptr inbounds i8, ptr %.01113, i64 %66
@@ -5930,7 +5930,7 @@ _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111RGB5x52GrayclEPKhPhi.argprom.exit: ; pr
   %71 = icmp slt i32 %65, %70
   br i1 %71, label %.lr.ph.split, label %._crit_edge, !llvm.loop !79
 
-._crit_edge:                                      ; preds = %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111RGB5x52GrayclEPKhPhi.argprom.exit, %.lr.ph, %2
+._crit_edge:                                      ; preds = %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111RGB5x52GrayclEPKhPhi.exit, %.lr.ph, %2
   %72 = getelementptr inbounds i8, ptr %3, i64 8
   %73 = load i32, ptr %72, align 8
   %.not.i = icmp eq i32 %73, 0
@@ -5997,13 +5997,13 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %24 = getelementptr inbounds i8, ptr %21, i64 %23
   br label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111Gray2RGB5x5clEPKhPhi.argprom.exit
-  %.015 = phi i32 [ %45, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111Gray2RGB5x5clEPKhPhi.argprom.exit ], [ %4, %.lr.ph.split.preheader ]
-  %.01014 = phi ptr [ %49, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111Gray2RGB5x5clEPKhPhi.argprom.exit ], [ %19, %.lr.ph.split.preheader ]
-  %.01113 = phi ptr [ %47, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111Gray2RGB5x5clEPKhPhi.argprom.exit ], [ %24, %.lr.ph.split.preheader ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111Gray2RGB5x5clEPKhPhi.exit
+  %.015 = phi i32 [ %45, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111Gray2RGB5x5clEPKhPhi.exit ], [ %4, %.lr.ph.split.preheader ]
+  %.01014 = phi ptr [ %49, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111Gray2RGB5x5clEPKhPhi.exit ], [ %19, %.lr.ph.split.preheader ]
+  %.01113 = phi ptr [ %47, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111Gray2RGB5x5clEPKhPhi.exit ], [ %24, %.lr.ph.split.preheader ]
   %25 = load i32, ptr %10, align 8
   %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111Gray2RGB5x5clEPKhPhi.argprom.exit
+  br i1 %26, label %.lr.ph.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111Gray2RGB5x5clEPKhPhi.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.split
   %27 = load ptr, ptr %11, align 8
@@ -6028,7 +6028,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %37 = getelementptr inbounds i8, ptr %.0163.us.i, i64 1
   %38 = getelementptr inbounds i8, ptr %.0172.us.i, i64 2
   %exitcond5.not.i = icmp eq i32 %36, %25
-  br i1 %exitcond5.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111Gray2RGB5x5clEPKhPhi.argprom.exit, label %.lr.ph.split.us.i, !llvm.loop !80
+  br i1 %exitcond5.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111Gray2RGB5x5clEPKhPhi.exit, label %.lr.ph.split.us.i, !llvm.loop !80
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %.0163.i = phi ptr [ %43, %.lr.ph.split.i ], [ %.01113, %.lr.ph.i ]
@@ -6043,9 +6043,9 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %43 = getelementptr inbounds i8, ptr %.0163.i, i64 1
   %44 = getelementptr inbounds i8, ptr %.0172.i, i64 2
   %exitcond.not.i = icmp eq i32 %42, %25
-  br i1 %exitcond.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111Gray2RGB5x5clEPKhPhi.argprom.exit, label %.lr.ph.split.i, !llvm.loop !80
+  br i1 %exitcond.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111Gray2RGB5x5clEPKhPhi.exit, label %.lr.ph.split.i, !llvm.loop !80
 
-_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111Gray2RGB5x5clEPKhPhi.argprom.exit: ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.lr.ph.split
+_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111Gray2RGB5x5clEPKhPhi.exit: ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.lr.ph.split
   %45 = add nsw i32 %.015, 1
   %46 = load i64, ptr %5, align 8
   %47 = getelementptr inbounds i8, ptr %.01113, i64 %46
@@ -6055,7 +6055,7 @@ _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111Gray2RGB5x5clEPKhPhi.argprom.exit: ; pr
   %51 = icmp slt i32 %45, %50
   br i1 %51, label %.lr.ph.split, label %._crit_edge, !llvm.loop !81
 
-._crit_edge:                                      ; preds = %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111Gray2RGB5x5clEPKhPhi.argprom.exit, %.lr.ph, %2
+._crit_edge:                                      ; preds = %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111Gray2RGB5x5clEPKhPhi.exit, %.lr.ph, %2
   %52 = getelementptr inbounds i8, ptr %3, i64 8
   %53 = load i32, ptr %52, align 8
   %.not.i = icmp eq i32 %53, 0
@@ -6121,16 +6121,16 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %23 = getelementptr inbounds i8, ptr %20, i64 %22
   br label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.argprom.exit
-  %24 = phi i32 [ %58, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.argprom.exit ], [ %8, %.lr.ph.split.preheader ]
-  %25 = phi i64 [ %59, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.argprom.exit ], [ %15, %.lr.ph.split.preheader ]
-  %26 = phi i64 [ %60, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.argprom.exit ], [ %21, %.lr.ph.split.preheader ]
-  %.014 = phi i32 [ %61, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.argprom.exit ], [ %4, %.lr.ph.split.preheader ]
-  %.01013 = phi ptr [ %63, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.argprom.exit ], [ %18, %.lr.ph.split.preheader ]
-  %.01112 = phi ptr [ %62, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.argprom.exit ], [ %23, %.lr.ph.split.preheader ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.exit
+  %24 = phi i32 [ %58, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.exit ], [ %8, %.lr.ph.split.preheader ]
+  %25 = phi i64 [ %59, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.exit ], [ %15, %.lr.ph.split.preheader ]
+  %26 = phi i64 [ %60, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.exit ], [ %21, %.lr.ph.split.preheader ]
+  %.014 = phi i32 [ %61, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.exit ], [ %4, %.lr.ph.split.preheader ]
+  %.01013 = phi ptr [ %63, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.exit ], [ %18, %.lr.ph.split.preheader ]
+  %.01112 = phi ptr [ %62, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.exit ], [ %23, %.lr.ph.split.preheader ]
   %27 = load i32, ptr %10, align 8
   %28 = icmp sgt i32 %27, 0
-  br i1 %28, label %.lr.ph.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.argprom.exit
+  br i1 %28, label %.lr.ph.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.split, %.lr.ph.i
   %.07.i = phi ptr [ %56, %.lr.ph.i ], [ %.01112, %.lr.ph.split ]
@@ -6173,25 +6173,25 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %56 = getelementptr inbounds i8, ptr %.07.i, i64 4
   %57 = getelementptr inbounds i8, ptr %.0196.i, i64 4
   %exitcond.not.i = icmp eq i32 %55, %27
-  br i1 %exitcond.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.argprom.exit.loopexit, label %.lr.ph.i, !llvm.loop !82
+  br i1 %exitcond.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.exit.loopexit, label %.lr.ph.i, !llvm.loop !82
 
-_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.argprom.exit.loopexit: ; preds = %.lr.ph.i
+_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.exit.loopexit: ; preds = %.lr.ph.i
   %.pre = load i64, ptr %5, align 8
   %.pre16 = load i64, ptr %6, align 8
   %.pre17 = load i32, ptr %7, align 4
-  br label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.argprom.exit
+  br label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.exit
 
-_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.argprom.exit: ; preds = %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.argprom.exit.loopexit, %.lr.ph.split
-  %58 = phi i32 [ %.pre17, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.argprom.exit.loopexit ], [ %24, %.lr.ph.split ]
-  %59 = phi i64 [ %.pre16, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.argprom.exit.loopexit ], [ %25, %.lr.ph.split ]
-  %60 = phi i64 [ %.pre, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.argprom.exit.loopexit ], [ %26, %.lr.ph.split ]
+_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.exit: ; preds = %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.exit.loopexit, %.lr.ph.split
+  %58 = phi i32 [ %.pre17, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.exit.loopexit ], [ %24, %.lr.ph.split ]
+  %59 = phi i64 [ %.pre16, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.exit.loopexit ], [ %25, %.lr.ph.split ]
+  %60 = phi i64 [ %.pre, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.exit.loopexit ], [ %26, %.lr.ph.split ]
   %61 = add nsw i32 %.014, 1
   %62 = getelementptr inbounds i8, ptr %.01112, i64 %60
   %63 = getelementptr inbounds i8, ptr %.01013, i64 %59
   %64 = icmp slt i32 %61, %58
   br i1 %64, label %.lr.ph.split, label %._crit_edge, !llvm.loop !83
 
-._crit_edge:                                      ; preds = %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.argprom.exit, %.lr.ph, %2
+._crit_edge:                                      ; preds = %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEclEPKhPhi.exit, %.lr.ph, %2
   %65 = getelementptr inbounds i8, ptr %3, i64 8
   %66 = load i32, ptr %65, align 8
   %.not.i = icmp eq i32 %66, 0
@@ -6257,16 +6257,16 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %23 = getelementptr inbounds i8, ptr %20, i64 %22
   br label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.argprom.exit
-  %24 = phi i32 [ %71, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.argprom.exit ], [ %8, %.lr.ph.split.preheader ]
-  %25 = phi i64 [ %72, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.argprom.exit ], [ %21, %.lr.ph.split.preheader ]
-  %26 = phi i64 [ %73, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.argprom.exit ], [ %15, %.lr.ph.split.preheader ]
-  %.016 = phi ptr [ %75, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.argprom.exit ], [ %18, %.lr.ph.split.preheader ]
-  %.01215 = phi ptr [ %76, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.argprom.exit ], [ %23, %.lr.ph.split.preheader ]
-  %.01314 = phi i32 [ %74, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.argprom.exit ], [ %4, %.lr.ph.split.preheader ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.exit
+  %24 = phi i32 [ %71, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.exit ], [ %8, %.lr.ph.split.preheader ]
+  %25 = phi i64 [ %72, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.exit ], [ %21, %.lr.ph.split.preheader ]
+  %26 = phi i64 [ %73, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.exit ], [ %15, %.lr.ph.split.preheader ]
+  %.016 = phi ptr [ %75, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.exit ], [ %18, %.lr.ph.split.preheader ]
+  %.01215 = phi ptr [ %76, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.exit ], [ %23, %.lr.ph.split.preheader ]
+  %.01314 = phi i32 [ %74, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.exit ], [ %4, %.lr.ph.split.preheader ]
   %27 = load i32, ptr %10, align 8
   %28 = icmp sgt i32 %27, 0
-  br i1 %28, label %.lr.ph.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.argprom.exit
+  br i1 %28, label %.lr.ph.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.split, %64
   %.020.i = phi ptr [ %69, %64 ], [ %.016, %.lr.ph.split ]
@@ -6333,25 +6333,25 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %69 = getelementptr inbounds i8, ptr %.020.i, i64 4
   %70 = getelementptr inbounds i8, ptr %.04919.i, i64 4
   %exitcond.not.i = icmp eq i32 %68, %27
-  br i1 %exitcond.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.argprom.exit.loopexit, label %.lr.ph.i, !llvm.loop !84
+  br i1 %exitcond.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.exit.loopexit, label %.lr.ph.i, !llvm.loop !84
 
-_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.argprom.exit.loopexit: ; preds = %64
+_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.exit.loopexit: ; preds = %64
   %.pre = load i64, ptr %5, align 8
   %.pre18 = load i64, ptr %6, align 8
   %.pre19 = load i32, ptr %7, align 4
-  br label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.argprom.exit
+  br label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.exit
 
-_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.argprom.exit: ; preds = %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.argprom.exit.loopexit, %.lr.ph.split
-  %71 = phi i32 [ %.pre19, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.argprom.exit.loopexit ], [ %24, %.lr.ph.split ]
-  %72 = phi i64 [ %.pre18, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.argprom.exit.loopexit ], [ %25, %.lr.ph.split ]
-  %73 = phi i64 [ %.pre, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.argprom.exit.loopexit ], [ %26, %.lr.ph.split ]
+_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.exit: ; preds = %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.exit.loopexit, %.lr.ph.split
+  %71 = phi i32 [ %.pre19, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.exit.loopexit ], [ %24, %.lr.ph.split ]
+  %72 = phi i64 [ %.pre18, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.exit.loopexit ], [ %25, %.lr.ph.split ]
+  %73 = phi i64 [ %.pre, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.exit.loopexit ], [ %26, %.lr.ph.split ]
   %74 = add nsw i32 %.01314, 1
   %75 = getelementptr inbounds i8, ptr %.016, i64 %73
   %76 = getelementptr inbounds i8, ptr %.01215, i64 %72
   %77 = icmp slt i32 %74, %71
   br i1 %77, label %.lr.ph.split, label %._crit_edge, !llvm.loop !85
 
-._crit_edge:                                      ; preds = %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.argprom.exit, %.lr.ph, %2
+._crit_edge:                                      ; preds = %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEclEPKhPhi.exit, %.lr.ph, %2
   %78 = getelementptr inbounds i8, ptr %3, i64 8
   %79 = load i32, ptr %78, align 8
   %.not.i = icmp eq i32 %79, 0

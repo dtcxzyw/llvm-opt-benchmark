@@ -15,7 +15,7 @@ define void @Aig_ObjClearReverseLevel(ptr nocapture noundef readonly %0, ptr noc
   %5 = getelementptr inbounds i8, ptr %1, i64 36
   %6 = load i32, ptr %5, align 4
   %7 = add nsw i32 %6, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %4, i32 noundef %7)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef %4, i32 noundef %7)
   %8 = load ptr, ptr %3, align 8
   %9 = load i32, ptr %5, align 4
   %10 = getelementptr i8, ptr %8, i64 8
@@ -36,7 +36,7 @@ define i32 @Aig_ObjRequiredLevel(ptr nocapture noundef readonly %0, ptr nocaptur
   %8 = getelementptr inbounds i8, ptr %1, i64 36
   %9 = load i32, ptr %8, align 4
   %10 = add nsw i32 %9, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %7, i32 noundef %10)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef %7, i32 noundef %10)
   %11 = load ptr, ptr %6, align 8
   %12 = load i32, ptr %8, align 4
   %13 = getelementptr i8, ptr %11, i64 8
@@ -63,10 +63,10 @@ define range(i32 1, -2147483648) i32 @Aig_ObjReverseLevelNew(ptr nocapture nound
   %9 = getelementptr inbounds i8, ptr %0, i64 280
   br label %10
 
-10:                                               ; preds = %.lr.ph, %Aig_ManObj.argprom.exit
-  %.021 = phi i32 [ 0, %.lr.ph ], [ %41, %Aig_ManObj.argprom.exit ]
-  %.01420 = phi i32 [ 0, %.lr.ph ], [ %42, %Aig_ManObj.argprom.exit ]
-  %.01519 = phi i32 [ -1, %.lr.ph ], [ %23, %Aig_ManObj.argprom.exit ]
+10:                                               ; preds = %.lr.ph, %Aig_ManObj.exit
+  %.021 = phi i32 [ 0, %.lr.ph ], [ %41, %Aig_ManObj.exit ]
+  %.01420 = phi i32 [ 0, %.lr.ph ], [ %42, %Aig_ManObj.exit ]
+  %.01519 = phi i32 [ -1, %.lr.ph ], [ %23, %Aig_ManObj.exit ]
   %.not = icmp eq i32 %.01420, 0
   br i1 %.not, label %17, label %11
 
@@ -91,7 +91,7 @@ define range(i32 1, -2147483648) i32 @Aig_ObjReverseLevelNew(ptr nocapture nound
   %23 = load i32, ptr %22, align 4
   %.val17 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %.val17, null
-  br i1 %.not.i, label %Aig_ManObj.argprom.exit, label %24
+  br i1 %.not.i, label %Aig_ManObj.exit, label %24
 
 24:                                               ; preds = %20
   %25 = ashr i32 %23, 1
@@ -100,15 +100,15 @@ define range(i32 1, -2147483648) i32 @Aig_ObjReverseLevelNew(ptr nocapture nound
   %27 = sext i32 %25 to i64
   %28 = getelementptr inbounds ptr, ptr %.val.i, i64 %27
   %29 = load ptr, ptr %28, align 8
-  br label %Aig_ManObj.argprom.exit
+  br label %Aig_ManObj.exit
 
-Aig_ManObj.argprom.exit:                          ; preds = %20, %24
+Aig_ManObj.exit:                                  ; preds = %20, %24
   %30 = phi ptr [ %29, %24 ], [ null, %20 ]
   %31 = load ptr, ptr %9, align 8
   %32 = getelementptr inbounds i8, ptr %30, i64 36
   %33 = load i32, ptr %32, align 4
   %34 = add nsw i32 %33, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %31, i32 noundef %34)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef %31, i32 noundef %34)
   %35 = load ptr, ptr %9, align 8
   %36 = load i32, ptr %32, align 4
   %37 = getelementptr i8, ptr %35, i64 8
@@ -124,7 +124,7 @@ Aig_ManObj.argprom.exit:                          ; preds = %20, %24
   %46 = icmp ult i32 %42, %45
   br i1 %46, label %10, label %.critedge.loopexit, !llvm.loop !4
 
-.critedge.loopexit:                               ; preds = %Aig_ManObj.argprom.exit
+.critedge.loopexit:                               ; preds = %Aig_ManObj.exit
   %47 = add nuw nsw i32 %41, 1
   br label %.critedge
 
@@ -231,7 +231,7 @@ Vec_IntFill.exit:                                 ; preds = %14, %2
   %44 = load i32, ptr %43, align 4
   %.val17.i = load ptr, ptr %7, align 8
   %.not.i.i19 = icmp eq ptr %.val17.i, null
-  br i1 %.not.i.i19, label %Aig_ManObj.argprom.exit.i, label %45
+  br i1 %.not.i.i19, label %Aig_ManObj.exit.i, label %45
 
 45:                                               ; preds = %41
   %46 = ashr i32 %44, 1
@@ -240,9 +240,9 @@ Vec_IntFill.exit:                                 ; preds = %14, %2
   %48 = sext i32 %46 to i64
   %49 = getelementptr inbounds ptr, ptr %.val.i.i, i64 %48
   %50 = load ptr, ptr %49, align 8
-  br label %Aig_ManObj.argprom.exit.i
+  br label %Aig_ManObj.exit.i
 
-Aig_ManObj.argprom.exit.i:                        ; preds = %45, %41
+Aig_ManObj.exit.i:                                ; preds = %45, %41
   %51 = phi ptr [ %50, %45 ], [ null, %41 ]
   %52 = load ptr, ptr %6, align 8
   %53 = getelementptr inbounds i8, ptr %51, i64 36
@@ -253,7 +253,7 @@ Aig_ManObj.argprom.exit.i:                        ; preds = %45, %41
   %.not.i21.not = icmp slt i32 %54, %57
   br i1 %.not.i21.not, label %Vec_IntFillExtra.exit, label %58
 
-58:                                               ; preds = %Aig_ManObj.argprom.exit.i
+58:                                               ; preds = %Aig_ManObj.exit.i
   %59 = load i32, ptr %52, align 8
   %60 = shl nsw i32 %59, 1
   %.not = icmp slt i32 %54, %60
@@ -341,10 +341,10 @@ Vec_IntGrow.exit.i23:                             ; preds = %Vec_IntGrow.exit.si
   %.pre36 = load i64, ptr %26, align 8
   br label %Vec_IntFillExtra.exit
 
-Vec_IntFillExtra.exit:                            ; preds = %Aig_ManObj.argprom.exit.i, %._crit_edge.i
-  %91 = phi i64 [ %31, %Aig_ManObj.argprom.exit.i ], [ %.pre36, %._crit_edge.i ]
-  %92 = phi i32 [ %54, %Aig_ManObj.argprom.exit.i ], [ %.pre35, %._crit_edge.i ]
-  %93 = phi ptr [ %52, %Aig_ManObj.argprom.exit.i ], [ %.pre34, %._crit_edge.i ]
+Vec_IntFillExtra.exit:                            ; preds = %Aig_ManObj.exit.i, %._crit_edge.i
+  %91 = phi i64 [ %31, %Aig_ManObj.exit.i ], [ %.pre36, %._crit_edge.i ]
+  %92 = phi i32 [ %54, %Aig_ManObj.exit.i ], [ %.pre35, %._crit_edge.i ]
+  %93 = phi ptr [ %52, %Aig_ManObj.exit.i ], [ %.pre34, %._crit_edge.i ]
   %94 = getelementptr i8, ptr %93, i64 8
   %.val.i18.i = load ptr, ptr %94, align 8
   %95 = sext i32 %92 to i64
@@ -367,7 +367,7 @@ Aig_ObjReverseLevelNew.exit:                      ; preds = %.Aig_ObjReverseLeve
   %105 = getelementptr inbounds i8, ptr %25, i64 36
   %106 = load i32, ptr %105, align 4
   %107 = add nsw i32 %106, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %104, i32 noundef %107)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef %104, i32 noundef %107)
   %108 = load ptr, ptr %6, align 8
   %109 = load i32, ptr %105, align 4
   %110 = getelementptr i8, ptr %108, i64 8
@@ -668,7 +668,7 @@ Aig_ObjLevelNew.exit69:                           ; preds = %94, %115
   %146 = load i32, ptr %145, align 4
   %.val52 = load ptr, ptr %76, align 8
   %.not.i70 = icmp eq ptr %.val52, null
-  br i1 %.not.i70, label %Aig_ManObj.argprom.exit, label %147
+  br i1 %.not.i70, label %Aig_ManObj.exit, label %147
 
 147:                                              ; preds = %143
   %148 = ashr i32 %146, 1
@@ -677,9 +677,9 @@ Aig_ObjLevelNew.exit69:                           ; preds = %94, %115
   %150 = sext i32 %148 to i64
   %151 = getelementptr inbounds ptr, ptr %.val.i71, i64 %150
   %152 = load ptr, ptr %151, align 8
-  br label %Aig_ManObj.argprom.exit
+  br label %Aig_ManObj.exit
 
-Aig_ManObj.argprom.exit:                          ; preds = %143, %147
+Aig_ManObj.exit:                                  ; preds = %143, %147
   %153 = phi ptr [ %152, %147 ], [ null, %143 ]
   %154 = getelementptr i8, ptr %153, i64 24
   %.val60 = load i64, ptr %154, align 8
@@ -692,7 +692,7 @@ Aig_ManObj.argprom.exit:                          ; preds = %143, %147
   %or.cond = and i1 %.not49, %narrow.i
   br i1 %or.cond, label %159, label %224
 
-159:                                              ; preds = %Aig_ManObj.argprom.exit
+159:                                              ; preds = %Aig_ManObj.exit
   %160 = load ptr, ptr %3, align 8
   %161 = lshr i64 %.val60, 32
   %162 = trunc nuw i64 %161 to i32
@@ -835,8 +835,8 @@ Vec_VecPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.pre95 = load i64, ptr %88, align 8
   br label %224
 
-224:                                              ; preds = %Aig_ManObj.argprom.exit, %Vec_VecPush.exit
-  %225 = phi i64 [ %133, %Aig_ManObj.argprom.exit ], [ %.pre95, %Vec_VecPush.exit ]
+224:                                              ; preds = %Aig_ManObj.exit, %Vec_VecPush.exit
+  %225 = phi i64 [ %133, %Aig_ManObj.exit ], [ %.pre95, %Vec_VecPush.exit ]
   %226 = add nuw nsw i32 %.080, 1
   %227 = trunc i64 %225 to i32
   %228 = lshr i32 %227, 6
@@ -1046,7 +1046,7 @@ Vec_VecAlloc.exit:                                ; preds = %6, %11
   %20 = getelementptr inbounds i8, ptr %1, i64 36
   %21 = load i32, ptr %20, align 4
   %22 = add nsw i32 %21, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %19, i32 noundef %22)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef %19, i32 noundef %22)
   %23 = load ptr, ptr %18, align 8
   %24 = load i32, ptr %20, align 4
   %25 = getelementptr i8, ptr %23, i64 8
@@ -1065,11 +1065,11 @@ Vec_VecAlloc.exit:                                ; preds = %6, %11
   %33 = getelementptr i8, ptr %0, i64 32
   br label %34
 
-34:                                               ; preds = %Aig_ManObj.argprom.exit.i, %.lr.ph.i
-  %35 = phi ptr [ %23, %.lr.ph.i ], [ %59, %Aig_ManObj.argprom.exit.i ]
-  %.021.i = phi i32 [ 0, %.lr.ph.i ], [ %65, %Aig_ManObj.argprom.exit.i ]
-  %.01420.i = phi i32 [ 0, %.lr.ph.i ], [ %66, %Aig_ManObj.argprom.exit.i ]
-  %.01519.i = phi i32 [ -1, %.lr.ph.i ], [ %48, %Aig_ManObj.argprom.exit.i ]
+34:                                               ; preds = %Aig_ManObj.exit.i, %.lr.ph.i
+  %35 = phi ptr [ %23, %.lr.ph.i ], [ %59, %Aig_ManObj.exit.i ]
+  %.021.i = phi i32 [ 0, %.lr.ph.i ], [ %65, %Aig_ManObj.exit.i ]
+  %.01420.i = phi i32 [ 0, %.lr.ph.i ], [ %66, %Aig_ManObj.exit.i ]
+  %.01519.i = phi i32 [ -1, %.lr.ph.i ], [ %48, %Aig_ManObj.exit.i ]
   %.not.i64 = icmp eq i32 %.01420.i, 0
   br i1 %.not.i64, label %42, label %36
 
@@ -1094,7 +1094,7 @@ Vec_VecAlloc.exit:                                ; preds = %6, %11
   %48 = load i32, ptr %47, align 4
   %.val17.i = load ptr, ptr %33, align 8
   %.not.i.i = icmp eq ptr %.val17.i, null
-  br i1 %.not.i.i, label %Aig_ManObj.argprom.exit.i, label %49
+  br i1 %.not.i.i, label %Aig_ManObj.exit.i, label %49
 
 49:                                               ; preds = %45
   %50 = ashr i32 %48, 1
@@ -1103,14 +1103,14 @@ Vec_VecAlloc.exit:                                ; preds = %6, %11
   %52 = sext i32 %50 to i64
   %53 = getelementptr inbounds ptr, ptr %.val.i.i, i64 %52
   %54 = load ptr, ptr %53, align 8
-  br label %Aig_ManObj.argprom.exit.i
+  br label %Aig_ManObj.exit.i
 
-Aig_ManObj.argprom.exit.i:                        ; preds = %49, %45
+Aig_ManObj.exit.i:                                ; preds = %49, %45
   %55 = phi ptr [ %54, %49 ], [ null, %45 ]
   %56 = getelementptr inbounds i8, ptr %55, i64 36
   %57 = load i32, ptr %56, align 4
   %58 = add nsw i32 %57, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %35, i32 noundef %58)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %35, i32 noundef %58)
   %59 = load ptr, ptr %18, align 8
   %60 = load i32, ptr %56, align 4
   %61 = getelementptr i8, ptr %59, i64 8
@@ -1126,7 +1126,7 @@ Aig_ManObj.argprom.exit.i:                        ; preds = %49, %45
   %70 = icmp ult i32 %66, %69
   br i1 %70, label %34, label %.critedge.loopexit.i, !llvm.loop !4
 
-.critedge.loopexit.i:                             ; preds = %Aig_ManObj.argprom.exit.i
+.critedge.loopexit.i:                             ; preds = %Aig_ManObj.exit.i
   %71 = add nuw nsw i32 %65, 1
   br label %Aig_ObjReverseLevelNew.exit
 
@@ -1342,7 +1342,7 @@ Vec_IntFillExtra.exit.Aig_ObjReverseLevelNew.exit83_crit_edge: ; preds = %Vec_In
   %161 = load i32, ptr %160, align 4
   %.val17.i76 = load ptr, ptr %91, align 8
   %.not.i.i77 = icmp eq ptr %.val17.i76, null
-  br i1 %.not.i.i77, label %Aig_ManObj.argprom.exit.i79, label %162
+  br i1 %.not.i.i77, label %Aig_ManObj.exit.i79, label %162
 
 162:                                              ; preds = %158
   %163 = ashr i32 %161, 1
@@ -1351,9 +1351,9 @@ Vec_IntFillExtra.exit.Aig_ObjReverseLevelNew.exit83_crit_edge: ; preds = %Vec_In
   %165 = sext i32 %163 to i64
   %166 = getelementptr inbounds ptr, ptr %.val.i.i78, i64 %165
   %167 = load ptr, ptr %166, align 8
-  br label %Aig_ManObj.argprom.exit.i79
+  br label %Aig_ManObj.exit.i79
 
-Aig_ManObj.argprom.exit.i79:                      ; preds = %162, %158
+Aig_ManObj.exit.i79:                              ; preds = %162, %158
   %168 = phi ptr [ %167, %162 ], [ null, %158 ]
   %169 = load ptr, ptr %18, align 8
   %170 = getelementptr inbounds i8, ptr %168, i64 36
@@ -1364,7 +1364,7 @@ Aig_ManObj.argprom.exit.i79:                      ; preds = %162, %158
   %.not.i124.not = icmp slt i32 %171, %174
   br i1 %.not.i124.not, label %Vec_IntFillExtra.exit137, label %175
 
-175:                                              ; preds = %Aig_ManObj.argprom.exit.i79
+175:                                              ; preds = %Aig_ManObj.exit.i79
   %176 = load i32, ptr %169, align 8
   %177 = shl nsw i32 %176, 1
   %.not197 = icmp slt i32 %171, %177
@@ -1452,10 +1452,10 @@ Vec_IntGrow.exit.i126:                            ; preds = %Vec_IntGrow.exit.si
   %.pre222 = load i64, ptr %104, align 8
   br label %Vec_IntFillExtra.exit137
 
-Vec_IntFillExtra.exit137:                         ; preds = %Aig_ManObj.argprom.exit.i79, %._crit_edge.i127
-  %208 = phi i64 [ %148, %Aig_ManObj.argprom.exit.i79 ], [ %.pre222, %._crit_edge.i127 ]
-  %209 = phi i32 [ %171, %Aig_ManObj.argprom.exit.i79 ], [ %.pre221, %._crit_edge.i127 ]
-  %210 = phi ptr [ %169, %Aig_ManObj.argprom.exit.i79 ], [ %.pre220, %._crit_edge.i127 ]
+Vec_IntFillExtra.exit137:                         ; preds = %Aig_ManObj.exit.i79, %._crit_edge.i127
+  %208 = phi i64 [ %148, %Aig_ManObj.exit.i79 ], [ %.pre222, %._crit_edge.i127 ]
+  %209 = phi i32 [ %171, %Aig_ManObj.exit.i79 ], [ %.pre221, %._crit_edge.i127 ]
+  %210 = phi ptr [ %169, %Aig_ManObj.exit.i79 ], [ %.pre220, %._crit_edge.i127 ]
   %211 = getelementptr i8, ptr %210, i64 8
   %.val.i18.i80 = load ptr, ptr %211, align 8
   %212 = sext i32 %209 to i64
@@ -2423,7 +2423,7 @@ Aig_ObjLevelNew.exit:                             ; preds = %26, %47
   %75 = load i32, ptr %74, align 4
   %.val17.i = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %.val17.i, null
-  br i1 %.not.i.i, label %Aig_ManObj.argprom.exit.i, label %76
+  br i1 %.not.i.i, label %Aig_ManObj.exit.i, label %76
 
 76:                                               ; preds = %72
   %77 = ashr i32 %75, 1
@@ -2432,9 +2432,9 @@ Aig_ObjLevelNew.exit:                             ; preds = %26, %47
   %79 = sext i32 %77 to i64
   %80 = getelementptr inbounds ptr, ptr %.val.i.i, i64 %79
   %81 = load ptr, ptr %80, align 8
-  br label %Aig_ManObj.argprom.exit.i
+  br label %Aig_ManObj.exit.i
 
-Aig_ManObj.argprom.exit.i:                        ; preds = %76, %72
+Aig_ManObj.exit.i:                                ; preds = %76, %72
   %82 = phi ptr [ %81, %76 ], [ null, %72 ]
   %83 = load ptr, ptr %7, align 8
   %84 = getelementptr inbounds i8, ptr %82, i64 36
@@ -2445,7 +2445,7 @@ Aig_ManObj.argprom.exit.i:                        ; preds = %76, %72
   %.not.i25.not = icmp slt i32 %85, %88
   br i1 %.not.i25.not, label %Vec_IntFillExtra.exit, label %89
 
-89:                                               ; preds = %Aig_ManObj.argprom.exit.i
+89:                                               ; preds = %Aig_ManObj.exit.i
   %90 = load i32, ptr %83, align 8
   %91 = shl nsw i32 %90, 1
   %.not28 = icmp slt i32 %85, %91
@@ -2533,10 +2533,10 @@ Vec_IntGrow.exit.i:                               ; preds = %Vec_IntGrow.exit.si
   %.pre36 = load i64, ptr %15, align 8
   br label %Vec_IntFillExtra.exit
 
-Vec_IntFillExtra.exit:                            ; preds = %Aig_ManObj.argprom.exit.i, %._crit_edge.i
-  %122 = phi i64 [ %62, %Aig_ManObj.argprom.exit.i ], [ %.pre36, %._crit_edge.i ]
-  %123 = phi i32 [ %85, %Aig_ManObj.argprom.exit.i ], [ %.pre35, %._crit_edge.i ]
-  %124 = phi ptr [ %83, %Aig_ManObj.argprom.exit.i ], [ %.pre34, %._crit_edge.i ]
+Vec_IntFillExtra.exit:                            ; preds = %Aig_ManObj.exit.i, %._crit_edge.i
+  %122 = phi i64 [ %62, %Aig_ManObj.exit.i ], [ %.pre36, %._crit_edge.i ]
+  %123 = phi i32 [ %85, %Aig_ManObj.exit.i ], [ %.pre35, %._crit_edge.i ]
+  %124 = phi ptr [ %83, %Aig_ManObj.exit.i ], [ %.pre34, %._crit_edge.i ]
   %125 = getelementptr i8, ptr %124, i64 8
   %.val.i18.i = load ptr, ptr %125, align 8
   %126 = sext i32 %123 to i64
@@ -2559,7 +2559,7 @@ Aig_ObjReverseLevelNew.exit:                      ; preds = %.Aig_ObjReverseLeve
   %136 = phi ptr [ %.pre37, %.Aig_ObjReverseLevelNew.exit_crit_edge ], [ %124, %.critedge.loopexit.i ]
   %.0.lcssa.i = phi i32 [ 1, %.Aig_ObjReverseLevelNew.exit_crit_edge ], [ %134, %.critedge.loopexit.i ]
   %137 = add nsw i32 %135, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %136, i32 noundef %137)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef %136, i32 noundef %137)
   %138 = load ptr, ptr %7, align 8
   %139 = load i32, ptr %59, align 4
   %140 = getelementptr i8, ptr %138, i64 8
@@ -2595,7 +2595,7 @@ Aig_ObjReverseLevelNew.exit:                      ; preds = %.Aig_ObjReverseLeve
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

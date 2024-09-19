@@ -199,12 +199,12 @@ entry:
   %vBase7.i = getelementptr inbounds i8, ptr %dctx, i64 10272
   store ptr %dst, ptr %vBase7.i, align 8
   %cmp.i = icmp ult i64 %srcSize, 8
-  br i1 %cmp.i, label %ZSTD_decompress_usingDict.argprom.exit, label %if.end9.i
+  br i1 %cmp.i, label %ZSTD_decompress_usingDict.exit, label %if.end9.i
 
 if.end9.i:                                        ; preds = %entry
   %src.val.i = load i32, ptr %src, align 1
   %cmp1.not.i.i = icmp eq i32 %src.val.i, -47205084
-  br i1 %cmp1.not.i.i, label %if.end14.i, label %ZSTD_decompress_usingDict.argprom.exit
+  br i1 %cmp1.not.i.i, label %if.end14.i, label %ZSTD_decompress_usingDict.exit
 
 if.end14.i:                                       ; preds = %if.end9.i
   %headerSize.i.i = getelementptr inbounds i8, ptr %dctx, i64 10296
@@ -213,7 +213,7 @@ if.end14.i:                                       ; preds = %if.end9.i
   %sub.i = add i64 %srcSize, -5
   %src.val.i.i.i = load i32, ptr %src, align 1
   %cmp1.not.i.i.i = icmp eq i32 %src.val.i.i.i, -47205084
-  br i1 %cmp1.not.i.i.i, label %ZSTD_decodeFrameHeader_Part2.exit.i, label %ZSTD_decompress_usingDict.argprom.exit
+  br i1 %cmp1.not.i.i.i, label %ZSTD_decodeFrameHeader_Part2.exit.i, label %ZSTD_decompress_usingDict.exit
 
 ZSTD_decodeFrameHeader_Part2.exit.i:              ; preds = %if.end14.i
   %params.i.i = getelementptr inbounds i8, ptr %dctx, i64 10304
@@ -227,7 +227,7 @@ ZSTD_decodeFrameHeader_Part2.exit.i:              ; preds = %if.end14.i
   store i32 %add.i.i.i, ptr %windowLog.i.i.i, align 8
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
   %cmp6.not.i.i.i = icmp ult i8 %2, 16
-  br i1 %cmp6.not.i.i.i, label %if.end.i63.lr.ph.i, label %ZSTD_decompress_usingDict.argprom.exit
+  br i1 %cmp6.not.i.i.i, label %if.end.i63.lr.ph.i, label %ZSTD_decompress_usingDict.exit
 
 if.end.i63.lr.ph.i:                               ; preds = %ZSTD_decodeFrameHeader_Part2.exit.i
   %sub.ptr.lhs.cast24.i = ptrtoint ptr %add.ptr.i to i64
@@ -248,7 +248,7 @@ if.end.i63.i:                                     ; preds = %if.end57.i, %if.end
 
 if.end36.thread.i:                                ; preds = %if.end.i63.i
   %tobool48.not.i = icmp eq i64 %remainingSize.073.i, 3
-  br i1 %tobool48.not.i, label %if.end36.thread.i.sw.epilog.while.end_crit_edge.i_crit_edge, label %ZSTD_decompress_usingDict.argprom.exit
+  br i1 %tobool48.not.i, label %if.end36.thread.i.sw.epilog.while.end_crit_edge.i_crit_edge, label %ZSTD_decompress_usingDict.exit
 
 if.end36.thread.i.sw.epilog.while.end_crit_edge.i_crit_edge: ; preds = %if.end36.thread.i
   %.pre = ptrtoint ptr %op.071.i to i64
@@ -274,10 +274,10 @@ if.end31.i:                                       ; preds = %if.end20.i.i, %if.e
   %add.ptr32.i = getelementptr inbounds i8, ptr %ip.072.i, i64 3
   %sub33.i = add i64 %remainingSize.073.i, -3
   %cmp34.i = icmp ugt i64 %retval.0.i64.ph.i, %sub33.i
-  br i1 %cmp34.i, label %ZSTD_decompress_usingDict.argprom.exit, label %if.end36.i
+  br i1 %cmp34.i, label %ZSTD_decompress_usingDict.exit, label %if.end36.i
 
 if.end36.i:                                       ; preds = %if.end31.i
-  switch i32 %shr.i.i, label %ZSTD_decompress_usingDict.argprom.exit [
+  switch i32 %shr.i.i, label %ZSTD_decompress_usingDict.exit [
     i32 0, label %sw.epilog.i
     i32 1, label %sw.bb41.i
   ]
@@ -286,7 +286,7 @@ sw.bb41.i:                                        ; preds = %if.end36.i
   %sub.ptr.rhs.cast43.i = ptrtoint ptr %op.071.i to i64
   %sub.ptr.sub44.i = sub i64 %sub.ptr.lhs.cast42.i, %sub.ptr.rhs.cast43.i
   %cmp.i67.i = icmp ugt i64 %retval.0.i64.ph.i, %sub.ptr.sub44.i
-  br i1 %cmp.i67.i, label %ZSTD_decompress_usingDict.argprom.exit, label %if.end.i68.i
+  br i1 %cmp.i67.i, label %ZSTD_decompress_usingDict.exit, label %if.end.i68.i
 
 if.end.i68.i:                                     ; preds = %sw.bb41.i
   %cmp1.not.i69.i = icmp eq i64 %retval.0.i64.ph.i, 0
@@ -305,7 +305,7 @@ sw.epilog.i:                                      ; preds = %if.end36.i
 
 if.end53.i:                                       ; preds = %sw.epilog.i
   %cmp.i.i71.i = icmp ult i64 %call40.i, -119
-  br i1 %cmp.i.i71.i, label %if.end57.i, label %ZSTD_decompress_usingDict.argprom.exit
+  br i1 %cmp.i.i71.i, label %if.end57.i, label %ZSTD_decompress_usingDict.exit
 
 if.end57.i:                                       ; preds = %if.end53.i, %if.end53.thread.i
   %decodedSize.04155.i = phi i64 [ %retval.0.i64.ph.i, %if.end53.thread.i ], [ %call40.i, %if.end53.i ]
@@ -315,15 +315,15 @@ if.end57.i:                                       ; preds = %if.end53.i, %if.end
   %sub.ptr.rhs.cast25.i = ptrtoint ptr %add.ptr59.i to i64
   %sub.ptr.sub26.i = sub i64 %sub.ptr.lhs.cast24.i, %sub.ptr.rhs.cast25.i
   %cmp.i.i = icmp ult i64 %sub.ptr.sub26.i, 3
-  br i1 %cmp.i.i, label %ZSTD_decompress_usingDict.argprom.exit, label %if.end.i63.i
+  br i1 %cmp.i.i, label %ZSTD_decompress_usingDict.exit, label %if.end.i63.i
 
 while.end.i:                                      ; preds = %if.end.i68.i, %sw.epilog.i, %if.end36.thread.i.sw.epilog.while.end_crit_edge.i_crit_edge
   %sub.ptr.lhs.cast61.pre-phi.i = phi i64 [ %.pre, %if.end36.thread.i.sw.epilog.while.end_crit_edge.i_crit_edge ], [ %sub.ptr.rhs.cast43.i, %if.end.i68.i ], [ %sub.ptr.rhs.cast38.i, %sw.epilog.i ]
   %sub.ptr.rhs.cast62.i = ptrtoint ptr %dst to i64
   %sub.ptr.sub63.i = sub i64 %sub.ptr.lhs.cast61.pre-phi.i, %sub.ptr.rhs.cast62.i
-  br label %ZSTD_decompress_usingDict.argprom.exit
+  br label %ZSTD_decompress_usingDict.exit
 
-ZSTD_decompress_usingDict.argprom.exit:           ; preds = %if.end31.i, %if.end36.i, %sw.bb41.i, %if.end53.i, %if.end57.i, %entry, %if.end9.i, %if.end14.i, %ZSTD_decodeFrameHeader_Part2.exit.i, %if.end36.thread.i, %while.end.i
+ZSTD_decompress_usingDict.exit:                   ; preds = %if.end31.i, %if.end36.i, %sw.bb41.i, %if.end53.i, %if.end57.i, %entry, %if.end9.i, %if.end14.i, %ZSTD_decodeFrameHeader_Part2.exit.i, %if.end36.thread.i, %while.end.i
   %retval.0.i = phi i64 [ %sub.ptr.sub63.i, %while.end.i ], [ -72, %entry ], [ -14, %ZSTD_decodeFrameHeader_Part2.exit.i ], [ -10, %if.end14.i ], [ -10, %if.end9.i ], [ -72, %if.end36.thread.i ], [ -72, %if.end57.i ], [ -70, %sw.bb41.i ], [ %call40.i, %if.end53.i ], [ -1, %if.end36.i ], [ -72, %if.end31.i ]
   ret i64 %retval.0.i
 }
@@ -2342,7 +2342,7 @@ entry:
   store i32 0, ptr %tableLog.i, align 4
   store i32 0, ptr %nbSymbols.i, align 4
   %add.ptr.i = getelementptr inbounds i8, ptr %DTable, i64 2
-  %call.i = call fastcc i64 @HUF_readStats.argelim(ptr noundef %huffWeight.i, ptr noundef %rankVal.i, ptr noundef %nbSymbols.i, ptr noundef %tableLog.i, ptr noundef %cSrc, i64 noundef %cSrcSize)
+  %call.i = call fastcc i64 @HUF_readStats(ptr noundef %huffWeight.i, ptr noundef %rankVal.i, ptr noundef %nbSymbols.i, ptr noundef %tableLog.i, ptr noundef %cSrc, i64 noundef %cSrcSize)
   %cmp.i.i.i = icmp ult i64 %call.i, -119
   br i1 %cmp.i.i.i, label %if.end.i, label %HUF_readDTableX2.exit.thread
 
@@ -3321,10 +3321,10 @@ for.end.i:                                        ; preds = %for.cond.for.end_cr
   br i1 %or.cond99.i, label %HUF_decompress4X2_usingDTable.exit, label %if.end153.i
 
 if.end153.i:                                      ; preds = %for.end.i
-  call fastcc void @HUF_decodeStreamX2.argelim(ptr noundef %op1.0.lcssa.i, ptr noundef %bitD1.i, ptr noundef %add.ptr13.i, ptr noundef readonly %add.ptr.i, i32 noundef %0)
-  call fastcc void @HUF_decodeStreamX2.argelim(ptr noundef %op2.0.lcssa.i, ptr noundef %bitD2.i, ptr noundef %add.ptr14.i, ptr noundef readonly %add.ptr.i, i32 noundef %0)
-  call fastcc void @HUF_decodeStreamX2.argelim(ptr noundef %op3.0.lcssa.i, ptr noundef %bitD3.i, ptr noundef %add.ptr15.i, ptr noundef readonly %add.ptr.i, i32 noundef %0)
-  call fastcc void @HUF_decodeStreamX2.argelim(ptr noundef %op4.0.lcssa.i, ptr noundef %bitD4.i, ptr noundef %add.ptr.i12, ptr noundef readonly %add.ptr.i, i32 noundef %0)
+  call fastcc void @HUF_decodeStreamX2(ptr noundef %op1.0.lcssa.i, ptr noundef %bitD1.i, ptr noundef %add.ptr13.i, ptr noundef readonly %add.ptr.i, i32 noundef %0)
+  call fastcc void @HUF_decodeStreamX2(ptr noundef %op2.0.lcssa.i, ptr noundef %bitD2.i, ptr noundef %add.ptr14.i, ptr noundef readonly %add.ptr.i, i32 noundef %0)
+  call fastcc void @HUF_decodeStreamX2(ptr noundef %op3.0.lcssa.i, ptr noundef %bitD3.i, ptr noundef %add.ptr15.i, ptr noundef readonly %add.ptr.i, i32 noundef %0)
+  call fastcc void @HUF_decodeStreamX2(ptr noundef %op4.0.lcssa.i, ptr noundef %bitD4.i, ptr noundef %add.ptr.i12, ptr noundef readonly %add.ptr.i, i32 noundef %0)
   %ptr.i545.i = getelementptr inbounds i8, ptr %bitD1.i, i64 16
   %107 = load ptr, ptr %ptr.i545.i, align 8
   %108 = load ptr, ptr %start.i.i, align 8
@@ -3407,7 +3407,7 @@ if.end.i:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %rankStart0.i, i8 0, i64 72, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %rankStart0.i, i64 4
   %add.ptr1.i = getelementptr inbounds i8, ptr %DTable, i64 4
-  %call.i = call fastcc i64 @HUF_readStats.argelim(ptr noundef %weightList.i, ptr noundef %rankStats.i, ptr noundef %nbSymbols.i, ptr noundef %tableLog.i, ptr noundef %cSrc, i64 noundef %cSrcSize)
+  %call.i = call fastcc i64 @HUF_readStats(ptr noundef %weightList.i, ptr noundef %rankStats.i, ptr noundef %nbSymbols.i, ptr noundef %tableLog.i, ptr noundef %cSrc, i64 noundef %cSrcSize)
   %cmp.i.i.i = icmp ult i64 %call.i, -119
   br i1 %cmp.i.i.i, label %if.end6.i, label %HUF_readDTableX4.exit.thread
 
@@ -4643,10 +4643,10 @@ for.end.i:                                        ; preds = %for.cond.for.end_cr
   br i1 %or.cond115.i, label %HUF_decompress4X4_usingDTable.exit, label %if.end168.i
 
 if.end168.i:                                      ; preds = %for.end.i
-  call fastcc void @HUF_decodeStreamX4.argelim(ptr noundef %op1.0.lcssa.i, ptr noundef %bitD1.i, ptr noundef %add.ptr12.i, ptr noundef readonly %add.ptr1.i, i32 noundef 12)
-  call fastcc void @HUF_decodeStreamX4.argelim(ptr noundef %op2.0.lcssa.i, ptr noundef %bitD2.i, ptr noundef %add.ptr13.i, ptr noundef readonly %add.ptr1.i, i32 noundef 12)
-  call fastcc void @HUF_decodeStreamX4.argelim(ptr noundef %op3.0.lcssa.i, ptr noundef %bitD3.i, ptr noundef %add.ptr14.i, ptr noundef readonly %add.ptr1.i, i32 noundef 12)
-  call fastcc void @HUF_decodeStreamX4.argelim(ptr noundef %op4.0.lcssa.i, ptr noundef %bitD4.i, ptr noundef %add.ptr.i13, ptr noundef readonly %add.ptr1.i, i32 noundef 12)
+  call fastcc void @HUF_decodeStreamX4(ptr noundef %op1.0.lcssa.i, ptr noundef %bitD1.i, ptr noundef %add.ptr12.i, ptr noundef readonly %add.ptr1.i, i32 noundef 12)
+  call fastcc void @HUF_decodeStreamX4(ptr noundef %op2.0.lcssa.i, ptr noundef %bitD2.i, ptr noundef %add.ptr13.i, ptr noundef readonly %add.ptr1.i, i32 noundef 12)
+  call fastcc void @HUF_decodeStreamX4(ptr noundef %op3.0.lcssa.i, ptr noundef %bitD3.i, ptr noundef %add.ptr14.i, ptr noundef readonly %add.ptr1.i, i32 noundef 12)
+  call fastcc void @HUF_decodeStreamX4(ptr noundef %op4.0.lcssa.i, ptr noundef %bitD4.i, ptr noundef %add.ptr.i13, ptr noundef readonly %add.ptr1.i, i32 noundef 12)
   %ptr.i591.i = getelementptr inbounds i8, ptr %bitD1.i, i64 16
   %136 = load ptr, ptr %ptr.i591.i, align 8
   %137 = load ptr, ptr %start.i.i, align 8
@@ -4700,7 +4700,7 @@ return:                                           ; preds = %HUF_readDTableX4.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i64 @HUF_readStats.argelim(ptr nocapture noundef nonnull %huffWeight, ptr nocapture noundef nonnull %rankStats, ptr nocapture noundef nonnull writeonly %nbSymbolsPtr, ptr nocapture noundef nonnull writeonly %tableLogPtr, ptr noundef %src, i64 noundef %srcSize) unnamed_addr #0 {
+define internal fastcc i64 @HUF_readStats(ptr nocapture noundef nonnull %huffWeight, ptr nocapture noundef nonnull %rankStats, ptr nocapture noundef nonnull writeonly %nbSymbolsPtr, ptr nocapture noundef nonnull writeonly %tableLogPtr, ptr noundef %src, i64 noundef %srcSize) unnamed_addr #0 {
 entry:
   %counting.i = alloca [256 x i16], align 16
   %dt.i = alloca [4097 x i32], align 16
@@ -6569,7 +6569,7 @@ return:                                           ; preds = %if.then15, %entry, 
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #15
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @HUF_decodeStreamX2.argelim(ptr noundef %p, ptr nocapture noundef nonnull %bitDPtr, ptr noundef %pEnd, ptr nocapture noundef nonnull readonly %dt, i32 noundef range(i32 0, 65536) %dtLog) unnamed_addr #12 {
+define internal fastcc void @HUF_decodeStreamX2(ptr noundef %p, ptr nocapture noundef nonnull %bitDPtr, ptr noundef %pEnd, ptr nocapture noundef nonnull readonly %dt, i32 noundef range(i32 0, 65536) %dtLog) unnamed_addr #12 {
 entry:
   %bitsConsumed.i = getelementptr inbounds i8, ptr %bitDPtr, i64 8
   %add.ptr = getelementptr inbounds i8, ptr %pEnd, i64 -4
@@ -6812,7 +6812,7 @@ while.end33:                                      ; preds = %while.body30, %BIT_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @HUF_decodeStreamX4.argelim(ptr noundef %p, ptr nocapture noundef nonnull %bitDPtr, ptr noundef readnone %pEnd, ptr nocapture noundef nonnull readonly %dt, i32 noundef %dtLog) unnamed_addr #12 {
+define internal fastcc void @HUF_decodeStreamX4(ptr noundef %p, ptr nocapture noundef nonnull %bitDPtr, ptr noundef readnone %pEnd, ptr nocapture noundef nonnull readonly %dt, i32 noundef %dtLog) unnamed_addr #12 {
 entry:
   %bitsConsumed.i = getelementptr inbounds i8, ptr %bitDPtr, i64 8
   %add.ptr = getelementptr inbounds i8, ptr %pEnd, i64 -7

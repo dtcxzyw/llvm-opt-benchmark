@@ -58,13 +58,13 @@ define void @PQinsert(ptr noundef %0, ptr noundef %1, double noundef %2) local_u
   %.0.i = phi i32 [ %21, %20 ], [ %23, %22 ], [ 0, %3 ]
   %25 = load i32, ptr @PQmin, align 4
   %26 = icmp slt i32 %.0.i, %25
-  br i1 %26, label %27, label %PQbucket.argprom.exit
+  br i1 %26, label %27, label %PQbucket.exit
 
 27:                                               ; preds = %24
   store i32 %.0.i, ptr @PQmin, align 4
-  br label %PQbucket.argprom.exit
+  br label %PQbucket.exit
 
-PQbucket.argprom.exit:                            ; preds = %24, %27
+PQbucket.exit:                                    ; preds = %24, %27
   %28 = sext i32 %.0.i to i64
   %29 = getelementptr inbounds %struct.Halfedge, ptr %9, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 48
@@ -72,9 +72,9 @@ PQbucket.argprom.exit:                            ; preds = %24, %27
   %.not25 = icmp eq ptr %31, null
   br i1 %.not25, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %PQbucket.argprom.exit, %.critedge2
-  %32 = phi ptr [ %45, %.critedge2 ], [ %31, %PQbucket.argprom.exit ]
-  %.026 = phi ptr [ %32, %.critedge2 ], [ %29, %PQbucket.argprom.exit ]
+.lr.ph:                                           ; preds = %PQbucket.exit, %.critedge2
+  %32 = phi ptr [ %45, %.critedge2 ], [ %31, %PQbucket.exit ]
+  %.026 = phi ptr [ %32, %.critedge2 ], [ %29, %PQbucket.exit ]
   %33 = getelementptr inbounds i8, ptr %32, i64 40
   %34 = load double, ptr %33, align 8
   %35 = fcmp ogt double %7, %34
@@ -98,9 +98,9 @@ PQbucket.argprom.exit:                            ; preds = %24, %27
   %.not = icmp eq ptr %45, null
   br i1 %.not, label %.critedge, label %.lr.ph
 
-.critedge:                                        ; preds = %38, %36, %.critedge2, %PQbucket.argprom.exit
-  %.0.lcssa = phi ptr [ %29, %PQbucket.argprom.exit ], [ %32, %.critedge2 ], [ %.026, %36 ], [ %.026, %38 ]
-  %.lcssa = phi ptr [ null, %PQbucket.argprom.exit ], [ null, %.critedge2 ], [ %32, %36 ], [ %32, %38 ]
+.critedge:                                        ; preds = %38, %36, %.critedge2, %PQbucket.exit
+  %.0.lcssa = phi ptr [ %29, %PQbucket.exit ], [ %32, %.critedge2 ], [ %.026, %36 ], [ %.026, %38 ]
+  %.lcssa = phi ptr [ null, %PQbucket.exit ], [ null, %.critedge2 ], [ %32, %36 ], [ %32, %38 ]
   %46 = getelementptr inbounds i8, ptr %.0.lcssa, i64 48
   %47 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %.lcssa, ptr %47, align 8
@@ -150,19 +150,19 @@ define void @PQdelete(ptr noundef %0) local_unnamed_addr #0 {
   %.0.i = phi i32 [ %18, %17 ], [ %20, %19 ], [ 0, %4 ]
   %22 = load i32, ptr @PQmin, align 4
   %23 = icmp slt i32 %.0.i, %22
-  br i1 %23, label %24, label %PQbucket.argprom.exit
+  br i1 %23, label %24, label %PQbucket.exit
 
 24:                                               ; preds = %21
   store i32 %.0.i, ptr @PQmin, align 4
-  br label %PQbucket.argprom.exit
+  br label %PQbucket.exit
 
-PQbucket.argprom.exit:                            ; preds = %21, %24
+PQbucket.exit:                                    ; preds = %21, %24
   %25 = sext i32 %.0.i to i64
   %26 = getelementptr inbounds %struct.Halfedge, ptr %5, i64 %25
   br label %27
 
-27:                                               ; preds = %27, %PQbucket.argprom.exit
-  %.0 = phi ptr [ %26, %PQbucket.argprom.exit ], [ %29, %27 ]
+27:                                               ; preds = %27, %PQbucket.exit
+  %.0 = phi ptr [ %26, %PQbucket.exit ], [ %29, %27 ]
   %28 = getelementptr inbounds i8, ptr %.0, i64 48
   %29 = load ptr, ptr %28, align 8
   %.not11 = icmp eq ptr %29, %0
@@ -275,7 +275,7 @@ define void @PQinitialize() local_unnamed_addr #7 {
 7:                                                ; preds = %5
   %8 = load ptr, ptr @stderr, align 8
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.1, i64 noundef %6, i64 noundef 56) #14
-  tail call fastcc void @graphviz_exit.argelim() #15
+  tail call fastcc void @graphviz_exit() #15
   unreachable
 
 10:                                               ; preds = %5
@@ -289,7 +289,7 @@ define void @PQinitialize() local_unnamed_addr #7 {
   %15 = load ptr, ptr @stderr, align 8
   %16 = mul nuw nsw i64 %6, 56
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.2, i64 noundef %16) #14
-  tail call fastcc void @graphviz_exit.argelim() #15
+  tail call fastcc void @graphviz_exit() #15
   unreachable
 
 gv_calloc.exit:                                   ; preds = %10
@@ -391,7 +391,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #9 {
+define internal fastcc void @graphviz_exit() unnamed_addr #9 {
   tail call void @exit(i32 noundef 1) #17
   unreachable
 }

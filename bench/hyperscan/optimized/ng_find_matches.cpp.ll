@@ -6279,7 +6279,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true63.i
   %state.val119 = load i8, ptr %prev.i, align 1
   %632 = getelementptr i8, ptr %retval.sroa.0.0.i.i, i64 96
   %e.i.val.val = load i32, ptr %632, align 8
-  %call65.i = call fastcc noundef zeroext i1 @_ZL8canReachRKN3ue28NGHolderERKNS_12graph_detail15edge_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERN12_GLOBAL__N_17fmstateE.argprom.argprom(i32 %e.i.val.val, i8 %630, i8 %state.val119)
+  %call65.i = call fastcc noundef zeroext i1 @_ZL8canReachRKN3ue28NGHolderERKNS_12graph_detail15edge_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERN12_GLOBAL__N_17fmstateE(i32 %e.i.val.val, i8 %630, i8 %state.val119)
   br i1 %call65.i, label %if.then70.i, label %cleanup.i
 
 if.then70.i:                                      ; preds = %land.lhs.true63.i, %lor.lhs.false.i, %if.end53.i
@@ -10423,7 +10423,7 @@ _ZNSt10_HashtableISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphI
 declare { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef zeroext i1 @_ZL8canReachRKN3ue28NGHolderERKNS_12graph_detail15edge_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERN12_GLOBAL__N_17fmstateE.argprom.argprom(i32 %e.0.val.96.val, i8 %state.312.val, i8 %state.313.val) unnamed_addr #17 {
+define internal fastcc noundef zeroext i1 @_ZL8canReachRKN3ue28NGHolderERKNS_12graph_detail15edge_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERN12_GLOBAL__N_17fmstateE(i32 %e.0.val.96.val, i8 %state.312.val, i8 %state.313.val) unnamed_addr #17 {
 entry:
   %tobool.not = icmp eq i32 %e.0.val.96.val, 0
   br i1 %tobool.not, label %cleanup, label %if.end
@@ -14141,7 +14141,7 @@ land.lhs.true30:                                  ; preds = %_ZNK12_GLOBAL__N_19
   %state.val21 = load i8, ptr %171, align 1
   %198 = getelementptr i8, ptr %retval.sroa.0.0.copyload.i, i64 96
   %e.val.val = load i32, ptr %198, align 8
-  %call31 = call fastcc noundef zeroext i1 @_ZL8canReachRKN3ue28NGHolderERKNS_12graph_detail15edge_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERN12_GLOBAL__N_17fmstateE.argprom.argprom(i32 %e.val.val, i8 %state.val, i8 %state.val21)
+  %call31 = call fastcc noundef zeroext i1 @_ZL8canReachRKN3ue28NGHolderERKNS_12graph_detail15edge_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERN12_GLOBAL__N_17fmstateE(i32 %e.val.val, i8 %state.val, i8 %state.val21)
   br i1 %call31, label %do.end36, label %cleanup53
 
 do.end36:                                         ; preds = %if.end3.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i, %land.lhs.true30, %_ZNK12_GLOBAL__N_19EdgeCache3getEN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES9_.exit

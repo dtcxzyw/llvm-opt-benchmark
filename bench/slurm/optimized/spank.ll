@@ -390,7 +390,7 @@ _spank_init.exit.i:                               ; preds = %5
 
 26:                                               ; preds = %21
   %27 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.74, ptr noundef %23) #19
-  br label %spank_stack_find_option_by_name.argprom.exit.i.i.i
+  br label %spank_stack_find_option_by_name.exit.i.i.i
 
 28:                                               ; preds = %21
   %29 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 58) #20
@@ -399,7 +399,7 @@ _spank_init.exit.i:                               ; preds = %5
 
 30:                                               ; preds = %28
   %31 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.75, ptr noundef %23) #19
-  br label %spank_stack_find_option_by_name.argprom.exit.i.i.i
+  br label %spank_stack_find_option_by_name.exit.i.i.i
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds i8, ptr %29, i64 1
@@ -416,13 +416,13 @@ _spank_init.exit.i:                               ; preds = %5
 
 37:                                               ; preds = %34
   call void (ptr, ...) @warning(ptr noundef nonnull @.str.76, ptr noundef nonnull %33, ptr noundef nonnull %4) #19
-  br label %spank_stack_find_option_by_name.argprom.exit.i.i.i
+  br label %spank_stack_find_option_by_name.exit.i.i.i
 
 38:                                               ; preds = %32
   call void (ptr, ...) @warning(ptr noundef nonnull @.str.77, ptr noundef nonnull %33) #19
-  br label %spank_stack_find_option_by_name.argprom.exit.i.i.i
+  br label %spank_stack_find_option_by_name.exit.i.i.i
 
-spank_stack_find_option_by_name.argprom.exit.i.i.i: ; preds = %38, %37, %30, %26
+spank_stack_find_option_by_name.exit.i.i.i:       ; preds = %38, %37, %30, %26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
   br label %.backedge.i.i.i
@@ -473,7 +473,7 @@ _do_option_cb.exit.i.i.i:                         ; preds = %45
   %59 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.73, ptr noundef %57, ptr noundef %58) #19
   br label %.backedge.i.i.i
 
-.backedge.i.i.i:                                  ; preds = %_do_option_cb.exit.i.i.i, %_do_option_cb.exit.thread.i.i.i, %spank_stack_find_option_by_name.argprom.exit.i.i.i, %18
+.backedge.i.i.i:                                  ; preds = %_do_option_cb.exit.i.i.i, %_do_option_cb.exit.thread.i.i.i, %spank_stack_find_option_by_name.exit.i.i.i, %18
   %60 = call ptr @list_next(ptr noundef %14) #19
   %.not13.i.i.i = icmp eq ptr %60, null
   br i1 %.not13.i.i.i, label %._crit_edge.i.i.i, label %18, !llvm.loop !8
@@ -504,7 +504,7 @@ _spank_stack_get_remote_options.exit.i.i:         ; preds = %._crit_edge.i.i.i, 
   %.val17.i.i.i = load ptr, ptr %68, align 8
   %.val.val.i.i.i = load ptr, ptr %.val.i9.i.i, align 8
   %.val17.val.i.i.i = load ptr, ptr %.val17.i.i.i, align 8
-  %69 = call fastcc ptr @_opt_env_name.argprom.argprom(ptr %.val.val.i.i.i, ptr %.val17.val.i.i.i, ptr noundef %2, i64 noundef 1024)
+  %69 = call fastcc ptr @_opt_env_name(ptr %.val.val.i.i.i, ptr %.val17.val.i.i.i, ptr noundef %2, i64 noundef 1024)
   %70 = call ptr @getenvp(ptr noundef %62, ptr noundef nonnull %2) #19
   %.not15.i.i.i = icmp eq ptr %70, null
   br i1 %.not15.i.i.i, label %.backedge.i14.i.i, label %71
@@ -658,7 +658,7 @@ define i32 @spank_init_post_opt() local_unnamed_addr #0 {
   %.val7.i.i = load ptr, ptr %21, align 8
   %.val.val.i.i = load ptr, ptr %.val.i.i, align 8
   %.val7.val.i.i = load ptr, ptr %.val7.i.i, align 8
-  %22 = call fastcc ptr @_opt_env_name.argprom.argprom(ptr %.val.val.i.i, ptr %.val7.val.i.i, ptr noundef %1, i64 noundef 1024)
+  %22 = call fastcc ptr @_opt_env_name(ptr %.val.val.i.i, ptr %.val7.val.i.i, ptr noundef %1, i64 noundef 1024)
   %23 = load ptr, ptr %19, align 8
   %.not.i.i = icmp eq ptr %23, null
   %spec.select.i.i = select i1 %.not.i.i, ptr @.str.84, ptr %20
@@ -1264,7 +1264,7 @@ get_global_option_cache.exit:                     ; preds = %0
   %.val19 = load ptr, ptr %14, align 8
   %.val.val = load ptr, ptr %.val, align 8
   %.val19.val = load ptr, ptr %.val19, align 8
-  %15 = call fastcc ptr @_opt_env_name.argprom.argprom(ptr %.val.val, ptr %.val19.val, ptr noundef %1, i64 noundef 1024)
+  %15 = call fastcc ptr @_opt_env_name(ptr %.val.val, ptr %.val19.val, ptr noundef %1, i64 noundef 1024)
   %16 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.17, ptr noundef nonnull %1) #19
   store ptr %16, ptr %2, align 8
   %17 = call ptr @getenv(ptr noundef %16) #19
@@ -1337,7 +1337,7 @@ get_global_option_cache.exit.thread:              ; preds = %0, %get_global_opti
 declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef nonnull ptr @_opt_env_name.argprom.argprom(ptr nocapture readonly %.0.val.0.val, ptr nocapture readonly %.8.val.0.val, ptr noundef nonnull returned %0, i64 noundef range(i64 1018, 1025) %1) unnamed_addr #3 {
+define internal fastcc noundef nonnull ptr @_opt_env_name(ptr nocapture readonly %.0.val.0.val, ptr nocapture readonly %.8.val.0.val, ptr noundef nonnull returned %0, i64 noundef range(i64 1018, 1025) %1) unnamed_addr #3 {
   %3 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str.23, i64 noundef %1) #19
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
   %5 = add nsw i64 %1, -1
@@ -1514,7 +1514,7 @@ _term_columns.exit.i:                             ; preds = %32, %29, %26
   %48 = getelementptr inbounds i8, ptr %27, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %49, i64 noundef 4096) #19
-  %51 = call fastcc ptr @_get_next_segment.argelim(ptr noundef %5, i32 noundef %37, ptr noundef %7)
+  %51 = call fastcc ptr @_get_next_segment(ptr noundef %5, i32 noundef %37, ptr noundef %7)
   %52 = icmp slt i32 %41, %2
   br i1 %52, label %53, label %55
 
@@ -1527,7 +1527,7 @@ _term_columns.exit.i:                             ; preds = %32, %29, %26
   br label %57
 
 57:                                               ; preds = %55, %53
-  %58 = call fastcc ptr @_get_next_segment.argelim(ptr noundef %5, i32 noundef %37, ptr noundef %7)
+  %58 = call fastcc ptr @_get_next_segment(ptr noundef %5, i32 noundef %37, ptr noundef %7)
   %.not3335.i = icmp eq ptr %58, null
   br i1 %.not3335.i, label %_spank_opt_print.exit, label %.lr.ph.i.preheader
 
@@ -1821,7 +1821,7 @@ define range(i32 0, 3010) i32 @spank_option_getopt(ptr nocapture noundef readonl
   %.val52 = load ptr, ptr %42, align 8
   %.val.val = load ptr, ptr %.val, align 8
   %.val52.val = load ptr, ptr %.val52, align 8
-  %43 = call fastcc ptr @_opt_env_name.argprom.argprom(ptr %.val.val, ptr %.val52.val, ptr noundef %41, i64 noundef 1018)
+  %43 = call fastcc ptr @_opt_env_name(ptr %.val.val, ptr %.val52.val, ptr noundef %41, i64 noundef 1018)
   %44 = call ptr @getenv(ptr noundef nonnull %41) #19
   %.not50 = icmp eq ptr %44, null
   br i1 %.not50, label %45, label %47
@@ -5164,7 +5164,7 @@ _spank_plugin_destroy.exit29:                     ; preds = %195, %._crit_edge.i
 205:                                              ; preds = %188
   call void @list_iterator_destroy(ptr noundef %187) #19
   %.val.i = load i32, ptr %0, align 8
-  switch i32 %.val.i, label %spank_stack_plugin_valid_for_context.argprom.exit [
+  switch i32 %.val.i, label %spank_stack_plugin_valid_for_context.exit [
     i32 5, label %206
     i32 4, label %212
     i32 1, label %237
@@ -5182,7 +5182,7 @@ _spank_plugin_destroy.exit29:                     ; preds = %195, %._crit_edge.i
   %210 = getelementptr inbounds i8, ptr %159, i64 112
   %211 = load ptr, ptr %210, align 8
   %.not11.i = icmp eq ptr %211, null
-  br i1 %.not11.i, label %spank_stack_plugin_valid_for_context.argprom.exit, label %237
+  br i1 %.not11.i, label %spank_stack_plugin_valid_for_context.exit, label %237
 
 212:                                              ; preds = %205
   %213 = getelementptr inbounds i8, ptr %159, i64 48
@@ -5213,19 +5213,19 @@ _spank_plugin_destroy.exit29:                     ; preds = %195, %._crit_edge.i
   %223 = getelementptr inbounds i8, ptr %159, i64 120
   %224 = load ptr, ptr %223, align 8
   %.not9.i = icmp eq ptr %224, null
-  br i1 %.not9.i, label %spank_stack_plugin_valid_for_context.argprom.exit, label %237
+  br i1 %.not9.i, label %spank_stack_plugin_valid_for_context.exit, label %237
 
-spank_stack_plugin_valid_for_context.argprom.exit: ; preds = %209, %222, %205
+spank_stack_plugin_valid_for_context.exit:        ; preds = %209, %222, %205
   %225 = call i32 @get_log_level() #19
   %226 = icmp sgt i32 %225, 5
   br i1 %226, label %227, label %229
 
-227:                                              ; preds = %spank_stack_plugin_valid_for_context.argprom.exit
+227:                                              ; preds = %spank_stack_plugin_valid_for_context.exit
   %228 = load ptr, ptr %160, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.42, ptr noundef %228) #19
   br label %229
 
-229:                                              ; preds = %spank_stack_plugin_valid_for_context.argprom.exit, %227
+229:                                              ; preds = %spank_stack_plugin_valid_for_context.exit, %227
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   store ptr %159, ptr %13, align 8
   call void @slurm_xfree(ptr noundef nonnull %160) #19
@@ -5406,7 +5406,7 @@ declare void @list_destroy(ptr noundef) local_unnamed_addr #1
 declare i32 @optz_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef ptr @_get_next_segment.argelim(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #3 {
+define internal fastcc noundef ptr @_get_next_segment(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #3 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 0

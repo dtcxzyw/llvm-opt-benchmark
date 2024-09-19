@@ -316,28 +316,28 @@ _ZNK10InlineTree12inline_levelEv.exit:            ; preds = %23, %26
   %67 = getelementptr i8, ptr %66, i64 24
   %.val = load i8, ptr %67, align 4
   %68 = trunc i8 %.val to i1
-  br i1 %68, label %_ZL18is_unboxing_methodP8ciMethodP7Compile.argprom.exit, label %_ZL18is_unboxing_methodP8ciMethodP7Compile.argprom.exit.thread
+  br i1 %68, label %_ZL18is_unboxing_methodP8ciMethodP7Compile.exit, label %_ZL18is_unboxing_methodP8ciMethodP7Compile.exit.thread
 
-_ZL18is_unboxing_methodP8ciMethodP7Compile.argprom.exit: ; preds = %65
+_ZL18is_unboxing_methodP8ciMethodP7Compile.exit:  ; preds = %65
   %69 = tail call noundef zeroext i1 @_ZNK8ciMethod18is_unboxing_methodEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #11
-  br i1 %69, label %72, label %_ZL18is_unboxing_methodP8ciMethodP7Compile.argprom.exit._ZL18is_unboxing_methodP8ciMethodP7Compile.argprom.exit.thread_crit_edge
+  br i1 %69, label %72, label %_ZL18is_unboxing_methodP8ciMethodP7Compile.exit._ZL18is_unboxing_methodP8ciMethodP7Compile.exit.thread_crit_edge
 
-_ZL18is_unboxing_methodP8ciMethodP7Compile.argprom.exit._ZL18is_unboxing_methodP8ciMethodP7Compile.argprom.exit.thread_crit_edge: ; preds = %_ZL18is_unboxing_methodP8ciMethodP7Compile.argprom.exit
+_ZL18is_unboxing_methodP8ciMethodP7Compile.exit._ZL18is_unboxing_methodP8ciMethodP7Compile.exit.thread_crit_edge: ; preds = %_ZL18is_unboxing_methodP8ciMethodP7Compile.exit
   %.pre = load ptr, ptr %0, align 8
-  br label %_ZL18is_unboxing_methodP8ciMethodP7Compile.argprom.exit.thread
+  br label %_ZL18is_unboxing_methodP8ciMethodP7Compile.exit.thread
 
-_ZL18is_unboxing_methodP8ciMethodP7Compile.argprom.exit.thread: ; preds = %_ZL18is_unboxing_methodP8ciMethodP7Compile.argprom.exit._ZL18is_unboxing_methodP8ciMethodP7Compile.argprom.exit.thread_crit_edge, %65
-  %70 = phi ptr [ %.pre, %_ZL18is_unboxing_methodP8ciMethodP7Compile.argprom.exit._ZL18is_unboxing_methodP8ciMethodP7Compile.argprom.exit.thread_crit_edge ], [ %66, %65 ]
+_ZL18is_unboxing_methodP8ciMethodP7Compile.exit.thread: ; preds = %_ZL18is_unboxing_methodP8ciMethodP7Compile.exit._ZL18is_unboxing_methodP8ciMethodP7Compile.exit.thread_crit_edge, %65
+  %70 = phi ptr [ %.pre, %_ZL18is_unboxing_methodP8ciMethodP7Compile.exit._ZL18is_unboxing_methodP8ciMethodP7Compile.exit.thread_crit_edge ], [ %66, %65 ]
   %71 = tail call fastcc noundef zeroext i1 @_ZL15is_init_with_eaP8ciMethodS0_P7Compile(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %70)
   br i1 %71, label %72, label %76
 
-72:                                               ; preds = %_ZL18is_unboxing_methodP8ciMethodP7Compile.argprom.exit.thread, %_ZL18is_unboxing_methodP8ciMethodP7Compile.argprom.exit, %48
+72:                                               ; preds = %_ZL18is_unboxing_methodP8ciMethodP7Compile.exit.thread, %_ZL18is_unboxing_methodP8ciMethodP7Compile.exit, %48
   %73 = load ptr, ptr %0, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 92
   %75 = load i32, ptr %74, align 4
   br label %83
 
-76:                                               ; preds = %_ZL18is_unboxing_methodP8ciMethodP7Compile.argprom.exit.thread
+76:                                               ; preds = %_ZL18is_unboxing_methodP8ciMethodP7Compile.exit.thread
   %77 = tail call noundef zeroext i1 @_ZN8ciMethod17has_compiled_codeEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #11
   br i1 %77, label %78, label %83
 
@@ -676,17 +676,17 @@ _ZNK10InlineTree12inline_levelEv.exit:            ; preds = %75, %78
   %113 = getelementptr i8, ptr %112, i64 24
   %.val = load i8, ptr %113, align 4
   %114 = trunc i8 %.val to i1
-  br i1 %114, label %_ZL18is_unboxing_methodP8ciMethodP7Compile.argprom.exit, label %_ZL18is_unboxing_methodP8ciMethodP7Compile.argprom.exit.thread
+  br i1 %114, label %_ZL18is_unboxing_methodP8ciMethodP7Compile.exit, label %_ZL18is_unboxing_methodP8ciMethodP7Compile.exit.thread
 
-_ZL18is_unboxing_methodP8ciMethodP7Compile.argprom.exit: ; preds = %111
+_ZL18is_unboxing_methodP8ciMethodP7Compile.exit:  ; preds = %111
   %115 = tail call noundef zeroext i1 @_ZNK8ciMethod18is_unboxing_methodEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #11
-  br i1 %115, label %181, label %_ZL18is_unboxing_methodP8ciMethodP7Compile.argprom.exit.thread
+  br i1 %115, label %181, label %_ZL18is_unboxing_methodP8ciMethodP7Compile.exit.thread
 
-_ZL18is_unboxing_methodP8ciMethodP7Compile.argprom.exit.thread: ; preds = %111, %_ZL18is_unboxing_methodP8ciMethodP7Compile.argprom.exit
+_ZL18is_unboxing_methodP8ciMethodP7Compile.exit.thread: ; preds = %111, %_ZL18is_unboxing_methodP8ciMethodP7Compile.exit
   %116 = tail call noundef zeroext i1 @_ZN8ciMethod17has_compiled_codeEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #11
   br i1 %116, label %117, label %124
 
-117:                                              ; preds = %_ZL18is_unboxing_methodP8ciMethodP7Compile.argprom.exit.thread
+117:                                              ; preds = %_ZL18is_unboxing_methodP8ciMethodP7Compile.exit.thread
   %118 = tail call noundef i32 @_ZN8ciMethod24inline_instructions_sizeEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #11
   %119 = sext i32 %118 to i64
   %120 = load i64, ptr @InlineSmallCode, align 8
@@ -698,7 +698,7 @@ _ZL18is_unboxing_methodP8ciMethodP7Compile.argprom.exit.thread: ; preds = %111, 
   store ptr @.str.21, ptr %123, align 8
   br label %181
 
-124:                                              ; preds = %117, %_ZL18is_unboxing_methodP8ciMethodP7Compile.argprom.exit.thread
+124:                                              ; preds = %117, %_ZL18is_unboxing_methodP8ciMethodP7Compile.exit.thread
   %125 = getelementptr inbounds i8, ptr %0, i64 32
   %126 = load ptr, ptr %125, align 8
   %.not46 = icmp eq ptr %126, null
@@ -790,8 +790,8 @@ _ZL18is_unboxing_methodP8ciMethodP7Compile.argprom.exit.thread: ; preds = %111, 
   store ptr @.str.24, ptr %180, align 8
   br label %181
 
-181:                                              ; preds = %148, %162, %157, %143, %_ZL18is_unboxing_methodP8ciMethodP7Compile.argprom.exit, %91, %92, %179, %155, %141, %122, %109, %102, %98, %73, %66, %.thread
-  %.0 = phi i1 [ true, %.thread ], [ false, %66 ], [ true, %73 ], [ true, %98 ], [ true, %102 ], [ false, %109 ], [ true, %122 ], [ true, %179 ], [ true, %155 ], [ true, %141 ], [ false, %92 ], [ false, %91 ], [ false, %_ZL18is_unboxing_methodP8ciMethodP7Compile.argprom.exit ], [ false, %143 ], [ false, %157 ], [ false, %162 ], [ false, %148 ]
+181:                                              ; preds = %148, %162, %157, %143, %_ZL18is_unboxing_methodP8ciMethodP7Compile.exit, %91, %92, %179, %155, %141, %122, %109, %102, %98, %73, %66, %.thread
+  %.0 = phi i1 [ true, %.thread ], [ false, %66 ], [ true, %73 ], [ true, %98 ], [ true, %102 ], [ false, %109 ], [ true, %122 ], [ true, %179 ], [ true, %155 ], [ true, %141 ], [ false, %92 ], [ false, %91 ], [ false, %_ZL18is_unboxing_methodP8ciMethodP7Compile.exit ], [ false, %143 ], [ false, %157 ], [ false, %162 ], [ false, %148 ]
   ret i1 %.0
 }
 

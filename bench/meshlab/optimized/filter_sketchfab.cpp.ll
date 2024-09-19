@@ -11232,7 +11232,7 @@ _ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit: ; 
 208:                                              ; preds = %.loopexit
   %209 = getelementptr i8, ptr %0, i64 88
   %.val188 = load ptr, ptr %209, align 8
-  call fastcc void @_ZL50mz_zip_reader_sort_central_dir_offsets_by_filenameP18mz_zip_archive_tag.argprom(i32 %.val, ptr %.val188)
+  call fastcc void @_ZL50mz_zip_reader_sort_central_dir_offsets_by_filenameP18mz_zip_archive_tag(i32 %.val, ptr %.val188)
   br label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191
 
 _ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191: ; preds = %36, %32, %.critedge, %187, %178, %173, %168, %161, %.lr.ph218, %143, %8, %79, %118, %97, %.loopexit, %208, %132, %63, %58, %55, %42, %26, %2
@@ -11318,7 +11318,7 @@ define internal noalias noundef ptr @_ZL16def_realloc_funcPvS_mm(ptr nocapture r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL50mz_zip_reader_sort_central_dir_offsets_by_filenameP18mz_zip_archive_tag.argprom(i32 %.16.val, ptr nocapture readonly %.88.val) unnamed_addr #22 {
+define internal fastcc void @_ZL50mz_zip_reader_sort_central_dir_offsets_by_filenameP18mz_zip_archive_tag(i32 %.16.val, ptr nocapture readonly %.88.val) unnamed_addr #22 {
   %1 = getelementptr inbounds i8, ptr %.88.val, i64 32
   %2 = getelementptr inbounds i8, ptr %.88.val, i64 64
   %3 = load ptr, ptr %2, align 8
@@ -14985,7 +14985,7 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %131
 
 238:                                              ; preds = %171
   %239 = trunc nuw i64 %50 to i16
-  %240 = call fastcc noundef i32 @_ZL32mz_zip_writer_add_to_central_dirP18mz_zip_archive_tagPKctPKvtS4_tyyjttttyj.argprom.argelim(ptr noundef nonnull %0, ptr noundef %1, i16 noundef zeroext %239, ptr noundef %4, i16 noundef zeroext %5, i64 noundef %.0175214, i64 noundef %.0168, i32 noundef %.0174216, i16 noundef zeroext %.0173, i16 noundef zeroext %172, i16 noundef zeroext %173, i64 noundef %117, i32 noundef %.0171)
+  %240 = call fastcc noundef i32 @_ZL32mz_zip_writer_add_to_central_dirP18mz_zip_archive_tagPKctPKvtS4_tyyjttttyj(ptr noundef nonnull %0, ptr noundef %1, i16 noundef zeroext %239, ptr noundef %4, i16 noundef zeroext %5, i64 noundef %.0175214, i64 noundef %.0168, i32 noundef %.0174216, i16 noundef zeroext %.0173, i16 noundef zeroext %172, i16 noundef zeroext %173, i64 noundef %117, i32 noundef %.0171)
   %.not199 = icmp eq i32 %240, 0
   br i1 %.not199, label %_ZL35mz_zip_writer_validate_archive_namePKc.exit.thread, label %241
 
@@ -15104,7 +15104,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL34mz_zip_writer_add_put_buf_call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL32mz_zip_writer_add_to_central_dirP18mz_zip_archive_tagPKctPKvtS4_tyyjttttyj.argprom.argelim(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, i16 noundef zeroext %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4, i64 noundef range(i64 0, 4294967296) %5, i64 noundef range(i64 0, 4294967296) %6, i32 noundef %7, i16 noundef zeroext range(i16 0, 9) %8, i16 noundef zeroext %9, i16 noundef zeroext %10, i64 noundef %11, i32 noundef range(i32 0, 17) %12) unnamed_addr #10 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL32mz_zip_writer_add_to_central_dirP18mz_zip_archive_tagPKctPKvtS4_tyyjttttyj(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, i16 noundef zeroext %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4, i64 noundef range(i64 0, 4294967296) %5, i64 noundef range(i64 0, 4294967296) %6, i32 noundef %7, i16 noundef zeroext range(i16 0, 9) %8, i16 noundef zeroext %9, i16 noundef zeroext %10, i64 noundef %11, i32 noundef range(i32 0, 17) %12) unnamed_addr #10 {
   %14 = alloca i32, align 4
   %15 = alloca [46 x i8], align 16
   %16 = getelementptr inbounds i8, ptr %0, i64 88
@@ -15880,7 +15880,7 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %106
 
 219:                                              ; preds = %152
   %220 = trunc nuw i64 %33 to i16
-  %221 = call fastcc noundef i32 @_ZL32mz_zip_writer_add_to_central_dirP18mz_zip_archive_tagPKctPKvtS4_tyyjttttyj.argprom.argelim(ptr noundef nonnull %0, ptr noundef %1, i16 noundef zeroext %220, ptr noundef %3, i16 noundef zeroext %4, i64 noundef %59, i64 noundef %.0166, i32 noundef %.0159, i16 noundef zeroext %.0162, i16 noundef zeroext %153, i16 noundef zeroext %154, i64 noundef %47, i32 noundef 0)
+  %221 = call fastcc noundef i32 @_ZL32mz_zip_writer_add_to_central_dirP18mz_zip_archive_tagPKctPKvtS4_tyyjttttyj(ptr noundef nonnull %0, ptr noundef %1, i16 noundef zeroext %220, ptr noundef %3, i16 noundef zeroext %4, i64 noundef %59, i64 noundef %.0166, i32 noundef %.0159, i16 noundef zeroext %.0162, i16 noundef zeroext %153, i16 noundef zeroext %154, i64 noundef %47, i32 noundef 0)
   %.not202 = icmp eq i32 %221, 0
   br i1 %.not202, label %_ZL35mz_zip_writer_validate_archive_namePKc.exit.thread, label %222
 

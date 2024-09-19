@@ -320,15 +320,15 @@ _ZN4llvm15SmallVectorImplIN5clang6driver8MultilibEE6assignESt16initializer_listI
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %54 = load i32, ptr %53, align 8
   %55 = icmp eq i32 %54, 37
-  br i1 %55, label %_ZL11getOSLibDirRKN4llvm6TripleERKNS_3opt7ArgListE.argprom.exit, label %56
+  br i1 %55, label %_ZL11getOSLibDirRKN4llvm6TripleERKNS_3opt7ArgListE.exit, label %56
 
 56:                                               ; preds = %_ZN4llvm15SmallVectorImplIN5clang6driver8MultilibEE6assignESt16initializer_listIS3_E.exit
   %57 = call noundef zeroext i1 @_ZNK4llvm6Triple11isArch32BitEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #12
   %58 = select i1 %57, ptr @.str.22, ptr @.str.23
   %59 = select i1 %57, i64 3, i64 5
-  br label %_ZL11getOSLibDirRKN4llvm6TripleERKNS_3opt7ArgListE.argprom.exit
+  br label %_ZL11getOSLibDirRKN4llvm6TripleERKNS_3opt7ArgListE.exit
 
-_ZL11getOSLibDirRKN4llvm6TripleERKNS_3opt7ArgListE.argprom.exit: ; preds = %_ZN4llvm15SmallVectorImplIN5clang6driver8MultilibEE6assignESt16initializer_listIS3_E.exit, %56
+_ZL11getOSLibDirRKN4llvm6TripleERKNS_3opt7ArgListE.exit: ; preds = %_ZN4llvm15SmallVectorImplIN5clang6driver8MultilibEE6assignESt16initializer_listIS3_E.exit, %56
   %.sroa.3.0.i = phi i64 [ %59, %56 ], [ 5, %_ZN4llvm15SmallVectorImplIN5clang6driver8MultilibEE6assignESt16initializer_listIS3_E.exit ]
   %.sroa.0.0.i = phi ptr [ %58, %56 ], [ @.str.21, %_ZN4llvm15SmallVectorImplIN5clang6driver8MultilibEE6assignESt16initializer_listIS3_E.exit ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #12
@@ -358,7 +358,7 @@ _ZL11getOSLibDirRKN4llvm6TripleERKNS_3opt7ArgListE.argprom.exit: ; preds = %_ZN4
   %.not.i = icmp ult i64 %73, %75
   br i1 %.not.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread51, label %76
 
-76:                                               ; preds = %_ZL11getOSLibDirRKN4llvm6TripleERKNS_3opt7ArgListE.argprom.exit
+76:                                               ; preds = %_ZL11getOSLibDirRKN4llvm6TripleERKNS_3opt7ArgListE.exit
   %77 = icmp eq i64 %75, 0
   br i1 %77, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
@@ -394,7 +394,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %76, %_ZNK4llvm9Stri
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #12
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread51
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.thread51: ; preds = %_ZL11getOSLibDirRKN4llvm6TripleERKNS_3opt7ArgListE.argprom.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit
+_ZNK4llvm9StringRef11starts_withES0_.exit.thread51: ; preds = %_ZL11getOSLibDirRKN4llvm6TripleERKNS_3opt7ArgListE.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %7) #12
   %87 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.5) #12
   %88 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %10) #12, !noalias !15

@@ -89,11 +89,11 @@ define void @ompi_mpi_errors_are_fatal_comm_handler(ptr noundef readonly %0, ptr
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %9
-  call fastcc void @backend_abort_aggregate.argprom(i32 noundef 1, ptr noundef nonnull @.str, ptr noundef %.07, ptr noundef %1, ptr noundef %3)
+  call fastcc void @backend_abort_aggregate(i32 noundef 1, ptr noundef nonnull @.str, ptr noundef %.07, ptr noundef %1, ptr noundef %3)
   br label %14
 
 13:                                               ; preds = %9
-  call fastcc void @backend_abort_no_aggregate.argprom(i32 noundef 1, ptr noundef nonnull @.str, ptr noundef %.07, ptr noundef %1, ptr noundef %3)
+  call fastcc void @backend_abort_no_aggregate(i32 noundef 1, ptr noundef nonnull @.str, ptr noundef %.07, ptr noundef %1, ptr noundef %3)
   br label %14
 
 14:                                               ; preds = %13, %12
@@ -131,11 +131,11 @@ define void @ompi_mpi_errors_are_fatal_file_handler(ptr noundef readonly %0, ptr
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %8
-  call fastcc void @backend_abort_aggregate.argprom(i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef %.06, ptr noundef %1, ptr noundef %3)
+  call fastcc void @backend_abort_aggregate(i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef %.06, ptr noundef %1, ptr noundef %3)
   br label %13
 
 12:                                               ; preds = %8
-  call fastcc void @backend_abort_no_aggregate.argprom(i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef %.06, ptr noundef %1, ptr noundef %3)
+  call fastcc void @backend_abort_no_aggregate(i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef %.06, ptr noundef %1, ptr noundef %3)
   br label %13
 
 13:                                               ; preds = %12, %11
@@ -172,11 +172,11 @@ define void @ompi_mpi_errors_are_fatal_win_handler(ptr noundef readonly %0, ptr 
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  call fastcc void @backend_abort_aggregate.argprom(i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef %.0, ptr noundef %1, ptr noundef %3)
+  call fastcc void @backend_abort_aggregate(i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef %.0, ptr noundef %1, ptr noundef %3)
   br label %12
 
 11:                                               ; preds = %7
-  call fastcc void @backend_abort_no_aggregate.argprom(i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef %.0, ptr noundef %1, ptr noundef %3)
+  call fastcc void @backend_abort_no_aggregate(i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef %.0, ptr noundef %1, ptr noundef %3)
   br label %12
 
 12:                                               ; preds = %11, %10
@@ -219,11 +219,11 @@ define void @ompi_mpi_errors_abort_comm_handler(ptr noundef readonly %0, ptr nou
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %9
-  call fastcc void @backend_abort_aggregate.argprom(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %.07, ptr noundef %1, ptr noundef %3)
+  call fastcc void @backend_abort_aggregate(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %.07, ptr noundef %1, ptr noundef %3)
   br label %14
 
 13:                                               ; preds = %9
-  call fastcc void @backend_abort_no_aggregate.argprom(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %.07, ptr noundef %1, ptr noundef %3)
+  call fastcc void @backend_abort_no_aggregate(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %.07, ptr noundef %1, ptr noundef %3)
   br label %14
 
 14:                                               ; preds = %13, %12
@@ -266,11 +266,11 @@ define void @ompi_mpi_errors_abort_file_handler(ptr noundef readonly %0, ptr nou
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %10
-  call fastcc void @backend_abort_aggregate.argprom(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %.06, ptr noundef %1, ptr noundef %3)
+  call fastcc void @backend_abort_aggregate(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %.06, ptr noundef %1, ptr noundef %3)
   br label %15
 
 14:                                               ; preds = %10
-  call fastcc void @backend_abort_no_aggregate.argprom(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %.06, ptr noundef %1, ptr noundef %3)
+  call fastcc void @backend_abort_no_aggregate(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %.06, ptr noundef %1, ptr noundef %3)
   br label %15
 
 15:                                               ; preds = %14, %13
@@ -309,11 +309,11 @@ define void @ompi_mpi_errors_abort_win_handler(ptr noundef readonly %0, ptr noun
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  call fastcc void @backend_abort_aggregate.argprom(i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %.0, ptr noundef %1, ptr noundef %3)
+  call fastcc void @backend_abort_aggregate(i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %.0, ptr noundef %1, ptr noundef %3)
   br label %12
 
 11:                                               ; preds = %7
-  call fastcc void @backend_abort_no_aggregate.argprom(i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %.0, ptr noundef %1, ptr noundef %3)
+  call fastcc void @backend_abort_no_aggregate(i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %.0, ptr noundef %1, ptr noundef %3)
   br label %12
 
 12:                                               ; preds = %11, %10
@@ -359,11 +359,11 @@ define void @ompi_mpi_errors_are_fatal_instance_handler(ptr noundef readonly %0,
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %10
-  call fastcc void @backend_abort_aggregate.argprom(i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef %.08, ptr noundef %1, ptr noundef %3)
+  call fastcc void @backend_abort_aggregate(i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef %.08, ptr noundef %1, ptr noundef %3)
   br label %15
 
 14:                                               ; preds = %10
-  call fastcc void @backend_abort_no_aggregate.argprom(i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef %.08, ptr noundef %1, ptr noundef %3)
+  call fastcc void @backend_abort_no_aggregate(i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef %.08, ptr noundef %1, ptr noundef %3)
   br label %15
 
 15:                                               ; preds = %14, %13
@@ -373,7 +373,7 @@ define void @ompi_mpi_errors_are_fatal_instance_handler(ptr noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @backend_abort_aggregate.argprom(i32 noundef range(i32 0, 2) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc void @backend_abort_aggregate(i32 noundef range(i32 0, 2) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   %7 = load i32, ptr %4, align 8
@@ -504,7 +504,7 @@ ompi_mpi_errnum_get_string.exit:                  ; preds = %36, %44, %51
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @backend_abort_no_aggregate.argprom(i32 noundef range(i32 0, 2) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc void @backend_abort_no_aggregate(i32 noundef range(i32 0, 2) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca [512 x i8], align 16
   %7 = load volatile i32, ptr @ompi_mpi_state, align 4
   %8 = load ptr, ptr @stdout, align 8

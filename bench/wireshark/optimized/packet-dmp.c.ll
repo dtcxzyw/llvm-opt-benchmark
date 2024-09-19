@@ -2288,9 +2288,9 @@ dissect_dmp_envelope.exit:                        ; preds = %40, %105, %422
   %455 = load i32, ptr @hf_extension_data, align 4
   %456 = tail call ptr @proto_tree_add_item(ptr noundef %444, i32 noundef %455, ptr noundef %0, i32 noundef %454, i32 noundef %439, i32 noundef 0) #13
   %457 = add i32 %454, %439
-  br i1 %.not44.i, label %dissect_dmp_extensions.argprom.exit, label %434, !llvm.loop !9
+  br i1 %.not44.i, label %dissect_dmp_extensions.exit, label %434, !llvm.loop !9
 
-dissect_dmp_extensions.argprom.exit:              ; preds = %434
+dissect_dmp_extensions.exit:                      ; preds = %434
   %458 = icmp eq i32 %.0421.i, 0
   %459 = select i1 %458, ptr @.str.550, ptr @.str.653
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %431, ptr noundef nonnull @.str.652, i32 noundef %441, ptr noundef nonnull %459) #13
@@ -2298,8 +2298,8 @@ dissect_dmp_extensions.argprom.exit:              ; preds = %434
   tail call void @proto_item_set_len(ptr noundef %431, i32 noundef %460) #13
   br label %461
 
-461:                                              ; preds = %dissect_dmp_extensions.argprom.exit, %427
-  %.0101 = phi i32 [ %457, %dissect_dmp_extensions.argprom.exit ], [ %.0302.i, %427 ]
+461:                                              ; preds = %dissect_dmp_extensions.exit, %427
+  %.0101 = phi i32 [ %457, %dissect_dmp_extensions.exit ], [ %.0302.i, %427 ]
   %462 = load i32, ptr getelementptr inbounds (i8, ptr @dmp, i64 16), align 8
   %or.cond8 = icmp ult i32 %462, 4
   br i1 %or.cond8, label %463, label %465

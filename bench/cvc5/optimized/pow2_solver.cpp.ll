@@ -11266,7 +11266,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.i.i.i: ; preds = %if.then13.i.i27
   %bf.load.i.i28.i.i.i = load i64, ptr %ref.tmp.val1.val, align 8
   %28 = and i64 %bf.load.i.i28.i.i.i, 1152920405095219200
   %cmp.not.i.i29.i.i.i = icmp eq i64 %28, 1152920405095219200
-  br i1 %cmp.not.i.i29.i.i.i, label %"_ZNSt5_BindIFZN4cvc58internal6theory5arith2nl10Pow2Solver21sortPow2sBasedOnModelEvE3$_0St12_PlaceholderILi1EES7_ILi2EENS4_7NlModelEEE6__callIbJRNS1_12NodeTemplateILb1EEESG_EJLm0ELm1ELm2EEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE.argprom.argprom.exit", label %if.then.i.i30.i.i.i
+  br i1 %cmp.not.i.i29.i.i.i, label %"_ZNSt5_BindIFZN4cvc58internal6theory5arith2nl10Pow2Solver21sortPow2sBasedOnModelEvE3$_0St12_PlaceholderILi1EES7_ILi2EENS4_7NlModelEEE6__callIbJRNS1_12NodeTemplateILb1EEESG_EJLm0ELm1ELm2EEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE.exit", label %if.then.i.i30.i.i.i
 
 if.then.i.i30.i.i.i:                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.i.i.i
   %bf.value.i.i31.i.i.i = add i64 %bf.load.i.i28.i.i.i, 1152920405095219200
@@ -11275,11 +11275,11 @@ if.then.i.i30.i.i.i:                              ; preds = %_ZN4cvc58internal12
   %bf.set.i.i34.i.i.i = or disjoint i64 %bf.shl.i.i32.i.i.i, %bf.clear7.i.i33.i.i.i
   store i64 %bf.set.i.i34.i.i.i, ptr %ref.tmp.val1.val, align 8
   %cmp12.i.i35.i.i.i = icmp eq i64 %bf.shl.i.i32.i.i.i, 0
-  br i1 %cmp12.i.i35.i.i.i, label %if.then13.i.i36.i.i.i, label %"_ZNSt5_BindIFZN4cvc58internal6theory5arith2nl10Pow2Solver21sortPow2sBasedOnModelEvE3$_0St12_PlaceholderILi1EES7_ILi2EENS4_7NlModelEEE6__callIbJRNS1_12NodeTemplateILb1EEESG_EJLm0ELm1ELm2EEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE.argprom.argprom.exit"
+  br i1 %cmp12.i.i35.i.i.i, label %if.then13.i.i36.i.i.i, label %"_ZNSt5_BindIFZN4cvc58internal6theory5arith2nl10Pow2Solver21sortPow2sBasedOnModelEvE3$_0St12_PlaceholderILi1EES7_ILi2EENS4_7NlModelEEE6__callIbJRNS1_12NodeTemplateILb1EEESG_EJLm0ELm1ELm2EEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE.exit"
 
 if.then13.i.i36.i.i.i:                            ; preds = %if.then.i.i30.i.i.i
   invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.val1.val)
-          to label %"_ZNSt5_BindIFZN4cvc58internal6theory5arith2nl10Pow2Solver21sortPow2sBasedOnModelEvE3$_0St12_PlaceholderILi1EES7_ILi2EENS4_7NlModelEEE6__callIbJRNS1_12NodeTemplateILb1EEESG_EJLm0ELm1ELm2EEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE.argprom.argprom.exit" unwind label %terminate.lpad.i37.i.i.i
+          to label %"_ZNSt5_BindIFZN4cvc58internal6theory5arith2nl10Pow2Solver21sortPow2sBasedOnModelEvE3$_0St12_PlaceholderILi1EES7_ILi2EENS4_7NlModelEEE6__callIbJRNS1_12NodeTemplateILb1EEESG_EJLm0ELm1ELm2EEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE.exit" unwind label %terminate.lpad.i37.i.i.i
 
 terminate.lpad.i37.i.i.i:                         ; preds = %if.then13.i.i36.i.i.i
   %29 = landingpad { ptr, i32 }
@@ -11308,7 +11308,7 @@ ehcleanup.i.i.i:                                  ; preds = %lpad6.body.i.i.i, %
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.i.i.i) #20
   resume { ptr, i32 } %.pn.i.i.i
 
-"_ZNSt5_BindIFZN4cvc58internal6theory5arith2nl10Pow2Solver21sortPow2sBasedOnModelEvE3$_0St12_PlaceholderILi1EES7_ILi2EENS4_7NlModelEEE6__callIbJRNS1_12NodeTemplateILb1EEESG_EJLm0ELm1ELm2EEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE.argprom.argprom.exit": ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.i.i.i, %if.then.i.i30.i.i.i, %if.then13.i.i36.i.i.i
+"_ZNSt5_BindIFZN4cvc58internal6theory5arith2nl10Pow2Solver21sortPow2sBasedOnModelEvE3$_0St12_PlaceholderILi1EES7_ILi2EENS4_7NlModelEEE6__callIbJRNS1_12NodeTemplateILb1EEESG_EJLm0ELm1ELm2EEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE.exit": ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.i.i.i, %if.then.i.i30.i.i.i, %if.then13.i.i36.i.i.i
   %bf.clear.i.i.i.i.i = and i64 %bf.load.i.i16.i.i.i, 1099511627775
   %bf.clear4.i.i.i.i.i = and i64 %bf.load3.i.i.i.i.i, 1099511627775
   %cmp.i.i17.i.i.i = icmp ult i64 %bf.clear.i.i.i.i.i, %bf.clear4.i.i.i.i.i

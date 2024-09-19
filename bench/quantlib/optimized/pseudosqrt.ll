@@ -953,7 +953,7 @@ sw.bb229:                                         ; preds = %invoke.cont39
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tol) #22
   store double 0x3EB0C6F7A0B5ED8D, ptr %tol, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp230) #22
-  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_120highamImplementationERKNS_6MatrixEmRKd.argelim(ptr dead_on_unwind noalias writable align 8 %ref.tmp230, ptr noundef nonnull align 8 dereferenceable(24) %matrix, ptr noundef nonnull align 8 dereferenceable(8) %tol)
+  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_120highamImplementationERKNS_6MatrixEmRKd(ptr dead_on_unwind noalias writable align 8 %ref.tmp230, ptr noundef nonnull align 8 dereferenceable(24) %matrix, ptr noundef nonnull align 8 dereferenceable(8) %tol)
           to label %invoke.cont232 unwind label %lpad231
 
 invoke.cont232:                                   ; preds = %sw.bb229
@@ -3488,7 +3488,7 @@ _ZN8QuantLib6MatrixD2Ev.exit528:                  ; preds = %ehcleanup508, %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_120highamImplementationERKNS_6MatrixEmRKd.argelim(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %A, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %tolerance) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_120highamImplementationERKNS_6MatrixEmRKd(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %A, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %tolerance) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream.i105 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp.i106 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5979,7 +5979,7 @@ sw.bb231:                                         ; preds = %invoke.cont162
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tolerance) #22
   store double 0x3EB0C6F7A0B5ED8D, ptr %tolerance, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %adjustedMatrix) #22
-  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_120highamImplementationERKNS_6MatrixEmRKd.argelim(ptr dead_on_unwind noalias writable align 8 %adjustedMatrix, ptr noundef nonnull align 8 dereferenceable(24) %matrix, ptr noundef nonnull align 8 dereferenceable(8) %tolerance)
+  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_120highamImplementationERKNS_6MatrixEmRKd(ptr dead_on_unwind noalias writable align 8 %adjustedMatrix, ptr noundef nonnull align 8 dereferenceable(24) %matrix, ptr noundef nonnull align 8 dereferenceable(8) %tolerance)
           to label %invoke.cont233 unwind label %lpad232
 
 invoke.cont233:                                   ; preds = %sw.bb231

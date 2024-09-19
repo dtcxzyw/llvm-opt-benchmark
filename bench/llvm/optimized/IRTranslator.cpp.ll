@@ -6774,7 +6774,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm12IRTranslator19lowerSwitchWorkItem
   %.val1.i.i.i.i.i.i = load i32, ptr %38, align 4
   %.val3.i.i.i.i.i.i = load i32, ptr %35, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %.val1.i.i.i.i.i.i, %.val3.i.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i.i.i.i.i", label %39
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i.i.i.i.i", label %39
 
 39:                                               ; preds = %37
   %40 = icmp ult i32 %.val3.i.i.i.i.i.i, %.val1.i.i.i.i.i.i
@@ -6785,7 +6785,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm12IRTranslator19lowerSwitchWorkItem
   %.sroa.2.0.copyload.i.pre.i.i.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.phi.trans.insert.i.i.i.i.i, align 8
   br label %48
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i.i.i.i.i": ; preds = %37
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i.i.i.i.i": ; preds = %37
   %.val2.i.i.i.i.i.i = load ptr, ptr %36, align 8
   %41 = getelementptr i8, ptr %.pn18.i.i.i.i.i, i64 48
   %.val.i.i.i.i.i.i = load ptr, ptr %41, align 8
@@ -6795,7 +6795,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm12IRTranslator19lowerSwitchWorkItem
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i.i.i, label %48
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i.i.i.i.i", %39
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i.i.i.i.i", %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.019.i.ptr.i.i.i.i, i64 40, i1 false)
   %46 = getelementptr inbounds i8, ptr %.pn18.i.i.i.i.i, i64 80
   %.neg.i.i.i.i.i.i.i.i.i.i = sdiv exact i64 %.sroa.0.019.i.idx.i.i.i.i, -40
@@ -6804,8 +6804,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseCluster
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.sroa.027.0.copyload, ptr noundef nonnull align 8 dereferenceable(36) %9, i64 36, i1 false)
   br label %60
 
-48:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.sroa.2.0.copyload.i.i.i.i.i.i = phi ptr [ %.sroa.2.0.copyload.i.pre.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %.val.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i.i.i.i.i" ]
+48:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i.i.i.i.i", %._crit_edge.i.i.i.i.i
+  %.sroa.2.0.copyload.i.i.i.i.i.i = phi ptr [ %.sroa.2.0.copyload.i.pre.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %.val.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i.i.i.i.i" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.3.i.i.i.i.i.i)
   %49 = load i64, ptr %.sroa.0.019.i.ptr.i.i.i.i, align 8
   %.sroa.3.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn18.i.i.i.i.i, i64 56
@@ -6819,13 +6819,13 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseCluster
   %52 = getelementptr i8, ptr %.sroa.011.0.i.i.i.i.i.i, i64 -8
   %.val4.i.i.i.i.i.i.i = load i32, ptr %52, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %.val1.i.i.i.i.i.i, %.val4.i.i.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS4_11CaseClusterENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.i.i.i.i.i.i", label %53
+  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS4_11CaseClusterENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.i.i.i.i.i.i", label %53
 
 53:                                               ; preds = %51
   %54 = icmp ult i32 %.val4.i.i.i.i.i.i.i, %.val1.i.i.i.i.i.i
   br i1 %54, label %59, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_12IRTranslator19lowerSwitchWorkItemENS3_18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockESH_RNS2_16MachineIRBuilderEE3$_0EEEvT_T0_.exit.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS4_11CaseClusterENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.i.i.i.i.i.i": ; preds = %51
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS4_11CaseClusterENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.i.i.i.i.i.i": ; preds = %51
   %55 = getelementptr i8, ptr %.sroa.011.0.i.i.i.i.i.i, i64 -32
   %.val3.i.i.i.i.i.i.i = load ptr, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %.val3.i.i.i.i.i.i.i, i64 24
@@ -6833,11 +6833,11 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseCluster
   %58 = icmp slt i32 %57, 0
   br i1 %58, label %59, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_12IRTranslator19lowerSwitchWorkItemENS3_18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockESH_RNS2_16MachineIRBuilderEE3$_0EEEvT_T0_.exit.i.i.i.i.i"
 
-59:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS4_11CaseClusterENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.i.i.i.i.i.i", %53
+59:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS4_11CaseClusterENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.i.i.i.i.i.i", %53
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.sroa.011.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(36) %.sroa.0.0.i.i.i.i.i.i, i64 36, i1 false)
   br label %51, !llvm.loop !54
 
-"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_12IRTranslator19lowerSwitchWorkItemENS3_18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockESH_RNS2_16MachineIRBuilderEE3$_0EEEvT_T0_.exit.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS4_11CaseClusterENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.i.i.i.i.i.i", %53
+"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_12IRTranslator19lowerSwitchWorkItemENS3_18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockESH_RNS2_16MachineIRBuilderEE3$_0EEEvT_T0_.exit.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS4_11CaseClusterENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.i.i.i.i.i.i", %53
   store i64 %49, ptr %.sroa.011.0.i.i.i.i.i.i, align 8
   %.sroa.2.0..sroa_idx5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.011.0.i.i.i.i.i.i, i64 8
   store ptr %.sroa.2.0.copyload.i.i.i.i.i.i, ptr %.sroa.2.0..sroa_idx5.i.i.i.i.i.i, align 8
@@ -6878,13 +6878,13 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseCluster
   %65 = getelementptr i8, ptr %.sroa.011.0.i.i16.i.i.i.i, i64 -8
   %.val4.i.i.i18.i.i.i.i = load i32, ptr %65, align 8
   %.not.i.i.i.i19.i.i.i.i = icmp eq i32 %.sroa.38.0.copyload.i.i.i.i.i.i, %.val4.i.i.i18.i.i.i.i
-  br i1 %.not.i.i.i.i19.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS4_11CaseClusterENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.i.i26.i.i.i.i", label %66
+  br i1 %.not.i.i.i.i19.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS4_11CaseClusterENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.i.i26.i.i.i.i", label %66
 
 66:                                               ; preds = %64
   %67 = icmp ult i32 %.val4.i.i.i18.i.i.i.i, %.sroa.38.0.copyload.i.i.i.i.i.i
   br i1 %67, label %72, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_12IRTranslator19lowerSwitchWorkItemENS3_18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockESH_RNS2_16MachineIRBuilderEE3$_0EEEvT_T0_.exit.i20.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS4_11CaseClusterENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.i.i26.i.i.i.i": ; preds = %64
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS4_11CaseClusterENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.i.i26.i.i.i.i": ; preds = %64
   %68 = getelementptr i8, ptr %.sroa.011.0.i.i16.i.i.i.i, i64 -32
   %.val3.i.i.i27.i.i.i.i = load ptr, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %.val3.i.i.i27.i.i.i.i, i64 24
@@ -6892,11 +6892,11 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseCluster
   %71 = icmp slt i32 %70, 0
   br i1 %71, label %72, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_12IRTranslator19lowerSwitchWorkItemENS3_18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockESH_RNS2_16MachineIRBuilderEE3$_0EEEvT_T0_.exit.i20.i.i.i.i"
 
-72:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS4_11CaseClusterENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.i.i26.i.i.i.i", %66
+72:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS4_11CaseClusterENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.i.i26.i.i.i.i", %66
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.sroa.011.0.i.i16.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(36) %.sroa.0.0.i.i17.i.i.i.i, i64 36, i1 false)
   br label %64, !llvm.loop !54
 
-"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_12IRTranslator19lowerSwitchWorkItemENS3_18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockESH_RNS2_16MachineIRBuilderEE3$_0EEEvT_T0_.exit.i20.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS4_11CaseClusterENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.i.i26.i.i.i.i", %66
+"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_12IRTranslator19lowerSwitchWorkItemENS3_18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockESH_RNS2_16MachineIRBuilderEE3$_0EEEvT_T0_.exit.i20.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS4_11CaseClusterENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.i.i26.i.i.i.i", %66
   store i64 %62, ptr %.sroa.011.0.i.i16.i.i.i.i, align 8
   %.sroa.2.0..sroa_idx5.i.i21.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.011.0.i.i16.i.i.i.i, i64 8
   store ptr %.sroa.2.0.copyload.i.i14.i.i.i.i, ptr %.sroa.2.0..sroa_idx5.i.i21.i.i.i.i, align 8
@@ -6926,7 +6926,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseCluster
   %.val1.i.i35.i.i.i.i = load i32, ptr %77, align 4
   %.val3.i.i36.i.i.i.i = load i32, ptr %74, align 8
   %.not.i.i.i37.i.i.i.i = icmp eq i32 %.val1.i.i35.i.i.i.i, %.val3.i.i36.i.i.i.i
-  br i1 %.not.i.i.i37.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i57.i.i.i.i", label %78
+  br i1 %.not.i.i.i37.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i57.i.i.i.i", label %78
 
 78:                                               ; preds = %76
   %79 = icmp ult i32 %.val3.i.i36.i.i.i.i, %.val1.i.i35.i.i.i.i
@@ -6937,7 +6937,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseCluster
   %.sroa.2.0.copyload.i.pre.i40.i.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.phi.trans.insert.i39.i.i.i.i, align 8
   br label %89
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i57.i.i.i.i": ; preds = %76
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i57.i.i.i.i": ; preds = %76
   %.val2.i.i58.i.i.i.i = load ptr, ptr %75, align 8
   %80 = getelementptr i8, ptr %.pn18.i34.i.i.i.i, i64 48
   %.val.i.i59.i.i.i.i = load ptr, ptr %80, align 8
@@ -6947,7 +6947,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseCluster
   %84 = icmp slt i32 %83, 0
   br i1 %84, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i55.i.i.i.i, label %89
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i55.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i57.i.i.i.i", %78
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i55.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i57.i.i.i.i", %78
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.019.i33.i.i.i.i, i64 40, i1 false)
   %85 = getelementptr inbounds i8, ptr %.pn18.i34.i.i.i.i, i64 80
   %86 = ptrtoint ptr %.sroa.0.019.i33.i.i.i.i to i64
@@ -6958,8 +6958,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseCluster
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.sroa.027.0.copyload, ptr noundef nonnull align 8 dereferenceable(36) %8, i64 36, i1 false)
   br label %101
 
-89:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i57.i.i.i.i", %._crit_edge.i38.i.i.i.i
-  %.sroa.2.0.copyload.i.i41.i.i.i.i = phi ptr [ %.sroa.2.0.copyload.i.pre.i40.i.i.i.i, %._crit_edge.i38.i.i.i.i ], [ %.val.i.i59.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i57.i.i.i.i" ]
+89:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i57.i.i.i.i", %._crit_edge.i38.i.i.i.i
+  %.sroa.2.0.copyload.i.i41.i.i.i.i = phi ptr [ %.sroa.2.0.copyload.i.pre.i40.i.i.i.i, %._crit_edge.i38.i.i.i.i ], [ %.val.i.i59.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i57.i.i.i.i" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.3.i.i28.i.i.i.i)
   %90 = load i64, ptr %.sroa.0.019.i33.i.i.i.i, align 8
   %.sroa.3.0..sroa_idx.i.i42.i.i.i.i = getelementptr inbounds i8, ptr %.pn18.i34.i.i.i.i, i64 56
@@ -6973,13 +6973,13 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseCluster
   %93 = getelementptr i8, ptr %.sroa.011.0.i.i43.i.i.i.i, i64 -8
   %.val4.i.i.i45.i.i.i.i = load i32, ptr %93, align 8
   %.not.i.i.i.i46.i.i.i.i = icmp eq i32 %.val1.i.i35.i.i.i.i, %.val4.i.i.i45.i.i.i.i
-  br i1 %.not.i.i.i.i46.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS4_11CaseClusterENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.i.i53.i.i.i.i", label %94
+  br i1 %.not.i.i.i.i46.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS4_11CaseClusterENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.i.i53.i.i.i.i", label %94
 
 94:                                               ; preds = %92
   %95 = icmp ult i32 %.val4.i.i.i45.i.i.i.i, %.val1.i.i35.i.i.i.i
   br i1 %95, label %100, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_12IRTranslator19lowerSwitchWorkItemENS3_18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockESH_RNS2_16MachineIRBuilderEE3$_0EEEvT_T0_.exit.i47.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS4_11CaseClusterENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.i.i53.i.i.i.i": ; preds = %92
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS4_11CaseClusterENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.i.i53.i.i.i.i": ; preds = %92
   %96 = getelementptr i8, ptr %.sroa.011.0.i.i43.i.i.i.i, i64 -32
   %.val3.i.i.i54.i.i.i.i = load ptr, ptr %96, align 8
   %97 = getelementptr inbounds nuw i8, ptr %.val3.i.i.i54.i.i.i.i, i64 24
@@ -6987,11 +6987,11 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseCluster
   %99 = icmp slt i32 %98, 0
   br i1 %99, label %100, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_12IRTranslator19lowerSwitchWorkItemENS3_18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockESH_RNS2_16MachineIRBuilderEE3$_0EEEvT_T0_.exit.i47.i.i.i.i"
 
-100:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS4_11CaseClusterENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.i.i53.i.i.i.i", %94
+100:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS4_11CaseClusterENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.i.i53.i.i.i.i", %94
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.sroa.011.0.i.i43.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(36) %.sroa.0.0.i.i44.i.i.i.i, i64 36, i1 false)
   br label %92, !llvm.loop !54
 
-"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_12IRTranslator19lowerSwitchWorkItemENS3_18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockESH_RNS2_16MachineIRBuilderEE3$_0EEEvT_T0_.exit.i47.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS4_11CaseClusterENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.i.i53.i.i.i.i", %94
+"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_12IRTranslator19lowerSwitchWorkItemENS3_18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockESH_RNS2_16MachineIRBuilderEE3$_0EEEvT_T0_.exit.i47.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS4_11CaseClusterENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.i.i53.i.i.i.i", %94
   store i64 %90, ptr %.sroa.011.0.i.i43.i.i.i.i, align 8
   %.sroa.2.0..sroa_idx5.i.i48.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.011.0.i.i43.i.i.i.i, i64 8
   store ptr %.sroa.2.0.copyload.i.i41.i.i.i.i, ptr %.sroa.2.0..sroa_idx5.i.i48.i.i.i.i, align 8
@@ -25468,17 +25468,17 @@ _ZN4llvm24OptimizationRemarkMissedD2Ev.exit182.sink.split: ; preds = %_ZN4llvm24
 _ZN4llvm24OptimizationRemarkMissedD2Ev.exit182:   ; preds = %_ZN4llvm24OptimizationRemarkMissedD2Ev.exit182.sink.split, %_ZN4llvm24OptimizationRemarkMissedD2Ev.exit191, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i181
   %726 = load ptr, ptr %11, align 8
   %.not.i.i.i.i216 = icmp eq ptr %726, null
-  br i1 %.not.i.i.i.i216, label %"_ZN4llvm6detail10scope_exitIZNS_12IRTranslator20runOnMachineFunctionERNS_15MachineFunctionEE3$_0ED2Ev.argprom.exit", label %727
+  br i1 %.not.i.i.i.i216, label %"_ZN4llvm6detail10scope_exitIZNS_12IRTranslator20runOnMachineFunctionERNS_15MachineFunctionEE3$_0ED2Ev.exit", label %727
 
 727:                                              ; preds = %_ZN4llvm24OptimizationRemarkMissedD2Ev.exit182
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %11, ptr noundef nonnull align 4 dereferenceable(8) %726) #23
-  br label %"_ZN4llvm6detail10scope_exitIZNS_12IRTranslator20runOnMachineFunctionERNS_15MachineFunctionEE3$_0ED2Ev.argprom.exit"
+  br label %"_ZN4llvm6detail10scope_exitIZNS_12IRTranslator20runOnMachineFunctionERNS_15MachineFunctionEE3$_0ED2Ev.exit"
 
-"_ZN4llvm6detail10scope_exitIZNS_12IRTranslator20runOnMachineFunctionERNS_15MachineFunctionEE3$_0ED2Ev.argprom.exit": ; preds = %_ZN4llvm24OptimizationRemarkMissedD2Ev.exit182, %727
+"_ZN4llvm6detail10scope_exitIZNS_12IRTranslator20runOnMachineFunctionERNS_15MachineFunctionEE3$_0ED2Ev.exit": ; preds = %_ZN4llvm24OptimizationRemarkMissedD2Ev.exit182, %727
   call void @_ZN4llvm12IRTranslator16finalizeFunctionEv(ptr noundef nonnull align 8 dereferenceable(1848) %0)
   br label %_ZN4llvm24OptimizationRemarkMissedD2Ev.exit
 
-_ZN4llvm24OptimizationRemarkMissedD2Ev.exit:      ; preds = %299, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i, %"_ZN4llvm6detail10scope_exitIZNS_12IRTranslator20runOnMachineFunctionERNS_15MachineFunctionEE3$_0ED2Ev.argprom.exit"
+_ZN4llvm24OptimizationRemarkMissedD2Ev.exit:      ; preds = %299, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i, %"_ZN4llvm6detail10scope_exitIZNS_12IRTranslator20runOnMachineFunctionERNS_15MachineFunctionEE3$_0ED2Ev.exit"
   ret i1 false
 }
 
@@ -31892,13 +31892,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %39 = getelementptr i8, ptr %37, i64 32
   %.val3.i.i.i = load i32, ptr %39, align 8
   %.not.i.i.i.i = icmp eq i32 %.val1.i.i.i, %.val3.i.i.i
-  br i1 %.not.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i.i", label %40
+  br i1 %.not.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i.i", label %40
 
 40:                                               ; preds = %34
   %41 = icmp ult i32 %.val3.i.i.i, %.val1.i.i.i
   br i1 %41, label %47, label %68
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i.i": ; preds = %34
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i.i": ; preds = %34
   %42 = getelementptr i8, ptr %37, i64 8
   %.val2.i.i.i = load ptr, ptr %42, align 8
   %.val.i.i.i = load ptr, ptr %18, align 8
@@ -31908,17 +31908,17 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %47, label %68
 
-47:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i.i", %40
+47:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i.i", %40
   %48 = getelementptr i8, ptr %storemerge22, i64 -8
   %.val3.i27.i.i = load i32, ptr %48, align 8
   %.not.i.i28.i.i = icmp eq i32 %.val3.i.i.i, %.val3.i27.i.i
-  br i1 %.not.i.i28.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit31.i.i", label %49
+  br i1 %.not.i.i28.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit31.i.i", label %49
 
 49:                                               ; preds = %47
   %50 = icmp ult i32 %.val3.i27.i.i, %.val3.i.i.i
   br i1 %50, label %57, label %58
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit31.i.i": ; preds = %47
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit31.i.i": ; preds = %47
   %51 = getelementptr i8, ptr %storemerge22, i64 -32
   %.val2.i29.i.i = load ptr, ptr %51, align 8
   %52 = getelementptr i8, ptr %37, i64 8
@@ -31929,7 +31929,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %57, label %58
 
-57:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit31.i.i", %49
+57:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit31.i.i", %49
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(36) %37, i64 36, i1 false)
@@ -31937,15 +31937,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12IRTranslator19lowerSwitchWorkItemENS3_18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockESH_RNS2_16MachineIRBuilderEE3$_0EEEvT_SM_SM_SM_T0_.exit.i.preheader"
 
-58:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit31.i.i", %49
+58:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit31.i.i", %49
   %.not.i.i34.i.i = icmp eq i32 %.val1.i.i.i, %.val3.i27.i.i
-  br i1 %.not.i.i34.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit37.i.i", label %59
+  br i1 %.not.i.i34.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit37.i.i", label %59
 
 59:                                               ; preds = %58
   %60 = icmp ult i32 %.val3.i27.i.i, %.val1.i.i.i
   br i1 %60, label %66, label %67
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit37.i.i": ; preds = %58
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit37.i.i": ; preds = %58
   %61 = getelementptr i8, ptr %storemerge22, i64 -32
   %.val2.i35.i.i = load ptr, ptr %61, align 8
   %.val.i36.i.i = load ptr, ptr %18, align 8
@@ -31955,7 +31955,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %65 = icmp slt i32 %64, 0
   br i1 %65, label %66, label %67
 
-66:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit37.i.i", %59
+66:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit37.i.i", %59
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(36) %38, i64 36, i1 false)
@@ -31963,7 +31963,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12IRTranslator19lowerSwitchWorkItemENS3_18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockESH_RNS2_16MachineIRBuilderEE3$_0EEEvT_SM_SM_SM_T0_.exit.i.preheader"
 
-67:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit37.i.i", %59
+67:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit37.i.i", %59
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(36) %16, i64 36, i1 false)
@@ -31971,17 +31971,17 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12IRTranslator19lowerSwitchWorkItemENS3_18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockESH_RNS2_16MachineIRBuilderEE3$_0EEEvT_SM_SM_SM_T0_.exit.i.preheader"
 
-68:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i.i", %40
+68:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i.i", %40
   %69 = getelementptr i8, ptr %storemerge22, i64 -8
   %.val3.i39.i.i = load i32, ptr %69, align 8
   %.not.i.i40.i.i = icmp eq i32 %.val1.i.i.i, %.val3.i39.i.i
-  br i1 %.not.i.i40.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit43.i.i", label %70
+  br i1 %.not.i.i40.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit43.i.i", label %70
 
 70:                                               ; preds = %68
   %71 = icmp ult i32 %.val3.i39.i.i, %.val1.i.i.i
   br i1 %71, label %77, label %78
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit43.i.i": ; preds = %68
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit43.i.i": ; preds = %68
   %72 = getelementptr i8, ptr %storemerge22, i64 -32
   %.val2.i41.i.i = load ptr, ptr %72, align 8
   %.val.i42.i.i = load ptr, ptr %18, align 8
@@ -31991,7 +31991,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %76 = icmp slt i32 %75, 0
   br i1 %76, label %77, label %78
 
-77:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit43.i.i", %70
+77:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit43.i.i", %70
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(36) %16, i64 36, i1 false)
@@ -31999,15 +31999,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12IRTranslator19lowerSwitchWorkItemENS3_18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockESH_RNS2_16MachineIRBuilderEE3$_0EEEvT_SM_SM_SM_T0_.exit.i.preheader"
 
-78:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit43.i.i", %70
+78:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit43.i.i", %70
   %.not.i.i46.i.i = icmp eq i32 %.val3.i.i.i, %.val3.i39.i.i
-  br i1 %.not.i.i46.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit49.i.i", label %79
+  br i1 %.not.i.i46.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit49.i.i", label %79
 
 79:                                               ; preds = %78
   %80 = icmp ult i32 %.val3.i39.i.i, %.val3.i.i.i
   br i1 %80, label %87, label %88
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit49.i.i": ; preds = %78
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit49.i.i": ; preds = %78
   %81 = getelementptr i8, ptr %storemerge22, i64 -32
   %.val2.i47.i.i = load ptr, ptr %81, align 8
   %82 = getelementptr i8, ptr %37, i64 8
@@ -32018,7 +32018,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %86 = icmp slt i32 %85, 0
   br i1 %86, label %87, label %88
 
-87:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit49.i.i", %79
+87:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit49.i.i", %79
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(36) %38, i64 36, i1 false)
@@ -32026,7 +32026,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12IRTranslator19lowerSwitchWorkItemENS3_18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockESH_RNS2_16MachineIRBuilderEE3$_0EEEvT_SM_SM_SM_T0_.exit.i.preheader"
 
-88:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit49.i.i", %79
+88:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit49.i.i", %79
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(36) %37, i64 36, i1 false)
@@ -32048,16 +32048,16 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %90 = getelementptr i8, ptr %.sroa.016.1.i.i, i64 32
   %.val1.i.i14.i = load i32, ptr %90, align 4
   %.not.i.i.i15.i = icmp eq i32 %.val1.i.i14.i, %.val3.i.i13.i
-  br i1 %.not.i.i.i15.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i16.i", label %91
+  br i1 %.not.i.i.i15.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i16.i", label %91
 
 91:                                               ; preds = %89
   %92 = icmp ult i32 %.val3.i.i13.i, %.val1.i.i14.i
   br i1 %92, label %98, label %.preheader
 
-.preheader:                                       ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i16.i", %91
+.preheader:                                       ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i16.i", %91
   br label %100
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i16.i": ; preds = %89
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i16.i": ; preds = %89
   %.val2.i.i17.i = load ptr, ptr %19, align 8
   %93 = getelementptr i8, ptr %.sroa.016.1.i.i, i64 8
   %.val.i.i18.i = load ptr, ptr %93, align 8
@@ -32067,7 +32067,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %97 = icmp slt i32 %96, 0
   br i1 %97, label %98, label %.preheader
 
-98:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i16.i", %91
+98:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i16.i", %91
   %99 = getelementptr inbounds i8, ptr %.sroa.016.1.i.i, i64 40
   br label %89, !llvm.loop !323
 
@@ -32077,13 +32077,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %101 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -8
   %.val3.i9.i.i = load i32, ptr %101, align 8
   %.not.i.i10.i.i = icmp eq i32 %.val3.i.i13.i, %.val3.i9.i.i
-  br i1 %.not.i.i10.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit13.i.i", label %102
+  br i1 %.not.i.i10.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit13.i.i", label %102
 
 102:                                              ; preds = %100
   %103 = icmp ult i32 %.val3.i9.i.i, %.val3.i.i13.i
   br i1 %103, label %.backedge, label %109
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit13.i.i": ; preds = %100
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit13.i.i": ; preds = %100
   %104 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -32
   %.val2.i11.i.i = load ptr, ptr %104, align 8
   %.val.i12.i.i = load ptr, ptr %19, align 8
@@ -32093,10 +32093,10 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %108 = icmp slt i32 %107, 0
   br i1 %108, label %.backedge, label %109
 
-.backedge:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit13.i.i", %102
+.backedge:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit13.i.i", %102
   br label %100, !llvm.loop !324
 
-109:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit13.i.i", %102
+109:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit13.i.i", %102
   %110 = icmp ult ptr %.sroa.016.1.i.i, %.sroa.0.1.i.i
   br i1 %110, label %111, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12IRTranslator19lowerSwitchWorkItemENS3_18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockESH_RNS2_16MachineIRBuilderEE3$_0EEET_SM_SM_T0_.exit"
 
@@ -32127,8 +32127,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %7 = icmp slt i64 %1, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %4, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit"
-  %.044 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit" ], [ %1, %4 ]
+.lr.ph:                                           ; preds = %4, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit"
+  %.044 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit" ], [ %1, %4 ]
   %8 = shl i64 %.044, 1
   %9 = add i64 %8, 2
   %10 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %9
@@ -32143,7 +32143,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 
 15:                                               ; preds = %.lr.ph
   %16 = icmp ult i32 %.val3.i, %.val1.i
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit"
 
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr i8, ptr %12, i64 8
@@ -32154,9 +32154,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %21 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 24
   %22 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %20, ptr noundef nonnull readonly align 8 dereferenceable(12) %21) #27
   %23 = icmp slt i32 %22, 0
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit": ; preds = %15, %17
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit": ; preds = %15, %17
   %24 = phi i1 [ %16, %15 ], [ %23, %17 ]
   %spec.select = select i1 %24, i64 %11, i64 %9
   %25 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %spec.select
@@ -32165,8 +32165,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %27 = icmp slt i64 %spec.select, %6
   br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !327
 
-._crit_edge:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit", %4
-  %.0.lcssa = phi i64 [ %1, %4 ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit" ]
+._crit_edge:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit", %4
+  %.0.lcssa = phi i64 [ %1, %4 ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit" ]
   %28 = and i64 %2, 1
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %30, label %39
@@ -32193,7 +32193,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.sroa.442.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
   %.sroa.442.0.copyload = load i32, ptr %.sroa.442.0..sroa_idx, align 8
   %41 = icmp sgt i64 %.1, %1
-  br i1 %41, label %.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS2_12IRTranslator19lowerSwitchWorkItemENS3_18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockESH_RNS2_16MachineIRBuilderEE3$_0EEEvT_T0_SN_T1_RT2_.argprom.exit"
+  br i1 %41, label %.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS2_12IRTranslator19lowerSwitchWorkItemENS3_18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockESH_RNS2_16MachineIRBuilderEE3$_0EEEvT_T0_SN_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload, i64 24
@@ -32207,28 +32207,28 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %45 = getelementptr i8, ptr %44, i64 32
   %.val2.i.i = load i32, ptr %45, align 4
   %.not.i.i.i = icmp eq i32 %.val2.i.i, %.sroa.442.0.copyload
-  br i1 %.not.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.argprom.exit.i", label %46
+  br i1 %.not.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.exit.i", label %46
 
 46:                                               ; preds = %43
   %47 = icmp ult i32 %.sroa.442.0.copyload, %.val2.i.i
-  br i1 %47, label %52, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS2_12IRTranslator19lowerSwitchWorkItemENS3_18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockESH_RNS2_16MachineIRBuilderEE3$_0EEEvT_T0_SN_T1_RT2_.argprom.exit"
+  br i1 %47, label %52, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS2_12IRTranslator19lowerSwitchWorkItemENS3_18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockESH_RNS2_16MachineIRBuilderEE3$_0EEEvT_T0_SN_T1_RT2_.exit"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.argprom.exit.i": ; preds = %43
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.exit.i": ; preds = %43
   %48 = getelementptr i8, ptr %44, i64 8
   %.val.i.i = load ptr, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 24
   %50 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %49, ptr noundef nonnull readonly align 8 dereferenceable(12) %42) #27
   %51 = icmp slt i32 %50, 0
-  br i1 %51, label %52, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS2_12IRTranslator19lowerSwitchWorkItemENS3_18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockESH_RNS2_16MachineIRBuilderEE3$_0EEEvT_T0_SN_T1_RT2_.argprom.exit"
+  br i1 %51, label %52, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS2_12IRTranslator19lowerSwitchWorkItemENS3_18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockESH_RNS2_16MachineIRBuilderEE3$_0EEEvT_T0_SN_T1_RT2_.exit"
 
-52:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.argprom.exit.i", %46
+52:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.exit.i", %46
   %53 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %.010.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %53, ptr noundef nonnull align 8 dereferenceable(36) %44, i64 36, i1 false)
   %54 = icmp sgt i64 %.0911.i, %1
-  br i1 %54, label %43, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS2_12IRTranslator19lowerSwitchWorkItemENS3_18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockESH_RNS2_16MachineIRBuilderEE3$_0EEEvT_T0_SN_T1_RT2_.argprom.exit", !llvm.loop !328
+  br i1 %54, label %43, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS2_12IRTranslator19lowerSwitchWorkItemENS3_18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockESH_RNS2_16MachineIRBuilderEE3$_0EEEvT_T0_SN_T1_RT2_.exit", !llvm.loop !328
 
-"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS2_12IRTranslator19lowerSwitchWorkItemENS3_18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockESH_RNS2_16MachineIRBuilderEE3$_0EEEvT_T0_SN_T1_RT2_.argprom.exit": ; preds = %46, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.argprom.exit.i", %52, %39
-  %.0.lcssa.i = phi i64 [ %.1, %39 ], [ %.010.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.argprom.exit.i" ], [ %.0911.i, %52 ], [ %.010.i, %46 ]
+"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS2_12IRTranslator19lowerSwitchWorkItemENS3_18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockESH_RNS2_16MachineIRBuilderEE3$_0EEEvT_T0_SN_T1_RT2_.exit": ; preds = %46, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.exit.i", %52, %39
+  %.0.lcssa.i = phi i64 [ %.1, %39 ], [ %.010.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12IRTranslator19lowerSwitchWorkItemENS2_8SwitchCG18SwitchWorkListItemEPNS2_5ValueEPNS2_17MachineBasicBlockES9_RNS2_16MachineIRBuilderEE3$_0EclINS_17__normal_iteratorIPNS4_11CaseClusterESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.exit.i" ], [ %.0911.i, %52 ], [ %.010.i, %46 ]
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
   %55 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %.0.lcssa.i
   store i64 %40, ptr %55, align 8
@@ -32443,7 +32443,7 @@ define internal { ptr, i64 } @"_ZNSt17_Function_handlerIFN4llvm8ArrayRefINS0_8Re
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4llvm8ArrayRefINS0_8RegisterEEERKNS0_5ValueEEZNS0_12IRTranslator18translateInlineAsmERKNS0_8CallBaseERNS0_16MachineIRBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #18 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm12IRTranslator18translateInlineAsmERKNS1_8CallBaseERNS1_16MachineIRBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm12IRTranslator18translateInlineAsmERKNS1_8CallBaseERNS1_16MachineIRBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -32451,18 +32451,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4llvm8ArrayRefIN
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm12IRTranslator18translateInlineAsmERKNS1_8CallBaseERNS1_16MachineIRBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm12IRTranslator18translateInlineAsmERKNS1_8CallBaseERNS1_16MachineIRBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm12IRTranslator18translateInlineAsmERKNS1_8CallBaseERNS1_16MachineIRBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm12IRTranslator18translateInlineAsmERKNS1_8CallBaseERNS1_16MachineIRBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm12IRTranslator18translateInlineAsmERKNS1_8CallBaseERNS1_16MachineIRBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm12IRTranslator18translateInlineAsmERKNS1_8CallBaseERNS1_16MachineIRBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm12IRTranslator18translateInlineAsmERKNS1_8CallBaseERNS1_16MachineIRBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm12IRTranslator18translateInlineAsmERKNS1_8CallBaseERNS1_16MachineIRBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -32509,14 +32509,14 @@ define internal noundef i32 @"_ZNSt17_Function_handlerIFjvEZN4llvm12IRTranslator
   %4 = tail call { ptr, i64 } @_ZN4llvm12IRTranslator16getOrCreateVRegsERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1848) %.val, ptr noundef nonnull align 8 dereferenceable(24) %.val1.val)
   %5 = extractvalue { ptr, i64 } %4, 1
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %"_ZSt10__invoke_rIjRZN4llvm12IRTranslator17translateCallBaseERKNS0_8CallBaseERNS0_16MachineIRBuilderEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.argprom.exit", label %7
+  br i1 %6, label %"_ZSt10__invoke_rIjRZN4llvm12IRTranslator17translateCallBaseERKNS0_8CallBaseERNS0_16MachineIRBuilderEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %7
 
 7:                                                ; preds = %1
   %8 = extractvalue { ptr, i64 } %4, 0
   %9 = load i32, ptr %8, align 4
-  br label %"_ZSt10__invoke_rIjRZN4llvm12IRTranslator17translateCallBaseERKNS0_8CallBaseERNS0_16MachineIRBuilderEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIjRZN4llvm12IRTranslator17translateCallBaseERKNS0_8CallBaseERNS0_16MachineIRBuilderEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
-"_ZSt10__invoke_rIjRZN4llvm12IRTranslator17translateCallBaseERKNS0_8CallBaseERNS0_16MachineIRBuilderEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.argprom.exit": ; preds = %1, %7
+"_ZSt10__invoke_rIjRZN4llvm12IRTranslator17translateCallBaseERKNS0_8CallBaseERNS0_16MachineIRBuilderEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %1, %7
   %.sroa.02.0.i.i.i.i = phi i32 [ %9, %7 ], [ 0, %1 ]
   ret i32 %.sroa.02.0.i.i.i.i
 }

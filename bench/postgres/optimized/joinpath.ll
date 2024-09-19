@@ -810,7 +810,7 @@ switch.early.test.i107:                           ; preds = %._crit_edge200.i
 .thread189.i:                                     ; preds = %394, %389
   %.2192.i = phi ptr [ %397, %394 ], [ %.1.i105, %389 ]
   %.val.i108 = load ptr, ptr %380, align 8
-  call fastcc void @consider_parallel_mergejoin.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr %.val.i108, ptr noundef %3, i32 noundef %4, ptr noundef %8, ptr noundef %.2192.i)
+  call fastcc void @consider_parallel_mergejoin(ptr noundef %0, ptr noundef nonnull %1, ptr %.val.i108, ptr noundef %3, i32 noundef %4, ptr noundef %8, ptr noundef %.2192.i)
   br label %match_unsorted_outer.exit
 
 match_unsorted_outer.exit:                        ; preds = %._crit_edge, %.thread189.i, %394, %393, %382, %379, %switch.early.test.i107, %switch.early.test.i107, %switch.early.test.i107, %switch.early.test.i107, %._crit_edge200.i, %.thread172.i
@@ -1649,17 +1649,17 @@ define internal fastcc void @try_nestloop_path(ptr noundef %0, ptr noundef %1, p
 
 56:                                               ; preds = %52
   %57 = tail call zeroext i1 @bms_overlap(ptr noundef %19, ptr noundef %.059) #5
-  br i1 %57, label %allow_star_schema_join.argprom.exit, label %allow_star_schema_join.argprom.exit.thread
+  br i1 %57, label %allow_star_schema_join.exit, label %allow_star_schema_join.exit.thread
 
-allow_star_schema_join.argprom.exit:              ; preds = %56
+allow_star_schema_join.exit:                      ; preds = %56
   %58 = tail call zeroext i1 @bms_nonempty_difference(ptr noundef %19, ptr noundef %.059) #5
-  br i1 %58, label %59, label %allow_star_schema_join.argprom.exit.thread
+  br i1 %58, label %59, label %allow_star_schema_join.exit.thread
 
-59:                                               ; preds = %allow_star_schema_join.argprom.exit, %52
+59:                                               ; preds = %allow_star_schema_join.exit, %52
   %60 = tail call zeroext i1 @have_dangerous_phv(ptr noundef %0, ptr noundef %.059, ptr noundef %19) #5
-  br i1 %60, label %allow_star_schema_join.argprom.exit.thread, label %61
+  br i1 %60, label %allow_star_schema_join.exit.thread, label %61
 
-allow_star_schema_join.argprom.exit.thread:       ; preds = %56, %59, %allow_star_schema_join.argprom.exit
+allow_star_schema_join.exit.thread:               ; preds = %56, %59, %allow_star_schema_join.exit
   tail call void @bms_free(ptr noundef nonnull %51) #5
   br label %83
 
@@ -1706,7 +1706,7 @@ allow_star_schema_join.argprom.exit.thread:       ; preds = %56, %59, %allow_sta
   call void @bms_free(ptr noundef %51) #5
   br label %83
 
-83:                                               ; preds = %31, %33, %82, %79, %78, %allow_star_schema_join.argprom.exit.thread
+83:                                               ; preds = %31, %33, %82, %79, %78, %allow_star_schema_join.exit.thread
   ret void
 }
 
@@ -1855,7 +1855,7 @@ list_length.exit:                                 ; preds = %38, %43
   %85 = load ptr, ptr %84, align 8
   %.not52 = icmp eq ptr %85, null
   %. = select i1 %.not52, ptr %2, ptr %85
-  %86 = call fastcc zeroext i1 @paraminfo_get_equal_hashops.argprom(ptr noundef %83, ptr noundef %., ptr noundef %1, ptr noundef %8, ptr noundef %9, ptr noundef %10)
+  %86 = call fastcc zeroext i1 @paraminfo_get_equal_hashops(ptr noundef %83, ptr noundef %., ptr noundef %1, ptr noundef %8, ptr noundef %9, ptr noundef %10)
   br i1 %86, label %87, label %.loopexit
 
 87:                                               ; preds = %.thread58
@@ -2247,7 +2247,7 @@ try_partial_nestloop_path.exit66:                 ; preds = %90, %92, %104, %107
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @consider_parallel_mergejoin.argprom(ptr noundef %0, ptr noundef %1, ptr readonly %.56.val, ptr nocapture noundef readonly %2, i32 noundef range(i32 8, 7) %3, ptr noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc void @consider_parallel_mergejoin(ptr noundef %0, ptr noundef %1, ptr readonly %.56.val, ptr nocapture noundef readonly %2, i32 noundef range(i32 8, 7) %3, ptr noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %.56.val, i64 4
   %.not = icmp eq ptr %.56.val, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -2294,7 +2294,7 @@ declare i32 @bms_num_members(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @contain_volatile_functions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @paraminfo_get_equal_hashops.argprom(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @paraminfo_get_equal_hashops(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
   store i8 0, ptr %5, align 1

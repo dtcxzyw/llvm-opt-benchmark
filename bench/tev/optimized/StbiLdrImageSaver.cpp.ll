@@ -3894,12 +3894,12 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19stbi_write_jpg_coreP19s
   %146 = zext i1 %145 to i32
   %147 = select i1 %145, i32 2, i32 0
   %148 = icmp sgt i32 %2, 0
-  br i1 %148, label %.preheader193.lr.ph, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit
+  br i1 %148, label %.preheader193.lr.ph, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit
 
 .preheader193.lr.ph:                              ; preds = %88
   %149 = icmp sgt i32 %1, 0
   %150 = mul nsw i32 %3, %1
-  br i1 %149, label %.preheader193.us, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit
+  br i1 %149, label %.preheader193.us, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit
 
 .preheader193.us:                                 ; preds = %.preheader193.lr.ph, %._crit_edge.us
   %indvars.iv259 = phi i32 [ %indvars.iv.next260, %._crit_edge.us ], [ 8, %.preheader193.lr.ph ]
@@ -4046,7 +4046,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19stbi_write_jpg_coreP19s
 ._crit_edge216:                                   ; preds = %._crit_edge.us
   %.pre262 = load i32, ptr %21, align 4
   %225 = icmp sgt i32 %.pre262, 0
-  br i1 %225, label %.lr.ph.i.preheader, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit
+  br i1 %225, label %.lr.ph.i.preheader, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit
 
 .lr.ph.i.preheader:                               ; preds = %._crit_edge216
   %226 = sub nsw i32 17, %.pre262
@@ -4084,9 +4084,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19stbi_write_jpg_coreP19s
   %236 = shl i32 %.02.i, 8
   %237 = add nsw i32 %.0181.i, -8
   %238 = icmp sgt i32 %.0181.i, 15
-  br i1 %238, label %.lr.ph.i, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit, !llvm.loop !47
+  br i1 %238, label %.lr.ph.i, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit, !llvm.loop !47
 
-_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit: ; preds = %235, %.preheader193.lr.ph, %88, %._crit_edge216
+_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit: ; preds = %235, %.preheader193.lr.ph, %88, %._crit_edge216
   %.val187 = load ptr, ptr %0, align 8
   %.val188 = load ptr, ptr %119, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
@@ -4101,8 +4101,8 @@ _ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit: ; preds = 
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   br label %239
 
-239:                                              ; preds = %6, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit
-  %.0 = phi i32 [ 1, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit ], [ 0, %6 ]
+239:                                              ; preds = %6, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit
+  %.0 = phi i32 [ 1, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -5192,7 +5192,7 @@ define internal fastcc noundef i32 @_ZL20stbiw__jpg_processDUP19stbi__write_cont
   %168 = shl i32 %166, %167
   %169 = or i32 %168, %162
   %170 = icmp sgt i32 %165, 7
-  br i1 %170, label %.lr.ph.i, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit
+  br i1 %170, label %.lr.ph.i, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit
 
 .lr.ph.i:                                         ; preds = %160
   %171 = getelementptr i8, ptr %0, i64 8
@@ -5226,7 +5226,7 @@ define internal fastcc noundef i32 @_ZL20stbiw__jpg_processDUP19stbi__write_cont
   %179 = shl i32 %.02.i, 8
   %180 = add nsw i32 %.0181.i, -8
   %181 = icmp sgt i32 %.0181.i, 15
-  br i1 %181, label %172, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit, !llvm.loop !47
+  br i1 %181, label %172, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit, !llvm.loop !47
 
 182:                                              ; preds = %157
   %183 = sub nsw i32 %158, %5
@@ -5255,7 +5255,7 @@ define internal fastcc noundef i32 @_ZL20stbiw__jpg_processDUP19stbi__write_cont
   %200 = shl i32 %198, %199
   %201 = or i32 %200, %194
   %202 = icmp sgt i32 %197, 7
-  br i1 %202, label %.lr.ph.i131, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit138
+  br i1 %202, label %.lr.ph.i131, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit138
 
 .lr.ph.i131:                                      ; preds = %182
   %203 = getelementptr i8, ptr %0, i64 8
@@ -5289,9 +5289,9 @@ define internal fastcc noundef i32 @_ZL20stbiw__jpg_processDUP19stbi__write_cont
   %211 = shl i32 %.02.i132, 8
   %212 = add nsw i32 %.0181.i133, -8
   %213 = icmp sgt i32 %.0181.i133, 15
-  br i1 %213, label %204, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit138, !llvm.loop !47
+  br i1 %213, label %204, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit138, !llvm.loop !47
 
-_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit138: ; preds = %210, %182
+_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit138: ; preds = %210, %182
   %.018.lcssa.i129 = phi i32 [ %197, %182 ], [ %212, %210 ]
   %.0.lcssa.i130 = phi i32 [ %201, %182 ], [ %211, %210 ]
   store i32 %.0.lcssa.i130, ptr %1, align 4
@@ -5304,9 +5304,9 @@ _ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit138: ; preds
   %219 = shl i32 %217, %218
   %220 = or i32 %214, %219
   %221 = icmp sgt i32 %215, 7
-  br i1 %221, label %.lr.ph.i141, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit
+  br i1 %221, label %.lr.ph.i141, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit
 
-.lr.ph.i141:                                      ; preds = %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit138
+.lr.ph.i141:                                      ; preds = %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit138
   %222 = getelementptr i8, ptr %0, i64 8
   br label %223
 
@@ -5338,17 +5338,17 @@ _ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit138: ; preds
   %230 = shl i32 %.02.i142, 8
   %231 = add nsw i32 %.0181.i143, -8
   %232 = icmp sgt i32 %.0181.i143, 15
-  br i1 %232, label %223, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit, !llvm.loop !47
+  br i1 %232, label %223, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit, !llvm.loop !47
 
-_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit: ; preds = %229, %178, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit138, %160
-  %storemerge212 = phi i32 [ %169, %160 ], [ %220, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit138 ], [ %179, %178 ], [ %230, %229 ]
-  %233 = phi i32 [ %165, %160 ], [ %215, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit138 ], [ %180, %178 ], [ %231, %229 ]
+_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit: ; preds = %229, %178, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit138, %160
+  %storemerge212 = phi i32 [ %169, %160 ], [ %220, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit138 ], [ %179, %178 ], [ %230, %229 ]
+  %233 = phi i32 [ %165, %160 ], [ %215, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit138 ], [ %180, %178 ], [ %231, %229 ]
   store i32 %storemerge212, ptr %1, align 4
   store i32 %233, ptr %2, align 4
   br label %234
 
-234:                                              ; preds = %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit, %239
-  %.0108236 = phi i32 [ 63, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit ], [ %240, %239 ]
+234:                                              ; preds = %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit, %239
+  %.0108236 = phi i32 [ 63, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit ], [ %240, %239 ]
   %235 = zext nneg i32 %.0108236 to i64
   %236 = getelementptr inbounds [64 x i32], ptr %25, i64 0, i64 %235
   %237 = load i32, ptr %236, align 4
@@ -5416,9 +5416,9 @@ _ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit: ; preds = 
   %265 = icmp sgt i32 %.0181.i153, 15
   br i1 %265, label %256, label %.sink.split, !llvm.loop !47
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit192
-  %266 = phi i32 [ %233, %.preheader.lr.ph ], [ %.018.lcssa.i183, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit192 ]
-  %.1107240 = phi i32 [ 1, %.preheader.lr.ph ], [ %344, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit192 ]
+.preheader:                                       ; preds = %.preheader.lr.ph, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit192
+  %266 = phi i32 [ %233, %.preheader.lr.ph ], [ %.018.lcssa.i183, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit192 ]
+  %.1107240 = phi i32 [ 1, %.preheader.lr.ph ], [ %344, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit192 ]
   %267 = sext i32 %.1107240 to i64
   br label %268
 
@@ -5445,16 +5445,16 @@ _ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit: ; preds = 
   %umax = call i32 @llvm.umax.i32(i32 %278, i32 1)
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit168
-  %279 = phi i32 [ %.018.lcssa.i159, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit168 ], [ %266, %.lr.ph.preheader ]
-  %.0238 = phi i32 [ %295, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit168 ], [ 1, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit168
+  %279 = phi i32 [ %.018.lcssa.i159, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit168 ], [ %266, %.lr.ph.preheader ]
+  %.0238 = phi i32 [ %295, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit168 ], [ 1, %.lr.ph.preheader ]
   %280 = load i32, ptr %1, align 4
   %281 = add nsw i32 %279, %242
   %282 = sub nsw i32 24, %281
   %283 = shl i32 %243, %282
   %284 = or i32 %283, %280
   %285 = icmp sgt i32 %281, 7
-  br i1 %285, label %.lr.ph.i161, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit168
+  br i1 %285, label %.lr.ph.i161, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit168
 
 .lr.ph.i161:                                      ; preds = %.lr.ph, %291
   %.02.i162 = phi i32 [ %292, %291 ], [ %284, %.lr.ph ]
@@ -5484,9 +5484,9 @@ _ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit: ; preds = 
   %292 = shl i32 %.02.i162, 8
   %293 = add nsw i32 %.0181.i163, -8
   %294 = icmp sgt i32 %.0181.i163, 15
-  br i1 %294, label %.lr.ph.i161, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit168, !llvm.loop !47
+  br i1 %294, label %.lr.ph.i161, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit168, !llvm.loop !47
 
-_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit168: ; preds = %291, %.lr.ph
+_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit168: ; preds = %291, %.lr.ph
   %.018.lcssa.i159 = phi i32 [ %281, %.lr.ph ], [ %293, %291 ]
   %.0.lcssa.i160 = phi i32 [ %284, %.lr.ph ], [ %292, %291 ]
   store i32 %.0.lcssa.i160, ptr %1, align 4
@@ -5495,7 +5495,7 @@ _ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit168: ; preds
   %exitcond272.not = icmp eq i32 %.0238, %umax
   br i1 %exitcond272.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
 
-._crit_edge:                                      ; preds = %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit168
+._crit_edge:                                      ; preds = %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit168
   %296 = and i32 %276, 15
   br label %297
 
@@ -5526,7 +5526,7 @@ _ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit168: ; preds
   %315 = shl i32 %313, %314
   %316 = or i32 %315, %310
   %317 = icmp sgt i32 %312, 7
-  br i1 %317, label %.lr.ph.i175, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit182
+  br i1 %317, label %.lr.ph.i175, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit182
 
 .lr.ph.i175:                                      ; preds = %297, %323
   %.02.i176 = phi i32 [ %324, %323 ], [ %316, %297 ]
@@ -5556,9 +5556,9 @@ _ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit168: ; preds
   %324 = shl i32 %.02.i176, 8
   %325 = add nsw i32 %.0181.i177, -8
   %326 = icmp sgt i32 %.0181.i177, 15
-  br i1 %326, label %.lr.ph.i175, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit182, !llvm.loop !47
+  br i1 %326, label %.lr.ph.i175, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit182, !llvm.loop !47
 
-_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit182: ; preds = %323, %297
+_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit182: ; preds = %323, %297
   %.018.lcssa.i173 = phi i32 [ %312, %297 ], [ %325, %323 ]
   %.0.lcssa.i174 = phi i32 [ %316, %297 ], [ %324, %323 ]
   store i32 %.0.lcssa.i174, ptr %1, align 4
@@ -5571,11 +5571,11 @@ _ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit182: ; preds
   %332 = shl i32 %330, %331
   %333 = or i32 %327, %332
   %334 = icmp sgt i32 %328, 7
-  br i1 %334, label %.lr.ph.i185, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit192
+  br i1 %334, label %.lr.ph.i185, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit192
 
-.lr.ph.i185:                                      ; preds = %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit182, %340
-  %.02.i186 = phi i32 [ %341, %340 ], [ %333, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit182 ]
-  %.0181.i187 = phi i32 [ %342, %340 ], [ %328, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit182 ]
+.lr.ph.i185:                                      ; preds = %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit182, %340
+  %.02.i186 = phi i32 [ %341, %340 ], [ %333, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit182 ]
+  %.0181.i187 = phi i32 [ %342, %340 ], [ %328, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit182 ]
   %335 = lshr i32 %.02.i186, 16
   %336 = trunc i32 %335 to i8
   %.val20.i188 = load ptr, ptr %0, align 8
@@ -5601,18 +5601,18 @@ _ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit182: ; preds
   %341 = shl i32 %.02.i186, 8
   %342 = add nsw i32 %.0181.i187, -8
   %343 = icmp sgt i32 %.0181.i187, 15
-  br i1 %343, label %.lr.ph.i185, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit192, !llvm.loop !47
+  br i1 %343, label %.lr.ph.i185, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit192, !llvm.loop !47
 
-_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit192: ; preds = %340, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit182
-  %.018.lcssa.i183 = phi i32 [ %328, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit182 ], [ %342, %340 ]
-  %.0.lcssa.i184 = phi i32 [ %333, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit182 ], [ %341, %340 ]
+_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit192: ; preds = %340, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit182
+  %.018.lcssa.i183 = phi i32 [ %328, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit182 ], [ %342, %340 ]
+  %.0.lcssa.i184 = phi i32 [ %333, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit182 ], [ %341, %340 ]
   store i32 %.0.lcssa.i184, ptr %1, align 4
   store i32 %.018.lcssa.i183, ptr %2, align 4
   %344 = add nsw i32 %275, 1
   %.not.not = icmp sgt i32 %.0108236, %275
   br i1 %.not.not, label %.preheader, label %._crit_edge241, !llvm.loop !64
 
-._crit_edge241:                                   ; preds = %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit192
+._crit_edge241:                                   ; preds = %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit192
   %.not112 = icmp eq i32 %.0108236, 63
   br i1 %.not112, label %365, label %._crit_edge241.thread
 

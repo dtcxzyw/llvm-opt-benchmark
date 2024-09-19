@@ -8787,10 +8787,10 @@ _ZNK4llvm3EVT16isScalableVectorEv.exit:           ; preds = %_ZNK4llvm3EVT20getV
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %81
 
-81:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm16DAGTypeLegalizer28PromoteIntRes_CONCAT_VECTORSEPNS2_6SDNodeEE3$_0EclIPNS2_5SDUseESA_EEbT_T0_.argprom.argprom.exit.i.i", %.lr.ph.i.i
-  %82 = phi ptr [ %74, %.lr.ph.i.i ], [ %153, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm16DAGTypeLegalizer28PromoteIntRes_CONCAT_VECTORSEPNS2_6SDNodeEE3$_0EclIPNS2_5SDUseESA_EEbT_T0_.argprom.argprom.exit.i.i" ]
-  %.020.i.i = phi ptr [ %70, %.lr.ph.i.i ], [ %spec.select.i.i129, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm16DAGTypeLegalizer28PromoteIntRes_CONCAT_VECTORSEPNS2_6SDNodeEE3$_0EclIPNS2_5SDUseESA_EEbT_T0_.argprom.argprom.exit.i.i" ]
-  %.01219.i.i = phi ptr [ %70, %.lr.ph.i.i ], [ %82, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm16DAGTypeLegalizer28PromoteIntRes_CONCAT_VECTORSEPNS2_6SDNodeEE3$_0EclIPNS2_5SDUseESA_EEbT_T0_.argprom.argprom.exit.i.i" ]
+81:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm16DAGTypeLegalizer28PromoteIntRes_CONCAT_VECTORSEPNS2_6SDNodeEE3$_0EclIPNS2_5SDUseESA_EEbT_T0_.exit.i.i", %.lr.ph.i.i
+  %82 = phi ptr [ %74, %.lr.ph.i.i ], [ %153, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm16DAGTypeLegalizer28PromoteIntRes_CONCAT_VECTORSEPNS2_6SDNodeEE3$_0EclIPNS2_5SDUseESA_EEbT_T0_.exit.i.i" ]
+  %.020.i.i = phi ptr [ %70, %.lr.ph.i.i ], [ %spec.select.i.i129, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm16DAGTypeLegalizer28PromoteIntRes_CONCAT_VECTORSEPNS2_6SDNodeEE3$_0EclIPNS2_5SDUseESA_EEbT_T0_.exit.i.i" ]
+  %.01219.i.i = phi ptr [ %70, %.lr.ph.i.i ], [ %82, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm16DAGTypeLegalizer28PromoteIntRes_CONCAT_VECTORSEPNS2_6SDNodeEE3$_0EclIPNS2_5SDUseESA_EEbT_T0_.exit.i.i" ]
   %.0.val.i.i = load ptr, ptr %.020.i.i, align 8
   %83 = getelementptr i8, ptr %.020.i.i, i64 8
   %.0.val17.i.i = load i32, ptr %83, align 8
@@ -8959,14 +8959,14 @@ _ZNK4llvm3EVT13getScalarTypeEv.exit.i17.i.i.i.i:  ; preds = %141, %136, %133
   %147 = add nsw i64 %146, -1
   %148 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %147
   %.sroa.0.0.copyload.i.i.i21.i.i.i.i = load i64, ptr %148, align 16
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm16DAGTypeLegalizer28PromoteIntRes_CONCAT_VECTORSEPNS2_6SDNodeEE3$_0EclIPNS2_5SDUseESA_EEbT_T0_.argprom.argprom.exit.i.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm16DAGTypeLegalizer28PromoteIntRes_CONCAT_VECTORSEPNS2_6SDNodeEE3$_0EclIPNS2_5SDUseESA_EEbT_T0_.exit.i.i"
 
 149:                                              ; preds = %_ZNK4llvm3EVT13getScalarTypeEv.exit.i17.i.i.i.i, %_ZNK4llvm3EVT13getScalarTypeEv.exit.i17.thread.i.i.i.i
   %150 = call { i64, i8 } @_ZNK4llvm3EVT21getExtendedSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #19
   %151 = extractvalue { i64, i8 } %150, 0
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm16DAGTypeLegalizer28PromoteIntRes_CONCAT_VECTORSEPNS2_6SDNodeEE3$_0EclIPNS2_5SDUseESA_EEbT_T0_.argprom.argprom.exit.i.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm16DAGTypeLegalizer28PromoteIntRes_CONCAT_VECTORSEPNS2_6SDNodeEE3$_0EclIPNS2_5SDUseESA_EEbT_T0_.exit.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm16DAGTypeLegalizer28PromoteIntRes_CONCAT_VECTORSEPNS2_6SDNodeEE3$_0EclIPNS2_5SDUseESA_EEbT_T0_.argprom.argprom.exit.i.i": ; preds = %149, %145
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm16DAGTypeLegalizer28PromoteIntRes_CONCAT_VECTORSEPNS2_6SDNodeEE3$_0EclIPNS2_5SDUseESA_EEbT_T0_.exit.i.i": ; preds = %149, %145
   %.pn.i.i22.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i21.i.i.i.i, %145 ], [ %151, %149 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %152 = icmp ult i64 %.pn.i.i.i.i.i.i, %.pn.i.i22.i.i.i.i
@@ -8979,8 +8979,8 @@ _ZNK4llvm3EVT13getScalarTypeEv.exit.i17.i.i.i.i:  ; preds = %141, %136, %133
   %.not.i.i130 = icmp eq ptr %153, %73
   br i1 %.not.i.i130, label %"_ZSt11max_elementIPN4llvm5SDUseEZNS0_16DAGTypeLegalizer28PromoteIntRes_CONCAT_VECTORSEPNS0_6SDNodeEE3$_0ET_S7_S7_T0_.exit", label %81, !llvm.loop !13
 
-"_ZSt11max_elementIPN4llvm5SDUseEZNS0_16DAGTypeLegalizer28PromoteIntRes_CONCAT_VECTORSEPNS0_6SDNodeEE3$_0ET_S7_S7_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm16DAGTypeLegalizer28PromoteIntRes_CONCAT_VECTORSEPNS2_6SDNodeEE3$_0EclIPNS2_5SDUseESA_EEbT_T0_.argprom.argprom.exit.i.i", %68
-  %.011.i.i = phi ptr [ %70, %68 ], [ %spec.select.i.i129, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm16DAGTypeLegalizer28PromoteIntRes_CONCAT_VECTORSEPNS2_6SDNodeEE3$_0EclIPNS2_5SDUseESA_EEbT_T0_.argprom.argprom.exit.i.i" ]
+"_ZSt11max_elementIPN4llvm5SDUseEZNS0_16DAGTypeLegalizer28PromoteIntRes_CONCAT_VECTORSEPNS0_6SDNodeEE3$_0ET_S7_S7_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm16DAGTypeLegalizer28PromoteIntRes_CONCAT_VECTORSEPNS2_6SDNodeEE3$_0EclIPNS2_5SDUseESA_EEbT_T0_.exit.i.i", %68
+  %.011.i.i = phi ptr [ %70, %68 ], [ %spec.select.i.i129, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm16DAGTypeLegalizer28PromoteIntRes_CONCAT_VECTORSEPNS2_6SDNodeEE3$_0EclIPNS2_5SDUseESA_EEbT_T0_.exit.i.i" ]
   %154 = load ptr, ptr %.011.i.i, align 8
   %155 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 8
   %156 = load i32, ptr %155, align 8
@@ -14545,7 +14545,7 @@ _ZNK4llvm3EVT19getScalarSizeInBitsEv.exit176:     ; preds = %193, %197
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %200 = trunc i64 %.pn.i.i174 to i32
   %201 = load ptr, ptr %171, align 8
-  %202 = call fastcc { ptr, i32 } @_ZL21SaturateWidenedDIVFIXN4llvm7SDValueERNS_5SDLocEjbRKNS_14TargetLoweringERNS_12SelectionDAGE.argprom(ptr nonnull %.fca.0.extract17, i32 %.fca.1.extract18, ptr noundef nonnull align 8 dereferenceable(12) %9, i32 noundef %200, i1 noundef zeroext %76, ptr noundef nonnull align 8 dereferenceable(904) %201)
+  %202 = call fastcc { ptr, i32 } @_ZL21SaturateWidenedDIVFIXN4llvm7SDValueERNS_5SDLocEjbRKNS_14TargetLoweringERNS_12SelectionDAGE(ptr nonnull %.fca.0.extract17, i32 %.fca.1.extract18, ptr noundef nonnull align 8 dereferenceable(12) %9, i32 noundef %200, i1 noundef zeroext %76, ptr noundef nonnull align 8 dereferenceable(904) %201)
   br label %232
 
 203:                                              ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread
@@ -17937,7 +17937,7 @@ declare { ptr, i32 } @_ZN4llvm12SelectionDAG17getBoolExtOrTruncENS_7SDValueERKNS
 declare { ptr, i32 } @_ZNK4llvm14TargetLowering19expandFixedPointDivEjRKNS_5SDLocENS_7SDValueES4_jRNS_12SelectionDAGE(ptr noundef nonnull align 8 dereferenceable(408123), i32 noundef, ptr noundef nonnull align 8 dereferenceable(12), ptr, i32, ptr noundef byval(%"class.llvm::SDValue") align 8, i32 noundef, ptr noundef nonnull align 8 dereferenceable(904)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, i32 } @_ZL21SaturateWidenedDIVFIXN4llvm7SDValueERNS_5SDLocEjbRKNS_14TargetLoweringERNS_12SelectionDAGE.argprom(ptr %0, i32 %1, ptr noundef nonnull align 8 dereferenceable(12) %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(904) %5) unnamed_addr #0 {
+define internal fastcc { ptr, i32 } @_ZL21SaturateWidenedDIVFIXN4llvm7SDValueERNS_5SDLocEjbRKNS_14TargetLoweringERNS_12SelectionDAGE(ptr %0, i32 %1, ptr noundef nonnull align 8 dereferenceable(12) %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(904) %5) unnamed_addr #0 {
   %7 = alloca %"struct.llvm::EVT", align 8
   %8 = alloca %"struct.llvm::EVT", align 8
   %9 = alloca %"class.llvm::SDValue", align 8
@@ -18464,7 +18464,7 @@ _ZN4llvm12SelectionDAG13getExtOrTruncEbNS_7SDValueERKNS_5SDLocENS_3EVTE.exit94: 
 94:                                               ; preds = %_ZN4llvm12SelectionDAG13getExtOrTruncEbNS_7SDValueERKNS_5SDLocENS_3EVTE.exit94
   %95 = icmp eq i32 %8, 0
   %96 = select i1 %95, i32 %40, i32 %8
-  %97 = call fastcc { ptr, i32 } @_ZL21SaturateWidenedDIVFIXN4llvm7SDValueERNS_5SDLocEjbRKNS_14TargetLoweringERNS_12SelectionDAGE.argprom(ptr %.fca.0.extract15, i32 %.fca.1.extract16, ptr noundef nonnull align 8 dereferenceable(12) %12, i32 noundef %96, i1 noundef zeroext %spec.select, ptr noundef nonnull align 8 dereferenceable(904) %7)
+  %97 = call fastcc { ptr, i32 } @_ZL21SaturateWidenedDIVFIXN4llvm7SDValueERNS_5SDLocEjbRKNS_14TargetLoweringERNS_12SelectionDAGE(ptr %.fca.0.extract15, i32 %.fca.1.extract16, ptr noundef nonnull align 8 dereferenceable(12) %12, i32 noundef %96, i1 noundef zeroext %spec.select, ptr noundef nonnull align 8 dereferenceable(904) %7)
   %.fca.0.extract6 = extractvalue { ptr, i32 } %97, 0
   %.fca.1.extract7 = extractvalue { ptr, i32 } %97, 1
   br label %98
@@ -24280,7 +24280,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit81:            ; preds = %_ZNK4llvm3EVT6bitsG
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr i8, ptr %1, i64 24
   %.val = load i32, ptr %109, align 8
-  %110 = call fastcc noundef i32 @_ZL27getExtendForIntVecReductionPN4llvm6SDNodeE.argprom(i32 %.val)
+  %110 = call fastcc noundef i32 @_ZL27getExtendForIntVecReductionPN4llvm6SDNodeE(i32 %.val)
   %111 = load ptr, ptr %20, align 8
   %112 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(904) %108, i32 noundef %110, ptr noundef nonnull align 8 dereferenceable(12) %5, i16 %.sroa.0.0.i, ptr %.sroa.31.0.i, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %111) #17
   %.fca.0.extract13 = extractvalue { ptr, i32 } %112, 0
@@ -24863,7 +24863,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer27PromoteIntOpVectorReduct
   %5 = alloca %"class.llvm::SDLoc", align 8
   %6 = getelementptr i8, ptr %1, i64 24
   %.val = load i32, ptr %6, align 8
-  %7 = tail call fastcc noundef i32 @_ZL27getExtendForIntVecReductionPN4llvm6SDNodeE.argprom(i32 %.val)
+  %7 = tail call fastcc noundef i32 @_ZL27getExtendForIntVecReductionPN4llvm6SDNodeE(i32 %.val)
   %trunc = trunc nuw i32 %7 to i8
   switch i8 %trunc, label %default.unreachable26 [
     i8 -42, label %8
@@ -24930,7 +24930,7 @@ _ZN4llvm16DAGTypeLegalizer19ZExtPromotedIntegerENS_7SDValueE.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef range(i32 212, 215) i32 @_ZL27getExtendForIntVecReductionPN4llvm6SDNodeE.argprom(i32 %.24.val) unnamed_addr #5 {
+define internal fastcc noundef range(i32 212, 215) i32 @_ZL27getExtendForIntVecReductionPN4llvm6SDNodeE(i32 %.24.val) unnamed_addr #5 {
   switch i32 %.24.val, label %1 [
     i32 376, label %4
     i32 377, label %4

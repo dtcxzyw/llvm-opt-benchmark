@@ -13,13 +13,13 @@ define dso_local noundef ptr @find_executable_path() local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2)
   %3 = call ptr @realpath(ptr noundef nonnull @.str.1, ptr noundef nonnull %2) #7
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %get_executable_path_raw.argprom.exit.thread, label %get_executable_path_raw.argprom.exit.thread33
+  br i1 %.not.i, label %get_executable_path_raw.exit.thread, label %get_executable_path_raw.exit.thread33
 
-get_executable_path_raw.argprom.exit.thread:      ; preds = %0
+get_executable_path_raw.exit.thread:              ; preds = %0
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2)
   br label %30
 
-get_executable_path_raw.argprom.exit.thread33:    ; preds = %0
+get_executable_path_raw.exit.thread33:            ; preds = %0
   %4 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #8
   %5 = trunc i64 %4 to i32
   %spec.select = call i32 @llvm.smax.i32(i32 %5, i32 0)
@@ -30,21 +30,21 @@ get_executable_path_raw.argprom.exit.thread33:    ; preds = %0
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %1)
   %9 = call ptr @realpath(ptr noundef nonnull @.str.1, ptr noundef nonnull %1) #7
   %.not.i27 = icmp eq ptr %9, null
-  br i1 %.not.i27, label %get_executable_path_raw.argprom.exit31, label %10
+  br i1 %.not.i27, label %get_executable_path_raw.exit31, label %10
 
-10:                                               ; preds = %get_executable_path_raw.argprom.exit.thread33
+10:                                               ; preds = %get_executable_path_raw.exit.thread33
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #8
   %12 = trunc i64 %11 to i32
   %.not19.i28 = icmp slt i32 %spec.select, %12
-  br i1 %.not19.i28, label %get_executable_path_raw.argprom.exit31, label %13
+  br i1 %.not19.i28, label %get_executable_path_raw.exit31, label %13
 
 13:                                               ; preds = %10
   %sext.i29 = shl i64 %11, 32
   %14 = ashr exact i64 %sext.i29, 32
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr nonnull align 1 %9, i64 %14, i1 false)
-  br label %get_executable_path_raw.argprom.exit31
+  br label %get_executable_path_raw.exit31
 
-get_executable_path_raw.argprom.exit31:           ; preds = %get_executable_path_raw.argprom.exit.thread33, %10, %13
+get_executable_path_raw.exit31:                   ; preds = %get_executable_path_raw.exit.thread33, %10, %13
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %1)
   %15 = zext nneg i32 %spec.select to i64
   %16 = getelementptr inbounds i8, ptr %8, i64 %15
@@ -52,8 +52,8 @@ get_executable_path_raw.argprom.exit31:           ; preds = %get_executable_path
   %.not = icmp slt i32 %5, 1
   br i1 %.not, label %.preheader.preheader, label %.lr.ph
 
-.lr.ph:                                           ; preds = %get_executable_path_raw.argprom.exit31, %21
-  %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %get_executable_path_raw.argprom.exit31 ]
+.lr.ph:                                           ; preds = %get_executable_path_raw.exit31, %21
+  %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %get_executable_path_raw.exit31 ]
   %17 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 92
@@ -68,7 +68,7 @@ get_executable_path_raw.argprom.exit31:           ; preds = %get_executable_path
   %exitcond.not = icmp eq i64 %indvars.iv.next, %15
   br i1 %exitcond.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !7
 
-.preheader.preheader:                             ; preds = %21, %get_executable_path_raw.argprom.exit31
+.preheader.preheader:                             ; preds = %21, %get_executable_path_raw.exit31
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %23
@@ -95,8 +95,8 @@ get_executable_path_raw.argprom.exit31:           ; preds = %get_executable_path
   store i8 0, ptr %16, align 1
   br label %30
 
-30:                                               ; preds = %get_executable_path_raw.argprom.exit.thread, %29, %26
-  %.025 = phi ptr [ %8, %26 ], [ %8, %29 ], [ @.str, %get_executable_path_raw.argprom.exit.thread ]
+30:                                               ; preds = %get_executable_path_raw.exit.thread, %29, %26
+  %.025 = phi ptr [ %8, %26 ], [ %8, %29 ], [ @.str, %get_executable_path_raw.exit.thread ]
   ret ptr %.025
 }
 

@@ -6934,8 +6934,8 @@ for.cond50.preheader:                             ; preds = %if.then43
   %cmp51.not165 = icmp eq i64 %mul, 0
   br i1 %cmp51.not165, label %if.end87, label %for.body52
 
-for.body52:                                       ; preds = %for.cond50.preheader, %_ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.argprom.exit
-  %i.1166 = phi i64 [ %inc54, %_ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.argprom.exit ], [ 0, %for.cond50.preheader ]
+for.body52:                                       ; preds = %for.cond50.preheader, %_ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.exit
+  %i.1166 = phi i64 [ %inc54, %_ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.exit ], [ 0, %for.cond50.preheader ]
   store i16 0, ptr %r, align 2
   store i16 0, ptr %g, align 2
   store i16 0, ptr %b, align 2
@@ -6946,7 +6946,7 @@ for.body52:                                       ; preds = %for.cond50.preheade
   %35 = load i16, ptr %b, align 2
   %36 = load i16, ptr %a, align 2
   %mode_out.val = load i32, ptr %mode_out, align 8
-  switch i32 %mode_out.val, label %_ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.argprom.exit [
+  switch i32 %mode_out.val, label %_ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.exit [
     i32 0, label %if.then.i75
     i32 2, label %if.then10.i
     i32 4, label %if.then53.i
@@ -6963,7 +6963,7 @@ if.then.i75:                                      ; preds = %for.body52
   %add6.i = or disjoint i64 %mul.i78, 1
   %arrayidx7.i = getelementptr inbounds i8, ptr %out, i64 %add6.i
   store i8 %conv4.i, ptr %arrayidx7.i, align 1
-  br label %_ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.argprom.exit
+  br label %_ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.exit
 
 if.then10.i:                                      ; preds = %for.body52
   %shr12.i = lshr i16 %33, 8
@@ -6989,7 +6989,7 @@ if.then10.i:                                      ; preds = %for.body52
   %conv46.i = trunc i16 %35 to i8
   %arrayidx49.i = getelementptr i8, ptr %arrayidx17.i, i64 5
   store i8 %conv46.i, ptr %arrayidx49.i, align 1
-  br label %_ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.argprom.exit
+  br label %_ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.exit
 
 if.then53.i:                                      ; preds = %for.body52
   %shr56.i = lshr i16 %33, 8
@@ -7010,7 +7010,7 @@ if.then53.i:                                      ; preds = %for.body52
   %add79.i = or disjoint i64 %mul59.i, 3
   %arrayidx80.i = getelementptr inbounds i8, ptr %out, i64 %add79.i
   store i8 %conv77.i, ptr %arrayidx80.i, align 1
-  br label %_ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.argprom.exit
+  br label %_ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.exit
 
 if.then84.i:                                      ; preds = %for.body52
   %shr86.i = lshr i16 %33, 8
@@ -7049,9 +7049,9 @@ if.then84.i:                                      ; preds = %for.body52
   %add135.i = or disjoint i64 %mul89.i, 7
   %arrayidx136.i = getelementptr inbounds i8, ptr %out, i64 %add135.i
   store i8 %conv133.i, ptr %arrayidx136.i, align 1
-  br label %_ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.argprom.exit
+  br label %_ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.exit
 
-_ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.argprom.exit: ; preds = %for.body52, %if.then.i75, %if.then10.i, %if.then53.i, %if.then84.i
+_ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.exit: ; preds = %for.body52, %if.then.i75, %if.then10.i, %if.then53.i, %if.then84.i
   %inc54 = add nuw i64 %i.1166, 1
   %cmp51.not = icmp eq i64 %inc54, %mul
   br i1 %cmp51.not, label %if.end87, label %for.body52, !llvm.loop !197
@@ -7876,8 +7876,8 @@ for.inc81:                                        ; preds = %for.body76, %if.the
   %cmp75.not = icmp eq i64 %inc82, %mul
   br i1 %cmp75.not, label %if.end87, label %for.body76, !llvm.loop !236
 
-if.end87:                                         ; preds = %if.then.i, %for.body292.i, %for.body264.i, %for.body245.i, %_ZL26readBitsFromReversedStreamPmPKhm.exit201.loopexit.i, %for.body221.us.i, %for.body207.i, %land.end188.i, %for.inc125.i, %land.end.i, %for.inc18.i, %land.end72.i, %for.inc81, %_ZL14color_tree_getP9ColorTreehhhh.exit.i, %for.body.i.i113, %_ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.argprom.exit, %if.else69, %for.cond50.preheader, %for.body.preheader.i.i, %if.then287.i, %for.cond290.preheader.i, %for.cond243.preheader.i, %for.cond262.preheader.i, %for.cond205.preheader.i, %for.cond219.preheader.i, %for.end100.i, %for.cond90.preheader.i, %for.cond132.preheader.i, %if.else55.i, %for.end.i96, %for.cond.preheader.i90, %for.cond27.preheader.i, %if.then61, %if.then68
-  %error.2 = phi i32 [ 0, %if.then68 ], [ 0, %if.then61 ], [ 0, %for.cond27.preheader.i ], [ 0, %for.cond.preheader.i90 ], [ 0, %for.end.i96 ], [ 0, %if.else55.i ], [ 0, %for.cond132.preheader.i ], [ 0, %for.cond90.preheader.i ], [ 0, %for.end100.i ], [ 0, %for.cond219.preheader.i ], [ 0, %for.cond205.preheader.i ], [ 0, %for.cond262.preheader.i ], [ 0, %for.cond243.preheader.i ], [ 0, %for.cond290.preheader.i ], [ 0, %if.then287.i ], [ 0, %for.body.preheader.i.i ], [ 0, %for.cond50.preheader ], [ 0, %if.else69 ], [ 0, %_ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.argprom.exit ], [ 82, %for.body.i.i113 ], [ 0, %for.inc81 ], [ 82, %_ZL14color_tree_getP9ColorTreehhhh.exit.i ], [ 0, %land.end72.i ], [ 0, %for.inc18.i ], [ 0, %land.end.i ], [ 0, %for.inc125.i ], [ 0, %land.end188.i ], [ 0, %for.body207.i ], [ 0, %for.body221.us.i ], [ 0, %_ZL26readBitsFromReversedStreamPmPKhm.exit201.loopexit.i ], [ 0, %for.body245.i ], [ 0, %for.body264.i ], [ 0, %for.body292.i ], [ 83, %if.then.i ]
+if.end87:                                         ; preds = %if.then.i, %for.body292.i, %for.body264.i, %for.body245.i, %_ZL26readBitsFromReversedStreamPmPKhm.exit201.loopexit.i, %for.body221.us.i, %for.body207.i, %land.end188.i, %for.inc125.i, %land.end.i, %for.inc18.i, %land.end72.i, %for.inc81, %_ZL14color_tree_getP9ColorTreehhhh.exit.i, %for.body.i.i113, %_ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.exit, %if.else69, %for.cond50.preheader, %for.body.preheader.i.i, %if.then287.i, %for.cond290.preheader.i, %for.cond243.preheader.i, %for.cond262.preheader.i, %for.cond205.preheader.i, %for.cond219.preheader.i, %for.end100.i, %for.cond90.preheader.i, %for.cond132.preheader.i, %if.else55.i, %for.end.i96, %for.cond.preheader.i90, %for.cond27.preheader.i, %if.then61, %if.then68
+  %error.2 = phi i32 [ 0, %if.then68 ], [ 0, %if.then61 ], [ 0, %for.cond27.preheader.i ], [ 0, %for.cond.preheader.i90 ], [ 0, %for.end.i96 ], [ 0, %if.else55.i ], [ 0, %for.cond132.preheader.i ], [ 0, %for.cond90.preheader.i ], [ 0, %for.end100.i ], [ 0, %for.cond219.preheader.i ], [ 0, %for.cond205.preheader.i ], [ 0, %for.cond262.preheader.i ], [ 0, %for.cond243.preheader.i ], [ 0, %for.cond290.preheader.i ], [ 0, %if.then287.i ], [ 0, %for.body.preheader.i.i ], [ 0, %for.cond50.preheader ], [ 0, %if.else69 ], [ 0, %_ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.exit ], [ 82, %for.body.i.i113 ], [ 0, %for.inc81 ], [ 82, %_ZL14color_tree_getP9ColorTreehhhh.exit.i ], [ 0, %land.end72.i ], [ 0, %for.inc18.i ], [ 0, %land.end.i ], [ 0, %for.inc125.i ], [ 0, %land.end188.i ], [ 0, %for.body207.i ], [ 0, %for.body221.us.i ], [ 0, %_ZL26readBitsFromReversedStreamPmPKhm.exit201.loopexit.i ], [ 0, %for.body245.i ], [ 0, %for.body264.i ], [ 0, %for.body292.i ], [ 83, %if.then.i ]
   %109 = load i32, ptr %mode_out, align 8
   %cmp89 = icmp eq i32 %109, 3
   br i1 %cmp89, label %if.then90, label %return
@@ -12199,9 +12199,9 @@ cond.end.i.i:                                     ; preds = %_Z15lodepng_get_bpp
   %conv4.i.i = zext i32 %0 to i64
   %mul5.i3.i.i = mul nuw i64 %conv5.i.i, %conv4.i.i
   %mul.ov.i38.i.i = icmp ult i64 %mul5.i3.i.i, 2305843009213693952
-  br i1 %mul.ov.i38.i.i, label %_ZL22lodepng_pixel_overflowjjPK16LodePNGColorModeS1_.argprom.exit.i, label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread.sink.split
+  br i1 %mul.ov.i38.i.i, label %_ZL22lodepng_pixel_overflowjjPK16LodePNGColorModeS1_.exit.i, label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread.sink.split
 
-_ZL22lodepng_pixel_overflowjjPK16LodePNGColorModeS1_.argprom.exit.i: ; preds = %cond.end.i.i
+_ZL22lodepng_pixel_overflowjjPK16LodePNGColorModeS1_.exit.i: ; preds = %cond.end.i.i
   %conv.i.i = zext i32 %cond.i.i to i64
   %and.i.i = and i32 %0, 7
   %conv16.i.i = zext nneg i32 %and.i.i to i64
@@ -12217,7 +12217,7 @@ _ZL22lodepng_pixel_overflowjjPK16LodePNGColorModeS1_.argprom.exit.i: ; preds = %
   %mul.ov.i50.i.i = extractvalue { i64, i1 } %mul5.i48.i.i, 1
   br i1 %mul.ov.i50.i.i, label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread.sink.split, label %if.end6.i
 
-if.end6.i:                                        ; preds = %_ZL22lodepng_pixel_overflowjjPK16LodePNGColorModeS1_.argprom.exit.i
+if.end6.i:                                        ; preds = %_ZL22lodepng_pixel_overflowjjPK16LodePNGColorModeS1_.exit.i
   %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %insize) #30
   %tobool8.not.i = icmp eq ptr %call.i.i, null
   br i1 %tobool8.not.i, label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread.sink.split, label %if.end11.i
@@ -13772,8 +13772,8 @@ _ZL20postProcessScanlinesPhS_jjPK11LodePNGInfo.exit.i: ; preds = %for.body.i.i, 
   store i32 %retval.0.i443.i, ptr %error.i, align 8
   br label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit
 
-_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread.sink.split: ; preds = %if.end6.i, %cond.end.i.i, %_ZL22lodepng_pixel_overflowjjPK16LodePNGColorModeS1_.argprom.exit.i
-  %.sink = phi i32 [ 92, %_ZL22lodepng_pixel_overflowjjPK16LodePNGColorModeS1_.argprom.exit.i ], [ 92, %cond.end.i.i ], [ 83, %if.end6.i ]
+_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread.sink.split: ; preds = %if.end6.i, %cond.end.i.i, %_ZL22lodepng_pixel_overflowjjPK16LodePNGColorModeS1_.exit.i
+  %.sink = phi i32 [ 92, %_ZL22lodepng_pixel_overflowjjPK16LodePNGColorModeS1_.exit.i ], [ 92, %cond.end.i.i ], [ 83, %if.end6.i ]
   store i32 %.sink, ptr %error.i, align 8
   br label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread
 
@@ -14764,7 +14764,7 @@ if.then63:                                        ; preds = %if.end61
   %31 = load i32, ptr %r, align 4
   %32 = load i32, ptr %g, align 4
   %33 = load i32, ptr %b, align 4
-  %call66 = call fastcc noundef i32 @_ZL23lodepng_color_stats_addP17LodePNGColorStatsjjjj.argelim(ptr noundef %stats, i32 noundef %31, i32 noundef %32, i32 noundef %33)
+  %call66 = call fastcc noundef i32 @_ZL23lodepng_color_stats_addP17LodePNGColorStatsjjjj(ptr noundef %stats, i32 noundef %31, i32 noundef %32, i32 noundef %33)
   store i32 %call66, ptr %error, align 8
   %tobool69.not = icmp eq i32 %call66, 0
   br i1 %tobool69.not, label %if.end72, label %cleanup
@@ -15098,7 +15098,7 @@ if.end379:                                        ; preds = %if.then370, %if.end
 if.then381:                                       ; preds = %if.end379
   %82 = getelementptr inbounds i8, ptr %info, i64 228
   %info.val = load i32, ptr %82, align 4
-  %call382 = call fastcc noundef i32 @_ZL13addChunk_sRGBP8ucvectorPK11LodePNGInfo.argprom(ptr noundef %outv, i32 %info.val)
+  %call382 = call fastcc noundef i32 @_ZL13addChunk_sRGBP8ucvectorPK11LodePNGInfo(ptr noundef %outv, i32 %info.val)
   store i32 %call382, ptr %error, align 8
   %tobool385.not = icmp eq i32 %call382, 0
   br i1 %tobool385.not, label %if.end388, label %cleanup
@@ -15508,7 +15508,7 @@ _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit: ; preds = %cleanup, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 84) i32 @_ZL23lodepng_color_stats_addP17LodePNGColorStatsjjjj.argelim(ptr noundef nonnull %stats, i32 noundef %r, i32 noundef %g, i32 noundef %b) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 84) i32 @_ZL23lodepng_color_stats_addP17LodePNGColorStatsjjjj(ptr noundef nonnull %stats, i32 noundef %r, i32 noundef %g, i32 noundef %b) unnamed_addr #2 {
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit:
   %image = alloca [8 x i8], align 1
   %mode = alloca %struct.LodePNGColorMode, align 8
@@ -15899,7 +15899,7 @@ if.then27:                                        ; preds = %if.then16
   tail call fastcc void @_ZL14addPaddingBitsPhPKhmmj(ptr noundef nonnull %call.i89, ptr noundef %in, i64 noundef %conv32, i64 noundef %conv34, i32 noundef %h)
   %color.val = load i32, ptr %color, align 8
   %color.val82 = load i32, ptr %bitdepth.i, align 4
-  %call36 = tail call fastcc noundef i32 @_ZL6filterPhPKhjjPK16LodePNGColorModePK22LodePNGEncoderSettings.argprom(ptr noundef %call.i, ptr noundef nonnull %call.i89, i32 noundef %w, i32 noundef %h, i32 %color.val, i32 %color.val82, ptr noundef %settings)
+  %call36 = tail call fastcc noundef i32 @_ZL6filterPhPKhjjPK16LodePNGColorModePK22LodePNGEncoderSettings(ptr noundef %call.i, ptr noundef nonnull %call.i89, i32 noundef %w, i32 noundef %h, i32 %color.val, i32 %color.val82, ptr noundef %settings)
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then27, %if.then16
@@ -15910,7 +15910,7 @@ if.end37:                                         ; preds = %if.then27, %if.then
 if.else:                                          ; preds = %land.lhs.true9, %if.then7
   %color.val83 = load i32, ptr %color, align 8
   %color.val84 = load i32, ptr %bitdepth.i, align 4
-  %call39 = tail call fastcc noundef i32 @_ZL6filterPhPKhjjPK16LodePNGColorModePK22LodePNGEncoderSettings.argprom(ptr noundef %call.i, ptr noundef %in, i32 noundef %w, i32 noundef %h, i32 %color.val83, i32 %color.val84, ptr noundef %settings)
+  %call39 = tail call fastcc noundef i32 @_ZL6filterPhPKhjjPK16LodePNGColorModePK22LodePNGEncoderSettings(ptr noundef %call.i, ptr noundef %in, i32 noundef %w, i32 noundef %h, i32 %color.val83, i32 %color.val84, ptr noundef %settings)
   br label %if.end116
 
 for.body.i:                                       ; preds = %_Z15lodepng_get_bppPK16LodePNGColorMode.exit, %for.inc.i
@@ -16325,7 +16325,7 @@ if.end72.us:                                      ; preds = %for.body.us
   %arrayidx91.us = getelementptr inbounds i8, ptr %71, i64 %72
   %color.val85.us = load i32, ptr %color, align 8
   %color.val86.us = load i32, ptr %bitdepth.i, align 4
-  %call97.us = tail call fastcc noundef i32 @_ZL6filterPhPKhjjPK16LodePNGColorModePK22LodePNGEncoderSettings.argprom(ptr noundef %arrayidx91.us, ptr noundef nonnull %call.i94.us, i32 noundef %69, i32 noundef %70, i32 %color.val85.us, i32 %color.val86.us, ptr noundef %settings)
+  %call97.us = tail call fastcc noundef i32 @_ZL6filterPhPKhjjPK16LodePNGColorModePK22LodePNGEncoderSettings(ptr noundef %arrayidx91.us, ptr noundef nonnull %call.i94.us, i32 noundef %69, i32 noundef %70, i32 %color.val85.us, i32 %color.val86.us, ptr noundef %settings)
   tail call void @free(ptr noundef nonnull %call.i94.us) #31
   %tobool112.not.us = icmp eq i32 %call97.us, 0
   br i1 %tobool112.not.us, label %for.cond.us, label %if.end115
@@ -16350,7 +16350,7 @@ for.body:                                         ; preds = %_ZL15Adam7_interlac
   %77 = load i32, ptr %arrayidx108, align 4
   %color.val87 = load i32, ptr %color, align 8
   %color.val88 = load i32, ptr %bitdepth.i, align 4
-  %call110 = tail call fastcc noundef i32 @_ZL6filterPhPKhjjPK16LodePNGColorModePK22LodePNGEncoderSettings.argprom(ptr noundef %arrayidx101, ptr noundef %arrayidx104, i32 noundef %76, i32 noundef %77, i32 %color.val87, i32 %color.val88, ptr noundef %settings)
+  %call110 = tail call fastcc noundef i32 @_ZL6filterPhPKhjjPK16LodePNGColorModePK22LodePNGEncoderSettings(ptr noundef %arrayidx101, ptr noundef %arrayidx104, i32 noundef %76, i32 noundef %77, i32 %color.val87, i32 %color.val88, ptr noundef %settings)
   %tobool112.not = icmp eq i32 %call110, 0
   br i1 %tobool112.not, label %for.cond, label %if.end115
 
@@ -16788,7 +16788,7 @@ return:                                           ; preds = %_ZL14lodepng_strlen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_sRGBP8ucvectorPK11LodePNGInfo.argprom(ptr nocapture noundef nonnull %out, i32 %info.228.val) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_sRGBP8ucvectorPK11LodePNGInfo(ptr nocapture noundef nonnull %out, i32 %info.228.val) unnamed_addr #2 {
 entry:
   %conv = trunc i32 %info.228.val to i8
   %size.i.i = getelementptr inbounds i8, ptr %out, i64 8
@@ -23469,7 +23469,7 @@ for.end12:                                        ; preds = %for.cond4.for.inc10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 89) i32 @_ZL6filterPhPKhjjPK16LodePNGColorModePK22LodePNGEncoderSettings.argprom(ptr nocapture noundef writeonly %out, ptr noundef %in, i32 noundef %w, i32 noundef %h, i32 %color.0.val, i32 %color.4.val, ptr nocapture noundef readonly %settings) unnamed_addr #5 {
+define internal fastcc noundef range(i32 0, 89) i32 @_ZL6filterPhPKhjjPK16LodePNGColorModePK22LodePNGEncoderSettings(ptr nocapture noundef writeonly %out, ptr noundef %in, i32 noundef %w, i32 noundef %h, i32 %color.0.val, i32 %color.4.val, ptr nocapture noundef readonly %settings) unnamed_addr #5 {
 entry:
   %attempt = alloca [5 x ptr], align 16
   %attempt137 = alloca [5 x ptr], align 16

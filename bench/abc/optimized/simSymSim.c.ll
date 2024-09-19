@@ -202,9 +202,9 @@ Abc_Clock.exit48:                                 ; preds = %Abc_Clock.exit46, %
   %106 = getelementptr inbounds i8, ptr %0, i64 112
   br label %107
 
-107:                                              ; preds = %.lr.ph69, %Sim_SymmsDeriveInfo.argprom.exit
-  %indvars.iv72 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next73, %Sim_SymmsDeriveInfo.argprom.exit ]
-  %.val3668 = phi ptr [ %.val3665, %.lr.ph69 ], [ %.val36, %Sim_SymmsDeriveInfo.argprom.exit ]
+107:                                              ; preds = %.lr.ph69, %Sim_SymmsDeriveInfo.exit
+  %indvars.iv72 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next73, %Sim_SymmsDeriveInfo.exit ]
+  %.val3668 = phi ptr [ %.val3665, %.lr.ph69 ], [ %.val36, %Sim_SymmsDeriveInfo.exit ]
   %108 = load ptr, ptr %97, align 8
   %109 = getelementptr i8, ptr %108, i64 8
   %.val40 = load ptr, ptr %109, align 8
@@ -222,7 +222,7 @@ Abc_Clock.exit48:                                 ; preds = %Abc_Clock.exit46, %
   %119 = load i32, ptr %118, align 4
   %120 = add nsw i32 %119, %115
   %121 = icmp eq i32 %111, %120
-  br i1 %121, label %Sim_SymmsDeriveInfo.argprom.exit, label %122
+  br i1 %121, label %Sim_SymmsDeriveInfo.exit, label %122
 
 122:                                              ; preds = %107
   %123 = getelementptr i8, ptr %.val3668, i64 8
@@ -380,7 +380,7 @@ Abc_Clock.exit48:                                 ; preds = %Abc_Clock.exit46, %
 .preheader.i50:                                   ; preds = %.preheader.loopexit.i, %.critedge2.preheader.i
   %.val10912.i = phi i32 [ %.val10912.pre.i, %.preheader.loopexit.i ], [ %.val1091240.i, %.critedge2.preheader.i ]
   %207 = icmp sgt i32 %.val10912.i, 0
-  br i1 %207, label %.lr.ph14.i, label %Sim_SymmsDeriveInfo.argprom.exit
+  br i1 %207, label %.lr.ph14.i, label %Sim_SymmsDeriveInfo.exit
 
 .lr.ph14.i:                                       ; preds = %.preheader.i50
   %208 = getelementptr i8, ptr %138, i64 8
@@ -417,7 +417,7 @@ Abc_Clock.exit48:                                 ; preds = %Abc_Clock.exit46, %
 
 .critedge4.preheader.i:                           ; preds = %245
   %231 = icmp sgt i32 %.val109.i, 0
-  br i1 %231, label %.lr.ph17.i, label %Sim_SymmsDeriveInfo.argprom.exit
+  br i1 %231, label %.lr.ph17.i, label %Sim_SymmsDeriveInfo.exit
 
 232:                                              ; preds = %245, %.lr.ph14.i
   %.val10941.i = phi i32 [ %.val10912.i, %.lr.ph14.i ], [ %.val109.i, %245 ]
@@ -477,9 +477,9 @@ Abc_Clock.exit48:                                 ; preds = %Abc_Clock.exit46, %
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %260 = sext i32 %.val110.i to i64
   %261 = icmp slt i64 %indvars.iv.next32.i, %260
-  br i1 %261, label %.lr.ph17.i, label %Sim_SymmsDeriveInfo.argprom.exit, !llvm.loop !14
+  br i1 %261, label %.lr.ph17.i, label %Sim_SymmsDeriveInfo.exit, !llvm.loop !14
 
-Sim_SymmsDeriveInfo.argprom.exit:                 ; preds = %.critedge4.i, %.critedge4.preheader.i, %.preheader.i50, %107
+Sim_SymmsDeriveInfo.exit:                         ; preds = %.critedge4.i, %.critedge4.preheader.i, %.preheader.i50, %107
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %262 = load ptr, ptr %0, align 8
   %263 = getelementptr i8, ptr %262, i64 64
@@ -490,7 +490,7 @@ Sim_SymmsDeriveInfo.argprom.exit:                 ; preds = %.critedge4.i, %.cri
   %266 = icmp slt i64 %indvars.iv.next73, %265
   br i1 %266, label %107, label %.critedge2, !llvm.loop !15
 
-.critedge2:                                       ; preds = %Sim_SymmsDeriveInfo.argprom.exit, %Abc_Clock.exit48
+.critedge2:                                       ; preds = %Sim_SymmsDeriveInfo.exit, %Abc_Clock.exit48
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %267 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #4
   %268 = icmp slt i32 %267, 0

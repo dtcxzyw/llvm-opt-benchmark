@@ -444,28 +444,28 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %113
   %.029.val.i.i.i.i.i.i.us.i = load i8, ptr %.02943.i.i.i.i.i.i.us.i, align 1
   %122 = add i8 %.029.val.i.i.i.i.i.i.us.i, -97
   %123 = icmp ult i8 %122, 6
-  br i1 %123, label %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.us.i", label %124
+  br i1 %123, label %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.us.i", label %124
 
 124:                                              ; preds = %.lr.ph.i.i.i.i.i.i.us.i
   %125 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i.us.i, i64 1
   %.val.i.i.i.i.i.i.us.i = load i8, ptr %125, align 1
   %126 = add i8 %.val.i.i.i.i.i.i.us.i, -97
   %127 = icmp ult i8 %126, 6
-  br i1 %127, label %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.us.i.loopexit.split.loop.exit", label %128
+  br i1 %127, label %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.us.i.loopexit.split.loop.exit", label %128
 
 128:                                              ; preds = %124
   %129 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i.us.i, i64 2
   %.val30.i.i.i.i.i.i.us.i = load i8, ptr %129, align 1
   %130 = add i8 %.val30.i.i.i.i.i.i.us.i, -97
   %131 = icmp ult i8 %130, 6
-  br i1 %131, label %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.us.i.loopexit.split.loop.exit82", label %132
+  br i1 %131, label %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.us.i.loopexit.split.loop.exit82", label %132
 
 132:                                              ; preds = %128
   %133 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i.us.i, i64 3
   %.val31.i.i.i.i.i.i.us.i = load i8, ptr %133, align 1
   %134 = add i8 %.val31.i.i.i.i.i.i.us.i, -97
   %135 = icmp ult i8 %134, 6
-  br i1 %135, label %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.us.i.loopexit.split.loop.exit84", label %136
+  br i1 %135, label %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.us.i.loopexit.split.loop.exit84", label %136
 
 136:                                              ; preds = %132
   %137 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i.us.i, i64 4
@@ -477,7 +477,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %113
   %.029.lcssa.i.i.i.i.i.i.us.i = phi ptr [ %117, %116 ], [ %scevgep.i.i.i.i.i.i.us.i, %136 ]
   %.pre-phi.i.i.i.i.i.i.us.i = ptrtoint ptr %.029.lcssa.i.i.i.i.i.i.us.i to i64
   %140 = sub i64 %111, %.pre-phi.i.i.i.i.i.i.us.i
-  switch i64 %140, label %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.thread.us.i" [
+  switch i64 %140, label %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.thread.us.i" [
     i64 3, label %141
     i64 2, label %146
     i64 1, label %151
@@ -487,7 +487,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %113
   %.029.val32.i.i.i.i.i.i.us.i = load i8, ptr %.029.lcssa.i.i.i.i.i.i.us.i, align 1
   %142 = add i8 %.029.val32.i.i.i.i.i.i.us.i, -97
   %143 = icmp ult i8 %142, 6
-  br i1 %143, label %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.us.i", label %144
+  br i1 %143, label %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.us.i", label %144
 
 144:                                              ; preds = %141
   %145 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i.us.i, i64 1
@@ -498,7 +498,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %113
   %.1.val.i.i.i.i.i.i.us.i = load i8, ptr %.1.i.i.i.i.i.i.us.i, align 1
   %147 = add i8 %.1.val.i.i.i.i.i.i.us.i, -97
   %148 = icmp ult i8 %147, 6
-  br i1 %148, label %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.us.i", label %149
+  br i1 %148, label %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.us.i", label %149
 
 149:                                              ; preds = %146
   %150 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i.us.i, i64 1
@@ -509,30 +509,30 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %113
   %.2.val.i.i.i.i.i.i.us.i = load i8, ptr %.2.i.i.i.i.i.i.us.i, align 1
   %152 = add i8 %.2.val.i.i.i.i.i.i.us.i, -97
   %153 = icmp ult i8 %152, 6
-  br i1 %153, label %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.us.i", label %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.thread.us.i"
+  br i1 %153, label %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.us.i", label %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.thread.us.i"
 
-"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.us.i.loopexit.split.loop.exit": ; preds = %124
+"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.us.i.loopexit.split.loop.exit": ; preds = %124
   %154 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i.us.i, i64 1
-  br label %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.us.i"
+  br label %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.us.i"
 
-"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.us.i.loopexit.split.loop.exit82": ; preds = %128
+"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.us.i.loopexit.split.loop.exit82": ; preds = %128
   %155 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i.us.i, i64 2
-  br label %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.us.i"
+  br label %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.us.i"
 
-"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.us.i.loopexit.split.loop.exit84": ; preds = %132
+"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.us.i.loopexit.split.loop.exit84": ; preds = %132
   %156 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i.us.i, i64 3
-  br label %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.us.i"
+  br label %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.us.i"
 
-"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.us.i": ; preds = %.lr.ph.i.i.i.i.i.i.us.i, %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.us.i.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.us.i.loopexit.split.loop.exit82", %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.us.i.loopexit.split.loop.exit84", %151, %146, %141
-  %.028.i.i.i.i.i.i.us.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.us.i, %141 ], [ %.1.i.i.i.i.i.i.us.i, %146 ], [ %.2.i.i.i.i.i.i.us.i, %151 ], [ %154, %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.us.i.loopexit.split.loop.exit" ], [ %155, %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.us.i.loopexit.split.loop.exit82" ], [ %156, %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.us.i.loopexit.split.loop.exit84" ], [ %.02943.i.i.i.i.i.i.us.i, %.lr.ph.i.i.i.i.i.i.us.i ]
+"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.us.i": ; preds = %.lr.ph.i.i.i.i.i.i.us.i, %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.us.i.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.us.i.loopexit.split.loop.exit82", %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.us.i.loopexit.split.loop.exit84", %151, %146, %141
+  %.028.i.i.i.i.i.i.us.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.us.i, %141 ], [ %.1.i.i.i.i.i.i.us.i, %146 ], [ %.2.i.i.i.i.i.i.us.i, %151 ], [ %154, %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.us.i.loopexit.split.loop.exit" ], [ %155, %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.us.i.loopexit.split.loop.exit82" ], [ %156, %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.us.i.loopexit.split.loop.exit84" ], [ %.02943.i.i.i.i.i.i.us.i, %.lr.ph.i.i.i.i.i.i.us.i ]
   %.not31.us.i = icmp eq ptr %110, %.028.i.i.i.i.i.i.us.i
-  br i1 %.not31.us.i, label %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.thread.us.i", label %.loopexit
+  br i1 %.not31.us.i, label %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.thread.us.i", label %.loopexit
 
-"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.thread.us.i": ; preds = %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.us.i", %151, %._crit_edge.i.i.i.i.i.i.us.i
+"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.thread.us.i": ; preds = %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.us.i", %151, %._crit_edge.i.i.i.i.i.i.us.i
   %157 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr %117, i64 %118, i32 noundef 16, ptr noundef nonnull align 8 dereferenceable(8) %9) #16
   br i1 %157, label %_ZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcb.exit.thread, label %158
 
-158:                                              ; preds = %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.thread.us.i"
+158:                                              ; preds = %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.thread.us.i"
   %159 = load i64, ptr %9, align 8
   %160 = getelementptr inbounds nuw i8, ptr %.0.ptr41.us.i, i64 16
   %161 = load i32, ptr %160, align 8
@@ -547,7 +547,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %113
   %168 = icmp ugt i64 %159, %167
   br i1 %168, label %_ZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcb.exit.thread, label %.split43.us.i
 
-_ZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcb.exit.thread: ; preds = %.split.us.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %164, %158, %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.thread.us.i"
+_ZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcb.exit.thread: ; preds = %.split.us.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %164, %158, %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.thread.us.i"
   %.0.add.us.i = add nuw nsw i64 %.0.idx40.us.i, 24
   %.not.us.i = icmp eq i64 %.0.add.us.i, 408
   br i1 %.not.us.i, label %.loopexit, label %.split.us.i
@@ -563,9 +563,9 @@ _ZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcb.exit.thread: ; preds =
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds i8, ptr %.0.ptr41.i, i64 8
   %.sroa.24.0.copyload.i = load i64, ptr %.sroa.24.0..sroa_idx.i, align 8
   %170 = call fastcc noundef zeroext i1 @_ZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcb(ptr %0, i64 %1, ptr %.sroa.03.0.copyload.i, i64 %.sroa.24.0.copyload.i, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) %8, i1 noundef zeroext true)
-  br i1 %170, label %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.thread.i", label %204
+  br i1 %170, label %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.thread.i", label %204
 
-"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.thread.i": ; preds = %.split.i
+"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.thread.i": ; preds = %.split.i
   %171 = load i64, ptr %7, align 8
   %.sroa.speculated5.i.i17 = call i64 @llvm.umin.i64(i64 %1, i64 %171)
   %172 = getelementptr inbounds i8, ptr %0, i64 %.sroa.speculated5.i.i17
@@ -574,7 +574,7 @@ _ZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcb.exit.thread: ; preds =
   %174 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr %172, i64 %173, i32 noundef 16, ptr noundef nonnull align 8 dereferenceable(8) %9) #16
   br i1 %174, label %204, label %175
 
-175:                                              ; preds = %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.thread.i"
+175:                                              ; preds = %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.thread.i"
   %176 = load i64, ptr %9, align 8
   %177 = getelementptr inbounds nuw i8, ptr %.0.ptr41.i, i64 16
   %178 = load i32, ptr %177, align 8
@@ -643,7 +643,7 @@ _ZN4llvm9utohexstrB5cxx11Embj.exit.i:             ; preds = %.lr.ph.split.us.i.i
   %.pre.i = load i64, ptr %9, align 8
   br label %205
 
-204:                                              ; preds = %181, %175, %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.thread.i", %.split.i
+204:                                              ; preds = %181, %175, %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.thread.i", %.split.i
   %.0.add.i = add nuw nsw i64 %.0.idx40.i, 24
   %.not.i = icmp eq i64 %.0.add.i, 408
   br i1 %.not.i, label %.loopexit, label %.split.i
@@ -657,7 +657,7 @@ _ZN4llvm9utohexstrB5cxx11Embj.exit.i:             ; preds = %.lr.ph.split.us.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   br label %228
 
-.loopexit:                                        ; preds = %204, %_ZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcb.exit.thread, %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.argprom.exit.us.i"
+.loopexit:                                        ; preds = %204, %_ZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcb.exit.thread, %"_ZN4llvm6any_ofIRNS_9StringRefEZNS_3sys7unicodeL24nameToGeneratedCodePointES1_bRNS_11SmallStringILj64EEEE3$_0EEbOT_T0_.exit.us.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -825,7 +825,7 @@ _ZN4llvm15SmallVectorImplINS_3sys7unicode21MatchForCodepointNameEE7reserveEm.exi
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %2) #16
   %23 = getelementptr inbounds i8, ptr %1, i64 %2
   %.not3.i = icmp eq i64 %2, 0
-  br i1 %.not3.i, label %"_ZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS_9StringRefEmENK3$_2clB5cxx11ES2_.argprom.exit", label %.lr.ph.i
+  br i1 %.not3.i, label %"_ZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS_9StringRefEmENK3$_2clB5cxx11ES2_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm15SmallVectorImplINS_3sys7unicode21MatchForCodepointNameEE7reserveEm.exit, %35
   %.04.i = phi ptr [ %36, %35 ], [ %1, %_ZN4llvm15SmallVectorImplINS_3sys7unicode21MatchForCodepointNameEE7reserveEm.exit ]
@@ -849,9 +849,9 @@ _ZN4llvm15SmallVectorImplINS_3sys7unicode21MatchForCodepointNameEE7reserveEm.exi
 35:                                               ; preds = %31, %.lr.ph.i
   %36 = getelementptr inbounds i8, ptr %.04.i, i64 1
   %.not.i = icmp eq ptr %36, %23
-  br i1 %.not.i, label %"_ZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS_9StringRefEmENK3$_2clB5cxx11ES2_.argprom.exit", label %.lr.ph.i
+  br i1 %.not.i, label %"_ZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS_9StringRefEmENK3$_2clB5cxx11ES2_.exit", label %.lr.ph.i
 
-"_ZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS_9StringRefEmENK3$_2clB5cxx11ES2_.argprom.exit": ; preds = %35, %_ZN4llvm15SmallVectorImplINS_3sys7unicode21MatchForCodepointNameEE7reserveEm.exit
+"_ZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS_9StringRefEmENK3$_2clB5cxx11ES2_.exit": ; preds = %35, %_ZN4llvm15SmallVectorImplINS_3sys7unicode21MatchForCodepointNameEE7reserveEm.exit
   %37 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
   %38 = load i64, ptr @_ZN4llvm3sys7unicode37UnicodeNameToCodepointLargestNameSizeE, align 8
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %38, i64 %37)
@@ -861,7 +861,7 @@ _ZN4llvm15SmallVectorImplINS_3sys7unicode21MatchForCodepointNameEE7reserveEm.exi
   %41 = icmp eq i8 %40, 0
   br i1 %41, label %42, label %45, !prof !15
 
-42:                                               ; preds = %"_ZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS_9StringRefEmENK3$_2clB5cxx11ES2_.argprom.exit"
+42:                                               ; preds = %"_ZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS_9StringRefEmENK3$_2clB5cxx11ES2_.exit"
   %43 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS_9StringRefEmE4Rows) #16
   %.not = icmp eq i32 %43, 0
   br i1 %.not, label %45, label %44
@@ -870,7 +870,7 @@ _ZN4llvm15SmallVectorImplINS_3sys7unicode21MatchForCodepointNameEE7reserveEm.exi
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS_9StringRefEmE4Rows) #16
   br label %45
 
-45:                                               ; preds = %44, %42, %"_ZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS_9StringRefEmENK3$_2clB5cxx11ES2_.argprom.exit"
+45:                                               ; preds = %44, %42, %"_ZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS_9StringRefEmENK3$_2clB5cxx11ES2_.exit"
   %46 = load i64, ptr %10, align 8
   %47 = add i64 %38, 1
   %48 = mul i64 %46, %47
@@ -1156,9 +1156,9 @@ define internal fastcc void @"_ZZN4llvm3sys7unicode30nearestMatchesForCodepointN
   %115 = icmp sgt i64 %114, 0
   br i1 %115, label %_ZSt7advanceIPN4llvm3sys7unicode21MatchForCodepointNameElEvRT_T0_.exit.i.i.i.i, label %"_ZN4llvm11lower_boundIRNS_11SmallVectorINS_3sys7unicode21MatchForCodepointNameELj1EEERjZZNS3_30nearestMatchesForCodepointNameENS_9StringRefEmENK3$_0clERKNS3_4NodeEjDiEUlRKS4_mE_EEDaOT_OT0_T1_.exit.i"
 
-_ZSt7advanceIPN4llvm3sys7unicode21MatchForCodepointNameElEvRT_T0_.exit.i.i.i.i: ; preds = %109, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS2_9StringRefEmENK3$_0clERKNS4_4NodeEjDiEUlRKNS4_21MatchForCodepointNameEmE_EclIPSA_KjEEbT_RT0_.argprom.exit.i.i.i.i"
-  %.018.i.i.i.i = phi ptr [ %.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS2_9StringRefEmENK3$_0clERKNS4_4NodeEjDiEUlRKNS4_21MatchForCodepointNameEmE_EclIPSA_KjEEbT_RT0_.argprom.exit.i.i.i.i" ], [ %113, %109 ]
-  %.01117.i.i.i.i = phi i64 [ %.112.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS2_9StringRefEmENK3$_0clERKNS4_4NodeEjDiEUlRKNS4_21MatchForCodepointNameEmE_EclIPSA_KjEEbT_RT0_.argprom.exit.i.i.i.i" ], [ %114, %109 ]
+_ZSt7advanceIPN4llvm3sys7unicode21MatchForCodepointNameElEvRT_T0_.exit.i.i.i.i: ; preds = %109, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS2_9StringRefEmENK3$_0clERKNS4_4NodeEjDiEUlRKNS4_21MatchForCodepointNameEmE_EclIPSA_KjEEbT_RT0_.exit.i.i.i.i"
+  %.018.i.i.i.i = phi ptr [ %.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS2_9StringRefEmENK3$_0clERKNS4_4NodeEjDiEUlRKNS4_21MatchForCodepointNameEmE_EclIPSA_KjEEbT_RT0_.exit.i.i.i.i" ], [ %113, %109 ]
+  %.01117.i.i.i.i = phi i64 [ %.112.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS2_9StringRefEmENK3$_0clERKNS4_4NodeEjDiEUlRKNS4_21MatchForCodepointNameEmE_EclIPSA_KjEEbT_RT0_.exit.i.i.i.i" ], [ %114, %109 ]
   %116 = lshr i64 %.01117.i.i.i.i, 1
   %117 = getelementptr inbounds %"struct.llvm::sys::unicode::MatchForCodepointName", ptr %.018.i.i.i.i, i64 %116
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
@@ -1172,13 +1172,13 @@ _ZSt7advanceIPN4llvm3sys7unicode21MatchForCodepointNameElEvRT_T0_.exit.i.i.i.i: 
   %122 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(32) %5) #16
   %123 = icmp slt i32 %122, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
-  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS2_9StringRefEmENK3$_0clERKNS4_4NodeEjDiEUlRKNS4_21MatchForCodepointNameEmE_EclIPSA_KjEEbT_RT0_.argprom.exit.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS2_9StringRefEmENK3$_0clERKNS4_4NodeEjDiEUlRKNS4_21MatchForCodepointNameEmE_EclIPSA_KjEEbT_RT0_.exit.i.i.i.i"
 
 124:                                              ; preds = %_ZSt7advanceIPN4llvm3sys7unicode21MatchForCodepointNameElEvRT_T0_.exit.i.i.i.i
   %125 = icmp ult i32 %119, %92
-  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS2_9StringRefEmENK3$_0clERKNS4_4NodeEjDiEUlRKNS4_21MatchForCodepointNameEmE_EclIPSA_KjEEbT_RT0_.argprom.exit.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS2_9StringRefEmENK3$_0clERKNS4_4NodeEjDiEUlRKNS4_21MatchForCodepointNameEmE_EclIPSA_KjEEbT_RT0_.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS2_9StringRefEmENK3$_0clERKNS4_4NodeEjDiEUlRKNS4_21MatchForCodepointNameEmE_EclIPSA_KjEEbT_RT0_.argprom.exit.i.i.i.i": ; preds = %124, %121
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS2_9StringRefEmENK3$_0clERKNS4_4NodeEjDiEUlRKNS4_21MatchForCodepointNameEmE_EclIPSA_KjEEbT_RT0_.exit.i.i.i.i": ; preds = %124, %121
   %.0.i.i.i.i.i.i = phi i1 [ %123, %121 ], [ %125, %124 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %126 = getelementptr inbounds i8, ptr %117, i64 40
@@ -1189,8 +1189,8 @@ _ZSt7advanceIPN4llvm3sys7unicode21MatchForCodepointNameElEvRT_T0_.exit.i.i.i.i: 
   %129 = icmp sgt i64 %.112.i.i.i.i, 0
   br i1 %129, label %_ZSt7advanceIPN4llvm3sys7unicode21MatchForCodepointNameElEvRT_T0_.exit.i.i.i.i, label %"_ZN4llvm11lower_boundIRNS_11SmallVectorINS_3sys7unicode21MatchForCodepointNameELj1EEERjZZNS3_30nearestMatchesForCodepointNameENS_9StringRefEmENK3$_0clERKNS3_4NodeEjDiEUlRKS4_mE_EEDaOT_OT0_T1_.exit.i", !llvm.loop !22
 
-"_ZN4llvm11lower_boundIRNS_11SmallVectorINS_3sys7unicode21MatchForCodepointNameELj1EEERjZZNS3_30nearestMatchesForCodepointNameENS_9StringRefEmENK3$_0clERKNS3_4NodeEjDiEUlRKS4_mE_EEDaOT_OT0_T1_.exit.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS2_9StringRefEmENK3$_0clERKNS4_4NodeEjDiEUlRKNS4_21MatchForCodepointNameEmE_EclIPSA_KjEEbT_RT0_.argprom.exit.i.i.i.i", %109
-  %.0.lcssa.i.i.i.i = phi ptr [ %113, %109 ], [ %.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS2_9StringRefEmENK3$_0clERKNS4_4NodeEjDiEUlRKNS4_21MatchForCodepointNameEmE_EclIPSA_KjEEbT_RT0_.argprom.exit.i.i.i.i" ]
+"_ZN4llvm11lower_boundIRNS_11SmallVectorINS_3sys7unicode21MatchForCodepointNameELj1EEERjZZNS3_30nearestMatchesForCodepointNameENS_9StringRefEmENK3$_0clERKNS3_4NodeEjDiEUlRKS4_mE_EEDaOT_OT0_T1_.exit.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS2_9StringRefEmENK3$_0clERKNS4_4NodeEjDiEUlRKNS4_21MatchForCodepointNameEmE_EclIPSA_KjEEbT_RT0_.exit.i.i.i.i", %109
+  %.0.lcssa.i.i.i.i = phi ptr [ %113, %109 ], [ %.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS2_9StringRefEmENK3$_0clERKNS4_4NodeEjDiEUlRKNS4_21MatchForCodepointNameEmE_EclIPSA_KjEEbT_RT0_.exit.i.i.i.i" ]
   %130 = load ptr, ptr %111, align 8
   %131 = load ptr, ptr %130, align 8
   %132 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %130) #16
@@ -1476,7 +1476,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %10, %_ZNK4llvm9Stri
   %.021.us = phi ptr [ %72, %70 ], [ %0, %15 ]
   %.020.us = phi ptr [ %71, %70 ], [ %2, %15 ]
   %.not5.i.us = icmp eq ptr %.021.us, %18
-  br i1 %.not5.i.us, label %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit.us", label %.lr.ph.split.i.us
+  br i1 %.not5.i.us, label %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit.us", label %.lr.ph.split.i.us
 
 .lr.ph.split.i.us:                                ; preds = %.split.us, %.critedge.i.us
   %.06.i.us = phi ptr [ %22, %.critedge.i.us ], [ %.021.us, %.split.us ]
@@ -1513,24 +1513,24 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %10, %_ZNK4llvm9Stri
 .critedge.i.us:                                   ; preds = %30, %.lr.ph.split.i.us, %.lr.ph.split.i.us
   store i8 %23, ptr %6, align 1
   %.not.i25.us = icmp eq ptr %22, %18
-  br i1 %.not.i25.us, label %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit.us", label %.lr.ph.split.i.us, !llvm.loop !30
+  br i1 %.not.i25.us, label %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit.us", label %.lr.ph.split.i.us, !llvm.loop !30
 
 .loopexit.sink.split.i.us:                        ; preds = %30, %24, %.lr.ph.split.i.us
   store i8 %23, ptr %6, align 1
-  br label %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit.us"
+  br label %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit.us"
 
-"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit.us": ; preds = %.critedge.i.us, %.loopexit.sink.split.i.us, %.split.us
+"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit.us": ; preds = %.critedge.i.us, %.loopexit.sink.split.i.us, %.split.us
   %38 = phi i8 [ %20, %.split.us ], [ %23, %.loopexit.sink.split.i.us ], [ %23, %.critedge.i.us ]
   %.04.i.us = phi ptr [ %18, %.split.us ], [ %.06.i.us, %.loopexit.sink.split.i.us ], [ %18, %.critedge.i.us ]
   %.not5.i26.us = icmp eq ptr %.020.us, %19
   br i1 %.not5.i26.us, label %.split72.us, label %.lr.ph.split.us.i.us
 
-.lr.ph.split.us.i.us:                             ; preds = %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit.us", %.critedge.us.i.us
-  %.06.us.i.us = phi ptr [ %40, %.critedge.us.i.us ], [ %.020.us, %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit.us" ]
-  %39 = phi i8 [ %41, %.critedge.us.i.us ], [ %.059.us, %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit.us" ]
+.lr.ph.split.us.i.us:                             ; preds = %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit.us", %.critedge.us.i.us
+  %.06.us.i.us = phi ptr [ %40, %.critedge.us.i.us ], [ %.020.us, %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit.us" ]
+  %39 = phi i8 [ %41, %.critedge.us.i.us ], [ %.059.us, %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit.us" ]
   %40 = getelementptr inbounds i8, ptr %.06.us.i.us, i64 1
   %41 = load i8, ptr %.06.us.i.us, align 1
-  switch i8 %41, label %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit39.us" [
+  switch i8 %41, label %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit39.us" [
     i8 32, label %.critedge.us.i.us
     i8 95, label %.critedge.us.i.us
     i8 45, label %42
@@ -1543,7 +1543,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %10, %_ZNK4llvm9Stri
   %46 = add i8 %39, -48
   %47 = icmp ult i8 %46, 10
   %48 = or i1 %47, %45
-  br i1 %48, label %49, label %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit39.us"
+  br i1 %48, label %49, label %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit39.us"
 
 49:                                               ; preds = %42
   %.not20.us.i.us = icmp eq ptr %40, %19
@@ -1557,17 +1557,17 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %10, %_ZNK4llvm9Stri
   %55 = add i8 %51, -48
   %56 = icmp ult i8 %55, 10
   %57 = or i1 %56, %54
-  br i1 %57, label %.critedge.us.i.us, label %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit39.us"
+  br i1 %57, label %.critedge.us.i.us, label %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit39.us"
 
 .critedge.us.i.us:                                ; preds = %50, %49, %.lr.ph.split.us.i.us, %.lr.ph.split.us.i.us
   %.not.us.i.us = icmp eq ptr %40, %19
   br i1 %.not.us.i.us, label %.split72.us, label %.lr.ph.split.us.i.us, !llvm.loop !30
 
-"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit39.us": ; preds = %.lr.ph.split.us.i.us, %42, %50
+"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit39.us": ; preds = %.lr.ph.split.us.i.us, %42, %50
   %58 = icmp eq ptr %.06.us.i.us, %19
   br i1 %58, label %.split72.us, label %59
 
-59:                                               ; preds = %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit39.us"
+59:                                               ; preds = %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit39.us"
   %60 = icmp eq ptr %.04.i.us, %18
   br i1 %60, label %.split74.us, label %61
 
@@ -1596,7 +1596,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %10, %_ZNK4llvm9Stri
   %.021 = phi ptr [ %123, %121 ], [ %0, %15 ]
   %.020 = phi ptr [ %122, %121 ], [ %2, %15 ]
   %.not5.i = icmp eq ptr %.021, %18
-  br i1 %.not5.i, label %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit", label %.lr.ph.split.i
+  br i1 %.not5.i, label %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit", label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %.split, %.critedge.i
   %.06.i = phi ptr [ %75, %.critedge.i ], [ %.021, %.split ]
@@ -1633,24 +1633,24 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %10, %_ZNK4llvm9Stri
 .critedge.i:                                      ; preds = %83, %.lr.ph.split.i, %.lr.ph.split.i
   store i8 %76, ptr %6, align 1
   %.not.i25 = icmp eq ptr %75, %18
-  br i1 %.not.i25, label %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit", label %.lr.ph.split.i, !llvm.loop !30
+  br i1 %.not.i25, label %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit", label %.lr.ph.split.i, !llvm.loop !30
 
 .loopexit.sink.split.i:                           ; preds = %83, %77, %.lr.ph.split.i
   store i8 %76, ptr %6, align 1
-  br label %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit"
+  br label %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit"
 
-"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit": ; preds = %.critedge.i, %.split, %.loopexit.sink.split.i
+"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit": ; preds = %.critedge.i, %.split, %.loopexit.sink.split.i
   %91 = phi i8 [ %73, %.split ], [ %76, %.loopexit.sink.split.i ], [ %76, %.critedge.i ]
   %.04.i = phi ptr [ %18, %.split ], [ %.06.i, %.loopexit.sink.split.i ], [ %18, %.critedge.i ]
   %.not5.i26 = icmp eq ptr %.020, %19
   br i1 %.not5.i26, label %.split72.us, label %.lr.ph.split.i29
 
-.lr.ph.split.i29:                                 ; preds = %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit", %.critedge.i37
-  %.06.i30 = phi ptr [ %93, %.critedge.i37 ], [ %.020, %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit" ]
-  %92 = phi i8 [ %94, %.critedge.i37 ], [ %.059, %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit" ]
+.lr.ph.split.i29:                                 ; preds = %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit", %.critedge.i37
+  %.06.i30 = phi ptr [ %93, %.critedge.i37 ], [ %.020, %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit" ]
+  %92 = phi i8 [ %94, %.critedge.i37 ], [ %.059, %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit" ]
   %93 = getelementptr inbounds i8, ptr %.06.i30, i64 1
   %94 = load i8, ptr %.06.i30, align 1
-  switch i8 %94, label %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit39" [
+  switch i8 %94, label %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit39" [
     i8 32, label %.critedge.i37
     i8 95, label %.critedge.i37
     i8 45, label %95
@@ -1665,7 +1665,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %10, %_ZNK4llvm9Stri
   %.not58.i31 = and i1 %100, %98
   %.not20.i32 = icmp eq ptr %93, %19
   %or.cond.i33 = select i1 %.not58.i31, i1 true, i1 %.not20.i32
-  br i1 %or.cond.i33, label %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit39", label %101
+  br i1 %or.cond.i33, label %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit39", label %101
 
 101:                                              ; preds = %95
   %102 = load i8, ptr %93, align 1
@@ -1675,17 +1675,17 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %10, %_ZNK4llvm9Stri
   %106 = add i8 %102, -48
   %107 = icmp ult i8 %106, 10
   %108 = or i1 %107, %105
-  br i1 %108, label %.critedge.i37, label %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit39"
+  br i1 %108, label %.critedge.i37, label %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit39"
 
 .critedge.i37:                                    ; preds = %101, %.lr.ph.split.i29, %.lr.ph.split.i29
   %.not.i38 = icmp eq ptr %93, %19
   br i1 %.not.i38, label %.split72.us, label %.lr.ph.split.i29, !llvm.loop !30
 
-"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit39": ; preds = %.lr.ph.split.i29, %95, %101
+"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit39": ; preds = %.lr.ph.split.i29, %95, %101
   %109 = icmp eq ptr %.06.i30, %19
   br i1 %109, label %.split72.us, label %110
 
-110:                                              ; preds = %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit39"
+110:                                              ; preds = %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit39"
   %111 = icmp eq ptr %.04.i, %18
   br i1 %111, label %.split74.us, label %112
 
@@ -1708,8 +1708,8 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %10, %_ZNK4llvm9Stri
   %123 = getelementptr inbounds i8, ptr %.04.i, i64 1
   br label %.split, !llvm.loop !31
 
-.split72.us:                                      ; preds = %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit", %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit39", %.critedge.i37, %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit.us", %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit39.us", %.critedge.us.i.us
-  %.us-phi = phi ptr [ %.04.i.us, %.critedge.us.i.us ], [ %.04.i.us, %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit39.us" ], [ %.04.i.us, %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit.us" ], [ %.04.i, %.critedge.i37 ], [ %.04.i, %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit39" ], [ %.04.i, %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.argprom.exit" ]
+.split72.us:                                      ; preds = %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit", %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit39", %.critedge.i37, %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit.us", %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit39.us", %.critedge.us.i.us
+  %.us-phi = phi ptr [ %.04.i.us, %.critedge.us.i.us ], [ %.04.i.us, %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit39.us" ], [ %.04.i.us, %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit.us" ], [ %.04.i, %.critedge.i37 ], [ %.04.i, %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit39" ], [ %.04.i, %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit" ]
   %124 = ptrtoint ptr %.us-phi to i64
   %125 = ptrtoint ptr %0 to i64
   %126 = sub i64 %124, %125
@@ -2707,8 +2707,8 @@ attributes #19 = { builtin nounwind }
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS_9StringRefEmENK3$_2clB5cxx11ES2_.argprom: argument 0"}
-!14 = distinct !{!14, !"_ZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS_9StringRefEmENK3$_2clB5cxx11ES2_.argprom"}
+!13 = distinct !{!13, !14, !"_ZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS_9StringRefEmENK3$_2clB5cxx11ES2_: argument 0"}
+!14 = distinct !{!14, !"_ZZN4llvm3sys7unicode30nearestMatchesForCodepointNameENS_9StringRefEmENK3$_2clB5cxx11ES2_"}
 !15 = !{!"branch_weights", i32 1, i32 1048575}
 !16 = distinct !{!16, !5}
 !17 = !{!18}

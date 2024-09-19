@@ -6265,7 +6265,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %2645 = sub i64 %2644, %2620
   %2646 = trunc i64 %2645 to i32
   store i32 %2646, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
-  tail call fastcc void @zend_ini_escape_string.argelim(ptr noundef %0, ptr noundef nonnull %.promoted4205, i32 noundef %2646)
+  tail call fastcc void @zend_ini_escape_string(ptr noundef %0, ptr noundef nonnull %.promoted4205, i32 noundef %2646)
   %2647 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %2647, align 4
   br label %.loopexit
@@ -7664,7 +7664,7 @@ switch.lookup:                                    ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_ini_escape_string.argelim(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @zend_ini_escape_string(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
   %4 = sext i32 %2 to i64
   %5 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %6 = trunc i8 %5 to i1

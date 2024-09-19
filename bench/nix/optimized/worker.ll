@@ -4399,7 +4399,7 @@ define void @_ZN3nix6Worker8makeGoalERKNS_11DerivedPathENS_9BuildModeE(ptr dead_
   %26 = getelementptr inbounds i8, ptr %24, i64 48
   %27 = load i8, ptr %26, align 8, !noalias !56
   %28 = icmp eq i8 %27, 0
-  br i1 %28, label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10shared_ptrIN3nix4GoalEEEEONS5_10overloadedIJZNS5_6Worker8makeGoalERKNS5_11DerivedPathENS5_9BuildModeEE3$_0ZNSA_8makeGoalESD_SE_E3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_16DerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESI_SO_.argprom.exit.i.i", label %29
+  br i1 %28, label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10shared_ptrIN3nix4GoalEEEEONS5_10overloadedIJZNS5_6Worker8makeGoalERKNS5_11DerivedPathENS5_9BuildModeEE3$_0ZNSA_8makeGoalESD_SE_E3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_16DerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESI_SO_.exit.i.i", label %29
 
 29:                                               ; preds = %25, %23
   %30 = tail call ptr @__cxa_allocate_exception(i64 376) #32, !noalias !56
@@ -4441,7 +4441,7 @@ define void @_ZN3nix6Worker8makeGoalERKNS_11DerivedPathENS_9BuildModeE(ptr dead_
 38:                                               ; preds = %32
   unreachable
 
-"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10shared_ptrIN3nix4GoalEEEEONS5_10overloadedIJZNS5_6Worker8makeGoalERKNS5_11DerivedPathENS5_9BuildModeEE3$_0ZNSA_8makeGoalESD_SE_E3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_16DerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESI_SO_.argprom.exit.i.i": ; preds = %25
+"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10shared_ptrIN3nix4GoalEEEEONS5_10overloadedIJZNS5_6Worker8makeGoalERKNS5_11DerivedPathENS5_9BuildModeEE3$_0ZNSA_8makeGoalESD_SE_E3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_16DerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESI_SO_.exit.i.i": ; preds = %25
   %39 = getelementptr inbounds i8, ptr %2, i64 16
   call void @_ZN3nix6Worker18makeDerivationGoalERKNS_9StorePathERKNS_11OutputsSpecENS_9BuildModeE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.79") align 8 %5, ptr noundef nonnull align 8 dereferenceable(649) %1, ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(56) %39, i32 noundef %3), !noalias !56
   %40 = load ptr, ptr %5, align 8, !noalias !56
@@ -4455,7 +4455,7 @@ define void @_ZN3nix6Worker8makeGoalERKNS_11DerivedPathENS_9BuildModeE(ptr dead_
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !55
   br label %"_ZSt5visitIN3nix10overloadedIJZNS0_6Worker8makeGoalERKNS0_11DerivedPathENS0_9BuildModeEE3$_0ZNS2_8makeGoalES5_S6_E3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_16DerivedPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISJ_EEEEE4typeEE4typeEOSS_EEEE4typeEOSH_DpOSJ_.exit"
 
-"_ZSt5visitIN3nix10overloadedIJZNS0_6Worker8makeGoalERKNS0_11DerivedPathENS0_9BuildModeEE3$_0ZNS2_8makeGoalES5_S6_E3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_16DerivedPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISJ_EEEEE4typeEE4typeEOSS_EEEE4typeEOSH_DpOSJ_.exit": ; preds = %16, %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10shared_ptrIN3nix4GoalEEEEONS5_10overloadedIJZNS5_6Worker8makeGoalERKNS5_11DerivedPathENS5_9BuildModeEE3$_0ZNSA_8makeGoalESD_SE_E3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_16DerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESI_SO_.argprom.exit.i.i"
+"_ZSt5visitIN3nix10overloadedIJZNS0_6Worker8makeGoalERKNS0_11DerivedPathENS0_9BuildModeEE3$_0ZNS2_8makeGoalES5_S6_E3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_16DerivedPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISJ_EEEEE4typeEE4typeEOSS_EEEE4typeEOSH_DpOSJ_.exit": ; preds = %16, %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10shared_ptrIN3nix4GoalEEEEONS5_10overloadedIJZNS5_6Worker8makeGoalERKNS5_11DerivedPathENS5_9BuildModeEE3$_0ZNSA_8makeGoalESD_SE_E3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_16DerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESI_SO_.exit.i.i"
   ret void
 }
 
@@ -6115,26 +6115,26 @@ define void @_ZN3nix6Worker15childTerminatedEPNS_4GoalEb(ptr noundef nonnull ali
   %6 = getelementptr inbounds i8, ptr %0, i64 144
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, %6
-  br i1 %8, label %"_ZSt7find_ifISt14_List_iteratorIN3nix5ChildEEZNS1_6Worker15childTerminatedEPNS1_4GoalEbE3$_0ET_S8_S8_T0_.argprom.exit", label %.lr.ph.i.i.i
+  br i1 %8, label %"_ZSt7find_ifISt14_List_iteratorIN3nix5ChildEEZNS1_6Worker15childTerminatedEPNS1_4GoalEbE3$_0ET_S8_S8_T0_.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3, %11
   %.sroa.03.05.i.i.i = phi ptr [ %12, %11 ], [ %7, %3 ]
   %9 = getelementptr i8, ptr %.sroa.03.05.i.i.i, i64 32
   %.val1.i.i.i.i = load ptr, ptr %9, align 8
   %10 = icmp eq ptr %.val1.i.i.i.i, %1
-  br i1 %10, label %"_ZSt7find_ifISt14_List_iteratorIN3nix5ChildEEZNS1_6Worker15childTerminatedEPNS1_4GoalEbE3$_0ET_S8_S8_T0_.argprom.exit", label %11
+  br i1 %10, label %"_ZSt7find_ifISt14_List_iteratorIN3nix5ChildEEZNS1_6Worker15childTerminatedEPNS1_4GoalEbE3$_0ET_S8_S8_T0_.exit", label %11
 
 11:                                               ; preds = %.lr.ph.i.i.i
   %12 = load ptr, ptr %.sroa.03.05.i.i.i, align 8
   %13 = icmp eq ptr %12, %6
-  br i1 %13, label %"_ZSt7find_ifISt14_List_iteratorIN3nix5ChildEEZNS1_6Worker15childTerminatedEPNS1_4GoalEbE3$_0ET_S8_S8_T0_.argprom.exit", label %.lr.ph.i.i.i, !llvm.loop !82
+  br i1 %13, label %"_ZSt7find_ifISt14_List_iteratorIN3nix5ChildEEZNS1_6Worker15childTerminatedEPNS1_4GoalEbE3$_0ET_S8_S8_T0_.exit", label %.lr.ph.i.i.i, !llvm.loop !82
 
-"_ZSt7find_ifISt14_List_iteratorIN3nix5ChildEEZNS1_6Worker15childTerminatedEPNS1_4GoalEbE3$_0ET_S8_S8_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i, %11, %3
+"_ZSt7find_ifISt14_List_iteratorIN3nix5ChildEEZNS1_6Worker15childTerminatedEPNS1_4GoalEbE3$_0ET_S8_S8_T0_.exit": ; preds = %.lr.ph.i.i.i, %11, %3
   %.sroa.03.0.lcssa.i.i.i = phi ptr [ %7, %3 ], [ %.sroa.03.05.i.i.i, %.lr.ph.i.i.i ], [ %12, %11 ]
   %14 = icmp eq ptr %.sroa.03.0.lcssa.i.i.i, %6
   br i1 %14, label %171, label %15
 
-15:                                               ; preds = %"_ZSt7find_ifISt14_List_iteratorIN3nix5ChildEEZNS1_6Worker15childTerminatedEPNS1_4GoalEbE3$_0ET_S8_S8_T0_.argprom.exit"
+15:                                               ; preds = %"_ZSt7find_ifISt14_List_iteratorIN3nix5ChildEEZNS1_6Worker15childTerminatedEPNS1_4GoalEbE3$_0ET_S8_S8_T0_.exit"
   %16 = getelementptr inbounds i8, ptr %.sroa.03.0.lcssa.i.i.i, i64 89
   %17 = load i8, ptr %16, align 1
   %18 = trunc i8 %17 to i1
@@ -6491,7 +6491,7 @@ _ZNSt3setISt8weak_ptrIN3nix4GoalEESt10owner_lessIS3_ESaIS3_EE5clearEv.exit: ; pr
   store i64 0, ptr %170, align 8
   br label %171
 
-171:                                              ; preds = %"_ZSt7find_ifISt14_List_iteratorIN3nix5ChildEEZNS1_6Worker15childTerminatedEPNS1_4GoalEbE3$_0ET_S8_S8_T0_.argprom.exit", %_ZNSt3setISt8weak_ptrIN3nix4GoalEESt10owner_lessIS3_ESaIS3_EE5clearEv.exit, %_ZNSt7__cxx114listIN3nix5ChildESaIS2_EE5eraseESt20_List_const_iteratorIS2_E.exit
+171:                                              ; preds = %"_ZSt7find_ifISt14_List_iteratorIN3nix5ChildEEZNS1_6Worker15childTerminatedEPNS1_4GoalEbE3$_0ET_S8_S8_T0_.exit", %_ZNSt3setISt8weak_ptrIN3nix4GoalEESt10owner_lessIS3_ESaIS3_EE5clearEv.exit, %_ZNSt7__cxx114listIN3nix5ChildESaIS2_EE5eraseESt20_List_const_iteratorIS2_E.exit
   ret void
 }
 
@@ -25178,7 +25178,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10shared_ptrIN3nix14Derivatio
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt10shared_ptrIN3nix14DerivationGoalEEvEZNS1_6Worker18makeDerivationGoalERKNS1_9StorePathERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix6Worker18makeDerivationGoalERKNS1_9StorePathERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix6Worker18makeDerivationGoalERKNS1_9StorePathERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -25187,30 +25187,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt10shared_ptrIN3
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN3nix6Worker18makeDerivationGoalERKNS_9StorePathERKNS_11OutputsSpecENS_9BuildModeEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix6Worker18makeDerivationGoalERKNS1_9StorePathERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix6Worker18makeDerivationGoalERKNS1_9StorePathERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix6Worker18makeDerivationGoalERKNS1_9StorePathERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix6Worker18makeDerivationGoalERKNS1_9StorePathERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #34
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix6Worker18makeDerivationGoalERKNS1_9StorePathERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix6Worker18makeDerivationGoalERKNS1_9StorePathERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3nix6Worker18makeDerivationGoalERKNS1_9StorePathERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3nix6Worker18makeDerivationGoalERKNS1_9StorePathERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #35
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix6Worker18makeDerivationGoalERKNS1_9StorePathERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix6Worker18makeDerivationGoalERKNS1_9StorePathERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3nix6Worker18makeDerivationGoalERKNS1_9StorePathERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3nix6Worker18makeDerivationGoalERKNS1_9StorePathERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -26247,7 +26247,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10shared_ptrIN3nix14Derivatio
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt10shared_ptrIN3nix14DerivationGoalEEvEZNS1_6Worker23makeBasicDerivationGoalERKNS1_9StorePathERKNS1_15BasicDerivationERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix6Worker23makeBasicDerivationGoalERKNS1_9StorePathERKNS1_15BasicDerivationERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix6Worker23makeBasicDerivationGoalERKNS1_9StorePathERKNS1_15BasicDerivationERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -26256,30 +26256,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt10shared_ptrIN3
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN3nix6Worker23makeBasicDerivationGoalERKNS_9StorePathERKNS_15BasicDerivationERKNS_11OutputsSpecENS_9BuildModeEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix6Worker23makeBasicDerivationGoalERKNS1_9StorePathERKNS1_15BasicDerivationERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix6Worker23makeBasicDerivationGoalERKNS1_9StorePathERKNS1_15BasicDerivationERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix6Worker23makeBasicDerivationGoalERKNS1_9StorePathERKNS1_15BasicDerivationERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix6Worker23makeBasicDerivationGoalERKNS1_9StorePathERKNS1_15BasicDerivationERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix6Worker23makeBasicDerivationGoalERKNS1_9StorePathERKNS1_15BasicDerivationERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix6Worker23makeBasicDerivationGoalERKNS1_9StorePathERKNS1_15BasicDerivationERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3nix6Worker23makeBasicDerivationGoalERKNS1_9StorePathERKNS1_15BasicDerivationERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3nix6Worker23makeBasicDerivationGoalERKNS1_9StorePathERKNS1_15BasicDerivationERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #35
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix6Worker23makeBasicDerivationGoalERKNS1_9StorePathERKNS1_15BasicDerivationERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix6Worker23makeBasicDerivationGoalERKNS1_9StorePathERKNS1_15BasicDerivationERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3nix6Worker23makeBasicDerivationGoalERKNS1_9StorePathERKNS1_15BasicDerivationERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3nix6Worker23makeBasicDerivationGoalERKNS1_9StorePathERKNS1_15BasicDerivationERKNS1_11OutputsSpecENS1_9BuildModeEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -31318,31 +31318,31 @@ attributes #38 = { nounwind willreturn memory(none) }
 !27 = distinct !{!27, !28, !"_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultISt10shared_ptrIN3nix4GoalEEEENS4_10overloadedIJZNS4_6Worker8makeGoalERKNS4_11DerivedPathENS4_9BuildModeEE3$_0ZNS9_8makeGoalESC_SD_E3$_1EEEJRKSt7variantIJNS4_17DerivedPathOpaqueENS4_16DerivedPathBuiltEEEEEDcOT0_DpOT1_: argument 0"}
 !28 = distinct !{!28, !"_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultISt10shared_ptrIN3nix4GoalEEEENS4_10overloadedIJZNS4_6Worker8makeGoalERKNS4_11DerivedPathENS4_9BuildModeEE3$_0ZNS9_8makeGoalESC_SD_E3$_1EEEJRKSt7variantIJNS4_17DerivedPathOpaqueENS4_16DerivedPathBuiltEEEEEDcOT0_DpOT1_"}
 !29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10shared_ptrIN3nix4GoalEEEEONS5_10overloadedIJZNS5_6Worker8makeGoalERKNS5_11DerivedPathENS5_9BuildModeEE3$_0ZNSA_8makeGoalESD_SE_E3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_16DerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESI_SO_.argprom.argprom: argument 0"}
-!31 = distinct !{!31, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10shared_ptrIN3nix4GoalEEEEONS5_10overloadedIJZNS5_6Worker8makeGoalERKNS5_11DerivedPathENS5_9BuildModeEE3$_0ZNSA_8makeGoalESD_SE_E3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_16DerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESI_SO_.argprom.argprom"}
+!30 = distinct !{!30, !31, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10shared_ptrIN3nix4GoalEEEEONS5_10overloadedIJZNS5_6Worker8makeGoalERKNS5_11DerivedPathENS5_9BuildModeEE3$_0ZNSA_8makeGoalESD_SE_E3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_16DerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESI_SO_: argument 0"}
+!31 = distinct !{!31, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10shared_ptrIN3nix4GoalEEEEONS5_10overloadedIJZNS5_6Worker8makeGoalERKNS5_11DerivedPathENS5_9BuildModeEE3$_0ZNSA_8makeGoalESD_SE_E3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_16DerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESI_SO_"}
 !32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZSt8__invokeIN3nix10overloadedIJZNS0_6Worker8makeGoalERKNS0_11DerivedPathENS0_9BuildModeEE3$_0ZNS2_8makeGoalES5_S6_E3$_1EEEJRKNS0_17DerivedPathOpaqueEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.argprom.argprom: argument 0"}
-!34 = distinct !{!34, !"_ZSt8__invokeIN3nix10overloadedIJZNS0_6Worker8makeGoalERKNS0_11DerivedPathENS0_9BuildModeEE3$_0ZNS2_8makeGoalES5_S6_E3$_1EEEJRKNS0_17DerivedPathOpaqueEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.argprom.argprom"}
+!33 = distinct !{!33, !34, !"_ZSt8__invokeIN3nix10overloadedIJZNS0_6Worker8makeGoalERKNS0_11DerivedPathENS0_9BuildModeEE3$_0ZNS2_8makeGoalES5_S6_E3$_1EEEJRKNS0_17DerivedPathOpaqueEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_: argument 0"}
+!34 = distinct !{!34, !"_ZSt8__invokeIN3nix10overloadedIJZNS0_6Worker8makeGoalERKNS0_11DerivedPathENS0_9BuildModeEE3$_0ZNS2_8makeGoalES5_S6_E3$_1EEEJRKNS0_17DerivedPathOpaqueEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_"}
 !35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZSt13__invoke_implISt10shared_ptrIN3nix4GoalEENS1_10overloadedIJZNS1_6Worker8makeGoalERKNS1_11DerivedPathENS1_9BuildModeEE3$_0ZNS5_8makeGoalES8_S9_E3$_1EEEJRKNS1_17DerivedPathOpaqueEEET_St14__invoke_otherOT0_DpOT1_.argprom.argprom: argument 0"}
-!37 = distinct !{!37, !"_ZSt13__invoke_implISt10shared_ptrIN3nix4GoalEENS1_10overloadedIJZNS1_6Worker8makeGoalERKNS1_11DerivedPathENS1_9BuildModeEE3$_0ZNS5_8makeGoalES8_S9_E3$_1EEEJRKNS1_17DerivedPathOpaqueEEET_St14__invoke_otherOT0_DpOT1_.argprom.argprom"}
+!36 = distinct !{!36, !37, !"_ZSt13__invoke_implISt10shared_ptrIN3nix4GoalEENS1_10overloadedIJZNS1_6Worker8makeGoalERKNS1_11DerivedPathENS1_9BuildModeEE3$_0ZNS5_8makeGoalES8_S9_E3$_1EEEJRKNS1_17DerivedPathOpaqueEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!37 = distinct !{!37, !"_ZSt13__invoke_implISt10shared_ptrIN3nix4GoalEENS1_10overloadedIJZNS1_6Worker8makeGoalERKNS1_11DerivedPathENS1_9BuildModeEE3$_0ZNS5_8makeGoalES8_S9_E3$_1EEEJRKNS1_17DerivedPathOpaqueEEET_St14__invoke_otherOT0_DpOT1_"}
 !38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZZN3nix6Worker8makeGoalERKNS_11DerivedPathENS_9BuildModeEENK3$_1clERKNS_17DerivedPathOpaqueE.argprom.argprom: argument 0"}
-!40 = distinct !{!40, !"_ZZN3nix6Worker8makeGoalERKNS_11DerivedPathENS_9BuildModeEENK3$_1clERKNS_17DerivedPathOpaqueE.argprom.argprom"}
+!39 = distinct !{!39, !40, !"_ZZN3nix6Worker8makeGoalERKNS_11DerivedPathENS_9BuildModeEENK3$_1clERKNS_17DerivedPathOpaqueE: argument 0"}
+!40 = distinct !{!40, !"_ZZN3nix6Worker8makeGoalERKNS_11DerivedPathENS_9BuildModeEENK3$_1clERKNS_17DerivedPathOpaqueE"}
 !41 = !{!36, !33, !30, !27, !24}
 !42 = !{!39, !36, !33, !30, !27, !24}
 !43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10shared_ptrIN3nix4GoalEEEEONS5_10overloadedIJZNS5_6Worker8makeGoalERKNS5_11DerivedPathENS5_9BuildModeEE3$_0ZNSA_8makeGoalESD_SE_E3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_16DerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESI_SO_.argprom: argument 0"}
-!45 = distinct !{!45, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10shared_ptrIN3nix4GoalEEEEONS5_10overloadedIJZNS5_6Worker8makeGoalERKNS5_11DerivedPathENS5_9BuildModeEE3$_0ZNSA_8makeGoalESD_SE_E3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_16DerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESI_SO_.argprom"}
+!44 = distinct !{!44, !45, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10shared_ptrIN3nix4GoalEEEEONS5_10overloadedIJZNS5_6Worker8makeGoalERKNS5_11DerivedPathENS5_9BuildModeEE3$_0ZNSA_8makeGoalESD_SE_E3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_16DerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESI_SO_: argument 0"}
+!45 = distinct !{!45, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10shared_ptrIN3nix4GoalEEEEONS5_10overloadedIJZNS5_6Worker8makeGoalERKNS5_11DerivedPathENS5_9BuildModeEE3$_0ZNSA_8makeGoalESD_SE_E3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_16DerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESI_SO_"}
 !46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZSt8__invokeIN3nix10overloadedIJZNS0_6Worker8makeGoalERKNS0_11DerivedPathENS0_9BuildModeEE3$_0ZNS2_8makeGoalES5_S6_E3$_1EEEJRKNS0_16DerivedPathBuiltEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.argprom: argument 0"}
-!48 = distinct !{!48, !"_ZSt8__invokeIN3nix10overloadedIJZNS0_6Worker8makeGoalERKNS0_11DerivedPathENS0_9BuildModeEE3$_0ZNS2_8makeGoalES5_S6_E3$_1EEEJRKNS0_16DerivedPathBuiltEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.argprom"}
+!47 = distinct !{!47, !48, !"_ZSt8__invokeIN3nix10overloadedIJZNS0_6Worker8makeGoalERKNS0_11DerivedPathENS0_9BuildModeEE3$_0ZNS2_8makeGoalES5_S6_E3$_1EEEJRKNS0_16DerivedPathBuiltEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_: argument 0"}
+!48 = distinct !{!48, !"_ZSt8__invokeIN3nix10overloadedIJZNS0_6Worker8makeGoalERKNS0_11DerivedPathENS0_9BuildModeEE3$_0ZNS2_8makeGoalES5_S6_E3$_1EEEJRKNS0_16DerivedPathBuiltEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_"}
 !49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZSt13__invoke_implISt10shared_ptrIN3nix4GoalEENS1_10overloadedIJZNS1_6Worker8makeGoalERKNS1_11DerivedPathENS1_9BuildModeEE3$_0ZNS5_8makeGoalES8_S9_E3$_1EEEJRKNS1_16DerivedPathBuiltEEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
-!51 = distinct !{!51, !"_ZSt13__invoke_implISt10shared_ptrIN3nix4GoalEENS1_10overloadedIJZNS1_6Worker8makeGoalERKNS1_11DerivedPathENS1_9BuildModeEE3$_0ZNS5_8makeGoalES8_S9_E3$_1EEEJRKNS1_16DerivedPathBuiltEEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!50 = distinct !{!50, !51, !"_ZSt13__invoke_implISt10shared_ptrIN3nix4GoalEENS1_10overloadedIJZNS1_6Worker8makeGoalERKNS1_11DerivedPathENS1_9BuildModeEE3$_0ZNS5_8makeGoalES8_S9_E3$_1EEEJRKNS1_16DerivedPathBuiltEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!51 = distinct !{!51, !"_ZSt13__invoke_implISt10shared_ptrIN3nix4GoalEENS1_10overloadedIJZNS1_6Worker8makeGoalERKNS1_11DerivedPathENS1_9BuildModeEE3$_0ZNS5_8makeGoalES8_S9_E3$_1EEEJRKNS1_16DerivedPathBuiltEEET_St14__invoke_otherOT0_DpOT1_"}
 !52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZZN3nix6Worker8makeGoalERKNS_11DerivedPathENS_9BuildModeEENK3$_0clERKNS_16DerivedPathBuiltE.argprom: argument 0"}
-!54 = distinct !{!54, !"_ZZN3nix6Worker8makeGoalERKNS_11DerivedPathENS_9BuildModeEENK3$_0clERKNS_16DerivedPathBuiltE.argprom"}
+!53 = distinct !{!53, !54, !"_ZZN3nix6Worker8makeGoalERKNS_11DerivedPathENS_9BuildModeEENK3$_0clERKNS_16DerivedPathBuiltE: argument 0"}
+!54 = distinct !{!54, !"_ZZN3nix6Worker8makeGoalERKNS_11DerivedPathENS_9BuildModeEENK3$_0clERKNS_16DerivedPathBuiltE"}
 !55 = !{!50, !47, !44, !27, !24}
 !56 = !{!53, !50, !47, !44, !27, !24}
 !57 = !{!58}

@@ -12192,12 +12192,12 @@ common.resume:                                    ; preds = %lpad.body.i, %ehcle
 _ZN7testing10StrictMockI14mock_allocatorIiEEC2Ev.exit: ; preds = %.noexc.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal14FunctionMockerIFvPimEEE, i64 16), ptr %gmock02_deallocate_24.i.i, align 8
   store ptr %alloc, ptr %ref, align 8
-  invoke fastcc void @"_ZZN28util_test_allocator_ref_Test8TestBodyEvENK3$_0clER14mock_allocatorIiER13allocator_refIS2_E.argprom"(ptr noundef nonnull align 8 dereferenceable(144) %alloc, ptr noundef nonnull align 8 dereferenceable(8) %ref)
+  invoke fastcc void @"_ZZN28util_test_allocator_ref_Test8TestBodyEvENK3$_0clER14mock_allocatorIiER13allocator_refIS2_E"(ptr noundef nonnull align 8 dereferenceable(144) %alloc, ptr noundef nonnull align 8 dereferenceable(8) %ref)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %_ZN7testing10StrictMockI14mock_allocatorIiEEC2Ev.exit
   store ptr %alloc, ptr %ref2, align 8
-  invoke fastcc void @"_ZZN28util_test_allocator_ref_Test8TestBodyEvENK3$_0clER14mock_allocatorIiER13allocator_refIS2_E.argprom"(ptr noundef nonnull align 8 dereferenceable(144) %alloc, ptr noundef nonnull align 8 dereferenceable(8) %ref2)
+  invoke fastcc void @"_ZZN28util_test_allocator_ref_Test8TestBodyEvENK3$_0clER14mock_allocatorIiER13allocator_refIS2_E"(ptr noundef nonnull align 8 dereferenceable(144) %alloc, ptr noundef nonnull align 8 dereferenceable(8) %ref2)
           to label %if.then.i.i unwind label %lpad
 
 if.then.i.i:                                      ; preds = %invoke.cont2
@@ -12301,7 +12301,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
   store ptr %alloc, ptr %ref3, align 8
-  invoke fastcc void @"_ZZN28util_test_allocator_ref_Test8TestBodyEvENK3$_0clER14mock_allocatorIiER13allocator_refIS2_E.argprom"(ptr noundef nonnull align 8 dereferenceable(144) %alloc, ptr noundef nonnull align 8 dereferenceable(8) %ref3)
+  invoke fastcc void @"_ZZN28util_test_allocator_ref_Test8TestBodyEvENK3$_0clER14mock_allocatorIiER13allocator_refIS2_E"(ptr noundef nonnull align 8 dereferenceable(144) %alloc, ptr noundef nonnull align 8 dereferenceable(8) %ref3)
           to label %invoke.cont22 unwind label %lpad
 
 invoke.cont22:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -12332,7 +12332,7 @@ ehcleanup23:                                      ; preds = %ehcleanup19, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN28util_test_allocator_ref_Test8TestBodyEvENK3$_0clER14mock_allocatorIiER13allocator_refIS2_E.argprom"(ptr noundef nonnull align 8 dereferenceable(144) %alloc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ref) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN28util_test_allocator_ref_Test8TestBodyEvENK3$_0clER14mock_allocatorIiER13allocator_refIS2_E"(ptr noundef nonnull align 8 dereferenceable(144) %alloc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ref) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mem = alloca i32, align 4
   %ref.tmp = alloca %"class.testing::internal::MockSpec", align 8
@@ -14827,7 +14827,7 @@ _ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i: ; preds = %if.then.i.i.i
   br i1 %cmp.not.i.i, label %invoke.cont5, label %while.body.i.i, !llvm.loop !82
 
 invoke.cont5:                                     ; preds = %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i
-  invoke fastcc void @"_ZZN47memory_buffer_test_move_ctor_inline_buffer_Test8TestBodyEvENK3$_0clEPKcRN3fmt3v1019basic_memory_bufferIcLm5E13allocator_refISaIcEEEE.argprom"(ptr noundef nonnull @__const._ZN39memory_buffer_test_move_assignment_Test8TestBodyEv.test, ptr noundef nonnull align 8 dereferenceable(48) %buffer)
+  invoke fastcc void @"_ZZN47memory_buffer_test_move_ctor_inline_buffer_Test8TestBodyEvENK3$_0clEPKcRN3fmt3v1019basic_memory_bufferIcLm5E13allocator_refISaIcEEEE"(ptr noundef nonnull @__const._ZN39memory_buffer_test_move_assignment_Test8TestBodyEv.test, ptr noundef nonnull align 8 dereferenceable(48) %buffer)
           to label %invoke.cont6 unwind label %lpad4.loopexit.split-lp
 
 invoke.cont6:                                     ; preds = %invoke.cont5
@@ -14855,7 +14855,7 @@ invoke.cont8:                                     ; preds = %.noexc5, %invoke.co
   store i64 %inc.pre-phi.i, ptr %size_.i3.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %12, i64 %11
   store i8 97, ptr %arrayidx.i, align 1
-  invoke fastcc void @"_ZZN47memory_buffer_test_move_ctor_inline_buffer_Test8TestBodyEvENK3$_0clEPKcRN3fmt3v1019basic_memory_bufferIcLm5E13allocator_refISaIcEEEE.argprom"(ptr noundef nonnull @.str.126, ptr noundef nonnull align 8 dereferenceable(48) %buffer)
+  invoke fastcc void @"_ZZN47memory_buffer_test_move_ctor_inline_buffer_Test8TestBodyEvENK3$_0clEPKcRN3fmt3v1019basic_memory_bufferIcLm5E13allocator_refISaIcEEEE"(ptr noundef nonnull @.str.126, ptr noundef nonnull align 8 dereferenceable(48) %buffer)
           to label %invoke.cont9 unwind label %lpad4.loopexit.split-lp
 
 invoke.cont9:                                     ; preds = %invoke.cont8
@@ -14897,7 +14897,7 @@ ehcleanup:                                        ; preds = %if.then.i.i11, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN47memory_buffer_test_move_ctor_inline_buffer_Test8TestBodyEvENK3$_0clEPKcRN3fmt3v1019basic_memory_bufferIcLm5E13allocator_refISaIcEEEE.argprom"(ptr noundef %str, ptr noundef nonnull align 8 dereferenceable(48) %buffer) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN47memory_buffer_test_move_ctor_inline_buffer_Test8TestBodyEvENK3$_0clEPKcRN3fmt3v1019basic_memory_bufferIcLm5E13allocator_refISaIcEEEE"(ptr noundef %str, ptr noundef nonnull align 8 dereferenceable(48) %buffer) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rhs.addr.i = alloca ptr, align 8
   %ref.tmp.i = alloca ptr, align 8

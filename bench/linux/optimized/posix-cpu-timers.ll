@@ -99,7 +99,7 @@ define dso_local noundef range(i32 -3, 1) i32 @update_rlimit_cpu(ptr noundef %0,
   %8 = getelementptr inbounds i8, ptr %0, i64 1880
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 280
-  %11 = call fastcc i64 @cpu_clock_sample_group.argelim(i32 noundef 0, ptr noundef %0)
+  %11 = call fastcc i64 @cpu_clock_sample_group(i32 noundef 0, ptr noundef %0)
   %12 = load i64, ptr %10, align 8
   %13 = icmp ult i64 %4, %12
   br i1 %13, label %14, label %15
@@ -141,7 +141,7 @@ define dso_local void @set_process_cpu_timer(ptr noundef %0, i32 noundef %1, ptr
   %10 = getelementptr inbounds i8, ptr %9, i64 280
   %11 = zext nneg i32 %1 to i64
   %12 = getelementptr [3 x %struct.posix_cputimer_base], ptr %10, i64 0, i64 %11
-  %13 = tail call fastcc i64 @cpu_clock_sample_group.argelim(i32 noundef %1, ptr noundef %0)
+  %13 = tail call fastcc i64 @cpu_clock_sample_group(i32 noundef %1, ptr noundef %0)
   %14 = icmp eq ptr %3, null
   br i1 %14, label %._crit_edge, label %15
 
@@ -981,7 +981,7 @@ define dso_local void @run_posix_cpu_timers() local_unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @cpu_clock_sample_group.argelim(i32 noundef range(i32 0, 4) %0, ptr noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc i64 @cpu_clock_sample_group(i32 noundef range(i32 0, 4) %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.task_cputime, align 8
   %4 = alloca [3 x i64], align 16
   %5 = getelementptr inbounds i8, ptr %1, i64 1880
@@ -1683,7 +1683,7 @@ define internal noundef range(i32 -3, 2) i32 @posix_cpu_timer_set(ptr noundef %0
   br label %65
 
 63:                                               ; preds = %46
-  %64 = call fastcc i64 @cpu_clock_sample_group.argelim(i32 noundef %8, ptr noundef nonnull %16)
+  %64 = call fastcc i64 @cpu_clock_sample_group(i32 noundef %8, ptr noundef nonnull %16)
   br label %65
 
 65:                                               ; preds = %63, %62, %58, %55, %53
@@ -2291,7 +2291,7 @@ define internal void @posix_cpu_timer_rearm(ptr noundef %0) #1 align 16 {
   br label %35
 
 33:                                               ; preds = %17
-  %34 = call fastcc i64 @cpu_clock_sample_group.argelim(i32 noundef %5, ptr noundef nonnull %12)
+  %34 = call fastcc i64 @cpu_clock_sample_group(i32 noundef %5, ptr noundef nonnull %12)
   br label %35
 
 35:                                               ; preds = %33, %32, %28, %25, %23

@@ -2324,8 +2324,8 @@ define internal fastcc i32 @msgctl_down(ptr noundef %0, i32 noundef %1, i32 noun
   %32 = call i64 @ktime_get_real_seconds() #10
   %33 = getelementptr inbounds i8, ptr %9, i64 144
   store i64 %32, ptr %33, align 16
-  call fastcc void @expunge_all.argelim(ptr noundef %9, ptr noundef nonnull %6)
-  call fastcc void @ss_wakeup.argelim(ptr noundef %9, ptr noundef nonnull %6)
+  call fastcc void @expunge_all(ptr noundef %9, ptr noundef nonnull %6)
+  call fastcc void @ss_wakeup(ptr noundef %9, ptr noundef nonnull %6)
   call void @_raw_spin_unlock(ptr noundef %9) #10
   call void @wake_up_q(ptr noundef nonnull %6) #10
   br label %.thread
@@ -2406,7 +2406,7 @@ declare dso_local zeroext i1 @capable(i32 noundef) local_unnamed_addr #2
 declare dso_local i32 @ipc_update_perm(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @expunge_all.argelim(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @expunge_all(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 208
   %4 = load ptr, ptr %3, align 16
   %5 = icmp eq ptr %4, %3
@@ -2446,7 +2446,7 @@ define internal fastcc void @expunge_all.argelim(ptr noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ss_wakeup.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @ss_wakeup(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3

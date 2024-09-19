@@ -381,7 +381,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 16
   store ptr %34, ptr %.sroa.5.0..sroa_idx, align 8
-  call fastcc void @"_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet28_$u7b$$u7b$closure$u7d$$u7d$17hbfb5327b779d9d61E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %21)
+  call fastcc void @"_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet28_$u7b$$u7b$closure$u7d$$u7d$17hbfb5327b779d9d61E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %21)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
@@ -651,14 +651,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @_ZN12tracing_core5event5Event8dispatch17h2c7677b016771da4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13)
   %101 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17ha75096dd2289f006E monotonic, align 1, !noalias !35
   %102 = icmp eq i8 %101, 0
-  br i1 %102, label %103, label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17hf8f19b062e78f05dE.argprom.exit"
+  br i1 %102, label %103, label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17hf8f19b062e78f05dE.exit"
 
 103:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit"
   %104 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !35
   %105 = icmp ult i64 %104, 6
   call void @llvm.assume(i1 %105)
   %106 = icmp ult i64 %104, 5
-  br i1 %106, label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17hf8f19b062e78f05dE.argprom.exit", label %.critedge9.i
+  br i1 %106, label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17hf8f19b062e78f05dE.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %103
   %107 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment10__CALLSITE17h4a7de721ed58d0d5E, align 8, !noalias !35, !nonnull !4, !align !5, !noundef !4
@@ -690,18 +690,18 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
 
 121:                                              ; preds = %120, %.critedge9.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !35
-  br label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17hf8f19b062e78f05dE.argprom.exit"
+  br label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17hf8f19b062e78f05dE.exit"
 
-"_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17hf8f19b062e78f05dE.argprom.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit", %103, %121
+"_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17hf8f19b062e78f05dE.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit", %103, %121
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   br label %122
 
-122:                                              ; preds = %61, %88, %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17hf8f19b062e78f05dE.argprom.exit", %.critedge63, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h350b671c87f87633E.exit"
-  %.sroa.3.0 = phi i64 [ %.0.sroa.speculated.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h350b671c87f87633E.exit" ], [ undef, %.critedge63 ], [ undef, %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17hf8f19b062e78f05dE.argprom.exit" ], [ undef, %61 ], [ undef, %88 ]
-  %.sroa.0.0 = phi ptr [ %39, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h350b671c87f87633E.exit" ], [ null, %.critedge63 ], [ null, %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17hf8f19b062e78f05dE.argprom.exit" ], [ null, %61 ], [ null, %88 ]
+122:                                              ; preds = %61, %88, %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17hf8f19b062e78f05dE.exit", %.critedge63, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h350b671c87f87633E.exit"
+  %.sroa.3.0 = phi i64 [ %.0.sroa.speculated.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h350b671c87f87633E.exit" ], [ undef, %.critedge63 ], [ undef, %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17hf8f19b062e78f05dE.exit" ], [ undef, %61 ], [ undef, %88 ]
+  %.sroa.0.0 = phi ptr [ %39, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h350b671c87f87633E.exit" ], [ null, %.critedge63 ], [ null, %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17hf8f19b062e78f05dE.exit" ], [ null, %61 ], [ null, %88 ]
   %123 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %124 = insertvalue { ptr, i64 } %123, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %124
@@ -891,7 +891,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   br label %84
 
-93:                                               ; preds = %57, %84, %.critedge173, %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h64fb715ad3d083e6E.argprom.exit"
+93:                                               ; preds = %57, %84, %.critedge173, %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h64fb715ad3d083e6E.exit"
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %0, i8 0, i64 1024, i1 false), !alias.scope !50
   %.sroa.4.0..sroa_idx.i196 = getelementptr inbounds i8, ptr %0, i64 1024
   store i64 18, ptr %.sroa.4.0..sroa_idx.i196, align 8, !alias.scope !50
@@ -943,14 +943,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @_ZN12tracing_core5event5Event8dispatch17h2c7677b016771da4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19)
   %102 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17ha75096dd2289f006E monotonic, align 1, !noalias !59
   %103 = icmp eq i8 %102, 0
-  br i1 %103, label %104, label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h64fb715ad3d083e6E.argprom.exit"
+  br i1 %103, label %104, label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h64fb715ad3d083e6E.exit"
 
 104:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit"
   %105 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !59
   %106 = icmp ult i64 %105, 6
   call void @llvm.assume(i1 %106)
   %107 = icmp ult i64 %105, 5
-  br i1 %107, label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h64fb715ad3d083e6E.argprom.exit", label %.critedge9.i
+  br i1 %107, label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h64fb715ad3d083e6E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %104
   %108 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length10__CALLSITE17hb2ef31222e553f74E, align 8, !noalias !59, !nonnull !4, !align !5, !noundef !4
@@ -982,9 +982,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
 
 122:                                              ; preds = %121, %.critedge9.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !59
-  br label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h64fb715ad3d083e6E.argprom.exit"
+  br label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h64fb715ad3d083e6E.exit"
 
-"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h64fb715ad3d083e6E.argprom.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit", %104, %122
+"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h64fb715ad3d083e6E.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit", %104, %122
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16)
@@ -992,9 +992,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   br label %93
 
-.sink.split:                                      ; preds = %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h66f698d54939724cE.argprom.exit", %.critedge179, %173, %146, %93
-  %.sroa.5.0.ph = phi i64 [ %95, %93 ], [ undef, %146 ], [ undef, %173 ], [ undef, %.critedge179 ], [ undef, %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h66f698d54939724cE.argprom.exit" ]
-  %.sroa.0.0.ph = phi i64 [ 1, %93 ], [ 0, %146 ], [ 0, %173 ], [ 0, %.critedge179 ], [ 0, %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h66f698d54939724cE.argprom.exit" ]
+.sink.split:                                      ; preds = %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h66f698d54939724cE.exit", %.critedge179, %173, %146, %93
+  %.sroa.5.0.ph = phi i64 [ %95, %93 ], [ undef, %146 ], [ undef, %173 ], [ undef, %.critedge179 ], [ undef, %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h66f698d54939724cE.exit" ]
+  %.sroa.0.0.ph = phi i64 [ 1, %93 ], [ 0, %146 ], [ 0, %173 ], [ 0, %.critedge179 ], [ 0, %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h66f698d54939724cE.exit" ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   br label %123
 
@@ -1187,14 +1187,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit198
   call void @_ZN12tracing_core5event5Event8dispatch17h2c7677b016771da4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %135, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %31)
   %188 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17ha75096dd2289f006E monotonic, align 1, !noalias !74
   %189 = icmp eq i8 %188, 0
-  br i1 %189, label %190, label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h66f698d54939724cE.argprom.exit"
+  br i1 %189, label %190, label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h66f698d54939724cE.exit"
 
 190:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit205"
   %191 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !74
   %192 = icmp ult i64 %191, 6
   call void @llvm.assume(i1 %192)
   %193 = icmp eq i64 %191, 0
-  br i1 %193, label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h66f698d54939724cE.argprom.exit", label %.critedge9.i213
+  br i1 %193, label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h66f698d54939724cE.exit", label %.critedge9.i213
 
 .critedge9.i213:                                  ; preds = %190
   %194 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length10__CALLSITE17hb4ef936d3077e374E, align 8, !noalias !74, !nonnull !4, !align !5, !noundef !4
@@ -1226,9 +1226,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit198
 
 208:                                              ; preds = %207, %.critedge9.i213
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !74
-  br label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h66f698d54939724cE.argprom.exit"
+  br label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h66f698d54939724cE.exit"
 
-"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h66f698d54939724cE.argprom.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit205", %190, %208
+"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h66f698d54939724cE.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit205", %190, %208
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %28)
@@ -1477,7 +1477,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
   br label %120
 
-131:                                              ; preds = %93, %120, %.critedge203, %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h411f4c9fc4206e0cE.argprom.exit"
+131:                                              ; preds = %93, %120, %.critedge203, %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h411f4c9fc4206e0cE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
   %132 = load i64, ptr %54, align 8, !noundef !4
   %133 = load i64, ptr %52, align 8, !noundef !4
@@ -1531,14 +1531,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @_ZN12tracing_core5event5Event8dispatch17h2c7677b016771da4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %82, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %36)
   %144 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17ha75096dd2289f006E monotonic, align 1, !noalias !98
   %145 = icmp eq i8 %144, 0
-  br i1 %145, label %146, label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h411f4c9fc4206e0cE.argprom.exit"
+  br i1 %145, label %146, label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h411f4c9fc4206e0cE.exit"
 
 146:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit"
   %147 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !98
   %148 = icmp ult i64 %147, 6
   call void @llvm.assume(i1 %148)
   %149 = icmp ult i64 %147, 5
-  br i1 %149, label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h411f4c9fc4206e0cE.argprom.exit", label %.critedge9.i
+  br i1 %149, label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h411f4c9fc4206e0cE.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %146
   %150 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17he00b10cef53e9cd8E, align 8, !noalias !98, !nonnull !4, !align !5, !noundef !4
@@ -1570,9 +1570,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
 
 164:                                              ; preds = %163, %.critedge9.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !98
-  br label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h411f4c9fc4206e0cE.argprom.exit"
+  br label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h411f4c9fc4206e0cE.exit"
 
-"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h411f4c9fc4206e0cE.argprom.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit", %146, %164
+"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h411f4c9fc4206e0cE.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit", %146, %164
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %33)
@@ -1730,7 +1730,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit239
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   br label %215
 
-224:                                              ; preds = %188, %215, %.critedge209, %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h7ef714bea9497ac9E.argprom.exit"
+224:                                              ; preds = %188, %215, %.critedge209, %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h7ef714bea9497ac9E.exit"
   %225 = load i64, ptr %54, align 8, !noundef !4
   %226 = icmp ugt i64 %225, 1024
   br i1 %226, label %227, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h350b671c87f87633E.exit"
@@ -1789,14 +1789,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit239
   call void @_ZN12tracing_core5event5Event8dispatch17h2c7677b016771da4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %177, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %23)
   %236 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17ha75096dd2289f006E monotonic, align 1, !noalias !116
   %237 = icmp eq i8 %236, 0
-  br i1 %237, label %238, label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h7ef714bea9497ac9E.argprom.exit"
+  br i1 %237, label %238, label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h7ef714bea9497ac9E.exit"
 
 238:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit246"
   %239 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !116
   %240 = icmp ult i64 %239, 6
   call void @llvm.assume(i1 %240)
   %241 = icmp ult i64 %239, 5
-  br i1 %241, label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h7ef714bea9497ac9E.argprom.exit", label %.critedge9.i254
+  br i1 %241, label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h7ef714bea9497ac9E.exit", label %.critedge9.i254
 
 .critedge9.i254:                                  ; preds = %238
   %242 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17h8ab13fa8038819e9E, align 8, !noalias !116, !nonnull !4, !align !5, !noundef !4
@@ -1828,9 +1828,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit239
 
 256:                                              ; preds = %255, %.critedge9.i254
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !116
-  br label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h7ef714bea9497ac9E.argprom.exit"
+  br label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h7ef714bea9497ac9E.exit"
 
-"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h7ef714bea9497ac9E.argprom.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit246", %238, %256
+"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h7ef714bea9497ac9E.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit246", %238, %256
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20)
@@ -1985,7 +1985,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit256
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42)
   br label %305
 
-314:                                              ; preds = %278, %305, %.critedge217, %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h6760029948976074E.argprom.exit"
+314:                                              ; preds = %278, %305, %.critedge217, %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h6760029948976074E.exit"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   store i64 8, ptr %11, align 8
   %315 = call noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error3new17hc13f062f76a5c009E(i8 noundef 3, i8 noundef 14, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.44a7420d7a8ea5bd4737c26a9b317e9e.60)
@@ -2038,14 +2038,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit256
   call void @_ZN12tracing_core5event5Event8dispatch17h2c7677b016771da4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %267, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %50)
   %323 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17ha75096dd2289f006E monotonic, align 1, !noalias !131
   %324 = icmp eq i8 %323, 0
-  br i1 %324, label %325, label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h6760029948976074E.argprom.exit"
+  br i1 %324, label %325, label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h6760029948976074E.exit"
 
 325:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit263"
   %326 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !131
   %327 = icmp ult i64 %326, 6
   call void @llvm.assume(i1 %327)
   %328 = icmp eq i64 %326, 0
-  br i1 %328, label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h6760029948976074E.argprom.exit", label %.critedge9.i271
+  br i1 %328, label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h6760029948976074E.exit", label %.critedge9.i271
 
 .critedge9.i271:                                  ; preds = %325
   %329 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17hfb72417153a7a780E, align 8, !noalias !131, !nonnull !4, !align !5, !noundef !4
@@ -2077,9 +2077,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit256
 
 343:                                              ; preds = %342, %.critedge9.i271
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !131
-  br label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h6760029948976074E.argprom.exit"
+  br label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h6760029948976074E.exit"
 
-"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h6760029948976074E.argprom.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit263", %325, %343
+"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h6760029948976074E.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit263", %325, %343
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %50)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46)
@@ -2135,7 +2135,7 @@ define noundef zeroext i1 @"_ZN86_$LT$ockam_transport_ble..driver..packet..Packe
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet28_$u7b$$u7b$closure$u7d$$u7d$17hbfb5327b779d9d61E.argprom"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 {
+define internal fastcc void @"_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet28_$u7b$$u7b$closure$u7d$$u7d$17hbfb5327b779d9d61E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -2321,8 +2321,8 @@ attributes #14 = { noreturn }
 !33 = distinct !{!33, !34, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h350b671c87f87633E: argument 0"}
 !34 = distinct !{!34, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h350b671c87f87633E"}
 !35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17hf8f19b062e78f05dE.argprom: argument 0"}
-!37 = distinct !{!37, !"_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17hf8f19b062e78f05dE.argprom"}
+!36 = distinct !{!36, !37, !"_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17hf8f19b062e78f05dE: argument 0"}
+!37 = distinct !{!37, !"_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17hf8f19b062e78f05dE"}
 !38 = !{!39, !41}
 !39 = distinct !{!39, !40, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc94e2e352be76bffE: argument 0"}
 !40 = distinct !{!40, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc94e2e352be76bffE"}
@@ -2345,8 +2345,8 @@ attributes #14 = { noreturn }
 !57 = distinct !{!57, !55, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 1"}
 !58 = distinct !{!58, !55, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 2"}
 !59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h64fb715ad3d083e6E.argprom: argument 0"}
-!61 = distinct !{!61, !"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h64fb715ad3d083e6E.argprom"}
+!60 = distinct !{!60, !61, !"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h64fb715ad3d083e6E: argument 0"}
+!61 = distinct !{!61, !"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h64fb715ad3d083e6E"}
 !62 = !{!63}
 !63 = distinct !{!63, !64, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !64 = distinct !{!64, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -2360,8 +2360,8 @@ attributes #14 = { noreturn }
 !72 = distinct !{!72, !70, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 1"}
 !73 = distinct !{!73, !70, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 2"}
 !74 = !{!75}
-!75 = distinct !{!75, !76, !"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h66f698d54939724cE.argprom: argument 0"}
-!76 = distinct !{!76, !"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h66f698d54939724cE.argprom"}
+!75 = distinct !{!75, !76, !"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h66f698d54939724cE: argument 0"}
+!76 = distinct !{!76, !"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h66f698d54939724cE"}
 !77 = !{!78}
 !78 = distinct !{!78, !79, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he7efd30e132ee3e2E: argument 0"}
 !79 = distinct !{!79, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he7efd30e132ee3e2E"}
@@ -2384,8 +2384,8 @@ attributes #14 = { noreturn }
 !96 = distinct !{!96, !94, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 1"}
 !97 = distinct !{!97, !94, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 2"}
 !98 = !{!99}
-!99 = distinct !{!99, !100, !"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h411f4c9fc4206e0cE.argprom: argument 0"}
-!100 = distinct !{!100, !"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h411f4c9fc4206e0cE.argprom"}
+!99 = distinct !{!99, !100, !"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h411f4c9fc4206e0cE: argument 0"}
+!100 = distinct !{!100, !"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h411f4c9fc4206e0cE"}
 !101 = !{!102}
 !102 = distinct !{!102, !103, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !103 = distinct !{!103, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -2402,8 +2402,8 @@ attributes #14 = { noreturn }
 !114 = distinct !{!114, !112, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 1"}
 !115 = distinct !{!115, !112, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 2"}
 !116 = !{!117}
-!117 = distinct !{!117, !118, !"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h7ef714bea9497ac9E.argprom: argument 0"}
-!118 = distinct !{!118, !"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h7ef714bea9497ac9E.argprom"}
+!117 = distinct !{!117, !118, !"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h7ef714bea9497ac9E: argument 0"}
+!118 = distinct !{!118, !"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h7ef714bea9497ac9E"}
 !119 = !{!120}
 !120 = distinct !{!120, !121, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !121 = distinct !{!121, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -2417,8 +2417,8 @@ attributes #14 = { noreturn }
 !129 = distinct !{!129, !127, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 1"}
 !130 = distinct !{!130, !127, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 2"}
 !131 = !{!132}
-!132 = distinct !{!132, !133, !"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h6760029948976074E.argprom: argument 0"}
-!133 = distinct !{!133, !"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h6760029948976074E.argprom"}
+!132 = distinct !{!132, !133, !"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h6760029948976074E: argument 0"}
+!133 = distinct !{!133, !"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h6760029948976074E"}
 !134 = !{!135}
 !135 = distinct !{!135, !136, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h350b671c87f87633E: argument 0"}
 !136 = distinct !{!136, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h350b671c87f87633E"}

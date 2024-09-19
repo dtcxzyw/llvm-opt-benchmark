@@ -1135,7 +1135,7 @@ default.unreachable3:                             ; preds = %30, %2
   %.val16.i = load ptr, ptr %10, align 8, !alias.scope !82, !noalias !74, !nonnull !7, !noundef !7
   %11 = getelementptr inbounds i8, ptr %6, i64 16
   %.val17.i = load i64, ptr %11, align 8, !alias.scope !82, !noalias !74, !noundef !7
-  %12 = tail call fastcc noundef zeroext i1 @"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$9fmt_flags17hd76d09c600af0f84E.argprom"(ptr nonnull %7, ptr nonnull %.val16.i, i64 %.val17.i), !noalias !85
+  %12 = tail call fastcc noundef zeroext i1 @"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$9fmt_flags17hd76d09c600af0f84E"(ptr nonnull %7, ptr nonnull %.val16.i, i64 %.val17.i), !noalias !85
   br i1 %12, label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$13fmt_set_flags17h7cdb78900ab2993cE.llvm.16653392013706621149.exit", label %13
 
 13:                                               ; preds = %9
@@ -1272,14 +1272,14 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$regex_syntax..ast..print..Writer$LT
   %6 = icmp ult i32 %5, 8
   %narrow = select i1 %6, i32 %5, i32 2
   switch i32 %narrow, label %7 [
-    i32 0, label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+    i32 0, label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
     i32 1, label %8
     i32 2, label %10
     i32 3, label %13
     i32 4, label %87
     i32 5, label %89
     i32 6, label %100
-    i32 7, label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+    i32 7, label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
   ]
 
 7:                                                ; preds = %2
@@ -1287,12 +1287,12 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$regex_syntax..ast..print..Writer$LT
 
 8:                                                ; preds = %2
   %9 = tail call noundef zeroext i1 @"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$11fmt_literal17hf37dacb8961d2289E.llvm.16653392013706621149"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1)
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %1, i64 48
   %12 = tail call noundef zeroext i1 @"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$11fmt_literal17hf37dacb8961d2289E.llvm.16653392013706621149"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %11)
-  br i1 %12, label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit", label %103
+  br i1 %12, label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit", label %103
 
 13:                                               ; preds = %2
   %.val = load ptr, ptr %0, align 8, !nonnull !7, !noundef !7
@@ -1365,119 +1365,119 @@ default.unreachable:                              ; preds = %89, %13
 
 31:                                               ; preds = %17
   %32 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.80, i64 noundef 9), !noalias !136
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 33:                                               ; preds = %17
   %34 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.81, i64 noundef 10), !noalias !139
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 35:                                               ; preds = %18
   %36 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.82, i64 noundef 9), !noalias !142
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 37:                                               ; preds = %18
   %38 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.83, i64 noundef 10), !noalias !145
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 39:                                               ; preds = %19
   %40 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.84, i64 noundef 9), !noalias !148
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 41:                                               ; preds = %19
   %42 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.85, i64 noundef 10), !noalias !151
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 43:                                               ; preds = %20
   %44 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.86, i64 noundef 9), !noalias !154
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 45:                                               ; preds = %20
   %46 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.87, i64 noundef 10), !noalias !157
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 47:                                               ; preds = %21
   %48 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.88, i64 noundef 9), !noalias !160
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 49:                                               ; preds = %21
   %50 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.89, i64 noundef 10), !noalias !163
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 51:                                               ; preds = %22
   %52 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.90, i64 noundef 9), !noalias !166
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 53:                                               ; preds = %22
   %54 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.91, i64 noundef 10), !noalias !169
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 55:                                               ; preds = %23
   %56 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.92, i64 noundef 9), !noalias !172
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 57:                                               ; preds = %23
   %58 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.93, i64 noundef 10), !noalias !175
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 59:                                               ; preds = %24
   %60 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.94, i64 noundef 9), !noalias !178
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 61:                                               ; preds = %24
   %62 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.95, i64 noundef 10), !noalias !181
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 63:                                               ; preds = %25
   %64 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.96, i64 noundef 9), !noalias !184
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 65:                                               ; preds = %25
   %66 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.97, i64 noundef 10), !noalias !187
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 67:                                               ; preds = %26
   %68 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.98, i64 noundef 9), !noalias !190
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 69:                                               ; preds = %26
   %70 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.99, i64 noundef 10), !noalias !193
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 71:                                               ; preds = %27
   %72 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.100, i64 noundef 9), !noalias !196
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 73:                                               ; preds = %27
   %74 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.101, i64 noundef 10), !noalias !199
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 75:                                               ; preds = %28
   %76 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.102, i64 noundef 9), !noalias !202
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 77:                                               ; preds = %28
   %78 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.103, i64 noundef 10), !noalias !205
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 79:                                               ; preds = %29
   %80 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.104, i64 noundef 8), !noalias !208
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 81:                                               ; preds = %29
   %82 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.105, i64 noundef 9), !noalias !211
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 83:                                               ; preds = %30
   %84 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.106, i64 noundef 10), !noalias !214
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 85:                                               ; preds = %30
   %86 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.107, i64 noundef 11), !noalias !217
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 87:                                               ; preds = %2
   %88 = tail call noundef zeroext i1 @"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$17fmt_class_unicode17hb7cf7012778d4927E.llvm.16653392013706621149"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %1)
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 89:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !220)
@@ -1509,15 +1509,15 @@ default.unreachable:                              ; preds = %89, %13
   %anon.48fd4931446a7fcfc57d20f836544bed.79.llvm.16653392013706621149.sink.i = phi ptr [ %spec.select18, %95 ], [ %spec.select19, %96 ], [ %spec.select20, %97 ]
   %98 = load ptr, ptr %0, align 8, !alias.scope !220, !noalias !223, !nonnull !7, !align !8, !noundef !7
   %99 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %98, ptr noalias noundef nonnull readonly align 1 %anon.48fd4931446a7fcfc57d20f836544bed.79.llvm.16653392013706621149.sink.i, i64 noundef 2), !noalias !225
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 100:                                              ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !226)
   %101 = load ptr, ptr %0, align 8, !alias.scope !226, !noalias !229, !nonnull !7, !align !8, !noundef !7
   %102 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %101, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.6.llvm.16653392013706621149, i64 noundef 1), !noalias !226
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
-"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit": ; preds = %85, %83, %81, %79, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %106, %103, %10, %2, %2, %100, %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$14fmt_class_perl17hb4b336a417117999E.llvm.16653392013706621149.exit", %87, %8
+"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit": ; preds = %85, %83, %81, %79, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %106, %103, %10, %2, %2, %100, %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$14fmt_class_perl17hb4b336a417117999E.llvm.16653392013706621149.exit", %87, %8
   %.0.shrunk = phi i1 [ %102, %100 ], [ %99, %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$14fmt_class_perl17hb4b336a417117999E.llvm.16653392013706621149.exit" ], [ %88, %87 ], [ %9, %8 ], [ false, %2 ], [ false, %2 ], [ true, %10 ], [ true, %103 ], [ %108, %106 ], [ %86, %85 ], [ %84, %83 ], [ %82, %81 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ]
   ret i1 %.0.shrunk
 
@@ -1525,12 +1525,12 @@ default.unreachable:                              ; preds = %89, %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !231)
   %104 = load ptr, ptr %0, align 8, !alias.scope !231, !noalias !234, !nonnull !7, !align !8, !noundef !7
   %105 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %104, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.9, i64 noundef 1), !noalias !231
-  br i1 %105, label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit", label %106
+  br i1 %105, label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit", label %106
 
 106:                                              ; preds = %103
   %107 = getelementptr inbounds i8, ptr %1, i64 104
   %108 = tail call noundef zeroext i1 @"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$11fmt_literal17hf37dacb8961d2289E.llvm.16653392013706621149"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %107)
-  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.argprom.exit"
+  br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1610,7 +1610,7 @@ define hidden noundef zeroext i1 @"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$1
   %.val40 = load ptr, ptr %32, align 8, !alias.scope !263, !nonnull !7, !noundef !7
   %33 = getelementptr inbounds i8, ptr %1, i64 24
   %.val41 = load i64, ptr %33, align 8, !alias.scope !263, !noundef !7
-  %34 = tail call fastcc noundef zeroext i1 @"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$9fmt_flags17hd76d09c600af0f84E.argprom"(ptr nonnull %17, ptr nonnull %.val40, i64 %.val41)
+  %34 = tail call fastcc noundef zeroext i1 @"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$9fmt_flags17hd76d09c600af0f84E"(ptr nonnull %17, ptr nonnull %.val40, i64 %.val41)
   br i1 %34, label %19, label %35
 
 35:                                               ; preds = %31
@@ -1667,7 +1667,7 @@ default.unreachable:                              ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !270)
   %29 = getelementptr inbounds i8, ptr %1, i64 108
   switch i32 %14, label %default.unreachable1.i [
-    i32 0, label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$20fmt_repetition_range17h4c84ec0195c1ecfeE.argprom.exit"
+    i32 0, label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$20fmt_repetition_range17h4c84ec0195c1ecfeE.exit"
     i32 1, label %30
     i32 2, label %39
   ]
@@ -1736,7 +1736,7 @@ default.unreachable1.i:                           ; preds = %28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !270
   br i1 %51, label %66, label %79
 
-"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$20fmt_repetition_range17h4c84ec0195c1ecfeE.argprom.exit": ; preds = %28
+"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$20fmt_repetition_range17h4c84ec0195c1ecfeE.exit": ; preds = %28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12), !noalias !270
   %52 = load i32, ptr %29, align 4, !alias.scope !270, !noundef !7
   store i32 %52, ptr %12, align 4, !noalias !270
@@ -1774,8 +1774,8 @@ default.unreachable1.i:                           ; preds = %28
   %65 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %64, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.17, i64 noundef 1), !noalias !305
   br label %66
 
-66:                                               ; preds = %30, %39, %83, %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$20fmt_repetition_range17h4c84ec0195c1ecfeE.argprom.exit", %79, %76, %73, %70, %67, %63, %60
-  %.0.shrunk = phi i1 [ %78, %76 ], [ %75, %73 ], [ %72, %70 ], [ %69, %67 ], [ %65, %63 ], [ %62, %60 ], [ true, %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$20fmt_repetition_range17h4c84ec0195c1ecfeE.argprom.exit" ], [ false, %79 ], [ %84, %83 ], [ true, %39 ], [ true, %30 ]
+66:                                               ; preds = %30, %39, %83, %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$20fmt_repetition_range17h4c84ec0195c1ecfeE.exit", %79, %76, %73, %70, %67, %63, %60
+  %.0.shrunk = phi i1 [ %78, %76 ], [ %75, %73 ], [ %72, %70 ], [ %69, %67 ], [ %65, %63 ], [ %62, %60 ], [ true, %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$20fmt_repetition_range17h4c84ec0195c1ecfeE.exit" ], [ false, %79 ], [ %84, %83 ], [ true, %39 ], [ true, %30 ]
   ret i1 %.0.shrunk
 
 67:                                               ; preds = %20
@@ -1802,7 +1802,7 @@ default.unreachable1.i:                           ; preds = %28
   %78 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %77, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.21, i64 noundef 1), !noalias !325
   br label %66
 
-79:                                               ; preds = %30, %39, %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$20fmt_repetition_range17h4c84ec0195c1ecfeE.argprom.exit"
+79:                                               ; preds = %30, %39, %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$20fmt_repetition_range17h4c84ec0195c1ecfeE.exit"
   %80 = getelementptr inbounds i8, ptr %1, i64 120
   %81 = load i8, ptr %80, align 8, !range !13, !noundef !7
   %82 = trunc nuw i8 %81 to i1
@@ -2315,7 +2315,7 @@ define hidden noundef zeroext i1 @"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$1
   %.val16 = load ptr, ptr %6, align 8, !alias.scope !263, !nonnull !7, !noundef !7
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %.val17 = load i64, ptr %7, align 8, !alias.scope !263, !noundef !7
-  %8 = tail call fastcc noundef zeroext i1 @"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$9fmt_flags17hd76d09c600af0f84E.argprom"(ptr nonnull %3, ptr nonnull %.val16, i64 %.val17)
+  %8 = tail call fastcc noundef zeroext i1 @"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$9fmt_flags17hd76d09c600af0f84E"(ptr nonnull %3, ptr nonnull %.val16, i64 %.val17)
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %5
@@ -2328,7 +2328,7 @@ define hidden noundef zeroext i1 @"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$9fmt_flags17hd76d09c600af0f84E.argprom"(ptr %.0.val, ptr readonly %.8.val, i64 %.16.val) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$9fmt_flags17hd76d09c600af0f84E"(ptr %.0.val, ptr readonly %.8.val, i64 %.16.val) unnamed_addr #1 {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds { { { i64, i64, i64 }, { i64, i64, i64 } }, i8, [7 x i8] }, ptr %.8.val, i64 %.16.val
@@ -6034,8 +6034,8 @@ attributes #38 = { noreturn }
 !268 = distinct !{!268, !"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$9write_str17h988ded4fd8de4281E"}
 !269 = !{i32 0, i32 6}
 !270 = !{!271}
-!271 = distinct !{!271, !272, !"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$20fmt_repetition_range17h4c84ec0195c1ecfeE.argprom: argument 0"}
-!272 = distinct !{!272, !"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$20fmt_repetition_range17h4c84ec0195c1ecfeE.argprom"}
+!271 = distinct !{!271, !272, !"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$20fmt_repetition_range17h4c84ec0195c1ecfeE: argument 0"}
+!272 = distinct !{!272, !"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$20fmt_repetition_range17h4c84ec0195c1ecfeE"}
 !273 = !{!274}
 !274 = distinct !{!274, !275, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
 !275 = distinct !{!275, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}

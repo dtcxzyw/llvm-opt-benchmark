@@ -750,7 +750,7 @@ define range(i64 0, 8589934592) i64 @_ZN3nix24parseExperimentalFeatureERKSt17bas
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  invoke fastcc void @"_ZZN3nix24parseExperimentalFeatureERKSt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.argprom"()
+  invoke fastcc void @"_ZZN3nix24parseExperimentalFeatureERKSt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv"()
           to label %7 unwind label %32
 
 7:                                                ; preds = %6
@@ -855,7 +855,7 @@ select.unfold:                                    ; preds = %_ZNSt3mapISt17basic
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3nix24parseExperimentalFeatureERKSt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.argprom"() unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3nix24parseExperimentalFeatureERKSt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv"() unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %1 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25, !noalias !7
   %2 = getelementptr inbounds i8, ptr %1, i64 8

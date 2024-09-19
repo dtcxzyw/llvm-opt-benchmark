@@ -1552,24 +1552,24 @@ while.end.i121:                                   ; preds = %while.cond.outer.ba
 if.then64.i:                                      ; preds = %while.end.i121
   %168 = load i64, ptr %nr.i.i122, align 8
   %cmp.i.i.i123 = icmp ugt i64 %168, 1
-  br i1 %cmp.i.i.i123, label %if.then.i.i.i139, label %sane_qsort.argprom.exit.i.i
+  br i1 %cmp.i.i.i123, label %if.then.i.i.i139, label %sane_qsort.exit.i.i
 
 if.then.i.i.i139:                                 ; preds = %if.then64.i
   %169 = load ptr, ptr %authors.i, align 8
   call void @qsort(ptr noundef %169, i64 noundef %168, i64 noundef 16, ptr noundef nonnull @cmp_string_list_util_as_integral) #14
-  br label %sane_qsort.argprom.exit.i.i
+  br label %sane_qsort.exit.i.i
 
-sane_qsort.argprom.exit.i.i:                      ; preds = %if.then.i.i.i139, %if.then64.i
+sane_qsort.exit.i.i:                              ; preds = %if.then.i.i.i139, %if.then64.i
   %170 = load i64, ptr %nr2.i.i, align 8
   %cmp.i6.i.i = icmp ugt i64 %170, 1
   br i1 %cmp.i6.i.i, label %if.then.i7.i.i, label %add_people_info.exit.i
 
-if.then.i7.i.i:                                   ; preds = %sane_qsort.argprom.exit.i.i
+if.then.i7.i.i:                                   ; preds = %sane_qsort.exit.i.i
   %171 = load ptr, ptr %committers.i, align 8
   call void @qsort(ptr noundef %171, i64 noundef %170, i64 noundef 16, ptr noundef nonnull @cmp_string_list_util_as_integral) #14
   br label %add_people_info.exit.i
 
-add_people_info.exit.i:                           ; preds = %if.then.i7.i.i, %sane_qsort.argprom.exit.i.i
+add_people_info.exit.i:                           ; preds = %if.then.i7.i.i, %sane_qsort.exit.i.i
   call fastcc void @credit_people(ptr noundef %out, ptr noundef readonly %authors.i, i32 noundef 97)
   call fastcc void @credit_people(ptr noundef %out, ptr noundef readonly %committers.i, i32 noundef 99)
   br label %if.end65.i

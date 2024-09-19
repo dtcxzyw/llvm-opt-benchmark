@@ -1133,23 +1133,23 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %1
           to label %.noexc unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit8.loopexit
 
 .noexc:                                           ; preds = %14
-  br i1 %15, label %"_ZZN2cv21VideoCapture_obsensor9grabFrameEvENK3$_0clEv.argprom.exit.thread.i.i", label %"_ZZN2cv21VideoCapture_obsensor9grabFrameEvENK3$_0clEv.argprom.exit.i.i"
+  br i1 %15, label %"_ZZN2cv21VideoCapture_obsensor9grabFrameEvENK3$_0clEv.exit.thread.i.i", label %"_ZZN2cv21VideoCapture_obsensor9grabFrameEvENK3$_0clEv.exit.i.i"
 
-"_ZZN2cv21VideoCapture_obsensor9grabFrameEvENK3$_0clEv.argprom.exit.i.i": ; preds = %.noexc
+"_ZZN2cv21VideoCapture_obsensor9grabFrameEvENK3$_0clEv.exit.i.i": ; preds = %.noexc
   %16 = invoke noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %10)
           to label %.noexc2 unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit8.loopexit
 
-.noexc2:                                          ; preds = %"_ZZN2cv21VideoCapture_obsensor9grabFrameEvENK3$_0clEv.argprom.exit.i.i"
-  br i1 %16, label %"_ZZN2cv21VideoCapture_obsensor9grabFrameEvENK3$_0clEv.argprom.exit.thread.i.i", label %"_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000EEZN2cv21VideoCapture_obsensor9grabFrameEvE3$_0EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit"
+.noexc2:                                          ; preds = %"_ZZN2cv21VideoCapture_obsensor9grabFrameEvENK3$_0clEv.exit.i.i"
+  br i1 %16, label %"_ZZN2cv21VideoCapture_obsensor9grabFrameEvENK3$_0clEv.exit.thread.i.i", label %"_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000EEZN2cv21VideoCapture_obsensor9grabFrameEvE3$_0EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit"
 
-"_ZZN2cv21VideoCapture_obsensor9grabFrameEvENK3$_0clEv.argprom.exit.thread.i.i": ; preds = %.noexc2, %.noexc
+"_ZZN2cv21VideoCapture_obsensor9grabFrameEvENK3$_0clEv.exit.thread.i.i": ; preds = %.noexc2, %.noexc
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store i64 %12, ptr %2, align 8
   store i64 %13, ptr %11, align 8
   %17 = invoke i32 @pthread_cond_clockwait(ptr noundef nonnull %6, ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull %2)
           to label %.noexc3 unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit8.loopexit
 
-.noexc3:                                          ; preds = %"_ZZN2cv21VideoCapture_obsensor9grabFrameEvENK3$_0clEv.argprom.exit.thread.i.i"
+.noexc3:                                          ; preds = %"_ZZN2cv21VideoCapture_obsensor9grabFrameEvENK3$_0clEv.exit.thread.i.i"
   %18 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #19
   %.not.i.i = icmp slt i64 %18, %8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
@@ -1204,7 +1204,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %32, %35
   %38 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #19
   ret i1 %37
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit8.loopexit:  ; preds = %"_ZZN2cv21VideoCapture_obsensor9grabFrameEvENK3$_0clEv.argprom.exit.thread.i.i", %"_ZZN2cv21VideoCapture_obsensor9grabFrameEvENK3$_0clEv.argprom.exit.i.i", %14
+_ZNSt11unique_lockISt5mutexED2Ev.exit8.loopexit:  ; preds = %"_ZZN2cv21VideoCapture_obsensor9grabFrameEvENK3$_0clEv.exit.thread.i.i", %"_ZZN2cv21VideoCapture_obsensor9grabFrameEvENK3$_0clEv.exit.i.i", %14
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit8
@@ -1815,7 +1815,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i.i:   ; preds = %2
 13:                                               ; preds = %12
   %14 = getelementptr inbounds i8, ptr %.val, i64 224
   %15 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %14, ptr noundef nonnull align 8 dereferenceable(96) %3)
-          to label %"_ZSt10__invoke_rIvRZN2cv21VideoCapture_obsensorC1EiE3$_0JPNS0_8obsensor5FrameEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES9_E4typeEOSC_DpOSD_.argprom.exit" unwind label %20
+          to label %"_ZSt10__invoke_rIvRZN2cv21VideoCapture_obsensorC1EiE3$_0JPNS0_8obsensor5FrameEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES9_E4typeEOSC_DpOSD_.exit" unwind label %20
 
 16:                                               ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i.i
   %17 = landingpad { ptr, i32 }
@@ -1843,7 +1843,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit9.i.i.i:     ; preds = %22, %16
   %23 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #19
   resume { ptr, i32 } %.pn.pn.i.i.i
 
-"_ZSt10__invoke_rIvRZN2cv21VideoCapture_obsensorC1EiE3$_0JPNS0_8obsensor5FrameEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES9_E4typeEOSC_DpOSD_.argprom.exit": ; preds = %13
+"_ZSt10__invoke_rIvRZN2cv21VideoCapture_obsensorC1EiE3$_0JPNS0_8obsensor5FrameEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES9_E4typeEOSC_DpOSD_.exit": ; preds = %13
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #19
   %24 = getelementptr inbounds i8, ptr %.val, i64 80
@@ -1924,7 +1924,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i.i:   ; preds = %2
 17:                                               ; preds = %16
   %18 = getelementptr inbounds i8, ptr %.val, i64 128
   %19 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %18, ptr noundef nonnull align 8 dereferenceable(96) %3)
-          to label %"_ZSt10__invoke_rIvRZN2cv21VideoCapture_obsensorC1EiE3$_1JPNS0_8obsensor5FrameEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES9_E4typeEOSC_DpOSD_.argprom.exit" unwind label %24
+          to label %"_ZSt10__invoke_rIvRZN2cv21VideoCapture_obsensorC1EiE3$_1JPNS0_8obsensor5FrameEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES9_E4typeEOSC_DpOSD_.exit" unwind label %24
 
 20:                                               ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i.i
   %21 = landingpad { ptr, i32 }
@@ -1952,7 +1952,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit11.i.i.i:    ; preds = %26, %20
   %27 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #19
   resume { ptr, i32 } %.pn.pn.i.i.i
 
-"_ZSt10__invoke_rIvRZN2cv21VideoCapture_obsensorC1EiE3$_1JPNS0_8obsensor5FrameEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES9_E4typeEOSC_DpOSD_.argprom.exit": ; preds = %17
+"_ZSt10__invoke_rIvRZN2cv21VideoCapture_obsensorC1EiE3$_1JPNS0_8obsensor5FrameEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES9_E4typeEOSC_DpOSD_.exit": ; preds = %17
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #19
   %28 = getelementptr inbounds i8, ptr %.val, i64 80
@@ -2038,8 +2038,8 @@ attributes #21 = { noreturn }
 !4 = !{!5, !7}
 !5 = distinct !{!5, !6, !"_ZSt11make_sharedIN2cv21VideoCapture_obsensorEJRKiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: argument 0"}
 !6 = distinct !{!6, !"_ZSt11make_sharedIN2cv21VideoCapture_obsensorEJRKiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
-!7 = distinct !{!7, !8, !"_ZN2cvL7makePtrINS_21VideoCapture_obsensorEJiEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!8 = distinct !{!8, !"_ZN2cvL7makePtrINS_21VideoCapture_obsensorEJiEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!7 = distinct !{!7, !8, !"_ZN2cvL7makePtrINS_21VideoCapture_obsensorEJiEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!8 = distinct !{!8, !"_ZN2cvL7makePtrINS_21VideoCapture_obsensorEJiEEENS_3PtrIT_EEDpRKT0_"}
 !9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = distinct !{!11, !10}

@@ -142,22 +142,22 @@ define internal i32 @pmix_plog_close() #1 {
   store i8 0, ptr getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 385), align 1
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 352), align 8
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %pmix_pointer_array_get_item.argprom.exit.preheader, label %._crit_edge
+  br i1 %5, label %pmix_pointer_array_get_item.exit.preheader, label %._crit_edge
 
-pmix_pointer_array_get_item.argprom.exit.preheader: ; preds = %3
+pmix_pointer_array_get_item.exit.preheader:       ; preds = %3
   %.pre37 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 376), align 8
-  br label %pmix_pointer_array_get_item.argprom.exit
+  br label %pmix_pointer_array_get_item.exit
 
-pmix_pointer_array_get_item.argprom.exit:         ; preds = %pmix_pointer_array_get_item.argprom.exit.preheader, %45
-  %6 = phi i32 [ %4, %pmix_pointer_array_get_item.argprom.exit.preheader ], [ %46, %45 ]
-  %7 = phi ptr [ %.pre37, %pmix_pointer_array_get_item.argprom.exit.preheader ], [ %47, %45 ]
-  %indvars.iv = phi i64 [ 0, %pmix_pointer_array_get_item.argprom.exit.preheader ], [ %indvars.iv.next, %45 ]
+pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_get_item.exit.preheader, %45
+  %6 = phi i32 [ %4, %pmix_pointer_array_get_item.exit.preheader ], [ %46, %45 ]
+  %7 = phi ptr [ %.pre37, %pmix_pointer_array_get_item.exit.preheader ], [ %47, %45 ]
+  %indvars.iv = phi i64 [ 0, %pmix_pointer_array_get_item.exit.preheader ], [ %indvars.iv.next, %45 ]
   %8 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %45, label %11
 
-11:                                               ; preds = %pmix_pointer_array_get_item.argprom.exit
+11:                                               ; preds = %pmix_pointer_array_get_item.exit
   %12 = getelementptr inbounds i8, ptr %9, i64 152
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 24
@@ -230,13 +230,13 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %28
   %.pre38 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 352), align 8
   br label %45
 
-45:                                               ; preds = %pmix_pointer_array_get_item.argprom.exit, %42
-  %46 = phi i32 [ %6, %pmix_pointer_array_get_item.argprom.exit ], [ %.pre38, %42 ]
-  %47 = phi ptr [ %7, %pmix_pointer_array_get_item.argprom.exit ], [ %.pre, %42 ]
+45:                                               ; preds = %pmix_pointer_array_get_item.exit, %42
+  %46 = phi i32 [ %6, %pmix_pointer_array_get_item.exit ], [ %.pre38, %42 ]
+  %47 = phi ptr [ %7, %pmix_pointer_array_get_item.exit ], [ %.pre, %42 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = sext i32 %46 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %49, label %pmix_pointer_array_get_item.argprom.exit, label %._crit_edge, !llvm.loop !7
+  br i1 %49, label %pmix_pointer_array_get_item.exit, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %45, %3
   %50 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 264), align 8

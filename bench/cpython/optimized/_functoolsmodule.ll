@@ -1541,20 +1541,20 @@ _PyVectorcall_FunctionInline.exit.i.i:            ; preds = %entry
 
 if.then.i.i:                                      ; preds = %_PyVectorcall_FunctionInline.exit.i.i, %entry
   %call2.i.i = tail call ptr @_PyObject_MakeTpCall(ptr noundef %2, ptr noundef nonnull @PyBaseObject_Type, ptr noundef null, i64 noundef 0, ptr noundef null) #6
-  br label %_PyObject_CallNoArgs.argprom.exit
+  br label %_PyObject_CallNoArgs.exit
 
 if.end.i.i:                                       ; preds = %_PyVectorcall_FunctionInline.exit.i.i
   %call3.i.i = tail call ptr %ptr.0.copyload.i.i.i(ptr noundef nonnull @PyBaseObject_Type, ptr noundef null, i64 noundef 0, ptr noundef null) #6
   %call4.i.i = tail call ptr @_Py_CheckFunctionResult(ptr noundef %2, ptr noundef nonnull @PyBaseObject_Type, ptr noundef %call3.i.i, ptr noundef null) #6
-  br label %_PyObject_CallNoArgs.argprom.exit
+  br label %_PyObject_CallNoArgs.exit
 
-_PyObject_CallNoArgs.argprom.exit:                ; preds = %if.then.i.i, %if.end.i.i
+_PyObject_CallNoArgs.exit:                        ; preds = %if.then.i.i, %if.end.i.i
   %retval.0.i.i = phi ptr [ %call2.i.i, %if.then.i.i ], [ %call4.i.i, %if.end.i.i ]
   store ptr %retval.0.i.i, ptr %module.val, align 8
   %cmp = icmp eq ptr %retval.0.i.i, null
   br i1 %cmp, label %return, label %if.end
 
-if.end:                                           ; preds = %_PyObject_CallNoArgs.argprom.exit
+if.end:                                           ; preds = %_PyObject_CallNoArgs.exit
   %call3 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef nonnull %module, ptr noundef nonnull @partial_type_spec, ptr noundef null) #6
   %partial_type = getelementptr inbounds i8, ptr %module.val, i64 8
   store ptr %call3, ptr %partial_type, align 8
@@ -1620,8 +1620,8 @@ if.end25:                                         ; preds = %Py_DECREF.exit
   %. = sext i1 %cmp28 to i32
   br label %return
 
-return:                                           ; preds = %if.end25, %Py_DECREF.exit, %if.end.i34, %if.then1.i37, %if.then19, %if.end12, %if.end7, %if.end, %_PyObject_CallNoArgs.argprom.exit
-  %retval.0 = phi i32 [ -1, %_PyObject_CallNoArgs.argprom.exit ], [ -1, %if.end ], [ -1, %if.end7 ], [ -1, %if.end12 ], [ -1, %if.then19 ], [ -1, %if.then1.i37 ], [ -1, %if.end.i34 ], [ -1, %Py_DECREF.exit ], [ %., %if.end25 ]
+return:                                           ; preds = %if.end25, %Py_DECREF.exit, %if.end.i34, %if.then1.i37, %if.then19, %if.end12, %if.end7, %if.end, %_PyObject_CallNoArgs.exit
+  %retval.0 = phi i32 [ -1, %_PyObject_CallNoArgs.exit ], [ -1, %if.end ], [ -1, %if.end7 ], [ -1, %if.end12 ], [ -1, %if.then19 ], [ -1, %if.then1.i37 ], [ -1, %if.end.i34 ], [ -1, %Py_DECREF.exit ], [ %., %if.end25 ]
   ret i32 %retval.0
 }
 

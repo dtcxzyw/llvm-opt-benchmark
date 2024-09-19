@@ -781,7 +781,7 @@ define internal fastcc void @_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGamePars
   %87 = sext i32 %85 to i64
   %88 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm(ptr noundef nonnull align 8 dereferenceable(32) %86, i64 noundef %87)
   %89 = load i8, ptr %88, align 1
-  switch i8 %89, label %_ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.argprom.exit [
+  switch i8 %89, label %_ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.exit [
     i8 32, label %90
     i8 13, label %90
     i8 10, label %90
@@ -793,7 +793,7 @@ define internal fastcc void @_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGamePars
   store i32 %92, ptr %83, align 8
   br label %84, !llvm.loop !6
 
-_ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.argprom.exit: ; preds = %84
+_ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.exit: ; preds = %84
   %93 = load i32, ptr %83, align 8
   store i32 %93, ptr %73, align 4
   %94 = load ptr, ptr %1, align 8
@@ -803,7 +803,7 @@ _ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.argprom.e
   %97 = icmp ugt i64 %95, %96
   br i1 %97, label %102, label %98
 
-98:                                               ; preds = %_ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.argprom.exit
+98:                                               ; preds = %_ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.exit
   store i32 67, ptr %76, align 4
   call void @_ZN10open_spiel8internal11SpielStrCatIJRA136_KcRA2_S2_iS6_RA29_S2_RA6_S2_RA4_S2_RiRA27_S2_RmEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %75, ptr noundef nonnull align 1 dereferenceable(136) @.str.7, ptr noundef nonnull align 1 dereferenceable(2) @.str.8, ptr noundef nonnull align 4 dereferenceable(4) %76, ptr noundef nonnull align 1 dereferenceable(2) @.str.9, ptr noundef nonnull align 1 dereferenceable(29) @.str.19, ptr noundef nonnull align 1 dereferenceable(6) @.str.20, ptr noundef nonnull align 1 dereferenceable(4) @.str.12, ptr noundef nonnull align 4 dereferenceable(4) %73, ptr noundef nonnull align 1 dereferenceable(27) @.str.21, ptr noundef nonnull align 8 dereferenceable(8) %74)
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %75) #21
@@ -818,7 +818,7 @@ _ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.argprom.e
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %75) #19
   br label %common.resume
 
-102:                                              ; preds = %_ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.argprom.exit
+102:                                              ; preds = %_ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %39)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %40)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41)
@@ -2182,7 +2182,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i:          ; preds = %.noexc30.i, %_ZNSt6
   %.02382.i = phi i64 [ 0, %.lr.ph83.i ], [ %740, %._crit_edge.i20 ]
   store double 0.000000e+00, ptr %17, align 8
   %.val.i = load ptr, ptr %253, align 8
-  br i1 %580, label %.lr.ph.i.i35, label %_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser13RowMajorIndexERKSt6vectorIiSaIiEES7_.argprom.exit.i
+  br i1 %580, label %.lr.ph.i.i35, label %_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser13RowMajorIndexERKSt6vectorIiSaIiEES7_.exit.i
 
 .lr.ph.i.i35:                                     ; preds = %589, %596
   %indvars.iv8.i.i = phi i64 [ %indvars.iv.next9.i.i, %596 ], [ %582, %589 ]
@@ -2207,28 +2207,28 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i:          ; preds = %.noexc30.i, %_ZNSt6
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %601 = icmp sgt i64 %indvars.iv.i.i, 0
   %indvars.iv.next9.i.i = add nsw i64 %indvars.iv8.i.i, -1
-  br i1 %601, label %.lr.ph.i.i35, label %_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser13RowMajorIndexERKSt6vectorIiSaIiEES7_.argprom.exit.loopexit.i, !llvm.loop !28
+  br i1 %601, label %.lr.ph.i.i35, label %_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser13RowMajorIndexERKSt6vectorIiSaIiEES7_.exit.loopexit.i, !llvm.loop !28
 
-_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser13RowMajorIndexERKSt6vectorIiSaIiEES7_.argprom.exit.loopexit.i: ; preds = %596
+_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser13RowMajorIndexERKSt6vectorIiSaIiEES7_.exit.loopexit.i: ; preds = %596
   %602 = sext i32 %600 to i64
-  br label %_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser13RowMajorIndexERKSt6vectorIiSaIiEES7_.argprom.exit.i
+  br label %_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser13RowMajorIndexERKSt6vectorIiSaIiEES7_.exit.i
 
-_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser13RowMajorIndexERKSt6vectorIiSaIiEES7_.argprom.exit.i: ; preds = %_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser13RowMajorIndexERKSt6vectorIiSaIiEES7_.argprom.exit.loopexit.i, %589
-  %.013.lcssa.i.i = phi i64 [ 0, %589 ], [ %602, %_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser13RowMajorIndexERKSt6vectorIiSaIiEES7_.argprom.exit.loopexit.i ]
+_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser13RowMajorIndexERKSt6vectorIiSaIiEES7_.exit.i: ; preds = %_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser13RowMajorIndexERKSt6vectorIiSaIiEES7_.exit.loopexit.i, %589
+  %.013.lcssa.i.i = phi i64 [ 0, %589 ], [ %602, %_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser13RowMajorIndexERKSt6vectorIiSaIiEES7_.exit.loopexit.i ]
   %603 = icmp sgt i32 %590, 0
   br i1 %603, label %.lr.ph.i25, label %.preheader.i19
 
-.preheader.i19:                                   ; preds = %717, %_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser13RowMajorIndexERKSt6vectorIiSaIiEES7_.argprom.exit.i
-  %604 = phi i32 [ %590, %_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser13RowMajorIndexERKSt6vectorIiSaIiEES7_.argprom.exit.i ], [ %725, %717 ]
+.preheader.i19:                                   ; preds = %717, %_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser13RowMajorIndexERKSt6vectorIiSaIiEES7_.exit.i
+  %604 = phi i32 [ %590, %_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser13RowMajorIndexERKSt6vectorIiSaIiEES7_.exit.i ], [ %725, %717 ]
   br i1 %.not86.i, label %._crit_edge.i20, label %.lr.ph80.i
 
 .lr.ph80.i:                                       ; preds = %.preheader.i19
   %605 = load ptr, ptr %253, align 8
   br label %732
 
-.lr.ph.i25:                                       ; preds = %_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser13RowMajorIndexERKSt6vectorIiSaIiEES7_.argprom.exit.i, %717
-  %indvars.iv.i26 = phi i64 [ %indvars.iv.next.i34, %717 ], [ 0, %_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser13RowMajorIndexERKSt6vectorIiSaIiEES7_.argprom.exit.i ]
-  %606 = phi i32 [ %725, %717 ], [ %590, %_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser13RowMajorIndexERKSt6vectorIiSaIiEES7_.argprom.exit.i ]
+.lr.ph.i25:                                       ; preds = %_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser13RowMajorIndexERKSt6vectorIiSaIiEES7_.exit.i, %717
+  %indvars.iv.i26 = phi i64 [ %indvars.iv.next.i34, %717 ], [ 0, %_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser13RowMajorIndexERKSt6vectorIiSaIiEES7_.exit.i ]
+  %606 = phi i32 [ %725, %717 ], [ %590, %_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser13RowMajorIndexERKSt6vectorIiSaIiEES7_.exit.i ]
   %607 = load i64, ptr %573, align 8
   %608 = add i64 %607, -1
   %.not.i27 = icmp ne i64 %.02382.i, %608
@@ -3477,7 +3477,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split:                ; preds = %62, %_ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.argprom.exit, %.critedge13
+.loopexit.split-lp.loopexit.split:                ; preds = %62, %_ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.exit, %.critedge13
   %lpad.loopexit17 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -3508,16 +3508,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 37:                                               ; preds = %.lr.ph.split.us
   %38 = load i8, ptr %36, align 1
   %39 = icmp eq i8 %38, 34
-  br i1 %39, label %.thread, label %_ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.argprom.exit.us
+  br i1 %39, label %.thread, label %_ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.exit.us
 
-_ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.argprom.exit.us: ; preds = %37
+_ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.exit.us: ; preds = %37
   %40 = load ptr, ptr %1, align 8
   %41 = load i32, ptr %17, align 8
   %42 = sext i32 %41 to i64
   %43 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm(ptr noundef nonnull align 8 dereferenceable(32) %40, i64 noundef %42)
           to label %44 unwind label %.loopexit.split-lp.loopexit.split.us
 
-44:                                               ; preds = %_ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.argprom.exit.us
+44:                                               ; preds = %_ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.exit.us
   %45 = load i8, ptr %43, align 1
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %45)
           to label %46 unwind label %.loopexit.split-lp.loopexit.split.us
@@ -3532,7 +3532,7 @@ _ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.argprom.e
   %.not.us = icmp ugt i64 %51, %49
   br i1 %.not.us, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !45
 
-.loopexit.split-lp.loopexit.split.us:             ; preds = %44, %_ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.argprom.exit.us, %.lr.ph.split.us
+.loopexit.split-lp.loopexit.split.us:             ; preds = %44, %_ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.exit.us, %.lr.ph.split.us
   %lpad.loopexit17.us = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -3546,20 +3546,20 @@ _ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.argprom.e
 
 56:                                               ; preds = %.critedge13
   %57 = load i8, ptr %55, align 1
-  switch i8 %57, label %_ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.argprom.exit [
+  switch i8 %57, label %_ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.exit [
     i8 32, label %.thread16
     i8 13, label %.thread16
     i8 10, label %.thread16
   ]
 
-_ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.argprom.exit: ; preds = %56
+_ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.exit: ; preds = %56
   %58 = load ptr, ptr %1, align 8
   %59 = load i32, ptr %17, align 8
   %60 = sext i32 %59 to i64
   %61 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm(ptr noundef nonnull align 8 dereferenceable(32) %58, i64 noundef %60)
           to label %62 unwind label %.loopexit.split-lp.loopexit.split
 
-62:                                               ; preds = %_ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.argprom.exit
+62:                                               ; preds = %_ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.exit
   %63 = load i8, ptr %61, align 1
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %63)
           to label %64 unwind label %.loopexit.split-lp.loopexit.split

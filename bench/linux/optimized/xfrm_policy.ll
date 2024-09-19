@@ -6555,7 +6555,7 @@ select.unfold:                                    ; preds = %.thread59, %56, %.t
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @xfrm_pols_put.argprom.argelim(ptr %.0.val) unnamed_addr #8 align 16 {
+define internal fastcc void @xfrm_pols_put(ptr %.0.val) unnamed_addr #8 align 16 {
   %1 = getelementptr inbounds i8, ptr %.0.val, i64 48
   %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %1, i32 -1, ptr elementtype(i32) %1) #22, !srcloc !11
   %3 = icmp eq i32 %2, 1
@@ -7402,7 +7402,7 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
   br label %.thread43
 
 .thread44:                                        ; preds = %346, %333
-  call fastcc void @xfrm_pols_put.argprom.argelim(ptr nonnull %92)
+  call fastcc void @xfrm_pols_put(ptr nonnull %92)
   store i32 %191, ptr %180, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #22
   br label %.thread38

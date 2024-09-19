@@ -407,7 +407,7 @@ _ZNSt10shared_ptrIN3gmx10StopSignalEEC2ERKS2_.exit8: ; preds = %_ZNSt10shared_pt
   unreachable
 
 _ZNSt8functionIFN3gmx10StopSignalEvEED2Ev.exit:   ; preds = %45, %47
-  br i1 %.not.i.i.i617, label %"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev.argprom.exit", label %52
+  br i1 %.not.i.i.i617, label %"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev.exit", label %52
 
 52:                                               ; preds = %_ZNSt8functionIFN3gmx10StopSignalEvEED2Ev.exit
   %53 = getelementptr inbounds i8, ptr %31, i64 8
@@ -443,7 +443,7 @@ _ZNSt8functionIFN3gmx10StopSignalEvEED2Ev.exit:   ; preds = %45, %47
 68:                                               ; preds = %66, %64
   %.0.i.i.i.i.i = phi i32 [ %56, %64 ], [ %67, %66 ]
   %69 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %69, label %70, label %"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev.argprom.exit"
+  br i1 %69, label %70, label %"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev.exit"
 
 70:                                               ; preds = %68
   %71 = load ptr, ptr %31, align 8
@@ -468,21 +468,21 @@ _ZNSt8functionIFN3gmx10StopSignalEvEED2Ev.exit:   ; preds = %45, %47
 81:                                               ; preds = %79, %76
   %.0.i.i.i.i.i.i.i = phi i32 [ %77, %76 ], [ %80, %79 ]
   %82 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %82, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev.argprom.exit"
+  br i1 %82, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %81, %57
   %83 = load ptr, ptr %31, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 24
   %85 = load ptr, ptr %84, align 8
   call void %85(ptr noundef nonnull align 8 dereferenceable(16) %31) #21
-  br label %"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev.argprom.exit"
+  br label %"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev.exit"
 
-"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev.argprom.exit": ; preds = %_ZNSt8functionIFN3gmx10StopSignalEvEED2Ev.exit, %68, %81, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
+"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev.exit": ; preds = %_ZNSt8functionIFN3gmx10StopSignalEvEED2Ev.exit, %68, %81, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   %86 = load ptr, ptr %16, align 8
   %.not.i.i.i11 = icmp eq ptr %86, null
   br i1 %.not.i.i.i11, label %_ZNSt10shared_ptrIN3gmx10StopSignalEED2Ev.exit, label %87
 
-87:                                               ; preds = %"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev.argprom.exit"
+87:                                               ; preds = %"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev.exit"
   %88 = getelementptr inbounds i8, ptr %86, i64 8
   %89 = load atomic i64, ptr %88 acquire, align 8
   %90 = icmp eq i64 %89, 4294967297
@@ -550,7 +550,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void %120(ptr noundef nonnull align 8 dereferenceable(16) %86) #21
   br label %_ZNSt10shared_ptrIN3gmx10StopSignalEED2Ev.exit
 
-_ZNSt10shared_ptrIN3gmx10StopSignalEED2Ev.exit:   ; preds = %"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev.argprom.exit", %103, %116, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN3gmx10StopSignalEED2Ev.exit:   ; preds = %"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev.exit", %103, %116, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   ret void
 
 121:                                              ; preds = %_ZNSt10shared_ptrIN3gmx10StopSignalEEC2ERKS2_.exit8
@@ -579,7 +579,7 @@ _ZNSt10shared_ptrIN3gmx10StopSignalEED2Ev.exit:   ; preds = %"_ZZN6gmxapi13Signa
 _ZNSt8functionIFN3gmx10StopSignalEvEED2Ev.exit14: ; preds = %126, %123, %121
   %.pn = phi { ptr, i32 } [ %122, %121 ], [ %124, %123 ], [ %124, %126 ]
   %131 = getelementptr inbounds i8, ptr %0, i64 24
-  call fastcc void @"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev.argprom"(ptr %31) #21
+  call fastcc void @"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev"(ptr %31) #21
   call void @_ZNSt10shared_ptrIN3gmx10StopSignalEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6atomicIbESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %131) #21
   call void @_ZNSt10shared_ptrIN3gmx10StopSignalEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
@@ -591,7 +591,7 @@ declare void @_ZN3gmx18StopHandlerBuilder21registerStopConditionESt8functionIFNS
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev.argprom"(ptr %.8.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev"(ptr %.8.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.8.val, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN3gmx10StopSignalEED2Ev.exit, label %1
 
@@ -855,7 +855,7 @@ define internal noundef i32 @"_ZNSt17_Function_handlerIFN3gmx10StopSignalEvEZN6g
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN3gmx10StopSignalEvEZN6gmxapi13SignalManagerC1EPNS0_18StopHandlerBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %18
@@ -864,12 +864,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN3gmx10StopSignal
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
@@ -881,7 +881,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN3gmx10StopSignal
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %.val8.i, ptr %9, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val8.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.argprom.exit.i", label %10
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.exit.i", label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %.val8.i, i64 8
@@ -893,26 +893,26 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN3gmx10StopSignal
   %14 = load i32, ptr %11, align 4
   %15 = add nsw i32 %14, 1
   store i32 %15, ptr %11, align 4
-  br label %"_ZNSt14_Function_base13_Base_managerIZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.argprom.exit.i"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.exit.i"
 
 16:                                               ; preds = %10
   %17 = atomicrmw volatile add ptr %11, i32 1 acq_rel, align 4
-  br label %"_ZNSt14_Function_base13_Base_managerIZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.argprom.exit.i"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.exit.i"
 
-"_ZNSt14_Function_base13_Base_managerIZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.argprom.exit.i": ; preds = %16, %13, %6
+"_ZNSt14_Function_base13_Base_managerIZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.exit.i": ; preds = %16, %13, %6
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 18:                                               ; preds = %3
   %.val9.i = load ptr, ptr %0, align 8
   %19 = icmp eq ptr %.val9.i, null
-  br i1 %19, label %"_ZNSt14_Function_base13_Base_managerIZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit", label %20
+  br i1 %19, label %"_ZNSt14_Function_base13_Base_managerIZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit", label %20
 
 20:                                               ; preds = %18
   %21 = getelementptr i8, ptr %.val9.i, i64 8
   %.val.i.i = load ptr, ptr %21, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev.argprom.exit.i.i", label %22
+  br i1 %.not.i.i.i.i.i.i, label %"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev.exit.i.i", label %22
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds i8, ptr %.val.i.i, i64 8
@@ -948,7 +948,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN3gmx10StopSignal
 38:                                               ; preds = %36, %34
   %.0.i.i.i.i.i.i.i = phi i32 [ %26, %34 ], [ %37, %36 ]
   %39 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %39, label %40, label %"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev.argprom.exit.i.i"
+  br i1 %39, label %40, label %"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev.exit.i.i"
 
 40:                                               ; preds = %38
   %41 = load ptr, ptr %.val.i.i, align 8
@@ -973,20 +973,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN3gmx10StopSignal
 51:                                               ; preds = %49, %46
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %47, %46 ], [ %50, %49 ]
   %52 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %52, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev.argprom.exit.i.i"
+  br i1 %52, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %51, %27
   %53 = load ptr, ptr %.val.i.i, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 24
   %55 = load ptr, ptr %54, align 8
   tail call void %55(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #21
-  br label %"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev.argprom.exit.i.i"
+  br label %"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev.exit.i.i"
 
-"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %51, %38, %20
+"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %51, %38, %20
   tail call void @_ZdlPv(ptr noundef nonnull %.val9.i) #22
-  br label %"_ZNSt14_Function_base13_Base_managerIZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev.argprom.exit.i.i", %18, %"_ZNSt14_Function_base13_Base_managerIZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.argprom.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit": ; preds = %3, %"_ZZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEEN3$_0D2Ev.exit.i.i", %18, %"_ZNSt14_Function_base13_Base_managerIZN6gmxapi13SignalManagerC1EPN3gmx18StopHandlerBuilderEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 

@@ -385,7 +385,7 @@ _ZN6google8protobuf8internal9ArenaImpl11CleanupListEv.exit: ; preds = %_ZN6googl
   %.0.i.i7 = inttoptr i64 %34 to ptr
   br label %.lr.ph15.i
 
-.loopexit.i:                                      ; preds = %"_ZZN6google8protobuf8internal9ArenaImplD1EvENK3$_0clEPNS1_11SerialArena5BlockE.argprom.exit.i", %.lr.ph15.i
+.loopexit.i:                                      ; preds = %"_ZZN6google8protobuf8internal9ArenaImplD1EvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i", %.lr.ph15.i
   %.not.i10 = icmp eq ptr %36, null
   br i1 %.not.i10, label %"_ZN6google8protobuf8internal9ArenaImpl8PerBlockIZNS2_D1EvE3$_0EEvT_.exit", label %.lr.ph15.i, !llvm.loop !8
 
@@ -398,22 +398,22 @@ _ZN6google8protobuf8internal9ArenaImpl11CleanupListEv.exit: ; preds = %_ZN6googl
   %.not1011.i = icmp eq ptr %38, null
   br i1 %.not1011.i, label %.loopexit.i, label %.lr.ph.i8
 
-.lr.ph.i8:                                        ; preds = %.lr.ph15.i, %"_ZZN6google8protobuf8internal9ArenaImplD1EvENK3$_0clEPNS1_11SerialArena5BlockE.argprom.exit.i"
-  %.0912.i = phi ptr [ %41, %"_ZZN6google8protobuf8internal9ArenaImplD1EvENK3$_0clEPNS1_11SerialArena5BlockE.argprom.exit.i" ], [ %38, %.lr.ph15.i ]
+.lr.ph.i8:                                        ; preds = %.lr.ph15.i, %"_ZZN6google8protobuf8internal9ArenaImplD1EvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i"
+  %.0912.i = phi ptr [ %41, %"_ZZN6google8protobuf8internal9ArenaImplD1EvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i" ], [ %38, %.lr.ph15.i ]
   %39 = load i64, ptr %.0912.i, align 8
   %40 = and i64 %39, -4
   %41 = inttoptr i64 %40 to ptr
   %42 = and i64 %39, 2
   %.not.i.i9 = icmp eq i64 %42, 0
-  br i1 %.not.i.i9, label %43, label %"_ZZN6google8protobuf8internal9ArenaImplD1EvENK3$_0clEPNS1_11SerialArena5BlockE.argprom.exit.i"
+  br i1 %.not.i.i9, label %43, label %"_ZZN6google8protobuf8internal9ArenaImplD1EvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i"
 
 43:                                               ; preds = %.lr.ph.i8
   %44 = getelementptr inbounds i8, ptr %.0912.i, i64 16
   %45 = load i64, ptr %44, align 8
   invoke void %.04(ptr noundef nonnull %.0912.i, i64 noundef %45)
-          to label %"_ZZN6google8protobuf8internal9ArenaImplD1EvENK3$_0clEPNS1_11SerialArena5BlockE.argprom.exit.i" unwind label %.loopexit
+          to label %"_ZZN6google8protobuf8internal9ArenaImplD1EvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i" unwind label %.loopexit
 
-"_ZZN6google8protobuf8internal9ArenaImplD1EvENK3$_0clEPNS1_11SerialArena5BlockE.argprom.exit.i": ; preds = %43, %.lr.ph.i8
+"_ZZN6google8protobuf8internal9ArenaImplD1EvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i": ; preds = %43, %.lr.ph.i8
   %.not10.i = icmp eq i64 %40, 0
   br i1 %.not10.i, label %.loopexit.i, label %.lr.ph.i8, !llvm.loop !9
 

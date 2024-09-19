@@ -1761,7 +1761,7 @@ define internal fastcc void @build_match_list(ptr nocapture noundef readonly %0,
 14:                                               ; preds = %6
   %15 = load i32, ptr @enable_error_stack, align 4
   %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %17, label %free_exclude_path_list.argprom.exit
+  br i1 %16, label %17, label %free_exclude_path_list.exit
 
 17:                                               ; preds = %14
   %18 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -1775,14 +1775,14 @@ define internal fastcc void @build_match_list(ptr nocapture noundef readonly %0,
   %23 = load i64, ptr @H5E_tools_g, align 8
   %24 = load i64, ptr @H5E_tools_min_info_id_g, align 8
   %25 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %18, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.build_match_list, i32 noundef 335, i64 noundef %20, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.53) #13
-  br label %free_exclude_path_list.argprom.exit
+  br label %free_exclude_path_list.exit
 
 26:                                               ; preds = %17
   %27 = load ptr, ptr @stderr, align 8
   %28 = call i64 @fwrite(ptr nonnull @.str.53, i64 28, i64 1, ptr %27) #14
   %29 = load ptr, ptr @stderr, align 8
   %fputc105 = call i32 @fputc(i32 10, ptr %29)
-  br label %free_exclude_path_list.argprom.exit
+  br label %free_exclude_path_list.exit
 
 sub_0:                                            ; preds = %6
   %30 = load i8, ptr %0, align 1
@@ -1962,7 +1962,7 @@ sub_0155:                                         ; preds = %.tail, %.tail.threa
 124:                                              ; preds = %116, %120, %108
   %125 = getelementptr inbounds i8, ptr %5, i64 136
   store i32 2, ptr %125, align 8
-  br label %free_exclude_path_list.argprom.exit
+  br label %free_exclude_path_list.exit
 
 126:                                              ; preds = %102
   %127 = load i32, ptr %9, align 4
@@ -2276,7 +2276,7 @@ is_exclude_path.exit141:                          ; preds = %256, %263, %.loopex
   %271 = getelementptr i8, ptr %5, i64 104
   %.val = load ptr, ptr %271, align 8
   %.not1.i = icmp eq ptr %.val, null
-  br i1 %.not1.i, label %free_exclude_path_list.argprom.exit, label %.lr.ph.i142
+  br i1 %.not1.i, label %free_exclude_path_list.exit, label %.lr.ph.i142
 
 .lr.ph.i142:                                      ; preds = %._crit_edge191, %.lr.ph.i142
   %.02.i = phi ptr [ %273, %.lr.ph.i142 ], [ %.val, %._crit_edge191 ]
@@ -2284,9 +2284,9 @@ is_exclude_path.exit141:                          ; preds = %256, %263, %.loopex
   %273 = load ptr, ptr %272, align 8
   call void @free(ptr noundef nonnull %.02.i) #13
   %.not.i143 = icmp eq ptr %273, null
-  br i1 %.not.i143, label %free_exclude_path_list.argprom.exit, label %.lr.ph.i142
+  br i1 %.not.i143, label %free_exclude_path_list.exit, label %.lr.ph.i142
 
-free_exclude_path_list.argprom.exit:              ; preds = %.lr.ph.i142, %._crit_edge191, %22, %26, %14, %124
+free_exclude_path_list.exit:                      ; preds = %.lr.ph.i142, %._crit_edge191, %22, %26, %14, %124
   %274 = load ptr, ptr %8, align 8
   store ptr %274, ptr %4, align 8
   ret void
@@ -2596,7 +2596,7 @@ sub_1:                                            ; preds = %.tail100
   %156 = getelementptr i8, ptr %7, i64 112
   %.val = load ptr, ptr %156, align 8
   %.not1.i = icmp eq ptr %.val, null
-  br i1 %.not1.i, label %free_exclude_attr_list.argprom.exit.thread, label %.lr.ph.i
+  br i1 %.not1.i, label %free_exclude_attr_list.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.loopexit, %.lr.ph.i
   %.02.i = phi ptr [ %158, %.lr.ph.i ], [ %.val, %.loopexit ]
@@ -2604,17 +2604,17 @@ sub_1:                                            ; preds = %.tail100
   %158 = load ptr, ptr %157, align 8
   call void @free(ptr noundef nonnull %.02.i) #13
   %.not.i = icmp eq ptr %158, null
-  br i1 %.not.i, label %free_exclude_attr_list.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %free_exclude_attr_list.exit, label %.lr.ph.i
 
-free_exclude_attr_list.argprom.exit:              ; preds = %.lr.ph.i
+free_exclude_attr_list.exit:                      ; preds = %.lr.ph.i
   %.not98 = icmp eq ptr %6, null
-  br i1 %.not98, label %159, label %free_exclude_attr_list.argprom.exit.thread
+  br i1 %.not98, label %159, label %free_exclude_attr_list.exit.thread
 
-free_exclude_attr_list.argprom.exit.thread:       ; preds = %.loopexit, %free_exclude_attr_list.argprom.exit
+free_exclude_attr_list.exit.thread:               ; preds = %.loopexit, %free_exclude_attr_list.exit
   call void @trav_table_free(ptr noundef nonnull %6) #13
   br label %159
 
-159:                                              ; preds = %free_exclude_attr_list.argprom.exit.thread, %free_exclude_attr_list.argprom.exit
+159:                                              ; preds = %free_exclude_attr_list.exit.thread, %free_exclude_attr_list.exit
   ret i64 %.070108
 }
 

@@ -2366,7 +2366,7 @@ define internal noundef i32 @ehci_hrtimer_func(ptr noundef %0) #0 align 16 {
 declare dso_local i64 @ktime_get() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ehci_enable_event.argelim(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @ehci_enable_event(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 48
   %3 = tail call i64 @ktime_get() #19
   %4 = add i64 %3, 2000000
@@ -3042,7 +3042,7 @@ define internal void @end_unlink_async(ptr noundef %0) #0 align 16 {
   store i32 %57, ptr %58, align 8
   %66 = getelementptr inbounds i8, ptr %0, i64 292
   store i32 %52, ptr %66, align 4
-  tail call fastcc void @ehci_enable_event.argelim(ptr noundef %0)
+  tail call fastcc void @ehci_enable_event(ptr noundef %0)
   br label %128
 
 67:                                               ; preds = %61, %49, %45, %36
@@ -5315,7 +5315,7 @@ define internal fastcc i32 @qh_schedule(ptr nocapture noundef %0, ptr noundef %1
 .loopexit8.i:                                     ; preds = %121, %111
   %.val.i = load i16, ptr %74, align 8
   %130 = trunc nuw nsw i64 %indvars.iv to i32
-  %131 = tail call fastcc i32 @tt_available.argprom(ptr noundef readonly %0, i16 %.val.i, i8 %79, ptr noundef readonly %10, i32 noundef %82, i32 noundef %130)
+  %131 = tail call fastcc i32 @tt_available(ptr noundef readonly %0, i16 %.val.i, i8 %79, ptr noundef readonly %10, i32 noundef %82, i32 noundef %130)
   %132 = icmp eq i32 %131, 0
   br i1 %132, label %.loopexit, label %133
 
@@ -5750,7 +5750,7 @@ define internal fastcc void @qh_link_periodic(ptr noundef %0, ptr noundef %1) un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ehci_urb_done.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @ehci_urb_done(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 80
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, -1073741824
@@ -6178,7 +6178,7 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define internal fastcc noundef range(i32 0, 2) i32 @tt_available.argprom(ptr nocapture noundef readonly %0, i16 %.32.val, i8 %.45.val, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #12 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @tt_available(ptr nocapture noundef readonly %0, i16 %.32.val, i8 %.45.val, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #12 align 16 {
   %5 = alloca [8 x i16], align 16
   %.32.val.fr = freeze i16 %.32.val
   %6 = zext i16 %.32.val.fr to i32
@@ -8405,7 +8405,7 @@ default.unreachable93:                            ; preds = %3
   br i1 %467, label %468, label %469
 
 468:                                              ; preds = %466
-  call fastcc void @ehci_urb_done.argelim(ptr noundef %8, ptr noundef %1)
+  call fastcc void @ehci_urb_done(ptr noundef %8, ptr noundef %1)
   br label %470
 
 469:                                              ; preds = %466
@@ -8880,7 +8880,7 @@ default.unreachable93:                            ; preds = %3
   br i1 %751, label %752, label %753
 
 752:                                              ; preds = %750
-  call fastcc void @ehci_urb_done.argelim(ptr noundef %8, ptr noundef %1)
+  call fastcc void @ehci_urb_done(ptr noundef %8, ptr noundef %1)
   br label %754
 
 753:                                              ; preds = %750
@@ -12678,7 +12678,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @sitd_slot_ok(ptr nocapture n
   %.val = load i16, ptr %23, align 8
   %24 = getelementptr i8, ptr %1, i64 93
   %.val3 = load i8, ptr %24, align 1
-  %25 = tail call fastcc i32 @tt_available.argprom(ptr noundef %0, i16 %.val, i8 %.val3, ptr noundef %3, i32 noundef %21, i32 noundef %22)
+  %25 = tail call fastcc i32 @tt_available(ptr noundef %0, i16 %.val, i8 %.val3, ptr noundef %3, i32 noundef %21, i32 noundef %22)
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %.thread, label %27
 

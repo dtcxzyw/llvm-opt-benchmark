@@ -799,7 +799,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.va_start.p0(ptr nonnull %args)
-  call fastcc void @mi_vfprintf_thread.argprom(ptr noundef nonnull @.str.1, ptr noundef %fmt, ptr noundef %args) #18
+  call fastcc void @mi_vfprintf_thread(ptr noundef nonnull @.str.1, ptr noundef %fmt, ptr noundef %args) #18
   call void @llvm.va_end.p0(ptr nonnull %args)
   br label %return
 
@@ -808,7 +808,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_vfprintf_thread.argprom(ptr noundef %prefix, ptr noundef readonly %fmt, ptr noundef nonnull %args) unnamed_addr #1 {
+define internal fastcc void @mi_vfprintf_thread(ptr noundef %prefix, ptr noundef readonly %fmt, ptr noundef nonnull %args) unnamed_addr #1 {
 entry:
   %buf.i9 = alloca [512 x i8], align 16
   %buf.i = alloca [512 x i8], align 16
@@ -929,7 +929,7 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.end6:                                          ; preds = %if.end, %land.lhs.true, %entry
   call void @llvm.va_start.p0(ptr nonnull %args)
-  call fastcc void @mi_vfprintf_thread.argprom(ptr noundef nonnull @.str.2, ptr noundef %fmt, ptr noundef %args) #18
+  call fastcc void @mi_vfprintf_thread(ptr noundef nonnull @.str.2, ptr noundef %fmt, ptr noundef %args) #18
   call void @llvm.va_end.p0(ptr nonnull %args)
   br label %return
 
@@ -972,7 +972,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   br i1 %cmp3.i, label %mi_show_error_message.exit, label %if.end6.i
 
 if.end6.i:                                        ; preds = %land.lhs.true.i, %if.end.i, %entry
-  call fastcc void @mi_vfprintf_thread.argprom(ptr noundef nonnull @.str.36, ptr noundef %fmt, ptr noundef %args) #18
+  call fastcc void @mi_vfprintf_thread(ptr noundef nonnull @.str.36, ptr noundef %fmt, ptr noundef %args) #18
   br label %mi_show_error_message.exit
 
 mi_show_error_message.exit:                       ; preds = %if.then.i, %land.lhs.true.i, %if.end6.i

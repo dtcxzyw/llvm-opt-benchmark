@@ -206,20 +206,20 @@ land.lhs.true:                                    ; preds = %entry
   %call.i = tail call ptr @CMAC_CTX_get0_cipher_ctx(ptr noundef %vmacctx.val) #3
   %call1.i = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %call.i) #3
   %cmp.i = icmp eq ptr %call1.i, null
-  br i1 %cmp.i, label %cmac_size.argprom.exit, label %if.end.i
+  br i1 %cmp.i, label %cmac_size.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true
   %call2.i = tail call i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef %call.i) #3
   %conv.i = sext i32 %call2.i to i64
-  br label %cmac_size.argprom.exit
+  br label %cmac_size.exit
 
-cmac_size.argprom.exit:                           ; preds = %land.lhs.true, %if.end.i
+cmac_size.exit:                                   ; preds = %land.lhs.true, %if.end.i
   %retval.0.i = phi i64 [ %conv.i, %if.end.i ], [ 0, %land.lhs.true ]
   %call2 = tail call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %call, i64 noundef %retval.0.i) #3
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %return, label %if.end
 
-if.end:                                           ; preds = %cmac_size.argprom.exit, %entry
+if.end:                                           ; preds = %cmac_size.exit, %entry
   %call3 = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.2) #3
   %cmp4.not = icmp eq ptr %call3, null
   br i1 %cmp4.not, label %if.end10, label %land.lhs.true5
@@ -230,24 +230,24 @@ land.lhs.true5:                                   ; preds = %if.end
   %call.i5 = tail call ptr @CMAC_CTX_get0_cipher_ctx(ptr noundef %vmacctx.val4) #3
   %call1.i6 = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %call.i5) #3
   %cmp.i7 = icmp eq ptr %call1.i6, null
-  br i1 %cmp.i7, label %cmac_size.argprom.exit12, label %if.end.i8
+  br i1 %cmp.i7, label %cmac_size.exit12, label %if.end.i8
 
 if.end.i8:                                        ; preds = %land.lhs.true5
   %call2.i9 = tail call i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef %call.i5) #3
   %conv.i10 = sext i32 %call2.i9 to i64
-  br label %cmac_size.argprom.exit12
+  br label %cmac_size.exit12
 
-cmac_size.argprom.exit12:                         ; preds = %land.lhs.true5, %if.end.i8
+cmac_size.exit12:                                 ; preds = %land.lhs.true5, %if.end.i8
   %retval.0.i11 = phi i64 [ %conv.i10, %if.end.i8 ], [ 0, %land.lhs.true5 ]
   %call7 = tail call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %call3, i64 noundef %retval.0.i11) #3
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %return, label %if.end10
 
-if.end10:                                         ; preds = %cmac_size.argprom.exit12, %if.end
+if.end10:                                         ; preds = %cmac_size.exit12, %if.end
   br label %return
 
-return:                                           ; preds = %cmac_size.argprom.exit12, %cmac_size.argprom.exit, %if.end10
-  %retval.0 = phi i32 [ 1, %if.end10 ], [ 0, %cmac_size.argprom.exit ], [ 0, %cmac_size.argprom.exit12 ]
+return:                                           ; preds = %cmac_size.exit12, %cmac_size.exit, %if.end10
+  %retval.0 = phi i32 [ 1, %if.end10 ], [ 0, %cmac_size.exit ], [ 0, %cmac_size.exit12 ]
   ret i32 %retval.0
 }
 

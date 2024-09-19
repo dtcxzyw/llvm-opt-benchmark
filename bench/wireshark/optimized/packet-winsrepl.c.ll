@@ -373,7 +373,7 @@ define internal i32 @dissect_winsrepl_pdu(ptr noundef %0, ptr noundef %1, ptr no
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull @.str.122) #3
   %68 = load ptr, ptr %11, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %68, ptr noundef nonnull @.str.122) #3
-  call fastcc void @dissect_winsrepl_table_reply.argprom.argelim(ptr noundef %0, ptr noundef %59)
+  call fastcc void @dissect_winsrepl_table_reply(ptr noundef %0, ptr noundef %59)
   br label %dissect_winsrepl_replication.exit
 
 69:                                               ; preds = %57
@@ -382,7 +382,7 @@ define internal i32 @dissect_winsrepl_pdu(ptr noundef %0, ptr noundef %1, ptr no
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull @.str.123) #3
   %71 = load ptr, ptr %11, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %71, ptr noundef nonnull @.str.123) #3
-  %72 = call fastcc noundef i32 @dissect_winsrepl_wins_owner.argprom(ptr noundef %0, i32 noundef 20, ptr noundef %59, ptr noundef null, i32 noundef 0)
+  %72 = call fastcc noundef i32 @dissect_winsrepl_wins_owner(ptr noundef %0, i32 noundef 20, ptr noundef %59, ptr noundef null, i32 noundef 0)
   br label %dissect_winsrepl_replication.exit
 
 73:                                               ; preds = %57
@@ -561,7 +561,7 @@ dissect_winsrepl_wins_name.exit.i.i:              ; preds = %151, %95
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull @.str.125) #3
   %160 = load ptr, ptr %11, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %160, ptr noundef nonnull @.str.125) #3
-  call fastcc void @dissect_winsrepl_table_reply.argprom.argelim(ptr noundef %0, ptr noundef %59)
+  call fastcc void @dissect_winsrepl_table_reply(ptr noundef %0, ptr noundef %59)
   br label %dissect_winsrepl_replication.exit
 
 161:                                              ; preds = %57
@@ -570,7 +570,7 @@ dissect_winsrepl_wins_name.exit.i.i:              ; preds = %151, %95
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull @.str.126) #3
   %163 = load ptr, ptr %11, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %163, ptr noundef nonnull @.str.126) #3
-  call fastcc void @dissect_winsrepl_table_reply.argprom.argelim(ptr noundef %0, ptr noundef %59)
+  call fastcc void @dissect_winsrepl_table_reply(ptr noundef %0, ptr noundef %59)
   br label %dissect_winsrepl_replication.exit
 
 164:                                              ; preds = %57
@@ -579,7 +579,7 @@ dissect_winsrepl_wins_name.exit.i.i:              ; preds = %151, %95
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull @.str.127) #3
   %166 = load ptr, ptr %11, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %166, ptr noundef nonnull @.str.127) #3
-  call fastcc void @dissect_winsrepl_table_reply.argprom.argelim(ptr noundef %0, ptr noundef %59)
+  call fastcc void @dissect_winsrepl_table_reply(ptr noundef %0, ptr noundef %59)
   br label %dissect_winsrepl_replication.exit
 
 167:                                              ; preds = %57
@@ -588,7 +588,7 @@ dissect_winsrepl_wins_name.exit.i.i:              ; preds = %151, %95
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull @.str.128) #3
   %169 = load ptr, ptr %11, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %169, ptr noundef nonnull @.str.128) #3
-  call fastcc void @dissect_winsrepl_table_reply.argprom.argelim(ptr noundef %0, ptr noundef %59)
+  call fastcc void @dissect_winsrepl_table_reply(ptr noundef %0, ptr noundef %59)
   br label %dissect_winsrepl_replication.exit
 
 dissect_winsrepl_replication.exit:                ; preds = %dissect_winsrepl_wins_name.exit.i.i, %57, %63, %66, %69, %73, %158, %161, %164, %167
@@ -619,7 +619,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_winsrepl_table_reply.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_winsrepl_table_reply(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @ett_winsrepl_table_reply, align 4
   %4 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef 20, i32 noundef -1, i32 noundef %3, ptr noundef null, ptr noundef nonnull @.str.98) #3
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 20) #3
@@ -631,7 +631,7 @@ define internal fastcc void @dissect_winsrepl_table_reply.argprom.argelim(ptr no
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.02 = phi i32 [ %9, %.lr.ph ], [ 0, %2 ]
   %.0231 = phi i32 [ %8, %.lr.ph ], [ 24, %2 ]
-  %8 = tail call fastcc i32 @dissect_winsrepl_wins_owner.argprom(ptr noundef %0, i32 noundef %.0231, ptr noundef %4, ptr noundef %4, i32 noundef %.02)
+  %8 = tail call fastcc i32 @dissect_winsrepl_wins_owner(ptr noundef %0, i32 noundef %.0231, ptr noundef %4, ptr noundef %4, i32 noundef %.02)
   %9 = add nuw i32 %.02, 1
   %exitcond.not = icmp eq i32 %9, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
@@ -644,7 +644,7 @@ define internal fastcc void @dissect_winsrepl_table_reply.argprom.argelim(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_winsrepl_wins_owner.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_winsrepl_wins_owner(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %6
 

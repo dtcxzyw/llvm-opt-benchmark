@@ -646,7 +646,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %145, %_ZN4llvm10MIM
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %.sroa.05.012.i = load ptr, ptr %98, align 8
   %.not13.i = icmp eq ptr %.sroa.05.012.i, %100
-  br i1 %.not13.i, label %_ZN12_GLOBAL__N_119XRayInstrumentation27prependRetWithPatchableExitERN4llvm15MachineFunctionEPKNS1_15TargetInstrInfoENS_22InstrumentationOptionsE.argprom.exit, label %.lr.ph16.i
+  br i1 %.not13.i, label %_ZN12_GLOBAL__N_119XRayInstrumentation27prependRetWithPatchableExitERN4llvm15MachineFunctionEPKNS1_15TargetInstrInfoENS_22InstrumentationOptionsE.exit, label %.lr.ph16.i
 
 .lr.ph16.i:                                       ; preds = %152
   %153 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -887,23 +887,23 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i: ; preds
   %241 = getelementptr inbounds nuw i8, ptr %.sroa.05.014.i, i64 8
   %.sroa.05.0.i = load ptr, ptr %241, align 8
   %.not.i92 = icmp eq ptr %.sroa.05.0.i, %100
-  br i1 %.not.i92, label %_ZN12_GLOBAL__N_119XRayInstrumentation27prependRetWithPatchableExitERN4llvm15MachineFunctionEPKNS1_15TargetInstrInfoENS_22InstrumentationOptionsE.argprom.exit, label %156
+  br i1 %.not.i92, label %_ZN12_GLOBAL__N_119XRayInstrumentation27prependRetWithPatchableExitERN4llvm15MachineFunctionEPKNS1_15TargetInstrInfoENS_22InstrumentationOptionsE.exit, label %156
 
-_ZN12_GLOBAL__N_119XRayInstrumentation27prependRetWithPatchableExitERN4llvm15MachineFunctionEPKNS1_15TargetInstrInfoENS_22InstrumentationOptionsE.argprom.exit: ; preds = %._crit_edge.i, %152
+_ZN12_GLOBAL__N_119XRayInstrumentation27prependRetWithPatchableExitERN4llvm15MachineFunctionEPKNS1_15TargetInstrInfoENS_22InstrumentationOptionsE.exit: ; preds = %._crit_edge.i, %152
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %244
 
 242:                                              ; preds = %147
-  call fastcc void @_ZN12_GLOBAL__N_119XRayInstrumentation26replaceRetWithPatchableRetERN4llvm15MachineFunctionEPKNS1_15TargetInstrInfoENS_22InstrumentationOptionsE.argprom(ptr noundef nonnull align 8 dereferenceable(1041) %1, ptr noundef %114, i16 256)
+  call fastcc void @_ZN12_GLOBAL__N_119XRayInstrumentation26replaceRetWithPatchableRetERN4llvm15MachineFunctionEPKNS1_15TargetInstrInfoENS_22InstrumentationOptionsE(ptr noundef nonnull align 8 dereferenceable(1041) %1, ptr noundef %114, i16 256)
   br label %244
 
 243:                                              ; preds = %147
-  call fastcc void @_ZN12_GLOBAL__N_119XRayInstrumentation26replaceRetWithPatchableRetERN4llvm15MachineFunctionEPKNS1_15TargetInstrInfoENS_22InstrumentationOptionsE.argprom(ptr noundef nonnull align 8 dereferenceable(1041) %1, ptr noundef %114, i16 1)
+  call fastcc void @_ZN12_GLOBAL__N_119XRayInstrumentation26replaceRetWithPatchableRetERN4llvm15MachineFunctionEPKNS1_15TargetInstrInfoENS_22InstrumentationOptionsE(ptr noundef nonnull align 8 dereferenceable(1041) %1, ptr noundef %114, i16 1)
   br label %244
 
-244:                                              ; preds = %_ZN4llvm8DebugLocD2Ev.exit, %243, %242, %_ZN12_GLOBAL__N_119XRayInstrumentation27prependRetWithPatchableExitERN4llvm15MachineFunctionEPKNS1_15TargetInstrInfoENS_22InstrumentationOptionsE.argprom.exit, %"_ZN4llvm7find_ifIRNS_15MachineFunctionEZN12_GLOBAL__N_119XRayInstrumentation20runOnMachineFunctionES2_E3$_0EEDaOT_T0_.exit", %96, %_ZN4llvm20MachineDominatorTreeD2Ev.exit, %29, %_ZN4llvmeqENS_9StringRefES0_.exit79, %122
-  %.0 = phi i1 [ false, %122 ], [ false, %_ZN4llvm20MachineDominatorTreeD2Ev.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit79 ], [ false, %29 ], [ false, %96 ], [ false, %"_ZN4llvm7find_ifIRNS_15MachineFunctionEZN12_GLOBAL__N_119XRayInstrumentation20runOnMachineFunctionES2_E3$_0EEDaOT_T0_.exit" ], [ true, %_ZN12_GLOBAL__N_119XRayInstrumentation27prependRetWithPatchableExitERN4llvm15MachineFunctionEPKNS1_15TargetInstrInfoENS_22InstrumentationOptionsE.argprom.exit ], [ true, %242 ], [ true, %243 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit ]
+244:                                              ; preds = %_ZN4llvm8DebugLocD2Ev.exit, %243, %242, %_ZN12_GLOBAL__N_119XRayInstrumentation27prependRetWithPatchableExitERN4llvm15MachineFunctionEPKNS1_15TargetInstrInfoENS_22InstrumentationOptionsE.exit, %"_ZN4llvm7find_ifIRNS_15MachineFunctionEZN12_GLOBAL__N_119XRayInstrumentation20runOnMachineFunctionES2_E3$_0EEDaOT_T0_.exit", %96, %_ZN4llvm20MachineDominatorTreeD2Ev.exit, %29, %_ZN4llvmeqENS_9StringRefES0_.exit79, %122
+  %.0 = phi i1 [ false, %122 ], [ false, %_ZN4llvm20MachineDominatorTreeD2Ev.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit79 ], [ false, %29 ], [ false, %96 ], [ false, %"_ZN4llvm7find_ifIRNS_15MachineFunctionEZN12_GLOBAL__N_119XRayInstrumentation20runOnMachineFunctionES2_E3$_0EEDaOT_T0_.exit" ], [ true, %_ZN12_GLOBAL__N_119XRayInstrumentation27prependRetWithPatchableExitERN4llvm15MachineFunctionEPKNS1_15TargetInstrInfoENS_22InstrumentationOptionsE.exit ], [ true, %242 ], [ true, %243 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit ]
   ret i1 %.0
 }
 
@@ -1093,7 +1093,7 @@ declare void @_ZNK4llvm12MachineInstr9emitErrorENS_9StringRefE(ptr noundef nonnu
 declare noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136), ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119XRayInstrumentation26replaceRetWithPatchableRetERN4llvm15MachineFunctionEPKNS1_15TargetInstrInfoENS_22InstrumentationOptionsE.argprom(ptr noundef nonnull align 8 dereferenceable(1041) %0, ptr noundef %1, i16 range(i16 1, 257) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119XRayInstrumentation26replaceRetWithPatchableRetERN4llvm15MachineFunctionEPKNS1_15TargetInstrInfoENS_22InstrumentationOptionsE(ptr noundef nonnull align 8 dereferenceable(1041) %0, ptr noundef %1, i16 range(i16 1, 257) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::DebugLoc", align 8
   %5 = alloca %"class.llvm::DebugLoc", align 8
   %6 = alloca %"class.llvm::MachineOperand", align 8

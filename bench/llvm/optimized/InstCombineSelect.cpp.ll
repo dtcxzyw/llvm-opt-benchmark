@@ -2354,12 +2354,12 @@ declare i32 @_ZNK4llvm17GetElementPtrInst14getNoWrapFlagsEv(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN4llvm16InstCombinerImpl16foldSelectIntoOpERNS_10SelectInstEPNS_5ValueES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1088) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
-  %5 = tail call fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl16foldSelectIntoOpERNS_10SelectInstEPNS_5ValueES4_ENK3$_0clES2_S4_S4_b.argprom"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext false)
+  %5 = tail call fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl16foldSelectIntoOpERNS_10SelectInstEPNS_5ValueES4_ENK3$_0clES2_S4_S4_b"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext false)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = tail call fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl16foldSelectIntoOpERNS_10SelectInstEPNS_5ValueES4_ENK3$_0clES2_S4_S4_b.argprom"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %3, ptr noundef %2, i1 noundef zeroext true)
+  %7 = tail call fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl16foldSelectIntoOpERNS_10SelectInstEPNS_5ValueES4_ENK3$_0clES2_S4_S4_b"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %3, ptr noundef %2, i1 noundef zeroext true)
   br label %8
 
 8:                                                ; preds = %6, %4
@@ -2368,7 +2368,7 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl16foldSelectIntoOpERNS_10Se
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl16foldSelectIntoOpERNS_10SelectInstEPNS_5ValueES4_ENK3$_0clES2_S4_S4_b.argprom"(ptr nocapture readonly %.0.val, ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl16foldSelectIntoOpERNS_10SelectInstEPNS_5ValueES4_ENK3$_0clES2_S4_S4_b"(ptr nocapture readonly %.0.val, ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = alloca %"struct.llvm::SimplifyQuery", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -5783,7 +5783,7 @@ _ZN4llvm5APIntD2Ev.exit280:                       ; preds = %.critedge9, %1049, 
   br i1 %.not207, label %1058, label %_ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit
 
 1058:                                             ; preds = %1053
-  %1059 = call fastcc noundef ptr @_ZL24foldSelectICmpAndZeroShlPKN4llvm8ICmpInstEPNS_5ValueES4_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE.argprom(ptr noundef nonnull %2, ptr noundef nonnull %826, ptr noundef %827)
+  %1059 = call fastcc noundef ptr @_ZL24foldSelectICmpAndZeroShlPKN4llvm8ICmpInstEPNS_5ValueES4_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE(ptr noundef nonnull %2, ptr noundef nonnull %826, ptr noundef %827)
   %.not208 = icmp eq ptr %1059, null
   br i1 %.not208, label %1062, label %1060
 
@@ -5792,7 +5792,7 @@ _ZN4llvm5APIntD2Ev.exit280:                       ; preds = %.critedge9, %1049, 
   br label %_ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit
 
 1062:                                             ; preds = %1058
-  %1063 = call fastcc noundef ptr @_ZL20foldSelectCtlzToCttzPN4llvm8ICmpInstEPNS_5ValueES3_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE.argprom(ptr noundef nonnull %2, ptr noundef nonnull %826, ptr noundef %827)
+  %1063 = call fastcc noundef ptr @_ZL20foldSelectCtlzToCttzPN4llvm8ICmpInstEPNS_5ValueES3_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE(ptr noundef nonnull %2, ptr noundef nonnull %826, ptr noundef %827)
   %.not209 = icmp eq ptr %1063, null
   br i1 %.not209, label %1064, label %_ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit
 
@@ -8394,7 +8394,7 @@ _ZN4llvm12PatternMatch7bind_tyINS_5ValueEE5matchIS2_EEbPT_.exit.i.i.i: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL24foldSelectICmpAndZeroShlPKN4llvm8ICmpInstEPNS_5ValueES4_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE.argprom(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL24foldSelectICmpAndZeroShlPKN4llvm8ICmpInstEPNS_5ValueES4_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %"struct.llvm::PatternMatch::cstval_pred_ty.166", align 8
   %5 = alloca %"struct.llvm::PatternMatch::cstval_pred_ty.166", align 8
   %.not.i.i = icmp eq ptr %0, null
@@ -8635,7 +8635,7 @@ _ZNK4llvm5APInt17countLeadingZerosEv.exit:        ; preds = %_ZNK4llvm5APInt6isM
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL20foldSelectCtlzToCttzPN4llvm8ICmpInstEPNS_5ValueES3_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE.argprom(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL20foldSelectCtlzToCttzPN4llvm8ICmpInstEPNS_5ValueES3_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::InsertPosition", align 8
   %5 = alloca %"struct.llvm::PatternMatch::cstval_pred_ty.166", align 8
   %6 = alloca %"struct.llvm::PatternMatch::BinaryOp_match.242", align 8
@@ -15956,7 +15956,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %402, %_ZNK4llvm5Val
   %456 = load i8, ptr %455, align 1
   %457 = and i8 %456, 16
   %458 = icmp ne i8 %457, 0
-  %459 = call fastcc noundef zeroext i1 @_ZL29matchFMulByZeroIfResultEqZeroRN4llvm16InstCombinerImplEPNS_5ValueES3_S3_S3_RNS_11InstructionEb.argprom(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef %392, ptr noundef %394, ptr noundef %.0345, ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %458)
+  %459 = call fastcc noundef zeroext i1 @_ZL29matchFMulByZeroIfResultEqZeroRN4llvm16InstCombinerImplEPNS_5ValueES3_S3_S3_RNS_11InstructionEb(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef %392, ptr noundef %394, ptr noundef %.0345, ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %458)
   br i1 %459, label %460, label %.thread676
 
 460:                                              ; preds = %454
@@ -16034,7 +16034,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %402, %_ZNK4llvm5Val
   br i1 %.not431, label %499, label %_ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit
 
 499:                                              ; preds = %495
-  %500 = call fastcc noundef ptr @_ZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE.argprom(ptr noundef nonnull align 8 dereferenceable(72) %1)
+  %500 = call fastcc noundef ptr @_ZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE(ptr noundef nonnull align 8 dereferenceable(72) %1)
   %.not432 = icmp eq ptr %500, null
   br i1 %.not432, label %501, label %_ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit
 
@@ -16765,7 +16765,7 @@ _ZNK4llvm5APInt5isOneEv.exit566:                  ; preds = %867
   br label %_ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit
 
 885:                                              ; preds = %881
-  %886 = call fastcc noundef ptr @_ZL23foldSelectBinOpIdentityRN4llvm10SelectInstERKNS_17TargetLibraryInfoERNS_16InstCombinerImplE.argprom(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(1088) %0)
+  %886 = call fastcc noundef ptr @_ZL23foldSelectBinOpIdentityRN4llvm10SelectInstERKNS_17TargetLibraryInfoERNS_16InstCombinerImplE(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(1088) %0)
   %.not466 = icmp eq ptr %886, null
   br i1 %.not466, label %887, label %_ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit
 
@@ -16794,7 +16794,7 @@ _ZNK4llvm5APInt5isOneEv.exit566:                  ; preds = %867
   br label %_ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit
 
 900:                                              ; preds = %893
-  %901 = call fastcc noundef ptr @_ZL24foldSelectWithFrozenICmpRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE.argprom(ptr noundef nonnull align 8 dereferenceable(72) %1)
+  %901 = call fastcc noundef ptr @_ZL24foldSelectWithFrozenICmpRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE(ptr noundef nonnull align 8 dereferenceable(72) %1)
   %.not470 = icmp eq ptr %901, null
   br i1 %.not470, label %904, label %902
 
@@ -17428,7 +17428,7 @@ _ZN4llvm8CastInfoINS_14FPMathOperatorEPNS_10SelectInstEvE16doCastIfPossibleERKS3
 declare noundef zeroext i1 @_ZN4llvm7CmpInst11isUnorderedENS0_9PredicateE(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL29matchFMulByZeroIfResultEqZeroRN4llvm16InstCombinerImplEPNS_5ValueES3_S3_S3_RNS_11InstructionEb.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1088) %0, ptr noundef readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef nonnull align 8 dereferenceable(72) %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL29matchFMulByZeroIfResultEqZeroRN4llvm16InstCombinerImplEPNS_5ValueES3_S3_S3_RNS_11InstructionEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1088) %0, ptr noundef readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef nonnull align 8 dereferenceable(72) %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca %"struct.llvm::SimplifyQuery", align 8
   %8 = alloca %"struct.llvm::PatternMatch::cstval_pred_ty.262", align 8
   store ptr null, ptr %8, align 8
@@ -18603,7 +18603,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %33, %34, %.thread, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE.argprom(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 {
   %2 = alloca %"class.llvm::InsertPosition", align 8
   %3 = alloca %"struct.llvm::PatternMatch::cstval_pred_ty.166", align 8
   %4 = alloca ptr, align 8
@@ -20645,7 +20645,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit:                 ; preds = %1
   %20 = getelementptr inbounds i8, ptr %0, i64 -64
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %19, %21
-  br i1 %22, label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit.thread", label %23
+  br i1 %22, label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit.thread", label %23
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds i8, ptr %9, i64 -64
@@ -20653,14 +20653,14 @@ _ZNK4llvm5Value9hasOneUseEv.exit:                 ; preds = %1
   %26 = getelementptr inbounds i8, ptr %0, i64 -32
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %25, %27
-  br i1 %28, label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit.thread", label %_ZNK4llvm5Value9hasOneUseEv.exit.thread
+  br i1 %28, label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit.thread", label %_ZNK4llvm5Value9hasOneUseEv.exit.thread
 
 _ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %1, %7, %23, %11, %_ZNK4llvm5Value9hasOneUseEv.exit
   %29 = getelementptr inbounds i8, ptr %0, i64 -96
   %30 = load ptr, ptr %29, align 8
   %31 = load i8, ptr %30, align 8
   %.not.i = icmp eq i8 %31, 93
-  br i1 %.not.i, label %32, label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit.thread"
+  br i1 %.not.i, label %32, label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit.thread"
 
 32:                                               ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit.thread
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 72
@@ -20668,29 +20668,29 @@ _ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %1, %7, %23, %11, %_
   %35 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %33) #17
   %36 = load i32, ptr %34, align 4
   %.not6.i = icmp eq i32 %36, 1
-  br i1 %.not6.i, label %37, label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit.thread"
+  br i1 %.not6.i, label %37, label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit.thread"
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds i8, ptr %30, i64 -32
   %39 = load ptr, ptr %38, align 8
   %40 = load i8, ptr %39, align 8
   %41 = icmp eq i8 %40, 65
-  br i1 %41, label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit", label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit.thread"
+  br i1 %41, label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit", label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit.thread"
 
-"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit": ; preds = %37
+"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit": ; preds = %37
   %42 = getelementptr inbounds i8, ptr %0, i64 -64
   %43 = load ptr, ptr %42, align 8
   %44 = load i8, ptr %43, align 8
   %.not.i34 = icmp eq i8 %44, 93
-  br i1 %.not.i34, label %45, label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit38"
+  br i1 %.not.i34, label %45, label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit38"
 
-45:                                               ; preds = %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit"
+45:                                               ; preds = %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit"
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 72
   %47 = load ptr, ptr %46, align 8
   %48 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %46) #17
   %49 = load i32, ptr %47, align 4
   %.not6.i36 = icmp eq i32 %49, 0
-  br i1 %.not6.i36, label %50, label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit38"
+  br i1 %.not6.i36, label %50, label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit38"
 
 50:                                               ; preds = %45
   %51 = getelementptr inbounds i8, ptr %43, i64 -32
@@ -20698,32 +20698,32 @@ _ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %1, %7, %23, %11, %_
   %53 = load i8, ptr %52, align 8
   %54 = icmp eq i8 %53, 65
   %spec.select.i.i7.i37 = select i1 %54, ptr %52, ptr null
-  br label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit38"
+  br label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit38"
 
-"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit38": ; preds = %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit", %45, %50
-  %.0.i35 = phi ptr [ %spec.select.i.i7.i37, %50 ], [ null, %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit" ], [ null, %45 ]
+"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit38": ; preds = %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit", %45, %50
+  %.0.i35 = phi ptr [ %spec.select.i.i7.i37, %50 ], [ null, %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit" ], [ null, %45 ]
   %55 = icmp eq ptr %.0.i35, %39
-  br i1 %55, label %56, label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit38._crit_edge"
+  br i1 %55, label %56, label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit38._crit_edge"
 
-"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit38._crit_edge": ; preds = %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit38"
+"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit38._crit_edge": ; preds = %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit38"
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 -32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %62
 
-56:                                               ; preds = %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit38"
+56:                                               ; preds = %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit38"
   %57 = getelementptr inbounds i8, ptr %.0.i35, i64 -64
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %0, i64 -32
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %58, %60
-  br i1 %61, label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit.thread", label %62
+  br i1 %61, label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit.thread", label %62
 
-62:                                               ; preds = %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit38._crit_edge", %56
-  %63 = phi ptr [ %.pre, %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit38._crit_edge" ], [ %60, %56 ]
+62:                                               ; preds = %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit38._crit_edge", %56
+  %63 = phi ptr [ %.pre, %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit38._crit_edge" ], [ %60, %56 ]
   %64 = getelementptr inbounds i8, ptr %0, i64 -32
   %65 = load i8, ptr %63, align 8
   %.not.i39 = icmp eq i8 %65, 93
-  br i1 %.not.i39, label %66, label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit43"
+  br i1 %.not.i39, label %66, label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit43"
 
 66:                                               ; preds = %62
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 72
@@ -20731,7 +20731,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %1, %7, %23, %11, %_
   %69 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %67) #17
   %70 = load i32, ptr %68, align 4
   %.not6.i41 = icmp eq i32 %70, 0
-  br i1 %.not6.i41, label %71, label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit43"
+  br i1 %.not6.i41, label %71, label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit43"
 
 71:                                               ; preds = %66
   %72 = getelementptr inbounds i8, ptr %63, i64 -32
@@ -20739,31 +20739,31 @@ _ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %1, %7, %23, %11, %_
   %74 = load i8, ptr %73, align 8
   %75 = icmp eq i8 %74, 65
   %spec.select.i.i7.i42 = select i1 %75, ptr %73, ptr null
-  br label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit43"
+  br label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit43"
 
-"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit43": ; preds = %62, %66, %71
+"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit43": ; preds = %62, %66, %71
   %.0.i40 = phi ptr [ %spec.select.i.i7.i42, %71 ], [ null, %62 ], [ null, %66 ]
   %76 = icmp eq ptr %.0.i40, %39
-  br i1 %76, label %77, label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit.thread"
+  br i1 %76, label %77, label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit.thread"
 
-77:                                               ; preds = %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit43"
+77:                                               ; preds = %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit43"
   %78 = getelementptr inbounds i8, ptr %.0.i40, i64 -64
   %79 = load ptr, ptr %78, align 8
   %80 = load ptr, ptr %42, align 8
   %81 = icmp eq ptr %79, %80
-  br i1 %81, label %82, label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit.thread"
+  br i1 %81, label %82, label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit.thread"
 
 82:                                               ; preds = %77
   %83 = load ptr, ptr %64, align 8
-  br label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit.thread"
+  br label %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit.thread"
 
-"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit.thread": ; preds = %32, %_ZNK4llvm5Value9hasOneUseEv.exit.thread, %37, %56, %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit43", %77, %17, %23, %82
-  %.0 = phi ptr [ %83, %82 ], [ null, %23 ], [ null, %17 ], [ null, %77 ], [ null, %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.argprom.exit43" ], [ %60, %56 ], [ null, %37 ], [ null, %_ZNK4llvm5Value9hasOneUseEv.exit.thread ], [ null, %32 ]
+"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit.thread": ; preds = %32, %_ZNK4llvm5Value9hasOneUseEv.exit.thread, %37, %56, %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit43", %77, %17, %23, %82
+  %.0 = phi ptr [ %83, %82 ], [ null, %23 ], [ null, %17 ], [ null, %77 ], [ null, %"_ZZL17foldSelectCmpXchgRN4llvm10SelectInstEENK3$_0clEPNS_5ValueEj.exit43" ], [ %60, %56 ], [ null, %37 ], [ null, %_ZNK4llvm5Value9hasOneUseEv.exit.thread ], [ null, %32 ]
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL23foldSelectBinOpIdentityRN4llvm10SelectInstERKNS_17TargetLibraryInfoERNS_16InstCombinerImplE.argprom(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(1088) %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL23foldSelectBinOpIdentityRN4llvm10SelectInstERKNS_17TargetLibraryInfoERNS_16InstCombinerImplE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(1088) %1) unnamed_addr #0 {
   %3 = alloca %"struct.llvm::PatternMatch::cstval_pred_ty.274", align 8
   %4 = alloca %"struct.llvm::PatternMatch::cstval_pred_ty.274", align 8
   %5 = alloca %"struct.llvm::SimplifyQuery", align 8
@@ -22541,7 +22541,7 @@ _ZN4llvm14SmallSetVectorIPNS_10BasicBlockELj4EED2Ev.exit: ; preds = %._crit_edge
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL24foldSelectWithFrozenICmpRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL24foldSelectWithFrozenICmpRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -96
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr %3, align 8
@@ -23283,7 +23283,7 @@ _ZN4llvm12PatternMatch14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EE5
 _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS0_7bind_tyIS2_EELj30ELb1EEEEEbPT_RKT0_.exit.thread: ; preds = %58, %_ZN4llvm12PatternMatch5matchINS_10SelectInstENS0_14ThreeOps_matchINS0_7bind_tyINS_5ValueEEES6_S6_Lj57EEEEEbPT_RKT0_.exit, %_ZN4llvm12PatternMatch14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EE5matchINS_5ValueEEEbPT_.exit11.i.i.i, %60
   %64 = load ptr, ptr %8, align 8
   %65 = call noundef zeroext i1 @_ZN4llvm12PatternMatch16match_combine_orINS0_15LogicalOp_matchINS0_11class_matchINS_5ValueEEES5_Lj28ELb1EEENS2_IS5_S5_Lj29ELb1EEEE5matchIS4_EEbPT_(ptr noundef nonnull align 1 dereferenceable(4) %10, ptr noundef %64)
-  br i1 %65, label %66, label %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.argprom.exit.thread92"
+  br i1 %65, label %66, label %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.exit.thread92"
 
 66:                                               ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS0_7bind_tyIS2_EELj30ELb1EEEEEbPT_RKT0_.exit.thread
   %67 = load ptr, ptr %8, align 8
@@ -23358,35 +23358,35 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_15LogicalOp_matchINS0_11class_matchIS
   %103 = getelementptr i8, ptr %102, i64 16
   %.1.val.val.i.i.i.i.i = load ptr, ptr %103, align 8
   %.not.i.i.i.i45.i.i.i.i.i = icmp eq ptr %.1.val.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i45.i.i.i.i.i, label %107, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17foldNestedSelectsRN4llvm10SelectInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_1EclIPKPNS2_5ValueEEEbT_.argprom.argprom.exit47.i.i.i.i.i"
+  br i1 %.not.i.i.i.i45.i.i.i.i.i, label %107, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17foldNestedSelectsRN4llvm10SelectInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_1EclIPKPNS2_5ValueEEEbT_.exit47.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL17foldNestedSelectsRN4llvm10SelectInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_1EclIPKPNS2_5ValueEEEbT_.argprom.argprom.exit47.i.i.i.i.i": ; preds = %._crit_edge.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL17foldNestedSelectsRN4llvm10SelectInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_1EclIPKPNS2_5ValueEEEbT_.exit47.i.i.i.i.i": ; preds = %._crit_edge.i.i.i.i.i
   %104 = getelementptr inbounds nuw i8, ptr %.1.val.val.i.i.i.i.i, i64 8
   %105 = load ptr, ptr %104, align 8
   %106 = icmp eq ptr %105, null
-  br i1 %106, label %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.argprom.exit.thread", label %107
+  br i1 %106, label %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.exit.thread", label %107
 
-107:                                              ; preds = %._crit_edge.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17foldNestedSelectsRN4llvm10SelectInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_1EclIPKPNS2_5ValueEEEbT_.argprom.argprom.exit47.i.i.i.i.i"
+107:                                              ; preds = %._crit_edge.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17foldNestedSelectsRN4llvm10SelectInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_1EclIPKPNS2_5ValueEEEbT_.exit47.i.i.i.i.i"
   %108 = getelementptr i8, ptr %100, i64 16
   %.2.val.val.i.i.i.i.i = load ptr, ptr %108, align 8
   %.not.i.i.i.i48.i.i.i.i.i = icmp eq ptr %.2.val.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i48.i.i.i.i.i, label %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.argprom.exit.thread92", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17foldNestedSelectsRN4llvm10SelectInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_1EclIPKPNS2_5ValueEEEbT_.argprom.argprom.exit50.i.i.i.i.i"
+  br i1 %.not.i.i.i.i48.i.i.i.i.i, label %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.exit.thread92", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17foldNestedSelectsRN4llvm10SelectInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_1EclIPKPNS2_5ValueEEEbT_.exit50.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL17foldNestedSelectsRN4llvm10SelectInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_1EclIPKPNS2_5ValueEEEbT_.argprom.argprom.exit50.i.i.i.i.i": ; preds = %107
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL17foldNestedSelectsRN4llvm10SelectInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_1EclIPKPNS2_5ValueEEEbT_.exit50.i.i.i.i.i": ; preds = %107
   %109 = getelementptr inbounds nuw i8, ptr %.2.val.val.i.i.i.i.i, i64 8
   %110 = load ptr, ptr %109, align 8
   %111 = icmp eq ptr %110, null
-  br i1 %111, label %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.argprom.exit.thread", label %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.argprom.exit.thread92"
+  br i1 %111, label %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.exit.thread", label %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.exit.thread92"
 
-"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.argprom.exit.thread": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17foldNestedSelectsRN4llvm10SelectInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_1EclIPKPNS2_5ValueEEEbT_.argprom.argprom.exit50.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17foldNestedSelectsRN4llvm10SelectInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_1EclIPKPNS2_5ValueEEEbT_.argprom.argprom.exit47.i.i.i.i.i"
+"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.exit.thread": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17foldNestedSelectsRN4llvm10SelectInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_1EclIPKPNS2_5ValueEEEbT_.exit50.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17foldNestedSelectsRN4llvm10SelectInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_1EclIPKPNS2_5ValueEEEbT_.exit47.i.i.i.i.i"
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 16, i1 false)
   %112 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %113 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %114 = load i8, ptr %100, align 8
   %115 = icmp eq i8 %114, 86
-  br i1 %115, label %116, label %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.argprom.exit.thread92"
+  br i1 %115, label %116, label %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.exit.thread92"
 
-116:                                              ; preds = %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.argprom.exit.thread"
+116:                                              ; preds = %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.exit.thread"
   %117 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %118 = load i32, ptr %117, align 4
   %119 = and i32 %118, 1073741824
@@ -23400,14 +23400,14 @@ _ZNK4llvm4User10getOperandEj.exit.i.i20:          ; preds = %116
   %123 = getelementptr inbounds %"class.llvm::Use", ptr %100, i64 %122
   %124 = load ptr, ptr %123, align 8
   %.not.i.not.i.i21 = icmp eq ptr %124, null
-  br i1 %.not.i.not.i.i21, label %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.argprom.exit.thread92", label %_ZNK4llvm4User10getOperandEj.exit8.i.i23
+  br i1 %.not.i.not.i.i21, label %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.exit.thread92", label %_ZNK4llvm4User10getOperandEj.exit8.i.i23
 
 _ZNK4llvm4User10getOperandEj.exit.i.i20.thread:   ; preds = %116
   %125 = getelementptr inbounds i8, ptr %100, i64 -8
   %126 = load ptr, ptr %125, align 8
   %127 = load ptr, ptr %126, align 8
   %.not.i.not.i.i2199 = icmp eq ptr %127, null
-  br i1 %.not.i.not.i.i2199, label %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.argprom.exit.thread92", label %_ZNK4llvm4User10getOperandEj.exit8.i.i23.thread
+  br i1 %.not.i.not.i.i2199, label %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.exit.thread92", label %_ZNK4llvm4User10getOperandEj.exit8.i.i23.thread
 
 _ZNK4llvm4User10getOperandEj.exit8.i.i23:         ; preds = %_ZNK4llvm4User10getOperandEj.exit.i.i20
   store ptr %124, ptr %11, align 8
@@ -23418,7 +23418,7 @@ _ZNK4llvm4User10getOperandEj.exit8.i.i23:         ; preds = %_ZNK4llvm4User10get
   %132 = getelementptr inbounds i8, ptr %131, i64 32
   %133 = load ptr, ptr %132, align 8
   %.not.i9.not.i.i24 = icmp eq ptr %133, null
-  br i1 %.not.i9.not.i.i24, label %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.argprom.exit.thread92", label %141
+  br i1 %.not.i9.not.i.i24, label %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.exit.thread92", label %141
 
 _ZNK4llvm4User10getOperandEj.exit8.i.i23.thread:  ; preds = %_ZNK4llvm4User10getOperandEj.exit.i.i20.thread
   store ptr %127, ptr %11, align 8
@@ -23427,7 +23427,7 @@ _ZNK4llvm4User10getOperandEj.exit8.i.i23.thread:  ; preds = %_ZNK4llvm4User10get
   %136 = getelementptr inbounds i8, ptr %135, i64 32
   %137 = load ptr, ptr %136, align 8
   %.not.i9.not.i.i24100 = icmp eq ptr %137, null
-  br i1 %.not.i9.not.i.i24100, label %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.argprom.exit.thread92", label %138
+  br i1 %.not.i9.not.i.i24100, label %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.exit.thread92", label %138
 
 138:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit8.i.i23.thread
   store ptr %137, ptr %112, align 8
@@ -23449,7 +23449,7 @@ _ZNK4llvm4User10getOperandEj.exit12.i.i26:        ; preds = %141, %138
   %148 = getelementptr inbounds i8, ptr %147, i64 64
   %149 = load ptr, ptr %148, align 8
   %.not.i13.not.i.i27 = icmp eq ptr %149, null
-  br i1 %.not.i13.not.i.i27, label %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.argprom.exit.thread92", label %150
+  br i1 %.not.i13.not.i.i27, label %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.exit.thread92", label %150
 
 150:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit12.i.i26
   store ptr %149, ptr %113, align 8
@@ -23554,7 +23554,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_14cstval_pred_ty
   %184 = call noundef zeroext i1 @_ZN4llvm12PatternMatch15LogicalOp_matchINS0_17match_combine_andINS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS0_14specificval_tyELj30ELb1EEENS0_7bind_tyINS_5ValueEEEEESC_Lj28ELb1EE5matchISB_EEbPT_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %.sroa.049.0.copyload)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  br i1 %184, label %190, label %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.argprom.exit.thread92"
+  br i1 %184, label %190, label %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.exit.thread92"
 
 "_ZZL17foldNestedSelectsRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch17match_combine_andINS9_14BinaryOp_matchINS9_14cstval_pred_tyINS9_11is_all_onesENS_11ConstantIntELb1EEENS9_14specificval_tyELj30ELb1EEENS9_7bind_tyINS_5ValueEEEEEEEDaT_.exit": ; preds = %"_ZZL17foldNestedSelectsRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyEEEDaT_.exit"
   %185 = load ptr, ptr %11, align 8
@@ -23572,7 +23572,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_14cstval_pred_ty
   %189 = call noundef zeroext i1 @_ZN4llvm12PatternMatch15LogicalOp_matchINS0_17match_combine_andINS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS0_14specificval_tyELj30ELb1EEENS0_7bind_tyINS_5ValueEEEEESC_Lj29ELb1EE5matchISB_EEbPT_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %.sroa.049.0.copyload)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  br i1 %189, label %190, label %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.argprom.exit.thread92"
+  br i1 %189, label %190, label %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.exit.thread92"
 
 190:                                              ; preds = %179, %"_ZZL17foldNestedSelectsRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch17match_combine_andINS9_14BinaryOp_matchINS9_14cstval_pred_tyINS9_11is_all_onesENS_11ConstantIntELb1EEENS9_14specificval_tyELj30ELb1EEENS9_7bind_tyINS_5ValueEEEEEEEDaT_.exit"
   %191 = load ptr, ptr %112, align 8
@@ -23607,10 +23607,10 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_14cstval_pred_ty
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   call void @_ZN4llvm10SelectInstC2EPNS_5ValueES2_S2_RKNS_5TwineENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %210, ptr noundef %204, ptr noundef %206, ptr noundef %208, ptr noundef nonnull align 8 dereferenceable(34) %16, ptr noundef nonnull byval(%"class.llvm::InsertPosition") align 8 %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.argprom.exit.thread92"
+  br label %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.exit.thread92"
 
-"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.argprom.exit.thread92": ; preds = %_ZNK4llvm4User10getOperandEj.exit8.i.i23.thread, %_ZNK4llvm4User10getOperandEj.exit.i.i20.thread, %_ZNK4llvm4User10getOperandEj.exit12.i.i26, %_ZNK4llvm4User10getOperandEj.exit8.i.i23, %_ZNK4llvm4User10getOperandEj.exit.i.i20, %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.argprom.exit.thread", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17foldNestedSelectsRN4llvm10SelectInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_1EclIPKPNS2_5ValueEEEbT_.argprom.argprom.exit50.i.i.i.i.i", %107, %179, %"_ZZL17foldNestedSelectsRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch17match_combine_andINS9_14BinaryOp_matchINS9_14cstval_pred_tyINS9_11is_all_onesENS_11ConstantIntELb1EEENS9_14specificval_tyELj30ELb1EEENS9_7bind_tyINS_5ValueEEEEEEEDaT_.exit", %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS0_7bind_tyIS2_EELj30ELb1EEEEEbPT_RKT0_.exit.thread, %194
-  %.0 = phi ptr [ %210, %194 ], [ null, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS0_7bind_tyIS2_EELj30ELb1EEEEEbPT_RKT0_.exit.thread ], [ null, %"_ZZL17foldNestedSelectsRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch17match_combine_andINS9_14BinaryOp_matchINS9_14cstval_pred_tyINS9_11is_all_onesENS_11ConstantIntELb1EEENS9_14specificval_tyELj30ELb1EEENS9_7bind_tyINS_5ValueEEEEEEEDaT_.exit" ], [ null, %179 ], [ null, %107 ], [ null, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17foldNestedSelectsRN4llvm10SelectInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_1EclIPKPNS2_5ValueEEEbT_.argprom.argprom.exit50.i.i.i.i.i" ], [ null, %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.argprom.exit.thread" ], [ null, %_ZNK4llvm4User10getOperandEj.exit.i.i20 ], [ null, %_ZNK4llvm4User10getOperandEj.exit8.i.i23 ], [ null, %_ZNK4llvm4User10getOperandEj.exit12.i.i26 ], [ null, %_ZNK4llvm4User10getOperandEj.exit.i.i20.thread ], [ null, %_ZNK4llvm4User10getOperandEj.exit8.i.i23.thread ]
+"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.exit.thread92": ; preds = %_ZNK4llvm4User10getOperandEj.exit8.i.i23.thread, %_ZNK4llvm4User10getOperandEj.exit.i.i20.thread, %_ZNK4llvm4User10getOperandEj.exit12.i.i26, %_ZNK4llvm4User10getOperandEj.exit8.i.i23, %_ZNK4llvm4User10getOperandEj.exit.i.i20, %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.exit.thread", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17foldNestedSelectsRN4llvm10SelectInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_1EclIPKPNS2_5ValueEEEbT_.exit50.i.i.i.i.i", %107, %179, %"_ZZL17foldNestedSelectsRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch17match_combine_andINS9_14BinaryOp_matchINS9_14cstval_pred_tyINS9_11is_all_onesENS_11ConstantIntELb1EEENS9_14specificval_tyELj30ELb1EEENS9_7bind_tyINS_5ValueEEEEEEEDaT_.exit", %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS0_7bind_tyIS2_EELj30ELb1EEEEEbPT_RKT0_.exit.thread, %194
+  %.0 = phi ptr [ %210, %194 ], [ null, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS0_7bind_tyIS2_EELj30ELb1EEEEEbPT_RKT0_.exit.thread ], [ null, %"_ZZL17foldNestedSelectsRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch17match_combine_andINS9_14BinaryOp_matchINS9_14cstval_pred_tyINS9_11is_all_onesENS_11ConstantIntELb1EEENS9_14specificval_tyELj30ELb1EEENS9_7bind_tyINS_5ValueEEEEEEEDaT_.exit" ], [ null, %179 ], [ null, %107 ], [ null, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17foldNestedSelectsRN4llvm10SelectInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_1EclIPKPNS2_5ValueEEEbT_.exit50.i.i.i.i.i" ], [ null, %"_ZN4llvm7none_ofINS_8ArrayRefIPNS_5ValueEEEZL17foldNestedSelectsRNS_10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_1EEbOT_T0_.exit.thread" ], [ null, %_ZNK4llvm4User10getOperandEj.exit.i.i20 ], [ null, %_ZNK4llvm4User10getOperandEj.exit8.i.i23 ], [ null, %_ZNK4llvm4User10getOperandEj.exit12.i.i26 ], [ null, %_ZNK4llvm4User10getOperandEj.exit.i.i20.thread ], [ null, %_ZNK4llvm4User10getOperandEj.exit8.i.i23.thread ]
   ret ptr %.0
 }
 
@@ -30765,7 +30765,7 @@ define internal fastcc noundef zeroext i1 @"_ZZL27foldOverflowingAddSubSelectRN4
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = icmp ult i32 %43, 65
-  br i1 %44, label %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.argprom.exit", label %_ZNK4llvm5APInt6isZeroEv.exit.i
+  br i1 %44, label %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit", label %_ZNK4llvm5APInt6isZeroEv.exit.i
 
 _ZNK4llvm5APInt6isZeroEv.exit.i:                  ; preds = %40
   %45 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull readonly align 8 dereferenceable(12) %41) #18
@@ -30773,25 +30773,25 @@ _ZNK4llvm5APInt6isZeroEv.exit.i:                  ; preds = %40
   %47 = add i32 %43, -1
   %48 = icmp eq i32 %45, %47
   %or.cond71 = or i1 %46, %48
-  br i1 %or.cond71, label %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.argprom.exit.thread", label %.critedge.thread
+  br i1 %or.cond71, label %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit.thread", label %.critedge.thread
 
-"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.argprom.exit": ; preds = %40
+"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit": ; preds = %40
   %49 = load i64, ptr %41, align 8
   %spec.select.i = icmp ult i64 %49, 2
-  br i1 %spec.select.i, label %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.argprom.exit.thread", label %.critedge.thread
+  br i1 %spec.select.i, label %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit.thread", label %.critedge.thread
 
-"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.argprom.exit.thread": ; preds = %_ZNK4llvm5APInt6isZeroEv.exit.i, %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.argprom.exit"
+"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit.thread": ; preds = %_ZNK4llvm5APInt6isZeroEv.exit.i, %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit"
   %50 = load ptr, ptr %6, align 8
   %51 = load ptr, ptr %7, align 8
   %52 = call fastcc noundef zeroext i1 @"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlS9_S9_E_clES9_S9_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %50, ptr noundef %51)
-  br i1 %52, label %206, label %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.argprom.exit.thread.thread-pre-split_crit_edge"
+  br i1 %52, label %206, label %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit.thread.thread-pre-split_crit_edge"
 
-"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.argprom.exit.thread.thread-pre-split_crit_edge": ; preds = %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.argprom.exit.thread"
+"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit.thread.thread-pre-split_crit_edge": ; preds = %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit.thread"
   %.pr.pre = load i32, ptr %5, align 4
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.argprom.exit.thread.thread-pre-split_crit_edge", %39
-  %53 = phi i32 [ %37, %39 ], [ %.pr.pre, %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.argprom.exit.thread.thread-pre-split_crit_edge" ]
+thread-pre-split:                                 ; preds = %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit.thread.thread-pre-split_crit_edge", %39
+  %53 = phi i32 [ %37, %39 ], [ %.pr.pre, %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit.thread.thread-pre-split_crit_edge" ]
   %54 = icmp eq i32 %53, 38
   br i1 %54, label %55, label %.critedge.thread
 
@@ -30823,7 +30823,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %61, %63
   store i64 %67, ptr %12, align 8, !alias.scope !353
   store i32 0, ptr %57, align 8, !noalias !353
   %68 = icmp ult i32 %66, 65
-  br i1 %68, label %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.argprom.exit37", label %_ZNK4llvm5APInt6isZeroEv.exit.i35
+  br i1 %68, label %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit37", label %_ZNK4llvm5APInt6isZeroEv.exit.i35
 
 _ZNK4llvm5APInt6isZeroEv.exit.i35:                ; preds = %_ZN4llvm5APIntC2ERKS0_.exit
   %69 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull readonly align 8 dereferenceable(12) %12) #18
@@ -30833,11 +30833,11 @@ _ZNK4llvm5APInt6isZeroEv.exit.i35:                ; preds = %_ZN4llvm5APIntC2ERK
   %or.cond73 = or i1 %70, %72
   br i1 %or.cond73, label %73, label %.thread
 
-"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.argprom.exit37": ; preds = %_ZN4llvm5APIntC2ERKS0_.exit
+"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit37": ; preds = %_ZN4llvm5APIntC2ERKS0_.exit
   %spec.select.i36 = icmp ult i64 %67, 2
   br i1 %spec.select.i36, label %73, label %.critedge.thread
 
-73:                                               ; preds = %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.argprom.exit37", %_ZNK4llvm5APInt6isZeroEv.exit.i35
+73:                                               ; preds = %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit37", %_ZNK4llvm5APInt6isZeroEv.exit.i35
   %74 = load ptr, ptr %7, align 8
   %75 = load ptr, ptr %6, align 8
   %76 = call fastcc noundef zeroext i1 @"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlS9_S9_E_clES9_S9_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %74, ptr noundef %75)
@@ -30905,7 +30905,7 @@ _ZN4llvm5APIntC2ERKS0_.exit39:                    ; preds = %93, %95
   store i64 %99, ptr %14, align 8, !alias.scope !356
   store i32 0, ptr %89, align 8, !noalias !356
   %100 = icmp ult i32 %98, 65
-  br i1 %100, label %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.argprom.exit42", label %_ZNK4llvm5APInt6isZeroEv.exit.i40
+  br i1 %100, label %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit42", label %_ZNK4llvm5APInt6isZeroEv.exit.i40
 
 _ZNK4llvm5APInt6isZeroEv.exit.i40:                ; preds = %_ZN4llvm5APIntC2ERKS0_.exit39
   %101 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull readonly align 8 dereferenceable(12) %14) #18
@@ -30915,11 +30915,11 @@ _ZNK4llvm5APInt6isZeroEv.exit.i40:                ; preds = %_ZN4llvm5APIntC2ERK
   %or.cond75 = or i1 %102, %104
   br i1 %or.cond75, label %105, label %.thread95
 
-"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.argprom.exit42": ; preds = %_ZN4llvm5APIntC2ERKS0_.exit39
+"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit42": ; preds = %_ZN4llvm5APIntC2ERKS0_.exit39
   %spec.select.i41 = icmp ult i64 %99, 2
   br i1 %spec.select.i41, label %105, label %.critedge30.thread
 
-105:                                              ; preds = %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.argprom.exit42", %_ZNK4llvm5APInt6isZeroEv.exit.i40
+105:                                              ; preds = %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit42", %_ZNK4llvm5APInt6isZeroEv.exit.i40
   %106 = load ptr, ptr %6, align 8
   %107 = load ptr, ptr %7, align 8
   %108 = call fastcc noundef zeroext i1 @"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlS9_S9_E_clES9_S9_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %106, ptr noundef %107)
@@ -30955,7 +30955,7 @@ _ZN4llvm5APIntD2Ev.exit43:                        ; preds = %105, %.thread95, %1
 .critedge30:                                      ; preds = %114, %_ZN4llvm5APIntD2Ev.exit43
   br i1 %.ph6297.ph, label %206, label %.critedge30.thread
 
-.critedge30.thread:                               ; preds = %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.argprom.exit42", %86, %117, %.critedge30
+.critedge30.thread:                               ; preds = %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit42", %86, %117, %.critedge30
   %118 = load ptr, ptr %8, align 8
   %119 = load ptr, ptr %0, align 8
   %120 = load ptr, ptr %119, align 8
@@ -30993,7 +30993,7 @@ _ZN4llvm5APIntC2ERKS0_.exit45:                    ; preds = %130, %132
   store i64 %136, ptr %16, align 8, !alias.scope !359
   store i32 0, ptr %126, align 8, !noalias !359
   %137 = icmp ult i32 %135, 65
-  br i1 %137, label %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.argprom.exit48", label %_ZNK4llvm5APInt6isZeroEv.exit.i46
+  br i1 %137, label %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit48", label %_ZNK4llvm5APInt6isZeroEv.exit.i46
 
 _ZNK4llvm5APInt6isZeroEv.exit.i46:                ; preds = %_ZN4llvm5APIntC2ERKS0_.exit45
   %138 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull readonly align 8 dereferenceable(12) %16) #18
@@ -31003,11 +31003,11 @@ _ZNK4llvm5APInt6isZeroEv.exit.i46:                ; preds = %_ZN4llvm5APIntC2ERK
   %or.cond77 = or i1 %139, %141
   br i1 %or.cond77, label %142, label %.thread106
 
-"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.argprom.exit48": ; preds = %_ZN4llvm5APIntC2ERKS0_.exit45
+"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit48": ; preds = %_ZN4llvm5APIntC2ERKS0_.exit45
   %spec.select.i47 = icmp ult i64 %136, 2
   br i1 %spec.select.i47, label %142, label %.critedge32.thread
 
-142:                                              ; preds = %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.argprom.exit48", %_ZNK4llvm5APInt6isZeroEv.exit.i46
+142:                                              ; preds = %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit48", %_ZNK4llvm5APInt6isZeroEv.exit.i46
   %143 = load ptr, ptr %7, align 8
   %144 = load ptr, ptr %6, align 8
   %145 = call fastcc noundef zeroext i1 @"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlS9_S9_E_clES9_S9_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %143, ptr noundef %144)
@@ -31043,7 +31043,7 @@ _ZN4llvm5APIntD2Ev.exit49:                        ; preds = %142, %.thread106, %
 .critedge32:                                      ; preds = %151, %_ZN4llvm5APIntD2Ev.exit49
   br i1 %.ph65108.ph, label %206, label %.critedge32.thread
 
-.critedge32.thread:                               ; preds = %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.argprom.exit48", %.critedge30.thread, %154, %.critedge32
+.critedge32.thread:                               ; preds = %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit48", %.critedge30.thread, %154, %.critedge32
   %155 = load ptr, ptr %8, align 8
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %157 = load ptr, ptr %156, align 8
@@ -31056,7 +31056,7 @@ _ZN4llvm5APIntD2Ev.exit49:                        ; preds = %142, %.thread106, %
 
 162:                                              ; preds = %.critedge32.thread
   %163 = load ptr, ptr %9, align 8
-  %164 = call fastcc noundef zeroext i1 @"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.argprom"(ptr noundef nonnull align 8 dereferenceable(12) %163)
+  %164 = call fastcc noundef zeroext i1 @"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_"(ptr noundef nonnull align 8 dereferenceable(12) %163)
   br i1 %164, label %165, label %.critedge.thread
 
 165:                                              ; preds = %162
@@ -31108,7 +31108,7 @@ _ZN4llvm5APIntC2ERKS0_.exit51:                    ; preds = %181, %183
   %187 = load i64, ptr %19, align 8, !noalias !362
   store i64 %187, ptr %18, align 8, !alias.scope !362
   store i32 0, ptr %177, align 8, !noalias !362
-  %188 = call fastcc noundef zeroext i1 @"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.argprom"(ptr noundef nonnull align 8 dereferenceable(12) %18)
+  %188 = call fastcc noundef zeroext i1 @"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_"(ptr noundef nonnull align 8 dereferenceable(12) %18)
   br i1 %188, label %189, label %193
 
 189:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit51
@@ -31150,16 +31150,16 @@ _ZN4llvm5APIntD2Ev.exit52:                        ; preds = %193, %196, %199
 .critedge34:                                      ; preds = %202, %_ZN4llvm5APIntD2Ev.exit52
   br i1 %.ph68, label %206, label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %162, %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.argprom.exit37", %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.argprom.exit", %_ZNK4llvm5APInt6isZeroEv.exit.i, %169, %thread-pre-split, %205, %85, %.critedge34, %.critedge
+.critedge.thread:                                 ; preds = %162, %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit37", %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit", %_ZNK4llvm5APInt6isZeroEv.exit.i, %169, %thread-pre-split, %205, %85, %.critedge34, %.critedge
   br label %206
 
-206:                                              ; preds = %205, %154, %117, %85, %.critedge34, %165, %.critedge32, %.critedge30, %.critedge, %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.argprom.exit.thread", %32, %3, %.critedge.thread
-  %.026 = phi i1 [ false, %.critedge.thread ], [ false, %3 ], [ false, %32 ], [ true, %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.argprom.exit.thread" ], [ true, %.critedge ], [ true, %.critedge30 ], [ true, %.critedge32 ], [ true, %165 ], [ true, %.critedge34 ], [ true, %85 ], [ true, %117 ], [ true, %154 ], [ true, %205 ]
+206:                                              ; preds = %205, %154, %117, %85, %.critedge34, %165, %.critedge32, %.critedge30, %.critedge, %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit.thread", %32, %3, %.critedge.thread
+  %.026 = phi i1 [ false, %.critedge.thread ], [ false, %3 ], [ false, %32 ], [ true, %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit.thread" ], [ true, %.critedge ], [ true, %.critedge30 ], [ true, %.critedge32 ], [ true, %165 ], [ true, %.critedge34 ], [ true, %85 ], [ true, %117 ], [ true, %154 ], [ true, %205 ]
   ret i1 %.026
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc noundef zeroext i1 @"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.argprom"(ptr noundef nonnull readonly align 8 dereferenceable(12) %0) unnamed_addr #7 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_"(ptr noundef nonnull readonly align 8 dereferenceable(12) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp ult i32 %3, 65
@@ -38334,7 +38334,7 @@ define internal void @"_ZN4llvm12function_refIFvPNS_5ValueEEE11callback_fnIZNS_1
   %.025.i.i.i = phi ptr [ %17, %16 ], [ %7, %9 ]
   %14 = load ptr, ptr %.025.i.i.i, align 8, !noalias !398
   %15 = icmp eq ptr %14, %1
-  br i1 %15, label %"_ZZN4llvm16InstCombinerImpl15visitSelectInstERNS_10SelectInstEENK3$_2clEPNS_5ValueE.argprom.exit", label %16
+  br i1 %15, label %"_ZZN4llvm16InstCombinerImpl15visitSelectInstERNS_10SelectInstEENK3$_2clEPNS_5ValueE.exit", label %16
 
 16:                                               ; preds = %.lr.ph.i.i.i
   %17 = getelementptr inbounds i8, ptr %.025.i.i.i, i64 8
@@ -38351,13 +38351,13 @@ define internal void @"_ZN4llvm12function_refIFvPNS_5ValueEEE11callback_fnIZNS_1
   %22 = add nuw i32 %11, 1
   store i32 %22, ptr %10, align 4, !noalias !398
   store ptr %1, ptr %13, align 8, !noalias !398
-  br label %"_ZZN4llvm16InstCombinerImpl15visitSelectInstERNS_10SelectInstEENK3$_2clEPNS_5ValueE.argprom.exit"
+  br label %"_ZZN4llvm16InstCombinerImpl15visitSelectInstERNS_10SelectInstEENK3$_2clEPNS_5ValueE.exit"
 
 23:                                               ; preds = %._crit_edge.i.i.i, %2
   %24 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef %1) #17, !noalias !398
-  br label %"_ZZN4llvm16InstCombinerImpl15visitSelectInstERNS_10SelectInstEENK3$_2clEPNS_5ValueE.argprom.exit"
+  br label %"_ZZN4llvm16InstCombinerImpl15visitSelectInstERNS_10SelectInstEENK3$_2clEPNS_5ValueE.exit"
 
-"_ZZN4llvm16InstCombinerImpl15visitSelectInstERNS_10SelectInstEENK3$_2clEPNS_5ValueE.argprom.exit": ; preds = %.lr.ph.i.i.i, %21, %23
+"_ZZN4llvm16InstCombinerImpl15visitSelectInstERNS_10SelectInstEENK3$_2clEPNS_5ValueE.exit": ; preds = %.lr.ph.i.i.i, %21, %23
   ret void
 }
 

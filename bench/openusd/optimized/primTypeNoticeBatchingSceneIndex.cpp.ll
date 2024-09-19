@@ -446,7 +446,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__36HdsiPrimTypeNoticeBatchingSc
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false), !alias.scope !6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_GetNumPrioritiesERKSt10shared_ptrINS_36HdsiPrimTypeNoticeBatchingSceneIndex23PrimTypePriorityFunctorEE.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_GetNumPrioritiesERKSt10shared_ptrINS_36HdsiPrimTypeNoticeBatchingSceneIndex23PrimTypePriorityFunctorEE.exit
 
 15:                                               ; preds = %3
   %16 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_GetPrimTypePriorityFunctorERKSt10shared_ptrINS_21HdContainerDataSourceEEE3key acquire, align 8, !noalias !6
@@ -698,7 +698,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %.not.i20 = icmp eq ptr %.val.pr, null
-  br i1 %.not.i20, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_GetNumPrioritiesERKSt10shared_ptrINS_36HdsiPrimTypeNoticeBatchingSceneIndex23PrimTypePriorityFunctorEE.argprom.exit, label %129
+  br i1 %.not.i20, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_GetNumPrioritiesERKSt10shared_ptrINS_36HdsiPrimTypeNoticeBatchingSceneIndex23PrimTypePriorityFunctorEE.exit, label %129
 
 129:                                              ; preds = %128
   %130 = load ptr, ptr %.val.pr, align 8
@@ -709,9 +709,9 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 .noexc21:                                         ; preds = %129
   %..i = call i64 @llvm.umax.i64(i64 %133, i64 1)
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_GetNumPrioritiesERKSt10shared_ptrINS_36HdsiPrimTypeNoticeBatchingSceneIndex23PrimTypePriorityFunctorEE.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_GetNumPrioritiesERKSt10shared_ptrINS_36HdsiPrimTypeNoticeBatchingSceneIndex23PrimTypePriorityFunctorEE.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_GetNumPrioritiesERKSt10shared_ptrINS_36HdsiPrimTypeNoticeBatchingSceneIndex23PrimTypePriorityFunctorEE.argprom.exit: ; preds = %.thread, %.noexc21, %128
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_GetNumPrioritiesERKSt10shared_ptrINS_36HdsiPrimTypeNoticeBatchingSceneIndex23PrimTypePriorityFunctorEE.exit: ; preds = %.thread, %.noexc21, %128
   %.0.i = phi i64 [ 1, %128 ], [ %..i, %.noexc21 ], [ 1, %.thread ]
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i64 %.0.i, ptr %134, align 8
@@ -743,7 +743,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_GetNumPrioritiesERKSt10sha
   %149 = icmp eq i32 %148, 1
   br i1 %149, label %150, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit
 
-150:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_GetNumPrioritiesERKSt10shared_ptrINS_36HdsiPrimTypeNoticeBatchingSceneIndex23PrimTypePriorityFunctorEE.argprom.exit
+150:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_GetNumPrioritiesERKSt10shared_ptrINS_36HdsiPrimTypeNoticeBatchingSceneIndex23PrimTypePriorityFunctorEE.exit
   fence syncscope("singlethread") seq_cst
   %151 = call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09lfence", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #25, !srcloc !18
   %152 = extractvalue { i32, i32 } %151, 0
@@ -753,9 +753,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_GetNumPrioritiesERKSt10sha
   %156 = zext i32 %152 to i64
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_GetNumPrioritiesERKSt10shared_ptrINS_36HdsiPrimTypeNoticeBatchingSceneIndex23PrimTypePriorityFunctorEE.argprom.exit, %150
-  %.sroa.7.0 = phi i64 [ %156, %150 ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_GetNumPrioritiesERKSt10shared_ptrINS_36HdsiPrimTypeNoticeBatchingSceneIndex23PrimTypePriorityFunctorEE.argprom.exit ]
-  %.sroa.11.0 = phi i64 [ %155, %150 ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_GetNumPrioritiesERKSt10shared_ptrINS_36HdsiPrimTypeNoticeBatchingSceneIndex23PrimTypePriorityFunctorEE.argprom.exit ]
+_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_GetNumPrioritiesERKSt10shared_ptrINS_36HdsiPrimTypeNoticeBatchingSceneIndex23PrimTypePriorityFunctorEE.exit, %150
+  %.sroa.7.0 = phi i64 [ %156, %150 ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_GetNumPrioritiesERKSt10shared_ptrINS_36HdsiPrimTypeNoticeBatchingSceneIndex23PrimTypePriorityFunctorEE.exit ]
+  %.sroa.11.0 = phi i64 [ %155, %150 ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_GetNumPrioritiesERKSt10shared_ptrINS_36HdsiPrimTypeNoticeBatchingSceneIndex23PrimTypePriorityFunctorEE.exit ]
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 120
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexPrimViewC1ERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEE(ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef nonnull align 8 dereferenceable(8) %157)
           to label %158 unwind label %262

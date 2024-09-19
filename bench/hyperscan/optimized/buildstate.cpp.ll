@@ -709,7 +709,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %call30.val = load i32, ptr %13, align 4
   %source.val = load ptr, ptr %source, align 8
   %source.val13 = load ptr, ptr %10, align 8
-  tail call fastcc void @_ZN3ue2L22checkEmbeddedEndAnchorERKNS_12PositionInfoERKSt6vectorIS0_SaIS0_EE.argprom(i32 %call30.val, ptr %source.val, ptr %source.val13)
+  tail call fastcc void @_ZN3ue2L22checkEmbeddedEndAnchorERKNS_12PositionInfoERKSt6vectorIS0_SaIS0_EE(i32 %call30.val, ptr %source.val, ptr %source.val13)
   %14 = load ptr, ptr %10, align 8
   %15 = load ptr, ptr %source, align 8
   %sub.ptr.lhs.cast.i.i19 = ptrtoint ptr %14 to i64
@@ -926,7 +926,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L22checkEmbeddedEndAnchorERKNS_12PositionInfoERKSt6vectorIS0_SaIS0_EE.argprom(i32 %from.4.val, ptr readonly %firsts.0.val, ptr readnone %firsts.8.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L22checkEmbeddedEndAnchorERKNS_12PositionInfoERKSt6vectorIS0_SaIS0_EE(i32 %from.4.val, ptr readonly %firsts.0.val, ptr readnone %firsts.8.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator.21", align 1
@@ -1285,7 +1285,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %call5.val = load i32, ptr %3, align 4
   %firsts.val = load ptr, ptr %firsts, align 8
   %firsts.val4 = load ptr, ptr %2, align 8
-  tail call fastcc void @_ZN3ue2L22checkEmbeddedEndAnchorERKNS_12PositionInfoERKSt6vectorIS0_SaIS0_EE.argprom(i32 %call5.val, ptr %firsts.val, ptr %firsts.val4)
+  tail call fastcc void @_ZN3ue2L22checkEmbeddedEndAnchorERKNS_12PositionInfoERKSt6vectorIS0_SaIS0_EE(i32 %call5.val, ptr %firsts.val, ptr %firsts.val4)
   %4 = load ptr, ptr %2, align 8
   %5 = load ptr, ptr %firsts, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %4 to i64
@@ -5124,8 +5124,8 @@ attributes #28 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN5boost11make_uniqueIN3ue212_GLOBAL__N_122GlushkovBuildStateImplEJRNS1_10NFABuilderERbEEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS8_St14default_deleteIS8_EEE4typeEDpOT0_.argprom: %agg.result"}
-!7 = distinct !{!7, !"_ZN5boost11make_uniqueIN3ue212_GLOBAL__N_122GlushkovBuildStateImplEJRNS1_10NFABuilderERbEEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS8_St14default_deleteIS8_EEE4typeEDpOT0_.argprom"}
+!6 = distinct !{!6, !7, !"_ZN5boost11make_uniqueIN3ue212_GLOBAL__N_122GlushkovBuildStateImplEJRNS1_10NFABuilderERbEEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS8_St14default_deleteIS8_EEE4typeEDpOT0_: %agg.result"}
+!7 = distinct !{!7, !"_ZN5boost11make_uniqueIN3ue212_GLOBAL__N_122GlushkovBuildStateImplEJRNS1_10NFABuilderERbEEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS8_St14default_deleteIS8_EEE4typeEDpOT0_"}
 !8 = !{!9}
 !9 = distinct !{!9, !10, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
 !10 = distinct !{!10, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_"}

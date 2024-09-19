@@ -516,7 +516,7 @@ define internal range(i32 -1, 1) i32 @H5D__virtual_read(ptr nocapture readnone %
   %13 = getelementptr inbounds i8, ptr %1, i64 184
   %14 = load ptr, ptr %13, align 8
   %.val = load ptr, ptr %1, align 8
-  %15 = call fastcc i32 @H5D__virtual_pre_io.argprom(ptr %.val, ptr noundef nonnull %8, ptr noundef %12, ptr noundef %14, ptr noundef %3)
+  %15 = call fastcc i32 @H5D__virtual_pre_io(ptr %.val, ptr noundef nonnull %8, ptr noundef %12, ptr noundef %14, ptr noundef %3)
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %20, label %.preheader89
 
@@ -795,7 +795,7 @@ define internal range(i32 -1, 1) i32 @H5D__virtual_write(ptr nocapture readnone 
   %12 = getelementptr inbounds i8, ptr %1, i64 184
   %13 = load ptr, ptr %12, align 8
   %.val = load ptr, ptr %1, align 8
-  %14 = call fastcc i32 @H5D__virtual_pre_io.argprom(ptr %.val, ptr noundef nonnull %7, ptr noundef %11, ptr noundef %13, ptr noundef %3)
+  %14 = call fastcc i32 @H5D__virtual_pre_io(ptr %.val, ptr noundef nonnull %7, ptr noundef %11, ptr noundef %13, ptr noundef %3)
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %16, label %20
 
@@ -4617,7 +4617,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5D__virtual_pre_io.argprom(ptr nocapture readonly %.0.val, ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5D__virtual_pre_io(ptr nocapture readonly %.0.val, ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca [32 x i64], align 16
   %6 = alloca [32 x i64], align 16
   %7 = alloca i8, align 1

@@ -329,7 +329,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %_ZNSt12_Vector
 _ZNSt6vectorIiSaIiEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i, %35
   %41 = and i64 %.pre-phi218, 17179869180
   %.not188 = icmp eq i64 %41, 0
-  br i1 %.not188, label %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EE17_S_check_init_lenEmRKS4_.argprom.exit.i, label %.lr.ph
+  br i1 %.not188, label %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EE17_S_check_init_lenEmRKS4_.exit.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIiSaIiEE7reserveEm.exit
   %42 = getelementptr inbounds i8, ptr %3, i64 8
@@ -382,12 +382,12 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
 .loopexit167:                                     ; preds = %57
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.argprom.argprom.exit105
+  br label %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.exit105
 
 .loopexit.split-lp:                               ; preds = %34, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.argprom.argprom.exit105
+  br label %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.exit105
 
 _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %._ZNSt6vectorIiSaIiEE6resizeEmRKi.exit_crit_edge, %63, %61, %59, %43
   %64 = phi ptr [ %.pre209, %._ZNSt6vectorIiSaIiEE6resizeEmRKi.exit_crit_edge ], [ %47, %63 ], [ %47, %61 ], [ %47, %59 ], [ %47, %43 ]
@@ -411,7 +411,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %._ZNSt6vectorIiSaIi
   %.pre222 = shl i64 %73, 30
   %.pre223 = ashr i64 %.pre222, 32
   %77 = icmp ugt i64 %.pre223, 1152921504606846975
-  br i1 %77, label %78, label %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EE17_S_check_init_lenEmRKS4_.argprom.exit.i
+  br i1 %77, label %78, label %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
 
 78:                                               ; preds = %._crit_edge
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #19
@@ -420,25 +420,25 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %._ZNSt6vectorIiSaIi
 .noexc74:                                         ; preds = %78
   unreachable
 
-_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EE17_S_check_init_lenEmRKS4_.argprom.exit.i: ; preds = %_ZNSt6vectorIiSaIiEE7reserveEm.exit, %._crit_edge
+_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: ; preds = %_ZNSt6vectorIiSaIiEE7reserveEm.exit, %._crit_edge
   %79 = phi ptr [ %69, %._crit_edge ], [ %32, %_ZNSt6vectorIiSaIiEE7reserveEm.exit ]
   %80 = phi ptr [ %70, %._crit_edge ], [ %31, %_ZNSt6vectorIiSaIiEE7reserveEm.exit ]
   %sext165.pre-phi238 = phi i64 [ %.pre222, %._crit_edge ], [ %sext164.pre-phi, %_ZNSt6vectorIiSaIiEE7reserveEm.exit ]
   %.pre-phi224237 = phi i64 [ %.pre223, %._crit_edge ], [ %.pre-phi221, %_ZNSt6vectorIiSaIiEE7reserveEm.exit ]
   %.not.i.i.i.i = icmp ult i64 %sext165.pre-phi238, 4294967296
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EEC2EmRKS3_RKS4_.argprom.exit, label %_ZNSt12_Vector_baseIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EEC2EmRKS4_.argprom.exit.i
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EEC2EmRKS3_RKS4_.exit, label %_ZNSt12_Vector_baseIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EEC2EmRKS4_.exit.i
 
-_ZNSt12_Vector_baseIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EEC2EmRKS4_.argprom.exit.i: ; preds = %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EE17_S_check_init_lenEmRKS4_.argprom.exit.i
+_ZNSt12_Vector_baseIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EEC2EmRKS4_.exit.i: ; preds = %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
   %81 = shl nuw nsw i64 %.pre-phi224237, 3
   %82 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %81) #16
           to label %.lr.ph.i.i.i.i.i.i.preheader unwind label %107
 
-.lr.ph.i.i.i.i.i.i.preheader:                     ; preds = %_ZNSt12_Vector_baseIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EEC2EmRKS4_.argprom.exit.i
+.lr.ph.i.i.i.i.i.i.preheader:                     ; preds = %_ZNSt12_Vector_baseIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EEC2EmRKS4_.exit.i
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %82, i8 -1, i64 %81, i1 false)
-  br label %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EEC2EmRKS3_RKS4_.argprom.exit
+  br label %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EEC2EmRKS3_RKS4_.exit
 
-_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EEC2EmRKS3_RKS4_.argprom.exit: ; preds = %.lr.ph.i.i.i.i.i.i.preheader, %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EE17_S_check_init_lenEmRKS4_.argprom.exit.i
-  %.sroa.0149.0 = phi ptr [ null, %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EE17_S_check_init_lenEmRKS4_.argprom.exit.i ], [ %82, %.lr.ph.i.i.i.i.i.i.preheader ]
+_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EEC2EmRKS3_RKS4_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.preheader, %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
+  %.sroa.0149.0 = phi ptr [ null, %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ], [ %82, %.lr.ph.i.i.i.i.i.i.preheader ]
   %83 = getelementptr inbounds i8, ptr %3, i64 8
   %84 = load ptr, ptr %83, align 8
   %85 = load ptr, ptr %3, align 8
@@ -449,14 +449,14 @@ _ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSa
   %90 = icmp ugt i64 %89, 2305843009213693951
   br i1 %90, label %91, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 
-91:                                               ; preds = %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EEC2EmRKS3_RKS4_.argprom.exit
+91:                                               ; preds = %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EEC2EmRKS3_RKS4_.exit
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #19
           to label %.noexc77 unwind label %109
 
 .noexc77:                                         ; preds = %91
   unreachable
 
-_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EEC2EmRKS3_RKS4_.argprom.exit
+_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EEC2EmRKS3_RKS4_.exit
   %.not.i.i.i.i76 = icmp eq ptr %84, %85
   br i1 %.not.i.i.i.i76, label %.preheader166, label %92
 
@@ -504,16 +504,16 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc78
   %exitcond.not = icmp eq i64 %106, %umax
   br i1 %exitcond.not, label %.preheader166, label %.lr.ph175, !llvm.loop !8
 
-107:                                              ; preds = %_ZNSt12_Vector_baseIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EEC2EmRKS4_.argprom.exit.i, %78
+107:                                              ; preds = %_ZNSt12_Vector_baseIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EEC2EmRKS4_.exit.i, %78
   %108 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.argprom.argprom.exit105
+  br label %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.exit105
 
 109:                                              ; preds = %92, %91
   %110 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i104 = icmp eq ptr %.sroa.0149.0, null
-  br i1 %.not.i.i.i104, label %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.argprom.argprom.exit105, label %208
+  br i1 %.not.i.i.i104, label %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.exit105, label %208
 
 111:                                              ; preds = %.lr.ph186, %.loopexit
   %112 = phi ptr [ %80, %.lr.ph186 ], [ %194, %.loopexit ]
@@ -733,39 +733,39 @@ _ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit100:                 ; preds = %._crit_edge187, %204
   %.not.i.i.i101 = icmp eq ptr %.sroa.0149.0, null
-  br i1 %.not.i.i.i101, label %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.argprom.argprom.exit, label %205
+  br i1 %.not.i.i.i101, label %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.exit, label %205
 
 205:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit100
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0149.0) #17
-  br label %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.argprom.argprom.exit
+  br label %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.exit
 
-_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.argprom.argprom.exit: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit100, %205
+_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.exit: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit100, %205
   %206 = load ptr, ptr %3, align 8
   %.not.i.i.i102 = icmp eq ptr %206, null
   br i1 %.not.i.i.i102, label %_ZNSt6vectorIiSaIiEED2Ev.exit103, label %207
 
-207:                                              ; preds = %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.argprom.argprom.exit
+207:                                              ; preds = %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %206) #17
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit103
 
 208:                                              ; preds = %109
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0149.0) #17
-  br label %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.argprom.argprom.exit105
+  br label %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.exit105
 
-_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.argprom.argprom.exit105: ; preds = %.loopexit167, %.loopexit.split-lp, %208, %109, %107
+_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.exit105: ; preds = %.loopexit167, %.loopexit.split-lp, %208, %109, %107
   %.pn57 = phi { ptr, i32 } [ %108, %107 ], [ %110, %109 ], [ %110, %208 ], [ %lpad.loopexit, %.loopexit167 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %209 = load ptr, ptr %3, align 8
   %.not.i.i.i106 = icmp eq ptr %209, null
   br i1 %.not.i.i.i106, label %_ZNSt6vectorIiSaIiEED2Ev.exit107, label %210
 
-210:                                              ; preds = %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.argprom.argprom.exit105
+210:                                              ; preds = %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.exit105
   call void @_ZdlPv(ptr noundef nonnull %209) #17
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit107
 
-_ZNSt6vectorIiSaIiEED2Ev.exit107:                 ; preds = %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.argprom.argprom.exit105, %210
+_ZNSt6vectorIiSaIiEED2Ev.exit107:                 ; preds = %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.exit105, %210
   resume { ptr, i32 } %.pn57
 
-_ZNSt6vectorIiSaIiEED2Ev.exit103:                 ; preds = %207, %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.argprom.argprom.exit, %2
+_ZNSt6vectorIiSaIiEED2Ev.exit103:                 ; preds = %207, %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.exit, %2
   ret i1 %5
 }
 

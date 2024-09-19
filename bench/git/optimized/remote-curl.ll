@@ -2341,7 +2341,7 @@ sw.bb35:                                          ; preds = %if.end26
   %charset.val = load i64, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %charset, i64 16
   %charset.val23 = load ptr, ptr %22, align 8
-  call fastcc void @show_http_message.argprom.retelim(ptr %type.val, i64 %charset.val, ptr %charset.val23, ptr noundef %buffer)
+  call fastcc void @show_http_message(ptr %type.val, i64 %charset.val, ptr %charset.val23, ptr noundef %buffer)
   %call37 = call fastcc ptr @_(ptr noundef nonnull @.str.37)
   %23 = load ptr, ptr getelementptr inbounds (i8, ptr @url, i64 16), align 8
   %call38 = call ptr @transport_anonymize_url(ptr noundef %23) #16
@@ -2355,7 +2355,7 @@ sw.bb39:                                          ; preds = %if.end26
   %charset.val25 = load i64, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %charset, i64 16
   %charset.val26 = load ptr, ptr %26, align 8
-  call fastcc void @show_http_message.argprom.retelim(ptr %type.val24, i64 %charset.val25, ptr %charset.val26, ptr noundef %buffer)
+  call fastcc void @show_http_message(ptr %type.val24, i64 %charset.val25, ptr %charset.val26, ptr noundef %buffer)
   %call41 = call fastcc ptr @_(ptr noundef nonnull @.str.38)
   %27 = load ptr, ptr getelementptr inbounds (i8, ptr @url, i64 16), align 8
   %call42 = call ptr @transport_anonymize_url(ptr noundef %27) #16
@@ -2369,7 +2369,7 @@ sw.bb43:                                          ; preds = %if.end26
   %charset.val28 = load i64, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %charset, i64 16
   %charset.val29 = load ptr, ptr %30, align 8
-  call fastcc void @show_http_message.argprom.retelim(ptr %type.val27, i64 %charset.val28, ptr %charset.val29, ptr noundef %buffer)
+  call fastcc void @show_http_message(ptr %type.val27, i64 %charset.val28, ptr %charset.val29, ptr noundef %buffer)
   %call45 = call fastcc ptr @_(ptr noundef nonnull @.str.39)
   %31 = load ptr, ptr getelementptr inbounds (i8, ptr @url, i64 16), align 8
   %call46 = call ptr @transport_anonymize_url(ptr noundef %31) #16
@@ -2383,7 +2383,7 @@ sw.default:                                       ; preds = %if.end26
   %charset.val31 = load i64, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %charset, i64 16
   %charset.val32 = load ptr, ptr %34, align 8
-  call fastcc void @show_http_message.argprom.retelim(ptr %type.val30, i64 %charset.val31, ptr %charset.val32, ptr noundef %buffer)
+  call fastcc void @show_http_message(ptr %type.val30, i64 %charset.val31, ptr %charset.val32, ptr noundef %buffer)
   %call48 = call fastcc ptr @_(ptr noundef nonnull @.str.40)
   %35 = load ptr, ptr getelementptr inbounds (i8, ptr @url, i64 16), align 8
   %call49 = call ptr @transport_anonymize_url(ptr noundef %35) #16
@@ -2451,7 +2451,7 @@ do.cond.i.i:                                      ; preds = %do.body.i.i
   %43 = load i8, ptr %str.addr.0.i.i, align 1
   %prefix.addr.0.i.add.i = add nuw nsw i64 %prefix.addr.0.i.idx.i, 1
   %cmp.i.i = icmp eq i8 %43, %42
-  br i1 %cmp.i.i, label %do.body.i.i, label %check_smart_http.argprom.exit, !llvm.loop !5
+  br i1 %cmp.i.i, label %do.body.i.i, label %check_smart_http.exit, !llvm.loop !5
 
 do.body.i7.i:                                     ; preds = %do.body.i.i, %do.cond.i11.i
   %str.addr.0.i8.i = phi ptr [ %incdec.ptr.i12.i, %do.cond.i11.i ], [ %scevgep.i, %do.body.i.i ]
@@ -2465,12 +2465,12 @@ do.cond.i11.i:                                    ; preds = %do.body.i7.i
   %45 = load i8, ptr %str.addr.0.i8.i, align 1
   %incdec.ptr1.i13.i = getelementptr inbounds i8, ptr %prefix.addr.0.i9.i, i64 1
   %cmp.i14.i = icmp eq i8 %45, %44
-  br i1 %cmp.i14.i, label %do.body.i7.i, label %check_smart_http.argprom.exit, !llvm.loop !5
+  br i1 %cmp.i14.i, label %do.body.i7.i, label %check_smart_http.exit, !llvm.loop !5
 
 lor.lhs.false2.i:                                 ; preds = %do.body.i7.i
   %call3.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %str.addr.0.i8.i, ptr noundef nonnull dereferenceable(15) @.str.46) #18
   %tobool.not.i57 = icmp eq i32 %call3.i, 0
-  br i1 %tobool.not.i57, label %if.end.i58, label %check_smart_http.argprom.exit
+  br i1 %tobool.not.i57, label %if.end.i58, label %check_smart_http.exit
 
 if.end.i58:                                       ; preds = %lor.lhs.false2.i
   %46 = load i64, ptr %len, align 8
@@ -2545,13 +2545,13 @@ if.end31.sink.split.i:                            ; preds = %if.else.i, %for.end
   %bf.load24.i = load i8, ptr %proto_git23.i, align 4
   %bf.set26.i = or i8 %bf.load24.i, 1
   store i8 %bf.set26.i, ptr %proto_git23.i, align 4
-  br label %check_smart_http.argprom.exit
+  br label %check_smart_http.exit
 
-check_smart_http.argprom.exit:                    ; preds = %do.cond.i.i, %do.cond.i11.i, %lor.lhs.false2.i, %if.end31.sink.split.i
+check_smart_http.exit:                            ; preds = %do.cond.i.i, %do.cond.i11.i, %lor.lhs.false2.i, %if.end31.sink.split.i
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %reader.i)
   br label %if.end67
 
-if.end67:                                         ; preds = %check_smart_http.argprom.exit, %if.end58
+if.end67:                                         ; preds = %check_smart_http.exit, %if.end58
   %proto_git = getelementptr inbounds i8, ptr %call59, i64 76
   %bf.load68 = load i8, ptr %proto_git, align 4
   %bf.clear69 = and i8 %bf.load68, 1
@@ -2598,7 +2598,7 @@ if.else73:                                        ; preds = %if.end67
   %heads.val30.i = load i64, ptr %len, align 8
   %call.i.i = call ptr @memchr(ptr noundef %heads.val.i, i32 noundef 9, i64 noundef %heads.val30.i) #18
   %tobool.not.i.i67 = icmp eq ptr %call.i.i, null
-  br i1 %tobool.not.i.i67, label %detect_hash_algo.argprom.exit.i, label %if.end.i.i
+  br i1 %tobool.not.i.i67, label %detect_hash_algo.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else73
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i.i to i64
@@ -2608,19 +2608,19 @@ if.end.i.i:                                       ; preds = %if.else73
   %conv.i.i = trunc i64 %div.i.i to i32
   %call2.i.i = call i32 @hash_algo_by_length(i32 noundef %conv.i.i) #16
   %cmp.i.i68 = icmp eq i32 %call2.i.i, 0
-  br i1 %cmp.i.i68, label %detect_hash_algo.argprom.exit.thread.i, label %detect_hash_algo.argprom.exit.thread33.i
+  br i1 %cmp.i.i68, label %detect_hash_algo.exit.thread.i, label %detect_hash_algo.exit.thread33.i
 
-detect_hash_algo.argprom.exit.thread.i:           ; preds = %if.end.i.i
+detect_hash_algo.exit.thread.i:                   ; preds = %if.end.i.i
   store ptr null, ptr getelementptr inbounds (i8, ptr @options, i64 120), align 8
   br label %if.then.i74
 
-detect_hash_algo.argprom.exit.thread33.i:         ; preds = %if.end.i.i
+detect_hash_algo.exit.thread33.i:                 ; preds = %if.end.i.i
   %idxprom.i.i = sext i32 %call2.i.i to i64
   %arrayidx.i.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i
   store ptr %arrayidx.i.i, ptr getelementptr inbounds (i8, ptr @options, i64 120), align 8
   br label %if.end.i69
 
-detect_hash_algo.argprom.exit.i:                  ; preds = %if.else73
+detect_hash_algo.exit.i:                          ; preds = %if.else73
   %58 = load ptr, ptr @the_repository, align 8
   %hash_algo.i.i = getelementptr inbounds i8, ptr %58, i64 256
   %59 = load ptr, ptr %hash_algo.i.i, align 8
@@ -2628,13 +2628,13 @@ detect_hash_algo.argprom.exit.i:                  ; preds = %if.else73
   %tobool.not.i75 = icmp eq ptr %59, null
   br i1 %tobool.not.i75, label %if.then.i74, label %if.end.i69
 
-if.then.i74:                                      ; preds = %detect_hash_algo.argprom.exit.i, %detect_hash_algo.argprom.exit.thread.i
+if.then.i74:                                      ; preds = %detect_hash_algo.exit.i, %detect_hash_algo.exit.thread.i
   %60 = load ptr, ptr getelementptr inbounds (i8, ptr @url, i64 16), align 8
   %call1.i = call ptr @transport_anonymize_url(ptr noundef %60) #16
   call void (ptr, ...) @die(ptr noundef nonnull @.str.52, ptr noundef %call1.i) #17
   unreachable
 
-if.end.i69:                                       ; preds = %detect_hash_algo.argprom.exit.i, %detect_hash_algo.argprom.exit.thread33.i
+if.end.i69:                                       ; preds = %detect_hash_algo.exit.i, %detect_hash_algo.exit.thread33.i
   %61 = load ptr, ptr %buf64, align 8
   %62 = load i64, ptr %len, align 8
   %cmp37.not.i = icmp eq i64 %62, 0
@@ -2751,7 +2751,7 @@ declare ptr @string_list_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @http_get_strbuf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @show_http_message.argprom.retelim(ptr nocapture readonly %type.16.val, i64 %charset.8.val, ptr %charset.16.val, ptr noundef nonnull %msg) unnamed_addr #0 {
+define internal fastcc void @show_http_message(ptr nocapture readonly %type.16.val, i64 %charset.8.val, ptr %charset.16.val, ptr noundef nonnull %msg) unnamed_addr #0 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %type.16.val, ptr noundef nonnull dereferenceable(11) @.str.43) #18
   %tobool.not = icmp eq i32 %call, 0

@@ -747,7 +747,7 @@ get_str_opt.exit197:                              ; preds = %62
 
 161:                                              ; preds = %158
   store i32 0, ptr %4, align 4
-  %162 = call fastcc i32 @get_num_opt.argelim(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %1, ptr noundef %2)
+  %162 = call fastcc i32 @get_num_opt(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %1, ptr noundef %2)
   %163 = icmp eq i32 %162, 0
   %164 = getelementptr inbounds i8, ptr %6, i64 66416
   %165 = load i32, ptr %164, align 8
@@ -2365,7 +2365,7 @@ zisofs_rewind_boot_file.exit._crit_edge:          ; preds = %zisofs_rewind_boot_
 
 308:                                              ; preds = %307, %299
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.5) #23
-  br label %isoent_create_boot_catalog.argprom.exit.thread
+  br label %isoent_create_boot_catalog.exit.thread
 
 309:                                              ; preds = %303
   %310 = getelementptr inbounds i8, ptr %301, i64 144
@@ -2427,7 +2427,7 @@ isofile_free.exit.i:                              ; preds = %.lr.ph.i.i199, %331
   %340 = getelementptr inbounds i8, ptr %301, i64 112
   call void @archive_string_free(ptr noundef nonnull %340) #23
   call void @free(ptr noundef nonnull %301) #23
-  br label %isoent_create_boot_catalog.argprom.exit.thread
+  br label %isoent_create_boot_catalog.exit.thread
 
 341:                                              ; preds = %309
   %342 = getelementptr inbounds i8, ptr %301, i64 188
@@ -2473,11 +2473,11 @@ isofile_free.exit.i:                              ; preds = %.lr.ph.i.i199, %331
   store i8 %364, ptr %360, align 8
   %365 = call fastcc i32 @isoent_tree(ptr noundef nonnull %0, ptr noundef %4)
   %.not.i197 = icmp eq i32 %365, 0
-  br i1 %.not.i197, label %367, label %isoent_create_boot_catalog.argprom.exit.thread
+  br i1 %.not.i197, label %367, label %isoent_create_boot_catalog.exit.thread
 
 366:                                              ; preds = %341
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.5) #23
-  br label %isoent_create_boot_catalog.argprom.exit.thread
+  br label %isoent_create_boot_catalog.exit.thread
 
 367:                                              ; preds = %._crit_edge.i
   %368 = load ptr, ptr %4, align 8
@@ -2587,7 +2587,7 @@ default.unreachable:                              ; preds = %367
   %422 = getelementptr inbounds i8, ptr %300, i64 66344
   %423 = load ptr, ptr %422, align 8
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.72, ptr noundef %423) #23
-  br label %isoent_create_boot_catalog.argprom.exit.thread
+  br label %isoent_create_boot_catalog.exit.thread
 
 424:                                              ; preds = %419, %414, %409, %398, %396, %395, %394, %388, %383
   %425 = getelementptr inbounds i8, ptr %300, i64 66409
@@ -2595,7 +2595,7 @@ default.unreachable:                              ; preds = %367
   %426 = load i32, ptr %370, align 8
   %427 = and i32 %426, 4194304
   %.not55.i = icmp eq i32 %427, 0
-  br i1 %.not55.i, label %isoent_create_boot_catalog.argprom.exit, label %428
+  br i1 %.not55.i, label %isoent_create_boot_catalog.exit, label %428
 
 428:                                              ; preds = %424
   %429 = getelementptr inbounds i8, ptr %300, i64 66384
@@ -2603,19 +2603,19 @@ default.unreachable:                              ; preds = %367
   store i64 0, ptr %430, align 8
   %431 = getelementptr inbounds i8, ptr %300, i64 320
   call void @archive_string_concat(ptr noundef nonnull %429, ptr noundef nonnull %431) #23
-  br label %isoent_create_boot_catalog.argprom.exit
+  br label %isoent_create_boot_catalog.exit
 
-isoent_create_boot_catalog.argprom.exit.thread:   ; preds = %308, %isofile_free.exit.i, %366, %421, %._crit_edge.i
+isoent_create_boot_catalog.exit.thread:           ; preds = %308, %isofile_free.exit.i, %366, %421, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %1342
 
-isoent_create_boot_catalog.argprom.exit:          ; preds = %424, %428
+isoent_create_boot_catalog.exit:                  ; preds = %424, %428
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.pre338 = load i32, ptr %16, align 8
   br label %432
 
-432:                                              ; preds = %isoent_create_boot_catalog.argprom.exit, %14
-  %433 = phi i32 [ %.pre338, %isoent_create_boot_catalog.argprom.exit ], [ %17, %14 ]
+432:                                              ; preds = %isoent_create_boot_catalog.exit, %14
+  %433 = phi i32 [ %.pre338, %isoent_create_boot_catalog.exit ], [ %17, %14 ]
   %434 = and i32 %433, 393216
   %.not162 = icmp eq i32 %434, 0
   br i1 %.not162, label %516, label %435
@@ -3350,7 +3350,7 @@ isoent_add_child_head.exit.i.i.i:                 ; preds = %778, %774, %749
   %.val.i.i.i = load ptr, ptr %795, align 8
   %796 = call noalias dereferenceable_or_null(240) ptr @calloc(i64 noundef 1, i64 noundef 240) #24
   %797 = icmp eq ptr %796, null
-  br i1 %797, label %isoent_clone.argprom.exit.i.i.i, label %798
+  br i1 %797, label %isoent_clone.exit.i.i.i, label %798
 
 798:                                              ; preds = %794
   %799 = getelementptr inbounds i8, ptr %796, i64 24
@@ -3383,7 +3383,7 @@ isoent_add_child_head.exit.i.i.i:                 ; preds = %778, %774, %749
   store i8 %815, ptr %813, align 8
   br label %816
 
-isoent_clone.argprom.exit.i.i.i:                  ; preds = %794
+isoent_clone.exit.i.i.i:                          ; preds = %794
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.5) #23
   br label %isoent_make_path_table.exit.thread
 
@@ -3772,8 +3772,8 @@ calculate_path_table_size.exit.i:                 ; preds = %._crit_edge.i110.i,
   call fastcc void @calculate_path_table_size(ptr noundef nonnull %986)
   br label %987
 
-isoent_make_path_table.exit.thread:               ; preds = %.lr.ph.i217, %946, %954, %isoent_alloc_path_table.exit85.i, %isofile_connect_hardlink_files.exit.i, %922, %748, %isoent_clone.argprom.exit.i.i.i, %535, %553
-  %.058.i214.ph = phi i32 [ -30, %553 ], [ -30, %535 ], [ -30, %isoent_clone.argprom.exit.i.i.i ], [ -30, %748 ], [ %924, %922 ], [ %917, %isofile_connect_hardlink_files.exit.i ], [ -30, %isoent_alloc_path_table.exit85.i ], [ -30, %954 ], [ %947, %946 ], [ %933, %.lr.ph.i217 ]
+isoent_make_path_table.exit.thread:               ; preds = %.lr.ph.i217, %946, %954, %isoent_alloc_path_table.exit85.i, %isofile_connect_hardlink_files.exit.i, %922, %748, %isoent_clone.exit.i.i.i, %535, %553
+  %.058.i214.ph = phi i32 [ -30, %553 ], [ -30, %535 ], [ -30, %isoent_clone.exit.i.i.i ], [ -30, %748 ], [ %924, %922 ], [ %917, %isofile_connect_hardlink_files.exit.i ], [ -30, %isoent_alloc_path_table.exit85.i ], [ -30, %954 ], [ %947, %946 ], [ %933, %.lr.ph.i217 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %1342
 
@@ -4481,8 +4481,8 @@ setup_boot_information.exit:                      ; preds = %1263
   %1341 = call fastcc i32 @wb_write_out(ptr noundef %0)
   br label %1342
 
-1342:                                             ; preds = %setup_boot_information.exit.thread, %isoent_make_path_table.exit.thread, %isoent_clone_tree.exit.thread, %isoent_create_boot_catalog.argprom.exit.thread, %zisofs_rewind_boot_file.exit.thread, %isoent_find_out_boot_file.exit.thread, %1329, %1324, %1322, %1316, %1311, %1309, %1306, %1301, %1299, %1297, %1295, %1292, %1286, %1280, %1275, %1266, %512, %509, %296, %zisofs_rewind_boot_file.exit, %11, %1340, %1334
-  %.0150 = phi i32 [ -20, %1334 ], [ %1341, %1340 ], [ %12, %11 ], [ %.1.i, %zisofs_rewind_boot_file.exit ], [ %297, %296 ], [ -30, %509 ], [ -30, %512 ], [ -30, %1266 ], [ -30, %1275 ], [ -30, %1280 ], [ -30, %1286 ], [ -30, %1292 ], [ -30, %1295 ], [ -30, %1297 ], [ -30, %1299 ], [ -30, %1301 ], [ -30, %1306 ], [ -30, %1309 ], [ -30, %1311 ], [ -30, %1316 ], [ -30, %1322 ], [ -30, %1324 ], [ -30, %1329 ], [ -30, %isoent_find_out_boot_file.exit.thread ], [ -30, %zisofs_rewind_boot_file.exit.thread ], [ -30, %isoent_create_boot_catalog.argprom.exit.thread ], [ -30, %isoent_clone_tree.exit.thread ], [ %.058.i214.ph, %isoent_make_path_table.exit.thread ], [ -30, %setup_boot_information.exit.thread ]
+1342:                                             ; preds = %setup_boot_information.exit.thread, %isoent_make_path_table.exit.thread, %isoent_clone_tree.exit.thread, %isoent_create_boot_catalog.exit.thread, %zisofs_rewind_boot_file.exit.thread, %isoent_find_out_boot_file.exit.thread, %1329, %1324, %1322, %1316, %1311, %1309, %1306, %1301, %1299, %1297, %1295, %1292, %1286, %1280, %1275, %1266, %512, %509, %296, %zisofs_rewind_boot_file.exit, %11, %1340, %1334
+  %.0150 = phi i32 [ -20, %1334 ], [ %1341, %1340 ], [ %12, %11 ], [ %.1.i, %zisofs_rewind_boot_file.exit ], [ %297, %296 ], [ -30, %509 ], [ -30, %512 ], [ -30, %1266 ], [ -30, %1275 ], [ -30, %1280 ], [ -30, %1286 ], [ -30, %1292 ], [ -30, %1295 ], [ -30, %1297 ], [ -30, %1299 ], [ -30, %1301 ], [ -30, %1306 ], [ -30, %1309 ], [ -30, %1311 ], [ -30, %1316 ], [ -30, %1322 ], [ -30, %1324 ], [ -30, %1329 ], [ -30, %isoent_find_out_boot_file.exit.thread ], [ -30, %zisofs_rewind_boot_file.exit.thread ], [ -30, %isoent_create_boot_catalog.exit.thread ], [ -30, %isoent_clone_tree.exit.thread ], [ %.058.i214.ph, %isoent_make_path_table.exit.thread ], [ -30, %setup_boot_information.exit.thread ]
   ret i32 %.0150
 }
 
@@ -4593,7 +4593,7 @@ zisofs_free.exit:                                 ; preds = %9, %15, %18
   %54 = getelementptr i8, ptr %3, i64 136
   %.val = load ptr, ptr %54, align 8
   %.not1.i = icmp eq ptr %.val, null
-  br i1 %.not1.i, label %isofile_free_all_entries.argprom.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %isofile_free_all_entries.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %53, %isofile_free.exit.i
   %.02.i = phi ptr [ %55, %isofile_free.exit.i ], [ %.val, %53 ]
@@ -4625,23 +4625,23 @@ isofile_free.exit.i:                              ; preds = %.lr.ph.i.i, %.lr.ph
   tail call void @archive_string_free(ptr noundef nonnull %65) #23
   tail call void @free(ptr noundef nonnull %.02.i) #23
   %.not.i37 = icmp eq ptr %55, null
-  br i1 %.not.i37, label %isofile_free_all_entries.argprom.exit, label %.lr.ph.i, !llvm.loop !39
+  br i1 %.not.i37, label %isofile_free_all_entries.exit, label %.lr.ph.i, !llvm.loop !39
 
-isofile_free_all_entries.argprom.exit:            ; preds = %isofile_free.exit.i, %53
+isofile_free_all_entries.exit:                    ; preds = %isofile_free.exit.i, %53
   %66 = getelementptr inbounds i8, ptr %3, i64 168
   %67 = tail call ptr @__archive_rb_tree_iterate(ptr noundef nonnull %66, ptr noundef null, i32 noundef 0) #23
   %.not8.i = icmp eq ptr %67, null
   br i1 %.not8.i, label %isofile_free_hardlinks.exit, label %.lr.ph.i38
 
-.lr.ph.i38:                                       ; preds = %isofile_free_all_entries.argprom.exit, %.lr.ph.i38
-  %.09.i = phi ptr [ %68, %.lr.ph.i38 ], [ %67, %isofile_free_all_entries.argprom.exit ]
+.lr.ph.i38:                                       ; preds = %isofile_free_all_entries.exit, %.lr.ph.i38
+  %.09.i = phi ptr [ %68, %.lr.ph.i38 ], [ %67, %isofile_free_all_entries.exit ]
   %68 = tail call ptr @__archive_rb_tree_iterate(ptr noundef nonnull %66, ptr noundef nonnull %.09.i, i32 noundef 1) #23
   tail call void @__archive_rb_tree_remove_node(ptr noundef nonnull %66, ptr noundef nonnull %.09.i) #23
   tail call void @free(ptr noundef nonnull %.09.i) #23
   %.not.i39 = icmp eq ptr %68, null
   br i1 %.not.i39, label %isofile_free_hardlinks.exit, label %.lr.ph.i38, !llvm.loop !40
 
-isofile_free_hardlinks.exit:                      ; preds = %.lr.ph.i38, %isofile_free_all_entries.argprom.exit
+isofile_free_hardlinks.exit:                      ; preds = %.lr.ph.i38, %isofile_free_all_entries.exit
   %69 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @archive_string_free(ptr noundef nonnull %69) #23
   %70 = getelementptr inbounds i8, ptr %3, i64 296
@@ -4707,7 +4707,7 @@ define internal fastcc range(i32 -30, 1) i32 @get_str_opt(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @get_num_opt.argelim(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @get_num_opt(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef %2, ptr noundef readonly %3) unnamed_addr #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %6, label %7
 
@@ -6445,7 +6445,7 @@ define internal fastcc noundef i64 @write_iso9660_data(ptr noundef %0, ptr nound
   br i1 %.not56, label %28, label %27
 
 27:                                               ; preds = %22
-  tail call fastcc void @zisofs_detect_magic.argprom(ptr nonnull %5, ptr noundef %1, i64 noundef %23)
+  tail call fastcc void @zisofs_detect_magic(ptr nonnull %5, ptr noundef %1, i64 noundef %23)
   %.pre = load i8, ptr %24, align 8
   br label %28
 
@@ -6549,7 +6549,7 @@ wb_write_padding_to_temp.exit.thread:             ; preds = %wb_write_padding_to
 
 81:                                               ; preds = %77
   %.val65 = load ptr, ptr %4, align 8
-  tail call fastcc void @zisofs_detect_magic.argprom(ptr %.val65, ptr noundef %.053, i64 noundef %.054)
+  tail call fastcc void @zisofs_detect_magic(ptr %.val65, ptr noundef %.053, i64 noundef %.054)
   %.pre72 = load i8, ptr %78, align 8
   br label %82
 
@@ -6589,7 +6589,7 @@ wb_write_padding_to_temp.exit.thread:             ; preds = %wb_write_padding_to
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zisofs_detect_magic.argprom(ptr %.248.val, ptr noundef readonly %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @zisofs_detect_magic(ptr %.248.val, ptr noundef readonly %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %.248.val, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
@@ -13520,16 +13520,16 @@ define internal fastcc ptr @extra_next_record(ptr nocapture noundef nonnull %0, 
   %20 = getelementptr inbounds i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = icmp sgt i32 %21, 2020
-  br i1 %22, label %23, label %extra_get_record.argprom.exit
+  br i1 %22, label %23, label %extra_get_record.exit
 
 23:                                               ; preds = %7
   %24 = getelementptr inbounds i8, ptr %19, i64 2056
   %25 = load ptr, ptr %24, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %25, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
-  br label %extra_get_record.argprom.exit
+  br label %extra_get_record.exit
 
-extra_get_record.argprom.exit:                    ; preds = %7, %23
+extra_get_record.exit:                            ; preds = %7, %23
   %26 = phi i32 [ %.pre, %23 ], [ %21, %7 ]
   %.0.i = phi ptr [ %25, %23 ], [ %19, %7 ]
   %27 = getelementptr inbounds i8, ptr %.0.i, i64 4
@@ -13550,7 +13550,7 @@ extra_get_record.argprom.exit:                    ; preds = %7, %23
   %36 = getelementptr inbounds [2048 x i8], ptr %33, i64 0, i64 %35
   %37 = getelementptr inbounds i8, ptr %36, i64 -1
   store ptr %37, ptr %5, align 8
-  br label %extra_get_record.argprom.exit26
+  br label %extra_get_record.exit26
 
 38:                                               ; preds = %2
   %39 = getelementptr inbounds i8, ptr %0, i64 16
@@ -13575,7 +13575,7 @@ extra_get_record.argprom.exit:                    ; preds = %7, %23
 extra_last_record.exit.thread.i:                  ; preds = %46, %38
   %53 = tail call noalias dereferenceable_or_null(2064) ptr @malloc(i64 noundef 2064) #27
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %extra_get_record.argprom.exit26, label %55
+  br i1 %54, label %extra_get_record.exit26, label %55
 
 55:                                               ; preds = %extra_last_record.exit.thread.i
   store i32 0, ptr %53, align 8
@@ -13603,20 +13603,20 @@ extra_last_record.exit.thread.i:                  ; preds = %46, %38
   store i32 %spec.select.i25, ptr %41, align 4
   %67 = getelementptr inbounds i8, ptr %.val22, i64 224
   store ptr %.0.i23, ptr %67, align 8
-  br label %extra_get_record.argprom.exit26
+  br label %extra_get_record.exit26
 
-extra_get_record.argprom.exit26:                  ; preds = %61, %extra_last_record.exit.thread.i, %extra_get_record.argprom.exit
+extra_get_record.exit26:                          ; preds = %61, %extra_last_record.exit.thread.i, %extra_get_record.exit
   store i32 0, ptr %3, align 8
   %68 = getelementptr inbounds i8, ptr %0, i64 40
   %69 = load i32, ptr %68, align 8
   %70 = icmp slt i32 %69, %1
   br i1 %70, label %71, label %73
 
-71:                                               ; preds = %extra_get_record.argprom.exit26
+71:                                               ; preds = %extra_get_record.exit26
   %72 = tail call fastcc ptr @extra_next_record(ptr noundef %0, i32 noundef %1)
   br label %73
 
-73:                                               ; preds = %71, %extra_get_record.argprom.exit26
+73:                                               ; preds = %71, %extra_get_record.exit26
   %74 = load ptr, ptr %5, align 8
   ret ptr %74
 }
@@ -13939,7 +13939,7 @@ define internal fastcc range(i32 -30, 1) i32 @set_str_a_characters_bp(ptr nounde
   %reass.sub = sub nsw i32 %3, %2
   %70 = add nsw i32 %reass.sub, 1
   %71 = sext i32 %70 to i64
-  %72 = tail call fastcc i32 @set_str_utf16be.argelim(ptr noundef %0, ptr noundef nonnull %69, ptr noundef %4, i64 noundef %71, i32 noundef %5)
+  %72 = tail call fastcc i32 @set_str_utf16be(ptr noundef %0, ptr noundef nonnull %69, ptr noundef %4, i64 noundef %71, i32 noundef %5)
   br label %set_str.exit
 
 set_str.exit:                                     ; preds = %66, %._crit_edge.i19, %36, %._crit_edge.i, %6, %67
@@ -14078,7 +14078,7 @@ define internal fastcc range(i32 -30, 1) i32 @set_str_d_characters_bp(ptr nounde
   %reass.sub = sub nsw i32 %3, %2
   %70 = add nsw i32 %reass.sub, 1
   %71 = sext i32 %70 to i64
-  %72 = tail call fastcc i32 @set_str_utf16be.argelim(ptr noundef %0, ptr noundef nonnull %69, ptr noundef %4, i64 noundef %71, i32 noundef %5)
+  %72 = tail call fastcc i32 @set_str_utf16be(ptr noundef %0, ptr noundef nonnull %69, ptr noundef %4, i64 noundef %71, i32 noundef %5)
   br label %set_str.exit
 
 set_str.exit:                                     ; preds = %66, %._crit_edge.i19, %36, %._crit_edge.i, %6, %67
@@ -14400,7 +14400,7 @@ declare noundef i32 @uname(ptr nocapture noundef) local_unnamed_addr #18
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @set_str_utf16be.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef range(i64 -736, 806) %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @set_str_utf16be(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef range(i64 -736, 806) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = icmp eq ptr %2, null
   %spec.store.select = select i1 %6, ptr @.str.4, ptr %2
   %7 = and i64 %3, 1

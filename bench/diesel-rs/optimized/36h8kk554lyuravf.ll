@@ -366,7 +366,7 @@ define internal fastcc void @_ZN12darling_core9from_meta8FromMeta9from_expr17h58
   %51 = getelementptr inbounds i8, ptr %9, i64 80
   %52 = load i32, ptr %51, align 8, !range !45, !alias.scope !147, !noalias !148, !noundef !7
   %.not.i.i.i.i = icmp eq i32 %52, 0
-  br i1 %.not.i.i.i.i, label %53, label %"_ZN12darling_core9from_meta8FromMeta10from_value28_$u7b$$u7b$closure$u7d$$u7d$17h463e082123289029E.argprom.exit.i.i"
+  br i1 %.not.i.i.i.i, label %53, label %"_ZN12darling_core9from_meta8FromMeta10from_value28_$u7b$$u7b$closure$u7d$$u7d$17h463e082123289029E.exit.i.i"
 
 53:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !152
@@ -391,7 +391,7 @@ define internal fastcc void @_ZN12darling_core9from_meta8FromMeta9from_expr17h58
   store i32 1, ptr %51, align 8, !alias.scope !147, !noalias !148
   %58 = getelementptr inbounds i8, ptr %9, i64 84
   store i32 %54, ptr %58, align 4, !alias.scope !147, !noalias !148
-  br label %"_ZN12darling_core9from_meta8FromMeta10from_value28_$u7b$$u7b$closure$u7d$$u7d$17h463e082123289029E.argprom.exit.i.i"
+  br label %"_ZN12darling_core9from_meta8FromMeta10from_value28_$u7b$$u7b$closure$u7d$$u7d$17h463e082123289029E.exit.i.i"
 
 59:                                               ; preds = %55
   %60 = landingpad { ptr, i32 }
@@ -403,7 +403,7 @@ common.resume:                                    ; preds = %74, %35, %55
   %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %36, %35 ], [ %75, %74 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN12darling_core9from_meta8FromMeta10from_value28_$u7b$$u7b$closure$u7d$$u7d$17h463e082123289029E.argprom.exit.i.i": ; preds = %57, %50
+"_ZN12darling_core9from_meta8FromMeta10from_value28_$u7b$$u7b$closure$u7d$$u7d$17h463e082123289029E.exit.i.i": ; preds = %57, %50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %13, ptr noundef nonnull align 8 dereferenceable(88) %9, i64 88, i1 false), !noalias !139
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %9), !noalias !140
   br label %_ZN12darling_core9from_meta8FromMeta10from_value17h2cc089a5b3fa32dbE.exit
@@ -414,7 +414,7 @@ common.resume:                                    ; preds = %74, %35, %55
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #14, !noalias !113
   unreachable
 
-_ZN12darling_core9from_meta8FromMeta10from_value17h2cc089a5b3fa32dbE.exit: ; preds = %47, %"_ZN12darling_core9from_meta8FromMeta10from_value28_$u7b$$u7b$closure$u7d$$u7d$17h463e082123289029E.argprom.exit.i.i"
+_ZN12darling_core9from_meta8FromMeta10from_value17h2cc089a5b3fa32dbE.exit: ; preds = %47, %"_ZN12darling_core9from_meta8FromMeta10from_value28_$u7b$$u7b$closure$u7d$$u7d$17h463e082123289029E.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %12), !noalias !118
   br label %63
 
@@ -430,7 +430,7 @@ _ZN12darling_core9from_meta8FromMeta10from_value17h2cc089a5b3fa32dbE.exit: ; pre
   %68 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull readonly align 8 dereferenceable(24) %67, i64 24, i1 false), !alias.scope !168
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !163, !noalias !166
-  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h91be028c10881a71E.argprom.exit"
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h91be028c10881a71E.exit"
 
 69:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6)
@@ -443,7 +443,7 @@ _ZN12darling_core9from_meta8FromMeta10from_value17h2cc089a5b3fa32dbE.exit: ; pre
   %70 = getelementptr inbounds i8, ptr %5, i64 80
   %71 = load i32, ptr %70, align 8, !range !45, !alias.scope !179, !noalias !180, !noundef !7
   %.not.i.i.i = icmp eq i32 %71, 0
-  br i1 %.not.i.i.i, label %72, label %"_ZN12darling_core9from_meta8FromMeta9from_expr28_$u7b$$u7b$closure$u7d$$u7d$17hb9bc06400c9f8dc3E.argprom.exit.i"
+  br i1 %.not.i.i.i, label %72, label %"_ZN12darling_core9from_meta8FromMeta9from_expr28_$u7b$$u7b$closure$u7d$$u7d$17hb9bc06400c9f8dc3E.exit.i"
 
 72:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !182
@@ -468,7 +468,7 @@ _ZN12darling_core9from_meta8FromMeta10from_value17h2cc089a5b3fa32dbE.exit: ; pre
   store i32 1, ptr %70, align 8, !alias.scope !179, !noalias !180
   %77 = getelementptr inbounds i8, ptr %5, i64 84
   store i32 %73, ptr %77, align 4, !alias.scope !179, !noalias !180
-  br label %"_ZN12darling_core9from_meta8FromMeta9from_expr28_$u7b$$u7b$closure$u7d$$u7d$17hb9bc06400c9f8dc3E.argprom.exit.i"
+  br label %"_ZN12darling_core9from_meta8FromMeta9from_expr28_$u7b$$u7b$closure$u7d$$u7d$17hb9bc06400c9f8dc3E.exit.i"
 
 78:                                               ; preds = %74
   %79 = landingpad { ptr, i32 }
@@ -476,14 +476,14 @@ _ZN12darling_core9from_meta8FromMeta10from_value17h2cc089a5b3fa32dbE.exit: ; pre
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #14, !noalias !192
   unreachable
 
-"_ZN12darling_core9from_meta8FromMeta9from_expr28_$u7b$$u7b$closure$u7d$$u7d$17hb9bc06400c9f8dc3E.argprom.exit.i": ; preds = %76, %69
+"_ZN12darling_core9from_meta8FromMeta9from_expr28_$u7b$$u7b$closure$u7d$$u7d$17hb9bc06400c9f8dc3E.exit.i": ; preds = %76, %69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr noundef nonnull align 8 dereferenceable(88) %5, i64 88, i1 false), !alias.scope !193, !noalias !194
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5), !noalias !168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %6, i64 88, i1 false), !noalias !166
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6)
-  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h91be028c10881a71E.argprom.exit"
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h91be028c10881a71E.exit"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h91be028c10881a71E.argprom.exit": ; preds = %66, %"_ZN12darling_core9from_meta8FromMeta9from_expr28_$u7b$$u7b$closure$u7d$$u7d$17hb9bc06400c9f8dc3E.argprom.exit.i"
+"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h91be028c10881a71E.exit": ; preds = %66, %"_ZN12darling_core9from_meta8FromMeta9from_expr28_$u7b$$u7b$closure$u7d$$u7d$17hb9bc06400c9f8dc3E.exit.i"
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %13)
   ret void
 }
@@ -639,7 +639,7 @@ common.resume:                                    ; preds = %72, %80, %65, %37, 
   %59 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %59, ptr noundef nonnull readonly align 8 dereferenceable(48) %58, i64 48, i1 false), !alias.scope !226
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !221, !noalias !224
-  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h09634fd60fb40fe6E.argprom.exit"
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h09634fd60fb40fe6E.exit"
 
 60:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %8)
@@ -652,7 +652,7 @@ common.resume:                                    ; preds = %72, %80, %65, %37, 
   %61 = getelementptr inbounds i8, ptr %7, i64 80
   %62 = load i32, ptr %61, align 8, !range !45, !alias.scope !237, !noalias !238, !noundef !7
   %.not.i.i.i = icmp eq i32 %62, 0
-  br i1 %.not.i.i.i, label %63, label %"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h83a7288472bf3b8cE.argprom.exit.i"
+  br i1 %.not.i.i.i, label %63, label %"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h83a7288472bf3b8cE.exit.i"
 
 63:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !240
@@ -677,7 +677,7 @@ common.resume:                                    ; preds = %72, %80, %65, %37, 
   store i32 1, ptr %61, align 8, !alias.scope !237, !noalias !238
   %68 = getelementptr inbounds i8, ptr %7, i64 84
   store i32 %64, ptr %68, align 4, !alias.scope !237, !noalias !238
-  br label %"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h83a7288472bf3b8cE.argprom.exit.i"
+  br label %"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h83a7288472bf3b8cE.exit.i"
 
 69:                                               ; preds = %65
   %70 = landingpad { ptr, i32 }
@@ -685,12 +685,12 @@ common.resume:                                    ; preds = %72, %80, %65, %37, 
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #14, !noalias !250
   unreachable
 
-"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h83a7288472bf3b8cE.argprom.exit.i": ; preds = %67, %60
+"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h83a7288472bf3b8cE.exit.i": ; preds = %67, %60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %8, ptr noundef nonnull align 8 dereferenceable(88) %7, i64 88, i1 false), !alias.scope !251, !noalias !252
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7), !noalias !226
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %8, i64 88, i1 false), !noalias !224
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %8)
-  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h09634fd60fb40fe6E.argprom.exit"
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h09634fd60fb40fe6E.exit"
 
 71:                                               ; preds = %"_ZN68_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..clone..Clone$GT$5clone17h8084aa6ff4a7578dE.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
@@ -702,7 +702,7 @@ common.resume:                                    ; preds = %72, %80, %65, %37, 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
-  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h09634fd60fb40fe6E.argprom.exit"
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h09634fd60fb40fe6E.exit"
 
 72:                                               ; preds = %74
   %73 = landingpad { ptr, i32 }
@@ -766,7 +766,7 @@ common.resume:                                    ; preds = %72, %80, %65, %37, 
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #14
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h09634fd60fb40fe6E.argprom.exit": ; preds = %"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h83a7288472bf3b8cE.argprom.exit.i", %57, %71
+"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h09634fd60fb40fe6E.exit": ; preds = %"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h83a7288472bf3b8cE.exit.i", %57, %71
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %16)
   ret void
 }
@@ -922,7 +922,7 @@ common.resume:                                    ; preds = %72, %80, %65, %37, 
   %59 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull readonly align 8 dereferenceable(24) %58, i64 24, i1 false), !alias.scope !295
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !290, !noalias !293
-  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h07d47c91e21692a6E.argprom.exit"
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h07d47c91e21692a6E.exit"
 
 60:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %8)
@@ -935,7 +935,7 @@ common.resume:                                    ; preds = %72, %80, %65, %37, 
   %61 = getelementptr inbounds i8, ptr %7, i64 80
   %62 = load i32, ptr %61, align 8, !range !45, !alias.scope !306, !noalias !307, !noundef !7
   %.not.i.i.i = icmp eq i32 %62, 0
-  br i1 %.not.i.i.i, label %63, label %"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h5c6396437c704c32E.argprom.exit.i"
+  br i1 %.not.i.i.i, label %63, label %"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h5c6396437c704c32E.exit.i"
 
 63:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !309
@@ -960,7 +960,7 @@ common.resume:                                    ; preds = %72, %80, %65, %37, 
   store i32 1, ptr %61, align 8, !alias.scope !306, !noalias !307
   %68 = getelementptr inbounds i8, ptr %7, i64 84
   store i32 %64, ptr %68, align 4, !alias.scope !306, !noalias !307
-  br label %"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h5c6396437c704c32E.argprom.exit.i"
+  br label %"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h5c6396437c704c32E.exit.i"
 
 69:                                               ; preds = %65
   %70 = landingpad { ptr, i32 }
@@ -968,12 +968,12 @@ common.resume:                                    ; preds = %72, %80, %65, %37, 
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #14, !noalias !319
   unreachable
 
-"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h5c6396437c704c32E.argprom.exit.i": ; preds = %67, %60
+"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h5c6396437c704c32E.exit.i": ; preds = %67, %60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %8, ptr noundef nonnull align 8 dereferenceable(88) %7, i64 88, i1 false), !alias.scope !320, !noalias !321
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7), !noalias !295
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %8, i64 88, i1 false), !noalias !293
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %8)
-  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h07d47c91e21692a6E.argprom.exit"
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h07d47c91e21692a6E.exit"
 
 71:                                               ; preds = %"_ZN68_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..clone..Clone$GT$5clone17h8084aa6ff4a7578dE.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
@@ -985,7 +985,7 @@ common.resume:                                    ; preds = %72, %80, %65, %37, 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
-  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h07d47c91e21692a6E.argprom.exit"
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h07d47c91e21692a6E.exit"
 
 72:                                               ; preds = %74
   %73 = landingpad { ptr, i32 }
@@ -1049,7 +1049,7 @@ common.resume:                                    ; preds = %72, %80, %65, %37, 
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #14
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h07d47c91e21692a6E.argprom.exit": ; preds = %"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h5c6396437c704c32E.argprom.exit.i", %57, %71
+"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h07d47c91e21692a6E.exit": ; preds = %"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h5c6396437c704c32E.exit.i", %57, %71
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %16)
   ret void
 }
@@ -1786,18 +1786,18 @@ attributes #15 = { noreturn }
 !129 = distinct !{!129, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbf78acb5066d0702E"}
 !130 = !{i64 0, i64 -9223372036854775807}
 !131 = !{!132}
-!132 = distinct !{!132, !133, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8bafb7ab295d9692E.argprom: argument 0"}
-!133 = distinct !{!133, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8bafb7ab295d9692E.argprom"}
+!132 = distinct !{!132, !133, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8bafb7ab295d9692E: argument 0"}
+!133 = distinct !{!133, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8bafb7ab295d9692E"}
 !134 = !{!135}
-!135 = distinct !{!135, !133, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8bafb7ab295d9692E.argprom: argument 1"}
+!135 = distinct !{!135, !133, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8bafb7ab295d9692E: argument 1"}
 !136 = !{!132, !114, !117}
 !137 = !{!132, !135}
 !138 = !{!132, !114}
 !139 = !{!135, !117}
 !140 = !{!132, !135, !114, !117}
 !141 = !{!142}
-!142 = distinct !{!142, !143, !"_ZN12darling_core9from_meta8FromMeta10from_value28_$u7b$$u7b$closure$u7d$$u7d$17h463e082123289029E.argprom: argument 1"}
-!143 = distinct !{!143, !"_ZN12darling_core9from_meta8FromMeta10from_value28_$u7b$$u7b$closure$u7d$$u7d$17h463e082123289029E.argprom"}
+!142 = distinct !{!142, !143, !"_ZN12darling_core9from_meta8FromMeta10from_value28_$u7b$$u7b$closure$u7d$$u7d$17h463e082123289029E: argument 1"}
+!143 = distinct !{!143, !"_ZN12darling_core9from_meta8FromMeta10from_value28_$u7b$$u7b$closure$u7d$$u7d$17h463e082123289029E"}
 !144 = !{!145}
 !145 = distinct !{!145, !146, !"_ZN12darling_core5error5Error9with_span17h410aba0ae715fa55E: argument 1"}
 !146 = distinct !{!146, !"_ZN12darling_core5error5Error9with_span17h410aba0ae715fa55E"}
@@ -1805,7 +1805,7 @@ attributes #15 = { noreturn }
 !148 = !{!149, !150, !151, !132, !135, !114, !117}
 !149 = distinct !{!149, !146, !"_ZN12darling_core5error5Error9with_span17h410aba0ae715fa55E: argument 0"}
 !150 = distinct !{!150, !146, !"_ZN12darling_core5error5Error9with_span17h410aba0ae715fa55E: argument 2"}
-!151 = distinct !{!151, !143, !"_ZN12darling_core9from_meta8FromMeta10from_value28_$u7b$$u7b$closure$u7d$$u7d$17h463e082123289029E.argprom: argument 0"}
+!151 = distinct !{!151, !143, !"_ZN12darling_core9from_meta8FromMeta10from_value28_$u7b$$u7b$closure$u7d$$u7d$17h463e082123289029E: argument 0"}
 !152 = !{!153, !155, !149, !145, !150, !151, !142, !132, !135, !114, !117}
 !153 = distinct !{!153, !154, !"_ZN45_$LT$T$u20$as$u20$quote..spanned..Spanned$GT$6__span17h65c825c4de1f9a0cE.llvm.3164647497840028417: argument 0"}
 !154 = distinct !{!154, !"_ZN45_$LT$T$u20$as$u20$quote..spanned..Spanned$GT$6__span17h65c825c4de1f9a0cE.llvm.3164647497840028417"}
@@ -1818,16 +1818,16 @@ attributes #15 = { noreturn }
 !161 = !{!149, !145, !151, !142, !132, !135, !114}
 !162 = !{!149, !151, !132, !135, !114}
 !163 = !{!164}
-!164 = distinct !{!164, !165, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h91be028c10881a71E.argprom: argument 0"}
-!165 = distinct !{!165, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h91be028c10881a71E.argprom"}
+!164 = distinct !{!164, !165, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h91be028c10881a71E: argument 0"}
+!165 = distinct !{!165, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h91be028c10881a71E"}
 !166 = !{!167}
-!167 = distinct !{!167, !165, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h91be028c10881a71E.argprom: argument 1"}
+!167 = distinct !{!167, !165, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h91be028c10881a71E: argument 1"}
 !168 = !{!164, !167}
 !169 = !{!170}
-!170 = distinct !{!170, !171, !"_ZN12darling_core9from_meta8FromMeta9from_expr28_$u7b$$u7b$closure$u7d$$u7d$17hb9bc06400c9f8dc3E.argprom: argument 0"}
-!171 = distinct !{!171, !"_ZN12darling_core9from_meta8FromMeta9from_expr28_$u7b$$u7b$closure$u7d$$u7d$17hb9bc06400c9f8dc3E.argprom"}
+!170 = distinct !{!170, !171, !"_ZN12darling_core9from_meta8FromMeta9from_expr28_$u7b$$u7b$closure$u7d$$u7d$17hb9bc06400c9f8dc3E: argument 0"}
+!171 = distinct !{!171, !"_ZN12darling_core9from_meta8FromMeta9from_expr28_$u7b$$u7b$closure$u7d$$u7d$17hb9bc06400c9f8dc3E"}
 !172 = !{!173}
-!173 = distinct !{!173, !171, !"_ZN12darling_core9from_meta8FromMeta9from_expr28_$u7b$$u7b$closure$u7d$$u7d$17hb9bc06400c9f8dc3E.argprom: argument 1"}
+!173 = distinct !{!173, !171, !"_ZN12darling_core9from_meta8FromMeta9from_expr28_$u7b$$u7b$closure$u7d$$u7d$17hb9bc06400c9f8dc3E: argument 1"}
 !174 = !{!175}
 !175 = distinct !{!175, !176, !"_ZN12darling_core5error5Error9with_span17h6b4e0c5aecb1f768E: argument 0"}
 !176 = distinct !{!176, !"_ZN12darling_core5error5Error9with_span17h6b4e0c5aecb1f768E"}
@@ -1876,16 +1876,16 @@ attributes #15 = { noreturn }
 !219 = !{!216, !200, !197}
 !220 = !{i64 0, i64 2}
 !221 = !{!222}
-!222 = distinct !{!222, !223, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h09634fd60fb40fe6E.argprom: argument 0"}
-!223 = distinct !{!223, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h09634fd60fb40fe6E.argprom"}
+!222 = distinct !{!222, !223, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h09634fd60fb40fe6E: argument 0"}
+!223 = distinct !{!223, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h09634fd60fb40fe6E"}
 !224 = !{!225}
-!225 = distinct !{!225, !223, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h09634fd60fb40fe6E.argprom: argument 1"}
+!225 = distinct !{!225, !223, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h09634fd60fb40fe6E: argument 1"}
 !226 = !{!222, !225}
 !227 = !{!228}
-!228 = distinct !{!228, !229, !"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h83a7288472bf3b8cE.argprom: argument 0"}
-!229 = distinct !{!229, !"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h83a7288472bf3b8cE.argprom"}
+!228 = distinct !{!228, !229, !"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h83a7288472bf3b8cE: argument 0"}
+!229 = distinct !{!229, !"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h83a7288472bf3b8cE"}
 !230 = !{!231}
-!231 = distinct !{!231, !229, !"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h83a7288472bf3b8cE.argprom: argument 1"}
+!231 = distinct !{!231, !229, !"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h83a7288472bf3b8cE: argument 1"}
 !232 = !{!233}
 !233 = distinct !{!233, !234, !"_ZN12darling_core5error5Error9with_span17h71c3c9fdd377cb88E: argument 0"}
 !234 = distinct !{!234, !"_ZN12darling_core5error5Error9with_span17h71c3c9fdd377cb88E"}
@@ -1908,8 +1908,8 @@ attributes #15 = { noreturn }
 !251 = !{!233, !236, !228, !231}
 !252 = !{!239, !222, !225}
 !253 = !{!254}
-!254 = distinct !{!254, !255, !"_ZN12darling_core9from_meta8FromMeta9from_list17hb78ad63be38c9cdaE.argprom: argument 0"}
-!255 = distinct !{!255, !"_ZN12darling_core9from_meta8FromMeta9from_list17hb78ad63be38c9cdaE.argprom"}
+!254 = distinct !{!254, !255, !"_ZN12darling_core9from_meta8FromMeta9from_list17hb78ad63be38c9cdaE: argument 0"}
+!255 = distinct !{!255, !"_ZN12darling_core9from_meta8FromMeta9from_list17hb78ad63be38c9cdaE"}
 !256 = !{!257}
 !257 = distinct !{!257, !258, !"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$darling_core..ast..data..NestedMeta$GT$$GT$17h956b83cd15f57053E: argument 0"}
 !258 = distinct !{!258, !"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$darling_core..ast..data..NestedMeta$GT$$GT$17h956b83cd15f57053E"}
@@ -1945,16 +1945,16 @@ attributes #15 = { noreturn }
 !288 = !{!286, !268}
 !289 = !{!286, !271, !268}
 !290 = !{!291}
-!291 = distinct !{!291, !292, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h07d47c91e21692a6E.argprom: argument 0"}
-!292 = distinct !{!292, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h07d47c91e21692a6E.argprom"}
+!291 = distinct !{!291, !292, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h07d47c91e21692a6E: argument 0"}
+!292 = distinct !{!292, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h07d47c91e21692a6E"}
 !293 = !{!294}
-!294 = distinct !{!294, !292, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h07d47c91e21692a6E.argprom: argument 1"}
+!294 = distinct !{!294, !292, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h07d47c91e21692a6E: argument 1"}
 !295 = !{!291, !294}
 !296 = !{!297}
-!297 = distinct !{!297, !298, !"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h5c6396437c704c32E.argprom: argument 0"}
-!298 = distinct !{!298, !"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h5c6396437c704c32E.argprom"}
+!297 = distinct !{!297, !298, !"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h5c6396437c704c32E: argument 0"}
+!298 = distinct !{!298, !"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h5c6396437c704c32E"}
 !299 = !{!300}
-!300 = distinct !{!300, !298, !"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h5c6396437c704c32E.argprom: argument 1"}
+!300 = distinct !{!300, !298, !"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h5c6396437c704c32E: argument 1"}
 !301 = !{!302}
 !302 = distinct !{!302, !303, !"_ZN12darling_core5error5Error9with_span17h71c3c9fdd377cb88E: argument 0"}
 !303 = distinct !{!303, !"_ZN12darling_core5error5Error9with_span17h71c3c9fdd377cb88E"}
@@ -1977,8 +1977,8 @@ attributes #15 = { noreturn }
 !320 = !{!302, !305, !297, !300}
 !321 = !{!308, !291, !294}
 !322 = !{!323}
-!323 = distinct !{!323, !324, !"_ZN12darling_core9from_meta8FromMeta9from_list17h6af43b611ef01425E.argprom: argument 0"}
-!324 = distinct !{!324, !"_ZN12darling_core9from_meta8FromMeta9from_list17h6af43b611ef01425E.argprom"}
+!323 = distinct !{!323, !324, !"_ZN12darling_core9from_meta8FromMeta9from_list17h6af43b611ef01425E: argument 0"}
+!324 = distinct !{!324, !"_ZN12darling_core9from_meta8FromMeta9from_list17h6af43b611ef01425E"}
 !325 = !{!326}
 !326 = distinct !{!326, !327, !"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$darling_core..ast..data..NestedMeta$GT$$GT$17h956b83cd15f57053E: argument 0"}
 !327 = distinct !{!327, !"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$darling_core..ast..data..NestedMeta$GT$$GT$17h956b83cd15f57053E"}

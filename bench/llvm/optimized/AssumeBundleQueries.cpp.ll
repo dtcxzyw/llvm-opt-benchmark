@@ -901,7 +901,7 @@ define dso_local void @_ZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8C
   %26 = load ptr, ptr %25, align 8
   %27 = load i8, ptr %26, align 8
   %.not.i = icmp eq i8 %27, 17
-  br i1 %.not.i, label %28, label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit"
+  br i1 %.not.i, label %28, label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit"
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
@@ -911,15 +911,15 @@ define dso_local void @_ZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8C
   %33 = load ptr, ptr %29, align 8
   %.0.in.i.i.i = select i1 %32, ptr %29, ptr %33
   %.0.i.i.i = load i64, ptr %.0.in.i.i.i, align 8
-  br label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit"
+  br label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit"
 
-"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit": ; preds = %24, %28
+"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit": ; preds = %24, %28
   %.0.i = phi i64 [ %.0.i.i.i, %28 ], [ 1, %24 ]
   store i64 %.0.i, ptr %4, align 8
   br label %.thread
 
-.thread:                                          ; preds = %3, %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit"
-  %34 = phi i64 [ 0, %3 ], [ %.0.i, %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit" ]
+.thread:                                          ; preds = %3, %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit"
+  %34 = phi i64 [ 0, %3 ], [ %.0.i, %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit" ]
   %35 = icmp eq i32 %8, 82
   %36 = icmp ugt i32 %11, 2
   %or.cond = and i1 %35, %36
@@ -938,7 +938,7 @@ define dso_local void @_ZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8C
   %47 = load ptr, ptr %46, align 8
   %48 = load i8, ptr %47, align 8
   %.not.i16 = icmp eq i8 %48, 17
-  br i1 %.not.i16, label %49, label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit20"
+  br i1 %.not.i16, label %49, label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit20"
 
 49:                                               ; preds = %37
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 24
@@ -948,9 +948,9 @@ define dso_local void @_ZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8C
   %54 = load ptr, ptr %50, align 8
   %.0.in.i.i.i18 = select i1 %53, ptr %50, ptr %54
   %.0.i.i.i19 = load i64, ptr %.0.in.i.i.i18, align 8
-  br label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit20"
+  br label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit20"
 
-"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit20": ; preds = %37, %49
+"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit20": ; preds = %37, %49
   %.0.i17 = phi i64 [ %.0.i.i.i19, %49 ], [ 1, %37 ]
   %55 = or i64 %.0.i17, %34
   %56 = sub i64 0, %55
@@ -958,7 +958,7 @@ define dso_local void @_ZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8C
   store i64 %57, ptr %4, align 8
   br label %.thread.thread
 
-.thread.thread:                                   ; preds = %12, %.thread, %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit20"
+.thread.thread:                                   ; preds = %12, %.thread, %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit20"
   ret void
 }
 
@@ -1001,7 +1001,7 @@ define dso_local void @_ZN4llvm31getKnowledgeFromOperandInAssumeERNS_10AssumeIns
   %24 = load ptr, ptr %23, align 8, !noalias !8
   %25 = load i8, ptr %24, align 8, !noalias !8
   %.not.i.i = icmp eq i8 %25, 17
-  br i1 %.not.i.i, label %26, label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit.i"
+  br i1 %.not.i.i, label %26, label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit.i"
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
@@ -1011,15 +1011,15 @@ define dso_local void @_ZN4llvm31getKnowledgeFromOperandInAssumeERNS_10AssumeIns
   %31 = load ptr, ptr %27, align 8, !noalias !8
   %.0.in.i.i.i.i = select i1 %30, ptr %27, ptr %31
   %.0.i.i.i.i = load i64, ptr %.0.in.i.i.i.i, align 8, !noalias !8
-  br label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit.i"
+  br label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit.i"
 
-"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit.i": ; preds = %26, %22
+"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit.i": ; preds = %26, %22
   %.0.i.i = phi i64 [ %.0.i.i.i.i, %26 ], [ 1, %22 ]
   store i64 %.0.i.i, ptr %5, align 8, !alias.scope !8
   br label %.thread.i
 
-.thread.i:                                        ; preds = %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit.i", %3
-  %32 = phi i64 [ 0, %3 ], [ %.0.i.i, %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit.i" ]
+.thread.i:                                        ; preds = %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit.i", %3
+  %32 = phi i64 [ 0, %3 ], [ %.0.i.i, %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit.i" ]
   %33 = icmp eq i32 %8, 82
   %34 = icmp ugt i32 %9, 2
   %or.cond.i = and i1 %34, %33
@@ -1038,7 +1038,7 @@ define dso_local void @_ZN4llvm31getKnowledgeFromOperandInAssumeERNS_10AssumeIns
   %45 = load ptr, ptr %44, align 8, !noalias !8
   %46 = load i8, ptr %45, align 8, !noalias !8
   %.not.i16.i = icmp eq i8 %46, 17
-  br i1 %.not.i16.i, label %47, label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit20.i"
+  br i1 %.not.i16.i, label %47, label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit20.i"
 
 47:                                               ; preds = %35
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 24
@@ -1048,9 +1048,9 @@ define dso_local void @_ZN4llvm31getKnowledgeFromOperandInAssumeERNS_10AssumeIns
   %52 = load ptr, ptr %48, align 8, !noalias !8
   %.0.in.i.i.i18.i = select i1 %51, ptr %48, ptr %52
   %.0.i.i.i19.i = load i64, ptr %.0.in.i.i.i18.i, align 8, !noalias !8
-  br label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit20.i"
+  br label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit20.i"
 
-"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit20.i": ; preds = %47, %35
+"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit20.i": ; preds = %47, %35
   %.0.i17.i = phi i64 [ %.0.i.i.i19.i, %47 ], [ 1, %35 ]
   %53 = or i64 %.0.i17.i, %32
   %54 = sub i64 0, %53
@@ -1058,7 +1058,7 @@ define dso_local void @_ZN4llvm31getKnowledgeFromOperandInAssumeERNS_10AssumeIns
   store i64 %55, ptr %5, align 8, !alias.scope !8
   br label %_ZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoE.exit
 
-_ZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoE.exit: ; preds = %10, %.thread.i, %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit20.i"
+_ZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoE.exit: ; preds = %10, %.thread.i, %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit20.i"
   ret void
 }
 
@@ -1106,54 +1106,54 @@ _ZNK4llvm8CallBase15bundle_op_infosEv.exit:       ; preds = %1, %_ZNK4llvm8CallB
   %.029.val.i.i.i.i.i = load ptr, ptr %.02991.i.i.i.i.i, align 8
   %19 = load i64, ptr %.029.val.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %19, 6
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit.i.i.i.i.i", label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit"
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit.i.i.i.i.i", label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i
   %20 = getelementptr inbounds i8, ptr %.029.val.i.i.i.i.i, i64 16
   %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %20, ptr noundef nonnull dereferenceable(6) @.str.10, i64 6)
   %.not66.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
-  br i1 %.not66.i.i.i.i.i, label %21, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit"
+  br i1 %.not66.i.i.i.i.i, label %21, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit"
 
-21:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit.i.i.i.i.i"
+21:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit.i.i.i.i.i"
   %22 = getelementptr inbounds i8, ptr %.02991.i.i.i.i.i, i64 16
   %.val.i.i.i.i.i = load ptr, ptr %22, align 8
   %23 = load i64, ptr %.val.i.i.i.i.i, align 8
   %.not.i.i.i.i33.i.i.i.i.i = icmp eq i64 %23, 6
-  br i1 %.not.i.i.i.i33.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit36.i.i.i.i.i", label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit32"
+  br i1 %.not.i.i.i.i33.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit36.i.i.i.i.i", label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit32"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit36.i.i.i.i.i": ; preds = %21
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit36.i.i.i.i.i": ; preds = %21
   %24 = getelementptr inbounds i8, ptr %.val.i.i.i.i.i, i64 16
   %bcmp.i.i.i.i35.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %24, ptr noundef nonnull dereferenceable(6) @.str.10, i64 6)
   %.not67.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i35.i.i.i.i.i, 0
-  br i1 %.not67.i.i.i.i.i, label %25, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit"
+  br i1 %.not67.i.i.i.i.i, label %25, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit"
 
-25:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit36.i.i.i.i.i"
+25:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit36.i.i.i.i.i"
   %26 = getelementptr inbounds i8, ptr %.02991.i.i.i.i.i, i64 32
   %.val30.i.i.i.i.i = load ptr, ptr %26, align 8
   %27 = load i64, ptr %.val30.i.i.i.i.i, align 8
   %.not.i.i.i.i37.i.i.i.i.i = icmp eq i64 %27, 6
-  br i1 %.not.i.i.i.i37.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit40.i.i.i.i.i", label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit34"
+  br i1 %.not.i.i.i.i37.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit40.i.i.i.i.i", label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit34"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit40.i.i.i.i.i": ; preds = %25
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit40.i.i.i.i.i": ; preds = %25
   %28 = getelementptr inbounds i8, ptr %.val30.i.i.i.i.i, i64 16
   %bcmp.i.i.i.i39.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %28, ptr noundef nonnull dereferenceable(6) @.str.10, i64 6)
   %.not68.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i39.i.i.i.i.i, 0
-  br i1 %.not68.i.i.i.i.i, label %29, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit28"
+  br i1 %.not68.i.i.i.i.i, label %29, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit28"
 
-29:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit40.i.i.i.i.i"
+29:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit40.i.i.i.i.i"
   %30 = getelementptr inbounds i8, ptr %.02991.i.i.i.i.i, i64 48
   %.val31.i.i.i.i.i = load ptr, ptr %30, align 8
   %31 = load i64, ptr %.val31.i.i.i.i.i, align 8
   %.not.i.i.i.i41.i.i.i.i.i = icmp eq i64 %31, 6
-  br i1 %.not.i.i.i.i41.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit44.i.i.i.i.i", label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit36"
+  br i1 %.not.i.i.i.i41.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit44.i.i.i.i.i", label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit36"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit44.i.i.i.i.i": ; preds = %29
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit44.i.i.i.i.i": ; preds = %29
   %32 = getelementptr inbounds i8, ptr %.val31.i.i.i.i.i, i64 16
   %bcmp.i.i.i.i43.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %32, ptr noundef nonnull dereferenceable(6) @.str.10, i64 6)
   %.not69.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i43.i.i.i.i.i, 0
-  br i1 %.not69.i.i.i.i.i, label %33, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit30"
+  br i1 %.not69.i.i.i.i.i, label %33, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit30"
 
-33:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit44.i.i.i.i.i"
+33:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit44.i.i.i.i.i"
   %34 = getelementptr inbounds i8, ptr %.02991.i.i.i.i.i, i64 64
   %35 = add nsw i64 %.092.i.i.i.i.i, -1
   %36 = icmp sgt i64 %.092.i.i.i.i.i, 1
@@ -1178,15 +1178,15 @@ _ZNK4llvm8CallBase15bundle_op_infosEv.exit:       ; preds = %1, %_ZNK4llvm8CallB
   %.029.val32.i.i.i.i.i = load ptr, ptr %.029.lcssa.i.i.i.i.i, align 8
   %39 = load i64, ptr %.029.val32.i.i.i.i.i, align 8
   %.not.i.i.i.i45.i.i.i.i.i = icmp eq i64 %39, 6
-  br i1 %.not.i.i.i.i45.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit48.i.i.i.i.i", label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit"
+  br i1 %.not.i.i.i.i45.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit48.i.i.i.i.i", label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit48.i.i.i.i.i": ; preds = %38
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit48.i.i.i.i.i": ; preds = %38
   %40 = getelementptr inbounds i8, ptr %.029.val32.i.i.i.i.i, i64 16
   %bcmp.i.i.i.i47.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %40, ptr noundef nonnull dereferenceable(6) @.str.10, i64 6)
   %.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i47.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.i, label %41, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit"
+  br i1 %.not.i.i.i.i.i, label %41, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit"
 
-41:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit48.i.i.i.i.i"
+41:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit48.i.i.i.i.i"
   %42 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 16
   br label %43
 
@@ -1195,15 +1195,15 @@ _ZNK4llvm8CallBase15bundle_op_infosEv.exit:       ; preds = %1, %_ZNK4llvm8CallB
   %.1.val.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i, align 8
   %44 = load i64, ptr %.1.val.i.i.i.i.i, align 8
   %.not.i.i.i.i49.i.i.i.i.i = icmp eq i64 %44, 6
-  br i1 %.not.i.i.i.i49.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit52.i.i.i.i.i", label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit"
+  br i1 %.not.i.i.i.i49.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit52.i.i.i.i.i", label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit52.i.i.i.i.i": ; preds = %43
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit52.i.i.i.i.i": ; preds = %43
   %45 = getelementptr inbounds i8, ptr %.1.val.i.i.i.i.i, i64 16
   %bcmp.i.i.i.i51.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %45, ptr noundef nonnull dereferenceable(6) @.str.10, i64 6)
   %.not64.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i51.i.i.i.i.i, 0
-  br i1 %.not64.i.i.i.i.i, label %46, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit"
+  br i1 %.not64.i.i.i.i.i, label %46, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit"
 
-46:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit52.i.i.i.i.i"
+46:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit52.i.i.i.i.i"
   %47 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 16
   br label %48
 
@@ -1212,43 +1212,43 @@ _ZNK4llvm8CallBase15bundle_op_infosEv.exit:       ; preds = %1, %_ZNK4llvm8CallB
   %.2.val.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i, align 8
   %49 = load i64, ptr %.2.val.i.i.i.i.i, align 8
   %.not.i.i.i.i53.i.i.i.i.i = icmp eq i64 %49, 6
-  br i1 %.not.i.i.i.i53.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit56.i.i.i.i.i", label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit"
+  br i1 %.not.i.i.i.i53.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit56.i.i.i.i.i", label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit56.i.i.i.i.i": ; preds = %48
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit56.i.i.i.i.i": ; preds = %48
   %50 = getelementptr inbounds i8, ptr %.2.val.i.i.i.i.i, i64 16
   %bcmp.i.i.i.i55.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %50, ptr noundef nonnull dereferenceable(6) @.str.10, i64 6)
   %.not65.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i55.i.i.i.i.i, 0
-  br i1 %.not65.i.i.i.i.i, label %51, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit"
+  br i1 %.not65.i.i.i.i.i, label %51, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit"
 
-51:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit56.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  br label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit"
+51:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit56.i.i.i.i.i", %._crit_edge.i.i.i.i.i
+  br label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit36.i.i.i.i.i"
+"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit36.i.i.i.i.i"
   %52 = getelementptr inbounds i8, ptr %.02991.i.i.i.i.i, i64 16
-  br label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit28": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit40.i.i.i.i.i"
+"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit28": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit40.i.i.i.i.i"
   %53 = getelementptr inbounds i8, ptr %.02991.i.i.i.i.i, i64 32
-  br label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit30": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit44.i.i.i.i.i"
+"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit30": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit44.i.i.i.i.i"
   %54 = getelementptr inbounds i8, ptr %.02991.i.i.i.i.i, i64 48
-  br label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit32": ; preds = %21
+"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit32": ; preds = %21
   %55 = getelementptr inbounds i8, ptr %.02991.i.i.i.i.i, i64 16
-  br label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit34": ; preds = %25
+"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit34": ; preds = %25
   %56 = getelementptr inbounds i8, ptr %.02991.i.i.i.i.i, i64 32
-  br label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit36": ; preds = %29
+"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit36": ; preds = %29
   %57 = getelementptr inbounds i8, ptr %.02991.i.i.i.i.i, i64 48
-  br label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit.i.i.i.i.i", %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit28", %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit30", %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit32", %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit34", %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit36", %38, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit48.i.i.i.i.i", %43, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit52.i.i.i.i.i", %48, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit56.i.i.i.i.i", %51
-  %.028.i.i.i.i.i = phi ptr [ %.0.i.i1.i, %51 ], [ %.029.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit48.i.i.i.i.i" ], [ %.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit52.i.i.i.i.i" ], [ %.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit56.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %38 ], [ %.1.i.i.i.i.i, %43 ], [ %.2.i.i.i.i.i, %48 ], [ %52, %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %53, %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit28" ], [ %54, %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit30" ], [ %55, %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit32" ], [ %56, %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit34" ], [ %57, %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit36" ], [ %.02991.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.argprom.exit.i.i.i.i.i" ], [ %.02991.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit.i.i.i.i.i", %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit28", %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit30", %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit32", %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit34", %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit36", %38, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit48.i.i.i.i.i", %43, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit52.i.i.i.i.i", %48, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit56.i.i.i.i.i", %51
+  %.028.i.i.i.i.i = phi ptr [ %.0.i.i1.i, %51 ], [ %.029.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit48.i.i.i.i.i" ], [ %.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit52.i.i.i.i.i" ], [ %.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit56.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %38 ], [ %.1.i.i.i.i.i, %43 ], [ %.2.i.i.i.i.i, %48 ], [ %52, %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %53, %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit28" ], [ %54, %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit30" ], [ %55, %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit32" ], [ %56, %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit34" ], [ %57, %"_ZN4llvm7none_ofINS_14iterator_rangeIPKNS_8CallBase12BundleOpInfoEEEZNS_23isAssumeWithEmptyBundleERKNS_10AssumeInstEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit36" ], [ %.02991.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm23isAssumeWithEmptyBundleERKNS2_10AssumeInstEE3$_0EclIPKNS2_8CallBase12BundleOpInfoEEEbT_.exit.i.i.i.i.i" ], [ %.02991.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %58 = icmp eq ptr %.0.i.i1.i, %.028.i.i.i.i.i
   ret i1 %58
 }
@@ -1371,7 +1371,7 @@ _ZN4llvm12PatternMatch14Argument_matchINS0_12match_unlessINS0_14specificval_tyEE
   %76 = load ptr, ptr %75, align 8, !noalias !15
   %77 = load i8, ptr %76, align 8, !noalias !15
   %.not.i16.i = icmp eq i8 %77, 17
-  br i1 %.not.i16.i, label %78, label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit20.i"
+  br i1 %.not.i16.i, label %78, label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit20.i"
 
 78:                                               ; preds = %66
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 24
@@ -1381,18 +1381,18 @@ _ZN4llvm12PatternMatch14Argument_matchINS0_12match_unlessINS0_14specificval_tyEE
   %83 = load ptr, ptr %79, align 8, !noalias !15
   %.0.in.i.i.i18.i = select i1 %82, ptr %79, ptr %83
   %.0.i.i.i19.i = load i64, ptr %.0.in.i.i.i18.i, align 8, !noalias !15
-  br label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit20.i"
+  br label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit20.i"
 
-"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit20.i": ; preds = %78, %66
+"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit20.i": ; preds = %78, %66
   %.0.i17.i = phi i64 [ %.0.i.i.i19.i, %78 ], [ 1, %66 ]
   %84 = or i64 %.0.i17.i, %.sroa.65.0
   %85 = sub i64 0, %84
   %86 = and i64 %84, %85
   br label %_ZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoE.exit
 
-_ZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoE.exit: ; preds = %43, %.thread.i, %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit20.i"
-  %.sroa.9.1 = phi ptr [ %.sroa.9.0, %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit20.i" ], [ %.sroa.9.0, %.thread.i ], [ %52, %43 ]
-  %.sroa.65.1 = phi i64 [ %86, %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit20.i" ], [ %.sroa.65.0, %.thread.i ], [ 0, %43 ]
+_ZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoE.exit: ; preds = %43, %.thread.i, %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit20.i"
+  %.sroa.9.1 = phi ptr [ %.sroa.9.0, %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit20.i" ], [ %.sroa.9.0, %.thread.i ], [ %52, %43 ]
+  %.sroa.65.1 = phi i64 [ %86, %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit20.i" ], [ %.sroa.65.0, %.thread.i ], [ 0, %43 ]
   %.idx4.i = shl nsw i64 %3, 2
   %87 = getelementptr inbounds i8, ptr %2, i64 %.idx4.i
   %88 = ashr i64 %3, 2
@@ -1660,7 +1660,7 @@ _ZN4llvm8CallBase20bundle_op_info_beginEv.exit:   ; preds = %64, %68
   %93 = load ptr, ptr %92, align 8, !noalias !23
   %94 = load i8, ptr %93, align 8, !noalias !23
   %.not.i.i = icmp eq i8 %94, 17
-  br i1 %.not.i.i, label %95, label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit.i"
+  br i1 %.not.i.i, label %95, label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit.i"
 
 95:                                               ; preds = %91
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 24
@@ -1670,16 +1670,16 @@ _ZN4llvm8CallBase20bundle_op_info_beginEv.exit:   ; preds = %64, %68
   %100 = load ptr, ptr %96, align 8, !noalias !23
   %.0.in.i.i.i.i = select i1 %99, ptr %96, ptr %100
   %.0.i.i.i.i = load i64, ptr %.0.in.i.i.i.i, align 8, !noalias !23
-  br label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit.i"
+  br label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit.i"
 
-"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit.i": ; preds = %95, %91
+"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit.i": ; preds = %95, %91
   %.0.i.i = phi i64 [ %.0.i.i.i.i, %95 ], [ 1, %91 ]
   store i64 %.0.i.i, ptr %49, align 8, !alias.scope !23
   br label %.thread.i
 
-.thread.i:                                        ; preds = %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit.i", %_ZN4llvm8CallBase20bundle_op_info_beginEv.exit
-  %101 = phi ptr [ null, %_ZN4llvm8CallBase20bundle_op_info_beginEv.exit ], [ %89, %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit.i" ]
-  %102 = phi i64 [ 0, %_ZN4llvm8CallBase20bundle_op_info_beginEv.exit ], [ %.0.i.i, %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit.i" ]
+.thread.i:                                        ; preds = %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit.i", %_ZN4llvm8CallBase20bundle_op_info_beginEv.exit
+  %101 = phi ptr [ null, %_ZN4llvm8CallBase20bundle_op_info_beginEv.exit ], [ %89, %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit.i" ]
+  %102 = phi i64 [ 0, %_ZN4llvm8CallBase20bundle_op_info_beginEv.exit ], [ %.0.i.i, %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit.i" ]
   %103 = icmp eq i32 %77, 82
   %104 = icmp ugt i32 %80, 2
   %or.cond.i = and i1 %103, %104
@@ -1697,7 +1697,7 @@ _ZN4llvm8CallBase20bundle_op_info_beginEv.exit:   ; preds = %64, %68
   %114 = load ptr, ptr %113, align 8, !noalias !23
   %115 = load i8, ptr %114, align 8, !noalias !23
   %.not.i16.i = icmp eq i8 %115, 17
-  br i1 %.not.i16.i, label %116, label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit20.i"
+  br i1 %.not.i16.i, label %116, label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit20.i"
 
 116:                                              ; preds = %105
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 24
@@ -1707,9 +1707,9 @@ _ZN4llvm8CallBase20bundle_op_info_beginEv.exit:   ; preds = %64, %68
   %121 = load ptr, ptr %117, align 8, !noalias !23
   %.0.in.i.i.i18.i = select i1 %120, ptr %117, ptr %121
   %.0.i.i.i19.i = load i64, ptr %.0.in.i.i.i18.i, align 8, !noalias !23
-  br label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit20.i"
+  br label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit20.i"
 
-"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit20.i": ; preds = %116, %105
+"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit20.i": ; preds = %116, %105
   %.0.i17.i = phi i64 [ %.0.i.i.i19.i, %116 ], [ 1, %105 ]
   %122 = or i64 %.0.i17.i, %102
   %123 = sub i64 0, %122
@@ -1717,8 +1717,8 @@ _ZN4llvm8CallBase20bundle_op_info_beginEv.exit:   ; preds = %64, %68
   store i64 %124, ptr %49, align 8, !alias.scope !23
   br label %_ZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoE.exit
 
-_ZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoE.exit: ; preds = %81, %.thread.i, %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit20.i"
-  %125 = phi ptr [ %89, %81 ], [ %101, %.thread.i ], [ %101, %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit20.i" ]
+_ZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoE.exit: ; preds = %81, %.thread.i, %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit20.i"
+  %125 = phi ptr [ %89, %81 ], [ %101, %.thread.i ], [ %101, %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit20.i" ]
   %126 = icmp ne i32 %77, 0
   %.not34 = icmp eq ptr %1, %125
   %or.cond = select i1 %126, i1 %.not34, i1 false
@@ -1938,7 +1938,7 @@ _ZN4llvm12PatternMatch14Argument_matchINS0_12match_unlessINS0_14specificval_tyEE
   %235 = load ptr, ptr %234, align 8, !noalias !26
   %236 = load i8, ptr %235, align 8, !noalias !26
   %.not.i.i43 = icmp eq i8 %236, 17
-  br i1 %.not.i.i43, label %237, label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit.i44"
+  br i1 %.not.i.i43, label %237, label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit.i44"
 
 237:                                              ; preds = %233
   %238 = getelementptr inbounds nuw i8, ptr %235, i64 24
@@ -1948,15 +1948,15 @@ _ZN4llvm12PatternMatch14Argument_matchINS0_12match_unlessINS0_14specificval_tyEE
   %242 = load ptr, ptr %238, align 8, !noalias !26
   %.0.in.i.i.i.i53 = select i1 %241, ptr %238, ptr %242
   %.0.i.i.i.i54 = load i64, ptr %.0.in.i.i.i.i53, align 8, !noalias !26
-  br label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit.i44"
+  br label %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit.i44"
 
-"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit.i44": ; preds = %237, %233
+"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit.i44": ; preds = %237, %233
   %.0.i.i45 = phi i64 [ %.0.i.i.i.i54, %237 ], [ 1, %233 ]
   store i64 %.0.i.i45, ptr %175, align 8, !alias.scope !26
   br label %.thread.i46
 
-.thread.i46:                                      ; preds = %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit.i44", %211
-  %243 = phi i64 [ 0, %211 ], [ %.0.i.i45, %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.argprom.argprom.exit.i44" ]
+.thread.i46:                                      ; preds = %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit.i44", %211
+  %243 = phi i64 [ 0, %211 ], [ %.0.i.i45, %"_ZZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoEENK3$_0clEj.exit.i44" ]
   %244 = icmp eq i32 %218, 82
   %245 = icmp ugt i32 %221, 2
   %or.cond.i47 = and i1 %244, %245

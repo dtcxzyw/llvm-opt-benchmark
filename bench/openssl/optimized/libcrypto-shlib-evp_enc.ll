@@ -3171,28 +3171,28 @@ entry:
   %1 = load i64, ptr %flags, align 8
   %and = and i64 %1, 512
   %tobool.not = icmp eq i64 %and, 0
-  br i1 %tobool.not, label %EVP_CIPHER_CTX_get_libctx.argprom.exit, label %if.then
+  br i1 %tobool.not, label %EVP_CIPHER_CTX_get_libctx.exit, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %ctx, i32 noundef 6, i32 noundef 0, ptr noundef %key)
   br label %return
 
-EVP_CIPHER_CTX_get_libctx.argprom.exit:           ; preds = %entry
+EVP_CIPHER_CTX_get_libctx.exit:                   ; preds = %entry
   %call.i = tail call ptr @EVP_CIPHER_get0_provider(ptr noundef nonnull %0) #8
   %call2.i = tail call ptr @ossl_provider_libctx(ptr noundef %call.i) #8
   %call2 = tail call i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef nonnull %ctx) #8
   %cmp = icmp slt i32 %call2, 1
   br i1 %cmp, label %return, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %EVP_CIPHER_CTX_get_libctx.argprom.exit
+lor.lhs.false:                                    ; preds = %EVP_CIPHER_CTX_get_libctx.exit
   %conv = zext nneg i32 %call2 to i64
   %call3 = tail call i32 @RAND_priv_bytes_ex(ptr noundef %call2.i, ptr noundef %key, i64 noundef %conv, i32 noundef 0) #8
   %cmp4 = icmp sgt i32 %call3, 0
   %spec.select = zext i1 %cmp4 to i32
   br label %return
 
-return:                                           ; preds = %lor.lhs.false, %EVP_CIPHER_CTX_get_libctx.argprom.exit, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ 0, %EVP_CIPHER_CTX_get_libctx.argprom.exit ], [ %spec.select, %lor.lhs.false ]
+return:                                           ; preds = %lor.lhs.false, %EVP_CIPHER_CTX_get_libctx.exit, %if.then
+  %retval.0 = phi i32 [ %call, %if.then ], [ 0, %EVP_CIPHER_CTX_get_libctx.exit ], [ %spec.select, %lor.lhs.false ]
   ret i32 %retval.0
 }
 

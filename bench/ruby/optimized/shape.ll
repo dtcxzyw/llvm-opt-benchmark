@@ -450,18 +450,18 @@ define internal fastcc ptr @get_next_shape_internal(ptr noundef %0, i64 noundef 
   store i8 0, ptr %3, align 1
   %8 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %8, null
-  br i1 %.not.i.i, label %9, label %rb_vm_lock_enter.argprom.exit
+  br i1 %.not.i.i, label %9, label %rb_vm_lock_enter.exit
 
 9:                                                ; preds = %5
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %6) #13
-  br label %rb_vm_lock_enter.argprom.exit
+  br label %rb_vm_lock_enter.exit
 
-rb_vm_lock_enter.argprom.exit:                    ; preds = %5, %9
+rb_vm_lock_enter.exit:                            ; preds = %5, %9
   %10 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %.thread, label %11
 
-11:                                               ; preds = %rb_vm_lock_enter.argprom.exit
+11:                                               ; preds = %rb_vm_lock_enter.exit
   %12 = ptrtoint ptr %10 to i64
   %13 = and i64 %12, 1
   %.not30 = icmp eq i64 %13, 0
@@ -484,7 +484,7 @@ rb_vm_lock_enter.argprom.exit:                    ; preds = %5, %9
   %or.cond = select i1 %.not31, i1 true, i1 %.not32
   br i1 %or.cond, label %.thread, label %.thread38
 
-.thread:                                          ; preds = %14, %rb_vm_lock_enter.argprom.exit, %20
+.thread:                                          ; preds = %14, %rb_vm_lock_enter.exit, %20
   %.pre42 = load ptr, ptr @rb_shape_tree_ptr, align 8
   br i1 %4, label %24, label %28
 
@@ -614,13 +614,13 @@ rb_shape_alloc_new_child.exit:                    ; preds = %rb_shape_alloc.exit
   %.1 = phi ptr [ %30, %28 ], [ %39, %84 ], [ %39, %70 ], [ %16, %14 ], [ %23, %20 ]
   %89 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i35 = icmp eq ptr %89, null
-  br i1 %.not.i.i35, label %90, label %rb_vm_lock_leave.argprom.exit
+  br i1 %.not.i.i35, label %90, label %rb_vm_lock_leave.exit
 
 90:                                               ; preds = %.thread38
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %6) #13
-  br label %rb_vm_lock_leave.argprom.exit
+  br label %rb_vm_lock_leave.exit
 
-rb_vm_lock_leave.argprom.exit:                    ; preds = %.thread38, %90
+rb_vm_lock_leave.exit:                            ; preds = %.thread38, %90
   ret ptr %.1
 }
 
@@ -1652,7 +1652,7 @@ define internal fastcc noundef ptr @redblack_insert_aux(ptr noundef readonly %0,
   %26 = getelementptr i8, ptr %0, i64 16
   %.val = load i32, ptr %26, align 8
   %27 = icmp eq i32 %.val, 0
-  br i1 %27, label %redblack_left.argprom.exit, label %28
+  br i1 %27, label %redblack_left.exit, label %28
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr @rb_shape_tree_ptr, align 8
@@ -1661,9 +1661,9 @@ define internal fastcc noundef ptr @redblack_insert_aux(ptr noundef readonly %0,
   %32 = add i32 %.val, -1
   %33 = zext i32 %32 to i64
   %34 = getelementptr %struct.redblack_node, ptr %31, i64 %33
-  br label %redblack_left.argprom.exit
+  br label %redblack_left.exit
 
-redblack_left.argprom.exit:                       ; preds = %25, %28
+redblack_left.exit:                               ; preds = %25, %28
   %.0.i30 = phi ptr [ %34, %28 ], [ null, %25 ]
   %35 = tail call fastcc ptr @redblack_insert_aux(ptr noundef %.0.i30, i64 noundef %1, ptr noundef %2)
   %36 = getelementptr i8, ptr %0, i64 20
@@ -1671,7 +1671,7 @@ redblack_left.argprom.exit:                       ; preds = %25, %28
   %37 = icmp eq i32 %.val27, 0
   br i1 %37, label %redblack_color.exit, label %38
 
-38:                                               ; preds = %redblack_left.argprom.exit
+38:                                               ; preds = %redblack_left.exit
   %39 = load ptr, ptr @rb_shape_tree_ptr, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 24
   %41 = load ptr, ptr %40, align 8
@@ -1688,7 +1688,7 @@ redblack_left.argprom.exit:                       ; preds = %25, %28
   %48 = getelementptr i8, ptr %0, i64 16
   %.val26 = load i32, ptr %48, align 8
   %49 = icmp eq i32 %.val26, 0
-  br i1 %49, label %redblack_left.argprom.exit33, label %50
+  br i1 %49, label %redblack_left.exit33, label %50
 
 50:                                               ; preds = %47
   %51 = load ptr, ptr @rb_shape_tree_ptr, align 8
@@ -1697,32 +1697,32 @@ redblack_left.argprom.exit:                       ; preds = %25, %28
   %54 = add i32 %.val26, -1
   %55 = zext i32 %54 to i64
   %56 = getelementptr %struct.redblack_node, ptr %53, i64 %55
-  br label %redblack_left.argprom.exit33
+  br label %redblack_left.exit33
 
-redblack_left.argprom.exit33:                     ; preds = %47, %50
+redblack_left.exit33:                             ; preds = %47, %50
   %.0.i32 = phi ptr [ %56, %50 ], [ null, %47 ]
   %57 = getelementptr i8, ptr %0, i64 20
   %.val28 = load i32, ptr %57, align 4
   %58 = icmp eq i32 %.val28, 0
-  br i1 %58, label %redblack_right.argprom.exit35, label %59
+  br i1 %58, label %redblack_right.exit35, label %59
 
-59:                                               ; preds = %redblack_left.argprom.exit33
+59:                                               ; preds = %redblack_left.exit33
   %60 = load ptr, ptr @rb_shape_tree_ptr, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 24
   %62 = load ptr, ptr %61, align 8
   %63 = add i32 %.val28, -1
   %64 = zext i32 %63 to i64
   %65 = getelementptr %struct.redblack_node, ptr %62, i64 %64
-  br label %redblack_right.argprom.exit35
+  br label %redblack_right.exit35
 
-redblack_right.argprom.exit35:                    ; preds = %redblack_left.argprom.exit33, %59
-  %.0.i34 = phi ptr [ %65, %59 ], [ null, %redblack_left.argprom.exit33 ]
+redblack_right.exit35:                            ; preds = %redblack_left.exit33, %59
+  %.0.i34 = phi ptr [ %65, %59 ], [ null, %redblack_left.exit33 ]
   %66 = tail call fastcc ptr @redblack_insert_aux(ptr noundef %.0.i34, i64 noundef %1, ptr noundef %2)
   br label %redblack_color.exit
 
-redblack_color.exit:                              ; preds = %38, %redblack_left.argprom.exit, %redblack_right.argprom.exit35
-  %.021 = phi ptr [ %.0.i32, %redblack_right.argprom.exit35 ], [ %35, %redblack_left.argprom.exit ], [ %35, %38 ]
-  %.0 = phi ptr [ %66, %redblack_right.argprom.exit35 ], [ null, %redblack_left.argprom.exit ], [ %44, %38 ]
+redblack_color.exit:                              ; preds = %38, %redblack_left.exit, %redblack_right.exit35
+  %.021 = phi ptr [ %.0.i32, %redblack_right.exit35 ], [ %35, %redblack_left.exit ], [ %35, %38 ]
+  %.0 = phi ptr [ %66, %redblack_right.exit35 ], [ null, %redblack_left.exit ], [ %44, %38 ]
   %67 = getelementptr inbounds i8, ptr %0, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = ptrtoint ptr %68 to i64
@@ -1749,9 +1749,9 @@ redblack_red_p.exit.i:                            ; preds = %75
   %81 = getelementptr i8, ptr %.021, i64 16
   %.val93.i = load i32, ptr %81, align 8
   %82 = icmp eq i32 %.val93.i, 0
-  br i1 %82, label %113, label %redblack_left.argprom.exit.i
+  br i1 %82, label %113, label %redblack_left.exit.i
 
-redblack_left.argprom.exit.i:                     ; preds = %80
+redblack_left.exit.i:                             ; preds = %80
   %83 = load ptr, ptr @rb_shape_tree_ptr, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 24
   %85 = load ptr, ptr %84, align 8
@@ -1761,15 +1761,15 @@ redblack_left.argprom.exit.i:                     ; preds = %80
   %.not.i.i118.i = icmp eq ptr %88, null
   br i1 %.not.i.i118.i, label %113, label %redblack_red_p.exit119.i
 
-redblack_red_p.exit119.i:                         ; preds = %redblack_left.argprom.exit.i
+redblack_red_p.exit119.i:                         ; preds = %redblack_left.exit.i
   %89 = getelementptr inbounds i8, ptr %88, i64 8
   %90 = load ptr, ptr %89, align 8
   %91 = ptrtoint ptr %90 to i64
   %92 = and i64 %91, 1
   %.not228.i = icmp eq i64 %92, 0
-  br i1 %.not228.i, label %113, label %redblack_left.argprom.exit126.i
+  br i1 %.not228.i, label %113, label %redblack_left.exit126.i
 
-redblack_left.argprom.exit126.i:                  ; preds = %redblack_red_p.exit119.i
+redblack_left.exit126.i:                          ; preds = %redblack_red_p.exit119.i
   %93 = load i64, ptr %.021, align 8
   %94 = getelementptr i8, ptr %.021, i64 20
   %.val109.i = load i32, ptr %94, align 4
@@ -1791,21 +1791,21 @@ redblack_left.argprom.exit126.i:                  ; preds = %redblack_red_p.exit
   %107 = getelementptr %struct.redblack_node, ptr %85, i64 %87, i32 3
   %.val108.i = load i32, ptr %107, align 4
   %108 = icmp eq i32 %.val108.i, 0
-  br i1 %108, label %redblack_right.argprom.exit132.i, label %109
+  br i1 %108, label %redblack_right.exit132.i, label %109
 
-109:                                              ; preds = %redblack_left.argprom.exit126.i
+109:                                              ; preds = %redblack_left.exit126.i
   %110 = add i32 %.val108.i, -1
   %111 = zext i32 %110 to i64
   %112 = getelementptr %struct.redblack_node, ptr %85, i64 %111
-  br label %redblack_right.argprom.exit132.i
+  br label %redblack_right.exit132.i
 
-113:                                              ; preds = %redblack_red_p.exit119.i, %redblack_left.argprom.exit.i, %80
+113:                                              ; preds = %redblack_red_p.exit119.i, %redblack_left.exit.i, %80
   %114 = getelementptr i8, ptr %.021, i64 20
   %.val107.i = load i32, ptr %114, align 4
   %115 = icmp eq i32 %.val107.i, 0
-  br i1 %115, label %redblack_red_p.exit134.thread.i, label %redblack_right.argprom.exit136.i
+  br i1 %115, label %redblack_red_p.exit134.thread.i, label %redblack_right.exit136.i
 
-redblack_right.argprom.exit136.i:                 ; preds = %113
+redblack_right.exit136.i:                         ; preds = %113
   %116 = load ptr, ptr @rb_shape_tree_ptr, align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 24
   %118 = load ptr, ptr %117, align 8
@@ -1815,15 +1815,15 @@ redblack_right.argprom.exit136.i:                 ; preds = %113
   %.not.i.i137.i = icmp eq ptr %121, null
   br i1 %.not.i.i137.i, label %redblack_red_p.exit134.thread.i, label %redblack_red_p.exit138.i
 
-redblack_red_p.exit138.i:                         ; preds = %redblack_right.argprom.exit136.i
+redblack_red_p.exit138.i:                         ; preds = %redblack_right.exit136.i
   %122 = getelementptr inbounds i8, ptr %121, i64 8
   %123 = load ptr, ptr %122, align 8
   %124 = ptrtoint ptr %123 to i64
   %125 = and i64 %124, 1
   %.not230.i = icmp eq i64 %125, 0
-  br i1 %.not230.i, label %redblack_red_p.exit134.thread.i, label %redblack_right.argprom.exit146.i
+  br i1 %.not230.i, label %redblack_red_p.exit134.thread.i, label %redblack_right.exit146.i
 
-redblack_right.argprom.exit146.i:                 ; preds = %redblack_red_p.exit138.i
+redblack_right.exit146.i:                         ; preds = %redblack_red_p.exit138.i
   %126 = load i64, ptr %.021, align 8
   %127 = and i64 %78, -2
   %128 = inttoptr i64 %127 to ptr
@@ -1842,15 +1842,15 @@ redblack_right.argprom.exit146.i:                 ; preds = %redblack_red_p.exit
   %138 = getelementptr %struct.redblack_node, ptr %118, i64 %120, i32 3
   %.val102.i = load i32, ptr %138, align 4
   %139 = icmp eq i32 %.val102.i, 0
-  br i1 %139, label %redblack_right.argprom.exit132.i, label %140
+  br i1 %139, label %redblack_right.exit132.i, label %140
 
-140:                                              ; preds = %redblack_right.argprom.exit146.i
+140:                                              ; preds = %redblack_right.exit146.i
   %141 = add i32 %.val102.i, -1
   %142 = zext i32 %141 to i64
   %143 = getelementptr %struct.redblack_node, ptr %118, i64 %142
-  br label %redblack_right.argprom.exit132.i
+  br label %redblack_right.exit132.i
 
-redblack_red_p.exit134.thread.i:                  ; preds = %redblack_red_p.exit138.i, %redblack_right.argprom.exit136.i, %113, %redblack_red_p.exit.i, %75
+redblack_red_p.exit134.thread.i:                  ; preds = %redblack_red_p.exit138.i, %redblack_right.exit136.i, %113, %redblack_red_p.exit.i, %75
   %.not.i.i153.i = icmp eq ptr %.0, null
   br i1 %.not.i.i153.i, label %redblack_red_p.exit174.thread.i, label %redblack_red_p.exit154.i
 
@@ -1866,9 +1866,9 @@ redblack_red_p.exit154.i:                         ; preds = %redblack_red_p.exit
   %149 = getelementptr i8, ptr %.0, i64 16
   %.val85.i = load i32, ptr %149, align 8
   %150 = icmp eq i32 %.val85.i, 0
-  br i1 %150, label %181, label %redblack_left.argprom.exit156.i
+  br i1 %150, label %181, label %redblack_left.exit156.i
 
-redblack_left.argprom.exit156.i:                  ; preds = %148
+redblack_left.exit156.i:                          ; preds = %148
   %151 = load ptr, ptr @rb_shape_tree_ptr, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 24
   %153 = load ptr, ptr %152, align 8
@@ -1878,15 +1878,15 @@ redblack_left.argprom.exit156.i:                  ; preds = %148
   %.not.i.i157.i = icmp eq ptr %156, null
   br i1 %.not.i.i157.i, label %181, label %redblack_red_p.exit158.i
 
-redblack_red_p.exit158.i:                         ; preds = %redblack_left.argprom.exit156.i
+redblack_red_p.exit158.i:                         ; preds = %redblack_left.exit156.i
   %157 = getelementptr inbounds i8, ptr %156, i64 8
   %158 = load ptr, ptr %157, align 8
   %159 = ptrtoint ptr %158 to i64
   %160 = and i64 %159, 1
   %.not232.i = icmp eq i64 %160, 0
-  br i1 %.not232.i, label %181, label %redblack_left.argprom.exit166.i
+  br i1 %.not232.i, label %181, label %redblack_left.exit166.i
 
-redblack_left.argprom.exit166.i:                  ; preds = %redblack_red_p.exit158.i
+redblack_left.exit166.i:                          ; preds = %redblack_red_p.exit158.i
   %161 = load i64, ptr %.0, align 8
   %162 = and i64 %146, -2
   %163 = inttoptr i64 %162 to ptr
@@ -1908,21 +1908,21 @@ redblack_left.argprom.exit166.i:                  ; preds = %redblack_red_p.exit
   %175 = getelementptr %struct.redblack_node, ptr %153, i64 %155, i32 3
   %.val100.i = load i32, ptr %175, align 4
   %176 = icmp eq i32 %.val100.i, 0
-  br i1 %176, label %redblack_right.argprom.exit132.i, label %177
+  br i1 %176, label %redblack_right.exit132.i, label %177
 
-177:                                              ; preds = %redblack_left.argprom.exit166.i
+177:                                              ; preds = %redblack_left.exit166.i
   %178 = add i32 %.val100.i, -1
   %179 = zext i32 %178 to i64
   %180 = getelementptr %struct.redblack_node, ptr %153, i64 %179
-  br label %redblack_right.argprom.exit132.i
+  br label %redblack_right.exit132.i
 
-181:                                              ; preds = %redblack_red_p.exit158.i, %redblack_left.argprom.exit156.i, %148
+181:                                              ; preds = %redblack_red_p.exit158.i, %redblack_left.exit156.i, %148
   %182 = getelementptr i8, ptr %.0, i64 20
   %.val99.i = load i32, ptr %182, align 4
   %183 = icmp eq i32 %.val99.i, 0
-  br i1 %183, label %redblack_red_p.exit174.thread.i, label %redblack_right.argprom.exit176.i
+  br i1 %183, label %redblack_red_p.exit174.thread.i, label %redblack_right.exit176.i
 
-redblack_right.argprom.exit176.i:                 ; preds = %181
+redblack_right.exit176.i:                         ; preds = %181
   %184 = load ptr, ptr @rb_shape_tree_ptr, align 8
   %185 = getelementptr inbounds i8, ptr %184, i64 24
   %186 = load ptr, ptr %185, align 8
@@ -1932,15 +1932,15 @@ redblack_right.argprom.exit176.i:                 ; preds = %181
   %.not.i.i177.i = icmp eq ptr %189, null
   br i1 %.not.i.i177.i, label %redblack_red_p.exit174.thread.i, label %redblack_red_p.exit178.i
 
-redblack_red_p.exit178.i:                         ; preds = %redblack_right.argprom.exit176.i
+redblack_red_p.exit178.i:                         ; preds = %redblack_right.exit176.i
   %190 = getelementptr inbounds i8, ptr %189, i64 8
   %191 = load ptr, ptr %190, align 8
   %192 = ptrtoint ptr %191 to i64
   %193 = and i64 %192, 1
   %.not234.i = icmp eq i64 %193, 0
-  br i1 %.not234.i, label %redblack_red_p.exit174.thread.i, label %redblack_right.argprom.exit186.i
+  br i1 %.not234.i, label %redblack_red_p.exit174.thread.i, label %redblack_right.exit186.i
 
-redblack_right.argprom.exit186.i:                 ; preds = %redblack_red_p.exit178.i
+redblack_right.exit186.i:                         ; preds = %redblack_red_p.exit178.i
   %194 = load i64, ptr %.0, align 8
   %195 = add i32 %.val85.i, -1
   %196 = zext i32 %195 to i64
@@ -1959,15 +1959,15 @@ redblack_right.argprom.exit186.i:                 ; preds = %redblack_red_p.exit
   %206 = getelementptr %struct.redblack_node, ptr %186, i64 %188, i32 3
   %.val94.i = load i32, ptr %206, align 4
   %207 = icmp eq i32 %.val94.i, 0
-  br i1 %207, label %redblack_right.argprom.exit132.i, label %208
+  br i1 %207, label %redblack_right.exit132.i, label %208
 
-208:                                              ; preds = %redblack_right.argprom.exit186.i
+208:                                              ; preds = %redblack_right.exit186.i
   %209 = add i32 %.val94.i, -1
   %210 = zext i32 %209 to i64
   %211 = getelementptr %struct.redblack_node, ptr %186, i64 %210
-  br label %redblack_right.argprom.exit132.i
+  br label %redblack_right.exit132.i
 
-redblack_red_p.exit174.thread.i:                  ; preds = %redblack_red_p.exit178.i, %redblack_right.argprom.exit176.i, %181, %redblack_red_p.exit154.i, %redblack_red_p.exit134.thread.i
+redblack_red_p.exit174.thread.i:                  ; preds = %redblack_red_p.exit178.i, %redblack_right.exit176.i, %181, %redblack_red_p.exit154.i, %redblack_red_p.exit134.thread.i
   %212 = load ptr, ptr @rb_shape_tree_ptr, align 8
   %213 = getelementptr inbounds i8, ptr %212, i64 32
   %214 = load i32, ptr %213, align 8
@@ -2005,26 +2005,26 @@ redblack_id_for.exit.i.i:                         ; preds = %224, %217
   store i32 %.0.i.i.i, ptr %234, align 8
   br i1 %.not.i.i153.i, label %redblack_new.exit.sink.split, label %redblack_new.exit.sink.split.sink.split.i
 
-redblack_right.argprom.exit132.i:                 ; preds = %208, %redblack_right.argprom.exit186.i, %177, %redblack_left.argprom.exit166.i, %140, %redblack_right.argprom.exit146.i, %109, %redblack_left.argprom.exit126.i
-  %.074.in.in.pre-phi.i = phi ptr [ %145, %208 ], [ %145, %redblack_right.argprom.exit186.i ], [ %158, %177 ], [ %158, %redblack_left.argprom.exit166.i ], [ %123, %140 ], [ %123, %redblack_right.argprom.exit146.i ], [ %77, %109 ], [ %77, %redblack_left.argprom.exit126.i ]
-  %235 = phi ptr [ %186, %208 ], [ %186, %redblack_right.argprom.exit186.i ], [ %153, %177 ], [ %153, %redblack_left.argprom.exit166.i ], [ %118, %140 ], [ %118, %redblack_right.argprom.exit146.i ], [ %85, %109 ], [ %85, %redblack_left.argprom.exit126.i ]
-  %236 = phi ptr [ %184, %208 ], [ %184, %redblack_right.argprom.exit186.i ], [ %151, %177 ], [ %151, %redblack_left.argprom.exit166.i ], [ %116, %140 ], [ %116, %redblack_right.argprom.exit146.i ], [ %83, %109 ], [ %83, %redblack_left.argprom.exit126.i ]
-  %.077.i = phi i64 [ %194, %208 ], [ %194, %redblack_right.argprom.exit186.i ], [ %169, %177 ], [ %169, %redblack_left.argprom.exit166.i ], [ %132, %140 ], [ %132, %redblack_right.argprom.exit146.i ], [ %93, %109 ], [ %93, %redblack_left.argprom.exit126.i ]
-  %.076.i = phi i64 [ %70, %208 ], [ %70, %redblack_right.argprom.exit186.i ], [ %70, %177 ], [ %70, %redblack_left.argprom.exit166.i ], [ %126, %140 ], [ %126, %redblack_right.argprom.exit146.i ], [ %99, %109 ], [ %99, %redblack_left.argprom.exit126.i ]
-  %.075.i = phi i64 [ %198, %208 ], [ %198, %redblack_right.argprom.exit186.i ], [ %161, %177 ], [ %161, %redblack_left.argprom.exit166.i ], [ %70, %140 ], [ %70, %redblack_right.argprom.exit146.i ], [ %70, %109 ], [ %70, %redblack_left.argprom.exit126.i ]
-  %.073.i = phi ptr [ %72, %208 ], [ %72, %redblack_right.argprom.exit186.i ], [ %72, %177 ], [ %72, %redblack_left.argprom.exit166.i ], [ %128, %140 ], [ %128, %redblack_right.argprom.exit146.i ], [ %101, %109 ], [ %101, %redblack_left.argprom.exit126.i ]
-  %.072.i = phi ptr [ %200, %208 ], [ %200, %redblack_right.argprom.exit186.i ], [ %163, %177 ], [ %163, %redblack_left.argprom.exit166.i ], [ %72, %140 ], [ %72, %redblack_right.argprom.exit146.i ], [ %72, %109 ], [ %72, %redblack_left.argprom.exit126.i ]
-  %.071.i = phi ptr [ %.021, %208 ], [ %.021, %redblack_right.argprom.exit186.i ], [ %.021, %177 ], [ %.021, %redblack_left.argprom.exit166.i ], [ %.0.i139.i, %140 ], [ %.0.i139.i, %redblack_right.argprom.exit146.i ], [ %.0.i127.i, %109 ], [ %.0.i127.i, %redblack_left.argprom.exit126.i ]
-  %.070.i = phi ptr [ %.0.i179.i, %208 ], [ %.0.i179.i, %redblack_right.argprom.exit186.i ], [ %.0.i167.i, %177 ], [ %.0.i167.i, %redblack_left.argprom.exit166.i ], [ %.0.i147.i, %140 ], [ %.0.i147.i, %redblack_right.argprom.exit146.i ], [ %112, %109 ], [ null, %redblack_left.argprom.exit126.i ]
-  %.069.i = phi ptr [ %.0.i187.i, %208 ], [ %.0.i187.i, %redblack_right.argprom.exit186.i ], [ %180, %177 ], [ null, %redblack_left.argprom.exit166.i ], [ %143, %140 ], [ null, %redblack_right.argprom.exit146.i ], [ %.0.i120.i, %109 ], [ %.0.i120.i, %redblack_left.argprom.exit126.i ]
-  %.0.i37 = phi ptr [ %211, %208 ], [ null, %redblack_right.argprom.exit186.i ], [ %.0.i159.i, %177 ], [ %.0.i159.i, %redblack_left.argprom.exit166.i ], [ %.0, %140 ], [ %.0, %redblack_right.argprom.exit146.i ], [ %.0, %109 ], [ %.0, %redblack_left.argprom.exit126.i ]
+redblack_right.exit132.i:                         ; preds = %208, %redblack_right.exit186.i, %177, %redblack_left.exit166.i, %140, %redblack_right.exit146.i, %109, %redblack_left.exit126.i
+  %.074.in.in.pre-phi.i = phi ptr [ %145, %208 ], [ %145, %redblack_right.exit186.i ], [ %158, %177 ], [ %158, %redblack_left.exit166.i ], [ %123, %140 ], [ %123, %redblack_right.exit146.i ], [ %77, %109 ], [ %77, %redblack_left.exit126.i ]
+  %235 = phi ptr [ %186, %208 ], [ %186, %redblack_right.exit186.i ], [ %153, %177 ], [ %153, %redblack_left.exit166.i ], [ %118, %140 ], [ %118, %redblack_right.exit146.i ], [ %85, %109 ], [ %85, %redblack_left.exit126.i ]
+  %236 = phi ptr [ %184, %208 ], [ %184, %redblack_right.exit186.i ], [ %151, %177 ], [ %151, %redblack_left.exit166.i ], [ %116, %140 ], [ %116, %redblack_right.exit146.i ], [ %83, %109 ], [ %83, %redblack_left.exit126.i ]
+  %.077.i = phi i64 [ %194, %208 ], [ %194, %redblack_right.exit186.i ], [ %169, %177 ], [ %169, %redblack_left.exit166.i ], [ %132, %140 ], [ %132, %redblack_right.exit146.i ], [ %93, %109 ], [ %93, %redblack_left.exit126.i ]
+  %.076.i = phi i64 [ %70, %208 ], [ %70, %redblack_right.exit186.i ], [ %70, %177 ], [ %70, %redblack_left.exit166.i ], [ %126, %140 ], [ %126, %redblack_right.exit146.i ], [ %99, %109 ], [ %99, %redblack_left.exit126.i ]
+  %.075.i = phi i64 [ %198, %208 ], [ %198, %redblack_right.exit186.i ], [ %161, %177 ], [ %161, %redblack_left.exit166.i ], [ %70, %140 ], [ %70, %redblack_right.exit146.i ], [ %70, %109 ], [ %70, %redblack_left.exit126.i ]
+  %.073.i = phi ptr [ %72, %208 ], [ %72, %redblack_right.exit186.i ], [ %72, %177 ], [ %72, %redblack_left.exit166.i ], [ %128, %140 ], [ %128, %redblack_right.exit146.i ], [ %101, %109 ], [ %101, %redblack_left.exit126.i ]
+  %.072.i = phi ptr [ %200, %208 ], [ %200, %redblack_right.exit186.i ], [ %163, %177 ], [ %163, %redblack_left.exit166.i ], [ %72, %140 ], [ %72, %redblack_right.exit146.i ], [ %72, %109 ], [ %72, %redblack_left.exit126.i ]
+  %.071.i = phi ptr [ %.021, %208 ], [ %.021, %redblack_right.exit186.i ], [ %.021, %177 ], [ %.021, %redblack_left.exit166.i ], [ %.0.i139.i, %140 ], [ %.0.i139.i, %redblack_right.exit146.i ], [ %.0.i127.i, %109 ], [ %.0.i127.i, %redblack_left.exit126.i ]
+  %.070.i = phi ptr [ %.0.i179.i, %208 ], [ %.0.i179.i, %redblack_right.exit186.i ], [ %.0.i167.i, %177 ], [ %.0.i167.i, %redblack_left.exit166.i ], [ %.0.i147.i, %140 ], [ %.0.i147.i, %redblack_right.exit146.i ], [ %112, %109 ], [ null, %redblack_left.exit126.i ]
+  %.069.i = phi ptr [ %.0.i187.i, %208 ], [ %.0.i187.i, %redblack_right.exit186.i ], [ %180, %177 ], [ null, %redblack_left.exit166.i ], [ %143, %140 ], [ null, %redblack_right.exit146.i ], [ %.0.i120.i, %109 ], [ %.0.i120.i, %redblack_left.exit126.i ]
+  %.0.i37 = phi ptr [ %211, %208 ], [ null, %redblack_right.exit186.i ], [ %.0.i159.i, %177 ], [ %.0.i159.i, %redblack_left.exit166.i ], [ %.0, %140 ], [ %.0, %redblack_right.exit146.i ], [ %.0, %109 ], [ %.0, %redblack_left.exit126.i ]
   %237 = getelementptr inbounds i8, ptr %236, i64 32
   %238 = load i32, ptr %237, align 8
   %239 = add i32 %238, -16777215
   %240 = icmp ult i32 %239, -16777216
   br i1 %240, label %redblack_new.exit, label %241
 
-241:                                              ; preds = %redblack_right.argprom.exit132.i
+241:                                              ; preds = %redblack_right.exit132.i
   %242 = add nsw i32 %238, 1
   store i32 %242, ptr %237, align 8
   %243 = zext i32 %238 to i64
@@ -2216,8 +2216,8 @@ redblack_new.exit.sink.split:                     ; preds = %redblack_id_for.exi
   store i32 %.0.i11.i215.sink.i.sink, ptr %355, align 4
   br label %redblack_new.exit
 
-redblack_new.exit:                                ; preds = %redblack_new.exit.sink.split, %320, %redblack_new.exit205.i, %redblack_new.exit199.i, %redblack_right.argprom.exit132.i, %redblack_red_p.exit174.thread.i, %5, %45
-  %.022 = phi ptr [ %0, %45 ], [ null, %5 ], [ null, %redblack_red_p.exit174.thread.i ], [ null, %redblack_new.exit205.i ], [ null, %320 ], [ null, %redblack_new.exit199.i ], [ null, %redblack_right.argprom.exit132.i ], [ %.sink251.i.sink, %redblack_new.exit.sink.split ]
+redblack_new.exit:                                ; preds = %redblack_new.exit.sink.split, %320, %redblack_new.exit205.i, %redblack_new.exit199.i, %redblack_right.exit132.i, %redblack_red_p.exit174.thread.i, %5, %45
+  %.022 = phi ptr [ %0, %45 ], [ null, %5 ], [ null, %redblack_red_p.exit174.thread.i ], [ null, %redblack_new.exit205.i ], [ null, %320 ], [ null, %redblack_new.exit199.i ], [ null, %redblack_right.exit132.i ], [ %.sink251.i.sink, %redblack_new.exit.sink.split ]
   ret ptr %.022
 }
 

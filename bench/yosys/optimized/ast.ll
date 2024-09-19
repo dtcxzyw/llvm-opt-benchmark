@@ -9856,13 +9856,13 @@ define internal fastcc noundef ptr @_ZN5YosysL14process_moduleEPNS_5RTLIL6Design
   %.not905979 = icmp eq ptr %67, %69
   br i1 %.not905979, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %65, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread880
-  %.sroa.0877.0980 = phi ptr [ %89, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread880 ], [ %67, %65 ]
+.lr.ph:                                           ; preds = %65, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread880
+  %.sroa.0877.0980 = phi ptr [ %89, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread880 ], [ %67, %65 ]
   %70 = load ptr, ptr %.sroa.0877.0980, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 4
   %72 = load i32, ptr %71, align 4
   %73 = icmp eq i32 %72, 9
-  br i1 %73, label %74, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread880
+  br i1 %73, label %74, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread880
 
 74:                                               ; preds = %.lr.ph
   %75 = getelementptr i8, ptr %70, i64 8
@@ -9870,34 +9870,34 @@ define internal fastcc noundef ptr @_ZN5YosysL14process_moduleEPNS_5RTLIL6Design
   %76 = getelementptr i8, ptr %70, i64 16
   %.val213 = load ptr, ptr %76, align 8
   %77 = icmp eq ptr %.val, %.val213
-  br i1 %77, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread, label %78
+  br i1 %77, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread, label %78
 
 78:                                               ; preds = %74
   %79 = ptrtoint ptr %.val213 to i64
   %80 = ptrtoint ptr %.val to i64
   %81 = sub i64 %79, %80
   %82 = icmp eq i64 %81, 8
-  br i1 %82, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread880
+  br i1 %82, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread880
 
-_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit: ; preds = %78
+_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit: ; preds = %78
   %83 = load ptr, ptr %.val, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 4
   %85 = load i32, ptr %84, align 4
   %86 = icmp eq i32 %85, 14
-  br i1 %86, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread880
+  br i1 %86, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread880
 
-_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread: ; preds = %74, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit
+_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread: ; preds = %74, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit
   %87 = getelementptr inbounds i8, ptr %70, i64 80
   %88 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %87) #36
   call void (ptr, ptr, ...) @_ZNK5Yosys3AST7AstNode11input_errorEPKcz(ptr noundef nonnull align 8 dereferenceable(284) %70, ptr noundef nonnull @.str.280, ptr noundef %88) #37
   unreachable
 
-_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread880: ; preds = %78, %.lr.ph, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit
+_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread880: ; preds = %78, %.lr.ph, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit
   %89 = getelementptr inbounds i8, ptr %.sroa.0877.0980, i64 8
   %.not905 = icmp eq ptr %89, %69
   br i1 %.not905, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread880, %65
+._crit_edge:                                      ; preds = %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread880, %65
   %90 = load i8, ptr @_ZN5Yosys12AST_INTERNAL8flag_libE, align 1
   %91 = trunc i8 %90 to i1
   br i1 %91, label %.thread, label %92
@@ -13233,13 +13233,13 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE9push_backERKS3_.exit: ; preds = %218,
   %.not191255 = icmp eq ptr %257, %259
   br i1 %.not191255, label %.loopexit194, label %.lr.ph258
 
-.lr.ph258:                                        ; preds = %255, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread184
-  %.sroa.0155.0256 = phi ptr [ %279, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread184 ], [ %257, %255 ]
+.lr.ph258:                                        ; preds = %255, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread184
+  %.sroa.0155.0256 = phi ptr [ %279, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread184 ], [ %257, %255 ]
   %260 = load ptr, ptr %.sroa.0155.0256, align 8
   %261 = getelementptr inbounds i8, ptr %260, i64 4
   %262 = load i32, ptr %261, align 4
   %263 = icmp eq i32 %262, 9
-  br i1 %263, label %264, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread184
+  br i1 %263, label %264, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread184
 
 264:                                              ; preds = %.lr.ph258
   %265 = getelementptr i8, ptr %260, i64 8
@@ -13247,42 +13247,42 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE9push_backERKS3_.exit: ; preds = %218,
   %266 = getelementptr i8, ptr %260, i64 16
   %.val111 = load ptr, ptr %266, align 8
   %267 = icmp eq ptr %.val, %.val111
-  br i1 %267, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread, label %268
+  br i1 %267, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread, label %268
 
 268:                                              ; preds = %264
   %269 = ptrtoint ptr %.val111 to i64
   %270 = ptrtoint ptr %.val to i64
   %271 = sub i64 %269, %270
   %272 = icmp eq i64 %271, 8
-  br i1 %272, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread184
+  br i1 %272, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread184
 
-_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit: ; preds = %268
+_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit: ; preds = %268
   %273 = load ptr, ptr %.val, align 8
   %274 = getelementptr inbounds i8, ptr %273, i64 4
   %275 = load i32, ptr %274, align 4
   %276 = icmp eq i32 %275, 14
-  br i1 %276, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread184
+  br i1 %276, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread184
 
-_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread: ; preds = %264, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit
+_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread: ; preds = %264, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit
   %277 = getelementptr inbounds i8, ptr %87, i64 80
   %278 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %277) #36
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.244, ptr noundef %278)
   br label %.thread
 
-_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread184: ; preds = %268, %.lr.ph258, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit
+_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread184: ; preds = %268, %.lr.ph258, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit
   %279 = getelementptr inbounds i8, ptr %.sroa.0155.0256, i64 8
   %.not191 = icmp eq ptr %279, %259
   br i1 %.not191, label %.loopexit194, label %.lr.ph258
 
-.thread:                                          ; preds = %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread, %254
+.thread:                                          ; preds = %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread, %254
   %280 = getelementptr inbounds i8, ptr %87, i64 80
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %39, ptr noundef nonnull @.str.245, ptr noundef nonnull align 8 dereferenceable(32) %280)
   %281 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %280, ptr noundef nonnull align 8 dereferenceable(32) %39) #36
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #36
   br label %.loopexit194
 
-.loopexit194:                                     ; preds = %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread184, %255, %.thread
-  %.0101.shrunk186 = phi i1 [ true, %.thread ], [ false, %255 ], [ false, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread184 ]
+.loopexit194:                                     ; preds = %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread184, %255, %.thread
+  %.0101.shrunk186 = phi i1 [ true, %.thread ], [ false, %255 ], [ false, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread184 ]
   %282 = getelementptr inbounds i8, ptr %87, i64 80
   %283 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %282) #36
   %284 = call noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef %283)
@@ -18182,7 +18182,7 @@ _ZN5Yosys3AST7AstNode13set_attributeENS_5RTLIL8IdStringEPS1_.exit: ; preds = %_Z
           cleanup
   br label %.body216
 
-.loopexit.split-lp.loopexit:                      ; preds = %.loopexit.i, %746, %720, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread, %471, %713, %683, %680, %628, %561, %538
+.loopexit.split-lp.loopexit:                      ; preds = %.loopexit.i, %746, %720, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread, %471, %713, %683, %680, %628, %561, %538
   %lpad.loopexit334 = landingpad { ptr, i32 }
           cleanup
   br label %.body216
@@ -18633,35 +18633,35 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit170:              ; preds = %_ZN5Yosys5RTLIL7Sig
   %655 = getelementptr i8, ptr %468, i64 16
   %.val104 = load ptr, ptr %655, align 8
   %656 = icmp eq ptr %.val, %.val104
-  br i1 %656, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread, label %657
+  br i1 %656, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread, label %657
 
 657:                                              ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit170
   %658 = ptrtoint ptr %.val104 to i64
   %659 = ptrtoint ptr %.val to i64
   %660 = sub i64 %658, %659
   %661 = icmp eq i64 %660, 8
-  br i1 %661, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit, label %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEOS3_.exit
+  br i1 %661, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit, label %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEOS3_.exit
 
-_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit: ; preds = %657
+_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit: ; preds = %657
   %662 = load ptr, ptr %.val, align 8
   %663 = getelementptr inbounds i8, ptr %662, i64 4
   %664 = load i32, ptr %663, align 4
   %665 = icmp eq i32 %664, 14
-  br i1 %665, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread, label %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEOS3_.exit
+  br i1 %665, label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread, label %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEOS3_.exit
 
-_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread: ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit170, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit
+_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread: ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit170, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit
   store ptr null, ptr %32, align 8
   %666 = invoke ptr @_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE14_M_insert_rvalEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEOS3_(ptr noundef nonnull align 8 dereferenceable(24) %654, ptr %.val, ptr noundef nonnull align 8 dereferenceable(8) %32)
-          to label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread._ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEOS3_.exit_crit_edge unwind label %.loopexit.split-lp.loopexit
+          to label %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread._ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEOS3_.exit_crit_edge unwind label %.loopexit.split-lp.loopexit
 
-_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread._ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEOS3_.exit_crit_edge: ; preds = %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread
+_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread._ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEOS3_.exit_crit_edge: ; preds = %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread
   %.pre422 = load ptr, ptr %655, align 8
   %.pre423 = load ptr, ptr %654, align 8
   br label %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEOS3_.exit
 
-_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEOS3_.exit: ; preds = %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread._ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEOS3_.exit_crit_edge, %657, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit
-  %667 = phi ptr [ %.pre423, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread._ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEOS3_.exit_crit_edge ], [ %.val, %657 ], [ %.val, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit ]
-  %668 = phi ptr [ %.pre422, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit.thread._ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEOS3_.exit_crit_edge ], [ %.val104, %657 ], [ %.val104, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.argprom.exit ]
+_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEOS3_.exit: ; preds = %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread._ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEOS3_.exit_crit_edge, %657, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit
+  %667 = phi ptr [ %.pre423, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread._ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEOS3_.exit_crit_edge ], [ %.val, %657 ], [ %.val, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit ]
+  %668 = phi ptr [ %.pre422, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit.thread._ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEOS3_.exit_crit_edge ], [ %.val104, %657 ], [ %.val104, %_ZN5YosysL20param_has_no_defaultEPKNS_3AST7AstNodeE.exit ]
   %.not.i.i198.not = icmp eq ptr %668, %667
   br i1 %.not.i.i198.not, label %.invoke460, label %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit
 
@@ -25221,7 +25221,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPN5Yosys3AST7AstNodeEEZNS0_L23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %.not45.i.i.i = icmp eq ptr %.val2.val, %.val2.val3
-  br i1 %.not45.i.i.i, label %"_ZSt10__invoke_rIvRZN5YosysL23rename_in_package_stmtsEPNS0_3AST7AstNodeEE3$_0JS3_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES8_E4typeEOSB_DpOSC_.argprom.argprom.exit", label %.lr.ph.i.i.i
+  br i1 %.not45.i.i.i, label %"_ZSt10__invoke_rIvRZN5YosysL23rename_in_package_stmtsEPNS0_3AST7AstNodeEE3$_0JS3_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES8_E4typeEOSB_DpOSC_.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %9 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -25319,9 +25319,9 @@ _ZNKSt8functionIFvPN5Yosys3AST7AstNodeEEEclES3_.exit.i.i.i: ; preds = %40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %47 = getelementptr inbounds i8, ptr %.sroa.01.06.i.i.i, i64 8
   %.not4.i.i.i = icmp eq ptr %47, %.val2.val3
-  br i1 %.not4.i.i.i, label %"_ZSt10__invoke_rIvRZN5YosysL23rename_in_package_stmtsEPNS0_3AST7AstNodeEE3$_0JS3_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES8_E4typeEOSB_DpOSC_.argprom.argprom.exit", label %11
+  br i1 %.not4.i.i.i, label %"_ZSt10__invoke_rIvRZN5YosysL23rename_in_package_stmtsEPNS0_3AST7AstNodeEE3$_0JS3_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES8_E4typeEOSB_DpOSC_.exit", label %11
 
-"_ZSt10__invoke_rIvRZN5YosysL23rename_in_package_stmtsEPNS0_3AST7AstNodeEE3$_0JS3_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES8_E4typeEOSB_DpOSC_.argprom.argprom.exit": ; preds = %_ZNKSt8functionIFvPN5Yosys3AST7AstNodeEEEclES3_.exit.i.i.i, %2
+"_ZSt10__invoke_rIvRZN5YosysL23rename_in_package_stmtsEPNS0_3AST7AstNodeEE3$_0JS3_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES8_E4typeEOSB_DpOSC_.exit": ; preds = %_ZNKSt8functionIFvPN5Yosys3AST7AstNodeEEEclES3_.exit.i.i.i, %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -25330,7 +25330,7 @@ _ZNKSt8functionIFvPN5Yosys3AST7AstNodeEEEclES3_.exit.i.i.i: ; preds = %40
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPN5Yosys3AST7AstNodeEEZNS0_L23rename_in_package_stmtsES3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #4 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5YosysL23rename_in_package_stmtsEPNS1_3AST7AstNodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5YosysL23rename_in_package_stmtsEPNS1_3AST7AstNodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -25339,30 +25339,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPN5Yosys3AST7Ast
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN5YosysL23rename_in_package_stmtsEPNS_3AST7AstNodeEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5YosysL23rename_in_package_stmtsEPNS1_3AST7AstNodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5YosysL23rename_in_package_stmtsEPNS1_3AST7AstNodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5YosysL23rename_in_package_stmtsEPNS1_3AST7AstNodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5YosysL23rename_in_package_stmtsEPNS1_3AST7AstNodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5YosysL23rename_in_package_stmtsEPNS1_3AST7AstNodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5YosysL23rename_in_package_stmtsEPNS1_3AST7AstNodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN5YosysL23rename_in_package_stmtsEPNS1_3AST7AstNodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN5YosysL23rename_in_package_stmtsEPNS1_3AST7AstNodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #35
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5YosysL23rename_in_package_stmtsEPNS1_3AST7AstNodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5YosysL23rename_in_package_stmtsEPNS1_3AST7AstNodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN5YosysL23rename_in_package_stmtsEPNS1_3AST7AstNodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN5YosysL23rename_in_package_stmtsEPNS1_3AST7AstNodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 

@@ -3839,7 +3839,7 @@ _ZN2cv4util8optionalINS_4gapi2ot19ObjectTrackerParamsEED2Ev.exit: ; preds = %29
   br label %common.resume
 
 46:                                               ; preds = %_ZN2cv4util8optionalINS_4gapi2ot19ObjectTrackerParamsEED2Ev.exit
-  call fastcc void @_ZN2cv4gapi2ot12_GLOBAL__N_115GTrackImplSetupENS_10GArrayDescES3_fRSt10shared_ptrIN3vas2ot13ObjectTrackerEERKNS1_19ObjectTrackerParamsE.argelim(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(9) %7)
+  call fastcc void @_ZN2cv4gapi2ot12_GLOBAL__N_115GTrackImplSetupENS_10GArrayDescES3_fRSt10shared_ptrIN3vas2ot13ObjectTrackerEERKNS1_19ObjectTrackerParamsE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(9) %7)
   ret void
 }
 
@@ -3923,7 +3923,7 @@ _ZNSt12__shared_ptrIN3vas2ot13ObjectTrackerELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi2ot12_GLOBAL__N_115GTrackImplSetupENS_10GArrayDescES3_fRSt10shared_ptrIN3vas2ot13ObjectTrackerEERKNS1_19ObjectTrackerParamsE.argelim(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(9) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi2ot12_GLOBAL__N_115GTrackImplSetupENS_10GArrayDescES3_fRSt10shared_ptrIN3vas2ot13ObjectTrackerEERKNS1_19ObjectTrackerParamsE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(9) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__shared_ptr.46", align 8
   %4 = alloca %"class.vas::ot::ObjectTracker::Builder", align 8
   %5 = alloca %"class.std::unique_ptr.121", align 8
@@ -7276,7 +7276,7 @@ _ZN2cv4util8optionalINS_4gapi2ot19ObjectTrackerParamsEED2Ev.exit: ; preds = %28
   br label %common.resume
 
 45:                                               ; preds = %_ZN2cv4util8optionalINS_4gapi2ot19ObjectTrackerParamsEED2Ev.exit
-  call fastcc void @_ZN2cv4gapi2ot12_GLOBAL__N_115GTrackImplSetupENS_10GArrayDescES3_fRSt10shared_ptrIN3vas2ot13ObjectTrackerEERKNS1_19ObjectTrackerParamsE.argelim(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(9) %6)
+  call fastcc void @_ZN2cv4gapi2ot12_GLOBAL__N_115GTrackImplSetupENS_10GArrayDescES3_fRSt10shared_ptrIN3vas2ot13ObjectTrackerEERKNS1_19ObjectTrackerParamsE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(9) %6)
   ret void
 }
 

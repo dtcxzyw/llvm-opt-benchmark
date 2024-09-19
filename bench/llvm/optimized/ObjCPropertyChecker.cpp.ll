@@ -598,7 +598,7 @@ define internal void @_ZN5clang4ento5check7ASTDeclINS_16ObjCPropertyDeclEE10_che
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, 1073
   %or.cond5 = icmp eq i64 %17, 32
-  br i1 %or.cond5, label %_ZNK5clang16ObjCPropertyDecl13getSetterKindEv.exit.i.i, label %_ZNK12_GLOBAL__N_119ObjCPropertyChecker12checkASTDeclEPKN5clang16ObjCPropertyDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit
+  br i1 %or.cond5, label %_ZNK5clang16ObjCPropertyDecl13getSetterKindEv.exit.i.i, label %_ZNK12_GLOBAL__N_119ObjCPropertyChecker12checkASTDeclEPKN5clang16ObjCPropertyDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit
 
 _ZNK5clang16ObjCPropertyDecl13getSetterKindEv.exit.i.i: ; preds = %4
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -614,7 +614,7 @@ _ZNK5clang16ObjCPropertyDecl13getSetterKindEv.exit.i.i: ; preds = %4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre4 = load i8, ptr %.phi.trans.insert, align 16
   %18 = icmp eq i8 %.pre4, 33
-  br i1 %18, label %19, label %_ZNK12_GLOBAL__N_119ObjCPropertyChecker12checkASTDeclEPKN5clang16ObjCPropertyDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit
+  br i1 %18, label %19, label %_ZNK12_GLOBAL__N_119ObjCPropertyChecker12checkASTDeclEPKN5clang16ObjCPropertyDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit
 
 19:                                               ; preds = %_ZNK5clang16ObjCPropertyDecl13getSetterKindEv.exit.i.i
   %20 = tail call i64 @_ZNK5clang4Type14getPointeeTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %.pre.i) #18
@@ -755,9 +755,9 @@ _ZNK5clang4Decl14getDeclContextEv.exit32.i.i:     ; preds = %_ZNK5clang4Decl14ge
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread44.i.i: ; preds = %60, %58, %56, %_ZNK5clang4Decl14getDeclContextEv.exit32.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i, %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
-  br label %_ZNK12_GLOBAL__N_119ObjCPropertyChecker12checkASTDeclEPKN5clang16ObjCPropertyDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_119ObjCPropertyChecker12checkASTDeclEPKN5clang16ObjCPropertyDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit
 
-_ZNK12_GLOBAL__N_119ObjCPropertyChecker12checkASTDeclEPKN5clang16ObjCPropertyDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit: ; preds = %4, %_ZNK5clang16ObjCPropertyDecl13getSetterKindEv.exit.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread44.i.i
+_ZNK12_GLOBAL__N_119ObjCPropertyChecker12checkASTDeclEPKN5clang16ObjCPropertyDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit: ; preds = %4, %_ZNK5clang16ObjCPropertyDecl13getSetterKindEv.exit.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread44.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %7)

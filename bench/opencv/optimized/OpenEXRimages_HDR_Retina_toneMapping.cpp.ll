@@ -844,7 +844,7 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
   %294 = load i32, ptr @histogramClippingValue, align 4
   %295 = sitofp i32 %294 to float
   %296 = fdiv float %295, 1.000000e+02
-  invoke fastcc void @_ZL19rescaleGrayLevelMatRKN2cv3MatERS0_f.argprom(float noundef %296)
+  invoke fastcc void @_ZL19rescaleGrayLevelMatRKN2cv3MatERS0_f(float noundef %296)
           to label %297 unwind label %.loopexit.split-lp
 
 297:                                              ; preds = %293
@@ -1695,7 +1695,7 @@ define internal void @_ZL28callBack_rescaleGrayLevelMatiPv(i32 %0, ptr nocapture
   %10 = sitofp i32 %9 to double
   %11 = fdiv double %10, 1.000000e+02
   %12 = fptrunc double %11 to float
-  tail call fastcc void @_ZL19rescaleGrayLevelMatRKN2cv3MatERS0_f.argprom(float noundef %12)
+  tail call fastcc void @_ZL19rescaleGrayLevelMatRKN2cv3MatERS0_f(float noundef %12)
   %13 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %3, i64 20
@@ -1746,7 +1746,7 @@ define internal void @_ZL27callBack_updateRetinaParamsiPv(i32 %0, ptr nocapture 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL19rescaleGrayLevelMatRKN2cv3MatERS0_f.argprom(float noundef %0) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL19rescaleGrayLevelMatRKN2cv3MatERS0_f(float noundef %0) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::_OutputArray", align 8
   %3 = alloca %"class.cv::_InputArray", align 8
   %4 = alloca %"class.cv::_InputArray", align 8

@@ -172,16 +172,16 @@ Vec_IntStart.exit:                                ; preds = %44, %Vec_IntAlloc.e
   %56 = getelementptr i8, ptr %0, i64 248
   br label %57
 
-57:                                               ; preds = %.lr.ph120, %Aig_ObjIsChoice.argprom.exit.thread
-  %indvars.iv = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next, %Aig_ObjIsChoice.argprom.exit.thread ]
-  %58 = phi ptr [ %50, %.lr.ph120 ], [ %143, %Aig_ObjIsChoice.argprom.exit.thread ]
-  %.066117 = phi ptr [ null, %.lr.ph120 ], [ %.2, %Aig_ObjIsChoice.argprom.exit.thread ]
+57:                                               ; preds = %.lr.ph120, %Aig_ObjIsChoice.exit.thread
+  %indvars.iv = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next, %Aig_ObjIsChoice.exit.thread ]
+  %58 = phi ptr [ %50, %.lr.ph120 ], [ %143, %Aig_ObjIsChoice.exit.thread ]
+  %.066117 = phi ptr [ null, %.lr.ph120 ], [ %.2, %Aig_ObjIsChoice.exit.thread ]
   %59 = getelementptr i8, ptr %58, i64 8
   %.val81 = load ptr, ptr %59, align 8
   %60 = getelementptr inbounds ptr, ptr %.val81, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %Aig_ObjIsChoice.argprom.exit.thread, label %63
+  br i1 %62, label %Aig_ObjIsChoice.exit.thread, label %63
 
 63:                                               ; preds = %57
   %64 = getelementptr i8, ptr %61, i64 24
@@ -283,7 +283,7 @@ Vec_IntStart.exit:                                ; preds = %44, %Vec_IntAlloc.e
 124:                                              ; preds = %114, %111
   %.val95 = load ptr, ptr %56, align 8
   %.not.i100 = icmp eq ptr %.val95, null
-  br i1 %.not.i100, label %Aig_ObjIsChoice.argprom.exit.thread, label %125
+  br i1 %.not.i100, label %Aig_ObjIsChoice.exit.thread, label %125
 
 125:                                              ; preds = %124
   %126 = getelementptr inbounds i8, ptr %61, i64 36
@@ -292,30 +292,30 @@ Vec_IntStart.exit:                                ; preds = %44, %Vec_IntAlloc.e
   %129 = getelementptr inbounds ptr, ptr %.val95, i64 %128
   %130 = load ptr, ptr %129, align 8
   %.not4.i = icmp eq ptr %130, null
-  br i1 %.not4.i, label %Aig_ObjIsChoice.argprom.exit.thread, label %Aig_ObjIsChoice.argprom.exit
+  br i1 %.not4.i, label %Aig_ObjIsChoice.exit.thread, label %Aig_ObjIsChoice.exit
 
-Aig_ObjIsChoice.argprom.exit:                     ; preds = %125
+Aig_ObjIsChoice.exit:                             ; preds = %125
   %131 = load i64, ptr %64, align 8
   %132 = and i64 %131, 4294967232
   %.not112 = icmp eq i64 %132, 0
-  br i1 %.not112, label %Aig_ObjIsChoice.argprom.exit.thread, label %.lr.ph.preheader
+  br i1 %.not112, label %Aig_ObjIsChoice.exit.thread, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %Aig_ObjIsChoice.argprom.exit
+.lr.ph.preheader:                                 ; preds = %Aig_ObjIsChoice.exit
   %.pre = load ptr, ptr %113, align 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %Aig_ObjEquiv.argprom.exit103
-  %133 = phi ptr [ %135, %Aig_ObjEquiv.argprom.exit103 ], [ %.pre, %.lr.ph.preheader ]
-  %.064114 = phi ptr [ %141, %Aig_ObjEquiv.argprom.exit103 ], [ %130, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %Aig_ObjEquiv.exit103
+  %133 = phi ptr [ %135, %Aig_ObjEquiv.exit103 ], [ %.pre, %.lr.ph.preheader ]
+  %.064114 = phi ptr [ %141, %Aig_ObjEquiv.exit103 ], [ %130, %.lr.ph.preheader ]
   %134 = getelementptr inbounds i8, ptr %.064114, i64 40
   %135 = load ptr, ptr %134, align 8
   %136 = getelementptr inbounds i8, ptr %133, i64 40
   store ptr %135, ptr %136, align 8
   %.val97 = load ptr, ptr %56, align 8
   %.not.i102 = icmp eq ptr %.val97, null
-  br i1 %.not.i102, label %._crit_edge, label %Aig_ObjEquiv.argprom.exit103
+  br i1 %.not.i102, label %._crit_edge, label %Aig_ObjEquiv.exit103
 
-Aig_ObjEquiv.argprom.exit103:                     ; preds = %.lr.ph
+Aig_ObjEquiv.exit103:                             ; preds = %.lr.ph
   %137 = getelementptr inbounds i8, ptr %.064114, i64 36
   %138 = load i32, ptr %137, align 4
   %139 = sext i32 %138 to i64
@@ -324,13 +324,13 @@ Aig_ObjEquiv.argprom.exit103:                     ; preds = %.lr.ph
   %.not79 = icmp eq ptr %141, null
   br i1 %.not79, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %.lr.ph, %Aig_ObjEquiv.argprom.exit103
+._crit_edge:                                      ; preds = %.lr.ph, %Aig_ObjEquiv.exit103
   %142 = load ptr, ptr %113, align 8
   call void @If_ManCreateChoice(ptr noundef %47, ptr noundef %142) #15
-  br label %Aig_ObjIsChoice.argprom.exit.thread
+  br label %Aig_ObjIsChoice.exit.thread
 
-Aig_ObjIsChoice.argprom.exit.thread:              ; preds = %124, %125, %57, %._crit_edge, %Aig_ObjIsChoice.argprom.exit
-  %.2 = phi ptr [ %.066117, %57 ], [ %.1, %._crit_edge ], [ %.1, %Aig_ObjIsChoice.argprom.exit ], [ %.1, %125 ], [ %.1, %124 ]
+Aig_ObjIsChoice.exit.thread:                      ; preds = %124, %125, %57, %._crit_edge, %Aig_ObjIsChoice.exit
+  %.2 = phi ptr [ %.066117, %57 ], [ %.1, %._crit_edge ], [ %.1, %Aig_ObjIsChoice.exit ], [ %.1, %125 ], [ %.1, %124 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %143 = load ptr, ptr %49, align 8
   %144 = getelementptr i8, ptr %143, i64 4
@@ -339,7 +339,7 @@ Aig_ObjIsChoice.argprom.exit.thread:              ; preds = %124, %125, %57, %._
   %146 = icmp slt i64 %indvars.iv.next, %145
   br i1 %146, label %57, label %.critedge, !llvm.loop !6
 
-.critedge:                                        ; preds = %Aig_ObjIsChoice.argprom.exit.thread, %Vec_IntStart.exit
+.critedge:                                        ; preds = %Aig_ObjIsChoice.exit.thread, %Vec_IntStart.exit
   %.not72 = icmp eq ptr %.0, null
   br i1 %.not72, label %151, label %147
 

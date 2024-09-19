@@ -9905,7 +9905,7 @@ define internal fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %0, ptr noundef %1,
   %102 = phi i64 [ %100, %97 ], [ %12, %.loopexit ]
   %103 = phi ptr [ %99, %97 ], [ %10, %.loopexit ]
   %104 = phi ptr [ %5, %97 ], [ %19, %.loopexit ]
-  tail call fastcc void @ZSTD_safecopy.argelim(ptr noundef %103, ptr noundef %20, ptr noundef %104, i64 noundef %102)
+  tail call fastcc void @ZSTD_safecopy(ptr noundef %103, ptr noundef %20, ptr noundef %104, i64 noundef %102)
   br label %105
 
 105:                                              ; preds = %101, %96, %86, %25, %8
@@ -9914,7 +9914,7 @@ define internal fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal fastcc void @ZSTD_safecopy.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #7 align 16 {
+define internal fastcc void @ZSTD_safecopy(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #7 align 16 {
   %5 = ptrtoint ptr %0 to i64
   %6 = ptrtoint ptr %2 to i64
   %7 = sub i64 %5, %6
@@ -10228,7 +10228,7 @@ define internal fastcc i64 @ZSTD_execSequenceEndSplitLitBuffer(ptr noundef %0, p
   %97 = phi i64 [ %95, %92 ], [ %13, %.loopexit ]
   %98 = phi ptr [ %94, %92 ], [ %11, %.loopexit ]
   %99 = phi ptr [ %6, %92 ], [ %20, %.loopexit ]
-  tail call fastcc void @ZSTD_safecopy.argelim(ptr noundef %98, ptr noundef %2, ptr noundef %99, i64 noundef %97)
+  tail call fastcc void @ZSTD_safecopy(ptr noundef %98, ptr noundef %2, ptr noundef %99, i64 noundef %97)
   br label %100
 
 100:                                              ; preds = %96, %91, %81, %30, %25, %9

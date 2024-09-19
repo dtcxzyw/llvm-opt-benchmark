@@ -90,7 +90,7 @@ Saig_ObjIsLo.exit:                                ; preds = %29
   %.val37 = load ptr, ptr %42, align 8
   %.not.i43 = icmp eq ptr %.val37, null
   %.pre51 = ptrtoint ptr %.val37 to i64
-  br i1 %.not.i43, label %Aig_ObjFaninId0.argprom.exit, label %43
+  br i1 %.not.i43, label %Aig_ObjFaninId0.exit, label %43
 
 43:                                               ; preds = %41
   %44 = and i64 %.pre51, -2
@@ -98,9 +98,9 @@ Saig_ObjIsLo.exit:                                ; preds = %29
   %46 = getelementptr inbounds i8, ptr %45, i64 36
   %47 = load i32, ptr %46, align 4
   %48 = shl i32 %47, 1
-  br label %Aig_ObjFaninId0.argprom.exit
+  br label %Aig_ObjFaninId0.exit
 
-Aig_ObjFaninId0.argprom.exit:                     ; preds = %41, %43
+Aig_ObjFaninId0.exit:                             ; preds = %41, %43
   %49 = phi i32 [ %48, %43 ], [ -2, %41 ]
   %50 = trunc i64 %.pre51 to i32
   %51 = and i32 %50, 1
@@ -109,12 +109,12 @@ Aig_ObjFaninId0.argprom.exit:                     ; preds = %41, %43
   %.not = icmp eq i64 %26, 3
   br i1 %.not, label %Saig_ObjIsLo.exit.thread, label %53
 
-53:                                               ; preds = %Aig_ObjFaninId0.argprom.exit
+53:                                               ; preds = %Aig_ObjFaninId0.exit
   %54 = getelementptr i8, ptr %14, i64 16
   %.val40 = load ptr, ptr %54, align 8
   %.not.i44 = icmp eq ptr %.val40, null
   %.pre53 = ptrtoint ptr %.val40 to i64
-  br i1 %.not.i44, label %Aig_ObjFaninId1.argprom.exit, label %55
+  br i1 %.not.i44, label %Aig_ObjFaninId1.exit, label %55
 
 55:                                               ; preds = %53
   %56 = and i64 %.pre53, -2
@@ -122,22 +122,22 @@ Aig_ObjFaninId0.argprom.exit:                     ; preds = %41, %43
   %58 = getelementptr inbounds i8, ptr %57, i64 36
   %59 = load i32, ptr %58, align 4
   %60 = shl i32 %59, 1
-  br label %Aig_ObjFaninId1.argprom.exit
+  br label %Aig_ObjFaninId1.exit
 
-Aig_ObjFaninId1.argprom.exit:                     ; preds = %53, %55
+Aig_ObjFaninId1.exit:                             ; preds = %53, %55
   %61 = phi i32 [ %60, %55 ], [ -2, %53 ]
   %62 = trunc i64 %.pre53 to i32
   %63 = and i32 %62, 1
   %64 = or disjoint i32 %61, %63
   br label %Saig_ObjIsLo.exit.thread.sink.split
 
-Saig_ObjIsLo.exit.thread.sink.split:              ; preds = %30, %Aig_ObjFaninId1.argprom.exit
-  %.sink = phi i32 [ %64, %Aig_ObjFaninId1.argprom.exit ], [ -1, %30 ]
+Saig_ObjIsLo.exit.thread.sink.split:              ; preds = %30, %Aig_ObjFaninId1.exit
+  %.sink = phi i32 [ %64, %Aig_ObjFaninId1.exit ], [ -1, %30 ]
   %65 = getelementptr inbounds i8, ptr %17, i64 4
   store i32 %.sink, ptr %65, align 4
   br label %Saig_ObjIsLo.exit.thread
 
-Saig_ObjIsLo.exit.thread:                         ; preds = %Saig_ObjIsLo.exit.thread.sink.split, %29, %12, %Aig_ObjFaninId0.argprom.exit, %Saig_ObjIsLo.exit
+Saig_ObjIsLo.exit.thread:                         ; preds = %Saig_ObjIsLo.exit.thread.sink.split, %29, %12, %Aig_ObjFaninId0.exit, %Saig_ObjIsLo.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge.loopexit, label %12, !llvm.loop !4
@@ -985,7 +985,7 @@ define noundef ptr @Aig_CManCreate(ptr nocapture noundef readonly %0) local_unna
   %.val37 = load ptr, ptr %41, align 8
   %.not.i = icmp eq ptr %.val37, null
   %.pre78 = ptrtoint ptr %.val37 to i64
-  br i1 %.not.i, label %Aig_ObjFaninId0.argprom.exit, label %42
+  br i1 %.not.i, label %Aig_ObjFaninId0.exit, label %42
 
 42:                                               ; preds = %40
   %43 = and i64 %.pre78, -2
@@ -993,9 +993,9 @@ define noundef ptr @Aig_CManCreate(ptr nocapture noundef readonly %0) local_unna
   %45 = getelementptr inbounds i8, ptr %44, i64 36
   %46 = load i32, ptr %45, align 4
   %47 = shl i32 %46, 1
-  br label %Aig_ObjFaninId0.argprom.exit
+  br label %Aig_ObjFaninId0.exit
 
-Aig_ObjFaninId0.argprom.exit:                     ; preds = %40, %42
+Aig_ObjFaninId0.exit:                             ; preds = %40, %42
   %48 = phi i32 [ %47, %42 ], [ -2, %40 ]
   %49 = trunc i64 %.pre78 to i32
   %50 = and i32 %49, 1
@@ -1004,18 +1004,18 @@ Aig_ObjFaninId0.argprom.exit:                     ; preds = %40, %42
   %.val40 = load ptr, ptr %52, align 8
   %.not.i47 = icmp eq ptr %.val40, null
   %.pre80 = ptrtoint ptr %.val40 to i64
-  br i1 %.not.i47, label %Aig_ObjFaninId1.argprom.exit, label %53
+  br i1 %.not.i47, label %Aig_ObjFaninId1.exit, label %53
 
-53:                                               ; preds = %Aig_ObjFaninId0.argprom.exit
+53:                                               ; preds = %Aig_ObjFaninId0.exit
   %54 = and i64 %.pre80, -2
   %55 = inttoptr i64 %54 to ptr
   %56 = getelementptr inbounds i8, ptr %55, i64 36
   %57 = load i32, ptr %56, align 4
   %58 = shl i32 %57, 1
-  br label %Aig_ObjFaninId1.argprom.exit
+  br label %Aig_ObjFaninId1.exit
 
-Aig_ObjFaninId1.argprom.exit:                     ; preds = %Aig_ObjFaninId0.argprom.exit, %53
-  %59 = phi i32 [ %58, %53 ], [ -2, %Aig_ObjFaninId0.argprom.exit ]
+Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exit, %53
+  %59 = phi i32 [ %58, %53 ], [ -2, %Aig_ObjFaninId0.exit ]
   %60 = trunc i64 %.pre80 to i32
   %61 = and i32 %60, 1
   %62 = or disjoint i32 %59, %61
@@ -1027,8 +1027,8 @@ Aig_ObjFaninId1.argprom.exit:                     ; preds = %Aig_ObjFaninId0.arg
   %.not5.i.i = icmp ult i32 %66, 128
   br i1 %.not5.i.i, label %Aig_CManStoreNum.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %Aig_ObjFaninId1.argprom.exit, %.lr.ph.i.i
-  %.06.i.i = phi i32 [ %71, %.lr.ph.i.i ], [ %66, %Aig_ObjFaninId1.argprom.exit ]
+.lr.ph.i.i:                                       ; preds = %Aig_ObjFaninId1.exit, %.lr.ph.i.i
+  %.06.i.i = phi i32 [ %71, %.lr.ph.i.i ], [ %66, %Aig_ObjFaninId1.exit ]
   %67 = trunc i32 %.06.i.i to i8
   %68 = or i8 %67, -128
   %69 = load ptr, ptr %21, align 8
@@ -1039,8 +1039,8 @@ Aig_ObjFaninId1.argprom.exit:                     ; preds = %Aig_ObjFaninId0.arg
   %.not.i.i = icmp ult i32 %.06.i.i, 16384
   br i1 %.not.i.i, label %Aig_CManStoreNum.exit.i, label %.lr.ph.i.i, !llvm.loop !9
 
-Aig_CManStoreNum.exit.i:                          ; preds = %.lr.ph.i.i, %Aig_ObjFaninId1.argprom.exit
-  %.0.lcssa.i.i = phi i32 [ %66, %Aig_ObjFaninId1.argprom.exit ], [ %71, %.lr.ph.i.i ]
+Aig_CManStoreNum.exit.i:                          ; preds = %.lr.ph.i.i, %Aig_ObjFaninId1.exit
+  %.0.lcssa.i.i = phi i32 [ %66, %Aig_ObjFaninId1.exit ], [ %71, %.lr.ph.i.i ]
   %72 = trunc nuw i32 %.0.lcssa.i.i to i8
   %73 = load ptr, ptr %21, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 1
@@ -1092,7 +1092,7 @@ Aig_CManAddNode.exit:                             ; preds = %.lr.ph.i6.i, %Aig_C
   %.val36 = load ptr, ptr %93, align 8
   %.not.i48 = icmp eq ptr %.val36, null
   %.pre77 = ptrtoint ptr %.val36 to i64
-  br i1 %.not.i48, label %Aig_ObjFaninId0.argprom.exit49, label %94
+  br i1 %.not.i48, label %Aig_ObjFaninId0.exit49, label %94
 
 94:                                               ; preds = %.lr.ph66
   %95 = and i64 %.pre77, -2
@@ -1100,9 +1100,9 @@ Aig_CManAddNode.exit:                             ; preds = %.lr.ph.i6.i, %Aig_C
   %97 = getelementptr inbounds i8, ptr %96, i64 36
   %98 = load i32, ptr %97, align 4
   %99 = shl i32 %98, 1
-  br label %Aig_ObjFaninId0.argprom.exit49
+  br label %Aig_ObjFaninId0.exit49
 
-Aig_ObjFaninId0.argprom.exit49:                   ; preds = %.lr.ph66, %94
+Aig_ObjFaninId0.exit49:                           ; preds = %.lr.ph66, %94
   %100 = phi i32 [ %99, %94 ], [ -2, %.lr.ph66 ]
   %101 = trunc i64 %.pre77 to i32
   %102 = and i32 %101, 1
@@ -1111,7 +1111,7 @@ Aig_ObjFaninId0.argprom.exit49:                   ; preds = %.lr.ph66, %94
   %105 = icmp eq i32 %104, -1
   br i1 %105, label %106, label %114
 
-106:                                              ; preds = %Aig_ObjFaninId0.argprom.exit49
+106:                                              ; preds = %Aig_ObjFaninId0.exit49
   %107 = load i32, ptr %18, align 4
   %108 = sub nsw i32 %107, %103
   %.not5.i.i52 = icmp ult i32 %108, 128
@@ -1129,7 +1129,7 @@ Aig_ObjFaninId0.argprom.exit49:                   ; preds = %.lr.ph66, %94
   %.not.i.i55 = icmp ult i32 %.06.i.i54, 16384
   br i1 %.not.i.i55, label %Aig_CManAddPo.exit, label %.lr.ph.i.i53, !llvm.loop !9
 
-114:                                              ; preds = %Aig_ObjFaninId0.argprom.exit49
+114:                                              ; preds = %Aig_ObjFaninId0.exit49
   %.not.i50 = icmp sgt i32 %104, %103
   br i1 %.not.i50, label %123, label %115
 

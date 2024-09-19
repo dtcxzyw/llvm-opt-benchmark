@@ -373,10 +373,10 @@ for.cond.preheader:                               ; preds = %if.end23
   %pem_read_bio_PrivateKey = getelementptr inbounds i8, ptr %arrayidx, i64 128
   br label %for.body
 
-for.body:                                         ; preds = %for.cond.preheader, %test_protected_PEM.argprom.exit
-  %ok.2105 = phi i32 [ 1, %for.cond.preheader ], [ %tobool36.not, %test_protected_PEM.argprom.exit ]
-  %cmp27 = phi i1 [ true, %for.cond.preheader ], [ false, %test_protected_PEM.argprom.exit ]
-  %i.0104 = phi i64 [ 0, %for.cond.preheader ], [ 1, %test_protected_PEM.argprom.exit ]
+for.body:                                         ; preds = %for.cond.preheader, %test_protected_PEM.exit
+  %ok.2105 = phi i32 [ 1, %for.cond.preheader ], [ %tobool36.not, %test_protected_PEM.exit ]
+  %cmp27 = phi i1 [ true, %for.cond.preheader ], [ false, %test_protected_PEM.exit ]
+  %i.0104 = phi i64 [ 0, %for.cond.preheader ], [ 1, %test_protected_PEM.exit ]
   %arrayidx30 = getelementptr inbounds [2 x ptr], ptr %structure29, i64 0, i64 %i.0104
   %8 = load ptr, ptr %arrayidx30, align 8
   %9 = load ptr, ptr %arrayidx, align 16
@@ -391,20 +391,20 @@ for.body:                                         ; preds = %for.cond.preheader,
   %call1.i = call ptr @BIO_new(ptr noundef %call.i103) #5
   %call2.i = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 317, ptr noundef nonnull @.str.51, ptr noundef %call1.i) #5
   %tobool.not.i = icmp eq i32 %call2.i, 0
-  br i1 %tobool.not.i, label %test_protected_PEM.argprom.exit, label %lor.lhs.false.i
+  br i1 %tobool.not.i, label %test_protected_PEM.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body
   %call3.i = call ptr @BIO_s_mem() #5
   %call4.i = call ptr @BIO_new(ptr noundef %call3.i) #5
   %call5.i = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 318, ptr noundef nonnull @.str.52, ptr noundef %call4.i) #5
   %tobool6.not.i = icmp eq i32 %call5.i, 0
-  br i1 %tobool6.not.i, label %test_protected_PEM.argprom.exit, label %if.end.i
+  br i1 %tobool6.not.i, label %test_protected_PEM.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %call7.i = call ptr @OSSL_ENCODER_CTX_new_for_pkey(ptr noundef %2, i32 noundef 135, ptr noundef nonnull @.str.54, ptr noundef %8, ptr noundef null) #5
   %call8.i = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 324, ptr noundef nonnull @.str.53, ptr noundef %call7.i) #5
   %tobool9.not.i = icmp eq i32 %call8.i, 0
-  br i1 %tobool9.not.i, label %test_protected_PEM.argprom.exit, label %lor.lhs.false10.i
+  br i1 %tobool9.not.i, label %test_protected_PEM.exit, label %lor.lhs.false10.i
 
 lor.lhs.false10.i:                                ; preds = %if.end.i
   %call11.i = call i32 @OSSL_ENCODER_to_bio(ptr noundef %call7.i, ptr noundef %call4.i) #5
@@ -412,7 +412,7 @@ lor.lhs.false10.i:                                ; preds = %if.end.i
   %conv.i = zext i1 %cmp.i to i32
   %call12.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 325, ptr noundef nonnull @.str.55, i32 noundef %conv.i) #5
   %tobool13.not.i = icmp eq i32 %call12.i, 0
-  br i1 %tobool13.not.i, label %test_protected_PEM.argprom.exit, label %lor.lhs.false14.i
+  br i1 %tobool13.not.i, label %test_protected_PEM.exit, label %lor.lhs.false14.i
 
 lor.lhs.false14.i:                                ; preds = %lor.lhs.false10.i
   %call15.i = call i32 %12(ptr noundef %call1.i, ptr noundef %call19, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null) #5
@@ -420,28 +420,28 @@ lor.lhs.false14.i:                                ; preds = %lor.lhs.false10.i
   %conv17.i = zext i1 %cmp16.i to i32
   %call18.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 327, ptr noundef nonnull @.str.56, i32 noundef %conv17.i) #5
   %tobool19.not.i = icmp eq i32 %call18.i, 0
-  br i1 %tobool19.not.i, label %test_protected_PEM.argprom.exit, label %lor.lhs.false20.i
+  br i1 %tobool19.not.i, label %test_protected_PEM.exit, label %lor.lhs.false20.i
 
 lor.lhs.false20.i:                                ; preds = %lor.lhs.false14.i
   %call21.i = call fastcc i32 @test_membio_str_eq(ptr noundef %call4.i, ptr noundef %call1.i)
   %tobool22.not.i = icmp eq i32 %call21.i, 0
-  br i1 %tobool22.not.i, label %test_protected_PEM.argprom.exit, label %if.end24.i
+  br i1 %tobool22.not.i, label %test_protected_PEM.exit, label %if.end24.i
 
 if.end24.i:                                       ; preds = %lor.lhs.false20.i
   %cmp25.not.i = icmp eq ptr %13, null
-  br i1 %cmp25.not.i, label %test_protected_PEM.argprom.exit, label %if.then27.i
+  br i1 %cmp25.not.i, label %test_protected_PEM.exit, label %if.then27.i
 
 if.then27.i:                                      ; preds = %if.end24.i
   %call28.i = call ptr @EVP_PKEY_new() #5
   %call29.i = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 334, ptr noundef nonnull @.str.57, ptr noundef %call28.i) #5
   %tobool30.not.i = icmp eq i32 %call29.i, 0
-  br i1 %tobool30.not.i, label %test_protected_PEM.argprom.exit, label %lor.lhs.false31.i
+  br i1 %tobool30.not.i, label %test_protected_PEM.exit, label %lor.lhs.false31.i
 
 lor.lhs.false31.i:                                ; preds = %if.then27.i
   %call32.i = call ptr @OSSL_DECODER_CTX_new_for_pkey(ptr noundef nonnull %decoded_provided_pkey.i, ptr noundef nonnull @.str.54, ptr noundef %8, ptr noundef %10, i32 noundef 135, ptr noundef null, ptr noundef null) #5
   %call33.i = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 339, ptr noundef nonnull @.str.58, ptr noundef %call32.i) #5
   %tobool34.not.i = icmp eq i32 %call33.i, 0
-  br i1 %tobool34.not.i, label %test_protected_PEM.argprom.exit, label %lor.lhs.false35.i
+  br i1 %tobool34.not.i, label %test_protected_PEM.exit, label %lor.lhs.false35.i
 
 lor.lhs.false35.i:                                ; preds = %lor.lhs.false31.i
   %call36.i = call i32 @OSSL_DECODER_from_bio(ptr noundef %call32.i, ptr noundef %call4.i) #5
@@ -449,13 +449,13 @@ lor.lhs.false35.i:                                ; preds = %lor.lhs.false31.i
   %conv38.i = zext i1 %cmp37.i to i32
   %call39.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 340, ptr noundef nonnull @.str.59, i32 noundef %conv38.i) #5
   %tobool40.not.i = icmp eq i32 %call39.i, 0
-  br i1 %tobool40.not.i, label %test_protected_PEM.argprom.exit, label %lor.lhs.false41.i
+  br i1 %tobool40.not.i, label %test_protected_PEM.exit, label %lor.lhs.false41.i
 
 lor.lhs.false41.i:                                ; preds = %lor.lhs.false35.i
   %call42.i = call ptr %13(ptr noundef %call1.i, ptr noundef null, ptr noundef null, ptr noundef null) #5
   %call43.i = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 342, ptr noundef nonnull @.str.60, ptr noundef %call42.i) #5
   %tobool44.not.i = icmp eq i32 %call43.i, 0
-  br i1 %tobool44.not.i, label %test_protected_PEM.argprom.exit, label %lor.lhs.false45.i
+  br i1 %tobool44.not.i, label %test_protected_PEM.exit, label %lor.lhs.false45.i
 
 lor.lhs.false45.i:                                ; preds = %lor.lhs.false41.i
   %call46.i = call i32 @EVP_PKEY_assign(ptr noundef %call28.i, i32 noundef %11, ptr noundef %call42.i) #5
@@ -463,14 +463,14 @@ lor.lhs.false45.i:                                ; preds = %lor.lhs.false41.i
   %conv48.i = zext i1 %cmp47.i to i32
   %call49.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 344, ptr noundef nonnull @.str.61, i32 noundef %conv48.i) #5
   %tobool50.not.i = icmp eq i32 %call49.i, 0
-  br i1 %tobool50.not.i, label %test_protected_PEM.argprom.exit, label %if.end52.i
+  br i1 %tobool50.not.i, label %test_protected_PEM.exit, label %if.end52.i
 
 if.end52.i:                                       ; preds = %lor.lhs.false45.i
   %14 = load ptr, ptr %decoded_provided_pkey.i, align 8
   %call53.i = call i32 @EVP_PKEY_eq(ptr noundef %14, ptr noundef %call28.i) #5
   %call54.i = call i32 @test_int_gt(ptr noundef nonnull @.str.14, i32 noundef 348, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, i32 noundef %call53.i, i32 noundef 0) #5
   %tobool55.not.i = icmp eq i32 %call54.i, 0
-  br i1 %tobool55.not.i, label %if.then56.i, label %test_protected_PEM.argprom.exit
+  br i1 %tobool55.not.i, label %if.then56.i, label %test_protected_PEM.exit
 
 if.then56.i:                                      ; preds = %if.end52.i
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 349, ptr noundef nonnull @.str.64) #5
@@ -480,9 +480,9 @@ if.then56.i:                                      ; preds = %if.end52.i
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 351, ptr noundef nonnull @.str.65) #5
   %17 = load ptr, ptr @bio_out, align 8
   %call58.i = call i32 @EVP_PKEY_print_private(ptr noundef %17, ptr noundef %call28.i, i32 noundef 0, ptr noundef null) #5
-  br label %test_protected_PEM.argprom.exit
+  br label %test_protected_PEM.exit
 
-test_protected_PEM.argprom.exit:                  ; preds = %for.body, %lor.lhs.false.i, %if.end.i, %lor.lhs.false10.i, %lor.lhs.false14.i, %lor.lhs.false20.i, %if.end24.i, %if.then27.i, %lor.lhs.false31.i, %lor.lhs.false35.i, %lor.lhs.false41.i, %lor.lhs.false45.i, %if.end52.i, %if.then56.i
+test_protected_PEM.exit:                          ; preds = %for.body, %lor.lhs.false.i, %if.end.i, %lor.lhs.false10.i, %lor.lhs.false14.i, %lor.lhs.false20.i, %if.end24.i, %if.then27.i, %lor.lhs.false31.i, %lor.lhs.false35.i, %lor.lhs.false41.i, %lor.lhs.false45.i, %if.end52.i, %if.then56.i
   %tobool36.not = phi i32 [ 0, %lor.lhs.false45.i ], [ 0, %lor.lhs.false41.i ], [ 0, %lor.lhs.false35.i ], [ 0, %lor.lhs.false31.i ], [ 0, %if.then27.i ], [ 0, %lor.lhs.false20.i ], [ 0, %lor.lhs.false14.i ], [ 0, %lor.lhs.false10.i ], [ 0, %if.end.i ], [ 0, %lor.lhs.false.i ], [ 0, %for.body ], [ %ok.2105, %if.end52.i ], [ %ok.2105, %if.then56.i ], [ %ok.2105, %if.end24.i ]
   %membio_provided.0.i = phi ptr [ %call4.i, %lor.lhs.false45.i ], [ %call4.i, %lor.lhs.false41.i ], [ %call4.i, %lor.lhs.false35.i ], [ %call4.i, %lor.lhs.false31.i ], [ %call4.i, %if.then27.i ], [ %call4.i, %lor.lhs.false20.i ], [ %call4.i, %lor.lhs.false14.i ], [ %call4.i, %lor.lhs.false10.i ], [ %call4.i, %if.end.i ], [ %call4.i, %lor.lhs.false.i ], [ null, %for.body ], [ %call4.i, %if.end52.i ], [ %call4.i, %if.then56.i ], [ %call4.i, %if.end24.i ]
   %ectx.0.i = phi ptr [ %call7.i, %lor.lhs.false45.i ], [ %call7.i, %lor.lhs.false41.i ], [ %call7.i, %lor.lhs.false35.i ], [ %call7.i, %lor.lhs.false31.i ], [ %call7.i, %if.then27.i ], [ %call7.i, %lor.lhs.false20.i ], [ %call7.i, %lor.lhs.false14.i ], [ %call7.i, %lor.lhs.false10.i ], [ %call7.i, %if.end.i ], [ null, %lor.lhs.false.i ], [ null, %for.body ], [ %call7.i, %if.end52.i ], [ %call7.i, %if.then56.i ], [ %call7.i, %if.end24.i ]
@@ -498,8 +498,8 @@ test_protected_PEM.argprom.exit:                  ; preds = %for.body, %lor.lhs.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %decoded_provided_pkey.i)
   br i1 %cmp27, label %for.body, label %if.end39, !llvm.loop !8
 
-if.end39:                                         ; preds = %test_protected_PEM.argprom.exit, %if.end23
-  %ok.1 = phi i32 [ 1, %if.end23 ], [ %tobool36.not, %test_protected_PEM.argprom.exit ]
+if.end39:                                         ; preds = %test_protected_PEM.exit, %if.end23
+  %ok.1 = phi i32 [ 1, %if.end23 ], [ %tobool36.not, %test_protected_PEM.exit ]
   %pem_write_bio_PublicKey = getelementptr inbounds i8, ptr %arrayidx, i64 72
   %19 = load ptr, ptr %pem_write_bio_PublicKey, align 8
   %cmp40.not = icmp eq ptr %19, null

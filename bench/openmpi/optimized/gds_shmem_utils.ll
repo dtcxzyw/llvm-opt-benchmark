@@ -319,21 +319,21 @@ define ptr @pmix_gds_shmem_get_session_tracker(ptr noundef %0, i32 noundef %1, i
   %5 = getelementptr i8, ptr %0, i64 176
   %.val = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %pmix_gds_shmem_get_session_tma.argprom.exit.preheader, label %57
+  br i1 %.not.i, label %pmix_gds_shmem_get_session_tma.exit.preheader, label %57
 
-pmix_gds_shmem_get_session_tma.argprom.exit.preheader: ; preds = %4
+pmix_gds_shmem_get_session_tma.exit.preheader:    ; preds = %4
   %.084117 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_gds_shmem_component, i64 736), align 8
   %.not96118 = icmp eq ptr %.084117, getelementptr inbounds (i8, ptr @pmix_mca_gds_shmem_component, i64 616)
-  br i1 %.not96118, label %pmix_gds_shmem_get_session_tma.argprom.exit._crit_edge, label %.lr.ph120
+  br i1 %.not96118, label %pmix_gds_shmem_get_session_tma.exit._crit_edge, label %.lr.ph120
 
-.lr.ph120:                                        ; preds = %pmix_gds_shmem_get_session_tma.argprom.exit.preheader, %pmix_gds_shmem_get_session_tma.argprom.exit
-  %.084119 = phi ptr [ %.084, %pmix_gds_shmem_get_session_tma.argprom.exit ], [ %.084117, %pmix_gds_shmem_get_session_tma.argprom.exit.preheader ]
+.lr.ph120:                                        ; preds = %pmix_gds_shmem_get_session_tma.exit.preheader, %pmix_gds_shmem_get_session_tma.exit
+  %.084119 = phi ptr [ %.084, %pmix_gds_shmem_get_session_tma.exit ], [ %.084117, %pmix_gds_shmem_get_session_tma.exit.preheader ]
   %6 = getelementptr inbounds i8, ptr %.084119, i64 160
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 72
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, %1
-  br i1 %10, label %11, label %pmix_gds_shmem_get_session_tma.argprom.exit
+  br i1 %10, label %11, label %pmix_gds_shmem_get_session_tma.exit
 
 11:                                               ; preds = %.lr.ph120
   %12 = tail call i32 @pthread_mutex_lock(ptr noundef %.084119) #15
@@ -356,16 +356,16 @@ pmix_gds_shmem_get_session_tma.argprom.exit.preheader: ; preds = %4
   store ptr %.084119, ptr %5, align 8
   br label %156
 
-pmix_gds_shmem_get_session_tma.argprom.exit:      ; preds = %.lr.ph120
+pmix_gds_shmem_get_session_tma.exit:              ; preds = %.lr.ph120
   %21 = getelementptr inbounds i8, ptr %.084119, i64 120
   %.084 = load ptr, ptr %21, align 8
   %.not96 = icmp eq ptr %.084, getelementptr inbounds (i8, ptr @pmix_mca_gds_shmem_component, i64 616)
-  br i1 %.not96, label %pmix_gds_shmem_get_session_tma.argprom.exit._crit_edge, label %.lr.ph120, !llvm.loop !9
+  br i1 %.not96, label %pmix_gds_shmem_get_session_tma.exit._crit_edge, label %.lr.ph120, !llvm.loop !9
 
-pmix_gds_shmem_get_session_tma.argprom.exit._crit_edge: ; preds = %pmix_gds_shmem_get_session_tma.argprom.exit, %pmix_gds_shmem_get_session_tma.argprom.exit.preheader
+pmix_gds_shmem_get_session_tma.exit._crit_edge:   ; preds = %pmix_gds_shmem_get_session_tma.exit, %pmix_gds_shmem_get_session_tma.exit.preheader
   br i1 %2, label %pmix_tma_malloc.exit.i, label %156
 
-pmix_tma_malloc.exit.i:                           ; preds = %pmix_gds_shmem_get_session_tma.argprom.exit._crit_edge
+pmix_tma_malloc.exit.i:                           ; preds = %pmix_gds_shmem_get_session_tma.exit._crit_edge
   %22 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_gds_shmem_session_t_class, i64 56), align 8
   %23 = tail call noalias ptr @malloc(i64 noundef %22) #14
   %24 = load i32, ptr @pmix_class_init_epoch, align 4
@@ -666,8 +666,8 @@ pmix_obj_new_tma.exit109:                         ; preds = %.lr.ph.i.i106, %120
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %155, ptr noundef nonnull @.str.1, i32 noundef 168) #15
   br label %156
 
-156:                                              ; preds = %153, %64, %pmix_gds_shmem_get_session_tma.argprom.exit._crit_edge, %3, %154, %142, %103, %46, %16
-  %.085 = phi ptr [ %.084119, %16 ], [ %23, %46 ], [ %.0116, %103 ], [ %.0.i.i102, %142 ], [ null, %154 ], [ null, %3 ], [ null, %pmix_gds_shmem_get_session_tma.argprom.exit._crit_edge ], [ %.val, %64 ], [ %.val, %153 ]
+156:                                              ; preds = %153, %64, %pmix_gds_shmem_get_session_tma.exit._crit_edge, %3, %154, %142, %103, %46, %16
+  %.085 = phi ptr [ %.084119, %16 ], [ %23, %46 ], [ %.0116, %103 ], [ %.0.i.i102, %142 ], [ null, %154 ], [ null, %3 ], [ null, %pmix_gds_shmem_get_session_tma.exit._crit_edge ], [ %.val, %64 ], [ %.val, %153 ]
   ret ptr %.085
 }
 

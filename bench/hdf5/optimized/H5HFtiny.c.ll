@@ -158,7 +158,7 @@ H5HF__tiny_get_obj_len.exit.i:                    ; preds = %9, %6
   %.010.i = getelementptr inbounds i8, ptr %1, i64 %.010.v.i
   %13 = tail call i32 @H5HF__op_read(ptr noundef nonnull %.010.i, i64 noundef %12, ptr noundef %2) #5
   %14 = icmp slt i32 %13, 0
-  br i1 %14, label %15, label %H5HF__tiny_op_real.argprom.exit
+  br i1 %14, label %15, label %H5HF__tiny_op_real.exit
 
 15:                                               ; preds = %H5HF__tiny_get_obj_len.exit.i
   %16 = load i64, ptr @H5E_HEAP_g, align 8
@@ -167,9 +167,9 @@ H5HF__tiny_get_obj_len.exit.i:                    ; preds = %9, %6
   %19 = load i64, ptr @H5E_HEAP_g, align 8
   %20 = load i64, ptr @H5E_CANTOPERATE_g, align 8
   %21 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__tiny_read, i32 noundef 279, i64 noundef %19, i64 noundef %20, ptr noundef nonnull @.str.2) #5
-  br label %H5HF__tiny_op_real.argprom.exit
+  br label %H5HF__tiny_op_real.exit
 
-H5HF__tiny_op_real.argprom.exit:                  ; preds = %H5HF__tiny_get_obj_len.exit.i, %15
+H5HF__tiny_op_real.exit:                          ; preds = %H5HF__tiny_get_obj_len.exit.i, %15
   %.0 = phi i32 [ -1, %15 ], [ 0, %H5HF__tiny_get_obj_len.exit.i ]
   ret i32 %.0
 }
@@ -201,7 +201,7 @@ H5HF__tiny_get_obj_len.exit.i:                    ; preds = %10, %7
   %.010.i = getelementptr inbounds i8, ptr %1, i64 %.010.v.i
   %14 = tail call i32 %2(ptr noundef nonnull %.010.i, i64 noundef %13, ptr noundef %3) #5
   %15 = icmp slt i32 %14, 0
-  br i1 %15, label %16, label %H5HF__tiny_op_real.argprom.exit
+  br i1 %15, label %16, label %H5HF__tiny_op_real.exit
 
 16:                                               ; preds = %H5HF__tiny_get_obj_len.exit.i
   %17 = load i64, ptr @H5E_HEAP_g, align 8
@@ -210,9 +210,9 @@ H5HF__tiny_get_obj_len.exit.i:                    ; preds = %10, %7
   %20 = load i64, ptr @H5E_HEAP_g, align 8
   %21 = load i64, ptr @H5E_CANTOPERATE_g, align 8
   %22 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__tiny_op, i32 noundef 310, i64 noundef %20, i64 noundef %21, ptr noundef nonnull @.str.2) #5
-  br label %H5HF__tiny_op_real.argprom.exit
+  br label %H5HF__tiny_op_real.exit
 
-H5HF__tiny_op_real.argprom.exit:                  ; preds = %H5HF__tiny_get_obj_len.exit.i, %16
+H5HF__tiny_op_real.exit:                          ; preds = %H5HF__tiny_get_obj_len.exit.i, %16
   %.0 = phi i32 [ -1, %16 ], [ 0, %H5HF__tiny_get_obj_len.exit.i ]
   ret i32 %.0
 }

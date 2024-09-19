@@ -279,7 +279,7 @@ define hidden void @utf8sToUtf8m(ptr nocapture noundef readonly %0, i32 noundef 
   br i1 %.not, label %90, label %89
 
 89:                                               ; preds = %._crit_edge
-  tail call fastcc void @utfError.argprom(i32 noundef 158, ptr noundef nonnull @.str.1)
+  tail call fastcc void @utfError(i32 noundef 158, ptr noundef nonnull @.str.1)
   unreachable
 
 90:                                               ; preds = %._crit_edge
@@ -287,7 +287,7 @@ define hidden void @utf8sToUtf8m(ptr nocapture noundef readonly %0, i32 noundef 
   br i1 %.not72, label %92, label %91
 
 91:                                               ; preds = %90
-  tail call fastcc void @utfError.argprom(i32 noundef 159, ptr noundef nonnull @.str.2)
+  tail call fastcc void @utfError(i32 noundef 159, ptr noundef nonnull @.str.2)
   unreachable
 
 92:                                               ; preds = %90
@@ -298,7 +298,7 @@ define hidden void @utf8sToUtf8m(ptr nocapture noundef readonly %0, i32 noundef 
 }
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @utfError.argprom(i32 noundef range(i32 158, 474) %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @utfError(i32 noundef range(i32 158, 474) %0, ptr noundef %1) unnamed_addr #2 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef %0, ptr noundef %1) #9
   tail call void @abort() #10
@@ -585,7 +585,7 @@ define hidden void @utf8mToUtf8s(ptr nocapture noundef readonly %0, i32 noundef 
   br i1 %.not, label %101, label %100
 
 100:                                              ; preds = %._crit_edge
-  tail call fastcc void @utfError.argprom(i32 noundef 292, ptr noundef nonnull @.str.1)
+  tail call fastcc void @utfError(i32 noundef 292, ptr noundef nonnull @.str.1)
   unreachable
 
 101:                                              ; preds = %._crit_edge
@@ -593,7 +593,7 @@ define hidden void @utf8mToUtf8s(ptr nocapture noundef readonly %0, i32 noundef 
   br i1 %.not81, label %103, label %102
 
 102:                                              ; preds = %101
-  tail call fastcc void @utfError.argprom(i32 noundef 293, ptr noundef nonnull @.str.2)
+  tail call fastcc void @utfError(i32 noundef 293, ptr noundef nonnull @.str.2)
   unreachable
 
 103:                                              ; preds = %101
@@ -621,7 +621,7 @@ define internal fastcc i32 @iconvConvert(i32 noundef range(i32 0, 2) %0, ptr nou
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %5
-  tail call fastcc void @utfError.argprom(i32 noundef 471, ptr noundef nonnull @.str.4)
+  tail call fastcc void @utfError(i32 noundef 471, ptr noundef nonnull @.str.4)
   unreachable
 
 12:                                               ; preds = %5
@@ -629,7 +629,7 @@ define internal fastcc i32 @iconvConvert(i32 noundef range(i32 0, 2) %0, ptr nou
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %12
-  tail call fastcc void @utfError.argprom(i32 noundef 472, ptr noundef nonnull @.str.5)
+  tail call fastcc void @utfError(i32 noundef 472, ptr noundef nonnull @.str.5)
   unreachable
 
 15:                                               ; preds = %12
@@ -637,7 +637,7 @@ define internal fastcc i32 @iconvConvert(i32 noundef range(i32 0, 2) %0, ptr nou
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %15
-  tail call fastcc void @utfError.argprom(i32 noundef 473, ptr noundef nonnull @.str.6)
+  tail call fastcc void @utfError(i32 noundef 473, ptr noundef nonnull @.str.6)
   unreachable
 
 17:                                               ; preds = %15

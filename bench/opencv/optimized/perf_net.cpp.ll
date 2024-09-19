@@ -14386,7 +14386,7 @@ _ZN2cv3dnn14dnn4_v202405213NetaSERKS2_.exit:      ; preds = %_ZNSt16_Sp_counted_
   %159 = sext i32 %.val to i64
   %.idx = shl nsw i64 %159, 2
   %.not76 = icmp eq i32 %.val, 0
-  br i1 %.not76, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit, label %160
+  br i1 %.not76, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit, label %160
 
 160:                                              ; preds = %156
   %161 = icmp slt i32 %.val, 0
@@ -14409,7 +14409,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %_ZNSt12_Vector
   %164 = getelementptr inbounds i8, ptr %163, i64 %.idx
   store ptr %164, ptr %153, align 8
   store ptr %164, ptr %152, align 8
-  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
+  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
 
 .thread77:                                        ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   %lpad.loopexit66 = landingpad { ptr, i32 }
@@ -14427,14 +14427,14 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %_ZNSt12_Vector
   call void @_ZdlPv(ptr noundef nonnull %.pre) #31
   br label %.body
 
-_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit: ; preds = %156, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i
+_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %156, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i
   %167 = phi ptr [ %163, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i ], [ null, %156 ]
   %168 = load ptr, ptr %154, align 8
   %169 = load ptr, ptr %155, align 8
   %.not.i.i = icmp eq ptr %168, %169
   br i1 %.not.i.i, label %176, label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE9push_backEOS1_.exit.thread
 
-_ZNSt6vectorIS_IiSaIiEESaIS1_EE9push_backEOS1_.exit.thread: ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
+_ZNSt6vectorIS_IiSaIiEESaIS1_EE9push_backEOS1_.exit.thread: ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
   store ptr %167, ptr %168, align 8
   %170 = getelementptr inbounds i8, ptr %168, i64 8
   %171 = load ptr, ptr %153, align 8
@@ -14448,7 +14448,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE9push_backEOS1_.exit.thread: ; preds = %_ZN2cv3dn
   store ptr %175, ptr %154, align 8
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-176:                                              ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
+176:                                              ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
   invoke void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr %168, ptr noundef nonnull align 8 dereferenceable(24) %22)
           to label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE9push_backEOS1_.exit unwind label %179
 
@@ -28494,8 +28494,8 @@ attributes #33 = { nounwind willreturn memory(read) }
 !16 = !{!17, !19}
 !17 = distinct !{!17, !18, !"_ZN2cv3dnn14dnn4_v20240521L5shapeEPKii: argument 0"}
 !18 = distinct !{!18, !"_ZN2cv3dnn14dnn4_v20240521L5shapeEPKii"}
-!19 = distinct !{!19, !20, !"_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom: argument 0"}
-!20 = distinct !{!20, !"_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom"}
+!19 = distinct !{!19, !20, !"_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE: argument 0"}
+!20 = distinct !{!20, !"_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE"}
 !21 = distinct !{!21, !9}
 !22 = distinct !{!22, !9}
 !23 = distinct !{!23, !9}

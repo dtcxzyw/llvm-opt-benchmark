@@ -306,7 +306,7 @@ define dso_local void @xml_dump_datatype(i64 noundef %0) local_unnamed_addr #0 {
   %35 = call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #15
   %36 = getelementptr inbounds i8, ptr %33, i64 16
   %37 = load ptr, ptr %36, align 8
-  call fastcc void @xml_name_to_XID.argelim(i64 noundef %0, ptr noundef %37, ptr noundef %35, i32 noundef 1)
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %37, ptr noundef %35, i32 noundef 1)
   %38 = getelementptr inbounds i8, ptr %33, i64 25
   %39 = load i8, ptr %38, align 1
   %40 = trunc i8 %39 to i1
@@ -414,7 +414,7 @@ declare ptr @search_obj(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xml_name_to_XID.argelim(i64 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca %struct.H5O_token_t, align 1
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
@@ -658,7 +658,7 @@ define internal fastcc void @xml_print_datatype(i64 noundef %0, i32 noundef rang
   %41 = call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #15
   %42 = getelementptr inbounds i8, ptr %39, i64 16
   %43 = load ptr, ptr %42, align 8
-  call fastcc void @xml_name_to_XID.argelim(i64 noundef %0, ptr noundef %43, ptr noundef %41, i32 noundef 1)
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %43, ptr noundef %41, i32 noundef 1)
   %44 = getelementptr inbounds i8, ptr %39, i64 25
   %45 = load i8, ptr %44, align 1
   %46 = trunc i8 %45 to i1
@@ -2726,9 +2726,9 @@ define dso_local void @xml_dump_named_datatype(i64 noundef %0, ptr noundef %1) l
   %42 = load ptr, ptr @prefix, align 8
   %43 = tail call fastcc ptr @xml_escape_the_name(ptr noundef %42)
   %44 = tail call fastcc ptr @xml_escape_the_name(ptr noundef %1)
-  tail call fastcc void @xml_name_to_XID.argelim(i64 noundef %0, ptr noundef nonnull %14, ptr noundef %39, i32 noundef 1)
+  tail call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef nonnull %14, ptr noundef %39, i32 noundef 1)
   %45 = load ptr, ptr @prefix, align 8
-  tail call fastcc void @xml_name_to_XID.argelim(i64 noundef %0, ptr noundef %45, ptr noundef %40, i32 noundef 1)
+  tail call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %45, ptr noundef %40, i32 noundef 1)
   %lhsc = load i8, ptr %1, align 1
   %46 = icmp eq i8 %lhsc, 35
   %47 = getelementptr inbounds i8, ptr %5, i64 16
@@ -2789,7 +2789,7 @@ define dso_local void @xml_dump_named_datatype(i64 noundef %0, ptr noundef %1) l
   %84 = add i32 %83, 1
   store i32 %84, ptr %24, align 8
   %85 = load ptr, ptr %80, align 8
-  call fastcc void @xml_name_to_XID.argelim(i64 noundef %0, ptr noundef %85, ptr noundef nonnull %8, i32 noundef 1)
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %85, ptr noundef nonnull %8, i32 noundef 1)
   store i32 1, ptr %47, align 8
   %86 = call ptr @h5tools_str_reset(ptr noundef nonnull %4) #14
   %87 = load ptr, ptr @xmlnsprefix, align 8
@@ -3082,7 +3082,7 @@ sub_0:                                            ; preds = %38, %41
   br i1 %73, label %94, label %103
 
 94:                                               ; preds = %92
-  call fastcc void @xml_name_to_XID.argelim(i64 noundef %0, ptr noundef nonnull @.str.34, ptr noundef %87, i32 noundef 1)
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef nonnull @.str.34, ptr noundef %87, i32 noundef 1)
   %95 = getelementptr inbounds i8, ptr %8, i64 16
   store i32 1, ptr %95, align 8
   %96 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
@@ -3099,8 +3099,8 @@ sub_0:                                            ; preds = %38, %41
   %105 = load ptr, ptr %104, align 8
   %106 = call fastcc ptr @xml_escape_the_name(ptr noundef %105)
   %107 = call fastcc ptr @xml_escape_the_name(ptr noundef %.0157)
-  call fastcc void @xml_name_to_XID.argelim(i64 noundef %0, ptr noundef %.0156, ptr noundef %87, i32 noundef 1)
-  call fastcc void @xml_name_to_XID.argelim(i64 noundef %0, ptr noundef %.0157, ptr noundef %88, i32 noundef 1)
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %.0156, ptr noundef %87, i32 noundef 1)
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %.0157, ptr noundef %88, i32 noundef 1)
   %108 = getelementptr inbounds i8, ptr %8, i64 16
   store i32 1, ptr %108, align 8
   %109 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
@@ -3120,8 +3120,8 @@ sub_0:                                            ; preds = %38, %41
   %120 = call fastcc ptr @xml_escape_the_name(ptr noundef %119)
   %121 = call fastcc ptr @xml_escape_the_name(ptr noundef %.0157)
   %122 = load ptr, ptr %104, align 8
-  call fastcc void @xml_name_to_XID.argelim(i64 noundef %0, ptr noundef %122, ptr noundef %93, i32 noundef 1)
-  call fastcc void @xml_name_to_XID.argelim(i64 noundef %0, ptr noundef %.0157, ptr noundef %88, i32 noundef 1)
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %122, ptr noundef %93, i32 noundef 1)
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %.0157, ptr noundef %88, i32 noundef 1)
   store i32 1, ptr %108, align 8
   %123 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
   %124 = load ptr, ptr @xmlnsprefix, align 8
@@ -3145,7 +3145,7 @@ sub_0:                                            ; preds = %38, %41
   br i1 %73, label %134, label %143
 
 134:                                              ; preds = %133
-  call fastcc void @xml_name_to_XID.argelim(i64 noundef %0, ptr noundef nonnull @.str.34, ptr noundef %87, i32 noundef 1)
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef nonnull @.str.34, ptr noundef %87, i32 noundef 1)
   %135 = getelementptr inbounds i8, ptr %8, i64 16
   store i32 1, ptr %135, align 8
   %136 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
@@ -3160,8 +3160,8 @@ sub_0:                                            ; preds = %38, %41
 143:                                              ; preds = %133
   %144 = call fastcc ptr @xml_escape_the_name(ptr noundef %.0156)
   %145 = call fastcc ptr @xml_escape_the_name(ptr noundef %.0157)
-  call fastcc void @xml_name_to_XID.argelim(i64 noundef %0, ptr noundef %.0156, ptr noundef %87, i32 noundef 1)
-  call fastcc void @xml_name_to_XID.argelim(i64 noundef %0, ptr noundef %.0157, ptr noundef %88, i32 noundef 1)
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %.0156, ptr noundef %87, i32 noundef 1)
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %.0157, ptr noundef %88, i32 noundef 1)
   %146 = getelementptr inbounds i8, ptr %8, i64 16
   store i32 1, ptr %146, align 8
   %147 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
@@ -3315,7 +3315,7 @@ sub_0:                                            ; preds = %38, %41
   br i1 %73, label %237, label %240
 
 237:                                              ; preds = %231
-  call fastcc void @xml_name_to_XID.argelim(i64 noundef %0, ptr noundef nonnull @.str.34, ptr noundef %233, i32 noundef 1)
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef nonnull @.str.34, ptr noundef %233, i32 noundef 1)
   %238 = load ptr, ptr @xmlnsprefix, align 8
   %239 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %7, ptr noundef nonnull @.str.43, ptr noundef %238, ptr noundef %233, ptr noundef nonnull @.str.34) #14
   br label %245
@@ -3323,8 +3323,8 @@ sub_0:                                            ; preds = %38, %41
 240:                                              ; preds = %231
   %241 = call fastcc ptr @xml_escape_the_name(ptr noundef %.0156)
   %242 = call fastcc ptr @xml_escape_the_name(ptr noundef %.0157)
-  call fastcc void @xml_name_to_XID.argelim(i64 noundef %0, ptr noundef %.0156, ptr noundef %233, i32 noundef 1)
-  call fastcc void @xml_name_to_XID.argelim(i64 noundef %0, ptr noundef %.0157, ptr noundef %234, i32 noundef 1)
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %.0156, ptr noundef %233, i32 noundef 1)
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %.0157, ptr noundef %234, i32 noundef 1)
   %243 = load ptr, ptr @xmlnsprefix, align 8
   %244 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %7, ptr noundef nonnull @.str.46, ptr noundef %243, ptr noundef %232, ptr noundef %233, ptr noundef %241, ptr noundef %234, ptr noundef %242) #14
   call void @free(ptr noundef %241) #14
@@ -3765,9 +3765,9 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   %140 = getelementptr inbounds i8, ptr %88, i64 16
   %141 = load ptr, ptr %140, align 8
   %142 = call fastcc ptr @xml_escape_the_name(ptr noundef %141)
-  call fastcc void @xml_name_to_XID.argelim(i64 noundef %76, ptr noundef nonnull %47, ptr noundef nonnull %12, i32 noundef 1)
+  call fastcc void @xml_name_to_XID(i64 noundef %76, ptr noundef nonnull %47, ptr noundef nonnull %12, i32 noundef 1)
   %143 = load ptr, ptr @prefix, align 8
-  call fastcc void @xml_name_to_XID.argelim(i64 noundef %76, ptr noundef %143, ptr noundef nonnull %13, i32 noundef 1)
+  call fastcc void @xml_name_to_XID(i64 noundef %76, ptr noundef %143, ptr noundef nonnull %13, i32 noundef 1)
   %144 = getelementptr inbounds i8, ptr %8, i64 16
   store i32 1, ptr %144, align 8
   %145 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
@@ -3779,7 +3779,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   %151 = zext i32 %150 to i64
   %152 = call zeroext i1 @h5tools_render_element(ptr noundef %149, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %10, i64 noundef %151, i64 noundef 0, i64 noundef 0) #14
   %153 = load ptr, ptr %140, align 8
-  call fastcc void @xml_name_to_XID.argelim(i64 noundef %76, ptr noundef %153, ptr noundef nonnull %14, i32 noundef 1)
+  call fastcc void @xml_name_to_XID(i64 noundef %76, ptr noundef %153, ptr noundef nonnull %14, i32 noundef 1)
   %154 = load i32, ptr %27, align 8
   %155 = add i32 %154, 1
   store i32 %155, ptr %27, align 8
@@ -3903,9 +3903,9 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   br label %220
 
 220:                                              ; preds = %217, %215
-  call fastcc void @xml_name_to_XID.argelim(i64 noundef %0, ptr noundef %206, ptr noundef nonnull %15, i32 noundef 1)
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %206, ptr noundef nonnull %15, i32 noundef 1)
   %221 = load ptr, ptr @prefix, align 8
-  call fastcc void @xml_name_to_XID.argelim(i64 noundef %0, ptr noundef %221, ptr noundef nonnull %16, i32 noundef 1)
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %221, ptr noundef nonnull %16, i32 noundef 1)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr null, ptr %6, align 8
@@ -4010,9 +4010,9 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   %272 = call fastcc ptr @xml_escape_the_name(ptr noundef %271)
   %273 = load ptr, ptr %19, align 8
   %274 = call fastcc ptr @xml_escape_the_name(ptr noundef %273)
-  call fastcc void @xml_name_to_XID.argelim(i64 noundef %0, ptr noundef %270, ptr noundef nonnull %20, i32 noundef 1)
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %270, ptr noundef nonnull %20, i32 noundef 1)
   %275 = load ptr, ptr @prefix, align 8
-  call fastcc void @xml_name_to_XID.argelim(i64 noundef %0, ptr noundef %275, ptr noundef nonnull %21, i32 noundef 1)
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %275, ptr noundef nonnull %21, i32 noundef 1)
   %276 = getelementptr inbounds i8, ptr %8, i64 16
   store i32 1, ptr %276, align 8
   %277 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
@@ -4044,9 +4044,9 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   %290 = select i1 %.not163, ptr @.str.34, ptr %289
   %291 = tail call fastcc ptr @xml_escape_the_name(ptr noundef nonnull %290)
   %292 = tail call fastcc ptr @xml_escape_the_name(ptr noundef nonnull %47)
-  call fastcc void @xml_name_to_XID.argelim(i64 noundef %0, ptr noundef %292, ptr noundef nonnull %22, i32 noundef 1)
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %292, ptr noundef nonnull %22, i32 noundef 1)
   %293 = load ptr, ptr @prefix, align 8
-  call fastcc void @xml_name_to_XID.argelim(i64 noundef %0, ptr noundef %293, ptr noundef nonnull %23, i32 noundef 1)
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %293, ptr noundef nonnull %23, i32 noundef 1)
   %294 = getelementptr inbounds i8, ptr %8, i64 16
   store i32 1, ptr %294, align 8
   %295 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
@@ -4166,9 +4166,9 @@ define dso_local void @xml_dump_dataset(i64 noundef %0, ptr noundef %1, ptr noca
   %57 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
   %58 = getelementptr inbounds i8, ptr %22, i64 420
   store i32 %57, ptr %58, align 4
-  tail call fastcc void @xml_name_to_XID.argelim(i64 noundef %0, ptr noundef nonnull %31, ptr noundef %24, i32 noundef 1)
+  tail call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef nonnull %31, ptr noundef %24, i32 noundef 1)
   %59 = load ptr, ptr @prefix, align 8
-  tail call fastcc void @xml_name_to_XID.argelim(i64 noundef %0, ptr noundef %59, ptr noundef %25, i32 noundef 1)
+  tail call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %59, ptr noundef %25, i32 noundef 1)
   %60 = getelementptr inbounds i8, ptr %21, i64 16
   store i32 1, ptr %60, align 8
   %61 = call ptr @h5tools_str_reset(ptr noundef nonnull %20) #14

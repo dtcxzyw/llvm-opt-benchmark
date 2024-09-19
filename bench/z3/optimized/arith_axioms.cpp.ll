@@ -3318,16 +3318,16 @@ invoke.cont141:                                   ; preds = %invoke.cont138
   br i1 %brmerge31, label %if.else174, label %if.then148
 
 if.then148:                                       ; preds = %invoke.cont141
-  %call151 = invoke fastcc i32 @"_ZZN5arith6solver15check_band_termEP3appENK3$_0clEP4exprj.argprom"(ptr nonnull %this, ptr noundef %8, i32 noundef %i.0126)
+  %call151 = invoke fastcc i32 @"_ZZN5arith6solver15check_band_termEP3appENK3$_0clEP4exprj"(ptr nonnull %this, ptr noundef %8, i32 noundef %i.0126)
           to label %invoke.cont150 unwind label %lpad129.loopexit.split-lp
 
 invoke.cont150:                                   ; preds = %if.then148
   %xor.i = xor i32 %call151, 1
-  %call159 = invoke fastcc i32 @"_ZZN5arith6solver15check_band_termEP3appENK3$_0clEP4exprj.argprom"(ptr nonnull %this, ptr noundef %9, i32 noundef %i.0126)
+  %call159 = invoke fastcc i32 @"_ZZN5arith6solver15check_band_termEP3appENK3$_0clEP4exprj"(ptr nonnull %this, ptr noundef %9, i32 noundef %i.0126)
           to label %invoke.cont158 unwind label %lpad129.loopexit.split-lp
 
 invoke.cont158:                                   ; preds = %invoke.cont150
-  %call167 = invoke fastcc i32 @"_ZZN5arith6solver15check_band_termEP3appENK3$_0clEP4exprj.argprom"(ptr nonnull %this, ptr noundef %n, i32 noundef %i.0126)
+  %call167 = invoke fastcc i32 @"_ZZN5arith6solver15check_band_termEP3appENK3$_0clEP4exprj"(ptr nonnull %this, ptr noundef %n, i32 noundef %i.0126)
           to label %invoke.cont166 unwind label %lpad129.loopexit.split-lp
 
 invoke.cont166:                                   ; preds = %invoke.cont158
@@ -3356,11 +3356,11 @@ if.else174:                                       ; preds = %invoke.cont141
   br i1 %brmerge32, label %if.else196, label %if.then178
 
 if.then178:                                       ; preds = %if.else174
-  %call182 = invoke fastcc i32 @"_ZZN5arith6solver15check_band_termEP3appENK3$_0clEP4exprj.argprom"(ptr nonnull %this, ptr noundef %n, i32 noundef %i.0126)
+  %call182 = invoke fastcc i32 @"_ZZN5arith6solver15check_band_termEP3appENK3$_0clEP4exprj"(ptr nonnull %this, ptr noundef %n, i32 noundef %i.0126)
           to label %invoke.cont181 unwind label %lpad129.loopexit.split-lp
 
 invoke.cont181:                                   ; preds = %if.then178
-  %call190 = invoke fastcc i32 @"_ZZN5arith6solver15check_band_termEP3appENK3$_0clEP4exprj.argprom"(ptr nonnull %this, ptr noundef %8, i32 noundef %i.0126)
+  %call190 = invoke fastcc i32 @"_ZZN5arith6solver15check_band_termEP3appENK3$_0clEP4exprj"(ptr nonnull %this, ptr noundef %8, i32 noundef %i.0126)
           to label %invoke.cont189.invoke unwind label %lpad129.loopexit.split-lp
 
 invoke.cont189.invoke:                            ; preds = %invoke.cont181, %invoke.cont203
@@ -3375,11 +3375,11 @@ if.else196:                                       ; preds = %if.else174
   br i1 %brmerge34, label %for.inc, label %if.then200
 
 if.then200:                                       ; preds = %if.else196
-  %call204 = invoke fastcc i32 @"_ZZN5arith6solver15check_band_termEP3appENK3$_0clEP4exprj.argprom"(ptr nonnull %this, ptr noundef %n, i32 noundef %i.0126)
+  %call204 = invoke fastcc i32 @"_ZZN5arith6solver15check_band_termEP3appENK3$_0clEP4exprj"(ptr nonnull %this, ptr noundef %n, i32 noundef %i.0126)
           to label %invoke.cont203 unwind label %lpad129.loopexit.split-lp
 
 invoke.cont203:                                   ; preds = %if.then200
-  %call212 = invoke fastcc i32 @"_ZZN5arith6solver15check_band_termEP3appENK3$_0clEP4exprj.argprom"(ptr nonnull %this, ptr noundef %9, i32 noundef %i.0126)
+  %call212 = invoke fastcc i32 @"_ZZN5arith6solver15check_band_termEP3appENK3$_0clEP4exprj"(ptr nonnull %this, ptr noundef %9, i32 noundef %i.0126)
           to label %invoke.cont189.invoke unwind label %lpad129.loopexit.split-lp
 
 for.inc:                                          ; preds = %if.else196
@@ -3674,7 +3674,7 @@ entry:
 declare noundef zeroext i1 @_ZN3euf13th_euf_solver10add_clauseEN3sat7literalES2_S2_PKNS_13th_proof_hintE(ptr noundef nonnull align 8 dereferenceable(108), i32, i32, i32, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc i32 @"_ZZN5arith6solver15check_band_termEP3appENK3$_0clEP4exprj.argprom"(ptr %this.0.val, ptr noundef %x, i32 noundef %i) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc i32 @"_ZZN5arith6solver15check_band_termEP3appENK3$_0clEP4exprj"(ptr %this.0.val, ptr noundef %x, i32 noundef %i) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %r = alloca %class.obj_ref, align 8
   %ref.tmp = alloca %class.rational, align 8

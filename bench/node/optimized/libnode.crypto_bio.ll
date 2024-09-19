@@ -141,7 +141,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN4node6crypto7NodeBIO9GetMethodEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  %call.i = tail call fastcc noundef ptr @"_ZZN4node6crypto7NodeBIO9GetMethodEvENK3$_0clEv.argprom"()
+  %call.i = tail call fastcc noundef ptr @"_ZZN4node6crypto7NodeBIO9GetMethodEvENK3$_0clEv"()
   store ptr %call.i, ptr @_ZZN4node6crypto7NodeBIO9GetMethodEvE6method, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4node6crypto7NodeBIO9GetMethodEvE6method) #16
   br label %_ZN4node6crypto7NodeBIO9GetMethodEv.exit
@@ -190,7 +190,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  %call = tail call fastcc noundef ptr @"_ZZN4node6crypto7NodeBIO9GetMethodEvENK3$_0clEv.argprom"()
+  %call = tail call fastcc noundef ptr @"_ZZN4node6crypto7NodeBIO9GetMethodEvENK3$_0clEv"()
   store ptr %call, ptr @_ZZN4node6crypto7NodeBIO9GetMethodEvE6method, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4node6crypto7NodeBIO9GetMethodEvE6method) #16
   br label %init.end
@@ -1335,7 +1335,7 @@ declare void @BIO_set_shutdown(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZZN4node6crypto7NodeBIO9GetMethodEvENK3$_0clEv.argprom"() unnamed_addr #3 align 2 {
+define internal fastcc noundef ptr @"_ZZN4node6crypto7NodeBIO9GetMethodEvENK3$_0clEv"() unnamed_addr #3 align 2 {
 entry:
   %call = tail call ptr @BIO_meth_new(i32 noundef 1025, ptr noundef nonnull @.str.38) #16
   %call2 = tail call i32 @BIO_meth_set_write(ptr noundef %call, ptr noundef nonnull @_ZN4node6crypto7NodeBIO5WriteEP6bio_stPKci) #16

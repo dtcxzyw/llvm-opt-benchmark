@@ -17248,23 +17248,23 @@ for.body.i.i.i:                                   ; preds = %_ZN12_GLOBAL__N_117
   %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i, %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.argprom.exit.i.i.i.i.i.i.i
-  %first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.argprom.exit.i.i.i.i.i.i.i ], [ %2, %for.body.i.i.i ]
+for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i, %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.exit.i.i.i.i.i.i.i
+  %first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.exit.i.i.i.i.i.i.i ], [ %2, %for.body.i.i.i ]
   %4 = getelementptr i8, ptr %first.addr.04.i.i.i.i.i.i.i, i64 8
   %first.addr.0.val.i.i.i.i.i.i.i = load ptr, ptr %4, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %first.addr.0.val.i.i.i.i.i.i.i, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.argprom.exit.i.i.i.i.i.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.exit.i.i.i.i.i.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i
   tail call void @_ZdaPv(ptr noundef nonnull %first.addr.0.val.i.i.i.i.i.i.i) #18
-  br label %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.argprom.exit.i.i.i.i.i.i.i
+  br label %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.exit.i.i.i.i.i.i.i
 
-_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.argprom.exit.i.i.i.i.i.i.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i
+_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.exit.i.i.i.i.i.i.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.04.i.i.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !91
 
-invoke.contthread-pre-split.i.i.i.i.i:            ; preds = %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.argprom.exit.i.i.i.i.i.i.i
+invoke.contthread-pre-split.i.i.i.i.i:            ; preds = %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.exit.i.i.i.i.i.i.i
   %this.val.pr.i.i.i.i.i = load ptr, ptr %first.addr.04.i.i.i, align 8
   br label %invoke.cont.i.i.i.i.i
 
@@ -32947,25 +32947,25 @@ if.else:                                          ; preds = %entry
   %mul.i.i = shl nsw i64 %sub.ptr.div.i, 1
   %cond.i.i = select i1 %cmp.not.i.i, i64 1, i64 %mul.i.i
   %tobool.not.i.i = icmp eq i64 %cond.i.i, 0
-  br i1 %tobool.not.i.i, label %_ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEE10DoAllocateEm.argprom.exit.i, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %_ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEE10DoAllocateEm.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else
   %mul.i6.i = mul i64 %cond.i.i, 24
   %call.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %mul.i6.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %.pre.i = load ptr, ptr %this, align 8
   %.pre9.i = load ptr, ptr %mpEnd, align 8
-  br label %_ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEE10DoAllocateEm.argprom.exit.i
+  br label %_ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEE10DoAllocateEm.exit.i
 
-_ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEE10DoAllocateEm.argprom.exit.i: ; preds = %if.then.i.i, %if.else
+_ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEE10DoAllocateEm.exit.i: ; preds = %if.then.i.i, %if.else
   %3 = phi ptr [ %.pre9.i, %if.then.i.i ], [ %0, %if.else ]
   %4 = phi ptr [ %.pre.i, %if.then.i.i ], [ %2, %if.else ]
   %retval.0.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i ], [ null, %if.else ]
   %cmp.i.not4.i.i.i.i = icmp eq ptr %4, %3
   br i1 %cmp.i.not4.i.i.i.i, label %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPN12_GLOBAL__N_117AntMetaDataRecordES3_S3_EET1_T_T0_S4_.exit.i, label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEE10DoAllocateEm.argprom.exit.i, %for.body.i.i.i.i
-  %retval.sroa.0.06.i.i.i.i = phi ptr [ %incdec.ptr.i2.i.i.i.i, %for.body.i.i.i.i ], [ %retval.0.i.i, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEE10DoAllocateEm.argprom.exit.i ]
-  %first.sroa.0.05.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %4, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEE10DoAllocateEm.argprom.exit.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEE10DoAllocateEm.exit.i, %for.body.i.i.i.i
+  %retval.sroa.0.06.i.i.i.i = phi ptr [ %incdec.ptr.i2.i.i.i.i, %for.body.i.i.i.i ], [ %retval.0.i.i, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEE10DoAllocateEm.exit.i ]
+  %first.sroa.0.05.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %4, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEE10DoAllocateEm.exit.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %retval.sroa.0.06.i.i.i.i, i8 0, i64 24, i1 false)
   %5 = load ptr, ptr %first.sroa.0.05.i.i.i.i, align 8
   store ptr %5, ptr %retval.sroa.0.06.i.i.i.i, align 8
@@ -32987,8 +32987,8 @@ for.body.i.i.i.i:                                 ; preds = %_ZN5eastl10VectorBa
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %3
   br i1 %cmp.i.not.i.i.i.i, label %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPN12_GLOBAL__N_117AntMetaDataRecordES3_S3_EET1_T_T0_S4_.exit.i, label %for.body.i.i.i.i, !llvm.loop !233
 
-_ZN5eastl34uninitialized_move_ptr_if_noexceptIPN12_GLOBAL__N_117AntMetaDataRecordES3_S3_EET1_T_T0_S4_.exit.i: ; preds = %for.body.i.i.i.i, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEE10DoAllocateEm.argprom.exit.i
-  %retval.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %retval.0.i.i, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEE10DoAllocateEm.argprom.exit.i ], [ %incdec.ptr.i2.i.i.i.i, %for.body.i.i.i.i ]
+_ZN5eastl34uninitialized_move_ptr_if_noexceptIPN12_GLOBAL__N_117AntMetaDataRecordES3_S3_EET1_T_T0_S4_.exit.i: ; preds = %for.body.i.i.i.i, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEE10DoAllocateEm.exit.i
+  %retval.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %retval.0.i.i, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEE10DoAllocateEm.exit.i ], [ %incdec.ptr.i2.i.i.i.i, %for.body.i.i.i.i ]
   tail call fastcc void @_ZN12_GLOBAL__N_117AntMetaDataRecordC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %retval.sroa.0.0.lcssa.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %value)
   %10 = load ptr, ptr %this, align 8
   %11 = load ptr, ptr %mpEnd, align 8
@@ -33003,23 +33003,23 @@ for.body.i.i.i:                                   ; preds = %_ZN5eastl34uninitia
   %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %12, %13
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i, %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.argprom.exit.i.i.i.i.i.i.i
-  %first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.argprom.exit.i.i.i.i.i.i.i ], [ %12, %for.body.i.i.i ]
+for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i, %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.exit.i.i.i.i.i.i.i
+  %first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.exit.i.i.i.i.i.i.i ], [ %12, %for.body.i.i.i ]
   %14 = getelementptr i8, ptr %first.addr.04.i.i.i.i.i.i.i, i64 8
   %first.addr.0.val.i.i.i.i.i.i.i = load ptr, ptr %14, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %first.addr.0.val.i.i.i.i.i.i.i, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.argprom.exit.i.i.i.i.i.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.exit.i.i.i.i.i.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i
   tail call void @_ZdaPv(ptr noundef nonnull %first.addr.0.val.i.i.i.i.i.i.i) #18
-  br label %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.argprom.exit.i.i.i.i.i.i.i
+  br label %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.exit.i.i.i.i.i.i.i
 
-_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.argprom.exit.i.i.i.i.i.i.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i
+_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.exit.i.i.i.i.i.i.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.04.i.i.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %13
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !91
 
-invoke.contthread-pre-split.i.i.i.i.i:            ; preds = %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.argprom.exit.i.i.i.i.i.i.i
+invoke.contthread-pre-split.i.i.i.i.i:            ; preds = %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.exit.i.i.i.i.i.i.i
   %this.val.pr.i.i.i.i.i = load ptr, ptr %first.addr.04.i.i.i, align 8
   br label %invoke.cont.i.i.i.i.i
 
@@ -33071,23 +33071,23 @@ entry:
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont.i, label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %entry, %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.argprom.exit.i.i.i
-  %first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.argprom.exit.i.i.i ], [ %0, %entry ]
+for.body.i.i.i:                                   ; preds = %entry, %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.exit.i.i.i
+  %first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.exit.i.i.i ], [ %0, %entry ]
   %2 = getelementptr i8, ptr %first.addr.04.i.i.i, i64 8
   %first.addr.0.val.i.i.i = load ptr, ptr %2, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %first.addr.0.val.i.i.i, null
-  br i1 %tobool.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.argprom.exit.i.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.exit.i.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i.i: ; preds = %for.body.i.i.i
   tail call void @_ZdaPv(ptr noundef nonnull %first.addr.0.val.i.i.i) #18
-  br label %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.argprom.exit.i.i.i
+  br label %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.exit.i.i.i
 
-_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.argprom.exit.i.i.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i.i, %for.body.i.i.i
+_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.exit.i.i.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i.i, %for.body.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %first.addr.04.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i, !llvm.loop !91
 
-invoke.contthread-pre-split.i:                    ; preds = %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.argprom.exit.i.i.i
+invoke.contthread-pre-split.i:                    ; preds = %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.exit.i.i.i
   %this.val.pr.i = load ptr, ptr %this, align 8
   br label %invoke.cont.i
 
@@ -33121,23 +33121,23 @@ for.body.i.i:                                     ; preds = %entry, %_ZN12_GLOBA
   %cmp.not3.i.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont.i.i.i.i, label %for.body.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i, %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.argprom.exit.i.i.i.i.i.i
-  %first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.argprom.exit.i.i.i.i.i.i ], [ %2, %for.body.i.i ]
+for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i, %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.exit.i.i.i.i.i.i
+  %first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.exit.i.i.i.i.i.i ], [ %2, %for.body.i.i ]
   %4 = getelementptr i8, ptr %first.addr.04.i.i.i.i.i.i, i64 8
   %first.addr.0.val.i.i.i.i.i.i = load ptr, ptr %4, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %first.addr.0.val.i.i.i.i.i.i, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.argprom.exit.i.i.i.i.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.exit.i.i.i.i.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i.i.i.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i
   tail call void @_ZdaPv(ptr noundef nonnull %first.addr.0.val.i.i.i.i.i.i) #18
-  br label %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.argprom.exit.i.i.i.i.i.i
+  br label %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.exit.i.i.i.i.i.i
 
-_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.argprom.exit.i.i.i.i.i.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
+_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.04.i.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !91
 
-invoke.contthread-pre-split.i.i.i.i:              ; preds = %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.argprom.exit.i.i.i.i.i.i
+invoke.contthread-pre-split.i.i.i.i:              ; preds = %_ZN12_GLOBAL__N_116ScenarioRefEntryD2Ev.exit.i.i.i.i.i.i
   %this.val.pr.i.i.i.i = load ptr, ptr %first.addr.04.i.i, align 8
   br label %invoke.cont.i.i.i.i
 
@@ -33162,13 +33162,13 @@ invoke.contthread-pre-split:                      ; preds = %_ZN12_GLOBAL__N_117
 invoke.cont:                                      ; preds = %invoke.contthread-pre-split, %entry
   %this.val = phi ptr [ %this.val.pr, %invoke.contthread-pre-split ], [ %0, %entry ]
   %tobool.not.i = icmp eq ptr %this.val, null
-  br i1 %tobool.not.i, label %_ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEED2Ev.argprom.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i
+  br i1 %tobool.not.i, label %_ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEED2Ev.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %invoke.cont
   tail call void @_ZdaPv(ptr noundef nonnull %this.val) #18
-  br label %_ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEED2Ev.argprom.exit
+  br label %_ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEED2Ev.exit
 
-_ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEED2Ev.argprom.exit: ; preds = %invoke.cont, %_ZN5eastl9allocator10deallocateEPvm.exit.i
+_ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEED2Ev.exit: ; preds = %invoke.cont, %_ZN5eastl9allocator10deallocateEPvm.exit.i
   ret void
 }
 
@@ -36883,13 +36883,13 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %tobool.not.i.i.i = icmp eq ptr %x.val4.i, %x.val.i
-  br i1 %tobool.not.i.i.i, label %_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntryENS_9allocatorEEC2EmRKS3_.argprom.exit.i, label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntryENS_9allocatorEEC2EmRKS3_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %call.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %sub.ptr.sub.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  br label %_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntryENS_9allocatorEEC2EmRKS3_.argprom.exit.i
+  br label %_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntryENS_9allocatorEEC2EmRKS3_.exit.i
 
-_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntryENS_9allocatorEEC2EmRKS3_.argprom.exit.i: ; preds = %if.then.i.i.i, %entry
+_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntryENS_9allocatorEEC2EmRKS3_.exit.i: ; preds = %if.then.i.i.i, %entry
   %retval.0.i.i.i = phi ptr [ %call.i.i.i.i.i, %if.then.i.i.i ], [ null, %entry ]
   store ptr %retval.0.i.i.i, ptr %this, align 8
   %mpEnd.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -36902,9 +36902,9 @@ _ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntryENS_9allocatorEEC2EmRKS3_
   %cmp.not5.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not5.i.i.i.i, label %_ZN5eastl6vectorIN12_GLOBAL__N_116ScenarioRefEntryENS_9allocatorEEC2ERKS4_.exit, label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntryENS_9allocatorEEC2EmRKS3_.argprom.exit.i, %_ZN12_GLOBAL__N_116ScenarioRefEntryC2ERKS0_.exit.i.i.i.i
-  %currentDest.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %_ZN12_GLOBAL__N_116ScenarioRefEntryC2ERKS0_.exit.i.i.i.i ], [ %retval.0.i.i.i, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntryENS_9allocatorEEC2EmRKS3_.argprom.exit.i ]
-  %first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZN12_GLOBAL__N_116ScenarioRefEntryC2ERKS0_.exit.i.i.i.i ], [ %2, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntryENS_9allocatorEEC2EmRKS3_.argprom.exit.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntryENS_9allocatorEEC2EmRKS3_.exit.i, %_ZN12_GLOBAL__N_116ScenarioRefEntryC2ERKS0_.exit.i.i.i.i
+  %currentDest.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %_ZN12_GLOBAL__N_116ScenarioRefEntryC2ERKS0_.exit.i.i.i.i ], [ %retval.0.i.i.i, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntryENS_9allocatorEEC2EmRKS3_.exit.i ]
+  %first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZN12_GLOBAL__N_116ScenarioRefEntryC2ERKS0_.exit.i.i.i.i ], [ %2, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntryENS_9allocatorEEC2EmRKS3_.exit.i ]
   %4 = load ptr, ptr %first.addr.06.i.i.i.i, align 8
   store ptr %4, ptr %currentDest.07.i.i.i.i, align 8
   %Rows.i.i.i.i.i = getelementptr inbounds i8, ptr %currentDest.07.i.i.i.i, i64 8
@@ -36917,13 +36917,13 @@ for.body.i.i.i.i:                                 ; preds = %_ZN5eastl10VectorBa
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 24
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %x.val4.i.i.i.i.i.i, %x.val.i.i.i.i.i.i
-  br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntry8RowEntryENS_9allocatorEEC2EmRKS4_.argprom.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntry8RowEntryENS_9allocatorEEC2EmRKS4_.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i
   %call.i.i.i.i.i.i.i.i.i6.i = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %sub.ptr.sub.i.i.i.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-          to label %_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntry8RowEntryENS_9allocatorEEC2EmRKS4_.argprom.exit.i.i.i.i.i.i unwind label %lpad.i
+          to label %_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntry8RowEntryENS_9allocatorEEC2EmRKS4_.exit.i.i.i.i.i.i unwind label %lpad.i
 
-_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntry8RowEntryENS_9allocatorEEC2EmRKS4_.argprom.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
+_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntry8RowEntryENS_9allocatorEEC2EmRKS4_.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
   %retval.0.i.i.i.i.i.i.i.i = phi ptr [ null, %for.body.i.i.i.i ], [ %call.i.i.i.i.i.i.i.i.i6.i, %if.then.i.i.i.i.i.i.i.i ]
   store ptr %retval.0.i.i.i.i.i.i.i.i, ptr %Rows.i.i.i.i.i, align 8
   %mpEnd.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %currentDest.07.i.i.i.i, i64 16
@@ -36936,7 +36936,7 @@ _ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntry8RowEntryENS_9allocatorEE
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_116ScenarioRefEntryC2ERKS0_.exit.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i
 
-if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntry8RowEntryENS_9allocatorEEC2EmRKS4_.argprom.exit.i.i.i.i.i.i
+if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntry8RowEntryENS_9allocatorEEC2EmRKS4_.exit.i.i.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i
@@ -36944,8 +36944,8 @@ if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZN5eastl10VectorBa
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i
   br label %_ZN12_GLOBAL__N_116ScenarioRefEntryC2ERKS0_.exit.i.i.i.i
 
-_ZN12_GLOBAL__N_116ScenarioRefEntryC2ERKS0_.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntry8RowEntryENS_9allocatorEEC2EmRKS4_.argprom.exit.i.i.i.i.i.i
-  %retval.0.i.i.i.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i ], [ %retval.0.i.i.i.i.i.i.i.i, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntry8RowEntryENS_9allocatorEEC2EmRKS4_.argprom.exit.i.i.i.i.i.i ]
+_ZN12_GLOBAL__N_116ScenarioRefEntryC2ERKS0_.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntry8RowEntryENS_9allocatorEEC2EmRKS4_.exit.i.i.i.i.i.i
+  %retval.0.i.i.i.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i ], [ %retval.0.i.i.i.i.i.i.i.i, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntry8RowEntryENS_9allocatorEEC2EmRKS4_.exit.i.i.i.i.i.i ]
   store ptr %retval.0.i.i.i.i.i.i.i.i.i, ptr %mpEnd.i.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.06.i.i.i.i, i64 32
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %currentDest.07.i.i.i.i, i64 32
@@ -36957,17 +36957,17 @@ lpad.i:                                           ; preds = %if.then.i.i.i.i.i.i
           cleanup
   %this.val.i = load ptr, ptr %this, align 8
   %tobool.not.i.i = icmp eq ptr %this.val.i, null
-  br i1 %tobool.not.i.i, label %_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntryENS_9allocatorEED2Ev.argprom.exit.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
+  br i1 %tobool.not.i.i, label %_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntryENS_9allocatorEED2Ev.exit.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %lpad.i
   tail call void @_ZdaPv(ptr noundef nonnull %this.val.i) #18
-  br label %_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntryENS_9allocatorEED2Ev.argprom.exit.i
+  br label %_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntryENS_9allocatorEED2Ev.exit.i
 
-_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntryENS_9allocatorEED2Ev.argprom.exit.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, %lpad.i
+_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntryENS_9allocatorEED2Ev.exit.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, %lpad.i
   resume { ptr, i32 } %8
 
-_ZN5eastl6vectorIN12_GLOBAL__N_116ScenarioRefEntryENS_9allocatorEEC2ERKS4_.exit: ; preds = %_ZN12_GLOBAL__N_116ScenarioRefEntryC2ERKS0_.exit.i.i.i.i, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntryENS_9allocatorEEC2EmRKS3_.argprom.exit.i
-  %currentDest.0.lcssa.i.i.i.i = phi ptr [ %retval.0.i.i.i, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntryENS_9allocatorEEC2EmRKS3_.argprom.exit.i ], [ %incdec.ptr1.i.i.i.i, %_ZN12_GLOBAL__N_116ScenarioRefEntryC2ERKS0_.exit.i.i.i.i ]
+_ZN5eastl6vectorIN12_GLOBAL__N_116ScenarioRefEntryENS_9allocatorEEC2ERKS4_.exit: ; preds = %_ZN12_GLOBAL__N_116ScenarioRefEntryC2ERKS0_.exit.i.i.i.i, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntryENS_9allocatorEEC2EmRKS3_.exit.i
+  %currentDest.0.lcssa.i.i.i.i = phi ptr [ %retval.0.i.i.i, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_116ScenarioRefEntryENS_9allocatorEEC2EmRKS3_.exit.i ], [ %incdec.ptr1.i.i.i.i, %_ZN12_GLOBAL__N_116ScenarioRefEntryC2ERKS0_.exit.i.i.i.i ]
   store ptr %currentDest.0.lcssa.i.i.i.i, ptr %mpEnd.i.i, align 8
   ret void
 }

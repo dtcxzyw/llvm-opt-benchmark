@@ -9758,7 +9758,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv5kinfu13SubmapManagerINS_3MatEE15c
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv5kinfu6SubmapINS0_3MatEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18, align 8, !noalias !266
   %21 = getelementptr inbounds i8, ptr %18, i64 16
   invoke void @_ZN2cv5kinfu6SubmapINS_3MatEEC2EiRKNS0_12VolumeParamsERKNS_7Affine3IfEEi(ptr noundef nonnull align 8 dereferenceable(264) %21, i32 noundef %16, ptr noundef nonnull align 4 dereferenceable(104) %17, ptr noundef nonnull align 4 dereferenceable(64) %3, i32 noundef %2)
-          to label %_ZN2cvL7makePtrINS_5kinfu6SubmapINS_3MatEEEJiNS1_12VolumeParamsENS_7Affine3IfEEiEEENS_3PtrIT_EEDpRKT0_.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5kinfu6SubmapINS1_3MatEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !266
+          to label %_ZN2cvL7makePtrINS_5kinfu6SubmapINS_3MatEEEJiNS1_12VolumeParamsENS_7Affine3IfEEiEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5kinfu6SubmapINS1_3MatEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !266
 
 common.resume:                                    ; preds = %_ZN2cv5kinfu13SubmapManagerINS_3MatEE16ActiveSubmapDataD2Ev.exit13, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5kinfu6SubmapINS1_3MatEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %22, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5kinfu6SubmapINS1_3MatEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i ], [ %.pn, %_ZN2cv5kinfu13SubmapManagerINS_3MatEE16ActiveSubmapDataD2Ev.exit13 ]
@@ -9770,7 +9770,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5kinfu6SubmapINS1_3Mat
   tail call void @_ZdlPv(ptr noundef nonnull %18) #23, !noalias !266
   br label %common.resume
 
-_ZN2cvL7makePtrINS_5kinfu6SubmapINS_3MatEEEJiNS1_12VolumeParamsENS_7Affine3IfEEiEEENS_3PtrIT_EEDpRKT0_.argprom.exit: ; preds = %4
+_ZN2cvL7makePtrINS_5kinfu6SubmapINS_3MatEEEJiNS1_12VolumeParamsENS_7Affine3IfEEiEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %4
   store ptr %21, ptr %6, align 8, !alias.scope !263
   %23 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %18, ptr %23, align 8, !alias.scope !263
@@ -9780,7 +9780,7 @@ _ZN2cvL7makePtrINS_5kinfu6SubmapINS_3MatEEEJiNS1_12VolumeParamsENS_7Affine3IfEEi
   %.not.i = icmp eq ptr %24, %26
   br i1 %.not.i, label %40, label %27
 
-27:                                               ; preds = %_ZN2cvL7makePtrINS_5kinfu6SubmapINS_3MatEEEJiNS1_12VolumeParamsENS_7Affine3IfEEiEEENS_3PtrIT_EEDpRKT0_.argprom.exit
+27:                                               ; preds = %_ZN2cvL7makePtrINS_5kinfu6SubmapINS_3MatEEEJiNS1_12VolumeParamsENS_7Affine3IfEEiEEENS_3PtrIT_EEDpRKT0_.exit
   store ptr %21, ptr %24, align 8
   %28 = getelementptr inbounds i8, ptr %24, i64 8
   %29 = load ptr, ptr %23, align 8
@@ -9810,7 +9810,7 @@ _ZNSt16allocator_traitsISaIN2cv3PtrINS0_5kinfu6SubmapINS0_3MatEEEEEEE9constructI
   store ptr %39, ptr %9, align 8
   br label %_ZNSt6vectorIN2cv3PtrINS0_5kinfu6SubmapINS0_3MatEEEEESaIS6_EE9push_backERKS6_.exit
 
-40:                                               ; preds = %_ZN2cvL7makePtrINS_5kinfu6SubmapINS_3MatEEEJiNS1_12VolumeParamsENS_7Affine3IfEEiEEENS_3PtrIT_EEDpRKT0_.argprom.exit
+40:                                               ; preds = %_ZN2cvL7makePtrINS_5kinfu6SubmapINS_3MatEEEJiNS1_12VolumeParamsENS_7Affine3IfEEiEEENS_3PtrIT_EEDpRKT0_.exit
   invoke void @_ZNSt6vectorIN2cv3PtrINS0_5kinfu6SubmapINS0_3MatEEEEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr %24, ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZNSt6vectorIN2cv3PtrINS0_5kinfu6SubmapINS0_3MatEEEEESaIS6_EE9push_backERKS6_.exit unwind label %115
 
@@ -15588,7 +15588,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv5kinfu13SubmapManagerINS_4UMatEE15
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv5kinfu6SubmapINS0_4UMatEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18, align 8, !noalias !418
   %21 = getelementptr inbounds i8, ptr %18, i64 16
   invoke void @_ZN2cv5kinfu6SubmapINS_4UMatEEC2EiRKNS0_12VolumeParamsERKNS_7Affine3IfEEi(ptr noundef nonnull align 8 dereferenceable(264) %21, i32 noundef %16, ptr noundef nonnull align 4 dereferenceable(104) %17, ptr noundef nonnull align 4 dereferenceable(64) %3, i32 noundef %2)
-          to label %_ZN2cvL7makePtrINS_5kinfu6SubmapINS_4UMatEEEJiNS1_12VolumeParamsENS_7Affine3IfEEiEEENS_3PtrIT_EEDpRKT0_.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5kinfu6SubmapINS1_4UMatEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !418
+          to label %_ZN2cvL7makePtrINS_5kinfu6SubmapINS_4UMatEEEJiNS1_12VolumeParamsENS_7Affine3IfEEiEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5kinfu6SubmapINS1_4UMatEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !418
 
 common.resume:                                    ; preds = %_ZN2cv5kinfu13SubmapManagerINS_4UMatEE16ActiveSubmapDataD2Ev.exit13, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5kinfu6SubmapINS1_4UMatEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %22, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5kinfu6SubmapINS1_4UMatEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i ], [ %.pn, %_ZN2cv5kinfu13SubmapManagerINS_4UMatEE16ActiveSubmapDataD2Ev.exit13 ]
@@ -15600,7 +15600,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5kinfu6SubmapINS1_4UMa
   tail call void @_ZdlPv(ptr noundef nonnull %18) #23, !noalias !418
   br label %common.resume
 
-_ZN2cvL7makePtrINS_5kinfu6SubmapINS_4UMatEEEJiNS1_12VolumeParamsENS_7Affine3IfEEiEEENS_3PtrIT_EEDpRKT0_.argprom.exit: ; preds = %4
+_ZN2cvL7makePtrINS_5kinfu6SubmapINS_4UMatEEEJiNS1_12VolumeParamsENS_7Affine3IfEEiEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %4
   store ptr %21, ptr %6, align 8, !alias.scope !415
   %23 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %18, ptr %23, align 8, !alias.scope !415
@@ -15610,7 +15610,7 @@ _ZN2cvL7makePtrINS_5kinfu6SubmapINS_4UMatEEEJiNS1_12VolumeParamsENS_7Affine3IfEE
   %.not.i = icmp eq ptr %24, %26
   br i1 %.not.i, label %40, label %27
 
-27:                                               ; preds = %_ZN2cvL7makePtrINS_5kinfu6SubmapINS_4UMatEEEJiNS1_12VolumeParamsENS_7Affine3IfEEiEEENS_3PtrIT_EEDpRKT0_.argprom.exit
+27:                                               ; preds = %_ZN2cvL7makePtrINS_5kinfu6SubmapINS_4UMatEEEJiNS1_12VolumeParamsENS_7Affine3IfEEiEEENS_3PtrIT_EEDpRKT0_.exit
   store ptr %21, ptr %24, align 8
   %28 = getelementptr inbounds i8, ptr %24, i64 8
   %29 = load ptr, ptr %23, align 8
@@ -15640,7 +15640,7 @@ _ZNSt16allocator_traitsISaIN2cv3PtrINS0_5kinfu6SubmapINS0_4UMatEEEEEEE9construct
   store ptr %39, ptr %9, align 8
   br label %_ZNSt6vectorIN2cv3PtrINS0_5kinfu6SubmapINS0_4UMatEEEEESaIS6_EE9push_backERKS6_.exit
 
-40:                                               ; preds = %_ZN2cvL7makePtrINS_5kinfu6SubmapINS_4UMatEEEJiNS1_12VolumeParamsENS_7Affine3IfEEiEEENS_3PtrIT_EEDpRKT0_.argprom.exit
+40:                                               ; preds = %_ZN2cvL7makePtrINS_5kinfu6SubmapINS_4UMatEEEJiNS1_12VolumeParamsENS_7Affine3IfEEiEEENS_3PtrIT_EEDpRKT0_.exit
   invoke void @_ZNSt6vectorIN2cv3PtrINS0_5kinfu6SubmapINS0_4UMatEEEEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr %24, ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZNSt6vectorIN2cv3PtrINS0_5kinfu6SubmapINS0_4UMatEEEEESaIS6_EE9push_backERKS6_.exit unwind label %115
 
@@ -17260,8 +17260,8 @@ attributes #27 = { nounwind willreturn memory(read) }
 !261 = distinct !{!261, !262, !"_ZNK2cv5kinfu13SubmapManagerINS_3MatEE16getCurrentSubmapEv: argument 0"}
 !262 = distinct !{!262, !"_ZNK2cv5kinfu13SubmapManagerINS_3MatEE16getCurrentSubmapEv"}
 !263 = !{!264}
-!264 = distinct !{!264, !265, !"_ZN2cvL7makePtrINS_5kinfu6SubmapINS_3MatEEEJiNS1_12VolumeParamsENS_7Affine3IfEEiEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!265 = distinct !{!265, !"_ZN2cvL7makePtrINS_5kinfu6SubmapINS_3MatEEEJiNS1_12VolumeParamsENS_7Affine3IfEEiEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!264 = distinct !{!264, !265, !"_ZN2cvL7makePtrINS_5kinfu6SubmapINS_3MatEEEJiNS1_12VolumeParamsENS_7Affine3IfEEiEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!265 = distinct !{!265, !"_ZN2cvL7makePtrINS_5kinfu6SubmapINS_3MatEEEJiNS1_12VolumeParamsENS_7Affine3IfEEiEEENS_3PtrIT_EEDpRKT0_"}
 !266 = !{!267, !264}
 !267 = distinct !{!267, !268, !"_ZSt11make_sharedIN2cv5kinfu6SubmapINS0_3MatEEEJRKiRKNS1_12VolumeParamsERKNS0_7Affine3IfEES6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESG_E4typeEEDpOT0_: argument 0"}
 !268 = distinct !{!268, !"_ZSt11make_sharedIN2cv5kinfu6SubmapINS0_3MatEEEJRKiRKNS1_12VolumeParamsERKNS0_7Affine3IfEES6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESG_E4typeEEDpOT0_"}
@@ -17412,8 +17412,8 @@ attributes #27 = { nounwind willreturn memory(read) }
 !413 = distinct !{!413, !414, !"_ZNK2cv5kinfu13SubmapManagerINS_4UMatEE16getCurrentSubmapEv: argument 0"}
 !414 = distinct !{!414, !"_ZNK2cv5kinfu13SubmapManagerINS_4UMatEE16getCurrentSubmapEv"}
 !415 = !{!416}
-!416 = distinct !{!416, !417, !"_ZN2cvL7makePtrINS_5kinfu6SubmapINS_4UMatEEEJiNS1_12VolumeParamsENS_7Affine3IfEEiEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!417 = distinct !{!417, !"_ZN2cvL7makePtrINS_5kinfu6SubmapINS_4UMatEEEJiNS1_12VolumeParamsENS_7Affine3IfEEiEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!416 = distinct !{!416, !417, !"_ZN2cvL7makePtrINS_5kinfu6SubmapINS_4UMatEEEJiNS1_12VolumeParamsENS_7Affine3IfEEiEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!417 = distinct !{!417, !"_ZN2cvL7makePtrINS_5kinfu6SubmapINS_4UMatEEEJiNS1_12VolumeParamsENS_7Affine3IfEEiEEENS_3PtrIT_EEDpRKT0_"}
 !418 = !{!419, !416}
 !419 = distinct !{!419, !420, !"_ZSt11make_sharedIN2cv5kinfu6SubmapINS0_4UMatEEEJRKiRKNS1_12VolumeParamsERKNS0_7Affine3IfEES6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESG_E4typeEEDpOT0_: argument 0"}
 !420 = distinct !{!420, !"_ZSt11make_sharedIN2cv5kinfu6SubmapINS0_4UMatEEEJRKiRKNS1_12VolumeParamsERKNS0_7Affine3IfEES6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESG_E4typeEEDpOT0_"}

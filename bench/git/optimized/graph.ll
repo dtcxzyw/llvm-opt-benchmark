@@ -124,7 +124,7 @@ if.else:                                          ; preds = %if.then
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #16
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %call.i
   %cmp1.i = icmp sgt i64 %call.i, 0
-  br i1 %cmp1.i, label %while.body.i, label %parse_graph_colors_config.argprom.exit
+  br i1 %cmp1.i, label %while.body.i, label %parse_graph_colors_config.exit
 
 while.body.i:                                     ; preds = %if.else, %if.end.i
   %start.02.i = phi ptr [ %add.ptr10.i, %if.end.i ], [ %2, %if.else ]
@@ -144,23 +144,23 @@ if.then.i:                                        ; preds = %while.body.i
 if.else.i:                                        ; preds = %while.body.i
   %3 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i.i = icmp eq i32 %3, 0
-  br i1 %tobool1.not.i.i, label %_.argprom.exit.i, label %if.end3.i.i
+  br i1 %tobool1.not.i.i, label %_.exit.i, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.else.i
   %call.i.i = call ptr @gettext(ptr noundef nonnull @.str.1) #15
-  br label %_.argprom.exit.i
+  br label %_.exit.i
 
-_.argprom.exit.i:                                 ; preds = %if.end3.i.i, %if.else.i
+_.exit.i:                                         ; preds = %if.end3.i.i, %if.else.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.end3.i.i ], [ @.str.1, %if.else.i ]
   call void (ptr, ...) @warning(ptr noundef %retval.0.i.i, i32 noundef %conv.i, ptr noundef %start.02.i) #15
   br label %if.end.i
 
-if.end.i:                                         ; preds = %_.argprom.exit.i, %if.then.i
+if.end.i:                                         ; preds = %_.exit.i, %if.then.i
   %add.ptr10.i = getelementptr inbounds i8, ptr %call1.i, i64 1
   %cmp.i = icmp ult ptr %add.ptr10.i, %add.ptr.i
-  br i1 %cmp.i, label %while.body.i, label %parse_graph_colors_config.argprom.exit, !llvm.loop !5
+  br i1 %cmp.i, label %while.body.i, label %parse_graph_colors_config.exit, !llvm.loop !5
 
-parse_graph_colors_config.argprom.exit:           ; preds = %if.end.i, %if.else
+parse_graph_colors_config.exit:                   ; preds = %if.end.i, %if.else
   %call11.i = call ptr @strvec_push(ptr noundef nonnull @graph_init.custom_colors, ptr noundef nonnull @.str.2) #15
   call void @llvm.lifetime.end.p0(i64 75, ptr nonnull %color.i)
   %4 = load ptr, ptr %string, align 8
@@ -173,8 +173,8 @@ parse_graph_colors_config.argprom.exit:           ; preds = %if.end.i, %if.else
   store i16 %conv4, ptr @column_colors_max, align 2
   br label %if.end5
 
-if.end5:                                          ; preds = %entry.if.end5_crit_edge, %if.then3, %parse_graph_colors_config.argprom.exit
-  %8 = phi i16 [ %.pre, %entry.if.end5_crit_edge ], [ %conv, %if.then3 ], [ %conv4, %parse_graph_colors_config.argprom.exit ]
+if.end5:                                          ; preds = %entry.if.end5_crit_edge, %if.then3, %parse_graph_colors_config.exit
+  %8 = phi i16 [ %.pre, %entry.if.end5_crit_edge ], [ %conv, %if.then3 ], [ %conv4, %parse_graph_colors_config.exit ]
   store ptr null, ptr %call, align 8
   %revs = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %opt, ptr %revs, align 8
@@ -298,27 +298,27 @@ if.end.i:                                         ; preds = %entry
   %2 = getelementptr i8, ptr %graph, i64 8
   %graph.val.i = load ptr, ptr %2, align 8
   %tobool.not.i.i = icmp eq ptr %graph.val.i, null
-  br i1 %tobool.not.i.i, label %graph_is_interesting.argprom.exit.i, label %land.lhs.true.i.i
+  br i1 %tobool.not.i.i, label %graph_is_interesting.exit.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i
   %boundary.i.i = getelementptr inbounds i8, ptr %graph.val.i, i64 280
   %bf.load.i.i = load i64, ptr %boundary.i.i, align 8
   %3 = and i64 %bf.load.i.i, 12582912
   %tobool2.not.i.i = icmp eq i64 %3, 0
-  br i1 %tobool2.not.i.i, label %graph_is_interesting.argprom.exit.i, label %if.then.i.i
+  br i1 %tobool2.not.i.i, label %graph_is_interesting.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %bf.load3.i.i = load i32, ptr %1, align 8
   %4 = and i32 %bf.load3.i.i, 1024
   %tobool5.not.i.i = icmp eq i32 %4, 0
-  br i1 %tobool5.not.i.i, label %graph_is_interesting.argprom.exit.i, label %for.body.lr.ph
+  br i1 %tobool5.not.i.i, label %graph_is_interesting.exit.i, label %for.body.lr.ph
 
-graph_is_interesting.argprom.exit.i:              ; preds = %if.then.i.i, %land.lhs.true.i.i, %if.end.i
+graph_is_interesting.exit.i:                      ; preds = %if.then.i.i, %land.lhs.true.i.i, %if.end.i
   %call.i.i = tail call i32 @get_commit_action(ptr noundef %graph.val.i, ptr noundef %1) #15
   %cmp.i.not.i = icmp eq i32 %call.i.i, 1
   br i1 %cmp.i.not.i, label %for.body.lr.ph, label %if.end4.i
 
-if.end4.i:                                        ; preds = %graph_is_interesting.argprom.exit.i
+if.end4.i:                                        ; preds = %graph_is_interesting.exit.i
   %5 = load ptr, ptr %2, align 8
   %first_parent_only.i.i = getelementptr inbounds i8, ptr %5, i64 280
   %bf.load.i6.i = load i64, ptr %first_parent_only.i.i, align 8
@@ -326,8 +326,8 @@ if.end4.i:                                        ; preds = %graph_is_interestin
   %tobool.not.i7.i = icmp eq i64 %6, 0
   br i1 %tobool.not.i7.i, label %for.cond.i.i, label %for.end
 
-for.cond.i.i:                                     ; preds = %if.end4.i, %graph_is_interesting.argprom.exit.i.i
-  %orig.pn.i.i = phi ptr [ %list.0.i.i, %graph_is_interesting.argprom.exit.i.i ], [ %0, %if.end4.i ]
+for.cond.i.i:                                     ; preds = %if.end4.i, %graph_is_interesting.exit.i.i
+  %orig.pn.i.i = phi ptr [ %list.0.i.i, %graph_is_interesting.exit.i.i ], [ %0, %if.end4.i ]
   %list.0.in.i.i = getelementptr inbounds i8, ptr %orig.pn.i.i, i64 8
   %list.0.i.i = load ptr, ptr %list.0.in.i.i, align 8
   %tobool1.not.i.i = icmp eq ptr %list.0.i.i, null
@@ -337,28 +337,28 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   %7 = load ptr, ptr %list.0.i.i, align 8
   %graph.val.i.i = load ptr, ptr %2, align 8
   %tobool.not.i.i.i = icmp eq ptr %graph.val.i.i, null
-  br i1 %tobool.not.i.i.i, label %graph_is_interesting.argprom.exit.i.i, label %land.lhs.true.i.i.i
+  br i1 %tobool.not.i.i.i, label %graph_is_interesting.exit.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %for.body.i.i
   %boundary.i.i.i = getelementptr inbounds i8, ptr %graph.val.i.i, i64 280
   %bf.load.i.i.i = load i64, ptr %boundary.i.i.i, align 8
   %8 = and i64 %bf.load.i.i.i, 12582912
   %tobool2.not.i.i.i = icmp eq i64 %8, 0
-  br i1 %tobool2.not.i.i.i, label %graph_is_interesting.argprom.exit.i.i, label %if.then.i.i.i
+  br i1 %tobool2.not.i.i.i, label %graph_is_interesting.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   %bf.load3.i.i.i = load i32, ptr %7, align 8
   %9 = and i32 %bf.load3.i.i.i, 1024
   %tobool5.not.i.i.i = icmp eq i32 %9, 0
-  br i1 %tobool5.not.i.i.i, label %graph_is_interesting.argprom.exit.i.i, label %for.body.lr.ph
+  br i1 %tobool5.not.i.i.i, label %graph_is_interesting.exit.i.i, label %for.body.lr.ph
 
-graph_is_interesting.argprom.exit.i.i:            ; preds = %if.then.i.i.i, %land.lhs.true.i.i.i, %for.body.i.i
+graph_is_interesting.exit.i.i:                    ; preds = %if.then.i.i.i, %land.lhs.true.i.i.i, %for.body.i.i
   %call.i.i.i = tail call i32 @get_commit_action(ptr noundef %graph.val.i.i, ptr noundef %7) #15
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 1
   br i1 %cmp.i.not.i.i, label %for.body.lr.ph, label %for.cond.i.i, !llvm.loop !7
 
-for.body.lr.ph:                                   ; preds = %graph_is_interesting.argprom.exit.i.i, %if.then.i.i.i, %graph_is_interesting.argprom.exit.i, %if.then.i.i
-  %retval.0.i.ph = phi ptr [ %0, %if.then.i.i ], [ %0, %graph_is_interesting.argprom.exit.i ], [ %list.0.i.i, %if.then.i.i.i ], [ %list.0.i.i, %graph_is_interesting.argprom.exit.i.i ]
+for.body.lr.ph:                                   ; preds = %graph_is_interesting.exit.i.i, %if.then.i.i.i, %graph_is_interesting.exit.i, %if.then.i.i
+  %retval.0.i.ph = phi ptr [ %0, %if.then.i.i ], [ %0, %graph_is_interesting.exit.i ], [ %list.0.i.i, %if.then.i.i.i ], [ %list.0.i.i, %graph_is_interesting.exit.i.i ]
   %revs.i = getelementptr inbounds i8, ptr %graph, i64 8
   %10 = load i32, ptr %num_parents, align 8
   %inc108 = add nsw i32 %10, 1
@@ -381,30 +381,30 @@ for.body.i:                                       ; preds = %for.cond.i
   %13 = load ptr, ptr %list.0.i, align 8
   %graph.val.i17 = load ptr, ptr %revs.i, align 8
   %tobool.not.i.i18 = icmp eq ptr %graph.val.i17, null
-  br i1 %tobool.not.i.i18, label %graph_is_interesting.argprom.exit.i26, label %land.lhs.true.i.i19
+  br i1 %tobool.not.i.i18, label %graph_is_interesting.exit.i26, label %land.lhs.true.i.i19
 
 land.lhs.true.i.i19:                              ; preds = %for.body.i
   %boundary.i.i20 = getelementptr inbounds i8, ptr %graph.val.i17, i64 280
   %bf.load.i.i21 = load i64, ptr %boundary.i.i20, align 8
   %14 = and i64 %bf.load.i.i21, 12582912
   %tobool2.not.i.i22 = icmp eq i64 %14, 0
-  br i1 %tobool2.not.i.i22, label %graph_is_interesting.argprom.exit.i26, label %if.then.i.i23
+  br i1 %tobool2.not.i.i22, label %graph_is_interesting.exit.i26, label %if.then.i.i23
 
 if.then.i.i23:                                    ; preds = %land.lhs.true.i.i19
   %bf.load3.i.i24 = load i32, ptr %13, align 8
   %15 = and i32 %bf.load3.i.i24, 1024
   %tobool5.not.i.i25 = icmp eq i32 %15, 0
-  br i1 %tobool5.not.i.i25, label %graph_is_interesting.argprom.exit.i26, label %next_interesting_parent.exit
+  br i1 %tobool5.not.i.i25, label %graph_is_interesting.exit.i26, label %next_interesting_parent.exit
 
-graph_is_interesting.argprom.exit.i26:            ; preds = %if.then.i.i23, %land.lhs.true.i.i19, %for.body.i
+graph_is_interesting.exit.i26:                    ; preds = %if.then.i.i23, %land.lhs.true.i.i19, %for.body.i
   %call.i.i27 = tail call i32 @get_commit_action(ptr noundef %graph.val.i17, ptr noundef %13) #15
   %cmp.i.not.i28 = icmp eq i32 %call.i.i27, 1
   br i1 %cmp.i.not.i28, label %next_interesting_parent.exit, label %for.cond.i.backedge
 
-for.cond.i.backedge:                              ; preds = %graph_is_interesting.argprom.exit.i26, %next_interesting_parent.exit
+for.cond.i.backedge:                              ; preds = %graph_is_interesting.exit.i26, %next_interesting_parent.exit
   br label %for.cond.i, !llvm.loop !8
 
-next_interesting_parent.exit:                     ; preds = %if.then.i.i23, %graph_is_interesting.argprom.exit.i26
+next_interesting_parent.exit:                     ; preds = %if.then.i.i23, %graph_is_interesting.exit.i26
   %16 = load i32, ptr %num_parents, align 8
   %inc = add nsw i32 %16, 1
   store i32 %inc, ptr %num_parents, align 8
@@ -588,27 +588,27 @@ if.end.i.i:                                       ; preds = %if.then20.i
   %42 = load ptr, ptr %41, align 8
   %graph.val.i.i30 = load ptr, ptr %revs.i.i.i86.i, align 8
   %tobool.not.i.i.i31 = icmp eq ptr %graph.val.i.i30, null
-  br i1 %tobool.not.i.i.i31, label %graph_is_interesting.argprom.exit.i.i47, label %land.lhs.true.i.i.i32
+  br i1 %tobool.not.i.i.i31, label %graph_is_interesting.exit.i.i47, label %land.lhs.true.i.i.i32
 
 land.lhs.true.i.i.i32:                            ; preds = %if.end.i.i
   %boundary.i.i.i33 = getelementptr inbounds i8, ptr %graph.val.i.i30, i64 280
   %bf.load.i.i.i34 = load i64, ptr %boundary.i.i.i33, align 8
   %43 = and i64 %bf.load.i.i.i34, 12582912
   %tobool2.not.i.i.i35 = icmp eq i64 %43, 0
-  br i1 %tobool2.not.i.i.i35, label %graph_is_interesting.argprom.exit.i.i47, label %if.then.i.i50.i
+  br i1 %tobool2.not.i.i.i35, label %graph_is_interesting.exit.i.i47, label %if.then.i.i50.i
 
 if.then.i.i50.i:                                  ; preds = %land.lhs.true.i.i.i32
   %bf.load3.i.i.i36 = load i32, ptr %42, align 8
   %44 = and i32 %bf.load3.i.i.i36, 1024
   %tobool5.not.i.i.i37 = icmp eq i32 %44, 0
-  br i1 %tobool5.not.i.i.i37, label %graph_is_interesting.argprom.exit.i.i47, label %for.body23.lr.ph.i
+  br i1 %tobool5.not.i.i.i37, label %graph_is_interesting.exit.i.i47, label %for.body23.lr.ph.i
 
-graph_is_interesting.argprom.exit.i.i47:          ; preds = %if.then.i.i50.i, %land.lhs.true.i.i.i32, %if.end.i.i
+graph_is_interesting.exit.i.i47:                  ; preds = %if.then.i.i50.i, %land.lhs.true.i.i.i32, %if.end.i.i
   %call.i.i.i48 = tail call i32 @get_commit_action(ptr noundef %graph.val.i.i30, ptr noundef %42) #15
   %cmp.i.not.i.i49 = icmp eq i32 %call.i.i.i48, 1
   br i1 %cmp.i.not.i.i49, label %for.body23.lr.ph.i, label %if.end4.i.i
 
-if.end4.i.i:                                      ; preds = %graph_is_interesting.argprom.exit.i.i47
+if.end4.i.i:                                      ; preds = %graph_is_interesting.exit.i.i47
   %45 = load ptr, ptr %revs.i.i.i86.i, align 8
   %first_parent_only.i.i.i = getelementptr inbounds i8, ptr %45, i64 280
   %bf.load.i6.i.i = load i64, ptr %first_parent_only.i.i.i, align 8
@@ -616,8 +616,8 @@ if.end4.i.i:                                      ; preds = %graph_is_interestin
   %tobool.not.i7.i.i = icmp eq i64 %46, 0
   br i1 %tobool.not.i7.i.i, label %for.cond.i.i.i, label %for.end31.i
 
-for.cond.i.i.i:                                   ; preds = %if.end4.i.i, %graph_is_interesting.argprom.exit.i.i.i
-  %orig.pn.i.i.i = phi ptr [ %list.0.i.i.i, %graph_is_interesting.argprom.exit.i.i.i ], [ %41, %if.end4.i.i ]
+for.cond.i.i.i:                                   ; preds = %if.end4.i.i, %graph_is_interesting.exit.i.i.i
+  %orig.pn.i.i.i = phi ptr [ %list.0.i.i.i, %graph_is_interesting.exit.i.i.i ], [ %41, %if.end4.i.i ]
   %list.0.in.i.i.i = getelementptr inbounds i8, ptr %orig.pn.i.i.i, i64 8
   %list.0.i.i.i = load ptr, ptr %list.0.in.i.i.i, align 8
   %tobool1.not.i.i.i = icmp eq ptr %list.0.i.i.i, null
@@ -627,28 +627,28 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
   %47 = load ptr, ptr %list.0.i.i.i, align 8
   %graph.val.i.i.i = load ptr, ptr %revs.i.i.i86.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %graph.val.i.i.i, null
-  br i1 %tobool.not.i.i.i.i, label %graph_is_interesting.argprom.exit.i.i.i, label %land.lhs.true.i.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %graph_is_interesting.exit.i.i.i, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %for.body.i.i.i
   %boundary.i.i.i.i = getelementptr inbounds i8, ptr %graph.val.i.i.i, i64 280
   %bf.load.i.i.i.i = load i64, ptr %boundary.i.i.i.i, align 8
   %48 = and i64 %bf.load.i.i.i.i, 12582912
   %tobool2.not.i.i.i.i = icmp eq i64 %48, 0
-  br i1 %tobool2.not.i.i.i.i, label %graph_is_interesting.argprom.exit.i.i.i, label %if.then.i.i.i.i
+  br i1 %tobool2.not.i.i.i.i, label %graph_is_interesting.exit.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
   %bf.load3.i.i.i.i = load i32, ptr %47, align 8
   %49 = and i32 %bf.load3.i.i.i.i, 1024
   %tobool5.not.i.i.i.i = icmp eq i32 %49, 0
-  br i1 %tobool5.not.i.i.i.i, label %graph_is_interesting.argprom.exit.i.i.i, label %for.body23.lr.ph.i
+  br i1 %tobool5.not.i.i.i.i, label %graph_is_interesting.exit.i.i.i, label %for.body23.lr.ph.i
 
-graph_is_interesting.argprom.exit.i.i.i:          ; preds = %if.then.i.i.i.i, %land.lhs.true.i.i.i.i, %for.body.i.i.i
+graph_is_interesting.exit.i.i.i:                  ; preds = %if.then.i.i.i.i, %land.lhs.true.i.i.i.i, %for.body.i.i.i
   %call.i.i.i.i = tail call i32 @get_commit_action(ptr noundef %graph.val.i.i.i, ptr noundef %47) #15
   %cmp.i.not.i.i.i = icmp eq i32 %call.i.i.i.i, 1
   br i1 %cmp.i.not.i.i.i, label %for.body23.lr.ph.i, label %for.cond.i.i.i, !llvm.loop !7
 
-for.body23.lr.ph.i:                               ; preds = %graph_is_interesting.argprom.exit.i.i.i, %if.then.i.i.i.i, %graph_is_interesting.argprom.exit.i.i47, %if.then.i.i50.i
-  %retval.0.i.ph.i = phi ptr [ %41, %if.then.i.i50.i ], [ %41, %graph_is_interesting.argprom.exit.i.i47 ], [ %list.0.i.i.i, %if.then.i.i.i.i ], [ %list.0.i.i.i, %graph_is_interesting.argprom.exit.i.i.i ]
+for.body23.lr.ph.i:                               ; preds = %graph_is_interesting.exit.i.i.i, %if.then.i.i.i.i, %graph_is_interesting.exit.i.i47, %if.then.i.i50.i
+  %retval.0.i.ph.i = phi ptr [ %41, %if.then.i.i50.i ], [ %41, %graph_is_interesting.exit.i.i47 ], [ %list.0.i.i.i, %if.then.i.i.i.i ], [ %list.0.i.i.i, %graph_is_interesting.exit.i.i.i ]
   %tobool26.i = icmp ne i32 %is_commit_in_columns.1.i, 0
   br label %for.body23.i
 
@@ -819,8 +819,8 @@ graph_insert_into_new_columns.exit.i:             ; preds = %if.else39.i.i, %if.
   %tobool.not.i61.i = icmp eq i64 %75, 0
   br i1 %tobool.not.i61.i, label %for.cond.i.i41, label %for.end31.i
 
-for.cond.i.i41:                                   ; preds = %graph_insert_into_new_columns.exit.i, %graph_is_interesting.argprom.exit.i72.i
-  %orig.pn.i.i42 = phi ptr [ %list.0.i.i44, %graph_is_interesting.argprom.exit.i72.i ], [ %parent.0170.i, %graph_insert_into_new_columns.exit.i ]
+for.cond.i.i41:                                   ; preds = %graph_insert_into_new_columns.exit.i, %graph_is_interesting.exit.i72.i
+  %orig.pn.i.i42 = phi ptr [ %list.0.i.i44, %graph_is_interesting.exit.i72.i ], [ %parent.0170.i, %graph_insert_into_new_columns.exit.i ]
   %list.0.in.i.i43 = getelementptr inbounds i8, ptr %orig.pn.i.i42, i64 8
   %list.0.i.i44 = load ptr, ptr %list.0.in.i.i43, align 8
   %tobool1.not.i.i45 = icmp eq ptr %list.0.i.i44, null
@@ -830,27 +830,27 @@ for.body.i.i46:                                   ; preds = %for.cond.i.i41
   %76 = load ptr, ptr %list.0.i.i44, align 8
   %graph.val.i63.i = load ptr, ptr %revs.i.i.i86.i, align 8
   %tobool.not.i.i64.i = icmp eq ptr %graph.val.i63.i, null
-  br i1 %tobool.not.i.i64.i, label %graph_is_interesting.argprom.exit.i72.i, label %land.lhs.true.i.i65.i
+  br i1 %tobool.not.i.i64.i, label %graph_is_interesting.exit.i72.i, label %land.lhs.true.i.i65.i
 
 land.lhs.true.i.i65.i:                            ; preds = %for.body.i.i46
   %boundary.i.i66.i = getelementptr inbounds i8, ptr %graph.val.i63.i, i64 280
   %bf.load.i.i67.i = load i64, ptr %boundary.i.i66.i, align 8
   %77 = and i64 %bf.load.i.i67.i, 12582912
   %tobool2.not.i.i68.i = icmp eq i64 %77, 0
-  br i1 %tobool2.not.i.i68.i, label %graph_is_interesting.argprom.exit.i72.i, label %if.then.i.i69.i
+  br i1 %tobool2.not.i.i68.i, label %graph_is_interesting.exit.i72.i, label %if.then.i.i69.i
 
 if.then.i.i69.i:                                  ; preds = %land.lhs.true.i.i65.i
   %bf.load3.i.i70.i = load i32, ptr %76, align 8
   %78 = and i32 %bf.load3.i.i70.i, 1024
   %tobool5.not.i.i71.i = icmp eq i32 %78, 0
-  br i1 %tobool5.not.i.i71.i, label %graph_is_interesting.argprom.exit.i72.i, label %next_interesting_parent.exit.i
+  br i1 %tobool5.not.i.i71.i, label %graph_is_interesting.exit.i72.i, label %next_interesting_parent.exit.i
 
-graph_is_interesting.argprom.exit.i72.i:          ; preds = %if.then.i.i69.i, %land.lhs.true.i.i65.i, %for.body.i.i46
+graph_is_interesting.exit.i72.i:                  ; preds = %if.then.i.i69.i, %land.lhs.true.i.i65.i, %for.body.i.i46
   %call.i.i73.i = tail call i32 @get_commit_action(ptr noundef %graph.val.i63.i, ptr noundef %76) #15
   %cmp.i.not.i74.i = icmp eq i32 %call.i.i73.i, 1
   br i1 %cmp.i.not.i74.i, label %next_interesting_parent.exit.i, label %for.cond.i.i41, !llvm.loop !7
 
-next_interesting_parent.exit.i:                   ; preds = %graph_is_interesting.argprom.exit.i72.i, %if.then.i.i69.i
+next_interesting_parent.exit.i:                   ; preds = %graph_is_interesting.exit.i72.i, %if.then.i.i69.i
   br label %for.body23.i, !llvm.loop !13
 
 for.end31.i:                                      ; preds = %for.cond.i.i.i, %graph_insert_into_new_columns.exit.i, %for.cond.i.i41, %if.end4.i.i, %if.then20.i
@@ -1731,27 +1731,27 @@ if.end.i.i87:                                     ; preds = %sw.bb4
   %130 = getelementptr i8, ptr %graph, i64 8
   %graph.val.i.i = load ptr, ptr %130, align 8
   %tobool.not.i.i.i88 = icmp eq ptr %graph.val.i.i, null
-  br i1 %tobool.not.i.i.i88, label %graph_is_interesting.argprom.exit.i.i, label %land.lhs.true.i.i.i
+  br i1 %tobool.not.i.i.i88, label %graph_is_interesting.exit.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end.i.i87
   %boundary.i.i.i = getelementptr inbounds i8, ptr %graph.val.i.i, i64 280
   %bf.load.i.i.i = load i64, ptr %boundary.i.i.i, align 8
   %131 = and i64 %bf.load.i.i.i, 12582912
   %tobool2.not.i.i.i = icmp eq i64 %131, 0
-  br i1 %tobool2.not.i.i.i, label %graph_is_interesting.argprom.exit.i.i, label %if.then.i.i.i89
+  br i1 %tobool2.not.i.i.i, label %graph_is_interesting.exit.i.i, label %if.then.i.i.i89
 
 if.then.i.i.i89:                                  ; preds = %land.lhs.true.i.i.i
   %bf.load3.i.i.i = load i32, ptr %129, align 8
   %132 = and i32 %bf.load3.i.i.i, 1024
   %tobool5.not.i.i.i = icmp eq i32 %132, 0
-  br i1 %tobool5.not.i.i.i, label %graph_is_interesting.argprom.exit.i.i, label %first_interesting_parent.exit.i
+  br i1 %tobool5.not.i.i.i, label %graph_is_interesting.exit.i.i, label %first_interesting_parent.exit.i
 
-graph_is_interesting.argprom.exit.i.i:            ; preds = %if.then.i.i.i89, %land.lhs.true.i.i.i, %if.end.i.i87
+graph_is_interesting.exit.i.i:                    ; preds = %if.then.i.i.i89, %land.lhs.true.i.i.i, %if.end.i.i87
   %call.i.i.i165 = tail call i32 @get_commit_action(ptr noundef %graph.val.i.i, ptr noundef %129) #15
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i165, 1
   br i1 %cmp.i.not.i.i, label %first_interesting_parent.exit.i, label %if.end4.i.i
 
-if.end4.i.i:                                      ; preds = %graph_is_interesting.argprom.exit.i.i
+if.end4.i.i:                                      ; preds = %graph_is_interesting.exit.i.i
   %133 = load ptr, ptr %130, align 8
   %first_parent_only.i.i.i = getelementptr inbounds i8, ptr %133, i64 280
   %bf.load.i6.i.i = load i64, ptr %first_parent_only.i.i.i, align 8
@@ -1759,8 +1759,8 @@ if.end4.i.i:                                      ; preds = %graph_is_interestin
   %tobool.not.i7.i.i = icmp eq i64 %134, 0
   br i1 %tobool.not.i7.i.i, label %for.cond.i.i.i, label %first_interesting_parent.exit.i
 
-for.cond.i.i.i:                                   ; preds = %if.end4.i.i, %graph_is_interesting.argprom.exit.i.i.i
-  %orig.pn.i.i.i = phi ptr [ %list.0.i.i.i, %graph_is_interesting.argprom.exit.i.i.i ], [ %128, %if.end4.i.i ]
+for.cond.i.i.i:                                   ; preds = %if.end4.i.i, %graph_is_interesting.exit.i.i.i
+  %orig.pn.i.i.i = phi ptr [ %list.0.i.i.i, %graph_is_interesting.exit.i.i.i ], [ %128, %if.end4.i.i ]
   %list.0.in.i.i.i = getelementptr inbounds i8, ptr %orig.pn.i.i.i, i64 8
   %list.0.i.i.i = load ptr, ptr %list.0.in.i.i.i, align 8
   %tobool1.not.i.i.i = icmp eq ptr %list.0.i.i.i, null
@@ -1770,28 +1770,28 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
   %135 = load ptr, ptr %list.0.i.i.i, align 8
   %graph.val.i.i.i = load ptr, ptr %130, align 8
   %tobool.not.i.i.i.i166 = icmp eq ptr %graph.val.i.i.i, null
-  br i1 %tobool.not.i.i.i.i166, label %graph_is_interesting.argprom.exit.i.i.i, label %land.lhs.true.i.i.i.i
+  br i1 %tobool.not.i.i.i.i166, label %graph_is_interesting.exit.i.i.i, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %for.body.i.i.i
   %boundary.i.i.i.i = getelementptr inbounds i8, ptr %graph.val.i.i.i, i64 280
   %bf.load.i.i.i.i = load i64, ptr %boundary.i.i.i.i, align 8
   %136 = and i64 %bf.load.i.i.i.i, 12582912
   %tobool2.not.i.i.i.i = icmp eq i64 %136, 0
-  br i1 %tobool2.not.i.i.i.i, label %graph_is_interesting.argprom.exit.i.i.i, label %if.then.i.i.i.i167
+  br i1 %tobool2.not.i.i.i.i, label %graph_is_interesting.exit.i.i.i, label %if.then.i.i.i.i167
 
 if.then.i.i.i.i167:                               ; preds = %land.lhs.true.i.i.i.i
   %bf.load3.i.i.i.i = load i32, ptr %135, align 8
   %137 = and i32 %bf.load3.i.i.i.i, 1024
   %tobool5.not.i.i.i.i = icmp eq i32 %137, 0
-  br i1 %tobool5.not.i.i.i.i, label %graph_is_interesting.argprom.exit.i.i.i, label %first_interesting_parent.exit.i
+  br i1 %tobool5.not.i.i.i.i, label %graph_is_interesting.exit.i.i.i, label %first_interesting_parent.exit.i
 
-graph_is_interesting.argprom.exit.i.i.i:          ; preds = %if.then.i.i.i.i167, %land.lhs.true.i.i.i.i, %for.body.i.i.i
+graph_is_interesting.exit.i.i.i:                  ; preds = %if.then.i.i.i.i167, %land.lhs.true.i.i.i.i, %for.body.i.i.i
   %call.i.i.i.i168 = tail call i32 @get_commit_action(ptr noundef %graph.val.i.i.i, ptr noundef %135) #15
   %cmp.i.not.i.i.i = icmp eq i32 %call.i.i.i.i168, 1
   br i1 %cmp.i.not.i.i.i, label %first_interesting_parent.exit.i, label %for.cond.i.i.i, !llvm.loop !7
 
-first_interesting_parent.exit.i:                  ; preds = %graph_is_interesting.argprom.exit.i.i.i, %if.then.i.i.i.i167, %for.cond.i.i.i, %if.end4.i.i, %graph_is_interesting.argprom.exit.i.i, %if.then.i.i.i89, %sw.bb4
-  %retval.0.i.i = phi ptr [ null, %sw.bb4 ], [ %128, %graph_is_interesting.argprom.exit.i.i ], [ null, %if.end4.i.i ], [ %128, %if.then.i.i.i89 ], [ %list.0.i.i.i, %graph_is_interesting.argprom.exit.i.i.i ], [ null, %for.cond.i.i.i ], [ %list.0.i.i.i, %if.then.i.i.i.i167 ]
+first_interesting_parent.exit.i:                  ; preds = %graph_is_interesting.exit.i.i.i, %if.then.i.i.i.i167, %for.cond.i.i.i, %if.end4.i.i, %graph_is_interesting.exit.i.i, %if.then.i.i.i89, %sw.bb4
+  %retval.0.i.i = phi ptr [ null, %sw.bb4 ], [ %128, %graph_is_interesting.exit.i.i ], [ null, %if.end4.i.i ], [ %128, %if.then.i.i.i89 ], [ %list.0.i.i.i, %graph_is_interesting.exit.i.i.i ], [ null, %for.cond.i.i.i ], [ %list.0.i.i.i, %if.then.i.i.i.i167 ]
   %num_columns.i90 = getelementptr inbounds i8, ptr %graph, i64 60
   %138 = load i32, ptr %num_columns.i90, align 4
   %cmp.not149.i = icmp slt i32 %138, 0
@@ -2004,8 +2004,8 @@ if.end25.i:                                       ; preds = %if.else24.i, %graph
   %tobool.not.i54.i = icmp eq i64 %175, 0
   br i1 %tobool.not.i54.i, label %for.cond.i.i130, label %next_interesting_parent.exit.i
 
-for.cond.i.i130:                                  ; preds = %if.end25.i, %graph_is_interesting.argprom.exit.i66.i
-  %orig.pn.i.i = phi ptr [ %list.0.i.i, %graph_is_interesting.argprom.exit.i66.i ], [ %parents.0147.i, %if.end25.i ]
+for.cond.i.i130:                                  ; preds = %if.end25.i, %graph_is_interesting.exit.i66.i
+  %orig.pn.i.i = phi ptr [ %list.0.i.i, %graph_is_interesting.exit.i66.i ], [ %parents.0147.i, %if.end25.i ]
   %list.0.in.i.i = getelementptr inbounds i8, ptr %orig.pn.i.i, i64 8
   %list.0.i.i = load ptr, ptr %list.0.in.i.i, align 8
   %tobool1.not.i.i = icmp eq ptr %list.0.i.i, null
@@ -2015,28 +2015,28 @@ for.body.i56.i:                                   ; preds = %for.cond.i.i130
   %176 = load ptr, ptr %list.0.i.i, align 8
   %graph.val.i57.i = load ptr, ptr %revs.i.i95, align 8
   %tobool.not.i.i58.i = icmp eq ptr %graph.val.i57.i, null
-  br i1 %tobool.not.i.i58.i, label %graph_is_interesting.argprom.exit.i66.i, label %land.lhs.true.i.i59.i
+  br i1 %tobool.not.i.i58.i, label %graph_is_interesting.exit.i66.i, label %land.lhs.true.i.i59.i
 
 land.lhs.true.i.i59.i:                            ; preds = %for.body.i56.i
   %boundary.i.i60.i = getelementptr inbounds i8, ptr %graph.val.i57.i, i64 280
   %bf.load.i.i61.i = load i64, ptr %boundary.i.i60.i, align 8
   %177 = and i64 %bf.load.i.i61.i, 12582912
   %tobool2.not.i.i62.i = icmp eq i64 %177, 0
-  br i1 %tobool2.not.i.i62.i, label %graph_is_interesting.argprom.exit.i66.i, label %if.then.i.i63.i
+  br i1 %tobool2.not.i.i62.i, label %graph_is_interesting.exit.i66.i, label %if.then.i.i63.i
 
 if.then.i.i63.i:                                  ; preds = %land.lhs.true.i.i59.i
   %bf.load3.i.i64.i = load i32, ptr %176, align 8
   %178 = and i32 %bf.load3.i.i64.i, 1024
   %tobool5.not.i.i65.i = icmp eq i32 %178, 0
-  br i1 %tobool5.not.i.i65.i, label %graph_is_interesting.argprom.exit.i66.i, label %next_interesting_parent.exit.i
+  br i1 %tobool5.not.i.i65.i, label %graph_is_interesting.exit.i66.i, label %next_interesting_parent.exit.i
 
-graph_is_interesting.argprom.exit.i66.i:          ; preds = %if.then.i.i63.i, %land.lhs.true.i.i59.i, %for.body.i56.i
+graph_is_interesting.exit.i66.i:                  ; preds = %if.then.i.i63.i, %land.lhs.true.i.i59.i, %for.body.i56.i
   %call.i.i67.i = tail call i32 @get_commit_action(ptr noundef %graph.val.i57.i, ptr noundef %176) #15
   %cmp.i.not.i68.i = icmp eq i32 %call.i.i67.i, 1
   br i1 %cmp.i.not.i68.i, label %next_interesting_parent.exit.i, label %for.cond.i.i130, !llvm.loop !7
 
-next_interesting_parent.exit.i:                   ; preds = %graph_is_interesting.argprom.exit.i66.i, %if.then.i.i63.i, %for.cond.i.i130, %if.end25.i
-  %retval.0.i55.i = phi ptr [ null, %if.end25.i ], [ %list.0.i.i, %if.then.i.i63.i ], [ null, %for.cond.i.i130 ], [ %list.0.i.i, %graph_is_interesting.argprom.exit.i66.i ]
+next_interesting_parent.exit.i:                   ; preds = %graph_is_interesting.exit.i66.i, %if.then.i.i63.i, %for.cond.i.i130, %if.end25.i
+  %retval.0.i55.i = phi ptr [ null, %if.end25.i ], [ %list.0.i.i, %if.then.i.i63.i ], [ null, %for.cond.i.i130 ], [ %list.0.i.i, %graph_is_interesting.exit.i66.i ]
   %inc27.i = add nuw nsw i32 %j.0145.i, 1
   %179 = load i32, ptr %num_parents.i93, align 8
   %cmp10.i129 = icmp slt i32 %inc27.i, %179
@@ -2913,19 +2913,19 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   %graph.val = load i32, ptr %20, align 4
   %conv.i = sext i32 %graph.val to i64
   %cmp.i = icmp ult i64 %19, %conv.i
-  br i1 %cmp.i, label %if.then.i, label %graph_pad_horizontally.argprom.exit
+  br i1 %cmp.i, label %if.then.i, label %graph_pad_horizontally.exit
 
 if.then.i:                                        ; preds = %for.end
   %sub.i = sub nuw i64 %conv.i, %19
   tail call void @strbuf_addchars(ptr noundef %18, i32 noundef 32, i64 noundef %sub.i) #15
-  br label %graph_pad_horizontally.argprom.exit
+  br label %graph_pad_horizontally.exit
 
-graph_pad_horizontally.argprom.exit:              ; preds = %for.end, %if.then.i
+graph_pad_horizontally.exit:                      ; preds = %for.end, %if.then.i
   %prev_state = getelementptr inbounds i8, ptr %graph, i64 32
   store i32 0, ptr %prev_state, align 8
   br label %return
 
-return:                                           ; preds = %graph_pad_horizontally.argprom.exit, %if.then
+return:                                           ; preds = %graph_pad_horizontally.exit, %if.then
   ret void
 }
 

@@ -1326,7 +1326,7 @@ define internal fastcc noundef ptr @_ZL18getDereferenceExprPKN5clang4StmtEb(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_118DereferenceChecker14suppressReportERN5clang4ento14CheckerContextEPKNS1_4ExprE.argprom(i8 %.352.val, ptr nocapture readonly %.0.val, ptr nocapture noundef readonly %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_118DereferenceChecker14suppressReportERN5clang4ento14CheckerContextEPKNS1_4ExprE(i8 %.352.val, ptr nocapture readonly %.0.val, ptr nocapture noundef readonly %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %2, align 8
   %3 = and i64 %.sroa.0.0.copyload.i, -16
@@ -1594,7 +1594,7 @@ _ZNK5clang18ArraySubscriptExpr7getBaseEv.exit:    ; preds = %80, %88, %93, %_ZNK
   %.in.i = phi ptr [ %100, %99 ], [ %65, %80 ], [ %65, %88 ], [ %65, %93 ], [ %65, %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i ]
   %101 = load ptr, ptr %.in.i, align 8
   %102 = call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %101) #20
-  call fastcc void @_ZN12_GLOBAL__N_118DereferenceChecker14AddDerefSourceERN4llvm11raw_ostreamERNS1_15SmallVectorImplIN5clang11SourceRangeEEEPKNS5_4ExprEPKNS5_4ento12ProgramStateEPKNS5_15LocationContextEb.argprom(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %102, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_118DereferenceChecker14AddDerefSourceERN4llvm11raw_ostreamERNS1_15SmallVectorImplIN5clang11SourceRangeEEEPKNS5_4ExprEPKNS5_4ento12ProgramStateEPKNS5_15LocationContextEb(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %102, i1 noundef zeroext false)
   %103 = load ptr, ptr %52, align 8
   %104 = load ptr, ptr %54, align 8
   %105 = ptrtoint ptr %103 to i64
@@ -1640,7 +1640,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit43:               ; preds = %123, %125
   %128 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %129 = load ptr, ptr %128, align 8
   %130 = call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %129) #20
-  call fastcc void @_ZN12_GLOBAL__N_118DereferenceChecker14AddDerefSourceERN4llvm11raw_ostreamERNS1_15SmallVectorImplIN5clang11SourceRangeEEEPKNS5_4ExprEPKNS5_4ento12ProgramStateEPKNS5_15LocationContextEb.argprom(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %130, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_118DereferenceChecker14AddDerefSourceERN4llvm11raw_ostreamERNS1_15SmallVectorImplIN5clang11SourceRangeEEEPKNS5_4ExprEPKNS5_4ento12ProgramStateEPKNS5_15LocationContextEb(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %130, i1 noundef zeroext false)
   %131 = load ptr, ptr %115, align 8
   %132 = load ptr, ptr %117, align 8
   %133 = ptrtoint ptr %131 to i64
@@ -1693,7 +1693,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit51:    ; preds = %154, %156, %157
   %160 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %161 = load ptr, ptr %160, align 8
   %162 = call noundef ptr @_ZN5clang4Expr12IgnoreParensEv(ptr noundef nonnull align 8 dereferenceable(16) %161) #20
-  call fastcc void @_ZN12_GLOBAL__N_118DereferenceChecker14AddDerefSourceERN4llvm11raw_ostreamERNS1_15SmallVectorImplIN5clang11SourceRangeEEEPKNS5_4ExprEPKNS5_4ento12ProgramStateEPKNS5_15LocationContextEb.argprom(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %162, i1 noundef zeroext true)
+  call fastcc void @_ZN12_GLOBAL__N_118DereferenceChecker14AddDerefSourceERN4llvm11raw_ostreamERNS1_15SmallVectorImplIN5clang11SourceRangeEEEPKNS5_4ExprEPKNS5_4ento12ProgramStateEPKNS5_15LocationContextEb(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %162, i1 noundef zeroext true)
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 163:                                              ; preds = %42
@@ -1814,7 +1814,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit65:    ; preds = %222, %224
   %228 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %229 = load ptr, ptr %228, align 8
   %230 = call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %229) #20
-  call fastcc void @_ZN12_GLOBAL__N_118DereferenceChecker14AddDerefSourceERN4llvm11raw_ostreamERNS1_15SmallVectorImplIN5clang11SourceRangeEEEPKNS5_4ExprEPKNS5_4ento12ProgramStateEPKNS5_15LocationContextEb.argprom(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %230, i1 noundef zeroext true)
+  call fastcc void @_ZN12_GLOBAL__N_118DereferenceChecker14AddDerefSourceERN4llvm11raw_ostreamERNS1_15SmallVectorImplIN5clang11SourceRangeEEEPKNS5_4ExprEPKNS5_4ento12ProgramStateEPKNS5_15LocationContextEb(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %230, i1 noundef zeroext true)
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 231:                                              ; preds = %42
@@ -1891,7 +1891,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit76:    ; preds = %264, %266
   %270 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %271 = load ptr, ptr %270, align 8
   %272 = call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %271) #20
-  call fastcc void @_ZN12_GLOBAL__N_118DereferenceChecker14AddDerefSourceERN4llvm11raw_ostreamERNS1_15SmallVectorImplIN5clang11SourceRangeEEEPKNS5_4ExprEPKNS5_4ento12ProgramStateEPKNS5_15LocationContextEb.argprom(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %272, i1 noundef zeroext true)
+  call fastcc void @_ZN12_GLOBAL__N_118DereferenceChecker14AddDerefSourceERN4llvm11raw_ostreamERNS1_15SmallVectorImplIN5clang11SourceRangeEEEPKNS5_4ExprEPKNS5_4ento12ProgramStateEPKNS5_15LocationContextEb(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %272, i1 noundef zeroext true)
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %166, %139, %137, %111, %109, %42, %_ZL24isDeclRefExprToReferencePKN5clang4ExprE.exit, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit65, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit76, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit51
@@ -2088,7 +2088,7 @@ declare { ptr, ptr } @_ZN5clang4ento15parseAssignmentEPKNS_4StmtE(ptr noundef) l
 declare noundef ptr @_ZN5clang4Expr22IgnoreParenLValueCastsEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118DereferenceChecker14AddDerefSourceERN4llvm11raw_ostreamERNS1_15SmallVectorImplIN5clang11SourceRangeEEEPKNS5_4ExprEPKNS5_4ento12ProgramStateEPKNS5_15LocationContextEb.argprom(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_118DereferenceChecker14AddDerefSourceERN4llvm11raw_ostreamERNS1_15SmallVectorImplIN5clang11SourceRangeEEEPKNS5_4ExprEPKNS5_4ento12ProgramStateEPKNS5_15LocationContextEb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = alloca %"struct.clang::DeclarationNameInfo", align 8
   %6 = tail call noundef ptr @_ZN5clang4Expr22IgnoreParenLValueCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
   %7 = load i8, ptr %6, align 8
@@ -2888,7 +2888,7 @@ _ZNSt4pairIN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES6_ED2Ev.exi
   %68 = getelementptr inbounds i8, ptr %0, i64 352
   %.val.i = load i8, ptr %68, align 8
   %.val23.i = load ptr, ptr %6, align 8
-  %69 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_118DereferenceChecker14suppressReportERN5clang4ento14CheckerContextEPKNS1_4ExprE.argprom(i8 %.val.i, ptr %.val23.i, ptr noundef %67)
+  %69 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_118DereferenceChecker14suppressReportERN5clang4ento14CheckerContextEPKNS1_4ExprE(i8 %.val.i, ptr %.val23.i, ptr noundef %67)
   br i1 %69, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit52.thread.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit52.thread.i: ; preds = %66

@@ -77,27 +77,27 @@ define hidden ptr @VP8DecompressAlphaRows(ptr noundef %0, ptr nocapture noundef 
   %29 = getelementptr inbounds i8, ptr %0, i64 2992
   store ptr %28, ptr %29, align 8
   %30 = icmp eq ptr %28, null
-  br i1 %30, label %AllocateAlphaPlane.argprom.exit, label %AllocateAlphaPlane.argprom.exit.thread
+  br i1 %30, label %AllocateAlphaPlane.exit, label %AllocateAlphaPlane.exit.thread
 
-AllocateAlphaPlane.argprom.exit.thread:           ; preds = %24
+AllocateAlphaPlane.exit.thread:                   ; preds = %24
   %31 = getelementptr inbounds i8, ptr %0, i64 3000
   store ptr %28, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 3008
   store ptr null, ptr %32, align 8
   br label %34
 
-AllocateAlphaPlane.argprom.exit:                  ; preds = %24
+AllocateAlphaPlane.exit:                          ; preds = %24
   %33 = tail call i32 @VP8SetError(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str) #3
   %.not56 = icmp eq i32 %33, 0
-  br i1 %.not56, label %ALPHDecode.exit, label %AllocateAlphaPlane.argprom.exit._crit_edge
+  br i1 %.not56, label %ALPHDecode.exit, label %AllocateAlphaPlane.exit._crit_edge
 
-AllocateAlphaPlane.argprom.exit._crit_edge:       ; preds = %AllocateAlphaPlane.argprom.exit
+AllocateAlphaPlane.exit._crit_edge:               ; preds = %AllocateAlphaPlane.exit
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 3000
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %34
 
-34:                                               ; preds = %AllocateAlphaPlane.argprom.exit._crit_edge, %AllocateAlphaPlane.argprom.exit.thread
-  %35 = phi ptr [ %.pre, %AllocateAlphaPlane.argprom.exit._crit_edge ], [ %28, %AllocateAlphaPlane.argprom.exit.thread ]
+34:                                               ; preds = %AllocateAlphaPlane.exit._crit_edge, %AllocateAlphaPlane.exit.thread
+  %35 = phi ptr [ %.pre, %AllocateAlphaPlane.exit._crit_edge ], [ %28, %AllocateAlphaPlane.exit.thread ]
   %36 = load ptr, ptr %16, align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 2968
   %38 = load ptr, ptr %37, align 8
@@ -355,7 +355,7 @@ ALPHDelete.exit:                                  ; preds = %155, %157
   %186 = getelementptr inbounds i8, ptr %183, i64 %185
   br label %193
 
-ALPHDecode.exit:                                  ; preds = %150, %163, %AllocateAlphaPlane.argprom.exit, %108
+ALPHDecode.exit:                                  ; preds = %150, %163, %AllocateAlphaPlane.exit, %108
   %187 = getelementptr inbounds i8, ptr %0, i64 2992
   %188 = load ptr, ptr %187, align 8
   tail call void @WebPSafeFree(ptr noundef %188) #3

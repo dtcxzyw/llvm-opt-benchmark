@@ -871,11 +871,11 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.ma_log_level_to_string = private unnamed_addr constant [4 x ptr] [ptr @.str.4, ptr @.str.3, ptr @.str.2, ptr @.str.1], align 8
 @switch.table.ma_is_backend_enabled = private unnamed_addr constant [8 x i32] [i32 1, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1, i32 1], align 4
 @switch.table.ma_context_is_loopback_supported = private unnamed_addr constant [15 x i32] [i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0], align 4
-@switch.table.ma_channel_map_apply_f32.argelim = private unnamed_addr constant [6 x i64] [i64 2, i64 3, i64 4, i64 5, i64 11, i64 12], align 8
-@switch.table.ma_channel_map_apply_f32.argelim.46 = private unnamed_addr constant [5 x i64] [i64 2, i64 3, i64 4, i64 6, i64 7], align 8
-@switch.table.ma_channel_map_apply_f32.argelim.47 = private unnamed_addr constant [4 x i64] [i64 2, i64 3, i64 4, i64 10], align 8
-@switch.table.ma_channel_map_apply_f32.argelim.48 = private unnamed_addr constant [7 x i64] [i64 2, i64 3, i64 4, i64 5, i64 10, i64 11, i64 12], align 8
-@switch.table.ma_channel_map_apply_f32.argelim.49 = private unnamed_addr constant [8 x i64] [i64 2, i64 3, i64 4, i64 5, i64 6, i64 7, i64 11, i64 12], align 8
+@switch.table.ma_channel_map_apply_f32 = private unnamed_addr constant [6 x i64] [i64 2, i64 3, i64 4, i64 5, i64 11, i64 12], align 8
+@switch.table.ma_channel_map_apply_f32.46 = private unnamed_addr constant [5 x i64] [i64 2, i64 3, i64 4, i64 6, i64 7], align 8
+@switch.table.ma_channel_map_apply_f32.47 = private unnamed_addr constant [4 x i64] [i64 2, i64 3, i64 4, i64 10], align 8
+@switch.table.ma_channel_map_apply_f32.48 = private unnamed_addr constant [7 x i64] [i64 2, i64 3, i64 4, i64 5, i64 10, i64 11, i64 12], align 8
+@switch.table.ma_channel_map_apply_f32.49 = private unnamed_addr constant [8 x i64] [i64 2, i64 3, i64 4, i64 5, i64 6, i64 7, i64 11, i64 12], align 8
 @switch.table.ma_channel_position_to_string = private unnamed_addr constant [52 x ptr] [ptr @.str.44, ptr @.str.45, ptr @.str.46, ptr @.str.47, ptr @.str.48, ptr @.str.49, ptr @.str.50, ptr @.str.51, ptr @.str.52, ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.57, ptr @.str.58, ptr @.str.59, ptr @.str.60, ptr @.str.61, ptr @.str.62, ptr @.str.63, ptr @.str.64, ptr @.str.65, ptr @.str.66, ptr @.str.67, ptr @.str.68, ptr @.str.69, ptr @.str.70, ptr @.str.71, ptr @.str.72, ptr @.str.73, ptr @.str.74, ptr @.str.75, ptr @.str.76, ptr @.str.77, ptr @.str.78, ptr @.str.79, ptr @.str.80, ptr @.str.81, ptr @.str.82, ptr @.str.83, ptr @.str.84, ptr @.str.85, ptr @.str.86, ptr @.str.87, ptr @.str.88, ptr @.str.89, ptr @.str.90, ptr @.str.91, ptr @.str.92, ptr @.str.93, ptr @.str.94, ptr @.str.95], align 8
 @switch.table.xm_note_chr = private unnamed_addr constant [11 x ptr] [ptr @.str.183, ptr @.str.184, ptr @.str.185, ptr @.str.186, ptr @.str.187, ptr @.str.188, ptr @.str.189, ptr @.str.190, ptr @.str.191, ptr @.str.192, ptr @.str.193], align 8
 @switch.table.xm_octave_chr = private unnamed_addr constant [8 x ptr] [ptr @.str.197, ptr @.str.198, ptr @.str.199, ptr @.str.200, ptr @.str.201, ptr @.str.202, ptr @.str.203, ptr @.str.204], align 8
@@ -885,7 +885,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.ma_device_init__pulse.57 = private unnamed_addr constant [10 x i32] [i32 1, i32 2, i32 2, i32 2, i32 2, i32 5, i32 2, i32 4, i32 2, i32 3], align 4
 @switch.table.ma_device_init__pulse.58 = private unnamed_addr constant [6 x ptr] [ptr @.str.9, ptr @.str.163, ptr @.str.164, ptr @.str.165, ptr @.str.166, ptr @.str.167], align 8
 @switch.table.ma_context_get_device_info_source_callback__pulse = private unnamed_addr constant [10 x i32] [i32 1, i32 0, i32 0, i32 2, i32 0, i32 5, i32 0, i32 4, i32 0, i32 3], align 4
-@switch.table.ma_device__pa_buffer_attr_new.argprom = private unnamed_addr constant [10 x i64] [i64 1, i64 0, i64 0, i64 2, i64 0, i64 5, i64 0, i64 4, i64 0, i64 3], align 8
+@switch.table.ma_device__pa_buffer_attr_new = private unnamed_addr constant [10 x i64] [i64 1, i64 0, i64 0, i64 2, i64 0, i64 5, i64 0, i64 4, i64 0, i64 3], align 8
 @switch.table.ma_channel_position_from_pulse = private unnamed_addr constant [51 x i8] c"\01\02\03\04\0A\06\07\05\08\09\0B\0C\14\15\16\17\18\19\1A\1B\1C\1D\1E\1F !\22#$%&'()*+,-./0123\0D\0E\10\0F\11\13\12", align 1
 @switch.table.ma_convert_alsa_channel_position_to_ma_channel = private unnamed_addr constant [26 x i8] c"\01\02\03\06\07\04\05\0B\0C\0A\08\09\00\00\00\00\00\00\00\0D\0E\10\0F\11\13\12", align 1
 @switch.table.drwav_result_from_errno = private unnamed_addr constant [134 x i32] [i32 0, i32 -3, i32 -7, i32 -7, i32 -21, i32 -20, i32 -7, i32 -2, i32 -10, i32 -10, i32 -1, i32 -22, i32 -4, i32 -6, i32 -24, i32 -1, i32 -19, i32 -8, i32 -1, i32 -7, i32 -14, i32 -15, i32 -2, i32 -9, i32 -9, i32 -3, i32 -19, i32 -11, i32 -18, i32 -25, i32 -6, i32 -28, i32 -26, i32 -5, i32 -5, i32 -27, i32 -12, i32 -1, i32 -29, i32 -16, i32 -28, i32 -1, i32 -30, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -5, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -10, i32 -1, i32 -32, i32 -34, i32 -32, i32 -35, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -31, i32 -11, i32 -36, i32 -1, i32 -1, i32 -6, i32 -10, i32 -10, i32 -1, i32 -1, i32 -33, i32 -1, i32 -1, i32 -1, i32 -37, i32 -38, i32 -11, i32 -39, i32 -40, i32 -41, i32 -44, i32 -3, i32 -42, i32 -43, i32 -23, i32 -1, i32 -35, i32 -35, i32 -35, i32 -35, i32 -45, i32 -18, i32 -46, i32 -47, i32 -1, i32 -1, i32 -34, i32 -48, i32 -49, i32 -49, i32 -50, i32 -50, i32 -10, i32 -1, i32 -1, i32 -1, i32 -1, i32 -20, i32 -18, i32 -7, i32 -1, i32 -51, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1], align 4
@@ -5941,21 +5941,21 @@ ma_allocation_callbacks_init_copy.exit:           ; preds = %20, %32, %35, %39, 
 85:                                               ; preds = %82, %80
   %86 = phi i32 [ %83, %82 ], [ %81, %80 ]
   %.not36.i = icmp eq i32 %86, 0
-  br i1 %.not36.i, label %ma_thread_create__posix.argprom.exit.thread, label %ma_thread_create__posix.argprom.exit
+  br i1 %.not36.i, label %ma_thread_create__posix.exit.thread, label %ma_thread_create__posix.exit
 
-ma_thread_create__posix.argprom.exit.thread:      ; preds = %85
+ma_thread_create__posix.exit.thread:              ; preds = %85
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %ma_free.exit
 
-ma_thread_create__posix.argprom.exit:             ; preds = %85
+ma_thread_create__posix.exit:                     ; preds = %85
   %87 = call fastcc i32 @ma_result_from_errno(i32 noundef %86)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %.not = icmp eq i32 %87, 0
   br i1 %.not, label %ma_free.exit, label %88
 
-88:                                               ; preds = %ma_thread_create__posix.argprom.exit
+88:                                               ; preds = %ma_thread_create__posix.exit
   br i1 %.not.i, label %94, label %89
 
 89:                                               ; preds = %88
@@ -5973,8 +5973,8 @@ ma_thread_create__posix.argprom.exit:             ; preds = %85
   call void @free(ptr noundef nonnull %.0.i3032) #67
   br label %ma_free.exit
 
-ma_free.exit:                                     ; preds = %12, %94, %92, %89, %ma_thread_create__posix.argprom.exit.thread, %ma_malloc.exit.thread28, %ma_thread_create__posix.argprom.exit, %ma_malloc.exit, %6
-  %.0 = phi i32 [ -2, %6 ], [ -4, %ma_malloc.exit ], [ 0, %ma_thread_create__posix.argprom.exit ], [ -4, %ma_malloc.exit.thread28 ], [ 0, %ma_thread_create__posix.argprom.exit.thread ], [ %87, %89 ], [ %87, %92 ], [ %87, %94 ], [ -4, %12 ]
+ma_free.exit:                                     ; preds = %12, %94, %92, %89, %ma_thread_create__posix.exit.thread, %ma_malloc.exit.thread28, %ma_thread_create__posix.exit, %ma_malloc.exit, %6
+  %.0 = phi i32 [ -2, %6 ], [ -4, %ma_malloc.exit ], [ 0, %ma_thread_create__posix.exit ], [ -4, %ma_malloc.exit.thread28 ], [ 0, %ma_thread_create__posix.exit.thread ], [ %87, %89 ], [ %87, %92 ], [ %87, %94 ], [ -4, %12 ]
   ret i32 %.0
 }
 
@@ -31480,7 +31480,7 @@ ma_spatializer_listener_is_enabled.exit:          ; preds = %5
   br i1 %.not.i, label %ma_copy_pcm_frames.exit, label %.lr.ph.i
 
 31:                                               ; preds = %17
-  tail call fastcc void @ma_channel_map_apply_f32.argelim(ptr noundef %2, ptr noundef %11, i32 noundef %20, ptr noundef %3, ptr noundef %9, i32 noundef %18, i64 noundef %4)
+  tail call fastcc void @ma_channel_map_apply_f32(ptr noundef %2, ptr noundef %11, i32 noundef %20, ptr noundef %3, ptr noundef %9, i32 noundef %18, i64 noundef %4)
   br label %ma_copy_pcm_frames.exit
 
 32:                                               ; preds = %ma_spatializer_listener_is_enabled.exit
@@ -31863,7 +31863,7 @@ ma_spatializer_listener_is_enabled.exit326:       ; preds = %229, %226
   br i1 %.not269, label %235, label %234
 
 234:                                              ; preds = %ma_spatializer_listener_is_enabled.exit326
-  call fastcc void @ma_channel_map_apply_f32.argelim(ptr noundef %2, ptr noundef %11, i32 noundef %44, ptr noundef %3, ptr noundef %9, i32 noundef %45, i64 noundef %4)
+  call fastcc void @ma_channel_map_apply_f32(ptr noundef %2, ptr noundef %11, i32 noundef %44, ptr noundef %3, ptr noundef %9, i32 noundef %45, i64 noundef %4)
   br label %ma_silence_pcm_frames.exit334
 
 235:                                              ; preds = %ma_spatializer_listener_is_enabled.exit326
@@ -32192,7 +32192,7 @@ ma_copy_pcm_frames.exit:                          ; preds = %.lr.ph.i, %39, %ma_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @ma_channel_map_apply_f32.argelim(ptr noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef %5, i64 noundef %6) unnamed_addr #41 {
+define internal fastcc void @ma_channel_map_apply_f32(ptr noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef %5, i64 noundef %6) unnamed_addr #41 {
   %8 = alloca [254 x i8], align 16
   %9 = alloca [32 x [32 x float]], align 16
   %10 = tail call fastcc i32 @ma_channel_map_get_conversion_path(ptr noundef %4, i32 noundef %5, ptr noundef %1, i32 noundef %2, i32 noundef 0)
@@ -32896,27 +32896,27 @@ ma_channel_map_get_channel.exit350.us395.us:      ; preds = %ma_channel_map_get_
   br label %ma_channel_map_get_channel.exit350.us.us.us
 
 switch.lookup:                                    ; preds = %234
-  %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table.ma_channel_map_apply_f32.argelim, i64 0, i64 %indvars.iv529
+  %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table.ma_channel_map_apply_f32, i64 0, i64 %indvars.iv529
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %ma_channel_map_get_channel.exit350.us.us.us
 
 switch.lookup53:                                  ; preds = %236
-  %switch.gep54 = getelementptr inbounds [5 x i64], ptr @switch.table.ma_channel_map_apply_f32.argelim.46, i64 0, i64 %indvars.iv529
+  %switch.gep54 = getelementptr inbounds [5 x i64], ptr @switch.table.ma_channel_map_apply_f32.46, i64 0, i64 %indvars.iv529
   %switch.load55 = load i64, ptr %switch.gep54, align 8
   br label %ma_channel_map_get_channel.exit350.us.us.us
 
 switch.lookup56:                                  ; preds = %238
-  %switch.gep57 = getelementptr inbounds [4 x i64], ptr @switch.table.ma_channel_map_apply_f32.argelim.47, i64 0, i64 %indvars.iv529
+  %switch.gep57 = getelementptr inbounds [4 x i64], ptr @switch.table.ma_channel_map_apply_f32.47, i64 0, i64 %indvars.iv529
   %switch.load58 = load i64, ptr %switch.gep57, align 8
   br label %ma_channel_map_get_channel.exit350.us.us.us
 
 switch.lookup60:                                  ; preds = %243
-  %switch.gep61 = getelementptr inbounds [7 x i64], ptr @switch.table.ma_channel_map_apply_f32.argelim.48, i64 0, i64 %indvars.iv529
+  %switch.gep61 = getelementptr inbounds [7 x i64], ptr @switch.table.ma_channel_map_apply_f32.48, i64 0, i64 %indvars.iv529
   %switch.load62 = load i64, ptr %switch.gep61, align 8
   br label %ma_channel_map_get_channel.exit350.us.us.us
 
 switch.lookup63:                                  ; preds = %245
-  %switch.gep64 = getelementptr inbounds [8 x i64], ptr @switch.table.ma_channel_map_apply_f32.argelim.49, i64 0, i64 %indvars.iv529
+  %switch.gep64 = getelementptr inbounds [8 x i64], ptr @switch.table.ma_channel_map_apply_f32.49, i64 0, i64 %indvars.iv529
   %switch.load65 = load i64, ptr %switch.gep64, align 8
   br label %ma_channel_map_get_channel.exit350.us.us.us
 
@@ -38980,7 +38980,7 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
-  br i1 %or.cond, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %7
+  br i1 %or.cond, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %7
 
 7:                                                ; preds = %4
   %8 = icmp eq ptr %2, null
@@ -38997,7 +38997,7 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   %17 = zext i32 %16 to i64
   %18 = mul i64 %3, %17
   %.not130 = icmp eq i64 %18, 0
-  br i1 %.not130, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.lr.ph
+  br i1 %.not130, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %.lr.ph
   %.0132 = phi ptr [ %20, %.lr.ph ], [ %1, %9 ]
@@ -39007,7 +39007,7 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   %19 = sub i64 %.044131, %spec.store.select
   %20 = getelementptr inbounds i8, ptr %.0132, i64 %spec.store.select
   %.not = icmp eq i64 %19, 0
-  br i1 %.not, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.lr.ph
+  br i1 %.not, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.lr.ph
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds i8, ptr %0, i64 16
@@ -39030,7 +39030,7 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   %30 = zext i32 %29 to i64
   %31 = mul i64 %3, %30
   %.not1.i = icmp eq i64 %31, 0
-  br i1 %.not1.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %24, %.lr.ph.i
   %.04.i = phi ptr [ %33, %.lr.ph.i ], [ %1, %24 ]
@@ -39042,11 +39042,11 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   %33 = getelementptr inbounds i8, ptr %.04.i, i64 %spec.store.select.i
   %34 = getelementptr inbounds i8, ptr %.0183.i, i64 %spec.store.select.i
   %.not.i = icmp eq i64 %32, 0
-  br i1 %.not.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.lr.ph.i
 
 35:                                               ; preds = %21
   %36 = load i32, ptr %0, align 8
-  switch i32 %36, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit [
+  switch i32 %36, label %ma_channel_converter_process_pcm_frames__passthrough.exit [
     i32 1, label %.preheader120.i
     i32 2, label %.preheader122.i
     i32 3, label %.preheader125.i
@@ -39056,7 +39056,7 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
 
 .preheader131.i:                                  ; preds = %35
   %.not.i50 = icmp eq i64 %3, 0
-  br i1 %.not.i50, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader130.lr.ph.i
+  br i1 %.not.i50, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader130.lr.ph.i
 
 .preheader130.lr.ph.i:                            ; preds = %.preheader131.i
   %37 = getelementptr inbounds i8, ptr %0, i64 4
@@ -39064,7 +39064,7 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
 
 .preheader128.i:                                  ; preds = %35
   %.not168.i = icmp eq i64 %3, 0
-  br i1 %.not168.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader127.lr.ph.i
+  br i1 %.not168.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader127.lr.ph.i
 
 .preheader127.lr.ph.i:                            ; preds = %.preheader128.i
   %38 = getelementptr inbounds i8, ptr %0, i64 4
@@ -39072,7 +39072,7 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
 
 .preheader125.i:                                  ; preds = %35
   %.not170.i = icmp eq i64 %3, 0
-  br i1 %.not170.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader124.lr.ph.i
+  br i1 %.not170.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader124.lr.ph.i
 
 .preheader124.lr.ph.i:                            ; preds = %.preheader125.i
   %39 = getelementptr inbounds i8, ptr %0, i64 4
@@ -39080,7 +39080,7 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
 
 .preheader122.i:                                  ; preds = %35
   %.not172.i = icmp eq i64 %3, 0
-  br i1 %.not172.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader121.lr.ph.i
+  br i1 %.not172.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader121.lr.ph.i
 
 .preheader121.lr.ph.i:                            ; preds = %.preheader122.i
   %40 = getelementptr inbounds i8, ptr %0, i64 4
@@ -39088,7 +39088,7 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
 
 .preheader120.i:                                  ; preds = %35
   %.not174.i = icmp eq i64 %3, 0
-  br i1 %.not174.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader.lr.ph.i
+  br i1 %.not174.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader.lr.ph.i
 
 .preheader.lr.ph.i:                               ; preds = %.preheader120.i
   %41 = getelementptr inbounds i8, ptr %0, i64 4
@@ -39131,7 +39131,7 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   store i8 %58, ptr %59, align 1
   %60 = add nuw i64 %.0101166.i, 1
   %exitcond209.not.i = icmp eq i64 %60, %3
-  br i1 %exitcond209.not.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader.i
+  br i1 %exitcond209.not.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader.i
 
 .preheader121.i:                                  ; preds = %._crit_edge157.i, %.preheader121.lr.ph.i
   %.1160.i = phi i64 [ 0, %.preheader121.lr.ph.i ], [ %73, %._crit_edge157.i ]
@@ -39164,7 +39164,7 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   store i16 %71, ptr %72, align 2
   %73 = add nuw i64 %.1160.i, 1
   %exitcond203.not.i = icmp eq i64 %73, %3
-  br i1 %exitcond203.not.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader121.i
+  br i1 %exitcond203.not.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader121.i
 
 .preheader124.i:                                  ; preds = %._crit_edge150.i, %.preheader124.lr.ph.i
   %.2153.i = phi i64 [ 0, %.preheader124.lr.ph.i ], [ %101, %._crit_edge150.i ]
@@ -39211,7 +39211,7 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   store i8 %99, ptr %100, align 1
   %101 = add nuw i64 %.2153.i, 1
   %exitcond197.not.i = icmp eq i64 %101, %3
-  br i1 %exitcond197.not.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader124.i
+  br i1 %exitcond197.not.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader124.i
 
 .preheader127.i:                                  ; preds = %._crit_edge143.i, %.preheader127.lr.ph.i
   %.3146.i = phi i64 [ 0, %.preheader127.lr.ph.i ], [ %114, %._crit_edge143.i ]
@@ -39241,7 +39241,7 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   store i32 %112, ptr %113, align 4
   %114 = add nuw i64 %.3146.i, 1
   %exitcond191.not.i = icmp eq i64 %114, %3
-  br i1 %exitcond191.not.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader127.i
+  br i1 %exitcond191.not.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader127.i
 
 .preheader130.i:                                  ; preds = %._crit_edge.i, %.preheader130.lr.ph.i
   %.4139.i = phi i64 [ 0, %.preheader130.lr.ph.i ], [ %126, %._crit_edge.i ]
@@ -39273,11 +39273,11 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   store float %124, ptr %125, align 4
   %126 = add nuw i64 %.4139.i, 1
   %exitcond185.not.i = icmp eq i64 %126, %3
-  br i1 %exitcond185.not.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader130.i
+  br i1 %exitcond185.not.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader130.i
 
 127:                                              ; preds = %21
   %128 = load i32, ptr %0, align 8
-  switch i32 %128, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit [
+  switch i32 %128, label %ma_channel_converter_process_pcm_frames__passthrough.exit [
     i32 1, label %.preheader116.i
     i32 2, label %148
     i32 3, label %.preheader123.i
@@ -39287,33 +39287,33 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
 
 .preheader126.i:                                  ; preds = %127
   %.not158.i = icmp eq i64 %3, 0
-  br i1 %.not158.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader125.lr.ph.i
+  br i1 %.not158.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader125.lr.ph.i
 
 .preheader125.lr.ph.i:                            ; preds = %.preheader126.i
   %129 = getelementptr inbounds i8, ptr %0, i64 8
   %130 = load i32, ptr %129, align 8
   %.not159.i = icmp eq i32 %130, 0
-  br i1 %.not159.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader125.i60
+  br i1 %.not159.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader125.i60
 
 .preheader123.i:                                  ; preds = %127
   %.not161.i = icmp eq i64 %3, 0
-  br i1 %.not161.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader122.lr.ph.i
+  br i1 %.not161.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader122.lr.ph.i
 
 .preheader122.lr.ph.i:                            ; preds = %.preheader123.i
   %131 = getelementptr inbounds i8, ptr %0, i64 8
   %132 = load i32, ptr %131, align 8
   %.not162.i = icmp eq i32 %132, 0
-  br i1 %.not162.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader122.i61
+  br i1 %.not162.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader122.i61
 
 .preheader116.i:                                  ; preds = %127
   %.not168.i69 = icmp eq i64 %3, 0
-  br i1 %.not168.i69, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader.lr.ph.i70
+  br i1 %.not168.i69, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader.lr.ph.i70
 
 .preheader.lr.ph.i70:                             ; preds = %.preheader116.i
   %133 = getelementptr inbounds i8, ptr %0, i64 8
   %134 = load i32, ptr %133, align 8
   %.not169.i71 = icmp eq i32 %134, 0
-  br i1 %.not169.i71, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader.i72
+  br i1 %.not169.i71, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader.i72
 
 .preheader.i72:                                   ; preds = %.preheader.lr.ph.i70, %._crit_edge153.i
   %135 = phi i32 [ %146, %._crit_edge153.i ], [ %134, %.preheader.lr.ph.i70 ]
@@ -39344,7 +39344,7 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   %146 = phi i32 [ 0, %.preheader.i72 ], [ %143, %137 ]
   %147 = add nuw i64 %.0106154.i, 1
   %exitcond200.not.i = icmp eq i64 %147, %3
-  br i1 %exitcond200.not.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader.i72, !llvm.loop !169
+  br i1 %exitcond200.not.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader.i72, !llvm.loop !169
 
 148:                                              ; preds = %127
   %149 = getelementptr inbounds i8, ptr %0, i64 8
@@ -39356,10 +39356,10 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
 .preheader120.i65:                                ; preds = %148
   %.not165.i = icmp eq i32 %150, 0
   %or.cond.i = or i1 %.not167.i64, %.not165.i
-  br i1 %or.cond.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader119.i
+  br i1 %or.cond.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader119.i
 
 .preheader117.i:                                  ; preds = %148
-  br i1 %.not167.i64, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.lr.ph150.i
+  br i1 %.not167.i64, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.lr.ph150.i
 
 .lr.ph150.i:                                      ; preds = %.preheader117.i, %.lr.ph150.i
   %.1149.i = phi i64 [ %158, %.lr.ph150.i ], [ 0, %.preheader117.i ]
@@ -39373,7 +39373,7 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   store i16 %153, ptr %157, align 2
   %158 = add nuw i64 %.1149.i, 1
   %exitcond196.not.i68 = icmp eq i64 %158, %3
-  br i1 %exitcond196.not.i68, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.lr.ph150.i
+  br i1 %exitcond196.not.i68, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.lr.ph150.i
 
 .preheader119.i:                                  ; preds = %.preheader120.i65, %._crit_edge147.i
   %159 = phi i32 [ %170, %._crit_edge147.i ], [ %150, %.preheader120.i65 ]
@@ -39404,7 +39404,7 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   %170 = phi i32 [ 0, %.preheader119.i ], [ %167, %161 ]
   %171 = add nuw i64 %.2148.i, 1
   %exitcond195.not.i = icmp eq i64 %171, %3
-  br i1 %exitcond195.not.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader119.i, !llvm.loop !170
+  br i1 %exitcond195.not.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader119.i, !llvm.loop !170
 
 .preheader122.i61:                                ; preds = %.preheader122.lr.ph.i, %._crit_edge143.i62
   %172 = phi i32 [ %192, %._crit_edge143.i62 ], [ %132, %.preheader122.lr.ph.i ]
@@ -39445,7 +39445,7 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   %192 = phi i32 [ 0, %.preheader122.i61 ], [ %189, %177 ]
   %193 = add nuw i64 %.3144.i, 1
   %exitcond191.not.i63 = icmp eq i64 %193, %3
-  br i1 %exitcond191.not.i63, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader122.i61, !llvm.loop !171
+  br i1 %exitcond191.not.i63, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader122.i61, !llvm.loop !171
 
 .preheader125.i60:                                ; preds = %.preheader125.lr.ph.i, %._crit_edge139.i
   %194 = phi i32 [ %205, %._crit_edge139.i ], [ %130, %.preheader125.lr.ph.i ]
@@ -39476,7 +39476,7 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   %205 = phi i32 [ 0, %.preheader125.i60 ], [ %202, %196 ]
   %206 = add nuw i64 %.4140.i, 1
   %exitcond187.not.i = icmp eq i64 %206, %3
-  br i1 %exitcond187.not.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader125.i60, !llvm.loop !172
+  br i1 %exitcond187.not.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader125.i60, !llvm.loop !172
 
 207:                                              ; preds = %127
   %208 = getelementptr inbounds i8, ptr %0, i64 8
@@ -39488,10 +39488,10 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
 .preheader131.i52:                                ; preds = %207
   %.not155.i = icmp eq i32 %209, 0
   %or.cond214.i = or i1 %.not157.i, %.not155.i
-  br i1 %or.cond214.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader130.i53
+  br i1 %or.cond214.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader130.i53
 
 .preheader128.i59:                                ; preds = %207
-  br i1 %.not157.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.lr.ph136.i
+  br i1 %.not157.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.lr.ph136.i
 
 .lr.ph136.i:                                      ; preds = %.preheader128.i59, %.lr.ph136.i
   %.5135.i = phi i64 [ %217, %.lr.ph136.i ], [ 0, %.preheader128.i59 ]
@@ -39505,7 +39505,7 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   store float %212, ptr %216, align 4
   %217 = add nuw i64 %.5135.i, 1
   %exitcond183.not.i = icmp eq i64 %217, %3
-  br i1 %exitcond183.not.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.lr.ph136.i
+  br i1 %exitcond183.not.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.lr.ph136.i
 
 .preheader130.i53:                                ; preds = %.preheader131.i52, %._crit_edge.i57
   %218 = phi i32 [ %229, %._crit_edge.i57 ], [ %209, %.preheader131.i52 ]
@@ -39536,7 +39536,7 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   %229 = phi i32 [ 0, %.preheader130.i53 ], [ %226, %220 ]
   %230 = add nuw i64 %.6134.i, 1
   %exitcond.not.i58 = icmp eq i64 %230, %3
-  br i1 %exitcond.not.i58, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader130.i53, !llvm.loop !173
+  br i1 %exitcond.not.i58, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader130.i53, !llvm.loop !173
 
 231:                                              ; preds = %21
   %232 = getelementptr inbounds i8, ptr %0, i64 8
@@ -39548,11 +39548,11 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   %238 = icmp eq i32 %233, 0
   %239 = icmp eq ptr %237, null
   %or.cond5.i.i = or i1 %238, %239
-  br i1 %or.cond5.i.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %240
+  br i1 %or.cond5.i.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %240
 
 240:                                              ; preds = %231
   %241 = load i32, ptr %0, align 8
-  switch i32 %241, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit [
+  switch i32 %241, label %ma_channel_converter_process_pcm_frames__passthrough.exit [
     i32 1, label %242
     i32 2, label %260
     i32 3, label %278
@@ -39562,7 +39562,7 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
 
 242:                                              ; preds = %240
   %.not.i.i.i = icmp eq i64 %3, 0
-  br i1 %.not.i.i.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader.lr.ph.i.i.i
+  br i1 %.not.i.i.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader.lr.ph.i.i.i
 
 .preheader.lr.ph.i.i.i:                           ; preds = %242
   %243 = zext i32 %233 to i64
@@ -39602,11 +39602,11 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   %258 = getelementptr inbounds i8, ptr %.02124.i.i.i, i64 %244
   %259 = add nuw i64 %.02025.i.i.i, 1
   %exitcond28.not.i.i.i = icmp eq i64 %259, %3
-  br i1 %exitcond28.not.i.i.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader.i.i.i
+  br i1 %exitcond28.not.i.i.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader.i.i.i
 
 260:                                              ; preds = %240
   %.not.i44.i.i = icmp eq i64 %3, 0
-  br i1 %.not.i44.i.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader.lr.ph.i45.i.i
+  br i1 %.not.i44.i.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader.lr.ph.i45.i.i
 
 .preheader.lr.ph.i45.i.i:                         ; preds = %260
   %261 = zext i32 %233 to i64
@@ -39646,11 +39646,11 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   %276 = getelementptr inbounds i16, ptr %.02124.i49.i.i, i64 %262
   %277 = add nuw i64 %.02025.i48.i.i, 1
   %exitcond28.not.i54.i.i = icmp eq i64 %277, %3
-  br i1 %exitcond28.not.i54.i.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader.i46.i.i
+  br i1 %exitcond28.not.i54.i.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader.i46.i.i
 
 278:                                              ; preds = %240
   %.not.i55.i.i = icmp eq i64 %3, 0
-  br i1 %.not.i55.i.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader.lr.ph.i56.i.i
+  br i1 %.not.i55.i.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader.lr.ph.i56.i.i
 
 .preheader.lr.ph.i56.i.i:                         ; preds = %278
   %279 = mul i32 %233, 3
@@ -39729,11 +39729,11 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   %323 = getelementptr inbounds i8, ptr %.03337.i.i.i, i64 %282
   %324 = add nuw i64 %.03238.i.i.i, 1
   %exitcond41.not.i.i.i = icmp eq i64 %324, %3
-  br i1 %exitcond41.not.i.i.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader.i57.i.i
+  br i1 %exitcond41.not.i.i.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader.i57.i.i
 
 325:                                              ; preds = %240
   %.not.i61.i.i = icmp eq i64 %3, 0
-  br i1 %.not.i61.i.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader.lr.ph.i62.i.i
+  br i1 %.not.i61.i.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader.lr.ph.i62.i.i
 
 .preheader.lr.ph.i62.i.i:                         ; preds = %325
   %326 = zext i32 %233 to i64
@@ -39773,11 +39773,11 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   %341 = getelementptr inbounds i32, ptr %.02124.i66.i.i, i64 %327
   %342 = add nuw i64 %.02025.i65.i.i, 1
   %exitcond28.not.i71.i.i = icmp eq i64 %342, %3
-  br i1 %exitcond28.not.i71.i.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader.i63.i.i
+  br i1 %exitcond28.not.i71.i.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader.i63.i.i
 
 343:                                              ; preds = %240
   %.not.i72.i.i = icmp eq i64 %3, 0
-  br i1 %.not.i72.i.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader.lr.ph.i73.i.i
+  br i1 %.not.i72.i.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader.lr.ph.i73.i.i
 
 .preheader.lr.ph.i73.i.i:                         ; preds = %343
   %344 = zext i32 %233 to i64
@@ -39817,7 +39817,7 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   %359 = getelementptr inbounds float, ptr %.02124.i77.i.i, i64 %345
   %360 = add nuw i64 %.02025.i76.i.i, 1
   %exitcond28.not.i82.i.i = icmp eq i64 %360, %3
-  br i1 %exitcond28.not.i82.i.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader.i74.i.i
+  br i1 %exitcond28.not.i82.i.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader.i74.i.i
 
 361:                                              ; preds = %21
   %362 = load i32, ptr %0, align 8
@@ -39848,7 +39848,7 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
 
 ._crit_edge.i78:                                  ; preds = %._crit_edge.loopexit.i, %361
   %373 = phi i32 [ %.pre.i77, %._crit_edge.loopexit.i ], [ %362, %361 ]
-  switch i32 %373, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit [
+  switch i32 %373, label %ma_channel_converter_process_pcm_frames__passthrough.exit [
     i32 1, label %.preheader248.i
     i32 2, label %.preheader251.i
     i32 3, label %.preheader255.i
@@ -39858,7 +39858,7 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
 
 .preheader263.i:                                  ; preds = %._crit_edge.i78
   %.not298.i = icmp eq i64 %3, 0
-  br i1 %.not298.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader262.lr.ph.i
+  br i1 %.not298.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader262.lr.ph.i
 
 .preheader262.lr.ph.i:                            ; preds = %.preheader263.i
   %374 = getelementptr inbounds i8, ptr %0, i64 4
@@ -39872,11 +39872,11 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   %377 = add i32 %.4273.us.i, 1
   %378 = zext i32 %377 to i64
   %379 = icmp ugt i64 %3, %378
-  br i1 %379, label %.preheader262.us.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit
+  br i1 %379, label %.preheader262.us.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit
 
 .preheader259.i:                                  ; preds = %._crit_edge.i78
   %.not303.i = icmp eq i64 %3, 0
-  br i1 %.not303.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader258.lr.ph.i
+  br i1 %.not303.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader258.lr.ph.i
 
 .preheader258.lr.ph.i:                            ; preds = %.preheader259.i
   %380 = getelementptr inbounds i8, ptr %0, i64 4
@@ -39890,11 +39890,11 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   %383 = add i32 %.3279.us.i, 1
   %384 = zext i32 %383 to i64
   %385 = icmp ugt i64 %3, %384
-  br i1 %385, label %.preheader258.us.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit
+  br i1 %385, label %.preheader258.us.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit
 
 .preheader255.i:                                  ; preds = %._crit_edge.i78
   %.not308.i = icmp eq i64 %3, 0
-  br i1 %.not308.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader254.lr.ph.i
+  br i1 %.not308.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader254.lr.ph.i
 
 .preheader254.lr.ph.i:                            ; preds = %.preheader255.i
   %386 = getelementptr inbounds i8, ptr %0, i64 4
@@ -39908,11 +39908,11 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   %389 = add i32 %.2285.us.i, 1
   %390 = zext i32 %389 to i64
   %391 = icmp ugt i64 %3, %390
-  br i1 %391, label %.preheader254.us.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit
+  br i1 %391, label %.preheader254.us.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit
 
 .preheader251.i:                                  ; preds = %._crit_edge.i78
   %.not313.i = icmp eq i64 %3, 0
-  br i1 %.not313.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader250.lr.ph.i
+  br i1 %.not313.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader250.lr.ph.i
 
 .preheader250.lr.ph.i:                            ; preds = %.preheader251.i
   %392 = getelementptr inbounds i8, ptr %0, i64 4
@@ -39926,11 +39926,11 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   %395 = add i32 %.1291.us.i, 1
   %396 = zext i32 %395 to i64
   %397 = icmp ugt i64 %3, %396
-  br i1 %397, label %.preheader250.us.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit
+  br i1 %397, label %.preheader250.us.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit
 
 .preheader248.i:                                  ; preds = %._crit_edge.i78
   %.not318.i = icmp eq i64 %3, 0
-  br i1 %.not318.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, label %.preheader247.lr.ph.i
+  br i1 %.not318.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader247.lr.ph.i
 
 .preheader247.lr.ph.i:                            ; preds = %.preheader248.i
   %398 = getelementptr inbounds i8, ptr %0, i64 4
@@ -39944,7 +39944,7 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   %401 = add i32 %.0220297.us.i, 1
   %402 = zext i32 %401 to i64
   %403 = icmp ugt i64 %3, %402
-  br i1 %403, label %.preheader247.us.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit
+  br i1 %403, label %.preheader247.us.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit
 
 .preheader247.i:                                  ; preds = %.preheader247.lr.ph.i, %._crit_edge296.i
   %404 = phi i32 [ %447, %._crit_edge296.i ], [ %400, %.preheader247.lr.ph.i ]
@@ -40025,7 +40025,7 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   %449 = add i32 %.0220297.i, 1
   %450 = zext i32 %449 to i64
   %451 = icmp ugt i64 %3, %450
-  br i1 %451, label %.preheader247.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, !llvm.loop !175
+  br i1 %451, label %.preheader247.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, !llvm.loop !175
 
 .preheader250.i:                                  ; preds = %.preheader250.lr.ph.i, %._crit_edge290.i
   %452 = phi i32 [ %492, %._crit_edge290.i ], [ %394, %.preheader250.lr.ph.i ]
@@ -40103,7 +40103,7 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   %494 = add i32 %.1291.i, 1
   %495 = zext i32 %494 to i64
   %496 = icmp ugt i64 %3, %495
-  br i1 %496, label %.preheader250.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, !llvm.loop !177
+  br i1 %496, label %.preheader250.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, !llvm.loop !177
 
 .preheader254.i:                                  ; preds = %.preheader254.lr.ph.i, %._crit_edge284.i
   %497 = phi i32 [ %559, %._crit_edge284.i ], [ %388, %.preheader254.lr.ph.i ]
@@ -40205,7 +40205,7 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   %561 = add i32 %.2285.i, 1
   %562 = zext i32 %561 to i64
   %563 = icmp ugt i64 %3, %562
-  br i1 %563, label %.preheader254.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, !llvm.loop !179
+  br i1 %563, label %.preheader254.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, !llvm.loop !179
 
 .preheader258.i:                                  ; preds = %.preheader258.lr.ph.i, %._crit_edge278.i
   %564 = phi i32 [ %605, %._crit_edge278.i ], [ %382, %.preheader258.lr.ph.i ]
@@ -40284,7 +40284,7 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   %607 = add i32 %.3279.i, 1
   %608 = zext i32 %607 to i64
   %609 = icmp ugt i64 %3, %608
-  br i1 %609, label %.preheader258.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, !llvm.loop !181
+  br i1 %609, label %.preheader258.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, !llvm.loop !181
 
 .preheader262.i:                                  ; preds = %.preheader262.lr.ph.i, %._crit_edge272.i
   %610 = phi i32 [ %643, %._crit_edge272.i ], [ %376, %.preheader262.lr.ph.i ]
@@ -40355,9 +40355,9 @@ define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr 
   %645 = add i32 %.4273.i, 1
   %646 = zext i32 %645 to i64
   %647 = icmp ugt i64 %3, %646
-  br i1 %647, label %.preheader262.i, label %ma_channel_converter_process_pcm_frames__passthrough.argprom.exit, !llvm.loop !183
+  br i1 %647, label %.preheader262.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, !llvm.loop !183
 
-ma_channel_converter_process_pcm_frames__passthrough.argprom.exit: ; preds = %357, %339, %320, %274, %256, %._crit_edge.i57, %.lr.ph136.i, %._crit_edge139.i, %._crit_edge143.i62, %._crit_edge147.i, %.lr.ph150.i, %._crit_edge153.i, %._crit_edge.i, %._crit_edge143.i, %._crit_edge150.i, %._crit_edge157.i, %._crit_edge164.i, %.lr.ph.i, %._crit_edge272.i, %.preheader262.us.i, %._crit_edge278.i, %.preheader258.us.i, %._crit_edge284.i, %.preheader254.us.i, %._crit_edge290.i, %.preheader250.us.i, %._crit_edge296.i, %.preheader247.us.i, %.lr.ph, %9, %.preheader248.i, %.preheader251.i, %.preheader255.i, %.preheader259.i, %.preheader263.i, %._crit_edge.i78, %343, %325, %278, %260, %242, %240, %231, %.preheader128.i59, %.preheader131.i52, %.preheader117.i, %.preheader120.i65, %.preheader.lr.ph.i70, %.preheader116.i, %.preheader122.lr.ph.i, %.preheader123.i, %.preheader125.lr.ph.i, %.preheader126.i, %127, %.preheader120.i, %.preheader122.i, %.preheader125.i, %.preheader128.i, %.preheader131.i, %35, %24, %4
+ma_channel_converter_process_pcm_frames__passthrough.exit: ; preds = %357, %339, %320, %274, %256, %._crit_edge.i57, %.lr.ph136.i, %._crit_edge139.i, %._crit_edge143.i62, %._crit_edge147.i, %.lr.ph150.i, %._crit_edge153.i, %._crit_edge.i, %._crit_edge143.i, %._crit_edge150.i, %._crit_edge157.i, %._crit_edge164.i, %.lr.ph.i, %._crit_edge272.i, %.preheader262.us.i, %._crit_edge278.i, %.preheader258.us.i, %._crit_edge284.i, %.preheader254.us.i, %._crit_edge290.i, %.preheader250.us.i, %._crit_edge296.i, %.preheader247.us.i, %.lr.ph, %9, %.preheader248.i, %.preheader251.i, %.preheader255.i, %.preheader259.i, %.preheader263.i, %._crit_edge.i78, %343, %325, %278, %260, %242, %240, %231, %.preheader128.i59, %.preheader131.i52, %.preheader117.i, %.preheader120.i65, %.preheader.lr.ph.i70, %.preheader116.i, %.preheader122.lr.ph.i, %.preheader123.i, %.preheader125.lr.ph.i, %.preheader126.i, %127, %.preheader120.i, %.preheader122.i, %.preheader125.i, %.preheader128.i, %.preheader131.i, %35, %24, %4
   %.045 = phi i32 [ -2, %4 ], [ 0, %24 ], [ -3, %35 ], [ 0, %.preheader120.i ], [ 0, %.preheader122.i ], [ 0, %.preheader125.i ], [ 0, %.preheader128.i ], [ 0, %.preheader131.i ], [ -3, %127 ], [ 0, %.preheader116.i ], [ 0, %.preheader117.i ], [ 0, %.preheader120.i65 ], [ 0, %.preheader123.i ], [ 0, %.preheader126.i ], [ 0, %.preheader128.i59 ], [ 0, %.preheader131.i52 ], [ 0, %.preheader125.lr.ph.i ], [ 0, %.preheader122.lr.ph.i ], [ 0, %.preheader.lr.ph.i70 ], [ -2, %231 ], [ -2, %240 ], [ 0, %242 ], [ 0, %260 ], [ 0, %278 ], [ 0, %325 ], [ 0, %343 ], [ -3, %._crit_edge.i78 ], [ 0, %.preheader248.i ], [ 0, %.preheader251.i ], [ 0, %.preheader255.i ], [ 0, %.preheader259.i ], [ 0, %.preheader263.i ], [ 0, %9 ], [ 0, %.lr.ph ], [ 0, %.preheader247.us.i ], [ 0, %._crit_edge296.i ], [ 0, %.preheader250.us.i ], [ 0, %._crit_edge290.i ], [ 0, %.preheader254.us.i ], [ 0, %._crit_edge284.i ], [ 0, %.preheader258.us.i ], [ 0, %._crit_edge278.i ], [ 0, %.preheader262.us.i ], [ 0, %._crit_edge272.i ], [ 0, %.lr.ph.i ], [ 0, %._crit_edge164.i ], [ 0, %._crit_edge157.i ], [ 0, %._crit_edge150.i ], [ 0, %._crit_edge143.i ], [ 0, %._crit_edge.i ], [ 0, %._crit_edge153.i ], [ 0, %.lr.ph150.i ], [ 0, %._crit_edge147.i ], [ 0, %._crit_edge143.i62 ], [ 0, %._crit_edge139.i ], [ 0, %.lr.ph136.i ], [ 0, %._crit_edge.i57 ], [ 0, %256 ], [ 0, %274 ], [ 0, %320 ], [ 0, %339 ], [ 0, %357 ]
   ret i32 %.045
 }
@@ -49574,14 +49574,14 @@ ma_allocation_callbacks_init_copy.exit:           ; preds = %39, %35, %31, %30, 
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @ma_default_vfs_open(ptr nocapture readnone %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3) #6 {
   %5 = icmp eq ptr %3, null
-  br i1 %5, label %ma_default_vfs_open__stdio.argprom.exit, label %6
+  br i1 %5, label %ma_default_vfs_open__stdio.exit, label %6
 
 6:                                                ; preds = %4
   store ptr null, ptr %3, align 8
   %7 = icmp eq ptr %1, null
   %8 = icmp eq i32 %2, 0
   %or.cond = or i1 %7, %8
-  br i1 %or.cond, label %ma_default_vfs_open__stdio.argprom.exit, label %9
+  br i1 %or.cond, label %ma_default_vfs_open__stdio.exit, label %9
 
 9:                                                ; preds = %6
   %10 = and i32 %2, 1
@@ -49600,13 +49600,13 @@ define internal noundef i32 @ma_default_vfs_open(ptr nocapture readnone %0, ptr 
   %17 = tail call fastcc i32 @ma_result_from_errno(i32 noundef %16)
   %18 = icmp eq i32 %17, 0
   %spec.select.i = select i1 %18, i32 -1, i32 %17
-  br label %ma_default_vfs_open__stdio.argprom.exit
+  br label %ma_default_vfs_open__stdio.exit
 
 ma_fopen.exit.i:                                  ; preds = %9
   store ptr %12, ptr %3, align 8
-  br label %ma_default_vfs_open__stdio.argprom.exit
+  br label %ma_default_vfs_open__stdio.exit
 
-ma_default_vfs_open__stdio.argprom.exit:          ; preds = %ma_fopen.exit.i, %14, %6, %4
+ma_default_vfs_open__stdio.exit:                  ; preds = %ma_fopen.exit.i, %14, %6, %4
   %.0 = phi i32 [ -2, %4 ], [ -2, %6 ], [ 0, %ma_fopen.exit.i ], [ %spec.select.i, %14 ]
   ret i32 %.0
 }
@@ -49680,7 +49680,7 @@ define internal noundef i32 @ma_default_vfs_read(ptr nocapture readnone %0, ptr 
   %8 = icmp eq ptr %1, null
   %9 = icmp eq ptr %2, null
   %or.cond = or i1 %8, %9
-  br i1 %or.cond, label %ma_default_vfs_read__stdio.argprom.exit, label %10
+  br i1 %or.cond, label %ma_default_vfs_read__stdio.exit, label %10
 
 10:                                               ; preds = %7
   %11 = tail call i64 @fread(ptr noundef nonnull %2, i64 noundef 1, i64 noundef %3, ptr noundef nonnull %1)
@@ -49692,7 +49692,7 @@ define internal noundef i32 @ma_default_vfs_read(ptr nocapture readnone %0, ptr 
 
 13:                                               ; preds = %12, %10
   %.not13.i = icmp eq i64 %11, %3
-  br i1 %.not13.i, label %ma_default_vfs_read__stdio.argprom.exit, label %14
+  br i1 %.not13.i, label %ma_default_vfs_read__stdio.exit, label %14
 
 14:                                               ; preds = %13
   %15 = icmp eq i64 %11, 0
@@ -49701,14 +49701,14 @@ define internal noundef i32 @ma_default_vfs_read(ptr nocapture readnone %0, ptr 
 16:                                               ; preds = %14
   %17 = tail call i32 @feof(ptr noundef nonnull %1) #67
   %.not14.i = icmp eq i32 %17, 0
-  br i1 %.not14.i, label %18, label %ma_default_vfs_read__stdio.argprom.exit
+  br i1 %.not14.i, label %18, label %ma_default_vfs_read__stdio.exit
 
 18:                                               ; preds = %16, %14
   %19 = tail call i32 @ferror(ptr noundef nonnull %1) #67
   %20 = tail call fastcc i32 @ma_result_from_errno(i32 noundef %19)
-  br label %ma_default_vfs_read__stdio.argprom.exit
+  br label %ma_default_vfs_read__stdio.exit
 
-ma_default_vfs_read__stdio.argprom.exit:          ; preds = %18, %16, %13, %7
+ma_default_vfs_read__stdio.exit:                  ; preds = %18, %16, %13, %7
   %.0 = phi i32 [ -2, %7 ], [ %20, %18 ], [ -17, %16 ], [ 0, %13 ]
   ret i32 %.0
 }
@@ -49726,7 +49726,7 @@ define internal noundef i32 @ma_default_vfs_write(ptr nocapture readnone %0, ptr
   %8 = icmp eq ptr %1, null
   %9 = icmp eq ptr %2, null
   %or.cond = or i1 %8, %9
-  br i1 %or.cond, label %ma_default_vfs_write__stdio.argprom.exit, label %10
+  br i1 %or.cond, label %ma_default_vfs_write__stdio.exit, label %10
 
 10:                                               ; preds = %7
   %11 = tail call i64 @fwrite(ptr noundef nonnull %2, i64 noundef 1, i64 noundef %3, ptr noundef nonnull %1)
@@ -49738,14 +49738,14 @@ define internal noundef i32 @ma_default_vfs_write(ptr nocapture readnone %0, ptr
 
 13:                                               ; preds = %12, %10
   %.not10.i = icmp eq i64 %11, %3
-  br i1 %.not10.i, label %ma_default_vfs_write__stdio.argprom.exit, label %14
+  br i1 %.not10.i, label %ma_default_vfs_write__stdio.exit, label %14
 
 14:                                               ; preds = %13
   %15 = tail call i32 @ferror(ptr noundef nonnull %1) #67
   %16 = tail call fastcc i32 @ma_result_from_errno(i32 noundef %15)
-  br label %ma_default_vfs_write__stdio.argprom.exit
+  br label %ma_default_vfs_write__stdio.exit
 
-ma_default_vfs_write__stdio.argprom.exit:         ; preds = %14, %13, %7
+ma_default_vfs_write__stdio.exit:                 ; preds = %14, %13, %7
   %.0 = phi i32 [ -2, %7 ], [ %16, %14 ], [ 0, %13 ]
   ret i32 %.0
 }
@@ -49812,21 +49812,21 @@ define internal noundef i32 @ma_default_vfs_info(ptr nocapture readnone %0, ptr 
   %12 = tail call ptr @__errno_location() #83
   %13 = load i32, ptr %12, align 4
   %14 = tail call fastcc i32 @ma_result_from_errno(i32 noundef %13)
-  br label %ma_default_vfs_info__stdio.argprom.exit
+  br label %ma_default_vfs_info__stdio.exit
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %4, i64 48
   %17 = load i64, ptr %16, align 8
   store i64 %17, ptr %2, align 8
-  br label %ma_default_vfs_info__stdio.argprom.exit
+  br label %ma_default_vfs_info__stdio.exit
 
-ma_default_vfs_info__stdio.argprom.exit:          ; preds = %11, %15
+ma_default_vfs_info__stdio.exit:                  ; preds = %11, %15
   %.0.i = phi i32 [ %14, %11 ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   br label %18
 
-18:                                               ; preds = %6, %3, %ma_default_vfs_info__stdio.argprom.exit
-  %.0 = phi i32 [ %.0.i, %ma_default_vfs_info__stdio.argprom.exit ], [ -2, %3 ], [ -2, %6 ]
+18:                                               ; preds = %6, %3, %ma_default_vfs_info__stdio.exit
+  %.0 = phi i32 [ %.0.i, %ma_default_vfs_info__stdio.exit ], [ -2, %3 ], [ -2, %6 ]
   ret i32 %.0
 }
 
@@ -50270,21 +50270,21 @@ define hidden i32 @ma_vfs_or_default_info(ptr noundef %0, ptr noundef %1, ptr no
   %22 = tail call ptr @__errno_location() #83
   %23 = load i32, ptr %22, align 4
   %24 = tail call fastcc i32 @ma_result_from_errno(i32 noundef %23)
-  br label %ma_default_vfs_info__stdio.argprom.exit.i
+  br label %ma_default_vfs_info__stdio.exit.i
 
 25:                                               ; preds = %18
   %26 = getelementptr inbounds i8, ptr %4, i64 48
   %27 = load i64, ptr %26, align 8
   store i64 %27, ptr %2, align 8
-  br label %ma_default_vfs_info__stdio.argprom.exit.i
+  br label %ma_default_vfs_info__stdio.exit.i
 
-ma_default_vfs_info__stdio.argprom.exit.i:        ; preds = %25, %21
+ma_default_vfs_info__stdio.exit.i:                ; preds = %25, %21
   %.0.i.i = phi i32 [ %24, %21 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   br label %ma_vfs_info.exit
 
-ma_vfs_info.exit:                                 ; preds = %ma_default_vfs_info__stdio.argprom.exit.i, %16, %15, %13, %9, %7, %6
-  %.0 = phi i32 [ %14, %13 ], [ -2, %6 ], [ -2, %7 ], [ -29, %9 ], [ %.0.i.i, %ma_default_vfs_info__stdio.argprom.exit.i ], [ -2, %15 ], [ -2, %16 ]
+ma_vfs_info.exit:                                 ; preds = %ma_default_vfs_info__stdio.exit.i, %16, %15, %13, %9, %7, %6
+  %.0 = phi i32 [ %14, %13 ], [ -2, %6 ], [ -2, %7 ], [ -29, %9 ], [ %.0.i.i, %ma_default_vfs_info__stdio.exit.i ], [ -2, %15 ], [ -2, %16 ]
   ret i32 %.0
 }
 
@@ -50779,7 +50779,7 @@ ma_decoder_config_init_copy.exit:                 ; preds = %7, %8
   br label %ma_decoder__preinit.exit
 
 ma_decoder__preinit.exit:                         ; preds = %44, %36
-  %45 = call fastcc i32 @ma_decoder_init__internal.argprom(ptr noundef %1, ptr noundef %6, ptr noundef nonnull %4)
+  %45 = call fastcc i32 @ma_decoder_init__internal(ptr noundef %1, ptr noundef %6, ptr noundef nonnull %4)
   br label %ma_decoder__preinit.exit.thread
 
 ma_decoder__preinit.exit.thread:                  ; preds = %.thread19.i.i.i, %29, %37, %ma_decoder_config_init_copy.exit, %ma_decoder__preinit.exit
@@ -50788,7 +50788,7 @@ ma_decoder__preinit.exit.thread:                  ; preds = %.thread19.i.i.i, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ma_decoder_init__internal.argprom(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #4 {
+define internal fastcc i32 @ma_decoder_init__internal(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #4 {
   %4 = alloca %struct.ma_decoding_backend_config, align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 112
@@ -51934,7 +51934,7 @@ ma_decoder__on_seek_vfs.exit42.thread:            ; preds = %77
   br i1 %.not2767, label %103, label %ma_vfs_or_default_close.exit
 
 101:                                              ; preds = %ma_decoder__on_seek_vfs.exit42
-  %102 = call fastcc i32 @ma_decoder_init__internal.argprom(ptr noundef nonnull @ma_decoder__on_seek_vfs, ptr noundef %8, ptr noundef nonnull %3)
+  %102 = call fastcc i32 @ma_decoder_init__internal(ptr noundef nonnull @ma_decoder__on_seek_vfs, ptr noundef %8, ptr noundef nonnull %3)
   br label %105
 
 103:                                              ; preds = %ma_decoder__on_seek_vfs.exit42.thread
@@ -52305,7 +52305,7 @@ ma_decoder__on_seek_vfs.exit38.thread:            ; preds = %75
   br i1 %.not25, label %101, label %ma_vfs_or_default_close.exit
 
 99:                                               ; preds = %ma_decoder__on_seek_vfs.exit38
-  %100 = call fastcc i32 @ma_decoder_init__internal.argprom(ptr noundef nonnull @ma_decoder__on_seek_vfs, ptr noundef %9, ptr noundef nonnull %3)
+  %100 = call fastcc i32 @ma_decoder_init__internal(ptr noundef nonnull @ma_decoder__on_seek_vfs, ptr noundef %9, ptr noundef nonnull %3)
   br label %103
 
 101:                                              ; preds = %ma_decoder__on_seek_vfs.exit38.thread
@@ -56777,7 +56777,7 @@ drwav_fourcc_equal.exit864.thread:                ; preds = %drwav_fourcc_equal.
   br i1 %.0617.shrunk955, label %863, label %869
 
 863:                                              ; preds = %drwav_fourcc_equal.exit864.thread
-  %864 = call fastcc i64 @drwav__metadata_process_chunk.argelim(ptr noundef %12, ptr noundef %22)
+  %864 = call fastcc i64 @drwav__metadata_process_chunk(ptr noundef %12, ptr noundef %22)
   %865 = load ptr, ptr %266, align 8
   %866 = load ptr, ptr %33, align 8
   %867 = call fastcc i32 @drwav__seek_from_start(ptr noundef %865, i64 noundef %360, ptr noundef %866)
@@ -56945,7 +56945,7 @@ drwav__seek_forward.exit812.thread:               ; preds = %drwav__seek_forward
   br label %939
 
 939:                                              ; preds = %.lr.ph1502, %.critedge.backedge
-  %940 = call fastcc i64 @drwav__metadata_process_chunk.argelim(ptr noundef %12, ptr noundef %29)
+  %940 = call fastcc i64 @drwav__metadata_process_chunk(ptr noundef %12, ptr noundef %29)
   %941 = load ptr, ptr %266, align 8
   %942 = load i64, ptr %937, align 8
   %943 = load i32, ptr %938, align 8
@@ -65636,20 +65636,20 @@ define hidden range(i32 0, 2) i32 @drwav_fourcc_equal(ptr nocapture noundef read
 ; Function Attrs: nounwind uwtable
 define hidden void @stb_vorbis_close(ptr noundef %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %setup_free.argprom.exit, label %3
+  br i1 %2, label %setup_free.exit, label %3
 
 3:                                                ; preds = %1
   tail call fastcc void @vorbis_deinit(ptr noundef %0)
   %4 = getelementptr i8, ptr %0, i64 128
   %.val = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %5, label %setup_free.argprom.exit
+  br i1 %.not.i, label %5, label %setup_free.exit
 
 5:                                                ; preds = %3
   tail call void @free(ptr noundef nonnull %0) #67
-  br label %setup_free.argprom.exit
+  br label %setup_free.exit
 
-setup_free.argprom.exit:                          ; preds = %5, %3, %1
+setup_free.exit:                                  ; preds = %5, %3, %1
   ret void
 }
 
@@ -65658,33 +65658,33 @@ define internal fastcc void @vorbis_deinit(ptr nocapture noundef nonnull readonl
   %2 = getelementptr i8, ptr %0, i64 128
   %.val = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %3, label %setup_free.argprom.exit
+  br i1 %.not.i, label %3, label %setup_free.exit
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %5) #67
   %.val99.pre248.pre = load ptr, ptr %2, align 8
-  br label %setup_free.argprom.exit
+  br label %setup_free.exit
 
-setup_free.argprom.exit:                          ; preds = %1, %3
+setup_free.exit:                                  ; preds = %1, %3
   %.val99.pre248 = phi ptr [ %.val, %1 ], [ %.val99.pre248.pre, %3 ]
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %setup_free.argprom.exit
+.lr.ph:                                           ; preds = %setup_free.exit
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   %10 = icmp eq ptr %.val99.pre248, null
-  br i1 %10, label %.lr.ph.split, label %setup_free.argprom.exit124
+  br i1 %10, label %.lr.ph.split, label %setup_free.exit124
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %setup_free.argprom.exit122
-  %11 = phi i32 [ %16, %setup_free.argprom.exit122 ], [ %7, %.lr.ph ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %setup_free.argprom.exit122 ], [ 0, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %setup_free.exit122
+  %11 = phi i32 [ %16, %setup_free.exit122 ], [ %7, %.lr.ph ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %setup_free.exit122 ], [ 0, %.lr.ph ]
   %.val98 = load ptr, ptr %2, align 8
   %.not.i121 = icmp eq ptr %.val98, null
-  br i1 %.not.i121, label %12, label %setup_free.argprom.exit122
+  br i1 %.not.i121, label %12, label %setup_free.exit122
 
 12:                                               ; preds = %.lr.ph.split
   %13 = load ptr, ptr %9, align 8
@@ -65692,37 +65692,37 @@ setup_free.argprom.exit:                          ; preds = %1, %3
   %15 = load ptr, ptr %14, align 8
   tail call void @free(ptr noundef %15) #67
   %.pre = load i32, ptr %6, align 8
-  br label %setup_free.argprom.exit122
+  br label %setup_free.exit122
 
-setup_free.argprom.exit122:                       ; preds = %.lr.ph.split, %12
+setup_free.exit122:                               ; preds = %.lr.ph.split, %12
   %16 = phi i32 [ %11, %.lr.ph.split ], [ %.pre, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = sext i32 %16 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
   br i1 %18, label %.lr.ph.split, label %._crit_edge.loopexit, !llvm.loop !230
 
-._crit_edge.loopexit:                             ; preds = %setup_free.argprom.exit122
+._crit_edge.loopexit:                             ; preds = %setup_free.exit122
   %.val99.pre = load ptr, ptr %2, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %setup_free.argprom.exit
-  %.val99 = phi ptr [ %.val99.pre, %._crit_edge.loopexit ], [ %.val99.pre248, %setup_free.argprom.exit ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %setup_free.exit
+  %.val99 = phi ptr [ %.val99.pre, %._crit_edge.loopexit ], [ %.val99.pre248, %setup_free.exit ]
   %.not.i123 = icmp eq ptr %.val99, null
-  br i1 %.not.i123, label %19, label %setup_free.argprom.exit124
+  br i1 %.not.i123, label %19, label %setup_free.exit124
 
 19:                                               ; preds = %._crit_edge
   %20 = getelementptr inbounds i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8
   tail call void @free(ptr noundef %21) #67
-  br label %setup_free.argprom.exit124
+  br label %setup_free.exit124
 
-setup_free.argprom.exit124:                       ; preds = %.lr.ph, %._crit_edge, %19
+setup_free.exit124:                               ; preds = %.lr.ph, %._crit_edge, %19
   %22 = getelementptr inbounds i8, ptr %0, i64 472
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %.loopexit, label %.preheader207
 
-.preheader207:                                    ; preds = %setup_free.argprom.exit124
+.preheader207:                                    ; preds = %setup_free.exit124
   %24 = getelementptr inbounds i8, ptr %0, i64 336
   %25 = load i32, ptr %24, align 8
   %26 = icmp sgt i32 %25, 0
@@ -65732,15 +65732,15 @@ setup_free.argprom.exit124:                       ; preds = %.lr.ph, %._crit_edg
   %27 = getelementptr inbounds i8, ptr %0, i64 184
   br label %28
 
-28:                                               ; preds = %.lr.ph213, %setup_free.argprom.exit130
-  %indvars.iv233 = phi i64 [ 0, %.lr.ph213 ], [ %indvars.iv.next234, %setup_free.argprom.exit130 ]
+28:                                               ; preds = %.lr.ph213, %setup_free.exit130
+  %indvars.iv233 = phi i64 [ 0, %.lr.ph213 ], [ %indvars.iv.next234, %setup_free.exit130 ]
   %29 = load ptr, ptr %22, align 8
   %30 = getelementptr inbounds %struct.Residue, ptr %29, i64 %indvars.iv233
   %31 = getelementptr inbounds i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
   %.not97 = icmp eq ptr %32, null
   %.val102.pr.pre254 = load ptr, ptr %2, align 8
-  br i1 %.not97, label %setup_free.argprom.exit128, label %.preheader206
+  br i1 %.not97, label %setup_free.exit128, label %.preheader206
 
 .preheader206:                                    ; preds = %28
   %33 = getelementptr inbounds i8, ptr %30, i64 13
@@ -65754,15 +65754,15 @@ setup_free.argprom.exit124:                       ; preds = %.lr.ph, %._crit_edg
 
 .lr.ph210:                                        ; preds = %.preheader206
   %40 = icmp eq ptr %.val102.pr.pre254, null
-  br i1 %40, label %.lr.ph210.split, label %setup_free.argprom.exit130
+  br i1 %40, label %.lr.ph210.split, label %setup_free.exit130
 
-.lr.ph210.split:                                  ; preds = %.lr.ph210, %setup_free.argprom.exit126
-  %41 = phi i8 [ %47, %setup_free.argprom.exit126 ], [ %35, %.lr.ph210 ]
-  %42 = phi ptr [ %48, %setup_free.argprom.exit126 ], [ %34, %.lr.ph210 ]
-  %indvars.iv230 = phi i64 [ %indvars.iv.next231, %setup_free.argprom.exit126 ], [ 0, %.lr.ph210 ]
+.lr.ph210.split:                                  ; preds = %.lr.ph210, %setup_free.exit126
+  %41 = phi i8 [ %47, %setup_free.exit126 ], [ %35, %.lr.ph210 ]
+  %42 = phi ptr [ %48, %setup_free.exit126 ], [ %34, %.lr.ph210 ]
+  %indvars.iv230 = phi i64 [ %indvars.iv.next231, %setup_free.exit126 ], [ 0, %.lr.ph210 ]
   %.val100 = load ptr, ptr %2, align 8
   %.not.i125 = icmp eq ptr %.val100, null
-  br i1 %.not.i125, label %43, label %setup_free.argprom.exit126
+  br i1 %.not.i125, label %43, label %setup_free.exit126
 
 43:                                               ; preds = %.lr.ph210.split
   %44 = load ptr, ptr %31, align 8
@@ -65771,9 +65771,9 @@ setup_free.argprom.exit124:                       ; preds = %.lr.ph, %._crit_edg
   tail call void @free(ptr noundef %46) #67
   %.pre250 = load ptr, ptr %27, align 8
   %.pre251 = load i8, ptr %33, align 1
-  br label %setup_free.argprom.exit126
+  br label %setup_free.exit126
 
-setup_free.argprom.exit126:                       ; preds = %.lr.ph210.split, %43
+setup_free.exit126:                               ; preds = %.lr.ph210.split, %43
   %47 = phi i8 [ %41, %.lr.ph210.split ], [ %.pre251, %43 ]
   %48 = phi ptr [ %42, %.lr.ph210.split ], [ %.pre250, %43 ]
   %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
@@ -65784,45 +65784,45 @@ setup_free.argprom.exit126:                       ; preds = %.lr.ph210.split, %4
   %53 = icmp slt i64 %indvars.iv.next231, %52
   br i1 %53, label %.lr.ph210.split, label %._crit_edge211.loopexit, !llvm.loop !231
 
-._crit_edge211.loopexit:                          ; preds = %setup_free.argprom.exit126
+._crit_edge211.loopexit:                          ; preds = %setup_free.exit126
   %.val101.pre = load ptr, ptr %2, align 8
   br label %._crit_edge211
 
 ._crit_edge211:                                   ; preds = %._crit_edge211.loopexit, %.preheader206
   %.val101 = phi ptr [ %.val101.pre, %._crit_edge211.loopexit ], [ %.val102.pr.pre254, %.preheader206 ]
   %.not.i127 = icmp eq ptr %.val101, null
-  br i1 %.not.i127, label %54, label %setup_free.argprom.exit130
+  br i1 %.not.i127, label %54, label %setup_free.exit130
 
 54:                                               ; preds = %._crit_edge211
   %55 = load ptr, ptr %31, align 8
   tail call void @free(ptr noundef %55) #67
   %.val102.pr.pre = load ptr, ptr %2, align 8
-  br label %setup_free.argprom.exit128
+  br label %setup_free.exit128
 
-setup_free.argprom.exit128:                       ; preds = %54, %28
+setup_free.exit128:                               ; preds = %54, %28
   %.val102.pr = phi ptr [ %.val102.pr.pre, %54 ], [ %.val102.pr.pre254, %28 ]
   %.not.i129 = icmp eq ptr %.val102.pr, null
-  br i1 %.not.i129, label %56, label %setup_free.argprom.exit130
+  br i1 %.not.i129, label %56, label %setup_free.exit130
 
-56:                                               ; preds = %setup_free.argprom.exit128
+56:                                               ; preds = %setup_free.exit128
   %57 = getelementptr inbounds i8, ptr %30, i64 24
   %58 = load ptr, ptr %57, align 8
   tail call void @free(ptr noundef %58) #67
-  br label %setup_free.argprom.exit130
+  br label %setup_free.exit130
 
-setup_free.argprom.exit130:                       ; preds = %.lr.ph210, %._crit_edge211, %setup_free.argprom.exit128, %56
+setup_free.exit130:                               ; preds = %.lr.ph210, %._crit_edge211, %setup_free.exit128, %56
   %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
   %59 = load i32, ptr %24, align 8
   %60 = sext i32 %59 to i64
   %61 = icmp slt i64 %indvars.iv.next234, %60
   br i1 %61, label %28, label %.loopexit
 
-.loopexit:                                        ; preds = %setup_free.argprom.exit130, %.preheader207, %setup_free.argprom.exit124
+.loopexit:                                        ; preds = %setup_free.exit130, %.preheader207, %setup_free.exit124
   %62 = getelementptr inbounds i8, ptr %0, i64 184
   %63 = load ptr, ptr %62, align 8
   %.not93 = icmp eq ptr %63, null
   %.val109.pr.pre258 = load ptr, ptr %2, align 8
-  br i1 %.not93, label %setup_free.argprom.exit142, label %.preheader205
+  br i1 %.not93, label %setup_free.exit142, label %.preheader205
 
 .preheader205:                                    ; preds = %.loopexit
   %64 = getelementptr inbounds i8, ptr %0, i64 176
@@ -65832,106 +65832,106 @@ setup_free.argprom.exit130:                       ; preds = %.lr.ph210, %._crit_
 
 .lr.ph215:                                        ; preds = %.preheader205
   %67 = icmp eq ptr %.val109.pr.pre258, null
-  br i1 %67, label %.lr.ph215.split, label %setup_free.argprom.exit146
+  br i1 %67, label %.lr.ph215.split, label %setup_free.exit146
 
-.lr.ph215.split:                                  ; preds = %.lr.ph215, %setup_free.argprom.exit140
-  %indvars.iv236 = phi i64 [ %indvars.iv.next237, %setup_free.argprom.exit140 ], [ 0, %.lr.ph215 ]
+.lr.ph215.split:                                  ; preds = %.lr.ph215, %setup_free.exit140
+  %indvars.iv236 = phi i64 [ %indvars.iv.next237, %setup_free.exit140 ], [ 0, %.lr.ph215 ]
   %68 = load ptr, ptr %62, align 8
   %69 = getelementptr inbounds %struct.Codebook, ptr %68, i64 %indvars.iv236
   %.val103 = load ptr, ptr %2, align 8
   %.not.i131 = icmp eq ptr %.val103, null
-  br i1 %.not.i131, label %setup_free.argprom.exit132, label %setup_free.argprom.exit140
+  br i1 %.not.i131, label %setup_free.exit132, label %setup_free.exit140
 
-setup_free.argprom.exit132:                       ; preds = %.lr.ph215.split
+setup_free.exit132:                               ; preds = %.lr.ph215.split
   %70 = getelementptr inbounds i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8
   tail call void @free(ptr noundef %71) #67
   %.val104.pr = load ptr, ptr %2, align 8
   %.not.i133 = icmp eq ptr %.val104.pr, null
-  br i1 %.not.i133, label %setup_free.argprom.exit134, label %setup_free.argprom.exit140
+  br i1 %.not.i133, label %setup_free.exit134, label %setup_free.exit140
 
-setup_free.argprom.exit134:                       ; preds = %setup_free.argprom.exit132
+setup_free.exit134:                               ; preds = %setup_free.exit132
   %72 = getelementptr inbounds i8, ptr %69, i64 32
   %73 = load ptr, ptr %72, align 8
   tail call void @free(ptr noundef %73) #67
   %.val105.pr = load ptr, ptr %2, align 8
   %.not.i135 = icmp eq ptr %.val105.pr, null
-  br i1 %.not.i135, label %setup_free.argprom.exit136, label %setup_free.argprom.exit140
+  br i1 %.not.i135, label %setup_free.exit136, label %setup_free.exit140
 
-setup_free.argprom.exit136:                       ; preds = %setup_free.argprom.exit134
+setup_free.exit136:                               ; preds = %setup_free.exit134
   %74 = getelementptr inbounds i8, ptr %69, i64 40
   %75 = load ptr, ptr %74, align 8
   tail call void @free(ptr noundef %75) #67
   %.val106.pr.pr = load ptr, ptr %2, align 8
   %.not.i137 = icmp eq ptr %.val106.pr.pr, null
-  br i1 %.not.i137, label %setup_free.argprom.exit138, label %setup_free.argprom.exit140
+  br i1 %.not.i137, label %setup_free.exit138, label %setup_free.exit140
 
-setup_free.argprom.exit138:                       ; preds = %setup_free.argprom.exit136
+setup_free.exit138:                               ; preds = %setup_free.exit136
   %76 = getelementptr inbounds i8, ptr %69, i64 2096
   %77 = load ptr, ptr %76, align 8
   tail call void @free(ptr noundef %77) #67
   %.val107.pr = load ptr, ptr %2, align 8
   %.not.i139 = icmp eq ptr %.val107.pr, null
-  br i1 %.not.i139, label %78, label %setup_free.argprom.exit140
+  br i1 %.not.i139, label %78, label %setup_free.exit140
 
-78:                                               ; preds = %setup_free.argprom.exit138
+78:                                               ; preds = %setup_free.exit138
   %79 = getelementptr inbounds i8, ptr %69, i64 2104
   %80 = load ptr, ptr %79, align 8
   %.not96 = icmp eq ptr %80, null
   %81 = getelementptr inbounds i8, ptr %80, i64 -4
   %spec.select = select i1 %.not96, ptr null, ptr %81
   tail call void @free(ptr noundef %spec.select) #67
-  br label %setup_free.argprom.exit140
+  br label %setup_free.exit140
 
-setup_free.argprom.exit140:                       ; preds = %setup_free.argprom.exit132, %.lr.ph215.split, %setup_free.argprom.exit134, %setup_free.argprom.exit136, %setup_free.argprom.exit138, %78
+setup_free.exit140:                               ; preds = %setup_free.exit132, %.lr.ph215.split, %setup_free.exit134, %setup_free.exit136, %setup_free.exit138, %78
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
   %82 = load i32, ptr %64, align 8
   %83 = sext i32 %82 to i64
   %84 = icmp slt i64 %indvars.iv.next237, %83
   br i1 %84, label %.lr.ph215.split, label %._crit_edge216.loopexit, !llvm.loop !232
 
-._crit_edge216.loopexit:                          ; preds = %setup_free.argprom.exit140
+._crit_edge216.loopexit:                          ; preds = %setup_free.exit140
   %.val108.pre = load ptr, ptr %2, align 8
   br label %._crit_edge216
 
 ._crit_edge216:                                   ; preds = %._crit_edge216.loopexit, %.preheader205
   %.val108 = phi ptr [ %.val108.pre, %._crit_edge216.loopexit ], [ %.val109.pr.pre258, %.preheader205 ]
   %.not.i141 = icmp eq ptr %.val108, null
-  br i1 %.not.i141, label %85, label %setup_free.argprom.exit146
+  br i1 %.not.i141, label %85, label %setup_free.exit146
 
 85:                                               ; preds = %._crit_edge216
   %86 = load ptr, ptr %62, align 8
   tail call void @free(ptr noundef %86) #67
   %.val109.pr.pre = load ptr, ptr %2, align 8
-  br label %setup_free.argprom.exit142
+  br label %setup_free.exit142
 
-setup_free.argprom.exit142:                       ; preds = %85, %.loopexit
+setup_free.exit142:                               ; preds = %85, %.loopexit
   %.val109.pr = phi ptr [ %.val109.pr.pre, %85 ], [ %.val109.pr.pre258, %.loopexit ]
   %.not.i143 = icmp eq ptr %.val109.pr, null
-  br i1 %.not.i143, label %setup_free.argprom.exit144, label %setup_free.argprom.exit146
+  br i1 %.not.i143, label %setup_free.exit144, label %setup_free.exit146
 
-setup_free.argprom.exit144:                       ; preds = %setup_free.argprom.exit142
+setup_free.exit144:                               ; preds = %setup_free.exit142
   %87 = getelementptr inbounds i8, ptr %0, i64 328
   %88 = load ptr, ptr %87, align 8
   tail call void @free(ptr noundef %88) #67
   %.val110.pr = load ptr, ptr %2, align 8
   %.not.i145 = icmp eq ptr %.val110.pr, null
-  br i1 %.not.i145, label %89, label %setup_free.argprom.exit146
+  br i1 %.not.i145, label %89, label %setup_free.exit146
 
-89:                                               ; preds = %setup_free.argprom.exit144
+89:                                               ; preds = %setup_free.exit144
   %90 = load ptr, ptr %22, align 8
   tail call void @free(ptr noundef %90) #67
   %.pre264.pre266.pre = load ptr, ptr %2, align 8
-  br label %setup_free.argprom.exit146
+  br label %setup_free.exit146
 
-setup_free.argprom.exit146:                       ; preds = %.lr.ph215, %._crit_edge216, %setup_free.argprom.exit142, %setup_free.argprom.exit144, %89
-  %.pre264.pre266 = phi ptr [ %.val108, %._crit_edge216 ], [ %.val109.pr, %setup_free.argprom.exit142 ], [ %.val110.pr, %setup_free.argprom.exit144 ], [ %.pre264.pre266.pre, %89 ], [ %.val109.pr.pre258, %.lr.ph215 ]
+setup_free.exit146:                               ; preds = %.lr.ph215, %._crit_edge216, %setup_free.exit142, %setup_free.exit144, %89
+  %.pre264.pre266 = phi ptr [ %.val108, %._crit_edge216 ], [ %.val109.pr, %setup_free.exit142 ], [ %.val110.pr, %setup_free.exit144 ], [ %.pre264.pre266.pre, %89 ], [ %.val109.pr.pre258, %.lr.ph215 ]
   %91 = getelementptr inbounds i8, ptr %0, i64 488
   %92 = load ptr, ptr %91, align 8
   %.not94 = icmp eq ptr %92, null
-  br i1 %.not94, label %setup_free.argprom.exit150, label %.preheader204
+  br i1 %.not94, label %setup_free.exit150, label %.preheader204
 
-.preheader204:                                    ; preds = %setup_free.argprom.exit146
+.preheader204:                                    ; preds = %setup_free.exit146
   %93 = getelementptr inbounds i8, ptr %0, i64 480
   %94 = load i32, ptr %93, align 8
   %95 = icmp sgt i32 %94, 0
@@ -65939,14 +65939,14 @@ setup_free.argprom.exit146:                       ; preds = %.lr.ph215, %._crit_
 
 .lr.ph218:                                        ; preds = %.preheader204
   %96 = icmp eq ptr %.pre264.pre266, null
-  br i1 %96, label %.lr.ph218.split, label %setup_free.argprom.exit150
+  br i1 %96, label %.lr.ph218.split, label %setup_free.exit150
 
-.lr.ph218.split:                                  ; preds = %.lr.ph218, %setup_free.argprom.exit148
-  %97 = phi i32 [ %102, %setup_free.argprom.exit148 ], [ %94, %.lr.ph218 ]
-  %indvars.iv239 = phi i64 [ %indvars.iv.next240, %setup_free.argprom.exit148 ], [ 0, %.lr.ph218 ]
+.lr.ph218.split:                                  ; preds = %.lr.ph218, %setup_free.exit148
+  %97 = phi i32 [ %102, %setup_free.exit148 ], [ %94, %.lr.ph218 ]
+  %indvars.iv239 = phi i64 [ %indvars.iv.next240, %setup_free.exit148 ], [ 0, %.lr.ph218 ]
   %.val111 = load ptr, ptr %2, align 8
   %.not.i147 = icmp eq ptr %.val111, null
-  br i1 %.not.i147, label %98, label %setup_free.argprom.exit148
+  br i1 %.not.i147, label %98, label %setup_free.exit148
 
 98:                                               ; preds = %.lr.ph218.split
   %99 = load ptr, ptr %91, align 8
@@ -65954,50 +65954,50 @@ setup_free.argprom.exit146:                       ; preds = %.lr.ph215, %._crit_
   %101 = load ptr, ptr %100, align 8
   tail call void @free(ptr noundef %101) #67
   %.pre260 = load i32, ptr %93, align 8
-  br label %setup_free.argprom.exit148
+  br label %setup_free.exit148
 
-setup_free.argprom.exit148:                       ; preds = %.lr.ph218.split, %98
+setup_free.exit148:                               ; preds = %.lr.ph218.split, %98
   %102 = phi i32 [ %97, %.lr.ph218.split ], [ %.pre260, %98 ]
   %indvars.iv.next240 = add nuw nsw i64 %indvars.iv239, 1
   %103 = sext i32 %102 to i64
   %104 = icmp slt i64 %indvars.iv.next240, %103
   br i1 %104, label %.lr.ph218.split, label %._crit_edge219.loopexit, !llvm.loop !233
 
-._crit_edge219.loopexit:                          ; preds = %setup_free.argprom.exit148
+._crit_edge219.loopexit:                          ; preds = %setup_free.exit148
   %.val112.pre = load ptr, ptr %2, align 8
   br label %._crit_edge219
 
 ._crit_edge219:                                   ; preds = %._crit_edge219.loopexit, %.preheader204
   %.val112 = phi ptr [ %.val112.pre, %._crit_edge219.loopexit ], [ %.pre264.pre266, %.preheader204 ]
   %.not.i149 = icmp eq ptr %.val112, null
-  br i1 %.not.i149, label %105, label %setup_free.argprom.exit150
+  br i1 %.not.i149, label %105, label %setup_free.exit150
 
 105:                                              ; preds = %._crit_edge219
   %106 = load ptr, ptr %91, align 8
   tail call void @free(ptr noundef %106) #67
   %.pre264.pre = load ptr, ptr %2, align 8
-  br label %setup_free.argprom.exit150
+  br label %setup_free.exit150
 
-setup_free.argprom.exit150:                       ; preds = %.lr.ph218, %105, %._crit_edge219, %setup_free.argprom.exit146
-  %.pre264 = phi ptr [ %.pre264.pre, %105 ], [ %.val112, %._crit_edge219 ], [ %.pre264.pre266, %setup_free.argprom.exit146 ], [ %.pre264.pre266, %.lr.ph218 ]
+setup_free.exit150:                               ; preds = %.lr.ph218, %105, %._crit_edge219, %setup_free.exit146
+  %.pre264 = phi ptr [ %.pre264.pre, %105 ], [ %.val112, %._crit_edge219 ], [ %.pre264.pre266, %setup_free.exit146 ], [ %.pre264.pre266, %.lr.ph218 ]
   %107 = getelementptr inbounds i8, ptr %0, i64 4
   %108 = load i32, ptr %107, align 4
   %109 = icmp sgt i32 %108, 0
   br i1 %109, label %.lr.ph221, label %.preheader
 
-.lr.ph221:                                        ; preds = %setup_free.argprom.exit150
+.lr.ph221:                                        ; preds = %setup_free.exit150
   %110 = getelementptr inbounds i8, ptr %0, i64 888
   %111 = getelementptr inbounds i8, ptr %0, i64 1144
   %112 = getelementptr inbounds i8, ptr %0, i64 1280
   %113 = icmp eq ptr %.pre264, null
   br i1 %113, label %.lr.ph221.split, label %.split.us
 
-.preheader.loopexit:                              ; preds = %setup_free.argprom.exit156
+.preheader.loopexit:                              ; preds = %setup_free.exit156
   %.pre263 = load ptr, ptr %2, align 8
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.loopexit, %setup_free.argprom.exit150
-  %114 = phi ptr [ %.pre263, %.preheader.loopexit ], [ %.pre264, %setup_free.argprom.exit150 ]
+.preheader:                                       ; preds = %.preheader.loopexit, %setup_free.exit150
+  %114 = phi ptr [ %.pre263, %.preheader.loopexit ], [ %.pre264, %setup_free.exit150 ]
   %115 = getelementptr inbounds i8, ptr %0, i64 1416
   %116 = getelementptr inbounds i8, ptr %0, i64 1432
   %117 = getelementptr inbounds i8, ptr %0, i64 1448
@@ -66006,35 +66006,35 @@ setup_free.argprom.exit150:                       ; preds = %.lr.ph218, %105, %.
   %120 = icmp eq ptr %114, null
   br i1 %120, label %.preheader.split, label %.split.us
 
-.lr.ph221.split:                                  ; preds = %.lr.ph221, %setup_free.argprom.exit156
-  %indvars.iv242 = phi i64 [ %indvars.iv.next243, %setup_free.argprom.exit156 ], [ 0, %.lr.ph221 ]
+.lr.ph221.split:                                  ; preds = %.lr.ph221, %setup_free.exit156
+  %indvars.iv242 = phi i64 [ %indvars.iv.next243, %setup_free.exit156 ], [ 0, %.lr.ph221 ]
   %.val113 = load ptr, ptr %2, align 8
   %.not.i151 = icmp eq ptr %.val113, null
-  br i1 %.not.i151, label %setup_free.argprom.exit152, label %setup_free.argprom.exit156
+  br i1 %.not.i151, label %setup_free.exit152, label %setup_free.exit156
 
-setup_free.argprom.exit152:                       ; preds = %.lr.ph221.split
+setup_free.exit152:                               ; preds = %.lr.ph221.split
   %121 = getelementptr inbounds [16 x ptr], ptr %110, i64 0, i64 %indvars.iv242
   %122 = load ptr, ptr %121, align 8
   tail call void @free(ptr noundef %122) #67
   %.val114.pr = load ptr, ptr %2, align 8
   %.not.i153 = icmp eq ptr %.val114.pr, null
-  br i1 %.not.i153, label %setup_free.argprom.exit154, label %setup_free.argprom.exit156
+  br i1 %.not.i153, label %setup_free.exit154, label %setup_free.exit156
 
-setup_free.argprom.exit154:                       ; preds = %setup_free.argprom.exit152
+setup_free.exit154:                               ; preds = %setup_free.exit152
   %123 = getelementptr inbounds [16 x ptr], ptr %111, i64 0, i64 %indvars.iv242
   %124 = load ptr, ptr %123, align 8
   tail call void @free(ptr noundef %124) #67
   %.val115.pr = load ptr, ptr %2, align 8
   %.not.i155 = icmp eq ptr %.val115.pr, null
-  br i1 %.not.i155, label %125, label %setup_free.argprom.exit156
+  br i1 %.not.i155, label %125, label %setup_free.exit156
 
-125:                                              ; preds = %setup_free.argprom.exit154
+125:                                              ; preds = %setup_free.exit154
   %126 = getelementptr inbounds [16 x ptr], ptr %112, i64 0, i64 %indvars.iv242
   %127 = load ptr, ptr %126, align 8
   tail call void @free(ptr noundef %127) #67
-  br label %setup_free.argprom.exit156
+  br label %setup_free.exit156
 
-setup_free.argprom.exit156:                       ; preds = %.lr.ph221.split, %setup_free.argprom.exit152, %setup_free.argprom.exit154, %125
+setup_free.exit156:                               ; preds = %.lr.ph221.split, %setup_free.exit152, %setup_free.exit154, %125
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
   %128 = load i32, ptr %107, align 4
   %129 = sext i32 %128 to i64
@@ -66043,55 +66043,55 @@ setup_free.argprom.exit156:                       ; preds = %.lr.ph221.split, %s
   %132 = and i1 %131, %130
   br i1 %132, label %.lr.ph221.split, label %.preheader.loopexit, !llvm.loop !234
 
-.preheader.split:                                 ; preds = %.preheader, %setup_free.argprom.exit166
-  %133 = phi i1 [ false, %setup_free.argprom.exit166 ], [ true, %.preheader ]
-  %indvars.iv245 = phi i64 [ 1, %setup_free.argprom.exit166 ], [ 0, %.preheader ]
+.preheader.split:                                 ; preds = %.preheader, %setup_free.exit166
+  %133 = phi i1 [ false, %setup_free.exit166 ], [ true, %.preheader ]
+  %indvars.iv245 = phi i64 [ 1, %setup_free.exit166 ], [ 0, %.preheader ]
   %.val116 = load ptr, ptr %2, align 8
   %.not.i157 = icmp eq ptr %.val116, null
-  br i1 %.not.i157, label %setup_free.argprom.exit158, label %setup_free.argprom.exit166
+  br i1 %.not.i157, label %setup_free.exit158, label %setup_free.exit166
 
-setup_free.argprom.exit158:                       ; preds = %.preheader.split
+setup_free.exit158:                               ; preds = %.preheader.split
   %134 = getelementptr inbounds [2 x ptr], ptr %115, i64 0, i64 %indvars.iv245
   %135 = load ptr, ptr %134, align 8
   tail call void @free(ptr noundef %135) #67
   %.val117.pr = load ptr, ptr %2, align 8
   %.not.i159 = icmp eq ptr %.val117.pr, null
-  br i1 %.not.i159, label %setup_free.argprom.exit160, label %setup_free.argprom.exit166
+  br i1 %.not.i159, label %setup_free.exit160, label %setup_free.exit166
 
-setup_free.argprom.exit160:                       ; preds = %setup_free.argprom.exit158
+setup_free.exit160:                               ; preds = %setup_free.exit158
   %136 = getelementptr inbounds [2 x ptr], ptr %116, i64 0, i64 %indvars.iv245
   %137 = load ptr, ptr %136, align 8
   tail call void @free(ptr noundef %137) #67
   %.val118.pr = load ptr, ptr %2, align 8
   %.not.i161 = icmp eq ptr %.val118.pr, null
-  br i1 %.not.i161, label %setup_free.argprom.exit162, label %setup_free.argprom.exit166
+  br i1 %.not.i161, label %setup_free.exit162, label %setup_free.exit166
 
-setup_free.argprom.exit162:                       ; preds = %setup_free.argprom.exit160
+setup_free.exit162:                               ; preds = %setup_free.exit160
   %138 = getelementptr inbounds [2 x ptr], ptr %117, i64 0, i64 %indvars.iv245
   %139 = load ptr, ptr %138, align 8
   tail call void @free(ptr noundef %139) #67
   %.val119.pr.pr = load ptr, ptr %2, align 8
   %.not.i163 = icmp eq ptr %.val119.pr.pr, null
-  br i1 %.not.i163, label %setup_free.argprom.exit164, label %setup_free.argprom.exit166
+  br i1 %.not.i163, label %setup_free.exit164, label %setup_free.exit166
 
-setup_free.argprom.exit164:                       ; preds = %setup_free.argprom.exit162
+setup_free.exit164:                               ; preds = %setup_free.exit162
   %140 = getelementptr inbounds [2 x ptr], ptr %118, i64 0, i64 %indvars.iv245
   %141 = load ptr, ptr %140, align 8
   tail call void @free(ptr noundef %141) #67
   %.val120.pr.pr = load ptr, ptr %2, align 8
   %.not.i165 = icmp eq ptr %.val120.pr.pr, null
-  br i1 %.not.i165, label %142, label %setup_free.argprom.exit166
+  br i1 %.not.i165, label %142, label %setup_free.exit166
 
-142:                                              ; preds = %setup_free.argprom.exit164
+142:                                              ; preds = %setup_free.exit164
   %143 = getelementptr inbounds [2 x ptr], ptr %119, i64 0, i64 %indvars.iv245
   %144 = load ptr, ptr %143, align 8
   tail call void @free(ptr noundef %144) #67
-  br label %setup_free.argprom.exit166
+  br label %setup_free.exit166
 
-setup_free.argprom.exit166:                       ; preds = %setup_free.argprom.exit158, %.preheader.split, %setup_free.argprom.exit160, %setup_free.argprom.exit162, %setup_free.argprom.exit164, %142
+setup_free.exit166:                               ; preds = %setup_free.exit158, %.preheader.split, %setup_free.exit160, %setup_free.exit162, %setup_free.exit164, %142
   br i1 %133, label %.preheader.split, label %.split.us, !llvm.loop !235
 
-.split.us:                                        ; preds = %setup_free.argprom.exit166, %.lr.ph221, %.preheader
+.split.us:                                        ; preds = %setup_free.exit166, %.lr.ph221, %.preheader
   %145 = getelementptr inbounds i8, ptr %0, i64 60
   %146 = load i32, ptr %145, align 4
   %.not95 = icmp eq i32 %146, 0
@@ -68639,12 +68639,12 @@ get_bits.exit.thread.i:                           ; preds = %._crit_edge581.i, %
   %860 = getelementptr inbounds i8, ptr %0, i64 156
   br label %862
 
-.preheader556.i:                                  ; preds = %do_floor.argprom.exit.i
+.preheader556.i:                                  ; preds = %do_floor.exit.i
   %861 = icmp sgt i32 %952, 0
   br i1 %861, label %.lr.ph612.i, label %.preheader.i.preheader
 
-862:                                              ; preds = %do_floor.argprom.exit.i, %.lr.ph610.i
-  %indvars.iv659.i = phi i64 [ 0, %.lr.ph610.i ], [ %indvars.iv.next660.i, %do_floor.argprom.exit.i ]
+862:                                              ; preds = %do_floor.exit.i, %.lr.ph610.i
+  %indvars.iv659.i = phi i64 [ 0, %.lr.ph610.i ], [ %indvars.iv.next660.i, %do_floor.exit.i ]
   %863 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %indvars.iv659.i
   %864 = load i32, ptr %863, align 4
   %.not378.i = icmp eq i32 %864, 0
@@ -68654,7 +68654,7 @@ get_bits.exit.thread.i:                           ; preds = %._crit_edge581.i, %
 
 867:                                              ; preds = %862
   tail call void @llvm.memset.p0.i64(ptr align 4 %866, i8 0, i64 %854, i1 false)
-  br label %do_floor.argprom.exit.i
+  br label %do_floor.exit.i
 
 868:                                              ; preds = %862
   %869 = getelementptr inbounds [16 x ptr], ptr %855, i64 0, i64 %indvars.iv659.i
@@ -68673,7 +68673,7 @@ get_bits.exit.thread.i:                           ; preds = %._crit_edge581.i, %
 
 881:                                              ; preds = %868
   store i32 21, ptr %860, align 4
-  br label %do_floor.argprom.exit.i
+  br label %do_floor.exit.i
 
 882:                                              ; preds = %868
   %883 = load ptr, ptr %859, align 8
@@ -68786,7 +68786,7 @@ draw_line.exit.i.i:                               ; preds = %.lr.ph.i.i.i, %920,
   %.045.lcssa.i.i = phi i32 [ 0, %882 ], [ %.146.i.i, %draw_line.exit.i.i ]
   %.044.lcssa.i.i = phi i32 [ %890, %882 ], [ %.1.i438.i, %draw_line.exit.i.i ]
   %943 = icmp slt i32 %.045.lcssa.i.i, %33
-  br i1 %943, label %.preheader.i.i, label %do_floor.argprom.exit.i
+  br i1 %943, label %.preheader.i.i, label %do_floor.exit.i
 
 .preheader.i.i:                                   ; preds = %._crit_edge.i432.i
   %944 = sext i32 %.044.lcssa.i.i to i64
@@ -68803,9 +68803,9 @@ draw_line.exit.i.i:                               ; preds = %.lr.ph.i.i.i, %920,
   store float %951, ptr %949, align 4
   %indvars.iv.next8.i.i = add nuw nsw i64 %indvars.iv7.i.i, 1
   %exitcond.not.i435.i = icmp eq i64 %indvars.iv.next8.i.i, %853
-  br i1 %exitcond.not.i435.i, label %do_floor.argprom.exit.i, label %948
+  br i1 %exitcond.not.i435.i, label %do_floor.exit.i, label %948
 
-do_floor.argprom.exit.i:                          ; preds = %948, %._crit_edge.i432.i, %881, %867
+do_floor.exit.i:                                  ; preds = %948, %._crit_edge.i432.i, %881, %867
   %indvars.iv.next660.i = add nuw nsw i64 %indvars.iv659.i, 1
   %952 = load i32, ptr %35, align 4
   %953 = sext i32 %952 to i64
@@ -72460,7 +72460,7 @@ set_file_offset.exit166.i:                        ; preds = %228, %225, %216, %2
 
 ._crit_edge.i:                                    ; preds = %243, %237, %.preheader.i
   %246 = load i32, ptr %7, align 4
-  tail call fastcc void @set_file_offset.argelim(ptr noundef nonnull %0, i32 noundef %246)
+  tail call fastcc void @set_file_offset(ptr noundef nonnull %0, i32 noundef %246)
   %247 = tail call fastcc i32 @start_page(ptr noundef nonnull %0)
   %.not127.i = icmp eq i32 %247, 0
   br i1 %.not127.i, label %.sink.split.i, label %248
@@ -73583,7 +73583,7 @@ vorbis_pump_first_frame.exit:                     ; preds = %set_file_offset.exi
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @set_file_offset.argelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #6 {
+define internal fastcc void @set_file_offset(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 92
   %4 = load i8, ptr %3, align 4
   %.not = icmp eq i8 %4, 0
@@ -81924,18 +81924,18 @@ define internal noundef i32 @drmp3__on_seek_memory(ptr nocapture noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @drmp3_init_file(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %1, null
-  br i1 %4, label %drmp3_fopen.argprom.exit.thread, label %5
+  br i1 %4, label %drmp3_fopen.exit.thread, label %5
 
 5:                                                ; preds = %3
   %6 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.170)
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %drmp3_fopen.argprom.exit.thread, label %drmp3_fopen.argprom.exit
+  br i1 %7, label %drmp3_fopen.exit.thread, label %drmp3_fopen.exit
 
-drmp3_fopen.argprom.exit:                         ; preds = %5
+drmp3_fopen.exit:                                 ; preds = %5
   %8 = icmp eq ptr %0, null
   br i1 %8, label %36, label %9
 
-9:                                                ; preds = %drmp3_fopen.argprom.exit
+9:                                                ; preds = %drmp3_fopen.exit
   %10 = getelementptr inbounds i8, ptr %0, i64 6680
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16064) %0, i8 0, i64 16064, i1 false)
   store ptr @drmp3__on_read_stdio, ptr %10, align 8
@@ -82012,13 +82012,13 @@ drmp3_init.exit:                                  ; preds = %18
   %34 = load i32, ptr %33, align 4
   %35 = getelementptr inbounds i8, ptr %0, i64 6672
   store i32 %34, ptr %35, align 8
-  br label %drmp3_fopen.argprom.exit.thread
+  br label %drmp3_fopen.exit.thread
 
-36:                                               ; preds = %drmp3_fopen.argprom.exit, %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i, %22, %26, %28, %15
+36:                                               ; preds = %drmp3_fopen.exit, %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i, %22, %26, %28, %15
   %37 = tail call i32 @fclose(ptr noundef nonnull %6)
-  br label %drmp3_fopen.argprom.exit.thread
+  br label %drmp3_fopen.exit.thread
 
-drmp3_fopen.argprom.exit.thread:                  ; preds = %5, %3, %drmp3_init.exit, %36
+drmp3_fopen.exit.thread:                          ; preds = %5, %3, %drmp3_init.exit, %36
   %.0 = phi i32 [ 0, %36 ], [ 1, %drmp3_init.exit ], [ 0, %3 ], [ 0, %5 ]
   ret i32 %.0
 }
@@ -82049,7 +82049,7 @@ define hidden range(i32 0, 2) i32 @drmp3_init_file_w(ptr noundef %0, ptr noundef
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %7 = icmp eq ptr %1, null
-  br i1 %7, label %drmp3_wfopen.argprom.exit.thread, label %8
+  br i1 %7, label %drmp3_wfopen.exit.thread, label %8
 
 8:                                                ; preds = %3
   store ptr %1, ptr %5, align 8
@@ -82063,9 +82063,9 @@ define hidden range(i32 0, 2) i32 @drmp3_init_file_w(ptr noundef %0, ptr noundef
   %12 = tail call ptr @__errno_location() #83
   %13 = load i32, ptr %12, align 4
   %cond = icmp eq i32 %13, 0
-  br i1 %cond, label %drmp3_wfopen.argprom.exit.thread13, label %drmp3_wfopen.argprom.exit.thread
+  br i1 %cond, label %drmp3_wfopen.exit.thread13, label %drmp3_wfopen.exit.thread
 
-drmp3_wfopen.argprom.exit.thread13:               ; preds = %11
+drmp3_wfopen.exit.thread13:                       ; preds = %11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -82074,7 +82074,7 @@ drmp3_wfopen.argprom.exit.thread13:               ; preds = %11
 14:                                               ; preds = %8
   %15 = add nuw i64 %9, 1
   %16 = icmp eq ptr %2, null
-  br i1 %16, label %drmp3_wfopen.argprom.exit.thread, label %17
+  br i1 %16, label %drmp3_wfopen.exit.thread, label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %2, i64 8
@@ -82091,7 +82091,7 @@ drmp3_wfopen.argprom.exit.thread13:               ; preds = %11
   %24 = getelementptr inbounds i8, ptr %2, i64 16
   %25 = load ptr, ptr %24, align 8
   %.not12.i.i = icmp eq ptr %25, null
-  br i1 %.not12.i.i, label %drmp3_wfopen.argprom.exit.thread, label %26
+  br i1 %.not12.i.i, label %drmp3_wfopen.exit.thread, label %26
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr %2, align 8
@@ -82101,7 +82101,7 @@ drmp3_wfopen.argprom.exit.thread13:               ; preds = %11
 drmp3__malloc_from_callbacks.exit.i:              ; preds = %26, %20
   %.0.i35.i = phi ptr [ %22, %20 ], [ %28, %26 ]
   %29 = icmp eq ptr %.0.i35.i, null
-  br i1 %29, label %drmp3_wfopen.argprom.exit.thread, label %30
+  br i1 %29, label %drmp3_wfopen.exit.thread, label %30
 
 30:                                               ; preds = %drmp3__malloc_from_callbacks.exit.i
   store ptr %1, ptr %5, align 8
@@ -82116,12 +82116,12 @@ drmp3__malloc_from_callbacks.exit.i:              ; preds = %26, %20
   %35 = getelementptr inbounds i8, ptr %2, i64 24
   %36 = load ptr, ptr %35, align 8
   %.not.i36.i = icmp eq ptr %36, null
-  br i1 %.not.i36.i, label %drmp3_wfopen.argprom.exit, label %37
+  br i1 %.not.i36.i, label %drmp3_wfopen.exit, label %37
 
 37:                                               ; preds = %32
   %38 = load ptr, ptr %2, align 8
   call void %36(ptr noundef nonnull %.0.i35.i, ptr noundef %38) #67
-  br label %drmp3_wfopen.argprom.exit
+  br label %drmp3_wfopen.exit
 
 39:                                               ; preds = %39, %30
   %40 = phi i32 [ 114, %30 ], [ %45, %39 ]
@@ -82135,21 +82135,21 @@ drmp3__malloc_from_callbacks.exit.i:              ; preds = %26, %20
   %exitcond.i = icmp eq i64 %43, 2
   br i1 %exitcond.i, label %32, label %39
 
-drmp3_wfopen.argprom.exit.thread:                 ; preds = %11, %3, %drmp3__malloc_from_callbacks.exit.i, %14, %23
+drmp3_wfopen.exit.thread:                         ; preds = %11, %3, %drmp3__malloc_from_callbacks.exit.i, %14, %23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %77
 
-drmp3_wfopen.argprom.exit:                        ; preds = %32, %37
+drmp3_wfopen.exit:                                ; preds = %32, %37
   %.not = icmp eq ptr %34, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br i1 %.not, label %77, label %46
 
-46:                                               ; preds = %drmp3_wfopen.argprom.exit.thread13, %drmp3_wfopen.argprom.exit
-  %.0917 = phi ptr [ null, %drmp3_wfopen.argprom.exit.thread13 ], [ %34, %drmp3_wfopen.argprom.exit ]
+46:                                               ; preds = %drmp3_wfopen.exit.thread13, %drmp3_wfopen.exit
+  %.0917 = phi ptr [ null, %drmp3_wfopen.exit.thread13 ], [ %34, %drmp3_wfopen.exit ]
   %47 = icmp eq ptr %0, null
   br i1 %47, label %75, label %48
 
@@ -82236,8 +82236,8 @@ drmp3_init.exit:                                  ; preds = %57
   %76 = call i32 @fclose(ptr noundef %.0917)
   br label %77
 
-77:                                               ; preds = %drmp3_init.exit, %drmp3_wfopen.argprom.exit.thread, %drmp3_wfopen.argprom.exit, %75
-  %.0 = phi i32 [ 0, %75 ], [ 0, %drmp3_wfopen.argprom.exit ], [ 1, %drmp3_init.exit ], [ 0, %drmp3_wfopen.argprom.exit.thread ]
+77:                                               ; preds = %drmp3_init.exit, %drmp3_wfopen.exit.thread, %drmp3_wfopen.exit, %75
+  %.0 = phi i32 [ 0, %75 ], [ 0, %drmp3_wfopen.exit ], [ 1, %drmp3_init.exit ], [ 0, %drmp3_wfopen.exit.thread ]
   ret i32 %.0
 }
 
@@ -90801,7 +90801,7 @@ jar_xm_vibrato.exit259:                           ; preds = %631, %643, %649, %6
   %706 = getelementptr inbounds i8, ptr %151, i64 124
   %707 = load i32, ptr %706, align 4
   %708 = and i8 %705, 63
-  switch i32 %707, label %jar_xm_tremolo.argprom.exit [
+  switch i32 %707, label %jar_xm_tremolo.exit [
     i32 0, label %709
     i32 1, label %715
     i32 2, label %720
@@ -90815,19 +90815,19 @@ jar_xm_vibrato.exit259:                           ; preds = %631, %643, %649, %6
   %712 = fmul float %711, 1.562500e-02
   %713 = tail call float @sinf(float noundef %712) #67
   %714 = fneg float %713
-  br label %jar_xm_tremolo.argprom.exit
+  br label %jar_xm_tremolo.exit
 
 715:                                              ; preds = %698
   %716 = zext nneg i8 %708 to i32
   %717 = sub nsw i32 32, %716
   %718 = sitofp i32 %717 to float
   %719 = fmul float %718, 3.125000e-02
-  br label %jar_xm_tremolo.argprom.exit
+  br label %jar_xm_tremolo.exit
 
 720:                                              ; preds = %698
   %721 = icmp ugt i8 %708, 31
   %722 = select i1 %721, float 1.000000e+00, float -1.000000e+00
-  br label %jar_xm_tremolo.argprom.exit
+  br label %jar_xm_tremolo.exit
 
 723:                                              ; preds = %698
   %724 = load i32, ptr @jar_xm_waveform.next_rand, align 4
@@ -90839,16 +90839,16 @@ jar_xm_vibrato.exit259:                           ; preds = %631, %643, %649, %6
   %729 = uitofp nneg i32 %728 to float
   %730 = fmul float %729, 0x3F10000000000000
   %731 = fadd float %730, -1.000000e+00
-  br label %jar_xm_tremolo.argprom.exit
+  br label %jar_xm_tremolo.exit
 
 732:                                              ; preds = %698
   %733 = zext nneg i8 %708 to i32
   %734 = add nsw i32 %733, -32
   %735 = sitofp i32 %734 to float
   %736 = fmul float %735, 3.125000e-02
-  br label %jar_xm_tremolo.argprom.exit
+  br label %jar_xm_tremolo.exit
 
-jar_xm_tremolo.argprom.exit:                      ; preds = %698, %709, %715, %720, %723, %732
+jar_xm_tremolo.exit:                              ; preds = %698, %709, %715, %720, %723, %732
   %.0.i.i264 = phi float [ %736, %732 ], [ %731, %723 ], [ %722, %720 ], [ %719, %715 ], [ %714, %709 ], [ 0.000000e+00, %698 ]
   %737 = fneg float %.0.i.i264
   %738 = and i8 %700, 15
@@ -91228,7 +91228,7 @@ jar_xm_tremolo.argprom.exit:                      ; preds = %698, %709, %715, %7
   store i8 %957, ptr %956, align 1
   br label %jar_xm_tone_portamento.exit248
 
-jar_xm_tone_portamento.exit248:                   ; preds = %910, %908, %892, %888, %851, %846, %822, %805, %800, %776, %759, %757, %689, %687, %622, %620, %526, %500, %496, %858, %jar_xm_volume_slide.exit, %943, %925, %942, %919, %916, %894, %878, %863, %870, %871, %877, %855, %774, %772, %770, %814, %809, %816, %765, %743, %695, %628, %576, %527, %493, %479, %463, %435, %jar_xm_arpeggio.exit, %451, %444, %946, %jar_xm_tremolo.argprom.exit, %jar_xm_vibrato.exit251, %482, %466
+jar_xm_tone_portamento.exit248:                   ; preds = %910, %908, %892, %888, %851, %846, %822, %805, %800, %776, %759, %757, %689, %687, %622, %620, %526, %500, %496, %858, %jar_xm_volume_slide.exit, %943, %925, %942, %919, %916, %894, %878, %863, %870, %871, %877, %855, %774, %772, %770, %814, %809, %816, %765, %743, %695, %628, %576, %527, %493, %479, %463, %435, %jar_xm_arpeggio.exit, %451, %444, %946, %jar_xm_tremolo.exit, %jar_xm_vibrato.exit251, %482, %466
   %958 = getelementptr inbounds i8, ptr %151, i64 56
   %959 = load float, ptr %958, align 8
   %960 = fpext float %959 to double
@@ -91859,7 +91859,7 @@ memcopy.exit283:                                  ; preds = %25
   %76 = getelementptr inbounds %struct.note, ptr %73, i64 %75
   %77 = getelementptr inbounds %struct.channel, ptr %43, i64 %75
   %78 = add i8 %.0233289, 1
-  tail call fastcc void @worknote.argelim(ptr noundef %76, ptr noundef nonnull %77, ptr noundef nonnull %0)
+  tail call fastcc void @worknote(ptr noundef %76, ptr noundef nonnull %77, ptr noundef nonnull %0)
   %79 = load i16, ptr %44, align 8
   %80 = zext i8 %78 to i16
   %81 = icmp ugt i16 %79, %80
@@ -91933,7 +91933,7 @@ memcopy.exit283:                                  ; preds = %25
   %.1234290 = phi i8 [ %115, %.lr.ph292 ], [ 0, %111 ]
   %113 = zext i8 %.1234290 to i64
   %114 = getelementptr inbounds %struct.channel, ptr %43, i64 %113
-  tail call fastcc void @workeffect.argprom(ptr noundef nonnull %114)
+  tail call fastcc void @workeffect(ptr noundef nonnull %114)
   %115 = add i8 %.1234290, 1
   %116 = load i16, ptr %44, align 8
   %117 = zext i8 %115 to i16
@@ -92302,7 +92302,7 @@ memclear.exit:                                    ; preds = %324, %.lr.ph.prehea
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @worknote.argelim(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #2 {
+define internal fastcc void @worknote(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #2 {
   %4 = load i8, ptr %0, align 1
   %5 = zext i8 %4 to i32
   %6 = and i32 %5, 240
@@ -92883,7 +92883,7 @@ getnote.exit269:                                  ; preds = %102, %.split.loop.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @workeffect.argprom(ptr nocapture noundef %0) unnamed_addr #15 {
+define internal fastcc void @workeffect(ptr nocapture noundef %0) unnamed_addr #15 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
   switch i8 %3, label %128 [
@@ -93516,7 +93516,7 @@ define hidden i64 @jar_mod_max_samples(ptr noundef %0) local_unnamed_addr #27 {
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  call fastcc void @jar_mod_fillbuffer.specialized.1.argprom(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef 1)
+  call fastcc void @jar_mod_fillbuffer.specialized.1(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef 1)
   %4 = load i16, ptr %2, align 8
   %.not = icmp ugt i16 %4, %3
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -96899,13 +96899,13 @@ LoadAudioStream.exit51:                           ; preds = %87, %91
 101:                                              ; preds = %98
   %102 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.170)
   %103 = icmp eq ptr %102, null
-  br i1 %103, label %drmp3_init_file.exit.thread, label %drmp3_fopen.argprom.exit.i
+  br i1 %103, label %drmp3_init_file.exit.thread, label %drmp3_fopen.exit.i
 
-drmp3_fopen.argprom.exit.i:                       ; preds = %101
+drmp3_fopen.exit.i:                               ; preds = %101
   %104 = icmp eq ptr %99, null
   br i1 %104, label %121, label %105
 
-105:                                              ; preds = %drmp3_fopen.argprom.exit.i
+105:                                              ; preds = %drmp3_fopen.exit.i
   %106 = getelementptr inbounds i8, ptr %99, i64 6680
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16064) %99, i8 0, i64 16064, i1 false)
   store ptr @drmp3__on_read_stdio, ptr %106, align 8
@@ -96941,7 +96941,7 @@ drmp3_fopen.argprom.exit.i:                       ; preds = %101
   tail call void %118(ptr noundef nonnull %115, ptr noundef %120) #67
   br label %121
 
-121:                                              ; preds = %119, %117, %113, %drmp3_fopen.argprom.exit.i
+121:                                              ; preds = %119, %117, %113, %drmp3_fopen.exit.i
   %122 = tail call i32 @fclose(ptr noundef nonnull %102)
   br label %drmp3_init_file.exit.thread
 
@@ -99101,7 +99101,7 @@ drmp3_seek_to_start_of_stream.exit:               ; preds = %.lr.ph, %156
 174:                                              ; preds = %61
   %175 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4848), align 8
   %176 = zext nneg i32 %.053 to i64
-  tail call fastcc void @jar_mod_fillbuffer.specialized.1.argprom(ptr noundef %32, ptr noundef %175, i64 noundef %176)
+  tail call fastcc void @jar_mod_fillbuffer.specialized.1(ptr noundef %32, ptr noundef %175, i64 noundef %176)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %drmp3_seek_to_start_of_stream.exit, %.lr.ph90, %drwav_seek_to_first_pcm_frame.exit73, %drwav_seek_to_first_pcm_frame.exit, %.preheader86, %.preheader84, %.preheader82, %.preheader, %168, %171, %174, %61, %75
@@ -100819,7 +100819,7 @@ ma_calculate_period_size_in_frames_from_descriptor__pulse.exit: ; preds = %169, 
 
 switch.lookup:                                    ; preds = %ma_calculate_period_size_in_frames_from_descriptor__pulse.exit
   %199 = zext nneg i32 %.val to i64
-  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table.ma_device__pa_buffer_attr_new.argprom, i64 0, i64 %199
+  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table.ma_device__pa_buffer_attr_new, i64 0, i64 %199
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %ma_device_get_context.exit.i377
 
@@ -101447,7 +101447,7 @@ ma_device_get_context.exit.i435:                  ; preds = %461, %ma_device_get
   %476 = getelementptr inbounds i8, ptr %2, i64 288
   %477 = load i32, ptr %476, align 8
   %.val352 = load i32, ptr %8, align 4
-  call fastcc void @ma_device__pa_buffer_attr_new.argprom(ptr dead_on_unwind noalias writable align 4 %10, i32 noundef %474, i32 noundef %477, i32 %.val352, i8 %.val353)
+  call fastcc void @ma_device__pa_buffer_attr_new(ptr dead_on_unwind noalias writable align 4 %10, i32 noundef %474, i32 noundef %477, i32 %.val352, i8 %.val353)
   %478 = load ptr, ptr %0, align 8
   %479 = icmp eq ptr %478, null
   br i1 %479, label %ma_device_get_log.exit437, label %480
@@ -102700,13 +102700,13 @@ ma_calculate_buffer_size_in_frames_from_milliseconds.exit: ; preds = %24, %22, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @ma_device__pa_buffer_attr_new.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0, i32 noundef %1, i32 noundef %2, i32 %.0.val, i8 %.8.val) unnamed_addr #0 {
+define internal fastcc void @ma_device__pa_buffer_attr_new(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0, i32 noundef %1, i32 noundef %2, i32 %.0.val, i8 %.8.val) unnamed_addr #0 {
   %4 = icmp ult i32 %.0.val, 10
   br i1 %4, label %switch.lookup, label %ma_format_from_pulse.exit
 
 switch.lookup:                                    ; preds = %3
   %5 = zext nneg i32 %.0.val to i64
-  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table.ma_device__pa_buffer_attr_new.argprom, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table.ma_device__pa_buffer_attr_new, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %ma_format_from_pulse.exit
 
@@ -104916,7 +104916,7 @@ ma_context_get_log.exit:                          ; preds = %61, %64
   br i1 %.not7993, label %.loopexit, label %.lr.ph
 
 101:                                              ; preds = %96
-  call fastcc void @ma_context_iterate_rates_and_add_native_data_format__alsa.argelim(ptr noundef nonnull %0, ptr noundef %52, ptr noundef %44, i32 noundef %76, i32 noundef 0, ptr noundef %3)
+  call fastcc void @ma_context_iterate_rates_and_add_native_data_format__alsa(ptr noundef nonnull %0, ptr noundef %52, ptr noundef %44, i32 noundef %76, i32 noundef 0, ptr noundef %3)
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %112
@@ -104933,7 +104933,7 @@ ma_context_get_log.exit:                          ; preds = %61, %64
 109:                                              ; preds = %.lr.ph
   %110 = load ptr, ptr %60, align 8
   %111 = call i32 %110(ptr noundef %52, ptr noundef nonnull %44, i32 noundef %.06994) #67
-  call fastcc void @ma_context_iterate_rates_and_add_native_data_format__alsa.argelim(ptr noundef nonnull %0, ptr noundef %52, ptr noundef %44, i32 noundef %76, i32 noundef %.06994, ptr noundef %3)
+  call fastcc void @ma_context_iterate_rates_and_add_native_data_format__alsa(ptr noundef nonnull %0, ptr noundef %52, ptr noundef %44, i32 noundef %76, i32 noundef %.06994, ptr noundef %3)
   br label %112
 
 112:                                              ; preds = %109, %.lr.ph
@@ -106282,7 +106282,7 @@ ma_context_get_log.exit78:                        ; preds = %97, %99
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ma_context_iterate_rates_and_add_native_data_format__alsa.argelim(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5) unnamed_addr #4 {
+define internal fastcc void @ma_context_iterate_rates_and_add_native_data_format__alsa(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5) unnamed_addr #4 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -108575,7 +108575,7 @@ ma_semaphore_init.exit.thread:                    ; preds = %113, %ma_semaphore_
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ma_device_uninit__null(ptr noundef %0) #4 {
-  tail call fastcc void @ma_device_do_operation__null.argelim(ptr noundef %0, i32 noundef 3)
+  tail call fastcc void @ma_device_do_operation__null(ptr noundef %0, i32 noundef 3)
   %2 = getelementptr inbounds i8, ptr %0, i64 3424
   %.val.i = load i64, ptr %2, align 8
   %3 = tail call i32 @pthread_join(i64 noundef %.val.i, ptr noundef null) #67
@@ -108596,7 +108596,7 @@ define internal noundef i32 @ma_device_uninit__null(ptr noundef %0) #4 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ma_device_start__null(ptr noundef %0) #4 {
-  tail call fastcc void @ma_device_do_operation__null.argelim(ptr noundef %0, i32 noundef 1)
+  tail call fastcc void @ma_device_do_operation__null(ptr noundef %0, i32 noundef 1)
   %2 = getelementptr inbounds i8, ptr %0, i64 3768
   store atomic i32 1, ptr %2 seq_cst, align 4
   ret i32 0
@@ -108604,7 +108604,7 @@ define internal noundef i32 @ma_device_start__null(ptr noundef %0) #4 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ma_device_stop__null(ptr noundef %0) #4 {
-  tail call fastcc void @ma_device_do_operation__null.argelim(ptr noundef %0, i32 noundef 2)
+  tail call fastcc void @ma_device_do_operation__null(ptr noundef %0, i32 noundef 2)
   %2 = getelementptr inbounds i8, ptr %0, i64 3768
   store atomic i32 0, ptr %2 seq_cst, align 4
   ret i32 0
@@ -108804,7 +108804,7 @@ define internal noundef i32 @ma_device_write__null(ptr noundef %0, ptr nocapture
   br i1 %or.cond, label %29, label %28
 
 28:                                               ; preds = %.thread
-  call fastcc void @ma_device_do_operation__null.argelim(ptr noundef nonnull %0, i32 noundef 1)
+  call fastcc void @ma_device_do_operation__null(ptr noundef nonnull %0, i32 noundef 1)
   store atomic i32 1, ptr %9 seq_cst, align 4
   br label %29
 
@@ -108996,7 +108996,7 @@ ma_event_wait.exit:                               ; preds = %.lr.ph.i.i, %.backe
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ma_device_do_operation__null.argelim(ptr noundef %0, i32 noundef range(i32 1, 4) %1) unnamed_addr #4 {
+define internal fastcc void @ma_device_do_operation__null(ptr noundef %0, i32 noundef range(i32 1, 4) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 3624
   %4 = getelementptr inbounds i8, ptr %0, i64 3632
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #67
@@ -111135,7 +111135,7 @@ define internal fastcc i64 @drwav_aiff_extented_to_s64(ptr nocapture noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @drwav__metadata_process_chunk.argelim(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #4 {
+define internal fastcc i64 @drwav__metadata_process_chunk(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #4 {
   %3 = alloca [24 x i8], align 16
   %4 = alloca [7 x i8], align 1
   %5 = alloca [36 x i8], align 16
@@ -119748,22 +119748,22 @@ define internal fastcc void @compute_sorted_huffman(ptr nocapture noundef readon
   %15 = getelementptr inbounds i8, ptr %0, i64 2096
   br label %16
 
-16:                                               ; preds = %.lr.ph103, %include_in_sort.argprom.exit.thread
-  %17 = phi i32 [ %12, %.lr.ph103 ], [ %30, %include_in_sort.argprom.exit.thread ]
-  %indvars.iv113 = phi i64 [ 0, %.lr.ph103 ], [ %indvars.iv.next114, %include_in_sort.argprom.exit.thread ]
-  %.063101 = phi i32 [ 0, %.lr.ph103 ], [ %.164, %include_in_sort.argprom.exit.thread ]
+16:                                               ; preds = %.lr.ph103, %include_in_sort.exit.thread
+  %17 = phi i32 [ %12, %.lr.ph103 ], [ %30, %include_in_sort.exit.thread ]
+  %indvars.iv113 = phi i64 [ 0, %.lr.ph103 ], [ %indvars.iv.next114, %include_in_sort.exit.thread ]
+  %.063101 = phi i32 [ 0, %.lr.ph103 ], [ %.164, %include_in_sort.exit.thread ]
   %.val = load i8, ptr %4, align 1
   %.not.i = icmp eq i8 %.val, 0
-  br i1 %.not.i, label %18, label %include_in_sort.argprom.exit.thread80
+  br i1 %.not.i, label %18, label %include_in_sort.exit.thread80
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv113
   %20 = load i8, ptr %19, align 1
   %21 = add i8 %20, 1
   %or.cond = icmp ult i8 %21, 12
-  br i1 %or.cond, label %include_in_sort.argprom.exit.thread, label %include_in_sort.argprom.exit.thread80
+  br i1 %or.cond, label %include_in_sort.exit.thread, label %include_in_sort.exit.thread80
 
-include_in_sort.argprom.exit.thread80:            ; preds = %18, %16
+include_in_sort.exit.thread80:                    ; preds = %18, %16
   %22 = load ptr, ptr %14, align 8
   %23 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv113
   %24 = load i32, ptr %23, align 4
@@ -119774,11 +119774,11 @@ include_in_sort.argprom.exit.thread80:            ; preds = %18, %16
   %29 = getelementptr inbounds i32, ptr %26, i64 %28
   store i32 %25, ptr %29, align 4
   %.pre = load i32, ptr %11, align 4
-  br label %include_in_sort.argprom.exit.thread
+  br label %include_in_sort.exit.thread
 
-include_in_sort.argprom.exit.thread:              ; preds = %18, %include_in_sort.argprom.exit.thread80
-  %30 = phi i32 [ %.pre, %include_in_sort.argprom.exit.thread80 ], [ %17, %18 ]
-  %.164 = phi i32 [ %27, %include_in_sort.argprom.exit.thread80 ], [ %.063101, %18 ]
+include_in_sort.exit.thread:                      ; preds = %18, %include_in_sort.exit.thread80
+  %30 = phi i32 [ %.pre, %include_in_sort.exit.thread80 ], [ %17, %18 ]
+  %.164 = phi i32 [ %27, %include_in_sort.exit.thread80 ], [ %.063101, %18 ]
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next114, %31
@@ -119799,7 +119799,7 @@ include_in_sort.argprom.exit.thread:              ; preds = %18, %include_in_sor
   %42 = icmp slt i64 %indvars.iv.next, %41
   br i1 %42, label %33, label %.loopexit
 
-.loopexit:                                        ; preds = %33, %include_in_sort.argprom.exit.thread, %.preheader98, %.preheader
+.loopexit:                                        ; preds = %33, %include_in_sort.exit.thread, %.preheader98, %.preheader
   %43 = getelementptr inbounds i8, ptr %0, i64 2096
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 2112
@@ -119826,13 +119826,13 @@ include_in_sort.argprom.exit.thread:              ; preds = %18, %include_in_sor
   %wide.trip.count = zext nneg i32 %54 to i64
   br label %59
 
-59:                                               ; preds = %.lr.ph109, %include_in_sort.argprom.exit77.thread
-  %indvars.iv116 = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next117, %include_in_sort.argprom.exit77.thread ]
+59:                                               ; preds = %.lr.ph109, %include_in_sort.exit77.thread
+  %indvars.iv116 = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next117, %include_in_sort.exit77.thread ]
   %60 = load i8, ptr %4, align 1
   %.not67 = icmp eq i8 %60, 0
-  br i1 %.not67, label %63, label %include_in_sort.argprom.exit77.thread92
+  br i1 %.not67, label %63, label %include_in_sort.exit77.thread92
 
-include_in_sort.argprom.exit77.thread92:          ; preds = %59
+include_in_sort.exit77.thread92:                  ; preds = %59
   %61 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv116
   %62 = load i32, ptr %61, align 4
   %.pn = zext i32 %62 to i64
@@ -119845,10 +119845,10 @@ include_in_sort.argprom.exit77.thread92:          ; preds = %59
   %.in686986 = load i8, ptr %.in68.in85, align 1
   %64 = add i8 %.in686986, 1
   %or.cond97 = icmp ult i8 %64, 12
-  br i1 %or.cond97, label %include_in_sort.argprom.exit77.thread, label %65
+  br i1 %or.cond97, label %include_in_sort.exit77.thread, label %65
 
-65:                                               ; preds = %63, %include_in_sort.argprom.exit77.thread92
-  %.in68698796 = phi i8 [ %.in6869, %include_in_sort.argprom.exit77.thread92 ], [ %.in686986, %63 ]
+65:                                               ; preds = %63, %include_in_sort.exit77.thread92
+  %.in68698796 = phi i8 [ %.in6869, %include_in_sort.exit77.thread92 ], [ %.in686986, %63 ]
   %66 = load ptr, ptr %56, align 8
   %67 = getelementptr inbounds i32, ptr %66, i64 %indvars.iv116
   %68 = load i32, ptr %67, align 4
@@ -119893,21 +119893,21 @@ include_in_sort.argprom.exit77.thread92:          ; preds = %59
   %87 = load ptr, ptr %58, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 %.061.lcssa
   store i8 %.in68698796, ptr %88, align 1
-  br label %include_in_sort.argprom.exit77.thread
+  br label %include_in_sort.exit77.thread
 
 89:                                               ; preds = %._crit_edge
   %90 = load ptr, ptr %57, align 8
   %91 = getelementptr inbounds i32, ptr %90, i64 %.061.lcssa
   %92 = trunc nuw nsw i64 %indvars.iv116 to i32
   store i32 %92, ptr %91, align 4
-  br label %include_in_sort.argprom.exit77.thread
+  br label %include_in_sort.exit77.thread
 
-include_in_sort.argprom.exit77.thread:            ; preds = %63, %89, %82
+include_in_sort.exit77.thread:                    ; preds = %63, %89, %82
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge110, label %59
 
-._crit_edge110:                                   ; preds = %include_in_sort.argprom.exit77.thread, %.loopexit
+._crit_edge110:                                   ; preds = %include_in_sort.exit77.thread, %.loopexit
   ret void
 }
 
@@ -121657,7 +121657,7 @@ define internal fastcc void @jar_xm_update_frequency(ptr nocapture noundef reado
   %16 = phi float [ %8, %7 ], [ %14, %9 ]
   %17 = getelementptr i8, ptr %0, i64 64
   %.val = load i32, ptr %17, align 8
-  switch i32 %.val, label %jar_xm_frequency.argprom.exit [
+  switch i32 %.val, label %jar_xm_frequency.exit [
     i32 0, label %18
     i32 1, label %23
   ]
@@ -121668,7 +121668,7 @@ define internal fastcc void @jar_xm_update_frequency(ptr nocapture noundef reado
   %21 = fdiv float %20, 7.680000e+02
   %exp2f.i.i = tail call float @exp2f(float %21) #67
   %22 = fmul float %exp2f.i.i, 8.363000e+03
-  br label %jar_xm_frequency.argprom.exit
+  br label %jar_xm_frequency.exit
 
 23:                                               ; preds = %15
   %24 = fcmp oeq float %16, 0.000000e+00
@@ -121679,7 +121679,7 @@ define internal fastcc void @jar_xm_update_frequency(ptr nocapture noundef reado
   %27 = fmul float %4, 2.000000e+00
   %28 = fdiv float 0x415B0F8740000000, %27
   %.0.i.i = select i1 %26, float 0.000000e+00, float %28
-  br label %jar_xm_frequency.argprom.exit
+  br label %jar_xm_frequency.exit
 
 29:                                               ; preds = %23
   %30 = fcmp ogt float %4, 1.712000e+03
@@ -121872,9 +121872,9 @@ jar_xm_amiga_period.exit.i:                       ; preds = %120, %118, %111
   %137 = fmul float %135, 2.000000e+00
   %138 = fdiv float 0x415B0F8740000000, %137
   %.0.i60.i = select i1 %136, float 0.000000e+00, float %138
-  br label %jar_xm_frequency.argprom.exit
+  br label %jar_xm_frequency.exit
 
-jar_xm_frequency.argprom.exit:                    ; preds = %15, %18, %25, %jar_xm_amiga_period.exit.i
+jar_xm_frequency.exit:                            ; preds = %15, %18, %25, %jar_xm_amiga_period.exit.i
   %.047.i = phi float [ %.0.i.i, %25 ], [ %.0.i60.i, %jar_xm_amiga_period.exit.i ], [ %22, %18 ], [ 0.000000e+00, %15 ]
   %139 = getelementptr inbounds i8, ptr %1, i64 40
   store float %.047.i, ptr %139, align 8
@@ -122005,7 +122005,7 @@ define internal fastcc void @jar_xm_trigger_note(ptr nocapture noundef readonly 
   %43 = load float, ptr %1, align 8
   %44 = getelementptr i8, ptr %0, i64 64
   %.val = load i32, ptr %44, align 8
-  switch i32 %.val, label %jar_xm_period.argprom.exit [
+  switch i32 %.val, label %jar_xm_period.exit [
     i32 0, label %45
     i32 1, label %48
   ]
@@ -122013,7 +122013,7 @@ define internal fastcc void @jar_xm_trigger_note(ptr nocapture noundef readonly 
 45:                                               ; preds = %42
   %46 = fneg float %43
   %47 = tail call noundef float @llvm.fmuladd.f32(float %46, float 6.400000e+01, float 7.680000e+03)
-  br label %jar_xm_period.argprom.exit
+  br label %jar_xm_period.exit
 
 48:                                               ; preds = %42
   %49 = fptoui float %43 to i32
@@ -122066,16 +122066,16 @@ jar_xm_amiga_period.exit.i:                       ; preds = %72, %70, %63
   %85 = sub nsw i32 %84, %80
   %86 = sitofp i32 %85 to float
   %87 = tail call float @llvm.fmuladd.f32(float %83, float %86, float %81)
-  br label %jar_xm_period.argprom.exit
+  br label %jar_xm_period.exit
 
-jar_xm_period.argprom.exit:                       ; preds = %42, %45, %jar_xm_amiga_period.exit.i
+jar_xm_period.exit:                               ; preds = %42, %45, %jar_xm_amiga_period.exit.i
   %.0.i = phi float [ %87, %jar_xm_amiga_period.exit.i ], [ %47, %45 ], [ 0.000000e+00, %42 ]
   %88 = getelementptr inbounds i8, ptr %1, i64 36
   store float %.0.i, ptr %88, align 4
   tail call fastcc void @jar_xm_update_frequency(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %89
 
-89:                                               ; preds = %jar_xm_period.argprom.exit, %40
+89:                                               ; preds = %jar_xm_period.exit, %40
   %90 = getelementptr inbounds i8, ptr %0, i64 384
   %91 = load i64, ptr %90, align 8
   %92 = getelementptr inbounds i8, ptr %1, i64 144
@@ -122299,7 +122299,7 @@ jar_xm_trigger_note.exit:                         ; preds = %jar_xm_trigger_note
   store float %109, ptr %1, align 8
   %110 = getelementptr i8, ptr %0, i64 64
   %.val = load i32, ptr %110, align 8
-  switch i32 %.val, label %jar_xm_period.argprom.exit [
+  switch i32 %.val, label %jar_xm_period.exit [
     i32 0, label %111
     i32 1, label %114
   ]
@@ -122307,7 +122307,7 @@ jar_xm_trigger_note.exit:                         ; preds = %jar_xm_trigger_note
 111:                                              ; preds = %97
   %112 = fneg float %109
   %113 = tail call noundef float @llvm.fmuladd.f32(float %112, float 6.400000e+01, float 7.680000e+03)
-  br label %jar_xm_period.argprom.exit
+  br label %jar_xm_period.exit
 
 114:                                              ; preds = %97
   %115 = fptoui float %109 to i32
@@ -122360,9 +122360,9 @@ jar_xm_amiga_period.exit.i:                       ; preds = %138, %136, %129
   %151 = sub nsw i32 %150, %146
   %152 = sitofp i32 %151 to float
   %153 = tail call float @llvm.fmuladd.f32(float %149, float %152, float %147)
-  br label %jar_xm_period.argprom.exit
+  br label %jar_xm_period.exit
 
-jar_xm_period.argprom.exit:                       ; preds = %97, %111, %jar_xm_amiga_period.exit.i
+jar_xm_period.exit:                               ; preds = %97, %111, %jar_xm_amiga_period.exit.i
   %.0.i = phi float [ %153, %jar_xm_amiga_period.exit.i ], [ %113, %111 ], [ 0.000000e+00, %97 ]
   %154 = getelementptr inbounds i8, ptr %1, i64 100
   store float %.0.i, ptr %154, align 4
@@ -122480,7 +122480,7 @@ jar_xm_period.argprom.exit:                       ; preds = %97, %111, %jar_xm_a
   store float 0.000000e+00, ptr %215, align 4
   br label %jar_xm_key_off.exit
 
-jar_xm_key_off.exit:                              ; preds = %214, %210, %203, %jar_xm_period.argprom.exit, %201, %200, %199, %160
+jar_xm_key_off.exit:                              ; preds = %214, %210, %203, %jar_xm_period.exit, %201, %200, %199, %160
   %216 = getelementptr inbounds i8, ptr %2, i64 3
   %217 = load i8, ptr %216, align 1
   switch i8 %217, label %617 [
@@ -122931,7 +122931,7 @@ jar_xm_key_off.exit:                              ; preds = %214, %210, %203, %j
   store float %451, ptr %1, align 8
   %452 = getelementptr i8, ptr %0, i64 64
   %.val327 = load i32, ptr %452, align 8
-  %453 = tail call fastcc float @jar_xm_period.argprom(i32 %.val327, float noundef %451)
+  %453 = tail call fastcc float @jar_xm_period(i32 %.val327, float noundef %451)
   %454 = getelementptr inbounds i8, ptr %1, i64 36
   store float %453, ptr %454, align 4
   tail call fastcc void @jar_xm_update_frequency(ptr noundef %0, ptr noundef nonnull %1)
@@ -123431,7 +123431,7 @@ jar_xm_envelope_lerp.exit:                        ; preds = %52, %59, %63
 declare float @sinf(float noundef) local_unnamed_addr #68
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc float @jar_xm_period.argprom(i32 %.64.val, float noundef %0) unnamed_addr #1 {
+define internal fastcc float @jar_xm_period(i32 %.64.val, float noundef %0) unnamed_addr #1 {
   switch i32 %.64.val, label %45 [
     i32 0, label %2
     i32 1, label %5
@@ -123510,7 +123510,7 @@ declare void @llvm.va_start.p0(ptr) #77
 declare void @llvm.va_end.p0(ptr) #77
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @jar_mod_fillbuffer.specialized.1.argprom(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2) unnamed_addr #27 {
+define internal fastcc void @jar_mod_fillbuffer.specialized.1(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2) unnamed_addr #27 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -123599,7 +123599,7 @@ define internal fastcc void @jar_mod_fillbuffer.specialized.1.argprom(ptr nounde
   %52 = getelementptr inbounds %struct.note, ptr %49, i64 %51
   %53 = getelementptr inbounds %struct.channel, ptr %23, i64 %51
   %54 = add i8 %.02333, 1
-  tail call fastcc void @worknote.argelim(ptr noundef %52, ptr noundef nonnull %53, ptr noundef nonnull %0)
+  tail call fastcc void @worknote(ptr noundef %52, ptr noundef nonnull %53, ptr noundef nonnull %0)
   %55 = load i16, ptr %24, align 8
   %56 = zext i8 %54 to i16
   %57 = icmp ugt i16 %55, %56
@@ -123673,7 +123673,7 @@ define internal fastcc void @jar_mod_fillbuffer.specialized.1.argprom(ptr nounde
   %.12344 = phi i8 [ %90, %.lr.ph6 ], [ 0, %87 ]
   %88 = zext i8 %.12344 to i64
   %89 = getelementptr inbounds %struct.channel, ptr %23, i64 %88
-  tail call fastcc void @workeffect.argprom(ptr noundef nonnull %89)
+  tail call fastcc void @workeffect(ptr noundef nonnull %89)
   %90 = add i8 %.12344, 1
   %91 = load i16, ptr %24, align 8
   %92 = zext i8 %90 to i16
@@ -124323,8 +124323,8 @@ attributes #88 = { nounwind allocsize(0,1) }
 !279 = distinct !{!279, !280, !"LoadAudioStream: argument 0"}
 !280 = distinct !{!280, !"LoadAudioStream"}
 !281 = !{!282}
-!282 = distinct !{!282, !283, !"ma_device__pa_buffer_attr_new.argprom: argument 0"}
-!283 = distinct !{!283, !"ma_device__pa_buffer_attr_new.argprom"}
+!282 = distinct !{!282, !283, !"ma_device__pa_buffer_attr_new: argument 0"}
+!283 = distinct !{!283, !"ma_device__pa_buffer_attr_new"}
 !284 = !{!285}
 !285 = distinct !{!285, !286, !"ma_resampling_backend_get_config__linear: argument 0"}
 !286 = distinct !{!286, !"ma_resampling_backend_get_config__linear"}

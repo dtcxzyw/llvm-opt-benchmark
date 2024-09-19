@@ -141,7 +141,7 @@ define i32 @PMPI_Type_create_f90_complex(i32 noundef %0, i32 noundef %1, ptr nou
   %.pre15.i = load i8, ptr @opal_uses_threads, align 1
   br label %.lr.ph.i
 
-61:                                               ; preds = %opal_pointer_array_get_item.argprom.exit.i
+61:                                               ; preds = %opal_pointer_array_get_item.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %62 = load i32, ptr @ompi_errcode_intern_lastused, align 4
   %63 = sext i32 %62 to i64
@@ -169,21 +169,21 @@ define i32 @PMPI_Type_create_f90_complex(i32 noundef %0, i32 noundef %1, ptr nou
   %74 = getelementptr inbounds ptr, ptr %73, i64 %indvars.iv.i
   %75 = load ptr, ptr %74, align 8
   %76 = trunc i8 %72 to i1
-  br i1 %76, label %77, label %opal_pointer_array_get_item.argprom.exit.i
+  br i1 %76, label %77, label %opal_pointer_array_get_item.exit.i
 
 77:                                               ; preds = %71
   %78 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 32)) #5
   %.pre.i = load i8, ptr @opal_uses_threads, align 1
-  br label %opal_pointer_array_get_item.argprom.exit.i
+  br label %opal_pointer_array_get_item.exit.i
 
-opal_pointer_array_get_item.argprom.exit.i:       ; preds = %77, %71
+opal_pointer_array_get_item.exit.i:               ; preds = %77, %71
   %79 = phi i8 [ %72, %71 ], [ %.pre.i, %77 ]
   %80 = getelementptr inbounds i8, ptr %75, i64 16
   %81 = load i32, ptr %80, align 8
   %82 = icmp eq i32 %81, %56
   br i1 %82, label %83, label %61
 
-83:                                               ; preds = %opal_pointer_array_get_item.argprom.exit.i
+83:                                               ; preds = %opal_pointer_array_get_item.exit.i
   %84 = getelementptr inbounds i8, ptr %75, i64 20
   %85 = load i32, ptr %84, align 4
   br label %ompi_errcode_get_mpi_code.exit

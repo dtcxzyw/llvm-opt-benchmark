@@ -174,7 +174,7 @@ define dso_local noundef i32 @SysLogger_Start() local_unnamed_addr #0 {
   call void @ClosePostmasterPorts(i1 noundef zeroext true) #15
   call void @dsm_detach_all() #15
   call void @PGSharedMemoryDetach() #15
-  call fastcc void @SysLoggerMain.argprom.argelim() #18
+  call fastcc void @SysLoggerMain() #18
   unreachable
 
 50:                                               ; preds = %43
@@ -376,7 +376,7 @@ declare void @dsm_detach_all() local_unnamed_addr #3
 declare void @PGSharedMemoryDetach() local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @SysLoggerMain.argprom.argelim() unnamed_addr #4 {
+define internal fastcc void @SysLoggerMain() unnamed_addr #4 {
   %1 = alloca i64, align 8
   %2 = alloca i8, align 1
   %3 = alloca i64, align 8

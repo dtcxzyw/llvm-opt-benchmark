@@ -1909,7 +1909,7 @@ ucp_handle_byte.exit165.i:                        ; preds = %382, %ucp_handle_by
   %402 = load i32, ptr @hf_ucp_parm_OTOA, align 4
   %403 = call fastcc i32 @ucp_handle_int(ptr noundef %96, ptr noundef %1, ptr noundef %91, i32 noundef %402, ptr noundef %6)
   %404 = icmp eq i32 %403, 5039
-  br i1 %404, label %405, label %proto_item_set_hidden.argprom.exit.i
+  br i1 %404, label %405, label %proto_item_set_hidden.exit.i
 
 405:                                              ; preds = %401
   %406 = load i32, ptr @hf_ucp_parm_OAdC, align 4
@@ -1983,43 +1983,43 @@ ucp_handle_byte.exit165.i:                        ; preds = %382, %ucp_handle_by
 
 ucp_handle_alphanum_OAdC.exit.thread.i:           ; preds = %.thread.i.i, %408
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %proto_item_set_hidden.argprom.exit.i
+  br label %proto_item_set_hidden.exit.i
 
 ucp_handle_alphanum_OAdC.exit.i:                  ; preds = %445, %439
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %447 = icmp ne ptr %441, null
   %448 = icmp ne ptr %.020.i105.i, null
   %or.cond.i = select i1 %447, i1 %448, i1 false
-  br i1 %or.cond.i, label %449, label %proto_item_set_hidden.argprom.exit.i
+  br i1 %or.cond.i, label %449, label %proto_item_set_hidden.exit.i
 
 449:                                              ; preds = %ucp_handle_alphanum_OAdC.exit.i
   call void @proto_tree_move_item(ptr noundef %96, ptr noundef nonnull %.020.i105.i, ptr noundef nonnull %441) #4
   %450 = getelementptr i8, ptr %.020.i105.i, i64 32
   %.val.i = load ptr, ptr %450, align 8
   %.not.i170.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i170.i, label %proto_item_set_hidden.argprom.exit.i, label %451
+  br i1 %.not.i170.i, label %proto_item_set_hidden.exit.i, label %451
 
 451:                                              ; preds = %449
   %452 = getelementptr inbounds i8, ptr %.val.i, i64 28
   %453 = load i32, ptr %452, align 4
   %454 = or i32 %453, 1
   store i32 %454, ptr %452, align 4
-  br label %proto_item_set_hidden.argprom.exit.i
+  br label %proto_item_set_hidden.exit.i
 
-proto_item_set_hidden.argprom.exit.i:             ; preds = %451, %449, %ucp_handle_alphanum_OAdC.exit.i, %ucp_handle_alphanum_OAdC.exit.thread.i, %401
+proto_item_set_hidden.exit.i:                     ; preds = %451, %449, %ucp_handle_alphanum_OAdC.exit.i, %ucp_handle_alphanum_OAdC.exit.thread.i, %401
   %455 = load i32, ptr @hf_ucp_parm_HPLMN, align 4
   %456 = load i32, ptr %6, align 4
   %457 = call i32 @tvb_find_guint8(ptr noundef %91, i32 noundef %456, i32 noundef -1, i8 noundef zeroext 47) #4
   %458 = icmp ne i32 %457, -1
   br i1 %458, label %462, label %459
 
-459:                                              ; preds = %proto_item_set_hidden.argprom.exit.i
+459:                                              ; preds = %proto_item_set_hidden.exit.i
   %460 = call i32 @tvb_captured_length_remaining(ptr noundef %91, i32 noundef %456) #4
   %461 = add i32 %460, 1
   call void @tvb_ensure_bytes_exist(ptr noundef %91, i32 noundef %456, i32 noundef %461) #4
   br label %464
 
-462:                                              ; preds = %proto_item_set_hidden.argprom.exit.i
+462:                                              ; preds = %proto_item_set_hidden.exit.i
   %463 = sub i32 %457, %456
   br label %464
 

@@ -4532,7 +4532,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i.i: ; preds = %53, 
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexContainerDataSourceC2ERKNS_7SdfPathES4_RKSt10shared_ptrINS_21HdContainerDataSourceEE.exit.i: ; preds = %76, %73, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i.i
   %78 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
-          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexContainerDataSourceEED2Ev.argprom.exit unwind label %79, !noalias !21
+          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexContainerDataSourceEED2Ev.exit unwind label %79, !noalias !21
 
 79:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexContainerDataSourceC2ERKNS_7SdfPathES4_RKSt10shared_ptrINS_21HdContainerDataSourceEE.exit.i
   %80 = landingpad { ptr, i32 }
@@ -4562,7 +4562,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexContain
 91:                                               ; preds = %79
   unreachable
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexContainerDataSourceEED2Ev.argprom.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexContainerDataSourceC2ERKNS_7SdfPathES4_RKSt10shared_ptrINS_21HdContainerDataSourceEE.exit.i
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexContainerDataSourceEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexContainerDataSourceC2ERKNS_7SdfPathES4_RKSt10shared_ptrINS_21HdContainerDataSourceEE.exit.i
   %92 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i32 1, ptr %92, align 8, !noalias !21
   %93 = getelementptr inbounds nuw i8, ptr %78, i64 12
@@ -4577,7 +4577,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingS
   %.not.i.i.i21 = icmp eq ptr %96, null
   br i1 %.not.i.i.i21, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit, label %97
 
-97:                                               ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexContainerDataSourceEED2Ev.argprom.exit
+97:                                               ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexContainerDataSourceEED2Ev.exit
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %99 = load atomic i64, ptr %98 acquire, align 8
   %100 = icmp eq i64 %99, 4294967297
@@ -4854,7 +4854,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i.i41: ; preds = %20
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_134_RerootingSceneIndexPathDataSourceC2ERKNS_7SdfPathES4_RKSt10shared_ptrINS_24HdTypedSampledDataSourceIS2_EEE.exit.i: ; preds = %228, %225, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i.i41
   %230 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
-          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_134_RerootingSceneIndexPathDataSourceEED2Ev.argprom.exit unwind label %231, !noalias !31
+          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_134_RerootingSceneIndexPathDataSourceEED2Ev.exit unwind label %231, !noalias !31
 
 231:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_134_RerootingSceneIndexPathDataSourceC2ERKNS_7SdfPathES4_RKSt10shared_ptrINS_24HdTypedSampledDataSourceIS2_EEE.exit.i
   %232 = landingpad { ptr, i32 }
@@ -4884,7 +4884,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_134_RerootingSceneIndexPathDat
 243:                                              ; preds = %231
   unreachable
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_134_RerootingSceneIndexPathDataSourceEED2Ev.argprom.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_134_RerootingSceneIndexPathDataSourceC2ERKNS_7SdfPathES4_RKSt10shared_ptrINS_24HdTypedSampledDataSourceIS2_EEE.exit.i
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_134_RerootingSceneIndexPathDataSourceEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_134_RerootingSceneIndexPathDataSourceC2ERKNS_7SdfPathES4_RKSt10shared_ptrINS_24HdTypedSampledDataSourceIS2_EEE.exit.i
   %244 = getelementptr inbounds nuw i8, ptr %230, i64 8
   store i32 1, ptr %244, align 8, !noalias !31
   %245 = getelementptr inbounds nuw i8, ptr %230, i64 12
@@ -4899,7 +4899,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_134_RerootingS
   %.not.i.i.i53 = icmp eq ptr %248, null
   br i1 %.not.i.i.i53, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit, label %249
 
-249:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_134_RerootingSceneIndexPathDataSourceEED2Ev.argprom.exit
+249:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_134_RerootingSceneIndexPathDataSourceEED2Ev.exit
   %250 = getelementptr inbounds nuw i8, ptr %248, i64 8
   %251 = load atomic i64, ptr %250 acquire, align 8
   %252 = icmp eq i64 %251, 4294967297
@@ -5176,7 +5176,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i.i73: ; preds = %35
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexPathArrayDataSourceC2ERKNS_7SdfPathES4_RKSt10shared_ptrINS_24HdTypedSampledDataSourceINS_7VtArrayIS2_EEEEE.exit.i: ; preds = %380, %377, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i.i73
   %382 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
-          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexPathArrayDataSourceEED2Ev.argprom.exit unwind label %383, !noalias !41
+          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexPathArrayDataSourceEED2Ev.exit unwind label %383, !noalias !41
 
 383:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexPathArrayDataSourceC2ERKNS_7SdfPathES4_RKSt10shared_ptrINS_24HdTypedSampledDataSourceINS_7VtArrayIS2_EEEEE.exit.i
   %384 = landingpad { ptr, i32 }
@@ -5206,7 +5206,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexPathArr
 395:                                              ; preds = %383
   unreachable
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexPathArrayDataSourceEED2Ev.argprom.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexPathArrayDataSourceC2ERKNS_7SdfPathES4_RKSt10shared_ptrINS_24HdTypedSampledDataSourceINS_7VtArrayIS2_EEEEE.exit.i
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexPathArrayDataSourceEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexPathArrayDataSourceC2ERKNS_7SdfPathES4_RKSt10shared_ptrINS_24HdTypedSampledDataSourceINS_7VtArrayIS2_EEEEE.exit.i
   %396 = getelementptr inbounds nuw i8, ptr %382, i64 8
   store i32 1, ptr %396, align 8, !noalias !41
   %397 = getelementptr inbounds nuw i8, ptr %382, i64 12
@@ -5221,7 +5221,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingS
   %.not.i.i.i85 = icmp eq ptr %400, null
   br i1 %.not.i.i.i85, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit, label %401
 
-401:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexPathArrayDataSourceEED2Ev.argprom.exit
+401:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexPathArrayDataSourceEED2Ev.exit
   %402 = getelementptr inbounds nuw i8, ptr %400, i64 8
   %403 = load atomic i64, ptr %402 acquire, align 8
   %404 = icmp eq i64 %403, 4294967297
@@ -5398,7 +5398,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   %482 = atomicrmw volatile add ptr %476, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit: ; preds = %481, %478, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7VtArrayINS0_7SdfPathEEEEEED2Ev.exit97, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i90, %430, %417, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexPathArrayDataSourceEED2Ev.argprom.exit, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i58, %278, %265, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_134_RerootingSceneIndexPathDataSourceEED2Ev.argprom.exit, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i26, %126, %113, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexContainerDataSourceEED2Ev.argprom.exit, %16
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit: ; preds = %481, %478, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7VtArrayINS0_7SdfPathEEEEEED2Ev.exit97, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i90, %430, %417, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexPathArrayDataSourceEED2Ev.exit, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i58, %278, %265, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_134_RerootingSceneIndexPathDataSourceEED2Ev.exit, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i26, %126, %113, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexContainerDataSourceEED2Ev.exit, %16
   %483 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %484 = load ptr, ptr %483, align 8
   %.not.i.i.i100 = icmp eq ptr %484, null

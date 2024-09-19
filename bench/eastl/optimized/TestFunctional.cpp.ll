@@ -3262,10 +3262,10 @@ _ZN5eastl3setIPKcNS_8str_lessIS2_EENS_9allocatorEED2Ev.exit: ; preds = %invoke.c
   store ptr %tc1, ptr %arrayinit.element, align 8
   %arrayinit.element330 = getelementptr inbounds i8, ptr %tcArray, i64 16
   store ptr %tc2, ptr %arrayinit.element330, align 16
-  br label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFvvEEclIJRPS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.argprom.exit.i
+  br label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFvvEEclIJRPS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.exit.i
 
-_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFvvEEclIJRPS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.argprom.exit.i: ; preds = %_ZN5eastl3setIPKcNS_8str_lessIS2_EENS_9allocatorEED2Ev.exit, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFvvEEclIJRPS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.argprom.exit.i
-  %first.addr.07.i.idx = phi i64 [ %first.addr.07.i.add, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFvvEEclIJRPS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.argprom.exit.i ], [ 0, %_ZN5eastl3setIPKcNS_8str_lessIS2_EENS_9allocatorEED2Ev.exit ]
+_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFvvEEclIJRPS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.exit.i: ; preds = %_ZN5eastl3setIPKcNS_8str_lessIS2_EENS_9allocatorEED2Ev.exit, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFvvEEclIJRPS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.exit.i
+  %first.addr.07.i.idx = phi i64 [ %first.addr.07.i.add, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFvvEEclIJRPS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.exit.i ], [ 0, %_ZN5eastl3setIPKcNS_8str_lessIS2_EENS_9allocatorEED2Ev.exit ]
   %first.addr.07.i.ptr = getelementptr inbounds i8, ptr %tcArray, i64 %first.addr.07.i.idx
   %first.addr.0.val.i = load ptr, ptr %first.addr.07.i.ptr, align 8
   %152 = load i32, ptr %first.addr.0.val.i, align 4
@@ -3273,9 +3273,9 @@ _ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFvvEEclIJRPS2_EEENS_13invoke_
   store i32 %inc.i.i, ptr %first.addr.0.val.i, align 4
   %first.addr.07.i.add = add nuw nsw i64 %first.addr.07.i.idx, 8
   %cmp.not.i886 = icmp eq i64 %first.addr.07.i.add, 24
-  br i1 %cmp.not.i886, label %_ZN5eastl8for_eachIPPN12_GLOBAL__N_19TestClassENS_11mem_fn_implIMS2_FvvEEEEET0_T_SA_S9_.exit, label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFvvEEclIJRPS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.argprom.exit.i, !llvm.loop !63
+  br i1 %cmp.not.i886, label %_ZN5eastl8for_eachIPPN12_GLOBAL__N_19TestClassENS_11mem_fn_implIMS2_FvvEEEEET0_T_SA_S9_.exit, label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFvvEEclIJRPS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.exit.i, !llvm.loop !63
 
-_ZN5eastl8for_eachIPPN12_GLOBAL__N_19TestClassENS_11mem_fn_implIMS2_FvvEEEEET0_T_SA_S9_.exit: ; preds = %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFvvEEclIJRPS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.argprom.exit.i
+_ZN5eastl8for_eachIPPN12_GLOBAL__N_19TestClassENS_11mem_fn_implIMS2_FvvEEEEET0_T_SA_S9_.exit: ; preds = %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFvvEEclIJRPS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.exit.i
   %153 = load i32, ptr %tc0, align 4
   %cmp339 = icmp eq i32 %153, 38
   %154 = load i32, ptr %tc1, align 4
@@ -3291,10 +3291,10 @@ land.rhs:                                         ; preds = %_ZN5eastl8for_eachI
 land.end:                                         ; preds = %land.rhs, %_ZN5eastl8for_eachIPPN12_GLOBAL__N_19TestClassENS_11mem_fn_implIMS2_FvvEEEEET0_T_SA_S9_.exit
   %156 = phi i1 [ false, %_ZN5eastl8for_eachIPPN12_GLOBAL__N_19TestClassENS_11mem_fn_implIMS2_FvvEEEEET0_T_SA_S9_.exit ], [ %cmp343, %land.rhs ]
   %call344 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %156, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 419, ptr noundef nonnull @.str.85)
-  br label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFvvEEclIJRPS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.argprom.exit.i
+  br label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFvvEEclIJRPS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.exit.i
 
-_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFvvEEclIJRPS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.argprom.exit.i: ; preds = %land.end, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFvvEEclIJRPS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.argprom.exit.i
-  %first.addr.07.i887.idx = phi i64 [ %first.addr.07.i887.add, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFvvEEclIJRPS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.argprom.exit.i ], [ 0, %land.end ]
+_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFvvEEclIJRPS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.exit.i: ; preds = %land.end, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFvvEEclIJRPS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.exit.i
+  %first.addr.07.i887.idx = phi i64 [ %first.addr.07.i887.add, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFvvEEclIJRPS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.exit.i ], [ 0, %land.end ]
   %first.addr.07.i887.ptr = getelementptr inbounds i8, ptr %tcArray, i64 %first.addr.07.i887.idx
   %first.addr.0.val.i888 = load ptr, ptr %first.addr.07.i887.ptr, align 8
   %157 = load i32, ptr %first.addr.0.val.i888, align 4
@@ -3302,9 +3302,9 @@ _ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFvvEEclIJRPS2_EEENS_13invoke
   store i32 %inc.i.i889, ptr %first.addr.0.val.i888, align 4
   %first.addr.07.i887.add = add nuw nsw i64 %first.addr.07.i887.idx, 8
   %cmp.not.i891 = icmp eq i64 %first.addr.07.i887.add, 24
-  br i1 %cmp.not.i891, label %_ZN5eastl8for_eachIPPN12_GLOBAL__N_19TestClassENS_11mem_fn_implIMS2_KFvvEEEEET0_T_SA_S9_.exit, label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFvvEEclIJRPS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.argprom.exit.i, !llvm.loop !64
+  br i1 %cmp.not.i891, label %_ZN5eastl8for_eachIPPN12_GLOBAL__N_19TestClassENS_11mem_fn_implIMS2_KFvvEEEEET0_T_SA_S9_.exit, label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFvvEEclIJRPS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.exit.i, !llvm.loop !64
 
-_ZN5eastl8for_eachIPPN12_GLOBAL__N_19TestClassENS_11mem_fn_implIMS2_KFvvEEEEET0_T_SA_S9_.exit: ; preds = %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFvvEEclIJRPS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.argprom.exit.i
+_ZN5eastl8for_eachIPPN12_GLOBAL__N_19TestClassENS_11mem_fn_implIMS2_KFvvEEEEET0_T_SA_S9_.exit: ; preds = %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFvvEEclIJRPS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.exit.i
   %158 = load i32, ptr %tc0, align 4
   %cmp356 = icmp eq i32 %158, 39
   %159 = load i32, ptr %tc1, align 4
@@ -3329,12 +3329,12 @@ land.end363:                                      ; preds = %land.rhs360, %_ZN5e
   %arrayinit.element371 = getelementptr inbounds i8, ptr %tcArray368, i64 16
   store ptr %tc2367, ptr %arrayinit.element371, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %intArray2, ptr noundef nonnull align 4 dereferenceable(12) @__const._Z14TestFunctionalv.intArray2.91, i64 12, i1 false)
-  br label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.argprom.exit.i
+  br label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.exit.i
 
-_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.argprom.exit.i: ; preds = %land.end363, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.argprom.exit.i
-  %result.addr.010.i = phi ptr [ %incdec.ptr2.i, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.argprom.exit.i ], [ %intArray2, %land.end363 ]
-  %first2.addr.09.i = phi ptr [ %incdec.ptr1.i, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.argprom.exit.i ], [ @__const._Z14TestFunctionalv.intArray1.90, %land.end363 ]
-  %first1.addr.08.i.idx = phi i64 [ %first1.addr.08.i.add, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.argprom.exit.i ], [ 0, %land.end363 ]
+_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.exit.i: ; preds = %land.end363, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.exit.i
+  %result.addr.010.i = phi ptr [ %incdec.ptr2.i, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.exit.i ], [ %intArray2, %land.end363 ]
+  %first2.addr.09.i = phi ptr [ %incdec.ptr1.i, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.exit.i ], [ @__const._Z14TestFunctionalv.intArray1.90, %land.end363 ]
+  %first1.addr.08.i.idx = phi i64 [ %first1.addr.08.i.add, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.exit.i ], [ 0, %land.end363 ]
   %first1.addr.08.i.ptr = getelementptr inbounds i8, ptr %tcArray368, i64 %first1.addr.08.i.idx
   %first1.addr.0.val.i = load ptr, ptr %first1.addr.08.i.ptr, align 8
   %first2.addr.0.val.i = load i32, ptr %first2.addr.09.i, align 4
@@ -3345,9 +3345,9 @@ _ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRPS2_RiEEENS_13invok
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %first2.addr.09.i, i64 4
   %incdec.ptr2.i = getelementptr inbounds i8, ptr %result.addr.010.i, i64 4
   %cmp.not.i893 = icmp eq i64 %first1.addr.08.i.add, 24
-  br i1 %cmp.not.i893, label %_ZN5eastl9transformIPPN12_GLOBAL__N_19TestClassEPiS5_NS_11mem_fn_implIMS2_FiiEEEEET1_T_SB_T0_SA_T2_.exit, label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.argprom.exit.i, !llvm.loop !65
+  br i1 %cmp.not.i893, label %_ZN5eastl9transformIPPN12_GLOBAL__N_19TestClassEPiS5_NS_11mem_fn_implIMS2_FiiEEEEET1_T_SB_T0_SA_T2_.exit, label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.exit.i, !llvm.loop !65
 
-_ZN5eastl9transformIPPN12_GLOBAL__N_19TestClassEPiS5_NS_11mem_fn_implIMS2_FiiEEEEET1_T_SB_T0_SA_T2_.exit: ; preds = %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.argprom.exit.i
+_ZN5eastl9transformIPPN12_GLOBAL__N_19TestClassEPiS5_NS_11mem_fn_implIMS2_FiiEEEEET1_T_SB_T0_SA_T2_.exit: ; preds = %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.exit.i
   %163 = load i32, ptr %intArray2, align 4
   %cmp383 = icmp eq i32 %163, -37
   %arrayidx385 = getelementptr inbounds i8, ptr %intArray2, i64 4
@@ -3369,12 +3369,12 @@ land.end390:                                      ; preds = %land.rhs387, %_ZN5e
   store i32 -9, ptr %arrayidx392, align 4
   store i32 -9, ptr %arrayidx385, align 4
   store i32 -9, ptr %intArray2, align 4
-  br label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.argprom.exit.i
+  br label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.exit.i
 
-_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.argprom.exit.i: ; preds = %land.end390, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.argprom.exit.i
-  %result.addr.010.i894 = phi ptr [ %incdec.ptr2.i902, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.argprom.exit.i ], [ %intArray2, %land.end390 ]
-  %first2.addr.09.i895 = phi ptr [ %incdec.ptr1.i901, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.argprom.exit.i ], [ @__const._Z14TestFunctionalv.intArray1.90, %land.end390 ]
-  %first1.addr.08.i896.idx = phi i64 [ %first1.addr.08.i896.add, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.argprom.exit.i ], [ 0, %land.end390 ]
+_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.exit.i: ; preds = %land.end390, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.exit.i
+  %result.addr.010.i894 = phi ptr [ %incdec.ptr2.i902, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.exit.i ], [ %intArray2, %land.end390 ]
+  %first2.addr.09.i895 = phi ptr [ %incdec.ptr1.i901, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.exit.i ], [ @__const._Z14TestFunctionalv.intArray1.90, %land.end390 ]
+  %first1.addr.08.i896.idx = phi i64 [ %first1.addr.08.i896.add, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.exit.i ], [ 0, %land.end390 ]
   %first1.addr.08.i896.ptr = getelementptr inbounds i8, ptr %tcArray368, i64 %first1.addr.08.i896.idx
   %first1.addr.0.val.i897 = load ptr, ptr %first1.addr.08.i896.ptr, align 8
   %first2.addr.0.val.i898 = load i32, ptr %first2.addr.09.i895, align 4
@@ -3385,9 +3385,9 @@ _ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRPS2_RiEEENS_13invo
   %incdec.ptr1.i901 = getelementptr inbounds i8, ptr %first2.addr.09.i895, i64 4
   %incdec.ptr2.i902 = getelementptr inbounds i8, ptr %result.addr.010.i894, i64 4
   %cmp.not.i903 = icmp eq i64 %first1.addr.08.i896.add, 24
-  br i1 %cmp.not.i903, label %_ZN5eastl9transformIPPN12_GLOBAL__N_19TestClassEPiS5_NS_11mem_fn_implIMS2_KFiiEEEEET1_T_SB_T0_SA_T2_.exit, label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.argprom.exit.i, !llvm.loop !66
+  br i1 %cmp.not.i903, label %_ZN5eastl9transformIPPN12_GLOBAL__N_19TestClassEPiS5_NS_11mem_fn_implIMS2_KFiiEEEEET1_T_SB_T0_SA_T2_.exit, label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.exit.i, !llvm.loop !66
 
-_ZN5eastl9transformIPPN12_GLOBAL__N_19TestClassEPiS5_NS_11mem_fn_implIMS2_KFiiEEEEET1_T_SB_T0_SA_T2_.exit: ; preds = %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.argprom.exit.i
+_ZN5eastl9transformIPPN12_GLOBAL__N_19TestClassEPiS5_NS_11mem_fn_implIMS2_KFiiEEEEET1_T_SB_T0_SA_T2_.exit: ; preds = %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRPS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSB_.exit.i
   %168 = load i32, ptr %intArray2, align 4
   %cmp406 = icmp eq i32 %168, -37
   %169 = load i32, ptr %arrayidx385, align 4
@@ -3411,19 +3411,19 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %la
   store i32 37, ptr %arrayctor.cur.ptr, align 4
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 4
   %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 12
-  br i1 %arrayctor.done, label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFvvEEclIJRS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOS9_.argprom.exit.i, label %arrayctor.loop
+  br i1 %arrayctor.done, label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFvvEEclIJRS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOS9_.exit.i, label %arrayctor.loop
 
-_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFvvEEclIJRS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOS9_.argprom.exit.i: ; preds = %arrayctor.loop, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFvvEEclIJRS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOS9_.argprom.exit.i
-  %first.addr.07.i904.idx = phi i64 [ %first.addr.07.i904.add, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFvvEEclIJRS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOS9_.argprom.exit.i ], [ 0, %arrayctor.loop ]
+_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFvvEEclIJRS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOS9_.exit.i: ; preds = %arrayctor.loop, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFvvEEclIJRS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOS9_.exit.i
+  %first.addr.07.i904.idx = phi i64 [ %first.addr.07.i904.add, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFvvEEclIJRS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOS9_.exit.i ], [ 0, %arrayctor.loop ]
   %first.addr.07.i904.ptr = getelementptr inbounds i8, ptr %tcArray415, i64 %first.addr.07.i904.idx
   %172 = load i32, ptr %first.addr.07.i904.ptr, align 4
   %inc.i.i905 = add nsw i32 %172, 1
   store i32 %inc.i.i905, ptr %first.addr.07.i904.ptr, align 4
   %first.addr.07.i904.add = add nuw nsw i64 %first.addr.07.i904.idx, 4
   %cmp.not.i907 = icmp eq i64 %first.addr.07.i904.add, 12
-  br i1 %cmp.not.i907, label %_ZN5eastl8for_eachIPN12_GLOBAL__N_19TestClassENS_11mem_fn_implIMS2_FvvEEEEET0_T_S9_S8_.exit, label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFvvEEclIJRS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOS9_.argprom.exit.i, !llvm.loop !67
+  br i1 %cmp.not.i907, label %_ZN5eastl8for_eachIPN12_GLOBAL__N_19TestClassENS_11mem_fn_implIMS2_FvvEEEEET0_T_S9_S8_.exit, label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFvvEEclIJRS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOS9_.exit.i, !llvm.loop !67
 
-_ZN5eastl8for_eachIPN12_GLOBAL__N_19TestClassENS_11mem_fn_implIMS2_FvvEEEEET0_T_S9_S8_.exit: ; preds = %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFvvEEclIJRS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOS9_.argprom.exit.i
+_ZN5eastl8for_eachIPN12_GLOBAL__N_19TestClassENS_11mem_fn_implIMS2_FvvEEEEET0_T_S9_S8_.exit: ; preds = %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFvvEEclIJRS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOS9_.exit.i
   %173 = load i32, ptr %tcArray415, align 4
   %cmp428 = icmp eq i32 %173, 38
   %arrayidx430 = getelementptr inbounds i8, ptr %tcArray415, i64 4
@@ -3441,19 +3441,19 @@ land.rhs433:                                      ; preds = %_ZN5eastl8for_eachI
 land.end437:                                      ; preds = %land.rhs433, %_ZN5eastl8for_eachIPN12_GLOBAL__N_19TestClassENS_11mem_fn_implIMS2_FvvEEEEET0_T_S9_S8_.exit
   %176 = phi i1 [ false, %_ZN5eastl8for_eachIPN12_GLOBAL__N_19TestClassENS_11mem_fn_implIMS2_FvvEEEEET0_T_S9_S8_.exit ], [ %cmp436, %land.rhs433 ]
   %call438 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %176, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 447, ptr noundef nonnull @.str.88)
-  br label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFvvEEclIJRS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOS9_.argprom.exit.i
+  br label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFvvEEclIJRS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOS9_.exit.i
 
-_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFvvEEclIJRS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOS9_.argprom.exit.i: ; preds = %land.end437, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFvvEEclIJRS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOS9_.argprom.exit.i
-  %first.addr.07.i908.idx = phi i64 [ %first.addr.07.i908.add, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFvvEEclIJRS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOS9_.argprom.exit.i ], [ 0, %land.end437 ]
+_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFvvEEclIJRS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOS9_.exit.i: ; preds = %land.end437, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFvvEEclIJRS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOS9_.exit.i
+  %first.addr.07.i908.idx = phi i64 [ %first.addr.07.i908.add, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFvvEEclIJRS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOS9_.exit.i ], [ 0, %land.end437 ]
   %first.addr.07.i908.ptr = getelementptr inbounds i8, ptr %tcArray415, i64 %first.addr.07.i908.idx
   %177 = load i32, ptr %first.addr.07.i908.ptr, align 4
   %inc.i.i909 = add nsw i32 %177, 1
   store i32 %inc.i.i909, ptr %first.addr.07.i908.ptr, align 4
   %first.addr.07.i908.add = add nuw nsw i64 %first.addr.07.i908.idx, 4
   %cmp.not.i911 = icmp eq i64 %first.addr.07.i908.add, 12
-  br i1 %cmp.not.i911, label %_ZN5eastl8for_eachIPN12_GLOBAL__N_19TestClassENS_11mem_fn_implIMS2_KFvvEEEEET0_T_S9_S8_.exit, label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFvvEEclIJRS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOS9_.argprom.exit.i, !llvm.loop !68
+  br i1 %cmp.not.i911, label %_ZN5eastl8for_eachIPN12_GLOBAL__N_19TestClassENS_11mem_fn_implIMS2_KFvvEEEEET0_T_S9_S8_.exit, label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFvvEEclIJRS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOS9_.exit.i, !llvm.loop !68
 
-_ZN5eastl8for_eachIPN12_GLOBAL__N_19TestClassENS_11mem_fn_implIMS2_KFvvEEEEET0_T_S9_S8_.exit: ; preds = %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFvvEEclIJRS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOS9_.argprom.exit.i
+_ZN5eastl8for_eachIPN12_GLOBAL__N_19TestClassENS_11mem_fn_implIMS2_KFvvEEEEET0_T_S9_S8_.exit: ; preds = %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFvvEEclIJRS2_EEENS_13invoke_resultIS4_JDpT_EE4typeEDpOS9_.exit.i
   %178 = load i32, ptr %tcArray415, align 4
   %cmp451 = icmp eq i32 %178, 39
   %179 = load i32, ptr %arrayidx430, align 4
@@ -3482,12 +3482,12 @@ arrayctor.loop465:                                ; preds = %arrayctor.loop465, 
 
 arrayctor.cont469:                                ; preds = %arrayctor.loop465
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %intArray2471, ptr noundef nonnull align 4 dereferenceable(12) @__const._Z14TestFunctionalv.intArray2.91, i64 12, i1 false)
-  br label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.argprom.exit.i
+  br label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.exit.i
 
-_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.argprom.exit.i: ; preds = %arrayctor.cont469, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.argprom.exit.i
-  %result.addr.010.i912 = phi ptr [ %incdec.ptr2.i919, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.argprom.exit.i ], [ %intArray2471, %arrayctor.cont469 ]
-  %first2.addr.09.i913 = phi ptr [ %incdec.ptr1.i918, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.argprom.exit.i ], [ @__const._Z14TestFunctionalv.intArray1.90, %arrayctor.cont469 ]
-  %first1.addr.08.i914.idx = phi i64 [ %first1.addr.08.i914.add, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.argprom.exit.i ], [ 0, %arrayctor.cont469 ]
+_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.exit.i: ; preds = %arrayctor.cont469, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.exit.i
+  %result.addr.010.i912 = phi ptr [ %incdec.ptr2.i919, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.exit.i ], [ %intArray2471, %arrayctor.cont469 ]
+  %first2.addr.09.i913 = phi ptr [ %incdec.ptr1.i918, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.exit.i ], [ @__const._Z14TestFunctionalv.intArray1.90, %arrayctor.cont469 ]
+  %first1.addr.08.i914.idx = phi i64 [ %first1.addr.08.i914.add, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.exit.i ], [ 0, %arrayctor.cont469 ]
   %first1.addr.08.i914.ptr = getelementptr inbounds i8, ptr %tcArray462, i64 %first1.addr.08.i914.idx
   %first2.addr.0.val.i915 = load i32, ptr %first2.addr.09.i913, align 4
   %182 = load i32, ptr %first1.addr.08.i914.ptr, align 4
@@ -3497,9 +3497,9 @@ _ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRS2_RiEEENS_13invoke
   %incdec.ptr1.i918 = getelementptr inbounds i8, ptr %first2.addr.09.i913, i64 4
   %incdec.ptr2.i919 = getelementptr inbounds i8, ptr %result.addr.010.i912, i64 4
   %cmp.not.i920 = icmp eq i64 %first1.addr.08.i914.add, 12
-  br i1 %cmp.not.i920, label %_ZN5eastl9transformIPN12_GLOBAL__N_19TestClassEPiS4_NS_11mem_fn_implIMS2_FiiEEEEET1_T_SA_T0_S9_T2_.exit, label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.argprom.exit.i, !llvm.loop !69
+  br i1 %cmp.not.i920, label %_ZN5eastl9transformIPN12_GLOBAL__N_19TestClassEPiS4_NS_11mem_fn_implIMS2_FiiEEEEET1_T_SA_T0_S9_T2_.exit, label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.exit.i, !llvm.loop !69
 
-_ZN5eastl9transformIPN12_GLOBAL__N_19TestClassEPiS4_NS_11mem_fn_implIMS2_FiiEEEEET1_T_SA_T0_S9_T2_.exit: ; preds = %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.argprom.exit.i
+_ZN5eastl9transformIPN12_GLOBAL__N_19TestClassEPiS4_NS_11mem_fn_implIMS2_FiiEEEEET1_T_SA_T0_S9_T2_.exit: ; preds = %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.exit.i
   %183 = load i32, ptr %intArray2471, align 4
   %cmp483 = icmp eq i32 %183, -37
   %arrayidx485 = getelementptr inbounds i8, ptr %intArray2471, i64 4
@@ -3521,12 +3521,12 @@ land.end490:                                      ; preds = %land.rhs487, %_ZN5e
   store i32 -9, ptr %arrayidx492, align 4
   store i32 -9, ptr %arrayidx485, align 4
   store i32 -9, ptr %intArray2471, align 4
-  br label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.argprom.exit.i
+  br label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.exit.i
 
-_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.argprom.exit.i: ; preds = %land.end490, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.argprom.exit.i
-  %result.addr.010.i921 = phi ptr [ %incdec.ptr2.i928, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.argprom.exit.i ], [ %intArray2471, %land.end490 ]
-  %first2.addr.09.i922 = phi ptr [ %incdec.ptr1.i927, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.argprom.exit.i ], [ @__const._Z14TestFunctionalv.intArray1.90, %land.end490 ]
-  %first1.addr.08.i923.idx = phi i64 [ %first1.addr.08.i923.add, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.argprom.exit.i ], [ 0, %land.end490 ]
+_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.exit.i: ; preds = %land.end490, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.exit.i
+  %result.addr.010.i921 = phi ptr [ %incdec.ptr2.i928, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.exit.i ], [ %intArray2471, %land.end490 ]
+  %first2.addr.09.i922 = phi ptr [ %incdec.ptr1.i927, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.exit.i ], [ @__const._Z14TestFunctionalv.intArray1.90, %land.end490 ]
+  %first1.addr.08.i923.idx = phi i64 [ %first1.addr.08.i923.add, %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.exit.i ], [ 0, %land.end490 ]
   %first1.addr.08.i923.ptr = getelementptr inbounds i8, ptr %tcArray462, i64 %first1.addr.08.i923.idx
   %first2.addr.0.val.i924 = load i32, ptr %first2.addr.09.i922, align 4
   %187 = load i32, ptr %first1.addr.08.i923.ptr, align 4
@@ -3536,9 +3536,9 @@ _ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRS2_RiEEENS_13invok
   %incdec.ptr1.i927 = getelementptr inbounds i8, ptr %first2.addr.09.i922, i64 4
   %incdec.ptr2.i928 = getelementptr inbounds i8, ptr %result.addr.010.i921, i64 4
   %cmp.not.i929 = icmp eq i64 %first1.addr.08.i923.add, 12
-  br i1 %cmp.not.i929, label %_ZN5eastl9transformIPN12_GLOBAL__N_19TestClassEPiS4_NS_11mem_fn_implIMS2_KFiiEEEEET1_T_SA_T0_S9_T2_.exit, label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.argprom.exit.i, !llvm.loop !70
+  br i1 %cmp.not.i929, label %_ZN5eastl9transformIPN12_GLOBAL__N_19TestClassEPiS4_NS_11mem_fn_implIMS2_KFiiEEEEET1_T_SA_T0_S9_T2_.exit, label %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.exit.i, !llvm.loop !70
 
-_ZN5eastl9transformIPN12_GLOBAL__N_19TestClassEPiS4_NS_11mem_fn_implIMS2_KFiiEEEEET1_T_SA_T0_S9_T2_.exit: ; preds = %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.argprom.exit.i
+_ZN5eastl9transformIPN12_GLOBAL__N_19TestClassEPiS4_NS_11mem_fn_implIMS2_KFiiEEEEET1_T_SA_T0_S9_T2_.exit: ; preds = %_ZNK5eastl11mem_fn_implIMN12_GLOBAL__N_19TestClassEKFiiEEclIJRS2_RiEEENS_13invoke_resultIS4_JDpT_EE4typeEDpOSA_.exit.i
   %188 = load i32, ptr %intArray2471, align 4
   %cmp506 = icmp eq i32 %188, -37
   %189 = load i32, ptr %arrayidx485, align 4
@@ -3730,16 +3730,16 @@ invoke.cont540:                                   ; preds = %delete.notnull.i.i.
 invoke.cont543:                                   ; preds = %invoke.cont540
   %215 = load ptr, ptr %L, align 8
   %cmp.not3.i.i.i = icmp eq ptr %215, %L
-  br i1 %cmp.not3.i.i.i, label %_ZNK5eastl11mem_fn_implIMZ14TestFunctionalvE16OverloadedStructKFRKivEEclIJRS1_EEENS_13invoke_resultIS5_JDpT_EE4typeEDpOSA_.argprom.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i
+  br i1 %cmp.not3.i.i.i, label %_ZNK5eastl11mem_fn_implIMZ14TestFunctionalvE16OverloadedStructKFRKivEEclIJRS1_EEENS_13invoke_resultIS5_JDpT_EE4typeEDpOSA_.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i:   ; preds = %invoke.cont543, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i
   %p.04.i.i.i = phi ptr [ %216, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i ], [ %215, %invoke.cont543 ]
   %216 = load ptr, ptr %p.04.i.i.i, align 8
   call void @_ZdaPv(ptr noundef nonnull %p.04.i.i.i) #19
   %cmp.not.i.i.i942 = icmp eq ptr %216, %L
-  br i1 %cmp.not.i.i.i942, label %_ZNK5eastl11mem_fn_implIMZ14TestFunctionalvE16OverloadedStructKFRKivEEclIJRS1_EEENS_13invoke_resultIS5_JDpT_EE4typeEDpOSA_.argprom.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, !llvm.loop !71
+  br i1 %cmp.not.i.i.i942, label %_ZNK5eastl11mem_fn_implIMZ14TestFunctionalvE16OverloadedStructKFRKivEEclIJRS1_EEENS_13invoke_resultIS5_JDpT_EE4typeEDpOSA_.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, !llvm.loop !71
 
-_ZNK5eastl11mem_fn_implIMZ14TestFunctionalvE16OverloadedStructKFRKivEEclIJRS1_EEENS_13invoke_resultIS5_JDpT_EE4typeEDpOSA_.argprom.exit: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, %invoke.cont543
+_ZNK5eastl11mem_fn_implIMZ14TestFunctionalvE16OverloadedStructKFRKivEEclIJRS1_EEENS_13invoke_resultIS5_JDpT_EE4typeEDpOSA_.exit: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, %invoke.cont543
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i)
   store i32 0, ptr %nErrorCount.i, align 4
   %call1.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @.str.174)
@@ -3954,7 +3954,7 @@ _ZNK5eastl11mem_fn_implIMZ14TestFunctionalvE16OverloadedStructKFRKivEEclIJRS1_EE
   %call732 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 805, ptr noundef nonnull @.str.107)
           to label %invoke.cont731 unwind label %lpad727
 
-invoke.cont731:                                   ; preds = %_ZNK5eastl11mem_fn_implIMZ14TestFunctionalvE16OverloadedStructKFRKivEEclIJRS1_EEENS_13invoke_resultIS5_JDpT_EE4typeEDpOSA_.argprom.exit
+invoke.cont731:                                   ; preds = %_ZNK5eastl11mem_fn_implIMZ14TestFunctionalvE16OverloadedStructKFRKivEEclIJRS1_EEENS_13invoke_resultIS5_JDpT_EE4typeEDpOSA_.exit
   %263 = load ptr, ptr %mMgrFuncPtr.i.i, align 8
   %cmp.i.not.i.i.i = icmp eq ptr %263, null
   br i1 %cmp.i.not.i.i.i, label %_ZN5eastl8functionIFivEED2Ev.exit, label %if.then.i.i.i
@@ -4194,11 +4194,11 @@ invoke.cont830:                                   ; preds = %invoke.cont824, %if
 invoke.cont836:                                   ; preds = %invoke.cont830
   %this.val.i.i.i1172 = load ptr, ptr %mMgrFuncPtr.i.i1158, align 8
   %cmp.i.not.i.i.i1173 = icmp eq ptr %this.val.i.i.i1172, null
-  br i1 %cmp.i.not.i.i.i1173, label %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.argprom.exit.i, label %if.then.i.i.i1174
+  br i1 %cmp.i.not.i.i.i1173, label %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit.i, label %if.then.i.i.i1174
 
 if.then.i.i.i1174:                                ; preds = %invoke.cont836
   %call2.i.i.i1175 = invoke noundef ptr %this.val.i.i.i1172(ptr noundef nonnull %ff827, ptr noundef null, i32 noundef 0)
-          to label %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.argprom.exit.i unwind label %terminate.lpad.i.i.i1176
+          to label %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit.i unwind label %terminate.lpad.i.i.i1176
 
 terminate.lpad.i.i.i1176:                         ; preds = %if.then.i.i.i1174
   %288 = landingpad { ptr, i32 }
@@ -4207,7 +4207,7 @@ terminate.lpad.i.i.i1176:                         ; preds = %if.then.i.i.i1174
   call void @__clang_call_terminate(ptr %289) #18
   unreachable
 
-_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.argprom.exit.i: ; preds = %invoke.cont836, %if.then.i.i.i1174
+_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit.i: ; preds = %invoke.cont836, %if.then.i.i.i1174
   store i64 ptrtoint (ptr @_ZZ14TestFunctionalvENK11TestVoidRet4IncXEv to i64), ptr %ff839, align 8
   %call.repack3.i.i.i.i = getelementptr inbounds i8, ptr %ff839, i64 8
   store i64 0, ptr %call.repack3.i.i.i.i, align 8
@@ -4218,14 +4218,14 @@ _ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.arg
   %call846 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 899, ptr noundef nonnull @.str.112)
           to label %invoke.cont845 unwind label %lpad841
 
-invoke.cont845:                                   ; preds = %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.argprom.exit.i
+invoke.cont845:                                   ; preds = %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit.i
   %this.val.i.i.i1181 = load ptr, ptr %mMgrFuncPtr.i.i1179, align 8
   %cmp.i.not.i.i.i1182 = icmp eq ptr %this.val.i.i.i1181, null
-  br i1 %cmp.i.not.i.i.i1182, label %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.argprom.exit.i2433, label %if.then.i.i.i1183
+  br i1 %cmp.i.not.i.i.i1182, label %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit.i2433, label %if.then.i.i.i1183
 
 if.then.i.i.i1183:                                ; preds = %invoke.cont845
   %call2.i.i.i1184 = invoke noundef ptr %this.val.i.i.i1181(ptr noundef nonnull %ff839, ptr noundef null, i32 noundef 0)
-          to label %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.argprom.exit.i2433 unwind label %terminate.lpad.i.i.i1185
+          to label %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit.i2433 unwind label %terminate.lpad.i.i.i1185
 
 terminate.lpad.i.i.i1185:                         ; preds = %if.then.i.i.i1183
   %290 = landingpad { ptr, i32 }
@@ -4234,7 +4234,7 @@ terminate.lpad.i.i.i1185:                         ; preds = %if.then.i.i.i1183
   call void @__clang_call_terminate(ptr %291) #18
   unreachable
 
-_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.argprom.exit.i2433: ; preds = %invoke.cont845, %if.then.i.i.i1183
+_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit.i2433: ; preds = %invoke.cont845, %if.then.i.i.i1183
   store i64 ptrtoint (ptr @_ZZ14TestFunctionalvENK11TestVoidRet4IncXEv to i64), ptr %ff848, align 8
   %call.repack3.i.i.i.i1186 = getelementptr inbounds i8, ptr %ff848, i64 8
   store i64 0, ptr %call.repack3.i.i.i.i1186, align 8
@@ -4245,14 +4245,14 @@ _ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.arg
   %call855 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 904, ptr noundef nonnull @.str.113)
           to label %invoke.cont854 unwind label %lpad850
 
-invoke.cont854:                                   ; preds = %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.argprom.exit.i2433
+invoke.cont854:                                   ; preds = %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit.i2433
   %this.val.i.i.i1191 = load ptr, ptr %mMgrFuncPtr.i.i1188, align 8
   %cmp.i.not.i.i.i1192 = icmp eq ptr %this.val.i.i.i1191, null
-  br i1 %cmp.i.not.i.i.i1192, label %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.argprom.exit.i, label %if.then.i.i.i1193
+  br i1 %cmp.i.not.i.i.i1192, label %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.exit.i, label %if.then.i.i.i1193
 
 if.then.i.i.i1193:                                ; preds = %invoke.cont854
   %call2.i.i.i1194 = invoke noundef ptr %this.val.i.i.i1191(ptr noundef nonnull %ff848, ptr noundef null, i32 noundef 0)
-          to label %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.argprom.exit.i unwind label %terminate.lpad.i.i.i1195
+          to label %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.exit.i unwind label %terminate.lpad.i.i.i1195
 
 terminate.lpad.i.i.i1195:                         ; preds = %if.then.i.i.i1193
   %292 = landingpad { ptr, i32 }
@@ -4261,7 +4261,7 @@ terminate.lpad.i.i.i1195:                         ; preds = %if.then.i.i.i1193
   call void @__clang_call_terminate(ptr %293) #18
   unreachable
 
-_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.argprom.exit.i: ; preds = %invoke.cont854, %if.then.i.i.i1193
+_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.exit.i: ; preds = %invoke.cont854, %if.then.i.i.i1193
   store i64 ptrtoint (ptr @_ZZ14TestFunctionalvEN11TestVoidRet4IncXEv to i64), ptr %ff857, align 8
   %call.repack3.i.i.i.i1197 = getelementptr inbounds i8, ptr %ff857, i64 8
   store i64 0, ptr %call.repack3.i.i.i.i1197, align 8
@@ -4272,7 +4272,7 @@ _ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.argpr
   %call864 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 909, ptr noundef nonnull @.str.114)
           to label %invoke.cont863 unwind label %lpad859
 
-invoke.cont863:                                   ; preds = %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.argprom.exit.i
+invoke.cont863:                                   ; preds = %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.exit.i
   %this.val.i.i.i1201 = load ptr, ptr %mMgrFuncPtr.i.i1199, align 8
   %cmp.i.not.i.i.i1202 = icmp eq ptr %this.val.i.i.i1201, null
   br i1 %cmp.i.not.i.i.i1202, label %_ZN5eastl8functionIFvRZ14TestFunctionalvE11TestVoidRetEED2Ev.exit, label %if.then.i.i.i1203
@@ -4300,11 +4300,11 @@ _ZN5eastl8functionIFvRZ14TestFunctionalvE11TestVoidRetEED2Ev.exit: ; preds = %in
 invoke.cont872:                                   ; preds = %_ZN5eastl8functionIFvRZ14TestFunctionalvE11TestVoidRetEED2Ev.exit
   %296 = load ptr, ptr %mMgrFuncPtr.i.i1206, align 8
   %cmp.i.not.i.i.i1210 = icmp eq ptr %296, null
-  br i1 %cmp.i.not.i.i.i1210, label %_ZN5eastl8functionIFvPiEEaSIZ14TestFunctionalvE7Functor_1EERS3_NS_17reference_wrapperIT_EE.argprom.exit, label %if.then.i.i.i1211
+  br i1 %cmp.i.not.i.i.i1210, label %_ZN5eastl8functionIFvPiEEaSIZ14TestFunctionalvE7Functor_1EERS3_NS_17reference_wrapperIT_EE.exit, label %if.then.i.i.i1211
 
 if.then.i.i.i1211:                                ; preds = %invoke.cont872
   %call2.i.i.i1212 = invoke noundef ptr %296(ptr noundef nonnull %ff867, ptr noundef null, i32 noundef 0)
-          to label %_ZN5eastl8functionIFvPiEEaSIZ14TestFunctionalvE7Functor_1EERS3_NS_17reference_wrapperIT_EE.argprom.exit unwind label %terminate.lpad.i.i.i1213
+          to label %_ZN5eastl8functionIFvPiEEaSIZ14TestFunctionalvE7Functor_1EERS3_NS_17reference_wrapperIT_EE.exit unwind label %terminate.lpad.i.i.i1213
 
 terminate.lpad.i.i.i1213:                         ; preds = %if.then.i.i.i1211
   %297 = landingpad { ptr, i32 }
@@ -4313,7 +4313,7 @@ terminate.lpad.i.i.i1213:                         ; preds = %if.then.i.i.i1211
   call void @__clang_call_terminate(ptr %298) #18
   unreachable
 
-_ZN5eastl8functionIFvPiEEaSIZ14TestFunctionalvE7Functor_1EERS3_NS_17reference_wrapperIT_EE.argprom.exit: ; preds = %if.then.i.i.i1211, %invoke.cont872
+_ZN5eastl8functionIFvPiEEaSIZ14TestFunctionalvE7Functor_1EERS3_NS_17reference_wrapperIT_EE.exit: ; preds = %if.then.i.i.i1211, %invoke.cont872
   %mMgrFuncPtr.i.i1214 = getelementptr inbounds i8, ptr %ff875, i64 16
   %mInvokeFuncPtr.i.i1215 = getelementptr inbounds i8, ptr %ff875, i64 24
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerINS_17reference_wrapperIZ14TestFunctionalvE7Functor_1EEvJPiEE7ManagerEPvS9_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i1214, align 8
@@ -4322,7 +4322,7 @@ _ZN5eastl8functionIFvPiEEaSIZ14TestFunctionalvE7Functor_1EERS3_NS_17reference_wr
   %call882 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 927, ptr noundef nonnull @.str.110)
           to label %invoke.cont881 unwind label %lpad878
 
-invoke.cont881:                                   ; preds = %_ZN5eastl8functionIFvPiEEaSIZ14TestFunctionalvE7Functor_1EERS3_NS_17reference_wrapperIT_EE.argprom.exit
+invoke.cont881:                                   ; preds = %_ZN5eastl8functionIFvPiEEaSIZ14TestFunctionalvE7Functor_1EERS3_NS_17reference_wrapperIT_EE.exit
   %299 = load ptr, ptr %mMgrFuncPtr.i.i1214, align 8
   %cmp.i.not.i.i.i1225 = icmp eq ptr %299, null
   br i1 %cmp.i.not.i.i.i1225, label %_ZN5eastl8functionIFvPiEED2Ev.exit1229, label %if.then.i.i.i1226
@@ -5554,7 +5554,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1906: ; preds = %lpad531, %_ZN5eas
   %cmp.not.i.i.i1908 = icmp eq ptr %460, %L
   br i1 %cmp.not.i.i.i1908, label %eh.resume, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1906, !llvm.loop !71
 
-lpad727:                                          ; preds = %_ZNK5eastl11mem_fn_implIMZ14TestFunctionalvE16OverloadedStructKFRKivEEclIJRS1_EEENS_13invoke_resultIS5_JDpT_EE4typeEDpOSA_.argprom.exit
+lpad727:                                          ; preds = %_ZNK5eastl11mem_fn_implIMZ14TestFunctionalvE16OverloadedStructKFRKivEEclIJRS1_EEENS_13invoke_resultIS5_JDpT_EE4typeEDpOSA_.exit
   %461 = landingpad { ptr, i32 }
           cleanup
   %462 = load ptr, ptr %mMgrFuncPtr.i.i, align 8
@@ -5734,7 +5734,7 @@ terminate.lpad.i.i.i1968:                         ; preds = %if.then.i.i.i1966
   call void @__clang_call_terminate(ptr %496) #18
   unreachable
 
-lpad841:                                          ; preds = %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.argprom.exit.i
+lpad841:                                          ; preds = %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit.i
   %497 = landingpad { ptr, i32 }
           cleanup
   %this.val.i.i.i1970 = load ptr, ptr %mMgrFuncPtr.i.i1179, align 8
@@ -5752,7 +5752,7 @@ terminate.lpad.i.i.i1974:                         ; preds = %if.then.i.i.i1972
   call void @__clang_call_terminate(ptr %499) #18
   unreachable
 
-lpad850:                                          ; preds = %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.argprom.exit.i2433
+lpad850:                                          ; preds = %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit.i2433
   %500 = landingpad { ptr, i32 }
           cleanup
   %this.val.i.i.i1976 = load ptr, ptr %mMgrFuncPtr.i.i1188, align 8
@@ -5770,7 +5770,7 @@ terminate.lpad.i.i.i1980:                         ; preds = %if.then.i.i.i1978
   call void @__clang_call_terminate(ptr %502) #18
   unreachable
 
-lpad859:                                          ; preds = %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.argprom.exit.i
+lpad859:                                          ; preds = %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.exit.i
   %503 = landingpad { ptr, i32 }
           cleanup
   %this.val.i.i.i1982 = load ptr, ptr %mMgrFuncPtr.i.i1199, align 8
@@ -5806,7 +5806,7 @@ terminate.lpad.i.i.i1992:                         ; preds = %if.then.i.i.i1990
   call void @__clang_call_terminate(ptr %509) #18
   unreachable
 
-lpad878:                                          ; preds = %_ZN5eastl8functionIFvPiEEaSIZ14TestFunctionalvE7Functor_1EERS3_NS_17reference_wrapperIT_EE.argprom.exit
+lpad878:                                          ; preds = %_ZN5eastl8functionIFvPiEEaSIZ14TestFunctionalvE7Functor_1EERS3_NS_17reference_wrapperIT_EE.exit
   %510 = landingpad { ptr, i32 }
           cleanup
   %511 = load ptr, ptr %mMgrFuncPtr.i.i1214, align 8
@@ -8392,13 +8392,13 @@ memptr.virtual.i.i:                               ; preds = %entry
   %3 = getelementptr i8, ptr %vtable.i.i, i64 %call.val
   %4 = getelementptr i8, ptr %3, i64 -1
   %memptr.virtualfn.i.i = load ptr, ptr %4, align 8, !nosanitize !87
-  br label %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.argprom.exit
+  br label %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit
 
 memptr.nonvirtual.i.i:                            ; preds = %entry
   %memptr.nonvirtualfn.i.i = inttoptr i64 %call.val to ptr
-  br label %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.argprom.exit
+  br label %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit
 
-_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.argprom.exit: ; preds = %memptr.virtual.i.i, %memptr.nonvirtual.i.i
+_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit: ; preds = %memptr.virtual.i.i, %memptr.nonvirtual.i.i
   %5 = phi ptr [ %memptr.virtualfn.i.i, %memptr.virtual.i.i ], [ %memptr.nonvirtualfn.i.i, %memptr.nonvirtual.i.i ]
   tail call void %5(ptr noundef nonnull align 4 dereferenceable(4) %1)
   ret void
@@ -8450,13 +8450,13 @@ memptr.virtual.i.i:                               ; preds = %entry
   %3 = getelementptr i8, ptr %vtable.i.i, i64 %call.val
   %4 = getelementptr i8, ptr %3, i64 -1
   %memptr.virtualfn.i.i = load ptr, ptr %4, align 8, !nosanitize !87
-  br label %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.argprom.exit
+  br label %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.exit
 
 memptr.nonvirtual.i.i:                            ; preds = %entry
   %memptr.nonvirtualfn.i.i = inttoptr i64 %call.val to ptr
-  br label %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.argprom.exit
+  br label %_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.exit
 
-_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.argprom.exit: ; preds = %memptr.virtual.i.i, %memptr.nonvirtual.i.i
+_ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.exit: ; preds = %memptr.virtual.i.i, %memptr.nonvirtual.i.i
   %5 = phi ptr [ %memptr.virtualfn.i.i, %memptr.virtual.i.i ], [ %memptr.nonvirtualfn.i.i, %memptr.nonvirtual.i.i ]
   tail call void %5(ptr noundef nonnull align 4 dereferenceable(4) %1)
   ret void

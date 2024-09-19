@@ -379,14 +379,14 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_115RISCVOptWInstrs20runOnMac
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
   %25 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL19DisableSExtWRemoval, i64 128), align 8
   %26 = trunc i8 %25 to i1
-  br i1 %26, label %_ZN12_GLOBAL__N_115RISCVOptWInstrs17removeSExtWInstrsERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.argprom.exit, label %27
+  br i1 %26, label %_ZN12_GLOBAL__N_115RISCVOptWInstrs17removeSExtWInstrsERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.exit, label %27
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.09.029.i = load ptr, ptr %28, align 8
   %.not1330.i = icmp eq ptr %.sroa.09.029.i, %29
-  br i1 %.not1330.i, label %_ZN12_GLOBAL__N_115RISCVOptWInstrs17removeSExtWInstrsERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.argprom.exit, label %.lr.ph34.i
+  br i1 %.not1330.i, label %_ZN12_GLOBAL__N_115RISCVOptWInstrs17removeSExtWInstrsERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.exit, label %.lr.ph34.i
 
 .lr.ph34.i:                                       ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -483,13 +483,13 @@ _ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineIn
   %72 = add i64 %71, 1
   %73 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   %.not.i.i.i.i.i41.i = icmp ugt i64 %72, %73
-  br i1 %.not.i.i.i.i.i41.i, label %74, label %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.argprom.exit.i.i"
+  br i1 %.not.i.i.i.i.i41.i, label %74, label %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit.i.i"
 
 74:                                               ; preds = %70
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %41, i64 noundef %72, i64 noundef 4) #15
-  br label %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.argprom.exit.i.i"
+  br label %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit.i.i"
 
-"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.argprom.exit.i.i": ; preds = %74, %70
+"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit.i.i": ; preds = %74, %70
   %75 = load ptr, ptr %4, align 8
   %76 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   %77 = getelementptr inbounds %"class.llvm::Register", ptr %75, i64 %76
@@ -500,7 +500,7 @@ _ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineIn
   %80 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   br i1 %80, label %.critedge.i.i, label %.lr.ph114.i.i
 
-.lr.ph114.i.i:                                    ; preds = %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.argprom.exit.i.i", %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.backedge.i.i
+.lr.ph114.i.i:                                    ; preds = %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit.i.i", %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.backedge.i.i
   %81 = load ptr, ptr %4, align 8
   %82 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   %83 = getelementptr inbounds %"class.llvm::Register", ptr %81, i64 %82
@@ -795,7 +795,7 @@ _ZN4llvm19dyn_cast_if_presentINS_8FunctionEKNS_11GlobalValueEEEDaPT0_.exit.i.i: 
   %239 = call noundef zeroext i1 @_ZNK4llvm12AttributeSet12hasAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef 75) #15
   br i1 %239, label %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.backedge.i.i, label %.critedge.i.i
 
-_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.backedge.i.i: ; preds = %311, %.lr.ph.i.i.i.i, %357, %355, %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.argprom.exit94.thread.i.i", %290, %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.argprom.exit88.thread.i.i", %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.argprom.exit85.thread.i.i", %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.argprom.exit.thread.i", %238, %234, %175, %154, %152, %146, %142, %130, %124, %120, %107, %101, %91, %89, %.lr.ph114.i.i
+_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.backedge.i.i: ; preds = %311, %.lr.ph.i.i.i.i, %357, %355, %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit94.thread.i.i", %290, %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit88.thread.i.i", %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit85.thread.i.i", %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit.thread.i", %238, %234, %175, %154, %152, %146, %142, %130, %124, %120, %107, %101, %91, %89, %.lr.ph114.i.i
   %240 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   br i1 %240, label %.critedge.i.i, label %.lr.ph114.i.i, !llvm.loop !6
 
@@ -808,13 +808,13 @@ _ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.backedge.i.i: ; preds = %31
   %244 = add i64 %243, 1
   %245 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   %.not.i.i.i.i.i = icmp ugt i64 %244, %245
-  br i1 %.not.i.i.i.i.i, label %246, label %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.argprom.exit.thread.i"
+  br i1 %.not.i.i.i.i.i, label %246, label %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit.thread.i"
 
 246:                                              ; preds = %242
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %41, i64 noundef %244, i64 noundef 4) #15
-  br label %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.argprom.exit.thread.i"
+  br label %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit.thread.i"
 
-"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.argprom.exit.thread.i": ; preds = %246, %242
+"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit.thread.i": ; preds = %246, %242
   %247 = load ptr, ptr %4, align 8
   %248 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   %249 = getelementptr inbounds %"class.llvm::Register", ptr %247, i64 %248
@@ -845,13 +845,13 @@ _ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread147.i.i: ; pre
   %264 = add i64 %263, 1
   %265 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   %.not.i.i.i.i83.i.i = icmp ugt i64 %264, %265
-  br i1 %.not.i.i.i.i83.i.i, label %266, label %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.argprom.exit85.thread.i.i"
+  br i1 %.not.i.i.i.i83.i.i, label %266, label %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit85.thread.i.i"
 
 266:                                              ; preds = %262
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %41, i64 noundef %264, i64 noundef 4) #15
-  br label %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.argprom.exit85.thread.i.i"
+  br label %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit85.thread.i.i"
 
-"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.argprom.exit85.thread.i.i": ; preds = %266, %262
+"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit85.thread.i.i": ; preds = %266, %262
   %267 = load ptr, ptr %4, align 8
   %268 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   %269 = getelementptr inbounds %"class.llvm::Register", ptr %267, i64 %268
@@ -874,13 +874,13 @@ _ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread147.i.i: ; pre
   %280 = add i64 %279, 1
   %281 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   %.not.i.i.i.i86.i.i = icmp ugt i64 %280, %281
-  br i1 %.not.i.i.i.i86.i.i, label %282, label %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.argprom.exit88.thread.i.i"
+  br i1 %.not.i.i.i.i86.i.i, label %282, label %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit88.thread.i.i"
 
 282:                                              ; preds = %278
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %41, i64 noundef %280, i64 noundef 4) #15
-  br label %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.argprom.exit88.thread.i.i"
+  br label %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit88.thread.i.i"
 
-"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.argprom.exit88.thread.i.i": ; preds = %282, %278
+"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit88.thread.i.i": ; preds = %282, %278
   %283 = load ptr, ptr %4, align 8
   %284 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   %285 = getelementptr inbounds %"class.llvm::Register", ptr %283, i64 %284
@@ -962,13 +962,13 @@ _ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread147.i.i: ; pre
   %326 = add i64 %325, 1
   %327 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   %.not.i.i.i.i92.i.i = icmp ugt i64 %326, %327
-  br i1 %.not.i.i.i.i92.i.i, label %328, label %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.argprom.exit94.thread.i.i"
+  br i1 %.not.i.i.i.i92.i.i, label %328, label %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit94.thread.i.i"
 
 328:                                              ; preds = %324
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %41, i64 noundef %326, i64 noundef 4) #15
-  br label %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.argprom.exit94.thread.i.i"
+  br label %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit94.thread.i.i"
 
-"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.argprom.exit94.thread.i.i": ; preds = %328, %324
+"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit94.thread.i.i": ; preds = %328, %324
   %329 = load ptr, ptr %4, align 8
   %330 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   %331 = getelementptr inbounds %"class.llvm::Register", ptr %329, i64 %330
@@ -1029,8 +1029,8 @@ _ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread149.i.i: ; pre
   %358 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %9, ptr noundef nonnull %90) #15, !noalias !8
   br label %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.backedge.i.i
 
-.critedge.i.i:                                    ; preds = %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread149.i.i, %334, %318, %272, %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread147.i.i, %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread145.i.i, %.thread.i.i, %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.backedge.i.i, %238, %236, %229, %_ZN4llvm19dyn_cast_if_presentINS_8FunctionEKNS_11GlobalValueEEEDaPT0_.exit.i.i, %217, %214, %208, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i, %201, %187, %182, %154, %152, %107, %101, %98, %302, %295, %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.argprom.exit.i.i", %68
-  %.0.i.i = phi i1 [ false, %68 ], [ true, %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.argprom.exit.i.i" ], [ false, %295 ], [ false, %302 ], [ false, %154 ], [ false, %152 ], [ false, %107 ], [ false, %101 ], [ false, %182 ], [ false, %187 ], [ false, %208 ], [ false, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i ], [ false, %_ZN4llvm19dyn_cast_if_presentINS_8FunctionEKNS_11GlobalValueEEEDaPT0_.exit.i.i ], [ false, %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread145.i.i ], [ false, %334 ], [ false, %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread149.i.i ], [ true, %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.backedge.i.i ], [ false, %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread147.i.i ], [ false, %272 ], [ false, %318 ], [ false, %217 ], [ false, %214 ], [ false, %98 ], [ false, %201 ], [ false, %238 ], [ false, %236 ], [ false, %229 ], [ false, %.thread.i.i ]
+.critedge.i.i:                                    ; preds = %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread149.i.i, %334, %318, %272, %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread147.i.i, %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread145.i.i, %.thread.i.i, %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.backedge.i.i, %238, %236, %229, %_ZN4llvm19dyn_cast_if_presentINS_8FunctionEKNS_11GlobalValueEEEDaPT0_.exit.i.i, %217, %214, %208, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i, %201, %187, %182, %154, %152, %107, %101, %98, %302, %295, %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit.i.i", %68
+  %.0.i.i = phi i1 [ false, %68 ], [ true, %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit.i.i" ], [ false, %295 ], [ false, %302 ], [ false, %154 ], [ false, %152 ], [ false, %107 ], [ false, %101 ], [ false, %182 ], [ false, %187 ], [ false, %208 ], [ false, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i ], [ false, %_ZN4llvm19dyn_cast_if_presentINS_8FunctionEKNS_11GlobalValueEEEDaPT0_.exit.i.i ], [ false, %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread145.i.i ], [ false, %334 ], [ false, %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread149.i.i ], [ true, %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.backedge.i.i ], [ false, %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread147.i.i ], [ false, %272 ], [ false, %318 ], [ false, %217 ], [ false, %214 ], [ false, %98 ], [ false, %201 ], [ false, %238 ], [ false, %236 ], [ false, %229 ], [ false, %.thread.i.i ]
   %359 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   %360 = load ptr, ptr %4, align 8
   %361 = icmp eq ptr %360, %41
@@ -1192,16 +1192,16 @@ _ZN4llvm11SmallPtrSetIPNS_12MachineInstrELj4EED2Ev.exit.i: ; preds = %409, %405,
   %410 = getelementptr inbounds nuw i8, ptr %.sroa.09.032.i, i64 8
   %.sroa.09.0.i = load ptr, ptr %410, align 8
   %.not13.i = icmp eq ptr %.sroa.09.0.i, %29
-  br i1 %.not13.i, label %_ZN12_GLOBAL__N_115RISCVOptWInstrs17removeSExtWInstrsERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.argprom.exit, label %46
+  br i1 %.not13.i, label %_ZN12_GLOBAL__N_115RISCVOptWInstrs17removeSExtWInstrsERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.exit, label %46
 
-_ZN12_GLOBAL__N_115RISCVOptWInstrs17removeSExtWInstrsERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.argprom.exit: ; preds = %._crit_edge28.i, %24, %27
+_ZN12_GLOBAL__N_115RISCVOptWInstrs17removeSExtWInstrsERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.exit: ; preds = %._crit_edge28.i, %24, %27
   %.0.i = phi i1 [ false, %24 ], [ false, %27 ], [ %.1.lcssa.i, %._crit_edge28.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   %411 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL19DisableStripWSuffix, i64 128), align 8
   %412 = trunc i8 %411 to i1
   br i1 %412, label %447, label %413
 
-413:                                              ; preds = %_ZN12_GLOBAL__N_115RISCVOptWInstrs17removeSExtWInstrsERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.argprom.exit
+413:                                              ; preds = %_ZN12_GLOBAL__N_115RISCVOptWInstrs17removeSExtWInstrsERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.exit
   %414 = getelementptr inbounds nuw i8, ptr %16, i64 488
   %415 = load i8, ptr %414, align 8
   %416 = trunc i8 %415 to i1
@@ -1212,7 +1212,7 @@ _ZN12_GLOBAL__N_115RISCVOptWInstrs17removeSExtWInstrsERN4llvm15MachineFunctionER
   %419 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.04.012.i = load ptr, ptr %418, align 8
   %.not13.i25 = icmp eq ptr %.sroa.04.012.i, %419
-  br i1 %.not13.i25, label %_ZN12_GLOBAL__N_115RISCVOptWInstrs14stripWSuffixesERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.argprom.exit, label %.lr.ph17.i
+  br i1 %.not13.i25, label %_ZN12_GLOBAL__N_115RISCVOptWInstrs14stripWSuffixesERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.exit, label %.lr.ph17.i
 
 .lr.ph17.i:                                       ; preds = %417
   %420 = getelementptr inbounds i8, ptr %20, i64 8
@@ -1295,15 +1295,15 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i: ; preds
   %445 = getelementptr inbounds nuw i8, ptr %.sroa.04.015.i, i64 8
   %.sroa.04.0.i = load ptr, ptr %445, align 8
   %.not.i31 = icmp eq ptr %.sroa.04.0.i, %419
-  br i1 %.not.i31, label %_ZN12_GLOBAL__N_115RISCVOptWInstrs14stripWSuffixesERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.argprom.exit, label %421
+  br i1 %.not.i31, label %_ZN12_GLOBAL__N_115RISCVOptWInstrs14stripWSuffixesERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.exit, label %421
 
-_ZN12_GLOBAL__N_115RISCVOptWInstrs14stripWSuffixesERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.argprom.exit: ; preds = %._crit_edge.i29, %417
+_ZN12_GLOBAL__N_115RISCVOptWInstrs14stripWSuffixesERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.exit: ; preds = %._crit_edge.i29, %417
   %.013.lcssa.i = phi i1 [ false, %417 ], [ %.1.lcssa.i30, %._crit_edge.i29 ]
   %446 = or i1 %.0.i, %.013.lcssa.i
   br label %447
 
-447:                                              ; preds = %_ZN12_GLOBAL__N_115RISCVOptWInstrs14stripWSuffixesERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.argprom.exit, %413, %_ZN12_GLOBAL__N_115RISCVOptWInstrs17removeSExtWInstrsERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.argprom.exit
-  %.0.in = phi i1 [ %.0.i, %_ZN12_GLOBAL__N_115RISCVOptWInstrs17removeSExtWInstrsERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.argprom.exit ], [ %.0.i, %413 ], [ %446, %_ZN12_GLOBAL__N_115RISCVOptWInstrs14stripWSuffixesERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.argprom.exit ]
+447:                                              ; preds = %_ZN12_GLOBAL__N_115RISCVOptWInstrs14stripWSuffixesERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.exit, %413, %_ZN12_GLOBAL__N_115RISCVOptWInstrs17removeSExtWInstrsERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.exit
+  %.0.in = phi i1 [ %.0.i, %_ZN12_GLOBAL__N_115RISCVOptWInstrs17removeSExtWInstrsERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.exit ], [ %.0.i, %413 ], [ %446, %_ZN12_GLOBAL__N_115RISCVOptWInstrs14stripWSuffixesERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.exit ]
   %448 = getelementptr inbounds nuw i8, ptr %16, i64 488
   %449 = load i8, ptr %448, align 8
   %450 = trunc i8 %449 to i1
@@ -1314,7 +1314,7 @@ _ZN12_GLOBAL__N_115RISCVOptWInstrs14stripWSuffixesERN4llvm15MachineFunctionERKNS
   %453 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.04.012.i32 = load ptr, ptr %452, align 8
   %.not13.i33 = icmp eq ptr %.sroa.04.012.i32, %453
-  br i1 %.not13.i33, label %_ZN12_GLOBAL__N_115RISCVOptWInstrs15appendWSuffixesERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.argprom.exit, label %.lr.ph17.i34
+  br i1 %.not13.i33, label %_ZN12_GLOBAL__N_115RISCVOptWInstrs15appendWSuffixesERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.exit, label %.lr.ph17.i34
 
 .lr.ph17.i34:                                     ; preds = %451
   %454 = getelementptr inbounds i8, ptr %20, i64 8
@@ -1415,15 +1415,15 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i45: ; pre
   %489 = getelementptr inbounds nuw i8, ptr %.sroa.04.015.i35, i64 8
   %.sroa.04.0.i51 = load ptr, ptr %489, align 8
   %.not.i52 = icmp eq ptr %.sroa.04.0.i51, %453
-  br i1 %.not.i52, label %_ZN12_GLOBAL__N_115RISCVOptWInstrs15appendWSuffixesERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.argprom.exit, label %455
+  br i1 %.not.i52, label %_ZN12_GLOBAL__N_115RISCVOptWInstrs15appendWSuffixesERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.exit, label %455
 
-_ZN12_GLOBAL__N_115RISCVOptWInstrs15appendWSuffixesERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.argprom.exit: ; preds = %._crit_edge.i49, %451
+_ZN12_GLOBAL__N_115RISCVOptWInstrs15appendWSuffixesERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.exit: ; preds = %._crit_edge.i49, %451
   %.017.lcssa.i = phi i1 [ false, %451 ], [ %.1.lcssa.i50, %._crit_edge.i49 ]
   %490 = or i1 %.0.in, %.017.lcssa.i
   br label %491
 
-491:                                              ; preds = %447, %_ZN12_GLOBAL__N_115RISCVOptWInstrs15appendWSuffixesERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.argprom.exit, %12, %2
-  %.024 = phi i1 [ false, %2 ], [ false, %12 ], [ %490, %_ZN12_GLOBAL__N_115RISCVOptWInstrs15appendWSuffixesERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.argprom.exit ], [ %.0.in, %447 ]
+491:                                              ; preds = %447, %_ZN12_GLOBAL__N_115RISCVOptWInstrs15appendWSuffixesERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.exit, %12, %2
+  %.024 = phi i1 [ false, %2 ], [ false, %12 ], [ %490, %_ZN12_GLOBAL__N_115RISCVOptWInstrs15appendWSuffixesERN4llvm15MachineFunctionERKNS1_14RISCVInstrInfoERKNS1_14RISCVSubtargetERNS1_19MachineRegisterInfoE.exit ], [ %.0.in, %447 ]
   ret i1 %.024
 }
 

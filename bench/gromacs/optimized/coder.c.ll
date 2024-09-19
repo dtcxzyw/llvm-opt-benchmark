@@ -1129,7 +1129,7 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
 
 8:                                                ; preds = %7, %7
   %9 = icmp sgt i32 %3, 0
-  br i1 %9, label %.preheader.preheader.i, label %unpack_array_stop_bits.argprom.exit
+  br i1 %9, label %.preheader.preheader.i, label %unpack_array_stop_bits.exit
 
 .preheader.preheader.i:                           ; preds = %8
   %wide.trip.count.i = zext nneg i32 %3 to i64
@@ -1209,7 +1209,7 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   store i32 %spec.select61.i, ptr %32, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond16.not.i, label %unpack_array_stop_bits.argprom.exit, label %.preheader.i, !llvm.loop !25
+  br i1 %exitcond16.not.i, label %unpack_array_stop_bits.exit, label %.preheader.i, !llvm.loop !25
 
 33:                                               ; preds = %7, %7, %7
   %34 = shl nuw i32 1, %5
@@ -1245,7 +1245,7 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
 ._crit_edge.i42:                                  ; preds = %.lr.ph.i40, %33
   %.054.lcssa.i = phi i32 [ %5, %33 ], [ %54, %.lr.ph.i40 ]
   %55 = icmp sgt i32 %3, 2
-  br i1 %55, label %.preheader1.preheader.i, label %unpack_array_stop_bits.argprom.exit
+  br i1 %55, label %.preheader1.preheader.i, label %unpack_array_stop_bits.exit
 
 .preheader1.preheader.i:                          ; preds = %._crit_edge.i42
   %56 = udiv i32 %3, 3
@@ -1333,11 +1333,11 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %.us-phi23.i = phi ptr [ %.2.i, %.preheader.preheader.i48 ], [ %.5.us.i, %._crit_edge14.us.i ]
   %indvar.next.i = add nuw nsw i64 %indvar.i, 1
   %exitcond36.not.i = icmp eq i64 %indvar.next.i, %wide.trip.count.i43
-  br i1 %exitcond36.not.i, label %unpack_array_stop_bits.argprom.exit, label %.preheader1.i, !llvm.loop !30
+  br i1 %exitcond36.not.i, label %unpack_array_stop_bits.exit, label %.preheader1.i, !llvm.loop !30
 
 80:                                               ; preds = %7
   %81 = tail call i32 @Ptngc_unpack_array_xtc2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #7
-  br label %unpack_array_stop_bits.argprom.exit
+  br label %unpack_array_stop_bits.exit
 
 82:                                               ; preds = %7
   %83 = and i32 %4, -2
@@ -1355,7 +1355,7 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %91 = icmp sgt i32 %6, 0
   %92 = icmp sgt i32 %88, 2
   %or.cond.i = and i1 %91, %92
-  br i1 %or.cond.i, label %.preheader1.us.preheader.i, label %unpack_array_bwlzh.argprom.exit
+  br i1 %or.cond.i, label %.preheader1.us.preheader.i, label %unpack_array_bwlzh.exit
 
 .preheader1.us.preheader.i:                       ; preds = %84
   %93 = udiv i32 %88, 3
@@ -1401,22 +1401,22 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
 .split.us.us.i:                                   ; preds = %._crit_edge.us.us.i
   %105 = add nuw nsw i32 %.07.us.i, 1
   %exitcond15.not.i = icmp eq i32 %105, %6
-  br i1 %exitcond15.not.i, label %unpack_array_bwlzh.argprom.exit, label %.preheader1.us.i, !llvm.loop !33
+  br i1 %exitcond15.not.i, label %unpack_array_bwlzh.exit, label %.preheader1.us.i, !llvm.loop !33
 
-unpack_array_bwlzh.argprom.exit:                  ; preds = %.split.us.us.i, %84
+unpack_array_bwlzh.exit:                          ; preds = %.split.us.us.i, %84
   tail call void @free(ptr noundef %87) #7
-  br label %unpack_array_stop_bits.argprom.exit
+  br label %unpack_array_stop_bits.exit
 
 106:                                              ; preds = %82
   %107 = icmp eq i32 %4, 10
-  br i1 %107, label %108, label %unpack_array_stop_bits.argprom.exit
+  br i1 %107, label %108, label %unpack_array_stop_bits.exit
 
 108:                                              ; preds = %106
   %109 = tail call i32 @Ptngc_unpack_array_xtc3(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %6) #7
-  br label %unpack_array_stop_bits.argprom.exit
+  br label %unpack_array_stop_bits.exit
 
-unpack_array_stop_bits.argprom.exit:              ; preds = %.split22.us.i, %26, %._crit_edge.i42, %8, %106, %108, %unpack_array_bwlzh.argprom.exit, %80
-  %.0 = phi i32 [ %81, %80 ], [ 0, %unpack_array_bwlzh.argprom.exit ], [ %109, %108 ], [ 1, %106 ], [ 0, %8 ], [ 0, %._crit_edge.i42 ], [ 0, %26 ], [ 0, %.split22.us.i ]
+unpack_array_stop_bits.exit:                      ; preds = %.split22.us.i, %26, %._crit_edge.i42, %8, %106, %108, %unpack_array_bwlzh.exit, %80
+  %.0 = phi i32 [ %81, %80 ], [ 0, %unpack_array_bwlzh.exit ], [ %109, %108 ], [ 1, %106 ], [ 0, %8 ], [ 0, %._crit_edge.i42 ], [ 0, %26 ], [ 0, %.split22.us.i ]
   ret i32 %.0
 }
 

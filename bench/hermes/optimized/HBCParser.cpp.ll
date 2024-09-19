@@ -1587,21 +1587,21 @@ entry:
   %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load ptr, ptr %_M_before_begin.i.i.i, align 8
   %cmp.i.not2.i.i.i = icmp eq ptr %0, null
-  br i1 %cmp.i.not2.i.i.i, label %"_ZSt7find_ifINSt8__detail14_Node_iteratorISt4pairIKPKhtELb0ELb0EEEZN6hermes9HBCParser19getBasicBlockOffsetEjtE3$_0ET_SB_SB_T0_.argprom.exit", label %land.rhs.i.i.i
+  br i1 %cmp.i.not2.i.i.i, label %"_ZSt7find_ifINSt8__detail14_Node_iteratorISt4pairIKPKhtELb0ELb0EEEZN6hermes9HBCParser19getBasicBlockOffsetEjtE3$_0ET_SB_SB_T0_.exit", label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %entry, %while.body.i.i.i
   %__first.sroa.0.03.i.i.i = phi ptr [ %2, %while.body.i.i.i ], [ %0, %entry ]
   %second3.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.03.i.i.i, i64 16
   %1 = load i16, ptr %second3.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq i16 %1, %profileIndex
-  br i1 %cmp.i.i.i.i.i, label %"_ZSt7find_ifINSt8__detail14_Node_iteratorISt4pairIKPKhtELb0ELb0EEEZN6hermes9HBCParser19getBasicBlockOffsetEjtE3$_0ET_SB_SB_T0_.argprom.exit", label %while.body.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %"_ZSt7find_ifINSt8__detail14_Node_iteratorISt4pairIKPKhtELb0ELb0EEEZN6hermes9HBCParser19getBasicBlockOffsetEjtE3$_0ET_SB_SB_T0_.exit", label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   %2 = load ptr, ptr %__first.sroa.0.03.i.i.i, align 8
   %cmp.i.not.i.i.i = icmp eq ptr %2, null
-  br i1 %cmp.i.not.i.i.i, label %"_ZSt7find_ifINSt8__detail14_Node_iteratorISt4pairIKPKhtELb0ELb0EEEZN6hermes9HBCParser19getBasicBlockOffsetEjtE3$_0ET_SB_SB_T0_.argprom.exit", label %land.rhs.i.i.i, !llvm.loop !23
+  br i1 %cmp.i.not.i.i.i, label %"_ZSt7find_ifINSt8__detail14_Node_iteratorISt4pairIKPKhtELb0ELb0EEEZN6hermes9HBCParser19getBasicBlockOffsetEjtE3$_0ET_SB_SB_T0_.exit", label %land.rhs.i.i.i, !llvm.loop !23
 
-"_ZSt7find_ifINSt8__detail14_Node_iteratorISt4pairIKPKhtELb0ELb0EEEZN6hermes9HBCParser19getBasicBlockOffsetEjtE3$_0ET_SB_SB_T0_.argprom.exit": ; preds = %land.rhs.i.i.i, %while.body.i.i.i, %entry
+"_ZSt7find_ifINSt8__detail14_Node_iteratorISt4pairIKPKhtELb0ELb0EEEZN6hermes9HBCParser19getBasicBlockOffsetEjtE3$_0ET_SB_SB_T0_.exit": ; preds = %land.rhs.i.i.i, %while.body.i.i.i, %entry
   %__first.sroa.0.0.lcssa.i.i.i = phi ptr [ null, %entry ], [ %__first.sroa.0.03.i.i.i, %land.rhs.i.i.i ], [ null, %while.body.i.i.i ]
   %3 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %3, align 8

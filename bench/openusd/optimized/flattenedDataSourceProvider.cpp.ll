@@ -54,12 +54,12 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__29HdFlattenedDataSourceProvid
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %.val = load ptr, ptr %4, align 8
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L4_GetERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenE.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L4_GetERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val, ptr noundef nonnull align 8 dereferenceable(8) %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L4_GetERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenE.argprom(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L4_GetERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr.13", align 8
   %.not = icmp eq ptr %.0.val, null
   br i1 %.not, label %4, label %5
@@ -219,7 +219,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__29HdFlattenedDataSourceProvid
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load ptr, ptr %17, align 8
   %.val = load ptr, ptr %16, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L4_GetERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenE.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val, ptr noundef nonnull align 8 dereferenceable(8) %18)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L4_GetERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val, ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %19 unwind label %83
 
 19:                                               ; preds = %15

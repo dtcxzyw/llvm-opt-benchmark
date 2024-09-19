@@ -60,9 +60,9 @@ define dso_local float @gimme_edge_table(ptr nocapture noundef readnone %0, ptr 
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond, label %.lr.ph80.preheader, label %.lr.ph, !llvm.loop !5
 
-.lr.ph80:                                         ; preds = %.lr.ph80.preheader, %gimme_edge.argprom.exit68
-  %indvars.iv86 = phi i64 [ 0, %.lr.ph80.preheader ], [ %indvars.iv.next87, %gimme_edge.argprom.exit68 ]
-  %.079 = phi i32 [ 0, %.lr.ph80.preheader ], [ %85, %gimme_edge.argprom.exit68 ]
+.lr.ph80:                                         ; preds = %.lr.ph80.preheader, %gimme_edge.exit68
+  %indvars.iv86 = phi i64 [ 0, %.lr.ph80.preheader ], [ %indvars.iv.next87, %gimme_edge.exit68 ]
+  %.079 = phi i32 [ 0, %.lr.ph80.preheader ], [ %85, %gimme_edge.exit68 ]
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %11 = icmp eq i64 %indvars.iv.next87, %7
   %12 = and i64 %indvars.iv.next87, 4294967295
@@ -99,7 +99,7 @@ define dso_local float @gimme_edge_table(ptr nocapture noundef readnone %0, ptr 
   %29 = getelementptr [4 x i32], ptr %19, i64 0, i64 %indvars.iv.i
   %30 = sub i32 0, %17
   store i32 %30, ptr %29, align 4
-  br label %gimme_edge.argprom.exit
+  br label %gimme_edge.exit
 
 ._crit_edge.i:                                    ; preds = %23, %.lr.ph80
   %31 = sext i32 %21 to i64
@@ -112,9 +112,9 @@ define dso_local float @gimme_edge_table(ptr nocapture noundef readnone %0, ptr 
   %36 = load i32, ptr %35, align 4
   %37 = add i32 %36, 1
   store i32 %37, ptr %35, align 4
-  br label %gimme_edge.argprom.exit
+  br label %gimme_edge.exit
 
-gimme_edge.argprom.exit:                          ; preds = %28, %._crit_edge.i
+gimme_edge.exit:                                  ; preds = %28, %._crit_edge.i
   %.0.i = phi i32 [ 0, %28 ], [ 1, %._crit_edge.i ]
   %38 = add i32 %.0.i, %.079
   %39 = load i32, ptr %16, align 4
@@ -126,7 +126,7 @@ gimme_edge.argprom.exit:                          ; preds = %28, %._crit_edge.i
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %.lr.ph.preheader.i44, label %._crit_edge.i42
 
-.lr.ph.preheader.i44:                             ; preds = %gimme_edge.argprom.exit
+.lr.ph.preheader.i44:                             ; preds = %gimme_edge.exit
   %wide.trip.count.i45 = zext nneg i32 %44 to i64
   br label %.lr.ph.i46
 
@@ -147,9 +147,9 @@ gimme_edge.argprom.exit:                          ; preds = %28, %._crit_edge.i
   %52 = getelementptr [4 x i32], ptr %42, i64 0, i64 %indvars.iv.i47
   %53 = sub i32 0, %40
   store i32 %53, ptr %52, align 4
-  br label %gimme_edge.argprom.exit50
+  br label %gimme_edge.exit50
 
-._crit_edge.i42:                                  ; preds = %46, %gimme_edge.argprom.exit
+._crit_edge.i42:                                  ; preds = %46, %gimme_edge.exit
   %54 = sext i32 %44 to i64
   %55 = getelementptr [4 x i32], ptr %42, i64 0, i64 %54
   store i32 %40, ptr %55, align 4
@@ -160,9 +160,9 @@ gimme_edge.argprom.exit:                          ; preds = %28, %._crit_edge.i
   %59 = load i32, ptr %58, align 4
   %60 = add i32 %59, 1
   store i32 %60, ptr %58, align 4
-  br label %gimme_edge.argprom.exit50
+  br label %gimme_edge.exit50
 
-gimme_edge.argprom.exit50:                        ; preds = %51, %._crit_edge.i42
+gimme_edge.exit50:                                ; preds = %51, %._crit_edge.i42
   %61 = getelementptr i32, ptr %2, i64 %indvars.iv86
   %62 = load i32, ptr %61, align 4
   %63 = getelementptr i32, ptr %2, i64 %15
@@ -174,7 +174,7 @@ gimme_edge.argprom.exit50:                        ; preds = %51, %._crit_edge.i4
   %69 = icmp sgt i32 %68, 0
   br i1 %69, label %.lr.ph.preheader.i53, label %._crit_edge.i51
 
-.lr.ph.preheader.i53:                             ; preds = %gimme_edge.argprom.exit50
+.lr.ph.preheader.i53:                             ; preds = %gimme_edge.exit50
   %wide.trip.count.i54 = zext nneg i32 %68 to i64
   br label %.lr.ph.i55
 
@@ -195,9 +195,9 @@ gimme_edge.argprom.exit50:                        ; preds = %51, %._crit_edge.i4
   %76 = getelementptr [4 x i32], ptr %66, i64 0, i64 %indvars.iv.i56
   %77 = sub i32 0, %64
   store i32 %77, ptr %76, align 4
-  br label %gimme_edge.argprom.exit59
+  br label %gimme_edge.exit59
 
-._crit_edge.i51:                                  ; preds = %70, %gimme_edge.argprom.exit50
+._crit_edge.i51:                                  ; preds = %70, %gimme_edge.exit50
   %78 = sext i32 %68 to i64
   %79 = getelementptr [4 x i32], ptr %66, i64 0, i64 %78
   store i32 %64, ptr %79, align 4
@@ -208,9 +208,9 @@ gimme_edge.argprom.exit50:                        ; preds = %51, %._crit_edge.i4
   %83 = load i32, ptr %82, align 4
   %84 = add i32 %83, 1
   store i32 %84, ptr %82, align 4
-  br label %gimme_edge.argprom.exit59
+  br label %gimme_edge.exit59
 
-gimme_edge.argprom.exit59:                        ; preds = %75, %._crit_edge.i51
+gimme_edge.exit59:                                ; preds = %75, %._crit_edge.i51
   %.0.i52 = phi i32 [ 0, %75 ], [ 1, %._crit_edge.i51 ]
   %85 = add i32 %38, %.0.i52
   %86 = load i32, ptr %63, align 4
@@ -222,7 +222,7 @@ gimme_edge.argprom.exit59:                        ; preds = %75, %._crit_edge.i5
   %92 = icmp sgt i32 %91, 0
   br i1 %92, label %.lr.ph.preheader.i62, label %._crit_edge.i60
 
-.lr.ph.preheader.i62:                             ; preds = %gimme_edge.argprom.exit59
+.lr.ph.preheader.i62:                             ; preds = %gimme_edge.exit59
   %wide.trip.count.i63 = zext nneg i32 %91 to i64
   br label %.lr.ph.i64
 
@@ -243,9 +243,9 @@ gimme_edge.argprom.exit59:                        ; preds = %75, %._crit_edge.i5
   %99 = getelementptr [4 x i32], ptr %89, i64 0, i64 %indvars.iv.i65
   %100 = sub i32 0, %87
   store i32 %100, ptr %99, align 4
-  br label %gimme_edge.argprom.exit68
+  br label %gimme_edge.exit68
 
-._crit_edge.i60:                                  ; preds = %93, %gimme_edge.argprom.exit59
+._crit_edge.i60:                                  ; preds = %93, %gimme_edge.exit59
   %101 = sext i32 %91 to i64
   %102 = getelementptr [4 x i32], ptr %89, i64 0, i64 %101
   store i32 %87, ptr %102, align 4
@@ -256,13 +256,13 @@ gimme_edge.argprom.exit59:                        ; preds = %75, %._crit_edge.i5
   %106 = load i32, ptr %105, align 4
   %107 = add i32 %106, 1
   store i32 %107, ptr %105, align 4
-  br label %gimme_edge.argprom.exit68
+  br label %gimme_edge.exit68
 
-gimme_edge.argprom.exit68:                        ; preds = %98, %._crit_edge.i60
+gimme_edge.exit68:                                ; preds = %98, %._crit_edge.i60
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %7
   br i1 %exitcond90.not, label %._crit_edge.loopexit, label %.lr.ph80, !llvm.loop !8
 
-._crit_edge.loopexit:                             ; preds = %gimme_edge.argprom.exit68
+._crit_edge.loopexit:                             ; preds = %gimme_edge.exit68
   %108 = shl i32 %85, 1
   %109 = sitofp i32 %108 to float
   br label %._crit_edge
@@ -304,7 +304,7 @@ define dso_local i32 @gimme_tour(ptr noundef %0, ptr nocapture noundef %1, ptr n
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 4 dereferenceable(24) %15, i64 24, i1 false)
   %16 = load i32, ptr %9, align 4
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %.lr.ph4.preheader.i, label %remove_gene.argprom.exit
+  br i1 %17, label %.lr.ph4.preheader.i, label %remove_gene.exit
 
 .lr.ph4.preheader.i:                              ; preds = %12
   %wide.trip.count10.i = zext nneg i32 %16 to i64
@@ -352,16 +352,16 @@ define dso_local i32 @gimme_tour(ptr noundef %0, ptr nocapture noundef %1, ptr n
 .loopexit.i:                                      ; preds = %26, %31, %.lr.ph4.i
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 1
   %exitcond11.not.i = icmp eq i64 %indvars.iv.next8.i, %wide.trip.count10.i
-  br i1 %exitcond11.not.i, label %remove_gene.argprom.exit.loopexit, label %.lr.ph4.i, !llvm.loop !10
+  br i1 %exitcond11.not.i, label %remove_gene.exit.loopexit, label %.lr.ph4.i, !llvm.loop !10
 
-remove_gene.argprom.exit.loopexit:                ; preds = %.loopexit.i
+remove_gene.exit.loopexit:                        ; preds = %.loopexit.i
   %.pre = load i32, ptr %gep, align 4
   %.pre86 = sext i32 %.pre to i64
-  br label %remove_gene.argprom.exit
+  br label %remove_gene.exit
 
-remove_gene.argprom.exit:                         ; preds = %remove_gene.argprom.exit.loopexit, %12
-  %.pre-phi = phi i64 [ %.pre86, %remove_gene.argprom.exit.loopexit ], [ %14, %12 ]
-  %37 = phi i32 [ %.pre, %remove_gene.argprom.exit.loopexit ], [ %13, %12 ]
+remove_gene.exit:                                 ; preds = %remove_gene.exit.loopexit, %12
+  %.pre-phi = phi i64 [ %.pre86, %remove_gene.exit.loopexit ], [ %14, %12 ]
+  %37 = phi i32 [ %.pre, %remove_gene.exit.loopexit ], [ %13, %12 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %38 = getelementptr %struct.Edge, ptr %1, i64 %.pre-phi
   %39 = getelementptr inbounds i8, ptr %38, i64 20
@@ -369,7 +369,7 @@ remove_gene.argprom.exit:                         ; preds = %remove_gene.argprom
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %42, label %.lr.ph.preheader.i43
 
-42:                                               ; preds = %remove_gene.argprom.exit
+42:                                               ; preds = %remove_gene.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(24) %38, i64 24, i1 false)
   %43 = load i32, ptr %11, align 4
@@ -467,7 +467,7 @@ gimme_gene.exit:                                  ; preds = %73, %49
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %edge_failure.exit
 
-.lr.ph.preheader.i43:                             ; preds = %remove_gene.argprom.exit
+.lr.ph.preheader.i43:                             ; preds = %remove_gene.exit
   %79 = add i32 %.073, 1
   %80 = zext i32 %37 to i64
   br label %.lr.ph.i45

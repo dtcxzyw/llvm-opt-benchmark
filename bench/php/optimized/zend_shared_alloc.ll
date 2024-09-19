@@ -130,12 +130,12 @@ define hidden i32 @zend_shared_alloc_startup(i64 noundef %0, i64 noundef %1) loc
   call void @zend_shared_alloc_create_lock(ptr noundef %7)
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 88), align 8
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %zend_shared_alloc_try.argprom.exit.thread90, label %9
+  br i1 %.not, label %zend_shared_alloc_try.exit.thread90, label %9
 
 9:                                                ; preds = %2
   %10 = load i8, ptr %8, align 1
   %.not56 = icmp eq i8 %10, 0
-  br i1 %.not56, label %zend_shared_alloc_try.argprom.exit.thread90, label %11
+  br i1 %.not56, label %zend_shared_alloc_try.exit.thread90, label %11
 
 11:                                               ; preds = %9
   %12 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(4) @.str.4, i64 noundef 4) #23
@@ -163,7 +163,7 @@ define hidden i32 @zend_shared_alloc_startup(i64 noundef %0, i64 noundef %1) loc
   store i32 0, ptr %23, align 8
   %24 = load ptr, ptr %.043.val68, align 8
   %25 = call i32 %24(i64 noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %4) #20
-  switch i32 %25, label %zend_shared_alloc_try.argprom.exit.thread90 [
+  switch i32 %25, label %zend_shared_alloc_try.exit.thread90 [
     i32 0, label %26
     i32 2, label %49
   ]
@@ -171,7 +171,7 @@ define hidden i32 @zend_shared_alloc_startup(i64 noundef %0, i64 noundef %1) loc
 26:                                               ; preds = %18
   %27 = load ptr, ptr %19, align 8
   %.not23.i = icmp eq ptr %27, null
-  br i1 %.not23.i, label %zend_shared_alloc_try.argprom.exit.thread, label %.preheader.i
+  br i1 %.not23.i, label %zend_shared_alloc_try.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %26
   %28 = load i32, ptr %20, align 4
@@ -215,31 +215,31 @@ define hidden i32 @zend_shared_alloc_startup(i64 noundef %0, i64 noundef %1) loc
   %45 = phi ptr [ %.pre3.i, %._crit_edge.loopexit.i ], [ %27, %.preheader.i ]
   call void @free(ptr noundef %45) #20
   store ptr null, ptr %19, align 8
-  br label %zend_shared_alloc_try.argprom.exit.thread
+  br label %zend_shared_alloc_try.exit.thread
 
-zend_shared_alloc_try.argprom.exit.thread:        ; preds = %26, %._crit_edge.i
+zend_shared_alloc_try.exit.thread:                ; preds = %26, %._crit_edge.i
   store ptr null, ptr @g_shared_alloc_handler, align 8
   br label %46
 
-46:                                               ; preds = %zend_shared_alloc_try.argprom.exit.thread, %14
+46:                                               ; preds = %zend_shared_alloc_try.exit.thread, %14
   %47 = getelementptr inbounds i8, ptr %.043100, i64 16
   %48 = load ptr, ptr %47, align 8
   %.not57 = icmp eq ptr %48, null
-  br i1 %.not57, label %zend_shared_alloc_try.argprom.exit.thread90, label %14
+  br i1 %.not57, label %zend_shared_alloc_try.exit.thread90, label %14
 
 49:                                               ; preds = %18
   store ptr null, ptr @smm_shared_globals, align 8
   br label %176
 
-zend_shared_alloc_try.argprom.exit.thread90:      ; preds = %18, %46, %2, %9
+zend_shared_alloc_try.exit.thread90:              ; preds = %18, %46, %2, %9
   %.04292 = phi i32 [ 0, %9 ], [ 0, %2 ], [ %25, %18 ], [ 0, %46 ]
   %50 = load ptr, ptr @g_shared_alloc_handler, align 8
   %.not59 = icmp eq ptr %50, null
-  br i1 %.not59, label %.preheader99, label %zend_shared_alloc_try.argprom.exit82.thread95
+  br i1 %.not59, label %.preheader99, label %zend_shared_alloc_try.exit82.thread95
 
-.preheader99:                                     ; preds = %zend_shared_alloc_try.argprom.exit.thread90, %79
-  %51 = phi ptr [ %81, %79 ], [ @.str.11, %zend_shared_alloc_try.argprom.exit.thread90 ]
-  %.144101 = phi ptr [ %80, %79 ], [ @handler_table, %zend_shared_alloc_try.argprom.exit.thread90 ]
+.preheader99:                                     ; preds = %zend_shared_alloc_try.exit.thread90, %79
+  %51 = phi ptr [ %81, %79 ], [ @.str.11, %zend_shared_alloc_try.exit.thread90 ]
+  %.144101 = phi ptr [ %80, %79 ], [ @handler_table, %zend_shared_alloc_try.exit.thread90 ]
   %52 = load ptr, ptr @smm_shared_globals, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 8
   %54 = getelementptr i8, ptr %.144101, i64 8
@@ -253,7 +253,7 @@ zend_shared_alloc_try.argprom.exit.thread90:      ; preds = %18, %46, %2, %9
   %57 = load ptr, ptr %.144.val69, align 8
   %58 = call i32 %57(i64 noundef %0, ptr noundef nonnull %52, ptr noundef nonnull %53, ptr noundef nonnull %4) #20
   %.not.i70 = icmp eq i32 %58, 0
-  br i1 %.not.i70, label %59, label %zend_shared_alloc_try.argprom.exit82
+  br i1 %.not.i70, label %59, label %zend_shared_alloc_try.exit82
 
 59:                                               ; preds = %.preheader99
   %60 = load ptr, ptr %52, align 8
@@ -309,14 +309,14 @@ zend_shared_alloc_try.argprom.exit.thread90:      ; preds = %18, %46, %2, %9
   %80 = getelementptr inbounds i8, ptr %.144101, i64 16
   %81 = load ptr, ptr %80, align 8
   %.not60 = icmp eq ptr %81, null
-  br i1 %.not60, label %zend_shared_alloc_try.argprom.exit82.thread, label %.preheader99
+  br i1 %.not60, label %zend_shared_alloc_try.exit82.thread, label %.preheader99
 
-zend_shared_alloc_try.argprom.exit82:             ; preds = %.preheader99
+zend_shared_alloc_try.exit82:                     ; preds = %.preheader99
   %.pr.pre = load ptr, ptr @g_shared_alloc_handler, align 8
   %.not62 = icmp eq ptr %.pr.pre, null
-  br i1 %.not62, label %zend_shared_alloc_try.argprom.exit82.thread, label %zend_shared_alloc_try.argprom.exit82.thread95
+  br i1 %.not62, label %zend_shared_alloc_try.exit82.thread, label %zend_shared_alloc_try.exit82.thread95
 
-zend_shared_alloc_try.argprom.exit82.thread:      ; preds = %79, %zend_shared_alloc_try.argprom.exit82
+zend_shared_alloc_try.exit82.thread:              ; preds = %79, %zend_shared_alloc_try.exit82
   %82 = load ptr, ptr %4, align 8
   %.not.i83 = icmp eq ptr %82, null
   %83 = select i1 %.not.i83, ptr @.str.14, ptr %82
@@ -327,13 +327,13 @@ zend_shared_alloc_try.argprom.exit82.thread:      ; preds = %79, %zend_shared_al
   call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 0, ptr noundef nonnull @.str.13, i64 noundef %0, ptr noundef nonnull %83, ptr noundef %86, i32 noundef %87) #22
   unreachable
 
-zend_shared_alloc_try.argprom.exit82.thread95:    ; preds = %zend_shared_alloc_try.argprom.exit.thread90, %zend_shared_alloc_try.argprom.exit82
-  %.398 = phi i32 [ %58, %zend_shared_alloc_try.argprom.exit82 ], [ %.04292, %zend_shared_alloc_try.argprom.exit.thread90 ]
-  %88 = phi ptr [ %.pr.pre, %zend_shared_alloc_try.argprom.exit82 ], [ %50, %zend_shared_alloc_try.argprom.exit.thread90 ]
+zend_shared_alloc_try.exit82.thread95:            ; preds = %zend_shared_alloc_try.exit.thread90, %zend_shared_alloc_try.exit82
+  %.398 = phi i32 [ %58, %zend_shared_alloc_try.exit82 ], [ %.04292, %zend_shared_alloc_try.exit.thread90 ]
+  %88 = phi ptr [ %.pr.pre, %zend_shared_alloc_try.exit82 ], [ %50, %zend_shared_alloc_try.exit.thread90 ]
   %89 = icmp eq i32 %.398, 4
   br i1 %89, label %176, label %.preheader
 
-.preheader:                                       ; preds = %zend_shared_alloc_try.argprom.exit82.thread95
+.preheader:                                       ; preds = %zend_shared_alloc_try.exit82.thread95
   %90 = load ptr, ptr @smm_shared_globals, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 8
   %92 = load i32, ptr %91, align 8
@@ -488,8 +488,8 @@ copy_shared_segments.exit:                        ; preds = %133, %118
   store i8 0, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 2), align 2
   br label %176
 
-176:                                              ; preds = %zend_shared_alloc_try.argprom.exit82.thread95, %175, %49
-  %.045 = phi i32 [ 2, %49 ], [ %.398, %175 ], [ 4, %zend_shared_alloc_try.argprom.exit82.thread95 ]
+176:                                              ; preds = %zend_shared_alloc_try.exit82.thread95, %175, %49
+  %.045 = phi i32 [ 2, %49 ], [ %.398, %175 ], [ 4, %zend_shared_alloc_try.exit82.thread95 ]
   ret i32 %.045
 }
 

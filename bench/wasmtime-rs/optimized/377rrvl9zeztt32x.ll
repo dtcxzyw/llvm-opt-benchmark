@@ -850,14 +850,14 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr127drop_in_place$LT$$LP$wasmtime_environ..fact..trampoline..Source$C$$RF$wasmtime_environ..component..types..InterfaceType$RP$$GT$17he77c0653c25f234fE.argprom"(i64 %.0.val, i8 %.32.val) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr127drop_in_place$LT$$LP$wasmtime_environ..fact..trampoline..Source$C$$RF$wasmtime_environ..component..types..InterfaceType$RP$$GT$17he77c0653c25f234fE"(i64 %.0.val, i8 %.32.val) unnamed_addr #1 {
   %1 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %2 = icmp eq i64 %.0.val, 0
-  br i1 %2, label %"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Source$GT$17h28fa98ed49c4cc68E.argprom.exit", label %3
+  br i1 %2, label %"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Source$GT$17h28fa98ed49c4cc68E.exit", label %3
 
 3:                                                ; preds = %0
   %4 = trunc nuw i8 %.32.val to i1
-  br i1 %4, label %5, label %"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Source$GT$17h28fa98ed49c4cc68E.argprom.exit"
+  br i1 %4, label %5, label %"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Source$GT$17h28fa98ed49c4cc68E.exit"
 
 5:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %1), !noalias !324
@@ -873,7 +873,7 @@ define internal fastcc void @"_ZN4core3ptr127drop_in_place$LT$$LP$wasmtime_envir
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b13fcdb982b8bd2cd8551d7c15ddb64e.29.llvm.11357125133562502446) #32, !noalias !324
   unreachable
 
-"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Source$GT$17h28fa98ed49c4cc68E.argprom.exit": ; preds = %0, %3
+"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Source$GT$17h28fa98ed49c4cc68E.exit": ; preds = %0, %3
   ret void
 }
 
@@ -7465,7 +7465,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h7f
   %.val = load i64, ptr %3, align 8, !range !37, !noundef !10
   %120 = getelementptr inbounds i8, ptr %3, i64 32
   %.val4 = load i8, ptr %120, align 8
-  invoke fastcc void @"_ZN4core3ptr127drop_in_place$LT$$LP$wasmtime_environ..fact..trampoline..Source$C$$RF$wasmtime_environ..component..types..InterfaceType$RP$$GT$17he77c0653c25f234fE.argprom"(i64 %.val, i8 %.val4) #34
+  invoke fastcc void @"_ZN4core3ptr127drop_in_place$LT$$LP$wasmtime_environ..fact..trampoline..Source$C$$RF$wasmtime_environ..component..types..InterfaceType$RP$$GT$17he77c0653c25f234fE"(i64 %.val, i8 %.val4) #34
           to label %123 unwind label %121
 
 121:                                              ; preds = %119
@@ -11928,7 +11928,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %18 = xor i64 %15, -9223372036854775808
   %19 = select i1 %17, i64 %18, i64 0
   %20 = icmp eq i64 %14, %19
-  br i1 %20, label %21, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E.argprom.exit"
+  br i1 %20, label %21, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E.exit"
 
 21:                                               ; preds = %2
   switch i64 %14, label %22 [
@@ -11947,7 +11947,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %26 = getelementptr inbounds i8, ptr %.val, i64 24
   %27 = load i32, ptr %26, align 8, !alias.scope !3119, !noalias !3121, !noundef !10
   %28 = icmp eq i32 %25, %27
-  br i1 %28, label %47, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E.argprom.exit"
+  br i1 %28, label %47, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E.exit"
 
 29:                                               ; preds = %21
   %30 = getelementptr inbounds i8, ptr %8, i64 -32
@@ -11955,7 +11955,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %32 = getelementptr inbounds i8, ptr %.val, i64 8
   %33 = load i32, ptr %32, align 8, !alias.scope !3119, !noalias !3121, !noundef !10
   %34 = icmp eq i32 %31, %33
-  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E.argprom.exit"
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E.exit"
 
 35:                                               ; preds = %21
   %36 = getelementptr inbounds i8, ptr %8, i64 -32
@@ -11963,7 +11963,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %38 = getelementptr inbounds i8, ptr %.val, i64 8
   %39 = load i32, ptr %38, align 8, !alias.scope !3119, !noalias !3121, !noundef !10
   %40 = icmp eq i32 %37, %39
-  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E.argprom.exit"
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E.exit"
 
 41:                                               ; preds = %21
   %42 = getelementptr inbounds i8, ptr %8, i64 -32
@@ -11971,7 +11971,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %44 = getelementptr inbounds i8, ptr %.val, i64 8
   %45 = load i32, ptr %44, align 8, !alias.scope !3119, !noalias !3121, !noundef !10
   %46 = icmp eq i32 %43, %45
-  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E.argprom.exit"
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E.exit"
 
 47:                                               ; preds = %23
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3122)
@@ -11980,7 +11980,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %49 = icmp eq i64 %15, -9223372036854775808
   %not..i.i.i = xor i1 %49, true
   %50 = xor i1 %48, %49
-  br i1 %50, label %51, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E.argprom.exit"
+  br i1 %50, label %51, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E.exit"
 
 51:                                               ; preds = %47
   br i1 %48, label %59, label %52
@@ -11998,7 +11998,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %57 = icmp eq i32 %.val.i.i.i, %.val3.i.i.i
   %58 = icmp eq i32 %.val2.i.i.i, %.val4.i.i.i
   %spec.select.i.i.i.i = select i1 %57, i1 %58, i1 false
-  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E.argprom.exit"
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E.exit"
 
 59:                                               ; preds = %51
   tail call void @llvm.assume(i1 %not..i.i.i)
@@ -12007,7 +12007,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %61 = getelementptr inbounds i8, ptr %.val, i64 16
   %.val8.i.i.i = load i64, ptr %61, align 8, !alias.scope !3128, !noalias !3127, !noundef !10
   %.not.i.i.i.i.i = icmp eq i64 %.val6.i.i.i, %.val8.i.i.i
-  br i1 %.not.i.i.i.i.i, label %62, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E.argprom.exit"
+  br i1 %.not.i.i.i.i.i, label %62, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E.exit"
 
 62:                                               ; preds = %59
   %63 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -12016,9 +12016,9 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %.val5.i.i.i = load ptr, ptr %64, align 8, !alias.scope !3127, !noalias !3128, !nonnull !10, !noundef !10
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val5.i.i.i, ptr nonnull readonly %.val7.i.i.i, i64 %.val6.i.i.i), !alias.scope !3129, !noalias !3133
   %65 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E.argprom.exit"
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E.exit"
 
-"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E.argprom.exit": ; preds = %2, %23, %29, %35, %41, %47, %52, %59, %62
+"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E.exit": ; preds = %2, %23, %29, %35, %41, %47, %52, %59, %62
   %.0.shrunk.i.i = phi i1 [ %46, %41 ], [ %40, %35 ], [ %34, %29 ], [ false, %2 ], [ false, %23 ], [ %spec.select.i.i.i.i, %52 ], [ false, %47 ], [ %65, %62 ], [ false, %59 ]
   ret i1 %.0.shrunk.i.i
 }
@@ -12047,7 +12047,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %18 = xor i64 %15, -9223372036854775808
   %19 = select i1 %17, i64 %18, i64 0
   %20 = icmp eq i64 %14, %19
-  br i1 %20, label %21, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E.argprom.exit"
+  br i1 %20, label %21, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E.exit"
 
 21:                                               ; preds = %2
   switch i64 %14, label %22 [
@@ -12066,7 +12066,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %26 = getelementptr inbounds i8, ptr %.val, i64 24
   %27 = load i32, ptr %26, align 8, !alias.scope !3140, !noalias !3142, !noundef !10
   %28 = icmp eq i32 %25, %27
-  br i1 %28, label %47, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E.argprom.exit"
+  br i1 %28, label %47, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E.exit"
 
 29:                                               ; preds = %21
   %30 = getelementptr inbounds i8, ptr %8, i64 -32
@@ -12074,7 +12074,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %32 = getelementptr inbounds i8, ptr %.val, i64 8
   %33 = load i32, ptr %32, align 8, !alias.scope !3140, !noalias !3142, !noundef !10
   %34 = icmp eq i32 %31, %33
-  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E.argprom.exit"
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E.exit"
 
 35:                                               ; preds = %21
   %36 = getelementptr inbounds i8, ptr %8, i64 -32
@@ -12082,7 +12082,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %38 = getelementptr inbounds i8, ptr %.val, i64 8
   %39 = load i32, ptr %38, align 8, !alias.scope !3140, !noalias !3142, !noundef !10
   %40 = icmp eq i32 %37, %39
-  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E.argprom.exit"
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E.exit"
 
 41:                                               ; preds = %21
   %42 = getelementptr inbounds i8, ptr %8, i64 -32
@@ -12090,7 +12090,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %44 = getelementptr inbounds i8, ptr %.val, i64 8
   %45 = load i32, ptr %44, align 8, !alias.scope !3140, !noalias !3142, !noundef !10
   %46 = icmp eq i32 %43, %45
-  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E.argprom.exit"
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E.exit"
 
 47:                                               ; preds = %23
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3143)
@@ -12099,7 +12099,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %49 = icmp eq i64 %15, -9223372036854775808
   %not..i.i.i = xor i1 %49, true
   %50 = xor i1 %48, %49
-  br i1 %50, label %51, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E.argprom.exit"
+  br i1 %50, label %51, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E.exit"
 
 51:                                               ; preds = %47
   br i1 %48, label %59, label %52
@@ -12117,7 +12117,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %57 = icmp eq i32 %.val.i.i.i, %.val3.i.i.i
   %58 = icmp eq i32 %.val2.i.i.i, %.val4.i.i.i
   %spec.select.i.i.i.i = select i1 %57, i1 %58, i1 false
-  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E.argprom.exit"
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E.exit"
 
 59:                                               ; preds = %51
   tail call void @llvm.assume(i1 %not..i.i.i)
@@ -12126,7 +12126,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %61 = getelementptr inbounds i8, ptr %.val, i64 16
   %.val8.i.i.i = load i64, ptr %61, align 8, !alias.scope !3149, !noalias !3148, !noundef !10
   %.not.i.i.i.i.i = icmp eq i64 %.val6.i.i.i, %.val8.i.i.i
-  br i1 %.not.i.i.i.i.i, label %62, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E.argprom.exit"
+  br i1 %.not.i.i.i.i.i, label %62, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E.exit"
 
 62:                                               ; preds = %59
   %63 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -12135,9 +12135,9 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %.val5.i.i.i = load ptr, ptr %64, align 8, !alias.scope !3148, !noalias !3149, !nonnull !10, !noundef !10
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val5.i.i.i, ptr nonnull readonly %.val7.i.i.i, i64 %.val6.i.i.i), !alias.scope !3150, !noalias !3154
   %65 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E.argprom.exit"
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E.exit"
 
-"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E.argprom.exit": ; preds = %2, %23, %29, %35, %41, %47, %52, %59, %62
+"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E.exit": ; preds = %2, %23, %29, %35, %41, %47, %52, %59, %62
   %.0.shrunk.i.i = phi i1 [ %46, %41 ], [ %40, %35 ], [ %34, %29 ], [ false, %2 ], [ false, %23 ], [ %spec.select.i.i.i.i, %52 ], [ false, %47 ], [ %65, %62 ], [ false, %59 ]
   ret i1 %.0.shrunk.i.i
 }
@@ -12180,7 +12180,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %.val.i.i = load i32, ptr %9, align 4, !alias.scope !3163, !noalias !3161, !noundef !10
   %.val1.i.i = load i32, ptr %.val, align 4, !alias.scope !3161, !noalias !3163, !noundef !10
   %10 = icmp eq i32 %.val.i.i, %.val1.i.i
-  br i1 %10, label %11, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.argprom.exit"
+  br i1 %10, label %11, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.exit"
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds i8, ptr %8, i64 -44
@@ -12199,10 +12199,10 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %23 = add nsw i64 %22, -1
   %24 = select i1 %21, i64 0, i64 %23
   %25 = icmp eq i64 %19, %24
-  br i1 %25, label %26, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.argprom.exit"
+  br i1 %25, label %26, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.exit"
 
 26:                                               ; preds = %11
-  switch i64 %19, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.argprom.exit" [
+  switch i64 %19, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.exit" [
     i64 0, label %27
     i64 1, label %89
     i64 3, label %121
@@ -12211,7 +12211,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   ]
 
 27:                                               ; preds = %26
-  br i1 %21, label %28, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.argprom.exit"
+  br i1 %21, label %28, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.exit"
 
 28:                                               ; preds = %27
   %29 = getelementptr inbounds i8, ptr %8, i64 -12
@@ -12219,7 +12219,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %31 = getelementptr inbounds i8, ptr %.val, i64 36
   %32 = load i32, ptr %31, align 4, !alias.scope !3171, !noalias !3170, !noundef !10
   %33 = icmp eq i32 %30, %32
-  br i1 %33, label %34, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.argprom.exit"
+  br i1 %33, label %34, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.exit"
 
 34:                                               ; preds = %28
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3172)
@@ -12229,7 +12229,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %37 = getelementptr inbounds i8, ptr %.val, i64 28
   %38 = load i32, ptr %37, align 4, !alias.scope !3178, !noalias !3177, !noundef !10
   %39 = icmp eq i32 %36, %38
-  br i1 %39, label %40, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.argprom.exit"
+  br i1 %39, label %40, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.exit"
 
 40:                                               ; preds = %34
   %41 = getelementptr inbounds i8, ptr %8, i64 -16
@@ -12237,7 +12237,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %43 = getelementptr inbounds i8, ptr %.val, i64 32
   %44 = load i8, ptr %43, align 4, !range !1629, !alias.scope !3178, !noalias !3177, !noundef !10
   %45 = icmp eq i8 %42, %44
-  br i1 %45, label %46, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.argprom.exit"
+  br i1 %45, label %46, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.exit"
 
 46:                                               ; preds = %40
   %trunc.i.i.i.i = trunc nuw i32 %14 to i1
@@ -12245,11 +12245,11 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
 
 47:                                               ; preds = %46
   %.not.i.i.i.i = icmp eq i32 %20, 0
-  br i1 %.not.i.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.argprom.exit", label %50
+  br i1 %.not.i.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.exit", label %50
 
 48:                                               ; preds = %46
   %49 = trunc nuw i32 %20 to i1
-  br i1 %49, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.argprom.exit", label %56
+  br i1 %49, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.exit", label %56
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds i8, ptr %8, i64 -40
@@ -12257,7 +12257,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %53 = getelementptr inbounds i8, ptr %.val, i64 8
   %54 = load i32, ptr %53, align 4, !alias.scope !3178, !noalias !3177, !noundef !10
   %55 = icmp eq i32 %52, %54
-  br i1 %55, label %56, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.argprom.exit"
+  br i1 %55, label %56, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.exit"
 
 56:                                               ; preds = %50, %48
   %57 = getelementptr inbounds i8, ptr %8, i64 -36
@@ -12269,11 +12269,11 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
 
 61:                                               ; preds = %56
   %.not6.i.i.i.i = icmp eq i32 %60, 0
-  br i1 %.not6.i.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.argprom.exit", label %64
+  br i1 %.not6.i.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.exit", label %64
 
 62:                                               ; preds = %56
   %63 = trunc nuw i32 %60 to i1
-  br i1 %63, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.argprom.exit", label %70
+  br i1 %63, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.exit", label %70
 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds i8, ptr %8, i64 -32
@@ -12281,7 +12281,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %67 = getelementptr inbounds i8, ptr %.val, i64 16
   %68 = load i32, ptr %67, align 4, !alias.scope !3178, !noalias !3177, !noundef !10
   %69 = icmp eq i32 %66, %68
-  br i1 %69, label %70, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.argprom.exit"
+  br i1 %69, label %70, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.exit"
 
 70:                                               ; preds = %64, %62
   %71 = getelementptr inbounds i8, ptr %8, i64 -28
@@ -12293,7 +12293,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
 
 75:                                               ; preds = %70
   %.not8.i.i.i.i = icmp eq i32 %74, 0
-  br i1 %.not8.i.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.argprom.exit", label %76
+  br i1 %.not8.i.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.exit", label %76
 
 76:                                               ; preds = %75
   %77 = getelementptr inbounds i8, ptr %8, i64 -24
@@ -12301,11 +12301,11 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %79 = getelementptr inbounds i8, ptr %.val, i64 24
   %80 = load i32, ptr %79, align 4, !alias.scope !3178, !noalias !3177, !noundef !10
   %81 = icmp eq i32 %78, %80
-  br i1 %81, label %83, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.argprom.exit"
+  br i1 %81, label %83, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.exit"
 
 "_ZN91_$LT$wasmtime_environ..component..dfg..CanonicalOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3d336a393403a4ccE.exit.i.i.i": ; preds = %70
   %82 = trunc nuw i32 %74 to i1
-  br i1 %82, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.argprom.exit", label %83
+  br i1 %82, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.exit", label %83
 
 83:                                               ; preds = %"_ZN91_$LT$wasmtime_environ..component..dfg..CanonicalOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3d336a393403a4ccE.exit.i.i.i", %76
   %84 = getelementptr inbounds i8, ptr %8, i64 -8
@@ -12313,7 +12313,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %86 = getelementptr inbounds i8, ptr %.val, i64 40
   %87 = load i32, ptr %86, align 4, !alias.scope !3171, !noalias !3170, !noundef !10
   %88 = icmp eq i32 %85, %87
-  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.argprom.exit"
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.exit"
 
 89:                                               ; preds = %26
   %90 = getelementptr inbounds i8, ptr %8, i64 -32
@@ -12326,13 +12326,13 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %not..i.i.i = xor i1 %92, true
   %97 = and i1 %96, %not..i.i.i
   %98 = select i1 %95, i1 %92, i1 %97
-  br i1 %98, label %99, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.argprom.exit"
+  br i1 %98, label %99, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.exit"
 
 99:                                               ; preds = %89
   %or.cond.i.i.i = and i1 %92, %95
   %or.cond.not.i.i.i = xor i1 %or.cond.i.i.i, true
   %or.cond12.i.i.i = or i1 %96, %or.cond.not.i.i.i
-  br i1 %or.cond12.i.i.i, label %.critedge.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.argprom.exit"
+  br i1 %or.cond12.i.i.i, label %.critedge.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.exit"
 
 .critedge.i.i.i:                                  ; preds = %99
   %100 = getelementptr inbounds i8, ptr %8, i64 -40
@@ -12340,7 +12340,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %102 = getelementptr inbounds i8, ptr %.val, i64 8
   %103 = load i32, ptr %102, align 4, !alias.scope !3171, !noalias !3170, !noundef !10
   %104 = icmp eq i32 %101, %103
-  br i1 %104, label %105, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.argprom.exit"
+  br i1 %104, label %105, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.exit"
 
 105:                                              ; preds = %.critedge.i.i.i
   %106 = getelementptr inbounds i8, ptr %8, i64 -31
@@ -12348,7 +12348,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %108 = getelementptr inbounds i8, ptr %.val, i64 17
   %109 = load i8, ptr %108, align 1, !range !68, !alias.scope !3171, !noalias !3170, !noundef !10
   %.not.i.i.i = icmp eq i8 %107, %109
-  br i1 %.not.i.i.i, label %110, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.argprom.exit"
+  br i1 %.not.i.i.i, label %110, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.exit"
 
 110:                                              ; preds = %105
   %111 = getelementptr inbounds i8, ptr %8, i64 -36
@@ -12356,7 +12356,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %113 = getelementptr inbounds i8, ptr %.val, i64 12
   %114 = load i32, ptr %113, align 4, !alias.scope !3171, !noalias !3170, !noundef !10
   %115 = icmp eq i32 %112, %114
-  br i1 %115, label %116, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.argprom.exit"
+  br i1 %115, label %116, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.exit"
 
 116:                                              ; preds = %110
   %117 = getelementptr inbounds i8, ptr %8, i64 -30
@@ -12364,7 +12364,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %119 = getelementptr inbounds i8, ptr %.val, i64 18
   %120 = load i8, ptr %119, align 2, !range !68, !alias.scope !3171, !noalias !3170, !noundef !10
   %.not8.i.i.i = icmp eq i8 %118, %120
-  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.argprom.exit"
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.exit"
 
 121:                                              ; preds = %26
   %122 = getelementptr inbounds i8, ptr %8, i64 -40
@@ -12372,7 +12372,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %124 = getelementptr inbounds i8, ptr %.val, i64 8
   %125 = load i32, ptr %124, align 4, !alias.scope !3171, !noalias !3170, !noundef !10
   %126 = icmp eq i32 %123, %125
-  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.argprom.exit"
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.exit"
 
 127:                                              ; preds = %26
   %128 = getelementptr inbounds i8, ptr %8, i64 -40
@@ -12380,7 +12380,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %130 = getelementptr inbounds i8, ptr %.val, i64 8
   %131 = load i32, ptr %130, align 4, !alias.scope !3171, !noalias !3170, !noundef !10
   %132 = icmp eq i32 %129, %131
-  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.argprom.exit"
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.exit"
 
 133:                                              ; preds = %26
   %134 = getelementptr inbounds i8, ptr %8, i64 -40
@@ -12388,9 +12388,9 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %136 = getelementptr inbounds i8, ptr %.val, i64 8
   %137 = load i32, ptr %136, align 4, !alias.scope !3171, !noalias !3170, !noundef !10
   %138 = icmp eq i32 %135, %137
-  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.argprom.exit"
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.exit"
 
-"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.argprom.exit": ; preds = %2, %11, %26, %27, %28, %34, %40, %47, %48, %50, %61, %62, %64, %75, %76, %"_ZN91_$LT$wasmtime_environ..component..dfg..CanonicalOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3d336a393403a4ccE.exit.i.i.i", %83, %89, %99, %.critedge.i.i.i, %105, %110, %116, %121, %127, %133
+"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.exit": ; preds = %2, %11, %26, %27, %28, %34, %40, %47, %48, %50, %61, %62, %64, %75, %76, %"_ZN91_$LT$wasmtime_environ..component..dfg..CanonicalOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3d336a393403a4ccE.exit.i.i.i", %83, %89, %99, %.critedge.i.i.i, %105, %110, %116, %121, %127, %133
   %.0.i.i = phi i1 [ false, %2 ], [ %138, %133 ], [ %132, %127 ], [ %126, %121 ], [ %88, %83 ], [ false, %11 ], [ true, %27 ], [ true, %26 ], [ false, %"_ZN91_$LT$wasmtime_environ..component..dfg..CanonicalOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3d336a393403a4ccE.exit.i.i.i" ], [ false, %28 ], [ %.not8.i.i.i, %116 ], [ false, %89 ], [ false, %99 ], [ false, %110 ], [ false, %105 ], [ false, %.critedge.i.i.i ], [ false, %76 ], [ false, %62 ], [ false, %48 ], [ false, %40 ], [ false, %34 ], [ false, %47 ], [ false, %61 ], [ false, %75 ], [ false, %50 ], [ false, %64 ]
   ret i1 %.0.i.i
 }
@@ -12450,7 +12450,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %11 = getelementptr inbounds i8, ptr %.val, i64 24
   %12 = load i32, ptr %11, align 8, !alias.scope !3185, !noalias !3187, !noundef !10
   %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h093bf08d1f6c3576E.argprom.exit"
+  br i1 %13, label %14, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h093bf08d1f6c3576E.exit"
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %8, i64 -32
@@ -12464,12 +12464,12 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3188)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3191)
   %.not.i.i.i.i = icmp eq i64 %.val1.i.i, %.val3.i.i
-  br i1 %.not.i.i.i.i, label %.preheader.split.i.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h093bf08d1f6c3576E.argprom.exit"
+  br i1 %.not.i.i.i.i, label %.preheader.split.i.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h093bf08d1f6c3576E.exit"
 
 .preheader.split.i.i.i.i:                         ; preds = %14, %_ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i
   %.sroa.01.0.i.i.i.i = phi i64 [ %20, %_ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i ], [ 0, %14 ]
   %exitcond.not.i.i.i.i = icmp eq i64 %.sroa.01.0.i.i.i.i, %.val1.i.i
-  br i1 %exitcond.not.i.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h093bf08d1f6c3576E.argprom.exit", label %19
+  br i1 %exitcond.not.i.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h093bf08d1f6c3576E.exit", label %19
 
 19:                                               ; preds = %.preheader.split.i.i.i.i
   %20 = add i64 %.sroa.01.0.i.i.i.i, 1
@@ -12520,14 +12520,14 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %.sroa.5.0.i1.i.i.i.i.i.i = phi i64 [ %40, %36 ], [ %44, %41 ]
   %.sroa.0.0.i2.i.i.i.i.i.i = phi ptr [ %38, %36 ], [ %43, %41 ]
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.5.0.i.i.i.i.i.i.i, %.sroa.5.0.i1.i.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h093bf08d1f6c3576E.argprom.exit"
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h093bf08d1f6c3576E.exit"
 
 _ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i: ; preds = %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit3.i.i.i.i.i.i"
   %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.sroa.0.0.i.i.i.i.i.i.i, ptr nonnull readonly %.sroa.0.0.i2.i.i.i.i.i.i, i64 %.sroa.5.0.i.i.i.i.i.i.i), !alias.scope !3213
   %.not10.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
-  br i1 %.not10.i.i.i.i, label %.preheader.split.i.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h093bf08d1f6c3576E.argprom.exit"
+  br i1 %.not10.i.i.i.i, label %.preheader.split.i.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h093bf08d1f6c3576E.exit"
 
-"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h093bf08d1f6c3576E.argprom.exit": ; preds = %.preheader.split.i.i.i.i, %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit3.i.i.i.i.i.i", %_ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i, %2, %14
+"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h093bf08d1f6c3576E.exit": ; preds = %.preheader.split.i.i.i.i, %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit3.i.i.i.i.i.i", %_ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i, %2, %14
   %.0.i.i = phi i1 [ false, %2 ], [ false, %14 ], [ %exitcond.not.i.i.i.i, %_ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i ], [ %exitcond.not.i.i.i.i, %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit3.i.i.i.i.i.i" ], [ %exitcond.not.i.i.i.i, %.preheader.split.i.i.i.i ]
   ret i1 %.0.i.i
 }
@@ -12549,7 +12549,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %11 = getelementptr inbounds i8, ptr %.val, i64 24
   %12 = load i32, ptr %11, align 8, !alias.scope !3226, !noalias !3228, !noundef !10
   %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hd4a9738151ca6614E.argprom.exit"
+  br i1 %13, label %14, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hd4a9738151ca6614E.exit"
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %8, i64 -40
@@ -12561,7 +12561,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %19 = icmp eq i64 %18, -9223372036854775808
   %not..i.i.i = xor i1 %19, true
   %20 = xor i1 %17, %19
-  br i1 %20, label %21, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hd4a9738151ca6614E.argprom.exit"
+  br i1 %20, label %21, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hd4a9738151ca6614E.exit"
 
 21:                                               ; preds = %14
   br i1 %17, label %26, label %22
@@ -12573,7 +12573,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %.val5.i.i.i = load i32, ptr %23, align 4, !alias.scope !3234, !noalias !3235, !noundef !10
   %.val6.i.i.i = load i32, ptr %24, align 8, !alias.scope !3235, !noalias !3234, !noundef !10
   %25 = icmp eq i32 %.val5.i.i.i, %.val6.i.i.i
-  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hd4a9738151ca6614E.argprom.exit"
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hd4a9738151ca6614E.exit"
 
 26:                                               ; preds = %21
   tail call void @llvm.assume(i1 %not..i.i.i)
@@ -12582,7 +12582,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %28 = getelementptr inbounds i8, ptr %.val, i64 16
   %.val4.i.i.i = load i64, ptr %28, align 8, !alias.scope !3235, !noalias !3234, !noundef !10
   %.not.i.i.i.i.i = icmp eq i64 %.val2.i.i.i, %.val4.i.i.i
-  br i1 %.not.i.i.i.i.i, label %29, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hd4a9738151ca6614E.argprom.exit"
+  br i1 %.not.i.i.i.i.i, label %29, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hd4a9738151ca6614E.exit"
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -12591,9 +12591,9 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %.val.i.i.i = load ptr, ptr %31, align 8, !alias.scope !3234, !noalias !3235, !nonnull !10, !noundef !10
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val.i.i.i, ptr nonnull readonly %.val3.i.i.i, i64 %.val2.i.i.i), !alias.scope !3236, !noalias !3240
   %32 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hd4a9738151ca6614E.argprom.exit"
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hd4a9738151ca6614E.exit"
 
-"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hd4a9738151ca6614E.argprom.exit": ; preds = %2, %14, %22, %26, %29
+"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hd4a9738151ca6614E.exit": ; preds = %2, %14, %22, %26, %29
   %.0.i.i = phi i1 [ false, %2 ], [ %25, %22 ], [ false, %14 ], [ %32, %29 ], [ false, %26 ]
   ret i1 %.0.i.i
 }
@@ -12615,12 +12615,12 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %11 = getelementptr inbounds i8, ptr %.val, i64 240
   %12 = load i32, ptr %11, align 8, !alias.scope !3247, !noalias !3249, !noundef !10
   %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.argprom.exit"
+  br i1 %13, label %14, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.exit"
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %8, i64 -256
   %16 = tail call fastcc noundef zeroext i1 @"_ZN102_$LT$wasmtime_environ..component..translate..adapt..AdapterOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fcf8308be61beedE"(ptr noalias noundef readonly align 8 dereferenceable(104) %15, ptr noalias noundef readonly align 8 dereferenceable(104) %.val)
-  br i1 %16, label %17, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.argprom.exit"
+  br i1 %16, label %17, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.exit"
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %8, i64 -12
@@ -12628,13 +12628,13 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %20 = getelementptr inbounds i8, ptr %.val, i64 244
   %21 = load i32, ptr %20, align 4, !alias.scope !3247, !noalias !3249, !noundef !10
   %22 = icmp eq i32 %19, %21
-  br i1 %22, label %23, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.argprom.exit"
+  br i1 %22, label %23, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.exit"
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds i8, ptr %8, i64 -152
   %25 = getelementptr inbounds i8, ptr %.val, i64 104
   %26 = tail call fastcc noundef zeroext i1 @"_ZN102_$LT$wasmtime_environ..component..translate..adapt..AdapterOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fcf8308be61beedE"(ptr noalias noundef readonly align 8 dereferenceable(104) %24, ptr noalias noundef readonly align 8 dereferenceable(104) %25)
-  br i1 %26, label %27, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.argprom.exit"
+  br i1 %26, label %27, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.exit"
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds i8, ptr %8, i64 -48
@@ -12652,7 +12652,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %38 = xor i64 %35, -9223372036854775808
   %39 = select i1 %37, i64 %38, i64 0
   %40 = icmp eq i64 %34, %39
-  br i1 %40, label %41, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.argprom.exit"
+  br i1 %40, label %41, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.exit"
 
 41:                                               ; preds = %27
   switch i64 %34, label %42 [
@@ -12671,7 +12671,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %46 = getelementptr inbounds i8, ptr %.val, i64 232
   %47 = load i32, ptr %46, align 8, !alias.scope !3256, !noalias !3255, !noundef !10
   %48 = icmp eq i32 %45, %47
-  br i1 %48, label %67, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.argprom.exit"
+  br i1 %48, label %67, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.exit"
 
 49:                                               ; preds = %41
   %50 = getelementptr inbounds i8, ptr %8, i64 -40
@@ -12679,7 +12679,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %52 = getelementptr inbounds i8, ptr %.val, i64 216
   %53 = load i32, ptr %52, align 8, !alias.scope !3256, !noalias !3255, !noundef !10
   %54 = icmp eq i32 %51, %53
-  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.argprom.exit"
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.exit"
 
 55:                                               ; preds = %41
   %56 = getelementptr inbounds i8, ptr %8, i64 -40
@@ -12687,7 +12687,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %58 = getelementptr inbounds i8, ptr %.val, i64 216
   %59 = load i32, ptr %58, align 8, !alias.scope !3256, !noalias !3255, !noundef !10
   %60 = icmp eq i32 %57, %59
-  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.argprom.exit"
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.exit"
 
 61:                                               ; preds = %41
   %62 = getelementptr inbounds i8, ptr %8, i64 -40
@@ -12695,7 +12695,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %64 = getelementptr inbounds i8, ptr %.val, i64 216
   %65 = load i32, ptr %64, align 8, !alias.scope !3256, !noalias !3255, !noundef !10
   %66 = icmp eq i32 %63, %65
-  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.argprom.exit"
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.exit"
 
 67:                                               ; preds = %43
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3257)
@@ -12704,7 +12704,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %69 = icmp eq i64 %35, -9223372036854775808
   %not..i.i.i.i = xor i1 %69, true
   %70 = xor i1 %68, %69
-  br i1 %70, label %71, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.argprom.exit"
+  br i1 %70, label %71, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.exit"
 
 71:                                               ; preds = %67
   br i1 %68, label %79, label %72
@@ -12722,7 +12722,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %77 = icmp eq i32 %.val.i.i.i.i, %.val3.i.i.i.i
   %78 = icmp eq i32 %.val2.i.i.i.i, %.val4.i.i.i.i
   %spec.select.i.i.i.i.i = select i1 %77, i1 %78, i1 false
-  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.argprom.exit"
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.exit"
 
 79:                                               ; preds = %71
   tail call void @llvm.assume(i1 %not..i.i.i.i)
@@ -12731,7 +12731,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %81 = getelementptr inbounds i8, ptr %.val, i64 224
   %.val8.i.i.i.i = load i64, ptr %81, align 8, !alias.scope !3263, !noalias !3262, !noundef !10
   %.not.i.i.i.i.i.i = icmp eq i64 %.val6.i.i.i.i, %.val8.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %82, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.argprom.exit"
+  br i1 %.not.i.i.i.i.i.i, label %82, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.exit"
 
 82:                                               ; preds = %79
   %83 = getelementptr inbounds i8, ptr %.val, i64 216
@@ -12740,9 +12740,9 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %.val5.i.i.i.i = load ptr, ptr %84, align 8, !alias.scope !3262, !noalias !3263, !nonnull !10, !noundef !10
   %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val5.i.i.i.i, ptr nonnull readonly %.val7.i.i.i.i, i64 %.val6.i.i.i.i), !alias.scope !3264, !noalias !3268
   %85 = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
-  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.argprom.exit"
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.exit"
 
-"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.argprom.exit": ; preds = %2, %14, %17, %23, %27, %43, %49, %55, %61, %67, %72, %79, %82
+"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.exit": ; preds = %2, %14, %17, %23, %27, %43, %49, %55, %61, %67, %72, %79, %82
   %.0.i.i = phi i1 [ false, %23 ], [ false, %17 ], [ false, %14 ], [ false, %2 ], [ %66, %61 ], [ %60, %55 ], [ %54, %49 ], [ false, %27 ], [ false, %43 ], [ %spec.select.i.i.i.i.i, %72 ], [ false, %67 ], [ %85, %82 ], [ false, %79 ]
   ret i1 %.0.i.i
 }
@@ -12763,11 +12763,11 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %10 = load i64, ptr %9, align 8, !range !136, !alias.scope !3277, !noalias !3275, !noundef !10
   %11 = load i64, ptr %.val, align 8, !range !136, !alias.scope !3275, !noalias !3277, !noundef !10
   %12 = icmp eq i64 %10, %11
-  br i1 %12, label %13, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h386a02ab0b2464f5E.argprom.exit"
+  br i1 %12, label %13, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h386a02ab0b2464f5E.exit"
 
 13:                                               ; preds = %2
   %14 = icmp eq i64 %10, 8
-  br i1 %14, label %15, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h386a02ab0b2464f5E.argprom.exit"
+  br i1 %14, label %15, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h386a02ab0b2464f5E.exit"
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds i8, ptr %8, i64 -16
@@ -12775,7 +12775,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %18 = getelementptr inbounds i8, ptr %.val, i64 16
   %19 = load i64, ptr %18, align 8, !alias.scope !3275, !noalias !3277, !noundef !10
   %.not.i.i.i = icmp eq i64 %17, %19
-  br i1 %.not.i.i.i, label %20, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h386a02ab0b2464f5E.argprom.exit"
+  br i1 %.not.i.i.i, label %20, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h386a02ab0b2464f5E.exit"
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -12784,9 +12784,9 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %24 = load ptr, ptr %23, align 8, !alias.scope !3277, !noalias !3275, !nonnull !10, !align !140, !noundef !10
   %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %24, ptr nonnull readonly %22, i64 %17), !alias.scope !3278, !noalias !3282
   %25 = icmp eq i32 %bcmp.i.i.i, 0
-  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h386a02ab0b2464f5E.argprom.exit"
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h386a02ab0b2464f5E.exit"
 
-"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h386a02ab0b2464f5E.argprom.exit": ; preds = %2, %13, %15, %20
+"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h386a02ab0b2464f5E.exit": ; preds = %2, %13, %15, %20
   %.0.i.i = phi i1 [ false, %2 ], [ true, %13 ], [ %25, %20 ], [ false, %15 ]
   ret i1 %.0.i.i
 }
@@ -12814,11 +12814,11 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3292)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3295)
   %.not.i.i.i.i = icmp eq i64 %.val1.i.i, %.val3.i.i
-  br i1 %.not.i.i.i.i, label %.preheader.split.i.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h41c7cca334de5491E.argprom.exit"
+  br i1 %.not.i.i.i.i, label %.preheader.split.i.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h41c7cca334de5491E.exit"
 
 .preheader.split.i.i.i.i:                         ; preds = %2
   %.not19.i.i.i.i = icmp eq i64 %.val1.i.i, 0
-  br i1 %.not19.i.i.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd321fa1885ff37a5E.argprom.exit.i.i", label %.lr.ph.i.i.i.i
+  br i1 %.not19.i.i.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd321fa1885ff37a5E.exit.i.i", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.split.i.i.i.i, %.backedge.i.i.i.i
   %.sroa.01.012.i.i.i.i = phi i64 [ %13, %.backedge.i.i.i.i ], [ 0, %.preheader.split.i.i.i.i ]
@@ -12836,7 +12836,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %19 = add nsw i32 %18, -13
   %narrow3.i.i.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %19, i32 5)
   %20 = icmp eq i32 %narrow.i.i.i.i.i.i, %narrow3.i.i.i.i.i.i
-  br i1 %20, label %21, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h41c7cca334de5491E.argprom.exit"
+  br i1 %20, label %21, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h41c7cca334de5491E.exit"
 
 21:                                               ; preds = %.lr.ph.i.i.i.i
   %22 = icmp ugt i32 %17, 4
@@ -12854,7 +12854,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %.not.i.i.i.i.i.i.i = icmp eq i8 %26, %28
   %29 = icmp eq i32 %16, %18
   %or.cond4.i.i.i.i.i.i = and i1 %29, %.not.i.i.i.i.i.i.i
-  br i1 %or.cond4.i.i.i.i.i.i, label %30, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h41c7cca334de5491E.argprom.exit"
+  br i1 %or.cond4.i.i.i.i.i.i, label %30, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h41c7cca334de5491E.exit"
 
 30:                                               ; preds = %24
   %31 = icmp eq i32 %16, 12
@@ -12866,13 +12866,13 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %35 = getelementptr inbounds i8, ptr %15, i64 4
   %36 = load i32, ptr %35, align 4, !alias.scope !3318, !noalias !3319, !noundef !10
   %.not10.i.i.i.i = icmp eq i32 %34, %36
-  br i1 %.not10.i.i.i.i, label %.backedge.i.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h41c7cca334de5491E.argprom.exit"
+  br i1 %.not10.i.i.i.i, label %.backedge.i.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h41c7cca334de5491E.exit"
 
 .backedge.i.i.i.i:                                ; preds = %32, %30, %21
   %exitcond.not.i.i.i.i = icmp eq i64 %13, %.val1.i.i
-  br i1 %exitcond.not.i.i.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd321fa1885ff37a5E.argprom.exit.i.i", label %.lr.ph.i.i.i.i
+  br i1 %exitcond.not.i.i.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd321fa1885ff37a5E.exit.i.i", label %.lr.ph.i.i.i.i
 
-"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd321fa1885ff37a5E.argprom.exit.i.i": ; preds = %.backedge.i.i.i.i, %.preheader.split.i.i.i.i
+"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd321fa1885ff37a5E.exit.i.i": ; preds = %.backedge.i.i.i.i, %.preheader.split.i.i.i.i
   %37 = getelementptr inbounds i8, ptr %8, i64 -24
   %.val4.i.i = load ptr, ptr %37, align 8, !alias.scope !3291, !noalias !3289, !nonnull !10, !noundef !10
   %38 = getelementptr inbounds i8, ptr %8, i64 -16
@@ -12884,11 +12884,11 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3320)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3323)
   %.not.i.i8.i.i = icmp eq i64 %.val5.i.i, %.val7.i.i
-  br i1 %.not.i.i8.i.i, label %.preheader.split.i.i10.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h41c7cca334de5491E.argprom.exit"
+  br i1 %.not.i.i8.i.i, label %.preheader.split.i.i10.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h41c7cca334de5491E.exit"
 
-.preheader.split.i.i10.i.i:                       ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd321fa1885ff37a5E.argprom.exit.i.i"
+.preheader.split.i.i10.i.i:                       ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd321fa1885ff37a5E.exit.i.i"
   %.not19.i.i11.i.i = icmp eq i64 %.val5.i.i, 0
-  br i1 %.not19.i.i11.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h41c7cca334de5491E.argprom.exit", label %.lr.ph.i.i12.i.i
+  br i1 %.not19.i.i11.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h41c7cca334de5491E.exit", label %.lr.ph.i.i12.i.i
 
 .lr.ph.i.i12.i.i:                                 ; preds = %.preheader.split.i.i10.i.i, %.backedge.i.i17.i.i
   %.sroa.01.012.i.i13.i.i = phi i64 [ %41, %.backedge.i.i17.i.i ], [ 0, %.preheader.split.i.i10.i.i ]
@@ -12906,7 +12906,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %47 = add nsw i32 %46, -13
   %narrow3.i.i.i.i15.i.i = tail call i32 @llvm.umin.i32(i32 %47, i32 5)
   %48 = icmp eq i32 %narrow.i.i.i.i14.i.i, %narrow3.i.i.i.i15.i.i
-  br i1 %48, label %49, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h41c7cca334de5491E.argprom.exit"
+  br i1 %48, label %49, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h41c7cca334de5491E.exit"
 
 49:                                               ; preds = %.lr.ph.i.i12.i.i
   %50 = icmp ugt i32 %45, 4
@@ -12924,7 +12924,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %.not.i.i.i.i.i19.i.i = icmp eq i8 %54, %56
   %57 = icmp eq i32 %44, %46
   %or.cond4.i.i.i.i20.i.i = and i1 %57, %.not.i.i.i.i.i19.i.i
-  br i1 %or.cond4.i.i.i.i20.i.i, label %58, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h41c7cca334de5491E.argprom.exit"
+  br i1 %or.cond4.i.i.i.i20.i.i, label %58, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h41c7cca334de5491E.exit"
 
 58:                                               ; preds = %52
   %59 = icmp eq i32 %44, 12
@@ -12936,14 +12936,14 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %63 = getelementptr inbounds i8, ptr %43, i64 4
   %64 = load i32, ptr %63, align 4, !alias.scope !3346, !noalias !3347, !noundef !10
   %.not10.i.i21.i.i = icmp eq i32 %62, %64
-  br i1 %.not10.i.i21.i.i, label %.backedge.i.i17.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h41c7cca334de5491E.argprom.exit"
+  br i1 %.not10.i.i21.i.i, label %.backedge.i.i17.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h41c7cca334de5491E.exit"
 
 .backedge.i.i17.i.i:                              ; preds = %60, %58, %49
   %exitcond.not.i.i18.i.i = icmp eq i64 %41, %.val5.i.i
-  br i1 %exitcond.not.i.i18.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h41c7cca334de5491E.argprom.exit", label %.lr.ph.i.i12.i.i
+  br i1 %exitcond.not.i.i18.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h41c7cca334de5491E.exit", label %.lr.ph.i.i12.i.i
 
-"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h41c7cca334de5491E.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %24, %32, %.lr.ph.i.i12.i.i, %52, %60, %.backedge.i.i17.i.i, %2, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd321fa1885ff37a5E.argprom.exit.i.i", %.preheader.split.i.i10.i.i
-  %.0.i.i = phi i1 [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd321fa1885ff37a5E.argprom.exit.i.i" ], [ true, %.preheader.split.i.i10.i.i ], [ false, %2 ], [ false, %60 ], [ true, %.backedge.i.i17.i.i ], [ false, %.lr.ph.i.i12.i.i ], [ false, %52 ], [ false, %32 ], [ false, %24 ], [ false, %.lr.ph.i.i.i.i ]
+"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h41c7cca334de5491E.exit": ; preds = %.lr.ph.i.i.i.i, %24, %32, %.lr.ph.i.i12.i.i, %52, %60, %.backedge.i.i17.i.i, %2, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd321fa1885ff37a5E.exit.i.i", %.preheader.split.i.i10.i.i
+  %.0.i.i = phi i1 [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd321fa1885ff37a5E.exit.i.i" ], [ true, %.preheader.split.i.i10.i.i ], [ false, %2 ], [ false, %60 ], [ true, %.backedge.i.i17.i.i ], [ false, %.lr.ph.i.i12.i.i ], [ false, %52 ], [ false, %32 ], [ false, %24 ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %.0.i.i
 }
 
@@ -12971,10 +12971,10 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %13 = getelementptr inbounds i8, ptr %.val, i64 24
   %.val3.i.i.i = load i32, ptr %13, align 4, !alias.scope !3362, !noalias !3361
   %14 = icmp eq i32 %.val.i.i.i, %.val2.i.i.i
-  br i1 %14, label %15, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %14, label %15, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
 15:                                               ; preds = %2
-  switch i32 %.val.i.i.i, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i.i.i" [
+  switch i32 %.val.i.i.i, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i.i.i" [
     i32 13, label %16
     i32 14, label %18
     i32 15, label %20
@@ -12984,50 +12984,50 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
     i32 19, label %28
     i32 20, label %30
     i32 21, label %32
-    i32 22, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.i.i.i"
+    i32 22, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.i.i.i"
   ]
 
 16:                                               ; preds = %15
   %17 = icmp eq i32 %.val1.i.i.i, %.val3.i.i.i
-  br i1 %17, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %17, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
 18:                                               ; preds = %15
   %19 = icmp eq i32 %.val1.i.i.i, %.val3.i.i.i
-  br i1 %19, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %19, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
 20:                                               ; preds = %15
   %21 = icmp eq i32 %.val1.i.i.i, %.val3.i.i.i
-  br i1 %21, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %21, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
 22:                                               ; preds = %15
   %23 = icmp eq i32 %.val1.i.i.i, %.val3.i.i.i
-  br i1 %23, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %23, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
 24:                                               ; preds = %15
   %25 = icmp eq i32 %.val1.i.i.i, %.val3.i.i.i
-  br i1 %25, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %25, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
 26:                                               ; preds = %15
   %27 = icmp eq i32 %.val1.i.i.i, %.val3.i.i.i
-  br i1 %27, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %27, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
 28:                                               ; preds = %15
   %29 = icmp eq i32 %.val1.i.i.i, %.val3.i.i.i
-  br i1 %29, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %29, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
 30:                                               ; preds = %15
   %31 = icmp eq i32 %.val1.i.i.i, %.val3.i.i.i
-  br i1 %31, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %31, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
 32:                                               ; preds = %15
   %33 = icmp eq i32 %.val1.i.i.i, %.val3.i.i.i
-  br i1 %33, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %33, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
-"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.i.i.i": ; preds = %15
+"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.i.i.i": ; preds = %15
   %34 = icmp eq i32 %.val1.i.i.i, %.val3.i.i.i
-  br i1 %34, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %34, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
-"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i.i.i": ; preds = %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.i.i.i", %32, %30, %28, %26, %24, %22, %20, %18, %16, %15
+"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i.i.i": ; preds = %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.i.i.i", %32, %30, %28, %26, %24, %22, %20, %18, %16, %15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3363)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3366)
   %35 = getelementptr inbounds i8, ptr %8, i64 -51
@@ -13035,15 +13035,15 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %37 = getelementptr inbounds i8, ptr %.val, i64 17
   %38 = load i8, ptr %37, align 1, !range !1629, !alias.scope !3369, !noalias !3368, !noundef !10
   %39 = icmp eq i8 %36, %38
-  br i1 %39, label %40, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %39, label %40, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
-40:                                               ; preds = %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i.i.i"
+40:                                               ; preds = %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i.i.i"
   %41 = getelementptr inbounds i8, ptr %8, i64 -52
   %42 = load i8, ptr %41, align 4, !range !68, !alias.scope !3368, !noalias !3369, !noundef !10
   %43 = getelementptr inbounds i8, ptr %.val, i64 16
   %44 = load i8, ptr %43, align 4, !range !68, !alias.scope !3369, !noalias !3368, !noundef !10
   %.not.i.i.i.i = icmp eq i8 %42, %44
-  br i1 %.not.i.i.i.i, label %45, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %.not.i.i.i.i, label %45, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
 45:                                               ; preds = %40
   %46 = load i32, ptr %9, align 4, !range !1052, !alias.scope !3368, !noalias !3369, !noundef !10
@@ -13053,11 +13053,11 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
 
 48:                                               ; preds = %45
   %.not3.i.i.i.i = icmp eq i32 %47, 0
-  br i1 %.not3.i.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit", label %51
+  br i1 %.not3.i.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit", label %51
 
 49:                                               ; preds = %45
   %50 = trunc nuw i32 %47 to i1
-  br i1 %50, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit", label %57
+  br i1 %50, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit", label %57
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds i8, ptr %8, i64 -64
@@ -13065,7 +13065,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %54 = getelementptr inbounds i8, ptr %.val, i64 4
   %55 = load i32, ptr %54, align 4, !alias.scope !3369, !noalias !3368, !noundef !10
   %56 = icmp eq i32 %53, %55
-  br i1 %56, label %57, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %56, label %57, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
 57:                                               ; preds = %51, %49
   %58 = getelementptr inbounds i8, ptr %8, i64 -60
@@ -13077,7 +13077,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
 
 62:                                               ; preds = %57
   %.not5.i.i.i.i = icmp eq i32 %61, 0
-  br i1 %.not5.i.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit", label %63
+  br i1 %.not5.i.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit", label %63
 
 63:                                               ; preds = %62
   %64 = getelementptr inbounds i8, ptr %8, i64 -56
@@ -13085,11 +13085,11 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %66 = getelementptr inbounds i8, ptr %.val, i64 12
   %67 = load i32, ptr %66, align 4, !alias.scope !3369, !noalias !3368, !noundef !10
   %68 = icmp eq i32 %65, %67
-  br i1 %68, label %"_ZN75_$LT$wasmtime_environ..fact..HelperType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h27b46e17772fc975E.exit.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %68, label %"_ZN75_$LT$wasmtime_environ..fact..HelperType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h27b46e17772fc975E.exit.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
 "_ZN72_$LT$wasmtime_environ..fact..Options$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc48d8145e98ea436E.exit.i.i.i": ; preds = %57
   %69 = trunc nuw i32 %61 to i1
-  br i1 %69, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit", label %"_ZN75_$LT$wasmtime_environ..fact..HelperType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h27b46e17772fc975E.exit.i.i"
+  br i1 %69, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit", label %"_ZN75_$LT$wasmtime_environ..fact..HelperType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h27b46e17772fc975E.exit.i.i"
 
 "_ZN75_$LT$wasmtime_environ..fact..HelperType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h27b46e17772fc975E.exit.i.i": ; preds = %"_ZN72_$LT$wasmtime_environ..fact..Options$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc48d8145e98ea436E.exit.i.i.i", %63
   %70 = getelementptr inbounds i8, ptr %8, i64 -40
@@ -13097,7 +13097,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %72 = getelementptr inbounds i8, ptr %.val, i64 28
   %73 = load i8, ptr %72, align 4, !range !68, !alias.scope !3362, !noalias !3361, !noundef !10
   %74 = icmp eq i8 %71, %73
-  br i1 %74, label %75, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %74, label %75, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
 75:                                               ; preds = %"_ZN75_$LT$wasmtime_environ..fact..HelperType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h27b46e17772fc975E.exit.i.i"
   %76 = getelementptr inbounds i8, ptr %8, i64 -36
@@ -13113,10 +13113,10 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %81 = getelementptr inbounds i8, ptr %.val, i64 56
   %.val3.i4.i.i = load i32, ptr %81, align 4, !alias.scope !3376, !noalias !3375
   %82 = icmp eq i32 %.val.i1.i.i, %.val2.i3.i.i
-  br i1 %82, label %83, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %82, label %83, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
 83:                                               ; preds = %75
-  switch i32 %.val.i1.i.i, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i7.i.i" [
+  switch i32 %.val.i1.i.i, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i7.i.i" [
     i32 13, label %84
     i32 14, label %86
     i32 15, label %88
@@ -13126,50 +13126,50 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
     i32 19, label %96
     i32 20, label %98
     i32 21, label %100
-    i32 22, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.i6.i.i"
+    i32 22, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.i6.i.i"
   ]
 
 84:                                               ; preds = %83
   %85 = icmp eq i32 %.val1.i2.i.i, %.val3.i4.i.i
-  br i1 %85, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i7.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %85, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i7.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
 86:                                               ; preds = %83
   %87 = icmp eq i32 %.val1.i2.i.i, %.val3.i4.i.i
-  br i1 %87, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i7.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %87, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i7.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
 88:                                               ; preds = %83
   %89 = icmp eq i32 %.val1.i2.i.i, %.val3.i4.i.i
-  br i1 %89, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i7.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %89, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i7.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
 90:                                               ; preds = %83
   %91 = icmp eq i32 %.val1.i2.i.i, %.val3.i4.i.i
-  br i1 %91, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i7.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %91, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i7.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
 92:                                               ; preds = %83
   %93 = icmp eq i32 %.val1.i2.i.i, %.val3.i4.i.i
-  br i1 %93, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i7.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %93, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i7.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
 94:                                               ; preds = %83
   %95 = icmp eq i32 %.val1.i2.i.i, %.val3.i4.i.i
-  br i1 %95, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i7.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %95, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i7.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
 96:                                               ; preds = %83
   %97 = icmp eq i32 %.val1.i2.i.i, %.val3.i4.i.i
-  br i1 %97, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i7.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %97, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i7.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
 98:                                               ; preds = %83
   %99 = icmp eq i32 %.val1.i2.i.i, %.val3.i4.i.i
-  br i1 %99, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i7.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %99, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i7.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
 100:                                              ; preds = %83
   %101 = icmp eq i32 %.val1.i2.i.i, %.val3.i4.i.i
-  br i1 %101, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i7.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %101, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i7.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
-"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.i6.i.i": ; preds = %83
+"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.i6.i.i": ; preds = %83
   %102 = icmp eq i32 %.val1.i2.i.i, %.val3.i4.i.i
-  br i1 %102, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i7.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %102, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i7.i.i", label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
-"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i7.i.i": ; preds = %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.i6.i.i", %100, %98, %96, %94, %92, %90, %88, %86, %84, %83
+"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i7.i.i": ; preds = %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.i6.i.i", %100, %98, %96, %94, %92, %90, %88, %86, %84, %83
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3377)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3380)
   %103 = getelementptr inbounds i8, ptr %8, i64 -19
@@ -13177,15 +13177,15 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %105 = getelementptr inbounds i8, ptr %.val, i64 49
   %106 = load i8, ptr %105, align 1, !range !1629, !alias.scope !3383, !noalias !3382, !noundef !10
   %107 = icmp eq i8 %104, %106
-  br i1 %107, label %108, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %107, label %108, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
-108:                                              ; preds = %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i7.i.i"
+108:                                              ; preds = %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i7.i.i"
   %109 = getelementptr inbounds i8, ptr %8, i64 -20
   %110 = load i8, ptr %109, align 4, !range !68, !alias.scope !3382, !noalias !3383, !noundef !10
   %111 = getelementptr inbounds i8, ptr %.val, i64 48
   %112 = load i8, ptr %111, align 4, !range !68, !alias.scope !3383, !noalias !3382, !noundef !10
   %.not.i.i8.i.i = icmp eq i8 %110, %112
-  br i1 %.not.i.i8.i.i, label %113, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %.not.i.i8.i.i, label %113, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
 113:                                              ; preds = %108
   %114 = load i32, ptr %76, align 4, !range !1052, !alias.scope !3382, !noalias !3383, !noundef !10
@@ -13195,11 +13195,11 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
 
 116:                                              ; preds = %113
   %.not3.i.i13.i.i = icmp eq i32 %115, 0
-  br i1 %.not3.i.i13.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit", label %119
+  br i1 %.not3.i.i13.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit", label %119
 
 117:                                              ; preds = %113
   %118 = trunc nuw i32 %115 to i1
-  br i1 %118, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit", label %125
+  br i1 %118, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit", label %125
 
 119:                                              ; preds = %116
   %120 = getelementptr inbounds i8, ptr %8, i64 -32
@@ -13207,7 +13207,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %122 = getelementptr inbounds i8, ptr %.val, i64 36
   %123 = load i32, ptr %122, align 4, !alias.scope !3383, !noalias !3382, !noundef !10
   %124 = icmp eq i32 %121, %123
-  br i1 %124, label %125, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %124, label %125, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
 125:                                              ; preds = %119, %117
   %126 = getelementptr inbounds i8, ptr %8, i64 -28
@@ -13219,7 +13219,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
 
 130:                                              ; preds = %125
   %.not5.i.i12.i.i = icmp eq i32 %129, 0
-  br i1 %.not5.i.i12.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit", label %131
+  br i1 %.not5.i.i12.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit", label %131
 
 131:                                              ; preds = %130
   %132 = getelementptr inbounds i8, ptr %8, i64 -24
@@ -13227,11 +13227,11 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %134 = getelementptr inbounds i8, ptr %.val, i64 44
   %135 = load i32, ptr %134, align 4, !alias.scope !3383, !noalias !3382, !noundef !10
   %136 = icmp eq i32 %133, %135
-  br i1 %136, label %138, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br i1 %136, label %138, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
 "_ZN72_$LT$wasmtime_environ..fact..Options$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc48d8145e98ea436E.exit.i11.i.i": ; preds = %125
   %137 = trunc nuw i32 %129 to i1
-  br i1 %137, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit", label %138
+  br i1 %137, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit", label %138
 
 138:                                              ; preds = %"_ZN72_$LT$wasmtime_environ..fact..Options$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc48d8145e98ea436E.exit.i11.i.i", %131
   %139 = getelementptr inbounds i8, ptr %8, i64 -8
@@ -13239,10 +13239,10 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %141 = getelementptr inbounds i8, ptr %.val, i64 60
   %142 = load i8, ptr %141, align 4, !range !68, !alias.scope !3376, !noalias !3375, !noundef !10
   %143 = icmp eq i8 %140, %142
-  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit"
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit"
 
-"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom.exit": ; preds = %2, %16, %18, %20, %22, %24, %26, %28, %30, %32, %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.i.i.i", %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i.i.i", %40, %48, %49, %51, %62, %63, %"_ZN72_$LT$wasmtime_environ..fact..Options$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc48d8145e98ea436E.exit.i.i.i", %"_ZN75_$LT$wasmtime_environ..fact..HelperType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h27b46e17772fc975E.exit.i.i", %75, %84, %86, %88, %90, %92, %94, %96, %98, %100, %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.i6.i.i", %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i7.i.i", %108, %116, %117, %119, %130, %131, %"_ZN72_$LT$wasmtime_environ..fact..Options$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc48d8145e98ea436E.exit.i11.i.i", %138
-  %.0.i.i = phi i1 [ false, %"_ZN75_$LT$wasmtime_environ..fact..HelperType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h27b46e17772fc975E.exit.i.i" ], [ %143, %138 ], [ false, %"_ZN72_$LT$wasmtime_environ..fact..Options$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc48d8145e98ea436E.exit.i11.i.i" ], [ false, %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.i6.i.i" ], [ false, %84 ], [ false, %86 ], [ false, %88 ], [ false, %90 ], [ false, %92 ], [ false, %94 ], [ false, %96 ], [ false, %98 ], [ false, %100 ], [ false, %131 ], [ false, %75 ], [ false, %117 ], [ false, %108 ], [ false, %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i7.i.i" ], [ false, %116 ], [ false, %130 ], [ false, %119 ], [ false, %"_ZN72_$LT$wasmtime_environ..fact..Options$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc48d8145e98ea436E.exit.i.i.i" ], [ false, %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.i.i.i" ], [ false, %16 ], [ false, %18 ], [ false, %20 ], [ false, %22 ], [ false, %24 ], [ false, %26 ], [ false, %28 ], [ false, %30 ], [ false, %32 ], [ false, %63 ], [ false, %2 ], [ false, %49 ], [ false, %40 ], [ false, %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.argprom.exit.thread.i.i.i" ], [ false, %48 ], [ false, %62 ], [ false, %51 ]
+"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.exit": ; preds = %2, %16, %18, %20, %22, %24, %26, %28, %30, %32, %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.i.i.i", %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i.i.i", %40, %48, %49, %51, %62, %63, %"_ZN72_$LT$wasmtime_environ..fact..Options$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc48d8145e98ea436E.exit.i.i.i", %"_ZN75_$LT$wasmtime_environ..fact..HelperType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h27b46e17772fc975E.exit.i.i", %75, %84, %86, %88, %90, %92, %94, %96, %98, %100, %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.i6.i.i", %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i7.i.i", %108, %116, %117, %119, %130, %131, %"_ZN72_$LT$wasmtime_environ..fact..Options$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc48d8145e98ea436E.exit.i11.i.i", %138
+  %.0.i.i = phi i1 [ false, %"_ZN75_$LT$wasmtime_environ..fact..HelperType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h27b46e17772fc975E.exit.i.i" ], [ %143, %138 ], [ false, %"_ZN72_$LT$wasmtime_environ..fact..Options$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc48d8145e98ea436E.exit.i11.i.i" ], [ false, %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.i6.i.i" ], [ false, %84 ], [ false, %86 ], [ false, %88 ], [ false, %90 ], [ false, %92 ], [ false, %94 ], [ false, %96 ], [ false, %98 ], [ false, %100 ], [ false, %131 ], [ false, %75 ], [ false, %117 ], [ false, %108 ], [ false, %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i7.i.i" ], [ false, %116 ], [ false, %130 ], [ false, %119 ], [ false, %"_ZN72_$LT$wasmtime_environ..fact..Options$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc48d8145e98ea436E.exit.i.i.i" ], [ false, %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.i.i.i" ], [ false, %16 ], [ false, %18 ], [ false, %20 ], [ false, %22 ], [ false, %24 ], [ false, %26 ], [ false, %28 ], [ false, %30 ], [ false, %32 ], [ false, %63 ], [ false, %2 ], [ false, %49 ], [ false, %40 ], [ false, %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.exit.thread.i.i.i" ], [ false, %48 ], [ false, %62 ], [ false, %51 ]
   ret i1 %.0.i.i
 }
 
@@ -13262,7 +13262,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %10 = load i32, ptr %9, align 4, !alias.scope !3392, !noalias !3390, !noundef !10
   %11 = load i32, ptr %.val, align 4, !alias.scope !3390, !noalias !3392, !noundef !10
   %12 = icmp eq i32 %10, %11
-  br i1 %12, label %13, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E.argprom.exit"
+  br i1 %12, label %13, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E.exit"
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %8, i64 -7
@@ -13270,7 +13270,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %16 = getelementptr inbounds i8, ptr %.val, i64 9
   %17 = load i8, ptr %16, align 1, !range !68, !alias.scope !3390, !noalias !3392, !noundef !10
   %.not.i.i = icmp eq i8 %15, %17
-  br i1 %.not.i.i, label %18, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E.argprom.exit"
+  br i1 %.not.i.i, label %18, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E.exit"
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds i8, ptr %8, i64 -12
@@ -13278,7 +13278,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %21 = getelementptr inbounds i8, ptr %.val, i64 4
   %22 = load i32, ptr %21, align 4, !alias.scope !3390, !noalias !3392, !noundef !10
   %23 = icmp eq i32 %20, %22
-  br i1 %23, label %24, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E.argprom.exit"
+  br i1 %23, label %24, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E.exit"
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds i8, ptr %8, i64 -6
@@ -13286,7 +13286,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %27 = getelementptr inbounds i8, ptr %.val, i64 10
   %28 = load i8, ptr %27, align 2, !range !68, !alias.scope !3390, !noalias !3392, !noundef !10
   %.not3.i.i = icmp eq i8 %26, %28
-  br i1 %.not3.i.i, label %29, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E.argprom.exit"
+  br i1 %.not3.i.i, label %29, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E.exit"
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds i8, ptr %8, i64 -8
@@ -13299,15 +13299,15 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %not..i.i = xor i1 %32, true
   %37 = and i1 %36, %not..i.i
   %38 = select i1 %35, i1 %32, i1 %37
-  br i1 %38, label %39, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E.argprom.exit"
+  br i1 %38, label %39, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E.exit"
 
 39:                                               ; preds = %29
   %or.cond.i.i = and i1 %32, %35
   %not.or.cond.i.i = xor i1 %or.cond.i.i, true
   %spec.select.i.i = or i1 %36, %not.or.cond.i.i
-  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E.argprom.exit"
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E.exit"
 
-"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E.argprom.exit": ; preds = %2, %13, %18, %24, %29, %39
+"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E.exit": ; preds = %2, %13, %18, %24, %29, %39
   %.0.i.i = phi i1 [ false, %24 ], [ false, %18 ], [ false, %13 ], [ false, %2 ], [ false, %29 ], [ %spec.select.i.i, %39 ]
   ret i1 %.0.i.i
 }
@@ -13332,13 +13332,13 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %13 = add nsw i32 %12, -13
   %narrow3.i.i = tail call i32 @llvm.umin.i32(i32 %13, i32 5)
   %14 = icmp eq i32 %narrow.i.i, %narrow3.i.i
-  br i1 %14, label %15, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hed6d2efe30b04834E.argprom.exit"
+  br i1 %14, label %15, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hed6d2efe30b04834E.exit"
 
 15:                                               ; preds = %2
   %16 = icmp ugt i32 %11, 4
   %17 = icmp ugt i32 %13, 4
   %or.cond.i.i = and i1 %16, %17
-  br i1 %or.cond.i.i, label %18, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hed6d2efe30b04834E.argprom.exit"
+  br i1 %or.cond.i.i, label %18, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hed6d2efe30b04834E.exit"
 
 18:                                               ; preds = %15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3402)
@@ -13350,11 +13350,11 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %.not.i.i.i = icmp eq i8 %20, %22
   %23 = icmp eq i32 %10, %12
   %or.cond4.i.i = and i1 %23, %.not.i.i.i
-  br i1 %or.cond4.i.i, label %24, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hed6d2efe30b04834E.argprom.exit"
+  br i1 %or.cond4.i.i, label %24, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hed6d2efe30b04834E.exit"
 
 24:                                               ; preds = %18
   %25 = icmp eq i32 %10, 12
-  br i1 %25, label %26, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hed6d2efe30b04834E.argprom.exit"
+  br i1 %25, label %26, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hed6d2efe30b04834E.exit"
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds i8, ptr %8, i64 -36
@@ -13362,9 +13362,9 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %29 = getelementptr inbounds i8, ptr %.val, i64 4
   %30 = load i32, ptr %29, align 4, !alias.scope !3408, !noalias !3407, !noundef !10
   %31 = icmp eq i32 %28, %30
-  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hed6d2efe30b04834E.argprom.exit"
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hed6d2efe30b04834E.exit"
 
-"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hed6d2efe30b04834E.argprom.exit": ; preds = %2, %15, %18, %24, %26
+"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hed6d2efe30b04834E.exit": ; preds = %2, %15, %18, %24, %26
   %.0.i.i = phi i1 [ false, %2 ], [ true, %15 ], [ %31, %26 ], [ false, %18 ], [ true, %24 ]
   ret i1 %.0.i.i
 }
@@ -14047,8 +14047,8 @@ attributes #35 = { cold noreturn nounwind }
 !49 = !{!47, !45}
 !50 = !{i64 4}
 !51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hed6d2efe30b04834E.argprom: argument 0"}
-!53 = distinct !{!53, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hed6d2efe30b04834E.argprom"}
+!52 = distinct !{!52, !53, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hed6d2efe30b04834E: argument 0"}
+!53 = distinct !{!53, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hed6d2efe30b04834E"}
 !54 = !{!55}
 !55 = distinct !{!55, !56, !"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E: argument 0"}
 !56 = distinct !{!56, !"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E"}
@@ -14078,8 +14078,8 @@ attributes #35 = { cold noreturn nounwind }
 !80 = distinct !{!80, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h2c8acef84f964debE.llvm.10165051650595261532"}
 !81 = !{!79, !77}
 !82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E.argprom: argument 0"}
-!84 = distinct !{!84, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E.argprom"}
+!83 = distinct !{!83, !84, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E: argument 0"}
+!84 = distinct !{!84, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E"}
 !85 = !{!86}
 !86 = distinct !{!86, !87, !"_ZN82_$LT$wasmtime_environ..component..dfg..CoreDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5abf60fdaae8aa65E: argument 0"}
 !87 = distinct !{!87, !"_ZN82_$LT$wasmtime_environ..component..dfg..CoreDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5abf60fdaae8aa65E"}
@@ -14124,8 +14124,8 @@ attributes #35 = { cold noreturn nounwind }
 !126 = distinct !{!126, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hae41eeccb0bd4387E.llvm.10165051650595261532"}
 !127 = !{!125, !123}
 !128 = !{!129}
-!129 = distinct !{!129, !130, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h386a02ab0b2464f5E.argprom: argument 0"}
-!130 = distinct !{!130, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h386a02ab0b2464f5E.argprom"}
+!129 = distinct !{!129, !130, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h386a02ab0b2464f5E: argument 0"}
+!130 = distinct !{!130, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h386a02ab0b2464f5E"}
 !131 = !{!132}
 !132 = distinct !{!132, !133, !"_ZN76_$LT$wasmtime_environ..fact..traps..Trap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74a060b5753d9a84E: argument 0"}
 !133 = distinct !{!133, !"_ZN76_$LT$wasmtime_environ..fact..traps..Trap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74a060b5753d9a84E"}
@@ -14151,8 +14151,8 @@ attributes #35 = { cold noreturn nounwind }
 !153 = distinct !{!153, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h156339f102a3c546E.llvm.10165051650595261532"}
 !154 = !{!152, !150}
 !155 = !{!156}
-!156 = distinct !{!156, !157, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E.argprom: argument 0"}
-!157 = distinct !{!157, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E.argprom"}
+!156 = distinct !{!156, !157, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E: argument 0"}
+!157 = distinct !{!157, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E"}
 !158 = !{!159}
 !159 = distinct !{!159, !160, !"_ZN82_$LT$wasmtime_environ..component..dfg..CoreDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5abf60fdaae8aa65E: argument 0"}
 !160 = distinct !{!160, !"_ZN82_$LT$wasmtime_environ..component..dfg..CoreDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5abf60fdaae8aa65E"}
@@ -14185,8 +14185,8 @@ attributes #35 = { cold noreturn nounwind }
 !187 = distinct !{!187, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hdd91d865352bc06dE.llvm.10165051650595261532"}
 !188 = !{!186, !184}
 !189 = !{!190}
-!190 = distinct !{!190, !191, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E.argprom: argument 0"}
-!191 = distinct !{!191, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E.argprom"}
+!190 = distinct !{!190, !191, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E: argument 0"}
+!191 = distinct !{!191, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E"}
 !192 = !{!193}
 !193 = distinct !{!193, !194, !"_ZN86_$LT$wasmtime_environ..fact..transcode..Transcoder$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2862132a5f71f079E: argument 0"}
 !194 = distinct !{!194, !"_ZN86_$LT$wasmtime_environ..fact..transcode..Transcoder$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2862132a5f71f079E"}
@@ -14220,8 +14220,8 @@ attributes #35 = { cold noreturn nounwind }
 !222 = distinct !{!222, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h8d2c74c22fd0a9a9E.llvm.10165051650595261532"}
 !223 = !{!221, !219}
 !224 = !{!225}
-!225 = distinct !{!225, !226, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hd4a9738151ca6614E.argprom: argument 0"}
-!226 = distinct !{!226, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hd4a9738151ca6614E.argprom"}
+!225 = distinct !{!225, !226, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hd4a9738151ca6614E: argument 0"}
+!226 = distinct !{!226, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hd4a9738151ca6614E"}
 !227 = !{!228}
 !228 = distinct !{!228, !229, !"_ZN94_$LT$wasmtime_environ..component..dfg..CoreExport$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hba22451a8ff1f647E: argument 0"}
 !229 = distinct !{!229, !"_ZN94_$LT$wasmtime_environ..component..dfg..CoreExport$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hba22451a8ff1f647E"}
@@ -14273,8 +14273,8 @@ attributes #35 = { cold noreturn nounwind }
 !275 = distinct !{!275, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6a3a576c92fa785cE.llvm.10165051650595261532"}
 !276 = !{!274, !272}
 !277 = !{!278}
-!278 = distinct !{!278, !279, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h093bf08d1f6c3576E.argprom: argument 0"}
-!279 = distinct !{!279, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h093bf08d1f6c3576E.argprom"}
+!278 = distinct !{!278, !279, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h093bf08d1f6c3576E: argument 0"}
+!279 = distinct !{!279, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h093bf08d1f6c3576E"}
 !280 = !{!281}
 !281 = distinct !{!281, !282, !"_ZN99_$LT$wasmtime_environ..component..translate..inline..ImportPath$u20$as$u20$core..cmp..PartialEq$GT$2eq17h10740db6be0ce410E: argument 0"}
 !282 = distinct !{!282, !"_ZN99_$LT$wasmtime_environ..component..translate..inline..ImportPath$u20$as$u20$core..cmp..PartialEq$GT$2eq17h10740db6be0ce410E"}
@@ -14660,8 +14660,8 @@ attributes #35 = { cold noreturn nounwind }
 !662 = !{!663, !665}
 !663 = distinct !{!663, !664, !"_ZN86_$LT$wasmtime_environ..fact..transcode..Transcoder$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2862132a5f71f079E: argument 0"}
 !664 = distinct !{!664, !"_ZN86_$LT$wasmtime_environ..fact..transcode..Transcoder$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2862132a5f71f079E"}
-!665 = distinct !{!665, !666, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E.argprom: argument 0"}
-!666 = distinct !{!666, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E.argprom"}
+!665 = distinct !{!665, !666, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E: argument 0"}
+!666 = distinct !{!666, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E"}
 !667 = !{!668, !669, !654, !658, !649, !652}
 !668 = distinct !{!668, !664, !"_ZN86_$LT$wasmtime_environ..fact..transcode..Transcoder$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2862132a5f71f079E: argument 1"}
 !669 = distinct !{!669, !670, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hdd91d865352bc06dE.llvm.10165051650595261532: argument 0"}
@@ -14712,8 +14712,8 @@ attributes #35 = { cold noreturn nounwind }
 !714 = distinct !{!714, !715, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817he57214f8e5d8fcc8E.llvm.10165051650595261532: argument 0"}
 !715 = distinct !{!715, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817he57214f8e5d8fcc8E.llvm.10165051650595261532"}
 !716 = !{!717}
-!717 = distinct !{!717, !718, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h386a02ab0b2464f5E.argprom: argument 0"}
-!718 = distinct !{!718, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h386a02ab0b2464f5E.argprom"}
+!717 = distinct !{!717, !718, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h386a02ab0b2464f5E: argument 0"}
+!718 = distinct !{!718, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h386a02ab0b2464f5E"}
 !719 = !{!708, !712}
 !720 = !{!721}
 !721 = distinct !{!721, !722, !"_ZN76_$LT$wasmtime_environ..fact..traps..Trap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74a060b5753d9a84E: argument 0"}
@@ -14973,8 +14973,8 @@ attributes #35 = { cold noreturn nounwind }
 !975 = distinct !{!975, !976, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817he57214f8e5d8fcc8E.llvm.10165051650595261532: argument 0"}
 !976 = distinct !{!976, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817he57214f8e5d8fcc8E.llvm.10165051650595261532"}
 !977 = !{!978}
-!978 = distinct !{!978, !979, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hd4a9738151ca6614E.argprom: argument 0"}
-!979 = distinct !{!979, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hd4a9738151ca6614E.argprom"}
+!978 = distinct !{!978, !979, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hd4a9738151ca6614E: argument 0"}
+!979 = distinct !{!979, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hd4a9738151ca6614E"}
 !980 = !{!969, !973}
 !981 = !{!982}
 !982 = distinct !{!982, !983, !"_ZN94_$LT$wasmtime_environ..component..dfg..CoreExport$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hba22451a8ff1f647E: argument 0"}
@@ -15134,8 +15134,8 @@ attributes #35 = { cold noreturn nounwind }
 !1136 = distinct !{!1136, !"_ZN86_$LT$wasmtime_environ..component..types..TypeTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17h10dd4bf559e83374E.llvm.3269599604001853466"}
 !1137 = distinct !{!1137, !1138, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h2b220bd51942b145E: argument 1"}
 !1138 = distinct !{!1138, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h2b220bd51942b145E"}
-!1139 = distinct !{!1139, !1140, !"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17haa6583a8c0555cf7E.argprom: argument 0"}
-!1140 = distinct !{!1140, !"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17haa6583a8c0555cf7E.argprom"}
+!1139 = distinct !{!1139, !1140, !"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17haa6583a8c0555cf7E: argument 0"}
+!1140 = distinct !{!1140, !"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17haa6583a8c0555cf7E"}
 !1141 = !{!1142, !1143, !1132, !1124}
 !1142 = distinct !{!1142, !1136, !"_ZN86_$LT$wasmtime_environ..component..types..TypeTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17h10dd4bf559e83374E.llvm.3269599604001853466: argument 0"}
 !1143 = distinct !{!1143, !1138, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h2b220bd51942b145E: argument 0"}
@@ -15373,8 +15373,8 @@ attributes #35 = { cold noreturn nounwind }
 !1375 = distinct !{!1375, !"_ZN86_$LT$wasmtime_environ..component..types..TypeFlags$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97d4887550423707E.llvm.3269599604001853466"}
 !1376 = distinct !{!1376, !1377, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h85e37490030c5b2aE: argument 1"}
 !1377 = distinct !{!1377, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h85e37490030c5b2aE"}
-!1378 = distinct !{!1378, !1379, !"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17hbce376023418f076E.argprom: argument 0"}
-!1379 = distinct !{!1379, !"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17hbce376023418f076E.argprom"}
+!1378 = distinct !{!1378, !1379, !"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17hbce376023418f076E: argument 0"}
+!1379 = distinct !{!1379, !"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17hbce376023418f076E"}
 !1380 = !{!1381, !1382, !1383, !1369, !1361}
 !1381 = distinct !{!1381, !1373, !"_ZN123_$LT$indexmap..set..IndexSet$LT$T$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..set..IndexSet$LT$T$C$S2$GT$$GT$$GT$2eq17h2584b5a7fe54bd6bE: argument 0"}
 !1382 = distinct !{!1382, !1375, !"_ZN86_$LT$wasmtime_environ..component..types..TypeFlags$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97d4887550423707E.llvm.3269599604001853466: argument 0"}
@@ -15638,8 +15638,8 @@ attributes #35 = { cold noreturn nounwind }
 !1640 = distinct !{!1640, !"_ZN85_$LT$wasmtime_environ..component..types..TypeEnum$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4d4c244398dd2330E.llvm.3269599604001853466"}
 !1641 = distinct !{!1641, !1642, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hf81c9fc62134e81dE: argument 1"}
 !1642 = distinct !{!1642, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hf81c9fc62134e81dE"}
-!1643 = distinct !{!1643, !1644, !"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17habc5e19270ff3c58E.argprom: argument 0"}
-!1644 = distinct !{!1644, !"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17habc5e19270ff3c58E.argprom"}
+!1643 = distinct !{!1643, !1644, !"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17habc5e19270ff3c58E: argument 0"}
+!1644 = distinct !{!1644, !"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17habc5e19270ff3c58E"}
 !1645 = !{!1646, !1647, !1648, !1634, !1625}
 !1646 = distinct !{!1646, !1638, !"_ZN123_$LT$indexmap..set..IndexSet$LT$T$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..set..IndexSet$LT$T$C$S2$GT$$GT$$GT$2eq17h2584b5a7fe54bd6bE: argument 0"}
 !1647 = distinct !{!1647, !1640, !"_ZN85_$LT$wasmtime_environ..component..types..TypeEnum$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4d4c244398dd2330E.llvm.3269599604001853466: argument 0"}
@@ -15730,8 +15730,8 @@ attributes #35 = { cold noreturn nounwind }
 !1732 = distinct !{!1732, !"_ZN87_$LT$wasmtime_environ..component..types..TypeRecord$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf5e2dc4f9c8d2000E.llvm.3269599604001853466"}
 !1733 = distinct !{!1733, !1734, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h18a9c3be971e0dafE: argument 1"}
 !1734 = distinct !{!1734, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h18a9c3be971e0dafE"}
-!1735 = distinct !{!1735, !1736, !"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17h895ed9bc9bcdedafE.argprom: argument 0"}
-!1736 = distinct !{!1736, !"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17h895ed9bc9bcdedafE.argprom"}
+!1735 = distinct !{!1735, !1736, !"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17h895ed9bc9bcdedafE: argument 0"}
+!1736 = distinct !{!1736, !"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17h895ed9bc9bcdedafE"}
 !1737 = !{!1738, !1739, !1728, !1720}
 !1738 = distinct !{!1738, !1732, !"_ZN87_$LT$wasmtime_environ..component..types..TypeRecord$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf5e2dc4f9c8d2000E.llvm.3269599604001853466: argument 0"}
 !1739 = distinct !{!1739, !1734, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h18a9c3be971e0dafE: argument 0"}
@@ -15846,8 +15846,8 @@ attributes #35 = { cold noreturn nounwind }
 !1848 = distinct !{!1848, !"_ZN87_$LT$wasmtime_environ..component..types..TypeOption$u20$as$u20$core..cmp..PartialEq$GT$2eq17h18e791daf71a24edE.llvm.3269599604001853466"}
 !1849 = distinct !{!1849, !1850, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hf4e114f5f2035fdeE: argument 1"}
 !1850 = distinct !{!1850, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hf4e114f5f2035fdeE"}
-!1851 = distinct !{!1851, !1852, !"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17hf46d917cd48b85d0E.argprom: argument 0"}
-!1852 = distinct !{!1852, !"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17hf46d917cd48b85d0E.argprom"}
+!1851 = distinct !{!1851, !1852, !"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17hf46d917cd48b85d0E: argument 0"}
+!1852 = distinct !{!1852, !"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17hf46d917cd48b85d0E"}
 !1853 = !{!1854, !1855, !1843, !1834}
 !1854 = distinct !{!1854, !1848, !"_ZN87_$LT$wasmtime_environ..component..types..TypeOption$u20$as$u20$core..cmp..PartialEq$GT$2eq17h18e791daf71a24edE.llvm.3269599604001853466: argument 0"}
 !1855 = distinct !{!1855, !1850, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hf4e114f5f2035fdeE: argument 0"}
@@ -16146,8 +16146,8 @@ attributes #35 = { cold noreturn nounwind }
 !2148 = distinct !{!2148, !2149, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h44ed433e6d0e542bE: argument 0"}
 !2149 = distinct !{!2149, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h44ed433e6d0e542bE"}
 !2150 = !{!2151}
-!2151 = distinct !{!2151, !2152, !"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17hbda0b6bb03b0a07aE.argprom: argument 0"}
-!2152 = distinct !{!2152, !"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17hbda0b6bb03b0a07aE.argprom"}
+!2151 = distinct !{!2151, !2152, !"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17hbda0b6bb03b0a07aE: argument 0"}
+!2152 = distinct !{!2152, !"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17hbda0b6bb03b0a07aE"}
 !2153 = !{!2154}
 !2154 = distinct !{!2154, !2155, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h7a3a81165e70143bE: argument 1"}
 !2155 = distinct !{!2155, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h7a3a81165e70143bE"}
@@ -16836,8 +16836,8 @@ attributes #35 = { cold noreturn nounwind }
 !2838 = distinct !{!2838, !2839, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817he57214f8e5d8fcc8E.llvm.10165051650595261532: argument 0"}
 !2839 = distinct !{!2839, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817he57214f8e5d8fcc8E.llvm.10165051650595261532"}
 !2840 = !{!2841}
-!2841 = distinct !{!2841, !2842, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h386a02ab0b2464f5E.argprom: argument 0"}
-!2842 = distinct !{!2842, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h386a02ab0b2464f5E.argprom"}
+!2841 = distinct !{!2841, !2842, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h386a02ab0b2464f5E: argument 0"}
+!2842 = distinct !{!2842, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h386a02ab0b2464f5E"}
 !2843 = !{!2833, !2836}
 !2844 = !{!2845}
 !2845 = distinct !{!2845, !2846, !"_ZN76_$LT$wasmtime_environ..fact..traps..Trap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74a060b5753d9a84E: argument 0"}
@@ -16885,8 +16885,8 @@ attributes #35 = { cold noreturn nounwind }
 !2887 = distinct !{!2887, !"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.llvm.12426178672938875897"}
 !2888 = distinct !{!2888, !2889, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hc6801bb3a4258cc4E: argument 1"}
 !2889 = distinct !{!2889, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hc6801bb3a4258cc4E"}
-!2890 = distinct !{!2890, !2891, !"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17h4dc79f2b1cb60ce1E.argprom: argument 0"}
-!2891 = distinct !{!2891, !"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17h4dc79f2b1cb60ce1E.argprom"}
+!2890 = distinct !{!2890, !2891, !"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17h4dc79f2b1cb60ce1E: argument 0"}
+!2891 = distinct !{!2891, !"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17h4dc79f2b1cb60ce1E"}
 !2892 = !{!2893, !2894, !2895, !2878, !2881}
 !2893 = distinct !{!2893, !2887, !"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.llvm.12426178672938875897: argument 0"}
 !2894 = distinct !{!2894, !2889, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hc6801bb3a4258cc4E: argument 0"}
@@ -16924,8 +16924,8 @@ attributes #35 = { cold noreturn nounwind }
 !2926 = distinct !{!2926, !2927, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817he57214f8e5d8fcc8E.llvm.10165051650595261532: argument 0"}
 !2927 = distinct !{!2927, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817he57214f8e5d8fcc8E.llvm.10165051650595261532"}
 !2928 = !{!2929}
-!2929 = distinct !{!2929, !2930, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h093bf08d1f6c3576E.argprom: argument 0"}
-!2930 = distinct !{!2930, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h093bf08d1f6c3576E.argprom"}
+!2929 = distinct !{!2929, !2930, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h093bf08d1f6c3576E: argument 0"}
+!2930 = distinct !{!2930, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h093bf08d1f6c3576E"}
 !2931 = !{!2921, !2924}
 !2932 = !{!2933}
 !2933 = distinct !{!2933, !2934, !"_ZN99_$LT$wasmtime_environ..component..translate..inline..ImportPath$u20$as$u20$core..cmp..PartialEq$GT$2eq17h10740db6be0ce410E: argument 0"}
@@ -16985,8 +16985,8 @@ attributes #35 = { cold noreturn nounwind }
 !2987 = distinct !{!2987, !2988, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817he57214f8e5d8fcc8E.llvm.10165051650595261532: argument 0"}
 !2988 = distinct !{!2988, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817he57214f8e5d8fcc8E.llvm.10165051650595261532"}
 !2989 = !{!2990}
-!2990 = distinct !{!2990, !2991, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hd4a9738151ca6614E.argprom: argument 0"}
-!2991 = distinct !{!2991, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hd4a9738151ca6614E.argprom"}
+!2990 = distinct !{!2990, !2991, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hd4a9738151ca6614E: argument 0"}
+!2991 = distinct !{!2991, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hd4a9738151ca6614E"}
 !2992 = !{!2982, !2985}
 !2993 = !{!2994}
 !2994 = distinct !{!2994, !2995, !"_ZN94_$LT$wasmtime_environ..component..dfg..CoreExport$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hba22451a8ff1f647E: argument 0"}
@@ -17018,8 +17018,8 @@ attributes #35 = { cold noreturn nounwind }
 !3020 = !{!3021, !3023}
 !3021 = distinct !{!3021, !3022, !"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E: argument 0"}
 !3022 = distinct !{!3022, !"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E"}
-!3023 = distinct !{!3023, !3024, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hed6d2efe30b04834E.argprom: argument 0"}
-!3024 = distinct !{!3024, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hed6d2efe30b04834E.argprom"}
+!3023 = distinct !{!3023, !3024, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hed6d2efe30b04834E: argument 0"}
+!3024 = distinct !{!3024, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hed6d2efe30b04834E"}
 !3025 = !{!3026, !3027, !3013, !3016}
 !3026 = distinct !{!3026, !3022, !"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E: argument 1"}
 !3027 = distinct !{!3027, !3028, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hff6dd722f3137ccfE.llvm.10165051650595261532: argument 0"}
@@ -17038,8 +17038,8 @@ attributes #35 = { cold noreturn nounwind }
 !3040 = distinct !{!3040, !3041, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817he57214f8e5d8fcc8E.llvm.10165051650595261532: argument 0"}
 !3041 = distinct !{!3041, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817he57214f8e5d8fcc8E.llvm.10165051650595261532"}
 !3042 = !{!3043}
-!3043 = distinct !{!3043, !3044, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E.argprom: argument 0"}
-!3044 = distinct !{!3044, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E.argprom"}
+!3043 = distinct !{!3043, !3044, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E: argument 0"}
+!3044 = distinct !{!3044, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E"}
 !3045 = !{!3035, !3038}
 !3046 = !{!3047}
 !3047 = distinct !{!3047, !3048, !"_ZN82_$LT$wasmtime_environ..component..dfg..CoreDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5abf60fdaae8aa65E: argument 0"}
@@ -17069,8 +17069,8 @@ attributes #35 = { cold noreturn nounwind }
 !3071 = distinct !{!3071, !3072, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817he57214f8e5d8fcc8E.llvm.10165051650595261532: argument 0"}
 !3072 = distinct !{!3072, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817he57214f8e5d8fcc8E.llvm.10165051650595261532"}
 !3073 = !{!3074}
-!3074 = distinct !{!3074, !3075, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E.argprom: argument 0"}
-!3075 = distinct !{!3075, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E.argprom"}
+!3074 = distinct !{!3074, !3075, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E: argument 0"}
+!3075 = distinct !{!3075, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E"}
 !3076 = !{!3066, !3069}
 !3077 = !{!3078}
 !3078 = distinct !{!3078, !3079, !"_ZN82_$LT$wasmtime_environ..component..dfg..CoreDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5abf60fdaae8aa65E: argument 0"}
@@ -17102,15 +17102,15 @@ attributes #35 = { cold noreturn nounwind }
 !3104 = !{!3105, !3107}
 !3105 = distinct !{!3105, !3106, !"_ZN86_$LT$wasmtime_environ..fact..transcode..Transcoder$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2862132a5f71f079E: argument 0"}
 !3106 = distinct !{!3106, !"_ZN86_$LT$wasmtime_environ..fact..transcode..Transcoder$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2862132a5f71f079E"}
-!3107 = distinct !{!3107, !3108, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E.argprom: argument 0"}
-!3108 = distinct !{!3108, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E.argprom"}
+!3107 = distinct !{!3107, !3108, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E: argument 0"}
+!3108 = distinct !{!3108, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E"}
 !3109 = !{!3110, !3111, !3097, !3100}
 !3110 = distinct !{!3110, !3106, !"_ZN86_$LT$wasmtime_environ..fact..transcode..Transcoder$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2862132a5f71f079E: argument 1"}
 !3111 = distinct !{!3111, !3112, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hdd91d865352bc06dE.llvm.10165051650595261532: argument 0"}
 !3112 = distinct !{!3112, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hdd91d865352bc06dE.llvm.10165051650595261532"}
 !3113 = !{!3114}
-!3114 = distinct !{!3114, !3115, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E.argprom: argument 0"}
-!3115 = distinct !{!3115, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E.argprom"}
+!3114 = distinct !{!3114, !3115, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E: argument 0"}
+!3115 = distinct !{!3115, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h64c8c37bb15358c8E"}
 !3116 = !{!3117}
 !3117 = distinct !{!3117, !3118, !"_ZN82_$LT$wasmtime_environ..component..dfg..CoreDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5abf60fdaae8aa65E: argument 0"}
 !3118 = distinct !{!3118, !"_ZN82_$LT$wasmtime_environ..component..dfg..CoreDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5abf60fdaae8aa65E"}
@@ -17130,8 +17130,8 @@ attributes #35 = { cold noreturn nounwind }
 !3132 = distinct !{!3132, !3131, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8e8fe0ea440457ecE: argument 1"}
 !3133 = !{!3123, !3126, !3117, !3120, !3114}
 !3134 = !{!3135}
-!3135 = distinct !{!3135, !3136, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E.argprom: argument 0"}
-!3136 = distinct !{!3136, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E.argprom"}
+!3135 = distinct !{!3135, !3136, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E: argument 0"}
+!3136 = distinct !{!3136, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h033414f93345cfe7E"}
 !3137 = !{!3138}
 !3138 = distinct !{!3138, !3139, !"_ZN82_$LT$wasmtime_environ..component..dfg..CoreDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5abf60fdaae8aa65E: argument 0"}
 !3139 = distinct !{!3139, !"_ZN82_$LT$wasmtime_environ..component..dfg..CoreDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5abf60fdaae8aa65E"}
@@ -17151,8 +17151,8 @@ attributes #35 = { cold noreturn nounwind }
 !3153 = distinct !{!3153, !3152, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8e8fe0ea440457ecE: argument 1"}
 !3154 = !{!3144, !3147, !3138, !3141, !3135}
 !3155 = !{!3156}
-!3156 = distinct !{!3156, !3157, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.argprom: argument 0"}
-!3157 = distinct !{!3157, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E.argprom"}
+!3156 = distinct !{!3156, !3157, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E: argument 0"}
+!3157 = distinct !{!3157, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h3adbb5ed2a71f6c6E"}
 !3158 = !{!3159}
 !3159 = distinct !{!3159, !3160, !"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2eq17he6d40801eacb5cffE: argument 0"}
 !3160 = distinct !{!3160, !"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2eq17he6d40801eacb5cffE"}
@@ -17175,8 +17175,8 @@ attributes #35 = { cold noreturn nounwind }
 !3177 = !{!3173, !3165, !3159, !3156}
 !3178 = !{!3176, !3168, !3162}
 !3179 = !{!3180}
-!3180 = distinct !{!3180, !3181, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h093bf08d1f6c3576E.argprom: argument 0"}
-!3181 = distinct !{!3181, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h093bf08d1f6c3576E.argprom"}
+!3180 = distinct !{!3180, !3181, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h093bf08d1f6c3576E: argument 0"}
+!3181 = distinct !{!3181, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h093bf08d1f6c3576E"}
 !3182 = !{!3183}
 !3183 = distinct !{!3183, !3184, !"_ZN99_$LT$wasmtime_environ..component..translate..inline..ImportPath$u20$as$u20$core..cmp..PartialEq$GT$2eq17h10740db6be0ce410E: argument 0"}
 !3184 = distinct !{!3184, !"_ZN99_$LT$wasmtime_environ..component..translate..inline..ImportPath$u20$as$u20$core..cmp..PartialEq$GT$2eq17h10740db6be0ce410E"}
@@ -17216,8 +17216,8 @@ attributes #35 = { cold noreturn nounwind }
 !3218 = distinct !{!3218, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.llvm.12426178672938875897"}
 !3219 = distinct !{!3219, !3218, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.llvm.12426178672938875897: argument 1"}
 !3220 = !{!3221}
-!3221 = distinct !{!3221, !3222, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hd4a9738151ca6614E.argprom: argument 0"}
-!3222 = distinct !{!3222, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hd4a9738151ca6614E.argprom"}
+!3221 = distinct !{!3221, !3222, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hd4a9738151ca6614E: argument 0"}
+!3222 = distinct !{!3222, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hd4a9738151ca6614E"}
 !3223 = !{!3224}
 !3224 = distinct !{!3224, !3225, !"_ZN94_$LT$wasmtime_environ..component..dfg..CoreExport$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hba22451a8ff1f647E: argument 0"}
 !3225 = distinct !{!3225, !"_ZN94_$LT$wasmtime_environ..component..dfg..CoreExport$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hba22451a8ff1f647E"}
@@ -17237,8 +17237,8 @@ attributes #35 = { cold noreturn nounwind }
 !3239 = distinct !{!3239, !3238, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8e8fe0ea440457ecE: argument 1"}
 !3240 = !{!3230, !3233, !3224, !3227, !3221}
 !3241 = !{!3242}
-!3242 = distinct !{!3242, !3243, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.argprom: argument 0"}
-!3243 = distinct !{!3243, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.argprom"}
+!3242 = distinct !{!3242, !3243, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E: argument 0"}
+!3243 = distinct !{!3243, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E"}
 !3244 = !{!3245}
 !3245 = distinct !{!3245, !3246, !"_ZN95_$LT$wasmtime_environ..component..translate..adapt..Adapter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6bdb77bbbf9c16a9E: argument 0"}
 !3246 = distinct !{!3246, !"_ZN95_$LT$wasmtime_environ..component..translate..adapt..Adapter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6bdb77bbbf9c16a9E"}
@@ -17265,8 +17265,8 @@ attributes #35 = { cold noreturn nounwind }
 !3267 = distinct !{!3267, !3266, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8e8fe0ea440457ecE: argument 1"}
 !3268 = !{!3258, !3261, !3251, !3254, !3245, !3248, !3242}
 !3269 = !{!3270}
-!3270 = distinct !{!3270, !3271, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h386a02ab0b2464f5E.argprom: argument 0"}
-!3271 = distinct !{!3271, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h386a02ab0b2464f5E.argprom"}
+!3270 = distinct !{!3270, !3271, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h386a02ab0b2464f5E: argument 0"}
+!3271 = distinct !{!3271, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h386a02ab0b2464f5E"}
 !3272 = !{!3273}
 !3273 = distinct !{!3273, !3274, !"_ZN76_$LT$wasmtime_environ..fact..traps..Trap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74a060b5753d9a84E: argument 0"}
 !3274 = distinct !{!3274, !"_ZN76_$LT$wasmtime_environ..fact..traps..Trap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74a060b5753d9a84E"}
@@ -17279,8 +17279,8 @@ attributes #35 = { cold noreturn nounwind }
 !3281 = distinct !{!3281, !3280, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8e8fe0ea440457ecE: argument 1"}
 !3282 = !{!3273, !3276, !3270}
 !3283 = !{!3284}
-!3284 = distinct !{!3284, !3285, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h41c7cca334de5491E.argprom: argument 0"}
-!3285 = distinct !{!3285, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h41c7cca334de5491E.argprom"}
+!3284 = distinct !{!3284, !3285, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h41c7cca334de5491E: argument 0"}
+!3285 = distinct !{!3285, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h41c7cca334de5491E"}
 !3286 = !{!3287}
 !3287 = distinct !{!3287, !3288, !"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2eq17h628e4f2cd5274140E: argument 0"}
 !3288 = distinct !{!3288, !"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2eq17h628e4f2cd5274140E"}
@@ -17344,8 +17344,8 @@ attributes #35 = { cold noreturn nounwind }
 !3346 = !{!3343, !3334, !3329, !3324}
 !3347 = !{!3340, !3331, !3326, !3321, !3287, !3290, !3284}
 !3348 = !{!3349}
-!3349 = distinct !{!3349, !3350, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom: argument 0"}
-!3350 = distinct !{!3350, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E.argprom"}
+!3349 = distinct !{!3349, !3350, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E: argument 0"}
+!3350 = distinct !{!3350, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h4a4256818b53ba98E"}
 !3351 = !{!3352}
 !3352 = distinct !{!3352, !3353, !"_ZN71_$LT$wasmtime_environ..fact..Helper$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc135d2b3940798a2E: argument 0"}
 !3353 = distinct !{!3353, !"_ZN71_$LT$wasmtime_environ..fact..Helper$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc135d2b3940798a2E"}
@@ -17380,8 +17380,8 @@ attributes #35 = { cold noreturn nounwind }
 !3382 = !{!3378, !3371, !3352, !3349}
 !3383 = !{!3381, !3374, !3355}
 !3384 = !{!3385}
-!3385 = distinct !{!3385, !3386, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E.argprom: argument 0"}
-!3386 = distinct !{!3386, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E.argprom"}
+!3385 = distinct !{!3385, !3386, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E: argument 0"}
+!3386 = distinct !{!3386, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hfa555d8165b4fac6E"}
 !3387 = !{!3388}
 !3388 = distinct !{!3388, !3389, !"_ZN86_$LT$wasmtime_environ..fact..transcode..Transcoder$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2862132a5f71f079E: argument 0"}
 !3389 = distinct !{!3389, !"_ZN86_$LT$wasmtime_environ..fact..transcode..Transcoder$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2862132a5f71f079E"}
@@ -17389,8 +17389,8 @@ attributes #35 = { cold noreturn nounwind }
 !3391 = distinct !{!3391, !3389, !"_ZN86_$LT$wasmtime_environ..fact..transcode..Transcoder$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2862132a5f71f079E: argument 1"}
 !3392 = !{!3388, !3385}
 !3393 = !{!3394}
-!3394 = distinct !{!3394, !3395, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hed6d2efe30b04834E.argprom: argument 0"}
-!3395 = distinct !{!3395, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hed6d2efe30b04834E.argprom"}
+!3394 = distinct !{!3394, !3395, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hed6d2efe30b04834E: argument 0"}
+!3395 = distinct !{!3395, !"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hed6d2efe30b04834E"}
 !3396 = !{!3397}
 !3397 = distinct !{!3397, !3398, !"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E: argument 0"}
 !3398 = distinct !{!3398, !"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E"}

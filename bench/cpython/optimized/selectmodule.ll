@@ -1256,7 +1256,7 @@ if.then5.i:                                       ; preds = %if.end3.i
   br label %exit
 
 if.end6.i:                                        ; preds = %if.end, %if.end3.i
-  %call.i = call fastcc ptr @newPyEpoll_Object.argelim(ptr noundef %type, i32 noundef -1)
+  %call.i = call fastcc ptr @newPyEpoll_Object(ptr noundef %type, i32 noundef -1)
   br label %exit
 
 exit:                                             ; preds = %if.end6.i, %if.then5.i, %if.then2.i, %land.lhs.true38, %land.lhs.true26, %cond.end15
@@ -1292,7 +1292,7 @@ land.lhs.true:                                    ; preds = %entry
 
 exit.sink.split:                                  ; preds = %land.lhs.true, %entry
   %call.sink = phi i32 [ %call, %entry ], [ -1, %land.lhs.true ]
-  %call.i = tail call fastcc ptr @newPyEpoll_Object.argelim(ptr noundef %type, i32 noundef %call.sink)
+  %call.i = tail call fastcc ptr @newPyEpoll_Object(ptr noundef %type, i32 noundef %call.sink)
   br label %exit
 
 exit:                                             ; preds = %exit.sink.split, %land.lhs.true
@@ -1354,14 +1354,14 @@ entry:
 if.then.i:                                        ; preds = %entry
   %1 = load ptr, ptr @PyExc_ValueError, align 8
   tail call void @PyErr_SetString(ptr noundef %1, ptr noundef nonnull @.str.45) #8
-  br label %select_epoll_fileno_impl.argprom.exit
+  br label %select_epoll_fileno_impl.exit
 
 if.end.i:                                         ; preds = %entry
   %conv.i = zext nneg i32 %self.val to i64
   %call2.i = tail call ptr @PyLong_FromLong(i64 noundef %conv.i) #8
-  br label %select_epoll_fileno_impl.argprom.exit
+  br label %select_epoll_fileno_impl.exit
 
-select_epoll_fileno_impl.argprom.exit:            ; preds = %if.then.i, %if.end.i
+select_epoll_fileno_impl.exit:                    ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ %call2.i, %if.end.i ]
   ret ptr %retval.0.i
 }
@@ -1411,7 +1411,7 @@ if.end9.split:                                    ; preds = %if.end9
 if.then.i.i:                                      ; preds = %if.end9.split
   %5 = load ptr, ptr @PyExc_ValueError, align 8
   call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.45) #8
-  br label %select_epoll_modify_impl.argprom.exit
+  br label %select_epoll_modify_impl.exit
 
 if.end.i.i:                                       ; preds = %if.end9.split
   store i32 %conv, ptr %ev.i.i, align 4
@@ -1421,14 +1421,14 @@ if.end.i.i:                                       ; preds = %if.end9.split
   %call7.i.i = call i32 @epoll_ctl(i32 noundef %self.val14, i32 noundef 3, i32 noundef %3, ptr noundef nonnull %ev.i.i) #8
   call void @PyEval_RestoreThread(ptr noundef %call6.i.i) #8
   %cmp9.i.i = icmp slt i32 %call7.i.i, 0
-  br i1 %cmp9.i.i, label %if.then10.i.i, label %select_epoll_modify_impl.argprom.exit
+  br i1 %cmp9.i.i, label %if.then10.i.i, label %select_epoll_modify_impl.exit
 
 if.then10.i.i:                                    ; preds = %if.end.i.i
   %6 = load ptr, ptr @PyExc_OSError, align 8
   %call11.i.i = call ptr @PyErr_SetFromErrno(ptr noundef %6) #8
-  br label %select_epoll_modify_impl.argprom.exit
+  br label %select_epoll_modify_impl.exit
 
-select_epoll_modify_impl.argprom.exit:            ; preds = %if.then.i.i, %if.end.i.i, %if.then10.i.i
+select_epoll_modify_impl.exit:                    ; preds = %if.then.i.i, %if.end.i.i, %if.then10.i.i
   %retval.0.i.i = phi ptr [ null, %if.then.i.i ], [ null, %if.then10.i.i ], [ @_Py_NoneStruct, %if.end.i.i ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ev.i.i)
   br label %exit
@@ -1449,7 +1449,7 @@ land.lhs.true14.split:                            ; preds = %land.lhs.true14
 if.then.i.i25:                                    ; preds = %land.lhs.true14.split
   %9 = load ptr, ptr @PyExc_ValueError, align 8
   call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.45) #8
-  br label %select_epoll_modify_impl.argprom.exit26
+  br label %select_epoll_modify_impl.exit26
 
 if.end.i.i17:                                     ; preds = %land.lhs.true14.split
   store i32 -1, ptr %ev.i.i15, align 4
@@ -1459,20 +1459,20 @@ if.end.i.i17:                                     ; preds = %land.lhs.true14.spl
   %call7.i.i20 = call i32 @epoll_ctl(i32 noundef %self.val, i32 noundef 3, i32 noundef %7, ptr noundef nonnull %ev.i.i15) #8
   call void @PyEval_RestoreThread(ptr noundef %call6.i.i19) #8
   %cmp9.i.i21 = icmp slt i32 %call7.i.i20, 0
-  br i1 %cmp9.i.i21, label %if.then10.i.i23, label %select_epoll_modify_impl.argprom.exit26
+  br i1 %cmp9.i.i21, label %if.then10.i.i23, label %select_epoll_modify_impl.exit26
 
 if.then10.i.i23:                                  ; preds = %if.end.i.i17
   %10 = load ptr, ptr @PyExc_OSError, align 8
   %call11.i.i24 = call ptr @PyErr_SetFromErrno(ptr noundef %10) #8
-  br label %select_epoll_modify_impl.argprom.exit26
+  br label %select_epoll_modify_impl.exit26
 
-select_epoll_modify_impl.argprom.exit26:          ; preds = %if.then.i.i25, %if.end.i.i17, %if.then10.i.i23
+select_epoll_modify_impl.exit26:                  ; preds = %if.then.i.i25, %if.end.i.i17, %if.then10.i.i23
   %retval.0.i.i22 = phi ptr [ null, %if.then.i.i25 ], [ null, %if.then10.i.i23 ], [ @_Py_NoneStruct, %if.end.i.i17 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ev.i.i15)
   br label %exit
 
-exit:                                             ; preds = %select_epoll_modify_impl.argprom.exit, %select_epoll_modify_impl.argprom.exit26, %land.lhs.true14, %if.end, %cond.end
-  %return_value.0 = phi ptr [ null, %land.lhs.true14 ], [ null, %if.end ], [ null, %cond.end ], [ %retval.0.i.i, %select_epoll_modify_impl.argprom.exit ], [ %retval.0.i.i22, %select_epoll_modify_impl.argprom.exit26 ]
+exit:                                             ; preds = %select_epoll_modify_impl.exit, %select_epoll_modify_impl.exit26, %land.lhs.true14, %if.end, %cond.end
+  %return_value.0 = phi ptr [ null, %land.lhs.true14 ], [ null, %if.end ], [ null, %cond.end ], [ %retval.0.i.i, %select_epoll_modify_impl.exit ], [ %retval.0.i.i22, %select_epoll_modify_impl.exit26 ]
   ret ptr %return_value.0
 }
 
@@ -1541,7 +1541,7 @@ skip_optional_pos:                                ; preds = %if.end18, %land.lhs
 if.then.i.i:                                      ; preds = %skip_optional_pos
   %7 = load ptr, ptr @PyExc_ValueError, align 8
   call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.45) #8
-  br label %select_epoll_register_impl.argprom.exit
+  br label %select_epoll_register_impl.exit
 
 if.end.i.i:                                       ; preds = %skip_optional_pos
   store i32 %eventmask.0, ptr %ev.i.i, align 4
@@ -1551,20 +1551,20 @@ if.end.i.i:                                       ; preds = %skip_optional_pos
   %call7.i.i = call i32 @epoll_ctl(i32 noundef %self.val, i32 noundef 1, i32 noundef %5, ptr noundef nonnull %ev.i.i) #8
   call void @PyEval_RestoreThread(ptr noundef %call6.i.i) #8
   %cmp9.i.i = icmp slt i32 %call7.i.i, 0
-  br i1 %cmp9.i.i, label %if.then10.i.i, label %select_epoll_register_impl.argprom.exit
+  br i1 %cmp9.i.i, label %if.then10.i.i, label %select_epoll_register_impl.exit
 
 if.then10.i.i:                                    ; preds = %if.end.i.i
   %8 = load ptr, ptr @PyExc_OSError, align 8
   %call11.i.i = call ptr @PyErr_SetFromErrno(ptr noundef %8) #8
-  br label %select_epoll_register_impl.argprom.exit
+  br label %select_epoll_register_impl.exit
 
-select_epoll_register_impl.argprom.exit:          ; preds = %if.then.i.i, %if.end.i.i, %if.then10.i.i
+select_epoll_register_impl.exit:                  ; preds = %if.then.i.i, %if.end.i.i, %if.then10.i.i
   %retval.0.i.i = phi ptr [ null, %if.then.i.i ], [ null, %if.then10.i.i ], [ @_Py_NoneStruct, %if.end.i.i ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ev.i.i)
   br label %exit
 
-exit:                                             ; preds = %land.lhs.true23, %if.end, %cond.end9, %select_epoll_register_impl.argprom.exit
-  %return_value.0 = phi ptr [ null, %land.lhs.true23 ], [ %retval.0.i.i, %select_epoll_register_impl.argprom.exit ], [ null, %if.end ], [ null, %cond.end9 ]
+exit:                                             ; preds = %land.lhs.true23, %if.end, %cond.end9, %select_epoll_register_impl.exit
+  %return_value.0 = phi ptr [ null, %land.lhs.true23 ], [ %retval.0.i.i, %select_epoll_register_impl.exit ], [ null, %if.end ], [ null, %cond.end9 ]
   ret ptr %return_value.0
 }
 
@@ -1604,27 +1604,27 @@ if.end9:                                          ; preds = %if.end
 if.then.i.i:                                      ; preds = %if.end9
   %4 = load ptr, ptr @PyExc_ValueError, align 8
   call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.45) #8
-  br label %select_epoll_unregister_impl.argprom.exit
+  br label %select_epoll_unregister_impl.exit
 
 if.end.i.i:                                       ; preds = %if.end9
   %call6.i.i = call ptr @PyEval_SaveThread() #8
   %call7.i.i = call i32 @epoll_ctl(i32 noundef %self.val, i32 noundef 2, i32 noundef %2, ptr noundef nonnull %ev.i.i) #8
   call void @PyEval_RestoreThread(ptr noundef %call6.i.i) #8
   %cmp9.i.i = icmp slt i32 %call7.i.i, 0
-  br i1 %cmp9.i.i, label %if.then10.i.i, label %select_epoll_unregister_impl.argprom.exit
+  br i1 %cmp9.i.i, label %if.then10.i.i, label %select_epoll_unregister_impl.exit
 
 if.then10.i.i:                                    ; preds = %if.end.i.i
   %5 = load ptr, ptr @PyExc_OSError, align 8
   %call11.i.i = call ptr @PyErr_SetFromErrno(ptr noundef %5) #8
-  br label %select_epoll_unregister_impl.argprom.exit
+  br label %select_epoll_unregister_impl.exit
 
-select_epoll_unregister_impl.argprom.exit:        ; preds = %if.then.i.i, %if.end.i.i, %if.then10.i.i
+select_epoll_unregister_impl.exit:                ; preds = %if.then.i.i, %if.end.i.i, %if.then10.i.i
   %retval.0.i.i = phi ptr [ null, %if.then.i.i ], [ null, %if.then10.i.i ], [ @_Py_NoneStruct, %if.end.i.i ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ev.i.i)
   br label %exit
 
-exit:                                             ; preds = %if.end, %cond.end, %select_epoll_unregister_impl.argprom.exit
-  %return_value.0 = phi ptr [ %retval.0.i.i, %select_epoll_unregister_impl.argprom.exit ], [ null, %if.end ], [ null, %cond.end ]
+exit:                                             ; preds = %if.end, %cond.end, %select_epoll_unregister_impl.exit
+  %return_value.0 = phi ptr [ %retval.0.i.i, %select_epoll_unregister_impl.exit ], [ null, %if.end ], [ null, %cond.end ]
   ret ptr %return_value.0
 }
 
@@ -1957,7 +1957,7 @@ declare i32 @PyLong_AsInt(ptr noundef) local_unnamed_addr #1
 declare ptr @PyErr_Occurred() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @newPyEpoll_Object.argelim(ptr noundef %type, i32 noundef %fd) unnamed_addr #0 {
+define internal fastcc ptr @newPyEpoll_Object(ptr noundef %type, i32 noundef %fd) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyType_GetSlot(ptr noundef %type, i32 noundef 47) #8
   %call1 = tail call ptr %call(ptr noundef %type, i64 noundef 0) #8
@@ -2256,13 +2256,13 @@ if.then2.i:                                       ; preds = %if.else.i
   %5 = load ptr, ptr @PyExc_TypeError, align 8
   %call3.i = call i32 @PyErr_ExceptionMatches(ptr noundef %5) #8
   %tobool.not.i = icmp eq i32 %call3.i, 0
-  br i1 %tobool.not.i, label %select_select_impl.argprom.exit, label %return.sink.split.i
+  br i1 %tobool.not.i, label %select_select_impl.exit, label %return.sink.split.i
 
 if.end5.i:                                        ; preds = %if.else.i
   %6 = load i64, ptr %timeout.i, align 8
   %call6.i = call i32 @_PyTime_AsTimeval(i64 noundef %6, ptr noundef nonnull %tv.i, i32 noundef 3) #8
   %cmp7.i = icmp eq i32 %call6.i, -1
-  br i1 %cmp7.i, label %select_select_impl.argprom.exit, label %if.end9.i
+  br i1 %cmp7.i, label %select_select_impl.exit, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end5.i
   %7 = load i64, ptr %tv.i, align 8
@@ -2532,7 +2532,7 @@ land.rhs.i62.i:                                   ; preds = %land.rhs.i62.i.preh
   %sentinel.i65.i = getelementptr inbounds i8, ptr %arrayidx.i64.i, i64 12
   %27 = load i32, ptr %sentinel.i65.i, align 4
   %cmp1.i66.i = icmp sgt i32 %27, -1
-  br i1 %cmp1.i66.i, label %do.body.i68.i, label %select_select_impl.argprom.exit
+  br i1 %cmp1.i66.i, label %do.body.i68.i, label %select_select_impl.exit
 
 do.body.i68.i:                                    ; preds = %land.rhs.i62.i
   %28 = load ptr, ptr %arrayidx.i64.i, align 16
@@ -2559,16 +2559,16 @@ if.then1.i.i78.i:                                 ; preds = %if.end.i.i75.i
 for.inc.i72.i:                                    ; preds = %if.then1.i.i78.i, %if.end.i.i75.i, %if.then.i70.i, %do.body.i68.i
   %indvars.iv.next.i73.i = add nuw nsw i64 %indvars.iv.i63.i, 1
   %exitcond.not.i74.i = icmp eq i64 %indvars.iv.next.i73.i, 1025
-  br i1 %exitcond.not.i74.i, label %select_select_impl.argprom.exit, label %land.rhs.i62.i, !llvm.loop !9
+  br i1 %exitcond.not.i74.i, label %select_select_impl.exit, label %land.rhs.i62.i, !llvm.loop !9
 
 return.sink.split.i:                              ; preds = %if.end9.i, %if.then2.i
   %PyExc_TypeError.sink.i = phi ptr [ @PyExc_TypeError, %if.then2.i ], [ @PyExc_ValueError, %if.end9.i ]
   %.str.58.sink.i = phi ptr [ @.str.58, %if.then2.i ], [ @.str.59, %if.end9.i ]
   %31 = load ptr, ptr %PyExc_TypeError.sink.i, align 8
   call void @PyErr_SetString(ptr noundef %31, ptr noundef nonnull %.str.58.sink.i) #8
-  br label %select_select_impl.argprom.exit
+  br label %select_select_impl.exit
 
-select_select_impl.argprom.exit:                  ; preds = %land.rhs.i62.i, %for.inc.i72.i, %if.then2.i, %if.end5.i, %return.sink.split.i
+select_select_impl.exit:                          ; preds = %land.rhs.i62.i, %for.inc.i72.i, %if.then2.i, %if.end5.i, %return.sink.split.i
   %retval.0.i = phi ptr [ null, %if.then2.i ], [ null, %if.end5.i ], [ null, %return.sink.split.i ], [ %ret.0.i, %for.inc.i72.i ], [ %ret.0.i, %land.rhs.i62.i ]
   call void @llvm.lifetime.end.p0(i64 16400, ptr nonnull %rfd2obj.i)
   call void @llvm.lifetime.end.p0(i64 16400, ptr nonnull %wfd2obj.i)
@@ -2580,8 +2580,8 @@ select_select_impl.argprom.exit:                  ; preds = %land.rhs.i62.i, %fo
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %timeout.i)
   br label %exit
 
-exit:                                             ; preds = %lor.lhs.false, %select_select_impl.argprom.exit
-  %return_value.0 = phi ptr [ %retval.0.i, %select_select_impl.argprom.exit ], [ null, %lor.lhs.false ]
+exit:                                             ; preds = %lor.lhs.false, %select_select_impl.exit
+  %return_value.0 = phi ptr [ %retval.0.i, %select_select_impl.exit ], [ null, %lor.lhs.false ]
   ret ptr %return_value.0
 }
 

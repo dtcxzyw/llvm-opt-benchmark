@@ -515,7 +515,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i.i: ; preds = %_ZN12_GLOB
   %106 = getelementptr inbounds i8, ptr %105, i64 48
   %107 = load ptr, ptr %106, align 8
   %108 = call noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %104) #14
-  br i1 %108, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvE3$_0EEvT_PDTclfL0p_EE.argprom.exit.i.i"
+  br i1 %108, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvE3$_0EEvT_PDTclfL0p_EE.exit.i.i"
 
 _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i.i: ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i.i, %_ZN12_GLOBAL__N_118LoopVersioningLICM18legalLoopStructureEv.exit.thread.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
@@ -590,13 +590,13 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
 _ZN4llvm24OptimizationRemarkMissedD2Ev.exit.i.i.i.i: ; preds = %136, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i.i.i
   %137 = load ptr, ptr %37, align 8, !noalias !4
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %137, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_0clEv.argprom.exit.i.i.i", label %138
+  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_0clEv.exit.i.i.i", label %138
 
 138:                                              ; preds = %_ZN4llvm24OptimizationRemarkMissedD2Ev.exit.i.i.i.i
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %37, ptr noundef nonnull align 4 dereferenceable(8) %137) #14
-  br label %"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_0clEv.argprom.exit.i.i.i"
+  br label %"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_0clEv.exit.i.i.i"
 
-"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_0clEv.argprom.exit.i.i.i": ; preds = %138, %_ZN4llvm24OptimizationRemarkMissedD2Ev.exit.i.i.i.i
+"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_0clEv.exit.i.i.i": ; preds = %138, %_ZN4llvm24OptimizationRemarkMissedD2Ev.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37)
@@ -607,7 +607,7 @@ _ZN4llvm24OptimizationRemarkMissedD2Ev.exit.i.i.i.i: ; preds = %136, %_ZN4llvm23
   %.not4.i.i.i.i.i.i.i.i = icmp eq i64 %140, 0
   br i1 %.not4.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i.i, label %.lr.ph.i.preheader.i.i.i.i.i.i.i
 
-.lr.ph.i.preheader.i.i.i.i.i.i.i:                 ; preds = %"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_0clEv.argprom.exit.i.i.i"
+.lr.ph.i.preheader.i.i.i.i.i.i.i:                 ; preds = %"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_0clEv.exit.i.i.i"
   %141 = getelementptr inbounds %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", ptr %139, i64 %140
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
@@ -620,16 +620,16 @@ _ZN4llvm24OptimizationRemarkMissedD2Ev.exit.i.i.i.i: ; preds = %136, %_ZN4llvm23
   %.not.i.i.i.i.i1.i.i.i = icmp eq ptr %139, %142
   br i1 %.not.i.i.i.i.i1.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !7
 
-_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_0clEv.argprom.exit.i.i.i"
+_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_0clEv.exit.i.i.i"
   %144 = load ptr, ptr %116, align 8
   %145 = icmp eq ptr %144, %118
-  br i1 %145, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvE3$_0EEvT_PDTclfL0p_EE.argprom.exit.i.i", label %146
+  br i1 %145, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvE3$_0EEvT_PDTclfL0p_EE.exit.i.i", label %146
 
 146:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i.i
   call void @free(ptr noundef %144) #14
-  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvE3$_0EEvT_PDTclfL0p_EE.argprom.exit.i.i"
+  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvE3$_0EEvT_PDTclfL0p_EE.exit.i.i"
 
-"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvE3$_0EEvT_PDTclfL0p_EE.argprom.exit.i.i": ; preds = %146, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i.i, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i.i
+"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvE3$_0EEvT_PDTclfL0p_EE.exit.i.i": ; preds = %146, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i.i, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %38)
   br label %632
 
@@ -785,7 +785,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i.i.i: ; preds = %213
   %222 = getelementptr inbounds i8, ptr %221, i64 48
   %223 = load ptr, ptr %222, align 8
   %224 = call noundef zeroext i1 %223(ptr noundef nonnull align 8 dereferenceable(32) %220) #14
-  br i1 %224, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i.i.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_0EEvT_PDTclfL0p_EE.argprom.exit.i.i.i"
+  br i1 %224, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i.i.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_0EEvT_PDTclfL0p_EE.exit.i.i.i"
 
 _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i.i.i: ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i.i.i, %213
   call void @llvm.experimental.noalias.scope.decl(metadata !9)
@@ -846,13 +846,13 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
   %248 = load ptr, ptr %232, align 8, !noalias !9
   %249 = getelementptr inbounds i8, ptr %33, i64 96
   %250 = icmp eq ptr %248, %249
-  br i1 %250, label %"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_0clEv.argprom.exit.i.i.i.i", label %251
+  br i1 %250, label %"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_0clEv.exit.i.i.i.i", label %251
 
 251:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i.i.i.i
   call void @free(ptr noundef %248) #14
-  br label %"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_0clEv.argprom.exit.i.i.i.i"
+  br label %"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_0clEv.exit.i.i.i.i"
 
-"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_0clEv.argprom.exit.i.i.i.i": ; preds = %251, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i.i.i.i
+"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_0clEv.exit.i.i.i.i": ; preds = %251, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %33)
   call void @_ZN4llvm25OptimizationRemarkEmitter4emitERNS_30DiagnosticInfoOptimizationBaseE(ptr noundef nonnull align 8 dereferenceable(24) %214, ptr noundef nonnull align 8 dereferenceable(424) %34) #14
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm30DiagnosticInfoOptimizationBaseE, i64 16), ptr %34, align 8
@@ -861,7 +861,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
   %.not4.i.i.i.i.i.i.i4.i.i = icmp eq i64 %253, 0
   br i1 %.not4.i.i.i.i.i.i.i4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i9.i.i, label %.lr.ph.i.preheader.i.i.i.i.i.i5.i.i
 
-.lr.ph.i.preheader.i.i.i.i.i.i5.i.i:              ; preds = %"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_0clEv.argprom.exit.i.i.i.i"
+.lr.ph.i.preheader.i.i.i.i.i.i5.i.i:              ; preds = %"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_0clEv.exit.i.i.i.i"
   %254 = getelementptr inbounds %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", ptr %252, i64 %253
   br label %.lr.ph.i.i.i.i.i.i.i6.i.i
 
@@ -874,16 +874,16 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
   %.not.i.i.i.i.i.i.i8.i.i = icmp eq ptr %252, %255
   br i1 %.not.i.i.i.i.i.i.i8.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i9.i.i, label %.lr.ph.i.i.i.i.i.i.i6.i.i, !llvm.loop !7
 
-_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i9.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i6.i.i, %"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_0clEv.argprom.exit.i.i.i.i"
+_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i9.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i6.i.i, %"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_0clEv.exit.i.i.i.i"
   %257 = load ptr, ptr %231, align 8
   %258 = icmp eq ptr %257, %233
-  br i1 %258, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_0EEvT_PDTclfL0p_EE.argprom.exit.i.i.i", label %259
+  br i1 %258, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_0EEvT_PDTclfL0p_EE.exit.i.i.i", label %259
 
 259:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i9.i.i
   call void @free(ptr noundef %257) #14
-  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_0EEvT_PDTclfL0p_EE.argprom.exit.i.i.i"
+  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_0EEvT_PDTclfL0p_EE.exit.i.i.i"
 
-"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_0EEvT_PDTclfL0p_EE.argprom.exit.i.i.i": ; preds = %259, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i9.i.i, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i.i.i
+"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_0EEvT_PDTclfL0p_EE.exit.i.i.i": ; preds = %259, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i9.i.i, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %34)
   br label %632
 
@@ -940,7 +940,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i70.i.i: ; preds = %276
   %285 = getelementptr inbounds i8, ptr %284, i64 48
   %286 = load ptr, ptr %285, align 8
   %287 = call noundef zeroext i1 %286(ptr noundef nonnull align 8 dereferenceable(32) %283) #14
-  br i1 %287, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i54.i.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_1EEvT_PDTclfL0p_EE.argprom.exit.i.i"
+  br i1 %287, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i54.i.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_1EEvT_PDTclfL0p_EE.exit.i.i"
 
 _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i54.i.i: ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i70.i.i, %276
   call void @llvm.experimental.noalias.scope.decl(metadata !12)
@@ -1053,13 +1053,13 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
 _ZN4llvm24OptimizationRemarkMissedD2Ev.exit.i.i62.i.i: ; preds = %328, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i61.i.i
   %329 = load ptr, ptr %17, align 8, !noalias !12
   %.not.i.i.i.i.i.i63.i.i = icmp eq ptr %329, null
-  br i1 %.not.i.i.i.i.i.i63.i.i, label %"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_1clEv.argprom.exit.i.i.i", label %330
+  br i1 %.not.i.i.i.i.i.i63.i.i, label %"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_1clEv.exit.i.i.i", label %330
 
 330:                                              ; preds = %_ZN4llvm24OptimizationRemarkMissedD2Ev.exit.i.i62.i.i
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %17, ptr noundef nonnull align 4 dereferenceable(8) %329) #14
-  br label %"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_1clEv.argprom.exit.i.i.i"
+  br label %"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_1clEv.exit.i.i.i"
 
-"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_1clEv.argprom.exit.i.i.i": ; preds = %330, %_ZN4llvm24OptimizationRemarkMissedD2Ev.exit.i.i62.i.i
+"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_1clEv.exit.i.i.i": ; preds = %330, %_ZN4llvm24OptimizationRemarkMissedD2Ev.exit.i.i62.i.i
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
@@ -1072,7 +1072,7 @@ _ZN4llvm24OptimizationRemarkMissedD2Ev.exit.i.i62.i.i: ; preds = %328, %_ZN4llvm
   %.not4.i.i.i.i.i.i64.i.i = icmp eq i64 %332, 0
   br i1 %.not4.i.i.i.i.i.i64.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i69.i.i, label %.lr.ph.i.preheader.i.i.i.i.i65.i.i
 
-.lr.ph.i.preheader.i.i.i.i.i65.i.i:               ; preds = %"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_1clEv.argprom.exit.i.i.i"
+.lr.ph.i.preheader.i.i.i.i.i65.i.i:               ; preds = %"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_1clEv.exit.i.i.i"
   %333 = getelementptr inbounds %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", ptr %331, i64 %332
   br label %.lr.ph.i.i.i.i.i.i66.i.i
 
@@ -1085,16 +1085,16 @@ _ZN4llvm24OptimizationRemarkMissedD2Ev.exit.i.i62.i.i: ; preds = %328, %_ZN4llvm
   %.not.i.i.i.i.i1.i68.i.i = icmp eq ptr %331, %334
   br i1 %.not.i.i.i.i.i1.i68.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i69.i.i, label %.lr.ph.i.i.i.i.i.i66.i.i, !llvm.loop !7
 
-_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i69.i.i: ; preds = %.lr.ph.i.i.i.i.i.i66.i.i, %"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_1clEv.argprom.exit.i.i.i"
+_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i69.i.i: ; preds = %.lr.ph.i.i.i.i.i.i66.i.i, %"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_1clEv.exit.i.i.i"
   %336 = load ptr, ptr %308, align 8
   %337 = icmp eq ptr %336, %310
-  br i1 %337, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_1EEvT_PDTclfL0p_EE.argprom.exit.i.i", label %338
+  br i1 %337, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_1EEvT_PDTclfL0p_EE.exit.i.i", label %338
 
 338:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i69.i.i
   call void @free(ptr noundef %336) #14
-  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_1EEvT_PDTclfL0p_EE.argprom.exit.i.i"
+  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_1EEvT_PDTclfL0p_EE.exit.i.i"
 
-"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_1EEvT_PDTclfL0p_EE.argprom.exit.i.i": ; preds = %338, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i69.i.i, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i70.i.i
+"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_1EEvT_PDTclfL0p_EE.exit.i.i": ; preds = %338, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i69.i.i, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i70.i.i
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %20)
   br label %632
 
@@ -1120,7 +1120,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
 
 352:                                              ; preds = %344
   %353 = load ptr, ptr %70, align 8
-  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_2EEvT_PDTclfL0p_EE.argprom"(ptr noundef nonnull align 8 dereferenceable(24) %353, ptr %42)
+  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_2EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %353, ptr %42)
   br label %632
 
 _ZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEv.exit.i.i: ; preds = %344
@@ -1362,7 +1362,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i36.i.i: ; preds = %441
   %449 = getelementptr inbounds i8, ptr %448, i64 48
   %450 = load ptr, ptr %449, align 8
   %451 = call noundef zeroext i1 %450(ptr noundef nonnull align 8 dereferenceable(32) %447) #14
-  br i1 %451, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i20.i.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvE3$_1EEvT_PDTclfL0p_EE.argprom.exit.i.i"
+  br i1 %451, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i20.i.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvE3$_1EEvT_PDTclfL0p_EE.exit.i.i"
 
 _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i20.i.i: ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i36.i.i, %441
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
@@ -1438,13 +1438,13 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
 _ZN4llvm24OptimizationRemarkMissedD2Ev.exit.i.i28.i.i: ; preds = %480, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i27.i.i
   %481 = load ptr, ptr %29, align 8, !noalias !17
   %.not.i.i.i.i.i.i29.i.i = icmp eq ptr %481, null
-  br i1 %.not.i.i.i.i.i.i29.i.i, label %"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_1clEv.argprom.exit.i.i.i", label %482
+  br i1 %.not.i.i.i.i.i.i29.i.i, label %"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_1clEv.exit.i.i.i", label %482
 
 482:                                              ; preds = %_ZN4llvm24OptimizationRemarkMissedD2Ev.exit.i.i28.i.i
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %29, ptr noundef nonnull align 4 dereferenceable(8) %481) #14
-  br label %"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_1clEv.argprom.exit.i.i.i"
+  br label %"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_1clEv.exit.i.i.i"
 
-"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_1clEv.argprom.exit.i.i.i": ; preds = %482, %_ZN4llvm24OptimizationRemarkMissedD2Ev.exit.i.i28.i.i
+"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_1clEv.exit.i.i.i": ; preds = %482, %_ZN4llvm24OptimizationRemarkMissedD2Ev.exit.i.i28.i.i
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
@@ -1455,7 +1455,7 @@ _ZN4llvm24OptimizationRemarkMissedD2Ev.exit.i.i28.i.i: ; preds = %480, %_ZN4llvm
   %.not4.i.i.i.i.i.i30.i.i = icmp eq i64 %484, 0
   br i1 %.not4.i.i.i.i.i.i30.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i35.i.i, label %.lr.ph.i.preheader.i.i.i.i.i31.i.i
 
-.lr.ph.i.preheader.i.i.i.i.i31.i.i:               ; preds = %"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_1clEv.argprom.exit.i.i.i"
+.lr.ph.i.preheader.i.i.i.i.i31.i.i:               ; preds = %"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_1clEv.exit.i.i.i"
   %485 = getelementptr inbounds %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", ptr %483, i64 %484
   br label %.lr.ph.i.i.i.i.i.i32.i.i
 
@@ -1468,16 +1468,16 @@ _ZN4llvm24OptimizationRemarkMissedD2Ev.exit.i.i28.i.i: ; preds = %480, %_ZN4llvm
   %.not.i.i.i.i.i1.i34.i.i = icmp eq ptr %483, %486
   br i1 %.not.i.i.i.i.i1.i34.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i35.i.i, label %.lr.ph.i.i.i.i.i.i32.i.i, !llvm.loop !7
 
-_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i35.i.i: ; preds = %.lr.ph.i.i.i.i.i.i32.i.i, %"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_1clEv.argprom.exit.i.i.i"
+_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i35.i.i: ; preds = %.lr.ph.i.i.i.i.i.i32.i.i, %"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_1clEv.exit.i.i.i"
   %488 = load ptr, ptr %460, align 8
   %489 = icmp eq ptr %488, %462
-  br i1 %489, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvE3$_1EEvT_PDTclfL0p_EE.argprom.exit.i.i", label %490
+  br i1 %489, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvE3$_1EEvT_PDTclfL0p_EE.exit.i.i", label %490
 
 490:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i35.i.i
   call void @free(ptr noundef %488) #14
-  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvE3$_1EEvT_PDTclfL0p_EE.argprom.exit.i.i"
+  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvE3$_1EEvT_PDTclfL0p_EE.exit.i.i"
 
-"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvE3$_1EEvT_PDTclfL0p_EE.argprom.exit.i.i": ; preds = %490, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i35.i.i, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i36.i.i
+"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvE3$_1EEvT_PDTclfL0p_EE.exit.i.i": ; preds = %490, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i35.i.i, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i36.i.i
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %30)
   br label %632
 
@@ -1596,13 +1596,13 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
 _ZN4llvm18OptimizationRemarkD2Ev.exit.i.i.i.i:    ; preds = %540, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i44.i.i
   %541 = load ptr, ptr %24, align 8, !noalias !20
   %.not.i.i.i.i.i.i45.i.i = icmp eq ptr %541, null
-  br i1 %.not.i.i.i.i.i.i45.i.i, label %"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_2clEv.argprom.exit.i.i.i", label %542
+  br i1 %.not.i.i.i.i.i.i45.i.i, label %"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_2clEv.exit.i.i.i", label %542
 
 542:                                              ; preds = %_ZN4llvm18OptimizationRemarkD2Ev.exit.i.i.i.i
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %24, ptr noundef nonnull align 4 dereferenceable(8) %541) #14
-  br label %"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_2clEv.argprom.exit.i.i.i"
+  br label %"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_2clEv.exit.i.i.i"
 
-"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_2clEv.argprom.exit.i.i.i": ; preds = %542, %_ZN4llvm18OptimizationRemarkD2Ev.exit.i.i.i.i
+"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_2clEv.exit.i.i.i": ; preds = %542, %_ZN4llvm18OptimizationRemarkD2Ev.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
@@ -1614,7 +1614,7 @@ _ZN4llvm18OptimizationRemarkD2Ev.exit.i.i.i.i:    ; preds = %540, %_ZN4llvm23Sma
   %.not4.i.i.i.i.i.i46.i.i = icmp eq i64 %544, 0
   br i1 %.not4.i.i.i.i.i.i46.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i51.i.i, label %.lr.ph.i.preheader.i.i.i.i.i47.i.i
 
-.lr.ph.i.preheader.i.i.i.i.i47.i.i:               ; preds = %"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_2clEv.argprom.exit.i.i.i"
+.lr.ph.i.preheader.i.i.i.i.i47.i.i:               ; preds = %"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_2clEv.exit.i.i.i"
   %545 = getelementptr inbounds %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", ptr %543, i64 %544
   br label %.lr.ph.i.i.i.i.i.i48.i.i
 
@@ -1627,7 +1627,7 @@ _ZN4llvm18OptimizationRemarkD2Ev.exit.i.i.i.i:    ; preds = %540, %_ZN4llvm23Sma
   %.not.i.i.i.i.i1.i50.i.i = icmp eq ptr %543, %546
   br i1 %.not.i.i.i.i.i1.i50.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i51.i.i, label %.lr.ph.i.i.i.i.i.i48.i.i, !llvm.loop !7
 
-_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i51.i.i: ; preds = %.lr.ph.i.i.i.i.i.i48.i.i, %"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_2clEv.argprom.exit.i.i.i"
+_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i51.i.i: ; preds = %.lr.ph.i.i.i.i.i.i48.i.i, %"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_2clEv.exit.i.i.i"
   %548 = load ptr, ptr %520, align 8
   %549 = icmp eq ptr %548, %522
   br i1 %549, label %551, label %550
@@ -1799,7 +1799,7 @@ _ZN4llvm11SmallVectorIPNS_8MetadataELj4EED2Ev.exit.i.i: ; preds = %627, %._crit_
   call void @free(ptr noundef %629) #14
   br label %644
 
-632:                                              ; preds = %6, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvE3$_1EEvT_PDTclfL0p_EE.argprom.exit.i.i", %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvE3$_0EEvT_PDTclfL0p_EE.argprom.exit.i.i", %73, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_0EEvT_PDTclfL0p_EE.argprom.exit.i.i.i", %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_1EEvT_PDTclfL0p_EE.argprom.exit.i.i", %352, %._crit_edge40.i.i.i, %339, %341
+632:                                              ; preds = %6, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvE3$_1EEvT_PDTclfL0p_EE.exit.i.i", %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvE3$_0EEvT_PDTclfL0p_EE.exit.i.i", %73, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_0EEvT_PDTclfL0p_EE.exit.i.i.i", %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_1EEvT_PDTclfL0p_EE.exit.i.i", %352, %._crit_edge40.i.i.i, %339, %341
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %39)
   %633 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %633, ptr %0, align 8, !alias.scope !23
@@ -2433,7 +2433,7 @@ declare { ptr, i64 } @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE9getBlocksEv(
 declare noundef nonnull align 8 dereferenceable(144) ptr @_ZN4llvm21LoopAccessInfoManager7getInfoERNS_4LoopE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_2EEvT_PDTclfL0p_EE.argprom"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture nonnull readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_2EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8
   %4 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8
   %5 = alloca %"class.llvm::OptimizationRemarkMissed", align 8
@@ -2575,13 +2575,13 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
 _ZN4llvm24OptimizationRemarkMissedD2Ev.exit.i:    ; preds = %67, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i
   %68 = load ptr, ptr %7, align 8, !noalias !33
   %.not.i.i.i.i.i = icmp eq ptr %68, null
-  br i1 %.not.i.i.i.i.i, label %"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_2clEv.argprom.exit", label %69
+  br i1 %.not.i.i.i.i.i, label %"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_2clEv.exit", label %69
 
 69:                                               ; preds = %_ZN4llvm24OptimizationRemarkMissedD2Ev.exit.i
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %7, ptr noundef nonnull align 4 dereferenceable(8) %68) #14
-  br label %"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_2clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_2clEv.exit"
 
-"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_2clEv.argprom.exit": ; preds = %_ZN4llvm24OptimizationRemarkMissedD2Ev.exit.i, %69
+"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_2clEv.exit": ; preds = %_ZN4llvm24OptimizationRemarkMissedD2Ev.exit.i, %69
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -2594,7 +2594,7 @@ _ZN4llvm24OptimizationRemarkMissedD2Ev.exit.i:    ; preds = %67, %_ZN4llvm23Smal
   %.not4.i.i.i.i.i = icmp eq i64 %71, 0
   br i1 %.not4.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i, label %.lr.ph.i.preheader.i.i.i.i
 
-.lr.ph.i.preheader.i.i.i.i:                       ; preds = %"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_2clEv.argprom.exit"
+.lr.ph.i.preheader.i.i.i.i:                       ; preds = %"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_2clEv.exit"
   %72 = getelementptr inbounds %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", ptr %70, i64 %71
   br label %.lr.ph.i.i.i.i.i
 
@@ -2607,7 +2607,7 @@ _ZN4llvm24OptimizationRemarkMissedD2Ev.exit.i:    ; preds = %67, %_ZN4llvm23Smal
   %.not.i.i.i.i.i1 = icmp eq ptr %70, %73
   br i1 %.not.i.i.i.i.i1, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !7
 
-_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_2clEv.argprom.exit"
+_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_2clEv.exit"
   %75 = load ptr, ptr %47, align 8
   %76 = icmp eq ptr %75, %49
   br i1 %76, label %_ZN4llvm24OptimizationRemarkMissedD2Ev.exit, label %77
@@ -3571,24 +3571,24 @@ attributes #17 = { noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_0clEv.argprom: argument 0"}
-!6 = distinct !{!6, !"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_0clEv.argprom"}
+!5 = distinct !{!5, !6, !"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_0clEv: argument 0"}
+!6 = distinct !{!6, !"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_0clEv"}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_0clEv.argprom: argument 0"}
-!11 = distinct !{!11, !"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_0clEv.argprom"}
+!10 = distinct !{!10, !11, !"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_0clEv: argument 0"}
+!11 = distinct !{!11, !"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_0clEv"}
 !12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_1clEv.argprom: argument 0"}
-!14 = distinct !{!14, !"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_1clEv.argprom"}
+!13 = distinct !{!13, !14, !"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_1clEv: argument 0"}
+!14 = distinct !{!14, !"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_1clEv"}
 !15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
 !17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_1clEv.argprom: argument 0"}
-!19 = distinct !{!19, !"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_1clEv.argprom"}
+!18 = distinct !{!18, !19, !"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_1clEv: argument 0"}
+!19 = distinct !{!19, !"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_1clEv"}
 !20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_2clEv.argprom: argument 0"}
-!22 = distinct !{!22, !"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_2clEv.argprom"}
+!21 = distinct !{!21, !22, !"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_2clEv: argument 0"}
+!22 = distinct !{!22, !"_ZZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEvENK3$_2clEv"}
 !23 = !{!24}
 !24 = distinct !{!24, !25, !"_ZN4llvm17PreservedAnalyses3allEv: argument 0"}
 !25 = distinct !{!25, !"_ZN4llvm17PreservedAnalyses3allEv"}
@@ -3600,8 +3600,8 @@ attributes #17 = { noreturn nounwind }
 !31 = distinct !{!31, !8}
 !32 = distinct !{!32, !8}
 !33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_2clEv.argprom: argument 0"}
-!35 = distinct !{!35, !"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_2clEv.argprom"}
+!34 = distinct !{!34, !35, !"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_2clEv: argument 0"}
+!35 = distinct !{!35, !"_ZZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvENK3$_2clEv"}
 !36 = distinct !{!36, !8}
 !37 = distinct !{!37, !8}
 !38 = distinct !{!38, !8}

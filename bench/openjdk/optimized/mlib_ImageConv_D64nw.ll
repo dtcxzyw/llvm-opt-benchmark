@@ -497,13 +497,13 @@ define hidden noundef i32 @mlib_convMxNnw_d64(ptr nocapture noundef readonly %0,
 
 ._crit_edge.i:                                    ; preds = %._crit_edge70.split.us89.i, %._crit_edge70.split.us.us.us.i, %.lr.ph.i, %34
   %.not332.i = icmp eq ptr %.0300.i, %9
-  br i1 %.not332.i, label %mlib_ImageConv1xN.argprom.exit, label %248
+  br i1 %.not332.i, label %mlib_ImageConv1xN.exit, label %248
 
 248:                                              ; preds = %._crit_edge.i
   call void @mlib_free(ptr noundef %.0300.i) #6
-  br label %mlib_ImageConv1xN.argprom.exit
+  br label %mlib_ImageConv1xN.exit
 
-mlib_ImageConv1xN.argprom.exit:                   ; preds = %._crit_edge.i, %248
+mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %248
   call void @llvm.lifetime.end.p0(i64 12800, ptr nonnull %9)
   br label %.loopexit691
 
@@ -1114,7 +1114,7 @@ mlib_ImageConv1xN.argprom.exit:                   ; preds = %._crit_edge.i, %248
   %exitcond1072.not = icmp eq i64 %indvars.iv.next1069, %wide.trip.count1061
   br i1 %exitcond1072.not, label %._crit_edge850.us.us.us.us.us, label %.lr.ph.us852.us.us.us.us.us, !llvm.loop !33
 
-.loopexit691:                                     ; preds = %..loopexit690_crit_edge.split.us.us.us.split.us.us, %.lr.ph, %249, %mlib_ImageConv1xN.argprom.exit
+.loopexit691:                                     ; preds = %..loopexit690_crit_edge.split.us.us.us.split.us.us, %.lr.ph, %249, %mlib_ImageConv1xN.exit
   ret i32 0
 }
 

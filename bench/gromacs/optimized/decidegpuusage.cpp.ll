@@ -1816,30 +1816,30 @@ define noundef range(i32 0, 4) i32 @_ZN3gmx19determinePmeRunModeEbRKNS_10TaskTar
   %6 = alloca %"class.gmx::ExceptionInfo", align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 340
   %.val = load i32, ptr %7, align 4
-  switch i32 %.val, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit [
-    i32 3, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread
-    i32 14, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread
-    i32 13, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread
-    i32 15, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread
-    i32 5, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread
+  switch i32 %.val, label %_ZL8usingPmeRK22CoulombInteractionType.exit [
+    i32 3, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread
+    i32 14, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread
+    i32 13, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread
+    i32 15, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread
+    i32 5, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread
   ]
 
-_ZL8usingPmeRK22CoulombInteractionType.argprom.exit: ; preds = %3
+_ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %3
   %8 = getelementptr inbounds i8, ptr %2, i64 368
   %.val15 = load i32, ptr %8, align 8
   %9 = icmp eq i32 %.val15, 5
-  br i1 %9, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread, label %25
+  br i1 %9, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread, label %25
 
-_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread: ; preds = %3, %3, %3, %3, %3, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit
+_ZL8usingPmeRK22CoulombInteractionType.exit.thread: ; preds = %3, %3, %3, %3, %3, %_ZL8usingPmeRK22CoulombInteractionType.exit
   %10 = load i32, ptr %1, align 4
   br i1 %0, label %11, label %12
 
-11:                                               ; preds = %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread
+11:                                               ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit.thread
   %.not = icmp eq i32 %10, 1
   %. = select i1 %.not, i32 3, i32 2
   br label %25
 
-12:                                               ; preds = %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread
+12:                                               ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit.thread
   %13 = icmp eq i32 %10, 2
   br i1 %13, label %14, label %25
 
@@ -1893,8 +1893,8 @@ _ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread: ; preds = %3, %3, %3
   call void @__cxa_free_exception(ptr %15) #16
   br label %26
 
-25:                                               ; preds = %12, %11, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit
-  %.012 = phi i32 [ 0, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit ], [ %., %11 ], [ 1, %12 ]
+25:                                               ; preds = %12, %11, %_ZL8usingPmeRK22CoulombInteractionType.exit
+  %.012 = phi i32 [ 0, %_ZL8usingPmeRK22CoulombInteractionType.exit ], [ %., %11 ], [ 1, %12 ]
   ret i32 %.012
 
 26:                                               ; preds = %22, %24
@@ -2119,22 +2119,22 @@ define noundef zeroext i1 @_ZN3gmx31decideWhetherToUseGpusForBondedEbbNS_10TaskT
   %73 = getelementptr inbounds i8, ptr %3, i64 340
   %.val47 = load i32, ptr %73, align 4
   switch i32 %.val47, label %75 [
-    i32 3, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread
-    i32 14, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread
-    i32 13, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread
-    i32 15, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread
-    i32 5, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread
-    i32 4, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread
+    i32 3, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread
+    i32 14, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread
+    i32 13, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread
+    i32 15, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread
+    i32 5, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread
+    i32 4, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread
   ]
 
-_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread: ; preds = %72, %72, %72, %72, %72, %72
+_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread: ; preds = %72, %72, %72, %72, %72, %72
   %74 = icmp slt i32 %5, 1
   %not. = xor i1 %1, true
   %spec.select = and i1 %74, %not.
   br label %75
 
-75:                                               ; preds = %72, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread, %69
-  %76 = phi i1 [ true, %69 ], [ %spec.select, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread ], [ false, %72 ]
+75:                                               ; preds = %72, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread, %69
+  %76 = phi i1 [ true, %69 ], [ %spec.select, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread ], [ false, %72 ]
   %77 = and i1 %6, %76
   br label %78
 
@@ -2233,7 +2233,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %30
   invoke void @_ZN3gmx22MessageStringCollector8appendIfEbPKc(ptr noundef nonnull align 8 dereferenceable(8) %17, i1 noundef zeroext %47, ptr noundef nonnull @.str.19)
           to label %50 unwind label %48
 
-48:                                               ; preds = %157, %156, %155, %153, %149, %146, %144, %142, %140, %139, %138, %134, %130, %129, %127, %125, %122, %118, %116, %112, %107, %105, %103, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit, %93, %91, %83, %switch.edge, %75, %71, %70, %69, %67, %64, %60, %52, %51, %45, %40
+48:                                               ; preds = %157, %156, %155, %153, %149, %146, %144, %142, %140, %139, %138, %134, %130, %129, %127, %125, %122, %118, %116, %112, %107, %105, %103, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit, %93, %91, %83, %switch.edge, %75, %71, %70, %69, %67, %64, %60, %52, %51, %45, %40
   %49 = landingpad { ptr, i32 }
           cleanup
   br label %181
@@ -2334,9 +2334,9 @@ switch.edge:                                      ; preds = %75
 
 93:                                               ; preds = %91
   invoke void @_ZN3gmx22MessageStringCollector8appendIfEbPKc(ptr noundef nonnull align 8 dereferenceable(8) %17, i1 noundef zeroext %92, ptr noundef nonnull @.str.30)
-          to label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit unwind label %48
+          to label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit unwind label %48
 
-_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit: ; preds = %93
+_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit: ; preds = %93
   %94 = getelementptr inbounds i8, ptr %7, i64 340
   %.val = load i32, ptr %94, align 4
   %95 = icmp ult i32 %.val, 16
@@ -2353,7 +2353,7 @@ _ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit: ; preds = %93
   invoke void @_ZN3gmx22MessageStringCollector8appendIfEbPKc(ptr noundef nonnull align 8 dereferenceable(8) %17, i1 noundef zeroext %102, ptr noundef nonnull @.str.31)
           to label %103 unwind label %48
 
-103:                                              ; preds = %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit
+103:                                              ; preds = %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit
   %104 = invoke noundef i32 @_Z26gmx_mtop_interaction_countRK10gmx_mtop_tj(ptr noundef nonnull align 8 dereferenceable(768) %8, i32 noundef 2)
           to label %105 unwind label %48
 

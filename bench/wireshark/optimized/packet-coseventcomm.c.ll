@@ -98,11 +98,11 @@ define internal range(i32 0, 2) i32 @dissect_coseventcomm(ptr noundef %0, ptr no
   %13 = getelementptr inbounds i8, ptr %4, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 1
-  br i1 %15, label %decode_CosEventComm_PushConsumer_push.argprom.exit, label %.thread
+  br i1 %15, label %decode_CosEventComm_PushConsumer_push.exit, label %.thread
 
 16:                                               ; preds = %7
   %switch = icmp eq i8 %10, 0
-  br i1 %switch, label %.thread, label %decode_CosEventComm_PushConsumer_push.argprom.exit
+  br i1 %switch, label %.thread, label %decode_CosEventComm_PushConsumer_push.exit
 
 .thread:                                          ; preds = %12, %16
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(5) @.str.17) #4
@@ -131,63 +131,63 @@ define internal range(i32 0, 2) i32 @dissect_coseventcomm(ptr noundef %0, ptr no
   %28 = load i32, ptr @hf_operationrequest, align 4
   %29 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %5) #3
   %.not.i.i = icmp eq ptr %29, null
-  br i1 %.not.i.i, label %process_RequestOperation.argprom.exit, label %30
+  br i1 %.not.i.i, label %process_RequestOperation.exit, label %30
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds i8, ptr %29, i64 32
   %32 = load ptr, ptr %31, align 8
   %.not5.i.i = icmp eq ptr %32, null
-  br i1 %.not5.i.i, label %process_RequestOperation.argprom.exit, label %33
+  br i1 %.not5.i.i, label %process_RequestOperation.exit, label %33
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds i8, ptr %32, i64 28
   %35 = load i32, ptr %34, align 4
   %36 = or i32 %35, 2
   store i32 %36, ptr %34, align 4
-  br label %process_RequestOperation.argprom.exit
+  br label %process_RequestOperation.exit
 
-process_RequestOperation.argprom.exit:            ; preds = %27, %30, %33
+process_RequestOperation.exit:                    ; preds = %27, %30, %33
   %37 = getelementptr i8, ptr %1, i64 8
   %.val164 = load ptr, ptr %37, align 8
   tail call void @col_set_str(ptr noundef %.val164, i32 noundef 34, ptr noundef nonnull @.str.11) #3
   %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %start_dissecting.argprom.exit, label %38
+  br i1 %.not.i, label %start_dissecting.exit, label %38
 
-38:                                               ; preds = %process_RequestOperation.argprom.exit
+38:                                               ; preds = %process_RequestOperation.exit
   %39 = load i32, ptr @proto_coseventcomm, align 4
   %40 = load i32, ptr %3, align 4
   %41 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %40) #3
   %42 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %39, ptr noundef %0, i32 noundef %40, i32 noundef %41, i32 noundef 0) #3
   %43 = load i32, ptr @ett_coseventcomm, align 4
   %44 = tail call ptr @proto_item_add_subtree(ptr noundef %42, i32 noundef %43) #3
-  br label %start_dissecting.argprom.exit
+  br label %start_dissecting.exit
 
-start_dissecting.argprom.exit:                    ; preds = %process_RequestOperation.argprom.exit, %38
-  %.0.i = phi ptr [ %44, %38 ], [ null, %process_RequestOperation.argprom.exit ]
+start_dissecting.exit:                            ; preds = %process_RequestOperation.exit, %38
+  %.0.i = phi ptr [ %44, %38 ], [ null, %process_RequestOperation.exit ]
   %45 = load i8, ptr %9, align 1
   switch i8 %45, label %52 [
     i8 0, label %46
     i8 1, label %47
   ]
 
-46:                                               ; preds = %start_dissecting.argprom.exit
+46:                                               ; preds = %start_dissecting.exit
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0.i, ptr noundef %29, ptr noundef %3, i32 noundef %8, i32 noundef 12, ptr noundef nonnull %4) #3
-  br label %decode_CosEventComm_PushConsumer_push.argprom.exit
+  br label %decode_CosEventComm_PushConsumer_push.exit
 
-47:                                               ; preds = %start_dissecting.argprom.exit
+47:                                               ; preds = %start_dissecting.exit
   %48 = getelementptr inbounds i8, ptr %4, i64 16
   %49 = load i32, ptr %48, align 8
   %switch.i = icmp ult i32 %49, 2
-  br i1 %switch.i, label %decode_CosEventComm_PushConsumer_push.argprom.exit, label %50
+  br i1 %switch.i, label %decode_CosEventComm_PushConsumer_push.exit, label %50
 
 50:                                               ; preds = %47
   %51 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %29, ptr noundef nonnull @ei_coseventcomm_unknown_exception, ptr noundef nonnull @.str.25, i32 noundef %49) #3
-  br label %decode_CosEventComm_PushConsumer_push.argprom.exit
+  br label %decode_CosEventComm_PushConsumer_push.exit
 
-52:                                               ; preds = %start_dissecting.argprom.exit
+52:                                               ; preds = %start_dissecting.exit
   %53 = zext i8 %45 to i32
   %54 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %29, ptr noundef nonnull @ei_coseventcomm_unknown_giop_msg, ptr noundef nonnull @.str.26, i32 noundef %53) #3
-  br label %decode_CosEventComm_PushConsumer_push.argprom.exit
+  br label %decode_CosEventComm_PushConsumer_push.exit
 
 55:                                               ; preds = %20, %.thread
   %56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(25) @.str.18) #4
@@ -216,58 +216,58 @@ start_dissecting.argprom.exit:                    ; preds = %process_RequestOper
   %67 = load i32, ptr @hf_operationrequest, align 4
   %68 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %67, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %5) #3
   %.not.i.i171 = icmp eq ptr %68, null
-  br i1 %.not.i.i171, label %process_RequestOperation.argprom.exit173, label %69
+  br i1 %.not.i.i171, label %process_RequestOperation.exit173, label %69
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds i8, ptr %68, i64 32
   %71 = load ptr, ptr %70, align 8
   %.not5.i.i172 = icmp eq ptr %71, null
-  br i1 %.not5.i.i172, label %process_RequestOperation.argprom.exit173, label %72
+  br i1 %.not5.i.i172, label %process_RequestOperation.exit173, label %72
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds i8, ptr %71, i64 28
   %74 = load i32, ptr %73, align 4
   %75 = or i32 %74, 2
   store i32 %75, ptr %73, align 4
-  br label %process_RequestOperation.argprom.exit173
+  br label %process_RequestOperation.exit173
 
-process_RequestOperation.argprom.exit173:         ; preds = %66, %69, %72
+process_RequestOperation.exit173:                 ; preds = %66, %69, %72
   %76 = getelementptr i8, ptr %1, i64 8
   %.val165 = load ptr, ptr %76, align 8
   tail call void @col_set_str(ptr noundef %.val165, i32 noundef 34, ptr noundef nonnull @.str.11) #3
   %.not.i174 = icmp eq ptr %2, null
-  br i1 %.not.i174, label %start_dissecting.argprom.exit176, label %77
+  br i1 %.not.i174, label %start_dissecting.exit176, label %77
 
-77:                                               ; preds = %process_RequestOperation.argprom.exit173
+77:                                               ; preds = %process_RequestOperation.exit173
   %78 = load i32, ptr @proto_coseventcomm, align 4
   %79 = load i32, ptr %3, align 4
   %80 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %79) #3
   %81 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %78, ptr noundef %0, i32 noundef %79, i32 noundef %80, i32 noundef 0) #3
   %82 = load i32, ptr @ett_coseventcomm, align 4
   %83 = tail call ptr @proto_item_add_subtree(ptr noundef %81, i32 noundef %82) #3
-  br label %start_dissecting.argprom.exit176
+  br label %start_dissecting.exit176
 
-start_dissecting.argprom.exit176:                 ; preds = %process_RequestOperation.argprom.exit173, %77
+start_dissecting.exit176:                         ; preds = %process_RequestOperation.exit173, %77
   %84 = load i8, ptr %9, align 1
   switch i8 %84, label %90 [
-    i8 0, label %decode_CosEventComm_PushConsumer_push.argprom.exit
+    i8 0, label %decode_CosEventComm_PushConsumer_push.exit
     i8 1, label %85
   ]
 
-85:                                               ; preds = %start_dissecting.argprom.exit176
+85:                                               ; preds = %start_dissecting.exit176
   %86 = getelementptr inbounds i8, ptr %4, i64 16
   %87 = load i32, ptr %86, align 8
   %switch.i177 = icmp ult i32 %87, 2
-  br i1 %switch.i177, label %decode_CosEventComm_PushConsumer_push.argprom.exit, label %88
+  br i1 %switch.i177, label %decode_CosEventComm_PushConsumer_push.exit, label %88
 
 88:                                               ; preds = %85
   %89 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %68, ptr noundef nonnull @ei_coseventcomm_unknown_exception, ptr noundef nonnull @.str.25, i32 noundef %87) #3
-  br label %decode_CosEventComm_PushConsumer_push.argprom.exit
+  br label %decode_CosEventComm_PushConsumer_push.exit
 
-90:                                               ; preds = %start_dissecting.argprom.exit176
+90:                                               ; preds = %start_dissecting.exit176
   %91 = zext i8 %84 to i32
   %92 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %68, ptr noundef nonnull @ei_coseventcomm_unknown_giop_msg, ptr noundef nonnull @.str.26, i32 noundef %91) #3
-  br label %decode_CosEventComm_PushConsumer_push.argprom.exit
+  br label %decode_CosEventComm_PushConsumer_push.exit
 
 93:                                               ; preds = %59, %55
   %94 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(25) @.str.19) #4
@@ -296,58 +296,58 @@ start_dissecting.argprom.exit176:                 ; preds = %process_RequestOper
   %105 = load i32, ptr @hf_operationrequest, align 4
   %106 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %105, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %5) #3
   %.not.i.i178 = icmp eq ptr %106, null
-  br i1 %.not.i.i178, label %process_RequestOperation.argprom.exit180, label %107
+  br i1 %.not.i.i178, label %process_RequestOperation.exit180, label %107
 
 107:                                              ; preds = %104
   %108 = getelementptr inbounds i8, ptr %106, i64 32
   %109 = load ptr, ptr %108, align 8
   %.not5.i.i179 = icmp eq ptr %109, null
-  br i1 %.not5.i.i179, label %process_RequestOperation.argprom.exit180, label %110
+  br i1 %.not5.i.i179, label %process_RequestOperation.exit180, label %110
 
 110:                                              ; preds = %107
   %111 = getelementptr inbounds i8, ptr %109, i64 28
   %112 = load i32, ptr %111, align 4
   %113 = or i32 %112, 2
   store i32 %113, ptr %111, align 4
-  br label %process_RequestOperation.argprom.exit180
+  br label %process_RequestOperation.exit180
 
-process_RequestOperation.argprom.exit180:         ; preds = %104, %107, %110
+process_RequestOperation.exit180:                 ; preds = %104, %107, %110
   %114 = getelementptr i8, ptr %1, i64 8
   %.val166 = load ptr, ptr %114, align 8
   tail call void @col_set_str(ptr noundef %.val166, i32 noundef 34, ptr noundef nonnull @.str.11) #3
   %.not.i181 = icmp eq ptr %2, null
-  br i1 %.not.i181, label %start_dissecting.argprom.exit183, label %115
+  br i1 %.not.i181, label %start_dissecting.exit183, label %115
 
-115:                                              ; preds = %process_RequestOperation.argprom.exit180
+115:                                              ; preds = %process_RequestOperation.exit180
   %116 = load i32, ptr @proto_coseventcomm, align 4
   %117 = load i32, ptr %3, align 4
   %118 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %117) #3
   %119 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %116, ptr noundef %0, i32 noundef %117, i32 noundef %118, i32 noundef 0) #3
   %120 = load i32, ptr @ett_coseventcomm, align 4
   %121 = tail call ptr @proto_item_add_subtree(ptr noundef %119, i32 noundef %120) #3
-  br label %start_dissecting.argprom.exit183
+  br label %start_dissecting.exit183
 
-start_dissecting.argprom.exit183:                 ; preds = %process_RequestOperation.argprom.exit180, %115
+start_dissecting.exit183:                         ; preds = %process_RequestOperation.exit180, %115
   %122 = load i8, ptr %9, align 1
   switch i8 %122, label %128 [
-    i8 0, label %decode_CosEventComm_PushConsumer_push.argprom.exit
+    i8 0, label %decode_CosEventComm_PushConsumer_push.exit
     i8 1, label %123
   ]
 
-123:                                              ; preds = %start_dissecting.argprom.exit183
+123:                                              ; preds = %start_dissecting.exit183
   %124 = getelementptr inbounds i8, ptr %4, i64 16
   %125 = load i32, ptr %124, align 8
   %switch.i184 = icmp ult i32 %125, 2
-  br i1 %switch.i184, label %decode_CosEventComm_PushConsumer_push.argprom.exit, label %126
+  br i1 %switch.i184, label %decode_CosEventComm_PushConsumer_push.exit, label %126
 
 126:                                              ; preds = %123
   %127 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %106, ptr noundef nonnull @ei_coseventcomm_unknown_exception, ptr noundef nonnull @.str.25, i32 noundef %125) #3
-  br label %decode_CosEventComm_PushConsumer_push.argprom.exit
+  br label %decode_CosEventComm_PushConsumer_push.exit
 
-128:                                              ; preds = %start_dissecting.argprom.exit183
+128:                                              ; preds = %start_dissecting.exit183
   %129 = zext i8 %122 to i32
   %130 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %106, ptr noundef nonnull @ei_coseventcomm_unknown_giop_msg, ptr noundef nonnull @.str.26, i32 noundef %129) #3
-  br label %decode_CosEventComm_PushConsumer_push.argprom.exit
+  br label %decode_CosEventComm_PushConsumer_push.exit
 
 131:                                              ; preds = %97, %93
   %132 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(5) @.str.20) #4
@@ -376,65 +376,65 @@ start_dissecting.argprom.exit183:                 ; preds = %process_RequestOper
   %143 = load i32, ptr @hf_operationrequest, align 4
   %144 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %143, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %5) #3
   %.not.i.i185 = icmp eq ptr %144, null
-  br i1 %.not.i.i185, label %process_RequestOperation.argprom.exit187, label %145
+  br i1 %.not.i.i185, label %process_RequestOperation.exit187, label %145
 
 145:                                              ; preds = %142
   %146 = getelementptr inbounds i8, ptr %144, i64 32
   %147 = load ptr, ptr %146, align 8
   %.not5.i.i186 = icmp eq ptr %147, null
-  br i1 %.not5.i.i186, label %process_RequestOperation.argprom.exit187, label %148
+  br i1 %.not5.i.i186, label %process_RequestOperation.exit187, label %148
 
 148:                                              ; preds = %145
   %149 = getelementptr inbounds i8, ptr %147, i64 28
   %150 = load i32, ptr %149, align 4
   %151 = or i32 %150, 2
   store i32 %151, ptr %149, align 4
-  br label %process_RequestOperation.argprom.exit187
+  br label %process_RequestOperation.exit187
 
-process_RequestOperation.argprom.exit187:         ; preds = %142, %145, %148
+process_RequestOperation.exit187:                 ; preds = %142, %145, %148
   %152 = getelementptr i8, ptr %1, i64 8
   %.val167 = load ptr, ptr %152, align 8
   tail call void @col_set_str(ptr noundef %.val167, i32 noundef 34, ptr noundef nonnull @.str.11) #3
   %.not.i188 = icmp eq ptr %2, null
-  br i1 %.not.i188, label %start_dissecting.argprom.exit190, label %153
+  br i1 %.not.i188, label %start_dissecting.exit190, label %153
 
-153:                                              ; preds = %process_RequestOperation.argprom.exit187
+153:                                              ; preds = %process_RequestOperation.exit187
   %154 = load i32, ptr @proto_coseventcomm, align 4
   %155 = load i32, ptr %3, align 4
   %156 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %155) #3
   %157 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %154, ptr noundef %0, i32 noundef %155, i32 noundef %156, i32 noundef 0) #3
   %158 = load i32, ptr @ett_coseventcomm, align 4
   %159 = tail call ptr @proto_item_add_subtree(ptr noundef %157, i32 noundef %158) #3
-  br label %start_dissecting.argprom.exit190
+  br label %start_dissecting.exit190
 
-start_dissecting.argprom.exit190:                 ; preds = %process_RequestOperation.argprom.exit187, %153
-  %.0.i189 = phi ptr [ %159, %153 ], [ null, %process_RequestOperation.argprom.exit187 ]
+start_dissecting.exit190:                         ; preds = %process_RequestOperation.exit187, %153
+  %.0.i189 = phi ptr [ %159, %153 ], [ null, %process_RequestOperation.exit187 ]
   %160 = load i8, ptr %9, align 1
   switch i8 %160, label %167 [
-    i8 0, label %decode_CosEventComm_PushConsumer_push.argprom.exit
+    i8 0, label %decode_CosEventComm_PushConsumer_push.exit
     i8 1, label %161
   ]
 
-161:                                              ; preds = %start_dissecting.argprom.exit190
+161:                                              ; preds = %start_dissecting.exit190
   %162 = getelementptr inbounds i8, ptr %4, i64 16
   %163 = load i32, ptr %162, align 8
   switch i32 %163, label %165 [
     i32 0, label %164
-    i32 1, label %decode_CosEventComm_PushConsumer_push.argprom.exit
+    i32 1, label %decode_CosEventComm_PushConsumer_push.exit
   ]
 
 164:                                              ; preds = %161
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0.i189, ptr noundef %144, ptr noundef %3, i32 noundef %8, i32 noundef 12, ptr noundef nonnull %4) #3
-  br label %decode_CosEventComm_PushConsumer_push.argprom.exit
+  br label %decode_CosEventComm_PushConsumer_push.exit
 
 165:                                              ; preds = %161
   %166 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %144, ptr noundef nonnull @ei_coseventcomm_unknown_exception, ptr noundef nonnull @.str.25, i32 noundef %163) #3
-  br label %decode_CosEventComm_PushConsumer_push.argprom.exit
+  br label %decode_CosEventComm_PushConsumer_push.exit
 
-167:                                              ; preds = %start_dissecting.argprom.exit190
+167:                                              ; preds = %start_dissecting.exit190
   %168 = zext i8 %160 to i32
   %169 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %144, ptr noundef nonnull @ei_coseventcomm_unknown_giop_msg, ptr noundef nonnull @.str.26, i32 noundef %168) #3
-  br label %decode_CosEventComm_PushConsumer_push.argprom.exit
+  br label %decode_CosEventComm_PushConsumer_push.exit
 
 170:                                              ; preds = %135, %131
   %171 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(9) @.str.21) #4
@@ -463,51 +463,51 @@ start_dissecting.argprom.exit190:                 ; preds = %process_RequestOper
   %182 = load i32, ptr @hf_operationrequest, align 4
   %183 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %182, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %5) #3
   %.not.i.i191 = icmp eq ptr %183, null
-  br i1 %.not.i.i191, label %process_RequestOperation.argprom.exit193, label %184
+  br i1 %.not.i.i191, label %process_RequestOperation.exit193, label %184
 
 184:                                              ; preds = %181
   %185 = getelementptr inbounds i8, ptr %183, i64 32
   %186 = load ptr, ptr %185, align 8
   %.not5.i.i192 = icmp eq ptr %186, null
-  br i1 %.not5.i.i192, label %process_RequestOperation.argprom.exit193, label %187
+  br i1 %.not5.i.i192, label %process_RequestOperation.exit193, label %187
 
 187:                                              ; preds = %184
   %188 = getelementptr inbounds i8, ptr %186, i64 28
   %189 = load i32, ptr %188, align 4
   %190 = or i32 %189, 2
   store i32 %190, ptr %188, align 4
-  br label %process_RequestOperation.argprom.exit193
+  br label %process_RequestOperation.exit193
 
-process_RequestOperation.argprom.exit193:         ; preds = %181, %184, %187
+process_RequestOperation.exit193:                 ; preds = %181, %184, %187
   %191 = getelementptr i8, ptr %1, i64 8
   %.val168 = load ptr, ptr %191, align 8
   tail call void @col_set_str(ptr noundef %.val168, i32 noundef 34, ptr noundef nonnull @.str.11) #3
   %.not.i194 = icmp eq ptr %2, null
-  br i1 %.not.i194, label %start_dissecting.argprom.exit196, label %192
+  br i1 %.not.i194, label %start_dissecting.exit196, label %192
 
-192:                                              ; preds = %process_RequestOperation.argprom.exit193
+192:                                              ; preds = %process_RequestOperation.exit193
   %193 = load i32, ptr @proto_coseventcomm, align 4
   %194 = load i32, ptr %3, align 4
   %195 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %194) #3
   %196 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %193, ptr noundef %0, i32 noundef %194, i32 noundef %195, i32 noundef 0) #3
   %197 = load i32, ptr @ett_coseventcomm, align 4
   %198 = tail call ptr @proto_item_add_subtree(ptr noundef %196, i32 noundef %197) #3
-  br label %start_dissecting.argprom.exit196
+  br label %start_dissecting.exit196
 
-start_dissecting.argprom.exit196:                 ; preds = %process_RequestOperation.argprom.exit193, %192
-  %.0.i195 = phi ptr [ %198, %192 ], [ null, %process_RequestOperation.argprom.exit193 ]
+start_dissecting.exit196:                         ; preds = %process_RequestOperation.exit193, %192
+  %.0.i195 = phi ptr [ %198, %192 ], [ null, %process_RequestOperation.exit193 ]
   %199 = load i8, ptr %9, align 1
   switch i8 %199, label %212 [
-    i8 0, label %decode_CosEventComm_PushConsumer_push.argprom.exit
+    i8 0, label %decode_CosEventComm_PushConsumer_push.exit
     i8 1, label %200
   ]
 
-200:                                              ; preds = %start_dissecting.argprom.exit196
+200:                                              ; preds = %start_dissecting.exit196
   %201 = getelementptr inbounds i8, ptr %4, i64 16
   %202 = load i32, ptr %201, align 8
   switch i32 %202, label %210 [
     i32 0, label %203
-    i32 1, label %decode_CosEventComm_PushConsumer_push.argprom.exit
+    i32 1, label %decode_CosEventComm_PushConsumer_push.exit
   ]
 
 203:                                              ; preds = %200
@@ -518,16 +518,16 @@ start_dissecting.argprom.exit196:                 ; preds = %process_RequestOper
   %207 = tail call i32 @get_CDR_boolean(ptr noundef %0, ptr noundef nonnull %3) #3
   %208 = sext i32 %207 to i64
   %209 = tail call ptr @proto_tree_add_boolean(ptr noundef %.0.i195, i32 noundef %204, ptr noundef %0, i32 noundef %206, i32 noundef 1, i64 noundef %208) #3
-  br label %decode_CosEventComm_PushConsumer_push.argprom.exit
+  br label %decode_CosEventComm_PushConsumer_push.exit
 
 210:                                              ; preds = %200
   %211 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %183, ptr noundef nonnull @ei_coseventcomm_unknown_exception, ptr noundef nonnull @.str.25, i32 noundef %202) #3
-  br label %decode_CosEventComm_PushConsumer_push.argprom.exit
+  br label %decode_CosEventComm_PushConsumer_push.exit
 
-212:                                              ; preds = %start_dissecting.argprom.exit196
+212:                                              ; preds = %start_dissecting.exit196
   %213 = zext i8 %199 to i32
   %214 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %183, ptr noundef nonnull @ei_coseventcomm_unknown_giop_msg, ptr noundef nonnull @.str.26, i32 noundef %213) #3
-  br label %decode_CosEventComm_PushConsumer_push.argprom.exit
+  br label %decode_CosEventComm_PushConsumer_push.exit
 
 215:                                              ; preds = %174, %170
   %216 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(25) @.str.22) #4
@@ -556,63 +556,63 @@ start_dissecting.argprom.exit196:                 ; preds = %process_RequestOper
   %227 = load i32, ptr @hf_operationrequest, align 4
   %228 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %227, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %5) #3
   %.not.i.i197 = icmp eq ptr %228, null
-  br i1 %.not.i.i197, label %process_RequestOperation.argprom.exit199, label %229
+  br i1 %.not.i.i197, label %process_RequestOperation.exit199, label %229
 
 229:                                              ; preds = %226
   %230 = getelementptr inbounds i8, ptr %228, i64 32
   %231 = load ptr, ptr %230, align 8
   %.not5.i.i198 = icmp eq ptr %231, null
-  br i1 %.not5.i.i198, label %process_RequestOperation.argprom.exit199, label %232
+  br i1 %.not5.i.i198, label %process_RequestOperation.exit199, label %232
 
 232:                                              ; preds = %229
   %233 = getelementptr inbounds i8, ptr %231, i64 28
   %234 = load i32, ptr %233, align 4
   %235 = or i32 %234, 2
   store i32 %235, ptr %233, align 4
-  br label %process_RequestOperation.argprom.exit199
+  br label %process_RequestOperation.exit199
 
-process_RequestOperation.argprom.exit199:         ; preds = %226, %229, %232
+process_RequestOperation.exit199:                 ; preds = %226, %229, %232
   %236 = getelementptr i8, ptr %1, i64 8
   %.val169 = load ptr, ptr %236, align 8
   tail call void @col_set_str(ptr noundef %.val169, i32 noundef 34, ptr noundef nonnull @.str.11) #3
   %.not.i200 = icmp eq ptr %2, null
-  br i1 %.not.i200, label %start_dissecting.argprom.exit202, label %237
+  br i1 %.not.i200, label %start_dissecting.exit202, label %237
 
-237:                                              ; preds = %process_RequestOperation.argprom.exit199
+237:                                              ; preds = %process_RequestOperation.exit199
   %238 = load i32, ptr @proto_coseventcomm, align 4
   %239 = load i32, ptr %3, align 4
   %240 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %239) #3
   %241 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %238, ptr noundef %0, i32 noundef %239, i32 noundef %240, i32 noundef 0) #3
   %242 = load i32, ptr @ett_coseventcomm, align 4
   %243 = tail call ptr @proto_item_add_subtree(ptr noundef %241, i32 noundef %242) #3
-  br label %start_dissecting.argprom.exit202
+  br label %start_dissecting.exit202
 
-start_dissecting.argprom.exit202:                 ; preds = %process_RequestOperation.argprom.exit199, %237
+start_dissecting.exit202:                         ; preds = %process_RequestOperation.exit199, %237
   %244 = load i8, ptr %9, align 1
   switch i8 %244, label %250 [
-    i8 0, label %decode_CosEventComm_PushConsumer_push.argprom.exit
+    i8 0, label %decode_CosEventComm_PushConsumer_push.exit
     i8 1, label %245
   ]
 
-245:                                              ; preds = %start_dissecting.argprom.exit202
+245:                                              ; preds = %start_dissecting.exit202
   %246 = getelementptr inbounds i8, ptr %4, i64 16
   %247 = load i32, ptr %246, align 8
   %switch.i203 = icmp ult i32 %247, 2
-  br i1 %switch.i203, label %decode_CosEventComm_PushConsumer_push.argprom.exit, label %248
+  br i1 %switch.i203, label %decode_CosEventComm_PushConsumer_push.exit, label %248
 
 248:                                              ; preds = %245
   %249 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %228, ptr noundef nonnull @ei_coseventcomm_unknown_exception, ptr noundef nonnull @.str.25, i32 noundef %247) #3
-  br label %decode_CosEventComm_PushConsumer_push.argprom.exit
+  br label %decode_CosEventComm_PushConsumer_push.exit
 
-250:                                              ; preds = %start_dissecting.argprom.exit202
+250:                                              ; preds = %start_dissecting.exit202
   %251 = zext i8 %244 to i32
   %252 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %228, ptr noundef nonnull @ei_coseventcomm_unknown_giop_msg, ptr noundef nonnull @.str.26, i32 noundef %251) #3
-  br label %decode_CosEventComm_PushConsumer_push.argprom.exit
+  br label %decode_CosEventComm_PushConsumer_push.exit
 
 253:                                              ; preds = %219, %215
   %254 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(25) @.str.23) #4
   %255 = icmp eq i32 %254, 0
-  br i1 %255, label %256, label %decode_CosEventComm_PushConsumer_push.argprom.exit
+  br i1 %255, label %256, label %decode_CosEventComm_PushConsumer_push.exit
 
 256:                                              ; preds = %253
   %.not157 = icmp eq ptr %6, null
@@ -621,18 +621,18 @@ start_dissecting.argprom.exit202:                 ; preds = %process_RequestOper
 257:                                              ; preds = %256
   %258 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(26) @.str.13) #4
   %259 = icmp eq i32 %258, 0
-  br i1 %259, label %260, label %decode_CosEventComm_PushConsumer_push.argprom.exit
+  br i1 %259, label %260, label %decode_CosEventComm_PushConsumer_push.exit
 
 260:                                              ; preds = %257, %256
-  %261 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %261 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %262 = getelementptr i8, ptr %1, i64 8
   %.val170 = load ptr, ptr %262, align 8
-  tail call fastcc void @start_dissecting.argprom.retelim(ptr noundef %0, ptr %.val170, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_CosEventComm_PullConsumer_disconnect_pull_consumer.argprom.argelim(ptr noundef %1, ptr noundef %261, ptr noundef nonnull %4)
-  br label %decode_CosEventComm_PushConsumer_push.argprom.exit
+  tail call fastcc void @start_dissecting(ptr noundef %0, ptr %.val170, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_CosEventComm_PullConsumer_disconnect_pull_consumer(ptr noundef %1, ptr noundef %261, ptr noundef nonnull %4)
+  br label %decode_CosEventComm_PushConsumer_push.exit
 
-decode_CosEventComm_PushConsumer_push.argprom.exit: ; preds = %250, %248, %245, %start_dissecting.argprom.exit202, %212, %210, %203, %200, %start_dissecting.argprom.exit196, %167, %165, %164, %161, %start_dissecting.argprom.exit190, %128, %126, %123, %start_dissecting.argprom.exit183, %90, %88, %85, %start_dissecting.argprom.exit176, %52, %50, %47, %46, %12, %16, %257, %253, %260
-  %.0 = phi i32 [ 1, %260 ], [ 0, %16 ], [ 0, %253 ], [ 0, %257 ], [ 0, %12 ], [ 1, %46 ], [ 1, %47 ], [ 1, %50 ], [ 1, %52 ], [ 1, %start_dissecting.argprom.exit176 ], [ 1, %85 ], [ 1, %88 ], [ 1, %90 ], [ 1, %start_dissecting.argprom.exit183 ], [ 1, %123 ], [ 1, %126 ], [ 1, %128 ], [ 1, %start_dissecting.argprom.exit190 ], [ %163, %161 ], [ 1, %164 ], [ 1, %165 ], [ 1, %167 ], [ 1, %start_dissecting.argprom.exit196 ], [ %202, %200 ], [ 1, %203 ], [ 1, %210 ], [ 1, %212 ], [ 1, %start_dissecting.argprom.exit202 ], [ 1, %245 ], [ 1, %248 ], [ 1, %250 ]
+decode_CosEventComm_PushConsumer_push.exit:       ; preds = %250, %248, %245, %start_dissecting.exit202, %212, %210, %203, %200, %start_dissecting.exit196, %167, %165, %164, %161, %start_dissecting.exit190, %128, %126, %123, %start_dissecting.exit183, %90, %88, %85, %start_dissecting.exit176, %52, %50, %47, %46, %12, %16, %257, %253, %260
+  %.0 = phi i32 [ 1, %260 ], [ 0, %16 ], [ 0, %253 ], [ 0, %257 ], [ 0, %12 ], [ 1, %46 ], [ 1, %47 ], [ 1, %50 ], [ 1, %52 ], [ 1, %start_dissecting.exit176 ], [ 1, %85 ], [ 1, %88 ], [ 1, %90 ], [ 1, %start_dissecting.exit183 ], [ 1, %123 ], [ 1, %126 ], [ 1, %128 ], [ 1, %start_dissecting.exit190 ], [ %163, %161 ], [ 1, %164 ], [ 1, %165 ], [ 1, %167 ], [ 1, %start_dissecting.exit196 ], [ %202, %200 ], [ 1, %203 ], [ 1, %210 ], [ 1, %212 ], [ 1, %start_dissecting.exit202 ], [ 1, %245 ], [ 1, %248 ], [ 1, %250 ]
   ret i32 %.0
 }
 
@@ -644,7 +644,7 @@ declare i32 @is_big_endian(ptr noundef) local_unnamed_addr #1
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i8 %.7.val, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @process_RequestOperation(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i8 %.7.val, ptr noundef %3) unnamed_addr #0 {
   %5 = icmp eq i8 %.7.val, 1
   br i1 %5, label %6, label %9
 
@@ -678,7 +678,7 @@ proto_item_set_generated.exit:                    ; preds = %9, %12, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @start_dissecting.argprom.retelim(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @start_dissecting(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   tail call void @col_set_str(ptr noundef %.8.val, i32 noundef 34, ptr noundef nonnull @.str.11) #3
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %4
@@ -697,7 +697,7 @@ define internal fastcc void @start_dissecting.argprom.retelim(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_CosEventComm_PullConsumer_disconnect_pull_consumer.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @decode_CosEventComm_PullConsumer_disconnect_pull_consumer(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 7
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %11 [

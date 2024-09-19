@@ -769,13 +769,13 @@ Ree_ManCutTruthOne.exit35.i:                      ; preds = %.sink.split.i21.i, 
   %215 = and i64 %.val.i, 536870911
   %216 = icmp eq i64 %215, 536870911
   %narrow.i.not.i.i = or i1 %.not.i.i36.i, %216
-  br i1 %narrow.i.not.i.i, label %Gia_ObjIsXor.argprom.exit.thread.i, label %Gia_ObjIsXor.argprom.exit.i
+  br i1 %narrow.i.not.i.i, label %Gia_ObjIsXor.exit.thread.i, label %Gia_ObjIsXor.exit.i
 
-Gia_ObjIsXor.argprom.exit.thread.i:               ; preds = %Ree_ManCutTruthOne.exit35.i
+Gia_ObjIsXor.exit.thread.i:                       ; preds = %Ree_ManCutTruthOne.exit35.i
   %217 = and i32 %209, %213
   br label %Ree_ManCutTruth.exit
 
-Gia_ObjIsXor.argprom.exit.i:                      ; preds = %Ree_ManCutTruthOne.exit35.i
+Gia_ObjIsXor.exit.i:                              ; preds = %Ree_ManCutTruthOne.exit35.i
   %218 = and i32 %206, 536870911
   %219 = lshr i64 %.val.i, 32
   %220 = trunc nuw i64 %219 to i32
@@ -787,8 +787,8 @@ Gia_ObjIsXor.argprom.exit.i:                      ; preds = %Ree_ManCutTruthOne.
   %spec.select.i = select i1 %cond.fr.i, i32 %224, i32 %223
   br label %Ree_ManCutTruth.exit
 
-Ree_ManCutTruth.exit:                             ; preds = %Gia_ObjIsXor.argprom.exit.thread.i, %Gia_ObjIsXor.argprom.exit.i
-  %225 = phi i32 [ %217, %Gia_ObjIsXor.argprom.exit.thread.i ], [ %spec.select.i, %Gia_ObjIsXor.argprom.exit.i ]
+Ree_ManCutTruth.exit:                             ; preds = %Gia_ObjIsXor.exit.thread.i, %Gia_ObjIsXor.exit.i
+  %225 = phi i32 [ %217, %Gia_ObjIsXor.exit.thread.i ], [ %spec.select.i, %Gia_ObjIsXor.exit.i ]
   %226 = and i32 %225, 255
   %.not122 = icmp ult i32 %226, 128
   %227 = xor i32 %226, 255
@@ -3698,7 +3698,7 @@ common.ret22:                                     ; preds = %4, %13
   ret void
 
 13:                                               ; preds = %4
-  tail call fastcc void @Vec_BitSetEntry.argelim(ptr noundef nonnull %2, i32 noundef %1)
+  tail call fastcc void @Vec_BitSetEntry(ptr noundef nonnull %2, i32 noundef %1)
   %14 = getelementptr i8, ptr %0, i64 32
   %.val17 = load ptr, ptr %14, align 8
   %15 = sext i32 %1 to i64
@@ -3716,12 +3716,12 @@ common.ret22:                                     ; preds = %4, %13
   %23 = and i32 %22, 536870911
   %24 = sub nsw i32 %1, %23
   tail call void @Ree_CollectInsiders_rec(ptr noundef %0, i32 noundef %24, ptr noundef nonnull %2, ptr noundef %3)
-  tail call fastcc void @Vec_BitSetEntry.argelim(ptr noundef %3, i32 noundef %1)
+  tail call fastcc void @Vec_BitSetEntry(ptr noundef %3, i32 noundef %1)
   br label %common.ret22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_BitSetEntry.argelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc void @Vec_BitSetEntry(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #3 {
   %3 = add nsw i32 %1, 1
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4

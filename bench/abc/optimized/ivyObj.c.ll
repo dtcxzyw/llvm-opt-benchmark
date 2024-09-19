@@ -215,16 +215,16 @@ Ivy_ObjConnect.exit:                              ; preds = %74, %77, %84
 110:                                              ; preds = %Ivy_ObjConnect.exit
   switch i32 %88, label %121 [
     i32 4, label %111
-    i32 2, label %Ivy_ObjIsOneFanin.argprom.exit
-    i32 3, label %Ivy_ObjIsOneFanin.argprom.exit
-    i32 7, label %Ivy_ObjIsOneFanin.argprom.exit
+    i32 2, label %Ivy_ObjIsOneFanin.exit
+    i32 3, label %Ivy_ObjIsOneFanin.exit
+    i32 7, label %Ivy_ObjIsOneFanin.exit
   ]
 
 111:                                              ; preds = %110
   %112 = and i32 %.val70, 2036
   br label %.sink.split
 
-Ivy_ObjIsOneFanin.argprom.exit:                   ; preds = %110, %110, %110
+Ivy_ObjIsOneFanin.exit:                           ; preds = %110, %110, %110
   %.val65 = load ptr, ptr %59, align 8
   %113 = ptrtoint ptr %.val65 to i64
   %114 = and i64 %113, -2
@@ -236,8 +236,8 @@ Ivy_ObjIsOneFanin.argprom.exit:                   ; preds = %110, %110, %110
   %120 = or disjoint i32 %118, %119
   br label %.sink.split
 
-.sink.split:                                      ; preds = %90, %Ivy_ObjIsOneFanin.argprom.exit, %111
-  %.sink = phi i32 [ %112, %111 ], [ %120, %Ivy_ObjIsOneFanin.argprom.exit ], [ %109, %90 ]
+.sink.split:                                      ; preds = %90, %Ivy_ObjIsOneFanin.exit, %111
+  %.sink = phi i32 [ %112, %111 ], [ %120, %Ivy_ObjIsOneFanin.exit ], [ %109, %90 ]
   store i32 %.sink, ptr %47, align 8
   br label %121
 
@@ -300,20 +300,20 @@ Ivy_ObjFaninPhase.exit91:                         ; preds = %140, %146
 
 152:                                              ; preds = %121
   switch i32 %122, label %167 [
-    i32 2, label %Ivy_ObjIsOneFanin.argprom.exit92.thread
-    i32 3, label %Ivy_ObjIsOneFanin.argprom.exit92.thread
-    i32 7, label %Ivy_ObjIsOneFanin.argprom.exit92.thread
-    i32 4, label %Ivy_ObjIsOneFanin.argprom.exit92.thread
+    i32 2, label %Ivy_ObjIsOneFanin.exit92.thread
+    i32 3, label %Ivy_ObjIsOneFanin.exit92.thread
+    i32 7, label %Ivy_ObjIsOneFanin.exit92.thread
+    i32 4, label %Ivy_ObjIsOneFanin.exit92.thread
   ]
 
-Ivy_ObjIsOneFanin.argprom.exit92.thread:          ; preds = %152, %152, %152, %152
+Ivy_ObjIsOneFanin.exit92.thread:                  ; preds = %152, %152, %152, %152
   %.val80 = load ptr, ptr %59, align 8
   %153 = ptrtoint ptr %.val80 to i64
   %154 = and i64 %153, 1
   %.not.i93 = icmp eq i64 %154, 0
   br i1 %.not.i93, label %161, label %155
 
-155:                                              ; preds = %Ivy_ObjIsOneFanin.argprom.exit92.thread
+155:                                              ; preds = %Ivy_ObjIsOneFanin.exit92.thread
   %156 = and i64 %153, -2
   %157 = inttoptr i64 %156 to ptr
   %158 = getelementptr inbounds i8, ptr %157, i64 8
@@ -322,7 +322,7 @@ Ivy_ObjIsOneFanin.argprom.exit92.thread:          ; preds = %152, %152, %152, %1
   %160 = xor i32 %.lobit.i94, 128
   br label %.sink.split123
 
-161:                                              ; preds = %Ivy_ObjIsOneFanin.argprom.exit92.thread
+161:                                              ; preds = %Ivy_ObjIsOneFanin.exit92.thread
   %162 = getelementptr inbounds i8, ptr %.val80, i64 8
   %163 = load i32, ptr %162, align 8
   %164 = and i32 %163, 128

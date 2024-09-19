@@ -3638,13 +3638,13 @@ _ZN2cv3Mat2atIfEERT_i.exit188.i:                  ; preds = %910, %900, %_ZN2cv3
   store ptr %17, ptr %161, align 8
   %936 = fdiv double 1.000000e+00, %935
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef -1, double noundef %936, double noundef 0.000000e+00)
-          to label %_ZN2cvdVERNS_3MatERKd.argprom.exit.i unwind label %891
+          to label %_ZN2cvdVERNS_3MatERKd.exit.i unwind label %891
 
-_ZN2cvdVERNS_3MatERKd.argprom.exit.i:             ; preds = %933
+_ZN2cvdVERNS_3MatERKd.exit.i:                     ; preds = %933
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %937
 
-937:                                              ; preds = %_ZN2cvdVERNS_3MatERKd.argprom.exit.i, %_ZN2cv3Mat2atIfEERT_i.exit188.i
+937:                                              ; preds = %_ZN2cvdVERNS_3MatERKd.exit.i, %_ZN2cv3Mat2atIfEERT_i.exit188.i
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %36) #17
   br label %939
 
@@ -4645,8 +4645,8 @@ attributes #21 = { noreturn nounwind }
 !21 = !{!22, !24}
 !22 = distinct !{!22, !23, !"_ZSt11make_sharedIN2cv11xfeatures2d8VGG_ImplEJRKiRKfRKbS8_S6_S8_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_: argument 0"}
 !23 = distinct !{!23, !"_ZSt11make_sharedIN2cv11xfeatures2d8VGG_ImplEJRKiRKfRKbS8_S6_S8_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_"}
-!24 = distinct !{!24, !25, !"_ZN2cvL7makePtrINS_11xfeatures2d8VGG_ImplEJifbbfbEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!25 = distinct !{!25, !"_ZN2cvL7makePtrINS_11xfeatures2d8VGG_ImplEJifbbfbEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!24 = distinct !{!24, !25, !"_ZN2cvL7makePtrINS_11xfeatures2d8VGG_ImplEJifbbfbEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!25 = distinct !{!25, !"_ZN2cvL7makePtrINS_11xfeatures2d8VGG_ImplEJifbbfbEEENS_3PtrIT_EEDpRKT0_"}
 !26 = distinct !{!26, !14}
 !27 = distinct !{!27, !14}
 !28 = distinct !{!28, !14, !29}

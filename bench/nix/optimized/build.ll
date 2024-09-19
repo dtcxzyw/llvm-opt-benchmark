@@ -1764,7 +1764,7 @@ define internal void @_ZNSt17_Function_handlerIFN3nix3refINS0_7CommandEEEvEZNS0_
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8, !noalias !6
   %.not.i.i.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i.i.i, label %_ZSt10__invoke_rIN3nix3refINS0_7CommandEEERZNS0_L15registerCommandI8CmdBuildEENS0_15RegisterCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit, label %7
+  br i1 %.not.i.i.i.i.i, label %_ZSt10__invoke_rIN3nix3refINS0_7CommandEEERZNS0_L15registerCommandI8CmdBuildEENS0_15RegisterCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1800,7 +1800,7 @@ define internal void @_ZNSt17_Function_handlerIFN3nix3refINS0_7CommandEEEvEZNS0_
 23:                                               ; preds = %21, %19
   %.0.i.i.i.i.i.i = phi i32 [ %11, %19 ], [ %22, %21 ]
   %24 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %24, label %25, label %_ZSt10__invoke_rIN3nix3refINS0_7CommandEEERZNS0_L15registerCommandI8CmdBuildEENS0_15RegisterCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit
+  br i1 %24, label %25, label %_ZSt10__invoke_rIN3nix3refINS0_7CommandEEERZNS0_L15registerCommandI8CmdBuildEENS0_15RegisterCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit
 
 25:                                               ; preds = %23
   %26 = load ptr, ptr %6, align 8
@@ -1825,14 +1825,14 @@ define internal void @_ZNSt17_Function_handlerIFN3nix3refINS0_7CommandEEEvEZNS0_
 36:                                               ; preds = %34, %31
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %32, %31 ], [ %35, %34 ]
   %37 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %37, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, label %_ZSt10__invoke_rIN3nix3refINS0_7CommandEEERZNS0_L15registerCommandI8CmdBuildEENS0_15RegisterCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit
+  br i1 %37, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, label %_ZSt10__invoke_rIN3nix3refINS0_7CommandEEERZNS0_L15registerCommandI8CmdBuildEENS0_15RegisterCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %36, %12
   %38 = load ptr, ptr %6, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
   call void %40(ptr noundef nonnull align 8 dereferenceable(16) %6) #28
-  br label %_ZSt10__invoke_rIN3nix3refINS0_7CommandEEERZNS0_L15registerCommandI8CmdBuildEENS0_15RegisterCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit
+  br label %_ZSt10__invoke_rIN3nix3refINS0_7CommandEEERZNS0_L15registerCommandI8CmdBuildEENS0_15RegisterCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit
 
 41:                                               ; preds = %2
   %42 = landingpad { ptr, i32 }
@@ -1840,7 +1840,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void @_ZN3nix3refI8CmdBuildED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #28
   resume { ptr, i32 } %42
 
-_ZSt10__invoke_rIN3nix3refINS0_7CommandEEERZNS0_L15registerCommandI8CmdBuildEENS0_15RegisterCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit: ; preds = %4, %23, %36, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
+_ZSt10__invoke_rIN3nix3refINS0_7CommandEEERZNS0_L15registerCommandI8CmdBuildEENS0_15RegisterCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit: ; preds = %4, %23, %36, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 }
@@ -5029,8 +5029,8 @@ _ZN3nix3refINS_5StoreEED2Ev.exit:                 ; preds = %269, %287, %300, %_
   %319 = getelementptr inbounds i8, ptr %49, i64 8
   br label %320
 
-320:                                              ; preds = %"_ZSt5visitIZL18derivedPathsToJSONB5cxx11RKSt6vectorIN3nix11DerivedPathESaIS2_EERNS1_5StoreEE3$_0JRKSt7variantIJNS1_17DerivedPathOpaqueENS1_16DerivedPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISJ_EEEEE4typeEE4typeEOSS_EEEE4typeEOSH_DpOSJ_.argprom.exit.i", %.lr.ph.i
-  %.sroa.011.016.i = phi ptr [ %314, %.lr.ph.i ], [ %346, %"_ZSt5visitIZL18derivedPathsToJSONB5cxx11RKSt6vectorIN3nix11DerivedPathESaIS2_EERNS1_5StoreEE3$_0JRKSt7variantIJNS1_17DerivedPathOpaqueENS1_16DerivedPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISJ_EEEEE4typeEE4typeEOSS_EEEE4typeEOSH_DpOSJ_.argprom.exit.i" ]
+320:                                              ; preds = %"_ZSt5visitIZL18derivedPathsToJSONB5cxx11RKSt6vectorIN3nix11DerivedPathESaIS2_EERNS1_5StoreEE3$_0JRKSt7variantIJNS1_17DerivedPathOpaqueENS1_16DerivedPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISJ_EEEEE4typeEE4typeEOSS_EEEE4typeEOSH_DpOSJ_.exit.i", %.lr.ph.i
+  %.sroa.011.016.i = phi ptr [ %314, %.lr.ph.i ], [ %346, %"_ZSt5visitIZL18derivedPathsToJSONB5cxx11RKSt6vectorIN3nix11DerivedPathESaIS2_EERNS1_5StoreEE3$_0JRKSt7variantIJNS1_17DerivedPathOpaqueENS1_16DerivedPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISJ_EEEEE4typeEE4typeEOSS_EEEE4typeEOSH_DpOSJ_.exit.i" ]
   %321 = getelementptr inbounds i8, ptr %.sroa.011.016.i, i64 72
   %322 = load i8, ptr %321, align 8
   switch i8 %322, label %338 [
@@ -5065,7 +5065,7 @@ _ZN3nix3refINS_5StoreEED2Ev.exit:                 ; preds = %269, %287, %300, %_
 331:                                              ; preds = %.noexc8.i
   %332 = load i8, ptr %50, align 8, !noalias !19
   invoke void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE10json_value7destroyENS_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %318, i8 noundef zeroext %332) #33
-          to label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZL18derivedPathsToJSONB5cxx11RKSt6vectorIN3nix11DerivedPathESaIS7_EERNS6_5StoreEE3$_0RKSt7variantIJNS6_17DerivedPathOpaqueENS6_16DerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESF_SL_.argprom.exit.i.i.i" unwind label %333
+          to label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZL18derivedPathsToJSONB5cxx11RKSt6vectorIN3nix11DerivedPathESaIS7_EERNS6_5StoreEE3$_0RKSt7variantIJNS6_17DerivedPathOpaqueENS6_16DerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESF_SL_.exit.i.i.i" unwind label %333
 
 333:                                              ; preds = %331
   %334 = landingpad { ptr, i32 }
@@ -5085,9 +5085,9 @@ common.resume.i.i.i:                              ; preds = %344, %336
           cleanup
   br label %common.resume.i.i.i
 
-"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZL18derivedPathsToJSONB5cxx11RKSt6vectorIN3nix11DerivedPathESaIS7_EERNS6_5StoreEE3$_0RKSt7variantIJNS6_17DerivedPathOpaqueENS6_16DerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESF_SL_.argprom.exit.i.i.i": ; preds = %331
+"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZL18derivedPathsToJSONB5cxx11RKSt6vectorIN3nix11DerivedPathESaIS7_EERNS6_5StoreEE3$_0RKSt7variantIJNS6_17DerivedPathOpaqueENS6_16DerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESF_SL_.exit.i.i.i": ; preds = %331
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50), !noalias !19
-  br label %"_ZSt5visitIZL18derivedPathsToJSONB5cxx11RKSt6vectorIN3nix11DerivedPathESaIS2_EERNS1_5StoreEE3$_0JRKSt7variantIJNS1_17DerivedPathOpaqueENS1_16DerivedPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISJ_EEEEE4typeEE4typeEOSS_EEEE4typeEOSH_DpOSJ_.argprom.exit.i"
+  br label %"_ZSt5visitIZL18derivedPathsToJSONB5cxx11RKSt6vectorIN3nix11DerivedPathESaIS2_EERNS1_5StoreEE3$_0JRKSt7variantIJNS1_17DerivedPathOpaqueENS1_16DerivedPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISJ_EEEEE4typeEE4typeEOSS_EEEE4typeEOSH_DpOSJ_.exit.i"
 
 338:                                              ; preds = %320
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49), !noalias !19
@@ -5101,7 +5101,7 @@ common.resume.i.i.i:                              ; preds = %344, %336
 339:                                              ; preds = %.noexc9.i
   %340 = load i8, ptr %49, align 8, !noalias !19
   invoke void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE10json_value7destroyENS_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %319, i8 noundef zeroext %340) #33
-          to label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZL18derivedPathsToJSONB5cxx11RKSt6vectorIN3nix11DerivedPathESaIS7_EERNS6_5StoreEE3$_0RKSt7variantIJNS6_17DerivedPathOpaqueENS6_16DerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESF_SL_.argprom.exit.i.i.i" unwind label %341
+          to label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZL18derivedPathsToJSONB5cxx11RKSt6vectorIN3nix11DerivedPathESaIS7_EERNS6_5StoreEE3$_0RKSt7variantIJNS6_17DerivedPathOpaqueENS6_16DerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESF_SL_.exit.i.i.i" unwind label %341
 
 341:                                              ; preds = %339
   %342 = landingpad { ptr, i32 }
@@ -5115,11 +5115,11 @@ common.resume.i.i.i:                              ; preds = %344, %336
           cleanup
   br label %common.resume.i.i.i
 
-"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZL18derivedPathsToJSONB5cxx11RKSt6vectorIN3nix11DerivedPathESaIS7_EERNS6_5StoreEE3$_0RKSt7variantIJNS6_17DerivedPathOpaqueENS6_16DerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESF_SL_.argprom.exit.i.i.i": ; preds = %339
+"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZL18derivedPathsToJSONB5cxx11RKSt6vectorIN3nix11DerivedPathESaIS7_EERNS6_5StoreEE3$_0RKSt7variantIJNS6_17DerivedPathOpaqueENS6_16DerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESF_SL_.exit.i.i.i": ; preds = %339
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49), !noalias !19
-  br label %"_ZSt5visitIZL18derivedPathsToJSONB5cxx11RKSt6vectorIN3nix11DerivedPathESaIS2_EERNS1_5StoreEE3$_0JRKSt7variantIJNS1_17DerivedPathOpaqueENS1_16DerivedPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISJ_EEEEE4typeEE4typeEOSS_EEEE4typeEOSH_DpOSJ_.argprom.exit.i"
+  br label %"_ZSt5visitIZL18derivedPathsToJSONB5cxx11RKSt6vectorIN3nix11DerivedPathESaIS2_EERNS1_5StoreEE3$_0JRKSt7variantIJNS1_17DerivedPathOpaqueENS1_16DerivedPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISJ_EEEEE4typeEE4typeEOSS_EEEE4typeEOSH_DpOSJ_.exit.i"
 
-"_ZSt5visitIZL18derivedPathsToJSONB5cxx11RKSt6vectorIN3nix11DerivedPathESaIS2_EERNS1_5StoreEE3$_0JRKSt7variantIJNS1_17DerivedPathOpaqueENS1_16DerivedPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISJ_EEEEE4typeEE4typeEOSS_EEEE4typeEOSH_DpOSJ_.argprom.exit.i": ; preds = %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZL18derivedPathsToJSONB5cxx11RKSt6vectorIN3nix11DerivedPathESaIS7_EERNS6_5StoreEE3$_0RKSt7variantIJNS6_17DerivedPathOpaqueENS6_16DerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESF_SL_.argprom.exit.i.i.i", %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZL18derivedPathsToJSONB5cxx11RKSt6vectorIN3nix11DerivedPathESaIS7_EERNS6_5StoreEE3$_0RKSt7variantIJNS6_17DerivedPathOpaqueENS6_16DerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESF_SL_.argprom.exit.i.i.i"
+"_ZSt5visitIZL18derivedPathsToJSONB5cxx11RKSt6vectorIN3nix11DerivedPathESaIS2_EERNS1_5StoreEE3$_0JRKSt7variantIJNS1_17DerivedPathOpaqueENS1_16DerivedPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISJ_EEEEE4typeEE4typeEOSS_EEEE4typeEOSH_DpOSJ_.exit.i": ; preds = %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZL18derivedPathsToJSONB5cxx11RKSt6vectorIN3nix11DerivedPathESaIS7_EERNS6_5StoreEE3$_0RKSt7variantIJNS6_17DerivedPathOpaqueENS6_16DerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESF_SL_.exit.i.i.i", %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZL18derivedPathsToJSONB5cxx11RKSt6vectorIN3nix11DerivedPathESaIS7_EERNS6_5StoreEE3$_0RKSt7variantIJNS6_17DerivedPathOpaqueENS6_16DerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESF_SL_.exit.i.i.i"
   %346 = getelementptr inbounds i8, ptr %.sroa.011.016.i, i64 80
   %347 = icmp eq ptr %346, %316
   br i1 %347, label %_ZL18derivedPathsToJSONB5cxx11RKSt6vectorIN3nix11DerivedPathESaIS1_EERNS0_5StoreE.exit, label %320
@@ -5139,7 +5139,7 @@ common.resume.i.i.i:                              ; preds = %344, %336
   call void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %57) #28
   br label %.body35
 
-_ZL18derivedPathsToJSONB5cxx11RKSt6vectorIN3nix11DerivedPathESaIS1_EERNS0_5StoreE.exit: ; preds = %"_ZSt5visitIZL18derivedPathsToJSONB5cxx11RKSt6vectorIN3nix11DerivedPathESaIS2_EERNS1_5StoreEE3$_0JRKSt7variantIJNS1_17DerivedPathOpaqueENS1_16DerivedPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISJ_EEEEE4typeEE4typeEOSS_EEEE4typeEOSH_DpOSJ_.argprom.exit.i", %.noexc34
+_ZL18derivedPathsToJSONB5cxx11RKSt6vectorIN3nix11DerivedPathESaIS1_EERNS0_5StoreE.exit: ; preds = %"_ZSt5visitIZL18derivedPathsToJSONB5cxx11RKSt6vectorIN3nix11DerivedPathESaIS2_EERNS1_5StoreEE3$_0JRKSt7variantIJNS1_17DerivedPathOpaqueENS1_16DerivedPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISJ_EEEEE4typeEE4typeEOSS_EEEE4typeEOSH_DpOSJ_.exit.i", %.noexc34
   invoke void @_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE4dumpEicbNS_6detail15error_handler_tE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %56, ptr noundef nonnull align 8 dereferenceable(16) %57, i32 noundef -1, i8 noundef signext 32, i1 noundef zeroext false, i32 noundef 0)
           to label %348 unwind label %362
 
@@ -31295,8 +31295,8 @@ attributes #34 = { nounwind willreturn memory(read) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZSt10__invoke_rIN3nix3refINS0_7CommandEEERZNS0_L15registerCommandI8CmdBuildEENS0_15RegisterCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom: argument 0"}
-!8 = distinct !{!8, !"_ZSt10__invoke_rIN3nix3refINS0_7CommandEEERZNS0_L15registerCommandI8CmdBuildEENS0_15RegisterCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom"}
+!7 = distinct !{!7, !8, !"_ZSt10__invoke_rIN3nix3refINS0_7CommandEEERZNS0_L15registerCommandI8CmdBuildEENS0_15RegisterCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_: argument 0"}
+!8 = distinct !{!8, !"_ZSt10__invoke_rIN3nix3refINS0_7CommandEEERZNS0_L15registerCommandI8CmdBuildEENS0_15RegisterCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_"}
 !9 = !{!10}
 !10 = distinct !{!10, !11, !"_ZSt11make_sharedI8CmdBuildJEESt10shared_ptrIT_EDpOT0_: argument 0"}
 !11 = distinct !{!11, !"_ZSt11make_sharedI8CmdBuildJEESt10shared_ptrIT_EDpOT0_"}

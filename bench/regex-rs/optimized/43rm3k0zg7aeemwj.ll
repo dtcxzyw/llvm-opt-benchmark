@@ -259,7 +259,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !21, !noundef !4
   %.val = load i32, ptr %3, align 4, !range !40, !noundef !4
   switch i32 %.val, label %4 [
-    i32 1, label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.argprom.exit"
+    i32 1, label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.exit"
     i32 2, label %5
     i32 4, label %6
     i32 8, label %7
@@ -283,57 +283,57 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   unreachable
 
 5:                                                ; preds = %2
-  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.argprom.exit"
+  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.exit"
 
 6:                                                ; preds = %2
-  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.argprom.exit"
+  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.exit"
 
 7:                                                ; preds = %2
-  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.argprom.exit"
+  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.exit"
 
 8:                                                ; preds = %2
-  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.argprom.exit"
+  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.exit"
 
 9:                                                ; preds = %2
-  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.argprom.exit"
+  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.exit"
 
 10:                                               ; preds = %2
-  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.argprom.exit"
+  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.exit"
 
 11:                                               ; preds = %2
-  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.argprom.exit"
+  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.exit"
 
 12:                                               ; preds = %2
-  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.argprom.exit"
+  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.exit"
 
 13:                                               ; preds = %2
-  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.argprom.exit"
+  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.exit"
 
 14:                                               ; preds = %2
-  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.argprom.exit"
+  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.exit"
 
 15:                                               ; preds = %2
-  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.argprom.exit"
+  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.exit"
 
 16:                                               ; preds = %2
-  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.argprom.exit"
+  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.exit"
 
 17:                                               ; preds = %2
-  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.argprom.exit"
+  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.exit"
 
 18:                                               ; preds = %2
-  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.argprom.exit"
+  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.exit"
 
 19:                                               ; preds = %2
-  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.argprom.exit"
+  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.exit"
 
 20:                                               ; preds = %2
-  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.argprom.exit"
+  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.exit"
 
 21:                                               ; preds = %2
-  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.argprom.exit"
+  br label %"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.exit"
 
-"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.argprom.exit": ; preds = %2, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21
+"_ZN60_$LT$regex_syntax..hir..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4ced92ed85d4213E.exit": ; preds = %2, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21
   %.sroa.19.0.i = phi i64 [ 18, %21 ], [ 20, %20 ], [ 16, %19 ], [ 18, %18 ], [ 14, %17 ], [ 16, %16 ], [ 12, %15 ], [ 14, %14 ], [ 17, %13 ], [ 11, %12 ], [ 15, %11 ], [ 9, %10 ], [ 7, %9 ], [ 9, %8 ], [ 5, %7 ], [ 7, %6 ], [ 3, %5 ], [ 5, %2 ]
   %.sroa.0.0.i = phi ptr [ @anon.458ea570a757e25242704d80b74fe601.59, %21 ], [ @anon.458ea570a757e25242704d80b74fe601.58, %20 ], [ @anon.458ea570a757e25242704d80b74fe601.57, %19 ], [ @anon.458ea570a757e25242704d80b74fe601.56, %18 ], [ @anon.458ea570a757e25242704d80b74fe601.55, %17 ], [ @anon.458ea570a757e25242704d80b74fe601.54, %16 ], [ @anon.458ea570a757e25242704d80b74fe601.53, %15 ], [ @anon.458ea570a757e25242704d80b74fe601.52, %14 ], [ @anon.458ea570a757e25242704d80b74fe601.51, %13 ], [ @anon.458ea570a757e25242704d80b74fe601.50, %12 ], [ @anon.458ea570a757e25242704d80b74fe601.49, %11 ], [ @anon.458ea570a757e25242704d80b74fe601.48, %10 ], [ @anon.458ea570a757e25242704d80b74fe601.47, %9 ], [ @anon.458ea570a757e25242704d80b74fe601.46, %8 ], [ @anon.458ea570a757e25242704d80b74fe601.45, %7 ], [ @anon.458ea570a757e25242704d80b74fe601.44, %6 ], [ @anon.458ea570a757e25242704d80b74fe601.43, %5 ], [ @anon.458ea570a757e25242704d80b74fe601.42, %2 ]
   %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.19.0.i)
@@ -948,20 +948,20 @@ define internal void @"_ZN4core3ptr72drop_in_place$LT$$RF$alloc..boxed..Box$LT$r
 define internal void @"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$str$GT$$GT$$GT$17hfd999d9a76a7e34dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17hdb9c7645c0c38749E.argprom.exit", label %4
+  br i1 %3, label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17hdb9c7645c0c38749E.exit", label %4
 
-"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17hdb9c7645c0c38749E.argprom.exit": ; preds = %7, %4, %1
+"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17hdb9c7645c0c38749E.exit": ; preds = %7, %4, %1
   ret void
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %.val1 = load i64, ptr %5, align 8, !noundef !4
   %6 = icmp eq i64 %.val1, 0
-  br i1 %6, label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17hdb9c7645c0c38749E.argprom.exit", label %7
+  br i1 %6, label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17hdb9c7645c0c38749E.exit", label %7
 
 7:                                                ; preds = %4
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %.val1, i64 noundef 1) #29
-  br label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17hdb9c7645c0c38749E.argprom.exit"
+  br label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17hdb9c7645c0c38749E.exit"
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable

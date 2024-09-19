@@ -53,12 +53,12 @@ define dso_local noundef zeroext i1 @nbcon_can_proceed(ptr nocapture noundef %0)
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 136
   %4 = load volatile i32, ptr %3, align 4
-  %5 = tail call fastcc zeroext i1 @nbcon_context_can_proceed.argprom(ptr noundef %0, i32 %4)
+  %5 = tail call fastcc zeroext i1 @nbcon_context_can_proceed(ptr noundef %0, i32 %4)
   ret i1 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @nbcon_context_can_proceed.argprom(ptr nocapture noundef %0, i32 %.0.val) unnamed_addr #1 align 16 {
+define internal fastcc noundef zeroext i1 @nbcon_context_can_proceed(ptr nocapture noundef %0, i32 %.0.val) unnamed_addr #1 align 16 {
   %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #8, !srcloc !5
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
@@ -143,7 +143,7 @@ define dso_local noundef zeroext i1 @nbcon_enter_unsafe(ptr nocapture noundef %0
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 136
   %4 = load volatile i32, ptr %3, align 4
-  %5 = tail call fastcc zeroext i1 @nbcon_context_can_proceed.argprom(ptr noundef %0, i32 %4)
+  %5 = tail call fastcc zeroext i1 @nbcon_context_can_proceed(ptr noundef %0, i32 %4)
   br i1 %5, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %1, %12
@@ -158,11 +158,11 @@ define dso_local noundef zeroext i1 @nbcon_enter_unsafe(ptr nocapture noundef %0
 
 12:                                               ; preds = %.preheader
   %13 = extractvalue { i8, i32 } %8, 1
-  %14 = tail call fastcc zeroext i1 @nbcon_context_can_proceed.argprom(ptr noundef %0, i32 %13)
+  %14 = tail call fastcc zeroext i1 @nbcon_context_can_proceed(ptr noundef %0, i32 %13)
   br i1 %14, label %.preheader, label %.loopexit, !llvm.loop !16
 
 15:                                               ; preds = %.preheader
-  %16 = tail call fastcc zeroext i1 @nbcon_context_can_proceed.argprom(ptr noundef %0, i32 %7)
+  %16 = tail call fastcc zeroext i1 @nbcon_context_can_proceed(ptr noundef %0, i32 %7)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %15, %1
@@ -181,7 +181,7 @@ define dso_local noundef zeroext i1 @nbcon_exit_unsafe(ptr nocapture noundef %0)
 
 .preheader:                                       ; preds = %1, %14
   %.sroa.0.0 = phi i32 [ %15, %14 ], [ %4, %1 ]
-  %7 = tail call fastcc zeroext i1 @nbcon_context_can_proceed.argprom(ptr noundef %0, i32 %.sroa.0.0)
+  %7 = tail call fastcc zeroext i1 @nbcon_context_can_proceed(ptr noundef %0, i32 %.sroa.0.0)
   br i1 %7, label %8, label %.loopexit
 
 8:                                                ; preds = %.preheader
@@ -201,7 +201,7 @@ define dso_local noundef zeroext i1 @nbcon_exit_unsafe(ptr nocapture noundef %0)
 
 .loopexit3:                                       ; preds = %8, %14, %1
   %.sroa.0.1 = phi i32 [ %4, %1 ], [ %9, %8 ], [ %15, %14 ]
-  %18 = tail call fastcc zeroext i1 @nbcon_context_can_proceed.argprom(ptr noundef %0, i32 %.sroa.0.1)
+  %18 = tail call fastcc zeroext i1 @nbcon_context_can_proceed(ptr noundef %0, i32 %.sroa.0.1)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit3

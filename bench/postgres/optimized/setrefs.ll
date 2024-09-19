@@ -1457,7 +1457,7 @@ set_join_references.exit:                         ; preds = %378, %build_tlist_i
   %548 = load ptr, ptr %547, align 8
   %549 = getelementptr i8, ptr %1, i64 48
   %.val572 = load ptr, ptr %549, align 8
-  %550 = tail call fastcc ptr @set_windowagg_runcondition_references.argprom(ptr noundef nonnull %0, ptr noundef %548, ptr %.val572)
+  %550 = tail call fastcc ptr @set_windowagg_runcondition_references(ptr noundef nonnull %0, ptr noundef %548, ptr %.val572)
   store ptr %550, ptr %547, align 8
   tail call fastcc void @set_upper_references(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2)
   %551 = getelementptr inbounds i8, ptr %1, i64 176
@@ -4742,7 +4742,7 @@ build_tlist_index.exit:                           ; preds = %47, %list_length.ex
   %94 = getelementptr inbounds i8, ptr %89, i64 8
   %95 = load ptr, ptr %94, align 8
   %96 = call zeroext i1 @equal(ptr noundef %80, ptr noundef %95) #8
-  br i1 %96, label %search_indexed_tlist_for_sortgroupref.argprom.exit, label %._crit_edge.i
+  br i1 %96, label %search_indexed_tlist_for_sortgroupref.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %93
   %.pre.i = load i32, ptr %82, align 4
@@ -4755,7 +4755,7 @@ build_tlist_index.exit:                           ; preds = %47, %list_length.ex
   %100 = icmp slt i64 %indvars.iv.next.i46, %99
   br i1 %100, label %.lr.ph6.i, label %.loopexit.loopexit
 
-search_indexed_tlist_for_sortgroupref.argprom.exit: ; preds = %93
+search_indexed_tlist_for_sortgroupref.exit:       ; preds = %93
   %101 = call ptr @makeVarFromTargetEntry(i32 noundef -2, ptr noundef nonnull %89) #8
   %102 = getelementptr inbounds i8, ptr %101, i64 36
   store i32 0, ptr %102, align 4
@@ -4794,8 +4794,8 @@ search_indexed_tlist_for_sortgroupref.argprom.exit: ; preds = %93
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   br label %110
 
-110:                                              ; preds = %search_indexed_tlist_for_sortgroupref.argprom.exit, %.loopexit, %107
-  %.0 = phi ptr [ %101, %search_indexed_tlist_for_sortgroupref.argprom.exit ], [ %106, %.loopexit ], [ %109, %107 ]
+110:                                              ; preds = %search_indexed_tlist_for_sortgroupref.exit, %.loopexit, %107
+  %.0 = phi ptr [ %101, %search_indexed_tlist_for_sortgroupref.exit ], [ %106, %.loopexit ], [ %109, %107 ]
   %111 = call ptr @flatCopyTargetEntry(ptr noundef %76) #8
   %112 = getelementptr inbounds i8, ptr %111, i64 8
   store ptr %.0, ptr %112, align 8
@@ -5082,7 +5082,7 @@ define internal ptr @convert_combining_aggrefs(ptr noundef %0, ptr noundef %1) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @set_windowagg_runcondition_references.argprom(ptr noundef %0, ptr noundef %1, ptr %.48.val) unnamed_addr #0 {
+define internal fastcc ptr @set_windowagg_runcondition_references(ptr noundef %0, ptr noundef %1, ptr %.48.val) unnamed_addr #0 {
   %3 = alloca %struct.fix_windowagg_cond_context, align 8
   %.not.i.i = icmp eq ptr %.48.val, null
   br i1 %.not.i.i, label %list_length.exit.i, label %4
@@ -5830,8 +5830,8 @@ thread-pre-split:                                 ; preds = %59, %36, %30, %26, 
   %78 = load ptr, ptr %77, align 8
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %76, %fix_alternative_subplan.argprom.exit
-  %.tr.be = phi ptr [ %78, %76 ], [ %.1.i, %fix_alternative_subplan.argprom.exit ]
+tailrecurse.backedge:                             ; preds = %76, %fix_alternative_subplan.exit
+  %.tr.be = phi ptr [ %78, %76 ], [ %.1.i, %fix_alternative_subplan.exit ]
   %79 = icmp eq ptr %.tr.be, null
   br i1 %79, label %.loopexit, label %5
 
@@ -5876,9 +5876,9 @@ tailrecurse.backedge:                             ; preds = %76, %fix_alternativ
   %104 = load i32, ptr %83, align 4
   %105 = sext i32 %104 to i64
   %106 = icmp slt i64 %indvars.iv.next.i49, %105
-  br i1 %106, label %.lr.ph12.i, label %fix_alternative_subplan.argprom.exit
+  br i1 %106, label %.lr.ph12.i, label %fix_alternative_subplan.exit
 
-fix_alternative_subplan.argprom.exit:             ; preds = %.lr.ph12.i
+fix_alternative_subplan.exit:                     ; preds = %.lr.ph12.i
   %107 = getelementptr inbounds i8, ptr %80, i64 664
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr inbounds i8, ptr %.1.i, i64 24
@@ -6048,7 +6048,7 @@ define internal ptr @fix_upper_expr_mutator(ptr noundef %0, ptr noundef %1) #0 {
   %25 = load i32, ptr %5, align 8
   %26 = load i32, ptr %6, align 8
   %.val56 = load ptr, ptr %10, align 8
-  %27 = tail call fastcc ptr @search_indexed_tlist_for_phv.argprom(ptr noundef %.tr78, ptr %.val56, i32 noundef %25, i32 noundef %26)
+  %27 = tail call fastcc ptr @search_indexed_tlist_for_phv(ptr noundef %.tr78, ptr %.val56, i32 noundef %25, i32 noundef %26)
   %.not54 = icmp eq ptr %27, null
   br i1 %.not54, label %28, label %.loopexit
 
@@ -6057,8 +6057,8 @@ define internal ptr @fix_upper_expr_mutator(ptr noundef %0, ptr noundef %1) #0 {
   %30 = load ptr, ptr %29, align 8
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %28, %fix_alternative_subplan.argprom.exit
-  %.tr.be = phi ptr [ %30, %28 ], [ %.1.i, %fix_alternative_subplan.argprom.exit ]
+tailrecurse.backedge:                             ; preds = %28, %fix_alternative_subplan.exit
+  %.tr.be = phi ptr [ %30, %28 ], [ %.1.i, %fix_alternative_subplan.exit ]
   %31 = icmp eq ptr %.tr.be, null
   br i1 %31, label %.loopexit, label %8
 
@@ -6227,9 +6227,9 @@ thread-pre-split:                                 ; preds = %82, %59, %53, %49, 
   %117 = load i32, ptr %96, align 4
   %118 = sext i32 %117 to i64
   %119 = icmp slt i64 %indvars.iv.next.i63, %118
-  br i1 %119, label %.lr.ph12.i, label %fix_alternative_subplan.argprom.exit
+  br i1 %119, label %.lr.ph12.i, label %fix_alternative_subplan.exit
 
-fix_alternative_subplan.argprom.exit:             ; preds = %.lr.ph12.i
+fix_alternative_subplan.exit:                     ; preds = %.lr.ph12.i
   %120 = getelementptr inbounds i8, ptr %93, i64 664
   %121 = load ptr, ptr %120, align 8
   %122 = getelementptr inbounds i8, ptr %.1.i, i64 24
@@ -6354,7 +6354,7 @@ define internal fastcc noundef ptr @search_indexed_tlist_for_var(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @search_indexed_tlist_for_phv.argprom(ptr nocapture noundef nonnull readonly %0, ptr readonly %.0.val, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @search_indexed_tlist_for_phv(ptr nocapture noundef nonnull readonly %0, ptr readonly %.0.val, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %.not = icmp eq ptr %.0.val, null
   br i1 %.not, label %.thread, label %.lr.ph
 
@@ -6629,7 +6629,7 @@ define internal ptr @fix_join_expr_mutator(ptr noundef %0, ptr noundef %1) #0 {
 50:                                               ; preds = %46
   %51 = load i32, ptr %5, align 8
   %.val98 = load ptr, ptr %10, align 8
-  %52 = tail call fastcc ptr @search_indexed_tlist_for_phv.argprom(ptr noundef %.tr116, ptr %.val98, i32 noundef -2, i32 noundef %51)
+  %52 = tail call fastcc ptr @search_indexed_tlist_for_phv(ptr noundef %.tr116, ptr %.val98, i32 noundef -2, i32 noundef %51)
   %.not89 = icmp eq ptr %52, null
   br i1 %.not89, label %53, label %.loopexit
 
@@ -6647,7 +6647,7 @@ define internal ptr @fix_join_expr_mutator(ptr noundef %0, ptr noundef %1) #0 {
 59:                                               ; preds = %55
   %60 = load i32, ptr %5, align 8
   %.val97 = load ptr, ptr %54, align 8
-  %61 = tail call fastcc ptr @search_indexed_tlist_for_phv.argprom(ptr noundef %.tr116, ptr %.val97, i32 noundef -1, i32 noundef %60)
+  %61 = tail call fastcc ptr @search_indexed_tlist_for_phv(ptr noundef %.tr116, ptr %.val97, i32 noundef -1, i32 noundef %60)
   %.not91 = icmp eq ptr %61, null
   br i1 %.not91, label %62, label %.loopexit
 
@@ -6656,8 +6656,8 @@ define internal ptr @fix_join_expr_mutator(ptr noundef %0, ptr noundef %1) #0 {
   %64 = load ptr, ptr %63, align 8
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %62, %fix_alternative_subplan.argprom.exit
-  %.tr.be = phi ptr [ %64, %62 ], [ %.1.i, %fix_alternative_subplan.argprom.exit ]
+tailrecurse.backedge:                             ; preds = %62, %fix_alternative_subplan.exit
+  %.tr.be = phi ptr [ %64, %62 ], [ %.1.i, %fix_alternative_subplan.exit ]
   %65 = icmp eq ptr %.tr.be, null
   br i1 %65, label %.loopexit, label %8
 
@@ -6769,9 +6769,9 @@ search_indexed_tlist_for_non_var.exit101.thread:  ; preds = %86, %79, %search_in
   %119 = load i32, ptr %98, align 4
   %120 = sext i32 %119 to i64
   %121 = icmp slt i64 %indvars.iv.next.i, %120
-  br i1 %121, label %.lr.ph12.i, label %fix_alternative_subplan.argprom.exit
+  br i1 %121, label %.lr.ph12.i, label %fix_alternative_subplan.exit
 
-fix_alternative_subplan.argprom.exit:             ; preds = %.lr.ph12.i
+fix_alternative_subplan.exit:                     ; preds = %.lr.ph12.i
   %122 = getelementptr inbounds i8, ptr %95, i64 664
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds i8, ptr %.1.i, i64 24

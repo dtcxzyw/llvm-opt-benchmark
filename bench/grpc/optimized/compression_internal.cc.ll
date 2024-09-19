@@ -1242,31 +1242,31 @@ if.then10.i.i:                                    ; preds = %if.end.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %text_buffer.119.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 128) to i64)
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 86
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.argprom.exit.i.i
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then10.i.i
   tail call void @abort() #26
   unreachable
 
-_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.argprom.exit.i.i: ; preds = %if.then10.i.i
+_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit.i.i: ; preds = %if.then10.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %text_buffer.119.i.i, i64 1
   store i8 44, ptr %text_buffer.119.i.i, align 1
   %sub.ptr.lhs.cast.i17.i.i = ptrtoint ptr %incdec.ptr.i.i.i to i64
   %sub.ptr.sub.i19.i.i = sub i64 %sub.ptr.lhs.cast.i17.i.i, ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 128) to i64)
   %cmp.i20.i.i = icmp eq i64 %sub.ptr.sub.i19.i.i, 86
-  br i1 %cmp.i20.i.i, label %if.then.i22.i.i, label %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.argprom.exit23.i.i
+  br i1 %cmp.i20.i.i, label %if.then.i22.i.i, label %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit23.i.i
 
-if.then.i22.i.i:                                  ; preds = %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.argprom.exit.i.i
+if.then.i22.i.i:                                  ; preds = %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit.i.i
   tail call void @abort() #26
   unreachable
 
-_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.argprom.exit23.i.i: ; preds = %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.argprom.exit.i.i
+_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit23.i.i: ; preds = %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit.i.i
   %incdec.ptr.i21.i.i = getelementptr inbounds i8, ptr %text_buffer.119.i.i, i64 2
   store i8 32, ptr %incdec.ptr.i.i.i, align 1
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %if.end.i.i, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.argprom.exit23.i.i
-  %text_buffer.2.i.i = phi ptr [ %text_buffer.021.i.i, %if.end.i.i ], [ %incdec.ptr.i21.i.i, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.argprom.exit23.i.i ]
+switch.lookup:                                    ; preds = %if.end.i.i, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit23.i.i
+  %text_buffer.2.i.i = phi ptr [ %text_buffer.021.i.i, %if.end.i.i ], [ %incdec.ptr.i21.i.i, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit23.i.i ]
   %sext = shl i64 %algorithm.020.i.i, 32
   %1 = ashr exact i64 %sext, 32
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._GLOBAL__sub_I_compression_internal.cc, i64 0, i64 %1
@@ -1275,20 +1275,20 @@ switch.lookup:                                    ; preds = %if.end.i.i, %_ZZN9g
   %cmp15.not16.i.i = icmp eq i8 %2, 0
   br i1 %cmp15.not16.i.i, label %for.inc17.i.i, label %for.body16.i.i
 
-for.body16.i.i:                                   ; preds = %switch.lookup, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.argprom.exit31.i.i
-  %3 = phi i8 [ %4, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.argprom.exit31.i.i ], [ %2, %switch.lookup ]
-  %p.018.i.i = phi ptr [ %incdec.ptr.i.i, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.argprom.exit31.i.i ], [ %switch.load, %switch.lookup ]
-  %text_buffer.317.i.i = phi ptr [ %incdec.ptr.i29.i.i, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.argprom.exit31.i.i ], [ %text_buffer.2.i.i, %switch.lookup ]
+for.body16.i.i:                                   ; preds = %switch.lookup, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit31.i.i
+  %3 = phi i8 [ %4, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit31.i.i ], [ %2, %switch.lookup ]
+  %p.018.i.i = phi ptr [ %incdec.ptr.i.i, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit31.i.i ], [ %switch.load, %switch.lookup ]
+  %text_buffer.317.i.i = phi ptr [ %incdec.ptr.i29.i.i, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit31.i.i ], [ %text_buffer.2.i.i, %switch.lookup ]
   %sub.ptr.lhs.cast.i25.i.i = ptrtoint ptr %text_buffer.317.i.i to i64
   %sub.ptr.sub.i27.i.i = sub i64 %sub.ptr.lhs.cast.i25.i.i, ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 128) to i64)
   %cmp.i28.i.i = icmp eq i64 %sub.ptr.sub.i27.i.i, 86
-  br i1 %cmp.i28.i.i, label %if.then.i30.i.i, label %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.argprom.exit31.i.i
+  br i1 %cmp.i28.i.i, label %if.then.i30.i.i, label %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit31.i.i
 
 if.then.i30.i.i:                                  ; preds = %for.body16.i.i
   tail call void @abort() #26
   unreachable
 
-_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.argprom.exit31.i.i: ; preds = %for.body16.i.i
+_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit31.i.i: ; preds = %for.body16.i.i
   %incdec.ptr.i29.i.i = getelementptr inbounds i8, ptr %text_buffer.317.i.i, i64 1
   store i8 %3, ptr %text_buffer.317.i.i, align 1
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %p.018.i.i, i64 1
@@ -1296,8 +1296,8 @@ _ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.argprom.exit31
   %cmp15.not.i.i = icmp eq i8 %4, 0
   br i1 %cmp15.not.i.i, label %for.inc17.i.i, label %for.body16.i.i, !llvm.loop !41
 
-for.inc17.i.i:                                    ; preds = %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.argprom.exit31.i.i, %switch.lookup, %for.body7.i.i
-  %text_buffer.4.i.i = phi ptr [ %text_buffer.119.i.i, %for.body7.i.i ], [ %text_buffer.2.i.i, %switch.lookup ], [ %incdec.ptr.i29.i.i, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.argprom.exit31.i.i ]
+for.inc17.i.i:                                    ; preds = %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit31.i.i, %switch.lookup, %for.body7.i.i
+  %text_buffer.4.i.i = phi ptr [ %text_buffer.119.i.i, %for.body7.i.i ], [ %text_buffer.2.i.i, %switch.lookup ], [ %incdec.ptr.i29.i.i, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit31.i.i ]
   %inc.i.i = add nuw nsw i64 %algorithm.020.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 3
   br i1 %exitcond.not.i.i, label %for.end18.i.i, label %for.body7.i.i, !llvm.loop !42

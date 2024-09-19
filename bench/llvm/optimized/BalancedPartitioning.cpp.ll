@@ -698,7 +698,7 @@ _ZN4llvm20BalancedPartitioning12BPThreadPool4waitEv.exit: ; preds = %"_ZNSt18con
 
 119:                                              ; preds = %118, %_ZN4llvm20BalancedPartitioning12BPThreadPool4waitEv.exit
   %120 = icmp eq ptr %.lcssa23, %.lcssa24
-  br i1 %120, label %"_ZN4llvm11stable_sortIRNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEZNKS_20BalancedPartitioning3runERS8_E3$_1EEvOT_T0_.argprom.exit", label %121
+  br i1 %120, label %"_ZN4llvm11stable_sortIRNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEZNKS_20BalancedPartitioning3runERS8_E3$_1EEvOT_T0_.exit", label %121
 
 121:                                              ; preds = %119
   %122 = icmp sgt i64 %.lcssa22, 0
@@ -754,21 +754,21 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeE
   %.sroa.6.02027.i.i.i = phi ptr [ %125, %126 ], [ null, %.thread.i.i.i ], [ %125, %_ZSt8_DestroyIN4llvm14BPFunctionNodeEEvPT_.exit.i.i.i.i.i.i ]
   %135 = phi i64 [ 0, %126 ], [ 0, %.thread.i.i.i ], [ %124, %_ZSt8_DestroyIN4llvm14BPFunctionNodeEEvPT_.exit.i.i.i.i.i.i ]
   call void @_ZdlPvm(ptr noundef %.sroa.6.02027.i.i.i, i64 noundef %135) #22
-  br label %"_ZN4llvm11stable_sortIRNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEZNKS_20BalancedPartitioning3runERS8_E3$_1EEvOT_T0_.argprom.exit"
+  br label %"_ZN4llvm11stable_sortIRNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEZNKS_20BalancedPartitioning3runERS8_E3$_1EEvOT_T0_.exit"
 
-"_ZN4llvm11stable_sortIRNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEZNKS_20BalancedPartitioning3runERS8_E3$_1EEvOT_T0_.argprom.exit": ; preds = %119, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_ED2Ev.exit.i.i.i
+"_ZN4llvm11stable_sortIRNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEZNKS_20BalancedPartitioning3runERS8_E3$_1EEvOT_T0_.exit": ; preds = %119, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_ED2Ev.exit.i.i.i
   call void @_ZN4llvm13StdThreadPoolD1Ev(ptr noundef nonnull align 8 dereferenceable(360) %8) #22
   %136 = load i8, ptr %9, align 8
   %137 = trunc i8 %136 to i1
   br i1 %137, label %138, label %_ZNSt8optionalIN4llvm20BalancedPartitioning12BPThreadPoolEED2Ev.exit
 
-138:                                              ; preds = %"_ZN4llvm11stable_sortIRNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEZNKS_20BalancedPartitioning3runERS8_E3$_1EEvOT_T0_.argprom.exit"
+138:                                              ; preds = %"_ZN4llvm11stable_sortIRNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEZNKS_20BalancedPartitioning3runERS8_E3$_1EEvOT_T0_.exit"
   store i8 0, ptr %9, align 8
   %139 = getelementptr inbounds nuw i8, ptr %7, i64 48
   call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %139) #22
   br label %_ZNSt8optionalIN4llvm20BalancedPartitioning12BPThreadPoolEED2Ev.exit
 
-_ZNSt8optionalIN4llvm20BalancedPartitioning12BPThreadPoolEED2Ev.exit: ; preds = %"_ZN4llvm11stable_sortIRNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEZNKS_20BalancedPartitioning3runERS8_E3$_1EEvOT_T0_.argprom.exit", %138
+_ZNSt8optionalIN4llvm20BalancedPartitioning12BPThreadPoolEED2Ev.exit: ; preds = %"_ZN4llvm11stable_sortIRNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEZNKS_20BalancedPartitioning3runERS8_E3$_1EEvOT_T0_.exit", %138
   ret void
 }
 
@@ -871,7 +871,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   tail call void @_ZNK4llvm20BalancedPartitioning5splitENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEj(ptr nonnull align 8 poison, ptr %1, ptr %2, i32 noundef %49)
   call void @_ZNK4llvm20BalancedPartitioning13runIterationsENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE(ptr noundef nonnull align 8 dereferenceable(65544) %0, ptr %1, ptr %2, i32 noundef %49, i32 noundef %50, ptr noundef nonnull align 8 dereferenceable(5000) %14)
   %51 = icmp eq ptr %1, %2
-  br i1 %51, label %"_ZN4llvm9partitionIRKNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEZNKS_20BalancedPartitioning6bisectESA_jjjRSt8optionalINSD_12BPThreadPoolEEE3$_0EEDaOT_T0_.argprom.exit", label %.lr.ph.i.i.i
+  br i1 %51, label %"_ZN4llvm9partitionIRKNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEZNKS_20BalancedPartitioning6bisectESA_jjjRSt8optionalINSD_12BPThreadPoolEEE3$_0EEDaOT_T0_.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Em.exit, %68
   %.sroa.014.027.i.i.i = phi ptr [ %69, %68 ], [ %1, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Em.exit ]
@@ -892,13 +892,13 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 58:                                               ; preds = %52
   %59 = getelementptr inbounds i8, ptr %.sroa.014.123.i.i.i, i64 56
   %60 = icmp eq ptr %59, %.sroa.09.026.i.i.i
-  br i1 %60, label %"_ZN4llvm9partitionIRKNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEZNKS_20BalancedPartitioning6bisectESA_jjjRSt8optionalINSD_12BPThreadPoolEEE3$_0EEDaOT_T0_.argprom.exit", label %52, !llvm.loop !26
+  br i1 %60, label %"_ZN4llvm9partitionIRKNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEZNKS_20BalancedPartitioning6bisectESA_jjjRSt8optionalINSD_12BPThreadPoolEEE3$_0EEDaOT_T0_.exit", label %52, !llvm.loop !26
 
 .preheader.i.i.i:                                 ; preds = %52, %62
   %.sroa.09.0.pn.i.i.i = phi ptr [ %.sroa.09.1.i.i.i, %62 ], [ %.sroa.09.026.i.i.i, %52 ]
   %.sroa.09.1.i.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i.i, i64 -56
   %61 = icmp eq ptr %.sroa.014.123.i.i.i, %.sroa.09.1.i.i.i
-  br i1 %61, label %"_ZN4llvm9partitionIRKNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEZNKS_20BalancedPartitioning6bisectESA_jjjRSt8optionalINSD_12BPThreadPoolEEE3$_0EEDaOT_T0_.argprom.exit", label %62
+  br i1 %61, label %"_ZN4llvm9partitionIRKNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEZNKS_20BalancedPartitioning6bisectESA_jjjRSt8optionalINSD_12BPThreadPoolEEE3$_0EEDaOT_T0_.exit", label %62
 
 62:                                               ; preds = %.preheader.i.i.i
   %63 = getelementptr i8, ptr %.sroa.09.0.pn.i.i.i, i64 -16
@@ -914,9 +914,9 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   call void @_ZSt4swapIN4llvm14BPFunctionNodeEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.014.123.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.09.1.i.i.i)
   %69 = getelementptr inbounds i8, ptr %.sroa.014.123.i.i.i, i64 56
   %70 = icmp eq ptr %69, %.sroa.09.1.i.i.i
-  br i1 %70, label %"_ZN4llvm9partitionIRKNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEZNKS_20BalancedPartitioning6bisectESA_jjjRSt8optionalINSD_12BPThreadPoolEEE3$_0EEDaOT_T0_.argprom.exit", label %.lr.ph.i.i.i, !llvm.loop !28
+  br i1 %70, label %"_ZN4llvm9partitionIRKNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEZNKS_20BalancedPartitioning6bisectESA_jjjRSt8optionalINSD_12BPThreadPoolEEE3$_0EEDaOT_T0_.exit", label %.lr.ph.i.i.i, !llvm.loop !28
 
-"_ZN4llvm9partitionIRKNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEZNKS_20BalancedPartitioning6bisectESA_jjjRSt8optionalINSD_12BPThreadPoolEEE3$_0EEDaOT_T0_.argprom.exit": ; preds = %68, %58, %.preheader.i.i.i, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Em.exit
+"_ZN4llvm9partitionIRKNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEZNKS_20BalancedPartitioning6bisectESA_jjjRSt8optionalINSD_12BPThreadPoolEEE3$_0EEDaOT_T0_.exit": ; preds = %68, %58, %.preheader.i.i.i, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Em.exit
   %.sroa.014.121.i.i.i = phi ptr [ %1, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Em.exit ], [ %.sroa.014.123.i.i.i, %.preheader.i.i.i ], [ %59, %58 ], [ %69, %68 ]
   %71 = ptrtoint ptr %.sroa.014.121.i.i.i to i64
   %72 = sub i64 %71, %16
@@ -928,7 +928,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %78 = trunc i8 %77 to i1
   br i1 %78, label %79, label %215
 
-79:                                               ; preds = %"_ZN4llvm9partitionIRKNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEZNKS_20BalancedPartitioning6bisectESA_jjjRSt8optionalINSD_12BPThreadPoolEEE3$_0EEDaOT_T0_.argprom.exit"
+79:                                               ; preds = %"_ZN4llvm9partitionIRKNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEZNKS_20BalancedPartitioning6bisectESA_jjjRSt8optionalINSD_12BPThreadPoolEEE3$_0EEDaOT_T0_.exit"
   %80 = load ptr, ptr %0, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 12
   %82 = load i32, ptr %81, align 4
@@ -1256,7 +1256,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void %214(ptr noundef nonnull align 8 dereferenceable(16) %159) #22
   br label %"_ZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS0_6bisectENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjjRSt8optionalIS1_EE3$_3EEvOT_.exit"
 
-215:                                              ; preds = %79, %"_ZN4llvm9partitionIRKNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEZNKS_20BalancedPartitioning6bisectESA_jjjRSt8optionalINSD_12BPThreadPoolEEE3$_0EEDaOT_T0_.argprom.exit"
+215:                                              ; preds = %79, %"_ZN4llvm9partitionIRKNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEZNKS_20BalancedPartitioning6bisectESA_jjjRSt8optionalINSD_12BPThreadPoolEEE3$_0EEDaOT_T0_.exit"
   %216 = add i32 %3, 1
   call void @_ZNK4llvm20BalancedPartitioning6bisectENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEjjjRSt8optionalINS0_12BPThreadPoolEE(ptr noundef nonnull align 8 dereferenceable(65544) %0, ptr %1, ptr %.sroa.014.121.i.i.i, i32 noundef %216, i32 noundef %49, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(112) %6)
   call void @_ZNK4llvm20BalancedPartitioning6bisectENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEjjjRSt8optionalINS0_12BPThreadPoolEE(ptr noundef nonnull align 8 dereferenceable(65544) %0, ptr %.sroa.014.121.i.i.i, ptr %2, i32 noundef %216, i32 noundef %50, i32 noundef %75, ptr noundef nonnull align 8 dereferenceable(112) %6)
@@ -1317,7 +1317,7 @@ define dso_local void @_ZNK4llvm20BalancedPartitioning5splitENS_14iterator_range
   %35 = sub i64 %34, %151
   %36 = sdiv exact i64 %35, 56
   %37 = icmp slt i64 %35, 112
-  br i1 %37, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_SG_RT0_.argprom.exit.i.i.i", label %38
+  br i1 %37, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_SG_RT0_.exit.i.i.i", label %38
 
 38:                                               ; preds = %._crit_edge.i
   %39 = add nsw i64 %36, -2
@@ -1382,15 +1382,15 @@ _ZN4llvm14BPFunctionNodeD2Ev.exit.i.i.i.i:        ; preds = %62, %_ZN4llvm14BPFu
   br label %_ZN4llvm14BPFunctionNodeD2Ev.exit10.i.i.i.i
 
 _ZN4llvm14BPFunctionNodeD2Ev.exit10.i.i.i.i:      ; preds = %67, %_ZN4llvm14BPFunctionNodeD2Ev.exit.i.i.i.i
-  br i1 %.not.i.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_SG_RT0_.argprom.exit.i.i.i", label %47
+  br i1 %.not.i.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_SG_RT0_.exit.i.i.i", label %47
 
-"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_SG_RT0_.argprom.exit.i.i.i": ; preds = %_ZN4llvm14BPFunctionNodeD2Ev.exit10.i.i.i.i, %._crit_edge.i
+"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_SG_RT0_.exit.i.i.i": ; preds = %_ZN4llvm14BPFunctionNodeD2Ev.exit10.i.i.i.i, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11)
   %68 = icmp ult ptr %33, %.sroa.012.1.i.i..sroa.024.0.i.i
   br i1 %68, label %.lr.ph.i.i.i, label %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_SG_SG_T0_.exit.i.i"
 
-.lr.ph.i.i.i:                                     ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_SG_RT0_.argprom.exit.i.i.i"
+.lr.ph.i.i.i:                                     ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_SG_RT0_.exit.i.i.i"
   %69 = getelementptr i8, ptr %.sroa.027.0..sroa.012.1.i.i.i.i, i64 48
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %71 = getelementptr inbounds i8, ptr %8, i64 24
@@ -1457,23 +1457,23 @@ _ZN4llvm14BPFunctionNodeD2Ev.exit.i10.i.i.i:      ; preds = %97, %_ZN4llvm14BPFu
   %98 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %70) #22
   %99 = load ptr, ptr %70, align 8
   %100 = icmp eq ptr %99, %71
-  br i1 %100, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_SG_SG_RT0_.argprom.exit.i.i.i", label %101
+  br i1 %100, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_SG_SG_RT0_.exit.i.i.i", label %101
 
 101:                                              ; preds = %_ZN4llvm14BPFunctionNodeD2Ev.exit.i10.i.i.i
   call void @free(ptr noundef %99) #22
-  br label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_SG_SG_RT0_.argprom.exit.i.i.i"
+  br label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_SG_SG_RT0_.exit.i.i.i"
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_SG_SG_RT0_.argprom.exit.i.i.i": ; preds = %101, %_ZN4llvm14BPFunctionNodeD2Ev.exit.i10.i.i.i
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_SG_SG_RT0_.exit.i.i.i": ; preds = %101, %_ZN4llvm14BPFunctionNodeD2Ev.exit.i10.i.i.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
   br label %102
 
-102:                                              ; preds = %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_SG_SG_RT0_.argprom.exit.i.i.i", %78
+102:                                              ; preds = %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_SG_SG_RT0_.exit.i.i.i", %78
   %103 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i.i, i64 56
   %104 = icmp ult ptr %103, %.sroa.012.1.i.i..sroa.024.0.i.i
   br i1 %104, label %78, label %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_SG_SG_T0_.exit.i.i", !llvm.loop !48
 
-"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_SG_SG_T0_.exit.i.i": ; preds = %102, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_SG_RT0_.argprom.exit.i.i.i"
+"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_SG_SG_T0_.exit.i.i": ; preds = %102, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_SG_RT0_.exit.i.i.i"
   call void @_ZSt4swapIN4llvm14BPFunctionNodeEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.027.0..sroa.012.1.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %19)
   br label %"_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEEZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EvT_SD_SD_T0_.exit"
 
@@ -4629,7 +4629,7 @@ define dso_local noundef i32 @_ZNK4llvm20BalancedPartitioning12runIterationENS_1
 
 .preheader:                                       ; preds = %106, %7
   %.not115134 = icmp eq ptr %1, %2
-  br i1 %.not115134, label %"_ZN4llvm9partitionIRSt6vectorISt4pairIfPNS_14BPFunctionNodeEESaIS5_EEZNKS_20BalancedPartitioning12runIterationENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIS4_S1_IS3_SaIS3_EEEEEEjjRNS_11SmallVectorINS9_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEDaOT_T0_.argprom.exit", label %.lr.ph139
+  br i1 %.not115134, label %"_ZN4llvm9partitionIRSt6vectorISt4pairIfPNS_14BPFunctionNodeEESaIS5_EEZNKS_20BalancedPartitioning12runIterationENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIS4_S1_IS3_SaIS3_EEEEEEjjRNS_11SmallVectorINS9_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEDaOT_T0_.exit", label %.lr.ph139
 
 12:                                               ; preds = %.lr.ph, %106
   %.0133 = phi ptr [ %8, %.lr.ph ], [ %107, %106 ]
@@ -4919,7 +4919,7 @@ _ZNSt6vectorISt4pairIfPN4llvm14BPFunctionNodeEESaIS4_EE9push_backEOS4_.exit: ; p
 ._crit_edge:                                      ; preds = %_ZNSt6vectorISt4pairIfPN4llvm14BPFunctionNodeEESaIS4_EE9push_backEOS4_.exit
   %154 = ptrtoint ptr %.sroa.12.1 to i64
   %155 = icmp eq ptr %.sroa.0102.1, %.sroa.6.1
-  br i1 %155, label %"_ZN4llvm9partitionIRSt6vectorISt4pairIfPNS_14BPFunctionNodeEESaIS5_EEZNKS_20BalancedPartitioning12runIterationENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIS4_S1_IS3_SaIS3_EEEEEEjjRNS_11SmallVectorINS9_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEDaOT_T0_.argprom.exit", label %.lr.ph.i.i.i
+  br i1 %155, label %"_ZN4llvm9partitionIRSt6vectorISt4pairIfPNS_14BPFunctionNodeEESaIS5_EEZNKS_20BalancedPartitioning12runIterationENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIS4_S1_IS3_SaIS3_EEEEEEjjRNS_11SmallVectorINS9_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEDaOT_T0_.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge, %175
   %.sroa.014.029.i.i.i = phi ptr [ %181, %175 ], [ %.sroa.0102.1, %._crit_edge ]
@@ -4946,13 +4946,13 @@ _ZNSt6vectorISt4pairIfPN4llvm14BPFunctionNodeEESaIS4_EE9push_backEOS4_.exit: ; p
 164:                                              ; preds = %156
   %165 = getelementptr inbounds i8, ptr %.sroa.014.125.i.i.i, i64 16
   %166 = icmp eq ptr %165, %.sroa.09.028.i.i.i
-  br i1 %166, label %"_ZN4llvm9partitionIRSt6vectorISt4pairIfPNS_14BPFunctionNodeEESaIS5_EEZNKS_20BalancedPartitioning12runIterationENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIS4_S1_IS3_SaIS3_EEEEEEjjRNS_11SmallVectorINS9_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEDaOT_T0_.argprom.exit", label %156, !llvm.loop !72
+  br i1 %166, label %"_ZN4llvm9partitionIRSt6vectorISt4pairIfPNS_14BPFunctionNodeEESaIS5_EEZNKS_20BalancedPartitioning12runIterationENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIS4_S1_IS3_SaIS3_EEEEEEjjRNS_11SmallVectorINS9_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEDaOT_T0_.exit", label %156, !llvm.loop !72
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i.preheader, %168
   %.sroa.09.0.pn.i.i.i = phi ptr [ %.sroa.09.1.i.i.i, %168 ], [ %.sroa.09.028.i.i.i, %.preheader.i.i.i.preheader ]
   %.sroa.09.1.i.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i.i, i64 -16
   %167 = icmp eq ptr %.sroa.014.125.i.i.i, %.sroa.09.1.i.i.i
-  br i1 %167, label %"_ZN4llvm9partitionIRSt6vectorISt4pairIfPNS_14BPFunctionNodeEESaIS5_EEZNKS_20BalancedPartitioning12runIterationENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIS4_S1_IS3_SaIS3_EEEEEEjjRNS_11SmallVectorINS9_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEDaOT_T0_.argprom.exit", label %168
+  br i1 %167, label %"_ZN4llvm9partitionIRSt6vectorISt4pairIfPNS_14BPFunctionNodeEESaIS5_EEZNKS_20BalancedPartitioning12runIterationENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIS4_S1_IS3_SaIS3_EEEEEEjjRNS_11SmallVectorINS9_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEDaOT_T0_.exit", label %168
 
 168:                                              ; preds = %.preheader.i.i.i
   %169 = getelementptr i8, ptr %.sroa.09.0.pn.i.i.i, i64 -8
@@ -4978,25 +4978,25 @@ _ZNSt6vectorISt4pairIfPN4llvm14BPFunctionNodeEESaIS4_EE9push_backEOS4_.exit: ; p
   store ptr %179, ptr %176, align 8
   %181 = getelementptr inbounds i8, ptr %.sroa.014.125.i.i.i, i64 16
   %182 = icmp eq ptr %181, %.sroa.09.1.i.i.i
-  br i1 %182, label %"_ZN4llvm9partitionIRSt6vectorISt4pairIfPNS_14BPFunctionNodeEESaIS5_EEZNKS_20BalancedPartitioning12runIterationENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIS4_S1_IS3_SaIS3_EEEEEEjjRNS_11SmallVectorINS9_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEDaOT_T0_.argprom.exit", label %.lr.ph.i.i.i, !llvm.loop !74
+  br i1 %182, label %"_ZN4llvm9partitionIRSt6vectorISt4pairIfPNS_14BPFunctionNodeEESaIS5_EEZNKS_20BalancedPartitioning12runIterationENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIS4_S1_IS3_SaIS3_EEEEEEjjRNS_11SmallVectorINS9_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEDaOT_T0_.exit", label %.lr.ph.i.i.i, !llvm.loop !74
 
-"_ZN4llvm9partitionIRSt6vectorISt4pairIfPNS_14BPFunctionNodeEESaIS5_EEZNKS_20BalancedPartitioning12runIterationENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIS4_S1_IS3_SaIS3_EEEEEEjjRNS_11SmallVectorINS9_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEDaOT_T0_.argprom.exit": ; preds = %175, %164, %.preheader.i.i.i, %.preheader, %._crit_edge
+"_ZN4llvm9partitionIRSt6vectorISt4pairIfPNS_14BPFunctionNodeEESaIS5_EEZNKS_20BalancedPartitioning12runIterationENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIS4_S1_IS3_SaIS3_EEEEEEjjRNS_11SmallVectorINS9_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEDaOT_T0_.exit": ; preds = %175, %164, %.preheader.i.i.i, %.preheader, %._crit_edge
   %.sroa.0102.0.lcssa168 = phi ptr [ %.sroa.0102.1, %._crit_edge ], [ null, %.preheader ], [ %.sroa.0102.1, %.preheader.i.i.i ], [ %.sroa.0102.1, %164 ], [ %.sroa.0102.1, %175 ]
   %.sroa.6.0.lcssa167 = phi ptr [ %.sroa.6.1, %._crit_edge ], [ null, %.preheader ], [ %.sroa.6.1, %.preheader.i.i.i ], [ %.sroa.6.1, %164 ], [ %.sroa.6.1, %175 ]
   %.sroa.12.0.lcssa166 = phi i64 [ %154, %._crit_edge ], [ 0, %.preheader ], [ %154, %.preheader.i.i.i ], [ %154, %164 ], [ %154, %175 ]
   %.sroa.014.121.i.i.i = phi ptr [ %.sroa.0102.1, %._crit_edge ], [ null, %.preheader ], [ %.sroa.014.125.i.i.i, %.preheader.i.i.i ], [ %165, %164 ], [ %181, %175 ]
-  tail call fastcc void @"_ZN4llvm11stable_sortIRNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPNS_14BPFunctionNodeEESt6vectorIS7_SaIS7_EEEEEEZNKS_20BalancedPartitioning12runIterationENS1_INS3_IS6_S9_IS5_SaIS5_EEEEEEjjRNS_11SmallVectorINSF_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEvOT_T0_.argprom"(ptr %.sroa.0102.0.lcssa168, ptr %.sroa.014.121.i.i.i)
-  tail call fastcc void @"_ZN4llvm11stable_sortIRNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPNS_14BPFunctionNodeEESt6vectorIS7_SaIS7_EEEEEEZNKS_20BalancedPartitioning12runIterationENS1_INS3_IS6_S9_IS5_SaIS5_EEEEEEjjRNS_11SmallVectorINSF_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEvOT_T0_.argprom"(ptr %.sroa.014.121.i.i.i, ptr %.sroa.6.0.lcssa167)
+  tail call fastcc void @"_ZN4llvm11stable_sortIRNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPNS_14BPFunctionNodeEESt6vectorIS7_SaIS7_EEEEEEZNKS_20BalancedPartitioning12runIterationENS1_INS3_IS6_S9_IS5_SaIS5_EEEEEEjjRNS_11SmallVectorINSF_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEvOT_T0_"(ptr %.sroa.0102.0.lcssa168, ptr %.sroa.014.121.i.i.i)
+  tail call fastcc void @"_ZN4llvm11stable_sortIRNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPNS_14BPFunctionNodeEESt6vectorIS7_SaIS7_EEEEEEZNKS_20BalancedPartitioning12runIterationENS1_INS3_IS6_S9_IS5_SaIS5_EEEEEEjjRNS_11SmallVectorINSF_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEvOT_T0_"(ptr %.sroa.014.121.i.i.i, ptr %.sroa.6.0.lcssa167)
   %183 = ptrtoint ptr %.sroa.0102.0.lcssa168 to i64
   %184 = icmp ne ptr %.sroa.0102.0.lcssa168, %.sroa.014.121.i.i.i
   %185 = icmp ne ptr %.sroa.014.121.i.i.i, %.sroa.6.0.lcssa167
   %.not3.i143 = and i1 %184, %185
   br i1 %.not3.i143, label %.lr.ph147, label %._crit_edge148
 
-.lr.ph147:                                        ; preds = %"_ZN4llvm9partitionIRSt6vectorISt4pairIfPNS_14BPFunctionNodeEESaIS5_EEZNKS_20BalancedPartitioning12runIterationENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIS4_S1_IS3_SaIS3_EEEEEEjjRNS_11SmallVectorINS9_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEDaOT_T0_.argprom.exit", %190
-  %.058146 = phi i32 [ %.2, %190 ], [ 0, %"_ZN4llvm9partitionIRSt6vectorISt4pairIfPNS_14BPFunctionNodeEESaIS5_EEZNKS_20BalancedPartitioning12runIterationENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIS4_S1_IS3_SaIS3_EEEEEEjjRNS_11SmallVectorINS9_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEDaOT_T0_.argprom.exit" ]
-  %.sroa.081.0145 = phi ptr [ %200, %190 ], [ %.sroa.014.121.i.i.i, %"_ZN4llvm9partitionIRSt6vectorISt4pairIfPNS_14BPFunctionNodeEESaIS5_EEZNKS_20BalancedPartitioning12runIterationENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIS4_S1_IS3_SaIS3_EEEEEEjjRNS_11SmallVectorINS9_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEDaOT_T0_.argprom.exit" ]
-  %.sroa.5.0144 = phi ptr [ %199, %190 ], [ %.sroa.0102.0.lcssa168, %"_ZN4llvm9partitionIRSt6vectorISt4pairIfPNS_14BPFunctionNodeEESaIS5_EEZNKS_20BalancedPartitioning12runIterationENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIS4_S1_IS3_SaIS3_EEEEEEjjRNS_11SmallVectorINS9_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEDaOT_T0_.argprom.exit" ]
+.lr.ph147:                                        ; preds = %"_ZN4llvm9partitionIRSt6vectorISt4pairIfPNS_14BPFunctionNodeEESaIS5_EEZNKS_20BalancedPartitioning12runIterationENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIS4_S1_IS3_SaIS3_EEEEEEjjRNS_11SmallVectorINS9_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEDaOT_T0_.exit", %190
+  %.058146 = phi i32 [ %.2, %190 ], [ 0, %"_ZN4llvm9partitionIRSt6vectorISt4pairIfPNS_14BPFunctionNodeEESaIS5_EEZNKS_20BalancedPartitioning12runIterationENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIS4_S1_IS3_SaIS3_EEEEEEjjRNS_11SmallVectorINS9_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEDaOT_T0_.exit" ]
+  %.sroa.081.0145 = phi ptr [ %200, %190 ], [ %.sroa.014.121.i.i.i, %"_ZN4llvm9partitionIRSt6vectorISt4pairIfPNS_14BPFunctionNodeEESaIS5_EEZNKS_20BalancedPartitioning12runIterationENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIS4_S1_IS3_SaIS3_EEEEEEjjRNS_11SmallVectorINS9_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEDaOT_T0_.exit" ]
+  %.sroa.5.0144 = phi ptr [ %199, %190 ], [ %.sroa.0102.0.lcssa168, %"_ZN4llvm9partitionIRSt6vectorISt4pairIfPNS_14BPFunctionNodeEESaIS5_EEZNKS_20BalancedPartitioning12runIterationENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIS4_S1_IS3_SaIS3_EEEEEEjjRNS_11SmallVectorINS9_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEDaOT_T0_.exit" ]
   %186 = load float, ptr %.sroa.5.0144, align 4
   %187 = load float, ptr %.sroa.081.0145, align 4
   %188 = fadd float %186, %187
@@ -5021,8 +5021,8 @@ _ZNSt6vectorISt4pairIfPN4llvm14BPFunctionNodeEESaIS4_EE9push_backEOS4_.exit: ; p
   %.not3.i = select i1 %201, i1 %202, i1 false
   br i1 %.not3.i, label %.lr.ph147, label %._crit_edge148
 
-._crit_edge148:                                   ; preds = %190, %.lr.ph147, %"_ZN4llvm9partitionIRSt6vectorISt4pairIfPNS_14BPFunctionNodeEESaIS5_EEZNKS_20BalancedPartitioning12runIterationENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIS4_S1_IS3_SaIS3_EEEEEEjjRNS_11SmallVectorINS9_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEDaOT_T0_.argprom.exit"
-  %.058.lcssa = phi i32 [ 0, %"_ZN4llvm9partitionIRSt6vectorISt4pairIfPNS_14BPFunctionNodeEESaIS5_EEZNKS_20BalancedPartitioning12runIterationENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIS4_S1_IS3_SaIS3_EEEEEEjjRNS_11SmallVectorINS9_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEDaOT_T0_.argprom.exit" ], [ %.058146, %.lr.ph147 ], [ %.2, %190 ]
+._crit_edge148:                                   ; preds = %190, %.lr.ph147, %"_ZN4llvm9partitionIRSt6vectorISt4pairIfPNS_14BPFunctionNodeEESaIS5_EEZNKS_20BalancedPartitioning12runIterationENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIS4_S1_IS3_SaIS3_EEEEEEjjRNS_11SmallVectorINS9_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEDaOT_T0_.exit"
+  %.058.lcssa = phi i32 [ 0, %"_ZN4llvm9partitionIRSt6vectorISt4pairIfPNS_14BPFunctionNodeEESaIS5_EEZNKS_20BalancedPartitioning12runIterationENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIS4_S1_IS3_SaIS3_EEEEEEjjRNS_11SmallVectorINS9_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEDaOT_T0_.exit" ], [ %.058146, %.lr.ph147 ], [ %.2, %190 ]
   %.not.i.i.i = icmp eq ptr %.sroa.0102.0.lcssa168, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt4pairIfPN4llvm14BPFunctionNodeEESaIS4_EED2Ev.exit, label %203
 
@@ -5126,7 +5126,7 @@ define dso_local noundef float @_ZN4llvm20BalancedPartitioning8moveGainERKNS_14B
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm11stable_sortIRNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPNS_14BPFunctionNodeEESt6vectorIS7_SaIS7_EEEEEEZNKS_20BalancedPartitioning12runIterationENS1_INS3_IS6_S9_IS5_SaIS5_EEEEEEjjRNS_11SmallVectorINSF_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEvOT_T0_.argprom"(ptr %.0.val, ptr %.8.val) unnamed_addr #0 {
+define internal fastcc void @"_ZN4llvm11stable_sortIRNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPNS_14BPFunctionNodeEESt6vectorIS7_SaIS7_EEEEEEZNKS_20BalancedPartitioning12runIterationENS1_INS3_IS6_S9_IS5_SaIS5_EEEEEEjjRNS_11SmallVectorINSF_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEvOT_T0_"(ptr %.0.val, ptr %.8.val) unnamed_addr #0 {
   %1 = icmp eq ptr %.0.val, %.8.val
   br i1 %1, label %"_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEEZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSC_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EvT_SQ_T0_.exit", label %2
 
@@ -7602,7 +7602,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit.i.i.i:      ; preds = %11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_3runERSt6vectorINS1_14BPFunctionNodeESaIS6_EEE3$_0EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_3runERSt6vectorINS1_14BPFunctionNodeESaIS6_EEE3$_0EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_3runERSt6vectorINS1_14BPFunctionNodeESaIS6_EEE3$_0EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -7612,29 +7612,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm20Balan
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_3runERSt6vectorINS1_14BPFunctionNodeESaIS6_EEE3$_0EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_3runERSt6vectorINS1_14BPFunctionNodeESaIS6_EEE3$_0EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_3runERSt6vectorINS1_14BPFunctionNodeESaIS6_EEE3$_0EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_3runERSt6vectorINS1_14BPFunctionNodeESaIS6_EEE3$_0EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_3runERSt6vectorINS1_14BPFunctionNodeESaIS6_EEE3$_0EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_3runERSt6vectorINS1_14BPFunctionNodeESaIS6_EEE3$_0EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_3runERSt6vectorINS1_14BPFunctionNodeESaIS6_EEE3$_0EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_3runERSt6vectorINS1_14BPFunctionNodeESaIS6_EEE3$_0EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #26
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_3runERSt6vectorINS1_14BPFunctionNodeESaIS6_EEE3$_0EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_3runERSt6vectorINS1_14BPFunctionNodeESaIS6_EEE3$_0EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_3runERSt6vectorINS1_14BPFunctionNodeESaIS6_EEE3$_0EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_3runERSt6vectorINS1_14BPFunctionNodeESaIS6_EEE3$_0EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -7799,9 +7799,9 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   %.pn21 = phi ptr [ %0, %.lr.ph ], [ %.sroa.0.022, %_ZN4llvm14BPFunctionNodeD2Ev.exit ]
   %.val3.i = load i8, ptr %6, align 4
   %18 = trunc i8 %.val3.i to i1
-  br i1 %18, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit.thread"
+  br i1 %18, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit.thread"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit": ; preds = %17
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit": ; preds = %17
   %.val2.i = load i32, ptr %7, align 4
   %19 = getelementptr i8, ptr %.pn21, i64 100
   %.val1.i = load i8, ptr %19, align 4
@@ -7810,9 +7810,9 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   %21 = trunc i8 %.val1.i to i1
   %22 = icmp uge i32 %.val.i, %.val2.i
   %spec.select.i.i.not = select i1 %21, i1 %22, i1 false
-  br i1 %spec.select.i.i.not, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit.thread", label %23
+  br i1 %spec.select.i.i.not, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit.thread", label %23
 
-23:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit"
+23:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit"
   %24 = load i64, ptr %.sroa.0.022, align 8
   store i64 %24, ptr %4, align 8
   %25 = getelementptr inbounds i8, ptr %.pn21, i64 64
@@ -7868,7 +7868,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6ve
   call void @free(ptr noundef %47) #22
   br label %_ZN4llvm14BPFunctionNodeD2Ev.exit
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit.thread": ; preds = %17, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit.thread": ; preds = %17, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit"
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %50 = load i64, ptr %.sroa.0.022, align 8
   store i64 %50, ptr %3, align 8
@@ -7877,19 +7877,19 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6ve
   %52 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %51) #22
   br i1 %52, label %_ZN4llvm14BPFunctionNodeC2EOS0_.exit.i, label %53
 
-53:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit.thread"
+53:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit.thread"
   %54 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIjEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %51)
   br label %_ZN4llvm14BPFunctionNodeC2EOS0_.exit.i
 
-_ZN4llvm14BPFunctionNodeC2EOS0_.exit.i:           ; preds = %53, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit.thread"
+_ZN4llvm14BPFunctionNodeC2EOS0_.exit.i:           ; preds = %53, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit.thread"
   %55 = getelementptr inbounds i8, ptr %.pn21, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false)
   %56 = getelementptr i8, ptr %.pn21, i64 44
   %.val4.i8.i = load i8, ptr %56, align 4
   %57 = trunc i8 %.val4.i8.i to i1
-  br i1 %57, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.thread.i"
+  br i1 %57, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.thread.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.i": ; preds = %_ZN4llvm14BPFunctionNodeC2EOS0_.exit.i, %61
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.i": ; preds = %_ZN4llvm14BPFunctionNodeC2EOS0_.exit.i, %61
   %.sroa.04.09.i = phi ptr [ %.sroa.0.010.i, %61 ], [ %.sroa.0.022, %_ZN4llvm14BPFunctionNodeC2EOS0_.exit.i ]
   %.val1.i8 = load i8, ptr %16, align 4
   %.val.i9 = load i32, ptr %15, align 8
@@ -7898,9 +7898,9 @@ _ZN4llvm14BPFunctionNodeC2EOS0_.exit.i:           ; preds = %53, %"_ZN9__gnu_cxx
   %59 = trunc i8 %.val1.i8 to i1
   %60 = icmp uge i32 %.val.i9, %.val3.i.i
   %spec.select.i.i.not.i = select i1 %59, i1 %60, i1 false
-  br i1 %spec.select.i.i.not.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.thread.i", label %61
+  br i1 %spec.select.i.i.not.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.thread.i", label %61
 
-61:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.i"
+61:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.i"
   %.sroa.0.010.i = getelementptr inbounds i8, ptr %.sroa.04.09.i, i64 -56
   %62 = load i64, ptr %.sroa.0.010.i, align 8
   store i64 %62, ptr %.sroa.04.09.i, align 8
@@ -7912,10 +7912,10 @@ _ZN4llvm14BPFunctionNodeC2EOS0_.exit.i:           ; preds = %53, %"_ZN9__gnu_cxx
   %67 = getelementptr i8, ptr %.sroa.04.09.i, i64 -68
   %.val4.i.i = load i8, ptr %67, align 4
   %68 = trunc i8 %.val4.i.i to i1
-  br i1 %68, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.thread.i", !llvm.loop !105
+  br i1 %68, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.thread.i", !llvm.loop !105
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.thread.i": ; preds = %61, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.i", %_ZN4llvm14BPFunctionNodeC2EOS0_.exit.i
-  %.sroa.04.0.lcssa.i = phi ptr [ %.sroa.0.022, %_ZN4llvm14BPFunctionNodeC2EOS0_.exit.i ], [ %.sroa.04.09.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.i" ], [ %.sroa.0.010.i, %61 ]
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.thread.i": ; preds = %61, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.i", %_ZN4llvm14BPFunctionNodeC2EOS0_.exit.i
+  %.sroa.04.0.lcssa.i = phi ptr [ %.sroa.0.022, %_ZN4llvm14BPFunctionNodeC2EOS0_.exit.i ], [ %.sroa.04.09.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.i" ], [ %.sroa.0.010.i, %61 ]
   %69 = load i64, ptr %3, align 8
   store i64 %69, ptr %.sroa.04.0.lcssa.i, align 8
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.lcssa.i, i64 8
@@ -7927,11 +7927,11 @@ _ZN4llvm14BPFunctionNodeC2EOS0_.exit.i:           ; preds = %53, %"_ZN9__gnu_cxx
   %75 = icmp eq ptr %74, %14
   br i1 %75, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEEvT_T0_.exit", label %76
 
-76:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.thread.i"
+76:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.thread.i"
   call void @free(ptr noundef %74) #22
   br label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEEvT_T0_.exit"
 
-"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEEvT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.thread.i", %76
+"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEEvT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.thread.i", %76
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   br label %_ZN4llvm14BPFunctionNodeD2Ev.exit
 
@@ -7949,7 +7949,7 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal
   %6 = icmp eq i64 %3, 0
   %7 = icmp eq i64 %4, 0
   %or.cond80 = or i1 %6, %7
-  br i1 %or.cond80, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit.thread", label %.lr.ph
+  br i1 %or.cond80, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit.thread", label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %8 = ptrtoint ptr %2 to i64
@@ -7968,9 +7968,9 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal
   %13 = getelementptr i8, ptr %.tr81, i64 44
   %.val3.i = load i8, ptr %13, align 4
   %14 = trunc i8 %.val3.i to i1
-  br i1 %14, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit.thread"
+  br i1 %14, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit.thread"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit": ; preds = %12
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit": ; preds = %12
   %15 = getelementptr i8, ptr %.tr81, i64 40
   %.val2.i = load i32, ptr %15, align 4
   %16 = getelementptr i8, ptr %.tr7482, i64 44
@@ -7980,11 +7980,11 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal
   %18 = trunc i8 %.val1.i to i1
   %19 = icmp uge i32 %.val.i, %.val2.i
   %spec.select.i.i.not = select i1 %18, i1 %19, i1 false
-  br i1 %spec.select.i.i.not, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit.thread", label %20
+  br i1 %spec.select.i.i.not, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit.thread", label %20
 
-20:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit"
+20:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit"
   tail call void @_ZSt4swapIN4llvm14BPFunctionNodeEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 8 dereferenceable(56) %.tr81, ptr noundef nonnull align 8 dereferenceable(56) %.tr7482)
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit.thread"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit.thread"
 
 21:                                               ; preds = %9
   %22 = icmp sgt i64 %.tr7684, %.tr7785
@@ -7998,7 +7998,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3
   %.val = load i32, ptr %26, align 4
   %27 = sub i64 %8, %23
   %28 = icmp sgt i64 %27, 0
-  br i1 %28, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit"
+  br i1 %28, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit"
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit
   %29 = getelementptr i8, ptr %25, i64 44
@@ -8007,14 +8007,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3
   %31 = trunc i8 %.val50 to i1
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i: ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.argprom.exit.thread.i", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i
-  %.04.i = phi i64 [ %30, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.argprom.exit.thread.i" ]
-  %.sroa.02.03.i = phi ptr [ %.tr7482, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.02.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.argprom.exit.thread.i" ]
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i: ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.exit.thread.i", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i
+  %.04.i = phi i64 [ %30, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.exit.thread.i" ]
+  %.sroa.02.03.i = phi ptr [ %.tr7482, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.02.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.exit.thread.i" ]
   %32 = lshr i64 %.04.i, 1
   %33 = getelementptr inbounds %"class.llvm::BPFunctionNode", ptr %.sroa.02.03.i, i64 %32
-  br i1 %31, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.argprom.exit.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.argprom.exit.thread.i"
+  br i1 %31, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.exit.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.exit.thread.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.argprom.exit.i": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.exit.i": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i
   %34 = getelementptr i8, ptr %33, i64 44
   %.val2.i.i = load i8, ptr %34, align 4
   %35 = getelementptr i8, ptr %33, i64 40
@@ -8022,27 +8022,27 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3
   %36 = trunc i8 %.val2.i.i to i1
   %37 = icmp uge i32 %.val.i.i, %.val
   %spec.select.i.i.not.i = select i1 %36, i1 %37, i1 false
-  br i1 %spec.select.i.i.not.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.argprom.exit.thread.i", label %38
+  br i1 %spec.select.i.i.not.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.exit.thread.i", label %38
 
-38:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.argprom.exit.i"
+38:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.exit.i"
   %39 = getelementptr inbounds i8, ptr %33, i64 56
   %40 = xor i64 %32, -1
   %41 = add nsw i64 %.04.i, %40
-  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.argprom.exit.thread.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.exit.thread.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.argprom.exit.thread.i": ; preds = %38, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.argprom.exit.i", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i
-  %.sroa.02.1.i = phi ptr [ %39, %38 ], [ %.sroa.02.03.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.argprom.exit.i" ], [ %.sroa.02.03.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i ]
-  %.1.i = phi i64 [ %41, %38 ], [ %32, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.argprom.exit.i" ], [ %32, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i ]
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.exit.thread.i": ; preds = %38, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.exit.i", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i
+  %.sroa.02.1.i = phi ptr [ %39, %38 ], [ %.sroa.02.03.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.exit.i" ], [ %.sroa.02.03.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i ]
+  %.1.i = phi i64 [ %41, %38 ], [ %32, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.exit.i" ], [ %32, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i ]
   %42 = icmp sgt i64 %.1.i, 0
-  br i1 %42, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit", !llvm.loop !107
+  br i1 %42, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit.loopexit", !llvm.loop !107
 
-"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.argprom.exit.thread.i"
+"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.exit.thread.i"
   %.pre = ptrtoint ptr %.sroa.02.1.i to i64
-  br label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit"
+  br label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit"
 
-"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit": ; preds = %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit" ], [ %23, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit ]
-  %.sroa.02.0.lcssa.i = phi ptr [ %.sroa.02.1.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit" ], [ %.tr7482, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit ]
+"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit": ; preds = %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit
+  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %23, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit ]
+  %.sroa.02.0.lcssa.i = phi ptr [ %.sroa.02.1.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %.tr7482, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit ]
   %43 = sub i64 %.pre-phi, %23
   %44 = sdiv exact i64 %43, 56
   br label %tailrecurse
@@ -8055,7 +8055,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3
   %48 = ptrtoint ptr %.tr81 to i64
   %49 = sub i64 %23, %48
   %50 = icmp sgt i64 %49, 0
-  br i1 %50, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i58, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit"
+  br i1 %50, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i58, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit"
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i58: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit56
   %51 = getelementptr i8, ptr %46, i64 44
@@ -8072,43 +8072,43 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3
   %56 = getelementptr i8, ptr %55, i64 44
   %.val4.i.i = load i8, ptr %56, align 4
   %57 = trunc i8 %.val4.i.i to i1
-  br i1 %57, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.thread.i"
+  br i1 %57, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.thread.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.i": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i59
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.i": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i59
   %58 = getelementptr i8, ptr %55, i64 40
   %.val3.i.i = load i32, ptr %58, align 4
   %59 = icmp uge i32 %.val51, %.val3.i.i
   %spec.select.i.i.not.i66 = select i1 %53, i1 %59, i1 false
-  br i1 %spec.select.i.i.not.i66, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.thread.i", label %63
+  br i1 %spec.select.i.i.not.i66, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.thread.i", label %63
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.i", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i59
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.i", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i59
   %60 = getelementptr inbounds i8, ptr %55, i64 56
   %61 = xor i64 %54, -1
   %62 = add nsw i64 %.04.i60, %61
   br label %63
 
-63:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.thread.i", %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.i"
-  %.sroa.02.1.i64 = phi ptr [ %.sroa.02.03.i61, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.i" ], [ %60, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.thread.i" ]
-  %.1.i65 = phi i64 [ %54, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.i" ], [ %62, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.thread.i" ]
+63:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.thread.i", %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.i"
+  %.sroa.02.1.i64 = phi ptr [ %.sroa.02.03.i61, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.i" ], [ %60, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.thread.i" ]
+  %.1.i65 = phi i64 [ %54, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.i" ], [ %62, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.thread.i" ]
   %64 = icmp sgt i64 %.1.i65, 0
-  br i1 %64, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i59, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit", !llvm.loop !108
+  br i1 %64, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i59, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit.loopexit", !llvm.loop !108
 
-"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit": ; preds = %63
+"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit.loopexit": ; preds = %63
   %.pre88 = ptrtoint ptr %.sroa.02.1.i64 to i64
-  br label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit"
+  br label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit"
 
-"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit": ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit56
-  %.pre-phi89 = phi i64 [ %.pre88, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit" ], [ %48, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit56 ]
-  %.sroa.02.0.lcssa.i57 = phi ptr [ %.sroa.02.1.i64, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit" ], [ %.tr81, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit56 ]
+"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit56
+  %.pre-phi89 = phi i64 [ %.pre88, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %48, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit56 ]
+  %.sroa.02.0.lcssa.i57 = phi ptr [ %.sroa.02.1.i64, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %.tr81, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit56 ]
   %65 = sub i64 %.pre-phi89, %48
   %66 = sdiv exact i64 %65, 56
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit", %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit"
-  %.sroa.069.0 = phi ptr [ %25, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit" ], [ %.sroa.02.0.lcssa.i57, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit" ]
-  %.sroa.0.0 = phi ptr [ %.sroa.02.0.lcssa.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit" ], [ %46, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit" ]
-  %.047 = phi i64 [ %44, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit" ], [ %45, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit" ]
-  %.0 = phi i64 [ %24, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit" ], [ %66, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit" ]
+tailrecurse:                                      ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit", %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit"
+  %.sroa.069.0 = phi ptr [ %25, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit" ], [ %.sroa.02.0.lcssa.i57, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit" ]
+  %.sroa.0.0 = phi ptr [ %.sroa.02.0.lcssa.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit" ], [ %46, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit" ]
+  %.047 = phi i64 [ %44, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit" ], [ %45, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit" ]
+  %.0 = phi i64 [ %24, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit" ], [ %66, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit" ]
   %67 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEET_SA_SA_SA_St26random_access_iterator_tag(ptr %.sroa.069.0, ptr %.tr7482, ptr %.sroa.0.0)
   tail call fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEEvT_SF_SF_T0_SG_T1_"(ptr %.tr81, ptr %.sroa.069.0, ptr %67, i64 noundef %.0, i64 noundef %.047)
   %68 = sub nsw i64 %.tr7684, %.0
@@ -8116,9 +8116,9 @@ tailrecurse:                                      ; preds = %"_ZSt13__upper_boun
   %70 = icmp eq i64 %68, 0
   %71 = icmp eq i64 %69, 0
   %or.cond = or i1 %70, %71
-  br i1 %or.cond, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit.thread", label %9
+  br i1 %or.cond, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit.thread", label %9
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit.thread": ; preds = %tailrecurse, %5, %12, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit", %20
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit.thread": ; preds = %tailrecurse, %5, %12, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit", %20
   ret void
 }
 
@@ -8360,9 +8360,9 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   %21 = getelementptr i8, ptr %.sroa.020.026.i, i64 44
   %.val3.i.i = load i8, ptr %21, align 4
   %22 = trunc i8 %.val3.i.i to i1
-  br i1 %22, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit.thread.i"
+  br i1 %22, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit.thread.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit.i": ; preds = %.lr.ph.i28
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit.i": ; preds = %.lr.ph.i28
   %23 = getelementptr i8, ptr %.sroa.020.026.i, i64 40
   %.val2.i.i = load i32, ptr %23, align 4
   %24 = getelementptr i8, ptr %.sroa.016.025.i, i64 44
@@ -8372,9 +8372,9 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   %26 = trunc i8 %.val1.i.i to i1
   %27 = icmp uge i32 %.val.i.i, %.val2.i.i
   %spec.select.i.i.not.i = select i1 %26, i1 %27, i1 false
-  br i1 %spec.select.i.i.not.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit.thread.i", label %28
+  br i1 %spec.select.i.i.not.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit.thread.i", label %28
 
-28:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit.i"
+28:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit.i"
   %29 = load i64, ptr %.sroa.016.025.i, align 8
   store i64 %29, ptr %.027.i, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.027.i, i64 8
@@ -8385,7 +8385,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   %34 = getelementptr inbounds i8, ptr %.sroa.016.025.i, i64 56
   br label %42
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit.i", %.lr.ph.i28
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit.i", %.lr.ph.i28
   %35 = load i64, ptr %.sroa.020.026.i, align 8
   store i64 %35, ptr %.027.i, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.027.i, i64 8
@@ -8397,9 +8397,9 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   %41 = getelementptr inbounds i8, ptr %.sroa.020.026.i, i64 56
   br label %42
 
-42:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit.thread.i", %28
-  %.sroa.016.1.i = phi ptr [ %34, %28 ], [ %.sroa.016.025.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit.thread.i" ]
-  %.sroa.020.1.i = phi ptr [ %.sroa.020.026.i, %28 ], [ %41, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit.thread.i" ]
+42:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit.thread.i", %28
+  %.sroa.016.1.i = phi ptr [ %34, %28 ], [ %.sroa.016.025.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit.thread.i" ]
+  %.sroa.020.1.i = phi ptr [ %.sroa.020.026.i, %28 ], [ %41, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit.thread.i" ]
   %43 = getelementptr inbounds i8, ptr %.027.i, i64 56
   %44 = icmp ne ptr %.sroa.020.1.i, %19
   %45 = icmp ne ptr %.sroa.016.1.i, %20
@@ -8478,7 +8478,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_Sa
   %.lcssa.i = phi i64 [ %7, %17 ], [ %77, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET0_T_SG_SG_SG_SF_T1_.exit" ]
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.050, i64 %.lcssa.i)
   %78 = getelementptr inbounds %"class.llvm::BPFunctionNode", ptr %.sroa.023.0.lcssa.i, i64 %.sroa.speculated.i
-  tail call fastcc void @"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET0_T_SG_SG_SG_SF_T1_.retelim"(ptr %.sroa.023.0.lcssa.i, ptr %78, ptr %78, ptr %1, ptr noundef %.0.lcssa.i)
+  tail call fastcc void @"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET0_T_SG_SG_SG_SF_T1_"(ptr %.sroa.023.0.lcssa.i, ptr %78, ptr %78, ptr %1, ptr noundef %.0.lcssa.i)
   %79 = shl nsw i64 %.050, 2
   %.not29.i = icmp slt i64 %16, %79
   br i1 %.not29.i, label %"_ZSt17__merge_sort_loopIPN4llvm14BPFunctionNodeEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEElNS3_5__ops15_Iter_comp_iterIZNKS0_20BalancedPartitioning3runERS7_E3$_1EEEvT_SF_T0_T1_T2_.exit", label %.lr.ph.i22.preheader
@@ -8503,9 +8503,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_Sa
   %84 = getelementptr i8, ptr %.032.i, i64 44
   %.0.val19.i = load i8, ptr %84, align 4
   %85 = trunc i8 %.0.val19.i to i1
-  br i1 %85, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.argprom.exit.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.argprom.exit.thread.i"
+  br i1 %85, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.exit.thread.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.argprom.exit.i": ; preds = %.lr.ph.i36
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.exit.i": ; preds = %.lr.ph.i36
   %.0.val.i = load i32, ptr %83, align 4
   %86 = getelementptr i8, ptr %.01631.i, i64 44
   %.016.val18.i = load i8, ptr %86, align 4
@@ -8513,9 +8513,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_Sa
   %87 = trunc i8 %.016.val18.i to i1
   %88 = icmp uge i32 %.016.val.i, %.0.val.i
   %spec.select.i.i.not.i37 = select i1 %87, i1 %88, i1 false
-  br i1 %spec.select.i.i.not.i37, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.argprom.exit.thread.i", label %89
+  br i1 %spec.select.i.i.not.i37, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.exit.thread.i", label %89
 
-89:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.argprom.exit.i"
+89:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.exit.i"
   %90 = load i64, ptr %.01631.i, align 8
   store i64 %90, ptr %.sroa.0.030.i, align 8
   %91 = getelementptr inbounds nuw i8, ptr %.sroa.0.030.i, i64 8
@@ -8526,7 +8526,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_Sa
   %95 = getelementptr inbounds i8, ptr %.01631.i, i64 56
   br label %102
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.argprom.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.argprom.exit.i", %.lr.ph.i36
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.exit.i", %.lr.ph.i36
   %96 = load i64, ptr %.032.i, align 8
   store i64 %96, ptr %.sroa.0.030.i, align 8
   %97 = getelementptr inbounds nuw i8, ptr %.sroa.0.030.i, i64 8
@@ -8537,9 +8537,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_Sa
   %101 = getelementptr inbounds i8, ptr %.032.i, i64 56
   br label %102
 
-102:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.argprom.exit.thread.i", %89
-  %.117.i = phi ptr [ %95, %89 ], [ %.01631.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.argprom.exit.thread.i" ]
-  %.1.i = phi ptr [ %.032.i, %89 ], [ %101, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.argprom.exit.thread.i" ]
+102:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.exit.thread.i", %89
+  %.117.i = phi ptr [ %95, %89 ], [ %.01631.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.exit.thread.i" ]
+  %.1.i = phi ptr [ %.032.i, %89 ], [ %101, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.exit.thread.i" ]
   %103 = getelementptr inbounds i8, ptr %.sroa.0.030.i, i64 56
   %104 = icmp ne ptr %.1.i, %80
   %105 = icmp ne ptr %.117.i, %81
@@ -8631,7 +8631,7 @@ _ZSt4moveIPN4llvm14BPFunctionNodeEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1
   %.lcssa.i25 = phi i64 [ %16, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEEvT_SF_T0_T1_T2_.exit" ], [ %145, %"_ZSt12__move_mergeIPN4llvm14BPFunctionNodeEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_comp_iterIZNKS0_20BalancedPartitioning3runERS7_E3$_1EEET0_T_SG_SG_SG_SF_T1_.exit" ]
   %.sroa.speculated.i26 = tail call i64 @llvm.smin.i64(i64 %18, i64 %.lcssa.i25)
   %146 = getelementptr inbounds %"class.llvm::BPFunctionNode", ptr %.0.lcssa.i24, i64 %.sroa.speculated.i26
-  tail call fastcc void @"_ZSt12__move_mergeIPN4llvm14BPFunctionNodeEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_comp_iterIZNKS0_20BalancedPartitioning3runERS7_E3$_1EEET0_T_SG_SG_SG_SF_T1_.retelim"(ptr noundef %.0.lcssa.i24, ptr noundef %146, ptr noundef %146, ptr noundef nonnull %8, ptr %.sroa.022.0.lcssa.i)
+  tail call fastcc void @"_ZSt12__move_mergeIPN4llvm14BPFunctionNodeEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_comp_iterIZNKS0_20BalancedPartitioning3runERS7_E3$_1EEET0_T_SG_SG_SG_SF_T1_"(ptr noundef %.0.lcssa.i24, ptr noundef %146, ptr noundef %146, ptr noundef nonnull %8, ptr %.sroa.022.0.lcssa.i)
   %147 = icmp slt i64 %79, %7
   br i1 %147, label %17, label %._crit_edge, !llvm.loop !119
 
@@ -8693,9 +8693,9 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %26 = getelementptr i8, ptr %.028.i, i64 44
   %.0.val13.i = load i8, ptr %26, align 4
   %27 = trunc i8 %.0.val13.i to i1
-  br i1 %27, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESD_EEbT_T0_.argprom.exit.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESD_EEbT_T0_.argprom.exit.thread.i"
+  br i1 %27, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESD_EEbT_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESD_EEbT_T0_.exit.thread.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESD_EEbT_T0_.argprom.exit.i": ; preds = %24
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESD_EEbT_T0_.exit.i": ; preds = %24
   %.0.val.i = load i32, ptr %25, align 4
   %28 = getelementptr i8, ptr %.sroa.017.026.i, i64 44
   %.val2.i.i = load i8, ptr %28, align 4
@@ -8704,9 +8704,9 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %30 = trunc i8 %.val2.i.i to i1
   %31 = icmp uge i32 %.val.i.i, %.0.val.i
   %spec.select.i.i.not.i = select i1 %30, i1 %31, i1 false
-  br i1 %spec.select.i.i.not.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESD_EEbT_T0_.argprom.exit.thread.i", label %32
+  br i1 %spec.select.i.i.not.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESD_EEbT_T0_.exit.thread.i", label %32
 
-32:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESD_EEbT_T0_.argprom.exit.i"
+32:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESD_EEbT_T0_.exit.i"
   %33 = load i64, ptr %.sroa.017.026.i, align 8
   store i64 %33, ptr %.sroa.0.027.i, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.i, i64 8
@@ -8717,7 +8717,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %38 = getelementptr inbounds i8, ptr %.sroa.017.026.i, i64 56
   br label %45
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESD_EEbT_T0_.argprom.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESD_EEbT_T0_.argprom.exit.i", %24
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESD_EEbT_T0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESD_EEbT_T0_.exit.i", %24
   %39 = load i64, ptr %.028.i, align 8
   store i64 %39, ptr %.sroa.0.027.i, align 8
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.i, i64 8
@@ -8728,9 +8728,9 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %44 = getelementptr inbounds i8, ptr %.028.i, i64 56
   br label %45
 
-45:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESD_EEbT_T0_.argprom.exit.thread.i", %32
-  %.sroa.017.1.i = phi ptr [ %38, %32 ], [ %.sroa.017.026.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESD_EEbT_T0_.argprom.exit.thread.i" ]
-  %.1.i = phi ptr [ %.028.i, %32 ], [ %44, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESD_EEbT_T0_.argprom.exit.thread.i" ]
+45:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESD_EEbT_T0_.exit.thread.i", %32
+  %.sroa.017.1.i = phi ptr [ %38, %32 ], [ %.sroa.017.026.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESD_EEbT_T0_.exit.thread.i" ]
+  %.1.i = phi ptr [ %.028.i, %32 ], [ %44, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESD_EEbT_T0_.exit.thread.i" ]
   %46 = getelementptr inbounds i8, ptr %.sroa.0.027.i, i64 56
   %.not.i = icmp eq ptr %.1.i, %21
   br i1 %.not.i, label %"_ZSt21__move_merge_adaptiveIPN4llvm14BPFunctionNodeEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterIZNKS0_20BalancedPartitioning3runERS7_E3$_1EEEvT_SF_T0_SG_T1_T2_.exit", label %.lr.ph.i, !llvm.loop !120
@@ -8858,9 +8858,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_Sa
   %102 = getelementptr i8, ptr %.0.i, i64 40
   %.val4.i.i = load i8, ptr %99, align 4
   %103 = trunc i8 %.val4.i.i to i1
-  br i1 %103, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_NS_17__normal_iteratorISC_S7_EEEEbT_T0_.argprom.exit.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_NS_17__normal_iteratorISC_S7_EEEEbT_T0_.argprom.exit.thread.i"
+  br i1 %103, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_NS_17__normal_iteratorISC_S7_EEEEbT_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_NS_17__normal_iteratorISC_S7_EEEEbT_T0_.exit.thread.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_NS_17__normal_iteratorISC_S7_EEEEbT_T0_.argprom.exit.i": ; preds = %101
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_NS_17__normal_iteratorISC_S7_EEEEbT_T0_.exit.i": ; preds = %101
   %104 = getelementptr i8, ptr %.0.i, i64 44
   %.0.val18.i = load i8, ptr %104, align 4
   %.0.val.i93 = load i32, ptr %102, align 4
@@ -8868,9 +8868,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_Sa
   %105 = trunc i8 %.0.val18.i to i1
   %106 = icmp uge i32 %.0.val.i93, %.val3.i.i
   %spec.select.i.i.not.i94 = select i1 %105, i1 %106, i1 false
-  br i1 %spec.select.i.i.not.i94, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_NS_17__normal_iteratorISC_S7_EEEEbT_T0_.argprom.exit.thread.i", label %107
+  br i1 %spec.select.i.i.not.i94, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_NS_17__normal_iteratorISC_S7_EEEEbT_T0_.exit.thread.i", label %107
 
-107:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_NS_17__normal_iteratorISC_S7_EEEEbT_T0_.argprom.exit.i"
+107:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_NS_17__normal_iteratorISC_S7_EEEEbT_T0_.exit.i"
   %108 = getelementptr i8, ptr %.sroa.029.0.i.ph.pn, i64 -16
   %109 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 -56
   %110 = load i64, ptr %.sroa.029.0.i.ph, align 8
@@ -8913,7 +8913,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_Sa
   %132 = icmp ugt i64 %.010.i.i.i.i.i22.i, 1
   br i1 %132, label %.lr.ph.i.i.i.i.i21.i, label %"_ZSt21__move_merge_adaptiveIPN4llvm14BPFunctionNodeEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterIZNKS0_20BalancedPartitioning3runERS7_E3$_1EEEvT_SF_T0_SG_T1_T2_.exit", !llvm.loop !52
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_NS_17__normal_iteratorISC_S7_EEEEbT_T0_.argprom.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_NS_17__normal_iteratorISC_S7_EEEEbT_T0_.argprom.exit.i", %101
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_NS_17__normal_iteratorISC_S7_EEEEbT_T0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_NS_17__normal_iteratorISC_S7_EEEEbT_T0_.exit.i", %101
   %133 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 -56
   %134 = load i64, ptr %.0.i, align 8
   store i64 %134, ptr %133, align 8
@@ -8925,7 +8925,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_Sa
   %139 = icmp eq ptr %5, %.0.i
   br i1 %139, label %"_ZSt21__move_merge_adaptiveIPN4llvm14BPFunctionNodeEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterIZNKS0_20BalancedPartitioning3runERS7_E3$_1EEEvT_SF_T0_SG_T1_T2_.exit", label %140
 
-140:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_NS_17__normal_iteratorISC_S7_EEEEbT_T0_.argprom.exit.thread.i"
+140:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_NS_17__normal_iteratorISC_S7_EEEEbT_T0_.exit.thread.i"
   %141 = getelementptr inbounds i8, ptr %.0.i, i64 -56
   br label %101, !llvm.loop !121
 
@@ -8939,7 +8939,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3
   %.val = load i32, ptr %145, align 4
   %146 = sub i64 %8, %63
   %147 = icmp sgt i64 %146, 0
-  br i1 %147, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit"
+  br i1 %147, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit"
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit
   %148 = getelementptr i8, ptr %144, i64 44
@@ -8948,14 +8948,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3
   %150 = trunc i8 %.val82 to i1
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i: ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.argprom.exit.thread.i", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i
-  %.04.i = phi i64 [ %149, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i97, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.argprom.exit.thread.i" ]
-  %.sroa.02.03.i = phi ptr [ %.tr126147, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.02.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.argprom.exit.thread.i" ]
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i: ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.exit.thread.i", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i
+  %.04.i = phi i64 [ %149, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i97, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.exit.thread.i" ]
+  %.sroa.02.03.i = phi ptr [ %.tr126147, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.02.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.exit.thread.i" ]
   %151 = lshr i64 %.04.i, 1
   %152 = getelementptr inbounds %"class.llvm::BPFunctionNode", ptr %.sroa.02.03.i, i64 %151
-  br i1 %150, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.argprom.exit.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.argprom.exit.thread.i"
+  br i1 %150, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.exit.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.exit.thread.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.argprom.exit.i": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.exit.i": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i
   %153 = getelementptr i8, ptr %152, i64 44
   %.val2.i.i98 = load i8, ptr %153, align 4
   %154 = getelementptr i8, ptr %152, i64 40
@@ -8963,27 +8963,27 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3
   %155 = trunc i8 %.val2.i.i98 to i1
   %156 = icmp uge i32 %.val.i.i99, %.val
   %spec.select.i.i.not.i100 = select i1 %155, i1 %156, i1 false
-  br i1 %spec.select.i.i.not.i100, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.argprom.exit.thread.i", label %157
+  br i1 %spec.select.i.i.not.i100, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.exit.thread.i", label %157
 
-157:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.argprom.exit.i"
+157:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.exit.i"
   %158 = getelementptr inbounds i8, ptr %152, i64 56
   %159 = xor i64 %151, -1
   %160 = add nsw i64 %.04.i, %159
-  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.argprom.exit.thread.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.exit.thread.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.argprom.exit.thread.i": ; preds = %157, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.argprom.exit.i", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i
-  %.sroa.02.1.i = phi ptr [ %158, %157 ], [ %.sroa.02.03.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.argprom.exit.i" ], [ %.sroa.02.03.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i ]
-  %.1.i97 = phi i64 [ %160, %157 ], [ %151, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.argprom.exit.i" ], [ %151, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i ]
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.exit.thread.i": ; preds = %157, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.exit.i", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i
+  %.sroa.02.1.i = phi ptr [ %158, %157 ], [ %.sroa.02.03.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.exit.i" ], [ %.sroa.02.03.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i ]
+  %.1.i97 = phi i64 [ %160, %157 ], [ %151, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.exit.i" ], [ %151, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i ]
   %161 = icmp sgt i64 %.1.i97, 0
-  br i1 %161, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit", !llvm.loop !107
+  br i1 %161, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit.loopexit", !llvm.loop !107
 
-"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.argprom.exit.thread.i"
+"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EEKS5_EEbT_RT0_.exit.thread.i"
   %.pre = ptrtoint ptr %.sroa.02.1.i to i64
-  br label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit"
+  br label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit"
 
-"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit": ; preds = %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit" ], [ %63, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit ]
-  %.sroa.02.0.lcssa.i = phi ptr [ %.sroa.02.1.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit" ], [ %.tr126147, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit ]
+"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit": ; preds = %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit
+  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %63, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit ]
+  %.sroa.02.0.lcssa.i = phi ptr [ %.sroa.02.1.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %.tr126147, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit ]
   %162 = sub i64 %.pre-phi, %63
   %163 = sdiv exact i64 %162, 56
   br label %tailrecurse
@@ -8996,7 +8996,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3
   %167 = ptrtoint ptr %.tr146 to i64
   %168 = sub i64 %63, %167
   %169 = icmp sgt i64 %168, 0
-  br i1 %169, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i106, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit"
+  br i1 %169, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i106, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit"
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i106: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit104
   %170 = getelementptr i8, ptr %165, i64 44
@@ -9013,43 +9013,43 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3
   %175 = getelementptr i8, ptr %174, i64 44
   %.val4.i.i112 = load i8, ptr %175, align 4
   %176 = trunc i8 %.val4.i.i112 to i1
-  br i1 %176, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.thread.i"
+  br i1 %176, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.thread.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.i": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i107
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.i": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i107
   %177 = getelementptr i8, ptr %174, i64 40
   %.val3.i.i115 = load i32, ptr %177, align 4
   %178 = icmp uge i32 %.val83, %.val3.i.i115
   %spec.select.i.i.not.i116 = select i1 %172, i1 %178, i1 false
-  br i1 %spec.select.i.i.not.i116, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.thread.i", label %182
+  br i1 %spec.select.i.i.not.i116, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.thread.i", label %182
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.i", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i107
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.i", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i107
   %179 = getelementptr inbounds i8, ptr %174, i64 56
   %180 = xor i64 %173, -1
   %181 = add nsw i64 %.04.i108, %180
   br label %182
 
-182:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.thread.i", %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.i"
-  %.sroa.02.1.i113 = phi ptr [ %.sroa.02.03.i109, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.i" ], [ %179, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.thread.i" ]
-  %.1.i114 = phi i64 [ %173, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.i" ], [ %181, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.argprom.exit.thread.i" ]
+182:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.thread.i", %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.i"
+  %.sroa.02.1.i113 = phi ptr [ %.sroa.02.03.i109, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.i" ], [ %179, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.thread.i" ]
+  %.1.i114 = phi i64 [ %173, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.i" ], [ %181, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIKS5_NS_17__normal_iteratorIPS5_S7_EEEEbRT_T0_.exit.thread.i" ]
   %183 = icmp sgt i64 %.1.i114, 0
-  br i1 %183, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i107, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit", !llvm.loop !108
+  br i1 %183, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i107, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit.loopexit", !llvm.loop !108
 
-"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit": ; preds = %182
+"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit.loopexit": ; preds = %182
   %.pre164 = ptrtoint ptr %.sroa.02.1.i113 to i64
-  br label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit"
+  br label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit"
 
-"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit": ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit104
-  %.pre-phi165 = phi i64 [ %.pre164, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit" ], [ %167, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit104 ]
-  %.sroa.02.0.lcssa.i105 = phi ptr [ %.sroa.02.1.i113, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit" ], [ %.tr146, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit104 ]
+"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit104
+  %.pre-phi165 = phi i64 [ %.pre164, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %167, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit104 ]
+  %.sroa.02.0.lcssa.i105 = phi ptr [ %.sroa.02.1.i113, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %.tr146, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit104 ]
   %184 = sub i64 %.pre-phi165, %167
   %185 = sdiv exact i64 %184, 56
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit", %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit"
-  %.sroa.0119.0 = phi ptr [ %144, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit" ], [ %.sroa.02.0.lcssa.i105, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit" ]
-  %.sroa.0.0 = phi ptr [ %.sroa.02.0.lcssa.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit" ], [ %165, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit" ]
-  %.076 = phi i64 [ %163, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit" ], [ %164, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit" ]
-  %.0 = phi i64 [ %143, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit" ], [ %185, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.argprom.exit" ]
+tailrecurse:                                      ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit", %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit"
+  %.sroa.0119.0 = phi ptr [ %144, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit" ], [ %.sroa.02.0.lcssa.i105, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit" ]
+  %.sroa.0.0 = phi ptr [ %.sroa.02.0.lcssa.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit" ], [ %165, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit" ]
+  %.076 = phi i64 [ %163, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit" ], [ %164, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit" ]
+  %.0 = phi i64 [ %143, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit" ], [ %185, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET_SF_SF_RKT0_T1_.exit" ]
   %186 = sub nsw i64 %.tr128148, %.0
   %187 = tail call ptr @_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_(ptr %.sroa.0119.0, ptr %.tr126147, ptr %.sroa.0.0, i64 noundef %186, i64 noundef %.076, ptr noundef %5, i64 noundef %6)
   tail call fastcc void @"_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEEvT_SF_SF_T0_SG_T1_SG_T2_"(ptr %.tr146, ptr %.sroa.0119.0, ptr %187, i64 noundef %.0, i64 noundef %.076, ptr noundef %5, i64 noundef %6)
@@ -9059,12 +9059,12 @@ tailrecurse:                                      ; preds = %"_ZSt13__upper_boun
   %or.cond = or i1 %.not80, %.not
   br i1 %or.cond, label %62, label %tailrecurse._crit_edge
 
-"_ZSt21__move_merge_adaptiveIPN4llvm14BPFunctionNodeEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterIZNKS0_20BalancedPartitioning3runERS7_E3$_1EEEvT_SF_T0_SG_T1_T2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_NS_17__normal_iteratorISC_S7_EEEEbT_T0_.argprom.exit.thread.i", %.lr.ph.i.i.i.i.i21.i, %.lr.ph.i.i.i.i.i.i96, %45, %.lr.ph.i.i.i.i.i.i, %tailrecurse._crit_edge, %116, %95, %79, %.critedge.i
+"_ZSt21__move_merge_adaptiveIPN4llvm14BPFunctionNodeEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterIZNKS0_20BalancedPartitioning3runERS7_E3$_1EEEvT_SF_T0_SG_T1_T2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_NS_17__normal_iteratorISC_S7_EEEEbT_T0_.exit.thread.i", %.lr.ph.i.i.i.i.i21.i, %.lr.ph.i.i.i.i.i.i96, %45, %.lr.ph.i.i.i.i.i.i, %tailrecurse._crit_edge, %116, %95, %79, %.critedge.i
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET0_T_SG_SG_SG_SF_T1_.retelim"(ptr %0, ptr %1, ptr %2, ptr %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning3runERS7_E3$_1EEET0_T_SG_SG_SG_SF_T1_"(ptr %0, ptr %1, ptr %2, ptr %3, ptr noundef %4) unnamed_addr #0 {
   %6 = icmp ne ptr %0, %1
   %7 = icmp ne ptr %2, %3
   %or.cond24 = select i1 %6, i1 %7, i1 false
@@ -9077,9 +9077,9 @@ define internal fastcc void @"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorI
   %8 = getelementptr i8, ptr %.sroa.020.026, i64 44
   %.val3.i = load i8, ptr %8, align 4
   %9 = trunc i8 %.val3.i to i1
-  br i1 %9, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit.thread"
+  br i1 %9, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit.thread"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit": ; preds = %.lr.ph
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit": ; preds = %.lr.ph
   %10 = getelementptr i8, ptr %.sroa.020.026, i64 40
   %.val2.i = load i32, ptr %10, align 4
   %11 = getelementptr i8, ptr %.sroa.016.025, i64 44
@@ -9089,9 +9089,9 @@ define internal fastcc void @"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorI
   %13 = trunc i8 %.val1.i to i1
   %14 = icmp uge i32 %.val.i, %.val2.i
   %spec.select.i.i.not = select i1 %13, i1 %14, i1 false
-  br i1 %spec.select.i.i.not, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit.thread", label %15
+  br i1 %spec.select.i.i.not, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit.thread", label %15
 
-15:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit"
+15:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit"
   %16 = load i64, ptr %.sroa.016.025, align 8
   store i64 %16, ptr %.027, align 8
   %17 = getelementptr inbounds nuw i8, ptr %.027, i64 8
@@ -9102,7 +9102,7 @@ define internal fastcc void @"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorI
   %21 = getelementptr inbounds i8, ptr %.sroa.016.025, i64 56
   br label %29
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit.thread": ; preds = %.lr.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit.thread": ; preds = %.lr.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit"
   %22 = load i64, ptr %.sroa.020.026, align 8
   store i64 %22, ptr %.027, align 8
   %23 = getelementptr inbounds nuw i8, ptr %.027, i64 8
@@ -9114,9 +9114,9 @@ define internal fastcc void @"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorI
   %28 = getelementptr inbounds i8, ptr %.sroa.020.026, i64 56
   br label %29
 
-29:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit.thread", %15
-  %.sroa.016.1 = phi ptr [ %21, %15 ], [ %.sroa.016.025, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit.thread" ]
-  %.sroa.020.1 = phi ptr [ %.sroa.020.026, %15 ], [ %28, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.argprom.exit.thread" ]
+29:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit.thread", %15
+  %.sroa.016.1 = phi ptr [ %21, %15 ], [ %.sroa.016.025, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit.thread" ]
+  %.sroa.020.1 = phi ptr [ %.sroa.020.026, %15 ], [ %28, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclINS_17__normal_iteratorIPS5_S7_EESE_EEbT_T0_.exit.thread" ]
   %30 = getelementptr inbounds i8, ptr %.027, i64 56
   %31 = icmp ne ptr %.sroa.020.1, %1
   %32 = icmp ne ptr %.sroa.016.1, %3
@@ -9190,7 +9190,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_Sa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt12__move_mergeIPN4llvm14BPFunctionNodeEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_comp_iterIZNKS0_20BalancedPartitioning3runERS7_E3$_1EEET0_T_SG_SG_SG_SF_T1_.retelim"(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr %4) unnamed_addr #0 {
+define internal fastcc void @"_ZSt12__move_mergeIPN4llvm14BPFunctionNodeEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_comp_iterIZNKS0_20BalancedPartitioning3runERS7_E3$_1EEET0_T_SG_SG_SG_SF_T1_"(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr %4) unnamed_addr #0 {
   %6 = icmp ne ptr %0, %1
   %7 = icmp ne ptr %2, %3
   %8 = and i1 %6, %7
@@ -9205,9 +9205,9 @@ define internal fastcc void @"_ZSt12__move_mergeIPN4llvm14BPFunctionNodeEN9__gnu
   %11 = getelementptr i8, ptr %.032, i64 44
   %.0.val19 = load i8, ptr %11, align 4
   %12 = trunc i8 %.0.val19 to i1
-  br i1 %12, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.argprom.exit.thread"
+  br i1 %12, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.exit", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.exit.thread"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.argprom.exit": ; preds = %.lr.ph
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.exit": ; preds = %.lr.ph
   %.0.val = load i32, ptr %10, align 4
   %13 = getelementptr i8, ptr %.01631, i64 44
   %.016.val18 = load i8, ptr %13, align 4
@@ -9215,9 +9215,9 @@ define internal fastcc void @"_ZSt12__move_mergeIPN4llvm14BPFunctionNodeEN9__gnu
   %14 = trunc i8 %.016.val18 to i1
   %15 = icmp uge i32 %.016.val, %.0.val
   %spec.select.i.i.not = select i1 %14, i1 %15, i1 false
-  br i1 %spec.select.i.i.not, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.argprom.exit.thread", label %16
+  br i1 %spec.select.i.i.not, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.exit.thread", label %16
 
-16:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.argprom.exit"
+16:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.exit"
   %17 = load i64, ptr %.01631, align 8
   store i64 %17, ptr %.sroa.0.030, align 8
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.030, i64 8
@@ -9228,7 +9228,7 @@ define internal fastcc void @"_ZSt12__move_mergeIPN4llvm14BPFunctionNodeEN9__gnu
   %22 = getelementptr inbounds i8, ptr %.01631, i64 56
   br label %29
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.argprom.exit.thread": ; preds = %.lr.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.argprom.exit"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.exit.thread": ; preds = %.lr.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.exit"
   %23 = load i64, ptr %.032, align 8
   store i64 %23, ptr %.sroa.0.030, align 8
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.030, i64 8
@@ -9239,9 +9239,9 @@ define internal fastcc void @"_ZSt12__move_mergeIPN4llvm14BPFunctionNodeEN9__gnu
   %28 = getelementptr inbounds i8, ptr %.032, i64 56
   br label %29
 
-29:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.argprom.exit.thread", %16
-  %.117 = phi ptr [ %22, %16 ], [ %.01631, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.argprom.exit.thread" ]
-  %.1 = phi ptr [ %.032, %16 ], [ %28, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.argprom.exit.thread" ]
+29:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.exit.thread", %16
+  %.117 = phi ptr [ %22, %16 ], [ %.01631, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.exit.thread" ]
+  %.1 = phi ptr [ %.032, %16 ], [ %28, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm20BalancedPartitioning3runERSt6vectorINS2_14BPFunctionNodeESaIS5_EEE3$_1EclIPS5_SC_EEbT_T0_.exit.thread" ]
   %30 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 56
   %31 = icmp ne ptr %.1, %1
   %32 = icmp ne ptr %.117, %3
@@ -9635,9 +9635,9 @@ _ZN4llvm14BPFunctionNodeD2Ev.exit.i.i.i:          ; preds = %47, %_ZN4llvm14BPFu
   br label %_ZN4llvm14BPFunctionNodeD2Ev.exit10.i.i.i
 
 _ZN4llvm14BPFunctionNodeD2Ev.exit10.i.i.i:        ; preds = %52, %_ZN4llvm14BPFunctionNodeD2Ev.exit.i.i.i
-  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_SK_RT0_.argprom.exit.i.i", label %32
+  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_SK_RT0_.exit.i.i", label %32
 
-"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_SK_RT0_.argprom.exit.i.i": ; preds = %_ZN4llvm14BPFunctionNodeD2Ev.exit10.i.i.i
+"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_SK_RT0_.exit.i.i": ; preds = %_ZN4llvm14BPFunctionNodeD2Ev.exit10.i.i.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -9650,8 +9650,8 @@ _ZN4llvm14BPFunctionNodeD2Ev.exit10.i.i.i:        ; preds = %52, %_ZN4llvm14BPFu
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 40
   br label %.lr.ph.i9.i
 
-.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_SK_RT0_.argprom.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_SK_SK_RT0_.argprom.exit"
-  %.sroa.0.03.i.i = phi ptr [ %61, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_SK_SK_RT0_.argprom.exit" ], [ %storemerge26, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_SK_RT0_.argprom.exit.i.i" ]
+.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_SK_RT0_.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_SK_SK_RT0_.exit"
+  %.sroa.0.03.i.i = phi ptr [ %61, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_SK_SK_RT0_.exit" ], [ %storemerge26, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_SK_RT0_.exit.i.i" ]
   %61 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -56
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
@@ -9702,13 +9702,13 @@ _ZN4llvm14BPFunctionNodeD2Ev.exit.i:              ; preds = %80, %_ZN4llvm14BPFu
   %81 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %53) #22
   %82 = load ptr, ptr %53, align 8
   %83 = icmp eq ptr %82, %54
-  br i1 %83, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_SK_SK_RT0_.argprom.exit", label %84
+  br i1 %83, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_SK_SK_RT0_.exit", label %84
 
 84:                                               ; preds = %_ZN4llvm14BPFunctionNodeD2Ev.exit.i
   call void @free(ptr noundef %82) #22
-  br label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_SK_SK_RT0_.argprom.exit"
+  br label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_SK_SK_RT0_.exit"
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_SK_SK_RT0_.argprom.exit": ; preds = %_ZN4llvm14BPFunctionNodeD2Ev.exit.i, %84
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_SK_SK_RT0_.exit": ; preds = %_ZN4llvm14BPFunctionNodeD2Ev.exit.i, %84
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   %85 = icmp sgt i64 %71, 56
@@ -9822,7 +9822,7 @@ _ZSt4swapIN4llvm14BPFunctionNodeEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tu
   %130 = icmp sgt i64 %129, 896
   br i1 %130, label %19, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_SK_SK_T0_.exit", !llvm.loop !126
 
-"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_SK_SK_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEET_SK_SK_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_SK_SK_RT0_.argprom.exit", %3
+"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_SK_SK_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEET_SK_SK_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_SK_SK_RT0_.exit", %3
   ret void
 }
 
@@ -9905,7 +9905,7 @@ _ZN4llvm14BPFunctionNodeC2EOS0_.exit:             ; preds = %41, %47
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false)
   %51 = icmp sgt i64 %.1, %1
-  br i1 %51, label %.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_T0_SL_T1_RT2_.argprom.exit"
+  br i1 %51, label %.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_T0_SL_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm14BPFunctionNodeC2EOS0_.exit
   %52 = getelementptr inbounds i8, ptr %5, i64 48
@@ -9920,7 +9920,7 @@ _ZN4llvm14BPFunctionNodeC2EOS0_.exit:             ; preds = %41, %47
   %55 = getelementptr i8, ptr %54, i64 48
   %.val.i.i = load i64, ptr %55, align 8
   %56 = icmp ult i64 %.val.i.i, %.val.i24
-  br i1 %56, label %57, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_T0_SL_T1_RT2_.argprom.exit"
+  br i1 %56, label %57, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_T0_SL_T1_RT2_.exit"
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds %"class.llvm::BPFunctionNode", ptr %0, i64 %.010.i
@@ -9933,9 +9933,9 @@ _ZN4llvm14BPFunctionNodeC2EOS0_.exit:             ; preds = %41, %47
   %64 = getelementptr inbounds nuw i8, ptr %54, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %64, i64 16, i1 false)
   %65 = icmp sgt i64 %.0911.i, %1
-  br i1 %65, label %53, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_T0_SL_T1_RT2_.argprom.exit", !llvm.loop !128
+  br i1 %65, label %53, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_T0_SL_T1_RT2_.exit", !llvm.loop !128
 
-"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_T0_SL_T1_RT2_.argprom.exit": ; preds = %53, %57, %_ZN4llvm14BPFunctionNodeC2EOS0_.exit
+"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_T0_SL_T1_RT2_.exit": ; preds = %53, %57, %_ZN4llvm14BPFunctionNodeC2EOS0_.exit
   %.0.lcssa.i = phi i64 [ %.1, %_ZN4llvm14BPFunctionNodeC2EOS0_.exit ], [ %.010.i, %53 ], [ %.0911.i, %57 ]
   %66 = getelementptr inbounds %"class.llvm::BPFunctionNode", ptr %0, i64 %.0.lcssa.i
   %67 = load i64, ptr %5, align 8
@@ -9949,11 +9949,11 @@ _ZN4llvm14BPFunctionNodeC2EOS0_.exit:             ; preds = %41, %47
   %73 = icmp eq ptr %72, %45
   br i1 %73, label %_ZN4llvm14BPFunctionNodeD2Ev.exit, label %74
 
-74:                                               ; preds = %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_T0_SL_T1_RT2_.argprom.exit"
+74:                                               ; preds = %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_T0_SL_T1_RT2_.exit"
   call void @free(ptr noundef %72) #22
   br label %_ZN4llvm14BPFunctionNodeD2Ev.exit
 
-_ZN4llvm14BPFunctionNodeD2Ev.exit:                ; preds = %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_T0_SL_T1_RT2_.argprom.exit", %74
+_ZN4llvm14BPFunctionNodeD2Ev.exit:                ; preds = %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_T0_SL_T1_RT2_.exit", %74
   ret void
 }
 
@@ -10174,7 +10174,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit.i.i.i:      ; preds = %18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_2EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_2EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_2EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -10184,29 +10184,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm20Balan
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_2EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_2EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_2EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_2EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %.val5, i64 56, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_2EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_2EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_2EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_2EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 56) #26
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_2EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_2EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_2EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_2EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -10259,7 +10259,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit.i.i.i:      ; preds = %18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_3EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_3EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_3EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -10269,29 +10269,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm20Balan
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_3EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_3EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_3EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_3EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %.val5, i64 56, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_3EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_3EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_3EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_3EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 56) #26
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_3EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_3EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_3EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_3EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -10944,7 +10944,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEES
   %24 = sub i64 %8, %21
   %25 = ashr exact i64 %24, 4
   %26 = icmp sgt i64 %25, 0
-  br i1 %26, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit"
+  br i1 %26, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit"
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i
   %.04.i = phi i64 [ %.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i ], [ %25, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit ]
@@ -10959,15 +10959,15 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEES
   %.sroa.02.1.i = select i1 %29, ptr %30, ptr %.sroa.02.03.i
   %.1.i = select i1 %29, i64 %32, i64 %27
   %33 = icmp sgt i64 %.1.i, 0
-  br i1 %33, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit.loopexit", !llvm.loop !135
+  br i1 %33, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit.loopexit", !llvm.loop !135
 
-"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit.loopexit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i
+"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i
   %.pre = ptrtoint ptr %.sroa.02.1.i to i64
-  br label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit"
+  br label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit"
 
-"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit": ; preds = %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit.loopexit" ], [ %21, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit ]
-  %.sroa.02.0.lcssa.i = phi ptr [ %.sroa.02.1.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit.loopexit" ], [ %.tr7079, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit ]
+"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit": ; preds = %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit
+  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit.loopexit" ], [ %21, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit ]
+  %.sroa.02.0.lcssa.i = phi ptr [ %.sroa.02.1.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit.loopexit" ], [ %.tr7079, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit ]
   %34 = sub i64 %.pre-phi, %21
   %35 = ashr exact i64 %34, 4
   br label %tailrecurse
@@ -10980,7 +10980,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEES
   %39 = sub i64 %21, %38
   %40 = ashr exact i64 %39, 4
   %41 = icmp sgt i64 %40, 0
-  br i1 %41, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i56, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit"
+  br i1 %41, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i56, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit"
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i56: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit54, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i56
   %.04.i57 = phi i64 [ %.1.i62, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i56 ], [ %40, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit54 ]
@@ -10995,24 +10995,24 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEES
   %.sroa.02.1.i61 = select i1 %44, ptr %.sroa.02.03.i58, ptr %45
   %.1.i62 = select i1 %44, i64 %42, i64 %47
   %48 = icmp sgt i64 %.1.i62, 0
-  br i1 %48, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i56, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit.loopexit", !llvm.loop !136
+  br i1 %48, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i56, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit.loopexit", !llvm.loop !136
 
-"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit.loopexit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i56
+"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i56
   %.pre85 = ptrtoint ptr %.sroa.02.1.i61 to i64
-  br label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit"
+  br label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit"
 
-"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit": ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit54
-  %.pre-phi86 = phi i64 [ %.pre85, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit.loopexit" ], [ %38, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit54 ]
-  %.sroa.02.0.lcssa.i55 = phi ptr [ %.sroa.02.1.i61, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit.loopexit" ], [ %.tr77, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit54 ]
+"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit54
+  %.pre-phi86 = phi i64 [ %.pre85, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit.loopexit" ], [ %38, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit54 ]
+  %.sroa.02.0.lcssa.i55 = phi ptr [ %.sroa.02.1.i61, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit.loopexit" ], [ %.tr77, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit54 ]
   %49 = sub i64 %.pre-phi86, %38
   %50 = ashr exact i64 %49, 4
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit", %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit"
-  %.sroa.065.0 = phi ptr [ %23, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit" ], [ %.sroa.02.0.lcssa.i55, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit" ]
-  %.sroa.0.0 = phi ptr [ %.sroa.02.0.lcssa.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit" ], [ %37, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit" ]
-  %.047 = phi i64 [ %35, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit" ], [ %36, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit" ]
-  %.0 = phi i64 [ %22, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit" ], [ %50, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit" ]
+tailrecurse:                                      ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit", %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit"
+  %.sroa.065.0 = phi ptr [ %23, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit" ], [ %.sroa.02.0.lcssa.i55, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit" ]
+  %.sroa.0.0 = phi ptr [ %.sroa.02.0.lcssa.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit" ], [ %37, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit" ]
+  %.047 = phi i64 [ %35, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit" ], [ %36, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit" ]
+  %.0 = phi i64 [ %22, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit" ], [ %50, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit" ]
   %51 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS7_SaIS7_EEEEEET_SD_SD_SD_St26random_access_iterator_tag(ptr %.sroa.065.0, ptr %.tr7079, ptr %.sroa.0.0)
   tail call fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEEvT_ST_ST_T0_SU_T1_"(ptr %.tr77, ptr %.sroa.065.0, ptr %51, i64 noundef %.0, i64 noundef %.047)
   %52 = sub nsw i64 %.tr7281, %.0
@@ -11985,7 +11985,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEES
   %109 = sub i64 %8, %45
   %110 = ashr exact i64 %109, 4
   %111 = icmp sgt i64 %110, 0
-  br i1 %111, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit"
+  br i1 %111, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit"
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i
   %.04.i = phi i64 [ %.1.i93, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i ], [ %110, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit ]
@@ -12000,15 +12000,15 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEES
   %.sroa.02.1.i = select i1 %114, ptr %115, ptr %.sroa.02.03.i
   %.1.i93 = select i1 %114, i64 %117, i64 %112
   %118 = icmp sgt i64 %.1.i93, 0
-  br i1 %118, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit.loopexit", !llvm.loop !135
+  br i1 %118, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit.loopexit", !llvm.loop !135
 
-"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit.loopexit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i
+"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i
   %.pre = ptrtoint ptr %.sroa.02.1.i to i64
-  br label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit"
+  br label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit"
 
-"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit": ; preds = %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit.loopexit" ], [ %45, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit ]
-  %.sroa.02.0.lcssa.i = phi ptr [ %.sroa.02.1.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit.loopexit" ], [ %.tr116138, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit ]
+"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit": ; preds = %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit
+  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit.loopexit" ], [ %45, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit ]
+  %.sroa.02.0.lcssa.i = phi ptr [ %.sroa.02.1.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit.loopexit" ], [ %.tr116138, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit ]
   %119 = sub i64 %.pre-phi, %45
   %120 = ashr exact i64 %119, 4
   br label %tailrecurse
@@ -12021,7 +12021,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEES
   %124 = sub i64 %45, %123
   %125 = ashr exact i64 %124, 4
   %126 = icmp sgt i64 %125, 0
-  br i1 %126, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i99, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit"
+  br i1 %126, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i99, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit"
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit97, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i99
   %.04.i100 = phi i64 [ %.1.i106, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i99 ], [ %125, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit97 ]
@@ -12036,24 +12036,24 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEES
   %.sroa.02.1.i105 = select i1 %129, ptr %.sroa.02.03.i101, ptr %130
   %.1.i106 = select i1 %129, i64 %127, i64 %132
   %133 = icmp sgt i64 %.1.i106, 0
-  br i1 %133, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i99, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit.loopexit", !llvm.loop !136
+  br i1 %133, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i99, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit.loopexit", !llvm.loop !136
 
-"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit.loopexit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i99
+"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i99
   %.pre157 = ptrtoint ptr %.sroa.02.1.i105 to i64
-  br label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit"
+  br label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit"
 
-"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit": ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit97
-  %.pre-phi158 = phi i64 [ %.pre157, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit.loopexit" ], [ %123, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit97 ]
-  %.sroa.02.0.lcssa.i98 = phi ptr [ %.sroa.02.1.i105, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit.loopexit" ], [ %.tr136, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit97 ]
+"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit97
+  %.pre-phi158 = phi i64 [ %.pre157, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit.loopexit" ], [ %123, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit97 ]
+  %.sroa.02.0.lcssa.i98 = phi ptr [ %.sroa.02.1.i105, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit.loopexit" ], [ %.tr136, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit97 ]
   %134 = sub i64 %.pre-phi158, %123
   %135 = ashr exact i64 %134, 4
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit", %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit"
-  %.sroa.0109.0 = phi ptr [ %108, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit" ], [ %.sroa.02.0.lcssa.i98, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit" ]
-  %.sroa.0.0 = phi ptr [ %.sroa.02.0.lcssa.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit" ], [ %122, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit" ]
-  %.076 = phi i64 [ %120, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit" ], [ %121, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit" ]
-  %.0 = phi i64 [ %107, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit" ], [ %135, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.argprom.exit" ]
+tailrecurse:                                      ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit", %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit"
+  %.sroa.0109.0 = phi ptr [ %108, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit" ], [ %.sroa.02.0.lcssa.i98, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit" ]
+  %.sroa.0.0 = phi ptr [ %.sroa.02.0.lcssa.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit" ], [ %122, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit" ]
+  %.076 = phi i64 [ %120, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit" ], [ %121, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit" ]
+  %.0 = phi i64 [ %107, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit" ], [ %135, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEET_ST_ST_RKT0_T1_.exit" ]
   %136 = sub nsw i64 %.tr118140, %.0
   %137 = tail call ptr @_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES7_lET_SC_SC_SC_T1_SD_T0_SD_(ptr %.sroa.0109.0, ptr %.tr116138, ptr %.sroa.0.0, i64 noundef %136, i64 noundef %.076, ptr noundef %5, i64 noundef %6)
   tail call fastcc void @"_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEElS7_NS0_5__ops15_Iter_comp_iterIZNKS3_20BalancedPartitioning12runIterationENS3_14iterator_rangeINS1_IS5_S8_IS4_SaIS4_EEEEEEjjRNS3_11SmallVectorINSE_16UtilitySignatureELj4EEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_1EEEvT_ST_ST_T0_SU_T1_SU_T2_"(ptr %.tr136, ptr %.sroa.0109.0, ptr %137, i64 noundef %.0, i64 noundef %.076, ptr noundef %5, i64 noundef %6)
@@ -12444,7 +12444,7 @@ _ZN4llvm14BPFunctionNodeC2EOS0_.exit:             ; preds = %41, %47
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false)
   %51 = icmp sgt i64 %.1, %1
-  br i1 %51, label %.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_T0_SH_T1_RT2_.argprom.exit"
+  br i1 %51, label %.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_T0_SH_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm14BPFunctionNodeC2EOS0_.exit
   %52 = getelementptr inbounds i8, ptr %5, i64 48
@@ -12459,7 +12459,7 @@ _ZN4llvm14BPFunctionNodeC2EOS0_.exit:             ; preds = %41, %47
   %55 = getelementptr i8, ptr %54, i64 48
   %.val.i.i = load i64, ptr %55, align 8
   %56 = icmp ult i64 %.val.i.i, %.val.i24
-  br i1 %56, label %57, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_T0_SH_T1_RT2_.argprom.exit"
+  br i1 %56, label %57, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_T0_SH_T1_RT2_.exit"
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds %"class.llvm::BPFunctionNode", ptr %0, i64 %.010.i
@@ -12472,9 +12472,9 @@ _ZN4llvm14BPFunctionNodeC2EOS0_.exit:             ; preds = %41, %47
   %64 = getelementptr inbounds nuw i8, ptr %54, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %64, i64 16, i1 false)
   %65 = icmp sgt i64 %.0911.i, %1
-  br i1 %65, label %53, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_T0_SH_T1_RT2_.argprom.exit", !llvm.loop !153
+  br i1 %65, label %53, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_T0_SH_T1_RT2_.exit", !llvm.loop !153
 
-"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_T0_SH_T1_RT2_.argprom.exit": ; preds = %53, %57, %_ZN4llvm14BPFunctionNodeC2EOS0_.exit
+"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_T0_SH_T1_RT2_.exit": ; preds = %53, %57, %_ZN4llvm14BPFunctionNodeC2EOS0_.exit
   %.0.lcssa.i = phi i64 [ %.1, %_ZN4llvm14BPFunctionNodeC2EOS0_.exit ], [ %.010.i, %53 ], [ %.0911.i, %57 ]
   %66 = getelementptr inbounds %"class.llvm::BPFunctionNode", ptr %0, i64 %.0.lcssa.i
   %67 = load i64, ptr %5, align 8
@@ -12488,11 +12488,11 @@ _ZN4llvm14BPFunctionNodeC2EOS0_.exit:             ; preds = %41, %47
   %73 = icmp eq ptr %72, %45
   br i1 %73, label %_ZN4llvm14BPFunctionNodeD2Ev.exit, label %74
 
-74:                                               ; preds = %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_T0_SH_T1_RT2_.argprom.exit"
+74:                                               ; preds = %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_T0_SH_T1_RT2_.exit"
   call void @free(ptr noundef %72) #22
   br label %_ZN4llvm14BPFunctionNodeD2Ev.exit
 
-_ZN4llvm14BPFunctionNodeD2Ev.exit:                ; preds = %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_T0_SH_T1_RT2_.argprom.exit", %74
+_ZN4llvm14BPFunctionNodeD2Ev.exit:                ; preds = %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_T0_SH_T1_RT2_.exit", %74
   ret void
 }
 

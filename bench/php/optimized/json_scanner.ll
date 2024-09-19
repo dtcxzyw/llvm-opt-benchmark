@@ -2075,7 +2075,7 @@ php_json_scanner_copy_string.exit1567:            ; preds = %759, %765
 941:                                              ; preds = %909, %911
   %942 = getelementptr inbounds i8, ptr %687, i64 6
   store ptr %942, ptr %0, align 8
-  %943 = tail call fastcc i32 @php_json_ucs2_to_int.argprom(ptr nonnull %942, i32 noundef 2)
+  %943 = tail call fastcc i32 @php_json_ucs2_to_int(ptr nonnull %942, i32 noundef 2)
   %944 = load ptr, ptr %1438, align 8
   %945 = ptrtoint ptr %942 to i64
   %946 = ptrtoint ptr %944 to i64
@@ -2106,7 +2106,7 @@ php_json_scanner_copy_string.exit1569:            ; preds = %941, %948
 956:                                              ; preds = %918, %920
   %957 = getelementptr inbounds i8, ptr %687, i64 6
   store ptr %957, ptr %0, align 8
-  %958 = tail call fastcc i32 @php_json_ucs2_to_int.argprom(ptr nonnull %957, i32 noundef 3)
+  %958 = tail call fastcc i32 @php_json_ucs2_to_int(ptr nonnull %957, i32 noundef 3)
   %959 = load ptr, ptr %1438, align 8
   %960 = ptrtoint ptr %957 to i64
   %961 = ptrtoint ptr %959 to i64
@@ -2186,9 +2186,9 @@ php_json_hex_to_int.exit.i.i:                     ; preds = %990, %988, %984
   %995 = or i32 %994, %.082.i.i
   %996 = add nuw nsw i32 %.091.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %996, 4
-  br i1 %exitcond.not.i.i, label %php_json_ucs2_to_int.argprom.exit, label %980
+  br i1 %exitcond.not.i.i, label %php_json_ucs2_to_int.exit, label %980
 
-php_json_ucs2_to_int.argprom.exit:                ; preds = %php_json_hex_to_int.exit.i.i
+php_json_ucs2_to_int.exit:                        ; preds = %php_json_hex_to_int.exit.i.i
   %997 = load ptr, ptr %1438, align 8
   %998 = ptrtoint ptr %979 to i64
   %999 = ptrtoint ptr %997 to i64
@@ -2198,14 +2198,14 @@ php_json_ucs2_to_int.argprom.exit:                ; preds = %php_json_hex_to_int
   %.pre1743 = load ptr, ptr %1439, align 8
   br i1 %.not.i1572, label %php_json_scanner_copy_string.exit1573, label %1001
 
-1001:                                             ; preds = %php_json_ucs2_to_int.argprom.exit
+1001:                                             ; preds = %php_json_ucs2_to_int.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre1743, ptr align 1 %997, i64 %1000, i1 false)
   %1002 = load ptr, ptr %1439, align 8
   %1003 = getelementptr inbounds i8, ptr %1002, i64 %1000
   br label %php_json_scanner_copy_string.exit1573
 
-php_json_scanner_copy_string.exit1573:            ; preds = %php_json_ucs2_to_int.argprom.exit, %1001
-  %1004 = phi ptr [ %.pre1743, %php_json_ucs2_to_int.argprom.exit ], [ %1003, %1001 ]
+php_json_scanner_copy_string.exit1573:            ; preds = %php_json_ucs2_to_int.exit, %1001
+  %1004 = phi ptr [ %.pre1743, %php_json_ucs2_to_int.exit ], [ %1003, %1001 ]
   %1005 = lshr i32 %995, 12
   %1006 = trunc i32 %1005 to i8
   %1007 = or i8 %1006, -32
@@ -2310,8 +2310,8 @@ php_json_scanner_copy_string.exit1573:            ; preds = %php_json_ucs2_to_in
 1057:                                             ; preds = %1052, %1054
   %1058 = getelementptr inbounds i8, ptr %687, i64 12
   store ptr %1058, ptr %0, align 8
-  %1059 = tail call fastcc i32 @php_json_ucs2_to_int.argprom(ptr nonnull %1058, i32 noundef 4)
-  %1060 = tail call fastcc i32 @php_json_ucs2_to_int_ex.argprom(ptr nonnull %1058, i32 noundef 4, i32 noundef 7)
+  %1059 = tail call fastcc i32 @php_json_ucs2_to_int(ptr nonnull %1058, i32 noundef 4)
+  %1060 = tail call fastcc i32 @php_json_ucs2_to_int_ex(ptr nonnull %1058, i32 noundef 4, i32 noundef 7)
   %1061 = shl i32 %1060, 10
   %1062 = and i32 %1061, 1047552
   %1063 = and i32 %1059, 1023
@@ -2768,7 +2768,7 @@ php_json_scanner_copy_string.exit1579:            ; preds = %1118, %1124
 1279:                                             ; preds = %1247, %1249
   %1280 = getelementptr inbounds i8, ptr %1102, i64 6
   store ptr %1280, ptr %0, align 8
-  %1281 = tail call fastcc i32 @php_json_ucs2_to_int.argprom(ptr nonnull %1280, i32 noundef 2)
+  %1281 = tail call fastcc i32 @php_json_ucs2_to_int(ptr nonnull %1280, i32 noundef 2)
   %1282 = load ptr, ptr %1099, align 8
   %1283 = ptrtoint ptr %1280 to i64
   %1284 = ptrtoint ptr %1282 to i64
@@ -2799,7 +2799,7 @@ php_json_scanner_copy_string.exit1581:            ; preds = %1279, %1286
 1294:                                             ; preds = %1256, %1258
   %1295 = getelementptr inbounds i8, ptr %1102, i64 6
   store ptr %1295, ptr %0, align 8
-  %1296 = tail call fastcc i32 @php_json_ucs2_to_int.argprom(ptr nonnull %1295, i32 noundef 3)
+  %1296 = tail call fastcc i32 @php_json_ucs2_to_int(ptr nonnull %1295, i32 noundef 3)
   %1297 = load ptr, ptr %1099, align 8
   %1298 = ptrtoint ptr %1295 to i64
   %1299 = ptrtoint ptr %1297 to i64
@@ -2879,9 +2879,9 @@ php_json_hex_to_int.exit.i.i1592:                 ; preds = %1328, %1326, %1322
   %1333 = or i32 %1332, %.082.i.i1585
   %1334 = add nuw nsw i32 %.091.i.i1586, 1
   %exitcond.not.i.i1594 = icmp eq i32 %1334, 4
-  br i1 %exitcond.not.i.i1594, label %php_json_ucs2_to_int.argprom.exit1595, label %1318
+  br i1 %exitcond.not.i.i1594, label %php_json_ucs2_to_int.exit1595, label %1318
 
-php_json_ucs2_to_int.argprom.exit1595:            ; preds = %php_json_hex_to_int.exit.i.i1592
+php_json_ucs2_to_int.exit1595:                    ; preds = %php_json_hex_to_int.exit.i.i1592
   %1335 = load ptr, ptr %1099, align 8
   %1336 = ptrtoint ptr %1317 to i64
   %1337 = ptrtoint ptr %1335 to i64
@@ -2891,14 +2891,14 @@ php_json_ucs2_to_int.argprom.exit1595:            ; preds = %php_json_hex_to_int
   %.pre1738 = load ptr, ptr %1100, align 8
   br i1 %.not.i1596, label %php_json_scanner_copy_string.exit1597, label %1339
 
-1339:                                             ; preds = %php_json_ucs2_to_int.argprom.exit1595
+1339:                                             ; preds = %php_json_ucs2_to_int.exit1595
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre1738, ptr align 1 %1335, i64 %1338, i1 false)
   %1340 = load ptr, ptr %1100, align 8
   %1341 = getelementptr inbounds i8, ptr %1340, i64 %1338
   br label %php_json_scanner_copy_string.exit1597
 
-php_json_scanner_copy_string.exit1597:            ; preds = %php_json_ucs2_to_int.argprom.exit1595, %1339
-  %1342 = phi ptr [ %.pre1738, %php_json_ucs2_to_int.argprom.exit1595 ], [ %1341, %1339 ]
+php_json_scanner_copy_string.exit1597:            ; preds = %php_json_ucs2_to_int.exit1595, %1339
+  %1342 = phi ptr [ %.pre1738, %php_json_ucs2_to_int.exit1595 ], [ %1341, %1339 ]
   %1343 = lshr i32 %1333, 12
   %1344 = trunc i32 %1343 to i8
   %1345 = or i8 %1344, -32
@@ -3003,8 +3003,8 @@ php_json_scanner_copy_string.exit1597:            ; preds = %php_json_ucs2_to_in
 1395:                                             ; preds = %1390, %1392
   %1396 = getelementptr inbounds i8, ptr %1102, i64 12
   store ptr %1396, ptr %0, align 8
-  %1397 = tail call fastcc i32 @php_json_ucs2_to_int.argprom(ptr nonnull %1396, i32 noundef 4)
-  %1398 = tail call fastcc i32 @php_json_ucs2_to_int_ex.argprom(ptr nonnull %1396, i32 noundef 4, i32 noundef 7)
+  %1397 = tail call fastcc i32 @php_json_ucs2_to_int(ptr nonnull %1396, i32 noundef 4)
+  %1398 = tail call fastcc i32 @php_json_ucs2_to_int_ex(ptr nonnull %1396, i32 noundef 4, i32 noundef 7)
   %1399 = shl i32 %1398, 10
   %1400 = and i32 %1399, 1047552
   %1401 = and i32 %1397, 1023
@@ -3092,7 +3092,7 @@ declare double @zend_strtod(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @php_json_ucs2_to_int.argprom(ptr nocapture readonly %.0.val, i32 noundef range(i32 2, 5) %0) unnamed_addr #6 {
+define internal fastcc i32 @php_json_ucs2_to_int(ptr nocapture readonly %.0.val, i32 noundef range(i32 2, 5) %0) unnamed_addr #6 {
   br label %2
 
 2:                                                ; preds = %php_json_hex_to_int.exit.i, %1
@@ -3133,14 +3133,14 @@ php_json_hex_to_int.exit.i:                       ; preds = %12, %10, %6
   %17 = or i32 %16, %.082.i
   %18 = add nuw nsw i32 %.091.i, 1
   %exitcond.not.i = icmp eq i32 %18, %0
-  br i1 %exitcond.not.i, label %php_json_ucs2_to_int_ex.argprom.exit, label %2
+  br i1 %exitcond.not.i, label %php_json_ucs2_to_int_ex.exit, label %2
 
-php_json_ucs2_to_int_ex.argprom.exit:             ; preds = %php_json_hex_to_int.exit.i
+php_json_ucs2_to_int_ex.exit:                     ; preds = %php_json_hex_to_int.exit.i
   ret i32 %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @php_json_ucs2_to_int_ex.argprom(ptr nocapture readonly %.0.val, i32 noundef range(i32 2, 5) %0, i32 noundef range(i32 1, 8) %1) unnamed_addr #6 {
+define internal fastcc i32 @php_json_ucs2_to_int_ex(ptr nocapture readonly %.0.val, i32 noundef range(i32 2, 5) %0, i32 noundef range(i32 1, 8) %1) unnamed_addr #6 {
   %3 = zext nneg i32 %1 to i64
   %4 = sub nsw i64 0, %3
   %5 = getelementptr inbounds i8, ptr %.0.val, i64 %4

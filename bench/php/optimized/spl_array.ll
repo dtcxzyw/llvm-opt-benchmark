@@ -355,14 +355,14 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %79 = getelementptr inbounds i8, ptr %8, i64 16
   %.val53 = load i8, ptr %79, align 8
   %80 = trunc i8 %.val53 to i1
-  br i1 %80, label %81, label %spl_hash_key_release.argprom.exit
+  br i1 %80, label %81, label %spl_hash_key_release.exit
 
 81:                                               ; preds = %77
   %82 = getelementptr inbounds i8, ptr %.val, i64 4
   %83 = load i32, ptr %82, align 4
   %84 = and i32 %83, 64
   %.not.i54 = icmp eq i32 %84, 0
-  br i1 %.not.i54, label %85, label %spl_hash_key_release.argprom.exit
+  br i1 %.not.i54, label %85, label %spl_hash_key_release.exit
 
 85:                                               ; preds = %81
   %86 = load i32, ptr %.val, align 4
@@ -371,24 +371,24 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %88 = add i32 %86, -1
   store i32 %88, ptr %.val, align 4
   %89 = icmp eq i32 %88, 0
-  br i1 %89, label %90, label %spl_hash_key_release.argprom.exit
+  br i1 %89, label %90, label %spl_hash_key_release.exit
 
 90:                                               ; preds = %85
   call void @_efree(ptr noundef nonnull %.val) #11
-  br label %spl_hash_key_release.argprom.exit
+  br label %spl_hash_key_release.exit
 
 91:                                               ; preds = %75
   %92 = getelementptr inbounds i8, ptr %8, i64 8
   %93 = load i64, ptr %92, align 8
   %94 = call ptr @zend_hash_index_find(ptr noundef %67, i64 noundef %93) #11
-  br label %spl_hash_key_release.argprom.exit
+  br label %spl_hash_key_release.exit
 
-spl_hash_key_release.argprom.exit:                ; preds = %90, %85, %81, %77, %91
+spl_hash_key_release.exit:                        ; preds = %90, %85, %81, %77, %91
   %.039 = phi ptr [ %94, %91 ], [ %78, %77 ], [ %78, %81 ], [ %78, %85 ], [ %78, %90 ]
   %.not49 = icmp eq ptr %.039, null
   br i1 %.not49, label %120, label %95
 
-95:                                               ; preds = %spl_hash_key_release.argprom.exit
+95:                                               ; preds = %spl_hash_key_release.exit
   switch i32 %3, label %96 [
     i32 2, label %120
     i32 0, label %109
@@ -449,8 +449,8 @@ spl_array_read_dimension_ex.exit:                 ; preds = %100, %101
   %119 = icmp ne i8 %118, 1
   br label %120
 
-120:                                              ; preds = %13, %113, %116, %95, %spl_hash_key_release.argprom.exit, %18, %70
-  %.0 = phi i1 [ false, %70 ], [ true, %18 ], [ false, %spl_hash_key_release.argprom.exit ], [ true, %95 ], [ %115, %113 ], [ %119, %116 ], [ false, %13 ]
+120:                                              ; preds = %13, %113, %116, %95, %spl_hash_key_release.exit, %18, %70
+  %.0 = phi i1 [ false, %70 ], [ true, %18 ], [ false, %spl_hash_key_release.exit ], [ true, %95 ], [ %115, %113 ], [ %119, %116 ], [ false, %13 ]
   ret i1 %.0
 }
 
@@ -478,7 +478,7 @@ define hidden void @zim_ArrayObject_offsetGet(ptr nocapture noundef readonly %0,
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = call fastcc ptr @spl_array_get_dimension_ptr.argelim(ptr noundef nonnull %15, ptr noundef %19, ptr noundef %14, i32 noundef 0)
+  %20 = call fastcc ptr @spl_array_get_dimension_ptr(ptr noundef nonnull %15, ptr noundef %19, ptr noundef %14, i32 noundef 0)
   %.not = icmp eq ptr %20, %1
   br i1 %.not, label %44, label %21
 
@@ -839,14 +839,14 @@ spl_array_set_refcount.exit80:                    ; preds = %spl_array_get_hash_
   %134 = getelementptr inbounds i8, ptr %5, i64 16
   %.val62 = load i8, ptr %134, align 8
   %135 = trunc i8 %.val62 to i1
-  br i1 %135, label %136, label %spl_hash_key_release.argprom.exit
+  br i1 %135, label %136, label %spl_hash_key_release.exit
 
 136:                                              ; preds = %132
   %137 = getelementptr inbounds i8, ptr %.val, i64 4
   %138 = load i32, ptr %137, align 4
   %139 = and i32 %138, 64
   %.not.i = icmp eq i32 %139, 0
-  br i1 %.not.i, label %140, label %spl_hash_key_release.argprom.exit
+  br i1 %.not.i, label %140, label %spl_hash_key_release.exit
 
 140:                                              ; preds = %136
   %141 = load i32, ptr %.val, align 4
@@ -855,23 +855,23 @@ spl_array_set_refcount.exit80:                    ; preds = %spl_array_get_hash_
   %143 = add i32 %141, -1
   store i32 %143, ptr %.val, align 4
   %144 = icmp eq i32 %143, 0
-  br i1 %144, label %145, label %spl_hash_key_release.argprom.exit
+  br i1 %144, label %145, label %spl_hash_key_release.exit
 
 145:                                              ; preds = %140
   call void @_efree(ptr noundef nonnull %.val) #11
-  br label %spl_hash_key_release.argprom.exit
+  br label %spl_hash_key_release.exit
 
 146:                                              ; preds = %spl_array_set_refcount.exit80
   %147 = getelementptr inbounds i8, ptr %5, i64 8
   %148 = load i64, ptr %147, align 8
   %149 = call ptr @zend_hash_index_update(ptr noundef %125, i64 noundef %148, ptr noundef %3) #11
-  br label %spl_hash_key_release.argprom.exit
+  br label %spl_hash_key_release.exit
 
-spl_hash_key_release.argprom.exit:                ; preds = %145, %140, %136, %132, %146
+spl_hash_key_release.exit:                        ; preds = %145, %140, %136, %132, %146
   %.not59 = icmp eq i32 %.0.i79, 0
   br i1 %.not59, label %spl_array_set_refcount.exit64, label %150
 
-150:                                              ; preds = %spl_hash_key_release.argprom.exit
+150:                                              ; preds = %spl_hash_key_release.exit
   %151 = load i8, ptr %126, align 1
   %152 = trunc i8 %151 to i1
   br i1 %152, label %153, label %spl_array_set_refcount.exit64
@@ -880,7 +880,7 @@ spl_hash_key_release.argprom.exit:                ; preds = %145, %140, %136, %1
   store i32 %.0.i79, ptr %125, align 4
   br label %spl_array_set_refcount.exit64
 
-spl_array_set_refcount.exit64:                    ; preds = %153, %150, %80, %77, %spl_array_set_refcount.exit.thread, %spl_array_set_refcount.exit, %spl_hash_key_release.argprom.exit, %84, %21, %14
+spl_array_set_refcount.exit64:                    ; preds = %153, %150, %80, %77, %spl_array_set_refcount.exit.thread, %spl_array_set_refcount.exit, %spl_hash_key_release.exit, %84, %21, %14
   ret void
 }
 
@@ -1252,14 +1252,14 @@ spl_array_is_object.exit.thread:                  ; preds = %._crit_edge.i, %spl
   %109 = getelementptr inbounds i8, ptr %4, i64 16
   %.val55 = load i8, ptr %109, align 8
   %110 = trunc i8 %.val55 to i1
-  br i1 %110, label %111, label %spl_hash_key_release.argprom.exit
+  br i1 %110, label %111, label %spl_hash_key_release.exit
 
 111:                                              ; preds = %108
   %112 = getelementptr inbounds i8, ptr %.val, i64 4
   %113 = load i32, ptr %112, align 4
   %114 = and i32 %113, 64
   %.not.i56 = icmp eq i32 %114, 0
-  br i1 %.not.i56, label %115, label %spl_hash_key_release.argprom.exit
+  br i1 %.not.i56, label %115, label %spl_hash_key_release.exit
 
 115:                                              ; preds = %111
   %116 = load i32, ptr %.val, align 4
@@ -1268,23 +1268,23 @@ spl_array_is_object.exit.thread:                  ; preds = %._crit_edge.i, %spl
   %118 = add i32 %116, -1
   store i32 %118, ptr %.val, align 4
   %119 = icmp eq i32 %118, 0
-  br i1 %119, label %120, label %spl_hash_key_release.argprom.exit
+  br i1 %119, label %120, label %spl_hash_key_release.exit
 
 120:                                              ; preds = %115
   call void @_efree(ptr noundef nonnull %.val) #11
-  br label %spl_hash_key_release.argprom.exit
+  br label %spl_hash_key_release.exit
 
 121:                                              ; preds = %spl_array_set_refcount.exit
   %122 = getelementptr inbounds i8, ptr %4, i64 8
   %123 = load i64, ptr %122, align 8
   %124 = call i32 @zend_hash_index_del(ptr noundef %61, i64 noundef %123) #11
-  br label %spl_hash_key_release.argprom.exit
+  br label %spl_hash_key_release.exit
 
-spl_hash_key_release.argprom.exit:                ; preds = %120, %115, %111, %108, %121
+spl_hash_key_release.exit:                        ; preds = %120, %115, %111, %108, %121
   %.not54 = icmp eq i32 %.0.i, 0
   br i1 %.not54, label %spl_array_set_refcount.exit58, label %125
 
-125:                                              ; preds = %spl_hash_key_release.argprom.exit
+125:                                              ; preds = %spl_hash_key_release.exit
   %126 = load i8, ptr %62, align 1
   %127 = trunc i8 %126 to i1
   br i1 %127, label %128, label %spl_array_set_refcount.exit58
@@ -1293,7 +1293,7 @@ spl_hash_key_release.argprom.exit:                ; preds = %120, %115, %111, %1
   store i32 %.0.i, ptr %61, align 4
   br label %spl_array_set_refcount.exit58
 
-spl_array_set_refcount.exit58:                    ; preds = %128, %125, %spl_hash_key_release.argprom.exit, %20, %16, %9
+spl_array_set_refcount.exit58:                    ; preds = %128, %125, %spl_hash_key_release.exit, %20, %16, %9
   ret void
 }
 
@@ -5486,7 +5486,7 @@ define internal ptr @spl_array_read_dimension(ptr noundef %0, ptr noundef %1, i3
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call fastcc ptr @spl_array_get_dimension_ptr.argelim(ptr noundef nonnull %6, ptr noundef %29, ptr noundef %1, i32 noundef %2)
+  %30 = tail call fastcc ptr @spl_array_get_dimension_ptr(ptr noundef nonnull %6, ptr noundef %29, ptr noundef %1, i32 noundef %2)
   br label %spl_array_read_dimension_ex.exit
 
 31:                                               ; preds = %10
@@ -5494,7 +5494,7 @@ define internal ptr @spl_array_read_dimension(ptr noundef %0, ptr noundef %1, i3
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call fastcc ptr @spl_array_get_dimension_ptr.argelim(ptr noundef nonnull %6, ptr noundef %35, ptr noundef %1, i32 noundef %2)
+  %36 = tail call fastcc ptr @spl_array_get_dimension_ptr(ptr noundef nonnull %6, ptr noundef %35, ptr noundef %1, i32 noundef %2)
   switch i32 %2, label %spl_array_read_dimension_ex.exit [
     i32 5, label %37
     i32 2, label %37
@@ -5828,7 +5828,7 @@ define internal ptr @spl_array_get_property_ptr_ptr(ptr noundef %0, ptr noundef 
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = call fastcc ptr @spl_array_get_dimension_ptr.argelim(ptr noundef nonnull %6, ptr noundef %24, ptr noundef nonnull %5, i32 noundef %2)
+  %25 = call fastcc ptr @spl_array_get_dimension_ptr(ptr noundef nonnull %6, ptr noundef %24, ptr noundef nonnull %5, i32 noundef %2)
   br label %28
 
 26:                                               ; preds = %10, %4
@@ -6359,7 +6359,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 declare void @_efree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @spl_array_get_dimension_ptr.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @spl_array_get_dimension_ptr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.spl_hash_key, align 8
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca %struct._zval_struct, align 8
@@ -6442,7 +6442,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %.0.i.i = phi ptr [ %11, %13 ], [ %11, %tailrecurse._crit_edge.i.i ], [ %.tr31.i.i, %22 ], [ %28, %31 ], [ %28, %40 ], [ %28, %30 ]
   %43 = load ptr, ptr %.0.i.i, align 8
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %spl_hash_key_release.argprom.exit, label %44
+  br i1 %.not, label %spl_hash_key_release.exit, label %44
 
 44:                                               ; preds = %spl_array_get_hash_table.exit
   %45 = getelementptr inbounds i8, ptr %2, i64 8
@@ -6450,7 +6450,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %47 = icmp ne i8 %46, 0
   %48 = icmp ne ptr %43, null
   %or.cond = select i1 %47, i1 %48, i1 false
-  br i1 %or.cond, label %49, label %spl_hash_key_release.argprom.exit
+  br i1 %or.cond, label %49, label %spl_hash_key_release.exit
 
 49:                                               ; preds = %44
   %50 = add i32 %3, -1
@@ -6465,7 +6465,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 
 54:                                               ; preds = %51
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.6) #11
-  br label %spl_hash_key_release.argprom.exit
+  br label %spl_hash_key_release.exit
 
 55:                                               ; preds = %49, %51
   %56 = call fastcc i32 @get_hash_key(ptr noundef %5, ptr noundef %0, ptr noundef nonnull %2)
@@ -6475,7 +6475,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 58:                                               ; preds = %55
   call void @zend_illegal_container_offset(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3) #11
   %59 = select i1 %or.cond3, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 16), ptr @executor_globals
-  br label %spl_hash_key_release.argprom.exit
+  br label %spl_hash_key_release.exit
 
 60:                                               ; preds = %55
   %61 = load ptr, ptr %5, align 8
@@ -6565,14 +6565,14 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %95 = getelementptr inbounds i8, ptr %5, i64 16
   %.val44 = load i8, ptr %95, align 8
   %96 = trunc i8 %.val44 to i1
-  br i1 %96, label %97, label %spl_hash_key_release.argprom.exit
+  br i1 %96, label %97, label %spl_hash_key_release.exit
 
 97:                                               ; preds = %94
   %98 = getelementptr inbounds i8, ptr %.val, i64 4
   %99 = load i32, ptr %98, align 4
   %100 = and i32 %99, 64
   %.not.i = icmp eq i32 %100, 0
-  br i1 %.not.i, label %101, label %spl_hash_key_release.argprom.exit
+  br i1 %.not.i, label %101, label %spl_hash_key_release.exit
 
 101:                                              ; preds = %97
   %102 = load i32, ptr %.val, align 4
@@ -6581,21 +6581,21 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %104 = add i32 %102, -1
   store i32 %104, ptr %.val, align 4
   %105 = icmp eq i32 %104, 0
-  br i1 %105, label %106, label %spl_hash_key_release.argprom.exit
+  br i1 %105, label %106, label %spl_hash_key_release.exit
 
 106:                                              ; preds = %101
   call void @_efree(ptr noundef nonnull %.val) #11
-  br label %spl_hash_key_release.argprom.exit
+  br label %spl_hash_key_release.exit
 
 107:                                              ; preds = %60
   %108 = getelementptr inbounds i8, ptr %5, i64 8
   %109 = load i64, ptr %108, align 8
   %110 = call ptr @zend_hash_index_find(ptr noundef nonnull %43, i64 noundef %109) #11
   %111 = icmp eq ptr %110, null
-  br i1 %111, label %112, label %spl_hash_key_release.argprom.exit
+  br i1 %111, label %112, label %spl_hash_key_release.exit
 
 112:                                              ; preds = %107
-  switch i32 %3, label %spl_hash_key_release.argprom.exit [
+  switch i32 %3, label %spl_hash_key_release.exit [
     i32 0, label %113
     i32 5, label %115
     i32 3, label %115
@@ -6609,7 +6609,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   br label %115
 
 115:                                              ; preds = %113, %112, %112
-  br label %spl_hash_key_release.argprom.exit
+  br label %spl_hash_key_release.exit
 
 116:                                              ; preds = %112
   %117 = load i64, ptr %108, align 8
@@ -6621,9 +6621,9 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   store i32 1, ptr %119, align 8
   %120 = load i64, ptr %108, align 8
   %121 = call ptr @zend_hash_index_update(ptr noundef nonnull %43, i64 noundef %120, ptr noundef nonnull %7) #11
-  br label %spl_hash_key_release.argprom.exit
+  br label %spl_hash_key_release.exit
 
-spl_hash_key_release.argprom.exit:                ; preds = %106, %101, %97, %94, %112, %115, %118, %107, %spl_array_get_hash_table.exit, %44, %58, %54
+spl_hash_key_release.exit:                        ; preds = %106, %101, %97, %94, %112, %115, %118, %107, %spl_array_get_hash_table.exit, %44, %58, %54
   %.0 = phi ptr [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %54 ], [ %59, %58 ], [ @executor_globals, %44 ], [ @executor_globals, %spl_array_get_hash_table.exit ], [ null, %112 ], [ %121, %118 ], [ @executor_globals, %115 ], [ %110, %107 ], [ %.033, %94 ], [ %.033, %97 ], [ %.033, %101 ], [ %.033, %106 ]
   ret ptr %.0
 }

@@ -251,9 +251,9 @@ define internal fastcc void @extcap_ensure_all_interfaces_loaded() unnamed_addr 
   %42 = call fastcc ptr @extcap_get_extcap_paths_from_dir(ptr noundef %40, ptr noundef %41)
   %43 = call i32 @g_get_num_processors() #11
   %.not.i.i = icmp eq ptr %42, null
-  br i1 %.not.i.i, label %extcap_run_all.argprom.exit.thread.i, label %44
+  br i1 %.not.i.i, label %extcap_run_all.exit.thread.i, label %44
 
-extcap_run_all.argprom.exit.thread.i:             ; preds = %33
+extcap_run_all.exit.thread.i:                     ; preds = %33
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   br label %.critedge.critedge.i
 
@@ -308,15 +308,15 @@ extcap_run_all.argprom.exit.thread.i:             ; preds = %33
   call void @g_mutex_lock(ptr noundef nonnull %52) #11
   %72 = load i32, ptr %50, align 8
   %.not5.i.i.i = icmp eq i32 %72, 0
-  br i1 %.not5.i.i.i, label %extcap_run_all.argprom.exit.i, label %.lr.ph.i.i.i
+  br i1 %.not5.i.i.i, label %extcap_run_all.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %71, %.lr.ph.i.i.i
   call void @g_cond_wait(ptr noundef nonnull %51, ptr noundef nonnull %52) #11
   %73 = load i32, ptr %50, align 8
   %.not.i.i.i = icmp eq i32 %73, 0
-  br i1 %.not.i.i.i, label %extcap_run_all.argprom.exit.i, label %.lr.ph.i.i.i, !llvm.loop !10
+  br i1 %.not.i.i.i, label %extcap_run_all.exit.i, label %.lr.ph.i.i.i, !llvm.loop !10
 
-extcap_run_all.argprom.exit.i:                    ; preds = %.lr.ph.i.i.i, %71
+extcap_run_all.exit.i:                            ; preds = %.lr.ph.i.i.i, %71
   call void @g_mutex_unlock(ptr noundef nonnull %52) #11
   call void @g_mutex_clear(ptr noundef nonnull %52) #11
   call void @g_cond_clear(ptr noundef nonnull %51) #11
@@ -326,7 +326,7 @@ extcap_run_all.argprom.exit.i:                    ; preds = %.lr.ph.i.i.i, %71
   %.not57.i = icmp eq i32 %46, 0
   br i1 %.not57.i, label %.critedge.critedge.i, label %.lr.ph54.i
 
-.lr.ph54.i:                                       ; preds = %extcap_run_all.argprom.exit.i
+.lr.ph54.i:                                       ; preds = %extcap_run_all.exit.i
   %75 = getelementptr inbounds i8, ptr %6, i64 8
   %76 = getelementptr inbounds i8, ptr %6, i64 16
   %77 = getelementptr inbounds i8, ptr %6, i64 24
@@ -707,8 +707,8 @@ extcap_free_extcaps_info_array.exit.i:            ; preds = %._crit_edge.i.i
   call void @prefs_read_module(ptr noundef nonnull @.str) #11
   br label %extcap_load_interface_list.exit
 
-.critedge.critedge.i:                             ; preds = %extcap_run_all.argprom.exit.i, %extcap_run_all.argprom.exit.thread.i
-  %.0.i6975.ph.i = phi ptr [ %48, %extcap_run_all.argprom.exit.i ], [ null, %extcap_run_all.argprom.exit.thread.i ]
+.critedge.critedge.i:                             ; preds = %extcap_run_all.exit.i, %extcap_run_all.exit.thread.i
+  %.0.i6975.ph.i = phi ptr [ %48, %extcap_run_all.exit.i ], [ null, %extcap_run_all.exit.thread.i ]
   call void @g_free(ptr noundef %.0.i6975.ph.i) #11
   call void @g_free(ptr noundef %36) #11
   br label %extcap_load_interface_list.exit

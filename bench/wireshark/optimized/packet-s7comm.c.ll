@@ -3476,19 +3476,19 @@ proto_item_set_generated.exit:                    ; preds = %62, %59, %56, %50, 
   br label %s7comm_decode_req_resp.exit
 
 103:                                              ; preds = %80
-  tail call fastcc void @s7comm_decode_pdu_setup_communication.retelim(ptr noundef %0, ptr noundef %71, i32 noundef %79)
+  tail call fastcc void @s7comm_decode_pdu_setup_communication(ptr noundef %0, ptr noundef %71, i32 noundef %79)
   br label %s7comm_decode_req_resp.exit
 
 104:                                              ; preds = %80, %80, %80, %80, %80, %80
-  tail call fastcc void @s7comm_decode_plc_controls_updownload.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %28, ptr noundef %71, i16 noundef zeroext %42, i16 noundef zeroext %46, i32 noundef %.091, i8 noundef zeroext 1)
+  tail call fastcc void @s7comm_decode_plc_controls_updownload(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %28, ptr noundef %71, i16 noundef zeroext %42, i16 noundef zeroext %46, i32 noundef %.091, i8 noundef zeroext 1)
   br label %s7comm_decode_req_resp.exit
 
 105:                                              ; preds = %80
-  tail call fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %71, i16 noundef zeroext %42, i32 noundef %.091)
+  tail call fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %71, i16 noundef zeroext %42, i32 noundef %.091)
   br label %s7comm_decode_req_resp.exit
 
 106:                                              ; preds = %80
-  tail call fastcc void @s7comm_decode_plc_controls_param_hex29.retelim(ptr noundef %0, ptr noundef %71, i32 noundef %.091)
+  tail call fastcc void @s7comm_decode_plc_controls_param_hex29(ptr noundef %0, ptr noundef %71, i32 noundef %.091)
   br label %s7comm_decode_req_resp.exit
 
 107:                                              ; preds = %80
@@ -3554,15 +3554,15 @@ proto_item_set_generated.exit:                    ; preds = %62, %59, %56, %50, 
   br i1 %or.cond8.i, label %138, label %s7comm_decode_req_resp.exit
 
 138:                                              ; preds = %136
-  tail call fastcc void @s7comm_decode_response_write_data.retelim(ptr noundef %0, ptr noundef %131, i8 noundef zeroext %123, i32 noundef %127)
+  tail call fastcc void @s7comm_decode_response_write_data(ptr noundef %0, ptr noundef %131, i8 noundef zeroext %123, i32 noundef %127)
   br label %s7comm_decode_req_resp.exit
 
 139:                                              ; preds = %121
-  tail call fastcc void @s7comm_decode_pdu_setup_communication.retelim(ptr noundef %0, ptr noundef %71, i32 noundef %79)
+  tail call fastcc void @s7comm_decode_pdu_setup_communication(ptr noundef %0, ptr noundef %71, i32 noundef %79)
   br label %s7comm_decode_req_resp.exit
 
 140:                                              ; preds = %121, %121, %121, %121, %121, %121
-  tail call fastcc void @s7comm_decode_plc_controls_updownload.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %28, ptr noundef %71, i16 noundef zeroext %42, i16 noundef zeroext %46, i32 noundef %.091, i8 noundef zeroext 3)
+  tail call fastcc void @s7comm_decode_plc_controls_updownload(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %28, ptr noundef %71, i16 noundef zeroext %42, i16 noundef zeroext %46, i32 noundef %.091, i8 noundef zeroext 3)
   br label %s7comm_decode_req_resp.exit
 
 141:                                              ; preds = %121
@@ -3600,7 +3600,7 @@ proto_item_set_generated.exit:                    ; preds = %62, %59, %56, %50, 
   br label %s7comm_decode_req_resp.exit
 
 160:                                              ; preds = %proto_item_set_generated.exit
-  tail call fastcc void @s7comm_decode_ud.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %28, i16 noundef zeroext %42, i16 noundef zeroext %46, i32 noundef %.091, ptr noundef %2)
+  tail call fastcc void @s7comm_decode_ud(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %28, i16 noundef zeroext %42, i16 noundef zeroext %46, i32 noundef %.091, ptr noundef %2)
   br label %s7comm_decode_req_resp.exit
 
 s7comm_decode_req_resp.exit:                      ; preds = %152, %151, %142, %141, %140, %139, %138, %136, %134, %113, %112, %106, %105, %104, %103, %97, %._crit_edge.i, %67, %66, %160, %proto_item_set_generated.exit
@@ -3647,7 +3647,7 @@ declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noun
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @s7comm_decode_ud.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef range(i32 10, 13) %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @s7comm_decode_ud(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef range(i32 10, 13) %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca [32 x i8], align 16
   %10 = alloca i32, align 4
@@ -4779,7 +4779,7 @@ define internal fastcc i32 @s7comm_decode_response_read_data(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @s7comm_decode_pdu_setup_communication.retelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 11, 14) %2) unnamed_addr #0 {
+define internal fastcc void @s7comm_decode_pdu_setup_communication(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 11, 14) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_s7comm_param_setup_reserved1, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0) #7
   %6 = add nuw nsw i32 %2, 1
@@ -4795,7 +4795,7 @@ define internal fastcc void @s7comm_decode_pdu_setup_communication.retelim(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @s7comm_decode_plc_controls_updownload.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef range(i32 10, 13) %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @s7comm_decode_plc_controls_updownload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef range(i32 10, 13) %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #7
   %11 = add nuw nsw i32 %6, 1
@@ -5017,7 +5017,7 @@ define internal fastcc void @s7comm_decode_plc_controls_updownload.retelim(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i32 noundef range(i32 10, 13) %4) unnamed_addr #0 {
+define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i32 noundef range(i32 10, 13) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -5259,14 +5259,14 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %115 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 %114, ptr %115, align 4
   %116 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %116, i8 noundef zeroext 2, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %116, i8 noundef zeroext 2, ptr noundef %9, i32 noundef %22)
   br label %437
 
 117:                                              ; preds = %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42
   %118 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %118, ptr %9, align 16
   %119 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %119, i8 noundef zeroext 1, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %119, i8 noundef zeroext 1, ptr noundef %9, i32 noundef %22)
   br label %437
 
 120:                                              ; preds = %42, %42, %42, %42, %42, %42, %42, %42
@@ -5276,7 +5276,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %123 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 %122, ptr %123, align 4
   %124 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %124, i8 noundef zeroext 2, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %124, i8 noundef zeroext 2, ptr noundef %9, i32 noundef %22)
   br label %437
 
 125:                                              ; preds = %42
@@ -5286,7 +5286,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %128 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 %127, ptr %128, align 4
   %129 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %129, i8 noundef zeroext 2, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %129, i8 noundef zeroext 2, ptr noundef %9, i32 noundef %22)
   br label %437
 
 130:                                              ; preds = %42, %42
@@ -5299,7 +5299,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %135 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %134, ptr %135, align 8
   %136 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %136, i8 noundef zeroext 3, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %136, i8 noundef zeroext 3, ptr noundef %9, i32 noundef %22)
   br label %437
 
 137:                                              ; preds = %42
@@ -5321,7 +5321,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %148 = getelementptr inbounds i8, ptr %9, i64 20
   store i32 %147, ptr %148, align 4
   %149 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %149, i8 noundef zeroext 6, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %149, i8 noundef zeroext 6, ptr noundef %9, i32 noundef %22)
   br label %437
 
 150:                                              ; preds = %42
@@ -5343,7 +5343,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %161 = getelementptr inbounds i8, ptr %9, i64 20
   store i32 %160, ptr %161, align 4
   %162 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %162, i8 noundef zeroext 6, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %162, i8 noundef zeroext 6, ptr noundef %9, i32 noundef %22)
   br label %437
 
 163:                                              ; preds = %42
@@ -5359,7 +5359,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %170 = getelementptr inbounds i8, ptr %9, i64 12
   store i32 %169, ptr %170, align 4
   %171 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %171, i8 noundef zeroext 4, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %171, i8 noundef zeroext 4, ptr noundef %9, i32 noundef %22)
   br label %437
 
 172:                                              ; preds = %42
@@ -5374,7 +5374,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %178 = getelementptr inbounds i8, ptr %9, i64 12
   store i32 %177, ptr %178, align 4
   %179 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %179, i8 noundef zeroext 4, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %179, i8 noundef zeroext 4, ptr noundef %9, i32 noundef %22)
   br label %437
 
 180:                                              ; preds = %42
@@ -5384,7 +5384,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %183 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 %182, ptr %183, align 4
   %184 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %184, i8 noundef zeroext 2, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %184, i8 noundef zeroext 2, ptr noundef %9, i32 noundef %22)
   br label %437
 
 185:                                              ; preds = %42, %42
@@ -5397,7 +5397,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %190 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %189, ptr %190, align 8
   %191 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %191, i8 noundef zeroext 3, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %191, i8 noundef zeroext 3, ptr noundef %9, i32 noundef %22)
   br label %437
 
 192:                                              ; preds = %42, %42, %42
@@ -5407,7 +5407,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %195 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 %194, ptr %195, align 4
   %196 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %196, i8 noundef zeroext 2, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %196, i8 noundef zeroext 2, ptr noundef %9, i32 noundef %22)
   br label %437
 
 197:                                              ; preds = %42
@@ -5420,7 +5420,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %202 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %201, ptr %202, align 8
   %203 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %203, i8 noundef zeroext 3, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %203, i8 noundef zeroext 3, ptr noundef %9, i32 noundef %22)
   br label %437
 
 204:                                              ; preds = %42
@@ -5442,7 +5442,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %215 = getelementptr inbounds i8, ptr %9, i64 20
   store i32 %214, ptr %215, align 4
   %216 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %216, i8 noundef zeroext 6, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %216, i8 noundef zeroext 6, ptr noundef %9, i32 noundef %22)
   br label %437
 
 217:                                              ; preds = %42
@@ -5458,7 +5458,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %224 = getelementptr inbounds i8, ptr %9, i64 12
   store i32 %223, ptr %224, align 4
   %225 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %225, i8 noundef zeroext 4, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %225, i8 noundef zeroext 4, ptr noundef %9, i32 noundef %22)
   br label %437
 
 226:                                              ; preds = %42
@@ -5468,7 +5468,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %229 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 %228, ptr %229, align 4
   %230 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %230, i8 noundef zeroext 2, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %230, i8 noundef zeroext 2, ptr noundef %9, i32 noundef %22)
   br label %437
 
 231:                                              ; preds = %42, %42
@@ -5481,7 +5481,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %236 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %235, ptr %236, align 8
   %237 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %237, i8 noundef zeroext 3, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %237, i8 noundef zeroext 3, ptr noundef %9, i32 noundef %22)
   br label %437
 
 238:                                              ; preds = %42
@@ -5494,7 +5494,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %243 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %242, ptr %243, align 8
   %244 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %244, i8 noundef zeroext 3, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %244, i8 noundef zeroext 3, ptr noundef %9, i32 noundef %22)
   br label %437
 
 245:                                              ; preds = %42
@@ -5504,7 +5504,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %248 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 %247, ptr %248, align 4
   %249 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %249, i8 noundef zeroext 2, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %249, i8 noundef zeroext 2, ptr noundef %9, i32 noundef %22)
   br label %437
 
 250:                                              ; preds = %42
@@ -5514,7 +5514,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %253 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 %252, ptr %253, align 4
   %254 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %254, i8 noundef zeroext 2, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %254, i8 noundef zeroext 2, ptr noundef %9, i32 noundef %22)
   br label %437
 
 255:                                              ; preds = %42
@@ -5527,7 +5527,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %260 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %259, ptr %260, align 8
   %261 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %261, i8 noundef zeroext 3, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %261, i8 noundef zeroext 3, ptr noundef %9, i32 noundef %22)
   br label %437
 
 262:                                              ; preds = %42
@@ -5543,7 +5543,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %269 = getelementptr inbounds i8, ptr %9, i64 12
   store i32 %268, ptr %269, align 4
   %270 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %270, i8 noundef zeroext 4, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %270, i8 noundef zeroext 4, ptr noundef %9, i32 noundef %22)
   br label %437
 
 271:                                              ; preds = %42
@@ -5556,7 +5556,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %276 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %275, ptr %276, align 8
   %277 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %277, i8 noundef zeroext 3, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %277, i8 noundef zeroext 3, ptr noundef %9, i32 noundef %22)
   br label %437
 
 278:                                              ; preds = %42
@@ -5566,7 +5566,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %281 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 %280, ptr %281, align 4
   %282 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %282, i8 noundef zeroext 2, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %282, i8 noundef zeroext 2, ptr noundef %9, i32 noundef %22)
   br label %437
 
 283:                                              ; preds = %42
@@ -5582,7 +5582,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %290 = getelementptr inbounds i8, ptr %9, i64 12
   store i32 %289, ptr %290, align 4
   %291 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %291, i8 noundef zeroext 4, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %291, i8 noundef zeroext 4, ptr noundef %9, i32 noundef %22)
   br label %437
 
 292:                                              ; preds = %42
@@ -5598,7 +5598,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %299 = getelementptr inbounds i8, ptr %9, i64 12
   store i32 %298, ptr %299, align 4
   %300 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %300, i8 noundef zeroext 4, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %300, i8 noundef zeroext 4, ptr noundef %9, i32 noundef %22)
   br label %437
 
 301:                                              ; preds = %42
@@ -5617,7 +5617,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %310 = getelementptr inbounds i8, ptr %9, i64 16
   store i32 %309, ptr %310, align 16
   %311 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %311, i8 noundef zeroext 5, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %311, i8 noundef zeroext 5, ptr noundef %9, i32 noundef %22)
   br label %437
 
 312:                                              ; preds = %42
@@ -5633,7 +5633,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %319 = getelementptr inbounds i8, ptr %9, i64 12
   store i32 %318, ptr %319, align 4
   %320 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %320, i8 noundef zeroext 4, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %320, i8 noundef zeroext 4, ptr noundef %9, i32 noundef %22)
   br label %437
 
 321:                                              ; preds = %42
@@ -5655,7 +5655,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %332 = getelementptr inbounds i8, ptr %9, i64 20
   store i32 %331, ptr %332, align 4
   %333 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %333, i8 noundef zeroext 6, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %333, i8 noundef zeroext 6, ptr noundef %9, i32 noundef %22)
   br label %437
 
 334:                                              ; preds = %42
@@ -5698,7 +5698,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %359 = getelementptr inbounds i8, ptr %9, i64 48
   store i32 %358, ptr %359, align 16
   %360 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %360, i8 noundef zeroext 13, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %360, i8 noundef zeroext 13, ptr noundef %9, i32 noundef %22)
   br label %437
 
 361:                                              ; preds = %42
@@ -5711,7 +5711,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %366 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %365, ptr %366, align 8
   %367 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %367, i8 noundef zeroext 3, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %367, i8 noundef zeroext 3, ptr noundef %9, i32 noundef %22)
   br label %437
 
 368:                                              ; preds = %42
@@ -5733,7 +5733,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %379 = getelementptr inbounds i8, ptr %9, i64 20
   store i32 %378, ptr %379, align 4
   %380 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %380, i8 noundef zeroext 6, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %380, i8 noundef zeroext 6, ptr noundef %9, i32 noundef %22)
   br label %437
 
 381:                                              ; preds = %42
@@ -5746,7 +5746,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %386 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %385, ptr %386, align 8
   %387 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %387, i8 noundef zeroext 3, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %387, i8 noundef zeroext 3, ptr noundef %9, i32 noundef %22)
   br label %437
 
 388:                                              ; preds = %42
@@ -5774,7 +5774,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %403 = getelementptr inbounds i8, ptr %9, i64 28
   store i32 %402, ptr %403, align 4
   %404 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %404, i8 noundef zeroext 8, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %404, i8 noundef zeroext 8, ptr noundef %9, i32 noundef %22)
   br label %437
 
 405:                                              ; preds = %42
@@ -5790,7 +5790,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %412 = getelementptr inbounds i8, ptr %9, i64 12
   store i32 %411, ptr %412, align 4
   %413 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %413, i8 noundef zeroext 4, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %413, i8 noundef zeroext 4, ptr noundef %9, i32 noundef %22)
   br label %437
 
 414:                                              ; preds = %42
@@ -5821,7 +5821,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
   %431 = getelementptr inbounds i8, ptr %9, i64 32
   store i32 %430, ptr %431, align 16
   %432 = load ptr, ptr %6, align 8
-  call fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %432, i8 noundef zeroext 9, ptr noundef %9, i32 noundef %22)
+  call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %432, i8 noundef zeroext 9, ptr noundef %9, i32 noundef %22)
   br label %437
 
 433:                                              ; preds = %42
@@ -5836,7 +5836,7 @@ define internal fastcc void @s7comm_decode_pi_service.retelim(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @s7comm_decode_plc_controls_param_hex29.retelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 10, 13) %2) unnamed_addr #0 {
+define internal fastcc void @s7comm_decode_plc_controls_param_hex29(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 10, 13) %2) unnamed_addr #0 {
   %4 = add nuw nsw i32 %2, 1
   %5 = load i32, ptr @hf_s7comm_piservice_unknown1, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %4, i32 noundef 5, i32 noundef 0) #7
@@ -5852,7 +5852,7 @@ define internal fastcc void @s7comm_decode_plc_controls_param_hex29.retelim(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @s7comm_decode_response_write_data.retelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef range(i32 12, 15) %3) unnamed_addr #0 {
+define internal fastcc void @s7comm_decode_response_write_data(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef range(i32 12, 15) %3) unnamed_addr #0 {
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -5995,7 +5995,7 @@ declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 nound
 declare ptr @try_str_to_str_idx(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @s7comm_decode_pistart_parameters.retelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef zeroext range(i8 1, 14) %5, ptr nocapture noundef nonnull readonly %6, i32 noundef range(i32 20, 23) %7) unnamed_addr #0 {
+define internal fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef zeroext range(i8 1, 14) %5, ptr nocapture noundef nonnull readonly %6, i32 noundef range(i32 20, 23) %7) unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %10, ptr noundef nonnull @.str.2081) #7

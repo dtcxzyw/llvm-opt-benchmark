@@ -479,7 +479,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit.i:              ; preds = %55
 _ZNK5Yosys5RTLIL10AttrObject22get_blackbox_attributeEb.exit: ; preds = %92
   br i1 %93, label %_ZNK5Yosys5RTLIL10AttrObject22get_blackbox_attributeEb.exit.thread, label %94
 
-.loopexit124:                                     ; preds = %94, %102, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit, %107, %153, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE5countERKS3_.exit.thread121, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE5countERKS3_.exit, %89, %92, %104, %125, %145, %231
+.loopexit124:                                     ; preds = %94, %102, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit, %107, %153, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE5countERKS3_.exit.thread121, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE5countERKS3_.exit, %89, %92, %104, %125, %145, %231
   %lpad.loopexit126 = landingpad { ptr, i32 }
           cleanup
   br label %.body110
@@ -510,13 +510,13 @@ _ZNK5Yosys5RTLIL10AttrObject22get_blackbox_attributeEb.exit: ; preds = %92
 104:                                              ; preds = %102
   %105 = getelementptr inbounds i8, ptr %54, i64 304
   %106 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %105)
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit unwind label %.loopexit124
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit unwind label %.loopexit124
 
-_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit: ; preds = %104
+_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit: ; preds = %104
   invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.15, ptr noundef %103, ptr noundef %106)
           to label %107 unwind label %.loopexit124
 
-107:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit
+107:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit
   %108 = load ptr, ptr %54, align 8
   %109 = getelementptr inbounds i8, ptr %108, i64 88
   %110 = load ptr, ptr %109, align 8

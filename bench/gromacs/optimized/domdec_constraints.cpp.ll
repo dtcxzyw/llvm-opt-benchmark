@@ -544,7 +544,7 @@ _ZN15InteractionList5clearEv.exit65:              ; preds = %75, %68
   br i1 %76, label %_ZN15InteractionList5clearEv.exit65.thread, label %._crit_edge123
 
 _ZN15InteractionList5clearEv.exit65.thread:       ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit, %_ZN15InteractionList5clearEv.exit65
-  tail call fastcc void @_ZL20atoms_to_constraintsP12gmx_domdec_tRK10gmx_mtop_tN3gmx8ArrayRefIKlEENS5_IKNS4_11ListOfListsIiEEEEiP15InteractionListPSt6vectorIiSaIiEE.argelim(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(768) %2, ptr %3, ptr %61, i32 noundef %6, ptr noundef nonnull %40, ptr noundef %60)
+  tail call fastcc void @_ZL20atoms_to_constraintsP12gmx_domdec_tRK10gmx_mtop_tN3gmx8ArrayRefIKlEENS5_IKNS4_11ListOfListsIiEEEEiP15InteractionListPSt6vectorIiSaIiEE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(768) %2, ptr %3, ptr %61, i32 noundef %6, ptr noundef nonnull %40, ptr noundef %60)
   br label %138
 
 ._crit_edge123:                                   ; preds = %_ZN15InteractionList5clearEv.exit65
@@ -838,7 +838,7 @@ declare { ptr, ptr } @_ZNK3gmx11Constraints24atom2constraints_moltypeEv(ptr noun
 declare { ptr, ptr } @_ZNK3gmx11Constraints19atom2settle_moltypeEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20atoms_to_constraintsP12gmx_domdec_tRK10gmx_mtop_tN3gmx8ArrayRefIKlEENS5_IKNS4_11ListOfListsIiEEEEiP15InteractionListPSt6vectorIiSaIiEE.argelim(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(768) %1, ptr nocapture readonly %2, ptr nocapture readonly %3, i32 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20atoms_to_constraintsP12gmx_domdec_tRK10gmx_mtop_tN3gmx8ArrayRefIKlEENS5_IKNS4_11ListOfListsIiEEEEiP15InteractionListPSt6vectorIiSaIiEE(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(768) %1, ptr nocapture readonly %2, ptr nocapture readonly %3, i32 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.gmx::ArrayRef.65", align 8
   %9 = alloca %"class.gmx::ArrayRef.65", align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 264
@@ -1322,7 +1322,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %_ZNSt12_Vector_base
   store ptr %89, ptr %41, align 8
   store ptr %91, ptr %9, align 8
   store ptr %97, ptr %42, align 8
-  tail call fastcc void @_ZL8walk_outiiiiiN3gmx8ArrayRefIKiEES2_RKNS_11ListOfListsIiEERK11gmx_ga2la_tbP24gmx_domdec_constraints_tP24gmx_domdec_specat_comm_tP15InteractionListPSt6vectorIiSaIiEE.argprom(i32 noundef %124, i32 noundef %105, i32 noundef %.070, i32 noundef %106, i32 noundef %4, ptr noundef nonnull byval(%"class.gmx::ArrayRef.65") align 8 %8, ptr noundef nonnull byval(%"class.gmx::ArrayRef.65") align 8 %9, ptr noundef nonnull align 8 dereferenceable(48) %107, ptr noundef nonnull align 8 dereferenceable(41) %14, i1 noundef zeroext true, ptr noundef nonnull %11, ptr noundef %5, ptr noundef %6)
+  tail call fastcc void @_ZL8walk_outiiiiiN3gmx8ArrayRefIKiEES2_RKNS_11ListOfListsIiEERK11gmx_ga2la_tbP24gmx_domdec_constraints_tP24gmx_domdec_specat_comm_tP15InteractionListPSt6vectorIiSaIiEE(i32 noundef %124, i32 noundef %105, i32 noundef %.070, i32 noundef %106, i32 noundef %4, ptr noundef nonnull byval(%"class.gmx::ArrayRef.65") align 8 %8, ptr noundef nonnull byval(%"class.gmx::ArrayRef.65") align 8 %9, ptr noundef nonnull align 8 dereferenceable(48) %107, ptr noundef nonnull align 8 dereferenceable(41) %14, i1 noundef zeroext true, ptr noundef nonnull %11, ptr noundef %5, ptr noundef %6)
   br label %274
 
 274:                                              ; preds = %.loopexit, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i, %_ZNK11gmx_ga2la_t8findHomeEi.exit
@@ -1430,7 +1430,7 @@ define internal void @_Z25dd_make_local_constraintsP12gmx_domdec_tiRK10gmx_mtop_
   %42 = load i32, ptr %7, align 4
   %43 = load ptr, ptr %8, align 8
   %44 = load ptr, ptr %9, align 8
-  invoke fastcc void @_ZL20atoms_to_constraintsP12gmx_domdec_tRK10gmx_mtop_tN3gmx8ArrayRefIKlEENS5_IKNS4_11ListOfListsIiEEEEiP15InteractionListPSt6vectorIiSaIiEE.argelim(ptr noundef %40, ptr noundef nonnull align 8 dereferenceable(768) %5, ptr %41, ptr %.sroa.01.0.copyload.i, i32 noundef %42, ptr noundef %43, ptr noundef %44)
+  invoke fastcc void @_ZL20atoms_to_constraintsP12gmx_domdec_tRK10gmx_mtop_tN3gmx8ArrayRefIKlEENS5_IKNS4_11ListOfListsIiEEEEiP15InteractionListPSt6vectorIiSaIiEE(ptr noundef %40, ptr noundef nonnull align 8 dereferenceable(768) %5, ptr %41, ptr %.sroa.01.0.copyload.i, i32 noundef %42, ptr noundef %43, ptr noundef %44)
           to label %52 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %39
@@ -2013,7 +2013,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare noundef i32 @_Z26setup_specat_communicationP12gmx_domdec_tPSt6vectorIiSaIiEEP24gmx_domdec_specat_comm_tPN3gmx9HashedMapIiEEiiPKcSC_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL8walk_outiiiiiN3gmx8ArrayRefIKiEES2_RKNS_11ListOfListsIiEERK11gmx_ga2la_tbP24gmx_domdec_constraints_tP24gmx_domdec_specat_comm_tP15InteractionListPSt6vectorIiSaIiEE.argprom(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.65") align 8 %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.65") align 8 %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %8, i1 noundef zeroext %9, ptr nocapture noundef %10, ptr nocapture noundef %11, ptr nocapture noundef %12) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL8walk_outiiiiiN3gmx8ArrayRefIKiEES2_RKNS_11ListOfListsIiEERK11gmx_ga2la_tbP24gmx_domdec_constraints_tP24gmx_domdec_specat_comm_tP15InteractionListPSt6vectorIiSaIiEE(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.65") align 8 %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.65") align 8 %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %8, i1 noundef zeroext %9, ptr nocapture noundef %10, ptr nocapture noundef %11, ptr nocapture noundef %12) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %14 = alloca %"class.gmx::ArrayRef.65", align 8
   %15 = alloca %"class.gmx::ArrayRef.65", align 8
   %16 = getelementptr inbounds i8, ptr %10, i64 104
@@ -2724,7 +2724,7 @@ _ZNK11gmx_ga2la_t4findEi.exit.i113:               ; preds = %386, %371
   store ptr %339, ptr %351, align 8
   store ptr %340, ptr %15, align 8
   store ptr %353, ptr %352, align 8
-  tail call fastcc void @_ZL8walk_outiiiiiN3gmx8ArrayRefIKiEES2_RKNS_11ListOfListsIiEERK11gmx_ga2la_tbP24gmx_domdec_constraints_tP24gmx_domdec_specat_comm_tP15InteractionListPSt6vectorIiSaIiEE.argprom(i32 noundef %355, i32 noundef %1, i32 noundef %367, i32 noundef %3, i32 noundef %350, ptr noundef nonnull byval(%"class.gmx::ArrayRef.65") align 8 %14, ptr noundef nonnull byval(%"class.gmx::ArrayRef.65") align 8 %15, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(41) %8, i1 noundef zeroext false, ptr noundef %10, ptr noundef %11, ptr noundef %12)
+  tail call fastcc void @_ZL8walk_outiiiiiN3gmx8ArrayRefIKiEES2_RKNS_11ListOfListsIiEERK11gmx_ga2la_tbP24gmx_domdec_constraints_tP24gmx_domdec_specat_comm_tP15InteractionListPSt6vectorIiSaIiEE(i32 noundef %355, i32 noundef %1, i32 noundef %367, i32 noundef %3, i32 noundef %350, ptr noundef nonnull byval(%"class.gmx::ArrayRef.65") align 8 %14, ptr noundef nonnull byval(%"class.gmx::ArrayRef.65") align 8 %15, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(41) %8, i1 noundef zeroext false, ptr noundef %10, ptr noundef %11, ptr noundef %12)
   br label %_ZNK11gmx_ga2la_t8findHomeEi.exit116
 
 _ZNK11gmx_ga2la_t8findHomeEi.exit116:             ; preds = %_ZNK11gmx_ga2la_t4findEi.exit.i113, %354, %.loopexit

@@ -715,14 +715,14 @@ do.body.i:                                        ; preds = %do.body.i, %if.end1
   store i16 0, ptr %nCcalls.i, align 8
   %call3.i = call fastcc i32 @luaD_rawrunprotected(ptr noundef nonnull %call.val.val, ptr noundef nonnull @callallgcTM, ptr noundef null)
   %cmp.not.i39 = icmp eq i32 %call3.i, 0
-  br i1 %cmp.not.i39, label %lua_close.argprom.argprom.exit, label %do.body.i, !llvm.loop !9
+  br i1 %cmp.not.i39, label %lua_close.exit, label %do.body.i, !llvm.loop !9
 
-lua_close.argprom.argprom.exit:                   ; preds = %do.body.i
+lua_close.exit:                                   ; preds = %do.body.i
   call fastcc void @close_state(ptr noundef nonnull %call.val.val)
   br label %return
 
-return:                                           ; preds = %luaL_openlibs.exit, %lua_close.argprom.argprom.exit, %err
-  %retval.0 = phi i32 [ 1, %err ], [ 0, %lua_close.argprom.argprom.exit ], [ 8, %luaL_openlibs.exit ]
+return:                                           ; preds = %luaL_openlibs.exit, %lua_close.exit, %err
+  %retval.0 = phi i32 [ 1, %err ], [ 0, %lua_close.exit ], [ 8, %luaL_openlibs.exit ]
   ret i32 %retval.0
 }
 
@@ -783,7 +783,7 @@ if.then3.i:                                       ; preds = %lua_type.exit.i, %l
   br i1 %cmp5.not.i, label %if.end.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.then3.i
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.256, ptr noundef nonnull %libname)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %L, ptr noundef nonnull @.str.256, ptr noundef nonnull %libname)
   unreachable
 
 if.end.i:                                         ; preds = %if.then3.i
@@ -1297,7 +1297,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp5, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %if.else
-  tail call fastcc void @errfile.argelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.215, i32 noundef %add)
+  tail call fastcc void @errfile(ptr noundef nonnull %L, ptr noundef nonnull @.str.215, i32 noundef %add)
   br label %return
 
 if.end8:                                          ; preds = %if.else, %lua_pushlstring.exit
@@ -1340,7 +1340,7 @@ if.then26:                                        ; preds = %if.end23
   br i1 %cmp31, label %if.then33, label %while.cond36
 
 if.then33:                                        ; preds = %if.then26
-  tail call fastcc void @errfile.argelim(ptr noundef %L, ptr noundef nonnull @.str.275, i32 noundef %add)
+  tail call fastcc void @errfile(ptr noundef %L, ptr noundef nonnull @.str.275, i32 noundef %add)
   br label %return
 
 while.cond36:                                     ; preds = %if.then26, %while.cond36
@@ -1448,7 +1448,7 @@ if.else.i:                                        ; preds = %if.then62
 lua_settop.exit:                                  ; preds = %while.body.i, %while.cond.preheader.i, %if.else.i
   %add.ptr9.sink.i = phi ptr [ %add.ptr9.i, %if.else.i ], [ %add.ptr10.i, %while.cond.preheader.i ], [ %add.ptr.i, %while.body.i ]
   store ptr %add.ptr9.sink.i, ptr %0, align 8
-  call fastcc void @errfile.argelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.203, i32 noundef %add)
+  call fastcc void @errfile(ptr noundef nonnull %L, ptr noundef nonnull @.str.203, i32 noundef %add)
   br label %return
 
 if.end64:                                         ; preds = %if.end60
@@ -5581,27 +5581,27 @@ land.lhs.true.i.i.i:                              ; preds = %do.body.i.i.i
   %i_key.i.i.i = getelementptr inbounds i8, ptr %n.0.i.i.i, i64 16
   %155 = load ptr, ptr %i_key.i.i.i, align 8
   %cmp5.i.i.i = icmp eq ptr %155, %148
-  br i1 %cmp5.i.i.i, label %luaH_getstr.argprom.exit.i.i, label %if.else.i.i.i
+  br i1 %cmp5.i.i.i, label %luaH_getstr.exit.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %land.lhs.true.i.i.i, %do.body.i.i.i
   %next.i.i.i = getelementptr inbounds i8, ptr %n.0.i.i.i, i64 32
   %156 = load ptr, ptr %next.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %156, null
-  br i1 %tobool.not.i.i.i, label %luaH_getstr.argprom.exit.i.i, label %do.body.i.i.i, !llvm.loop !28
+  br i1 %tobool.not.i.i.i, label %luaH_getstr.exit.i.i, label %do.body.i.i.i, !llvm.loop !28
 
-luaH_getstr.argprom.exit.i.i:                     ; preds = %if.else.i.i.i, %land.lhs.true.i.i.i
+luaH_getstr.exit.i.i:                             ; preds = %if.else.i.i.i, %land.lhs.true.i.i.i
   %retval.0.i.i.i753 = phi ptr [ %n.0.i.i.i, %land.lhs.true.i.i.i ], [ @luaO_nilobject_, %if.else.i.i.i ]
   %tt.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i753, i64 8
   %157 = load i32, ptr %tt.i.i, align 8
   %cmp.i.i = icmp eq i32 %157, 0
   br i1 %cmp.i.i, label %if.then.i.i760, label %if.end.i754
 
-if.then.i.i760:                                   ; preds = %luaH_getstr.argprom.exit.i.i
+if.then.i.i760:                                   ; preds = %luaH_getstr.exit.i.i
   %conv3.i.i = or disjoint i8 %145, 16
   store i8 %conv3.i.i, ptr %flags.i, align 2
   br label %land.end690.i
 
-if.end.i754:                                      ; preds = %luaH_getstr.argprom.exit.i.i
+if.end.i754:                                      ; preds = %luaH_getstr.exit.i.i
   %cmp7.i = icmp eq ptr %143, %144
   br i1 %cmp7.i, label %if.end40.i, label %if.end10.i
 
@@ -5641,27 +5641,27 @@ land.lhs.true.i.i40.i:                            ; preds = %do.body.i.i25.i
   %i_key.i.i41.i = getelementptr inbounds i8, ptr %n.0.i.i26.i, i64 16
   %165 = load ptr, ptr %i_key.i.i41.i, align 8
   %cmp5.i.i42.i = icmp eq ptr %165, %148
-  br i1 %cmp5.i.i42.i, label %luaH_getstr.argprom.exit.i32.i, label %if.else.i.i29.i
+  br i1 %cmp5.i.i42.i, label %luaH_getstr.exit.i32.i, label %if.else.i.i29.i
 
 if.else.i.i29.i:                                  ; preds = %land.lhs.true.i.i40.i, %do.body.i.i25.i
   %next.i.i30.i = getelementptr inbounds i8, ptr %n.0.i.i26.i, i64 32
   %166 = load ptr, ptr %next.i.i30.i, align 8
   %tobool.not.i.i31.i = icmp eq ptr %166, null
-  br i1 %tobool.not.i.i31.i, label %luaH_getstr.argprom.exit.i32.i, label %do.body.i.i25.i, !llvm.loop !28
+  br i1 %tobool.not.i.i31.i, label %luaH_getstr.exit.i32.i, label %do.body.i.i25.i, !llvm.loop !28
 
-luaH_getstr.argprom.exit.i32.i:                   ; preds = %if.else.i.i29.i, %land.lhs.true.i.i40.i
+luaH_getstr.exit.i32.i:                           ; preds = %if.else.i.i29.i, %land.lhs.true.i.i40.i
   %retval.0.i.i33.i = phi ptr [ %n.0.i.i26.i, %land.lhs.true.i.i40.i ], [ @luaO_nilobject_, %if.else.i.i29.i ]
   %tt.i34.i = getelementptr inbounds i8, ptr %retval.0.i.i33.i, i64 8
   %167 = load i32, ptr %tt.i34.i, align 8
   %cmp.i35.i = icmp eq i32 %167, 0
   br i1 %cmp.i35.i, label %if.then.i37.i, label %if.end34.i
 
-if.then.i37.i:                                    ; preds = %luaH_getstr.argprom.exit.i32.i
+if.then.i37.i:                                    ; preds = %luaH_getstr.exit.i32.i
   %conv3.i39.i = or disjoint i8 %158, 16
   store i8 %conv3.i39.i, ptr %flags15.i, align 2
   br label %land.end690.i
 
-if.end34.i:                                       ; preds = %luaH_getstr.argprom.exit.i32.i
+if.end34.i:                                       ; preds = %luaH_getstr.exit.i32.i
   %cmp.not.i.i756 = icmp eq i32 %157, %167
   br i1 %cmp.not.i.i756, label %if.else.i.i757, label %land.end690.i
 
@@ -8075,7 +8075,7 @@ for.end.i75:                                      ; preds = %for.end.i75.loopexi
   %idx.neg.i = sub nsw i64 0, %idx.ext.i
   %add.ptr.i76 = getelementptr inbounds %struct.lua_TValue, ptr %45, i64 %idx.neg.i
   %cmp53.not.i = icmp eq i8 %.val, 0
-  br i1 %cmp53.not.i, label %adjust_varargs.argprom.exit, label %for.body7.preheader.i
+  br i1 %cmp53.not.i, label %adjust_varargs.exit, label %for.body7.preheader.i
 
 for.body7.preheader.i:                            ; preds = %for.end.i75
   %wide.trip.count.i = zext i8 %.val to i64
@@ -8096,16 +8096,16 @@ for.body7.i:                                      ; preds = %for.body7.i, %for.b
   store i32 0, ptr %tt13.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond6.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond6.not.i, label %adjust_varargs.argprom.exit, label %for.body7.i, !llvm.loop !40
+  br i1 %exitcond6.not.i, label %adjust_varargs.exit, label %for.body7.i, !llvm.loop !40
 
-adjust_varargs.argprom.exit:                      ; preds = %for.body7.i, %for.end.i75
+adjust_varargs.exit:                              ; preds = %for.body7.i, %for.end.i75
   %49 = load ptr, ptr %stack, align 8
   %add.ptr44 = getelementptr inbounds i8, ptr %49, i64 %sub.ptr.sub
   br label %if.end45
 
-if.end45:                                         ; preds = %if.then21, %if.then29, %adjust_varargs.argprom.exit
-  %base.0 = phi ptr [ %45, %adjust_varargs.argprom.exit ], [ %add.ptr22, %if.then29 ], [ %add.ptr22, %if.then21 ]
-  %func.addr.1 = phi ptr [ %add.ptr44, %adjust_varargs.argprom.exit ], [ %add.ptr, %if.then29 ], [ %add.ptr, %if.then21 ]
+if.end45:                                         ; preds = %if.then21, %if.then29, %adjust_varargs.exit
+  %base.0 = phi ptr [ %45, %adjust_varargs.exit ], [ %add.ptr22, %if.then29 ], [ %add.ptr22, %if.then21 ]
+  %func.addr.1 = phi ptr [ %add.ptr44, %adjust_varargs.exit ], [ %add.ptr, %if.then29 ], [ %add.ptr, %if.then21 ]
   %50 = load ptr, ptr %ci, align 8
   %end_ci = getelementptr inbounds i8, ptr %L, i64 72
   %51 = load ptr, ptr %end_ci, align 8
@@ -8426,22 +8426,22 @@ land.lhs.true.i.i:                                ; preds = %do.body.i.i
   %i_key.i.i = getelementptr inbounds i8, ptr %n.0.i.i, i64 16
   %14 = load ptr, ptr %i_key.i.i, align 8
   %cmp5.i.i = icmp eq ptr %14, %7
-  br i1 %cmp5.i.i, label %luaH_getstr.argprom.exit.i, label %if.else.i.i
+  br i1 %cmp5.i.i, label %luaH_getstr.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i.i, %do.body.i.i
   %next.i.i = getelementptr inbounds i8, ptr %n.0.i.i, i64 32
   %15 = load ptr, ptr %next.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %15, null
-  br i1 %tobool.not.i.i, label %luaH_getstr.argprom.exit.i, label %do.body.i.i, !llvm.loop !28
+  br i1 %tobool.not.i.i, label %luaH_getstr.exit.i, label %do.body.i.i, !llvm.loop !28
 
-luaH_getstr.argprom.exit.i:                       ; preds = %if.else.i.i, %land.lhs.true.i.i
+luaH_getstr.exit.i:                               ; preds = %if.else.i.i, %land.lhs.true.i.i
   %retval.0.i.i = phi ptr [ %n.0.i.i, %land.lhs.true.i.i ], [ @luaO_nilobject_, %if.else.i.i ]
   %tt.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   %16 = load i32, ptr %tt.i, align 8
   %cmp.i = icmp eq i32 %16, 0
   br i1 %cmp.i, label %if.then.i, label %if.end25
 
-if.then.i:                                        ; preds = %luaH_getstr.argprom.exit.i
+if.then.i:                                        ; preds = %luaH_getstr.exit.i
   %flags.le = getelementptr inbounds i8, ptr %3, i64 10
   %conv3.i = or disjoint i8 %4, 1
   store i8 %conv3.i, ptr %flags.le, align 2
@@ -8523,9 +8523,9 @@ if.then23:                                        ; preds = %luaT_gettmbyobj.exi
   tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.36, ptr noundef %31)
   unreachable
 
-if.end25:                                         ; preds = %luaH_getstr.argprom.exit.i, %luaT_gettmbyobj.exit
-  %32 = phi i32 [ %30, %luaT_gettmbyobj.exit ], [ %16, %luaH_getstr.argprom.exit.i ]
-  %tm.0 = phi ptr [ %cond.i, %luaT_gettmbyobj.exit ], [ %retval.0.i.i, %luaH_getstr.argprom.exit.i ]
+if.end25:                                         ; preds = %luaH_getstr.exit.i, %luaT_gettmbyobj.exit
+  %32 = phi i32 [ %30, %luaT_gettmbyobj.exit ], [ %16, %luaH_getstr.exit.i ]
+  %tm.0 = phi ptr [ %cond.i, %luaT_gettmbyobj.exit ], [ %retval.0.i.i, %luaH_getstr.exit.i ]
   %cmp27 = icmp eq i32 %32, 6
   br i1 %cmp27, label %if.then29, label %for.cond
 
@@ -8707,22 +8707,22 @@ land.lhs.true.i.i:                                ; preds = %do.body.i.i
   %i_key.i.i = getelementptr inbounds i8, ptr %n.0.i.i, i64 16
   %16 = load ptr, ptr %i_key.i.i, align 8
   %cmp5.i.i = icmp eq ptr %16, %9
-  br i1 %cmp5.i.i, label %luaH_getstr.argprom.exit.i, label %if.else.i.i
+  br i1 %cmp5.i.i, label %luaH_getstr.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i.i, %do.body.i.i
   %next.i.i = getelementptr inbounds i8, ptr %n.0.i.i, i64 32
   %17 = load ptr, ptr %next.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %17, null
-  br i1 %tobool.not.i.i, label %luaH_getstr.argprom.exit.i, label %do.body.i.i, !llvm.loop !28
+  br i1 %tobool.not.i.i, label %luaH_getstr.exit.i, label %do.body.i.i, !llvm.loop !28
 
-luaH_getstr.argprom.exit.i:                       ; preds = %if.else.i.i, %land.lhs.true.i.i
+luaH_getstr.exit.i:                               ; preds = %if.else.i.i, %land.lhs.true.i.i
   %retval.0.i.i = phi ptr [ %n.0.i.i, %land.lhs.true.i.i ], [ @luaO_nilobject_, %if.else.i.i ]
   %tt.i33 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   %18 = load i32, ptr %tt.i33, align 8
   %cmp.i = icmp eq i32 %18, 0
   br i1 %cmp.i, label %if.then.i, label %if.end40
 
-if.then.i:                                        ; preds = %luaH_getstr.argprom.exit.i
+if.then.i:                                        ; preds = %luaH_getstr.exit.i
   %flags.le = getelementptr inbounds i8, ptr %5, i64 10
   %conv3.i = or disjoint i8 %6, 2
   store i8 %conv3.i, ptr %flags.le, align 2
@@ -8837,9 +8837,9 @@ if.then38:                                        ; preds = %luaT_gettmbyobj.exi
   tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.36, ptr noundef %42)
   unreachable
 
-if.end40:                                         ; preds = %luaH_getstr.argprom.exit.i, %luaT_gettmbyobj.exit
-  %43 = phi i32 [ %41, %luaT_gettmbyobj.exit ], [ %18, %luaH_getstr.argprom.exit.i ]
-  %tm.0 = phi ptr [ %cond.i, %luaT_gettmbyobj.exit ], [ %retval.0.i.i, %luaH_getstr.argprom.exit.i ]
+if.end40:                                         ; preds = %luaH_getstr.exit.i, %luaT_gettmbyobj.exit
+  %43 = phi i32 [ %41, %luaT_gettmbyobj.exit ], [ %18, %luaH_getstr.exit.i ]
+  %tm.0 = phi ptr [ %cond.i, %luaT_gettmbyobj.exit ], [ %retval.0.i.i, %luaH_getstr.exit.i ]
   %cmp42 = icmp eq i32 %43, 6
   br i1 %cmp42, label %if.then44, label %if.end45
 
@@ -11878,15 +11878,15 @@ land.lhs.true.i.i.i:                              ; preds = %do.body.i.i.i
   %i_key.i.i.i = getelementptr inbounds i8, ptr %n.0.i.i.i, i64 16
   %17 = load ptr, ptr %i_key.i.i.i, align 8
   %cmp5.i.i.i = icmp eq ptr %17, %10
-  br i1 %cmp5.i.i.i, label %luaH_getstr.argprom.exit.i.i, label %if.else.i.i.i
+  br i1 %cmp5.i.i.i, label %luaH_getstr.exit.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %land.lhs.true.i.i.i, %do.body.i.i.i
   %next.i.i.i = getelementptr inbounds i8, ptr %n.0.i.i.i, i64 32
   %18 = load ptr, ptr %next.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %18, null
-  br i1 %tobool.not.i.i.i, label %luaH_getstr.argprom.exit.i.i, label %do.body.i.i.i, !llvm.loop !28
+  br i1 %tobool.not.i.i.i, label %luaH_getstr.exit.i.i, label %do.body.i.i.i, !llvm.loop !28
 
-luaH_getstr.argprom.exit.i.i:                     ; preds = %if.else.i.i.i, %land.lhs.true.i.i.i
+luaH_getstr.exit.i.i:                             ; preds = %if.else.i.i.i, %land.lhs.true.i.i.i
   %retval.0.i.i.i = phi ptr [ %n.0.i.i.i, %land.lhs.true.i.i.i ], [ @luaO_nilobject_, %if.else.i.i.i ]
   %tt.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
   %19 = load i32, ptr %tt.i.i, align 8
@@ -11895,12 +11895,12 @@ luaH_getstr.argprom.exit.i.i:                     ; preds = %if.else.i.i.i, %lan
     i32 4, label %if.then20.i
   ]
 
-if.then.i.i:                                      ; preds = %luaH_getstr.argprom.exit.i.i
+if.then.i.i:                                      ; preds = %luaH_getstr.exit.i.i
   %conv3.i.i = or disjoint i8 %8, 8
   store i8 %conv3.i.i, ptr %flags.i, align 2
   br label %if.then52.i
 
-if.then20.i:                                      ; preds = %luaH_getstr.argprom.exit.i.i
+if.then20.i:                                      ; preds = %luaH_getstr.exit.i.i
   %20 = load ptr, ptr %retval.0.i.i.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %20, i64 24
   %call21.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i, i32 noundef 107) #36
@@ -11928,8 +11928,8 @@ if.end45.i:                                       ; preds = %if.then20.i
 if.end50.i:                                       ; preds = %if.end45.i
   br i1 %cmp27.i, label %if.end73.i, label %if.then52.i
 
-if.then52.i:                                      ; preds = %if.end50.i, %if.then20.i, %if.then.i.i, %luaH_getstr.argprom.exit.i.i, %cond.false.i, %if.end5.i, %sw.bb
-  %weakkey.0.shrunk5763.i = phi i1 [ %cmp22.i, %if.end50.i ], [ false, %sw.bb ], [ false, %if.then.i.i ], [ false, %cond.false.i ], [ false, %if.end5.i ], [ false, %if.then20.i ], [ false, %luaH_getstr.argprom.exit.i.i ]
+if.then52.i:                                      ; preds = %if.end50.i, %if.then20.i, %if.then.i.i, %luaH_getstr.exit.i.i, %cond.false.i, %if.end5.i, %sw.bb
+  %weakkey.0.shrunk5763.i = phi i1 [ %cmp22.i, %if.end50.i ], [ false, %sw.bb ], [ false, %if.then.i.i ], [ false, %cond.false.i ], [ false, %if.end5.i ], [ false, %if.then20.i ], [ false, %luaH_getstr.exit.i.i ]
   %sizearray.i = getelementptr inbounds i8, ptr %0, i64 56
   %24 = load i32, ptr %sizearray.i, align 8
   %tobool53.not66.i = icmp eq i32 %24, 0
@@ -13066,27 +13066,27 @@ land.lhs.true.i.i:                                ; preds = %do.body.i.i
   %i_key.i.i = getelementptr inbounds i8, ptr %n.0.i.i, i64 16
   %22 = load ptr, ptr %i_key.i.i, align 8
   %cmp5.i.i = icmp eq ptr %22, %15
-  br i1 %cmp5.i.i, label %luaH_getstr.argprom.exit.i, label %if.else.i.i
+  br i1 %cmp5.i.i, label %luaH_getstr.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i.i, %do.body.i.i
   %next.i.i = getelementptr inbounds i8, ptr %n.0.i.i, i64 32
   %23 = load ptr, ptr %next.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %23, null
-  br i1 %tobool.not.i.i, label %luaH_getstr.argprom.exit.i, label %do.body.i.i, !llvm.loop !28
+  br i1 %tobool.not.i.i, label %luaH_getstr.exit.i, label %do.body.i.i, !llvm.loop !28
 
-luaH_getstr.argprom.exit.i:                       ; preds = %if.else.i.i, %land.lhs.true.i.i
+luaH_getstr.exit.i:                               ; preds = %if.else.i.i, %land.lhs.true.i.i
   %retval.0.i.i = phi ptr [ %n.0.i.i, %land.lhs.true.i.i ], [ @luaO_nilobject_, %if.else.i.i ]
   %tt.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   %24 = load i32, ptr %tt.i, align 8
   %cmp.i = icmp eq i32 %24, 0
   br i1 %cmp.i, label %if.then.i, label %if.then29
 
-if.then.i:                                        ; preds = %luaH_getstr.argprom.exit.i
+if.then.i:                                        ; preds = %luaH_getstr.exit.i
   %conv3.i = or disjoint i8 %12, 4
   store i8 %conv3.i, ptr %flags, align 2
   br label %if.end43
 
-if.then29:                                        ; preds = %luaH_getstr.argprom.exit.i
+if.then29:                                        ; preds = %luaH_getstr.exit.i
   %allowhook = getelementptr inbounds i8, ptr %L, i64 101
   %25 = load i8, ptr %allowhook, align 1
   %GCthreshold = getelementptr inbounds i8, ptr %0, i64 112
@@ -13193,22 +13193,22 @@ land.lhs.true.i.i:                                ; preds = %do.body.i.i
   %i_key.i.i = getelementptr inbounds i8, ptr %n.0.i.i, i64 16
   %17 = load ptr, ptr %i_key.i.i, align 8
   %cmp5.i.i = icmp eq ptr %17, %10
-  br i1 %cmp5.i.i, label %luaH_getstr.argprom.exit.i, label %if.else.i.i
+  br i1 %cmp5.i.i, label %luaH_getstr.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i.i, %do.body.i.i
   %next.i.i = getelementptr inbounds i8, ptr %n.0.i.i, i64 32
   %18 = load ptr, ptr %next.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %18, null
-  br i1 %tobool.not.i.i, label %luaH_getstr.argprom.exit.i, label %do.body.i.i, !llvm.loop !28
+  br i1 %tobool.not.i.i, label %luaH_getstr.exit.i, label %do.body.i.i, !llvm.loop !28
 
-luaH_getstr.argprom.exit.i:                       ; preds = %if.else.i.i, %land.lhs.true.i.i
+luaH_getstr.exit.i:                               ; preds = %if.else.i.i, %land.lhs.true.i.i
   %retval.0.i.i = phi ptr [ %n.0.i.i, %land.lhs.true.i.i ], [ @luaO_nilobject_, %if.else.i.i ]
   %tt.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   %19 = load i32, ptr %tt.i, align 8
   %cmp.i = icmp eq i32 %19, 0
   br i1 %cmp.i, label %luaT_gettm.exit.thread, label %if.else27
 
-luaT_gettm.exit.thread:                           ; preds = %luaH_getstr.argprom.exit.i
+luaT_gettm.exit.thread:                           ; preds = %luaH_getstr.exit.i
   %conv3.i = or disjoint i8 %7, 4
   store i8 %conv3.i, ptr %flags, align 2
   %.pre = load i8, ptr %marked, align 1
@@ -13220,7 +13220,7 @@ if.then22:                                        ; preds = %luaT_gettm.exit.thr
   store i8 %21, ptr %marked, align 1
   br label %if.end47
 
-if.else27:                                        ; preds = %luaH_getstr.argprom.exit.i
+if.else27:                                        ; preds = %luaH_getstr.exit.i
   %len = getelementptr inbounds i8, ptr %3, i64 32
   %22 = load i64, ptr %len, align 8
   %add = add i64 %deadmem.029, 40
@@ -13714,7 +13714,7 @@ lua_createtable.exit.i:                           ; preds = %luaC_step.exit.i65.
   %42 = load ptr, ptr %top.i.i, align 8
   %incdec.ptr.i80.i = getelementptr inbounds i8, ptr %42, i64 16
   store ptr %incdec.ptr.i80.i, ptr %top.i.i, align 8
-  tail call fastcc void @lua_setmetatable.retelim(ptr noundef nonnull %L, i32 noundef -2)
+  tail call fastcc void @lua_setmetatable(ptr noundef nonnull %L, i32 noundef -2)
   %43 = load ptr, ptr %l_G.i.i, align 8
   %totalbytes.i82.i = getelementptr inbounds i8, ptr %43, i64 120
   %44 = load i64, ptr %totalbytes.i82.i, align 8
@@ -13851,13 +13851,13 @@ entry:
   store ptr %incdec.ptr.i.i.i, ptr %top.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key.i.i.i)
   %cmp.i.i.i = icmp eq ptr %2, @luaO_nilobject_
-  br i1 %cmp.i.i.i, label %luaL_newmetatable.argprom.exit.i, label %lua_type.exit.i.i
+  br i1 %cmp.i.i.i, label %luaL_newmetatable.exit.i, label %lua_type.exit.i.i
 
 lua_type.exit.i.i:                                ; preds = %entry
   %tt.i7.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %tt.i7.i.i, align 8
   %cmp.i.i = icmp eq i32 %3, 0
-  br i1 %cmp.i.i, label %if.end.i.i, label %luaL_newmetatable.argprom.exit.i
+  br i1 %cmp.i.i, label %if.end.i.i, label %luaL_newmetatable.exit.i
 
 if.end.i.i:                                       ; preds = %lua_type.exit.i.i
   store ptr %2, ptr %top.i.i.i, align 8
@@ -13961,9 +13961,9 @@ lua_createtable.exit.i.i:                         ; preds = %luaC_step.exit.i.i.
   %incdec.ptr.i24.i.i = getelementptr inbounds i8, ptr %22, i64 -16
   store ptr %incdec.ptr.i24.i.i, ptr %top.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key.i17.i.i)
-  br label %luaL_newmetatable.argprom.exit.i
+  br label %luaL_newmetatable.exit.i
 
-luaL_newmetatable.argprom.exit.i:                 ; preds = %lua_createtable.exit.i.i, %lua_type.exit.i.i, %entry
+luaL_newmetatable.exit.i:                         ; preds = %lua_createtable.exit.i.i, %lua_type.exit.i.i, %entry
   %23 = phi ptr [ %incdec.ptr.i.i.i, %entry ], [ %incdec.ptr.i.i.i, %lua_type.exit.i.i ], [ %incdec.ptr.i24.i.i, %lua_createtable.exit.i.i ]
   %add.ptr8.i.i.i = getelementptr inbounds i8, ptr %23, i64 -16
   %24 = load i64, ptr %add.ptr8.i.i.i, align 8
@@ -13991,8 +13991,8 @@ luaL_newmetatable.argprom.exit.i:                 ; preds = %lua_createtable.exi
   %tt.i66.i.i.i = getelementptr inbounds i8, ptr %key.i61.i.i.i, i64 8
   br label %for.end.i.i.i
 
-for.end.i.i.i:                                    ; preds = %for.end.i.i.i, %luaL_newmetatable.argprom.exit.i
-  %l.addr.075.i.i.i = phi ptr [ @flib, %luaL_newmetatable.argprom.exit.i ], [ %incdec.ptr.i.i9.i, %for.end.i.i.i ]
+for.end.i.i.i:                                    ; preds = %for.end.i.i.i, %luaL_newmetatable.exit.i
+  %l.addr.075.i.i.i = phi ptr [ @flib, %luaL_newmetatable.exit.i ], [ %incdec.ptr.i.i9.i, %for.end.i.i.i ]
   %func.i.i.i = getelementptr inbounds i8, ptr %l.addr.075.i.i.i, i64 8
   %29 = load ptr, ptr %func.i.i.i, align 8
   tail call fastcc void @lua_pushcclosure(ptr noundef nonnull %L, ptr noundef %29, i32 noundef 0)
@@ -14374,7 +14374,7 @@ createmetatable.exit:                             ; preds = %lua_createtable.exi
   %28 = load ptr, ptr %top.i.i, align 8
   %incdec.ptr.i50.i = getelementptr inbounds i8, ptr %28, i64 16
   store ptr %incdec.ptr.i50.i, ptr %top.i.i, align 8
-  tail call fastcc void @lua_setmetatable.retelim(ptr noundef nonnull %L, i32 noundef -2)
+  tail call fastcc void @lua_setmetatable(ptr noundef nonnull %L, i32 noundef -2)
   %29 = load ptr, ptr %top.i.i, align 8
   %add.ptr9.i.i = getelementptr i8, ptr %29, i64 -16
   store ptr %add.ptr9.i.i, ptr %top.i.i, align 8
@@ -14423,7 +14423,7 @@ lua_type.exit.i:                                  ; preds = %entry
   br i1 %cmp.not.i, label %luaL_checktype.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %lua_type.exit.i, %entry
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.26)
+  tail call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.26)
   unreachable
 
 luaL_checktype.exit:                              ; preds = %lua_type.exit.i
@@ -14548,7 +14548,7 @@ luaO_str2d.exit.i.i:                              ; preds = %while.cond.i.i.i
   br i1 %cmp19.not.i.not.i.i, label %luaL_checkinteger.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.24)
   unreachable
 
 luaL_checkinteger.exit:                           ; preds = %luaO_str2d.exit.thread9.i.i, %luaO_str2d.exit.i.i, %land.lhs.true.i, %entry
@@ -14569,7 +14569,7 @@ lua_type.exit.i:                                  ; preds = %luaL_checkinteger.e
   br i1 %cmp.not.i, label %luaL_checktype.exit, label %if.then.i7
 
 if.then.i7:                                       ; preds = %lua_type.exit.i, %luaL_checkinteger.exit
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.26)
+  tail call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.26)
   unreachable
 
 luaL_checktype.exit:                              ; preds = %lua_type.exit.i
@@ -14693,7 +14693,7 @@ lua_type.exit.i:                                  ; preds = %entry
   br i1 %cmp.not.i, label %luaL_checktype.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %lua_type.exit.i, %entry
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.26)
+  tail call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.26)
   unreachable
 
 luaL_checktype.exit:                              ; preds = %lua_type.exit.i
@@ -14755,7 +14755,7 @@ lua_type.exit.i:                                  ; preds = %entry
   br i1 %cmp.not.i, label %luaL_checktype.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %lua_type.exit.i, %entry
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.26)
+  tail call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.26)
   unreachable
 
 luaL_checktype.exit:                              ; preds = %lua_type.exit.i
@@ -15161,7 +15161,7 @@ return:                                           ; preds = %lua_next.exit, %if.
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @lua_setmetatable.retelim(ptr nocapture noundef %L, i32 noundef range(i32 -2, 3) %objindex) unnamed_addr #8 {
+define internal fastcc void @lua_setmetatable(ptr nocapture noundef %L, i32 noundef range(i32 -2, 3) %objindex) unnamed_addr #8 {
 entry:
   %cmp.i = icmp sgt i32 %objindex, 0
   br i1 %cmp.i, label %if.then.i, label %if.else3.i
@@ -15623,7 +15623,7 @@ lua_toboolean.exit68:                             ; preds = %if.then7
   br i1 %cmp3.i65.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %sw.epilog.i, %lua_toboolean.exit68.thread, %lua_toboolean.exit68
-  tail call fastcc void @luaL_argerror.retelim(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.186)
+  tail call fastcc void @luaL_argerror(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.186)
   unreachable
 
 lor.end:                                          ; preds = %lua_toboolean.exit68.thread106, %lua_toboolean.exit68
@@ -15675,7 +15675,7 @@ if.end14.sink.split:                              ; preds = %lua_rawset.exit, %i
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end14.sink.split, %sw.epilog.i79
-  tail call fastcc void @lua_setmetatable.retelim(ptr noundef nonnull %L, i32 noundef 2)
+  tail call fastcc void @lua_setmetatable(ptr noundef nonnull %L, i32 noundef 2)
   br label %return
 
 return:                                           ; preds = %lua_settop.exit, %lua_toboolean.exit, %if.end14
@@ -15704,7 +15704,7 @@ lua_type.exit.i:                                  ; preds = %entry
   ]
 
 if.then.i:                                        ; preds = %lua_type.exit.i, %entry
-  tail call fastcc void @luaL_argerror.retelim(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.115)
+  tail call fastcc void @luaL_argerror(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.115)
   unreachable
 
 lua_toboolean.exit:                               ; preds = %lua_type.exit.i
@@ -15731,12 +15731,12 @@ if.else.i:                                        ; preds = %lua_type.exit.i12
   br i1 %tobool.not.i.i, label %if.then.i.i, label %luaL_optlstring.exit
 
 if.then.i.i:                                      ; preds = %if.else.i
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 2, ptr noundef nonnull @.str.25)
+  tail call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 2, ptr noundef nonnull @.str.25)
   unreachable
 
 luaL_optlstring.exit:                             ; preds = %if.then, %lua_type.exit.i12, %if.else.i
   %retval.0.i = phi ptr [ %call.i.i, %if.else.i ], [ @.str.114, %lua_type.exit.i12 ], [ @.str.114, %if.then ]
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.113, ptr noundef nonnull %retval.0.i)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %L, ptr noundef nonnull @.str.113, ptr noundef nonnull %retval.0.i)
   unreachable
 
 if.end:                                           ; preds = %lua_type.exit.i, %lua_toboolean.exit
@@ -15844,7 +15844,7 @@ luaO_str2d.exit.i.i:                              ; preds = %while.cond.i.i.i
   br i1 %cmp19.not.i.not.i.i, label %luaL_optinteger.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 2, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 2, ptr noundef nonnull @.str.24)
   unreachable
 
 luaL_optinteger.exit:                             ; preds = %luaO_str2d.exit.thread9.i.i, %luaO_str2d.exit.i.i, %land.lhs.true.i.i, %entry, %lua_type.exit.i, %cond.false.i
@@ -16014,7 +16014,7 @@ if.else.i:                                        ; preds = %lua_type.exit.i
   br i1 %tobool.not.i.i, label %if.then.i.i, label %luaL_optlstring.exit
 
 if.then.i.i:                                      ; preds = %if.else.i
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.25)
+  tail call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.25)
   unreachable
 
 luaL_optlstring.exit:                             ; preds = %entry, %lua_type.exit.i, %if.else.i
@@ -16072,7 +16072,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %luaL_checklstring.exit
 
 if.then.i:                                        ; preds = %entry
-  call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.25)
+  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.25)
   unreachable
 
 luaL_checklstring.exit:                           ; preds = %entry
@@ -16102,7 +16102,7 @@ if.else.i.luaL_optlstring.exit_crit_edge:         ; preds = %if.else.i
   br label %luaL_optlstring.exit
 
 if.then.i.i:                                      ; preds = %if.else.i
-  call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 2, ptr noundef nonnull @.str.25)
+  call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 2, ptr noundef nonnull @.str.25)
   unreachable
 
 luaL_optlstring.exit:                             ; preds = %if.else.i.luaL_optlstring.exit_crit_edge, %luaL_checklstring.exit, %lua_type.exit.i
@@ -16213,7 +16213,7 @@ lua_type.exit.i:                                  ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %luaL_checkany.exit
 
 if.then.i:                                        ; preds = %lua_type.exit.i, %entry
-  tail call fastcc void @luaL_argerror.retelim(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.115)
+  tail call fastcc void @luaL_argerror(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.115)
   unreachable
 
 luaL_checkany.exit:                               ; preds = %lua_type.exit.i
@@ -16316,7 +16316,7 @@ lua_type.exit.i:                                  ; preds = %entry
   br i1 %cmp.not.i, label %luaL_checktype.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %lua_type.exit.i, %entry
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.26)
+  tail call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.26)
   unreachable
 
 luaL_checktype.exit:                              ; preds = %lua_type.exit.i
@@ -16334,7 +16334,7 @@ lua_type.exit.i10:                                ; preds = %luaL_checktype.exit
   br i1 %cmp.i, label %if.then.i12, label %luaL_checkany.exit
 
 if.then.i12:                                      ; preds = %lua_type.exit.i10, %luaL_checktype.exit
-  tail call fastcc void @luaL_argerror.retelim(ptr noundef nonnull %L, i32 noundef 2, ptr noundef nonnull @.str.115)
+  tail call fastcc void @luaL_argerror(ptr noundef nonnull %L, i32 noundef 2, ptr noundef nonnull @.str.115)
   unreachable
 
 luaL_checkany.exit:                               ; preds = %lua_type.exit.i10
@@ -16394,7 +16394,7 @@ lua_type.exit.i:                                  ; preds = %entry
   br i1 %cmp.not.i, label %luaL_checktype.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %lua_type.exit.i, %entry
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 2, ptr noundef nonnull @.str.26)
+  tail call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 2, ptr noundef nonnull @.str.26)
   unreachable
 
 luaL_checktype.exit:                              ; preds = %lua_type.exit.i
@@ -16496,7 +16496,7 @@ luaO_str2d.exit.i.i.i:                            ; preds = %while.cond.i.i.i.i
   br i1 %cmp19.not.i.not.i.i.i, label %luaL_checkinteger.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %luaO_str2d.exit.i.i.i, %luaO_str2d.exit.thread.i.i.i, %land.lhs.true.i.i
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.24)
   unreachable
 
 luaL_checkinteger.exit.i:                         ; preds = %luaO_str2d.exit.i.i.i, %cond.false.i
@@ -16505,7 +16505,7 @@ luaL_checkinteger.exit.i:                         ; preds = %luaO_str2d.exit.i.i
   br i1 %cmp4.i, label %lor.end.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %luaL_checkinteger.exit.i
-  tail call fastcc void @luaL_argerror.retelim(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.176)
+  tail call fastcc void @luaL_argerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.176)
   unreachable
 
 lor.end.i:                                        ; preds = %luaL_checkinteger.exit.i
@@ -16577,14 +16577,14 @@ lua_getstack.exit.i:                              ; preds = %if.then6.i.i, %for.
   %.sink.i.i = phi i32 [ %conv.i.i, %if.then6.i.i ], [ 0, %for.end.i.i ]
   %i_ci11.i.i = getelementptr inbounds i8, ptr %ar.i, i64 116
   store i32 %.sink.i.i, ptr %i_ci11.i.i, align 4
-  call fastcc void @lua_getinfo.retelim(ptr noundef %L, ptr noundef nonnull @.str.178, ptr noundef %ar.i)
+  call fastcc void @lua_getinfo(ptr noundef %L, ptr noundef nonnull @.str.178, ptr noundef %ar.i)
   %27 = load ptr, ptr %top.i.i.i, align 8
   %add.ptr8.i.i.i = getelementptr inbounds i8, ptr %27, i64 -16
   %cmp.i25.i = icmp eq ptr %add.ptr8.i.i.i, @luaO_nilobject_
   br i1 %cmp.i25.i, label %getfunc.exit, label %lua_type.exit29.i
 
 if.then11.i:                                      ; preds = %land.rhs.i.i, %land.lhs.true.i19.i
-  tail call fastcc void @luaL_argerror.retelim(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.177)
+  tail call fastcc void @luaL_argerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.177)
   unreachable
 
 lua_type.exit29.i:                                ; preds = %lua_getstack.exit.i
@@ -16594,7 +16594,7 @@ lua_type.exit29.i:                                ; preds = %lua_getstack.exit.i
   br i1 %cmp15.i, label %if.then17.i, label %getfunc.exit
 
 if.then17.i:                                      ; preds = %lua_type.exit29.i
-  call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.179, i32 noundef %conv3434854.i)
+  call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %L, ptr noundef nonnull @.str.179, i32 noundef %conv3434854.i)
   unreachable
 
 getfunc.exit:                                     ; preds = %if.then.i18, %lua_getstack.exit.i, %lua_type.exit29.i
@@ -16797,19 +16797,19 @@ if.else:                                          ; preds = %getfunc.exit, %luaO
   %69 = load i32, ptr %tt.i45, align 8
   %add.ptr8.i.i47 = getelementptr inbounds i8, ptr %L.val, i64 -32
   switch i32 %69, label %lua_setfenv.exit78 [
-    i32 6, label %lua_iscfunction.argprom.exit
+    i32 6, label %lua_iscfunction.exit
     i32 8, label %sw.bb8.i51
     i32 7, label %sw.bb2.i72
   ]
 
-lua_iscfunction.argprom.exit:                     ; preds = %if.else
+lua_iscfunction.exit:                             ; preds = %if.else
   %70 = load ptr, ptr %add.ptr8.i.i47, align 8
   %isC.i = getelementptr inbounds i8, ptr %70, i64 10
   %71 = load i8, ptr %isC.i, align 2
   %tobool.i.not = icmp eq i8 %71, 0
   br i1 %tobool.i.not, label %lor.lhs.false.thread, label %if.then8
 
-lor.lhs.false.thread:                             ; preds = %lua_iscfunction.argprom.exit
+lor.lhs.false.thread:                             ; preds = %lua_iscfunction.exit
   %add.ptr.i76 = getelementptr inbounds i8, ptr %L.val, i64 -16
   %72 = load ptr, ptr %add.ptr.i76, align 8
   %env.i77 = getelementptr inbounds i8, ptr %70, i64 24
@@ -16878,8 +16878,8 @@ lua_setfenv.exit78:                               ; preds = %if.else
   store ptr %incdec.ptr.i70, ptr %top.i.i.i, align 8
   br label %if.then8
 
-if.then8:                                         ; preds = %lua_setfenv.exit78, %lua_iscfunction.argprom.exit
-  call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.175)
+if.then8:                                         ; preds = %lua_setfenv.exit78, %lua_iscfunction.exit
+  call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %L, ptr noundef nonnull @.str.175)
   unreachable
 
 return:                                           ; preds = %if.else.i.i66, %if.then.i.i71, %land.lhs.true.i59, %if.then.i55, %if.else.i.i, %if.then.i.i43, %land.lhs.true.i, %if.then.i40, %lua_insert.exit
@@ -16923,7 +16923,7 @@ lua_type.exit.i:                                  ; preds = %lua_type.exit
   br i1 %cmp.not.i, label %luaL_checktype.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %lua_type.exit.i, %lua_type.exit
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.26)
+  tail call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.26)
   unreachable
 
 luaL_checktype.exit:                              ; preds = %lua_type.exit.i
@@ -16942,7 +16942,7 @@ lor.rhs:                                          ; preds = %luaL_checktype.exit
   br i1 %cmp5.i.i, label %if.end.i, label %if.then.i8
 
 if.then.i8:                                       ; preds = %lor.rhs
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.116, i32 noundef 2, ptr noundef nonnull @.str.180)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %L, ptr noundef nonnull @.str.116, i32 noundef 2, ptr noundef nonnull @.str.180)
   unreachable
 
 if.end.i:                                         ; preds = %lor.rhs
@@ -16953,7 +16953,7 @@ if.end.i:                                         ; preds = %lor.rhs
   %conv.i.i = trunc i64 %sub.ptr.div.i.i to i32
   %i_ci11.i.i = getelementptr inbounds i8, ptr %ar.i, i64 116
   store i32 %conv.i.i, ptr %i_ci11.i.i, align 4
-  call fastcc void @lua_getinfo.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.117, ptr noundef %ar.i)
+  call fastcc void @lua_getinfo(ptr noundef nonnull %L, ptr noundef nonnull @.str.117, ptr noundef %ar.i)
   %namewhat.i = getelementptr inbounds i8, ptr %ar.i, i64 16
   %6 = load ptr, ptr %namewhat.i, align 8
   %call3.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(7) @.str.118) #36
@@ -16970,7 +16970,7 @@ if.end14.i:                                       ; preds = %if.then12.i, %if.en
   %8 = phi ptr [ @.str.120, %if.then12.i ], [ %7, %if.end.i ]
   %cmp.i9 = icmp eq i32 %call3.i, 0
   %spec.select = select i1 %cmp.i9, i32 1, i32 2
-  call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.121, i32 noundef %spec.select, ptr noundef nonnull %8, ptr noundef nonnull @.str.180)
+  call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %L, ptr noundef nonnull @.str.121, i32 noundef %spec.select, ptr noundef nonnull %8, ptr noundef nonnull @.str.180)
   unreachable
 
 sw.epilog.i.i:                                    ; preds = %luaL_checktype.exit, %luaL_checktype.exit
@@ -17008,9 +17008,9 @@ lua_type.exit.i18:                                ; preds = %if.end.i15
   %tt.i10.i = getelementptr inbounds i8, ptr %15, i64 -8
   %16 = load i32, ptr %tt.i10.i, align 8
   %cmp.i19 = icmp eq i32 %16, 0
-  br i1 %cmp.i19, label %luaL_getmetafield.argprom.exit.thread24, label %if.else.i
+  br i1 %cmp.i19, label %luaL_getmetafield.exit.thread24, label %if.else.i
 
-luaL_getmetafield.argprom.exit.thread24:          ; preds = %lua_type.exit.i18
+luaL_getmetafield.exit.thread24:                  ; preds = %lua_type.exit.i18
   %add.ptr9.i.i = getelementptr i8, ptr %15, i64 -32
   %.pre = load ptr, ptr %base.i.i, align 8
   br label %if.end
@@ -17036,12 +17036,12 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %if
 if.then:                                          ; preds = %while.body.i.i
   %incdec.ptr4.i.i = getelementptr inbounds i8, ptr %19, i64 -16
   store ptr %incdec.ptr4.i.i, ptr %top.i.i, align 8
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.182)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %L, ptr noundef nonnull @.str.182)
   unreachable
 
-if.end:                                           ; preds = %sw.epilog.i.i, %luaL_getmetafield.argprom.exit.thread24
-  %20 = phi ptr [ %0, %sw.epilog.i.i ], [ %.pre, %luaL_getmetafield.argprom.exit.thread24 ]
-  %21 = phi ptr [ %1, %sw.epilog.i.i ], [ %add.ptr9.i.i, %luaL_getmetafield.argprom.exit.thread24 ]
+if.end:                                           ; preds = %sw.epilog.i.i, %luaL_getmetafield.exit.thread24
+  %20 = phi ptr [ %0, %sw.epilog.i.i ], [ %.pre, %luaL_getmetafield.exit.thread24 ]
+  %21 = phi ptr [ %1, %sw.epilog.i.i ], [ %add.ptr9.i.i, %luaL_getmetafield.exit.thread24 ]
   %add.ptr10.i = getelementptr inbounds i8, ptr %20, i64 32
   %cmp111.i = icmp ult ptr %21, %add.ptr10.i
   br i1 %cmp111.i, label %while.body.i, label %lua_settop.exit
@@ -17061,7 +17061,7 @@ while.body.i:                                     ; preds = %if.end, %while.body
 lua_settop.exit:                                  ; preds = %while.body.i, %if.end
   %add.ptr9.sink.i = phi ptr [ %add.ptr10.i, %if.end ], [ %add.ptr.i, %while.body.i ]
   store ptr %add.ptr9.sink.i, ptr %top.i.i, align 8
-  tail call fastcc void @lua_setmetatable.retelim(ptr noundef nonnull %L, i32 noundef 1)
+  tail call fastcc void @lua_setmetatable(ptr noundef nonnull %L, i32 noundef 1)
   ret i32 1
 }
 
@@ -17164,7 +17164,7 @@ luaO_str2d.exit.i.i64:                            ; preds = %while.cond.i.i.i58
   br i1 %cmp19.not.i.not.i.i65, label %if.else, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i, %luaO_str2d.exit.i.i64, %luaO_str2d.exit.thread.i.i69
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 2, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 2, ptr noundef nonnull @.str.24)
   unreachable
 
 luaL_optinteger.exit:                             ; preds = %cond.false.i
@@ -17195,7 +17195,7 @@ lua_type.exit.i19:                                ; preds = %if.then
   ]
 
 if.then.i:                                        ; preds = %lua_type.exit.i19, %if.then
-  tail call fastcc void @luaL_argerror.retelim(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.115)
+  tail call fastcc void @luaL_argerror(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.115)
   unreachable
 
 land.lhs.true.i.i23:                              ; preds = %lua_type.exit.i19
@@ -17268,7 +17268,7 @@ if.else:                                          ; preds = %luaO_str2d.exit.thr
   br i1 %tobool.not.i, label %if.then.i25, label %luaL_checklstring.exit
 
 if.then.i25:                                      ; preds = %if.else
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.25)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.25)
   unreachable
 
 luaL_checklstring.exit:                           ; preds = %if.else
@@ -17286,7 +17286,7 @@ lor.rhs:                                          ; preds = %luaL_checklstring.e
   br i1 %cmp5.i.i, label %if.end.i, label %if.then.i27
 
 if.then.i27:                                      ; preds = %lor.rhs
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.116, i32 noundef 2, ptr noundef nonnull @.str.183)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %L, ptr noundef nonnull @.str.116, i32 noundef 2, ptr noundef nonnull @.str.183)
   unreachable
 
 if.end.i:                                         ; preds = %lor.rhs
@@ -17297,7 +17297,7 @@ if.end.i:                                         ; preds = %lor.rhs
   %conv.i.i = trunc i64 %sub.ptr.div.i.i to i32
   %i_ci11.i.i = getelementptr inbounds i8, ptr %ar.i, i64 116
   store i32 %conv.i.i, ptr %i_ci11.i.i, align 4
-  call fastcc void @lua_getinfo.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.117, ptr noundef %ar.i)
+  call fastcc void @lua_getinfo(ptr noundef nonnull %L, ptr noundef nonnull @.str.117, ptr noundef %ar.i)
   %namewhat.i = getelementptr inbounds i8, ptr %ar.i, i64 16
   %29 = load ptr, ptr %namewhat.i, align 8
   %call3.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(7) @.str.118) #36
@@ -17314,7 +17314,7 @@ if.end14.i:                                       ; preds = %if.then12.i, %if.en
   %31 = phi ptr [ @.str.120, %if.then12.i ], [ %30, %if.end.i ]
   %cmp.i29 = icmp eq i32 %call3.i, 0
   %spec.select = select i1 %cmp.i29, i32 1, i32 2
-  call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.121, i32 noundef %spec.select, ptr noundef nonnull %31, ptr noundef nonnull @.str.183)
+  call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %L, ptr noundef nonnull @.str.121, i32 noundef %spec.select, ptr noundef nonnull %31, ptr noundef nonnull @.str.183)
   unreachable
 
 lor.end:                                          ; preds = %luaL_checklstring.exit
@@ -17380,13 +17380,13 @@ lua_type.exit.i:                                  ; preds = %entry
   %tt.i.i = getelementptr i8, ptr %0, i64 8
   %2 = load i32, ptr %tt.i.i, align 8
   %cmp.i = icmp eq i32 %2, -1
-  br i1 %cmp.i, label %if.then.i, label %lua_typename.argprom.exit
+  br i1 %cmp.i, label %if.then.i, label %lua_typename.exit
 
 if.then.i:                                        ; preds = %lua_type.exit.i, %entry
-  tail call fastcc void @luaL_argerror.retelim(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.115)
+  tail call fastcc void @luaL_argerror(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.115)
   unreachable
 
-lua_typename.argprom.exit:                        ; preds = %lua_type.exit.i
+lua_typename.exit:                                ; preds = %lua_type.exit.i
   %idxprom.i = sext i32 %2 to i64
   %arrayidx.i = getelementptr inbounds [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i
   %3 = load ptr, ptr %arrayidx.i, align 8
@@ -17415,7 +17415,7 @@ lua_type.exit.i:                                  ; preds = %entry
   br i1 %cmp.not.i, label %luaL_checktype.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %lua_type.exit.i, %entry
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.26)
+  tail call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.26)
   unreachable
 
 luaL_checktype.exit:                              ; preds = %lua_type.exit.i
@@ -17507,7 +17507,7 @@ luaO_str2d.exit.i.i:                              ; preds = %while.cond.i.i.i
   br i1 %cmp19.not.i.not.i.i, label %luaL_optinteger.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 2, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 2, ptr noundef nonnull @.str.24)
   unreachable
 
 luaL_optinteger.exit:                             ; preds = %luaO_str2d.exit.thread9.i.i, %luaO_str2d.exit.i.i, %land.lhs.true.i.i, %luaL_checktype.exit, %lua_type.exit.i23, %cond.false.i
@@ -17607,7 +17607,7 @@ luaO_str2d.exit.i.i133:                           ; preds = %while.cond.i.i.i127
   br i1 %cmp19.not.i.not.i.i134, label %cond.end, label %if.then.i31
 
 if.then.i31:                                      ; preds = %land.lhs.true.i, %luaO_str2d.exit.i.i133, %luaO_str2d.exit.thread.i.i138
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 3, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 3, ptr noundef nonnull @.str.24)
   unreachable
 
 cond.end:                                         ; preds = %luaO_str2d.exit.thread9.i.i137, %luaO_str2d.exit.i.i133, %cond.false, %land.lhs.true.i, %cond.true
@@ -17671,7 +17671,7 @@ if.then19.i:                                      ; preds = %if.end.i
   br label %if.end14
 
 if.then12:                                        ; preds = %lor.lhs.false.i, %if.end
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef %L, ptr noundef nonnull @.str.184)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.184)
   unreachable
 
 if.end14:                                         ; preds = %if.then19.i, %if.end.i
@@ -17855,7 +17855,7 @@ return:                                           ; preds = %lua_rawgeti.exit92,
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal void @luaL_error.retelim(ptr noundef %L, ptr noundef %fmt, ...) unnamed_addr #9 {
+define internal void @luaL_error(ptr noundef %L, ptr noundef %fmt, ...) unnamed_addr #9 {
 entry:
   %argp = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %argp)
@@ -18018,7 +18018,7 @@ lua_concat.exit:                                  ; preds = %lua_pushvfstring.ex
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @luaL_argerror.retelim(ptr noundef %L, i32 noundef %narg, ptr noundef %extramsg) unnamed_addr #9 {
+define internal fastcc void @luaL_argerror(ptr noundef %L, i32 noundef %narg, ptr noundef %extramsg) unnamed_addr #9 {
 entry:
   %ar = alloca %struct.lua_Debug, align 8
   %ci1.i = getelementptr inbounds i8, ptr %L, i64 40
@@ -18029,7 +18029,7 @@ entry:
   br i1 %cmp5.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.116, i32 noundef %narg, ptr noundef %extramsg)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %L, ptr noundef nonnull @.str.116, i32 noundef %narg, ptr noundef %extramsg)
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -18040,7 +18040,7 @@ if.end:                                           ; preds = %entry
   %conv.i = trunc i64 %sub.ptr.div.i to i32
   %i_ci11.i = getelementptr inbounds i8, ptr %ar, i64 116
   store i32 %conv.i, ptr %i_ci11.i, align 4
-  call fastcc void @lua_getinfo.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.117, ptr noundef %ar)
+  call fastcc void @lua_getinfo(ptr noundef nonnull %L, ptr noundef nonnull @.str.117, ptr noundef %ar)
   %namewhat = getelementptr inbounds i8, ptr %ar, i64 16
   %2 = load ptr, ptr %namewhat, align 8
   %call3 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(7) @.str.118) #36
@@ -18055,7 +18055,7 @@ if.then4:                                         ; preds = %if.end
 if.then6:                                         ; preds = %if.then4
   %name = getelementptr inbounds i8, ptr %ar, i64 8
   %3 = load ptr, ptr %name, align 8
-  call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.119, ptr noundef %3, ptr noundef %extramsg)
+  call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %L, ptr noundef nonnull @.str.119, ptr noundef %3, ptr noundef %extramsg)
   unreachable
 
 if.end9:                                          ; preds = %if.then4, %if.end
@@ -18071,12 +18071,12 @@ if.then12:                                        ; preds = %if.end9
 
 if.end14:                                         ; preds = %if.then12, %if.end9
   %5 = phi ptr [ @.str.120, %if.then12 ], [ %4, %if.end9 ]
-  call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.121, i32 noundef %narg.addr.0, ptr noundef nonnull %5, ptr noundef %extramsg)
+  call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %L, ptr noundef nonnull @.str.121, i32 noundef %narg.addr.0, ptr noundef nonnull %5, ptr noundef %extramsg)
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @lua_getinfo.retelim(ptr noundef %L, ptr noundef readonly %what, ptr noundef nonnull %ar) unnamed_addr #0 {
+define internal fastcc void @lua_getinfo(ptr noundef %L, ptr noundef readonly %what, ptr noundef nonnull %ar) unnamed_addr #0 {
 entry:
   %k.i.i = alloca %struct.lua_TValue, align 8
   %0 = load i8, ptr %what, align 1
@@ -18658,7 +18658,7 @@ if.then:                                          ; preds = %if.then6.i, %for.en
   %.sink.i = phi i32 [ %conv.i, %if.then6.i ], [ 0, %for.end.i ]
   %i_ci11.i = getelementptr inbounds i8, ptr %ar, i64 116
   store i32 %.sink.i, ptr %i_ci11.i, align 4
-  call fastcc void @lua_getinfo.retelim(ptr noundef %L, ptr noundef nonnull @.str.128, ptr noundef %ar)
+  call fastcc void @lua_getinfo(ptr noundef %L, ptr noundef nonnull @.str.128, ptr noundef %ar)
   %currentline = getelementptr inbounds i8, ptr %ar, i64 40
   %6 = load i32, ptr %currentline, align 8
   %cmp = icmp sgt i32 %6, 0
@@ -18949,7 +18949,7 @@ if.end:                                           ; preds = %luaC_step.exit, %en
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef %narg, ptr noundef %tname) unnamed_addr #9 {
+define internal fastcc void @luaL_typerror(ptr noundef %L, i32 noundef %narg, ptr noundef %tname) unnamed_addr #9 {
 entry:
   %cmp.i.i = icmp sgt i32 %narg, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else3.i.i
@@ -18963,7 +18963,7 @@ if.then.i.i:                                      ; preds = %entry
   %top.i.i = getelementptr inbounds i8, ptr %L, i64 16
   %3 = load ptr, ptr %top.i.i, align 8
   %cmp1.not.i.i = icmp ult ptr %add.ptr.i.i, %3
-  br i1 %cmp1.not.i.i, label %index2adr.exit.i, label %lua_typename.argprom.exit
+  br i1 %cmp1.not.i.i, label %index2adr.exit.i, label %lua_typename.exit
 
 if.else3.i.i:                                     ; preds = %entry
   %cmp4.i.i = icmp sgt i32 %narg, -10000
@@ -19022,29 +19022,29 @@ sw.default.i.i:                                   ; preds = %if.else9.i.i
   %sub23.i.i = sub nuw nsw i32 -10003, %narg
   %idxprom.i.i = zext nneg i32 %sub23.i.i to i64
   %arrayidx.i.i = getelementptr inbounds [1 x %struct.lua_TValue], ptr %upvalue.i.i, i64 0, i64 %idxprom.i.i
-  br i1 %cmp21.not.i.i, label %lua_typename.argprom.exit, label %index2adr.exit.i
+  br i1 %cmp21.not.i.i, label %lua_typename.exit, label %index2adr.exit.i
 
 index2adr.exit.i:                                 ; preds = %sw.default.i.i, %sw.bb15.i.i, %sw.bb10.i.i, %sw.bb.i.i, %if.then5.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %add.ptr8.i.i, %if.then5.i.i ], [ %arrayidx.i.i, %sw.default.i.i ], [ %l_gt.i.i, %sw.bb15.i.i ], [ %env.i.i, %sw.bb10.i.i ], [ %l_registry.i.i, %sw.bb.i.i ], [ %add.ptr.i.i, %if.then.i.i ]
   %cmp.i = icmp eq ptr %retval.0.i.i, @luaO_nilobject_
-  br i1 %cmp.i, label %lua_typename.argprom.exit, label %lua_type.exit
+  br i1 %cmp.i, label %lua_typename.exit, label %lua_type.exit
 
 lua_type.exit:                                    ; preds = %index2adr.exit.i
   %tt.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   %14 = load i32, ptr %tt.i, align 8
   %cmp.i5 = icmp eq i32 %14, -1
-  br i1 %cmp.i5, label %lua_typename.argprom.exit, label %cond.false.i6
+  br i1 %cmp.i5, label %lua_typename.exit, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %lua_type.exit
   %idxprom.i = sext i32 %14 to i64
   %arrayidx.i = getelementptr inbounds [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i
   %15 = load ptr, ptr %arrayidx.i, align 8
-  br label %lua_typename.argprom.exit
+  br label %lua_typename.exit
 
-lua_typename.argprom.exit:                        ; preds = %sw.default.i.i, %if.then.i.i, %index2adr.exit.i, %lua_type.exit, %cond.false.i6
+lua_typename.exit:                                ; preds = %sw.default.i.i, %if.then.i.i, %index2adr.exit.i, %lua_type.exit, %cond.false.i6
   %cond.i7 = phi ptr [ %15, %cond.false.i6 ], [ @.str.131, %lua_type.exit ], [ @.str.131, %index2adr.exit.i ], [ @.str.131, %if.then.i.i ], [ @.str.131, %sw.default.i.i ]
   %call2 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.130, ptr noundef %tname, ptr noundef %cond.i7)
-  tail call fastcc void @luaL_argerror.retelim(ptr noundef %L, i32 noundef %narg, ptr noundef %call2)
+  tail call fastcc void @luaL_argerror(ptr noundef %L, i32 noundef %narg, ptr noundef %call2)
   unreachable
 }
 
@@ -19080,7 +19080,7 @@ land.lhs.true.i:                                  ; preds = %cond.false
   br i1 %tobool.not.i, label %if.then.i, label %cond.end
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef %narg, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef %narg, ptr noundef nonnull @.str.24)
   unreachable
 
 cond.end:                                         ; preds = %entry, %land.lhs.true.i, %cond.false, %lua_type.exit
@@ -21312,9 +21312,9 @@ sw.bb.i206:                                       ; preds = %str_checkname.exit.
   call fastcc void @new_localvar(ptr noundef %ls, ptr noundef %call3.i.i, i32 noundef 2)
   call fastcc void @new_localvar(ptr noundef %ls, ptr noundef %139, i32 noundef 3)
   call fastcc void @checknext(ptr noundef %ls, i32 noundef 61)
-  call fastcc void @exp1.retelim(ptr noundef %ls)
+  call fastcc void @exp1(ptr noundef %ls)
   call fastcc void @checknext(ptr noundef %ls, i32 noundef 44)
-  call fastcc void @exp1.retelim(ptr noundef %ls)
+  call fastcc void @exp1(ptr noundef %ls)
   %145 = load i32, ptr %t, align 8
   %cmp.i616 = icmp eq i32 %145, 44
   br i1 %cmp.i616, label %if.then.i618, label %if.else.i14.i
@@ -21337,7 +21337,7 @@ if.else.i.i624:                                   ; preds = %if.then.i618
   br label %if.then.i13.i
 
 if.then.i13.i:                                    ; preds = %if.then.i.i623, %if.else.i.i624
-  call fastcc void @exp1.retelim(ptr noundef %ls)
+  call fastcc void @exp1(ptr noundef %ls)
   br label %fornum.exit.i
 
 if.else.i14.i:                                    ; preds = %sw.bb.i206
@@ -21596,7 +21596,7 @@ luaK_exp2nextreg.exit.i541:                       ; preds = %if.end.i.i.i.i537, 
 explist1.exit:                                    ; preds = %luaK_exp2nextreg.exit.i541, %checknext.exit
   %n.0.i.lcssa = phi i32 [ 1, %checknext.exit ], [ %inc.i544, %luaK_exp2nextreg.exit.i541 ]
   %ls.val.i.i = load ptr, ptr %fs1.i21, align 8
-  call fastcc void @adjust_assign.argprom(ptr %ls.val.i.i, i32 noundef 3, i32 noundef %n.0.i.lcssa, ptr noundef %e.i.i)
+  call fastcc void @adjust_assign(ptr %ls.val.i.i, i32 noundef 3, i32 noundef %n.0.i.lcssa, ptr noundef %e.i.i)
   %189 = load i32, ptr %freereg.i16.i, align 4
   %add.i = add nsw i32 %189, 3
   %190 = load ptr, ptr %156, align 8
@@ -22420,7 +22420,7 @@ if.else.i60:                                      ; preds = %str_checkname.exit.
 if.end.i56:                                       ; preds = %luaK_exp2nextreg.exit475, %if.then.i47, %if.else.i60
   %nexps.0.i = phi i32 [ 0, %if.else.i60 ], [ 1, %if.then.i47 ], [ %inc.i.i54, %luaK_exp2nextreg.exit475 ]
   %ls.val9.i = load ptr, ptr %fs1.i21, align 8
-  call fastcc void @adjust_assign.argprom(ptr %ls.val9.i, i32 noundef %inc.i44, i32 noundef %nexps.0.i, ptr noundef %e.i40)
+  call fastcc void @adjust_assign(ptr %ls.val9.i, i32 noundef %inc.i44, i32 noundef %nexps.0.i, ptr noundef %e.i40)
   %ls.val.i = load ptr, ptr %fs1.i21, align 8
   %nactvar.i.i = getelementptr inbounds i8, ptr %ls.val.i, i64 74
   %306 = load i8, ptr %nactvar.i.i, align 2
@@ -22867,7 +22867,7 @@ entry:
   %nactvar.i = getelementptr inbounds i8, ptr %1, i64 74
   %3 = load i8, ptr %nactvar.i, align 2
   %cmp2.i.not = icmp eq i8 %3, 0
-  br i1 %cmp2.i.not, label %removevars.argprom.exit, label %while.body.lr.ph.i
+  br i1 %cmp2.i.not, label %removevars.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
   %pc.i = getelementptr inbounds i8, ptr %1, i64 48
@@ -22890,9 +22890,9 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   store i32 %.pre.i, ptr %endpc.i, align 4
   %8 = load i8, ptr %nactvar.i, align 2
   %cmp.i.not = icmp eq i8 %8, 0
-  br i1 %cmp.i.not, label %removevars.argprom.exit, label %while.body.i, !llvm.loop !99
+  br i1 %cmp.i.not, label %removevars.exit, label %while.body.i, !llvm.loop !99
 
-removevars.argprom.exit:                          ; preds = %while.body.i, %entry
+removevars.exit:                                  ; preds = %while.body.i, %entry
   %ls.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %9 = load ptr, ptr %ls.i.i, align 8
   %lastline.i.i = getelementptr inbounds i8, ptr %9, i64 8
@@ -22903,7 +22903,7 @@ removevars.argprom.exit:                          ; preds = %while.body.i, %entr
   %cmp = icmp sgt i32 %11, -2
   br i1 %cmp, label %cond.true, label %cond.false
 
-cond.true:                                        ; preds = %removevars.argprom.exit
+cond.true:                                        ; preds = %removevars.exit
   %code = getelementptr inbounds i8, ptr %2, i64 24
   %12 = load ptr, ptr %code, align 8
   %sizecode = getelementptr inbounds i8, ptr %2, i64 80
@@ -22971,7 +22971,7 @@ luaM_realloc_.exit:                               ; preds = %cond.true
   %cmp16 = icmp sgt i32 %24, -2
   br i1 %cmp16, label %cond.true18, label %cond.false25
 
-cond.false:                                       ; preds = %removevars.argprom.exit
+cond.false:                                       ; preds = %removevars.exit
   tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef %0, ptr noundef nonnull @.str.5)
   unreachable
 
@@ -26148,7 +26148,7 @@ while.end:                                        ; preds = %cond.end39, %if.end
   %59 = getelementptr i8, ptr %ls.val, i64 8
   %ls.val.val24 = load i64, ptr %59, align 8
   %tobool.not2.i = icmp eq i64 %ls.val.val24, 0
-  br i1 %tobool.not2.i, label %buffreplace.argprom.argprom.exit, label %while.body.i
+  br i1 %tobool.not2.i, label %buffreplace.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %while.end, %if.end.i77
   %dec3.in.i = phi i64 [ %dec3.i, %if.end.i77 ], [ %ls.val.val24, %while.end ]
@@ -26164,15 +26164,15 @@ if.then.i:                                        ; preds = %while.body.i
 
 if.end.i77:                                       ; preds = %if.then.i, %while.body.i
   %tobool.not.i78 = icmp eq i64 %dec3.i, 0
-  br i1 %tobool.not.i78, label %buffreplace.argprom.argprom.exit.loopexit, label %while.body.i, !llvm.loop !107
+  br i1 %tobool.not.i78, label %buffreplace.exit.loopexit, label %while.body.i, !llvm.loop !107
 
-buffreplace.argprom.argprom.exit.loopexit:        ; preds = %if.end.i77
+buffreplace.exit.loopexit:                        ; preds = %if.end.i77
   %.pre103 = load ptr, ptr %58, align 8
   %.pre104 = load ptr, ptr %.pre103, align 8
-  br label %buffreplace.argprom.argprom.exit
+  br label %buffreplace.exit
 
-buffreplace.argprom.argprom.exit:                 ; preds = %buffreplace.argprom.argprom.exit.loopexit, %while.end
-  %61 = phi ptr [ %.pre104, %buffreplace.argprom.argprom.exit.loopexit ], [ %ls.val.val, %while.end ]
+buffreplace.exit:                                 ; preds = %buffreplace.exit.loopexit, %while.end
+  %61 = phi ptr [ %.pre104, %buffreplace.exit.loopexit ], [ %ls.val.val, %while.end ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i)
   %call.i79 = call double @strtod(ptr noundef %61, ptr noundef nonnull %endptr.i) #37
   store double %call.i79, ptr %seminfo, align 8
@@ -26180,11 +26180,11 @@ buffreplace.argprom.argprom.exit:                 ; preds = %buffreplace.argprom
   %cmp.i80 = icmp eq ptr %62, %61
   br i1 %cmp.i80, label %luaO_str2d.exit.thread, label %if.end.i81
 
-luaO_str2d.exit.thread:                           ; preds = %buffreplace.argprom.argprom.exit
+luaO_str2d.exit.thread:                           ; preds = %buffreplace.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i)
   br label %if.then44
 
-if.end.i81:                                       ; preds = %buffreplace.argprom.argprom.exit
+if.end.i81:                                       ; preds = %buffreplace.exit
   %63 = load i8, ptr %62, align 1
   switch i8 %63, label %if.end9.i [
     i8 120, label %if.then6.i
@@ -26275,7 +26275,7 @@ land.lhs.true.i.i:                                ; preds = %do.body.i.i
   %i_key.i.i = getelementptr inbounds i8, ptr %n.0.i.i, i64 16
   %9 = load ptr, ptr %i_key.i.i, align 8
   %cmp5.i.i = icmp eq ptr %9, %call
-  br i1 %cmp5.i.i, label %luaH_getstr.argprom.exit.i, label %if.else.i.i
+  br i1 %cmp5.i.i, label %luaH_getstr.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i.i, %do.body.i.i
   %next.i.i = getelementptr inbounds i8, ptr %n.0.i.i, i64 32
@@ -26283,19 +26283,19 @@ if.else.i.i:                                      ; preds = %land.lhs.true.i.i, 
   %tobool.not.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i, label %if.else.i, label %do.body.i.i, !llvm.loop !28
 
-luaH_getstr.argprom.exit.i:                       ; preds = %land.lhs.true.i.i
+luaH_getstr.exit.i:                               ; preds = %land.lhs.true.i.i
   %cmp.not.i = icmp eq ptr %n.0.i.i, @luaO_nilobject_
   br i1 %cmp.not.i, label %if.else.i, label %luaH_setstr.exit
 
-if.else.i:                                        ; preds = %if.else.i.i, %luaH_getstr.argprom.exit.i
+if.else.i:                                        ; preds = %if.else.i.i, %luaH_getstr.exit.i
   store ptr %call, ptr %k.i, align 8
   %tt.i = getelementptr inbounds i8, ptr %k.i, i64 8
   store i32 4, ptr %tt.i, align 8
   %call1.i = call fastcc ptr @newkey(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %k.i)
   br label %luaH_setstr.exit
 
-luaH_setstr.exit:                                 ; preds = %luaH_getstr.argprom.exit.i, %if.else.i
-  %retval.0.i = phi ptr [ %call1.i, %if.else.i ], [ %n.0.i.i, %luaH_getstr.argprom.exit.i ]
+luaH_setstr.exit:                                 ; preds = %luaH_getstr.exit.i, %if.else.i
+  %retval.0.i = phi ptr [ %call1.i, %if.else.i ], [ %n.0.i.i, %luaH_getstr.exit.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %k.i)
   %tt = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %11 = load i32, ptr %tt, align 8
@@ -26791,13 +26791,13 @@ land.lhs.true.i.i:                                ; preds = %sw.bb1
   %4 = shl nuw i64 1, %idxprom1.i.i
   %5 = and i64 %4, 266027925503
   %tobool.not.not.i.i = icmp eq i64 %5, 0
-  br i1 %tobool.not.not.i.i, label %invertjump.argprom.argprom.exit, label %if.else.i.i
+  br i1 %tobool.not.not.i.i, label %invertjump.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i.i, %sw.bb1
   %.pre.i = load i32, ptr %arrayidx.i.i, align 4
-  br label %invertjump.argprom.argprom.exit
+  br label %invertjump.exit
 
-invertjump.argprom.argprom.exit:                  ; preds = %land.lhs.true.i.i, %if.else.i.i
+invertjump.exit:                                  ; preds = %land.lhs.true.i.i, %if.else.i.i
   %6 = phi i32 [ %.pre.i, %if.else.i.i ], [ %3, %land.lhs.true.i.i ]
   %retval.0.i.i = phi ptr [ %arrayidx.i.i, %if.else.i.i ], [ %add.ptr.i.i, %land.lhs.true.i.i ]
   %and.i = and i32 %6, -16321
@@ -26813,8 +26813,8 @@ sw.default:                                       ; preds = %entry
   %call = tail call fastcc i32 @jumponcond(ptr noundef %fs, ptr noundef %e, i32 noundef 0)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.default, %invertjump.argprom.argprom.exit
-  %pc.0 = phi i32 [ %call, %sw.default ], [ %8, %invertjump.argprom.argprom.exit ]
+sw.epilog:                                        ; preds = %sw.default, %invertjump.exit
+  %pc.0 = phi i32 [ %call, %sw.default ], [ %8, %invertjump.exit ]
   %f = getelementptr inbounds i8, ptr %e, i64 20
   %cmp.i = icmp eq i32 %pc.0, -1
   br i1 %cmp.i, label %luaK_concat.exit, label %if.else.i
@@ -27082,13 +27082,13 @@ land.lhs.true.i.i.i.i:                            ; preds = %sw.bb4.i.i
   %13 = shl nuw i64 1, %idxprom1.i.i.i.i
   %14 = and i64 %13, 266027925503
   %tobool.not.not.i.i.i.i = icmp eq i64 %14, 0
-  br i1 %tobool.not.not.i.i.i.i, label %invertjump.argprom.argprom.exit.i.i, label %if.else.i.i.i.i
+  br i1 %tobool.not.not.i.i.i.i, label %invertjump.exit.i.i, label %if.else.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i, %sw.bb4.i.i
   %.pre.i.i.i = load i32, ptr %arrayidx.i.i.i.i, align 4
-  br label %invertjump.argprom.argprom.exit.i.i
+  br label %invertjump.exit.i.i
 
-invertjump.argprom.argprom.exit.i.i:              ; preds = %if.else.i.i.i.i, %land.lhs.true.i.i.i.i
+invertjump.exit.i.i:                              ; preds = %if.else.i.i.i.i, %land.lhs.true.i.i.i.i
   %15 = phi i32 [ %.pre.i.i.i, %if.else.i.i.i.i ], [ %12, %land.lhs.true.i.i.i.i ]
   %retval.0.i.i.i.i = phi ptr [ %arrayidx.i.i.i.i, %if.else.i.i.i.i ], [ %add.ptr.i.i.i.i, %land.lhs.true.i.i.i.i ]
   %and.i.i.i = and i32 %15, -16321
@@ -27173,7 +27173,7 @@ freeexp.exit.i.i:                                 ; preds = %if.then.i.i.i.i, %l
   store i32 11, ptr %v, align 8
   br label %sw.epilog.i.i
 
-sw.epilog.i.i:                                    ; preds = %freeexp.exit.i.i, %invertjump.argprom.argprom.exit.i.i, %sw.bb2.i.i, %sw.bb.i.i, %sw.bb2.i23
+sw.epilog.i.i:                                    ; preds = %freeexp.exit.i.i, %invertjump.exit.i.i, %sw.bb2.i.i, %sw.bb.i.i, %sw.bb2.i23
   %f.i10.i = getelementptr inbounds i8, ptr %v, i64 20
   %29 = load i32, ptr %f.i10.i, align 4
   %t.i11.i = getelementptr inbounds i8, ptr %v, i64 16
@@ -27189,9 +27189,9 @@ for.body.preheader.i.i.i:                         ; preds = %sw.epilog.i.i
   %fs.val4.val.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   br label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %patchtestreg.argprom.argprom.exit.i.i.i, %for.body.preheader.i.i.i
-  %fs.val.val13.i.i.i = phi ptr [ %fs.val.val.i.i.i, %patchtestreg.argprom.argprom.exit.i.i.i ], [ %fs.val4.val.pre.i.i.i, %for.body.preheader.i.i.i ]
-  %list.addr.07.i.i.i = phi i32 [ %add1.i.i.i.i, %patchtestreg.argprom.argprom.exit.i.i.i ], [ %30, %for.body.preheader.i.i.i ]
+for.body.i.i.i:                                   ; preds = %patchtestreg.exit.i.i.i, %for.body.preheader.i.i.i
+  %fs.val.val13.i.i.i = phi ptr [ %fs.val.val.i.i.i, %patchtestreg.exit.i.i.i ], [ %fs.val4.val.pre.i.i.i, %for.body.preheader.i.i.i ]
+  %list.addr.07.i.i.i = phi i32 [ %add1.i.i.i.i, %patchtestreg.exit.i.i.i ], [ %30, %for.body.preheader.i.i.i ]
   %idxprom.i.i.i.i.i = sext i32 %list.addr.07.i.i.i to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds i32, ptr %fs.val.val13.i.i.i, i64 %idxprom.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp sgt i32 %list.addr.07.i.i.i, 0
@@ -27205,20 +27205,20 @@ land.lhs.true.i.i.i.i.i:                          ; preds = %for.body.i.i.i
   %32 = shl nuw i64 1, %idxprom1.i.i.i.i.i
   %33 = and i64 %32, 266027925503
   %tobool.not.not.i.i.i.i.i = icmp eq i64 %33, 0
-  br i1 %tobool.not.not.i.i.i.i.i, label %getjumpcontrol.argprom.argprom.exit.i.i.i.i, label %if.else.i.i.i.i.i
+  br i1 %tobool.not.not.i.i.i.i.i, label %getjumpcontrol.exit.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i.i, %for.body.i.i.i
   %.pre.i.i25.i.i = load i32, ptr %arrayidx.i.i.i.i.i, align 4
-  br label %getjumpcontrol.argprom.argprom.exit.i.i.i.i
+  br label %getjumpcontrol.exit.i.i.i.i
 
-getjumpcontrol.argprom.argprom.exit.i.i.i.i:      ; preds = %if.else.i.i.i.i.i, %land.lhs.true.i.i.i.i.i
+getjumpcontrol.exit.i.i.i.i:                      ; preds = %if.else.i.i.i.i.i, %land.lhs.true.i.i.i.i.i
   %34 = phi i32 [ %.pre.i.i25.i.i, %if.else.i.i.i.i.i ], [ %31, %land.lhs.true.i.i.i.i.i ]
   %retval.0.i.i.i.i.i = phi ptr [ %arrayidx.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %land.lhs.true.i.i.i.i.i ]
   %and.i.i26.i.i = and i32 %34, 63
   %cmp.not.i.i27.i.i = icmp eq i32 %and.i.i26.i.i, 27
-  br i1 %cmp.not.i.i27.i.i, label %if.end.i.i.i.i, label %patchtestreg.argprom.argprom.exit.i.i.i
+  br i1 %cmp.not.i.i27.i.i, label %if.end.i.i.i.i, label %patchtestreg.exit.i.i.i
 
-if.end.i.i.i.i:                                   ; preds = %getjumpcontrol.argprom.argprom.exit.i.i.i.i
+if.end.i.i.i.i:                                   ; preds = %getjumpcontrol.exit.i.i.i.i
   %35 = lshr i32 %34, 17
   %shl10.i.i.i.i = and i32 %35, 32704
   %or11.i.i.i.i = and i32 %34, 8372250
@@ -27227,10 +27227,10 @@ if.end.i.i.i.i:                                   ; preds = %getjumpcontrol.argp
   %fs.val.pre.i.i.i = load ptr, ptr %5, align 8
   %.phi.trans.insert12.i.i.i = getelementptr i8, ptr %fs.val.pre.i.i.i, i64 24
   %fs.val.val.pre.i.i.i = load ptr, ptr %.phi.trans.insert12.i.i.i, align 8
-  br label %patchtestreg.argprom.argprom.exit.i.i.i
+  br label %patchtestreg.exit.i.i.i
 
-patchtestreg.argprom.argprom.exit.i.i.i:          ; preds = %if.end.i.i.i.i, %getjumpcontrol.argprom.argprom.exit.i.i.i.i
-  %fs.val.val.i.i.i = phi ptr [ %fs.val.val13.i.i.i, %getjumpcontrol.argprom.argprom.exit.i.i.i.i ], [ %fs.val.val.pre.i.i.i, %if.end.i.i.i.i ]
+patchtestreg.exit.i.i.i:                          ; preds = %if.end.i.i.i.i, %getjumpcontrol.exit.i.i.i.i
+  %fs.val.val.i.i.i = phi ptr [ %fs.val.val13.i.i.i, %getjumpcontrol.exit.i.i.i.i ], [ %fs.val.val.pre.i.i.i, %if.end.i.i.i.i ]
   %arrayidx.i.i28.i.i = getelementptr inbounds i32, ptr %fs.val.val.i.i.i, i64 %idxprom.i.i.i.i.i
   %36 = load i32, ptr %arrayidx.i.i28.i.i, align 4
   %shr.i.i.i.i = lshr i32 %36, 14
@@ -27242,7 +27242,7 @@ patchtestreg.argprom.argprom.exit.i.i.i:          ; preds = %if.end.i.i.i.i, %ge
   %cmp.not.i30.i.i = select i1 %cmp.i.i29.i.i, i1 true, i1 %cmp.not15.i.i.i
   br i1 %cmp.not.i30.i.i, label %removevalues.exitthread-pre-split.i.i, label %for.body.i.i.i
 
-removevalues.exitthread-pre-split.i.i:            ; preds = %patchtestreg.argprom.argprom.exit.i.i.i
+removevalues.exitthread-pre-split.i.i:            ; preds = %patchtestreg.exit.i.i.i
   %.pr.i.i = load i32, ptr %t.i11.i, align 8
   br label %removevalues.exit.i.i
 
@@ -27257,9 +27257,9 @@ for.body.preheader.i32.i.i:                       ; preds = %removevalues.exit.i
   %fs.val4.val.pre.i35.i.i = load ptr, ptr %.phi.trans.insert.i34.i.i, align 8
   br label %for.body.i36.i.i
 
-for.body.i36.i.i:                                 ; preds = %patchtestreg.argprom.argprom.exit.i48.i.i, %for.body.preheader.i32.i.i
-  %fs.val.val13.i37.i.i = phi ptr [ %fs.val.val.i49.i.i, %patchtestreg.argprom.argprom.exit.i48.i.i ], [ %fs.val4.val.pre.i35.i.i, %for.body.preheader.i32.i.i ]
-  %list.addr.07.i38.i.i = phi i32 [ %add1.i.i55.i.i, %patchtestreg.argprom.argprom.exit.i48.i.i ], [ %37, %for.body.preheader.i32.i.i ]
+for.body.i36.i.i:                                 ; preds = %patchtestreg.exit.i48.i.i, %for.body.preheader.i32.i.i
+  %fs.val.val13.i37.i.i = phi ptr [ %fs.val.val.i49.i.i, %patchtestreg.exit.i48.i.i ], [ %fs.val4.val.pre.i35.i.i, %for.body.preheader.i32.i.i ]
+  %list.addr.07.i38.i.i = phi i32 [ %add1.i.i55.i.i, %patchtestreg.exit.i48.i.i ], [ %37, %for.body.preheader.i32.i.i ]
   %idxprom.i.i.i39.i.i = sext i32 %list.addr.07.i38.i.i to i64
   %arrayidx.i.i.i40.i.i = getelementptr inbounds i32, ptr %fs.val.val13.i37.i.i, i64 %idxprom.i.i.i39.i.i
   %cmp.i.i.i41.i.i = icmp sgt i32 %list.addr.07.i38.i.i, 0
@@ -27273,20 +27273,20 @@ land.lhs.true.i.i.i65.i.i:                        ; preds = %for.body.i36.i.i
   %39 = shl nuw i64 1, %idxprom1.i.i.i68.i.i
   %40 = and i64 %39, 266027925503
   %tobool.not.not.i.i.i69.i.i = icmp eq i64 %40, 0
-  br i1 %tobool.not.not.i.i.i69.i.i, label %getjumpcontrol.argprom.argprom.exit.i.i44.i.i, label %if.else.i.i.i42.i.i
+  br i1 %tobool.not.not.i.i.i69.i.i, label %getjumpcontrol.exit.i.i44.i.i, label %if.else.i.i.i42.i.i
 
 if.else.i.i.i42.i.i:                              ; preds = %land.lhs.true.i.i.i65.i.i, %for.body.i36.i.i
   %.pre.i.i43.i.i = load i32, ptr %arrayidx.i.i.i40.i.i, align 4
-  br label %getjumpcontrol.argprom.argprom.exit.i.i44.i.i
+  br label %getjumpcontrol.exit.i.i44.i.i
 
-getjumpcontrol.argprom.argprom.exit.i.i44.i.i:    ; preds = %if.else.i.i.i42.i.i, %land.lhs.true.i.i.i65.i.i
+getjumpcontrol.exit.i.i44.i.i:                    ; preds = %if.else.i.i.i42.i.i, %land.lhs.true.i.i.i65.i.i
   %41 = phi i32 [ %.pre.i.i43.i.i, %if.else.i.i.i42.i.i ], [ %38, %land.lhs.true.i.i.i65.i.i ]
   %retval.0.i.i.i45.i.i = phi ptr [ %arrayidx.i.i.i40.i.i, %if.else.i.i.i42.i.i ], [ %add.ptr.i.i.i66.i.i, %land.lhs.true.i.i.i65.i.i ]
   %and.i.i46.i.i = and i32 %41, 63
   %cmp.not.i.i47.i.i = icmp eq i32 %and.i.i46.i.i, 27
-  br i1 %cmp.not.i.i47.i.i, label %if.end.i.i58.i.i, label %patchtestreg.argprom.argprom.exit.i48.i.i
+  br i1 %cmp.not.i.i47.i.i, label %if.end.i.i58.i.i, label %patchtestreg.exit.i48.i.i
 
-if.end.i.i58.i.i:                                 ; preds = %getjumpcontrol.argprom.argprom.exit.i.i44.i.i
+if.end.i.i58.i.i:                                 ; preds = %getjumpcontrol.exit.i.i44.i.i
   %42 = lshr i32 %41, 17
   %shl10.i.i59.i.i = and i32 %42, 32704
   %or11.i.i60.i.i = and i32 %41, 8372250
@@ -27295,10 +27295,10 @@ if.end.i.i58.i.i:                                 ; preds = %getjumpcontrol.argp
   %fs.val.pre.i62.i.i = load ptr, ptr %5, align 8
   %.phi.trans.insert12.i63.i.i = getelementptr i8, ptr %fs.val.pre.i62.i.i, i64 24
   %fs.val.val.pre.i64.i.i = load ptr, ptr %.phi.trans.insert12.i63.i.i, align 8
-  br label %patchtestreg.argprom.argprom.exit.i48.i.i
+  br label %patchtestreg.exit.i48.i.i
 
-patchtestreg.argprom.argprom.exit.i48.i.i:        ; preds = %if.end.i.i58.i.i, %getjumpcontrol.argprom.argprom.exit.i.i44.i.i
-  %fs.val.val.i49.i.i = phi ptr [ %fs.val.val13.i37.i.i, %getjumpcontrol.argprom.argprom.exit.i.i44.i.i ], [ %fs.val.val.pre.i64.i.i, %if.end.i.i58.i.i ]
+patchtestreg.exit.i48.i.i:                        ; preds = %if.end.i.i58.i.i, %getjumpcontrol.exit.i.i44.i.i
+  %fs.val.val.i49.i.i = phi ptr [ %fs.val.val13.i37.i.i, %getjumpcontrol.exit.i.i44.i.i ], [ %fs.val.val.pre.i64.i.i, %if.end.i.i58.i.i ]
   %arrayidx.i.i50.i.i = getelementptr inbounds i32, ptr %fs.val.val.i49.i.i, i64 %idxprom.i.i.i39.i.i
   %43 = load i32, ptr %arrayidx.i.i50.i.i, align 4
   %shr.i.i51.i.i = lshr i32 %43, 14
@@ -27323,7 +27323,7 @@ sw.epilog.sink.split.i:                           ; preds = %sw.epilog.sink.spli
 default.unreachable249:                           ; preds = %luaX_next.exit
   unreachable
 
-luaK_prefix.exit:                                 ; preds = %patchtestreg.argprom.argprom.exit.i48.i.i, %removevalues.exit.i.i, %sw.epilog.sink.split.i
+luaK_prefix.exit:                                 ; preds = %patchtestreg.exit.i48.i.i, %removevalues.exit.i.i, %sw.epilog.sink.split.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %e2.i)
   br label %if.endthread-pre-split
 
@@ -29104,19 +29104,19 @@ land.lhs.true.i.i:                                ; preds = %for.body.i
   %12 = shl nuw i64 1, %idxprom1.i.i
   %13 = and i64 %12, 266027925503
   %tobool.not.not.i.i = icmp eq i64 %13, 0
-  br i1 %tobool.not.not.i.i, label %getjumpcontrol.argprom.argprom.exit.i, label %if.else.i.i
+  br i1 %tobool.not.not.i.i, label %getjumpcontrol.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i.i, %for.body.i
   %.pre.i = load i32, ptr %arrayidx.i.i32, align 4
-  br label %getjumpcontrol.argprom.argprom.exit.i
+  br label %getjumpcontrol.exit.i
 
-getjumpcontrol.argprom.argprom.exit.i:            ; preds = %if.else.i.i, %land.lhs.true.i.i
+getjumpcontrol.exit.i:                            ; preds = %if.else.i.i, %land.lhs.true.i.i
   %14 = phi i32 [ %.pre.i, %if.else.i.i ], [ %11, %land.lhs.true.i.i ]
   %and.i = and i32 %14, 63
   %cmp1.not.i = icmp eq i32 %and.i, 27
   br i1 %cmp1.not.i, label %for.inc.i, label %if.then8
 
-for.inc.i:                                        ; preds = %getjumpcontrol.argprom.argprom.exit.i
+for.inc.i:                                        ; preds = %getjumpcontrol.exit.i
   %15 = load i32, ptr %arrayidx.i.i32, align 4
   %shr.i.i34 = lshr i32 %15, 14
   %sub.i.i35 = add nsw i32 %shr.i.i34, -131071
@@ -29152,19 +29152,19 @@ land.lhs.true.i.i62:                              ; preds = %for.body.i43
   %18 = shl nuw i64 1, %idxprom1.i.i65
   %19 = and i64 %18, 266027925503
   %tobool.not.not.i.i66 = icmp eq i64 %19, 0
-  br i1 %tobool.not.not.i.i66, label %getjumpcontrol.argprom.argprom.exit.i50, label %if.else.i.i48
+  br i1 %tobool.not.not.i.i66, label %getjumpcontrol.exit.i50, label %if.else.i.i48
 
 if.else.i.i48:                                    ; preds = %land.lhs.true.i.i62, %for.body.i43
   %.pre.i49 = load i32, ptr %arrayidx.i.i46, align 4
-  br label %getjumpcontrol.argprom.argprom.exit.i50
+  br label %getjumpcontrol.exit.i50
 
-getjumpcontrol.argprom.argprom.exit.i50:          ; preds = %if.else.i.i48, %land.lhs.true.i.i62
+getjumpcontrol.exit.i50:                          ; preds = %if.else.i.i48, %land.lhs.true.i.i62
   %20 = phi i32 [ %.pre.i49, %if.else.i.i48 ], [ %17, %land.lhs.true.i.i62 ]
   %and.i51 = and i32 %20, 63
   %cmp1.not.i52 = icmp eq i32 %and.i51, 27
   br i1 %cmp1.not.i52, label %for.inc.i54, label %if.then8
 
-for.inc.i54:                                      ; preds = %getjumpcontrol.argprom.argprom.exit.i50
+for.inc.i54:                                      ; preds = %getjumpcontrol.exit.i50
   %21 = load i32, ptr %arrayidx.i.i46, align 4
   %shr.i.i55 = lshr i32 %21, 14
   %sub.i.i56 = add nsw i32 %shr.i.i55, -131071
@@ -29175,7 +29175,7 @@ for.inc.i54:                                      ; preds = %getjumpcontrol.argp
   %cmp.not.i61 = select i1 %cmp.i7.i57, i1 true, i1 %cmp.not12.i60
   br i1 %cmp.not.i61, label %if.end14, label %for.body.i43
 
-if.then8:                                         ; preds = %getjumpcontrol.argprom.argprom.exit.i, %getjumpcontrol.argprom.argprom.exit.i50
+if.then8:                                         ; preds = %getjumpcontrol.exit.i, %getjumpcontrol.exit.i50
   %22 = load i32, ptr %e, align 8
   %cmp10 = icmp eq i32 %22, 10
   br i1 %cmp10, label %cond.end, label %cond.false
@@ -29527,19 +29527,19 @@ land.lhs.true.i.i:                                ; preds = %while.body
   %3 = shl nuw i64 1, %idxprom1.i.i
   %4 = and i64 %3, 266027925503
   %tobool.not.not.i.i = icmp eq i64 %4, 0
-  br i1 %tobool.not.not.i.i, label %getjumpcontrol.argprom.argprom.exit.i, label %if.else.i.i
+  br i1 %tobool.not.not.i.i, label %getjumpcontrol.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i.i, %while.body
-  br label %getjumpcontrol.argprom.argprom.exit.i
+  br label %getjumpcontrol.exit.i
 
-getjumpcontrol.argprom.argprom.exit.i:            ; preds = %if.else.i.i, %land.lhs.true.i.i
+getjumpcontrol.exit.i:                            ; preds = %if.else.i.i, %land.lhs.true.i.i
   %5 = phi i32 [ %1, %if.else.i.i ], [ %2, %land.lhs.true.i.i ]
   %retval.0.i.i = phi ptr [ %arrayidx.i, %if.else.i.i ], [ %add.ptr.i.i, %land.lhs.true.i.i ]
   %and.i = and i32 %5, 63
   %cmp.not.i = icmp eq i32 %and.i, 27
   br i1 %cmp.not.i, label %if.end.i, label %if.else
 
-if.end.i:                                         ; preds = %getjumpcontrol.argprom.argprom.exit.i
+if.end.i:                                         ; preds = %getjumpcontrol.exit.i
   %shr2.i = lshr i32 %5, 23
   %cmp4.not.i = icmp eq i32 %reg, %shr2.i
   %or.cond.i = or i1 %cmp1.not.i, %cmp4.not.i
@@ -29582,7 +29582,7 @@ fixjump.exit:                                     ; preds = %if.then
   %12 = load i32, ptr %arrayidx.i14, align 4
   br label %if.end
 
-if.else:                                          ; preds = %getjumpcontrol.argprom.argprom.exit.i
+if.else:                                          ; preds = %getjumpcontrol.exit.i
   %add.neg.i19 = xor i32 %list.addr.037, -1
   %sub.i20 = add i32 %dtarget, %add.neg.i19
   %13 = tail call i32 @llvm.abs.i32(i32 %sub.i20, i1 true)
@@ -31468,7 +31468,7 @@ entry:
   %t = getelementptr inbounds i8, ptr %ls, i64 16
   %2 = load i32, ptr %t, align 8
   %cmp.not = icmp eq i32 %2, 41
-  br i1 %cmp.not, label %adjustlocalvars.argprom.exit, label %do.body.preheader
+  br i1 %cmp.not, label %adjustlocalvars.exit, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %entry
   %seminfo.i = getelementptr inbounds i8, ptr %ls, i64 24
@@ -31578,7 +31578,7 @@ if.end:                                           ; preds = %if.then.i, %if.else
   %conv2.i = add i8 %16, %17
   store i8 %conv2.i, ptr %nactvar.i, align 2
   %tobool.not1.i = icmp eq i32 %nparams.1, 0
-  br i1 %tobool.not1.i, label %adjustlocalvars.argprom.exit, label %for.body.lr.ph.i
+  br i1 %tobool.not1.i, label %adjustlocalvars.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end.thread, %if.end
   %nactvar.i55 = phi ptr [ %nactvar.i50, %if.end.thread ], [ %nactvar.i, %if.end ]
@@ -31605,9 +31605,9 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store i32 %.pre.i, ptr %startpc.i, align 8
   %dec.i = add nsw i32 %nvars.addr.02.i, -1
   %tobool.not.i = icmp eq i32 %dec.i, 0
-  br i1 %tobool.not.i, label %adjustlocalvars.argprom.exit, label %for.body.i, !llvm.loop !97
+  br i1 %tobool.not.i, label %adjustlocalvars.exit, label %for.body.i, !llvm.loop !97
 
-adjustlocalvars.argprom.exit:                     ; preds = %for.body.i, %entry, %if.end
+adjustlocalvars.exit:                             ; preds = %for.body.i, %entry, %if.end
   %nactvar = getelementptr inbounds i8, ptr %0, i64 74
   %22 = load i8, ptr %nactvar, align 2
   %23 = load i8, ptr %is_vararg, align 2
@@ -31627,7 +31627,7 @@ adjustlocalvars.argprom.exit:                     ; preds = %for.body.i, %entry,
   %cmp.i.i = icmp sgt i32 %add.i.i, %conv.i.i
   br i1 %cmp.i.i, label %if.then.i.i27, label %luaK_reserveregs.exit
 
-if.then.i.i27:                                    ; preds = %adjustlocalvars.argprom.exit
+if.then.i.i27:                                    ; preds = %adjustlocalvars.exit
   %cmp2.i.i = icmp ugt i32 %add.i.i, 249
   br i1 %cmp2.i.i, label %if.then4.i.i, label %if.end.i.i
 
@@ -31646,8 +31646,8 @@ if.end.i.i:                                       ; preds = %if.then.i.i27
   %.pre3.i = add nsw i32 %.pre.i28, %conv16
   br label %luaK_reserveregs.exit
 
-luaK_reserveregs.exit:                            ; preds = %adjustlocalvars.argprom.exit, %if.end.i.i
-  %add.pre-phi.i = phi i32 [ %add.i.i, %adjustlocalvars.argprom.exit ], [ %.pre3.i, %if.end.i.i ]
+luaK_reserveregs.exit:                            ; preds = %adjustlocalvars.exit, %if.end.i.i
+  %add.pre-phi.i = phi i32 [ %add.i.i, %adjustlocalvars.exit ], [ %.pre3.i, %if.end.i.i ]
   store i32 %add.pre-phi.i, ptr %freereg.i.i, align 4
   ret void
 }
@@ -32780,7 +32780,7 @@ entry:
   %nactvar.i = getelementptr inbounds i8, ptr %.val, i64 74
   %5 = load i8, ptr %nactvar.i, align 2
   %cmp2.i = icmp ult i8 %3, %5
-  br i1 %cmp2.i, label %while.body.lr.ph.i, label %removevars.argprom.exit
+  br i1 %cmp2.i, label %while.body.lr.ph.i, label %removevars.exit
 
 while.body.lr.ph.i:                               ; preds = %entry
   %pc.i = getelementptr inbounds i8, ptr %.val, i64 48
@@ -32803,15 +32803,15 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   store i32 %.pre.i, ptr %endpc.i, align 4
   %10 = load i8, ptr %nactvar.i, align 2
   %cmp.i = icmp ugt i8 %10, %3
-  br i1 %cmp.i, label %while.body.i, label %removevars.argprom.exit, !llvm.loop !99
+  br i1 %cmp.i, label %while.body.i, label %removevars.exit, !llvm.loop !99
 
-removevars.argprom.exit:                          ; preds = %while.body.i, %entry
+removevars.exit:                                  ; preds = %while.body.i, %entry
   %upval = getelementptr inbounds i8, ptr %0, i64 13
   %11 = load i8, ptr %upval, align 1
   %tobool.not = icmp eq i8 %11, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %removevars.argprom.exit
+if.then:                                          ; preds = %removevars.exit
   %12 = load i8, ptr %nactvar, align 4
   %conv4 = zext i8 %12 to i32
   %shl1.i = shl nuw nsw i32 %conv4, 6
@@ -32822,7 +32822,7 @@ if.then:                                          ; preds = %removevars.argprom.
   %call.i = tail call fastcc i32 @luaK_code(ptr noundef %fs, i32 noundef %or.i, i32 noundef %14)
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %removevars.argprom.exit
+if.end:                                           ; preds = %if.then, %removevars.exit
   %nactvar5 = getelementptr inbounds i8, ptr %fs, i64 74
   %15 = load i8, ptr %nactvar5, align 2
   %conv6 = zext i8 %15 to i32
@@ -32895,7 +32895,7 @@ luaK_patchtohere.exit:                            ; preds = %if.end, %if.then2.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @exp1.retelim(ptr noundef nonnull %ls) unnamed_addr #0 {
+define internal fastcc void @exp1(ptr noundef nonnull %ls) unnamed_addr #0 {
 entry:
   %e = alloca %struct.expdesc, align 8
   %call.i = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %e, i32 noundef 0)
@@ -32997,15 +32997,15 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   store i32 %.pre.i, ptr %startpc.i, align 8
   %dec.i = add nsw i32 %nvars.addr.02.i, -1
   %tobool.not.i = icmp eq i32 %dec.i, 0
-  br i1 %tobool.not.i, label %adjustlocalvars.argprom.exit, label %for.body.i, !llvm.loop !97
+  br i1 %tobool.not.i, label %adjustlocalvars.exit, label %for.body.i, !llvm.loop !97
 
-adjustlocalvars.argprom.exit:                     ; preds = %for.body.i
+adjustlocalvars.exit:                             ; preds = %for.body.i
   %t.i.i = getelementptr inbounds i8, ptr %ls, i64 16
   %6 = load i32, ptr %t.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %6, 259
   br i1 %cmp.not.i.i, label %check.exit.i, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %adjustlocalvars.argprom.exit
+if.then.i.i:                                      ; preds = %adjustlocalvars.exit
   %L.i.i.i = getelementptr inbounds i8, ptr %ls, i64 56
   %7 = load ptr, ptr %L.i.i.i, align 8
   %call1.i.i.i = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %7, ptr noundef nonnull @.str.164, ptr noundef nonnull @.str.65)
@@ -33013,7 +33013,7 @@ if.then.i.i:                                      ; preds = %adjustlocalvars.arg
   tail call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %ls, ptr noundef %call1.i.i.i, i32 noundef %8)
   unreachable
 
-check.exit.i:                                     ; preds = %adjustlocalvars.argprom.exit
+check.exit.i:                                     ; preds = %adjustlocalvars.exit
   %linenumber.i.i = getelementptr inbounds i8, ptr %ls, i64 4
   %9 = load i32, ptr %linenumber.i.i, align 4
   %lastline.i.i = getelementptr inbounds i8, ptr %ls, i64 8
@@ -33129,7 +33129,7 @@ cond.end:                                         ; preds = %fixjump.exit.i.i, %
   %conv2.i29 = add i8 %23, %24
   store i8 %conv2.i29, ptr %nactvar.i28, align 2
   %tobool.not1.i = icmp eq i32 %nvars, 0
-  br i1 %tobool.not1.i, label %adjustlocalvars.argprom.exit44, label %for.body.lr.ph.i
+  br i1 %tobool.not1.i, label %adjustlocalvars.exit44, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %cond.end
   %pc.i30 = getelementptr inbounds i8, ptr %ls.val, i64 48
@@ -33153,9 +33153,9 @@ for.body.i33:                                     ; preds = %for.body.i33, %for.
   store i32 %.pre.i32, ptr %startpc.i41, align 8
   %dec.i42 = add nsw i32 %nvars.addr.02.i34, -1
   %tobool.not.i43 = icmp eq i32 %dec.i42, 0
-  br i1 %tobool.not.i43, label %adjustlocalvars.argprom.exit44, label %for.body.i33, !llvm.loop !97
+  br i1 %tobool.not.i43, label %adjustlocalvars.exit44, label %for.body.i33, !llvm.loop !97
 
-adjustlocalvars.argprom.exit44:                   ; preds = %for.body.i33, %cond.end
+adjustlocalvars.exit44:                           ; preds = %for.body.i33, %cond.end
   %freereg.i.i = getelementptr inbounds i8, ptr %0, i64 60
   %29 = load i32, ptr %freereg.i.i, align 4
   %add.i.i = add nsw i32 %29, %nvars
@@ -33166,7 +33166,7 @@ adjustlocalvars.argprom.exit44:                   ; preds = %for.body.i33, %cond
   %cmp.i.i45 = icmp sgt i32 %add.i.i, %conv.i.i
   br i1 %cmp.i.i45, label %if.then.i.i46, label %luaK_reserveregs.exit
 
-if.then.i.i46:                                    ; preds = %adjustlocalvars.argprom.exit44
+if.then.i.i46:                                    ; preds = %adjustlocalvars.exit44
   %cmp2.i.i = icmp ugt i32 %add.i.i, 249
   br i1 %cmp2.i.i, label %if.then4.i.i, label %if.end.i.i
 
@@ -33185,8 +33185,8 @@ if.end.i.i:                                       ; preds = %if.then.i.i46
   %.pre3.i = add nsw i32 %.pre.i47, %nvars
   br label %luaK_reserveregs.exit
 
-luaK_reserveregs.exit:                            ; preds = %adjustlocalvars.argprom.exit44, %if.end.i.i
-  %add.pre-phi.i = phi i32 [ %add.i.i, %adjustlocalvars.argprom.exit44 ], [ %.pre3.i, %if.end.i.i ]
+luaK_reserveregs.exit:                            ; preds = %adjustlocalvars.exit44, %if.end.i.i
+  %add.pre-phi.i = phi i32 [ %add.i.i, %adjustlocalvars.exit44 ], [ %.pre3.i, %if.end.i.i ]
   store i32 %add.pre-phi.i, ptr %freereg.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %bl.i)
   %34 = load ptr, ptr %fs1, align 8
@@ -33436,7 +33436,7 @@ luaK_patchlist.exit:                              ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @adjust_assign.argprom(ptr nocapture %ls.48.val, i32 noundef %nvars, i32 noundef %nexps, ptr nocapture noundef nonnull %e) unnamed_addr #0 {
+define internal fastcc void @adjust_assign(ptr nocapture %ls.48.val, i32 noundef %nvars, i32 noundef %nexps, ptr nocapture noundef nonnull %e) unnamed_addr #0 {
 entry:
   %sub = sub nsw i32 %nvars, %nexps
   %0 = load i32, ptr %e, align 8
@@ -34152,7 +34152,7 @@ explist1.exit:                                    ; preds = %luaK_exp2nextreg.ex
   br i1 %cmp21.not, label %if.else31, label %if.then23
 
 if.then23:                                        ; preds = %explist1.exit
-  call fastcc void @adjust_assign.argprom(ptr %45, i32 noundef %nvars, i32 noundef %n.0.i.lcssa, ptr noundef %e)
+  call fastcc void @adjust_assign(ptr %45, i32 noundef %nvars, i32 noundef %n.0.i.lcssa, ptr noundef %e)
   %cmp24 = icmp sgt i32 %n.0.i.lcssa, %nvars
   br i1 %cmp24, label %if.then26, label %if.end36
 
@@ -34727,7 +34727,7 @@ if.else.i.luaL_optlstring.exit_crit_edge:         ; preds = %if.else.i
   br label %luaL_optlstring.exit
 
 if.then.i.i:                                      ; preds = %if.else.i
-  call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 2, ptr noundef nonnull @.str.25)
+  call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 2, ptr noundef nonnull @.str.25)
   unreachable
 
 luaL_optlstring.exit:                             ; preds = %if.else.i.luaL_optlstring.exit_crit_edge, %if.then.i
@@ -34746,7 +34746,7 @@ lua_type.exit.i20:                                ; preds = %luaL_optlstring.exi
   br i1 %cmp.not.i, label %luaL_checktype.exit, label %if.then.i22
 
 if.then.i22:                                      ; preds = %lua_type.exit.i20, %luaL_optlstring.exit
-  call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.26)
+  call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.26)
   unreachable
 
 luaL_checktype.exit:                              ; preds = %lua_type.exit.i20
@@ -34838,7 +34838,7 @@ luaO_str2d.exit.i.i:                              ; preds = %while.cond.i.i.i
   br i1 %cmp19.not.i.not.i.i, label %luaL_optinteger.exit, label %if.then.i.i35
 
 if.then.i.i35:                                    ; preds = %land.lhs.true.i.i, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
-  call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 3, ptr noundef nonnull @.str.24)
+  call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 3, ptr noundef nonnull @.str.24)
   unreachable
 
 luaL_optinteger.exit:                             ; preds = %luaO_str2d.exit.thread9.i.i, %luaO_str2d.exit.i.i, %land.lhs.true.i.i, %luaL_checktype.exit, %lua_type.exit.i29, %cond.false.i
@@ -34938,7 +34938,7 @@ luaO_str2d.exit.i.i89:                            ; preds = %while.cond.i.i.i83
   br i1 %cmp19.not.i.not.i.i90, label %cond.end, label %if.then.i42
 
 if.then.i42:                                      ; preds = %land.lhs.true.i, %luaO_str2d.exit.i.i89, %luaO_str2d.exit.thread.i.i95
-  call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 4, ptr noundef nonnull @.str.24)
+  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 4, ptr noundef nonnull @.str.24)
   unreachable
 
 cond.end:                                         ; preds = %luaO_str2d.exit.thread9.i.i94, %luaO_str2d.exit.i.i89, %cond.false, %land.lhs.true.i, %cond.true
@@ -35384,7 +35384,7 @@ lua_type.exit.i:                                  ; preds = %entry
   br i1 %cmp.not.i, label %luaL_checktype.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %lua_type.exit.i, %entry
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.26)
+  tail call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.26)
   unreachable
 
 luaL_checktype.exit:                              ; preds = %lua_type.exit.i
@@ -35479,7 +35479,7 @@ luaO_str2d.exit.i.i:                              ; preds = %while.cond.i.i.i
   br i1 %cmp19.not.i.not.i.i, label %luaL_checkinteger.exit, label %if.then.i17
 
 if.then.i17:                                      ; preds = %land.lhs.true.i, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.24)
   unreachable
 
 luaL_checkinteger.exit:                           ; preds = %luaO_str2d.exit.thread9.i.i, %luaO_str2d.exit.i.i, %land.lhs.true.i, %sw.bb2
@@ -35583,7 +35583,7 @@ lua_rawgeti.exit:                                 ; preds = %land.lhs.true.i.i, 
   br i1 %cmp6, label %for.body, label %sw.epilog, !llvm.loop !126
 
 sw.default:                                       ; preds = %luaL_checktype.exit
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.192)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %L, ptr noundef nonnull @.str.192)
   unreachable
 
 sw.epilog:                                        ; preds = %lua_rawgeti.exit, %luaL_checkinteger.exit, %luaL_checktype.exit
@@ -35612,7 +35612,7 @@ lua_type.exit.i:                                  ; preds = %entry
   br i1 %cmp.not.i, label %luaL_checktype.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %lua_type.exit.i, %entry
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.26)
+  tail call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.26)
   unreachable
 
 luaL_checktype.exit:                              ; preds = %lua_type.exit.i
@@ -35710,7 +35710,7 @@ luaO_str2d.exit.i.i:                              ; preds = %while.cond.i.i.i
   br i1 %cmp19.not.i.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 2, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 2, ptr noundef nonnull @.str.24)
   unreachable
 
 luaL_optinteger.exit:                             ; preds = %luaL_checktype.exit, %lua_type.exit.i23, %cond.false.i
@@ -35909,7 +35909,7 @@ lua_type.exit.i:                                  ; preds = %entry
   br i1 %cmp.not.i, label %luaL_checktype.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %lua_type.exit.i, %entry
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.26)
+  tail call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.26)
   unreachable
 
 luaL_checktype.exit:                              ; preds = %lua_type.exit.i
@@ -35957,7 +35957,7 @@ if.then19.i.i:                                    ; preds = %if.end.i.i
   br label %luaL_checkstack.exit
 
 if.then.i7:                                       ; preds = %luaL_checktype.exit
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.7)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %L, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.7)
   unreachable
 
 luaL_checkstack.exit:                             ; preds = %if.end.i.i, %if.then19.i.i
@@ -35979,7 +35979,7 @@ lua_type.exit:                                    ; preds = %luaL_checkstack.exi
   br i1 %or.cond26, label %if.end, label %if.then.i20
 
 if.then.i20:                                      ; preds = %lua_type.exit
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 2, ptr noundef nonnull @.str.27)
+  tail call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 2, ptr noundef nonnull @.str.27)
   unreachable
 
 if.end:                                           ; preds = %luaL_checkstack.exit, %lua_type.exit
@@ -36092,7 +36092,7 @@ lua_rawgeti.exit:                                 ; preds = %land.lhs.true.i.i, 
   %incdec.ptr.i = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %incdec.ptr.i, ptr %top.i.i, align 8
   %cmp.i.i = icmp eq ptr %14, @luaO_nilobject_
-  br i1 %cmp.i.i, label %lua_typename.argprom.exit, label %lua_isstring.exit
+  br i1 %cmp.i.i, label %lua_typename.exit, label %lua_isstring.exit
 
 lua_isstring.exit:                                ; preds = %lua_rawgeti.exit
   %tt.i.i = getelementptr inbounds i8, ptr %14, i64 8
@@ -36103,17 +36103,17 @@ lua_isstring.exit:                                ; preds = %lua_rawgeti.exit
 
 lua_type.exit:                                    ; preds = %lua_isstring.exit
   %cmp.i8 = icmp eq i32 %15, -1
-  br i1 %cmp.i8, label %lua_typename.argprom.exit, label %cond.false.i9
+  br i1 %cmp.i8, label %lua_typename.exit, label %cond.false.i9
 
 cond.false.i9:                                    ; preds = %lua_type.exit
   %idxprom.i = sext i32 %15 to i64
   %arrayidx.i = getelementptr inbounds [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i
   %18 = load ptr, ptr %arrayidx.i, align 8
-  br label %lua_typename.argprom.exit
+  br label %lua_typename.exit
 
-lua_typename.argprom.exit:                        ; preds = %lua_rawgeti.exit, %lua_type.exit, %cond.false.i9
+lua_typename.exit:                                ; preds = %lua_rawgeti.exit, %lua_type.exit, %cond.false.i9
   %cond.i10 = phi ptr [ %18, %cond.false.i9 ], [ @.str.131, %lua_type.exit ], [ @.str.131, %lua_rawgeti.exit ]
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.191, ptr noundef %cond.i10, i32 noundef %i)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %L, ptr noundef nonnull @.str.191, ptr noundef %cond.i10, i32 noundef %i)
   unreachable
 
 if.end:                                           ; preds = %lua_isstring.exit
@@ -37210,7 +37210,7 @@ while.body24:                                     ; preds = %sort_comp.exit
   br i1 %cmp25.not, label %if.end28, label %if.then26
 
 if.then26:                                        ; preds = %while.body24
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.194)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %L, ptr noundef nonnull @.str.194)
   unreachable
 
 if.end28:                                         ; preds = %while.body24
@@ -37396,7 +37396,7 @@ while.body32:                                     ; preds = %sort_comp.exit508
   br i1 %cmp33.not, label %if.end36, label %if.then34
 
 if.then34:                                        ; preds = %while.body32
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.194)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %L, ptr noundef nonnull @.str.194)
   unreachable
 
 if.end36:                                         ; preds = %while.body32
@@ -38057,7 +38057,7 @@ lua_createtable.exit:                             ; preds = %entry, %luaC_step.e
 ; Function Attrs: nounwind uwtable
 define internal range(i32 1, 4) i32 @io_fclose(ptr noundef %L) #0 {
 entry:
-  %call = tail call fastcc ptr @luaL_checkudata.argprom.argelim(ptr noundef %L)
+  %call = tail call fastcc ptr @luaL_checkudata(ptr noundef %L)
   %0 = load ptr, ptr %call, align 8
   %call1 = tail call i32 @fclose(ptr noundef %0)
   %cmp.not = icmp eq i32 %call1, 0
@@ -38209,7 +38209,7 @@ entry:
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %incdec.ptr.i.i, ptr %top.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key.i.i)
-  tail call fastcc void @lua_setmetatable.retelim(ptr noundef %L, i32 noundef -2)
+  tail call fastcc void @lua_setmetatable(ptr noundef %L, i32 noundef -2)
   store ptr %f, ptr %call.i, align 8
   %cmp.not = icmp eq i32 %k, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -38335,7 +38335,7 @@ lua_setfenv.exit:                                 ; preds = %if.end, %if.then.i,
 ; Function Attrs: nounwind uwtable
 define internal noundef range(i32 1, 4) i32 @io_pclose(ptr noundef %L) #0 {
 entry:
-  %call = tail call fastcc ptr @luaL_checkudata.argprom.argelim(ptr noundef %L)
+  %call = tail call fastcc ptr @luaL_checkudata(ptr noundef %L)
   store ptr null, ptr %call, align 8
   %call.i = tail call ptr @__errno_location() #42
   %0 = load i32, ptr %call.i, align 4
@@ -38447,13 +38447,13 @@ lua_rawgeti.exit:                                 ; preds = %land.lhs.true.i.i, 
   br label %if.end
 
 if.end:                                           ; preds = %lua_rawgeti.exit, %lua_type.exit
-  %call.i = tail call fastcc ptr @luaL_checkudata.argprom.argelim(ptr noundef nonnull %L)
+  %call.i = tail call fastcc ptr @luaL_checkudata(ptr noundef nonnull %L)
   %17 = load ptr, ptr %call.i, align 8
   %cmp.i6 = icmp eq ptr %17, null
   br i1 %cmp.i6, label %if.then.i, label %tofile.exit
 
 if.then.i:                                        ; preds = %if.end
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.205)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %L, ptr noundef nonnull @.str.205)
   unreachable
 
 tofile.exit:                                      ; preds = %if.end
@@ -38528,13 +38528,13 @@ aux_close.exit:                                   ; preds = %tofile.exit, %sw.bb
 ; Function Attrs: nounwind uwtable
 define internal range(i32 1, 4) i32 @f_flush(ptr noundef %L) #0 {
 entry:
-  %call.i = tail call fastcc ptr @luaL_checkudata.argprom.argelim(ptr noundef %L)
+  %call.i = tail call fastcc ptr @luaL_checkudata(ptr noundef %L)
   %0 = load ptr, ptr %call.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then.i, label %tofile.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef %L, ptr noundef nonnull @.str.205)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.205)
   unreachable
 
 tofile.exit:                                      ; preds = %entry
@@ -38577,13 +38577,13 @@ pushresult.exit:                                  ; preds = %if.then.i3, %if.els
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @f_lines(ptr noundef %L) #0 {
 entry:
-  %call.i = tail call fastcc ptr @luaL_checkudata.argprom.argelim(ptr noundef %L)
+  %call.i = tail call fastcc ptr @luaL_checkudata(ptr noundef %L)
   %0 = load ptr, ptr %call.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then.i, label %tofile.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef %L, ptr noundef nonnull @.str.205)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.205)
   unreachable
 
 tofile.exit:                                      ; preds = %entry
@@ -38615,13 +38615,13 @@ tofile.exit:                                      ; preds = %entry
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 2147483647) i32 @f_read(ptr noundef %L) #0 {
 entry:
-  %call.i = tail call fastcc ptr @luaL_checkudata.argprom.argelim(ptr noundef %L)
+  %call.i = tail call fastcc ptr @luaL_checkudata(ptr noundef %L)
   %0 = load ptr, ptr %call.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then.i, label %tofile.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef %L, ptr noundef nonnull @.str.205)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.205)
   unreachable
 
 tofile.exit:                                      ; preds = %entry
@@ -38632,13 +38632,13 @@ tofile.exit:                                      ; preds = %entry
 ; Function Attrs: nounwind uwtable
 define internal range(i32 1, 4) i32 @f_write(ptr noundef %L) #0 {
 entry:
-  %call.i = tail call fastcc ptr @luaL_checkudata.argprom.argelim(ptr noundef %L)
+  %call.i = tail call fastcc ptr @luaL_checkudata(ptr noundef %L)
   %0 = load ptr, ptr %call.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then.i, label %tofile.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef %L, ptr noundef nonnull @.str.205)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.205)
   unreachable
 
 tofile.exit:                                      ; preds = %entry
@@ -38650,7 +38650,7 @@ tofile.exit:                                      ; preds = %entry
 define internal noundef i32 @io_gc(ptr noundef %L) #0 {
 entry:
   %key.i.i = alloca %struct.lua_TValue, align 8
-  %call = tail call fastcc ptr @luaL_checkudata.argprom.argelim(ptr noundef %L)
+  %call = tail call fastcc ptr @luaL_checkudata(ptr noundef %L)
   %0 = load ptr, ptr %call, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -38730,7 +38730,7 @@ if.end:                                           ; preds = %aux_close.exit, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @luaL_checkudata.argprom.argelim(ptr noundef %L) unnamed_addr #0 {
+define internal fastcc ptr @luaL_checkudata(ptr noundef %L) unnamed_addr #0 {
 entry:
   %key.i = alloca %struct.lua_TValue, align 8
   %base.i.i = getelementptr inbounds i8, ptr %L, i64 24
@@ -38810,7 +38810,7 @@ cond.false.i:                                     ; preds = %if.then2
 if.else.i.i:                                      ; preds = %cond.false.i
   switch i32 %10, label %sw.default.i.i [
     i32 0, label %if.then5
-    i32 3, label %lua_rawequal.argprom.exit
+    i32 3, label %lua_rawequal.exit
     i32 1, label %sw.bb6.i.i
     i32 2, label %sw.bb11.i.i
   ]
@@ -38833,40 +38833,40 @@ sw.default.i.i:                                   ; preds = %if.else.i.i
   %cmp18.i.i = icmp eq ptr %16, %17
   br i1 %cmp18.i.i, label %if.then5, label %if.end7
 
-lua_rawequal.argprom.exit:                        ; preds = %if.else.i.i
+lua_rawequal.exit:                                ; preds = %if.else.i.i
   %18 = load double, ptr %9, align 8
   %19 = load double, ptr %add.ptr8.i6.i, align 8
   %cmp5.i.i = fcmp oeq double %18, %19
   br i1 %cmp5.i.i, label %if.then5, label %if.end7
 
-if.then5:                                         ; preds = %sw.bb6.i.i, %sw.bb11.i.i, %sw.default.i.i, %if.else.i.i, %lua_rawequal.argprom.exit
+if.then5:                                         ; preds = %sw.bb6.i.i, %sw.bb11.i.i, %sw.default.i.i, %if.else.i.i, %lua_rawequal.exit
   store ptr %add.ptr8.i6.i, ptr %top.i.i, align 8
   ret ptr %retval.0.i620
 
-if.end7:                                          ; preds = %sw.bb6.i.i, %sw.bb11.i.i, %sw.default.i.i, %cond.false.i, %if.then2, %sw.epilog.i, %entry, %lua_rawequal.argprom.exit, %lua_touserdata.exit
-  %20 = phi ptr [ %incdec.ptr.i18, %cond.false.i ], [ %incdec.ptr.i18, %if.then2 ], [ %1, %sw.epilog.i ], [ %1, %entry ], [ %incdec.ptr.i18, %lua_rawequal.argprom.exit ], [ %1, %lua_touserdata.exit ], [ %incdec.ptr.i18, %sw.default.i.i ], [ %incdec.ptr.i18, %sw.bb11.i.i ], [ %incdec.ptr.i18, %sw.bb6.i.i ]
+if.end7:                                          ; preds = %sw.bb6.i.i, %sw.bb11.i.i, %sw.default.i.i, %cond.false.i, %if.then2, %sw.epilog.i, %entry, %lua_rawequal.exit, %lua_touserdata.exit
+  %20 = phi ptr [ %incdec.ptr.i18, %cond.false.i ], [ %incdec.ptr.i18, %if.then2 ], [ %1, %sw.epilog.i ], [ %1, %entry ], [ %incdec.ptr.i18, %lua_rawequal.exit ], [ %1, %lua_touserdata.exit ], [ %incdec.ptr.i18, %sw.default.i.i ], [ %incdec.ptr.i18, %sw.bb11.i.i ], [ %incdec.ptr.i18, %sw.bb6.i.i ]
   %21 = load ptr, ptr %base.i.i, align 8
   %cmp1.not.i.i.i = icmp uge ptr %21, %20
   %cmp.i.i = icmp eq ptr %21, @luaO_nilobject_
   %or.cond = or i1 %cmp.i.i, %cmp1.not.i.i.i
-  br i1 %or.cond, label %lua_typename.argprom.exit.i, label %lua_type.exit.i
+  br i1 %or.cond, label %lua_typename.exit.i, label %lua_type.exit.i
 
 lua_type.exit.i:                                  ; preds = %if.end7
   %tt.i.i23 = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load i32, ptr %tt.i.i23, align 8
   %cmp.i5.i = icmp eq i32 %22, -1
-  br i1 %cmp.i5.i, label %lua_typename.argprom.exit.i, label %cond.false.i6.i
+  br i1 %cmp.i5.i, label %lua_typename.exit.i, label %cond.false.i6.i
 
 cond.false.i6.i:                                  ; preds = %lua_type.exit.i
   %idxprom.i.i = sext i32 %22 to i64
   %arrayidx.i.i = getelementptr inbounds [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i.i
   %23 = load ptr, ptr %arrayidx.i.i, align 8
-  br label %lua_typename.argprom.exit.i
+  br label %lua_typename.exit.i
 
-lua_typename.argprom.exit.i:                      ; preds = %cond.false.i6.i, %lua_type.exit.i, %if.end7
+lua_typename.exit.i:                              ; preds = %cond.false.i6.i, %lua_type.exit.i, %if.end7
   %cond.i7.i = phi ptr [ %23, %cond.false.i6.i ], [ @.str.131, %lua_type.exit.i ], [ @.str.131, %if.end7 ]
   %call2.i22 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %L, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.199, ptr noundef %cond.i7.i)
-  tail call fastcc void @luaL_argerror.retelim(ptr noundef nonnull %L, i32 noundef 1, ptr noundef %call2.i22)
+  tail call fastcc void @luaL_argerror(ptr noundef nonnull %L, i32 noundef 1, ptr noundef %call2.i22)
   unreachable
 }
 
@@ -38910,14 +38910,14 @@ entry.split:                                      ; preds = %entry
   br i1 %tobool.not, label %if.end8, label %if.then4
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.208)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %L, ptr noundef nonnull @.str.208)
   unreachable
 
 if.then4:                                         ; preds = %entry.split
   %call5 = tail call ptr @__errno_location() #42
   %7 = load i32, ptr %call5, align 4
   %call6 = tail call ptr @strerror(i32 noundef %7) #37
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.113, ptr noundef %call6)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %L, ptr noundef nonnull @.str.113, ptr noundef %call6)
   unreachable
 
 if.end8:                                          ; preds = %entry.split
@@ -39261,7 +39261,7 @@ if.then19.i.i:                                    ; preds = %if.end.i.i
   br label %luaL_checkstack.exit
 
 if.then.i:                                        ; preds = %lor.lhs.false.i.i, %if.else
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.209)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %L, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.209)
   unreachable
 
 luaL_checkstack.exit:                             ; preds = %if.else.i.i, %if.end.i.i, %if.then19.i.i
@@ -39393,7 +39393,7 @@ land.lhs.true:                                    ; preds = %if.else11
   br i1 %cmp14, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %land.lhs.true, %if.else11
-  call fastcc void @luaL_argerror.retelim(ptr noundef %L, i32 noundef %28, ptr noundef nonnull @.str.210)
+  call fastcc void @luaL_argerror(ptr noundef %L, i32 noundef %28, ptr noundef nonnull @.str.210)
   unreachable
 
 lor.end:                                          ; preds = %land.lhs.true
@@ -39442,7 +39442,7 @@ sw.bb23:                                          ; preds = %lor.end
   br label %for.inc
 
 sw.default:                                       ; preds = %lor.end
-  call fastcc void @luaL_argerror.retelim(ptr noundef %L, i32 noundef %28, ptr noundef nonnull @.str.211)
+  call fastcc void @luaL_argerror(ptr noundef %L, i32 noundef %28, ptr noundef nonnull @.str.211)
   unreachable
 
 for.inc:                                          ; preds = %test_eof.exit, %cond.false, %sw.bb23, %sw.bb21, %read_number.exit
@@ -39682,7 +39682,7 @@ if.else:                                          ; preds = %for.body, %lua_type
   br i1 %tobool.not.i, label %if.then.i, label %luaL_checklstring.exit
 
 if.then.i:                                        ; preds = %if.else
-  call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef %8, ptr noundef nonnull @.str.25)
+  call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef %8, ptr noundef nonnull @.str.25)
   unreachable
 
 luaL_checklstring.exit:                           ; preds = %if.else
@@ -39826,7 +39826,7 @@ lua_rawgeti.exit.i:                               ; preds = %if.else8.i.i.i, %la
   br i1 %cmp.i, label %if.then.i, label %getiofile.exit
 
 if.then.i:                                        ; preds = %lua_rawgeti.exit.i
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.217, ptr noundef nonnull @.str.216)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %L, ptr noundef nonnull @.str.217, ptr noundef nonnull @.str.216)
   unreachable
 
 getiofile.exit:                                   ; preds = %lua_rawgeti.exit.i
@@ -39868,7 +39868,7 @@ pushresult.exit:                                  ; preds = %if.then.i2, %if.els
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @io_input(ptr noundef %L) #0 {
 entry:
-  tail call fastcc void @g_iofile.argelim(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.218)
+  tail call fastcc void @g_iofile(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.218)
   ret i32 1
 }
 
@@ -39956,13 +39956,13 @@ lua_rawgeti.exit:                                 ; preds = %land.lhs.true.i.i, 
   %16 = load ptr, ptr %top.i.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %16, i64 16
   store ptr %incdec.ptr.i, ptr %top.i.i, align 8
-  %call.i.i = tail call fastcc ptr @luaL_checkudata.argprom.argelim(ptr noundef %L)
+  %call.i.i = tail call fastcc ptr @luaL_checkudata(ptr noundef %L)
   %17 = load ptr, ptr %call.i.i, align 8
   %cmp.i.i = icmp eq ptr %17, null
   br i1 %cmp.i.i, label %if.then.i.i, label %f_lines.exit
 
 if.then.i.i:                                      ; preds = %lua_rawgeti.exit
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.205)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %L, ptr noundef nonnull @.str.205)
   unreachable
 
 f_lines.exit:                                     ; preds = %lua_rawgeti.exit
@@ -39978,7 +39978,7 @@ if.else:                                          ; preds = %lua_type.exit
   br i1 %tobool.not.i, label %if.then.i, label %luaL_checklstring.exit
 
 if.then.i:                                        ; preds = %if.else
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.25)
+  tail call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.25)
   unreachable
 
 luaL_checklstring.exit:                           ; preds = %if.else
@@ -39998,7 +39998,7 @@ luaL_checklstring.exit:                           ; preds = %if.else
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %22, i64 16
   store ptr %incdec.ptr.i.i, ptr %top.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key.i.i)
-  tail call fastcc void @lua_setmetatable.retelim(ptr noundef nonnull %L, i32 noundef -2)
+  tail call fastcc void @lua_setmetatable(ptr noundef nonnull %L, i32 noundef -2)
   %call4 = tail call noalias ptr @fopen(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.218)
   store ptr %call4, ptr %call.i14, align 8
   %cmp5 = icmp eq ptr %call4, null
@@ -40010,7 +40010,7 @@ if.then6:                                         ; preds = %luaL_checklstring.e
   %call1.i18 = tail call ptr @strerror(i32 noundef %23) #37
   %call2.i = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %L, ptr noundef nonnull @.str.207, ptr noundef nonnull %call.i, ptr noundef %call1.i18)
   %call3.i = tail call fastcc ptr @lua_tolstring(ptr noundef nonnull %L, i32 noundef -1, ptr noundef null)
-  tail call fastcc void @luaL_argerror.retelim(ptr noundef nonnull %L, i32 noundef 1, ptr noundef %call3.i)
+  tail call fastcc void @luaL_argerror(ptr noundef nonnull %L, i32 noundef 1, ptr noundef %call3.i)
   unreachable
 
 if.end:                                           ; preds = %luaL_checklstring.exit
@@ -40122,7 +40122,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %luaL_checklstring.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.25)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.25)
   unreachable
 
 luaL_checklstring.exit:                           ; preds = %entry
@@ -40148,7 +40148,7 @@ if.else.i:                                        ; preds = %lua_type.exit.i
   br i1 %tobool.not.i.i, label %if.then.i.i, label %luaL_optlstring.exit
 
 if.then.i.i:                                      ; preds = %if.else.i
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 2, ptr noundef nonnull @.str.25)
+  tail call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 2, ptr noundef nonnull @.str.25)
   unreachable
 
 luaL_optlstring.exit:                             ; preds = %luaL_checklstring.exit, %lua_type.exit.i, %if.else.i
@@ -40169,7 +40169,7 @@ luaL_optlstring.exit:                             ; preds = %luaL_checklstring.e
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %incdec.ptr.i.i, ptr %top.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key.i.i)
-  tail call fastcc void @lua_setmetatable.retelim(ptr noundef nonnull %L, i32 noundef -2)
+  tail call fastcc void @lua_setmetatable(ptr noundef nonnull %L, i32 noundef -2)
   %call3 = tail call noalias ptr @fopen(ptr noundef nonnull %call.i, ptr noundef nonnull %retval.0.i)
   store ptr %call3, ptr %call.i7, align 8
   %cmp = icmp eq ptr %call3, null
@@ -40204,7 +40204,7 @@ cond.end:                                         ; preds = %luaL_optlstring.exi
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @io_output(ptr noundef %L) #0 {
 entry:
-  tail call fastcc void @g_iofile.argelim(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.219)
+  tail call fastcc void @g_iofile(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.219)
   ret i32 1
 }
 
@@ -40288,7 +40288,7 @@ lua_rawgeti.exit.i:                               ; preds = %if.else8.i.i.i, %la
   br i1 %cmp.i, label %if.then.i, label %getiofile.exit
 
 if.then.i:                                        ; preds = %lua_rawgeti.exit.i
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.217, ptr noundef nonnull @.str.214)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %L, ptr noundef nonnull @.str.217, ptr noundef nonnull @.str.214)
   unreachable
 
 getiofile.exit:                                   ; preds = %lua_rawgeti.exit.i
@@ -40319,7 +40319,7 @@ lua_type.exit.i:                                  ; preds = %entry
   ]
 
 if.then.i:                                        ; preds = %lua_type.exit.i, %entry
-  tail call fastcc void @luaL_argerror.retelim(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.115)
+  tail call fastcc void @luaL_argerror(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.115)
   unreachable
 
 sw.bb.i:                                          ; preds = %lua_type.exit.i
@@ -40408,7 +40408,7 @@ cond.false.i:                                     ; preds = %lor.lhs.false2
 if.else.i.i:                                      ; preds = %cond.false.i
   switch i32 %14, label %sw.default.i.i [
     i32 0, label %if.else
-    i32 3, label %lua_rawequal.argprom.exit
+    i32 3, label %lua_rawequal.exit
     i32 1, label %sw.bb6.i.i
     i32 2, label %sw.bb11.i.i
   ]
@@ -40431,13 +40431,13 @@ sw.default.i.i:                                   ; preds = %if.else.i.i
   %cmp18.i.i = icmp eq ptr %20, %21
   br i1 %cmp18.i.i, label %if.else, label %if.end8
 
-lua_rawequal.argprom.exit:                        ; preds = %if.else.i.i
+lua_rawequal.exit:                                ; preds = %if.else.i.i
   %22 = load double, ptr %add.ptr8.i.i, align 8
   %23 = load double, ptr %13, align 8
   %cmp5.i.i = fcmp oeq double %22, %23
   br i1 %cmp5.i.i, label %if.else, label %if.end8
 
-if.else:                                          ; preds = %sw.bb6.i.i, %sw.bb11.i.i, %sw.default.i.i, %if.else.i.i, %lua_rawequal.argprom.exit
+if.else:                                          ; preds = %sw.bb6.i.i, %sw.bb11.i.i, %sw.default.i.i, %if.else.i.i, %lua_rawequal.exit
   %24 = load ptr, ptr %retval.0.i, align 8
   %cmp5 = icmp eq ptr %24, null
   %25 = load ptr, ptr %l_G.i.i, align 8
@@ -40586,9 +40586,9 @@ lua_pushlstring.exit73:                           ; preds = %if.else7, %luaC_ste
   store ptr %call.i64, ptr %45, align 8
   br label %if.end8
 
-if.end8:                                          ; preds = %lua_touserdata.exit, %lua_rawequal.argprom.exit, %sw.epilog.i, %lor.lhs.false2, %cond.false.i, %sw.default.i.i, %sw.bb11.i.i, %sw.bb6.i.i, %lua_pushlstring.exit, %lua_pushlstring.exit73
-  %.sink88 = phi ptr [ %36, %lua_pushlstring.exit ], [ %45, %lua_pushlstring.exit73 ], [ %incdec.ptr.i18, %cond.false.i ], [ %incdec.ptr.i18, %lor.lhs.false2 ], [ %incdec.ptr.i, %sw.epilog.i ], [ %incdec.ptr.i18, %lua_rawequal.argprom.exit ], [ %incdec.ptr.i, %lua_touserdata.exit ], [ %incdec.ptr.i18, %sw.default.i.i ], [ %incdec.ptr.i18, %sw.bb11.i.i ], [ %incdec.ptr.i18, %sw.bb6.i.i ]
-  %.sink = phi i32 [ 4, %lua_pushlstring.exit ], [ 4, %lua_pushlstring.exit73 ], [ 0, %cond.false.i ], [ 0, %lor.lhs.false2 ], [ 0, %sw.epilog.i ], [ 0, %lua_rawequal.argprom.exit ], [ 0, %lua_touserdata.exit ], [ 0, %sw.default.i.i ], [ 0, %sw.bb11.i.i ], [ 0, %sw.bb6.i.i ]
+if.end8:                                          ; preds = %lua_touserdata.exit, %lua_rawequal.exit, %sw.epilog.i, %lor.lhs.false2, %cond.false.i, %sw.default.i.i, %sw.bb11.i.i, %sw.bb6.i.i, %lua_pushlstring.exit, %lua_pushlstring.exit73
+  %.sink88 = phi ptr [ %36, %lua_pushlstring.exit ], [ %45, %lua_pushlstring.exit73 ], [ %incdec.ptr.i18, %cond.false.i ], [ %incdec.ptr.i18, %lor.lhs.false2 ], [ %incdec.ptr.i, %sw.epilog.i ], [ %incdec.ptr.i18, %lua_rawequal.exit ], [ %incdec.ptr.i, %lua_touserdata.exit ], [ %incdec.ptr.i18, %sw.default.i.i ], [ %incdec.ptr.i18, %sw.bb11.i.i ], [ %incdec.ptr.i18, %sw.bb6.i.i ]
+  %.sink = phi i32 [ 4, %lua_pushlstring.exit ], [ 4, %lua_pushlstring.exit73 ], [ 0, %cond.false.i ], [ 0, %lor.lhs.false2 ], [ 0, %sw.epilog.i ], [ 0, %lua_rawequal.exit ], [ 0, %lua_touserdata.exit ], [ 0, %sw.default.i.i ], [ 0, %sw.bb11.i.i ], [ 0, %sw.bb6.i.i ]
   %tt.i30 = getelementptr inbounds i8, ptr %.sink88, i64 8
   store i32 %.sink, ptr %tt.i30, align 8
   %46 = load ptr, ptr %top.i.i.i, align 8
@@ -40678,7 +40678,7 @@ lua_rawgeti.exit.i:                               ; preds = %if.else8.i.i.i, %la
   br i1 %cmp.i, label %if.then.i, label %getiofile.exit
 
 if.then.i:                                        ; preds = %lua_rawgeti.exit.i
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.217, ptr noundef nonnull @.str.216)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %L, ptr noundef nonnull @.str.217, ptr noundef nonnull @.str.216)
   unreachable
 
 getiofile.exit:                                   ; preds = %lua_rawgeti.exit.i
@@ -40687,7 +40687,7 @@ getiofile.exit:                                   ; preds = %lua_rawgeti.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @g_iofile.argelim(ptr noundef %L, i32 noundef range(i32 1, 3) %f, ptr nocapture noundef readonly %mode) unnamed_addr #0 {
+define internal fastcc void @g_iofile(ptr noundef %L, i32 noundef range(i32 1, 3) %f, ptr nocapture noundef readonly %mode) unnamed_addr #0 {
 entry:
   %key.i.i = alloca %struct.lua_TValue, align 8
   %base.i.i = getelementptr inbounds i8, ptr %L, i64 24
@@ -40727,7 +40727,7 @@ if.then2:                                         ; preds = %if.then
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %incdec.ptr.i.i, ptr %top.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key.i.i)
-  tail call fastcc void @lua_setmetatable.retelim(ptr noundef nonnull %L, i32 noundef -2)
+  tail call fastcc void @lua_setmetatable(ptr noundef nonnull %L, i32 noundef -2)
   %call4 = tail call noalias ptr @fopen(ptr noundef nonnull %call1, ptr noundef %mode)
   store ptr %call4, ptr %call.i, align 8
   %cmp5 = icmp eq ptr %call4, null
@@ -40739,17 +40739,17 @@ if.then6:                                         ; preds = %if.then2
   %call1.i14 = tail call ptr @strerror(i32 noundef %6) #37
   %call2.i = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %L, ptr noundef nonnull @.str.207, ptr noundef nonnull %call1, ptr noundef %call1.i14)
   %call3.i = tail call fastcc ptr @lua_tolstring(ptr noundef nonnull %L, i32 noundef -1, ptr noundef null)
-  tail call fastcc void @luaL_argerror.retelim(ptr noundef nonnull %L, i32 noundef 1, ptr noundef %call3.i)
+  tail call fastcc void @luaL_argerror(ptr noundef nonnull %L, i32 noundef 1, ptr noundef %call3.i)
   unreachable
 
 if.else:                                          ; preds = %if.then
-  %call.i15 = tail call fastcc ptr @luaL_checkudata.argprom.argelim(ptr noundef nonnull %L)
+  %call.i15 = tail call fastcc ptr @luaL_checkudata(ptr noundef nonnull %L)
   %7 = load ptr, ptr %call.i15, align 8
   %cmp.i16 = icmp eq ptr %7, null
   br i1 %cmp.i16, label %if.then.i, label %tofile.exit
 
 if.then.i:                                        ; preds = %if.else
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.205)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %L, ptr noundef nonnull @.str.205)
   unreachable
 
 tofile.exit:                                      ; preds = %if.else
@@ -40869,7 +40869,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %luaL_checklstring.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.25)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.25)
   unreachable
 
 luaL_checklstring.exit:                           ; preds = %entry
@@ -40926,7 +40926,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %luaL_checklstring.exit
 
 if.then.i:                                        ; preds = %entry
-  call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.25)
+  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.25)
   unreachable
 
 luaL_checklstring.exit:                           ; preds = %entry
@@ -41023,7 +41023,7 @@ luaO_str2d.exit.i.i:                              ; preds = %while.cond.i.i.i
   br i1 %cmp19.not.i.not.i.i, label %luaL_optinteger.exit.thread, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
-  call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 2, ptr noundef nonnull @.str.24)
+  call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 2, ptr noundef nonnull @.str.24)
   unreachable
 
 luaL_optinteger.exit:                             ; preds = %cond.false.i
@@ -41129,7 +41129,7 @@ luaO_str2d.exit.i.i82:                            ; preds = %while.cond.i.i.i76
   br i1 %cmp19.not.i.not.i.i83, label %luaL_optinteger.exit40.thread, label %if.then.i.i38
 
 if.then.i.i38:                                    ; preds = %land.lhs.true.i.i35, %luaO_str2d.exit.i.i82, %luaO_str2d.exit.thread.i.i87
-  call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 3, ptr noundef nonnull @.str.24)
+  call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 3, ptr noundef nonnull @.str.24)
   unreachable
 
 luaL_optinteger.exit40.thread:                    ; preds = %lua_type.exit.i28, %luaL_optinteger.exit.thread, %land.lhs.true.i.i35, %luaO_str2d.exit.i.i82, %luaO_str2d.exit.thread9.i.i86
@@ -41165,7 +41165,7 @@ if.end10:                                         ; preds = %32
   br i1 %cmp13.not, label %if.end17, label %if.then15
 
 if.then15:                                        ; preds = %if.end10
-  call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef %L, ptr noundef nonnull @.str.235)
+  call void (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.235)
   unreachable
 
 if.end17:                                         ; preds = %if.end10
@@ -41223,7 +41223,7 @@ if.then19.i.i:                                    ; preds = %if.end.i.i
   br label %for.body.lr.ph
 
 if.then.i47:                                      ; preds = %lor.lhs.false.i.i, %if.end17
-  call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef %L, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.235)
+  call void (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.235)
   unreachable
 
 for.body.lr.ph:                                   ; preds = %if.end.i.i, %if.then19.i.i
@@ -41292,7 +41292,7 @@ land.lhs.true.i:                                  ; preds = %for.body
   br i1 %tobool.not.i, label %if.then.i, label %lor.end
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef %i.019, ptr noundef nonnull @.str.24)
+  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef %i.019, ptr noundef nonnull @.str.24)
   unreachable
 
 luaL_checkinteger.exit:                           ; preds = %for.body
@@ -41302,7 +41302,7 @@ luaL_checkinteger.exit:                           ; preds = %for.body
   br i1 %cmp4, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %luaL_checkinteger.exit
-  call fastcc void @luaL_argerror.retelim(ptr noundef %L, i32 noundef %i.019, ptr noundef nonnull @.str.236)
+  call fastcc void @luaL_argerror(ptr noundef %L, i32 noundef %i.019, ptr noundef nonnull @.str.236)
   unreachable
 
 lor.end:                                          ; preds = %land.lhs.true.i, %luaL_checkinteger.exit
@@ -41368,7 +41368,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %luaL_checklstring.exit
 
 if.then.i:                                        ; preds = %entry
-  call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.25)
+  call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 1, ptr noundef nonnull @.str.25)
   unreachable
 
 luaL_checklstring.exit:                           ; preds = %entry
@@ -41460,7 +41460,7 @@ if.else29:                                        ; preds = %if.else
   br i1 %cmp30.not, label %if.end, label %if.then32
 
 if.then32:                                        ; preds = %if.else29
-  call fastcc void @luaL_argerror.retelim(ptr noundef %L, i32 noundef %inc, ptr noundef nonnull @.str.131)
+  call fastcc void @luaL_argerror(ptr noundef %L, i32 noundef %inc, ptr noundef nonnull @.str.131)
   unreachable
 
 if.end:                                           ; preds = %if.else29
@@ -41498,7 +41498,7 @@ while.end.i:                                      ; preds = %while.body.i, %whil
   br i1 %cmp5.i, label %if.then.i44, label %if.end.i
 
 if.then.i44:                                      ; preds = %while.end.i
-  call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef %L, ptr noundef nonnull @.str.248)
+  call void (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.248)
   unreachable
 
 if.end.i:                                         ; preds = %while.end.i
@@ -41554,7 +41554,7 @@ if.end49.i:                                       ; preds = %if.then27.i, %if.en
   br i1 %tobool56.not.i, label %scanformat.exit, label %if.then57.i
 
 if.then57.i:                                      ; preds = %if.end49.i
-  call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef %L, ptr noundef nonnull @.str.249)
+  call void (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.249)
   unreachable
 
 scanformat.exit:                                  ; preds = %if.end49.i
@@ -41595,7 +41595,7 @@ land.lhs.true.i:                                  ; preds = %sw.bb
   br i1 %tobool.not.i47, label %if.then.i48, label %luaL_checknumber.exit
 
 if.then.i48:                                      ; preds = %land.lhs.true.i
-  call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef %inc, ptr noundef nonnull @.str.24)
+  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef %inc, ptr noundef nonnull @.str.24)
   unreachable
 
 luaL_checknumber.exit:                            ; preds = %sw.bb, %land.lhs.true.i
@@ -41622,7 +41622,7 @@ land.lhs.true.i55:                                ; preds = %sw.bb43
   br i1 %tobool.not.i57, label %if.then.i58, label %luaL_checknumber.exit60
 
 if.then.i58:                                      ; preds = %land.lhs.true.i55
-  call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef %inc, ptr noundef nonnull @.str.24)
+  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef %inc, ptr noundef nonnull @.str.24)
   unreachable
 
 luaL_checknumber.exit60:                          ; preds = %sw.bb43, %land.lhs.true.i55
@@ -41649,7 +41649,7 @@ land.lhs.true.i67:                                ; preds = %sw.bb50
   br i1 %tobool.not.i69, label %if.then.i70, label %luaL_checknumber.exit72
 
 if.then.i70:                                      ; preds = %land.lhs.true.i67
-  call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef %inc, ptr noundef nonnull @.str.24)
+  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef %inc, ptr noundef nonnull @.str.24)
   unreachable
 
 luaL_checknumber.exit72:                          ; preds = %sw.bb50, %land.lhs.true.i67
@@ -41668,7 +41668,7 @@ land.lhs.true.i76:                                ; preds = %sw.bb57
   br i1 %tobool.not.i78, label %if.then.i79, label %luaL_checknumber.exit81
 
 if.then.i79:                                      ; preds = %land.lhs.true.i76
-  call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef %inc, ptr noundef nonnull @.str.24)
+  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef %inc, ptr noundef nonnull @.str.24)
   unreachable
 
 luaL_checknumber.exit81:                          ; preds = %sw.bb57, %land.lhs.true.i76
@@ -41682,7 +41682,7 @@ sw.bb62:                                          ; preds = %scanformat.exit
   br i1 %tobool.not.i.i, label %if.then.i.i, label %luaL_checklstring.exit.i
 
 if.then.i.i:                                      ; preds = %sw.bb62
-  call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef %inc, ptr noundef nonnull @.str.25)
+  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef %inc, ptr noundef nonnull @.str.25)
   unreachable
 
 luaL_checklstring.exit.i:                         ; preds = %sw.bb62
@@ -41867,7 +41867,7 @@ sw.bb63:                                          ; preds = %scanformat.exit
   br i1 %tobool.not.i88, label %if.then.i90, label %luaL_checklstring.exit92
 
 if.then.i90:                                      ; preds = %sw.bb63
-  call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef %inc, ptr noundef nonnull @.str.25)
+  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef %inc, ptr noundef nonnull @.str.25)
   unreachable
 
 luaL_checklstring.exit92:                         ; preds = %sw.bb63
@@ -42028,7 +42028,7 @@ if.else71:                                        ; preds = %luaL_checklstring.e
 
 sw.default:                                       ; preds = %scanformat.exit
   %conv76 = sext i8 %32 to i32
-  call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef %L, ptr noundef nonnull @.str.246, i32 noundef %conv76)
+  call void (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.246, i32 noundef %conv76)
   unreachable
 
 sw.epilog:                                        ; preds = %if.else71, %luaL_checknumber.exit81, %luaL_checknumber.exit72, %luaL_checknumber.exit60, %luaL_checknumber.exit
@@ -42160,7 +42160,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %luaL_checklstring.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.25)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.25)
   unreachable
 
 luaL_checklstring.exit:                           ; preds = %entry
@@ -42169,7 +42169,7 @@ luaL_checklstring.exit:                           ; preds = %entry
   br i1 %tobool.not.i6, label %if.then.i7, label %luaL_checklstring.exit9
 
 if.then.i7:                                       ; preds = %luaL_checklstring.exit
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.25)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.25)
   unreachable
 
 luaL_checklstring.exit9:                          ; preds = %luaL_checklstring.exit
@@ -42222,7 +42222,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %luaL_checklstring.exit
 
 if.then.i:                                        ; preds = %entry
-  call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.25)
+  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.25)
   unreachable
 
 luaL_checklstring.exit:                           ; preds = %entry
@@ -42231,7 +42231,7 @@ luaL_checklstring.exit:                           ; preds = %entry
   br i1 %tobool.not.i30, label %if.then.i31, label %luaL_checklstring.exit33
 
 if.then.i31:                                      ; preds = %luaL_checklstring.exit
-  call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.25)
+  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.25)
   unreachable
 
 luaL_checklstring.exit33:                         ; preds = %luaL_checklstring.exit
@@ -42344,7 +42344,7 @@ luaO_str2d.exit.i.i:                              ; preds = %while.cond.i.i.i
   br i1 %cmp19.not.i.not.i.i, label %luaL_optinteger.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
-  call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 4, ptr noundef nonnull @.str.24)
+  call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 4, ptr noundef nonnull @.str.24)
   unreachable
 
 luaL_optinteger.exit:                             ; preds = %luaO_str2d.exit.thread9.i.i, %luaO_str2d.exit.i.i, %land.lhs.true.i.i, %lua_type.exit, %lua_type.exit.i, %cond.false.i35
@@ -42366,7 +42366,7 @@ lor.rhs:                                          ; preds = %luaL_optinteger.exi
   br i1 %cmp5.i.i, label %if.end.i, label %if.then.i38
 
 if.then.i38:                                      ; preds = %lor.rhs
-  call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.116, i32 noundef 3, ptr noundef nonnull @.str.253)
+  call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %L, ptr noundef nonnull @.str.116, i32 noundef 3, ptr noundef nonnull @.str.253)
   unreachable
 
 if.end.i:                                         ; preds = %lor.rhs
@@ -42377,7 +42377,7 @@ if.end.i:                                         ; preds = %lor.rhs
   %conv.i.i = trunc i64 %sub.ptr.div.i.i to i32
   %i_ci11.i.i = getelementptr inbounds i8, ptr %ar.i, i64 116
   store i32 %conv.i.i, ptr %i_ci11.i.i, align 4
-  call fastcc void @lua_getinfo.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.117, ptr noundef %ar.i)
+  call fastcc void @lua_getinfo(ptr noundef nonnull %L, ptr noundef nonnull @.str.117, ptr noundef %ar.i)
   %namewhat.i = getelementptr inbounds i8, ptr %ar.i, i64 16
   %21 = load ptr, ptr %namewhat.i, align 8
   %call3.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(7) @.str.118) #36
@@ -42394,7 +42394,7 @@ if.end14.i:                                       ; preds = %if.then12.i, %if.en
   %23 = phi ptr [ @.str.120, %if.then12.i ], [ %22, %if.end.i ]
   %cmp.i39 = icmp eq i32 %call3.i, 0
   %spec.select97 = select i1 %cmp.i39, i32 2, i32 3
-  call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef nonnull %L, ptr noundef nonnull @.str.121, i32 noundef %spec.select97, ptr noundef nonnull %23, ptr noundef nonnull @.str.253)
+  call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %L, ptr noundef nonnull @.str.121, i32 noundef %spec.select97, ptr noundef nonnull %23, ptr noundef nonnull @.str.253)
   unreachable
 
 lor.end:                                          ; preds = %luaL_optinteger.exit
@@ -42777,7 +42777,7 @@ lua_pushlstring.exit.i:                           ; preds = %luaC_step.exit.i.i,
 
 if.else.i:                                        ; preds = %lua_toboolean.exit.i, %sw.epilog.i
   %cmp.i.i55.i = icmp eq ptr %add.ptr8.i.i.i, @luaO_nilobject_
-  br i1 %cmp.i.i55.i, label %lua_typename.argprom.exit.i, label %lua_isstring.exit.i
+  br i1 %cmp.i.i55.i, label %lua_typename.exit.i, label %lua_isstring.exit.i
 
 lua_isstring.exit.i:                              ; preds = %if.else.i
   %79 = add i32 %64, -5
@@ -42786,17 +42786,17 @@ lua_isstring.exit.i:                              ; preds = %if.else.i
 
 lua_type.exit64.i:                                ; preds = %lua_isstring.exit.i
   %cmp.i65.i = icmp eq i32 %64, -1
-  br i1 %cmp.i65.i, label %lua_typename.argprom.exit.i, label %cond.false.i66.i
+  br i1 %cmp.i65.i, label %lua_typename.exit.i, label %cond.false.i66.i
 
 cond.false.i66.i:                                 ; preds = %lua_type.exit64.i
   %idxprom.i67.i = sext i32 %64 to i64
   %arrayidx.i68.i = getelementptr inbounds [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i67.i
   %81 = load ptr, ptr %arrayidx.i68.i, align 8
-  br label %lua_typename.argprom.exit.i
+  br label %lua_typename.exit.i
 
-lua_typename.argprom.exit.i:                      ; preds = %if.else.i, %cond.false.i66.i, %lua_type.exit64.i
+lua_typename.exit.i:                              ; preds = %if.else.i, %cond.false.i66.i, %lua_type.exit64.i
   %cond.i69.i = phi ptr [ %81, %cond.false.i66.i ], [ @.str.131, %lua_type.exit64.i ], [ @.str.131, %if.else.i ]
-  call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef nonnull %25, ptr noundef nonnull @.str.254, ptr noundef %cond.i69.i)
+  call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %25, ptr noundef nonnull @.str.254, ptr noundef %cond.i69.i)
   unreachable
 
 if.end12.i:                                       ; preds = %lua_isstring.exit.i, %lua_pushlstring.exit.i
@@ -42969,7 +42969,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %luaL_checklstring.exit
 
 if.then.i:                                        ; preds = %entry
-  call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.25)
+  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.25)
   unreachable
 
 luaL_checklstring.exit:                           ; preds = %entry
@@ -43045,7 +43045,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %luaL_checklstring.exit
 
 if.then.i:                                        ; preds = %entry
-  call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.25)
+  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.25)
   unreachable
 
 luaL_checklstring.exit:                           ; preds = %entry
@@ -43126,7 +43126,7 @@ luaO_str2d.exit.i.i:                              ; preds = %while.cond.i.i.i
   br i1 %cmp19.not.i.not.i.i, label %luaL_checkinteger.exit, label %if.then.i5
 
 if.then.i5:                                       ; preds = %land.lhs.true.i, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
-  call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.24)
+  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.24)
   unreachable
 
 luaL_checkinteger.exit.thread:                    ; preds = %luaO_str2d.exit.thread9.i.i, %land.lhs.true.i
@@ -43571,7 +43571,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %luaL_checklstring.exit
 
 if.then.i:                                        ; preds = %entry
-  call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.25)
+  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.25)
   unreachable
 
 luaL_checklstring.exit:                           ; preds = %entry
@@ -43652,7 +43652,7 @@ luaO_str2d.exit.i.i:                              ; preds = %while.cond.i.i.i
   br i1 %cmp19.not.i.not.i.i, label %luaL_checkinteger.exit, label %if.then.i12
 
 if.then.i12:                                      ; preds = %land.lhs.true.i, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
-  call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.24)
+  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.24)
   unreachable
 
 luaL_checkinteger.exit:                           ; preds = %luaO_str2d.exit.thread9.i.i, %luaO_str2d.exit.i.i, %land.lhs.true.i, %luaL_checklstring.exit
@@ -43754,7 +43754,7 @@ luaO_str2d.exit.i.i99:                            ; preds = %while.cond.i.i.i93
   br i1 %cmp19.not.i.not.i.i100, label %luaL_optinteger.exit.thread119, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i, %luaO_str2d.exit.i.i99, %luaO_str2d.exit.thread.i.i104
-  call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 3, ptr noundef nonnull @.str.24)
+  call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 3, ptr noundef nonnull @.str.24)
   unreachable
 
 luaL_optinteger.exit.thread119:                   ; preds = %land.lhs.true.i.i, %luaO_str2d.exit.i.i99, %luaO_str2d.exit.thread9.i.i103
@@ -43953,7 +43953,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %luaL_checklstring.exit
 
 if.then.i:                                        ; preds = %entry
-  call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.25)
+  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.25)
   unreachable
 
 luaL_checklstring.exit:                           ; preds = %entry
@@ -44021,7 +44021,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %luaL_checklstring.exit
 
 if.then.i:                                        ; preds = %entry
-  call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.25)
+  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.25)
   unreachable
 
 luaL_checklstring.exit:                           ; preds = %entry
@@ -44030,7 +44030,7 @@ luaL_checklstring.exit:                           ; preds = %entry
   br i1 %tobool.not.i34, label %if.then.i35, label %luaL_checklstring.exit37
 
 if.then.i35:                                      ; preds = %luaL_checklstring.exit
-  call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.25)
+  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.25)
   unreachable
 
 luaL_checklstring.exit37:                         ; preds = %luaL_checklstring.exit
@@ -44127,7 +44127,7 @@ luaO_str2d.exit.i.i:                              ; preds = %while.cond.i.i.i
   br i1 %cmp19.not.i.not.i.i, label %luaL_optinteger.exit.thread, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
-  call fastcc void @luaL_typerror.retelim(ptr noundef nonnull %L, i32 noundef 3, ptr noundef nonnull @.str.24)
+  call fastcc void @luaL_typerror(ptr noundef nonnull %L, i32 noundef 3, ptr noundef nonnull @.str.24)
   unreachable
 
 luaL_optinteger.exit.thread:                      ; preds = %lua_type.exit.i, %luaL_checklstring.exit37, %land.lhs.true.i.i, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread9.i.i
@@ -44376,7 +44376,7 @@ if.then:                                          ; preds = %sw.bb
 if.then.i:                                        ; preds = %if.then
   %L.i = getelementptr inbounds i8, ptr %ms, i64 16
   %4 = load ptr, ptr %L.i, align 8
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef %4, ptr noundef nonnull @.str.239)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef %4, ptr noundef nonnull @.str.239)
   unreachable
 
 if.end.i:                                         ; preds = %if.then
@@ -44404,7 +44404,7 @@ if.else:                                          ; preds = %sw.bb
 if.then.i78:                                      ; preds = %if.else
   %L.i79 = getelementptr inbounds i8, ptr %ms, i64 16
   %6 = load ptr, ptr %L.i79, align 8
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef %6, ptr noundef nonnull @.str.239)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef %6, ptr noundef nonnull @.str.239)
   unreachable
 
 if.end.i68:                                       ; preds = %if.else
@@ -44447,7 +44447,7 @@ for.body.i:                                       ; preds = %for.cond.i251
 for.end.i:                                        ; preds = %for.cond.i251
   %L.i253 = getelementptr inbounds i8, ptr %ms, i64 16
   %13 = load ptr, ptr %L.i253, align 8
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef %13, ptr noundef nonnull @.str.240)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef %13, ptr noundef nonnull @.str.240)
   unreachable
 
 capture_to_close.exit:                            ; preds = %for.body.i
@@ -44490,7 +44490,7 @@ lor.lhs.false.i:                                  ; preds = %sw.bb12
 if.then.i93:                                      ; preds = %lor.lhs.false.i, %sw.bb12
   %L.i94 = getelementptr inbounds i8, ptr %ms, i64 16
   %18 = load ptr, ptr %L.i94, align 8
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef %18, ptr noundef nonnull @.str.241)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef %18, ptr noundef nonnull @.str.241)
   unreachable
 
 if.end.i91:                                       ; preds = %lor.lhs.false.i
@@ -44552,7 +44552,7 @@ if.end26.thread:                                  ; preds = %sw.bb19
 if.end26:                                         ; preds = %sw.bb19
   %L = getelementptr inbounds i8, ptr %ms, i64 16
   %24 = load ptr, ptr %L, align 8
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef %24, ptr noundef nonnull @.str.238)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef %24, ptr noundef nonnull @.str.238)
   unreachable
 
 do.body.i:                                        ; preds = %do.cond.i, %if.end26.thread
@@ -44564,7 +44564,7 @@ do.body.i:                                        ; preds = %do.cond.i, %if.end2
 if.then13.i:                                      ; preds = %do.body.i
   %L14.i = getelementptr inbounds i8, ptr %ms, i64 16
   %26 = load ptr, ptr %L14.i, align 8
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef %26, ptr noundef nonnull @.str.243)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef %26, ptr noundef nonnull @.str.243)
   unreachable
 
 if.end16.i:                                       ; preds = %do.body.i
@@ -44750,7 +44750,7 @@ lor.lhs.false2.i.i:                               ; preds = %lor.lhs.false.i.i
 if.then.i.i:                                      ; preds = %lor.lhs.false2.i.i, %lor.lhs.false.i.i, %if.then47
   %L.i.i = getelementptr inbounds i8, ptr %ms, i64 16
   %45 = load ptr, ptr %L.i.i, align 8
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef %45, ptr noundef nonnull @.str.244)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef %45, ptr noundef nonnull @.str.244)
   unreachable
 
 check_capture.exit.i:                             ; preds = %lor.lhs.false2.i.i
@@ -44795,7 +44795,7 @@ dflt:                                             ; preds = %init
 if.then.i192:                                     ; preds = %dflt.thread415
   %L.i193 = getelementptr inbounds i8, ptr %ms, i64 16
   %50 = load ptr, ptr %L.i193, align 8
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef %50, ptr noundef nonnull @.str.242)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef %50, ptr noundef nonnull @.str.242)
   unreachable
 
 if.end.i190:                                      ; preds = %dflt.thread415
@@ -44819,7 +44819,7 @@ do.body.i169:                                     ; preds = %do.cond.i175, %sw.b
 if.then13.i185:                                   ; preds = %do.body.i169
   %L14.i186 = getelementptr inbounds i8, ptr %ms, i64 16
   %53 = load ptr, ptr %L14.i186, align 8
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef %53, ptr noundef nonnull @.str.243)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef %53, ptr noundef nonnull @.str.243)
   unreachable
 
 if.end16.i172:                                    ; preds = %do.body.i169
@@ -45382,7 +45382,7 @@ for.body.preheader:                               ; preds = %if.end.i.i, %if.the
   br label %for.body
 
 if.then.i:                                        ; preds = %lor.lhs.false.i.i, %entry
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef %1, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.239)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef %1, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.239)
   unreachable
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -45633,7 +45633,7 @@ lua_pushlstring.exit:                             ; preds = %if.then2, %luaC_ste
   br label %if.end26
 
 if.else:                                          ; preds = %if.then
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef %1, ptr noundef nonnull @.str.244)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef %1, ptr noundef nonnull @.str.244)
   unreachable
 
 if.else4:                                         ; preds = %entry
@@ -45650,7 +45650,7 @@ if.else4:                                         ; preds = %entry
   ]
 
 if.then6:                                         ; preds = %if.else4
-  tail call void (ptr, ptr, ...) @luaL_error.retelim(ptr noundef %15, ptr noundef nonnull @.str.245)
+  tail call void (ptr, ptr, ...) @luaL_error(ptr noundef %15, ptr noundef nonnull @.str.245)
   unreachable
 
 if.then11:                                        ; preds = %if.else4
@@ -46349,7 +46349,7 @@ luaO_str2d.exit.i.i:                              ; preds = %while.cond.i.i.i
   br i1 %cmp19.not.i.not.i.i, label %barg.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.24)
   unreachable
 
 barg.exit:                                        ; preds = %luaO_str2d.exit.thread9.i.i, %luaO_str2d.exit.i.i, %land.lhs.true.i, %entry
@@ -46448,7 +46448,7 @@ luaO_str2d.exit.i.i:                              ; preds = %while.cond.i.i.i
   br i1 %cmp19.not.i.not.i.i, label %barg.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.24)
   unreachable
 
 barg.exit:                                        ; preds = %luaO_str2d.exit.thread9.i.i, %luaO_str2d.exit.i.i, %land.lhs.true.i, %entry
@@ -46548,7 +46548,7 @@ luaO_str2d.exit.i.i:                              ; preds = %while.cond.i.i.i
   br i1 %cmp19.not.i.not.i.i, label %barg.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.24)
   unreachable
 
 barg.exit:                                        ; preds = %luaO_str2d.exit.thread9.i.i, %luaO_str2d.exit.i.i, %land.lhs.true.i, %entry
@@ -46580,7 +46580,7 @@ land.lhs.true.i13:                                ; preds = %for.body
   br i1 %tobool.not.i15, label %if.then.i16, label %barg.exit18
 
 if.then.i16:                                      ; preds = %land.lhs.true.i13
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef %i.025, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef %i.025, ptr noundef nonnull @.str.24)
   unreachable
 
 barg.exit18:                                      ; preds = %for.body, %land.lhs.true.i13
@@ -46689,7 +46689,7 @@ luaO_str2d.exit.i.i:                              ; preds = %while.cond.i.i.i
   br i1 %cmp19.not.i.not.i.i, label %barg.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.24)
   unreachable
 
 barg.exit:                                        ; preds = %luaO_str2d.exit.thread9.i.i, %luaO_str2d.exit.i.i, %land.lhs.true.i, %entry
@@ -46721,7 +46721,7 @@ land.lhs.true.i13:                                ; preds = %for.body
   br i1 %tobool.not.i15, label %if.then.i16, label %barg.exit18
 
 if.then.i16:                                      ; preds = %land.lhs.true.i13
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef %i.025, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef %i.025, ptr noundef nonnull @.str.24)
   unreachable
 
 barg.exit18:                                      ; preds = %for.body, %land.lhs.true.i13
@@ -46830,7 +46830,7 @@ luaO_str2d.exit.i.i:                              ; preds = %while.cond.i.i.i
   br i1 %cmp19.not.i.not.i.i, label %barg.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.24)
   unreachable
 
 barg.exit:                                        ; preds = %luaO_str2d.exit.thread9.i.i, %luaO_str2d.exit.i.i, %land.lhs.true.i, %entry
@@ -46862,7 +46862,7 @@ land.lhs.true.i13:                                ; preds = %for.body
   br i1 %tobool.not.i15, label %if.then.i16, label %barg.exit18
 
 if.then.i16:                                      ; preds = %land.lhs.true.i13
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef %i.025, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef %i.025, ptr noundef nonnull @.str.24)
   unreachable
 
 barg.exit18:                                      ; preds = %for.body, %land.lhs.true.i13
@@ -46972,7 +46972,7 @@ luaO_str2d.exit.i.i:                              ; preds = %while.cond.i.i.i
   br i1 %cmp19.not.i.not.i.i, label %barg.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.24)
   unreachable
 
 barg.exit:                                        ; preds = %luaO_str2d.exit.thread9.i.i, %luaO_str2d.exit.i.i, %land.lhs.true.i, %entry
@@ -47054,7 +47054,7 @@ luaO_str2d.exit.i.i41:                            ; preds = %while.cond.i.i.i35
   br i1 %cmp19.not.i.not.i.i42, label %barg.exit12, label %if.then.i10
 
 if.then.i10:                                      ; preds = %land.lhs.true.i7, %luaO_str2d.exit.i.i41, %luaO_str2d.exit.thread.i.i46
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.24)
   unreachable
 
 barg.exit12:                                      ; preds = %luaO_str2d.exit.thread9.i.i45, %luaO_str2d.exit.i.i41, %land.lhs.true.i7, %barg.exit
@@ -47158,7 +47158,7 @@ luaO_str2d.exit.i.i:                              ; preds = %while.cond.i.i.i
   br i1 %cmp19.not.i.not.i.i, label %barg.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.24)
   unreachable
 
 barg.exit:                                        ; preds = %luaO_str2d.exit.thread9.i.i, %luaO_str2d.exit.i.i, %land.lhs.true.i, %entry
@@ -47240,7 +47240,7 @@ luaO_str2d.exit.i.i41:                            ; preds = %while.cond.i.i.i35
   br i1 %cmp19.not.i.not.i.i42, label %barg.exit12, label %if.then.i10
 
 if.then.i10:                                      ; preds = %land.lhs.true.i7, %luaO_str2d.exit.i.i41, %luaO_str2d.exit.thread.i.i46
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.24)
   unreachable
 
 barg.exit12:                                      ; preds = %luaO_str2d.exit.thread9.i.i45, %luaO_str2d.exit.i.i41, %land.lhs.true.i7, %barg.exit
@@ -47344,7 +47344,7 @@ luaO_str2d.exit.i.i:                              ; preds = %while.cond.i.i.i
   br i1 %cmp19.not.i.not.i.i, label %barg.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.24)
   unreachable
 
 barg.exit:                                        ; preds = %luaO_str2d.exit.thread9.i.i, %luaO_str2d.exit.i.i, %land.lhs.true.i, %entry
@@ -47426,7 +47426,7 @@ luaO_str2d.exit.i.i41:                            ; preds = %while.cond.i.i.i35
   br i1 %cmp19.not.i.not.i.i42, label %barg.exit12, label %if.then.i10
 
 if.then.i10:                                      ; preds = %land.lhs.true.i7, %luaO_str2d.exit.i.i41, %luaO_str2d.exit.thread.i.i46
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.24)
   unreachable
 
 barg.exit12:                                      ; preds = %luaO_str2d.exit.thread9.i.i45, %luaO_str2d.exit.i.i41, %land.lhs.true.i7, %barg.exit
@@ -47530,7 +47530,7 @@ luaO_str2d.exit.i.i:                              ; preds = %while.cond.i.i.i
   br i1 %cmp19.not.i.not.i.i, label %barg.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.24)
   unreachable
 
 barg.exit:                                        ; preds = %luaO_str2d.exit.thread9.i.i, %luaO_str2d.exit.i.i, %land.lhs.true.i, %entry
@@ -47612,7 +47612,7 @@ luaO_str2d.exit.i.i43:                            ; preds = %while.cond.i.i.i37
   br i1 %cmp19.not.i.not.i.i44, label %barg.exit14, label %if.then.i12
 
 if.then.i12:                                      ; preds = %land.lhs.true.i9, %luaO_str2d.exit.i.i43, %luaO_str2d.exit.thread.i.i48
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.24)
   unreachable
 
 barg.exit14:                                      ; preds = %luaO_str2d.exit.thread9.i.i47, %luaO_str2d.exit.i.i43, %land.lhs.true.i9, %barg.exit
@@ -47715,7 +47715,7 @@ luaO_str2d.exit.i.i:                              ; preds = %while.cond.i.i.i
   br i1 %cmp19.not.i.not.i.i, label %barg.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.24)
   unreachable
 
 barg.exit:                                        ; preds = %luaO_str2d.exit.thread9.i.i, %luaO_str2d.exit.i.i, %land.lhs.true.i, %entry
@@ -47797,7 +47797,7 @@ luaO_str2d.exit.i.i43:                            ; preds = %while.cond.i.i.i37
   br i1 %cmp19.not.i.not.i.i44, label %barg.exit14, label %if.then.i12
 
 if.then.i12:                                      ; preds = %land.lhs.true.i9, %luaO_str2d.exit.i.i43, %luaO_str2d.exit.thread.i.i48
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.24)
   unreachable
 
 barg.exit14:                                      ; preds = %luaO_str2d.exit.thread9.i.i47, %luaO_str2d.exit.i.i43, %land.lhs.true.i9, %barg.exit
@@ -47899,7 +47899,7 @@ luaO_str2d.exit.i.i:                              ; preds = %while.cond.i.i.i
   br i1 %cmp19.not.i.not.i.i, label %barg.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.24)
   unreachable
 
 barg.exit:                                        ; preds = %luaO_str2d.exit.thread9.i.i, %luaO_str2d.exit.i.i, %land.lhs.true.i, %entry
@@ -48001,7 +48001,7 @@ luaO_str2d.exit.i.i:                              ; preds = %while.cond.i.i.i
   br i1 %cmp19.not.i.not.i.i, label %barg.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.24)
   unreachable
 
 barg.exit:                                        ; preds = %luaO_str2d.exit.thread9.i.i, %luaO_str2d.exit.i.i, %land.lhs.true.i, %entry
@@ -48101,7 +48101,7 @@ luaO_str2d.exit.i.i59:                            ; preds = %while.cond.i.i.i53
   br i1 %cmp19.not.i.not.i.i60, label %cond.end, label %if.then.i19
 
 if.then.i19:                                      ; preds = %land.lhs.true.i16, %luaO_str2d.exit.i.i59, %luaO_str2d.exit.thread.i.i64
-  tail call fastcc void @luaL_typerror.retelim(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.24)
   unreachable
 
 cond.end:                                         ; preds = %cond.false, %land.lhs.true.i16, %luaO_str2d.exit.i.i59, %luaO_str2d.exit.thread9.i.i63
@@ -48222,7 +48222,7 @@ lua_pushlstring.exit:                             ; preds = %for.end, %luaC_step
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @errfile.argelim(ptr noundef %L, ptr noundef %what, i32 noundef range(i32 -2147483647, -2147483648) %fnameindex) unnamed_addr #0 {
+define internal fastcc void @errfile(ptr noundef %L, ptr noundef %what, i32 noundef range(i32 -2147483647, -2147483648) %fnameindex) unnamed_addr #0 {
 entry:
   %call = tail call ptr @__errno_location() #42
   %0 = load i32, ptr %call, align 4

@@ -2381,9 +2381,9 @@ define { i64, double } @_ZNK10open_spiel10battleship15BattleshipState15NextShipT
   %scevgep.i.i.i = getelementptr i8, ptr %6, i64 %16
   br label %.lr.ph.i.i.i.preheader.i.i.i
 
-.lr.ph.i.i.i.preheader.i.i.i:                     ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit56.i.i.i", %.lr.ph.i.i.i.preheader.preheader.i.i.i
-  %.0117.i.i.i = phi i64 [ %65, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit56.i.i.i" ], [ %12, %.lr.ph.i.i.i.preheader.preheader.i.i.i ]
-  %.sroa.087.0116.i.i.i = phi ptr [ %64, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit56.i.i.i" ], [ %6, %.lr.ph.i.i.i.preheader.preheader.i.i.i ]
+.lr.ph.i.i.i.preheader.i.i.i:                     ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit56.i.i.i", %.lr.ph.i.i.i.preheader.preheader.i.i.i
+  %.0117.i.i.i = phi i64 [ %65, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit56.i.i.i" ], [ %12, %.lr.ph.i.i.i.preheader.preheader.i.i.i ]
+  %.sroa.087.0116.i.i.i = phi ptr [ %64, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit56.i.i.i" ], [ %6, %.lr.ph.i.i.i.preheader.preheader.i.i.i ]
   %.val2.i.i.i.i = load i32, ptr %.sroa.087.0116.i.i.i, align 8
   br label %.lr.ph.i.i.i.i.i.i
 
@@ -2403,20 +2403,20 @@ _ZN4absl7debian23getIN10open_spiel10battleship13ShipPlacementEJS4_NS3_4CellEEEER
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i.i.i.i, i64 24
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, %.val2.i.i.i.i
-  br i1 %25, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit.i.i.i", label %26
+  br i1 %25, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit.i.i.i", label %26
 
 26:                                               ; preds = %_ZN4absl7debian23getIN10open_spiel10battleship13ShipPlacementEJS4_NS3_4CellEEEERKT_RKNS0_7variantIJDpT0_EEE.exit.i.i.i.i.i.i, %19, %.lr.ph.i.i.i.i.i.i
   %27 = getelementptr inbounds i8, ptr %.sroa.08.011.i.i.i.i.i.i, i64 48
   %.not13.i.i.i.i.i.i = icmp eq ptr %27, %.val.val35.i.i.i
   br i1 %.not13.i.i.i.i.i.i, label %"_ZSt11find_if_notIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel10battleship4ShipESt6vectorIS4_SaIS4_EEEEZNKS3_15BattleshipState15NextShipToPlaceEiE3$_0ET_SD_SD_T0_.exit", label %.lr.ph.i.i.i.i.i.i
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit.i.i.i": ; preds = %_ZN4absl7debian23getIN10open_spiel10battleship13ShipPlacementEJS4_NS3_4CellEEEERKT_RKNS0_7variantIJDpT0_EEE.exit.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit.i.i.i": ; preds = %_ZN4absl7debian23getIN10open_spiel10battleship13ShipPlacementEJS4_NS3_4CellEEEERKT_RKNS0_7variantIJDpT0_EEE.exit.i.i.i.i.i.i
   %28 = getelementptr inbounds i8, ptr %.sroa.087.0116.i.i.i, i64 16
   %.val2.i36.i.i.i = load i32, ptr %28, align 8
   br label %.lr.ph.i.i.i38.i.i.i
 
-.lr.ph.i.i.i38.i.i.i:                             ; preds = %38, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit.i.i.i"
-  %.sroa.08.011.i.i.i39.i.i.i = phi ptr [ %39, %38 ], [ %.val.val.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit.i.i.i" ]
+.lr.ph.i.i.i38.i.i.i:                             ; preds = %38, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit.i.i.i"
+  %.sroa.08.011.i.i.i39.i.i.i = phi ptr [ %39, %38 ], [ %.val.val.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit.i.i.i" ]
   %29 = load i32, ptr %.sroa.08.011.i.i.i39.i.i.i, align 8
   %30 = icmp eq i32 %29, %1
   br i1 %30, label %31, label %38
@@ -2431,20 +2431,20 @@ _ZN4absl7debian23getIN10open_spiel10battleship13ShipPlacementEJS4_NS3_4CellEEEER
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i39.i.i.i, i64 24
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, %.val2.i36.i.i.i
-  br i1 %37, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit42.i.i.i", label %38
+  br i1 %37, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit42.i.i.i", label %38
 
 38:                                               ; preds = %_ZN4absl7debian23getIN10open_spiel10battleship13ShipPlacementEJS4_NS3_4CellEEEERKT_RKNS0_7variantIJDpT0_EEE.exit.i.i.i41.i.i.i, %31, %.lr.ph.i.i.i38.i.i.i
   %39 = getelementptr inbounds i8, ptr %.sroa.08.011.i.i.i39.i.i.i, i64 48
   %.not13.i.i.i40.i.i.i = icmp eq ptr %39, %.val.val35.i.i.i
   br i1 %.not13.i.i.i40.i.i.i, label %"_ZSt11find_if_notIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel10battleship4ShipESt6vectorIS4_SaIS4_EEEEZNKS3_15BattleshipState15NextShipToPlaceEiE3$_0ET_SD_SD_T0_.exit.loopexit39", label %.lr.ph.i.i.i38.i.i.i
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit42.i.i.i": ; preds = %_ZN4absl7debian23getIN10open_spiel10battleship13ShipPlacementEJS4_NS3_4CellEEEERKT_RKNS0_7variantIJDpT0_EEE.exit.i.i.i41.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit42.i.i.i": ; preds = %_ZN4absl7debian23getIN10open_spiel10battleship13ShipPlacementEJS4_NS3_4CellEEEERKT_RKNS0_7variantIJDpT0_EEE.exit.i.i.i41.i.i.i
   %40 = getelementptr inbounds i8, ptr %.sroa.087.0116.i.i.i, i64 32
   %.val2.i43.i.i.i = load i32, ptr %40, align 8
   br label %.lr.ph.i.i.i45.i.i.i
 
-.lr.ph.i.i.i45.i.i.i:                             ; preds = %50, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit42.i.i.i"
-  %.sroa.08.011.i.i.i46.i.i.i = phi ptr [ %51, %50 ], [ %.val.val.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit42.i.i.i" ]
+.lr.ph.i.i.i45.i.i.i:                             ; preds = %50, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit42.i.i.i"
+  %.sroa.08.011.i.i.i46.i.i.i = phi ptr [ %51, %50 ], [ %.val.val.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit42.i.i.i" ]
   %41 = load i32, ptr %.sroa.08.011.i.i.i46.i.i.i, align 8
   %42 = icmp eq i32 %41, %1
   br i1 %42, label %43, label %50
@@ -2459,20 +2459,20 @@ _ZN4absl7debian23getIN10open_spiel10battleship13ShipPlacementEJS4_NS3_4CellEEEER
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i46.i.i.i, i64 24
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %48, %.val2.i43.i.i.i
-  br i1 %49, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit49.i.i.i", label %50
+  br i1 %49, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit49.i.i.i", label %50
 
 50:                                               ; preds = %_ZN4absl7debian23getIN10open_spiel10battleship13ShipPlacementEJS4_NS3_4CellEEEERKT_RKNS0_7variantIJDpT0_EEE.exit.i.i.i48.i.i.i, %43, %.lr.ph.i.i.i45.i.i.i
   %51 = getelementptr inbounds i8, ptr %.sroa.08.011.i.i.i46.i.i.i, i64 48
   %.not13.i.i.i47.i.i.i = icmp eq ptr %51, %.val.val35.i.i.i
   br i1 %.not13.i.i.i47.i.i.i, label %"_ZSt11find_if_notIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel10battleship4ShipESt6vectorIS4_SaIS4_EEEEZNKS3_15BattleshipState15NextShipToPlaceEiE3$_0ET_SD_SD_T0_.exit.loopexit38", label %.lr.ph.i.i.i45.i.i.i
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit49.i.i.i": ; preds = %_ZN4absl7debian23getIN10open_spiel10battleship13ShipPlacementEJS4_NS3_4CellEEEERKT_RKNS0_7variantIJDpT0_EEE.exit.i.i.i48.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit49.i.i.i": ; preds = %_ZN4absl7debian23getIN10open_spiel10battleship13ShipPlacementEJS4_NS3_4CellEEEERKT_RKNS0_7variantIJDpT0_EEE.exit.i.i.i48.i.i.i
   %52 = getelementptr inbounds i8, ptr %.sroa.087.0116.i.i.i, i64 48
   %.val2.i50.i.i.i = load i32, ptr %52, align 8
   br label %.lr.ph.i.i.i52.i.i.i
 
-.lr.ph.i.i.i52.i.i.i:                             ; preds = %62, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit49.i.i.i"
-  %.sroa.08.011.i.i.i53.i.i.i = phi ptr [ %63, %62 ], [ %.val.val.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit49.i.i.i" ]
+.lr.ph.i.i.i52.i.i.i:                             ; preds = %62, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit49.i.i.i"
+  %.sroa.08.011.i.i.i53.i.i.i = phi ptr [ %63, %62 ], [ %.val.val.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit49.i.i.i" ]
   %53 = load i32, ptr %.sroa.08.011.i.i.i53.i.i.i, align 8
   %54 = icmp eq i32 %53, %1
   br i1 %54, label %55, label %62
@@ -2487,20 +2487,20 @@ _ZN4absl7debian23getIN10open_spiel10battleship13ShipPlacementEJS4_NS3_4CellEEEER
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i53.i.i.i, i64 24
   %60 = load i32, ptr %59, align 8
   %61 = icmp eq i32 %60, %.val2.i50.i.i.i
-  br i1 %61, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit56.i.i.i", label %62
+  br i1 %61, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit56.i.i.i", label %62
 
 62:                                               ; preds = %_ZN4absl7debian23getIN10open_spiel10battleship13ShipPlacementEJS4_NS3_4CellEEEERKT_RKNS0_7variantIJDpT0_EEE.exit.i.i.i55.i.i.i, %55, %.lr.ph.i.i.i52.i.i.i
   %63 = getelementptr inbounds i8, ptr %.sroa.08.011.i.i.i53.i.i.i, i64 48
   %.not13.i.i.i54.i.i.i = icmp eq ptr %63, %.val.val35.i.i.i
   br i1 %.not13.i.i.i54.i.i.i, label %"_ZSt11find_if_notIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel10battleship4ShipESt6vectorIS4_SaIS4_EEEEZNKS3_15BattleshipState15NextShipToPlaceEiE3$_0ET_SD_SD_T0_.exit.loopexit37", label %.lr.ph.i.i.i52.i.i.i
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit56.i.i.i": ; preds = %_ZN4absl7debian23getIN10open_spiel10battleship13ShipPlacementEJS4_NS3_4CellEEEERKT_RKNS0_7variantIJDpT0_EEE.exit.i.i.i55.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit56.i.i.i": ; preds = %_ZN4absl7debian23getIN10open_spiel10battleship13ShipPlacementEJS4_NS3_4CellEEEERKT_RKNS0_7variantIJDpT0_EEE.exit.i.i.i55.i.i.i
   %64 = getelementptr inbounds i8, ptr %.sroa.087.0116.i.i.i, i64 64
   %65 = add nsw i64 %.0117.i.i.i, -1
   %66 = icmp sgt i64 %.0117.i.i.i, 1
   br i1 %66, label %.lr.ph.i.i.i.preheader.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !27
 
-._crit_edge.loopexit.i.i.i:                       ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit56.i.i.i"
+._crit_edge.loopexit.i.i.i:                       ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit56.i.i.i"
   %.pre.i.i.i = ptrtoint ptr %scevgep.i.i.i to i64
   %.pre133.i.i.i = sub i64 %9, %.pre.i.i.i
   br label %._crit_edge.i.i.i
@@ -2554,21 +2554,21 @@ _ZN4absl7debian23getIN10open_spiel10battleship13ShipPlacementEJS4_NS3_4CellEEEER
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i60.i.i.i, i64 24
   %78 = load i32, ptr %77, align 8
   %79 = icmp eq i32 %78, %.val2.i57.i.i.i
-  br i1 %79, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit63.i.i.i", label %80
+  br i1 %79, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit63.i.i.i", label %80
 
 80:                                               ; preds = %_ZN4absl7debian23getIN10open_spiel10battleship13ShipPlacementEJS4_NS3_4CellEEEERKT_RKNS0_7variantIJDpT0_EEE.exit.i.i.i62.i.i.i, %73, %.lr.ph.i.i.i59.i.i.i
   %81 = getelementptr inbounds i8, ptr %.sroa.08.011.i.i.i60.i.i.i, i64 48
   %.not13.i.i.i61.i.i.i = icmp eq ptr %81, %.val23.val31.i.i.i
   br i1 %.not13.i.i.i61.i.i.i, label %"_ZSt11find_if_notIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel10battleship4ShipESt6vectorIS4_SaIS4_EEEEZNKS3_15BattleshipState15NextShipToPlaceEiE3$_0ET_SD_SD_T0_.exit", label %.lr.ph.i.i.i59.i.i.i
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit63.i.i.i": ; preds = %_ZN4absl7debian23getIN10open_spiel10battleship13ShipPlacementEJS4_NS3_4CellEEEERKT_RKNS0_7variantIJDpT0_EEE.exit.i.i.i62.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit63.i.i.i": ; preds = %_ZN4absl7debian23getIN10open_spiel10battleship13ShipPlacementEJS4_NS3_4CellEEEERKT_RKNS0_7variantIJDpT0_EEE.exit.i.i.i62.i.i.i
   %82 = getelementptr inbounds i8, ptr %.sroa.087.0.lcssa.i.i.i, i64 16
   br label %83
 
-83:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit63.i.i.i", %._crit_edge._crit_edge.i.i.i
-  %.val25.val30.i.i.i = phi ptr [ %.val25.val30.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.val23.val31.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit63.i.i.i" ]
-  %.val25.val.i.i.i = phi ptr [ %.val25.val.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.val23.val.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit63.i.i.i" ]
-  %.sroa.087.1.i.i.i = phi ptr [ %.sroa.087.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %82, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit63.i.i.i" ]
+83:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit63.i.i.i", %._crit_edge._crit_edge.i.i.i
+  %.val25.val30.i.i.i = phi ptr [ %.val25.val30.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.val23.val31.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit63.i.i.i" ]
+  %.val25.val.i.i.i = phi ptr [ %.val25.val.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.val23.val.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit63.i.i.i" ]
+  %.sroa.087.1.i.i.i = phi ptr [ %.sroa.087.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %82, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit63.i.i.i" ]
   %.val2.i64.i.i.i = load i32, ptr %.sroa.087.1.i.i.i, align 8
   %.not.i.i.i65.i.i.i = icmp eq ptr %.val25.val.i.i.i, %.val25.val30.i.i.i
   br i1 %.not.i.i.i65.i.i.i, label %"_ZSt11find_if_notIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel10battleship4ShipESt6vectorIS4_SaIS4_EEEEZNKS3_15BattleshipState15NextShipToPlaceEiE3$_0ET_SD_SD_T0_.exit", label %.lr.ph.i.i.i66.i.i.i
@@ -2589,21 +2589,21 @@ _ZN4absl7debian23getIN10open_spiel10battleship13ShipPlacementEJS4_NS3_4CellEEEER
   %90 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i67.i.i.i, i64 24
   %91 = load i32, ptr %90, align 8
   %92 = icmp eq i32 %91, %.val2.i64.i.i.i
-  br i1 %92, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit70.i.i.i", label %93
+  br i1 %92, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit70.i.i.i", label %93
 
 93:                                               ; preds = %_ZN4absl7debian23getIN10open_spiel10battleship13ShipPlacementEJS4_NS3_4CellEEEERKT_RKNS0_7variantIJDpT0_EEE.exit.i.i.i69.i.i.i, %86, %.lr.ph.i.i.i66.i.i.i
   %94 = getelementptr inbounds i8, ptr %.sroa.08.011.i.i.i67.i.i.i, i64 48
   %.not13.i.i.i68.i.i.i = icmp eq ptr %94, %.val25.val30.i.i.i
   br i1 %.not13.i.i.i68.i.i.i, label %"_ZSt11find_if_notIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel10battleship4ShipESt6vectorIS4_SaIS4_EEEEZNKS3_15BattleshipState15NextShipToPlaceEiE3$_0ET_SD_SD_T0_.exit", label %.lr.ph.i.i.i66.i.i.i
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit70.i.i.i": ; preds = %_ZN4absl7debian23getIN10open_spiel10battleship13ShipPlacementEJS4_NS3_4CellEEEERKT_RKNS0_7variantIJDpT0_EEE.exit.i.i.i69.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit70.i.i.i": ; preds = %_ZN4absl7debian23getIN10open_spiel10battleship13ShipPlacementEJS4_NS3_4CellEEEERKT_RKNS0_7variantIJDpT0_EEE.exit.i.i.i69.i.i.i
   %95 = getelementptr inbounds i8, ptr %.sroa.087.1.i.i.i, i64 16
   br label %96
 
-96:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit70.i.i.i", %._crit_edge._crit_edge128.i.i.i
-  %.val27.val29.i.i.i = phi ptr [ %.val27.val29.pre.i.i.i, %._crit_edge._crit_edge128.i.i.i ], [ %.val25.val30.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit70.i.i.i" ]
-  %.val27.val.i.i.i = phi ptr [ %.val27.val.pre.i.i.i, %._crit_edge._crit_edge128.i.i.i ], [ %.val25.val.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit70.i.i.i" ]
-  %.sroa.087.2.i.i.i = phi ptr [ %.sroa.087.0.lcssa.i.i.i, %._crit_edge._crit_edge128.i.i.i ], [ %95, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.exit70.i.i.i" ]
+96:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit70.i.i.i", %._crit_edge._crit_edge128.i.i.i
+  %.val27.val29.i.i.i = phi ptr [ %.val27.val29.pre.i.i.i, %._crit_edge._crit_edge128.i.i.i ], [ %.val25.val30.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit70.i.i.i" ]
+  %.val27.val.i.i.i = phi ptr [ %.val27.val.pre.i.i.i, %._crit_edge._crit_edge128.i.i.i ], [ %.val25.val.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit70.i.i.i" ]
+  %.sroa.087.2.i.i.i = phi ptr [ %.sroa.087.0.lcssa.i.i.i, %._crit_edge._crit_edge128.i.i.i ], [ %95, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK10open_spiel10battleship15BattleshipState15NextShipToPlaceEiE3$_0EclINS_17__normal_iteratorIPKNS3_4ShipESt6vectorIS9_SaIS9_EEEEEEbT_.exit70.i.i.i" ]
   %.val2.i71.i.i.i = load i32, ptr %.sroa.087.2.i.i.i, align 8
   %.not.i.i.i72.i.i.i = icmp eq ptr %.val27.val.i.i.i, %.val27.val29.i.i.i
   br i1 %.not.i.i.i72.i.i.i, label %"_ZSt11find_if_notIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel10battleship4ShipESt6vectorIS4_SaIS4_EEEEZNKS3_15BattleshipState15NextShipToPlaceEiE3$_0ET_SD_SD_T0_.exit", label %.lr.ph.i.i.i73.i.i.i

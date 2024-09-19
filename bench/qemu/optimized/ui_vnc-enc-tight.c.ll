@@ -479,9 +479,9 @@ land.rhs.i.preheader:                             ; preds = %if.end32.i
   %wide.trip.count.i.i.i = zext nneg i32 %w_best.089.i to i64
   br label %land.rhs.i
 
-land.rhs.i:                                       ; preds = %land.rhs.i.preheader, %check_solid_tile.argprom.exit.i
-  %cy.0165.i = phi i32 [ %cy.0.i, %check_solid_tile.argprom.exit.i ], [ %cy.0161.i, %land.rhs.i.preheader ]
-  %cy.0.in164.i = phi i32 [ %cy.0165.i, %check_solid_tile.argprom.exit.i ], [ %dy.0.i275, %land.rhs.i.preheader ]
+land.rhs.i:                                       ; preds = %land.rhs.i.preheader, %check_solid_tile.exit.i
+  %cy.0165.i = phi i32 [ %cy.0.i, %check_solid_tile.exit.i ], [ %cy.0161.i, %land.rhs.i.preheader ]
+  %cy.0.in164.i = phi i32 [ %cy.0165.i, %check_solid_tile.exit.i ], [ %dy.0.i275, %land.rhs.i.preheader ]
   %vs.val46.i = load ptr, ptr %0, align 8
   %call.i.i.i = tail call ptr @vnc_server_fb_ptr(ptr noundef %vs.val46.i, i32 noundef %dx.0.i271, i32 noundef %cy.0165.i) #14
   %26 = load i32, ptr %call.i.i.i, align 4
@@ -489,12 +489,12 @@ land.rhs.i:                                       ; preds = %land.rhs.i.preheade
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %for.end.i
 
 if.end.i.i.i:                                     ; preds = %land.rhs.i
-  br i1 %cmp41.i.i.i, label %for.body5.us.i.i.i, label %check_solid_tile.argprom.exit.i
+  br i1 %cmp41.i.i.i, label %for.body5.us.i.i.i, label %check_solid_tile.exit.i
 
 for.cond3.us.i.i.i:                               ; preds = %for.body5.us.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond8.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond8.not.i.i.i, label %check_solid_tile.argprom.exit.i, label %for.body5.us.i.i.i, !llvm.loop !8
+  br i1 %exitcond8.not.i.i.i, label %check_solid_tile.exit.i, label %for.body5.us.i.i.i, !llvm.loop !8
 
 for.body5.us.i.i.i:                               ; preds = %if.end.i.i.i, %for.cond3.us.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %for.cond3.us.i.i.i ], [ 0, %if.end.i.i.i ]
@@ -503,14 +503,14 @@ for.body5.us.i.i.i:                               ; preds = %if.end.i.i.i, %for.
   %cmp6.not.us.i.i.i = icmp eq i32 %19, %27
   br i1 %cmp6.not.us.i.i.i, label %for.cond3.us.i.i.i, label %for.end.i
 
-check_solid_tile.argprom.exit.i:                  ; preds = %for.cond3.us.i.i.i, %if.end.i.i.i
+check_solid_tile.exit.i:                          ; preds = %for.cond3.us.i.i.i, %if.end.i.i.i
   %call9.i.i.i = tail call i32 @vnc_server_fb_stride(ptr noundef %vs.val46.i) #14
   %cy.0.i = add i32 %cy.0165.i, -1
   %cmp.not.i = icmp slt i32 %cy.0.i, %y.addr.1.i
   br i1 %cmp.not.i, label %for.end.i, label %land.rhs.i, !llvm.loop !12
 
-for.end.i:                                        ; preds = %check_solid_tile.argprom.exit.i, %land.rhs.i, %for.body5.us.i.i.i, %if.end32.i
-  %cy.0.in158.i = phi i32 [ %dy.0.i275, %if.end32.i ], [ %cy.0.in164.i, %for.body5.us.i.i.i ], [ %cy.0.in164.i, %land.rhs.i ], [ %cy.0165.i, %check_solid_tile.argprom.exit.i ]
+for.end.i:                                        ; preds = %check_solid_tile.exit.i, %land.rhs.i, %for.body5.us.i.i.i, %if.end32.i
+  %cy.0.in158.i = phi i32 [ %dy.0.i275, %if.end32.i ], [ %cy.0.in164.i, %for.body5.us.i.i.i ], [ %cy.0.in164.i, %land.rhs.i ], [ %cy.0165.i, %check_solid_tile.exit.i ]
   %add4.i = add i32 %h_best.091.i, %dy.0.i275
   %cmp7169.i = icmp slt i32 %add4.i, %add5.i
   br i1 %cmp7169.i, label %land.rhs8.i.preheader, label %for.end13.i
@@ -560,9 +560,9 @@ land.rhs20.i.preheader:                           ; preds = %for.end13.i
   %cmp23.i.i.i = icmp sgt i32 %add16.i, 0
   br label %land.rhs20.i
 
-land.rhs20.i:                                     ; preds = %land.rhs20.i.preheader, %check_solid_tile.argprom.exit99.i
-  %cx.0180.i = phi i32 [ %cx.0.i, %check_solid_tile.argprom.exit99.i ], [ %cx.0176.i, %land.rhs20.i.preheader ]
-  %cx.0.in179.i = phi i32 [ %cx.0180.i, %check_solid_tile.argprom.exit99.i ], [ %dx.0.i271, %land.rhs20.i.preheader ]
+land.rhs20.i:                                     ; preds = %land.rhs20.i.preheader, %check_solid_tile.exit99.i
+  %cx.0180.i = phi i32 [ %cx.0.i, %check_solid_tile.exit99.i ], [ %cx.0176.i, %land.rhs20.i.preheader ]
+  %cx.0.in179.i = phi i32 [ %cx.0180.i, %check_solid_tile.exit99.i ], [ %dx.0.i271, %land.rhs20.i.preheader ]
   %vs.val44.i = load ptr, ptr %0, align 8
   %call.i.i77.i = tail call ptr @vnc_server_fb_ptr(ptr noundef %vs.val44.i, i32 noundef %cx.0180.i, i32 noundef %cy.0.in158.i) #14
   %30 = load i32, ptr %call.i.i77.i, align 4
@@ -570,7 +570,7 @@ land.rhs20.i:                                     ; preds = %land.rhs20.i.prehea
   br i1 %cmp.not.i.i78.i, label %if.end.i.i80.i, label %for.end26.i
 
 if.end.i.i80.i:                                   ; preds = %land.rhs20.i
-  br i1 %cmp23.i.i.i, label %for.cond3.preheader.us.i.i83.i, label %check_solid_tile.argprom.exit99.i
+  br i1 %cmp23.i.i.i, label %for.cond3.preheader.us.i.i83.i, label %check_solid_tile.exit99.i
 
 for.cond3.preheader.us.i.i83.i:                   ; preds = %if.end.i.i80.i, %for.cond3.us.i.i90.i
   %dy.05.us.i.i84.i = phi i32 [ %inc11.us.i.i97.i, %for.cond3.us.i.i90.i ], [ 0, %if.end.i.i80.i ]
@@ -585,15 +585,15 @@ for.cond3.us.i.i90.i:                             ; preds = %for.cond3.preheader
   %add.ptr.us.i.i96.i = getelementptr i8, ptr %fbptr.04.us.i.i85.i, i64 %idx.ext.us.i.i95.i
   %inc11.us.i.i97.i = add nuw nsw i32 %dy.05.us.i.i84.i, 1
   %exitcond9.not.i.i98.i = icmp eq i32 %inc11.us.i.i97.i, %add16.i
-  br i1 %exitcond9.not.i.i98.i, label %check_solid_tile.argprom.exit99.i, label %for.cond3.preheader.us.i.i83.i, !llvm.loop !9
+  br i1 %exitcond9.not.i.i98.i, label %check_solid_tile.exit99.i, label %for.cond3.preheader.us.i.i83.i, !llvm.loop !9
 
-check_solid_tile.argprom.exit99.i:                ; preds = %for.cond3.us.i.i90.i, %if.end.i.i80.i
+check_solid_tile.exit99.i:                        ; preds = %for.cond3.us.i.i90.i, %if.end.i.i80.i
   %cx.0.i = add i32 %cx.0180.i, -1
   %cmp19.not.i = icmp slt i32 %cx.0.i, %x
   br i1 %cmp19.not.i, label %for.end26.i, label %land.rhs20.i, !llvm.loop !14
 
-for.end26.i:                                      ; preds = %check_solid_tile.argprom.exit99.i, %land.rhs20.i, %for.cond3.preheader.us.i.i83.i, %for.end13.i
-  %cx.0.in150.i = phi i32 [ %dx.0.i271, %for.end13.i ], [ %cx.0.in179.i, %for.cond3.preheader.us.i.i83.i ], [ %cx.0.in179.i, %land.rhs20.i ], [ %cx.0180.i, %check_solid_tile.argprom.exit99.i ]
+for.end26.i:                                      ; preds = %check_solid_tile.exit99.i, %land.rhs20.i, %for.cond3.preheader.us.i.i83.i, %for.end13.i
+  %cx.0.in150.i = phi i32 [ %dx.0.i271, %for.end13.i ], [ %cx.0.in179.i, %for.cond3.preheader.us.i.i83.i ], [ %cx.0.in179.i, %land.rhs20.i ], [ %cx.0180.i, %check_solid_tile.exit99.i ]
   %add31.i = add i32 %w_best.089.i, %dx.0.i271
   %cmp34185.i = icmp slt i32 %add31.i, %add9.i
   br i1 %cmp34185.i, label %land.rhs35.i.preheader, label %extend_solid_area.exit
@@ -2096,7 +2096,7 @@ if.then42:                                        ; preds = %if.then39
   %vs.val = load i8, ptr %11, align 4
   %12 = getelementptr i8, ptr %7, i64 40
   %vs.val30.val = load ptr, ptr %12, align 8
-  %call43 = tail call fastcc i32 @tight_detect_smooth_image24.argprom.argprom(i8 %vs.val, ptr %vs.val30.val, i32 noundef %w, i32 noundef %h)
+  %call43 = tail call fastcc i32 @tight_detect_smooth_image24(i8 %vs.val, ptr %vs.val30.val, i32 noundef %w, i32 noundef %h)
   br i1 %cmp21.not, label %if.end54, label %if.then49
 
 if.then49:                                        ; preds = %if.then42
@@ -3485,7 +3485,7 @@ return:                                           ; preds = %if.end, %sw.epilog,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define internal fastcc i32 @tight_detect_smooth_image24.argprom.argprom(i8 %vs.49452.val, ptr nocapture readonly %vs.49600.val.40.val, i32 noundef range(i32 8, -2147483648) %w, i32 noundef range(i32 8, -2147483648) %h) unnamed_addr #5 {
+define internal fastcc i32 @tight_detect_smooth_image24(i8 %vs.49452.val, ptr nocapture readonly %vs.49600.val.40.val, i32 noundef range(i32 8, -2147483648) %w, i32 noundef range(i32 8, -2147483648) %h) unnamed_addr #5 {
 entry:
   %stats = alloca [256 x i32], align 16
   %left = alloca [3 x i32], align 4

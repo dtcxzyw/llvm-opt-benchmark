@@ -540,7 +540,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageEEES3_E
           to label %136 unwind label %.loopexit.i.i
 
 136:                                              ; preds = %135
-  invoke fastcc void @_ZL5CheckRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimEPKcm.argprom(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 4)
+  invoke fastcc void @_ZL5CheckRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 4)
           to label %137 unwind label %169
 
 137:                                              ; preds = %136
@@ -676,7 +676,7 @@ define internal void @_ZL11CreateStagev() #3 personality ptr @__gxx_personality_
           to label %11 unwind label %109
 
 11:                                               ; preds = %10
-  invoke fastcc void @_ZL6AuthorRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimEPKcm.argprom(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 4)
+  invoke fastcc void @_ZL6AuthorRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 4)
           to label %12 unwind label %111
 
 12:                                               ; preds = %11
@@ -1066,7 +1066,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__8UsdStage14CreateInMemoryENS0
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__8UsdStage13GetPseudoRootEv(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdPrim") align 8, ptr noundef nonnull align 8 dereferenceable(1282)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL6AuthorRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimEPKcm.argprom(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef range(i64 0, 5) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL6AuthorRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef range(i64 0, 5) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.115", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8
@@ -1553,7 +1553,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit54: ; preds = %220, %215, 
   br i1 %.not28, label %228, label %227
 
 227:                                              ; preds = %226
-  invoke fastcc void @_ZL6AuthorRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimEPKcm.argprom(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %24)
+  invoke fastcc void @_ZL6AuthorRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %24)
           to label %228 unwind label %.loopexit.split-lp
 
 228:                                              ; preds = %227, %226
@@ -2931,7 +2931,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCoun
 declare noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL5CheckRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimEPKcm.argprom(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef range(i64 0, 5) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL5CheckRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef range(i64 0, 5) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
@@ -3523,7 +3523,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit61: ; preds = %234, %229, 
   br i1 %.not28, label %241, label %240
 
 240:                                              ; preds = %239
-  invoke fastcc void @_ZL5CheckRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimEPKcm.argprom(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %27)
+  invoke fastcc void @_ZL5CheckRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %27)
           to label %241 unwind label %.loopexit.split-lp.loopexit
 
 241:                                              ; preds = %240, %239

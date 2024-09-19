@@ -16245,7 +16245,7 @@ terminate.lpad.i9.i.i.i:                          ; preds = %invoke.cont15.i.i.i
   unreachable
 
 _ZN17scoped_ast_vectorD2Ev.exit10.i.i.i:          ; preds = %invoke.cont15.i.i.i
-  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZ28Z3_solver_register_on_clauseE3$_0JPvP4exprjPKjjPKS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit", label %if.then.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZ28Z3_solver_register_on_clauseE3$_0JPvP4exprjPKjjPKS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN17scoped_ast_vectorD2Ev.exit10.i.i.i
   %m_ref_count.i.i.i.i12.i.i.i = getelementptr inbounds i8, ptr %__args1.val, i64 8
@@ -16253,11 +16253,11 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN17scoped_ast_vec
   %dec.i.i.i.i.i.i.i = add i32 %23, -1
   store i32 %dec.i.i.i.i.i.i.i, ptr %m_ref_count.i.i.i.i12.i.i.i, align 4
   %cmp.i.i.i.i.i.i = icmp eq i32 %dec.i.i.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i, label %if.then2.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZ28Z3_solver_register_on_clauseE3$_0JPvP4exprjPKjjPKS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i, label %if.then2.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZ28Z3_solver_register_on_clauseE3$_0JPvP4exprjPKjjPKS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
 if.then2.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
   invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %5, ptr noundef nonnull %__args1.val)
-          to label %"_ZSt10__invoke_rIvRZ28Z3_solver_register_on_clauseE3$_0JPvP4exprjPKjjPKS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit" unwind label %terminate.lpad.i13.i.i.i
+          to label %"_ZSt10__invoke_rIvRZ28Z3_solver_register_on_clauseE3$_0JPvP4exprjPKjjPKS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit" unwind label %terminate.lpad.i13.i.i.i
 
 terminate.lpad.i13.i.i.i:                         ; preds = %if.then2.i.i.i.i.i.i
   %24 = landingpad { ptr, i32 }
@@ -16271,7 +16271,7 @@ ehcleanup.i.i.i:                                  ; preds = %lpad8.i.i.i, %lpad.
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %pr.i.i.i) #20
   resume { ptr, i32 } %.pn.i.i.i
 
-"_ZSt10__invoke_rIvRZ28Z3_solver_register_on_clauseE3$_0JPvP4exprjPKjjPKS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit": ; preds = %_ZN17scoped_ast_vectorD2Ev.exit10.i.i.i, %if.then.i.i.i.i.i.i, %if.then2.i.i.i.i.i.i
+"_ZSt10__invoke_rIvRZ28Z3_solver_register_on_clauseE3$_0JPvP4exprjPKjjPKS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %_ZN17scoped_ast_vectorD2Ev.exit10.i.i.i, %if.then.i.i.i.i.i.i, %if.then2.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pr.i.i.i)
   ret void
 }
@@ -16431,7 +16431,7 @@ invoke.cont4.i.i.i:                               ; preds = %invoke.cont3.i.i.i
   store ptr %call5.i.i.i, ptr %__args3, align 8
   %0 = load ptr, ptr %__functor, align 8
   %call8.i.i.i = invoke noundef ptr %0(ptr noundef %__args.val, ptr noundef nonnull %call.i.i.i)
-          to label %"_ZSt10__invoke_rIPvRZ24Z3_solver_propagate_initE3$_0JS0_R11ast_managerRPN15user_propagator11context_objEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit" unwind label %lpad.i.i.i
+          to label %"_ZSt10__invoke_rIPvRZ24Z3_solver_propagate_initE3$_0JS0_R11ast_managerRPN15user_propagator11context_objEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit" unwind label %lpad.i.i.i
 
 lpad.i.i.i:                                       ; preds = %invoke.cont4.i.i.i, %invoke.cont3.i.i.i, %invoke.cont2.i.i.i, %entry
   %1 = landingpad { ptr, i32 }
@@ -16439,7 +16439,7 @@ lpad.i.i.i:                                       ; preds = %invoke.cont4.i.i.i,
   call void @_ZN18ast_context_paramsD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %params.i.i.i) #20
   resume { ptr, i32 } %1
 
-"_ZSt10__invoke_rIPvRZ24Z3_solver_propagate_initE3$_0JS0_R11ast_managerRPN15user_propagator11context_objEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit": ; preds = %invoke.cont4.i.i.i
+"_ZSt10__invoke_rIPvRZ24Z3_solver_propagate_initE3$_0JS0_R11ast_managerRPN15user_propagator11context_objEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %invoke.cont4.i.i.i
   %m_encoding.i.i.i.i.i = getelementptr inbounds i8, ptr %params.i.i.i, i64 88
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_encoding.i.i.i.i.i) #20
   %m_trace_file_name.i.i.i.i.i = getelementptr inbounds i8, ptr %params.i.i.i, i64 40

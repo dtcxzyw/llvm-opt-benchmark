@@ -534,7 +534,7 @@ _brin_end_parallel.exit.i:                        ; preds = %232, %229
   %237 = sdiv i32 %235, %236
   %238 = load ptr, ptr %222, align 8
   %239 = load ptr, ptr %223, align 8
-  call fastcc void @_brin_parallel_scan_and_build.argelim(ptr noundef nonnull %87, ptr noundef %238, ptr noundef %239, ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %237)
+  call fastcc void @_brin_parallel_scan_and_build(ptr noundef nonnull %87, ptr noundef %238, ptr noundef %239, ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %237)
   call void @WaitForParallelWorkersToAttach(ptr noundef nonnull %118) #10
   br label %_brin_begin_parallel.exit
 
@@ -2952,7 +2952,7 @@ define dso_local void @_brin_parallel_build_main(ptr noundef %0, ptr noundef %1)
   %36 = getelementptr inbounds i8, ptr %4, i64 16
   %37 = load i32, ptr %36, align 8
   %38 = sdiv i32 %35, %37
-  tail call fastcc void @_brin_parallel_scan_and_build.argelim(ptr noundef nonnull %15, ptr noundef nonnull %4, ptr noundef %34, ptr noundef %9, ptr noundef %12, i32 noundef %38)
+  tail call fastcc void @_brin_parallel_scan_and_build(ptr noundef nonnull %15, ptr noundef nonnull %4, ptr noundef %34, ptr noundef %9, ptr noundef %12, i32 noundef %38)
   %39 = tail call ptr @shm_toc_lookup(ptr noundef %1, i64 noundef -5764607523034234875, i1 noundef zeroext false) #10
   %40 = tail call ptr @shm_toc_lookup(ptr noundef %1, i64 noundef -5764607523034234876, i1 noundef zeroext false) #10
   %41 = load i32, ptr @ParallelWorkerNumber, align 4
@@ -2974,7 +2974,7 @@ declare void @tuplesort_attach_shared(ptr noundef, ptr noundef) local_unnamed_ad
 declare void @InstrStartParallelQuery() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_brin_parallel_scan_and_build.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @_brin_parallel_scan_and_build(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = tail call ptr @palloc0(i64 noundef 16) #10
   store i8 1, ptr %8, align 8

@@ -75,7 +75,7 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
   br i1 %.not, label %.thread98, label %11
 
 .thread98:                                        ; preds = %8
-  %10 = tail call fastcc i32 @isremote.argprom()
+  %10 = tail call fastcc i32 @isremote()
   br label %.split.split.preheader
 
 11:                                               ; preds = %8
@@ -85,7 +85,7 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
   br i1 %.not50, label %.thread88, label %15
 
 .thread88:                                        ; preds = %11
-  %14 = tail call fastcc i32 @isremote.argprom()
+  %14 = tail call fastcc i32 @isremote()
   br label %.split.us.split.us.preheader
 
 15:                                               ; preds = %11
@@ -130,7 +130,7 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
 
 39:                                               ; preds = %32
   %.041.fr = freeze i64 %.142
-  %40 = call fastcc i32 @isremote.argprom()
+  %40 = call fastcc i32 @isremote()
   %41 = icmp eq i64 %.041.fr, 1
   %42 = trunc i64 %.041.fr to i32
   br i1 %41, label %.split.us.split.us.preheader, label %.split.split.preheader
@@ -298,7 +298,7 @@ declare i64 @cli_strntoul(ptr noundef, i64 noundef, ptr noundef, i32 noundef) lo
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @isremote.argprom() unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @isremote() unnamed_addr #0 {
   %1 = alloca [10 x i8], align 1
   %2 = alloca %struct.addrinfo, align 8
   %3 = alloca ptr, align 8
@@ -478,7 +478,7 @@ define dso_local range(i32 0, 3) i32 @get_clamd_version(ptr nocapture noundef re
   %3 = alloca %struct.RCVLN, align 8
   %4 = alloca [9 x i8], align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %4, ptr noundef nonnull align 1 dereferenceable(9) @__const.get_clamd_version.zVERSION, i64 9, i1 false)
-  %5 = tail call fastcc i32 @isremote.argprom()
+  %5 = tail call fastcc i32 @isremote()
   %6 = load ptr, ptr @clamdopts, align 8
   %7 = tail call i32 @dconnect(ptr noundef %6) #14
   %8 = icmp slt i32 %7, 0
@@ -524,7 +524,7 @@ define dso_local range(i32 0, 3) i32 @reload_clamd_database(ptr nocapture nounde
   %3 = alloca %struct.RCVLN, align 8
   %4 = alloca [8 x i8], align 8
   store i64 19212107254157946, ptr %4, align 8
-  %5 = tail call fastcc i32 @isremote.argprom()
+  %5 = tail call fastcc i32 @isremote()
   %6 = load ptr, ptr @clamdopts, align 8
   %7 = tail call i32 @dconnect(ptr noundef %6) #14
   %8 = icmp slt i32 %7, 0
@@ -619,7 +619,7 @@ sub_0:                                            ; preds = %15
 
 .tail.thread:                                     ; preds = %sub_0, %25, %21, %.tail, %15, %12
   %29 = phi i1 [ false, %21 ], [ false, %.tail ], [ false, %15 ], [ false, %12 ], [ %.not71, %25 ], [ false, %sub_0 ]
-  %30 = tail call fastcc i32 @isremote.argprom()
+  %30 = tail call fastcc i32 @isremote()
   %31 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.20) #14
   %32 = getelementptr inbounds i8, ptr %31, i64 32
   %33 = load i32, ptr %32, align 8

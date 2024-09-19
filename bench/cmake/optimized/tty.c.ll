@@ -272,25 +272,25 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tty_set_mode(ptr no
 .critedge21:                                      ; preds = %13
   %21 = tail call i32 asm sideeffect "lock; cmpxchg $2, $1;", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @termios_spinlock, i32 1, i32 0, ptr nonnull elementtype(i32) @termios_spinlock) #8, !srcloc !9
   %.not1.i = icmp eq i32 %21, 0
-  br i1 %.not1.i, label %uv_spinlock_lock.argprom.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %uv_spinlock_lock.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge21, %.lr.ph.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
   %22 = tail call i32 asm sideeffect "lock; cmpxchg $2, $1;", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @termios_spinlock, i32 1, i32 0, ptr nonnull elementtype(i32) @termios_spinlock) #8, !srcloc !9
   %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %uv_spinlock_lock.argprom.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %uv_spinlock_lock.exit, label %.lr.ph.i, !llvm.loop !11
 
-uv_spinlock_lock.argprom.exit:                    ; preds = %.lr.ph.i, %.critedge21
+uv_spinlock_lock.exit:                            ; preds = %.lr.ph.i, %.critedge21
   %23 = load i32, ptr @orig_termios_fd, align 4
   %24 = icmp eq i32 %23, -1
   br i1 %24, label %25, label %26
 
-25:                                               ; preds = %uv_spinlock_lock.argprom.exit
+25:                                               ; preds = %uv_spinlock_lock.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) @orig_termios, ptr noundef nonnull align 8 dereferenceable(60) %12, i64 60, i1 false)
   store i32 %9, ptr @orig_termios_fd, align 4
   br label %26
 
-26:                                               ; preds = %25, %uv_spinlock_lock.argprom.exit
+26:                                               ; preds = %25, %uv_spinlock_lock.exit
   store volatile i32 0, ptr @termios_spinlock, align 4
   br label %27
 

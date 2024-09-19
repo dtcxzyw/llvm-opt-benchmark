@@ -468,30 +468,30 @@ _ZL26close_directory_secure_cwdP11__dirstreami.exit53.i.i.i: ; preds = %158, %.c
 162:                                              ; preds = %165, %_ZL26close_directory_secure_cwdP11__dirstreami.exit53.i.i.i
   %163 = call i32 @fstat64(i32 noundef %146, ptr noundef nonnull %4) #13
   %164 = icmp eq i32 %163, -1
-  br i1 %164, label %165, label %_ZL14is_file_secureiPKc.argprom.exit.i.i.i
+  br i1 %164, label %165, label %_ZL14is_file_secureiPKc.exit.i.i.i
 
 165:                                              ; preds = %162
   %166 = tail call ptr @__errno_location() #15
   %167 = load i32, ptr %166, align 4
   %168 = icmp eq i32 %167, 4
-  br i1 %168, label %162, label %_ZL14is_file_secureiPKc.argprom.exit.thread.i.i.i, !llvm.loop !12
+  br i1 %168, label %162, label %_ZL14is_file_secureiPKc.exit.thread.i.i.i, !llvm.loop !12
 
-_ZL14is_file_secureiPKc.argprom.exit.thread.i.i.i: ; preds = %165
+_ZL14is_file_secureiPKc.exit.thread.i.i.i:        ; preds = %165
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   br label %172
 
-_ZL14is_file_secureiPKc.argprom.exit.i.i.i:       ; preds = %162
+_ZL14is_file_secureiPKc.exit.i.i.i:               ; preds = %162
   %169 = getelementptr inbounds i8, ptr %4, i64 16
   %170 = load i64, ptr %169, align 8
   %171 = icmp ult i64 %170, 2
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   br i1 %171, label %.preheader61.i.i.i, label %172
 
-172:                                              ; preds = %_ZL14is_file_secureiPKc.argprom.exit.i.i.i, %_ZL14is_file_secureiPKc.argprom.exit.thread.i.i.i
+172:                                              ; preds = %_ZL14is_file_secureiPKc.exit.i.i.i, %_ZL14is_file_secureiPKc.exit.thread.i.i.i
   %173 = call i32 @close(i32 noundef %146) #13
   br label %_ZL21create_sharedmem_filePKcS0_m.exit.i.i
 
-.preheader61.i.i.i:                               ; preds = %_ZL14is_file_secureiPKc.argprom.exit.i.i.i, %175
+.preheader61.i.i.i:                               ; preds = %_ZL14is_file_secureiPKc.exit.i.i.i, %175
   %174 = call i32 @flock(i32 noundef %146, i32 noundef 6) #13
   switch i32 %174, label %.critedge2.i39.i.i [
     i32 -1, label %175
@@ -764,12 +764,12 @@ _ZL19save_memory_to_filePcm.exit:                 ; preds = %21, %.sink.split.i
 28:                                               ; preds = %0, %_ZL19save_memory_to_filePcm.exit
   %29 = load i8, ptr @PerfDisableSharedMem, align 1
   %30 = trunc i8 %29 to i1
-  br i1 %30, label %_ZL20delete_shared_memoryPcm.argprom.exit, label %31
+  br i1 %30, label %_ZL20delete_shared_memoryPcm.exit, label %31
 
 31:                                               ; preds = %28
   %32 = load ptr, ptr @_ZL23backing_store_file_name, align 8
   %.not.i = icmp eq ptr %32, null
-  br i1 %.not.i, label %_ZL20delete_shared_memoryPcm.argprom.exit, label %.preheader.i
+  br i1 %.not.i, label %_ZL20delete_shared_memoryPcm.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %31, %35
   %33 = tail call i32 @unlink(ptr noundef nonnull readonly %32) #13
@@ -784,9 +784,9 @@ _ZL19save_memory_to_filePcm.exit:                 ; preds = %21, %.sink.split.i
 
 _ZL11remove_filePKc.exit.i:                       ; preds = %35, %.preheader.i
   store ptr null, ptr @_ZL23backing_store_file_name, align 8
-  br label %_ZL20delete_shared_memoryPcm.argprom.exit
+  br label %_ZL20delete_shared_memoryPcm.exit
 
-_ZL20delete_shared_memoryPcm.argprom.exit:        ; preds = %_ZL11remove_filePKc.exit.i, %31, %28
+_ZL20delete_shared_memoryPcm.exit:                ; preds = %_ZL11remove_filePKc.exit.i, %31, %28
   ret void
 }
 
@@ -953,31 +953,31 @@ _ZL19is_directory_securePKc.exit.i:               ; preds = %.critedge3.i.i
 77:                                               ; preds = %80, %.critedge14.i.i
   %78 = call i32 @fstat64(i32 noundef %65, ptr noundef nonnull %7) #13
   %79 = icmp eq i32 %78, -1
-  br i1 %79, label %80, label %_ZL14is_file_secureiPKc.argprom.exit.i.i
+  br i1 %79, label %80, label %_ZL14is_file_secureiPKc.exit.i.i
 
 80:                                               ; preds = %77
   %81 = tail call ptr @__errno_location() #15
   %82 = load i32, ptr %81, align 4
   %83 = icmp eq i32 %82, 4
-  br i1 %83, label %77, label %_ZL14is_file_secureiPKc.argprom.exit.thread.i.i, !llvm.loop !12
+  br i1 %83, label %77, label %_ZL14is_file_secureiPKc.exit.thread.i.i, !llvm.loop !12
 
-_ZL14is_file_secureiPKc.argprom.exit.thread.i.i:  ; preds = %80
+_ZL14is_file_secureiPKc.exit.thread.i.i:          ; preds = %80
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7)
   br label %87
 
-_ZL14is_file_secureiPKc.argprom.exit.i.i:         ; preds = %77
+_ZL14is_file_secureiPKc.exit.i.i:                 ; preds = %77
   %84 = getelementptr inbounds i8, ptr %7, i64 16
   %85 = load i64, ptr %84, align 8
   %86 = icmp ult i64 %85, 2
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7)
   br i1 %86, label %_ZL19open_sharedmem_filePKciP10JavaThread.exit.i, label %87
 
-87:                                               ; preds = %_ZL14is_file_secureiPKc.argprom.exit.i.i, %_ZL14is_file_secureiPKc.argprom.exit.thread.i.i
+87:                                               ; preds = %_ZL14is_file_secureiPKc.exit.i.i, %_ZL14is_file_secureiPKc.exit.thread.i.i
   %88 = call i32 @close(i32 noundef %65) #13
   br label %_ZL19open_sharedmem_filePKciP10JavaThread.exit.i
 
-_ZL19open_sharedmem_filePKciP10JavaThread.exit.i: ; preds = %87, %_ZL14is_file_secureiPKc.argprom.exit.i.i, %74, %72, %70
-  %.0.i48.i = phi i32 [ -1, %70 ], [ -1, %72 ], [ -1, %74 ], [ -1, %87 ], [ %65, %_ZL14is_file_secureiPKc.argprom.exit.i.i ]
+_ZL19open_sharedmem_filePKciP10JavaThread.exit.i: ; preds = %87, %_ZL14is_file_secureiPKc.exit.i.i, %74, %72, %70
+  %.0.i48.i = phi i32 [ -1, %70 ], [ -1, %72 ], [ -1, %74 ], [ -1, %87 ], [ %65, %_ZL14is_file_secureiPKc.exit.i.i ]
   call void @_Z8FreeHeapPv(ptr noundef nonnull %.013.i.ph.i) #13
   call void @_Z8FreeHeapPv(ptr noundef %41) #13
   call void @_Z8FreeHeapPv(ptr noundef %62) #13

@@ -193,7 +193,7 @@ define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_122SampleTrac
   %7 = sub i64 %5, %6
   %8 = ashr exact i64 %7, 4
   %9 = icmp eq ptr %.val19, %.val
-  br i1 %9, label %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation14TranslationKeyENS_12StdAllocatorIS6_EEEFNS_4math6Float3ERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.argprom.exit, label %10
+  br i1 %9, label %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation14TranslationKeyENS_12StdAllocatorIS6_EEEFNS_4math6Float3ERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.exit, label %10
 
 10:                                               ; preds = %3
   %11 = load float, ptr %.val, align 4
@@ -205,7 +205,7 @@ define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_122SampleTrac
   %.sroa.030.0.copyload.i = load <2 x float>, ptr %14, align 4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %.val, i64 12
   %.sroa.5.0.copyload.i = load float, ptr %.sroa.5.0..sroa_idx.i, align 4
-  br label %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation14TranslationKeyENS_12StdAllocatorIS6_EEEFNS_4math6Float3ERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.argprom.exit
+  br label %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation14TranslationKeyENS_12StdAllocatorIS6_EEEFNS_4math6Float3ERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.exit
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %.val19, i64 -16
@@ -218,7 +218,7 @@ define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_122SampleTrac
   %.sroa.030.0.copyload31.i = load <2 x float>, ptr %20, align 4
   %.sroa.5.0..sroa_idx32.i = getelementptr inbounds i8, ptr %.val19, i64 -4
   %.sroa.5.0.copyload33.i = load float, ptr %.sroa.5.0..sroa_idx32.i, align 4
-  br label %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation14TranslationKeyENS_12StdAllocatorIS6_EEEFNS_4math6Float3ERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.argprom.exit
+  br label %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation14TranslationKeyENS_12StdAllocatorIS6_EEEFNS_4math6Float3ERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.exit
 
 21:                                               ; preds = %15
   %22 = icmp sgt i64 %8, 0
@@ -271,9 +271,9 @@ _ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation14TranslationKeyES4_PFb
   %54 = tail call float @llvm.fmuladd.f32(float %53, float %36, float %52)
   %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %42, i64 0
   %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %48, i64 1
-  br label %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation14TranslationKeyENS_12StdAllocatorIS6_EEEFNS_4math6Float3ERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.argprom.exit
+  br label %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation14TranslationKeyENS_12StdAllocatorIS6_EEEFNS_4math6Float3ERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.exit
 
-_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation14TranslationKeyENS_12StdAllocatorIS6_EEEFNS_4math6Float3ERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.argprom.exit: ; preds = %3, %13, %19, %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation14TranslationKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.i
+_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation14TranslationKeyENS_12StdAllocatorIS6_EEEFNS_4math6Float3ERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.exit: ; preds = %3, %13, %19, %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation14TranslationKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.i
   %.sroa.030.0.i = phi <2 x float> [ %.sroa.030.0.copyload.i, %13 ], [ %.sroa.030.0.copyload31.i, %19 ], [ %.sroa.0.4.vec.insert.i.i, %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation14TranslationKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.i ], [ zeroinitializer, %3 ]
   %.sroa.5.0.i = phi float [ %.sroa.5.0.copyload.i, %13 ], [ %.sroa.5.0.copyload33.i, %19 ], [ %54, %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation14TranslationKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.i ], [ 0.000000e+00, %3 ]
   store <2 x float> %.sroa.030.0.i, ptr %2, align 4
@@ -287,9 +287,9 @@ _ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnim
   %58 = ptrtoint ptr %.val20 to i64
   %59 = sub i64 %57, %58
   %60 = icmp eq ptr %.val21, %.val20
-  br i1 %60, label %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS6_EEEFNS_4math10QuaternionERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.argprom.exit, label %61
+  br i1 %60, label %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS6_EEEFNS_4math10QuaternionERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.exit, label %61
 
-61:                                               ; preds = %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation14TranslationKeyENS_12StdAllocatorIS6_EEEFNS_4math6Float3ERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.argprom.exit
+61:                                               ; preds = %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation14TranslationKeyENS_12StdAllocatorIS6_EEEFNS_4math6Float3ERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.exit
   %62 = load float, ptr %.val20, align 4
   %63 = fcmp ugt float %1, %62
   br i1 %63, label %66, label %64
@@ -299,7 +299,7 @@ _ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnim
   %.sroa.0.0.copyload.i = load <2 x float>, ptr %65, align 4
   %.sroa.5.0..sroa_idx.i24 = getelementptr inbounds i8, ptr %.val20, i64 12
   %.sroa.5.0.copyload.i25 = load <2 x float>, ptr %.sroa.5.0..sroa_idx.i24, align 4
-  br label %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS6_EEEFNS_4math10QuaternionERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.argprom.exit
+  br label %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS6_EEEFNS_4math10QuaternionERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.exit
 
 66:                                               ; preds = %61
   %67 = getelementptr inbounds i8, ptr %.val21, i64 -20
@@ -312,7 +312,7 @@ _ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnim
   %.sroa.0.0.copyload20.i = load <2 x float>, ptr %71, align 4
   %.sroa.5.0..sroa_idx21.i = getelementptr inbounds i8, ptr %.val21, i64 -8
   %.sroa.5.0.copyload22.i = load <2 x float>, ptr %.sroa.5.0..sroa_idx21.i, align 4
-  br label %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS6_EEEFNS_4math10QuaternionERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.argprom.exit
+  br label %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS6_EEEFNS_4math10QuaternionERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.exit
 
 72:                                               ; preds = %66
   %73 = icmp sgt i64 %59, 0
@@ -417,11 +417,11 @@ _ZN3ozz9animation7offline12LerpRotationERKNS_4math10QuaternionES5_f.exit.i: ; pr
   %.sroa.0.4.vec.insert.i.i31 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i30, float %130, i64 1
   %.sroa.3.8.vec.insert.i.i = insertelement <2 x float> poison, float %131, i64 0
   %.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %.sroa.3.8.vec.insert.i.i, float %132, i64 1
-  br label %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS6_EEEFNS_4math10QuaternionERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.argprom.exit
+  br label %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS6_EEEFNS_4math10QuaternionERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.exit
 
-_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS6_EEEFNS_4math10QuaternionERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.argprom.exit: ; preds = %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation14TranslationKeyENS_12StdAllocatorIS6_EEEFNS_4math6Float3ERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.argprom.exit, %64, %70, %_ZN3ozz9animation7offline12LerpRotationERKNS_4math10QuaternionES5_f.exit.i
-  %.sroa.0.0.i = phi <2 x float> [ %.sroa.0.0.copyload.i, %64 ], [ %.sroa.0.0.copyload20.i, %70 ], [ %.sroa.0.4.vec.insert.i.i31, %_ZN3ozz9animation7offline12LerpRotationERKNS_4math10QuaternionES5_f.exit.i ], [ zeroinitializer, %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation14TranslationKeyENS_12StdAllocatorIS6_EEEFNS_4math6Float3ERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.argprom.exit ]
-  %.sroa.5.0.i26 = phi <2 x float> [ %.sroa.5.0.copyload.i25, %64 ], [ %.sroa.5.0.copyload22.i, %70 ], [ %.sroa.3.12.vec.insert.i.i, %_ZN3ozz9animation7offline12LerpRotationERKNS_4math10QuaternionES5_f.exit.i ], [ <float 0.000000e+00, float 1.000000e+00>, %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation14TranslationKeyENS_12StdAllocatorIS6_EEEFNS_4math6Float3ERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.argprom.exit ]
+_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS6_EEEFNS_4math10QuaternionERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.exit: ; preds = %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation14TranslationKeyENS_12StdAllocatorIS6_EEEFNS_4math6Float3ERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.exit, %64, %70, %_ZN3ozz9animation7offline12LerpRotationERKNS_4math10QuaternionES5_f.exit.i
+  %.sroa.0.0.i = phi <2 x float> [ %.sroa.0.0.copyload.i, %64 ], [ %.sroa.0.0.copyload20.i, %70 ], [ %.sroa.0.4.vec.insert.i.i31, %_ZN3ozz9animation7offline12LerpRotationERKNS_4math10QuaternionES5_f.exit.i ], [ zeroinitializer, %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation14TranslationKeyENS_12StdAllocatorIS6_EEEFNS_4math6Float3ERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.exit ]
+  %.sroa.5.0.i26 = phi <2 x float> [ %.sroa.5.0.copyload.i25, %64 ], [ %.sroa.5.0.copyload22.i, %70 ], [ %.sroa.3.12.vec.insert.i.i, %_ZN3ozz9animation7offline12LerpRotationERKNS_4math10QuaternionES5_f.exit.i ], [ <float 0.000000e+00, float 1.000000e+00>, %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation14TranslationKeyENS_12StdAllocatorIS6_EEEFNS_4math6Float3ERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.exit ]
   %133 = getelementptr inbounds i8, ptr %2, i64 12
   store <2 x float> %.sroa.0.0.i, ptr %133, align 4
   %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 20
@@ -435,9 +435,9 @@ _ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnim
   %138 = sub i64 %136, %137
   %139 = ashr exact i64 %138, 4
   %140 = icmp eq ptr %.val23, %.val22
-  br i1 %140, label %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation8ScaleKeyENS_12StdAllocatorIS6_EEEFNS_4math6Float3ERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.argprom.exit, label %141
+  br i1 %140, label %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation8ScaleKeyENS_12StdAllocatorIS6_EEEFNS_4math6Float3ERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.exit, label %141
 
-141:                                              ; preds = %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS6_EEEFNS_4math10QuaternionERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.argprom.exit
+141:                                              ; preds = %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS6_EEEFNS_4math10QuaternionERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.exit
   %142 = load float, ptr %.val22, align 4
   %143 = fcmp ugt float %1, %142
   br i1 %143, label %146, label %144
@@ -447,7 +447,7 @@ _ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnim
   %.sroa.030.0.copyload.i39 = load <2 x float>, ptr %145, align 4
   %.sroa.5.0..sroa_idx.i40 = getelementptr inbounds i8, ptr %.val22, i64 12
   %.sroa.5.0.copyload.i41 = load float, ptr %.sroa.5.0..sroa_idx.i40, align 4
-  br label %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation8ScaleKeyENS_12StdAllocatorIS6_EEEFNS_4math6Float3ERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.argprom.exit
+  br label %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation8ScaleKeyENS_12StdAllocatorIS6_EEEFNS_4math6Float3ERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.exit
 
 146:                                              ; preds = %141
   %147 = getelementptr inbounds i8, ptr %.val23, i64 -16
@@ -460,7 +460,7 @@ _ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnim
   %.sroa.030.0.copyload31.i46 = load <2 x float>, ptr %151, align 4
   %.sroa.5.0..sroa_idx32.i47 = getelementptr inbounds i8, ptr %.val23, i64 -4
   %.sroa.5.0.copyload33.i48 = load float, ptr %.sroa.5.0..sroa_idx32.i47, align 4
-  br label %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation8ScaleKeyENS_12StdAllocatorIS6_EEEFNS_4math6Float3ERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.argprom.exit
+  br label %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation8ScaleKeyENS_12StdAllocatorIS6_EEEFNS_4math6Float3ERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.exit
 
 152:                                              ; preds = %146
   %153 = icmp sgt i64 %139, 0
@@ -513,11 +513,11 @@ _ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation8ScaleKeyES4_PFbRS5_S7_
   %185 = tail call float @llvm.fmuladd.f32(float %184, float %167, float %183)
   %.sroa.0.0.vec.insert.i.i50 = insertelement <2 x float> poison, float %173, i64 0
   %.sroa.0.4.vec.insert.i.i51 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i50, float %179, i64 1
-  br label %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation8ScaleKeyENS_12StdAllocatorIS6_EEEFNS_4math6Float3ERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.argprom.exit
+  br label %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation8ScaleKeyENS_12StdAllocatorIS6_EEEFNS_4math6Float3ERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.exit
 
-_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation8ScaleKeyENS_12StdAllocatorIS6_EEEFNS_4math6Float3ERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.argprom.exit: ; preds = %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS6_EEEFNS_4math10QuaternionERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.argprom.exit, %144, %150, %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation8ScaleKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.i
-  %.sroa.030.0.i42 = phi <2 x float> [ %.sroa.030.0.copyload.i39, %144 ], [ %.sroa.030.0.copyload31.i46, %150 ], [ %.sroa.0.4.vec.insert.i.i51, %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation8ScaleKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.i ], [ <float 1.000000e+00, float 1.000000e+00>, %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS6_EEEFNS_4math10QuaternionERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.argprom.exit ]
-  %.sroa.5.0.i43 = phi float [ %.sroa.5.0.copyload.i41, %144 ], [ %.sroa.5.0.copyload33.i48, %150 ], [ %185, %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation8ScaleKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.i ], [ 1.000000e+00, %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS6_EEEFNS_4math10QuaternionERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.argprom.exit ]
+_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation8ScaleKeyENS_12StdAllocatorIS6_EEEFNS_4math6Float3ERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.exit: ; preds = %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS6_EEEFNS_4math10QuaternionERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.exit, %144, %150, %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation8ScaleKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.i
+  %.sroa.030.0.i42 = phi <2 x float> [ %.sroa.030.0.copyload.i39, %144 ], [ %.sroa.030.0.copyload31.i46, %150 ], [ %.sroa.0.4.vec.insert.i.i51, %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation8ScaleKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.i ], [ <float 1.000000e+00, float 1.000000e+00>, %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS6_EEEFNS_4math10QuaternionERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.exit ]
+  %.sroa.5.0.i43 = phi float [ %.sroa.5.0.copyload.i41, %144 ], [ %.sroa.5.0.copyload33.i48, %150 ], [ %185, %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation8ScaleKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.i ], [ 1.000000e+00, %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS6_EEEFNS_4math10QuaternionERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.exit ]
   %186 = getelementptr inbounds i8, ptr %2, i64 28
   store <2 x float> %.sroa.030.0.i42, ptr %186, align 4
   %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 36

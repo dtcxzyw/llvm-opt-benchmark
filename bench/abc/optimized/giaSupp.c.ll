@@ -316,7 +316,7 @@ define i32 @Gia_ManFindRemoved(ptr nocapture noundef readonly %0) local_unnamed_
   %9 = getelementptr inbounds i8, ptr %6, i64 4
   %10 = load i32, ptr %9, align 4
   %.not.i = icmp sgt i32 %.val101, %10
-  br i1 %.not.i, label %11, label %Vec_PtrFillExtra.argprom.exit
+  br i1 %.not.i, label %11, label %Vec_PtrFillExtra.exit
 
 11:                                               ; preds = %1
   %12 = load i32, ptr %6, align 8
@@ -401,16 +401,16 @@ Vec_PtrGrow.exit.i:                               ; preds = %Vec_PtrGrow.exit.si
 
 ._crit_edge.i:                                    ; preds = %43, %Vec_PtrGrow.exit.i
   store i32 %.val101, ptr %9, align 4
-  br label %Vec_PtrFillExtra.argprom.exit
+  br label %Vec_PtrFillExtra.exit
 
-Vec_PtrFillExtra.argprom.exit:                    ; preds = %1, %._crit_edge.i
+Vec_PtrFillExtra.exit:                            ; preds = %1, %._crit_edge.i
   %46 = getelementptr inbounds i8, ptr %0, i64 56
   br label %.preheader133
 
-.preheader133:                                    ; preds = %Vec_PtrFillExtra.argprom.exit, %.critedge
-  %47 = phi i1 [ true, %Vec_PtrFillExtra.argprom.exit ], [ false, %.critedge ]
-  %indvars.iv151 = phi i64 [ 0, %Vec_PtrFillExtra.argprom.exit ], [ 1, %.critedge ]
-  %.091137 = phi i32 [ 0, %Vec_PtrFillExtra.argprom.exit ], [ %.192.lcssa, %.critedge ]
+.preheader133:                                    ; preds = %Vec_PtrFillExtra.exit, %.critedge
+  %47 = phi i1 [ true, %Vec_PtrFillExtra.exit ], [ false, %.critedge ]
+  %indvars.iv151 = phi i64 [ 0, %Vec_PtrFillExtra.exit ], [ 1, %.critedge ]
+  %.091137 = phi i32 [ 0, %Vec_PtrFillExtra.exit ], [ %.192.lcssa, %.critedge ]
   %48 = getelementptr inbounds [2 x ptr], ptr %2, i64 0, i64 %indvars.iv151
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr i8, ptr %49, i64 4
@@ -784,7 +784,7 @@ define i32 @Gia_ManRebuildOne(ptr nocapture noundef readonly %0, i32 noundef %1)
   %11 = getelementptr inbounds i8, ptr %10, i64 392
   %12 = getelementptr i8, ptr %10, i64 24
   %.val60 = load i32, ptr %12, align 8
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %11, i32 noundef %.val60)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %11, i32 noundef %.val60)
   %13 = getelementptr i8, ptr %6, i64 4
   %.val5976 = load i32, ptr %13, align 4
   %14 = icmp sgt i32 %.val5976, 0
@@ -922,7 +922,7 @@ define i32 @Gia_ManRebuildOne(ptr nocapture noundef readonly %0, i32 noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -2331,12 +2331,12 @@ define void @Gia_Min2CollectSuper_rec(ptr noundef %0, ptr noundef %1, i32 nounde
 
 tailrecurse.outer._crit_edge:                     ; preds = %.lr.ph.split.us, %10, %.split.split.us, %.split13, %.lr.ph.split, %34, %38, %4
   %.tr.lcssa = phi ptr [ %0, %4 ], [ %.tr24, %38 ], [ %.tr24, %34 ], [ %.tr24, %.lr.ph.split ], [ %56, %.split13 ], [ %30, %.split.split.us ], [ %.tr.ph45, %10 ], [ %.tr.ph45, %.lr.ph.split.us ]
-  tail call fastcc void @Vec_PtrPushUnique.argelim(ptr noundef %1, ptr noundef %.tr.lcssa)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %1, ptr noundef %.tr.lcssa)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_PtrPushUnique.argelim(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -2772,7 +2772,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %90 = and i64 %89, 536870911
   %91 = sub nsw i64 0, %90
   %92 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %88, i64 %91
-  tail call fastcc void @Vec_PtrPushUnique.argelim(ptr noundef %84, ptr noundef nonnull %92)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %84, ptr noundef nonnull %92)
   %93 = load ptr, ptr %73, align 8
   %94 = load i64, ptr %78, align 4
   %95 = lshr i64 %94, 32
@@ -2783,7 +2783,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %100 = and i64 %99, 536870911
   %101 = sub nsw i64 0, %100
   %102 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %98, i64 %101
-  tail call fastcc void @Vec_PtrPushUnique.argelim(ptr noundef %93, ptr noundef nonnull %102)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %93, ptr noundef nonnull %102)
   %103 = load ptr, ptr %73, align 8
   %104 = load i64, ptr %78, align 4
   %105 = and i64 %104, 536870911
@@ -2794,7 +2794,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %110 = and i64 %109, 536870911
   %111 = sub nsw i64 0, %110
   %112 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %107, i64 %111
-  tail call fastcc void @Vec_PtrPushUnique.argelim(ptr noundef %103, ptr noundef nonnull %112)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %103, ptr noundef nonnull %112)
   %113 = load ptr, ptr %73, align 8
   %114 = load i64, ptr %78, align 4
   %115 = lshr i64 %114, 32
@@ -2806,7 +2806,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %121 = and i64 %120, 536870911
   %122 = sub nsw i64 0, %121
   %123 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %118, i64 %122
-  tail call fastcc void @Vec_PtrPushUnique.argelim(ptr noundef %113, ptr noundef nonnull %123)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %113, ptr noundef nonnull %123)
   %124 = load ptr, ptr %73, align 8
   %125 = getelementptr i8, ptr %124, i64 4
   %.val8491 = load i32, ptr %125, align 4
@@ -3161,7 +3161,7 @@ define range(i32 0, 2) i32 @Gia_Min2ManSolve(ptr nocapture noundef %0) local_unn
   %9 = getelementptr inbounds i8, ptr %8, i64 392
   %10 = getelementptr i8, ptr %8, i64 24
   %.val53 = load i32, ptr %10, align 8
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %9, i32 noundef %.val53)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %9, i32 noundef %.val53)
   %11 = getelementptr inbounds i8, ptr %0, i64 80
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 4
@@ -3206,9 +3206,9 @@ define range(i32 0, 2) i32 @Gia_Min2ManSolve(ptr nocapture noundef %0) local_unn
   %39 = icmp sgt i32 %.val5265, 0
   br i1 %39, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %.preheader, %Gia_Min2SimSetInputBit.argprom.argprom.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %Gia_Min2SimSetInputBit.argprom.argprom.exit ], [ 0, %.preheader ]
-  %40 = phi ptr [ %66, %Gia_Min2SimSetInputBit.argprom.argprom.exit ], [ %37, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %Gia_Min2SimSetInputBit.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %Gia_Min2SimSetInputBit.exit ], [ 0, %.preheader ]
+  %40 = phi ptr [ %66, %Gia_Min2SimSetInputBit.exit ], [ %37, %.preheader ]
   %41 = getelementptr i8, ptr %40, i64 8
   %.val55 = load ptr, ptr %41, align 8
   %42 = getelementptr inbounds i32, ptr %.val55, i64 %indvars.iv
@@ -3236,15 +3236,15 @@ define range(i32 0, 2) i32 @Gia_Min2ManSolve(ptr nocapture noundef %0) local_unn
   %61 = trunc i32 %60 to i1
   %62 = icmp ne i8 %51, 0
   %.not.i = xor i1 %62, %61
-  br i1 %.not.i, label %Gia_Min2SimSetInputBit.argprom.argprom.exit, label %63
+  br i1 %.not.i, label %Gia_Min2SimSetInputBit.exit, label %63
 
 63:                                               ; preds = %.lr.ph
   %64 = shl nuw i32 1, %59
   %65 = xor i32 %58, %64
   store i32 %65, ptr %57, align 4
-  br label %Gia_Min2SimSetInputBit.argprom.argprom.exit
+  br label %Gia_Min2SimSetInputBit.exit
 
-Gia_Min2SimSetInputBit.argprom.argprom.exit:      ; preds = %.lr.ph, %63
+Gia_Min2SimSetInputBit.exit:                      ; preds = %.lr.ph, %63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %66 = load ptr, ptr %36, align 8
   %67 = getelementptr i8, ptr %66, i64 4
@@ -3253,7 +3253,7 @@ Gia_Min2SimSetInputBit.argprom.argprom.exit:      ; preds = %.lr.ph, %63
   %69 = icmp slt i64 %indvars.iv.next, %68
   br i1 %69, label %.lr.ph, label %.critedge, !llvm.loop !30
 
-.critedge:                                        ; preds = %Gia_Min2SimSetInputBit.argprom.argprom.exit, %.preheader
+.critedge:                                        ; preds = %Gia_Min2SimSetInputBit.exit, %.preheader
   br i1 %35, label %.preheader, label %70, !llvm.loop !31
 
 70:                                               ; preds = %.critedge

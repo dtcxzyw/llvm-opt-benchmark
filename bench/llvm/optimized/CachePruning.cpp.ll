@@ -1142,40 +1142,40 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef
   %.not29.i.i.i = icmp eq ptr %.02728.i.i.i, null
   br i1 %.not29.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %.critedge9, %_ZNKSt4lessIN12_GLOBAL__N_18FileInfoEEclERKS1_S4_.argprom.exit.i.i.i
-  %.02730.i.i.i = phi ptr [ %.027.i.i.i, %_ZNKSt4lessIN12_GLOBAL__N_18FileInfoEEclERKS1_S4_.argprom.exit.i.i.i ], [ %.02728.i.i.i, %.critedge9 ]
+.lr.ph.i.i.i:                                     ; preds = %.critedge9, %_ZNKSt4lessIN12_GLOBAL__N_18FileInfoEEclERKS1_S4_.exit.i.i.i
+  %.02730.i.i.i = phi ptr [ %.027.i.i.i, %_ZNKSt4lessIN12_GLOBAL__N_18FileInfoEEclERKS1_S4_.exit.i.i.i ], [ %.02728.i.i.i, %.critedge9 ]
   %223 = getelementptr inbounds nuw i8, ptr %.02730.i.i.i, i64 32
   %224 = getelementptr inbounds nuw i8, ptr %.02730.i.i.i, i64 40
   %225 = getelementptr inbounds nuw i8, ptr %.02730.i.i.i, i64 48
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %25, align 8
   %.sroa.0.0.copyload.i2.i.i.i.i.i.i.i.i = load i64, ptr %223, align 8
   %226 = icmp slt i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, %.sroa.0.0.copyload.i2.i.i.i.i.i.i.i.i
-  br i1 %226, label %_ZNKSt4lessIN12_GLOBAL__N_18FileInfoEEclERKS1_S4_.argprom.exit.i.i.i, label %227
+  br i1 %226, label %_ZNKSt4lessIN12_GLOBAL__N_18FileInfoEEclERKS1_S4_.exit.i.i.i, label %227
 
 227:                                              ; preds = %.lr.ph.i.i.i
   %228 = icmp slt i64 %.sroa.0.0.copyload.i2.i.i.i.i.i.i.i.i, %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i
-  br i1 %228, label %_ZNKSt4lessIN12_GLOBAL__N_18FileInfoEEclERKS1_S4_.argprom.exit.i.i.i, label %229
+  br i1 %228, label %_ZNKSt4lessIN12_GLOBAL__N_18FileInfoEEclERKS1_S4_.exit.i.i.i, label %229
 
 229:                                              ; preds = %227
   %230 = load i64, ptr %224, align 8
   %231 = load i64, ptr %109, align 8
   %232 = icmp ult i64 %230, %231
-  br i1 %232, label %_ZNKSt4lessIN12_GLOBAL__N_18FileInfoEEclERKS1_S4_.argprom.exit.i.i.i, label %233
+  br i1 %232, label %_ZNKSt4lessIN12_GLOBAL__N_18FileInfoEEclERKS1_S4_.exit.i.i.i, label %233
 
 233:                                              ; preds = %229
   %234 = icmp ult i64 %231, %230
-  br i1 %234, label %_ZNKSt4lessIN12_GLOBAL__N_18FileInfoEEclERKS1_S4_.argprom.exit.i.i.i, label %235
+  br i1 %234, label %_ZNKSt4lessIN12_GLOBAL__N_18FileInfoEEclERKS1_S4_.exit.i.i.i, label %235
 
 235:                                              ; preds = %233
   %236 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull align 8 dereferenceable(32) %225) #15
   %237 = icmp slt i32 %236, 0
-  br i1 %237, label %_ZNKSt4lessIN12_GLOBAL__N_18FileInfoEEclERKS1_S4_.argprom.exit.i.i.i, label %238
+  br i1 %237, label %_ZNKSt4lessIN12_GLOBAL__N_18FileInfoEEclERKS1_S4_.exit.i.i.i, label %238
 
 238:                                              ; preds = %235
   %239 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %225, ptr noundef nonnull align 8 dereferenceable(32) %110) #15
-  br label %_ZNKSt4lessIN12_GLOBAL__N_18FileInfoEEclERKS1_S4_.argprom.exit.i.i.i
+  br label %_ZNKSt4lessIN12_GLOBAL__N_18FileInfoEEclERKS1_S4_.exit.i.i.i
 
-_ZNKSt4lessIN12_GLOBAL__N_18FileInfoEEclERKS1_S4_.argprom.exit.i.i.i: ; preds = %238, %235, %233, %229, %227, %.lr.ph.i.i.i
+_ZNKSt4lessIN12_GLOBAL__N_18FileInfoEEclERKS1_S4_.exit.i.i.i: ; preds = %238, %235, %233, %229, %227, %.lr.ph.i.i.i
   %.sink.i.i.i = phi i64 [ 16, %.lr.ph.i.i.i ], [ 16, %229 ], [ 16, %235 ], [ 24, %238 ], [ 24, %233 ], [ 24, %227 ]
   %240 = phi i1 [ true, %.lr.ph.i.i.i ], [ true, %229 ], [ true, %235 ], [ false, %238 ], [ false, %233 ], [ false, %227 ]
   %241 = getelementptr i8, ptr %.02730.i.i.i, i64 %.sink.i.i.i
@@ -1183,7 +1183,7 @@ _ZNKSt4lessIN12_GLOBAL__N_18FileInfoEEclERKS1_S4_.argprom.exit.i.i.i: ; preds = 
   %.not.i.i.i = icmp eq ptr %.027.i.i.i, null
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !155
 
-._crit_edge.i.i.i:                                ; preds = %_ZNKSt4lessIN12_GLOBAL__N_18FileInfoEEclERKS1_S4_.argprom.exit.i.i.i
+._crit_edge.i.i.i:                                ; preds = %_ZNKSt4lessIN12_GLOBAL__N_18FileInfoEEclERKS1_S4_.exit.i.i.i
   br i1 %240, label %._crit_edge.thread.i.i.i, label %245
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %.critedge9
@@ -1233,7 +1233,7 @@ _ZNKSt4lessIN12_GLOBAL__N_18FileInfoEEclERKS1_S4_.argprom.exit.i.i.i: ; preds = 
 263:                                              ; preds = %258, %252, %245, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.026.lcssa34.i.i.i, %258 ], [ %.026.lcssa34.i.i.i, %252 ], [ %.026.lcssa34.i.i.i, %245 ], [ %.026.lcssa35.i.i.i, %._crit_edge.thread.i.i.i ]
   %264 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %87
-  br i1 %264, label %_ZNSt8_Rb_treeIN12_GLOBAL__N_18FileInfoES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.argprom.exit.i.i, label %265
+  br i1 %264, label %_ZNSt8_Rb_treeIN12_GLOBAL__N_18FileInfoES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, label %265
 
 265:                                              ; preds = %263
   %266 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i.i, i64 32
@@ -1242,32 +1242,32 @@ _ZNKSt4lessIN12_GLOBAL__N_18FileInfoEEclERKS1_S4_.argprom.exit.i.i.i: ; preds = 
   %.sroa.0.0.copyload.i.i.i.i.i.i.i7.i.i = load i64, ptr %25, align 8
   %.sroa.0.0.copyload.i2.i.i.i.i.i.i8.i.i = load i64, ptr %266, align 8
   %269 = icmp slt i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i7.i.i, %.sroa.0.0.copyload.i2.i.i.i.i.i.i8.i.i
-  br i1 %269, label %_ZNSt8_Rb_treeIN12_GLOBAL__N_18FileInfoES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.argprom.exit.i.i, label %270
+  br i1 %269, label %_ZNSt8_Rb_treeIN12_GLOBAL__N_18FileInfoES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, label %270
 
 270:                                              ; preds = %265
   %271 = icmp slt i64 %.sroa.0.0.copyload.i2.i.i.i.i.i.i8.i.i, %.sroa.0.0.copyload.i.i.i.i.i.i.i7.i.i
-  br i1 %271, label %_ZNSt8_Rb_treeIN12_GLOBAL__N_18FileInfoES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.argprom.exit.i.i, label %272
+  br i1 %271, label %_ZNSt8_Rb_treeIN12_GLOBAL__N_18FileInfoES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, label %272
 
 272:                                              ; preds = %270
   %273 = load i64, ptr %267, align 8
   %274 = load i64, ptr %109, align 8
   %275 = icmp ult i64 %273, %274
-  br i1 %275, label %_ZNSt8_Rb_treeIN12_GLOBAL__N_18FileInfoES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.argprom.exit.i.i, label %276
+  br i1 %275, label %_ZNSt8_Rb_treeIN12_GLOBAL__N_18FileInfoES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, label %276
 
 276:                                              ; preds = %272
   %277 = icmp ult i64 %274, %273
-  br i1 %277, label %_ZNSt8_Rb_treeIN12_GLOBAL__N_18FileInfoES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.argprom.exit.i.i, label %278
+  br i1 %277, label %_ZNSt8_Rb_treeIN12_GLOBAL__N_18FileInfoES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, label %278
 
 278:                                              ; preds = %276
   %279 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull align 8 dereferenceable(32) %268) #15
   %280 = icmp slt i32 %279, 0
-  br i1 %280, label %_ZNSt8_Rb_treeIN12_GLOBAL__N_18FileInfoES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.argprom.exit.i.i, label %281
+  br i1 %280, label %_ZNSt8_Rb_treeIN12_GLOBAL__N_18FileInfoES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, label %281
 
 281:                                              ; preds = %278
   %282 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %268, ptr noundef nonnull align 8 dereferenceable(32) %110) #15
-  br label %_ZNSt8_Rb_treeIN12_GLOBAL__N_18FileInfoES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.argprom.exit.i.i
+  br label %_ZNSt8_Rb_treeIN12_GLOBAL__N_18FileInfoES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
 
-_ZNSt8_Rb_treeIN12_GLOBAL__N_18FileInfoES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.argprom.exit.i.i: ; preds = %281, %278, %276, %272, %270, %265, %263
+_ZNSt8_Rb_treeIN12_GLOBAL__N_18FileInfoES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %281, %278, %276, %272, %270, %265, %263
   %283 = phi i1 [ true, %263 ], [ true, %265 ], [ false, %270 ], [ true, %272 ], [ false, %276 ], [ true, %278 ], [ false, %281 ]
   %284 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #16
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 32
@@ -1280,7 +1280,7 @@ _ZNSt8_Rb_treeIN12_GLOBAL__N_18FileInfoES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE
   store i64 %288, ptr %91, align 8
   br label %_ZNSt3setIN12_GLOBAL__N_18FileInfoESt4lessIS1_ESaIS1_EE6insertEOS1_.exit
 
-_ZNSt3setIN12_GLOBAL__N_18FileInfoESt4lessIS1_ESaIS1_EE6insertEOS1_.exit: ; preds = %250, %256, %261, %_ZNSt8_Rb_treeIN12_GLOBAL__N_18FileInfoES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.argprom.exit.i.i
+_ZNSt3setIN12_GLOBAL__N_18FileInfoESt4lessIS1_ESaIS1_EE6insertEOS1_.exit: ; preds = %250, %256, %261, %_ZNSt8_Rb_treeIN12_GLOBAL__N_18FileInfoES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %110) #15
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit65.thread140
 
@@ -1474,7 +1474,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit65.thread140: ; preds = %_ZNK4llvm9Stri
 
 _ZN4llvm11SmallStringILj128EED2Ev.exit:           ; preds = %.critedge14, %379
   %.val53 = load ptr, ptr %88, align 8
-  call fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_18FileInfoES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E.argprom(ptr noundef %.val53)
+  call fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_18FileInfoES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef %.val53)
   br label %380
 
 380:                                              ; preds = %80, %74, %68, %_ZN4llvm11SmallStringILj128EED2Ev.exit
@@ -2001,7 +2001,7 @@ declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr nounde
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_18FileInfoES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E.argprom(ptr noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_18FileInfoES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef %0) unnamed_addr #0 align 2 {
   %.not1 = icmp eq ptr %0, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -2009,7 +2009,7 @@ define internal fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_18FileInfoES1_St9_Iden
   %.02 = phi ptr [ %.0.val, %.lr.ph ], [ %0, %1 ]
   %2 = getelementptr i8, ptr %.02, i64 24
   %.0.val6 = load ptr, ptr %2, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_18FileInfoES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E.argprom(ptr noundef %.0.val6)
+  tail call fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_18FileInfoES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef %.0.val6)
   %3 = getelementptr i8, ptr %.02, i64 16
   %.0.val = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.02, i64 48

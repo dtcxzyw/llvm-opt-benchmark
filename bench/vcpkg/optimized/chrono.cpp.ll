@@ -97,12 +97,12 @@ declare void @_ZSt9terminatev() local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK5vcpkg11ElapsedTime9to_stringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #5 align 2 {
   %3 = load i64, ptr %1, align 8
-  tail call fastcc void @_ZN5vcpkgL24format_time_userfriendlyB5cxx11ERKNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE.argprom(ptr dead_on_unwind noalias writable align 8 %0, i64 %3)
+  tail call fastcc void @_ZN5vcpkgL24format_time_userfriendlyB5cxx11ERKNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(ptr dead_on_unwind noalias writable align 8 %0, i64 %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkgL24format_time_userfriendlyB5cxx11ERKNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE.argprom(ptr dead_on_unwind noalias writable align 8 %0, i64 %.0.val) unnamed_addr #5 {
+define internal fastcc void @_ZN5vcpkgL24format_time_userfriendlyB5cxx11ERKNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(ptr dead_on_unwind noalias writable align 8 %0, i64 %.0.val) unnamed_addr #5 {
   %2 = alloca %"class.fmt::v10::format_arg_store", align 16
   %3 = alloca %"class.fmt::v10::format_arg_store", align 16
   %4 = alloca %"class.fmt::v10::format_arg_store", align 16
@@ -172,7 +172,7 @@ define internal fastcc void @_ZN5vcpkgL24format_time_userfriendlyB5cxx11ERKNSt6c
 define dso_local void @_ZNK5vcpkg11ElapsedTime9to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load i64, ptr %0, align 8
-  call fastcc void @_ZN5vcpkgL24format_time_userfriendlyB5cxx11ERKNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 %4)
+  call fastcc void @_ZN5vcpkgL24format_time_userfriendlyB5cxx11ERKNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 %4)
   %5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %6 unwind label %7
 
@@ -197,7 +197,7 @@ define dso_local void @_ZNK5vcpkg12ElapsedTimer9to_stringB5cxx11Ev(ptr dead_on_u
   %3 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #12
   %4 = load atomic i64, ptr %1 seq_cst, align 8
   %5 = sub nsw i64 %3, %4
-  tail call fastcc void @_ZN5vcpkgL24format_time_userfriendlyB5cxx11ERKNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE.argprom(ptr dead_on_unwind noalias writable align 8 %0, i64 %5)
+  tail call fastcc void @_ZN5vcpkgL24format_time_userfriendlyB5cxx11ERKNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(ptr dead_on_unwind noalias writable align 8 %0, i64 %5)
   ret void
 }
 
@@ -208,7 +208,7 @@ define dso_local void @_ZNK5vcpkg12ElapsedTimer9to_stringERNSt7__cxx1112basic_st
   %5 = load atomic i64, ptr %0 seq_cst, align 8
   %6 = sub nsw i64 %4, %5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN5vcpkgL24format_time_userfriendlyB5cxx11ERKNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 %6)
+  call fastcc void @_ZN5vcpkgL24format_time_userfriendlyB5cxx11ERKNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 %6)
   %7 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNK5vcpkg11ElapsedTime9to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %8
 

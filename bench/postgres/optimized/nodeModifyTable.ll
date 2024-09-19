@@ -792,7 +792,7 @@ list_length.exit:                                 ; preds = %3, %13
   store i8 1, ptr %49, align 8
   %50 = and i32 %2, 1
   %.not282 = icmp eq i32 %50, 0
-  br i1 %.not282, label %51, label %ExecSetupTransitionCaptureState.argprom.exit
+  br i1 %.not282, label %51, label %ExecSetupTransitionCaptureState.exit
 
 51:                                               ; preds = %44
   %52 = load ptr, ptr %18, align 8
@@ -811,13 +811,13 @@ list_length.exit:                                 ; preds = %3, %13
   %64 = getelementptr inbounds i8, ptr %52, i64 104
   %65 = load i32, ptr %64, align 8
   %66 = icmp eq i32 %65, 3
-  br i1 %66, label %67, label %ExecSetupTransitionCaptureState.argprom.exit
+  br i1 %66, label %67, label %ExecSetupTransitionCaptureState.exit
 
 67:                                               ; preds = %51
   %68 = getelementptr inbounds i8, ptr %52, i64 188
   %69 = load i32, ptr %68, align 4
   %70 = icmp eq i32 %69, 2
-  br i1 %70, label %71, label %ExecSetupTransitionCaptureState.argprom.exit
+  br i1 %70, label %71, label %ExecSetupTransitionCaptureState.exit
 
 71:                                               ; preds = %67
   %72 = load ptr, ptr %55, align 8
@@ -827,15 +827,15 @@ list_length.exit:                                 ; preds = %3, %13
   %76 = tail call ptr @MakeTransitionCaptureState(ptr noundef %72, i32 noundef %75, i32 noundef 2) #8
   %77 = getelementptr inbounds i8, ptr %17, i64 384
   store ptr %76, ptr %77, align 8
-  br label %ExecSetupTransitionCaptureState.argprom.exit
+  br label %ExecSetupTransitionCaptureState.exit
 
-ExecSetupTransitionCaptureState.argprom.exit:     ; preds = %71, %67, %51, %44
+ExecSetupTransitionCaptureState.exit:             ; preds = %71, %67, %51, %44
   %78 = load ptr, ptr %11, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 4
   %.not283 = icmp eq ptr %78, null
   br i1 %.not283, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %ExecSetupTransitionCaptureState.argprom.exit
+.lr.ph:                                           ; preds = %ExecSetupTransitionCaptureState.exit
   %80 = getelementptr inbounds i8, ptr %78, i64 16
   %81 = getelementptr inbounds i8, ptr %0, i64 240
   %82 = getelementptr inbounds i8, ptr %17, i64 224
@@ -893,7 +893,7 @@ ExecSetupTransitionCaptureState.argprom.exit:     ; preds = %71, %67, %51, %44
   %109 = icmp slt i64 %indvars.iv.next, %108
   br i1 %109, label %.lr.ph336, label %._crit_edge
 
-._crit_edge:                                      ; preds = %100, %.lr.ph, %ExecSetupTransitionCaptureState.argprom.exit
+._crit_edge:                                      ; preds = %100, %.lr.ph, %ExecSetupTransitionCaptureState.exit
   %110 = tail call ptr @ExecInitNode(ptr noundef %8, ptr noundef %1, i32 noundef %2) #8
   %111 = getelementptr inbounds i8, ptr %17, i64 72
   store ptr %110, ptr %111, align 8
@@ -1413,7 +1413,7 @@ ExecSetupTransitionCaptureState.argprom.exit:     ; preds = %71, %67, %51, %44
   %390 = load ptr, ptr %389, align 8
   %391 = getelementptr i8, ptr %388, i64 64
   %.val.i = load ptr, ptr %391, align 8
-  tail call fastcc void @ExecCheckPlanOutput.argprom(ptr %.val.i, ptr noundef %390)
+  tail call fastcc void @ExecCheckPlanOutput(ptr %.val.i, ptr noundef %390)
   %392 = load ptr, ptr %339, align 8
   %393 = getelementptr inbounds i8, ptr %392, i64 56
   %394 = load ptr, ptr %393, align 8
@@ -1830,7 +1830,7 @@ ExecGetJunkAttribute.exit.us:                     ; preds = %slot_getsomeattrs.e
   %129 = load ptr, ptr %65, align 8
   %130 = load i8, ptr %84, align 4
   %131 = trunc i8 %130 to i1
-  call fastcc void @ExecMerge.retelim(ptr noundef %5, ptr noundef %129, ptr noundef null, ptr noundef null, i1 noundef zeroext %131)
+  call fastcc void @ExecMerge(ptr noundef %5, ptr noundef %129, ptr noundef null, ptr noundef null, i1 noundef zeroext %131)
   br label %.outer.split.us
 
 .outer.split:                                     ; preds = %.outer
@@ -2036,7 +2036,7 @@ ExecGetJunkAttribute.exit131:                     ; preds = %222, %slot_getsomea
   %239 = load ptr, ptr %65, align 8
   %240 = load i8, ptr %84, align 4
   %241 = trunc i8 %240 to i1
-  call fastcc void @ExecMerge.retelim(ptr noundef %5, ptr noundef %239, ptr noundef null, ptr noundef null, i1 noundef zeroext %241)
+  call fastcc void @ExecMerge(ptr noundef %5, ptr noundef %239, ptr noundef null, ptr noundef null, i1 noundef zeroext %241)
   br label %.outer.backedge
 
 242:                                              ; preds = %236
@@ -2091,7 +2091,7 @@ ExecGetJunkAttribute.exit133:                     ; preds = %254, %slot_getsomea
   %269 = load ptr, ptr %65, align 8
   %270 = load i8, ptr %84, align 4
   %271 = trunc i8 %270 to i1
-  call fastcc void @ExecMerge.retelim(ptr noundef %5, ptr noundef %269, ptr noundef null, ptr noundef null, i1 noundef zeroext %271)
+  call fastcc void @ExecMerge(ptr noundef %5, ptr noundef %269, ptr noundef null, ptr noundef null, i1 noundef zeroext %271)
   br label %.outer.backedge
 
 272:                                              ; preds = %266
@@ -2196,7 +2196,7 @@ ExecGetJunkAttribute.exit133:                     ; preds = %254, %slot_getsomea
   %321 = load ptr, ptr %320, align 8
   %322 = getelementptr i8, ptr %321, i64 64
   %.val.i = load ptr, ptr %322, align 8
-  call fastcc void @ExecCheckPlanOutput.argprom(ptr %.val.i, ptr noundef %.0.lcssa.i)
+  call fastcc void @ExecCheckPlanOutput(ptr %.val.i, ptr noundef %.0.lcssa.i)
   %323 = load ptr, ptr %320, align 8
   %324 = getelementptr inbounds i8, ptr %300, i64 168
   %325 = call ptr @table_slot_create(ptr noundef %323, ptr noundef nonnull %324) #8
@@ -2323,7 +2323,7 @@ ExecGetInsertNewTuple.exit:                       ; preds = %344, %351, %355
   %396 = load i8, ptr @bsysscan, align 1
   %397 = trunc i8 %396 to i1
   %.not5.i = select i1 %395, i1 true, i1 %397
-  br i1 %.not5.i, label %table_tuple_fetch_row_version.argprom.exit, label %398
+  br i1 %.not5.i, label %table_tuple_fetch_row_version.exit, label %398
 
 398:                                              ; preds = %393
   %399 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -2332,7 +2332,7 @@ ExecGetInsertNewTuple.exit:                       ; preds = %344, %351, %355
   call void @errfinish(ptr noundef nonnull @.str.47, i32 noundef 1294, ptr noundef nonnull @__func__.table_tuple_fetch_row_version) #8
   unreachable
 
-table_tuple_fetch_row_version.argprom.exit:       ; preds = %393
+table_tuple_fetch_row_version.exit:               ; preds = %393
   %401 = getelementptr inbounds i8, ptr %.1, i64 8
   %402 = load ptr, ptr %401, align 8
   %403 = getelementptr inbounds i8, ptr %402, i64 312
@@ -2342,14 +2342,14 @@ table_tuple_fetch_row_version.argprom.exit:       ; preds = %393
   %407 = call zeroext i1 %406(ptr noundef %402, ptr noundef %.0111, ptr noundef nonnull @SnapshotAnyData, ptr noundef %391) #8
   br i1 %407, label %411, label %408
 
-408:                                              ; preds = %table_tuple_fetch_row_version.argprom.exit
+408:                                              ; preds = %table_tuple_fetch_row_version.exit
   %409 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %409)
   %410 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3896, ptr noundef nonnull @__func__.ExecModifyTable) #8
   unreachable
 
-411:                                              ; preds = %table_tuple_fetch_row_version.argprom.exit, %392
+411:                                              ; preds = %table_tuple_fetch_row_version.exit, %392
   %412 = load ptr, ptr %80, align 8
   %413 = getelementptr inbounds i8, ptr %.1, i64 56
   %414 = load ptr, ptr %413, align 8
@@ -2403,7 +2403,7 @@ table_tuple_fetch_row_version.argprom.exit:       ; preds = %393
 .thread:                                          ; preds = %291
   %448 = load i8, ptr %84, align 4
   %449 = trunc i8 %448 to i1
-  call fastcc void @ExecMerge.retelim(ptr noundef %5, ptr noundef nonnull %.1, ptr noundef %.0111, ptr noundef %.0110, i1 noundef zeroext %449)
+  call fastcc void @ExecMerge(ptr noundef %5, ptr noundef nonnull %.1, ptr noundef %.0111, ptr noundef %.0110, i1 noundef zeroext %449)
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %.thread, %237, %453, %267
@@ -2756,7 +2756,7 @@ declare void @ProcessInterrupts() local_unnamed_addr #1
 declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExecMerge.retelim(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @ExecMerge(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
@@ -2829,7 +2829,7 @@ define internal fastcc void @ExecMerge.retelim(ptr noundef nonnull %0, ptr nound
   %55 = load i8, ptr @bsysscan, align 1
   %56 = trunc i8 %55 to i1
   %.not5.i.i = select i1 %54, i1 true, i1 %56
-  br i1 %.not5.i.i, label %table_tuple_fetch_row_version.argprom.exit.i, label %57
+  br i1 %.not5.i.i, label %table_tuple_fetch_row_version.exit.i, label %57
 
 57:                                               ; preds = %52
   %58 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -2838,7 +2838,7 @@ define internal fastcc void @ExecMerge.retelim(ptr noundef nonnull %0, ptr nound
   call void @errfinish(ptr noundef nonnull @.str.47, i32 noundef 1294, ptr noundef nonnull @__func__.table_tuple_fetch_row_version) #8
   unreachable
 
-table_tuple_fetch_row_version.argprom.exit.i:     ; preds = %52
+table_tuple_fetch_row_version.exit.i:             ; preds = %52
   %60 = load ptr, ptr %26, align 8
   %61 = load ptr, ptr %36, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 312
@@ -2848,14 +2848,14 @@ table_tuple_fetch_row_version.argprom.exit.i:     ; preds = %52
   %66 = call zeroext i1 %65(ptr noundef %61, ptr noundef nonnull %2, ptr noundef nonnull @SnapshotAnyData, ptr noundef %60) #8
   br i1 %66, label %70, label %67
 
-67:                                               ; preds = %table_tuple_fetch_row_version.argprom.exit.i
+67:                                               ; preds = %table_tuple_fetch_row_version.exit.i
   %68 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %68)
   %69 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2858, ptr noundef nonnull @__func__.ExecMergeMatched) #8
   unreachable
 
-70:                                               ; preds = %table_tuple_fetch_row_version.argprom.exit.i, %51
+70:                                               ; preds = %table_tuple_fetch_row_version.exit.i, %51
   %71 = load ptr, ptr %22, align 8
   %.not116.i = icmp eq ptr %71, null
   br i1 %.not116.i, label %.thread19, label %.lr.ph.i
@@ -3011,7 +3011,7 @@ thread-pre-split.i:                               ; preds = %142
 
 154:                                              ; preds = %151
   %.val125.i = load i32, ptr %43, align 4
-  call fastcc void @ExecUpdateEpilogue.argprom(ptr noundef %0, i32 %.val125.i, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null, ptr noundef nonnull %113)
+  call fastcc void @ExecUpdateEpilogue(ptr noundef %0, i32 %.val125.i, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null, ptr noundef nonnull %113)
   br label %thread-pre-split132.sink.split.i
 
 155:                                              ; preds = %105
@@ -3073,23 +3073,23 @@ thread-pre-split130.i:                            ; preds = %166
   %186 = getelementptr i8, ptr %.val122.i, i64 376
   %.val122.val124.i = load ptr, ptr %186, align 8
   %187 = icmp eq i32 %.val122.val.i, 2
-  br i1 %187, label %188, label %ExecDeleteEpilogue.argprom.argprom.exit.i
+  br i1 %187, label %188, label %ExecDeleteEpilogue.exit.i
 
 188:                                              ; preds = %184
   %.not.i.i = icmp eq ptr %.val122.val124.i, null
-  br i1 %.not.i.i, label %ExecDeleteEpilogue.argprom.argprom.exit.i, label %189
+  br i1 %.not.i.i, label %ExecDeleteEpilogue.exit.i, label %189
 
 189:                                              ; preds = %188
   %190 = getelementptr inbounds i8, ptr %.val122.val124.i, i64 1
   %191 = load i8, ptr %190, align 1
   %192 = trunc i8 %191 to i1
-  br i1 %192, label %193, label %ExecDeleteEpilogue.argprom.argprom.exit.i
+  br i1 %192, label %193, label %ExecDeleteEpilogue.exit.i
 
 193:                                              ; preds = %189
   call void @ExecARUpdateTriggers(ptr noundef %.val123.i, ptr noundef nonnull %1, ptr noundef null, ptr noundef null, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %.val122.val124.i, i1 noundef zeroext false) #8
-  br label %ExecDeleteEpilogue.argprom.argprom.exit.i
+  br label %ExecDeleteEpilogue.exit.i
 
-ExecDeleteEpilogue.argprom.argprom.exit.i:        ; preds = %193, %189, %188, %184
+ExecDeleteEpilogue.exit.i:                        ; preds = %193, %189, %188, %184
   %.0.i126.i = phi ptr [ null, %193 ], [ %.val122.val124.i, %189 ], [ null, %188 ], [ %.val122.val124.i, %184 ]
   call void @ExecARDeleteTriggers(ptr noundef %.val123.i, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null, ptr noundef %.0.i126.i, i1 noundef zeroext false) #8
   br label %thread-pre-split132.sink.split.i
@@ -3101,8 +3101,8 @@ ExecDeleteEpilogue.argprom.argprom.exit.i:        ; preds = %193, %189, %188, %1
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2992, ptr noundef nonnull @__func__.ExecMergeMatched) #8
   unreachable
 
-thread-pre-split132.sink.split.i:                 ; preds = %ExecDeleteEpilogue.argprom.argprom.exit.i, %154
-  %.sink.i = phi ptr [ %44, %154 ], [ %42, %ExecDeleteEpilogue.argprom.argprom.exit.i ]
+thread-pre-split132.sink.split.i:                 ; preds = %ExecDeleteEpilogue.exit.i, %154
+  %.sink.i = phi ptr [ %44, %154 ], [ %42, %ExecDeleteEpilogue.exit.i ]
   %197 = load double, ptr %.sink.i, align 8
   %198 = fadd double %197, 1.000000e+00
   store double %198, ptr %.sink.i, align 8
@@ -3281,7 +3281,7 @@ ItemPointerIndicatesMovedPartitions.exit.thread.i: ; preds = %ItemPointerIndicat
 .thread19:                                        ; preds = %105, %.lr.ph.i, %70, %thread-pre-split132.i, %166, %157, %142, %133, %76, %148, %15, %201, %200
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11)
-  br label %ExecMergeNotMatched.argprom.exit
+  br label %ExecMergeNotMatched.exit
 
 .loopexit:                                        ; preds = %ExecGetJunkAttribute.exit.i, %239, %235, %223, %267, %216
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
@@ -3303,7 +3303,7 @@ ItemPointerIndicatesMovedPartitions.exit.thread.i: ; preds = %ItemPointerIndicat
   %292 = getelementptr inbounds i8, ptr %287, i64 24
   store ptr null, ptr %292, align 8
   %.not.i11 = icmp eq ptr %.val, null
-  br i1 %.not.i11, label %ExecMergeNotMatched.argprom.exit, label %.lr.ph.i12
+  br i1 %.not.i11, label %ExecMergeNotMatched.exit, label %.lr.ph.i12
 
 .lr.ph.i12:                                       ; preds = %.thread
   %293 = getelementptr inbounds i8, ptr %.val, i64 4
@@ -3311,14 +3311,14 @@ ItemPointerIndicatesMovedPartitions.exit.thread.i: ; preds = %ItemPointerIndicat
   %295 = getelementptr inbounds i8, ptr %287, i64 40
   %296 = load i32, ptr %293, align 4
   %297 = icmp sgt i32 %296, 0
-  br i1 %297, label %.lr.ph14.i, label %ExecMergeNotMatched.argprom.exit
+  br i1 %297, label %.lr.ph14.i, label %ExecMergeNotMatched.exit
 
 298:                                              ; preds = %ExecQual.exit.i14
   %indvars.iv.next.i16 = add nuw nsw i64 %indvars.iv.i13, 1
   %299 = load i32, ptr %293, align 4
   %300 = sext i32 %299 to i64
   %301 = icmp slt i64 %indvars.iv.next.i16, %300
-  br i1 %301, label %.lr.ph14.i, label %ExecMergeNotMatched.argprom.exit
+  br i1 %301, label %.lr.ph14.i, label %ExecMergeNotMatched.exit
 
 .lr.ph14.i:                                       ; preds = %.lr.ph.i12, %298
   %indvars.iv.i13 = phi i64 [ %indvars.iv.next.i16, %298 ], [ 0, %.lr.ph.i12 ]
@@ -3354,7 +3354,7 @@ ExecQual.exit.i14:                                ; preds = %.lr.ph14.i
 .loopexit.i15:                                    ; preds = %ExecQual.exit.i14, %ExecQual.exit.thread.i17
   switch i32 %308, label %350 [
     i32 3, label %317
-    i32 7, label %ExecMergeNotMatched.argprom.exit
+    i32 7, label %ExecMergeNotMatched.exit
   ]
 
 317:                                              ; preds = %.loopexit.i15
@@ -3399,7 +3399,7 @@ ExecQual.exit.i14:                                ; preds = %.lr.ph14.i
   %348 = load double, ptr %347, align 8
   %349 = fadd double %348, 1.000000e+00
   store double %349, ptr %347, align 8
-  br label %ExecMergeNotMatched.argprom.exit
+  br label %ExecMergeNotMatched.exit
 
 350:                                              ; preds = %.loopexit.i15
   %351 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -3408,7 +3408,7 @@ ExecQual.exit.i14:                                ; preds = %.lr.ph14.i
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3237, ptr noundef nonnull @__func__.ExecMergeNotMatched) #8
   unreachable
 
-ExecMergeNotMatched.argprom.exit:                 ; preds = %298, %317, %.loopexit.i15, %.lr.ph.i12, %.thread, %.thread19
+ExecMergeNotMatched.exit:                         ; preds = %298, %317, %.loopexit.i15, %.lr.ph.i12, %.thread, %.thread19
   ret void
 }
 
@@ -4175,7 +4175,7 @@ ExecOnConflictUpdate.exit:                        ; preds = %355, %348
   %.0187.val = load ptr, ptr %54, align 8
   %463 = load i32, ptr @XactIsoLevel, align 4
   %464 = icmp sgt i32 %463, 1
-  br i1 %464, label %465, label %ExecCheckTIDVisible.argprom.exit
+  br i1 %464, label %465, label %ExecCheckTIDVisible.exit
 
 465:                                              ; preds = %461
   %466 = load i32, ptr @CheckXidAlive, align 4
@@ -4183,7 +4183,7 @@ ExecOnConflictUpdate.exit:                        ; preds = %355, %348
   %468 = load i8, ptr @bsysscan, align 1
   %469 = trunc i8 %468 to i1
   %.not5.i.i = select i1 %467, i1 true, i1 %469
-  br i1 %.not5.i.i, label %table_tuple_fetch_row_version.argprom.exit.i, label %470
+  br i1 %.not5.i.i, label %table_tuple_fetch_row_version.exit.i, label %470
 
 470:                                              ; preds = %465
   %471 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -4192,7 +4192,7 @@ ExecOnConflictUpdate.exit:                        ; preds = %355, %348
   call void @errfinish(ptr noundef nonnull @.str.47, i32 noundef 1294, ptr noundef nonnull @__func__.table_tuple_fetch_row_version) #8
   unreachable
 
-table_tuple_fetch_row_version.argprom.exit.i:     ; preds = %465
+table_tuple_fetch_row_version.exit.i:             ; preds = %465
   %473 = getelementptr inbounds i8, ptr %.0187.val, i64 312
   %474 = load ptr, ptr %473, align 8
   %475 = getelementptr inbounds i8, ptr %474, i64 120
@@ -4200,14 +4200,14 @@ table_tuple_fetch_row_version.argprom.exit.i:     ; preds = %465
   %477 = call zeroext i1 %476(ptr noundef %.0187.val, ptr noundef nonnull %14, ptr noundef nonnull @SnapshotAnyData, ptr noundef %462) #8
   br i1 %477, label %481, label %478
 
-478:                                              ; preds = %table_tuple_fetch_row_version.argprom.exit.i
+478:                                              ; preds = %table_tuple_fetch_row_version.exit.i
   %479 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %479)
   %480 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.45) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 329, ptr noundef nonnull @__func__.ExecCheckTIDVisible) #8
   unreachable
 
-481:                                              ; preds = %table_tuple_fetch_row_version.argprom.exit.i
+481:                                              ; preds = %table_tuple_fetch_row_version.exit.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
   %482 = load i32, ptr @XactIsoLevel, align 4
   %483 = icmp sgt i32 %482, 1
@@ -4247,15 +4247,15 @@ ExecCheckTupleVisible.exit.i:                     ; preds = %491, %484, %481
   %505 = getelementptr inbounds i8, ptr %504, i64 24
   %506 = load ptr, ptr %505, align 8
   call void %506(ptr noundef %462) #8
-  br label %ExecCheckTIDVisible.argprom.exit
+  br label %ExecCheckTIDVisible.exit
 
-ExecCheckTIDVisible.argprom.exit:                 ; preds = %461, %ExecCheckTupleVisible.exit.i
+ExecCheckTIDVisible.exit:                         ; preds = %461, %ExecCheckTupleVisible.exit.i
   %507 = getelementptr inbounds i8, ptr %16, i64 40
   %508 = load ptr, ptr %507, align 8
   %.not221 = icmp eq ptr %508, null
   br i1 %.not221, label %602, label %509
 
-509:                                              ; preds = %ExecCheckTIDVisible.argprom.exit
+509:                                              ; preds = %ExecCheckTIDVisible.exit
   %510 = getelementptr inbounds i8, ptr %508, i64 216
   %511 = load double, ptr %510, align 8
   %512 = fadd double %511, 1.000000e+00
@@ -4433,8 +4433,8 @@ ExecProcessReturning.exit:                        ; preds = %._crit_edge.i, %569
   store ptr %.0187, ptr %5, align 8
   br label %602
 
-602:                                              ; preds = %457, %454, %600, %601, %509, %ExecCheckTIDVisible.argprom.exit, %228, %121, %115, %225
-  %.0 = phi ptr [ null, %225 ], [ null, %115 ], [ null, %121 ], [ null, %228 ], [ null, %ExecCheckTIDVisible.argprom.exit ], [ null, %509 ], [ %.0192, %601 ], [ %.0192, %600 ], [ %.0238.ph, %454 ], [ %.0238.ph, %457 ]
+602:                                              ; preds = %457, %454, %600, %601, %509, %ExecCheckTIDVisible.exit, %228, %121, %115, %225
+  %.0 = phi ptr [ null, %225 ], [ null, %115 ], [ null, %121 ], [ null, %228 ], [ null, %ExecCheckTIDVisible.exit ], [ null, %509 ], [ %.0192, %601 ], [ %.0192, %600 ], [ %.0238.ph, %454 ], [ %.0238.ph, %457 ]
   ret ptr %.0
 }
 
@@ -4511,7 +4511,7 @@ define internal fastcc void @ExecInitUpdateProjection(ptr noundef %0, ptr nounde
 declare void @ExecForceStoreHeapTuple(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @table_tuple_fetch_row_version.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc zeroext i1 @table_tuple_fetch_row_version(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @CheckXidAlive, align 4
   %5 = icmp eq i32 %4, 0
   %6 = load i8, ptr @bsysscan, align 1
@@ -4733,7 +4733,7 @@ ExecUpdatePrepareSlot.exit:                       ; preds = %46, %55, %59
   %120 = load i8, ptr @bsysscan, align 1
   %121 = trunc i8 %120 to i1
   %.not5.i = select i1 %119, i1 true, i1 %121
-  br i1 %.not5.i, label %table_tuple_fetch_row_version.argprom.exit, label %122
+  br i1 %.not5.i, label %table_tuple_fetch_row_version.exit, label %122
 
 122:                                              ; preds = %116
   %123 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -4742,21 +4742,21 @@ ExecUpdatePrepareSlot.exit:                       ; preds = %46, %55, %59
   call void @errfinish(ptr noundef nonnull @.str.47, i32 noundef 1294, ptr noundef nonnull @__func__.table_tuple_fetch_row_version) #8
   unreachable
 
-table_tuple_fetch_row_version.argprom.exit:       ; preds = %116
+table_tuple_fetch_row_version.exit:               ; preds = %116
   %125 = load ptr, ptr %42, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 120
   %127 = load ptr, ptr %126, align 8
   %128 = call zeroext i1 %127(ptr noundef nonnull %13, ptr noundef %2, ptr noundef nonnull @SnapshotAnyData, ptr noundef %117) #8
   br i1 %128, label %132, label %129
 
-129:                                              ; preds = %table_tuple_fetch_row_version.argprom.exit
+129:                                              ; preds = %table_tuple_fetch_row_version.exit
   %130 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %130)
   %131 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2425, ptr noundef nonnull @__func__.ExecUpdate) #8
   unreachable
 
-132:                                              ; preds = %table_tuple_fetch_row_version.argprom.exit
+132:                                              ; preds = %table_tuple_fetch_row_version.exit
   %133 = load ptr, ptr %45, align 8
   %134 = getelementptr inbounds i8, ptr %133, i64 128
   %135 = load ptr, ptr %134, align 8
@@ -4855,7 +4855,7 @@ table_tuple_fetch_row_version.argprom.exit:       ; preds = %116
 189:                                              ; preds = %185, %.loopexit
   %190 = getelementptr inbounds i8, ptr %9, i64 4
   %.val = load i32, ptr %190, align 4
-  call fastcc void @ExecUpdateEpilogue.argprom(ptr noundef %0, i32 %.val, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %.076)
+  call fastcc void @ExecUpdateEpilogue(ptr noundef %0, i32 %.val, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %.076)
   %191 = getelementptr inbounds i8, ptr %1, i64 248
   %192 = load ptr, ptr %191, align 8
   %.not84 = icmp eq ptr %192, null
@@ -5168,28 +5168,28 @@ define internal fastcc noundef ptr @ExecDelete(ptr noundef nonnull %0, ptr nound
   %139 = getelementptr i8, ptr %.val109, i64 376
   %.val109.val111 = load ptr, ptr %139, align 8
   %140 = icmp eq i32 %.val109.val, 2
-  br i1 %140, label %141, label %ExecDeleteEpilogue.argprom.argprom.exit
+  br i1 %140, label %141, label %ExecDeleteEpilogue.exit
 
 141:                                              ; preds = %137
   %.not.i = icmp eq ptr %.val109.val111, null
-  br i1 %.not.i, label %ExecDeleteEpilogue.argprom.argprom.exit, label %142
+  br i1 %.not.i, label %ExecDeleteEpilogue.exit, label %142
 
 142:                                              ; preds = %141
   %143 = getelementptr inbounds i8, ptr %.val109.val111, i64 1
   %144 = load i8, ptr %143, align 1
   %145 = trunc i8 %144 to i1
-  br i1 %145, label %146, label %ExecDeleteEpilogue.argprom.argprom.exit
+  br i1 %145, label %146, label %ExecDeleteEpilogue.exit
 
 146:                                              ; preds = %142
   tail call void @ExecARUpdateTriggers(ptr noundef %.val110, ptr noundef nonnull %1, ptr noundef null, ptr noundef null, ptr noundef %2, ptr noundef %3, ptr noundef null, ptr noundef null, ptr noundef nonnull %.val109.val111, i1 noundef zeroext false) #8
-  br label %ExecDeleteEpilogue.argprom.argprom.exit
+  br label %ExecDeleteEpilogue.exit
 
-ExecDeleteEpilogue.argprom.argprom.exit:          ; preds = %137, %141, %142, %146
+ExecDeleteEpilogue.exit:                          ; preds = %137, %141, %142, %146
   %.0.i = phi ptr [ null, %146 ], [ %.val109.val111, %142 ], [ null, %141 ], [ %.val109.val111, %137 ]
   tail call void @ExecARDeleteTriggers(ptr noundef %.val110, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %.0.i, i1 noundef zeroext %5) #8
   br i1 %4, label %147, label %.loopexit113
 
-147:                                              ; preds = %ExecDeleteEpilogue.argprom.argprom.exit
+147:                                              ; preds = %ExecDeleteEpilogue.exit
   %148 = getelementptr inbounds i8, ptr %1, i64 248
   %149 = load ptr, ptr %148, align 8
   %.not106 = icmp eq ptr %149, null
@@ -5211,7 +5211,7 @@ ExecDeleteEpilogue.argprom.argprom.exit:          ; preds = %137, %141, %142, %1
   br label %161
 
 156:                                              ; preds = %153
-  %157 = tail call fastcc zeroext i1 @table_tuple_fetch_row_version.argprom(ptr noundef %15, ptr noundef %2, ptr noundef %154)
+  %157 = tail call fastcc zeroext i1 @table_tuple_fetch_row_version(ptr noundef %15, ptr noundef %2, ptr noundef %154)
   br i1 %157, label %161, label %158
 
 158:                                              ; preds = %156
@@ -5289,8 +5289,8 @@ ExecProcessReturning.exit:                        ; preds = %._crit_edge.i, %167
   call void %202(ptr noundef %.1) #8
   br label %.loopexit113
 
-.loopexit113:                                     ; preds = %87, %98, %103, %ExecDeleteEpilogue.argprom.argprom.exit, %147, %121, %109, %71, %37, %26, %17, %ExecProcessReturning.exit, %108
-  %.0 = phi ptr [ %177, %ExecProcessReturning.exit ], [ null, %108 ], [ null, %17 ], [ null, %26 ], [ null, %37 ], [ null, %71 ], [ null, %109 ], [ null, %121 ], [ null, %147 ], [ null, %ExecDeleteEpilogue.argprom.argprom.exit ], [ null, %103 ], [ null, %98 ], [ null, %87 ]
+.loopexit113:                                     ; preds = %87, %98, %103, %ExecDeleteEpilogue.exit, %147, %121, %109, %71, %37, %26, %17, %ExecProcessReturning.exit, %108
+  %.0 = phi ptr [ %177, %ExecProcessReturning.exit ], [ null, %108 ], [ null, %17 ], [ null, %26 ], [ null, %37 ], [ null, %71 ], [ null, %109 ], [ null, %121 ], [ null, %147 ], [ null, %ExecDeleteEpilogue.exit ], [ null, %103 ], [ null, %98 ], [ null, %87 ]
   ret ptr %.0
 }
 
@@ -5609,7 +5609,7 @@ ExecUpdatePrepareSlot.exit:                       ; preds = %24, %33, %37
   %104 = load i8, ptr @bsysscan, align 1
   %105 = trunc i8 %104 to i1
   %.not5.i = select i1 %103, i1 true, i1 %105
-  br i1 %.not5.i, label %table_tuple_fetch_row_version.argprom.exit, label %106
+  br i1 %.not5.i, label %table_tuple_fetch_row_version.exit, label %106
 
 106:                                              ; preds = %100
   %107 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -5618,7 +5618,7 @@ ExecUpdatePrepareSlot.exit:                       ; preds = %24, %33, %37
   call void @errfinish(ptr noundef nonnull @.str.47, i32 noundef 1294, ptr noundef nonnull @__func__.table_tuple_fetch_row_version) #8
   unreachable
 
-table_tuple_fetch_row_version.argprom.exit:       ; preds = %100
+table_tuple_fetch_row_version.exit:               ; preds = %100
   %109 = load ptr, ptr %16, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 312
   %111 = load ptr, ptr %110, align 8
@@ -5627,7 +5627,7 @@ table_tuple_fetch_row_version.argprom.exit:       ; preds = %100
   %114 = call zeroext i1 %113(ptr noundef %109, ptr noundef %2, ptr noundef nonnull @SnapshotAnyData, ptr noundef %101) #8
   br i1 %114, label %205, label %115
 
-115:                                              ; preds = %table_tuple_fetch_row_version.argprom.exit
+115:                                              ; preds = %table_tuple_fetch_row_version.exit
   %116 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %116)
   %117 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14) #8
@@ -5699,14 +5699,14 @@ ExecCrossPartitionUpdate.exit:                    ; preds = %87
   %147 = load ptr, ptr %14, align 8
   %148 = call ptr @ExecGetAncestorResultRels(ptr noundef %147, ptr noundef nonnull %1) #8
   %.not.i53 = icmp eq ptr %148, null
-  br i1 %.not.i53, label %ExecCrossPartitionUpdateForeignKey.argprom.exit, label %.lr.ph5.i
+  br i1 %.not.i53, label %ExecCrossPartitionUpdateForeignKey.exit, label %.lr.ph5.i
 
 .lr.ph5.i:                                        ; preds = %143
   %149 = getelementptr inbounds i8, ptr %148, i64 4
   %150 = getelementptr inbounds i8, ptr %148, i64 16
   %151 = load i32, ptr %149, align 4
   %152 = icmp sgt i32 %151, 0
-  br i1 %152, label %.lr.ph8.i, label %ExecCrossPartitionUpdateForeignKey.argprom.exit
+  br i1 %152, label %.lr.ph8.i, label %ExecCrossPartitionUpdateForeignKey.exit
 
 .lr.ph8.i:                                        ; preds = %.lr.ph5.i, %.critedge.i
   %153 = phi i32 [ %201, %.critedge.i ], [ %151, %.lr.ph5.i ]
@@ -5794,14 +5794,14 @@ ExecCrossPartitionUpdate.exit:                    ; preds = %87
   %indvars.iv.next12.i = add nuw nsw i64 %indvars.iv11.i, 1
   %202 = sext i32 %201 to i64
   %203 = icmp slt i64 %indvars.iv.next12.i, %202
-  br i1 %203, label %.lr.ph8.i, label %ExecCrossPartitionUpdateForeignKey.argprom.exit
+  br i1 %203, label %.lr.ph8.i, label %ExecCrossPartitionUpdateForeignKey.exit
 
-ExecCrossPartitionUpdateForeignKey.argprom.exit:  ; preds = %.critedge.i, %143, %.lr.ph5.i
+ExecCrossPartitionUpdateForeignKey.exit:          ; preds = %.critedge.i, %143, %.lr.ph5.i
   %204 = load ptr, ptr %14, align 8
   call void @ExecARUpdateTriggers(ptr noundef %204, ptr noundef %146, ptr noundef %1, ptr noundef nonnull %135, ptr noundef %2, ptr noundef null, ptr noundef %144, ptr noundef null, ptr noundef null, i1 noundef zeroext true) #8
   br label %257
 
-205:                                              ; preds = %table_tuple_fetch_row_version.argprom.exit
+205:                                              ; preds = %table_tuple_fetch_row_version.exit
   %206 = load ptr, ptr %10, align 8
   %207 = load ptr, ptr %23, align 8
   %208 = getelementptr inbounds i8, ptr %207, i64 128
@@ -5878,13 +5878,13 @@ ExecCrossPartitionUpdateForeignKey.argprom.exit:  ; preds = %.critedge.i, %143, 
   %256 = call i32 %255(ptr noundef nonnull %17, ptr noundef %2, ptr noundef nonnull %.045, i32 noundef %244, ptr noundef %246, ptr noundef %248, i1 noundef zeroext true, ptr noundef nonnull %249, ptr noundef nonnull %250, ptr noundef nonnull %251) #8
   br label %257
 
-257:                                              ; preds = %.loopexit, %136, %139, %ExecCrossPartitionUpdateForeignKey.argprom.exit, %242, %.thread110
-  %.0 = phi i32 [ %235, %.thread110 ], [ %256, %242 ], [ 0, %ExecCrossPartitionUpdateForeignKey.argprom.exit ], [ 0, %139 ], [ 0, %136 ], [ 0, %.loopexit ]
+257:                                              ; preds = %.loopexit, %136, %139, %ExecCrossPartitionUpdateForeignKey.exit, %242, %.thread110
+  %.0 = phi i32 [ %235, %.thread110 ], [ %256, %242 ], [ 0, %ExecCrossPartitionUpdateForeignKey.exit ], [ 0, %139 ], [ 0, %136 ], [ 0, %.loopexit ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExecUpdateEpilogue.argprom(ptr nocapture noundef nonnull readonly %0, i32 %.4.val, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @ExecUpdateEpilogue(ptr nocapture noundef nonnull readonly %0, i32 %.4.val, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8
@@ -6081,7 +6081,7 @@ declare zeroext i1 @ExecBRDeleteTriggers(ptr noundef, ptr noundef, ptr noundef, 
 declare void @ExecARDeleteTriggers(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExecCheckPlanOutput.argprom(ptr nocapture readonly %.64.val, ptr noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @ExecCheckPlanOutput(ptr nocapture readonly %.64.val, ptr noundef readonly %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

@@ -263,9 +263,9 @@ if.end5:                                          ; preds = %if.else.i.i, %if.th
   %len.i18 = getelementptr inbounds i8, ptr %writer.val, i64 8
   %20 = load i32, ptr %len.i18, align 8
   %tobool.not.i = icmp eq i32 %20, 0
-  br i1 %tobool.not.i, label %if.end10, label %in_object.argprom.exit
+  br i1 %tobool.not.i, label %if.end10, label %in_object.exit
 
-in_object.argprom.exit:                           ; preds = %if.end5
+in_object.exit:                                   ; preds = %if.end5
   %21 = load ptr, ptr %writer.val, align 8
   %sub.i = add i32 %20, -1
   %idxprom.i = zext i32 %sub.i to i64
@@ -274,14 +274,14 @@ in_object.argprom.exit:                           ; preds = %if.end5
   %tobool2.not.i = icmp eq i8 %22, 0
   br i1 %tobool2.not.i, label %if.then7, label %if.end10
 
-if.then7:                                         ; preds = %in_object.argprom.exit
+if.then7:                                         ; preds = %in_object.exit
   tail call fastcc void @quoted_str(ptr noundef nonnull %writer, ptr noundef %name)
   %contents8 = getelementptr inbounds i8, ptr %writer, i64 8
   %23 = load ptr, ptr %contents8, align 8
   %call9 = tail call ptr @g_string_append(ptr noundef %23, ptr noundef nonnull @.str.8) #6
   br label %if.end10
 
-if.end10:                                         ; preds = %if.end5, %if.then7, %in_object.argprom.exit
+if.end10:                                         ; preds = %if.end5, %if.then7, %in_object.exit
   ret void
 }
 

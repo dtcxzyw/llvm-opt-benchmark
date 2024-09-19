@@ -1242,13 +1242,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h4e30fb2e771b5aa2E
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2), !noalias !200
   %4 = load i64, ptr %3, align 8, !range !55, !alias.scope !203, !noalias !206, !noundef !4
   %trunc.i.i.i = trunc nuw i64 %4 to i1
-  br i1 %trunc.i.i.i, label %5, label %"_ZN9typst_pdf8gradient21compute_vertex_stream7__CACHE28_$u7b$$u7b$closure$u7d$$u7d$17h27d2de3f4faaf272E.argprom.exit"
+  br i1 %trunc.i.i.i, label %5, label %"_ZN9typst_pdf8gradient21compute_vertex_stream7__CACHE28_$u7b$$u7b$closure$u7d$$u7d$17h27d2de3f4faaf272E.exit"
 
 5:                                                ; preds = %1
   call void @_ZN4core6result13unwrap_failed17hff299ec748d62aabE(ptr noalias noundef nonnull readonly align 1 @anon.e912f5e474ac1454217504c869adf356.67.llvm.12347738516519586362, i64 noundef 70, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e912f5e474ac1454217504c869adf356.45.llvm.12347738516519586362, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e912f5e474ac1454217504c869adf356.69.llvm.12347738516519586362) #30, !noalias !209
   unreachable
 
-"_ZN9typst_pdf8gradient21compute_vertex_stream7__CACHE28_$u7b$$u7b$closure$u7d$$u7d$17h27d2de3f4faaf272E.argprom.exit": ; preds = %1
+"_ZN9typst_pdf8gradient21compute_vertex_stream7__CACHE28_$u7b$$u7b$closure$u7d$$u7d$17h27d2de3f4faaf272E.exit": ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !203, !noalias !206, !noundef !4
   %8 = getelementptr inbounds i8, ptr %3, i64 16
@@ -1277,13 +1277,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h8e18405d4bd10224E
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2), !noalias !213
   %4 = load i64, ptr %3, align 8, !range !55, !alias.scope !216, !noalias !219, !noundef !4
   %trunc.i.i.i = trunc nuw i64 %4 to i1
-  br i1 %trunc.i.i.i, label %5, label %"_ZN9typst_pdf5image14deferred_image7__CACHE28_$u7b$$u7b$closure$u7d$$u7d$17he432fd8dee1354a6E.argprom.exit"
+  br i1 %trunc.i.i.i, label %5, label %"_ZN9typst_pdf5image14deferred_image7__CACHE28_$u7b$$u7b$closure$u7d$$u7d$17he432fd8dee1354a6E.exit"
 
 5:                                                ; preds = %1
   call void @_ZN4core6result13unwrap_failed17hff299ec748d62aabE(ptr noalias noundef nonnull readonly align 1 @anon.e912f5e474ac1454217504c869adf356.67.llvm.12347738516519586362, i64 noundef 70, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e912f5e474ac1454217504c869adf356.45.llvm.12347738516519586362, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e912f5e474ac1454217504c869adf356.69.llvm.12347738516519586362) #30, !noalias !222
   unreachable
 
-"_ZN9typst_pdf5image14deferred_image7__CACHE28_$u7b$$u7b$closure$u7d$$u7d$17he432fd8dee1354a6E.argprom.exit": ; preds = %1
+"_ZN9typst_pdf5image14deferred_image7__CACHE28_$u7b$$u7b$closure$u7d$$u7d$17he432fd8dee1354a6E.exit": ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !216, !noalias !219, !noundef !4
   %8 = getelementptr inbounds i8, ptr %3, i64 16
@@ -1844,13 +1844,13 @@ define hidden noundef i8 @_ZN5image5color11rgb_to_luma17h25939779450b4dd7E.llvm.
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %1, 2
-  br i1 %5, label %"_ZN45_$LT$u32$u20$as$u20$core..ops..arith..Div$GT$3div17he0670516912fcf82E.argprom.exit", label %21, !prof !349
+  br i1 %5, label %"_ZN45_$LT$u32$u20$as$u20$core..ops..arith..Div$GT$3div17he0670516912fcf82E.exit", label %21, !prof !349
 
 6:                                                ; preds = %2
   tail call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef 1, i64 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d35873abd5e96d39c1aa0d7649af43e0.32) #30
   unreachable
 
-"_ZN45_$LT$u32$u20$as$u20$core..ops..arith..Div$GT$3div17he0670516912fcf82E.argprom.exit": ; preds = %4
+"_ZN45_$LT$u32$u20$as$u20$core..ops..arith..Div$GT$3div17he0670516912fcf82E.exit": ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 1
   %8 = load i8, ptr %7, align 1, !noundef !4
   %9 = zext i8 %8 to i32
@@ -5328,40 +5328,40 @@ default.unreachable:                              ; preds = %97, %71
   unreachable
 
 85:                                               ; preds = %71
-  br i1 %84, label %86, label %"_ZN75_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..clone..Clone$GT$5clone17hcb465138213cac0aE.argprom.exit"
+  br i1 %84, label %86, label %"_ZN75_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..clone..Clone$GT$5clone17hcb465138213cac0aE.exit"
 
 86:                                               ; preds = %85
   call void @llvm.trap()
   unreachable
 
 87:                                               ; preds = %71
-  br i1 %84, label %88, label %"_ZN75_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..clone..Clone$GT$5clone17hcb465138213cac0aE.argprom.exit"
+  br i1 %84, label %88, label %"_ZN75_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..clone..Clone$GT$5clone17hcb465138213cac0aE.exit"
 
 88:                                               ; preds = %87
   call void @llvm.trap()
   unreachable
 
 89:                                               ; preds = %71
-  br i1 %84, label %90, label %"_ZN75_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..clone..Clone$GT$5clone17hcb465138213cac0aE.argprom.exit"
+  br i1 %84, label %90, label %"_ZN75_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..clone..Clone$GT$5clone17hcb465138213cac0aE.exit"
 
 90:                                               ; preds = %89
   call void @llvm.trap()
   unreachable
 
-"_ZN75_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..clone..Clone$GT$5clone17hcb465138213cac0aE.argprom.exit": ; preds = %85, %87, %89
+"_ZN75_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..clone..Clone$GT$5clone17hcb465138213cac0aE.exit": ; preds = %85, %87, %89
   store i64 %40, ptr %16, align 8
   %91 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %.val25, ptr %91, align 8
   %92 = invoke noundef double @"_ZN5typst6layout4size74_$LT$impl$u20$typst..layout..axes..Axes$LT$typst..layout..abs..Abs$GT$$GT$12aspect_ratio17h22b23b0067479d70E"(double noundef %.sroa.05.0, double noundef %.sroa.6.0)
           to label %95 unwind label %93
 
-93:                                               ; preds = %95, %"_ZN75_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..clone..Clone$GT$5clone17hcb465138213cac0aE.argprom.exit"
+93:                                               ; preds = %95, %"_ZN75_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..clone..Clone$GT$5clone17hcb465138213cac0aE.exit"
   %94 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$typst..visualize..gradient..Gradient$GT$17he353de47acd3c2e6E"(ptr noalias noundef align 8 dereferenceable(16) %16) #31
           to label %common.resume unwind label %186
 
-95:                                               ; preds = %"_ZN75_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..clone..Clone$GT$5clone17hcb465138213cac0aE.argprom.exit"
+95:                                               ; preds = %"_ZN75_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..clone..Clone$GT$5clone17hcb465138213cac0aE.exit"
   %96 = invoke noundef double @_ZN5typst9visualize8gradient8Gradient20correct_aspect_ratio17h607cfec6ca2354acE(double noundef %.019, double noundef %92)
           to label %97 unwind label %93
 
@@ -9016,15 +9016,15 @@ attributes #33 = { nounwind }
 !7 = distinct !{!7, !8, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfa1134bc9b014e9aE: argument 1"}
 !8 = distinct !{!8, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfa1134bc9b014e9aE"}
 !9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN4core3ops8function5FnMut8call_mut17h746be2e30e4855bcE.argprom: argument 1"}
-!11 = distinct !{!11, !"_ZN4core3ops8function5FnMut8call_mut17h746be2e30e4855bcE.argprom"}
+!10 = distinct !{!10, !11, !"_ZN4core3ops8function5FnMut8call_mut17h746be2e30e4855bcE: argument 1"}
+!11 = distinct !{!11, !"_ZN4core3ops8function5FnMut8call_mut17h746be2e30e4855bcE"}
 !12 = !{!13}
 !13 = distinct !{!13, !14, !"_ZN71_$LT$typst_pdf..gradient..PdfGradient$u20$as$u20$core..clone..Clone$GT$5clone17h80ad257344d18076E: argument 1"}
 !14 = distinct !{!14, !"_ZN71_$LT$typst_pdf..gradient..PdfGradient$u20$as$u20$core..clone..Clone$GT$5clone17h80ad257344d18076E"}
 !15 = !{!13, !10, !7}
 !16 = !{!17, !18, !19, !20}
 !17 = distinct !{!17, !14, !"_ZN71_$LT$typst_pdf..gradient..PdfGradient$u20$as$u20$core..clone..Clone$GT$5clone17h80ad257344d18076E: argument 0"}
-!18 = distinct !{!18, !11, !"_ZN4core3ops8function5FnMut8call_mut17h746be2e30e4855bcE.argprom: argument 0"}
+!18 = distinct !{!18, !11, !"_ZN4core3ops8function5FnMut8call_mut17h746be2e30e4855bcE: argument 0"}
 !19 = distinct !{!19, !8, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfa1134bc9b014e9aE: argument 0"}
 !20 = distinct !{!20, !21, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3db8044aa13831bcE.llvm.14982894775678554951: argument 0"}
 !21 = distinct !{!21, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3db8044aa13831bcE.llvm.14982894775678554951"}
@@ -9204,8 +9204,8 @@ attributes #33 = { nounwind }
 !195 = distinct !{!195, !193, !"_ZN9typst_pdf24write_named_destinations28_$u7b$$u7b$closure$u7d$$u7d$17he9718850a992fd24E.llvm.14982894775678554951: argument 1"}
 !196 = !{!192, !195}
 !197 = !{!198}
-!198 = distinct !{!198, !199, !"_ZN9typst_pdf8gradient21compute_vertex_stream7__CACHE28_$u7b$$u7b$closure$u7d$$u7d$17h27d2de3f4faaf272E.argprom: argument 0"}
-!199 = distinct !{!199, !"_ZN9typst_pdf8gradient21compute_vertex_stream7__CACHE28_$u7b$$u7b$closure$u7d$$u7d$17h27d2de3f4faaf272E.argprom"}
+!198 = distinct !{!198, !199, !"_ZN9typst_pdf8gradient21compute_vertex_stream7__CACHE28_$u7b$$u7b$closure$u7d$$u7d$17h27d2de3f4faaf272E: argument 0"}
+!199 = distinct !{!199, !"_ZN9typst_pdf8gradient21compute_vertex_stream7__CACHE28_$u7b$$u7b$closure$u7d$$u7d$17h27d2de3f4faaf272E"}
 !200 = !{!201, !198}
 !201 = distinct !{!201, !202, !"_ZN82_$LT$comemo..cache..CacheData$LT$C$C$Out$GT$$u20$as$u20$core..default..Default$GT$7default17hbd763d9c88adbd46E: argument 0"}
 !202 = distinct !{!202, !"_ZN82_$LT$comemo..cache..CacheData$LT$C$C$Out$GT$$u20$as$u20$core..default..Default$GT$7default17hbd763d9c88adbd46E"}
@@ -9217,8 +9217,8 @@ attributes #33 = { nounwind }
 !208 = distinct !{!208, !205, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h25f59feca67a08cbE.llvm.12347738516519586362: argument 2"}
 !209 = !{!204, !201, !198}
 !210 = !{!211}
-!211 = distinct !{!211, !212, !"_ZN9typst_pdf5image14deferred_image7__CACHE28_$u7b$$u7b$closure$u7d$$u7d$17he432fd8dee1354a6E.argprom: argument 0"}
-!212 = distinct !{!212, !"_ZN9typst_pdf5image14deferred_image7__CACHE28_$u7b$$u7b$closure$u7d$$u7d$17he432fd8dee1354a6E.argprom"}
+!211 = distinct !{!211, !212, !"_ZN9typst_pdf5image14deferred_image7__CACHE28_$u7b$$u7b$closure$u7d$$u7d$17he432fd8dee1354a6E: argument 0"}
+!212 = distinct !{!212, !"_ZN9typst_pdf5image14deferred_image7__CACHE28_$u7b$$u7b$closure$u7d$$u7d$17he432fd8dee1354a6E"}
 !213 = !{!214, !211}
 !214 = distinct !{!214, !215, !"_ZN82_$LT$comemo..cache..CacheData$LT$C$C$Out$GT$$u20$as$u20$core..default..Default$GT$7default17h4f9e33581f89a8caE: argument 0"}
 !215 = distinct !{!215, !"_ZN82_$LT$comemo..cache..CacheData$LT$C$C$Out$GT$$u20$as$u20$core..default..Default$GT$7default17h4f9e33581f89a8caE"}
@@ -9612,15 +9612,15 @@ attributes #33 = { nounwind }
 !603 = !{!579}
 !604 = !{!584}
 !605 = !{!606}
-!606 = distinct !{!606, !607, !"_ZN4core3ops8function5FnMut8call_mut17h746be2e30e4855bcE.argprom: argument 1"}
-!607 = distinct !{!607, !"_ZN4core3ops8function5FnMut8call_mut17h746be2e30e4855bcE.argprom"}
+!606 = distinct !{!606, !607, !"_ZN4core3ops8function5FnMut8call_mut17h746be2e30e4855bcE: argument 1"}
+!607 = distinct !{!607, !"_ZN4core3ops8function5FnMut8call_mut17h746be2e30e4855bcE"}
 !608 = !{!609}
 !609 = distinct !{!609, !610, !"_ZN71_$LT$typst_pdf..gradient..PdfGradient$u20$as$u20$core..clone..Clone$GT$5clone17h80ad257344d18076E: argument 1"}
 !610 = distinct !{!610, !"_ZN71_$LT$typst_pdf..gradient..PdfGradient$u20$as$u20$core..clone..Clone$GT$5clone17h80ad257344d18076E"}
 !611 = !{!609, !606, !584}
 !612 = !{!613, !614, !579}
 !613 = distinct !{!613, !610, !"_ZN71_$LT$typst_pdf..gradient..PdfGradient$u20$as$u20$core..clone..Clone$GT$5clone17h80ad257344d18076E: argument 0"}
-!614 = distinct !{!614, !607, !"_ZN4core3ops8function5FnMut8call_mut17h746be2e30e4855bcE.argprom: argument 0"}
+!614 = distinct !{!614, !607, !"_ZN4core3ops8function5FnMut8call_mut17h746be2e30e4855bcE: argument 0"}
 !615 = !{!613, !609, !614, !606, !579, !584}
 !616 = !{!577}
 !617 = !{!575}
@@ -10130,8 +10130,8 @@ attributes #33 = { nounwind }
 !1121 = distinct !{!1121, !1122, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$typst_timing..TimingScope$GT$$GT$17hbc10b84e6edfb2e2E: argument 0"}
 !1122 = distinct !{!1122, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$typst_timing..TimingScope$GT$$GT$17hbc10b84e6edfb2e2E"}
 !1123 = !{!1124}
-!1124 = distinct !{!1124, !1125, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hd1b454acdc4de45bE.argprom: argument 0"}
-!1125 = distinct !{!1125, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hd1b454acdc4de45bE.argprom"}
+!1124 = distinct !{!1124, !1125, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hd1b454acdc4de45bE: argument 0"}
+!1125 = distinct !{!1125, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hd1b454acdc4de45bE"}
 !1126 = !{!1127}
 !1127 = distinct !{!1127, !1128, !"_ZN4core4hash11BuildHasher8hash_one17h136085a091cd80ceE: argument 0"}
 !1128 = distinct !{!1128, !"_ZN4core4hash11BuildHasher8hash_one17h136085a091cd80ceE"}
@@ -10230,8 +10230,8 @@ attributes #33 = { nounwind }
 !1221 = distinct !{!1221, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E"}
 !1222 = !{!1211, !1216, !1217}
 !1223 = !{!1224}
-!1224 = distinct !{!1224, !1225, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h799889a327780301E.argprom: argument 0"}
-!1225 = distinct !{!1225, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h799889a327780301E.argprom"}
+!1224 = distinct !{!1224, !1225, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h799889a327780301E: argument 0"}
+!1225 = distinct !{!1225, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h799889a327780301E"}
 !1226 = !{!1227}
 !1227 = distinct !{!1227, !1228, !"_ZN4core4hash11BuildHasher8hash_one17hdef9530a3e075e6fE: argument 0"}
 !1228 = distinct !{!1228, !"_ZN4core4hash11BuildHasher8hash_one17hdef9530a3e075e6fE"}

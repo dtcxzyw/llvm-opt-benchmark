@@ -138,9 +138,9 @@ switch.lookup:                                    ; preds = %13
   %43 = load ptr, ptr %36, align 8
   %.val = load i64, ptr %3, align 8
   %.val118 = load i64, ptr %10, align 8
-  call fastcc void @print_queue.argprom(i32 noundef %0, ptr noundef %43, i64 %.val, i64 %.val118)
+  call fastcc void @print_queue(i32 noundef %0, ptr noundef %43, i64 %.val, i64 %.val118)
   %44 = load ptr, ptr %32, align 8
-  call fastcc void @print_queue.argprom(i32 noundef %0, ptr noundef %44, i64 %.val, i64 %.val118)
+  call fastcc void @print_queue(i32 noundef %0, ptr noundef %44, i64 %.val, i64 %.val118)
   %45 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %0, ptr noundef nonnull @.str.11) #12
   %46 = getelementptr inbounds i8, ptr %12, i64 320
   %.081131 = load ptr, ptr %46, align 8
@@ -284,7 +284,7 @@ declare i32 @mdprintf(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_queue.argprom(i32 noundef %0, ptr nocapture noundef readonly %1, i64 %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @print_queue(i32 noundef %0, ptr nocapture noundef readonly %1, i64 %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %38, label %.preheader

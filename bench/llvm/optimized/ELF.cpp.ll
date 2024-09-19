@@ -14031,7 +14031,7 @@ define weak_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1EL
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %5, ptr %17, align 8
   %18 = ptrtoint ptr %11 to i64
-  call fastcc void @_ZN4llvm6objectL10decodeCrelILb0EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE.argprom(ptr dead_on_unwind noalias writable align 8 %9, ptr %2, i64 %3, ptr nonnull @_ZN4llvm12function_refIFvmbEE11callback_fnIZNKS_6object7ELFFileINS4_7ELFTypeILNS_10endiannessE1ELb0EEEE10decodeCrelENS_8ArrayRefIhEEEUlmbE_EEvlmb, i64 %14, ptr nonnull @_ZN4llvm12function_refIFvNS_6object13Elf_Crel_ImplILb0EEEEE11callback_fnIZNKS1_7ELFFileINS1_7ELFTypeILNS_10endiannessE1ELb0EEEE10decodeCrelENS_8ArrayRefIhEEEUlS3_E_EEvlS3_, i64 %18)
+  call fastcc void @_ZN4llvm6objectL10decodeCrelILb0EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE(ptr dead_on_unwind noalias writable align 8 %9, ptr %2, i64 %3, ptr nonnull @_ZN4llvm12function_refIFvmbEE11callback_fnIZNKS_6object7ELFFileINS4_7ELFTypeILNS_10endiannessE1ELb0EEEE10decodeCrelENS_8ArrayRefIhEEEUlmbE_EEvlmb, i64 %14, ptr nonnull @_ZN4llvm12function_refIFvNS_6object13Elf_Crel_ImplILb0EEEEE11callback_fnIZNKS1_7ELFFileINS1_7ELFTypeILNS_10endiannessE1ELb0EEEE10decodeCrelENS_8ArrayRefIhEEEUlS3_E_EEvlS3_, i64 %18)
   %19 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit.thread, label %_ZN4llvm5ErrorD2Ev.exit
@@ -14104,7 +14104,7 @@ _ZNSt6vectorIN4llvm6object12Elf_Rel_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb0EEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm6objectL10decodeCrelILb0EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %1, i64 %2, ptr nocapture readonly %3, i64 %4, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #1 {
+define internal fastcc void @_ZN4llvm6objectL10decodeCrelILb0EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %1, i64 %2, ptr nocapture readonly %3, i64 %4, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #1 {
   %6 = alloca %"class.llvm::DataExtractor", align 8
   %7 = alloca %"class.llvm::DataExtractor::Cursor", align 8
   store ptr %1, ptr %6, align 8
@@ -28029,7 +28029,7 @@ define weak_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE0EL
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %5, ptr %17, align 8
   %18 = ptrtoint ptr %11 to i64
-  call fastcc void @_ZN4llvm6objectL10decodeCrelILb0EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE.argprom(ptr dead_on_unwind noalias writable align 8 %9, ptr %2, i64 %3, ptr nonnull @_ZN4llvm12function_refIFvmbEE11callback_fnIZNKS_6object7ELFFileINS4_7ELFTypeILNS_10endiannessE0ELb0EEEE10decodeCrelENS_8ArrayRefIhEEEUlmbE_EEvlmb, i64 %14, ptr nonnull @_ZN4llvm12function_refIFvNS_6object13Elf_Crel_ImplILb0EEEEE11callback_fnIZNKS1_7ELFFileINS1_7ELFTypeILNS_10endiannessE0ELb0EEEE10decodeCrelENS_8ArrayRefIhEEEUlS3_E_EEvlS3_, i64 %18)
+  call fastcc void @_ZN4llvm6objectL10decodeCrelILb0EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE(ptr dead_on_unwind noalias writable align 8 %9, ptr %2, i64 %3, ptr nonnull @_ZN4llvm12function_refIFvmbEE11callback_fnIZNKS_6object7ELFFileINS4_7ELFTypeILNS_10endiannessE0ELb0EEEE10decodeCrelENS_8ArrayRefIhEEEUlmbE_EEvlmb, i64 %14, ptr nonnull @_ZN4llvm12function_refIFvNS_6object13Elf_Crel_ImplILb0EEEEE11callback_fnIZNKS1_7ELFFileINS1_7ELFTypeILNS_10endiannessE0ELb0EEEE10decodeCrelENS_8ArrayRefIhEEEUlS3_E_EEvlS3_, i64 %18)
   %19 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit.thread, label %_ZN4llvm5ErrorD2Ev.exit
@@ -42060,7 +42060,7 @@ define weak_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1EL
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %5, ptr %17, align 8
   %18 = ptrtoint ptr %11 to i64
-  call fastcc void @_ZN4llvm6objectL10decodeCrelILb1EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE.argprom(ptr dead_on_unwind noalias writable align 8 %9, ptr %2, i64 %3, ptr nonnull @_ZN4llvm12function_refIFvmbEE11callback_fnIZNKS_6object7ELFFileINS4_7ELFTypeILNS_10endiannessE1ELb1EEEE10decodeCrelENS_8ArrayRefIhEEEUlmbE_EEvlmb, i64 %14, ptr nonnull @_ZN4llvm12function_refIFvNS_6object13Elf_Crel_ImplILb1EEEEE11callback_fnIZNKS1_7ELFFileINS1_7ELFTypeILNS_10endiannessE1ELb1EEEE10decodeCrelENS_8ArrayRefIhEEEUlS3_E_EEvlS3_, i64 %18)
+  call fastcc void @_ZN4llvm6objectL10decodeCrelILb1EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE(ptr dead_on_unwind noalias writable align 8 %9, ptr %2, i64 %3, ptr nonnull @_ZN4llvm12function_refIFvmbEE11callback_fnIZNKS_6object7ELFFileINS4_7ELFTypeILNS_10endiannessE1ELb1EEEE10decodeCrelENS_8ArrayRefIhEEEUlmbE_EEvlmb, i64 %14, ptr nonnull @_ZN4llvm12function_refIFvNS_6object13Elf_Crel_ImplILb1EEEEE11callback_fnIZNKS1_7ELFFileINS1_7ELFTypeILNS_10endiannessE1ELb1EEEE10decodeCrelENS_8ArrayRefIhEEEUlS3_E_EEvlS3_, i64 %18)
   %19 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit.thread, label %_ZN4llvm5ErrorD2Ev.exit
@@ -42133,7 +42133,7 @@ _ZNSt6vectorIN4llvm6object12Elf_Rel_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb1EEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm6objectL10decodeCrelILb1EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %1, i64 %2, ptr nocapture readonly %3, i64 %4, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #1 {
+define internal fastcc void @_ZN4llvm6objectL10decodeCrelILb1EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %1, i64 %2, ptr nocapture readonly %3, i64 %4, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #1 {
   %6 = alloca %"struct.llvm::object::Elf_Crel_Impl.824", align 8
   %7 = alloca %"class.llvm::DataExtractor", align 8
   %8 = alloca %"class.llvm::DataExtractor::Cursor", align 8
@@ -56259,7 +56259,7 @@ define weak_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE0EL
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %5, ptr %17, align 8
   %18 = ptrtoint ptr %11 to i64
-  call fastcc void @_ZN4llvm6objectL10decodeCrelILb1EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE.argprom(ptr dead_on_unwind noalias writable align 8 %9, ptr %2, i64 %3, ptr nonnull @_ZN4llvm12function_refIFvmbEE11callback_fnIZNKS_6object7ELFFileINS4_7ELFTypeILNS_10endiannessE0ELb1EEEE10decodeCrelENS_8ArrayRefIhEEEUlmbE_EEvlmb, i64 %14, ptr nonnull @_ZN4llvm12function_refIFvNS_6object13Elf_Crel_ImplILb1EEEEE11callback_fnIZNKS1_7ELFFileINS1_7ELFTypeILNS_10endiannessE0ELb1EEEE10decodeCrelENS_8ArrayRefIhEEEUlS3_E_EEvlS3_, i64 %18)
+  call fastcc void @_ZN4llvm6objectL10decodeCrelILb1EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE(ptr dead_on_unwind noalias writable align 8 %9, ptr %2, i64 %3, ptr nonnull @_ZN4llvm12function_refIFvmbEE11callback_fnIZNKS_6object7ELFFileINS4_7ELFTypeILNS_10endiannessE0ELb1EEEE10decodeCrelENS_8ArrayRefIhEEEUlmbE_EEvlmb, i64 %14, ptr nonnull @_ZN4llvm12function_refIFvNS_6object13Elf_Crel_ImplILb1EEEEE11callback_fnIZNKS1_7ELFFileINS1_7ELFTypeILNS_10endiannessE0ELb1EEEE10decodeCrelENS_8ArrayRefIhEEEUlS3_E_EEvlS3_, i64 %18)
   %19 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit.thread, label %_ZN4llvm5ErrorD2Ev.exit

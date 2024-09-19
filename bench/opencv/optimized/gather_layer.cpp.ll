@@ -765,7 +765,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15GatherLayerImpl7forwardERKNS_11_Inp
   %101 = sext i32 %.val84 to i64
   %.idx = shl nsw i64 %101, 2
   %.not108 = icmp eq i32 %.val84, 0
-  br i1 %.not108, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit, label %102
+  br i1 %.not108, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit, label %102
 
 102:                                              ; preds = %96
   %103 = icmp slt i32 %.val84, 0
@@ -786,14 +786,14 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %102
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %105, ptr align 4 %.val85, i64 %.idx, i1 false)
   %106 = getelementptr inbounds i8, ptr %105, i64 %.idx
   %107 = ptrtoint ptr %106 to i64
-  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
+  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i.i:                ; preds = %104, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   %108 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit: ; preds = %96, %.noexc104
+_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %96, %.noexc104
   %.sroa.0.0 = phi ptr [ %105, %.noexc104 ], [ null, %96 ]
   %.sroa.7.0 = phi i64 [ %107, %.noexc104 ], [ 0, %96 ]
   %109 = ptrtoint ptr %.sroa.0.0 to i64
@@ -806,14 +806,14 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit: ; preds = %96, %.noex
   %or.cond.i.i = and i1 %.not.i.i, %114
   br i1 %or.cond.i.i, label %116, label %115
 
-115:                                              ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
+115:                                              ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
   invoke void @_ZN2cv6detail17check_failed_autoEiRKNS0_12CheckContextE(i32 noundef %98, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv3dnn14dnn4_v20240521L14normalize_axisEiiE15__cv_check__243) #22
           to label %.noexc unwind label %173
 
 .noexc:                                           ; preds = %115
   unreachable
 
-116:                                              ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
+116:                                              ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
   %117 = icmp slt i32 %98, 0
   %118 = select i1 %117, i32 %112, i32 0
   %119 = add nsw i32 %118, %98

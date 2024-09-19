@@ -427,7 +427,7 @@ define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$l
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10, !noalias !3
   unreachable
 
-126:                                              ; preds = %316, %"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$24generate_fork_jump_table17hc931dcface635790E.argprom.exit", %127
+126:                                              ; preds = %316, %"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$24generate_fork_jump_table17hc931dcface635790E.exit", %127
   ret void
 
 127:                                              ; preds = %123
@@ -492,7 +492,7 @@ define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$l
 133:                                              ; preds = %128
   %134 = getelementptr i8, ptr %1, i64 240
   %.val.i = load i32, ptr %134, align 8, !noalias !6
-  invoke fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$8fork_end17hd15aeed181fd90f6E.argprom"(ptr noalias align 8 %35, i32 %.val.i, i32 %129, ptr align 8 %37)
+  invoke fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$8fork_end17hd15aeed181fd90f6E"(ptr noalias align 8 %35, i32 %.val.i, i32 %129, ptr align 8 %37)
           to label %138 unwind label %136, !noalias !6
 
 135:                                              ; preds = %254, %136
@@ -930,9 +930,9 @@ define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$l
 
 257:                                              ; preds = %253
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %34)
-          to label %"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$24generate_fork_jump_table17hc931dcface635790E.argprom.exit" unwind label %136, !noalias !6
+          to label %"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$24generate_fork_jump_table17hc931dcface635790E.exit" unwind label %136, !noalias !6
 
-"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$24generate_fork_jump_table17hc931dcface635790E.argprom.exit": ; preds = %257
+"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$24generate_fork_jump_table17hc931dcface635790E.exit": ; preds = %257
   call void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %37)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
@@ -1003,7 +1003,7 @@ define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$l
   %269 = load i32, ptr %65, align 4
   %270 = getelementptr i8, ptr %1, i64 240
   %.val = load i32, ptr %270, align 8
-  invoke fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$8fork_end17hd15aeed181fd90f6E.argprom"(ptr noalias align 8 %56, i32 %.val, i32 %269, ptr align 8 %58)
+  invoke fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$8fork_end17hd15aeed181fd90f6E"(ptr noalias align 8 %56, i32 %.val, i32 %269, ptr align 8 %58)
           to label %274 unwind label %272
 
 271:                                              ; preds = %312, %272
@@ -1217,7 +1217,7 @@ define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$l
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$8fork_end17hd15aeed181fd90f6E.argprom"(ptr noalias nocapture nonnull writeonly align 8 %0, i32 %.240.val, i32 %1, ptr nonnull align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$8fork_end17hd15aeed181fd90f6E"(ptr noalias nocapture nonnull writeonly align 8 %0, i32 %.240.val, i32 %1, ptr nonnull align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
@@ -8883,8 +8883,8 @@ attributes #11 = { noreturn }
 !4 = distinct !{!4, !5, !"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$18generate_fast_loop17h78be5d4569951cadE: argument 0"}
 !5 = distinct !{!5, !"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$18generate_fast_loop17h78be5d4569951cadE"}
 !6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$24generate_fork_jump_table17hc931dcface635790E.argprom: argument 0"}
-!8 = distinct !{!8, !"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$24generate_fork_jump_table17hc931dcface635790E.argprom"}
+!7 = distinct !{!7, !8, !"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$24generate_fork_jump_table17hc931dcface635790E: argument 0"}
+!8 = distinct !{!8, !"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$24generate_fork_jump_table17hc931dcface635790E"}
 !9 = !{!10}
 !10 = distinct !{!10, !11, !"_ZN13logos_codegen9generator4leaf53_$LT$impl$u20$logos_codegen..generator..Generator$GT$13generate_leaf17h0769c744e90e8cb1E: argument 0"}
 !11 = distinct !{!11, !"_ZN13logos_codegen9generator4leaf53_$LT$impl$u20$logos_codegen..generator..Generator$GT$13generate_leaf17h0769c744e90e8cb1E"}

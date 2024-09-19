@@ -2249,7 +2249,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv8parallel24
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZN2cv8parallelL27createDefaultParallelForAPIEv.argprom()
+  invoke fastcc void @_ZN2cv8parallelL27createDefaultParallelForAPIEv()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -2271,7 +2271,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv8parallel24
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv8parallelL27createDefaultParallelForAPIEv.argprom() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv8parallelL27createDefaultParallelForAPIEv() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = tail call noundef ptr @_ZN2cv5utils7logging8internal15getGlobalLogTagEv()
@@ -2430,7 +2430,7 @@ define void @_ZN2cv8parallel21setParallelForBackendERKSt10shared_ptrINS0_14Paral
   br i1 %.not.i, label %_ZN2cv8parallel24getCurrentParallelForAPIEv.exit, label %7
 
 7:                                                ; preds = %5
-  invoke fastcc void @_ZN2cv8parallelL27createDefaultParallelForAPIEv.argprom()
+  invoke fastcc void @_ZN2cv8parallelL27createDefaultParallelForAPIEv()
           to label %8 unwind label %10
 
 8:                                                ; preds = %7
@@ -2619,7 +2619,7 @@ _ZN2cvL11toUpperCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   br i1 %.b55, label %28, label %189
 
 28:                                               ; preds = %_ZN2cvL11toUpperCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  invoke fastcc void @_ZN2cv8parallelL22getParallelBackendNameB5cxx11Ev.retelim()
+  invoke fastcc void @_ZN2cv8parallelL22getParallelBackendNameB5cxx11Ev()
           to label %29 unwind label %41
 
 29:                                               ; preds = %28
@@ -2817,7 +2817,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %.body76
 
 103:                                              ; preds = %82, %97
-  invoke fastcc void @_ZN2cv8parallelL22getParallelBackendNameB5cxx11Ev.retelim()
+  invoke fastcc void @_ZN2cv8parallelL22getParallelBackendNameB5cxx11Ev()
           to label %104 unwind label %41
 
 104:                                              ; preds = %103
@@ -2839,7 +2839,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %.not.i, label %_ZN2cv8parallel24getCurrentParallelForAPIEv.exit, label %112
 
 112:                                              ; preds = %110
-  invoke fastcc void @_ZN2cv8parallelL27createDefaultParallelForAPIEv.argprom()
+  invoke fastcc void @_ZN2cv8parallelL27createDefaultParallelForAPIEv()
           to label %113 unwind label %.body
 
 113:                                              ; preds = %112
@@ -3007,7 +3007,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN2cv8parallel14ParallelForAPIEED2Ev.exit
 
 189:                                              ; preds = %_ZN2cvL11toUpperCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  invoke fastcc void @_ZN2cv8parallelL22getParallelBackendNameB5cxx11Ev.retelim()
+  invoke fastcc void @_ZN2cv8parallelL22getParallelBackendNameB5cxx11Ev()
           to label %190 unwind label %41
 
 190:                                              ; preds = %189
@@ -3025,7 +3025,7 @@ _ZNSt10shared_ptrIN2cv8parallel14ParallelForAPIEED2Ev.exit: ; preds = %_ZNSt16_S
   br i1 %.not.i75, label %_ZN2cv8parallel24getCurrentParallelForAPIEv.exit78, label %196
 
 196:                                              ; preds = %194
-  invoke fastcc void @_ZN2cv8parallelL27createDefaultParallelForAPIEv.argprom()
+  invoke fastcc void @_ZN2cv8parallelL27createDefaultParallelForAPIEv()
           to label %197 unwind label %199
 
 197:                                              ; preds = %196
@@ -3214,7 +3214,7 @@ _ZNSt10shared_ptrIN2cv8parallel14ParallelForAPIEEC2ERKS3_.exit: ; preds = %207, 
   br i1 %270, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit82.thread, label %271
 
 271:                                              ; preds = %269
-  invoke fastcc void @_ZN2cv8parallelL22getParallelBackendNameB5cxx11Ev.retelim()
+  invoke fastcc void @_ZN2cv8parallelL22getParallelBackendNameB5cxx11Ev()
           to label %272 unwind label %217
 
 272:                                              ; preds = %271
@@ -3412,7 +3412,7 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv8parallelL22getParallelBackendNameB5cxx11Ev.retelim() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv8parallelL22getParallelBackendNameB5cxx11Ev() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = load atomic i8, ptr @_ZGVZN2cv8parallelL22getParallelBackendNameB5cxx11EvE13g_backendNameB5cxx11 acquire, align 8
   %3 = icmp eq i8 %2, 0
@@ -3490,7 +3490,7 @@ define internal fastcc void @_ZN2cv8parallelL20createParallelForAPIEv(ptr dead_o
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
   %16 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %17 = alloca %"class.std::__cxx11::basic_string", align 8
-  tail call fastcc void @_ZN2cv8parallelL22getParallelBackendNameB5cxx11Ev.retelim()
+  tail call fastcc void @_ZN2cv8parallelL22getParallelBackendNameB5cxx11Ev()
   %18 = load atomic i8, ptr @_ZGVZN2cv8parallel23ParallelBackendRegistry11getInstanceEvE10g_instance acquire, align 8
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %20, label %_ZN2cv8parallel23getParallelBackendsInfoEv.exit, !prof !4
@@ -3884,7 +3884,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 
 179:                                              ; preds = %149, %173
   store i1 true, ptr @_ZN2cv8parallelL27g_initializedParallelForAPIE, align 1
-  invoke fastcc void @_ZN2cv8parallelL22getParallelBackendNameB5cxx11Ev.retelim()
+  invoke fastcc void @_ZN2cv8parallelL22getParallelBackendNameB5cxx11Ev()
           to label %180 unwind label %146
 
 180:                                              ; preds = %179

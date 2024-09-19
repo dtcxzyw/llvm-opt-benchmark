@@ -166,7 +166,7 @@ _should_be_ref.exit:                              ; preds = %18
   br i1 %.not10.i.not, label %23, label %_should_be_ref.exit.thread
 
 23:                                               ; preds = %_should_be_ref.exit
-  tail call fastcc void @_set_openapi_parse.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @_set_openapi_parse(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   br label %33
 
 _should_be_ref.exit.thread:                       ; preds = %12, %15, %18, %3, %_should_be_ref.exit
@@ -205,7 +205,7 @@ _should_be_ref.exit.thread:                       ; preds = %12, %15, %18, %3, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_openapi_parse.retelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @_set_openapi_parse(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %14 [
@@ -513,7 +513,7 @@ _should_be_ref.exit.thread:                       ; preds = %9, %12, %15, %2, %_
 45:                                               ; preds = %_should_be_ref.exit.thread
   call void @slurm_xfree(ptr noundef nonnull %5) #6
   %46 = call ptr @data_set_dict(ptr noundef %37) #6
-  call fastcc void @_set_openapi_parse.retelim(ptr noundef %37, ptr noundef nonnull %0, ptr noundef nonnull %1)
+  call fastcc void @_set_openapi_parse(ptr noundef %37, ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %47
 
 47:                                               ; preds = %20, %23, %45, %44

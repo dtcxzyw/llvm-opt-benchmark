@@ -3329,7 +3329,7 @@ define internal noundef zeroext i1 @"_ZNSt3__110__function6__funcIZN3tev11ImageB
   %6 = getelementptr inbounds i8, ptr %5, i64 88
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %9, label %"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageButtonC1EPN7nanogui6WidgetERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEbE3$_0NSA_ISF_EEFbSE_EEclB8ne190000ESE_.argprom.exit"
+  br i1 %8, label %9, label %"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageButtonC1EPN7nanogui6WidgetERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEbE3$_0NSA_ISF_EEFbSE_EEclB8ne190000ESE_.exit"
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %5, i64 90
@@ -3356,9 +3356,9 @@ _ZN3tev11ImageButton10setCaptionERKNSt3__112basic_stringIcNS1_11char_traitsIcEEN
   %21 = load ptr, ptr %4, align 16
   %22 = getelementptr inbounds i8, ptr %21, i64 88
   store i8 0, ptr %22, align 8
-  br label %"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageButtonC1EPN7nanogui6WidgetERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEbE3$_0NSA_ISF_EEFbSE_EEclB8ne190000ESE_.argprom.exit"
+  br label %"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageButtonC1EPN7nanogui6WidgetERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEbE3$_0NSA_ISF_EEFbSE_EEclB8ne190000ESE_.exit"
 
-"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageButtonC1EPN7nanogui6WidgetERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEbE3$_0NSA_ISF_EEFbSE_EEclB8ne190000ESE_.argprom.exit": ; preds = %2, %_ZN3tev11ImageButton10setCaptionERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit.i.i.i.i.i
+"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageButtonC1EPN7nanogui6WidgetERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEbE3$_0NSA_ISF_EEFbSE_EEclB8ne190000ESE_.exit": ; preds = %2, %_ZN3tev11ImageButton10setCaptionERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit.i.i.i.i.i
   ret i1 true
 }
 

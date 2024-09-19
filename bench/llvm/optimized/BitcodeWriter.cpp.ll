@@ -6500,7 +6500,7 @@ _ZN12_GLOBAL__N_119ModuleBitcodeWriter18writeNamedMetadataERN4llvm15SmallVectorI
   br i1 %.not180.i, label %2232, label %2231
 
 2231:                                             ; preds = %2227
-  call fastcc void @"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter19writeModuleMetadataEvENK3$_0clERKN4llvm12GlobalObjectE.argprom"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(56) %2225)
+  call fastcc void @"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter19writeModuleMetadataEvENK3$_0clERKN4llvm12GlobalObjectE"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(56) %2225)
   br label %2232
 
 2232:                                             ; preds = %2231, %2227, %.lr.ph201.i
@@ -6533,7 +6533,7 @@ _ZN12_GLOBAL__N_119ModuleBitcodeWriter18writeNamedMetadataERN4llvm15SmallVectorI
   br i1 %.not179.i, label %2244, label %2243
 
 2243:                                             ; preds = %.lr.ph207.i
-  call fastcc void @"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter19writeModuleMetadataEvENK3$_0clERKN4llvm12GlobalObjectE.argprom"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(56) %2239)
+  call fastcc void @"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter19writeModuleMetadataEvENK3$_0clERKN4llvm12GlobalObjectE"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(56) %2239)
   br label %2244
 
 2244:                                             ; preds = %2243, %.lr.ph207.i
@@ -8726,7 +8726,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit:      ; preds = %_ZNK4llvm6Triple10i
   %41 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #27
   %42 = and i64 %41, 15
   %.not10.i = icmp eq i64 %42, 0
-  br i1 %.not10.i, label %_ZL28emitDarwinBCHeaderAndTrailerRN4llvm15SmallVectorImplIcEERKNS_6TripleE.argprom.exit, label %.lr.ph.i
+  br i1 %.not10.i, label %_ZL28emitDarwinBCHeaderAndTrailerRN4llvm15SmallVectorImplIcEERKNS_6TripleE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %33, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit.i
   %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #27
@@ -8750,9 +8750,9 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit.i: ; preds = %46, %.lr
   %52 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #27
   %53 = and i64 %52, 15
   %.not.i = icmp eq i64 %53, 0
-  br i1 %.not.i, label %_ZL28emitDarwinBCHeaderAndTrailerRN4llvm15SmallVectorImplIcEERKNS_6TripleE.argprom.exit, label %.lr.ph.i, !llvm.loop !128
+  br i1 %.not.i, label %_ZL28emitDarwinBCHeaderAndTrailerRN4llvm15SmallVectorImplIcEERKNS_6TripleE.exit, label %.lr.ph.i, !llvm.loop !128
 
-_ZL28emitDarwinBCHeaderAndTrailerRN4llvm15SmallVectorImplIcEERKNS_6TripleE.argprom.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit.i, %33
+_ZL28emitDarwinBCHeaderAndTrailerRN4llvm15SmallVectorImplIcEERKNS_6TripleE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit.i, %33
   %54 = load ptr, ptr %9, align 8
   %55 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #27
   %56 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %54, i64 noundef %55) #27
@@ -8762,7 +8762,7 @@ _ZL28emitDarwinBCHeaderAndTrailerRN4llvm15SmallVectorImplIcEERKNS_6TripleE.argpr
   %59 = icmp eq ptr %58, %22
   br i1 %59, label %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit, label %60
 
-60:                                               ; preds = %_ZL28emitDarwinBCHeaderAndTrailerRN4llvm15SmallVectorImplIcEERKNS_6TripleE.argprom.exit
+60:                                               ; preds = %_ZL28emitDarwinBCHeaderAndTrailerRN4llvm15SmallVectorImplIcEERKNS_6TripleE.exit
   call void @free(ptr noundef %58) #27
   br label %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit
 
@@ -8774,7 +8774,7 @@ _ZL28emitDarwinBCHeaderAndTrailerRN4llvm15SmallVectorImplIcEERKNS_6TripleE.argpr
   call void @_ZN4llvm13BitcodeWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(176) %11) #27
   br label %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit
 
-_ZN4llvm11SmallVectorIcLj0EED2Ev.exit:            ; preds = %60, %_ZL28emitDarwinBCHeaderAndTrailerRN4llvm15SmallVectorImplIcEERKNS_6TripleE.argprom.exit, %61
+_ZN4llvm11SmallVectorIcLj0EED2Ev.exit:            ; preds = %60, %_ZL28emitDarwinBCHeaderAndTrailerRN4llvm15SmallVectorImplIcEERKNS_6TripleE.exit, %61
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #27
   ret void
 }
@@ -10225,7 +10225,7 @@ _ZN4llvm9isBitcodeEPKhS1_.exit.thread114:         ; preds = %_ZN4llvm16isBitcode
   %96 = getelementptr inbounds i8, ptr %9, i64 52
   %.val64 = load i32, ptr %96, align 4
   switch i32 %.val64, label %100 [
-    i32 5, label %_ZL24getSectionNameForBitcodeRKN4llvm6TripleE.argprom.exit
+    i32 5, label %_ZL24getSectionNameForBitcodeRKN4llvm6TripleE.exit
     i32 1, label %97
     i32 3, label %97
     i32 7, label %97
@@ -10234,18 +10234,18 @@ _ZN4llvm9isBitcodeEPKhS1_.exit.thread114:         ; preds = %_ZN4llvm16isBitcode
   ]
 
 97:                                               ; preds = %_ZN4llvm9isBitcodeEPKhS1_.exit.thread114, %_ZN4llvm9isBitcodeEPKhS1_.exit.thread114, %_ZN4llvm9isBitcodeEPKhS1_.exit.thread114, %_ZN4llvm9isBitcodeEPKhS1_.exit.thread114
-  br label %_ZL24getSectionNameForBitcodeRKN4llvm6TripleE.argprom.exit
+  br label %_ZL24getSectionNameForBitcodeRKN4llvm6TripleE.exit
 
 98:                                               ; preds = %_ZN4llvm9isBitcodeEPKhS1_.exit.thread114
   %.val = load i32, ptr %95, align 8
   %99 = icmp eq i32 %.val, 10
   call void @llvm.assume(i1 %99)
-  br label %_ZL24getSectionNameForBitcodeRKN4llvm6TripleE.argprom.exit
+  br label %_ZL24getSectionNameForBitcodeRKN4llvm6TripleE.exit
 
 100:                                              ; preds = %_ZN4llvm9isBitcodeEPKhS1_.exit.thread114
   unreachable
 
-_ZL24getSectionNameForBitcodeRKN4llvm6TripleE.argprom.exit: ; preds = %_ZN4llvm9isBitcodeEPKhS1_.exit.thread114, %97, %98
+_ZL24getSectionNameForBitcodeRKN4llvm6TripleE.exit: ; preds = %_ZN4llvm9isBitcodeEPKhS1_.exit.thread114, %97, %98
   %.0.i = phi ptr [ @.str.24, %98 ], [ @.str.24, %97 ], [ @.str.23, %_ZN4llvm9isBitcodeEPKhS1_.exit.thread114 ]
   %101 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #27
   call void @_ZN4llvm12GlobalObject10setSectionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %91, ptr nonnull %.0.i, i64 %101) #27
@@ -10257,11 +10257,11 @@ _ZL24getSectionNameForBitcodeRKN4llvm6TripleE.argprom.exit: ; preds = %_ZN4llvm9
   %.not.i.i.i72 = icmp ugt i64 %104, %105
   br i1 %.not.i.i.i72, label %106, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit73
 
-106:                                              ; preds = %_ZL24getSectionNameForBitcodeRKN4llvm6TripleE.argprom.exit
+106:                                              ; preds = %_ZL24getSectionNameForBitcodeRKN4llvm6TripleE.exit
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %17, i64 noundef %104, i64 noundef 8) #27
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit73
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit73: ; preds = %_ZL24getSectionNameForBitcodeRKN4llvm6TripleE.argprom.exit, %106
+_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit73: ; preds = %_ZL24getSectionNameForBitcodeRKN4llvm6TripleE.exit, %106
   %107 = load ptr, ptr %6, align 8
   %108 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   %109 = getelementptr inbounds ptr, ptr %107, i64 %108
@@ -10310,7 +10310,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit73: ; pr
   call void @_ZN4llvm14GlobalVariableC1ERNS_6ModuleEPNS_4TypeEbNS_11GlobalValue12LinkageTypesEPNS_8ConstantERKNS_5TwineEPS0_NS5_15ThreadLocalModeESt8optionalIjEb(ptr noundef nonnull align 8 dereferenceable(81) %130, ptr noundef nonnull align 8 dereferenceable(857) %0, ptr noundef %132, i1 noundef zeroext true, i32 noundef 8, ptr noundef nonnull %129, ptr noundef nonnull align 8 dereferenceable(34) %14, ptr noundef null, i32 noundef 0, i64 0, i1 noundef zeroext false) #27
   %.val66 = load i32, ptr %96, align 4
   switch i32 %.val66, label %137 [
-    i32 5, label %_ZL28getSectionNameForCommandlineRKN4llvm6TripleE.argprom.exit
+    i32 5, label %_ZL28getSectionNameForCommandlineRKN4llvm6TripleE.exit
     i32 1, label %134
     i32 3, label %134
     i32 7, label %134
@@ -10319,18 +10319,18 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit73: ; pr
   ]
 
 134:                                              ; preds = %119, %119, %119, %119
-  br label %_ZL28getSectionNameForCommandlineRKN4llvm6TripleE.argprom.exit
+  br label %_ZL28getSectionNameForCommandlineRKN4llvm6TripleE.exit
 
 135:                                              ; preds = %119
   %.val65 = load i32, ptr %95, align 8
   %136 = icmp eq i32 %.val65, 10
   call void @llvm.assume(i1 %136)
-  br label %_ZL28getSectionNameForCommandlineRKN4llvm6TripleE.argprom.exit
+  br label %_ZL28getSectionNameForCommandlineRKN4llvm6TripleE.exit
 
 137:                                              ; preds = %119
   unreachable
 
-_ZL28getSectionNameForCommandlineRKN4llvm6TripleE.argprom.exit: ; preds = %119, %134, %135
+_ZL28getSectionNameForCommandlineRKN4llvm6TripleE.exit: ; preds = %119, %134, %135
   %.0.i74 = phi ptr [ @.str.26, %135 ], [ @.str.26, %134 ], [ @.str.25, %119 ]
   %138 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i74) #27
   call void @_ZN4llvm12GlobalObject10setSectionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %130, ptr nonnull %.0.i74, i64 %138) #27
@@ -10342,11 +10342,11 @@ _ZL28getSectionNameForCommandlineRKN4llvm6TripleE.argprom.exit: ; preds = %119, 
   %.not.i.i.i75 = icmp ugt i64 %141, %142
   br i1 %.not.i.i.i75, label %143, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit76
 
-143:                                              ; preds = %_ZL28getSectionNameForCommandlineRKN4llvm6TripleE.argprom.exit
+143:                                              ; preds = %_ZL28getSectionNameForCommandlineRKN4llvm6TripleE.exit
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %17, i64 noundef %141, i64 noundef 8) #27
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit76
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit76: ; preds = %_ZL28getSectionNameForCommandlineRKN4llvm6TripleE.argprom.exit, %143
+_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit76: ; preds = %_ZL28getSectionNameForCommandlineRKN4llvm6TripleE.exit, %143
   %144 = load ptr, ptr %6, align 8
   %145 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   %146 = getelementptr inbounds ptr, ptr %144, i64 %145
@@ -18679,7 +18679,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119ModuleBitcodeWriter15writeModule
   %85 = lshr i32 %84, 17
   %86 = and i32 %85, 63
   %.not.i.i = icmp eq i32 %86, 0
-  br i1 %.not.i.i, label %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter15writeModuleInfoEvENK3$_0clEN4llvm10MaybeAlignE.argprom.exit", label %87
+  br i1 %.not.i.i, label %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter15writeModuleInfoEvENK3$_0clEN4llvm10MaybeAlignE.exit", label %87
 
 87:                                               ; preds = %79
   %88 = trunc nuw nsw i32 %86 to i8
@@ -18687,9 +18687,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_119ModuleBitcodeWriter15writeModule
   %90 = trunc nuw i8 %.sroa.5.0926 to i1
   %.sroa.0.0.copyload.pre.i = call i8 @llvm.umax.i8(i8 %.sroa.0.0927, i8 %89)
   %.sroa.0.0.copyload.i197 = select i1 %90, i8 %.sroa.0.0.copyload.pre.i, i8 %89
-  br label %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter15writeModuleInfoEvENK3$_0clEN4llvm10MaybeAlignE.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter15writeModuleInfoEvENK3$_0clEN4llvm10MaybeAlignE.exit"
 
-"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter15writeModuleInfoEvENK3$_0clEN4llvm10MaybeAlignE.argprom.exit": ; preds = %79, %87
+"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter15writeModuleInfoEvENK3$_0clEN4llvm10MaybeAlignE.exit": ; preds = %79, %87
   %.sroa.5.2 = phi i8 [ %.sroa.5.0926, %79 ], [ 1, %87 ]
   %.sroa.0.2 = phi i8 [ %.sroa.0.0927, %79 ], [ %.sroa.0.0.copyload.i197, %87 ]
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 24
@@ -18699,7 +18699,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119ModuleBitcodeWriter15writeModule
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %.loopexit.i.i, label %96
 
-96:                                               ; preds = %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter15writeModuleInfoEvENK3$_0clEN4llvm10MaybeAlignE.argprom.exit"
+96:                                               ; preds = %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter15writeModuleInfoEvENK3$_0clEN4llvm10MaybeAlignE.exit"
   %97 = ptrtoint ptr %92 to i64
   %98 = trunc i64 %97 to i32
   %99 = lshr i32 %98, 4
@@ -18730,7 +18730,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119ModuleBitcodeWriter15writeModule
   %115 = icmp eq ptr %92, %114
   br i1 %115, label %_ZNK4llvm15ValueEnumerator9getTypeIDEPNS_4TypeE.exit, label %.lr.ph.i.i.i.i, !llvm.loop !60
 
-.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter15writeModuleInfoEvENK3$_0clEN4llvm10MaybeAlignE.argprom.exit"
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter15writeModuleInfoEvENK3$_0clEN4llvm10MaybeAlignE.exit"
   %116 = zext i32 %94 to i64
   %117 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %93, i64 %116
   br label %_ZNK4llvm15ValueEnumerator9getTypeIDEPNS_4TypeE.exit
@@ -18865,7 +18865,7 @@ _ZNK4llvm12GlobalObject10getSectionEv.exit205:    ; preds = %141, %145
   %163 = lshr i32 %162, 17
   %164 = and i32 %163, 63
   %.not.i.i206 = icmp eq i32 %164, 0
-  br i1 %.not.i.i206, label %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter15writeModuleInfoEvENK3$_0clEN4llvm10MaybeAlignE.argprom.exit217", label %165
+  br i1 %.not.i.i206, label %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter15writeModuleInfoEvENK3$_0clEN4llvm10MaybeAlignE.exit217", label %165
 
 165:                                              ; preds = %157
   %166 = trunc nuw nsw i32 %164 to i8
@@ -18873,16 +18873,16 @@ _ZNK4llvm12GlobalObject10getSectionEv.exit205:    ; preds = %141, %145
   %168 = trunc nuw i8 %.sroa.5.1934 to i1
   %.sroa.0.0.copyload.pre.i216 = call i8 @llvm.umax.i8(i8 %.sroa.0.1935, i8 %167)
   %.sroa.0.0.copyload.i211 = select i1 %168, i8 %.sroa.0.0.copyload.pre.i216, i8 %167
-  br label %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter15writeModuleInfoEvENK3$_0clEN4llvm10MaybeAlignE.argprom.exit217"
+  br label %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter15writeModuleInfoEvENK3$_0clEN4llvm10MaybeAlignE.exit217"
 
-"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter15writeModuleInfoEvENK3$_0clEN4llvm10MaybeAlignE.argprom.exit217": ; preds = %157, %165
+"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter15writeModuleInfoEvENK3$_0clEN4llvm10MaybeAlignE.exit217": ; preds = %157, %165
   %.sroa.5.3 = phi i8 [ %.sroa.5.1934, %157 ], [ 1, %165 ]
   %.sroa.0.3 = phi i8 [ %.sroa.0.1935, %157 ], [ %.sroa.0.0.copyload.i211, %165 ]
   %169 = and i32 %162, 67108864
   %.not899 = icmp eq i32 %169, 0
   br i1 %.not899, label %199, label %_ZNK4llvm12GlobalObject10getSectionEv.exit223
 
-_ZNK4llvm12GlobalObject10getSectionEv.exit223:    ; preds = %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter15writeModuleInfoEvENK3$_0clEN4llvm10MaybeAlignE.argprom.exit217"
+_ZNK4llvm12GlobalObject10getSectionEv.exit223:    ; preds = %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter15writeModuleInfoEvENK3$_0clEN4llvm10MaybeAlignE.exit217"
   %170 = call { ptr, i64 } @_ZNK4llvm12GlobalObject14getSectionImplEv(ptr noundef nonnull align 8 dereferenceable(56) %160) #27
   %171 = extractvalue { ptr, i64 } %170, 0
   %172 = extractvalue { ptr, i64 } %170, 1
@@ -18965,7 +18965,7 @@ _ZNK4llvm12GlobalObject10getSectionEv.exit243:    ; preds = %189, %193
   store i32 %198, ptr %187, align 4
   br label %199
 
-199:                                              ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEEixEOS5_.exit237, %_ZNK4llvm12GlobalObject10getSectionEv.exit243, %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter15writeModuleInfoEvENK3$_0clEN4llvm10MaybeAlignE.argprom.exit217"
+199:                                              ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEEixEOS5_.exit237, %_ZNK4llvm12GlobalObject10getSectionEv.exit243, %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter15writeModuleInfoEvENK3$_0clEN4llvm10MaybeAlignE.exit217"
   %200 = getelementptr inbounds nuw i8, ptr %160, i64 2
   %201 = load i16, ptr %200, align 2
   %202 = and i16 %201, 16384
@@ -22208,34 +22208,34 @@ define internal fastcc void @_ZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseLis
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %.val.val5 = load ptr, ptr %5, align 8
   %6 = icmp eq ptr %.val.val, %.val.val5
-  br i1 %6, label %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.argprom.argprom.exit.thread", label %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.argprom.argprom.exit"
+  br i1 %6, label %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.exit.thread", label %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.exit"
 
-"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.argprom.argprom.exit": ; preds = %2
+"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.exit": ; preds = %2
   %7 = getelementptr inbounds i8, ptr %.val.val5, i64 -32
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %1
-  br i1 %9, label %10, label %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.argprom.argprom.exit.thread"
+  br i1 %9, label %10, label %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.exit.thread"
 
-10:                                               ; preds = %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.argprom.argprom.exit"
+10:                                               ; preds = %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.exit"
   %11 = load ptr, ptr %0, align 8
   tail call void @_ZN4llvm15BitstreamWriter13EnterSubblockEjj(ptr noundef nonnull align 8 dereferenceable(152) %11, i32 noundef 18, i32 noundef 3)
   %.val2.val8 = load ptr, ptr %4, align 8
   %.val2.val49 = load ptr, ptr %5, align 8
   %12 = icmp eq ptr %.val2.val8, %.val2.val49
-  br i1 %12, label %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.argprom.argprom.exit6.thread", label %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.argprom.argprom.exit6.lr.ph"
+  br i1 %12, label %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.exit6.thread", label %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.exit6.lr.ph"
 
-"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.argprom.argprom.exit6.lr.ph": ; preds = %10
+"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.exit6.lr.ph": ; preds = %10
   %13 = getelementptr inbounds i8, ptr %3, i64 16
-  br label %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.argprom.argprom.exit6"
+  br label %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.exit6"
 
-"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.argprom.argprom.exit6": ; preds = %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.argprom.argprom.exit6.lr.ph", %_ZNSt6vectorIN4llvm12UseListOrderESaIS1_EE8pop_backEv.exit
-  %14 = phi ptr [ %.val2.val49, %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.argprom.argprom.exit6.lr.ph" ], [ %.val2.val4, %_ZNSt6vectorIN4llvm12UseListOrderESaIS1_EE8pop_backEv.exit ]
+"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.exit6": ; preds = %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.exit6.lr.ph", %_ZNSt6vectorIN4llvm12UseListOrderESaIS1_EE8pop_backEv.exit
+  %14 = phi ptr [ %.val2.val49, %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.exit6.lr.ph" ], [ %.val2.val4, %_ZNSt6vectorIN4llvm12UseListOrderESaIS1_EE8pop_backEv.exit ]
   %15 = getelementptr inbounds i8, ptr %14, i64 -32
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, %1
-  br i1 %17, label %18, label %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.argprom.argprom.exit6.thread"
+  br i1 %17, label %18, label %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.exit6.thread"
 
-18:                                               ; preds = %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.argprom.argprom.exit6"
+18:                                               ; preds = %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.exit6"
   %19 = getelementptr inbounds i8, ptr %14, i64 -40
   call void @llvm.lifetime.start.p0(i64 528, ptr nonnull %3)
   %20 = load ptr, ptr %19, align 8
@@ -22304,14 +22304,14 @@ _ZNSt6vectorIN4llvm12UseListOrderESaIS1_EE8pop_backEv.exit: ; preds = %_ZN12_GLO
   %.val2.val4 = phi ptr [ %45, %_ZN12_GLOBAL__N_119ModuleBitcodeWriter12writeUseListEON4llvm12UseListOrderE.exit ], [ %.val2.val4.pre, %48 ]
   %.val2.val = load ptr, ptr %4, align 8
   %54 = icmp eq ptr %.val2.val, %.val2.val4
-  br i1 %54, label %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.argprom.argprom.exit6.thread", label %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.argprom.argprom.exit6", !llvm.loop !375
+  br i1 %54, label %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.exit6.thread", label %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.exit6", !llvm.loop !375
 
-"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.argprom.argprom.exit6.thread": ; preds = %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.argprom.argprom.exit6", %_ZNSt6vectorIN4llvm12UseListOrderESaIS1_EE8pop_backEv.exit, %10
+"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.exit6.thread": ; preds = %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.exit6", %_ZNSt6vectorIN4llvm12UseListOrderESaIS1_EE8pop_backEv.exit, %10
   %55 = load ptr, ptr %0, align 8
   call void @_ZN4llvm15BitstreamWriter9ExitBlockEv(ptr noundef nonnull align 8 dereferenceable(152) %55)
-  br label %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.argprom.argprom.exit.thread"
+  br label %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.exit.thread"
 
-"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.argprom.argprom.exit.thread": ; preds = %2, %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.argprom.argprom.exit", %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.argprom.argprom.exit6.thread"
+"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.exit.thread": ; preds = %2, %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.exit", %"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionEENK3$_0clEv.exit6.thread"
   ret void
 }
 
@@ -22501,7 +22501,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZN4llvm12
   %121 = sub i64 %119, %120
   %122 = ashr exact i64 %121, 3
   %123 = icmp ugt i64 %122, %114
-  br i1 %123, label %124, label %_ZN12_GLOBAL__N_119ModuleBitcodeWriter21writeFunctionMetadataERKN4llvm8FunctionE.argprom.exit
+  br i1 %123, label %124, label %_ZN12_GLOBAL__N_119ModuleBitcodeWriter21writeFunctionMetadataERKN4llvm8FunctionE.exit
 
 124:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit
   %125 = load ptr, ptr %0, align 8
@@ -22536,13 +22536,13 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZN4llvm12
   %149 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #27
   %150 = load ptr, ptr %11, align 8
   %151 = icmp eq ptr %150, %126
-  br i1 %151, label %_ZN12_GLOBAL__N_119ModuleBitcodeWriter21writeFunctionMetadataERKN4llvm8FunctionE.argprom.exit, label %152
+  br i1 %151, label %_ZN12_GLOBAL__N_119ModuleBitcodeWriter21writeFunctionMetadataERKN4llvm8FunctionE.exit, label %152
 
 152:                                              ; preds = %124
   call void @free(ptr noundef %150) #27
-  br label %_ZN12_GLOBAL__N_119ModuleBitcodeWriter21writeFunctionMetadataERKN4llvm8FunctionE.argprom.exit
+  br label %_ZN12_GLOBAL__N_119ModuleBitcodeWriter21writeFunctionMetadataERKN4llvm8FunctionE.exit
 
-_ZN12_GLOBAL__N_119ModuleBitcodeWriter21writeFunctionMetadataERKN4llvm8FunctionE.argprom.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit, %124, %152
+_ZN12_GLOBAL__N_119ModuleBitcodeWriter21writeFunctionMetadataERKN4llvm8FunctionE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit, %124, %152
   call void @llvm.lifetime.end.p0(i64 528, ptr nonnull %11)
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %154 = load i32, ptr %153, align 4
@@ -22558,7 +22558,7 @@ _ZN12_GLOBAL__N_119ModuleBitcodeWriter21writeFunctionMetadataERKN4llvm8FunctionE
   %.not768848 = icmp eq ptr %.sroa.0761.0847, %160
   br i1 %.not768848, label %._crit_edge854, label %.lr.ph853
 
-.lr.ph853:                                        ; preds = %_ZN12_GLOBAL__N_119ModuleBitcodeWriter21writeFunctionMetadataERKN4llvm8FunctionE.argprom.exit
+.lr.ph853:                                        ; preds = %_ZN12_GLOBAL__N_119ModuleBitcodeWriter21writeFunctionMetadataERKN4llvm8FunctionE.exit
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %163 = getelementptr inbounds i8, ptr %10, i64 4
@@ -26095,8 +26095,8 @@ _ZN4llvm11SmallVectorIPNS_5ValueELj6EED2Ev.exit:  ; preds = %2065, %_ZN4llvm11Sm
   %.not768 = icmp eq ptr %.sroa.0761.0, %160
   br i1 %.not768, label %._crit_edge854, label %174
 
-._crit_edge854:                                   ; preds = %_ZN4llvm11SmallVectorIPNS_5ValueELj6EED2Ev.exit, %_ZN12_GLOBAL__N_119ModuleBitcodeWriter21writeFunctionMetadataERKN4llvm8FunctionE.argprom.exit
-  %.074.lcssa = phi i1 [ %156, %_ZN12_GLOBAL__N_119ModuleBitcodeWriter21writeFunctionMetadataERKN4llvm8FunctionE.argprom.exit ], [ %.175.lcssa, %_ZN4llvm11SmallVectorIPNS_5ValueELj6EED2Ev.exit ]
+._crit_edge854:                                   ; preds = %_ZN4llvm11SmallVectorIPNS_5ValueELj6EED2Ev.exit, %_ZN12_GLOBAL__N_119ModuleBitcodeWriter21writeFunctionMetadataERKN4llvm8FunctionE.exit
+  %.074.lcssa = phi i1 [ %156, %_ZN12_GLOBAL__N_119ModuleBitcodeWriter21writeFunctionMetadataERKN4llvm8FunctionE.exit ], [ %.175.lcssa, %_ZN4llvm11SmallVectorIPNS_5ValueELj6EED2Ev.exit ]
   %2067 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %157) #27
   br i1 %2067, label %2081, label %2068
 
@@ -38827,13 +38827,13 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %_ZNSt6vectorImSaImE
   %235 = load i32, ptr %234, align 4
   %236 = getelementptr i8, ptr %21, i64 1
   %.val = load i8, ptr %236, align 1
-  tail call fastcc void @_ZN12_GLOBAL__N_119ModuleBitcodeWriter15writeDIAssignIDEPKN4llvm10DIAssignIDERNS1_15SmallVectorImplImEEj.argprom(ptr noundef nonnull align 8 dereferenceable(712) %0, i8 %.val, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %235)
+  tail call fastcc void @_ZN12_GLOBAL__N_119ModuleBitcodeWriter15writeDIAssignIDEPKN4llvm10DIAssignIDERNS1_15SmallVectorImplImEEj(ptr noundef nonnull align 8 dereferenceable(712) %0, i8 %.val, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %235)
   br label %374
 
 237:                                              ; preds = %231
   %238 = getelementptr i8, ptr %21, i64 1
   %.val270 = load i8, ptr %238, align 1
-  tail call fastcc void @_ZN12_GLOBAL__N_119ModuleBitcodeWriter15writeDIAssignIDEPKN4llvm10DIAssignIDERNS1_15SmallVectorImplImEEj.argprom(ptr noundef nonnull align 8 dereferenceable(712) %0, i8 %.val270, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 0)
+  tail call fastcc void @_ZN12_GLOBAL__N_119ModuleBitcodeWriter15writeDIAssignIDEPKN4llvm10DIAssignIDERNS1_15SmallVectorImplImEEj(ptr noundef nonnull align 8 dereferenceable(712) %0, i8 %.val270, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 0)
   br label %374
 
 239:                                              ; preds = %82
@@ -39081,13 +39081,13 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i274: ; preds = %355, 
   %363 = add i64 %362, 1
   %364 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   %.not.i.i.i8.i = icmp ugt i64 %363, %364
-  br i1 %.not.i.i.i8.i, label %365, label %_ZN12_GLOBAL__N_119ModuleBitcodeWriter20writeValueAsMetadataEPKN4llvm15ValueAsMetadataERNS1_15SmallVectorImplImEE.argprom.exit
+  br i1 %.not.i.i.i8.i, label %365, label %_ZN12_GLOBAL__N_119ModuleBitcodeWriter20writeValueAsMetadataEPKN4llvm15ValueAsMetadataERNS1_15SmallVectorImplImEE.exit
 
 365:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i274
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %13, i64 noundef %363, i64 noundef 8) #27
-  br label %_ZN12_GLOBAL__N_119ModuleBitcodeWriter20writeValueAsMetadataEPKN4llvm15ValueAsMetadataERNS1_15SmallVectorImplImEE.argprom.exit
+  br label %_ZN12_GLOBAL__N_119ModuleBitcodeWriter20writeValueAsMetadataEPKN4llvm15ValueAsMetadataERNS1_15SmallVectorImplImEE.exit
 
-_ZN12_GLOBAL__N_119ModuleBitcodeWriter20writeValueAsMetadataEPKN4llvm15ValueAsMetadataERNS1_15SmallVectorImplImEE.argprom.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i274, %365
+_ZN12_GLOBAL__N_119ModuleBitcodeWriter20writeValueAsMetadataEPKN4llvm15ValueAsMetadataERNS1_15SmallVectorImplImEE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i274, %365
   %366 = zext i32 %361 to i64
   %367 = load ptr, ptr %3, align 8
   %368 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
@@ -39102,7 +39102,7 @@ _ZN12_GLOBAL__N_119ModuleBitcodeWriter20writeValueAsMetadataEPKN4llvm15ValueAsMe
   store i32 0, ptr %16, align 8
   br label %374
 
-374:                                              ; preds = %264, %268, %258, %262, %252, %256, %246, %250, %240, %244, %232, %237, %226, %230, %220, %224, %214, %218, %208, %212, %202, %206, %196, %200, %190, %194, %184, %188, %178, %182, %172, %176, %166, %170, %160, %164, %154, %158, %148, %152, %142, %146, %136, %140, %130, %134, %124, %128, %118, %122, %112, %116, %107, %110, %101, %105, %95, %99, %90, %93, %85, %88, %_ZN12_GLOBAL__N_119ModuleBitcodeWriter20writeValueAsMetadataEPKN4llvm15ValueAsMetadataERNS1_15SmallVectorImplImEE.argprom.exit, %_ZN12_GLOBAL__N_119ModuleBitcodeWriter14writeDIArgListEPKN4llvm9DIArgListERNS1_15SmallVectorImplImEE.exit
+374:                                              ; preds = %264, %268, %258, %262, %252, %256, %246, %250, %240, %244, %232, %237, %226, %230, %220, %224, %214, %218, %208, %212, %202, %206, %196, %200, %190, %194, %184, %188, %178, %182, %172, %176, %166, %170, %160, %164, %154, %158, %148, %152, %142, %146, %136, %140, %130, %134, %124, %128, %118, %122, %112, %116, %107, %110, %101, %105, %95, %99, %90, %93, %85, %88, %_ZN12_GLOBAL__N_119ModuleBitcodeWriter20writeValueAsMetadataEPKN4llvm15ValueAsMetadataERNS1_15SmallVectorImplImEE.exit, %_ZN12_GLOBAL__N_119ModuleBitcodeWriter14writeDIArgListEPKN4llvm9DIArgListERNS1_15SmallVectorImplImEE.exit
   %375 = getelementptr inbounds i8, ptr %.0284, i64 8
   %.not = icmp eq ptr %375, %10
   br i1 %.not, label %.loopexit, label %20
@@ -39232,7 +39232,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %6, %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter19writeModuleMetadataEvENK3$_0clERKN4llvm12GlobalObjectE.argprom"(ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_119ModuleBitcodeWriter19writeModuleMetadataEvENK3$_0clERKN4llvm12GlobalObjectE"(ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::SmallVector.608", align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %3, i64 noundef 4) #27
@@ -50886,7 +50886,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit71: ; preds = %_ZNK4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119ModuleBitcodeWriter15writeDIAssignIDEPKN4llvm10DIAssignIDERNS1_15SmallVectorImplImEEj.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(712) %0, i8 %.1.val, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119ModuleBitcodeWriter15writeDIAssignIDEPKN4llvm10DIAssignIDERNS1_15SmallVectorImplImEEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(712) %0, i8 %.1.val, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #27
   %5 = add i64 %4, 1
   %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #27
@@ -59739,21 +59739,21 @@ _ZN12_GLOBAL__N_123ModuleBitcodeWriterBase10getValueIdEm.exit.i.i.i.i: ; preds =
   %.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ %10, %_ZNSt8_Rb_treeImSt4pairIKmjESt10_Select1stIS2_ESt4lessImESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i.i.i ], [ %10, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i, %15 ]
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i.i.i, i64 40
   %20 = load i32, ptr %19, align 8
-  br label %"_ZSt10__invoke_rIjRZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS2_18GlobalValueSummaryEjjjjjRKNS2_8FunctionEE3$_0JRKNS2_9ValueInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit"
+  br label %"_ZSt10__invoke_rIjRZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS2_18GlobalValueSummaryEjjjjjRKNS2_8FunctionEE3$_0JRKNS2_9ValueInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
 
 21:                                               ; preds = %4
   %22 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %23 = tail call noundef i32 @_ZNK4llvm15ValueEnumerator10getValueIDEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(492) %22, ptr noundef nonnull %6) #27
-  br label %"_ZSt10__invoke_rIjRZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS2_18GlobalValueSummaryEjjjjjRKNS2_8FunctionEE3$_0JRKNS2_9ValueInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit"
+  br label %"_ZSt10__invoke_rIjRZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS2_18GlobalValueSummaryEjjjjjRKNS2_8FunctionEE3$_0JRKNS2_9ValueInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
 
-"_ZSt10__invoke_rIjRZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS2_18GlobalValueSummaryEjjjjjRKNS2_8FunctionEE3$_0JRKNS2_9ValueInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit": ; preds = %_ZN12_GLOBAL__N_123ModuleBitcodeWriterBase10getValueIdEm.exit.i.i.i.i, %21
+"_ZSt10__invoke_rIjRZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS2_18GlobalValueSummaryEjjjjjRKNS2_8FunctionEE3$_0JRKNS2_9ValueInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit": ; preds = %_ZN12_GLOBAL__N_123ModuleBitcodeWriterBase10getValueIdEm.exit.i.i.i.i, %21
   %.0.i.i.i.i = phi i32 [ %23, %21 ], [ %20, %_ZN12_GLOBAL__N_123ModuleBitcodeWriterBase10getValueIdEm.exit.i.i.i.i ]
   ret i32 %.0.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFjRKN4llvm9ValueInfoEEZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERNS0_11SmallVectorImLj64EEEPNS0_18GlobalValueSummaryEjjjjjRKNS0_8FunctionEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #17 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS3_18GlobalValueSummaryEjjjjjRKNS3_8FunctionEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS3_18GlobalValueSummaryEjjjjjRKNS3_8FunctionEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -59761,18 +59761,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFjRKN4llvm9ValueIn
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS3_18GlobalValueSummaryEjjjjjRKNS3_8FunctionEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS3_18GlobalValueSummaryEjjjjjRKNS3_8FunctionEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS3_18GlobalValueSummaryEjjjjjRKNS3_8FunctionEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS3_18GlobalValueSummaryEjjjjjRKNS3_8FunctionEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS3_18GlobalValueSummaryEjjjjjRKNS3_8FunctionEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS3_18GlobalValueSummaryEjjjjjRKNS3_8FunctionEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS3_18GlobalValueSummaryEjjjjjRKNS3_8FunctionEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS3_18GlobalValueSummaryEjjjjjRKNS3_8FunctionEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -59784,20 +59784,20 @@ define internal noundef i32 @"_ZNSt17_Function_handlerIFjjEZN12_GLOBAL__N_123Mod
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFjjEZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS3_18GlobalValueSummaryEjjjjjRKNS3_8FunctionEE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #19 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS3_18GlobalValueSummaryEjjjjjRKNS3_8FunctionEE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS3_18GlobalValueSummaryEjjjjjRKNS3_8FunctionEE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS3_18GlobalValueSummaryEjjjjjRKNS3_8FunctionEE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS3_18GlobalValueSummaryEjjjjjRKNS3_8FunctionEE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS3_18GlobalValueSummaryEjjjjjRKNS3_8FunctionEE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS3_18GlobalValueSummaryEjjjjjRKNS3_8FunctionEE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS3_18GlobalValueSummaryEjjjjjRKNS3_8FunctionEE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS3_18GlobalValueSummaryEjjjjjRKNS3_8FunctionEE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS3_18GlobalValueSummaryEjjjjjRKNS3_8FunctionEE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS3_18GlobalValueSummaryEjjjjjRKNS3_8FunctionEE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS3_18GlobalValueSummaryEjjjjjRKNS3_8FunctionEE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS3_18GlobalValueSummaryEjjjjjRKNS3_8FunctionEE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS3_18GlobalValueSummaryEjjjjjRKNS3_8FunctionEE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS3_18GlobalValueSummaryEjjjjjRKNS3_8FunctionEE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit.sink.split", %3
   ret i1 false
 }
 
@@ -63294,7 +63294,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit433: ; preds = %_ZN4llvm15Bits
   %878 = load ptr, ptr %877, align 8
   %879 = getelementptr inbounds i8, ptr %.val58, i64 8
   %.not2129.i = icmp eq ptr %878, %879
-  br i1 %.not2129.i, label %"_ZN12_GLOBAL__N_118IndexBitcodeWriter14forEachSummaryIZNS0_31writeCombinedGlobalValueSummaryEvE3$_0EEvT_.argprom.exit", label %.lr.ph32.i
+  br i1 %.not2129.i, label %"_ZN12_GLOBAL__N_118IndexBitcodeWriter14forEachSummaryIZNS0_31writeCombinedGlobalValueSummaryEvE3$_0EEvT_.exit", label %.lr.ph32.i
 
 .lr.ph32.i:                                       ; preds = %876, %._crit_edge.i
   %.sroa.018.030.i = phi ptr [ %907, %._crit_edge.i ], [ %878, %876 ]
@@ -63377,14 +63377,14 @@ _ZN4llvm16DenseMapIteratorImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6d
 ._crit_edge.i:                                    ; preds = %.critedge2.i8.i14.i9.i.i, %903, %_ZN4llvm16DenseMapIteratorImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EELb1EEppEv.exit.i, %.critedge2.i6.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_E5beginEv.exit.i, %.lr.ph32.i
   %907 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.018.030.i) #31
   %.not21.i = icmp eq ptr %907, %879
-  br i1 %.not21.i, label %"_ZN12_GLOBAL__N_118IndexBitcodeWriter14forEachSummaryIZNS0_31writeCombinedGlobalValueSummaryEvE3$_0EEvT_.argprom.exit", label %.lr.ph32.i
+  br i1 %.not21.i, label %"_ZN12_GLOBAL__N_118IndexBitcodeWriter14forEachSummaryIZNS0_31writeCombinedGlobalValueSummaryEvE3$_0EEvT_.exit", label %.lr.ph32.i
 
 908:                                              ; preds = %_ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit433
   %909 = getelementptr inbounds i8, ptr %.val57, i64 24
   %910 = load ptr, ptr %909, align 8
   %911 = getelementptr inbounds i8, ptr %.val57, i64 8
   %.not2438.i = icmp eq ptr %910, %911
-  br i1 %.not2438.i, label %"_ZN12_GLOBAL__N_118IndexBitcodeWriter14forEachSummaryIZNS0_31writeCombinedGlobalValueSummaryEvE3$_0EEvT_.argprom.exit", label %.lr.ph41.i
+  br i1 %.not2438.i, label %"_ZN12_GLOBAL__N_118IndexBitcodeWriter14forEachSummaryIZNS0_31writeCombinedGlobalValueSummaryEvE3$_0EEvT_.exit", label %.lr.ph41.i
 
 .lr.ph41.i:                                       ; preds = %908, %._crit_edge37.i
   %.sroa.06.039.i = phi ptr [ %920, %._crit_edge37.i ], [ %910, %908 ]
@@ -63408,9 +63408,9 @@ _ZN4llvm16DenseMapIteratorImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6d
 ._crit_edge37.i:                                  ; preds = %.lr.ph36.i, %.lr.ph41.i
   %920 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.06.039.i) #31
   %.not24.i = icmp eq ptr %920, %911
-  br i1 %.not24.i, label %"_ZN12_GLOBAL__N_118IndexBitcodeWriter14forEachSummaryIZNS0_31writeCombinedGlobalValueSummaryEvE3$_0EEvT_.argprom.exit", label %.lr.ph41.i
+  br i1 %.not24.i, label %"_ZN12_GLOBAL__N_118IndexBitcodeWriter14forEachSummaryIZNS0_31writeCombinedGlobalValueSummaryEvE3$_0EEvT_.exit", label %.lr.ph41.i
 
-"_ZN12_GLOBAL__N_118IndexBitcodeWriter14forEachSummaryIZNS0_31writeCombinedGlobalValueSummaryEvE3$_0EEvT_.argprom.exit": ; preds = %._crit_edge.i, %._crit_edge37.i, %876, %908
+"_ZN12_GLOBAL__N_118IndexBitcodeWriter14forEachSummaryIZNS0_31writeCombinedGlobalValueSummaryEvE3$_0EEvT_.exit": ; preds = %._crit_edge.i, %._crit_edge37.i, %876, %908
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   %921 = load ptr, ptr %22, align 8
   %922 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #27
@@ -63418,7 +63418,7 @@ _ZN4llvm16DenseMapIteratorImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6d
   %.not852 = icmp eq i64 %922, 0
   br i1 %.not852, label %._crit_edge855, label %.lr.ph854
 
-.lr.ph854:                                        ; preds = %"_ZN12_GLOBAL__N_118IndexBitcodeWriter14forEachSummaryIZNS0_31writeCombinedGlobalValueSummaryEvE3$_0EEvT_.argprom.exit"
+.lr.ph854:                                        ; preds = %"_ZN12_GLOBAL__N_118IndexBitcodeWriter14forEachSummaryIZNS0_31writeCombinedGlobalValueSummaryEvE3$_0EEvT_.exit"
   %924 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %925 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %926 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -63558,7 +63558,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit444: ; preds = %_ZN4llv
   %990 = getelementptr i8, ptr %.val56, i64 24
   %.val56.val = load ptr, ptr %990, align 8
   %991 = icmp eq ptr %.val56.val, null
-  br i1 %991, label %"_ZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_1clEPN4llvm18GlobalValueSummaryE.argprom.argprom.exit", label %992
+  br i1 %991, label %"_ZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_1clEPN4llvm18GlobalValueSummaryE.exit", label %992
 
 992:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit444
   %993 = getelementptr inbounds nuw i8, ptr %.val56.val, i64 24
@@ -63622,9 +63622,9 @@ _ZNKSt13unordered_setIPN4llvm18GlobalValueSummaryESt4hashIS2_ESt8equal_toIS2_ESa
   %.sroa.06.1.i.i.i.i = phi ptr [ null, %1002 ], [ %1011, %1010 ], [ null, %997 ], [ %.sroa.06.0.i.i.i.i, %998 ], [ %1017, %1015 ], [ null, %.lr.ph.i.i.i.i.i.i ], [ null, %1018 ]
   %.sroa.06.1.i.i.i.i.fr = freeze ptr %.sroa.06.1.i.i.i.i
   %.not.i.i.i447 = icmp ne ptr %.sroa.06.1.i.i.i.i.fr, null
-  br label %"_ZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_1clEPN4llvm18GlobalValueSummaryE.argprom.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_1clEPN4llvm18GlobalValueSummaryE.exit"
 
-"_ZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_1clEPN4llvm18GlobalValueSummaryE.argprom.argprom.exit": ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit444, %_ZNKSt13unordered_setIPN4llvm18GlobalValueSummaryESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE5countERKS2_.exit.i
+"_ZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_1clEPN4llvm18GlobalValueSummaryE.exit": ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit444, %_ZNKSt13unordered_setIPN4llvm18GlobalValueSummaryESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE5countERKS2_.exit.i
   %.0.i = phi i1 [ %.not.i.i.i447, %_ZNKSt13unordered_setIPN4llvm18GlobalValueSummaryESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE5countERKS2_.exit.i ], [ false, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit444 ]
   %1023 = lshr i32 %.sroa.0.0.copyload.i445, 2
   %1024 = and i32 %1023, 240
@@ -63644,11 +63644,11 @@ _ZNKSt13unordered_setIPN4llvm18GlobalValueSummaryESt4hashIS2_ESt8equal_toIS2_ESa
   %.not.i.i.i449 = icmp ugt i64 %1033, %1034
   br i1 %.not.i.i.i449, label %1035, label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit450
 
-1035:                                             ; preds = %"_ZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_1clEPN4llvm18GlobalValueSummaryE.argprom.argprom.exit"
+1035:                                             ; preds = %"_ZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_1clEPN4llvm18GlobalValueSummaryE.exit"
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %868, i64 noundef %1033, i64 noundef 8) #27
   br label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit450
 
-_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit450: ; preds = %"_ZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_1clEPN4llvm18GlobalValueSummaryE.argprom.argprom.exit", %1035
+_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit450: ; preds = %"_ZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_1clEPN4llvm18GlobalValueSummaryE.exit", %1035
   %1036 = load ptr, ptr %24, align 8
   %1037 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %24) #27
   %1038 = getelementptr inbounds i64, ptr %1036, i64 %1037
@@ -63745,7 +63745,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit465: ; preds = %_ZN4llv
   %.val = load i16, ptr %989, align 4
   %1088 = getelementptr i8, ptr %929, i64 16
   %.val55 = load i64, ptr %1088, align 8
-  call fastcc void @"_ZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_2clERN4llvm18GlobalValueSummaryE.argprom"(ptr noundef nonnull align 8 dereferenceable(16) %26, i16 %.val, i64 %.val55)
+  call fastcc void @"_ZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_2clERN4llvm18GlobalValueSummaryE"(ptr noundef nonnull align 8 dereferenceable(16) %26, i16 %.val, i64 %.val55)
   %1089 = load ptr, ptr %1041, align 8
   %1090 = getelementptr inbounds nuw i8, ptr %1089, i64 8
   %1091 = load i32, ptr %1090, align 8
@@ -63763,7 +63763,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit465: ; preds = %_ZN4llv
   %.not = icmp eq ptr %1095, %923
   br i1 %.not, label %._crit_edge855, label %928
 
-._crit_edge855:                                   ; preds = %1094, %"_ZN12_GLOBAL__N_118IndexBitcodeWriter14forEachSummaryIZNS0_31writeCombinedGlobalValueSummaryEvE3$_0EEvT_.argprom.exit"
+._crit_edge855:                                   ; preds = %1094, %"_ZN12_GLOBAL__N_118IndexBitcodeWriter14forEachSummaryIZNS0_31writeCombinedGlobalValueSummaryEvE3$_0EEvT_.exit"
   %1096 = load ptr, ptr %37, align 8
   %1097 = getelementptr inbounds i8, ptr %1096, i64 272
   %1098 = load i64, ptr %1097, align 8
@@ -66372,7 +66372,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm9StringRef
 declare noundef i64 @_ZNK4llvm18ModuleSummaryIndex8getFlagsEv(ptr noundef nonnull align 8 dereferenceable(488)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_2clERN4llvm18GlobalValueSummaryE.argprom"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i16 %.12.val, i64 %.16.val) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_2clERN4llvm18GlobalValueSummaryE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i16 %.12.val, i64 %.16.val) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -67380,7 +67380,7 @@ _ZN12_GLOBAL__N_118IndexBitcodeWriter10getValueIdEm.exit137.thread: ; preds = %.
   %.val80 = load i16, ptr %280, align 4
   %281 = getelementptr i8, ptr %279, i64 16
   %.val81 = load i64, ptr %281, align 8
-  call fastcc void @"_ZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_2clERN4llvm18GlobalValueSummaryE.argprom"(ptr noundef nonnull align 8 dereferenceable(16) %278, i16 %.val80, i64 %.val81)
+  call fastcc void @"_ZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_2clERN4llvm18GlobalValueSummaryE"(ptr noundef nonnull align 8 dereferenceable(16) %278, i16 %.val80, i64 %.val81)
   br label %880
 
 282:                                              ; preds = %169
@@ -67753,7 +67753,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit74.i: ; preds = %454, %
   %460 = getelementptr inbounds nuw i8, ptr %.sroa.090.0114.i, i64 8
   %.val33.i = load i64, ptr %460, align 8
   %461 = icmp ugt i64 %.val33.i, 7
-  br i1 %461, label %462, label %"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.argprom.exit.thread.i"
+  br i1 %461, label %462, label %"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.exit.thread.i"
 
 462:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit74.i
   %463 = and i64 %.val33.i, -8
@@ -67761,7 +67761,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit74.i: ; preds = %454, %
   %465 = load i64, ptr %464, align 8
   %466 = load ptr, ptr %101, align 8
   %.not10.i.i.i.i.i.i = icmp eq ptr %466, null
-  br i1 %.not10.i.i.i.i.i.i, label %"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.argprom.exit.thread.i", label %.lr.ph.i.i.i.i.i.i
+  br i1 %.not10.i.i.i.i.i.i, label %"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.exit.thread.i", label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %462, %.lr.ph.i.i.i.i.i.i
   %.012.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %466, %462 ]
@@ -67778,15 +67778,15 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit74.i: ; preds = %454, %
 
 _ZNSt8_Rb_treeImSt4pairIKmjESt10_Select1stIS2_ESt4lessImESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %470 = icmp eq ptr %.19.i.i.i.i.i.i, %103
-  br i1 %470, label %"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.argprom.exit.thread.i", label %_ZNSt3mapImjSt4lessImESaISt4pairIKmjEEE4findERS3_.exit.i.i.i
+  br i1 %470, label %"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.exit.thread.i", label %_ZNSt3mapImjSt4lessImESaISt4pairIKmjEEE4findERS3_.exit.i.i.i
 
 _ZNSt3mapImjSt4lessImESaISt4pairIKmjEEE4findERS3_.exit.i.i.i: ; preds = %_ZNSt8_Rb_treeImSt4pairIKmjESt10_Select1stIS2_ESt4lessImESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i
   %471 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i.i, i64 32
   %472 = load i64, ptr %471, align 8
   %473 = icmp ult i64 %465, %472
-  br i1 %473, label %"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.argprom.exit.thread.i", label %474
+  br i1 %473, label %"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.exit.thread.i", label %474
 
-"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.argprom.exit.thread.i": ; preds = %_ZNSt3mapImjSt4lessImESaISt4pairIKmjEEE4findERS3_.exit.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmjESt10_Select1stIS2_ESt4lessImESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i, %462, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit74.i
+"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.exit.thread.i": ; preds = %_ZNSt3mapImjSt4lessImESaISt4pairIKmjEEE4findERS3_.exit.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmjESt10_Select1stIS2_ESt4lessImESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i, %462, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit74.i
   call void @_ZN4llvm15SmallVectorImplImE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %364)
   br label %.loopexit.i
 
@@ -68018,7 +68018,7 @@ _ZN4llvm13ConstantRangeD2Ev.exit80.i:             ; preds = %574, %571, %_ZN4llv
   %.not112.i = icmp eq ptr %575, %449
   br i1 %.not112.i, label %.loopexit.i, label %.lr.ph.i
 
-.loopexit.i:                                      ; preds = %_ZN4llvm13ConstantRangeD2Ev.exit80.i, %"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.argprom.exit.thread.i", %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit72.i
+.loopexit.i:                                      ; preds = %_ZN4llvm13ConstantRangeD2Ev.exit80.i, %"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.exit.thread.i", %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit72.i
   %576 = getelementptr inbounds i8, ptr %.0116.i, i64 64
   %.not.i = icmp eq ptr %576, %350
   br i1 %.not.i, label %._crit_edge.i, label %363
@@ -68172,7 +68172,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit155: ; preds = %_ZN4llv
   %643 = getelementptr i8, ptr %.val83, i64 24
   %.val83.val = load ptr, ptr %643, align 8
   %644 = icmp eq ptr %.val83.val, null
-  br i1 %644, label %"_ZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_1clEPN4llvm18GlobalValueSummaryE.argprom.argprom.exit", label %645
+  br i1 %644, label %"_ZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_1clEPN4llvm18GlobalValueSummaryE.exit", label %645
 
 645:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit155
   %646 = getelementptr inbounds nuw i8, ptr %.val83.val, i64 24
@@ -68236,9 +68236,9 @@ _ZNKSt13unordered_setIPN4llvm18GlobalValueSummaryESt4hashIS2_ESt8equal_toIS2_ESa
   %.sroa.06.1.i.i.i.i = phi ptr [ null, %655 ], [ %664, %663 ], [ null, %650 ], [ %.sroa.06.0.i.i.i.i, %651 ], [ %670, %668 ], [ null, %.lr.ph.i.i.i.i.i.i158 ], [ null, %671 ]
   %.sroa.06.1.i.i.i.i.fr = freeze ptr %.sroa.06.1.i.i.i.i
   %.not.i.i.i159 = icmp ne ptr %.sroa.06.1.i.i.i.i.fr, null
-  br label %"_ZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_1clEPN4llvm18GlobalValueSummaryE.argprom.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_1clEPN4llvm18GlobalValueSummaryE.exit"
 
-"_ZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_1clEPN4llvm18GlobalValueSummaryE.argprom.argprom.exit": ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit155, %_ZNKSt13unordered_setIPN4llvm18GlobalValueSummaryESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE5countERKS2_.exit.i
+"_ZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_1clEPN4llvm18GlobalValueSummaryE.exit": ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit155, %_ZNKSt13unordered_setIPN4llvm18GlobalValueSummaryESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE5countERKS2_.exit.i
   %.0.i = phi i1 [ %.not.i.i.i159, %_ZNKSt13unordered_setIPN4llvm18GlobalValueSummaryESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE5countERKS2_.exit.i ], [ false, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit155 ]
   %676 = lshr i32 %.sroa.0.0.copyload.i156, 2
   %677 = and i32 %676, 240
@@ -68258,12 +68258,12 @@ _ZNKSt13unordered_setIPN4llvm18GlobalValueSummaryESt4hashIS2_ESt8equal_toIS2_ESa
   %.not.i.i.i162 = icmp ugt i64 %686, %687
   br i1 %.not.i.i.i162, label %688, label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit163
 
-688:                                              ; preds = %"_ZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_1clEPN4llvm18GlobalValueSummaryE.argprom.argprom.exit"
+688:                                              ; preds = %"_ZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_1clEPN4llvm18GlobalValueSummaryE.exit"
   %689 = getelementptr inbounds i8, ptr %639, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %639, ptr noundef nonnull %689, i64 noundef %686, i64 noundef 8) #27
   br label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit163
 
-_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit163: ; preds = %"_ZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_1clEPN4llvm18GlobalValueSummaryE.argprom.argprom.exit", %688
+_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit163: ; preds = %"_ZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_1clEPN4llvm18GlobalValueSummaryE.exit", %688
   %690 = load ptr, ptr %639, align 8
   %691 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %639) #27
   %692 = getelementptr inbounds i64, ptr %690, i64 %691
@@ -68518,11 +68518,11 @@ _ZN12_GLOBAL__N_118IndexBitcodeWriter10getValueIdEm.exit194.thread: ; preds = %.
   %.not76274 = icmp eq ptr %819, %821
   br i1 %.not76274, label %._crit_edge278, label %.lr.ph277
 
-.lr.ph277:                                        ; preds = %._crit_edge271, %"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.argprom.exit.thread"
-  %.063275 = phi ptr [ %866, %"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.argprom.exit.thread" ], [ %819, %._crit_edge271 ]
+.lr.ph277:                                        ; preds = %._crit_edge271, %"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.exit.thread"
+  %.063275 = phi ptr [ %866, %"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.exit.thread" ], [ %819, %._crit_edge271 ]
   %.063.val = load i64, ptr %.063275, align 8
   %822 = icmp ugt i64 %.063.val, 7
-  br i1 %822, label %823, label %"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.argprom.exit.thread"
+  br i1 %822, label %823, label %"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.exit.thread"
 
 823:                                              ; preds = %.lr.ph277
   %.val82 = load ptr, ptr %19, align 8
@@ -68533,7 +68533,7 @@ _ZN12_GLOBAL__N_118IndexBitcodeWriter10getValueIdEm.exit194.thread: ; preds = %.
   %828 = load ptr, ptr %827, align 8
   %829 = getelementptr inbounds i8, ptr %.val82, i64 48
   %.not10.i.i.i.i.i = icmp eq ptr %828, null
-  br i1 %.not10.i.i.i.i.i, label %"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.argprom.exit.thread", label %.lr.ph.i.i.i.i.i
+  br i1 %.not10.i.i.i.i.i, label %"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.exit.thread", label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %823, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %828, %823 ]
@@ -68550,13 +68550,13 @@ _ZN12_GLOBAL__N_118IndexBitcodeWriter10getValueIdEm.exit194.thread: ; preds = %.
 
 _ZNSt8_Rb_treeImSt4pairIKmjESt10_Select1stIS2_ESt4lessImESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %833 = icmp eq ptr %.19.i.i.i.i.i, %829
-  br i1 %833, label %"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.argprom.exit.thread", label %_ZNSt3mapImjSt4lessImESaISt4pairIKmjEEE4findERS3_.exit.i.i
+  br i1 %833, label %"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.exit.thread", label %_ZNSt3mapImjSt4lessImESaISt4pairIKmjEEE4findERS3_.exit.i.i
 
 _ZNSt3mapImjSt4lessImESaISt4pairIKmjEEE4findERS3_.exit.i.i: ; preds = %_ZNSt8_Rb_treeImSt4pairIKmjESt10_Select1stIS2_ESt4lessImESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i
   %834 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i, i64 32
   %835 = load i64, ptr %834, align 8
   %836 = icmp ult i64 %826, %835
-  br i1 %836, label %"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.argprom.exit.thread", label %837
+  br i1 %836, label %"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.exit.thread", label %837
 
 837:                                              ; preds = %_ZNSt3mapImjSt4lessImESaISt4pairIKmjEEE4findERS3_.exit.i.i
   %838 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i, i64 40
@@ -68606,14 +68606,14 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit204: ; preds = %_ZN4llv
   %864 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %852) #27
   %865 = add i64 %864, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %852, i64 noundef %865) #27
-  br label %"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.argprom.exit.thread"
+  br label %"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.exit.thread"
 
-"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.argprom.exit.thread": ; preds = %823, %_ZNSt8_Rb_treeImSt4pairIKmjESt10_Select1stIS2_ESt4lessImESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i, %_ZNSt3mapImjSt4lessImESaISt4pairIKmjEEE4findERS3_.exit.i.i, %.lr.ph277, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit204
+"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.exit.thread": ; preds = %823, %_ZNSt8_Rb_treeImSt4pairIKmjESt10_Select1stIS2_ESt4lessImESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i, %_ZNSt3mapImjSt4lessImESaISt4pairIKmjEEE4findERS3_.exit.i.i, %.lr.ph277, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit204
   %866 = getelementptr inbounds i8, ptr %.063275, i64 16
   %.not76 = icmp eq ptr %866, %821
   br i1 %.not76, label %._crit_edge278, label %.lr.ph277
 
-._crit_edge278:                                   ; preds = %"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.argprom.exit.thread", %._crit_edge271
+._crit_edge278:                                   ; preds = %"_ZZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbENKUlRKNS3_9ValueInfoEE_clES9_.exit.thread", %._crit_edge271
   %867 = load ptr, ptr %25, align 8
   %868 = load ptr, ptr %606, align 8
   %869 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -68631,7 +68631,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit204: ; preds = %_ZN4llv
   %.val78 = load i16, ptr %878, align 4
   %879 = getelementptr i8, ptr %877, i64 16
   %.val79 = load i64, ptr %879, align 8
-  call fastcc void @"_ZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_2clERN4llvm18GlobalValueSummaryE.argprom"(ptr noundef nonnull align 8 dereferenceable(16) %876, i16 %.val78, i64 %.val79)
+  call fastcc void @"_ZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_2clERN4llvm18GlobalValueSummaryE"(ptr noundef nonnull align 8 dereferenceable(16) %876, i16 %.val78, i64 %.val79)
   br label %880
 
 880:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_18GlobalValueSummaryEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit, %._crit_edge278, %._crit_edge264, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12AliasSummaryELb1EE9push_backES2_.exit
@@ -69369,7 +69369,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11: ; preds = %_ZN4llvm
 define internal noundef i32 @"_ZNSt17_Function_handlerIFjRKN4llvm9ValueInfoEEZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPNS0_18GlobalValueSummaryEEbEUlS3_E0_E9_M_invokeERKSt9_Any_dataS3_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) #21 align 2 {
   %.val2 = load i64, ptr %1, align 8
   %3 = icmp ugt i64 %.val2, 7
-  br i1 %3, label %4, label %"_ZSt10__invoke_rIjRZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUlRKNS4_9ValueInfoEE0_JSA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.argprom.exit"
+  br i1 %3, label %4, label %"_ZSt10__invoke_rIjRZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUlRKNS4_9ValueInfoEE0_JSA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
 4:                                                ; preds = %2
   %.val = load ptr, ptr %0, align 8
@@ -69381,7 +69381,7 @@ define internal noundef i32 @"_ZNSt17_Function_handlerIFjRKN4llvm9ValueInfoEEZZN
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %.val.val, i64 48
   %.not10.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
-  br i1 %.not10.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIjRZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUlRKNS4_9ValueInfoEE0_JSA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.argprom.exit", label %.lr.ph.i.i.i.i.i.i.i.i
+  br i1 %.not10.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIjRZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUlRKNS4_9ValueInfoEE0_JSA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %4, %.lr.ph.i.i.i.i.i.i.i.i
   %.012.i.i.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %9, %4 ]
@@ -69398,27 +69398,27 @@ define internal noundef i32 @"_ZNSt17_Function_handlerIFjRKN4llvm9ValueInfoEEZZN
 
 _ZNSt8_Rb_treeImSt4pairIKmjESt10_Select1stIS2_ESt4lessImESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   %14 = icmp eq ptr %.19.i.i.i.i.i.i.i.i, %10
-  br i1 %14, label %"_ZSt10__invoke_rIjRZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUlRKNS4_9ValueInfoEE0_JSA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.argprom.exit", label %_ZNSt3mapImjSt4lessImESaISt4pairIKmjEEE4findERS3_.exit.i.i.i.i.i
+  br i1 %14, label %"_ZSt10__invoke_rIjRZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUlRKNS4_9ValueInfoEE0_JSA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %_ZNSt3mapImjSt4lessImESaISt4pairIKmjEEE4findERS3_.exit.i.i.i.i.i
 
 _ZNSt3mapImjSt4lessImESaISt4pairIKmjEEE4findERS3_.exit.i.i.i.i.i: ; preds = %_ZNSt8_Rb_treeImSt4pairIKmjESt10_Select1stIS2_ESt4lessImESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i.i.i
   %15 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i.i.i.i, i64 32
   %16 = load i64, ptr %15, align 8
   %17 = icmp ult i64 %7, %16
-  br i1 %17, label %"_ZSt10__invoke_rIjRZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUlRKNS4_9ValueInfoEE0_JSA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.argprom.exit", label %18
+  br i1 %17, label %"_ZSt10__invoke_rIjRZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUlRKNS4_9ValueInfoEE0_JSA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %18
 
 18:                                               ; preds = %_ZNSt3mapImjSt4lessImESaISt4pairIKmjEEE4findERS3_.exit.i.i.i.i.i
   %19 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i.i.i.i, i64 40
   %20 = load i32, ptr %19, align 4
-  br label %"_ZSt10__invoke_rIjRZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUlRKNS4_9ValueInfoEE0_JSA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIjRZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUlRKNS4_9ValueInfoEE0_JSA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
-"_ZSt10__invoke_rIjRZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUlRKNS4_9ValueInfoEE0_JSA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.argprom.exit": ; preds = %2, %4, %_ZNSt8_Rb_treeImSt4pairIKmjESt10_Select1stIS2_ESt4lessImESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i.i.i, %_ZNSt3mapImjSt4lessImESaISt4pairIKmjEEE4findERS3_.exit.i.i.i.i.i, %18
+"_ZSt10__invoke_rIjRZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUlRKNS4_9ValueInfoEE0_JSA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %2, %4, %_ZNSt8_Rb_treeImSt4pairIKmjESt10_Select1stIS2_ESt4lessImESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i.i.i, %_ZNSt3mapImjSt4lessImESaISt4pairIKmjEEE4findERS3_.exit.i.i.i.i.i, %18
   %.0.i.i.i = phi i32 [ 0, %2 ], [ %20, %18 ], [ 0, %_ZNSt3mapImjSt4lessImESaISt4pairIKmjEEE4findERS3_.exit.i.i.i.i.i ], [ 0, %_ZNSt8_Rb_treeImSt4pairIKmjESt10_Select1stIS2_ESt4lessImESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i.i.i ], [ 0, %4 ]
   ret i32 %.0.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFjRKN4llvm9ValueInfoEEZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPNS0_18GlobalValueSummaryEEbEUlS3_E0_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #17 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUlRKNS5_9ValueInfoEE0_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUlRKNS5_9ValueInfoEE0_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -69426,18 +69426,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFjRKN4llvm9ValueIn
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUlRKNS5_9ValueInfoEE0_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUlRKNS5_9ValueInfoEE0_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUlRKNS5_9ValueInfoEE0_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUlRKNS5_9ValueInfoEE0_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUlRKNS5_9ValueInfoEE0_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUlRKNS5_9ValueInfoEE0_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUlRKNS5_9ValueInfoEE0_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUlRKNS5_9ValueInfoEE0_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -69463,7 +69463,7 @@ define internal noundef i32 @"_ZNSt17_Function_handlerIFjjEZZN12_GLOBAL__N_118In
   %13 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.839", ptr %5, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %.val2, %14
-  br i1 %15, label %"_ZSt10__invoke_rIjRZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUljE_JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit", label %.lr.ph.i.i.i.i.i.i.i
+  br i1 %15, label %"_ZSt10__invoke_rIjRZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUljE_JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %9, %21
   %16 = phi i32 [ %28, %21 ], [ %14, %9 ]
@@ -69491,7 +69491,7 @@ define internal noundef i32 @"_ZNSt17_Function_handlerIFjjEZZN12_GLOBAL__N_118In
   %27 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.839", ptr %5, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %.val2, %28
-  br i1 %29, label %"_ZSt10__invoke_rIjRZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUljE_JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit", label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !603
+  br i1 %29, label %"_ZSt10__invoke_rIjRZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUljE_JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !603
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E15LookupBucketForIjEEbRKT_RPS6_.exit.i.i.i.i.i: ; preds = %19, %2
   %.sink.i.i.i.i.i.i.i = phi ptr [ %20, %19 ], [ null, %2 ]
@@ -69500,9 +69500,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
   store i32 %31, ptr %30, align 4
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 0, ptr %32, align 4
-  br label %"_ZSt10__invoke_rIjRZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUljE_JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit"
+  br label %"_ZSt10__invoke_rIjRZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUljE_JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
-"_ZSt10__invoke_rIjRZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUljE_JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit": ; preds = %21, %9, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E15LookupBucketForIjEEbRKT_RPS6_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIjRZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUljE_JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %21, %9, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E15LookupBucketForIjEEbRKT_RPS6_.exit.i.i.i.i.i
   %.0.i.i.i.i.i = phi ptr [ %30, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E15LookupBucketForIjEEbRKT_RPS6_.exit.i.i.i.i.i ], [ %13, %9 ], [ %27, %21 ]
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 4
   %34 = load i32, ptr %33, align 4
@@ -69512,7 +69512,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFjjEZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUljE_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #17 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUljE_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUljE_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -69520,18 +69520,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFjjEZZN12_GLOBAL__
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUljE_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUljE_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUljE_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUljE_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUljE_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUljE_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUljE_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUljE_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 

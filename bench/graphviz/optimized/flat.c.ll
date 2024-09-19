@@ -383,7 +383,7 @@ checkFlatAdjacent.exit144:                        ; preds = %.preheader.i133, %.
 198:                                              ; preds = %._crit_edge.i145
   %199 = load ptr, ptr @stderr, align 8
   %200 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %199, ptr noundef nonnull @.str.1, i64 noundef 16) #12
-  tail call fastcc void @graphviz_exit.argelim() #13
+  tail call fastcc void @graphviz_exit() #13
   unreachable
 
 .thread:                                          ; preds = %._crit_edge.i145
@@ -714,7 +714,7 @@ define internal fastcc void @flat_node(ptr noundef %0) unnamed_addr #0 {
   %spec.select.i.i = tail call i32 @llvm.smax.i32(i32 %.val.val.i, i32 %.val30.val.i)
   %spec.select14.i.i = tail call i32 @llvm.smin.i32(i32 %.val.val.i, i32 %.val30.val.i)
   %.not.not.i81 = icmp sgt i32 %41, 0
-  br i1 %.not.not.i81, label %.lr.ph.preheader, label %flat_limits.argprom.argprom.exit
+  br i1 %.not.not.i81, label %.lr.ph.preheader, label %flat_limits.exit
 
 .lr.ph.preheader:                                 ; preds = %8
   %52 = zext nneg i32 %41 to i64
@@ -728,7 +728,7 @@ define internal fastcc void @flat_node(ptr noundef %0) unnamed_addr #0 {
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr i8, ptr %54, i64 16
   %.val31.i = load ptr, ptr %55, align 8
-  call fastcc void @setbounds.argprom(ptr %.val31.i, ptr noundef %2, i32 noundef %spec.select14.i.i, i32 noundef %spec.select.i.i)
+  call fastcc void @setbounds(ptr %.val31.i, ptr noundef %2, i32 noundef %spec.select14.i.i, i32 noundef %spec.select.i.i)
   %56 = and i64 %indvars.iv.next.i83, 4294967295
   %.not.i = icmp eq i64 %indvars.iv5.i82, %56
   br i1 %.not.i, label %61, label %57
@@ -738,7 +738,7 @@ define internal fastcc void @flat_node(ptr noundef %0) unnamed_addr #0 {
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr i8, ptr %59, i64 16
   %.val32.i = load ptr, ptr %60, align 8
-  call fastcc void @setbounds.argprom(ptr %.val32.i, ptr noundef %2, i32 noundef %spec.select14.i.i, i32 noundef %spec.select.i.i)
+  call fastcc void @setbounds(ptr %.val32.i, ptr noundef %2, i32 noundef %spec.select14.i.i, i32 noundef %spec.select.i.i)
   br label %61
 
 61:                                               ; preds = %57, %.lr.ph
@@ -749,18 +749,18 @@ define internal fastcc void @flat_node(ptr noundef %0) unnamed_addr #0 {
   %indvars.iv.next6.i = add nuw nsw i64 %indvars.iv5.i82, 1
   %.not.not.i = icmp slt i64 %indvars.iv.next6.i, %indvars.iv.next.i83
   %or.cond = select i1 %65, i1 %.not.not.i, i1 false
-  br i1 %or.cond, label %.lr.ph, label %flat_limits.argprom.argprom.exit.loopexit
+  br i1 %or.cond, label %.lr.ph, label %flat_limits.exit.loopexit
 
-flat_limits.argprom.argprom.exit.loopexit:        ; preds = %61
+flat_limits.exit.loopexit:                        ; preds = %61
   %.pre = load i32, ptr %42, align 8
   %.pre89 = load i32, ptr %43, align 4
-  br label %flat_limits.argprom.argprom.exit
+  br label %flat_limits.exit
 
-flat_limits.argprom.argprom.exit:                 ; preds = %flat_limits.argprom.argprom.exit.loopexit, %8
-  %66 = phi i32 [ %41, %8 ], [ %.pre89, %flat_limits.argprom.argprom.exit.loopexit ]
-  %67 = phi i32 [ -1, %8 ], [ %.pre, %flat_limits.argprom.argprom.exit.loopexit ]
-  %68 = phi i32 [ %41, %8 ], [ %62, %flat_limits.argprom.argprom.exit.loopexit ]
-  %69 = phi i32 [ -1, %8 ], [ %63, %flat_limits.argprom.argprom.exit.loopexit ]
+flat_limits.exit:                                 ; preds = %flat_limits.exit.loopexit, %8
+  %66 = phi i32 [ %41, %8 ], [ %.pre89, %flat_limits.exit.loopexit ]
+  %67 = phi i32 [ -1, %8 ], [ %.pre, %flat_limits.exit.loopexit ]
+  %68 = phi i32 [ %41, %8 ], [ %62, %flat_limits.exit.loopexit ]
+  %69 = phi i32 [ -1, %8 ], [ %63, %flat_limits.exit.loopexit ]
   %.not29.i = icmp sgt i32 %69, %68
   %70 = add nsw i32 %69, %68
   %71 = add nsw i32 %66, %67
@@ -777,7 +777,7 @@ flat_limits.argprom.argprom.exit:                 ; preds = %flat_limits.argprom
   %.not = icmp eq ptr %77, null
   br i1 %.not, label %86, label %78
 
-78:                                               ; preds = %flat_limits.argprom.argprom.exit
+78:                                               ; preds = %flat_limits.exit
   %79 = getelementptr inbounds i8, ptr %77, i64 16
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 40
@@ -787,7 +787,7 @@ flat_limits.argprom.argprom.exit:                 ; preds = %flat_limits.argprom
   %85 = fsub double %82, %84
   br label %103
 
-86:                                               ; preds = %flat_limits.argprom.argprom.exit
+86:                                               ; preds = %flat_limits.exit
   %87 = sext i32 %26 to i64
   %88 = getelementptr inbounds %struct.rank_t, ptr %.val.val, i64 %87
   %89 = getelementptr inbounds i8, ptr %88, i64 8
@@ -1027,7 +1027,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #4 {
+define internal fastcc void @graphviz_exit() unnamed_addr #4 {
   tail call void @exit(i32 noundef 1) #14
   unreachable
 }
@@ -1041,7 +1041,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #6
 declare ptr @virtual_edge(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @setbounds.argprom(ptr nocapture readonly %.16.val, ptr nocapture noundef nonnull writeonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #7 {
+define internal fastcc void @setbounds(ptr nocapture readonly %.16.val, ptr nocapture noundef nonnull writeonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %.16.val, i64 216
   %5 = load i8, ptr %4, align 8
   %6 = icmp eq i8 %5, 1

@@ -6964,23 +6964,23 @@ define dso_local { i32, ptr } @_ZN4llvm3sys2fs8is_localERKNS_5TwineERb(ptr nound
   %.val = load i64, ptr %3, align 8
   %12 = trunc i64 %.val to i32
   switch i32 %12, label %13 [
-    i32 26985, label %_ZN4llvm3sys2fsL13is_local_implER6statfs.argprom.exit
-    i32 20859, label %_ZN4llvm3sys2fsL13is_local_implER6statfs.argprom.exit
-    i32 -11317950, label %_ZN4llvm3sys2fsL13is_local_implER6statfs.argprom.exit
+    i32 26985, label %_ZN4llvm3sys2fsL13is_local_implER6statfs.exit
+    i32 20859, label %_ZN4llvm3sys2fsL13is_local_implER6statfs.exit
+    i32 -11317950, label %_ZN4llvm3sys2fsL13is_local_implER6statfs.exit
   ]
 
 13:                                               ; preds = %11
-  br label %_ZN4llvm3sys2fsL13is_local_implER6statfs.argprom.exit
+  br label %_ZN4llvm3sys2fsL13is_local_implER6statfs.exit
 
-_ZN4llvm3sys2fsL13is_local_implER6statfs.argprom.exit: ; preds = %11, %11, %11, %13
+_ZN4llvm3sys2fsL13is_local_implER6statfs.exit:    ; preds = %11, %11, %11, %13
   %.0.i = phi i8 [ 1, %13 ], [ 0, %11 ], [ 0, %11 ], [ 0, %11 ]
   store i8 %.0.i, ptr %1, align 1
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #33
   br label %15
 
-15:                                               ; preds = %_ZN4llvm3sys2fsL13is_local_implER6statfs.argprom.exit, %7
-  %.sroa.3.0 = phi ptr [ %14, %_ZN4llvm3sys2fsL13is_local_implER6statfs.argprom.exit ], [ %10, %7 ]
-  %.sroa.0.0 = phi i32 [ 0, %_ZN4llvm3sys2fsL13is_local_implER6statfs.argprom.exit ], [ %9, %7 ]
+15:                                               ; preds = %_ZN4llvm3sys2fsL13is_local_implER6statfs.exit, %7
+  %.sroa.3.0 = phi ptr [ %14, %_ZN4llvm3sys2fsL13is_local_implER6statfs.exit ], [ %10, %7 ]
+  %.sroa.0.0 = phi i32 [ 0, %_ZN4llvm3sys2fsL13is_local_implER6statfs.exit ], [ %9, %7 ]
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { i32, ptr } %.fca.1.insert
@@ -7003,23 +7003,23 @@ define dso_local { i32, ptr } @_ZN4llvm3sys2fs8is_localEiRb(i32 noundef %0, ptr 
   %.val = load i64, ptr %3, align 8
   %10 = trunc i64 %.val to i32
   switch i32 %10, label %11 [
-    i32 26985, label %_ZN4llvm3sys2fsL13is_local_implER6statfs.argprom.exit
-    i32 20859, label %_ZN4llvm3sys2fsL13is_local_implER6statfs.argprom.exit
-    i32 -11317950, label %_ZN4llvm3sys2fsL13is_local_implER6statfs.argprom.exit
+    i32 26985, label %_ZN4llvm3sys2fsL13is_local_implER6statfs.exit
+    i32 20859, label %_ZN4llvm3sys2fsL13is_local_implER6statfs.exit
+    i32 -11317950, label %_ZN4llvm3sys2fsL13is_local_implER6statfs.exit
   ]
 
 11:                                               ; preds = %9
-  br label %_ZN4llvm3sys2fsL13is_local_implER6statfs.argprom.exit
+  br label %_ZN4llvm3sys2fsL13is_local_implER6statfs.exit
 
-_ZN4llvm3sys2fsL13is_local_implER6statfs.argprom.exit: ; preds = %9, %9, %9, %11
+_ZN4llvm3sys2fsL13is_local_implER6statfs.exit:    ; preds = %9, %9, %9, %11
   %.0.i = phi i8 [ 1, %11 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ]
   store i8 %.0.i, ptr %1, align 1
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #33
   br label %13
 
-13:                                               ; preds = %_ZN4llvm3sys2fsL13is_local_implER6statfs.argprom.exit, %5
-  %.sroa.3.0 = phi ptr [ %12, %_ZN4llvm3sys2fsL13is_local_implER6statfs.argprom.exit ], [ %8, %5 ]
-  %.sroa.0.0 = phi i32 [ 0, %_ZN4llvm3sys2fsL13is_local_implER6statfs.argprom.exit ], [ %7, %5 ]
+13:                                               ; preds = %_ZN4llvm3sys2fsL13is_local_implER6statfs.exit, %5
+  %.sroa.3.0 = phi ptr [ %12, %_ZN4llvm3sys2fsL13is_local_implER6statfs.exit ], [ %8, %5 ]
+  %.sroa.0.0 = phi i32 [ 0, %_ZN4llvm3sys2fsL13is_local_implER6statfs.exit ], [ %7, %5 ]
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { i32, ptr } %.fca.1.insert
@@ -8096,16 +8096,16 @@ define dso_local { i32, ptr } @_ZN4llvm3sys2fs6detail28directory_iterator_increm
   %37 = and i32 %36, 61440
   %38 = add nsw i32 %37, -4096
   %39 = icmp ult i32 %38, 49152
-  br i1 %39, label %switch.lookup, label %_ZN4llvm3sys2fsL10direntTypeEP6dirent.argprom.exit
+  br i1 %39, label %switch.lookup, label %_ZN4llvm3sys2fsL10direntTypeEP6dirent.exit
 
 switch.lookup:                                    ; preds = %.thread
   %40 = lshr exact i32 %38, 12
   %41 = zext nneg i32 %40 to i64
   %switch.gep = getelementptr inbounds [12 x i32], ptr @switch.table._ZNK4llvm3sys2fs15directory_entry6statusEv, i64 0, i64 %41
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZN4llvm3sys2fsL10direntTypeEP6dirent.argprom.exit
+  br label %_ZN4llvm3sys2fsL10direntTypeEP6dirent.exit
 
-_ZN4llvm3sys2fsL10direntTypeEP6dirent.argprom.exit: ; preds = %.thread, %switch.lookup
+_ZN4llvm3sys2fsL10direntTypeEP6dirent.exit:       ; preds = %.thread, %switch.lookup
   %.0.i.i = phi i32 [ %switch.load, %switch.lookup ], [ 9, %.thread ]
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
@@ -8146,9 +8146,9 @@ _ZN4llvm3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit: ;
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %2)
   br label %57
 
-57:                                               ; preds = %_ZN4llvm3sys2fsL10direntTypeEP6dirent.argprom.exit, %_ZN4llvm3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit, %26, %11
-  %.sroa.015.0 = phi i32 [ 0, %_ZN4llvm3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit ], [ %28, %26 ], [ 0, %_ZN4llvm3sys2fsL10direntTypeEP6dirent.argprom.exit ], [ %10, %11 ]
-  %.sroa.516.0 = phi ptr [ %56, %_ZN4llvm3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit ], [ %29, %26 ], [ %43, %_ZN4llvm3sys2fsL10direntTypeEP6dirent.argprom.exit ], [ %12, %11 ]
+57:                                               ; preds = %_ZN4llvm3sys2fsL10direntTypeEP6dirent.exit, %_ZN4llvm3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit, %26, %11
+  %.sroa.015.0 = phi i32 [ 0, %_ZN4llvm3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit ], [ %28, %26 ], [ 0, %_ZN4llvm3sys2fsL10direntTypeEP6dirent.exit ], [ %10, %11 ]
+  %.sroa.516.0 = phi ptr [ %56, %_ZN4llvm3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit ], [ %29, %26 ], [ %43, %_ZN4llvm3sys2fsL10direntTypeEP6dirent.exit ], [ %12, %11 ]
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.015.0, 0
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sroa.516.0, 1
   ret { i32, ptr } %.fca.1.insert

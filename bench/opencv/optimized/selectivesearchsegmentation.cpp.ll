@@ -16746,7 +16746,7 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc12segmentation31SelectiveSearch
 
 5:                                                ; preds = %2
   %6 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsERNS_11FileStorageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %_ZN2cvlsERNS_11FileStorageEPKc.argprom.exit unwind label %9
+          to label %_ZN2cvlsERNS_11FileStorageEPKc.exit unwind label %9
 
 7:                                                ; preds = %2
   %8 = landingpad { ptr, i32 }
@@ -16764,7 +16764,7 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc12segmentation31SelectiveSearch
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #26
   resume { ptr, i32 } %.pn.i
 
-_ZN2cvlsERNS_11FileStorageEPKc.argprom.exit:      ; preds = %5
+_ZN2cvlsERNS_11FileStorageEPKc.exit:              ; preds = %5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)

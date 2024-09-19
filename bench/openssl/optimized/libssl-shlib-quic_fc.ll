@@ -440,7 +440,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end3
-  tail call fastcc void @rxfc_on_retire.retelim(ptr noundef nonnull %rxfc, i64 noundef %num_bytes, i64 noundef 0, i64 %rtt.coerce)
+  tail call fastcc void @rxfc_on_retire(ptr noundef nonnull %rxfc, i64 noundef %num_bytes, i64 noundef 0, i64 %rtt.coerce)
   %standalone8 = getelementptr inbounds i8, ptr %rxfc, i64 91
   %4 = load i8, ptr %standalone8, align 1
   %tobool9.not = icmp eq i8 %4, 0
@@ -450,7 +450,7 @@ if.then10:                                        ; preds = %if.end6
   %5 = load ptr, ptr %parent, align 8
   %cur_window_size = getelementptr inbounds i8, ptr %rxfc, i64 40
   %6 = load i64, ptr %cur_window_size, align 8
-  tail call fastcc void @rxfc_on_retire.retelim(ptr noundef %5, i64 noundef %num_bytes, i64 noundef %6, i64 %rtt.coerce)
+  tail call fastcc void @rxfc_on_retire(ptr noundef %5, i64 noundef %num_bytes, i64 noundef %6, i64 %rtt.coerce)
   br label %return
 
 return:                                           ; preds = %if.end6, %if.then10, %if.end3, %if.end, %land.lhs.true
@@ -459,7 +459,7 @@ return:                                           ; preds = %if.end6, %if.then10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rxfc_on_retire.retelim(ptr nocapture noundef %rxfc, i64 noundef range(i64 1, 0) %num_bytes, i64 noundef %min_window_size, i64 %rtt.coerce) unnamed_addr #5 {
+define internal fastcc void @rxfc_on_retire(ptr nocapture noundef %rxfc, i64 noundef range(i64 1, 0) %num_bytes, i64 noundef %min_window_size, i64 %rtt.coerce) unnamed_addr #5 {
 entry:
   %epoch_start = getelementptr inbounds i8, ptr %rxfc, i64 56
   %0 = load i64, ptr %epoch_start, align 8

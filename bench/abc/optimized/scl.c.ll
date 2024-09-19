@@ -4028,7 +4028,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandResetConstr(ptr nocapture nounde
 8:                                                ; preds = %4
   tail call void @Abc_FrameSetDrivingCell(ptr noundef null) #10
   tail call void @Abc_FrameSetMaxLoad(float noundef 0.000000e+00) #10
-  tail call fastcc void @Scl_ConUpdateMan.argprom(ptr noundef %0)
+  tail call fastcc void @Scl_ConUpdateMan(ptr noundef %0)
   br label %22
 
 9:                                                ; preds = %4
@@ -4065,16 +4065,16 @@ define void @Scl_End(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %Abc_SclLoad.exit
 
 Abc_SclLoad.exit:                                 ; preds = %1, %4
-  tail call fastcc void @Scl_ConUpdateMan.argprom(ptr noundef nonnull %0)
+  tail call fastcc void @Scl_ConUpdateMan(ptr noundef nonnull %0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Scl_ConUpdateMan.argprom(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @Scl_ConUpdateMan(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 248
   %.val = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %Scl_ConFreeMan.argprom.exit, label %3
+  br i1 %.not.i, label %Scl_ConFreeMan.exit, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %.val, i64 64
@@ -4250,9 +4250,9 @@ Vec_IntErase.exit35.i.i:                          ; preds = %46, %Vec_IntErase.e
 
 Scl_ConFree.exit.i:                               ; preds = %61, %59
   tail call void @free(ptr noundef nonnull %.val) #10
-  br label %Scl_ConFreeMan.argprom.exit
+  br label %Scl_ConFreeMan.exit
 
-Scl_ConFreeMan.argprom.exit:                      ; preds = %1, %Scl_ConFree.exit.i
+Scl_ConFreeMan.exit:                              ; preds = %1, %Scl_ConFree.exit.i
   store ptr null, ptr %2, align 8
   ret void
 }

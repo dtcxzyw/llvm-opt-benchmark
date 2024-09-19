@@ -521,7 +521,7 @@ if.then1:                                         ; preds = %for.cond.i
   %desc1.i = getelementptr inbounds i8, ptr %opts.val, i64 40
   %2 = load ptr, ptr %desc1.i, align 8
   %cmp.not6.i.i = icmp eq ptr %2, null
-  br i1 %cmp.not6.i.i, label %find_default_by_name.argprom.exit, label %for.body.i.preheader.i
+  br i1 %cmp.not6.i.i, label %find_default_by_name.exit, label %for.body.i.preheader.i
 
 for.body.i.preheader.i:                           ; preds = %if.then1
   %call.i4.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %name) #19
@@ -535,7 +535,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.preheade
   %arrayidx.i.i = getelementptr %struct.QemuOptDesc, ptr %desc1.i, i64 %idxprom.i.i
   %3 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %3, null
-  br i1 %cmp.not.i.i, label %find_default_by_name.argprom.exit, label %for.body.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i, label %find_default_by_name.exit, label %for.body.i.i, !llvm.loop !9
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %name) #19
@@ -546,9 +546,9 @@ cond.true.i:                                      ; preds = %for.body.i.i, %for.
   %arrayidx8.i.lcssa.i = phi ptr [ %desc1.i, %for.body.i.preheader.i ], [ %arrayidx.i.i, %for.body.i.i ]
   %def_value_str.i = getelementptr inbounds i8, ptr %arrayidx8.i.lcssa.i, i64 24
   %4 = load ptr, ptr %def_value_str.i, align 8
-  br label %find_default_by_name.argprom.exit
+  br label %find_default_by_name.exit
 
-find_default_by_name.argprom.exit:                ; preds = %for.cond.i.i, %if.then1, %cond.true.i
+find_default_by_name.exit:                        ; preds = %for.cond.i.i, %if.then1, %cond.true.i
   %cond.i = phi ptr [ %4, %cond.true.i ], [ null, %if.then1 ], [ null, %for.cond.i.i ]
   %call3 = tail call noalias ptr @g_strdup(ptr noundef %cond.i) #20
   br label %return
@@ -601,8 +601,8 @@ for.inc.i:                                        ; preds = %qemu_opt_del.exit.i
   %tobool.not.i10 = icmp eq ptr %7, null
   br i1 %tobool.not.i10, label %return, label %land.rhs.i, !llvm.loop !10
 
-return:                                           ; preds = %for.inc.i, %if.end4, %entry, %find_default_by_name.argprom.exit
-  %retval.0 = phi ptr [ %call3, %find_default_by_name.argprom.exit ], [ null, %entry ], [ %5, %if.end4 ], [ %5, %for.inc.i ]
+return:                                           ; preds = %for.inc.i, %if.end4, %entry, %find_default_by_name.exit
+  %retval.0 = phi ptr [ %call3, %find_default_by_name.exit ], [ null, %entry ], [ %5, %if.end4 ], [ %5, %for.inc.i ]
   ret ptr %retval.0
 }
 
@@ -687,7 +687,7 @@ if.then5:                                         ; preds = %for.cond.i
 for.body.i.preheader.i:                           ; preds = %if.then5
   %call.i4.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %name) #19
   %cmp5.i5.i = icmp eq i32 %call.i4.i, 0
-  br i1 %cmp5.i5.i, label %find_default_by_name.argprom.exit, label %for.cond.i.i
+  br i1 %cmp5.i5.i, label %find_default_by_name.exit, label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.preheader.i, %for.body.i.i
   %i.07.i6.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
@@ -701,16 +701,16 @@ for.cond.i.i:                                     ; preds = %for.body.i.preheade
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %name) #19
   %cmp5.i.i = icmp eq i32 %call.i.i, 0
-  br i1 %cmp5.i.i, label %find_default_by_name.argprom.exit, label %for.cond.i.i, !llvm.loop !9
+  br i1 %cmp5.i.i, label %find_default_by_name.exit, label %for.cond.i.i, !llvm.loop !9
 
-find_default_by_name.argprom.exit:                ; preds = %for.body.i.i, %for.body.i.preheader.i
+find_default_by_name.exit:                        ; preds = %for.body.i.i, %for.body.i.preheader.i
   %arrayidx8.i.lcssa.i = phi ptr [ %desc1.i, %for.body.i.preheader.i ], [ %arrayidx.i.i, %for.body.i.i ]
   %def_value_str.i = getelementptr inbounds i8, ptr %arrayidx8.i.lcssa.i, i64 24
   %4 = load ptr, ptr %def_value_str.i, align 8
   %tobool7.not = icmp eq ptr %4, null
   br i1 %tobool7.not, label %return, label %if.then8
 
-if.then8:                                         ; preds = %find_default_by_name.argprom.exit
+if.then8:                                         ; preds = %find_default_by_name.exit
   %call9 = call zeroext i1 @qapi_bool_parse(ptr noundef %name, ptr noundef nonnull %4, ptr noundef nonnull %ret, ptr noundef nonnull @error_abort) #20
   %.pre = load i8, ptr %ret, align 1
   %5 = trunc i8 %.pre to i1
@@ -786,8 +786,8 @@ if.end22:                                         ; preds = %for.inc.i, %if.then
   %tobool23 = trunc i8 %8 to i1
   br label %return
 
-return:                                           ; preds = %for.cond.i.i, %find_default_by_name.argprom.exit, %if.then8, %if.then5, %entry, %if.end22
-  %retval.0 = phi i1 [ %tobool23, %if.end22 ], [ %defval, %entry ], [ %defval, %if.then5 ], [ %5, %if.then8 ], [ %defval, %find_default_by_name.argprom.exit ], [ %defval, %for.cond.i.i ]
+return:                                           ; preds = %for.cond.i.i, %find_default_by_name.exit, %if.then8, %if.then5, %entry, %if.end22
+  %retval.0 = phi i1 [ %tobool23, %if.end22 ], [ %defval, %entry ], [ %defval, %if.then5 ], [ %5, %if.then8 ], [ %defval, %find_default_by_name.exit ], [ %defval, %for.cond.i.i ]
   ret i1 %retval.0
 }
 
@@ -839,7 +839,7 @@ if.then2:                                         ; preds = %for.cond.i
 for.body.i.preheader.i:                           ; preds = %if.then2
   %call.i4.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %name) #19
   %cmp5.i5.i = icmp eq i32 %call.i4.i, 0
-  br i1 %cmp5.i5.i, label %find_default_by_name.argprom.exit, label %for.cond.i.i
+  br i1 %cmp5.i5.i, label %find_default_by_name.exit, label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.preheader.i, %for.body.i.i
   %i.07.i6.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
@@ -853,16 +853,16 @@ for.cond.i.i:                                     ; preds = %for.body.i.preheade
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %name) #19
   %cmp5.i.i = icmp eq i32 %call.i.i, 0
-  br i1 %cmp5.i.i, label %find_default_by_name.argprom.exit, label %for.cond.i.i, !llvm.loop !9
+  br i1 %cmp5.i.i, label %find_default_by_name.exit, label %for.cond.i.i, !llvm.loop !9
 
-find_default_by_name.argprom.exit:                ; preds = %for.body.i.i, %for.body.i.preheader.i
+find_default_by_name.exit:                        ; preds = %for.body.i.i, %for.body.i.preheader.i
   %arrayidx8.i.lcssa.i = phi ptr [ %desc1.i, %for.body.i.preheader.i ], [ %arrayidx.i.i, %for.body.i.i ]
   %def_value_str.i = getelementptr inbounds i8, ptr %arrayidx8.i.lcssa.i, i64 24
   %4 = load ptr, ptr %def_value_str.i, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %return, label %if.then4
 
-if.then4:                                         ; preds = %find_default_by_name.argprom.exit
+if.then4:                                         ; preds = %find_default_by_name.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %number.i)
   %call.i12 = call i32 @qemu_strtou64(ptr noundef nonnull %4, ptr noundef null, i32 noundef 0, ptr noundef nonnull %number.i) #20
   switch i32 %call.i12, label %if.then1.i [
@@ -953,8 +953,8 @@ for.inc.i:                                        ; preds = %qemu_opt_del.exit.i
   %tobool.not.i14 = icmp eq ptr %10, null
   br i1 %tobool.not.i14, label %return, label %land.rhs.i, !llvm.loop !10
 
-return:                                           ; preds = %for.inc.i, %for.cond.i.i, %if.then2, %if.end12, %if.then14, %find_default_by_name.argprom.exit, %parse_option_number.exit, %entry
-  %retval.0 = phi i64 [ %defval, %entry ], [ %defval, %find_default_by_name.argprom.exit ], [ %ret.1, %parse_option_number.exit ], [ %8, %if.then14 ], [ %8, %if.end12 ], [ %defval, %if.then2 ], [ %defval, %for.cond.i.i ], [ %8, %for.inc.i ]
+return:                                           ; preds = %for.inc.i, %for.cond.i.i, %if.then2, %if.end12, %if.then14, %find_default_by_name.exit, %parse_option_number.exit, %entry
+  %retval.0 = phi i64 [ %defval, %entry ], [ %defval, %find_default_by_name.exit ], [ %ret.1, %parse_option_number.exit ], [ %8, %if.then14 ], [ %8, %if.end12 ], [ %defval, %if.then2 ], [ %defval, %for.cond.i.i ], [ %8, %for.inc.i ]
   ret i64 %retval.0
 }
 
@@ -1006,7 +1006,7 @@ if.then2:                                         ; preds = %for.cond.i
 for.body.i.preheader.i:                           ; preds = %if.then2
   %call.i4.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %name) #19
   %cmp5.i5.i = icmp eq i32 %call.i4.i, 0
-  br i1 %cmp5.i5.i, label %find_default_by_name.argprom.exit, label %for.cond.i.i
+  br i1 %cmp5.i5.i, label %find_default_by_name.exit, label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.preheader.i, %for.body.i.i
   %i.07.i6.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
@@ -1020,16 +1020,16 @@ for.cond.i.i:                                     ; preds = %for.body.i.preheade
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %name) #19
   %cmp5.i.i = icmp eq i32 %call.i.i, 0
-  br i1 %cmp5.i.i, label %find_default_by_name.argprom.exit, label %for.cond.i.i, !llvm.loop !9
+  br i1 %cmp5.i.i, label %find_default_by_name.exit, label %for.cond.i.i, !llvm.loop !9
 
-find_default_by_name.argprom.exit:                ; preds = %for.body.i.i, %for.body.i.preheader.i
+find_default_by_name.exit:                        ; preds = %for.body.i.i, %for.body.i.preheader.i
   %arrayidx8.i.lcssa.i = phi ptr [ %desc1.i, %for.body.i.preheader.i ], [ %arrayidx.i.i, %for.body.i.i ]
   %def_value_str.i = getelementptr inbounds i8, ptr %arrayidx8.i.lcssa.i, i64 24
   %4 = load ptr, ptr %def_value_str.i, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %return, label %if.then4
 
-if.then4:                                         ; preds = %find_default_by_name.argprom.exit
+if.then4:                                         ; preds = %find_default_by_name.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %size.i)
   %call.i12 = call i32 @qemu_strtosz(ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %size.i) #20
   switch i32 %call.i12, label %if.then1.i [
@@ -1121,8 +1121,8 @@ for.inc.i:                                        ; preds = %qemu_opt_del.exit.i
   %tobool.not.i14 = icmp eq ptr %10, null
   br i1 %tobool.not.i14, label %return, label %land.rhs.i, !llvm.loop !10
 
-return:                                           ; preds = %for.inc.i, %for.cond.i.i, %if.then2, %if.end12, %if.then14, %find_default_by_name.argprom.exit, %parse_option_size.exit, %entry
-  %retval.0 = phi i64 [ %defval, %entry ], [ %defval, %find_default_by_name.argprom.exit ], [ %ret.1, %parse_option_size.exit ], [ %8, %if.then14 ], [ %8, %if.end12 ], [ %defval, %if.then2 ], [ %defval, %for.cond.i.i ], [ %8, %for.inc.i ]
+return:                                           ; preds = %for.inc.i, %for.cond.i.i, %if.then2, %if.end12, %if.then14, %find_default_by_name.exit, %parse_option_size.exit, %entry
+  %retval.0 = phi i64 [ %defval, %entry ], [ %defval, %find_default_by_name.exit ], [ %ret.1, %parse_option_size.exit ], [ %8, %if.then14 ], [ %8, %if.end12 ], [ %defval, %if.then2 ], [ %defval, %for.cond.i.i ], [ %8, %for.inc.i ]
   ret i64 %retval.0
 }
 
@@ -2538,28 +2538,28 @@ if.end:                                           ; preds = %sub_1, %entry, %ent
   %call2.val = load i32, ptr %call2, align 8
   %6 = add i32 %call2.val, -1
   %or.cond.i = icmp ult i32 %6, 6
-  br i1 %or.cond.i, label %qobject_type.argprom.exit, label %if.else.i
+  br i1 %or.cond.i, label %qobject_type.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end
   tail call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #21
   unreachable
 
-qobject_type.argprom.exit:                        ; preds = %if.end
+qobject_type.exit:                                ; preds = %if.end
   switch i32 %call2.val, label %cleanup [
     i32 3, label %qobject_check_type.exit
     i32 2, label %qobject_check_type.exit16
     i32 6, label %qobject_check_type.exit26
   ]
 
-qobject_check_type.exit:                          ; preds = %qobject_type.argprom.exit
+qobject_check_type.exit:                          ; preds = %qobject_type.exit
   %call6 = tail call ptr @qstring_get_str(ptr noundef nonnull %call2) #20
   br label %sw.epilog
 
-qobject_check_type.exit16:                        ; preds = %qobject_type.argprom.exit
+qobject_check_type.exit16:                        ; preds = %qobject_type.exit
   %call9 = tail call ptr @qnum_to_string(ptr noundef nonnull %call2) #20
   br label %sw.epilog
 
-qobject_check_type.exit26:                        ; preds = %qobject_type.argprom.exit
+qobject_check_type.exit26:                        ; preds = %qobject_type.exit
   %call12 = tail call zeroext i1 @qbool_get_bool(ptr noundef nonnull %call2) #20
   %cond = select i1 %call12, ptr @.str.17, ptr @.str.18
   call void @pstrcpy(ptr noundef nonnull %buf, i32 noundef 32, ptr noundef nonnull %cond) #20
@@ -2571,9 +2571,9 @@ sw.epilog:                                        ; preds = %qobject_check_type.
   %call14 = call zeroext i1 @qemu_opt_set(ptr noundef %opts, ptr noundef nonnull %call, ptr noundef %value.0, ptr noundef %errp)
   br label %cleanup
 
-cleanup:                                          ; preds = %qobject_type.argprom.exit, %entry.tail, %sw.epilog
-  %tmp.0 = phi ptr [ null, %entry.tail ], [ null, %qobject_type.argprom.exit ], [ %tmp.1, %sw.epilog ]
-  %retval.0 = phi i1 [ true, %entry.tail ], [ true, %qobject_type.argprom.exit ], [ %call14, %sw.epilog ]
+cleanup:                                          ; preds = %qobject_type.exit, %entry.tail, %sw.epilog
+  %tmp.0 = phi ptr [ null, %entry.tail ], [ null, %qobject_type.exit ], [ %tmp.1, %sw.epilog ]
+  %retval.0 = phi i1 [ true, %entry.tail ], [ true, %qobject_type.exit ], [ %call14, %sw.epilog ]
   call void @g_free(ptr noundef %tmp.0) #20
   ret i1 %retval.0
 }

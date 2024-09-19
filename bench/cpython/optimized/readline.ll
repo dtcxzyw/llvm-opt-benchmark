@@ -919,7 +919,7 @@ skip_optional:                                    ; preds = %if.end
 if.then.i:                                        ; preds = %skip_optional
   %call.i = call i32 @PyUnicode_FSConverter(ptr noundef %0, ptr noundef nonnull %filename_bytes.i) #14
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %readline_read_init_file_impl.argprom.exit, label %if.end.i
+  br i1 %tobool.not.i, label %readline_read_init_file_impl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
   %1 = load ptr, ptr %filename_bytes.i, align 8
@@ -961,23 +961,23 @@ if.end7.i:                                        ; preds = %if.end7thread-pre-s
 if.then10.i:                                      ; preds = %if.end7.i
   %6 = load ptr, ptr @PyExc_OSError, align 8
   %call11.i = call ptr @PyErr_SetFromErrno(ptr noundef %6) #14
-  br label %readline_read_init_file_impl.argprom.exit
+  br label %readline_read_init_file_impl.exit
 
 if.end12.i:                                       ; preds = %if.end7.i
   %.b.i.i = load i1, ptr @using_libedit_emulation, align 4
-  br i1 %.b.i.i, label %readline_read_init_file_impl.argprom.exit, label %if.then.i.i
+  br i1 %.b.i.i, label %readline_read_init_file_impl.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end12.i
   %call.i.i = call i32 @rl_variable_bind(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35) #14
-  br label %readline_read_init_file_impl.argprom.exit
+  br label %readline_read_init_file_impl.exit
 
-readline_read_init_file_impl.argprom.exit:        ; preds = %if.then.i, %if.then10.i, %if.end12.i, %if.then.i.i
+readline_read_init_file_impl.exit:                ; preds = %if.then.i, %if.then10.i, %if.end12.i, %if.then.i.i
   %retval.0.i = phi ptr [ %call11.i, %if.then10.i ], [ null, %if.then.i ], [ @_Py_NoneStruct, %if.end12.i ], [ @_Py_NoneStruct, %if.then.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %filename_bytes.i)
   br label %exit
 
-exit:                                             ; preds = %lor.lhs.false, %readline_read_init_file_impl.argprom.exit
-  %return_value.0 = phi ptr [ %retval.0.i, %readline_read_init_file_impl.argprom.exit ], [ null, %lor.lhs.false ]
+exit:                                             ; preds = %lor.lhs.false, %readline_read_init_file_impl.exit
+  %return_value.0 = phi ptr [ %retval.0.i, %readline_read_init_file_impl.exit ], [ null, %lor.lhs.false ]
   ret ptr %return_value.0
 }
 
@@ -1010,7 +1010,7 @@ skip_optional:                                    ; preds = %if.end
 if.then.i:                                        ; preds = %skip_optional
   %call.i = call i32 @PyUnicode_FSConverter(ptr noundef %0, ptr noundef nonnull %filename_bytes.i) #14
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %readline_read_history_file_impl.argprom.exit, label %if.end.i
+  br i1 %tobool.not.i, label %readline_read_history_file_impl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
   %1 = load ptr, ptr %filename_bytes.i, align 8
@@ -1047,20 +1047,20 @@ if.end7thread-pre-split.i:                        ; preds = %if.then1.i.i, %if.e
 if.end7.i:                                        ; preds = %if.end7thread-pre-split.i, %if.else.i, %if.end.i
   %5 = phi i32 [ %.pr.i, %if.end7thread-pre-split.i ], [ %call3.i, %if.end.i ], [ %call5.i, %if.else.i ]
   %tobool9.not.i = icmp eq i32 %5, 0
-  br i1 %tobool9.not.i, label %readline_read_history_file_impl.argprom.exit, label %if.then10.i
+  br i1 %tobool9.not.i, label %readline_read_history_file_impl.exit, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end7.i
   %6 = load ptr, ptr @PyExc_OSError, align 8
   %call11.i = call ptr @PyErr_SetFromErrno(ptr noundef %6) #14
-  br label %readline_read_history_file_impl.argprom.exit
+  br label %readline_read_history_file_impl.exit
 
-readline_read_history_file_impl.argprom.exit:     ; preds = %if.then.i, %if.end7.i, %if.then10.i
+readline_read_history_file_impl.exit:             ; preds = %if.then.i, %if.end7.i, %if.then10.i
   %retval.0.i = phi ptr [ %call11.i, %if.then10.i ], [ null, %if.then.i ], [ @_Py_NoneStruct, %if.end7.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %filename_bytes.i)
   br label %exit
 
-exit:                                             ; preds = %lor.lhs.false, %readline_read_history_file_impl.argprom.exit
-  %return_value.0 = phi ptr [ %retval.0.i, %readline_read_history_file_impl.argprom.exit ], [ null, %lor.lhs.false ]
+exit:                                             ; preds = %lor.lhs.false, %readline_read_history_file_impl.exit
+  %return_value.0 = phi ptr [ %retval.0.i, %readline_read_history_file_impl.exit ], [ null, %lor.lhs.false ]
   ret ptr %return_value.0
 }
 
@@ -1093,7 +1093,7 @@ skip_optional:                                    ; preds = %if.end
 if.then.i:                                        ; preds = %skip_optional
   %call.i = call i32 @PyUnicode_FSConverter(ptr noundef %0, ptr noundef nonnull %filename_bytes.i) #14
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %readline_write_history_file_impl.argprom.exit, label %if.end.i
+  br i1 %tobool.not.i, label %readline_write_history_file_impl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
   %1 = load ptr, ptr %filename_bytes.i, align 8
@@ -1142,20 +1142,20 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
 
 Py_XDECREF.exit.i:                                ; preds = %if.then1.i.i.i, %if.end.i.i.i, %if.then.i.i, %if.end10.i
   store i32 %call4.i, ptr %call5.i, align 4
-  br i1 %tobool6.i, label %readline_write_history_file_impl.argprom.exit, label %if.then14.i
+  br i1 %tobool6.i, label %readline_write_history_file_impl.exit, label %if.then14.i
 
 if.then14.i:                                      ; preds = %Py_XDECREF.exit.i
   %6 = load ptr, ptr @PyExc_OSError, align 8
   %call15.i = call ptr @PyErr_SetFromErrno(ptr noundef %6) #14
-  br label %readline_write_history_file_impl.argprom.exit
+  br label %readline_write_history_file_impl.exit
 
-readline_write_history_file_impl.argprom.exit:    ; preds = %if.then.i, %Py_XDECREF.exit.i, %if.then14.i
+readline_write_history_file_impl.exit:            ; preds = %if.then.i, %Py_XDECREF.exit.i, %if.then14.i
   %retval.0.i = phi ptr [ %call15.i, %if.then14.i ], [ null, %if.then.i ], [ @_Py_NoneStruct, %Py_XDECREF.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %filename_bytes.i)
   br label %exit
 
-exit:                                             ; preds = %lor.lhs.false, %readline_write_history_file_impl.argprom.exit
-  %return_value.0 = phi ptr [ %retval.0.i, %readline_write_history_file_impl.argprom.exit ], [ null, %lor.lhs.false ]
+exit:                                             ; preds = %lor.lhs.false, %readline_write_history_file_impl.exit
+  %return_value.0 = phi ptr [ %retval.0.i, %readline_write_history_file_impl.exit ], [ null, %lor.lhs.false ]
   ret ptr %return_value.0
 }
 
@@ -1201,7 +1201,7 @@ skip_optional:                                    ; preds = %if.end8
 if.then.i:                                        ; preds = %skip_optional
   %call.i = call i32 @PyUnicode_FSConverter(ptr noundef %2, ptr noundef nonnull %filename_bytes.i) #14
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %readline_append_history_file_impl.argprom.exit, label %if.end.i
+  br i1 %tobool.not.i, label %readline_append_history_file_impl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
   %3 = load ptr, ptr %filename_bytes.i, align 8
@@ -1253,20 +1253,20 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
 
 Py_XDECREF.exit.i:                                ; preds = %if.then1.i.i.i, %if.end.i.i.i, %if.then.i.i, %if.end11.i
   store i32 %call4.i, ptr %call5.i, align 4
-  br i1 %tobool6.i, label %readline_append_history_file_impl.argprom.exit, label %if.then15.i
+  br i1 %tobool6.i, label %readline_append_history_file_impl.exit, label %if.then15.i
 
 if.then15.i:                                      ; preds = %Py_XDECREF.exit.i
   %8 = load ptr, ptr @PyExc_OSError, align 8
   %call16.i = call ptr @PyErr_SetFromErrno(ptr noundef %8) #14
-  br label %readline_append_history_file_impl.argprom.exit
+  br label %readline_append_history_file_impl.exit
 
-readline_append_history_file_impl.argprom.exit:   ; preds = %if.then.i, %Py_XDECREF.exit.i, %if.then15.i
+readline_append_history_file_impl.exit:           ; preds = %if.then.i, %Py_XDECREF.exit.i, %if.then15.i
   %retval.0.i = phi ptr [ %call16.i, %if.then15.i ], [ null, %if.then.i ], [ @_Py_NoneStruct, %Py_XDECREF.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %filename_bytes.i)
   br label %exit
 
-exit:                                             ; preds = %land.lhs.true4, %lor.lhs.false, %readline_append_history_file_impl.argprom.exit
-  %return_value.0 = phi ptr [ null, %land.lhs.true4 ], [ %retval.0.i, %readline_append_history_file_impl.argprom.exit ], [ null, %lor.lhs.false ]
+exit:                                             ; preds = %land.lhs.true4, %lor.lhs.false, %readline_append_history_file_impl.exit
+  %return_value.0 = phi ptr [ null, %land.lhs.true4 ], [ %retval.0.i, %readline_append_history_file_impl.exit ], [ null, %lor.lhs.false ]
   ret ptr %return_value.0
 }
 

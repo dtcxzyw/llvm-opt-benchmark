@@ -1110,7 +1110,7 @@ uv__fs_opendir.exit:                              ; preds = %528, %533
   %535 = getelementptr inbounds i8, ptr %.val74, i64 8
   %536 = load i64, ptr %535, align 8
   %.not22.i = icmp eq i64 %536, 0
-  br i1 %.not22.i, label %uv__fs_readdir.argprom.exit, label %.lr.ph.lr.ph.i
+  br i1 %.not22.i, label %uv__fs_readdir.exit, label %.lr.ph.lr.ph.i
 
 .lr.ph.lr.ph.i:                                   ; preds = %534
   %537 = getelementptr inbounds i8, ptr %.val74, i64 48
@@ -1131,7 +1131,7 @@ uv__fs_opendir.exit:                              ; preds = %528, %533
 543:                                              ; preds = %539
   %544 = load i32, ptr %25, align 4
   %.not.i97 = icmp eq i32 %544, 0
-  br i1 %.not.i97, label %uv__fs_readdir.argprom.exit, label %.loopexit6.i
+  br i1 %.not.i97, label %uv__fs_readdir.exit, label %.loopexit6.i
 
 sub_0.i:                                          ; preds = %539
   %545 = getelementptr inbounds i8, ptr %541, i64 19
@@ -1156,7 +1156,7 @@ sub_0.i:                                          ; preds = %539
 552:                                              ; preds = %.tail.i, %.tail1.i
   %553 = load i64, ptr %535, align 8
   %554 = icmp ugt i64 %553, %538
-  br i1 %554, label %539, label %uv__fs_readdir.argprom.exit, !llvm.loop !8
+  br i1 %554, label %539, label %uv__fs_readdir.exit, !llvm.loop !8
 
 .tail1.thread.i:                                  ; preds = %.tail.i, %.tail1.i, %sub_0.i
   %555 = getelementptr inbounds i8, ptr %541, i64 19
@@ -1175,11 +1175,11 @@ sub_0.i:                                          ; preds = %539
   %563 = zext i32 %562 to i64
   %564 = load i64, ptr %535, align 8
   %565 = icmp ugt i64 %564, %563
-  br i1 %565, label %.lr.ph.i, label %uv__fs_readdir.argprom.exit, !llvm.loop !8
+  br i1 %565, label %.lr.ph.i, label %uv__fs_readdir.exit, !llvm.loop !8
 
 .loopexit6.i:                                     ; preds = %.tail1.thread.i, %543
   %.not26.i = icmp eq i32 %.023.ph18.i, 0
-  br i1 %.not26.i, label %uv__fs_readdir.argprom.exit, label %.lr.ph21.preheader.i
+  br i1 %.not26.i, label %uv__fs_readdir.exit, label %.lr.ph21.preheader.i
 
 .lr.ph21.preheader.i:                             ; preds = %.loopexit6.i
   %wide.trip.count.i = zext i32 %.023.ph18.i to i64
@@ -1196,9 +1196,9 @@ sub_0.i:                                          ; preds = %539
   store ptr null, ptr %570, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %uv__fs_readdir.argprom.exit, label %.lr.ph21.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %uv__fs_readdir.exit, label %.lr.ph21.i, !llvm.loop !9
 
-uv__fs_readdir.argprom.exit:                      ; preds = %.outer.i, %.lr.ph21.i, %552, %534, %543, %.loopexit6.i
+uv__fs_readdir.exit:                              ; preds = %.outer.i, %.lr.ph21.i, %552, %534, %543, %.loopexit6.i
   %.024.i = phi i32 [ %.023.ph18.i, %543 ], [ -1, %.loopexit6.i ], [ 0, %534 ], [ %.023.ph18.i, %552 ], [ -1, %.lr.ph21.i ], [ %562, %.outer.i ]
   %571 = sext i32 %.024.i to i64
   br label %uv__fs_readlink.exit
@@ -1945,8 +1945,8 @@ uv__fs_write_all.exit:                            ; preds = %.loopexit.i, %861
   store i64 0, ptr %863, align 8
   br label %873
 
-uv__fs_readlink.exit:                             ; preds = %138, %143, %148, %uv__fs_close.exit, %uv__fs_copyfile.exit, %248, %253, %259, %265, %uv__fs_fstat.exit, %295, %298, %303, %331, %uv__fs_lstat.exit, %386, %391, %396, %uv__fs_mkstemp.exit, %438, %uv__fs_read.exit, %uv__fs_scandir.exit, %uv__fs_opendir.exit, %uv__fs_readdir.argprom.exit, %603, %608, %uv__fs_sendfile.exit, %uv__fs_stat.exit, %uv__fs_statfs.exit, %751, %756, %760, %uv__fs_write_all.exit
-  %.0 = phi i64 [ %.1.i125, %uv__fs_write_all.exit ], [ %787, %760 ], [ %759, %756 ], [ %755, %751 ], [ %.0.i108, %uv__fs_statfs.exit ], [ %729, %uv__fs_stat.exit ], [ %.0.i102, %uv__fs_sendfile.exit ], [ %611, %608 ], [ %607, %603 ], [ %571, %uv__fs_readdir.argprom.exit ], [ %.0.i96, %uv__fs_opendir.exit ], [ %.0.i94, %uv__fs_scandir.exit ], [ %.0.i92, %uv__fs_read.exit ], [ %444, %438 ], [ %437, %uv__fs_mkstemp.exit ], [ %398, %396 ], [ %395, %391 ], [ %390, %386 ], [ %385, %uv__fs_lstat.exit ], [ %358, %331 ], [ %330, %303 ], [ %302, %298 ], [ %297, %295 ], [ %294, %uv__fs_fstat.exit ], [ %267, %265 ], [ %264, %259 ], [ %258, %253 ], [ %252, %248 ], [ %.053.i, %uv__fs_copyfile.exit ], [ %161, %uv__fs_close.exit ], [ %153, %148 ], [ %147, %143 ], [ %142, %138 ]
+uv__fs_readlink.exit:                             ; preds = %138, %143, %148, %uv__fs_close.exit, %uv__fs_copyfile.exit, %248, %253, %259, %265, %uv__fs_fstat.exit, %295, %298, %303, %331, %uv__fs_lstat.exit, %386, %391, %396, %uv__fs_mkstemp.exit, %438, %uv__fs_read.exit, %uv__fs_scandir.exit, %uv__fs_opendir.exit, %uv__fs_readdir.exit, %603, %608, %uv__fs_sendfile.exit, %uv__fs_stat.exit, %uv__fs_statfs.exit, %751, %756, %760, %uv__fs_write_all.exit
+  %.0 = phi i64 [ %.1.i125, %uv__fs_write_all.exit ], [ %787, %760 ], [ %759, %756 ], [ %755, %751 ], [ %.0.i108, %uv__fs_statfs.exit ], [ %729, %uv__fs_stat.exit ], [ %.0.i102, %uv__fs_sendfile.exit ], [ %611, %608 ], [ %607, %603 ], [ %571, %uv__fs_readdir.exit ], [ %.0.i96, %uv__fs_opendir.exit ], [ %.0.i94, %uv__fs_scandir.exit ], [ %.0.i92, %uv__fs_read.exit ], [ %444, %438 ], [ %437, %uv__fs_mkstemp.exit ], [ %398, %396 ], [ %395, %391 ], [ %390, %386 ], [ %385, %uv__fs_lstat.exit ], [ %358, %331 ], [ %330, %303 ], [ %302, %298 ], [ %297, %295 ], [ %294, %uv__fs_fstat.exit ], [ %267, %265 ], [ %264, %259 ], [ %258, %253 ], [ %252, %248 ], [ %.053.i, %uv__fs_copyfile.exit ], [ %161, %uv__fs_close.exit ], [ %153, %148 ], [ %147, %143 ], [ %142, %138 ]
   %864 = icmp eq i64 %.0, -1
   br i1 %864, label %uv__fs_readlink.exit.thread, label %870
 

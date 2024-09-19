@@ -220,7 +220,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
 
 6:                                                ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %.not37 = icmp eq ptr %0, null
-  br i1 %.not37, label %_ZL14gmx_sfree_implI8t_pstackEvPKcS2_iPT_.argprom.exit, label %_ZL14gmx_sfree_implI8t_pstackEvPKcS2_iPT_.argprom.exit.sink.split
+  br i1 %.not37, label %_ZL14gmx_sfree_implI8t_pstackEvPKcS2_iPT_.exit, label %_ZL14gmx_sfree_implI8t_pstackEvPKcS2_iPT_.exit.sink.split
 
 7:                                                ; preds = %27, %16
   %8 = landingpad { ptr, i32 }
@@ -249,7 +249,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr @_ZL6pstack, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 207, ptr noundef nonnull %4)
-          to label %_ZL14gmx_sfree_implI8t_pstackEvPKcS2_iPT_.argprom.exit unwind label %7
+          to label %_ZL14gmx_sfree_implI8t_pstackEvPKcS2_iPT_.exit unwind label %7
 
 .preheader:                                       ; preds = %10, %22
   %.025 = phi ptr [ %21, %22 ], [ %4, %10 ]
@@ -280,18 +280,18 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %24, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 223, ptr noundef nonnull %28)
-          to label %_ZL14gmx_sfree_implI8t_pstackEvPKcS2_iPT_.argprom.exit unwind label %7
+          to label %_ZL14gmx_sfree_implI8t_pstackEvPKcS2_iPT_.exit unwind label %7
 
 .critedge.thread:                                 ; preds = %.preheader
   %.not34 = icmp eq ptr %0, null
-  br i1 %.not34, label %_ZL14gmx_sfree_implI8t_pstackEvPKcS2_iPT_.argprom.exit, label %_ZL14gmx_sfree_implI8t_pstackEvPKcS2_iPT_.argprom.exit.sink.split
+  br i1 %.not34, label %_ZL14gmx_sfree_implI8t_pstackEvPKcS2_iPT_.exit, label %_ZL14gmx_sfree_implI8t_pstackEvPKcS2_iPT_.exit.sink.split
 
-_ZL14gmx_sfree_implI8t_pstackEvPKcS2_iPT_.argprom.exit.sink.split: ; preds = %.critedge.thread, %6
+_ZL14gmx_sfree_implI8t_pstackEvPKcS2_iPT_.exit.sink.split: ; preds = %.critedge.thread, %6
   %31 = tail call i32 @fclose(ptr noundef nonnull %0)
-  br label %_ZL14gmx_sfree_implI8t_pstackEvPKcS2_iPT_.argprom.exit
+  br label %_ZL14gmx_sfree_implI8t_pstackEvPKcS2_iPT_.exit
 
-_ZL14gmx_sfree_implI8t_pstackEvPKcS2_iPT_.argprom.exit: ; preds = %_ZL14gmx_sfree_implI8t_pstackEvPKcS2_iPT_.argprom.exit.sink.split, %27, %16, %.critedge.thread, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %.critedge.thread ], [ %.1, %16 ], [ %.2, %27 ], [ %31, %_ZL14gmx_sfree_implI8t_pstackEvPKcS2_iPT_.argprom.exit.sink.split ]
+_ZL14gmx_sfree_implI8t_pstackEvPKcS2_iPT_.exit:   ; preds = %_ZL14gmx_sfree_implI8t_pstackEvPKcS2_iPT_.exit.sink.split, %27, %16, %.critedge.thread, %6
+  %.0 = phi i32 [ 0, %6 ], [ 0, %.critedge.thread ], [ %.1, %16 ], [ %.2, %27 ], [ %31, %_ZL14gmx_sfree_implI8t_pstackEvPKcS2_iPT_.exit.sink.split ]
   %32 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL12pstack_mutex) #26
   ret i32 %.0
 }

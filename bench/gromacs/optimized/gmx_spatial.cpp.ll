@@ -190,7 +190,7 @@ define noundef i32 @_Z11gmx_spatialiPPc(i32 noundef %0, ptr noundef %1) local_un
 45:                                               ; preds = %2
   br i1 %44, label %48, label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-46:                                               ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %67, %64, %63, %61, %60, %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit, %50, %48, %2
+46:                                               ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %67, %64, %63, %61, %60, %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit, %50, %48, %2
   %47 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit274
@@ -223,15 +223,15 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %53, %56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #16
   %57 = load ptr, ptr %13, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 195, ptr noundef %57)
-          to label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit unwind label %46
+          to label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit unwind label %46
 
-_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit: ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit
+_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit:        ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit
   %58 = getelementptr inbounds i8, ptr %10, i64 2320
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %59 = invoke noundef ptr @_Z11ftp2fn_nulliiPK8t_filenm(i32 noundef 22, i32 noundef 3, ptr noundef nonnull %26)
           to label %60 unwind label %46
 
-60:                                               ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit
+60:                                               ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit
   invoke void @_Z9get_indexPK7t_atomsPKciPiPS4_PPc(ptr noundef nonnull %58, ptr noundef %59, i32 noundef 1, ptr noundef nonnull %22, ptr noundef nonnull %20, ptr noundef nonnull %18)
           to label %61 unwind label %46
 

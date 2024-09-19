@@ -854,7 +854,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.773 = private unnamed_addr constant [3 x i8] c"SM\00", align 1
 @.str.774 = private unnamed_addr constant [4 x i8] c"LMM\00", align 1
 @.str.775 = private unnamed_addr constant [5 x i8] c"LMRM\00", align 1
-@switch.table.dissect_dpnss_sic.argprom.argelim = private unnamed_addr constant [3 x ptr] [ptr @hf_dpnss_sic_details_for_speech, ptr @hf_dpnss_sic_details_for_data1, ptr @hf_dpnss_sic_details_for_data2], align 8
+@switch.table.dissect_dpnss_sic = private unnamed_addr constant [3 x ptr] [ptr @hf_dpnss_sic_details_for_speech, ptr @hf_dpnss_sic_details_for_data1, ptr @hf_dpnss_sic_details_for_data2], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_dpnss() local_unnamed_addr #0 {
@@ -924,12 +924,12 @@ define internal i32 @dissect_dpnss(ptr noundef %0, ptr noundef %1, ptr noundef %
 25:                                               ; preds = %24, %24, %24, %24
   %26 = load i32, ptr @ett_dpnss_sic_field, align 4
   %27 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %10, ptr noundef %0, i32 noundef 1, i32 noundef -1, i32 noundef %26, ptr noundef null, ptr noundef nonnull @.str.189) #2
-  %28 = tail call fastcc i32 @dissect_dpnss_sic.argprom.argelim(ptr noundef %0, ptr noundef %27)
+  %28 = tail call fastcc i32 @dissect_dpnss_sic(ptr noundef %0, ptr noundef %27)
   %29 = load i32, ptr @hf_dpnss_selection_field, align 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %10, i32 noundef %29, ptr noundef %0, i32 noundef %28, i32 noundef -1, i32 noundef 0) #2
   %31 = load i32, ptr @ett_dpnss_sel_field, align 4
   %32 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #2
-  tail call fastcc void @dissect_dpnss_sup_info_str.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %32, i32 noundef %28)
+  tail call fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %32, i32 noundef %28)
   br label %dissect_dpnss_cc_msg.exit
 
 33:                                               ; preds = %24
@@ -941,7 +941,7 @@ define internal i32 @dissect_dpnss(ptr noundef %0, ptr noundef %1, ptr noundef %
   %37 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %10, i32 noundef %36, ptr noundef %0, i32 noundef 1, i32 noundef -1, i32 noundef 0) #2
   %38 = load i32, ptr @ett_dpnss_ind_field, align 4
   %39 = tail call ptr @proto_item_add_subtree(ptr noundef %37, i32 noundef %38) #2
-  tail call fastcc void @dissect_dpnss_sup_info_str.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %39, i32 noundef 1)
+  tail call fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %39, i32 noundef 1)
   br label %dissect_dpnss_cc_msg.exit
 
 40:                                               ; preds = %24, %24
@@ -949,7 +949,7 @@ define internal i32 @dissect_dpnss(ptr noundef %0, ptr noundef %1, ptr noundef %
   %42 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %10, i32 noundef %41, ptr noundef %0, i32 noundef 1, i32 noundef -1, i32 noundef 0) #2
   %43 = load i32, ptr @ett_dpnss_ind_field, align 4
   %44 = tail call ptr @proto_item_add_subtree(ptr noundef %42, i32 noundef %43) #2
-  tail call fastcc void @dissect_dpnss_sup_info_str.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %44, i32 noundef 1)
+  tail call fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %44, i32 noundef 1)
   br label %dissect_dpnss_cc_msg.exit
 
 45:                                               ; preds = %24
@@ -963,7 +963,7 @@ define internal i32 @dissect_dpnss(ptr noundef %0, ptr noundef %1, ptr noundef %
   %51 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %10, i32 noundef %50, ptr noundef %0, i32 noundef 2, i32 noundef -1, i32 noundef 0) #2
   %52 = load i32, ptr @ett_dpnss_ind_field, align 4
   %53 = tail call ptr @proto_item_add_subtree(ptr noundef %51, i32 noundef %52) #2
-  tail call fastcc void @dissect_dpnss_sup_info_str.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %53, i32 noundef 2)
+  tail call fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %53, i32 noundef 2)
   br label %dissect_dpnss_cc_msg.exit
 
 54:                                               ; preds = %24
@@ -977,7 +977,7 @@ define internal i32 @dissect_dpnss(ptr noundef %0, ptr noundef %1, ptr noundef %
   %60 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %10, i32 noundef %59, ptr noundef %0, i32 noundef 1, i32 noundef -1, i32 noundef 0) #2
   %61 = load i32, ptr @ett_dpnss_ind_field, align 4
   %62 = tail call ptr @proto_item_add_subtree(ptr noundef %60, i32 noundef %61) #2
-  tail call fastcc void @dissect_dpnss_sup_info_str.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %62, i32 noundef 1)
+  tail call fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %62, i32 noundef 1)
   br label %dissect_dpnss_cc_msg.exit
 
 63:                                               ; preds = %24
@@ -985,7 +985,7 @@ define internal i32 @dissect_dpnss(ptr noundef %0, ptr noundef %1, ptr noundef %
   %65 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %10, i32 noundef %64, ptr noundef %0, i32 noundef 1, i32 noundef -1, i32 noundef 0) #2
   %66 = load i32, ptr @ett_dpnss_sel_field, align 4
   %67 = tail call ptr @proto_item_add_subtree(ptr noundef %65, i32 noundef %66) #2
-  tail call fastcc void @dissect_dpnss_sup_info_str.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %67, i32 noundef 1)
+  tail call fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %67, i32 noundef 1)
   br label %dissect_dpnss_cc_msg.exit
 
 68:                                               ; preds = %24
@@ -997,7 +997,7 @@ define internal i32 @dissect_dpnss(ptr noundef %0, ptr noundef %1, ptr noundef %
   %72 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %10, i32 noundef %71, ptr noundef %0, i32 noundef 1, i32 noundef -1, i32 noundef 0) #2
   %73 = load i32, ptr @ett_dpnss_sel_field, align 4
   %74 = tail call ptr @proto_item_add_subtree(ptr noundef %72, i32 noundef %73) #2
-  tail call fastcc void @dissect_dpnss_sup_info_str.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %74, i32 noundef 1)
+  tail call fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %74, i32 noundef 1)
   br label %dissect_dpnss_cc_msg.exit
 
 75:                                               ; preds = %24
@@ -1033,7 +1033,7 @@ define internal i32 @dissect_dpnss(ptr noundef %0, ptr noundef %1, ptr noundef %
   %89 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %10, i32 noundef %88, ptr noundef %0, i32 noundef 1, i32 noundef -1, i32 noundef 0) #2
   %90 = load i32, ptr @ett_dpnss_ind_field, align 4
   %91 = tail call ptr @proto_item_add_subtree(ptr noundef %89, i32 noundef %90) #2
-  tail call fastcc void @dissect_dpnss_sup_info_str.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %91, i32 noundef 1)
+  tail call fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %91, i32 noundef 1)
   br label %dissect_dpnss_cc_msg.exit
 
 92:                                               ; preds = %86, %86
@@ -1047,18 +1047,18 @@ define internal i32 @dissect_dpnss(ptr noundef %0, ptr noundef %1, ptr noundef %
   %98 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %10, i32 noundef %97, ptr noundef %0, i32 noundef 2, i32 noundef -1, i32 noundef 0) #2
   %99 = load i32, ptr @ett_dpnss_ind_field, align 4
   %100 = tail call ptr @proto_item_add_subtree(ptr noundef %98, i32 noundef %99) #2
-  tail call fastcc void @dissect_dpnss_sup_info_str.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %100, i32 noundef 2)
+  tail call fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %100, i32 noundef 2)
   br label %dissect_dpnss_cc_msg.exit
 
 101:                                              ; preds = %86, %86
   %102 = load i32, ptr @ett_dpnss_sic_field, align 4
   %103 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %10, ptr noundef %0, i32 noundef 1, i32 noundef -1, i32 noundef %102, ptr noundef null, ptr noundef nonnull @.str.189) #2
-  %104 = tail call fastcc i32 @dissect_dpnss_sic.argprom.argelim(ptr noundef %0, ptr noundef %103)
+  %104 = tail call fastcc i32 @dissect_dpnss_sic(ptr noundef %0, ptr noundef %103)
   %105 = load i32, ptr @hf_dpnss_selection_field, align 4
   %106 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %10, i32 noundef %105, ptr noundef %0, i32 noundef %104, i32 noundef -1, i32 noundef 0) #2
   %107 = load i32, ptr @ett_dpnss_sel_field, align 4
   %108 = tail call ptr @proto_item_add_subtree(ptr noundef %106, i32 noundef %107) #2
-  tail call fastcc void @dissect_dpnss_sup_info_str.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %108, i32 noundef %104)
+  tail call fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %108, i32 noundef %104)
   br label %dissect_dpnss_cc_msg.exit
 
 109:                                              ; preds = %86
@@ -1107,7 +1107,7 @@ define internal i32 @dissect_dpnss(ptr noundef %0, ptr noundef %1, ptr noundef %
   %133 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %10, i32 noundef %132, ptr noundef %0, i32 noundef 1, i32 noundef -1, i32 noundef 0) #2
   %134 = load i32, ptr @ett_dpnss_ind_field, align 4
   %135 = tail call ptr @proto_item_add_subtree(ptr noundef %133, i32 noundef %134) #2
-  tail call fastcc void @dissect_dpnss_sup_info_str.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %135, i32 noundef 1)
+  tail call fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %135, i32 noundef 1)
   br label %dissect_dpnss_cc_msg.exit
 
 136:                                              ; preds = %130
@@ -1121,18 +1121,18 @@ define internal i32 @dissect_dpnss(ptr noundef %0, ptr noundef %1, ptr noundef %
   %142 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %10, i32 noundef %141, ptr noundef %0, i32 noundef 1, i32 noundef -1, i32 noundef 0) #2
   %143 = load i32, ptr @ett_dpnss_ind_field, align 4
   %144 = tail call ptr @proto_item_add_subtree(ptr noundef %142, i32 noundef %143) #2
-  tail call fastcc void @dissect_dpnss_sup_info_str.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %144, i32 noundef 1)
+  tail call fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %144, i32 noundef 1)
   br label %dissect_dpnss_cc_msg.exit
 
 145:                                              ; preds = %130
   %146 = load i32, ptr @ett_dpnss_sic_field, align 4
   %147 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %10, ptr noundef %0, i32 noundef 1, i32 noundef -1, i32 noundef %146, ptr noundef null, ptr noundef nonnull @.str.189) #2
-  %148 = tail call fastcc i32 @dissect_dpnss_sic.argprom.argelim(ptr noundef %0, ptr noundef %147)
+  %148 = tail call fastcc i32 @dissect_dpnss_sic(ptr noundef %0, ptr noundef %147)
   %149 = load i32, ptr @hf_dpnss_indication_field, align 4
   %150 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %10, i32 noundef %149, ptr noundef %0, i32 noundef %148, i32 noundef -1, i32 noundef 0) #2
   %151 = load i32, ptr @ett_dpnss_ind_field, align 4
   %152 = tail call ptr @proto_item_add_subtree(ptr noundef %150, i32 noundef %151) #2
-  tail call fastcc void @dissect_dpnss_sup_info_str.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %152, i32 noundef %148)
+  tail call fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %152, i32 noundef %148)
   br label %dissect_dpnss_cc_msg.exit
 
 153:                                              ; preds = %130
@@ -1142,7 +1142,7 @@ define internal i32 @dissect_dpnss(ptr noundef %0, ptr noundef %1, ptr noundef %
   %157 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %10, i32 noundef %156, ptr noundef %0, i32 noundef 2, i32 noundef -1, i32 noundef 0) #2
   %158 = load i32, ptr @ett_dpnss_ind_field, align 4
   %159 = tail call ptr @proto_item_add_subtree(ptr noundef %157, i32 noundef %158) #2
-  tail call fastcc void @dissect_dpnss_sup_info_str.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %159, i32 noundef 2)
+  tail call fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %159, i32 noundef 2)
   br label %dissect_dpnss_cc_msg.exit
 
 160:                                              ; preds = %130
@@ -1152,7 +1152,7 @@ define internal i32 @dissect_dpnss(ptr noundef %0, ptr noundef %1, ptr noundef %
   %164 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %10, i32 noundef %163, ptr noundef %0, i32 noundef 2, i32 noundef -1, i32 noundef 0) #2
   %165 = load i32, ptr @ett_dpnss_ind_field, align 4
   %166 = tail call ptr @proto_item_add_subtree(ptr noundef %164, i32 noundef %165) #2
-  tail call fastcc void @dissect_dpnss_sup_info_str.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %166, i32 noundef 2)
+  tail call fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %166, i32 noundef 2)
   br label %dissect_dpnss_cc_msg.exit
 
 167:                                              ; preds = %130
@@ -1197,7 +1197,7 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 2, 4) i32 @dissect_dpnss_sic.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 2, 4) i32 @dissect_dpnss_sic(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
   %4 = lshr i8 %3, 4
   %5 = and i8 %4, 7
@@ -1211,7 +1211,7 @@ define internal fastcc range(i32 2, 4) i32 @dissect_dpnss_sic.argprom.argelim(pt
 
 switch.lookup:                                    ; preds = %2
   %11 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_dpnss_sic.argprom.argelim, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_dpnss_sic, i64 0, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   %12 = load i32, ptr %switch.load, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %12, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
@@ -1261,7 +1261,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dpnss_sup_info_str.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 1, 4) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 1, 4) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #2

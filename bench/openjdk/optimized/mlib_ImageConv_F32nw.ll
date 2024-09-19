@@ -535,13 +535,13 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_f32(ptr nocapture noundef read
 
 ._crit_edge.i:                                    ; preds = %._crit_edge70.split.us89.i, %._crit_edge70.split.us.us.us.i, %.lr.ph.i, %49
   %.not332.i = icmp eq ptr %.0300.i, %9
-  br i1 %.not332.i, label %mlib_ImageConv1xN.argprom.exit, label %260
+  br i1 %.not332.i, label %mlib_ImageConv1xN.exit, label %260
 
 260:                                              ; preds = %._crit_edge.i
   call void @mlib_free(ptr noundef %.0300.i) #6
-  br label %mlib_ImageConv1xN.argprom.exit
+  br label %mlib_ImageConv1xN.exit
 
-mlib_ImageConv1xN.argprom.exit:                   ; preds = %._crit_edge.i, %260
+mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %260
   call void @llvm.lifetime.end.p0(i64 6400, ptr nonnull %9)
   br label %578
 
@@ -1162,8 +1162,8 @@ mlib_ImageConv1xN.argprom.exit:                   ; preds = %._crit_edge.i, %260
   call void @mlib_free(ptr noundef nonnull %.05741126) #6
   br label %578
 
-578:                                              ; preds = %._crit_edge938, %577, %24, %mlib_ImageConv1xN.argprom.exit
-  %.0 = phi i32 [ 0, %mlib_ImageConv1xN.argprom.exit ], [ 1, %24 ], [ 0, %577 ], [ 0, %._crit_edge938 ]
+578:                                              ; preds = %._crit_edge938, %577, %24, %mlib_ImageConv1xN.exit
+  %.0 = phi i32 [ 0, %mlib_ImageConv1xN.exit ], [ 1, %24 ], [ 0, %577 ], [ 0, %._crit_edge938 ]
   ret i32 %.0
 }
 

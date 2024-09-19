@@ -3056,13 +3056,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__29HdsiPrimTypePruningSceneIndex10_PrunePat
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %78 = load ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, null
-  br i1 %79, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.argprom.exit, label %80
+  br i1 %79, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.exit, label %80
 
 80:                                               ; preds = %.loopexit
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %82 = load ptr, ptr %81, align 8
   %.not = icmp eq ptr %82, null
-  br i1 %.not, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.argprom.exit, label %83
+  br i1 %.not, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.exit, label %83
 
 83:                                               ; preds = %80
   %84 = getelementptr inbounds i8, ptr %6, i64 16
@@ -3139,7 +3139,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceC2ERKSt10sha
   %112 = load ptr, ptr %84, align 8
   store ptr %97, ptr %84, align 8
   %.not.i.i.i.i = icmp eq ptr %112, null
-  br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.argprom.exit, label %113
+  br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.exit, label %113
 
 113:                                              ; preds = %108
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 8
@@ -3175,7 +3175,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceC2ERKSt10sha
 129:                                              ; preds = %127, %125
   %.0.i.i.i.i.i = phi i32 [ %117, %125 ], [ %128, %127 ]
   %130 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %130, label %131, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.argprom.exit
+  br i1 %130, label %131, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.exit
 
 131:                                              ; preds = %129
   %132 = load ptr, ptr %112, align 8
@@ -3200,16 +3200,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceC2ERKSt10sha
 142:                                              ; preds = %140, %137
   %.0.i.i.i.i.i.i.i = phi i32 [ %138, %137 ], [ %141, %140 ]
   %143 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %143, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.argprom.exit
+  br i1 %143, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %142, %118
   %144 = load ptr, ptr %112, align 8
   %145 = getelementptr inbounds i8, ptr %144, i64 24
   %146 = load ptr, ptr %145, align 8
   call void %146(ptr noundef nonnull align 8 dereferenceable(16) %112) #21
-  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.exit
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.argprom.exit: ; preds = %108, %129, %142, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %80, %.loopexit
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.exit: ; preds = %108, %129, %142, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %80, %.loopexit
   %147 = load i64, ptr %6, align 8
   store i64 %147, ptr %0, align 8
   store i64 0, ptr %6, align 8
@@ -3300,7 +3300,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void %188(ptr noundef nonnull align 8 dereferenceable(16) %.pre) #21
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.i
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.i: ; preds = %35, %51, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.argprom.exit, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i22, %184, %171, %154
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.i: ; preds = %35, %51, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.exit, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i22, %184, %171, %154
   %189 = load ptr, ptr %6, align 8
   %190 = ptrtoint ptr %189 to i64
   %191 = and i64 %190, 7
@@ -7754,15 +7754,15 @@ attributes #24 = { nounwind allocsize(0) }
 !19 = distinct !{!19, !5}
 !20 = !{i64 91383014, i64 91383023, i64 91383052, i64 91383079}
 !21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEEPKNS_29HdsiPrimTypePruningSceneIndexEEEES3_IS1_EDpOT_.argprom: argument 0"}
-!23 = distinct !{!23, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEEPKNS_29HdsiPrimTypePruningSceneIndexEEEES3_IS1_EDpOT_.argprom"}
+!22 = distinct !{!22, !23, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEEPKNS_29HdsiPrimTypePruningSceneIndexEEEES3_IS1_EDpOT_: argument 0"}
+!23 = distinct !{!23, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEEPKNS_29HdsiPrimTypePruningSceneIndexEEEES3_IS1_EDpOT_"}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.unswitch.partial.disable"}
 !27 = distinct !{!27, !5}
 !28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_14_GetISt6vectorINS_7TfTokenESaIS3_EEEET_RKSt10shared_ptrINS_21HdContainerDataSourceEERKS3_.argprom: argument 0"}
-!30 = distinct !{!30, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_14_GetISt6vectorINS_7TfTokenESaIS3_EEEET_RKSt10shared_ptrINS_21HdContainerDataSourceEERKS3_.argprom"}
+!29 = distinct !{!29, !30, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_14_GetISt6vectorINS_7TfTokenESaIS3_EEEET_RKSt10shared_ptrINS_21HdContainerDataSourceEERKS3_: argument 0"}
+!30 = distinct !{!30, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_14_GetISt6vectorINS_7TfTokenESaIS3_EEEET_RKSt10shared_ptrINS_21HdContainerDataSourceEERKS3_"}
 !31 = !{!32}
 !32 = distinct !{!32, !33, !"_ZN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceISt6vectorINS_7TfTokenESaIS2_EEE4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE: argument 0"}
 !33 = distinct !{!33, !"_ZN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceISt6vectorINS_7TfTokenESaIS2_EEE4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE"}
@@ -7772,8 +7772,8 @@ attributes #24 = { nounwind allocsize(0) }
 !37 = !{!35, !32, !29}
 !38 = !{!35, !32}
 !39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_14_GetINS_7TfTokenEEET_RKSt10shared_ptrINS_21HdContainerDataSourceEERKS2_.argprom: argument 0"}
-!41 = distinct !{!41, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_14_GetINS_7TfTokenEEET_RKSt10shared_ptrINS_21HdContainerDataSourceEERKS2_.argprom"}
+!40 = distinct !{!40, !41, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_14_GetINS_7TfTokenEEET_RKSt10shared_ptrINS_21HdContainerDataSourceEERKS2_: argument 0"}
+!41 = distinct !{!41, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_14_GetINS_7TfTokenEEET_RKSt10shared_ptrINS_21HdContainerDataSourceEERKS2_"}
 !42 = !{!43}
 !43 = distinct !{!43, !44, !"_ZN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7TfTokenEE4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE: argument 0"}
 !44 = distinct !{!44, !"_ZN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7TfTokenEE4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE"}

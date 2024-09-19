@@ -453,8 +453,8 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   %230 = getelementptr inbounds i8, ptr %1, i64 8
   br label %.preheader73.i
 
-231:                                              ; preds = %_ZN2cv8ximgprocL12correctPixelERNS_3MatEii.argprom.argprom.exit.i, %.lr.ph81.i
-  %indvars.iv103.i = phi i64 [ 2, %.lr.ph81.i ], [ %indvars.iv.next104.i, %_ZN2cv8ximgprocL12correctPixelERNS_3MatEii.argprom.argprom.exit.i ]
+231:                                              ; preds = %_ZN2cv8ximgprocL12correctPixelERNS_3MatEii.exit.i, %.lr.ph81.i
+  %indvars.iv103.i = phi i64 [ 2, %.lr.ph81.i ], [ %indvars.iv.next104.i, %_ZN2cv8ximgprocL12correctPixelERNS_3MatEii.exit.i ]
   %.val66.i = load ptr, ptr %98, align 8
   %.val67.i = load ptr, ptr %99, align 8
   %.val67.val.i = load i64, ptr %.val67.i, align 8
@@ -604,7 +604,7 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   %.6.i.i = add nuw nsw i32 %.5.i.i, %359
   %.7.i.i = add nuw nsw i32 %.6.i.i, %367
   %368 = icmp eq i32 %.7.i.i, 1
-  br i1 %368, label %_ZN2cv8ximgprocL12correctPixelERNS_3MatEii.argprom.argprom.exit.i, label %369
+  br i1 %368, label %_ZN2cv8ximgprocL12correctPixelERNS_3MatEii.exit.i, label %369
 
 369:                                              ; preds = %231
   %370 = add nuw nsw i32 %351, %247
@@ -613,16 +613,16 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   %373 = add nuw nsw i32 %372, %281
   %374 = add nuw nsw i32 %373, %298
   switch i32 %374, label %375 [
-    i32 2040, label %_ZN2cv8ximgprocL12correctPixelERNS_3MatEii.argprom.argprom.exit.i
-    i32 0, label %_ZN2cv8ximgprocL12correctPixelERNS_3MatEii.argprom.argprom.exit.i
+    i32 2040, label %_ZN2cv8ximgprocL12correctPixelERNS_3MatEii.exit.i
+    i32 0, label %_ZN2cv8ximgprocL12correctPixelERNS_3MatEii.exit.i
   ]
 
 375:                                              ; preds = %369
   %376 = getelementptr inbounds i8, ptr %244, i64 %indvars.iv103.i
   %377 = load i8, ptr %376, align 1
-  br label %_ZN2cv8ximgprocL12correctPixelERNS_3MatEii.argprom.argprom.exit.i
+  br label %_ZN2cv8ximgprocL12correctPixelERNS_3MatEii.exit.i
 
-_ZN2cv8ximgprocL12correctPixelERNS_3MatEii.argprom.argprom.exit.i: ; preds = %375, %369, %369, %231
+_ZN2cv8ximgprocL12correctPixelERNS_3MatEii.exit.i: ; preds = %375, %369, %369, %231
   %.0.i.i = phi i8 [ %377, %375 ], [ 0, %231 ], [ -1, %369 ], [ -1, %369 ]
   %378 = load ptr, ptr %100, align 8
   %379 = load ptr, ptr %101, align 8
@@ -637,7 +637,7 @@ _ZN2cv8ximgprocL12correctPixelERNS_3MatEii.argprom.argprom.exit.i: ; preds = %37
   %387 = icmp slt i64 %indvars.iv.next104.i, %386
   br i1 %387, label %231, label %._crit_edge82.loopexit.i, !llvm.loop !8
 
-._crit_edge82.loopexit.i:                         ; preds = %_ZN2cv8ximgprocL12correctPixelERNS_3MatEii.argprom.argprom.exit.i
+._crit_edge82.loopexit.i:                         ; preds = %_ZN2cv8ximgprocL12correctPixelERNS_3MatEii.exit.i
   %.pre127.i = load i32, ptr %94, align 8
   br label %._crit_edge82.i
 

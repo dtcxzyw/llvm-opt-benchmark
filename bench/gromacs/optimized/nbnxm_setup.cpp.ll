@@ -496,7 +496,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i: ; preds = %_ZN3gmx14Log
   %or.cond.not.i.i = select i1 %55, i1 true, i1 %56
   %57 = icmp eq ptr %.val.i, null
   %or.cond.i.i = select i1 %or.cond.not.i.i, i1 true, i1 %57
-  br i1 %or.cond.i.i, label %_ZN5NbnxmL20nbnxn_simd_supportedERKN3gmx8MDLoggerERK10t_inputrec.argprom.exit.i, label %58
+  br i1 %or.cond.i.i, label %_ZN5NbnxmL20nbnxn_simd_supportedERKN3gmx8MDLoggerERK10t_inputrec.exit.i, label %58
 
 58:                                               ; preds = %54
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, i8 0, i64 40, i1 false)
@@ -515,7 +515,7 @@ _ZN3gmx14LogEntryWriter10appendTextEPKc.exit.i.i: ; preds = %58
 
 _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i.i: ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #18
-  br label %_ZN5NbnxmL20nbnxn_simd_supportedERKN3gmx8MDLoggerERK10t_inputrec.argprom.exit.i
+  br label %_ZN5NbnxmL20nbnxn_simd_supportedERKN3gmx8MDLoggerERK10t_inputrec.exit.i
 
 common.resume:                                    ; preds = %.body, %180, %common.resume.i
   %common.resume.op = phi { ptr, i32 } [ %common.resume.op.i, %common.resume.i ], [ %181, %180 ], [ %.pn.pn, %.body ]
@@ -532,11 +532,11 @@ common.resume.i:                                  ; preds = %.body28.i, %.body.i
           cleanup
   br label %common.resume.i
 
-_ZN5NbnxmL20nbnxn_simd_supportedERKN3gmx8MDLoggerERK10t_inputrec.argprom.exit.i: ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i.i, %54
+_ZN5NbnxmL20nbnxn_simd_supportedERKN3gmx8MDLoggerERK10t_inputrec.exit.i: ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i.i, %54
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17)
   br i1 %or.cond.not.i.i, label %66, label %78
 
-66:                                               ; preds = %_ZN5NbnxmL20nbnxn_simd_supportedERKN3gmx8MDLoggerERK10t_inputrec.argprom.exit.i
+66:                                               ; preds = %_ZN5NbnxmL20nbnxn_simd_supportedERKN3gmx8MDLoggerERK10t_inputrec.exit.i
   %67 = getelementptr inbounds i8, ptr %5, i64 101
   %.val21.i = load i8, ptr %67, align 1
   %68 = trunc i8 %.val21.i to i1
@@ -556,10 +556,10 @@ _ZN5NbnxmL20nbnxn_simd_supportedERKN3gmx8MDLoggerERK10t_inputrec.argprom.exit.i:
   %77 = select i1 %.not6.i.i, i64 %76, i64 8589934592
   br label %78
 
-78:                                               ; preds = %34, %66, %_ZN5NbnxmL20nbnxn_simd_supportedERKN3gmx8MDLoggerERK10t_inputrec.argprom.exit.i, %48, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i, %36
-  %79 = phi ptr [ %53, %66 ], [ %37, %36 ], [ %37, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i ], [ %35, %34 ], [ %53, %_ZN5NbnxmL20nbnxn_simd_supportedERKN3gmx8MDLoggerERK10t_inputrec.argprom.exit.i ], [ %53, %48 ]
-  %.sroa.06.0.i = phi i32 [ %.sroa.06.0.extract.trunc.i, %66 ], [ 5, %36 ], [ 5, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i ], [ 4, %34 ], [ 1, %_ZN5NbnxmL20nbnxn_simd_supportedERKN3gmx8MDLoggerERK10t_inputrec.argprom.exit.i ], [ 1, %48 ]
-  %.sroa.12.0.i = phi i64 [ %77, %66 ], [ 12884901888, %36 ], [ 12884901888, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i ], [ 12884901888, %34 ], [ 8589934592, %_ZN5NbnxmL20nbnxn_simd_supportedERKN3gmx8MDLoggerERK10t_inputrec.argprom.exit.i ], [ 8589934592, %48 ]
+78:                                               ; preds = %34, %66, %_ZN5NbnxmL20nbnxn_simd_supportedERKN3gmx8MDLoggerERK10t_inputrec.exit.i, %48, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i, %36
+  %79 = phi ptr [ %53, %66 ], [ %37, %36 ], [ %37, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i ], [ %35, %34 ], [ %53, %_ZN5NbnxmL20nbnxn_simd_supportedERKN3gmx8MDLoggerERK10t_inputrec.exit.i ], [ %53, %48 ]
+  %.sroa.06.0.i = phi i32 [ %.sroa.06.0.extract.trunc.i, %66 ], [ 5, %36 ], [ 5, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i ], [ 4, %34 ], [ 1, %_ZN5NbnxmL20nbnxn_simd_supportedERKN3gmx8MDLoggerERK10t_inputrec.exit.i ], [ 1, %48 ]
+  %.sroa.12.0.i = phi i64 [ %77, %66 ], [ 12884901888, %36 ], [ 12884901888, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i ], [ 12884901888, %34 ], [ 8589934592, %_ZN5NbnxmL20nbnxn_simd_supportedERKN3gmx8MDLoggerERK10t_inputrec.exit.i ], [ 8589934592, %48 ]
   %80 = getelementptr inbounds i8, ptr %1, i64 32
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
@@ -601,12 +601,12 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit25.i: ; preds = %87
 92:                                               ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit25.i, %78
   %93 = and i32 %.sroa.06.0.i, -5
   %or.cond.i = icmp eq i32 %93, 1
-  br i1 %or.cond.i, label %94, label %_ZN5NbnxmL17pick_nbnxn_kernelERKN3gmx8MDLoggerEbRK13gmx_hw_info_tRKNS_17NonbondedResourceERK10t_inputrec.argprom.exit
+  br i1 %or.cond.i, label %94, label %_ZN5NbnxmL17pick_nbnxn_kernelERKN3gmx8MDLoggerEbRK13gmx_hw_info_tRKNS_17NonbondedResourceERK10t_inputrec.exit
 
 94:                                               ; preds = %92
   %95 = load ptr, ptr %1, align 8
   %96 = icmp eq ptr %95, null
-  br i1 %96, label %_ZN5NbnxmL17pick_nbnxn_kernelERKN3gmx8MDLoggerEbRK13gmx_hw_info_tRKNS_17NonbondedResourceERK10t_inputrec.argprom.exit, label %switch.lookup139
+  br i1 %96, label %_ZN5NbnxmL17pick_nbnxn_kernelERKN3gmx8MDLoggerEbRK13gmx_hw_info_tRKNS_17NonbondedResourceERK10t_inputrec.exit, label %switch.lookup139
 
 switch.lookup139:                                 ; preds = %94
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, i8 0, i64 40, i1 false)
@@ -629,14 +629,14 @@ switch.lookup139:                                 ; preds = %94
 
 _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit32.i: ; preds = %100
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #18
-  br label %_ZN5NbnxmL17pick_nbnxn_kernelERKN3gmx8MDLoggerEbRK13gmx_hw_info_tRKNS_17NonbondedResourceERK10t_inputrec.argprom.exit
+  br label %_ZN5NbnxmL17pick_nbnxn_kernelERKN3gmx8MDLoggerEbRK13gmx_hw_info_tRKNS_17NonbondedResourceERK10t_inputrec.exit
 
 .body28.i:                                        ; preds = %100, %switch.lookup139
   %104 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
 
-_ZN5NbnxmL17pick_nbnxn_kernelERKN3gmx8MDLoggerEbRK13gmx_hw_info_tRKNS_17NonbondedResourceERK10t_inputrec.argprom.exit: ; preds = %92, %94, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit32.i
+_ZN5NbnxmL17pick_nbnxn_kernelERKN3gmx8MDLoggerEbRK13gmx_hw_info_tRKNS_17NonbondedResourceERK10t_inputrec.exit: ; preds = %92, %94, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit32.i
   %.sroa.06.0.insert.ext.i = zext nneg i32 %.sroa.06.0.i to i64
   %.sroa.06.0.insert.insert.i = or i64 %.sroa.12.0.i, %.sroa.06.0.insert.ext.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18)
@@ -649,7 +649,7 @@ _ZN5NbnxmL17pick_nbnxn_kernelERKN3gmx8MDLoggerEbRK13gmx_hw_info_tRKNS_17Nonbonde
   %107 = trunc i64 %.sroa.06.0.insert.insert.i to i32
   br i1 %.not.i, label %_ZL25havePPDomainDecompositionPK9t_commrec.exit, label %108
 
-108:                                              ; preds = %_ZN5NbnxmL17pick_nbnxn_kernelERKN3gmx8MDLoggerEbRK13gmx_hw_info_tRKNS_17NonbondedResourceERK10t_inputrec.argprom.exit
+108:                                              ; preds = %_ZN5NbnxmL17pick_nbnxn_kernelERKN3gmx8MDLoggerEbRK13gmx_hw_info_tRKNS_17NonbondedResourceERK10t_inputrec.exit
   %109 = getelementptr inbounds i8, ptr %4, i64 4
   %110 = load i32, ptr %109, align 4
   %111 = getelementptr inbounds i8, ptr %4, i64 8
@@ -658,8 +658,8 @@ _ZN5NbnxmL17pick_nbnxn_kernelERKN3gmx8MDLoggerEbRK13gmx_hw_info_tRKNS_17Nonbonde
   %114 = icmp sgt i32 %113, 1
   br label %_ZL25havePPDomainDecompositionPK9t_commrec.exit
 
-_ZL25havePPDomainDecompositionPK9t_commrec.exit:  ; preds = %_ZN5NbnxmL17pick_nbnxn_kernelERKN3gmx8MDLoggerEbRK13gmx_hw_info_tRKNS_17NonbondedResourceERK10t_inputrec.argprom.exit, %108
-  %115 = phi i1 [ false, %_ZN5NbnxmL17pick_nbnxn_kernelERKN3gmx8MDLoggerEbRK13gmx_hw_info_tRKNS_17NonbondedResourceERK10t_inputrec.argprom.exit ], [ %114, %108 ]
+_ZL25havePPDomainDecompositionPK9t_commrec.exit:  ; preds = %_ZN5NbnxmL17pick_nbnxn_kernelERKN3gmx8MDLoggerEbRK13gmx_hw_info_tRKNS_17NonbondedResourceERK10t_inputrec.exit, %108
+  %115 = phi i1 [ false, %_ZN5NbnxmL17pick_nbnxn_kernelERKN3gmx8MDLoggerEbRK13gmx_hw_info_tRKNS_17NonbondedResourceERK10t_inputrec.exit ], [ %114, %108 ]
   %116 = getelementptr inbounds i8, ptr %3, i64 144
   %117 = load i32, ptr %116, align 8
   %.not59 = icmp eq i32 %117, 0
@@ -719,7 +719,7 @@ _ZL25havePPDomainDecompositionPK9t_commrec.exit:  ; preds = %_ZN5NbnxmL17pick_nb
   %.val68 = load ptr, ptr %3, align 8
   %152 = load i32, ptr %.val68, align 8
   %153 = icmp eq i32 %152, 0
-  br i1 %153, label %154, label %_ZN5NbnxmL23chooseLJCombinationRuleERK10t_forcerec.argprom.exit
+  br i1 %153, label %154, label %_ZN5NbnxmL23chooseLJCombinationRuleERK10t_forcerec.exit
 
 154:                                              ; preds = %144
   %155 = getelementptr inbounds i8, ptr %.val68, i64 4
@@ -731,41 +731,41 @@ _ZL25havePPDomainDecompositionPK9t_commrec.exit:  ; preds = %_ZN5NbnxmL17pick_nb
 157:                                              ; preds = %154
   %158 = call ptr @getenv(ptr noundef nonnull @.str.20) #18
   %159 = icmp eq ptr %158, null
-  br i1 %159, label %_ZN5NbnxmL23chooseLJCombinationRuleERK10t_forcerec.argprom.exit, label %.thread.i
+  br i1 %159, label %_ZN5NbnxmL23chooseLJCombinationRuleERK10t_forcerec.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %157, %154
-  br label %_ZN5NbnxmL23chooseLJCombinationRuleERK10t_forcerec.argprom.exit
+  br label %_ZN5NbnxmL23chooseLJCombinationRuleERK10t_forcerec.exit
 
-_ZN5NbnxmL23chooseLJCombinationRuleERK10t_forcerec.argprom.exit: ; preds = %144, %157, %.thread.i
+_ZN5NbnxmL23chooseLJCombinationRuleERK10t_forcerec.exit: ; preds = %144, %157, %.thread.i
   %.sroa.3.0.i = phi i64 [ 2, %157 ], [ 4294967298, %.thread.i ], [ 4294967298, %144 ]
   store i64 %.sroa.3.0.i, ptr %25, align 8
   %160 = getelementptr inbounds i8, ptr %3, i64 312
   %.val69.val = load i32, ptr %.val68, align 8
   %161 = icmp eq i32 %.val69.val, 5
-  br i1 %161, label %162, label %_ZN5NbnxmL26chooseLJPmeCombinationRuleERK10t_forcerec.argprom.argprom.exit
+  br i1 %161, label %162, label %_ZN5NbnxmL26chooseLJPmeCombinationRuleERK10t_forcerec.exit
 
-162:                                              ; preds = %_ZN5NbnxmL23chooseLJCombinationRuleERK10t_forcerec.argprom.exit
+162:                                              ; preds = %_ZN5NbnxmL23chooseLJCombinationRuleERK10t_forcerec.exit
   %.val70 = load i32, ptr %160, align 8
   %switch = icmp ult i32 %.val70, 2
-  br i1 %switch, label %_ZN5NbnxmL26chooseLJPmeCombinationRuleERK10t_forcerec.argprom.argprom.exit, label %163
+  br i1 %switch, label %_ZN5NbnxmL26chooseLJPmeCombinationRuleERK10t_forcerec.exit, label %163
 
 163:                                              ; preds = %162
   call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN5NbnxmL26chooseLJPmeCombinationRuleERK10t_forcerecENK3$_0clEv", ptr noundef nonnull @.str.5, i32 noundef 388) #17
   unreachable
 
-_ZN5NbnxmL26chooseLJPmeCombinationRuleERK10t_forcerec.argprom.argprom.exit: ; preds = %162, %_ZN5NbnxmL23chooseLJCombinationRuleERK10t_forcerec.argprom.exit
-  %.0.i = phi i32 [ 2, %_ZN5NbnxmL23chooseLJCombinationRuleERK10t_forcerec.argprom.exit ], [ %.val70, %162 ]
+_ZN5NbnxmL26chooseLJPmeCombinationRuleERK10t_forcerec.exit: ; preds = %162, %_ZN5NbnxmL23chooseLJCombinationRuleERK10t_forcerec.exit
+  %.0.i = phi i32 [ 2, %_ZN5NbnxmL23chooseLJCombinationRuleERK10t_forcerec.exit ], [ %.val70, %162 ]
   %164 = getelementptr inbounds i8, ptr %3, i64 316
   %165 = getelementptr inbounds i8, ptr %3, i64 328
   %brmerge65 = or i1 %6, %.not
   br i1 %brmerge65, label %168, label %166
 
-166:                                              ; preds = %_ZN5NbnxmL26chooseLJPmeCombinationRuleERK10t_forcerec.argprom.argprom.exit
+166:                                              ; preds = %_ZN5NbnxmL26chooseLJPmeCombinationRuleERK10t_forcerec.exit
   %167 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 3)
   br label %168
 
-168:                                              ; preds = %_ZN5NbnxmL26chooseLJPmeCombinationRuleERK10t_forcerec.argprom.argprom.exit, %166
-  %169 = phi i32 [ %167, %166 ], [ 1, %_ZN5NbnxmL26chooseLJPmeCombinationRuleERK10t_forcerec.argprom.argprom.exit ]
+168:                                              ; preds = %_ZN5NbnxmL26chooseLJPmeCombinationRuleERK10t_forcerec.exit, %166
+  %169 = phi i32 [ %167, %166 ], [ 1, %_ZN5NbnxmL26chooseLJPmeCombinationRuleERK10t_forcerec.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
   %170 = call noalias noundef nonnull dereferenceable(464) ptr @_Znwm(i64 noundef 464) #20, !noalias !11

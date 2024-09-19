@@ -14837,7 +14837,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEC2ERKS2_.exit: ; pr
   br label %.body639
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit641: ; preds = %.noexc638
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %34, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %35)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %34, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %35)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__31Usd_CreatePredicateForTraversalINS_18Usd_PrimDataHandleEEENS_22Usd_PrimFlagsPredicateERKT_RKNS_7SdfPathES2_.exit.i unwind label %2900
 
 _ZN32pxrInternal_v0_24__pxrReserved__31Usd_CreatePredicateForTraversalINS_18Usd_PrimDataHandleEEENS_22Usd_PrimFlagsPredicateERKT_RKNS_7SdfPathES2_.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit641
@@ -14877,7 +14877,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__31Usd_CreatePredicateForTraversalINS_18Usd_
   br label %.body649.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit651: ; preds = %.noexc648
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %38, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %39)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %38, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %39)
           to label %255 unwind label %2906
 
 255:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit651
@@ -14901,7 +14901,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit651: ;
   br label %.body654
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit656: ; preds = %.noexc653
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %256, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %41)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %256, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %41)
           to label %260 unwind label %2910
 
 260:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit656
@@ -14925,7 +14925,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit656: ;
   br label %.body659
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit661: ; preds = %.noexc658
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %261, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %43)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %261, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %43)
           to label %265 unwind label %2914
 
 265:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit661
@@ -14949,7 +14949,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit661: ;
   br label %.body664
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit666: ; preds = %.noexc663
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %266, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %45)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %266, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %45)
           to label %270 unwind label %2918
 
 270:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit666
@@ -14973,7 +14973,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit666: ;
   br label %.body669
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit671: ; preds = %.noexc668
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %271, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %47)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %271, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %47)
           to label %275 unwind label %2922
 
 275:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit671
@@ -14997,7 +14997,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit671: ;
   br label %.body674
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit676: ; preds = %.noexc673
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %276, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %49)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %276, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %49)
           to label %280 unwind label %2926
 
 280:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit676
@@ -15021,7 +15021,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit676: ;
   br label %.body679
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit681: ; preds = %.noexc678
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %281, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %51)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %281, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %51)
           to label %285 unwind label %2930
 
 285:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit681
@@ -15045,7 +15045,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit681: ;
   br label %.body684
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit686: ; preds = %.noexc683
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %286, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %53)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %286, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %53)
           to label %290 unwind label %2934
 
 290:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit686
@@ -15069,7 +15069,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit686: ;
   br label %.body689
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit691: ; preds = %.noexc688
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %291, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %55)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %291, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %55)
           to label %295 unwind label %2938
 
 295:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit691
@@ -15093,7 +15093,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit691: ;
   br label %.body694
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit696: ; preds = %.noexc693
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %296, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %57)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %296, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %57)
           to label %300 unwind label %2942
 
 300:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit696
@@ -15117,7 +15117,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit696: ;
   br label %.body699
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit701: ; preds = %.noexc698
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %301, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %59)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %301, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %59)
           to label %305 unwind label %2946
 
 305:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit701
@@ -15141,7 +15141,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit701: ;
   br label %.body704
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit706: ; preds = %.noexc703
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %306, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %61)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %306, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %61)
           to label %310 unwind label %2950
 
 310:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit706
@@ -15165,7 +15165,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit706: ;
   br label %.body709
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit711: ; preds = %.noexc708
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %311, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %63)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %311, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %63)
           to label %315 unwind label %2954
 
 315:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit711
@@ -15189,7 +15189,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit711: ;
   br label %.body714
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit716: ; preds = %.noexc713
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %316, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %65)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %316, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %65)
           to label %320 unwind label %2958
 
 320:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit716
@@ -15213,7 +15213,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit716: ;
   br label %.body719
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit721: ; preds = %.noexc718
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %321, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %67)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %321, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %67)
           to label %325 unwind label %2962
 
 325:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit721
@@ -15237,7 +15237,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit721: ;
   br label %.body724
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit726: ; preds = %.noexc723
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %326, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %69)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %326, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %69)
           to label %330 unwind label %2966
 
 330:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit726
@@ -15639,7 +15639,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit739: ; preds = %_ZN32pxrIn
   br label %.body639
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit744: ; preds = %.noexc741
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %72, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %73)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %72, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %73)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__31Usd_CreatePredicateForTraversalINS_18Usd_PrimDataHandleEEENS_22Usd_PrimFlagsPredicateERKT_RKNS_7SdfPathES2_.exit.i754 unwind label %2997
 
 _ZN32pxrInternal_v0_24__pxrReserved__31Usd_CreatePredicateForTraversalINS_18Usd_PrimDataHandleEEENS_22Usd_PrimFlagsPredicateERKT_RKNS_7SdfPathES2_.exit.i754: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit744
@@ -15679,7 +15679,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__31Usd_CreatePredicateForTraversalINS_18Usd_
   br label %.body764.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit766: ; preds = %.noexc763
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %76, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %77)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %76, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %77)
           to label %512 unwind label %3003
 
 512:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit766
@@ -15703,7 +15703,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit766: ;
   br label %.body769
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit771: ; preds = %.noexc768
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %513, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %79)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %513, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %79)
           to label %517 unwind label %3007
 
 517:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit771
@@ -15727,7 +15727,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit771: ;
   br label %.body774
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit776: ; preds = %.noexc773
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %518, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %81)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %518, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %81)
           to label %522 unwind label %3011
 
 522:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit776
@@ -15751,7 +15751,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit776: ;
   br label %.body779
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit781: ; preds = %.noexc778
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %523, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %83)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %523, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %83)
           to label %527 unwind label %3015
 
 527:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit781
@@ -15775,7 +15775,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit781: ;
   br label %.body784
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit786: ; preds = %.noexc783
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %528, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %85)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %528, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %85)
           to label %532 unwind label %3019
 
 532:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit786
@@ -15799,7 +15799,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit786: ;
   br label %.body789
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit791: ; preds = %.noexc788
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %533, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %87)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %533, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %87)
           to label %537 unwind label %3023
 
 537:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit791
@@ -16181,7 +16181,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit832: ; preds = %_ZN32pxrIn
   br label %.body639
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit837: ; preds = %.noexc834
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %90, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %91)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %90, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %91)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__31Usd_CreatePredicateForTraversalINS_18Usd_PrimDataHandleEEENS_22Usd_PrimFlagsPredicateERKT_RKNS_7SdfPathES2_.exit.i847 unwind label %3044
 
 _ZN32pxrInternal_v0_24__pxrReserved__31Usd_CreatePredicateForTraversalINS_18Usd_PrimDataHandleEEENS_22Usd_PrimFlagsPredicateERKT_RKNS_7SdfPathES2_.exit.i847: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit837
@@ -16221,7 +16221,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__31Usd_CreatePredicateForTraversalINS_18Usd_
   br label %.body857.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit859: ; preds = %.noexc856
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %94, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %95)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %94, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %95)
           to label %719 unwind label %3050
 
 719:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit859
@@ -16245,7 +16245,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit859: ;
   br label %.body862
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit864: ; preds = %.noexc861
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %720, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %97)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %720, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %97)
           to label %724 unwind label %3054
 
 724:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit864
@@ -16619,7 +16619,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit905: ; preds = %_ZN32pxrIn
   br label %.body639
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit910: ; preds = %.noexc907
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %100, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %101)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %100, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %101)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__31Usd_CreatePredicateForTraversalINS_18Usd_PrimDataHandleEEENS_22Usd_PrimFlagsPredicateERKT_RKNS_7SdfPathES2_.exit.i920 unwind label %3071
 
 _ZN32pxrInternal_v0_24__pxrReserved__31Usd_CreatePredicateForTraversalINS_18Usd_PrimDataHandleEEENS_22Usd_PrimFlagsPredicateERKT_RKNS_7SdfPathES2_.exit.i920: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit910
@@ -16659,7 +16659,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__31Usd_CreatePredicateForTraversalINS_18Usd_
   br label %.body930.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit932: ; preds = %.noexc929
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %104, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %105)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %104, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %105)
           to label %906 unwind label %3077
 
 906:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit932
@@ -16683,7 +16683,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit932: ;
   br label %.body935
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit937: ; preds = %.noexc934
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %907, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %107)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %907, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %107)
           to label %911 unwind label %3081
 
 911:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit937
@@ -17057,7 +17057,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit978: ; preds = %_ZN32pxrIn
   br label %.body639
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit983: ; preds = %.noexc980
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %110, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %111)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %110, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %111)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__31Usd_CreatePredicateForTraversalINS_18Usd_PrimDataHandleEEENS_22Usd_PrimFlagsPredicateERKT_RKNS_7SdfPathES2_.exit.i993 unwind label %3098
 
 _ZN32pxrInternal_v0_24__pxrReserved__31Usd_CreatePredicateForTraversalINS_18Usd_PrimDataHandleEEENS_22Usd_PrimFlagsPredicateERKT_RKNS_7SdfPathES2_.exit.i993: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit983
@@ -17097,7 +17097,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__31Usd_CreatePredicateForTraversalINS_18Usd_
   br label %.body1003.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1005: ; preds = %.noexc1002
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %114, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %115)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %114, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %115)
           to label %1093 unwind label %3104
 
 1093:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1005
@@ -17121,7 +17121,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1005: 
   br label %.body1008
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1010: ; preds = %.noexc1007
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %1094, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %117)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %1094, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %117)
           to label %1098 unwind label %3108
 
 1098:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1010
@@ -17145,7 +17145,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1010: 
   br label %.body1013
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1015: ; preds = %.noexc1012
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %1099, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %119)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %1099, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %119)
           to label %1103 unwind label %3112
 
 1103:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1015
@@ -17169,7 +17169,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1015: 
   br label %.body1018
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1020: ; preds = %.noexc1017
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %1104, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %121)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %1104, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %121)
           to label %1108 unwind label %3116
 
 1108:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1020
@@ -17193,7 +17193,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1020: 
   br label %.body1023
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1025: ; preds = %.noexc1022
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %1109, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %123)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %1109, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %123)
           to label %1113 unwind label %3120
 
 1113:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1025
@@ -17217,7 +17217,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1025: 
   br label %.body1028
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1030: ; preds = %.noexc1027
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %1114, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %125)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %1114, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %125)
           to label %1118 unwind label %3124
 
 1118:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1030
@@ -17599,7 +17599,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit1071: ; preds = %_ZN32pxrI
   br label %.body639
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1076: ; preds = %.noexc1073
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %128, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %129)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %128, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %129)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__31Usd_CreatePredicateForTraversalINS_18Usd_PrimDataHandleEEENS_22Usd_PrimFlagsPredicateERKT_RKNS_7SdfPathES2_.exit.i1086 unwind label %3145
 
 _ZN32pxrInternal_v0_24__pxrReserved__31Usd_CreatePredicateForTraversalINS_18Usd_PrimDataHandleEEENS_22Usd_PrimFlagsPredicateERKT_RKNS_7SdfPathES2_.exit.i1086: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1076
@@ -17639,7 +17639,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__31Usd_CreatePredicateForTraversalINS_18Usd_
   br label %.body1096.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1098: ; preds = %.noexc1095
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %132, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %133)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %132, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %133)
           to label %1300 unwind label %3151
 
 1300:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1098
@@ -17663,7 +17663,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1098: 
   br label %.body1101
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1103: ; preds = %.noexc1100
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %1301, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %135)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %1301, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %135)
           to label %1305 unwind label %3155
 
 1305:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1103
@@ -18037,7 +18037,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit1144: ; preds = %_ZN32pxrI
   br label %.body639
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1149: ; preds = %.noexc1146
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %138, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %139)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %138, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %139)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__31Usd_CreatePredicateForTraversalINS_18Usd_PrimDataHandleEEENS_22Usd_PrimFlagsPredicateERKT_RKNS_7SdfPathES2_.exit.i1159 unwind label %3172
 
 _ZN32pxrInternal_v0_24__pxrReserved__31Usd_CreatePredicateForTraversalINS_18Usd_PrimDataHandleEEENS_22Usd_PrimFlagsPredicateERKT_RKNS_7SdfPathES2_.exit.i1159: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1149
@@ -18077,7 +18077,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__31Usd_CreatePredicateForTraversalINS_18Usd_
   br label %.body1169.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1171: ; preds = %.noexc1168
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %142, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %143)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %142, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %143)
           to label %1487 unwind label %3178
 
 1487:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1171
@@ -18101,7 +18101,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1171: 
   br label %.body1174
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1176: ; preds = %.noexc1173
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %1488, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %145)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %1488, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %145)
           to label %1492 unwind label %3182
 
 1492:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1176
@@ -18475,7 +18475,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit1217: ; preds = %_ZN32pxrI
   br label %.body639
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1222: ; preds = %.noexc1219
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %148, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %149)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %148, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %149)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__31Usd_CreatePredicateForTraversalINS_18Usd_PrimDataHandleEEENS_22Usd_PrimFlagsPredicateERKT_RKNS_7SdfPathES2_.exit.i1232 unwind label %3199
 
 _ZN32pxrInternal_v0_24__pxrReserved__31Usd_CreatePredicateForTraversalINS_18Usd_PrimDataHandleEEENS_22Usd_PrimFlagsPredicateERKT_RKNS_7SdfPathES2_.exit.i1232: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1222
@@ -18515,7 +18515,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__31Usd_CreatePredicateForTraversalINS_18Usd_
   br label %.body1242.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1244: ; preds = %.noexc1241
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %152, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %153)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %152, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %153)
           to label %1674 unwind label %3205
 
 1674:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1244
@@ -18539,7 +18539,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1244: 
   br label %.body1247
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1249: ; preds = %.noexc1246
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %1675, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %155)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %1675, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %155)
           to label %1679 unwind label %3209
 
 1679:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1249
@@ -18913,7 +18913,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit1290: ; preds = %_ZN32pxrI
   br label %.body639
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1295: ; preds = %.noexc1292
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %158, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %159)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %158, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %159)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__31Usd_CreatePredicateForTraversalINS_18Usd_PrimDataHandleEEENS_22Usd_PrimFlagsPredicateERKT_RKNS_7SdfPathES2_.exit.i1305 unwind label %3226
 
 _ZN32pxrInternal_v0_24__pxrReserved__31Usd_CreatePredicateForTraversalINS_18Usd_PrimDataHandleEEENS_22Usd_PrimFlagsPredicateERKT_RKNS_7SdfPathES2_.exit.i1305: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1295
@@ -18953,7 +18953,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__31Usd_CreatePredicateForTraversalINS_18Usd_
   br label %.body1315.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1317: ; preds = %.noexc1314
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %162, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %163)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %162, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %163)
           to label %1861 unwind label %3232
 
 1861:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1317
@@ -18977,7 +18977,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1317: 
   br label %.body1320
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1322: ; preds = %.noexc1319
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %1862, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %165)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %1862, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %165)
           to label %1866 unwind label %3236
 
 1866:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1322
@@ -19351,7 +19351,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit1363: ; preds = %_ZN32pxrI
   br label %.body639
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1368: ; preds = %.noexc1365
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %168, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %169)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %168, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %169)
           to label %2040 unwind label %3253
 
 2040:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1368
@@ -19409,7 +19409,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim22GetFilteredDescendantsERKNS_22Us
   br label %.body1373.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1375: ; preds = %.noexc1372
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %172, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %173)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %172, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %173)
           to label %2056 unwind label %3259
 
 2056:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1375
@@ -19433,7 +19433,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1375: 
   br label %.body1378
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1380: ; preds = %.noexc1377
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %2057, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %175)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %2057, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %175)
           to label %2061 unwind label %3263
 
 2061:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1380
@@ -19807,7 +19807,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit1421: ; preds = %_ZN32pxrI
   br label %.body639
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1426: ; preds = %.noexc1423
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %178, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %179)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %178, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %179)
           to label %2235 unwind label %3280
 
 2235:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1426
@@ -19865,7 +19865,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim22GetFilteredDescendantsERKNS_22Us
   br label %.body1440.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1442: ; preds = %.noexc1439
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %182, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %183)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %182, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %183)
           to label %2251 unwind label %3286
 
 2251:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1442
@@ -19889,7 +19889,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1442: 
   br label %.body1445
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1447: ; preds = %.noexc1444
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %2252, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %185)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %2252, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %185)
           to label %2256 unwind label %3290
 
 2256:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1447
@@ -20263,7 +20263,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit1488: ; preds = %_ZN32pxrI
   br label %.body639
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1493: ; preds = %.noexc1490
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %188, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %189)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %188, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %189)
           to label %2430 unwind label %3307
 
 2430:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1493
@@ -20321,7 +20321,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim22GetFilteredDescendantsERKNS_22Us
   br label %.body1507.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1509: ; preds = %.noexc1506
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %192, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %193)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %192, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %193)
           to label %2446 unwind label %3313
 
 2446:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1509
@@ -20345,7 +20345,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1509: 
   br label %.body1512
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1514: ; preds = %.noexc1511
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %2447, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %195)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %2447, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %195)
           to label %2451 unwind label %3317
 
 2451:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1514
@@ -20719,7 +20719,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit1555: ; preds = %_ZN32pxrI
   br label %.body639
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1560: ; preds = %.noexc1557
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %198, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %199)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %198, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %199)
           to label %2625 unwind label %3334
 
 2625:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1560
@@ -20777,7 +20777,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim22GetFilteredDescendantsERKNS_22Us
   br label %.body1574.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1576: ; preds = %.noexc1573
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %202, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %203)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %202, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %203)
           to label %2641 unwind label %3340
 
 2641:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1576
@@ -20801,7 +20801,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1576: 
   br label %.body1579
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1581: ; preds = %.noexc1578
-  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %2642, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %205)
+  invoke fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %2642, ptr nonnull %223, ptr noundef nonnull align 8 dereferenceable(32) %205)
           to label %2646 unwind label %3344
 
 2646:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1581
@@ -21236,7 +21236,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit1629: ; preds = %2849, %28
 
 2858:                                             ; preds = %2853
   %2859 = icmp eq i32 %2850, -1
-  br i1 %2859, label %2864, label %"_ZZL35TestGetDescendantsAsInstanceProxiesvEN3$_0D2Ev.argprom.exit"
+  br i1 %2859, label %2864, label %"_ZZL35TestGetDescendantsAsInstanceProxiesvEN3$_0D2Ev.exit"
 
 2860:                                             ; preds = %2853, %2852
   %.067.i.i.i.i = phi i32 [ %2857, %2853 ], [ -2, %2852 ]
@@ -21244,19 +21244,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit1629: ; preds = %2849, %28
           to label %.noexc.i.i unwind label %2868
 
 .noexc.i.i:                                       ; preds = %2860
-  br i1 %2861, label %2864, label %"_ZZL35TestGetDescendantsAsInstanceProxiesvEN3$_0D2Ev.argprom.exit"
+  br i1 %2861, label %2864, label %"_ZZL35TestGetDescendantsAsInstanceProxiesvEN3$_0D2Ev.exit"
 
 _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit1629
   %2862 = atomicrmw sub ptr %224, i32 1 release, align 4
   %2863 = icmp eq i32 %2862, 1
-  br i1 %2863, label %2864, label %"_ZZL35TestGetDescendantsAsInstanceProxiesvEN3$_0D2Ev.argprom.exit"
+  br i1 %2863, label %2864, label %"_ZZL35TestGetDescendantsAsInstanceProxiesvEN3$_0D2Ev.exit"
 
 2864:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i, %.noexc.i.i, %2858
   %2865 = load ptr, ptr %223, align 8
   %2866 = getelementptr inbounds i8, ptr %2865, i64 8
   %2867 = load ptr, ptr %2866, align 8
   call void %2867(ptr noundef nonnull align 8 dereferenceable(12) %223) #18
-  br label %"_ZZL35TestGetDescendantsAsInstanceProxiesvEN3$_0D2Ev.argprom.exit"
+  br label %"_ZZL35TestGetDescendantsAsInstanceProxiesvEN3$_0D2Ev.exit"
 
 2868:                                             ; preds = %2860
   %2869 = landingpad { ptr, i32 }
@@ -21265,12 +21265,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
   call void @__clang_call_terminate(ptr %2870) #20
   unreachable
 
-"_ZZL35TestGetDescendantsAsInstanceProxiesvEN3$_0D2Ev.argprom.exit": ; preds = %2858, %.noexc.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i, %2864
+"_ZZL35TestGetDescendantsAsInstanceProxiesvEN3$_0D2Ev.exit": ; preds = %2858, %.noexc.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i, %2864
   %2871 = load ptr, ptr %30, align 8
   %.not.i.i.i1631 = icmp eq ptr %2871, null
   br i1 %.not.i.i.i1631, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit, label %2872
 
-2872:                                             ; preds = %"_ZZL35TestGetDescendantsAsInstanceProxiesvEN3$_0D2Ev.argprom.exit"
+2872:                                             ; preds = %"_ZZL35TestGetDescendantsAsInstanceProxiesvEN3$_0D2Ev.exit"
   %2873 = getelementptr inbounds nuw i8, ptr %2871, i64 8
   %2874 = load atomic i32, ptr %2873 monotonic, align 4
   %2875 = icmp slt i32 %2874, 0
@@ -21318,7 +21318,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
   call void @__clang_call_terminate(ptr %2894) #20
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit: ; preds = %"_ZZL35TestGetDescendantsAsInstanceProxiesvEN3$_0D2Ev.argprom.exit", %2882, %.noexc.i, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %2888
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit: ; preds = %"_ZZL35TestGetDescendantsAsInstanceProxiesvEN3$_0D2Ev.exit", %2882, %.noexc.i, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %2888
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #18
   ret void
 
@@ -23179,7 +23179,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit: ; preds 
 3359:                                             ; preds = %.body639, %2895
   %3360 = phi ptr [ %223, %.body639 ], [ %2896, %2895 ]
   %.pn558.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn558.pn.pn.pn.pn.pn.pn.pn.pn, %.body639 ], [ %2897, %2895 ]
-  call fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvEN3$_0D2Ev.argprom"(ptr %3360) #18
+  call fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvEN3$_0D2Ev"(ptr %3360) #18
   br label %3361
 
 3361:                                             ; preds = %3359, %220
@@ -27640,7 +27640,7 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__8UsdStage13GetPrimAtPathERKN
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
@@ -27708,7 +27708,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %10, %12, %25
 }
 
 ; Function Attrs: mustprogress norecurse nounwind uwtable
-define internal fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvEN3$_0D2Ev.argprom"(ptr %.0.val) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZL35TestGetDescendantsAsInstanceProxiesvEN3$_0D2Ev"(ptr %.0.val) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.0.val, null
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit, label %1
 

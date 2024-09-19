@@ -658,7 +658,7 @@ _ZL16isEarlyClobberMIRN4llvm12MachineInstrE.exit.i: ; preds = %.lr.ph.i.i.i.i.i.
   %191 = zext i24 %190 to i64
   %192 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %188, i64 %191
   %.not28.i.i = icmp eq ptr %187, %192
-  br i1 %.not28.i.i, label %_ZN12_GLOBAL__N_19InitUndef12handleSubRegERN4llvm15MachineFunctionERNS1_12MachineInstrERKNS1_16DeadLaneDetectorE.argprom.exit.i, label %.lr.ph32.i.i
+  br i1 %.not28.i.i, label %_ZN12_GLOBAL__N_19InitUndef12handleSubRegERN4llvm15MachineFunctionERNS1_12MachineInstrERKNS1_16DeadLaneDetectorE.exit.i, label %.lr.ph32.i.i
 
 .lr.ph32.i.i:                                     ; preds = %183
   %193 = getelementptr inbounds nuw i8, ptr %.sroa.041.070.i, i64 24
@@ -1221,9 +1221,9 @@ _ZN4llvm11SmallVectorIjLj12EED2Ev.exit.i.i:       ; preds = %403, %._crit_edge.i
   %.1.i.i = phi i1 [ %.030.i.i, %200 ], [ %.030.i.i, %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit.i.i ], [ %.030.i.i, %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit.thread.i.i ], [ %.030.i.i, %206 ], [ %.030.i.i, %196 ], [ %.2.lcssa.i.i, %._crit_edge.i.i ], [ %.2.lcssa.i.i, %403 ], [ %.030.i.i, %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i.i ]
   %404 = getelementptr inbounds i8, ptr %.05129.i.i, i64 32
   %.not.i24.i = icmp eq ptr %404, %192
-  br i1 %.not.i24.i, label %_ZN12_GLOBAL__N_19InitUndef12handleSubRegERN4llvm15MachineFunctionERNS1_12MachineInstrERKNS1_16DeadLaneDetectorE.argprom.exit.i, label %196
+  br i1 %.not.i24.i, label %_ZN12_GLOBAL__N_19InitUndef12handleSubRegERN4llvm15MachineFunctionERNS1_12MachineInstrERKNS1_16DeadLaneDetectorE.exit.i, label %196
 
-_ZN12_GLOBAL__N_19InitUndef12handleSubRegERN4llvm15MachineFunctionERNS1_12MachineInstrERKNS1_16DeadLaneDetectorE.argprom.exit.i: ; preds = %_ZN4llvm11SmallVectorIjLj12EED2Ev.exit.i.i, %183
+_ZN12_GLOBAL__N_19InitUndef12handleSubRegERN4llvm15MachineFunctionERNS1_12MachineInstrERKNS1_16DeadLaneDetectorE.exit.i: ; preds = %_ZN4llvm11SmallVectorIjLj12EED2Ev.exit.i.i, %183
   %.0.lcssa.i.i = phi i1 [ false, %183 ], [ %.1.i.i, %_ZN4llvm11SmallVectorIjLj12EED2Ev.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
@@ -1233,8 +1233,8 @@ _ZN12_GLOBAL__N_19InitUndef12handleSubRegERN4llvm15MachineFunctionERNS1_12Machin
   %405 = or i1 %.1.i, %.0.lcssa.i.i
   br label %406
 
-406:                                              ; preds = %_ZN12_GLOBAL__N_19InitUndef12handleSubRegERN4llvm15MachineFunctionERNS1_12MachineInstrERKNS1_16DeadLaneDetectorE.argprom.exit.i, %178
-  %.2.i = phi i1 [ %405, %_ZN12_GLOBAL__N_19InitUndef12handleSubRegERN4llvm15MachineFunctionERNS1_12MachineInstrERKNS1_16DeadLaneDetectorE.argprom.exit.i ], [ %.1.i, %178 ]
+406:                                              ; preds = %_ZN12_GLOBAL__N_19InitUndef12handleSubRegERN4llvm15MachineFunctionERNS1_12MachineInstrERKNS1_16DeadLaneDetectorE.exit.i, %178
+  %.2.i = phi i1 [ %405, %_ZN12_GLOBAL__N_19InitUndef12handleSubRegERN4llvm15MachineFunctionERNS1_12MachineInstrERKNS1_16DeadLaneDetectorE.exit.i ], [ %.1.i, %178 ]
   %407 = load ptr, ptr %136, align 8
   %408 = call noundef i32 @_ZNK4llvm12MachineInstr18getNumExplicitDefsEv(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.041.070.i) #12
   %409 = zext i32 %408 to i64
@@ -1253,19 +1253,19 @@ _ZN12_GLOBAL__N_19InitUndef12handleSubRegERN4llvm15MachineFunctionERNS1_12Machin
   %418 = getelementptr inbounds nuw i8, ptr %.sroa.041.070.i, i64 44
   br label %419
 
-419:                                              ; preds = %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.argprom.exit.thread.i.i, %.lr.ph.i27.i
-  %.032.i.i = phi i1 [ false, %.lr.ph.i27.i ], [ %.1.i28.i, %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.argprom.exit.thread.i.i ]
-  %.01830.i.i = phi ptr [ %410, %.lr.ph.i27.i ], [ %522, %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.argprom.exit.thread.i.i ]
+419:                                              ; preds = %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit.thread.i.i, %.lr.ph.i27.i
+  %.032.i.i = phi i1 [ false, %.lr.ph.i27.i ], [ %.1.i28.i, %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit.thread.i.i ]
+  %.01830.i.i = phi ptr [ %410, %.lr.ph.i27.i ], [ %522, %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit.thread.i.i ]
   %420 = load i32, ptr %.01830.i.i, align 8
   %421 = and i32 %420, 15728895
   %or.cond.not.i.i = icmp eq i32 %421, 0
-  br i1 %or.cond.not.i.i, label %422, label %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.argprom.exit.thread.i.i
+  br i1 %or.cond.not.i.i, label %422, label %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit.thread.i.i
 
 422:                                              ; preds = %419
   %423 = getelementptr inbounds nuw i8, ptr %.01830.i.i, i64 4
   %424 = load i32, ptr %423, align 4
   %425 = icmp slt i32 %424, 0
-  br i1 %425, label %426, label %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.argprom.exit.thread.i.i
+  br i1 %425, label %426, label %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit.thread.i.i
 
 426:                                              ; preds = %422
   %427 = load ptr, ptr %51, align 8
@@ -1282,7 +1282,7 @@ _ZN12_GLOBAL__N_19InitUndef12handleSubRegERN4llvm15MachineFunctionERNS1_12Machin
   %437 = getelementptr inbounds i8, ptr %436, i64 640
   %438 = load ptr, ptr %437, align 8
   %439 = call noundef zeroext i1 %438(ptr noundef nonnull align 8 dereferenceable(308) %427, ptr noundef %435) #12
-  br i1 %439, label %440, label %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.argprom.exit.thread.i.i
+  br i1 %439, label %440, label %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit.thread.i.i
 
 440:                                              ; preds = %426
   %441 = load i32, ptr %.01830.i.i, align 8
@@ -1292,12 +1292,12 @@ _ZN12_GLOBAL__N_19InitUndef12handleSubRegERN4llvm15MachineFunctionERNS1_12Machin
   %.pre34.i.i = load i32, ptr %423, align 4
   %443 = getelementptr i8, ptr %.pre.i.i, i64 56
   %.val.i.i = load ptr, ptr %443, align 8
-  br i1 %.not26.i.i, label %444, label %._ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.argprom.exit_crit_edge.i.i
+  br i1 %.not26.i.i, label %444, label %._ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit_crit_edge.i.i
 
-._ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.argprom.exit_crit_edge.i.i: ; preds = %440
+._ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit_crit_edge.i.i: ; preds = %440
   %.pre36.i.i = and i32 %.pre34.i.i, 2147483647
   %.pre37.i.i = zext nneg i32 %.pre36.i.i to i64
-  br label %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.argprom.exit.i.i
+  br label %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit.i.i
 
 444:                                              ; preds = %440
   %445 = getelementptr i8, ptr %.pre.i.i, i64 304
@@ -1311,7 +1311,7 @@ _ZN12_GLOBAL__N_19InitUndef12handleSubRegERN4llvm15MachineFunctionERNS1_12Machin
   %.0.in.i.i.i.i.i.i = select i1 %446, ptr %449, ptr %451
   %.0.i.i.i.i.i.i = load ptr, ptr %.0.in.i.i.i.i.i.i, align 8
   %.not.i.i.i.i.i33.i = icmp eq ptr %.0.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i33.i, label %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.argprom.exit.thread.i.i, label %452
+  br i1 %.not.i.i.i.i.i33.i, label %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit.thread.i.i, label %452
 
 452:                                              ; preds = %444
   %453 = load i32, ptr %.0.i.i.i.i.i.i, align 8
@@ -1323,13 +1323,13 @@ _ZN12_GLOBAL__N_19InitUndef12handleSubRegERN4llvm15MachineFunctionERNS1_12Machin
   %456 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   %457 = load ptr, ptr %456, align 8
   %.not.i4.i.i.i.i.i.i = icmp eq ptr %457, null
-  br i1 %.not.i4.i.i.i.i.i.i, label %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.argprom.exit.thread.i.i, label %458
+  br i1 %.not.i4.i.i.i.i.i.i, label %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit.thread.i.i, label %458
 
 458:                                              ; preds = %455
   %459 = load i32, ptr %457, align 8
   %460 = and i32 %459, 16777216
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %460, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.argprom.exit.thread.i.i, label %.lr.ph.preheader.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit.thread.i.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %458, %452
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %.0.i.i.i.i.i.i, %452 ], [ %457, %458 ]
@@ -1338,13 +1338,13 @@ _ZN12_GLOBAL__N_19InitUndef12handleSubRegERN4llvm15MachineFunctionERNS1_12Machin
   %463 = getelementptr inbounds nuw i8, ptr %462, i64 68
   %464 = load i16, ptr %463, align 4
   %465 = icmp eq i16 %464, 10
-  br i1 %465, label %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.argprom.exit.i.i, label %.preheader.i.preheader.i.i
+  br i1 %465, label %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit.i.i, label %.preheader.i.preheader.i.i
 
 .lr.ph.i.loopexit.i.i:                            ; preds = %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EE7advanceEv.exit.i.i.i.i
   %466 = getelementptr inbounds nuw i8, ptr %476, i64 68
   %467 = load i16, ptr %466, align 4
   %468 = icmp eq i16 %467, 10
-  br i1 %468, label %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.argprom.exit.i.i, label %.preheader.i.preheader.i.i, !llvm.loop !29
+  br i1 %468, label %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit.i.i, label %.preheader.i.preheader.i.i, !llvm.loop !29
 
 .preheader.i.preheader.i.i:                       ; preds = %.lr.ph.preheader.i.i.i, %.lr.ph.i.loopexit.i.i
   %469 = phi ptr [ %476, %.lr.ph.i.loopexit.i.i ], [ %462, %.lr.ph.preheader.i.i.i ]
@@ -1356,13 +1356,13 @@ _ZN12_GLOBAL__N_19InitUndef12handleSubRegERN4llvm15MachineFunctionERNS1_12Machin
   %470 = getelementptr inbounds nuw i8, ptr %.pr3.i.i.i.i, i64 24
   %471 = load ptr, ptr %470, align 8
   %.not.i.i.i.i35.i = icmp eq ptr %471, null
-  br i1 %.not.i.i.i.i35.i, label %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.argprom.exit.thread.i.i, label %472
+  br i1 %.not.i.i.i.i35.i, label %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit.thread.i.i, label %472
 
 472:                                              ; preds = %.preheader.i.i.i
   %473 = load i32, ptr %471, align 8
   %474 = and i32 %473, 16777216
   %.not.i.i.i7.i.i.i = icmp eq i32 %474, 0
-  br i1 %.not.i.i.i7.i.i.i, label %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.argprom.exit.thread.i.i, label %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EE7advanceEv.exit.i.i.i.i
+  br i1 %.not.i.i.i7.i.i.i, label %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit.thread.i.i, label %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EE7advanceEv.exit.i.i.i.i
 
 _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EE7advanceEv.exit.i.i.i.i: ; preds = %472
   %475 = getelementptr inbounds nuw i8, ptr %471, i64 8
@@ -1370,8 +1370,8 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb
   %477 = icmp eq ptr %476, %469
   br i1 %477, label %.preheader.i.i.i, label %.lr.ph.i.loopexit.i.i, !llvm.loop !29
 
-_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.argprom.exit.i.i: ; preds = %.lr.ph.i.loopexit.i.i, %.lr.ph.preheader.i.i.i, %._ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.argprom.exit_crit_edge.i.i
-  %.pre-phi38.i.i = phi i64 [ %.pre37.i.i, %._ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.argprom.exit_crit_edge.i.i ], [ %448, %.lr.ph.preheader.i.i.i ], [ %448, %.lr.ph.i.loopexit.i.i ]
+_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit.i.i: ; preds = %.lr.ph.i.loopexit.i.i, %.lr.ph.preheader.i.i.i, %._ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit_crit_edge.i.i
+  %.pre-phi38.i.i = phi i64 [ %.pre37.i.i, %._ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit_crit_edge.i.i ], [ %448, %.lr.ph.preheader.i.i.i ], [ %448, %.lr.ph.i.loopexit.i.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   %478 = load ptr, ptr %51, align 8
@@ -1400,7 +1400,7 @@ _ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.argprom.e
   %.not.i.i.i.i.i20.i.i = icmp eq ptr %498, null
   br i1 %.not.i.i.i.i.i20.i.i, label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.sink.split.i.i.i, label %_ZN4llvm8DebugLocC2ERKS0_.exit.i.i.i
 
-_ZN4llvm8DebugLocC2ERKS0_.exit.i.i.i:             ; preds = %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.argprom.exit.i.i
+_ZN4llvm8DebugLocC2ERKS0_.exit.i.i.i:             ; preds = %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit.i.i
   %499 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull %12, ptr noundef nonnull align 4 dereferenceable(8) %498, i64 1) #12
   %.pr.i.i.i = load ptr, ptr %12, align 8
   store ptr %.pr.i.i.i, ptr %11, align 8
@@ -1411,8 +1411,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit.i.i.i:             ; preds = %_ZL23findImplictDef
   %501 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking7retrackEPvRNS_8MetadataES1_(ptr noundef nonnull %12, ptr noundef nonnull align 4 dereferenceable(8) %.pr.i.i.i, ptr noundef nonnull %11) #12
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.sink.split.i.i.i
 
-_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.sink.split.i.i.i: ; preds = %500, %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.argprom.exit.i.i
-  %.sink.i.i.i = phi ptr [ %12, %500 ], [ %11, %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.argprom.exit.i.i ]
+_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.sink.split.i.i.i: ; preds = %500, %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit.i.i
+  %.sink.i.i.i = phi ptr [ %12, %500 ], [ %11, %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit.i.i ]
   store ptr null, ptr %.sink.i.i.i, align 8
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i.i.i
 
@@ -1470,16 +1470,16 @@ _ZN4llvm8DebugLocD2Ev.exit.i.i.i:                 ; preds = %517, %_ZN4llvm10MIM
 _ZN12_GLOBAL__N_19InitUndef15fixupIllOperandEPN4llvm12MachineInstrERNS1_14MachineOperandE.exit.i.i: ; preds = %520, %_ZN4llvm8DebugLocD2Ev.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  br label %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.argprom.exit.thread.i.i
+  br label %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit.thread.i.i
 
-_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.argprom.exit.thread.i.i: ; preds = %472, %.preheader.i.i.i, %_ZN12_GLOBAL__N_19InitUndef15fixupIllOperandEPN4llvm12MachineInstrERNS1_14MachineOperandE.exit.i.i, %458, %455, %444, %426, %422, %419
+_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit.thread.i.i: ; preds = %472, %.preheader.i.i.i, %_ZN12_GLOBAL__N_19InitUndef15fixupIllOperandEPN4llvm12MachineInstrERNS1_14MachineOperandE.exit.i.i, %458, %455, %444, %426, %422, %419
   %.1.i28.i = phi i1 [ %.032.i.i, %422 ], [ true, %_ZN12_GLOBAL__N_19InitUndef15fixupIllOperandEPN4llvm12MachineInstrERNS1_14MachineOperandE.exit.i.i ], [ %.032.i.i, %426 ], [ %.032.i.i, %419 ], [ %.032.i.i, %444 ], [ %.032.i.i, %455 ], [ %.032.i.i, %458 ], [ %.032.i.i, %.preheader.i.i.i ], [ %.032.i.i, %472 ]
   %522 = getelementptr inbounds i8, ptr %.01830.i.i, i64 32
   %.not.i29.i = icmp eq ptr %522, %415
   br i1 %.not.i29.i, label %_ZN12_GLOBAL__N_19InitUndef9handleRegEPN4llvm12MachineInstrE.exit.i, label %419
 
-_ZN12_GLOBAL__N_19InitUndef9handleRegEPN4llvm12MachineInstrE.exit.i: ; preds = %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.argprom.exit.thread.i.i, %406
-  %.0.lcssa.i31.i = phi i1 [ false, %406 ], [ %.1.i28.i, %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.argprom.exit.thread.i.i ]
+_ZN12_GLOBAL__N_19InitUndef9handleRegEPN4llvm12MachineInstrE.exit.i: ; preds = %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit.thread.i.i, %406
+  %.0.lcssa.i31.i = phi i1 [ false, %406 ], [ %.1.i28.i, %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit.thread.i.i ]
   %523 = or i1 %.2.i, %.0.lcssa.i31.i
   br label %_ZL16isEarlyClobberMIRN4llvm12MachineInstrE.exit.thread.i
 

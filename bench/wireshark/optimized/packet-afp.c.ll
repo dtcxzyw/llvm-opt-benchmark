@@ -1878,227 +1878,227 @@ proto_item_set_generated.exit:                    ; preds = %82, %79, %76, %73
   ]
 
 86:                                               ; preds = %proto_item_set_generated.exit
-  call fastcc void @dissect_query_afp_byte_lock.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  call fastcc void @dissect_query_afp_byte_lock(ptr noundef %0, ptr noundef %64)
   br label %280
 
 87:                                               ; preds = %proto_item_set_generated.exit
-  call fastcc void @dissect_query_afp_byte_lock_ext.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  call fastcc void @dissect_query_afp_byte_lock_ext(ptr noundef %0, ptr noundef %64)
   br label %280
 
 88:                                               ; preds = %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit
-  %89 = call fastcc i32 @dissect_query_afp_with_vol_id.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  %89 = call fastcc i32 @dissect_query_afp_with_vol_id(ptr noundef %0, ptr noundef %64)
   br label %280
 
 90:                                               ; preds = %proto_item_set_generated.exit
-  call fastcc void @dissect_query_afp_close_dt.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  call fastcc void @dissect_query_afp_close_dt(ptr noundef %0, ptr noundef %64)
   br label %280
 
 91:                                               ; preds = %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit
-  call fastcc void @dissect_query_afp_with_fork.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  call fastcc void @dissect_query_afp_with_fork(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 92:                                               ; preds = %proto_item_set_generated.exit
-  %93 = call fastcc i32 @dissect_query_afp_copy_file.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %93 = call fastcc i32 @dissect_query_afp_copy_file(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 94:                                               ; preds = %proto_item_set_generated.exit
-  %95 = call fastcc i32 @dissect_query_afp_create_file.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %95 = call fastcc i32 @dissect_query_afp_create_file(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 96:                                               ; preds = %proto_item_set_generated.exit
-  %97 = call fastcc i32 @dissect_query_afp_disconnect_old_session.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  %97 = call fastcc i32 @dissect_query_afp_disconnect_old_session(ptr noundef %0, ptr noundef %64)
   br label %280
 
 98:                                               ; preds = %proto_item_set_generated.exit
-  %99 = call fastcc i32 @dissect_query_afp_enumerate_ext2.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %99 = call fastcc i32 @dissect_query_afp_enumerate_ext2(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 100:                                              ; preds = %proto_item_set_generated.exit, %proto_item_set_generated.exit
-  %101 = call fastcc i32 @dissect_query_afp_enumerate.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %101 = call fastcc i32 @dissect_query_afp_enumerate(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 102:                                              ; preds = %proto_item_set_generated.exit
-  call fastcc void @dissect_query_afp_get_fork_param.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  call fastcc void @dissect_query_afp_get_fork_param(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 103:                                              ; preds = %proto_item_set_generated.exit
-  %104 = call fastcc i32 @dissect_query_afp_get_session_token.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  %104 = call fastcc i32 @dissect_query_afp_get_session_token(ptr noundef %0, ptr noundef %64)
   br label %280
 
 105:                                              ; preds = %proto_item_set_generated.exit
-  call fastcc void @dissect_query_afp_get_user_info.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  call fastcc void @dissect_query_afp_get_user_info(ptr noundef %0, ptr noundef %64)
   br label %280
 
 106:                                              ; preds = %proto_item_set_generated.exit
-  call fastcc void @dissect_query_afp_get_vol_param.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  call fastcc void @dissect_query_afp_get_vol_param(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 107:                                              ; preds = %proto_item_set_generated.exit
-  %108 = call fastcc i32 @dissect_query_afp_login_ext.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %108 = call fastcc i32 @dissect_query_afp_login_ext(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 109:                                              ; preds = %proto_item_set_generated.exit
-  %110 = call fastcc i32 @dissect_query_afp_login.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %110 = call fastcc i32 @dissect_query_afp_login(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 111:                                              ; preds = %proto_item_set_generated.exit
-  %112 = call fastcc i32 @dissect_query_afp_map_id.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  %112 = call fastcc i32 @dissect_query_afp_map_id(ptr noundef %0, ptr noundef %64)
   br label %280
 
 113:                                              ; preds = %proto_item_set_generated.exit
-  %114 = call fastcc i32 @dissect_query_afp_map_name.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  %114 = call fastcc i32 @dissect_query_afp_map_name(ptr noundef %0, ptr noundef %64)
   br label %280
 
 115:                                              ; preds = %proto_item_set_generated.exit
-  %116 = call fastcc i32 @dissect_query_afp_move.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %116 = call fastcc i32 @dissect_query_afp_move(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 117:                                              ; preds = %proto_item_set_generated.exit
-  %118 = call fastcc i32 @dissect_query_afp_open_vol.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %118 = call fastcc i32 @dissect_query_afp_open_vol(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 119:                                              ; preds = %proto_item_set_generated.exit
-  %120 = call fastcc i32 @dissect_query_afp_open_fork.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %120 = call fastcc i32 @dissect_query_afp_open_fork(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 121:                                              ; preds = %proto_item_set_generated.exit
-  call fastcc void @dissect_query_afp_read.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  call fastcc void @dissect_query_afp_read(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 122:                                              ; preds = %proto_item_set_generated.exit
-  call fastcc void @dissect_query_afp_read_ext.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  call fastcc void @dissect_query_afp_read_ext(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 123:                                              ; preds = %proto_item_set_generated.exit
-  %124 = call fastcc i32 @dissect_query_afp_rename.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %124 = call fastcc i32 @dissect_query_afp_rename(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 125:                                              ; preds = %proto_item_set_generated.exit
-  %126 = call fastcc i32 @dissect_query_afp_set_dir_param.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %126 = call fastcc i32 @dissect_query_afp_set_dir_param(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 127:                                              ; preds = %proto_item_set_generated.exit
-  %128 = call fastcc i32 @dissect_query_afp_set_file_param.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %128 = call fastcc i32 @dissect_query_afp_set_file_param(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 129:                                              ; preds = %proto_item_set_generated.exit
-  %130 = call fastcc i32 @dissect_query_afp_set_fork_param.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %130 = call fastcc i32 @dissect_query_afp_set_fork_param(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 131:                                              ; preds = %proto_item_set_generated.exit
-  %132 = call fastcc i32 @dissect_query_afp_set_vol_param.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %132 = call fastcc i32 @dissect_query_afp_set_vol_param(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 133:                                              ; preds = %proto_item_set_generated.exit
-  call fastcc void @dissect_query_afp_write.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  call fastcc void @dissect_query_afp_write(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 134:                                              ; preds = %proto_item_set_generated.exit
-  call fastcc void @dissect_query_afp_write_ext.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  call fastcc void @dissect_query_afp_write_ext(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 135:                                              ; preds = %proto_item_set_generated.exit
-  %136 = call fastcc i32 @dissect_query_afp_get_fldr_param.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %136 = call fastcc i32 @dissect_query_afp_get_fldr_param(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 137:                                              ; preds = %proto_item_set_generated.exit
-  %138 = call fastcc i32 @dissect_query_afp_set_fldr_param.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %138 = call fastcc i32 @dissect_query_afp_set_fldr_param(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 139:                                              ; preds = %proto_item_set_generated.exit
-  call fastcc void @dissect_query_afp_get_server_message.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  call fastcc void @dissect_query_afp_get_server_message(ptr noundef %0, ptr noundef %64)
   br label %280
 
 140:                                              ; preds = %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit
-  %141 = call fastcc i32 @dissect_query_afp_create_id.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %141 = call fastcc i32 @dissect_query_afp_create_id(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 142:                                              ; preds = %proto_item_set_generated.exit
-  call fastcc void @dissect_query_afp_delete_id.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  call fastcc void @dissect_query_afp_delete_id(ptr noundef %0, ptr noundef %64)
   br label %280
 
 143:                                              ; preds = %proto_item_set_generated.exit
-  call fastcc void @dissect_query_afp_resolve_id.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  call fastcc void @dissect_query_afp_resolve_id(ptr noundef %0, ptr noundef %64)
   br label %280
 
 144:                                              ; preds = %proto_item_set_generated.exit
-  %145 = call fastcc i32 @dissect_query_afp_exchange_file.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %145 = call fastcc i32 @dissect_query_afp_exchange_file(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 146:                                              ; preds = %proto_item_set_generated.exit
-  %147 = call fastcc noundef i32 @query_catsearch.argelim(ptr noundef %0, ptr noundef %64, i32 noundef 1)
+  %147 = call fastcc noundef i32 @query_catsearch(ptr noundef %0, ptr noundef %64, i32 noundef 1)
   br label %280
 
 148:                                              ; preds = %proto_item_set_generated.exit
-  %149 = call fastcc noundef i32 @query_catsearch.argelim(ptr noundef %0, ptr noundef %64, i32 noundef 0)
+  %149 = call fastcc noundef i32 @query_catsearch(ptr noundef %0, ptr noundef %64, i32 noundef 0)
   br label %280
 
 150:                                              ; preds = %proto_item_set_generated.exit
-  call fastcc void @dissect_query_afp_get_icon.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  call fastcc void @dissect_query_afp_get_icon(ptr noundef %0, ptr noundef %64)
   br label %280
 
 151:                                              ; preds = %proto_item_set_generated.exit
-  call fastcc void @dissect_query_afp_get_icon_info.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  call fastcc void @dissect_query_afp_get_icon_info(ptr noundef %0, ptr noundef %64)
   br label %280
 
 152:                                              ; preds = %proto_item_set_generated.exit
-  %153 = call fastcc i32 @dissect_query_afp_add_appl.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %153 = call fastcc i32 @dissect_query_afp_add_appl(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 154:                                              ; preds = %proto_item_set_generated.exit
-  %155 = call fastcc i32 @dissect_query_afp_rmv_appl.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %155 = call fastcc i32 @dissect_query_afp_rmv_appl(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 156:                                              ; preds = %proto_item_set_generated.exit
-  call fastcc void @dissect_query_afp_get_appl.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  call fastcc void @dissect_query_afp_get_appl(ptr noundef %0, ptr noundef %64)
   br label %280
 
 157:                                              ; preds = %proto_item_set_generated.exit
-  %158 = call fastcc i32 @dissect_query_afp_add_cmt.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %158 = call fastcc i32 @dissect_query_afp_add_cmt(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 159:                                              ; preds = %proto_item_set_generated.exit, %proto_item_set_generated.exit
-  %160 = call fastcc i32 @dissect_query_afp_get_cmt.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %160 = call fastcc i32 @dissect_query_afp_get_cmt(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 161:                                              ; preds = %proto_item_set_generated.exit
-  call fastcc void @dissect_query_afp_add_icon.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  call fastcc void @dissect_query_afp_add_icon(ptr noundef %0, ptr noundef %64)
   br label %280
 
 162:                                              ; preds = %proto_item_set_generated.exit
-  %163 = call fastcc i32 @dissect_query_afp_get_ext_attr.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %163 = call fastcc i32 @dissect_query_afp_get_ext_attr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 164:                                              ; preds = %proto_item_set_generated.exit
-  %165 = call fastcc i32 @dissect_query_afp_set_ext_attr.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %165 = call fastcc i32 @dissect_query_afp_set_ext_attr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 166:                                              ; preds = %proto_item_set_generated.exit
-  %167 = call fastcc i32 @dissect_query_afp_list_ext_attrs.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %167 = call fastcc i32 @dissect_query_afp_list_ext_attrs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 168:                                              ; preds = %proto_item_set_generated.exit
-  %169 = call fastcc i32 @dissect_query_afp_remove_ext_attr.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %169 = call fastcc i32 @dissect_query_afp_remove_ext_attr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 170:                                              ; preds = %proto_item_set_generated.exit
-  %171 = call fastcc i32 @dissect_query_afp_get_acl.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %171 = call fastcc i32 @dissect_query_afp_get_acl(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 172:                                              ; preds = %proto_item_set_generated.exit
-  %173 = call fastcc i32 @dissect_query_afp_set_acl.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %173 = call fastcc i32 @dissect_query_afp_set_acl(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 174:                                              ; preds = %proto_item_set_generated.exit
-  %175 = call fastcc i32 @dissect_query_afp_access.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %175 = call fastcc i32 @dissect_query_afp_access(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 176:                                              ; preds = %proto_item_set_generated.exit
-  %177 = call fastcc i32 @dissect_query_afp_with_did.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  %177 = call fastcc i32 @dissect_query_afp_with_did(ptr noundef %0, ptr noundef %64)
   br label %280
 
 178:                                              ; preds = %proto_item_set_generated.exit
-  %179 = call fastcc i32 @dissect_query_afp_spotlight.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64, ptr noundef %.0432.ph)
+  %179 = call fastcc i32 @dissect_query_afp_spotlight(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64, ptr noundef %.0432.ph)
   br label %280
 
 180:                                              ; preds = %60
@@ -2214,35 +2214,35 @@ proto_item_set_generated.exit455:                 ; preds = %201, %198, %proto_i
   br label %280
 
 220:                                              ; preds = %213, %213
-  %221 = call fastcc i32 @reply_enumerate.argelim(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %64, i32 noundef 1)
+  %221 = call fastcc i32 @reply_enumerate(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %64, i32 noundef 1)
   br label %280
 
 222:                                              ; preds = %213
-  %223 = call fastcc i32 @reply_enumerate.argelim(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %64, i32 noundef 0)
+  %223 = call fastcc i32 @reply_enumerate(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %64, i32 noundef 0)
   br label %280
 
 224:                                              ; preds = %213
-  %225 = call fastcc i32 @dissect_reply_afp_open_vol.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  %225 = call fastcc i32 @dissect_reply_afp_open_vol(ptr noundef %0, ptr noundef %64)
   br label %280
 
 226:                                              ; preds = %213
-  %227 = call fastcc i32 @dissect_reply_afp_open_fork.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %227 = call fastcc i32 @dissect_reply_afp_open_fork(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 228:                                              ; preds = %213, %213
-  %229 = call fastcc i32 @dissect_reply_afp_get_fork_param.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  %229 = call fastcc i32 @dissect_reply_afp_get_fork_param(ptr noundef %0, ptr noundef %64)
   br label %280
 
 230:                                              ; preds = %213
-  %231 = call fastcc i32 @dissect_reply_afp_get_user_info.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  %231 = call fastcc i32 @dissect_reply_afp_get_user_info(ptr noundef %0, ptr noundef %64)
   br label %280
 
 232:                                              ; preds = %213
-  %233 = call fastcc i32 @dissect_reply_afp_get_server_param.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %233 = call fastcc i32 @dissect_reply_afp_get_server_param(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 234:                                              ; preds = %213
-  %235 = call fastcc i32 @dissect_reply_afp_get_server_message.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  %235 = call fastcc i32 @dissect_reply_afp_get_server_message(ptr noundef %0, ptr noundef %64)
   br label %280
 
 236:                                              ; preds = %213
@@ -2251,11 +2251,11 @@ proto_item_set_generated.exit455:                 ; preds = %201, %198, %proto_i
   br label %280
 
 239:                                              ; preds = %213
-  %240 = call fastcc i32 @dissect_reply_afp_map_id.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  %240 = call fastcc i32 @dissect_reply_afp_map_id(ptr noundef %0, ptr noundef %64)
   br label %280
 
 241:                                              ; preds = %213
-  %242 = call fastcc i32 @dissect_reply_afp_map_name.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  %242 = call fastcc i32 @dissect_reply_afp_map_name(ptr noundef %0, ptr noundef %64)
   br label %280
 
 243:                                              ; preds = %213, %213
@@ -2264,15 +2264,15 @@ proto_item_set_generated.exit455:                 ; preds = %201, %198, %proto_i
   br label %280
 
 246:                                              ; preds = %213
-  %247 = call fastcc i32 @dissect_reply_afp_get_session_token.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  %247 = call fastcc i32 @dissect_reply_afp_get_session_token(ptr noundef %0, ptr noundef %64)
   br label %280
 
 248:                                              ; preds = %213
-  %249 = call fastcc i32 @dissect_reply_afp_get_vol_param.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  %249 = call fastcc i32 @dissect_reply_afp_get_vol_param(ptr noundef %0, ptr noundef %64)
   br label %280
 
 250:                                              ; preds = %213
-  %251 = call fastcc i32 @dissect_reply_afp_get_fldr_param.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  %251 = call fastcc i32 @dissect_reply_afp_get_fldr_param(ptr noundef %0, ptr noundef %64)
   br label %280
 
 252:                                              ; preds = %213
@@ -2281,15 +2281,15 @@ proto_item_set_generated.exit455:                 ; preds = %201, %198, %proto_i
   br label %280
 
 255:                                              ; preds = %213
-  %256 = call fastcc i32 @reply_catsearch.argelim(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %64, i32 noundef 1)
+  %256 = call fastcc i32 @reply_catsearch(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %64, i32 noundef 1)
   br label %280
 
 257:                                              ; preds = %213
-  %258 = call fastcc i32 @reply_catsearch.argelim(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %64, i32 noundef 0)
+  %258 = call fastcc i32 @reply_catsearch(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %64, i32 noundef 0)
   br label %280
 
 259:                                              ; preds = %213
-  call fastcc void @dissect_reply_afp_get_icon_info.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  call fastcc void @dissect_reply_afp_get_icon_info(ptr noundef %0, ptr noundef %64)
   br label %280
 
 260:                                              ; preds = %213
@@ -2298,7 +2298,7 @@ proto_item_set_generated.exit455:                 ; preds = %201, %198, %proto_i
   br label %280
 
 263:                                              ; preds = %213
-  %264 = call fastcc i32 @dissect_reply_afp_get_cmt.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  %264 = call fastcc i32 @dissect_reply_afp_get_cmt(ptr noundef %0, ptr noundef %64)
   br label %280
 
 265:                                              ; preds = %213
@@ -2312,21 +2312,21 @@ proto_item_set_generated.exit455:                 ; preds = %201, %198, %proto_i
   br label %280
 
 271:                                              ; preds = %213
-  %272 = call fastcc i32 @dissect_reply_afp_get_ext_attr.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  %272 = call fastcc i32 @dissect_reply_afp_get_ext_attr(ptr noundef %0, ptr noundef %64)
   br label %280
 
 273:                                              ; preds = %213
-  %274 = call fastcc i32 @dissect_reply_afp_list_ext_attrs.argprom.argelim(ptr noundef %0, ptr noundef %64)
+  %274 = call fastcc i32 @dissect_reply_afp_list_ext_attrs(ptr noundef %0, ptr noundef %64)
   br label %280
 
 275:                                              ; preds = %213
-  %276 = call fastcc i32 @dissect_reply_afp_get_acl.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
+  %276 = call fastcc i32 @dissect_reply_afp_get_acl(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64)
   br label %280
 
 277:                                              ; preds = %213
   %278 = getelementptr i8, ptr %.0432.ph, i64 32
   %.0432.val = load i32, ptr %278, align 8
-  %279 = call fastcc i32 @dissect_reply_afp_spotlight.argprom.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64, i32 %.0432.val)
+  %279 = call fastcc i32 @dissect_reply_afp_spotlight(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64, i32 %.0432.val)
   br label %280
 
 280:                                              ; preds = %213, %214, %217, %220, %222, %224, %226, %228, %230, %232, %234, %236, %239, %241, %243, %246, %248, %250, %252, %255, %257, %259, %260, %263, %265, %268, %271, %273, %275, %277, %proto_item_set_generated.exit, %86, %87, %88, %90, %91, %92, %94, %96, %98, %100, %102, %103, %105, %106, %107, %109, %111, %113, %115, %117, %119, %121, %122, %123, %125, %127, %129, %131, %133, %134, %135, %137, %139, %140, %142, %143, %144, %146, %148, %150, %151, %152, %154, %156, %157, %159, %161, %162, %164, %166, %168, %170, %172, %174, %176, %178
@@ -2975,7 +2975,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_query_afp_byte_lock.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_query_afp_byte_lock(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #7
   %4 = load i32, ptr @ett_afp_lock_flags, align 4
   %5 = zext i8 %3 to i32
@@ -2994,7 +2994,7 @@ define internal fastcc void @dissect_query_afp_byte_lock.argprom.argelim(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_query_afp_byte_lock_ext.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_query_afp_byte_lock_ext(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #7
   %4 = load i32, ptr @ett_afp_lock_flags, align 4
   %5 = zext i8 %3 to i32
@@ -3013,7 +3013,7 @@ define internal fastcc void @dissect_query_afp_byte_lock_ext.argprom.argelim(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 5) i32 @dissect_query_afp_with_vol_id.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 1, 5) i32 @dissect_query_afp_with_vol_id(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %3
 
@@ -3030,7 +3030,7 @@ define internal fastcc range(i32 1, 5) i32 @dissect_query_afp_with_vol_id.argpro
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_query_afp_close_dt.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_query_afp_close_dt(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_afp_pad, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %5 = load i32, ptr @hf_afp_dt_ref, align 4
@@ -3039,7 +3039,7 @@ define internal fastcc void @dissect_query_afp_close_dt.argprom.argelim(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_query_afp_with_fork.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_query_afp_with_fork(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
@@ -3060,7 +3060,7 @@ add_info_fork.exit:                               ; preds = %3, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_copy_file.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @dissect_query_afp_copy_file(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = load i32, ptr @ett_afp_vol_did, align 4
@@ -3092,7 +3092,7 @@ define internal fastcc i32 @dissect_query_afp_copy_file.argelim(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_create_file.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @dissect_query_afp_create_file(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_create_flag, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
@@ -3109,7 +3109,7 @@ define internal fastcc i32 @dissect_query_afp_create_file.argelim(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_disconnect_old_session.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc i32 @dissect_query_afp_disconnect_old_session(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
@@ -3135,10 +3135,10 @@ define internal fastcc i32 @dissect_query_afp_disconnect_old_session.argprom.arg
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_enumerate_ext2.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @dissect_query_afp_enumerate_ext2(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
-  %6 = tail call fastcc i32 @decode_vol_did_file_dir_bitmap.argelim(ptr noundef %2, ptr noundef %0)
+  %6 = tail call fastcc i32 @decode_vol_did_file_dir_bitmap(ptr noundef %2, ptr noundef %0)
   %7 = load i32, ptr @hf_afp_req_count, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %6, i32 noundef 2, i32 noundef 0) #7
   %9 = add i32 %6, 2
@@ -3153,10 +3153,10 @@ define internal fastcc i32 @dissect_query_afp_enumerate_ext2.argelim(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_enumerate.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @dissect_query_afp_enumerate(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
-  %6 = tail call fastcc i32 @decode_vol_did_file_dir_bitmap.argelim(ptr noundef %2, ptr noundef %0)
+  %6 = tail call fastcc i32 @decode_vol_did_file_dir_bitmap(ptr noundef %2, ptr noundef %0)
   %7 = load i32, ptr @hf_afp_req_count, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %6, i32 noundef 2, i32 noundef 0) #7
   %9 = add i32 %6, 2
@@ -3171,7 +3171,7 @@ define internal fastcc i32 @dissect_query_afp_enumerate.argelim(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_query_afp_get_fork_param.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_query_afp_get_fork_param(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
@@ -3196,7 +3196,7 @@ add_info_fork.exit:                               ; preds = %3, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_get_session_token.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc i32 @dissect_query_afp_get_session_token(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
@@ -3239,7 +3239,7 @@ define internal fastcc i32 @dissect_query_afp_get_session_token.argprom.argelim(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_query_afp_get_user_info.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_query_afp_get_user_info(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_afp_user_flag, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %5 = load i32, ptr @hf_afp_user_ID, align 4
@@ -3251,7 +3251,7 @@ define internal fastcc void @dissect_query_afp_get_user_info.argprom.argelim(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_query_afp_get_vol_param.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_query_afp_get_vol_param(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
@@ -3269,7 +3269,7 @@ define internal fastcc void @dissect_query_afp_get_vol_param.argelim(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 4, 131610) i32 @dissect_query_afp_login_ext.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 4, 131610) i32 @dissect_query_afp_login_ext(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = load i32, ptr @hf_afp_login_flags, align 4
@@ -3339,7 +3339,7 @@ define internal fastcc range(i32 4, 131610) i32 @dissect_query_afp_login_ext.arg
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 3, 131610) i32 @dissect_query_afp_login.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 3, 131610) i32 @dissect_query_afp_login(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #7
   %5 = zext i8 %4 to i32
   %6 = load i32, ptr @hf_afp_Version, align 4
@@ -3375,7 +3375,7 @@ define internal fastcc range(i32 3, 131610) i32 @dissect_query_afp_login.argelim
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 6, 19) i32 @dissect_query_afp_map_id.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 6, 19) i32 @dissect_query_afp_map_id(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #7
   %4 = load i32, ptr @hf_afp_map_id_type, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
@@ -3390,7 +3390,7 @@ define internal fastcc range(i32 6, 19) i32 @dissect_query_afp_map_id.argprom.ar
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 3, 65540) i32 @dissect_query_afp_map_name.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 3, 65540) i32 @dissect_query_afp_map_name(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #7
   %4 = load i32, ptr @hf_afp_map_name_type, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
@@ -3419,7 +3419,7 @@ define internal fastcc range(i32 3, 65540) i32 @dissect_query_afp_map_name.argpr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_move.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @dissect_query_afp_move(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
@@ -3440,7 +3440,7 @@ define internal fastcc i32 @dissect_query_afp_move.argelim(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 4, 269) i32 @dissect_query_afp_open_vol.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 4, 269) i32 @dissect_query_afp_open_vol(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = load i32, ptr @hf_afp_vol_bitmap, align 4
@@ -3480,7 +3480,7 @@ define internal fastcc range(i32 4, 269) i32 @dissect_query_afp_open_vol.argelim
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_open_fork.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @dissect_query_afp_open_fork(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_fork_type, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
@@ -3504,7 +3504,7 @@ define internal fastcc i32 @dissect_query_afp_open_fork.argelim(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_query_afp_read.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_query_afp_read(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
@@ -3540,7 +3540,7 @@ add_info_fork.exit:                               ; preds = %3, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_query_afp_read_ext.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_query_afp_read_ext(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
@@ -3565,7 +3565,7 @@ add_info_fork.exit:                               ; preds = %3, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_rename.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @dissect_query_afp_rename(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
@@ -3583,7 +3583,7 @@ define internal fastcc i32 @dissect_query_afp_rename.argelim(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_set_dir_param.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @dissect_query_afp_set_dir_param(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
@@ -3618,7 +3618,7 @@ define internal fastcc i32 @dissect_query_afp_set_dir_param.argelim(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_set_file_param.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @dissect_query_afp_set_file_param(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
@@ -3652,7 +3652,7 @@ define internal fastcc i32 @dissect_query_afp_set_file_param.argelim(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 10, 15) i32 @dissect_query_afp_set_fork_param.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 10, 15) i32 @dissect_query_afp_set_fork_param(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
@@ -3697,7 +3697,7 @@ add_info_fork.exit:                               ; preds = %3, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 2, 311) i32 @dissect_query_afp_set_vol_param.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 2, 311) i32 @dissect_query_afp_set_vol_param(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
@@ -3716,7 +3716,7 @@ define internal fastcc range(i32 2, 311) i32 @dissect_query_afp_set_vol_param.ar
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_query_afp_write.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_query_afp_write(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_flag, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
@@ -3748,7 +3748,7 @@ add_info_fork.exit:                               ; preds = %3, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_query_afp_write_ext.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_query_afp_write_ext(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_flag, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
@@ -3773,16 +3773,16 @@ add_info_fork.exit:                               ; preds = %3, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_get_fldr_param.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @dissect_query_afp_get_fldr_param(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
-  %6 = tail call fastcc i32 @decode_vol_did_file_dir_bitmap.argelim(ptr noundef %2, ptr noundef %0)
+  %6 = tail call fastcc i32 @decode_vol_did_file_dir_bitmap(ptr noundef %2, ptr noundef %0)
   %7 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef readonly %1, ptr noundef %0, i32 noundef %6, ptr noundef nonnull @.str.1055, i32 noundef 1)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_set_fldr_param.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @dissect_query_afp_set_fldr_param(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
@@ -3816,7 +3816,7 @@ define internal fastcc i32 @dissect_query_afp_set_fldr_param.argelim(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_query_afp_get_server_message.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_query_afp_get_server_message(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_afp_pad, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %5 = load i32, ptr @hf_afp_message_type, align 4
@@ -3828,7 +3828,7 @@ define internal fastcc void @dissect_query_afp_get_server_message.argprom.argeli
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_create_id.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @dissect_query_afp_create_id(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
@@ -3845,7 +3845,7 @@ define internal fastcc i32 @dissect_query_afp_create_id.argelim(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_query_afp_delete_id.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_query_afp_delete_id(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_afp_pad, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %5 = load i32, ptr @hf_afp_vol_id, align 4
@@ -3856,7 +3856,7 @@ define internal fastcc void @dissect_query_afp_delete_id.argprom.argelim(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_query_afp_resolve_id.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_query_afp_resolve_id(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_afp_pad, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %5 = load i32, ptr @hf_afp_vol_id, align 4
@@ -3871,7 +3871,7 @@ define internal fastcc void @dissect_query_afp_resolve_id.argprom.argelim(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_exchange_file.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @dissect_query_afp_exchange_file(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
@@ -3891,7 +3891,7 @@ define internal fastcc i32 @dissect_query_afp_exchange_file.argelim(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_query_afp_get_icon.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_query_afp_get_icon(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_afp_pad, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %5 = load i32, ptr @hf_afp_dt_ref, align 4
@@ -3910,7 +3910,7 @@ define internal fastcc void @dissect_query_afp_get_icon.argprom.argelim(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_query_afp_get_icon_info.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_query_afp_get_icon_info(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_afp_pad, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %5 = load i32, ptr @hf_afp_dt_ref, align 4
@@ -3923,7 +3923,7 @@ define internal fastcc void @dissect_query_afp_get_icon_info.argprom.argelim(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_add_appl.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @dissect_query_afp_add_appl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
@@ -3944,7 +3944,7 @@ define internal fastcc i32 @dissect_query_afp_add_appl.argelim(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_rmv_appl.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @dissect_query_afp_rmv_appl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
@@ -3963,7 +3963,7 @@ define internal fastcc i32 @dissect_query_afp_rmv_appl.argelim(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_query_afp_get_appl.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_query_afp_get_appl(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_afp_pad, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %5 = load i32, ptr @hf_afp_dt_ref, align 4
@@ -3980,7 +3980,7 @@ define internal fastcc void @dissect_query_afp_get_appl.argprom.argelim(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_add_cmt.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @dissect_query_afp_add_cmt(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = load i32, ptr @hf_afp_dt_ref, align 4
@@ -4010,7 +4010,7 @@ define internal fastcc i32 @dissect_query_afp_add_cmt.argelim(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_get_cmt.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @dissect_query_afp_get_cmt(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = load i32, ptr @hf_afp_dt_ref, align 4
@@ -4022,7 +4022,7 @@ define internal fastcc i32 @dissect_query_afp_get_cmt.argelim(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_query_afp_add_icon.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_query_afp_add_icon(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_afp_pad, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %5 = load i32, ptr @hf_afp_dt_ref, align 4
@@ -4043,7 +4043,7 @@ define internal fastcc void @dissect_query_afp_add_icon.argprom.argelim(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_get_ext_attr.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @dissect_query_afp_get_ext_attr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
@@ -4065,12 +4065,12 @@ define internal fastcc i32 @dissect_query_afp_get_ext_attr.argelim(ptr noundef %
   %20 = load i32, ptr @hf_afp_extattr_reply_size, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef 26, i32 noundef 4, i32 noundef 0) #7
   %22 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef readonly %1, ptr noundef %0, i32 noundef 30, ptr noundef nonnull @.str.1055, i32 noundef 1)
-  %23 = tail call fastcc i32 @decode_attr_name.argprom(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %22)
+  %23 = tail call fastcc i32 @decode_attr_name(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %22)
   ret i32 %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_set_ext_attr.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @dissect_query_afp_set_ext_attr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_afp_pad, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
@@ -4089,7 +4089,7 @@ define internal fastcc i32 @dissect_query_afp_set_ext_attr.argelim(ptr noundef %
   %17 = load i32, ptr @hf_afp_offset64, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef 10, i32 noundef 8, i32 noundef 0) #7
   %19 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef readonly %1, ptr noundef %0, i32 noundef 18, ptr noundef nonnull @.str.1055, i32 noundef 1)
-  %20 = tail call fastcc i32 @decode_attr_name.argprom(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %19)
+  %20 = tail call fastcc i32 @decode_attr_name(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %19)
   %21 = load i32, ptr @hf_afp_extattr_len, align 4
   %22 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %4) #7
   %23 = add i32 %20, 4
@@ -4102,7 +4102,7 @@ define internal fastcc i32 @dissect_query_afp_set_ext_attr.argelim(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_list_ext_attrs.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @dissect_query_afp_list_ext_attrs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
@@ -4128,7 +4128,7 @@ define internal fastcc i32 @dissect_query_afp_list_ext_attrs.argelim(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_remove_ext_attr.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @dissect_query_afp_remove_ext_attr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
@@ -4144,12 +4144,12 @@ define internal fastcc i32 @dissect_query_afp_remove_ext_attr.argelim(ptr nounde
   %14 = load i32, ptr @ett_afp_extattr_bitmap, align 4
   %15 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 8, i32 noundef %13, i32 noundef %14, ptr noundef nonnull @decode_attr_bitmap.bitmaps, i32 noundef 0) #7
   %16 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef readonly %1, ptr noundef %0, i32 noundef 10, ptr noundef nonnull @.str.1055, i32 noundef 1)
-  %17 = tail call fastcc i32 @decode_attr_name.argprom(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %16)
+  %17 = tail call fastcc i32 @decode_attr_name(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %16)
   ret i32 %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_get_acl.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @dissect_query_afp_get_acl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
@@ -4172,7 +4172,7 @@ define internal fastcc i32 @dissect_query_afp_get_acl.argelim(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_set_acl.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @dissect_query_afp_set_acl(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
@@ -4194,7 +4194,7 @@ define internal fastcc i32 @dissect_query_afp_set_acl.argelim(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_access.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @dissect_query_afp_access(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
@@ -4219,7 +4219,7 @@ define internal fastcc i32 @dissect_query_afp_access.argelim(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_query_afp_with_did.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc noundef i32 @dissect_query_afp_with_did(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_afp_pad, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
@@ -4237,7 +4237,7 @@ define internal fastcc noundef i32 @dissect_query_afp_with_did.argprom.argelim(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_spotlight.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc i32 @dissect_query_afp_spotlight(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_afp_pad, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
@@ -4293,7 +4293,7 @@ declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 311) i32 @dissect_reply_afp_open_vol.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 0, 311) i32 @dissect_reply_afp_open_vol(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %3
 
@@ -4311,7 +4311,7 @@ define internal fastcc range(i32 0, 311) i32 @dissect_reply_afp_open_vol.argprom
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_reply_afp_open_fork.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @dissect_reply_afp_open_fork(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_file_bitmap, align 4
   %5 = load i32, ptr @ett_afp_file_bitmap, align 4
   %6 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @decode_file_bitmap.bitmaps, i32 noundef 0) #7
@@ -4335,7 +4335,7 @@ add_info_fork.exit:                               ; preds = %3, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_reply_afp_get_fork_param.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc i32 @dissect_reply_afp_get_fork_param(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_afp_file_bitmap, align 4
   %4 = load i32, ptr @ett_afp_file_bitmap, align 4
   %5 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %0, i32 noundef 0, i32 noundef %3, i32 noundef %4, ptr noundef nonnull @decode_file_bitmap.bitmaps, i32 noundef 0) #7
@@ -4345,7 +4345,7 @@ define internal fastcc i32 @dissect_reply_afp_get_fork_param.argprom.argelim(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 2, 27) i32 @dissect_reply_afp_get_user_info.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 2, 27) i32 @dissect_reply_afp_get_user_info(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_afp_user_bitmap, align 4
   %4 = load i32, ptr @ett_afp_user_bitmap, align 4
   %5 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %0, i32 noundef 0, i32 noundef %3, i32 noundef %4, ptr noundef nonnull @afp_user_bitmaps, i32 noundef 0) #7
@@ -4390,7 +4390,7 @@ define internal fastcc range(i32 2, 27) i32 @dissect_reply_afp_get_user_info.arg
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_reply_afp_get_server_param.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @dissect_reply_afp_get_server_param(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca %struct.nstime_t, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %5
@@ -4450,7 +4450,7 @@ define internal fastcc i32 @dissect_reply_afp_get_server_param.argelim(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 5, 65542) i32 @dissect_reply_afp_get_server_message.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 5, 65542) i32 @dissect_reply_afp_get_server_message(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_afp_message_type, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #7
   %5 = load i32, ptr @hf_afp_message_bitmap, align 4
@@ -4495,7 +4495,7 @@ define internal fastcc range(i32 5, 65542) i32 @dissect_reply_afp_get_server_mes
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_reply_afp_map_id.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc i32 @dissect_reply_afp_map_id(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #7
   %4 = zext i8 %3 to i32
   %.not = icmp eq i8 %3, 0
@@ -4544,7 +4544,7 @@ define internal fastcc i32 @dissect_reply_afp_map_id.argprom.argelim(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 4, 17) i32 @dissect_reply_afp_map_name.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc noundef range(i32 4, 17) i32 @dissect_reply_afp_map_name(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
   %4 = icmp eq i32 %3, 16
   %. = select i1 %4, i32 16, i32 4
@@ -4556,7 +4556,7 @@ define internal fastcc noundef range(i32 4, 17) i32 @dissect_reply_afp_map_name.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_reply_afp_get_session_token.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc i32 @dissect_reply_afp_get_session_token(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_afp_session_token_len, align 4
   %5 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %3) #7
@@ -4578,7 +4578,7 @@ define internal fastcc i32 @dissect_reply_afp_get_session_token.argprom.argelim(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 2, 311) i32 @dissect_reply_afp_get_vol_param.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 2, 311) i32 @dissect_reply_afp_get_vol_param(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_afp_vol_bitmap, align 4
   %4 = load i32, ptr @ett_afp_vol_bitmap, align 4
   %5 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %0, i32 noundef 0, i32 noundef %3, i32 noundef %4, ptr noundef nonnull @decode_vol_bitmap.bitmaps, i32 noundef 0) #7
@@ -4588,7 +4588,7 @@ define internal fastcc range(i32 2, 311) i32 @dissect_reply_afp_get_vol_param.ar
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_reply_afp_get_fldr_param.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc i32 @dissect_reply_afp_get_fldr_param(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_afp_file_bitmap, align 4
   %4 = load i32, ptr @ett_afp_file_bitmap, align 4
   %5 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %0, i32 noundef 0, i32 noundef %3, i32 noundef %4, ptr noundef nonnull @decode_file_bitmap.bitmaps, i32 noundef 0) #7
@@ -4619,7 +4619,7 @@ define internal fastcc i32 @dissect_reply_afp_get_fldr_param.argprom.argelim(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_reply_afp_get_icon_info.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_reply_afp_get_icon_info(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_afp_icon_tag, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #7
   %5 = load i32, ptr @hf_afp_file_type, align 4
@@ -4634,7 +4634,7 @@ define internal fastcc void @dissect_reply_afp_get_icon_info.argprom.argelim(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 257) i32 @dissect_reply_afp_get_cmt.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 1, 257) i32 @dissect_reply_afp_get_cmt(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #7
   %4 = load i32, ptr @hf_afp_comment, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 2) #7
@@ -4644,7 +4644,7 @@ define internal fastcc range(i32 1, 257) i32 @dissect_reply_afp_get_cmt.argprom.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_reply_afp_get_ext_attr.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc i32 @dissect_reply_afp_get_ext_attr(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_afp_extattr_bitmap, align 4
   %5 = load i32, ptr @ett_afp_extattr_bitmap, align 4
@@ -4669,7 +4669,7 @@ define internal fastcc i32 @dissect_reply_afp_get_ext_attr.argprom.argelim(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_reply_afp_list_ext_attrs.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc noundef i32 @dissect_reply_afp_list_ext_attrs(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   store i32 0, ptr %3, align 4
   %4 = load i32, ptr @hf_afp_extattr_bitmap, align 4
@@ -4710,7 +4710,7 @@ define internal fastcc noundef i32 @dissect_reply_afp_list_ext_attrs.argprom.arg
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_reply_afp_get_acl.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @dissect_reply_afp_get_acl(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_acl_list_bitmap, align 4
   %5 = load i32, ptr @ett_afp_acl_list_bitmap, align 4
   %6 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @decode_acl_list_bitmap.bitmaps, i32 noundef 0) #7
@@ -4720,7 +4720,7 @@ define internal fastcc i32 @dissect_reply_afp_get_acl.argelim(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_reply_afp_spotlight.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.32.val) unnamed_addr #1 {
+define internal fastcc i32 @dissect_reply_afp_spotlight(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.32.val) unnamed_addr #1 {
   %4 = alloca i32, align 4
   switch i32 %.32.val, label %28 [
     i32 4, label %5
@@ -4879,7 +4879,7 @@ declare ptr @tvb_format_text(ptr noundef, ptr noundef, i32 noundef, i32 noundef)
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @decode_vol_did_file_dir_bitmap.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc noundef i32 @decode_vol_did_file_dir_bitmap(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef 2) #7
   %4 = zext i16 %3 to i32
   store i32 %4, ptr @Vol, align 4
@@ -5693,7 +5693,7 @@ define internal fastcc range(i32 2, 311) i32 @parse_vol_bitmap(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @query_catsearch.argelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
+define internal fastcc noundef i32 @query_catsearch(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %66, label %4
 
@@ -5822,7 +5822,7 @@ define internal fastcc noundef i32 @catsearch_spec(ptr noundef %0, ptr noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @decode_attr_name.argprom(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc i32 @decode_attr_name(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = and i32 %3, 1
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %6
@@ -5977,7 +5977,7 @@ declare ptr @tvb_get_stringz_enc(ptr noundef, ptr noundef, i32 noundef, ptr noun
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @reply_enumerate.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 {
+define internal fastcc i32 @reply_enumerate(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_afp_file_bitmap, align 4
   %6 = load i32, ptr @ett_afp_file_bitmap, align 4
   %7 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %5, i32 noundef %6, ptr noundef nonnull @decode_file_bitmap.bitmaps, i32 noundef 0) #7
@@ -6235,7 +6235,7 @@ declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @reply_catsearch.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 {
+define internal fastcc i32 @reply_catsearch(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_afp_cat_position, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #7
   %7 = load i32, ptr @hf_afp_file_bitmap, align 4

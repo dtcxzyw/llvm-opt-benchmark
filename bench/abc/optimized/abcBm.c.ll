@@ -3730,7 +3730,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %22, %Vec_IntFill.ex
   %46 = getelementptr inbounds i8, ptr %.val28, i64 228
   %47 = load i32, ptr %46, align 4
   %.not.i.not.i.i.i = icmp slt i32 %.val29, %47
-  br i1 %.not.i.not.i.i.i, label %Abc_NodeSetTravIdCurrent.argprom.exit, label %48
+  br i1 %.not.i.not.i.i.i, label %Abc_NodeSetTravIdCurrent.exit, label %48
 
 48:                                               ; preds = %Abc_NtkIncrementTravId.exit
   %49 = load i32, ptr %44, align 8
@@ -3815,9 +3815,9 @@ Vec_IntGrow.exit.i.i.i.i:                         ; preds = %Vec_IntGrow.exit.si
 
 ._crit_edge.i.i.i.i:                              ; preds = %78, %Vec_IntGrow.exit.i.i.i.i
   store i32 %45, ptr %46, align 4
-  br label %Abc_NodeSetTravIdCurrent.argprom.exit
+  br label %Abc_NodeSetTravIdCurrent.exit
 
-Abc_NodeSetTravIdCurrent.argprom.exit:            ; preds = %Abc_NtkIncrementTravId.exit, %._crit_edge.i.i.i.i
+Abc_NodeSetTravIdCurrent.exit:                    ; preds = %Abc_NtkIncrementTravId.exit, %._crit_edge.i.i.i.i
   %81 = getelementptr i8, ptr %.val28, i64 232
   %.val.i.i.i = load ptr, ptr %81, align 8
   %82 = sext i32 %.val29 to i64
@@ -3828,7 +3828,7 @@ Abc_NodeSetTravIdCurrent.argprom.exit:            ; preds = %Abc_NtkIncrementTra
   %.not.i35 = icmp eq i32 %.val.i34, 1
   br i1 %.not.i35, label %85, label %Abc_ObjFanout0Ntk.exit
 
-85:                                               ; preds = %Abc_NodeSetTravIdCurrent.argprom.exit
+85:                                               ; preds = %Abc_NodeSetTravIdCurrent.exit
   %86 = getelementptr i8, ptr %25, i64 48
   %.val4.i = load ptr, ptr %86, align 8
   %87 = getelementptr i8, ptr %84, i64 32
@@ -3841,8 +3841,8 @@ Abc_NodeSetTravIdCurrent.argprom.exit:            ; preds = %Abc_NtkIncrementTra
   %91 = load ptr, ptr %90, align 8
   br label %Abc_ObjFanout0Ntk.exit
 
-Abc_ObjFanout0Ntk.exit:                           ; preds = %Abc_NodeSetTravIdCurrent.argprom.exit, %85
-  %92 = phi ptr [ %91, %85 ], [ %25, %Abc_NodeSetTravIdCurrent.argprom.exit ]
+Abc_ObjFanout0Ntk.exit:                           ; preds = %Abc_NodeSetTravIdCurrent.exit, %85
+  %92 = phi ptr [ %91, %85 ], [ %25, %Abc_NodeSetTravIdCurrent.exit ]
   %93 = getelementptr i8, ptr %92, i64 44
   %.val3038 = load i32, ptr %93, align 4
   %94 = icmp sgt i32 %.val3038, 0
@@ -8942,7 +8942,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond.not.i, label %Vec_IntFind.exit.thread, label %125, !llvm.loop !88
 
 Vec_IntFind.exit.thread:                          ; preds = %129, %121
-  tail call fastcc void @Vec_IntPushUnique.retelim(ptr noundef nonnull %42, i32 noundef %115)
+  tail call fastcc void @Vec_IntPushUnique(ptr noundef nonnull %42, i32 noundef %115)
   %130 = load ptr, ptr %39, align 8
   %131 = getelementptr i8, ptr %130, i64 4
   %.val373 = load i32, ptr %131, align 4
@@ -8962,7 +8962,7 @@ Vec_IntFind.exit.thread:                          ; preds = %129, %121
   %143 = sext i32 %142 to i64
   %144 = getelementptr inbounds i32, ptr %7, i64 %143
   %145 = load i32, ptr %144, align 4
-  tail call fastcc void @Vec_IntPushUnique.retelim(ptr noundef %18, i32 noundef %145)
+  tail call fastcc void @Vec_IntPushUnique(ptr noundef %18, i32 noundef %145)
   %.pre = load ptr, ptr %39, align 8
   br label %Vec_IntFind.exit
 
@@ -9576,7 +9576,7 @@ Vec_IntPush.exit425:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond.not.i431, label %Vec_IntFind.exit433.thread, label %435, !llvm.loop !88
 
 Vec_IntFind.exit433.thread:                       ; preds = %439, %.lr.ph539
-  call fastcc void @Vec_IntPushUnique.retelim(ptr noundef nonnull %321, i32 noundef %.5538)
+  call fastcc void @Vec_IntPushUnique(ptr noundef nonnull %321, i32 noundef %.5538)
   br label %Vec_IntFind.exit433
 
 Vec_IntFind.exit433:                              ; preds = %435, %Vec_IntFind.exit433.thread
@@ -9602,7 +9602,7 @@ Vec_IntFind.exit433:                              ; preds = %435, %Vec_IntFind.e
   br i1 %exitcond.not.i439, label %Vec_IntFind.exit441.thread, label %443, !llvm.loop !88
 
 Vec_IntFind.exit441.thread:                       ; preds = %447, %Vec_IntFind.exit433
-  call fastcc void @Vec_IntPushUnique.retelim(ptr noundef nonnull %325, i32 noundef %.5538)
+  call fastcc void @Vec_IntPushUnique(ptr noundef nonnull %325, i32 noundef %.5538)
   br label %Vec_IntFind.exit441
 
 Vec_IntFind.exit441:                              ; preds = %443, %Vec_IntFind.exit441.thread
@@ -10001,7 +10001,7 @@ Vec_PtrFree.exit468:                              ; preds = %Vec_IntFree.exit466
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntPushUnique.retelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntPushUnique(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0

@@ -13303,16 +13303,16 @@ _ZN5clang12Preprocessor10EnterTokenERKNS_5TokenEb.exit: ; preds = %_ZNSt10unique
 
 _ZN5clang6Parser15isTypeSpecifierENS0_15DeclSpecContextE.exit452.thread: ; preds = %1218, %1218, %1218, %1218, %1218, %1218, %1218, %_ZN5clang17DiagnosticBuilderD2Ev.exit450, %1221, %_ZN5clang12Preprocessor10EnterTokenERKNS_5TokenEb.exit, %1225, %888, %890, %1163, %1151, %_ZN5clang17DiagnosticBuilderD2Ev.exit358
   %.not.i456 = icmp eq ptr %.sroa.0550.0, null
-  br i1 %.not.i456, label %_ZZN5clang6Parser19ParseClassSpecifierENS_3tok9TokenKindENS_14SourceLocationERNS_8DeclSpecERNS0_18ParsedTemplateInfoENS_15AccessSpecifierEbNS0_15DeclSpecContextERNS_16ParsedAttributesEEN32PreserveAtomicIdentifierInfoRAIID2Ev.argprom.exit, label %1248
+  br i1 %.not.i456, label %_ZZN5clang6Parser19ParseClassSpecifierENS_3tok9TokenKindENS_14SourceLocationERNS_8DeclSpecERNS0_18ParsedTemplateInfoENS_15AccessSpecifierEbNS0_15DeclSpecContextERNS_16ParsedAttributesEEN32PreserveAtomicIdentifierInfoRAIID2Ev.exit, label %1248
 
 1248:                                             ; preds = %_ZN5clang6Parser15isTypeSpecifierENS0_15DeclSpecContextE.exit452.thread
   %1249 = load i64, ptr %.sroa.0550.0, align 8
   %1250 = and i64 %1249, -34359738880
   %1251 = or disjoint i64 %1250, 114
   store i64 %1251, ptr %.sroa.0550.0, align 8
-  br label %_ZZN5clang6Parser19ParseClassSpecifierENS_3tok9TokenKindENS_14SourceLocationERNS_8DeclSpecERNS0_18ParsedTemplateInfoENS_15AccessSpecifierEbNS0_15DeclSpecContextERNS_16ParsedAttributesEEN32PreserveAtomicIdentifierInfoRAIID2Ev.argprom.exit
+  br label %_ZZN5clang6Parser19ParseClassSpecifierENS_3tok9TokenKindENS_14SourceLocationERNS_8DeclSpecERNS0_18ParsedTemplateInfoENS_15AccessSpecifierEbNS0_15DeclSpecContextERNS_16ParsedAttributesEEN32PreserveAtomicIdentifierInfoRAIID2Ev.exit
 
-_ZZN5clang6Parser19ParseClassSpecifierENS_3tok9TokenKindENS_14SourceLocationERNS_8DeclSpecERNS0_18ParsedTemplateInfoENS_15AccessSpecifierEbNS0_15DeclSpecContextERNS_16ParsedAttributesEEN32PreserveAtomicIdentifierInfoRAIID2Ev.argprom.exit: ; preds = %_ZN5clang6Parser15isTypeSpecifierENS0_15DeclSpecContextE.exit452.thread, %1248
+_ZZN5clang6Parser19ParseClassSpecifierENS_3tok9TokenKindENS_14SourceLocationERNS_8DeclSpecERNS0_18ParsedTemplateInfoENS_15AccessSpecifierEbNS0_15DeclSpecContextERNS_16ParsedAttributesEEN32PreserveAtomicIdentifierInfoRAIID2Ev.exit: ; preds = %_ZN5clang6Parser15isTypeSpecifierENS0_15DeclSpecContextE.exit452.thread, %1248
   %1252 = load ptr, ptr %98, align 8
   call void @_ZN5clang16AttributeFactory11reclaimPoolERNS_13AttributePoolE(ptr noundef nonnull align 8 dereferenceable(1312) %1252, ptr noundef nonnull align 8 dereferenceable(72) %98) #19
   %1253 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %99) #19
@@ -13320,11 +13320,11 @@ _ZZN5clang6Parser19ParseClassSpecifierENS_3tok9TokenKindENS_14SourceLocationERNS
   %1255 = icmp eq ptr %1254, %100
   br i1 %1255, label %_ZN5clang13AttributePoolD2Ev.exit.i, label %1256
 
-1256:                                             ; preds = %_ZZN5clang6Parser19ParseClassSpecifierENS_3tok9TokenKindENS_14SourceLocationERNS_8DeclSpecERNS0_18ParsedTemplateInfoENS_15AccessSpecifierEbNS0_15DeclSpecContextERNS_16ParsedAttributesEEN32PreserveAtomicIdentifierInfoRAIID2Ev.argprom.exit
+1256:                                             ; preds = %_ZZN5clang6Parser19ParseClassSpecifierENS_3tok9TokenKindENS_14SourceLocationERNS_8DeclSpecERNS0_18ParsedTemplateInfoENS_15AccessSpecifierEbNS0_15DeclSpecContextERNS_16ParsedAttributesEEN32PreserveAtomicIdentifierInfoRAIID2Ev.exit
   call void @free(ptr noundef %1254) #19
   br label %_ZN5clang13AttributePoolD2Ev.exit.i
 
-_ZN5clang13AttributePoolD2Ev.exit.i:              ; preds = %1256, %_ZZN5clang6Parser19ParseClassSpecifierENS_3tok9TokenKindENS_14SourceLocationERNS_8DeclSpecERNS0_18ParsedTemplateInfoENS_15AccessSpecifierEbNS0_15DeclSpecContextERNS_16ParsedAttributesEEN32PreserveAtomicIdentifierInfoRAIID2Ev.argprom.exit
+_ZN5clang13AttributePoolD2Ev.exit.i:              ; preds = %1256, %_ZZN5clang6Parser19ParseClassSpecifierENS_3tok9TokenKindENS_14SourceLocationERNS_8DeclSpecERNS0_18ParsedTemplateInfoENS_15AccessSpecifierEbNS0_15DeclSpecContextERNS_16ParsedAttributesEEN32PreserveAtomicIdentifierInfoRAIID2Ev.exit
   %1257 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %96) #19
   %1258 = load ptr, ptr %96, align 8
   %1259 = icmp eq ptr %1258, %97
@@ -33815,7 +33815,7 @@ define internal void @"_ZN4llvm12function_refIFNSt7__cxx1112basic_stringIcSt11ch
 
 _ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclENS1_4DeclEEEDaPT0_.exit.i: ; preds = %5
   tail call void @_ZNK5clang9NamedDecl24getQualifiedNameAsStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %.val.val) #19
-  br label %"_ZZN5clang6Parser27ParseCXXMemberSpecificationENS_14SourceLocationES1_RNS_16ParsedAttributesEjPNS_4DeclEENK3$_0clB5cxx11Ev.argprom.argprom.exit"
+  br label %"_ZZN5clang6Parser27ParseCXXMemberSpecificationENS_14SourceLocationES1_RNS_16ParsedAttributesEjPNS_4DeclEENK3$_0clB5cxx11Ev.exit"
 
 11:                                               ; preds = %5, %2
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19, !noalias !310
@@ -33826,9 +33826,9 @@ _ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclENS1_4DeclEEEDaPT0_.exit.i: ; preds 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %14, ptr noundef nonnull @.str.54, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.54, i64 11)) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 11) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
-  br label %"_ZZN5clang6Parser27ParseCXXMemberSpecificationENS_14SourceLocationES1_RNS_16ParsedAttributesEjPNS_4DeclEENK3$_0clB5cxx11Ev.argprom.argprom.exit"
+  br label %"_ZZN5clang6Parser27ParseCXXMemberSpecificationENS_14SourceLocationES1_RNS_16ParsedAttributesEjPNS_4DeclEENK3$_0clB5cxx11Ev.exit"
 
-"_ZZN5clang6Parser27ParseCXXMemberSpecificationENS_14SourceLocationES1_RNS_16ParsedAttributesEjPNS_4DeclEENK3$_0clB5cxx11Ev.argprom.argprom.exit": ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclENS1_4DeclEEEDaPT0_.exit.i, %11
+"_ZZN5clang6Parser27ParseCXXMemberSpecificationENS_14SourceLocationES1_RNS_16ParsedAttributesEjPNS_4DeclEENK3$_0clB5cxx11Ev.exit": ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclENS1_4DeclEEEDaPT0_.exit.i, %11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   ret void
 }
@@ -34523,5 +34523,5 @@ attributes #24 = { noreturn nounwind }
 !308 = distinct !{!308, !309, !"_ZN5clang9FixItHint13CreateRemovalENS_11SourceRangeE: argument 0"}
 !309 = distinct !{!309, !"_ZN5clang9FixItHint13CreateRemovalENS_11SourceRangeE"}
 !310 = !{!311}
-!311 = distinct !{!311, !312, !"_ZZN5clang6Parser27ParseCXXMemberSpecificationENS_14SourceLocationES1_RNS_16ParsedAttributesEjPNS_4DeclEENK3$_0clB5cxx11Ev.argprom.argprom: argument 0"}
-!312 = distinct !{!312, !"_ZZN5clang6Parser27ParseCXXMemberSpecificationENS_14SourceLocationES1_RNS_16ParsedAttributesEjPNS_4DeclEENK3$_0clB5cxx11Ev.argprom.argprom"}
+!311 = distinct !{!311, !312, !"_ZZN5clang6Parser27ParseCXXMemberSpecificationENS_14SourceLocationES1_RNS_16ParsedAttributesEjPNS_4DeclEENK3$_0clB5cxx11Ev: argument 0"}
+!312 = distinct !{!312, !"_ZZN5clang6Parser27ParseCXXMemberSpecificationENS_14SourceLocationES1_RNS_16ParsedAttributesEjPNS_4DeclEENK3$_0clB5cxx11Ev"}

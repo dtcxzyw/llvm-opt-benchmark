@@ -22,7 +22,7 @@ define void @dijkstra(i32 noundef %0, ptr nocapture noundef readonly %1, i32 nou
 6:                                                ; preds = %4
   %7 = load ptr, ptr @stderr, align 8
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, i64 noundef %5, i64 noundef 4) #9
-  tail call fastcc void @graphviz_exit.argelim() #10
+  tail call fastcc void @graphviz_exit() #10
   unreachable
 
 9:                                                ; preds = %4
@@ -44,7 +44,7 @@ gv_calloc.exit.preheader102:                      ; preds = %gv_calloc.exit.preh
   %14 = load ptr, ptr @stderr, align 8
   %15 = shl nuw nsw i64 %5, 2
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.1, i64 noundef %15) #9
-  tail call fastcc void @graphviz_exit.argelim() #10
+  tail call fastcc void @graphviz_exit() #10
   unreachable
 
 gv_calloc.exit:                                   ; preds = %gv_calloc.exit.preheader102, %gv_calloc.exit
@@ -98,7 +98,7 @@ gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit, %gv
 42:                                               ; preds = %39
   %43 = load ptr, ptr @stderr, align 8
   %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str, i64 noundef %41, i64 noundef 4) #9
-  tail call fastcc void @graphviz_exit.argelim() #10
+  tail call fastcc void @graphviz_exit() #10
   unreachable
 
 45:                                               ; preds = %39
@@ -112,7 +112,7 @@ gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit, %gv
   %50 = load ptr, ptr @stderr, align 8
   %51 = shl nuw nsw i64 %41, 2
   %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.1, i64 noundef %51) #9
-  tail call fastcc void @graphviz_exit.argelim() #10
+  tail call fastcc void @graphviz_exit() #10
   unreachable
 
 .lr.ph.preheader.i:                               ; preds = %45, %._crit_edge
@@ -451,7 +451,7 @@ define void @dijkstra_f(i32 noundef %0, ptr nocapture noundef readonly %1, i32 n
 7:                                                ; preds = %4
   %8 = load ptr, ptr @stderr, align 8
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str, i64 noundef %6, i64 noundef 4) #9
-  tail call fastcc void @graphviz_exit.argelim() #10
+  tail call fastcc void @graphviz_exit() #10
   unreachable
 
 10:                                               ; preds = %4
@@ -473,7 +473,7 @@ gv_calloc.exit.preheader55:                       ; preds = %gv_calloc.exit.preh
   %15 = load ptr, ptr @stderr, align 8
   %16 = shl nuw nsw i64 %6, 2
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.1, i64 noundef %16) #9
-  tail call fastcc void @graphviz_exit.argelim() #10
+  tail call fastcc void @graphviz_exit() #10
   unreachable
 
 gv_calloc.exit:                                   ; preds = %gv_calloc.exit.preheader55, %gv_calloc.exit
@@ -708,7 +708,7 @@ define internal fastcc void @initHeap_f(ptr nocapture noundef nonnull %0, i32 no
 8:                                                ; preds = %5
   %9 = load ptr, ptr @stderr, align 8
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str, i64 noundef %7, i64 noundef 4) #9
-  tail call fastcc void @graphviz_exit.argelim() #10
+  tail call fastcc void @graphviz_exit() #10
   unreachable
 
 11:                                               ; preds = %5
@@ -722,7 +722,7 @@ define internal fastcc void @initHeap_f(ptr nocapture noundef nonnull %0, i32 no
   %16 = load ptr, ptr @stderr, align 8
   %17 = shl nuw nsw i64 %7, 2
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.1, i64 noundef %17) #9
-  tail call fastcc void @graphviz_exit.argelim() #10
+  tail call fastcc void @graphviz_exit() #10
   unreachable
 
 .lr.ph.preheader:                                 ; preds = %11
@@ -868,7 +868,7 @@ define i32 @dijkstra_sgd(ptr nocapture noundef readonly %0, i32 noundef %1, ptr 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @stderr, align 8
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str, i64 noundef %6, i64 noundef 4) #9
-  tail call fastcc void @graphviz_exit.argelim() #10
+  tail call fastcc void @graphviz_exit() #10
   unreachable
 
 10:                                               ; preds = %3
@@ -882,7 +882,7 @@ define i32 @dijkstra_sgd(ptr nocapture noundef readonly %0, i32 noundef %1, ptr 
   %15 = load ptr, ptr @stderr, align 8
   %16 = shl nuw i64 %6, 2
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.1, i64 noundef %16) #9
-  tail call fastcc void @graphviz_exit.argelim() #10
+  tail call fastcc void @graphviz_exit() #10
   unreachable
 
 gv_calloc.exit:                                   ; preds = %10
@@ -899,7 +899,7 @@ gv_calloc.exit66.preheader:                       ; preds = %gv_calloc.exit
   %21 = load ptr, ptr @stderr, align 8
   %22 = shl nuw i64 %6, 2
   %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.1, i64 noundef %22) #9
-  tail call fastcc void @graphviz_exit.argelim() #10
+  tail call fastcc void @graphviz_exit() #10
   unreachable
 
 gv_calloc.exit66:                                 ; preds = %gv_calloc.exit66.preheader, %gv_calloc.exit66
@@ -1179,7 +1179,7 @@ extractMax_f.exit.thread:                         ; preds = %extractMax_f.exit, 
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #4 {
+define internal fastcc void @graphviz_exit() unnamed_addr #4 {
   tail call void @exit(i32 noundef 1) #13
   unreachable
 }

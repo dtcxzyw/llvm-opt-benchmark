@@ -965,7 +965,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm22EmitAnyX86InstCommentsEPKNS_6MCIn
   %.val633.val = load i32, ptr %24, align 8
   %25 = add i32 %.val633.val, -247
   %26 = icmp ult i32 %25, 32
-  br i1 %26, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit, label %27
+  br i1 %26, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit, label %27
 
 27:                                               ; preds = %23
   %28 = add i32 %.val633.val, -191
@@ -973,7 +973,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm22EmitAnyX86InstCommentsEPKNS_6MCIn
   %29 = add i32 %.val633.val, -231
   %30 = icmp ult i32 %29, 16
   %31 = or i1 %or.cond.i.i.i, %30
-  br i1 %31, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit, label %32
+  br i1 %31, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit, label %32
 
 32:                                               ; preds = %27
   %33 = add i32 %.val633.val, -135
@@ -982,9 +982,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm22EmitAnyX86InstCommentsEPKNS_6MCIn
   %35 = icmp ult i32 %34, 16
   %36 = or i1 %or.cond.i7.i.i, %35
   %37 = select i1 %36, i32 2, i32 1
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit: ; preds = %23, %27, %32
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit: ; preds = %23, %27, %32
   %.0.i.i = phi i32 [ 8, %23 ], [ 4, %27 ], [ %37, %32 ]
   %38 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %39 = load i64, ptr %38, align 8
@@ -993,8 +993,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit: ; preds = %23,
   %.pre933 = load ptr, ptr %6, align 8
   br label %41
 
-41:                                               ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit, %16
-  %42 = phi ptr [ %.pre933, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit ], [ %19, %16 ]
+41:                                               ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit, %16
+  %42 = phi ptr [ %.pre933, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit ], [ %19, %16 ]
   %43 = getelementptr inbounds i8, ptr %42, i64 24
   %44 = load i32, ptr %43, align 8
   %45 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %44) #6
@@ -1026,7 +1026,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit: ; preds = %23,
   %.val634.val = load i32, ptr %63, align 8
   %64 = add i32 %.val634.val, -247
   %65 = icmp ult i32 %64, 32
-  br i1 %65, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit678, label %66
+  br i1 %65, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit678, label %66
 
 66:                                               ; preds = %62
   %67 = add i32 %.val634.val, -191
@@ -1034,7 +1034,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit: ; preds = %23,
   %68 = add i32 %.val634.val, -231
   %69 = icmp ult i32 %68, 16
   %70 = or i1 %or.cond.i.i.i674, %69
-  br i1 %70, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit678, label %71
+  br i1 %70, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit678, label %71
 
 71:                                               ; preds = %66
   %72 = add i32 %.val634.val, -135
@@ -1043,9 +1043,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit: ; preds = %23,
   %74 = icmp ult i32 %73, 16
   %75 = or i1 %or.cond.i7.i.i675, %74
   %76 = select i1 %75, i32 4, i32 2
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit678
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit678
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit678: ; preds = %62, %66, %71
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit678: ; preds = %62, %66, %71
   %.0.i.i676 = phi i32 [ 16, %62 ], [ 8, %66 ], [ %76, %71 ]
   %77 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %78 = load i64, ptr %77, align 8
@@ -1054,8 +1054,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit678: ; preds = %
   %.pre932 = load ptr, ptr %6, align 8
   br label %80
 
-80:                                               ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit678, %55
-  %81 = phi ptr [ %.pre932, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit678 ], [ %58, %55 ]
+80:                                               ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit678, %55
+  %81 = phi ptr [ %.pre932, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit678 ], [ %58, %55 ]
   %82 = getelementptr inbounds i8, ptr %81, i64 24
   %83 = load i32, ptr %82, align 8
   %84 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %83) #6
@@ -1087,7 +1087,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit678: ; preds = %
   %.val635.val = load i32, ptr %102, align 8
   %103 = add i32 %.val635.val, -247
   %104 = icmp ult i32 %103, 32
-  br i1 %104, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit683, label %105
+  br i1 %104, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit683, label %105
 
 105:                                              ; preds = %101
   %106 = add i32 %.val635.val, -191
@@ -1095,7 +1095,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit678: ; preds = %
   %107 = add i32 %.val635.val, -231
   %108 = icmp ult i32 %107, 16
   %109 = or i1 %or.cond.i.i.i679, %108
-  br i1 %109, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit683, label %110
+  br i1 %109, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit683, label %110
 
 110:                                              ; preds = %105
   %111 = add i32 %.val635.val, -135
@@ -1104,9 +1104,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit678: ; preds = %
   %113 = icmp ult i32 %112, 16
   %114 = or i1 %or.cond.i7.i.i680, %113
   %115 = select i1 %114, i32 8, i32 4
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit683
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit683
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit683: ; preds = %101, %105, %110
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit683: ; preds = %101, %105, %110
   %.0.i.i681 = phi i32 [ 32, %101 ], [ 16, %105 ], [ %115, %110 ]
   %116 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %117 = load i64, ptr %116, align 8
@@ -1115,8 +1115,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit683: ; preds = %
   %.pre931 = load ptr, ptr %6, align 8
   br label %119
 
-119:                                              ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit683, %94
-  %120 = phi ptr [ %.pre931, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit683 ], [ %97, %94 ]
+119:                                              ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit683, %94
+  %120 = phi ptr [ %.pre931, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit683 ], [ %97, %94 ]
   %121 = getelementptr inbounds i8, ptr %120, i64 24
   %122 = load i32, ptr %121, align 8
   %123 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %122) #6
@@ -1148,7 +1148,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit683: ; preds = %
   %.val636.val = load i32, ptr %141, align 8
   %142 = add i32 %.val636.val, -247
   %143 = icmp ult i32 %142, 32
-  br i1 %143, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit688, label %144
+  br i1 %143, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit688, label %144
 
 144:                                              ; preds = %140
   %145 = add i32 %.val636.val, -191
@@ -1156,7 +1156,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit683: ; preds = %
   %146 = add i32 %.val636.val, -231
   %147 = icmp ult i32 %146, 16
   %148 = or i1 %or.cond.i.i.i684, %147
-  br i1 %148, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit688, label %149
+  br i1 %148, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit688, label %149
 
 149:                                              ; preds = %144
   %150 = add i32 %.val636.val, -135
@@ -1165,9 +1165,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit683: ; preds = %
   %152 = icmp ult i32 %151, 16
   %153 = or i1 %or.cond.i7.i.i685, %152
   %154 = select i1 %153, i32 4, i32 2
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit688
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit688
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit688: ; preds = %140, %144, %149
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit688: ; preds = %140, %144, %149
   %.0.i.i686 = phi i32 [ 16, %140 ], [ 8, %144 ], [ %154, %149 ]
   %155 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %156 = load i64, ptr %155, align 8
@@ -1176,8 +1176,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit688: ; preds = %
   %.pre930 = load ptr, ptr %6, align 8
   br label %158
 
-158:                                              ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit688, %133
-  %159 = phi ptr [ %.pre930, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit688 ], [ %136, %133 ]
+158:                                              ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit688, %133
+  %159 = phi ptr [ %.pre930, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit688 ], [ %136, %133 ]
   %160 = getelementptr inbounds i8, ptr %159, i64 24
   %161 = load i32, ptr %160, align 8
   %162 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %161) #6
@@ -1319,7 +1319,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit688: ; preds = %
   %.val637.val = load i32, ptr %265, align 8
   %266 = add i32 %.val637.val, -247
   %267 = icmp ult i32 %266, 32
-  br i1 %267, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit693, label %268
+  br i1 %267, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit693, label %268
 
 268:                                              ; preds = %260
   %269 = add i32 %.val637.val, -191
@@ -1327,7 +1327,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit688: ; preds = %
   %270 = add i32 %.val637.val, -231
   %271 = icmp ult i32 %270, 16
   %272 = or i1 %or.cond.i.i.i689, %271
-  br i1 %272, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit693, label %273
+  br i1 %272, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit693, label %273
 
 273:                                              ; preds = %268
   %274 = add i32 %.val637.val, -135
@@ -1336,9 +1336,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit688: ; preds = %
   %276 = icmp ult i32 %275, 16
   %277 = or i1 %or.cond.i7.i.i690, %276
   %278 = select i1 %277, i32 4, i32 2
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit693
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit693
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit693: ; preds = %260, %268, %273
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit693: ; preds = %260, %268, %273
   %.0.i.i691 = phi i32 [ 16, %260 ], [ 8, %268 ], [ %278, %273 ]
   call void @_ZN4llvm18DecodeMOVSLDUPMaskEjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i691, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
@@ -1363,7 +1363,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit693: ; preds = %
   %.val638.val = load i32, ptr %291, align 8
   %292 = add i32 %.val638.val, -247
   %293 = icmp ult i32 %292, 32
-  br i1 %293, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit698, label %294
+  br i1 %293, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit698, label %294
 
 294:                                              ; preds = %286
   %295 = add i32 %.val638.val, -191
@@ -1371,7 +1371,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit693: ; preds = %
   %296 = add i32 %.val638.val, -231
   %297 = icmp ult i32 %296, 16
   %298 = or i1 %or.cond.i.i.i694, %297
-  br i1 %298, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit698, label %299
+  br i1 %298, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit698, label %299
 
 299:                                              ; preds = %294
   %300 = add i32 %.val638.val, -135
@@ -1380,9 +1380,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit693: ; preds = %
   %302 = icmp ult i32 %301, 16
   %303 = or i1 %or.cond.i7.i.i695, %302
   %304 = select i1 %303, i32 4, i32 2
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit698
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit698
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit698: ; preds = %286, %294, %299
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit698: ; preds = %286, %294, %299
   %.0.i.i696 = phi i32 [ 16, %286 ], [ 8, %294 ], [ %304, %299 ]
   call void @_ZN4llvm18DecodeMOVSHDUPMaskEjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i696, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
@@ -1407,7 +1407,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit698: ; preds = %
   %.val639.val = load i32, ptr %317, align 8
   %318 = add i32 %.val639.val, -247
   %319 = icmp ult i32 %318, 32
-  br i1 %319, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit703, label %320
+  br i1 %319, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit703, label %320
 
 320:                                              ; preds = %312
   %321 = add i32 %.val639.val, -191
@@ -1415,7 +1415,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit698: ; preds = %
   %322 = add i32 %.val639.val, -231
   %323 = icmp ult i32 %322, 16
   %324 = or i1 %or.cond.i.i.i699, %323
-  br i1 %324, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit703, label %325
+  br i1 %324, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit703, label %325
 
 325:                                              ; preds = %320
   %326 = add i32 %.val639.val, -135
@@ -1424,9 +1424,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit698: ; preds = %
   %328 = icmp ult i32 %327, 16
   %329 = or i1 %or.cond.i7.i.i700, %328
   %330 = select i1 %329, i32 2, i32 1
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit703
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit703
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit703: ; preds = %312, %320, %325
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit703: ; preds = %312, %320, %325
   %.0.i.i701 = phi i32 [ 8, %312 ], [ 4, %320 ], [ %330, %325 ]
   call void @_ZN4llvm17DecodeMOVDDUPMaskEjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i701, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
@@ -1457,7 +1457,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit703: ; preds = %
   %.val640.val = load i32, ptr %348, align 8
   %349 = add i32 %.val640.val, -247
   %350 = icmp ult i32 %349, 32
-  br i1 %350, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit708, label %351
+  br i1 %350, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit708, label %351
 
 351:                                              ; preds = %347
   %352 = add i32 %.val640.val, -191
@@ -1465,7 +1465,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit703: ; preds = %
   %353 = add i32 %.val640.val, -231
   %354 = icmp ult i32 %353, 16
   %355 = or i1 %or.cond.i.i.i704, %354
-  br i1 %355, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit708, label %356
+  br i1 %355, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit708, label %356
 
 356:                                              ; preds = %351
   %357 = add i32 %.val640.val, -135
@@ -1474,9 +1474,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit703: ; preds = %
   %359 = icmp ult i32 %358, 16
   %360 = or i1 %or.cond.i7.i.i705, %359
   %361 = select i1 %360, i32 16, i32 8
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit708
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit708
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit708: ; preds = %347, %351, %356
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit708: ; preds = %347, %351, %356
   %.0.i.i706 = phi i32 [ 64, %347 ], [ 32, %351 ], [ %361, %356 ]
   %362 = getelementptr inbounds nuw i8, ptr %344, i64 8
   %363 = load i64, ptr %362, align 8
@@ -1510,7 +1510,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit708: ; preds = %
   %.val641.val = load i32, ptr %382, align 8
   %383 = add i32 %.val641.val, -247
   %384 = icmp ult i32 %383, 32
-  br i1 %384, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit713, label %385
+  br i1 %384, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit713, label %385
 
 385:                                              ; preds = %381
   %386 = add i32 %.val641.val, -191
@@ -1518,7 +1518,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit708: ; preds = %
   %387 = add i32 %.val641.val, -231
   %388 = icmp ult i32 %387, 16
   %389 = or i1 %or.cond.i.i.i709, %388
-  br i1 %389, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit713, label %390
+  br i1 %389, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit713, label %390
 
 390:                                              ; preds = %385
   %391 = add i32 %.val641.val, -135
@@ -1527,9 +1527,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit708: ; preds = %
   %393 = icmp ult i32 %392, 16
   %394 = or i1 %or.cond.i7.i.i710, %393
   %395 = select i1 %394, i32 16, i32 8
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit713
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit713
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit713: ; preds = %381, %385, %390
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit713: ; preds = %381, %385, %390
   %.0.i.i711 = phi i32 [ 64, %381 ], [ 32, %385 ], [ %395, %390 ]
   %396 = getelementptr inbounds nuw i8, ptr %378, i64 8
   %397 = load i64, ptr %396, align 8
@@ -1572,7 +1572,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit713: ; preds = %
   %.val642.val = load i32, ptr %424, align 8
   %425 = add i32 %.val642.val, -247
   %426 = icmp ult i32 %425, 32
-  br i1 %426, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit718, label %427
+  br i1 %426, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit718, label %427
 
 427:                                              ; preds = %423
   %428 = add i32 %.val642.val, -191
@@ -1580,7 +1580,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit713: ; preds = %
   %429 = add i32 %.val642.val, -231
   %430 = icmp ult i32 %429, 16
   %431 = or i1 %or.cond.i.i.i714, %430
-  br i1 %431, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit718, label %432
+  br i1 %431, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit718, label %432
 
 432:                                              ; preds = %427
   %433 = add i32 %.val642.val, -135
@@ -1589,9 +1589,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit713: ; preds = %
   %435 = icmp ult i32 %434, 16
   %436 = or i1 %or.cond.i7.i.i715, %435
   %437 = select i1 %436, i32 16, i32 8
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit718
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit718
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit718: ; preds = %423, %427, %432
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit718: ; preds = %423, %427, %432
   %.0.i.i716 = phi i32 [ 64, %423 ], [ 32, %427 ], [ %437, %432 ]
   %438 = getelementptr inbounds nuw i8, ptr %420, i64 8
   %439 = load i64, ptr %438, align 8
@@ -1634,7 +1634,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit718: ; preds = %
   %.val643.val = load i32, ptr %466, align 8
   %467 = add i32 %.val643.val, -247
   %468 = icmp ult i32 %467, 32
-  br i1 %468, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit723, label %469
+  br i1 %468, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit723, label %469
 
 469:                                              ; preds = %465
   %470 = add i32 %.val643.val, -191
@@ -1642,7 +1642,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit718: ; preds = %
   %471 = add i32 %.val643.val, -231
   %472 = icmp ult i32 %471, 16
   %473 = or i1 %or.cond.i.i.i719, %472
-  br i1 %473, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit723, label %474
+  br i1 %473, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit723, label %474
 
 474:                                              ; preds = %469
   %475 = add i32 %.val643.val, -135
@@ -1651,9 +1651,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit718: ; preds = %
   %477 = icmp ult i32 %476, 16
   %478 = or i1 %or.cond.i7.i.i720, %477
   %479 = select i1 %478, i32 2, i32 1
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit723
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit723
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit723: ; preds = %465, %469, %474
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit723: ; preds = %465, %469, %474
   %.0.i.i721 = phi i32 [ 8, %465 ], [ 4, %469 ], [ %479, %474 ]
   %480 = getelementptr inbounds nuw i8, ptr %462, i64 8
   %481 = load i64, ptr %480, align 8
@@ -1696,7 +1696,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit723: ; preds = %
   %.val644.val = load i32, ptr %508, align 8
   %509 = add i32 %.val644.val, -247
   %510 = icmp ult i32 %509, 32
-  br i1 %510, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit728, label %511
+  br i1 %510, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit728, label %511
 
 511:                                              ; preds = %507
   %512 = add i32 %.val644.val, -191
@@ -1704,7 +1704,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit723: ; preds = %
   %513 = add i32 %.val644.val, -231
   %514 = icmp ult i32 %513, 16
   %515 = or i1 %or.cond.i.i.i724, %514
-  br i1 %515, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit728, label %516
+  br i1 %515, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit728, label %516
 
 516:                                              ; preds = %511
   %517 = add i32 %.val644.val, -135
@@ -1713,9 +1713,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit723: ; preds = %
   %519 = icmp ult i32 %518, 16
   %520 = or i1 %or.cond.i7.i.i725, %519
   %521 = select i1 %520, i32 4, i32 2
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit728
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit728
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit728: ; preds = %507, %511, %516
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit728: ; preds = %507, %511, %516
   %.0.i.i726 = phi i32 [ 16, %507 ], [ 8, %511 ], [ %521, %516 ]
   %522 = getelementptr inbounds nuw i8, ptr %504, i64 8
   %523 = load i64, ptr %522, align 8
@@ -1751,7 +1751,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit728: ; preds = %
   %.val645.val = load i32, ptr %544, align 8
   %545 = add i32 %.val645.val, -247
   %546 = icmp ult i32 %545, 32
-  br i1 %546, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit733, label %547
+  br i1 %546, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit733, label %547
 
 547:                                              ; preds = %543
   %548 = add i32 %.val645.val, -191
@@ -1759,7 +1759,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit728: ; preds = %
   %549 = add i32 %.val645.val, -231
   %550 = icmp ult i32 %549, 16
   %551 = or i1 %or.cond.i.i.i729, %550
-  br i1 %551, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit733, label %552
+  br i1 %551, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit733, label %552
 
 552:                                              ; preds = %547
   %553 = add i32 %.val645.val, -135
@@ -1768,9 +1768,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit728: ; preds = %
   %555 = icmp ult i32 %554, 16
   %556 = or i1 %or.cond.i7.i.i730, %555
   %557 = select i1 %556, i32 4, i32 2
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit733
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit733
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit733: ; preds = %543, %547, %552
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit733: ; preds = %543, %547, %552
   %.0.i.i731 = phi i32 [ 16, %543 ], [ 8, %547 ], [ %557, %552 ]
   %558 = getelementptr inbounds nuw i8, ptr %540, i64 8
   %559 = load i64, ptr %558, align 8
@@ -1806,7 +1806,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit733: ; preds = %
   %.val646.val = load i32, ptr %580, align 8
   %581 = add i32 %.val646.val, -247
   %582 = icmp ult i32 %581, 32
-  br i1 %582, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit738, label %583
+  br i1 %582, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit738, label %583
 
 583:                                              ; preds = %579
   %584 = add i32 %.val646.val, -191
@@ -1814,7 +1814,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit733: ; preds = %
   %585 = add i32 %.val646.val, -231
   %586 = icmp ult i32 %585, 16
   %587 = or i1 %or.cond.i.i.i734, %586
-  br i1 %587, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit738, label %588
+  br i1 %587, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit738, label %588
 
 588:                                              ; preds = %583
   %589 = add i32 %.val646.val, -135
@@ -1823,9 +1823,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit733: ; preds = %
   %591 = icmp ult i32 %590, 16
   %592 = or i1 %or.cond.i7.i.i735, %591
   %593 = select i1 %592, i32 8, i32 4
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit738
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit738
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit738: ; preds = %579, %583, %588
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit738: ; preds = %579, %583, %588
   %.0.i.i736 = phi i32 [ 32, %579 ], [ 16, %583 ], [ %593, %588 ]
   %594 = getelementptr inbounds nuw i8, ptr %576, i64 8
   %595 = load i64, ptr %594, align 8
@@ -1861,7 +1861,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit738: ; preds = %
   %.val647.val = load i32, ptr %616, align 8
   %617 = add i32 %.val647.val, -247
   %618 = icmp ult i32 %617, 32
-  br i1 %618, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit743, label %619
+  br i1 %618, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit743, label %619
 
 619:                                              ; preds = %615
   %620 = add i32 %.val647.val, -191
@@ -1869,7 +1869,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit738: ; preds = %
   %621 = add i32 %.val647.val, -231
   %622 = icmp ult i32 %621, 16
   %623 = or i1 %or.cond.i.i.i739, %622
-  br i1 %623, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit743, label %624
+  br i1 %623, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit743, label %624
 
 624:                                              ; preds = %619
   %625 = add i32 %.val647.val, -135
@@ -1878,9 +1878,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit738: ; preds = %
   %627 = icmp ult i32 %626, 16
   %628 = or i1 %or.cond.i7.i.i740, %627
   %629 = select i1 %628, i32 8, i32 4
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit743
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit743
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit743: ; preds = %615, %619, %624
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit743: ; preds = %615, %619, %624
   %.0.i.i741 = phi i32 [ 32, %615 ], [ 16, %619 ], [ %629, %624 ]
   %630 = getelementptr inbounds nuw i8, ptr %612, i64 8
   %631 = load i64, ptr %630, align 8
@@ -1959,7 +1959,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit743: ; preds = %
   %.val648.val = load i32, ptr %681, align 8
   %682 = add i32 %.val648.val, -247
   %683 = icmp ult i32 %682, 32
-  br i1 %683, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit748, label %684
+  br i1 %683, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit748, label %684
 
 684:                                              ; preds = %670
   %685 = add i32 %.val648.val, -191
@@ -1967,7 +1967,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit743: ; preds = %
   %686 = add i32 %.val648.val, -231
   %687 = icmp ult i32 %686, 16
   %688 = or i1 %or.cond.i.i.i744, %687
-  br i1 %688, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit748, label %689
+  br i1 %688, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit748, label %689
 
 689:                                              ; preds = %684
   %690 = add i32 %.val648.val, -135
@@ -1976,9 +1976,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit743: ; preds = %
   %692 = icmp ult i32 %691, 16
   %693 = or i1 %or.cond.i7.i.i745, %692
   %694 = select i1 %693, i32 16, i32 8
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit748
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit748
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit748: ; preds = %670, %684, %689
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit748: ; preds = %670, %684, %689
   %.0.i.i746 = phi i32 [ 64, %670 ], [ 32, %684 ], [ %694, %689 ]
   call void @_ZN4llvm16DecodeUNPCKHMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i746, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
@@ -2010,7 +2010,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit748: ; preds = %
   %.val649.val = load i32, ptr %713, align 8
   %714 = add i32 %.val649.val, -247
   %715 = icmp ult i32 %714, 32
-  br i1 %715, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit753, label %716
+  br i1 %715, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit753, label %716
 
 716:                                              ; preds = %702
   %717 = add i32 %.val649.val, -191
@@ -2018,7 +2018,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit748: ; preds = %
   %718 = add i32 %.val649.val, -231
   %719 = icmp ult i32 %718, 16
   %720 = or i1 %or.cond.i.i.i749, %719
-  br i1 %720, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit753, label %721
+  br i1 %720, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit753, label %721
 
 721:                                              ; preds = %716
   %722 = add i32 %.val649.val, -135
@@ -2027,9 +2027,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit748: ; preds = %
   %724 = icmp ult i32 %723, 16
   %725 = or i1 %or.cond.i7.i.i750, %724
   %726 = select i1 %725, i32 8, i32 4
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit753
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit753
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit753: ; preds = %702, %716, %721
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit753: ; preds = %702, %716, %721
   %.0.i.i751 = phi i32 [ 32, %702 ], [ 16, %716 ], [ %726, %721 ]
   call void @_ZN4llvm16DecodeUNPCKHMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i751, i32 noundef 16, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
@@ -2061,7 +2061,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit753: ; preds = %
   %.val650.val = load i32, ptr %745, align 8
   %746 = add i32 %.val650.val, -247
   %747 = icmp ult i32 %746, 32
-  br i1 %747, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit758, label %748
+  br i1 %747, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit758, label %748
 
 748:                                              ; preds = %734
   %749 = add i32 %.val650.val, -191
@@ -2069,7 +2069,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit753: ; preds = %
   %750 = add i32 %.val650.val, -231
   %751 = icmp ult i32 %750, 16
   %752 = or i1 %or.cond.i.i.i754, %751
-  br i1 %752, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit758, label %753
+  br i1 %752, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit758, label %753
 
 753:                                              ; preds = %748
   %754 = add i32 %.val650.val, -135
@@ -2078,9 +2078,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit753: ; preds = %
   %756 = icmp ult i32 %755, 16
   %757 = or i1 %or.cond.i7.i.i755, %756
   %758 = select i1 %757, i32 4, i32 2
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit758
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit758
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit758: ; preds = %734, %748, %753
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit758: ; preds = %734, %748, %753
   %.0.i.i756 = phi i32 [ 16, %734 ], [ 8, %748 ], [ %758, %753 ]
   call void @_ZN4llvm16DecodeUNPCKHMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i756, i32 noundef 32, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
@@ -2112,7 +2112,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit758: ; preds = %
   %.val651.val = load i32, ptr %777, align 8
   %778 = add i32 %.val651.val, -247
   %779 = icmp ult i32 %778, 32
-  br i1 %779, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit763, label %780
+  br i1 %779, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit763, label %780
 
 780:                                              ; preds = %766
   %781 = add i32 %.val651.val, -191
@@ -2120,7 +2120,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit758: ; preds = %
   %782 = add i32 %.val651.val, -231
   %783 = icmp ult i32 %782, 16
   %784 = or i1 %or.cond.i.i.i759, %783
-  br i1 %784, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit763, label %785
+  br i1 %784, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit763, label %785
 
 785:                                              ; preds = %780
   %786 = add i32 %.val651.val, -135
@@ -2129,9 +2129,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit758: ; preds = %
   %788 = icmp ult i32 %787, 16
   %789 = or i1 %or.cond.i7.i.i760, %788
   %790 = select i1 %789, i32 2, i32 1
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit763
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit763
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit763: ; preds = %766, %780, %785
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit763: ; preds = %766, %780, %785
   %.0.i.i761 = phi i32 [ 8, %766 ], [ 4, %780 ], [ %790, %785 ]
   call void @_ZN4llvm16DecodeUNPCKHMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i761, i32 noundef 64, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
@@ -2163,7 +2163,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit763: ; preds = %
   %.val652.val = load i32, ptr %809, align 8
   %810 = add i32 %.val652.val, -247
   %811 = icmp ult i32 %810, 32
-  br i1 %811, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit768, label %812
+  br i1 %811, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit768, label %812
 
 812:                                              ; preds = %798
   %813 = add i32 %.val652.val, -191
@@ -2171,7 +2171,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit763: ; preds = %
   %814 = add i32 %.val652.val, -231
   %815 = icmp ult i32 %814, 16
   %816 = or i1 %or.cond.i.i.i764, %815
-  br i1 %816, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit768, label %817
+  br i1 %816, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit768, label %817
 
 817:                                              ; preds = %812
   %818 = add i32 %.val652.val, -135
@@ -2180,9 +2180,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit763: ; preds = %
   %820 = icmp ult i32 %819, 16
   %821 = or i1 %or.cond.i7.i.i765, %820
   %822 = select i1 %821, i32 16, i32 8
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit768
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit768
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit768: ; preds = %798, %812, %817
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit768: ; preds = %798, %812, %817
   %.0.i.i766 = phi i32 [ 64, %798 ], [ 32, %812 ], [ %822, %817 ]
   call void @_ZN4llvm16DecodeUNPCKLMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i766, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
@@ -2214,7 +2214,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit768: ; preds = %
   %.val653.val = load i32, ptr %841, align 8
   %842 = add i32 %.val653.val, -247
   %843 = icmp ult i32 %842, 32
-  br i1 %843, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit773, label %844
+  br i1 %843, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit773, label %844
 
 844:                                              ; preds = %830
   %845 = add i32 %.val653.val, -191
@@ -2222,7 +2222,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit768: ; preds = %
   %846 = add i32 %.val653.val, -231
   %847 = icmp ult i32 %846, 16
   %848 = or i1 %or.cond.i.i.i769, %847
-  br i1 %848, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit773, label %849
+  br i1 %848, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit773, label %849
 
 849:                                              ; preds = %844
   %850 = add i32 %.val653.val, -135
@@ -2231,9 +2231,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit768: ; preds = %
   %852 = icmp ult i32 %851, 16
   %853 = or i1 %or.cond.i7.i.i770, %852
   %854 = select i1 %853, i32 8, i32 4
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit773
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit773
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit773: ; preds = %830, %844, %849
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit773: ; preds = %830, %844, %849
   %.0.i.i771 = phi i32 [ 32, %830 ], [ 16, %844 ], [ %854, %849 ]
   call void @_ZN4llvm16DecodeUNPCKLMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i771, i32 noundef 16, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
@@ -2265,7 +2265,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit773: ; preds = %
   %.val654.val = load i32, ptr %873, align 8
   %874 = add i32 %.val654.val, -247
   %875 = icmp ult i32 %874, 32
-  br i1 %875, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit778, label %876
+  br i1 %875, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit778, label %876
 
 876:                                              ; preds = %862
   %877 = add i32 %.val654.val, -191
@@ -2273,7 +2273,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit773: ; preds = %
   %878 = add i32 %.val654.val, -231
   %879 = icmp ult i32 %878, 16
   %880 = or i1 %or.cond.i.i.i774, %879
-  br i1 %880, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit778, label %881
+  br i1 %880, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit778, label %881
 
 881:                                              ; preds = %876
   %882 = add i32 %.val654.val, -135
@@ -2282,9 +2282,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit773: ; preds = %
   %884 = icmp ult i32 %883, 16
   %885 = or i1 %or.cond.i7.i.i775, %884
   %886 = select i1 %885, i32 4, i32 2
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit778
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit778
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit778: ; preds = %862, %876, %881
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit778: ; preds = %862, %876, %881
   %.0.i.i776 = phi i32 [ 16, %862 ], [ 8, %876 ], [ %886, %881 ]
   call void @_ZN4llvm16DecodeUNPCKLMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i776, i32 noundef 32, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
@@ -2316,7 +2316,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit778: ; preds = %
   %.val655.val = load i32, ptr %905, align 8
   %906 = add i32 %.val655.val, -247
   %907 = icmp ult i32 %906, 32
-  br i1 %907, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit783, label %908
+  br i1 %907, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit783, label %908
 
 908:                                              ; preds = %894
   %909 = add i32 %.val655.val, -191
@@ -2324,7 +2324,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit778: ; preds = %
   %910 = add i32 %.val655.val, -231
   %911 = icmp ult i32 %910, 16
   %912 = or i1 %or.cond.i.i.i779, %911
-  br i1 %912, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit783, label %913
+  br i1 %912, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit783, label %913
 
 913:                                              ; preds = %908
   %914 = add i32 %.val655.val, -135
@@ -2333,9 +2333,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit778: ; preds = %
   %916 = icmp ult i32 %915, 16
   %917 = or i1 %or.cond.i7.i.i780, %916
   %918 = select i1 %917, i32 2, i32 1
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit783
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit783
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit783: ; preds = %894, %908, %913
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit783: ; preds = %894, %908, %913
   %.0.i.i781 = phi i32 [ 8, %894 ], [ 4, %908 ], [ %918, %913 ]
   call void @_ZN4llvm16DecodeUNPCKLMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i781, i32 noundef 64, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
@@ -2365,7 +2365,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit783: ; preds = %
   %.val656.val = load i32, ptr %934, align 8
   %935 = add i32 %.val656.val, -247
   %936 = icmp ult i32 %935, 32
-  br i1 %936, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit788, label %937
+  br i1 %936, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit788, label %937
 
 937:                                              ; preds = %933
   %938 = add i32 %.val656.val, -191
@@ -2373,7 +2373,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit783: ; preds = %
   %939 = add i32 %.val656.val, -231
   %940 = icmp ult i32 %939, 16
   %941 = or i1 %or.cond.i.i.i784, %940
-  br i1 %941, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit788, label %942
+  br i1 %941, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit788, label %942
 
 942:                                              ; preds = %937
   %943 = add i32 %.val656.val, -135
@@ -2382,9 +2382,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit783: ; preds = %
   %945 = icmp ult i32 %944, 16
   %946 = or i1 %or.cond.i7.i.i785, %945
   %947 = select i1 %946, i32 2, i32 1
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit788
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit788
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit788: ; preds = %933, %937, %942
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit788: ; preds = %933, %937, %942
   %.0.i.i786 = phi i32 [ 8, %933 ], [ 4, %937 ], [ %947, %942 ]
   %948 = getelementptr inbounds nuw i8, ptr %930, i64 8
   %949 = load i64, ptr %948, align 8
@@ -2393,8 +2393,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit788: ; preds = %
   %.pre929 = load ptr, ptr %6, align 8
   br label %951
 
-951:                                              ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit788, %926
-  %952 = phi ptr [ %.pre929, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit788 ], [ %929, %926 ]
+951:                                              ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit788, %926
+  %952 = phi ptr [ %.pre929, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit788 ], [ %929, %926 ]
   %953 = add i64 %.11615.neg, %7
   %954 = and i64 %953, 4294967295
   %955 = getelementptr inbounds %"class.llvm::MCOperand", ptr %952, i64 %954, i32 1
@@ -2431,7 +2431,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit788: ; preds = %
   %.val657.val = load i32, ptr %977, align 8
   %978 = add i32 %.val657.val, -247
   %979 = icmp ult i32 %978, 32
-  br i1 %979, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit793, label %980
+  br i1 %979, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit793, label %980
 
 980:                                              ; preds = %976
   %981 = add i32 %.val657.val, -191
@@ -2439,7 +2439,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit788: ; preds = %
   %982 = add i32 %.val657.val, -231
   %983 = icmp ult i32 %982, 16
   %984 = or i1 %or.cond.i.i.i789, %983
-  br i1 %984, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit793, label %985
+  br i1 %984, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit793, label %985
 
 985:                                              ; preds = %980
   %986 = add i32 %.val657.val, -135
@@ -2448,9 +2448,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit788: ; preds = %
   %988 = icmp ult i32 %987, 16
   %989 = or i1 %or.cond.i7.i.i790, %988
   %990 = select i1 %989, i32 4, i32 2
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit793
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit793
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit793: ; preds = %976, %980, %985
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit793: ; preds = %976, %980, %985
   %.0.i.i791 = phi i32 [ 16, %976 ], [ 8, %980 ], [ %990, %985 ]
   %991 = getelementptr inbounds nuw i8, ptr %973, i64 8
   %992 = load i64, ptr %991, align 8
@@ -2459,8 +2459,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit793: ; preds = %
   %.pre928 = load ptr, ptr %6, align 8
   br label %994
 
-994:                                              ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit793, %969
-  %995 = phi ptr [ %.pre928, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit793 ], [ %972, %969 ]
+994:                                              ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit793, %969
+  %995 = phi ptr [ %.pre928, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit793 ], [ %972, %969 ]
   %996 = add i64 %.12616.neg, %7
   %997 = and i64 %996, 4294967295
   %998 = getelementptr inbounds %"class.llvm::MCOperand", ptr %995, i64 %997, i32 1
@@ -2489,7 +2489,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit793: ; preds = %
   %.val658.val = load i32, ptr %1013, align 8
   %1014 = add i32 %.val658.val, -247
   %1015 = icmp ult i32 %1014, 32
-  br i1 %1015, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit798, label %1016
+  br i1 %1015, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit798, label %1016
 
 1016:                                             ; preds = %1012
   %1017 = add i32 %.val658.val, -191
@@ -2497,7 +2497,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit793: ; preds = %
   %1018 = add i32 %.val658.val, -231
   %1019 = icmp ult i32 %1018, 16
   %1020 = or i1 %or.cond.i.i.i794, %1019
-  br i1 %1020, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit798, label %1021
+  br i1 %1020, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit798, label %1021
 
 1021:                                             ; preds = %1016
   %1022 = add i32 %.val658.val, -135
@@ -2506,9 +2506,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit793: ; preds = %
   %1024 = icmp ult i32 %1023, 16
   %1025 = or i1 %or.cond.i7.i.i795, %1024
   %1026 = select i1 %1025, i32 2, i32 1
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit798
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit798
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit798: ; preds = %1012, %1016, %1021
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit798: ; preds = %1012, %1016, %1021
   %.0.i.i796 = phi i32 [ 8, %1012 ], [ 4, %1016 ], [ %1026, %1021 ]
   %1027 = add i64 %7, 4294967295
   %1028 = and i64 %1027, 4294967295
@@ -2545,7 +2545,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit798: ; preds = %
   %.val659.val = load i32, ptr %1050, align 8
   %1051 = add i32 %.val659.val, -247
   %1052 = icmp ult i32 %1051, 32
-  br i1 %1052, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit803, label %1053
+  br i1 %1052, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit803, label %1053
 
 1053:                                             ; preds = %1049
   %1054 = add i32 %.val659.val, -191
@@ -2553,7 +2553,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit798: ; preds = %
   %1055 = add i32 %.val659.val, -231
   %1056 = icmp ult i32 %1055, 16
   %1057 = or i1 %or.cond.i.i.i799, %1056
-  br i1 %1057, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit803, label %1058
+  br i1 %1057, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit803, label %1058
 
 1058:                                             ; preds = %1053
   %1059 = add i32 %.val659.val, -135
@@ -2562,9 +2562,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit798: ; preds = %
   %1061 = icmp ult i32 %1060, 16
   %1062 = or i1 %or.cond.i7.i.i800, %1061
   %1063 = select i1 %1062, i32 4, i32 2
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit803
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit803
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit803: ; preds = %1049, %1053, %1058
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit803: ; preds = %1049, %1053, %1058
   %.0.i.i801 = phi i32 [ 16, %1049 ], [ 8, %1053 ], [ %1063, %1058 ]
   %1064 = add i64 %7, 4294967295
   %1065 = and i64 %1064, 4294967295
@@ -2601,7 +2601,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit803: ; preds = %
   %.val660.val = load i32, ptr %1087, align 8
   %1088 = add i32 %.val660.val, -247
   %1089 = icmp ult i32 %1088, 32
-  br i1 %1089, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit808, label %1090
+  br i1 %1089, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit808, label %1090
 
 1090:                                             ; preds = %1086
   %1091 = add i32 %.val660.val, -191
@@ -2609,7 +2609,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit803: ; preds = %
   %1092 = add i32 %.val660.val, -231
   %1093 = icmp ult i32 %1092, 16
   %1094 = or i1 %or.cond.i.i.i804, %1093
-  br i1 %1094, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit808, label %1095
+  br i1 %1094, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit808, label %1095
 
 1095:                                             ; preds = %1090
   %1096 = add i32 %.val660.val, -135
@@ -2618,9 +2618,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit803: ; preds = %
   %1098 = icmp ult i32 %1097, 16
   %1099 = or i1 %or.cond.i7.i.i805, %1098
   %1100 = select i1 %1099, i32 2, i32 1
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit808
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit808
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit808: ; preds = %1086, %1090, %1095
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit808: ; preds = %1086, %1090, %1095
   %.0.i.i806 = phi i32 [ 8, %1086 ], [ 4, %1090 ], [ %1100, %1095 ]
   call void @_ZN4llvm16DecodeUNPCKLMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i806, i32 noundef 64, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   %1101 = add i64 %.15619.neg, %7
@@ -2652,7 +2652,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit808: ; preds = %
   %.val661.val = load i32, ptr %1119, align 8
   %1120 = add i32 %.val661.val, -247
   %1121 = icmp ult i32 %1120, 32
-  br i1 %1121, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit813, label %1122
+  br i1 %1121, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit813, label %1122
 
 1122:                                             ; preds = %1118
   %1123 = add i32 %.val661.val, -191
@@ -2660,7 +2660,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit808: ; preds = %
   %1124 = add i32 %.val661.val, -231
   %1125 = icmp ult i32 %1124, 16
   %1126 = or i1 %or.cond.i.i.i809, %1125
-  br i1 %1126, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit813, label %1127
+  br i1 %1126, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit813, label %1127
 
 1127:                                             ; preds = %1122
   %1128 = add i32 %.val661.val, -135
@@ -2669,9 +2669,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit808: ; preds = %
   %1130 = icmp ult i32 %1129, 16
   %1131 = or i1 %or.cond.i7.i.i810, %1130
   %1132 = select i1 %1131, i32 4, i32 2
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit813
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit813
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit813: ; preds = %1118, %1122, %1127
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit813: ; preds = %1118, %1122, %1127
   %.0.i.i811 = phi i32 [ 16, %1118 ], [ 8, %1122 ], [ %1132, %1127 ]
   call void @_ZN4llvm16DecodeUNPCKLMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i811, i32 noundef 32, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   %1133 = add i64 %.16620.neg, %7
@@ -2703,7 +2703,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit813: ; preds = %
   %.val662.val = load i32, ptr %1151, align 8
   %1152 = add i32 %.val662.val, -247
   %1153 = icmp ult i32 %1152, 32
-  br i1 %1153, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit818, label %1154
+  br i1 %1153, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit818, label %1154
 
 1154:                                             ; preds = %1150
   %1155 = add i32 %.val662.val, -191
@@ -2711,7 +2711,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit813: ; preds = %
   %1156 = add i32 %.val662.val, -231
   %1157 = icmp ult i32 %1156, 16
   %1158 = or i1 %or.cond.i.i.i814, %1157
-  br i1 %1158, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit818, label %1159
+  br i1 %1158, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit818, label %1159
 
 1159:                                             ; preds = %1154
   %1160 = add i32 %.val662.val, -135
@@ -2720,9 +2720,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit813: ; preds = %
   %1162 = icmp ult i32 %1161, 16
   %1163 = or i1 %or.cond.i7.i.i815, %1162
   %1164 = select i1 %1163, i32 2, i32 1
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit818
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit818
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit818: ; preds = %1150, %1154, %1159
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit818: ; preds = %1150, %1154, %1159
   %.0.i.i816 = phi i32 [ 8, %1150 ], [ 4, %1154 ], [ %1164, %1159 ]
   call void @_ZN4llvm16DecodeUNPCKHMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i816, i32 noundef 64, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   %1165 = add i64 %.17621.neg, %7
@@ -2754,7 +2754,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit818: ; preds = %
   %.val663.val = load i32, ptr %1183, align 8
   %1184 = add i32 %.val663.val, -247
   %1185 = icmp ult i32 %1184, 32
-  br i1 %1185, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit823, label %1186
+  br i1 %1185, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit823, label %1186
 
 1186:                                             ; preds = %1182
   %1187 = add i32 %.val663.val, -191
@@ -2762,7 +2762,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit818: ; preds = %
   %1188 = add i32 %.val663.val, -231
   %1189 = icmp ult i32 %1188, 16
   %1190 = or i1 %or.cond.i.i.i819, %1189
-  br i1 %1190, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit823, label %1191
+  br i1 %1190, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit823, label %1191
 
 1191:                                             ; preds = %1186
   %1192 = add i32 %.val663.val, -135
@@ -2771,9 +2771,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit818: ; preds = %
   %1194 = icmp ult i32 %1193, 16
   %1195 = or i1 %or.cond.i7.i.i820, %1194
   %1196 = select i1 %1195, i32 4, i32 2
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit823
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit823
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit823: ; preds = %1182, %1186, %1191
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit823: ; preds = %1182, %1186, %1191
   %.0.i.i821 = phi i32 [ 16, %1182 ], [ 8, %1186 ], [ %1196, %1191 ]
   call void @_ZN4llvm16DecodeUNPCKHMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i821, i32 noundef 32, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   %1197 = add i64 %.18622.neg, %7
@@ -2812,7 +2812,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit823: ; preds = %
   %.val664.val = load i32, ptr %1222, align 8
   %1223 = add i32 %.val664.val, -247
   %1224 = icmp ult i32 %1223, 32
-  br i1 %1224, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit828, label %1225
+  br i1 %1224, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit828, label %1225
 
 1225:                                             ; preds = %1221
   %1226 = add i32 %.val664.val, -191
@@ -2820,7 +2820,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit823: ; preds = %
   %1227 = add i32 %.val664.val, -231
   %1228 = icmp ult i32 %1227, 16
   %1229 = or i1 %or.cond.i.i.i824, %1228
-  br i1 %1229, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit828, label %1230
+  br i1 %1229, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit828, label %1230
 
 1230:                                             ; preds = %1225
   %1231 = add i32 %.val664.val, -135
@@ -2829,9 +2829,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit823: ; preds = %
   %1233 = icmp ult i32 %1232, 16
   %1234 = or i1 %or.cond.i7.i.i825, %1233
   %1235 = select i1 %1234, i32 4, i32 2
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit828
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit828
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit828: ; preds = %1221, %1225, %1230
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit828: ; preds = %1221, %1225, %1230
   %.0.i.i826 = phi i32 [ 16, %1221 ], [ 8, %1225 ], [ %1235, %1230 ]
   %1236 = getelementptr inbounds nuw i8, ptr %1218, i64 8
   %1237 = load i64, ptr %1236, align 8
@@ -2840,8 +2840,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit828: ; preds = %
   %.pre927 = load ptr, ptr %6, align 8
   br label %1239
 
-1239:                                             ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit828, %1214
-  %1240 = phi ptr [ %.pre927, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit828 ], [ %1217, %1214 ]
+1239:                                             ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit828, %1214
+  %1240 = phi ptr [ %.pre927, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit828 ], [ %1217, %1214 ]
   %1241 = getelementptr inbounds nuw i8, ptr %1240, i64 8
   %1242 = load i32, ptr %1241, align 8
   %1243 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1242) #6
@@ -2871,7 +2871,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit828: ; preds = %
   %.val665.val = load i32, ptr %1259, align 8
   %1260 = add i32 %.val665.val, -247
   %1261 = icmp ult i32 %1260, 32
-  br i1 %1261, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit833, label %1262
+  br i1 %1261, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit833, label %1262
 
 1262:                                             ; preds = %1258
   %1263 = add i32 %.val665.val, -191
@@ -2879,7 +2879,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit828: ; preds = %
   %1264 = add i32 %.val665.val, -231
   %1265 = icmp ult i32 %1264, 16
   %1266 = or i1 %or.cond.i.i.i829, %1265
-  br i1 %1266, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit833, label %1267
+  br i1 %1266, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit833, label %1267
 
 1267:                                             ; preds = %1262
   %1268 = add i32 %.val665.val, -135
@@ -2888,9 +2888,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit828: ; preds = %
   %1270 = icmp ult i32 %1269, 16
   %1271 = or i1 %or.cond.i7.i.i830, %1270
   %1272 = select i1 %1271, i32 2, i32 1
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit833
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit833
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit833: ; preds = %1258, %1262, %1267
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit833: ; preds = %1258, %1262, %1267
   %.0.i.i831 = phi i32 [ 8, %1258 ], [ 4, %1262 ], [ %1272, %1267 ]
   %1273 = getelementptr inbounds nuw i8, ptr %1255, i64 8
   %1274 = load i64, ptr %1273, align 8
@@ -2899,8 +2899,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit833: ; preds = %
   %.pre926 = load ptr, ptr %6, align 8
   br label %1276
 
-1276:                                             ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit833, %1251
-  %1277 = phi ptr [ %.pre926, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit833 ], [ %1254, %1251 ]
+1276:                                             ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit833, %1251
+  %1277 = phi ptr [ %.pre926, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit833 ], [ %1254, %1251 ]
   %1278 = getelementptr inbounds nuw i8, ptr %1277, i64 8
   %1279 = load i32, ptr %1278, align 8
   %1280 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1279) #6
@@ -2966,7 +2966,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit833: ; preds = %
   %.val666.val = load i32, ptr %1321, align 8
   %1322 = add i32 %.val666.val, -247
   %1323 = icmp ult i32 %1322, 32
-  br i1 %1323, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit838, label %1324
+  br i1 %1323, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit838, label %1324
 
 1324:                                             ; preds = %1320
   %1325 = add i32 %.val666.val, -191
@@ -2974,7 +2974,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit833: ; preds = %
   %1326 = add i32 %.val666.val, -231
   %1327 = icmp ult i32 %1326, 16
   %1328 = or i1 %or.cond.i.i.i834, %1327
-  br i1 %1328, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit838, label %1329
+  br i1 %1328, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit838, label %1329
 
 1329:                                             ; preds = %1324
   %1330 = add i32 %.val666.val, -135
@@ -2983,9 +2983,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit833: ; preds = %
   %1332 = icmp ult i32 %1331, 16
   %1333 = or i1 %or.cond.i7.i.i835, %1332
   %1334 = select i1 %1333, i32 2, i32 1
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit838
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit838
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit838: ; preds = %1320, %1324, %1329
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit838: ; preds = %1320, %1324, %1329
   %.0.i.i836 = phi i32 [ 8, %1320 ], [ 4, %1324 ], [ %1334, %1329 ]
   %1335 = getelementptr inbounds nuw i8, ptr %1317, i64 8
   %1336 = load i64, ptr %1335, align 8
@@ -2994,8 +2994,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit838: ; preds = %
   %.pre924 = load ptr, ptr %6, align 8
   br label %1338
 
-1338:                                             ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit838, %1313
-  %1339 = phi ptr [ %.pre924, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit838 ], [ %1316, %1313 ]
+1338:                                             ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit838, %1313
+  %1339 = phi ptr [ %.pre924, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit838 ], [ %1316, %1313 ]
   %1340 = getelementptr inbounds nuw i8, ptr %1339, i64 8
   %1341 = load i32, ptr %1340, align 8
   %1342 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1341) #6
@@ -3025,7 +3025,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit838: ; preds = %
   %.val667.val = load i32, ptr %1358, align 8
   %1359 = add i32 %.val667.val, -247
   %1360 = icmp ult i32 %1359, 32
-  br i1 %1360, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit843, label %1361
+  br i1 %1360, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit843, label %1361
 
 1361:                                             ; preds = %1357
   %1362 = add i32 %.val667.val, -191
@@ -3033,7 +3033,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit838: ; preds = %
   %1363 = add i32 %.val667.val, -231
   %1364 = icmp ult i32 %1363, 16
   %1365 = or i1 %or.cond.i.i.i839, %1364
-  br i1 %1365, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit843, label %1366
+  br i1 %1365, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit843, label %1366
 
 1366:                                             ; preds = %1361
   %1367 = add i32 %.val667.val, -135
@@ -3042,9 +3042,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit838: ; preds = %
   %1369 = icmp ult i32 %1368, 16
   %1370 = or i1 %or.cond.i7.i.i840, %1369
   %1371 = select i1 %1370, i32 2, i32 1
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit843
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit843
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit843: ; preds = %1357, %1361, %1366
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit843: ; preds = %1357, %1361, %1366
   %.0.i.i841 = phi i32 [ 8, %1357 ], [ 4, %1361 ], [ %1371, %1366 ]
   %1372 = getelementptr inbounds nuw i8, ptr %1354, i64 8
   %1373 = load i64, ptr %1372, align 8
@@ -3053,8 +3053,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit843: ; preds = %
   %.pre923 = load ptr, ptr %6, align 8
   br label %1375
 
-1375:                                             ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit843, %1350
-  %1376 = phi ptr [ %.pre923, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit843 ], [ %1353, %1350 ]
+1375:                                             ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit843, %1350
+  %1376 = phi ptr [ %.pre923, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit843 ], [ %1353, %1350 ]
   %1377 = getelementptr inbounds nuw i8, ptr %1376, i64 8
   %1378 = load i32, ptr %1377, align 8
   %1379 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1378) #6
@@ -3292,7 +3292,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit843: ; preds = %
   %.val668.val = load i32, ptr %1542, align 8
   %1543 = add i32 %.val668.val, -247
   %1544 = icmp ult i32 %1543, 32
-  br i1 %1544, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit848, label %1545
+  br i1 %1544, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit848, label %1545
 
 1545:                                             ; preds = %1535
   %1546 = add i32 %.val668.val, -191
@@ -3300,7 +3300,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit843: ; preds = %
   %1547 = add i32 %.val668.val, -231
   %1548 = icmp ult i32 %1547, 16
   %1549 = or i1 %or.cond.i.i.i844, %1548
-  br i1 %1549, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit848, label %1550
+  br i1 %1549, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit848, label %1550
 
 1550:                                             ; preds = %1545
   %1551 = add i32 %.val668.val, -135
@@ -3309,9 +3309,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit843: ; preds = %
   %1553 = icmp ult i32 %1552, 16
   %1554 = or i1 %or.cond.i7.i.i845, %1553
   %1555 = select i1 %1554, i32 8, i32 4
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit848
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit848
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit848: ; preds = %1535, %1545, %1550
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit848: ; preds = %1535, %1545, %1550
   %.0.i.i846 = phi i32 [ 32, %1535 ], [ 16, %1545 ], [ %1555, %1550 ]
   call void @_ZN4llvm20DecodeZeroExtendMaskEjjjbRNS_15SmallVectorImplIiEE(i32 noundef 8, i32 noundef 16, i32 noundef %.0.i.i846, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   %1556 = load ptr, ptr %6, align 8
@@ -3332,7 +3332,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit848: ; preds = %
   %.val669.val = load i32, ptr %1567, align 8
   %1568 = add i32 %.val669.val, -247
   %1569 = icmp ult i32 %1568, 32
-  br i1 %1569, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit853, label %1570
+  br i1 %1569, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit853, label %1570
 
 1570:                                             ; preds = %1560
   %1571 = add i32 %.val669.val, -191
@@ -3340,7 +3340,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit848: ; preds = %
   %1572 = add i32 %.val669.val, -231
   %1573 = icmp ult i32 %1572, 16
   %1574 = or i1 %or.cond.i.i.i849, %1573
-  br i1 %1574, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit853, label %1575
+  br i1 %1574, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit853, label %1575
 
 1575:                                             ; preds = %1570
   %1576 = add i32 %.val669.val, -135
@@ -3349,9 +3349,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit848: ; preds = %
   %1578 = icmp ult i32 %1577, 16
   %1579 = or i1 %or.cond.i7.i.i850, %1578
   %1580 = select i1 %1579, i32 4, i32 2
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit853
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit853
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit853: ; preds = %1560, %1570, %1575
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit853: ; preds = %1560, %1570, %1575
   %.0.i.i851 = phi i32 [ 16, %1560 ], [ 8, %1570 ], [ %1580, %1575 ]
   call void @_ZN4llvm20DecodeZeroExtendMaskEjjjbRNS_15SmallVectorImplIiEE(i32 noundef 8, i32 noundef 32, i32 noundef %.0.i.i851, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   %1581 = load ptr, ptr %6, align 8
@@ -3372,7 +3372,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit853: ; preds = %
   %.val670.val = load i32, ptr %1592, align 8
   %1593 = add i32 %.val670.val, -247
   %1594 = icmp ult i32 %1593, 32
-  br i1 %1594, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit858, label %1595
+  br i1 %1594, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit858, label %1595
 
 1595:                                             ; preds = %1585
   %1596 = add i32 %.val670.val, -191
@@ -3380,7 +3380,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit853: ; preds = %
   %1597 = add i32 %.val670.val, -231
   %1598 = icmp ult i32 %1597, 16
   %1599 = or i1 %or.cond.i.i.i854, %1598
-  br i1 %1599, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit858, label %1600
+  br i1 %1599, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit858, label %1600
 
 1600:                                             ; preds = %1595
   %1601 = add i32 %.val670.val, -135
@@ -3389,9 +3389,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit853: ; preds = %
   %1603 = icmp ult i32 %1602, 16
   %1604 = or i1 %or.cond.i7.i.i855, %1603
   %1605 = select i1 %1604, i32 2, i32 1
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit858
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit858
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit858: ; preds = %1585, %1595, %1600
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit858: ; preds = %1585, %1595, %1600
   %.0.i.i856 = phi i32 [ 8, %1585 ], [ 4, %1595 ], [ %1605, %1600 ]
   call void @_ZN4llvm20DecodeZeroExtendMaskEjjjbRNS_15SmallVectorImplIiEE(i32 noundef 8, i32 noundef 64, i32 noundef %.0.i.i856, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   %1606 = load ptr, ptr %6, align 8
@@ -3412,7 +3412,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit858: ; preds = %
   %.val671.val = load i32, ptr %1617, align 8
   %1618 = add i32 %.val671.val, -247
   %1619 = icmp ult i32 %1618, 32
-  br i1 %1619, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit863, label %1620
+  br i1 %1619, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit863, label %1620
 
 1620:                                             ; preds = %1610
   %1621 = add i32 %.val671.val, -191
@@ -3420,7 +3420,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit858: ; preds = %
   %1622 = add i32 %.val671.val, -231
   %1623 = icmp ult i32 %1622, 16
   %1624 = or i1 %or.cond.i.i.i859, %1623
-  br i1 %1624, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit863, label %1625
+  br i1 %1624, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit863, label %1625
 
 1625:                                             ; preds = %1620
   %1626 = add i32 %.val671.val, -135
@@ -3429,9 +3429,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit858: ; preds = %
   %1628 = icmp ult i32 %1627, 16
   %1629 = or i1 %or.cond.i7.i.i860, %1628
   %1630 = select i1 %1629, i32 4, i32 2
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit863
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit863
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit863: ; preds = %1610, %1620, %1625
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit863: ; preds = %1610, %1620, %1625
   %.0.i.i861 = phi i32 [ 16, %1610 ], [ 8, %1620 ], [ %1630, %1625 ]
   call void @_ZN4llvm20DecodeZeroExtendMaskEjjjbRNS_15SmallVectorImplIiEE(i32 noundef 16, i32 noundef 32, i32 noundef %.0.i.i861, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   %1631 = load ptr, ptr %6, align 8
@@ -3452,7 +3452,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit863: ; preds = %
   %.val672.val = load i32, ptr %1642, align 8
   %1643 = add i32 %.val672.val, -247
   %1644 = icmp ult i32 %1643, 32
-  br i1 %1644, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit868, label %1645
+  br i1 %1644, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit868, label %1645
 
 1645:                                             ; preds = %1635
   %1646 = add i32 %.val672.val, -191
@@ -3460,7 +3460,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit863: ; preds = %
   %1647 = add i32 %.val672.val, -231
   %1648 = icmp ult i32 %1647, 16
   %1649 = or i1 %or.cond.i.i.i864, %1648
-  br i1 %1649, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit868, label %1650
+  br i1 %1649, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit868, label %1650
 
 1650:                                             ; preds = %1645
   %1651 = add i32 %.val672.val, -135
@@ -3469,9 +3469,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit863: ; preds = %
   %1653 = icmp ult i32 %1652, 16
   %1654 = or i1 %or.cond.i7.i.i865, %1653
   %1655 = select i1 %1654, i32 2, i32 1
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit868
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit868
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit868: ; preds = %1635, %1645, %1650
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit868: ; preds = %1635, %1645, %1650
   %.0.i.i866 = phi i32 [ 8, %1635 ], [ 4, %1645 ], [ %1655, %1650 ]
   call void @_ZN4llvm20DecodeZeroExtendMaskEjjjbRNS_15SmallVectorImplIiEE(i32 noundef 16, i32 noundef 64, i32 noundef %.0.i.i866, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   %1656 = load ptr, ptr %6, align 8
@@ -3492,7 +3492,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit868: ; preds = %
   %.val673.val = load i32, ptr %1667, align 8
   %1668 = add i32 %.val673.val, -247
   %1669 = icmp ult i32 %1668, 32
-  br i1 %1669, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit873, label %1670
+  br i1 %1669, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit873, label %1670
 
 1670:                                             ; preds = %1660
   %1671 = add i32 %.val673.val, -191
@@ -3500,7 +3500,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit868: ; preds = %
   %1672 = add i32 %.val673.val, -231
   %1673 = icmp ult i32 %1672, 16
   %1674 = or i1 %or.cond.i.i.i869, %1673
-  br i1 %1674, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit873, label %1675
+  br i1 %1674, label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit873, label %1675
 
 1675:                                             ; preds = %1670
   %1676 = add i32 %.val673.val, -135
@@ -3509,9 +3509,9 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit868: ; preds = %
   %1678 = icmp ult i32 %1677, 16
   %1679 = or i1 %or.cond.i7.i.i870, %1678
   %1680 = select i1 %1679, i32 2, i32 1
-  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit873
+  br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit873
 
-_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit873: ; preds = %1660, %1670, %1675
+_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit873: ; preds = %1660, %1670, %1675
   %.0.i.i871 = phi i32 [ 8, %1660 ], [ 4, %1670 ], [ %1680, %1675 ]
   call void @_ZN4llvm20DecodeZeroExtendMaskEjjjbRNS_15SmallVectorImplIiEE(i32 noundef 32, i32 noundef 64, i32 noundef %.0.i.i871, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   %1681 = load ptr, ptr %6, align 8
@@ -3520,10 +3520,10 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit873: ; preds = %
   %1684 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1683) #6
   br label %1685
 
-1685:                                             ; preds = %638, %649, %604, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit743, %568, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit738, %532, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit733, %490, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit728, %448, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit723, %406, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit718, %370, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit713, %336, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit708, %172, %187, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit873, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit868, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit863, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit858, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit853, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit848, %1530, %1518, %1506, %1494, %1489, %1484, %1479, %1474, %1469, %1456, %1431, %1406, %1393, %1380, %1375, %1338, %1297, %1276, %1239, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit823, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit818, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit813, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit808, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit803, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit798, %994, %951, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit783, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit778, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit773, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit768, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit763, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit758, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit753, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit748, %658, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit703, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit698, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit693, %244, %235, %226, %217, %204, %191, %158, %119, %80, %41
-  %.22 = phi ptr [ null, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit873 ], [ null, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit868 ], [ null, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit863 ], [ null, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit858 ], [ null, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit853 ], [ null, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit848 ], [ null, %1530 ], [ null, %1518 ], [ null, %1506 ], [ null, %1494 ], [ null, %1489 ], [ null, %1484 ], [ null, %1479 ], [ null, %1474 ], [ null, %1469 ], [ %1468, %1456 ], [ null, %1431 ], [ null, %1406 ], [ %1397, %1393 ], [ %1384, %1380 ], [ null, %1375 ], [ null, %1338 ], [ %.21, %1297 ], [ null, %1276 ], [ null, %1239 ], [ %.20602, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit823 ], [ %.19601, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit818 ], [ %.18600, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit813 ], [ %.17599, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit808 ], [ %.16598, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit803 ], [ %.15597, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit798 ], [ %.14596, %994 ], [ %.13595, %951 ], [ %.12594, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit783 ], [ %.11593, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit778 ], [ %.10592, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit773 ], [ %.9591, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit768 ], [ %.8590, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit763 ], [ %.7589, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit758 ], [ %.6588, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit753 ], [ %.5587, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit748 ], [ null, %658 ], [ null, %649 ], [ null, %638 ], [ null, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit743 ], [ null, %604 ], [ null, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit738 ], [ null, %568 ], [ null, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit733 ], [ null, %532 ], [ %496, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit728 ], [ %496, %490 ], [ %454, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit723 ], [ %454, %448 ], [ %412, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit718 ], [ %412, %406 ], [ null, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit713 ], [ null, %370 ], [ null, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit708 ], [ null, %336 ], [ null, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit703 ], [ null, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit698 ], [ null, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit693 ], [ null, %244 ], [ null, %235 ], [ null, %226 ], [ null, %217 ], [ %208, %204 ], [ %195, %191 ], [ %.4586, %187 ], [ %.4586, %172 ], [ %.3585, %158 ], [ %.2584, %119 ], [ %.1583, %80 ], [ %.0582, %41 ]
-  %.20 = phi ptr [ %1666, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit873 ], [ %1641, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit868 ], [ %1616, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit863 ], [ %1591, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit858 ], [ %1566, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit853 ], [ %1541, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit848 ], [ %.19, %1530 ], [ %.18, %1518 ], [ %.17, %1506 ], [ null, %1494 ], [ null, %1489 ], [ null, %1484 ], [ null, %1479 ], [ null, %1474 ], [ null, %1469 ], [ %1464, %1456 ], [ %1439, %1431 ], [ %1410, %1406 ], [ %1401, %1393 ], [ %1388, %1380 ], [ %.16, %1375 ], [ %.15, %1338 ], [ %1301, %1297 ], [ %.14, %1276 ], [ %.13, %1239 ], [ %1202, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit823 ], [ %1170, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit818 ], [ %1138, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit813 ], [ %1106, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit808 ], [ %1074, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit803 ], [ %1037, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit798 ], [ %1000, %994 ], [ %957, %951 ], [ %900, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit783 ], [ %868, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit778 ], [ %836, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit773 ], [ %804, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit768 ], [ %772, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit763 ], [ %740, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit758 ], [ %708, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit753 ], [ %676, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit748 ], [ %.12, %658 ], [ %.11, %649 ], [ %.11, %638 ], [ %.10, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit743 ], [ %.10, %604 ], [ %.9, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit738 ], [ %.9, %568 ], [ %.8, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit733 ], [ %.8, %532 ], [ %.7, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit728 ], [ %.7, %490 ], [ %.6, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit723 ], [ %.6, %448 ], [ %.5, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit718 ], [ %.5, %406 ], [ %.4, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit713 ], [ %.4, %370 ], [ %.3, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit708 ], [ %.3, %336 ], [ %.2, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit703 ], [ %.1578, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit698 ], [ %.0577, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit693 ], [ %248, %244 ], [ %239, %235 ], [ %230, %226 ], [ %221, %217 ], [ %212, %204 ], [ %199, %191 ], [ %180, %187 ], [ %180, %172 ], [ %162, %158 ], [ %123, %119 ], [ %84, %80 ], [ %45, %41 ]
-  %.0575 = phi ptr [ %1684, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit873 ], [ %1659, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit868 ], [ %1634, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit863 ], [ %1609, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit858 ], [ %1584, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit853 ], [ %1559, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit848 ], [ %1534, %1530 ], [ %1522, %1518 ], [ %1510, %1506 ], [ %1498, %1494 ], [ %1493, %1489 ], [ %1488, %1484 ], [ %1483, %1479 ], [ %1478, %1474 ], [ %1473, %1469 ], [ %1460, %1456 ], [ %1435, %1431 ], [ %1414, %1406 ], [ %1405, %1393 ], [ %1392, %1380 ], [ %1379, %1375 ], [ %1342, %1338 ], [ %1305, %1297 ], [ %1280, %1276 ], [ %1243, %1239 ], [ %1206, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit823 ], [ %1174, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit818 ], [ %1142, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit813 ], [ %1110, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit808 ], [ %1078, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit803 ], [ %1041, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit798 ], [ %1004, %994 ], [ %961, %951 ], [ %904, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit783 ], [ %872, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit778 ], [ %840, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit773 ], [ %808, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit768 ], [ %776, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit763 ], [ %744, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit758 ], [ %712, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit753 ], [ %680, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit748 ], [ %662, %658 ], [ %642, %649 ], [ %642, %638 ], [ %608, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit743 ], [ %608, %604 ], [ %572, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit738 ], [ %572, %568 ], [ %536, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit733 ], [ %536, %532 ], [ %500, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit728 ], [ %500, %490 ], [ %458, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit723 ], [ %458, %448 ], [ %416, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit718 ], [ %416, %406 ], [ %374, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit713 ], [ %374, %370 ], [ %340, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit708 ], [ %340, %336 ], [ %316, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit703 ], [ %290, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit698 ], [ %264, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.argprom.argprom.exit693 ], [ %252, %244 ], [ %243, %235 ], [ %234, %226 ], [ %225, %217 ], [ %216, %204 ], [ %203, %191 ], [ %176, %187 ], [ %176, %172 ], [ %166, %158 ], [ %127, %119 ], [ %88, %80 ], [ %49, %41 ]
+1685:                                             ; preds = %638, %649, %604, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit743, %568, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit738, %532, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit733, %490, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit728, %448, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit723, %406, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit718, %370, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit713, %336, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit708, %172, %187, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit873, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit868, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit863, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit858, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit853, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit848, %1530, %1518, %1506, %1494, %1489, %1484, %1479, %1474, %1469, %1456, %1431, %1406, %1393, %1380, %1375, %1338, %1297, %1276, %1239, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit823, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit818, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit813, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit808, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit803, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit798, %994, %951, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit783, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit778, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit773, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit768, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit763, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit758, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit753, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit748, %658, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit703, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit698, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit693, %244, %235, %226, %217, %204, %191, %158, %119, %80, %41
+  %.22 = phi ptr [ null, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit873 ], [ null, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit868 ], [ null, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit863 ], [ null, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit858 ], [ null, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit853 ], [ null, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit848 ], [ null, %1530 ], [ null, %1518 ], [ null, %1506 ], [ null, %1494 ], [ null, %1489 ], [ null, %1484 ], [ null, %1479 ], [ null, %1474 ], [ null, %1469 ], [ %1468, %1456 ], [ null, %1431 ], [ null, %1406 ], [ %1397, %1393 ], [ %1384, %1380 ], [ null, %1375 ], [ null, %1338 ], [ %.21, %1297 ], [ null, %1276 ], [ null, %1239 ], [ %.20602, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit823 ], [ %.19601, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit818 ], [ %.18600, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit813 ], [ %.17599, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit808 ], [ %.16598, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit803 ], [ %.15597, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit798 ], [ %.14596, %994 ], [ %.13595, %951 ], [ %.12594, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit783 ], [ %.11593, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit778 ], [ %.10592, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit773 ], [ %.9591, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit768 ], [ %.8590, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit763 ], [ %.7589, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit758 ], [ %.6588, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit753 ], [ %.5587, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit748 ], [ null, %658 ], [ null, %649 ], [ null, %638 ], [ null, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit743 ], [ null, %604 ], [ null, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit738 ], [ null, %568 ], [ null, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit733 ], [ null, %532 ], [ %496, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit728 ], [ %496, %490 ], [ %454, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit723 ], [ %454, %448 ], [ %412, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit718 ], [ %412, %406 ], [ null, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit713 ], [ null, %370 ], [ null, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit708 ], [ null, %336 ], [ null, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit703 ], [ null, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit698 ], [ null, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit693 ], [ null, %244 ], [ null, %235 ], [ null, %226 ], [ null, %217 ], [ %208, %204 ], [ %195, %191 ], [ %.4586, %187 ], [ %.4586, %172 ], [ %.3585, %158 ], [ %.2584, %119 ], [ %.1583, %80 ], [ %.0582, %41 ]
+  %.20 = phi ptr [ %1666, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit873 ], [ %1641, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit868 ], [ %1616, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit863 ], [ %1591, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit858 ], [ %1566, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit853 ], [ %1541, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit848 ], [ %.19, %1530 ], [ %.18, %1518 ], [ %.17, %1506 ], [ null, %1494 ], [ null, %1489 ], [ null, %1484 ], [ null, %1479 ], [ null, %1474 ], [ null, %1469 ], [ %1464, %1456 ], [ %1439, %1431 ], [ %1410, %1406 ], [ %1401, %1393 ], [ %1388, %1380 ], [ %.16, %1375 ], [ %.15, %1338 ], [ %1301, %1297 ], [ %.14, %1276 ], [ %.13, %1239 ], [ %1202, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit823 ], [ %1170, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit818 ], [ %1138, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit813 ], [ %1106, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit808 ], [ %1074, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit803 ], [ %1037, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit798 ], [ %1000, %994 ], [ %957, %951 ], [ %900, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit783 ], [ %868, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit778 ], [ %836, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit773 ], [ %804, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit768 ], [ %772, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit763 ], [ %740, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit758 ], [ %708, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit753 ], [ %676, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit748 ], [ %.12, %658 ], [ %.11, %649 ], [ %.11, %638 ], [ %.10, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit743 ], [ %.10, %604 ], [ %.9, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit738 ], [ %.9, %568 ], [ %.8, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit733 ], [ %.8, %532 ], [ %.7, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit728 ], [ %.7, %490 ], [ %.6, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit723 ], [ %.6, %448 ], [ %.5, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit718 ], [ %.5, %406 ], [ %.4, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit713 ], [ %.4, %370 ], [ %.3, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit708 ], [ %.3, %336 ], [ %.2, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit703 ], [ %.1578, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit698 ], [ %.0577, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit693 ], [ %248, %244 ], [ %239, %235 ], [ %230, %226 ], [ %221, %217 ], [ %212, %204 ], [ %199, %191 ], [ %180, %187 ], [ %180, %172 ], [ %162, %158 ], [ %123, %119 ], [ %84, %80 ], [ %45, %41 ]
+  %.0575 = phi ptr [ %1684, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit873 ], [ %1659, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit868 ], [ %1634, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit863 ], [ %1609, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit858 ], [ %1584, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit853 ], [ %1559, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit848 ], [ %1534, %1530 ], [ %1522, %1518 ], [ %1510, %1506 ], [ %1498, %1494 ], [ %1493, %1489 ], [ %1488, %1484 ], [ %1483, %1479 ], [ %1478, %1474 ], [ %1473, %1469 ], [ %1460, %1456 ], [ %1435, %1431 ], [ %1414, %1406 ], [ %1405, %1393 ], [ %1392, %1380 ], [ %1379, %1375 ], [ %1342, %1338 ], [ %1305, %1297 ], [ %1280, %1276 ], [ %1243, %1239 ], [ %1206, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit823 ], [ %1174, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit818 ], [ %1142, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit813 ], [ %1110, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit808 ], [ %1078, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit803 ], [ %1041, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit798 ], [ %1004, %994 ], [ %961, %951 ], [ %904, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit783 ], [ %872, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit778 ], [ %840, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit773 ], [ %808, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit768 ], [ %776, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit763 ], [ %744, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit758 ], [ %712, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit753 ], [ %680, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit748 ], [ %662, %658 ], [ %642, %649 ], [ %642, %638 ], [ %608, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit743 ], [ %608, %604 ], [ %572, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit738 ], [ %572, %568 ], [ %536, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit733 ], [ %536, %532 ], [ %500, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit728 ], [ %500, %490 ], [ %458, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit723 ], [ %458, %448 ], [ %416, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit718 ], [ %416, %406 ], [ %374, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit713 ], [ %374, %370 ], [ %340, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit708 ], [ %340, %336 ], [ %316, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit703 ], [ %290, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit698 ], [ %264, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit693 ], [ %252, %244 ], [ %243, %235 ], [ %234, %226 ], [ %225, %217 ], [ %216, %204 ], [ %203, %191 ], [ %176, %187 ], [ %176, %172 ], [ %166, %158 ], [ %127, %119 ], [ %88, %80 ], [ %49, %41 ]
   %1686 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br i1 %1686, label %_ZN4llvm11raw_ostreamlsEc.exit907, label %1687
 
@@ -3562,7 +3562,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %1687
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %1697, %1699, %1700
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL12printMaskingRN4llvm11raw_ostreamEPKNS_6MCInstERKNS_11MCInstrInfoE.argprom(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %0, ptr %.val)
+  call fastcc void @_ZL12printMaskingRN4llvm11raw_ostreamEPKNS_6MCInstERKNS_11MCInstrInfoE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %0, ptr %.val)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit878
 
 1703:                                             ; preds = %1687
@@ -6099,7 +6099,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %493
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %493, %507, %509, %510
   %.val = load ptr, ptr %2, align 8
-  tail call fastcc void @_ZL12printMaskingRN4llvm11raw_ostreamEPKNS_6MCInstERKNS_11MCInstrInfoE.argprom(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %0, ptr %.val)
+  tail call fastcc void @_ZL12printMaskingRN4llvm11raw_ostreamEPKNS_6MCInstERKNS_11MCInstrInfoE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %0, ptr %.val)
   %513 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %514 = load ptr, ptr %513, align 8
   %515 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -6423,7 +6423,7 @@ declare void @_ZN4llvm20DecodeZeroExtendMaskEjjjbRNS_15SmallVectorImplIiEE(i32 n
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL12printMaskingRN4llvm11raw_ostreamEPKNS_6MCInstERKNS_11MCInstrInfoE.argprom(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef readonly %1, ptr nocapture readonly %.0.val) unnamed_addr #0 {
+define internal fastcc void @_ZL12printMaskingRN4llvm11raw_ostreamEPKNS_6MCInstERKNS_11MCInstrInfoE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef readonly %1, ptr nocapture readonly %.0.val) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 8
   %4 = zext i32 %3 to i64
   %5 = sub nsw i64 0, %4

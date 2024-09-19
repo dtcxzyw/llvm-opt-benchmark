@@ -15,7 +15,7 @@ define { ptr, ptr } @_ZN3std9panicking3try17h0956b9d7f2b3a1a4E(ptr align 8 %0) u
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr %5)
-          to label %__rust_try.argprom.exit unwind label %7
+          to label %__rust_try.exit unwind label %7
 
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
@@ -23,7 +23,7 @@ define { ptr, ptr } @_ZN3std9panicking3try17h0956b9d7f2b3a1a4E(ptr align 8 %0) u
   tail call void @_ZN4core9panicking19panic_cannot_unwind17hb9fd422cdcdfc93eE() #7
   unreachable
 
-__rust_try.argprom.exit:                          ; preds = %3
+__rust_try.exit:                                  ; preds = %3
   %9 = extractvalue { ptr, ptr } %6, 0
   %10 = extractvalue { ptr, ptr } %6, 1
   %11 = icmp ne ptr %9, null
@@ -32,9 +32,9 @@ __rust_try.argprom.exit:                          ; preds = %3
   tail call void @llvm.assume(i1 %12)
   br label %13
 
-13:                                               ; preds = %1, %__rust_try.argprom.exit
-  %.sroa.4.06 = phi ptr [ %10, %__rust_try.argprom.exit ], [ undef, %1 ]
-  %14 = phi ptr [ %9, %__rust_try.argprom.exit ], [ null, %1 ]
+13:                                               ; preds = %1, %__rust_try.exit
+  %.sroa.4.06 = phi ptr [ %10, %__rust_try.exit ], [ undef, %1 ]
+  %14 = phi ptr [ %9, %__rust_try.exit ], [ null, %1 ]
   %15 = insertvalue { ptr, ptr } poison, ptr %14, 0
   %16 = insertvalue { ptr, ptr } %15, ptr %.sroa.4.06, 1
   ret { ptr, ptr } %16

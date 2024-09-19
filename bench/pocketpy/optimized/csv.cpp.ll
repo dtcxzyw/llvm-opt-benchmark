@@ -865,11 +865,11 @@ _ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit.i: ; preds = %226, %220
 _ZN4pkpy6py_varINS_10pod_vectorIPNS_8PyObjectELi4EEEEES3_PNS_2VMEOT_.exit77.i: ; preds = %._crit_edge42.i
   %234 = load ptr, ptr %23, align 8
   %.not.i78.i = icmp eq ptr %234, null
-  br i1 %.not.i78.i, label %"_ZZN4pkpy14add_module_csvEPNS_2VMEENK3$_0clES1_NS_8ArgsViewE.argprom.exit", label %235
+  br i1 %.not.i78.i, label %"_ZZN4pkpy14add_module_csvEPNS_2VMEENK3$_0clES1_NS_8ArgsViewE.exit", label %235
 
 235:                                              ; preds = %_ZN4pkpy6py_varINS_10pod_vectorIPNS_8PyObjectELi4EEEEES3_PNS_2VMEOT_.exit77.i
   call void @_ZN4pkpy14pool64_deallocEPv(ptr noundef nonnull %234) #17
-  br label %"_ZZN4pkpy14add_module_csvEPNS_2VMEENK3$_0clES1_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy14add_module_csvEPNS_2VMEENK3$_0clES1_NS_8ArgsViewE.exit"
 
 _ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit75.i: ; preds = %231, %.body.i, %.loopexit.split-lp16.i, %.loopexit15.i
   %236 = phi ptr [ %35, %.body.i ], [ %35, %231 ], [ %35, %.loopexit15.i ], [ %.pre.i, %.loopexit.split-lp16.i ]
@@ -884,7 +884,7 @@ _ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit75.i: ; preds = %231, %.body.i,
 _ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit81.i: ; preds = %237, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit75.i
   resume { ptr, i32 } %.pn.pn.i
 
-"_ZZN4pkpy14add_module_csvEPNS_2VMEENK3$_0clES1_NS_8ArgsViewE.argprom.exit": ; preds = %_ZN4pkpy6py_varINS_10pod_vectorIPNS_8PyObjectELi4EEEEES3_PNS_2VMEOT_.exit77.i, %235
+"_ZZN4pkpy14add_module_csvEPNS_2VMEENK3$_0clES1_NS_8ArgsViewE.exit": ; preds = %_ZN4pkpy6py_varINS_10pod_vectorIPNS_8PyObjectELi4EEEEES3_PNS_2VMEOT_.exit77.i, %235
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
@@ -2037,11 +2037,11 @@ _ZN4pkpy6py_varINS_10pod_vectorIPNS_8PyObjectELi4EEEEES3_PNS_2VMEOT_.exit.i: ; p
 
 _ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit.i: ; preds = %128, %_ZN4pkpy6py_varINS_10pod_vectorIPNS_8PyObjectELi4EEEEES3_PNS_2VMEOT_.exit.i
   %.not.i45.i = icmp eq ptr %60, null
-  br i1 %.not.i45.i, label %"_ZZN4pkpy14add_module_csvEPNS_2VMEENK3$_1clES1_NS_8ArgsViewE.argprom.exit", label %129
+  br i1 %.not.i45.i, label %"_ZZN4pkpy14add_module_csvEPNS_2VMEENK3$_1clES1_NS_8ArgsViewE.exit", label %129
 
 129:                                              ; preds = %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit.i
   call void @_ZN4pkpy14pool64_deallocEPv(ptr noundef nonnull %60) #17
-  br label %"_ZZN4pkpy14add_module_csvEPNS_2VMEENK3$_1clES1_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy14add_module_csvEPNS_2VMEENK3$_1clES1_NS_8ArgsViewE.exit"
 
 130:                                              ; preds = %104, %93, %.loopexit.split-lp10.i, %.loopexit9.i
   %131 = phi ptr [ %73, %104 ], [ %73, %93 ], [ %73, %.loopexit9.i ], [ %.pre.i, %.loopexit.split-lp10.i ]
@@ -2065,7 +2065,7 @@ _ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit50.i: ; preds = %133, %_ZN4pkpy
   %.pn.pn.i = phi { ptr, i32 } [ %40, %39 ], [ %.pn.i, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit48.i ], [ %.pn.i, %133 ]
   resume { ptr, i32 } %.pn.pn.i
 
-"_ZZN4pkpy14add_module_csvEPNS_2VMEENK3$_1clES1_NS_8ArgsViewE.argprom.exit": ; preds = %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit.i, %129
+"_ZZN4pkpy14add_module_csvEPNS_2VMEENK3$_1clES1_NS_8ArgsViewE.exit": ; preds = %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit.i, %129
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)

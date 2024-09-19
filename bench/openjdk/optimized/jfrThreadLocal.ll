@@ -778,7 +778,7 @@ _ZN14JfrThreadLocal13jvm_thread_idEPK6Thread.exit: ; preds = %10, %_ZN14JfrThrea
   %35 = phi i64 [ %.013.i.i.i, %_ZN14JfrThreadLocal16assign_thread_idEPK6ThreadPS_.exit.i.i ], [ %12, %10 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   %36 = tail call noundef zeroext i1 @_ZN11JfrRecorder12is_recordingEv() #13
-  br i1 %36, label %37, label %_ZL26send_java_thread_end_eventP10JavaThreadm.argprom.exit
+  br i1 %36, label %37, label %_ZL26send_java_thread_end_eventP10JavaThreadm.exit
 
 37:                                               ; preds = %_ZN14JfrThreadLocal13jvm_thread_idEPK6Thread.exit
   %38 = getelementptr inbounds i8, ptr %2, i64 24
@@ -820,14 +820,14 @@ _ZN8JfrEventI14EventThreadEndE12should_writeEv.exit.i.i: ; preds = %49, %46
 
 _ZN8JfrEventI14EventThreadEndE6commitEv.exit.i:   ; preds = %53, %_ZN8JfrEventI14EventThreadEndE12should_writeEv.exit.i.i, %37
   call void @_ZN22ObjectSampleCheckpoint14on_thread_exitEm(i64 noundef %35) #13
-  br label %_ZL26send_java_thread_end_eventP10JavaThreadm.argprom.exit
+  br label %_ZL26send_java_thread_end_eventP10JavaThreadm.exit
 
-_ZL26send_java_thread_end_eventP10JavaThreadm.argprom.exit: ; preds = %_ZN14JfrThreadLocal13jvm_thread_idEPK6Thread.exit, %_ZN8JfrEventI14EventThreadEndE6commitEv.exit.i
+_ZL26send_java_thread_end_eventP10JavaThreadm.exit: ; preds = %_ZN14JfrThreadLocal13jvm_thread_idEPK6Thread.exit, %_ZN8JfrEventI14EventThreadEndE6commitEv.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @_ZN21JfrThreadCPULoadEvent21send_event_for_threadEP10JavaThread(ptr noundef nonnull %0) #13
   br label %54
 
-54:                                               ; preds = %_ZL26send_java_thread_end_eventP10JavaThreadm.argprom.exit, %5
+54:                                               ; preds = %_ZL26send_java_thread_end_eventP10JavaThreadm.exit, %5
   %55 = getelementptr inbounds i8, ptr %0, i64 584
   %56 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %57 = load ptr, ptr %56, align 8

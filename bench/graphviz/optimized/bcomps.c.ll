@@ -519,7 +519,7 @@ define internal fastcc void @dfs(ptr noundef nonnull %0, ptr noundef %1, ptr noc
   %61 = load i8, ptr %59, align 1
   %62 = icmp eq i8 %61, 37
   %.str.12..str.13.i.i = select i1 %62, ptr @.str.12, ptr @.str.13
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %5, ptr noundef nonnull %.str.12..str.13.i.i, ptr noundef nonnull %59, i32 noundef %60)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %5, ptr noundef nonnull %.str.12..str.13.i.i, ptr noundef nonnull %59, i32 noundef %60)
   %.val.i.i.i.i.i = load i8, ptr %16, align 1
   %.not.i.i.i.i.i = icmp eq i8 %.val.i.i.i.i.i, -1
   %63 = load i64, ptr %17, align 8
@@ -726,22 +726,22 @@ agxblen.exit.i.i.i:                               ; preds = %15
   br i1 %34, label %37, label %38
 
 37:                                               ; preds = %36
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %4, ptr noundef nonnull @.str.18, ptr noundef %35, i32 noundef %1, ptr noundef nonnull %33)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.18, ptr noundef %35, i32 noundef %1, ptr noundef nonnull %33)
   br label %agxbput.exit.i
 
 38:                                               ; preds = %36
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %4, ptr noundef nonnull @.str.19, ptr noundef %35, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %33)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.19, ptr noundef %35, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %33)
   br label %agxbput.exit.i
 
 39:                                               ; preds = %32
   br i1 %34, label %40, label %41
 
 40:                                               ; preds = %39
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %4, ptr noundef nonnull @.str.20, ptr noundef %35, i32 noundef %1)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.20, ptr noundef %35, i32 noundef %1)
   br label %agxbput.exit.i
 
 41:                                               ; preds = %39
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %4, ptr noundef nonnull @.str.21, ptr noundef %35, i32 noundef %1, i32 noundef %2)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.21, ptr noundef %35, i32 noundef %1, i32 noundef %2)
   br label %agxbput.exit.i
 
 agxbput.exit.i:                                   ; preds = %41, %40, %38, %37, %27, %.thread.i, %15
@@ -902,7 +902,7 @@ declare ptr @agsubg(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @agbindrec(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @agxbprint.retelim(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #10 {
+define internal void @agxbprint(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #10 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)

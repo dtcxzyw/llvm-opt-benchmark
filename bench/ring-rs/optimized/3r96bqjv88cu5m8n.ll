@@ -917,13 +917,13 @@ _ZN4ring2ec7suite_b3ops9CommonOps7point_x17h5d9c925f48bee176E.exit.i: ; preds = 
   %112 = getelementptr inbounds i8, ptr %111, i64 24
   %113 = load i64, ptr %112, align 8, !noalias !171, !noundef !4
   %114 = icmp ugt i64 %113, 6
-  br i1 %114, label %115, label %_ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_digest14sig_r_equals_x17h924d463479dc264cE.argprom.exit.i
+  br i1 %114, label %115, label %_ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_digest14sig_r_equals_x17h924d463479dc264cE.exit.i
 
 115:                                              ; preds = %_ZN4ring2ec7suite_b3ops9CommonOps7point_x17h5d9c925f48bee176E.exit.i
   call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %113, i64 noundef 6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a08cbc0fed5954eef0273385eb99bffc.54) #26, !noalias !172
   unreachable
 
-_ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_digest14sig_r_equals_x17h924d463479dc264cE.argprom.exit.i: ; preds = %_ZN4ring2ec7suite_b3ops9CommonOps7point_x17h5d9c925f48bee176E.exit.i
+_ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_digest14sig_r_equals_x17h924d463479dc264cE.exit.i: ; preds = %_ZN4ring2ec7suite_b3ops9CommonOps7point_x17h5d9c925f48bee176E.exit.i
   %116 = shl nuw nsw i64 %113, 3
   %bcmp.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %12, ptr nonnull readonly %11, i64 %116), !alias.scope !175, !noalias !163
   %117 = icmp eq i32 %bcmp.i.i.i.i, 0
@@ -935,34 +935,34 @@ _ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_dige
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %19), !noalias !110
   br label %135
 
-119:                                              ; preds = %_ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_digest14sig_r_equals_x17h924d463479dc264cE.argprom.exit.i
+119:                                              ; preds = %_ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_digest14sig_r_equals_x17h924d463479dc264cE.exit.i
   %.val42.i = load ptr, ptr %64, align 8, !nonnull !4, !align !9, !noundef !4
   %120 = load ptr, ptr %.val42.i, align 8, !noalias !179, !nonnull !4, !align !9, !noundef !4
   %121 = getelementptr inbounds i8, ptr %120, i64 24
   %122 = load i64, ptr %121, align 8, !noalias !179, !noundef !4
   %123 = icmp ugt i64 %122, 6
-  br i1 %123, label %124, label %_ZN4ring2ec7suite_b3ops15PublicScalarOps14elem_less_than17h9ef3e21ef8e84a9dE.argprom.exit
+  br i1 %123, label %124, label %_ZN4ring2ec7suite_b3ops15PublicScalarOps14elem_less_than17h9ef3e21ef8e84a9dE.exit
 
 124:                                              ; preds = %119
   call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %122, i64 noundef 6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a08cbc0fed5954eef0273385eb99bffc.56) #26, !noalias !183
   unreachable
 
-_ZN4ring2ec7suite_b3ops15PublicScalarOps14elem_less_than17h9ef3e21ef8e84a9dE.argprom.exit: ; preds = %119
+_ZN4ring2ec7suite_b3ops15PublicScalarOps14elem_less_than17h9ef3e21ef8e84a9dE.exit: ; preds = %119
   %125 = getelementptr inbounds i8, ptr %48, i64 32
   %126 = call noundef i64 @ring_core_0_17_8__LIMBS_less_than(ptr noundef nonnull readonly %17, ptr noundef nonnull readonly %125, i64 noundef %122)
   %127 = icmp eq i64 %126, -1
   br i1 %127, label %128, label %133
 
-128:                                              ; preds = %_ZN4ring2ec7suite_b3ops15PublicScalarOps14elem_less_than17h9ef3e21ef8e84a9dE.argprom.exit
+128:                                              ; preds = %_ZN4ring2ec7suite_b3ops15PublicScalarOps14elem_less_than17h9ef3e21ef8e84a9dE.exit
   %129 = load ptr, ptr %48, align 8, !nonnull !4, !align !9, !noundef !4
   %130 = load ptr, ptr %129, align 8, !nonnull !4, !align !9, !noundef !4
   %131 = getelementptr inbounds i8, ptr %130, i64 128
   call fastcc void @_ZN4ring2ec7suite_b3ops9CommonOps8elem_add17h54dc892ecf26383fE(ptr noalias noundef readonly align 8 dereferenceable(272) %130, ptr noalias noundef align 8 dereferenceable(48) %17, ptr noalias noundef readonly align 8 dereferenceable(48) %131)
   %.val41.i = load ptr, ptr %64, align 8, !nonnull !4, !align !9, !noundef !4
-  %132 = call fastcc noundef zeroext i1 @_ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_digest14sig_r_equals_x17h924d463479dc264cE.argprom(ptr nonnull %.val41.i, ptr noalias noundef readonly align 8 dereferenceable(48) %17, ptr noalias noundef readonly align 8 dereferenceable(48) %18, ptr noalias noundef readonly align 8 dereferenceable(48) %20)
+  %132 = call fastcc noundef zeroext i1 @_ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_digest14sig_r_equals_x17h924d463479dc264cE(ptr nonnull %.val41.i, ptr noalias noundef readonly align 8 dereferenceable(48) %17, ptr noalias noundef readonly align 8 dereferenceable(48) %18, ptr noalias noundef readonly align 8 dereferenceable(48) %20)
   br i1 %132, label %134, label %133
 
-133:                                              ; preds = %128, %_ZN4ring2ec7suite_b3ops15PublicScalarOps14elem_less_than17h9ef3e21ef8e84a9dE.argprom.exit
+133:                                              ; preds = %128, %_ZN4ring2ec7suite_b3ops15PublicScalarOps14elem_less_than17h9ef3e21ef8e84a9dE.exit
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17), !noalias !110
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18), !noalias !110
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20), !noalias !110
@@ -974,7 +974,7 @@ _ZN4ring2ec7suite_b3ops15PublicScalarOps14elem_less_than17h9ef3e21ef8e84a9dE.arg
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %26), !noalias !110
   br label %_ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_digest17h8e779b1f61e573adE.exit
 
-134:                                              ; preds = %128, %_ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_digest14sig_r_equals_x17h924d463479dc264cE.argprom.exit.i
+134:                                              ; preds = %128, %_ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_digest14sig_r_equals_x17h924d463479dc264cE.exit.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17), !noalias !110
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18), !noalias !110
   br label %135
@@ -1005,7 +1005,7 @@ _ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_dige
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_digest14sig_r_equals_x17h924d463479dc264cE.argprom(ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @_ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_digest14sig_r_equals_x17h924d463479dc264cE(ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2) unnamed_addr #2 {
   %4 = alloca { [6 x i64], {}, {} }, align 8
   %5 = alloca { [6 x i64], {}, {} }, align 8
   %6 = alloca { [6 x i64], {}, {} }, align 8
@@ -1033,13 +1033,13 @@ define internal fastcc noundef zeroext i1 @_ZN4ring2ec7suite_b5ecdsa12verificati
   %13 = getelementptr inbounds i8, ptr %12, i64 24
   %14 = load i64, ptr %13, align 8, !noalias !191, !noundef !4
   %15 = icmp ugt i64 %14, 6
-  br i1 %15, label %16, label %_ZN4ring2ec7suite_b3ops15PublicScalarOps19elem_equals_vartime17hd61349d7740fa831E.argprom.exit
+  br i1 %15, label %16, label %_ZN4ring2ec7suite_b3ops15PublicScalarOps19elem_equals_vartime17hd61349d7740fa831E.exit
 
 16:                                               ; preds = %3
   call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %14, i64 noundef 6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a08cbc0fed5954eef0273385eb99bffc.54) #26, !noalias !192
   unreachable
 
-_ZN4ring2ec7suite_b3ops15PublicScalarOps19elem_equals_vartime17hd61349d7740fa831E.argprom.exit: ; preds = %3
+_ZN4ring2ec7suite_b3ops15PublicScalarOps19elem_equals_vartime17hd61349d7740fa831E.exit: ; preds = %3
   %17 = shl nuw nsw i64 %14, 3
   %bcmp.i.i = call i32 @bcmp(ptr nonnull readonly %7, ptr nonnull readonly %6, i64 %17), !alias.scope !195
   %18 = icmp eq i32 %bcmp.i.i, 0
@@ -2744,17 +2744,17 @@ attributes #27 = { cold noreturn nounwind }
 !156 = distinct !{!156, !153, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hebe1c783f3496088E: argument 2"}
 !157 = !{!142, !146, !111, !113, !114, !115}
 !158 = !{!159, !161, !162}
-!159 = distinct !{!159, !160, !"_ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_digest14sig_r_equals_x17h924d463479dc264cE.argprom: argument 0"}
-!160 = distinct !{!160, !"_ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_digest14sig_r_equals_x17h924d463479dc264cE.argprom"}
-!161 = distinct !{!161, !160, !"_ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_digest14sig_r_equals_x17h924d463479dc264cE.argprom: argument 1"}
-!162 = distinct !{!162, !160, !"_ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_digest14sig_r_equals_x17h924d463479dc264cE.argprom: argument 2"}
+!159 = distinct !{!159, !160, !"_ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_digest14sig_r_equals_x17h924d463479dc264cE: argument 0"}
+!160 = distinct !{!160, !"_ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_digest14sig_r_equals_x17h924d463479dc264cE"}
+!161 = distinct !{!161, !160, !"_ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_digest14sig_r_equals_x17h924d463479dc264cE: argument 1"}
+!162 = distinct !{!162, !160, !"_ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_digest14sig_r_equals_x17h924d463479dc264cE: argument 2"}
 !163 = !{!159, !161, !162, !111, !113, !114, !115}
 !164 = !{!161}
 !165 = !{!166}
-!166 = distinct !{!166, !167, !"_ZN4ring2ec7suite_b3ops15PublicScalarOps19elem_equals_vartime17hd61349d7740fa831E.argprom: argument 0"}
-!167 = distinct !{!167, !"_ZN4ring2ec7suite_b3ops15PublicScalarOps19elem_equals_vartime17hd61349d7740fa831E.argprom"}
+!166 = distinct !{!166, !167, !"_ZN4ring2ec7suite_b3ops15PublicScalarOps19elem_equals_vartime17hd61349d7740fa831E: argument 0"}
+!167 = distinct !{!167, !"_ZN4ring2ec7suite_b3ops15PublicScalarOps19elem_equals_vartime17hd61349d7740fa831E"}
 !168 = !{!169}
-!169 = distinct !{!169, !167, !"_ZN4ring2ec7suite_b3ops15PublicScalarOps19elem_equals_vartime17hd61349d7740fa831E.argprom: argument 1"}
+!169 = distinct !{!169, !167, !"_ZN4ring2ec7suite_b3ops15PublicScalarOps19elem_equals_vartime17hd61349d7740fa831E: argument 1"}
 !170 = !{!166, !169, !159, !161, !162}
 !171 = !{!166, !169}
 !172 = !{!173, !166, !169}
@@ -2765,17 +2765,17 @@ attributes #27 = { cold noreturn nounwind }
 !177 = distinct !{!177, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2ae934ebe1c0791eE"}
 !178 = distinct !{!178, !177, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2ae934ebe1c0791eE: argument 1"}
 !179 = !{!180, !182}
-!180 = distinct !{!180, !181, !"_ZN4ring2ec7suite_b3ops15PublicScalarOps14elem_less_than17h9ef3e21ef8e84a9dE.argprom: argument 0"}
-!181 = distinct !{!181, !"_ZN4ring2ec7suite_b3ops15PublicScalarOps14elem_less_than17h9ef3e21ef8e84a9dE.argprom"}
-!182 = distinct !{!182, !181, !"_ZN4ring2ec7suite_b3ops15PublicScalarOps14elem_less_than17h9ef3e21ef8e84a9dE.argprom: argument 1"}
+!180 = distinct !{!180, !181, !"_ZN4ring2ec7suite_b3ops15PublicScalarOps14elem_less_than17h9ef3e21ef8e84a9dE: argument 0"}
+!181 = distinct !{!181, !"_ZN4ring2ec7suite_b3ops15PublicScalarOps14elem_less_than17h9ef3e21ef8e84a9dE"}
+!182 = distinct !{!182, !181, !"_ZN4ring2ec7suite_b3ops15PublicScalarOps14elem_less_than17h9ef3e21ef8e84a9dE: argument 1"}
 !183 = !{!184, !180, !182}
 !184 = distinct !{!184, !185, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2894363935a0893bE.llvm.8403485840513791397: argument 0"}
 !185 = distinct !{!185, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2894363935a0893bE.llvm.8403485840513791397"}
 !186 = !{!187}
-!187 = distinct !{!187, !188, !"_ZN4ring2ec7suite_b3ops15PublicScalarOps19elem_equals_vartime17hd61349d7740fa831E.argprom: argument 0"}
-!188 = distinct !{!188, !"_ZN4ring2ec7suite_b3ops15PublicScalarOps19elem_equals_vartime17hd61349d7740fa831E.argprom"}
+!187 = distinct !{!187, !188, !"_ZN4ring2ec7suite_b3ops15PublicScalarOps19elem_equals_vartime17hd61349d7740fa831E: argument 0"}
+!188 = distinct !{!188, !"_ZN4ring2ec7suite_b3ops15PublicScalarOps19elem_equals_vartime17hd61349d7740fa831E"}
 !189 = !{!190}
-!190 = distinct !{!190, !188, !"_ZN4ring2ec7suite_b3ops15PublicScalarOps19elem_equals_vartime17hd61349d7740fa831E.argprom: argument 1"}
+!190 = distinct !{!190, !188, !"_ZN4ring2ec7suite_b3ops15PublicScalarOps19elem_equals_vartime17hd61349d7740fa831E: argument 1"}
 !191 = !{!187, !190}
 !192 = !{!193, !187, !190}
 !193 = distinct !{!193, !194, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2894363935a0893bE.llvm.8403485840513791397: argument 0"}

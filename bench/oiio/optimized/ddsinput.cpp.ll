@@ -8103,7 +8103,7 @@ entry:
   %.sroa.speculated71.i.i.i = tail call i32 @llvm.smin.i32(i32 %1, i32 %mul3.i.i.i)
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 24
   %cmp95.i.i.i = icmp slt i32 %mul.i.i.i, %.sroa.speculated71.i.i.i
-  br i1 %cmp95.i.i.i, label %for.cond7.preheader.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15DecompressImageEPhiiPKhNS0_7DDS_pvt11CompressionERKNS4_13dds_pixformatEiE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit"
+  br i1 %cmp95.i.i.i, label %for.cond7.preheader.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15DecompressImageEPhiiPKhNS0_7DDS_pvt11CompressionERKNS4_13dds_pixformatEiE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit"
 
 for.cond7.preheader.lr.ph.i.i.i:                  ; preds = %entry
   %3 = getelementptr inbounds i8, ptr %__functor.val, i64 32
@@ -8116,7 +8116,7 @@ for.cond7.preheader.lr.ph.i.i.i:                  ; preds = %entry
   %8 = load ptr, ptr %3, align 8
   %9 = load i32, ptr %8, align 4
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %for.cond7.preheader.preheader.i.i.i, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15DecompressImageEPhiiPKhNS0_7DDS_pvt11CompressionERKNS4_13dds_pixformatEiE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit"
+  br i1 %10, label %for.cond7.preheader.preheader.i.i.i, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15DecompressImageEPhiiPKhNS0_7DDS_pvt11CompressionERKNS4_13dds_pixformatEiE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit"
 
 for.cond7.preheader.preheader.i.i.i:              ; preds = %for.cond7.preheader.lr.ph.i.i.i
   %11 = getelementptr inbounds i8, ptr %__functor.val, i64 8
@@ -8153,7 +8153,7 @@ for.body9.i.i.i:                                  ; preds = %for.inc120.i.i.i, %
   %srcBlocks.194.i.i.i = phi ptr [ %srcBlocks.097.i.i.i, %for.body9.lr.ph.i.i.i ], [ %add.ptr2475119.i.i.i, %for.inc120.i.i.i ]
   %25 = load ptr, ptr %4, align 8
   %26 = load i32, ptr %25, align 4
-  switch i32 %26, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15DecompressImageEPhiiPKhNS0_7DDS_pvt11CompressionERKNS4_13dds_pixformatEiE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit" [
+  switch i32 %26, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15DecompressImageEPhiiPKhNS0_7DDS_pvt11CompressionERKNS4_13dds_pixformatEiE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit" [
     i32 1, label %sw.bb.i.i.i
     i32 2, label %sw.bb10.i.i.i
     i32 3, label %sw.bb10.i.i.i
@@ -8477,9 +8477,9 @@ for.inc123.i.i.i:                                 ; preds = %for.inc120.i.i.i, %
   %srcBlocks.1.lcssa.i.i.i = phi ptr [ %srcBlocks.097.i.i.i, %for.cond7.preheader.i.i.i ], [ %add.ptr2475119.i.i.i, %for.inc120.i.i.i ]
   %indvars.iv.next110.i.i.i = add nsw i64 %indvars.iv109.i.i.i, 4
   %cmp.i.i.i = icmp slt i64 %indvars.iv.next110.i.i.i, %20
-  br i1 %cmp.i.i.i, label %for.cond7.preheader.i.i.i, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15DecompressImageEPhiiPKhNS0_7DDS_pvt11CompressionERKNS4_13dds_pixformatEiE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit", !llvm.loop !87
+  br i1 %cmp.i.i.i, label %for.cond7.preheader.i.i.i, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15DecompressImageEPhiiPKhNS0_7DDS_pvt11CompressionERKNS4_13dds_pixformatEiE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit", !llvm.loop !87
 
-"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15DecompressImageEPhiiPKhNS0_7DDS_pvt11CompressionERKNS4_13dds_pixformatEiE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %for.inc123.i.i.i, %for.body9.i.i.i, %entry, %for.cond7.preheader.lr.ph.i.i.i
+"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15DecompressImageEPhiiPKhNS0_7DDS_pvt11CompressionERKNS4_13dds_pixformatEiE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit": ; preds = %for.inc123.i.i.i, %for.body9.i.i.i, %entry, %for.cond7.preheader.lr.ph.i.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %rgbai.i.i.i)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %rgbh.i.i.i)
   ret void

@@ -429,9 +429,9 @@ for.body5.i.i.i:                                  ; preds = %for.body5.i.i.i, %_
   store i32 14, ptr %cur2.012.i.ptr.i.i, align 4
   %cur2.012.i.add.i.i = add nuw nsw i64 %cur2.012.i.idx.i.i, 4
   %cmp4.not.i.i.i = icmp eq i64 %cur2.012.i.add.i.i, 40
-  br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_7JSProxyEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS5_.argprom.exit, label %for.body5.i.i.i, !llvm.loop !4
+  br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_7JSProxyEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS5_.exit, label %for.body5.i.i.i, !llvm.loop !4
 
-_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_7JSProxyEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS5_.argprom.exit: ; preds = %for.body5.i.i.i
+_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_7JSProxyEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS5_.exit: ; preds = %for.body5.i.i.i
   ret ptr %cond.i.i.i.i.i
 }
 
@@ -1542,7 +1542,7 @@ if.else158:                                       ; preds = %if.end146
   %agg.tmp160.sroa.0.0.copyload = load ptr, ptr %targetValueOrAccessor, align 8
   %resultDesc.val = load i16, ptr %resultDesc, align 4
   %targetDesc.val = load i16, ptr %targetDesc, align 4
-  %call165 = call fastcc noundef i32 @_ZN6hermes2vm12_GLOBAL__N_130isCompatiblePropertyDescriptorERNS0_7RuntimeERKNS0_19DefinePropertyFlagsENS0_6HandleINS0_11HermesValueEEERKNS0_26ComputedPropertyDescriptorES9_.argprom(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i16 %resultDesc.val, ptr %agg.tmp159.sroa.0.0.copyload, i16 %targetDesc.val, ptr %agg.tmp160.sroa.0.0.copyload)
+  %call165 = call fastcc noundef i32 @_ZN6hermes2vm12_GLOBAL__N_130isCompatiblePropertyDescriptorERNS0_7RuntimeERKNS0_19DefinePropertyFlagsENS0_6HandleINS0_11HermesValueEEERKNS0_26ComputedPropertyDescriptorES9_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i16 %resultDesc.val, ptr %agg.tmp159.sroa.0.0.copyload, i16 %targetDesc.val, ptr %agg.tmp160.sroa.0.0.copyload)
   %cmp166 = icmp eq i32 %call165, 0
   br i1 %cmp166, label %cleanup, label %if.end169
 
@@ -1673,7 +1673,7 @@ if.end25:                                         ; preds = %if.then, %if.then22
 declare noundef i32 @_ZN6hermes2vm7Runtime22raiseTypeErrorForValueERKNS0_11TwineChar16ENS0_6HandleINS0_11HermesValueEEES4_(ptr noundef nonnull align 8 dereferenceable(9832), ptr noundef nonnull align 8 dereferenceable(48), ptr, ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN6hermes2vm12_GLOBAL__N_130isCompatiblePropertyDescriptorERNS0_7RuntimeERKNS0_19DefinePropertyFlagsENS0_6HandleINS0_11HermesValueEEERKNS0_26ComputedPropertyDescriptorES9_.argprom(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i16 %desc.0.val, ptr nocapture readonly %descValueOrAccessor.coerce, i16 %current.0.val, ptr nocapture readonly %currentValueOrAccessor.coerce) unnamed_addr #1 {
+define internal fastcc noundef i32 @_ZN6hermes2vm12_GLOBAL__N_130isCompatiblePropertyDescriptorERNS0_7RuntimeERKNS0_19DefinePropertyFlagsENS0_6HandleINS0_11HermesValueEEERKNS0_26ComputedPropertyDescriptorES9_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i16 %desc.0.val, ptr nocapture readonly %descValueOrAccessor.coerce, i16 %current.0.val, ptr nocapture readonly %currentValueOrAccessor.coerce) unnamed_addr #1 {
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
   %ref.tmp27 = alloca %"class.hermes::vm::TwineChar16", align 8
@@ -2264,7 +2264,7 @@ if.then130:                                       ; preds = %if.end128
 if.else134:                                       ; preds = %if.end114
   %agg.tmp136.sroa.0.0.copyload = load ptr, ptr %targetDescValueOrAccessor, align 8
   %targetDesc.val = load i16, ptr %targetDesc, align 4
-  %call141 = call fastcc noundef i32 @_ZN6hermes2vm12_GLOBAL__N_130isCompatiblePropertyDescriptorERNS0_7RuntimeERKNS0_19DefinePropertyFlagsENS0_6HandleINS0_11HermesValueEEERKNS0_26ComputedPropertyDescriptorES9_.argprom(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i16 %dpFlags.sroa.0.0.extract.trunc, ptr %valueOrAccessor.coerce, i16 %targetDesc.val, ptr %agg.tmp136.sroa.0.0.copyload)
+  %call141 = call fastcc noundef i32 @_ZN6hermes2vm12_GLOBAL__N_130isCompatiblePropertyDescriptorERNS0_7RuntimeERKNS0_19DefinePropertyFlagsENS0_6HandleINS0_11HermesValueEEERKNS0_26ComputedPropertyDescriptorES9_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i16 %dpFlags.sroa.0.0.extract.trunc, ptr %valueOrAccessor.coerce, i16 %targetDesc.val, ptr %agg.tmp136.sroa.0.0.copyload)
   %cmp = icmp eq i32 %call141, 0
   %brmerge = select i1 %cmp, i1 true, i1 %22
   %.mux = select i1 %cmp, i32 0, i32 257

@@ -346,7 +346,7 @@ define hidden void @_ZN2cv16videoio_registry35getAvailableBackends_CaptureByInde
   br i1 %.not.i, label %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit, label %6
 
 6:                                                ; preds = %4
-  invoke fastcc void @_ZN2cv12_GLOBAL__N_120VideoBackendRegistryC2Ev.argprom()
+  invoke fastcc void @_ZN2cv12_GLOBAL__N_120VideoBackendRegistryC2Ev()
           to label %7 unwind label %9
 
 7:                                                ; preds = %6
@@ -370,7 +370,7 @@ _ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit: ; preds = %1, %4
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEvE10g_instance, i64 8), align 8, !noalias !5
   %12 = load ptr, ptr @_ZZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEvE10g_instance, align 8, !noalias !5
   %.not2.i = icmp eq ptr %11, %12
-  br i1 %.not2.i, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.argprom.exit, label %.lr.ph.i
+  br i1 %.not2.i, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit
   %13 = getelementptr inbounds i8, ptr %0, i64 8
@@ -447,9 +447,9 @@ _ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE9push_backERKS1_.exit.i: ; preds = %
   %49 = sub i64 %47, %48
   %50 = sdiv exact i64 %49, 40
   %51 = icmp ult i64 %44, %50
-  br i1 %51, label %15, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.argprom.exit, !llvm.loop !8
+  br i1 %51, label %15, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.exit, !llvm.loop !8
 
-_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.argprom.exit: ; preds = %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE9push_backERKS1_.exit.i, %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit
+_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.exit: ; preds = %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE9push_backERKS1_.exit.i, %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit
   ret void
 }
 
@@ -570,7 +570,7 @@ define hidden void @_ZN2cv16videoio_registry38getAvailableBackends_CaptureByFile
   br i1 %.not.i, label %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit, label %6
 
 6:                                                ; preds = %4
-  invoke fastcc void @_ZN2cv12_GLOBAL__N_120VideoBackendRegistryC2Ev.argprom()
+  invoke fastcc void @_ZN2cv12_GLOBAL__N_120VideoBackendRegistryC2Ev()
           to label %7 unwind label %9
 
 7:                                                ; preds = %6
@@ -594,7 +594,7 @@ _ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit: ; preds = %1, %4
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEvE10g_instance, i64 8), align 8, !noalias !11
   %12 = load ptr, ptr @_ZZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEvE10g_instance, align 8, !noalias !11
   %.not2.i = icmp eq ptr %11, %12
-  br i1 %.not2.i, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.argprom.exit, label %.lr.ph.i
+  br i1 %.not2.i, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit
   %13 = getelementptr inbounds i8, ptr %0, i64 8
@@ -671,9 +671,9 @@ _ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE9push_backERKS1_.exit.i: ; preds = %
   %49 = sub i64 %47, %48
   %50 = sdiv exact i64 %49, 40
   %51 = icmp ult i64 %44, %50
-  br i1 %51, label %15, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.argprom.exit, !llvm.loop !14
+  br i1 %51, label %15, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.exit, !llvm.loop !14
 
-_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.argprom.exit: ; preds = %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE9push_backERKS1_.exit.i, %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit
+_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.exit: ; preds = %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE9push_backERKS1_.exit.i, %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit
   ret void
 }
 
@@ -689,7 +689,7 @@ define hidden void @_ZN2cv16videoio_registry27getAvailableBackends_WriterEv(ptr 
   br i1 %.not.i, label %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit, label %6
 
 6:                                                ; preds = %4
-  invoke fastcc void @_ZN2cv12_GLOBAL__N_120VideoBackendRegistryC2Ev.argprom()
+  invoke fastcc void @_ZN2cv12_GLOBAL__N_120VideoBackendRegistryC2Ev()
           to label %7 unwind label %9
 
 7:                                                ; preds = %6
@@ -713,7 +713,7 @@ _ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit: ; preds = %1, %4
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEvE10g_instance, i64 8), align 8, !noalias !15
   %12 = load ptr, ptr @_ZZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEvE10g_instance, align 8, !noalias !15
   %.not2.i = icmp eq ptr %11, %12
-  br i1 %.not2.i, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.argprom.exit, label %.lr.ph.i
+  br i1 %.not2.i, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit
   %13 = getelementptr inbounds i8, ptr %0, i64 8
@@ -790,9 +790,9 @@ _ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE9push_backERKS1_.exit.i: ; preds = %
   %49 = sub i64 %47, %48
   %50 = sdiv exact i64 %49, 40
   %51 = icmp ult i64 %44, %50
-  br i1 %51, label %15, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.argprom.exit, !llvm.loop !18
+  br i1 %51, label %15, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.exit, !llvm.loop !18
 
-_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.argprom.exit: ; preds = %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE9push_backERKS1_.exit.i, %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit
+_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.exit: ; preds = %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE9push_backERKS1_.exit.i, %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit
   ret void
 }
 
@@ -929,7 +929,7 @@ define void @_ZN2cv16videoio_registry11getBackendsEv(ptr dead_on_unwind noalias 
   br i1 %.not.i, label %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit, label %7
 
 7:                                                ; preds = %5
-  invoke fastcc void @_ZN2cv12_GLOBAL__N_120VideoBackendRegistryC2Ev.argprom()
+  invoke fastcc void @_ZN2cv12_GLOBAL__N_120VideoBackendRegistryC2Ev()
           to label %8 unwind label %10
 
 8:                                                ; preds = %7
@@ -955,9 +955,9 @@ _ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit: ; preds = %1, %5
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %.not.i.i.i.i.i = icmp eq ptr %12, %13
-  br i1 %.not.i.i.i.i.i, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom.exit.thread, label %18
+  br i1 %.not.i.i.i.i.i, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit.thread, label %18
 
-_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom.exit.thread: ; preds = %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit
+_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit.thread: ; preds = %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 16, i1 false)
   br label %._crit_edge.thread
@@ -1016,9 +1016,9 @@ _ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; p
   %40 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 40
   %41 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i, i64 40
   %.not.i.i.i.i.i.i = icmp eq ptr %40, %12
-  br i1 %.not.i.i.i.i.i.i, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i.i.i.i, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !25
 
-_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom.exit: ; preds = %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i
+_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit: ; preds = %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   %.pre = load ptr, ptr %2, align 8
   store ptr %41, ptr %23, align 8, !alias.scope !22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -1026,7 +1026,7 @@ _ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom.exit: 
   %.not = icmp eq ptr %41, %.pre
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom.exit
+.lr.ph:                                           ; preds = %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit
   %43 = getelementptr inbounds i8, ptr %0, i64 8
   %44 = getelementptr inbounds i8, ptr %0, i64 16
   br label %45
@@ -1145,8 +1145,8 @@ _ZNSt6vectorIN2cv16VideoCaptureAPIsESaIS1_EED2Ev.exit: ; preds = %87, %88
   call void @_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #18
   br label %common.resume
 
-._crit_edge.thread:                               ; preds = %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom.exit, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom.exit.thread
-  %.lcssa.ph = phi ptr [ null, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom.exit.thread ], [ %.pre, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom.exit ]
+._crit_edge.thread:                               ; preds = %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit.thread
+  %.lcssa.ph = phi ptr [ null, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit.thread ], [ %.pre, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit ]
   store ptr null, ptr %0, align 8
   br label %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i
 
@@ -1265,7 +1265,7 @@ define void @_ZN2cv16videoio_registry17getCameraBackendsEv(ptr dead_on_unwind no
   br i1 %.not.i, label %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit, label %7
 
 7:                                                ; preds = %5
-  invoke fastcc void @_ZN2cv12_GLOBAL__N_120VideoBackendRegistryC2Ev.argprom()
+  invoke fastcc void @_ZN2cv12_GLOBAL__N_120VideoBackendRegistryC2Ev()
           to label %8 unwind label %10
 
 8:                                                ; preds = %7
@@ -1289,9 +1289,9 @@ _ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit: ; preds = %1, %5
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEvE10g_instance, i64 8), align 8, !noalias !27
   %13 = load ptr, ptr @_ZZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEvE10g_instance, align 8, !noalias !27
   %.not2.i = icmp eq ptr %12, %13
-  br i1 %.not2.i, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.argprom.exit.thread, label %.lr.ph.i
+  br i1 %.not2.i, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.exit.thread, label %.lr.ph.i
 
-_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.argprom.exit.thread: ; preds = %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit
+_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.exit.thread: ; preds = %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 16, i1 false)
   br label %._crit_edge.thread
@@ -1371,9 +1371,9 @@ _ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE9push_backERKS1_.exit.i: ; preds = %
   %51 = sub i64 %49, %50
   %52 = sdiv exact i64 %51, 40
   %53 = icmp ult i64 %46, %52
-  br i1 %53, label %17, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.argprom.exit, !llvm.loop !8
+  br i1 %53, label %17, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.exit, !llvm.loop !8
 
-_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.argprom.exit: ; preds = %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE9push_backERKS1_.exit.i
+_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.exit: ; preds = %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE9push_backERKS1_.exit.i
   %.pre = load ptr, ptr %15, align 8
   %.pre31 = load ptr, ptr %2, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -1381,7 +1381,7 @@ _ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndex
   %.not = icmp eq ptr %.pre, %.pre31
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.argprom.exit
+.lr.ph:                                           ; preds = %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.exit
   %55 = getelementptr inbounds i8, ptr %0, i64 8
   %56 = getelementptr inbounds i8, ptr %0, i64 16
   br label %57
@@ -1497,8 +1497,8 @@ _ZNSt6vectorIN2cv16VideoCaptureAPIsESaIS1_EED2Ev.exit: ; preds = %98, %99
   call void @_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #18
   br label %common.resume
 
-._crit_edge.thread:                               ; preds = %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.argprom.exit, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.argprom.exit.thread
-  %.lcssa.ph = phi ptr [ null, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.argprom.exit.thread ], [ %.pre31, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.argprom.exit ]
+._crit_edge.thread:                               ; preds = %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.exit, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.exit.thread
+  %.lcssa.ph = phi ptr [ null, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.exit.thread ], [ %.pre31, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.exit ]
   store ptr null, ptr %0, align 8
   br label %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i
 
@@ -1617,7 +1617,7 @@ define void @_ZN2cv16videoio_registry17getStreamBackendsEv(ptr dead_on_unwind no
   br i1 %.not.i, label %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit, label %7
 
 7:                                                ; preds = %5
-  invoke fastcc void @_ZN2cv12_GLOBAL__N_120VideoBackendRegistryC2Ev.argprom()
+  invoke fastcc void @_ZN2cv12_GLOBAL__N_120VideoBackendRegistryC2Ev()
           to label %8 unwind label %10
 
 8:                                                ; preds = %7
@@ -1641,9 +1641,9 @@ _ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit: ; preds = %1, %5
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEvE10g_instance, i64 8), align 8, !noalias !31
   %13 = load ptr, ptr @_ZZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEvE10g_instance, align 8, !noalias !31
   %.not2.i = icmp eq ptr %12, %13
-  br i1 %.not2.i, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.argprom.exit.thread, label %.lr.ph.i
+  br i1 %.not2.i, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.exit.thread, label %.lr.ph.i
 
-_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.argprom.exit.thread: ; preds = %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit
+_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.exit.thread: ; preds = %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 16, i1 false)
   br label %._crit_edge.thread
@@ -1723,9 +1723,9 @@ _ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE9push_backERKS1_.exit.i: ; preds = %
   %51 = sub i64 %49, %50
   %52 = sdiv exact i64 %51, 40
   %53 = icmp ult i64 %46, %52
-  br i1 %53, label %17, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.argprom.exit, !llvm.loop !14
+  br i1 %53, label %17, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.exit, !llvm.loop !14
 
-_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.argprom.exit: ; preds = %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE9push_backERKS1_.exit.i
+_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.exit: ; preds = %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE9push_backERKS1_.exit.i
   %.pre = load ptr, ptr %15, align 8
   %.pre31 = load ptr, ptr %2, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -1733,7 +1733,7 @@ _ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilen
   %.not = icmp eq ptr %.pre, %.pre31
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.argprom.exit
+.lr.ph:                                           ; preds = %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.exit
   %55 = getelementptr inbounds i8, ptr %0, i64 8
   %56 = getelementptr inbounds i8, ptr %0, i64 16
   br label %57
@@ -1849,8 +1849,8 @@ _ZNSt6vectorIN2cv16VideoCaptureAPIsESaIS1_EED2Ev.exit: ; preds = %98, %99
   call void @_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #18
   br label %common.resume
 
-._crit_edge.thread:                               ; preds = %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.argprom.exit, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.argprom.exit.thread
-  %.lcssa.ph = phi ptr [ null, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.argprom.exit.thread ], [ %.pre31, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.argprom.exit ]
+._crit_edge.thread:                               ; preds = %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.exit, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.exit.thread
+  %.lcssa.ph = phi ptr [ null, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.exit.thread ], [ %.pre31, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.exit ]
   store ptr null, ptr %0, align 8
   br label %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i
 
@@ -1969,7 +1969,7 @@ define void @_ZN2cv16videoio_registry17getWriterBackendsEv(ptr dead_on_unwind no
   br i1 %.not.i, label %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit, label %7
 
 7:                                                ; preds = %5
-  invoke fastcc void @_ZN2cv12_GLOBAL__N_120VideoBackendRegistryC2Ev.argprom()
+  invoke fastcc void @_ZN2cv12_GLOBAL__N_120VideoBackendRegistryC2Ev()
           to label %8 unwind label %10
 
 8:                                                ; preds = %7
@@ -1993,9 +1993,9 @@ _ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit: ; preds = %1, %5
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEvE10g_instance, i64 8), align 8, !noalias !35
   %13 = load ptr, ptr @_ZZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEvE10g_instance, align 8, !noalias !35
   %.not2.i = icmp eq ptr %12, %13
-  br i1 %.not2.i, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.argprom.exit.thread, label %.lr.ph.i
+  br i1 %.not2.i, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.exit.thread, label %.lr.ph.i
 
-_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.argprom.exit.thread: ; preds = %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit
+_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.exit.thread: ; preds = %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 16, i1 false)
   br label %._crit_edge.thread
@@ -2075,9 +2075,9 @@ _ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE9push_backERKS1_.exit.i: ; preds = %
   %51 = sub i64 %49, %50
   %52 = sdiv exact i64 %51, 40
   %53 = icmp ult i64 %46, %52
-  br i1 %53, label %17, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.argprom.exit, !llvm.loop !18
+  br i1 %53, label %17, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.exit, !llvm.loop !18
 
-_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.argprom.exit: ; preds = %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE9push_backERKS1_.exit.i
+_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.exit: ; preds = %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE9push_backERKS1_.exit.i
   %.pre = load ptr, ptr %15, align 8
   %.pre31 = load ptr, ptr %2, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -2085,7 +2085,7 @@ _ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.argpr
   %.not = icmp eq ptr %.pre, %.pre31
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.argprom.exit
+.lr.ph:                                           ; preds = %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.exit
   %55 = getelementptr inbounds i8, ptr %0, i64 8
   %56 = getelementptr inbounds i8, ptr %0, i64 16
   br label %57
@@ -2201,8 +2201,8 @@ _ZNSt6vectorIN2cv16VideoCaptureAPIsESaIS1_EED2Ev.exit: ; preds = %98, %99
   call void @_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #18
   br label %common.resume
 
-._crit_edge.thread:                               ; preds = %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.argprom.exit, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.argprom.exit.thread
-  %.lcssa.ph = phi ptr [ null, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.argprom.exit.thread ], [ %.pre31, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.argprom.exit ]
+._crit_edge.thread:                               ; preds = %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.exit, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.exit.thread
+  %.lcssa.ph = phi ptr [ null, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.exit.thread ], [ %.pre31, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.exit ]
   store ptr null, ptr %0, align 8
   br label %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i
 
@@ -2324,7 +2324,7 @@ define noundef zeroext i1 @_ZN2cv16videoio_registry10hasBackendENS_16VideoCaptur
   br i1 %.not.i, label %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit, label %10
 
 10:                                               ; preds = %8
-  invoke fastcc void @_ZN2cv12_GLOBAL__N_120VideoBackendRegistryC2Ev.argprom()
+  invoke fastcc void @_ZN2cv12_GLOBAL__N_120VideoBackendRegistryC2Ev()
           to label %11 unwind label %13
 
 11:                                               ; preds = %10
@@ -2351,9 +2351,9 @@ _ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit: ; preds = %1, %8
   %19 = sub i64 %17, %18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false), !alias.scope !39
   %.not.i.i.i.i.i = icmp eq ptr %15, %16
-  br i1 %.not.i.i.i.i.i, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom.exit.thread, label %24
+  br i1 %.not.i.i.i.i.i, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit.thread, label %24
 
-_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom.exit.thread: ; preds = %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit
+_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit.thread: ; preds = %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit
   %20 = getelementptr inbounds i8, ptr %2, i64 8
   %21 = getelementptr inbounds i8, ptr null, i64 %19
   %22 = getelementptr inbounds i8, ptr %2, i64 16
@@ -2417,16 +2417,16 @@ _ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; p
   %46 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 40
   %47 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i, i64 40
   %.not.i.i.i.i.i.i = icmp eq ptr %46, %15
-  br i1 %.not.i.i.i.i.i.i, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i.i.i.i, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !25
 
-_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom.exit: ; preds = %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i
+_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit: ; preds = %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   %.pre = load ptr, ptr %2, align 8
   store ptr %47, ptr %29, align 8, !alias.scope !39
   %48 = getelementptr inbounds i8, ptr %2, i64 8
   %.not = icmp eq ptr %47, %.pre
   br i1 %.not, label %_ZN2cv3PtrINS_8IBackendEED2Ev.exit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom.exit
+.lr.ph.preheader:                                 ; preds = %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit
   %49 = ptrtoint ptr %47 to i64
   %50 = ptrtoint ptr %.pre to i64
   %51 = sub i64 %49, %50
@@ -2568,9 +2568,9 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void %114(ptr noundef nonnull align 8 dereferenceable(16) %80) #18
   br label %_ZN2cv3PtrINS_8IBackendEED2Ev.exit
 
-_ZN2cv3PtrINS_8IBackendEED2Ev.exit:               ; preds = %53, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom.exit, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom.exit.thread, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %110, %97, %76
-  %115 = phi ptr [ %48, %76 ], [ %48, %97 ], [ %48, %110 ], [ %48, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ], [ %23, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom.exit.thread ], [ %48, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom.exit ], [ %48, %53 ]
-  %.011 = phi i1 [ %78, %76 ], [ %78, %97 ], [ %78, %110 ], [ %78, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ], [ false, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom.exit.thread ], [ false, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom.exit ], [ false, %53 ]
+_ZN2cv3PtrINS_8IBackendEED2Ev.exit:               ; preds = %53, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit.thread, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %110, %97, %76
+  %115 = phi ptr [ %48, %76 ], [ %48, %97 ], [ %48, %110 ], [ %48, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ], [ %23, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit.thread ], [ %48, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit ], [ %48, %53 ]
+  %.011 = phi i1 [ %78, %76 ], [ %78, %97 ], [ %78, %110 ], [ %78, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ], [ false, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit.thread ], [ false, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit ], [ false, %53 ]
   %116 = load ptr, ptr %2, align 8
   %117 = load ptr, ptr %115, align 8
   %.not4.i.i.i.i = icmp eq ptr %116, %117
@@ -2699,7 +2699,7 @@ define noundef zeroext i1 @_ZN2cv16videoio_registry16isBackendBuiltInENS_16Video
   br i1 %.not.i, label %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit, label %9
 
 9:                                                ; preds = %7
-  invoke fastcc void @_ZN2cv12_GLOBAL__N_120VideoBackendRegistryC2Ev.argprom()
+  invoke fastcc void @_ZN2cv12_GLOBAL__N_120VideoBackendRegistryC2Ev()
           to label %10 unwind label %12
 
 10:                                               ; preds = %9
@@ -2781,15 +2781,15 @@ _ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; p
   %41 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 40
   %42 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i, i64 40
   %.not.i.i.i.i.i.i = icmp eq ptr %41, %14
-  br i1 %.not.i.i.i.i.i.i, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i.i.i.i, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !25
 
-_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom.exit: ; preds = %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i
+_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit: ; preds = %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   %.pre = load ptr, ptr %2, align 8
   store ptr %42, ptr %24, align 8, !alias.scope !43
   %.not = icmp eq ptr %42, %.pre
   br i1 %.not, label %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom.exit
+.lr.ph.preheader:                                 ; preds = %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit
   %43 = ptrtoint ptr %42 to i64
   %44 = ptrtoint ptr %.pre to i64
   %45 = sub i64 %43, %44
@@ -2943,9 +2943,9 @@ _ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i:
   %.pr.i = load ptr, ptr %2, align 8
   br label %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom.exit, %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i
-  %.01128 = phi i1 [ %.011, %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ false, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom.exit ]
-  %108 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom.exit ]
+_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit, %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i
+  %.01128 = phi i1 [ %.011, %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ false, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit ]
+  %108 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit ]
   %.not.i.i.i = icmp eq ptr %108, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EED2Ev.exit, label %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i.thread
 
@@ -2982,7 +2982,7 @@ define void @_ZN2cv16videoio_registry29getCameraBackendPluginVersionB5cxx11ENS_1
   br i1 %.not.i, label %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit, label %16
 
 16:                                               ; preds = %14
-  invoke fastcc void @_ZN2cv12_GLOBAL__N_120VideoBackendRegistryC2Ev.argprom()
+  invoke fastcc void @_ZN2cv12_GLOBAL__N_120VideoBackendRegistryC2Ev()
           to label %17 unwind label %19
 
 17:                                               ; preds = %16
@@ -3083,16 +3083,16 @@ _ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE9push_backERKS1_.exit.i: ; preds = %
   %59 = sub i64 %57, %58
   %60 = sdiv exact i64 %59, 40
   %61 = icmp ult i64 %54, %60
-  br i1 %61, label %25, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.argprom.exit, !llvm.loop !8
+  br i1 %61, label %25, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.exit, !llvm.loop !8
 
-_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.argprom.exit: ; preds = %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE9push_backERKS1_.exit.i
+_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.exit: ; preds = %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE9push_backERKS1_.exit.i
   %.pre = load ptr, ptr %23, align 8
   %.pre28 = load ptr, ptr %5, align 8
   %62 = getelementptr inbounds i8, ptr %5, i64 8
   %.not = icmp eq ptr %.pre, %.pre28
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.argprom.exit
+.lr.ph.preheader:                                 ; preds = %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.exit
   %63 = ptrtoint ptr %.pre to i64
   %64 = ptrtoint ptr %.pre28 to i64
   %65 = sub i64 %63, %64
@@ -3295,7 +3295,7 @@ _ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt
 _ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i, %142
   ret void
 
-._crit_edge:                                      ; preds = %67, %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.argprom.exit
+._crit_edge:                                      ; preds = %67, %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.exit
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #18
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.14, ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %143 unwind label %145
@@ -3350,7 +3350,7 @@ define void @_ZN2cv16videoio_registry29getStreamBackendPluginVersionB5cxx11ENS_1
   br i1 %.not.i, label %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit, label %16
 
 16:                                               ; preds = %14
-  invoke fastcc void @_ZN2cv12_GLOBAL__N_120VideoBackendRegistryC2Ev.argprom()
+  invoke fastcc void @_ZN2cv12_GLOBAL__N_120VideoBackendRegistryC2Ev()
           to label %17 unwind label %19
 
 17:                                               ; preds = %16
@@ -3451,16 +3451,16 @@ _ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE9push_backERKS1_.exit.i: ; preds = %
   %59 = sub i64 %57, %58
   %60 = sdiv exact i64 %59, 40
   %61 = icmp ult i64 %54, %60
-  br i1 %61, label %25, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.argprom.exit, !llvm.loop !14
+  br i1 %61, label %25, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.exit, !llvm.loop !14
 
-_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.argprom.exit: ; preds = %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE9push_backERKS1_.exit.i
+_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.exit: ; preds = %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE9push_backERKS1_.exit.i
   %.pre = load ptr, ptr %23, align 8
   %.pre28 = load ptr, ptr %5, align 8
   %62 = getelementptr inbounds i8, ptr %5, i64 8
   %.not = icmp eq ptr %.pre, %.pre28
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.argprom.exit
+.lr.ph.preheader:                                 ; preds = %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.exit
   %63 = ptrtoint ptr %.pre to i64
   %64 = ptrtoint ptr %.pre28 to i64
   %65 = sub i64 %63, %64
@@ -3663,7 +3663,7 @@ _ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt
 _ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i, %142
   ret void
 
-._crit_edge:                                      ; preds = %67, %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.argprom.exit
+._crit_edge:                                      ; preds = %67, %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.exit
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #18
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.14, ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %143 unwind label %145
@@ -3716,7 +3716,7 @@ define void @_ZN2cv16videoio_registry29getWriterBackendPluginVersionB5cxx11ENS_1
   br i1 %.not.i, label %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit, label %16
 
 16:                                               ; preds = %14
-  invoke fastcc void @_ZN2cv12_GLOBAL__N_120VideoBackendRegistryC2Ev.argprom()
+  invoke fastcc void @_ZN2cv12_GLOBAL__N_120VideoBackendRegistryC2Ev()
           to label %17 unwind label %19
 
 17:                                               ; preds = %16
@@ -3817,16 +3817,16 @@ _ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE9push_backERKS1_.exit.i: ; preds = %
   %59 = sub i64 %57, %58
   %60 = sdiv exact i64 %59, 40
   %61 = icmp ult i64 %54, %60
-  br i1 %61, label %25, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.argprom.exit, !llvm.loop !18
+  br i1 %61, label %25, label %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.exit, !llvm.loop !18
 
-_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.argprom.exit: ; preds = %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE9push_backERKS1_.exit.i
+_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.exit: ; preds = %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE9push_backERKS1_.exit.i
   %.pre = load ptr, ptr %23, align 8
   %.pre28 = load ptr, ptr %5, align 8
   %62 = getelementptr inbounds i8, ptr %5, i64 8
   %.not = icmp eq ptr %.pre, %.pre28
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.argprom.exit
+.lr.ph.preheader:                                 ; preds = %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.exit
   %63 = ptrtoint ptr %.pre to i64
   %64 = ptrtoint ptr %.pre28 to i64
   %65 = sub i64 %63, %64
@@ -4029,7 +4029,7 @@ _ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt
 _ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i, %142
   ret void
 
-._crit_edge:                                      ; preds = %67, %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.argprom.exit
+._crit_edge:                                      ; preds = %67, %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.exit
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #18
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.14, ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %143 unwind label %145
@@ -4069,7 +4069,7 @@ declare void @_ZN2cv22getWriterPluginVersionB5cxx11ERKNS_3PtrINS_15IBackendFacto
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv12_GLOBAL__N_120VideoBackendRegistryC2Ev.argprom() unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv12_GLOBAL__N_120VideoBackendRegistryC2Ev() unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4160,7 +4160,7 @@ _ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE6assignIPKS1_vEEvT_S7_.exit: ; preds
           to label %48 unwind label %59
 
 48:                                               ; preds = %46
-  invoke fastcc void @_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry12dumpBackendsB5cxx11Ev.argprom(ptr dead_on_unwind noalias writable align 8 %12)
+  invoke fastcc void @_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry12dumpBackendsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %12)
           to label %49 unwind label %59
 
 49:                                               ; preds = %48
@@ -4701,7 +4701,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
           to label %241 unwind label %252
 
 241:                                              ; preds = %238
-  invoke fastcc void @_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry12dumpBackendsB5cxx11Ev.argprom(ptr dead_on_unwind noalias writable align 8 %15)
+  invoke fastcc void @_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry12dumpBackendsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %15)
           to label %242 unwind label %252
 
 242:                                              ; preds = %241
@@ -5054,7 +5054,7 @@ _ZN2cv16VideoBackendInfoaSERKS0_.exit:            ; preds = %_ZNSt16_Sp_counted_
           to label %388 unwind label %399
 
 388:                                              ; preds = %386
-  invoke fastcc void @_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry12dumpBackendsB5cxx11Ev.argprom(ptr dead_on_unwind noalias writable align 8 %23)
+  invoke fastcc void @_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry12dumpBackendsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %23)
           to label %389 unwind label %399
 
 389:                                              ; preds = %388
@@ -5182,7 +5182,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv16VideoBackendInfoESt6vectorIS3_Sa
           to label %436 unwind label %447
 
 436:                                              ; preds = %434
-  invoke fastcc void @_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry12dumpBackendsB5cxx11Ev.argprom(ptr dead_on_unwind noalias writable align 8 %26)
+  invoke fastcc void @_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry12dumpBackendsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %26)
           to label %437 unwind label %447
 
 437:                                              ; preds = %436
@@ -5365,7 +5365,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry12dumpBackendsB5cxx11Ev.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry12dumpBackendsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2)
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEvE10g_instance, i64 8), align 8
@@ -8793,58 +8793,58 @@ attributes #21 = { builtin allocsize(0) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!"branch_weights", i32 1, i32 1048575}
 !5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.argprom: argument 0"}
-!7 = distinct !{!7, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.argprom"}
+!6 = distinct !{!6, !7, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv: argument 0"}
+!7 = distinct !{!7, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv"}
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = distinct !{!10, !9}
 !11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.argprom: argument 0"}
-!13 = distinct !{!13, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.argprom"}
+!12 = distinct !{!12, !13, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv: argument 0"}
+!13 = distinct !{!13, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv"}
 !14 = distinct !{!14, !9}
 !15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.argprom: argument 0"}
-!17 = distinct !{!17, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.argprom"}
+!16 = distinct !{!16, !17, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv: argument 0"}
+!17 = distinct !{!17, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv"}
 !18 = distinct !{!18, !9}
 !19 = distinct !{!19, !9}
 !20 = distinct !{!20, !9}
 !21 = distinct !{!21, !9}
 !22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom: argument 0"}
-!24 = distinct !{!24, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom"}
+!23 = distinct !{!23, !24, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv: argument 0"}
+!24 = distinct !{!24, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv"}
 !25 = distinct !{!25, !9}
 !26 = distinct !{!26, !9}
 !27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.argprom: argument 0"}
-!29 = distinct !{!29, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.argprom"}
+!28 = distinct !{!28, !29, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv: argument 0"}
+!29 = distinct !{!29, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv"}
 !30 = distinct !{!30, !9}
 !31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.argprom: argument 0"}
-!33 = distinct !{!33, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.argprom"}
+!32 = distinct !{!32, !33, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv: argument 0"}
+!33 = distinct !{!33, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv"}
 !34 = distinct !{!34, !9}
 !35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.argprom: argument 0"}
-!37 = distinct !{!37, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.argprom"}
+!36 = distinct !{!36, !37, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv: argument 0"}
+!37 = distinct !{!37, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv"}
 !38 = distinct !{!38, !9}
 !39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom: argument 0"}
-!41 = distinct !{!41, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom"}
+!40 = distinct !{!40, !41, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv: argument 0"}
+!41 = distinct !{!41, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv"}
 !42 = distinct !{!42, !9}
 !43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom: argument 0"}
-!45 = distinct !{!45, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.argprom"}
+!44 = distinct !{!44, !45, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv: argument 0"}
+!45 = distinct !{!45, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv"}
 !46 = distinct !{!46, !9}
 !47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.argprom: argument 0"}
-!49 = distinct !{!49, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.argprom"}
+!48 = distinct !{!48, !49, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv: argument 0"}
+!49 = distinct !{!49, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv"}
 !50 = distinct !{!50, !9}
 !51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.argprom: argument 0"}
-!53 = distinct !{!53, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.argprom"}
+!52 = distinct !{!52, !53, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv: argument 0"}
+!53 = distinct !{!53, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv"}
 !54 = distinct !{!54, !9}
 !55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.argprom: argument 0"}
-!57 = distinct !{!57, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.argprom"}
+!56 = distinct !{!56, !57, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv: argument 0"}
+!57 = distinct !{!57, !"_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv"}
 !58 = distinct !{!58, !9}
 !59 = distinct !{!59, !9}
 !60 = !{!61}

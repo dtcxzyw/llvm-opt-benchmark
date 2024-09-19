@@ -142,14 +142,14 @@ define dso_local void @recordDependencyOnOwner(i32 noundef %0, i32 noundef %1, i
 ; Function Attrs: nounwind uwtable
 define dso_local void @changeDependencyOnOwner(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @table_open(i32 noundef 1214, i32 noundef 3) #8
-  tail call fastcc void @shdepChangeDep.argelim(ptr noundef %4, i32 noundef %0, i32 noundef %1, i32 noundef 1260, i32 noundef %2, i32 noundef 111)
+  tail call fastcc void @shdepChangeDep(ptr noundef %4, i32 noundef %0, i32 noundef %1, i32 noundef 1260, i32 noundef %2, i32 noundef 111)
   tail call fastcc void @shdepDropDependency(ptr noundef %4, i32 noundef %0, i32 noundef %1, i32 noundef 0, i1 noundef zeroext true, i32 noundef 1260, i32 noundef %2, i32 noundef 97)
   tail call void @table_close(ptr noundef %4, i32 noundef 3) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @shdepChangeDep.argelim(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 1213, 1261) %3, i32 noundef %4, i32 noundef range(i32 111, 117) %5) unnamed_addr #0 {
+define internal fastcc void @shdepChangeDep(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 1213, 1261) %3, i32 noundef %4, i32 noundef range(i32 111, 117) %5) unnamed_addr #0 {
   %7 = alloca [4 x %struct.ScanKeyData], align 16
   %8 = alloca [7 x i64], align 16
   %9 = alloca [7 x i8], align 1
@@ -561,7 +561,7 @@ define dso_local void @changeDependencyOnTablespace(i32 noundef %0, i32 noundef 
   ]
 
 5:                                                ; preds = %3
-  tail call fastcc void @shdepChangeDep.argelim(ptr noundef %4, i32 noundef %0, i32 noundef %1, i32 noundef 1213, i32 noundef %2, i32 noundef 116)
+  tail call fastcc void @shdepChangeDep(ptr noundef %4, i32 noundef %0, i32 noundef %1, i32 noundef 1213, i32 noundef %2, i32 noundef 116)
   br label %7
 
 6:                                                ; preds = %3, %3

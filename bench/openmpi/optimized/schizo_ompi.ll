@@ -2463,7 +2463,7 @@ define internal range(i32 0, 101) i32 @detect_proxy(ptr noundef %0) #0 {
   br i1 %20, label %.sink.split, label %21
 
 .sink.split:                                      ; preds = %18, %14
-  tail call fastcc void @translate_params.retelim()
+  tail call fastcc void @translate_params()
   br label %21
 
 21:                                               ; preds = %.sink.split, %16, %18, %14
@@ -2704,7 +2704,7 @@ define internal range(i32 -16, 1) i32 @setup_app(ptr noundef %0) #0 {
   %64 = load ptr, ptr %63, align 8
   %65 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %64, ptr noundef nonnull dereferenceable(1) @.str.11) #19
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %67, label %set_classpath_jar_file.argprom.exit
+  br i1 %66, label %67, label %set_classpath_jar_file.exit
 
 67:                                               ; preds = %60
   %68 = getelementptr inbounds i8, ptr %64, i64 -1
@@ -2723,14 +2723,14 @@ define internal range(i32 -16, 1) i32 @setup_app(ptr noundef %0) #0 {
   %80 = load ptr, ptr %6, align 8
   %81 = getelementptr inbounds ptr, ptr %80, i64 %62
   store ptr %79, ptr %81, align 8
-  br label %set_classpath_jar_file.argprom.exit
+  br label %set_classpath_jar_file.exit
 
-set_classpath_jar_file.argprom.exit:              ; preds = %60, %67
+set_classpath_jar_file.exit:                      ; preds = %60, %67
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %82
 
-82:                                               ; preds = %._crit_edge, %set_classpath_jar_file.argprom.exit
-  %.pre-phi110 = phi i64 [ %.pre109, %._crit_edge ], [ %62, %set_classpath_jar_file.argprom.exit ]
+82:                                               ; preds = %._crit_edge, %set_classpath_jar_file.exit
+  %.pre-phi110 = phi i64 [ %.pre109, %._crit_edge ], [ %62, %set_classpath_jar_file.exit ]
   %83 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %83) #17
   %84 = getelementptr inbounds i8, ptr %0, i64 168
@@ -2789,7 +2789,7 @@ set_classpath_jar_file.argprom.exit:              ; preds = %60, %67
   %114 = load ptr, ptr %113, align 8
   %115 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %114, ptr noundef nonnull dereferenceable(1) @.str.11) #19
   %116 = icmp eq ptr %115, null
-  br i1 %116, label %117, label %set_classpath_jar_file.argprom.exit82
+  br i1 %116, label %117, label %set_classpath_jar_file.exit82
 
 117:                                              ; preds = %111
   %118 = getelementptr inbounds i8, ptr %114, i64 -1
@@ -2808,13 +2808,13 @@ set_classpath_jar_file.argprom.exit:              ; preds = %60, %67
   %130 = load ptr, ptr %6, align 8
   %131 = getelementptr inbounds i8, ptr %130, i64 8
   store ptr %129, ptr %131, align 8
-  br label %set_classpath_jar_file.argprom.exit82
+  br label %set_classpath_jar_file.exit82
 
-set_classpath_jar_file.argprom.exit82:            ; preds = %111, %117
+set_classpath_jar_file.exit82:                    ; preds = %111, %117
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %132
 
-132:                                              ; preds = %set_classpath_jar_file.argprom.exit82, %104
+132:                                              ; preds = %set_classpath_jar_file.exit82, %104
   %133 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %133) #17
   %134 = getelementptr inbounds i8, ptr %0, i64 168
@@ -5981,7 +5981,7 @@ define internal fastcc range(i32 -5, 1) i32 @check_cache(ptr noundef nonnull %0,
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %3) #19
   %.not25.i = icmp eq i32 %12, 0
-  br i1 %.not25.i, label %13, label %check_cache_noadd.argprom.exit
+  br i1 %.not25.i, label %13, label %check_cache_noadd.exit
 
 13:                                               ; preds = %9, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -5990,7 +5990,7 @@ define internal fastcc range(i32 -5, 1) i32 @check_cache(ptr noundef nonnull %0,
   %.not24.i = icmp eq ptr %15, null
   br i1 %.not24.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !33
 
-check_cache_noadd.argprom.exit:                   ; preds = %9
+check_cache_noadd.exit:                           ; preds = %9
   %16 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.249, i32 noundef 1, ptr noundef %2, ptr noundef %3, ptr noundef %11) #17
   br label %19
 
@@ -5999,8 +5999,8 @@ check_cache_noadd.argprom.exit:                   ; preds = %9
   %18 = tail call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %1, ptr noundef %3) #17
   br label %19
 
-19:                                               ; preds = %check_cache_noadd.argprom.exit, %.loopexit
-  %.019.i11 = phi i32 [ 0, %.loopexit ], [ -5, %check_cache_noadd.argprom.exit ]
+19:                                               ; preds = %check_cache_noadd.exit, %.loopexit
+  %.019.i11 = phi i32 [ 0, %.loopexit ], [ -5, %check_cache_noadd.exit ]
   ret i32 %.019.i11
 }
 
@@ -6073,7 +6073,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #7
 declare ptr @prte_schizo_base_strip_quotes(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @translate_params.retelim() unnamed_addr #0 {
+define internal fastcc void @translate_params() unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca %struct.pmix_list_t, align 8
   %3 = load ptr, ptr @environ, align 8
@@ -6099,7 +6099,7 @@ define internal fastcc void @translate_params.retelim() unnamed_addr #0 {
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %9
-  call fastcc void @check_pmix_overlap.retelim(ptr noundef nonnull %13, ptr noundef nonnull %12)
+  call fastcc void @check_pmix_overlap(ptr noundef nonnull %13, ptr noundef nonnull %12)
   br label %30
 
 16:                                               ; preds = %9
@@ -6112,7 +6112,7 @@ define internal fastcc void @translate_params.retelim() unnamed_addr #0 {
   %21 = call i32 @setenv(ptr noundef %20, ptr noundef nonnull %12, i32 noundef 0) #17
   %22 = load ptr, ptr %1, align 8
   call void @free(ptr noundef %22) #17
-  call fastcc void @check_pmix_overlap.retelim(ptr noundef nonnull %13, ptr noundef nonnull %12)
+  call fastcc void @check_pmix_overlap(ptr noundef nonnull %13, ptr noundef nonnull %12)
   br label %30
 
 23:                                               ; preds = %16
@@ -6205,7 +6205,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %42
 
 64:                                               ; preds = %.lr.ph143
   %65 = load ptr, ptr %60, align 8
-  call fastcc void @check_pmix_overlap.retelim(ptr noundef %63, ptr noundef %65)
+  call fastcc void @check_pmix_overlap(ptr noundef %63, ptr noundef %65)
   br label %86
 
 66:                                               ; preds = %.lr.ph143
@@ -6222,7 +6222,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %42
   call void @free(ptr noundef %74) #17
   %75 = load ptr, ptr %58, align 8
   %76 = load ptr, ptr %60, align 8
-  call fastcc void @check_pmix_overlap.retelim(ptr noundef %75, ptr noundef %76)
+  call fastcc void @check_pmix_overlap(ptr noundef %75, ptr noundef %76)
   br label %86
 
 77:                                               ; preds = %66
@@ -6413,7 +6413,7 @@ pmix_obj_run_constructors.exit120:                ; preds = %.lr.ph.i117, %138
 .sink.split:                                      ; preds = %.lr.ph148, %162
   %.sink = phi ptr [ %169, %162 ], [ %159, %.lr.ph148 ]
   %170 = load ptr, ptr %156, align 8
-  call fastcc void @check_pmix_overlap.retelim(ptr noundef %.sink, ptr noundef %170)
+  call fastcc void @check_pmix_overlap(ptr noundef %.sink, ptr noundef %170)
   br label %171
 
 171:                                              ; preds = %.sink.split, %160
@@ -6624,7 +6624,7 @@ sub_124:                                          ; preds = %sub_023
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_pmix_overlap.retelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @check_pmix_overlap(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
 sub_0:
   %2 = alloca ptr, align 8
   %3 = load i8, ptr %0, align 1

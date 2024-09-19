@@ -38,7 +38,7 @@ define void @addVertex(ptr nocapture noundef readonly %0, double noundef %1, dou
   %15 = load double, ptr %14, align 8
   %16 = fcmp oeq double %2, %15
   %or.cond.i = select i1 %13, i1 %16, i1 false
-  br i1 %or.cond.i, label %compare.argprom.exit, label %._crit_edge.i
+  br i1 %or.cond.i, label %compare.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %10
   %17 = load double, ptr %0, align 8
@@ -135,11 +135,11 @@ select.unfold:                                    ; preds = %55, %35, %38, %45, 
   store double %2, ptr %66, align 8
   store ptr %8, ptr %64, align 8
   store ptr %64, ptr %7, align 8
-  br label %compare.argprom.exit
+  br label %compare.exit
 
-67:                                               ; preds = %.lr.ph, %compare.argprom.exit46
-  %.03173 = phi ptr [ %.03171, %.lr.ph ], [ %.031, %compare.argprom.exit46 ]
-  %.072 = phi ptr [ %8, %.lr.ph ], [ %.03173, %compare.argprom.exit46 ]
+67:                                               ; preds = %.lr.ph, %compare.exit46
+  %.03173 = phi ptr [ %.03171, %.lr.ph ], [ %.031, %compare.exit46 ]
+  %.072 = phi ptr [ %8, %.lr.ph ], [ %.03173, %compare.exit46 ]
   %68 = getelementptr inbounds i8, ptr %.03173, i64 8
   %69 = load double, ptr %68, align 8
   %70 = fcmp oeq double %1, %69
@@ -147,7 +147,7 @@ select.unfold:                                    ; preds = %55, %35, %38, %45, 
   %72 = load double, ptr %71, align 8
   %73 = fcmp oeq double %2, %72
   %or.cond.i37 = select i1 %70, i1 %73, i1 false
-  br i1 %or.cond.i37, label %compare.argprom.exit, label %._crit_edge.i38
+  br i1 %or.cond.i37, label %compare.exit, label %._crit_edge.i38
 
 ._crit_edge.i38:                                  ; preds = %67
   %74 = fsub double %69, %17
@@ -174,17 +174,17 @@ select.unfold:                                    ; preds = %55, %35, %38, %45, 
   %85 = fcmp ule double %62, %82
   %86 = fcmp olt double %18, %74
   %or.cond67 = and i1 %86, %85
-  br i1 %or.cond67, label %select.unfold55, label %compare.argprom.exit46
+  br i1 %or.cond67, label %select.unfold55, label %compare.exit46
 
 87:                                               ; preds = %80
   %88 = fcmp ogt double %75, 0.000000e+00
-  br i1 %88, label %select.unfold55, label %compare.argprom.exit46
+  br i1 %88, label %select.unfold55, label %compare.exit46
 
 89:                                               ; preds = %78
   br i1 %79, label %90, label %91
 
 90:                                               ; preds = %89
-  br i1 %61, label %compare.argprom.exit46, label %select.unfold55
+  br i1 %61, label %compare.exit46, label %select.unfold55
 
 91:                                               ; preds = %89
   %92 = fcmp olt double %21, %75
@@ -192,14 +192,14 @@ select.unfold:                                    ; preds = %55, %35, %38, %45, 
 
 93:                                               ; preds = %91
   %94 = fcmp ugt double %75, 0.000000e+00
-  br i1 %94, label %select.unfold55, label %compare.argprom.exit46
+  br i1 %94, label %select.unfold55, label %compare.exit46
 
 95:                                               ; preds = %91
-  br i1 %60, label %compare.argprom.exit46, label %select.unfold55
+  br i1 %60, label %compare.exit46, label %select.unfold55
 
 96:                                               ; preds = %._crit_edge.i38
   %97 = fcmp ult double %74, 0.000000e+00
-  br i1 %97, label %98, label %compare.argprom.exit46
+  br i1 %97, label %98, label %compare.exit46
 
 98:                                               ; preds = %96
   %99 = fdiv double %75, %74
@@ -210,16 +210,16 @@ select.unfold:                                    ; preds = %55, %35, %38, %45, 
   %102 = fcmp ule double %63, %99
   %103 = fcmp ogt double %18, %74
   %or.cond68 = and i1 %103, %102
-  br i1 %or.cond68, label %select.unfold55, label %compare.argprom.exit46
+  br i1 %or.cond68, label %select.unfold55, label %compare.exit46
 
-compare.argprom.exit46:                           ; preds = %95, %90, %93, %87, %84, %96, %101
+compare.exit46:                                   ; preds = %95, %90, %93, %87, %84, %96, %101
   %.031 = load ptr, ptr %.03173, align 8
   %104 = icmp eq ptr %.031, null
   br i1 %104, label %select.unfold55, label %67
 
-select.unfold55:                                  ; preds = %compare.argprom.exit46, %76, %81, %90, %95, %98, %87, %93, %84, %101, %select.unfold49
-  %.0.lcssa = phi ptr [ %8, %select.unfold49 ], [ %.072, %101 ], [ %.072, %84 ], [ %.072, %93 ], [ %.072, %87 ], [ %.072, %98 ], [ %.072, %95 ], [ %.072, %90 ], [ %.072, %81 ], [ %.072, %76 ], [ %.03173, %compare.argprom.exit46 ]
-  %.031.lcssa = phi ptr [ null, %select.unfold49 ], [ %.03173, %101 ], [ %.03173, %84 ], [ %.03173, %93 ], [ %.03173, %87 ], [ %.03173, %98 ], [ %.03173, %95 ], [ %.03173, %90 ], [ %.03173, %81 ], [ %.03173, %76 ], [ null, %compare.argprom.exit46 ]
+select.unfold55:                                  ; preds = %compare.exit46, %76, %81, %90, %95, %98, %87, %93, %84, %101, %select.unfold49
+  %.0.lcssa = phi ptr [ %8, %select.unfold49 ], [ %.072, %101 ], [ %.072, %84 ], [ %.072, %93 ], [ %.072, %87 ], [ %.072, %98 ], [ %.072, %95 ], [ %.072, %90 ], [ %.072, %81 ], [ %.072, %76 ], [ %.03173, %compare.exit46 ]
+  %.031.lcssa = phi ptr [ null, %select.unfold49 ], [ %.03173, %101 ], [ %.03173, %84 ], [ %.03173, %93 ], [ %.03173, %87 ], [ %.03173, %98 ], [ %.03173, %95 ], [ %.03173, %90 ], [ %.03173, %81 ], [ %.03173, %76 ], [ null, %compare.exit46 ]
   %105 = tail call ptr @getfree(ptr noundef nonnull @pfl) #2
   %106 = getelementptr inbounds i8, ptr %105, i64 8
   store double %1, ptr %106, align 8
@@ -227,9 +227,9 @@ select.unfold55:                                  ; preds = %compare.argprom.exi
   store double %2, ptr %107, align 8
   store ptr %105, ptr %.0.lcssa, align 8
   store ptr %.031.lcssa, ptr %105, align 8
-  br label %compare.argprom.exit
+  br label %compare.exit
 
-compare.argprom.exit:                             ; preds = %67, %10, %select.unfold55, %select.unfold
+compare.exit:                                     ; preds = %67, %10, %select.unfold55, %select.unfold
   ret void
 }
 

@@ -128,7 +128,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us: 
   %41 = add nuw nsw i32 %.01828.us, 1
   %42 = icmp ult i32 %.01828.us, 19
   %or.cond = select i1 %40, i1 %42, i1 false
-  br i1 %or.cond, label %.split.us, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.argprom.exit, !llvm.loop !4
+  br i1 %or.cond, label %.split.us, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, !llvm.loop !4
 
 .split:                                           ; preds = %4
   br i1 %27, label %.split.split.us, label %.split.split
@@ -155,7 +155,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us39
   %54 = add nuw nsw i32 %.01828.us36, 1
   %55 = icmp ult i32 %.01828.us36, 19
   %or.cond53 = select i1 %53, i1 %55, i1 false
-  br i1 %or.cond53, label %.split.split.us, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.argprom.exit, !llvm.loop !4
+  br i1 %or.cond53, label %.split.split.us, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, !llvm.loop !4
 
 .split.split:                                     ; preds = %.split, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21
   %.01828 = phi i32 [ %99, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21 ], [ 0, %.split ]
@@ -184,17 +184,17 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread: ; pre
   %73 = fsub double %72, %2
   %74 = tail call double @llvm.fabs.f64(double %69)
   %75 = fcmp olt double %74, 1.000000e-04
-  br i1 %75, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.argprom.exit, label %76
+  br i1 %75, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, label %76
 
 76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread
   %77 = tail call double @llvm.fabs.f64(double %73)
   %78 = fcmp olt double %77, 1.000000e-04
-  br i1 %78, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.argprom.exit, label %79
+  br i1 %78, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, label %79
 
 79:                                               ; preds = %76
   %80 = fmul double %69, %73
   %81 = fcmp ogt double %80, 0.000000e+00
-  br i1 %81, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.argprom.exit, label %.preheader.i
+  br i1 %81, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %79, %93
   %.05.i = phi i32 [ %96, %93 ], [ 0, %79 ]
@@ -213,7 +213,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread: ; pre
   %90 = fsub double %89, %2
   %91 = tail call double @llvm.fabs.f64(double %90)
   %92 = fcmp olt double %91, 0x3EB0C6F7A0B5ED8D
-  br i1 %92, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.argprom.exit, label %93
+  br i1 %92, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, label %93
 
 93:                                               ; preds = %.preheader.i
   %94 = fmul double %.0373.i, %90
@@ -224,7 +224,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread: ; pre
   %.035..i = select i1 %95, double %.0354.i, double %90
   %96 = add nuw nsw i32 %.05.i, 1
   %exitcond.not.i = icmp eq i32 %96, 20
-  br i1 %exitcond.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.argprom.exit, label %.preheader.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, label %.preheader.i, !llvm.loop !6
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21: ; preds = %.split.split
   %97 = tail call double @llvm.fabs.f64(double %62)
@@ -232,9 +232,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21: ; p
   %99 = add nuw nsw i32 %.01828, 1
   %100 = icmp ult i32 %.01828, 19
   %or.cond54 = select i1 %98, i1 %100, i1 false
-  br i1 %or.cond54, label %.split.split, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.argprom.exit, !llvm.loop !4
+  br i1 %or.cond54, label %.split.split, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, !llvm.loop !4
 
-_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.argprom.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us39, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us, %93, %.preheader.i, %79, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread
+_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us39, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us, %93, %.preheader.i, %79, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread
   %.0 = phi double [ %5, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread ], [ %7, %76 ], [ -1.000000e+00, %79 ], [ %86, %.preheader.i ], [ %86, %93 ], [ %35, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us ], [ %50, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us39 ], [ %63, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21 ]
   ret double %.0
 }

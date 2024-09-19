@@ -104,7 +104,7 @@ Amap_PrintSpace.exit:                             ; preds = %.lr.ph.i, %10
   %16 = ashr i64 %14, 32
   %17 = getelementptr inbounds i8, ptr %.val, i64 %16
   %18 = icmp slt i64 %15, %16
-  br i1 %18, label %.lr.ph.preheader.i, label %Amap_PrintWord.argprom.exit
+  br i1 %18, label %.lr.ph.preheader.i, label %Amap_PrintWord.exit
 
 .lr.ph.preheader.i:                               ; preds = %Amap_PrintSpace.exit
   %19 = getelementptr inbounds i8, ptr %.val, i64 %15
@@ -117,9 +117,9 @@ Amap_PrintSpace.exit:                             ; preds = %.lr.ph.i, %10
   %22 = sext i8 %21 to i32
   %23 = tail call i32 @fputc(i32 noundef %22, ptr noundef %0)
   %24 = icmp ult ptr %20, %17
-  br i1 %24, label %.lr.ph.i56, label %Amap_PrintWord.argprom.exit, !llvm.loop !6
+  br i1 %24, label %.lr.ph.i56, label %Amap_PrintWord.exit, !llvm.loop !6
 
-Amap_PrintWord.argprom.exit:                      ; preds = %.lr.ph.i56, %Amap_PrintSpace.exit
+Amap_PrintWord.exit:                              ; preds = %.lr.ph.i56, %Amap_PrintSpace.exit
   %fputc49 = tail call i32 @fputc(i32 40, ptr %0)
   %25 = getelementptr inbounds i8, ptr %.tr100, i64 16
   %26 = load i64, ptr %25, align 4
@@ -129,9 +129,9 @@ Amap_PrintWord.argprom.exit:                      ; preds = %.lr.ph.i56, %Amap_P
   %28 = ashr i64 %26, 32
   %29 = getelementptr inbounds i8, ptr %.val51, i64 %28
   %30 = icmp slt i64 %27, %28
-  br i1 %30, label %.lr.ph.preheader.i58, label %Amap_PrintWord.argprom.exit61
+  br i1 %30, label %.lr.ph.preheader.i58, label %Amap_PrintWord.exit61
 
-.lr.ph.preheader.i58:                             ; preds = %Amap_PrintWord.argprom.exit
+.lr.ph.preheader.i58:                             ; preds = %Amap_PrintWord.exit
   %31 = getelementptr inbounds i8, ptr %.val51, i64 %27
   br label %.lr.ph.i59
 
@@ -142,16 +142,16 @@ Amap_PrintWord.argprom.exit:                      ; preds = %.lr.ph.i56, %Amap_P
   %34 = sext i8 %33 to i32
   %35 = tail call i32 @fputc(i32 noundef %34, ptr noundef %0)
   %36 = icmp ult ptr %32, %29
-  br i1 %36, label %.lr.ph.i59, label %Amap_PrintWord.argprom.exit61, !llvm.loop !6
+  br i1 %36, label %.lr.ph.i59, label %Amap_PrintWord.exit61, !llvm.loop !6
 
-Amap_PrintWord.argprom.exit61:                    ; preds = %.lr.ph.i59, %Amap_PrintWord.argprom.exit
+Amap_PrintWord.exit61:                            ; preds = %.lr.ph.i59, %Amap_PrintWord.exit
   %37 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 4, i64 1, ptr %0)
   %38 = getelementptr inbounds i8, ptr %.tr100, i64 36
   %39 = load i32, ptr %38, align 4
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %Amap_LibertyItem.exit.thread, label %Amap_LibertyItem.exit
 
-Amap_LibertyItem.exit:                            ; preds = %Amap_PrintWord.argprom.exit61
+Amap_LibertyItem.exit:                            ; preds = %Amap_PrintWord.exit61
   %41 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %41, null
   br i1 %.not, label %Amap_LibertyItem.exit.thread, label %Amap_LibertyItem.exit62
@@ -162,7 +162,7 @@ Amap_LibertyItem.exit62:                          ; preds = %Amap_LibertyItem.ex
   tail call void @Amap_LibertyPrintLibertyItem(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %43, i32 noundef %8)
   br label %Amap_LibertyItem.exit.thread
 
-Amap_LibertyItem.exit.thread:                     ; preds = %Amap_PrintWord.argprom.exit61, %Amap_LibertyItem.exit62, %Amap_LibertyItem.exit
+Amap_LibertyItem.exit.thread:                     ; preds = %Amap_PrintWord.exit61, %Amap_LibertyItem.exit62, %Amap_LibertyItem.exit
   br i1 %6, label %.lr.ph.i63, label %Amap_PrintSpace.exit66
 
 .lr.ph.i63:                                       ; preds = %Amap_LibertyItem.exit.thread, %.lr.ph.i63
@@ -195,7 +195,7 @@ Amap_PrintSpace.exit70:                           ; preds = %.lr.ph.i67, %47
   %53 = ashr i64 %51, 32
   %54 = getelementptr inbounds i8, ptr %.val52, i64 %53
   %55 = icmp slt i64 %52, %53
-  br i1 %55, label %.lr.ph.preheader.i72, label %Amap_PrintWord.argprom.exit75
+  br i1 %55, label %.lr.ph.preheader.i72, label %Amap_PrintWord.exit75
 
 .lr.ph.preheader.i72:                             ; preds = %Amap_PrintSpace.exit70
   %56 = getelementptr inbounds i8, ptr %.val52, i64 %52
@@ -208,9 +208,9 @@ Amap_PrintSpace.exit70:                           ; preds = %.lr.ph.i67, %47
   %59 = sext i8 %58 to i32
   %60 = tail call i32 @fputc(i32 noundef %59, ptr noundef %0)
   %61 = icmp ult ptr %57, %54
-  br i1 %61, label %.lr.ph.i73, label %Amap_PrintWord.argprom.exit75, !llvm.loop !6
+  br i1 %61, label %.lr.ph.i73, label %Amap_PrintWord.exit75, !llvm.loop !6
 
-Amap_PrintWord.argprom.exit75:                    ; preds = %.lr.ph.i73, %Amap_PrintSpace.exit70
+Amap_PrintWord.exit75:                            ; preds = %.lr.ph.i73, %Amap_PrintSpace.exit70
   %62 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 3, i64 1, ptr %0)
   %63 = getelementptr inbounds i8, ptr %.tr100, i64 16
   %64 = load i64, ptr %63, align 4
@@ -220,9 +220,9 @@ Amap_PrintWord.argprom.exit75:                    ; preds = %.lr.ph.i73, %Amap_P
   %66 = ashr i64 %64, 32
   %67 = getelementptr inbounds i8, ptr %.val53, i64 %66
   %68 = icmp slt i64 %65, %66
-  br i1 %68, label %.lr.ph.preheader.i77, label %Amap_PrintWord.argprom.exit80
+  br i1 %68, label %.lr.ph.preheader.i77, label %Amap_PrintWord.exit80
 
-.lr.ph.preheader.i77:                             ; preds = %Amap_PrintWord.argprom.exit75
+.lr.ph.preheader.i77:                             ; preds = %Amap_PrintWord.exit75
   %69 = getelementptr inbounds i8, ptr %.val53, i64 %65
   br label %.lr.ph.i78
 
@@ -233,9 +233,9 @@ Amap_PrintWord.argprom.exit75:                    ; preds = %.lr.ph.i73, %Amap_P
   %72 = sext i8 %71 to i32
   %73 = tail call i32 @fputc(i32 noundef %72, ptr noundef %0)
   %74 = icmp ult ptr %70, %67
-  br i1 %74, label %.lr.ph.i78, label %Amap_PrintWord.argprom.exit80, !llvm.loop !6
+  br i1 %74, label %.lr.ph.i78, label %Amap_PrintWord.exit80, !llvm.loop !6
 
-Amap_PrintWord.argprom.exit80:                    ; preds = %.lr.ph.i78, %Amap_PrintWord.argprom.exit75
+Amap_PrintWord.exit80:                            ; preds = %.lr.ph.i78, %Amap_PrintWord.exit75
   %75 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 2, i64 1, ptr %0)
   br label %104
 
@@ -258,7 +258,7 @@ Amap_PrintSpace.exit84:                           ; preds = %.lr.ph.i81, %76
   %82 = ashr i64 %80, 32
   %83 = getelementptr inbounds i8, ptr %.val54, i64 %82
   %84 = icmp slt i64 %81, %82
-  br i1 %84, label %.lr.ph.preheader.i86, label %Amap_PrintWord.argprom.exit89
+  br i1 %84, label %.lr.ph.preheader.i86, label %Amap_PrintWord.exit89
 
 .lr.ph.preheader.i86:                             ; preds = %Amap_PrintSpace.exit84
   %85 = getelementptr inbounds i8, ptr %.val54, i64 %81
@@ -271,9 +271,9 @@ Amap_PrintSpace.exit84:                           ; preds = %.lr.ph.i81, %76
   %88 = sext i8 %87 to i32
   %89 = tail call i32 @fputc(i32 noundef %88, ptr noundef %0)
   %90 = icmp ult ptr %86, %83
-  br i1 %90, label %.lr.ph.i87, label %Amap_PrintWord.argprom.exit89, !llvm.loop !6
+  br i1 %90, label %.lr.ph.i87, label %Amap_PrintWord.exit89, !llvm.loop !6
 
-Amap_PrintWord.argprom.exit89:                    ; preds = %.lr.ph.i87, %Amap_PrintSpace.exit84
+Amap_PrintWord.exit89:                            ; preds = %.lr.ph.i87, %Amap_PrintSpace.exit84
   %fputc = tail call i32 @fputc(i32 40, ptr %0)
   %91 = getelementptr inbounds i8, ptr %.tr100, i64 16
   %92 = load i64, ptr %91, align 4
@@ -283,9 +283,9 @@ Amap_PrintWord.argprom.exit89:                    ; preds = %.lr.ph.i87, %Amap_P
   %94 = ashr i64 %92, 32
   %95 = getelementptr inbounds i8, ptr %.val55, i64 %94
   %96 = icmp slt i64 %93, %94
-  br i1 %96, label %.lr.ph.preheader.i91, label %Amap_PrintWord.argprom.exit94
+  br i1 %96, label %.lr.ph.preheader.i91, label %Amap_PrintWord.exit94
 
-.lr.ph.preheader.i91:                             ; preds = %Amap_PrintWord.argprom.exit89
+.lr.ph.preheader.i91:                             ; preds = %Amap_PrintWord.exit89
   %97 = getelementptr inbounds i8, ptr %.val55, i64 %93
   br label %.lr.ph.i92
 
@@ -296,13 +296,13 @@ Amap_PrintWord.argprom.exit89:                    ; preds = %.lr.ph.i87, %Amap_P
   %100 = sext i8 %99 to i32
   %101 = tail call i32 @fputc(i32 noundef %100, ptr noundef %0)
   %102 = icmp ult ptr %98, %95
-  br i1 %102, label %.lr.ph.i92, label %Amap_PrintWord.argprom.exit94, !llvm.loop !6
+  br i1 %102, label %.lr.ph.i92, label %Amap_PrintWord.exit94, !llvm.loop !6
 
-Amap_PrintWord.argprom.exit94:                    ; preds = %.lr.ph.i92, %Amap_PrintWord.argprom.exit89
+Amap_PrintWord.exit94:                            ; preds = %.lr.ph.i92, %Amap_PrintWord.exit89
   %103 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 3, i64 1, ptr %0)
   br label %104
 
-104:                                              ; preds = %tailrecurse, %Amap_PrintWord.argprom.exit80, %Amap_PrintWord.argprom.exit94, %Amap_PrintSpace.exit66
+104:                                              ; preds = %tailrecurse, %Amap_PrintWord.exit80, %Amap_PrintWord.exit94, %Amap_PrintSpace.exit66
   %105 = getelementptr inbounds i8, ptr %.tr100, i64 32
   %106 = load i32, ptr %105, align 4
   %107 = icmp slt i32 %106, 0

@@ -260,13 +260,13 @@ pmix_obj_run_destructors.exit141:                 ; preds = %.lr.ph.i138, %._cri
   %103 = icmp sgt i32 %102, 0
   br i1 %103, label %.lr.ph224, label %._crit_edge225
 
-.lr.ph224:                                        ; preds = %pmix_obj_run_destructors.exit141, %pmix_hotel_checkout_and_return_occupant.argprom.exit.thread
-  %indvars.iv = phi i64 [ %indvars.iv.next, %pmix_hotel_checkout_and_return_occupant.argprom.exit.thread ], [ 0, %pmix_obj_run_destructors.exit141 ]
+.lr.ph224:                                        ; preds = %pmix_obj_run_destructors.exit141, %pmix_hotel_checkout_and_return_occupant.exit.thread
+  %indvars.iv = phi i64 [ %indvars.iv.next, %pmix_hotel_checkout_and_return_occupant.exit.thread ], [ 0, %pmix_obj_run_destructors.exit141 ]
   %104 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 2256), align 8
   %105 = getelementptr inbounds %struct.pmix_hotel_room_t, ptr %104, i64 %indvars.iv
   %106 = load ptr, ptr %105, align 8
   %.not.i142 = icmp eq ptr %106, null
-  br i1 %.not.i142, label %pmix_hotel_checkout_and_return_occupant.argprom.exit.thread, label %107
+  br i1 %.not.i142, label %pmix_hotel_checkout_and_return_occupant.exit.thread, label %107
 
 107:                                              ; preds = %.lr.ph224
   %108 = trunc nuw nsw i64 %indvars.iv to i32
@@ -275,14 +275,14 @@ pmix_obj_run_destructors.exit141:                 ; preds = %.lr.ph.i138, %._cri
   store ptr null, ptr %105, align 8
   %110 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 2224), align 8
   %.not17.i = icmp eq ptr %110, null
-  br i1 %.not17.i, label %pmix_hotel_checkout_and_return_occupant.argprom.exit, label %111
+  br i1 %.not17.i, label %pmix_hotel_checkout_and_return_occupant.exit, label %111
 
 111:                                              ; preds = %107
   %112 = getelementptr inbounds i8, ptr %105, i64 8
   %113 = tail call i32 @event_del(ptr noundef nonnull %112) #7
-  br label %pmix_hotel_checkout_and_return_occupant.argprom.exit
+  br label %pmix_hotel_checkout_and_return_occupant.exit
 
-pmix_hotel_checkout_and_return_occupant.argprom.exit: ; preds = %107, %111
+pmix_hotel_checkout_and_return_occupant.exit:     ; preds = %107, %111
   %114 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 2280), align 8
   %115 = add nsw i32 %114, 1
   store i32 %115, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 2280), align 8
@@ -291,9 +291,9 @@ pmix_hotel_checkout_and_return_occupant.argprom.exit: ; preds = %107, %111
   %118 = getelementptr inbounds i32, ptr %116, i64 %117
   store i32 %108, ptr %118, align 4
   %.not122 = icmp eq ptr %109, null
-  br i1 %.not122, label %pmix_hotel_checkout_and_return_occupant.argprom.exit.thread, label %119
+  br i1 %.not122, label %pmix_hotel_checkout_and_return_occupant.exit.thread, label %119
 
-119:                                              ; preds = %pmix_hotel_checkout_and_return_occupant.argprom.exit
+119:                                              ; preds = %pmix_hotel_checkout_and_return_occupant.exit
   %120 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %109) #7
   %121 = icmp eq i32 %120, 35
   br i1 %121, label %122, label %124
@@ -312,7 +312,7 @@ pmix_hotel_checkout_and_return_occupant.argprom.exit: ; preds = %107, %111
   store i32 %127, ptr %125, align 8
   %128 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %109) #7
   %129 = icmp eq i32 %127, 0
-  br i1 %129, label %130, label %pmix_hotel_checkout_and_return_occupant.argprom.exit.thread
+  br i1 %129, label %130, label %pmix_hotel_checkout_and_return_occupant.exit.thread
 
 130:                                              ; preds = %124
   %131 = getelementptr inbounds i8, ptr %109, i64 40
@@ -341,20 +341,20 @@ pmix_obj_run_destructors.exit147:                 ; preds = %.lr.ph.i144, %130
 141:                                              ; preds = %pmix_obj_run_destructors.exit147
   %142 = getelementptr inbounds i8, ptr %109, i64 56
   tail call void %140(ptr noundef nonnull %142, ptr noundef nonnull %109) #7
-  br label %pmix_hotel_checkout_and_return_occupant.argprom.exit.thread
+  br label %pmix_hotel_checkout_and_return_occupant.exit.thread
 
 143:                                              ; preds = %pmix_obj_run_destructors.exit147
   tail call void @free(ptr noundef nonnull %109) #7
-  br label %pmix_hotel_checkout_and_return_occupant.argprom.exit.thread
+  br label %pmix_hotel_checkout_and_return_occupant.exit.thread
 
-pmix_hotel_checkout_and_return_occupant.argprom.exit.thread: ; preds = %.lr.ph224, %141, %143, %pmix_hotel_checkout_and_return_occupant.argprom.exit, %124
+pmix_hotel_checkout_and_return_occupant.exit.thread: ; preds = %.lr.ph224, %141, %143, %pmix_hotel_checkout_and_return_occupant.exit, %124
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %144 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 2088), align 8
   %145 = sext i32 %144 to i64
   %146 = icmp slt i64 %indvars.iv.next, %145
   br i1 %146, label %.lr.ph224, label %._crit_edge225, !llvm.loop !7
 
-._crit_edge225:                                   ; preds = %pmix_hotel_checkout_and_return_occupant.argprom.exit.thread, %pmix_obj_run_destructors.exit141
+._crit_edge225:                                   ; preds = %pmix_hotel_checkout_and_return_occupant.exit.thread, %pmix_obj_run_destructors.exit141
   %147 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 2136), align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 48
   %149 = load ptr, ptr %148, align 8
@@ -374,9 +374,9 @@ pmix_hotel_checkout_and_return_occupant.argprom.exit.thread: ; preds = %.lr.ph22
 pmix_obj_run_destructors.exit153:                 ; preds = %.lr.ph.i150, %._crit_edge225
   %154 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 2056), align 8
   %155 = icmp sgt i32 %154, 0
-  br i1 %155, label %pmix_pointer_array_get_item.argprom.exit, label %._crit_edge227
+  br i1 %155, label %pmix_pointer_array_get_item.exit, label %._crit_edge227
 
-pmix_pointer_array_get_item.argprom.exit:         ; preds = %pmix_obj_run_destructors.exit153, %184
+pmix_pointer_array_get_item.exit:                 ; preds = %pmix_obj_run_destructors.exit153, %184
   %indvars.iv236 = phi i64 [ %indvars.iv.next237, %184 ], [ 0, %pmix_obj_run_destructors.exit153 ]
   %156 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 2080), align 8
   %157 = getelementptr inbounds ptr, ptr %156, i64 %indvars.iv236
@@ -384,7 +384,7 @@ pmix_pointer_array_get_item.argprom.exit:         ; preds = %pmix_obj_run_destru
   %.not120 = icmp eq ptr %158, null
   br i1 %.not120, label %184, label %159
 
-159:                                              ; preds = %pmix_pointer_array_get_item.argprom.exit
+159:                                              ; preds = %pmix_pointer_array_get_item.exit
   %160 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %158) #7
   %161 = icmp eq i32 %160, 35
   br i1 %161, label %162, label %164
@@ -438,12 +438,12 @@ pmix_obj_run_destructors.exit159:                 ; preds = %.lr.ph.i156, %170
   tail call void @free(ptr noundef nonnull %158) #7
   br label %184
 
-184:                                              ; preds = %181, %183, %pmix_pointer_array_get_item.argprom.exit, %164
+184:                                              ; preds = %181, %183, %pmix_pointer_array_get_item.exit, %164
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
   %185 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 2056), align 8
   %186 = sext i32 %185 to i64
   %187 = icmp slt i64 %indvars.iv.next237, %186
-  br i1 %187, label %pmix_pointer_array_get_item.argprom.exit, label %._crit_edge227, !llvm.loop !8
+  br i1 %187, label %pmix_pointer_array_get_item.exit, label %._crit_edge227, !llvm.loop !8
 
 ._crit_edge227:                                   ; preds = %184, %pmix_obj_run_destructors.exit153
   %188 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 1968), align 8

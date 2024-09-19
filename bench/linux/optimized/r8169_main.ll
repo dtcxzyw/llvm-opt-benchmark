@@ -4943,7 +4943,7 @@ define internal noundef range(i32 0, 2) i32 @rtl8169_interrupt(i32 %0, ptr nound
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 144
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %46, i32 1, ptr elementtype(i8) %46) #19, !srcloc !44
-  tail call fastcc void @rtl_schedule_task.argelim(ptr noundef %1)
+  tail call fastcc void @rtl_schedule_task(ptr noundef %1)
   br label %47
 
 47:                                               ; preds = %41, %38, %35
@@ -5804,7 +5804,7 @@ define internal fastcc void @rtl8169_pcierr_interrupt(ptr noundef %0) unnamed_ad
 declare dso_local void @phy_mac_interrupt(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rtl_schedule_task.argelim(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @rtl_schedule_task(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 6656
   %3 = load volatile i64, ptr %2, align 8
   %4 = and i64 %3, 1

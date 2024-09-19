@@ -1445,23 +1445,23 @@ if.then109:                                       ; preds = %_ZNK18OpenImageIO_v
   ]
 
 sw.bb128:                                         ; preds = %if.then109
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIccEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIccEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb133:                                         ; preds = %if.then109
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIssEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIssEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb138:                                         ; preds = %if.then109
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIjjEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIjjEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb143:                                         ; preds = %if.then109
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIiiEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIiiEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb148:                                         ; preds = %if.then109
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIddEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIddEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 if.else:                                          ; preds = %invoke.cont105, %land.lhs.true.i, %land.lhs.true8.i, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit
@@ -1488,19 +1488,19 @@ sw.bb159:                                         ; preds = %invoke.cont154
   ]
 
 sw.bb162.invoke:                                  ; preds = %sw.bb159, %if.then109
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIffEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIffEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb167:                                         ; preds = %sw.bb159
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIfhEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIfhEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb172:                                         ; preds = %sw.bb159
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIf4halfEEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIf4halfEEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb177:                                         ; preds = %sw.bb159
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIftEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIftEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.default182:                                    ; preds = %sw.bb159
@@ -1521,7 +1521,7 @@ invoke.cont183:                                   ; preds = %sw.default182
           to label %invoke.cont186 unwind label %lpad185
 
 invoke.cont186:                                   ; preds = %invoke.cont183
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIffEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIffEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup.sink.split unwind label %lpad185
 
 lpad185:                                          ; preds = %invoke.cont186, %invoke.cont183
@@ -1540,19 +1540,19 @@ sw.bb193:                                         ; preds = %invoke.cont154
   ]
 
 sw.bb196:                                         ; preds = %sw.bb193
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIhfEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIhfEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb201.invoke:                                  ; preds = %sw.bb193, %if.then109
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIhhEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIhhEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb206:                                         ; preds = %sw.bb193
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIh4halfEEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIh4halfEEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb211:                                         ; preds = %sw.bb193
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIhtEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIhtEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.default216:                                    ; preds = %sw.bb193
@@ -1573,7 +1573,7 @@ invoke.cont218:                                   ; preds = %sw.default216
           to label %invoke.cont221 unwind label %lpad220
 
 invoke.cont221:                                   ; preds = %invoke.cont218
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIhfEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp217, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIhfEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp217, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup.sink.split unwind label %lpad220
 
 lpad220:                                          ; preds = %invoke.cont221, %invoke.cont218
@@ -1592,19 +1592,19 @@ sw.bb228:                                         ; preds = %invoke.cont154
   ]
 
 sw.bb231:                                         ; preds = %sw.bb228
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implI4halffEEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implI4halffEEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb236:                                         ; preds = %sw.bb228
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implI4halfhEEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implI4halfhEEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb241.invoke:                                  ; preds = %sw.bb228, %if.then109
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implI4halfS1_EEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implI4halfS1_EEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb246:                                         ; preds = %sw.bb228
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implI4halftEEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implI4halftEEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.default251:                                    ; preds = %sw.bb228
@@ -1625,7 +1625,7 @@ invoke.cont253:                                   ; preds = %sw.default251
           to label %invoke.cont256 unwind label %lpad255
 
 invoke.cont256:                                   ; preds = %invoke.cont253
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implI4halffEEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp252, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implI4halffEEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp252, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup.sink.split unwind label %lpad255
 
 lpad255:                                          ; preds = %invoke.cont256, %invoke.cont253
@@ -1644,19 +1644,19 @@ sw.bb263:                                         ; preds = %invoke.cont154
   ]
 
 sw.bb266:                                         ; preds = %sw.bb263
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implItfEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implItfEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb271:                                         ; preds = %sw.bb263
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIthEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIthEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb276:                                         ; preds = %sw.bb263
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIt4halfEEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIt4halfEEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb281.invoke:                                  ; preds = %sw.bb263, %if.then109
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIttEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIttEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.default286:                                    ; preds = %sw.bb263
@@ -1677,7 +1677,7 @@ invoke.cont288:                                   ; preds = %sw.default286
           to label %invoke.cont291 unwind label %lpad290
 
 invoke.cont291:                                   ; preds = %invoke.cont288
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implItfEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp287, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implItfEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp287, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup.sink.split unwind label %lpad290
 
 lpad290:                                          ; preds = %invoke.cont291, %invoke.cont288
@@ -1725,19 +1725,19 @@ if.end307:                                        ; preds = %if.then303, %invoke
   ]
 
 sw.bb310:                                         ; preds = %if.end307
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIffEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIffEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %if.then343 unwind label %lpad300
 
 sw.bb315:                                         ; preds = %if.end307
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIfhEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIfhEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %if.then343 unwind label %lpad300
 
 sw.bb320:                                         ; preds = %if.end307
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIf4halfEEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIf4halfEEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %if.then343 unwind label %lpad300
 
 sw.bb325:                                         ; preds = %if.end307
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIftEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIftEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %if.then343 unwind label %lpad300
 
 sw.default330:                                    ; preds = %if.end307
@@ -1758,7 +1758,7 @@ invoke.cont332:                                   ; preds = %sw.default330
           to label %invoke.cont335 unwind label %lpad334
 
 invoke.cont335:                                   ; preds = %invoke.cont332
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIffEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp, ptr noundef nonnull align 8 dereferenceable(16) %Atmp331, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIffEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp, ptr noundef nonnull align 8 dereferenceable(16) %Atmp331, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %invoke.cont338 unwind label %lpad334
 
 invoke.cont338:                                   ; preds = %invoke.cont335
@@ -1919,23 +1919,23 @@ if.then404:                                       ; preds = %_ZNK18OpenImageIO_v
   ]
 
 sw.bb431:                                         ; preds = %if.then404
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIccEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIccEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb437:                                         ; preds = %if.then404
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIssEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIssEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb443:                                         ; preds = %if.then404
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIjjEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIjjEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb449:                                         ; preds = %if.then404
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIiiEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIiiEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb455:                                         ; preds = %if.then404
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIddEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIddEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 if.else464:                                       ; preds = %invoke.cont400, %land.lhs.true.i750, %land.lhs.true8.i754, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit762
@@ -1964,19 +1964,19 @@ sw.bb470:                                         ; preds = %invoke.cont465
 sw.bb473.invoke:                                  ; preds = %sw.bb470, %if.then404
   %agg.tmp409.sink = phi ptr [ %agg.tmp409, %if.then404 ], [ %agg.tmp475, %sw.bb470 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp409.sink, ptr noundef nonnull align 8 dereferenceable(32) %roi, i64 32, i1 false)
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIffEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIffEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb479:                                         ; preds = %sw.bb470
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIfhEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIfhEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb485:                                         ; preds = %sw.bb470
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIf4halfEEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIf4halfEEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb491:                                         ; preds = %sw.bb470
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIftEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIftEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.default497:                                    ; preds = %sw.bb470
@@ -1997,7 +1997,7 @@ invoke.cont499:                                   ; preds = %sw.default497
           to label %invoke.cont502 unwind label %lpad501
 
 invoke.cont502:                                   ; preds = %invoke.cont499
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIffEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp498, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIffEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp498, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup.sink.split unwind label %lpad501
 
 lpad501:                                          ; preds = %invoke.cont502, %invoke.cont499
@@ -2016,21 +2016,21 @@ sw.bb511:                                         ; preds = %invoke.cont465
   ]
 
 sw.bb514:                                         ; preds = %sw.bb511
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIhfEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIhfEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb520.invoke:                                  ; preds = %sw.bb511, %if.then404
   %agg.tmp415.sink = phi ptr [ %agg.tmp415, %if.then404 ], [ %agg.tmp522, %sw.bb511 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp415.sink, ptr noundef nonnull align 8 dereferenceable(32) %roi, i64 32, i1 false)
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIhhEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIhhEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb526:                                         ; preds = %sw.bb511
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIh4halfEEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIh4halfEEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb532:                                         ; preds = %sw.bb511
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIhtEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIhtEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.default538:                                    ; preds = %sw.bb511
@@ -2051,7 +2051,7 @@ invoke.cont540:                                   ; preds = %sw.default538
           to label %invoke.cont543 unwind label %lpad542
 
 invoke.cont543:                                   ; preds = %invoke.cont540
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIhfEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp539, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIhfEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp539, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup.sink.split unwind label %lpad542
 
 lpad542:                                          ; preds = %invoke.cont543, %invoke.cont540
@@ -2070,21 +2070,21 @@ sw.bb552:                                         ; preds = %invoke.cont465
   ]
 
 sw.bb555:                                         ; preds = %sw.bb552
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicI4halffEEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicI4halffEEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb561:                                         ; preds = %sw.bb552
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicI4halfhEEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicI4halfhEEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb567.invoke:                                  ; preds = %sw.bb552, %if.then404
   %agg.tmp427.sink = phi ptr [ %agg.tmp427, %if.then404 ], [ %agg.tmp569, %sw.bb552 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp427.sink, ptr noundef nonnull align 8 dereferenceable(32) %roi, i64 32, i1 false)
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicI4halfS1_EEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicI4halfS1_EEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb573:                                         ; preds = %sw.bb552
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicI4halftEEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicI4halftEEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.default579:                                    ; preds = %sw.bb552
@@ -2105,7 +2105,7 @@ invoke.cont581:                                   ; preds = %sw.default579
           to label %invoke.cont584 unwind label %lpad583
 
 invoke.cont584:                                   ; preds = %invoke.cont581
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicI4halffEEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp580, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicI4halffEEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp580, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup.sink.split unwind label %lpad583
 
 lpad583:                                          ; preds = %invoke.cont584, %invoke.cont581
@@ -2124,21 +2124,21 @@ sw.bb593:                                         ; preds = %invoke.cont465
   ]
 
 sw.bb596:                                         ; preds = %sw.bb593
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicItfEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicItfEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb602:                                         ; preds = %sw.bb593
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIthEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIthEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb608:                                         ; preds = %sw.bb593
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIt4halfEEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIt4halfEEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb614.invoke:                                  ; preds = %sw.bb593, %if.then404
   %agg.tmp421.sink = phi ptr [ %agg.tmp421, %if.then404 ], [ %agg.tmp616, %sw.bb593 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp421.sink, ptr noundef nonnull align 8 dereferenceable(32) %roi, i64 32, i1 false)
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIttEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIttEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.default620:                                    ; preds = %sw.bb593
@@ -2159,7 +2159,7 @@ invoke.cont622:                                   ; preds = %sw.default620
           to label %invoke.cont625 unwind label %lpad624
 
 invoke.cont625:                                   ; preds = %invoke.cont622
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicItfEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp621, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicItfEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp621, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup.sink.split unwind label %lpad624
 
 lpad624:                                          ; preds = %invoke.cont625, %invoke.cont622
@@ -2207,19 +2207,19 @@ if.end644:                                        ; preds = %if.then640, %invoke
   ]
 
 sw.bb647:                                         ; preds = %if.end644
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIffEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp635, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIffEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp635, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %if.then686 unwind label %lpad637
 
 sw.bb653:                                         ; preds = %if.end644
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIfhEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp635, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIfhEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp635, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %if.then686 unwind label %lpad637
 
 sw.bb659:                                         ; preds = %if.end644
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIf4halfEEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp635, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIf4halfEEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp635, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %if.then686 unwind label %lpad637
 
 sw.bb665:                                         ; preds = %if.end644
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIftEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp635, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIftEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp635, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %if.then686 unwind label %lpad637
 
 sw.default671:                                    ; preds = %if.end644
@@ -2240,7 +2240,7 @@ invoke.cont673:                                   ; preds = %sw.default671
           to label %invoke.cont676 unwind label %lpad675
 
 invoke.cont676:                                   ; preds = %invoke.cont673
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIffEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp635, ptr noundef nonnull align 8 dereferenceable(16) %Atmp672, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIffEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp635, ptr noundef nonnull align 8 dereferenceable(16) %Atmp672, ptr noundef nonnull align 8 dereferenceable(16) %B.0, ptr %c.sroa.0.0, i64 %c.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %invoke.cont680 unwind label %lpad675
 
 invoke.cont680:                                   ; preds = %invoke.cont676
@@ -2405,23 +2405,23 @@ if.then766:                                       ; preds = %_ZNK18OpenImageIO_v
   ]
 
 sw.bb793:                                         ; preds = %if.then766
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIccEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIccEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb799:                                         ; preds = %if.then766
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIssEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIssEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb805:                                         ; preds = %if.then766
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIjjEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIjjEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb811:                                         ; preds = %if.then766
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIiiEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIiiEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb817:                                         ; preds = %if.then766
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIddEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIddEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 if.else826:                                       ; preds = %invoke.cont762, %land.lhs.true.i807, %land.lhs.true8.i811, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit819
@@ -2450,19 +2450,19 @@ sw.bb832:                                         ; preds = %invoke.cont827
 sw.bb835.invoke:                                  ; preds = %sw.bb832, %if.then766
   %agg.tmp771.sink = phi ptr [ %agg.tmp771, %if.then766 ], [ %agg.tmp837, %sw.bb832 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp771.sink, ptr noundef nonnull align 8 dereferenceable(32) %roi, i64 32, i1 false)
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIffEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIffEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb841:                                         ; preds = %sw.bb832
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIfhEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIfhEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb847:                                         ; preds = %sw.bb832
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIf4halfEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIf4halfEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb853:                                         ; preds = %sw.bb832
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIftEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIftEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.default859:                                    ; preds = %sw.bb832
@@ -2483,7 +2483,7 @@ invoke.cont861:                                   ; preds = %sw.default859
           to label %invoke.cont864 unwind label %lpad863
 
 invoke.cont864:                                   ; preds = %invoke.cont861
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIffEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp860, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIffEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp860, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup.sink.split unwind label %lpad863
 
 lpad863:                                          ; preds = %invoke.cont864, %invoke.cont861
@@ -2502,21 +2502,21 @@ sw.bb873:                                         ; preds = %invoke.cont827
   ]
 
 sw.bb876:                                         ; preds = %sw.bb873
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIhfEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIhfEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb882.invoke:                                  ; preds = %sw.bb873, %if.then766
   %agg.tmp777.sink = phi ptr [ %agg.tmp777, %if.then766 ], [ %agg.tmp884, %sw.bb873 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp777.sink, ptr noundef nonnull align 8 dereferenceable(32) %roi, i64 32, i1 false)
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIhhEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIhhEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb888:                                         ; preds = %sw.bb873
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIh4halfEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIh4halfEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb894:                                         ; preds = %sw.bb873
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIhtEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIhtEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.default900:                                    ; preds = %sw.bb873
@@ -2537,7 +2537,7 @@ invoke.cont902:                                   ; preds = %sw.default900
           to label %invoke.cont905 unwind label %lpad904
 
 invoke.cont905:                                   ; preds = %invoke.cont902
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIhfEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp901, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIhfEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp901, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup.sink.split unwind label %lpad904
 
 lpad904:                                          ; preds = %invoke.cont905, %invoke.cont902
@@ -2556,21 +2556,21 @@ sw.bb914:                                         ; preds = %invoke.cont827
   ]
 
 sw.bb917:                                         ; preds = %sw.bb914
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciI4halffEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciI4halffEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb923:                                         ; preds = %sw.bb914
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciI4halfhEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciI4halfhEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb929.invoke:                                  ; preds = %sw.bb914, %if.then766
   %agg.tmp789.sink = phi ptr [ %agg.tmp789, %if.then766 ], [ %agg.tmp931, %sw.bb914 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp789.sink, ptr noundef nonnull align 8 dereferenceable(32) %roi, i64 32, i1 false)
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciI4halfS1_EEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciI4halfS1_EEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb935:                                         ; preds = %sw.bb914
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciI4halftEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciI4halftEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.default941:                                    ; preds = %sw.bb914
@@ -2591,7 +2591,7 @@ invoke.cont943:                                   ; preds = %sw.default941
           to label %invoke.cont946 unwind label %lpad945
 
 invoke.cont946:                                   ; preds = %invoke.cont943
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciI4halffEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp942, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciI4halffEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp942, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup.sink.split unwind label %lpad945
 
 lpad945:                                          ; preds = %invoke.cont946, %invoke.cont943
@@ -2610,21 +2610,21 @@ sw.bb955:                                         ; preds = %invoke.cont827
   ]
 
 sw.bb958:                                         ; preds = %sw.bb955
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciItfEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciItfEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb964:                                         ; preds = %sw.bb955
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIthEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIthEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb970:                                         ; preds = %sw.bb955
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIt4halfEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIt4halfEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb976.invoke:                                  ; preds = %sw.bb955, %if.then766
   %agg.tmp783.sink = phi ptr [ %agg.tmp783, %if.then766 ], [ %agg.tmp978, %sw.bb955 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp783.sink, ptr noundef nonnull align 8 dereferenceable(32) %roi, i64 32, i1 false)
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIttEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIttEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.default982:                                    ; preds = %sw.bb955
@@ -2645,7 +2645,7 @@ invoke.cont984:                                   ; preds = %sw.default982
           to label %invoke.cont987 unwind label %lpad986
 
 invoke.cont987:                                   ; preds = %invoke.cont984
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciItfEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp983, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciItfEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp983, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup.sink.split unwind label %lpad986
 
 lpad986:                                          ; preds = %invoke.cont987, %invoke.cont984
@@ -2693,19 +2693,19 @@ if.end1006:                                       ; preds = %if.then1002, %invok
   ]
 
 sw.bb1009:                                        ; preds = %if.end1006
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIffEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp997, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIffEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp997, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %if.then1048 unwind label %lpad999
 
 sw.bb1015:                                        ; preds = %if.end1006
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIfhEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp997, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIfhEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp997, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %if.then1048 unwind label %lpad999
 
 sw.bb1021:                                        ; preds = %if.end1006
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIf4halfEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp997, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIf4halfEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp997, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %if.then1048 unwind label %lpad999
 
 sw.bb1027:                                        ; preds = %if.end1006
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIftEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp997, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIftEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp997, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %if.then1048 unwind label %lpad999
 
 sw.default1033:                                   ; preds = %if.end1006
@@ -2726,7 +2726,7 @@ invoke.cont1035:                                  ; preds = %sw.default1033
           to label %invoke.cont1038 unwind label %lpad1037
 
 invoke.cont1038:                                  ; preds = %invoke.cont1035
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIffEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp997, ptr noundef nonnull align 8 dereferenceable(16) %Atmp1034, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIffEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp997, ptr noundef nonnull align 8 dereferenceable(16) %Atmp1034, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr noundef nonnull align 8 dereferenceable(16) %C.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %invoke.cont1042 unwind label %lpad1037
 
 invoke.cont1042:                                  ; preds = %invoke.cont1038
@@ -2887,23 +2887,23 @@ if.then1126:                                      ; preds = %_ZNK18OpenImageIO_v
   ]
 
 sw.bb1157:                                        ; preds = %if.then1126
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIccEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIccEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb1164:                                        ; preds = %if.then1126
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIssEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIssEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb1171:                                        ; preds = %if.then1126
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIjjEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIjjEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb1178:                                        ; preds = %if.then1126
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIiiEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIiiEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb1185:                                        ; preds = %if.then1126
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIddEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIddEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.default1192.invoke:                            ; preds = %if.then1126, %if.then766, %if.then404, %if.then109
@@ -2936,19 +2936,19 @@ sw.bb1201:                                        ; preds = %invoke.cont1196
 sw.bb1204.invoke:                                 ; preds = %sw.bb1201, %if.then1126
   %agg.tmp1132.sink = phi ptr [ %agg.tmp1132, %if.then1126 ], [ %agg.tmp1207, %sw.bb1201 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1132.sink, ptr noundef nonnull align 8 dereferenceable(32) %roi, i64 32, i1 false)
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIffEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIffEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb1211:                                        ; preds = %sw.bb1201
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIfhEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIfhEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb1218:                                        ; preds = %sw.bb1201
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIf4halfEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIf4halfEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb1225:                                        ; preds = %sw.bb1201
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIftEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIftEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.default1232:                                   ; preds = %sw.bb1201
@@ -2969,7 +2969,7 @@ invoke.cont1234:                                  ; preds = %sw.default1232
           to label %invoke.cont1237 unwind label %lpad1236
 
 invoke.cont1237:                                  ; preds = %invoke.cont1234
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIffEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp1233, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIffEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp1233, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup.sink.split unwind label %lpad1236
 
 lpad1236:                                         ; preds = %invoke.cont1237, %invoke.cont1234
@@ -2988,21 +2988,21 @@ sw.bb1247:                                        ; preds = %invoke.cont1196
   ]
 
 sw.bb1250:                                        ; preds = %sw.bb1247
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIhfEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIhfEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb1257.invoke:                                 ; preds = %sw.bb1247, %if.then1126
   %agg.tmp1139.sink = phi ptr [ %agg.tmp1139, %if.then1126 ], [ %agg.tmp1260, %sw.bb1247 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1139.sink, ptr noundef nonnull align 8 dereferenceable(32) %roi, i64 32, i1 false)
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIhhEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIhhEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb1264:                                        ; preds = %sw.bb1247
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIh4halfEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIh4halfEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb1271:                                        ; preds = %sw.bb1247
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIhtEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIhtEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.default1278:                                   ; preds = %sw.bb1247
@@ -3023,7 +3023,7 @@ invoke.cont1280:                                  ; preds = %sw.default1278
           to label %invoke.cont1283 unwind label %lpad1282
 
 invoke.cont1283:                                  ; preds = %invoke.cont1280
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIhfEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp1279, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIhfEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp1279, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup.sink.split unwind label %lpad1282
 
 lpad1282:                                         ; preds = %invoke.cont1283, %invoke.cont1280
@@ -3042,21 +3042,21 @@ sw.bb1293:                                        ; preds = %invoke.cont1196
   ]
 
 sw.bb1296:                                        ; preds = %sw.bb1293
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccI4halffEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccI4halffEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb1303:                                        ; preds = %sw.bb1293
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccI4halfhEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccI4halfhEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb1310.invoke:                                 ; preds = %sw.bb1293, %if.then1126
   %agg.tmp1153.sink = phi ptr [ %agg.tmp1153, %if.then1126 ], [ %agg.tmp1313, %sw.bb1293 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1153.sink, ptr noundef nonnull align 8 dereferenceable(32) %roi, i64 32, i1 false)
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccI4halfS1_EEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccI4halfS1_EEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb1317:                                        ; preds = %sw.bb1293
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccI4halftEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccI4halftEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.default1324:                                   ; preds = %sw.bb1293
@@ -3077,7 +3077,7 @@ invoke.cont1326:                                  ; preds = %sw.default1324
           to label %invoke.cont1329 unwind label %lpad1328
 
 invoke.cont1329:                                  ; preds = %invoke.cont1326
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccI4halffEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp1325, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccI4halffEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp1325, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup.sink.split unwind label %lpad1328
 
 lpad1328:                                         ; preds = %invoke.cont1329, %invoke.cont1326
@@ -3096,21 +3096,21 @@ sw.bb1339:                                        ; preds = %invoke.cont1196
   ]
 
 sw.bb1342:                                        ; preds = %sw.bb1339
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccItfEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccItfEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb1349:                                        ; preds = %sw.bb1339
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIthEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIthEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb1356:                                        ; preds = %sw.bb1339
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIt4halfEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIt4halfEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.bb1363.invoke:                                 ; preds = %sw.bb1339, %if.then1126
   %agg.tmp1146.sink = phi ptr [ %agg.tmp1146, %if.then1126 ], [ %agg.tmp1366, %sw.bb1339 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1146.sink, ptr noundef nonnull align 8 dereferenceable(32) %roi, i64 32, i1 false)
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIttEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIttEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad61
 
 sw.default1370:                                   ; preds = %sw.bb1339
@@ -3131,7 +3131,7 @@ invoke.cont1372:                                  ; preds = %sw.default1370
           to label %invoke.cont1375 unwind label %lpad1374
 
 invoke.cont1375:                                  ; preds = %invoke.cont1372
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccItfEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp1371, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccItfEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Atmp1371, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup.sink.split unwind label %lpad1374
 
 lpad1374:                                         ; preds = %invoke.cont1375, %invoke.cont1372
@@ -3179,19 +3179,19 @@ if.end1395:                                       ; preds = %if.then1391, %invok
   ]
 
 sw.bb1398:                                        ; preds = %if.end1395
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIffEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1386, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIffEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1386, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %if.then1442 unwind label %lpad1388
 
 sw.bb1405:                                        ; preds = %if.end1395
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIfhEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1386, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIfhEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1386, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %if.then1442 unwind label %lpad1388
 
 sw.bb1412:                                        ; preds = %if.end1395
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIf4halfEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1386, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIf4halfEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1386, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %if.then1442 unwind label %lpad1388
 
 sw.bb1419:                                        ; preds = %if.end1395
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIftEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1386, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIftEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1386, ptr noundef nonnull align 8 dereferenceable(16) %A.0, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %if.then1442 unwind label %lpad1388
 
 sw.default1426:                                   ; preds = %if.end1395
@@ -3212,7 +3212,7 @@ invoke.cont1428:                                  ; preds = %sw.default1426
           to label %invoke.cont1431 unwind label %lpad1430
 
 invoke.cont1431:                                  ; preds = %invoke.cont1428
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIffEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1386, ptr noundef nonnull align 8 dereferenceable(16) %Atmp1427, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIffEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1386, ptr noundef nonnull align 8 dereferenceable(16) %Atmp1427, ptr %b.sroa.0.0, i64 %b.sroa.72.0, ptr %c1063.sroa.0.0, i64 %c1063.sroa.38.0, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %invoke.cont1436 unwind label %lpad1430
 
 invoke.cont1436:                                  ; preds = %invoke.cont1431
@@ -3323,7 +3323,7 @@ declare noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeD
 declare noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo7IBAprepERNS_3ROIEPNS_8ImageBufEPKS3_S6_S6_PNS_9ImageSpecEi(ptr noundef nonnull align 4 dereferenceable(32), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIffEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIffEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2 = alloca %"class.std::function", align 8
@@ -3401,7 +3401,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIhhEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIhhEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2 = alloca %"class.std::function", align 8
@@ -3476,7 +3476,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIttEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIttEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2 = alloca %"class.std::function", align 8
@@ -3551,7 +3551,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implI4halfS1_EEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implI4halfS1_EEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2 = alloca %"class.std::function", align 8
@@ -3626,7 +3626,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIccEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIccEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2 = alloca %"class.std::function", align 8
@@ -3701,7 +3701,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIssEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIssEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2 = alloca %"class.std::function", align 8
@@ -3776,7 +3776,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIjjEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIjjEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2 = alloca %"class.std::function", align 8
@@ -3851,7 +3851,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIiiEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIiiEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2 = alloca %"class.std::function", align 8
@@ -3926,7 +3926,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIddEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIddEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2 = alloca %"class.std::function", align 8
@@ -4037,7 +4037,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIfhEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIfhEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2 = alloca %"class.std::function", align 8
@@ -4112,7 +4112,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIf4halfEEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIf4halfEEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2 = alloca %"class.std::function", align 8
@@ -4187,7 +4187,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIftEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIftEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2 = alloca %"class.std::function", align 8
@@ -4265,7 +4265,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 declare void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIhfEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIhfEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2 = alloca %"class.std::function", align 8
@@ -4340,7 +4340,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIh4halfEEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIh4halfEEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2 = alloca %"class.std::function", align 8
@@ -4415,7 +4415,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIhtEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIhtEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2 = alloca %"class.std::function", align 8
@@ -4490,7 +4490,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implI4halffEEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implI4halffEEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2 = alloca %"class.std::function", align 8
@@ -4565,7 +4565,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implI4halfhEEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implI4halfhEEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2 = alloca %"class.std::function", align 8
@@ -4640,7 +4640,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implI4halftEEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implI4halftEEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2 = alloca %"class.std::function", align 8
@@ -4715,7 +4715,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implItfEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implItfEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2 = alloca %"class.std::function", align 8
@@ -4790,7 +4790,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIthEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIthEEbRNS_8ImageBufERKS1_S4_S4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2 = alloca %"class.std::function", align 8
@@ -4865,7 +4865,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIt4halfEEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L8mad_implIt4halfEEbRNS_8ImageBufERKS2_S5_S5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2 = alloca %"class.std::function", align 8
@@ -4945,7 +4945,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare noundef i32 @_ZNK18OpenImageIO_v2_6_08ImageBuf9nchannelsEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIffEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIffEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -5024,7 +5024,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIhhEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIhhEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -5103,7 +5103,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIttEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIttEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -5182,7 +5182,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicI4halfS1_EEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicI4halfS1_EEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -5261,7 +5261,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIccEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIccEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -5340,7 +5340,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIssEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIssEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -5419,7 +5419,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIjjEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIjjEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -5498,7 +5498,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIiiEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIiiEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -5577,7 +5577,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIddEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIddEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -5656,7 +5656,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIfhEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIfhEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -5735,7 +5735,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIf4halfEEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIf4halfEEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -5814,7 +5814,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIftEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIftEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -5893,7 +5893,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIhfEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIhfEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -5972,7 +5972,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIh4halfEEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIh4halfEEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -6051,7 +6051,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIhtEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIhtEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -6130,7 +6130,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicI4halffEEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicI4halffEEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -6209,7 +6209,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicI4halfhEEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicI4halfhEEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -6288,7 +6288,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicI4halftEEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicI4halftEEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -6367,7 +6367,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicItfEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicItfEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -6446,7 +6446,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIthEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIthEEbRNS_8ImageBufERKS1_S4_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -6525,7 +6525,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIt4halfEEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iicIt4halfEEbRNS_8ImageBufERKS2_S5_NS_4spanIKfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -6604,7 +6604,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIffEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIffEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -6683,7 +6683,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIhhEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIhhEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -6762,7 +6762,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIttEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIttEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -6841,7 +6841,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciI4halfS1_EEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciI4halfS1_EEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -6920,7 +6920,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIccEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIccEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -6999,7 +6999,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIssEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIssEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -7078,7 +7078,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIjjEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIjjEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -7157,7 +7157,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIiiEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIiiEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -7236,7 +7236,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIddEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIddEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -7315,7 +7315,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIfhEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIfhEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -7394,7 +7394,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIf4halfEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIf4halfEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -7473,7 +7473,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIftEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIftEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -7552,7 +7552,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIhfEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIhfEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -7631,7 +7631,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIh4halfEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIh4halfEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -7710,7 +7710,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIhtEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIhtEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -7789,7 +7789,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciI4halffEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciI4halffEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -7868,7 +7868,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciI4halfhEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciI4halfhEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -7947,7 +7947,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciI4halftEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciI4halftEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -8026,7 +8026,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciItfEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciItfEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -8105,7 +8105,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIthEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIthEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES4_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -8184,7 +8184,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIt4halfEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iciIt4halfEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES5_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %C, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
@@ -8263,7 +8263,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIffEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIffEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
@@ -8346,7 +8346,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIhhEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIhhEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
@@ -8429,7 +8429,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIttEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIttEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
@@ -8512,7 +8512,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccI4halfS1_EEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccI4halfS1_EEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
@@ -8595,7 +8595,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIccEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIccEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
@@ -8678,7 +8678,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIssEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIssEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
@@ -8761,7 +8761,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIjjEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIjjEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
@@ -8844,7 +8844,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIiiEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIiiEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
@@ -8927,7 +8927,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIddEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIddEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
@@ -9010,7 +9010,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIfhEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIfhEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
@@ -9093,7 +9093,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIf4halfEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIf4halfEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
@@ -9176,7 +9176,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIftEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIftEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
@@ -9259,7 +9259,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIhfEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIhfEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
@@ -9342,7 +9342,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIh4halfEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIh4halfEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
@@ -9425,7 +9425,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIhtEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIhtEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
@@ -9508,7 +9508,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccI4halffEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccI4halffEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
@@ -9591,7 +9591,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccI4halfhEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccI4halfhEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
@@ -9674,7 +9674,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccI4halftEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccI4halftEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
@@ -9757,7 +9757,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccItfEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccItfEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
@@ -9840,7 +9840,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIthEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIthEEbRNS_8ImageBufERKS1_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8
@@ -9923,7 +9923,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIt4halfEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L12mad_impl_iccIt4halfEEbRNS_8ImageBufERKS2_NS_4spanIKfLln1EEES8_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr %b.coerce0, i64 %b.coerce1, ptr %c.coerce0, i64 %c.coerce1, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.OpenImageIO_v2_6_0::span", align 8
   %c = alloca %"class.OpenImageIO_v2_6_0::span", align 8

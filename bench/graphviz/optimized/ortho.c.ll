@@ -817,7 +817,7 @@ sidePt.exit153.i:                                 ; preds = %setSeg.exit.i
 377:                                              ; preds = %._crit_edge226.i
   %378 = load ptr, ptr @stderr, align 8
   %379 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %378, ptr noundef nonnull @.str.2, i64 noundef %.sroa.097.1.i, i64 noundef 64) #18
-  tail call fastcc void @graphviz_exit.argelim() #19
+  tail call fastcc void @graphviz_exit() #19
   unreachable
 
 380:                                              ; preds = %._crit_edge226.i
@@ -834,7 +834,7 @@ sidePt.exit153.i:                                 ; preds = %setSeg.exit.i
 387:                                              ; preds = %384
   %388 = load ptr, ptr @stderr, align 8
   %389 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %388, ptr noundef nonnull @.str.3, i64 noundef %382) #18
-  tail call fastcc void @graphviz_exit.argelim() #19
+  tail call fastcc void @graphviz_exit() #19
   unreachable
 
 390:                                              ; preds = %384
@@ -945,7 +945,7 @@ convertSPtoRoute.exit:                            ; preds = %403, %gv_recalloc.e
 429:                                              ; preds = %.critedge.i
   %430 = load ptr, ptr @stderr, align 8
   %431 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %430, ptr noundef nonnull @.str.3, i64 noundef 64) #18
-  tail call fastcc void @graphviz_exit.argelim() #19
+  tail call fastcc void @graphviz_exit() #19
   unreachable
 
 gv_alloc.exit.i:                                  ; preds = %.critedge.i
@@ -1071,7 +1071,7 @@ extractHChans.exit:                               ; preds = %461, %._crit_edge25
 489:                                              ; preds = %.critedge.i181
   %490 = load ptr, ptr @stderr, align 8
   %491 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %490, ptr noundef nonnull @.str.3, i64 noundef 64) #18
-  tail call fastcc void @graphviz_exit.argelim() #19
+  tail call fastcc void @graphviz_exit() #19
   unreachable
 
 gv_alloc.exit.i182:                               ; preds = %.critedge.i181
@@ -1708,7 +1708,7 @@ emitGraph.exit:                                   ; preds = %850, %._crit_edge.i
   br label %870
 
 870:                                              ; preds = %emitGraph.exit, %594
-  br i1 %.not274, label %attachOrthoEdges.argprom.exit, label %.lr.ph10.i
+  br i1 %.not274, label %attachOrthoEdges.exit, label %.lr.ph10.i
 
 .lr.ph10.i:                                       ; preds = %870, %1111
   %.0858.i = phi ptr [ %.1.i, %1111 ], [ null, %870 ]
@@ -2038,14 +2038,14 @@ emitGraph.exit:                                   ; preds = %850, %._crit_edge.i
   tail call void @clip_and_install(ptr noundef nonnull %872, ptr noundef %1117, ptr noundef nonnull %.1.i, i64 noundef %913, ptr noundef nonnull @sinfo) #17
   %1118 = add nuw i64 %.0886.i, 1
   %exitcond15.not.i = icmp eq i64 %1118, %.0123.lcssa
-  br i1 %exitcond15.not.i, label %attachOrthoEdges.argprom.exit, label %.lr.ph10.i
+  br i1 %exitcond15.not.i, label %attachOrthoEdges.exit, label %.lr.ph10.i
 
-attachOrthoEdges.argprom.exit:                    ; preds = %1111, %870
+attachOrthoEdges.exit:                            ; preds = %1111, %870
   %.085.lcssa.i = phi ptr [ null, %870 ], [ %.1.i, %1111 ]
   tail call void @free(ptr noundef %.085.lcssa.i) #17
   br label %assignTracks.exit.thread
 
-assignTracks.exit.thread:                         ; preds = %188, %591, %588, %585, %create_graphs.exit22.i, %attachOrthoEdges.argprom.exit
+assignTracks.exit.thread:                         ; preds = %188, %591, %588, %585, %create_graphs.exit22.i, %attachOrthoEdges.exit
   %1119 = load i8, ptr @Concentrate, align 1
   %1120 = trunc i8 %1119 to i1
   br i1 %1120, label %1121, label %1122
@@ -2090,7 +2090,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.2, i64 noundef %0, i64 noundef %1) #18
-  tail call fastcc void @graphviz_exit.argelim() #19
+  tail call fastcc void @graphviz_exit() #19
   unreachable
 
 8:                                                ; preds = %4
@@ -2102,7 +2102,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul i64 %1, %0
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, i64 noundef %13) #18
-  tail call fastcc void @graphviz_exit.argelim() #19
+  tail call fastcc void @graphviz_exit() #19
   unreachable
 
 15:                                               ; preds = %.thread, %8
@@ -2244,7 +2244,7 @@ define internal fastcc void @emitSearchGraph(ptr nocapture noundef %0, ptr nocap
 
 89:                                               ; preds = %77
   %90 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.22) #17
-  tail call fastcc void @graphviz_exit.argelim() #19
+  tail call fastcc void @graphviz_exit() #19
   unreachable
 
 coordOf.exit:                                     ; preds = %80, %68, %55, %42, %21
@@ -2326,7 +2326,7 @@ declare void @freeMaze(ptr noundef) local_unnamed_addr #2
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #8 {
+define internal fastcc void @graphviz_exit() unnamed_addr #8 {
   tail call void @exit(i32 noundef 1) #23
   unreachable
 }
@@ -2369,7 +2369,7 @@ define internal fastcc void @addChan(ptr noundef %0, ptr noundef %1, double noun
 10:                                               ; preds = %7
   %11 = load ptr, ptr @stderr, align 8
   %12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.3, i64 noundef 32) #18
-  call fastcc void @graphviz_exit.argelim() #19
+  call fastcc void @graphviz_exit() #19
   unreachable
 
 gv_alloc.exit:                                    ; preds = %7

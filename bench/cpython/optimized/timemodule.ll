@@ -339,7 +339,7 @@ if.end:                                           ; preds = %land.lhs.true.i, %e
 if.then.i2:                                       ; preds = %if.end
   %2 = load ptr, ptr @PyExc_OSError, align 8
   %call1.i3 = call ptr @PyErr_SetFromErrno(ptr noundef %2) #11
-  br label %time_clock_gettime_impl.argprom.exit
+  br label %time_clock_gettime_impl.exit
 
 if.end.i:                                         ; preds = %if.end
   %3 = load i64, ptr %tp.i, align 8
@@ -349,15 +349,15 @@ if.end.i:                                         ; preds = %if.end
   %conv2.i = sitofp i64 %4 to double
   %5 = call double @llvm.fmuladd.f64(double %conv2.i, double 1.000000e-09, double %conv.i)
   %call3.i5 = call ptr @PyFloat_FromDouble(double noundef %5) #11
-  br label %time_clock_gettime_impl.argprom.exit
+  br label %time_clock_gettime_impl.exit
 
-time_clock_gettime_impl.argprom.exit:             ; preds = %if.then.i2, %if.end.i
+time_clock_gettime_impl.exit:                     ; preds = %if.then.i2, %if.end.i
   %retval.0.i4 = phi ptr [ null, %if.then.i2 ], [ %call3.i5, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tp.i)
   br label %exit
 
-exit:                                             ; preds = %time_clockid_converter.exit, %time_clock_gettime_impl.argprom.exit
-  %return_value.0 = phi ptr [ %retval.0.i4, %time_clock_gettime_impl.argprom.exit ], [ null, %time_clockid_converter.exit ]
+exit:                                             ; preds = %time_clockid_converter.exit, %time_clock_gettime_impl.exit
+  %return_value.0 = phi ptr [ %retval.0.i4, %time_clock_gettime_impl.exit ], [ null, %time_clockid_converter.exit ]
   ret ptr %return_value.0
 }
 
@@ -393,26 +393,26 @@ if.end:                                           ; preds = %land.lhs.true.i, %e
 if.then.i2:                                       ; preds = %if.end
   %2 = load ptr, ptr @PyExc_OSError, align 8
   %call1.i3 = call ptr @PyErr_SetFromErrno(ptr noundef %2) #11
-  br label %time_clock_gettime_ns_impl.argprom.exit
+  br label %time_clock_gettime_ns_impl.exit
 
 if.end.i:                                         ; preds = %if.end
   %call2.i = call i32 @_PyTime_FromTimespec(ptr noundef nonnull %t.i, ptr noundef nonnull %ts.i) #11
   %cmp3.i = icmp slt i32 %call2.i, 0
-  br i1 %cmp3.i, label %time_clock_gettime_ns_impl.argprom.exit, label %if.end5.i
+  br i1 %cmp3.i, label %time_clock_gettime_ns_impl.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
   %3 = load i64, ptr %t.i, align 8
   %call6.i = call ptr @_PyTime_AsNanosecondsObject(i64 noundef %3) #11
-  br label %time_clock_gettime_ns_impl.argprom.exit
+  br label %time_clock_gettime_ns_impl.exit
 
-time_clock_gettime_ns_impl.argprom.exit:          ; preds = %if.then.i2, %if.end.i, %if.end5.i
+time_clock_gettime_ns_impl.exit:                  ; preds = %if.then.i2, %if.end.i, %if.end5.i
   %retval.0.i4 = phi ptr [ null, %if.then.i2 ], [ %call6.i, %if.end5.i ], [ null, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %t.i)
   br label %exit
 
-exit:                                             ; preds = %time_clockid_converter.exit, %time_clock_gettime_ns_impl.argprom.exit
-  %return_value.0 = phi ptr [ %retval.0.i4, %time_clock_gettime_ns_impl.argprom.exit ], [ null, %time_clockid_converter.exit ]
+exit:                                             ; preds = %time_clockid_converter.exit, %time_clock_gettime_ns_impl.exit
+  %return_value.0 = phi ptr [ %retval.0.i4, %time_clock_gettime_ns_impl.exit ], [ null, %time_clockid_converter.exit ]
   ret ptr %return_value.0
 }
 
@@ -689,7 +689,7 @@ if.end4:                                          ; preds = %if.end
   %1 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %1, align 8
   %call5.val = load ptr, ptr %module.val, align 8
-  %call6 = call fastcc ptr @tmtotuple.argprom(ptr %call5.val, ptr noundef %buf)
+  %call6 = call fastcc ptr @tmtotuple(ptr %call5.val, ptr noundef %buf)
   br label %return
 
 return:                                           ; preds = %parse_time_t_args.exit.thread, %if.end, %if.end4
@@ -747,7 +747,7 @@ if.end3:                                          ; preds = %if.end
   %1 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %1, align 8
   %call4.val = load ptr, ptr %module.val, align 8
-  %call5 = call fastcc ptr @tmtotuple.argprom(ptr %call4.val, ptr noundef %buf)
+  %call5 = call fastcc ptr @tmtotuple(ptr %call4.val, ptr noundef %buf)
   br label %return
 
 return:                                           ; preds = %parse_time_t_args.exit.thread, %if.end, %if.end3
@@ -1621,7 +1621,7 @@ declare i32 @_PyTime_GetMonotonicClockWithInfo(ptr noundef, ptr noundef) local_u
 declare i32 @_PyTime_gmtime(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @tmtotuple.argprom(ptr %state.0.val, ptr nocapture noundef nonnull readonly %p) unnamed_addr #0 {
+define internal fastcc ptr @tmtotuple(ptr %state.0.val, ptr nocapture noundef nonnull readonly %p) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyStructSequence_New(ptr noundef %state.0.val) #11
   %cmp = icmp eq ptr %call, null

@@ -411,7 +411,7 @@ common.resume:                                    ; preds = %.body, %26
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$regex_syntax..ast..Ast$GT$$GT$17h43ac9d0967978debE.argprom"(ptr nonnull %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$regex_syntax..ast..Ast$GT$$GT$17h43ac9d0967978debE"(ptr nonnull %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   invoke void @"_ZN4core3ptr43drop_in_place$LT$regex_syntax..ast..Ast$GT$17haa176ebff3a660b6E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.0.val)
           to label %1 unwind label %2
 
@@ -427,7 +427,7 @@ define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$regex_syntax..ast..ClassSet$GT$$GT$17h9844e85f73b4b3c0E.argprom"(ptr nonnull %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$regex_syntax..ast..ClassSet$GT$$GT$17h9844e85f73b4b3c0E"(ptr nonnull %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   invoke void @"_ZN4core3ptr48drop_in_place$LT$regex_syntax..ast..ClassSet$GT$17h9b48219d6facdb3fE"(ptr noalias noundef nonnull align 8 dereferenceable(160) %.0.val)
           to label %1 unwind label %2
 
@@ -528,7 +528,7 @@ define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h68df1cbeac0
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noalias noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.argelim(i64 noundef range(i64 16, 217) %0) unnamed_addr #2 {
+define internal fastcc noalias noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE(i64 noundef range(i64 16, 217) %0) unnamed_addr #2 {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %3 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %0, i64 noundef 8) #22
   %4 = icmp eq ptr %3, null
@@ -677,7 +677,7 @@ define internal noundef zeroext i1 @"_ZN68_$LT$core..num..error..ParseIntError$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef range(i32 0, 1114112) i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr %.8.val, i64 %.16.val, i64 noundef %0) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 1114112) i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr %.8.val, i64 %.16.val, i64 noundef %0) unnamed_addr #0 {
   %2 = alloca [1 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = alloca i64, align 8
@@ -805,7 +805,7 @@ define internal fastcc noundef zeroext i1 @"_ZN12regex_syntax3ast5parse16ParserI
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %.val38, i64 176
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %.val42 = load ptr, ptr %8, align 8, !nonnull !5, !align !114, !noundef !5
-  %9 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val42, i64 %5, i64 noundef %3)
+  %9 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val42, i64 %5, i64 noundef %3)
   %10 = icmp eq i32 %9, 10
   br i1 %10, label %11, label %15
 
@@ -829,7 +829,7 @@ define internal fastcc noundef zeroext i1 @"_ZN12regex_syntax3ast5parse16ParserI
   %.029 = phi i64 [ %13, %11 ], [ %.sroa.4.0.copyload, %15 ]
   %.028 = phi i64 [ 1, %11 ], [ %17, %15 ]
   %21 = load i64, ptr %2, align 8, !noundef !5
-  %22 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val42, i64 %5, i64 noundef %21)
+  %22 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val42, i64 %5, i64 noundef %21)
   %23 = icmp ult i32 %22, 128
   br i1 %23, label %29, label %25
 
@@ -1026,7 +1026,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$10bum
 
 21:                                               ; preds = %.lr.ph, %85
   %22 = phi i64 [ %13, %.lr.ph ], [ %86, %85 ]
-  %23 = call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val29, i64 %12, i64 noundef %22)
+  %23 = call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val29, i64 %12, i64 noundef %22)
   switch i32 %23, label %24 [
     i32 32, label %.critedge
     i32 13, label %.critedge
@@ -1081,7 +1081,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hb09543846971dd4fE.exit: ; p
 
 .critedge16:                                      ; preds = %26, %24, %_ZN4core7unicode12unicode_data11white_space6lookup17hb09543846971dd4fE.exit
   %46 = load i64, ptr %10, align 8, !noundef !5
-  %47 = call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val29, i64 %12, i64 noundef %46)
+  %47 = call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val29, i64 %12, i64 noundef %46)
   %48 = icmp eq i32 %47, 35
   br i1 %48, label %50, label %.loopexit48
 
@@ -1104,7 +1104,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hb09543846971dd4fE.exit: ; p
   br i1 %53, label %64, label %54
 
 54:                                               ; preds = %.preheader
-  %55 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val29, i64 %12, i64 noundef %52)
+  %55 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val29, i64 %12, i64 noundef %52)
           to label %56 unwind label %.loopexit
 
 56:                                               ; preds = %54
@@ -1239,7 +1239,7 @@ define internal fastcc noundef range(i32 0, 1114113) i32 @"_ZN12regex_syntax3ast
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !align !114, !noundef !5
-  %10 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %9, i64 %5, i64 noundef %3)
+  %10 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %9, i64 %5, i64 noundef %3)
   %11 = icmp ult i32 %10, 128
   br i1 %11, label %16, label %12
 
@@ -1367,7 +1367,7 @@ _ZN4core3str11validations15next_code_point17h557bd300d34cbe39E.exit.thread: ; pr
 13:                                               ; preds = %7
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %.val47 = load ptr, ptr %14, align 8, !nonnull !5, !align !114, !noundef !5
-  %15 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val47, i64 %11, i64 noundef %9)
+  %15 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val47, i64 %11, i64 noundef %9)
   %16 = icmp ult i32 %15, 128
   br i1 %16, label %21, label %17
 
@@ -1646,7 +1646,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$9span
   %.val13 = load ptr, ptr %5, align 8, !nonnull !5, !align !114, !noundef !5
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %.val14 = load i64, ptr %6, align 8, !noundef !5
-  %7 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val13, i64 %.val14, i64 noundef %4)
+  %7 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val13, i64 %.val14, i64 noundef %4)
   %8 = icmp ult i32 %7, 128
   br i1 %8, label %13, label %9
 
@@ -1686,7 +1686,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$9span
   %26 = load i64, ptr %25, align 8, !noundef !5
   %27 = extractvalue { i64, i1 } %14, 0
   %28 = load i64, ptr %3, align 8, !noundef !5
-  %29 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val13, i64 %.val14, i64 noundef %28)
+  %29 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val13, i64 %.val14, i64 noundef %28)
   %30 = icmp eq i32 %29, 10
   %31 = zext i1 %30 to i64
   %spec.select = add i64 %26, %31
@@ -1793,7 +1793,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$20unc
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$13push_class_op17h39ebe231adf3302fE.argprom"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr %.0.val, i8 noundef range(i8 0, 3) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$13push_class_op17h39ebe231adf3302fE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr %.0.val, i8 noundef range(i8 0, 3) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { i64, i64, i64 }, { i64, i64, i64 } }, align 8
   %5 = alloca { i64, [35 x i64] }, align 8
   %6 = alloca { [38 x i32], i32, [1 x i32] }, align 8
@@ -1802,7 +1802,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$13pus
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %6)
   %8 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %8)
-  call fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$12pop_class_op17hee614eb78ded60ecE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(160) %6, ptr nonnull %.0.val, ptr noalias nocapture noundef align 8 dereferenceable(160) %7)
+  call fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$12pop_class_op17hee614eb78ded60ecE"(ptr noalias nocapture noundef align 8 dereferenceable(160) %6, ptr nonnull %.0.val, ptr noalias nocapture noundef align 8 dereferenceable(160) %7)
   %9 = getelementptr inbounds i8, ptr %.0.val, i64 64
   %10 = load i64, ptr %9, align 8, !noundef !5
   %11 = icmp eq i64 %10, 0
@@ -1903,7 +1903,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$13pus
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$12pop_class_op17hee614eb78ded60ecE.argprom"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(160) %0, ptr %.0.val, ptr noalias nocapture noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$12pop_class_op17hee614eb78ded60ecE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(160) %0, ptr %.0.val, ptr noalias nocapture noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [38 x i32], i32, [1 x i32] }, align 8
   %4 = alloca { [38 x i32], i32, [1 x i32] }, align 8
   %5 = alloca { { i64, i64, i64 }, { i64, i64, i64 } }, align 8
@@ -2152,7 +2152,7 @@ _ZN12regex_syntax3ast8ClassSet4span17h3b6acd0962996594E.exit: ; preds = %47, %45
   unreachable
 
 .body:                                            ; preds = %82
-  invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$regex_syntax..ast..ClassSet$GT$$GT$17h9844e85f73b4b3c0E.argprom"(ptr %68) #20
+  invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$regex_syntax..ast..ClassSet$GT$$GT$17h9844e85f73b4b3c0E"(ptr %68) #20
           to label %.thread16 unwind label %88
 
 86:                                               ; preds = %77
@@ -3625,7 +3625,7 @@ define hidden void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19parse_with_c
           to label %common.resume unwind label %426, !noalias !283
 
 551:                                              ; preds = %347
-  %552 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %348)
+  %552 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %348)
           to label %553 unwind label %.thread929.loopexit.split-lp.loopexit
 
 553:                                              ; preds = %551
@@ -3648,7 +3648,7 @@ define hidden void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19parse_with_c
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %165)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %166)
   %555 = load i64, ptr %208, align 8, !noalias !415, !noundef !5
-  %556 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %555)
+  %556 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %555)
           to label %.noexc242 unwind label %.thread929.loopexit.split-lp.loopexit
 
 .noexc242:                                        ; preds = %554
@@ -3730,7 +3730,7 @@ define hidden void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19parse_with_c
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.7.sroa.10.sroa.0.i.sroa.7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %162), !noalias !423
   %567 = load i64, ptr %208, align 8, !noalias !423, !noundef !5
-  %568 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %567)
+  %568 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %567)
           to label %569 unwind label %.loopexit.split-lp.i.loopexit, !noalias !423
 
 .loopexit.i:                                      ; preds = %_ZN12regex_syntax3ast5parse15is_capture_char17h2907a3e450866a9aE.exit.thread.i.i.i, %_ZN12regex_syntax3ast5parse15is_capture_char17h2907a3e450866a9aE.exit.i.i.i, %839, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17h8a921ae1bdf9d79fE.llvm.4042359526532701921.exit.i.i.i.i.i", %822, %.preheader.i
@@ -3761,7 +3761,7 @@ define hidden void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19parse_with_c
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %155), !noalias !423
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %157), !noalias !425
   %572 = load i64, ptr %208, align 8, !noalias !429, !noundef !5
-  %573 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %572)
+  %573 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %572)
           to label %.noexc.i254 unwind label %.loopexit.split-lp.i.loopexit, !noalias !423
 
 .noexc.i254:                                      ; preds = %571
@@ -4057,7 +4057,7 @@ define hidden void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19parse_with_c
   %.sroa.11.0.i.i.i = phi ptr [ undef, %639 ], [ %.sroa.11.1.i.i.i, %762 ]
   %.sroa.08.0.i.i.i = phi i64 [ 0, %639 ], [ %.sroa.08.1.i.i.i, %762 ]
   %641 = load i64, ptr %208, align 8, !noalias !445, !noundef !5
-  %642 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %641)
+  %642 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %641)
           to label %643 unwind label %.loopexit175.i.i.i, !noalias !445
 
 643:                                              ; preds = %640
@@ -4070,7 +4070,7 @@ define hidden void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19parse_with_c
 
 647:                                              ; preds = %643
   %648 = load i64, ptr %208, align 8, !noalias !445, !noundef !5
-  %649 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %648)
+  %649 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %648)
           to label %650 unwind label %.loopexit175.i.i.i, !noalias !445
 
 650:                                              ; preds = %647
@@ -4130,7 +4130,7 @@ define hidden void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19parse_with_c
 
 663:                                              ; preds = %650
   %664 = load i64, ptr %208, align 8, !noalias !445, !noundef !5
-  %665 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %664)
+  %665 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %664)
           to label %666 unwind label %.loopexit175.i.i.i, !noalias !445
 
 666:                                              ; preds = %663
@@ -4273,7 +4273,7 @@ define hidden void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19parse_with_c
 704:                                              ; preds = %669
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.24.i.i.sroa.0.i.sroa.4)
   %705 = load i64, ptr %208, align 8, !noalias !474, !noundef !5
-  %706 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %705)
+  %706 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %705)
           to label %.noexc75.i.i.i unwind label %.loopexit175.i.i.i, !noalias !445
 
 .noexc75.i.i.i:                                   ; preds = %704
@@ -4543,7 +4543,7 @@ define hidden void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19parse_with_c
   store i32 %.sroa.23.1325.i.i, ptr %.sroa.5283.0..sroa_idx.i.i, align 8, !noalias !425
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %151), !noalias !425
   %779 = load i64, ptr %208, align 8, !noalias !429, !noundef !5
-  %780 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %779)
+  %780 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %779)
           to label %781 unwind label %.loopexit1251, !noalias !429
 
 781:                                              ; preds = %778
@@ -4661,7 +4661,7 @@ define hidden void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19parse_with_c
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %144), !noalias !425
   store i64 %800, ptr %144, align 8, !noalias !425
   store ptr %801, ptr %315, align 8, !noalias !425
-  %802 = invoke fastcc noundef ptr @_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.argelim(i64 noundef 16)
+  %802 = invoke fastcc noundef ptr @_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE(i64 noundef 16)
           to label %807 unwind label %803
 
 803:                                              ; preds = %799
@@ -4740,7 +4740,7 @@ define hidden void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19parse_with_c
 
 .preheader.i:                                     ; preds = %812, %.noexc70.i
   %819 = load i64, ptr %208, align 8, !noalias !495, !noundef !5
-  %820 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %819)
+  %820 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %819)
           to label %.noexc63.i unwind label %.loopexit.i, !noalias !423
 
 .noexc63.i:                                       ; preds = %.preheader.i
@@ -4749,7 +4749,7 @@ define hidden void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19parse_with_c
 
 822:                                              ; preds = %.noexc63.i
   %823 = load i64, ptr %208, align 8, !noalias !495, !noundef !5
-  %824 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %823)
+  %824 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %823)
           to label %.noexc64.i unwind label %.loopexit.i, !noalias !423
 
 .noexc64.i:                                       ; preds = %822
@@ -4859,7 +4859,7 @@ _ZN12regex_syntax3ast5parse15is_capture_char17h2907a3e450866a9aE.exit.thread.i.i
 
 851:                                              ; preds = %828
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %134), !noalias !499
-  %852 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %.sroa.090.0.copyload.i.i.i)
+  %852 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %.sroa.090.0.copyload.i.i.i)
           to label %.noexc71.i267 unwind label %.loopexit.split-lp.i.loopexit, !noalias !423
 
 .noexc71.i267:                                    ; preds = %851
@@ -5732,7 +5732,7 @@ _ZN12regex_syntax3ast5Flags10flag_state17h6b0ba6635d5042f8E.exit92.thread.i: ; p
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %.sroa.3118.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %126), !noalias !613
   %1071 = load i64, ptr %208, align 8, !noalias !613, !noundef !5
-  %1072 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %1071)
+  %1072 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %1071)
           to label %1078 unwind label %.thread.i275.loopexit, !noalias !613
 
 .thread124.i:                                     ; preds = %.thread140.i, %1220, %1093
@@ -6232,7 +6232,7 @@ _ZN12regex_syntax3ast5Flags10flag_state17h6b0ba6635d5042f8E.exit92.thread.i: ; p
 
 1207:                                             ; preds = %.thread178.i
   %.val67.i = load ptr, ptr %296, align 8, !noalias !613, !noundef !5
-  invoke fastcc void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$regex_syntax..ast..Ast$GT$$GT$17h43ac9d0967978debE.argprom"(ptr %.val67.i) #20
+  invoke fastcc void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$regex_syntax..ast..Ast$GT$$GT$17h43ac9d0967978debE"(ptr %.val67.i) #20
           to label %.critedge.i unwind label %1204, !noalias !613
 
 1208:                                             ; preds = %1211, %1107
@@ -6373,7 +6373,7 @@ _ZN12regex_syntax3ast5Flags10flag_state17h6b0ba6635d5042f8E.exit92.thread.i: ; p
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %102)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %105), !noalias !698
   %1247 = load i64, ptr %208, align 8, !noalias !698, !noundef !5
-  %1248 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %1247)
+  %1248 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %1247)
           to label %1249 unwind label %.loopexit1227, !noalias !698
 
 1249:                                             ; preds = %1246
@@ -6625,7 +6625,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit.i.i: ; preds = %.threa
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %.sroa.06.i.sroa.37)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %96), !noalias !723
   %1328 = load i64, ptr %208, align 8, !noalias !723, !noundef !5
-  %1329 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %1328)
+  %1329 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %1328)
           to label %.noexc348 unwind label %.thread929.loopexit.split-lp.loopexit
 
 .noexc348:                                        ; preds = %1327
@@ -6798,7 +6798,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit.i.i: ; preds = %.threa
           to label %1924 unwind label %.body.thread783.loopexit.split-lp.loopexit.split-lp.i, !noalias !727
 
 1338:                                             ; preds = %1334
-  %1339 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %1335)
+  %1339 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %1335)
           to label %1340 unwind label %.body.thread783.loopexit.split-lp.loopexit.loopexit.i, !noalias !723
 
 1340:                                             ; preds = %1338
@@ -6815,7 +6815,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit.i.i: ; preds = %.threa
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %80), !noalias !728
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %75), !noalias !728
   %1341 = load i64, ptr %208, align 8, !noalias !732, !noundef !5
-  %1342 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %1341)
+  %1342 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %1341)
           to label %.noexc.i317 unwind label %.body.thread783.loopexit.split-lp.loopexit.loopexit.split-lp.i.loopexit.split-lp, !noalias !723
 
 .noexc.i317:                                      ; preds = %.loopexit1319.i
@@ -6828,7 +6828,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit.i.i: ; preds = %.threa
 
 .noexc77.i318:                                    ; preds = %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$20parse_set_class_item17h3662dab5638ec0acE.exit.thread.i.i"
   %1344 = load i64, ptr %208, align 8, !noalias !732, !noundef !5
-  %1345 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %1344)
+  %1345 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %1344)
           to label %.noexc78.i319 unwind label %.body.thread783.loopexit.split-lp.loopexit.loopexit.split-lp.i.loopexit.split-lp, !noalias !723
 
 .noexc78.i319:                                    ; preds = %.noexc77.i318
@@ -6925,7 +6925,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit.i.i: ; preds = %.threa
           to label %1456 unwind label %.loopexit.split-lp1311.i, !noalias !737
 
 1354:                                             ; preds = %1350
-  %1355 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %1351)
+  %1355 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %1351)
           to label %1356 unwind label %.loopexit1310.i, !noalias !728
 
 1356:                                             ; preds = %1354
@@ -7092,7 +7092,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit.i.i: ; preds = %.threa
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %77), !noalias !728
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %76), !noalias !728
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %37), !noalias !723
-  %1390 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %1388)
+  %1390 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %1388)
           to label %.noexc149.i unwind label %.loopexit1310.i, !noalias !723
 
 .noexc149.i:                                      ; preds = %1389
@@ -7109,7 +7109,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit.i.i: ; preds = %.threa
 
 .noexc151.i:                                      ; preds = %1393
   %1394 = load i64, ptr %208, align 8, !noalias !745, !noundef !5
-  %1395 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %1394)
+  %1395 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %1394)
           to label %.noexc152.i unwind label %.loopexit1310.i, !noalias !723
 
 .noexc152.i:                                      ; preds = %.noexc151.i
@@ -7227,9 +7227,9 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit.i.i: ; preds = %.threa
   %.sroa.11665.0.copyload.i = load i32, ptr %.sroa.7.i.sroa.11.sroa.7.0..sroa.7.i.sroa.11.0..sroa_idx409.sroa_idx.i, align 8, !noalias !728
   %.sroa.12668.0.copyload.i = load i32, ptr %.sroa.12668.0..sroa_idx.i, align 4, !noalias !728
   %1407 = icmp eq i64 %1401, -9223372036854775806
-  br i1 %1407, label %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147.thread.i, label %1415
+  br i1 %1407, label %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147.thread.i, label %1415
 
-_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147.thread.i: ; preds = %1400
+_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147.thread.i: ; preds = %1400
   %1408 = lshr i64 %1404, 32
   %1409 = trunc nuw i64 %1408 to i32
   %1410 = trunc i64 %1404 to i32
@@ -7276,11 +7276,11 @@ _ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.ar
   call void @llvm.assume(i1 %1420), !noalias !756
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1419, ptr nonnull readonly align 1 %.val235, i64 %216, i1 false), !noalias !756
   %1421 = ptrtoint ptr %1419 to i64
-  br i1 %switch.i.i.i, label %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147.i, label %1422
+  br i1 %switch.i.i.i, label %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147.i, label %1422
 
 1422:                                             ; preds = %1417
   invoke void @"_ZN4core3ptr56drop_in_place$LT$regex_syntax..ast..ClassUnicodeKind$GT$17h91152c138cf66822E.llvm.15241997999693184539"(ptr noalias noundef nonnull align 8 dereferenceable(56) %38)
-          to label %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147.i unwind label %1452, !noalias !723
+          to label %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147.i unwind label %1452, !noalias !723
 
 1423:                                             ; preds = %1414
   %1424 = landingpad { ptr, i32 }
@@ -7288,12 +7288,12 @@ _ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.ar
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #21, !noalias !751
   unreachable
 
-_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147.i: ; preds = %1422, %1417
+_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147.i: ; preds = %1422, %1417
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %38), !noalias !751
   %1425 = icmp eq i64 %1418, -9223372036854775808
-  br i1 %1425, label %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147._crit_edge.i, label %1450
+  br i1 %1425, label %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147._crit_edge.i, label %1450
 
-_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147._crit_edge.i: ; preds = %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147.i
+_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147._crit_edge.i: ; preds = %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147.i
   %.sroa.4709.0.copyload.pre.i = load i64, ptr %.sroa.713.i.sroa.8.0..sroa_idx430.i, align 8, !noalias !728
   %.sroa.5712.0.copyload.pre.i = load i64, ptr %.sroa.713.i.sroa.8.sroa.6.0..sroa.713.i.sroa.8.0..sroa_idx430.sroa_idx.i, align 8, !noalias !728
   %.sroa.6715.0.copyload.pre.i = load i64, ptr %.sroa.713.i.sroa.8.sroa.7.0..sroa.713.i.sroa.8.0..sroa_idx430.sroa_idx.i, align 8, !noalias !728
@@ -7304,24 +7304,24 @@ _ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.ar
   %.sroa.12733.0.copyload.pre.i = load i32, ptr %.sroa.12733.0..sroa_idx.i, align 4, !noalias !728
   br label %1426
 
-1426:                                             ; preds = %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147._crit_edge.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147.thread.i
-  %.sroa.12733.0.copyload.i = phi i32 [ %1409, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147.thread.i ], [ %.sroa.12733.0.copyload.pre.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147._crit_edge.i ]
-  %.sroa.11730.0.copyload.i = phi i32 [ %1410, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147.thread.i ], [ %.sroa.11730.0.copyload.pre.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147._crit_edge.i ]
-  %.sroa.10727.0.copyload.i = phi i64 [ %.sroa.713.i.sroa.11.sroa.6.0.copyload557.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147.thread.i ], [ %.sroa.10727.0.copyload.pre.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147._crit_edge.i ]
-  %.sroa.9724.0.copyload.i = phi i64 [ %.sroa.713.i.sroa.11.sroa.0.sroa.6.0.copyload616.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147.thread.i ], [ %.sroa.9724.0.copyload.pre.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147._crit_edge.i ]
-  %.sroa.8721.0.copyload.i = phi i64 [ %.sroa.713.i.sroa.11.sroa.0.sroa.0.0.copyload614.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147.thread.i ], [ %.sroa.8721.0.copyload.pre.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147._crit_edge.i ]
-  %.sroa.6715.0.copyload.i = phi i64 [ %.sroa.713.i.sroa.8.sroa.7.0.copyload487.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147.thread.i ], [ %.sroa.6715.0.copyload.pre.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147._crit_edge.i ]
-  %.sroa.5712.0.copyload.i = phi i64 [ %.sroa.713.i.sroa.8.sroa.6.0.copyload485.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147.thread.i ], [ %.sroa.5712.0.copyload.pre.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147._crit_edge.i ]
-  %.sroa.4709.0.copyload.i = phi i64 [ %.sroa.713.i.sroa.8.sroa.0.0.copyload483.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147.thread.i ], [ %.sroa.4709.0.copyload.pre.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147._crit_edge.i ]
-  %.sroa.13630.sroa.7.3816.i = phi i32 [ %.sroa.13630.sroa.7.0.extract.trunc.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147.thread.i ], [ %.sroa.13630.sroa.7.0.ph.i.ph10356, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147._crit_edge.i ]
-  %.sroa.13630.sroa.0.0815.i = phi i64 [ %1411, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147.thread.i ], [ 3, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147._crit_edge.i ]
-  %.sroa.24.3814.i = phi i32 [ %.sroa.12668.0.copyload.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147.thread.i ], [ %.sroa.24.0.ph.i.ph10355, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147._crit_edge.i ]
-  %.sroa.22634.3811.i = phi i32 [ %.sroa.11665.0.copyload.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147.thread.i ], [ %.sroa.22634.0.ph.i.ph10354, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147._crit_edge.i ]
-  %.sroa.20633.3809.i = phi i64 [ %.sroa.7.i.sroa.11.sroa.6.0..sroa.7.i.sroa.11.0..sroa_idx409.sroa_idx.val.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147.thread.i ], [ %.sroa.20633.0.ph.i.ph10353, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147._crit_edge.i ]
-  %.sroa.18632.3808.i = phi i64 [ %1406, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147.thread.i ], [ %.sroa.18632.0.ph.i.ph10352, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147._crit_edge.i ]
-  %.sroa.16631.3806.i = phi i64 [ %.sroa.7.i.sroa.11.0..sroa_idx409.val.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147.thread.i ], [ %.sroa.16631.0.ph.i.ph10351, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147._crit_edge.i ]
-  %.sroa.10629.0804.i = phi i64 [ %1405, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147.thread.i ], [ %216, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147._crit_edge.i ]
-  %.sroa.6628.0803.i = phi i64 [ %.sroa.gep.val.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147.thread.i ], [ %1421, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147._crit_edge.i ]
+1426:                                             ; preds = %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147._crit_edge.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147.thread.i
+  %.sroa.12733.0.copyload.i = phi i32 [ %1409, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147.thread.i ], [ %.sroa.12733.0.copyload.pre.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147._crit_edge.i ]
+  %.sroa.11730.0.copyload.i = phi i32 [ %1410, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147.thread.i ], [ %.sroa.11730.0.copyload.pre.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147._crit_edge.i ]
+  %.sroa.10727.0.copyload.i = phi i64 [ %.sroa.713.i.sroa.11.sroa.6.0.copyload557.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147.thread.i ], [ %.sroa.10727.0.copyload.pre.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147._crit_edge.i ]
+  %.sroa.9724.0.copyload.i = phi i64 [ %.sroa.713.i.sroa.11.sroa.0.sroa.6.0.copyload616.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147.thread.i ], [ %.sroa.9724.0.copyload.pre.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147._crit_edge.i ]
+  %.sroa.8721.0.copyload.i = phi i64 [ %.sroa.713.i.sroa.11.sroa.0.sroa.0.0.copyload614.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147.thread.i ], [ %.sroa.8721.0.copyload.pre.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147._crit_edge.i ]
+  %.sroa.6715.0.copyload.i = phi i64 [ %.sroa.713.i.sroa.8.sroa.7.0.copyload487.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147.thread.i ], [ %.sroa.6715.0.copyload.pre.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147._crit_edge.i ]
+  %.sroa.5712.0.copyload.i = phi i64 [ %.sroa.713.i.sroa.8.sroa.6.0.copyload485.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147.thread.i ], [ %.sroa.5712.0.copyload.pre.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147._crit_edge.i ]
+  %.sroa.4709.0.copyload.i = phi i64 [ %.sroa.713.i.sroa.8.sroa.0.0.copyload483.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147.thread.i ], [ %.sroa.4709.0.copyload.pre.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147._crit_edge.i ]
+  %.sroa.13630.sroa.7.3816.i = phi i32 [ %.sroa.13630.sroa.7.0.extract.trunc.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147.thread.i ], [ %.sroa.13630.sroa.7.0.ph.i.ph10356, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147._crit_edge.i ]
+  %.sroa.13630.sroa.0.0815.i = phi i64 [ %1411, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147.thread.i ], [ 3, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147._crit_edge.i ]
+  %.sroa.24.3814.i = phi i32 [ %.sroa.12668.0.copyload.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147.thread.i ], [ %.sroa.24.0.ph.i.ph10355, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147._crit_edge.i ]
+  %.sroa.22634.3811.i = phi i32 [ %.sroa.11665.0.copyload.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147.thread.i ], [ %.sroa.22634.0.ph.i.ph10354, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147._crit_edge.i ]
+  %.sroa.20633.3809.i = phi i64 [ %.sroa.7.i.sroa.11.sroa.6.0..sroa.7.i.sroa.11.0..sroa_idx409.sroa_idx.val.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147.thread.i ], [ %.sroa.20633.0.ph.i.ph10353, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147._crit_edge.i ]
+  %.sroa.18632.3808.i = phi i64 [ %1406, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147.thread.i ], [ %.sroa.18632.0.ph.i.ph10352, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147._crit_edge.i ]
+  %.sroa.16631.3806.i = phi i64 [ %.sroa.7.i.sroa.11.0..sroa_idx409.val.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147.thread.i ], [ %.sroa.16631.0.ph.i.ph10351, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147._crit_edge.i ]
+  %.sroa.10629.0804.i = phi i64 [ %1405, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147.thread.i ], [ %216, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147._crit_edge.i ]
+  %.sroa.6628.0803.i = phi i64 [ %.sroa.gep.val.i, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147.thread.i ], [ %1421, %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147._crit_edge.i ]
   %.sroa.723.sroa.0.i.sroa.6.sroa.0.0.extract.trunc624.i = trunc i64 %.sroa.10629.0804.i to i32
   %.sroa.723.sroa.0.i.sroa.6.sroa.6.0.extract.shift625.i = lshr i64 %.sroa.10629.0804.i, 32
   %.sroa.723.sroa.0.i.sroa.6.sroa.6.0.extract.trunc626.i = trunc nuw i64 %.sroa.723.sroa.0.i.sroa.6.sroa.6.0.extract.shift625.i to i32
@@ -7476,7 +7476,7 @@ _ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.ar
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %77), !noalias !728
   br label %.critedge.i.i
 
-1450:                                             ; preds = %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom.exit147.i
+1450:                                             ; preds = %_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.exit147.i
   %.sroa.5768.0.copyload.i.le.v = select i1 %switch.i.i.i, i64 %.sroa.gep.sroa.gep621.val.i, i64 %.sroa.7.i.sroa.11.sroa.6.0..sroa.7.i.sroa.11.0..sroa_idx409.sroa_idx.val.i
   %.sroa.7770.0.copyload.i.le = select i1 %switch.i.i.i, i64 %.sroa.7.i.sroa.11.0..sroa_idx409.val.i, i64 %.sroa.11665.0..sroa_idx666.i.val
   %.sroa.8771.0.copyload.i.le = select i1 %switch.i.i.i, i64 %1406, i64 %.sroa.13671.0..sroa_idx672.i.val
@@ -7604,7 +7604,7 @@ _ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.ar
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %71), !noalias !723
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %73), !noalias !768
   %1465 = load i64, ptr %208, align 8, !noalias !768, !noundef !5
-  %1466 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %1465)
+  %1466 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %1465)
           to label %1467 unwind label %.loopexit.i331, !noalias !768
 
 1467:                                             ; preds = %1464
@@ -7622,7 +7622,7 @@ _ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.ar
 .noexc350:                                        ; preds = %.noexc89.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %70), !noalias !768
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %69), !noalias !768
-  invoke fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$12pop_class_op17hee614eb78ded60ecE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(160) %69, ptr nonnull %.val233, ptr noalias nocapture noundef align 8 dereferenceable(160) %71)
+  invoke fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$12pop_class_op17hee614eb78ded60ecE"(ptr noalias nocapture noundef align 8 dereferenceable(160) %69, ptr nonnull %.val233, ptr noalias nocapture noundef align 8 dereferenceable(160) %71)
           to label %.noexc351 unwind label %.thread929.loopexit.loopexit.split-lp
 
 .noexc351:                                        ; preds = %.noexc350
@@ -8012,7 +8012,7 @@ _ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.ar
   call void @llvm.experimental.noalias.scope.decl(metadata !815)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %59), !noalias !818
   %1554 = load i64, ptr %208, align 8, !noalias !818, !noundef !5
-  %1555 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %1554)
+  %1555 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %1554)
           to label %1556 unwind label %.loopexit1305.i, !noalias !818
 
 .loopexit1305.i:                                  ; preds = %1605, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h675ee351f6ad3ba0E.llvm.15241997999693184539.exit.i.i.i.i.i", %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit72.thread.i.i.i", %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit72.i.i.i", %1574, %1571, %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit.thread.i.i.i", %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit.i.i.i", %1562, %1558, %.loopexit10309
@@ -8035,7 +8035,7 @@ _ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.ar
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %.sroa.38.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %54), !noalias !821
   %1559 = load i64, ptr %208, align 8, !noalias !821, !noundef !5
-  %1560 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %1559)
+  %1560 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %1559)
           to label %.noexc.i98.i unwind label %.loopexit1305.i, !noalias !818
 
 .noexc.i98.i:                                     ; preds = %1558
@@ -8097,7 +8097,7 @@ _ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.ar
   br label %.thread201.i.i
 
 1571:                                             ; preds = %.noexc18.i.i
-  %1572 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %1564)
+  %1572 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %1564)
           to label %.noexc21.i.i unwind label %.loopexit1305.i, !noalias !818
 
 .noexc21.i.i:                                     ; preds = %1571
@@ -8172,7 +8172,7 @@ _ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.ar
 
 1582:                                             ; preds = %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit78.i.i.i", %1580
   %1583 = phi i64 [ %.pre.i.i.i337, %1580 ], [ %1595, %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit78.i.i.i" ]
-  %1584 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %1583)
+  %1584 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %1583)
           to label %1585 unwind label %.loopexit.i.i.i338, !noalias !821
 
 1585:                                             ; preds = %1582
@@ -8271,7 +8271,7 @@ _ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.ar
 
 1610:                                             ; preds = %1588
   %1611 = load i64, ptr %208, align 8, !noalias !821, !noundef !5
-  %1612 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %1611)
+  %1612 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %1611)
           to label %1613 unwind label %.loopexit.split-lp.i.i.i342, !noalias !821
 
 1613:                                             ; preds = %1610
@@ -8535,7 +8535,7 @@ _ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.ar
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %42)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44), !noalias !879
   %1670 = load i64, ptr %208, align 8, !noalias !879, !noundef !5
-  %1671 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %1670)
+  %1671 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %1670)
           to label %.noexc113.i unwind label %.body.thread783.loopexit.split-lp.loopexit.loopexit.i, !noalias !723
 
 .noexc113.i:                                      ; preds = %1669
@@ -8563,7 +8563,7 @@ _ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.ar
 
 1676:                                             ; preds = %.noexc114.i
   %1677 = load i64, ptr %208, align 8, !noalias !879, !noundef !5
-  %1678 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %1677)
+  %1678 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %1677)
           to label %.noexc116.i unwind label %.body.thread783.loopexit.split-lp.loopexit.loopexit.i, !noalias !723
 
 .noexc116.i:                                      ; preds = %1676
@@ -8579,7 +8579,7 @@ _ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.ar
 
 1682:                                             ; preds = %.noexc117.i
   %1683 = load i64, ptr %208, align 8, !noalias !879, !noundef !5
-  %1684 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %1683)
+  %1684 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %1683)
           to label %.noexc118.i unwind label %.body.thread783.loopexit.split-lp.loopexit.loopexit.i, !noalias !723
 
 .noexc118.i:                                      ; preds = %1682
@@ -9152,7 +9152,7 @@ thread-pre-split.backedge:                        ; preds = %"_ZN91_$LT$core..sl
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %88), !noalias !723
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %87), !noalias !723
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %87, ptr noundef nonnull align 8 dereferenceable(72) %94, i64 72, i1 false), !noalias !723
-  invoke fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$13push_class_op17h39ebe231adf3302fE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(72) %88, ptr nonnull %.val233, i8 noundef 0, ptr noalias nocapture noundef align 8 dereferenceable(72) %87)
+  invoke fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$13push_class_op17h39ebe231adf3302fE"(ptr noalias nocapture noundef align 8 dereferenceable(72) %88, ptr nonnull %.val233, i8 noundef 0, ptr noalias nocapture noundef align 8 dereferenceable(72) %87)
           to label %.noexc355 unwind label %.thread929.loopexit.loopexit.loopexit
 
 .noexc355:                                        ; preds = %1904
@@ -9176,7 +9176,7 @@ thread-pre-split.backedge:                        ; preds = %"_ZN91_$LT$core..sl
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %86), !noalias !723
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %85), !noalias !723
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %85, ptr noundef nonnull align 8 dereferenceable(72) %94, i64 72, i1 false), !noalias !723
-  invoke fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$13push_class_op17h39ebe231adf3302fE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(72) %86, ptr nonnull %.val233, i8 noundef 1, ptr noalias nocapture noundef align 8 dereferenceable(72) %85)
+  invoke fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$13push_class_op17h39ebe231adf3302fE"(ptr noalias nocapture noundef align 8 dereferenceable(72) %86, ptr nonnull %.val233, i8 noundef 1, ptr noalias nocapture noundef align 8 dereferenceable(72) %85)
           to label %.noexc356 unwind label %.thread929.loopexit.loopexit.loopexit
 
 .noexc356:                                        ; preds = %1910
@@ -9209,7 +9209,7 @@ thread-pre-split.backedge:                        ; preds = %"_ZN91_$LT$core..sl
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %84), !noalias !723
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %83), !noalias !723
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(72) %94, i64 72, i1 false), !noalias !723
-  invoke fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$13push_class_op17h39ebe231adf3302fE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(72) %84, ptr nonnull %.val233, i8 noundef 2, ptr noalias nocapture noundef align 8 dereferenceable(72) %83)
+  invoke fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$13push_class_op17h39ebe231adf3302fE"(ptr noalias nocapture noundef align 8 dereferenceable(72) %84, ptr nonnull %.val233, i8 noundef 2, ptr noalias nocapture noundef align 8 dereferenceable(72) %83)
           to label %.noexc357 unwind label %.thread929.loopexit.loopexit.loopexit
 
 .noexc357:                                        ; preds = %1918
@@ -9536,7 +9536,7 @@ thread-pre-split.backedge:                        ; preds = %"_ZN91_$LT$core..sl
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %36)
   %1949 = load i64, ptr %208, align 8, !noalias !941, !noundef !5
-  %1950 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %1949)
+  %1950 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %1949)
           to label %1951 unwind label %.loopexit, !noalias !941
 
 .body.thread.i363:                                ; preds = %.loopexit, %.loopexit.split-lp, %2098, %2076, %.body.i375
@@ -9753,7 +9753,7 @@ thread-pre-split.backedge:                        ; preds = %"_ZN91_$LT$core..sl
   br i1 %2008, label %2092, label %2009
 
 2009:                                             ; preds = %2006
-  %2010 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %2007)
+  %2010 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %2007)
           to label %2011 unwind label %2098, !noalias !941
 
 2011:                                             ; preds = %2009
@@ -9789,7 +9789,7 @@ thread-pre-split.backedge:                        ; preds = %"_ZN91_$LT$core..sl
 
 2022:                                             ; preds = %2015
   %2023 = load i64, ptr %208, align 8, !noalias !941, !noundef !5
-  %2024 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %2023)
+  %2024 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %2023)
           to label %2025 unwind label %2098, !noalias !941
 
 2025:                                             ; preds = %2022
@@ -9842,7 +9842,7 @@ thread-pre-split.backedge:                        ; preds = %"_ZN91_$LT$core..sl
   br i1 %2038, label %2086, label %2039
 
 2039:                                             ; preds = %2035
-  %2040 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %2037)
+  %2040 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %2037)
           to label %2041 unwind label %2098, !noalias !941
 
 2041:                                             ; preds = %2039
@@ -9858,7 +9858,7 @@ thread-pre-split.backedge:                        ; preds = %"_ZN91_$LT$core..sl
 
 2046:                                             ; preds = %2045
   %2047 = load i64, ptr %208, align 8, !noalias !941, !noundef !5
-  %2048 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val235, i64 %216, i64 noundef %2047)
+  %2048 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val235, i64 %216, i64 noundef %2047)
           to label %2049 unwind label %2098, !noalias !941
 
 2049:                                             ; preds = %2046
@@ -9940,7 +9940,7 @@ default.unreachable:                              ; preds = %2057
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !941
   store i64 %2058, ptr %17, align 8, !noalias !941
   store ptr %2059, ptr %226, align 8, !noalias !941
-  %2075 = invoke fastcc noundef ptr @_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.argelim(i64 noundef 16)
+  %2075 = invoke fastcc noundef ptr @_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE(i64 noundef 16)
           to label %2080 unwind label %2076
 
 2076:                                             ; preds = %2074
@@ -10736,7 +10736,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$26par
   %.val33 = load ptr, ptr %18, align 8, !nonnull !5, !align !114, !noundef !5
   %19 = getelementptr inbounds i8, ptr %1, i64 16
   %.val34 = load i64, ptr %19, align 8, !noundef !5
-  %20 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val33, i64 %.val34, i64 noundef %17)
+  %20 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val33, i64 %.val34, i64 noundef %17)
           to label %23 unwind label %21
 
 .body.thread:                                     ; preds = %134, %124, %112, %146, %21
@@ -10755,7 +10755,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$26par
 
 25:                                               ; preds = %23
   %26 = load i64, ptr %16, align 8, !noundef !5
-  %27 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val33, i64 %.val34, i64 noundef %26)
+  %27 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val33, i64 %.val34, i64 noundef %26)
           to label %28 unwind label %21
 
 28:                                               ; preds = %25
@@ -10764,7 +10764,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$26par
 
 30:                                               ; preds = %28
   %31 = load i64, ptr %16, align 8, !noundef !5
-  %32 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val33, i64 %.val34, i64 noundef %31)
+  %32 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val33, i64 %.val34, i64 noundef %31)
           to label %33 unwind label %21
 
 33:                                               ; preds = %30
@@ -10962,7 +10962,7 @@ default.unreachable:                              ; preds = %83
 
 96:                                               ; preds = %82
   %97 = load i64, ptr %16, align 8, !noundef !5
-  %98 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val33, i64 %.val34, i64 noundef %97)
+  %98 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val33, i64 %.val34, i64 noundef %97)
           to label %99 unwind label %146
 
 99:                                               ; preds = %96
@@ -11188,7 +11188,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$12par
   %.val236 = load ptr, ptr %36, align 8, !nonnull !5, !align !114, !noundef !5
   %37 = getelementptr inbounds i8, ptr %1, i64 16
   %.val237 = load i64, ptr %37, align 8, !noundef !5
-  %38 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val236, i64 %.val237, i64 noundef %35)
+  %38 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %35)
   store i32 %38, ptr %33, align 4
   %39 = icmp eq i32 %38, 92
   br i1 %39, label %41, label %40
@@ -11228,7 +11228,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$12par
 
 49:                                               ; preds = %41
   %50 = load i64, ptr %34, align 8, !noundef !5
-  %51 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val236, i64 %.val237, i64 noundef %50)
+  %51 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %50)
   %52 = and i32 %51, 2097144
   %or.cond = icmp eq i32 %52, 48
   br i1 %or.cond, label %56, label %54
@@ -11280,25 +11280,25 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$12par
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.41.sroa.6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.47.sroa.4.sroa.14)
   %70 = load i64, ptr %34, align 8, !noalias !1081, !noundef !5
-  %71 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val236, i64 %.val237, i64 noundef %70), !noalias !1081
+  %71 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %70), !noalias !1081
   %72 = icmp eq i32 %71, 120
   br i1 %72, label %81, label %73
 
 73:                                               ; preds = %69
   %74 = load i64, ptr %34, align 8, !noalias !1081, !noundef !5
-  %75 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val236, i64 %.val237, i64 noundef %74), !noalias !1081
+  %75 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %74), !noalias !1081
   %76 = icmp eq i32 %75, 117
   br i1 %76, label %81, label %77
 
 77:                                               ; preds = %73
   %78 = load i64, ptr %34, align 8, !noalias !1081, !noundef !5
-  %79 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val236, i64 %.val237, i64 noundef %78), !noalias !1081
+  %79 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %78), !noalias !1081
   %80 = icmp eq i32 %79, 85
   br i1 %80, label %81, label %87
 
 81:                                               ; preds = %77, %73, %69
   %82 = load i64, ptr %34, align 8, !noalias !1081, !noundef !5
-  %83 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val236, i64 %.val237, i64 noundef %82), !noalias !1081
+  %83 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %82), !noalias !1081
   %switch.selectcmp.i = icmp eq i32 %83, 117
   %switch.select.i = select i1 %switch.selectcmp.i, i8 1, i8 2
   %switch.selectcmp5.i = icmp eq i32 %83, 120
@@ -11339,7 +11339,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$12par
   br label %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$9parse_hex17h93174d2e4090f349E.exit"
 
 92:                                               ; preds = %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit.i"
-  %93 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val236, i64 %.val237, i64 noundef %85), !noalias !1081
+  %93 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %85), !noalias !1081
   %94 = icmp eq i32 %93, 123
   %95 = getelementptr inbounds i8, ptr %.val227, i64 128
   %96 = load i64, ptr %95, align 8, !noalias !1081, !noundef !5
@@ -11402,7 +11402,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$12par
   br i1 %.not.i.i, label %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit.thread.thread.i.i", label %109
 
 109:                                              ; preds = %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit.i.i"
-  %110 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val236, i64 %.val237, i64 noundef %108)
+  %110 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %108)
           to label %111 unwind label %.loopexit.i.i, !noalias !1091
 
 111:                                              ; preds = %109
@@ -11421,7 +11421,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$12par
   %117 = load ptr, ptr %116, align 8, !noalias !1091, !nonnull !5, !noundef !5
   %118 = load i64, ptr %102, align 8, !noalias !1091, !noundef !5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20), !noalias !1091
-  %119 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val236, i64 %.val237, i64 noundef %113)
+  %119 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %113)
           to label %120 unwind label %.loopexit.split-lp.i.i, !noalias !1091
 
 120:                                              ; preds = %115
@@ -11522,7 +11522,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$12par
   br label %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$15parse_hex_brace17hbfd6f958684248b9E.exit.i"
 
 153:                                              ; preds = %111
-  %154 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val236, i64 %.val237, i64 noundef %.pre117.i.i)
+  %154 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %.pre117.i.i)
           to label %155 unwind label %.loopexit.i.i, !noalias !1091
 
 155:                                              ; preds = %153
@@ -11575,7 +11575,7 @@ switch.early.test.i.i:                            ; preds = %155
 
 _ZN12regex_syntax3ast5parse6is_hex17h48d0d495e0ca3453E.exit.thread.i.i: ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %155
   %164 = load i64, ptr %34, align 8, !noalias !1091, !noundef !5
-  %165 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val236, i64 %.val237, i64 noundef %164)
+  %165 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %164)
           to label %166 unwind label %.loopexit.i.i, !noalias !1091
 
 166:                                              ; preds = %_ZN12regex_syntax3ast5parse6is_hex17h48d0d495e0ca3453E.exit.thread.i.i
@@ -11749,7 +11749,7 @@ switch.lookup:                                    ; preds = %169
 
 206:                                              ; preds = %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit74.i.i", %._crit_edge.i.i
   %207 = phi i64 [ %.pre.i38.i, %._crit_edge.i.i ], [ %199, %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit74.i.i" ]
-  %208 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val236, i64 %.val237, i64 noundef %207)
+  %208 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %207)
           to label %209 unwind label %.loopexit.i27.i, !noalias !1097
 
 209:                                              ; preds = %206
@@ -11802,7 +11802,7 @@ switch.early.test.i36.i:                          ; preds = %209
 
 _ZN12regex_syntax3ast5parse6is_hex17h48d0d495e0ca3453E.exit.thread.i37.i: ; preds = %switch.early.test.i36.i, %switch.early.test.i36.i, %switch.early.test.i36.i, %switch.early.test.i36.i, %switch.early.test.i36.i, %switch.early.test.i36.i, %switch.early.test.i36.i, %switch.early.test.i36.i, %switch.early.test.i36.i, %switch.early.test.i36.i, %switch.early.test.i36.i, %switch.early.test.i36.i, %209
   %218 = load i64, ptr %34, align 8, !noalias !1097, !noundef !5
-  %219 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val236, i64 %.val237, i64 noundef %218)
+  %219 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %218)
           to label %220 unwind label %.loopexit.i27.i, !noalias !1097
 
 220:                                              ; preds = %_ZN12regex_syntax3ast5parse6is_hex17h48d0d495e0ca3453E.exit.thread.i37.i
@@ -11856,13 +11856,13 @@ _ZN12regex_syntax3ast5parse6is_hex17h48d0d495e0ca3453E.exit.thread.i37.i: ; pred
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.0)
   %223 = load i64, ptr %34, align 8, !noalias !1103, !noundef !5
-  %224 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val236, i64 %.val237, i64 noundef %223), !noalias !1103
+  %224 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %223), !noalias !1103
   %225 = icmp eq i32 %224, 112
   br i1 %225, label %230, label %226
 
 226:                                              ; preds = %222
   %227 = load i64, ptr %34, align 8, !noalias !1103, !noundef !5
-  %228 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val236, i64 %.val237, i64 noundef %227), !noalias !1103
+  %228 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %227), !noalias !1103
   %229 = icmp eq i32 %228, 80
   br i1 %229, label %230, label %234
 
@@ -11906,7 +11906,7 @@ _ZN12regex_syntax3ast5parse6is_hex17h48d0d495e0ca3453E.exit.thread.i37.i: ; pred
   %238 = getelementptr inbounds i8, ptr %.val227, i64 152
   store i64 0, ptr %238, align 8, !noalias !1103
   %239 = load i64, ptr %34, align 8, !noalias !1103, !noundef !5
-  %240 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val236, i64 %.val237, i64 noundef %239)
+  %240 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %239)
           to label %241 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, !noalias !1103
 
 241:                                              ; preds = %236
@@ -11960,7 +11960,7 @@ _ZN12regex_syntax3ast5parse6is_hex17h48d0d495e0ca3453E.exit.thread.i37.i: ; pred
   br label %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19parse_unicode_class17h53dab885d799ce4eE.exit"
 
 251:                                              ; preds = %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit.i244"
-  %252 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val236, i64 %.val237, i64 noundef %245)
+  %252 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %245)
           to label %253 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, !noalias !1103
 
 253:                                              ; preds = %251
@@ -11999,7 +11999,7 @@ _ZN12regex_syntax3ast5parse6is_hex17h48d0d495e0ca3453E.exit.thread.i37.i: ; pred
   br i1 %.not313.i, label %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit139.thread.thread.i", label %262
 
 262:                                              ; preds = %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit139.i"
-  %263 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val236, i64 %.val237, i64 noundef %261)
+  %263 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %261)
           to label %264 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i, !noalias !1103
 
 264:                                              ; preds = %262
@@ -12014,7 +12014,7 @@ _ZN12regex_syntax3ast5parse6is_hex17h48d0d495e0ca3453E.exit.thread.i37.i: ; pred
 
 268:                                              ; preds = %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit139.thread.i"
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15), !noalias !1103
-  %269 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val236, i64 %.val237, i64 noundef %266)
+  %269 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %266)
           to label %270 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, !noalias !1103
 
 270:                                              ; preds = %268
@@ -12784,7 +12784,7 @@ _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i183.i: ; preds =
   br label %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19parse_unicode_class17h53dab885d799ce4eE.exit"
 
 610:                                              ; preds = %264
-  %611 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val236, i64 %.val237, i64 noundef %.pre421.i)
+  %611 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %.pre421.i)
           to label %612 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i, !noalias !1103
 
 612:                                              ; preds = %610
@@ -12794,7 +12794,7 @@ _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i183.i: ; preds =
 613:                                              ; preds = %253
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %34, i64 24, i1 false), !noalias !1103
   %614 = load i64, ptr %34, align 8, !noalias !1103, !noundef !5
-  %615 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val236, i64 %.val237, i64 noundef %614)
+  %615 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %614)
           to label %616 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, !noalias !1103
 
 616:                                              ; preds = %613
@@ -12891,7 +12891,7 @@ _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i183.i: ; preds =
 631:                                              ; preds = %60, %60, %60, %60, %60, %60
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   %632 = load i64, ptr %34, align 8, !noalias !1197, !noundef !5
-  %633 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val236, i64 %.val237, i64 noundef %632), !noalias !1197
+  %633 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %632), !noalias !1197
   call fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$9span_char17h0e5eb465cfe94ff7E"(ptr noalias nocapture noundef align 8 dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) %1), !noalias !1201
   %634 = tail call fastcc noundef zeroext i1 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$4bump17hef8e7dc93909d145E"(ptr noalias noundef readonly align 8 dereferenceable(24) %1), !noalias !1201
   switch i32 %633, label %635 [
@@ -13335,7 +13335,7 @@ _ZN12regex_syntax23is_escapeable_character17h7765be5dc862e0e7E.exit.thread580: ;
   br label %53
 
 687:                                              ; preds = %681
-  %688 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val236, i64 %.val237, i64 noundef %682)
+  %688 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %682)
   %689 = icmp eq i32 %688, 123
   br i1 %689, label %691, label %690
 
@@ -13408,13 +13408,13 @@ _ZN12regex_syntax23is_escapeable_character17h7765be5dc862e0e7E.exit.thread580: ;
 706:                                              ; preds = %56
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.3.i)
   %707 = load i64, ptr %34, align 8, !noalias !1228, !noundef !5
-  %708 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val236, i64 %.val237, i64 noundef %707), !noalias !1228
+  %708 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %707), !noalias !1228
   %709 = icmp ugt i32 %708, 47
   br i1 %709, label %710, label %714
 
 710:                                              ; preds = %706
   %711 = load i64, ptr %34, align 8, !noalias !1228, !noundef !5
-  %712 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val236, i64 %.val237, i64 noundef %711), !noalias !1228
+  %712 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %711), !noalias !1228
   %713 = icmp ult i32 %712, 56
   br i1 %713, label %715, label %714
 
@@ -13475,13 +13475,13 @@ _ZN12regex_syntax23is_escapeable_character17h7765be5dc862e0e7E.exit.thread580: ;
   br i1 %733, label %743, label %742
 
 734:                                              ; preds = %716
-  %735 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val236, i64 %.val237, i64 noundef %.sroa.032.0.copyload.pre41.i), !noalias !1228
+  %735 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %.sroa.032.0.copyload.pre41.i), !noalias !1228
   %736 = icmp ugt i32 %735, 47
   %.sroa.032.0.copyload.pre40.i = load i64, ptr %34, align 8, !noalias !1228
   br i1 %736, label %737, label %718
 
 737:                                              ; preds = %734
-  %738 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val236, i64 %.val237, i64 noundef %.sroa.032.0.copyload.pre40.i), !noalias !1228
+  %738 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %.sroa.032.0.copyload.pre40.i), !noalias !1228
   %739 = icmp ult i32 %738, 56
   %.sroa.032.0.copyload.pre.i = load i64, ptr %34, align 8, !noalias !1228
   %740 = sub i64 %.sroa.032.0.copyload.pre.i, %.sroa.0.0.copyload.i
@@ -13498,7 +13498,7 @@ _ZN12regex_syntax23is_escapeable_character17h7765be5dc862e0e7E.exit.thread580: ;
   %745 = sub i64 %.sroa.032.0.copyload.i, %.sroa.0.0.copyload.i
   %746 = tail call i64 @"_ZN4core3num21_$LT$impl$u20$u32$GT$14from_str_radix17h05ff426e3903ffeaE"(ptr noalias noundef nonnull readonly align 1 %744, i64 noundef %745, i32 noundef 8), !noalias !1228
   %trunc.i.i259 = trunc i64 %746 to i1
-  br i1 %trunc.i.i259, label %747, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h7ac79e0685c34a79E.argprom.exit.i"
+  br i1 %trunc.i.i259, label %747, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h7ac79e0685c34a79E.exit.i"
 
 747:                                              ; preds = %743
   %.sroa.4.0.extract.shift.i.i = lshr i64 %746, 8
@@ -13508,7 +13508,7 @@ _ZN12regex_syntax23is_escapeable_character17h7765be5dc862e0e7E.exit.thread580: ;
   call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.ed16137989d64f70c3f50139d1d1d1dc.121, i64 noundef 18, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ed16137989d64f70c3f50139d1d1d1dc.25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ed16137989d64f70c3f50139d1d1d1dc.122) #23, !noalias !1228
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h7ac79e0685c34a79E.argprom.exit.i": ; preds = %743
+"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h7ac79e0685c34a79E.exit.i": ; preds = %743
   %.sroa.6.0.extract.shift.i.i = lshr i64 %746, 32
   %.sroa.6.0.extract.trunc.i.i = trunc nuw i64 %.sroa.6.0.extract.shift.i.i to i32
   %748 = xor i32 %.sroa.6.0.extract.trunc.i.i, 55296
@@ -13518,11 +13518,11 @@ _ZN12regex_syntax23is_escapeable_character17h7765be5dc862e0e7E.exit.thread580: ;
   %752 = or i1 %751, %750
   br i1 %752, label %753, label %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$11parse_octal17h257ac4b0d9b75006E.exit"
 
-753:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h7ac79e0685c34a79E.argprom.exit.i"
+753:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h7ac79e0685c34a79E.exit.i"
   tail call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.ed16137989d64f70c3f50139d1d1d1dc.123, i64 noundef 20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ed16137989d64f70c3f50139d1d1d1dc.124) #23, !noalias !1228
   unreachable
 
-"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$11parse_octal17h257ac4b0d9b75006E.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h7ac79e0685c34a79E.argprom.exit.i"
+"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$11parse_octal17h257ac4b0d9b75006E.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h7ac79e0685c34a79E.exit.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.411.sroa.6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.411.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.3.i)
@@ -13567,7 +13567,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$33may
   %.val82 = load ptr, ptr %14, align 8, !nonnull !5, !align !114, !noundef !5
   %15 = getelementptr inbounds i8, ptr %1, i64 16
   %.val83 = load i64, ptr %15, align 8, !noundef !5
-  %16 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val82, i64 %.val83, i64 noundef %13)
+  %16 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val82, i64 %.val83, i64 noundef %13)
   store i32 %16, ptr %11, align 4
   %17 = icmp eq i32 %16, 123
   br i1 %17, label %18, label %21
@@ -13613,7 +13613,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$33may
 
 27:                                               ; preds = %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %12, i64 24, i1 false)
-  %28 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val82, i64 %.val83, i64 noundef %20)
+  %28 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val82, i64 %.val83, i64 noundef %20)
   %29 = and i32 %28, 2097119
   %30 = add nsw i32 %29, -65
   %or.cond55 = icmp ult i32 %30, 26
@@ -13652,7 +13652,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$33may
 
 .lr.ph:                                           ; preds = %38, %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit88"
   %44 = phi i64 [ %56, %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit88" ], [ %41, %38 ]
-  %45 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val82, i64 %.val83, i64 noundef %44)
+  %45 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val82, i64 %.val83, i64 noundef %44)
           to label %46 unwind label %.loopexit
 
 46:                                               ; preds = %.lr.ph
@@ -13665,7 +13665,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$33may
   br i1 %or.cond60, label %50, label %._crit_edge
 
 50:                                               ; preds = %46
-  %51 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val82, i64 %.val83, i64 noundef %.pre.pre)
+  %51 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val82, i64 %.val83, i64 noundef %.pre.pre)
           to label %52 unwind label %.loopexit
 
 52:                                               ; preds = %50
@@ -13693,7 +13693,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$33may
   br i1 %58, label %._crit_edge.thread, label %59
 
 59:                                               ; preds = %._crit_edge
-  %60 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val82, i64 %.val83, i64 noundef %.pre.pre)
+  %60 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val82, i64 %.val83, i64 noundef %.pre.pre)
           to label %61 unwind label %.loopexit.split-lp
 
 61:                                               ; preds = %59
@@ -13868,7 +13868,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$13par
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 21:                                               ; preds = %16
-  %22 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val65, i64 %14, i64 noundef %17)
+  %22 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val65, i64 %14, i64 noundef %17)
           to label %23 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 23:                                               ; preds = %21
@@ -13930,7 +13930,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$13par
 
 .lr.ph:                                           ; preds = %.critedge41, %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit"
   %48 = phi i64 [ %62, %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit" ], [ %19, %.critedge41 ]
-  %49 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val65, i64 %14, i64 noundef %48)
+  %49 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val65, i64 %14, i64 noundef %48)
           to label %50 unwind label %.loopexit.split-lp.loopexit
 
 50:                                               ; preds = %.lr.ph
@@ -13939,7 +13939,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$13par
   br i1 %51, label %52, label %._crit_edge
 
 52:                                               ; preds = %50
-  %53 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val65, i64 %14, i64 noundef %.pre.pre114)
+  %53 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val65, i64 %14, i64 noundef %.pre.pre114)
           to label %54 unwind label %.loopexit.split-lp.loopexit
 
 54:                                               ; preds = %52
@@ -13948,7 +13948,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$13par
   br i1 %55, label %56, label %._crit_edge
 
 56:                                               ; preds = %54
-  %57 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val65, i64 %14, i64 noundef %.pre.pre)
+  %57 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val65, i64 %14, i64 noundef %.pre.pre)
           to label %58 unwind label %.loopexit.split-lp.loopexit
 
 58:                                               ; preds = %56
@@ -13986,7 +13986,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$13par
 
 .lr.ph110:                                        ; preds = %._crit_edge, %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit76"
   %69 = phi i64 [ %97, %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit76" ], [ %64, %._crit_edge ]
-  %70 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE.argprom"(ptr nonnull %.val65, i64 %14, i64 noundef %69)
+  %70 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val65, i64 %14, i64 noundef %69)
           to label %71 unwind label %.loopexit
 
 71:                                               ; preds = %.lr.ph110
@@ -15682,8 +15682,8 @@ attributes #23 = { noreturn }
 !513 = distinct !{!513, !511, !"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$16add_capture_name17h43b9134d1ebd4577E: argument 0"}
 !514 = distinct !{!514, !511, !"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$16add_capture_name17h43b9134d1ebd4577E: argument 1"}
 !515 = !{!516}
-!516 = distinct !{!516, !517, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h5966c92039a0d953E.argprom: argument 0"}
-!517 = distinct !{!517, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h5966c92039a0d953E.argprom"}
+!516 = distinct !{!516, !517, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h5966c92039a0d953E: argument 0"}
+!517 = distinct !{!517, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h5966c92039a0d953E"}
 !518 = !{!519}
 !519 = distinct !{!519, !520, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hf85dd5f6da86baafE: argument 0"}
 !520 = distinct !{!520, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hf85dd5f6da86baafE"}
@@ -15871,8 +15871,8 @@ attributes #23 = { noreturn }
 !702 = distinct !{!702, !700, !"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$14push_alternate17he5dddba684554a86E: argument 2"}
 !703 = !{!699, !701}
 !704 = !{!705, !699, !701, !702}
-!705 = distinct !{!705, !706, !"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$23push_or_add_alternation17hbe2cb04070b93babE.argprom: argument 0"}
-!706 = distinct !{!706, !"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$23push_or_add_alternation17hbe2cb04070b93babE.argprom"}
+!705 = distinct !{!705, !706, !"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$23push_or_add_alternation17hbe2cb04070b93babE: argument 0"}
+!706 = distinct !{!706, !"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$23push_or_add_alternation17hbe2cb04070b93babE"}
 !707 = !{!708}
 !708 = distinct !{!708, !709, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h68df1cbeac0eb367E: argument 0"}
 !709 = distinct !{!709, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h68df1cbeac0eb367E"}
@@ -15906,9 +15906,9 @@ attributes #23 = { noreturn }
 !737 = !{!729, !724}
 !738 = !{!731, !724, !726}
 !739 = !{!740, !742, !729, !731, !724, !726}
-!740 = distinct !{!740, !741, !"_ZN12regex_syntax3ast5parse9Primitive19into_class_set_item17h3f8cf6ec1ccc895dE.argprom: argument 0"}
-!741 = distinct !{!741, !"_ZN12regex_syntax3ast5parse9Primitive19into_class_set_item17h3f8cf6ec1ccc895dE.argprom"}
-!742 = distinct !{!742, !741, !"_ZN12regex_syntax3ast5parse9Primitive19into_class_set_item17h3f8cf6ec1ccc895dE.argprom: argument 1"}
+!740 = distinct !{!740, !741, !"_ZN12regex_syntax3ast5parse9Primitive19into_class_set_item17h3f8cf6ec1ccc895dE: argument 0"}
+!741 = distinct !{!741, !"_ZN12regex_syntax3ast5parse9Primitive19into_class_set_item17h3f8cf6ec1ccc895dE"}
+!742 = distinct !{!742, !741, !"_ZN12regex_syntax3ast5parse9Primitive19into_class_set_item17h3f8cf6ec1ccc895dE: argument 1"}
 !743 = !{!740, !729, !731, !724, !726}
 !744 = !{!729, !724, !726}
 !745 = !{!746, !748, !729, !724, !726}
@@ -15918,15 +15918,15 @@ attributes #23 = { noreturn }
 !749 = !{!748, !729, !724, !726}
 !750 = !{i64 0, i64 -9223372036854775802}
 !751 = !{!752, !754, !729, !731, !724, !726}
-!752 = distinct !{!752, !753, !"_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom: argument 0"}
-!753 = distinct !{!753, !"_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom"}
-!754 = distinct !{!754, !753, !"_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom: argument 1"}
+!752 = distinct !{!752, !753, !"_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E: argument 0"}
+!753 = distinct !{!753, !"_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E"}
+!754 = distinct !{!754, !753, !"_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E: argument 1"}
 !755 = !{!752, !729, !731, !724, !726}
 !756 = !{!729, !731}
 !757 = !{!758, !760, !724, !726}
-!758 = distinct !{!758, !759, !"_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom: argument 0"}
-!759 = distinct !{!759, !"_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom"}
-!760 = distinct !{!760, !759, !"_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.argprom: argument 1"}
+!758 = distinct !{!758, !759, !"_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E: argument 0"}
+!759 = distinct !{!759, !"_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E"}
+!760 = distinct !{!760, !759, !"_ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E: argument 1"}
 !761 = !{!758, !724, !726}
 !762 = !{!763}
 !763 = distinct !{!763, !764, !"_ZN4core3ptr56drop_in_place$LT$regex_syntax..ast..parse..Primitive$GT$17hffd0ccbf2d632c50E: argument 0"}
@@ -16276,8 +16276,8 @@ attributes #23 = { noreturn }
 !1107 = !{!1104}
 !1108 = !{!1106}
 !1109 = !{!1110, !1104, !1106}
-!1110 = distinct !{!1110, !1111, !"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h3589c14407f9122bE.argprom: argument 0"}
-!1111 = distinct !{!1111, !"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h3589c14407f9122bE.argprom"}
+!1110 = distinct !{!1110, !1111, !"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h3589c14407f9122bE: argument 0"}
+!1111 = distinct !{!1111, !"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h3589c14407f9122bE"}
 !1112 = !{!1113}
 !1113 = distinct !{!1113, !1114, !"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h93c72b3d81be7e75E: argument 1"}
 !1114 = distinct !{!1114, !"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h93c72b3d81be7e75E"}

@@ -480,7 +480,7 @@ define internal fastcc void @rb_load_internal(i64 noundef %0, i64 noundef %1) un
   store ptr %29, ptr %30, align 8
   %.0.1.val.i = load ptr, ptr %19, align 8
   %.not.i.i.i = icmp eq ptr %.0.1.val.i, null
-  br i1 %.not.i.i.i, label %rb_ec_ractor_ptr.argprom.exit.i.i, label %31
+  br i1 %.not.i.i.i, label %rb_ec_ractor_ptr.exit.i.i, label %31
 
 31:                                               ; preds = %18
   %32 = getelementptr inbounds i8, ptr %.0.1.val.i, i64 32
@@ -488,23 +488,23 @@ define internal fastcc void @rb_load_internal(i64 noundef %0, i64 noundef %1) un
   %34 = getelementptr inbounds i8, ptr %33, i64 88
   %35 = getelementptr inbounds i8, ptr %.0.1.val.i, i64 24
   %36 = load ptr, ptr %35, align 8
-  br label %rb_ec_ractor_ptr.argprom.exit.i.i
+  br label %rb_ec_ractor_ptr.exit.i.i
 
-rb_ec_ractor_ptr.argprom.exit.i.i:                ; preds = %31, %18
+rb_ec_ractor_ptr.exit.i.i:                        ; preds = %31, %18
   %.in.i.i = phi ptr [ %34, %31 ], [ inttoptr (i64 88 to ptr), %18 ]
   %.0.i2.i.i = phi ptr [ %33, %31 ], [ null, %18 ]
   %.0.i6.i.i = phi ptr [ %36, %31 ], [ null, %18 ]
   %37 = load ptr, ptr %.in.i.i, align 8
   %.not.i.i = icmp eq ptr %37, %.0.i6.i.i
-  br i1 %.not.i.i, label %38, label %rb_ec_vm_lock_rec.argprom.exit.i
+  br i1 %.not.i.i, label %38, label %rb_ec_vm_lock_rec.exit.i
 
-38:                                               ; preds = %rb_ec_ractor_ptr.argprom.exit.i.i
+38:                                               ; preds = %rb_ec_ractor_ptr.exit.i.i
   %39 = getelementptr inbounds i8, ptr %.0.i2.i.i, i64 96
   %40 = load i32, ptr %39, align 8
-  br label %rb_ec_vm_lock_rec.argprom.exit.i
+  br label %rb_ec_vm_lock_rec.exit.i
 
-rb_ec_vm_lock_rec.argprom.exit.i:                 ; preds = %38, %rb_ec_ractor_ptr.argprom.exit.i.i
-  %.0.i.i = phi i32 [ %40, %38 ], [ 0, %rb_ec_ractor_ptr.argprom.exit.i.i ]
+rb_ec_vm_lock_rec.exit.i:                         ; preds = %38, %rb_ec_ractor_ptr.exit.i.i
+  %.0.i.i = phi i32 [ %40, %38 ], [ 0, %rb_ec_ractor_ptr.exit.i.i ]
   %41 = getelementptr inbounds i8, ptr %6, i64 68
   store i32 %.0.i.i, ptr %41, align 4
   %42 = getelementptr inbounds i8, ptr %6, i64 16
@@ -517,7 +517,7 @@ rb_ec_vm_lock_rec.argprom.exit.i:                 ; preds = %38, %rb_ec_ractor_p
   %.not.i = icmp eq i32 %46, 0
   br i1 %.not.i, label %68, label %47
 
-47:                                               ; preds = %rb_ec_vm_lock_rec.argprom.exit.i
+47:                                               ; preds = %rb_ec_vm_lock_rec.exit.i
   %.0..0..0..0..0..0.2.i = load volatile ptr, ptr %5, align 8
   %48 = getelementptr inbounds i8, ptr %.0..0..0..0..0..0.2.i, i64 24
   %49 = load ptr, ptr %48, align 8
@@ -529,7 +529,7 @@ rb_ec_vm_lock_rec.argprom.exit.i:                 ; preds = %38, %rb_ec_ractor_p
   %54 = getelementptr i8, ptr %.0..0..0..0..0..0.2.i, i64 48
   %.val.i.i.i = load ptr, ptr %54, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i.i.i.i.i, label %rb_ec_ractor_ptr.argprom.exit.i.i.i.i, label %55
+  br i1 %.not.i.i.i.i.i, label %rb_ec_ractor_ptr.exit.i.i.i.i, label %55
 
 55:                                               ; preds = %47
   %56 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 32
@@ -537,38 +537,38 @@ rb_ec_vm_lock_rec.argprom.exit.i:                 ; preds = %38, %rb_ec_ractor_p
   %58 = getelementptr inbounds i8, ptr %57, i64 88
   %59 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 24
   %60 = load ptr, ptr %59, align 8
-  br label %rb_ec_ractor_ptr.argprom.exit.i.i.i.i
+  br label %rb_ec_ractor_ptr.exit.i.i.i.i
 
-rb_ec_ractor_ptr.argprom.exit.i.i.i.i:            ; preds = %55, %47
+rb_ec_ractor_ptr.exit.i.i.i.i:                    ; preds = %55, %47
   %.in.i.i.i.i = phi ptr [ %58, %55 ], [ inttoptr (i64 88 to ptr), %47 ]
   %.0.i2.i.i.i.i = phi ptr [ %57, %55 ], [ null, %47 ]
   %.0.i6.i.i.i.i = phi ptr [ %60, %55 ], [ null, %47 ]
   %61 = load ptr, ptr %.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %61, %.0.i6.i.i.i.i
-  br i1 %.not.i.i.i.i, label %62, label %rb_ec_vm_lock_rec.argprom.exit.i.i.i
+  br i1 %.not.i.i.i.i, label %62, label %rb_ec_vm_lock_rec.exit.i.i.i
 
-62:                                               ; preds = %rb_ec_ractor_ptr.argprom.exit.i.i.i.i
+62:                                               ; preds = %rb_ec_ractor_ptr.exit.i.i.i.i
   %63 = getelementptr inbounds i8, ptr %.0.i2.i.i.i.i, i64 96
   %64 = load i32, ptr %63, align 8
-  br label %rb_ec_vm_lock_rec.argprom.exit.i.i.i
+  br label %rb_ec_vm_lock_rec.exit.i.i.i
 
-rb_ec_vm_lock_rec.argprom.exit.i.i.i:             ; preds = %62, %rb_ec_ractor_ptr.argprom.exit.i.i.i.i
-  %.0.i.i.i.i = phi i32 [ %64, %62 ], [ 0, %rb_ec_ractor_ptr.argprom.exit.i.i.i.i ]
+rb_ec_vm_lock_rec.exit.i.i.i:                     ; preds = %62, %rb_ec_ractor_ptr.exit.i.i.i.i
+  %.0.i.i.i.i = phi i32 [ %64, %62 ], [ 0, %rb_ec_ractor_ptr.exit.i.i.i.i ]
   %.not.i.i22.i = icmp eq i32 %.0.i.i.i.i, %53
   br i1 %.not.i.i22.i, label %66, label %65
 
-65:                                               ; preds = %rb_ec_vm_lock_rec.argprom.exit.i.i.i
+65:                                               ; preds = %rb_ec_vm_lock_rec.exit.i.i.i
   call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %.0..0..0..0..0..0.2.i, i32 noundef %53, i32 noundef %.0.i.i.i.i) #6
   %.0..0..0..0..0..0.4.pre.pre.i = load ptr, ptr %5, align 8
   br label %66
 
-66:                                               ; preds = %65, %rb_ec_vm_lock_rec.argprom.exit.i.i.i
-  %.0..0..0.4.pre.i = phi ptr [ %.0..0..0..0..0..0.4.pre.pre.i, %65 ], [ %.0..0..0..0..0..0.2.i, %rb_ec_vm_lock_rec.argprom.exit.i.i.i ]
+66:                                               ; preds = %65, %rb_ec_vm_lock_rec.exit.i.i.i
+  %.0..0..0.4.pre.i = phi ptr [ %.0..0..0..0..0..0.4.pre.pre.i, %65 ], [ %.0..0..0..0..0..0.2.i, %rb_ec_vm_lock_rec.exit.i.i.i ]
   %67 = icmp ne i32 %51, 0
   call void @llvm.assume(i1 %67)
   br label %69
 
-68:                                               ; preds = %rb_ec_vm_lock_rec.argprom.exit.i
+68:                                               ; preds = %rb_ec_vm_lock_rec.exit.i
   store ptr %6, ptr %28, align 8
   call fastcc void @load_iseq_eval(ptr noundef nonnull %8, i64 noundef %0)
   br label %69
@@ -631,7 +631,7 @@ define dso_local void @rb_load_protect(i64 noundef %0, i32 noundef %1, ptr nocap
   %14 = getelementptr i8, ptr %9, i64 48
   %.0.1.val = load ptr, ptr %14, align 8
   %.not.i.i = icmp eq ptr %.0.1.val, null
-  br i1 %.not.i.i, label %rb_ec_ractor_ptr.argprom.exit.i, label %15
+  br i1 %.not.i.i, label %rb_ec_ractor_ptr.exit.i, label %15
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds i8, ptr %.0.1.val, i64 32
@@ -639,23 +639,23 @@ define dso_local void @rb_load_protect(i64 noundef %0, i32 noundef %1, ptr nocap
   %18 = getelementptr inbounds i8, ptr %17, i64 88
   %19 = getelementptr inbounds i8, ptr %.0.1.val, i64 24
   %20 = load ptr, ptr %19, align 8
-  br label %rb_ec_ractor_ptr.argprom.exit.i
+  br label %rb_ec_ractor_ptr.exit.i
 
-rb_ec_ractor_ptr.argprom.exit.i:                  ; preds = %15, %3
+rb_ec_ractor_ptr.exit.i:                          ; preds = %15, %3
   %.in.i = phi ptr [ %18, %15 ], [ inttoptr (i64 88 to ptr), %3 ]
   %.0.i2.i = phi ptr [ %17, %15 ], [ null, %3 ]
   %.0.i6.i = phi ptr [ %20, %15 ], [ null, %3 ]
   %21 = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %21, %.0.i6.i
-  br i1 %.not.i, label %22, label %rb_ec_vm_lock_rec.argprom.exit
+  br i1 %.not.i, label %22, label %rb_ec_vm_lock_rec.exit
 
-22:                                               ; preds = %rb_ec_ractor_ptr.argprom.exit.i
+22:                                               ; preds = %rb_ec_ractor_ptr.exit.i
   %23 = getelementptr inbounds i8, ptr %.0.i2.i, i64 96
   %24 = load i32, ptr %23, align 8
-  br label %rb_ec_vm_lock_rec.argprom.exit
+  br label %rb_ec_vm_lock_rec.exit
 
-rb_ec_vm_lock_rec.argprom.exit:                   ; preds = %rb_ec_ractor_ptr.argprom.exit.i, %22
-  %.0.i = phi i32 [ %24, %22 ], [ 0, %rb_ec_ractor_ptr.argprom.exit.i ]
+rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.exit.i, %22
+  %.0.i = phi i32 [ %24, %22 ], [ 0, %rb_ec_ractor_ptr.exit.i ]
   %25 = getelementptr inbounds i8, ptr %7, i64 68
   store i32 %.0.i, ptr %25, align 4
   %26 = getelementptr inbounds i8, ptr %7, i64 16
@@ -668,7 +668,7 @@ rb_ec_vm_lock_rec.argprom.exit:                   ; preds = %rb_ec_ractor_ptr.ar
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %50, label %31
 
-31:                                               ; preds = %rb_ec_vm_lock_rec.argprom.exit
+31:                                               ; preds = %rb_ec_vm_lock_rec.exit
   %.0..0..0..0.2 = load volatile ptr, ptr %6, align 8
   %32 = getelementptr inbounds i8, ptr %.0..0..0..0.2, i64 24
   %33 = load ptr, ptr %32, align 8
@@ -680,7 +680,7 @@ rb_ec_vm_lock_rec.argprom.exit:                   ; preds = %rb_ec_ractor_ptr.ar
   %38 = getelementptr i8, ptr %.0..0..0..0.2, i64 48
   %.val.i.i = load ptr, ptr %38, align 8
   %.not.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i, label %rb_ec_ractor_ptr.argprom.exit.i.i.i, label %39
+  br i1 %.not.i.i.i.i, label %rb_ec_ractor_ptr.exit.i.i.i, label %39
 
 39:                                               ; preds = %31
   %40 = getelementptr inbounds i8, ptr %.val.i.i, i64 32
@@ -688,32 +688,32 @@ rb_ec_vm_lock_rec.argprom.exit:                   ; preds = %rb_ec_ractor_ptr.ar
   %42 = getelementptr inbounds i8, ptr %41, i64 88
   %43 = getelementptr inbounds i8, ptr %.val.i.i, i64 24
   %44 = load ptr, ptr %43, align 8
-  br label %rb_ec_ractor_ptr.argprom.exit.i.i.i
+  br label %rb_ec_ractor_ptr.exit.i.i.i
 
-rb_ec_ractor_ptr.argprom.exit.i.i.i:              ; preds = %39, %31
+rb_ec_ractor_ptr.exit.i.i.i:                      ; preds = %39, %31
   %.in.i.i.i = phi ptr [ %42, %39 ], [ inttoptr (i64 88 to ptr), %31 ]
   %.0.i2.i.i.i = phi ptr [ %41, %39 ], [ null, %31 ]
   %.0.i6.i.i.i = phi ptr [ %44, %39 ], [ null, %31 ]
   %45 = load ptr, ptr %.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %45, %.0.i6.i.i.i
-  br i1 %.not.i.i.i, label %46, label %rb_ec_vm_lock_rec.argprom.exit.i.i
+  br i1 %.not.i.i.i, label %46, label %rb_ec_vm_lock_rec.exit.i.i
 
-46:                                               ; preds = %rb_ec_ractor_ptr.argprom.exit.i.i.i
+46:                                               ; preds = %rb_ec_ractor_ptr.exit.i.i.i
   %47 = getelementptr inbounds i8, ptr %.0.i2.i.i.i, i64 96
   %48 = load i32, ptr %47, align 8
-  br label %rb_ec_vm_lock_rec.argprom.exit.i.i
+  br label %rb_ec_vm_lock_rec.exit.i.i
 
-rb_ec_vm_lock_rec.argprom.exit.i.i:               ; preds = %46, %rb_ec_ractor_ptr.argprom.exit.i.i.i
-  %.0.i.i.i = phi i32 [ %48, %46 ], [ 0, %rb_ec_ractor_ptr.argprom.exit.i.i.i ]
+rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %46, %rb_ec_ractor_ptr.exit.i.i.i
+  %.0.i.i.i = phi i32 [ %48, %46 ], [ 0, %rb_ec_ractor_ptr.exit.i.i.i ]
   %.not.i.i10 = icmp eq i32 %.0.i.i.i, %37
   br i1 %.not.i.i10, label %58, label %49
 
-49:                                               ; preds = %rb_ec_vm_lock_rec.argprom.exit.i.i
+49:                                               ; preds = %rb_ec_vm_lock_rec.exit.i.i
   call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %.0..0..0..0.2, i32 noundef %37, i32 noundef %.0.i.i.i) #6
   %.0..0..0..0.4.pre = load ptr, ptr %6, align 8
   br label %58
 
-50:                                               ; preds = %rb_ec_vm_lock_rec.argprom.exit
+50:                                               ; preds = %rb_ec_vm_lock_rec.exit
   store ptr %7, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -742,8 +742,8 @@ rb_ec_vm_lock_rec.argprom.exit.i.i:               ; preds = %46, %rb_ec_ractor_p
   store ptr %57, ptr %11, align 8
   br label %62
 
-58:                                               ; preds = %49, %rb_ec_vm_lock_rec.argprom.exit.i.i
-  %.0..0..0.4 = phi ptr [ %.0..0..0..0.4.pre, %49 ], [ %.0..0..0..0.2, %rb_ec_vm_lock_rec.argprom.exit.i.i ]
+58:                                               ; preds = %49, %rb_ec_vm_lock_rec.exit.i.i
+  %.0..0..0.4 = phi ptr [ %.0..0..0..0.4.pre, %49 ], [ %.0..0..0..0.2, %rb_ec_vm_lock_rec.exit.i.i ]
   %59 = icmp ne i32 %35, 0
   call void @llvm.assume(i1 %59)
   %60 = load ptr, ptr %13, align 8
@@ -1395,7 +1395,7 @@ RSTRING_PTR.exit:                                 ; preds = %34, %40
   store ptr %45, ptr %46, align 8
   %.0.25.val = load ptr, ptr %21, align 8
   %.not.i.i111 = icmp eq ptr %.0.25.val, null
-  br i1 %.not.i.i111, label %rb_ec_ractor_ptr.argprom.exit.i, label %47
+  br i1 %.not.i.i111, label %rb_ec_ractor_ptr.exit.i, label %47
 
 47:                                               ; preds = %42
   %48 = getelementptr inbounds i8, ptr %.0.25.val, i64 32
@@ -1403,23 +1403,23 @@ RSTRING_PTR.exit:                                 ; preds = %34, %40
   %50 = getelementptr inbounds i8, ptr %49, i64 88
   %51 = getelementptr inbounds i8, ptr %.0.25.val, i64 24
   %52 = load ptr, ptr %51, align 8
-  br label %rb_ec_ractor_ptr.argprom.exit.i
+  br label %rb_ec_ractor_ptr.exit.i
 
-rb_ec_ractor_ptr.argprom.exit.i:                  ; preds = %47, %42
+rb_ec_ractor_ptr.exit.i:                          ; preds = %47, %42
   %.in.i = phi ptr [ %50, %47 ], [ inttoptr (i64 88 to ptr), %42 ]
   %.0.i2.i = phi ptr [ %49, %47 ], [ null, %42 ]
   %.0.i6.i = phi ptr [ %52, %47 ], [ null, %42 ]
   %53 = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %53, %.0.i6.i
-  br i1 %.not.i, label %54, label %rb_ec_vm_lock_rec.argprom.exit
+  br i1 %.not.i, label %54, label %rb_ec_vm_lock_rec.exit
 
-54:                                               ; preds = %rb_ec_ractor_ptr.argprom.exit.i
+54:                                               ; preds = %rb_ec_ractor_ptr.exit.i
   %55 = getelementptr inbounds i8, ptr %.0.i2.i, i64 96
   %56 = load i32, ptr %55, align 8
-  br label %rb_ec_vm_lock_rec.argprom.exit
+  br label %rb_ec_vm_lock_rec.exit
 
-rb_ec_vm_lock_rec.argprom.exit:                   ; preds = %rb_ec_ractor_ptr.argprom.exit.i, %54
-  %.0.i = phi i32 [ %56, %54 ], [ 0, %rb_ec_ractor_ptr.argprom.exit.i ]
+rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.exit.i, %54
+  %.0.i = phi i32 [ %56, %54 ], [ 0, %rb_ec_ractor_ptr.exit.i ]
   %57 = getelementptr inbounds i8, ptr %16, i64 68
   store i32 %.0.i, ptr %57, align 4
   %58 = getelementptr inbounds i8, ptr %16, i64 16
@@ -1434,7 +1434,7 @@ rb_ec_vm_lock_rec.argprom.exit:                   ; preds = %rb_ec_ractor_ptr.ar
   %.not89 = icmp eq i32 %62, 0
   br i1 %.not89, label %84, label %63
 
-63:                                               ; preds = %rb_ec_vm_lock_rec.argprom.exit
+63:                                               ; preds = %rb_ec_vm_lock_rec.exit
   %.0..0..0..0.26 = load volatile ptr, ptr %15, align 8
   %64 = getelementptr inbounds i8, ptr %.0..0..0..0.26, i64 24
   %65 = load ptr, ptr %64, align 8
@@ -1446,7 +1446,7 @@ rb_ec_vm_lock_rec.argprom.exit:                   ; preds = %rb_ec_ractor_ptr.ar
   %70 = getelementptr i8, ptr %.0..0..0..0.26, i64 48
   %.val.i.i = load ptr, ptr %70, align 8
   %.not.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i, label %rb_ec_ractor_ptr.argprom.exit.i.i.i, label %71
+  br i1 %.not.i.i.i.i, label %rb_ec_ractor_ptr.exit.i.i.i, label %71
 
 71:                                               ; preds = %63
   %72 = getelementptr inbounds i8, ptr %.val.i.i, i64 32
@@ -1454,36 +1454,36 @@ rb_ec_vm_lock_rec.argprom.exit:                   ; preds = %rb_ec_ractor_ptr.ar
   %74 = getelementptr inbounds i8, ptr %73, i64 88
   %75 = getelementptr inbounds i8, ptr %.val.i.i, i64 24
   %76 = load ptr, ptr %75, align 8
-  br label %rb_ec_ractor_ptr.argprom.exit.i.i.i
+  br label %rb_ec_ractor_ptr.exit.i.i.i
 
-rb_ec_ractor_ptr.argprom.exit.i.i.i:              ; preds = %71, %63
+rb_ec_ractor_ptr.exit.i.i.i:                      ; preds = %71, %63
   %.in.i.i.i = phi ptr [ %74, %71 ], [ inttoptr (i64 88 to ptr), %63 ]
   %.0.i2.i.i.i = phi ptr [ %73, %71 ], [ null, %63 ]
   %.0.i6.i.i.i = phi ptr [ %76, %71 ], [ null, %63 ]
   %77 = load ptr, ptr %.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %77, %.0.i6.i.i.i
-  br i1 %.not.i.i.i, label %78, label %rb_ec_vm_lock_rec.argprom.exit.i.i
+  br i1 %.not.i.i.i, label %78, label %rb_ec_vm_lock_rec.exit.i.i
 
-78:                                               ; preds = %rb_ec_ractor_ptr.argprom.exit.i.i.i
+78:                                               ; preds = %rb_ec_ractor_ptr.exit.i.i.i
   %79 = getelementptr inbounds i8, ptr %.0.i2.i.i.i, i64 96
   %80 = load i32, ptr %79, align 8
-  br label %rb_ec_vm_lock_rec.argprom.exit.i.i
+  br label %rb_ec_vm_lock_rec.exit.i.i
 
-rb_ec_vm_lock_rec.argprom.exit.i.i:               ; preds = %78, %rb_ec_ractor_ptr.argprom.exit.i.i.i
-  %.0.i.i.i = phi i32 [ %80, %78 ], [ 0, %rb_ec_ractor_ptr.argprom.exit.i.i.i ]
+rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %78, %rb_ec_ractor_ptr.exit.i.i.i
+  %.0.i.i.i = phi i32 [ %80, %78 ], [ 0, %rb_ec_ractor_ptr.exit.i.i.i ]
   %.not.i.i112 = icmp eq i32 %.0.i.i.i, %69
   br i1 %.not.i.i112, label %82, label %81
 
-81:                                               ; preds = %rb_ec_vm_lock_rec.argprom.exit.i.i
+81:                                               ; preds = %rb_ec_vm_lock_rec.exit.i.i
   call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %.0..0..0..0.26, i32 noundef %69, i32 noundef %.0.i.i.i) #6
   br label %82
 
-82:                                               ; preds = %81, %rb_ec_vm_lock_rec.argprom.exit.i.i
+82:                                               ; preds = %81, %rb_ec_vm_lock_rec.exit.i.i
   %83 = icmp ne i32 %67, 0
   call void @llvm.assume(i1 %83)
   br label %178
 
-84:                                               ; preds = %rb_ec_vm_lock_rec.argprom.exit
+84:                                               ; preds = %rb_ec_vm_lock_rec.exit
   %.0..0..0..0.27 = load ptr, ptr %15, align 8
   %85 = getelementptr inbounds i8, ptr %.0..0..0..0.27, i64 24
   store ptr %16, ptr %85, align 8
@@ -1574,9 +1574,9 @@ RSTRING_PTR.exit124:                              ; preds = %110, %116
   %118 = ptrtoint ptr %.sroa.2.0.i123 to i64
   %119 = call i32 @rb_st_lookup(ptr noundef %.val108, i64 noundef %118, ptr noundef nonnull %7) #6
   %.not.i125 = icmp eq i32 %119, 0
-  br i1 %.not.i125, label %load_lock.argprom.exit.thread148, label %124
+  br i1 %.not.i125, label %load_lock.exit.thread148, label %124
 
-load_lock.argprom.exit.thread148:                 ; preds = %RSTRING_PTR.exit124
+load_lock.exit.thread148:                         ; preds = %RSTRING_PTR.exit124
   %120 = call noalias nonnull ptr @ruby_strdup(ptr noundef %.sroa.2.0.i123) #6
   %121 = call i64 @rb_thread_shield_new() #6
   store i64 %121, ptr %7, align 8
@@ -1603,27 +1603,27 @@ load_lock.argprom.exit.thread148:                 ; preds = %RSTRING_PTR.exit124
 130:                                              ; preds = %128, %125, %124
   %131 = load i64, ptr %7, align 8
   %132 = call i64 @rb_thread_shield_wait(i64 noundef %131) #6
-  switch i64 %132, label %load_lock.argprom.exit [
-    i64 0, label %load_lock.argprom.exit.thread
-    i64 4, label %load_lock.argprom.exit.thread
+  switch i64 %132, label %load_lock.exit [
+    i64 0, label %load_lock.exit.thread
+    i64 4, label %load_lock.exit.thread
   ]
 
-load_lock.argprom.exit.thread:                    ; preds = %130, %130
+load_lock.exit.thread:                            ; preds = %130, %130
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   store volatile ptr null, ptr %10, align 8
   br label %133
 
-load_lock.argprom.exit:                           ; preds = %130
+load_lock.exit:                                   ; preds = %130
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   store volatile ptr %.sroa.2.0.i123, ptr %10, align 8
   %.not96 = icmp eq ptr %.sroa.2.0.i123, null
   br i1 %.not96, label %133, label %134
 
-133:                                              ; preds = %load_lock.argprom.exit.thread, %load_lock.argprom.exit, %109
+133:                                              ; preds = %load_lock.exit.thread, %load_lock.exit, %109
   store volatile i32 0, ptr %9, align 4
   br label %178
 
-134:                                              ; preds = %load_lock.argprom.exit.thread148, %load_lock.argprom.exit
+134:                                              ; preds = %load_lock.exit.thread148, %load_lock.exit
   %.0..0..0..0.48 = load volatile ptr, ptr %10, align 8
   %135 = load i8, ptr %.0..0..0..0.48, align 1
   %.not97 = icmp eq i8 %135, 0
@@ -1657,14 +1657,14 @@ RSTRING_PTR.exit130:                              ; preds = %139, %143
   %145 = ptrtoint ptr %.sroa.2.0.i129 to i64
   store i64 %145, ptr %5, align 8
   %.not.i131 = icmp eq ptr %.val109, null
-  br i1 %.not.i131, label %run_static_ext_init.argprom.exit.thread, label %146
+  br i1 %.not.i131, label %run_static_ext_init.exit.thread, label %146
 
 146:                                              ; preds = %RSTRING_PTR.exit130
   %147 = call i32 @rb_st_delete(ptr noundef nonnull %.val109, ptr noundef nonnull %5, ptr noundef nonnull %6) #6
   %.not5.i = icmp eq i32 %147, 0
-  br i1 %.not5.i, label %run_static_ext_init.argprom.exit.thread, label %148
+  br i1 %.not5.i, label %run_static_ext_init.exit.thread, label %148
 
-run_static_ext_init.argprom.exit.thread:          ; preds = %146, %RSTRING_PTR.exit130
+run_static_ext_init.exit.thread:                  ; preds = %146, %RSTRING_PTR.exit130
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %151
@@ -1678,7 +1678,7 @@ run_static_ext_init.argprom.exit.thread:          ; preds = %146, %RSTRING_PTR.e
   store volatile i32 1, ptr %9, align 4
   br label %178
 
-151:                                              ; preds = %run_static_ext_init.argprom.exit.thread, %137
+151:                                              ; preds = %run_static_ext_init.exit.thread, %137
   %152 = call i64 @rb_hash_aref(i64 noundef %.val106, i64 noundef %108) #6
   %153 = and i64 %152, -5
   %.not.i133 = icmp eq i64 %153, 0
@@ -3674,7 +3674,7 @@ rb_darray_size.exit.i:                            ; preds = %Check_Type.exit, %i
   %118 = load i64, ptr %117, align 8
   %.fr.i = freeze i64 %118
   %119 = icmp ult i64 %116, %.fr.i
-  br i1 %119, label %rb_darray_ensure_space.argprom.exit, label %120
+  br i1 %119, label %rb_darray_ensure_space.exit, label %120
 
 120:                                              ; preds = %rb_darray_size.exit.i
   %121 = icmp eq i64 %.fr.i, 0
@@ -3683,30 +3683,30 @@ rb_darray_size.exit.i:                            ; preds = %Check_Type.exit, %i
 .thread2.i:                                       ; preds = %120
   %122 = shl i64 %.fr.i, 1
   %123 = tail call ptr @rb_xrealloc_mul_add(ptr noundef nonnull %55, i64 noundef %122, i64 noundef 8, i64 noundef 16) #6
-  br label %rb_darray_resize_capa_impl.argprom.exit.i
+  br label %rb_darray_resize_capa_impl.exit.i
 
 124:                                              ; preds = %120
   %125 = tail call ptr @rb_xrealloc_mul_add(ptr noundef nonnull %55, i64 noundef 1, i64 noundef 8, i64 noundef 16) #6
-  br label %rb_darray_resize_capa_impl.argprom.exit.i
+  br label %rb_darray_resize_capa_impl.exit.i
 
 126:                                              ; preds = %56, %.loopexit
   %127 = tail call ptr @rb_xrealloc_mul_add(ptr noundef null, i64 noundef 1, i64 noundef 8, i64 noundef 16) #6
   store i64 0, ptr %127, align 8
-  br label %rb_darray_resize_capa_impl.argprom.exit.i
+  br label %rb_darray_resize_capa_impl.exit.i
 
-rb_darray_resize_capa_impl.argprom.exit.i:        ; preds = %126, %124, %.thread2.i
+rb_darray_resize_capa_impl.exit.i:                ; preds = %126, %124, %.thread2.i
   %.068 = phi i64 [ %.070, %.thread2.i ], [ %.070, %124 ], [ -1, %126 ]
   %128 = phi ptr [ %123, %.thread2.i ], [ %125, %124 ], [ %127, %126 ]
   %129 = phi i64 [ %122, %.thread2.i ], [ 1, %124 ], [ 1, %126 ]
   %130 = getelementptr inbounds i8, ptr %128, i64 8
   store i64 %129, ptr %130, align 8
   %.pre107 = load i64, ptr %128, align 8
-  br label %rb_darray_ensure_space.argprom.exit
+  br label %rb_darray_ensure_space.exit
 
-rb_darray_ensure_space.argprom.exit:              ; preds = %rb_darray_size.exit.i, %rb_darray_resize_capa_impl.argprom.exit.i
-  %131 = phi i64 [ %.pre107, %rb_darray_resize_capa_impl.argprom.exit.i ], [ %116, %rb_darray_size.exit.i ]
-  %.069 = phi i64 [ %.068, %rb_darray_resize_capa_impl.argprom.exit.i ], [ %.070, %rb_darray_size.exit.i ]
-  %.064 = phi ptr [ %128, %rb_darray_resize_capa_impl.argprom.exit.i ], [ %55, %rb_darray_size.exit.i ]
+rb_darray_ensure_space.exit:                      ; preds = %rb_darray_size.exit.i, %rb_darray_resize_capa_impl.exit.i
+  %131 = phi i64 [ %.pre107, %rb_darray_resize_capa_impl.exit.i ], [ %116, %rb_darray_size.exit.i ]
+  %.069 = phi i64 [ %.068, %rb_darray_resize_capa_impl.exit.i ], [ %.070, %rb_darray_size.exit.i ]
+  %.064 = phi ptr [ %128, %rb_darray_resize_capa_impl.exit.i ], [ %55, %rb_darray_size.exit.i ]
   %132 = ashr i64 %8, 1
   %133 = getelementptr inbounds i8, ptr %.064, i64 16
   %134 = getelementptr [0 x i64], ptr %133, i64 0, i64 %131
@@ -3719,7 +3719,7 @@ rb_darray_ensure_space.argprom.exit:              ; preds = %rb_darray_size.exit
   %138 = icmp sgt i64 %.069, -1
   br i1 %138, label %rb_darray_size.exit54, label %148
 
-rb_darray_size.exit54:                            ; preds = %rb_darray_ensure_space.argprom.exit
+rb_darray_size.exit54:                            ; preds = %rb_darray_ensure_space.exit
   %139 = load i64, ptr %.064, align 8
   %140 = xor i64 %.069, -1
   %141 = add i64 %139, %140
@@ -3742,7 +3742,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %rb_darray_size.exit
   store i64 %8, ptr %1, align 8
   br label %148
 
-148:                                              ; preds = %is_rbext_path.exit, %rbimpl_size_mul_or_raise.exit, %rb_darray_ensure_space.argprom.exit, %147
+148:                                              ; preds = %is_rbext_path.exit, %rbimpl_size_mul_or_raise.exit, %rb_darray_ensure_space.exit, %147
   ret i32 0
 }
 

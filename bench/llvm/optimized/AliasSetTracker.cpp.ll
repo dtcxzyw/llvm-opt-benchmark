@@ -254,22 +254,22 @@ define dso_local void @_ZN4llvm8AliasSet10mergeSetInERS0_RNS_15AliasSetTrackerER
 .lr.ph.i.i.i.i.i.i:                               ; preds = %17, %35
   %.045.i.i.i.i.i.i = phi i64 [ %37, %35 ], [ %23, %17 ]
   %.02944.i.i.i.i.i.i = phi ptr [ %36, %35 ], [ %19, %17 ]
-  %25 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8AliasSet10mergeSetInERS3_RNS2_15AliasSetTrackerERNS2_14BatchAAResultsEE3$_0EclIPNS2_14MemoryLocationEEEbT_.argprom"(ptr nonnull %1, ptr nonnull %3, ptr noundef %.02944.i.i.i.i.i.i)
+  %25 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8AliasSet10mergeSetInERS3_RNS2_15AliasSetTrackerERNS2_14BatchAAResultsEE3$_0EclIPNS2_14MemoryLocationEEEbT_"(ptr nonnull %1, ptr nonnull %3, ptr noundef %.02944.i.i.i.i.i.i)
   br i1 %25, label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_14MemoryLocationELj0EEEZNS_8AliasSet10mergeSetInERS5_RNS_15AliasSetTrackerERNS_14BatchAAResultsEE3$_0EEbOT_T0_.exit", label %26
 
 26:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %27 = getelementptr inbounds i8, ptr %.02944.i.i.i.i.i.i, i64 48
-  %28 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8AliasSet10mergeSetInERS3_RNS2_15AliasSetTrackerERNS2_14BatchAAResultsEE3$_0EclIPNS2_14MemoryLocationEEEbT_.argprom"(ptr nonnull %1, ptr nonnull %3, ptr noundef nonnull %27)
+  %28 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8AliasSet10mergeSetInERS3_RNS2_15AliasSetTrackerERNS2_14BatchAAResultsEE3$_0EclIPNS2_14MemoryLocationEEEbT_"(ptr nonnull %1, ptr nonnull %3, ptr noundef nonnull %27)
   br i1 %28, label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_14MemoryLocationELj0EEEZNS_8AliasSet10mergeSetInERS5_RNS_15AliasSetTrackerERNS_14BatchAAResultsEE3$_0EEbOT_T0_.exit", label %29
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %.02944.i.i.i.i.i.i, i64 96
-  %31 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8AliasSet10mergeSetInERS3_RNS2_15AliasSetTrackerERNS2_14BatchAAResultsEE3$_0EclIPNS2_14MemoryLocationEEEbT_.argprom"(ptr nonnull %1, ptr nonnull %3, ptr noundef nonnull %30)
+  %31 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8AliasSet10mergeSetInERS3_RNS2_15AliasSetTrackerERNS2_14BatchAAResultsEE3$_0EclIPNS2_14MemoryLocationEEEbT_"(ptr nonnull %1, ptr nonnull %3, ptr noundef nonnull %30)
   br i1 %31, label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_14MemoryLocationELj0EEEZNS_8AliasSet10mergeSetInERS5_RNS_15AliasSetTrackerERNS_14BatchAAResultsEE3$_0EEbOT_T0_.exit", label %32
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds i8, ptr %.02944.i.i.i.i.i.i, i64 144
-  %34 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8AliasSet10mergeSetInERS3_RNS2_15AliasSetTrackerERNS2_14BatchAAResultsEE3$_0EclIPNS2_14MemoryLocationEEEbT_.argprom"(ptr nonnull %1, ptr nonnull %3, ptr noundef nonnull %33)
+  %34 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8AliasSet10mergeSetInERS3_RNS2_15AliasSetTrackerERNS2_14BatchAAResultsEE3$_0EclIPNS2_14MemoryLocationEEEbT_"(ptr nonnull %1, ptr nonnull %3, ptr noundef nonnull %33)
   br i1 %34, label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_14MemoryLocationELj0EEEZNS_8AliasSet10mergeSetInERS5_RNS_15AliasSetTrackerERNS_14BatchAAResultsEE3$_0EEbOT_T0_.exit", label %35
 
 35:                                               ; preds = %32
@@ -294,7 +294,7 @@ define dso_local void @_ZN4llvm8AliasSet10mergeSetInERS0_RNS_15AliasSetTrackerER
   ]
 
 40:                                               ; preds = %._crit_edge.i.i.i.i.i.i
-  %41 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8AliasSet10mergeSetInERS3_RNS2_15AliasSetTrackerERNS2_14BatchAAResultsEE3$_0EclIPNS2_14MemoryLocationEEEbT_.argprom"(ptr nonnull %1, ptr nonnull %3, ptr noundef %.029.lcssa.i.i.i.i.i.i)
+  %41 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8AliasSet10mergeSetInERS3_RNS2_15AliasSetTrackerERNS2_14BatchAAResultsEE3$_0EclIPNS2_14MemoryLocationEEEbT_"(ptr nonnull %1, ptr nonnull %3, ptr noundef %.029.lcssa.i.i.i.i.i.i)
   br i1 %41, label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_14MemoryLocationELj0EEEZNS_8AliasSet10mergeSetInERS5_RNS_15AliasSetTrackerERNS_14BatchAAResultsEE3$_0EEbOT_T0_.exit", label %42
 
 42:                                               ; preds = %40
@@ -303,7 +303,7 @@ define dso_local void @_ZN4llvm8AliasSet10mergeSetInERS0_RNS_15AliasSetTrackerER
 
 44:                                               ; preds = %42, %._crit_edge.i.i.i.i.i.i
   %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %43, %42 ]
-  %45 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8AliasSet10mergeSetInERS3_RNS2_15AliasSetTrackerERNS2_14BatchAAResultsEE3$_0EclIPNS2_14MemoryLocationEEEbT_.argprom"(ptr nonnull %1, ptr nonnull %3, ptr noundef %.1.i.i.i.i.i.i)
+  %45 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8AliasSet10mergeSetInERS3_RNS2_15AliasSetTrackerERNS2_14BatchAAResultsEE3$_0EclIPNS2_14MemoryLocationEEEbT_"(ptr nonnull %1, ptr nonnull %3, ptr noundef %.1.i.i.i.i.i.i)
   br i1 %45, label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_14MemoryLocationELj0EEEZNS_8AliasSet10mergeSetInERS5_RNS_15AliasSetTrackerERNS_14BatchAAResultsEE3$_0EEbOT_T0_.exit", label %46
 
 46:                                               ; preds = %44
@@ -312,7 +312,7 @@ define dso_local void @_ZN4llvm8AliasSet10mergeSetInERS0_RNS_15AliasSetTrackerER
 
 48:                                               ; preds = %46, %._crit_edge.i.i.i.i.i.i
   %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %47, %46 ]
-  %49 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8AliasSet10mergeSetInERS3_RNS2_15AliasSetTrackerERNS2_14BatchAAResultsEE3$_0EclIPNS2_14MemoryLocationEEEbT_.argprom"(ptr nonnull %1, ptr nonnull %3, ptr noundef %.2.i.i.i.i.i.i)
+  %49 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8AliasSet10mergeSetInERS3_RNS2_15AliasSetTrackerERNS2_14BatchAAResultsEE3$_0EclIPNS2_14MemoryLocationEEEbT_"(ptr nonnull %1, ptr nonnull %3, ptr noundef %.2.i.i.i.i.i.i)
   br i1 %49, label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_14MemoryLocationELj0EEEZNS_8AliasSet10mergeSetInERS5_RNS_15AliasSetTrackerERNS_14BatchAAResultsEE3$_0EEbOT_T0_.exit", label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_14MemoryLocationELj0EEEZNS_8AliasSet10mergeSetInERS5_RNS_15AliasSetTrackerERNS_14BatchAAResultsEE3$_0EEbOT_T0_.exit.thread"
 
 "_ZN4llvm6any_ofIRNS_11SmallVectorINS_14MemoryLocationELj0EEEZNS_8AliasSet10mergeSetInERS5_RNS_15AliasSetTrackerERNS_14BatchAAResultsEE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %26, %29, %32, %40, %44, %48
@@ -4374,7 +4374,7 @@ declare void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull al
 declare void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEE15setInitialValueERKj(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8AliasSet10mergeSetInERS3_RNS2_15AliasSetTrackerERNS2_14BatchAAResultsEE3$_0EclIPNS2_14MemoryLocationEEEbT_.argprom"(ptr %.0.val, ptr %.8.val, ptr noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8AliasSet10mergeSetInERS3_RNS2_15AliasSetTrackerERNS2_14BatchAAResultsEE3$_0EclIPNS2_14MemoryLocationEEEbT_"(ptr %.0.val, ptr %.8.val, ptr noundef %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #18
@@ -4395,7 +4395,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4l
   %12 = tail call i32 @_ZN4llvm9AAResults5aliasERKNS_14MemoryLocationES3_RNS_11AAQueryInfoEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %.02944.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(498) %9, ptr noundef null) #18
   %13 = and i32 %12, 255
   %14 = icmp eq i32 %13, 3
-  br i1 %14, label %"_ZZN4llvm8AliasSet10mergeSetInERS0_RNS_15AliasSetTrackerERNS_14BatchAAResultsEENK3$_0clERKNS_14MemoryLocationE.argprom.exit", label %15
+  br i1 %14, label %"_ZZN4llvm8AliasSet10mergeSetInERS0_RNS_15AliasSetTrackerERNS_14BatchAAResultsEENK3$_0clERKNS_14MemoryLocationE.exit", label %15
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %.02944.i.i.i.i.i.i.i, i64 48
@@ -4403,7 +4403,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4l
   %18 = tail call i32 @_ZN4llvm9AAResults5aliasERKNS_14MemoryLocationES3_RNS_11AAQueryInfoEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(498) %9, ptr noundef null) #18
   %19 = and i32 %18, 255
   %20 = icmp eq i32 %19, 3
-  br i1 %20, label %"_ZZN4llvm8AliasSet10mergeSetInERS0_RNS_15AliasSetTrackerERNS_14BatchAAResultsEENK3$_0clERKNS_14MemoryLocationE.argprom.exit", label %21
+  br i1 %20, label %"_ZZN4llvm8AliasSet10mergeSetInERS0_RNS_15AliasSetTrackerERNS_14BatchAAResultsEENK3$_0clERKNS_14MemoryLocationE.exit", label %21
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds i8, ptr %.02944.i.i.i.i.i.i.i, i64 96
@@ -4411,7 +4411,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4l
   %24 = tail call i32 @_ZN4llvm9AAResults5aliasERKNS_14MemoryLocationES3_RNS_11AAQueryInfoEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(498) %9, ptr noundef null) #18
   %25 = and i32 %24, 255
   %26 = icmp eq i32 %25, 3
-  br i1 %26, label %"_ZZN4llvm8AliasSet10mergeSetInERS0_RNS_15AliasSetTrackerERNS_14BatchAAResultsEENK3$_0clERKNS_14MemoryLocationE.argprom.exit", label %27
+  br i1 %26, label %"_ZZN4llvm8AliasSet10mergeSetInERS0_RNS_15AliasSetTrackerERNS_14BatchAAResultsEENK3$_0clERKNS_14MemoryLocationE.exit", label %27
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds i8, ptr %.02944.i.i.i.i.i.i.i, i64 144
@@ -4419,7 +4419,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4l
   %30 = tail call i32 @_ZN4llvm9AAResults5aliasERKNS_14MemoryLocationES3_RNS_11AAQueryInfoEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull align 8 dereferenceable(498) %9, ptr noundef null) #18
   %31 = and i32 %30, 255
   %32 = icmp eq i32 %31, 3
-  br i1 %32, label %"_ZZN4llvm8AliasSet10mergeSetInERS0_RNS_15AliasSetTrackerERNS_14BatchAAResultsEENK3$_0clERKNS_14MemoryLocationE.argprom.exit", label %33
+  br i1 %32, label %"_ZZN4llvm8AliasSet10mergeSetInERS0_RNS_15AliasSetTrackerERNS_14BatchAAResultsEENK3$_0clERKNS_14MemoryLocationE.exit", label %33
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds i8, ptr %.02944.i.i.i.i.i.i.i, i64 192
@@ -4448,7 +4448,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4l
   %41 = tail call i32 @_ZN4llvm9AAResults5aliasERKNS_14MemoryLocationES3_RNS_11AAQueryInfoEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(56) %39, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %.029.lcssa.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(498) %40, ptr noundef null) #18
   %42 = and i32 %41, 255
   %43 = icmp eq i32 %42, 3
-  br i1 %43, label %"_ZZN4llvm8AliasSet10mergeSetInERS0_RNS_15AliasSetTrackerERNS_14BatchAAResultsEENK3$_0clERKNS_14MemoryLocationE.argprom.exit", label %44
+  br i1 %43, label %"_ZZN4llvm8AliasSet10mergeSetInERS0_RNS_15AliasSetTrackerERNS_14BatchAAResultsEENK3$_0clERKNS_14MemoryLocationE.exit", label %44
 
 44:                                               ; preds = %38
   %45 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i.i, i64 48
@@ -4461,7 +4461,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4l
   %49 = tail call i32 @_ZN4llvm9AAResults5aliasERKNS_14MemoryLocationES3_RNS_11AAQueryInfoEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(56) %47, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %.1.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(498) %48, ptr noundef null) #18
   %50 = and i32 %49, 255
   %51 = icmp eq i32 %50, 3
-  br i1 %51, label %"_ZZN4llvm8AliasSet10mergeSetInERS0_RNS_15AliasSetTrackerERNS_14BatchAAResultsEENK3$_0clERKNS_14MemoryLocationE.argprom.exit", label %52
+  br i1 %51, label %"_ZZN4llvm8AliasSet10mergeSetInERS0_RNS_15AliasSetTrackerERNS_14BatchAAResultsEENK3$_0clERKNS_14MemoryLocationE.exit", label %52
 
 52:                                               ; preds = %46
   %53 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i.i, i64 48
@@ -4474,12 +4474,12 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4l
   %57 = tail call i32 @_ZN4llvm9AAResults5aliasERKNS_14MemoryLocationES3_RNS_11AAQueryInfoEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(56) %55, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %.2.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(498) %56, ptr noundef null) #18
   %58 = and i32 %57, 255
   %59 = icmp eq i32 %58, 3
-  br i1 %59, label %"_ZZN4llvm8AliasSet10mergeSetInERS0_RNS_15AliasSetTrackerERNS_14BatchAAResultsEENK3$_0clERKNS_14MemoryLocationE.argprom.exit", label %60
+  br i1 %59, label %"_ZZN4llvm8AliasSet10mergeSetInERS0_RNS_15AliasSetTrackerERNS_14BatchAAResultsEENK3$_0clERKNS_14MemoryLocationE.exit", label %60
 
 60:                                               ; preds = %54, %._crit_edge.i.i.i.i.i.i.i
-  br label %"_ZZN4llvm8AliasSet10mergeSetInERS0_RNS_15AliasSetTrackerERNS_14BatchAAResultsEENK3$_0clERKNS_14MemoryLocationE.argprom.exit"
+  br label %"_ZZN4llvm8AliasSet10mergeSetInERS0_RNS_15AliasSetTrackerERNS_14BatchAAResultsEENK3$_0clERKNS_14MemoryLocationE.exit"
 
-"_ZZN4llvm8AliasSet10mergeSetInERS0_RNS_15AliasSetTrackerERNS_14BatchAAResultsEENK3$_0clERKNS_14MemoryLocationE.argprom.exit": ; preds = %10, %15, %21, %27, %38, %46, %54, %60
+"_ZZN4llvm8AliasSet10mergeSetInERS0_RNS_15AliasSetTrackerERNS_14BatchAAResultsEENK3$_0clERKNS_14MemoryLocationE.exit": ; preds = %10, %15, %21, %27, %38, %46, %54, %60
   %.028.i.i.i.i.i.i.i = phi ptr [ %5, %60 ], [ %.029.lcssa.i.i.i.i.i.i.i, %38 ], [ %.1.i.i.i.i.i.i.i, %46 ], [ %.2.i.i.i.i.i.i.i, %54 ], [ %.02944.i.i.i.i.i.i.i, %10 ], [ %16, %15 ], [ %22, %21 ], [ %28, %27 ]
   %61 = icmp ne ptr %5, %.028.i.i.i.i.i.i.i
   ret i1 %61

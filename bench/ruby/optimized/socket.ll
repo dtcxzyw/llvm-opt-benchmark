@@ -1883,15 +1883,15 @@ declare i64 @rb_rescue(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local
 define internal i64 @io_call_close(i64 noundef %0) #0 {
   %.pr.i = load i64, ptr @io_call_close.rbimpl_id, align 8
   %.not1.i = icmp eq i64 %.pr.i, 0
-  br i1 %.not1.i, label %.lr.ph.i, label %rbimpl_intern_const.argprom.exit
+  br i1 %.not1.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %2 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.34, i64 noundef 5) #14
   store i64 %2, ptr @io_call_close.rbimpl_id, align 8
   %.not.i = icmp eq i64 %2, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.argprom.exit, !llvm.loop !40
+  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !40
 
-rbimpl_intern_const.argprom.exit:                 ; preds = %.lr.ph.i, %1
+rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %1
   %.lcssa.i = phi i64 [ %.pr.i, %1 ], [ %2, %.lr.ph.i ]
   %3 = tail call i64 @rb_funcallv(i64 noundef %0, i64 noundef %.lcssa.i, i32 noundef 0, ptr noundef null) #14
   ret i64 %3

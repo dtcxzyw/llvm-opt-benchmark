@@ -2142,17 +2142,17 @@ for.inc16:                                        ; preds = %for.body9, %for.con
 
 for.end18:                                        ; preds = %for.inc16
   %cmp.i.i = icmp ugt i64 %entries.1.lcssa, 384307168202282325
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorIN7Imf_3_212_GLOBAL__N_17tileposESaIS2_EE17_S_check_init_lenEmRKS3_.argprom.exit.i
+  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorIN7Imf_3_212_GLOBAL__N_17tileposESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
 
 if.then.i.i:                                      ; preds = %for.end18
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.9) #24
   unreachable
 
-_ZNSt6vectorIN7Imf_3_212_GLOBAL__N_17tileposESaIS2_EE17_S_check_init_lenEmRKS3_.argprom.exit.i: ; preds = %for.end18
+_ZNSt6vectorIN7Imf_3_212_GLOBAL__N_17tileposESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds = %for.end18
   %cmp.not.i.i.i.i = icmp eq i64 %entries.1.lcssa, 0
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i
 
-if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIN7Imf_3_212_GLOBAL__N_17tileposESaIS2_EE17_S_check_init_lenEmRKS3_.argprom.exit.i
+if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIN7Imf_3_212_GLOBAL__N_17tileposESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
   %mul.i.i.i.i.i.i = mul nuw nsw i64 %entries.1.lcssa, 24
   %call5.i.i.i.i2.i.i78 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #23
   %add.ptr.i.i.i = getelementptr %"struct.Imf_3_2::(anonymous namespace)::tilepos", ptr %call5.i.i.i.i2.i.i78, i64 %entries.1.lcssa
@@ -2168,10 +2168,10 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i, 
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !39
 
-invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i, %_ZNSt6vectorIN7Imf_3_212_GLOBAL__N_17tileposESaIS2_EE17_S_check_init_lenEmRKS3_.argprom.exit.i
-  %entries.0.lcssa176179 = phi i64 [ 1, %if.then.i.i.i.i.i ], [ 0, %_ZNSt6vectorIN7Imf_3_212_GLOBAL__N_17tileposESaIS2_EE17_S_check_init_lenEmRKS3_.argprom.exit.i ], [ %entries.1.lcssa, %for.body.i.i.i.i.i.i.i.i.i ]
-  %table.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i78, %if.then.i.i.i.i.i ], [ null, %_ZNSt6vectorIN7Imf_3_212_GLOBAL__N_17tileposESaIS2_EE17_S_check_init_lenEmRKS3_.argprom.exit.i ], [ %call5.i.i.i.i2.i.i78, %for.body.i.i.i.i.i.i.i.i.i ]
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ null, %_ZNSt6vectorIN7Imf_3_212_GLOBAL__N_17tileposESaIS2_EE17_S_check_init_lenEmRKS3_.argprom.exit.i ], [ %add.ptr.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
+invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i, %_ZNSt6vectorIN7Imf_3_212_GLOBAL__N_17tileposESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
+  %entries.0.lcssa176179 = phi i64 [ 1, %if.then.i.i.i.i.i ], [ 0, %_ZNSt6vectorIN7Imf_3_212_GLOBAL__N_17tileposESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %entries.1.lcssa, %for.body.i.i.i.i.i.i.i.i.i ]
+  %table.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i78, %if.then.i.i.i.i.i ], [ null, %_ZNSt6vectorIN7Imf_3_212_GLOBAL__N_17tileposESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %call5.i.i.i.i2.i.i78, %for.body.i.i.i.i.i.i.i.i.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ null, %_ZNSt6vectorIN7Imf_3_212_GLOBAL__N_17tileposESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %add.ptr.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
   br label %for.cond27.preheader
 
 for.cond27.preheader:                             ; preds = %invoke.cont, %for.inc66
@@ -2524,13 +2524,13 @@ lpad128:                                          ; preds = %sw.bb127
 
 sw.epilog:                                        ; preds = %for.body92, %for.cond114.preheader, %for.cond100.preheader, %for.cond90.preheader, %for.end88
   %tobool.not.i.i.i = icmp eq ptr %table.sroa.0.0188202, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7Imf_3_212_GLOBAL__N_17tileposESaIS2_EED2Ev.argprom.argprom.exit, label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7Imf_3_212_GLOBAL__N_17tileposESaIS2_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body116, %for.body102, %sw.epilog
   tail call void @_ZdlPv(ptr noundef nonnull %table.sroa.0.0188202) #22
-  br label %_ZNSt6vectorIN7Imf_3_212_GLOBAL__N_17tileposESaIS2_EED2Ev.argprom.argprom.exit
+  br label %_ZNSt6vectorIN7Imf_3_212_GLOBAL__N_17tileposESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN7Imf_3_212_GLOBAL__N_17tileposESaIS2_EED2Ev.argprom.argprom.exit: ; preds = %sw.epilog, %if.then.i.i.i
+_ZNSt6vectorIN7Imf_3_212_GLOBAL__N_17tileposESaIS2_EED2Ev.exit: ; preds = %sw.epilog, %if.then.i.i.i
   ret void
 
 ehcleanup:                                        ; preds = %lpad128, %lpad75
@@ -3237,8 +3237,8 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tile
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
   br i1 %cmp9.i.i.i, label %while.body.i.i, label %while.body.i.i.i, !llvm.loop !66
 
-while.body.i.i:                                   ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.argprom.exit.i18.i
-  %__last.sroa.0.04.i.i = phi ptr [ %incdec.ptr.i.i2.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.argprom.exit.i18.i ], [ %storemerge14, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i.i.i ]
+while.body.i.i:                                   ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i18.i
+  %__last.sroa.0.04.i.i = phi ptr [ %incdec.ptr.i.i2.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i18.i ], [ %storemerge14, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i.i.i ]
   %incdec.ptr.i.i2.i = getelementptr inbounds i8, ptr %__last.sroa.0.04.i.i, i64 -24
   %__value.sroa.0.0.copyload.i.i3.i = load i64, ptr %incdec.ptr.i.i2.i, align 8
   %__value.sroa.2.0.__result.sroa.0.0.__result.val.sroa_idx.i.i4.i = getelementptr inbounds i8, ptr %__last.sroa.0.04.i.i, i64 -16
@@ -3293,7 +3293,7 @@ if.then20.i.i.i34.i:                              ; preds = %land.lhs.true.i.i.i
 if.end33.i.i.i15.i:                               ; preds = %if.then20.i.i.i34.i, %land.lhs.true.i.i.i.i, %while.end.i.i.i11.i
   %__holeIndex.addr.1.i.i.i16.i = phi i64 [ %sub24.i.i.i35.i, %if.then20.i.i.i34.i ], [ %__holeIndex.addr.0.lcssa.i.i.i12.i, %land.lhs.true.i.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i12.i, %while.end.i.i.i11.i ]
   %cmp3.i.i.i.i17.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i16.i, 0
-  br i1 %cmp3.i.i.i.i17.i, label %land.rhs.i.i.i.i22.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.argprom.exit.i18.i
+  br i1 %cmp3.i.i.i.i17.i, label %land.rhs.i.i.i.i22.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i18.i
 
 land.rhs.i.i.i.i22.i:                             ; preds = %if.end33.i.i.i15.i, %while.body.i.i.i.i29.i
   %__holeIndex.addr.04.i.i.i.i23.i = phi i64 [ %__parent.05.i.i12.i.i25.i, %while.body.i.i.i.i29.i ], [ %__holeIndex.addr.1.i.i.i16.i, %if.end33.i.i.i15.i ]
@@ -3302,15 +3302,15 @@ land.rhs.i.i.i.i22.i:                             ; preds = %if.end33.i.i.i15.i,
   %add.ptr.i.i.i.i.i26.i = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::tilepos", ptr %__first.coerce.fr, i64 %__parent.05.i.i12.i.i25.i
   %call.val.i.i.i.i.i27.i = load i64, ptr %add.ptr.i.i.i.i.i26.i, align 8
   %cmp.i.i.i.i.i.i28.i = icmp ult i64 %call.val.i.i.i.i.i27.i, %__value.sroa.0.0.copyload.i.i3.i
-  br i1 %cmp.i.i.i.i.i.i28.i, label %while.body.i.i.i.i29.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.argprom.exit.i18.i
+  br i1 %cmp.i.i.i.i.i.i28.i, label %while.body.i.i.i.i29.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i18.i
 
 while.body.i.i.i.i29.i:                           ; preds = %land.rhs.i.i.i.i22.i
   %add.ptr.i11.i.i.i.i30.i = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::tilepos", ptr %__first.coerce.fr, i64 %__holeIndex.addr.04.i.i.i.i23.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i11.i.i.i.i30.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i.i.i.i26.i, i64 24, i1 false)
   %cmp.i.i.not.i.i31.i = icmp ult i64 %__parent.05.in.i.i.i.i24.i, 2
-  br i1 %cmp.i.i.not.i.i31.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.argprom.exit.i18.i, label %land.rhs.i.i.i.i22.i, !llvm.loop !65
+  br i1 %cmp.i.i.not.i.i31.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i18.i, label %land.rhs.i.i.i.i22.i, !llvm.loop !65
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.argprom.exit.i18.i: ; preds = %while.body.i.i.i.i29.i, %land.rhs.i.i.i.i22.i, %if.end33.i.i.i15.i
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i18.i: ; preds = %while.body.i.i.i.i29.i, %land.rhs.i.i.i.i22.i, %if.end33.i.i.i15.i
   %__holeIndex.addr.0.lcssa.i.i.i.i19.i = phi i64 [ %__holeIndex.addr.1.i.i.i16.i, %if.end33.i.i.i15.i ], [ %__holeIndex.addr.04.i.i.i.i23.i, %land.rhs.i.i.i.i22.i ], [ 0, %while.body.i.i.i.i29.i ]
   %add.ptr.i12.i.i.i.i20.i = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::tilepos", ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i.i19.i
   store i64 %__value.sroa.0.0.copyload.i.i3.i, ptr %add.ptr.i12.i.i.i.i20.i, align 8
@@ -3437,7 +3437,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GL
   %cmp = icmp sgt i64 %sub.ptr.sub.i, 384
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !71
 
-while.end:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.argprom.exit.i18.i, %entry
+while.end:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i18.i, %entry
   ret void
 }
 

@@ -376,15 +376,15 @@ define void @_ZN5ZXing4OneD7DataBar16EstimatePositionERKNS1_4PairES4_(ptr dead_o
   %13 = load i32, ptr %12, align 4
   %14 = sub nsw i32 %11, %13
   %15 = icmp sgt i32 %9, %14
-  br i1 %15, label %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.argprom.exit.thread, label %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.argprom.exit
+  br i1 %15, label %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit.thread, label %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit
 
-_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.argprom.exit: ; preds = %3
+_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit: ; preds = %3
   %16 = add nsw i32 %13, %11
   %17 = sdiv i32 %16, 2
   %18 = icmp slt i32 %.val, %17
-  br i1 %18, label %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.argprom.exit.thread, label %19
+  br i1 %18, label %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit.thread, label %19
 
-19:                                               ; preds = %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.argprom.exit
+19:                                               ; preds = %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit
   %20 = add nsw i32 %7, %.val14
   %21 = sdiv i32 %20, 2
   %22 = getelementptr inbounds i8, ptr %2, i64 24
@@ -397,7 +397,7 @@ _ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.argprom.exit: ; preds = %3
   %.sroa.010.0.insert.insert.i = or disjoint i64 %.sroa.213.0.insert.shift.i, %.sroa.010.0.insert.ext.i
   br label %26
 
-_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.argprom.exit.thread: ; preds = %3, %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.argprom.exit
+_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit.thread: ; preds = %3, %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit
   %24 = getelementptr inbounds i8, ptr %2, i64 24
   %25 = load i32, ptr %24, align 4
   %.sroa.220.0.insert.ext = zext i32 %7 to i64
@@ -414,11 +414,11 @@ _ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.argprom.exit.thread: ; preds =
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.216.0.insert.shift, %.sroa.0.0.insert.ext
   br label %26
 
-26:                                               ; preds = %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.argprom.exit.thread, %19
-  %.sroa.019.0.insert.insert.sink = phi i64 [ %.sroa.019.0.insert.insert, %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.argprom.exit.thread ], [ %.sroa.012.0.insert.insert.i, %19 ]
-  %.sroa.017.0.insert.insert.sink = phi i64 [ %.sroa.017.0.insert.insert, %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.argprom.exit.thread ], [ %.sroa.010.0.insert.insert.i, %19 ]
-  %.sroa.015.0.insert.insert.sink = phi i64 [ %.sroa.015.0.insert.insert, %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.argprom.exit.thread ], [ %.sroa.010.0.insert.insert.i, %19 ]
-  %.sroa.0.0.insert.insert.sink = phi i64 [ %.sroa.0.0.insert.insert, %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.argprom.exit.thread ], [ %.sroa.012.0.insert.insert.i, %19 ]
+26:                                               ; preds = %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit.thread, %19
+  %.sroa.019.0.insert.insert.sink = phi i64 [ %.sroa.019.0.insert.insert, %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit.thread ], [ %.sroa.012.0.insert.insert.i, %19 ]
+  %.sroa.017.0.insert.insert.sink = phi i64 [ %.sroa.017.0.insert.insert, %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit.thread ], [ %.sroa.010.0.insert.insert.i, %19 ]
+  %.sroa.015.0.insert.insert.sink = phi i64 [ %.sroa.015.0.insert.insert, %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit.thread ], [ %.sroa.010.0.insert.insert.i, %19 ]
+  %.sroa.0.0.insert.insert.sink = phi i64 [ %.sroa.0.0.insert.insert, %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit.thread ], [ %.sroa.012.0.insert.insert.i, %19 ]
   store i64 %.sroa.019.0.insert.insert.sink, ptr %0, align 4
   %27 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.017.0.insert.insert.sink, ptr %27, align 4
@@ -447,7 +447,7 @@ define noundef i32 @_ZN5ZXing4OneD7DataBar17EstimateLineCountERKNS1_4PairES4_(pt
   %15 = load i32, ptr %14, align 4
   %16 = sub nsw i32 %13, %15
   %17 = icmp sgt i32 %11, %16
-  br i1 %17, label %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.argprom.exit, label %18
+  br i1 %17, label %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds i8, ptr %1, i64 20
@@ -456,9 +456,9 @@ define noundef i32 @_ZN5ZXing4OneD7DataBar17EstimateLineCountERKNS1_4PairES4_(pt
   %21 = sdiv i32 %20, 2
   %22 = icmp slt i32 %.val, %21
   %23 = zext i1 %22 to i32
-  br label %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.argprom.exit
+  br label %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit
 
-_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.argprom.exit: ; preds = %2, %18
+_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit: ; preds = %2, %18
   %24 = phi i32 [ 1, %2 ], [ %23, %18 ]
   %25 = tail call i32 @llvm.smin.i32(i32 %5, i32 %6)
   %26 = add nsw i32 %25, -1

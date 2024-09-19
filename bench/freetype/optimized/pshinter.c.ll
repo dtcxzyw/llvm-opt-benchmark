@@ -477,7 +477,7 @@ psh_glyph_compute_inflections.exit.i:             ; preds = %.loopexit.i.i, %psh
   %238 = getelementptr inbounds i8, ptr %6, i64 48
   %239 = getelementptr inbounds i8, ptr %0, i64 24
   %240 = getelementptr inbounds i8, ptr %0, i64 40
-  %241 = call fastcc i32 @psh_hint_table_init.argprom(ptr noundef %238, ptr noundef nonnull %239, ptr noundef nonnull %240, ptr noundef %14)
+  %241 = call fastcc i32 @psh_hint_table_init(ptr noundef %238, ptr noundef nonnull %239, ptr noundef nonnull %240, ptr noundef %14)
   store i32 %241, ptr %5, align 4
   %.not120.i = icmp eq i32 %241, 0
   br i1 %.not120.i, label %psh_glyph_init.exit, label %psh_glyph_init.exit.thread
@@ -491,7 +491,7 @@ psh_glyph_init.exit:                              ; preds = %psh_glyph_compute_i
   %242 = getelementptr inbounds i8, ptr %6, i64 120
   %243 = getelementptr inbounds i8, ptr %0, i64 72
   %244 = getelementptr inbounds i8, ptr %0, i64 88
-  %245 = call fastcc i32 @psh_hint_table_init.argprom(ptr noundef %242, ptr noundef nonnull %243, ptr noundef nonnull %244, ptr noundef %14)
+  %245 = call fastcc i32 @psh_hint_table_init(ptr noundef %242, ptr noundef nonnull %243, ptr noundef nonnull %244, ptr noundef %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %.not = icmp eq i32 %245, 0
   br i1 %.not, label %246, label %.loopexit
@@ -812,7 +812,7 @@ psh_glyph_compute_extrema.exit:                   ; preds = %.loopexit87.i
   %.val = load i32, ptr %407, align 8
   %409 = getelementptr i8, ptr %407, i64 8
   %.not1.i = icmp eq i32 %.val, 0
-  br i1 %.not1.i, label %psh_hint_table_align_hints.argprom.exit, label %.lr.ph.i91.preheader
+  br i1 %.not1.i, label %psh_hint_table_align_hints.exit, label %.lr.ph.i91.preheader
 
 .lr.ph.i91.preheader:                             ; preds = %psh_glyph_compute_extrema.exit
   %.val80 = load ptr, ptr %409, align 8
@@ -826,14 +826,14 @@ psh_glyph_compute_extrema.exit:                   ; preds = %.loopexit87.i
   %411 = add i32 %.03.i, -1
   %412 = getelementptr inbounds i8, ptr %.082.i, i64 48
   %.not.i92 = icmp eq i32 %411, 0
-  br i1 %.not.i92, label %psh_hint_table_align_hints.argprom.exit.loopexit, label %.lr.ph.i91, !llvm.loop !23
+  br i1 %.not.i92, label %psh_hint_table_align_hints.exit.loopexit, label %.lr.ph.i91, !llvm.loop !23
 
-psh_hint_table_align_hints.argprom.exit.loopexit: ; preds = %.lr.ph.i91
+psh_hint_table_align_hints.exit.loopexit:         ; preds = %.lr.ph.i91
   %.pre193 = load ptr, ptr %247, align 8
-  br label %psh_hint_table_align_hints.argprom.exit
+  br label %psh_hint_table_align_hints.exit
 
-psh_hint_table_align_hints.argprom.exit:          ; preds = %psh_hint_table_align_hints.argprom.exit.loopexit, %psh_glyph_compute_extrema.exit
-  %413 = phi ptr [ %.pre193, %psh_hint_table_align_hints.argprom.exit.loopexit ], [ %408, %psh_glyph_compute_extrema.exit ]
+psh_hint_table_align_hints.exit:                  ; preds = %psh_hint_table_align_hints.exit.loopexit, %psh_glyph_compute_extrema.exit
+  %413 = phi ptr [ %.pre193, %psh_hint_table_align_hints.exit.loopexit ], [ %408, %psh_glyph_compute_extrema.exit ]
   %414 = getelementptr inbounds i8, ptr %407, i64 56
   %415 = load ptr, ptr %414, align 8
   %416 = getelementptr inbounds i8, ptr %415, i64 8
@@ -849,7 +849,7 @@ psh_hint_table_align_hints.argprom.exit:          ; preds = %psh_hint_table_alig
   %425 = icmp ugt i32 %418, 1
   br i1 %425, label %426, label %493
 
-426:                                              ; preds = %psh_hint_table_align_hints.argprom.exit
+426:                                              ; preds = %psh_hint_table_align_hints.exit
   %427 = load i32, ptr %6, align 8
   %.not.i96 = icmp eq i32 %427, 0
   br i1 %.not.i96, label %psh_glyph_find_strong_points.exit, label %.lr.ph.i97
@@ -884,7 +884,7 @@ psh_hint_table_align_hints.argprom.exit:          ; preds = %psh_hint_table_alig
   %.056.val70.i = load ptr, ptr %442, align 8
   %.val.i.i = load i32, ptr %407, align 8
   %.not1.i.i.i = icmp eq i32 %.val.i.i, 0
-  br i1 %.not1.i.i.i, label %psh_hint_table_deactivate.argprom.exit.i.i, label %.lr.ph.i.preheader.i.i
+  br i1 %.not1.i.i.i, label %psh_hint_table_deactivate.exit.i.i, label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %437
   %.val52.i.i = load ptr, ptr %409, align 8
@@ -902,17 +902,17 @@ psh_hint_table_align_hints.argprom.exit:          ; preds = %psh_hint_table_alig
   %447 = add i32 %.062.i.i.i, -1
   %448 = getelementptr inbounds i8, ptr %.03.i.i.i, i64 48
   %.not.i.i.i = icmp eq i32 %447, 0
-  br i1 %.not.i.i.i, label %psh_hint_table_deactivate.argprom.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !24
+  br i1 %.not.i.i.i, label %psh_hint_table_deactivate.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !24
 
-psh_hint_table_deactivate.argprom.exit.i.i:       ; preds = %.lr.ph.i.i.i, %437
+psh_hint_table_deactivate.exit.i.i:               ; preds = %.lr.ph.i.i.i, %437
   %.not17.i.i = icmp eq i32 %.056.val.i, 0
   br i1 %.not17.i.i, label %._crit_edge.thread.i.i, label %.lr.ph.i.i98
 
-._crit_edge.thread.i.i:                           ; preds = %psh_hint_table_deactivate.argprom.exit.i.i
+._crit_edge.thread.i.i:                           ; preds = %psh_hint_table_deactivate.exit.i.i
   store i32 0, ptr %431, align 4
-  br label %psh_hint_table_activate_mask.argprom.exit.i
+  br label %psh_hint_table_activate_mask.exit.i
 
-.lr.ph.i.i98:                                     ; preds = %psh_hint_table_deactivate.argprom.exit.i.i
+.lr.ph.i.i98:                                     ; preds = %psh_hint_table_deactivate.exit.i.i
   %wide.trip.count.i.i = zext i32 %.056.val.i to i64
   br label %449
 
@@ -974,7 +974,7 @@ psh_hint_table_deactivate.argprom.exit.i.i:       ; preds = %.lr.ph.i.i.i, %437
   store i32 %.150.i.i, ptr %431, align 4
   %474 = load ptr, ptr %430, align 8
   %475 = icmp ugt i32 %.150.i.i, 1
-  br i1 %475, label %.lr.ph15.preheader.i.i, label %psh_hint_table_activate_mask.argprom.exit.i
+  br i1 %475, label %.lr.ph15.preheader.i.i, label %psh_hint_table_activate_mask.exit.i
 
 .lr.ph15.preheader.i.i:                           ; preds = %._crit_edge.i.i
   %wide.trip.count24.i.i = zext i32 %.150.i.i to i64
@@ -1011,24 +1011,24 @@ psh_hint_table_deactivate.argprom.exit.i.i:       ; preds = %.lr.ph.i.i.i, %437
 ._crit_edge11.i.i:                                ; preds = %486, %.lr.ph10.i.i
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
   %exitcond25.not.i.i = icmp eq i64 %indvars.iv.next21.i.i, %wide.trip.count24.i.i
-  br i1 %exitcond25.not.i.i, label %psh_hint_table_activate_mask.argprom.exit.loopexit.i, label %.lr.ph10.preheader.i.i, !llvm.loop !27
+  br i1 %exitcond25.not.i.i, label %psh_hint_table_activate_mask.exit.loopexit.i, label %.lr.ph10.preheader.i.i, !llvm.loop !27
 
-psh_hint_table_activate_mask.argprom.exit.loopexit.i: ; preds = %._crit_edge11.i.i
+psh_hint_table_activate_mask.exit.loopexit.i:     ; preds = %._crit_edge11.i.i
   %.val72.pre.i = load i32, ptr %431, align 4
-  br label %psh_hint_table_activate_mask.argprom.exit.i
+  br label %psh_hint_table_activate_mask.exit.i
 
-psh_hint_table_activate_mask.argprom.exit.i:      ; preds = %psh_hint_table_activate_mask.argprom.exit.loopexit.i, %._crit_edge.i.i, %._crit_edge.thread.i.i
-  %.val72.i = phi i32 [ %.val72.pre.i, %psh_hint_table_activate_mask.argprom.exit.loopexit.i ], [ 0, %._crit_edge.thread.i.i ], [ %.150.i.i, %._crit_edge.i.i ]
+psh_hint_table_activate_mask.exit.i:              ; preds = %psh_hint_table_activate_mask.exit.loopexit.i, %._crit_edge.i.i, %._crit_edge.thread.i.i
+  %.val72.i = phi i32 [ %.val72.pre.i, %psh_hint_table_activate_mask.exit.loopexit.i ], [ 0, %._crit_edge.thread.i.i ], [ %.150.i.i, %._crit_edge.i.i ]
   %.val73.i = load ptr, ptr %430, align 8
-  call fastcc void @psh_hint_table_find_strong_points.argprom(i32 %.val72.i, ptr %.val73.i, ptr noundef %441, i32 noundef %438, i32 noundef %spec.store.select.i94, i32 noundef %419)
+  call fastcc void @psh_hint_table_find_strong_points(i32 %.val72.i, ptr %.val73.i, ptr noundef %441, i32 noundef %438, i32 noundef %spec.store.select.i94, i32 noundef %419)
   br label %490
 
-490:                                              ; preds = %psh_hint_table_activate_mask.argprom.exit.i, %432
+490:                                              ; preds = %psh_hint_table_activate_mask.exit.i, %432
   %491 = add i32 %.1120.i, -1
   %492 = icmp ugt i32 %491, 1
   br i1 %492, label %432, label %.thread.i, !llvm.loop !28
 
-493:                                              ; preds = %psh_hint_table_align_hints.argprom.exit
+493:                                              ; preds = %psh_hint_table_align_hints.exit
   %494 = icmp eq i32 %418, 1
   br i1 %494, label %.thread.i, label %.thread116.i
 
@@ -1043,7 +1043,7 @@ psh_hint_table_activate_mask.argprom.exit.i:      ; preds = %psh_hint_table_acti
   %.val71.i = load ptr, ptr %500, align 8
   %.val.i76.i = load i32, ptr %407, align 8
   %.not1.i.i77.i = icmp eq i32 %.val.i76.i, 0
-  br i1 %.not1.i.i77.i, label %psh_hint_table_deactivate.argprom.exit.i84.i, label %.lr.ph.i.preheader.i78.i
+  br i1 %.not1.i.i77.i, label %psh_hint_table_deactivate.exit.i84.i, label %.lr.ph.i.preheader.i78.i
 
 .lr.ph.i.preheader.i78.i:                         ; preds = %.thread.i
   %.val52.i79.i = load ptr, ptr %409, align 8
@@ -1061,18 +1061,18 @@ psh_hint_table_activate_mask.argprom.exit.i:      ; preds = %psh_hint_table_acti
   %505 = add i32 %.062.i.i82.i, -1
   %506 = getelementptr inbounds i8, ptr %.03.i.i81.i, i64 48
   %.not.i.i83.i = icmp eq i32 %505, 0
-  br i1 %.not.i.i83.i, label %psh_hint_table_deactivate.argprom.exit.i84.i, label %.lr.ph.i.i80.i, !llvm.loop !24
+  br i1 %.not.i.i83.i, label %psh_hint_table_deactivate.exit.i84.i, label %.lr.ph.i.i80.i, !llvm.loop !24
 
-psh_hint_table_deactivate.argprom.exit.i84.i:     ; preds = %.lr.ph.i.i80.i, %.thread.i
+psh_hint_table_deactivate.exit.i84.i:             ; preds = %.lr.ph.i.i80.i, %.thread.i
   %.not17.i85.i = icmp eq i32 %.val.i, 0
   br i1 %.not17.i85.i, label %._crit_edge.thread.i113.i, label %.lr.ph.i86.i
 
-._crit_edge.thread.i113.i:                        ; preds = %psh_hint_table_deactivate.argprom.exit.i84.i
+._crit_edge.thread.i113.i:                        ; preds = %psh_hint_table_deactivate.exit.i84.i
   %507 = getelementptr inbounds i8, ptr %407, i64 4
   store i32 0, ptr %507, align 4
-  br label %psh_hint_table_activate_mask.argprom.exit114.i
+  br label %psh_hint_table_activate_mask.exit114.i
 
-.lr.ph.i86.i:                                     ; preds = %psh_hint_table_deactivate.argprom.exit.i84.i
+.lr.ph.i86.i:                                     ; preds = %psh_hint_table_deactivate.exit.i84.i
   %508 = getelementptr inbounds i8, ptr %407, i64 16
   %wide.trip.count.i87.i = zext i32 %.val.i to i64
   br label %509
@@ -1136,7 +1136,7 @@ psh_hint_table_deactivate.argprom.exit.i84.i:     ; preds = %.lr.ph.i.i80.i, %.t
   store i32 %.150.i98.i, ptr %534, align 4
   %535 = load ptr, ptr %508, align 8
   %536 = icmp ugt i32 %.150.i98.i, 1
-  br i1 %536, label %.lr.ph15.preheader.i102.i, label %psh_hint_table_activate_mask.argprom.exit114.i
+  br i1 %536, label %.lr.ph15.preheader.i102.i, label %psh_hint_table_activate_mask.exit114.i
 
 .lr.ph15.preheader.i102.i:                        ; preds = %._crit_edge.i101.i
   %wide.trip.count24.i103.i = zext i32 %.150.i98.i to i64
@@ -1173,20 +1173,20 @@ psh_hint_table_deactivate.argprom.exit.i84.i:     ; preds = %.lr.ph.i.i80.i, %.t
 ._crit_edge11.i110.i:                             ; preds = %547, %.lr.ph10.i106.i
   %indvars.iv.next21.i111.i = add nuw nsw i64 %indvars.iv20.i105.i, 1
   %exitcond25.not.i112.i = icmp eq i64 %indvars.iv.next21.i111.i, %wide.trip.count24.i103.i
-  br i1 %exitcond25.not.i112.i, label %psh_hint_table_activate_mask.argprom.exit114.loopexit.i, label %.lr.ph10.preheader.i104.i, !llvm.loop !27
+  br i1 %exitcond25.not.i112.i, label %psh_hint_table_activate_mask.exit114.loopexit.i, label %.lr.ph10.preheader.i104.i, !llvm.loop !27
 
-psh_hint_table_activate_mask.argprom.exit114.loopexit.i: ; preds = %._crit_edge11.i110.i
+psh_hint_table_activate_mask.exit114.loopexit.i:  ; preds = %._crit_edge11.i110.i
   %.val74.pre.i = load i32, ptr %534, align 4
-  br label %psh_hint_table_activate_mask.argprom.exit114.i
+  br label %psh_hint_table_activate_mask.exit114.i
 
-psh_hint_table_activate_mask.argprom.exit114.i:   ; preds = %psh_hint_table_activate_mask.argprom.exit114.loopexit.i, %._crit_edge.i101.i, %._crit_edge.thread.i113.i
-  %.val74.i = phi i32 [ %.val74.pre.i, %psh_hint_table_activate_mask.argprom.exit114.loopexit.i ], [ 0, %._crit_edge.thread.i113.i ], [ %.150.i98.i, %._crit_edge.i101.i ]
+psh_hint_table_activate_mask.exit114.i:           ; preds = %psh_hint_table_activate_mask.exit114.loopexit.i, %._crit_edge.i101.i, %._crit_edge.thread.i113.i
+  %.val74.i = phi i32 [ %.val74.pre.i, %psh_hint_table_activate_mask.exit114.loopexit.i ], [ 0, %._crit_edge.thread.i113.i ], [ %.150.i98.i, %._crit_edge.i101.i ]
   %551 = getelementptr i8, ptr %407, i64 16
   %.val75.i = load ptr, ptr %551, align 8
-  call fastcc void @psh_hint_table_find_strong_points.argprom(i32 %.val74.i, ptr %.val75.i, ptr noundef %496, i32 noundef %495, i32 noundef %spec.store.select.i94, i32 noundef %419)
+  call fastcc void @psh_hint_table_find_strong_points(i32 %.val74.i, ptr %.val75.i, ptr noundef %496, i32 noundef %495, i32 noundef %spec.store.select.i94, i32 noundef %419)
   br label %.thread116.i
 
-.thread116.i:                                     ; preds = %psh_hint_table_activate_mask.argprom.exit114.i, %493
+.thread116.i:                                     ; preds = %psh_hint_table_activate_mask.exit114.i, %493
   %.pr.i = load i32, ptr %6, align 8
   %.not66123.i = icmp eq i32 %.pr.i, 0
   br i1 %.not66123.i, label %psh_glyph_find_strong_points.exit, label %.lr.ph126.preheader.i
@@ -1272,7 +1272,7 @@ psh_glyph_find_strong_points.exit:                ; preds = %561, %426, %.thread
 
 .split75:                                         ; preds = %psh_glyph_find_strong_points.exit
   %.not13.i = icmp eq i32 %.val81, 0
-  br i1 %.not13.i, label %psh_glyph_find_blue_points.argprom.exit, label %.lr.ph17.i
+  br i1 %.not13.i, label %psh_glyph_find_blue_points.exit, label %.lr.ph17.i
 
 .lr.ph17.i:                                       ; preds = %.split75
   %.val82 = load ptr, ptr %18, align 8
@@ -1424,9 +1424,9 @@ psh_glyph_find_strong_points.exit:                ; preds = %561, %426, %.thread
   %664 = add i32 %.04915.i, -1
   %665 = getelementptr inbounds i8, ptr %.05014.i, i64 72
   %.not.i108 = icmp eq i32 %664, 0
-  br i1 %.not.i108, label %psh_glyph_find_blue_points.argprom.exit, label %586, !llvm.loop !33
+  br i1 %.not.i108, label %psh_glyph_find_blue_points.exit, label %586, !llvm.loop !33
 
-psh_glyph_find_blue_points.argprom.exit:          ; preds = %.loopexit.i107, %.split75
+psh_glyph_find_blue_points.exit:                  ; preds = %.loopexit.i107, %.split75
   call fastcc void @psh_glyph_interpolate_strong_points(ptr noundef %6, i32 noundef 1)
   call fastcc void @psh_glyph_interpolate_normal_points(ptr noundef %6, i32 noundef 1)
   call fastcc void @psh_glyph_interpolate_other_points(ptr noundef %6, i32 noundef 1)
@@ -1439,7 +1439,7 @@ psh_glyph_find_blue_points.argprom.exit:          ; preds = %.loopexit.i107, %.s
   %.not20.i112 = icmp eq i32 %671, 0
   br i1 %.not20.i112, label %psh_glyph_save_points.exit, label %.lr.ph.i113
 
-.lr.ph.i113:                                      ; preds = %psh_glyph_find_blue_points.argprom.exit
+.lr.ph.i113:                                      ; preds = %psh_glyph_find_blue_points.exit
   %672 = load ptr, ptr %18, align 8
   br label %.lr.ph.split.i114
 
@@ -1471,7 +1471,7 @@ psh_glyph_find_blue_points.argprom.exit:          ; preds = %.loopexit.i107, %.s
   %687 = icmp ult i64 %indvars.iv.next.i117, %686
   br i1 %687, label %.lr.ph.split.i114, label %psh_glyph_save_points.exit, !llvm.loop !30
 
-psh_glyph_save_points.exit:                       ; preds = %581, %683, %psh_glyph_find_blue_points.argprom.exit, %.split
+psh_glyph_save_points.exit:                       ; preds = %581, %683, %psh_glyph_find_blue_points.exit, %.split
   br i1 %.not79, label %690, label %688
 
 688:                                              ; preds = %psh_glyph_save_points.exit
@@ -2690,7 +2690,7 @@ declare hidden ptr @ft_mem_qrealloc(ptr noundef, i64 noundef, i64 noundef, i64 n
 declare hidden i32 @ft_corner_is_flat(i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @psh_hint_table_init.argprom(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @psh_hint_table_init(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr %1, align 8
   %7 = shl i32 %6, 1
@@ -2777,12 +2777,12 @@ define internal fastcc i32 @psh_hint_table_init.argprom(ptr nocapture noundef no
   %.not619 = icmp eq i32 %46, 0
   br i1 %.not619, label %.loopexit1, label %.lr.ph13
 
-.lr.ph13:                                         ; preds = %43, %psh_hint_table_record_mask.argprom.exit
-  %.04911 = phi ptr [ %92, %psh_hint_table_record_mask.argprom.exit ], [ %45, %43 ]
-  %.110 = phi i32 [ %91, %psh_hint_table_record_mask.argprom.exit ], [ %46, %43 ]
+.lr.ph13:                                         ; preds = %43, %psh_hint_table_record_mask.exit
+  %.04911 = phi ptr [ %92, %psh_hint_table_record_mask.exit ], [ %45, %43 ]
+  %.110 = phi i32 [ %91, %psh_hint_table_record_mask.exit ], [ %46, %43 ]
   %.049.val = load i32, ptr %.04911, align 8
   %.not6.i = icmp eq i32 %.049.val, 0
-  br i1 %.not6.i, label %psh_hint_table_record_mask.argprom.exit, label %.lr.ph.i
+  br i1 %.not6.i, label %psh_hint_table_record_mask.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph13
   %48 = getelementptr i8, ptr %.04911, i64 8
@@ -2844,32 +2844,32 @@ define internal fastcc i32 @psh_hint_table_init.argprom(ptr nocapture noundef no
   %72 = add i32 %.val26.i.i, %.val.i.i
   br label %73
 
-73:                                               ; preds = %psh_hint_overlap.argprom.exit.thread.i.i, %.lr.ph.i.i
-  %.031.i.i = phi ptr [ %68, %.lr.ph.i.i ], [ %81, %psh_hint_overlap.argprom.exit.thread.i.i ]
-  %.02130.i.i = phi i32 [ %69, %.lr.ph.i.i ], [ %80, %psh_hint_overlap.argprom.exit.thread.i.i ]
+73:                                               ; preds = %psh_hint_overlap.exit.thread.i.i, %.lr.ph.i.i
+  %.031.i.i = phi ptr [ %68, %.lr.ph.i.i ], [ %81, %psh_hint_overlap.exit.thread.i.i ]
+  %.02130.i.i = phi i32 [ %69, %.lr.ph.i.i ], [ %80, %psh_hint_overlap.exit.thread.i.i ]
   %74 = load ptr, ptr %.031.i.i, align 8
   %75 = load i32, ptr %74, align 8
   %.not.i.i.i = icmp slt i32 %72, %75
-  br i1 %.not.i.i.i, label %psh_hint_overlap.argprom.exit.thread.i.i, label %psh_hint_overlap.argprom.exit.i.i
+  br i1 %.not.i.i.i, label %psh_hint_overlap.exit.thread.i.i, label %psh_hint_overlap.exit.i.i
 
-psh_hint_overlap.argprom.exit.i.i:                ; preds = %73
+psh_hint_overlap.exit.i.i:                        ; preds = %73
   %76 = getelementptr inbounds i8, ptr %74, i64 4
   %77 = load i32, ptr %76, align 4
   %78 = add i32 %77, %75
   %.not28.i.i = icmp slt i32 %78, %.val.i.i
-  br i1 %.not28.i.i, label %psh_hint_overlap.argprom.exit.thread.i.i, label %79
+  br i1 %.not28.i.i, label %psh_hint_overlap.exit.thread.i.i, label %79
 
-79:                                               ; preds = %psh_hint_overlap.argprom.exit.i.i
+79:                                               ; preds = %psh_hint_overlap.exit.i.i
   store ptr %74, ptr %70, align 8
   br label %.loopexit.i.i
 
-psh_hint_overlap.argprom.exit.thread.i.i:         ; preds = %psh_hint_overlap.argprom.exit.i.i, %73
+psh_hint_overlap.exit.thread.i.i:                 ; preds = %psh_hint_overlap.exit.i.i, %73
   %80 = add i32 %.02130.i.i, -1
   %81 = getelementptr inbounds i8, ptr %.031.i.i, i64 8
   %.not24.i.i = icmp eq i32 %80, 0
   br i1 %.not24.i.i, label %.loopexit.i.i, label %73, !llvm.loop !56
 
-.loopexit.i.i:                                    ; preds = %psh_hint_overlap.argprom.exit.thread.i.i, %79, %66
+.loopexit.i.i:                                    ; preds = %psh_hint_overlap.exit.thread.i.i, %79, %66
   %82 = load i32, ptr %27, align 4
   %83 = load i32, ptr %0, align 8
   %84 = icmp ult i32 %82, %83
@@ -2888,15 +2888,15 @@ psh_hint_table_record.exit.i:                     ; preds = %85, %.loopexit.i.i,
   %90 = lshr i32 %.1.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %psh_hint_table_record_mask.argprom.exit, label %49, !llvm.loop !57
+  br i1 %exitcond.not.i, label %psh_hint_table_record_mask.exit, label %49, !llvm.loop !57
 
-psh_hint_table_record_mask.argprom.exit:          ; preds = %psh_hint_table_record.exit.i, %.lr.ph13
+psh_hint_table_record_mask.exit:                  ; preds = %psh_hint_table_record.exit.i, %.lr.ph13
   %91 = add i32 %.110, -1
   %92 = getelementptr inbounds i8, ptr %.04911, i64 24
   %.not61 = icmp eq i32 %91, 0
   br i1 %.not61, label %.loopexit1, label %.lr.ph13, !llvm.loop !58
 
-.loopexit1:                                       ; preds = %psh_hint_table_record_mask.argprom.exit, %43, %._crit_edge
+.loopexit1:                                       ; preds = %psh_hint_table_record_mask.exit, %43, %._crit_edge
   %93 = load i32, ptr %27, align 4
   %94 = load i32, ptr %0, align 8
   %.not62 = icmp ne i32 %93, %94
@@ -2941,32 +2941,32 @@ psh_hint_table_record_mask.argprom.exit:          ; preds = %psh_hint_table_reco
   %110 = add i32 %.val26.i, %.val.i
   br label %111
 
-111:                                              ; preds = %psh_hint_overlap.argprom.exit.thread.i, %.lr.ph.i65
-  %.031.i = phi ptr [ %106, %.lr.ph.i65 ], [ %119, %psh_hint_overlap.argprom.exit.thread.i ]
-  %.02130.i = phi i32 [ %107, %.lr.ph.i65 ], [ %118, %psh_hint_overlap.argprom.exit.thread.i ]
+111:                                              ; preds = %psh_hint_overlap.exit.thread.i, %.lr.ph.i65
+  %.031.i = phi ptr [ %106, %.lr.ph.i65 ], [ %119, %psh_hint_overlap.exit.thread.i ]
+  %.02130.i = phi i32 [ %107, %.lr.ph.i65 ], [ %118, %psh_hint_overlap.exit.thread.i ]
   %112 = load ptr, ptr %.031.i, align 8
   %113 = load i32, ptr %112, align 8
   %.not.i.i66 = icmp slt i32 %110, %113
-  br i1 %.not.i.i66, label %psh_hint_overlap.argprom.exit.thread.i, label %psh_hint_overlap.argprom.exit.i
+  br i1 %.not.i.i66, label %psh_hint_overlap.exit.thread.i, label %psh_hint_overlap.exit.i
 
-psh_hint_overlap.argprom.exit.i:                  ; preds = %111
+psh_hint_overlap.exit.i:                          ; preds = %111
   %114 = getelementptr inbounds i8, ptr %112, i64 4
   %115 = load i32, ptr %114, align 4
   %116 = add i32 %115, %113
   %.not28.i = icmp slt i32 %116, %.val.i
-  br i1 %.not28.i, label %psh_hint_overlap.argprom.exit.thread.i, label %117
+  br i1 %.not28.i, label %psh_hint_overlap.exit.thread.i, label %117
 
-117:                                              ; preds = %psh_hint_overlap.argprom.exit.i
+117:                                              ; preds = %psh_hint_overlap.exit.i
   store ptr %112, ptr %108, align 8
   br label %.loopexit.i
 
-psh_hint_overlap.argprom.exit.thread.i:           ; preds = %psh_hint_overlap.argprom.exit.i, %111
+psh_hint_overlap.exit.thread.i:                   ; preds = %psh_hint_overlap.exit.i, %111
   %118 = add i32 %.02130.i, -1
   %119 = getelementptr inbounds i8, ptr %.031.i, i64 8
   %.not24.i = icmp eq i32 %118, 0
   br i1 %.not24.i, label %.loopexit.i, label %111, !llvm.loop !56
 
-.loopexit.i:                                      ; preds = %psh_hint_overlap.argprom.exit.thread.i, %117, %104
+.loopexit.i:                                      ; preds = %psh_hint_overlap.exit.thread.i, %117, %104
   %120 = load i32, ptr %27, align 4
   %121 = load i32, ptr %0, align 8
   %122 = icmp ult i32 %120, %121
@@ -3268,7 +3268,7 @@ psh_blues_snap_stem.exit:                         ; preds = %98, %96, %114, %109
   %164 = getelementptr inbounds i8, ptr %3, i64 196
   %165 = load i8, ptr %164, align 4
   %.not129 = icmp eq i8 %165, 0
-  br i1 %.not129, label %psh_dimension_quantize_len.argprom.exit, label %166
+  br i1 %.not129, label %psh_dimension_quantize_len.exit, label %166
 
 166:                                              ; preds = %162
   %167 = icmp slt i32 %34, 65
@@ -3282,13 +3282,13 @@ psh_blues_snap_stem.exit:                         ; preds = %98, %96, %114, %109
   %171 = lshr i64 %35, 1
   %172 = add nsw i64 %.0113, %171
   %173 = and i64 %172, -64
-  br label %psh_dimension_quantize_len.argprom.exit
+  br label %psh_dimension_quantize_len.exit
 
 174:                                              ; preds = %168
   %175 = icmp sgt i32 %34, 0
   %176 = add nsw i64 %.0113, 32
   %177 = and i64 %176, -64
-  br i1 %175, label %178, label %psh_dimension_quantize_len.argprom.exit
+  br i1 %175, label %178, label %psh_dimension_quantize_len.exit
 
 178:                                              ; preds = %174
   %179 = add nsw i64 %.0113, %35
@@ -3300,7 +3300,7 @@ psh_blues_snap_stem.exit:                         ; preds = %98, %96, %114, %109
   %.0 = tail call i64 @llvm.abs.i64(i64 %183, i1 true)
   %.not130 = icmp ugt i64 %spec.select, %.0
   %spec.select132 = select i1 %.not130, i64 %181, i64 %177
-  br label %psh_dimension_quantize_len.argprom.exit
+  br label %psh_dimension_quantize_len.exit
 
 184:                                              ; preds = %166
   %185 = getelementptr i8, ptr %7, i64 16
@@ -3317,7 +3317,7 @@ psh_blues_snap_stem.exit:                         ; preds = %98, %96, %114, %109
   %190 = and i64 %.1.i, 63
   %191 = and i64 %.1.i, 192
   %192 = icmp ult i64 %190, 10
-  br i1 %192, label %psh_dimension_quantize_len.argprom.exit, label %193
+  br i1 %192, label %psh_dimension_quantize_len.exit, label %193
 
 193:                                              ; preds = %189
   %194 = icmp ult i64 %190, 32
@@ -3325,20 +3325,20 @@ psh_blues_snap_stem.exit:                         ; preds = %98, %96, %114, %109
 
 195:                                              ; preds = %193
   %196 = or disjoint i64 %191, 10
-  br label %psh_dimension_quantize_len.argprom.exit
+  br label %psh_dimension_quantize_len.exit
 
 197:                                              ; preds = %193
   %198 = icmp ult i64 %190, 54
   %199 = or disjoint i64 %191, 54
   %spec.select.i = select i1 %198, i64 %199, i64 %.1.i
-  br label %psh_dimension_quantize_len.argprom.exit
+  br label %psh_dimension_quantize_len.exit
 
 200:                                              ; preds = %184
   %201 = add nuw nsw i64 %.1.i, 32
   %202 = and i64 %201, 9223372036854775744
-  br label %psh_dimension_quantize_len.argprom.exit
+  br label %psh_dimension_quantize_len.exit
 
-psh_dimension_quantize_len.argprom.exit:          ; preds = %174, %200, %197, %195, %189, %178, %170, %162
+psh_dimension_quantize_len.exit:                  ; preds = %174, %200, %197, %195, %189, %178, %170, %162
   %203 = phi i64 [ 64, %170 ], [ %35, %162 ], [ %35, %178 ], [ %196, %195 ], [ %202, %200 ], [ %.1.i, %189 ], [ %spec.select.i, %197 ], [ %35, %174 ]
   %.1 = phi i64 [ %173, %170 ], [ %.0113, %162 ], [ %spec.select132, %178 ], [ %.0113, %195 ], [ %.0113, %200 ], [ %.0113, %189 ], [ %.0113, %197 ], [ %177, %174 ]
   %204 = add nsw i64 %.1, 32
@@ -3373,7 +3373,7 @@ psh_dimension_quantize_len.argprom.exit:          ; preds = %174, %200, %197, %1
   store i64 %.1115152, ptr %53, align 8
   br label %.thread160
 
-221:                                              ; preds = %psh_dimension_quantize_len.argprom.exit
+221:                                              ; preds = %psh_dimension_quantize_len.exit
   %222 = icmp slt i64 %203, 64
   %223 = add nuw nsw i64 %203, 32
   %224 = and i64 %223, 9223372036854775744
@@ -3402,7 +3402,7 @@ psh_dimension_quantize_len.argprom.exit:          ; preds = %174, %200, %197, %1
   store i64 %.1115, ptr %127, align 8
   br label %.thread160
 
-.thread160:                                       ; preds = %122, %117, %psh_dimension_quantize_len.argprom.exit, %.thread149, %.thread155, %235, %214
+.thread160:                                       ; preds = %122, %117, %psh_dimension_quantize_len.exit, %.thread149, %.thread155, %235, %214
   %237 = load i32, ptr %8, align 8
   br label %.sink.split
 
@@ -3419,7 +3419,7 @@ psh_dimension_quantize_len.argprom.exit:          ; preds = %174, %200, %197, %1
 declare i64 @FT_DivFix(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @psh_hint_table_find_strong_points.argprom(i32 %.4.val, ptr nocapture readonly %.16.val, ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 3, 13) %3) unnamed_addr #6 {
+define internal fastcc void @psh_hint_table_find_strong_points(i32 %.4.val, ptr nocapture readonly %.16.val, ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 3, 13) %3) unnamed_addr #6 {
   %.not30 = icmp eq i32 %1, 0
   br i1 %.not30, label %._crit_edge, label %.lr.ph33
 
@@ -3921,7 +3921,7 @@ define internal fastcc void @psh_blues_set_zones(ptr noundef %0, i32 noundef ran
   store i32 0, ptr %.089, align 8
   store i32 0, ptr %.092, align 8
   %8 = icmp ugt i32 %1, 1
-  br i1 %8, label %.lr.ph21.i.preheader, label %psh_blues_set_zones_0.argprom.exit
+  br i1 %8, label %.lr.ph21.i.preheader, label %psh_blues_set_zones_0.exit
 
 .lr.ph21.i.preheader:                             ; preds = %7
   %invariant.gep = getelementptr inbounds i8, ptr %0, i64 8
@@ -4020,17 +4020,17 @@ define internal fastcc void @psh_blues_set_zones(ptr noundef %0, i32 noundef ran
   %40 = getelementptr inbounds i8, ptr %.06615.i, i64 4
   %41 = add nsw i32 %.019.i, -2
   %42 = icmp ugt i32 %41, 1
-  br i1 %42, label %.lr.ph21.i, label %psh_blues_set_zones_0.argprom.exit, !llvm.loop !73
+  br i1 %42, label %.lr.ph21.i, label %psh_blues_set_zones_0.exit, !llvm.loop !73
 
-psh_blues_set_zones_0.argprom.exit:               ; preds = %39, %7
+psh_blues_set_zones_0.exit:                       ; preds = %39, %7
   %.064.lcssa.i = phi i32 [ 0, %7 ], [ %.165.i, %39 ]
   %.062.lcssa.i = phi i32 [ 0, %7 ], [ %.163.i, %39 ]
   store i32 %.064.lcssa.i, ptr %.089, align 8
   store i32 %.062.lcssa.i, ptr %.092, align 8
   %43 = icmp ugt i32 %3, 1
-  br i1 %43, label %.lr.ph21.i111.preheader, label %psh_blues_set_zones_0.argprom.exit139
+  br i1 %43, label %.lr.ph21.i111.preheader, label %psh_blues_set_zones_0.exit139
 
-.lr.ph21.i111.preheader:                          ; preds = %psh_blues_set_zones_0.argprom.exit
+.lr.ph21.i111.preheader:                          ; preds = %psh_blues_set_zones_0.exit
   %.056.i125 = getelementptr inbounds i8, ptr %.092, i64 8
   br label %.lr.ph21.i111
 
@@ -4112,16 +4112,16 @@ psh_blues_set_zones_0.argprom.exit:               ; preds = %39, %7
   %72 = getelementptr inbounds i8, ptr %.06615.i116, i64 4
   %73 = add nsw i32 %.019.i112, -2
   %74 = icmp ugt i32 %73, 1
-  br i1 %74, label %.lr.ph21.i111, label %psh_blues_set_zones_0.argprom.exit139, !llvm.loop !73
+  br i1 %74, label %.lr.ph21.i111, label %psh_blues_set_zones_0.exit139, !llvm.loop !73
 
-psh_blues_set_zones_0.argprom.exit139:            ; preds = %71, %psh_blues_set_zones_0.argprom.exit
-  %.062.lcssa.i110 = phi i32 [ %.062.lcssa.i, %psh_blues_set_zones_0.argprom.exit ], [ %.163.i134, %71 ]
+psh_blues_set_zones_0.exit139:                    ; preds = %71, %psh_blues_set_zones_0.exit
+  %.062.lcssa.i110 = phi i32 [ %.062.lcssa.i, %psh_blues_set_zones_0.exit ], [ %.163.i134, %71 ]
   store i32 %.064.lcssa.i, ptr %.089, align 8
   store i32 %.062.lcssa.i110, ptr %.092, align 8
   %.not101 = icmp eq i32 %.064.lcssa.i, 0
   br i1 %.not101, label %.loopexit140, label %75
 
-75:                                               ; preds = %psh_blues_set_zones_0.argprom.exit139
+75:                                               ; preds = %psh_blues_set_zones_0.exit139
   %76 = getelementptr inbounds i8, ptr %.089, i64 8
   br label %77
 
@@ -4165,7 +4165,7 @@ psh_blues_set_zones_0.argprom.exit139:            ; preds = %71, %psh_blues_set_
   %94 = getelementptr inbounds i8, ptr %.094, i64 48
   br label %77, !llvm.loop !74
 
-.loopexit140:                                     ; preds = %77, %psh_blues_set_zones_0.argprom.exit139
+.loopexit140:                                     ; preds = %77, %psh_blues_set_zones_0.exit139
   %.not103 = icmp eq i32 %.062.lcssa.i110, 0
   br i1 %.not103, label %.loopexit.preheader, label %95
 
@@ -4949,8 +4949,8 @@ ps_dimension_end_mask.exit:                       ; preds = %3, %8
   %25 = load i32, ptr %22, align 8
   br label %26
 
-26:                                               ; preds = %ps_mask_table_test_intersect.argprom.exit.thread.i, %.lr.ph.i
-  %.01640.i = phi i32 [ %19, %.lr.ph.i ], [ %105, %ps_mask_table_test_intersect.argprom.exit.thread.i ]
+26:                                               ; preds = %ps_mask_table_test_intersect.exit.thread.i, %.lr.ph.i
+  %.01640.i = phi i32 [ %19, %.lr.ph.i ], [ %105, %ps_mask_table_test_intersect.exit.thread.i ]
   %27 = zext i32 %.01640.i to i64
   %28 = getelementptr inbounds %struct.PS_MaskRec_, ptr %.val.i, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 8
@@ -4977,7 +4977,7 @@ ps_dimension_end_mask.exit:                       ; preds = %3, %8
   %38 = load i8, ptr %.0244.i.i, align 1
   %39 = and i8 %38, %37
   %.not.i.i = icmp eq i8 %39, 0
-  br i1 %.not.i.i, label %40, label %ps_mask_table_test_intersect.argprom.exit.thread27.i
+  br i1 %.not.i.i, label %40, label %ps_mask_table_test_intersect.exit.thread27.i
 
 40:                                               ; preds = %.lr.ph.i.i
   %41 = getelementptr inbounds i8, ptr %.0235.i.i, i64 1
@@ -4991,18 +4991,18 @@ ps_dimension_end_mask.exit:                       ; preds = %3, %8
   %.023.lcssa.i.i = phi ptr [ %24, %26 ], [ %scevgep.i.i, %40 ]
   %.0.lcssa.i.i = phi i32 [ %32, %26 ], [ %43, %40 ]
   %45 = icmp eq i32 %.0.lcssa.i.i, 0
-  br i1 %45, label %ps_mask_table_test_intersect.argprom.exit.thread.i, label %ps_mask_table_test_intersect.argprom.exit.i
+  br i1 %45, label %ps_mask_table_test_intersect.exit.thread.i, label %ps_mask_table_test_intersect.exit.i
 
-ps_mask_table_test_intersect.argprom.exit.i:      ; preds = %._crit_edge.i.i
+ps_mask_table_test_intersect.exit.i:              ; preds = %._crit_edge.i.i
   %46 = load i8, ptr %.023.lcssa.i.i, align 1
   %47 = load i8, ptr %.024.lcssa.i.i, align 1
   %48 = and i8 %47, %46
   %49 = zext i8 %48 to i32
   %50 = lshr i32 255, %.0.lcssa.i.i
   %.not.not.i = icmp ult i32 %50, %49
-  br i1 %.not.not.i, label %ps_mask_table_test_intersect.argprom.exit.thread27.i, label %ps_mask_table_test_intersect.argprom.exit.thread.i
+  br i1 %.not.not.i, label %ps_mask_table_test_intersect.exit.thread27.i, label %ps_mask_table_test_intersect.exit.thread.i
 
-ps_mask_table_test_intersect.argprom.exit.thread27.i: ; preds = %ps_mask_table_test_intersect.argprom.exit.i, %.lr.ph.i.i
+ps_mask_table_test_intersect.exit.thread27.i:     ; preds = %ps_mask_table_test_intersect.exit.i, %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %spec.select.i.i = call i32 @llvm.umax.i32(i32 %.01640.i, i32 %.01743.i)
   %spec.select62.i.i = call i32 @llvm.umin.i32(i32 %.01640.i, i32 %.01743.i)
@@ -5011,7 +5011,7 @@ ps_mask_table_test_intersect.argprom.exit.thread27.i: ; preds = %ps_mask_table_t
   %or.cond.i = and i1 %51, %52
   br i1 %or.cond.i, label %53, label %ps_mask_table_merge.exit.thread.i
 
-53:                                               ; preds = %ps_mask_table_test_intersect.argprom.exit.thread27.i
+53:                                               ; preds = %ps_mask_table_test_intersect.exit.thread27.i
   %54 = zext i32 %spec.select62.i.i to i64
   %55 = getelementptr inbounds %struct.PS_MaskRec_, ptr %.val.i, i64 %54
   %56 = zext i32 %spec.select.i.i to i64
@@ -5118,8 +5118,8 @@ ps_mask_table_test_intersect.argprom.exit.thread27.i: ; preds = %ps_mask_table_t
   store i32 %103, ptr %14, align 8
   br label %ps_mask_table_merge.exit.thread.i
 
-ps_mask_table_merge.exit.thread.i:                ; preds = %101, %ps_mask_table_test_intersect.argprom.exit.thread27.i
-  %104 = phi i32 [ %103, %101 ], [ %18, %ps_mask_table_test_intersect.argprom.exit.thread27.i ]
+ps_mask_table_merge.exit.thread.i:                ; preds = %101, %ps_mask_table_test_intersect.exit.thread27.i
+  %104 = phi i32 [ %103, %101 ], [ %18, %ps_mask_table_test_intersect.exit.thread27.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %.loopexit.i
 
@@ -5128,13 +5128,13 @@ ps_mask_table_merge.exit.i:                       ; preds = %69
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %ps_mask_table_merge_all.exit
 
-ps_mask_table_test_intersect.argprom.exit.thread.i: ; preds = %ps_mask_table_test_intersect.argprom.exit.i, %._crit_edge.i.i
+ps_mask_table_test_intersect.exit.thread.i:       ; preds = %ps_mask_table_test_intersect.exit.i, %._crit_edge.i.i
   %105 = add i32 %.01640.i, -1
   %106 = icmp ult i32 %105, %.01743.i
   br i1 %106, label %26, label %.loopexit.i, !llvm.loop !82
 
-.loopexit.i:                                      ; preds = %ps_mask_table_test_intersect.argprom.exit.thread.i, %ps_mask_table_merge.exit.thread.i, %17
-  %107 = phi i32 [ %18, %17 ], [ %104, %ps_mask_table_merge.exit.thread.i ], [ %18, %ps_mask_table_test_intersect.argprom.exit.thread.i ]
+.loopexit.i:                                      ; preds = %ps_mask_table_test_intersect.exit.thread.i, %ps_mask_table_merge.exit.thread.i, %17
+  %107 = phi i32 [ %18, %17 ], [ %104, %ps_mask_table_merge.exit.thread.i ], [ %18, %ps_mask_table_test_intersect.exit.thread.i ]
   %.017.i = add i32 %.01743.i, -1
   %108 = icmp ult i32 %.017.i, %107
   br i1 %108, label %17, label %ps_mask_table_merge_all.exit, !llvm.loop !83

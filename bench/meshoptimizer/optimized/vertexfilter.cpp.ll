@@ -80,7 +80,7 @@ for.body.i.i:                                     ; preds = %if.then, %for.body.
 
 _ZN7meshoptL19decodeFilterOctSimdEPam.exit.i:     ; preds = %for.body.i.i, %if.then
   %cmp.not.i = icmp eq i64 %and.i, %count
-  br i1 %cmp.not.i, label %_ZN7meshoptL12dispatchSimdIaEEvPFvPT_mES2_mm.argprom.exit, label %if.then.i
+  br i1 %cmp.not.i, label %_ZN7meshoptL12dispatchSimdIaEEvPFvPT_mES2_mm.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN7meshoptL19decodeFilterOctSimdEPam.exit.i
   store <2 x i64> zeroinitializer, ptr %tail.sroa.0.i, align 16
@@ -150,9 +150,9 @@ for.body.i16.preheader.i:                         ; preds = %if.then.i
 
 _ZN7meshoptL19decodeFilterOctSimdEPam.exit47.i:   ; preds = %for.body.i16.preheader.i, %if.then.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull align 16 %tail.sroa.0.i, i64 %mul.i, i1 false)
-  br label %_ZN7meshoptL12dispatchSimdIaEEvPFvPT_mES2_mm.argprom.exit
+  br label %_ZN7meshoptL12dispatchSimdIaEEvPFvPT_mES2_mm.exit
 
-_ZN7meshoptL12dispatchSimdIaEEvPFvPT_mES2_mm.argprom.exit: ; preds = %_ZN7meshoptL19decodeFilterOctSimdEPam.exit.i, %_ZN7meshoptL19decodeFilterOctSimdEPam.exit47.i
+_ZN7meshoptL12dispatchSimdIaEEvPFvPT_mES2_mm.exit: ; preds = %_ZN7meshoptL19decodeFilterOctSimdEPam.exit.i, %_ZN7meshoptL19decodeFilterOctSimdEPam.exit47.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tail.sroa.0.i)
   br label %if.end
 
@@ -322,7 +322,7 @@ _ZN7meshoptL12dispatchSimdIsEEvPFvPT_mES2_mm.exit: ; preds = %_ZN7meshoptL19deco
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tail.i)
   br label %if.end
 
-if.end:                                           ; preds = %_ZN7meshoptL12dispatchSimdIsEEvPFvPT_mES2_mm.exit, %_ZN7meshoptL12dispatchSimdIaEEvPFvPT_mES2_mm.argprom.exit
+if.end:                                           ; preds = %_ZN7meshoptL12dispatchSimdIsEEvPFvPT_mES2_mm.exit, %_ZN7meshoptL12dispatchSimdIaEEvPFvPT_mES2_mm.exit
   ret void
 }
 
@@ -566,7 +566,7 @@ for.body.i.i:                                     ; preds = %entry, %for.body.i.
 
 _ZN7meshoptL19decodeFilterExpSimdEPjm.exit.i:     ; preds = %for.body.i.i, %entry
   %cmp.not.i = icmp eq i64 %and.i, %mul
-  br i1 %cmp.not.i, label %_ZN7meshoptL12dispatchSimdIjEEvPFvPT_mES2_mm.argprom.exit, label %if.then.i
+  br i1 %cmp.not.i, label %_ZN7meshoptL12dispatchSimdIjEEvPFvPT_mES2_mm.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN7meshoptL19decodeFilterExpSimdEPjm.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %tail.i, i8 0, i64 64, i1 false)
@@ -592,9 +592,9 @@ for.body.i16.preheader.i:                         ; preds = %if.then.i
 
 _ZN7meshoptL19decodeFilterExpSimdEPjm.exit24.i:   ; preds = %for.body.i16.preheader.i, %if.then.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr.i, ptr nonnull align 16 %tail.i, i64 %mul1.i, i1 false)
-  br label %_ZN7meshoptL12dispatchSimdIjEEvPFvPT_mES2_mm.argprom.exit
+  br label %_ZN7meshoptL12dispatchSimdIjEEvPFvPT_mES2_mm.exit
 
-_ZN7meshoptL12dispatchSimdIjEEvPFvPT_mES2_mm.argprom.exit: ; preds = %_ZN7meshoptL19decodeFilterExpSimdEPjm.exit.i, %_ZN7meshoptL19decodeFilterExpSimdEPjm.exit24.i
+_ZN7meshoptL12dispatchSimdIjEEvPFvPT_mES2_mm.exit: ; preds = %_ZN7meshoptL19decodeFilterExpSimdEPjm.exit.i, %_ZN7meshoptL19decodeFilterExpSimdEPjm.exit24.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tail.i)
   ret void
 }

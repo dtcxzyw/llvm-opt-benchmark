@@ -948,7 +948,7 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
 
 35:                                               ; preds = %.lr.ph.i.i
   %.not11.i.i = icmp eq i32 %24, %.09.val.i.i
-  br i1 %.not11.i.i, label %find_watcher.argprom.exit, label %36
+  br i1 %.not11.i.i, label %find_watcher.exit, label %36
 
 36:                                               ; preds = %35
   %37 = getelementptr inbounds i8, ptr %.093.i.i, i64 8
@@ -996,7 +996,7 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
 
 55:                                               ; preds = %.lr.ph.i
   %.not30.i = icmp eq i32 %24, %.026.val.i
-  br i1 %.not30.i, label %find_watcher.argprom.exit, label %56
+  br i1 %.not30.i, label %find_watcher.exit, label %56
 
 56:                                               ; preds = %55
   %57 = getelementptr inbounds i8, ptr %.02636.i, i64 8
@@ -1261,16 +1261,16 @@ watcher_root_RB_INSERT_COLOR.exit.i:              ; preds = %.backedge.i.i, %.lr
   %157 = load ptr, ptr %52, align 8
   %158 = getelementptr inbounds i8, ptr %157, i64 24
   store i32 0, ptr %158, align 8
-  br label %find_watcher.argprom.exit
+  br label %find_watcher.exit
 
-find_watcher.argprom.exit:                        ; preds = %35, %55, %watcher_root_RB_INSERT_COLOR.exit.i
+find_watcher.exit:                                ; preds = %35, %55, %watcher_root_RB_INSERT_COLOR.exit.i
   %.045 = phi ptr [ %41, %watcher_root_RB_INSERT_COLOR.exit.i ], [ %41, %55 ], [ %.093.i.i, %35 ]
   %159 = load i32, ptr %5, align 8
   %160 = and i32 %159, 4
   %.not52 = icmp eq i32 %160, 0
   br i1 %.not52, label %161, label %169
 
-161:                                              ; preds = %find_watcher.argprom.exit
+161:                                              ; preds = %find_watcher.exit
   %162 = or disjoint i32 %159, 4
   store i32 %162, ptr %5, align 8
   %163 = and i32 %159, 8
@@ -1285,7 +1285,7 @@ find_watcher.argprom.exit:                        ; preds = %35, %55, %watcher_r
   store i32 %168, ptr %166, align 8
   br label %169
 
-169:                                              ; preds = %find_watcher.argprom.exit, %164, %161
+169:                                              ; preds = %find_watcher.exit, %164, %161
   %170 = getelementptr inbounds i8, ptr %.045, i64 32
   %171 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr %170, ptr %171, align 8
@@ -1461,11 +1461,11 @@ define internal void @uv__inotify_read(ptr nocapture noundef %0, ptr nocapture r
   %19 = icmp eq i32 %18, 4
   br i1 %19, label %.loopexit.backedge, label %.critedge
 
-.loopexit.backedge:                               ; preds = %find_watcher.argprom.exit.thread, %16, %.critedge56.preheader, %.lr.ph62
+.loopexit.backedge:                               ; preds = %find_watcher.exit.thread, %16, %.critedge56.preheader, %.lr.ph62
   br label %.loopexit, !llvm.loop !17
 
-.lr.ph62.split:                                   ; preds = %.lr.ph62, %find_watcher.argprom.exit.thread
-  %.04861 = phi ptr [ %70, %find_watcher.argprom.exit.thread ], [ %5, %.lr.ph62 ]
+.lr.ph62.split:                                   ; preds = %.lr.ph62, %find_watcher.exit.thread
+  %.04861 = phi ptr [ %70, %find_watcher.exit.thread ], [ %5, %.lr.ph62 ]
   %20 = getelementptr inbounds i8, ptr %.04861, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, 6
@@ -1478,7 +1478,7 @@ define internal void @uv__inotify_read(ptr nocapture noundef %0, ptr nocapture r
   %25 = load i32, ptr %.04861, align 4
   %.val = load ptr, ptr %7, align 8
   %.not2.i.i = icmp eq ptr %.val, null
-  br i1 %.not2.i.i, label %find_watcher.argprom.exit.thread, label %.lr.ph.i.i
+  br i1 %.not2.i.i, label %find_watcher.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph62.split, %31
   %.093.i.i = phi ptr [ %.09.i.i, %31 ], [ %.val, %.lr.ph62.split ]
@@ -1489,7 +1489,7 @@ define internal void @uv__inotify_read(ptr nocapture noundef %0, ptr nocapture r
 
 28:                                               ; preds = %.lr.ph.i.i
   %.not11.i.i = icmp eq i32 %25, %.09.val.i.i
-  br i1 %.not11.i.i, label %find_watcher.argprom.exit, label %29
+  br i1 %.not11.i.i, label %find_watcher.exit, label %29
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds i8, ptr %.093.i.i, i64 8
@@ -1499,19 +1499,19 @@ define internal void @uv__inotify_read(ptr nocapture noundef %0, ptr nocapture r
   %.1.in.i.i = phi ptr [ %30, %29 ], [ %.093.i.i, %.lr.ph.i.i ]
   %.09.i.i = load ptr, ptr %.1.in.i.i, align 8
   %.not.i.i = icmp eq ptr %.09.i.i, null
-  br i1 %.not.i.i, label %find_watcher.argprom.exit.thread, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %.not.i.i, label %find_watcher.exit.thread, label %.lr.ph.i.i, !llvm.loop !9
 
-find_watcher.argprom.exit:                        ; preds = %28
+find_watcher.exit:                                ; preds = %28
   %32 = getelementptr inbounds i8, ptr %.04861, i64 12
   %33 = load i32, ptr %32, align 4
   %.not54 = icmp eq i32 %33, 0
   br i1 %.not54, label %36, label %34
 
-34:                                               ; preds = %find_watcher.argprom.exit
+34:                                               ; preds = %find_watcher.exit
   %35 = getelementptr inbounds i8, ptr %.04861, i64 16
   br label %42
 
-36:                                               ; preds = %find_watcher.argprom.exit
+36:                                               ; preds = %find_watcher.exit
   %37 = getelementptr inbounds i8, ptr %.093.i.i, i64 56
   %38 = load ptr, ptr %37, align 8
   %39 = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %38, i32 noundef 47) #11
@@ -1578,9 +1578,9 @@ find_watcher.argprom.exit:                        ; preds = %28
 ._crit_edge:                                      ; preds = %54, %.thread, %48
   store i32 0, ptr %44, align 8
   call fastcc void @maybe_free_watcher_list(ptr noundef nonnull %.093.i.i, ptr noundef %0)
-  br label %find_watcher.argprom.exit.thread
+  br label %find_watcher.exit.thread
 
-find_watcher.argprom.exit.thread:                 ; preds = %31, %.lr.ph62.split, %._crit_edge
+find_watcher.exit.thread:                         ; preds = %31, %.lr.ph62.split, %._crit_edge
   %66 = getelementptr inbounds i8, ptr %.04861, i64 12
   %67 = load i32, ptr %66, align 4
   %68 = zext i32 %67 to i64

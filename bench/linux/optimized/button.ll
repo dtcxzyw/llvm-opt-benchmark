@@ -652,7 +652,7 @@ define internal void @acpi_lid_notify(ptr nocapture readnone %0, i32 noundef %1,
 
 23:                                               ; preds = %21, %20
   %.val = load ptr, ptr %7, align 8
-  call fastcc void @acpi_lid_notify_state.argprom(ptr %.val, i32 noundef %19)
+  call fastcc void @acpi_lid_notify_state(ptr %.val, i32 noundef %19)
   br label %24
 
 24:                                               ; preds = %23, %12, %6, %3
@@ -709,7 +709,7 @@ define internal noundef i32 @acpi_lid_input_open(ptr nocapture noundef readonly 
 29:                                               ; preds = %26, %1
   %.val = phi ptr [ %.val.pre, %26 ], [ %19, %1 ]
   %30 = phi i32 [ %28, %26 ], [ 1, %1 ]
-  call fastcc void @acpi_lid_notify_state.argprom(ptr %.val, i32 noundef %30)
+  call fastcc void @acpi_lid_notify_state(ptr %.val, i32 noundef %30)
   br label %31
 
 31:                                               ; preds = %29, %21, %1
@@ -761,7 +761,7 @@ declare dso_local i32 @acpi_bus_generate_netlink_event(ptr noundef, ptr noundef,
 declare dso_local void @input_event(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @acpi_lid_notify_state.argprom(ptr nocapture %.608.val, i32 noundef range(i32 -19, 2) %0) unnamed_addr #0 align 16 {
+define internal fastcc void @acpi_lid_notify_state(ptr nocapture %.608.val, i32 noundef range(i32 -19, 2) %0) unnamed_addr #0 align 16 {
 ._crit_edge:
   %1 = load i64, ptr @lid_init_state, align 8
   %2 = icmp ne i64 %1, 0
@@ -958,7 +958,7 @@ define internal noundef i32 @acpi_button_resume(ptr nocapture noundef readonly %
 31:                                               ; preds = %28, %9
   %.val = phi ptr [ %.val.pre, %28 ], [ %21, %9 ]
   %32 = phi i32 [ %30, %28 ], [ 1, %9 ]
-  call fastcc void @acpi_lid_notify_state.argprom(ptr %.val, i32 noundef %32)
+  call fastcc void @acpi_lid_notify_state(ptr %.val, i32 noundef %32)
   br label %33
 
 33:                                               ; preds = %31, %23, %9

@@ -1050,9 +1050,9 @@ define dso_local void @_ZN8V3Inline9inlineAllEP10AstNetlist(ptr noundef %0) #3 a
 .noexc:                                           ; preds = %23
   store ptr %25, ptr %4, align 8
   %26 = invoke noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #23
-          to label %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EEC2Ev.exit.i.i unwind label %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE16_M_destroy_nodesEPPS1_S5_.argprom.exit.i.i.i.i.i.i
+          to label %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EEC2Ev.exit.i.i unwind label %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i.i.i.i
 
-_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE16_M_destroy_nodesEPPS1_S5_.argprom.exit.i.i.i.i.i.i: ; preds = %.noexc
+_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i.i.i.i: ; preds = %.noexc
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
@@ -1060,7 +1060,7 @@ _ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE16_M_destroy_nodesEPPS1_
   invoke void @__cxa_rethrow() #24
           to label %35 unwind label %30
 
-30:                                               ; preds = %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE16_M_destroy_nodesEPPS1_S5_.argprom.exit.i.i.i.i.i.i
+30:                                               ; preds = %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i.i.i.i
   %31 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
@@ -1073,7 +1073,7 @@ _ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE16_M_destroy_nodesEPPS1_
   call void @__clang_call_terminate(ptr %34) #25
   unreachable
 
-35:                                               ; preds = %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE16_M_destroy_nodesEPPS1_S5_.argprom.exit.i.i.i.i.i.i
+35:                                               ; preds = %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i.i.i.i
   unreachable
 
 .body.i.i.i.i.i:                                  ; preds = %30
@@ -1933,7 +1933,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN20Ast
   %76 = add i64 %.sroa.speculated.i.i.i.i, %46
   %77 = add i64 %76, 2
   %78 = icmp ugt i64 %77, 1152921504606846975
-  br i1 %78, label %79, label %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_allocate_mapEm.argprom.exit.i.i.i.i
+  br i1 %78, label %79, label %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_allocate_mapEm.exit.i.i.i.i
 
 79:                                               ; preds = %75
   %80 = icmp ugt i64 %77, 2305843009213693951
@@ -1947,7 +1947,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN20Ast
   tail call void @_ZSt17__throw_bad_allocv() #24
   unreachable
 
-_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_allocate_mapEm.argprom.exit.i.i.i.i: ; preds = %75
+_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_allocate_mapEm.exit.i.i.i.i: ; preds = %75
   %81 = shl nuw nsw i64 %77, 3
   %82 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %81) #23
   %83 = sub nsw i64 %76, %23
@@ -1957,13 +1957,13 @@ _ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_allocate_mapEm.argp
   %.not.i.i.i.i.i25.i.i.i.i = icmp eq ptr %86, %19
   br i1 %.not.i.i.i.i.i25.i.i.i.i, label %_ZSt4copyIPPN12_GLOBAL__N_111ModuleStateES3_ET0_T_S5_S4_.exit26.i.i.i.i, label %87
 
-87:                                               ; preds = %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_allocate_mapEm.argprom.exit.i.i.i.i
+87:                                               ; preds = %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_allocate_mapEm.exit.i.i.i.i
   %88 = ptrtoint ptr %86 to i64
   %89 = sub i64 %88, %21
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %85, ptr align 8 %19, i64 %89, i1 false)
   br label %_ZSt4copyIPPN12_GLOBAL__N_111ModuleStateES3_ET0_T_S5_S4_.exit26.i.i.i.i
 
-_ZSt4copyIPPN12_GLOBAL__N_111ModuleStateES3_ET0_T_S5_S4_.exit26.i.i.i.i: ; preds = %87, %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_allocate_mapEm.argprom.exit.i.i.i.i
+_ZSt4copyIPPN12_GLOBAL__N_111ModuleStateES3_ET0_T_S5_S4_.exit26.i.i.i.i: ; preds = %87, %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_allocate_mapEm.exit.i.i.i.i
   tail call void @_ZdlPv(ptr noundef %47) #26
   store ptr %82, ptr %0, align 8
   store i64 %77, ptr %45, align 8
@@ -2397,108 +2397,108 @@ define internal fastcc void @_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EED2
   %14 = icmp ult ptr %.02.i.i, %13
   br i1 %14, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-.lr.ph.i.i:                                       ; preds = %1, %_ZSt8_DestroyIPN12_GLOBAL__N_111ModuleStateES1_EvT_S3_RSaIT0_E.argprom.exit.i.i
-  %.03.i.i = phi ptr [ %.0.i.i, %_ZSt8_DestroyIPN12_GLOBAL__N_111ModuleStateES1_EvT_S3_RSaIT0_E.argprom.exit.i.i ], [ %.02.i.i, %1 ]
+.lr.ph.i.i:                                       ; preds = %1, %_ZSt8_DestroyIPN12_GLOBAL__N_111ModuleStateES1_EvT_S3_RSaIT0_E.exit.i.i
+  %.03.i.i = phi ptr [ %.0.i.i, %_ZSt8_DestroyIPN12_GLOBAL__N_111ModuleStateES1_EvT_S3_RSaIT0_E.exit.i.i ], [ %.02.i.i, %1 ]
   %15 = load ptr, ptr %.03.i.i, align 8
   %invariant.gep.i.i = getelementptr i8, ptr %15, i64 8
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.argprom.exit.i.i.i.i.i, %.lr.ph.i.i
-  %.05.i.i.i.idx.i.i = phi i64 [ %.05.i.i.i.add.i.i, %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.argprom.exit.i.i.i.i.i ], [ 0, %.lr.ph.i.i ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.exit.i.i.i.i.i, %.lr.ph.i.i
+  %.05.i.i.i.idx.i.i = phi i64 [ %.05.i.i.i.add.i.i, %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.exit.i.i.i.i.i ], [ 0, %.lr.ph.i.i ]
   %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %.05.i.i.i.idx.i.i
   %.0.val.i.i.i.i.i = load ptr, ptr %gep.i.i, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.0.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.argprom.exit.i.i.i.i.i, label %16
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.exit.i.i.i.i.i, label %16
 
 16:                                               ; preds = %.lr.ph.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.0.val.i.i.i.i.i) #26
-  br label %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.argprom.exit.i.i.i.i.i
+  br label %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.argprom.exit.i.i.i.i.i: ; preds = %16, %.lr.ph.i.i.i.i.i
+_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.exit.i.i.i.i.i: ; preds = %16, %.lr.ph.i.i.i.i.i
   %.05.i.i.i.add.i.i = add nuw nsw i64 %.05.i.i.i.idx.i.i, 32
   %.not.i.i.i.i.i = icmp eq i64 %.05.i.i.i.add.i.i, 512
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_111ModuleStateES1_EvT_S3_RSaIT0_E.argprom.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !23
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_111ModuleStateES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !23
 
-_ZSt8_DestroyIPN12_GLOBAL__N_111ModuleStateES1_EvT_S3_RSaIT0_E.argprom.exit.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.argprom.exit.i.i.i.i.i
+_ZSt8_DestroyIPN12_GLOBAL__N_111ModuleStateES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.exit.i.i.i.i.i
   %.0.i.i = getelementptr inbounds i8, ptr %.03.i.i, i64 8
   %17 = icmp ult ptr %.0.i.i, %13
   br i1 %17, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !24
 
-._crit_edge.i.i:                                  ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_111ModuleStateES1_EvT_S3_RSaIT0_E.argprom.exit.i.i, %1
+._crit_edge.i.i:                                  ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_111ModuleStateES1_EvT_S3_RSaIT0_E.exit.i.i, %1
   %.not.i.i = icmp eq ptr %7, %13
   br i1 %.not.i.i, label %25, label %18
 
 18:                                               ; preds = %._crit_edge.i.i
   %.not4.i.i.i.i.i = icmp eq ptr %3, %5
-  br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_111ModuleStateES1_EvT_S3_RSaIT0_E.argprom.exit12.i.i, label %.lr.ph.i.i.i6.i.i
+  br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_111ModuleStateES1_EvT_S3_RSaIT0_E.exit12.i.i, label %.lr.ph.i.i.i6.i.i
 
-.lr.ph.i.i.i6.i.i:                                ; preds = %18, %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.argprom.exit.i.i.i10.i.i
-  %.05.i.i.i7.i.i = phi ptr [ %21, %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.argprom.exit.i.i.i10.i.i ], [ %3, %18 ]
+.lr.ph.i.i.i6.i.i:                                ; preds = %18, %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.exit.i.i.i10.i.i
+  %.05.i.i.i7.i.i = phi ptr [ %21, %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.exit.i.i.i10.i.i ], [ %3, %18 ]
   %19 = getelementptr i8, ptr %.05.i.i.i7.i.i, i64 8
   %.0.val.i.i.i8.i.i = load ptr, ptr %19, align 8
   %.not.i.i.i.i.i.i.i.i9.i.i = icmp eq ptr %.0.val.i.i.i8.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i9.i.i, label %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.argprom.exit.i.i.i10.i.i, label %20
+  br i1 %.not.i.i.i.i.i.i.i.i9.i.i, label %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.exit.i.i.i10.i.i, label %20
 
 20:                                               ; preds = %.lr.ph.i.i.i6.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.0.val.i.i.i8.i.i) #26
-  br label %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.argprom.exit.i.i.i10.i.i
+  br label %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.exit.i.i.i10.i.i
 
-_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.argprom.exit.i.i.i10.i.i: ; preds = %20, %.lr.ph.i.i.i6.i.i
+_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.exit.i.i.i10.i.i: ; preds = %20, %.lr.ph.i.i.i6.i.i
   %21 = getelementptr inbounds i8, ptr %.05.i.i.i7.i.i, i64 32
   %.not.i.i.i11.i.i = icmp eq ptr %21, %5
-  br i1 %.not.i.i.i11.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_111ModuleStateES1_EvT_S3_RSaIT0_E.argprom.exit12.i.i, label %.lr.ph.i.i.i6.i.i, !llvm.loop !23
+  br i1 %.not.i.i.i11.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_111ModuleStateES1_EvT_S3_RSaIT0_E.exit12.i.i, label %.lr.ph.i.i.i6.i.i, !llvm.loop !23
 
-_ZSt8_DestroyIPN12_GLOBAL__N_111ModuleStateES1_EvT_S3_RSaIT0_E.argprom.exit12.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.argprom.exit.i.i.i10.i.i, %18
+_ZSt8_DestroyIPN12_GLOBAL__N_111ModuleStateES1_EvT_S3_RSaIT0_E.exit12.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.exit.i.i.i10.i.i, %18
   %.not4.i.i.i13.i.i = icmp eq ptr %11, %9
-  br i1 %.not4.i.i.i13.i.i, label %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.argprom.exit, label %.lr.ph.i.i.i14.i.i
+  br i1 %.not4.i.i.i13.i.i, label %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.exit, label %.lr.ph.i.i.i14.i.i
 
-.lr.ph.i.i.i14.i.i:                               ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_111ModuleStateES1_EvT_S3_RSaIT0_E.argprom.exit12.i.i, %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.argprom.exit.i.i.i18.i.i
-  %.05.i.i.i15.i.i = phi ptr [ %24, %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.argprom.exit.i.i.i18.i.i ], [ %11, %_ZSt8_DestroyIPN12_GLOBAL__N_111ModuleStateES1_EvT_S3_RSaIT0_E.argprom.exit12.i.i ]
+.lr.ph.i.i.i14.i.i:                               ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_111ModuleStateES1_EvT_S3_RSaIT0_E.exit12.i.i, %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.exit.i.i.i18.i.i
+  %.05.i.i.i15.i.i = phi ptr [ %24, %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.exit.i.i.i18.i.i ], [ %11, %_ZSt8_DestroyIPN12_GLOBAL__N_111ModuleStateES1_EvT_S3_RSaIT0_E.exit12.i.i ]
   %22 = getelementptr i8, ptr %.05.i.i.i15.i.i, i64 8
   %.0.val.i.i.i16.i.i = load ptr, ptr %22, align 8
   %.not.i.i.i.i.i.i.i.i17.i.i = icmp eq ptr %.0.val.i.i.i16.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i17.i.i, label %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.argprom.exit.i.i.i18.i.i, label %23
+  br i1 %.not.i.i.i.i.i.i.i.i17.i.i, label %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.exit.i.i.i18.i.i, label %23
 
 23:                                               ; preds = %.lr.ph.i.i.i14.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.0.val.i.i.i16.i.i) #26
-  br label %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.argprom.exit.i.i.i18.i.i
+  br label %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.exit.i.i.i18.i.i
 
-_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.argprom.exit.i.i.i18.i.i: ; preds = %23, %.lr.ph.i.i.i14.i.i
+_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.exit.i.i.i18.i.i: ; preds = %23, %.lr.ph.i.i.i14.i.i
   %24 = getelementptr inbounds i8, ptr %.05.i.i.i15.i.i, i64 32
   %.not.i.i.i19.i.i = icmp eq ptr %24, %9
-  br i1 %.not.i.i.i19.i.i, label %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.argprom.exit, label %.lr.ph.i.i.i14.i.i, !llvm.loop !23
+  br i1 %.not.i.i.i19.i.i, label %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.exit, label %.lr.ph.i.i.i14.i.i, !llvm.loop !23
 
 25:                                               ; preds = %._crit_edge.i.i
   %.not4.i.i.i21.i.i = icmp eq ptr %3, %9
-  br i1 %.not4.i.i.i21.i.i, label %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.argprom.exit, label %.lr.ph.i.i.i22.i.i
+  br i1 %.not4.i.i.i21.i.i, label %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.exit, label %.lr.ph.i.i.i22.i.i
 
-.lr.ph.i.i.i22.i.i:                               ; preds = %25, %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.argprom.exit.i.i.i26.i.i
-  %.05.i.i.i23.i.i = phi ptr [ %28, %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.argprom.exit.i.i.i26.i.i ], [ %3, %25 ]
+.lr.ph.i.i.i22.i.i:                               ; preds = %25, %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.exit.i.i.i26.i.i
+  %.05.i.i.i23.i.i = phi ptr [ %28, %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.exit.i.i.i26.i.i ], [ %3, %25 ]
   %26 = getelementptr i8, ptr %.05.i.i.i23.i.i, i64 8
   %.0.val.i.i.i24.i.i = load ptr, ptr %26, align 8
   %.not.i.i.i.i.i.i.i.i25.i.i = icmp eq ptr %.0.val.i.i.i24.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i25.i.i, label %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.argprom.exit.i.i.i26.i.i, label %27
+  br i1 %.not.i.i.i.i.i.i.i.i25.i.i, label %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.exit.i.i.i26.i.i, label %27
 
 27:                                               ; preds = %.lr.ph.i.i.i22.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.0.val.i.i.i24.i.i) #26
-  br label %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.argprom.exit.i.i.i26.i.i
+  br label %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.exit.i.i.i26.i.i
 
-_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.argprom.exit.i.i.i26.i.i: ; preds = %27, %.lr.ph.i.i.i22.i.i
+_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.exit.i.i.i26.i.i: ; preds = %27, %.lr.ph.i.i.i22.i.i
   %28 = getelementptr inbounds i8, ptr %.05.i.i.i23.i.i, i64 32
   %.not.i.i.i27.i.i = icmp eq ptr %28, %9
-  br i1 %.not.i.i.i27.i.i, label %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.argprom.exit, label %.lr.ph.i.i.i22.i.i, !llvm.loop !23
+  br i1 %.not.i.i.i27.i.i, label %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.exit, label %.lr.ph.i.i.i22.i.i, !llvm.loop !23
 
-_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.argprom.exit: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.argprom.exit.i.i.i18.i.i, %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.argprom.exit.i.i.i26.i.i, %25, %_ZSt8_DestroyIPN12_GLOBAL__N_111ModuleStateES1_EvT_S3_RSaIT0_E.argprom.exit12.i.i
+_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.exit: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.exit.i.i.i18.i.i, %_ZSt8_DestroyIN12_GLOBAL__N_111ModuleStateEEvPT_.exit.i.i.i26.i.i, %25, %_ZSt8_DestroyIPN12_GLOBAL__N_111ModuleStateES1_EvT_S3_RSaIT0_E.exit12.i.i
   %29 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EED2Ev.exit, label %30
 
-30:                                               ; preds = %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.argprom.exit
+30:                                               ; preds = %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.exit
   %31 = load ptr, ptr %6, align 8
   %32 = load ptr, ptr %12, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 8
   %34 = icmp ult ptr %31, %33
-  br i1 %34, label %.lr.ph.i.i1, label %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE16_M_destroy_nodesEPPS1_S5_.argprom.exit.i
+  br i1 %34, label %.lr.ph.i.i1, label %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i
 
 .lr.ph.i.i1:                                      ; preds = %30, %.lr.ph.i.i1
   %.01.i.i = phi ptr [ %36, %.lr.ph.i.i1 ], [ %31, %30 ]
@@ -2506,18 +2506,18 @@ _ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_destroy_dataESt15_Deque_it
   tail call void @_ZdlPv(ptr noundef %35) #26
   %36 = getelementptr inbounds i8, ptr %.01.i.i, i64 8
   %37 = icmp ult ptr %.01.i.i, %32
-  br i1 %37, label %.lr.ph.i.i1, label %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE16_M_destroy_nodesEPPS1_S5_.argprom.exit.loopexit.i, !llvm.loop !25
+  br i1 %37, label %.lr.ph.i.i1, label %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i, !llvm.loop !25
 
-_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE16_M_destroy_nodesEPPS1_S5_.argprom.exit.loopexit.i: ; preds = %.lr.ph.i.i1
+_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i: ; preds = %.lr.ph.i.i1
   %.pre.i = load ptr, ptr %0, align 8
-  br label %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE16_M_destroy_nodesEPPS1_S5_.argprom.exit.i
+  br label %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i
 
-_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE16_M_destroy_nodesEPPS1_S5_.argprom.exit.i: ; preds = %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE16_M_destroy_nodesEPPS1_S5_.argprom.exit.loopexit.i, %30
-  %38 = phi ptr [ %.pre.i, %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE16_M_destroy_nodesEPPS1_S5_.argprom.exit.loopexit.i ], [ %29, %30 ]
+_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i: ; preds = %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i, %30
+  %38 = phi ptr [ %.pre.i, %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i ], [ %29, %30 ]
   tail call void @_ZdlPv(ptr noundef %38) #26
   br label %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EED2Ev.exit
 
-_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EED2Ev.exit: ; preds = %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.argprom.exit, %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE16_M_destroy_nodesEPPS1_S5_.argprom.exit.i
+_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EED2Ev.exit: ; preds = %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.exit, %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i
   ret void
 }
 
@@ -3576,7 +3576,7 @@ _ZNSt8__detail9_Map_baseIP13AstNodeModuleSt4pairIKS2_St13unordered_mapIS2_jSt4ha
   %60 = icmp ne i32 %.val5.i, %54
   %.not1.i = icmp eq i64 %.val.i, 0
   %.not.i = select i1 %60, i1 true, i1 %.not1.i
-  br i1 %.not.i, label %61, label %_ZNK20AstUserAllocatorBaseI13AstNodeModuleN12_GLOBAL__N_111ModuleStateELi1EEclEPKS0_.argprom.exit
+  br i1 %.not.i, label %61, label %_ZNK20AstUserAllocatorBaseI13AstNodeModuleN12_GLOBAL__N_111ModuleStateELi1EEclEPKS0_.exit
 
 61:                                               ; preds = %55
   %62 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.28, i32 noundef 97, i1 noundef zeroext true)
@@ -3585,13 +3585,13 @@ _ZNSt8__detail9_Map_baseIP13AstNodeModuleSt4pairIKS2_St13unordered_mapIS2_jSt4ha
   call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %57, ptr noundef nonnull align 8 dereferenceable(112) %64) #24
   unreachable
 
-_ZNK20AstUserAllocatorBaseI13AstNodeModuleN12_GLOBAL__N_111ModuleStateELi1EEclEPKS0_.argprom.exit: ; preds = %55
+_ZNK20AstUserAllocatorBaseI13AstNodeModuleN12_GLOBAL__N_111ModuleStateELi1EEclEPKS0_.exit: ; preds = %55
   %65 = inttoptr i64 %.val.i to ptr
   %66 = load i8, ptr %65, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %68, label %79
 
-68:                                               ; preds = %_ZNK20AstUserAllocatorBaseI13AstNodeModuleN12_GLOBAL__N_111ModuleStateELi1EEclEPKS0_.argprom.exit
+68:                                               ; preds = %_ZNK20AstUserAllocatorBaseI13AstNodeModuleN12_GLOBAL__N_111ModuleStateELi1EEclEPKS0_.exit
   %69 = getelementptr inbounds i8, ptr %57, i64 140
   %70 = load i32, ptr %69, align 4
   %71 = icmp eq i32 %70, %.pre
@@ -3605,8 +3605,8 @@ _ZNK20AstUserAllocatorBaseI13AstNodeModuleN12_GLOBAL__N_111ModuleStateELi1EEclEP
   %78 = add i32 %77, %.059
   br label %79
 
-79:                                               ; preds = %_ZNK20AstUserAllocatorBaseI13AstNodeModuleN12_GLOBAL__N_111ModuleStateELi1EEclEPKS0_.argprom.exit, %68
-  %.1 = phi i32 [ %78, %68 ], [ %.059, %_ZNK20AstUserAllocatorBaseI13AstNodeModuleN12_GLOBAL__N_111ModuleStateELi1EEclEPKS0_.argprom.exit ]
+79:                                               ; preds = %_ZNK20AstUserAllocatorBaseI13AstNodeModuleN12_GLOBAL__N_111ModuleStateELi1EEclEPKS0_.exit, %68
+  %.1 = phi i32 [ %78, %68 ], [ %.059, %_ZNK20AstUserAllocatorBaseI13AstNodeModuleN12_GLOBAL__N_111ModuleStateELi1EEclEPKS0_.exit ]
   %.sroa.041.0 = load ptr, ptr %.sroa.041.060, align 8
   %.not54 = icmp eq ptr %.sroa.041.0, null
   br i1 %.not54, label %_ZN7AstNode9privateIsI10AstPackageKP13AstNodeModuleEEbPKS_.exit, label %55

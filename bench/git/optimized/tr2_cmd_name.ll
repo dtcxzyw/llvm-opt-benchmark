@@ -16,17 +16,17 @@ entry:
   store i64 0, ptr getelementptr inbounds (i8, ptr @tr2cmdname_hierarchy, i64 8), align 8
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @tr2cmdname_hierarchy, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %0, @strbuf_slopbuf
-  br i1 %cmp3.not.i, label %strbuf_setlen.argprom.exit, label %if.then4.i
+  br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %entry
   store i8 0, ptr %0, align 1
-  br label %strbuf_setlen.argprom.exit
+  br label %strbuf_setlen.exit
 
-strbuf_setlen.argprom.exit:                       ; preds = %entry, %if.then4.i
+strbuf_setlen.exit:                               ; preds = %entry, %if.then4.i
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %strbuf_setlen.argprom.exit
+land.lhs.true:                                    ; preds = %strbuf_setlen.exit
   %1 = load i8, ptr %call, align 1
   %tobool1.not = icmp eq i8 %1, 0
   br i1 %tobool1.not, label %if.end, label %if.then
@@ -40,15 +40,15 @@ if.then:                                          ; preds = %land.lhs.true
   %.neg.i = add i64 %3, 1
   %tobool.not1.i = icmp eq i64 %2, %.neg.i
   %tobool.not.i = select i1 %tobool.not.i.i, i1 true, i1 %tobool.not1.i
-  br i1 %tobool.not.i, label %if.then.i, label %strbuf_addch.argprom.exit
+  br i1 %tobool.not.i, label %if.then.i, label %strbuf_addch.exit
 
 if.then.i:                                        ; preds = %if.then
   tail call void @strbuf_grow(ptr noundef nonnull @tr2cmdname_hierarchy, i64 noundef 1) #6
   %.pre.i = load i64, ptr getelementptr inbounds (i8, ptr @tr2cmdname_hierarchy, i64 8), align 8
   %.pre2.i = add i64 %.pre.i, 1
-  br label %strbuf_addch.argprom.exit
+  br label %strbuf_addch.exit
 
-strbuf_addch.argprom.exit:                        ; preds = %if.then, %if.then.i
+strbuf_addch.exit:                                ; preds = %if.then, %if.then.i
   %inc.pre-phi.i = phi i64 [ %.pre2.i, %if.then.i ], [ %.neg.i, %if.then ]
   %4 = phi i64 [ %.pre.i, %if.then.i ], [ %3, %if.then ]
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @tr2cmdname_hierarchy, i64 16), align 8
@@ -61,7 +61,7 @@ strbuf_addch.argprom.exit:                        ; preds = %if.then, %if.then.i
   store i8 0, ptr %arrayidx3.i, align 1
   br label %if.end
 
-if.end:                                           ; preds = %strbuf_addch.argprom.exit, %land.lhs.true, %strbuf_setlen.argprom.exit
+if.end:                                           ; preds = %strbuf_addch.exit, %land.lhs.true, %strbuf_setlen.exit
   %call.i3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #7
   tail call void @strbuf_add(ptr noundef nonnull @tr2cmdname_hierarchy, ptr noundef %name, i64 noundef %call.i3) #6
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @tr2cmdname_hierarchy, i64 16), align 8

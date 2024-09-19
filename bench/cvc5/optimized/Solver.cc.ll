@@ -4193,7 +4193,7 @@ for.inc.i:                                        ; preds = %land.rhs.i354
 
 for.end.thread.i:                                 ; preds = %for.inc.i
   %sub414.i = add nsw i32 %2, -1
-  br label %_ZN4cvc58internal7MinisatL6removeINS1_3vecINS1_6Solver7WatcherEEES5_EEvRT_RKT0_.argprom.exit
+  br label %_ZN4cvc58internal7MinisatL6removeINS1_3vecINS1_6Solver7WatcherEEES5_EEvRT_RKT0_.exit
 
 for.end.loopexit.i:                               ; preds = %land.rhs.i354
   %5 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -4203,7 +4203,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   %j.0.lcssa.i = phi i32 [ 0, %if.then63 ], [ %5, %for.end.loopexit.i ]
   %sub4.i = add nsw i32 %2, -1
   %cmp55.i = icmp slt i32 %j.0.lcssa.i, %sub4.i
-  br i1 %cmp55.i, label %for.body6.preheader.i, label %_ZN4cvc58internal7MinisatL6removeINS1_3vecINS1_6Solver7WatcherEEES5_EEvRT_RKT0_.argprom.exit
+  br i1 %cmp55.i, label %for.body6.preheader.i, label %_ZN4cvc58internal7MinisatL6removeINS1_3vecINS1_6Solver7WatcherEEES5_EEvRT_RKT0_.exit
 
 for.body6.preheader.i:                            ; preds = %for.end.i
   %6 = zext i32 %j.0.lcssa.i to i64
@@ -4221,9 +4221,9 @@ for.body6.i:                                      ; preds = %for.body6.i, %for.b
   %sub.i = add nsw i32 %9, -1
   %10 = trunc nuw i64 %indvars.iv.next11.i to i32
   %cmp5.i = icmp sgt i32 %sub.i, %10
-  br i1 %cmp5.i, label %for.body6.i, label %_ZN4cvc58internal7MinisatL6removeINS1_3vecINS1_6Solver7WatcherEEES5_EEvRT_RKT0_.argprom.exit, !llvm.loop !16
+  br i1 %cmp5.i, label %for.body6.i, label %_ZN4cvc58internal7MinisatL6removeINS1_3vecINS1_6Solver7WatcherEEES5_EEvRT_RKT0_.exit, !llvm.loop !16
 
-_ZN4cvc58internal7MinisatL6removeINS1_3vecINS1_6Solver7WatcherEEES5_EEvRT_RKT0_.argprom.exit: ; preds = %for.body6.i, %for.end.thread.i, %for.end.i
+_ZN4cvc58internal7MinisatL6removeINS1_3vecINS1_6Solver7WatcherEEES5_EEvRT_RKT0_.exit: ; preds = %for.body6.i, %for.end.thread.i, %for.end.i
   %sub.lcssa.i = phi i32 [ %sub4.i, %for.end.i ], [ %sub414.i, %for.end.thread.i ], [ %sub.i, %for.body6.i ]
   store i32 %sub.lcssa.i, ptr %sz.i.i, align 8
   %retval.sroa.0.0.copyload.i359 = load i32, ptr %arrayidx.i352, align 4
@@ -4236,7 +4236,7 @@ _ZN4cvc58internal7MinisatL6removeINS1_3vecINS1_6Solver7WatcherEEES5_EEvRT_RKT0_.
   %cmp1.i369 = icmp sgt i32 %12, 0
   br i1 %cmp1.i369, label %land.rhs.lr.ph.i383, label %for.end.i370
 
-land.rhs.lr.ph.i383:                              ; preds = %_ZN4cvc58internal7MinisatL6removeINS1_3vecINS1_6Solver7WatcherEEES5_EEvRT_RKT0_.argprom.exit
+land.rhs.lr.ph.i383:                              ; preds = %_ZN4cvc58internal7MinisatL6removeINS1_3vecINS1_6Solver7WatcherEEES5_EEvRT_RKT0_.exit
   %13 = load ptr, ptr %arrayidx.i.i363, align 8
   %wide.trip.count.i384 = zext nneg i32 %12 to i64
   br label %land.rhs.i385
@@ -4255,17 +4255,17 @@ for.inc.i389:                                     ; preds = %land.rhs.i385
 
 for.end.thread.i392:                              ; preds = %for.inc.i389
   %sub414.i393 = add nsw i32 %12, -1
-  br label %_ZN4cvc58internal7MinisatL6removeINS1_3vecINS1_6Solver7WatcherEEES5_EEvRT_RKT0_.argprom.exit395
+  br label %_ZN4cvc58internal7MinisatL6removeINS1_3vecINS1_6Solver7WatcherEEES5_EEvRT_RKT0_.exit395
 
 for.end.loopexit.i394:                            ; preds = %land.rhs.i385
   %15 = trunc nuw nsw i64 %indvars.iv.i386 to i32
   br label %for.end.i370
 
-for.end.i370:                                     ; preds = %for.end.loopexit.i394, %_ZN4cvc58internal7MinisatL6removeINS1_3vecINS1_6Solver7WatcherEEES5_EEvRT_RKT0_.argprom.exit
-  %j.0.lcssa.i371 = phi i32 [ 0, %_ZN4cvc58internal7MinisatL6removeINS1_3vecINS1_6Solver7WatcherEEES5_EEvRT_RKT0_.argprom.exit ], [ %15, %for.end.loopexit.i394 ]
+for.end.i370:                                     ; preds = %for.end.loopexit.i394, %_ZN4cvc58internal7MinisatL6removeINS1_3vecINS1_6Solver7WatcherEEES5_EEvRT_RKT0_.exit
+  %j.0.lcssa.i371 = phi i32 [ 0, %_ZN4cvc58internal7MinisatL6removeINS1_3vecINS1_6Solver7WatcherEEES5_EEvRT_RKT0_.exit ], [ %15, %for.end.loopexit.i394 ]
   %sub4.i372 = add nsw i32 %12, -1
   %cmp55.i373 = icmp slt i32 %j.0.lcssa.i371, %sub4.i372
-  br i1 %cmp55.i373, label %for.body6.preheader.i375, label %_ZN4cvc58internal7MinisatL6removeINS1_3vecINS1_6Solver7WatcherEEES5_EEvRT_RKT0_.argprom.exit395
+  br i1 %cmp55.i373, label %for.body6.preheader.i375, label %_ZN4cvc58internal7MinisatL6removeINS1_3vecINS1_6Solver7WatcherEEES5_EEvRT_RKT0_.exit395
 
 for.body6.preheader.i375:                         ; preds = %for.end.i370
   %16 = zext i32 %j.0.lcssa.i371 to i64
@@ -4283,9 +4283,9 @@ for.body6.i376:                                   ; preds = %for.body6.i376, %fo
   %sub.i381 = add nsw i32 %19, -1
   %20 = trunc nuw i64 %indvars.iv.next11.i378 to i32
   %cmp5.i382 = icmp sgt i32 %sub.i381, %20
-  br i1 %cmp5.i382, label %for.body6.i376, label %_ZN4cvc58internal7MinisatL6removeINS1_3vecINS1_6Solver7WatcherEEES5_EEvRT_RKT0_.argprom.exit395, !llvm.loop !16
+  br i1 %cmp5.i382, label %for.body6.i376, label %_ZN4cvc58internal7MinisatL6removeINS1_3vecINS1_6Solver7WatcherEEES5_EEvRT_RKT0_.exit395, !llvm.loop !16
 
-_ZN4cvc58internal7MinisatL6removeINS1_3vecINS1_6Solver7WatcherEEES5_EEvRT_RKT0_.argprom.exit395: ; preds = %for.body6.i376, %for.end.thread.i392, %for.end.i370
+_ZN4cvc58internal7MinisatL6removeINS1_3vecINS1_6Solver7WatcherEEES5_EEvRT_RKT0_.exit395: ; preds = %for.body6.i376, %for.end.thread.i392, %for.end.i370
   %sub.lcssa.i374 = phi i32 [ %sub4.i372, %for.end.i370 ], [ %sub414.i393, %for.end.thread.i392 ], [ %sub.i381, %for.body6.i376 ]
   store i32 %sub.lcssa.i374, ptr %sz.i.i368, align 8
   br label %if.end106
@@ -4434,7 +4434,7 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit.i425: ; preds = %lor.lh
   store i32 %xor.i411, ptr %arrayidx.i6.i428, align 4
   br label %if.end106
 
-if.end106:                                        ; preds = %_ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit.i425, %_ZN4cvc58internal7Minisat8OccListsINS1_3LitENS1_3vecINS1_6Solver7WatcherEEENS5_14WatcherDeletedEE6smudgeERKS3_.exit, %_ZN4cvc58internal7MinisatL6removeINS1_3vecINS1_6Solver7WatcherEEES5_EEvRT_RKT0_.argprom.exit395
+if.end106:                                        ; preds = %_ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit.i425, %_ZN4cvc58internal7Minisat8OccListsINS1_3LitENS1_3vecINS1_6Solver7WatcherEEENS5_14WatcherDeletedEE6smudgeERKS3_.exit, %_ZN4cvc58internal7MinisatL6removeINS1_3vecINS1_6Solver7WatcherEEES5_EEvRT_RKT0_.exit395
   %bf.load.i448 = load i64, ptr %arrayidx.i.i, align 4
   %41 = and i64 %bf.load.i448, 4
   %tobool.i449.not = icmp eq i64 %41, 0

@@ -267,7 +267,7 @@ check_one_component.exit.thread.i:                ; preds = %check_one_component
 opal_thread_add_fetch_32.exit.i:                  ; preds = %104, %101
   %.0.i.i = phi i32 [ %103, %101 ], [ %107, %104 ]
   %108 = icmp eq i32 %.0.i.i, 0
-  br i1 %108, label %109, label %check_components.argprom.exit.thread
+  br i1 %108, label %109, label %check_components.exit.thread
 
 109:                                              ; preds = %opal_thread_add_fetch_32.exit.i
   %110 = load ptr, ptr %18, align 8
@@ -288,7 +288,7 @@ opal_thread_add_fetch_32.exit.i:                  ; preds = %104, %101
 
 opal_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i.i, %109
   call void @free(ptr noundef %18) #10
-  br label %check_components.argprom.exit.thread
+  br label %check_components.exit.thread
 
 117:                                              ; preds = %._crit_edge.i
   %118 = call i32 @opal_list_sort(ptr noundef nonnull %18, ptr noundef nonnull @avail_io_compare) #10
@@ -518,7 +518,7 @@ opal_obj_run_destructors.exit65:                  ; preds = %.lr.ph.i61, %217
   %229 = call i32 @mca_base_framework_open(ptr noundef nonnull @ompi_fs_base_framework, i32 noundef 0) #10
   %.not38 = icmp eq i32 %229, 0
   %230 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpi_ompio_bootstrap_mutex, i64 16)) #10
-  br i1 %.not38, label %231, label %check_components.argprom.exit.thread
+  br i1 %.not38, label %231, label %check_components.exit.thread
 
 231:                                              ; preds = %227
   %232 = call i32 @mca_fs_base_find_available(i1 noundef zeroext false, i1 noundef zeroext true) #10
@@ -527,13 +527,13 @@ opal_obj_run_destructors.exit65:                  ; preds = %.lr.ph.i61, %217
   %234 = load i32, ptr %233, align 8
   %cond.i66 = icmp eq i32 %234, 1
   %or.cond = select i1 %.not39, i1 %cond.i66, i1 false
-  br i1 %or.cond, label %delete_file.exit, label %check_components.argprom.exit.thread
+  br i1 %or.cond, label %delete_file.exit, label %check_components.exit.thread
 
 235:                                              ; preds = %225
   %.old = getelementptr inbounds i8, ptr %6, i64 40
   %.old71 = load i32, ptr %.old, align 8
   %cond.i66.old = icmp eq i32 %.old71, 1
-  br i1 %cond.i66.old, label %delete_file.exit, label %check_components.argprom.exit.thread
+  br i1 %cond.i66.old, label %delete_file.exit, label %check_components.exit.thread
 
 delete_file.exit:                                 ; preds = %231, %235
   %236 = getelementptr inbounds i8, ptr %6, i64 352
@@ -542,19 +542,19 @@ delete_file.exit:                                 ; preds = %231, %235
   %239 = load ptr, ptr %238, align 8
   %240 = call i32 %237(ptr noundef %0, ptr noundef %1, ptr noundef %239) #10
   %.not40 = icmp eq i32 %240, 0
-  br i1 %.not40, label %241, label %check_components.argprom.exit.thread
+  br i1 %.not40, label %241, label %check_components.exit.thread
 
 241:                                              ; preds = %delete_file.exit
   %242 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_io_base_framework, i64 76), align 4
   %243 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %242) #10
-  br i1 %243, label %244, label %check_components.argprom.exit.thread
+  br i1 %243, label %244, label %check_components.exit.thread
 
 244:                                              ; preds = %241
   %245 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_io_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %245, ptr noundef nonnull @.str.3, ptr noundef nonnull %226) #10
-  br label %check_components.argprom.exit.thread
+  br label %check_components.exit.thread
 
-check_components.argprom.exit.thread:             ; preds = %227, %235, %opal_obj_run_destructors.exit.i, %opal_thread_add_fetch_32.exit.i, %244, %241, %delete_file.exit, %231
+check_components.exit.thread:                     ; preds = %227, %235, %opal_obj_run_destructors.exit.i, %opal_thread_add_fetch_32.exit.i, %244, %241, %delete_file.exit, %231
   %.034 = phi i32 [ -1, %231 ], [ %240, %delete_file.exit ], [ 0, %241 ], [ 0, %244 ], [ -1, %opal_thread_add_fetch_32.exit.i ], [ -1, %opal_obj_run_destructors.exit.i ], [ -1, %235 ], [ -1, %227 ]
   ret i32 %.034
 }

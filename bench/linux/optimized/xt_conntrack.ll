@@ -59,7 +59,7 @@ define internal zeroext i1 @conntrack_mt_v1(ptr nocapture noundef readonly %0, p
   %10 = zext i8 %9 to i16
   %11 = getelementptr i8, ptr %0, i64 104
   %.val = load i64, ptr %11, align 8
-  %12 = tail call fastcc zeroext i1 @conntrack_mt.argprom(i64 %.val, ptr noundef %1, i16 noundef zeroext %7, i16 noundef zeroext %10)
+  %12 = tail call fastcc zeroext i1 @conntrack_mt(i64 %.val, ptr noundef %1, i16 noundef zeroext %7, i16 noundef zeroext %10)
   ret i1 %12
 }
 
@@ -106,7 +106,7 @@ define internal zeroext i1 @conntrack_mt_v2(ptr nocapture noundef readonly %0, p
   %8 = load i16, ptr %7, align 4
   %9 = getelementptr i8, ptr %0, i64 104
   %.val = load i64, ptr %9, align 8
-  %10 = tail call fastcc zeroext i1 @conntrack_mt.argprom(i64 %.val, ptr noundef %1, i16 noundef zeroext %6, i16 noundef zeroext %8)
+  %10 = tail call fastcc zeroext i1 @conntrack_mt(i64 %.val, ptr noundef %1, i16 noundef zeroext %6, i16 noundef zeroext %8)
   ret i1 %10
 }
 
@@ -120,12 +120,12 @@ define internal zeroext i1 @conntrack_mt_v3(ptr nocapture noundef readonly %0, p
   %8 = load i16, ptr %7, align 4
   %9 = getelementptr i8, ptr %0, i64 104
   %.val = load i64, ptr %9, align 8
-  %10 = tail call fastcc zeroext i1 @conntrack_mt.argprom(i64 %.val, ptr noundef %1, i16 noundef zeroext %6, i16 noundef zeroext %8)
+  %10 = tail call fastcc zeroext i1 @conntrack_mt(i64 %.val, ptr noundef %1, i16 noundef zeroext %6, i16 noundef zeroext %8)
   ret i1 %10
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define internal fastcc zeroext i1 @conntrack_mt.argprom(i64 %.104.val, ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i16 noundef zeroext %2) unnamed_addr #2 align 16 {
+define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i16 noundef zeroext %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = trunc i64 %.104.val to i32

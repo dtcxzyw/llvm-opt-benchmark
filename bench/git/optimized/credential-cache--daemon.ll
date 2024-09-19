@@ -126,7 +126,7 @@ if.then.i:                                        ; preds = %if.end12
   br i1 %tobool3.not.i, label %init_socket_directory.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.then.i
-  %call5.i = call fastcc ptr @_.argprom()
+  %call5.i = call fastcc ptr @_()
   call void (ptr, ...) @die(ptr noundef %call5.i, ptr noundef %call1.i) #16
   unreachable
 
@@ -652,7 +652,7 @@ declare ptr @dirname(ptr noundef) local_unnamed_addr #4
 declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_.argprom() unnamed_addr #0 {
+define internal fastcc ptr @_() unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not = icmp eq i32 %0, 0

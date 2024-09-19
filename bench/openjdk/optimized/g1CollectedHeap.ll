@@ -2150,8 +2150,8 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %3, %6
   %64 = getelementptr inbounds i8, ptr %0, i64 176
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %"_ZZN15G1CollectedHeap20alloc_archive_regionEmPP12HeapWordImplENK3$_0clEP12G1HeapRegionb.argprom.exit.i"
-  %.017.i = phi ptr [ %71, %"_ZZN15G1CollectedHeap20alloc_archive_regionEmPP12HeapWordImplENK3$_0clEP12G1HeapRegionb.argprom.exit.i" ], [ %58, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %"_ZZN15G1CollectedHeap20alloc_archive_regionEmPP12HeapWordImplENK3$_0clEP12G1HeapRegionb.exit.i"
+  %.017.i = phi ptr [ %71, %"_ZZN15G1CollectedHeap20alloc_archive_regionEmPP12HeapWordImplENK3$_0clEP12G1HeapRegionb.exit.i" ], [ %58, %.lr.ph.i.preheader ]
   %65 = icmp eq ptr %.017.i, %62
   br i1 %65, label %70, label %66
 
@@ -2187,23 +2187,23 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %3, %6
 _ZN19G1HeapRegionPrinter5allocEP12G1HeapRegion.exit.i.i: ; preds = %75, %70
   %85 = load ptr, ptr %63, align 8
   %.not.i.i7.i.i = icmp eq ptr %85, null
-  br i1 %.not.i.i7.i.i, label %"_ZZN15G1CollectedHeap20alloc_archive_regionEmPP12HeapWordImplENK3$_0clEP12G1HeapRegionb.argprom.exit.i", label %86
+  br i1 %.not.i.i7.i.i, label %"_ZZN15G1CollectedHeap20alloc_archive_regionEmPP12HeapWordImplENK3$_0clEP12G1HeapRegionb.exit.i", label %86
 
 86:                                               ; preds = %_ZN19G1HeapRegionPrinter5allocEP12G1HeapRegion.exit.i.i
   %87 = load ptr, ptr %85, align 8
   %88 = load ptr, ptr %87, align 8
   call void %88(ptr noundef nonnull align 8 dereferenceable(8) %85) #23
-  br label %"_ZZN15G1CollectedHeap20alloc_archive_regionEmPP12HeapWordImplENK3$_0clEP12G1HeapRegionb.argprom.exit.i"
+  br label %"_ZZN15G1CollectedHeap20alloc_archive_regionEmPP12HeapWordImplENK3$_0clEP12G1HeapRegionb.exit.i"
 
-"_ZZN15G1CollectedHeap20alloc_archive_regionEmPP12HeapWordImplENK3$_0clEP12G1HeapRegionb.argprom.exit.i": ; preds = %86, %_ZN19G1HeapRegionPrinter5allocEP12G1HeapRegion.exit.i.i
+"_ZZN15G1CollectedHeap20alloc_archive_regionEmPP12HeapWordImplENK3$_0clEP12G1HeapRegionb.exit.i": ; preds = %86, %_ZN19G1HeapRegionPrinter5allocEP12G1HeapRegion.exit.i.i
   %89 = load i32, ptr %64, align 8
   %90 = add i32 %89, 1
   store i32 %90, ptr %64, align 8
   %.not.i = icmp eq ptr %71, null
   br i1 %.not.i, label %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_20alloc_archive_regionEmPP12HeapWordImplE3$_0EEv9MemRegionRKT_.exit", label %.lr.ph.i, !llvm.loop !15
 
-"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_20alloc_archive_regionEmPP12HeapWordImplE3$_0EEv9MemRegionRKT_.exit": ; preds = %"_ZZN15G1CollectedHeap20alloc_archive_regionEmPP12HeapWordImplENK3$_0clEP12G1HeapRegionb.argprom.exit.i", %50, %18
-  %.1 = phi ptr [ null, %18 ], [ %32, %50 ], [ %32, %"_ZZN15G1CollectedHeap20alloc_archive_regionEmPP12HeapWordImplENK3$_0clEP12G1HeapRegionb.argprom.exit.i" ]
+"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_20alloc_archive_regionEmPP12HeapWordImplE3$_0EEv9MemRegionRKT_.exit": ; preds = %"_ZZN15G1CollectedHeap20alloc_archive_regionEmPP12HeapWordImplENK3$_0clEP12G1HeapRegionb.exit.i", %50, %18
+  %.1 = phi ptr [ null, %18 ], [ %32, %50 ], [ %32, %"_ZZN15G1CollectedHeap20alloc_archive_regionEmPP12HeapWordImplENK3$_0clEP12G1HeapRegionb.exit.i" ]
   store i8 %24, ptr @AlwaysPreTouch, align 1
   br label %91
 
@@ -2249,7 +2249,7 @@ define hidden void @_ZN15G1CollectedHeap28populate_archive_regions_botE9MemRegio
   %18 = getelementptr inbounds ptr, ptr %11, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not2.i = icmp eq ptr %13, null
-  br i1 %.not2.i, label %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_28populate_archive_regions_botE9MemRegionE3$_0EEvS1_RKT_.argprom.exit", label %.lr.ph.i
+  br i1 %.not2.i, label %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_28populate_archive_regions_botE9MemRegionE3$_0EEvS1_RKT_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %21
   %.03.i = phi ptr [ %22, %21 ], [ %13, %3 ]
@@ -2258,15 +2258,15 @@ define hidden void @_ZN15G1CollectedHeap28populate_archive_regions_botE9MemRegio
 
 .thread.i:                                        ; preds = %.lr.ph.i
   tail call void @_ZN12G1HeapRegion10update_botEv(ptr noundef nonnull align 8 dereferenceable(136) %.03.i)
-  br label %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_28populate_archive_regions_botE9MemRegionE3$_0EEvS1_RKT_.argprom.exit"
+  br label %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_28populate_archive_regions_botE9MemRegionE3$_0EEvS1_RKT_.exit"
 
 21:                                               ; preds = %.lr.ph.i
   %22 = tail call noundef ptr @_ZNK19G1HeapRegionManager19next_region_in_heapEPK12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(232) %4, ptr noundef nonnull %.03.i) #23
   tail call void @_ZN12G1HeapRegion10update_botEv(ptr noundef nonnull align 8 dereferenceable(136) %.03.i)
   %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_28populate_archive_regions_botE9MemRegionE3$_0EEvS1_RKT_.argprom.exit", label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not.i, label %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_28populate_archive_regions_botE9MemRegionE3$_0EEvS1_RKT_.exit", label %.lr.ph.i, !llvm.loop !16
 
-"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_28populate_archive_regions_botE9MemRegionE3$_0EEvS1_RKT_.argprom.exit": ; preds = %21, %3, %.thread.i
+"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_28populate_archive_regions_botE9MemRegionE3$_0EEvS1_RKT_.exit": ; preds = %21, %3, %.thread.i
   ret void
 }
 

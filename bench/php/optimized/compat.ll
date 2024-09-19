@@ -624,7 +624,7 @@ define internal ptr @_get_entity(ptr noundef %0, ptr noundef %1) #0 {
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %.149, i64 96
   %66 = load ptr, ptr %65, align 8
-  tail call fastcc void @_external_entity_ref_handler.argprom.argelim(ptr noundef nonnull %0, ptr noundef %62, ptr noundef %64, ptr noundef %66)
+  tail call fastcc void @_external_entity_ref_handler(ptr noundef nonnull %0, ptr noundef %62, ptr noundef %64, ptr noundef %66)
   br label %67
 
 67:                                               ; preds = %.thread, %20, %60, %.thread56, %54, %50, %2
@@ -1252,7 +1252,7 @@ declare ptr @xmlGetDocEntity(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @xmlStrlen(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_external_entity_ref_handler.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_external_entity_ref_handler(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null

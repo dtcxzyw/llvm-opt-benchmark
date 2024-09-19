@@ -613,7 +613,7 @@ aprs_status.exit:                                 ; preds = %74, %77, %80
 
 118:                                              ; preds = %59
   %119 = tail call fastcc i32 @aprs_timestamp(ptr noundef %66, ptr noundef %0, i32 noundef 1)
-  %120 = tail call fastcc i32 @dissect_aprs_weather.argprom(ptr noundef %0, i32 noundef %119, ptr noundef %66)
+  %120 = tail call fastcc i32 @dissect_aprs_weather(ptr noundef %0, i32 noundef %119, ptr noundef %66)
   br label %235
 
 121:                                              ; preds = %59
@@ -646,22 +646,22 @@ aprs_status.exit:                                 ; preds = %74, %77, %80
 
 141:                                              ; preds = %59
   %142 = load i32, ptr @hf_aprs_mic_e_0_current, align 4
-  %143 = tail call fastcc i32 @dissect_mic_e.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %66, i32 noundef %142)
+  %143 = tail call fastcc i32 @dissect_mic_e(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %66, i32 noundef %142)
   br label %235
 
 144:                                              ; preds = %59
   %145 = load i32, ptr @hf_aprs_mic_e_0_old, align 4
-  %146 = tail call fastcc i32 @dissect_mic_e.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %66, i32 noundef %145)
+  %146 = tail call fastcc i32 @dissect_mic_e(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %66, i32 noundef %145)
   br label %235
 
 147:                                              ; preds = %59
   %148 = load i32, ptr @hf_aprs_mic_e_old, align 4
-  %149 = tail call fastcc i32 @dissect_mic_e.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %66, i32 noundef %148)
+  %149 = tail call fastcc i32 @dissect_mic_e(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %66, i32 noundef %148)
   br label %235
 
 150:                                              ; preds = %59
   %151 = load i32, ptr @hf_aprs_mic_e_current, align 4
-  %152 = tail call fastcc i32 @dissect_mic_e.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %66, i32 noundef %151)
+  %152 = tail call fastcc i32 @dissect_mic_e(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %66, i32 noundef %151)
   br label %235
 
 153:                                              ; preds = %59
@@ -887,7 +887,7 @@ define internal fastcc noundef i32 @aprs_timestamp(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_aprs_weather.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_aprs_weather(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1) #6
   %5 = add i32 %4, %1
   %6 = load i32, ptr @hf_aprs_weather, align 4
@@ -995,7 +995,7 @@ define internal fastcc noundef i32 @dissect_aprs_weather.argprom(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_mic_e.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_mic_e(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca [8 x i8], align 8
   store i64 17802391394926399, ptr %5, align 8
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
@@ -1611,7 +1611,7 @@ dissect_aprs_msg.exit:                            ; preds = %95, %dissect_aprs_c
   br i1 %218, label %219, label %221
 
 219:                                              ; preds = %dissect_aprs_msg.exit
-  %220 = tail call fastcc i32 @dissect_aprs_weather.argprom(ptr noundef %2, i32 noundef %.086, ptr noundef %1)
+  %220 = tail call fastcc i32 @dissect_aprs_weather(ptr noundef %2, i32 noundef %.086, ptr noundef %1)
   br label %.thread115
 
 221:                                              ; preds = %dissect_aprs_msg.exit

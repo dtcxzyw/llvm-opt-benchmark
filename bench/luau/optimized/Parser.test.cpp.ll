@@ -34856,12 +34856,12 @@ define internal void @_ZN12_GLOBAL__N_121DOCTEST_ANON_FUNC_217Ev() #5 personalit
 
 12:                                               ; preds = %.noexc
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #22
-  %13 = invoke fastcc noundef i32 @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2161fEvENKUlPKcE_clES2_.argprom(ptr nonnull %11, ptr noundef nonnull @.str.707)
+  %13 = invoke fastcc noundef i32 @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2161fEvENKUlPKcE_clES2_(ptr nonnull %11, ptr noundef nonnull @.str.707)
           to label %14 unwind label %31
 
 14:                                               ; preds = %12
   store i32 %13, ptr %5, align 4
-  %15 = invoke fastcc noundef i32 @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2161fEvENKUlPKcE_clES2_.argprom(ptr nonnull %11, ptr noundef nonnull @.str.708)
+  %15 = invoke fastcc noundef i32 @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2161fEvENKUlPKcE_clES2_(ptr nonnull %11, ptr noundef nonnull @.str.708)
           to label %16 unwind label %31
 
 16:                                               ; preds = %14
@@ -34958,12 +34958,12 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EjjEEbRKT0_RKT1_.exit.i: ; p
 
 49:                                               ; preds = %.noexc1
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #22
-  %50 = invoke fastcc noundef i32 @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2161fEvENKUlPKcE_clES2_.argprom(ptr nonnull %11, ptr noundef nonnull @.str.707)
+  %50 = invoke fastcc noundef i32 @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2161fEvENKUlPKcE_clES2_(ptr nonnull %11, ptr noundef nonnull @.str.707)
           to label %51 unwind label %67
 
 51:                                               ; preds = %49
   store i32 %50, ptr %9, align 4
-  %52 = invoke fastcc noundef i32 @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2161fEvENKUlPKcE_clES2_.argprom(ptr nonnull %11, ptr noundef nonnull @.str.710)
+  %52 = invoke fastcc noundef i32 @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2161fEvENKUlPKcE_clES2_(ptr nonnull %11, ptr noundef nonnull @.str.710)
           to label %53 unwind label %67
 
 53:                                               ; preds = %51
@@ -78060,51 +78060,51 @@ define internal void @_ZN12_GLOBAL__N_121DOCTEST_ANON_FUNC_466Ev() #5 personalit
   %4 = load i8, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %5 = and i8 %4, 1
   store i8 0, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
-  invoke fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_jE_clES2_S2_j.argelim(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.1084, ptr noundef nonnull @.str.1085)
+  invoke fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_jE_clES2_S2_j(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.1084, ptr noundef nonnull @.str.1085)
           to label %6 unwind label %_ZN12ScopedFValueIbED2Ev.exit3.i
 
 6:                                                ; preds = %0
-  invoke fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_jE_clES2_S2_j.argelim(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.1086, ptr noundef nonnull @.str.1087)
+  invoke fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_jE_clES2_S2_j(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.1086, ptr noundef nonnull @.str.1087)
           to label %7 unwind label %_ZN12ScopedFValueIbED2Ev.exit3.i
 
 7:                                                ; preds = %6
-  invoke fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_jE_clES2_S2_j.argelim(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.1088, ptr noundef nonnull @.str.1089)
+  invoke fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_jE_clES2_S2_j(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.1088, ptr noundef nonnull @.str.1089)
           to label %8 unwind label %_ZN12ScopedFValueIbED2Ev.exit3.i
 
 8:                                                ; preds = %7
-  invoke fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_jE_clES2_S2_j.argelim(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.1090, ptr noundef nonnull @.str.1089)
+  invoke fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_jE_clES2_S2_j(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.1090, ptr noundef nonnull @.str.1089)
           to label %9 unwind label %_ZN12ScopedFValueIbED2Ev.exit3.i
 
 9:                                                ; preds = %8
-  invoke fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_jE_clES2_S2_j.argelim(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.1091, ptr noundef nonnull @.str.1089)
+  invoke fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_jE_clES2_S2_j(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.1091, ptr noundef nonnull @.str.1089)
           to label %10 unwind label %_ZN12ScopedFValueIbED2Ev.exit3.i
 
 10:                                               ; preds = %9
-  invoke fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_jE_clES2_S2_j.argelim(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.1092, ptr noundef nonnull @.str.1093)
+  invoke fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_jE_clES2_S2_j(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.1092, ptr noundef nonnull @.str.1093)
           to label %11 unwind label %_ZN12ScopedFValueIbED2Ev.exit3.i
 
 11:                                               ; preds = %10
-  invoke fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_jE_clES2_S2_j.argelim(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.1094, ptr noundef nonnull @.str.1095)
+  invoke fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_jE_clES2_S2_j(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.1094, ptr noundef nonnull @.str.1095)
           to label %12 unwind label %_ZN12ScopedFValueIbED2Ev.exit3.i
 
 12:                                               ; preds = %11
-  invoke fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_jE_clES2_S2_j.argelim(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.1096, ptr noundef nonnull @.str.1097)
+  invoke fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_jE_clES2_S2_j(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.1096, ptr noundef nonnull @.str.1097)
           to label %13 unwind label %_ZN12ScopedFValueIbED2Ev.exit3.i
 
 13:                                               ; preds = %12
-  invoke fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_jE_clES2_S2_j.argelim(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.1098, ptr noundef nonnull @.str.1087)
+  invoke fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_jE_clES2_S2_j(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.1098, ptr noundef nonnull @.str.1087)
           to label %14 unwind label %_ZN12ScopedFValueIbED2Ev.exit3.i
 
 14:                                               ; preds = %13
-  invoke fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_jE_clES2_S2_j.argelim(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.1099, ptr noundef nonnull @.str.1100)
+  invoke fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_jE_clES2_S2_j(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.1099, ptr noundef nonnull @.str.1100)
           to label %15 unwind label %_ZN12ScopedFValueIbED2Ev.exit3.i
 
 15:                                               ; preds = %14
-  invoke fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_jE_clES2_S2_j.argelim(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.1101, ptr noundef nonnull @.str.1102)
+  invoke fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_jE_clES2_S2_j(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.1101, ptr noundef nonnull @.str.1102)
           to label %16 unwind label %_ZN12ScopedFValueIbED2Ev.exit3.i
 
 16:                                               ; preds = %15
-  invoke fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_jE_clES2_S2_j.argelim(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.1103, ptr noundef nonnull @.str.1085)
+  invoke fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_jE_clES2_S2_j(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.1103, ptr noundef nonnull @.str.1085)
           to label %18 unwind label %_ZN12ScopedFValueIbED2Ev.exit3.i
 
 _ZN12ScopedFValueIbED2Ev.exit3.i:                 ; preds = %0, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16
@@ -112034,7 +112034,7 @@ _ZN7doctest8toStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNS_6d
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2161fEvENKUlPKcE_clES2_.argprom(ptr %.0.val, ptr noundef %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2161fEvENKUlPKcE_clES2_(ptr %.0.val, ptr noundef %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator.5", align 1
   %4 = alloca %"struct.Luau::ParseOptions", align 1
@@ -126460,7 +126460,7 @@ _ZN7doctest8toStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNS_6d
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_jE_clES2_S2_j.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_jE_clES2_S2_j(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.5", align 1
@@ -126656,7 +126656,7 @@ _ZN7doctest6detail14MessageBuildermlIA34_cEERS1_RKT_.exit: ; preds = %25
   call void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %9) #22
   %76 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %76, align 8
-  invoke fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_E_clES2_S2_.argprom(ptr %.val, ptr noundef %1, ptr noundef %2)
+  invoke fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_E_clES2_S2_(ptr %.val, ptr noundef %1, ptr noundef %2)
           to label %77 unwind label %57
 
 77:                                               ; preds = %75
@@ -126722,7 +126722,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7doctest6detail13ResultBuil
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_E_clES2_S2_.argprom(ptr %.0.val, ptr noundef %0, ptr noundef %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4651fEvENKUlPKcS2_E_clES2_S2_(ptr %.0.val, ptr noundef %0, ptr noundef %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.doctest::String", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.5", align 1

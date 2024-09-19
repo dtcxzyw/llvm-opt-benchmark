@@ -309,14 +309,14 @@ if.then.i:                                        ; preds = %entry
 mi_heap_main_init.exit:                           ; preds = %entry, %if.then.i
   %3 = load atomic i64, ptr @mi_process_init.process_init monotonic, align 8
   %cmp.not.i = icmp eq i64 %3, 0
-  br i1 %cmp.not.i, label %mi_atomic_once.argprom.exit, label %if.end21
+  br i1 %cmp.not.i, label %mi_atomic_once.exit, label %if.end21
 
-mi_atomic_once.argprom.exit:                      ; preds = %mi_heap_main_init.exit
+mi_atomic_once.exit:                              ; preds = %mi_heap_main_init.exit
   %4 = cmpxchg ptr @mi_process_init.process_init, i64 0, i64 1 acq_rel acquire, align 8
   %5 = extractvalue { i64, i1 } %4, 1
   br i1 %5, label %if.end, label %if.end21
 
-if.end:                                           ; preds = %mi_atomic_once.argprom.exit
+if.end:                                           ; preds = %mi_atomic_once.exit
   store i8 1, ptr @_mi_process_is_initialized, align 1
   %6 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
   %7 = ptrtoint ptr %6 to i64
@@ -391,7 +391,7 @@ if.then17:                                        ; preds = %if.then13
   %call19 = tail call i32 @mi_reserve_os_memory(i64 noundef %mul18, i1 noundef zeroext true, i1 noundef zeroext true) #13
   br label %if.end21
 
-if.end21:                                         ; preds = %mi_heap_main_init.exit, %if.then13, %if.then17, %mi_atomic_once.argprom.exit, %if.end11
+if.end21:                                         ; preds = %mi_heap_main_init.exit, %if.then13, %if.then17, %mi_atomic_once.exit, %if.end11
   ret void
 }
 

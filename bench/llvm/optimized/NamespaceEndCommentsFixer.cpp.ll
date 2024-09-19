@@ -1154,29 +1154,29 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %301, %_ZN4llvmeqENS
   %316 = getelementptr i8, ptr %.090, i64 216
   %.090.val = load ptr, ptr %316, align 8
   %.not.i119 = icmp eq ptr %.090.val, null
-  br i1 %.not.i119, label %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit.thread, label %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit
+  br i1 %.not.i119, label %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit.thread, label %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit
 
-_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit: ; preds = %315
+_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit: ; preds = %315
   %317 = getelementptr inbounds nuw i8, ptr %.090.val, i64 16
   %318 = load i16, ptr %317, align 8
   %319 = icmp eq i16 %318, 4
-  br i1 %319, label %320, label %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit.thread
+  br i1 %319, label %320, label %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit.thread
 
-320:                                              ; preds = %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit
+320:                                              ; preds = %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #13
   %321 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #13
   %322 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #13
   %.090.val114 = load ptr, ptr %316, align 8
-  call fastcc void @_ZN5clang6format12_GLOBAL__N_116updateEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefERKNS_13SourceManagerEPNS_7tooling12ReplacementsE.argprom(ptr %.090.val114, ptr %321, i64 %322, ptr noundef nonnull align 8 dereferenceable(696) %35, ptr noundef %21)
+  call fastcc void @_ZN5clang6format12_GLOBAL__N_116updateEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefERKNS_13SourceManagerEPNS_7tooling12ReplacementsE(ptr %.090.val114, ptr %321, i64 %322, ptr noundef nonnull align 8 dereferenceable(696) %35, ptr noundef %21)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #13
-  br label %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit.thread
+  br label %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit.thread
 
-_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit.thread: ; preds = %315, %320, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit
+_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit.thread: ; preds = %315, %320, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit
   %323 = add i32 %.091271, 1
   %324 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #13
   br i1 %324, label %555, label %325
 
-325:                                              ; preds = %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit.thread
+325:                                              ; preds = %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit.thread
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16)
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13get_allocatorEv(ptr dead_on_unwind nonnull writable sret(%"class.std::allocator.22") align 1 %16, ptr noundef nonnull align 8 dereferenceable(32) %23) #13, !noalias !19
@@ -1310,22 +1310,22 @@ _ZN5clang6format12_GLOBAL__N_121computeEndCommentTextB5cxx11EN4llvm9StringRefEbP
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)
   %.090.val113 = load ptr, ptr %335, align 8
   %.not.i120 = icmp eq ptr %.090.val113, null
-  br i1 %.not.i120, label %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit121.preheader, label %387
+  br i1 %.not.i120, label %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121.preheader, label %387
 
 387:                                              ; preds = %_ZN5clang6format12_GLOBAL__N_121computeEndCommentTextB5cxx11EN4llvm9StringRefEbPKNS0_11FormatTokenEj.exit
   %388 = getelementptr inbounds nuw i8, ptr %.090.val113, i64 16
   %389 = load i16, ptr %388, align 8
   %390 = icmp eq i16 %389, 4
-  br i1 %390, label %461, label %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit121.preheader
+  br i1 %390, label %461, label %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121.preheader
 
-_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit121.preheader: ; preds = %387, %_ZN5clang6format12_GLOBAL__N_121computeEndCommentTextB5cxx11EN4llvm9StringRefEbPKNS0_11FormatTokenEj.exit
+_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121.preheader: ; preds = %387, %_ZN5clang6format12_GLOBAL__N_121computeEndCommentTextB5cxx11EN4llvm9StringRefEbPKNS0_11FormatTokenEj.exit
   %.0259 = add i64 %.2, 1
   %391 = icmp ult i64 %.0259, %.095267
-  br i1 %391, label %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit121, label %.sink.split
+  br i1 %391, label %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121, label %.sink.split
 
-_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit121: ; preds = %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit121.preheader, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit121
-  %.0261 = phi i64 [ %.0, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit121 ], [ %.0259, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit121.preheader ]
-  %.082260 = phi i32 [ %397, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit121 ], [ 0, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit121.preheader ]
+_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121: ; preds = %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121.preheader, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121
+  %.0261 = phi i64 [ %.0, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121 ], [ %.0259, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121.preheader ]
+  %.082260 = phi i32 [ %397, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121 ], [ 0, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121.preheader ]
   %392 = load ptr, ptr %3, align 8
   %393 = getelementptr inbounds ptr, ptr %392, i64 %.0261
   %394 = load ptr, ptr %393, align 8
@@ -1334,14 +1334,14 @@ _ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit1
   %397 = add i32 %.082260, %396
   %.0 = add nuw i64 %.0261, 1
   %exitcond.not = icmp eq i64 %.0, %.095267
-  br i1 %exitcond.not, label %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit121._crit_edge, label %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit121, !llvm.loop !28
+  br i1 %exitcond.not, label %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121._crit_edge, label %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121, !llvm.loop !28
 
-_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit121._crit_edge: ; preds = %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit121
+_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121._crit_edge: ; preds = %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121
   %398 = load i32, ptr %78, align 8
   %399 = icmp ugt i32 %397, %398
   br i1 %399, label %400, label %.sink.split
 
-400:                                              ; preds = %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit121._crit_edge
+400:                                              ; preds = %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121._crit_edge
   %401 = load i32, ptr %79, align 8
   %402 = zext i32 %401 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #13
@@ -1712,23 +1712,23 @@ _ZN5clang6format12_GLOBAL__N_115validEndCommentEPKNS0_11FormatTokenEN4llvm9Strin
   %553 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %28) #13
   %554 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %28) #13
   %.090.val115 = load ptr, ptr %335, align 8
-  call fastcc void @_ZN5clang6format12_GLOBAL__N_116updateEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefERKNS_13SourceManagerEPNS_7tooling12ReplacementsE.argprom(ptr %.090.val115, ptr %553, i64 %554, ptr noundef nonnull align 8 dereferenceable(696) %35, ptr noundef %21)
+  call fastcc void @_ZN5clang6format12_GLOBAL__N_116updateEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefERKNS_13SourceManagerEPNS_7tooling12ReplacementsE(ptr %.090.val115, ptr %553, i64 %554, ptr noundef nonnull align 8 dereferenceable(696) %35, ptr noundef %21)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_ZN5clang6format12_GLOBAL__N_113addEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefERKNS_13SourceManagerEPNS_7tooling12ReplacementsE.exit, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit121._crit_edge, %552, %_ZN5clang6format12_GLOBAL__N_115validEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefES4_.exit, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit121.preheader, %325
-  %.sink = phi ptr [ %26, %325 ], [ %28, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit121.preheader ], [ %28, %_ZN5clang6format12_GLOBAL__N_115validEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefES4_.exit ], [ %28, %552 ], [ %28, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit121._crit_edge ], [ %28, %_ZN5clang6format12_GLOBAL__N_113addEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefERKNS_13SourceManagerEPNS_7tooling12ReplacementsE.exit ]
-  %.sroa.3.4.ph = phi i64 [ %.sroa.3.3, %325 ], [ %.sroa.3.2, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit121.preheader ], [ %.sroa.3.2, %_ZN5clang6format12_GLOBAL__N_115validEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefES4_.exit ], [ %.sroa.3.2, %552 ], [ %.sroa.3.2, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit121._crit_edge ], [ %.sroa.3.2, %_ZN5clang6format12_GLOBAL__N_113addEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefERKNS_13SourceManagerEPNS_7tooling12ReplacementsE.exit ]
-  %.sroa.0147.4.ph = phi ptr [ %.sroa.0147.3, %325 ], [ %.sroa.0147.2, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit121.preheader ], [ %.sroa.0147.2, %_ZN5clang6format12_GLOBAL__N_115validEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefES4_.exit ], [ %.sroa.0147.2, %552 ], [ %.sroa.0147.2, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit121._crit_edge ], [ %.sroa.0147.2, %_ZN5clang6format12_GLOBAL__N_113addEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefERKNS_13SourceManagerEPNS_7tooling12ReplacementsE.exit ]
-  %.394.ph = phi i32 [ %323, %325 ], [ %.293, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit121.preheader ], [ %.293, %_ZN5clang6format12_GLOBAL__N_115validEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefES4_.exit ], [ %.293, %552 ], [ %.293, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit121._crit_edge ], [ %.293, %_ZN5clang6format12_GLOBAL__N_113addEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefERKNS_13SourceManagerEPNS_7tooling12ReplacementsE.exit ]
-  %.3.ph = phi i64 [ %.2, %325 ], [ -1, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit121.preheader ], [ -1, %_ZN5clang6format12_GLOBAL__N_115validEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefES4_.exit ], [ -1, %552 ], [ -1, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit121._crit_edge ], [ -1, %_ZN5clang6format12_GLOBAL__N_113addEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefERKNS_13SourceManagerEPNS_7tooling12ReplacementsE.exit ]
+.sink.split:                                      ; preds = %_ZN5clang6format12_GLOBAL__N_113addEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefERKNS_13SourceManagerEPNS_7tooling12ReplacementsE.exit, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121._crit_edge, %552, %_ZN5clang6format12_GLOBAL__N_115validEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefES4_.exit, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121.preheader, %325
+  %.sink = phi ptr [ %26, %325 ], [ %28, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121.preheader ], [ %28, %_ZN5clang6format12_GLOBAL__N_115validEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefES4_.exit ], [ %28, %552 ], [ %28, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121._crit_edge ], [ %28, %_ZN5clang6format12_GLOBAL__N_113addEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefERKNS_13SourceManagerEPNS_7tooling12ReplacementsE.exit ]
+  %.sroa.3.4.ph = phi i64 [ %.sroa.3.3, %325 ], [ %.sroa.3.2, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121.preheader ], [ %.sroa.3.2, %_ZN5clang6format12_GLOBAL__N_115validEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefES4_.exit ], [ %.sroa.3.2, %552 ], [ %.sroa.3.2, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121._crit_edge ], [ %.sroa.3.2, %_ZN5clang6format12_GLOBAL__N_113addEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefERKNS_13SourceManagerEPNS_7tooling12ReplacementsE.exit ]
+  %.sroa.0147.4.ph = phi ptr [ %.sroa.0147.3, %325 ], [ %.sroa.0147.2, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121.preheader ], [ %.sroa.0147.2, %_ZN5clang6format12_GLOBAL__N_115validEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefES4_.exit ], [ %.sroa.0147.2, %552 ], [ %.sroa.0147.2, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121._crit_edge ], [ %.sroa.0147.2, %_ZN5clang6format12_GLOBAL__N_113addEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefERKNS_13SourceManagerEPNS_7tooling12ReplacementsE.exit ]
+  %.394.ph = phi i32 [ %323, %325 ], [ %.293, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121.preheader ], [ %.293, %_ZN5clang6format12_GLOBAL__N_115validEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefES4_.exit ], [ %.293, %552 ], [ %.293, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121._crit_edge ], [ %.293, %_ZN5clang6format12_GLOBAL__N_113addEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefERKNS_13SourceManagerEPNS_7tooling12ReplacementsE.exit ]
+  %.3.ph = phi i64 [ %.2, %325 ], [ -1, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121.preheader ], [ -1, %_ZN5clang6format12_GLOBAL__N_115validEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefES4_.exit ], [ -1, %552 ], [ -1, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121._crit_edge ], [ -1, %_ZN5clang6format12_GLOBAL__N_113addEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefERKNS_13SourceManagerEPNS_7tooling12ReplacementsE.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #13
   br label %555
 
-555:                                              ; preds = %.sink.split, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit.thread
-  %.sroa.3.4 = phi i64 [ %.sroa.3.3, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit.thread ], [ %.sroa.3.4.ph, %.sink.split ]
-  %.sroa.0147.4 = phi ptr [ %.sroa.0147.3, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit.thread ], [ %.sroa.0147.4.ph, %.sink.split ]
-  %.394 = phi i32 [ %323, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit.thread ], [ %.394.ph, %.sink.split ]
-  %.3 = phi i64 [ %.2, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.argprom.exit.thread ], [ %.3.ph, %.sink.split ]
+555:                                              ; preds = %.sink.split, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit.thread
+  %.sroa.3.4 = phi i64 [ %.sroa.3.3, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit.thread ], [ %.sroa.3.4.ph, %.sink.split ]
+  %.sroa.0147.4 = phi ptr [ %.sroa.0147.3, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit.thread ], [ %.sroa.0147.4.ph, %.sink.split ]
+  %.394 = phi i32 [ %323, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit.thread ], [ %.394.ph, %.sink.split ]
+  %.3 = phi i64 [ %.2, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit.thread ], [ %.3.ph, %.sink.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #13
   br label %556
 
@@ -1808,7 +1808,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6format12_GLOBAL__N_116updateEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefERKNS_13SourceManagerEPNS_7tooling12ReplacementsE.argprom(ptr nocapture readonly %.216.val, ptr %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(696) %2, ptr noundef nonnull %3) unnamed_addr #3 {
+define internal fastcc void @_ZN5clang6format12_GLOBAL__N_116updateEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefERKNS_13SourceManagerEPNS_7tooling12ReplacementsE(ptr nocapture readonly %.216.val, ptr %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(696) %2, ptr noundef nonnull %3) unnamed_addr #3 {
   %5 = alloca %"class.clang::CharSourceRange", align 8
   %6 = alloca %"class.llvm::Error", align 8
   %7 = alloca %"class.clang::tooling::Replacement", align 8

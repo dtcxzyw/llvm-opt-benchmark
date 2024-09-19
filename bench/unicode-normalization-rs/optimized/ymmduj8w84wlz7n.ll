@@ -29,20 +29,20 @@ define noundef i32 @_ZN21unicode_normalization9normalize7compose17h4f064d4953ae0
 12:                                               ; preds = %4
   %13 = add nsw i32 %0, -4519
   %14 = add nuw nsw i32 %13, %1
-  br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h87725c103e873770E.argprom.exit"
+  br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h87725c103e873770E.exit"
 
 15:                                               ; preds = %10
   %16 = mul nuw nsw i32 %0, 588
   %17 = mul nuw nsw i32 %1, 28
   %18 = add nuw nsw i32 %16, -2639516
   %19 = add nsw i32 %18, %17
-  br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h87725c103e873770E.argprom.exit"
+  br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h87725c103e873770E.exit"
 
 20:                                               ; preds = %10, %4
   %21 = tail call noundef range(i32 0, 1114113) i32 @_ZN21unicode_normalization7lookups17composition_table17hafb6235aefd656cfE(i32 noundef %0, i32 noundef %1), !range !4
-  br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h87725c103e873770E.argprom.exit"
+  br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h87725c103e873770E.exit"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17h87725c103e873770E.argprom.exit": ; preds = %15, %12, %20
+"_ZN4core6option15Option$LT$T$GT$7or_else17h87725c103e873770E.exit": ; preds = %15, %12, %20
   %.0.i2 = phi i32 [ %21, %20 ], [ %19, %15 ], [ %14, %12 ]
   ret i32 %.0.i2
 }

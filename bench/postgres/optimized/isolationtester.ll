@@ -86,7 +86,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 8:                                                ; preds = %2
   %9 = load ptr, ptr @stderr, align 8
   %10 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %9, ptr noundef nonnull @.str.2) #17
-  br label %run_testspec.argprom.exit
+  br label %run_testspec.exit
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr @stdout, align 8
@@ -446,7 +446,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   %.not.i = icmp ne ptr %185, null
   %186 = icmp sgt i32 %.0.lcssa.i, 0
   %or.cond.i = and i1 %186, %.not.i
-  br i1 %or.cond.i, label %.lr.ph47.preheader.i, label %check_testspec.argprom.exit
+  br i1 %or.cond.i, label %.lr.ph47.preheader.i, label %check_testspec.exit
 
 .lr.ph47.preheader.i:                             ; preds = %._crit_edge45.i
   %wide.trip.count99.i = zext nneg i32 %.0.lcssa.i to i64
@@ -470,9 +470,9 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
 196:                                              ; preds = %192, %.lr.ph47.i
   %indvars.iv.next97.i = add nuw nsw i64 %indvars.iv96.i, 1
   %exitcond100.not.i = icmp eq i64 %indvars.iv.next97.i, %wide.trip.count99.i
-  br i1 %exitcond100.not.i, label %check_testspec.argprom.exit, label %.lr.ph47.i, !llvm.loop !17
+  br i1 %exitcond100.not.i, label %check_testspec.exit, label %.lr.ph47.i, !llvm.loop !17
 
-check_testspec.argprom.exit:                      ; preds = %196, %._crit_edge45.i
+check_testspec.exit:                              ; preds = %196, %._crit_edge45.i
   tail call void @free(ptr noundef %39) #17
   %197 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
   %198 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.5, i32 noundef %197) #17
@@ -488,8 +488,8 @@ check_testspec.argprom.exit:                      ; preds = %196, %._crit_edge45
   %206 = icmp sgt i32 %205, 0
   br i1 %206, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %check_testspec.argprom.exit, %251
-  %indvars.iv = phi i64 [ %indvars.iv.next, %251 ], [ 0, %check_testspec.argprom.exit ]
+.lr.ph:                                           ; preds = %check_testspec.exit, %251
+  %indvars.iv = phi i64 [ %indvars.iv.next, %251 ], [ 0, %check_testspec.exit ]
   %207 = icmp eq i64 %indvars.iv, 0
   br i1 %207, label %214, label %208
 
@@ -578,7 +578,7 @@ check_testspec.argprom.exit:                      ; preds = %196, %._crit_edge45
   %263 = icmp slt i64 %indvars.iv.next, %262
   br i1 %263, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %251, %check_testspec.argprom.exit
+._crit_edge:                                      ; preds = %251, %check_testspec.exit
   call void @initPQExpBuffer(ptr noundef nonnull %3) #17
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.11) #17
   %264 = load ptr, ptr @conns, align 8
@@ -630,7 +630,7 @@ check_testspec.argprom.exit:                      ; preds = %196, %._crit_edge45
 288:                                              ; preds = %286
   %289 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 48), align 8
   %290 = icmp sgt i32 %289, 0
-  br i1 %290, label %.lr.ph.i.i, label %run_testspec.argprom.exit
+  br i1 %290, label %.lr.ph.i.i, label %run_testspec.exit
 
 .lr.ph.i.i:                                       ; preds = %288, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %288 ]
@@ -640,12 +640,12 @@ check_testspec.argprom.exit:                      ; preds = %196, %._crit_edge45
   %294 = load i32, ptr %293, align 8
   %295 = getelementptr inbounds i8, ptr %293, i64 8
   %296 = load ptr, ptr %295, align 8
-  call fastcc void @run_permutation.argprom(i32 noundef %294, ptr noundef %296)
+  call fastcc void @run_permutation(i32 noundef %294, ptr noundef %296)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %297 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 48), align 8
   %298 = sext i32 %297 to i64
   %299 = icmp slt i64 %indvars.iv.next.i.i, %298
-  br i1 %299, label %.lr.ph.i.i, label %run_testspec.argprom.exit, !llvm.loop !20
+  br i1 %299, label %.lr.ph.i.i, label %run_testspec.exit, !llvm.loop !20
 
 300:                                              ; preds = %286
   %301 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
@@ -699,7 +699,7 @@ check_testspec.argprom.exit:                      ; preds = %196, %._crit_edge45
   %321 = call ptr @pg_malloc(i64 noundef %320) #17
   %322 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
   %323 = icmp sgt i32 %322, 0
-  br i1 %323, label %.lr.ph9.i.i, label %run_all_permutations.argprom.exit.i
+  br i1 %323, label %.lr.ph9.i.i, label %run_all_permutations.exit.i
 
 .lr.ph9.i.i:                                      ; preds = %._crit_edge6.i.i, %.lr.ph9.i.i
   %indvars.iv17.i.i = phi i64 [ %indvars.iv.next18.i.i, %.lr.ph9.i.i ], [ 0, %._crit_edge6.i.i ]
@@ -709,17 +709,17 @@ check_testspec.argprom.exit:                      ; preds = %196, %._crit_edge45
   %325 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
   %326 = sext i32 %325 to i64
   %327 = icmp slt i64 %indvars.iv.next18.i.i, %326
-  br i1 %327, label %.lr.ph9.i.i, label %run_all_permutations.argprom.exit.i, !llvm.loop !23
+  br i1 %327, label %.lr.ph9.i.i, label %run_all_permutations.exit.i, !llvm.loop !23
 
-run_all_permutations.argprom.exit.i:              ; preds = %.lr.ph9.i.i, %._crit_edge6.i.i
-  call fastcc void @run_all_permutations_recurse.argprom(ptr noundef %321, i32 noundef 0, ptr noundef %314)
+run_all_permutations.exit.i:                      ; preds = %.lr.ph9.i.i, %._crit_edge6.i.i
+  call fastcc void @run_all_permutations_recurse(ptr noundef %321, i32 noundef 0, ptr noundef %314)
   call void @free(ptr noundef %312) #17
   call void @free(ptr noundef %314) #17
   call void @free(ptr noundef %321) #17
-  br label %run_testspec.argprom.exit
+  br label %run_testspec.exit
 
-run_testspec.argprom.exit:                        ; preds = %.lr.ph.i.i, %run_all_permutations.argprom.exit.i, %288, %8
-  %.038 = phi i32 [ 1, %8 ], [ 0, %288 ], [ 0, %run_all_permutations.argprom.exit.i ], [ 0, %.lr.ph.i.i ]
+run_testspec.exit:                                ; preds = %.lr.ph.i.i, %run_all_permutations.exit.i, %288, %8
+  %.038 = phi i32 [ 1, %8 ], [ 0, %288 ], [ 0, %run_all_permutations.exit.i ], [ 0, %.lr.ph.i.i ]
   ret i32 %.038
 }
 
@@ -868,7 +868,7 @@ define internal i32 @step_bsearch_cmp(ptr nocapture noundef readonly %0, ptr noc
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @run_permutation.argprom(i32 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @run_permutation(i32 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca %struct._PQprintOpt, align 8
   %4 = alloca %struct._PQprintOpt, align 8
   %5 = alloca %struct._PQprintOpt, align 8
@@ -1073,7 +1073,7 @@ define internal fastcc void @run_permutation.argprom(i32 noundef %0, ptr nocaptu
 106:                                              ; preds = %.lr.ph33, %192
   %107 = phi ptr [ %103, %.lr.ph33 ], [ %.pre95, %192 ]
   %.212431 = phi i32 [ %.012238, %.lr.ph33 ], [ %.125.lcssa7.i, %192 ]
-  %108 = call fastcc zeroext i1 @try_complete_step.argprom(ptr noundef nonnull %107, i32 noundef 2)
+  %108 = call fastcc zeroext i1 @try_complete_step(ptr noundef nonnull %107, i32 noundef 2)
   br i1 %108, label %.preheader138, label %.preheader2
 
 .preheader2:                                      ; preds = %106
@@ -1123,7 +1123,7 @@ define internal fastcc void @run_permutation.argprom(i32 noundef %0, ptr nocaptu
   %.024.i = phi i32 [ %.226.i, %152 ], [ %.024.i.ph, %.preheader138 ]
   store i1 false, ptr @any_new_notice, align 1
   %128 = icmp sgt i32 %.024.i, 0
-  br i1 %128, label %.lr.ph.i, label %try_complete_steps.argprom.exit
+  br i1 %128, label %.lr.ph.i, label %try_complete_steps.exit
 
 .lr.ph.i:                                         ; preds = %127, %150
   %.03.i = phi i32 [ %.1.i, %150 ], [ 0, %127 ]
@@ -1132,7 +1132,7 @@ define internal fastcc void @run_permutation.argprom(i32 noundef %0, ptr nocaptu
   %129 = sext i32 %.03.i to i64
   %130 = getelementptr ptr, ptr %12, i64 %129
   %131 = load ptr, ptr %130, align 8
-  %132 = call fastcc zeroext i1 @try_complete_step.argprom(ptr noundef %131, i32 noundef 3)
+  %132 = call fastcc zeroext i1 @try_complete_step(ptr noundef %131, i32 noundef 3)
   br i1 %132, label %133, label %139
 
 133:                                              ; preds = %.lr.ph.i
@@ -1170,21 +1170,21 @@ define internal fastcc void @run_permutation.argprom(i32 noundef %0, ptr nocaptu
   br i1 %151, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !29
 
 ._crit_edge.i:                                    ; preds = %150
-  br i1 %.2.i, label %152, label %try_complete_steps.argprom.exit
+  br i1 %.2.i, label %152, label %try_complete_steps.exit
 
 152:                                              ; preds = %._crit_edge.i
   %153 = icmp slt i32 %.226.i, %.024.i
   %.b28.i = load i1, ptr @any_new_notice, align 1
   %154 = select i1 %153, i1 true, i1 %.b28.i
-  br i1 %154, label %127, label %try_complete_steps.argprom.exit, !llvm.loop !30
+  br i1 %154, label %127, label %try_complete_steps.exit, !llvm.loop !30
 
-try_complete_steps.argprom.exit:                  ; preds = %127, %._crit_edge.i, %152
+try_complete_steps.exit:                          ; preds = %127, %._crit_edge.i, %152
   %.125.lcssa7.i = phi i32 [ %.226.i, %._crit_edge.i ], [ %.226.i, %152 ], [ %.024.i, %127 ]
   %155 = load ptr, ptr %99, align 8
   %.not145 = icmp eq ptr %155, null
   br i1 %.not145, label %.loopexit, label %156
 
-156:                                              ; preds = %try_complete_steps.argprom.exit
+156:                                              ; preds = %try_complete_steps.exit
   %157 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #17
   %158 = load i64, ptr %8, align 8
   %159 = sub i64 %158, %104
@@ -1249,8 +1249,8 @@ try_complete_steps.argprom.exit:                  ; preds = %127, %._crit_edge.i
   %.not142 = icmp eq ptr %.pre95, null
   br i1 %.not142, label %.loopexit, label %106, !llvm.loop !32
 
-.loopexit:                                        ; preds = %try_complete_steps.argprom.exit, %192, %101, %87
-  %.1123 = phi i32 [ %.012238, %87 ], [ %.012238, %101 ], [ %.125.lcssa7.i, %192 ], [ %.125.lcssa7.i, %try_complete_steps.argprom.exit ]
+.loopexit:                                        ; preds = %try_complete_steps.exit, %192, %101, %87
+  %.1123 = phi i32 [ %.012238, %87 ], [ %.012238, %101 ], [ %.125.lcssa7.i, %192 ], [ %.125.lcssa7.i, %try_complete_steps.exit ]
   %193 = getelementptr inbounds i8, ptr %91, i64 8
   %194 = load ptr, ptr %193, align 8
   %195 = call i32 @PQsendQuery(ptr noundef %98, ptr noundef %194) #17
@@ -1313,14 +1313,14 @@ try_complete_steps.argprom.exit:                  ; preds = %127, %._crit_edge.i
   br i1 %231, label %207, label %._crit_edge37, !llvm.loop !33
 
 ._crit_edge37:                                    ; preds = %228, %201
-  %232 = call fastcc zeroext i1 @try_complete_step.argprom(ptr noundef nonnull %89, i32 noundef 1)
+  %232 = call fastcc zeroext i1 @try_complete_step(ptr noundef nonnull %89, i32 noundef 1)
   br label %233
 
 233:                                              ; preds = %258, %._crit_edge37
   %.024.i150 = phi i32 [ %.1123, %._crit_edge37 ], [ %.226.i156, %258 ]
   store i1 false, ptr @any_new_notice, align 1
   %234 = icmp sgt i32 %.024.i150, 0
-  br i1 %234, label %.lr.ph.i152, label %try_complete_steps.argprom.exit162
+  br i1 %234, label %.lr.ph.i152, label %try_complete_steps.exit162
 
 .lr.ph.i152:                                      ; preds = %233, %256
   %.03.i153 = phi i32 [ %.1.i158, %256 ], [ 0, %233 ]
@@ -1329,7 +1329,7 @@ try_complete_steps.argprom.exit:                  ; preds = %127, %._crit_edge.i
   %235 = sext i32 %.03.i153 to i64
   %236 = getelementptr ptr, ptr %12, i64 %235
   %237 = load ptr, ptr %236, align 8
-  %238 = call fastcc zeroext i1 @try_complete_step.argprom(ptr noundef %237, i32 noundef 3)
+  %238 = call fastcc zeroext i1 @try_complete_step(ptr noundef %237, i32 noundef 3)
   br i1 %238, label %239, label %245
 
 239:                                              ; preds = %.lr.ph.i152
@@ -1367,27 +1367,27 @@ try_complete_steps.argprom.exit:                  ; preds = %127, %._crit_edge.i
   br i1 %257, label %.lr.ph.i152, label %._crit_edge.i159, !llvm.loop !29
 
 ._crit_edge.i159:                                 ; preds = %256
-  br i1 %.2.i157, label %258, label %try_complete_steps.argprom.exit162
+  br i1 %.2.i157, label %258, label %try_complete_steps.exit162
 
 258:                                              ; preds = %._crit_edge.i159
   %259 = icmp slt i32 %.226.i156, %.024.i150
   %.b28.i160 = load i1, ptr @any_new_notice, align 1
   %260 = select i1 %259, i1 true, i1 %.b28.i160
-  br i1 %260, label %233, label %try_complete_steps.argprom.exit162, !llvm.loop !30
+  br i1 %260, label %233, label %try_complete_steps.exit162, !llvm.loop !30
 
-try_complete_steps.argprom.exit162:               ; preds = %233, %._crit_edge.i159, %258
+try_complete_steps.exit162:                       ; preds = %233, %._crit_edge.i159, %258
   %.125.lcssa7.i151 = phi i32 [ %.226.i156, %._crit_edge.i159 ], [ %.226.i156, %258 ], [ %.024.i150, %233 ]
   br i1 %232, label %261, label %265
 
-261:                                              ; preds = %try_complete_steps.argprom.exit162
+261:                                              ; preds = %try_complete_steps.exit162
   %262 = add i32 %.125.lcssa7.i151, 1
   %263 = sext i32 %.125.lcssa7.i151 to i64
   %264 = getelementptr ptr, ptr %12, i64 %263
   store ptr %89, ptr %264, align 8
   br label %265
 
-265:                                              ; preds = %try_complete_steps.argprom.exit162, %261
-  %.4126 = phi i32 [ %262, %261 ], [ %.125.lcssa7.i151, %try_complete_steps.argprom.exit162 ]
+265:                                              ; preds = %try_complete_steps.exit162, %261
+  %.4126 = phi i32 [ %262, %261 ], [ %.125.lcssa7.i151, %try_complete_steps.exit162 ]
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
   br i1 %exitcond83.not, label %.preheader1.preheader, label %87, !llvm.loop !34
@@ -1400,7 +1400,7 @@ try_complete_steps.argprom.exit162:               ; preds = %233, %._crit_edge.i
   %.024.i163 = phi i32 [ %.226.i169, %290 ], [ %.024.i163.ph, %.preheader1.preheader ]
   store i1 false, ptr @any_new_notice, align 1
   %266 = icmp sgt i32 %.024.i163, 0
-  br i1 %266, label %.lr.ph.i165, label %try_complete_steps.argprom.exit175
+  br i1 %266, label %.lr.ph.i165, label %try_complete_steps.exit175
 
 .lr.ph.i165:                                      ; preds = %.preheader1, %288
   %.03.i166 = phi i32 [ %.1.i171, %288 ], [ 0, %.preheader1 ]
@@ -1409,7 +1409,7 @@ try_complete_steps.argprom.exit162:               ; preds = %233, %._crit_edge.i
   %267 = sext i32 %.03.i166 to i64
   %268 = getelementptr ptr, ptr %12, i64 %267
   %269 = load ptr, ptr %268, align 8
-  %270 = call fastcc zeroext i1 @try_complete_step.argprom(ptr noundef %269, i32 noundef 2)
+  %270 = call fastcc zeroext i1 @try_complete_step(ptr noundef %269, i32 noundef 2)
   br i1 %270, label %271, label %277
 
 271:                                              ; preds = %.lr.ph.i165
@@ -1447,20 +1447,20 @@ try_complete_steps.argprom.exit162:               ; preds = %233, %._crit_edge.i
   br i1 %289, label %.lr.ph.i165, label %._crit_edge.i172, !llvm.loop !29
 
 ._crit_edge.i172:                                 ; preds = %288
-  br i1 %.2.i170, label %290, label %try_complete_steps.argprom.exit175
+  br i1 %.2.i170, label %290, label %try_complete_steps.exit175
 
 290:                                              ; preds = %._crit_edge.i172
   %291 = icmp slt i32 %.226.i169, %.024.i163
   %.b28.i173 = load i1, ptr @any_new_notice, align 1
   %292 = select i1 %291, i1 true, i1 %.b28.i173
-  br i1 %292, label %.preheader1, label %try_complete_steps.argprom.exit175, !llvm.loop !30
+  br i1 %292, label %.preheader1, label %try_complete_steps.exit175, !llvm.loop !30
 
-try_complete_steps.argprom.exit175:               ; preds = %.preheader1, %._crit_edge.i172, %290
+try_complete_steps.exit175:                       ; preds = %.preheader1, %._crit_edge.i172, %290
   %.125.lcssa7.i164 = phi i32 [ %.226.i169, %._crit_edge.i172 ], [ %.226.i169, %290 ], [ %.024.i163, %.preheader1 ]
   %.not = icmp eq i32 %.125.lcssa7.i164, 0
   br i1 %.not, label %.preheader, label %297
 
-.preheader:                                       ; preds = %try_complete_steps.argprom.exit175
+.preheader:                                       ; preds = %try_complete_steps.exit175
   %293 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
   %294 = icmp sgt i32 %293, 0
   br i1 %294, label %.lr.ph43, label %._crit_edge44
@@ -1471,7 +1471,7 @@ try_complete_steps.argprom.exit175:               ; preds = %.preheader1, %._cri
   %.pre98 = load ptr, ptr getelementptr inbounds (i8, ptr @parseresult, i64 24), align 8
   br label %300
 
-297:                                              ; preds = %try_complete_steps.argprom.exit175
+297:                                              ; preds = %try_complete_steps.exit175
   %298 = load ptr, ptr @stderr, align 8
   %299 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %298, ptr noundef nonnull @.str.29) #17
   call void @exit(i32 noundef 1) #20
@@ -1597,7 +1597,7 @@ declare ptr @PQexec(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @try_complete_step.argprom(ptr nocapture noundef readonly %0, i32 noundef range(i32 1, 4) %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @try_complete_step(ptr nocapture noundef readonly %0, i32 noundef range(i32 1, 4) %1) unnamed_addr #0 {
   %3 = alloca %struct._PQprintOpt, align 8
   %4 = alloca %struct.fd_set, align 8
   %5 = alloca %struct.timeval, align 8
@@ -2115,7 +2115,7 @@ declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnam
 declare void @PQfreemem(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @run_all_permutations_recurse.argprom(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @run_all_permutations_recurse(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %.critedge
@@ -2166,7 +2166,7 @@ define internal fastcc void @run_all_permutations_recurse.argprom(ptr nocapture 
   %30 = load i32, ptr %20, align 4
   %31 = add i32 %30, 1
   store i32 %31, ptr %20, align 4
-  tail call fastcc void @run_all_permutations_recurse.argprom(ptr noundef nonnull %0, i32 noundef %8, ptr noundef %2)
+  tail call fastcc void @run_all_permutations_recurse(ptr noundef nonnull %0, i32 noundef %8, ptr noundef %2)
   %32 = load i32, ptr %20, align 4
   %33 = add i32 %32, -1
   store i32 %33, ptr %20, align 4
@@ -2180,7 +2180,7 @@ define internal fastcc void @run_all_permutations_recurse.argprom(ptr nocapture 
   br i1 %.0281.ph, label %._crit_edge.thread, label %.critedge
 
 .critedge:                                        ; preds = %3, %._crit_edge
-  tail call fastcc void @run_permutation.argprom(i32 noundef %1, ptr noundef %2)
+  tail call fastcc void @run_permutation(i32 noundef %1, ptr noundef %2)
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.thread, %.critedge, %._crit_edge

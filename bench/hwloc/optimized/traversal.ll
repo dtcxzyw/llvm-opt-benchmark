@@ -1829,7 +1829,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocap
 17:                                               ; preds = %15
   %18 = getelementptr inbounds i8, ptr %2, i64 32
   %19 = load i64, ptr %18, align 8
-  call fastcc void @hwloc_memory_size_snprintf.argelim(ptr noundef %6, i64 noundef %19, i64 noundef %4)
+  call fastcc void @hwloc_memory_size_snprintf(ptr noundef %6, i64 noundef %19, i64 noundef %4)
   br label %20
 
 20:                                               ; preds = %17, %15
@@ -1845,7 +1845,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocap
   br i1 %.not158, label %28, label %27
 
 27:                                               ; preds = %23
-  call fastcc void @hwloc_memory_size_snprintf.argelim(ptr noundef %7, i64 noundef %26, i64 noundef %4)
+  call fastcc void @hwloc_memory_size_snprintf(ptr noundef %7, i64 noundef %26, i64 noundef %4)
   br label %28
 
 28:                                               ; preds = %27, %23, %20
@@ -1934,7 +1934,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocap
   %64 = getelementptr inbounds i8, ptr %2, i64 40
   %65 = load ptr, ptr %64, align 8
   %66 = load i64, ptr %65, align 8
-  call fastcc void @hwloc_memory_size_snprintf.argelim(ptr noundef %8, i64 noundef %66, i64 noundef %4)
+  call fastcc void @hwloc_memory_size_snprintf(ptr noundef %8, i64 noundef %66, i64 noundef %4)
   br i1 %.not157, label %81, label %67
 
 67:                                               ; preds = %63
@@ -2174,7 +2174,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocap
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @hwloc_memory_size_snprintf.argelim(ptr nocapture noundef nonnull writeonly %0, i64 noundef %1, i64 noundef %2) unnamed_addr #7 {
+define internal fastcc void @hwloc_memory_size_snprintf(ptr nocapture noundef nonnull writeonly %0, i64 noundef %1, i64 noundef %2) unnamed_addr #7 {
   %4 = and i64 %2, 16
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %7, label %5

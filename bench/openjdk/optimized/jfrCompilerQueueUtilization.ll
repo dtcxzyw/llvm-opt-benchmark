@@ -158,42 +158,42 @@ define hidden void @_ZN27JfrCompilerQueueUtilization11send_eventsEv() local_unna
   %40 = getelementptr inbounds i8, ptr %31, i64 24
   %41 = load i64, ptr %40, align 8
   %.not.i = icmp ult i64 %41, %36
-  br i1 %.not.i, label %42, label %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.argprom.exit
+  br i1 %.not.i, label %42, label %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit
 
 42:                                               ; preds = %33
   %43 = sub nuw nsw i64 %36, %41
   %44 = mul nuw nsw i64 %43, 1000000000
   %45 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource11nanosecondsEl(i64 noundef %18) #7
   %46 = udiv i64 %44, %45
-  br label %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.argprom.exit
+  br label %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit
 
-_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.argprom.exit: ; preds = %33, %42
+_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit: ; preds = %33, %42
   %.0.i = phi i64 [ %46, %42 ], [ 0, %33 ]
   %47 = getelementptr inbounds i8, ptr %31, i64 32
   %48 = load i64, ptr %47, align 8
   %.not.i29 = icmp ult i64 %48, %39
-  br i1 %.not.i29, label %49, label %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.argprom.exit31
+  br i1 %.not.i29, label %49, label %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit31
 
-49:                                               ; preds = %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.argprom.exit
+49:                                               ; preds = %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit
   %50 = sub nuw nsw i64 %39, %48
   %51 = mul nuw nsw i64 %50, 1000000000
   %52 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource11nanosecondsEl(i64 noundef %18) #7
   %53 = udiv i64 %51, %52
-  br label %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.argprom.exit31
+  br label %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit31
 
-_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.argprom.exit31: ; preds = %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.argprom.exit, %49
-  %.0.i30 = phi i64 [ %53, %49 ], [ 0, %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.argprom.exit ]
+_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit31: ; preds = %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit, %49
+  %.0.i30 = phi i64 [ %53, %49 ], [ 0, %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %1, i8 0, i64 19, i1 false)
   %54 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 2609), align 1
   %55 = icmp eq i8 %54, 0
   br i1 %55, label %_ZN29EventCompilerQueueUtilizationC2E14EventStartTime.exit, label %56
 
-56:                                               ; preds = %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.argprom.exit31
+56:                                               ; preds = %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit31
   %57 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #7
   store i64 %57, ptr %1, align 8
   br label %_ZN29EventCompilerQueueUtilizationC2E14EventStartTime.exit
 
-_ZN29EventCompilerQueueUtilizationC2E14EventStartTime.exit: ; preds = %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.argprom.exit31, %56
+_ZN29EventCompilerQueueUtilizationC2E14EventStartTime.exit: ; preds = %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit31, %56
   %58 = getelementptr inbounds i8, ptr %31, i64 8
   %59 = load i64, ptr %58, align 8
   store i64 %59, ptr %19, align 8

@@ -5355,27 +5355,27 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit4: ; preds = %_ZN11Mutex
   %.not16.i.i = icmp eq ptr %.01115.i.i, null
   br i1 %.not16.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11iterate_allIZN16SystemDictionary10methods_doEPFvS3_EE3$_0EEvT_ENKUlRS1_RS3_E_clESH_SI_.argprom.argprom.exit.i.i"
-  %.01118.i.i = phi ptr [ %.011.i.i, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11iterate_allIZN16SystemDictionary10methods_doEPFvS3_EE3$_0EEvT_ENKUlRS1_RS3_E_clESH_SI_.argprom.argprom.exit.i.i" ], [ %.01115.i.i, %.preheader.i.i ]
-  %.117.i.i = phi i32 [ %13, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11iterate_allIZN16SystemDictionary10methods_doEPFvS3_EE3$_0EEvT_ENKUlRS1_RS3_E_clESH_SI_.argprom.argprom.exit.i.i" ], [ %.01219.i.i, %.preheader.i.i ]
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11iterate_allIZN16SystemDictionary10methods_doEPFvS3_EE3$_0EEvT_ENKUlRS1_RS3_E_clESH_SI_.exit.i.i"
+  %.01118.i.i = phi ptr [ %.011.i.i, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11iterate_allIZN16SystemDictionary10methods_doEPFvS3_EE3$_0EEvT_ENKUlRS1_RS3_E_clESH_SI_.exit.i.i" ], [ %.01115.i.i, %.preheader.i.i ]
+  %.117.i.i = phi i32 [ %13, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11iterate_allIZN16SystemDictionary10methods_doEPFvS3_EE3$_0EEvT_ENKUlRS1_RS3_E_clESH_SI_.exit.i.i" ], [ %.01219.i.i, %.preheader.i.i ]
   %10 = getelementptr inbounds i8, ptr %.01118.i.i, i64 24
   %.val14.i.i = load ptr, ptr %10, align 8
   %.not.i.i.i.i = icmp eq ptr %.val14.i.i, null
-  br i1 %.not.i.i.i.i, label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11iterate_allIZN16SystemDictionary10methods_doEPFvS3_EE3$_0EEvT_ENKUlRS1_RS3_E_clESH_SI_.argprom.argprom.exit.i.i", label %11
+  br i1 %.not.i.i.i.i, label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11iterate_allIZN16SystemDictionary10methods_doEPFvS3_EE3$_0EEvT_ENKUlRS1_RS3_E_clESH_SI_.exit.i.i", label %11
 
 11:                                               ; preds = %.lr.ph.i.i
   tail call void %0(ptr noundef nonnull %.val14.i.i) #14
-  br label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11iterate_allIZN16SystemDictionary10methods_doEPFvS3_EE3$_0EEvT_ENKUlRS1_RS3_E_clESH_SI_.argprom.argprom.exit.i.i"
+  br label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11iterate_allIZN16SystemDictionary10methods_doEPFvS3_EE3$_0EEvT_ENKUlRS1_RS3_E_clESH_SI_.exit.i.i"
 
-"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11iterate_allIZN16SystemDictionary10methods_doEPFvS3_EE3$_0EEvT_ENKUlRS1_RS3_E_clESH_SI_.argprom.argprom.exit.i.i": ; preds = %11, %.lr.ph.i.i
+"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11iterate_allIZN16SystemDictionary10methods_doEPFvS3_EE3$_0EEvT_ENKUlRS1_RS3_E_clESH_SI_.exit.i.i": ; preds = %11, %.lr.ph.i.i
   %12 = getelementptr inbounds i8, ptr %.01118.i.i, i64 32
   %13 = add nsw i32 %.117.i.i, -1
   %.011.i.i = load ptr, ptr %12, align 8
   %.not.i.i5 = icmp eq ptr %.011.i.i, null
   br i1 %.not.i.i5, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !16
 
-._crit_edge.i.i:                                  ; preds = %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11iterate_allIZN16SystemDictionary10methods_doEPFvS3_EE3$_0EEvT_ENKUlRS1_RS3_E_clESH_SI_.argprom.argprom.exit.i.i", %.preheader.i.i
-  %.1.lcssa.i.i = phi i32 [ %.01219.i.i, %.preheader.i.i ], [ %13, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11iterate_allIZN16SystemDictionary10methods_doEPFvS3_EE3$_0EEvT_ENKUlRS1_RS3_E_clESH_SI_.argprom.argprom.exit.i.i" ]
+._crit_edge.i.i:                                  ; preds = %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11iterate_allIZN16SystemDictionary10methods_doEPFvS3_EE3$_0EEvT_ENKUlRS1_RS3_E_clESH_SI_.exit.i.i", %.preheader.i.i
+  %.1.lcssa.i.i = phi i32 [ %.01219.i.i, %.preheader.i.i ], [ %13, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11iterate_allIZN16SystemDictionary10methods_doEPFvS3_EE3$_0EEvT_ENKUlRS1_RS3_E_clESH_SI_.exit.i.i" ]
   %.0.add.i.i = add nuw nsw i64 %.0.idx20.i.i, 8
   %14 = icmp sgt i32 %.1.lcssa.i.i, 0
   %15 = icmp ult i64 %.0.idx20.i.i, 1104

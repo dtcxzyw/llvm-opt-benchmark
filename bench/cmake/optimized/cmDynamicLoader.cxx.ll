@@ -78,7 +78,7 @@ define dso_local noundef ptr @_ZN15cmDynamicLoader11OpenLibraryEPKc(ptr noundef 
   %7 = alloca ptr, align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.0", align 1
-  %10 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120cmDynamicLoaderCache12GetCacheFileEPKcRPv.argprom(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %10 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120cmDynamicLoaderCache12GetCacheFileEPKcRPv(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %7)
   br i1 %10, label %70, label %11
 
 11:                                               ; preds = %1
@@ -124,7 +124,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  %23 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120cmDynamicLoaderCache12GetCacheFileEPKcRPv.argprom(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %23 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120cmDynamicLoaderCache12GetCacheFileEPKcRPv(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   br i1 %23, label %24, label %55
 
 24:                                               ; preds = %22
@@ -204,7 +204,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvSt4lessIS5_ESaIS
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
   %.not.i = icmp eq ptr %.sroa.0.0.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 8)
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_120cmDynamicLoaderCache10FlushCacheEPKc.argprom.exit.i, label %45
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_120cmDynamicLoaderCache10FlushCacheEPKc.exit.i, label %45
 
 45:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvSt4lessIS5_ESaISt4pairIKS5_S6_EEE4findERSA_.exit.i.i
   %46 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i, i64 64
@@ -217,7 +217,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvSt4lessIS5_ESaIS
   %51 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 40), align 8
   %52 = add i64 %51, -1
   store i64 %52, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 40), align 8
-  br label %_ZN12_GLOBAL__N_120cmDynamicLoaderCache10FlushCacheEPKc.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_120cmDynamicLoaderCache10FlushCacheEPKc.exit.i
 
 53:                                               ; preds = %.noexc.i.i, %24
   %54 = landingpad { ptr, i32 }
@@ -230,12 +230,12 @@ common.resume:                                    ; preds = %68, %16, %66, %26, 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #15
   resume { ptr, i32 } %common.resume.op
 
-_ZN12_GLOBAL__N_120cmDynamicLoaderCache10FlushCacheEPKc.argprom.exit.i: ; preds = %45, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvSt4lessIS5_ESaISt4pairIKS5_S6_EEE4findERSA_.exit.i.i
+_ZN12_GLOBAL__N_120cmDynamicLoaderCache10FlushCacheEPKc.exit.i: ; preds = %45, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvSt4lessIS5_ESaISt4pairIKS5_S6_EEE4findERSA_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   br label %55
 
-55:                                               ; preds = %_ZN12_GLOBAL__N_120cmDynamicLoaderCache10FlushCacheEPKc.argprom.exit.i, %22
+55:                                               ; preds = %_ZN12_GLOBAL__N_120cmDynamicLoaderCache10FlushCacheEPKc.exit.i, %22
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #15
   %56 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %.noexc.i unwind label %62
@@ -258,7 +258,7 @@ _ZN12_GLOBAL__N_120cmDynamicLoaderCache10FlushCacheEPKc.argprom.exit.i: ; preds 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc8.i
   %61 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvSt4lessIS5_ESaISt4pairIKS5_S6_EEEixEOS5_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %_ZN12_GLOBAL__N_120cmDynamicLoaderCache9CacheFileEPKcPv.argprom.exit unwind label %64
+          to label %_ZN12_GLOBAL__N_120cmDynamicLoaderCache9CacheFileEPKcPv.exit unwind label %64
 
 62:                                               ; preds = %.noexc.i, %55
   %63 = landingpad { ptr, i32 }
@@ -271,7 +271,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
   br label %common.resume
 
-_ZN12_GLOBAL__N_120cmDynamicLoaderCache9CacheFileEPKcPv.argprom.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
+_ZN12_GLOBAL__N_120cmDynamicLoaderCache9CacheFileEPKcPv.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
   store ptr %21, ptr %61, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #15
@@ -291,13 +291,13 @@ _ZN12_GLOBAL__N_120cmDynamicLoaderCache9CacheFileEPKcPv.argprom.exit: ; preds = 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #15
   br label %common.resume
 
-70:                                               ; preds = %1, %_ZN12_GLOBAL__N_120cmDynamicLoaderCache9CacheFileEPKcPv.argprom.exit
+70:                                               ; preds = %1, %_ZN12_GLOBAL__N_120cmDynamicLoaderCache9CacheFileEPKcPv.exit
   %.06 = load ptr, ptr %7, align 8
   ret ptr %.06
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120cmDynamicLoaderCache12GetCacheFileEPKcRPv.argprom(ptr noundef %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120cmDynamicLoaderCache12GetCacheFileEPKcRPv(ptr noundef %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.0", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #15
@@ -438,7 +438,7 @@ define dso_local void @_ZN15cmDynamicLoader10FlushCacheEv() local_unnamed_addr #
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %0
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 16), align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PvESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, ptr noundef %6)
-          to label %_ZN12_GLOBAL__N_120cmDynamicLoaderCache10FlushCacheEv.argprom.exit unwind label %7
+          to label %_ZN12_GLOBAL__N_120cmDynamicLoaderCache10FlushCacheEv.exit unwind label %7
 
 7:                                                ; preds = %._crit_edge.i
   %8 = landingpad { ptr, i32 }
@@ -447,7 +447,7 @@ define dso_local void @_ZN15cmDynamicLoader10FlushCacheEv() local_unnamed_addr #
   tail call void @__clang_call_terminate(ptr %9) #14
   unreachable
 
-_ZN12_GLOBAL__N_120cmDynamicLoaderCache10FlushCacheEv.argprom.exit: ; preds = %._crit_edge.i
+_ZN12_GLOBAL__N_120cmDynamicLoaderCache10FlushCacheEv.exit: ; preds = %._crit_edge.i
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 16), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 24), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 32), align 8

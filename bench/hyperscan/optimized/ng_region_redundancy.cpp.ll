@@ -243,22 +243,22 @@ while.body.i.i.i.i.i:                             ; preds = %if.end.i, %while.bo
   %__x.addr.1.in.i.i.i.i.i = getelementptr i8, ptr %__x.addr.03.i.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i.i
   %__x.addr.1.i.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt3mapIjN3ue212_GLOBAL__N_110RegionInfoESt4lessIjESaISt4pairIKjS2_EEE11lower_boundERS6_.argprom.exit.i.i, label %while.body.i.i.i.i.i, !llvm.loop !11
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt3mapIjN3ue212_GLOBAL__N_110RegionInfoESt4lessIjESaISt4pairIKjS2_EEE11lower_boundERS6_.exit.i.i, label %while.body.i.i.i.i.i, !llvm.loop !11
 
-_ZNSt3mapIjN3ue212_GLOBAL__N_110RegionInfoESt4lessIjESaISt4pairIKjS2_EEE11lower_boundERS6_.argprom.exit.i.i: ; preds = %while.body.i.i.i.i.i
+_ZNSt3mapIjN3ue212_GLOBAL__N_110RegionInfoESt4lessIjESaISt4pairIKjS2_EEE11lower_boundERS6_.exit.i.i: ; preds = %while.body.i.i.i.i.i
   %cmp.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i.i, %0
   br i1 %cmp.i.i.i, label %if.then.i.i, label %lor.rhs.i.i
 
-lor.rhs.i.i:                                      ; preds = %_ZNSt3mapIjN3ue212_GLOBAL__N_110RegionInfoESt4lessIjESaISt4pairIKjS2_EEE11lower_boundERS6_.argprom.exit.i.i
+lor.rhs.i.i:                                      ; preds = %_ZNSt3mapIjN3ue212_GLOBAL__N_110RegionInfoESt4lessIjESaISt4pairIKjS2_EEE11lower_boundERS6_.exit.i.i
   %__y.addr.1.i.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.02.i.i.i.i.i, ptr %__x.addr.03.i.i.i.i.i
   %__y.addr.1.i.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %15 = load i32, ptr %__y.addr.1.i.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %cmp.i6.i.i = icmp ult i32 %12, %15
   br i1 %cmp.i6.i.i, label %if.then.i.i, label %invoke.cont15.i
 
-if.then.i.i:                                      ; preds = %lor.rhs.i.i, %_ZNSt3mapIjN3ue212_GLOBAL__N_110RegionInfoESt4lessIjESaISt4pairIKjS2_EEE11lower_boundERS6_.argprom.exit.i.i, %if.end.i
-  %cmp.i17.i.i = phi i1 [ true, %_ZNSt3mapIjN3ue212_GLOBAL__N_110RegionInfoESt4lessIjESaISt4pairIKjS2_EEE11lower_boundERS6_.argprom.exit.i.i ], [ false, %lor.rhs.i.i ], [ true, %if.end.i ]
-  %__y.addr.0.lcssa.i.i.i16.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i, %_ZNSt3mapIjN3ue212_GLOBAL__N_110RegionInfoESt4lessIjESaISt4pairIKjS2_EEE11lower_boundERS6_.argprom.exit.i.i ], [ %__y.addr.1.i.i.i.i.i, %lor.rhs.i.i ], [ %0, %if.end.i ]
+if.then.i.i:                                      ; preds = %lor.rhs.i.i, %_ZNSt3mapIjN3ue212_GLOBAL__N_110RegionInfoESt4lessIjESaISt4pairIKjS2_EEE11lower_boundERS6_.exit.i.i, %if.end.i
+  %cmp.i17.i.i = phi i1 [ true, %_ZNSt3mapIjN3ue212_GLOBAL__N_110RegionInfoESt4lessIjESaISt4pairIKjS2_EEE11lower_boundERS6_.exit.i.i ], [ false, %lor.rhs.i.i ], [ true, %if.end.i ]
+  %__y.addr.0.lcssa.i.i.i16.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i, %_ZNSt3mapIjN3ue212_GLOBAL__N_110RegionInfoESt4lessIjESaISt4pairIKjS2_EEE11lower_boundERS6_.exit.i.i ], [ %__y.addr.1.i.i.i.i.i, %lor.rhs.i.i ], [ %0, %if.end.i ]
   %call5.i.i.i.i.i.i.i11.i = invoke noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #21
           to label %call5.i.i.i.i.i.i.i.noexc.i unwind label %lpad.loopexit.i
 
@@ -994,13 +994,13 @@ while.body.i.i.i.i82:                             ; preds = %while.cond.i, %whil
   %__x.addr.1.in.i.i.i.i87 = getelementptr i8, ptr %__x.addr.03.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i86
   %__x.addr.1.i.i.i.i88 = load ptr, ptr %__x.addr.1.in.i.i.i.i87, align 8
   %cmp.not.i.i.i.i89 = icmp eq ptr %__x.addr.1.i.i.i.i88, null
-  br i1 %cmp.not.i.i.i.i89, label %_ZNKSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_110RegionInfoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.argprom.exit.i.i.i, label %while.body.i.i.i.i82, !llvm.loop !34
+  br i1 %cmp.not.i.i.i.i89, label %_ZNKSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_110RegionInfoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i82, !llvm.loop !34
 
-_ZNKSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_110RegionInfoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.argprom.exit.i.i.i: ; preds = %while.body.i.i.i.i82
+_ZNKSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_110RegionInfoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %while.body.i.i.i.i82
   %cmp.i.i.i.i90 = icmp eq ptr %__y.addr.1.i.i.i.i85, %0
   br i1 %cmp.i.i.i.i90, label %while.end.i, label %invoke.cont.i
 
-invoke.cont.i:                                    ; preds = %_ZNKSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_110RegionInfoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.argprom.exit.i.i.i
+invoke.cont.i:                                    ; preds = %_ZNKSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_110RegionInfoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %__y.addr.1.i.i.i.i85.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i.i.i.i84, ptr %__y.addr.02.i.i.i.i, ptr %__x.addr.03.i.i.i.i
   %__y.addr.1.i.i.i.i85.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i85.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %101 = load i32, ptr %__y.addr.1.i.i.i.i85.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
@@ -1041,7 +1041,7 @@ invoke.cont25.i:                                  ; preds = %if.end.i95
 land.lhs.true.i:                                  ; preds = %invoke.cont25.i
   %reports.val.i = load ptr, ptr %reports.i, align 8
   %reports.val15.i = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i.i, align 8
-  %call28.i = invoke fastcc noundef zeroext i1 @_ZN3ue2L25regionHasUnexpectedAcceptERKNS_8NGHolderEjRKNS_8flat_setIjSt4lessIjESaIjEEERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISH_ESt8equal_toISH_ESaISt4pairIKSH_jEEE.argprom(ptr noundef nonnull align 8 dereferenceable(136) %g, i32 noundef %dec.i, ptr %reports.val.i, i64 %reports.val15.i, ptr noundef nonnull align 8 dereferenceable(56) %region_map)
+  %call28.i = invoke fastcc noundef zeroext i1 @_ZN3ue2L25regionHasUnexpectedAcceptERKNS_8NGHolderEjRKNS_8flat_setIjSt4lessIjESaIjEEERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISH_ESt8equal_toISH_ESaISt4pairIKSH_jEEE(ptr noundef nonnull align 8 dereferenceable(136) %g, i32 noundef %dec.i, ptr %reports.val.i, i64 %reports.val15.i, ptr noundef nonnull align 8 dereferenceable(56) %region_map)
           to label %invoke.cont27.i unwind label %lpad.i93
 
 invoke.cont27.i:                                  ; preds = %land.lhs.true.i
@@ -1187,7 +1187,7 @@ if.end62.i:                                       ; preds = %for.cond19.i.i.i.i,
   %tobool.not.i = icmp eq i32 %dec.i, 0
   br i1 %tobool.not.i, label %while.end.i, label %while.cond.i, !llvm.loop !41
 
-while.end.i:                                      ; preds = %if.end62.i, %invoke.cont36.i, %invoke.cont19.i, %invoke.cont.i, %_ZNKSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_110RegionInfoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.argprom.exit.i.i.i, %while.cond.i
+while.end.i:                                      ; preds = %if.end62.i, %invoke.cont36.i, %invoke.cont19.i, %invoke.cont.i, %_ZNKSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_110RegionInfoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %while.cond.i
   %117 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i44.i = icmp eq i64 %117, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i44.i, label %_ZN3ue2L25processCyclicStateReverseERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKSt3mapIjNS_12_GLOBAL__N_110RegionInfoESt4lessIjESaISt4pairIKjSB_EEERKSt13unordered_mapIS8_jSt4hashIS8_ESt8equal_toIS8_ESaISE_IKS8_jEEERSt3setIjSD_SaIjEE.exit, label %if.then.i.i.i.i.i.i.i.i.i45.i
@@ -1468,7 +1468,7 @@ terminate.lpad.i.i:                               ; preds = %cleanup
 
 _ZNSt3setIjSt4lessIjESaIjEED2Ev.exit:             ; preds = %cleanup
   %info.val = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
-  call fastcc void @_ZNSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_110RegionInfoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E.argprom(ptr noundef %info.val)
+  call fastcc void @_ZNSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_110RegionInfoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef %info.val)
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %region_map, i64 16
   %140 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
   %tobool.not3.i.i.i.i = icmp eq ptr %140, null
@@ -1509,7 +1509,7 @@ ehcleanup:                                        ; preds = %lpad1.loopexit, %lp
 ehcleanup73:                                      ; preds = %lpad.loopexit.i, %lpad.loopexit.split-lp.i, %ehcleanup
   %agg.result.val.i.sink = phi ptr [ %info.val19, %ehcleanup ], [ %this.val.i.i.i.i, %lpad.loopexit.i ], [ %agg.result.val.pre.i, %lpad.loopexit.split-lp.i ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %lpad.loopexit39.i, %lpad.loopexit.i ], [ %lpad.loopexit.split-lp40.i, %lpad.loopexit.split-lp.i ]
-  call fastcc void @_ZNSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_110RegionInfoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E.argprom(ptr noundef %agg.result.val.i.sink)
+  call fastcc void @_ZNSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_110RegionInfoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef %agg.result.val.i.sink)
   call void @_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEjSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_jEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %region_map) #19
   resume { ptr, i32 } %.pn.pn
 }
@@ -1671,13 +1671,13 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i.pr
   %__x.addr.1.in.i.i.i = getelementptr i8, ptr %__x.addr.03.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
-  br i1 %cmp.not.i.i.i, label %_ZNKSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_110RegionInfoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.argprom.exit.i.i, label %while.body.i.i.i, !llvm.loop !34
+  br i1 %cmp.not.i.i.i, label %_ZNKSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_110RegionInfoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i, label %while.body.i.i.i, !llvm.loop !34
 
-_ZNKSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_110RegionInfoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.argprom.exit.i.i: ; preds = %while.body.i.i.i
+_ZNKSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_110RegionInfoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i: ; preds = %while.body.i.i.i
   %cmp.i.i.i = icmp eq ptr %__y.addr.1.i.i.i, %add.ptr.i.i.i18
   br i1 %cmp.i.i.i, label %while.end, label %invoke.cont
 
-invoke.cont:                                      ; preds = %_ZNKSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_110RegionInfoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.argprom.exit.i.i
+invoke.cont:                                      ; preds = %_ZNKSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_110RegionInfoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i
   %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %18 = load i32, ptr %_M_storage.i.i.i3.i.i, align 4
   %cmp.i4.i.i = icmp ult i32 %inc69, %18
@@ -1715,7 +1715,7 @@ invoke.cont25:                                    ; preds = %if.end
 land.lhs.true:                                    ; preds = %invoke.cont25
   %reports.val = load ptr, ptr %reports, align 8
   %reports.val15 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i, align 8
-  %call28 = invoke fastcc noundef zeroext i1 @_ZN3ue2L25regionHasUnexpectedAcceptERKNS_8NGHolderEjRKNS_8flat_setIjSt4lessIjESaIjEEERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISH_ESt8equal_toISH_ESaISt4pairIKSH_jEEE.argprom(ptr noundef nonnull align 8 dereferenceable(136) %h, i32 noundef %inc69, ptr %reports.val, i64 %reports.val15, ptr noundef nonnull align 8 dereferenceable(56) %region_map)
+  %call28 = invoke fastcc noundef zeroext i1 @_ZN3ue2L25regionHasUnexpectedAcceptERKNS_8NGHolderEjRKNS_8flat_setIjSt4lessIjESaIjEEERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISH_ESt8equal_toISH_ESaISt4pairIKSH_jEEE(ptr noundef nonnull align 8 dereferenceable(136) %h, i32 noundef %inc69, ptr %reports.val, i64 %reports.val15, ptr noundef nonnull align 8 dereferenceable(56) %region_map)
           to label %invoke.cont27 unwind label %lpad
 
 invoke.cont27:                                    ; preds = %land.lhs.true
@@ -1862,7 +1862,7 @@ if.end64:                                         ; preds = %for.cond19.i.i.i, %
   %cmp.not1.i.i.i = icmp eq ptr %this.val.i.i, null
   br i1 %cmp.not1.i.i.i, label %while.end, label %while.body.i.i.i.preheader, !llvm.loop !60
 
-while.end:                                        ; preds = %invoke.cont, %invoke.cont19, %invoke.cont36, %_ZNKSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_110RegionInfoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.argprom.exit.i.i, %if.end64, %_ZN3ue28flat_setIjSt4lessIjESaIjEEC2ERKS4_.exit
+while.end:                                        ; preds = %invoke.cont, %invoke.cont19, %invoke.cont36, %_ZNKSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_110RegionInfoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i, %if.end64, %_ZN3ue28flat_setIjSt4lessIjESaIjEEC2ERKS4_.exit
   %34 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i44 = icmp eq i64 %34, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i44, label %_ZN3ue28flat_setIjSt4lessIjESaIjEED2Ev.exit49, label %if.then.i.i.i.i.i.i.i.i.i45
@@ -2359,7 +2359,7 @@ return:                                           ; preds = %for.cond, %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3ue2L25regionHasUnexpectedAcceptERKNS_8NGHolderEjRKNS_8flat_setIjSt4lessIjESaIjEEERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISH_ESt8equal_toISH_ESaISt4pairIKSH_jEEE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, i32 noundef %region, ptr nocapture readonly %expected_reports.0.val, i64 %expected_reports.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %region_map) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN3ue2L25regionHasUnexpectedAcceptERKNS_8NGHolderEjRKNS_8flat_setIjSt4lessIjESaIjEEERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISH_ESt8equal_toISH_ESaISt4pairIKSH_jEEE(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, i32 noundef %region, ptr nocapture readonly %expected_reports.0.val, i64 %expected_reports.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %region_map) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_header.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 16
   %__begin1.sroa.0.025 = load ptr, ptr %m_header.i.i.i.i.i.i, align 8
@@ -3193,7 +3193,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_110RegionInfoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E.argprom(ptr noundef %__x) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_110RegionInfoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef %__x) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not1 = icmp eq ptr %__x, null
   br i1 %cmp.not1, label %while.end, label %while.body
@@ -3202,7 +3202,7 @@ while.body:                                       ; preds = %entry, %while.body
   %__x.addr.02 = phi ptr [ %__x.addr.0.val4, %while.body ], [ %__x, %entry ]
   %0 = getelementptr i8, ptr %__x.addr.02, i64 24
   %__x.addr.0.val = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_110RegionInfoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E.argprom(ptr noundef %__x.addr.0.val)
+  tail call fastcc void @_ZNSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_110RegionInfoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef %__x.addr.0.val)
   %1 = getelementptr i8, ptr %__x.addr.02, i64 16
   %__x.addr.0.val4 = load ptr, ptr %1, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.02) #23

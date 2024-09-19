@@ -545,12 +545,12 @@ declare void @zend_update_property_str(ptr noundef, ptr noundef, ptr noundef, i6
 define hidden void @zim_PDO___construct(ptr noundef %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  tail call fastcc void @internal_construct.argprom(ptr noundef %0, ptr noundef %4, ptr noundef %4, ptr noundef null)
+  tail call fastcc void @internal_construct(ptr noundef %0, ptr noundef %4, ptr noundef %4, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @internal_construct.argprom(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @internal_construct(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1411,7 +1411,7 @@ pdo_attr_lval.exit448:                            ; preds = %pdo_attr_lval.exit,
 define hidden void @zim_PDO_connect(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  tail call fastcc void @internal_construct.argprom(ptr noundef %0, ptr noundef %4, ptr noundef %4, ptr noundef %1)
+  tail call fastcc void @internal_construct(ptr noundef %0, ptr noundef %4, ptr noundef %4, ptr noundef %1)
   ret void
 }
 
@@ -1656,29 +1656,29 @@ define hidden void @zim_PDO_prepare(ptr noundef %0, ptr noundef %1) #0 {
   %.sroa.3.0208 = phi i8 [ %.sroa.3.0, %116 ], [ 0, %114 ], [ 0, %99 ]
   %119 = call i32 @object_init_ex(ptr noundef %1, ptr noundef %.0154214) #11
   %.not7.i = icmp eq i32 %119, 0
-  br i1 %.not7.i, label %pdo_stmt_instantiate.argprom.exit, label %120
+  br i1 %.not7.i, label %pdo_stmt_instantiate.exit, label %120
 
 120:                                              ; preds = %.thread202
   %121 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not8.i = icmp eq ptr %121, null
-  br i1 %.not8.i, label %.sink.split.i, label %pdo_stmt_instantiate.argprom.exit.thread
+  br i1 %.not8.i, label %.sink.split.i, label %pdo_stmt_instantiate.exit.thread
 
 .sink.split.i:                                    ; preds = %120, %116
   %.str.48.sink.i = phi ptr [ @.str.47, %116 ], [ @.str.48, %120 ]
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull %.str.48.sink.i) #11
-  br label %pdo_stmt_instantiate.argprom.exit.thread
+  br label %pdo_stmt_instantiate.exit.thread
 
-pdo_stmt_instantiate.argprom.exit:                ; preds = %.thread202
+pdo_stmt_instantiate.exit:                        ; preds = %.thread202
   %.not182 = icmp eq ptr %1, null
-  br i1 %.not182, label %pdo_stmt_instantiate.argprom.exit.thread, label %124
+  br i1 %.not182, label %pdo_stmt_instantiate.exit.thread, label %124
 
-pdo_stmt_instantiate.argprom.exit.thread:         ; preds = %.sink.split.i, %120, %pdo_stmt_instantiate.argprom.exit
+pdo_stmt_instantiate.exit.thread:                 ; preds = %.sink.split.i, %120, %pdo_stmt_instantiate.exit
   %122 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %123 = icmp ne ptr %122, null
   call void @llvm.assume(i1 %123)
   br label %159
 
-124:                                              ; preds = %pdo_stmt_instantiate.argprom.exit
+124:                                              ; preds = %pdo_stmt_instantiate.exit
   %125 = load ptr, ptr %1, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 -312
   %127 = load ptr, ptr %3, align 8
@@ -1725,11 +1725,11 @@ pdo_stmt_instantiate.argprom.exit.thread:         ; preds = %.sink.split.i, %120
   br i1 %151, label %152, label %153
 
 152:                                              ; preds = %150
-  call fastcc void @pdo_stmt_construct.argprom(ptr %.val187, ptr noundef nonnull %1, ptr noundef %.0154214, ptr noundef %.sroa.0.0211)
+  call fastcc void @pdo_stmt_construct(ptr %.val187, ptr noundef nonnull %1, ptr noundef %.0154214, ptr noundef %.sroa.0.0211)
   br label %159
 
 153:                                              ; preds = %150
-  call fastcc void @pdo_stmt_construct.argprom(ptr %.val187, ptr noundef nonnull %1, ptr noundef %.0154214, ptr noundef null)
+  call fastcc void @pdo_stmt_construct(ptr %.val187, ptr noundef nonnull %1, ptr noundef %.0154214, ptr noundef null)
   br label %159
 
 154:                                              ; preds = %134
@@ -1747,7 +1747,7 @@ pdo_stmt_instantiate.argprom.exit.thread:         ; preds = %.sink.split.i, %120
   store i32 2, ptr %158, align 8
   br label %159
 
-159:                                              ; preds = %152, %153, %157, %pdo_stmt_instantiate.argprom.exit.thread, %105, %96, %87, %79, %69, %61, %44, %30, %26
+159:                                              ; preds = %152, %153, %157, %pdo_stmt_instantiate.exit.thread, %105, %96, %87, %79, %69, %61, %44, %30, %26
   ret void
 }
 
@@ -1773,7 +1773,7 @@ declare void @zend_value_error(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @zend_lookup_class(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pdo_stmt_construct.argprom(ptr %.88.val, ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @pdo_stmt_construct(ptr %.88.val, ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   store ptr %.88.val, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %.88.val, i64 4
@@ -3660,29 +3660,29 @@ define hidden void @zim_PDO_query(ptr nocapture noundef readonly %0, ptr noundef
 55:                                               ; preds = %52, %46
   %56 = call i32 @object_init_ex(ptr noundef %1, ptr noundef %48) #11
   %.not7.i = icmp eq i32 %56, 0
-  br i1 %.not7.i, label %pdo_stmt_instantiate.argprom.exit, label %57
+  br i1 %.not7.i, label %pdo_stmt_instantiate.exit, label %57
 
 57:                                               ; preds = %55
   %58 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not8.i = icmp eq ptr %58, null
-  br i1 %.not8.i, label %.sink.split.i, label %pdo_stmt_instantiate.argprom.exit.thread
+  br i1 %.not8.i, label %.sink.split.i, label %pdo_stmt_instantiate.exit.thread
 
 .sink.split.i:                                    ; preds = %57, %52
   %.str.48.sink.i = phi ptr [ @.str.47, %52 ], [ @.str.48, %57 ]
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull %.str.48.sink.i) #11
-  br label %pdo_stmt_instantiate.argprom.exit.thread
+  br label %pdo_stmt_instantiate.exit.thread
 
-pdo_stmt_instantiate.argprom.exit:                ; preds = %55
+pdo_stmt_instantiate.exit:                        ; preds = %55
   %.not80 = icmp eq ptr %1, null
-  br i1 %.not80, label %pdo_stmt_instantiate.argprom.exit.thread, label %61
+  br i1 %.not80, label %pdo_stmt_instantiate.exit.thread, label %61
 
-pdo_stmt_instantiate.argprom.exit.thread:         ; preds = %.sink.split.i, %57, %pdo_stmt_instantiate.argprom.exit
+pdo_stmt_instantiate.exit.thread:                 ; preds = %.sink.split.i, %57, %pdo_stmt_instantiate.exit
   %59 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %60 = icmp ne ptr %59, null
   call void @llvm.assume(i1 %60)
   br label %148
 
-61:                                               ; preds = %pdo_stmt_instantiate.argprom.exit
+61:                                               ; preds = %pdo_stmt_instantiate.exit
   %62 = load ptr, ptr %1, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 -312
   %64 = load ptr, ptr %3, align 8
@@ -3796,12 +3796,12 @@ pdo_stmt_instantiate.argprom.exit.thread:         ; preds = %.sink.split.i, %57,
 125:                                              ; preds = %.critedge
   %126 = load ptr, ptr %49, align 8
   %.val91 = load ptr, ptr %72, align 8
-  call fastcc void @pdo_stmt_construct.argprom(ptr %.val91, ptr noundef nonnull %1, ptr noundef %124, ptr noundef %126)
+  call fastcc void @pdo_stmt_construct(ptr %.val91, ptr noundef nonnull %1, ptr noundef %124, ptr noundef %126)
   br label %148
 
 127:                                              ; preds = %.critedge
   %.val90 = load ptr, ptr %72, align 8
-  call fastcc void @pdo_stmt_construct.argprom(ptr %.val90, ptr noundef nonnull %1, ptr noundef %124, ptr noundef null)
+  call fastcc void @pdo_stmt_construct(ptr %.val90, ptr noundef nonnull %1, ptr noundef %124, ptr noundef null)
   br label %148
 
 128:                                              ; preds = %103, %117, %98
@@ -3849,7 +3849,7 @@ pdo_stmt_instantiate.argprom.exit.thread:         ; preds = %.sink.split.i, %57,
   store i32 2, ptr %147, align 8
   br label %148
 
-148:                                              ; preds = %125, %127, %146, %pdo_stmt_instantiate.argprom.exit.thread, %36, %22, %16
+148:                                              ; preds = %125, %127, %146, %pdo_stmt_instantiate.exit.thread, %36, %22, %16
   ret void
 }
 

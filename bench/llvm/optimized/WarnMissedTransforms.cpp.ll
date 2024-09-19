@@ -113,11 +113,11 @@ define dso_local void @_ZN4llvm29WarnMissedTransformationsPass3runERNS_8Function
   %41 = load ptr, ptr %20, align 8
   %42 = getelementptr inbounds i8, ptr %20, i64 16
   %43 = icmp eq ptr %41, %42
-  br i1 %43, label %_ZL32warnAboutLeftoverTransformationsPN4llvm8FunctionEPNS_8LoopInfoEPNS_25OptimizationRemarkEmitterE.argprom.exit, label %44
+  br i1 %43, label %_ZL32warnAboutLeftoverTransformationsPN4llvm8FunctionEPNS_8LoopInfoEPNS_25OptimizationRemarkEmitterE.exit, label %44
 
 44:                                               ; preds = %._crit_edge.i
   call void @free(ptr noundef %41) #5
-  br label %_ZL32warnAboutLeftoverTransformationsPN4llvm8FunctionEPNS_8LoopInfoEPNS_25OptimizationRemarkEmitterE.argprom.exit
+  br label %_ZL32warnAboutLeftoverTransformationsPN4llvm8FunctionEPNS_8LoopInfoEPNS_25OptimizationRemarkEmitterE.exit
 
 45:                                               ; preds = %_ZL32warnAboutLeftoverTransformationsPN4llvm4LoopEPNS_25OptimizationRemarkEmitterE.exit.i, %.lr.ph.i
   %.02.i = phi ptr [ %27, %.lr.ph.i ], [ %125, %_ZL32warnAboutLeftoverTransformationsPN4llvm4LoopEPNS_25OptimizationRemarkEmitterE.exit.i ]
@@ -419,11 +419,11 @@ _ZL32warnAboutLeftoverTransformationsPN4llvm4LoopEPNS_25OptimizationRemarkEmitte
   %.not.i = icmp eq ptr %125, %29
   br i1 %.not.i, label %._crit_edge.i, label %45
 
-_ZL32warnAboutLeftoverTransformationsPN4llvm8FunctionEPNS_8LoopInfoEPNS_25OptimizationRemarkEmitterE.argprom.exit: ; preds = %._crit_edge.i, %44
+_ZL32warnAboutLeftoverTransformationsPN4llvm8FunctionEPNS_8LoopInfoEPNS_25OptimizationRemarkEmitterE.exit: ; preds = %._crit_edge.i, %44
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20)
   br label %126
 
-126:                                              ; preds = %4, %_ZL32warnAboutLeftoverTransformationsPN4llvm8FunctionEPNS_8LoopInfoEPNS_25OptimizationRemarkEmitterE.argprom.exit
+126:                                              ; preds = %4, %_ZL32warnAboutLeftoverTransformationsPN4llvm8FunctionEPNS_8LoopInfoEPNS_25OptimizationRemarkEmitterE.exit
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %127, ptr %0, align 8
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 8

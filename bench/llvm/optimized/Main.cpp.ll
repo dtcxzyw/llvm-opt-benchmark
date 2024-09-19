@@ -638,7 +638,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %76 = getelementptr inbounds nuw i8, ptr %22, i64 33
   store i8 1, ptr %76, align 1
   store ptr %23, ptr %22, align 8
-  call fastcc void @_ZL11reportErrorPKcN4llvm5TwineE.retelim(ptr noundef %0, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %22)
+  call fastcc void @_ZL11reportErrorPKcN4llvm5TwineE(ptr noundef %0, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %22)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #17
@@ -788,7 +788,7 @@ _ZL20createDependencyFileRKN4llvm8TGParserEPKc.exit.thread: ; preds = %130
   store i8 1, ptr %134, align 1
   store ptr @.str.39, ptr %7, align 8
   store i8 3, ptr %133, align 8
-  call fastcc void @_ZL11reportErrorPKcN4llvm5TwineE.retelim(ptr noundef %0, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %7)
+  call fastcc void @_ZL11reportErrorPKcN4llvm5TwineE(ptr noundef %0, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %7)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %9)
@@ -865,7 +865,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %165 = getelementptr inbounds nuw i8, ptr %10, i64 33
   store i8 1, ptr %165, align 1
   store ptr %11, ptr %10, align 8
-  call fastcc void @_ZL11reportErrorPKcN4llvm5TwineE.retelim(ptr noundef %0, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %10)
+  call fastcc void @_ZL11reportErrorPKcN4llvm5TwineE(ptr noundef %0, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %10)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #17
@@ -1119,7 +1119,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %277 = getelementptr inbounds nuw i8, ptr %36, i64 33
   store i8 1, ptr %277, align 1
   store ptr %37, ptr %36, align 8
-  call fastcc void @_ZL11reportErrorPKcN4llvm5TwineE.retelim(ptr noundef %0, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %36)
+  call fastcc void @_ZL11reportErrorPKcN4llvm5TwineE(ptr noundef %0, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %36)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #17
@@ -1185,7 +1185,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvm12RecordKee
   store i8 9, ptr %301, align 8, !alias.scope !52
   %302 = getelementptr inbounds nuw i8, ptr %42, i64 33
   store i8 3, ptr %302, align 1, !alias.scope !52
-  call fastcc void @_ZL11reportErrorPKcN4llvm5TwineE.retelim(ptr noundef %0, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %42)
+  call fastcc void @_ZL11reportErrorPKcN4llvm5TwineE(ptr noundef %0, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %42)
   br label %303
 
 303:                                              ; preds = %_ZL20createDependencyFileRKN4llvm8TGParserEPKc.exit.thread, %_ZN4llvm12RecordKeeper15stopPhaseTimingEv.exit, %_ZL20createDependencyFileRKN4llvm8TGParserEPKc.exit, %_ZNKSt8functionIFbRN4llvm11raw_ostreamERNS0_12RecordKeeperEEEclES2_S4_.exit, %.critedge19, %_ZN4llvm14ToolOutputFileD2Ev.exit, %_ZN4llvmplERKNS_5TwineES2_.exit
@@ -1233,7 +1233,7 @@ declare void @_ZN4llvm12RecordKeeper10startTimerENS_9StringRefE(ptr noundef nonn
 declare void @_ZN4llvm12MemoryBuffer14getFileOrSTDINERKNS_5TwineEbbSt8optionalINS_5AlignEE(ptr dead_on_unwind writable sret(%"class.llvm::ErrorOr") align 8, ptr noundef nonnull align 8 dereferenceable(34), i1 noundef zeroext, i1 noundef zeroext, i16) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL11reportErrorPKcN4llvm5TwineE.retelim(ptr noundef %0, ptr noundef byval(%"class.llvm::Twine") align 8 %1) unnamed_addr #0 {
+define internal fastcc void @_ZL11reportErrorPKcN4llvm5TwineE(ptr noundef %0, ptr noundef byval(%"class.llvm::Twine") align 8 %1) unnamed_addr #0 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #17
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %_ZN4llvm9StringRefC2EPKc.exit.i

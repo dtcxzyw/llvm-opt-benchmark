@@ -133,7 +133,7 @@ define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..all
   %12 = icmp sgt i64 %11, -1
   tail call void @llvm.assume(i1 %12)
   %13 = inttoptr i64 %4 to ptr
-  br label %_ZN5alloc5alloc6Global9grow_impl17h99a8e5d3368ec45fE.argprom.exit
+  br label %_ZN5alloc5alloc6Global9grow_impl17h99a8e5d3368ec45fE.exit
 
 14:                                               ; preds = %8
   %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
@@ -141,7 +141,7 @@ define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..all
   %17 = icmp sgt i64 %16, -1
   tail call void @llvm.assume(i1 %17)
   %18 = tail call ptr @__rust_alloc(i64 %5, i64 %4) #10
-  br label %_ZN5alloc5alloc6Global9grow_impl17h99a8e5d3368ec45fE.argprom.exit
+  br label %_ZN5alloc5alloc6Global9grow_impl17h99a8e5d3368ec45fE.exit
 
 19:                                               ; preds = %6
   %20 = add i64 %2, -1
@@ -169,7 +169,7 @@ define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..all
 _ZN5alloc5alloc6Global10alloc_impl17ha7cebf8ebc06a196E.exit46.i: ; preds = %29, %27
   %.sroa.05.0.i45.i = phi ptr [ %28, %27 ], [ %31, %29 ]
   %.not.i = icmp eq ptr %.sroa.05.0.i45.i, null
-  br i1 %.not.i, label %_ZN5alloc5alloc6Global9grow_impl17h99a8e5d3368ec45fE.argprom.exit, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E.exit.i"
+  br i1 %.not.i, label %_ZN5alloc5alloc6Global9grow_impl17h99a8e5d3368ec45fE.exit, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E.exit.i"
 
 32:                                               ; preds = %19
   %33 = icmp uge i64 %5, %3
@@ -177,14 +177,14 @@ _ZN5alloc5alloc6Global10alloc_impl17ha7cebf8ebc06a196E.exit46.i: ; preds = %29, 
   %34 = tail call ptr @__rust_realloc(ptr %1, i64 %3, i64 %2, i64 %5) #10
   %35 = icmp eq ptr %34, null
   %spec.select.i = select i1 %35, i64 undef, i64 %5
-  br label %_ZN5alloc5alloc6Global9grow_impl17h99a8e5d3368ec45fE.argprom.exit
+  br label %_ZN5alloc5alloc6Global9grow_impl17h99a8e5d3368ec45fE.exit
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E.exit.i": ; preds = %_ZN5alloc5alloc6Global10alloc_impl17ha7cebf8ebc06a196E.exit46.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.05.0.i45.i, ptr align 1 %1, i64 %3, i1 false)
   tail call void @__rust_dealloc(ptr %1, i64 %3, i64 %2) #10
-  br label %_ZN5alloc5alloc6Global9grow_impl17h99a8e5d3368ec45fE.argprom.exit
+  br label %_ZN5alloc5alloc6Global9grow_impl17h99a8e5d3368ec45fE.exit
 
-_ZN5alloc5alloc6Global9grow_impl17h99a8e5d3368ec45fE.argprom.exit: ; preds = %10, %14, %_ZN5alloc5alloc6Global10alloc_impl17ha7cebf8ebc06a196E.exit46.i, %32, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E.exit.i"
+_ZN5alloc5alloc6Global9grow_impl17h99a8e5d3368ec45fE.exit: ; preds = %10, %14, %_ZN5alloc5alloc6Global10alloc_impl17ha7cebf8ebc06a196E.exit46.i, %32, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E.exit.i"
   %.sroa.6.0.i = phi i64 [ %5, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E.exit.i" ], [ undef, %_ZN5alloc5alloc6Global10alloc_impl17ha7cebf8ebc06a196E.exit46.i ], [ %spec.select.i, %32 ], [ 0, %10 ], [ %5, %14 ]
   %.sroa.012.0.i = phi ptr [ %.sroa.05.0.i45.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E.exit.i" ], [ null, %_ZN5alloc5alloc6Global10alloc_impl17ha7cebf8ebc06a196E.exit46.i ], [ %34, %32 ], [ %13, %10 ], [ %18, %14 ]
   %36 = insertvalue { ptr, i64 } poison, ptr %.sroa.012.0.i, 0

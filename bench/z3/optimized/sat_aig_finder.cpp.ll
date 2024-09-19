@@ -1133,7 +1133,7 @@ if.then.i24:                                      ; preds = %if.then
   %mul.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 5
   %call.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %mul.i.i.i.i)
   %cmp5.not.i.i.i.i = icmp eq i32 %shl.i.i, 0
-  br i1 %cmp5.not.i.i.i.i, label %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE11alloc_tableEj.argprom.exit.i.i, label %for.body.lr.ph.i.i.i.i
+  br i1 %cmp5.not.i.i.i.i, label %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE11alloc_tableEj.exit.i.i, label %for.body.lr.ph.i.i.i.i
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %if.then.i24
   %.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4
@@ -1155,9 +1155,9 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %inc.i.i.i.i = add nuw i32 %i.07.i.i.i.i, 1
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %curr.06.i.i.i.i, i64 32
   %exitcond.not.i.i.i.i = icmp eq i32 %inc.i.i.i.i, %shl.i.i
-  br i1 %exitcond.not.i.i.i.i, label %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE11alloc_tableEj.argprom.exit.i.i, label %for.body.i.i.i.i, !llvm.loop !6
+  br i1 %exitcond.not.i.i.i.i, label %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE11alloc_tableEj.exit.i.i, label %for.body.i.i.i.i, !llvm.loop !6
 
-_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE11alloc_tableEj.argprom.exit.i.i: ; preds = %for.body.i.i.i.i, %if.then.i24
+_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE11alloc_tableEj.exit.i.i: ; preds = %for.body.i.i.i.i, %if.then.i24
   %7 = load ptr, ptr %1, align 8
   %8 = load i32, ptr %m_capacity.i, align 8
   %sub.i.i.i = add i32 %shl.i.i, -1
@@ -1167,8 +1167,8 @@ _ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vect
   %cmp.not27.i.i.i = icmp eq i32 %8, 0
   br i1 %cmp.not27.i.i.i, label %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE10move_tableEPS8_jSC_j.exit.i.i, label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE11alloc_tableEj.argprom.exit.i.i, %for.inc21.i.i.i
-  %source_curr.028.i.i.i = phi ptr [ %incdec.ptr22.i.i.i, %for.inc21.i.i.i ], [ %7, %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE11alloc_tableEj.argprom.exit.i.i ]
+for.body.i.i.i:                                   ; preds = %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE11alloc_tableEj.exit.i.i, %for.inc21.i.i.i
+  %source_curr.028.i.i.i = phi ptr [ %incdec.ptr22.i.i.i, %for.inc21.i.i.i ], [ %7, %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE11alloc_tableEj.exit.i.i ]
   %9 = getelementptr i8, ptr %source_curr.028.i.i.i, i64 4
   %source_curr.0.val.i.i.i = load i32, ptr %9, align 4
   %cmp.i.i.i.i = icmp eq i32 %source_curr.0.val.i.i.i, 2
@@ -1229,8 +1229,8 @@ _ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vect
   %.pre.i.i = load ptr, ptr %1, align 8
   br label %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE10move_tableEPS8_jSC_j.exit.i.i
 
-_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE10move_tableEPS8_jSC_j.exit.i.i: ; preds = %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE10move_tableEPS8_jSC_j.exit.loopexit.i.i, %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE11alloc_tableEj.argprom.exit.i.i
-  %12 = phi ptr [ %.pre.i.i, %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE10move_tableEPS8_jSC_j.exit.loopexit.i.i ], [ %7, %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE11alloc_tableEj.argprom.exit.i.i ]
+_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE10move_tableEPS8_jSC_j.exit.i.i: ; preds = %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE10move_tableEPS8_jSC_j.exit.loopexit.i.i, %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE11alloc_tableEj.exit.i.i
+  %12 = phi ptr [ %.pre.i.i, %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE10move_tableEPS8_jSC_j.exit.loopexit.i.i ], [ %7, %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE11alloc_tableEj.exit.i.i ]
   %cmp.i.i4.i.i = icmp eq ptr %12, null
   br i1 %cmp.i.i4.i.i, label %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE12expand_tableEv.exit.i, label %for.cond.preheader.i.i.i.i
 
@@ -1323,15 +1323,15 @@ land.lhs.true.i.i.i:                              ; preds = %land.lhs.true.i
   %y.i.i39.i = getelementptr inbounds i8, ptr %curr.088.i, i64 12
   %26 = load i32, ptr %y.i.i39.i, align 4
   %cmp.i5.i.i.i = icmp eq i32 %26, %ref.tmp.sroa.8.2
-  br i1 %cmp.i5.i.i.i, label %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.argprom.exit.i, label %for.inc.i
+  br i1 %cmp.i5.i.i.i, label %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit.i, label %for.inc.i
 
-_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.argprom.exit.i: ; preds = %land.lhs.true.i.i.i
+_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit.i: ; preds = %land.lhs.true.i.i.i
   %z.i.i40.i = getelementptr inbounds i8, ptr %curr.088.i, i64 16
   %27 = load i32, ptr %z.i.i40.i, align 4
   %cmp.i6.i.i.i = icmp eq i32 %27, %ref.tmp.sroa.13.0
   br i1 %cmp.i6.i.i.i, label %if.then14.i23, label %for.inc.i
 
-if.then14.i23:                                    ; preds = %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.argprom.exit.i
+if.then14.i23:                                    ; preds = %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit.i
   %28 = getelementptr i8, ptr %curr.088.i, i64 4
   %m_data.i.i.le = getelementptr inbounds i8, ptr %curr.088.i, i64 8
   %y.i.i39.i.le = getelementptr inbounds i8, ptr %curr.088.i, i64 12
@@ -1368,8 +1368,8 @@ if.end21.i:                                       ; preds = %if.then18.i, %if.th
   store i32 %inc.i, ptr %m_size.i20, align 4
   br label %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6insertEOS7_.exit
 
-for.inc.i:                                        ; preds = %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.argprom.exit.i, %land.lhs.true.i.i.i, %land.lhs.true.i, %if.then9.i, %for.body.i
-  %del_entry.1.i = phi ptr [ %del_entry.089.i, %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.argprom.exit.i ], [ %del_entry.089.i, %if.then9.i ], [ %del_entry.089.i, %land.lhs.true.i.i.i ], [ %del_entry.089.i, %land.lhs.true.i ], [ %curr.088.i, %for.body.i ]
+for.inc.i:                                        ; preds = %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit.i, %land.lhs.true.i.i.i, %land.lhs.true.i, %if.then9.i, %for.body.i
+  %del_entry.1.i = phi ptr [ %del_entry.089.i, %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit.i ], [ %del_entry.089.i, %if.then9.i ], [ %del_entry.089.i, %land.lhs.true.i.i.i ], [ %del_entry.089.i, %land.lhs.true.i ], [ %curr.088.i, %for.body.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %curr.088.i, i64 32
   %cmp7.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr6.i
   br i1 %cmp7.not.i, label %for.cond27.preheader.i, label %for.body.i, !llvm.loop !10
@@ -1399,15 +1399,15 @@ land.lhs.true.i.i48.i:                            ; preds = %land.lhs.true34.i
   %y.i.i49.i = getelementptr inbounds i8, ptr %curr.192.i, i64 12
   %32 = load i32, ptr %y.i.i49.i, align 4
   %cmp.i5.i.i51.i = icmp eq i32 %32, %ref.tmp.sroa.8.2
-  br i1 %cmp.i5.i.i51.i, label %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.argprom.exit56.i, label %for.inc54.i
+  br i1 %cmp.i5.i.i51.i, label %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit56.i, label %for.inc54.i
 
-_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.argprom.exit56.i: ; preds = %land.lhs.true.i.i48.i
+_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit56.i: ; preds = %land.lhs.true.i.i48.i
   %z.i.i53.i = getelementptr inbounds i8, ptr %curr.192.i, i64 16
   %33 = load i32, ptr %z.i.i53.i, align 4
   %cmp.i6.i.i55.i = icmp eq i32 %33, %ref.tmp.sroa.13.0
   br i1 %cmp.i6.i.i55.i, label %if.then37.i, label %for.inc54.i
 
-if.then37.i:                                      ; preds = %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.argprom.exit56.i
+if.then37.i:                                      ; preds = %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit56.i
   %34 = getelementptr i8, ptr %curr.192.i, i64 4
   %m_data.i46.i.le = getelementptr inbounds i8, ptr %curr.192.i, i64 8
   %y.i.i49.i.le = getelementptr inbounds i8, ptr %curr.192.i, i64 12
@@ -1444,8 +1444,8 @@ if.end48.i:                                       ; preds = %if.then44.i, %if.th
   store i32 %inc50.i, ptr %m_size.i20, align 4
   br label %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6insertEOS7_.exit
 
-for.inc54.i:                                      ; preds = %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.argprom.exit56.i, %land.lhs.true.i.i48.i, %land.lhs.true34.i, %if.then31.i, %for.body29.i
-  %del_entry.3.i = phi ptr [ %del_entry.293.i, %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.argprom.exit56.i ], [ %del_entry.293.i, %if.then31.i ], [ %del_entry.293.i, %land.lhs.true.i.i48.i ], [ %del_entry.293.i, %land.lhs.true34.i ], [ %curr.192.i, %for.body29.i ]
+for.inc54.i:                                      ; preds = %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit56.i, %land.lhs.true.i.i48.i, %land.lhs.true34.i, %if.then31.i, %for.body29.i
+  %del_entry.3.i = phi ptr [ %del_entry.293.i, %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit56.i ], [ %del_entry.293.i, %if.then31.i ], [ %del_entry.293.i, %land.lhs.true.i.i48.i ], [ %del_entry.293.i, %land.lhs.true34.i ], [ %curr.192.i, %for.body29.i ]
   %incdec.ptr55.i = getelementptr inbounds i8, ptr %curr.192.i, i64 32
   %cmp28.not.i = icmp eq ptr %incdec.ptr55.i, %add.ptr.i
   br i1 %cmp28.not.i, label %for.end56.i, label %for.body29.i, !llvm.loop !11
@@ -1495,7 +1495,7 @@ entry:
   %.val = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %2, i64 8
   %.val13 = load ptr, ptr %3, align 8
-  %call16 = call fastcc noundef zeroext i1 @"_ZZN3sat10aig_finder8find_ifsER10ptr_vectorINS_6clauseEEENK3$_4clENS_7literalES6_S6_RPS2_.argprom"(ptr %.val, ptr %.val13, i32 %y.coerce, i32 %xor.i, i32 %xor.i19, ptr noundef nonnull align 8 dereferenceable(8) %c1)
+  %call16 = call fastcc noundef zeroext i1 @"_ZZN3sat10aig_finder8find_ifsER10ptr_vectorINS_6clauseEEENK3$_4clENS_7literalES6_S6_RPS2_"(ptr %.val, ptr %.val13, i32 %y.coerce, i32 %xor.i, i32 %xor.i19, ptr noundef nonnull align 8 dereferenceable(8) %c1)
   br i1 %call16, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1640,7 +1640,7 @@ for.body:                                         ; preds = %_ZN6vectorISt4pairI
   %p.sroa.2.0.copyload = load ptr, ptr %p.sroa.2.0..sroa_idx, align 8
   %p.sroa.0.0.extract.trunc = trunc i64 %p.sroa.0.0.copyload to i32
   %xor.i23 = xor i32 %p.sroa.0.0.extract.trunc, 1
-  %call48 = call fastcc noundef zeroext i1 @"_ZZN3sat10aig_finder8find_ifsER10ptr_vectorINS_6clauseEEENK3$_4clENS_7literalES6_S6_RPS2_.argprom"(ptr %.val, ptr %.val13, i32 %xor.i23, i32 %xor.i19, i32 %xor.i20, ptr noundef nonnull align 8 dereferenceable(8) %c3)
+  %call48 = call fastcc noundef zeroext i1 @"_ZZN3sat10aig_finder8find_ifsER10ptr_vectorINS_6clauseEEENK3$_4clENS_7literalES6_S6_RPS2_"(ptr %.val, ptr %.val13, i32 %xor.i23, i32 %xor.i19, i32 %xor.i20, ptr noundef nonnull align 8 dereferenceable(8) %c3)
   br i1 %call48, label %if.end50, label %for.cond
 
 if.end50:                                         ; preds = %for.body
@@ -3727,7 +3727,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %mul.i.i.i.i.i.i = mul nuw nsw i64 %conv.i.i.i.i.i.i, 24
   %call.i.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %mul.i.i.i.i.i.i)
   %cmp5.not.i.i.i.i.i.i = icmp eq i32 %shl.i.i.i.i, 0
-  br i1 %cmp5.not.i.i.i.i.i.i, label %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE11alloc_tableEj.argprom.exit.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i
+  br i1 %cmp5.not.i.i.i.i.i.i, label %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE11alloc_tableEj.exit.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i
 
 for.body.lr.ph.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i
   %.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4
@@ -3747,9 +3747,9 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %inc.i.i.i.i.i.i = add nuw i32 %i.07.i.i.i.i.i.i, 1
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %curr.06.i.i.i.i.i.i, i64 24
   %exitcond.not.i.i.i.i.i.i = icmp eq i32 %inc.i.i.i.i.i.i, %shl.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE11alloc_tableEj.argprom.exit.i.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !4
+  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE11alloc_tableEj.exit.i.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !4
 
-_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE11alloc_tableEj.argprom.exit.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %if.then.i.i.i
+_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE11alloc_tableEj.exit.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %if.then.i.i.i
   %6 = load ptr, ptr %0, align 8
   %7 = load i32, ptr %m_capacity.i.i.i, align 8
   %sub.i.i.i.i.i = add i32 %shl.i.i.i.i, -1
@@ -3759,8 +3759,8 @@ _ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vect
   %cmp.not27.i.i.i.i.i = icmp eq i32 %7, 0
   br i1 %cmp.not27.i.i.i.i.i, label %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE10move_tableEPS8_jSC_j.exit.i.i.i.i, label %for.body.i.i.i.i.i
 
-for.body.i.i.i.i.i:                               ; preds = %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE11alloc_tableEj.argprom.exit.i.i.i.i, %for.inc21.i.i.i.i.i
-  %source_curr.028.i.i.i.i.i = phi ptr [ %incdec.ptr22.i.i.i.i.i, %for.inc21.i.i.i.i.i ], [ %6, %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE11alloc_tableEj.argprom.exit.i.i.i.i ]
+for.body.i.i.i.i.i:                               ; preds = %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE11alloc_tableEj.exit.i.i.i.i, %for.inc21.i.i.i.i.i
+  %source_curr.028.i.i.i.i.i = phi ptr [ %incdec.ptr22.i.i.i.i.i, %for.inc21.i.i.i.i.i ], [ %6, %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE11alloc_tableEj.exit.i.i.i.i ]
   %8 = getelementptr i8, ptr %source_curr.028.i.i.i.i.i, i64 4
   %source_curr.0.val.i.i.i.i.i = load i32, ptr %8, align 4
   %cmp.i.i.i.i.i.i = icmp eq i32 %source_curr.0.val.i.i.i.i.i, 2
@@ -3821,8 +3821,8 @@ _ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vect
   %.pre.i.i.i.i = load ptr, ptr %0, align 8
   br label %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE10move_tableEPS8_jSC_j.exit.i.i.i.i
 
-_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE10move_tableEPS8_jSC_j.exit.i.i.i.i: ; preds = %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE10move_tableEPS8_jSC_j.exit.loopexit.i.i.i.i, %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE11alloc_tableEj.argprom.exit.i.i.i.i
-  %11 = phi ptr [ %.pre.i.i.i.i, %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE10move_tableEPS8_jSC_j.exit.loopexit.i.i.i.i ], [ %6, %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE11alloc_tableEj.argprom.exit.i.i.i.i ]
+_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE10move_tableEPS8_jSC_j.exit.i.i.i.i: ; preds = %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE10move_tableEPS8_jSC_j.exit.loopexit.i.i.i.i, %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE11alloc_tableEj.exit.i.i.i.i
+  %11 = phi ptr [ %.pre.i.i.i.i, %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE10move_tableEPS8_jSC_j.exit.loopexit.i.i.i.i ], [ %6, %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE11alloc_tableEj.exit.i.i.i.i ]
   %cmp.i.i4.i.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.i.i4.i.i.i.i, label %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE12expand_tableEv.exit.i.i.i, label %for.cond.preheader.i.i.i.i.i.i
 
@@ -4427,7 +4427,7 @@ unreachable:                                      ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN3sat10aig_finder8find_ifsER10ptr_vectorINS_6clauseEEENK3$_4clENS_7literalES6_S6_RPS2_.argprom"(ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val, i32 %x.coerce, i32 %y.coerce, i32 %z.coerce, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %c) unnamed_addr #14 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN3sat10aig_finder8find_ifsER10ptr_vectorINS_6clauseEEENK3$_4clENS_7literalES6_S6_RPS2_"(ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val, i32 %x.coerce, i32 %y.coerce, i32 %z.coerce, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %c) unnamed_addr #14 align 2 {
 entry:
   %t.sroa.5.0 = tail call i32 @llvm.umax.i32(i32 %x.coerce, i32 %y.coerce)
   %t.sroa.0.0 = tail call i32 @llvm.umin.i32(i32 %x.coerce, i32 %y.coerce)
@@ -4512,15 +4512,15 @@ land.lhs.true.i.i.i.i:                            ; preds = %land.lhs.true.i.i
   %y.i.i23.i.i = getelementptr inbounds i8, ptr %curr.014.i.i, i64 12
   %12 = load i32, ptr %y.i.i23.i.i, align 4
   %cmp.i5.i.i.i.i = icmp eq i32 %12, %t.sroa.5.2
-  br i1 %cmp.i5.i.i.i.i, label %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.argprom.exit.i.i, label %for.inc.i.i
+  br i1 %cmp.i5.i.i.i.i, label %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit.i.i, label %for.inc.i.i
 
-_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.argprom.exit.i.i: ; preds = %land.lhs.true.i.i.i.i
+_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit.i.i: ; preds = %land.lhs.true.i.i.i.i
   %z.i.i24.i.i = getelementptr inbounds i8, ptr %curr.014.i.i, i64 16
   %13 = load i32, ptr %z.i.i24.i.i, align 4
   %cmp.i6.i.i.i.i = icmp eq i32 %13, %t.sroa.10.0
   br i1 %cmp.i6.i.i.i.i, label %if.then, label %for.inc.i.i
 
-for.inc.i.i:                                      ; preds = %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.argprom.exit.i.i, %land.lhs.true.i.i.i.i, %land.lhs.true.i.i, %if.then.i.i, %for.body.i.i
+for.inc.i.i:                                      ; preds = %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit.i.i, %land.lhs.true.i.i.i.i, %land.lhs.true.i.i, %if.then.i.i, %for.body.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %curr.014.i.i, i64 32
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr5.i.i
   br i1 %cmp.not.i.i, label %for.cond18.preheader.i.i, label %for.body.i.i, !llvm.loop !31
@@ -4549,21 +4549,21 @@ land.lhs.true.i.i29.i.i:                          ; preds = %land.lhs.true25.i.i
   %y.i.i30.i.i = getelementptr inbounds i8, ptr %curr.116.i.i, i64 12
   %16 = load i32, ptr %y.i.i30.i.i, align 4
   %cmp.i5.i.i32.i.i = icmp eq i32 %16, %t.sroa.5.2
-  br i1 %cmp.i5.i.i32.i.i, label %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.argprom.exit37.i.i, label %for.inc36.i.i
+  br i1 %cmp.i5.i.i32.i.i, label %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit37.i.i, label %for.inc36.i.i
 
-_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.argprom.exit37.i.i: ; preds = %land.lhs.true.i.i29.i.i
+_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit37.i.i: ; preds = %land.lhs.true.i.i29.i.i
   %z.i.i34.i.i = getelementptr inbounds i8, ptr %curr.116.i.i, i64 16
   %17 = load i32, ptr %z.i.i34.i.i, align 4
   %cmp.i6.i.i36.i.i = icmp eq i32 %17, %t.sroa.10.0
   br i1 %cmp.i6.i.i36.i.i, label %if.then, label %for.inc36.i.i
 
-for.inc36.i.i:                                    ; preds = %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.argprom.exit37.i.i, %land.lhs.true.i.i29.i.i, %land.lhs.true25.i.i, %if.then22.i.i, %for.body20.i.i
+for.inc36.i.i:                                    ; preds = %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit37.i.i, %land.lhs.true.i.i29.i.i, %land.lhs.true25.i.i, %if.then22.i.i, %for.body20.i.i
   %incdec.ptr37.i.i = getelementptr inbounds i8, ptr %curr.116.i.i, i64 32
   %cmp19.not.i.i = icmp eq ptr %incdec.ptr37.i.i, %add.ptr.i.i
   br i1 %cmp19.not.i.i, label %if.end, label %for.body20.i.i, !llvm.loop !32
 
-if.then:                                          ; preds = %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.argprom.exit.i.i, %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.argprom.exit37.i.i
-  %retval.0.i.i = phi ptr [ %curr.116.i.i, %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.argprom.exit37.i.i ], [ %curr.014.i.i, %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.argprom.exit.i.i ]
+if.then:                                          ; preds = %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit.i.i, %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit37.i.i
+  %retval.0.i.i = phi ptr [ %curr.116.i.i, %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit37.i.i ], [ %curr.014.i.i, %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit.i.i ]
   %t.sroa.131.0.m_data.i.i.sroa_idx = getelementptr inbounds i8, ptr %retval.0.i.i, i64 24
   %t.sroa.131.0.copyload = load ptr, ptr %t.sroa.131.0.m_data.i.i.sroa_idx, align 8
   br label %return.sink.split

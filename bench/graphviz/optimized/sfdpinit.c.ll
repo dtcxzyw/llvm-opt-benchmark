@@ -492,7 +492,7 @@ define internal fastcc void @sfdpLayout(ptr noundef %0, ptr noundef %1, double %
 25:                                               ; preds = %20
   %26 = load ptr, ptr @stderr, align 8
   %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.25, i64 noundef %24, i64 noundef 8) #14
-  call fastcc void @graphviz_exit.argelim() #15
+  call fastcc void @graphviz_exit() #15
   unreachable
 
 28:                                               ; preds = %20
@@ -506,7 +506,7 @@ define internal fastcc void @sfdpLayout(ptr noundef %0, ptr noundef %1, double %
   %33 = load ptr, ptr @stderr, align 8
   %34 = shl nuw nsw i64 %24, 3
   %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.26, i64 noundef %34) #14
-  call fastcc void @graphviz_exit.argelim() #15
+  call fastcc void @graphviz_exit() #15
   unreachable
 
 gv_calloc.exit.i:                                 ; preds = %28
@@ -709,7 +709,7 @@ declare void @SparseMatrix_delete(ptr noundef) local_unnamed_addr #1
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #7 {
+define internal fastcc void @graphviz_exit() unnamed_addr #7 {
   tail call void @exit(i32 noundef 1) #17
   unreachable
 }

@@ -2157,9 +2157,9 @@ proto_item_set_hidden.exit531:                    ; preds = %proto_item_set_hidd
 
 412:                                              ; preds = %proto_item_set_hidden.exit531
   %413 = tail call i32 @llvm.bswap.i32(i32 %222)
-  tail call fastcc void @add_geoip_info_entry.argelim(ptr noundef %20, ptr noundef nonnull readonly %1, ptr noundef %0, i32 noundef %413, i32 noundef 0)
+  tail call fastcc void @add_geoip_info_entry(ptr noundef %20, ptr noundef nonnull readonly %1, ptr noundef %0, i32 noundef %413, i32 noundef 0)
   %414 = tail call i32 @llvm.bswap.i32(i32 %312)
-  tail call fastcc void @add_geoip_info_entry.argelim(ptr noundef %20, ptr noundef nonnull readonly %1, ptr noundef %0, i32 noundef %414, i32 noundef 1)
+  tail call fastcc void @add_geoip_info_entry(ptr noundef %20, ptr noundef nonnull readonly %1, ptr noundef %0, i32 noundef %414, i32 noundef 1)
   br label %415
 
 415:                                              ; preds = %proto_item_set_hidden.exit531, %412, %local_network_control_block_addr_valid_ttl.exit.thread
@@ -2729,7 +2729,7 @@ define internal i32 @dissect_ipopt_security(ptr noundef %0, ptr noundef %1, ptr 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ipopt_loose_route(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
   %5 = load i32, ptr @proto_ip_option_route, align 4
-  %6 = tail call fastcc i32 @dissect_ipopt_route.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5)
+  %6 = tail call fastcc i32 @dissect_ipopt_route(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5)
   ret i32 %6
 }
 
@@ -3417,7 +3417,7 @@ define internal i32 @dissect_ipopt_sid(ptr noundef %0, ptr noundef %1, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ipopt_source_route(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
   %5 = load i32, ptr @proto_ip_option_source_route, align 4
-  %6 = tail call fastcc i32 @dissect_ipopt_route.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5)
+  %6 = tail call fastcc i32 @dissect_ipopt_route(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5)
   ret i32 %6
 }
 
@@ -3790,7 +3790,7 @@ declare i32 @have_tap_listener(i32 noundef) local_unnamed_addr #0
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_geoip_info_entry.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #1 {
+define internal fastcc void @add_geoip_info_entry(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #1 {
   %6 = alloca i32, align 4
   store i32 %3, ptr %6, align 4
   %7 = call nonnull ptr @maxmind_db_lookup_ipv4(ptr noundef nonnull %6) #8
@@ -4302,7 +4302,7 @@ declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #0
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ipopt_route.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc i32 @dissect_ipopt_route(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
   %7 = load i32, ptr @ett_ip_option_route, align 4

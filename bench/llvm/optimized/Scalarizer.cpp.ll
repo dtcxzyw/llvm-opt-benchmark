@@ -1459,7 +1459,7 @@ _ZNK4llvm4User10getOperandEj.exit22.i.i.i:        ; preds = %_ZNK4llvm4User10get
   %634 = icmp ne i32 %633, 17
   %.not4.i23.i.i.i = icmp eq ptr %630, null
   %.not.i24.i.i.i = or i1 %.not4.i23.i.i.i, %634
-  br i1 %.not.i24.i.i.i, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit36.i.i.i, label %635
+  br i1 %.not.i24.i.i.i, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit36.i.i.i, label %635
 
 635:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit22.i.i.i
   %636 = getelementptr inbounds nuw i8, ptr %630, i64 32
@@ -1467,25 +1467,25 @@ _ZNK4llvm4User10getOperandEj.exit22.i.i.i:        ; preds = %_ZNK4llvm4User10get
   %638 = getelementptr inbounds nuw i8, ptr %630, i64 24
   %639 = load ptr, ptr %638, align 8, !noalias !25
   %640 = icmp eq i32 %637, 1
-  br i1 %640, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit36.i.i.i, label %641
+  br i1 %640, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit36.i.i.i, label %641
 
 641:                                              ; preds = %635
   %642 = getelementptr inbounds nuw i8, ptr %639, i64 8
   %643 = load i32, ptr %642, align 8, !noalias !25
   %644 = and i32 %643, 255
   %645 = icmp eq i32 %644, 14
-  br i1 %645, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit36.i.i.i, label %646
+  br i1 %645, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit36.i.i.i, label %646
 
 646:                                              ; preds = %641
   %647 = call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %639) #17, !noalias !25
   %648 = shl i32 %647, 1
   %649 = icmp ugt i32 %648, %.val17.i.i.i303
-  br i1 %649, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit36.i.i.i, label %650
+  br i1 %649, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit36.i.i.i, label %650
 
 650:                                              ; preds = %646
   %651 = udiv i32 %.val17.i.i.i303, %647
   %.not20.i25.i.i.i = icmp ult i32 %651, %637
-  br i1 %.not20.i25.i.i.i, label %652, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit36.i.i.i
+  br i1 %.not20.i25.i.i.i, label %652, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit36.i.i.i
 
 652:                                              ; preds = %650
   %653 = add i32 %637, -1
@@ -1498,14 +1498,14 @@ _ZNK4llvm4User10getOperandEj.exit22.i.i.i:        ; preds = %_ZNK4llvm4User10get
 
 659:                                              ; preds = %652
   %660 = call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef nonnull %639, i32 noundef %657) #16, !noalias !25
-  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit36.i.i.i
+  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit36.i.i.i
 
 661:                                              ; preds = %652
   %662 = icmp eq i32 %657, 1
   %spec.select.i27.i.i.i = select i1 %662, ptr %639, ptr null
-  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit36.i.i.i
+  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit36.i.i.i
 
-_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit36.i.i.i: ; preds = %661, %659, %650, %646, %641, %635, %_ZNK4llvm4User10getOperandEj.exit22.i.i.i
+_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit36.i.i.i: ; preds = %661, %659, %650, %646, %641, %635, %_ZNK4llvm4User10getOperandEj.exit22.i.i.i
   %.sroa.243.0.i.i.i = phi i32 [ undef, %_ZNK4llvm4User10getOperandEj.exit22.i.i.i ], [ undef, %650 ], [ %651, %659 ], [ 1, %646 ], [ 1, %641 ], [ 1, %635 ], [ %651, %661 ]
   %.sroa.3.0.i.i.i304 = phi i32 [ undef, %_ZNK4llvm4User10getOperandEj.exit22.i.i.i ], [ undef, %650 ], [ %655, %659 ], [ %637, %646 ], [ %637, %641 ], [ 1, %635 ], [ %655, %661 ]
   %.sroa.4.0.i.i.i305 = phi ptr [ undef, %_ZNK4llvm4User10getOperandEj.exit22.i.i.i ], [ undef, %650 ], [ %656, %659 ], [ %639, %646 ], [ %639, %641 ], [ %639, %635 ], [ %656, %661 ]
@@ -1522,7 +1522,7 @@ _ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit3
   %or.cond.i.i.i311 = and i1 %.not.i.i.i310, %663
   br i1 %or.cond.i.i.i311, label %664, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE5visitEPNS_11InstructionE.exit.thread355
 
-664:                                              ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit36.i.i.i, %629
+664:                                              ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit36.i.i.i, %629
   %665 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %569) #16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %537, i64 noundef 2) #16
   store ptr %665, ptr %538, align 8
@@ -1879,7 +1879,7 @@ _ZN12_GLOBAL__N_19ScattererD2Ev.exit.i.i.i319:    ; preds = %735, %_ZN4llvm11Sma
   %825 = and i8 %824, 63
   %826 = call noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm11Instruction13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(72) %569) #16
   %.val.i.i274 = load i32, ptr %149, align 4
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor15getVectorLayoutEPN4llvm4TypeENS1_5AlignERKNS1_10DataLayoutE.argprom(ptr dead_on_unwind noalias writable align 8 %15, i32 %.val.i.i274, ptr noundef %822, i8 %825, ptr noundef nonnull align 8 dereferenceable(512) %826)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor15getVectorLayoutEPN4llvm4TypeENS1_5AlignERKNS1_10DataLayoutE(ptr dead_on_unwind noalias writable align 8 %15, i32 %.val.i.i274, ptr noundef %822, i8 %825, ptr noundef nonnull align 8 dereferenceable(512) %826)
   %.val19.i.i = load i8, ptr %504, align 8
   %827 = trunc i8 %.val19.i.i to i1
   br i1 %827, label %828, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE9visitLoadERNS_8LoadInstE.exit.thread
@@ -2078,7 +2078,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE9visitLoadERNS_8LoadI
   %902 = and i8 %901, 63
   %903 = call noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm11Instruction13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(72) %569) #16
   %.val.i.i262 = load i32, ptr %149, align 4
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor15getVectorLayoutEPN4llvm4TypeENS1_5AlignERKNS1_10DataLayoutE.argprom(ptr dead_on_unwind noalias writable align 8 %21, i32 %.val.i.i262, ptr noundef %899, i8 %902, ptr noundef nonnull align 8 dereferenceable(512) %903)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor15getVectorLayoutEPN4llvm4TypeENS1_5AlignERKNS1_10DataLayoutE(ptr dead_on_unwind noalias writable align 8 %21, i32 %.val.i.i262, ptr noundef %899, i8 %902, ptr noundef nonnull align 8 dereferenceable(512) %903)
   %.val22.i.i = load i8, ptr %482, align 8
   %904 = trunc i8 %.val22.i.i to i1
   br i1 %904, label %905, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE10visitStoreERNS_9StoreInstE.exit.thread
@@ -2140,7 +2140,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE9visitLoadERNS_8LoadI
   br i1 %exitcond.not.i.i267, label %._crit_edge.i.i268, label %913, !llvm.loop !47
 
 ._crit_edge.i.i268:                               ; preds = %913, %905
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor26transferMetadataAndIRFlagsEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEE.argprom(ptr noundef %569, ptr noundef nonnull align 8 dereferenceable(80) %25)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor26transferMetadataAndIRFlagsEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEE(ptr noundef %569, ptr noundef nonnull align 8 dereferenceable(80) %25)
   %927 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #16
   %928 = load ptr, ptr %25, align 8
   %929 = icmp eq ptr %928, %496
@@ -2348,7 +2348,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE10visitStoreERNS_9Sto
 1017:                                             ; preds = %1013
   %1018 = udiv i32 %.val.i.i247, %1014
   %.not20.i59.i.i = icmp ult i32 %1018, %1004
-  br i1 %.not20.i59.i.i, label %1019, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit70.thread.i.i
+  br i1 %.not20.i59.i.i, label %1019, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit70.thread.i.i
 
 1019:                                             ; preds = %1017
   %1020 = add i32 %1004, -1
@@ -2368,7 +2368,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE10visitStoreERNS_9Sto
   %spec.select.i61.i.i = select i1 %1029, ptr %1006, ptr null
   br label %1030
 
-_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit70.thread.i.i: ; preds = %1017
+_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit70.thread.i.i: ; preds = %1017
   store i8 0, ptr %466, align 8, !alias.scope !51
   br label %_ZN4llvm11SmallVectorIPNS_5ValueELj8EED2Ev.exit72.i.i
 
@@ -2621,8 +2621,8 @@ _ZN4llvm11SmallVectorIPNS_5ValueELj8EED2Ev.exit.i.i257: ; preds = %1127, %1123
   call void @free(ptr noundef %1129) #16
   br label %_ZN4llvm11SmallVectorIPNS_5ValueELj8EED2Ev.exit72.i.i
 
-_ZN4llvm11SmallVectorIPNS_5ValueELj8EED2Ev.exit72.i.i: ; preds = %1030, %1131, %._crit_edge92.i.i, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit70.thread.i.i
-  %1132 = phi i1 [ true, %1131 ], [ true, %._crit_edge92.i.i ], [ false, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit70.thread.i.i ], [ false, %1030 ]
+_ZN4llvm11SmallVectorIPNS_5ValueELj8EED2Ev.exit72.i.i: ; preds = %1030, %1131, %._crit_edge92.i.i, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit70.thread.i.i
+  %1132 = phi i1 [ true, %1131 ], [ true, %._crit_edge92.i.i ], [ false, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit70.thread.i.i ], [ false, %1030 ]
   %.val.i.i.i248 = load ptr, ptr %29, align 8
   %1133 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %29) #16
   %.not4.i.i.i.i249 = icmp eq i64 %1133, 0
@@ -2818,7 +2818,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE18visitGetElementPtrE
   %1209 = icmp ne i32 %1208, 17
   %.not4.i.i.i202 = icmp eq ptr %1205, null
   %.not.i.i.i203 = or i1 %.not4.i.i.i202, %1209
-  br i1 %.not.i.i.i203, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i.i205, label %1210
+  br i1 %.not.i.i.i203, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i.i205, label %1210
 
 1210:                                             ; preds = %1203
   %1211 = getelementptr inbounds nuw i8, ptr %1205, i64 32
@@ -2844,7 +2844,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE18visitGetElementPtrE
 1225:                                             ; preds = %1221
   %1226 = udiv i32 %.val71.i.i, %1222
   %.not20.i.i.i204 = icmp ult i32 %1226, %1212
-  br i1 %.not20.i.i.i204, label %1227, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i.i205
+  br i1 %.not20.i.i.i204, label %1227, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i.i205
 
 1227:                                             ; preds = %1225
   %1228 = add i32 %1212, -1
@@ -2876,9 +2876,9 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE18visitGetElementPtrE
   store ptr %.sroa.12.0.i.i.i228, ptr %.sroa.12.0..sroa_idx.i.i.i232, align 8, !alias.scope !66
   %.val.pre.i.i233 = load i32, ptr %149, align 4
   %1239 = icmp eq ptr %.sroa.12.0.i.i.i228, null
-  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i.i205
+  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i.i205
 
-_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i.i205: ; preds = %1238, %1225, %1203
+_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i.i205: ; preds = %1238, %1225, %1203
   %1240 = phi i32 [ %.sroa.4.0.i.i.i225, %1238 ], [ undef, %1203 ], [ undef, %1225 ]
   %1241 = phi ptr [ %.sroa.10.0.i.i.i227, %1238 ], [ undef, %1203 ], [ undef, %1225 ]
   %1242 = phi i32 [ %.sroa.8.0.i.i.i226, %1238 ], [ undef, %1203 ], [ undef, %1225 ]
@@ -2899,26 +2899,26 @@ _ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.
   %.not.i75.i.i = or i1 %.not4.i74.i.i, %1250
   br i1 %.not.i75.i.i, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE12visitBitCastERNS_11BitCastInstE.exit.thread, label %1251
 
-1251:                                             ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i.i205
+1251:                                             ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i.i205
   %1252 = getelementptr inbounds nuw i8, ptr %1246, i64 32
   %1253 = load i32, ptr %1252, align 8, !noalias !69
   %1254 = getelementptr inbounds nuw i8, ptr %1246, i64 24
   %1255 = load ptr, ptr %1254, align 8, !noalias !69
   %1256 = icmp eq i32 %1253, 1
-  br i1 %1256, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit87.i.i, label %1257
+  br i1 %1256, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit87.i.i, label %1257
 
 1257:                                             ; preds = %1251
   %1258 = getelementptr inbounds nuw i8, ptr %1255, i64 8
   %1259 = load i32, ptr %1258, align 8, !noalias !69
   %1260 = and i32 %1259, 255
   %1261 = icmp eq i32 %1260, 14
-  br i1 %1261, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit87.i.i, label %1262
+  br i1 %1261, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit87.i.i, label %1262
 
 1262:                                             ; preds = %1257
   %1263 = call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %1255) #17, !noalias !69
   %1264 = shl i32 %1263, 1
   %1265 = icmp ugt i32 %1264, %.val.i.i207
-  br i1 %1265, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit87.i.i, label %1266
+  br i1 %1265, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit87.i.i, label %1266
 
 1266:                                             ; preds = %1262
   %1267 = udiv i32 %.val.i.i207, %1263
@@ -2936,14 +2936,14 @@ _ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.
 
 1275:                                             ; preds = %1268
   %1276 = call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef nonnull %1255, i32 noundef %1273) #16, !noalias !69
-  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit87.i.i
+  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit87.i.i
 
 1277:                                             ; preds = %1268
   %1278 = icmp eq i32 %1273, 1
   %spec.select.i78.i.i = select i1 %1278, ptr %1255, ptr null
-  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit87.i.i
+  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit87.i.i
 
-_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit87.i.i: ; preds = %1277, %1275, %1262, %1257, %1251
+_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit87.i.i: ; preds = %1277, %1275, %1262, %1257, %1251
   %.sroa.4.0.i79.i.i = phi i32 [ %1267, %1275 ], [ 1, %1262 ], [ 1, %1257 ], [ 1, %1251 ], [ %1267, %1277 ]
   %.sroa.8.0.i80.i.i = phi i32 [ %1271, %1275 ], [ %1253, %1262 ], [ %1253, %1257 ], [ 1, %1251 ], [ %1271, %1277 ]
   %.sroa.10.0.i81.i.i = phi ptr [ %1272, %1275 ], [ %1255, %1262 ], [ %1255, %1257 ], [ %1255, %1251 ], [ %1272, %1277 ]
@@ -2961,7 +2961,7 @@ _ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit8
   %or.cond189.i.i = select i1 %1282, i1 %1279, i1 false
   br i1 %or.cond189.i.i, label %1283, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE12visitBitCastERNS_11BitCastInstE.exit.thread
 
-1283:                                             ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit87.i.i
+1283:                                             ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit87.i.i
   %1284 = getelementptr inbounds nuw i8, ptr %1205, i64 24
   %1285 = load ptr, ptr %1284, align 8
   %1286 = getelementptr inbounds nuw i8, ptr %1285, i64 8
@@ -3182,7 +3182,7 @@ _ZN12_GLOBAL__N_19ScattererD2Ev.exit.i.i219:      ; preds = %1353, %._crit_edge1
   store ptr %1371, ptr %422, align 8, !alias.scope !90
   store i8 2, ptr %423, align 8, !alias.scope !90
   store i8 9, ptr %424, align 1, !alias.scope !90
-  %1372 = call fastcc noundef ptr @_ZN12_GLOBAL__N_111concatenateERN4llvm9IRBuilderINS0_14ConstantFolderENS0_24IRBuilderDefaultInserterEEENS0_8ArrayRefIPNS0_5ValueEEERKNS_11VectorSplitENS0_5TwineE.argelim(ptr noundef nonnull align 8 dereferenceable(144) %38, ptr %1366, ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %50)
+  %1372 = call fastcc noundef ptr @_ZN12_GLOBAL__N_111concatenateERN4llvm9IRBuilderINS0_14ConstantFolderENS0_24IRBuilderDefaultInserterEEENS0_8ArrayRefIPNS0_5ValueEEERKNS_11VectorSplitENS0_5TwineE(ptr noundef nonnull align 8 dereferenceable(144) %38, ptr %1366, ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %50)
   %1373 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %569) #16
   %1374 = extractvalue { ptr, i64 } %1373, 0
   %1375 = extractvalue { ptr, i64 } %1373, 1
@@ -3236,7 +3236,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit104.i.loopexit.i:  ; preds = %.lr.ph.i.i213
   store ptr %1388, ptr %422, align 8, !alias.scope !90
   store i8 2, ptr %423, align 8, !alias.scope !90
   store i8 9, ptr %424, align 1, !alias.scope !90
-  %1389 = call fastcc noundef ptr @_ZN12_GLOBAL__N_111concatenateERN4llvm9IRBuilderINS0_14ConstantFolderENS0_24IRBuilderDefaultInserterEEENS0_8ArrayRefIPNS0_5ValueEEERKNS_11VectorSplitENS0_5TwineE.argelim(ptr noundef nonnull align 8 dereferenceable(144) %38, ptr %1383, ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %50)
+  %1389 = call fastcc noundef ptr @_ZN12_GLOBAL__N_111concatenateERN4llvm9IRBuilderINS0_14ConstantFolderENS0_24IRBuilderDefaultInserterEEENS0_8ArrayRefIPNS0_5ValueEEERKNS_11VectorSplitENS0_5TwineE(ptr noundef nonnull align 8 dereferenceable(144) %38, ptr %1383, ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %50)
   %1390 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %569) #16
   %1391 = extractvalue { ptr, i64 } %1390, 0
   %1392 = extractvalue { ptr, i64 } %1390, 1
@@ -3324,7 +3324,7 @@ _ZN12_GLOBAL__N_19ScattererD2Ev.exit122.i.i:      ; preds = %1408, %_ZN4llvm11Sm
   %1414 = load ptr, ptr %1413, align 8
   br i1 %.1.i.i211, label %2838, label %2848
 
-_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE12visitBitCastERNS_11BitCastInstE.exit.thread: ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit87.i.i, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i.i205, %1266
+_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE12visitBitCastERNS_11BitCastInstE.exit.thread: ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit87.i.i, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i.i205, %1266
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %38)
@@ -3493,7 +3493,7 @@ _ZNK4llvm4User10getOperandEj.exit27.i.i.i168:     ; preds = %_ZNK4llvm4User10get
   %1485 = icmp ne i32 %1484, 17
   %.not4.i28.i.i.i170 = icmp eq ptr %1481, null
   %.not.i29.i.i.i171 = or i1 %.not4.i28.i.i.i170, %1485
-  br i1 %.not.i29.i.i.i171, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i.i.i173, label %1486
+  br i1 %.not.i29.i.i.i171, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i.i.i173, label %1486
 
 1486:                                             ; preds = %_ZNK4llvm4User10getOperandEj.exit27.i.i.i168
   %1487 = getelementptr inbounds nuw i8, ptr %1481, i64 32
@@ -3501,25 +3501,25 @@ _ZNK4llvm4User10getOperandEj.exit27.i.i.i168:     ; preds = %_ZNK4llvm4User10get
   %1489 = getelementptr inbounds nuw i8, ptr %1481, i64 24
   %1490 = load ptr, ptr %1489, align 8, !noalias !108
   %1491 = icmp eq i32 %1488, 1
-  br i1 %1491, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i.i.i173, label %1492
+  br i1 %1491, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i.i.i173, label %1492
 
 1492:                                             ; preds = %1486
   %1493 = getelementptr inbounds nuw i8, ptr %1490, i64 8
   %1494 = load i32, ptr %1493, align 8, !noalias !108
   %1495 = and i32 %1494, 255
   %1496 = icmp eq i32 %1495, 14
-  br i1 %1496, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i.i.i173, label %1497
+  br i1 %1496, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i.i.i173, label %1497
 
 1497:                                             ; preds = %1492
   %1498 = call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %1490) #17, !noalias !108
   %1499 = shl i32 %1498, 1
   %1500 = icmp ugt i32 %1499, %.val.i.i.i169
-  br i1 %1500, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i.i.i173, label %1501
+  br i1 %1500, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i.i.i173, label %1501
 
 1501:                                             ; preds = %1497
   %1502 = udiv i32 %.val.i.i.i169, %1498
   %.not20.i30.i.i.i172 = icmp ult i32 %1502, %1488
-  br i1 %.not20.i30.i.i.i172, label %1503, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i.i.i173
+  br i1 %.not20.i30.i.i.i172, label %1503, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i.i.i173
 
 1503:                                             ; preds = %1501
   %1504 = add i32 %1488, -1
@@ -3532,14 +3532,14 @@ _ZNK4llvm4User10getOperandEj.exit27.i.i.i168:     ; preds = %_ZNK4llvm4User10get
 
 1510:                                             ; preds = %1503
   %1511 = call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef nonnull %1490, i32 noundef %1508) #16, !noalias !108
-  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i.i.i173
+  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i.i.i173
 
 1512:                                             ; preds = %1503
   %1513 = icmp eq i32 %1508, 1
   %spec.select.i32.i.i.i200 = select i1 %1513, ptr %1490, ptr null
-  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i.i.i173
+  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i.i.i173
 
-_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i.i.i173: ; preds = %1512, %1510, %1501, %1497, %1492, %1486, %_ZNK4llvm4User10getOperandEj.exit27.i.i.i168
+_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i.i.i173: ; preds = %1512, %1510, %1501, %1497, %1492, %1486, %_ZNK4llvm4User10getOperandEj.exit27.i.i.i168
   %.sroa.251.0.i.i.i174 = phi i32 [ undef, %_ZNK4llvm4User10getOperandEj.exit27.i.i.i168 ], [ undef, %1501 ], [ %1502, %1510 ], [ 1, %1497 ], [ 1, %1492 ], [ 1, %1486 ], [ %1502, %1512 ]
   %.sroa.3.0.i.i.i175 = phi i32 [ undef, %_ZNK4llvm4User10getOperandEj.exit27.i.i.i168 ], [ undef, %1501 ], [ %1506, %1510 ], [ %1488, %1497 ], [ %1488, %1492 ], [ 1, %1486 ], [ %1506, %1512 ]
   %.sroa.4.0.i.i.i176 = phi ptr [ undef, %_ZNK4llvm4User10getOperandEj.exit27.i.i.i168 ], [ undef, %1501 ], [ %1507, %1510 ], [ %1490, %1497 ], [ %1490, %1492 ], [ %1490, %1486 ], [ %1507, %1512 ]
@@ -3556,7 +3556,7 @@ _ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit4
   %or.cond.i.i.i184 = and i1 %.not.i.i.i183, %1514
   br i1 %or.cond.i.i.i184, label %1515, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE9visitICmpERNS_8ICmpInstE.exit.thread
 
-1515:                                             ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i.i.i173, %1480
+1515:                                             ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i.i.i173, %1480
   %1516 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %569) #16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull %372, i64 noundef 2) #16
   store ptr %1516, ptr %373, align 8
@@ -3765,7 +3765,7 @@ _ZN12_GLOBAL__N_19ScattererD2Ev.exit47.i.i.i199:  ; preds = %1599, %_ZN12_GLOBAL
   call void @free(ptr noundef %1601) #16
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE9visitICmpERNS_8ICmpInstE.exit
 
-_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE9visitICmpERNS_8ICmpInstE.exit.thread: ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i.i.i173, %1423, %1445
+_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE9visitICmpERNS_8ICmpInstE.exit.thread: ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i.i.i173, %1423, %1445
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %54)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %55)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %56)
@@ -3906,7 +3906,7 @@ _ZNK4llvm4User10getOperandEj.exit27.i.i.i:        ; preds = %_ZNK4llvm4User10get
   %1668 = icmp ne i32 %1667, 17
   %.not4.i28.i.i.i = icmp eq ptr %1664, null
   %.not.i29.i.i.i = or i1 %.not4.i28.i.i.i, %1668
-  br i1 %.not.i29.i.i.i, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i.i.i, label %1669
+  br i1 %.not.i29.i.i.i, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i.i.i, label %1669
 
 1669:                                             ; preds = %_ZNK4llvm4User10getOperandEj.exit27.i.i.i
   %1670 = getelementptr inbounds nuw i8, ptr %1664, i64 32
@@ -3914,25 +3914,25 @@ _ZNK4llvm4User10getOperandEj.exit27.i.i.i:        ; preds = %_ZNK4llvm4User10get
   %1672 = getelementptr inbounds nuw i8, ptr %1664, i64 24
   %1673 = load ptr, ptr %1672, align 8, !noalias !123
   %1674 = icmp eq i32 %1671, 1
-  br i1 %1674, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i.i.i, label %1675
+  br i1 %1674, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i.i.i, label %1675
 
 1675:                                             ; preds = %1669
   %1676 = getelementptr inbounds nuw i8, ptr %1673, i64 8
   %1677 = load i32, ptr %1676, align 8, !noalias !123
   %1678 = and i32 %1677, 255
   %1679 = icmp eq i32 %1678, 14
-  br i1 %1679, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i.i.i, label %1680
+  br i1 %1679, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i.i.i, label %1680
 
 1680:                                             ; preds = %1675
   %1681 = call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %1673) #17, !noalias !123
   %1682 = shl i32 %1681, 1
   %1683 = icmp ugt i32 %1682, %.val.i.i.i136
-  br i1 %1683, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i.i.i, label %1684
+  br i1 %1683, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i.i.i, label %1684
 
 1684:                                             ; preds = %1680
   %1685 = udiv i32 %.val.i.i.i136, %1681
   %.not20.i30.i.i.i = icmp ult i32 %1685, %1671
-  br i1 %.not20.i30.i.i.i, label %1686, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i.i.i
+  br i1 %.not20.i30.i.i.i, label %1686, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i.i.i
 
 1686:                                             ; preds = %1684
   %1687 = add i32 %1671, -1
@@ -3945,14 +3945,14 @@ _ZNK4llvm4User10getOperandEj.exit27.i.i.i:        ; preds = %_ZNK4llvm4User10get
 
 1693:                                             ; preds = %1686
   %1694 = call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef nonnull %1673, i32 noundef %1691) #16, !noalias !123
-  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i.i.i
+  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i.i.i
 
 1695:                                             ; preds = %1686
   %1696 = icmp eq i32 %1691, 1
   %spec.select.i32.i.i.i = select i1 %1696, ptr %1673, ptr null
-  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i.i.i
+  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i.i.i
 
-_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i.i.i: ; preds = %1695, %1693, %1684, %1680, %1675, %1669, %_ZNK4llvm4User10getOperandEj.exit27.i.i.i
+_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i.i.i: ; preds = %1695, %1693, %1684, %1680, %1675, %1669, %_ZNK4llvm4User10getOperandEj.exit27.i.i.i
   %.sroa.251.0.i.i.i = phi i32 [ undef, %_ZNK4llvm4User10getOperandEj.exit27.i.i.i ], [ undef, %1684 ], [ %1685, %1693 ], [ 1, %1680 ], [ 1, %1675 ], [ 1, %1669 ], [ %1685, %1695 ]
   %.sroa.3.0.i.i.i137 = phi i32 [ undef, %_ZNK4llvm4User10getOperandEj.exit27.i.i.i ], [ undef, %1684 ], [ %1689, %1693 ], [ %1671, %1680 ], [ %1671, %1675 ], [ 1, %1669 ], [ %1689, %1695 ]
   %.sroa.4.0.i.i.i138 = phi ptr [ undef, %_ZNK4llvm4User10getOperandEj.exit27.i.i.i ], [ undef, %1684 ], [ %1690, %1693 ], [ %1673, %1680 ], [ %1673, %1675 ], [ %1673, %1669 ], [ %1690, %1695 ]
@@ -3969,7 +3969,7 @@ _ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit4
   %or.cond.i.i.i144 = and i1 %.not.i.i.i143, %1697
   br i1 %or.cond.i.i.i144, label %1698, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE9visitFCmpERNS_8FCmpInstE.exit.thread
 
-1698:                                             ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i.i.i, %1663
+1698:                                             ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i.i.i, %1663
   %1699 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %569) #16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull %345, i64 noundef 2) #16
   store ptr %1699, ptr %346, align 8
@@ -4110,7 +4110,7 @@ _ZN12_GLOBAL__N_19ScattererD2Ev.exit47.i.i.i:     ; preds = %1750, %_ZN12_GLOBAL
   call void @free(ptr noundef %1752) #16
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE9visitFCmpERNS_8FCmpInstE.exit
 
-_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE9visitFCmpERNS_8FCmpInstE.exit.thread: ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i.i.i, %1606, %1628
+_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE9visitFCmpERNS_8FCmpInstE.exit.thread: ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i.i.i, %1606, %1628
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %62)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %63)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %64)
@@ -4694,7 +4694,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit.i.i.i: ; pr
 2008:                                             ; preds = %2004
   %2009 = udiv i32 %.val.i.i.i94, %2005
   %.not20.i81.i.i.i = icmp ult i32 %2009, %1995
-  br i1 %.not20.i81.i.i.i, label %2010, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit92.thread.i.i.i
+  br i1 %.not20.i81.i.i.i, label %2010, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit92.thread.i.i.i
 
 2010:                                             ; preds = %2008
   %2011 = add i32 %1995, -1
@@ -4714,7 +4714,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit.i.i.i: ; pr
   %spec.select.i83.i.i.i = select i1 %2020, ptr %1997, ptr null
   br label %2021
 
-_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit92.thread.i.i.i: ; preds = %2008
+_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit92.thread.i.i.i: ; preds = %2008
   store i8 0, ptr %290, align 8, !alias.scope !152
   br label %_ZN4llvm11SmallVectorIPNS_5ValueELj8EED2Ev.exit102.i.i.i
 
@@ -5030,8 +5030,8 @@ _ZN4llvm11SmallVectorIPNS_5ValueELj8EED2Ev.exit.i.i.i100: ; preds = %2152, %_ZN4
   call void @free(ptr noundef %2154) #16
   br label %_ZN4llvm11SmallVectorIPNS_5ValueELj8EED2Ev.exit102.i.i.i
 
-_ZN4llvm11SmallVectorIPNS_5ValueELj8EED2Ev.exit102.i.i.i: ; preds = %2021, %2156, %_ZN4llvm11SmallVectorIPNS_5ValueELj8EED2Ev.exit.i.i.i100, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit92.thread.i.i.i
-  %.not68121.i.i.i = phi i1 [ true, %2156 ], [ true, %_ZN4llvm11SmallVectorIPNS_5ValueELj8EED2Ev.exit.i.i.i100 ], [ false, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit92.thread.i.i.i ], [ false, %2021 ]
+_ZN4llvm11SmallVectorIPNS_5ValueELj8EED2Ev.exit102.i.i.i: ; preds = %2021, %2156, %_ZN4llvm11SmallVectorIPNS_5ValueELj8EED2Ev.exit.i.i.i100, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit92.thread.i.i.i
+  %.not68121.i.i.i = phi i1 [ true, %2156 ], [ true, %_ZN4llvm11SmallVectorIPNS_5ValueELj8EED2Ev.exit.i.i.i100 ], [ false, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit92.thread.i.i.i ], [ false, %2021 ]
   %2157 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %80) #16
   %2158 = load ptr, ptr %80, align 8
   %2159 = icmp eq ptr %2158, %289
@@ -5243,25 +5243,25 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE9visitCallERNS_8CallI
   %2236 = getelementptr inbounds nuw i8, ptr %2228, i64 24
   %2237 = load ptr, ptr %2236, align 8, !noalias !169
   %2238 = icmp eq i32 %2235, 1
-  br i1 %2238, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit53.i.i, label %2239
+  br i1 %2238, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit53.i.i, label %2239
 
 2239:                                             ; preds = %2233
   %2240 = getelementptr inbounds nuw i8, ptr %2237, i64 8
   %2241 = load i32, ptr %2240, align 8, !noalias !169
   %2242 = and i32 %2241, 255
   %2243 = icmp eq i32 %2242, 14
-  br i1 %2243, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit53.i.i, label %2244
+  br i1 %2243, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit53.i.i, label %2244
 
 2244:                                             ; preds = %2239
   %2245 = call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %2237) #17, !noalias !169
   %2246 = shl i32 %2245, 1
   %2247 = icmp ugt i32 %2246, %.val.i.i81
-  br i1 %2247, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit53.i.i, label %2248
+  br i1 %2247, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit53.i.i, label %2248
 
 2248:                                             ; preds = %2244
   %2249 = udiv i32 %.val.i.i81, %2245
   %.not20.i42.i.i = icmp ult i32 %2249, %2235
-  br i1 %.not20.i42.i.i, label %2250, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit53.i.i
+  br i1 %.not20.i42.i.i, label %2250, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit53.i.i
 
 2250:                                             ; preds = %2248
   %2251 = add i32 %2235, -1
@@ -5274,14 +5274,14 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE9visitCallERNS_8CallI
 
 2257:                                             ; preds = %2250
   %2258 = call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef nonnull %2237, i32 noundef %2255) #16, !noalias !169
-  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit53.i.i
+  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit53.i.i
 
 2259:                                             ; preds = %2250
   %2260 = icmp eq i32 %2255, 1
   %spec.select.i44.i.i = select i1 %2260, ptr %2237, ptr null
-  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit53.i.i
+  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit53.i.i
 
-_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit53.i.i: ; preds = %2259, %2257, %2248, %2244, %2239, %2233
+_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit53.i.i: ; preds = %2259, %2257, %2248, %2244, %2239, %2233
   %.sroa.277.0.i.i = phi i32 [ undef, %2248 ], [ %2249, %2257 ], [ 1, %2244 ], [ 1, %2239 ], [ 1, %2233 ], [ %2249, %2259 ]
   %.sroa.3.0.i.i = phi i32 [ undef, %2248 ], [ %2253, %2257 ], [ %2235, %2244 ], [ %2235, %2239 ], [ 1, %2233 ], [ %2253, %2259 ]
   %.sroa.4.0.i.i = phi ptr [ undef, %2248 ], [ %2254, %2257 ], [ %2237, %2244 ], [ %2237, %2239 ], [ %2237, %2233 ], [ %2254, %2259 ]
@@ -5298,8 +5298,8 @@ _ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit5
   %or.cond.i.i83 = and i1 %.not.i.i82, %2261
   br i1 %or.cond.i.i83, label %2262, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE11visitSelectERNS_10SelectInstE.exit.thread
 
-2262:                                             ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit53.i.i, %2222
-  %.val37.i.i = phi i8 [ %.sink.i43.i.i, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit53.i.i ], [ 0, %2222 ]
+2262:                                             ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit53.i.i, %2222
+  %.val37.i.i = phi i8 [ %.sink.i43.i.i, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit53.i.i ], [ 0, %2222 ]
   %2263 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %569) #16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %90, ptr noundef nonnull %254, i64 noundef 2) #16
   store ptr %2263, ptr %255, align 8
@@ -5443,7 +5443,7 @@ _ZN12_GLOBAL__N_19ScattererD2Ev.exit71.i.i:       ; preds = %2309, %_ZN12_GLOBAL
   call void @free(ptr noundef %2311) #16
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE11visitSelectERNS_10SelectInstE.exit
 
-_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE11visitSelectERNS_10SelectInstE.exit.thread: ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit53.i.i, %2187, %2209
+_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE11visitSelectERNS_10SelectInstE.exit.thread: ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit53.i.i, %2187, %2209
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %88)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %89)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %90)
@@ -6139,7 +6139,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE18visitInsertElementE
   %2577 = icmp ne i32 %2576, 17
   %.not4.i.i.i = icmp eq ptr %2573, null
   %.not.i.i.i18 = or i1 %.not4.i.i.i, %2577
-  br i1 %.not.i.i.i18, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i.i, label %2578
+  br i1 %.not.i.i.i18, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i.i, label %2578
 
 2578:                                             ; preds = %2571
   %2579 = getelementptr inbounds nuw i8, ptr %2573, i64 32
@@ -6165,7 +6165,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE18visitInsertElementE
 2593:                                             ; preds = %2589
   %2594 = udiv i32 %.val21.i.i, %2590
   %.not20.i.i.i = icmp ult i32 %2594, %2580
-  br i1 %.not20.i.i.i, label %2595, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i.i
+  br i1 %.not20.i.i.i, label %2595, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i.i
 
 2595:                                             ; preds = %2593
   %2596 = add i32 %2580, -1
@@ -6197,9 +6197,9 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE18visitInsertElementE
   store ptr %.sroa.12.0.i.i.i, ptr %.sroa.12.0..sroa_idx.i.i.i, align 8, !alias.scope !231
   %.val.pre.i.i = load i32, ptr %149, align 4
   %2607 = icmp ugt i32 %.sroa.4.0.i.i.i20, 1
-  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i.i
 
-_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i.i: ; preds = %2606, %2593, %2571
+_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i.i: ; preds = %2606, %2593, %2571
   %2608 = phi i32 [ %.sroa.8.0.i.i.i, %2606 ], [ undef, %2571 ], [ undef, %2593 ]
   %2609 = phi i1 [ %2607, %2606 ], [ false, %2571 ], [ false, %2593 ]
   %.val.i.i = phi i32 [ %.val.pre.i.i, %2606 ], [ %.val21.i.i, %2571 ], [ %.val21.i.i, %2593 ]
@@ -6216,9 +6216,9 @@ _ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.
   %2617 = icmp ne i32 %2616, 17
   %.not4.i26.i.i = icmp eq ptr %2613, null
   %.not.i27.i.i = or i1 %.not4.i26.i.i, %2617
-  br i1 %.not.i27.i.i, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit39.i.i, label %2618
+  br i1 %.not.i27.i.i, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit39.i.i, label %2618
 
-2618:                                             ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i.i
+2618:                                             ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i.i
   %2619 = getelementptr inbounds nuw i8, ptr %2613, i64 32
   %2620 = load i32, ptr %2619, align 8, !noalias !234
   %2621 = getelementptr inbounds nuw i8, ptr %2613, i64 24
@@ -6242,7 +6242,7 @@ _ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.
 2633:                                             ; preds = %2629
   %2634 = udiv i32 %.val.i.i, %2630
   %.not20.i28.i.i = icmp ult i32 %2634, %2620
-  br i1 %.not20.i28.i.i, label %2635, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit39.i.i
+  br i1 %.not20.i28.i.i, label %2635, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit39.i.i
 
 2635:                                             ; preds = %2633
   %2636 = add i32 %2620, -1
@@ -6273,16 +6273,16 @@ _ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.
   store ptr %.sroa.10.0.i33.i.i, ptr %.sroa.10.0..sroa_idx.i37.i.i, align 8, !alias.scope !234
   store ptr %.sroa.12.0.i34.i.i, ptr %.sroa.12.0..sroa_idx.i38.i.i, align 8, !alias.scope !234
   %2647 = icmp ugt i32 %.sroa.4.0.i31.i.i, 1
-  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit39.i.i
+  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit39.i.i
 
-_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit39.i.i: ; preds = %2646, %2633, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i.i
-  %2648 = phi i1 [ %2647, %2646 ], [ false, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i.i ], [ false, %2633 ]
-  %.sink.i29.i.i = phi i8 [ 1, %2646 ], [ 0, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i.i ], [ 0, %2633 ]
+_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit39.i.i: ; preds = %2646, %2633, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i.i
+  %2648 = phi i1 [ %2647, %2646 ], [ false, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i.i ], [ false, %2633 ]
+  %.sink.i29.i.i = phi i8 [ 1, %2646 ], [ 0, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i.i ], [ 0, %2633 ]
   store i8 %.sink.i29.i.i, ptr %178, align 8, !alias.scope !234
   %2649 = trunc nuw i8 %.sink.i.i.i to i1
   br i1 %2649, label %2650, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE18visitShuffleVectorERNS_17ShuffleVectorInstE.exit
 
-2650:                                             ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit39.i.i
+2650:                                             ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit39.i.i
   %2651 = trunc nuw i8 %.sink.i29.i.i to i1
   %.not.i.i = xor i1 %2651, true
   %or.cond.i.i = or i1 %2609, %.not.i.i
@@ -6381,7 +6381,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE18visitShuffleVectorE
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %122)
   br label %.sink.split
 
-_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE18visitShuffleVectorERNS_17ShuffleVectorInstE.exit: ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit39.i.i, %2650
+_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE18visitShuffleVectorERNS_17ShuffleVectorInstE.exit: ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit39.i.i, %2650
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %118)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %119)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %120)
@@ -6507,7 +6507,7 @@ _ZNK4llvm4User10getOperandEj.exit21.i.i.i:        ; preds = %_ZNK4llvm4User10get
   %2753 = icmp ne i32 %2752, 17
   %.not4.i22.i.i.i = icmp eq ptr %2749, null
   %.not.i23.i.i.i = or i1 %.not4.i22.i.i.i, %2753
-  br i1 %.not.i23.i.i.i, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit35.i.i.i, label %2754
+  br i1 %.not.i23.i.i.i, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit35.i.i.i, label %2754
 
 2754:                                             ; preds = %_ZNK4llvm4User10getOperandEj.exit21.i.i.i
   %2755 = getelementptr inbounds nuw i8, ptr %2749, i64 32
@@ -6515,25 +6515,25 @@ _ZNK4llvm4User10getOperandEj.exit21.i.i.i:        ; preds = %_ZNK4llvm4User10get
   %2757 = getelementptr inbounds nuw i8, ptr %2749, i64 24
   %2758 = load ptr, ptr %2757, align 8, !noalias !241
   %2759 = icmp eq i32 %2756, 1
-  br i1 %2759, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit35.i.i.i, label %2760
+  br i1 %2759, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit35.i.i.i, label %2760
 
 2760:                                             ; preds = %2754
   %2761 = getelementptr inbounds nuw i8, ptr %2758, i64 8
   %2762 = load i32, ptr %2761, align 8, !noalias !241
   %2763 = and i32 %2762, 255
   %2764 = icmp eq i32 %2763, 14
-  br i1 %2764, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit35.i.i.i, label %2765
+  br i1 %2764, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit35.i.i.i, label %2765
 
 2765:                                             ; preds = %2760
   %2766 = call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %2758) #17, !noalias !241
   %2767 = shl i32 %2766, 1
   %2768 = icmp ugt i32 %2767, %.val.i.i.i
-  br i1 %2768, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit35.i.i.i, label %2769
+  br i1 %2768, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit35.i.i.i, label %2769
 
 2769:                                             ; preds = %2765
   %2770 = udiv i32 %.val.i.i.i, %2766
   %.not20.i24.i.i.i = icmp ult i32 %2770, %2756
-  br i1 %.not20.i24.i.i.i, label %2771, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit35.i.i.i
+  br i1 %.not20.i24.i.i.i, label %2771, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit35.i.i.i
 
 2771:                                             ; preds = %2769
   %2772 = add i32 %2756, -1
@@ -6546,14 +6546,14 @@ _ZNK4llvm4User10getOperandEj.exit21.i.i.i:        ; preds = %_ZNK4llvm4User10get
 
 2778:                                             ; preds = %2771
   %2779 = call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef nonnull %2758, i32 noundef %2776) #16, !noalias !241
-  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit35.i.i.i
+  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit35.i.i.i
 
 2780:                                             ; preds = %2771
   %2781 = icmp eq i32 %2776, 1
   %spec.select.i26.i.i.i = select i1 %2781, ptr %2758, ptr null
-  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit35.i.i.i
+  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit35.i.i.i
 
-_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit35.i.i.i: ; preds = %2780, %2778, %2769, %2765, %2760, %2754, %_ZNK4llvm4User10getOperandEj.exit21.i.i.i
+_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit35.i.i.i: ; preds = %2780, %2778, %2769, %2765, %2760, %2754, %_ZNK4llvm4User10getOperandEj.exit21.i.i.i
   %.sroa.24.0.i.i.i = phi i32 [ undef, %_ZNK4llvm4User10getOperandEj.exit21.i.i.i ], [ undef, %2769 ], [ %2770, %2778 ], [ 1, %2765 ], [ 1, %2760 ], [ 1, %2754 ], [ %2770, %2780 ]
   %.sroa.3.0.i.i.i = phi i32 [ undef, %_ZNK4llvm4User10getOperandEj.exit21.i.i.i ], [ undef, %2769 ], [ %2774, %2778 ], [ %2756, %2765 ], [ %2756, %2760 ], [ 1, %2754 ], [ %2774, %2780 ]
   %.sroa.4.0.i.i.i16 = phi ptr [ undef, %_ZNK4llvm4User10getOperandEj.exit21.i.i.i ], [ undef, %2769 ], [ %2775, %2778 ], [ %2758, %2765 ], [ %2758, %2760 ], [ %2758, %2754 ], [ %2775, %2780 ]
@@ -6570,7 +6570,7 @@ _ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit3
   %or.cond.i.i.i = and i1 %.not.i.i.i17, %2782
   br i1 %or.cond.i.i.i, label %2783, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE11visitFreezeERNS_10FreezeInstE.exit.thread
 
-2783:                                             ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit35.i.i.i, %2748
+2783:                                             ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit35.i.i.i, %2748
   %2784 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %569) #16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %126, ptr noundef nonnull %154, i64 noundef 2) #16
   store ptr %2784, ptr %155, align 8
@@ -6613,8 +6613,8 @@ _ZNK4llvm4User10getOperandEj.exit38.i.i.i:        ; preds = %2790, %2787
   %.not8.i.i.i = icmp eq i32 %2728, 0
   br i1 %.not8.i.i.i, label %._crit_edge.i.i.i, label %_ZN4llvmplERKNS_5TwineES2_.exit.i.i.i
 
-_ZN4llvmplERKNS_5TwineES2_.exit.i.i.i:            ; preds = %_ZNK4llvm4User10getOperandEj.exit38.i.i.i, %"_ZZN12_GLOBAL__N_117ScalarizerVisitor15visitFreezeInstERN4llvm10FreezeInstEENK3$_0clERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueERKNS1_5TwineE.argprom.exit.i.i.i"
-  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %"_ZZN12_GLOBAL__N_117ScalarizerVisitor15visitFreezeInstERN4llvm10FreezeInstEENK3$_0clERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueERKNS1_5TwineE.argprom.exit.i.i.i" ], [ 0, %_ZNK4llvm4User10getOperandEj.exit38.i.i.i ]
+_ZN4llvmplERKNS_5TwineES2_.exit.i.i.i:            ; preds = %_ZNK4llvm4User10getOperandEj.exit38.i.i.i, %"_ZZN12_GLOBAL__N_117ScalarizerVisitor15visitFreezeInstERN4llvm10FreezeInstEENK3$_0clERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueERKNS1_5TwineE.exit.i.i.i"
+  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %"_ZZN12_GLOBAL__N_117ScalarizerVisitor15visitFreezeInstERN4llvm10FreezeInstEENK3$_0clERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueERKNS1_5TwineE.exit.i.i.i" ], [ 0, %_ZNK4llvm4User10getOperandEj.exit38.i.i.i ]
   %2798 = trunc nuw i64 %indvars.iv.i.i.i to i32
   %2799 = call fastcc noundef ptr @_ZN12_GLOBAL__N_19ScattererixEj(ptr noundef nonnull align 8 dereferenceable(160) %127, i32 noundef %2798)
   %2800 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %569) #16
@@ -6645,7 +6645,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i.i.i:            ; preds = %_ZNK4llvm4User10get
   %2810 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %126) #16
   %2811 = getelementptr inbounds %"struct.std::pair.136", ptr %2809, i64 %2810
   %.not10.i.i.i.i.i.i.i = icmp eq i64 %2810, 0
-  br i1 %.not10.i.i.i.i.i.i.i, label %"_ZZN12_GLOBAL__N_117ScalarizerVisitor15visitFreezeInstERN4llvm10FreezeInstEENK3$_0clERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueERKNS1_5TwineE.argprom.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i.i
+  br i1 %.not10.i.i.i.i.i.i.i, label %"_ZZN12_GLOBAL__N_117ScalarizerVisitor15visitFreezeInstERN4llvm10FreezeInstEENK3$_0clERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueERKNS1_5TwineE.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i = phi ptr [ %2815, %.lr.ph.i.i.i.i.i.i.i ], [ %2809, %_ZN4llvmplERKNS_5TwineES2_.exit.i.i.i ]
@@ -6655,9 +6655,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i.i.i:            ; preds = %_ZNK4llvm4User10get
   call void @_ZN4llvm11Instruction11setMetadataEjPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(72) %2804, i32 noundef %2812, ptr noundef %2814) #16
   %2815 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i = icmp eq ptr %2815, %2811
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZN12_GLOBAL__N_117ScalarizerVisitor15visitFreezeInstERN4llvm10FreezeInstEENK3$_0clERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueERKNS1_5TwineE.argprom.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZN12_GLOBAL__N_117ScalarizerVisitor15visitFreezeInstERN4llvm10FreezeInstEENK3$_0clERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueERKNS1_5TwineE.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i.i
 
-"_ZZN12_GLOBAL__N_117ScalarizerVisitor15visitFreezeInstERN4llvm10FreezeInstEENK3$_0clERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueERKNS1_5TwineE.argprom.exit.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZN4llvmplERKNS_5TwineES2_.exit.i.i.i
+"_ZZN12_GLOBAL__N_117ScalarizerVisitor15visitFreezeInstERN4llvm10FreezeInstEENK3$_0clERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueERKNS1_5TwineE.exit.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZN4llvmplERKNS_5TwineES2_.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %123)
   %2816 = load ptr, ptr %128, align 8
   %2817 = getelementptr inbounds ptr, ptr %2816, i64 %indvars.iv.i.i.i
@@ -6666,7 +6666,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i.i.i:            ; preds = %_ZNK4llvm4User10get
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %2797
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %_ZN4llvmplERKNS_5TwineES2_.exit.i.i.i, !llvm.loop !252
 
-._crit_edge.i.i.i:                                ; preds = %"_ZZN12_GLOBAL__N_117ScalarizerVisitor15visitFreezeInstERN4llvm10FreezeInstEENK3$_0clERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueERKNS1_5TwineE.argprom.exit.i.i.i", %_ZNK4llvm4User10getOperandEj.exit38.i.i.i
+._crit_edge.i.i.i:                                ; preds = %"_ZZN12_GLOBAL__N_117ScalarizerVisitor15visitFreezeInstERN4llvm10FreezeInstEENK3$_0clERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueERKNS1_5TwineE.exit.i.i.i", %_ZNK4llvm4User10getOperandEj.exit38.i.i.i
   call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef nonnull align 8 dereferenceable(80) %128, ptr noundef nonnull align 8 dereferenceable(32) %124)
   %2818 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %128) #16
   %2819 = load ptr, ptr %128, align 8
@@ -6699,7 +6699,7 @@ _ZN12_GLOBAL__N_19ScattererD2Ev.exit.i.i.i:       ; preds = %2825, %_ZN4llvm11Sm
   call void @free(ptr noundef %2827) #16
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE11visitFreezeERNS_10FreezeInstE.exit
 
-_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE11visitFreezeERNS_10FreezeInstE.exit.thread: ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit35.i.i.i, %2691, %2713
+_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE11visitFreezeERNS_10FreezeInstE.exit.thread: ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit35.i.i.i, %2691, %2713
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %124)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %125)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %126)
@@ -6726,7 +6726,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE5visitEPNS_11Instruct
   %2833 = load ptr, ptr %2832, align 8
   br label %2848
 
-_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE5visitEPNS_11InstructionE.exit.thread355: ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit36.i.i.i, %572, %594
+_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE5visitEPNS_11InstructionE.exit.thread355: ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit36.i.i.i, %572, %594
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10)
@@ -6888,7 +6888,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE5visitEPNS_11Instruct
   %2904 = load i32, ptr %2890, align 8, !noalias !254
   %2905 = and i32 %2904, 255
   %.not37.i = icmp eq i32 %2905, 17
-  br i1 %.not37.i, label %2906, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i
+  br i1 %.not37.i, label %2906, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i
 
 2906:                                             ; preds = %2903
   %2907 = getelementptr inbounds nuw i8, ptr %2889, i64 32
@@ -6896,25 +6896,25 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE5visitEPNS_11Instruct
   %2909 = getelementptr inbounds nuw i8, ptr %2889, i64 24
   %2910 = load ptr, ptr %2909, align 8, !noalias !254
   %2911 = icmp eq i32 %2908, 1
-  br i1 %2911, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i, label %2912
+  br i1 %2911, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i, label %2912
 
 2912:                                             ; preds = %2906
   %2913 = getelementptr inbounds nuw i8, ptr %2910, i64 8
   %2914 = load i32, ptr %2913, align 8, !noalias !254
   %2915 = and i32 %2914, 255
   %2916 = icmp eq i32 %2915, 14
-  br i1 %2916, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i, label %2917
+  br i1 %2916, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i, label %2917
 
 2917:                                             ; preds = %2912
   %2918 = call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %2910) #17, !noalias !254
   %2919 = shl i32 %2918, 1
   %2920 = icmp ugt i32 %2919, %.val.i
-  br i1 %2920, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i, label %2921
+  br i1 %2920, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i, label %2921
 
 2921:                                             ; preds = %2917
   %2922 = udiv i32 %.val.i, %2918
   %.not20.i.i = icmp ult i32 %2922, %2908
-  br i1 %.not20.i.i, label %2923, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i
+  br i1 %.not20.i.i, label %2923, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i
 
 2923:                                             ; preds = %2921
   %2924 = add i32 %2908, -1
@@ -6927,14 +6927,14 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE5visitEPNS_11Instruct
 
 2930:                                             ; preds = %2923
   %2931 = call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef nonnull %2910, i32 noundef %2928) #16, !noalias !254
-  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i
 
 2932:                                             ; preds = %2923
   %2933 = icmp eq i32 %2928, 1
   %spec.select.i.i = select i1 %2933, ptr %2910, ptr null
-  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i
 
-_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i: ; preds = %2932, %2930, %2921, %2917, %2912, %2906, %2903
+_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i: ; preds = %2932, %2930, %2921, %2917, %2912, %2906, %2903
   %.sroa.030.4.i = phi ptr [ %.sroa.030.039.i, %2903 ], [ %.sroa.030.039.i, %2921 ], [ %2889, %2932 ], [ %2889, %2930 ], [ %2889, %2917 ], [ %2889, %2912 ], [ %2889, %2906 ]
   %.sroa.231.4.i = phi i32 [ %.sroa.231.040.i, %2903 ], [ %.sroa.231.040.i, %2921 ], [ %2922, %2932 ], [ %2922, %2930 ], [ 1, %2917 ], [ 1, %2912 ], [ 1, %2906 ]
   %.sroa.3.4.i = phi i32 [ %.sroa.3.041.i, %2903 ], [ %.sroa.3.041.i, %2921 ], [ %2926, %2932 ], [ %2926, %2930 ], [ %2908, %2917 ], [ %2908, %2912 ], [ 1, %2906 ]
@@ -6955,7 +6955,7 @@ _ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.
   store i8 1, ptr %2877, align 1
   store ptr %2938, ptr %134, align 8
   store i64 %2939, ptr %2878, align 8
-  %2940 = call fastcc noundef ptr @_ZN12_GLOBAL__N_111concatenateERN4llvm9IRBuilderINS0_14ConstantFolderENS0_24IRBuilderDefaultInserterEEENS0_8ArrayRefIPNS0_5ValueEEERKNS_11VectorSplitENS0_5TwineE.argelim(ptr noundef nonnull align 8 dereferenceable(144) %132, ptr %2934, ptr noundef nonnull align 8 dereferenceable(32) %133, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %134)
+  %2940 = call fastcc noundef ptr @_ZN12_GLOBAL__N_111concatenateERN4llvm9IRBuilderINS0_14ConstantFolderENS0_24IRBuilderDefaultInserterEEENS0_8ArrayRefIPNS0_5ValueEEERKNS_11VectorSplitENS0_5TwineE(ptr noundef nonnull align 8 dereferenceable(144) %132, ptr %2934, ptr noundef nonnull align 8 dereferenceable(32) %133, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %134)
   %2941 = load ptr, ptr %131, align 8
   call void @_ZN4llvm5Value8takeNameEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %2940, ptr noundef %2941) #16
   call void @_ZN4llvm24IRBuilderDefaultInserterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2863) #16
@@ -6965,7 +6965,7 @@ _ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.
   %2944 = icmp eq ptr %2943, %2864
   br i1 %2944, label %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i, label %2945
 
-2945:                                             ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i
+2945:                                             ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i
   call void @free(ptr noundef %2943) #16
   br label %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i
 
@@ -6975,13 +6975,13 @@ _ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.
   %2949 = icmp eq ptr %2881, %2948
   br i1 %2949, label %2953, label %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i
 
-_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i: ; preds = %2946, %2945, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i
-  %.sroa.030.2.i = phi ptr [ %.sroa.030.039.i, %2946 ], [ %.sroa.030.4.i, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i ], [ %.sroa.030.4.i, %2945 ]
-  %.sroa.231.2.i = phi i32 [ %.sroa.231.040.i, %2946 ], [ %.sroa.231.4.i, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i ], [ %.sroa.231.4.i, %2945 ]
-  %.sroa.3.2.i = phi i32 [ %.sroa.3.041.i, %2946 ], [ %.sroa.3.4.i, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i ], [ %.sroa.3.4.i, %2945 ]
-  %.sroa.4.2.i = phi ptr [ %.sroa.4.042.i, %2946 ], [ %.sroa.4.4.i, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i ], [ %.sroa.4.4.i, %2945 ]
-  %.sroa.5.2.i = phi ptr [ %.sroa.5.043.i, %2946 ], [ %.sroa.5.4.i, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i ], [ %.sroa.5.4.i, %2945 ]
-  %.022.i = phi ptr [ %2948, %2946 ], [ %2940, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit.i ], [ %2940, %2945 ]
+_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i: ; preds = %2946, %2945, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i
+  %.sroa.030.2.i = phi ptr [ %.sroa.030.039.i, %2946 ], [ %.sroa.030.4.i, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i ], [ %.sroa.030.4.i, %2945 ]
+  %.sroa.231.2.i = phi i32 [ %.sroa.231.040.i, %2946 ], [ %.sroa.231.4.i, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i ], [ %.sroa.231.4.i, %2945 ]
+  %.sroa.3.2.i = phi i32 [ %.sroa.3.041.i, %2946 ], [ %.sroa.3.4.i, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i ], [ %.sroa.3.4.i, %2945 ]
+  %.sroa.4.2.i = phi ptr [ %.sroa.4.042.i, %2946 ], [ %.sroa.4.4.i, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i ], [ %.sroa.4.4.i, %2945 ]
+  %.sroa.5.2.i = phi ptr [ %.sroa.5.043.i, %2946 ], [ %.sroa.5.4.i, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i ], [ %.sroa.5.4.i, %2945 ]
+  %.022.i = phi ptr [ %2948, %2946 ], [ %2940, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i ], [ %2940, %2945 ]
   %2950 = load ptr, ptr %131, align 8
   call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %2950, ptr noundef %.022.i) #16
   br label %2951
@@ -9155,7 +9155,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm
   %6 = alloca %"class.std::tuple.153", align 1
   %7 = alloca %"struct.std::pair.146", align 8
   %8 = alloca ptr, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor26transferMetadataAndIRFlagsEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEE.argprom(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(80) %2)
+  tail call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor26transferMetadataAndIRFlagsEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEE(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(80) %2)
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -10553,7 +10553,7 @@ declare void @_ZN4llvm18ExtractElementInstC1EPNS_5ValueES2_RKNS_5TwineENS_14Inse
 declare noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor26transferMetadataAndIRFlagsEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEE.argprom(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor26transferMetadataAndIRFlagsEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SmallVector.169", align 8
   %4 = alloca %"class.llvm::DebugLoc", align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
@@ -10583,10 +10583,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor26transferMetad
   %.not305 = icmp eq i64 %16, 0
   br i1 %.not305, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %14, %_ZN12_GLOBAL__N_117ScalarizerVisitor19canTransferMetadataEj.argprom.exit
-  %.0276 = phi ptr [ %22, %_ZN12_GLOBAL__N_117ScalarizerVisitor19canTransferMetadataEj.argprom.exit ], [ %15, %14 ]
+.lr.ph:                                           ; preds = %14, %_ZN12_GLOBAL__N_117ScalarizerVisitor19canTransferMetadataEj.exit
+  %.0276 = phi ptr [ %22, %_ZN12_GLOBAL__N_117ScalarizerVisitor19canTransferMetadataEj.exit ], [ %15, %14 ]
   %18 = load i32, ptr %.0276, align 8
-  switch i32 %18, label %_ZN12_GLOBAL__N_117ScalarizerVisitor19canTransferMetadataEj.argprom.exit [
+  switch i32 %18, label %_ZN12_GLOBAL__N_117ScalarizerVisitor19canTransferMetadataEj.exit [
     i32 10, label %19
     i32 8, label %19
     i32 7, label %19
@@ -10601,14 +10601,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor26transferMetad
   %20 = getelementptr inbounds nuw i8, ptr %.0276, i64 8
   %21 = load ptr, ptr %20, align 8
   call void @_ZN4llvm11Instruction11setMetadataEjPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(72) %11, i32 noundef %18, ptr noundef %21) #16
-  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor19canTransferMetadataEj.argprom.exit
+  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor19canTransferMetadataEj.exit
 
-_ZN12_GLOBAL__N_117ScalarizerVisitor19canTransferMetadataEj.argprom.exit: ; preds = %.lr.ph, %19
+_ZN12_GLOBAL__N_117ScalarizerVisitor19canTransferMetadataEj.exit: ; preds = %.lr.ph, %19
   %22 = getelementptr inbounds i8, ptr %.0276, i64 16
   %.not30 = icmp eq ptr %22, %17
   br i1 %.not30, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor19canTransferMetadataEj.argprom.exit, %14
+._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor19canTransferMetadataEj.exit, %14
   call void @_ZN4llvm11Instruction11copyIRFlagsEPKNS_5ValueEb(ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef nonnull %0, i1 noundef zeroext true) #16
   %23 = load ptr, ptr %9, align 8
   %.not3 = icmp eq ptr %23, null
@@ -11073,7 +11073,7 @@ _ZNK4llvm4User10getOperandEj.exit27.i:            ; preds = %_ZNK4llvm4User10get
   %75 = icmp ne i32 %74, 17
   %.not4.i28.i = icmp eq ptr %71, null
   %.not.i29.i = or i1 %.not4.i28.i, %75
-  br i1 %.not.i29.i, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i, label %76
+  br i1 %.not.i29.i, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i, label %76
 
 76:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit27.i
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 32
@@ -11081,25 +11081,25 @@ _ZNK4llvm4User10getOperandEj.exit27.i:            ; preds = %_ZNK4llvm4User10get
   %79 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %80 = load ptr, ptr %79, align 8, !noalias !327
   %81 = icmp eq i32 %78, 1
-  br i1 %81, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i, label %82
+  br i1 %81, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i, label %82
 
 82:                                               ; preds = %76
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %84 = load i32, ptr %83, align 8, !noalias !327
   %85 = and i32 %84, 255
   %86 = icmp eq i32 %85, 14
-  br i1 %86, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i, label %87
+  br i1 %86, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i, label %87
 
 87:                                               ; preds = %82
   %88 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %80) #17, !noalias !327
   %89 = shl i32 %88, 1
   %90 = icmp ugt i32 %89, %.val.i
-  br i1 %90, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i, label %91
+  br i1 %90, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i, label %91
 
 91:                                               ; preds = %87
   %92 = udiv i32 %.val.i, %88
   %.not20.i30.i = icmp ult i32 %92, %78
-  br i1 %.not20.i30.i, label %93, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i
+  br i1 %.not20.i30.i, label %93, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i
 
 93:                                               ; preds = %91
   %94 = add i32 %78, -1
@@ -11112,14 +11112,14 @@ _ZNK4llvm4User10getOperandEj.exit27.i:            ; preds = %_ZNK4llvm4User10get
 
 100:                                              ; preds = %93
   %101 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef nonnull %80, i32 noundef %98) #16, !noalias !327
-  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i
+  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i
 
 102:                                              ; preds = %93
   %103 = icmp eq i32 %98, 1
   %spec.select.i32.i = select i1 %103, ptr %80, ptr null
-  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i
+  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i
 
-_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i: ; preds = %102, %100, %91, %87, %82, %76, %_ZNK4llvm4User10getOperandEj.exit27.i
+_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i: ; preds = %102, %100, %91, %87, %82, %76, %_ZNK4llvm4User10getOperandEj.exit27.i
   %.sroa.251.0.i = phi i32 [ undef, %_ZNK4llvm4User10getOperandEj.exit27.i ], [ undef, %91 ], [ %92, %100 ], [ 1, %87 ], [ 1, %82 ], [ 1, %76 ], [ %92, %102 ]
   %.sroa.3.0.i = phi i32 [ undef, %_ZNK4llvm4User10getOperandEj.exit27.i ], [ undef, %91 ], [ %96, %100 ], [ %78, %87 ], [ %78, %82 ], [ 1, %76 ], [ %96, %102 ]
   %.sroa.4.0.i = phi ptr [ undef, %_ZNK4llvm4User10getOperandEj.exit27.i ], [ undef, %91 ], [ %97, %100 ], [ %80, %87 ], [ %80, %82 ], [ %80, %76 ], [ %97, %102 ]
@@ -11140,7 +11140,7 @@ _ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit4
   %or.cond.i = and i1 %.not.i, %104
   br i1 %or.cond.i, label %105, label %_ZN12_GLOBAL__N_117ScalarizerVisitor11splitBinaryINS_14BinarySplitterEEEbRN4llvm11InstructionERKT_.exit
 
-105:                                              ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i, %70
+105:                                              ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i, %70
   %106 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #16
   %107 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %108 = getelementptr inbounds nuw i8, ptr %5, i64 136
@@ -11305,8 +11305,8 @@ _ZN12_GLOBAL__N_19ScattererD2Ev.exit47.i:         ; preds = %181, %_ZN12_GLOBAL_
   call void @free(ptr noundef %183) #16
   br label %_ZN12_GLOBAL__N_117ScalarizerVisitor11splitBinaryINS_14BinarySplitterEEEbRN4llvm11InstructionERKT_.exit
 
-_ZN12_GLOBAL__N_117ScalarizerVisitor11splitBinaryINS_14BinarySplitterEEEbRN4llvm11InstructionERKT_.exit: ; preds = %2, %33, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i, %_ZN12_GLOBAL__N_19ScattererD2Ev.exit47.i, %185
-  %.0.i = phi i1 [ false, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit41.i ], [ true, %_ZN12_GLOBAL__N_19ScattererD2Ev.exit47.i ], [ true, %185 ], [ false, %2 ], [ false, %33 ]
+_ZN12_GLOBAL__N_117ScalarizerVisitor11splitBinaryINS_14BinarySplitterEEEbRN4llvm11InstructionERKT_.exit: ; preds = %2, %33, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i, %_ZN12_GLOBAL__N_19ScattererD2Ev.exit47.i, %185
+  %.0.i = phi i1 [ false, %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i ], [ true, %_ZN12_GLOBAL__N_19ScattererD2Ev.exit47.i ], [ true, %185 ], [ false, %2 ], [ false, %33 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
@@ -11452,7 +11452,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_11InstructionEEEPT_S4_RKNS_5TwineE.exit: ; pr
 declare noundef ptr @_ZN4llvm14BinaryOperator6CreateENS_11Instruction9BinaryOpsEPNS_5ValueES4_RKNS_5TwineENS_14InsertPositionE(i32 noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(34), ptr, i64) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor15getVectorLayoutEPN4llvm4TypeENS1_5AlignERKNS1_10DataLayoutE.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.1124.val, ptr noundef %1, i8 %2, ptr noundef nonnull align 8 dereferenceable(512) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor15getVectorLayoutEPN4llvm4TypeENS1_5AlignERKNS1_10DataLayoutE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.1124.val, ptr noundef %1, i8 %2, ptr noundef nonnull align 8 dereferenceable(512) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::TypeSize", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8, !noalias !339
@@ -11460,7 +11460,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor15getVectorLayo
   %9 = icmp ne i32 %8, 17
   %.not4.i = icmp eq ptr %1, null
   %.not.i = or i1 %.not4.i, %9
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit, label %10
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit, label %10
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -11486,7 +11486,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor15getVectorLayo
 25:                                               ; preds = %21
   %26 = udiv i32 %.1124.val, %22
   %.not20.i = icmp ult i32 %26, %12
-  br i1 %.not20.i, label %27, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit
+  br i1 %.not20.i, label %27, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit
 
 27:                                               ; preds = %25
   %28 = add i32 %12, -1
@@ -11524,7 +11524,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor15getVectorLayo
   %45 = and i8 %44, 1
   %46 = icmp eq i8 %45, 0
   %47 = select i1 %43, i1 %46, i1 false
-  br i1 %47, label %48, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit
+  br i1 %47, label %48, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit
 
 48:                                               ; preds = %38
   %.not = icmp eq ptr %.sroa.7.0.ph, null
@@ -11544,7 +11544,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor15getVectorLayo
   %56 = and i8 %55, 1
   %57 = icmp eq i8 %56, 0
   %58 = select i1 %54, i1 %57, i1 false
-  br i1 %58, label %59, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit
+  br i1 %58, label %59, label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit
 
 59:                                               ; preds = %49, %48
   %60 = tail call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(512) %3, ptr noundef %.sroa.44.0.ph)
@@ -11570,9 +11570,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor15getVectorLayo
   store i8 %2, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.41.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %64, ptr %.sroa.41.0..sroa_idx, align 8
-  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit
+  br label %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit
 
-_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom.exit: ; preds = %38, %49, %4, %25, %59
+_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit: ; preds = %38, %49, %4, %25, %59
   %.sink = phi i8 [ 1, %59 ], [ 0, %25 ], [ 0, %4 ], [ 0, %49 ], [ 0, %38 ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %.sink, ptr %65, align 8
@@ -12487,7 +12487,7 @@ declare noundef ptr @_ZN4llvm8CastInst6CreateENS_11Instruction7CastOpsEPNS_5Valu
 declare { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_111concatenateERN4llvm9IRBuilderINS0_14ConstantFolderENS0_24IRBuilderDefaultInserterEEENS0_8ArrayRefIPNS0_5ValueEEERKNS_11VectorSplitENS0_5TwineE.argelim(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr nocapture readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef byval(%"class.llvm::Twine") align 8 %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_111concatenateERN4llvm9IRBuilderINS0_14ConstantFolderENS0_24IRBuilderDefaultInserterEEENS0_8ArrayRefIPNS0_5ValueEEERKNS_11VectorSplitENS0_5TwineE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr nocapture readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef byval(%"class.llvm::Twine") align 8 %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::SmallVector.161", align 8
   %6 = alloca %"class.llvm::SmallVector.161", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -14154,11 +14154,11 @@ attributes #19 = { builtin nounwind }
 !20 = distinct !{!20, !21, !"_ZN4llvm25ReversePostOrderTraversalIPNS_10BasicBlockENS_11GraphTraitsIS2_EEE3endEv: argument 0"}
 !21 = distinct !{!21, !"_ZN4llvm25ReversePostOrderTraversalIPNS_10BasicBlockENS_11GraphTraitsIS2_EEE3endEv"}
 !22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom: argument 0"}
-!24 = distinct !{!24, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom"}
+!23 = distinct !{!23, !24, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE: argument 0"}
+!24 = distinct !{!24, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE"}
 !25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom: argument 0"}
-!27 = distinct !{!27, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom"}
+!26 = distinct !{!26, !27, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE: argument 0"}
+!27 = distinct !{!27, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE"}
 !28 = !{!29}
 !29 = distinct !{!29, !30, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !30 = distinct !{!30, !"_ZN4llvmplERKNS_9StringRefEPKc"}
@@ -14180,11 +14180,11 @@ attributes #19 = { builtin nounwind }
 !46 = distinct !{!46, !11}
 !47 = distinct !{!47, !11}
 !48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom: argument 0"}
-!50 = distinct !{!50, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom"}
+!49 = distinct !{!49, !50, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE: argument 0"}
+!50 = distinct !{!50, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE"}
 !51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom: argument 0"}
-!53 = distinct !{!53, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom"}
+!52 = distinct !{!52, !53, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE: argument 0"}
+!53 = distinct !{!53, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE"}
 !54 = distinct !{!54, !11}
 !55 = distinct !{!55, !11}
 !56 = !{!57}
@@ -14198,11 +14198,11 @@ attributes #19 = { builtin nounwind }
 !64 = distinct !{!64, !11}
 !65 = distinct !{!65, !11}
 !66 = !{!67}
-!67 = distinct !{!67, !68, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom: argument 0"}
-!68 = distinct !{!68, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom"}
+!67 = distinct !{!67, !68, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE: argument 0"}
+!68 = distinct !{!68, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE"}
 !69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom: argument 0"}
-!71 = distinct !{!71, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom"}
+!70 = distinct !{!70, !71, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE: argument 0"}
+!71 = distinct !{!71, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE"}
 !72 = !{!73}
 !73 = distinct !{!73, !74, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !74 = distinct !{!74, !"_ZN4llvmplERKNS_9StringRefEPKc"}
@@ -14237,11 +14237,11 @@ attributes #19 = { builtin nounwind }
 !103 = distinct !{!103, !11}
 !104 = distinct !{!104, !11}
 !105 = !{!106}
-!106 = distinct !{!106, !107, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom: argument 0"}
-!107 = distinct !{!107, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom"}
+!106 = distinct !{!106, !107, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE: argument 0"}
+!107 = distinct !{!107, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE"}
 !108 = !{!109}
-!109 = distinct !{!109, !110, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom: argument 0"}
-!110 = distinct !{!110, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom"}
+!109 = distinct !{!109, !110, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE: argument 0"}
+!110 = distinct !{!110, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE"}
 !111 = !{!112}
 !112 = distinct !{!112, !113, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !113 = distinct !{!113, !"_ZN4llvmplERKNS_9StringRefEPKc"}
@@ -14252,11 +14252,11 @@ attributes #19 = { builtin nounwind }
 !118 = distinct !{!118, !"_ZN4llvmplERKNS_5TwineES2_"}
 !119 = distinct !{!119, !11}
 !120 = !{!121}
-!121 = distinct !{!121, !122, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom: argument 0"}
-!122 = distinct !{!122, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom"}
+!121 = distinct !{!121, !122, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE: argument 0"}
+!122 = distinct !{!122, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE"}
 !123 = !{!124}
-!124 = distinct !{!124, !125, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom: argument 0"}
-!125 = distinct !{!125, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom"}
+!124 = distinct !{!124, !125, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE: argument 0"}
+!125 = distinct !{!125, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE"}
 !126 = !{!127}
 !127 = distinct !{!127, !128, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !128 = distinct !{!128, !"_ZN4llvmplERKNS_9StringRefEPKc"}
@@ -14267,8 +14267,8 @@ attributes #19 = { builtin nounwind }
 !133 = distinct !{!133, !"_ZN4llvmplERKNS_5TwineES2_"}
 !134 = distinct !{!134, !11}
 !135 = !{!136}
-!136 = distinct !{!136, !137, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom: argument 0"}
-!137 = distinct !{!137, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom"}
+!136 = distinct !{!136, !137, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE: argument 0"}
+!137 = distinct !{!137, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE"}
 !138 = !{!139}
 !139 = distinct !{!139, !140, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !140 = distinct !{!140, !"_ZN4llvmplERKNS_9StringRefEPKc"}
@@ -14281,11 +14281,11 @@ attributes #19 = { builtin nounwind }
 !147 = distinct !{!147, !11}
 !148 = distinct !{!148, !11}
 !149 = !{!150}
-!150 = distinct !{!150, !151, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom: argument 0"}
-!151 = distinct !{!151, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom"}
+!150 = distinct !{!150, !151, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE: argument 0"}
+!151 = distinct !{!151, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE"}
 !152 = !{!153}
-!153 = distinct !{!153, !154, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom: argument 0"}
-!154 = distinct !{!154, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom"}
+!153 = distinct !{!153, !154, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE: argument 0"}
+!154 = distinct !{!154, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE"}
 !155 = distinct !{!155, !11}
 !156 = distinct !{!156, !11}
 !157 = !{!158}
@@ -14298,11 +14298,11 @@ attributes #19 = { builtin nounwind }
 !164 = distinct !{!164, !"_ZN4llvmplERKNS_5TwineES2_"}
 !165 = distinct !{!165, !11}
 !166 = !{!167}
-!167 = distinct !{!167, !168, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom: argument 0"}
-!168 = distinct !{!168, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom"}
+!167 = distinct !{!167, !168, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE: argument 0"}
+!168 = distinct !{!168, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE"}
 !169 = !{!170}
-!170 = distinct !{!170, !171, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom: argument 0"}
-!171 = distinct !{!171, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom"}
+!170 = distinct !{!170, !171, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE: argument 0"}
+!171 = distinct !{!171, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE"}
 !172 = !{!173}
 !173 = distinct !{!173, !174, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !174 = distinct !{!174, !"_ZN4llvmplERKNS_9StringRefEPKc"}
@@ -14322,8 +14322,8 @@ attributes #19 = { builtin nounwind }
 !188 = distinct !{!188, !"_ZN4llvmplERKNS_5TwineES2_"}
 !189 = distinct !{!189, !11}
 !190 = !{!191}
-!191 = distinct !{!191, !192, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom: argument 0"}
-!192 = distinct !{!192, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom"}
+!191 = distinct !{!191, !192, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE: argument 0"}
+!192 = distinct !{!192, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE"}
 !193 = !{!194}
 !194 = distinct !{!194, !195, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !195 = distinct !{!195, !"_ZN4llvmplERKNS_9StringRefEPKc"}
@@ -14342,8 +14342,8 @@ attributes #19 = { builtin nounwind }
 !208 = distinct !{!208, !"_ZN4llvmplERKNS_5TwineES2_"}
 !209 = distinct !{!209, !11}
 !210 = !{!211}
-!211 = distinct !{!211, !212, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom: argument 0"}
-!212 = distinct !{!212, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom"}
+!211 = distinct !{!211, !212, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE: argument 0"}
+!212 = distinct !{!212, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE"}
 !213 = distinct !{!213, !11}
 !214 = !{!215}
 !215 = distinct !{!215, !216, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
@@ -14363,18 +14363,18 @@ attributes #19 = { builtin nounwind }
 !229 = distinct !{!229, !"_ZN4llvmplERKNS_5TwineES2_"}
 !230 = distinct !{!230, !11}
 !231 = !{!232}
-!232 = distinct !{!232, !233, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom: argument 0"}
-!233 = distinct !{!233, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom"}
+!232 = distinct !{!232, !233, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE: argument 0"}
+!233 = distinct !{!233, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE"}
 !234 = !{!235}
-!235 = distinct !{!235, !236, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom: argument 0"}
-!236 = distinct !{!236, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom"}
+!235 = distinct !{!235, !236, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE: argument 0"}
+!236 = distinct !{!236, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE"}
 !237 = distinct !{!237, !11}
 !238 = !{!239}
-!239 = distinct !{!239, !240, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom: argument 0"}
-!240 = distinct !{!240, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom"}
+!239 = distinct !{!239, !240, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE: argument 0"}
+!240 = distinct !{!240, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE"}
 !241 = !{!242}
-!242 = distinct !{!242, !243, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom: argument 0"}
-!243 = distinct !{!243, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom"}
+!242 = distinct !{!242, !243, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE: argument 0"}
+!243 = distinct !{!243, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE"}
 !244 = !{!245}
 !245 = distinct !{!245, !246, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !246 = distinct !{!246, !"_ZN4llvmplERKNS_9StringRefEPKc"}
@@ -14386,8 +14386,8 @@ attributes #19 = { builtin nounwind }
 !252 = distinct !{!252, !11}
 !253 = distinct !{!253, !11}
 !254 = !{!255}
-!255 = distinct !{!255, !256, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom: argument 0"}
-!256 = distinct !{!256, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom"}
+!255 = distinct !{!255, !256, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE: argument 0"}
+!256 = distinct !{!256, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE"}
 !257 = !{!258, !260}
 !258 = distinct !{!258, !259, !"_ZN4llvm11po_iteratorIPNS_10BasicBlockENS_11SmallPtrSetIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEE5beginERKS2_: argument 0"}
 !259 = distinct !{!259, !"_ZN4llvm11po_iteratorIPNS_10BasicBlockENS_11SmallPtrSetIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEE5beginERKS2_"}
@@ -14456,11 +14456,11 @@ attributes #19 = { builtin nounwind }
 !322 = distinct !{!322, !11}
 !323 = distinct !{!323, !11}
 !324 = !{!325}
-!325 = distinct !{!325, !326, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom: argument 0"}
-!326 = distinct !{!326, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom"}
+!325 = distinct !{!325, !326, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE: argument 0"}
+!326 = distinct !{!326, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE"}
 !327 = !{!328}
-!328 = distinct !{!328, !329, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom: argument 0"}
-!329 = distinct !{!329, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom"}
+!328 = distinct !{!328, !329, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE: argument 0"}
+!329 = distinct !{!329, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE"}
 !330 = !{!331}
 !331 = distinct !{!331, !332, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !332 = distinct !{!332, !"_ZN4llvmplERKNS_9StringRefEPKc"}
@@ -14471,16 +14471,16 @@ attributes #19 = { builtin nounwind }
 !337 = distinct !{!337, !"_ZN4llvmplERKNS_5TwineES2_"}
 !338 = distinct !{!338, !11}
 !339 = !{!340}
-!340 = distinct !{!340, !341, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom: argument 0"}
-!341 = distinct !{!341, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom"}
+!340 = distinct !{!340, !341, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE: argument 0"}
+!341 = distinct !{!341, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE"}
 !342 = distinct !{!342, !11}
 !343 = distinct !{!343, !11}
 !344 = !{!345}
-!345 = distinct !{!345, !346, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom: argument 0"}
-!346 = distinct !{!346, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom"}
+!345 = distinct !{!345, !346, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE: argument 0"}
+!346 = distinct !{!346, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE"}
 !347 = !{!348}
-!348 = distinct !{!348, !349, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom: argument 0"}
-!349 = distinct !{!349, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.argprom"}
+!348 = distinct !{!348, !349, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE: argument 0"}
+!349 = distinct !{!349, !"_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE"}
 !350 = !{!351}
 !351 = distinct !{!351, !352, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !352 = distinct !{!352, !"_ZN4llvmplERKNS_9StringRefEPKc"}

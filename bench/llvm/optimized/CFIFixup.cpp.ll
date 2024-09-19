@@ -321,19 +321,19 @@ _ZN4llvm23SmallVectorTemplateBaseIZNS_8CFIFixup20runOnMachineFunctionERNS_15Mach
   %.val.i.i = load ptr, ptr %9, align 8
   %63 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   %64 = icmp eq i64 %63, 0
-  br i1 %64, label %_ZSt6fill_nIPZN4llvm8CFIFixup20runOnMachineFunctionERNS0_15MachineFunctionEE10BlockFlagsmS4_ET_S6_T0_RKT1_.argprom.exit.i.i, label %.lr.ph.i.preheader.i.i.i.i.i
+  br i1 %64, label %_ZSt6fill_nIPZN4llvm8CFIFixup20runOnMachineFunctionERNS0_15MachineFunctionEE10BlockFlagsmS4_ET_S6_T0_RKT1_.exit.i.i, label %.lr.ph.i.preheader.i.i.i.i.i
 
 .lr.ph.i.preheader.i.i.i.i.i:                     ; preds = %62
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %63, i64 %58)
   call void @llvm.memset.p0.i64(ptr align 1 %.val.i.i, i8 0, i64 %.sroa.speculated.i.i, i1 false)
-  br label %_ZSt6fill_nIPZN4llvm8CFIFixup20runOnMachineFunctionERNS0_15MachineFunctionEE10BlockFlagsmS4_ET_S6_T0_RKT1_.argprom.exit.i.i
+  br label %_ZSt6fill_nIPZN4llvm8CFIFixup20runOnMachineFunctionERNS0_15MachineFunctionEE10BlockFlagsmS4_ET_S6_T0_RKT1_.exit.i.i
 
-_ZSt6fill_nIPZN4llvm8CFIFixup20runOnMachineFunctionERNS0_15MachineFunctionEE10BlockFlagsmS4_ET_S6_T0_RKT1_.argprom.exit.i.i: ; preds = %.lr.ph.i.preheader.i.i.i.i.i, %62
+_ZSt6fill_nIPZN4llvm8CFIFixup20runOnMachineFunctionERNS0_15MachineFunctionEE10BlockFlagsmS4_ET_S6_T0_RKT1_.exit.i.i: ; preds = %.lr.ph.i.preheader.i.i.i.i.i, %62
   %65 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   %66 = icmp ugt i64 %58, %65
   br i1 %66, label %67, label %73
 
-67:                                               ; preds = %_ZSt6fill_nIPZN4llvm8CFIFixup20runOnMachineFunctionERNS0_15MachineFunctionEE10BlockFlagsmS4_ET_S6_T0_RKT1_.argprom.exit.i.i
+67:                                               ; preds = %_ZSt6fill_nIPZN4llvm8CFIFixup20runOnMachineFunctionERNS0_15MachineFunctionEE10BlockFlagsmS4_ET_S6_T0_RKT1_.exit.i.i
   %.val.i4.i.i = load ptr, ptr %9, align 8
   %68 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   %69 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
@@ -346,7 +346,7 @@ _ZSt6fill_nIPZN4llvm8CFIFixup20runOnMachineFunctionERNS0_15MachineFunctionEE10Bl
   call void @llvm.memset.p0.i64(ptr align 1 %72, i8 0, i64 %71, i1 false)
   br label %_ZN4llvm11SmallVectorIZNS_8CFIFixup20runOnMachineFunctionERNS_15MachineFunctionEE10BlockFlagsLj32EEC2EmRKS4_.exit
 
-73:                                               ; preds = %_ZSt6fill_nIPZN4llvm8CFIFixup20runOnMachineFunctionERNS0_15MachineFunctionEE10BlockFlagsmS4_ET_S6_T0_RKT1_.argprom.exit.i.i
+73:                                               ; preds = %_ZSt6fill_nIPZN4llvm8CFIFixup20runOnMachineFunctionERNS0_15MachineFunctionEE10BlockFlagsmS4_ET_S6_T0_RKT1_.exit.i.i
   %74 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   %75 = icmp ult i64 %58, %74
   br i1 %75, label %76, label %_ZN4llvm11SmallVectorIZNS_8CFIFixup20runOnMachineFunctionERNS_15MachineFunctionEE10BlockFlagsLj32EEC2EmRKS4_.exit

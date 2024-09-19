@@ -2205,16 +2205,16 @@ if.end.i.i:                                       ; preds = %cleanup
   %dec.i.i = add nsw i32 %16, -1
   store i32 %dec.i.i, ptr %3, align 4
   %cmp1.i.i = icmp eq i32 %dec.i.i, 0
-  br i1 %cmp1.i.i, label %if.then2.i.i, label %mmap_unlock_guard.argprom.exit
+  br i1 %cmp1.i.i, label %if.then2.i.i, label %mmap_unlock_guard.exit
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
   %call.i.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mmap_mutex) #14
-  br label %mmap_unlock_guard.argprom.exit
+  br label %mmap_unlock_guard.exit
 
-mmap_unlock_guard.argprom.exit:                   ; preds = %if.end.i.i, %if.then2.i.i
+mmap_unlock_guard.exit:                           ; preds = %if.end.i.i, %if.then2.i.i
   br i1 %cmp41, label %return, label %for.end
 
-for.end:                                          ; preds = %mmap_unlock_guard.argprom.exit
+for.end:                                          ; preds = %mmap_unlock_guard.exit
   %tcg_cflags = getelementptr i8, ptr %cpu_env, i64 -9456
   %17 = load i32, ptr %tcg_cflags, align 16
   %and64 = and i32 %17, 32768
@@ -2227,8 +2227,8 @@ if.then66:                                        ; preds = %for.end
   call void @tb_flush(ptr noundef %add.ptr.i) #14
   br label %return
 
-return:                                           ; preds = %for.end, %if.then66, %mmap_unlock_guard.argprom.exit, %if.end16, %if.then9, %entry
-  %retval.0 = phi i64 [ %retval.1, %mmap_unlock_guard.argprom.exit ], [ %conv4, %entry ], [ -22, %if.then9 ], [ -22, %if.end16 ], [ %raddr.038, %if.then66 ], [ %raddr.038, %for.end ]
+return:                                           ; preds = %for.end, %if.then66, %mmap_unlock_guard.exit, %if.end16, %if.then9, %entry
+  %retval.0 = phi i64 [ %retval.1, %mmap_unlock_guard.exit ], [ %conv4, %entry ], [ -22, %if.then9 ], [ -22, %if.end16 ], [ %raddr.038, %if.then66 ], [ %raddr.038, %for.end ]
   ret i64 %retval.0
 }
 
@@ -2337,13 +2337,13 @@ if.end.i.i:                                       ; preds = %cleanup
   %dec.i.i = add nsw i32 %8, -1
   store i32 %dec.i.i, ptr %0, align 4
   %cmp1.i.i = icmp eq i32 %dec.i.i, 0
-  br i1 %cmp1.i.i, label %if.then2.i.i, label %mmap_unlock_guard.argprom.exit
+  br i1 %cmp1.i.i, label %if.then2.i.i, label %mmap_unlock_guard.exit
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
   %call.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mmap_mutex) #14
-  br label %mmap_unlock_guard.argprom.exit
+  br label %mmap_unlock_guard.exit
 
-mmap_unlock_guard.argprom.exit:                   ; preds = %if.end.i.i, %if.then2.i.i
+mmap_unlock_guard.exit:                           ; preds = %if.end.i.i, %if.then2.i.i
   ret i64 %cmp25
 }
 

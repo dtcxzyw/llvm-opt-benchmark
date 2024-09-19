@@ -1078,7 +1078,7 @@ sub_0:                                            ; preds = %.lr.ph137, %266
   br label %327
 
 327:                                              ; preds = %326, %325
-  %328 = call fastcc zeroext i1 @CreateOptsFile.argprom(i32 noundef %0, ptr noundef nonnull %1)
+  %328 = call fastcc zeroext i1 @CreateOptsFile(i32 noundef %0, ptr noundef nonnull %1)
   br i1 %328, label %330, label %329
 
 329:                                              ; preds = %327
@@ -1162,7 +1162,7 @@ sub_0:                                            ; preds = %.lr.ph137, %266
   store i32 1, ptr @StartupStatus, align 4
   store i32 1, ptr @pmState, align 4
   call fastcc void @maybe_start_bgworkers()
-  call fastcc void @ServerLoop.retelim()
+  call fastcc void @ServerLoop()
   unreachable
 }
 
@@ -1446,7 +1446,7 @@ declare zeroext i1 @SplitDirectoriesString(ptr noundef, i8 noundef signext, ptr 
 declare void @list_free_deep(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @CreateOptsFile.argprom(i32 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @CreateOptsFile(i32 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
   %3 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.164, ptr noundef nonnull @.str.52)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
@@ -1907,7 +1907,7 @@ bgworker_should_start_now.exit:                   ; preds = %43, %42, %41, %37, 
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @ServerLoop.retelim() unnamed_addr #0 {
+define internal fastcc void @ServerLoop() unnamed_addr #0 {
   %1 = alloca [1024 x i8], align 16
   %2 = alloca [1024 x i8], align 16
   %3 = alloca [1024 x i8], align 16
@@ -3832,13 +3832,13 @@ canAcceptConnections.exit.i.i:                    ; preds = %CountChildren.exit.
   %809 = getelementptr inbounds i8, ptr %797, i64 24
   %810 = load ptr, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
   %811 = icmp eq ptr %810, null
-  br i1 %811, label %812, label %dlist_push_head.argprom.exit.i.i
+  br i1 %811, label %812, label %dlist_push_head.exit.i.i
 
 812:                                              ; preds = %807
   store ptr @BackendList, ptr @BackendList, align 8
-  br label %dlist_push_head.argprom.exit.i.i
+  br label %dlist_push_head.exit.i.i
 
-dlist_push_head.argprom.exit.i.i:                 ; preds = %812, %807
+dlist_push_head.exit.i.i:                         ; preds = %812, %807
   %813 = phi ptr [ @BackendList, %812 ], [ %810, %807 ]
   %814 = getelementptr inbounds i8, ptr %797, i64 32
   store ptr %813, ptr %814, align 8
@@ -3873,7 +3873,7 @@ canAcceptConnections.exit.thread.i.i:             ; preds = %820, %818, %815, %C
   store i1 true, ptr @avlauncher_needs_signal, align 1
   br label %StartAutovacuumWorker.exit.i
 
-StartAutovacuumWorker.exit.i:                     ; preds = %824, %canAcceptConnections.exit.thread.i.i, %dlist_push_head.argprom.exit.i.i, %793, %791, %765
+StartAutovacuumWorker.exit.i:                     ; preds = %824, %canAcceptConnections.exit.thread.i.i, %dlist_push_head.exit.i.i, %793, %791, %765
   %825 = call zeroext i1 @CheckPostmasterSignal(i32 noundef 6) #25
   br i1 %825, label %826, label %MaybeStartWalReceiver.exit.i
 
@@ -4206,13 +4206,13 @@ report_fork_failure_to_client.exit.i:             ; preds = %962, %.preheader.i.
   %972 = getelementptr inbounds i8, ptr %880, i64 24
   %973 = load ptr, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
   %974 = icmp eq ptr %973, null
-  br i1 %974, label %975, label %dlist_push_head.argprom.exit.i
+  br i1 %974, label %975, label %dlist_push_head.exit.i
 
 975:                                              ; preds = %970
   store ptr @BackendList, ptr @BackendList, align 8
-  br label %dlist_push_head.argprom.exit.i
+  br label %dlist_push_head.exit.i
 
-dlist_push_head.argprom.exit.i:                   ; preds = %975, %970
+dlist_push_head.exit.i:                           ; preds = %975, %970
   %976 = phi ptr [ @BackendList, %975 ], [ %973, %970 ]
   %977 = getelementptr inbounds i8, ptr %880, i64 32
   store ptr %976, ptr %977, align 8
@@ -4221,7 +4221,7 @@ dlist_push_head.argprom.exit.i:                   ; preds = %975, %970
   store ptr %972, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
   br label %BackendStartup.exit
 
-BackendStartup.exit:                              ; preds = %881, %883, %888, %890, %report_fork_failure_to_client.exit.i, %dlist_push_head.argprom.exit.i
+BackendStartup.exit:                              ; preds = %881, %883, %888, %890, %report_fork_failure_to_client.exit.i, %dlist_push_head.exit.i
   %978 = load i32, ptr %869, align 8
   br label %.sink.split.sink.split
 
@@ -5206,7 +5206,7 @@ thread-pre-split:                                 ; preds = %CountChildren.exit
 
 25:                                               ; preds = %24, %.thread
   tail call void @ForgetUnstartedBackgroundWorkers() #25
-  tail call fastcc void @SignalSomeChildren.retelim(i32 noundef 15, i32 noundef 11)
+  tail call fastcc void @SignalSomeChildren(i32 noundef 15, i32 noundef 11)
   %26 = load i32, ptr @AutoVacPID, align 4
   %.not41 = icmp eq i32 %26, 0
   br i1 %.not41, label %28, label %27
@@ -5399,7 +5399,7 @@ thread-pre-split86.thread:                        ; preds = %93, %thread-pre-spl
 96:                                               ; preds = %thread-pre-split86
   store i1 true, ptr @FatalError, align 1
   store i32 9, ptr @pmState, align 4
-  tail call fastcc void @SignalSomeChildren.retelim(i32 noundef 3, i32 noundef 15)
+  tail call fastcc void @SignalSomeChildren(i32 noundef 3, i32 noundef 15)
   %97 = load i32, ptr @PgArchPID, align 4
   %.not51 = icmp eq i32 %97, 0
   br i1 %.not51, label %.thread82.thread, label %98
@@ -5625,7 +5625,7 @@ declare void @SetQuitSignalReason(i32 noundef) local_unnamed_addr #3
 declare void @ForgetUnstartedBackgroundWorkers() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @SignalSomeChildren.retelim(i32 noundef range(i32 1, 16) %0, i32 noundef range(i32 11, 16) %1) unnamed_addr #1 {
+define internal fastcc void @SignalSomeChildren(i32 noundef range(i32 1, 16) %0, i32 noundef range(i32 11, 16) %1) unnamed_addr #1 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
   %.not = icmp eq ptr %3, null
   %.not182124 = icmp eq ptr %3, @BackendList
@@ -6849,7 +6849,7 @@ define internal fastcc range(i32 -1, 1) i32 @ProcessStartupPacket(ptr noundef no
   %.val = load i32, ptr %58, align 4
   %59 = getelementptr i8, ptr %33, i64 8
   %.val90 = load i32, ptr %59, align 4
-  call fastcc void @processCancelRequest.argprom(i32 %.val, i32 %.val90)
+  call fastcc void @processCancelRequest(i32 %.val, i32 %.val90)
   br label %258
 
 60:                                               ; preds = %46
@@ -7269,7 +7269,7 @@ declare i32 @llvm.bswap.i32(i32) #16
 declare void @pq_endmsgread() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @processCancelRequest.argprom(i32 %.4.val, i32 %.8.val) unnamed_addr #1 {
+define internal fastcc void @processCancelRequest(i32 %.4.val, i32 %.8.val) unnamed_addr #1 {
   %1 = tail call i32 @llvm.bswap.i32(i32 %.4.val)
   %2 = tail call i32 @llvm.bswap.i32(i32 %.8.val)
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8

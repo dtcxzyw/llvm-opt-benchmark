@@ -87,7 +87,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.4, i64 noundef %0, i64 noundef %1) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 8:                                                ; preds = %4
@@ -99,7 +99,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul nsw i64 %1, %0
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.5, i64 noundef %13) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 15:                                               ; preds = %.thread, %8
@@ -133,7 +133,7 @@ define internal fastcc void @QuadTree_get_supernodes_internal(ptr noundef readon
   %.val = load i32, ptr %4, align 4
   %19 = load i32, ptr %5, align 4
   %.not.i = icmp slt i32 %.val, %19
-  br i1 %.not.i, label %check_or_realloc_arrays.argprom.exit, label %20
+  br i1 %.not.i, label %check_or_realloc_arrays.exit, label %20
 
 20:                                               ; preds = %18
   %21 = add nsw i32 %.val, 10
@@ -142,29 +142,29 @@ define internal fastcc void @QuadTree_get_supernodes_internal(ptr noundef readon
   %24 = sext i32 %23 to i64
   %25 = mul nsw i32 %21, %15
   %26 = sext i32 %25 to i64
-  %27 = tail call fastcc ptr @gv_recalloc.argelim(ptr noundef %22, i64 noundef %24, i64 noundef %26)
+  %27 = tail call fastcc ptr @gv_recalloc(ptr noundef %22, i64 noundef %24, i64 noundef %26)
   store ptr %27, ptr %6, align 8
   %28 = load ptr, ptr %7, align 8
   %29 = load i32, ptr %5, align 4
   %30 = sext i32 %29 to i64
   %31 = sext i32 %21 to i64
-  %32 = tail call fastcc ptr @gv_recalloc.argelim(ptr noundef %28, i64 noundef %30, i64 noundef %31)
+  %32 = tail call fastcc ptr @gv_recalloc(ptr noundef %28, i64 noundef %30, i64 noundef %31)
   store ptr %32, ptr %7, align 8
   %33 = load ptr, ptr %8, align 8
   %34 = load i32, ptr %5, align 4
   %35 = sext i32 %34 to i64
-  %36 = tail call fastcc ptr @gv_recalloc.argelim(ptr noundef %33, i64 noundef %35, i64 noundef %31)
+  %36 = tail call fastcc ptr @gv_recalloc(ptr noundef %33, i64 noundef %35, i64 noundef %31)
   store ptr %36, ptr %8, align 8
   store i32 %21, ptr %5, align 4
-  br label %check_or_realloc_arrays.argprom.exit
+  br label %check_or_realloc_arrays.exit
 
-check_or_realloc_arrays.argprom.exit:             ; preds = %18, %20
+check_or_realloc_arrays.exit:                     ; preds = %18, %20
   %37 = getelementptr inbounds i8, ptr %.091, i64 16
   %38 = load i32, ptr %37, align 8
   %.not84 = icmp eq i32 %38, %3
   br i1 %.not84, label %63, label %39
 
-39:                                               ; preds = %check_or_realloc_arrays.argprom.exit
+39:                                               ; preds = %check_or_realloc_arrays.exit
   %40 = getelementptr inbounds i8, ptr %.091, i64 8
   %41 = load ptr, ptr %40, align 8
   br i1 %17, label %.lr.ph, label %._crit_edge
@@ -203,7 +203,7 @@ check_or_realloc_arrays.argprom.exit:             ; preds = %18, %20
   store i32 %62, ptr %4, align 4
   br label %63
 
-63:                                               ; preds = %._crit_edge, %check_or_realloc_arrays.argprom.exit
+63:                                               ; preds = %._crit_edge, %check_or_realloc_arrays.exit
   %64 = getelementptr inbounds i8, ptr %.091, i64 32
   %.0 = load ptr, ptr %64, align 8
   %.not82 = icmp eq ptr %.0, null
@@ -238,7 +238,7 @@ check_or_realloc_arrays.argprom.exit:             ; preds = %18, %20
   %.val85 = load i32, ptr %4, align 4
   %77 = load i32, ptr %5, align 4
   %.not.i86 = icmp slt i32 %.val85, %77
-  br i1 %.not.i86, label %check_or_realloc_arrays.argprom.exit87, label %78
+  br i1 %.not.i86, label %check_or_realloc_arrays.exit87, label %78
 
 78:                                               ; preds = %76
   %79 = add nsw i32 %.val85, 10
@@ -247,27 +247,27 @@ check_or_realloc_arrays.argprom.exit:             ; preds = %18, %20
   %82 = sext i32 %81 to i64
   %83 = mul nsw i32 %79, %15
   %84 = sext i32 %83 to i64
-  %85 = tail call fastcc ptr @gv_recalloc.argelim(ptr noundef %80, i64 noundef %82, i64 noundef %84)
+  %85 = tail call fastcc ptr @gv_recalloc(ptr noundef %80, i64 noundef %82, i64 noundef %84)
   store ptr %85, ptr %6, align 8
   %86 = load ptr, ptr %7, align 8
   %87 = load i32, ptr %5, align 4
   %88 = sext i32 %87 to i64
   %89 = sext i32 %79 to i64
-  %90 = tail call fastcc ptr @gv_recalloc.argelim(ptr noundef %86, i64 noundef %88, i64 noundef %89)
+  %90 = tail call fastcc ptr @gv_recalloc(ptr noundef %86, i64 noundef %88, i64 noundef %89)
   store ptr %90, ptr %7, align 8
   %91 = load ptr, ptr %8, align 8
   %92 = load i32, ptr %5, align 4
   %93 = sext i32 %92 to i64
-  %94 = tail call fastcc ptr @gv_recalloc.argelim(ptr noundef %91, i64 noundef %93, i64 noundef %89)
+  %94 = tail call fastcc ptr @gv_recalloc(ptr noundef %91, i64 noundef %93, i64 noundef %89)
   store ptr %94, ptr %8, align 8
   store i32 %79, ptr %5, align 4
-  br label %check_or_realloc_arrays.argprom.exit87
+  br label %check_or_realloc_arrays.exit87
 
-check_or_realloc_arrays.argprom.exit87:           ; preds = %76, %78
+check_or_realloc_arrays.exit87:                   ; preds = %76, %78
   %95 = icmp sgt i32 %15, 0
   br i1 %95, label %.lr.ph98, label %._crit_edge99
 
-.lr.ph98:                                         ; preds = %check_or_realloc_arrays.argprom.exit87
+.lr.ph98:                                         ; preds = %check_or_realloc_arrays.exit87
   %96 = getelementptr inbounds i8, ptr %0, i64 40
   %wide.trip.count110 = zext nneg i32 %15 to i64
   br label %97
@@ -289,7 +289,7 @@ check_or_realloc_arrays.argprom.exit87:           ; preds = %76, %78
   %exitcond111.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count110
   br i1 %exitcond111.not, label %._crit_edge99, label %97
 
-._crit_edge99:                                    ; preds = %97, %check_or_realloc_arrays.argprom.exit87
+._crit_edge99:                                    ; preds = %97, %check_or_realloc_arrays.exit87
   %108 = getelementptr inbounds i8, ptr %0, i64 8
   %109 = load double, ptr %108, align 8
   %110 = load ptr, ptr %7, align 8
@@ -1079,7 +1079,7 @@ define noundef ptr @QuadTree_new_from_point_list(i32 noundef %0, i32 noundef %1,
 47:                                               ; preds = %._crit_edge
   %48 = load ptr, ptr @stderr, align 8
   %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str.5, i64 noundef 80) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 gv_alloc.exit.i:                                  ; preds = %._crit_edge
@@ -1148,7 +1148,7 @@ define noalias noundef ptr @QuadTree_new(i32 noundef %0, ptr nocapture noundef r
 7:                                                ; preds = %4
   %8 = load ptr, ptr @stderr, align 8
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.5, i64 noundef 80) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 gv_alloc.exit:                                    ; preds = %4
@@ -1277,7 +1277,7 @@ define noalias noundef ptr @QuadTree_new_in_quadrant(i32 noundef %0, ptr nocaptu
 8:                                                ; preds = %5
   %9 = load ptr, ptr @stderr, align 8
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.5, i64 noundef 80) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 gv_alloc.exit.i:                                  ; preds = %5
@@ -1372,7 +1372,7 @@ define internal fastcc noundef ptr @QuadTree_add_internal(ptr noundef returned %
 28:                                               ; preds = %._crit_edge177
   %29 = load ptr, ptr @stderr, align 8
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.5, i64 noundef 40) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 gv_alloc.exit.i:                                  ; preds = %._crit_edge177
@@ -1493,7 +1493,7 @@ QuadTree_get_quadrant.exit:                       ; preds = %.lr.ph.i129, %68
 92:                                               ; preds = %85
   %93 = load ptr, ptr @stderr, align 8
   %94 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %93, ptr noundef nonnull @.str.5, i64 noundef 80) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 gv_alloc.exit.i.i:                                ; preds = %85
@@ -1609,7 +1609,7 @@ QuadTree_get_quadrant.exit145:                    ; preds = %.lr.ph.i140, %122
 150:                                              ; preds = %143
   %151 = load ptr, ptr @stderr, align 8
   %152 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %151, ptr noundef nonnull @.str.5, i64 noundef 80) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 gv_alloc.exit.i.i146:                             ; preds = %143
@@ -1735,7 +1735,7 @@ QuadTree_new_in_quadrant.exit157:                 ; preds = %.lr.ph.i150, %QuadT
 208:                                              ; preds = %._crit_edge
   %209 = load ptr, ptr @stderr, align 8
   %210 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %209, ptr noundef nonnull @.str.5, i64 noundef 40) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 gv_alloc.exit.i158:                               ; preds = %._crit_edge
@@ -2312,7 +2312,7 @@ tailrecurse:                                      ; preds = %tailrecurse.loopexi
 }
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #5 {
+define internal fastcc void @graphviz_exit() unnamed_addr #5 {
   tail call void @exit(i32 noundef 1) #19
   unreachable
 }
@@ -2326,14 +2326,14 @@ declare void @exit(i32 noundef) local_unnamed_addr #7
 declare double @point_distance(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_recalloc.argelim(ptr nocapture noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1, i64 noundef range(i64 -2147483648, 2147483648) %2) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @gv_recalloc(ptr nocapture noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1, i64 noundef range(i64 -2147483648, 2147483648) %2) unnamed_addr #0 {
   %4 = icmp ugt i64 %2, 2305843009213693951
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.4, i64 noundef %2, i64 noundef 8) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 8:                                                ; preds = %3
@@ -2354,7 +2354,7 @@ define internal fastcc noalias noundef ptr @gv_recalloc.argelim(ptr nocapture no
 16:                                               ; preds = %13
   %17 = load ptr, ptr @stderr, align 8
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.5, i64 noundef %10) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 19:                                               ; preds = %13

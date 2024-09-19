@@ -687,9 +687,9 @@ lor.lhs.false.i:                                  ; preds = %for.body
 
 land.rhs.i:                                       ; preds = %lor.lhs.false.i, %for.body
   %cmp8.i = fcmp oeq float %r.sroa.0.4.vec.extract, %.val9
-  br i1 %cmp8.i, label %land.lhs.true, label %"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.argprom.exit"
+  br i1 %cmp8.i, label %land.lhs.true, label %"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.exit"
 
-"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.argprom.exit": ; preds = %land.rhs.i
+"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.exit": ; preds = %land.rhs.i
   %sub11.i = fsub float %r.sroa.0.4.vec.extract, %.val9
   %div13.i = fdiv float %sub11.i, %.val9
   %7 = tail call noundef float @llvm.fabs.f32(float %div13.i)
@@ -697,7 +697,7 @@ land.rhs.i:                                       ; preds = %lor.lhs.false.i, %f
   %cmp16.i = fcmp olt double %conv15.i, 1.000000e-03
   br i1 %cmp16.i, label %land.lhs.true, label %for.inc
 
-land.lhs.true:                                    ; preds = %land.rhs.i, %"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.argprom.exit"
+land.lhs.true:                                    ; preds = %land.rhs.i, %"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.exit"
   %g10 = getelementptr inbounds i8, ptr %4, i64 8
   %g10.val = load float, ptr %g10, align 4
   %8 = getelementptr i8, ptr %4, i64 12
@@ -715,9 +715,9 @@ lor.lhs.false.i17:                                ; preds = %land.lhs.true
 
 land.rhs.i22:                                     ; preds = %lor.lhs.false.i17, %land.lhs.true
   %cmp8.i23 = fcmp oeq float %g.sroa.0.4.vec.extract, %g10.val11
-  br i1 %cmp8.i23, label %land.lhs.true12, label %"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.argprom.exit29"
+  br i1 %cmp8.i23, label %land.lhs.true12, label %"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.exit29"
 
-"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.argprom.exit29": ; preds = %land.rhs.i22
+"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.exit29": ; preds = %land.rhs.i22
   %sub11.i25 = fsub float %g.sroa.0.4.vec.extract, %g10.val11
   %div13.i26 = fdiv float %sub11.i25, %g10.val11
   %10 = tail call noundef float @llvm.fabs.f32(float %div13.i26)
@@ -725,7 +725,7 @@ land.rhs.i22:                                     ; preds = %lor.lhs.false.i17, 
   %cmp16.i28 = fcmp olt double %conv15.i27, 1.000000e-03
   br i1 %cmp16.i28, label %land.lhs.true12, label %for.inc
 
-land.lhs.true12:                                  ; preds = %land.rhs.i22, %"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.argprom.exit29"
+land.lhs.true12:                                  ; preds = %land.rhs.i22, %"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.exit29"
   %b13 = getelementptr inbounds i8, ptr %4, i64 16
   %b13.val = load float, ptr %b13, align 4
   %11 = getelementptr i8, ptr %4, i64 20
@@ -743,9 +743,9 @@ lor.lhs.false.i31:                                ; preds = %land.lhs.true12
 
 land.rhs.i36:                                     ; preds = %lor.lhs.false.i31, %land.lhs.true12
   %cmp8.i37 = fcmp oeq float %b.sroa.0.4.vec.extract, %b13.val13
-  br i1 %cmp8.i37, label %land.lhs.true15, label %"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.argprom.exit43"
+  br i1 %cmp8.i37, label %land.lhs.true15, label %"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.exit43"
 
-"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.argprom.exit43": ; preds = %land.rhs.i36
+"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.exit43": ; preds = %land.rhs.i36
   %sub11.i39 = fsub float %b.sroa.0.4.vec.extract, %b13.val13
   %div13.i40 = fdiv float %sub11.i39, %b13.val13
   %13 = tail call noundef float @llvm.fabs.f32(float %div13.i40)
@@ -753,7 +753,7 @@ land.rhs.i36:                                     ; preds = %lor.lhs.false.i31, 
   %cmp16.i42 = fcmp olt double %conv15.i41, 1.000000e-03
   br i1 %cmp16.i42, label %land.lhs.true15, label %for.inc
 
-land.lhs.true15:                                  ; preds = %land.rhs.i36, %"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.argprom.exit43"
+land.lhs.true15:                                  ; preds = %land.rhs.i36, %"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.exit43"
   %w16 = getelementptr inbounds i8, ptr %4, i64 24
   %w16.val = load float, ptr %w16, align 4
   %14 = getelementptr i8, ptr %4, i64 28
@@ -771,9 +771,9 @@ lor.lhs.false.i45:                                ; preds = %land.lhs.true15
 
 land.rhs.i50:                                     ; preds = %lor.lhs.false.i45, %land.lhs.true15
   %cmp8.i51 = fcmp oeq float %w.sroa.0.4.vec.extract, %w16.val15
-  br i1 %cmp8.i51, label %return, label %"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.argprom.exit57"
+  br i1 %cmp8.i51, label %return, label %"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.exit57"
 
-"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.argprom.exit57": ; preds = %land.rhs.i50
+"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.exit57": ; preds = %land.rhs.i50
   %sub11.i53 = fsub float %w.sroa.0.4.vec.extract, %w16.val15
   %div13.i54 = fdiv float %sub11.i53, %w16.val15
   %16 = tail call noundef float @llvm.fabs.f32(float %div13.i54)
@@ -781,13 +781,13 @@ land.rhs.i50:                                     ; preds = %lor.lhs.false.i45, 
   %cmp16.i56 = fcmp olt double %conv15.i55, 1.000000e-03
   br i1 %cmp16.i56, label %return, label %for.inc
 
-for.inc:                                          ; preds = %lor.lhs.false.i45, %lor.lhs.false.i31, %lor.lhs.false.i17, %lor.lhs.false.i, %"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.argprom.exit", %"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.argprom.exit29", %"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.argprom.exit43", %"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.argprom.exit57"
+for.inc:                                          ; preds = %lor.lhs.false.i45, %lor.lhs.false.i31, %lor.lhs.false.i17, %lor.lhs.false.i, %"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.exit", %"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.exit29", %"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.exit43", %"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.exit57"
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx63, 8
   %cmp.not = icmp eq i64 %__begin1.0.add, 32
   br i1 %cmp.not, label %return, label %for.body
 
-return:                                           ; preds = %land.rhs.i50, %for.inc, %"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.argprom.exit57"
-  %retval.0 = phi ptr [ %4, %"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.argprom.exit57" ], [ null, %for.inc ], [ %4, %land.rhs.i50 ]
+return:                                           ; preds = %land.rhs.i50, %for.inc, %"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.exit57"
+  %retval.0 = phi ptr [ %4, %"_ZZN4pbrt13RGBColorSpace6LookupENS_6Point2IfEES2_S2_S2_ENK3$_0clERKS2_S5_.exit57" ], [ null, %for.inc ], [ %4, %land.rhs.i50 ]
   ret ptr %retval.0
 }
 

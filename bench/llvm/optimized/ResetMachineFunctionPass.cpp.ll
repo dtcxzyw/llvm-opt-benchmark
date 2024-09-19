@@ -218,7 +218,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_120ResetMachineFunction20run
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 16
   %7 = icmp ne i64 %6, 0
-  br i1 %7, label %8, label %_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_120ResetMachineFunction20runOnMachineFunctionERNS_15MachineFunctionEEUlvE_ED2Ev.argprom.exit
+  br i1 %7, label %8, label %_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_120ResetMachineFunction20runOnMachineFunctionERNS_15MachineFunctionEEUlvE_ED2Ev.exit
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 57
@@ -245,7 +245,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_120ResetMachineFunction20run
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load i8, ptr %21, align 8
   %23 = trunc i8 %22 to i1
-  br i1 %23, label %24, label %_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_120ResetMachineFunction20runOnMachineFunctionERNS_15MachineFunctionEEUlvE_ED2Ev.argprom.exit
+  br i1 %23, label %24, label %_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_120ResetMachineFunction20runOnMachineFunctionERNS_15MachineFunctionEEUlvE_ED2Ev.exit
 
 24:                                               ; preds = %13
   %25 = load ptr, ptr %1, align 8
@@ -258,9 +258,9 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_120ResetMachineFunction20run
   store ptr %25, ptr %28, align 8
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(136) %25) #10
   call void @_ZN4llvm11LLVMContext8diagnoseERKNS_14DiagnosticInfoE(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(13) %3) #10
-  br label %_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_120ResetMachineFunction20runOnMachineFunctionERNS_15MachineFunctionEEUlvE_ED2Ev.argprom.exit
+  br label %_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_120ResetMachineFunction20runOnMachineFunctionERNS_15MachineFunctionEEUlvE_ED2Ev.exit
 
-_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_120ResetMachineFunction20runOnMachineFunctionERNS_15MachineFunctionEEUlvE_ED2Ev.argprom.exit: ; preds = %2, %13, %24
+_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_120ResetMachineFunction20runOnMachineFunctionERNS_15MachineFunctionEEUlvE_ED2Ev.exit: ; preds = %2, %13, %24
   %30 = getelementptr inbounds i8, ptr %1, i64 32
   %.val.val.i = load ptr, ptr %30, align 8
   call void @_ZN4llvm19MachineRegisterInfo17clearVirtRegTypesEv(ptr noundef nonnull align 8 dereferenceable(512) %.val.val.i) #10

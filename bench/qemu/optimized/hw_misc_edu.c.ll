@@ -184,14 +184,14 @@ edu_check_range.exit:                             ; preds = %if.then4
   %opaque.val = load i64, ptr %9, align 8
   %and.i = and i64 %opaque.val, %8
   %cmp.not.i = icmp eq i64 %8, %and.i
-  br i1 %cmp.not.i, label %edu_clamp_addr.argprom.exit, label %if.then.i
+  br i1 %cmp.not.i, label %edu_clamp_addr.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %edu_check_range.exit
   %call.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i64 noundef %8, i64 noundef %and.i)
   %.pre42 = load i64, ptr %cnt, align 8
-  br label %edu_clamp_addr.argprom.exit
+  br label %edu_clamp_addr.exit
 
-edu_clamp_addr.argprom.exit:                      ; preds = %edu_check_range.exit, %if.then.i
+edu_clamp_addr.exit:                              ; preds = %edu_check_range.exit, %if.then.i
   %10 = phi i64 [ %3, %edu_check_range.exit ], [ %.pre42, %if.then.i ]
   %11 = getelementptr i8, ptr %opaque, i64 -259048
   %add.ptr = getelementptr i8, ptr %11, i64 %2
@@ -227,14 +227,14 @@ edu_check_range.exit32:                           ; preds = %if.else
   %opaque.val23 = load i64, ptr %19, align 8
   %and.i33 = and i64 %opaque.val23, %18
   %cmp.not.i34 = icmp eq i64 %18, %and.i33
-  br i1 %cmp.not.i34, label %edu_clamp_addr.argprom.exit38, label %if.then.i35
+  br i1 %cmp.not.i34, label %edu_clamp_addr.exit38, label %if.then.i35
 
 if.then.i35:                                      ; preds = %edu_check_range.exit32
   %call.i36 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i64 noundef %18, i64 noundef %and.i33)
   %.pre = load i64, ptr %cnt16, align 8
-  br label %edu_clamp_addr.argprom.exit38
+  br label %edu_clamp_addr.exit38
 
-edu_clamp_addr.argprom.exit38:                    ; preds = %edu_check_range.exit32, %if.then.i35
+edu_clamp_addr.exit38:                            ; preds = %edu_check_range.exit32, %if.then.i35
   %20 = phi i64 [ %13, %edu_check_range.exit32 ], [ %.pre, %if.then.i35 ]
   %21 = getelementptr i8, ptr %opaque, i64 -259048
   %add.ptr24 = getelementptr i8, ptr %21, i64 %12
@@ -244,7 +244,7 @@ edu_clamp_addr.argprom.exit38:                    ; preds = %edu_check_range.exi
   %call.i.i.i.i40 = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i39, i64 noundef %and.i33, i32 1, ptr noundef %add.ptr24, i64 noundef %20, i1 noundef zeroext true) #4
   br label %if.end28
 
-if.end28:                                         ; preds = %edu_clamp_addr.argprom.exit38, %edu_clamp_addr.argprom.exit
+if.end28:                                         ; preds = %edu_clamp_addr.exit38, %edu_clamp_addr.exit
   %22 = load i64, ptr %cmd, align 8
   %and31 = and i64 %22, -2
   store i64 %and31, ptr %cmd, align 8

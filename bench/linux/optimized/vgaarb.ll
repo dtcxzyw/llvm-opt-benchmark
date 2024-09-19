@@ -738,7 +738,7 @@ define dso_local void @vga_set_legacy_decoding(ptr noundef readnone %0, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__vga_set_legacy_decoding.argelim(ptr noundef nonnull readnone %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc void @__vga_set_legacy_decoding(ptr noundef nonnull readnone %0, i32 noundef %1) unnamed_addr #1 align 16 {
   %3 = and i32 %1, 3
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @vga_lock) #14
   br label %5
@@ -2002,7 +2002,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @vga_arb_write(ptr nocapt
 
 225:                                              ; preds = %221
   %226 = load i32, ptr %5, align 4
-  call fastcc void @__vga_set_legacy_decoding.argelim(ptr noundef nonnull %223, i32 noundef %226)
+  call fastcc void @__vga_set_legacy_decoding(ptr noundef nonnull %223, i32 noundef %226)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %141, %40, %20, %30, %33, %48, %71, %74, %91, %96, %101, %110, %111, %128, %131, %136, %156, %157, %213, %217, %221, %225, %215, %13, %4

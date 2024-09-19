@@ -1161,7 +1161,7 @@ proto_item_set_generated.exit:                    ; preds = %4, %10, %13
   %74 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 10) #5
   %75 = zext i16 %74 to i32
   %76 = add nuw nsw i32 %75, %73
-  call fastcc void @transaction_end.retelim(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %7, i8 noundef zeroext %68, i32 noundef %69, i32 noundef %71, i32 noundef %76)
+  call fastcc void @transaction_end(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %7, i8 noundef zeroext %68, i32 noundef %69, i32 noundef %71, i32 noundef %76)
   %77 = call i32 @tvb_captured_length(ptr noundef %0) #5
   ret i32 %77
 }
@@ -1273,7 +1273,7 @@ proto_item_set_generated.exit:                    ; preds = %4, %10, %13
   %79 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 10) #5
   %80 = zext i16 %79 to i32
   %81 = add nuw nsw i32 %80, %78
-  call fastcc void @transaction_end.retelim(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %7, i8 noundef zeroext %73, i32 noundef %74, i32 noundef %76, i32 noundef %81)
+  call fastcc void @transaction_end(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %7, i8 noundef zeroext %73, i32 noundef %74, i32 noundef %76, i32 noundef %81)
   %82 = call i32 @tvb_captured_length(ptr noundef %0) #5
   ret i32 %82
 }
@@ -1351,7 +1351,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare void @col_append_frame_number(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @transaction_end.retelim(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext range(i8 0, 2) %3, i32 noundef %4, i32 noundef range(i32 0, 65536) %5, i32 noundef range(i32 0, 131071) %6) unnamed_addr #0 {
+define internal fastcc void @transaction_end(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext range(i8 0, 2) %3, i32 noundef %4, i32 noundef range(i32 0, 65536) %5, i32 noundef range(i32 0, 131071) %6) unnamed_addr #0 {
   %8 = alloca [3 x %struct._wmem_tree_key_t], align 16
   %9 = alloca %struct.nstime_t, align 8
   %10 = alloca i32, align 4

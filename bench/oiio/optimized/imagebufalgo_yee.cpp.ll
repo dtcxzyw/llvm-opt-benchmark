@@ -1713,11 +1713,11 @@ _ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.i.i.i: ; preds = %la
 for.cond.cleanup.i.i.i:                           ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.i.i.i
   %8 = load ptr, ptr %m_tile.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %8, null
-  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_012_GLOBAL__N_113AdobeRGBToXYZERNS0_8ImageBufENS0_3ROIEiE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit", label %if.then.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_012_GLOBAL__N_113AdobeRGBToXYZERNS0_8ImageBufENS0_3ROIEiE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.cond.cleanup.i.i.i
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase12release_tileEv(ptr noundef nonnull align 8 dereferenceable(125) %a.i.i.i)
-          to label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_012_GLOBAL__N_113AdobeRGBToXYZERNS0_8ImageBufENS0_3ROIEiE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit" unwind label %terminate.lpad.i.i.i.i.i
+          to label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_012_GLOBAL__N_113AdobeRGBToXYZERNS0_8ImageBufENS0_3ROIEiE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit" unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %9 = landingpad { ptr, i32 }
@@ -1859,7 +1859,7 @@ if.end13.i.i.i.i:                                 ; preds = %if.then6.i.i.i.i, %
 for.cond.i.i.i.backedge:                          ; preds = %if.end13.i.i.i.i, %if.then10.i.i.i.i, %call.i.noexc.i.i, %if.then4.i.i.i, %if.else.i.i.i, %if.then2.i.i.i, %if.then.i.i.i
   br label %for.cond.i.i.i
 
-"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_012_GLOBAL__N_113AdobeRGBToXYZERNS0_8ImageBufENS0_3ROIEiE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %for.cond.cleanup.i.i.i, %if.then.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_012_GLOBAL__N_113AdobeRGBToXYZERNS0_8ImageBufENS0_3ROIEiE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %for.cond.cleanup.i.i.i, %if.then.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %a.i.i.i)
   ret void
@@ -1996,11 +1996,11 @@ _ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.i.i.i: ; preds = %la
 for.cond.cleanup.i.i.i:                           ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.i.i.i
   %8 = load ptr, ptr %m_tile.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %8, null
-  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_012_GLOBAL__N_18XYZToLABERNS0_8ImageBufENS0_3ROIEiE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit", label %if.then.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_012_GLOBAL__N_18XYZToLABERNS0_8ImageBufENS0_3ROIEiE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.cond.cleanup.i.i.i
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase12release_tileEv(ptr noundef nonnull align 8 dereferenceable(125) %a.i.i.i)
-          to label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_012_GLOBAL__N_18XYZToLABERNS0_8ImageBufENS0_3ROIEiE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit" unwind label %terminate.lpad.i.i.i.i.i
+          to label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_012_GLOBAL__N_18XYZToLABERNS0_8ImageBufENS0_3ROIEiE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit" unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %9 = landingpad { ptr, i32 }
@@ -2190,7 +2190,7 @@ lpad.i.i.i:                                       ; preds = %if.end13.i.i.i.i, %
   call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %a.i.i.i) #17
   resume { ptr, i32 } %54
 
-"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_012_GLOBAL__N_18XYZToLABERNS0_8ImageBufENS0_3ROIEiE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %for.cond.cleanup.i.i.i, %if.then.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_012_GLOBAL__N_18XYZToLABERNS0_8ImageBufENS0_3ROIEiE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %for.cond.cleanup.i.i.i, %if.then.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %a.i.i.i)
   ret void

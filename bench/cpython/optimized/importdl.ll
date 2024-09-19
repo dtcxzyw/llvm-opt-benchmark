@@ -1142,14 +1142,14 @@ if.then58:                                        ; preds = %if.end55
 
 if.end60:                                         ; preds = %if.end55
   %cmp.i.not.i = icmp eq ptr %call41.val, @PyModuleDef_Type
-  br i1 %cmp.i.not.i, label %if.then63, label %PyObject_TypeCheck.argprom.exit
+  br i1 %cmp.i.not.i, label %if.then63, label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.argprom.exit:                  ; preds = %if.end60
+PyObject_TypeCheck.exit:                          ; preds = %if.end60
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef nonnull %call41.val, ptr noundef nonnull @PyModuleDef_Type) #2
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.end65, label %if.then63
 
-if.then63:                                        ; preds = %if.end60, %PyObject_TypeCheck.argprom.exit
+if.then63:                                        ; preds = %if.end60, %PyObject_TypeCheck.exit
   %22 = load i64, ptr %call, align 8
   %23 = and i64 %22, 2147483648
   %cmp.i168.not = icmp eq i64 %23, 0
@@ -1201,7 +1201,7 @@ Py_DECREF.exit123:                                ; preds = %Py_DECREF.exit132, 
   %call64 = tail call ptr @PyModule_FromDefAndSpec2(ptr noundef nonnull %call41, ptr noundef %spec, i32 noundef 1013) #2
   br label %return
 
-if.end65:                                         ; preds = %PyObject_TypeCheck.argprom.exit
+if.end65:                                         ; preds = %PyObject_TypeCheck.exit
   %call66 = tail call i32 @_PyImport_CheckSubinterpIncompatibleExtensionAllowed(ptr noundef nonnull %ob_sval.i) #2
   %cmp67 = icmp slt i32 %call66, 0
   br i1 %cmp67, label %error, label %if.end69

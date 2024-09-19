@@ -154,7 +154,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %mac_algorithm = getelementptr inbounds i8, ptr %ssl, i64 708
   %1 = load i8, ptr %mac_algorithm, align 2
   %conv = zext i8 %1 to i32
-  %call = call fastcc i32 @DeriveKeyMsg.argprom.argelim(ptr noundef %ssl, ptr noundef %key, ptr noundef nonnull %secret, i32 noundef %conv)
+  %call = call fastcc i32 @DeriveKeyMsg(ptr noundef %ssl, ptr noundef %key, ptr noundef nonnull %secret, i32 noundef %conv)
   %cmp4.not = icmp eq i32 %call, 0
   br i1 %cmp4.not, label %do.end9, label %return
 
@@ -185,7 +185,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @DeriveKeyMsg.argprom.argelim(ptr nocapture noundef nonnull readonly %ssl, ptr noundef nonnull %output, ptr noundef %secret, i32 noundef range(i32 0, 256) %hashAlgo) unnamed_addr #0 {
+define internal fastcc i32 @DeriveKeyMsg(ptr nocapture noundef nonnull readonly %ssl, ptr noundef nonnull %output, ptr noundef %secret, i32 noundef range(i32 0, 256) %hashAlgo) unnamed_addr #0 {
 entry:
   %hash = alloca [64 x i8], align 16
   %digest = alloca %union.Digest, align 16
@@ -286,7 +286,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %mac_algorithm = getelementptr inbounds i8, ptr %ssl, i64 708
   %2 = load i8, ptr %mac_algorithm, align 2
   %conv = zext i8 %2 to i32
-  %call = call fastcc i32 @DeriveKeyMsg.argprom.argelim(ptr noundef %ssl, ptr noundef %key, ptr noundef %1, i32 noundef %conv)
+  %call = call fastcc i32 @DeriveKeyMsg(ptr noundef %ssl, ptr noundef %key, ptr noundef %1, i32 noundef %conv)
   %cmp3.not = icmp eq i32 %call, 0
   br i1 %cmp3.not, label %do.end8, label %return
 
@@ -1713,29 +1713,29 @@ if.end:                                           ; preds = %entry
   %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %hashes, i64 68
   %mac_algorithm.i = getelementptr inbounds i8, ptr %ssl, i64 708
   %0 = load i8, ptr %mac_algorithm.i, align 2
-  switch i8 %0, label %CreateCookie.argprom.exit [
+  switch i8 %0, label %CreateCookie.exit [
     i8 4, label %sw.epilog.sink.split.i
-    i8 5, label %CreateCookie.argprom.exit.thread
+    i8 5, label %CreateCookie.exit.thread
   ]
 
 sw.epilog.sink.split.i:                           ; preds = %if.end
-  br label %CreateCookie.argprom.exit.thread
+  br label %CreateCookie.exit.thread
 
-CreateCookie.argprom.exit.thread:                 ; preds = %sw.epilog.sink.split.i, %if.end
+CreateCookie.exit.thread:                         ; preds = %sw.epilog.sink.split.i, %if.end
   %hash.0.ph = phi ptr [ %.sink.i.sroa.gep16, %sw.epilog.sink.split.i ], [ %.sink.i.sroa.gep, %if.end ]
   %hash_size.i18 = getelementptr inbounds i8, ptr %ssl, i64 711
   %1 = load i8, ptr %hash_size.i18, align 1
   br label %if.end4
 
-CreateCookie.argprom.exit:                        ; preds = %if.end
+CreateCookie.exit:                                ; preds = %if.end
   %hash_size.i = getelementptr inbounds i8, ptr %ssl, i64 711
   %2 = load i8, ptr %hash_size.i, align 1
   %cmp6.not.i = icmp eq i8 %2, 0
   br i1 %cmp6.not.i, label %if.end4, label %return
 
-if.end4:                                          ; preds = %CreateCookie.argprom.exit.thread, %CreateCookie.argprom.exit
-  %3 = phi i8 [ %1, %CreateCookie.argprom.exit.thread ], [ 0, %CreateCookie.argprom.exit ]
-  %hash.023 = phi ptr [ %hash.0.ph, %CreateCookie.argprom.exit.thread ], [ null, %CreateCookie.argprom.exit ]
+if.end4:                                          ; preds = %CreateCookie.exit.thread, %CreateCookie.exit
+  %3 = phi i8 [ %1, %CreateCookie.exit.thread ], [ 0, %CreateCookie.exit ]
+  %hash.023 = phi ptr [ %hash.0.ph, %CreateCookie.exit.thread ], [ null, %CreateCookie.exit ]
   %conv = zext i8 %3 to i32
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %header, i64 3
   store i8 %3, ptr %arrayidx7.i.i, align 1
@@ -1752,8 +1752,8 @@ if.end15:                                         ; preds = %if.end9
   %call17 = call i32 @HashRaw(ptr noundef nonnull %ssl, ptr noundef %hash.023, i32 noundef %conv) #11
   br label %return
 
-return:                                           ; preds = %if.end9, %if.end4, %CreateCookie.argprom.exit, %entry, %if.end15
-  %retval.0 = phi i32 [ %call17, %if.end15 ], [ %call, %entry ], [ -173, %CreateCookie.argprom.exit ], [ %call5, %if.end4 ], [ %call11, %if.end9 ]
+return:                                           ; preds = %if.end9, %if.end4, %CreateCookie.exit, %entry, %if.end15
+  %retval.0 = phi i32 [ %call17, %if.end15 ], [ %call, %entry ], [ -173, %CreateCookie.exit ], [ %call5, %if.end4 ], [ %call11, %if.end9 ]
   ret i32 %retval.0
 }
 
@@ -2531,7 +2531,7 @@ entry:
   store i8 0, ptr %asyncState, align 4
   %0 = load i32, ptr %inOutIdx, align 4
   %cmp = icmp ult i32 %helloSz, 35
-  br i1 %cmp, label %FreeDch13Args.argprom.exit, label %if.end
+  br i1 %cmp, label %FreeDch13Args.exit, label %if.end
 
 if.end:                                           ; preds = %entry
   %idx.ext = zext i32 %0 to i64
@@ -2544,7 +2544,7 @@ if.end:                                           ; preds = %entry
   store i16 %1, ptr %chVersion, align 8
   %add = add i32 %0, 2
   %cmp20 = icmp ult i8 %args.sroa.0.sroa.0.0.extract.trunc, 3
-  br i1 %cmp20, label %FreeDch13Args.argprom.exit, label %if.end25
+  br i1 %cmp20, label %FreeDch13Args.exit, label %if.end25
 
 if.end25:                                         ; preds = %if.end
   %dtls = getelementptr inbounds i8, ptr %ssl, i64 1008
@@ -2650,12 +2650,12 @@ if.end51.i:                                       ; preds = %if.end46.i
 
 DoTls13SupportedVersions.exit.thread:             ; preds = %if.then79, %if.end.i, %if.end9.i, %if.end17.i, %if.then33.i, %if.end38.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %foundVersion.i)
-  br label %FreeDch13Args.argprom.exit
+  br label %FreeDch13Args.exit
 
 DoTls13SupportedVersions.exit:                    ; preds = %if.end46.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %foundVersion.i)
   %cmp88 = icmp slt i32 %call.i, 0
-  br i1 %cmp88, label %FreeDch13Args.argprom.exit, label %if.end163
+  br i1 %cmp88, label %FreeDch13Args.exit, label %if.end163
 
 if.end92.thread173:                               ; preds = %if.end28.i, %if.end51.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %foundVersion.i)
@@ -2674,7 +2674,7 @@ if.then94:                                        ; preds = %if.then69, %if.then
   %bf.load96 = load i64, ptr %dtls, align 8
   %9 = and i64 %bf.load96, 1024
   %tobool100.not = icmp eq i64 %9, 0
-  br i1 %tobool100.not, label %FreeDch13Args.argprom.exit, label %if.end104
+  br i1 %tobool100.not, label %FreeDch13Args.exit, label %if.end104
 
 if.end104:                                        ; preds = %if.then94
   %10 = and i64 %bf.load96, 262144
@@ -2685,11 +2685,11 @@ if.end104:                                        ; preds = %if.then94
 
 land.lhs.true112:                                 ; preds = %if.end104
   %cmp119 = icmp ult i8 %args.sroa.0.sroa.4.0153167, %11
-  br i1 %cmp119, label %FreeDch13Args.argprom.exit, label %if.end143
+  br i1 %cmp119, label %FreeDch13Args.exit, label %if.end143
 
 land.lhs.true130:                                 ; preds = %if.end104
   %cmp138 = icmp ugt i8 %args.sroa.0.sroa.4.0153167, %11
-  br i1 %cmp138, label %FreeDch13Args.argprom.exit, label %if.end143
+  br i1 %cmp138, label %FreeDch13Args.exit, label %if.end143
 
 if.end143:                                        ; preds = %land.lhs.true112, %land.lhs.true130
   %minor145 = getelementptr inbounds i8, ptr %ssl, i64 695
@@ -2698,11 +2698,11 @@ if.end143:                                        ; preds = %land.lhs.true112, %
   %call155 = call i32 @HashInput(ptr noundef nonnull %ssl, ptr noundef nonnull %add.ptr, i32 noundef %helloSz) #11
   store i8 %12, ptr %minor145, align 1
   %cmp158 = icmp eq i32 %call155, 0
-  br i1 %cmp158, label %if.then160, label %FreeDch13Args.argprom.exit
+  br i1 %cmp158, label %if.then160, label %FreeDch13Args.exit
 
 if.then160:                                       ; preds = %if.end143
   %call161 = call i32 @DoClientHello(ptr noundef nonnull %ssl, ptr noundef nonnull %input, ptr noundef nonnull %inOutIdx, i32 noundef %helloSz) #11
-  br label %FreeDch13Args.argprom.exit
+  br label %FreeDch13Args.exit
 
 if.end163:                                        ; preds = %DoTls13SupportedVersions.exit, %if.end92
   %arrays = getelementptr inbounds i8, ptr %ssl, i64 16
@@ -2717,13 +2717,13 @@ if.end163:                                        ; preds = %DoTls13SupportedVer
   %arrayidx = getelementptr inbounds i8, ptr %input, i64 %idxprom
   %14 = load i8, ptr %arrayidx, align 1
   %cmp175 = icmp ugt i8 %14, 32
-  br i1 %cmp175, label %FreeDch13Args.argprom.exit, label %if.end178
+  br i1 %cmp175, label %FreeDch13Args.exit, label %if.end178
 
 if.end178:                                        ; preds = %if.end163
   %conv174 = zext nneg i8 %14 to i32
   %add182 = add i32 %inc, %conv174
   %cmp183 = icmp ugt i32 %add182, %helloSz
-  br i1 %cmp183, label %FreeDch13Args.argprom.exit, label %if.end186
+  br i1 %cmp183, label %FreeDch13Args.exit, label %if.end186
 
 if.end186:                                        ; preds = %if.end178
   %session = getelementptr inbounds i8, ptr %ssl, i64 608
@@ -2745,7 +2745,7 @@ if.then190:                                       ; preds = %if.end186
 if.end198:                                        ; preds = %if.then190, %if.end186
   %call203 = call ptr @wolfSSL_Malloc(i64 noundef 344) #11
   %cmp207 = icmp eq ptr %call203, null
-  br i1 %cmp207, label %FreeDch13Args.argprom.exit, label %if.end210
+  br i1 %cmp207, label %FreeDch13Args.exit, label %if.end210
 
 if.end210:                                        ; preds = %if.end198
   %add216 = add nuw nsw i32 %conv174, 37
@@ -2897,9 +2897,9 @@ if.end475:                                        ; preds = %if.then467
 if.then4.i:                                       ; preds = %if.end210, %if.end237, %if.end260, %if.end315, %if.end334, %if.end396, %if.end403, %if.then418, %if.end475, %if.then467, %if.end372, %if.end367, %if.end357, %if.end352, %if.end303, %if.end296, %if.end220
   %ret.7.ph = phi i32 [ -501, %if.then467 ], [ -310, %if.end403 ], [ -310, %if.end396 ], [ -328, %if.end334 ], [ -328, %if.end315 ], [ -425, %if.end303 ], [ -425, %if.end296 ], [ -328, %if.end260 ], [ -328, %if.end237 ], [ -425, %if.end220 ], [ -328, %if.end210 ], [ %call392, %if.end372 ], [ %call368, %if.end367 ], [ %call364, %if.end357 ], [ %call353, %if.end352 ], [ %call421, %if.then418 ], [ %call476, %if.end475 ]
   call void @wolfSSL_Free(ptr noundef nonnull %call203) #11
-  br label %FreeDch13Args.argprom.exit
+  br label %FreeDch13Args.exit
 
-FreeDch13Args.argprom.exit:                       ; preds = %DoTls13SupportedVersions.exit, %if.then160, %if.end143, %entry, %if.end, %if.then94, %land.lhs.true130, %land.lhs.true112, %if.end163, %if.end178, %if.end198, %DoTls13SupportedVersions.exit.thread, %if.then4.i
+FreeDch13Args.exit:                               ; preds = %DoTls13SupportedVersions.exit, %if.then160, %if.end143, %entry, %if.end, %if.then94, %land.lhs.true130, %land.lhs.true112, %if.end163, %if.end178, %if.end198, %DoTls13SupportedVersions.exit.thread, %if.then4.i
   %ret.7181 = phi i32 [ %ret.7.ph, %if.then4.i ], [ %call161, %if.then160 ], [ %call155, %if.end143 ], [ %call.i, %DoTls13SupportedVersions.exit ], [ -328, %entry ], [ -326, %if.end ], [ -326, %if.then94 ], [ -326, %land.lhs.true130 ], [ -326, %land.lhs.true112 ], [ -425, %if.end163 ], [ -328, %if.end178 ], [ -125, %if.end198 ], [ -328, %DoTls13SupportedVersions.exit.thread ]
   ret i32 %ret.7181
 }
@@ -2936,34 +2936,34 @@ if.end.i:                                         ; preds = %do.end5
   %.sink.i.sroa.gep.i = getelementptr inbounds i8, ptr %hashes.i, i64 68
   %mac_algorithm.i.i = getelementptr inbounds i8, ptr %ssl, i64 708
   %0 = load i8, ptr %mac_algorithm.i.i, align 2
-  switch i8 %0, label %CreateCookie.argprom.exit.i [
+  switch i8 %0, label %CreateCookie.exit.i [
     i8 4, label %sw.epilog.sink.split.i.i
-    i8 5, label %CreateCookie.argprom.exit.thread.i
+    i8 5, label %CreateCookie.exit.thread.i
   ]
 
 sw.epilog.sink.split.i.i:                         ; preds = %if.end.i
-  br label %CreateCookie.argprom.exit.thread.i
+  br label %CreateCookie.exit.thread.i
 
-CreateCookie.argprom.exit.thread.i:               ; preds = %sw.epilog.sink.split.i.i, %if.end.i
+CreateCookie.exit.thread.i:                       ; preds = %sw.epilog.sink.split.i.i, %if.end.i
   %hash.0.ph.i = phi ptr [ %.sink.i.sroa.gep16.i, %sw.epilog.sink.split.i.i ], [ %.sink.i.sroa.gep.i, %if.end.i ]
   %hash_size.i18.i = getelementptr inbounds i8, ptr %ssl, i64 711
   %1 = load i8, ptr %hash_size.i18.i, align 1
   br label %if.end4.i
 
-CreateCookie.argprom.exit.i:                      ; preds = %if.end.i
+CreateCookie.exit.i:                              ; preds = %if.end.i
   %hash_size.i.i = getelementptr inbounds i8, ptr %ssl, i64 711
   %2 = load i8, ptr %hash_size.i.i, align 1
   %cmp6.not.i.i = icmp eq i8 %2, 0
   br i1 %cmp6.not.i.i, label %if.end4.i, label %RestartHandshakeHash.exit.thread
 
-RestartHandshakeHash.exit.thread:                 ; preds = %CreateCookie.argprom.exit.i
+RestartHandshakeHash.exit.thread:                 ; preds = %CreateCookie.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %header.i)
   call void @llvm.lifetime.end.p0(i64 180, ptr nonnull %hashes.i)
   br label %return
 
-if.end4.i:                                        ; preds = %CreateCookie.argprom.exit.i, %CreateCookie.argprom.exit.thread.i
-  %3 = phi i8 [ %1, %CreateCookie.argprom.exit.thread.i ], [ 0, %CreateCookie.argprom.exit.i ]
-  %hash.023.i = phi ptr [ %hash.0.ph.i, %CreateCookie.argprom.exit.thread.i ], [ null, %CreateCookie.argprom.exit.i ]
+if.end4.i:                                        ; preds = %CreateCookie.exit.i, %CreateCookie.exit.thread.i
+  %3 = phi i8 [ %1, %CreateCookie.exit.thread.i ], [ 0, %CreateCookie.exit.i ]
+  %hash.023.i = phi ptr [ %hash.0.ph.i, %CreateCookie.exit.thread.i ], [ null, %CreateCookie.exit.i ]
   %conv.i = zext i8 %3 to i32
   %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %header.i, i64 3
   store i8 %3, ptr %arrayidx7.i.i.i, align 1
@@ -4744,14 +4744,14 @@ if.end297:                                        ; preds = %if.end67, %do.end28
   %sigData.i70 = getelementptr inbounds i8, ptr %args, i64 32
   %42 = load ptr, ptr %sigData.i70, align 16
   %cmp.not.i = icmp eq ptr %42, null
-  br i1 %cmp.not.i, label %FreeDcv13Args.argprom.exit, label %if.then3.i
+  br i1 %cmp.not.i, label %FreeDcv13Args.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end297
   call void @wolfSSL_Free(ptr noundef nonnull %42) #11
   store ptr null, ptr %sigData.i70, align 16
-  br label %FreeDcv13Args.argprom.exit
+  br label %FreeDcv13Args.exit
 
-FreeDcv13Args.argprom.exit:                       ; preds = %if.end297, %if.then3.i
+FreeDcv13Args.exit:                               ; preds = %if.end297, %if.then3.i
   call void @FreeKeyExchange(ptr noundef nonnull %ssl) #11
   call void @FreeAsyncCtx(ptr noundef nonnull %ssl, i8 noundef zeroext 0) #11
   ret i32 %ret.784
@@ -6184,20 +6184,20 @@ do.end350:                                        ; preds = %if.then217, %if.the
   %sigData.i = getelementptr inbounds i8, ptr %args, i64 32
   %57 = load ptr, ptr %sigData.i, align 16
   %tobool1.not.i = icmp eq ptr %57, null
-  br i1 %tobool1.not.i, label %FreeScv13Args.argprom.exit, label %if.then4.i
+  br i1 %tobool1.not.i, label %FreeScv13Args.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %do.end350
   call void @wolfSSL_Free(ptr noundef nonnull %57) #11
   store ptr null, ptr %sigData.i, align 16
-  br label %FreeScv13Args.argprom.exit
+  br label %FreeScv13Args.exit
 
-FreeScv13Args.argprom.exit:                       ; preds = %do.end350, %if.then4.i
+FreeScv13Args.exit:                               ; preds = %do.end350, %if.then4.i
   call void @FreeKeyExchange(ptr noundef nonnull %ssl) #11
   call void @FreeAsyncCtx(ptr noundef nonnull %ssl, i8 noundef zeroext 0) #11
   br label %return
 
-return:                                           ; preds = %entry, %FreeScv13Args.argprom.exit
-  %retval.0 = phi i32 [ %ret.7, %FreeScv13Args.argprom.exit ], [ 0, %entry ]
+return:                                           ; preds = %entry, %FreeScv13Args.exit
+  %retval.0 = phi i32 [ %ret.7, %FreeScv13Args.exit ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -7179,7 +7179,7 @@ if.then253:                                       ; preds = %sw.bb246
   br i1 %tobool259.not, label %if.else269, label %if.then260
 
 if.then260:                                       ; preds = %if.then253
-  %call261 = tail call fastcc i32 @SendTls13CertificateRequest.argprom.argelim(ptr noundef %ssl)
+  %call261 = tail call fastcc i32 @SendTls13CertificateRequest(ptr noundef %ssl)
   %error262 = getelementptr inbounds i8, ptr %ssl, i64 648
   store i32 %call261, ptr %error262, align 8
   %cmp264.not = icmp eq i32 %call261, 0
@@ -7357,7 +7357,7 @@ if.end.i:                                         ; preds = %if.end
   %mac_algorithm.i = getelementptr inbounds i8, ptr %ssl, i64 708
   %1 = load i8, ptr %mac_algorithm.i, align 2
   %conv.i = zext i8 %1 to i32
-  %call.i = call fastcc i32 @DeriveKeyMsg.argprom.argelim(ptr noundef readonly %ssl, ptr noundef %key.i, ptr noundef nonnull %secret.i, i32 noundef %conv.i)
+  %call.i = call fastcc i32 @DeriveKeyMsg(ptr noundef readonly %ssl, ptr noundef %key.i, ptr noundef nonnull %secret.i, i32 noundef %conv.i)
   %cmp4.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp4.not.i, label %DeriveHandshakeSecret.exit, label %DeriveHandshakeSecret.exit.thread
 
@@ -7479,7 +7479,7 @@ return:                                           ; preds = %DeriveHandshakeSecr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @SendTls13CertificateRequest.argprom.argelim(ptr noundef nonnull %ssl) unnamed_addr #0 {
+define internal fastcc i32 @SendTls13CertificateRequest(ptr noundef nonnull %ssl) unnamed_addr #0 {
 entry:
   %reqSz = alloca i16, align 2
   %hashSigAlgoSz = alloca i16, align 2

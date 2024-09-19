@@ -340,17 +340,17 @@ set_winsize.exit:                                 ; preds = %41, %43, %48
   %55 = call i64 @slurm_write_stream(i32 noundef %9, ptr noundef nonnull %2, i64 noundef 4) #6
   %56 = and i64 %55, 4294967292
   %57 = icmp eq i64 %56, 0
-  br i1 %57, label %58, label %_notify_winsize_change.argprom.exit
+  br i1 %57, label %58, label %_notify_winsize_change.exit
 
 58:                                               ; preds = %set_winsize.exit
   %59 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.15) #6
-  br label %_notify_winsize_change.argprom.exit
+  br label %_notify_winsize_change.exit
 
-_notify_winsize_change.argprom.exit:              ; preds = %set_winsize.exit, %58
+_notify_winsize_change.exit:                      ; preds = %set_winsize.exit, %58
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   br label %60
 
-60:                                               ; preds = %_notify_winsize_change.argprom.exit, %38
+60:                                               ; preds = %_notify_winsize_change.exit, %38
   store i1 false, ptr @winch, align 4
   br label %.backedge
 

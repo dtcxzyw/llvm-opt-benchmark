@@ -10702,19 +10702,19 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %16, %
   %76 = getelementptr i8, ptr %.val, i64 12
   %77 = load float, ptr %76, align 4
   %78 = fcmp oeq float %77, 0.000000e+00
-  br i1 %78, label %79, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %78, label %79, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
 79:                                               ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
   %80 = getelementptr i8, ptr %.val, i64 24
   %81 = load float, ptr %80, align 4
   %82 = fcmp oeq float %81, 0.000000e+00
-  br i1 %82, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %82, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread: ; preds = %79, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread: ; preds = %79, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
   store i8 0, ptr %8, align 1
   br label %93
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %79
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %79
   %83 = getelementptr i8, ptr %.val, i64 28
   %84 = load float, ptr %83, align 4
   %85 = fcmp oeq float %84, 0.000000e+00
@@ -10722,7 +10722,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store i8 %86, ptr %8, align 1
   br i1 %85, label %87, label %93
 
-87:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
+87:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %88 = load float, ptr %.val, align 4
   %89 = getelementptr i8, ptr %.val, i64 16
   %90 = load float, ptr %89, align 4
@@ -10735,7 +10735,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store float %92, ptr %.sroa.2.0..sroa_idx, align 8
   br label %93
 
-93:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread, %87
+93:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread, %87
   %94 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
   store i32 %94, ptr %10, align 4
   %95 = load ptr, ptr %57, align 8
@@ -10865,8 +10865,8 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   %38 = sext i32 %35 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
-  %indvars.iv = phi i64 [ %38, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
+  %indvars.iv = phi i64 [ %38, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ]
   %39 = load i8, ptr %4, align 1
   %40 = trunc i8 %39 to i1
   %41 = load float, ptr %29, align 8
@@ -10901,7 +10901,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   store float %61, ptr %52, align 4, !alias.scope !134, !noalias !137
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %48, !llvm.loop !140
+  br i1 %exitcond.not.i, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %48, !llvm.loop !140
 
 62:                                               ; preds = %31
   %63 = landingpad { ptr, i32 }
@@ -10980,20 +10980,20 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   store float %103, ptr %91, align 4, !alias.scope !141, !noalias !144
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
   %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, 3
-  br i1 %exitcond.not.i33, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %90, !llvm.loop !148
+  br i1 %exitcond.not.i33, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %90, !llvm.loop !148
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %90
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %90
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14)
-  br label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
+  br label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %48, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %48, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %104 = load i32, ptr %20, align 4
   %105 = sext i32 %104 to i64
   %106 = icmp slt i64 %indvars.iv.next, %105
   br i1 %106, label %.lr.ph, label %._crit_edge, !llvm.loop !149
 
-._crit_edge:                                      ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, %34
+._crit_edge:                                      ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %34
   %107 = add nsw i32 %.036, 1
   %108 = load i32, ptr %16, align 4
   %.not.not = icmp slt i32 %.036, %108
@@ -11148,19 +11148,19 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %16, %
   %73 = getelementptr i8, ptr %.val, i64 12
   %74 = load float, ptr %73, align 4
   %75 = fcmp oeq float %74, 0.000000e+00
-  br i1 %75, label %76, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %75, label %76, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
 76:                                               ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
   %77 = getelementptr i8, ptr %.val, i64 24
   %78 = load float, ptr %77, align 4
   %79 = fcmp oeq float %78, 0.000000e+00
-  br i1 %79, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %79, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread: ; preds = %76, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread: ; preds = %76, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
   store i8 0, ptr %8, align 1
   br label %90
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %76
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %76
   %80 = getelementptr i8, ptr %.val, i64 28
   %81 = load float, ptr %80, align 4
   %82 = fcmp oeq float %81, 0.000000e+00
@@ -11168,7 +11168,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store i8 %83, ptr %8, align 1
   br i1 %82, label %84, label %90
 
-84:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
+84:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %85 = load float, ptr %.val, align 4
   %86 = getelementptr i8, ptr %.val, i64 16
   %87 = load float, ptr %86, align 4
@@ -11181,7 +11181,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store float %89, ptr %.sroa.2.0..sroa_idx, align 8
   br label %90
 
-90:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread, %84
+90:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread, %84
   %91 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
   store i32 %91, ptr %10, align 4
   %92 = load ptr, ptr %57, align 8
@@ -11307,8 +11307,8 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   %38 = sext i32 %35 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
-  %indvars.iv = phi i64 [ %38, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
+  %indvars.iv = phi i64 [ %38, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ]
   %39 = load i8, ptr %4, align 1
   %40 = trunc i8 %39 to i1
   %41 = load float, ptr %29, align 8
@@ -11341,7 +11341,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   store float %59, ptr %51, align 4, !alias.scope !150, !noalias !153
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %47, !llvm.loop !156
+  br i1 %exitcond.not.i, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %47, !llvm.loop !156
 
 60:                                               ; preds = %31
   %61 = landingpad { ptr, i32 }
@@ -11419,20 +11419,20 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   store float %100, ptr %89, align 4, !alias.scope !157, !noalias !160
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
   %exitcond.not.i32 = icmp eq i64 %indvars.iv.next.i31, 3
-  br i1 %exitcond.not.i32, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %88, !llvm.loop !163
+  br i1 %exitcond.not.i32, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %88, !llvm.loop !163
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %88
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %88
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14)
-  br label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
+  br label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %47, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %47, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %101 = load i32, ptr %20, align 4
   %102 = sext i32 %101 to i64
   %103 = icmp slt i64 %indvars.iv.next, %102
   br i1 %103, label %.lr.ph, label %._crit_edge, !llvm.loop !164
 
-._crit_edge:                                      ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, %34
+._crit_edge:                                      ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %34
   %104 = add nsw i32 %.035, 1
   %105 = load i32, ptr %16, align 4
   %.not.not = icmp slt i32 %.035, %105
@@ -11706,8 +11706,8 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   %35 = sext i32 %32 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
-  %indvars.iv = phi i64 [ %35, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
+  %indvars.iv = phi i64 [ %35, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ]
   %36 = load i8, ptr %4, align 1
   %37 = trunc i8 %36 to i1
   %38 = load float, ptr %27, align 8
@@ -11742,7 +11742,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   store float %58, ptr %49, align 4, !alias.scope !165, !noalias !168
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %45, !llvm.loop !140
+  br i1 %exitcond.not.i, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %45, !llvm.loop !140
 
 59:                                               ; preds = %28
   %60 = landingpad { ptr, i32 }
@@ -11782,16 +11782,16 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   store float %79, ptr %70, align 4, !alias.scope !171, !noalias !174
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
   %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, 3
-  br i1 %exitcond.not.i33, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %69, !llvm.loop !177
+  br i1 %exitcond.not.i33, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %69, !llvm.loop !177
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %69, %45
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %69, %45
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %80 = load i32, ptr %18, align 4
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next, %81
   br i1 %82, label %.lr.ph, label %._crit_edge, !llvm.loop !178
 
-._crit_edge:                                      ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, %31
+._crit_edge:                                      ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %31
   %83 = add nsw i32 %.037, 1
   %84 = load i32, ptr %14, align 4
   %.not.not = icmp slt i32 %.037, %84
@@ -12062,8 +12062,8 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   %35 = sext i32 %32 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
-  %indvars.iv = phi i64 [ %35, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
+  %indvars.iv = phi i64 [ %35, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ]
   %36 = load i8, ptr %4, align 1
   %37 = trunc i8 %36 to i1
   %38 = load float, ptr %27, align 8
@@ -12096,7 +12096,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   store float %56, ptr %48, align 4, !alias.scope !179, !noalias !182
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %44, !llvm.loop !156
+  br i1 %exitcond.not.i, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %44, !llvm.loop !156
 
 57:                                               ; preds = %28
   %58 = landingpad { ptr, i32 }
@@ -12135,16 +12135,16 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   store float %76, ptr %68, align 4, !alias.scope !185, !noalias !188
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
   %exitcond.not.i32 = icmp eq i64 %indvars.iv.next.i31, 3
-  br i1 %exitcond.not.i32, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %67, !llvm.loop !191
+  br i1 %exitcond.not.i32, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %67, !llvm.loop !191
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %67, %44
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %67, %44
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %77 = load i32, ptr %18, align 4
   %78 = sext i32 %77 to i64
   %79 = icmp slt i64 %indvars.iv.next, %78
   br i1 %79, label %.lr.ph, label %._crit_edge, !llvm.loop !192
 
-._crit_edge:                                      ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, %31
+._crit_edge:                                      ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %31
   %80 = add nsw i32 %.036, 1
   %81 = load i32, ptr %14, align 4
   %.not.not = icmp slt i32 %.036, %81
@@ -12296,19 +12296,19 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %16, %
   %70 = getelementptr i8, ptr %.val, i64 12
   %71 = load float, ptr %70, align 4
   %72 = fcmp oeq float %71, 0.000000e+00
-  br i1 %72, label %73, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %72, label %73, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
 73:                                               ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
   %74 = getelementptr i8, ptr %.val, i64 24
   %75 = load float, ptr %74, align 4
   %76 = fcmp oeq float %75, 0.000000e+00
-  br i1 %76, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %76, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread: ; preds = %73, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread: ; preds = %73, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
   store i8 0, ptr %8, align 1
   br label %87
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %73
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %73
   %77 = getelementptr i8, ptr %.val, i64 28
   %78 = load float, ptr %77, align 4
   %79 = fcmp oeq float %78, 0.000000e+00
@@ -12316,7 +12316,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store i8 %80, ptr %8, align 1
   br i1 %79, label %81, label %87
 
-81:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
+81:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %82 = load float, ptr %.val, align 4
   %83 = getelementptr i8, ptr %.val, i64 16
   %84 = load float, ptr %83, align 4
@@ -12329,7 +12329,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store float %86, ptr %.sroa.2.0..sroa_idx, align 8
   br label %87
 
-87:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread, %81
+87:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread, %81
   %88 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
   store i32 %88, ptr %10, align 4
   %89 = load ptr, ptr %57, align 8
@@ -12458,8 +12458,8 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   %41 = sext i32 %38 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
-  %indvars.iv = phi i64 [ %41, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
+  %indvars.iv = phi i64 [ %41, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ]
   %42 = load i8, ptr %4, align 1
   %43 = trunc i8 %42 to i1
   %44 = load float, ptr %29, align 8
@@ -12505,7 +12505,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   store float %75, ptr %66, align 4, !alias.scope !193, !noalias !196
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %62, !llvm.loop !199
+  br i1 %exitcond.not.i, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %62, !llvm.loop !199
 
 76:                                               ; preds = %34
   %77 = landingpad { ptr, i32 }
@@ -12584,20 +12584,20 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   store float %117, ptr %105, align 4, !alias.scope !200, !noalias !203
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
   %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, 3
-  br i1 %exitcond.not.i35, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %104, !llvm.loop !206
+  br i1 %exitcond.not.i35, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %104, !llvm.loop !206
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %104
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %104
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14)
-  br label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
+  br label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %62, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %62, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %118 = load i32, ptr %20, align 4
   %119 = sext i32 %118 to i64
   %120 = icmp slt i64 %indvars.iv.next, %119
   br i1 %120, label %.lr.ph, label %._crit_edge, !llvm.loop !207
 
-._crit_edge:                                      ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, %37
+._crit_edge:                                      ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %37
   %121 = add nsw i32 %.038, 1
   %122 = load i32, ptr %16, align 4
   %.not.not = icmp slt i32 %.038, %122
@@ -12749,19 +12749,19 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %16, %
   %70 = getelementptr i8, ptr %.val, i64 12
   %71 = load float, ptr %70, align 4
   %72 = fcmp oeq float %71, 0.000000e+00
-  br i1 %72, label %73, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %72, label %73, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
 73:                                               ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
   %74 = getelementptr i8, ptr %.val, i64 24
   %75 = load float, ptr %74, align 4
   %76 = fcmp oeq float %75, 0.000000e+00
-  br i1 %76, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %76, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread: ; preds = %73, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread: ; preds = %73, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
   store i8 0, ptr %8, align 1
   br label %87
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %73
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %73
   %77 = getelementptr i8, ptr %.val, i64 28
   %78 = load float, ptr %77, align 4
   %79 = fcmp oeq float %78, 0.000000e+00
@@ -12769,7 +12769,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store i8 %80, ptr %8, align 1
   br i1 %79, label %81, label %87
 
-81:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
+81:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %82 = load float, ptr %.val, align 4
   %83 = getelementptr i8, ptr %.val, i64 16
   %84 = load float, ptr %83, align 4
@@ -12782,7 +12782,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store float %86, ptr %.sroa.2.0..sroa_idx, align 8
   br label %87
 
-87:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread, %81
+87:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread, %81
   %88 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
   store i32 %88, ptr %10, align 4
   %89 = load ptr, ptr %57, align 8
@@ -12910,8 +12910,8 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   %40 = sext i32 %37 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
-  %indvars.iv = phi i64 [ %40, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
+  %indvars.iv = phi i64 [ %40, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ]
   %41 = load i8, ptr %4, align 1
   %42 = trunc i8 %41 to i1
   %43 = load float, ptr %29, align 8
@@ -12953,7 +12953,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   store float %70, ptr %62, align 4, !alias.scope !208, !noalias !211
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %58, !llvm.loop !214
+  br i1 %exitcond.not.i, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %58, !llvm.loop !214
 
 71:                                               ; preds = %33
   %72 = landingpad { ptr, i32 }
@@ -13031,20 +13031,20 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   store float %111, ptr %100, align 4, !alias.scope !215, !noalias !218
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
   %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, 3
-  br i1 %exitcond.not.i33, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %99, !llvm.loop !221
+  br i1 %exitcond.not.i33, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %99, !llvm.loop !221
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %99
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %99
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14)
-  br label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
+  br label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %58, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %58, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %112 = load i32, ptr %20, align 4
   %113 = sext i32 %112 to i64
   %114 = icmp slt i64 %indvars.iv.next, %113
   br i1 %114, label %.lr.ph, label %._crit_edge, !llvm.loop !222
 
-._crit_edge:                                      ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, %36
+._crit_edge:                                      ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %36
   %115 = add nsw i32 %.036, 1
   %116 = load i32, ptr %16, align 4
   %.not.not = icmp slt i32 %.036, %116
@@ -13315,8 +13315,8 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   %38 = sext i32 %35 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
-  %indvars.iv = phi i64 [ %38, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
+  %indvars.iv = phi i64 [ %38, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ]
   %39 = load i8, ptr %4, align 1
   %40 = trunc i8 %39 to i1
   %41 = load float, ptr %27, align 8
@@ -13362,7 +13362,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   store float %72, ptr %63, align 4, !alias.scope !223, !noalias !226
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %59, !llvm.loop !199
+  br i1 %exitcond.not.i, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %59, !llvm.loop !199
 
 73:                                               ; preds = %31
   %74 = landingpad { ptr, i32 }
@@ -13402,16 +13402,16 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   store float %93, ptr %84, align 4, !alias.scope !229, !noalias !232
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
   %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, 3
-  br i1 %exitcond.not.i35, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %83, !llvm.loop !235
+  br i1 %exitcond.not.i35, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %83, !llvm.loop !235
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %83, %59
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %83, %59
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %94 = load i32, ptr %18, align 4
   %95 = sext i32 %94 to i64
   %96 = icmp slt i64 %indvars.iv.next, %95
   br i1 %96, label %.lr.ph, label %._crit_edge, !llvm.loop !236
 
-._crit_edge:                                      ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, %34
+._crit_edge:                                      ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %34
   %97 = add nsw i32 %.039, 1
   %98 = load i32, ptr %14, align 4
   %.not.not = icmp slt i32 %.039, %98
@@ -13681,8 +13681,8 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   %37 = sext i32 %34 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
-  %indvars.iv = phi i64 [ %37, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
+  %indvars.iv = phi i64 [ %37, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ]
   %38 = load i8, ptr %4, align 1
   %39 = trunc i8 %38 to i1
   %40 = load float, ptr %27, align 8
@@ -13724,7 +13724,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   store float %67, ptr %59, align 4, !alias.scope !237, !noalias !240
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %55, !llvm.loop !214
+  br i1 %exitcond.not.i, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %55, !llvm.loop !214
 
 68:                                               ; preds = %30
   %69 = landingpad { ptr, i32 }
@@ -13763,16 +13763,16 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   store float %87, ptr %79, align 4, !alias.scope !243, !noalias !246
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
   %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, 3
-  br i1 %exitcond.not.i33, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %78, !llvm.loop !249
+  br i1 %exitcond.not.i33, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %78, !llvm.loop !249
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %78, %55
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %78, %55
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %88 = load i32, ptr %18, align 4
   %89 = sext i32 %88 to i64
   %90 = icmp slt i64 %indvars.iv.next, %89
   br i1 %90, label %.lr.ph, label %._crit_edge, !llvm.loop !250
 
-._crit_edge:                                      ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, %33
+._crit_edge:                                      ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %33
   %91 = add nsw i32 %.037, 1
   %92 = load i32, ptr %14, align 4
   %.not.not = icmp slt i32 %.037, %92
@@ -13924,19 +13924,19 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %16, %
   %70 = getelementptr i8, ptr %.val, i64 12
   %71 = load float, ptr %70, align 4
   %72 = fcmp oeq float %71, 0.000000e+00
-  br i1 %72, label %73, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %72, label %73, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
 73:                                               ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
   %74 = getelementptr i8, ptr %.val, i64 24
   %75 = load float, ptr %74, align 4
   %76 = fcmp oeq float %75, 0.000000e+00
-  br i1 %76, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %76, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread: ; preds = %73, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread: ; preds = %73, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
   store i8 0, ptr %8, align 1
   br label %87
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %73
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %73
   %77 = getelementptr i8, ptr %.val, i64 28
   %78 = load float, ptr %77, align 4
   %79 = fcmp oeq float %78, 0.000000e+00
@@ -13944,7 +13944,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store i8 %80, ptr %8, align 1
   br i1 %79, label %81, label %87
 
-81:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
+81:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %82 = load float, ptr %.val, align 4
   %83 = getelementptr i8, ptr %.val, i64 16
   %84 = load float, ptr %83, align 4
@@ -13957,7 +13957,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store float %86, ptr %.sroa.2.0..sroa_idx, align 8
   br label %87
 
-87:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread, %81
+87:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread, %81
   %88 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
   store i32 %88, ptr %10, align 4
   %89 = load ptr, ptr %57, align 8
@@ -14083,8 +14083,8 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   %38 = sext i32 %35 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
-  %indvars.iv = phi i64 [ %38, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
+  %indvars.iv = phi i64 [ %38, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ]
   %39 = load i8, ptr %4, align 1
   %40 = trunc i8 %39 to i1
   %41 = load float, ptr %29, align 8
@@ -14116,7 +14116,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   store float %58, ptr %50, align 4, !alias.scope !251, !noalias !254
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %46, !llvm.loop !257
+  br i1 %exitcond.not.i, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %46, !llvm.loop !257
 
 59:                                               ; preds = %31
   %60 = landingpad { ptr, i32 }
@@ -14193,20 +14193,20 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   store float %98, ptr %90, align 4, !alias.scope !258, !noalias !261
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i29, 1
   %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i30, 3
-  br i1 %exitcond.not.i31, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %87, !llvm.loop !264
+  br i1 %exitcond.not.i31, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %87, !llvm.loop !264
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %87
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %87
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14)
-  br label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
+  br label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %46, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %46, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %99 = load i32, ptr %20, align 4
   %100 = sext i32 %99 to i64
   %101 = icmp slt i64 %indvars.iv.next, %100
   br i1 %101, label %.lr.ph, label %._crit_edge, !llvm.loop !265
 
-._crit_edge:                                      ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, %34
+._crit_edge:                                      ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %34
   %102 = add nsw i32 %.034, 1
   %103 = load i32, ptr %16, align 4
   %.not.not = icmp slt i32 %.034, %103
@@ -14474,8 +14474,8 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   %35 = sext i32 %32 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
-  %indvars.iv = phi i64 [ %35, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
+  %indvars.iv = phi i64 [ %35, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ]
   %36 = load i8, ptr %4, align 1
   %37 = trunc i8 %36 to i1
   %38 = load float, ptr %27, align 8
@@ -14507,7 +14507,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   store float %55, ptr %47, align 4, !alias.scope !266, !noalias !269
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %43, !llvm.loop !257
+  br i1 %exitcond.not.i, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %43, !llvm.loop !257
 
 56:                                               ; preds = %28
   %57 = landingpad { ptr, i32 }
@@ -14545,16 +14545,16 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   store float %74, ptr %72, align 4, !alias.scope !272, !noalias !275
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i29, 1
   %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i30, 3
-  br i1 %exitcond.not.i31, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %66, !llvm.loop !278
+  br i1 %exitcond.not.i31, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %66, !llvm.loop !278
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %66, %43
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %66, %43
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %75 = load i32, ptr %18, align 4
   %76 = sext i32 %75 to i64
   %77 = icmp slt i64 %indvars.iv.next, %76
   br i1 %77, label %.lr.ph, label %._crit_edge, !llvm.loop !279
 
-._crit_edge:                                      ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, %31
+._crit_edge:                                      ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %31
   %78 = add nsw i32 %.035, 1
   %79 = load i32, ptr %14, align 4
   %.not.not = icmp slt i32 %.035, %79
@@ -15380,13 +15380,13 @@ define internal { ptr, ptr } @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0
   %3 = getelementptr i8, ptr %.val, i64 40
   %.val.val1 = load ptr, ptr %3, align 8
   %4 = icmp eq ptr %.val.val, %.val.val1
-  br i1 %4, label %5, label %_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE1EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.argprom.exit
+  br i1 %4, label %5, label %_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE1EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit
 
 5:                                                ; preds = %1
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZN3gmx10PropagatorILNS_16IntegrationStageE1EE26viewOnStartVelocityScalingEvENKUlvE0_clEv, ptr noundef nonnull @.str.53, i32 noundef 807) #24
   unreachable
 
-_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE1EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.argprom.exit: ; preds = %1
+_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE1EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit: ; preds = %1
   %6 = ptrtoint ptr %.val.val1 to i64
   %7 = ptrtoint ptr %.val.val to i64
   %8 = sub i64 %6, %7
@@ -15429,13 +15429,13 @@ define internal { ptr, ptr } @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0
   %3 = getelementptr i8, ptr %.val, i64 64
   %.val.val1 = load ptr, ptr %3, align 8
   %4 = icmp eq ptr %.val.val, %.val.val1
-  br i1 %4, label %5, label %_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE1EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE1_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.argprom.exit
+  br i1 %4, label %5, label %_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE1EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE1_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit
 
 5:                                                ; preds = %1
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.70, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZN3gmx10PropagatorILNS_16IntegrationStageE1EE24viewOnEndVelocityScalingEvENKUlvE0_clEv, ptr noundef nonnull @.str.53, i32 noundef 820) #24
   unreachable
 
-_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE1EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE1_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.argprom.exit: ; preds = %1
+_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE1EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE1_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit: ; preds = %1
   %6 = ptrtoint ptr %.val.val1 to i64
   %7 = ptrtoint ptr %.val.val to i64
   %8 = sub i64 %6, %7
@@ -15712,21 +15712,21 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   %79 = getelementptr i8, ptr %.val, i64 12
   %80 = load float, ptr %79, align 4
   %81 = fcmp oeq float %80, 0.000000e+00
-  br i1 %81, label %82, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %81, label %82, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
 82:                                               ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
   %83 = getelementptr i8, ptr %.val, i64 24
   %84 = load float, ptr %83, align 4
   %85 = fcmp oeq float %84, 0.000000e+00
-  br i1 %85, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %85, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %82
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %82
   %86 = getelementptr i8, ptr %.val, i64 28
   %87 = load float, ptr %86, align 4
   %88 = fcmp oeq float %87, 0.000000e+00
-  br i1 %88, label %89, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %88, label %89, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-89:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
+89:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %90 = load float, ptr %.val, align 4
   %91 = getelementptr i8, ptr %.val, i64 16
   %92 = load float, ptr %91, align 4
@@ -15737,10 +15737,10 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %10, align 8
   %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   store float %94, ptr %.sroa.212.0..sroa_idx, align 8
-  br label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread: ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, %82, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, %89
-  %.sroa.03.0.insert.ext = phi i64 [ 1, %89 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ], [ 0, %82 ], [ 0, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit ]
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread: ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, %82, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %89
+  %.sroa.03.0.insert.ext = phi i64 [ 1, %89 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ 0, %82 ], [ 0, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit ]
   %95 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
   %96 = load ptr, ptr %60, align 8
   %97 = load ptr, ptr %96, align 8
@@ -15756,7 +15756,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   %101 = icmp eq ptr %100, null
   br i1 %101, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %102
 
-102:                                              ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+102:                                              ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %100)
   %103 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !5
   %104 = extractvalue { i32, i32 } %103, 0
@@ -15811,7 +15811,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store i64 %109, ptr %135, align 8
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
 
-_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %117, %128, %133, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %117, %128, %133, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
   ret void
 }
 
@@ -15909,10 +15909,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   store float %60, ptr %51, align 4, !alias.scope !309, !noalias !312
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, label %47, !llvm.loop !140
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %47, !llvm.loop !140
 
-61:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, %61
-  %indvars.iv.i44.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us ], [ %indvars.iv.next.i45.us.us, %61 ]
+61:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %61
+  %indvars.iv.i44.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i45.us.us, %61 ]
   %62 = getelementptr inbounds [3 x float], ptr %72, i64 %indvars.iv55, i64 %indvars.iv.i44.us.us
   %63 = load float, ptr %62, align 4, !alias.scope !315, !noalias !318
   %64 = getelementptr inbounds [3 x float], ptr %74, i64 %indvars.iv55, i64 %indvars.iv.i44.us.us
@@ -15931,7 +15931,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %61
   %70 = icmp slt i64 %indvars.iv.next56, %69
   br i1 %70, label %.lr.ph.us, label %._crit_edge.split.us.us, !llvm.loop !325
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us: ; preds = %47
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %47
   %71 = load float, ptr %34, align 8
   %72 = load ptr, ptr %12, align 8
   %73 = load ptr, ptr %13, align 8
@@ -16048,9 +16048,9 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   store float %124, ptr %112, align 4, !alias.scope !326, !noalias !329
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, 3
-  br i1 %exitcond.not.i43, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %111, !llvm.loop !148
+  br i1 %exitcond.not.i43, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %111, !llvm.loop !148
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %111
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %111
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16)
   %125 = load float, ptr %34, align 8
   %126 = load ptr, ptr %12, align 8
@@ -16061,8 +16061,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !321)
   br label %129
 
-129:                                              ; preds = %129, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
-  %indvars.iv.i44 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ], [ %indvars.iv.next.i45, %129 ]
+129:                                              ; preds = %129, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
+  %indvars.iv.i44 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i45, %129 ]
   %130 = getelementptr inbounds [3 x float], ptr %126, i64 %indvars.iv, i64 %indvars.iv.i44
   %131 = load float, ptr %130, align 4, !alias.scope !315, !noalias !318
   %132 = getelementptr inbounds [3 x float], ptr %128, i64 %indvars.iv, i64 %indvars.iv.i44
@@ -16241,21 +16241,21 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   %76 = getelementptr i8, ptr %.val, i64 12
   %77 = load float, ptr %76, align 4
   %78 = fcmp oeq float %77, 0.000000e+00
-  br i1 %78, label %79, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %78, label %79, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
 79:                                               ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
   %80 = getelementptr i8, ptr %.val, i64 24
   %81 = load float, ptr %80, align 4
   %82 = fcmp oeq float %81, 0.000000e+00
-  br i1 %82, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %82, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %79
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %79
   %83 = getelementptr i8, ptr %.val, i64 28
   %84 = load float, ptr %83, align 4
   %85 = fcmp oeq float %84, 0.000000e+00
-  br i1 %85, label %86, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %85, label %86, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-86:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
+86:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %87 = load float, ptr %.val, align 4
   %88 = getelementptr i8, ptr %.val, i64 16
   %89 = load float, ptr %88, align 4
@@ -16266,10 +16266,10 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %10, align 8
   %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   store float %91, ptr %.sroa.212.0..sroa_idx, align 8
-  br label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread: ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, %79, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, %86
-  %.sroa.03.0.insert.ext = phi i64 [ 1, %86 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ], [ 0, %79 ], [ 0, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit ]
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread: ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, %79, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %86
+  %.sroa.03.0.insert.ext = phi i64 [ 1, %86 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ 0, %79 ], [ 0, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit ]
   %92 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
   %93 = load ptr, ptr %60, align 8
   %94 = load ptr, ptr %93, align 8
@@ -16284,7 +16284,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   %98 = icmp eq ptr %97, null
   br i1 %98, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %99
 
-99:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+99:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %97)
   %100 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !5
   %101 = extractvalue { i32, i32 } %100, 0
@@ -16339,7 +16339,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store i64 %106, ptr %132, align 8
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
 
-_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %114, %125, %130, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %114, %125, %130, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
   ret void
 }
 
@@ -16434,10 +16434,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   store float %58, ptr %50, align 4, !alias.scope !332, !noalias !335
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, label %46, !llvm.loop !156
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %46, !llvm.loop !156
 
-59:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, %59
-  %indvars.iv.i41.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us ], [ %indvars.iv.next.i42.us.us, %59 ]
+59:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %59
+  %indvars.iv.i41.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i42.us.us, %59 ]
   %60 = getelementptr inbounds [3 x float], ptr %70, i64 %indvars.iv52, i64 %indvars.iv.i41.us.us
   %61 = load float, ptr %60, align 4, !alias.scope !338, !noalias !341
   %62 = getelementptr inbounds [3 x float], ptr %72, i64 %indvars.iv52, i64 %indvars.iv.i41.us.us
@@ -16456,7 +16456,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %59
   %68 = icmp slt i64 %indvars.iv.next53, %67
   br i1 %68, label %.lr.ph.us, label %._crit_edge.split.us.us, !llvm.loop !348
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us: ; preds = %46
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %46
   %69 = load float, ptr %33, align 8
   %70 = load ptr, ptr %12, align 8
   %71 = load ptr, ptr %13, align 8
@@ -16572,9 +16572,9 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   store float %121, ptr %110, align 4, !alias.scope !349, !noalias !352
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, 3
-  br i1 %exitcond.not.i40, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %109, !llvm.loop !163
+  br i1 %exitcond.not.i40, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %109, !llvm.loop !163
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %109
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %109
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16)
   %122 = load float, ptr %33, align 8
   %123 = load ptr, ptr %12, align 8
@@ -16585,8 +16585,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !344)
   br label %126
 
-126:                                              ; preds = %126, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
-  %indvars.iv.i41 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ], [ %indvars.iv.next.i42, %126 ]
+126:                                              ; preds = %126, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
+  %indvars.iv.i41 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i42, %126 ]
   %127 = getelementptr inbounds [3 x float], ptr %123, i64 %indvars.iv, i64 %indvars.iv.i41
   %128 = load float, ptr %127, align 4, !alias.scope !338, !noalias !341
   %129 = getelementptr inbounds [3 x float], ptr %125, i64 %indvars.iv, i64 %indvars.iv.i41
@@ -16926,10 +16926,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   store float %57, ptr %48, align 4, !alias.scope !355, !noalias !358
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, label %44, !llvm.loop !140
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %44, !llvm.loop !140
 
-58:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, %58
-  %indvars.iv.i44.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us ], [ %indvars.iv.next.i45.us.us, %58 ]
+58:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %58
+  %indvars.iv.i44.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i45.us.us, %58 ]
   %59 = getelementptr inbounds [3 x float], ptr %69, i64 %indvars.iv56, i64 %indvars.iv.i44.us.us
   %60 = load float, ptr %59, align 4, !alias.scope !361, !noalias !364
   %61 = getelementptr inbounds [3 x float], ptr %71, i64 %indvars.iv56, i64 %indvars.iv.i44.us.us
@@ -16948,7 +16948,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %58
   %67 = icmp slt i64 %indvars.iv.next57, %66
   br i1 %67, label %.lr.ph.us, label %._crit_edge.split.us.us, !llvm.loop !371
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us: ; preds = %44
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %44
   %68 = load float, ptr %32, align 8
   %69 = load ptr, ptr %12, align 8
   %70 = load ptr, ptr %13, align 8
@@ -17027,9 +17027,9 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   store float %101, ptr %92, align 4, !alias.scope !372, !noalias !375
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, 3
-  br i1 %exitcond.not.i43, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit47, label %91, !llvm.loop !177
+  br i1 %exitcond.not.i43, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit47, label %91, !llvm.loop !177
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit47: ; preds = %91
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit47: ; preds = %91
   %102 = load float, ptr %32, align 8
   %103 = load ptr, ptr %12, align 8
   %104 = load ptr, ptr %13, align 8
@@ -17039,8 +17039,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !367)
   br label %106
 
-106:                                              ; preds = %106, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit47
-  %indvars.iv.i44 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit47 ], [ %indvars.iv.next.i45, %106 ]
+106:                                              ; preds = %106, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit47
+  %indvars.iv.i44 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit47 ], [ %indvars.iv.next.i45, %106 ]
   %107 = getelementptr inbounds [3 x float], ptr %103, i64 %indvars.iv, i64 %indvars.iv.i44
   %108 = load float, ptr %107, align 4, !alias.scope !361, !noalias !364
   %109 = getelementptr inbounds [3 x float], ptr %105, i64 %indvars.iv, i64 %indvars.iv.i44
@@ -17373,10 +17373,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   store float %55, ptr %47, align 4, !alias.scope !378, !noalias !381
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, label %43, !llvm.loop !156
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %43, !llvm.loop !156
 
-56:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, %56
-  %indvars.iv.i41.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us ], [ %indvars.iv.next.i42.us.us, %56 ]
+56:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %56
+  %indvars.iv.i41.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i42.us.us, %56 ]
   %57 = getelementptr inbounds [3 x float], ptr %67, i64 %indvars.iv53, i64 %indvars.iv.i41.us.us
   %58 = load float, ptr %57, align 4, !alias.scope !384, !noalias !387
   %59 = getelementptr inbounds [3 x float], ptr %69, i64 %indvars.iv53, i64 %indvars.iv.i41.us.us
@@ -17395,7 +17395,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %56
   %65 = icmp slt i64 %indvars.iv.next54, %64
   br i1 %65, label %.lr.ph.us, label %._crit_edge.split.us.us, !llvm.loop !394
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us: ; preds = %43
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %43
   %66 = load float, ptr %31, align 8
   %67 = load ptr, ptr %12, align 8
   %68 = load ptr, ptr %13, align 8
@@ -17473,9 +17473,9 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   store float %98, ptr %90, align 4, !alias.scope !395, !noalias !398
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, 3
-  br i1 %exitcond.not.i40, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit44, label %89, !llvm.loop !191
+  br i1 %exitcond.not.i40, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit44, label %89, !llvm.loop !191
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit44: ; preds = %89
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit44: ; preds = %89
   %99 = load float, ptr %31, align 8
   %100 = load ptr, ptr %12, align 8
   %101 = load ptr, ptr %13, align 8
@@ -17485,8 +17485,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !390)
   br label %103
 
-103:                                              ; preds = %103, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit44
-  %indvars.iv.i41 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit44 ], [ %indvars.iv.next.i42, %103 ]
+103:                                              ; preds = %103, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit44
+  %indvars.iv.i41 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit44 ], [ %indvars.iv.next.i42, %103 ]
   %104 = getelementptr inbounds [3 x float], ptr %100, i64 %indvars.iv, i64 %indvars.iv.i41
   %105 = load float, ptr %104, align 4, !alias.scope !384, !noalias !387
   %106 = getelementptr inbounds [3 x float], ptr %102, i64 %indvars.iv, i64 %indvars.iv.i41
@@ -17662,21 +17662,21 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   %73 = getelementptr i8, ptr %.val, i64 12
   %74 = load float, ptr %73, align 4
   %75 = fcmp oeq float %74, 0.000000e+00
-  br i1 %75, label %76, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %75, label %76, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
 76:                                               ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
   %77 = getelementptr i8, ptr %.val, i64 24
   %78 = load float, ptr %77, align 4
   %79 = fcmp oeq float %78, 0.000000e+00
-  br i1 %79, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %79, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %76
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %76
   %80 = getelementptr i8, ptr %.val, i64 28
   %81 = load float, ptr %80, align 4
   %82 = fcmp oeq float %81, 0.000000e+00
-  br i1 %82, label %83, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %82, label %83, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-83:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
+83:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %84 = load float, ptr %.val, align 4
   %85 = getelementptr i8, ptr %.val, i64 16
   %86 = load float, ptr %85, align 4
@@ -17687,10 +17687,10 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %10, align 8
   %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   store float %88, ptr %.sroa.212.0..sroa_idx, align 8
-  br label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread: ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, %76, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, %83
-  %.sroa.03.0.insert.ext = phi i64 [ 1, %83 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ], [ 0, %76 ], [ 0, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit ]
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread: ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, %76, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %83
+  %.sroa.03.0.insert.ext = phi i64 [ 1, %83 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ 0, %76 ], [ 0, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit ]
   %89 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
   %90 = load ptr, ptr %60, align 8
   %91 = load ptr, ptr %90, align 8
@@ -17704,7 +17704,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   %95 = icmp eq ptr %94, null
   br i1 %95, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %96
 
-96:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+96:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %94)
   %97 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !5
   %98 = extractvalue { i32, i32 } %97, 0
@@ -17759,7 +17759,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store i64 %103, ptr %129, align 8
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
 
-_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %111, %122, %127, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %111, %122, %127, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
   ret void
 }
 
@@ -17869,10 +17869,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   store float %74, ptr %65, align 4, !alias.scope !401, !noalias !404
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, label %61, !llvm.loop !199
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %61, !llvm.loop !199
 
-75:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, %75
-  %indvars.iv.i42.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us ], [ %indvars.iv.next.i43.us.us, %75 ]
+75:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %75
+  %indvars.iv.i42.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i43.us.us, %75 ]
   %76 = getelementptr inbounds [3 x float], ptr %86, i64 %indvars.iv53, i64 %indvars.iv.i42.us.us
   %77 = load float, ptr %76, align 4, !alias.scope !407, !noalias !410
   %78 = getelementptr inbounds [3 x float], ptr %88, i64 %indvars.iv53, i64 %indvars.iv.i42.us.us
@@ -17891,7 +17891,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %75
   %84 = icmp slt i64 %indvars.iv.next54, %83
   br i1 %84, label %.lr.ph.us, label %._crit_edge.split.us.us, !llvm.loop !417
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us: ; preds = %61
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %61
   %85 = load float, ptr %32, align 8
   %86 = load ptr, ptr %12, align 8
   %87 = load ptr, ptr %13, align 8
@@ -18021,9 +18021,9 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   store float %151, ptr %139, align 4, !alias.scope !418, !noalias !421
   %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i39, 1
   %exitcond.not.i41 = icmp eq i64 %indvars.iv.next.i40, 3
-  br i1 %exitcond.not.i41, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %138, !llvm.loop !206
+  br i1 %exitcond.not.i41, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %138, !llvm.loop !206
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %138
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %138
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16)
   %152 = load float, ptr %32, align 8
   %153 = load ptr, ptr %12, align 8
@@ -18034,8 +18034,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !413)
   br label %156
 
-156:                                              ; preds = %156, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
-  %indvars.iv.i42 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ], [ %indvars.iv.next.i43, %156 ]
+156:                                              ; preds = %156, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
+  %indvars.iv.i42 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i43, %156 ]
   %157 = getelementptr inbounds [3 x float], ptr %153, i64 %indvars.iv, i64 %indvars.iv.i42
   %158 = load float, ptr %157, align 4, !alias.scope !407, !noalias !410
   %159 = getelementptr inbounds [3 x float], ptr %155, i64 %indvars.iv, i64 %indvars.iv.i42
@@ -18211,21 +18211,21 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   %73 = getelementptr i8, ptr %.val, i64 12
   %74 = load float, ptr %73, align 4
   %75 = fcmp oeq float %74, 0.000000e+00
-  br i1 %75, label %76, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %75, label %76, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
 76:                                               ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
   %77 = getelementptr i8, ptr %.val, i64 24
   %78 = load float, ptr %77, align 4
   %79 = fcmp oeq float %78, 0.000000e+00
-  br i1 %79, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %79, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %76
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %76
   %80 = getelementptr i8, ptr %.val, i64 28
   %81 = load float, ptr %80, align 4
   %82 = fcmp oeq float %81, 0.000000e+00
-  br i1 %82, label %83, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %82, label %83, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-83:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
+83:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %84 = load float, ptr %.val, align 4
   %85 = getelementptr i8, ptr %.val, i64 16
   %86 = load float, ptr %85, align 4
@@ -18236,10 +18236,10 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %10, align 8
   %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   store float %88, ptr %.sroa.212.0..sroa_idx, align 8
-  br label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread: ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, %76, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, %83
-  %.sroa.03.0.insert.ext = phi i64 [ 1, %83 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ], [ 0, %76 ], [ 0, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit ]
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread: ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, %76, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %83
+  %.sroa.03.0.insert.ext = phi i64 [ 1, %83 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ 0, %76 ], [ 0, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit ]
   %89 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
   %90 = load ptr, ptr %60, align 8
   %91 = load ptr, ptr %90, align 8
@@ -18253,7 +18253,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   %95 = icmp eq ptr %94, null
   br i1 %95, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %96
 
-96:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+96:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %94)
   %97 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !5
   %98 = extractvalue { i32, i32 } %97, 0
@@ -18308,7 +18308,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store i64 %103, ptr %129, align 8
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
 
-_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %111, %122, %127, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %111, %122, %127, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
   ret void
 }
 
@@ -18413,10 +18413,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   store float %69, ptr %61, align 4, !alias.scope !424, !noalias !427
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, label %57, !llvm.loop !214
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %57, !llvm.loop !214
 
-70:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, %70
-  %indvars.iv.i40.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us ], [ %indvars.iv.next.i41.us.us, %70 ]
+70:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %70
+  %indvars.iv.i40.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i41.us.us, %70 ]
   %71 = getelementptr inbounds [3 x float], ptr %81, i64 %indvars.iv51, i64 %indvars.iv.i40.us.us
   %72 = load float, ptr %71, align 4, !alias.scope !430, !noalias !433
   %73 = getelementptr inbounds [3 x float], ptr %83, i64 %indvars.iv51, i64 %indvars.iv.i40.us.us
@@ -18435,7 +18435,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %70
   %79 = icmp slt i64 %indvars.iv.next52, %78
   br i1 %79, label %.lr.ph.us, label %._crit_edge.split.us.us, !llvm.loop !440
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us: ; preds = %57
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %57
   %80 = load float, ptr %32, align 8
   %81 = load ptr, ptr %12, align 8
   %82 = load ptr, ptr %13, align 8
@@ -18561,9 +18561,9 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   store float %142, ptr %131, align 4, !alias.scope !441, !noalias !444
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i37, 1
   %exitcond.not.i39 = icmp eq i64 %indvars.iv.next.i38, 3
-  br i1 %exitcond.not.i39, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %130, !llvm.loop !221
+  br i1 %exitcond.not.i39, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %130, !llvm.loop !221
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %130
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %130
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16)
   %143 = load float, ptr %32, align 8
   %144 = load ptr, ptr %12, align 8
@@ -18574,8 +18574,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !436)
   br label %147
 
-147:                                              ; preds = %147, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
-  %indvars.iv.i40 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ], [ %indvars.iv.next.i41, %147 ]
+147:                                              ; preds = %147, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
+  %indvars.iv.i40 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i41, %147 ]
   %148 = getelementptr inbounds [3 x float], ptr %144, i64 %indvars.iv, i64 %indvars.iv.i40
   %149 = load float, ptr %148, align 4, !alias.scope !430, !noalias !433
   %150 = getelementptr inbounds [3 x float], ptr %146, i64 %indvars.iv, i64 %indvars.iv.i40
@@ -18919,10 +18919,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   store float %71, ptr %62, align 4, !alias.scope !447, !noalias !450
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, label %58, !llvm.loop !199
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %58, !llvm.loop !199
 
-72:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, %72
-  %indvars.iv.i42.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us ], [ %indvars.iv.next.i43.us.us, %72 ]
+72:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %72
+  %indvars.iv.i42.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i43.us.us, %72 ]
   %73 = getelementptr inbounds [3 x float], ptr %83, i64 %indvars.iv54, i64 %indvars.iv.i42.us.us
   %74 = load float, ptr %73, align 4, !alias.scope !453, !noalias !456
   %75 = getelementptr inbounds [3 x float], ptr %85, i64 %indvars.iv54, i64 %indvars.iv.i42.us.us
@@ -18941,7 +18941,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %72
   %81 = icmp slt i64 %indvars.iv.next55, %80
   br i1 %81, label %.lr.ph.us, label %._crit_edge.split.us.us, !llvm.loop !463
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us: ; preds = %58
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %58
   %82 = load float, ptr %30, align 8
   %83 = load ptr, ptr %12, align 8
   %84 = load ptr, ptr %13, align 8
@@ -19033,9 +19033,9 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   store float %128, ptr %119, align 4, !alias.scope !464, !noalias !467
   %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i39, 1
   %exitcond.not.i41 = icmp eq i64 %indvars.iv.next.i40, 3
-  br i1 %exitcond.not.i41, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit45, label %118, !llvm.loop !235
+  br i1 %exitcond.not.i41, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit45, label %118, !llvm.loop !235
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit45: ; preds = %118
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit45: ; preds = %118
   %129 = load float, ptr %30, align 8
   %130 = load ptr, ptr %12, align 8
   %131 = load ptr, ptr %13, align 8
@@ -19045,8 +19045,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !459)
   br label %133
 
-133:                                              ; preds = %133, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit45
-  %indvars.iv.i42 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit45 ], [ %indvars.iv.next.i43, %133 ]
+133:                                              ; preds = %133, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit45
+  %indvars.iv.i42 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit45 ], [ %indvars.iv.next.i43, %133 ]
   %134 = getelementptr inbounds [3 x float], ptr %130, i64 %indvars.iv, i64 %indvars.iv.i42
   %135 = load float, ptr %134, align 4, !alias.scope !453, !noalias !456
   %136 = getelementptr inbounds [3 x float], ptr %132, i64 %indvars.iv, i64 %indvars.iv.i42
@@ -19385,10 +19385,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   store float %66, ptr %58, align 4, !alias.scope !470, !noalias !473
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, label %54, !llvm.loop !214
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %54, !llvm.loop !214
 
-67:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, %67
-  %indvars.iv.i40.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us ], [ %indvars.iv.next.i41.us.us, %67 ]
+67:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %67
+  %indvars.iv.i40.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i41.us.us, %67 ]
   %68 = getelementptr inbounds [3 x float], ptr %78, i64 %indvars.iv52, i64 %indvars.iv.i40.us.us
   %69 = load float, ptr %68, align 4, !alias.scope !476, !noalias !479
   %70 = getelementptr inbounds [3 x float], ptr %80, i64 %indvars.iv52, i64 %indvars.iv.i40.us.us
@@ -19407,7 +19407,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %67
   %76 = icmp slt i64 %indvars.iv.next53, %75
   br i1 %76, label %.lr.ph.us, label %._crit_edge.split.us.us, !llvm.loop !486
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us: ; preds = %54
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %54
   %77 = load float, ptr %30, align 8
   %78 = load ptr, ptr %12, align 8
   %79 = load ptr, ptr %13, align 8
@@ -19495,9 +19495,9 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   store float %119, ptr %111, align 4, !alias.scope !487, !noalias !490
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i37, 1
   %exitcond.not.i39 = icmp eq i64 %indvars.iv.next.i38, 3
-  br i1 %exitcond.not.i39, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit43, label %110, !llvm.loop !249
+  br i1 %exitcond.not.i39, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit43, label %110, !llvm.loop !249
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit43: ; preds = %110
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit43: ; preds = %110
   %120 = load float, ptr %30, align 8
   %121 = load ptr, ptr %12, align 8
   %122 = load ptr, ptr %13, align 8
@@ -19507,8 +19507,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !482)
   br label %124
 
-124:                                              ; preds = %124, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit43
-  %indvars.iv.i40 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit43 ], [ %indvars.iv.next.i41, %124 ]
+124:                                              ; preds = %124, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit43
+  %indvars.iv.i40 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit43 ], [ %indvars.iv.next.i41, %124 ]
   %125 = getelementptr inbounds [3 x float], ptr %121, i64 %indvars.iv, i64 %indvars.iv.i40
   %126 = load float, ptr %125, align 4, !alias.scope !476, !noalias !479
   %127 = getelementptr inbounds [3 x float], ptr %123, i64 %indvars.iv, i64 %indvars.iv.i40
@@ -19684,21 +19684,21 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   %73 = getelementptr i8, ptr %.val, i64 12
   %74 = load float, ptr %73, align 4
   %75 = fcmp oeq float %74, 0.000000e+00
-  br i1 %75, label %76, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %75, label %76, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
 76:                                               ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
   %77 = getelementptr i8, ptr %.val, i64 24
   %78 = load float, ptr %77, align 4
   %79 = fcmp oeq float %78, 0.000000e+00
-  br i1 %79, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %79, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %76
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %76
   %80 = getelementptr i8, ptr %.val, i64 28
   %81 = load float, ptr %80, align 4
   %82 = fcmp oeq float %81, 0.000000e+00
-  br i1 %82, label %83, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %82, label %83, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-83:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
+83:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %84 = load float, ptr %.val, align 4
   %85 = getelementptr i8, ptr %.val, i64 16
   %86 = load float, ptr %85, align 4
@@ -19709,10 +19709,10 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %10, align 8
   %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   store float %88, ptr %.sroa.212.0..sroa_idx, align 8
-  br label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread: ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, %76, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, %83
-  %.sroa.03.0.insert.ext = phi i64 [ 1, %83 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ], [ 0, %76 ], [ 0, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit ]
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread: ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, %76, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %83
+  %.sroa.03.0.insert.ext = phi i64 [ 1, %83 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ 0, %76 ], [ 0, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit ]
   %89 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
   %90 = load ptr, ptr %60, align 8
   %91 = load ptr, ptr %90, align 8
@@ -19726,7 +19726,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   %95 = icmp eq ptr %94, null
   br i1 %95, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %96
 
-96:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+96:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %94)
   %97 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !5
   %98 = extractvalue { i32, i32 } %97, 0
@@ -19781,7 +19781,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store i64 %103, ptr %129, align 8
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
 
-_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %111, %122, %127, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %111, %122, %127, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
   ret void
 }
 
@@ -19874,10 +19874,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   store float %57, ptr %49, align 4, !alias.scope !493, !noalias !496
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, label %45, !llvm.loop !257
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %45, !llvm.loop !257
 
-58:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, %58
-  %indvars.iv.i38.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us ], [ %indvars.iv.next.i39.us.us, %58 ]
+58:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %58
+  %indvars.iv.i38.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i39.us.us, %58 ]
   %59 = getelementptr inbounds [3 x float], ptr %69, i64 %indvars.iv49, i64 %indvars.iv.i38.us.us
   %60 = load float, ptr %59, align 4, !alias.scope !499, !noalias !502
   %61 = getelementptr inbounds [3 x float], ptr %71, i64 %indvars.iv49, i64 %indvars.iv.i38.us.us
@@ -19896,7 +19896,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %58
   %67 = icmp slt i64 %indvars.iv.next50, %66
   br i1 %67, label %.lr.ph.us, label %._crit_edge.split.us.us, !llvm.loop !509
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us: ; preds = %45
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %45
   %68 = load float, ptr %32, align 8
   %69 = load ptr, ptr %12, align 8
   %70 = load ptr, ptr %13, align 8
@@ -20011,9 +20011,9 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   store float %119, ptr %111, align 4, !alias.scope !510, !noalias !513
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond.not.i37 = icmp eq i64 %indvars.iv.next.i36, 3
-  br i1 %exitcond.not.i37, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %108, !llvm.loop !264
+  br i1 %exitcond.not.i37, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %108, !llvm.loop !264
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %108
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %108
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16)
   %120 = load float, ptr %32, align 8
   %121 = load ptr, ptr %12, align 8
@@ -20024,8 +20024,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !505)
   br label %124
 
-124:                                              ; preds = %124, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
-  %indvars.iv.i38 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ], [ %indvars.iv.next.i39, %124 ]
+124:                                              ; preds = %124, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
+  %indvars.iv.i38 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i39, %124 ]
   %125 = getelementptr inbounds [3 x float], ptr %121, i64 %indvars.iv, i64 %indvars.iv.i38
   %126 = load float, ptr %125, align 4, !alias.scope !499, !noalias !502
   %127 = getelementptr inbounds [3 x float], ptr %123, i64 %indvars.iv, i64 %indvars.iv.i38
@@ -20352,10 +20352,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   store float %54, ptr %46, align 4, !alias.scope !516, !noalias !519
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, label %42, !llvm.loop !257
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %42, !llvm.loop !257
 
-55:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, %55
-  %indvars.iv.i38.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us ], [ %indvars.iv.next.i39.us.us, %55 ]
+55:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %55
+  %indvars.iv.i38.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i39.us.us, %55 ]
   %56 = getelementptr inbounds [3 x float], ptr %66, i64 %indvars.iv50, i64 %indvars.iv.i38.us.us
   %57 = load float, ptr %56, align 4, !alias.scope !522, !noalias !525
   %58 = getelementptr inbounds [3 x float], ptr %68, i64 %indvars.iv50, i64 %indvars.iv.i38.us.us
@@ -20374,7 +20374,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %55
   %64 = icmp slt i64 %indvars.iv.next51, %63
   br i1 %64, label %.lr.ph.us, label %._crit_edge.split.us.us, !llvm.loop !532
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us: ; preds = %42
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %42
   %65 = load float, ptr %30, align 8
   %66 = load ptr, ptr %12, align 8
   %67 = load ptr, ptr %13, align 8
@@ -20451,9 +20451,9 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
   store float %96, ptr %94, align 4, !alias.scope !533, !noalias !536
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond.not.i37 = icmp eq i64 %indvars.iv.next.i36, 3
-  br i1 %exitcond.not.i37, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit41, label %88, !llvm.loop !278
+  br i1 %exitcond.not.i37, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit41, label %88, !llvm.loop !278
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit41: ; preds = %88
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit41: ; preds = %88
   %97 = load float, ptr %30, align 8
   %98 = load ptr, ptr %12, align 8
   %99 = load ptr, ptr %13, align 8
@@ -20463,8 +20463,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !528)
   br label %101
 
-101:                                              ; preds = %101, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit41
-  %indvars.iv.i38 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit41 ], [ %indvars.iv.next.i39, %101 ]
+101:                                              ; preds = %101, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit41
+  %indvars.iv.i38 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit41 ], [ %indvars.iv.next.i39, %101 ]
   %102 = getelementptr inbounds [3 x float], ptr %98, i64 %indvars.iv, i64 %indvars.iv.i38
   %103 = load float, ptr %102, align 4, !alias.scope !522, !noalias !525
   %104 = getelementptr inbounds [3 x float], ptr %100, i64 %indvars.iv, i64 %indvars.iv.i38
@@ -21309,13 +21309,13 @@ define internal { ptr, ptr } @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0
   %3 = getelementptr i8, ptr %.val, i64 40
   %.val.val1 = load ptr, ptr %3, align 8
   %4 = icmp eq ptr %.val.val, %.val.val1
-  br i1 %4, label %5, label %_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE2EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.argprom.exit
+  br i1 %4, label %5, label %_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE2EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit
 
 5:                                                ; preds = %1
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZN3gmx10PropagatorILNS_16IntegrationStageE2EE26viewOnStartVelocityScalingEvENKUlvE0_clEv, ptr noundef nonnull @.str.53, i32 noundef 807) #24
   unreachable
 
-_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE2EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.argprom.exit: ; preds = %1
+_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE2EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit: ; preds = %1
   %6 = ptrtoint ptr %.val.val1 to i64
   %7 = ptrtoint ptr %.val.val to i64
   %8 = sub i64 %6, %7
@@ -21358,13 +21358,13 @@ define internal { ptr, ptr } @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0
   %3 = getelementptr i8, ptr %.val, i64 64
   %.val.val1 = load ptr, ptr %3, align 8
   %4 = icmp eq ptr %.val.val, %.val.val1
-  br i1 %4, label %5, label %_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE2EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE1_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.argprom.exit
+  br i1 %4, label %5, label %_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE2EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE1_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit
 
 5:                                                ; preds = %1
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.70, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZN3gmx10PropagatorILNS_16IntegrationStageE2EE24viewOnEndVelocityScalingEvENKUlvE0_clEv, ptr noundef nonnull @.str.53, i32 noundef 820) #24
   unreachable
 
-_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE2EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE1_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.argprom.exit: ; preds = %1
+_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE2EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE1_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit: ; preds = %1
   %6 = ptrtoint ptr %.val.val1 to i64
   %7 = ptrtoint ptr %.val.val to i64
   %8 = sub i64 %6, %7
@@ -21641,21 +21641,21 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   %79 = getelementptr i8, ptr %.val, i64 12
   %80 = load float, ptr %79, align 4
   %81 = fcmp oeq float %80, 0.000000e+00
-  br i1 %81, label %82, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %81, label %82, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
 82:                                               ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
   %83 = getelementptr i8, ptr %.val, i64 24
   %84 = load float, ptr %83, align 4
   %85 = fcmp oeq float %84, 0.000000e+00
-  br i1 %85, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %85, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %82
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %82
   %86 = getelementptr i8, ptr %.val, i64 28
   %87 = load float, ptr %86, align 4
   %88 = fcmp oeq float %87, 0.000000e+00
-  br i1 %88, label %89, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %88, label %89, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-89:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
+89:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %90 = load float, ptr %.val, align 4
   %91 = getelementptr i8, ptr %.val, i64 16
   %92 = load float, ptr %91, align 4
@@ -21666,10 +21666,10 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %10, align 8
   %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   store float %94, ptr %.sroa.212.0..sroa_idx, align 8
-  br label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread: ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, %82, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, %89
-  %.sroa.03.0.insert.ext = phi i64 [ 1, %89 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ], [ 0, %82 ], [ 0, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit ]
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread: ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, %82, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %89
+  %.sroa.03.0.insert.ext = phi i64 [ 1, %89 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ 0, %82 ], [ 0, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit ]
   %95 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
   %96 = load ptr, ptr %60, align 8
   %97 = load ptr, ptr %96, align 8
@@ -21685,7 +21685,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   %101 = icmp eq ptr %100, null
   br i1 %101, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %102
 
-102:                                              ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+102:                                              ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %100)
   %103 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !5
   %104 = extractvalue { i32, i32 } %103, 0
@@ -21740,7 +21740,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store i64 %109, ptr %135, align 8
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
 
-_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %117, %128, %133, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %117, %128, %133, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
   ret void
 }
 
@@ -21839,10 +21839,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   store float %61, ptr %52, align 4, !alias.scope !568, !noalias !571
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, label %48, !llvm.loop !140
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %48, !llvm.loop !140
 
-62:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, %62
-  %indvars.iv.i44.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us ], [ %indvars.iv.next.i45.us.us, %62 ]
+62:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %62
+  %indvars.iv.i44.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i45.us.us, %62 ]
   %63 = getelementptr inbounds [3 x float], ptr %73, i64 %indvars.iv55, i64 %indvars.iv.i44.us.us
   %64 = load float, ptr %63, align 4, !alias.scope !574, !noalias !577
   %65 = getelementptr inbounds [3 x float], ptr %75, i64 %indvars.iv55, i64 %indvars.iv.i44.us.us
@@ -21861,7 +21861,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %62
   %71 = icmp slt i64 %indvars.iv.next56, %70
   br i1 %71, label %.lr.ph.us, label %._crit_edge.split.us.us, !llvm.loop !584
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us: ; preds = %48
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %48
   %72 = load float, ptr %34, align 8
   %73 = load ptr, ptr %12, align 8
   %74 = load ptr, ptr %13, align 8
@@ -21979,9 +21979,9 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   store float %126, ptr %114, align 4, !alias.scope !585, !noalias !588
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, 3
-  br i1 %exitcond.not.i43, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %113, !llvm.loop !148
+  br i1 %exitcond.not.i43, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %113, !llvm.loop !148
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %113
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %113
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16)
   %127 = load float, ptr %34, align 8
   %128 = load ptr, ptr %12, align 8
@@ -21992,8 +21992,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !580)
   br label %131
 
-131:                                              ; preds = %131, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
-  %indvars.iv.i44 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ], [ %indvars.iv.next.i45, %131 ]
+131:                                              ; preds = %131, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
+  %indvars.iv.i44 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i45, %131 ]
   %132 = getelementptr inbounds [3 x float], ptr %128, i64 %indvars.iv, i64 %indvars.iv.i44
   %133 = load float, ptr %132, align 4, !alias.scope !574, !noalias !577
   %134 = getelementptr inbounds [3 x float], ptr %130, i64 %indvars.iv, i64 %indvars.iv.i44
@@ -22172,21 +22172,21 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   %76 = getelementptr i8, ptr %.val, i64 12
   %77 = load float, ptr %76, align 4
   %78 = fcmp oeq float %77, 0.000000e+00
-  br i1 %78, label %79, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %78, label %79, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
 79:                                               ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
   %80 = getelementptr i8, ptr %.val, i64 24
   %81 = load float, ptr %80, align 4
   %82 = fcmp oeq float %81, 0.000000e+00
-  br i1 %82, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %82, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %79
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %79
   %83 = getelementptr i8, ptr %.val, i64 28
   %84 = load float, ptr %83, align 4
   %85 = fcmp oeq float %84, 0.000000e+00
-  br i1 %85, label %86, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %85, label %86, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-86:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
+86:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %87 = load float, ptr %.val, align 4
   %88 = getelementptr i8, ptr %.val, i64 16
   %89 = load float, ptr %88, align 4
@@ -22197,10 +22197,10 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %10, align 8
   %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   store float %91, ptr %.sroa.212.0..sroa_idx, align 8
-  br label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread: ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, %79, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, %86
-  %.sroa.03.0.insert.ext = phi i64 [ 1, %86 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ], [ 0, %79 ], [ 0, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit ]
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread: ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, %79, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %86
+  %.sroa.03.0.insert.ext = phi i64 [ 1, %86 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ 0, %79 ], [ 0, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit ]
   %92 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
   %93 = load ptr, ptr %60, align 8
   %94 = load ptr, ptr %93, align 8
@@ -22215,7 +22215,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   %98 = icmp eq ptr %97, null
   br i1 %98, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %99
 
-99:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+99:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %97)
   %100 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !5
   %101 = extractvalue { i32, i32 } %100, 0
@@ -22270,7 +22270,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store i64 %106, ptr %132, align 8
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
 
-_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %114, %125, %130, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %114, %125, %130, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
   ret void
 }
 
@@ -22366,10 +22366,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   store float %59, ptr %51, align 4, !alias.scope !591, !noalias !594
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, label %47, !llvm.loop !156
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %47, !llvm.loop !156
 
-60:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, %60
-  %indvars.iv.i41.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us ], [ %indvars.iv.next.i42.us.us, %60 ]
+60:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %60
+  %indvars.iv.i41.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i42.us.us, %60 ]
   %61 = getelementptr inbounds [3 x float], ptr %71, i64 %indvars.iv52, i64 %indvars.iv.i41.us.us
   %62 = load float, ptr %61, align 4, !alias.scope !597, !noalias !600
   %63 = getelementptr inbounds [3 x float], ptr %73, i64 %indvars.iv52, i64 %indvars.iv.i41.us.us
@@ -22388,7 +22388,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %60
   %69 = icmp slt i64 %indvars.iv.next53, %68
   br i1 %69, label %.lr.ph.us, label %._crit_edge.split.us.us, !llvm.loop !607
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us: ; preds = %47
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %47
   %70 = load float, ptr %33, align 8
   %71 = load ptr, ptr %12, align 8
   %72 = load ptr, ptr %13, align 8
@@ -22505,9 +22505,9 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   store float %123, ptr %112, align 4, !alias.scope !608, !noalias !611
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, 3
-  br i1 %exitcond.not.i40, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %111, !llvm.loop !163
+  br i1 %exitcond.not.i40, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %111, !llvm.loop !163
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %111
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %111
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16)
   %124 = load float, ptr %33, align 8
   %125 = load ptr, ptr %12, align 8
@@ -22518,8 +22518,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !603)
   br label %128
 
-128:                                              ; preds = %128, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
-  %indvars.iv.i41 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ], [ %indvars.iv.next.i42, %128 ]
+128:                                              ; preds = %128, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
+  %indvars.iv.i41 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i42, %128 ]
   %129 = getelementptr inbounds [3 x float], ptr %125, i64 %indvars.iv, i64 %indvars.iv.i41
   %130 = load float, ptr %129, align 4, !alias.scope !597, !noalias !600
   %131 = getelementptr inbounds [3 x float], ptr %127, i64 %indvars.iv, i64 %indvars.iv.i41
@@ -22860,10 +22860,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   store float %58, ptr %49, align 4, !alias.scope !614, !noalias !617
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, label %45, !llvm.loop !140
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %45, !llvm.loop !140
 
-59:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, %59
-  %indvars.iv.i44.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us ], [ %indvars.iv.next.i45.us.us, %59 ]
+59:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %59
+  %indvars.iv.i44.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i45.us.us, %59 ]
   %60 = getelementptr inbounds [3 x float], ptr %70, i64 %indvars.iv56, i64 %indvars.iv.i44.us.us
   %61 = load float, ptr %60, align 4, !alias.scope !620, !noalias !623
   %62 = getelementptr inbounds [3 x float], ptr %72, i64 %indvars.iv56, i64 %indvars.iv.i44.us.us
@@ -22882,7 +22882,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %59
   %68 = icmp slt i64 %indvars.iv.next57, %67
   br i1 %68, label %.lr.ph.us, label %._crit_edge.split.us.us, !llvm.loop !630
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us: ; preds = %45
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %45
   %69 = load float, ptr %32, align 8
   %70 = load ptr, ptr %12, align 8
   %71 = load ptr, ptr %13, align 8
@@ -22962,9 +22962,9 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   store float %103, ptr %94, align 4, !alias.scope !631, !noalias !634
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, 3
-  br i1 %exitcond.not.i43, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit47, label %93, !llvm.loop !177
+  br i1 %exitcond.not.i43, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit47, label %93, !llvm.loop !177
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit47: ; preds = %93
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit47: ; preds = %93
   %104 = load float, ptr %32, align 8
   %105 = load ptr, ptr %12, align 8
   %106 = load ptr, ptr %13, align 8
@@ -22974,8 +22974,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !626)
   br label %108
 
-108:                                              ; preds = %108, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit47
-  %indvars.iv.i44 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit47 ], [ %indvars.iv.next.i45, %108 ]
+108:                                              ; preds = %108, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit47
+  %indvars.iv.i44 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit47 ], [ %indvars.iv.next.i45, %108 ]
   %109 = getelementptr inbounds [3 x float], ptr %105, i64 %indvars.iv, i64 %indvars.iv.i44
   %110 = load float, ptr %109, align 4, !alias.scope !620, !noalias !623
   %111 = getelementptr inbounds [3 x float], ptr %107, i64 %indvars.iv, i64 %indvars.iv.i44
@@ -23309,10 +23309,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   store float %56, ptr %48, align 4, !alias.scope !637, !noalias !640
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, label %44, !llvm.loop !156
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %44, !llvm.loop !156
 
-57:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, %57
-  %indvars.iv.i41.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us ], [ %indvars.iv.next.i42.us.us, %57 ]
+57:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %57
+  %indvars.iv.i41.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i42.us.us, %57 ]
   %58 = getelementptr inbounds [3 x float], ptr %68, i64 %indvars.iv53, i64 %indvars.iv.i41.us.us
   %59 = load float, ptr %58, align 4, !alias.scope !643, !noalias !646
   %60 = getelementptr inbounds [3 x float], ptr %70, i64 %indvars.iv53, i64 %indvars.iv.i41.us.us
@@ -23331,7 +23331,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %57
   %66 = icmp slt i64 %indvars.iv.next54, %65
   br i1 %66, label %.lr.ph.us, label %._crit_edge.split.us.us, !llvm.loop !653
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us: ; preds = %44
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %44
   %67 = load float, ptr %31, align 8
   %68 = load ptr, ptr %12, align 8
   %69 = load ptr, ptr %13, align 8
@@ -23410,9 +23410,9 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   store float %100, ptr %92, align 4, !alias.scope !654, !noalias !657
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, 3
-  br i1 %exitcond.not.i40, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit44, label %91, !llvm.loop !191
+  br i1 %exitcond.not.i40, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit44, label %91, !llvm.loop !191
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit44: ; preds = %91
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit44: ; preds = %91
   %101 = load float, ptr %31, align 8
   %102 = load ptr, ptr %12, align 8
   %103 = load ptr, ptr %13, align 8
@@ -23422,8 +23422,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !649)
   br label %105
 
-105:                                              ; preds = %105, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit44
-  %indvars.iv.i41 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit44 ], [ %indvars.iv.next.i42, %105 ]
+105:                                              ; preds = %105, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit44
+  %indvars.iv.i41 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit44 ], [ %indvars.iv.next.i42, %105 ]
   %106 = getelementptr inbounds [3 x float], ptr %102, i64 %indvars.iv, i64 %indvars.iv.i41
   %107 = load float, ptr %106, align 4, !alias.scope !643, !noalias !646
   %108 = getelementptr inbounds [3 x float], ptr %104, i64 %indvars.iv, i64 %indvars.iv.i41
@@ -23599,21 +23599,21 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   %73 = getelementptr i8, ptr %.val, i64 12
   %74 = load float, ptr %73, align 4
   %75 = fcmp oeq float %74, 0.000000e+00
-  br i1 %75, label %76, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %75, label %76, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
 76:                                               ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
   %77 = getelementptr i8, ptr %.val, i64 24
   %78 = load float, ptr %77, align 4
   %79 = fcmp oeq float %78, 0.000000e+00
-  br i1 %79, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %79, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %76
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %76
   %80 = getelementptr i8, ptr %.val, i64 28
   %81 = load float, ptr %80, align 4
   %82 = fcmp oeq float %81, 0.000000e+00
-  br i1 %82, label %83, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %82, label %83, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-83:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
+83:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %84 = load float, ptr %.val, align 4
   %85 = getelementptr i8, ptr %.val, i64 16
   %86 = load float, ptr %85, align 4
@@ -23624,10 +23624,10 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %10, align 8
   %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   store float %88, ptr %.sroa.212.0..sroa_idx, align 8
-  br label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread: ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, %76, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, %83
-  %.sroa.03.0.insert.ext = phi i64 [ 1, %83 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ], [ 0, %76 ], [ 0, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit ]
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread: ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, %76, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %83
+  %.sroa.03.0.insert.ext = phi i64 [ 1, %83 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ 0, %76 ], [ 0, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit ]
   %89 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
   %90 = load ptr, ptr %60, align 8
   %91 = load ptr, ptr %90, align 8
@@ -23641,7 +23641,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   %95 = icmp eq ptr %94, null
   br i1 %95, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %96
 
-96:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+96:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %94)
   %97 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !5
   %98 = extractvalue { i32, i32 } %97, 0
@@ -23696,7 +23696,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store i64 %103, ptr %129, align 8
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
 
-_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %111, %122, %127, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %111, %122, %127, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
   ret void
 }
 
@@ -23807,10 +23807,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   store float %75, ptr %66, align 4, !alias.scope !660, !noalias !663
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, label %62, !llvm.loop !199
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %62, !llvm.loop !199
 
-76:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, %76
-  %indvars.iv.i42.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us ], [ %indvars.iv.next.i43.us.us, %76 ]
+76:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %76
+  %indvars.iv.i42.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i43.us.us, %76 ]
   %77 = getelementptr inbounds [3 x float], ptr %87, i64 %indvars.iv53, i64 %indvars.iv.i42.us.us
   %78 = load float, ptr %77, align 4, !alias.scope !666, !noalias !669
   %79 = getelementptr inbounds [3 x float], ptr %89, i64 %indvars.iv53, i64 %indvars.iv.i42.us.us
@@ -23829,7 +23829,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %76
   %85 = icmp slt i64 %indvars.iv.next54, %84
   br i1 %85, label %.lr.ph.us, label %._crit_edge.split.us.us, !llvm.loop !676
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us: ; preds = %62
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %62
   %86 = load float, ptr %32, align 8
   %87 = load ptr, ptr %12, align 8
   %88 = load ptr, ptr %13, align 8
@@ -23960,9 +23960,9 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   store float %153, ptr %141, align 4, !alias.scope !677, !noalias !680
   %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i39, 1
   %exitcond.not.i41 = icmp eq i64 %indvars.iv.next.i40, 3
-  br i1 %exitcond.not.i41, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %140, !llvm.loop !206
+  br i1 %exitcond.not.i41, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %140, !llvm.loop !206
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %140
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %140
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16)
   %154 = load float, ptr %32, align 8
   %155 = load ptr, ptr %12, align 8
@@ -23973,8 +23973,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !672)
   br label %158
 
-158:                                              ; preds = %158, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
-  %indvars.iv.i42 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ], [ %indvars.iv.next.i43, %158 ]
+158:                                              ; preds = %158, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
+  %indvars.iv.i42 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i43, %158 ]
   %159 = getelementptr inbounds [3 x float], ptr %155, i64 %indvars.iv, i64 %indvars.iv.i42
   %160 = load float, ptr %159, align 4, !alias.scope !666, !noalias !669
   %161 = getelementptr inbounds [3 x float], ptr %157, i64 %indvars.iv, i64 %indvars.iv.i42
@@ -24150,21 +24150,21 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   %73 = getelementptr i8, ptr %.val, i64 12
   %74 = load float, ptr %73, align 4
   %75 = fcmp oeq float %74, 0.000000e+00
-  br i1 %75, label %76, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %75, label %76, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
 76:                                               ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
   %77 = getelementptr i8, ptr %.val, i64 24
   %78 = load float, ptr %77, align 4
   %79 = fcmp oeq float %78, 0.000000e+00
-  br i1 %79, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %79, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %76
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %76
   %80 = getelementptr i8, ptr %.val, i64 28
   %81 = load float, ptr %80, align 4
   %82 = fcmp oeq float %81, 0.000000e+00
-  br i1 %82, label %83, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %82, label %83, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-83:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
+83:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %84 = load float, ptr %.val, align 4
   %85 = getelementptr i8, ptr %.val, i64 16
   %86 = load float, ptr %85, align 4
@@ -24175,10 +24175,10 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %10, align 8
   %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   store float %88, ptr %.sroa.212.0..sroa_idx, align 8
-  br label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread: ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, %76, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, %83
-  %.sroa.03.0.insert.ext = phi i64 [ 1, %83 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ], [ 0, %76 ], [ 0, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit ]
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread: ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, %76, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %83
+  %.sroa.03.0.insert.ext = phi i64 [ 1, %83 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ 0, %76 ], [ 0, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit ]
   %89 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
   %90 = load ptr, ptr %60, align 8
   %91 = load ptr, ptr %90, align 8
@@ -24192,7 +24192,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   %95 = icmp eq ptr %94, null
   br i1 %95, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %96
 
-96:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+96:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %94)
   %97 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !5
   %98 = extractvalue { i32, i32 } %97, 0
@@ -24247,7 +24247,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store i64 %103, ptr %129, align 8
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
 
-_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %111, %122, %127, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %111, %122, %127, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
   ret void
 }
 
@@ -24353,10 +24353,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   store float %70, ptr %62, align 4, !alias.scope !683, !noalias !686
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, label %58, !llvm.loop !214
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %58, !llvm.loop !214
 
-71:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, %71
-  %indvars.iv.i40.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us ], [ %indvars.iv.next.i41.us.us, %71 ]
+71:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %71
+  %indvars.iv.i40.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i41.us.us, %71 ]
   %72 = getelementptr inbounds [3 x float], ptr %82, i64 %indvars.iv51, i64 %indvars.iv.i40.us.us
   %73 = load float, ptr %72, align 4, !alias.scope !689, !noalias !692
   %74 = getelementptr inbounds [3 x float], ptr %84, i64 %indvars.iv51, i64 %indvars.iv.i40.us.us
@@ -24375,7 +24375,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %71
   %80 = icmp slt i64 %indvars.iv.next52, %79
   br i1 %80, label %.lr.ph.us, label %._crit_edge.split.us.us, !llvm.loop !699
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us: ; preds = %58
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %58
   %81 = load float, ptr %32, align 8
   %82 = load ptr, ptr %12, align 8
   %83 = load ptr, ptr %13, align 8
@@ -24502,9 +24502,9 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   store float %144, ptr %133, align 4, !alias.scope !700, !noalias !703
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i37, 1
   %exitcond.not.i39 = icmp eq i64 %indvars.iv.next.i38, 3
-  br i1 %exitcond.not.i39, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %132, !llvm.loop !221
+  br i1 %exitcond.not.i39, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %132, !llvm.loop !221
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %132
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %132
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16)
   %145 = load float, ptr %32, align 8
   %146 = load ptr, ptr %12, align 8
@@ -24515,8 +24515,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !695)
   br label %149
 
-149:                                              ; preds = %149, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
-  %indvars.iv.i40 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ], [ %indvars.iv.next.i41, %149 ]
+149:                                              ; preds = %149, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
+  %indvars.iv.i40 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i41, %149 ]
   %150 = getelementptr inbounds [3 x float], ptr %146, i64 %indvars.iv, i64 %indvars.iv.i40
   %151 = load float, ptr %150, align 4, !alias.scope !689, !noalias !692
   %152 = getelementptr inbounds [3 x float], ptr %148, i64 %indvars.iv, i64 %indvars.iv.i40
@@ -24861,10 +24861,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   store float %72, ptr %63, align 4, !alias.scope !706, !noalias !709
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, label %59, !llvm.loop !199
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %59, !llvm.loop !199
 
-73:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, %73
-  %indvars.iv.i42.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us ], [ %indvars.iv.next.i43.us.us, %73 ]
+73:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %73
+  %indvars.iv.i42.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i43.us.us, %73 ]
   %74 = getelementptr inbounds [3 x float], ptr %84, i64 %indvars.iv54, i64 %indvars.iv.i42.us.us
   %75 = load float, ptr %74, align 4, !alias.scope !712, !noalias !715
   %76 = getelementptr inbounds [3 x float], ptr %86, i64 %indvars.iv54, i64 %indvars.iv.i42.us.us
@@ -24883,7 +24883,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %73
   %82 = icmp slt i64 %indvars.iv.next55, %81
   br i1 %82, label %.lr.ph.us, label %._crit_edge.split.us.us, !llvm.loop !722
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us: ; preds = %59
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %59
   %83 = load float, ptr %30, align 8
   %84 = load ptr, ptr %12, align 8
   %85 = load ptr, ptr %13, align 8
@@ -24976,9 +24976,9 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   store float %130, ptr %121, align 4, !alias.scope !723, !noalias !726
   %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i39, 1
   %exitcond.not.i41 = icmp eq i64 %indvars.iv.next.i40, 3
-  br i1 %exitcond.not.i41, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit45, label %120, !llvm.loop !235
+  br i1 %exitcond.not.i41, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit45, label %120, !llvm.loop !235
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit45: ; preds = %120
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit45: ; preds = %120
   %131 = load float, ptr %30, align 8
   %132 = load ptr, ptr %12, align 8
   %133 = load ptr, ptr %13, align 8
@@ -24988,8 +24988,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !718)
   br label %135
 
-135:                                              ; preds = %135, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit45
-  %indvars.iv.i42 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit45 ], [ %indvars.iv.next.i43, %135 ]
+135:                                              ; preds = %135, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit45
+  %indvars.iv.i42 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit45 ], [ %indvars.iv.next.i43, %135 ]
   %136 = getelementptr inbounds [3 x float], ptr %132, i64 %indvars.iv, i64 %indvars.iv.i42
   %137 = load float, ptr %136, align 4, !alias.scope !712, !noalias !715
   %138 = getelementptr inbounds [3 x float], ptr %134, i64 %indvars.iv, i64 %indvars.iv.i42
@@ -25329,10 +25329,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   store float %67, ptr %59, align 4, !alias.scope !729, !noalias !732
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, label %55, !llvm.loop !214
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %55, !llvm.loop !214
 
-68:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, %68
-  %indvars.iv.i40.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us ], [ %indvars.iv.next.i41.us.us, %68 ]
+68:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %68
+  %indvars.iv.i40.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i41.us.us, %68 ]
   %69 = getelementptr inbounds [3 x float], ptr %79, i64 %indvars.iv52, i64 %indvars.iv.i40.us.us
   %70 = load float, ptr %69, align 4, !alias.scope !735, !noalias !738
   %71 = getelementptr inbounds [3 x float], ptr %81, i64 %indvars.iv52, i64 %indvars.iv.i40.us.us
@@ -25351,7 +25351,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %68
   %77 = icmp slt i64 %indvars.iv.next53, %76
   br i1 %77, label %.lr.ph.us, label %._crit_edge.split.us.us, !llvm.loop !745
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us: ; preds = %55
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %55
   %78 = load float, ptr %30, align 8
   %79 = load ptr, ptr %12, align 8
   %80 = load ptr, ptr %13, align 8
@@ -25440,9 +25440,9 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   store float %121, ptr %113, align 4, !alias.scope !746, !noalias !749
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i37, 1
   %exitcond.not.i39 = icmp eq i64 %indvars.iv.next.i38, 3
-  br i1 %exitcond.not.i39, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit43, label %112, !llvm.loop !249
+  br i1 %exitcond.not.i39, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit43, label %112, !llvm.loop !249
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit43: ; preds = %112
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit43: ; preds = %112
   %122 = load float, ptr %30, align 8
   %123 = load ptr, ptr %12, align 8
   %124 = load ptr, ptr %13, align 8
@@ -25452,8 +25452,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !741)
   br label %126
 
-126:                                              ; preds = %126, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit43
-  %indvars.iv.i40 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit43 ], [ %indvars.iv.next.i41, %126 ]
+126:                                              ; preds = %126, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit43
+  %indvars.iv.i40 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit43 ], [ %indvars.iv.next.i41, %126 ]
   %127 = getelementptr inbounds [3 x float], ptr %123, i64 %indvars.iv, i64 %indvars.iv.i40
   %128 = load float, ptr %127, align 4, !alias.scope !735, !noalias !738
   %129 = getelementptr inbounds [3 x float], ptr %125, i64 %indvars.iv, i64 %indvars.iv.i40
@@ -25629,21 +25629,21 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   %73 = getelementptr i8, ptr %.val, i64 12
   %74 = load float, ptr %73, align 4
   %75 = fcmp oeq float %74, 0.000000e+00
-  br i1 %75, label %76, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %75, label %76, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
 76:                                               ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
   %77 = getelementptr i8, ptr %.val, i64 24
   %78 = load float, ptr %77, align 4
   %79 = fcmp oeq float %78, 0.000000e+00
-  br i1 %79, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %79, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %76
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %76
   %80 = getelementptr i8, ptr %.val, i64 28
   %81 = load float, ptr %80, align 4
   %82 = fcmp oeq float %81, 0.000000e+00
-  br i1 %82, label %83, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br i1 %82, label %83, label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-83:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
+83:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %84 = load float, ptr %.val, align 4
   %85 = getelementptr i8, ptr %.val, i64 16
   %86 = load float, ptr %85, align 4
@@ -25654,10 +25654,10 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %10, align 8
   %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   store float %88, ptr %.sroa.212.0..sroa_idx, align 8
-  br label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+  br label %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
 
-_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread: ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, %76, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, %83
-  %.sroa.03.0.insert.ext = phi i64 [ 1, %83 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ], [ 0, %76 ], [ 0, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit ]
+_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread: ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, %76, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %83
+  %.sroa.03.0.insert.ext = phi i64 [ 1, %83 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ 0, %76 ], [ 0, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit ]
   %89 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
   %90 = load ptr, ptr %60, align 8
   %91 = load ptr, ptr %90, align 8
@@ -25671,7 +25671,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   %95 = icmp eq ptr %94, null
   br i1 %95, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %96
 
-96:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+96:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %94)
   %97 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !5
   %98 = extractvalue { i32, i32 } %97, 0
@@ -25726,7 +25726,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   store i64 %103, ptr %129, align 8
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
 
-_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %111, %122, %127, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.thread
+_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %111, %122, %127, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread
   ret void
 }
 
@@ -25820,10 +25820,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   store float %58, ptr %50, align 4, !alias.scope !752, !noalias !755
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, label %46, !llvm.loop !257
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %46, !llvm.loop !257
 
-59:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, %59
-  %indvars.iv.i38.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us ], [ %indvars.iv.next.i39.us.us, %59 ]
+59:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %59
+  %indvars.iv.i38.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i39.us.us, %59 ]
   %60 = getelementptr inbounds [3 x float], ptr %70, i64 %indvars.iv49, i64 %indvars.iv.i38.us.us
   %61 = load float, ptr %60, align 4, !alias.scope !758, !noalias !761
   %62 = getelementptr inbounds [3 x float], ptr %72, i64 %indvars.iv49, i64 %indvars.iv.i38.us.us
@@ -25842,7 +25842,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %59
   %68 = icmp slt i64 %indvars.iv.next50, %67
   br i1 %68, label %.lr.ph.us, label %._crit_edge.split.us.us, !llvm.loop !768
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us: ; preds = %46
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %46
   %69 = load float, ptr %32, align 8
   %70 = load ptr, ptr %12, align 8
   %71 = load ptr, ptr %13, align 8
@@ -25958,9 +25958,9 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   store float %121, ptr %113, align 4, !alias.scope !769, !noalias !772
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond.not.i37 = icmp eq i64 %indvars.iv.next.i36, 3
-  br i1 %exitcond.not.i37, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit, label %110, !llvm.loop !264
+  br i1 %exitcond.not.i37, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %110, !llvm.loop !264
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit: ; preds = %110
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %110
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16)
   %122 = load float, ptr %32, align 8
   %123 = load ptr, ptr %12, align 8
@@ -25971,8 +25971,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !764)
   br label %126
 
-126:                                              ; preds = %126, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit
-  %indvars.iv.i38 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit ], [ %indvars.iv.next.i39, %126 ]
+126:                                              ; preds = %126, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
+  %indvars.iv.i38 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i39, %126 ]
   %127 = getelementptr inbounds [3 x float], ptr %123, i64 %indvars.iv, i64 %indvars.iv.i38
   %128 = load float, ptr %127, align 4, !alias.scope !758, !noalias !761
   %129 = getelementptr inbounds [3 x float], ptr %125, i64 %indvars.iv, i64 %indvars.iv.i38
@@ -26300,10 +26300,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   store float %55, ptr %47, align 4, !alias.scope !775, !noalias !778
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, label %43, !llvm.loop !257
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %43, !llvm.loop !257
 
-56:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us, %56
-  %indvars.iv.i38.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us ], [ %indvars.iv.next.i39.us.us, %56 ]
+56:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %56
+  %indvars.iv.i38.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i39.us.us, %56 ]
   %57 = getelementptr inbounds [3 x float], ptr %67, i64 %indvars.iv50, i64 %indvars.iv.i38.us.us
   %58 = load float, ptr %57, align 4, !alias.scope !781, !noalias !784
   %59 = getelementptr inbounds [3 x float], ptr %69, i64 %indvars.iv50, i64 %indvars.iv.i38.us.us
@@ -26322,7 +26322,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %56
   %65 = icmp slt i64 %indvars.iv.next51, %64
   br i1 %65, label %.lr.ph.us, label %._crit_edge.split.us.us, !llvm.loop !791
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit.us.us: ; preds = %43
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %43
   %66 = load float, ptr %30, align 8
   %67 = load ptr, ptr %12, align 8
   %68 = load ptr, ptr %13, align 8
@@ -26400,9 +26400,9 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
   store float %98, ptr %96, align 4, !alias.scope !792, !noalias !795
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond.not.i37 = icmp eq i64 %indvars.iv.next.i36, 3
-  br i1 %exitcond.not.i37, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit41, label %90, !llvm.loop !278
+  br i1 %exitcond.not.i37, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit41, label %90, !llvm.loop !278
 
-_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit41: ; preds = %90
+_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit41: ; preds = %90
   %99 = load float, ptr %30, align 8
   %100 = load ptr, ptr %12, align 8
   %101 = load ptr, ptr %13, align 8
@@ -26412,8 +26412,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !787)
   br label %103
 
-103:                                              ; preds = %103, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit41
-  %indvars.iv.i38 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom.exit.loopexit41 ], [ %indvars.iv.next.i39, %103 ]
+103:                                              ; preds = %103, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit41
+  %indvars.iv.i38 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit41 ], [ %indvars.iv.next.i39, %103 ]
   %104 = getelementptr inbounds [3 x float], ptr %100, i64 %indvars.iv, i64 %indvars.iv.i38
   %105 = load float, ptr %104, align 4, !alias.scope !781, !noalias !784
   %106 = getelementptr inbounds [3 x float], ptr %102, i64 %indvars.iv, i64 %indvars.iv.i38
@@ -27258,13 +27258,13 @@ define internal { ptr, ptr } @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0
   %3 = getelementptr i8, ptr %.val, i64 40
   %.val.val1 = load ptr, ptr %3, align 8
   %4 = icmp eq ptr %.val.val, %.val.val1
-  br i1 %4, label %5, label %_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE3EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.argprom.exit
+  br i1 %4, label %5, label %_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE3EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit
 
 5:                                                ; preds = %1
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZN3gmx10PropagatorILNS_16IntegrationStageE3EE26viewOnStartVelocityScalingEvENKUlvE0_clEv, ptr noundef nonnull @.str.53, i32 noundef 807) #24
   unreachable
 
-_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE3EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.argprom.exit: ; preds = %1
+_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE3EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit: ; preds = %1
   %6 = ptrtoint ptr %.val.val1 to i64
   %7 = ptrtoint ptr %.val.val to i64
   %8 = sub i64 %6, %7
@@ -27307,13 +27307,13 @@ define internal { ptr, ptr } @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0
   %3 = getelementptr i8, ptr %.val, i64 64
   %.val.val1 = load ptr, ptr %3, align 8
   %4 = icmp eq ptr %.val.val, %.val.val1
-  br i1 %4, label %5, label %_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE3EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE1_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.argprom.exit
+  br i1 %4, label %5, label %_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE3EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE1_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit
 
 5:                                                ; preds = %1
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.70, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZN3gmx10PropagatorILNS_16IntegrationStageE3EE24viewOnEndVelocityScalingEvENKUlvE0_clEv, ptr noundef nonnull @.str.53, i32 noundef 820) #24
   unreachable
 
-_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE3EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE1_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.argprom.exit: ; preds = %1
+_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE3EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE1_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit: ; preds = %1
   %6 = ptrtoint ptr %.val.val1 to i64
   %7 = ptrtoint ptr %.val.val to i64
   %8 = sub i64 %6, %7
@@ -30612,13 +30612,13 @@ define internal { ptr, ptr } @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0
   %3 = getelementptr i8, ptr %.val, i64 40
   %.val.val1 = load ptr, ptr %3, align 8
   %4 = icmp eq ptr %.val.val, %.val.val1
-  br i1 %4, label %5, label %_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE4EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.argprom.exit
+  br i1 %4, label %5, label %_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE4EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit
 
 5:                                                ; preds = %1
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZN3gmx10PropagatorILNS_16IntegrationStageE4EE26viewOnStartVelocityScalingEvENKUlvE0_clEv, ptr noundef nonnull @.str.53, i32 noundef 807) #24
   unreachable
 
-_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE4EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.argprom.exit: ; preds = %1
+_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE4EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit: ; preds = %1
   %6 = ptrtoint ptr %.val.val1 to i64
   %7 = ptrtoint ptr %.val.val to i64
   %8 = sub i64 %6, %7
@@ -34384,14 +34384,14 @@ define internal void @_ZNSt17_Function_handlerIFviEZN3gmxL13getConnectionILNS1_1
 10:                                               ; preds = %2
   store float 1.000000e+00, ptr %3, align 4
   %.not.i.i.i.i = icmp eq i32 %.val2, 0
-  br i1 %.not.i.i.i.i, label %_ZSt10__invoke_rIvRZN3gmxL13getConnectionILNS0_16IntegrationStageE5EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUliE_JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit, label %11
+  br i1 %.not.i.i.i.i, label %_ZSt10__invoke_rIvRZN3gmxL13getConnectionILNS0_16IntegrationStageE5EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUliE_JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit, label %11
 
 11:                                               ; preds = %10
   %12 = sext i32 %.val2 to i64
   call void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr %7, i64 noundef %12, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  br label %_ZSt10__invoke_rIvRZN3gmxL13getConnectionILNS0_16IntegrationStageE5EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUliE_JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit
+  br label %_ZSt10__invoke_rIvRZN3gmxL13getConnectionILNS0_16IntegrationStageE5EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUliE_JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit
 
-_ZSt10__invoke_rIvRZN3gmxL13getConnectionILNS0_16IntegrationStageE5EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUliE_JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit: ; preds = %10, %11
+_ZSt10__invoke_rIvRZN3gmxL13getConnectionILNS0_16IntegrationStageE5EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUliE_JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit: ; preds = %10, %11
   %13 = icmp eq i32 %.val2, 1
   %14 = getelementptr inbounds i8, ptr %.val, i64 28
   %15 = zext i1 %13 to i8
@@ -34437,13 +34437,13 @@ define internal { ptr, ptr } @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0
   %3 = getelementptr i8, ptr %.val, i64 88
   %.val.val1 = load ptr, ptr %3, align 8
   %4 = icmp eq ptr %.val.val, %.val.val1
-  br i1 %4, label %5, label %_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE5EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.argprom.exit
+  br i1 %4, label %5, label %_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE5EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit
 
 5:                                                ; preds = %1
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.75, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZN3gmx10PropagatorILNS_16IntegrationStageE5EE21viewOnPositionScalingEvENKUlvE0_clEv, ptr noundef nonnull @.str.53, i32 noundef 832) #24
   unreachable
 
-_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE5EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.argprom.exit: ; preds = %1
+_ZSt10__invoke_rIN3gmx8ArrayRefIfEERZNS0_L13getConnectionILNS0_16IntegrationStageE5EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit: ; preds = %1
   %6 = ptrtoint ptr %.val.val1 to i64
   %7 = ptrtoint ptr %.val.val to i64
   %8 = sub i64 %6, %7
@@ -34700,8 +34700,8 @@ attributes #27 = { builtin allocsize(0) }
 !122 = distinct !{!122, !123, !"_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE0EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !123 = distinct !{!123, !"_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE0EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !124 = !{!125}
-!125 = distinct !{!125, !126, !"_ZN3gmxL13getConnectionILNS_16IntegrationStageE0EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE.argprom: argument 0"}
-!126 = distinct !{!126, !"_ZN3gmxL13getConnectionILNS_16IntegrationStageE0EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE.argprom"}
+!125 = distinct !{!125, !126, !"_ZN3gmxL13getConnectionILNS_16IntegrationStageE0EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE: argument 0"}
+!126 = distinct !{!126, !"_ZN3gmxL13getConnectionILNS_16IntegrationStageE0EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE"}
 !127 = !{!128}
 !128 = distinct !{!128, !129, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
 !129 = distinct !{!129, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
@@ -34710,148 +34710,148 @@ attributes #27 = { builtin allocsize(0) }
 !132 = distinct !{!132, !17}
 !133 = distinct !{!133, !17}
 !134 = !{!135}
-!135 = distinct !{!135, !136, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!136 = distinct !{!136, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!135 = distinct !{!135, !136, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!136 = distinct !{!136, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !137 = !{!138}
-!138 = distinct !{!138, !136, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!138 = distinct !{!138, !136, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !139 = !{!135, !138}
 !140 = distinct !{!140, !17}
 !141 = !{!142}
-!142 = distinct !{!142, !143, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!143 = distinct !{!143, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!142 = distinct !{!142, !143, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!143 = distinct !{!143, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !144 = !{!145}
-!145 = distinct !{!145, !143, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!145 = distinct !{!145, !143, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !146 = !{!142, !145}
 !147 = distinct !{!147, !17}
 !148 = distinct !{!148, !17}
 !149 = distinct !{!149, !17}
 !150 = !{!151}
-!151 = distinct !{!151, !152, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!152 = distinct !{!152, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!151 = distinct !{!151, !152, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!152 = distinct !{!152, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !153 = !{!154}
-!154 = distinct !{!154, !152, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!154 = distinct !{!154, !152, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !155 = !{!151, !154}
 !156 = distinct !{!156, !17}
 !157 = !{!158}
-!158 = distinct !{!158, !159, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!159 = distinct !{!159, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!158 = distinct !{!158, !159, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!159 = distinct !{!159, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !160 = !{!161}
-!161 = distinct !{!161, !159, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!161 = distinct !{!161, !159, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !162 = !{!158, !161}
 !163 = distinct !{!163, !17}
 !164 = distinct !{!164, !17}
 !165 = !{!166}
-!166 = distinct !{!166, !167, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!167 = distinct !{!167, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!166 = distinct !{!166, !167, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!167 = distinct !{!167, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !168 = !{!169}
-!169 = distinct !{!169, !167, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!169 = distinct !{!169, !167, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !170 = !{!166, !169}
 !171 = !{!172}
-!172 = distinct !{!172, !173, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!173 = distinct !{!173, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!172 = distinct !{!172, !173, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!173 = distinct !{!173, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !174 = !{!175}
-!175 = distinct !{!175, !173, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!175 = distinct !{!175, !173, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !176 = !{!172, !175}
 !177 = distinct !{!177, !17}
 !178 = distinct !{!178, !17}
 !179 = !{!180}
-!180 = distinct !{!180, !181, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!181 = distinct !{!181, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!180 = distinct !{!180, !181, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!181 = distinct !{!181, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !182 = !{!183}
-!183 = distinct !{!183, !181, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!183 = distinct !{!183, !181, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !184 = !{!180, !183}
 !185 = !{!186}
-!186 = distinct !{!186, !187, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!187 = distinct !{!187, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!186 = distinct !{!186, !187, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!187 = distinct !{!187, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !188 = !{!189}
-!189 = distinct !{!189, !187, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!189 = distinct !{!189, !187, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !190 = !{!186, !189}
 !191 = distinct !{!191, !17}
 !192 = distinct !{!192, !17}
 !193 = !{!194}
-!194 = distinct !{!194, !195, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!195 = distinct !{!195, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!194 = distinct !{!194, !195, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!195 = distinct !{!195, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !196 = !{!197}
-!197 = distinct !{!197, !195, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!197 = distinct !{!197, !195, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !198 = !{!194, !197}
 !199 = distinct !{!199, !17}
 !200 = !{!201}
-!201 = distinct !{!201, !202, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!202 = distinct !{!202, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!201 = distinct !{!201, !202, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!202 = distinct !{!202, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !203 = !{!204}
-!204 = distinct !{!204, !202, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!204 = distinct !{!204, !202, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !205 = !{!201, !204}
 !206 = distinct !{!206, !17}
 !207 = distinct !{!207, !17}
 !208 = !{!209}
-!209 = distinct !{!209, !210, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!210 = distinct !{!210, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!209 = distinct !{!209, !210, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!210 = distinct !{!210, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !211 = !{!212}
-!212 = distinct !{!212, !210, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!212 = distinct !{!212, !210, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !213 = !{!209, !212}
 !214 = distinct !{!214, !17}
 !215 = !{!216}
-!216 = distinct !{!216, !217, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!217 = distinct !{!217, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!216 = distinct !{!216, !217, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!217 = distinct !{!217, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !218 = !{!219}
-!219 = distinct !{!219, !217, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!219 = distinct !{!219, !217, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !220 = !{!216, !219}
 !221 = distinct !{!221, !17}
 !222 = distinct !{!222, !17}
 !223 = !{!224}
-!224 = distinct !{!224, !225, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!225 = distinct !{!225, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!224 = distinct !{!224, !225, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!225 = distinct !{!225, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !226 = !{!227}
-!227 = distinct !{!227, !225, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!227 = distinct !{!227, !225, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !228 = !{!224, !227}
 !229 = !{!230}
-!230 = distinct !{!230, !231, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!231 = distinct !{!231, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!230 = distinct !{!230, !231, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!231 = distinct !{!231, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !232 = !{!233}
-!233 = distinct !{!233, !231, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!233 = distinct !{!233, !231, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !234 = !{!230, !233}
 !235 = distinct !{!235, !17}
 !236 = distinct !{!236, !17}
 !237 = !{!238}
-!238 = distinct !{!238, !239, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!239 = distinct !{!239, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!238 = distinct !{!238, !239, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!239 = distinct !{!239, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !240 = !{!241}
-!241 = distinct !{!241, !239, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!241 = distinct !{!241, !239, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !242 = !{!238, !241}
 !243 = !{!244}
-!244 = distinct !{!244, !245, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!245 = distinct !{!245, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!244 = distinct !{!244, !245, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!245 = distinct !{!245, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !246 = !{!247}
-!247 = distinct !{!247, !245, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!247 = distinct !{!247, !245, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !248 = !{!244, !247}
 !249 = distinct !{!249, !17}
 !250 = distinct !{!250, !17}
 !251 = !{!252}
-!252 = distinct !{!252, !253, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!253 = distinct !{!253, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!252 = distinct !{!252, !253, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!253 = distinct !{!253, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !254 = !{!255}
-!255 = distinct !{!255, !253, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!255 = distinct !{!255, !253, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !256 = !{!252, !255}
 !257 = distinct !{!257, !17}
 !258 = !{!259}
-!259 = distinct !{!259, !260, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!260 = distinct !{!260, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!259 = distinct !{!259, !260, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!260 = distinct !{!260, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !261 = !{!262}
-!262 = distinct !{!262, !260, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!262 = distinct !{!262, !260, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !263 = !{!259, !262}
 !264 = distinct !{!264, !17}
 !265 = distinct !{!265, !17}
 !266 = !{!267}
-!267 = distinct !{!267, !268, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!268 = distinct !{!268, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!267 = distinct !{!267, !268, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!268 = distinct !{!268, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !269 = !{!270}
-!270 = distinct !{!270, !268, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!270 = distinct !{!270, !268, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !271 = !{!267, !270}
 !272 = !{!273}
-!273 = distinct !{!273, !274, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!274 = distinct !{!274, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!273 = distinct !{!273, !274, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!274 = distinct !{!274, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !275 = !{!276}
-!276 = distinct !{!276, !274, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!276 = distinct !{!276, !274, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !277 = !{!273, !276}
 !278 = distinct !{!278, !17}
 !279 = distinct !{!279, !17}
@@ -34869,26 +34869,26 @@ attributes #27 = { builtin allocsize(0) }
 !291 = !{!292, !294, !296, !298}
 !292 = distinct !{!292, !293, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE23velocityScalingCallbackEv: argument 0"}
 !293 = distinct !{!293, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE23velocityScalingCallbackEv"}
-!294 = distinct !{!294, !295, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv.argprom: argument 0"}
-!295 = distinct !{!295, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv.argprom"}
-!296 = distinct !{!296, !297, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
-!297 = distinct !{!297, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_.argprom"}
-!298 = distinct !{!298, !299, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom: argument 0"}
-!299 = distinct !{!299, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom"}
+!294 = distinct !{!294, !295, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv: argument 0"}
+!295 = distinct !{!295, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv"}
+!296 = distinct !{!296, !297, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!297 = distinct !{!297, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_"}
+!298 = distinct !{!298, !299, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: argument 0"}
+!299 = distinct !{!299, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
 !300 = !{!301, !303, !305, !307}
 !301 = distinct !{!301, !302, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE17prScalingCallbackEv: argument 0"}
 !302 = distinct !{!302, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE17prScalingCallbackEv"}
-!303 = distinct !{!303, !304, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE3_clEv.argprom: argument 0"}
-!304 = distinct !{!304, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE3_clEv.argprom"}
-!305 = distinct !{!305, !306, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
-!306 = distinct !{!306, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEET_St14__invoke_otherOT0_DpOT1_.argprom"}
-!307 = distinct !{!307, !308, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom: argument 0"}
-!308 = distinct !{!308, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom"}
+!303 = distinct !{!303, !304, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE3_clEv: argument 0"}
+!304 = distinct !{!304, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE3_clEv"}
+!305 = distinct !{!305, !306, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!306 = distinct !{!306, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEET_St14__invoke_otherOT0_DpOT1_"}
+!307 = distinct !{!307, !308, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: argument 0"}
+!308 = distinct !{!308, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
 !309 = !{!310}
-!310 = distinct !{!310, !311, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!311 = distinct !{!311, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!310 = distinct !{!310, !311, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!311 = distinct !{!311, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !312 = !{!313}
-!313 = distinct !{!313, !311, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!313 = distinct !{!313, !311, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !314 = !{!310, !313}
 !315 = !{!316}
 !316 = distinct !{!316, !317, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
@@ -34902,16 +34902,16 @@ attributes #27 = { builtin allocsize(0) }
 !324 = !{!316, !320}
 !325 = distinct !{!325, !17}
 !326 = !{!327}
-!327 = distinct !{!327, !328, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!328 = distinct !{!328, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!327 = distinct !{!327, !328, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!328 = distinct !{!328, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !329 = !{!330}
-!330 = distinct !{!330, !328, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!330 = distinct !{!330, !328, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !331 = !{!327, !330}
 !332 = !{!333}
-!333 = distinct !{!333, !334, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!334 = distinct !{!334, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!333 = distinct !{!333, !334, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!334 = distinct !{!334, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !335 = !{!336}
-!336 = distinct !{!336, !334, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!336 = distinct !{!336, !334, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !337 = !{!333, !336}
 !338 = !{!339}
 !339 = distinct !{!339, !340, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
@@ -34925,16 +34925,16 @@ attributes #27 = { builtin allocsize(0) }
 !347 = !{!339, !343}
 !348 = distinct !{!348, !17}
 !349 = !{!350}
-!350 = distinct !{!350, !351, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!351 = distinct !{!351, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!350 = distinct !{!350, !351, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!351 = distinct !{!351, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !352 = !{!353}
-!353 = distinct !{!353, !351, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!353 = distinct !{!353, !351, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !354 = !{!350, !353}
 !355 = !{!356}
-!356 = distinct !{!356, !357, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!357 = distinct !{!357, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!356 = distinct !{!356, !357, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!357 = distinct !{!357, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !358 = !{!359}
-!359 = distinct !{!359, !357, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!359 = distinct !{!359, !357, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !360 = !{!356, !359}
 !361 = !{!362}
 !362 = distinct !{!362, !363, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
@@ -34948,16 +34948,16 @@ attributes #27 = { builtin allocsize(0) }
 !370 = !{!362, !366}
 !371 = distinct !{!371, !17}
 !372 = !{!373}
-!373 = distinct !{!373, !374, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!374 = distinct !{!374, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!373 = distinct !{!373, !374, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!374 = distinct !{!374, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !375 = !{!376}
-!376 = distinct !{!376, !374, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!376 = distinct !{!376, !374, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !377 = !{!373, !376}
 !378 = !{!379}
-!379 = distinct !{!379, !380, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!380 = distinct !{!380, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!379 = distinct !{!379, !380, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!380 = distinct !{!380, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !381 = !{!382}
-!382 = distinct !{!382, !380, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!382 = distinct !{!382, !380, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !383 = !{!379, !382}
 !384 = !{!385}
 !385 = distinct !{!385, !386, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
@@ -34971,16 +34971,16 @@ attributes #27 = { builtin allocsize(0) }
 !393 = !{!385, !389}
 !394 = distinct !{!394, !17}
 !395 = !{!396}
-!396 = distinct !{!396, !397, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!397 = distinct !{!397, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!396 = distinct !{!396, !397, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!397 = distinct !{!397, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !398 = !{!399}
-!399 = distinct !{!399, !397, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!399 = distinct !{!399, !397, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !400 = !{!396, !399}
 !401 = !{!402}
-!402 = distinct !{!402, !403, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!403 = distinct !{!403, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!402 = distinct !{!402, !403, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!403 = distinct !{!403, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !404 = !{!405}
-!405 = distinct !{!405, !403, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!405 = distinct !{!405, !403, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !406 = !{!402, !405}
 !407 = !{!408}
 !408 = distinct !{!408, !409, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
@@ -34994,16 +34994,16 @@ attributes #27 = { builtin allocsize(0) }
 !416 = !{!408, !412}
 !417 = distinct !{!417, !17}
 !418 = !{!419}
-!419 = distinct !{!419, !420, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!420 = distinct !{!420, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!419 = distinct !{!419, !420, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!420 = distinct !{!420, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !421 = !{!422}
-!422 = distinct !{!422, !420, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!422 = distinct !{!422, !420, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !423 = !{!419, !422}
 !424 = !{!425}
-!425 = distinct !{!425, !426, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!426 = distinct !{!426, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!425 = distinct !{!425, !426, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!426 = distinct !{!426, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !427 = !{!428}
-!428 = distinct !{!428, !426, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!428 = distinct !{!428, !426, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !429 = !{!425, !428}
 !430 = !{!431}
 !431 = distinct !{!431, !432, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
@@ -35017,16 +35017,16 @@ attributes #27 = { builtin allocsize(0) }
 !439 = !{!431, !435}
 !440 = distinct !{!440, !17}
 !441 = !{!442}
-!442 = distinct !{!442, !443, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!443 = distinct !{!443, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!442 = distinct !{!442, !443, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!443 = distinct !{!443, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !444 = !{!445}
-!445 = distinct !{!445, !443, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!445 = distinct !{!445, !443, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !446 = !{!442, !445}
 !447 = !{!448}
-!448 = distinct !{!448, !449, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!449 = distinct !{!449, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!448 = distinct !{!448, !449, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!449 = distinct !{!449, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !450 = !{!451}
-!451 = distinct !{!451, !449, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!451 = distinct !{!451, !449, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !452 = !{!448, !451}
 !453 = !{!454}
 !454 = distinct !{!454, !455, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
@@ -35040,16 +35040,16 @@ attributes #27 = { builtin allocsize(0) }
 !462 = !{!454, !458}
 !463 = distinct !{!463, !17}
 !464 = !{!465}
-!465 = distinct !{!465, !466, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!466 = distinct !{!466, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!465 = distinct !{!465, !466, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!466 = distinct !{!466, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !467 = !{!468}
-!468 = distinct !{!468, !466, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!468 = distinct !{!468, !466, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !469 = !{!465, !468}
 !470 = !{!471}
-!471 = distinct !{!471, !472, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!472 = distinct !{!472, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!471 = distinct !{!471, !472, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!472 = distinct !{!472, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !473 = !{!474}
-!474 = distinct !{!474, !472, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!474 = distinct !{!474, !472, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !475 = !{!471, !474}
 !476 = !{!477}
 !477 = distinct !{!477, !478, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
@@ -35063,16 +35063,16 @@ attributes #27 = { builtin allocsize(0) }
 !485 = !{!477, !481}
 !486 = distinct !{!486, !17}
 !487 = !{!488}
-!488 = distinct !{!488, !489, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!489 = distinct !{!489, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!488 = distinct !{!488, !489, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!489 = distinct !{!489, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !490 = !{!491}
-!491 = distinct !{!491, !489, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!491 = distinct !{!491, !489, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !492 = !{!488, !491}
 !493 = !{!494}
-!494 = distinct !{!494, !495, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!495 = distinct !{!495, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!494 = distinct !{!494, !495, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!495 = distinct !{!495, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !496 = !{!497}
-!497 = distinct !{!497, !495, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!497 = distinct !{!497, !495, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !498 = !{!494, !497}
 !499 = !{!500}
 !500 = distinct !{!500, !501, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
@@ -35086,16 +35086,16 @@ attributes #27 = { builtin allocsize(0) }
 !508 = !{!500, !504}
 !509 = distinct !{!509, !17}
 !510 = !{!511}
-!511 = distinct !{!511, !512, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!512 = distinct !{!512, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!511 = distinct !{!511, !512, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!512 = distinct !{!512, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !513 = !{!514}
-!514 = distinct !{!514, !512, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!514 = distinct !{!514, !512, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !515 = !{!511, !514}
 !516 = !{!517}
-!517 = distinct !{!517, !518, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!518 = distinct !{!518, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!517 = distinct !{!517, !518, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!518 = distinct !{!518, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !519 = !{!520}
-!520 = distinct !{!520, !518, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!520 = distinct !{!520, !518, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !521 = !{!517, !520}
 !522 = !{!523}
 !523 = distinct !{!523, !524, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
@@ -35109,10 +35109,10 @@ attributes #27 = { builtin allocsize(0) }
 !531 = !{!523, !527}
 !532 = distinct !{!532, !17}
 !533 = !{!534}
-!534 = distinct !{!534, !535, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!535 = distinct !{!535, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!534 = distinct !{!534, !535, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!535 = distinct !{!535, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !536 = !{!537}
-!537 = distinct !{!537, !535, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!537 = distinct !{!537, !535, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !538 = !{!534, !537}
 !539 = !{!540}
 !540 = distinct !{!540, !541, !"_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE2EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
@@ -35128,26 +35128,26 @@ attributes #27 = { builtin allocsize(0) }
 !550 = !{!551, !553, !555, !557}
 !551 = distinct !{!551, !552, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE23velocityScalingCallbackEv: argument 0"}
 !552 = distinct !{!552, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE23velocityScalingCallbackEv"}
-!553 = distinct !{!553, !554, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv.argprom: argument 0"}
-!554 = distinct !{!554, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv.argprom"}
-!555 = distinct !{!555, !556, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
-!556 = distinct !{!556, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_.argprom"}
-!557 = distinct !{!557, !558, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom: argument 0"}
-!558 = distinct !{!558, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom"}
+!553 = distinct !{!553, !554, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv: argument 0"}
+!554 = distinct !{!554, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv"}
+!555 = distinct !{!555, !556, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!556 = distinct !{!556, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_"}
+!557 = distinct !{!557, !558, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: argument 0"}
+!558 = distinct !{!558, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
 !559 = !{!560, !562, !564, !566}
 !560 = distinct !{!560, !561, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE17prScalingCallbackEv: argument 0"}
 !561 = distinct !{!561, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE17prScalingCallbackEv"}
-!562 = distinct !{!562, !563, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE3_clEv.argprom: argument 0"}
-!563 = distinct !{!563, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE3_clEv.argprom"}
-!564 = distinct !{!564, !565, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
-!565 = distinct !{!565, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEET_St14__invoke_otherOT0_DpOT1_.argprom"}
-!566 = distinct !{!566, !567, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom: argument 0"}
-!567 = distinct !{!567, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom"}
+!562 = distinct !{!562, !563, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE3_clEv: argument 0"}
+!563 = distinct !{!563, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE3_clEv"}
+!564 = distinct !{!564, !565, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!565 = distinct !{!565, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEET_St14__invoke_otherOT0_DpOT1_"}
+!566 = distinct !{!566, !567, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: argument 0"}
+!567 = distinct !{!567, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
 !568 = !{!569}
-!569 = distinct !{!569, !570, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!570 = distinct !{!570, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!569 = distinct !{!569, !570, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!570 = distinct !{!570, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !571 = !{!572}
-!572 = distinct !{!572, !570, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!572 = distinct !{!572, !570, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !573 = !{!569, !572}
 !574 = !{!575}
 !575 = distinct !{!575, !576, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
@@ -35161,16 +35161,16 @@ attributes #27 = { builtin allocsize(0) }
 !583 = !{!575, !579}
 !584 = distinct !{!584, !17}
 !585 = !{!586}
-!586 = distinct !{!586, !587, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!587 = distinct !{!587, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!586 = distinct !{!586, !587, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!587 = distinct !{!587, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !588 = !{!589}
-!589 = distinct !{!589, !587, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!589 = distinct !{!589, !587, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !590 = !{!586, !589}
 !591 = !{!592}
-!592 = distinct !{!592, !593, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!593 = distinct !{!593, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!592 = distinct !{!592, !593, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!593 = distinct !{!593, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !594 = !{!595}
-!595 = distinct !{!595, !593, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!595 = distinct !{!595, !593, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !596 = !{!592, !595}
 !597 = !{!598}
 !598 = distinct !{!598, !599, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
@@ -35184,16 +35184,16 @@ attributes #27 = { builtin allocsize(0) }
 !606 = !{!598, !602}
 !607 = distinct !{!607, !17}
 !608 = !{!609}
-!609 = distinct !{!609, !610, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!610 = distinct !{!610, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!609 = distinct !{!609, !610, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!610 = distinct !{!610, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !611 = !{!612}
-!612 = distinct !{!612, !610, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!612 = distinct !{!612, !610, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !613 = !{!609, !612}
 !614 = !{!615}
-!615 = distinct !{!615, !616, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!616 = distinct !{!616, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!615 = distinct !{!615, !616, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!616 = distinct !{!616, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !617 = !{!618}
-!618 = distinct !{!618, !616, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!618 = distinct !{!618, !616, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !619 = !{!615, !618}
 !620 = !{!621}
 !621 = distinct !{!621, !622, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
@@ -35207,16 +35207,16 @@ attributes #27 = { builtin allocsize(0) }
 !629 = !{!621, !625}
 !630 = distinct !{!630, !17}
 !631 = !{!632}
-!632 = distinct !{!632, !633, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!633 = distinct !{!633, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!632 = distinct !{!632, !633, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!633 = distinct !{!633, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !634 = !{!635}
-!635 = distinct !{!635, !633, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!635 = distinct !{!635, !633, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !636 = !{!632, !635}
 !637 = !{!638}
-!638 = distinct !{!638, !639, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!639 = distinct !{!639, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!638 = distinct !{!638, !639, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!639 = distinct !{!639, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !640 = !{!641}
-!641 = distinct !{!641, !639, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!641 = distinct !{!641, !639, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !642 = !{!638, !641}
 !643 = !{!644}
 !644 = distinct !{!644, !645, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
@@ -35230,16 +35230,16 @@ attributes #27 = { builtin allocsize(0) }
 !652 = !{!644, !648}
 !653 = distinct !{!653, !17}
 !654 = !{!655}
-!655 = distinct !{!655, !656, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!656 = distinct !{!656, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!655 = distinct !{!655, !656, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!656 = distinct !{!656, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !657 = !{!658}
-!658 = distinct !{!658, !656, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!658 = distinct !{!658, !656, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !659 = !{!655, !658}
 !660 = !{!661}
-!661 = distinct !{!661, !662, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!662 = distinct !{!662, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!661 = distinct !{!661, !662, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!662 = distinct !{!662, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !663 = !{!664}
-!664 = distinct !{!664, !662, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!664 = distinct !{!664, !662, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !665 = !{!661, !664}
 !666 = !{!667}
 !667 = distinct !{!667, !668, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
@@ -35253,16 +35253,16 @@ attributes #27 = { builtin allocsize(0) }
 !675 = !{!667, !671}
 !676 = distinct !{!676, !17}
 !677 = !{!678}
-!678 = distinct !{!678, !679, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!679 = distinct !{!679, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!678 = distinct !{!678, !679, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!679 = distinct !{!679, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !680 = !{!681}
-!681 = distinct !{!681, !679, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!681 = distinct !{!681, !679, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !682 = !{!678, !681}
 !683 = !{!684}
-!684 = distinct !{!684, !685, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!685 = distinct !{!685, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!684 = distinct !{!684, !685, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!685 = distinct !{!685, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !686 = !{!687}
-!687 = distinct !{!687, !685, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!687 = distinct !{!687, !685, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !688 = !{!684, !687}
 !689 = !{!690}
 !690 = distinct !{!690, !691, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
@@ -35276,16 +35276,16 @@ attributes #27 = { builtin allocsize(0) }
 !698 = !{!690, !694}
 !699 = distinct !{!699, !17}
 !700 = !{!701}
-!701 = distinct !{!701, !702, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!702 = distinct !{!702, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!701 = distinct !{!701, !702, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!702 = distinct !{!702, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !703 = !{!704}
-!704 = distinct !{!704, !702, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!704 = distinct !{!704, !702, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !705 = !{!701, !704}
 !706 = !{!707}
-!707 = distinct !{!707, !708, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!708 = distinct !{!708, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!707 = distinct !{!707, !708, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!708 = distinct !{!708, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !709 = !{!710}
-!710 = distinct !{!710, !708, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!710 = distinct !{!710, !708, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !711 = !{!707, !710}
 !712 = !{!713}
 !713 = distinct !{!713, !714, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
@@ -35299,16 +35299,16 @@ attributes #27 = { builtin allocsize(0) }
 !721 = !{!713, !717}
 !722 = distinct !{!722, !17}
 !723 = !{!724}
-!724 = distinct !{!724, !725, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!725 = distinct !{!725, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!724 = distinct !{!724, !725, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!725 = distinct !{!725, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !726 = !{!727}
-!727 = distinct !{!727, !725, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!727 = distinct !{!727, !725, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !728 = !{!724, !727}
 !729 = !{!730}
-!730 = distinct !{!730, !731, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!731 = distinct !{!731, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!730 = distinct !{!730, !731, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!731 = distinct !{!731, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !732 = !{!733}
-!733 = distinct !{!733, !731, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!733 = distinct !{!733, !731, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !734 = !{!730, !733}
 !735 = !{!736}
 !736 = distinct !{!736, !737, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
@@ -35322,16 +35322,16 @@ attributes #27 = { builtin allocsize(0) }
 !744 = !{!736, !740}
 !745 = distinct !{!745, !17}
 !746 = !{!747}
-!747 = distinct !{!747, !748, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!748 = distinct !{!748, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!747 = distinct !{!747, !748, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!748 = distinct !{!748, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !749 = !{!750}
-!750 = distinct !{!750, !748, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!750 = distinct !{!750, !748, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !751 = !{!747, !750}
 !752 = !{!753}
-!753 = distinct !{!753, !754, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!754 = distinct !{!754, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!753 = distinct !{!753, !754, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!754 = distinct !{!754, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !755 = !{!756}
-!756 = distinct !{!756, !754, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!756 = distinct !{!756, !754, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !757 = !{!753, !756}
 !758 = !{!759}
 !759 = distinct !{!759, !760, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
@@ -35345,16 +35345,16 @@ attributes #27 = { builtin allocsize(0) }
 !767 = !{!759, !763}
 !768 = distinct !{!768, !17}
 !769 = !{!770}
-!770 = distinct !{!770, !771, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!771 = distinct !{!771, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!770 = distinct !{!770, !771, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!771 = distinct !{!771, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !772 = !{!773}
-!773 = distinct !{!773, !771, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!773 = distinct !{!773, !771, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !774 = !{!770, !773}
 !775 = !{!776}
-!776 = distinct !{!776, !777, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!777 = distinct !{!777, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!776 = distinct !{!776, !777, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!777 = distinct !{!777, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !778 = !{!779}
-!779 = distinct !{!779, !777, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!779 = distinct !{!779, !777, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !780 = !{!776, !779}
 !781 = !{!782}
 !782 = distinct !{!782, !783, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
@@ -35368,10 +35368,10 @@ attributes #27 = { builtin allocsize(0) }
 !790 = !{!782, !786}
 !791 = distinct !{!791, !17}
 !792 = !{!793}
-!793 = distinct !{!793, !794, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 0"}
-!794 = distinct !{!794, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom"}
+!793 = distinct !{!793, !794, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!794 = distinct !{!794, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !795 = !{!796}
-!796 = distinct !{!796, !794, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.argprom: argument 1"}
+!796 = distinct !{!796, !794, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !797 = !{!793, !796}
 !798 = !{!799}
 !799 = distinct !{!799, !800, !"_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE3EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
@@ -35387,21 +35387,21 @@ attributes #27 = { builtin allocsize(0) }
 !809 = !{!810, !812, !814, !816}
 !810 = distinct !{!810, !811, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE23velocityScalingCallbackEv: argument 0"}
 !811 = distinct !{!811, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE23velocityScalingCallbackEv"}
-!812 = distinct !{!812, !813, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv.argprom: argument 0"}
-!813 = distinct !{!813, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv.argprom"}
-!814 = distinct !{!814, !815, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
-!815 = distinct !{!815, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_.argprom"}
-!816 = distinct !{!816, !817, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom: argument 0"}
-!817 = distinct !{!817, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom"}
+!812 = distinct !{!812, !813, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv: argument 0"}
+!813 = distinct !{!813, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv"}
+!814 = distinct !{!814, !815, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!815 = distinct !{!815, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_"}
+!816 = distinct !{!816, !817, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: argument 0"}
+!817 = distinct !{!817, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
 !818 = !{!819, !821, !823, !825}
 !819 = distinct !{!819, !820, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE17prScalingCallbackEv: argument 0"}
 !820 = distinct !{!820, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE17prScalingCallbackEv"}
-!821 = distinct !{!821, !822, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE3_clEv.argprom: argument 0"}
-!822 = distinct !{!822, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE3_clEv.argprom"}
-!823 = distinct !{!823, !824, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
-!824 = distinct !{!824, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEET_St14__invoke_otherOT0_DpOT1_.argprom"}
-!825 = distinct !{!825, !826, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom: argument 0"}
-!826 = distinct !{!826, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom"}
+!821 = distinct !{!821, !822, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE3_clEv: argument 0"}
+!822 = distinct !{!822, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE3_clEv"}
+!823 = distinct !{!823, !824, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!824 = distinct !{!824, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEET_St14__invoke_otherOT0_DpOT1_"}
+!825 = distinct !{!825, !826, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: argument 0"}
+!826 = distinct !{!826, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
 !827 = !{!828}
 !828 = distinct !{!828, !829, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f: argument 0"}
 !829 = distinct !{!829, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f"}
@@ -35450,12 +35450,12 @@ attributes #27 = { builtin allocsize(0) }
 !872 = !{!873, !875, !877, !879}
 !873 = distinct !{!873, !874, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE23velocityScalingCallbackEv: argument 0"}
 !874 = distinct !{!874, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE23velocityScalingCallbackEv"}
-!875 = distinct !{!875, !876, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE4EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv.argprom: argument 0"}
-!876 = distinct !{!876, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE4EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv.argprom"}
-!877 = distinct !{!877, !878, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE4EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
-!878 = distinct !{!878, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE4EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_.argprom"}
-!879 = distinct !{!879, !880, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE4EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom: argument 0"}
-!880 = distinct !{!880, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE4EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom"}
+!875 = distinct !{!875, !876, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE4EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv: argument 0"}
+!876 = distinct !{!876, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE4EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv"}
+!877 = distinct !{!877, !878, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE4EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!878 = distinct !{!878, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE4EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_"}
+!879 = distinct !{!879, !880, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE4EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: argument 0"}
+!880 = distinct !{!880, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE4EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
 !881 = !{!882}
 !882 = distinct !{!882, !883, !"_ZN3gmxL14scalePositionsILNS_24NumPositionScalingValuesE1EEEvifPA3_f: argument 0"}
 !883 = distinct !{!883, !"_ZN3gmxL14scalePositionsILNS_24NumPositionScalingValuesE1EEEvifPA3_f"}
@@ -35480,9 +35480,9 @@ attributes #27 = { builtin allocsize(0) }
 !902 = !{!903, !905, !907, !909}
 !903 = distinct !{!903, !904, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE23positionScalingCallbackEv: argument 0"}
 !904 = distinct !{!904, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE23positionScalingCallbackEv"}
-!905 = distinct !{!905, !906, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE5EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE0_clEv.argprom: argument 0"}
-!906 = distinct !{!906, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE5EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE0_clEv.argprom"}
-!907 = distinct !{!907, !908, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE5EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE0_JEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
-!908 = distinct !{!908, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE5EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE0_JEET_St14__invoke_otherOT0_DpOT1_.argprom"}
-!909 = distinct !{!909, !910, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE5EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE0_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom: argument 0"}
-!910 = distinct !{!910, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE5EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE0_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom"}
+!905 = distinct !{!905, !906, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE5EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE0_clEv: argument 0"}
+!906 = distinct !{!906, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE5EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE0_clEv"}
+!907 = distinct !{!907, !908, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE5EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE0_JEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!908 = distinct !{!908, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE5EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE0_JEET_St14__invoke_otherOT0_DpOT1_"}
+!909 = distinct !{!909, !910, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE5EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE0_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: argument 0"}
+!910 = distinct !{!910, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE5EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE0_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}

@@ -69,7 +69,7 @@ for.inc.i:                                        ; preds = %if.end.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.inc.i, %if.then5.i
-  tail call fastcc void @err_sys.argprom() #9
+  tail call fastcc void @err_sys() #9
   unreachable
 
 ChangeToWolfRoot.exit:                            ; preds = %for.body.i
@@ -265,7 +265,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
 declare i32 @chdir(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @err_sys.argprom() unnamed_addr #6 {
+define internal fastcc void @err_sys() unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.14) #11

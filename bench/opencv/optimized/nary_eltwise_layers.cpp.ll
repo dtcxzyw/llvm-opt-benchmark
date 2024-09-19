@@ -3565,7 +3565,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn20NaryEltwiseLayerImpl8getFLO
   %19 = getelementptr i8, ptr %18, i64 8
   %.val6 = load ptr, ptr %19, align 8
   %20 = icmp eq ptr %.val, %.val6
-  br i1 %20, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit, label %21
+  br i1 %20, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit, label %21
 
 21:                                               ; preds = %17
   %22 = ptrtoint ptr %.val6 to i64
@@ -3578,7 +3578,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn20NaryEltwiseLayerImpl8getFLO
 
 .preheader.i:                                     ; preds = %21
   %.not.i = icmp eq i32 %26, 0
-  br i1 %.not.i, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit, label %.lr.ph.preheader.i
+  br i1 %.not.i, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %wide.trip.count.i = and i64 %25, 2147483647
@@ -3596,14 +3596,14 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn20NaryEltwiseLayerImpl8getFLO
   %31 = mul nsw i32 %30, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit.loopexit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.loopexit, label %.lr.ph.i, !llvm.loop !11
 
-_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit.loopexit: ; preds = %.lr.ph.i
+_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.loopexit: ; preds = %.lr.ph.i
   %32 = sext i32 %31 to i64
-  br label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit
+  br label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit
 
-_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit: ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit.loopexit, %17, %.preheader.i
-  %.024.i = phi i64 [ 0, %17 ], [ 1, %.preheader.i ], [ %32, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit.loopexit ]
+_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.loopexit, %17, %.preheader.i
+  %.024.i = phi i64 [ 0, %17 ], [ 1, %.preheader.i ], [ %32, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.loopexit ]
   %33 = ptrtoint ptr %7 to i64
   %34 = ptrtoint ptr %8 to i64
   %35 = sub i64 %33, %34

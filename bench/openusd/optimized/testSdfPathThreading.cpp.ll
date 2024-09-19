@@ -7748,17 +7748,17 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt5mutexNS_27Tf_StaticDataD
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt5mutexNS_27Tf_StaticDataDefaultFactoryIS1_EEEdeEv.exit.i
   %32 = call i32 @rand() #29, !noalias !38
-  %33 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEE3GetEv.argprom()
-          to label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEptEv.argprom.exit.i unwind label %58, !noalias !38
+  %33 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEE3GetEv()
+          to label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEptEv.exit.i unwind label %58, !noalias !38
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEptEv.argprom.exit.i: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEptEv.exit.i: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8, !noalias !38
   %36 = load ptr, ptr %33, align 8, !noalias !38
-  %37 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEE3GetEv.argprom()
-          to label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEdeEv.argprom.exit.i unwind label %58, !noalias !38
+  %37 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEE3GetEv()
+          to label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEdeEv.exit.i unwind label %58, !noalias !38
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEdeEv.argprom.exit.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEptEv.argprom.exit.i
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEdeEv.exit.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEptEv.exit.i
   %38 = ptrtoint ptr %35 to i64
   %39 = ptrtoint ptr %36 to i64
   %40 = sub i64 %38, %39
@@ -7772,7 +7772,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2
   %.not.i.i3.i = icmp eq i32 %46, 0
   br i1 %.not.i.i3.i, label %_ZL8_GetPathv.exit, label %47
 
-47:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEdeEv.argprom.exit.i
+47:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEdeEv.exit.i
   %48 = and i32 %46, 255
   %49 = lshr i32 %46, 8
   %50 = zext nneg i32 %48 to i64
@@ -7789,13 +7789,13 @@ common.resume:                                    ; preds = %248, %58
   %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %.pn, %248 ]
   resume { ptr, i32 } %common.resume.op
 
-58:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEptEv.argprom.exit.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
+58:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEptEv.exit.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
   %59 = landingpad { ptr, i32 }
           cleanup
   %60 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %29) #29, !noalias !38
   br label %common.resume
 
-_ZL8_GetPathv.exit:                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEdeEv.argprom.exit.i, %47
+_ZL8_GetPathv.exit:                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEdeEv.exit.i, %47
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %62 = load i32, ptr %61, align 4, !noalias !38
   store i32 %62, ptr %10, align 4, !alias.scope !38
@@ -7974,17 +7974,17 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt5mutexNS_27Tf_StaticDataD
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i8:       ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt5mutexNS_27Tf_StaticDataDefaultFactoryIS1_EEEdeEv.exit.i6
   %145 = call i32 @rand() #29
-  %146 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEE3GetEv.argprom()
-          to label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEptEv.argprom.exit.i9 unwind label %192
+  %146 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEE3GetEv()
+          to label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEptEv.exit.i9 unwind label %192
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEptEv.argprom.exit.i9: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i8
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEptEv.exit.i9: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i8
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %148 = load ptr, ptr %147, align 8
   %149 = load ptr, ptr %146, align 8
-  %150 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEE3GetEv.argprom()
-          to label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEdeEv.argprom.exit.i10 unwind label %192
+  %150 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEE3GetEv()
+          to label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEdeEv.exit.i10 unwind label %192
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEdeEv.argprom.exit.i10: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEptEv.argprom.exit.i9
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEdeEv.exit.i10: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEptEv.exit.i9
   %151 = ptrtoint ptr %148 to i64
   %152 = ptrtoint ptr %149 to i64
   %153 = sub i64 %151, %152
@@ -7998,7 +7998,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2
   %161 = icmp eq i32 %159, %160
   br i1 %161, label %195, label %162
 
-162:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEdeEv.argprom.exit.i10
+162:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEdeEv.exit.i10
   %.not.i.i.i.i = icmp eq i32 %160, 0
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE6HandleELb1EKNS_12Sdf_PathNodeEEC2ERKS7_.exit.i.i.i, label %163
 
@@ -8048,13 +8048,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15
   call void @__clang_call_terminate(ptr %191) #31
   unreachable
 
-192:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEptEv.argprom.exit.i9, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i8
+192:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEptEv.exit.i9, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i8
   %193 = landingpad { ptr, i32 }
           cleanup
   %194 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %142) #29
   br label %.body
 
-195:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEdeEv.argprom.exit.i10, %_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE6HandleELb1EKNS_12Sdf_PathNodeEEC2ERKS7_.exit.i.i.i, %175, %188
+195:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEEdeEv.exit.i10, %_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE6HandleELb1EKNS_12Sdf_PathNodeEEC2ERKS7_.exit.i.i.i, %175, %188
   %196 = getelementptr inbounds nuw i8, ptr %158, i64 4
   %197 = load i32, ptr %12, align 4
   store i32 %197, ptr %196, align 4
@@ -43932,12 +43932,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %75, %62, %_ZN
   br i1 %.not, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit77, label %86
 
 86:                                               ; preds = %83
-  %87 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv.argprom()
+  %87 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv()
           to label %.noexc unwind label %79
 
 .noexc:                                           ; preds = %86
   %88 = call i32 @rand() #29, !noalias !313
-  %89 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv.argprom()
+  %89 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv()
           to label %.noexc61 unwind label %79
 
 .noexc61:                                         ; preds = %.noexc
@@ -43985,12 +43985,12 @@ _ZL19_GetRandomNameTokenv.exit:                   ; preds = %103, %.noexc61
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit: ; preds = %111, %114
   %116 = phi ptr [ %113, %111 ], [ %115, %114 ]
-  %117 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv.argprom()
+  %117 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv()
           to label %.noexc65 unwind label %196
 
 .noexc65:                                         ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit
   %118 = call i32 @rand() #29, !noalias !316
-  %119 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv.argprom()
+  %119 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv()
           to label %.noexc66 unwind label %196
 
 .noexc66:                                         ; preds = %.noexc65
@@ -44206,12 +44206,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit77: ; preds = %193, %_ZN32
 
 229:                                              ; preds = %213
   call void @llvm.experimental.noalias.scope.decl(metadata !319)
-  %230 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv.argprom()
+  %230 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv()
           to label %.noexc86 unwind label %79
 
 .noexc86:                                         ; preds = %229
   %231 = call i32 @rand() #29, !noalias !319
-  %232 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv.argprom()
+  %232 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv()
           to label %.noexc87 unwind label %79
 
 .noexc87:                                         ; preds = %.noexc86
@@ -44606,12 +44606,12 @@ default.unreachable142:                           ; preds = %297
 
 432:                                              ; preds = %416
   call void @llvm.experimental.noalias.scope.decl(metadata !322)
-  %433 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv.argprom()
+  %433 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv()
           to label %.noexc109 unwind label %79
 
 .noexc109:                                        ; preds = %432
   %434 = call i32 @rand() #29, !noalias !322
-  %435 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv.argprom()
+  %435 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv()
           to label %.noexc110 unwind label %79
 
 .noexc110:                                        ; preds = %.noexc109
@@ -44944,12 +44944,12 @@ declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #16
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEE3GetEv.argprom() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEE3GetEv() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 4
   %2 = load atomic i64, ptr @_ZL9pathCache seq_cst, align 8
   %3 = inttoptr i64 %2 to ptr
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %4, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEE16_TryToCreateDataEv.argprom.exit
+  br i1 %.not, label %4, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEE16_TryToCreateDataEv.exit
 
 4:                                                ; preds = %0
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
@@ -45055,7 +45055,7 @@ _ZN12_GLOBAL__N_130pathCache_Tf_StaticDataFactory3NewEv.exit.i: ; preds = %_ZN32
   %61 = ptrtoint ptr %5 to i64
   %62 = cmpxchg ptr @_ZL9pathCache, i64 0, i64 %61 seq_cst seq_cst, align 8
   %63 = extractvalue { i64, i1 } %62, 1
-  br i1 %63, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEE16_TryToCreateDataEv.argprom.exit, label %64
+  br i1 %63, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEE16_TryToCreateDataEv.exit, label %64
 
 64:                                               ; preds = %_ZN12_GLOBAL__N_130pathCache_Tf_StaticDataFactory3NewEv.exit.i
   %65 = load ptr, ptr %5, align 8
@@ -45121,9 +45121,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit.i: ; 
   call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 24) #33
   %92 = load atomic i64, ptr @_ZL9pathCache seq_cst, align 8
   %93 = inttoptr i64 %92 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEE16_TryToCreateDataEv.argprom.exit
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEE16_TryToCreateDataEv.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEE16_TryToCreateDataEv.argprom.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit.i, %_ZN12_GLOBAL__N_130pathCache_Tf_StaticDataFactory3NewEv.exit.i, %0
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7SdfPathESaIS2_EEN12_GLOBAL__N_130pathCache_Tf_StaticDataFactoryEE16_TryToCreateDataEv.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit.i, %_ZN12_GLOBAL__N_130pathCache_Tf_StaticDataFactory3NewEv.exit.i, %0
   %94 = phi ptr [ %3, %0 ], [ %93, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit.i ], [ %5, %_ZN12_GLOBAL__N_130pathCache_Tf_StaticDataFactory3NewEv.exit.i ]
   ret ptr %94
 }
@@ -45305,12 +45305,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit: ; preds = %1, %6
 24:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
   %.0615 = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit ], [ %93, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !327)
-  %25 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv.argprom()
+  %25 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv()
           to label %.noexc unwind label %94
 
 .noexc:                                           ; preds = %24
   %26 = call i32 @rand() #29, !noalias !327
-  %27 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv.argprom()
+  %27 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv()
           to label %.noexc8 unwind label %94
 
 .noexc8:                                          ; preds = %.noexc
@@ -45474,10 +45474,10 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath22AppendVariantSelec
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL19_GetRandomNameTokenv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %2 = tail call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv.argprom()
+  %2 = tail call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv()
   %3 = tail call i32 @rand() #29
   %4 = sext i32 %3 to i64
-  %5 = tail call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv.argprom()
+  %5 = tail call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv()
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
@@ -45549,12 +45549,12 @@ define internal fastcc void @_ZL29_MakeRandomPrimOrPropertyPathv(ptr dead_on_unw
 
 19:                                               ; preds = %1
   call void @llvm.experimental.noalias.scope.decl(metadata !331)
-  %20 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv.argprom()
+  %20 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv()
           to label %.noexc unwind label %72
 
 .noexc:                                           ; preds = %19
   %21 = call i32 @rand() #29, !noalias !331
-  %22 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv.argprom()
+  %22 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv()
           to label %.noexc6 unwind label %72
 
 .noexc6:                                          ; preds = %.noexc
@@ -45686,7 +45686,7 @@ declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath25IsRe
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath11AppendChildERKNS_7TfTokenE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv.argprom() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
@@ -45695,7 +45695,7 @@ define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfSt
   %6 = load atomic i64, ptr @_ZL10nameTokens seq_cst, align 8
   %7 = inttoptr i64 %6 to ptr
   %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %8, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE16_TryToCreateDataEv.argprom.exit
+  br i1 %.not, label %8, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE16_TryToCreateDataEv.exit
 
 8:                                                ; preds = %0
   %9 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
@@ -45920,7 +45920,7 @@ _ZN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactory3NewEv.exit.i: ; preds = %_ZN3
   %94 = ptrtoint ptr %9 to i64
   %95 = cmpxchg ptr @_ZL10nameTokens, i64 0, i64 %94 seq_cst seq_cst, align 8
   %96 = extractvalue { i64, i1 } %95, 1
-  br i1 %96, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE16_TryToCreateDataEv.argprom.exit, label %97
+  br i1 %96, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE16_TryToCreateDataEv.exit, label %97
 
 97:                                               ; preds = %_ZN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactory3NewEv.exit.i
   %98 = load ptr, ptr %9, align 8
@@ -45968,9 +45968,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit.i: ; 
   call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef 24) #33
   %114 = load atomic i64, ptr @_ZL10nameTokens seq_cst, align 8
   %115 = inttoptr i64 %114 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE16_TryToCreateDataEv.argprom.exit
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE16_TryToCreateDataEv.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE16_TryToCreateDataEv.argprom.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit.i, %_ZN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactory3NewEv.exit.i, %0
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE16_TryToCreateDataEv.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit.i, %_ZN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactory3NewEv.exit.i, %0
   %116 = phi ptr [ %7, %0 ], [ %115, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit.i ], [ %9, %_ZN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactory3NewEv.exit.i ]
   ret ptr %116
 }

@@ -519,12 +519,12 @@ define noalias noundef nonnull ptr @_ZNK5faiss12IndexIVFFlat23get_InvertedListSc
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   switch i32 %.val9, label %12 [
-    i32 0, label %_ZN5faiss12_GLOBAL__N_124get_InvertedListScanner1ILb1EEEPNS_19InvertedListScannerEPKNS_12IndexIVFFlatEbPKNS_10IDSelectorE.argprom.exit
+    i32 0, label %_ZN5faiss12_GLOBAL__N_124get_InvertedListScanner1ILb1EEEPNS_19InvertedListScannerEPKNS_12IndexIVFFlatEbPKNS_10IDSelectorE.exit
     i32 1, label %11
   ]
 
 11:                                               ; preds = %10
-  br label %_ZN5faiss12_GLOBAL__N_124get_InvertedListScanner1ILb1EEEPNS_19InvertedListScannerEPKNS_12IndexIVFFlatEbPKNS_10IDSelectorE.argprom.exit
+  br label %_ZN5faiss12_GLOBAL__N_124get_InvertedListScanner1ILb1EEEPNS_19InvertedListScannerEPKNS_12IndexIVFFlatEbPKNS_10IDSelectorE.exit
 
 12:                                               ; preds = %10
   %13 = tail call ptr @__cxa_allocate_exception(i64 40) #14
@@ -573,7 +573,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 19:                                               ; preds = %15
   unreachable
 
-_ZN5faiss12_GLOBAL__N_124get_InvertedListScanner1ILb1EEEPNS_19InvertedListScannerEPKNS_12IndexIVFFlatEbPKNS_10IDSelectorE.argprom.exit: ; preds = %10, %11
+_ZN5faiss12_GLOBAL__N_124get_InvertedListScanner1ILb1EEEPNS_19InvertedListScannerEPKNS_12IndexIVFFlatEbPKNS_10IDSelectorE.exit: ; preds = %10, %11
   %.sink8.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFFlatScannerILNS_10MetricTypeE1ENS_4CMaxIflEELb1EEE, i64 16), %11 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFFlatScannerILNS_10MetricTypeE0ENS_4CMinIflEELb1EEE, i64 16), %10 ]
   %.sink.i = phi i8 [ 0, %11 ], [ 1, %10 ]
   %20 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
@@ -600,12 +600,12 @@ _ZN5faiss12_GLOBAL__N_124get_InvertedListScanner1ILb1EEEPNS_19InvertedListScanne
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   switch i32 %.val9, label %31 [
-    i32 0, label %_ZN5faiss12_GLOBAL__N_124get_InvertedListScanner1ILb0EEEPNS_19InvertedListScannerEPKNS_12IndexIVFFlatEbPKNS_10IDSelectorE.argprom.exit
+    i32 0, label %_ZN5faiss12_GLOBAL__N_124get_InvertedListScanner1ILb0EEEPNS_19InvertedListScannerEPKNS_12IndexIVFFlatEbPKNS_10IDSelectorE.exit
     i32 1, label %30
   ]
 
 30:                                               ; preds = %29
-  br label %_ZN5faiss12_GLOBAL__N_124get_InvertedListScanner1ILb0EEEPNS_19InvertedListScannerEPKNS_12IndexIVFFlatEbPKNS_10IDSelectorE.argprom.exit
+  br label %_ZN5faiss12_GLOBAL__N_124get_InvertedListScanner1ILb0EEEPNS_19InvertedListScannerEPKNS_12IndexIVFFlatEbPKNS_10IDSelectorE.exit
 
 31:                                               ; preds = %29
   %32 = tail call ptr @__cxa_allocate_exception(i64 40) #14
@@ -637,7 +637,7 @@ _ZN5faiss12_GLOBAL__N_124get_InvertedListScanner1ILb1EEEPNS_19InvertedListScanne
 38:                                               ; preds = %34
   unreachable
 
-_ZN5faiss12_GLOBAL__N_124get_InvertedListScanner1ILb0EEEPNS_19InvertedListScannerEPKNS_12IndexIVFFlatEbPKNS_10IDSelectorE.argprom.exit: ; preds = %29, %30
+_ZN5faiss12_GLOBAL__N_124get_InvertedListScanner1ILb0EEEPNS_19InvertedListScannerEPKNS_12IndexIVFFlatEbPKNS_10IDSelectorE.exit: ; preds = %29, %30
   %.sink9.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFFlatScannerILNS_10MetricTypeE1ENS_4CMaxIflEELb0EEE, i64 16), %30 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFFlatScannerILNS_10MetricTypeE0ENS_4CMinIflEELb0EEE, i64 16), %29 ]
   %.sink.i10 = phi i8 [ 0, %30 ], [ 1, %29 ]
   %39 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
@@ -658,8 +658,8 @@ _ZN5faiss12_GLOBAL__N_124get_InvertedListScanner1ILb0EEEPNS_19InvertedListScanne
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   br label %47
 
-47:                                               ; preds = %_ZN5faiss12_GLOBAL__N_124get_InvertedListScanner1ILb0EEEPNS_19InvertedListScannerEPKNS_12IndexIVFFlatEbPKNS_10IDSelectorE.argprom.exit, %_ZN5faiss12_GLOBAL__N_124get_InvertedListScanner1ILb1EEEPNS_19InvertedListScannerEPKNS_12IndexIVFFlatEbPKNS_10IDSelectorE.argprom.exit
-  %.0 = phi ptr [ %20, %_ZN5faiss12_GLOBAL__N_124get_InvertedListScanner1ILb1EEEPNS_19InvertedListScannerEPKNS_12IndexIVFFlatEbPKNS_10IDSelectorE.argprom.exit ], [ %39, %_ZN5faiss12_GLOBAL__N_124get_InvertedListScanner1ILb0EEEPNS_19InvertedListScannerEPKNS_12IndexIVFFlatEbPKNS_10IDSelectorE.argprom.exit ]
+47:                                               ; preds = %_ZN5faiss12_GLOBAL__N_124get_InvertedListScanner1ILb0EEEPNS_19InvertedListScannerEPKNS_12IndexIVFFlatEbPKNS_10IDSelectorE.exit, %_ZN5faiss12_GLOBAL__N_124get_InvertedListScanner1ILb1EEEPNS_19InvertedListScannerEPKNS_12IndexIVFFlatEbPKNS_10IDSelectorE.exit
+  %.0 = phi ptr [ %20, %_ZN5faiss12_GLOBAL__N_124get_InvertedListScanner1ILb1EEEPNS_19InvertedListScannerEPKNS_12IndexIVFFlatEbPKNS_10IDSelectorE.exit ], [ %39, %_ZN5faiss12_GLOBAL__N_124get_InvertedListScanner1ILb0EEEPNS_19InvertedListScannerEPKNS_12IndexIVFFlatEbPKNS_10IDSelectorE.exit ]
   ret ptr %.0
 }
 

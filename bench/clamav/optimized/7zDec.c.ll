@@ -494,9 +494,9 @@ SzDecodeCopy.exit.i:                              ; preds = %223
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %166, i8 0, i64 16, i1 false)
   %240 = call i32 @LzmaDec_AllocateProbs(ptr noundef nonnull %18, ptr noundef %.val.i, i32 noundef %239, ptr noundef %6) #6
   %.not.i162.i = icmp eq i32 %240, 0
-  br i1 %.not.i162.i, label %241, label %SzDecodeLzma.argprom.exit.thread.i
+  br i1 %.not.i162.i, label %241, label %SzDecodeLzma.exit.thread.i
 
-SzDecodeLzma.argprom.exit.thread.i:               ; preds = %236
+SzDecodeLzma.exit.thread.i:                       ; preds = %236
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
@@ -518,7 +518,7 @@ SzDecodeLzma.argprom.exit.thread.i:               ; preds = %236
   %243 = load ptr, ptr %2, align 8
   %244 = call i32 %243(ptr noundef nonnull %2, ptr noundef nonnull %19, ptr noundef nonnull %20) #6
   %.not32.i.i = icmp eq i32 %244, 0
-  br i1 %.not32.i.i, label %245, label %SzDecodeLzma.argprom.exit.thread235.i
+  br i1 %.not32.i.i, label %245, label %SzDecodeLzma.exit.thread235.i
 
 245:                                              ; preds = %242
   %246 = load i64, ptr %20, align 8
@@ -532,7 +532,7 @@ SzDecodeLzma.argprom.exit.thread.i:               ; preds = %236
   store i64 %252, ptr %20, align 8
   %253 = sub i64 %.025.i.i, %250
   %.not33.i.i = icmp eq i32 %249, 0
-  br i1 %.not33.i.i, label %254, label %SzDecodeLzma.argprom.exit.thread235.i
+  br i1 %.not33.i.i, label %254, label %SzDecodeLzma.exit.thread235.i
 
 254:                                              ; preds = %245
   %255 = load i64, ptr %169, align 8
@@ -552,15 +552,15 @@ SzDecodeLzma.argprom.exit.thread.i:               ; preds = %236
   %262 = icmp ne i64 %.lcssa4.i.i, %.0128214230.i
   %263 = icmp ne i64 %251, %.lcssa3.i.i
   %or.cond.i165.i = select i1 %262, i1 true, i1 %263
-  br i1 %or.cond.i165.i, label %SzDecodeLzma.argprom.exit.thread235.i, label %SzDecodeLzma.argprom.exit.i
+  br i1 %or.cond.i165.i, label %SzDecodeLzma.exit.thread235.i, label %SzDecodeLzma.exit.i
 
 264:                                              ; preds = %258
   %265 = load ptr, ptr %165, align 8
   %266 = call i32 %265(ptr noundef nonnull %2, i64 noundef %250) #6
   %.not34.i.i = icmp eq i32 %266, 0
-  br i1 %.not34.i.i, label %242, label %SzDecodeLzma.argprom.exit.thread235.i
+  br i1 %.not34.i.i, label %242, label %SzDecodeLzma.exit.thread235.i
 
-SzDecodeLzma.argprom.exit.thread235.i:            ; preds = %261, %264, %245, %242
+SzDecodeLzma.exit.thread235.i:                    ; preds = %261, %264, %245, %242
   %.026.i.ph.i = phi i32 [ %244, %242 ], [ %249, %245 ], [ %266, %264 ], [ 1, %261 ]
   call void @LzmaDec_FreeProbs(ptr noundef nonnull %18, ptr noundef %6) #6
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %18)
@@ -570,7 +570,7 @@ SzDecodeLzma.argprom.exit.thread235.i:            ; preds = %261, %264, %245, %2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
   br label %SzFolder_Decode2.exit
 
-SzDecodeLzma.argprom.exit.i:                      ; preds = %261
+SzDecodeLzma.exit.i:                              ; preds = %261
   %267 = load i32, ptr %22, align 4
   call void @LzmaDec_FreeProbs(ptr noundef nonnull %18, ptr noundef %6) #6
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %18)
@@ -899,17 +899,17 @@ SzDecodeCopy.exit201.thread.i:                    ; preds = %368, %365, %362
   %385 = call i64 @ARM_Convert(ptr noundef %4, i64 noundef %5, i32 noundef 0, i32 noundef 0) #6
   br label %386
 
-386:                                              ; preds = %384, %382, %374, %SzDecodePpmd.exit.i, %SzDecodeLzma2.exit.i, %SzDecodeLzma.argprom.exit.i, %SzDecodeLzma.argprom.exit.i, %SzDecodeCopy.exit.i
-  %.2125.i = phi ptr [ %.1124217227.i, %SzDecodeCopy.exit.i ], [ %.1124217227.i, %SzDecodeLzma.argprom.exit.i ], [ %.1124217227.i, %SzDecodeLzma2.exit.i ], [ %.1124217227.i, %SzDecodePpmd.exit.i ], [ %.0123268.i, %374 ], [ %.0123268.i, %384 ], [ %.0123268.i, %382 ], [ %.1124217227.i, %SzDecodeLzma.argprom.exit.i ]
-  %.2.i = phi i64 [ %.1218226.i, %SzDecodeCopy.exit.i ], [ %.1218226.i, %SzDecodeLzma.argprom.exit.i ], [ %.1218226.i, %SzDecodeLzma2.exit.i ], [ %.1218226.i, %SzDecodePpmd.exit.i ], [ %.0122269.i, %374 ], [ %.0122269.i, %384 ], [ %.0122269.i, %382 ], [ %.1218226.i, %SzDecodeLzma.argprom.exit.i ]
+386:                                              ; preds = %384, %382, %374, %SzDecodePpmd.exit.i, %SzDecodeLzma2.exit.i, %SzDecodeLzma.exit.i, %SzDecodeLzma.exit.i, %SzDecodeCopy.exit.i
+  %.2125.i = phi ptr [ %.1124217227.i, %SzDecodeCopy.exit.i ], [ %.1124217227.i, %SzDecodeLzma.exit.i ], [ %.1124217227.i, %SzDecodeLzma2.exit.i ], [ %.1124217227.i, %SzDecodePpmd.exit.i ], [ %.0123268.i, %374 ], [ %.0123268.i, %384 ], [ %.0123268.i, %382 ], [ %.1124217227.i, %SzDecodeLzma.exit.i ]
+  %.2.i = phi i64 [ %.1218226.i, %SzDecodeCopy.exit.i ], [ %.1218226.i, %SzDecodeLzma.exit.i ], [ %.1218226.i, %SzDecodeLzma2.exit.i ], [ %.1218226.i, %SzDecodePpmd.exit.i ], [ %.0122269.i, %374 ], [ %.0122269.i, %384 ], [ %.0122269.i, %382 ], [ %.1218226.i, %SzDecodeLzma.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %387 = load i32, ptr %28, align 8
   %388 = zext i32 %387 to i64
   %389 = icmp ult i64 %indvars.iv.next.i, %388
   br i1 %389, label %182, label %SzFolder_Decode2.exit
 
-SzFolder_Decode2.exit:                            ; preds = %197, %202, %204, %206, %.thread307.i, %.thread.i, %GetSum.exit.i, %221, %SzDecodeLzma.argprom.exit.i, %SzDecodeLzma2.exit.i, %SzDecodePpmd.exit.i, %.lr.ph.i186.preheader.i, %351, %355, %374, %380, %381, %386, %7, %31, %36, %39, %44, %IS_SUPPORTED_CODER.exit.i.i, %46, %49, %53, %56, %60, %63, %66, %69, %73, %76, %80, %83, %84, %88, %92, %96, %IS_SUPPORTED_CODER.exit65.i.i, %101, %105, %109, %IS_SUPPORTED_CODER.exit66.i.i, %114, %118, %122, %125, %129, %132, %135, %138, %141, %145, %148, %151, %154, %157, %SzDecodeCopy.exit.thread.i, %SzDecodeLzma.argprom.exit.thread.i, %SzDecodeLzma.argprom.exit.thread235.i, %SzDecodeLzma2.exit.thread.i, %SzDecodeLzma2.exit.thread241.i, %SzDecodePpmd.exit.thread.i, %SzDecodePpmd.exit.thread247.i, %SzDecodeCopy.exit201.thread.i
-  %.0.i = phi i32 [ %.0.i161.ph.i, %SzDecodeCopy.exit.thread.i ], [ %240, %SzDecodeLzma.argprom.exit.thread.i ], [ %.026.i.ph.i, %SzDecodeLzma.argprom.exit.thread235.i ], [ %.0.i169.ph.i, %SzDecodeLzma2.exit.thread.i ], [ %.026.i175.ph.i, %SzDecodeLzma2.exit.thread241.i ], [ %.0.i179.ph.i, %SzDecodePpmd.exit.thread.i ], [ %.034.i.ph.i, %SzDecodePpmd.exit.thread247.i ], [ %.0.i199.ph.i, %SzDecodeCopy.exit201.thread.i ], [ 4, %109 ], [ 4, %IS_SUPPORTED_CODER.exit65.i.i ], [ 4, %101 ], [ 4, %105 ], [ 4, %96 ], [ 4, %84 ], [ 4, %88 ], [ 4, %92 ], [ 4, %44 ], [ 4, %36 ], [ 4, %39 ], [ 4, %157 ], [ 4, %53 ], [ 4, %IS_SUPPORTED_CODER.exit.i.i ], [ 4, %122 ], [ 4, %125 ], [ 4, %129 ], [ 4, %132 ], [ 4, %135 ], [ 4, %138 ], [ 4, %141 ], [ 4, %145 ], [ 4, %148 ], [ 4, %151 ], [ 4, %154 ], [ 4, %IS_SUPPORTED_CODER.exit66.i.i ], [ 4, %114 ], [ 4, %118 ], [ 4, %83 ], [ 4, %56 ], [ 4, %60 ], [ 4, %63 ], [ 4, %66 ], [ 4, %69 ], [ 4, %73 ], [ 4, %76 ], [ 4, %80 ], [ 4, %46 ], [ 4, %49 ], [ 18, %31 ], [ 4, %7 ], [ 1, %SzDecodeLzma.argprom.exit.i ], [ 11, %.thread.i ], [ 0, %386 ], [ 4, %381 ], [ 4, %380 ], [ %379, %374 ], [ 2, %355 ], [ %354, %351 ], [ 4, %.lr.ph.i186.preheader.i ], [ 1, %SzDecodePpmd.exit.i ], [ 1, %SzDecodeLzma2.exit.i ], [ 1, %221 ], [ %218, %GetSum.exit.i ], [ 11, %206 ], [ 4, %202 ], [ 5, %204 ], [ 2, %197 ], [ 11, %.thread307.i ]
+SzFolder_Decode2.exit:                            ; preds = %197, %202, %204, %206, %.thread307.i, %.thread.i, %GetSum.exit.i, %221, %SzDecodeLzma.exit.i, %SzDecodeLzma2.exit.i, %SzDecodePpmd.exit.i, %.lr.ph.i186.preheader.i, %351, %355, %374, %380, %381, %386, %7, %31, %36, %39, %44, %IS_SUPPORTED_CODER.exit.i.i, %46, %49, %53, %56, %60, %63, %66, %69, %73, %76, %80, %83, %84, %88, %92, %96, %IS_SUPPORTED_CODER.exit65.i.i, %101, %105, %109, %IS_SUPPORTED_CODER.exit66.i.i, %114, %118, %122, %125, %129, %132, %135, %138, %141, %145, %148, %151, %154, %157, %SzDecodeCopy.exit.thread.i, %SzDecodeLzma.exit.thread.i, %SzDecodeLzma.exit.thread235.i, %SzDecodeLzma2.exit.thread.i, %SzDecodeLzma2.exit.thread241.i, %SzDecodePpmd.exit.thread.i, %SzDecodePpmd.exit.thread247.i, %SzDecodeCopy.exit201.thread.i
+  %.0.i = phi i32 [ %.0.i161.ph.i, %SzDecodeCopy.exit.thread.i ], [ %240, %SzDecodeLzma.exit.thread.i ], [ %.026.i.ph.i, %SzDecodeLzma.exit.thread235.i ], [ %.0.i169.ph.i, %SzDecodeLzma2.exit.thread.i ], [ %.026.i175.ph.i, %SzDecodeLzma2.exit.thread241.i ], [ %.0.i179.ph.i, %SzDecodePpmd.exit.thread.i ], [ %.034.i.ph.i, %SzDecodePpmd.exit.thread247.i ], [ %.0.i199.ph.i, %SzDecodeCopy.exit201.thread.i ], [ 4, %109 ], [ 4, %IS_SUPPORTED_CODER.exit65.i.i ], [ 4, %101 ], [ 4, %105 ], [ 4, %96 ], [ 4, %84 ], [ 4, %88 ], [ 4, %92 ], [ 4, %44 ], [ 4, %36 ], [ 4, %39 ], [ 4, %157 ], [ 4, %53 ], [ 4, %IS_SUPPORTED_CODER.exit.i.i ], [ 4, %122 ], [ 4, %125 ], [ 4, %129 ], [ 4, %132 ], [ 4, %135 ], [ 4, %138 ], [ 4, %141 ], [ 4, %145 ], [ 4, %148 ], [ 4, %151 ], [ 4, %154 ], [ 4, %IS_SUPPORTED_CODER.exit66.i.i ], [ 4, %114 ], [ 4, %118 ], [ 4, %83 ], [ 4, %56 ], [ 4, %60 ], [ 4, %63 ], [ 4, %66 ], [ 4, %69 ], [ 4, %73 ], [ 4, %76 ], [ 4, %80 ], [ 4, %46 ], [ 4, %49 ], [ 18, %31 ], [ 4, %7 ], [ 1, %SzDecodeLzma.exit.i ], [ 11, %.thread.i ], [ 0, %386 ], [ 4, %381 ], [ 4, %380 ], [ %379, %374 ], [ 2, %355 ], [ %354, %351 ], [ 4, %.lr.ph.i186.preheader.i ], [ 1, %SzDecodePpmd.exit.i ], [ 1, %SzDecodeLzma2.exit.i ], [ 1, %221 ], [ %218, %GetSum.exit.i ], [ 11, %206 ], [ 4, %202 ], [ 5, %204 ], [ 2, %197 ], [ 11, %.thread307.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
   %390 = getelementptr inbounds i8, ptr %6, i64 8

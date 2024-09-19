@@ -17534,7 +17534,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %.not93.not, label %_ZN3nix4SyncINS_10LocalStore5StateESt5mutexE4LockD2Ev.exit.thread, label %113
 
 113:                                              ; preds = %107
-  %114 = invoke fastcc noundef i64 @"_ZZN3nix10LocalStore6autoGCEbENK3$_0clEv.argprom"(ptr nonnull %0)
+  %114 = invoke fastcc noundef i64 @"_ZZN3nix10LocalStore6autoGCEbENK3$_0clEv"(ptr nonnull %0)
           to label %115 unwind label %103
 
 115:                                              ; preds = %113
@@ -18135,7 +18135,7 @@ _ZNSt13shared_futureIvED2Ev.exit78:               ; preds = %_ZNKSt13shared_futu
 declare i64 @_ZNSt6chrono3_V212steady_clock3nowEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @"_ZZN3nix10LocalStore6autoGCEbENK3$_0clEv.argprom"(ptr %.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i64 @"_ZZN3nix10LocalStore6autoGCEbENK3$_0clEv"(ptr %.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca ptr, align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %struct.statvfs, align 8
@@ -74643,7 +74643,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i.i.i.i.i: ; pr
 71:                                               ; preds = %62
   %72 = getelementptr inbounds i8, ptr %0, i64 48
   %.val.i.i.i.i.i = load ptr, ptr %72, align 8
-  %73 = invoke fastcc noundef i64 @"_ZZN3nix10LocalStore6autoGCEbENK3$_0clEv.argprom"(ptr %.val.i.i.i.i.i)
+  %73 = invoke fastcc noundef i64 @"_ZZN3nix10LocalStore6autoGCEbENK3$_0clEv"(ptr %.val.i.i.i.i.i)
           to label %74 unwind label %89
 
 74:                                               ; preds = %71
@@ -74952,13 +74952,13 @@ define linkonce_odr void @_ZNSt13__future_base13_State_baseV213_M_set_resultESt8
   %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS3_12_Result_baseENS7_8_DeleterEEvEEPbEJPS4_SC_SD_EEvRS_OT_DpOT0_EUlvE_EERSI_ENUlvE_8__invokeEv, ptr %15, align 8
   %16 = invoke noundef i32 @pthread_once(ptr noundef nonnull %10, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i unwind label %19
+          to label %_ZL14__gthread_oncePiPFvvE.exit.i unwind label %19
 
-_ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %3
+_ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %3
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit, label %17
 
-17:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+17:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %16) #35
           to label %18 unwind label %19
 
@@ -74972,7 +74972,7 @@ _ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %3
   store ptr null, ptr %15, align 8
   resume { ptr, i32 } %20
 
-_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   store ptr null, ptr %14, align 8
   store ptr null, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)

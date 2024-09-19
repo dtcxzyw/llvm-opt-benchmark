@@ -1369,7 +1369,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit.i: ;
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i, i64 8
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %100, null
-  br i1 %101, label %_ZL18findIBRPredecessorPN4llvm10BasicBlockERNS_15SmallVectorImplIS1_EE.argprom.exit, label %.lr.ph.i.i.i
+  br i1 %101, label %_ZL18findIBRPredecessorPN4llvm10BasicBlockERNS_15SmallVectorImplIS1_EE.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %98, %109
   %.sroa.01.1.i = phi ptr [ %111, %109 ], [ %100, %98 ]
@@ -1387,13 +1387,13 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit.i: ;
   %110 = getelementptr inbounds nuw i8, ptr %.sroa.01.1.i, i64 8
   %111 = load ptr, ptr %110, align 8
   %112 = icmp eq ptr %111, null
-  br i1 %112, label %_ZL18findIBRPredecessorPN4llvm10BasicBlockERNS_15SmallVectorImplIS1_EE.argprom.exit, label %.lr.ph.i.i.i, !llvm.loop !10
+  br i1 %112, label %_ZL18findIBRPredecessorPN4llvm10BasicBlockERNS_15SmallVectorImplIS1_EE.exit, label %.lr.ph.i.i.i, !llvm.loop !10
 
-_ZL18findIBRPredecessorPN4llvm10BasicBlockERNS_15SmallVectorImplIS1_EE.argprom.exit: ; preds = %98, %109
+_ZL18findIBRPredecessorPN4llvm10BasicBlockERNS_15SmallVectorImplIS1_EE.exit: ; preds = %98, %109
   %.not148 = icmp eq ptr %.1.i, null
   br i1 %.not148, label %_ZN4llvm11SmallVectorINS_17BranchProbabilityELj4EED2Ev.exit, label %113
 
-113:                                              ; preds = %_ZL18findIBRPredecessorPN4llvm10BasicBlockERNS_15SmallVectorImplIS1_EE.argprom.exit
+113:                                              ; preds = %_ZL18findIBRPredecessorPN4llvm10BasicBlockERNS_15SmallVectorImplIS1_EE.exit
   %114 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #14
   br i1 %114, label %_ZN4llvm11SmallVectorINS_17BranchProbabilityELj4EED2Ev.exit, label %115
 
@@ -1935,8 +1935,8 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit212: ; preds = %_
   call void @free(ptr noundef %368) #14
   br label %_ZN4llvm11SmallVectorINS_17BranchProbabilityELj4EED2Ev.exit
 
-_ZN4llvm11SmallVectorINS_17BranchProbabilityELj4EED2Ev.exit: ; preds = %74, %86, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i, %115, %115, %115, %115, %.critedge, %370, %._crit_edge285, %_ZNK4llvm11Instruction7isEHPadEv.exit, %_ZL18findIBRPredecessorPN4llvm10BasicBlockERNS_15SmallVectorImplIS1_EE.argprom.exit, %113
-  %.2 = phi i1 [ %.0136288, %113 ], [ %.0136288, %_ZL18findIBRPredecessorPN4llvm10BasicBlockERNS_15SmallVectorImplIS1_EE.argprom.exit ], [ %.0136288, %_ZNK4llvm11Instruction7isEHPadEv.exit ], [ true, %._crit_edge285 ], [ true, %370 ], [ %.0136288, %.critedge ], [ %.0136288, %115 ], [ %.0136288, %115 ], [ %.0136288, %115 ], [ %.0136288, %115 ], [ %.0136288, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i ], [ %.0136288, %86 ], [ %.0136288, %74 ]
+_ZN4llvm11SmallVectorINS_17BranchProbabilityELj4EED2Ev.exit: ; preds = %74, %86, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i, %115, %115, %115, %115, %.critedge, %370, %._crit_edge285, %_ZNK4llvm11Instruction7isEHPadEv.exit, %_ZL18findIBRPredecessorPN4llvm10BasicBlockERNS_15SmallVectorImplIS1_EE.exit, %113
+  %.2 = phi i1 [ %.0136288, %113 ], [ %.0136288, %_ZL18findIBRPredecessorPN4llvm10BasicBlockERNS_15SmallVectorImplIS1_EE.exit ], [ %.0136288, %_ZNK4llvm11Instruction7isEHPadEv.exit ], [ true, %._crit_edge285 ], [ true, %370 ], [ %.0136288, %.critedge ], [ %.0136288, %115 ], [ %.0136288, %115 ], [ %.0136288, %115 ], [ %.0136288, %115 ], [ %.0136288, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i ], [ %.0136288, %86 ], [ %.0136288, %74 ]
   %371 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #14
   %372 = load ptr, ptr %9, align 8
   %373 = icmp eq ptr %372, %44

@@ -293,7 +293,7 @@ define hidden void @_cmsAllocTransformPluginChunk(ptr nocapture noundef %0, ptr 
   %9 = load ptr, ptr %6, align 8
   %10 = tail call ptr @_cmsSubAllocDup(ptr noundef %9, ptr noundef nonnull %.05.i, i32 noundef 24) #11
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %DupPluginTransformList.argprom.exit, label %12
+  br i1 %11, label %DupPluginTransformList.exit, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds i8, ptr %10, i64 16
@@ -322,9 +322,9 @@ define hidden void @_cmsAllocTransformPluginChunk(ptr nocapture noundef %0, ptr 
   %21 = call ptr @_cmsSubAllocDup(ptr noundef %20, ptr noundef nonnull %3, i32 noundef 8) #11
   %22 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %21, ptr %22, align 8
-  br label %DupPluginTransformList.argprom.exit
+  br label %DupPluginTransformList.exit
 
-DupPluginTransformList.argprom.exit:              ; preds = %7, %._crit_edge.i
+DupPluginTransformList.exit:                      ; preds = %7, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %28
 
@@ -336,7 +336,7 @@ DupPluginTransformList.argprom.exit:              ; preds = %7, %._crit_edge.i
   store ptr %26, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %23, %DupPluginTransformList.argprom.exit
+28:                                               ; preds = %23, %DupPluginTransformList.exit
   ret void
 }
 

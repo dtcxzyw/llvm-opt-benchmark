@@ -7993,7 +7993,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit2056.thread:     ; preds = %_ZN4llvmeqENS_9Stri
   %434 = load ptr, ptr %433, align 8
   %435 = getelementptr inbounds i8, ptr %433, i64 32
   %436 = load ptr, ptr %435, align 8
-  call fastcc void @_ZL18upgradeMaskedStoreRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueES6_S6_b.retelim(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef %434, ptr noundef %436, ptr noundef %428, i1 noundef zeroext false)
+  call fastcc void @_ZL18upgradeMaskedStoreRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueES6_S6_b(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef %434, ptr noundef %436, ptr noundef %428, i1 noundef zeroext false)
   br label %_ZN4llvm11SmallVectorIPNS_8MetadataELj1EED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit2056.thread4148: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit2052.thread4146
@@ -8020,7 +8020,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit2059.thread: ; preds = %_ZNK4llvm9Strin
   %449 = load ptr, ptr %448, align 8
   %450 = getelementptr inbounds i8, ptr %446, i64 64
   %451 = load ptr, ptr %450, align 8
-  tail call fastcc void @_ZL18upgradeMaskedStoreRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueES6_S6_b.retelim(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef %447, ptr noundef %449, ptr noundef %451, i1 noundef zeroext %440)
+  tail call fastcc void @_ZL18upgradeMaskedStoreRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueES6_S6_b(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef %447, ptr noundef %449, ptr noundef %451, i1 noundef zeroext %440)
   br label %_ZN4llvm11SmallVectorIPNS_8MetadataELj1EED2Ev.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit2059.thread4150: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread4138, %_ZN4llvmeqENS_9StringRefES0_.exit.thread4142
@@ -15988,7 +15988,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit3163:    ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %4353, label %_ZNK4llvm9StringRef11starts_withES0_.exit3163.thread, label %_ZN4llvm11SmallVectorIPNS_8MetadataELj1EED2Ev.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit3163.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit3163
-  call fastcc void @_ZL25upgradeAVX512MaskToSelectN4llvm9StringRefERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERNS_8CallBaseERPNS_5ValueE.retelim(ptr %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  call fastcc void @_ZL25upgradeAVX512MaskToSelectN4llvm9StringRefERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERNS_8CallBaseERPNS_5ValueE(ptr %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(8) %7)
   br label %_ZN4llvm11SmallVectorIPNS_8MetadataELj1EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPNS_8MetadataELj1EED2Ev.exit: ; preds = %1716, %_ZNK4llvm9StringRef11starts_withES0_.exit2563.thread, %_ZN4llvmeqENS_9StringRefES0_.exit3158.thread4643, %369, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit2040, %324, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit3163.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit2046.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit2059.thread, %487, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit2088, %_ZNK4llvm9StringRef11starts_withES0_.exit2105.thread4167, %._crit_edge, %_ZN4llvmeqENS_9StringRefES0_.exit2119.thread, %_ZN4llvmeqENS_9StringRefES0_.exit2127.thread, %_ZN4llvmeqENS_9StringRefES0_.exit2135.thread, %926, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit2183, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit2195, %_ZNK4llvm9StringRef11starts_withES0_.exit2203.thread, %_ZN4llvmeqENS_9StringRefES0_.exit2221.thread, %_ZN4llvmeqENS_9StringRefES0_.exit2257.thread, %_ZN4llvmeqENS_9StringRefES0_.exit2293.thread, %_ZN4llvmeqENS_9StringRefES0_.exit2326.thread, %_ZN4llvmeqENS_9StringRefES0_.exit2357.thread, %1368, %1355, %_ZNK4llvm9StringRef11starts_withES0_.exit2444.thread, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit2455, %_ZNK4llvm9StringRef11starts_withES0_.exit2496.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit2523.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit2538.thread, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit2559, %1772, %1831, %1825, %._crit_edge4730, %_ZNK4llvm9StringRef11starts_withES0_.exit2638.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit2662.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit2680.thread, %_ZN4llvmeqENS_9StringRefES0_.exit2687.thread, %_ZN4llvmeqENS_9StringRefES0_.exit2707.thread, %._crit_edge4800, %2284, %._crit_edge4785, %2522, %._crit_edge4738, %._crit_edge4752, %_ZNK4llvm9StringRef11starts_withES0_.exit2856.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit2868.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit2880.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit2886.thread, %3091, %3195, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit2942, %3429, %_ZNK4llvm9StringRef11starts_withES0_.exit2973.thread, %_ZNK4llvm9StringRef9ends_withES0_.exit2979.thread, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit2998, %3875, %4035, %4163, %4235, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit3160, %_ZNK4llvm9StringRef11starts_withES0_.exit3163, %4297, %_ZNK4llvm9StringRef11starts_withES0_.exit3100.thread, %4098, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit3060, %3739, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit2993, %3588, %_ZNK4llvm9StringRef11starts_withES0_.exit2976.thread, %3503, %3356, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit2936, %3143, %3039, %_ZNK4llvm9StringRef11starts_withES0_.exit2883.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit2874.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit2862.thread, %._crit_edge4759, %._crit_edge4745, %2584, %2463, %2338, %2225, %_ZN4llvmeqENS_9StringRefES0_.exit2721.thread, %_ZN4llvmeqENS_9StringRefES0_.exit2697.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit2683.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit2671.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit2650.thread, %1979, %._crit_edge4726, %_ZN4llvmeqENS_9StringRefES0_.exit2588.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit2547.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit2532.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit2520.thread, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit2464, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit2449, %1398, %1419, %_ZN4llvmeqENS_9StringRefES0_.exit2361.thread, %_ZN4llvmeqENS_9StringRefES0_.exit2341.thread, %_ZN4llvmeqENS_9StringRefES0_.exit2311.thread, %_ZN4llvmeqENS_9StringRefES0_.exit2275.thread, %_ZN4llvmeqENS_9StringRefES0_.exit2239.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit2208.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit2198.thread, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit2189, %_ZNK4llvm9StringRef11starts_withES0_.exit2178.thread, %872, %_ZN4llvmeqENS_9StringRefES0_.exit2131.thread, %_ZN4llvmeqENS_9StringRefES0_.exit2123.thread, %_ZN4llvmeqENS_9StringRefES0_.exit2115.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit2108.thread, %606, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit2062.thread, %_ZN4llvmeqENS_9StringRefES0_.exit2056.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.thread
@@ -17865,8 +17865,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm16UpgradeDebugInfoERNS_6ModuleE(ptr
   %.not9.i.i.i.i = icmp eq i32 %11, 0
   br i1 %.not9.i.i.i.i, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_11NamedMDNode16op_iterator_implIPNS_6MDNodeEEEEEZNS_16UpgradeDebugInfoERNS_6ModuleEE3$_0EEDaOT_T0_.exit", label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %10, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.argprom.exit.thread.i.i.i.i"
-  %.sroa.3.010.i.i.i.i = phi i32 [ %46, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.argprom.exit.thread.i.i.i.i" ], [ 0, %10 ]
+.lr.ph.i.i.i.i:                                   ; preds = %10, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.exit.thread.i.i.i.i"
+  %.sroa.3.010.i.i.i.i = phi i32 [ %46, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.exit.thread.i.i.i.i" ], [ 0, %10 ]
   %12 = tail call noundef ptr @_ZNK4llvm11NamedMDNode10getOperandEj(ptr noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %.sroa.3.010.i.i.i.i) #20
   %13 = getelementptr inbounds i8, ptr %12, i64 -16
   %14 = load i64, ptr %13, align 8
@@ -17889,7 +17889,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16UpgradeDebugInfoERNS_6ModuleE(ptr
 _ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i.i.i: ; preds = %20, %16
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %23, %20 ], [ %19, %16 ]
   %24 = icmp ult i32 %.0.i.i.i.i.i.i.i.i, 3
-  br i1 %24, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.argprom.exit.thread.i.i.i.i", label %25
+  br i1 %24, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.exit.thread.i.i.i.i", label %25
 
 25:                                               ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i.i.i
   %26 = load i64, ptr %13, align 8
@@ -17915,32 +17915,32 @@ _ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i.i.i:  ; preds = %32, %28
   %37 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i.i.i.i.i, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not.i.i7.i.i.i.i.i.i = icmp eq ptr %38, null
-  br i1 %.not.i.i7.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.argprom.exit.thread.i.i.i.i", label %39
+  br i1 %.not.i.i7.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.exit.thread.i.i.i.i", label %39
 
 39:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i.i.i
   %40 = load i8, ptr %38, align 4
   %41 = icmp eq i8 %40, 0
-  br i1 %41, label %_ZN4llvm16dyn_cast_or_nullINS_8MDStringENS_9MDOperandEEEDaRKT0_.exit.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.argprom.exit.thread.i.i.i.i"
+  br i1 %41, label %_ZN4llvm16dyn_cast_or_nullINS_8MDStringENS_9MDOperandEEEDaRKT0_.exit.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.exit.thread.i.i.i.i"
 
 _ZN4llvm16dyn_cast_or_nullINS_8MDStringENS_9MDOperandEEEDaRKT0_.exit.i.i.i.i.i.i: ; preds = %39
   %42 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %38) #20
   %43 = extractvalue { ptr, i64 } %42, 1
   %.not.i.i.i.i.i.i.i = icmp eq i64 %43, 18
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.argprom.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.argprom.exit.thread.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.exit.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.argprom.exit.i.i.i.i": ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8MDStringENS_9MDOperandEEEDaRKT0_.exit.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.exit.i.i.i.i": ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8MDStringENS_9MDOperandEEEDaRKT0_.exit.i.i.i.i.i.i
   %44 = extractvalue { ptr, i64 } %42, 0
   %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(18) %44, ptr noundef nonnull dereferenceable(18) @.str.936, i64 18)
   %45 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
-  br i1 %45, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_11NamedMDNode16op_iterator_implIPNS_6MDNodeEEEEEZNS_16UpgradeDebugInfoERNS_6ModuleEE3$_0EEDaOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.argprom.exit.thread.i.i.i.i"
+  br i1 %45, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_11NamedMDNode16op_iterator_implIPNS_6MDNodeEEEEEZNS_16UpgradeDebugInfoERNS_6ModuleEE3$_0EEDaOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.exit.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.argprom.exit.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.argprom.exit.i.i.i.i", %_ZN4llvm16dyn_cast_or_nullINS_8MDStringENS_9MDOperandEEEDaRKT0_.exit.i.i.i.i.i.i, %39, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.exit.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.exit.i.i.i.i", %_ZN4llvm16dyn_cast_or_nullINS_8MDStringENS_9MDOperandEEEDaRKT0_.exit.i.i.i.i.i.i, %39, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i.i.i
   %46 = add nuw i32 %.sroa.3.010.i.i.i.i, 1
   %.not.i.i.i.i = icmp eq i32 %46, %11
   br i1 %.not.i.i.i.i, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_11NamedMDNode16op_iterator_implIPNS_6MDNodeEEEEEZNS_16UpgradeDebugInfoERNS_6ModuleEE3$_0EEDaOT_T0_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !57
 
-"_ZN4llvm7find_ifINS_14iterator_rangeINS_11NamedMDNode16op_iterator_implIPNS_6MDNodeEEEEEZNS_16UpgradeDebugInfoERNS_6ModuleEE3$_0EEDaOT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.argprom.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.argprom.exit.thread.i.i.i.i", %10
-  %.sroa.3.0.lcssa.i.i.i.i = phi i32 [ 0, %10 ], [ %11, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.argprom.exit.thread.i.i.i.i" ], [ %.sroa.3.010.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.argprom.exit.i.i.i.i" ]
+"_ZN4llvm7find_ifINS_14iterator_rangeINS_11NamedMDNode16op_iterator_implIPNS_6MDNodeEEEEEZNS_16UpgradeDebugInfoERNS_6ModuleEE3$_0EEDaOT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.exit.thread.i.i.i.i", %10
+  %.sroa.3.0.lcssa.i.i.i.i = phi i32 [ 0, %10 ], [ %11, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.exit.thread.i.i.i.i" ], [ %.sroa.3.010.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16UpgradeDebugInfoERNS2_6ModuleEE3$_0EclINS2_11NamedMDNode16op_iterator_implIPNS2_6MDNodeEEEEEbT_.exit.i.i.i.i" ]
   %47 = tail call noundef i32 @_ZNK4llvm11NamedMDNode14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(64) %9) #20
   %.not38 = icmp eq i32 %.sroa.3.0.lcssa.i.i.i.i, %47
   br i1 %.not38, label %.thread, label %48
@@ -19806,13 +19806,13 @@ _ZN4llvm11SmallStringILj32EED2Ev.exit.i:          ; preds = %85, %._crit_edge.i
   %86 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
   %87 = load ptr, ptr %5, align 8, !noalias !75
   %88 = icmp eq ptr %87, %14
-  br i1 %88, label %"_ZZN4llvm24UpgradeSectionAttributesERNS_6ModuleEENK3$_0clB5cxx11ENS_9StringRefE.argprom.exit", label %89
+  br i1 %88, label %"_ZZN4llvm24UpgradeSectionAttributesERNS_6ModuleEENK3$_0clB5cxx11ENS_9StringRefE.exit", label %89
 
 89:                                               ; preds = %_ZN4llvm11SmallStringILj32EED2Ev.exit.i
   call void @free(ptr noundef %87) #20
-  br label %"_ZZN4llvm24UpgradeSectionAttributesERNS_6ModuleEENK3$_0clB5cxx11ENS_9StringRefE.argprom.exit"
+  br label %"_ZZN4llvm24UpgradeSectionAttributesERNS_6ModuleEENK3$_0clB5cxx11ENS_9StringRefE.exit"
 
-"_ZZN4llvm24UpgradeSectionAttributesERNS_6ModuleEENK3$_0clB5cxx11ENS_9StringRefE.argprom.exit": ; preds = %_ZN4llvm11SmallStringILj32EED2Ev.exit.i, %89
+"_ZZN4llvm24UpgradeSectionAttributesERNS_6ModuleEENK3$_0clB5cxx11ENS_9StringRefE.exit": ; preds = %_ZN4llvm11SmallStringILj32EED2Ev.exit.i, %89
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
@@ -19825,7 +19825,7 @@ _ZN4llvm11SmallStringILj32EED2Ev.exit.i:          ; preds = %85, %._crit_edge.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #20
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread19
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.thread19: ; preds = %_ZNK4llvm12GlobalObject10getSectionEv.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit, %26, %"_ZZN4llvm24UpgradeSectionAttributesERNS_6ModuleEENK3$_0clB5cxx11ENS_9StringRefE.argprom.exit"
+_ZNK4llvm9StringRef11starts_withES0_.exit.thread19: ; preds = %_ZNK4llvm12GlobalObject10getSectionEv.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit, %26, %"_ZZN4llvm24UpgradeSectionAttributesERNS_6ModuleEENK3$_0clB5cxx11ENS_9StringRefE.exit"
   %92 = getelementptr inbounds nuw i8, ptr %.sroa.014.023, i64 8
   %.sroa.014.0 = load ptr, ptr %92, align 8
   %.not = icmp eq ptr %.sroa.014.0, %12
@@ -19844,21 +19844,21 @@ define dso_local void @_ZN4llvm25UpgradeFunctionAttributesERNS_8FunctionE(ptr no
   %4 = alloca %"class.llvm::Attribute", align 8
   %5 = alloca %"class.llvm::Attribute", align 8
   %6 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #20
-  br i1 %6, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_8FunctionE.argprom.exit, label %7
+  br i1 %6, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_8FunctionE.exit, label %7
 
 7:                                                ; preds = %1
   %8 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef 68) #20
-  br i1 %8, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_8FunctionE.argprom.exit, label %9
+  br i1 %8, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_8FunctionE.exit, label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.not3.i.i = icmp eq ptr %11, %12
-  br i1 %.not3.i.i, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_8FunctionE.argprom.exit, label %.lr.ph.i.i
+  br i1 %.not3.i.i, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_8FunctionE.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %9, %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_10BasicBlockE.argprom.exit.i.i
-  %.sroa.02.04.i.i = phi ptr [ %14, %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_10BasicBlockE.argprom.exit.i.i ], [ %11, %9 ]
+.lr.ph.i.i:                                       ; preds = %9, %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_10BasicBlockE.exit.i.i
+  %.sroa.02.04.i.i = phi ptr [ %14, %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_10BasicBlockE.exit.i.i ], [ %11, %9 ]
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.02.04.i.i, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %.sroa.02.04.i.i, null
@@ -19868,82 +19868,82 @@ define dso_local void @_ZN4llvm25UpgradeFunctionAttributesERNS_8FunctionE(ptr no
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %.not4.i.i.i.i = icmp eq ptr %19, %20
-  br i1 %.not4.i.i.i.i, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_10BasicBlockE.argprom.exit.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.not4.i.i.i.i, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_10BasicBlockE.exit.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i, %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-  %.sroa.03.05.i.i.i.i = phi ptr [ %22, %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i ], [ %19, %.lr.ph.i.i ]
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i, %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+  %.sroa.03.05.i.i.i.i = phi ptr [ %22, %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i ], [ %19, %.lr.ph.i.i ]
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.03.05.i.i.i.i, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %.sroa.03.05.i.i.i.i, i64 -24
   %24 = load i8, ptr %23, align 8
   switch i8 %24, label %25 [
-    i8 30, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 31, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 32, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 33, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
+    i8 30, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 31, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 32, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 33, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
     i8 34, label %.sink.split.i.i.i.i.i
-    i8 35, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 36, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 37, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 38, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 39, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
+    i8 35, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 36, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 37, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 38, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 39, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
     i8 40, label %.sink.split.i.i.i.i.i
-    i8 41, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 42, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 43, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 44, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 45, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 46, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 47, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 48, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 49, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 50, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 51, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 52, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 53, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 54, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 55, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 56, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 57, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 58, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 59, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 60, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 61, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 62, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 63, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 64, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 65, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 66, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 67, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 68, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 69, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 70, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 71, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 72, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 73, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 74, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 75, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 76, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 77, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 78, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 79, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 80, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 81, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 82, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 83, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 84, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
+    i8 41, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 42, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 43, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 44, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 45, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 46, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 47, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 48, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 49, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 50, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 51, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 52, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 53, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 54, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 55, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 56, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 57, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 58, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 59, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 60, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 61, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 62, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 63, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 64, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 65, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 66, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 67, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 68, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 69, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 70, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 71, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 72, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 73, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 74, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 75, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 76, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 77, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 78, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 79, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 80, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 81, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 82, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 83, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 84, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
     i8 85, label %.sink.split.i.i.i.i.i
-    i8 86, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 87, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 88, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 89, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 90, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 91, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 92, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 93, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 94, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 95, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-    i8 96, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
+    i8 86, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 87, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 88, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 89, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 90, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 91, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 92, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 93, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 94, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 95, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+    i8 96, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
   ]
 
 25:                                               ; preds = %.lr.ph.i.i.i.i
@@ -19956,7 +19956,7 @@ define dso_local void @_ZN4llvm25UpgradeFunctionAttributesERNS_8FunctionE(ptr no
 
 _ZNK4llvm8CallBase10isStrictFPEv.exit.i.i.i.i.i:  ; preds = %.sink.split.i.i.i.i.i
   %28 = tail call noundef zeroext i1 @_ZNK4llvm8CallBase25hasFnAttrOnCalledFunctionENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(88) %23, i32 noundef 68) #20
-  br i1 %28, label %_ZNK4llvm8CallBase10isStrictFPEv.exit.thread.i.i.i.i.i, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
+  br i1 %28, label %_ZNK4llvm8CallBase10isStrictFPEv.exit.thread.i.i.i.i.i, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
 
 _ZNK4llvm8CallBase10isStrictFPEv.exit.thread.i.i.i.i.i: ; preds = %_ZNK4llvm8CallBase10isStrictFPEv.exit.i.i.i.i.i, %.sink.split.i.i.i.i.i
   %29 = load i8, ptr %23, align 8
@@ -19991,7 +19991,7 @@ _ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i.i.i.
 
 _ZN4llvm3isaINS_22ConstrainedFPIntrinsicEPNS_8CallBaseEEEbRKT0_.exit.i.i.i.i.i: ; preds = %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
   %45 = tail call noundef zeroext i1 @_ZN4llvm22ConstrainedFPIntrinsic7classofEPKNS_13IntrinsicInstE(ptr noundef nonnull %23) #20
-  br i1 %45, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i, label %_ZN4llvm3isaINS_22ConstrainedFPIntrinsicEPNS_8CallBaseEEEbRKT0_.exit.thread.i.i.i.i.i
+  br i1 %45, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i, label %_ZN4llvm3isaINS_22ConstrainedFPIntrinsicEPNS_8CallBaseEEEbRKT0_.exit.thread.i.i.i.i.i
 
 _ZN4llvm3isaINS_22ConstrainedFPIntrinsicEPNS_8CallBaseEEEbRKT0_.exit.thread.i.i.i.i.i: ; preds = %_ZN4llvm3isaINS_22ConstrainedFPIntrinsicEPNS_8CallBaseEEEbRKT0_.exit.i.i.i.i.i, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %34, %31, %_ZNK4llvm8CallBase10isStrictFPEv.exit.thread.i.i.i.i.i
   %46 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #20
@@ -20000,17 +20000,17 @@ _ZN4llvm3isaINS_22ConstrainedFPIntrinsicEPNS_8CallBaseEEEbRKT0_.exit.thread.i.i.
   %48 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #20
   %49 = tail call ptr @_ZNK4llvm13AttributeList19addAttributeAtIndexERNS_11LLVMContextEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %48, i32 noundef -1, i32 noundef 22) #20
   store ptr %49, ptr %26, align 8
-  br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
+  br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
 
-_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i: ; preds = %_ZN4llvm3isaINS_22ConstrainedFPIntrinsicEPNS_8CallBaseEEEbRKT0_.exit.thread.i.i.i.i.i, %_ZN4llvm3isaINS_22ConstrainedFPIntrinsicEPNS_8CallBaseEEEbRKT0_.exit.i.i.i.i.i, %_ZNK4llvm8CallBase10isStrictFPEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i
+_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i: ; preds = %_ZN4llvm3isaINS_22ConstrainedFPIntrinsicEPNS_8CallBaseEEEbRKT0_.exit.thread.i.i.i.i.i, %_ZN4llvm3isaINS_22ConstrainedFPIntrinsicEPNS_8CallBaseEEEbRKT0_.exit.i.i.i.i.i, %_ZNK4llvm8CallBase10isStrictFPEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %22, %20
-  br i1 %.not.i.i.i.i, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_10BasicBlockE.argprom.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !78
+  br i1 %.not.i.i.i.i, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_10BasicBlockE.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !78
 
-_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_10BasicBlockE.argprom.exit.i.i: ; preds = %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i, %.lr.ph.i.i
+_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_10BasicBlockE.exit.i.i: ; preds = %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i, %.lr.ph.i.i
   %.not.i.i = icmp eq ptr %14, %12
-  br i1 %.not.i.i, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_8FunctionE.argprom.exit, label %.lr.ph.i.i, !llvm.loop !79
+  br i1 %.not.i.i, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_8FunctionE.exit, label %.lr.ph.i.i, !llvm.loop !79
 
-_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_8FunctionE.argprom.exit: ; preds = %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_10BasicBlockE.argprom.exit.i.i, %9, %7, %1
+_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_8FunctionE.exit: ; preds = %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_10BasicBlockE.exit.i.i, %9, %7, %1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
@@ -20028,12 +20028,12 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_8Func
   %.not.i.i.i = icmp eq i16 %60, 0
   br i1 %.not.i.i.i, label %_ZN4llvm8Function9arg_beginEv.exit.thread.i, label %_ZN4llvm8Function9arg_beginEv.exit.i
 
-_ZN4llvm8Function9arg_beginEv.exit.thread.i:      ; preds = %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_8FunctionE.argprom.exit
+_ZN4llvm8Function9arg_beginEv.exit.thread.i:      ; preds = %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_8FunctionE.exit
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %62 = load ptr, ptr %61, align 8
   br label %_ZN4llvm8Function4argsEv.exit
 
-_ZN4llvm8Function9arg_beginEv.exit.i:             ; preds = %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_8FunctionE.argprom.exit
+_ZN4llvm8Function9arg_beginEv.exit.i:             ; preds = %_ZN4llvm11InstVisitorIN12_GLOBAL__N_122StrictFPUpgradeVisitorEvE5visitERNS_8FunctionE.exit
   call void @_ZNK4llvm8Function18BuildLazyArgumentsEv(ptr noundef nonnull align 8 dereferenceable(136) %0) #20
   %.pre.i = load i16, ptr %58, align 2
   %.pre3.i = and i16 %.pre.i, 1
@@ -20109,10 +20109,10 @@ _ZN4llvm8Function4argsEv.exit:                    ; preds = %_ZN4llvm8Function9a
   %95 = load ptr, ptr %94, align 8
   %.not3.i.i21 = icmp ne ptr %95, %87
   %or.cond.not = select i1 %93, i1 %.not3.i.i21, i1 false
-  br i1 %or.cond.not, label %.lr.ph.i.i22, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_8FunctionE.argprom.exit
+  br i1 %or.cond.not, label %.lr.ph.i.i22, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_8FunctionE.exit
 
-.lr.ph.i.i22:                                     ; preds = %92, %_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_10BasicBlockE.argprom.exit.i.i
-  %.sroa.02.04.i.i23 = phi ptr [ %97, %_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_10BasicBlockE.argprom.exit.i.i ], [ %95, %92 ]
+.lr.ph.i.i22:                                     ; preds = %92, %_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_10BasicBlockE.exit.i.i
+  %.sroa.02.04.i.i23 = phi ptr [ %97, %_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_10BasicBlockE.exit.i.i ], [ %95, %92 ]
   %96 = getelementptr inbounds nuw i8, ptr %.sroa.02.04.i.i23, i64 8
   %97 = load ptr, ptr %96, align 8
   %98 = icmp eq ptr %.sroa.02.04.i.i23, null
@@ -20122,16 +20122,16 @@ _ZN4llvm8Function4argsEv.exit:                    ; preds = %_ZN4llvm8Function9a
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 48
   %.not4.i.i.i.i24 = icmp eq ptr %102, %103
-  br i1 %.not4.i.i.i.i24, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_10BasicBlockE.argprom.exit.i.i, label %.lr.ph.i.i.i.i25
+  br i1 %.not4.i.i.i.i24, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_10BasicBlockE.exit.i.i, label %.lr.ph.i.i.i.i25
 
-.lr.ph.i.i.i.i25:                                 ; preds = %.lr.ph.i.i22, %_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
-  %.sroa.03.05.i.i.i.i26 = phi ptr [ %105, %_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i ], [ %102, %.lr.ph.i.i22 ]
+.lr.ph.i.i.i.i25:                                 ; preds = %.lr.ph.i.i22, %_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
+  %.sroa.03.05.i.i.i.i26 = phi ptr [ %105, %_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i ], [ %102, %.lr.ph.i.i22 ]
   %104 = getelementptr inbounds nuw i8, ptr %.sroa.03.05.i.i.i.i26, i64 8
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds i8, ptr %.sroa.03.05.i.i.i.i26, i64 -24
   %107 = load i8, ptr %106, align 8
   %switch.i.i.i.i.i = icmp eq i8 %107, 66
-  br i1 %switch.i.i.i.i.i, label %108, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
+  br i1 %switch.i.i.i.i.i, label %108, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
 
 108:                                              ; preds = %.lr.ph.i.i.i.i25
   %109 = getelementptr inbounds i8, ptr %.sroa.03.05.i.i.i.i26, i64 -22
@@ -20141,7 +20141,7 @@ _ZN4llvm8Function4argsEv.exit:                    ; preds = %_ZN4llvm8Function9a
   %113 = zext nneg i16 %112 to i32
   %.off.i.i.i.i.i.i.i.i = add nsw i32 %113, -11
   %switch.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i, 4
-  br i1 %switch.i.i.i.i.i.i.i.i, label %114, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
+  br i1 %switch.i.i.i.i.i.i.i.i, label %114, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
 
 114:                                              ; preds = %108
   %115 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %106) #20
@@ -20149,21 +20149,21 @@ _ZN4llvm8Function4argsEv.exit:                    ; preds = %_ZN4llvm8Function9a
   call void @_ZN4llvm11Instruction11setMetadataENS_9StringRefEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(72) %106, ptr nonnull @.str.945, i64 34, ptr noundef %116) #20
   call void @_ZN4llvm11Instruction11setMetadataENS_9StringRefEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(72) %106, ptr nonnull @.str.946, i64 30, ptr noundef %116) #20
   call void @_ZN4llvm11Instruction11setMetadataENS_9StringRefEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(72) %106, ptr nonnull @.str.934, i64 27, ptr noundef %116) #20
-  br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i
+  br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
 
-_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i: ; preds = %114, %108, %.lr.ph.i.i.i.i25
+_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i: ; preds = %114, %108, %.lr.ph.i.i.i.i25
   %.not.i.i.i.i27 = icmp eq ptr %105, %103
-  br i1 %.not.i.i.i.i27, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_10BasicBlockE.argprom.exit.i.i, label %.lr.ph.i.i.i.i25, !llvm.loop !80
+  br i1 %.not.i.i.i.i27, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_10BasicBlockE.exit.i.i, label %.lr.ph.i.i.i.i25, !llvm.loop !80
 
-_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_10BasicBlockE.argprom.exit.i.i: ; preds = %_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_11InstructionE.argprom.exit.i.i.i.i, %.lr.ph.i.i22
+_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_10BasicBlockE.exit.i.i: ; preds = %_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i, %.lr.ph.i.i22
   %.not.i.i28 = icmp eq ptr %97, %87
-  br i1 %.not.i.i28, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_8FunctionE.argprom.exit, label %.lr.ph.i.i22, !llvm.loop !81
+  br i1 %.not.i.i28, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_8FunctionE.exit, label %.lr.ph.i.i22, !llvm.loop !81
 
-_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_8FunctionE.argprom.exit: ; preds = %_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_10BasicBlockE.argprom.exit.i.i, %92
+_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_8FunctionE.exit: ; preds = %_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_10BasicBlockE.exit.i.i, %92
   call void @_ZN4llvm8Function12removeFnAttrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr nonnull @.str.101, i64 24) #20
   br label %117
 
-117:                                              ; preds = %90, %_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_8FunctionE.argprom.exit, %86
+117:                                              ; preds = %90, %_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_8FunctionE.exit, %86
   ret void
 }
 
@@ -21596,94 +21596,94 @@ define dso_local void @_ZN4llvm21UpgradeOperandBundlesERSt6vectorINS_17OperandBu
   %8 = icmp sgt i64 %7, 0
   br i1 %8, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %1, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit30.thread.i.i.i.i.i.i"
-  %.059.i.i.i.i.i.i = phi i64 [ %45, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit30.thread.i.i.i.i.i.i" ], [ %7, %1 ]
-  %.sroa.048.058.i.i.i.i.i.i = phi ptr [ %44, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit30.thread.i.i.i.i.i.i" ], [ %.val.i, %1 ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %1, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit30.thread.i.i.i.i.i.i"
+  %.059.i.i.i.i.i.i = phi i64 [ %45, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit30.thread.i.i.i.i.i.i" ], [ %7, %1 ]
+  %.sroa.048.058.i.i.i.i.i.i = phi ptr [ %44, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit30.thread.i.i.i.i.i.i" ], [ %.val.i, %1 ]
   %9 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.048.058.i.i.i.i.i.i) #20
   %10 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.048.058.i.i.i.i.i.i) #20
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %10, 22
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit.thread.i.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit.thread.i.i.i.i.i.i"
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(22) %9, ptr noundef nonnull dereferenceable(22) @.str.947, i64 22)
   %11 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
-  br i1 %11, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit.thread.i.i.i.i.i.i"
+  br i1 %11, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit.i.i.i.i.i.i": ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit.i.i.i.i.i.i": ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i.i.i.i
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.048.058.i.i.i.i.i.i, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.048.058.i.i.i.i.i.i, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %13
-  br i1 %16, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4llvm17OperandBundleDefTIPNS2_5ValueEEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS2_21UpgradeOperandBundlesERSA_E3$_0EEET_SH_SH_T0_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit.thread.i.i.i.i.i.i"
+  br i1 %16, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4llvm17OperandBundleDefTIPNS2_5ValueEEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS2_21UpgradeOperandBundlesERSA_E3$_0EEET_SH_SH_T0_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit.i.i.i.i.i.i", %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit.i.i.i.i.i.i", %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   %17 = getelementptr inbounds i8, ptr %.sroa.048.058.i.i.i.i.i.i, i64 56
   %18 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #20
   %19 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #20
   %.not.i.i.i16.i.i.i.i.i.i = icmp eq i64 %19, 22
-  br i1 %.not.i.i.i16.i.i.i.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i17.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit20.thread.i.i.i.i.i.i"
+  br i1 %.not.i.i.i16.i.i.i.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i17.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit20.thread.i.i.i.i.i.i"
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i.i17.i.i.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit.thread.i.i.i.i.i.i"
+_ZN4llvmeqENS_9StringRefES0_.exit.i.i17.i.i.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit.thread.i.i.i.i.i.i"
   %bcmp.i.i.i18.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(22) %18, ptr noundef nonnull dereferenceable(22) @.str.947, i64 22)
   %20 = icmp eq i32 %bcmp.i.i.i18.i.i.i.i.i.i, 0
-  br i1 %20, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit20.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit20.thread.i.i.i.i.i.i"
+  br i1 %20, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit20.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit20.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit20.i.i.i.i.i.i": ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i17.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit20.i.i.i.i.i.i": ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i17.i.i.i.i.i.i
   %21 = getelementptr inbounds i8, ptr %.sroa.048.058.i.i.i.i.i.i, i64 88
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %.sroa.048.058.i.i.i.i.i.i, i64 96
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, %22
-  br i1 %25, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4llvm17OperandBundleDefTIPNS2_5ValueEEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS2_21UpgradeOperandBundlesERSA_E3$_0EEET_SH_SH_T0_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit20.thread.i.i.i.i.i.i"
+  br i1 %25, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4llvm17OperandBundleDefTIPNS2_5ValueEEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS2_21UpgradeOperandBundlesERSA_E3$_0EEET_SH_SH_T0_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit20.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit20.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit20.i.i.i.i.i.i", %_ZN4llvmeqENS_9StringRefES0_.exit.i.i17.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit20.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit20.i.i.i.i.i.i", %_ZN4llvmeqENS_9StringRefES0_.exit.i.i17.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit.thread.i.i.i.i.i.i"
   %26 = getelementptr inbounds i8, ptr %.sroa.048.058.i.i.i.i.i.i, i64 112
   %27 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %26) #20
   %28 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %26) #20
   %.not.i.i.i21.i.i.i.i.i.i = icmp eq i64 %28, 22
-  br i1 %.not.i.i.i21.i.i.i.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i22.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit25.thread.i.i.i.i.i.i"
+  br i1 %.not.i.i.i21.i.i.i.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i22.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit25.thread.i.i.i.i.i.i"
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i.i22.i.i.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit20.thread.i.i.i.i.i.i"
+_ZN4llvmeqENS_9StringRefES0_.exit.i.i22.i.i.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit20.thread.i.i.i.i.i.i"
   %bcmp.i.i.i23.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(22) %27, ptr noundef nonnull dereferenceable(22) @.str.947, i64 22)
   %29 = icmp eq i32 %bcmp.i.i.i23.i.i.i.i.i.i, 0
-  br i1 %29, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit25.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit25.thread.i.i.i.i.i.i"
+  br i1 %29, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit25.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit25.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit25.i.i.i.i.i.i": ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i22.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit25.i.i.i.i.i.i": ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i22.i.i.i.i.i.i
   %30 = getelementptr inbounds i8, ptr %.sroa.048.058.i.i.i.i.i.i, i64 144
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %.sroa.048.058.i.i.i.i.i.i, i64 152
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, %31
-  br i1 %34, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4llvm17OperandBundleDefTIPNS2_5ValueEEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS2_21UpgradeOperandBundlesERSA_E3$_0EEET_SH_SH_T0_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit25.thread.i.i.i.i.i.i"
+  br i1 %34, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4llvm17OperandBundleDefTIPNS2_5ValueEEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS2_21UpgradeOperandBundlesERSA_E3$_0EEET_SH_SH_T0_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit25.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit25.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit25.i.i.i.i.i.i", %_ZN4llvmeqENS_9StringRefES0_.exit.i.i22.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit20.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit25.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit25.i.i.i.i.i.i", %_ZN4llvmeqENS_9StringRefES0_.exit.i.i22.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit20.thread.i.i.i.i.i.i"
   %35 = getelementptr inbounds i8, ptr %.sroa.048.058.i.i.i.i.i.i, i64 168
   %36 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %35) #20
   %37 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %35) #20
   %.not.i.i.i26.i.i.i.i.i.i = icmp eq i64 %37, 22
-  br i1 %.not.i.i.i26.i.i.i.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i27.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit30.thread.i.i.i.i.i.i"
+  br i1 %.not.i.i.i26.i.i.i.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i27.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit30.thread.i.i.i.i.i.i"
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i.i27.i.i.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit25.thread.i.i.i.i.i.i"
+_ZN4llvmeqENS_9StringRefES0_.exit.i.i27.i.i.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit25.thread.i.i.i.i.i.i"
   %bcmp.i.i.i28.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(22) %36, ptr noundef nonnull dereferenceable(22) @.str.947, i64 22)
   %38 = icmp eq i32 %bcmp.i.i.i28.i.i.i.i.i.i, 0
-  br i1 %38, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit30.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit30.thread.i.i.i.i.i.i"
+  br i1 %38, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit30.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit30.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit30.i.i.i.i.i.i": ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i27.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit30.i.i.i.i.i.i": ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i27.i.i.i.i.i.i
   %39 = getelementptr inbounds i8, ptr %.sroa.048.058.i.i.i.i.i.i, i64 200
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %.sroa.048.058.i.i.i.i.i.i, i64 208
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, %40
-  br i1 %43, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4llvm17OperandBundleDefTIPNS2_5ValueEEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS2_21UpgradeOperandBundlesERSA_E3$_0EEET_SH_SH_T0_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit30.thread.i.i.i.i.i.i"
+  br i1 %43, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4llvm17OperandBundleDefTIPNS2_5ValueEEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS2_21UpgradeOperandBundlesERSA_E3$_0EEET_SH_SH_T0_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit30.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit30.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit30.i.i.i.i.i.i", %_ZN4llvmeqENS_9StringRefES0_.exit.i.i27.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit25.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit30.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit30.i.i.i.i.i.i", %_ZN4llvmeqENS_9StringRefES0_.exit.i.i27.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit25.thread.i.i.i.i.i.i"
   %44 = getelementptr inbounds i8, ptr %.sroa.048.058.i.i.i.i.i.i, i64 224
   %45 = add nsw i64 %.059.i.i.i.i.i.i, -1
   %46 = icmp sgt i64 %.059.i.i.i.i.i.i, 1
   br i1 %46, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !112
 
-._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit30.thread.i.i.i.i.i.i"
+._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit30.thread.i.i.i.i.i.i"
   %.pre.i.i.i.i.i.i = ptrtoint ptr %44 to i64
   %.pre60.i.i.i.i.i.i = sub i64 %3, %.pre.i.i.i.i.i.i
   br label %._crit_edge.i.i.i.i.i.i
@@ -21702,51 +21702,51 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i27.i.i.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5_
   %49 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.048.0.lcssa.i.i.i.i.i.i) #20
   %50 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.048.0.lcssa.i.i.i.i.i.i) #20
   %.not.i.i.i31.i.i.i.i.i.i = icmp eq i64 %50, 22
-  br i1 %.not.i.i.i31.i.i.i.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit35.thread.i.i.i.i.i.i"
+  br i1 %.not.i.i.i31.i.i.i.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit35.thread.i.i.i.i.i.i"
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i32.i.i.i.i.i.i: ; preds = %48
   %bcmp.i.i.i33.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(22) %49, ptr noundef nonnull dereferenceable(22) @.str.947, i64 22)
   %51 = icmp eq i32 %bcmp.i.i.i33.i.i.i.i.i.i, 0
-  br i1 %51, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit35.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit35.thread.i.i.i.i.i.i"
+  br i1 %51, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit35.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit35.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit35.i.i.i.i.i.i": ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit35.i.i.i.i.i.i": ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32.i.i.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.048.0.lcssa.i.i.i.i.i.i, i64 32
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.048.0.lcssa.i.i.i.i.i.i, i64 40
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %55, %53
-  br i1 %56, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4llvm17OperandBundleDefTIPNS2_5ValueEEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS2_21UpgradeOperandBundlesERSA_E3$_0EEET_SH_SH_T0_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit35.thread.i.i.i.i.i.i"
+  br i1 %56, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4llvm17OperandBundleDefTIPNS2_5ValueEEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS2_21UpgradeOperandBundlesERSA_E3$_0EEET_SH_SH_T0_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit35.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit35.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit35.i.i.i.i.i.i", %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32.i.i.i.i.i.i, %48
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit35.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit35.i.i.i.i.i.i", %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32.i.i.i.i.i.i, %48
   %57 = getelementptr inbounds i8, ptr %.sroa.048.0.lcssa.i.i.i.i.i.i, i64 56
   br label %58
 
-58:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit35.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.sroa.048.1.i.i.i.i.i.i = phi ptr [ %.sroa.048.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %57, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit35.thread.i.i.i.i.i.i" ]
+58:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit35.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
+  %.sroa.048.1.i.i.i.i.i.i = phi ptr [ %.sroa.048.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %57, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit35.thread.i.i.i.i.i.i" ]
   %59 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.048.1.i.i.i.i.i.i) #20
   %60 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.048.1.i.i.i.i.i.i) #20
   %.not.i.i.i36.i.i.i.i.i.i = icmp eq i64 %60, 22
-  br i1 %.not.i.i.i36.i.i.i.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i37.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit40.thread.i.i.i.i.i.i"
+  br i1 %.not.i.i.i36.i.i.i.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i37.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit40.thread.i.i.i.i.i.i"
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i37.i.i.i.i.i.i: ; preds = %58
   %bcmp.i.i.i38.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(22) %59, ptr noundef nonnull dereferenceable(22) @.str.947, i64 22)
   %61 = icmp eq i32 %bcmp.i.i.i38.i.i.i.i.i.i, 0
-  br i1 %61, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit40.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit40.thread.i.i.i.i.i.i"
+  br i1 %61, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit40.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit40.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit40.i.i.i.i.i.i": ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i37.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit40.i.i.i.i.i.i": ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i37.i.i.i.i.i.i
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.048.1.i.i.i.i.i.i, i64 32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.048.1.i.i.i.i.i.i, i64 40
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, %63
-  br i1 %66, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4llvm17OperandBundleDefTIPNS2_5ValueEEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS2_21UpgradeOperandBundlesERSA_E3$_0EEET_SH_SH_T0_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit40.thread.i.i.i.i.i.i"
+  br i1 %66, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4llvm17OperandBundleDefTIPNS2_5ValueEEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS2_21UpgradeOperandBundlesERSA_E3$_0EEET_SH_SH_T0_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit40.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit40.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit40.i.i.i.i.i.i", %_ZN4llvmeqENS_9StringRefES0_.exit.i.i37.i.i.i.i.i.i, %58
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit40.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit40.i.i.i.i.i.i", %_ZN4llvmeqENS_9StringRefES0_.exit.i.i37.i.i.i.i.i.i, %58
   %67 = getelementptr inbounds i8, ptr %.sroa.048.1.i.i.i.i.i.i, i64 56
   br label %68
 
-68:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit40.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.sroa.048.2.i.i.i.i.i.i = phi ptr [ %.sroa.048.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %67, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit40.thread.i.i.i.i.i.i" ]
+68:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit40.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
+  %.sroa.048.2.i.i.i.i.i.i = phi ptr [ %.sroa.048.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %67, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit40.thread.i.i.i.i.i.i" ]
   %69 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.048.2.i.i.i.i.i.i) #20
   %70 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.048.2.i.i.i.i.i.i) #20
   %.not.i.i.i41.i.i.i.i.i.i = icmp eq i64 %70, 22
@@ -21755,9 +21755,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i37.i.i.i.i.i.i: ; preds = %58
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i42.i.i.i.i.i.i: ; preds = %68
   %bcmp.i.i.i43.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(22) %69, ptr noundef nonnull dereferenceable(22) @.str.947, i64 22)
   %71 = icmp eq i32 %bcmp.i.i.i43.i.i.i.i.i.i, 0
-  br i1 %71, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit45.i.i.i.i.i.i", label %"_ZN4llvm8erase_ifISt6vectorINS_17OperandBundleDefTIPNS_5ValueEEESaIS5_EEZNS_21UpgradeOperandBundlesERS7_E3$_0EEvRT_T0_.exit"
+  br i1 %71, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit45.i.i.i.i.i.i", label %"_ZN4llvm8erase_ifISt6vectorINS_17OperandBundleDefTIPNS_5ValueEEESaIS5_EEZNS_21UpgradeOperandBundlesERS7_E3$_0EEvRT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit45.i.i.i.i.i.i": ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i42.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit45.i.i.i.i.i.i": ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i42.i.i.i.i.i.i
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.048.2.i.i.i.i.i.i, i64 32
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.048.2.i.i.i.i.i.i, i64 40
@@ -21765,8 +21765,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i42.i.i.i.i.i.i: ; preds = %68
   %76 = icmp eq ptr %75, %73
   br i1 %76, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4llvm17OperandBundleDefTIPNS2_5ValueEEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS2_21UpgradeOperandBundlesERSA_E3$_0EEET_SH_SH_T0_.exit.i.i.i.i", label %"_ZN4llvm8erase_ifISt6vectorINS_17OperandBundleDefTIPNS_5ValueEEESaIS5_EEZNS_21UpgradeOperandBundlesERS7_E3$_0EEvRT_T0_.exit"
 
-"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4llvm17OperandBundleDefTIPNS2_5ValueEEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS2_21UpgradeOperandBundlesERSA_E3$_0EEET_SH_SH_T0_.exit.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit30.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit25.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit20.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit45.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit40.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit35.i.i.i.i.i.i"
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.048.0.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit35.i.i.i.i.i.i" ], [ %.sroa.048.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit40.i.i.i.i.i.i" ], [ %.sroa.048.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit45.i.i.i.i.i.i" ], [ %35, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit30.i.i.i.i.i.i" ], [ %26, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit25.i.i.i.i.i.i" ], [ %17, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit20.i.i.i.i.i.i" ], [ %.sroa.048.058.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit.i.i.i.i.i.i" ]
+"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4llvm17OperandBundleDefTIPNS2_5ValueEEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS2_21UpgradeOperandBundlesERSA_E3$_0EEET_SH_SH_T0_.exit.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit30.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit25.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit20.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit45.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit40.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit35.i.i.i.i.i.i"
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.048.0.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit35.i.i.i.i.i.i" ], [ %.sroa.048.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit40.i.i.i.i.i.i" ], [ %.sroa.048.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit45.i.i.i.i.i.i" ], [ %35, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit30.i.i.i.i.i.i" ], [ %26, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit25.i.i.i.i.i.i" ], [ %17, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit20.i.i.i.i.i.i" ], [ %.sroa.048.058.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit.i.i.i.i.i.i" ]
   %77 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, %.val3.i
   %.sroa.06.017.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, i64 56
   %.not18.i.i.i.i = icmp eq ptr %.sroa.06.017.i.i.i.i, %.val3.i
@@ -21780,22 +21780,22 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i42.i.i.i.i.i.i: ; preds = %68
   %78 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.021.i.i.i.i) #20
   %79 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.021.i.i.i.i) #20
   %.not.i.i.i.i.i.i.i = icmp eq i64 %79, 22
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit.thread.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit.thread.i.i.i.i"
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i.i:    ; preds = %.lr.ph.i.i.i.i
   %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(22) %78, ptr noundef nonnull dereferenceable(22) @.str.947, i64 22)
   %80 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
-  br i1 %80, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit.thread.i.i.i.i"
+  br i1 %80, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit.i.i.i.i": ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit.i.i.i.i": ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i.i
   %81 = getelementptr inbounds i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.pn19.i.i.i.i, i64 88
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.pn19.i.i.i.i, i64 96
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %84, %82
-  br i1 %85, label %103, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit.thread.i.i.i.i"
+  br i1 %85, label %103, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit.i.i.i.i", %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit.i.i.i.i", %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i
   %86 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.012.120.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.021.i.i.i.i) #20
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.012.120.i.i.i.i, i64 32
   %88 = getelementptr inbounds i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.pn19.i.i.i.i, i64 88
@@ -21815,25 +21815,25 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i.i:    ; preds = %.lr.ph.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm17OperandBundleDefTIPNS_5ValueEEaSEOS3_.exit.i.i.i.i, label %98
 
-98:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit.thread.i.i.i.i"
+98:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit.thread.i.i.i.i"
   %99 = ptrtoint ptr %92 to i64
   %100 = ptrtoint ptr %89 to i64
   %101 = sub i64 %99, %100
   tail call void @_ZdlPvm(ptr noundef nonnull %89, i64 noundef %101) #22
   br label %_ZN4llvm17OperandBundleDefTIPNS_5ValueEEaSEOS3_.exit.i.i.i.i
 
-_ZN4llvm17OperandBundleDefTIPNS_5ValueEEaSEOS3_.exit.i.i.i.i: ; preds = %98, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit.thread.i.i.i.i"
+_ZN4llvm17OperandBundleDefTIPNS_5ValueEEaSEOS3_.exit.i.i.i.i: ; preds = %98, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit.thread.i.i.i.i"
   %102 = getelementptr inbounds i8, ptr %.sroa.012.120.i.i.i.i, i64 56
   br label %103
 
-103:                                              ; preds = %_ZN4llvm17OperandBundleDefTIPNS_5ValueEEaSEOS3_.exit.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit.i.i.i.i"
-  %.sroa.012.2.i.i.i.i = phi ptr [ %.sroa.012.120.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit.i.i.i.i" ], [ %102, %_ZN4llvm17OperandBundleDefTIPNS_5ValueEEaSEOS3_.exit.i.i.i.i ]
+103:                                              ; preds = %_ZN4llvm17OperandBundleDefTIPNS_5ValueEEaSEOS3_.exit.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit.i.i.i.i"
+  %.sroa.012.2.i.i.i.i = phi ptr [ %.sroa.012.120.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit.i.i.i.i" ], [ %102, %_ZN4llvm17OperandBundleDefTIPNS_5ValueEEaSEOS3_.exit.i.i.i.i ]
   %.sroa.06.0.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.06.021.i.i.i.i, i64 56
   %.not.i.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i.i, %.val3.i
   br i1 %.not.i.i.i.i, label %"_ZN4llvm8erase_ifISt6vectorINS_17OperandBundleDefTIPNS_5ValueEEESaIS5_EEZNS_21UpgradeOperandBundlesERS7_E3$_0EEvRT_T0_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !113
 
-"_ZN4llvm8erase_ifISt6vectorINS_17OperandBundleDefTIPNS_5ValueEEESaIS5_EEZNS_21UpgradeOperandBundlesERS7_E3$_0EEvRT_T0_.exit": ; preds = %103, %._crit_edge.i.i.i.i.i.i, %68, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i42.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit45.i.i.i.i.i.i", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4llvm17OperandBundleDefTIPNS2_5ValueEEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS2_21UpgradeOperandBundlesERSA_E3$_0EEET_SH_SH_T0_.exit.i.i.i.i"
-  %.sroa.012.0.i.i.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4llvm17OperandBundleDefTIPNS2_5ValueEEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS2_21UpgradeOperandBundlesERSA_E3$_0EEET_SH_SH_T0_.exit.i.i.i.i" ], [ %.val3.i, %._crit_edge.i.i.i.i.i.i ], [ %.val3.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.argprom.exit45.i.i.i.i.i.i" ], [ %.val3.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i42.i.i.i.i.i.i ], [ %.val3.i, %68 ], [ %.sroa.012.2.i.i.i.i, %103 ]
+"_ZN4llvm8erase_ifISt6vectorINS_17OperandBundleDefTIPNS_5ValueEEESaIS5_EEZNS_21UpgradeOperandBundlesERS7_E3$_0EEvRT_T0_.exit": ; preds = %103, %._crit_edge.i.i.i.i.i.i, %68, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i42.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit45.i.i.i.i.i.i", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4llvm17OperandBundleDefTIPNS2_5ValueEEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS2_21UpgradeOperandBundlesERSA_E3$_0EEET_SH_SH_T0_.exit.i.i.i.i"
+  %.sroa.012.0.i.i.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4llvm17OperandBundleDefTIPNS2_5ValueEEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS2_21UpgradeOperandBundlesERSA_E3$_0EEET_SH_SH_T0_.exit.i.i.i.i" ], [ %.val3.i, %._crit_edge.i.i.i.i.i.i ], [ %.val3.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21UpgradeOperandBundlesERSt6vectorINS2_17OperandBundleDefTIPNS2_5ValueEEESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EEEEbT_.exit45.i.i.i.i.i.i" ], [ %.val3.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i42.i.i.i.i.i.i ], [ %.val3.i, %68 ], [ %.sroa.012.2.i.i.i.i, %103 ]
   %104 = load ptr, ptr %2, align 8
   %105 = load ptr, ptr %0, align 8
   %106 = ptrtoint ptr %.sroa.012.0.i.i.i.i to i64
@@ -23021,7 +23021,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %4
 10:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i
   %11 = getelementptr inbounds i8, ptr %1, i64 4
   %12 = add i64 %2, -4
-  %13 = tail call fastcc noundef zeroext i1 @_ZL25shouldUpgradeX86IntrinsicPN4llvm8FunctionENS_9StringRefE.argprom(ptr nonnull %11, i64 %12)
+  %13 = tail call fastcc noundef zeroext i1 @_ZL25shouldUpgradeX86IntrinsicPN4llvm8FunctionENS_9StringRefE(ptr nonnull %11, i64 %12)
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %10
@@ -23517,7 +23517,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnul
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @_ZL25shouldUpgradeX86IntrinsicPN4llvm8FunctionENS_9StringRefE.argprom(ptr readonly %0, i64 %1) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @_ZL25shouldUpgradeX86IntrinsicPN4llvm8FunctionENS_9StringRefE(ptr readonly %0, i64 %1) unnamed_addr #6 {
   %.not.i.i = icmp ult i64 %1, 4
   br i1 %.not.i.i, label %.thread2365, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i
 
@@ -27068,7 +27068,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm13IRBuilderBase7getInt8Eh(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18upgradeMaskedStoreRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueES6_S6_b.retelim(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @_ZL18upgradeMaskedStoreRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueES6_S6_b(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca [4 x i32], align 16
   %8 = alloca %"class.llvm::Twine", align 8
@@ -30020,7 +30020,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL25upgradeAVX512MaskToSelectN4llvm9StringRefERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERNS_8CallBaseERPNS_5ValueE.retelim(ptr nocapture readonly %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(88) %3, ptr nocapture noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #0 {
+define internal fastcc void @_ZL25upgradeAVX512MaskToSelectN4llvm9StringRefERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERNS_8CallBaseERPNS_5ValueE(ptr nocapture readonly %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(88) %3, ptr nocapture noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::TypeSize", align 8
   %7 = alloca %"class.llvm::SmallVector.114", align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -31773,8 +31773,8 @@ attributes #24 = { noreturn nounwind }
 !73 = distinct !{!73, !"_ZNK4llvm9StringRef3strB5cxx11Ev"}
 !74 = distinct !{!74, !12}
 !75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZZN4llvm24UpgradeSectionAttributesERNS_6ModuleEENK3$_0clB5cxx11ENS_9StringRefE.argprom: argument 0"}
-!77 = distinct !{!77, !"_ZZN4llvm24UpgradeSectionAttributesERNS_6ModuleEENK3$_0clB5cxx11ENS_9StringRefE.argprom"}
+!76 = distinct !{!76, !77, !"_ZZN4llvm24UpgradeSectionAttributesERNS_6ModuleEENK3$_0clB5cxx11ENS_9StringRefE: argument 0"}
+!77 = distinct !{!77, !"_ZZN4llvm24UpgradeSectionAttributesERNS_6ModuleEENK3$_0clB5cxx11ENS_9StringRefE"}
 !78 = distinct !{!78, !12}
 !79 = distinct !{!79, !12}
 !80 = distinct !{!80, !12}

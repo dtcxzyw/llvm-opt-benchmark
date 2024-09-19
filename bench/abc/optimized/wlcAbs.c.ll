@@ -2904,11 +2904,11 @@ Vec_BitStartFull.exit.i:                          ; preds = %339, %Wlc_NtkUnroll
   store ptr %343, ptr %345, align 8
   store i32 %338, ptr %344, align 4
   call void @llvm.memset.p0.i64(ptr align 4 %343, i8 -1, i64 %.pre-phi8.i.i, i1 false)
-  %346 = call fastcc ptr @Wlc_NtkGetCoreSels.argprom.argelim(ptr noundef %331, i32 noundef %32, i32 noundef %.val39.i, ptr noundef nonnull %337, i32 noundef %2)
+  %346 = call fastcc ptr @Wlc_NtkGetCoreSels(ptr noundef %331, i32 noundef %32, i32 noundef %.val39.i, ptr noundef nonnull %337, i32 noundef %2)
   call void @Wlc_NtkFree(ptr noundef %15) #23
   call void @Gia_ManStop(ptr noundef %331) #23
   %347 = icmp eq ptr %346, null
-  br i1 %347, label %Wlc_NtkProofReduce.argprom.exit.thread, label %348
+  br i1 %347, label %Wlc_NtkProofReduce.exit.thread, label %348
 
 348:                                              ; preds = %Vec_BitStartFull.exit.i
   %349 = icmp sgt i32 %336, 0
@@ -2949,7 +2949,7 @@ Vec_BitReset.exit.i:                              ; preds = %.lr.ph.i51.i, %348
   br i1 %exitcond.not.i, label %.critedge.i, label %354, !llvm.loop !38
 
 .critedge.i:                                      ; preds = %354, %Vec_BitReset.exit.i
-  %364 = call fastcc i32 @Vec_BitCount.argprom(i32 %338, ptr %343)
+  %364 = call fastcc i32 @Vec_BitCount(i32 %338, ptr %343)
   %365 = sub nsw i32 %.val39.i, %364
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.32, i32 noundef %365, i32 noundef %.val39.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -2977,37 +2977,37 @@ Abc_Clock.exit57.i:                               ; preds = %368, %.critedge.i
   %378 = getelementptr inbounds i8, ptr %346, i64 8
   %379 = load ptr, ptr %378, align 8
   %.not.i58.i = icmp eq ptr %379, null
-  br i1 %.not.i58.i, label %Wlc_NtkProofReduce.argprom.exit, label %380
+  br i1 %.not.i58.i, label %Wlc_NtkProofReduce.exit, label %380
 
 380:                                              ; preds = %Abc_Clock.exit57.i
   call void @free(ptr noundef nonnull %379) #23
-  br label %Wlc_NtkProofReduce.argprom.exit
+  br label %Wlc_NtkProofReduce.exit
 
-Wlc_NtkProofReduce.argprom.exit:                  ; preds = %Abc_Clock.exit57.i, %380
+Wlc_NtkProofReduce.exit:                          ; preds = %Abc_Clock.exit57.i, %380
   call void @free(ptr noundef nonnull %346) #23
-  %381 = call fastcc i32 @Vec_BitCount.argprom(i32 %338, ptr %343)
+  %381 = call fastcc i32 @Vec_BitCount(i32 %338, ptr %343)
   %382 = icmp ne i32 %.val39.i, %381
   %383 = zext i1 %382 to i32
   %384 = icmp sgt i32 %.val39.i, 0
   br i1 %384, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %Wlc_NtkProofReduce.argprom.exit
+.lr.ph:                                           ; preds = %Wlc_NtkProofReduce.exit
   %385 = getelementptr i8, ptr %6, i64 8
   %386 = getelementptr inbounds i8, ptr %0, i64 56
   %wide.trip.count = zext nneg i32 %.val39.i to i64
   br label %392
 
-Wlc_NtkProofReduce.argprom.exit.thread:           ; preds = %Vec_BitStartFull.exit.i
+Wlc_NtkProofReduce.exit.thread:                   ; preds = %Vec_BitStartFull.exit.i
   %387 = getelementptr inbounds i8, ptr %6, i64 8
   %388 = load ptr, ptr %387, align 8
   %.not.i = icmp eq ptr %388, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %389
 
-389:                                              ; preds = %Wlc_NtkProofReduce.argprom.exit.thread
+389:                                              ; preds = %Wlc_NtkProofReduce.exit.thread
   call void @free(ptr noundef nonnull %388) #23
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %Wlc_NtkProofReduce.argprom.exit.thread, %389
+Vec_IntFree.exit:                                 ; preds = %Wlc_NtkProofReduce.exit.thread, %389
   call void @free(ptr noundef nonnull %6) #23
   %390 = getelementptr inbounds i8, ptr %7, i64 8
   %391 = load ptr, ptr %390, align 8
@@ -3050,7 +3050,7 @@ Vec_IntFree.exit:                                 ; preds = %Wlc_NtkProofReduce.
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %392, !llvm.loop !39
 
-.critedge:                                        ; preds = %415, %Wlc_NtkProofReduce.argprom.exit
+.critedge:                                        ; preds = %415, %Wlc_NtkProofReduce.exit
   %416 = getelementptr inbounds i8, ptr %6, i64 8
   %417 = load ptr, ptr %416, align 8
   %.not.i35 = icmp eq ptr %417, null
@@ -3091,7 +3091,7 @@ Vec_IntFree.exit34:                               ; preds = %Vec_IntFree.exit34.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @Vec_BitCount.argprom(i32 %.4.val, ptr nocapture readonly %.8.val) unnamed_addr #4 {
+define internal fastcc i32 @Vec_BitCount(i32 %.4.val, ptr nocapture readonly %.8.val) unnamed_addr #4 {
   %1 = ashr i32 %.4.val, 5
   %2 = and i32 %.4.val, 31
   %3 = icmp ne i32 %2, 0
@@ -3260,14 +3260,14 @@ Vec_IntDup.exit:                                  ; preds = %8, %14
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 32
   %27 = load ptr, ptr %26, align 8
-  tail call fastcc void @Wlc_NtkUpdateBlacks.retelim(ptr noundef %5, ptr noundef %7, ptr noundef nonnull %2, ptr noundef %25, ptr noundef %27)
+  tail call fastcc void @Wlc_NtkUpdateBlacks(ptr noundef %5, ptr noundef %7, ptr noundef nonnull %2, ptr noundef %25, ptr noundef %27)
   %.pre = load ptr, ptr %2, align 8
   br label %28
 
 28:                                               ; preds = %23, %Vec_IntDup.exit
   %29 = phi ptr [ %.pre, %23 ], [ %9, %Vec_IntDup.exit ]
   %30 = load ptr, ptr %0, align 8
-  %31 = tail call fastcc ptr @Wlc_NtkAbs2.argprom(ptr noundef %30, ptr noundef %29)
+  %31 = tail call fastcc ptr @Wlc_NtkAbs2(ptr noundef %30, ptr noundef %29)
   ret ptr %31
 }
 
@@ -3338,7 +3338,7 @@ define internal fastcc noalias noundef ptr @Wlc_NtkGetBlacks(ptr nocapture nound
 
 32:                                               ; preds = %30
   %33 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call fastcc void @Vec_IntPushUniqueOrder.argelim(ptr noundef nonnull %3, i32 noundef %33)
+  tail call fastcc void @Vec_IntPushUniqueOrder(ptr noundef nonnull %3, i32 noundef %33)
   %34 = add nsw i32 %.sroa.0.0132, 1
   br label %128
 
@@ -3356,7 +3356,7 @@ define internal fastcc noalias noundef ptr @Wlc_NtkGetBlacks(ptr nocapture nound
   br i1 %.not99, label %128, label %44
 
 44:                                               ; preds = %35
-  tail call fastcc void @Vec_IntPushUniqueOrder.argelim(ptr noundef nonnull %3, i32 noundef %36)
+  tail call fastcc void @Vec_IntPushUniqueOrder(ptr noundef nonnull %3, i32 noundef %36)
   %45 = add nsw i32 %.sroa.0.0132, 1
   br label %128
 
@@ -3378,7 +3378,7 @@ define internal fastcc noalias noundef ptr @Wlc_NtkGetBlacks(ptr nocapture nound
 
 55:                                               ; preds = %53
   %56 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call fastcc void @Vec_IntPushUniqueOrder.argelim(ptr noundef nonnull %3, i32 noundef %56)
+  tail call fastcc void @Vec_IntPushUniqueOrder(ptr noundef nonnull %3, i32 noundef %56)
   %57 = add nsw i32 %.sroa.6.0133, 1
   br label %128
 
@@ -3396,7 +3396,7 @@ define internal fastcc noalias noundef ptr @Wlc_NtkGetBlacks(ptr nocapture nound
   br i1 %.not97, label %128, label %67
 
 67:                                               ; preds = %58
-  tail call fastcc void @Vec_IntPushUniqueOrder.argelim(ptr noundef nonnull %3, i32 noundef %59)
+  tail call fastcc void @Vec_IntPushUniqueOrder(ptr noundef nonnull %3, i32 noundef %59)
   %68 = add nsw i32 %.sroa.6.0133, 1
   br label %128
 
@@ -3418,7 +3418,7 @@ define internal fastcc noalias noundef ptr @Wlc_NtkGetBlacks(ptr nocapture nound
 
 78:                                               ; preds = %76
   %79 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call fastcc void @Vec_IntPushUniqueOrder.argelim(ptr noundef nonnull %3, i32 noundef %79)
+  tail call fastcc void @Vec_IntPushUniqueOrder(ptr noundef nonnull %3, i32 noundef %79)
   %80 = add nsw i32 %.sroa.11.0134, 1
   br label %128
 
@@ -3436,7 +3436,7 @@ define internal fastcc noalias noundef ptr @Wlc_NtkGetBlacks(ptr nocapture nound
   br i1 %.not95, label %128, label %90
 
 90:                                               ; preds = %81
-  tail call fastcc void @Vec_IntPushUniqueOrder.argelim(ptr noundef nonnull %3, i32 noundef %82)
+  tail call fastcc void @Vec_IntPushUniqueOrder(ptr noundef nonnull %3, i32 noundef %82)
   %91 = add nsw i32 %.sroa.11.0134, 1
   br label %128
 
@@ -3474,7 +3474,7 @@ define internal fastcc noalias noundef ptr @Wlc_NtkGetBlacks(ptr nocapture nound
   %107 = sext i32 %106 to i64
   %108 = getelementptr inbounds i32, ptr %.val6.i, i64 %107
   %109 = load i32, ptr %108, align 4
-  tail call fastcc void @Vec_IntPushUniqueOrder.argelim(ptr noundef nonnull %3, i32 noundef %109)
+  tail call fastcc void @Vec_IntPushUniqueOrder(ptr noundef nonnull %3, i32 noundef %109)
   %110 = add nsw i32 %.sroa.16.0135, 1
   br label %128
 
@@ -3502,7 +3502,7 @@ define internal fastcc noalias noundef ptr @Wlc_NtkGetBlacks(ptr nocapture nound
   %124 = sext i32 %123 to i64
   %125 = getelementptr inbounds i32, ptr %.val6.i127, i64 %124
   %126 = load i32, ptr %125, align 4
-  tail call fastcc void @Vec_IntPushUniqueOrder.argelim(ptr noundef nonnull %3, i32 noundef %126)
+  tail call fastcc void @Vec_IntPushUniqueOrder(ptr noundef nonnull %3, i32 noundef %126)
   %127 = add nsw i32 %.sroa.16.0135, 1
   br label %128
 
@@ -3556,7 +3556,7 @@ Vec_BitFree.exit:                                 ; preds = %131, %134
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Wlc_NtkUpdateBlacks.retelim(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4) unnamed_addr #1 {
+define internal fastcc void @Wlc_NtkUpdateBlacks(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4) unnamed_addr #1 {
   %6 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
   %7 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 0, ptr %7, align 4
@@ -3738,7 +3738,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %73
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @Wlc_NtkAbs2.argprom(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc ptr @Wlc_NtkAbs2(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
   %4 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4
@@ -6149,7 +6149,7 @@ Wlc_NtkUnrollWithCex.exit.i:                      ; preds = %.critedge9.i.i, %.c
   %.not65.i = icmp eq i32 %564, 0
   %.val73.i = load i32, ptr %101, align 4
   %..i = select i1 %.not65.i, i32 %185, i32 0
-  %565 = call fastcc ptr @Wlc_NtkGetCoreSels.argprom.argelim(ptr noundef %563, i32 noundef %..i, i32 noundef %.val73.i, ptr noundef nonnull %107, i32 noundef -1)
+  %565 = call fastcc ptr @Wlc_NtkGetCoreSels(ptr noundef %563, i32 noundef %..i, i32 noundef %.val73.i, ptr noundef nonnull %107, i32 noundef -1)
   call void @Wlc_NtkFree(ptr noundef %150) #23
   call void @Gia_ManStop(ptr noundef %563) #23
   %566 = load ptr, ptr %100, align 8
@@ -7401,13 +7401,13 @@ Vec_BitStart.exit:                                ; preds = %Abc_Clock.exit, %21
   br label %59
 
 58:                                               ; preds = %53
-  call fastcc void @Wlc_NtkUpdateBlacks.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %19, ptr noundef null)
+  call fastcc void @Wlc_NtkUpdateBlacks(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %19, ptr noundef null)
   %.pre = load ptr, ptr %5, align 8
   br label %59
 
 59:                                               ; preds = %58, %56
   %60 = phi ptr [ %.pre, %58 ], [ %57, %56 ]
-  %61 = call fastcc ptr @Wlc_NtkAbs2.argprom(ptr noundef %0, ptr noundef %60)
+  %61 = call fastcc ptr @Wlc_NtkAbs2(ptr noundef %0, ptr noundef %60)
   %62 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
   %63 = getelementptr inbounds i8, ptr %60, i64 4
   %64 = load i32, ptr %63, align 4
@@ -7788,19 +7788,19 @@ Vec_IntFree.exit.i:                               ; preds = %226, %Vec_BitFree.e
   call void @free(ptr noundef nonnull %105) #23
   %227 = load ptr, ptr %116, align 8
   %.not.i31.i = icmp eq ptr %227, null
-  br i1 %.not.i31.i, label %Wlc_NtkAbs.argprom.exit, label %228
+  br i1 %.not.i31.i, label %Wlc_NtkAbs.exit, label %228
 
 228:                                              ; preds = %Vec_IntFree.exit.i
   call void @free(ptr noundef nonnull %227) #23
-  br label %Wlc_NtkAbs.argprom.exit
+  br label %Wlc_NtkAbs.exit
 
-Wlc_NtkAbs.argprom.exit:                          ; preds = %Vec_IntFree.exit.i, %228
+Wlc_NtkAbs.exit:                                  ; preds = %Vec_IntFree.exit.i, %228
   call void @free(ptr noundef nonnull %113) #23
   br label %229
 
-229:                                              ; preds = %Wlc_NtkAbs.argprom.exit, %Vec_IntDup.exit
-  %.099 = phi ptr [ %109, %Wlc_NtkAbs.argprom.exit ], [ %62, %Vec_IntDup.exit ]
-  %.0 = phi ptr [ %224, %Wlc_NtkAbs.argprom.exit ], [ %61, %Vec_IntDup.exit ]
+229:                                              ; preds = %Wlc_NtkAbs.exit, %Vec_IntDup.exit
+  %.099 = phi ptr [ %109, %Wlc_NtkAbs.exit ], [ %62, %Vec_IntDup.exit ]
+  %.0 = phi ptr [ %224, %Wlc_NtkAbs.exit ], [ %61, %Vec_IntDup.exit ]
   %230 = call ptr @Wlc_NtkBitBlast(ptr noundef %.0, ptr noundef null) #23
   %231 = call i32 @Wlc_NtkDcFlopNum(ptr noundef %.0) #23
   %232 = icmp sgt i32 %231, 0
@@ -8012,7 +8012,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @Wlc_NtkGetCoreSels.argprom.argelim(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc noalias noundef ptr @Wlc_NtkGetCoreSels(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = tail call ptr @Gia_ManToAigSimple(ptr noundef %0) #23
   %8 = getelementptr i8, ptr %7, i64 140
@@ -8769,7 +8769,7 @@ Vec_BitStart.exit:                                ; preds = %22, %31
   store i32 %30, ptr %36, align 4
   tail call void @llvm.memset.p0.i64(ptr align 4 %35, i8 0, i64 %.pre-phi8.i, i1 false)
   %38 = icmp sgt i32 %.val192, 1
-  br i1 %38, label %.lr.ph, label %Vec_PtrSort.argprom.exit
+  br i1 %38, label %.lr.ph, label %Vec_PtrSort.exit
 
 .lr.ph:                                           ; preds = %Vec_BitStart.exit
   %39 = getelementptr i8, ptr %0, i64 640
@@ -9132,53 +9132,53 @@ Vec_PtrGrow.exit.i245:                            ; preds = %183, %181
 .critedge:                                        ; preds = %200
   %.pre = load i32, ptr %4, align 4
   %203 = icmp slt i32 %.pre, 2
-  br i1 %203, label %Vec_PtrSort.argprom.exit, label %204
+  br i1 %203, label %Vec_PtrSort.exit, label %204
 
 204:                                              ; preds = %.critedge
   %205 = load ptr, ptr %6, align 8
   %206 = zext nneg i32 %.pre to i64
   tail call void @qsort(ptr noundef %205, i64 noundef %206, i64 noundef 8, ptr noundef nonnull @IntPairPtrCompare) #23
-  br label %Vec_PtrSort.argprom.exit
+  br label %Vec_PtrSort.exit
 
-Vec_PtrSort.argprom.exit:                         ; preds = %Vec_BitStart.exit, %.critedge, %204
+Vec_PtrSort.exit:                                 ; preds = %Vec_BitStart.exit, %.critedge, %204
   %207 = phi i32 [ %.pre, %.critedge ], [ %.pre, %204 ], [ 0, %Vec_BitStart.exit ]
   %208 = load i32, ptr %12, align 4
   %209 = icmp slt i32 %208, 2
-  br i1 %209, label %Vec_PtrSort.argprom.exit247, label %210
+  br i1 %209, label %Vec_PtrSort.exit247, label %210
 
-210:                                              ; preds = %Vec_PtrSort.argprom.exit
+210:                                              ; preds = %Vec_PtrSort.exit
   %211 = load ptr, ptr %14, align 8
   %212 = zext nneg i32 %208 to i64
   tail call void @qsort(ptr noundef %211, i64 noundef %212, i64 noundef 8, ptr noundef nonnull @IntPairPtrCompare) #23
-  br label %Vec_PtrSort.argprom.exit247
+  br label %Vec_PtrSort.exit247
 
-Vec_PtrSort.argprom.exit247:                      ; preds = %Vec_PtrSort.argprom.exit, %210
+Vec_PtrSort.exit247:                              ; preds = %Vec_PtrSort.exit, %210
   %213 = load i32, ptr %8, align 4
   %214 = icmp slt i32 %213, 2
-  br i1 %214, label %Vec_PtrSort.argprom.exit248, label %215
+  br i1 %214, label %Vec_PtrSort.exit248, label %215
 
-215:                                              ; preds = %Vec_PtrSort.argprom.exit247
+215:                                              ; preds = %Vec_PtrSort.exit247
   %216 = load ptr, ptr %10, align 8
   %217 = zext nneg i32 %213 to i64
   tail call void @qsort(ptr noundef %216, i64 noundef %217, i64 noundef 8, ptr noundef nonnull @IntPairPtrCompare) #23
-  br label %Vec_PtrSort.argprom.exit248
+  br label %Vec_PtrSort.exit248
 
-Vec_PtrSort.argprom.exit248:                      ; preds = %Vec_PtrSort.argprom.exit247, %215
+Vec_PtrSort.exit248:                              ; preds = %Vec_PtrSort.exit247, %215
   %218 = load i32, ptr %16, align 4
   %219 = icmp slt i32 %218, 2
-  br i1 %219, label %Vec_PtrSort.argprom.exit249, label %220
+  br i1 %219, label %Vec_PtrSort.exit249, label %220
 
-220:                                              ; preds = %Vec_PtrSort.argprom.exit248
+220:                                              ; preds = %Vec_PtrSort.exit248
   %221 = load ptr, ptr %18, align 8
   %222 = zext nneg i32 %218 to i64
   tail call void @qsort(ptr noundef %221, i64 noundef %222, i64 noundef 8, ptr noundef nonnull @IntPairPtrCompare) #23
-  br label %Vec_PtrSort.argprom.exit249
+  br label %Vec_PtrSort.exit249
 
-Vec_PtrSort.argprom.exit249:                      ; preds = %Vec_PtrSort.argprom.exit248, %220
+Vec_PtrSort.exit249:                              ; preds = %Vec_PtrSort.exit248, %220
   %223 = icmp sgt i32 %207, 0
   br i1 %223, label %.lr.ph261, label %.critedge2.thread
 
-.lr.ph261:                                        ; preds = %Vec_PtrSort.argprom.exit249
+.lr.ph261:                                        ; preds = %Vec_PtrSort.exit249
   %.val225 = load ptr, ptr %6, align 8
   %wide.trip.count = zext nneg i32 %207 to i64
   br label %224
@@ -9228,7 +9228,7 @@ Vec_PtrSort.argprom.exit249:                      ; preds = %Vec_PtrSort.argprom
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.41, i32 noundef %.1155.lcssa, i32 noundef %245)
   br label %.critedge2.thread
 
-.critedge2.thread:                                ; preds = %Vec_PtrSort.argprom.exit249, %243, %240, %.critedge2
+.critedge2.thread:                                ; preds = %Vec_PtrSort.exit249, %243, %240, %.critedge2
   %246 = icmp sgt i32 %208, 0
   br i1 %246, label %.lr.ph268, label %.critedge4.thread
 
@@ -9535,7 +9535,7 @@ Vec_PtrFree.exit255:                              ; preds = %Vec_PtrFree.exit253
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntPushUniqueOrder.argelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @Vec_IntPushUniqueOrder(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0

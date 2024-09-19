@@ -1044,12 +1044,12 @@ define dso_local void @_ZN5clang6format17WhitespaceManager22alignConsecutiveMacr
   %14 = and i64 %10, 4294967295
   br label %15
 
-15:                                               ; preds = %.lr.ph, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread"
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread" ]
-  %.077 = phi i1 [ false, %.lr.ph ], [ %.2, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread" ]
-  %.01576 = phi i1 [ true, %.lr.ph ], [ %spec.select, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread" ]
-  %.05574 = phi i32 [ 0, %.lr.ph ], [ %.257, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread" ]
-  %.05873 = phi i32 [ 0, %.lr.ph ], [ %.260, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread" ]
+15:                                               ; preds = %.lr.ph, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread"
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread" ]
+  %.077 = phi i1 [ false, %.lr.ph ], [ %.2, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread" ]
+  %.01576 = phi i1 [ true, %.lr.ph ], [ %spec.select, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread" ]
+  %.05574 = phi i32 [ 0, %.lr.ph ], [ %.257, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread" ]
+  %.05873 = phi i32 [ 0, %.lr.ph ], [ %.260, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread" ]
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %16, i64 %indvars.iv, i32 4
   %18 = load i32, ptr %17, align 8
@@ -1188,13 +1188,13 @@ _ZNSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEED2Ev.exit: ; preds
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 92
   %78 = load i32, ptr %77, align 4
   %79 = icmp eq i32 %78, 0
-  br i1 %79, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread", label %80
+  br i1 %79, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread", label %80
 
 80:                                               ; preds = %_ZNSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEED2Ev.exit
   %81 = getelementptr inbounds nuw i8, ptr %74, i64 208
   %82 = load ptr, ptr %81, align 8
   %.not.i20 = icmp eq ptr %82, null
-  br i1 %.not.i20, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread", label %83
+  br i1 %.not.i20, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread", label %83
 
 83:                                               ; preds = %80
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 16
@@ -1206,13 +1206,13 @@ _ZNSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEED2Ev.exit: ; preds
   %88 = getelementptr inbounds nuw i8, ptr %82, i64 200
   %89 = load ptr, ptr %88, align 8
   %.not18.i = icmp eq ptr %89, null
-  br i1 %.not18.i, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread", label %90
+  br i1 %.not18.i, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread", label %90
 
 90:                                               ; preds = %87
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 208
   %92 = load ptr, ptr %91, align 8
   %.not19.i = icmp eq ptr %92, null
-  br i1 %.not19.i, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread", label %..thread_crit_edge.i
+  br i1 %.not19.i, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread", label %..thread_crit_edge.i
 
 ..thread_crit_edge.i:                             ; preds = %90
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %92, i64 16
@@ -1224,54 +1224,54 @@ _ZNSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEED2Ev.exit: ; preds
   %.05.i = phi i32 [ 0, %..thread_crit_edge.i ], [ 1, %83 ]
   %.0134.i = phi ptr [ %92, %..thread_crit_edge.i ], [ %82, %83 ]
   %.not6.i = icmp eq i16 %93, 5
-  br i1 %.not6.i, label %94, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread"
+  br i1 %.not6.i, label %94, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread"
 
 94:                                               ; preds = %.thread.i
   %95 = getelementptr inbounds nuw i8, ptr %.0134.i, i64 208
   %96 = load ptr, ptr %95, align 8
   %.not20.i = icmp eq ptr %96, null
-  br i1 %.not20.i, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread", label %97
+  br i1 %.not20.i, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread", label %97
 
 97:                                               ; preds = %94
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %99 = load i16, ptr %98, align 8
   switch i16 %99, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i.i [
-    i16 13, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread"
-    i16 12, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread"
-    i16 11, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread"
-    i16 10, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread"
-    i16 9, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread"
-    i16 7, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread"
-    i16 18, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread"
-    i16 17, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread"
-    i16 15, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread"
-    i16 14, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread"
-    i16 19, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread"
-    i16 16, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread"
-    i16 8, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread"
-    i16 1, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread"
+    i16 13, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread"
+    i16 12, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread"
+    i16 11, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread"
+    i16 10, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread"
+    i16 9, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread"
+    i16 7, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread"
+    i16 18, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread"
+    i16 17, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread"
+    i16 15, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread"
+    i16 14, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread"
+    i16 19, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread"
+    i16 16, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread"
+    i16 8, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread"
+    i16 1, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread"
   ]
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit.i.i.i: ; preds = %97
   %100 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %101 = load ptr, ptr %100, align 8
   %.not.i.i.i21 = icmp eq ptr %101, null
-  br i1 %.not.i.i.i21, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread", label %_ZNK5clang6format11FormatToken5isNotINS_3tok13PPKeywordKindEEEbT_.exit.i
+  br i1 %.not.i.i.i21, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread", label %_ZNK5clang6format11FormatToken5isNotINS_3tok13PPKeywordKindEEEbT_.exit.i
 
 _ZNK5clang6format11FormatToken5isNotINS_3tok13PPKeywordKindEEEbT_.exit.i: ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i.i
   %102 = call noundef i32 @_ZNK5clang14IdentifierInfo14getPPKeywordIDEv(ptr noundef nonnull align 8 dereferenceable(24) %101) #18
   %.not7.i = icmp eq i32 %102, 12
-  br i1 %.not7.i, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit", label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread"
+  br i1 %.not7.i, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit", label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread"
 
-"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit": ; preds = %_ZNK5clang6format11FormatToken5isNotINS_3tok13PPKeywordKindEEEbT_.exit.i
+"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit": ; preds = %_ZNK5clang6format11FormatToken5isNotINS_3tok13PPKeywordKindEEEbT_.exit.i
   %103 = getelementptr inbounds nuw i8, ptr %.0134.i, i64 216
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 92
   %106 = load i32, ptr %105, align 4
   %107 = icmp eq i32 %106, %.05.i
-  br i1 %107, label %108, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread"
+  br i1 %107, label %108, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread"
 
-108:                                              ; preds = %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit"
+108:                                              ; preds = %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit"
   %109 = icmp eq i32 %.159, 0
   %110 = trunc nuw i64 %indvars.iv to i32
   %spec.select66 = select i1 %109, i32 %110, i32 %.159
@@ -1279,19 +1279,19 @@ _ZNK5clang6format11FormatToken5isNotINS_3tok13PPKeywordKindEEEbT_.exit.i: ; pred
   %112 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %111, i64 %indvars.iv, i32 3
   %113 = load i32, ptr %112, align 4
   %.sroa.speculated = call i32 @llvm.umax.i32(i32 %.156, i32 %113)
-  br label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread"
+  br label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread"
 
-"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread": ; preds = %87, %97, %97, %97, %97, %97, %97, %97, %97, %97, %97, %97, %97, %97, %97, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i.i, %94, %_ZNK5clang6format11FormatToken5isNotINS_3tok13PPKeywordKindEEEbT_.exit.i, %90, %.thread.i, %_ZNSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEED2Ev.exit, %80, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit", %108
-  %.260 = phi i32 [ %spec.select66, %108 ], [ %.159, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit" ], [ %.159, %80 ], [ %.159, %_ZNSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEED2Ev.exit ], [ %.159, %.thread.i ], [ %.159, %90 ], [ %.159, %_ZNK5clang6format11FormatToken5isNotINS_3tok13PPKeywordKindEEEbT_.exit.i ], [ %.159, %94 ], [ %.159, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i.i ], [ %.159, %97 ], [ %.159, %97 ], [ %.159, %97 ], [ %.159, %97 ], [ %.159, %97 ], [ %.159, %97 ], [ %.159, %97 ], [ %.159, %97 ], [ %.159, %97 ], [ %.159, %97 ], [ %.159, %97 ], [ %.159, %97 ], [ %.159, %97 ], [ %.159, %97 ], [ %.159, %87 ]
-  %.257 = phi i32 [ %.sroa.speculated, %108 ], [ %.156, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit" ], [ %.156, %80 ], [ %.156, %_ZNSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEED2Ev.exit ], [ %.156, %.thread.i ], [ %.156, %90 ], [ %.156, %_ZNK5clang6format11FormatToken5isNotINS_3tok13PPKeywordKindEEEbT_.exit.i ], [ %.156, %94 ], [ %.156, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i.i ], [ %.156, %97 ], [ %.156, %97 ], [ %.156, %97 ], [ %.156, %97 ], [ %.156, %97 ], [ %.156, %97 ], [ %.156, %97 ], [ %.156, %97 ], [ %.156, %97 ], [ %.156, %97 ], [ %.156, %97 ], [ %.156, %97 ], [ %.156, %97 ], [ %.156, %97 ], [ %.156, %87 ]
-  %.2 = phi i1 [ true, %108 ], [ %.1, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit" ], [ %.1, %80 ], [ %.1, %_ZNSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEED2Ev.exit ], [ %.1, %.thread.i ], [ %.1, %90 ], [ %.1, %_ZNK5clang6format11FormatToken5isNotINS_3tok13PPKeywordKindEEEbT_.exit.i ], [ %.1, %94 ], [ %.1, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i.i ], [ %.1, %97 ], [ %.1, %97 ], [ %.1, %97 ], [ %.1, %97 ], [ %.1, %97 ], [ %.1, %97 ], [ %.1, %97 ], [ %.1, %97 ], [ %.1, %97 ], [ %.1, %97 ], [ %.1, %97 ], [ %.1, %97 ], [ %.1, %97 ], [ %.1, %97 ], [ %.1, %87 ]
+"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread": ; preds = %87, %97, %97, %97, %97, %97, %97, %97, %97, %97, %97, %97, %97, %97, %97, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i.i, %94, %_ZNK5clang6format11FormatToken5isNotINS_3tok13PPKeywordKindEEEbT_.exit.i, %90, %.thread.i, %_ZNSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEED2Ev.exit, %80, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit", %108
+  %.260 = phi i32 [ %spec.select66, %108 ], [ %.159, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit" ], [ %.159, %80 ], [ %.159, %_ZNSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEED2Ev.exit ], [ %.159, %.thread.i ], [ %.159, %90 ], [ %.159, %_ZNK5clang6format11FormatToken5isNotINS_3tok13PPKeywordKindEEEbT_.exit.i ], [ %.159, %94 ], [ %.159, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i.i ], [ %.159, %97 ], [ %.159, %97 ], [ %.159, %97 ], [ %.159, %97 ], [ %.159, %97 ], [ %.159, %97 ], [ %.159, %97 ], [ %.159, %97 ], [ %.159, %97 ], [ %.159, %97 ], [ %.159, %97 ], [ %.159, %97 ], [ %.159, %97 ], [ %.159, %97 ], [ %.159, %87 ]
+  %.257 = phi i32 [ %.sroa.speculated, %108 ], [ %.156, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit" ], [ %.156, %80 ], [ %.156, %_ZNSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEED2Ev.exit ], [ %.156, %.thread.i ], [ %.156, %90 ], [ %.156, %_ZNK5clang6format11FormatToken5isNotINS_3tok13PPKeywordKindEEEbT_.exit.i ], [ %.156, %94 ], [ %.156, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i.i ], [ %.156, %97 ], [ %.156, %97 ], [ %.156, %97 ], [ %.156, %97 ], [ %.156, %97 ], [ %.156, %97 ], [ %.156, %97 ], [ %.156, %97 ], [ %.156, %97 ], [ %.156, %97 ], [ %.156, %97 ], [ %.156, %97 ], [ %.156, %97 ], [ %.156, %97 ], [ %.156, %87 ]
+  %.2 = phi i1 [ true, %108 ], [ %.1, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit" ], [ %.1, %80 ], [ %.1, %_ZNSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEED2Ev.exit ], [ %.1, %.thread.i ], [ %.1, %90 ], [ %.1, %_ZNK5clang6format11FormatToken5isNotINS_3tok13PPKeywordKindEEEbT_.exit.i ], [ %.1, %94 ], [ %.1, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i.i ], [ %.1, %97 ], [ %.1, %97 ], [ %.1, %97 ], [ %.1, %97 ], [ %.1, %97 ], [ %.1, %97 ], [ %.1, %97 ], [ %.1, %97 ], [ %.1, %97 ], [ %.1, %97 ], [ %.1, %97 ], [ %.1, %97 ], [ %.1, %97 ], [ %.1, %97 ], [ %.1, %87 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %.not, label %._crit_edge, label %15, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread", %9
-  %.058.lcssa = phi i32 [ 0, %9 ], [ %.260, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread" ]
-  %.055.lcssa = phi i32 [ 0, %9 ], [ %.257, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread" ]
+._crit_edge:                                      ; preds = %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread", %9
+  %.058.lcssa = phi i32 [ 0, %9 ], [ %.260, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread" ]
+  %.055.lcssa = phi i32 [ 0, %9 ], [ %.257, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread" ]
   %114 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %115 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -1424,16 +1424,16 @@ define dso_local void @_ZN5clang6format17WhitespaceManager35alignConsecutiveShor
   %.pre = load ptr, ptr %0, align 8
   br label %22
 
-22:                                               ; preds = %.lr.ph, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit.thread"
-  %23 = phi ptr [ %.pre, %.lr.ph ], [ %81, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit.thread" ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit.thread" ]
-  %.0131 = phi i1 [ false, %.lr.ph ], [ %.2, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit.thread" ]
-  %.027130 = phi i1 [ true, %.lr.ph ], [ %spec.select, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit.thread" ]
-  %.030129 = phi i8 [ 0, %.lr.ph ], [ %.232, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit.thread" ]
-  %.099127 = phi i32 [ 0, %.lr.ph ], [ %.2101, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit.thread" ]
-  %.0102126 = phi i32 [ 0, %.lr.ph ], [ %.2104, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit.thread" ]
-  %.0105125 = phi i32 [ 0, %.lr.ph ], [ %.2107, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit.thread" ]
-  %.0108124 = phi i32 [ 0, %.lr.ph ], [ %.2110, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit.thread" ]
+22:                                               ; preds = %.lr.ph, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit.thread"
+  %23 = phi ptr [ %.pre, %.lr.ph ], [ %81, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit.thread" ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit.thread" ]
+  %.0131 = phi i1 [ false, %.lr.ph ], [ %.2, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit.thread" ]
+  %.027130 = phi i1 [ true, %.lr.ph ], [ %spec.select, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit.thread" ]
+  %.030129 = phi i8 [ 0, %.lr.ph ], [ %.232, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit.thread" ]
+  %.099127 = phi i32 [ 0, %.lr.ph ], [ %.2101, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit.thread" ]
+  %.0102126 = phi i32 [ 0, %.lr.ph ], [ %.2104, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit.thread" ]
+  %.0105125 = phi i32 [ 0, %.lr.ph ], [ %.2107, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit.thread" ]
+  %.0108124 = phi i32 [ 0, %.lr.ph ], [ %.2110, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit.thread" ]
   %24 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %23, i64 %indvars.iv, i32 4
   %25 = load i32, ptr %24, align 8
   switch i32 %25, label %26 [
@@ -1634,33 +1634,33 @@ _ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread112: ; preds = %9
   %.232 = phi i8 [ 1, %112 ], [ 1, %113 ], [ 0, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit ], [ %.131, %_ZNSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEED2Ev.exit ], [ 0, %93 ]
   %.val.val = load i8, ptr %4, align 1
   %115 = trunc i8 %.val.val to i1
-  br i1 %115, label %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit", label %116
+  br i1 %115, label %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit", label %116
 
 116:                                              ; preds = %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread112
   %117 = getelementptr i8, ptr %82, i64 104
   %.val39 = load i8, ptr %117, align 8
   %118 = trunc i8 %.val39 to i1
-  br i1 %118, label %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit.thread", label %119
+  br i1 %118, label %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit.thread", label %119
 
 119:                                              ; preds = %116
   %120 = getelementptr inbounds nuw i8, ptr %83, i64 208
   %121 = load ptr, ptr %120, align 8
   %.not.i42 = icmp eq ptr %121, null
-  br i1 %.not.i42, label %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit.thread", label %"._ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit_crit_edge"
+  br i1 %.not.i42, label %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit.thread", label %"._ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit_crit_edge"
 
-"._ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit_crit_edge": ; preds = %119
+"._ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit_crit_edge": ; preds = %119
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %121, i64 67
   %.pre134 = load i8, ptr %.phi.trans.insert, align 1
-  br label %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit"
+  br label %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit"
 
-"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit": ; preds = %"._ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit_crit_edge", %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread112
-  %122 = phi i8 [ %88, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread112 ], [ %.pre134, %"._ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit_crit_edge" ]
+"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit": ; preds = %"._ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit_crit_edge", %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread112
+  %122 = phi i8 [ %88, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread112 ], [ %.pre134, %"._ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit_crit_edge" ]
   %123 = icmp eq i8 %122, %86
-  br i1 %123, label %124, label %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit.thread"
+  br i1 %123, label %124, label %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit.thread"
 
-124:                                              ; preds = %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit"
+124:                                              ; preds = %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit"
   %125 = trunc nuw i8 %.232 to i1
-  br i1 %125, label %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit.thread", label %126
+  br i1 %125, label %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit.thread", label %126
 
 126:                                              ; preds = %124
   %127 = icmp eq i32 %.1106, 0
@@ -1672,21 +1672,21 @@ _ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread112: ; preds = %9
   %.sroa.speculated76 = call i32 @llvm.umax.i32(i32 %.sroa.speculated89, i32 %.2110)
   %131 = trunc i64 %indvars.iv to i32
   %132 = add i32 %131, 1
-  br label %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit.thread"
+  br label %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit.thread"
 
-"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit.thread": ; preds = %116, %119, %124, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit", %126
-  %.2107 = phi i32 [ %.1106, %124 ], [ %spec.select116, %126 ], [ %.1106, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit" ], [ %.1106, %119 ], [ %.1106, %116 ]
-  %.2104 = phi i32 [ %.1103, %124 ], [ %132, %126 ], [ %.1103, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit" ], [ %.1103, %119 ], [ %.1103, %116 ]
-  %.2101 = phi i32 [ %.1100, %124 ], [ %.sroa.speculated76, %126 ], [ %.1100, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit" ], [ %.1100, %119 ], [ %.1100, %116 ]
-  %.2 = phi i1 [ %.1, %124 ], [ true, %126 ], [ %.1, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit" ], [ %.1, %119 ], [ %.1, %116 ]
+"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit.thread": ; preds = %116, %119, %124, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit", %126
+  %.2107 = phi i32 [ %.1106, %124 ], [ %spec.select116, %126 ], [ %.1106, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit" ], [ %.1106, %119 ], [ %.1106, %116 ]
+  %.2104 = phi i32 [ %.1103, %124 ], [ %132, %126 ], [ %.1103, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit" ], [ %.1103, %119 ], [ %.1103, %116 ]
+  %.2101 = phi i32 [ %.1100, %124 ], [ %.sroa.speculated76, %126 ], [ %.1100, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit" ], [ %.1100, %119 ], [ %.1100, %116 ]
+  %.2 = phi i1 [ %.1, %124 ], [ true, %126 ], [ %.1, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit" ], [ %.1, %119 ], [ %.1, %116 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %21
   br i1 %.not, label %._crit_edge, label %22, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit.thread", %14
-  %.0105.lcssa = phi i32 [ 0, %14 ], [ %.2107, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit.thread" ]
-  %.0102.lcssa = phi i32 [ 0, %14 ], [ %.2104, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit.thread" ]
-  %.099.lcssa = phi i32 [ 0, %14 ], [ %.2101, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.argprom.argprom.exit.thread" ]
+._crit_edge:                                      ; preds = %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit.thread", %14
+  %.0105.lcssa = phi i32 [ 0, %14 ], [ %.2107, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit.thread" ]
+  %.0102.lcssa = phi i32 [ 0, %14 ], [ %.2104, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit.thread" ]
+  %.099.lcssa = phi i32 [ 0, %14 ], [ %.2101, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit.thread" ]
   %133 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %134 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %4, ptr %6, align 8
@@ -1822,16 +1822,16 @@ define dso_local void @_ZN5clang6format17WhitespaceManager28alignConsecutiveDecl
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 156
   br label %25
 
-25:                                               ; preds = %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit.i", %.lr.ph297.i
-  %.0295.i = phi i32 [ 0, %.lr.ph297.i ], [ %.1.i, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit.i" ]
-  %.072294.i = phi i32 [ 0, %.lr.ph297.i ], [ %.3.i, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit.i" ]
-  %.074293.i = phi i8 [ 0, %.lr.ph297.i ], [ %.377.i, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit.i" ]
-  %.079292.i = phi i1 [ true, %.lr.ph297.i ], [ %spec.select.i, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit.i" ]
-  %.082291.i = phi i32 [ 0, %.lr.ph297.i ], [ %163, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit.i" ]
-  %.0209290.i = phi i32 [ 0, %.lr.ph297.i ], [ %.3212.i, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit.i" ]
-  %.0213289.i = phi i32 [ 0, %.lr.ph297.i ], [ %.3216.i, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit.i" ]
-  %.0223288.i = phi i32 [ 0, %.lr.ph297.i ], [ %.3226.i, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit.i" ]
-  %.0228287.i = phi i32 [ 0, %.lr.ph297.i ], [ %.3231.i, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit.i" ]
+25:                                               ; preds = %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.i", %.lr.ph297.i
+  %.0295.i = phi i32 [ 0, %.lr.ph297.i ], [ %.1.i, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.i" ]
+  %.072294.i = phi i32 [ 0, %.lr.ph297.i ], [ %.3.i, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.i" ]
+  %.074293.i = phi i8 [ 0, %.lr.ph297.i ], [ %.377.i, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.i" ]
+  %.079292.i = phi i1 [ true, %.lr.ph297.i ], [ %spec.select.i, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.i" ]
+  %.082291.i = phi i32 [ 0, %.lr.ph297.i ], [ %163, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.i" ]
+  %.0209290.i = phi i32 [ 0, %.lr.ph297.i ], [ %.3212.i, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.i" ]
+  %.0213289.i = phi i32 [ 0, %.lr.ph297.i ], [ %.3216.i, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.i" ]
+  %.0223288.i = phi i32 [ 0, %.lr.ph297.i ], [ %.3226.i, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.i" ]
+  %.0228287.i = phi i32 [ 0, %.lr.ph297.i ], [ %.3231.i, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.i" ]
   %26 = zext i32 %.082291.i to i64
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %27, i64 %26
@@ -1966,7 +1966,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread234.i: ; preds = 
 _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i: ; preds = %88, %86, %77
   %91 = call fastcc noundef i32 @"_ZN5clang6formatL11AlignTokensIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS5_21AlignConsecutiveStyleEb"(ptr noundef nonnull readonly align 8 dereferenceable(936) %4, ptr noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(2192) %0, i32 noundef %.082291.i, ptr noundef nonnull readonly align 1 dereferenceable(6) %5, i1 noundef zeroext false)
   %92 = add i32 %91, -1
-  br label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit.i"
+  br label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.i"
 
 _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread251.i: ; preds = %88, %84, %75
   %.2.i = phi i32 [ %76, %75 ], [ %.173.i, %84 ], [ %.173.i, %88 ]
@@ -1992,7 +1992,7 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread251.i: ; preds = 
   %96 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 16
   %97 = load i16, ptr %96, align 8
   %98 = icmp eq i16 %97, 64
-  br i1 %98, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit.i", label %.preheader.i.i, !llvm.loop !31
+  br i1 %98, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.i", label %.preheader.i.i, !llvm.loop !31
 
 99:                                               ; preds = %.preheader.i.i
   %100 = getelementptr inbounds nuw i8, ptr %71, i64 67
@@ -2002,7 +2002,7 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread251.i: ; preds = 
 
 103:                                              ; preds = %99, %._crit_edge.i.i
   %104 = phi i8 [ %.pre.i.i, %._crit_edge.i.i ], [ %101, %99 ]
-  switch i8 %104, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit.i" [
+  switch i8 %104, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.i" [
     i8 46, label %.loopexit.i
     i8 109, label %105
   ]
@@ -2017,7 +2017,7 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread251.i: ; preds = 
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 67
   %110 = load i8, ptr %109, align 1
   %111 = icmp eq i8 %110, 110
-  br i1 %111, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit.i", label %112
+  br i1 %111, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.i", label %112
 
 112:                                              ; preds = %108, %105
   %.0.in4.i.i = getelementptr inbounds nuw i8, ptr %71, i64 216
@@ -2036,7 +2036,7 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread251.i: ; preds = 
   %117 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 67
   %118 = load i8, ptr %117, align 1
   %119 = icmp eq i8 %118, 96
-  br i1 %119, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit.i", label %120
+  br i1 %119, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.i", label %120
 
 120:                                              ; preds = %116
   switch i16 %114, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i [
@@ -2064,13 +2064,13 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit.i.i:   ; preds = %120
 
 123:                                              ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i
   %124 = icmp eq i8 %118, 109
-  br i1 %124, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit.i", label %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i.i
+  br i1 %124, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.i", label %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i.i
 
 _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i.i: ; preds = %123
   %125 = icmp eq i8 %118, 46
   %126 = icmp eq i16 %114, 139
   %127 = or i1 %126, %125
-  br i1 %127, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit.i", label %128
+  br i1 %127, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.i", label %128
 
 128:                                              ; preds = %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i.i, %.lr.ph.i.i
   %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 216
@@ -2156,19 +2156,19 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEb
   %158 = add i32 %.sroa.speculated.i, %.sroa.speculated119.i
   %159 = icmp ult i32 %157, %158
   %or.cond.i = select i1 %.not91.i, i1 %159, i1 false
-  br i1 %or.cond.i, label %160, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit.i"
+  br i1 %or.cond.i, label %160, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.i"
 
 160:                                              ; preds = %.critedge.i
   %.not.i99.i = icmp ne i32 %.5.i, 0
   %161 = icmp ult i32 %.5.i, %.4232258.i
   %or.cond272.i = select i1 %.not.i99.i, i1 %161, i1 false
-  br i1 %or.cond272.i, label %162, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit.i"
+  br i1 %or.cond272.i, label %162, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.i"
 
 162:                                              ; preds = %160
   call fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE"(ptr noundef nonnull readonly align 8 dereferenceable(936) %4, i32 noundef %.5.i, i32 noundef %.4232258.i, i32 noundef %.4227260.i, i1 noundef zeroext false, ptr noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(2192) %0)
-  br label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit.i"
+  br label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.i"
 
-"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit.i": ; preds = %95, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i.i, %123, %116, %162, %160, %.critedge.i, %108, %103, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i
+"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.i": ; preds = %95, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i.i, %123, %116, %162, %160, %.critedge.i, %108, %103, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i
   %.3231.i = phi i32 [ %.1229.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i ], [ %.1229.i, %108 ], [ 0, %160 ], [ 0, %162 ], [ %.4232258.i, %.critedge.i ], [ %.1229.i, %103 ], [ %.1229.i, %116 ], [ %.1229.i, %123 ], [ %.1229.i, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i.i ], [ %.1229.i, %95 ]
   %.3226.i = phi i32 [ %.1224.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i ], [ %.1224.i, %108 ], [ %135, %160 ], [ %135, %162 ], [ %.sroa.speculated119.i, %.critedge.i ], [ %.1224.i, %103 ], [ %.1224.i, %116 ], [ %.1224.i, %123 ], [ %.1224.i, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i.i ], [ %.1224.i, %95 ]
   %.3216.i = phi i32 [ %.1214.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i ], [ %.1214.i, %108 ], [ %.082291.i, %160 ], [ %.082291.i, %162 ], [ %.5.i, %.critedge.i ], [ %.1214.i, %103 ], [ %.1214.i, %116 ], [ %.1214.i, %123 ], [ %.1214.i, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i.i ], [ %.1214.i, %95 ]
@@ -2181,10 +2181,10 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEb
   %.not87.i = icmp eq i32 %163, %21
   br i1 %.not87.i, label %_ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i, label %25, !llvm.loop !34
 
-_ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i: ; preds = %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit.i", %41, %39, %25
-  %.0223.lcssa.i = phi i32 [ %.3226.i, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit.i" ], [ %.0223288.i, %25 ], [ %.0223288.i, %39 ], [ %.0223288.i, %41 ]
-  %.0213.lcssa.i = phi i32 [ %.3216.i, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit.i" ], [ %.0213289.i, %25 ], [ %.0213289.i, %39 ], [ %.0213289.i, %41 ]
-  %.082.lcssa.i = phi i32 [ %21, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit.i" ], [ %.082291.i, %25 ], [ %.082291.i, %39 ], [ %.082291.i, %41 ]
+_ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i: ; preds = %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.i", %41, %39, %25
+  %.0223.lcssa.i = phi i32 [ %.3226.i, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.i" ], [ %.0223288.i, %25 ], [ %.0223288.i, %39 ], [ %.0223288.i, %41 ]
+  %.0213.lcssa.i = phi i32 [ %.3216.i, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.i" ], [ %.0213289.i, %25 ], [ %.0213289.i, %39 ], [ %.0213289.i, %41 ]
+  %.082.lcssa.i = phi i32 [ %21, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.i" ], [ %.082291.i, %25 ], [ %.082291.i, %39 ], [ %.082291.i, %41 ]
   %.not.i101.i = icmp ne i32 %.0213.lcssa.i, 0
   %164 = icmp ult i32 %.0213.lcssa.i, %.082.lcssa.i
   %or.cond273.i = and i1 %.not.i101.i, %164
@@ -2403,7 +2403,7 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i: ; preds = %90
 
 _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread249.i: ; preds = %90, %86, %77
   %.2.i = phi i32 [ %78, %77 ], [ %.173.i, %86 ], [ %.173.i, %90 ]
-  %95 = tail call fastcc noundef zeroext i1 @"_ZZN5clang6format17WhitespaceManager27alignConsecutiveAssignmentsEvENK3$_0clERKNS1_6ChangeE.argprom"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(136) %29)
+  %95 = tail call fastcc noundef zeroext i1 @"_ZZN5clang6format17WhitespaceManager27alignConsecutiveAssignmentsEvENK3$_0clERKNS1_6ChangeE"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(136) %29)
   br i1 %95, label %96, label %"_ZZN5clang6formatL11AlignTokensIZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS4_21AlignConsecutiveStyleEbENKUlvE_clEv.exit98.i"
 
 96:                                               ; preds = %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread249.i
@@ -2665,7 +2665,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread230.i: ; preds = 
   br i1 %or.cond264.i, label %"_ZZN5clang6formatL11AlignTokensIZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS4_21AlignConsecutiveStyleEbENKUlvE_clEv.exit.thread.i", label %"_ZZN5clang6formatL11AlignTokensIZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS4_21AlignConsecutiveStyleEbENKUlvE_clEv.exit.i"
 
 "_ZZN5clang6formatL11AlignTokensIZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS4_21AlignConsecutiveStyleEbENKUlvE_clEv.exit.thread.i": ; preds = %49
-  tail call fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE.argprom"(ptr noundef nonnull readonly align 8 dereferenceable(936) %6, i32 noundef %.0209286.i, i32 noundef %.082288.i, i32 noundef %.0219285.i, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(2192) %0)
+  tail call fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE"(ptr noundef nonnull readonly align 8 dereferenceable(936) %6, i32 noundef %.0209286.i, i32 noundef %.082288.i, i32 noundef %.0219285.i, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(2192) %0)
   %.pre.i = load ptr, ptr %28, align 8
   br label %52
 
@@ -2741,7 +2741,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread230.i: ; preds = 
   br i1 %or.cond266.i, label %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i, label %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread247.i
 
 _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i: ; preds = %82, %80, %71
-  %85 = call fastcc noundef i32 @"_ZN5clang6formatL11AlignTokensIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS5_21AlignConsecutiveStyleEb.argelim"(ptr noundef nonnull readonly align 8 dereferenceable(936) %6, ptr noundef nonnull align 8 dereferenceable(2192) %0, i32 noundef %.082288.i, ptr noundef nonnull readonly align 1 dereferenceable(6) %2, i1 noundef zeroext false)
+  %85 = call fastcc noundef i32 @"_ZN5clang6formatL11AlignTokensIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS5_21AlignConsecutiveStyleEb"(ptr noundef nonnull readonly align 8 dereferenceable(936) %6, ptr noundef nonnull align 8 dereferenceable(2192) %0, i32 noundef %.082288.i, ptr noundef nonnull readonly align 1 dereferenceable(6) %2, i1 noundef zeroext false)
   %86 = add i32 %85, -1
   br label %"_ZZN5clang6formatL11AlignTokensIZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS4_21AlignConsecutiveStyleEbENKUlvE_clEv.exit99.i"
 
@@ -2757,7 +2757,7 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread247.i: ; preds = 
   %92 = load i32, ptr %44, align 8
   %.not.i93.i = icmp eq i32 %92, 0
   %or.cond.i.i = select i1 %91, i1 %.not.i93.i, i1 false
-  br i1 %or.cond.i.i, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread249.i", label %93
+  br i1 %or.cond.i.i, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread249.i", label %93
 
 93:                                               ; preds = %90
   %94 = icmp eq i16 %67, 62
@@ -2773,9 +2773,9 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread247.i: ; preds = 
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 152
   %100 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %99) #18
   %101 = icmp eq i64 %100, 0
-  br i1 %101, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread249.i", label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.i"
+  br i1 %101, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread249.i", label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.i"
 
-"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.i": ; preds = %98
+"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.i": ; preds = %98
   %102 = load ptr, ptr %28, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 216
   %104 = load ptr, ptr %103, align 8
@@ -2786,25 +2786,25 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread247.i: ; preds = 
   %109 = getelementptr inbounds i8, ptr %108, i64 -4
   %110 = load i32, ptr %109, align 4
   %.not274.i = icmp eq i32 %110, 3
-  br i1 %.not274.i, label %"_ZZN5clang6formatL11AlignTokensIZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS4_21AlignConsecutiveStyleEbENKUlvE_clEv.exit99.i", label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread249.i"
+  br i1 %.not274.i, label %"_ZZN5clang6formatL11AlignTokensIZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS4_21AlignConsecutiveStyleEbENKUlvE_clEv.exit99.i", label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread249.i"
 
-"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread249.i": ; preds = %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.i", %98, %90
+"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread249.i": ; preds = %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.i", %98, %90
   %111 = trunc nuw i8 %.175.i to i1
   %.not89.i = icmp ne i32 %.2.i, %.0292.i
   %or.cond.not.i = select i1 %111, i1 true, i1 %.not89.i
   br i1 %or.cond.not.i, label %112, label %"_ZZN5clang6formatL11AlignTokensIZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS4_21AlignConsecutiveStyleEbENKUlvE_clEv.exit95.i"
 
-112:                                              ; preds = %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread249.i"
+112:                                              ; preds = %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread249.i"
   %.not.i94.i = icmp ne i32 %.1210.i, 0
   %113 = icmp ult i32 %.1210.i, %.1225.i
   %or.cond267.i = select i1 %.not.i94.i, i1 %113, i1 false
   br i1 %or.cond267.i, label %114, label %"_ZZN5clang6formatL11AlignTokensIZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS4_21AlignConsecutiveStyleEbENKUlvE_clEv.exit95.thread.i"
 
 114:                                              ; preds = %112
-  tail call fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE.argprom"(ptr noundef nonnull readonly align 8 dereferenceable(936) %6, i32 noundef %.1210.i, i32 noundef %.1225.i, i32 noundef %.1220.i, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(2192) %0)
+  tail call fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE"(ptr noundef nonnull readonly align 8 dereferenceable(936) %6, i32 noundef %.1210.i, i32 noundef %.1225.i, i32 noundef %.1220.i, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(2192) %0)
   br label %"_ZZN5clang6formatL11AlignTokensIZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS4_21AlignConsecutiveStyleEbENKUlvE_clEv.exit95.thread.i"
 
-"_ZZN5clang6formatL11AlignTokensIZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS4_21AlignConsecutiveStyleEbENKUlvE_clEv.exit95.i": ; preds = %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread249.i"
+"_ZZN5clang6formatL11AlignTokensIZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS4_21AlignConsecutiveStyleEbENKUlvE_clEv.exit95.i": ; preds = %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread249.i"
   %115 = icmp eq i32 %.1210.i, 0
   %spec.select268.i = select i1 %115, i32 %.082288.i, i32 %.1210.i
   br label %"_ZZN5clang6formatL11AlignTokensIZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS4_21AlignConsecutiveStyleEbENKUlvE_clEv.exit95.thread.i"
@@ -2875,18 +2875,18 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread247.i: ; preds = 
   br i1 %or.cond269.i, label %144, label %"_ZZN5clang6formatL11AlignTokensIZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS4_21AlignConsecutiveStyleEbENKUlvE_clEv.exit99.i"
 
 144:                                              ; preds = %142
-  tail call fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE.argprom"(ptr noundef nonnull readonly align 8 dereferenceable(936) %6, i32 noundef %.5.i, i32 noundef %.4228255.i, i32 noundef %.4223257.i, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(2192) %0)
+  tail call fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE"(ptr noundef nonnull readonly align 8 dereferenceable(936) %6, i32 noundef %.5.i, i32 noundef %.4228255.i, i32 noundef %.4223257.i, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(2192) %0)
   br label %"_ZZN5clang6formatL11AlignTokensIZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS4_21AlignConsecutiveStyleEbENKUlvE_clEv.exit99.i"
 
-"_ZZN5clang6formatL11AlignTokensIZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS4_21AlignConsecutiveStyleEbENKUlvE_clEv.exit99.i": ; preds = %144, %142, %.critedge.i, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.i", %95, %93, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread247.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i
-  %.3227.i = phi i32 [ %.1225.i, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.i" ], [ %.1225.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i ], [ 0, %142 ], [ 0, %144 ], [ %.4228255.i, %.critedge.i ], [ %.1225.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread247.i ], [ %.1225.i, %95 ], [ %.1225.i, %93 ]
-  %.3222.i = phi i32 [ %.1220.i, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.i" ], [ %.1220.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i ], [ %117, %142 ], [ %117, %144 ], [ %.sroa.speculated118.i, %.critedge.i ], [ %.1220.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread247.i ], [ %.1220.i, %95 ], [ %.1220.i, %93 ]
-  %.3212.i = phi i32 [ %.1210.i, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.i" ], [ %.1210.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i ], [ %.082288.i, %142 ], [ %.082288.i, %144 ], [ %.5.i, %.critedge.i ], [ %.1210.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread247.i ], [ %.1210.i, %95 ], [ %.1210.i, %93 ]
-  %.3208.i = phi i32 [ %.1206.i, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.i" ], [ %.1206.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i ], [ %.1173.lcssa.i, %142 ], [ %.1173.lcssa.i, %144 ], [ %.sroa.speculated.i, %.critedge.i ], [ %.1206.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread247.i ], [ %.1206.i, %95 ], [ %.1206.i, %93 ]
-  %.183.i = phi i32 [ %.082288.i, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.i" ], [ %86, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i ], [ %.082288.i, %142 ], [ %.082288.i, %144 ], [ %.082288.i, %.critedge.i ], [ %.082288.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread247.i ], [ %.082288.i, %95 ], [ %.082288.i, %93 ]
-  %.377.i = phi i8 [ %.175.i, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.i" ], [ %.175.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i ], [ 1, %142 ], [ 1, %144 ], [ 1, %.critedge.i ], [ %.175.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread247.i ], [ %.175.i, %95 ], [ %.175.i, %93 ]
-  %.3.i = phi i32 [ %.2.i, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.i" ], [ %.173.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i ], [ %.2.i, %142 ], [ %.2.i, %144 ], [ %.2.i, %.critedge.i ], [ %.2.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread247.i ], [ %.2.i, %95 ], [ %.2.i, %93 ]
-  %.1.i = phi i32 [ %.0292.i, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.i" ], [ %.0292.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i ], [ %.2.i, %142 ], [ %.2.i, %144 ], [ %.2.i, %.critedge.i ], [ %.0292.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread247.i ], [ %.0292.i, %95 ], [ %.0292.i, %93 ]
+"_ZZN5clang6formatL11AlignTokensIZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS4_21AlignConsecutiveStyleEbENKUlvE_clEv.exit99.i": ; preds = %144, %142, %.critedge.i, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.i", %95, %93, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread247.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i
+  %.3227.i = phi i32 [ %.1225.i, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.i" ], [ %.1225.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i ], [ 0, %142 ], [ 0, %144 ], [ %.4228255.i, %.critedge.i ], [ %.1225.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread247.i ], [ %.1225.i, %95 ], [ %.1225.i, %93 ]
+  %.3222.i = phi i32 [ %.1220.i, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.i" ], [ %.1220.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i ], [ %117, %142 ], [ %117, %144 ], [ %.sroa.speculated118.i, %.critedge.i ], [ %.1220.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread247.i ], [ %.1220.i, %95 ], [ %.1220.i, %93 ]
+  %.3212.i = phi i32 [ %.1210.i, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.i" ], [ %.1210.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i ], [ %.082288.i, %142 ], [ %.082288.i, %144 ], [ %.5.i, %.critedge.i ], [ %.1210.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread247.i ], [ %.1210.i, %95 ], [ %.1210.i, %93 ]
+  %.3208.i = phi i32 [ %.1206.i, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.i" ], [ %.1206.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i ], [ %.1173.lcssa.i, %142 ], [ %.1173.lcssa.i, %144 ], [ %.sroa.speculated.i, %.critedge.i ], [ %.1206.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread247.i ], [ %.1206.i, %95 ], [ %.1206.i, %93 ]
+  %.183.i = phi i32 [ %.082288.i, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.i" ], [ %86, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i ], [ %.082288.i, %142 ], [ %.082288.i, %144 ], [ %.082288.i, %.critedge.i ], [ %.082288.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread247.i ], [ %.082288.i, %95 ], [ %.082288.i, %93 ]
+  %.377.i = phi i8 [ %.175.i, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.i" ], [ %.175.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i ], [ 1, %142 ], [ 1, %144 ], [ 1, %.critedge.i ], [ %.175.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread247.i ], [ %.175.i, %95 ], [ %.175.i, %93 ]
+  %.3.i = phi i32 [ %.2.i, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.i" ], [ %.173.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i ], [ %.2.i, %142 ], [ %.2.i, %144 ], [ %.2.i, %.critedge.i ], [ %.2.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread247.i ], [ %.2.i, %95 ], [ %.2.i, %93 ]
+  %.1.i = phi i32 [ %.0292.i, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.i" ], [ %.0292.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i ], [ %.2.i, %142 ], [ %.2.i, %144 ], [ %.2.i, %.critedge.i ], [ %.0292.i, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread247.i ], [ %.0292.i, %95 ], [ %.0292.i, %93 ]
   %145 = add i32 %.183.i, 1
   %.not87.i = icmp eq i32 %145, %23
   br i1 %.not87.i, label %_ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i, label %25, !llvm.loop !70
@@ -2901,7 +2901,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i: ; preds = %"_
   br i1 %or.cond270.i, label %147, label %"_ZN5clang6formatL11AlignTokensIZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS4_21AlignConsecutiveStyleEb.exit"
 
 147:                                              ; preds = %_ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i
-  tail call fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE.argprom"(ptr noundef nonnull readonly align 8 dereferenceable(936) %6, i32 noundef %.0209.lcssa.i, i32 noundef %.082.lcssa.i, i32 noundef %.0219.lcssa.i, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(2192) %0)
+  tail call fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE"(ptr noundef nonnull readonly align 8 dereferenceable(936) %6, i32 noundef %.0209.lcssa.i, i32 noundef %.082.lcssa.i, i32 noundef %.0219.lcssa.i, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(2192) %0)
   br label %"_ZN5clang6formatL11AlignTokensIZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS4_21AlignConsecutiveStyleEb.exit"
 
 148:                                              ; preds = %1
@@ -2911,8 +2911,8 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i: ; preds = %"_
   %.not57 = icmp eq i64 %150, 0
   br i1 %.not57, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %148, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.argprom.exit.thread"
-  %.058 = phi ptr [ %179, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.argprom.exit.thread" ], [ %149, %148 ]
+.lr.ph:                                           ; preds = %148, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.exit.thread"
+  %.058 = phi ptr [ %179, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.exit.thread" ], [ %149, %148 ]
   %152 = load ptr, ptr %.058, align 8
   br label %153
 
@@ -2921,7 +2921,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i: ; preds = %"_
   %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 208
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
   %.not.i.i9 = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i9, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.argprom.exit.thread", label %154
+  br i1 %.not.i.i9, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.exit.thread", label %154
 
 154:                                              ; preds = %153
   %155 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
@@ -2933,7 +2933,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i: ; preds = %154
   %158 = getelementptr inbounds nuw i8, ptr %.058, i64 24
   %159 = load i32, ptr %158, align 8
   %.not.i10 = icmp eq i32 %159, 0
-  br i1 %.not.i10, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.argprom.exit.thread", label %160
+  br i1 %.not.i10, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.exit.thread", label %160
 
 160:                                              ; preds = %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i
   %161 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 67
@@ -2941,15 +2941,15 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i: ; preds = %154
   %163 = icmp eq i8 %162, 17
   %164 = icmp eq i16 %156, 62
   %or.cond.i11 = and i1 %164, %163
-  br i1 %or.cond.i11, label %165, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.argprom.exit.thread"
+  br i1 %or.cond.i11, label %165, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.exit.thread"
 
 165:                                              ; preds = %160
   %166 = getelementptr inbounds nuw i8, ptr %152, i64 152
   %167 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %166) #18
   %168 = icmp eq i64 %167, 0
-  br i1 %168, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.argprom.exit.thread54", label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.argprom.exit"
+  br i1 %168, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.exit.thread54", label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.exit"
 
-"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.argprom.exit": ; preds = %165
+"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.exit": ; preds = %165
   %169 = load ptr, ptr %.058, align 8
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 152
   %171 = load ptr, ptr %170, align 8
@@ -2958,21 +2958,21 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i: ; preds = %154
   %174 = getelementptr inbounds i8, ptr %173, i64 -4
   %175 = load i32, ptr %174, align 4
   %.not55 = icmp eq i32 %175, 3
-  br i1 %.not55, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.argprom.exit.thread", label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.argprom.exit.thread54"
+  br i1 %.not55, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.exit.thread", label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.exit.thread54"
 
-"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.argprom.exit.thread54": ; preds = %165, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.argprom.exit"
+"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.exit.thread54": ; preds = %165, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.exit"
   %176 = getelementptr inbounds nuw i8, ptr %.058, i64 20
   %177 = load i32, ptr %176, align 4
   %178 = add i32 %177, -2
   store i32 %178, ptr %176, align 4
-  br label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.argprom.exit.thread"
+  br label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.exit.thread"
 
-"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.argprom.exit.thread": ; preds = %153, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i, %160, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.argprom.exit", %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.argprom.exit.thread54"
+"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.exit.thread": ; preds = %153, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i, %160, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.exit", %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.exit.thread54"
   %179 = getelementptr inbounds i8, ptr %.058, i64 136
   %.not = icmp eq ptr %179, %151
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.argprom.exit.thread", %148
+._crit_edge:                                      ; preds = %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.exit.thread", %148
   %180 = load ptr, ptr %5, align 8
   store ptr %0, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %4, i8 0, i64 6, i1 false)
@@ -3141,7 +3141,7 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread.i50: ; preds = %
 
 _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread249.i: ; preds = %252, %248, %239
   %.2.i26 = phi i32 [ %240, %239 ], [ %.173.i22, %248 ], [ %.173.i22, %252 ]
-  %257 = tail call fastcc noundef zeroext i1 @"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_2clERKNS1_6ChangeE.argprom"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(136) %198)
+  %257 = tail call fastcc noundef zeroext i1 @"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_2clERKNS1_6ChangeE"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(136) %198)
   br i1 %257, label %258, label %"_ZZN5clang6formatL11AlignTokensIZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS4_21AlignConsecutiveStyleEbENKUlvE_clEv.exit98.i"
 
 258:                                              ; preds = %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread249.i
@@ -3459,7 +3459,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager21alignTrailingComment
   %112 = load i32, ptr %28, align 8
   %113 = icmp eq i32 %112, 0
   %or.cond89 = select i1 %111, i1 %113, i1 false
-  br i1 %or.cond89, label %114, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.argprom.exit.thread"
+  br i1 %or.cond89, label %114, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread"
 
 114:                                              ; preds = %.loopexit
   %115 = load ptr, ptr %0, align 8
@@ -3476,7 +3476,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager21alignTrailingComment
   %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 208
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.argprom.exit.thread", label %122
+  br i1 %.not.i.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread", label %122
 
 122:                                              ; preds = %.preheader4.i
   %123 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
@@ -3494,14 +3494,14 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i: ; preds = %122, 
   %129 = getelementptr inbounds nuw i8, ptr %.018.i, i64 200
   %130 = load ptr, ptr %129, align 8
   %.not24.i = icmp eq ptr %130, null
-  br i1 %.not24.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.argprom.exit.thread", label %.preheader2.i
+  br i1 %.not24.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread", label %.preheader2.i
 
 .preheader2.i:                                    ; preds = %128, %131
   %.pn.i28.i = phi ptr [ %.0.i30.i, %131 ], [ %130, %128 ]
   %.0.in.i29.i = getelementptr inbounds nuw i8, ptr %.pn.i28.i, i64 208
   %.0.i30.i = load ptr, ptr %.0.in.i29.i, align 8
   %.not.i31.i = icmp eq ptr %.0.i30.i, null
-  br i1 %.not.i31.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.argprom.exit.thread", label %131
+  br i1 %.not.i31.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread", label %131
 
 131:                                              ; preds = %.preheader2.i
   %132 = getelementptr inbounds nuw i8, ptr %.0.i30.i, i64 16
@@ -3520,7 +3520,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit32.i: ; preds = %131
   %.0.in.i34.i = getelementptr inbounds nuw i8, ptr %.pn.i33.i, i64 208
   %.0.i35.i = load ptr, ptr %.0.in.i34.i, align 8
   %.not.i36.i = icmp eq ptr %.0.i35.i, null
-  br i1 %.not.i36.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.argprom.exit.thread157", label %138
+  br i1 %.not.i36.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread157", label %138
 
 138:                                              ; preds = %.preheader1.i
   %139 = getelementptr inbounds nuw i8, ptr %.0.i35.i, i64 16
@@ -3532,34 +3532,34 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit37.i: ; preds = %138
   %142 = phi i16 [ %133, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit32.i ], [ %126, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i ], [ %140, %138 ]
   %.1.i = phi ptr [ %.0.i30.i, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit32.i ], [ %.018.i, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i ], [ %.0.i35.i, %138 ]
   %.not.i = icmp eq i16 %142, 25
-  br i1 %.not.i, label %.preheader.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.argprom.exit.thread"
+  br i1 %.not.i, label %.preheader.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread"
 
 .preheader.i:                                     ; preds = %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit37.i, %145
   %.2.i = phi ptr [ %144, %145 ], [ %.1.i, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit37.i ]
   %143 = getelementptr inbounds nuw i8, ptr %.2.i, i64 208
   %144 = load ptr, ptr %143, align 8
   %.not27.i = icmp eq ptr %144, null
-  br i1 %.not27.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.argprom.exit", label %145
+  br i1 %.not27.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit", label %145
 
 145:                                              ; preds = %.preheader.i
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 16
   %147 = load i16, ptr %146, align 8
   %148 = icmp eq i16 %147, 25
-  br i1 %148, label %.preheader.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.argprom.exit", !llvm.loop !91
+  br i1 %148, label %.preheader.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit", !llvm.loop !91
 
-"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.argprom.exit": ; preds = %.preheader.i, %145
+"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit": ; preds = %.preheader.i, %145
   %149 = getelementptr inbounds nuw i8, ptr %.2.i, i64 72
   %150 = load i32, ptr %149, align 8
   %.not162 = icmp eq i32 %150, 0
-  br i1 %.not162, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.argprom.exit.thread", label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.argprom.exit.thread157"
+  br i1 %.not162, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread", label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread157"
 
-"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.argprom.exit.thread157": ; preds = %.preheader1.i, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.argprom.exit"
+"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread157": ; preds = %.preheader1.i, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit"
   %151 = zext i32 %.0183 to i64
   %.not23.i = icmp eq i64 %indvars.iv201, %151
   br i1 %.not23.i, label %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.argprom.exit.thread157", %193
-  %.01924.i = phi i32 [ %.pre-phi.i, %193 ], [ %.0183, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.argprom.exit.thread157" ]
+.lr.ph.i:                                         ; preds = %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread157", %193
+  %.01924.i = phi i32 [ %.pre-phi.i, %193 ], [ %.0183, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread157" ]
   %152 = zext i32 %.01924.i to i64
   %153 = load ptr, ptr %0, align 8
   %154 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %153, i64 %152
@@ -3635,7 +3635,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit37.i: ; preds = %138
   %.not.i97 = icmp eq i64 %.pre-phi206, %indvars.iv201
   br i1 %.not.i97, label %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit, label %.lr.ph.i, !llvm.loop !92
 
-"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.argprom.exit.thread": ; preds = %.preheader4.i, %.preheader2.i, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit37.i, %128, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.argprom.exit", %.loopexit
+"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread": ; preds = %.preheader4.i, %.preheader2.i, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit37.i, %128, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit", %.loopexit
   %194 = icmp sgt i32 %30, %.068
   %or.cond90 = select i1 %.065182, i1 true, i1 %194
   %195 = icmp sgt i32 %65, %.0153176
@@ -3644,7 +3644,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit37.i: ; preds = %138
   %or.cond161 = select i1 %or.cond160, i1 true, i1 %196
   br i1 %or.cond161, label %206, label %197
 
-197:                                              ; preds = %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.argprom.exit.thread"
+197:                                              ; preds = %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread"
   %198 = icmp eq i32 %112, 1
   %or.cond3 = and i1 %111, %198
   br i1 %or.cond3, label %199, label %205
@@ -3662,7 +3662,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit37.i: ; preds = %138
 205:                                              ; preds = %197
   br i1 %.070, label %206, label %251
 
-206:                                              ; preds = %199, %205, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.argprom.exit.thread"
+206:                                              ; preds = %199, %205, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread"
   %207 = zext i32 %.0183 to i64
   %.not23.i98 = icmp eq i64 %indvars.iv201, %207
   %208 = trunc nuw nsw i64 %indvars.iv201 to i32
@@ -3750,10 +3750,10 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit37.i: ; preds = %138
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %.1149, i32 %.0153176)
   br label %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit
 
-_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit: ; preds = %193, %250, %206, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.argprom.exit.thread157", %251
-  %.2155 = phi i32 [ %.sroa.speculated, %251 ], [ 2147483647, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.argprom.exit.thread157" ], [ %.1149, %206 ], [ %.1149, %250 ], [ 2147483647, %193 ]
-  %.2152 = phi i32 [ %.sroa.speculated133, %251 ], [ 0, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.argprom.exit.thread157" ], [ %65, %206 ], [ %65, %250 ], [ 0, %193 ]
-  %.2 = phi i32 [ %.0183, %251 ], [ %79, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.argprom.exit.thread157" ], [ %208, %206 ], [ %208, %250 ], [ %79, %193 ]
+_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit: ; preds = %193, %250, %206, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread157", %251
+  %.2155 = phi i32 [ %.sroa.speculated, %251 ], [ 2147483647, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread157" ], [ %.1149, %206 ], [ %.1149, %250 ], [ 2147483647, %193 ]
+  %.2152 = phi i32 [ %.sroa.speculated133, %251 ], [ 0, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread157" ], [ %65, %206 ], [ %65, %250 ], [ 0, %193 ]
+  %.2 = phi i32 [ %.0183, %251 ], [ %79, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread157" ], [ %208, %206 ], [ %208, %250 ], [ %79, %193 ]
   %252 = icmp eq i64 %indvars.iv201, 0
   br i1 %252, label %261, label %253
 
@@ -9028,13 +9028,13 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN5clang6format
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 92
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit", label %6
+  br i1 %5, label %"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit", label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 208
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.i = icmp eq ptr %8, null
-  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit", label %9
+  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit", label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -9046,13 +9046,13 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN5clang6format
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 200
   %15 = load ptr, ptr %14, align 8
   %.not18.i.i.i = icmp eq ptr %15, null
-  br i1 %.not18.i.i.i, label %"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit", label %16
+  br i1 %.not18.i.i.i, label %"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit", label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 208
   %18 = load ptr, ptr %17, align 8
   %.not19.i.i.i = icmp eq ptr %18, null
-  br i1 %.not19.i.i.i, label %"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit", label %..thread_crit_edge.i.i.i
+  br i1 %.not19.i.i.i, label %"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit", label %..thread_crit_edge.i.i.i
 
 ..thread_crit_edge.i.i.i:                         ; preds = %16
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -9064,13 +9064,13 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN5clang6format
   %.05.i.i.i = phi i32 [ 0, %..thread_crit_edge.i.i.i ], [ 1, %9 ]
   %.0134.i.i.i = phi ptr [ %18, %..thread_crit_edge.i.i.i ], [ %8, %9 ]
   %.not6.i.i.i = icmp eq i16 %19, 5
-  br i1 %.not6.i.i.i, label %20, label %"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
+  br i1 %.not6.i.i.i, label %20, label %"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
 20:                                               ; preds = %.thread.i.i.i
   %21 = getelementptr inbounds nuw i8, ptr %.0134.i.i.i, i64 208
   %22 = load ptr, ptr %21, align 8
   %.not20.i.i.i = icmp eq ptr %22, null
-  br i1 %.not20.i.i.i, label %"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit", label %23
+  br i1 %.not20.i.i.i, label %"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit", label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -9083,12 +9083,12 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit.i.i.i.i.i: ; preds = %switch.hole_che
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not.i.i.i.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit", label %_ZNK5clang6format11FormatToken5isNotINS_3tok13PPKeywordKindEEEbT_.exit.i.i.i
+  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit", label %_ZNK5clang6format11FormatToken5isNotINS_3tok13PPKeywordKindEEEbT_.exit.i.i.i
 
 _ZNK5clang6format11FormatToken5isNotINS_3tok13PPKeywordKindEEEbT_.exit.i.i.i: ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i.i.i.i
   %29 = tail call noundef i32 @_ZNK5clang14IdentifierInfo14getPPKeywordIDEv(ptr noundef nonnull align 8 dereferenceable(24) %28) #18
   %.not7.i.i.i = icmp eq i32 %29, 12
-  br i1 %.not7.i.i.i, label %30, label %"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
+  br i1 %.not7.i.i.i, label %30, label %"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
 30:                                               ; preds = %_ZNK5clang6format11FormatToken5isNotINS_3tok13PPKeywordKindEEEbT_.exit.i.i.i
   %31 = getelementptr inbounds nuw i8, ptr %.0134.i.i.i, i64 216
@@ -9096,35 +9096,35 @@ _ZNK5clang6format11FormatToken5isNotINS_3tok13PPKeywordKindEEEbT_.exit.i.i.i: ; 
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 92
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %34, %.05.i.i.i
-  br label %"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
 switch.hole_check:                                ; preds = %23
   %switch.maskindex = zext nneg i16 %switch.tableidx to i32
   %switch.shifted = lshr i32 524225, %switch.maskindex
   %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit", label %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i.i.i.i
+  br i1 %switch.lobit, label %"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit", label %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i.i.i.i
 
-"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit": ; preds = %switch.hole_check, %2, %6, %13, %16, %.thread.i.i.i, %20, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i.i.i.i, %_ZNK5clang6format11FormatToken5isNotINS_3tok13PPKeywordKindEEEbT_.exit.i.i.i, %30
+"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %switch.hole_check, %2, %6, %13, %16, %.thread.i.i.i, %20, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i.i.i.i, %_ZNK5clang6format11FormatToken5isNotINS_3tok13PPKeywordKindEEEbT_.exit.i.i.i, %30
   %.014.i.i.i = phi i1 [ %35, %30 ], [ false, %6 ], [ false, %2 ], [ false, %.thread.i.i.i ], [ false, %16 ], [ false, %_ZNK5clang6format11FormatToken5isNotINS_3tok13PPKeywordKindEEEbT_.exit.i.i.i ], [ false, %20 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i.i.i.i ], [ false, %13 ], [ false, %switch.hole_check ]
   ret i1 %.014.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN5clang6format17WhitespaceManager6ChangeEEZNS2_22alignConsecutiveMacrosEvE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #13 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit.sink.split", %3
   ret i1 false
 }
 
@@ -9317,7 +9317,7 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %91, 
 _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread248: ; preds = %91, %87, %78
   %.2 = phi i32 [ %79, %78 ], [ %.173, %87 ], [ %.173, %91 ]
   %.val = load ptr, ptr %1, align 8
-  %96 = tail call fastcc noundef zeroext i1 @"_ZZN5clang6format17WhitespaceManager27alignConsecutiveAssignmentsEvENK3$_0clERKNS1_6ChangeE.argprom"(ptr %.val, ptr noundef nonnull align 8 dereferenceable(136) %30)
+  %96 = tail call fastcc noundef zeroext i1 @"_ZZN5clang6format17WhitespaceManager27alignConsecutiveAssignmentsEvENK3$_0clERKNS1_6ChangeE"(ptr %.val, ptr noundef nonnull align 8 dereferenceable(136) %30)
   br i1 %96, label %97, label %"_ZZN5clang6formatL11AlignTokensIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS5_21AlignConsecutiveStyleEbENKUlvE_clEv.exit97"
 
 97:                                               ; preds = %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread248
@@ -9471,7 +9471,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %"_ZZ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN5clang6format17WhitespaceManager27alignConsecutiveAssignmentsEvENK3$_0clERKNS1_6ChangeE.argprom"(ptr %.0.val, ptr noundef nonnull readonly align 8 dereferenceable(136) %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN5clang6format17WhitespaceManager27alignConsecutiveAssignmentsEvENK3$_0clERKNS1_6ChangeE"(ptr %.0.val, ptr noundef nonnull readonly align 8 dereferenceable(136) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -9763,7 +9763,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
 
 122:                                              ; preds = %116
   %.val = load ptr, ptr %5, align 8
-  %123 = call fastcc noundef zeroext i1 @"_ZZN5clang6format17WhitespaceManager27alignConsecutiveAssignmentsEvENK3$_0clERKNS1_6ChangeE.argprom"(ptr %.val, ptr noundef nonnull align 8 dereferenceable(136) %17)
+  %123 = call fastcc noundef zeroext i1 @"_ZZN5clang6format17WhitespaceManager27alignConsecutiveAssignmentsEvENK3$_0clERKNS1_6ChangeE"(ptr %.val, ptr noundef nonnull align 8 dereferenceable(136) %17)
   br i1 %123, label %124, label %141
 
 124:                                              ; preds = %122
@@ -11111,13 +11111,13 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN5clang6format
   %6 = getelementptr inbounds i8, ptr %1, i64 104
   %.val4 = load i8, ptr %6, align 8
   %7 = trunc i8 %.val4 to i1
-  br i1 %7, label %"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.argprom.exit", label %8
+  br i1 %7, label %"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit", label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %.val3, i64 208
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.argprom.exit", label %.sink.split.i.i.i
+  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit", label %.sink.split.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %8, %2
   %.sink.i.i.i = phi ptr [ %.val3, %2 ], [ %10, %8 ]
@@ -11125,9 +11125,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN5clang6format
   %12 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 67
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, %11
-  br label %"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
-"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.argprom.exit": ; preds = %5, %8, %.sink.split.i.i.i
+"_ZSt10__invoke_rIbRZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbE3$_0JRKNS2_6ChangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %5, %8, %.sink.split.i.i.i
   %.0.i.i.i = phi i1 [ false, %8 ], [ false, %5 ], [ %14, %.sink.split.i.i.i ]
   ret i1 %.0.i.i.i
 }
@@ -11191,17 +11191,17 @@ define internal fastcc noundef i32 @"_ZN5clang6formatL11AlignTokensIRZNS0_17Whit
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 156
   br label %27
 
-27:                                               ; preds = %.lr.ph295, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit"
-  %.0293 = phi i32 [ 0, %.lr.ph295 ], [ %.1, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit" ]
-  %.072292 = phi i32 [ 0, %.lr.ph295 ], [ %.3, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit" ]
-  %.074291 = phi i8 [ 0, %.lr.ph295 ], [ %.377, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit" ]
-  %.079290 = phi i1 [ true, %.lr.ph295 ], [ %spec.select, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit" ]
-  %.082289 = phi i32 [ %3, %.lr.ph295 ], [ %179, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit" ]
-  %.0208288 = phi i32 [ 0, %.lr.ph295 ], [ %.3211, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit" ]
-  %.0212287 = phi i32 [ 0, %.lr.ph295 ], [ %.3215, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit" ]
-  %.0217286 = phi i32 [ 0, %.lr.ph295 ], [ %.3220, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit" ]
-  %.0222285 = phi i32 [ 0, %.lr.ph295 ], [ %.3225, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit" ]
-  %.0227284 = phi i32 [ 0, %.lr.ph295 ], [ %.3230, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit" ]
+27:                                               ; preds = %.lr.ph295, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit"
+  %.0293 = phi i32 [ 0, %.lr.ph295 ], [ %.1, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit" ]
+  %.072292 = phi i32 [ 0, %.lr.ph295 ], [ %.3, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit" ]
+  %.074291 = phi i8 [ 0, %.lr.ph295 ], [ %.377, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit" ]
+  %.079290 = phi i1 [ true, %.lr.ph295 ], [ %spec.select, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit" ]
+  %.082289 = phi i32 [ %3, %.lr.ph295 ], [ %179, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit" ]
+  %.0208288 = phi i32 [ 0, %.lr.ph295 ], [ %.3211, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit" ]
+  %.0212287 = phi i32 [ 0, %.lr.ph295 ], [ %.3215, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit" ]
+  %.0217286 = phi i32 [ 0, %.lr.ph295 ], [ %.3220, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit" ]
+  %.0222285 = phi i32 [ 0, %.lr.ph295 ], [ %.3225, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit" ]
+  %.0227284 = phi i32 [ 0, %.lr.ph295 ], [ %.3230, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit" ]
   %28 = zext i32 %.082289 to i64
   %29 = load ptr, ptr %2, align 8
   %30 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %29, i64 %28
@@ -11340,7 +11340,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread233: ; preds = %4
 _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %91, %89, %80
   %94 = tail call fastcc noundef i32 @"_ZN5clang6formatL11AlignTokensIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS5_21AlignConsecutiveStyleEb"(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(2192) %2, i32 noundef %.082289, ptr noundef nonnull align 1 dereferenceable(6) %4, i1 noundef zeroext %5)
   %95 = add i32 %94, -1
-  br label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit"
+  br label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit"
 
 _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread250: ; preds = %91, %87, %78
   %.2 = phi i32 [ %79, %78 ], [ %.173, %87 ], [ %.173, %91 ]
@@ -11368,7 +11368,7 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread250: ; preds = %9
   %100 = getelementptr inbounds nuw i8, ptr %.018.i, i64 16
   %101 = load i16, ptr %100, align 8
   %102 = icmp eq i16 %101, 64
-  br i1 %102, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit", label %.preheader.i, !llvm.loop !31
+  br i1 %102, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit", label %.preheader.i, !llvm.loop !31
 
 103:                                              ; preds = %.preheader.i
   %104 = getelementptr inbounds nuw i8, ptr %74, i64 67
@@ -11378,7 +11378,7 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread250: ; preds = %9
 
 107:                                              ; preds = %103, %._crit_edge.i
   %108 = phi i8 [ %.pre.i, %._crit_edge.i ], [ %105, %103 ]
-  switch i8 %108, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit" [
+  switch i8 %108, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit" [
     i8 46, label %.loopexit
     i8 109, label %109
   ]
@@ -11393,7 +11393,7 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread250: ; preds = %9
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 67
   %114 = load i8, ptr %113, align 1
   %115 = icmp eq i8 %114, 110
-  br i1 %115, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit", label %116
+  br i1 %115, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit", label %116
 
 116:                                              ; preds = %112, %109
   %.0.in4.i = getelementptr inbounds nuw i8, ptr %74, i64 216
@@ -11412,7 +11412,7 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread250: ; preds = %9
   %121 = getelementptr inbounds nuw i8, ptr %.07.i, i64 67
   %122 = load i8, ptr %121, align 1
   %123 = icmp eq i8 %122, 96
-  br i1 %123, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit", label %124
+  br i1 %123, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit", label %124
 
 124:                                              ; preds = %120
   switch i16 %118, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.i [
@@ -11440,13 +11440,13 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit.i:     ; preds = %124
 
 127:                                              ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit.i
   %128 = icmp eq i8 %122, 109
-  br i1 %128, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit", label %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i
+  br i1 %128, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit", label %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i
 
 _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i: ; preds = %127
   %129 = icmp eq i8 %122, 46
   %130 = icmp eq i16 %118, 139
   %131 = or i1 %130, %129
-  br i1 %131, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit", label %132
+  br i1 %131, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit", label %132
 
 132:                                              ; preds = %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i, %.lr.ph.i
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.07.i, i64 216
@@ -11551,26 +11551,26 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEb
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %.1176.lcssa, i32 %.4263)
   %170 = load i32, ptr %26, align 4
   %.not90 = icmp eq i32 %170, 0
-  br i1 %.not90, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit", label %171
+  br i1 %.not90, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit", label %171
 
 171:                                              ; preds = %.critedge
   %172 = add i32 %.sroa.speculated111, %.sroa.speculated118
   %173 = add i32 %172, %.sroa.speculated
   %174 = icmp ult i32 %170, %173
-  br i1 %174, label %175, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit"
+  br i1 %174, label %175, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit"
 
 175:                                              ; preds = %171
   %.not.i98 = icmp ne i32 %.5, 0
   %176 = icmp ult i32 %.5, %.4231257
   %or.cond271 = select i1 %.not.i98, i1 %176, i1 false
-  br i1 %or.cond271, label %177, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit"
+  br i1 %or.cond271, label %177, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit"
 
 177:                                              ; preds = %175
   %178 = add i32 %.4226259, %.4221261
   tail call fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE"(ptr noundef nonnull align 8 dereferenceable(936) %0, i32 noundef %.5, i32 noundef %.4231257, i32 noundef %178, i1 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(2192) %2)
-  br label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit"
+  br label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit"
 
-"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit": ; preds = %99, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i, %127, %120, %107, %.critedge, %171, %177, %175, %112, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread
+"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit": ; preds = %99, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i, %127, %120, %107, %.critedge, %171, %177, %175, %112, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread
   %.3230 = phi i32 [ %.1228, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread ], [ %.1228, %112 ], [ 0, %175 ], [ 0, %177 ], [ %.4231257, %171 ], [ %.4231257, %.critedge ], [ %.1228, %107 ], [ %.1228, %120 ], [ %.1228, %127 ], [ %.1228, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i ], [ %.1228, %99 ]
   %.3225 = phi i32 [ %.1223, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread ], [ %.1223, %112 ], [ %.0179, %175 ], [ %.0179, %177 ], [ %.sroa.speculated118, %171 ], [ %.sroa.speculated118, %.critedge ], [ %.1223, %107 ], [ %.1223, %120 ], [ %.1223, %127 ], [ %.1223, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i ], [ %.1223, %99 ]
   %.3220 = phi i32 [ %.1218, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread ], [ %.1218, %112 ], [ %.0178, %175 ], [ %.0178, %177 ], [ %.sroa.speculated111, %171 ], [ %.sroa.speculated111, %.critedge ], [ %.1218, %107 ], [ %.1218, %120 ], [ %.1218, %127 ], [ %.1218, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i ], [ %.1218, %99 ]
@@ -11584,11 +11584,11 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEb
   %.not = icmp eq i32 %179, %22
   br i1 %.not, label %_ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread, label %27, !llvm.loop !302
 
-_ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit", %27, %41, %43
-  %.0222.lcssa = phi i32 [ %.3225, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit" ], [ %.0222285, %27 ], [ %.0222285, %41 ], [ %.0222285, %43 ]
-  %.0217.lcssa = phi i32 [ %.3220, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit" ], [ %.0217286, %27 ], [ %.0217286, %41 ], [ %.0217286, %43 ]
-  %.0212.lcssa = phi i32 [ %.3215, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit" ], [ %.0212287, %27 ], [ %.0212287, %41 ], [ %.0212287, %43 ]
-  %.082.lcssa = phi i32 [ %22, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit" ], [ %.082289, %27 ], [ %.082289, %41 ], [ %.082289, %43 ]
+_ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit", %27, %41, %43
+  %.0222.lcssa = phi i32 [ %.3225, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit" ], [ %.0222285, %27 ], [ %.0222285, %41 ], [ %.0222285, %43 ]
+  %.0217.lcssa = phi i32 [ %.3220, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit" ], [ %.0217286, %27 ], [ %.0217286, %41 ], [ %.0217286, %43 ]
+  %.0212.lcssa = phi i32 [ %.3215, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit" ], [ %.0212287, %27 ], [ %.0212287, %41 ], [ %.0212287, %43 ]
+  %.082.lcssa = phi i32 [ %22, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit" ], [ %.082289, %27 ], [ %.082289, %41 ], [ %.082289, %43 ]
   %.not.i100 = icmp ne i32 %.0212.lcssa, 0
   %180 = icmp ult i32 %.0212.lcssa, %.082.lcssa
   %or.cond272 = and i1 %.not.i100, %180
@@ -11794,7 +11794,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   %.188 = select i1 %121, i32 %.087166, i32 0
   %.1 = and i1 %121, %.086167
   %brmerge = or i1 %118, %.1
-  br i1 %brmerge, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit", label %122
+  br i1 %brmerge, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit", label %122
 
 122:                                              ; preds = %116
   %.val = load ptr, ptr %5, align 8
@@ -11822,7 +11822,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   %127 = getelementptr inbounds nuw i8, ptr %.018.i, i64 16
   %128 = load i16, ptr %127, align 8
   %129 = icmp eq i16 %128, 64
-  br i1 %129, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit", label %.preheader.i, !llvm.loop !31
+  br i1 %129, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit", label %.preheader.i, !llvm.loop !31
 
 130:                                              ; preds = %.preheader.i
   %131 = getelementptr inbounds nuw i8, ptr %.val110, i64 67
@@ -11832,7 +11832,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
 
 134:                                              ; preds = %130, %._crit_edge.i
   %135 = phi i8 [ %.pre.i, %._crit_edge.i ], [ %132, %130 ]
-  switch i8 %135, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit" [
+  switch i8 %135, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit" [
     i8 46, label %.loopexit
     i8 109, label %136
   ]
@@ -11847,7 +11847,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   %140 = getelementptr inbounds nuw i8, ptr %138, i64 67
   %141 = load i8, ptr %140, align 1
   %142 = icmp eq i8 %141, 110
-  br i1 %142, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit", label %143
+  br i1 %142, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit", label %143
 
 143:                                              ; preds = %139, %136
   %.0.in4.i = getelementptr inbounds nuw i8, ptr %.val110, i64 216
@@ -11866,7 +11866,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   %148 = getelementptr inbounds nuw i8, ptr %.07.i, i64 67
   %149 = load i8, ptr %148, align 1
   %150 = icmp eq i8 %149, 96
-  br i1 %150, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit", label %151
+  br i1 %150, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit", label %151
 
 151:                                              ; preds = %147
   switch i16 %145, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.i [
@@ -11894,13 +11894,13 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit.i:     ; preds = %151
 
 154:                                              ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit.i
   %155 = icmp eq i8 %149, 109
-  br i1 %155, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit", label %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i
+  br i1 %155, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit", label %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i
 
 _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i: ; preds = %154
   %156 = icmp eq i8 %149, 46
   %157 = icmp eq i16 %145, 139
   %158 = or i1 %157, %156
-  br i1 %158, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit", label %159
+  br i1 %158, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit", label %159
 
 159:                                              ; preds = %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i, %.lr.ph.i
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.07.i, i64 216
@@ -11920,26 +11920,26 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEb
   %168 = load i32, ptr %167, align 4
   %169 = add nsw i32 %166, %168
   store i32 %169, ptr %167, align 4
-  br i1 %.not96, label %170, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit"
+  br i1 %.not96, label %170, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit"
 
 170:                                              ; preds = %.loopexit
   %171 = getelementptr inbounds nuw i8, ptr %.val110, i64 92
   %172 = load i32, ptr %171, align 4
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %169, i32 %172)
   store i32 %.sroa.speculated, ptr %167, align 4
-  br label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit"
+  br label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit"
 
-"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit": ; preds = %126, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i, %154, %147, %134, %139, %116, %.loopexit, %170
+"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit": ; preds = %126, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i, %154, %147, %134, %139, %116, %.loopexit, %170
   %.289 = phi i32 [ %.188, %116 ], [ %166, %170 ], [ %166, %.loopexit ], [ %.188, %139 ], [ %.188, %134 ], [ %.188, %147 ], [ %.188, %154 ], [ %.188, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i ], [ %.188, %126 ]
   %.2 = phi i1 [ %.1, %116 ], [ true, %170 ], [ true, %.loopexit ], [ false, %139 ], [ false, %134 ], [ false, %147 ], [ false, %154 ], [ false, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i ], [ false, %126 ]
   %173 = icmp eq i32 %.289, 0
-  br i1 %173, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit..critedge6_crit_edge", label %174
+  br i1 %173, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit..critedge6_crit_edge", label %174
 
-"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit..critedge6_crit_edge": ; preds = %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit"
+"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit..critedge6_crit_edge": ; preds = %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit"
   %.pre175 = add i32 %.090165, 1
   br label %.critedge6
 
-174:                                              ; preds = %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit"
+174:                                              ; preds = %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit"
   %.not97 = icmp ne i32 %120, 0
   %or.cond.not = and i1 %101, %.not97
   br i1 %or.cond.not, label %175, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread146"
@@ -12256,8 +12256,8 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEb
   %358 = icmp sgt i32 %.0161, 0
   br i1 %358, label %.lr.ph162, label %.critedge6, !llvm.loop !348
 
-.critedge6:                                       ; preds = %.lr.ph162, %356, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit..critedge6_crit_edge", %321, %314, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit
-  %.pre-phi = phi i32 [ %.pre175, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.argprom.argprom.argprom.exit..critedge6_crit_edge" ], [ %306, %321 ], [ %306, %314 ], [ %306, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit ], [ %306, %356 ], [ %306, %.lr.ph162 ]
+.critedge6:                                       ; preds = %.lr.ph162, %356, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit..critedge6_crit_edge", %321, %314, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit
+  %.pre-phi = phi i32 [ %.pre175, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit..critedge6_crit_edge" ], [ %306, %321 ], [ %306, %314 ], [ %306, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit ], [ %306, %356 ], [ %306, %.lr.ph162 ]
   %.not = icmp eq i32 %.pre-phi, %2
   br i1 %.not, label %._crit_edge, label %14, !llvm.loop !349
 
@@ -12276,7 +12276,7 @@ _ZN4llvm11SmallVectorIjLj16EED2Ev.exit:           ; preds = %._crit_edge, %362
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @"_ZN5clang6formatL11AlignTokensIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS5_21AlignConsecutiveStyleEb.argelim"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(2192) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 1 dereferenceable(6) %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @"_ZN5clang6formatL11AlignTokensIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS5_21AlignConsecutiveStyleEb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(2192) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 1 dereferenceable(6) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #18
   %8 = icmp ugt i64 %7, %6
@@ -12375,7 +12375,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread229: ; preds = %4
 
 "_ZZN5clang6formatL11AlignTokensIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS5_21AlignConsecutiveStyleEbENKUlvE_clEv.exit.thread": ; preds = %56
   %58 = add i32 %.0213283, %.0218282
-  tail call fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE.argprom"(ptr noundef nonnull align 8 dereferenceable(936) %0, i32 noundef %.0208284, i32 noundef %.082286, i32 noundef %58, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(2192) %1)
+  tail call fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE"(ptr noundef nonnull align 8 dereferenceable(936) %0, i32 noundef %.0208284, i32 noundef %.082286, i32 noundef %58, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(2192) %1)
   %.pre = load ptr, ptr %29, align 8
   br label %60
 
@@ -12457,7 +12457,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread229: ; preds = %4
   br i1 %or.cond265, label %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread, label %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread246
 
 _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %90, %88, %79
-  %93 = tail call fastcc noundef i32 @"_ZN5clang6formatL11AlignTokensIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS5_21AlignConsecutiveStyleEb.argelim"(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(2192) %1, i32 noundef %.082286, ptr noundef nonnull align 1 dereferenceable(6) %3, i1 noundef zeroext %4)
+  %93 = tail call fastcc noundef i32 @"_ZN5clang6formatL11AlignTokensIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS5_21AlignConsecutiveStyleEb"(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(2192) %1, i32 noundef %.082286, ptr noundef nonnull align 1 dereferenceable(6) %3, i1 noundef zeroext %4)
   %94 = add i32 %93, -1
   br label %"_ZZN5clang6formatL11AlignTokensIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS5_21AlignConsecutiveStyleEbENKUlvE_clEv.exit98"
 
@@ -12473,7 +12473,7 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread246: ; preds = %9
   %100 = load i32, ptr %45, align 8
   %.not.i92 = icmp eq i32 %100, 0
   %or.cond.i = select i1 %99, i1 %.not.i92, i1 false
-  br i1 %or.cond.i, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread248", label %101
+  br i1 %or.cond.i, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread248", label %101
 
 101:                                              ; preds = %98
   %102 = icmp eq i16 %75, 62
@@ -12489,9 +12489,9 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread246: ; preds = %9
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 152
   %108 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %107) #18
   %109 = icmp eq i64 %108, 0
-  br i1 %109, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread248", label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit"
+  br i1 %109, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread248", label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit"
 
-"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit": ; preds = %106
+"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit": ; preds = %106
   %110 = load ptr, ptr %29, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 216
   %112 = load ptr, ptr %111, align 8
@@ -12502,15 +12502,15 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread246: ; preds = %9
   %117 = getelementptr inbounds i8, ptr %116, i64 -4
   %118 = load i32, ptr %117, align 4
   %.not273 = icmp eq i32 %118, 3
-  br i1 %.not273, label %"_ZZN5clang6formatL11AlignTokensIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS5_21AlignConsecutiveStyleEbENKUlvE_clEv.exit98", label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread248"
+  br i1 %.not273, label %"_ZZN5clang6formatL11AlignTokensIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS5_21AlignConsecutiveStyleEbENKUlvE_clEv.exit98", label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread248"
 
-"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread248": ; preds = %98, %106, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit"
+"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread248": ; preds = %98, %106, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit"
   %119 = trunc nuw i8 %.175 to i1
   %.not88 = icmp ne i32 %.2, %.0290
   %or.cond.not = select i1 %119, i1 true, i1 %.not88
   br i1 %or.cond.not, label %120, label %"_ZZN5clang6formatL11AlignTokensIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS5_21AlignConsecutiveStyleEbENKUlvE_clEv.exit94"
 
-120:                                              ; preds = %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread248"
+120:                                              ; preds = %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread248"
   %.not.i93 = icmp ne i32 %.1209, 0
   %121 = icmp ult i32 %.1209, %.1224
   %or.cond266 = select i1 %.not.i93, i1 %121, i1 false
@@ -12518,10 +12518,10 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread246: ; preds = %9
 
 122:                                              ; preds = %120
   %123 = add i32 %.1214, %.1219
-  tail call fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE.argprom"(ptr noundef nonnull align 8 dereferenceable(936) %0, i32 noundef %.1209, i32 noundef %.1224, i32 noundef %123, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(2192) %1)
+  tail call fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE"(ptr noundef nonnull align 8 dereferenceable(936) %0, i32 noundef %.1209, i32 noundef %.1224, i32 noundef %123, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(2192) %1)
   br label %"_ZZN5clang6formatL11AlignTokensIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS5_21AlignConsecutiveStyleEbENKUlvE_clEv.exit94.thread"
 
-"_ZZN5clang6formatL11AlignTokensIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS5_21AlignConsecutiveStyleEbENKUlvE_clEv.exit94": ; preds = %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread248"
+"_ZZN5clang6formatL11AlignTokensIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS5_21AlignConsecutiveStyleEbENKUlvE_clEv.exit94": ; preds = %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread248"
   %124 = icmp eq i32 %.1209, 0
   %spec.select267 = select i1 %124, i32 %.082286, i32 %.1209
   br label %"_ZZN5clang6formatL11AlignTokensIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS5_21AlignConsecutiveStyleEbENKUlvE_clEv.exit94.thread"
@@ -12617,19 +12617,19 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread246: ; preds = %9
 
 163:                                              ; preds = %161
   %164 = add i32 %.4222256, %.4217258
-  tail call fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE.argprom"(ptr noundef nonnull align 8 dereferenceable(936) %0, i32 noundef %.5, i32 noundef %.4227254, i32 noundef %164, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(2192) %1)
+  tail call fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE"(ptr noundef nonnull align 8 dereferenceable(936) %0, i32 noundef %.5, i32 noundef %.4227254, i32 noundef %164, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(2192) %1)
   br label %"_ZZN5clang6formatL11AlignTokensIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS5_21AlignConsecutiveStyleEbENKUlvE_clEv.exit98"
 
-"_ZZN5clang6formatL11AlignTokensIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS5_21AlignConsecutiveStyleEbENKUlvE_clEv.exit98": ; preds = %101, %103, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread246, %.critedge, %157, %163, %161, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit", %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread
-  %.3226 = phi i32 [ %.1224, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit" ], [ %.1224, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread ], [ 0, %161 ], [ 0, %163 ], [ %.4227254, %157 ], [ %.4227254, %.critedge ], [ %.1224, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread246 ], [ %.1224, %103 ], [ %.1224, %101 ]
-  %.3221 = phi i32 [ %.1219, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit" ], [ %.1219, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread ], [ %.0175, %161 ], [ %.0175, %163 ], [ %.sroa.speculated117, %157 ], [ %.sroa.speculated117, %.critedge ], [ %.1219, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread246 ], [ %.1219, %103 ], [ %.1219, %101 ]
-  %.3216 = phi i32 [ %.1214, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit" ], [ %.1214, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread ], [ %.0174, %161 ], [ %.0174, %163 ], [ %.sroa.speculated110, %157 ], [ %.sroa.speculated110, %.critedge ], [ %.1214, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread246 ], [ %.1214, %103 ], [ %.1214, %101 ]
-  %.3211 = phi i32 [ %.1209, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit" ], [ %.1209, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread ], [ %.082286, %161 ], [ %.082286, %163 ], [ %.5, %157 ], [ %.5, %.critedge ], [ %.1209, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread246 ], [ %.1209, %103 ], [ %.1209, %101 ]
-  %.3207 = phi i32 [ %.1205, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit" ], [ %.1205, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread ], [ %.1172.lcssa, %161 ], [ %.1172.lcssa, %163 ], [ %.sroa.speculated, %157 ], [ %.sroa.speculated, %.critedge ], [ %.1205, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread246 ], [ %.1205, %103 ], [ %.1205, %101 ]
-  %.183 = phi i32 [ %.082286, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit" ], [ %94, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread ], [ %.082286, %161 ], [ %.082286, %163 ], [ %.082286, %157 ], [ %.082286, %.critedge ], [ %.082286, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread246 ], [ %.082286, %103 ], [ %.082286, %101 ]
-  %.377 = phi i8 [ %.175, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit" ], [ %.175, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread ], [ 1, %161 ], [ 1, %163 ], [ 1, %157 ], [ 1, %.critedge ], [ %.175, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread246 ], [ %.175, %103 ], [ %.175, %101 ]
-  %.3 = phi i32 [ %.2, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit" ], [ %.173, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread ], [ %.2, %161 ], [ %.2, %163 ], [ %.2, %157 ], [ %.2, %.critedge ], [ %.2, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread246 ], [ %.2, %103 ], [ %.2, %101 ]
-  %.1 = phi i32 [ %.0290, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit" ], [ %.0290, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread ], [ %.2, %161 ], [ %.2, %163 ], [ %.2, %157 ], [ %.2, %.critedge ], [ %.0290, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread246 ], [ %.0290, %103 ], [ %.0290, %101 ]
+"_ZZN5clang6formatL11AlignTokensIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS5_21AlignConsecutiveStyleEbENKUlvE_clEv.exit98": ; preds = %101, %103, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread246, %.critedge, %157, %163, %161, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit", %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread
+  %.3226 = phi i32 [ %.1224, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit" ], [ %.1224, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread ], [ 0, %161 ], [ 0, %163 ], [ %.4227254, %157 ], [ %.4227254, %.critedge ], [ %.1224, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread246 ], [ %.1224, %103 ], [ %.1224, %101 ]
+  %.3221 = phi i32 [ %.1219, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit" ], [ %.1219, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread ], [ %.0175, %161 ], [ %.0175, %163 ], [ %.sroa.speculated117, %157 ], [ %.sroa.speculated117, %.critedge ], [ %.1219, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread246 ], [ %.1219, %103 ], [ %.1219, %101 ]
+  %.3216 = phi i32 [ %.1214, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit" ], [ %.1214, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread ], [ %.0174, %161 ], [ %.0174, %163 ], [ %.sroa.speculated110, %157 ], [ %.sroa.speculated110, %.critedge ], [ %.1214, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread246 ], [ %.1214, %103 ], [ %.1214, %101 ]
+  %.3211 = phi i32 [ %.1209, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit" ], [ %.1209, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread ], [ %.082286, %161 ], [ %.082286, %163 ], [ %.5, %157 ], [ %.5, %.critedge ], [ %.1209, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread246 ], [ %.1209, %103 ], [ %.1209, %101 ]
+  %.3207 = phi i32 [ %.1205, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit" ], [ %.1205, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread ], [ %.1172.lcssa, %161 ], [ %.1172.lcssa, %163 ], [ %.sroa.speculated, %157 ], [ %.sroa.speculated, %.critedge ], [ %.1205, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread246 ], [ %.1205, %103 ], [ %.1205, %101 ]
+  %.183 = phi i32 [ %.082286, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit" ], [ %94, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread ], [ %.082286, %161 ], [ %.082286, %163 ], [ %.082286, %157 ], [ %.082286, %.critedge ], [ %.082286, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread246 ], [ %.082286, %103 ], [ %.082286, %101 ]
+  %.377 = phi i8 [ %.175, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit" ], [ %.175, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread ], [ 1, %161 ], [ 1, %163 ], [ 1, %157 ], [ 1, %.critedge ], [ %.175, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread246 ], [ %.175, %103 ], [ %.175, %101 ]
+  %.3 = phi i32 [ %.2, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit" ], [ %.173, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread ], [ %.2, %161 ], [ %.2, %163 ], [ %.2, %157 ], [ %.2, %.critedge ], [ %.2, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread246 ], [ %.2, %103 ], [ %.2, %101 ]
+  %.1 = phi i32 [ %.0290, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit" ], [ %.0290, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread ], [ %.2, %161 ], [ %.2, %163 ], [ %.2, %157 ], [ %.2, %.critedge ], [ %.0290, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread246 ], [ %.0290, %103 ], [ %.0290, %101 ]
   %165 = add i32 %.183, 1
   %.not = icmp eq i32 %165, %21
   br i1 %.not, label %_ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread, label %26, !llvm.loop !367
@@ -12646,7 +12646,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %"_ZZ
 
 167:                                              ; preds = %_ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread
   %168 = add i32 %.0213.lcssa, %.0218.lcssa
-  tail call fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE.argprom"(ptr noundef nonnull align 8 dereferenceable(936) %0, i32 noundef %.0208.lcssa, i32 noundef %.082.lcssa, i32 noundef %168, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(2192) %1)
+  tail call fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE"(ptr noundef nonnull align 8 dereferenceable(936) %0, i32 noundef %.0208.lcssa, i32 noundef %.082.lcssa, i32 noundef %168, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(2192) %1)
   br label %"_ZZN5clang6formatL11AlignTokensIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS5_21AlignConsecutiveStyleEbENKUlvE_clEv.exit100"
 
 "_ZZN5clang6formatL11AlignTokensIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS5_21AlignConsecutiveStyleEbENKUlvE_clEv.exit100": ; preds = %19, %_ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread, %167
@@ -12655,7 +12655,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %"_ZZ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE.argprom"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %0, i32 noundef range(i32 1, 0) %1, i32 noundef range(i32 2, 0) %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(2192) %5) unnamed_addr #0 {
+define internal fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %0, i32 noundef range(i32 1, 0) %1, i32 noundef range(i32 2, 0) %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(2192) %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::SmallVector.202", align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8, i64 noundef 16) #18
@@ -12844,39 +12844,39 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   %.188 = select i1 %120, i32 %.08750, i32 0
   %.1 = and i1 %120, %.08651
   %brmerge = or i1 %117, %.1
-  br i1 %brmerge, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread", label %121
+  br i1 %brmerge, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread", label %121
 
 121:                                              ; preds = %115
   %122 = load ptr, ptr %16, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 67
   %124 = load i8, ptr %123, align 1
   %125 = icmp eq i8 %124, 17
-  br i1 %125, label %126, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread"
+  br i1 %125, label %126, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread"
 
 126:                                              ; preds = %121
   %127 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %128 = load i16, ptr %127, align 8
   %129 = icmp eq i16 %128, 61
   %or.cond.i = and i1 %.not96, %129
-  br i1 %or.cond.i, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread27", label %130
+  br i1 %or.cond.i, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread27", label %130
 
 130:                                              ; preds = %126
   %131 = icmp eq i16 %128, 62
-  br i1 %131, label %132, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread"
+  br i1 %131, label %132, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread"
 
 132:                                              ; preds = %130
   %133 = getelementptr inbounds nuw i8, ptr %122, i64 216
   %134 = load ptr, ptr %133, align 8
   %.not7.i = icmp eq ptr %134, null
-  br i1 %.not7.i, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread", label %135
+  br i1 %.not7.i, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread", label %135
 
 135:                                              ; preds = %132
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 152
   %137 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %136) #18
   %138 = icmp eq i64 %137, 0
-  br i1 %138, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread27", label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit"
+  br i1 %138, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread27", label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit"
 
-"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit": ; preds = %135
+"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit": ; preds = %135
   %139 = load ptr, ptr %16, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 216
   %141 = load ptr, ptr %140, align 8
@@ -12887,9 +12887,9 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   %146 = getelementptr inbounds i8, ptr %145, i64 -4
   %147 = load i32, ptr %146, align 4
   %.not35 = icmp eq i32 %147, 3
-  br i1 %.not35, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread", label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread27"
+  br i1 %.not35, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread", label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread27"
 
-"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread27": ; preds = %126, %135, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit"
+"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread27": ; preds = %126, %135, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit"
   %148 = getelementptr inbounds nuw i8, ptr %16, i64 108
   %149 = load i32, ptr %148, align 4
   %150 = select i1 %4, i32 %149, i32 0
@@ -12903,27 +12903,27 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   store i32 %157, ptr %155, align 4
   %158 = load i32, ptr %118, align 8
   %159 = icmp eq i32 %158, 0
-  br i1 %159, label %160, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread"
+  br i1 %159, label %160, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread"
 
-160:                                              ; preds = %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread27"
+160:                                              ; preds = %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread27"
   %161 = load ptr, ptr %16, align 8
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 92
   %163 = load i32, ptr %162, align 4
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %157, i32 %163)
   store i32 %.sroa.speculated, ptr %155, align 4
-  br label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread"
+  br label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread"
 
-"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread": ; preds = %130, %132, %121, %115, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread27", %160, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit"
-  %.289 = phi i32 [ %.188, %115 ], [ %154, %160 ], [ %154, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread27" ], [ %.188, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit" ], [ %.188, %121 ], [ %.188, %132 ], [ %.188, %130 ]
-  %.2 = phi i1 [ %.1, %115 ], [ true, %160 ], [ true, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread27" ], [ false, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit" ], [ false, %121 ], [ false, %132 ], [ false, %130 ]
+"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread": ; preds = %130, %132, %121, %115, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread27", %160, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit"
+  %.289 = phi i32 [ %.188, %115 ], [ %154, %160 ], [ %154, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread27" ], [ %.188, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit" ], [ %.188, %121 ], [ %.188, %132 ], [ %.188, %130 ]
+  %.2 = phi i1 [ %.1, %115 ], [ true, %160 ], [ true, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread27" ], [ false, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit" ], [ false, %121 ], [ false, %132 ], [ false, %130 ]
   %164 = icmp eq i32 %.289, 0
-  br i1 %164, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread..critedge6_crit_edge", label %165
+  br i1 %164, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread..critedge6_crit_edge", label %165
 
-"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread..critedge6_crit_edge": ; preds = %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread"
+"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread..critedge6_crit_edge": ; preds = %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread"
   %.pre58 = add i32 %.09049, 1
   br label %.critedge6
 
-165:                                              ; preds = %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread"
+165:                                              ; preds = %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread"
   %166 = load i32, ptr %118, align 8
   %.not97 = icmp ne i32 %166, 0
   %or.cond.not = select i1 %100, i1 %.not97, i1 false
@@ -13241,8 +13241,8 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEb
   %350 = icmp sgt i32 %.045, 0
   br i1 %350, label %.lr.ph46, label %.critedge6, !llvm.loop !413
 
-.critedge6:                                       ; preds = %.lr.ph46, %348, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread..critedge6_crit_edge", %313, %306, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit
-  %.pre-phi = phi i32 [ %.pre58, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.argprom.exit.thread..critedge6_crit_edge" ], [ %298, %313 ], [ %298, %306 ], [ %298, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit ], [ %298, %348 ], [ %298, %.lr.ph46 ]
+.critedge6:                                       ; preds = %.lr.ph46, %348, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread..critedge6_crit_edge", %313, %306, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit
+  %.pre-phi = phi i32 [ %.pre58, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread..critedge6_crit_edge" ], [ %298, %313 ], [ %298, %306 ], [ %298, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit ], [ %298, %348 ], [ %298, %.lr.ph46 ]
   %.not = icmp eq i32 %.pre-phi, %2
   br i1 %.not, label %._crit_edge, label %13, !llvm.loop !414
 
@@ -13449,7 +13449,7 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %91, 
 _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread248: ; preds = %91, %87, %78
   %.2 = phi i32 [ %79, %78 ], [ %.173, %87 ], [ %.173, %91 ]
   %.val = load ptr, ptr %1, align 8
-  %96 = tail call fastcc noundef zeroext i1 @"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_2clERKNS1_6ChangeE.argprom"(ptr %.val, ptr noundef nonnull align 8 dereferenceable(136) %30)
+  %96 = tail call fastcc noundef zeroext i1 @"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_2clERKNS1_6ChangeE"(ptr %.val, ptr noundef nonnull align 8 dereferenceable(136) %30)
   br i1 %96, label %97, label %"_ZZN5clang6formatL11AlignTokensIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS5_21AlignConsecutiveStyleEbENKUlvE_clEv.exit97"
 
 97:                                               ; preds = %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread248
@@ -13603,7 +13603,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %"_ZZ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_2clERKNS1_6ChangeE.argprom"(ptr %.0.val, ptr noundef nonnull readonly align 8 dereferenceable(136) %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_2clERKNS1_6ChangeE"(ptr %.0.val, ptr noundef nonnull readonly align 8 dereferenceable(136) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 67
   %4 = load i8, ptr %3, align 1
@@ -13634,7 +13634,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN5clang6format17WhitespaceManager
   %20 = getelementptr inbounds i8, ptr %0, i64 241
   %21 = load i8, ptr %20, align 1
   %22 = trunc i8 %21 to i1
-  br i1 %22, label %23, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.argprom.exit"
+  br i1 %22, label %23, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.exit"
 
 23:                                               ; preds = %19, %15, %10, %6, %1
   %24 = load ptr, ptr %0, align 8
@@ -13645,7 +13645,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN5clang6format17WhitespaceManager
   %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 208
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.argprom.exit", label %26
+  br i1 %.not.i.i, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.exit", label %26
 
 26:                                               ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
@@ -13657,7 +13657,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i: ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load i32, ptr %30, align 8
   %.not.i = icmp eq i32 %31, 0
-  br i1 %.not.i, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.argprom.exit", label %32
+  br i1 %.not.i, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.exit", label %32
 
 32:                                               ; preds = %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 67
@@ -13665,13 +13665,13 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i: ; preds = %26
   %35 = icmp eq i8 %34, 17
   %36 = icmp eq i16 %28, 62
   %or.cond.i = and i1 %36, %35
-  br i1 %or.cond.i, label %37, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.argprom.exit"
+  br i1 %or.cond.i, label %37, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.exit"
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %24, i64 152
   %39 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %38) #18
   %40 = icmp eq i64 %39, 0
-  br i1 %40, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.argprom.exit", label %41
+  br i1 %40, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.exit", label %41
 
 41:                                               ; preds = %37
   %42 = load ptr, ptr %0, align 8
@@ -13682,9 +13682,9 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i: ; preds = %26
   %47 = getelementptr inbounds i8, ptr %46, i64 -4
   %48 = load i32, ptr %47, align 4
   %49 = icmp ne i32 %48, 3
-  br label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.argprom.exit"
+  br label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.exit"
 
-"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.argprom.exit": ; preds = %25, %41, %37, %32, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i, %19
+"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_1clERKNS1_6ChangeE.exit": ; preds = %25, %41, %37, %32, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i, %19
   %50 = phi i1 [ true, %19 ], [ false, %32 ], [ false, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i ], [ true, %37 ], [ %49, %41 ], [ false, %25 ]
   ret i1 %50
 }
@@ -13883,7 +13883,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
 
 122:                                              ; preds = %116
   %.val = load ptr, ptr %5, align 8
-  %123 = call fastcc noundef zeroext i1 @"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_2clERKNS1_6ChangeE.argprom"(ptr %.val, ptr noundef nonnull align 8 dereferenceable(136) %17)
+  %123 = call fastcc noundef zeroext i1 @"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_2clERKNS1_6ChangeE"(ptr %.val, ptr noundef nonnull align 8 dereferenceable(136) %17)
   br i1 %123, label %124, label %141
 
 124:                                              ; preds = %122

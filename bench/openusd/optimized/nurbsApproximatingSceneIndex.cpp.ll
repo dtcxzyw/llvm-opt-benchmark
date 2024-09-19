@@ -3423,7 +3423,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDat
   %40 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__17_NurbsPatchToMeshL7_tokensE seq_cst, align 8
   %41 = inttoptr i64 %40 to ptr
   %.not.i.i = icmp eq i64 %40, 0
-  br i1 %.not.i.i, label %42, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17_NurbsPatchToMesh12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom.exit
+  br i1 %.not.i.i, label %42, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17_NurbsPatchToMesh12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.exit
 
 42:                                               ; preds = %39
   %43 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21
@@ -3532,7 +3532,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_17_NurbsPa
   %85 = ptrtoint ptr %43 to i64
   %86 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__17_NurbsPatchToMeshL7_tokensE, i64 0, i64 %85 seq_cst seq_cst, align 8
   %87 = extractvalue { i64, i1 } %86, 1
-  br i1 %87, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17_NurbsPatchToMesh12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom.exit, label %88
+  br i1 %87, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17_NurbsPatchToMesh12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.exit, label %88
 
 88:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_17_NurbsPatchToMesh12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i.i
   %89 = load ptr, ptr %44, align 8
@@ -3594,15 +3594,15 @@ _ZN32pxrInternal_v0_24__pxrReserved__17_NurbsPatchToMesh12_GLOBAL__N_130_tokens_
   call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef 32) #22
   %113 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__17_NurbsPatchToMeshL7_tokensE seq_cst, align 8
   %114 = inttoptr i64 %113 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17_NurbsPatchToMesh12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom.exit
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17_NurbsPatchToMesh12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17_NurbsPatchToMesh12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17_NurbsPatchToMesh12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeD2Ev.exit.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_17_NurbsPatchToMesh12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i.i, %39
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17_NurbsPatchToMesh12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17_NurbsPatchToMesh12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeD2Ev.exit.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_17_NurbsPatchToMesh12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i.i, %39
   %115 = phi ptr [ %41, %39 ], [ %114, %_ZN32pxrInternal_v0_24__pxrReserved__17_NurbsPatchToMesh12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeD2Ev.exit.i.i.i ], [ %43, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_17_NurbsPatchToMesh12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 48, i1 false)
   %116 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN32pxrInternal_v0_24__pxrReserved__18HdDependencySchema7Builder21SetDependedOnPrimPathERKSt10shared_ptrINS_24HdTypedSampledDataSourceINS_7SdfPathEEEE(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %117 unwind label %242
 
-117:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17_NurbsPatchToMesh12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom.exit
+117:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17_NurbsPatchToMesh12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.exit
   %118 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN32pxrInternal_v0_24__pxrReserved__18HdDependencySchema7Builder30SetDependedOnDataSourceLocatorERKSt10shared_ptrINS_24HdTypedSampledDataSourceINS_19HdDataSourceLocatorEEEE(ptr noundef nonnull align 8 dereferenceable(48) %116, ptr noundef nonnull align 8 dereferenceable(16) @_ZZN32pxrInternal_v0_24__pxrReserved__17_NurbsPatchToMesh30_ComputeDependenciesDataSourceERKNS_7SdfPathEE27dependedOnLocatorDataSource)
           to label %119 unwind label %242
 
@@ -3874,7 +3874,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
           cleanup
   br label %.body
 
-242:                                              ; preds = %121, %119, %117, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17_NurbsPatchToMesh12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.argprom.exit
+242:                                              ; preds = %121, %119, %117, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17_NurbsPatchToMesh12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.exit
   %243 = landingpad { ptr, i32 }
           cleanup
   br label %246

@@ -829,7 +829,7 @@ _ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.thread
   %234 = and i8 %233, 63
   %235 = icmp uge i8 %234, %223
   %236 = call noundef ptr @_ZNK4llvm8FastISel26createMachineMemOperandForEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %1) #18
-  %237 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel16X86FastEmitStoreEN4llvm3EVTEPKNS1_5ValueERNS1_14X86AddressModeEPNS1_17MachineMemOperandEb.argelim(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %200, ptr noundef nonnull %191, ptr noundef nonnull align 8 dereferenceable(36) %71, ptr noundef %236, i1 noundef zeroext %235)
+  %237 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel16X86FastEmitStoreEN4llvm3EVTEPKNS1_5ValueERNS1_14X86AddressModeEPNS1_17MachineMemOperandEb(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %200, ptr noundef nonnull %191, ptr noundef nonnull align 8 dereferenceable(36) %71, ptr noundef %236, i1 noundef zeroext %235)
   br label %_ZN12_GLOBAL__N_111X86FastISel14X86SelectStoreEPKN4llvm11InstructionE.exit
 
 _ZN12_GLOBAL__N_111X86FastISel14X86SelectStoreEPKN4llvm11InstructionE.exit: ; preds = %156, %181, %185, %189, %201, %202, %208, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i47, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.thread30.i, %231
@@ -1508,7 +1508,7 @@ _ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i57: ;
   %.050.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_111X86FastISel12X86SelectCmpEPKN4llvm11InstructionEE12SETFOpcTable, i64 6), %585 ], [ @_ZZN12_GLOBAL__N_111X86FastISel12X86SelectCmpEPKN4llvm11InstructionEE12SETFOpcTable, %584 ]
   %587 = tail call i32 @_ZN4llvm8FastISel15createResultRegEPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @_ZN4llvm3X8611GR8RegClassE) #18
   %588 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %589 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel18X86FastEmitCompareEPKN4llvm5ValueES4_NS1_3EVTERKNS1_8DebugLocE.argprom(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %576, ptr noundef %.095.i, i16 %514, ptr noundef nonnull align 8 dereferenceable(8) %588)
+  %589 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel18X86FastEmitCompareEPKN4llvm5ValueES4_NS1_3EVTERKNS1_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %576, ptr noundef %.095.i, i16 %514, ptr noundef nonnull align 8 dereferenceable(8) %588)
   br i1 %589, label %590, label %.critedge
 
 590:                                              ; preds = %586
@@ -1610,7 +1610,7 @@ _ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i57: ;
   %spec.select116.i = select i1 %.sroa.263.0.extract.trunc.not.i, ptr %.095109.ph.i, ptr %.ph.i
   %spec.select117.i = select i1 %.sroa.263.0.extract.trunc.not.i, ptr %.ph.i, ptr %.095109.ph.i
   %652 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %653 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel18X86FastEmitCompareEPKN4llvm5ValueES4_NS1_3EVTERKNS1_8DebugLocE.argprom(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %spec.select117.i, ptr noundef %spec.select116.i, i16 %514, ptr noundef nonnull align 8 dereferenceable(8) %652)
+  %653 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel18X86FastEmitCompareEPKN4llvm5ValueES4_NS1_3EVTERKNS1_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %spec.select117.i, ptr noundef %spec.select116.i, i16 %514, ptr noundef nonnull align 8 dereferenceable(8) %652)
   br i1 %653, label %654, label %.critedge
 
 654:                                              ; preds = %648
@@ -1941,7 +1941,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i:               ; preds = %794
   %spec.select159.i = select i1 %.sroa.2117.0.extract.trunc.not.i, ptr %.0152.i, ptr %823
   %spec.select160.i = select i1 %.sroa.2117.0.extract.trunc.not.i, ptr %823, ptr %.0152.i
   %844 = getelementptr inbounds nuw i8, ptr %790, i64 48
-  %845 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel18X86FastEmitCompareEPKN4llvm5ValueES4_NS1_3EVTERKNS1_8DebugLocE.argprom(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %spec.select160.i, ptr noundef %spec.select159.i, i16 %816, ptr noundef nonnull align 8 dereferenceable(8) %844)
+  %845 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel18X86FastEmitCompareEPKN4llvm5ValueES4_NS1_3EVTERKNS1_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %spec.select160.i, ptr noundef %spec.select159.i, i16 %816, ptr noundef nonnull align 8 dereferenceable(8) %844)
   br i1 %845, label %846, label %_ZN12_GLOBAL__N_111X86FastISel15X86SelectBranchEPKN4llvm11InstructionE.exit
 
 846:                                              ; preds = %841
@@ -3286,7 +3286,7 @@ _ZNK4llvm4User10getOperandEj.exit.i.i:            ; preds = %1580, %1577
   %1616 = tail call { i16, ptr } @_ZNK4llvm18TargetLoweringBase12getValueTypeERKNS_10DataLayoutEPNS_4TypeEb(ptr noundef nonnull align 8 dereferenceable(408123) %1612, ptr noundef nonnull align 8 dereferenceable(512) %1613, ptr noundef %1615, i1 noundef zeroext false)
   %1617 = extractvalue { i16, ptr } %1616, 0
   %1618 = getelementptr inbounds nuw i8, ptr %1586, i64 48
-  %1619 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel18X86FastEmitCompareEPKN4llvm5ValueES4_NS1_3EVTERKNS1_8DebugLocE.argprom(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %spec.select128.i.i, ptr noundef %spec.select.i.i113, i16 %1617, ptr noundef nonnull align 8 dereferenceable(8) %1618)
+  %1619 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel18X86FastEmitCompareEPKN4llvm5ValueES4_NS1_3EVTERKNS1_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %spec.select128.i.i, ptr noundef %spec.select.i.i113, i16 %1617, ptr noundef nonnull align 8 dereferenceable(8) %1618)
   br i1 %1619, label %1620, label %1804
 
 1620:                                             ; preds = %1605
@@ -3802,7 +3802,7 @@ _ZNK4llvm4User10getOperandEj.exit74.i.i:          ; preds = %1872, %1869
   %1908 = getelementptr inbounds i8, ptr %1907, i64 -320
   %1909 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(288) %1901, ptr %.sroa.020.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(24) %1903, ptr noundef nonnull align 8 dereferenceable(32) %1908, i32 %1897)
   %1910 = select i1 %1835, i32 13905, i32 13826
-  %1911 = call fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel17fastEmitInst_rrrrEjPKN4llvm19TargetRegisterClassEjjjj.argprom(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %1910, i32 noundef %1881, i32 noundef %1896, i32 noundef %1897, i32 noundef %1880)
+  %1911 = call fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel17fastEmitInst_rrrrEjPKN4llvm19TargetRegisterClassEjjjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %1910, i32 noundef %1881, i32 noundef %1896, i32 noundef %1897, i32 noundef %1880)
   %1912 = call i32 @_ZN4llvm8FastISel15createResultRegEPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1889) #18
   %1913 = load ptr, ptr %1898, align 8
   %1914 = getelementptr inbounds nuw i8, ptr %1913, i64 680
@@ -4010,7 +4010,7 @@ _ZNK4llvm4User10getOperandEj.exit.i40.i:          ; preds = %2006, %2003
   %2039 = call { i16, ptr } @_ZNK4llvm18TargetLoweringBase12getValueTypeERKNS_10DataLayoutEPNS_4TypeEb(ptr noundef nonnull align 8 dereferenceable(408123) %2035, ptr noundef nonnull align 8 dereferenceable(512) %2036, ptr noundef %2038, i1 noundef zeroext false)
   %2040 = extractvalue { i16, ptr } %2039, 0
   %2041 = getelementptr inbounds nuw i8, ptr %2012, i64 48
-  %2042 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel18X86FastEmitCompareEPKN4llvm5ValueES4_NS1_3EVTERKNS1_8DebugLocE.argprom(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %spec.select70.i.i, ptr noundef %spec.select.i51.i, i16 %2040, ptr noundef nonnull align 8 dereferenceable(8) %2041)
+  %2042 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel18X86FastEmitCompareEPKN4llvm5ValueES4_NS1_3EVTERKNS1_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %spec.select70.i.i, ptr noundef %spec.select.i51.i, i16 %2040, ptr noundef nonnull align 8 dereferenceable(8) %2041)
   br i1 %2042, label %2097, label %.critedge
 
 2043:                                             ; preds = %2016, %_ZNK4llvm4User10getOperandEj.exit.i40.i
@@ -5505,9 +5505,9 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3MVTELb1EE9push_backES1_.exit: ; preds = %_
 
 334:                                              ; preds = %326
   %335 = icmp eq i16 %324, 2
-  br i1 %335, label %.loopexit, label %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.argprom.exit
+  br i1 %335, label %.loopexit, label %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit
 
-_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.argprom.exit: ; preds = %334
+_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit: ; preds = %334
   %336 = getelementptr inbounds nuw i8, ptr %.0247588, i64 24
   %.sroa.0.0.copyload.i312 = load i16, ptr %336, align 8
   %337 = call fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SIGN_EXTEND_rEN4llvm3MVTES2_j(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %324, i16 %.sroa.0.0.copyload.i312, i32 noundef %329)
@@ -5517,14 +5517,14 @@ _ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEj
 
 338:                                              ; preds = %326
   %339 = icmp eq i16 %324, 2
-  br i1 %339, label %340, label %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.argprom.exit315
+  br i1 %339, label %340, label %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit315
 
 340:                                              ; preds = %338
   %341 = call i32 @_ZN4llvm8FastISel18fastEmitZExtFromI1ENS_3MVTEj(ptr noundef nonnull align 8 dereferenceable(176) %0, i16 5, i32 noundef %329) #18
   %342 = icmp eq i32 %341, 0
-  br i1 %342, label %.loopexit, label %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.argprom.exit315
+  br i1 %342, label %.loopexit, label %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit315
 
-_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.argprom.exit315: ; preds = %340, %338
+_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit315: ; preds = %340, %338
   %.1518 = phi i32 [ %341, %340 ], [ %329, %338 ]
   %.sroa.0470.1 = phi i16 [ 5, %340 ], [ %324, %338 ]
   %343 = getelementptr inbounds nuw i8, ptr %.0247588, i64 24
@@ -5555,9 +5555,9 @@ _ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit.thread: ; preds
   %.sroa.0.0.copyload.i319 = phi i16 [ %.sroa.0.0.copyload.i319.pre, %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit._ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit.thread_crit_edge ], [ %.sroa.0.0.copyload.i317, %345 ]
   %348 = call fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ZERO_EXTEND_rEN4llvm3MVTES2_j(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %324, i16 %.sroa.0.0.copyload.i319, i32 noundef %329)
   %.not567 = icmp eq i32 %348, 0
-  br i1 %.not567, label %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.argprom.exit318, label %.sink.split
+  br i1 %.not567, label %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit318, label %.sink.split
 
-_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.argprom.exit318: ; preds = %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit.thread
+_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit318: ; preds = %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit.thread
   %.sroa.0.0.copyload.i321 = load i16, ptr %346, align 8
   %349 = call fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SIGN_EXTEND_rEN4llvm3MVTES2_j(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %324, i16 %.sroa.0.0.copyload.i321, i32 noundef %329)
   %.not568 = icmp eq i32 %349, 0
@@ -5570,9 +5570,9 @@ _ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEj
   %352 = call fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel22fastEmit_ISD_BITCAST_rEN4llvm3MVTES2_j(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %324, i16 %.sroa.0.0.copyload.i324, i32 noundef %329)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit, %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit.thread, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.argprom.exit318, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.argprom.exit, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.argprom.exit315, %350
-  %.sink613 = phi ptr [ %351, %350 ], [ %343, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.argprom.exit315 ], [ %336, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.argprom.exit ], [ %346, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.argprom.exit318 ], [ %346, %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit.thread ], [ %346, %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit ]
-  %.0517.ph = phi i32 [ %352, %350 ], [ %spec.select555, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.argprom.exit315 ], [ %spec.select, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.argprom.exit ], [ %spec.select556, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.argprom.exit318 ], [ %348, %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit.thread ], [ %347, %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit ]
+.sink.split:                                      ; preds = %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit, %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit.thread, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit318, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit315, %350
+  %.sink613 = phi ptr [ %351, %350 ], [ %343, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit315 ], [ %336, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit ], [ %346, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit318 ], [ %346, %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit.thread ], [ %346, %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit ]
+  %.0517.ph = phi i32 [ %352, %350 ], [ %spec.select555, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit315 ], [ %spec.select, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit ], [ %spec.select556, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit318 ], [ %348, %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit.thread ], [ %347, %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit ]
   %.sroa.0.0.copyload.i326 = load i16, ptr %.sink613, align 8
   br label %353
 
@@ -5730,11 +5730,11 @@ _ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit:   ; preds = %384
   ]
 
 417:                                              ; preds = %415, %415
-  %418 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel16X86FastEmitStoreEN4llvm3EVTEPKNS1_5ValueERNS1_14X86AddressModeEPNS1_17MachineMemOperandEb.argelim(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %.sroa.0470.0, ptr noundef nonnull %321, ptr noundef nonnull align 8 dereferenceable(36) %30, ptr noundef %410, i1 noundef zeroext false)
+  %418 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel16X86FastEmitStoreEN4llvm3EVTEPKNS1_5ValueERNS1_14X86AddressModeEPNS1_17MachineMemOperandEb(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %.sroa.0470.0, ptr noundef nonnull %321, ptr noundef nonnull align 8 dereferenceable(36) %30, ptr noundef %410, i1 noundef zeroext false)
   br i1 %418, label %421, label %.loopexit
 
 419:                                              ; preds = %415
-  %420 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel16X86FastEmitStoreEN4llvm3EVTEjRNS1_14X86AddressModeEPNS1_17MachineMemOperandEb.argelim(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %.sroa.0470.0, i32 noundef %.0517, ptr noundef nonnull align 8 dereferenceable(36) %30, ptr noundef %410, i1 noundef zeroext false)
+  %420 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel16X86FastEmitStoreEN4llvm3EVTEjRNS1_14X86AddressModeEPNS1_17MachineMemOperandEb(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %.sroa.0470.0, i32 noundef %.0517, ptr noundef nonnull align 8 dereferenceable(36) %30, ptr noundef %410, i1 noundef zeroext false)
   br i1 %420, label %421, label %.loopexit
 
 421:                                              ; preds = %_ZNK4llvm11CCValAssign9getLocRegEv.exit331, %417, %419, %412, %381
@@ -6257,35 +6257,35 @@ _ZNK4llvm3EVTeqES0_.exit.thread:                  ; preds = %_ZNK4llvm11CCValAss
 _ZNK4llvm3EVTeqES0_.exit343:                      ; preds = %_ZNK4llvm11CCValAssign9getLocRegEv.exit338, %681, %676
   %.sroa.0.0.copyload.i337.off = add i32 %.sroa.0.0.copyload.i337, -103
   %switch559 = icmp ult i32 %.sroa.0.0.copyload.i337.off, 2
-  br i1 %switch559, label %687, label %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.argprom.exit.thread549
+  br i1 %switch559, label %687, label %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit.thread549
 
 687:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit343
   %.val306 = load ptr, ptr %61, align 8
-  switch i16 %.sroa.0.0.copyload.i335, label %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.argprom.exit.thread549 [
+  switch i16 %.sroa.0.0.copyload.i335, label %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit.thread549 [
     i16 13, label %688
-    i16 12, label %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.argprom.exit
-    i16 11, label %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.argprom.exit.thread
+    i16 12, label %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit
+    i16 11, label %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit.thread
   ]
 
 688:                                              ; preds = %687
   %689 = getelementptr inbounds nuw i8, ptr %.val306, i64 304
   %690 = load i32, ptr %689, align 8
   %691 = icmp sgt i32 %690, 1
-  br i1 %691, label %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.argprom.exit.thread, label %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.argprom.exit.thread549
+  br i1 %691, label %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit.thread, label %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit.thread549
 
-_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.argprom.exit: ; preds = %687
+_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit: ; preds = %687
   %692 = getelementptr inbounds nuw i8, ptr %.val306, i64 304
   %693 = load i32, ptr %692, align 8
   %694 = icmp sgt i32 %693, 0
-  br i1 %694, label %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.argprom.exit.thread, label %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.argprom.exit.thread549
+  br i1 %694, label %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit.thread, label %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit.thread549
 
-_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.argprom.exit.thread: ; preds = %687, %688, %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.argprom.exit
+_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit.thread: ; preds = %687, %688, %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit
   %695 = call i32 @_ZN4llvm8FastISel15createResultRegEPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @_ZN4llvm3X8613RFP80RegClassE) #18
-  br label %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.argprom.exit.thread549
+  br label %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit.thread549
 
-_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.argprom.exit.thread549: ; preds = %_ZNK4llvm3EVTeqES0_.exit343, %687, %688, %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.argprom.exit.thread, %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.argprom.exit
-  %.sroa.0387.0 = phi i16 [ 14, %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.argprom.exit.thread ], [ 12, %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.argprom.exit ], [ 13, %688 ], [ %.sroa.0.0.copyload.i335, %687 ], [ %.sroa.0.0.copyload.i335, %_ZNK4llvm3EVTeqES0_.exit343 ]
-  %.0253 = phi i32 [ %695, %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.argprom.exit.thread ], [ %671, %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.argprom.exit ], [ %671, %688 ], [ %671, %687 ], [ %671, %_ZNK4llvm3EVTeqES0_.exit343 ]
+_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit.thread549: ; preds = %_ZNK4llvm3EVTeqES0_.exit343, %687, %688, %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit.thread, %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit
+  %.sroa.0387.0 = phi i16 [ 14, %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit.thread ], [ 12, %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit ], [ 13, %688 ], [ %.sroa.0.0.copyload.i335, %687 ], [ %.sroa.0.0.copyload.i335, %_ZNK4llvm3EVTeqES0_.exit343 ]
+  %.0253 = phi i32 [ %695, %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit.thread ], [ %671, %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit ], [ %671, %688 ], [ %671, %687 ], [ %671, %_ZNK4llvm3EVTeqES0_.exit343 ]
   %696 = load ptr, ptr %259, align 8
   %697 = getelementptr inbounds nuw i8, ptr %696, i64 680
   %698 = load ptr, ptr %697, align 8
@@ -6309,11 +6309,11 @@ _ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.argprom.exit
   %.not.i.i.i345 = icmp eq i8 %707, 0
   br i1 %.not.i.i.i345, label %_ZNK4llvm11CCValAssign9getLocRegEv.exit347, label %708
 
-708:                                              ; preds = %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.argprom.exit.thread549
+708:                                              ; preds = %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit.thread549
   call void @abort() #21
   unreachable
 
-_ZNK4llvm11CCValAssign9getLocRegEv.exit347:       ; preds = %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.argprom.exit.thread549
+_ZNK4llvm11CCValAssign9getLocRegEv.exit347:       ; preds = %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit.thread549
   %.sroa.0.0.copyload.i346 = load i32, ptr %669, align 4
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %47, i32 %.sroa.0.0.copyload.i346)
   %.sroa.0.0.copyload.i348 = load i16, ptr %670, align 2
@@ -6352,7 +6352,7 @@ _ZNK4llvm3EVTeqES0_.exit354:                      ; preds = %_ZNK4llvm11CCValAss
   store ptr %727, ptr %41, align 8
   %728 = extractvalue { ptr, ptr } %726, 1
   store ptr %728, ptr %661, align 8
-  %729 = call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvmL17addFrameReferenceERKNS_19MachineInstrBuilderEii.argelim(ptr noundef nonnull align 8 dereferenceable(16) %41, i32 noundef %717)
+  %729 = call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvmL17addFrameReferenceERKNS_19MachineInstrBuilderEii(ptr noundef nonnull align 8 dereferenceable(16) %41, i32 noundef %717)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %730 = load ptr, ptr %661, align 8
   %731 = load ptr, ptr %41, align 8
@@ -6379,7 +6379,7 @@ _ZNK4llvm3EVTeqES0_.exit354:                      ; preds = %_ZNK4llvm11CCValAss
   store ptr %742, ptr %42, align 8
   %743 = extractvalue { ptr, ptr } %741, 1
   store ptr %743, ptr %665, align 8
-  %744 = call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvmL17addFrameReferenceERKNS_19MachineInstrBuilderEii.argelim(ptr noundef nonnull align 8 dereferenceable(16) %42, i32 noundef %717)
+  %744 = call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvmL17addFrameReferenceERKNS_19MachineInstrBuilderEii(ptr noundef nonnull align 8 dereferenceable(16) %42, i32 noundef %717)
   br label %_ZNK4llvm3EVTneES0_.exit
 
 _ZNK4llvm3EVTneES0_.exit:                         ; preds = %_ZNK4llvm11CCValAssign9getLocRegEv.exit347, %_ZNK4llvm3EVTeqES0_.exit354
@@ -7148,7 +7148,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10AllocaInstEiNS_12DenseMapInfoIS4_vEEN
   br i1 %471, label %472, label %.critedge
 
 472:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10AllocaInstEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_EixERKS4_.exit
-  %473 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel16X86FastEmitStoreEN4llvm3EVTEPKNS1_5ValueERNS1_14X86AddressModeEPNS1_17MachineMemOperandEb.argelim(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %414, ptr noundef %421, ptr noundef nonnull align 8 dereferenceable(36) %24, ptr noundef null, i1 noundef zeroext false)
+  %473 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel16X86FastEmitStoreEN4llvm3EVTEPKNS1_5ValueERNS1_14X86AddressModeEPNS1_17MachineMemOperandEb(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %414, ptr noundef %421, ptr noundef nonnull align 8 dereferenceable(36) %24, ptr noundef null, i1 noundef zeroext false)
   br label %.critedge
 
 474:                                              ; preds = %2
@@ -14805,7 +14805,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel15X86Fa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel16X86FastEmitStoreEN4llvm3EVTEPKNS1_5ValueERNS1_14X86AddressModeEPNS1_17MachineMemOperandEb.argelim(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, ptr noundef %2, ptr nocapture noundef nonnull align 8 dereferenceable(36) %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel16X86FastEmitStoreEN4llvm3EVTEPKNS1_5ValueERNS1_14X86AddressModeEPNS1_17MachineMemOperandEb(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, ptr noundef %2, ptr nocapture noundef nonnull align 8 dereferenceable(36) %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::MachineOperand", align 8
   %8 = alloca %"class.llvm::MachineInstrBuilder", align 8
   %9 = load i8, ptr %2, align 8
@@ -14952,7 +14952,7 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit26:    ; preds = %69, %62, %72
   br i1 %83, label %86, label %84
 
 84:                                               ; preds = %.thread40
-  %85 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel16X86FastEmitStoreEN4llvm3EVTEjRNS1_14X86AddressModeEPNS1_17MachineMemOperandEb.argelim(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, i32 noundef %82, ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef %4, i1 noundef zeroext %5)
+  %85 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel16X86FastEmitStoreEN4llvm3EVTEjRNS1_14X86AddressModeEPNS1_17MachineMemOperandEb(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, i32 noundef %82, ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef %4, i1 noundef zeroext %5)
   br label %86
 
 86:                                               ; preds = %.thread40, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit26, %77, %84
@@ -15035,7 +15035,7 @@ _ZNK4llvm19MachineInstrBuilder15setMMRAMetadataEPNS_6MDNodeE.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel16X86FastEmitStoreEN4llvm3EVTEjRNS1_14X86AddressModeEPNS1_17MachineMemOperandEb.argelim(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, i32 noundef %2, ptr nocapture noundef nonnull align 8 dereferenceable(36) %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel16X86FastEmitStoreEN4llvm3EVTEjRNS1_14X86AddressModeEPNS1_17MachineMemOperandEb(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, i32 noundef %2, ptr nocapture noundef nonnull align 8 dereferenceable(36) %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::MachineOperand", align 8
   %8 = alloca %"class.llvm::MachineOperand", align 8
   %9 = alloca %"class.llvm::MachineOperand", align 8
@@ -15538,7 +15538,7 @@ declare i32 @_ZN4llvm8FastISel26fastEmitInst_extractsubregENS_3MVTEjj(ptr nounde
 declare noundef zeroext i1 @_ZNK4llvm8Constant11isNullValueEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel18X86FastEmitCompareEPKN4llvm5ValueES4_NS1_3EVTERKNS1_8DebugLocE.argprom(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1, ptr noundef %2, i16 %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel18X86FastEmitCompareEPKN4llvm5ValueES4_NS1_3EVTERKNS1_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1, ptr noundef %2, i16 %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::MachineOperand", align 8
   %7 = alloca %"class.llvm::MachineOperand", align 8
   %8 = alloca %"class.llvm::MachineOperand", align 8
@@ -15719,7 +15719,7 @@ _ZL27X86ChooseCmpImmediateOpcodeN4llvm3EVTEPKNS_11ConstantIntE.exit: ; preds = %
   %91 = icmp sgt i32 %.val, 8
   %92 = icmp sgt i32 %.val, 6
   switch i16 %3, label %_ZN4llvm8DebugLocD2Ev.exit [
-    i16 5, label %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.argprom.exit.thread
+    i16 5, label %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit.thread
     i16 6, label %93
     i16 7, label %94
     i16 8, label %_ZL27X86ChooseCmpImmediateOpcodeN4llvm3EVTEPKNS_11ConstantIntE.exit.thread19
@@ -15728,38 +15728,38 @@ _ZL27X86ChooseCmpImmediateOpcodeN4llvm3EVTEPKNS_11ConstantIntE.exit: ; preds = %
   ]
 
 93:                                               ; preds = %_ZL27X86ChooseCmpImmediateOpcodeN4llvm3EVTEPKNS_11ConstantIntE.exit
-  br label %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.argprom.exit.thread
+  br label %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit.thread
 
 94:                                               ; preds = %_ZL27X86ChooseCmpImmediateOpcodeN4llvm3EVTEPKNS_11ConstantIntE.exit
-  br label %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.argprom.exit.thread
+  br label %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit.thread
 
 _ZL27X86ChooseCmpImmediateOpcodeN4llvm3EVTEPKNS_11ConstantIntE.exit.thread19: ; preds = %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i, %_ZL27X86ChooseCmpImmediateOpcodeN4llvm3EVTEPKNS_11ConstantIntE.exit
-  br label %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.argprom.exit.thread
+  br label %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit.thread
 
 95:                                               ; preds = %_ZL27X86ChooseCmpImmediateOpcodeN4llvm3EVTEPKNS_11ConstantIntE.exit
   %96 = icmp sgt i32 %.val, 0
   %97 = select i1 %96, i32 4951, i32 0
   %98 = select i1 %92, i32 21846, i32 %97
-  br i1 %91, label %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.argprom.exit.thread, label %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.argprom.exit
+  br i1 %91, label %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit.thread, label %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit
 
 99:                                               ; preds = %_ZL27X86ChooseCmpImmediateOpcodeN4llvm3EVTEPKNS_11ConstantIntE.exit
   %100 = icmp sgt i32 %.val, 1
   %101 = select i1 %100, i32 4947, i32 0
   %102 = select i1 %92, i32 21832, i32 %101
-  br i1 %91, label %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.argprom.exit.thread, label %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.argprom.exit
+  br i1 %91, label %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit.thread, label %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit
 
-_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.argprom.exit: ; preds = %95, %99
+_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit: ; preds = %95, %99
   %.0.i30 = phi i32 [ %102, %99 ], [ %98, %95 ]
   %103 = icmp eq i32 %.0.i30, 0
-  br i1 %103, label %_ZN4llvm8DebugLocD2Ev.exit, label %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.argprom.exit.thread
+  br i1 %103, label %_ZN4llvm8DebugLocD2Ev.exit, label %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit.thread
 
-_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.argprom.exit.thread: ; preds = %95, %99, %_ZL27X86ChooseCmpImmediateOpcodeN4llvm3EVTEPKNS_11ConstantIntE.exit, %93, %94, %_ZL27X86ChooseCmpImmediateOpcodeN4llvm3EVTEPKNS_11ConstantIntE.exit.thread19, %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.argprom.exit
-  %.0.i3024 = phi i32 [ %.0.i30, %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.argprom.exit ], [ 1262, %93 ], [ 1271, %94 ], [ 1280, %_ZL27X86ChooseCmpImmediateOpcodeN4llvm3EVTEPKNS_11ConstantIntE.exit.thread19 ], [ 1289, %_ZL27X86ChooseCmpImmediateOpcodeN4llvm3EVTEPKNS_11ConstantIntE.exit ], [ 21827, %99 ], [ 21841, %95 ]
+_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit.thread: ; preds = %95, %99, %_ZL27X86ChooseCmpImmediateOpcodeN4llvm3EVTEPKNS_11ConstantIntE.exit, %93, %94, %_ZL27X86ChooseCmpImmediateOpcodeN4llvm3EVTEPKNS_11ConstantIntE.exit.thread19, %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit
+  %.0.i3024 = phi i32 [ %.0.i30, %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit ], [ 1262, %93 ], [ 1271, %94 ], [ 1280, %_ZL27X86ChooseCmpImmediateOpcodeN4llvm3EVTEPKNS_11ConstantIntE.exit.thread19 ], [ 1289, %_ZL27X86ChooseCmpImmediateOpcodeN4llvm3EVTEPKNS_11ConstantIntE.exit ], [ 21827, %99 ], [ 21841, %95 ]
   %104 = tail call i32 @_ZN4llvm8FastISel14getRegForValueEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %.014) #18
   %105 = icmp eq i32 %104, 0
   br i1 %105, label %_ZN4llvm8DebugLocD2Ev.exit, label %106
 
-106:                                              ; preds = %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.argprom.exit.thread
+106:                                              ; preds = %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit.thread
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 680
@@ -15837,8 +15837,8 @@ _ZN4llvm10MIMetadataD2Ev.exit36:                  ; preds = %_ZN4llvm10MIMetadat
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %13, ptr noundef nonnull align 4 dereferenceable(8) %135) #18
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
-_ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZL27X86ChooseCmpImmediateOpcodeN4llvm3EVTEPKNS_11ConstantIntE.exit, %136, %_ZN4llvm10MIMetadataD2Ev.exit36, %87, %_ZN4llvm10MIMetadataD2Ev.exit, %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.argprom.exit.thread, %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.argprom.exit, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.argprom.exit ], [ false, %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.argprom.exit.thread ], [ true, %_ZN4llvm10MIMetadataD2Ev.exit ], [ true, %87 ], [ true, %_ZN4llvm10MIMetadataD2Ev.exit36 ], [ true, %136 ], [ false, %_ZL27X86ChooseCmpImmediateOpcodeN4llvm3EVTEPKNS_11ConstantIntE.exit ]
+_ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZL27X86ChooseCmpImmediateOpcodeN4llvm3EVTEPKNS_11ConstantIntE.exit, %136, %_ZN4llvm10MIMetadataD2Ev.exit36, %87, %_ZN4llvm10MIMetadataD2Ev.exit, %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit.thread, %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit, %5
+  %.0 = phi i1 [ false, %5 ], [ false, %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit ], [ false, %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit.thread ], [ true, %_ZN4llvm10MIMetadataD2Ev.exit ], [ true, %87 ], [ true, %_ZN4llvm10MIMetadataD2Ev.exit36 ], [ true, %136 ], [ false, %_ZL27X86ChooseCmpImmediateOpcodeN4llvm3EVTEPKNS_11ConstantIntE.exit ]
   ret i1 %.0
 }
 
@@ -16048,7 +16048,7 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %93, %96
   %101 = phi ptr [ %95, %93 ], [ %100, %96 ]
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %93 ], [ %98, %96 ]
   %102 = getelementptr inbounds %"class.llvm::Use", ptr %101, i64 %.pre-phi2.i.i
-  %103 = tail call fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3UseEEEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS_3X868CondCodeEPKNS_11InstructionEPKNS_5ValueEE3$_1EEbOT_T0_.argprom"(ptr %101, ptr %102)
+  %103 = tail call fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3UseEEEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS_3X868CondCodeEPKNS_11InstructionEPKNS_5ValueEE3$_1EEbOT_T0_"(ptr %101, ptr %102)
   br i1 %103, label %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.thread, label %104
 
 104:                                              ; preds = %_ZNK4llvm4User8operandsEv.exit
@@ -16080,7 +16080,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeI
   %7 = extractvalue { ptr, ptr } %6, 0
   %8 = extractvalue { ptr, ptr } %6, 1
   %.not90.i.i.i.i.i = icmp eq ptr %7, %8
-  br i1 %.not90.i.i.i.i.i, label %9, label %"_ZSt6any_ofIN4llvm12SuccIteratorIKNS0_11InstructionEKNS0_10BasicBlockEEEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPS3_PKNS0_5ValueEE3$_0EbT_SH_T0_.argprom.exit"
+  br i1 %.not90.i.i.i.i.i, label %9, label %"_ZSt6any_ofIN4llvm12SuccIteratorIKNS0_11InstructionEKNS0_10BasicBlockEEEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPS3_PKNS0_5ValueEE3$_0EbT_SH_T0_.exit"
 
 9:                                                ; preds = %.lr.ph.i.i.i.i.i
   %10 = add nsw i32 %.sroa.15.095.i.i.i.i.i, 1
@@ -16089,7 +16089,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeI
   %13 = extractvalue { ptr, ptr } %12, 0
   %14 = extractvalue { ptr, ptr } %12, 1
   %.not91.i.i.i.i.i = icmp eq ptr %13, %14
-  br i1 %.not91.i.i.i.i.i, label %15, label %"_ZSt6any_ofIN4llvm12SuccIteratorIKNS0_11InstructionEKNS0_10BasicBlockEEEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPS3_PKNS0_5ValueEE3$_0EbT_SH_T0_.argprom.exit"
+  br i1 %.not91.i.i.i.i.i, label %15, label %"_ZSt6any_ofIN4llvm12SuccIteratorIKNS0_11InstructionEKNS0_10BasicBlockEEEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPS3_PKNS0_5ValueEE3$_0EbT_SH_T0_.exit"
 
 15:                                               ; preds = %9
   %16 = add nsw i32 %.sroa.15.095.i.i.i.i.i, 2
@@ -16098,7 +16098,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeI
   %19 = extractvalue { ptr, ptr } %18, 0
   %20 = extractvalue { ptr, ptr } %18, 1
   %.not92.i.i.i.i.i = icmp eq ptr %19, %20
-  br i1 %.not92.i.i.i.i.i, label %21, label %"_ZSt6any_ofIN4llvm12SuccIteratorIKNS0_11InstructionEKNS0_10BasicBlockEEEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPS3_PKNS0_5ValueEE3$_0EbT_SH_T0_.argprom.exit"
+  br i1 %.not92.i.i.i.i.i, label %21, label %"_ZSt6any_ofIN4llvm12SuccIteratorIKNS0_11InstructionEKNS0_10BasicBlockEEEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPS3_PKNS0_5ValueEE3$_0EbT_SH_T0_.exit"
 
 21:                                               ; preds = %15
   %22 = add nsw i32 %.sroa.15.095.i.i.i.i.i, 3
@@ -16107,7 +16107,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeI
   %25 = extractvalue { ptr, ptr } %24, 0
   %26 = extractvalue { ptr, ptr } %24, 1
   %.not93.i.i.i.i.i = icmp eq ptr %25, %26
-  br i1 %.not93.i.i.i.i.i, label %27, label %"_ZSt6any_ofIN4llvm12SuccIteratorIKNS0_11InstructionEKNS0_10BasicBlockEEEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPS3_PKNS0_5ValueEE3$_0EbT_SH_T0_.argprom.exit"
+  br i1 %.not93.i.i.i.i.i, label %27, label %"_ZSt6any_ofIN4llvm12SuccIteratorIKNS0_11InstructionEKNS0_10BasicBlockEEEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPS3_PKNS0_5ValueEE3$_0EbT_SH_T0_.exit"
 
 27:                                               ; preds = %21
   %28 = add nsw i32 %.sroa.15.095.i.i.i.i.i, 4
@@ -16130,7 +16130,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeI
   %35 = extractvalue { ptr, ptr } %34, 0
   %36 = extractvalue { ptr, ptr } %34, 1
   %.not.i.i.i.i.i = icmp eq ptr %35, %36
-  br i1 %.not.i.i.i.i.i, label %37, label %"_ZSt6any_ofIN4llvm12SuccIteratorIKNS0_11InstructionEKNS0_10BasicBlockEEEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPS3_PKNS0_5ValueEE3$_0EbT_SH_T0_.argprom.exit"
+  br i1 %.not.i.i.i.i.i, label %37, label %"_ZSt6any_ofIN4llvm12SuccIteratorIKNS0_11InstructionEKNS0_10BasicBlockEEEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPS3_PKNS0_5ValueEE3$_0EbT_SH_T0_.exit"
 
 37:                                               ; preds = %32
   %38 = add nsw i32 %.sroa.15.0.lcssa.i.i.i.i.i, 1
@@ -16143,7 +16143,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeI
   %42 = extractvalue { ptr, ptr } %41, 0
   %43 = extractvalue { ptr, ptr } %41, 1
   %.not88.i.i.i.i.i = icmp eq ptr %42, %43
-  br i1 %.not88.i.i.i.i.i, label %44, label %"_ZSt6any_ofIN4llvm12SuccIteratorIKNS0_11InstructionEKNS0_10BasicBlockEEEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPS3_PKNS0_5ValueEE3$_0EbT_SH_T0_.argprom.exit"
+  br i1 %.not88.i.i.i.i.i, label %44, label %"_ZSt6any_ofIN4llvm12SuccIteratorIKNS0_11InstructionEKNS0_10BasicBlockEEEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPS3_PKNS0_5ValueEE3$_0EbT_SH_T0_.exit"
 
 44:                                               ; preds = %39
   %45 = add nsw i32 %.sroa.15.1.i.i.i.i.i, 1
@@ -16156,19 +16156,19 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeI
   %49 = extractvalue { ptr, ptr } %48, 0
   %50 = extractvalue { ptr, ptr } %48, 1
   %.not89.i.i.i.i.i = icmp eq ptr %49, %50
-  br i1 %.not89.i.i.i.i.i, label %51, label %"_ZSt6any_ofIN4llvm12SuccIteratorIKNS0_11InstructionEKNS0_10BasicBlockEEEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPS3_PKNS0_5ValueEE3$_0EbT_SH_T0_.argprom.exit"
+  br i1 %.not89.i.i.i.i.i, label %51, label %"_ZSt6any_ofIN4llvm12SuccIteratorIKNS0_11InstructionEKNS0_10BasicBlockEEEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPS3_PKNS0_5ValueEE3$_0EbT_SH_T0_.exit"
 
 51:                                               ; preds = %46, %._crit_edge.i.i.i.i.i
-  br label %"_ZSt6any_ofIN4llvm12SuccIteratorIKNS0_11InstructionEKNS0_10BasicBlockEEEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPS3_PKNS0_5ValueEE3$_0EbT_SH_T0_.argprom.exit"
+  br label %"_ZSt6any_ofIN4llvm12SuccIteratorIKNS0_11InstructionEKNS0_10BasicBlockEEEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPS3_PKNS0_5ValueEE3$_0EbT_SH_T0_.exit"
 
-"_ZSt6any_ofIN4llvm12SuccIteratorIKNS0_11InstructionEKNS0_10BasicBlockEEEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPS3_PKNS0_5ValueEE3$_0EbT_SH_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i, %9, %15, %21, %32, %39, %46, %51
+"_ZSt6any_ofIN4llvm12SuccIteratorIKNS0_11InstructionEKNS0_10BasicBlockEEEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPS3_PKNS0_5ValueEE3$_0EbT_SH_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %9, %15, %21, %32, %39, %46, %51
   %.sroa.9.0.i.i.i.i.i = phi i32 [ %.sroa.2.0.copyload.i.i.i.i12, %51 ], [ %.sroa.15.0.lcssa.i.i.i.i.i, %32 ], [ %.sroa.15.1.i.i.i.i.i, %39 ], [ %.sroa.15.2.i.i.i.i.i, %46 ], [ %.sroa.15.095.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %10, %9 ], [ %16, %15 ], [ %22, %21 ]
   %52 = icmp ne i32 %.sroa.2.0.copyload.i.i.i.i12, %.sroa.9.0.i.i.i.i.i
   ret i1 %52
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3UseEEEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS_3X868CondCodeEPKNS_11InstructionEPKNS_5ValueEE3$_1EEbOT_T0_.argprom"(ptr %.0.val, ptr %.8.val) unnamed_addr #11 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3UseEEEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS_3X868CondCodeEPKNS_11InstructionEPKNS_5ValueEE3$_1EEbOT_T0_"(ptr %.0.val, ptr %.8.val) unnamed_addr #11 {
   %1 = ptrtoint ptr %.8.val to i64
   %2 = ptrtoint ptr %.0.val to i64
   %3 = sub i64 %1, %2
@@ -16295,7 +16295,7 @@ declare noundef i32 @_ZN4llvm3X8613getCMovOpcodeEjbb(i32 noundef, i1 noundef zer
 declare i32 @_ZN4llvm8FastISel16fastEmitInst_rriEjPKNS_19TargetRegisterClassEjjm(ptr noundef nonnull align 8 dereferenceable(176), i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel17fastEmitInst_rrrrEjPKN4llvm19TargetRegisterClassEjjjj.argprom(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef range(i32 13826, 13906) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 align 2 {
+define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel17fastEmitInst_rrrrEjPKN4llvm19TargetRegisterClassEjjjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef range(i32 13826, 13906) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::MachineOperand", align 8
   %8 = alloca %"class.llvm::MachineOperand", align 8
   %9 = alloca %"class.llvm::MachineOperand", align 8
@@ -16974,7 +16974,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel18TryEm
   %.sroa.022.0.us = select i1 %14, i16 7, i16 %spec.select.us
   %15 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel15X86FastEmitLoadEN4llvm3MVTERNS1_14X86AddressModeEPNS1_17MachineMemOperandERjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %.sroa.022.0.us, ptr noundef nonnull align 8 dereferenceable(36) %2, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 1)
   %16 = load i32, ptr %5, align 4
-  %17 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel16X86FastEmitStoreEN4llvm3EVTEjRNS1_14X86AddressModeEPNS1_17MachineMemOperandEb.argelim(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %.sroa.022.0.us, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef null, i1 noundef zeroext false)
+  %17 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel16X86FastEmitStoreEN4llvm3EVTEjRNS1_14X86AddressModeEPNS1_17MachineMemOperandEb(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %.sroa.022.0.us, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef null, i1 noundef zeroext false)
   %18 = zext nneg i16 %.sroa.022.0.us to i64
   %19 = add nsw i64 %18, -1
   %20 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %19
@@ -17015,7 +17015,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel18TryEm
   %.sroa.022.0 = phi i16 [ 8, %.lr.ph.split ], [ 7, %31 ], [ %spec.select, %33 ]
   %35 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel15X86FastEmitLoadEN4llvm3MVTERNS1_14X86AddressModeEPNS1_17MachineMemOperandERjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %.sroa.022.0, ptr noundef nonnull align 8 dereferenceable(36) %2, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 1)
   %36 = load i32, ptr %5, align 4
-  %37 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel16X86FastEmitStoreEN4llvm3EVTEjRNS1_14X86AddressModeEPNS1_17MachineMemOperandEb.argelim(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %.sroa.022.0, i32 noundef %36, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef null, i1 noundef zeroext false)
+  %37 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel16X86FastEmitStoreEN4llvm3EVTEjRNS1_14X86AddressModeEPNS1_17MachineMemOperandEb(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %.sroa.022.0, i32 noundef %36, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef null, i1 noundef zeroext false)
   %38 = zext nneg i16 %.sroa.022.0 to i64
   %39 = add nsw i64 %38, -1
   %40 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %39
@@ -17315,7 +17315,7 @@ _ZNK4llvm3EVTeqES0_.exit70.thread:                ; preds = %94
   br i1 %155, label %156, label %159
 
 156:                                              ; preds = %152
-  %157 = tail call fastcc i32 @"_ZZN12_GLOBAL__N_111X86FastISel20X86SelectCallAddressEPKN4llvm5ValueERNS1_14X86AddressModeEENK3$_0clES4_.argprom"(ptr %0, ptr noundef nonnull %.tr101)
+  %157 = tail call fastcc i32 @"_ZZN12_GLOBAL__N_111X86FastISel20X86SelectCallAddressEPKN4llvm5ValueERNS1_14X86AddressModeEENK3$_0clES4_"(ptr %0, ptr noundef nonnull %.tr101)
   store i32 %157, ptr %153, align 4
   %158 = icmp ne i32 %157, 0
   br label %166
@@ -17327,7 +17327,7 @@ _ZNK4llvm3EVTeqES0_.exit70.thread:                ; preds = %94
   br i1 %162, label %163, label %166
 
 163:                                              ; preds = %159
-  %164 = tail call fastcc i32 @"_ZZN12_GLOBAL__N_111X86FastISel20X86SelectCallAddressEPKN4llvm5ValueERNS1_14X86AddressModeEENK3$_0clES4_.argprom"(ptr %0, ptr noundef nonnull %.tr101)
+  %164 = tail call fastcc i32 @"_ZZN12_GLOBAL__N_111X86FastISel20X86SelectCallAddressEPKN4llvm5ValueERNS1_14X86AddressModeEENK3$_0clES4_"(ptr %0, ptr noundef nonnull %.tr101)
   store i32 %164, ptr %160, align 4
   %165 = icmp ne i32 %164, 0
   br label %166
@@ -17439,7 +17439,7 @@ declare void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef, i1 noundef zeroext)
 declare noundef i32 @_ZN4llvm16MachineFrameInfo17CreateStackObjectEmNS_5AlignEbPKNS_10AllocaInstEh(ptr noundef nonnull align 8 dereferenceable(696), i64 noundef, i8, i1 noundef zeroext, ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvmL17addFrameReferenceERKNS_19MachineInstrBuilderEii.argelim(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvmL17addFrameReferenceERKNS_19MachineInstrBuilderEii(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::MachineOperand", align 8
   %4 = alloca %"class.llvm::MachineOperand", align 8
   %5 = alloca %"class.llvm::MachineOperand", align 8
@@ -17655,7 +17655,7 @@ declare noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18Machin
 declare noundef zeroext i8 @_ZNK4llvm12X86Subtarget22classifyLocalReferenceEPKNS_11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(409248), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i32 @"_ZZN12_GLOBAL__N_111X86FastISel20X86SelectCallAddressEPKN4llvm5ValueERNS1_14X86AddressModeEENK3$_0clES4_.argprom"(ptr nonnull %.0.val, ptr noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc i32 @"_ZZN12_GLOBAL__N_111X86FastISel20X86SelectCallAddressEPKN4llvm5ValueERNS1_14X86AddressModeEENK3$_0clES4_"(ptr nonnull %.0.val, ptr noundef %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::MachineOperand", align 8
   %3 = alloca %"class.llvm::MachineOperand", align 8
   %4 = alloca %"class.llvm::MachineOperand", align 8

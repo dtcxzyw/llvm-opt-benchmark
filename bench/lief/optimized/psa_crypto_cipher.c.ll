@@ -118,12 +118,12 @@ declare ptr @mbedtls_cipher_info_from_values(i32 noundef, i32 noundef, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_psa_cipher_encrypt_setup(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = tail call fastcc i32 @psa_cipher_setup.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %4, i32 noundef 1)
+  %6 = tail call fastcc i32 @psa_cipher_setup(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %4, i32 noundef 1)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @psa_cipher_setup.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc i32 @psa_cipher_setup(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca [24 x i8], align 16
   %7 = load i16, ptr %1, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -246,7 +246,7 @@ define internal fastcc i32 @psa_cipher_setup.argelim(ptr noundef %0, ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_psa_cipher_decrypt_setup(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = tail call fastcc i32 @psa_cipher_setup.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %4, i32 noundef 0)
+  %6 = tail call fastcc i32 @psa_cipher_setup(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %4, i32 noundef 0)
   ret i32 %6
 }
 
@@ -486,7 +486,7 @@ define hidden i32 @mbedtls_psa_cipher_encrypt(ptr nocapture noundef readonly %0,
   %14 = alloca i64, align 8
   %15 = alloca i64, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %13, i8 0, i64 104, i1 false)
-  %16 = call fastcc i32 @psa_cipher_setup.argelim(ptr noundef nonnull %13, ptr noundef readonly %0, ptr noundef %1, i32 noundef %3, i32 noundef 1)
+  %16 = call fastcc i32 @psa_cipher_setup(ptr noundef nonnull %13, ptr noundef readonly %0, ptr noundef %1, i32 noundef %3, i32 noundef 1)
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %17, label %mbedtls_psa_cipher_set_iv.exit.thread
 
@@ -599,7 +599,7 @@ define hidden i32 @mbedtls_psa_cipher_decrypt(ptr nocapture noundef readonly %0,
   %11 = alloca %struct.mbedtls_psa_cipher_operation_t, align 8
   %12 = alloca i64, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %11, i8 0, i64 104, i1 false)
-  %13 = call fastcc i32 @psa_cipher_setup.argelim(ptr noundef nonnull %11, ptr noundef readonly %0, ptr noundef %1, i32 noundef %3, i32 noundef 0)
+  %13 = call fastcc i32 @psa_cipher_setup(ptr noundef nonnull %11, ptr noundef readonly %0, ptr noundef %1, i32 noundef %3, i32 noundef 0)
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %50
 

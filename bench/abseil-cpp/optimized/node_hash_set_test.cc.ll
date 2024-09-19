@@ -10191,7 +10191,7 @@ _ZN7testing15AssertionResultD2Ev.exit192:         ; preds = %if.end82, %_ZNKSt14
   %src.val3.i = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i81, align 8
   %36 = load i8, ptr %src.val.i, align 1
   %cmp.i3.i.i.i = icmp slt i8 %36, -1
-  br i1 %cmp.i3.i.i.i, label %while.body.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.argprom.exit.i
+  br i1 %cmp.i3.i.i.i, label %while.body.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.exit.i
 
 while.body.i.i.i:                                 ; preds = %_ZN7testing15AssertionResultD2Ev.exit192, %while.body.i.i.i
   %37 = phi ptr [ %add.ptr6.i.i.i, %while.body.i.i.i ], [ %src.val3.i, %_ZN7testing15AssertionResultD2Ev.exit192 ]
@@ -10207,18 +10207,18 @@ while.body.i.i.i:                                 ; preds = %_ZN7testing15Assert
   %add.ptr6.i.i.i = getelementptr inbounds ptr, ptr %37, i64 %idx.ext.i.i.i
   %42 = load i8, ptr %add.ptr.i.i.i, align 1
   %cmp.i.i2.i.i = icmp slt i8 %42, -1
-  br i1 %cmp.i.i2.i.i, label %while.body.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.argprom.exit.i, !llvm.loop !98
+  br i1 %cmp.i.i2.i.i, label %while.body.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.exit.i, !llvm.loop !98
 
-_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.argprom.exit.i: ; preds = %while.body.i.i.i, %_ZN7testing15AssertionResultD2Ev.exit192
+_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.exit.i: ; preds = %while.body.i.i.i, %_ZN7testing15AssertionResultD2Ev.exit192
   %retval.sroa.5.0.i.i = phi ptr [ %src.val3.i, %_ZN7testing15AssertionResultD2Ev.exit192 ], [ %add.ptr6.i.i.i, %while.body.i.i.i ]
   %retval.sroa.0.0.i.i = phi ptr [ %src.val.i, %_ZN7testing15AssertionResultD2Ev.exit192 ], [ %add.ptr.i.i.i, %while.body.i.i.i ]
   %.lcssa.i.i.i = phi i8 [ %36, %_ZN7testing15AssertionResultD2Ev.exit192 ], [ %42, %while.body.i.i.i ]
   %cmp.i.i.i = icmp eq i8 %.lcssa.i.i.i, -1
   br i1 %cmp.i.i.i, label %invoke.cont104, label %for.body.i
 
-for.body.i:                                       ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.argprom.exit.i, %if.end.i
-  %it.sroa.5.018.i = phi ptr [ %__x.sroa.6.0.i.i, %if.end.i ], [ %retval.sroa.5.0.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.argprom.exit.i ]
-  %it.sroa.0.017.i = phi ptr [ %__x.sroa.0.0.i.i, %if.end.i ], [ %retval.sroa.0.0.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.argprom.exit.i ]
+for.body.i:                                       ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.exit.i, %if.end.i
+  %it.sroa.5.018.i = phi ptr [ %__x.sroa.6.0.i.i, %if.end.i ], [ %retval.sroa.5.0.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.exit.i ]
+  %it.sroa.0.017.i = phi ptr [ %__x.sroa.0.0.i.i, %if.end.i ], [ %retval.sroa.0.0.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.exit.i ]
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.017.i, i64 1
   %incdec.ptr4.i.i.i.i.i = getelementptr inbounds i8, ptr %it.sroa.5.018.i, i64 8
   %43 = load i8, ptr %incdec.ptr.i.i.i.i.i, align 1
@@ -10267,7 +10267,7 @@ if.then.i:                                        ; preds = %call.i.i.i.i.i.noex
 if.end.i:                                         ; preds = %if.then.i, %call.i.i.i.i.i.noexc
   br i1 %cmp.i.i.i.i.i9.i, label %invoke.cont104, label %for.body.i, !llvm.loop !108
 
-invoke.cont104:                                   ; preds = %if.end.i, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.argprom.exit.i
+invoke.cont104:                                   ; preds = %if.end.i, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.exit.i
   store i32 19, ptr %ref.tmp86, align 4
   %agg.tmp87194.sroa.4.0.ref.tmp86.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp86, i64 4
   store i32 17, ptr %agg.tmp87194.sroa.4.0.ref.tmp86.sroa_idx, align 4
@@ -10308,7 +10308,7 @@ invoke.cont5.i.i.i.i.i.i:                         ; preds = %invoke.cont3.i.i.i.
 invoke.cont8.i.i.i.i.i.i:                         ; preds = %invoke.cont5.i.i.i.i.i.i
   %53 = load ptr, ptr %matchers.i.i.i.i.i.i, align 8, !noalias !127
   %54 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i.i, align 8, !noalias !127
-  invoke fastcc void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEEC2IN9__gnu_cxx17__normal_iteratorIPNS_7MatcherIRKS7_EESt6vectorISO_SaISO_EEEEEENS0_23UnorderedMatcherRequire5FlagsET_SW_.argelim(ptr noundef nonnull align 8 dereferenceable(64) %call9.i.i.i.i.i.i, ptr %53, ptr %54)
+  invoke fastcc void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEEC2IN9__gnu_cxx17__normal_iteratorIPNS_7MatcherIRKS7_EESt6vectorISO_SaISO_EEEEEENS0_23UnorderedMatcherRequire5FlagsET_SW_(ptr noundef nonnull align 8 dereferenceable(64) %call9.i.i.i.i.i.i, ptr %53, ptr %54)
           to label %invoke.cont19.i.i.i.i.i.i unwind label %lpad18.i.i.i.i.i.i
 
 invoke.cont19.i.i.i.i.i.i:                        ; preds = %invoke.cont8.i.i.i.i.i.i
@@ -10635,15 +10635,15 @@ cleanup.i:                                        ; preds = %_ZN7testing15Assert
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEEE, i64 16), ptr %matcher.i, align 8, !noalias !129
   %this.val.i.i.i.i = load ptr, ptr %vtable_.i.i.i.i.i.i.i.i, align 8, !noalias !129
   %cmp.not.i.i.i.i.i = icmp eq ptr %this.val.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont105, label %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.argprom.exit.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont105, label %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.exit.i.i.i.i
 
-_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.argprom.exit.i.i.i.i: ; preds = %cleanup.i
+_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.exit.i.i.i.i: ; preds = %cleanup.i
   %shared_destroy.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.i.i.i.i, i64 24
   %83 = load ptr, ptr %shared_destroy.i.i.i.i.i, align 8
   %cmp3.i.not.i.i.i.i = icmp eq ptr %83, null
   br i1 %cmp3.i.not.i.i.i.i, label %invoke.cont105, label %land.lhs.true.i.i.i.i
 
-land.lhs.true.i.i.i.i:                            ; preds = %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.argprom.exit.i.i.i.i
+land.lhs.true.i.i.i.i:                            ; preds = %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.exit.i.i.i.i
   %84 = load ptr, ptr %buffer_.i.i.i.i.i.i.i.i, align 8, !noalias !129
   %85 = atomicrmw sub ptr %84, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i = icmp eq i32 %85, 1
@@ -10669,7 +10669,7 @@ ehcleanup42.i:                                    ; preds = %ehcleanup41.i, %lpa
   call void @_ZN7testing7MatcherIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS1_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matcher.i) #30
   br label %ehcleanup687
 
-invoke.cont105:                                   ; preds = %if.then.i.i.i.i, %land.lhs.true.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.argprom.exit.i.i.i.i, %cleanup.i
+invoke.cont105:                                   ; preds = %if.then.i.i.i.i, %land.lhs.true.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.exit.i.i.i.i, %cleanup.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %matcher.i)
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i)
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %listener.i)
@@ -10871,7 +10871,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit242:         ; preds = %if.end151, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i241
   store ptr null, ptr %message_.i239, align 8
-  invoke fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7extractIS6_TnNSt9enable_ifIXntsr3std7is_sameIT_NSD_8iteratorEEE5valueEiE4typeELi0EEENS0_11node_handleIS7_NS0_18hash_policy_traitsIS7_vEESC_vEERKS6_.argprom.argprom(ptr noalias align 8 %node, ptr noundef nonnull align 8 dereferenceable(32) %set1, i32 7)
+  invoke fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7extractIS6_TnNSt9enable_ifIXntsr3std7is_sameIT_NSD_8iteratorEEE5valueEiE4typeELi0EEENS0_11node_handleIS7_NS0_18hash_policy_traitsIS7_vEESC_vEERKS6_(ptr noalias align 8 %node, ptr noundef nonnull align 8 dereferenceable(32) %set1, i32 7)
           to label %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit248 unwind label %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit254
 
 _ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit248: ; preds = %_ZN7testing15AssertionResultD2Ev.exit242
@@ -12024,7 +12024,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit475:         ; preds = %if.end441, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i474
   store ptr null, ptr %message_.i472, align 8
-  invoke fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7extractIS6_TnNSt9enable_ifIXntsr3std7is_sameIT_NSD_8iteratorEEE5valueEiE4typeELi0EEENS0_11node_handleIS7_NS0_18hash_policy_traitsIS7_vEESC_vEERKS6_.argprom.argprom(ptr noalias align 8 %ref.tmp443, ptr noundef nonnull align 8 dereferenceable(32) %set1, i32 17)
+  invoke fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7extractIS6_TnNSt9enable_ifIXntsr3std7is_sameIT_NSD_8iteratorEEE5valueEiE4typeELi0EEENS0_11node_handleIS7_NS0_18hash_policy_traitsIS7_vEESC_vEERKS6_(ptr noalias align 8 %ref.tmp443, ptr noundef nonnull align 8 dereferenceable(32) %set1, i32 17)
           to label %invoke.cont448 unwind label %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit505
 
 invoke.cont448:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit475
@@ -13090,17 +13090,17 @@ if.then.i.i.i.i765:                               ; preds = %for.body.i.i.i.i
   %add.ptr.val.i.i.i.i = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %331 = load ptr, ptr %add.ptr.val.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %331, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7destroyEPPS6_.argprom.exit.i.i.i.i, label %_ZNKSt14default_deleteIiEclEPi.exit.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7destroyEPPS6_.exit.i.i.i.i, label %_ZNKSt14default_deleteIiEclEPi.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIiEclEPi.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i765
   call void @_ZdlPv(ptr noundef nonnull %331) #34
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7destroyEPPS6_.argprom.exit.i.i.i.i
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7destroyEPPS6_.exit.i.i.i.i
 
-_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7destroyEPPS6_.argprom.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIiEclEPi.exit.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i765
+_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7destroyEPPS6_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIiEclEPi.exit.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i765
   call void @_ZdlPv(ptr noundef nonnull %add.ptr.val.i.i.i.i) #34
   br label %for.inc.i.i.i.i
 
-for.inc.i.i.i.i:                                  ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7destroyEPPS6_.argprom.exit.i.i.i.i, %for.body.i.i.i.i
+for.inc.i.i.i.i:                                  ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7destroyEPPS6_.exit.i.i.i.i, %for.body.i.i.i.i
   %inc.i.i.i.i = add nuw i64 %i.07.i.i.i.i, 1
   %cmp.not.i.i.i.i763 = icmp eq i64 %inc.i.i.i.i, %this.val.i.i.i
   br i1 %cmp.not.i.i.i.i763, label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE13destroy_slotsEv.exit.i.i.i, label %for.body.i.i.i.i, !llvm.loop !183
@@ -13138,17 +13138,17 @@ if.then.i.i.i.i783:                               ; preds = %for.body.i.i.i.i771
   %add.ptr.val.i.i.i.i785 = load ptr, ptr %add.ptr.i.i.i.i784, align 8
   %336 = load ptr, ptr %add.ptr.val.i.i.i.i785, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i786 = icmp eq ptr %336, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i786, label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7destroyEPPS6_.argprom.exit.i.i.i.i788, label %_ZNKSt14default_deleteIiEclEPi.exit.i.i.i.i.i.i.i.i.i.i.i787
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i786, label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7destroyEPPS6_.exit.i.i.i.i788, label %_ZNKSt14default_deleteIiEclEPi.exit.i.i.i.i.i.i.i.i.i.i.i787
 
 _ZNKSt14default_deleteIiEclEPi.exit.i.i.i.i.i.i.i.i.i.i.i787: ; preds = %if.then.i.i.i.i783
   call void @_ZdlPv(ptr noundef nonnull %336) #34
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7destroyEPPS6_.argprom.exit.i.i.i.i788
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7destroyEPPS6_.exit.i.i.i.i788
 
-_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7destroyEPPS6_.argprom.exit.i.i.i.i788: ; preds = %_ZNKSt14default_deleteIiEclEPi.exit.i.i.i.i.i.i.i.i.i.i.i787, %if.then.i.i.i.i783
+_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7destroyEPPS6_.exit.i.i.i.i788: ; preds = %_ZNKSt14default_deleteIiEclEPi.exit.i.i.i.i.i.i.i.i.i.i.i787, %if.then.i.i.i.i783
   call void @_ZdlPv(ptr noundef nonnull %add.ptr.val.i.i.i.i785) #34
   br label %for.inc.i.i.i.i775
 
-for.inc.i.i.i.i775:                               ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7destroyEPPS6_.argprom.exit.i.i.i.i788, %for.body.i.i.i.i771
+for.inc.i.i.i.i775:                               ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7destroyEPPS6_.exit.i.i.i.i788, %for.body.i.i.i.i771
   %inc.i.i.i.i776 = add nuw i64 %i.07.i.i.i.i772, 1
   %cmp.not.i.i.i.i777 = icmp eq i64 %inc.i.i.i.i776, %this.val.i.i.i766
   br i1 %cmp.not.i.i.i.i777, label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE13destroy_slotsEv.exit.i.i.i778, label %for.body.i.i.i.i771, !llvm.loop !183
@@ -13232,7 +13232,7 @@ invoke.cont5.i.i.i.i.i:                           ; preds = %invoke.cont3.i.i.i.
 invoke.cont8.i.i.i.i.i:                           ; preds = %invoke.cont5.i.i.i.i.i
   %0 = load ptr, ptr %matchers.i.i.i.i.i, align 8, !noalias !200
   %1 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8, !noalias !200
-  invoke fastcc void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEEC2IN9__gnu_cxx17__normal_iteratorIPNS_7MatcherIRKS7_EESt6vectorISO_SaISO_EEEEEENS0_23UnorderedMatcherRequire5FlagsET_SW_.argelim(ptr noundef nonnull align 8 dereferenceable(64) %call9.i.i.i.i.i, ptr %0, ptr %1)
+  invoke fastcc void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEEC2IN9__gnu_cxx17__normal_iteratorIPNS_7MatcherIRKS7_EESt6vectorISO_SaISO_EEEEEENS0_23UnorderedMatcherRequire5FlagsET_SW_(ptr noundef nonnull align 8 dereferenceable(64) %call9.i.i.i.i.i, ptr %0, ptr %1)
           to label %invoke.cont19.i.i.i.i.i unwind label %lpad18.i.i.i.i.i
 
 invoke.cont19.i.i.i.i.i:                          ; preds = %invoke.cont8.i.i.i.i.i
@@ -13563,15 +13563,15 @@ cleanup:                                          ; preds = %if.then, %_ZN7testi
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEEE, i64 16), ptr %matcher, align 8
   %this.val.i.i.i = load ptr, ptr %vtable_.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %this.val.i.i.i, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS1_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EEEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.argprom.exit.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS1_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EEEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.exit.i.i.i
 
-_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.argprom.exit.i.i.i: ; preds = %cleanup
+_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.exit.i.i.i: ; preds = %cleanup
   %shared_destroy.i.i.i.i = getelementptr inbounds i8, ptr %this.val.i.i.i, i64 24
   %30 = load ptr, ptr %shared_destroy.i.i.i.i, align 8
   %cmp3.i.not.i.i.i = icmp eq ptr %30, null
   br i1 %cmp3.i.not.i.i.i, label %_ZN7testing7MatcherIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS1_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EEEED2Ev.exit, label %land.lhs.true.i.i.i
 
-land.lhs.true.i.i.i:                              ; preds = %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.argprom.exit.i.i.i
+land.lhs.true.i.i.i:                              ; preds = %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.exit.i.i.i
   %31 = load ptr, ptr %buffer_.i.i.i.i.i.i.i, align 8
   %32 = atomicrmw sub ptr %31, i32 1 acq_rel, align 4
   %cmp.i.i.i.i = icmp eq i32 %32, 1
@@ -13592,7 +13592,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   call void @__clang_call_terminate(ptr %37) #29
   unreachable
 
-_ZN7testing7MatcherIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS1_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EEEED2Ev.exit: ; preds = %cleanup, %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.argprom.exit.i.i.i, %land.lhs.true.i.i.i, %if.then.i.i.i
+_ZN7testing7MatcherIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS1_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EEEED2Ev.exit: ; preds = %cleanup, %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.exit.i.i.i, %land.lhs.true.i.i.i, %if.then.i.i.i
   ret void
 
 ehcleanup42:                                      ; preds = %lpad, %lpad.i.i, %ehcleanup41
@@ -13672,7 +13672,7 @@ invoke.cont5.i.i.i.i.i:                           ; preds = %invoke.cont3.i.i.i.
 invoke.cont8.i.i.i.i.i:                           ; preds = %invoke.cont5.i.i.i.i.i
   %0 = load ptr, ptr %matchers.i.i.i.i.i, align 8, !noalias !217
   %1 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8, !noalias !217
-  invoke fastcc void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEEC2IN9__gnu_cxx17__normal_iteratorIPNS_7MatcherIRKS7_EESt6vectorISO_SaISO_EEEEEENS0_23UnorderedMatcherRequire5FlagsET_SW_.argelim(ptr noundef nonnull align 8 dereferenceable(64) %call9.i.i.i.i.i, ptr %0, ptr %1)
+  invoke fastcc void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEEC2IN9__gnu_cxx17__normal_iteratorIPNS_7MatcherIRKS7_EESt6vectorISO_SaISO_EEEEEENS0_23UnorderedMatcherRequire5FlagsET_SW_(ptr noundef nonnull align 8 dereferenceable(64) %call9.i.i.i.i.i, ptr %0, ptr %1)
           to label %invoke.cont19.i.i.i.i.i unwind label %lpad18.i.i.i.i.i
 
 invoke.cont19.i.i.i.i.i:                          ; preds = %invoke.cont8.i.i.i.i.i
@@ -14003,15 +14003,15 @@ cleanup:                                          ; preds = %if.then, %_ZN7testi
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEEE, i64 16), ptr %matcher, align 8
   %this.val.i.i.i = load ptr, ptr %vtable_.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %this.val.i.i.i, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS1_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EEEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.argprom.exit.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS1_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EEEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.exit.i.i.i
 
-_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.argprom.exit.i.i.i: ; preds = %cleanup
+_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.exit.i.i.i: ; preds = %cleanup
   %shared_destroy.i.i.i.i = getelementptr inbounds i8, ptr %this.val.i.i.i, i64 24
   %30 = load ptr, ptr %shared_destroy.i.i.i.i, align 8
   %cmp3.i.not.i.i.i = icmp eq ptr %30, null
   br i1 %cmp3.i.not.i.i.i, label %_ZN7testing7MatcherIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS1_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EEEED2Ev.exit, label %land.lhs.true.i.i.i
 
-land.lhs.true.i.i.i:                              ; preds = %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.argprom.exit.i.i.i
+land.lhs.true.i.i.i:                              ; preds = %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.exit.i.i.i
   %31 = load ptr, ptr %buffer_.i.i.i.i.i.i.i, align 8
   %32 = atomicrmw sub ptr %31, i32 1 acq_rel, align 4
   %cmp.i.i.i.i = icmp eq i32 %32, 1
@@ -14032,7 +14032,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   call void @__clang_call_terminate(ptr %37) #29
   unreachable
 
-_ZN7testing7MatcherIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS1_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EEEED2Ev.exit: ; preds = %cleanup, %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.argprom.exit.i.i.i, %land.lhs.true.i.i.i, %if.then.i.i.i
+_ZN7testing7MatcherIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS1_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EEEED2Ev.exit: ; preds = %cleanup, %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.exit.i.i.i, %land.lhs.true.i.i.i, %if.then.i.i.i
   ret void
 
 ehcleanup42:                                      ; preds = %lpad, %lpad.i.i, %ehcleanup41
@@ -14042,7 +14042,7 @@ ehcleanup42:                                      ; preds = %lpad, %lpad.i.i, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7extractIS6_TnNSt9enable_ifIXntsr3std7is_sameIT_NSD_8iteratorEEE5valueEiE4typeELi0EEENS0_11node_handleIS7_NS0_18hash_policy_traitsIS7_vEESC_vEERKS6_.argprom.argprom(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 %key.0.val.0.val) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7extractIS6_TnNSt9enable_ifIXntsr3std7is_sameIT_NSD_8iteratorEEE5valueEiE4typeELi0EEENS0_11node_handleIS7_NS0_18hash_policy_traitsIS7_vEESC_vEERKS6_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 %key.0.val.0.val) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %this.val.i = load ptr, ptr %this, align 8
   tail call void @llvm.prefetch.p0(ptr readonly %this.val.i, i32 0, i32 1, i32 1)
@@ -14092,7 +14092,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   tail call void @llvm.assume(i1 %cmp.i.i12.i.i)
   %.fca.0.insert.i.i.i = insertvalue { ptr, ptr } poison, ptr %add.ptr.i.i.i, 0
   %.fca.1.insert.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i, ptr %add.ptr19.i.i.le, 1
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE4findIS6_EENSD_8iteratorERKS6_.argprom.argprom.exit
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE4findIS6_EENSD_8iteratorERKS6_.exit
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %8 = add i16 %__begin4.sroa.0.028.i.i, -1
@@ -14104,27 +14104,27 @@ for.end.i.i:                                      ; preds = %for.inc.i.i, %while
   %cmp.i.i13.i.i = icmp eq <16 x i8> %4, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
   %10 = bitcast <16 x i1> %cmp.i.i13.i.i to i16
   %cmp.i14.not.i.i = icmp eq i16 %10, 0
-  br i1 %cmp.i14.not.i.i, label %if.end34.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE4findIS6_EENSD_8iteratorERKS6_.argprom.argprom.exit
+  br i1 %cmp.i14.not.i.i, label %if.end34.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE4findIS6_EENSD_8iteratorERKS6_.exit
 
 if.end34.i.i:                                     ; preds = %for.end.i.i
   %add.i15.i.i = add i64 %seq.sroa.10.0.i.i, 16
   %add3.i.i.i = add i64 %add.i15.i.i, %seq.sroa.4.0.i.i
   br label %while.body.i.i, !llvm.loop !221
 
-_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE4findIS6_EENSD_8iteratorERKS6_.argprom.argprom.exit: ; preds = %for.end.i.i, %if.then.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE4findIS6_EENSD_8iteratorERKS6_.exit: ; preds = %for.end.i.i, %if.then.i.i
   %call25.pn.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i, %if.then.i.i ], [ { ptr null, ptr undef }, %for.end.i.i ]
   %11 = extractvalue { ptr, ptr } %call25.pn.i.i, 0
   %cmp.i = icmp eq ptr %11, null
   br i1 %cmp.i, label %cond.true, label %cond.false
 
-cond.true:                                        ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE4findIS6_EENSD_8iteratorERKS6_.argprom.argprom.exit
+cond.true:                                        ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE4findIS6_EENSD_8iteratorERKS6_.exit
   %_M_engaged.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i, align 1
   %scevgep.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 0, ptr %scevgep.i.i, align 8
   br label %cond.end
 
-cond.false:                                       ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE4findIS6_EENSD_8iteratorERKS6_.argprom.argprom.exit
+cond.false:                                       ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE4findIS6_EENSD_8iteratorERKS6_.exit
   %12 = extractvalue { ptr, ptr } %call25.pn.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !222)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !225)
@@ -14582,17 +14582,17 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i.i
   %add.ptr.val.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 8
   %3 = load ptr, ptr %add.ptr.val.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %3, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7destroyEPPS6_.argprom.exit.i.i.i, label %_ZNKSt14default_deleteIiEclEPi.exit.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7destroyEPPS6_.exit.i.i.i, label %_ZNKSt14default_deleteIiEclEPi.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIiEclEPi.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %3) #34
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7destroyEPPS6_.argprom.exit.i.i.i
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7destroyEPPS6_.exit.i.i.i
 
-_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7destroyEPPS6_.argprom.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIiEclEPi.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7destroyEPPS6_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIiEclEPi.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.val.i.i.i) #34
   br label %for.inc.i.i.i
 
-for.inc.i.i.i:                                    ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7destroyEPPS6_.argprom.exit.i.i.i, %for.body.i.i.i
+for.inc.i.i.i:                                    ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7destroyEPPS6_.exit.i.i.i, %for.body.i.i.i
   %inc.i.i.i = add nuw i64 %i.07.i.i.i, 1
   %cmp.not.i.i.i = icmp eq i64 %inc.i.i.i, %this.val.i.i
   br i1 %cmp.not.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE13destroy_slotsEv.exit.i.i, label %for.body.i.i.i, !llvm.loop !183
@@ -15063,7 +15063,7 @@ call.i.i.i.i.i.noexc:                             ; preds = %invoke.cont
   %container.val11.i.i.i.i.i = load ptr, ptr %10, align 8
   %11 = load i8, ptr %container.val.i.i.i.i.i, align 1
   %cmp.i3.i.i.i.i.i.i.i.i = icmp slt i8 %11, -1
-  br i1 %cmp.i3.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i, label %_ZNK4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.argprom.exit.i.i.i.i.i
+  br i1 %cmp.i3.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i, label %_ZNK4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.exit.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i.i:                       ; preds = %call.i.i.i.i.i.noexc, %while.body.i.i.i.i.i.i.i.i
   %12 = phi ptr [ %add.ptr6.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i ], [ %container.val11.i.i.i.i.i, %call.i.i.i.i.i.noexc ]
@@ -15079,19 +15079,19 @@ while.body.i.i.i.i.i.i.i.i:                       ; preds = %call.i.i.i.i.i.noex
   %add.ptr6.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %12, i64 %idx.ext.i.i.i.i.i.i.i.i
   %17 = load i8, ptr %add.ptr.i.i.i.i.i.i.i.i, align 1
   %cmp.i.i2.i.i.i.i.i.i.i = icmp slt i8 %17, -1
-  br i1 %cmp.i.i2.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i, label %_ZNK4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.argprom.exit.i.i.i.i.i, !llvm.loop !98
+  br i1 %cmp.i.i2.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i, label %_ZNK4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.exit.i.i.i.i.i, !llvm.loop !98
 
-_ZNK4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.argprom.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i.i.i, %call.i.i.i.i.i.noexc
+_ZNK4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i.i.i, %call.i.i.i.i.i.noexc
   %retval.sroa.5.0.i.i.i.i.i.i.i = phi ptr [ %container.val11.i.i.i.i.i, %call.i.i.i.i.i.noexc ], [ %add.ptr6.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i ]
   %retval.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ %container.val.i.i.i.i.i, %call.i.i.i.i.i.noexc ], [ %add.ptr.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i ]
   %.lcssa.i.i.i.i.i.i.i.i = phi i8 [ %11, %call.i.i.i.i.i.noexc ], [ %17, %while.body.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i = icmp eq i8 %.lcssa.i.i.i.i.i.i.i.i, -1
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZN7testing8internal16UniversalPrinterIN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE5PrintERKSE_PSo.exit.i, label %for.body.i.i.i.i.i
 
-for.body.i.i.i.i.i:                               ; preds = %_ZNK4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.argprom.exit.i.i.i.i.i, %while.end.i.i.i.i.i.i.i.i
-  %count.030.i.i.i.i.i = phi i64 [ %inc.i.i.i.i.i, %while.end.i.i.i.i.i.i.i.i ], [ 0, %_ZNK4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.argprom.exit.i.i.i.i.i ]
-  %__begin0.sroa.6.029.i.i.i.i.i = phi ptr [ %__begin0.sroa.6.1.i.i.i.i.i, %while.end.i.i.i.i.i.i.i.i ], [ %retval.sroa.5.0.i.i.i.i.i.i.i, %_ZNK4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.argprom.exit.i.i.i.i.i ]
-  %__begin0.sroa.0.028.i.i.i.i.i = phi ptr [ %__begin0.sroa.0.1.i.i.i.i.i, %while.end.i.i.i.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i.i.i.i.i, %_ZNK4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.argprom.exit.i.i.i.i.i ]
+for.body.i.i.i.i.i:                               ; preds = %_ZNK4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.exit.i.i.i.i.i, %while.end.i.i.i.i.i.i.i.i
+  %count.030.i.i.i.i.i = phi i64 [ %inc.i.i.i.i.i, %while.end.i.i.i.i.i.i.i.i ], [ 0, %_ZNK4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.exit.i.i.i.i.i ]
+  %__begin0.sroa.6.029.i.i.i.i.i = phi ptr [ %__begin0.sroa.6.1.i.i.i.i.i, %while.end.i.i.i.i.i.i.i.i ], [ %retval.sroa.5.0.i.i.i.i.i.i.i, %_ZNK4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.exit.i.i.i.i.i ]
+  %__begin0.sroa.0.028.i.i.i.i.i = phi ptr [ %__begin0.sroa.0.1.i.i.i.i.i, %while.end.i.i.i.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i.i.i.i.i, %_ZNK4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.exit.i.i.i.i.i ]
   %__begin0.val12.val.i.i.i.i.i = load ptr, ptr %__begin0.sroa.6.029.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq i64 %count.030.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i, label %if.end10.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -15180,7 +15180,7 @@ if.then14.i.i.i.i.i:                              ; preds = %for.end.thread.i.i.
   %call15.i.i.i.i.i23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %9, i8 noundef signext 32)
           to label %_ZN7testing8internal16UniversalPrinterIN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE5PrintERKSE_PSo.exit.i unwind label %lpad.loopexit.split-lp
 
-_ZN7testing8internal16UniversalPrinterIN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE5PrintERKSE_PSo.exit.i: ; preds = %if.then14.i.i.i.i.i, %for.end.i.i.i.i.i, %_ZNK4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.argprom.exit.i.i.i.i.i
+_ZN7testing8internal16UniversalPrinterIN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE5PrintERKSE_PSo.exit.i: ; preds = %if.then14.i.i.i.i.i, %for.end.i.i.i.i.i, %_ZNK4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.exit.i.i.i.i.i
   %call17.i.i.i.i.i24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %9, i8 noundef signext 125)
           to label %invoke.cont4 unwind label %lpad.loopexit.split-lp
 
@@ -15301,15 +15301,15 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val.i.i = load ptr, ptr %0, align 8
   %cmp.not.i.i.i = icmp eq ptr %this.val.i.i, null
-  br i1 %cmp.not.i.i.i, label %_ZN7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.argprom.exit.i.i
+  br i1 %cmp.not.i.i.i, label %_ZN7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.exit.i.i
 
-_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.argprom.exit.i.i: ; preds = %entry
+_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.exit.i.i: ; preds = %entry
   %shared_destroy.i.i.i = getelementptr inbounds i8, ptr %this.val.i.i, i64 24
   %1 = load ptr, ptr %shared_destroy.i.i.i, align 8
   %cmp3.i.not.i.i = icmp eq ptr %1, null
   br i1 %cmp3.i.not.i.i, label %_ZN7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEED2Ev.exit, label %land.lhs.true.i.i
 
-land.lhs.true.i.i:                                ; preds = %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.argprom.exit.i.i
+land.lhs.true.i.i:                                ; preds = %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.exit.i.i
   %buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %buffer_.i.i, align 8
   %3 = atomicrmw sub ptr %2, i32 1 acq_rel, align 4
@@ -15331,12 +15331,12 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   tail call void @__clang_call_terminate(ptr %8) #29
   unreachable
 
-_ZN7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEED2Ev.exit: ; preds = %entry, %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.argprom.exit.i.i, %land.lhs.true.i.i, %if.then.i.i
+_ZN7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEED2Ev.exit: ; preds = %entry, %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.exit.i.i, %land.lhs.true.i.i, %if.then.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEEC2IN9__gnu_cxx17__normal_iteratorIPNS_7MatcherIRKS7_EESt6vectorISO_SaISO_EEEEEENS0_23UnorderedMatcherRequire5FlagsET_SW_.argelim(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr readonly %first.coerce, ptr readnone %last.coerce) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEEC2IN9__gnu_cxx17__normal_iteratorIPNS_7MatcherIRKS7_EESt6vectorISO_SaISO_EEEEEENS0_23UnorderedMatcherRequire5FlagsET_SW_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr readonly %first.coerce, ptr readnone %last.coerce) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::Matcher.109", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -17891,15 +17891,15 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val.i.i.i = load ptr, ptr %0, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %this.val.i.i.i, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS1_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EEEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.argprom.exit.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS1_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EEEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.exit.i.i.i
 
-_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.argprom.exit.i.i.i: ; preds = %entry
+_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.exit.i.i.i: ; preds = %entry
   %shared_destroy.i.i.i.i = getelementptr inbounds i8, ptr %this.val.i.i.i, i64 24
   %1 = load ptr, ptr %shared_destroy.i.i.i.i, align 8
   %cmp3.i.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp3.i.not.i.i.i, label %_ZN7testing7MatcherIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS1_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EEEED2Ev.exit, label %land.lhs.true.i.i.i
 
-land.lhs.true.i.i.i:                              ; preds = %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.argprom.exit.i.i.i
+land.lhs.true.i.i.i:                              ; preds = %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.exit.i.i.i
   %buffer_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %buffer_.i.i.i, align 8
   %3 = atomicrmw sub ptr %2, i32 1 acq_rel, align 4
@@ -17921,7 +17921,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   tail call void @__clang_call_terminate(ptr %8) #29
   unreachable
 
-_ZN7testing7MatcherIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS1_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EEEED2Ev.exit: ; preds = %entry, %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.argprom.exit.i.i.i, %land.lhs.true.i.i.i, %if.then.i.i.i
+_ZN7testing7MatcherIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS1_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EEEED2Ev.exit: ; preds = %entry, %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.exit.i.i.i, %land.lhs.true.i.i.i, %if.then.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %this) #34
   ret void
 }
@@ -17966,15 +17966,15 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val.i = load ptr, ptr %0, align 8
   %cmp.not.i.i = icmp eq ptr %this.val.i, null
-  br i1 %cmp.not.i.i, label %invoke.cont, label %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.argprom.exit.i
+  br i1 %cmp.not.i.i, label %invoke.cont, label %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.exit.i
 
-_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.argprom.exit.i: ; preds = %entry
+_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.exit.i: ; preds = %entry
   %shared_destroy.i.i = getelementptr inbounds i8, ptr %this.val.i, i64 24
   %1 = load ptr, ptr %shared_destroy.i.i, align 8
   %cmp3.i.not.i = icmp eq ptr %1, null
   br i1 %cmp3.i.not.i, label %invoke.cont, label %land.lhs.true.i
 
-land.lhs.true.i:                                  ; preds = %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.argprom.exit.i
+land.lhs.true.i:                                  ; preds = %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.exit.i
   %buffer_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %buffer_.i, align 8
   %3 = atomicrmw sub ptr %2, i32 1 acq_rel, align 4
@@ -17989,7 +17989,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   invoke void %5(ptr noundef %6)
           to label %invoke.cont unwind label %terminate.lpad
 
-invoke.cont:                                      ; preds = %land.lhs.true.i, %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.argprom.exit.i, %entry, %if.then.i
+invoke.cont:                                      ; preds = %land.lhs.true.i, %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.exit.i, %entry, %if.then.i
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i
@@ -18007,15 +18007,15 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val.i.i = load ptr, ptr %0, align 8
   %cmp.not.i.i.i = icmp eq ptr %this.val.i.i, null
-  br i1 %cmp.not.i.i.i, label %_ZN7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.argprom.exit.i.i
+  br i1 %cmp.not.i.i.i, label %_ZN7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.exit.i.i
 
-_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.argprom.exit.i.i: ; preds = %entry
+_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.exit.i.i: ; preds = %entry
   %shared_destroy.i.i.i = getelementptr inbounds i8, ptr %this.val.i.i, i64 24
   %1 = load ptr, ptr %shared_destroy.i.i.i, align 8
   %cmp3.i.not.i.i = icmp eq ptr %1, null
   br i1 %cmp3.i.not.i.i, label %_ZN7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEED2Ev.exit, label %land.lhs.true.i.i
 
-land.lhs.true.i.i:                                ; preds = %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.argprom.exit.i.i
+land.lhs.true.i.i:                                ; preds = %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.exit.i.i
   %buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %buffer_.i.i, align 8
   %3 = atomicrmw sub ptr %2, i32 1 acq_rel, align 4
@@ -18037,7 +18037,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   tail call void @__clang_call_terminate(ptr %8) #29
   unreachable
 
-_ZN7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEED2Ev.exit: ; preds = %entry, %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.argprom.exit.i.i, %land.lhs.true.i.i, %if.then.i.i
+_ZN7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEED2Ev.exit: ; preds = %entry, %_ZNK7testing8internal11MatcherBaseIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEEE8IsSharedEv.exit.i.i, %land.lhs.true.i.i, %if.then.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %this) #34
   ret void
 }
@@ -18091,16 +18091,16 @@ delete.notnull:                                   ; preds = %entry
   %value.i = getelementptr inbounds i8, ptr %shared, i64 8
   %0 = load ptr, ptr %value.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i, label %_ZN7testing8internal13SharedPayloadISt10unique_ptrIKNS_16MatcherInterfaceIRKN4absl13node_hash_setIS2_IiSt14default_deleteIiEEZNS4_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSB_8TestBodyEvE2EqSaIS8_EEEEES6_ISJ_EEED2Ev.exit, label %_ZNKSt14default_deleteIKN7testing16MatcherInterfaceIRKN4absl13node_hash_setISt10unique_ptrIiS_IiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EEEEEEclEPSH_.argprom.exit.i.i
+  br i1 %cmp.not.i.i, label %_ZN7testing8internal13SharedPayloadISt10unique_ptrIKNS_16MatcherInterfaceIRKN4absl13node_hash_setIS2_IiSt14default_deleteIiEEZNS4_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSB_8TestBodyEvE2EqSaIS8_EEEEES6_ISJ_EEED2Ev.exit, label %_ZNKSt14default_deleteIKN7testing16MatcherInterfaceIRKN4absl13node_hash_setISt10unique_ptrIiS_IiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EEEEEEclEPSH_.exit.i.i
 
-_ZNKSt14default_deleteIKN7testing16MatcherInterfaceIRKN4absl13node_hash_setISt10unique_ptrIiS_IiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EEEEEEclEPSH_.argprom.exit.i.i: ; preds = %delete.notnull
+_ZNKSt14default_deleteIKN7testing16MatcherInterfaceIRKN4absl13node_hash_setISt10unique_ptrIiS_IiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EEEEEEclEPSH_.exit.i.i: ; preds = %delete.notnull
   %vtable.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #30
   br label %_ZN7testing8internal13SharedPayloadISt10unique_ptrIKNS_16MatcherInterfaceIRKN4absl13node_hash_setIS2_IiSt14default_deleteIiEEZNS4_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSB_8TestBodyEvE2EqSaIS8_EEEEES6_ISJ_EEED2Ev.exit
 
-_ZN7testing8internal13SharedPayloadISt10unique_ptrIKNS_16MatcherInterfaceIRKN4absl13node_hash_setIS2_IiSt14default_deleteIiEEZNS4_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSB_8TestBodyEvE2EqSaIS8_EEEEES6_ISJ_EEED2Ev.exit: ; preds = %delete.notnull, %_ZNKSt14default_deleteIKN7testing16MatcherInterfaceIRKN4absl13node_hash_setISt10unique_ptrIiS_IiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EEEEEEclEPSH_.argprom.exit.i.i
+_ZN7testing8internal13SharedPayloadISt10unique_ptrIKNS_16MatcherInterfaceIRKN4absl13node_hash_setIS2_IiSt14default_deleteIiEEZNS4_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSB_8TestBodyEvE2EqSaIS8_EEEEES6_ISJ_EEED2Ev.exit: ; preds = %delete.notnull, %_ZNKSt14default_deleteIKN7testing16MatcherInterfaceIRKN4absl13node_hash_setISt10unique_ptrIiS_IiEEZNS2_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EEEEEEclEPSH_.exit.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %shared) #34
   br label %delete.end
 
@@ -227886,8 +227886,8 @@ attributes #35 = { builtin allocsize(0) }
 !97 = !{}
 !98 = distinct !{!98, !12}
 !99 = !{!100, !102, !104, !106}
-!100 = distinct !{!100, !101, !"_ZNO4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE10InsertSlotILb0EEclIS6_JRS6_EEESt4pairINSD_8iteratorEbERKT_DpOT0_.argprom: %agg.result"}
-!101 = distinct !{!101, !"_ZNO4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE10InsertSlotILb0EEclIS6_JRS6_EEESt4pairINSD_8iteratorEbERKT_DpOT0_.argprom"}
+!100 = distinct !{!100, !101, !"_ZNO4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE10InsertSlotILb0EEclIS6_JRS6_EEESt4pairINSD_8iteratorEbERKT_DpOT0_: %agg.result"}
+!101 = distinct !{!101, !"_ZNO4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE10InsertSlotILb0EEclIS6_JRS6_EEESt4pairINSD_8iteratorEbERKT_DpOT0_"}
 !102 = distinct !{!102, !103, !"_ZN4absl18container_internal14DecomposeValueINS0_12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EE10InsertSlotILb0EEERS7_EEDTclclsr3stdE7declvalIT_EEclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalISJ_EEEEOSI_OSJ_: %agg.result"}
 !103 = distinct !{!103, !"_ZN4absl18container_internal14DecomposeValueINS0_12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EE10InsertSlotILb0EEERS7_EEDTclclsr3stdE7declvalIT_EEclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalISJ_EEEEOSI_OSJ_"}
 !104 = distinct !{!104, !105, !"_ZN4absl18container_internal17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEE5applyINS0_12raw_hash_setIS6_ZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS5_EE10InsertSlotILb0EEEJRS5_EEEDTclsr4absl18container_internalE14DecomposeValueclsr3stdE7declvalIT_EEspclsr3stdE7declvalIT0_EEEEOSI_DpOSJ_: %agg.result"}
@@ -227911,8 +227911,8 @@ attributes #35 = { builtin allocsize(0) }
 !122 = distinct !{!122, !123, !"_ZNK7testing8internal27UnorderedElementsAreMatcherISt5tupleIJNS0_14PointeeMatcherIiEES4_S4_EEEcvNS_7MatcherIT_EEIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNSB_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSJ_8TestBodyEvE2EqSaISG_EEEEEv: %agg.result"}
 !123 = distinct !{!123, !"_ZNK7testing8internal27UnorderedElementsAreMatcherISt5tupleIJNS0_14PointeeMatcherIiEES4_S4_EEEcvNS_7MatcherIT_EEIRKN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNSB_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSJ_8TestBodyEvE2EqSaISG_EEEEEv"}
 !124 = !{!119, !116, !113, !110, !125}
-!125 = distinct !{!125, !126, !"_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_14PointeeMatcherIiEES5_S5_EEEEEclIN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNSA_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSI_8TestBodyEvE2EqSaISF_EEEEENS_15AssertionResultEPKcRKT_.argprom: %agg.result"}
-!126 = distinct !{!126, !"_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_14PointeeMatcherIiEES5_S5_EEEEEclIN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNSA_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSI_8TestBodyEvE2EqSaISF_EEEEENS_15AssertionResultEPKcRKT_.argprom"}
+!125 = distinct !{!125, !126, !"_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_14PointeeMatcherIiEES5_S5_EEEEEclIN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNSA_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSI_8TestBodyEvE2EqSaISF_EEEEENS_15AssertionResultEPKcRKT_: %agg.result"}
+!126 = distinct !{!126, !"_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_14PointeeMatcherIiEES5_S5_EEEEEclIN4absl13node_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNSA_18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSI_8TestBodyEvE2EqSaISF_EEEEENS_15AssertionResultEPKcRKT_"}
 !127 = !{!122, !119, !116, !113, !110, !125}
 !128 = !{!122, !119, !116, !113, !110}
 !129 = !{!125}
@@ -227927,8 +227927,8 @@ attributes #35 = { builtin allocsize(0) }
 !138 = distinct !{!138, !139, !"_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE6insertEONS0_11node_handleIS7_NS0_18hash_policy_traitsIS7_vEESC_vEE: %agg.result"}
 !139 = distinct !{!139, !"_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE6insertEONS0_11node_handleIS7_NS0_18hash_policy_traitsIS7_vEESC_vEE"}
 !140 = !{!141, !143, !145, !147, !138}
-!141 = distinct !{!141, !142, !"_ZNO4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE10InsertSlotILb0EEclIS6_JRKS6_EEESt4pairINSD_8iteratorEbERKT_DpOT0_.argprom: %agg.result"}
-!142 = distinct !{!142, !"_ZNO4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE10InsertSlotILb0EEclIS6_JRKS6_EEESt4pairINSD_8iteratorEbERKT_DpOT0_.argprom"}
+!141 = distinct !{!141, !142, !"_ZNO4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE10InsertSlotILb0EEclIS6_JRKS6_EEESt4pairINSD_8iteratorEbERKT_DpOT0_: %agg.result"}
+!142 = distinct !{!142, !"_ZNO4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE10InsertSlotILb0EEclIS6_JRKS6_EEESt4pairINSD_8iteratorEbERKT_DpOT0_"}
 !143 = distinct !{!143, !144, !"_ZN4absl18container_internal14DecomposeValueINS0_12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EE10InsertSlotILb0EEERKS7_EEDTclclsr3stdE7declvalIT_EEclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalISK_EEEEOSJ_OSK_: %agg.result"}
 !144 = distinct !{!144, !"_ZN4absl18container_internal14DecomposeValueINS0_12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EE10InsertSlotILb0EEERKS7_EEDTclclsr3stdE7declvalIT_EEclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalISK_EEEEOSJ_OSK_"}
 !145 = distinct !{!145, !146, !"_ZN4absl18container_internal17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEE5applyINS0_12raw_hash_setIS6_ZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS5_EE10InsertSlotILb0EEEJRKS5_EEEDTclsr4absl18container_internalE14DecomposeValueclsr3stdE7declvalIT_EEspclsr3stdE7declvalIT0_EEEEOSJ_DpOSK_: %agg.result"}
@@ -227953,8 +227953,8 @@ attributes #35 = { builtin allocsize(0) }
 !164 = distinct !{!164, !165, !"_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE6insertEONS0_11node_handleIS7_NS0_18hash_policy_traitsIS7_vEESC_vEE: %agg.result"}
 !165 = distinct !{!165, !"_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE6insertEONS0_11node_handleIS7_NS0_18hash_policy_traitsIS7_vEESC_vEE"}
 !166 = !{!167, !169, !171, !173, !164}
-!167 = distinct !{!167, !168, !"_ZNO4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE10InsertSlotILb0EEclIS6_JRKS6_EEESt4pairINSD_8iteratorEbERKT_DpOT0_.argprom: %agg.result"}
-!168 = distinct !{!168, !"_ZNO4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE10InsertSlotILb0EEclIS6_JRKS6_EEESt4pairINSD_8iteratorEbERKT_DpOT0_.argprom"}
+!167 = distinct !{!167, !168, !"_ZNO4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE10InsertSlotILb0EEclIS6_JRKS6_EEESt4pairINSD_8iteratorEbERKT_DpOT0_: %agg.result"}
+!168 = distinct !{!168, !"_ZNO4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE10InsertSlotILb0EEclIS6_JRKS6_EEESt4pairINSD_8iteratorEbERKT_DpOT0_"}
 !169 = distinct !{!169, !170, !"_ZN4absl18container_internal14DecomposeValueINS0_12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EE10InsertSlotILb0EEERKS7_EEDTclclsr3stdE7declvalIT_EEclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalISK_EEEEOSJ_OSK_: %agg.result"}
 !170 = distinct !{!170, !"_ZN4absl18container_internal14DecomposeValueINS0_12raw_hash_setINS0_17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EE10InsertSlotILb0EEERKS7_EEDTclclsr3stdE7declvalIT_EEclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalISK_EEEEOSJ_OSK_"}
 !171 = distinct !{!171, !172, !"_ZN4absl18container_internal17NodeHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEE5applyINS0_12raw_hash_setIS6_ZNS0_12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS5_EE10InsertSlotILb0EEEJRKS5_EEEDTclsr4absl18container_internalE14DecomposeValueclsr3stdE7declvalIT_EEspclsr3stdE7declvalIT0_EEEEOSJ_DpOSK_: %agg.result"}

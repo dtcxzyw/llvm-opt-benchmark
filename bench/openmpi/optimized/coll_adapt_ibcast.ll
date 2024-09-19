@@ -143,7 +143,7 @@ define i32 @ompi_coll_adapt_ibcast(ptr noundef %0, i32 noundef %1, ptr noundef %
   %17 = select i1 %16, i32 0, i32 4
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 336), align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %opal_thread_compare_exchange_strong_ptr.argprom.exit.thread.i
+  br i1 %19, label %20, label %opal_thread_compare_exchange_strong_ptr.exit.thread.i
 
 20:                                               ; preds = %12
   %21 = load i64, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 56), align 8
@@ -194,33 +194,33 @@ opal_obj_new.exit.i:                              ; preds = %.lr.ph.i.i.i, %27, 
 43:                                               ; preds = %opal_obj_new.exit.i
   %44 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 336), i64 0, i64 %40 acquire monotonic, align 8
   %45 = extractvalue { i64, i1 } %44, 1
-  br i1 %45, label %opal_thread_compare_exchange_strong_ptr.argprom.exit.thread.i, label %.opal_thread_compare_exchange_strong_ptr.argprom.exit_crit_edge.i
+  br i1 %45, label %opal_thread_compare_exchange_strong_ptr.exit.thread.i, label %.opal_thread_compare_exchange_strong_ptr.exit_crit_edge.i
 
-.opal_thread_compare_exchange_strong_ptr.argprom.exit_crit_edge.i: ; preds = %43
+.opal_thread_compare_exchange_strong_ptr.exit_crit_edge.i: ; preds = %43
   %.pre.i = load i8, ptr @opal_uses_threads, align 1
-  br label %opal_thread_compare_exchange_strong_ptr.argprom.exit.i
+  br label %opal_thread_compare_exchange_strong_ptr.exit.i
 
 46:                                               ; preds = %opal_obj_new.exit.i
   %47 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 336), align 8
   %48 = icmp eq i64 %47, 0
-  br i1 %48, label %49, label %opal_thread_compare_exchange_strong_ptr.argprom.exit.i
+  br i1 %48, label %49, label %opal_thread_compare_exchange_strong_ptr.exit.i
 
 49:                                               ; preds = %46
   store i64 %40, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 336), align 8
-  br label %opal_thread_compare_exchange_strong_ptr.argprom.exit.thread.i
+  br label %opal_thread_compare_exchange_strong_ptr.exit.thread.i
 
-opal_thread_compare_exchange_strong_ptr.argprom.exit.i: ; preds = %46, %.opal_thread_compare_exchange_strong_ptr.argprom.exit_crit_edge.i
-  %50 = phi i8 [ %.pre.i, %.opal_thread_compare_exchange_strong_ptr.argprom.exit_crit_edge.i ], [ %41, %46 ]
+opal_thread_compare_exchange_strong_ptr.exit.i:   ; preds = %46, %.opal_thread_compare_exchange_strong_ptr.exit_crit_edge.i
+  %50 = phi i8 [ %.pre.i, %.opal_thread_compare_exchange_strong_ptr.exit_crit_edge.i ], [ %41, %46 ]
   %51 = getelementptr inbounds i8, ptr %22, i64 8
   %52 = trunc i8 %50 to i1
   br i1 %52, label %53, label %56
 
-53:                                               ; preds = %opal_thread_compare_exchange_strong_ptr.argprom.exit.i
+53:                                               ; preds = %opal_thread_compare_exchange_strong_ptr.exit.i
   %54 = atomicrmw volatile add ptr %51, i32 -1 monotonic, align 4
   %55 = add i32 %54, -1
   br label %opal_thread_add_fetch_32.exit.i
 
-56:                                               ; preds = %opal_thread_compare_exchange_strong_ptr.argprom.exit.i
+56:                                               ; preds = %opal_thread_compare_exchange_strong_ptr.exit.i
   %57 = load volatile i32, ptr %51, align 4
   %58 = add nsw i32 %57, -1
   store volatile i32 %58, ptr %51, align 4
@@ -230,7 +230,7 @@ opal_thread_compare_exchange_strong_ptr.argprom.exit.i: ; preds = %46, %.opal_th
 opal_thread_add_fetch_32.exit.i:                  ; preds = %56, %53
   %.0.i211.i = phi i32 [ %55, %53 ], [ %59, %56 ]
   %60 = icmp eq i32 %.0.i211.i, 0
-  br i1 %60, label %61, label %opal_thread_compare_exchange_strong_ptr.argprom.exit.thread.i
+  br i1 %60, label %61, label %opal_thread_compare_exchange_strong_ptr.exit.thread.i
 
 61:                                               ; preds = %opal_thread_add_fetch_32.exit.i
   %62 = load ptr, ptr %22, align 8
@@ -251,9 +251,9 @@ opal_thread_add_fetch_32.exit.i:                  ; preds = %56, %53
 
 opal_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i.i, %61
   tail call void @free(ptr noundef %22) #8
-  br label %opal_thread_compare_exchange_strong_ptr.argprom.exit.thread.i
+  br label %opal_thread_compare_exchange_strong_ptr.exit.thread.i
 
-opal_thread_compare_exchange_strong_ptr.argprom.exit.thread.i: ; preds = %opal_obj_run_destructors.exit.i, %opal_thread_add_fetch_32.exit.i, %49, %43, %12
+opal_thread_compare_exchange_strong_ptr.exit.thread.i: ; preds = %opal_obj_run_destructors.exit.i, %opal_thread_add_fetch_32.exit.i, %49, %43, %12
   %69 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_nbc_request_t_class, i64 56), align 8
   %70 = tail call noalias ptr @malloc(i64 noundef %69) #9
   %71 = load i32, ptr @opal_class_init_epoch, align 4
@@ -261,11 +261,11 @@ opal_thread_compare_exchange_strong_ptr.argprom.exit.thread.i: ; preds = %opal_o
   %.not.i213.i = icmp eq i32 %71, %72
   br i1 %.not.i213.i, label %74, label %73
 
-73:                                               ; preds = %opal_thread_compare_exchange_strong_ptr.argprom.exit.thread.i
+73:                                               ; preds = %opal_thread_compare_exchange_strong_ptr.exit.thread.i
   tail call void @opal_class_initialize(ptr noundef nonnull @ompi_coll_base_nbc_request_t_class) #8
   br label %74
 
-74:                                               ; preds = %73, %opal_thread_compare_exchange_strong_ptr.argprom.exit.thread.i
+74:                                               ; preds = %73, %opal_thread_compare_exchange_strong_ptr.exit.thread.i
   %.not9.i214.i = icmp eq ptr %70, null
   br i1 %.not9.i214.i, label %opal_obj_new.exit219.i, label %75
 
@@ -647,7 +647,7 @@ opal_thread_add_fetch_32.exit235.i:               ; preds = %241, %239
   %249 = sub nsw i32 %248, %219
   %250 = call i32 %246(ptr noundef %245, i64 noundef %225, ptr noundef %2, i32 noundef %247, i32 noundef %249, i32 noundef %17, ptr noundef %4, ptr noundef nonnull %8) #8
   %.not208.i = icmp eq i32 %250, 0
-  br i1 %.not208.i, label %251, label %ompi_coll_adapt_ibcast_generic.argprom.exit
+  br i1 %.not208.i, label %251, label %ompi_coll_adapt_ibcast_generic.exit
 
 251:                                              ; preds = %opal_thread_add_fetch_32.exit235.i
   %252 = load i8, ptr @opal_uses_threads, align 1
@@ -785,7 +785,7 @@ opal_thread_add_fetch_32.exit238.i:               ; preds = %306, %304
 
 321:                                              ; preds = %319, %opal_thread_add_fetch_32.exit238.i
   %.not206.i = icmp eq i32 %316, 0
-  br i1 %.not206.i, label %322, label %ompi_coll_adapt_ibcast_generic.argprom.exit
+  br i1 %.not206.i, label %322, label %ompi_coll_adapt_ibcast_generic.exit
 
 322:                                              ; preds = %321
   %323 = load ptr, ptr %9, align 8
@@ -820,21 +820,21 @@ ompi_request_set_callback.exit240.i:              ; preds = %329, %322
 .loopexit5.i:                                     ; preds = %335, %._crit_edge29.i, %.preheader6.i, %.preheader.i
   %336 = load i8, ptr @opal_uses_threads, align 1
   %337 = trunc i8 %336 to i1
-  br i1 %337, label %338, label %ompi_coll_adapt_ibcast_generic.argprom.exit
+  br i1 %337, label %338, label %ompi_coll_adapt_ibcast_generic.exit
 
 338:                                              ; preds = %.loopexit5.i
   %339 = getelementptr inbounds i8, ptr %90, i64 16
   %340 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %339) #8
-  br label %ompi_coll_adapt_ibcast_generic.argprom.exit
+  br label %ompi_coll_adapt_ibcast_generic.exit
 
-ompi_coll_adapt_ibcast_generic.argprom.exit:      ; preds = %321, %opal_thread_add_fetch_32.exit235.i, %.loopexit5.i, %338
+ompi_coll_adapt_ibcast_generic.exit:              ; preds = %321, %opal_thread_add_fetch_32.exit235.i, %.loopexit5.i, %338
   %.0.i = phi i32 [ 0, %.loopexit5.i ], [ 0, %338 ], [ %250, %opal_thread_add_fetch_32.exit235.i ], [ %316, %321 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %341
 
-341:                                              ; preds = %7, %ompi_coll_adapt_ibcast_generic.argprom.exit
-  %.0 = phi i32 [ %.0.i, %ompi_coll_adapt_ibcast_generic.argprom.exit ], [ -7, %7 ]
+341:                                              ; preds = %7, %ompi_coll_adapt_ibcast_generic.exit
+  %.0 = phi i32 [ %.0.i, %ompi_coll_adapt_ibcast_generic.exit ], [ -7, %7 ]
   ret i32 %.0
 }
 
@@ -1656,7 +1656,7 @@ opal_thread_add_fetch_32.exit81:                  ; preds = %171, %174
   br i1 %or.cond, label %224, label %225
 
 224:                                              ; preds = %218, %212
-  call fastcc void @ibcast_request_fini.retelim(ptr noundef nonnull %5)
+  call fastcc void @ibcast_request_fini(ptr noundef nonnull %5)
   br label %225
 
 225:                                              ; preds = %212, %.thread, %224, %218
@@ -2284,7 +2284,7 @@ opal_thread_add_fetch_32.exit126:                 ; preds = %287, %290
   br i1 %332, label %333, label %.thread
 
 333:                                              ; preds = %321, %329
-  call fastcc void @ibcast_request_fini.retelim(ptr noundef nonnull %6)
+  call fastcc void @ibcast_request_fini(ptr noundef nonnull %6)
   br label %.thread
 
 .thread:                                          ; preds = %321, %333, %329, %327
@@ -2393,7 +2393,7 @@ declare i32 @opal_progress() local_unnamed_addr #1
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ibcast_request_fini.retelim(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @ibcast_request_fini(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 64

@@ -793,7 +793,7 @@ define dso_local range(i32 -1, 2) i32 @Curl_resolv(ptr noundef %0, ptr noundef %
   br i1 %.not88, label %76, label %78
 
 76:                                               ; preds = %74
-  %77 = call fastcc zeroext i1 @tailmatch.argprom(ptr noundef %1)
+  %77 = call fastcc zeroext i1 @tailmatch(ptr noundef %1)
   br i1 %77, label %78, label %116
 
 78:                                               ; preds = %76, %74
@@ -994,7 +994,7 @@ declare void @Curl_set_in_callback(ptr noundef, i1 noundef zeroext) local_unname
 declare ptr @Curl_ip2addr(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @tailmatch.argprom(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc zeroext i1 @tailmatch(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13
   %3 = icmp ult i64 %2, 10
   br i1 %3, label %9, label %4

@@ -3031,7 +3031,7 @@ define internal fastcc void @synaptics_resolution(ptr noundef %0, ptr nocapture 
   br i1 %39, label %68, label %40
 
 40:                                               ; preds = %35
-  %41 = call fastcc i32 @synaptics_send_cmd.argelim(ptr noundef %0, ptr noundef nonnull %3)
+  %41 = call fastcc i32 @synaptics_send_cmd(ptr noundef %0, ptr noundef nonnull %3)
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %46, label %43
 
@@ -3141,7 +3141,7 @@ define internal fastcc void @synaptics_resolution(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @synaptics_send_cmd.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @synaptics_send_cmd(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = tail call i32 @ps2_sliced_command(ptr noundef %3, i8 noundef zeroext 13) #12
   %5 = icmp eq i32 %4, 0

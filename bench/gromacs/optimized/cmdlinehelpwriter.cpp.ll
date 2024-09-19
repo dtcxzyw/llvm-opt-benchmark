@@ -1388,14 +1388,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit56: ; 
   call void %122(ptr noundef nonnull align 8 dereferenceable(21) %9, ptr noundef nonnull align 1 %119)
   %.val23 = load i8, ptr %116, align 8
   %123 = trunc i8 %.val23 to i1
-  br i1 %123, label %124, label %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.argprom.exit
+  br i1 %123, label %124, label %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.exit
 
 124:                                              ; preds = %.noexc57
   %.val22 = load ptr, ptr %112, align 8
   call void @_ZNK3gmx17HelpWriterContext18writeOptionListEndEv(ptr noundef nonnull align 8 dereferenceable(8) %.val22)
-  br label %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.argprom.exit
+  br label %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.exit
 
-_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.argprom.exit: ; preds = %124, %.noexc57
+_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.exit: ; preds = %124, %.noexc57
   store ptr @.str.10, ptr %115, align 8
   store i8 0, ptr %116, align 8
   %125 = load ptr, ptr %0, align 8
@@ -1409,14 +1409,14 @@ _ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.argprom.exit: ; pre
   call void %130(ptr noundef nonnull align 8 dereferenceable(21) %9, ptr noundef nonnull align 1 %127)
   %.val25 = load i8, ptr %116, align 8
   %131 = trunc i8 %.val25 to i1
-  br i1 %131, label %132, label %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.argprom.exit65
+  br i1 %131, label %132, label %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.exit65
 
-132:                                              ; preds = %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.argprom.exit
+132:                                              ; preds = %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.exit
   %.val24 = load ptr, ptr %112, align 8
   call void @_ZNK3gmx17HelpWriterContext18writeOptionListEndEv(ptr noundef nonnull align 8 dereferenceable(8) %.val24)
-  br label %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.argprom.exit65
+  br label %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.exit65
 
-_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.argprom.exit65: ; preds = %132, %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.argprom.exit
+_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.exit65: ; preds = %132, %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.exit
   store ptr @.str.11, ptr %115, align 8
   store i8 0, ptr %116, align 8
   %133 = load ptr, ptr %0, align 8
@@ -1430,14 +1430,14 @@ _ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.argprom.exit65: ; p
   call void %138(ptr noundef nonnull align 8 dereferenceable(21) %9, ptr noundef nonnull align 1 %135)
   %.val27 = load i8, ptr %116, align 8
   %139 = trunc i8 %.val27 to i1
-  br i1 %139, label %140, label %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.argprom.exit70
+  br i1 %139, label %140, label %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.exit70
 
-140:                                              ; preds = %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.argprom.exit65
+140:                                              ; preds = %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.exit65
   %.val26 = load ptr, ptr %112, align 8
   call void @_ZNK3gmx17HelpWriterContext18writeOptionListEndEv(ptr noundef nonnull align 8 dereferenceable(8) %.val26)
-  br label %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.argprom.exit70
+  br label %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.exit70
 
-_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.argprom.exit70: ; preds = %140, %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.argprom.exit65
+_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.exit70: ; preds = %140, %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.exit65
   store ptr @.str.12, ptr %115, align 8
   store i8 0, ptr %116, align 8
   %141 = load ptr, ptr %0, align 8
@@ -1451,19 +1451,19 @@ _ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.argprom.exit70: ; p
   call void %146(ptr noundef nonnull align 8 dereferenceable(21) %9, ptr noundef nonnull align 1 %143)
   %.val29 = load i8, ptr %116, align 8
   %147 = trunc i8 %.val29 to i1
-  br i1 %147, label %148, label %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.argprom.exit75
+  br i1 %147, label %148, label %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.exit75
 
-148:                                              ; preds = %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.argprom.exit70
+148:                                              ; preds = %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.exit70
   %.val28 = load ptr, ptr %112, align 8
   call void @_ZNK3gmx17HelpWriterContext18writeOptionListEndEv(ptr noundef nonnull align 8 dereferenceable(8) %.val28)
-  br label %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.argprom.exit75
+  br label %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.exit75
 
-_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.argprom.exit75: ; preds = %148, %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.argprom.exit70
+_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.exit75: ; preds = %148, %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.exit70
   %149 = load ptr, ptr %0, align 8
   call void @_ZN3gmx21CommandLineHelpWriter4Impl10formatBugsERKNS_17HelpWriterContextE(ptr noundef nonnull align 8 dereferenceable(64) %149, ptr noundef nonnull align 8 dereferenceable(8) %25)
   br label %150
 
-150:                                              ; preds = %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.argprom.exit75, %19
+150:                                              ; preds = %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter13finishSectionEv.exit75, %19
   ret void
 
 .body37:                                          ; preds = %63, %61, %.body54, %.body

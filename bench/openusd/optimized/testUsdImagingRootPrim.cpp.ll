@@ -493,7 +493,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %.sroa.12.0..sroa_idx.i = getelementptr inbounds i8, ptr %40, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i, i8 0, i64 16, i1 false), !noalias !5
   store double 9.000000e+01, ptr %.sroa.12.0..sroa_idx.i, align 8, !noalias !5
-  invoke fastcc void @_ZL6MakeXfN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEENS_7SdfPathENS_7GfVec3dENS_10GfRotationE.argprom(ptr %117, ptr noundef %37, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 @__const._ZL13BuildUsdStagev.trans, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::GfRotation") align 8 %40)
+  invoke fastcc void @_ZL6MakeXfN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEENS_7SdfPathENS_7GfVec3dENS_10GfRotationE(ptr %117, ptr noundef %37, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 @__const._ZL13BuildUsdStagev.trans, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::GfRotation") align 8 %40)
           to label %141 unwind label %1096
 
 141:                                              ; preds = %140
@@ -1489,7 +1489,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit167.i:
   %.sroa.12.0..sroa_idx354.i = getelementptr inbounds i8, ptr %68, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx346.i, i8 0, i64 16, i1 false), !noalias !5
   store double 9.000000e+01, ptr %.sroa.12.0..sroa_idx354.i, align 8, !noalias !5
-  invoke fastcc void @_ZL6MakeXfN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEENS_7SdfPathENS_7GfVec3dENS_10GfRotationE.argprom(ptr %528, ptr noundef %65, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 @__const._ZL13BuildUsdStagev.trans, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::GfRotation") align 8 %68)
+  invoke fastcc void @_ZL6MakeXfN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEENS_7SdfPathENS_7GfVec3dENS_10GfRotationE(ptr %528, ptr noundef %65, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 @__const._ZL13BuildUsdStagev.trans, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::GfRotation") align 8 %68)
           to label %552 unwind label %1168
 
 552:                                              ; preds = %551
@@ -2116,7 +2116,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit245.i:
   %.sroa.12.0..sroa_idx356.i = getelementptr inbounds i8, ptr %86, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx348.i, i8 0, i64 16, i1 false), !noalias !5
   store double 9.000000e+01, ptr %.sroa.12.0..sroa_idx356.i, align 8, !noalias !5
-  invoke fastcc void @_ZL6MakeXfN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEENS_7SdfPathENS_7GfVec3dENS_10GfRotationE.argprom(ptr %785, ptr noundef %83, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 @__const._ZL13BuildUsdStagev.trans, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::GfRotation") align 8 %86)
+  invoke fastcc void @_ZL6MakeXfN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEENS_7SdfPathENS_7GfVec3dENS_10GfRotationE(ptr %785, ptr noundef %83, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 @__const._ZL13BuildUsdStagev.trans, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::GfRotation") align 8 %86)
           to label %809 unwind label %1211
 
 809:                                              ; preds = %808
@@ -6660,7 +6660,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__8UsdStage14CreateInMemoryENS0
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL6MakeXfN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEENS_7SdfPathENS_7GfVec3dENS_10GfRotationE.argprom(ptr %.0.val, ptr noundef nonnull %0, ptr noundef byval(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 %1, ptr noundef byval(%"class.pxrInternal_v0_24__pxrReserved__::GfRotation") align 8 %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL6MakeXfN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEENS_7SdfPathENS_7GfVec3dENS_10GfRotationE(ptr %.0.val, ptr noundef nonnull %0, ptr noundef byval(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 %1, ptr noundef byval(%"class.pxrInternal_v0_24__pxrReserved__::GfRotation") align 8 %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.anon.95, align 1
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdGeomXform", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.76", align 8

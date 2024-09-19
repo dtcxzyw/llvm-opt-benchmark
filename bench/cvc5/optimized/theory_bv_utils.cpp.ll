@@ -1472,12 +1472,12 @@ lor.end:                                          ; preds = %if.end, %if.end, %i
 define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2bv5utils10isCoreTermENS0_12NodeTemplateILb0EEERSt13unordered_mapIS5_bSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_bEEE(ptr nocapture noundef readonly %term, ptr noundef nonnull align 8 dereferenceable(56) %cache) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %term, align 8
-  %call = tail call fastcc noundef zeroext i1 @_ZN4cvc58internal6theory2bv5utilsL12isCoreEqTermEbNS0_12NodeTemplateILb0EEERSt13unordered_mapIS5_bSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_bEEE.argprom(i1 noundef zeroext false, ptr %0, ptr noundef nonnull align 8 dereferenceable(56) %cache)
+  %call = tail call fastcc noundef zeroext i1 @_ZN4cvc58internal6theory2bv5utilsL12isCoreEqTermEbNS0_12NodeTemplateILb0EEERSt13unordered_mapIS5_bSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_bEEE(i1 noundef zeroext false, ptr %0, ptr noundef nonnull align 8 dereferenceable(56) %cache)
   ret i1 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4cvc58internal6theory2bv5utilsL12isCoreEqTermEbNS0_12NodeTemplateILb0EEERSt13unordered_mapIS5_bSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_bEEE.argprom(i1 noundef zeroext %iseq, ptr %term.0.val, ptr noundef nonnull align 8 dereferenceable(56) %cache) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4cvc58internal6theory2bv5utilsL12isCoreEqTermEbNS0_12NodeTemplateILb0EEERSt13unordered_mapIS5_bSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_bEEE(i1 noundef zeroext %iseq, ptr %term.0.val, ptr noundef nonnull align 8 dereferenceable(56) %cache) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %stack = alloca %"class.std::vector.120", align 8
@@ -2073,7 +2073,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit156: ; preds =
 define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2bv5utils14isEqualityTermENS0_12NodeTemplateILb0EEERSt13unordered_mapIS5_bSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_bEEE(ptr nocapture noundef readonly %term, ptr noundef nonnull align 8 dereferenceable(56) %cache) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %term, align 8
-  %call = tail call fastcc noundef zeroext i1 @_ZN4cvc58internal6theory2bv5utilsL12isCoreEqTermEbNS0_12NodeTemplateILb0EEERSt13unordered_mapIS5_bSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_bEEE.argprom(i1 noundef zeroext true, ptr %0, ptr noundef nonnull align 8 dereferenceable(56) %cache)
+  %call = tail call fastcc noundef zeroext i1 @_ZN4cvc58internal6theory2bv5utilsL12isCoreEqTermEbNS0_12NodeTemplateILb0EEERSt13unordered_mapIS5_bSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_bEEE(i1 noundef zeroext true, ptr %0, ptr noundef nonnull align 8 dereferenceable(56) %cache)
   ret i1 %call
 }
 

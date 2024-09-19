@@ -476,33 +476,33 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit.i.i:            ; preds = %22, %_ZSt4findIPKcc
   store i8 1, ptr %65, align 1
   %66 = add nuw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %66, %10
-  br i1 %exitcond.not.i, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit.preheader, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader, label %.lr.ph.i, !llvm.loop !8
 
-_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit.preheader: ; preds = %.lr.ph.i
+_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader: ; preds = %.lr.ph.i
   %67 = icmp ult i64 %2, %6
   br i1 %67, label %.lr.ph, label %_ZNK4i18n12phonenumbers11StringPiece13find_first_ofEcm.exit
 
-.lr.ph:                                           ; preds = %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit.preheader
+.lr.ph:                                           ; preds = %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader
   %68 = load ptr, ptr %0, align 8
   br label %69
 
-69:                                               ; preds = %.lr.ph, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit
-  %.022 = phi i64 [ %2, %.lr.ph ], [ %76, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit ]
+69:                                               ; preds = %.lr.ph, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit
+  %.022 = phi i64 [ %2, %.lr.ph ], [ %76, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit ]
   %70 = getelementptr inbounds i8, ptr %68, i64 %.022
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i64
   %73 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %72
   %74 = load i8, ptr %73, align 1
   %75 = trunc i8 %74 to i1
-  br i1 %75, label %_ZNK4i18n12phonenumbers11StringPiece13find_first_ofEcm.exit, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit
+  br i1 %75, label %_ZNK4i18n12phonenumbers11StringPiece13find_first_ofEcm.exit, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit
 
-_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit: ; preds = %69
+_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit: ; preds = %69
   %76 = add i64 %.022, 1
   %exitcond.not = icmp eq i64 %76, %6
   br i1 %exitcond.not, label %_ZNK4i18n12phonenumbers11StringPiece13find_first_ofEcm.exit, label %69, !llvm.loop !9
 
-_ZNK4i18n12phonenumbers11StringPiece13find_first_ofEcm.exit: ; preds = %69, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit.preheader, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.i.i, %11, %8, %3
-  %.011 = phi i64 [ -1, %8 ], [ -1, %3 ], [ %60, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.i.i ], [ -1, %11 ], [ -1, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit.preheader ], [ %.022, %69 ], [ -1, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit ]
+_ZNK4i18n12phonenumbers11StringPiece13find_first_ofEcm.exit: ; preds = %69, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.i.i, %11, %8, %3
+  %.011 = phi i64 [ -1, %8 ], [ -1, %3 ], [ %60, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.i.i ], [ -1, %11 ], [ -1, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader ], [ %.022, %69 ], [ -1, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit ]
   ret i64 %.011
 }
 
@@ -561,33 +561,33 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece17find_first_n
   store i8 1, ptr %25, align 1
   %26 = add nuw i64 %.01.i, 1
   %exitcond.not.i16 = icmp eq i64 %26, %10
-  br i1 %exitcond.not.i16, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit.preheader, label %.lr.ph.i15, !llvm.loop !8
+  br i1 %exitcond.not.i16, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader, label %.lr.ph.i15, !llvm.loop !8
 
-_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit.preheader: ; preds = %.lr.ph.i15
+_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader: ; preds = %.lr.ph.i15
   %27 = icmp ult i64 %2, %6
   br i1 %27, label %.lr.ph, label %_ZNK4i18n12phonenumbers11StringPiece17find_first_not_ofEcm.exit
 
-.lr.ph:                                           ; preds = %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit.preheader
+.lr.ph:                                           ; preds = %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader
   %28 = load ptr, ptr %0, align 8
   br label %29
 
-29:                                               ; preds = %.lr.ph, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit
-  %.019 = phi i64 [ %2, %.lr.ph ], [ %36, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit ]
+29:                                               ; preds = %.lr.ph, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit
+  %.019 = phi i64 [ %2, %.lr.ph ], [ %36, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit ]
   %30 = getelementptr inbounds i8, ptr %28, i64 %.019
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i64
   %33 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = trunc i8 %34 to i1
-  br i1 %35, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit, label %_ZNK4i18n12phonenumbers11StringPiece17find_first_not_ofEcm.exit
+  br i1 %35, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit, label %_ZNK4i18n12phonenumbers11StringPiece17find_first_not_ofEcm.exit
 
-_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit: ; preds = %29
+_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit: ; preds = %29
   %36 = add i64 %.019, 1
   %exitcond.not = icmp eq i64 %36, %6
   br i1 %exitcond.not, label %_ZNK4i18n12phonenumbers11StringPiece17find_first_not_ofEcm.exit, label %29, !llvm.loop !11
 
-_ZNK4i18n12phonenumbers11StringPiece17find_first_not_ofEcm.exit: ; preds = %19, %16, %29, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit.preheader, %11, %8, %3
-  %.011 = phi i64 [ -1, %3 ], [ %10, %8 ], [ -1, %11 ], [ -1, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit.preheader ], [ %.019, %29 ], [ -1, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit ], [ -1, %19 ], [ %.07.i, %16 ]
+_ZNK4i18n12phonenumbers11StringPiece17find_first_not_ofEcm.exit: ; preds = %19, %16, %29, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader, %11, %8, %3
+  %.011 = phi i64 [ -1, %3 ], [ %10, %8 ], [ -1, %11 ], [ -1, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader ], [ %.019, %29 ], [ -1, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit ], [ -1, %19 ], [ %.07.i, %16 ]
   ret i64 %.011
 }
 
@@ -672,9 +672,9 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece12find_last_of
   store i8 1, ptr %29, align 1
   %30 = add nuw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %30, %10
-  br i1 %exitcond.not.i, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit, label %.lr.ph.i, !llvm.loop !8
 
-_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit: ; preds = %.lr.ph.i
+_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit: ; preds = %.lr.ph.i
   %31 = add i64 %6, -1
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %31, i64 %2)
   %32 = load ptr, ptr %0, align 8
@@ -686,8 +686,8 @@ _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit: ;
   %38 = trunc i8 %37 to i1
   br i1 %38, label %_ZNK4i18n12phonenumbers11StringPiece12find_last_ofEcm.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit, %40
-  %.017 = phi i64 [ %41, %40 ], [ %.sroa.speculated, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit ]
+.lr.ph:                                           ; preds = %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit, %40
+  %.017 = phi i64 [ %41, %40 ], [ %.sroa.speculated, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit ]
   %39 = icmp eq i64 %.017, 0
   br i1 %39, label %_ZNK4i18n12phonenumbers11StringPiece12find_last_ofEcm.exit, label %40
 
@@ -701,8 +701,8 @@ _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit: ;
   %47 = trunc i8 %46 to i1
   br i1 %47, label %_ZNK4i18n12phonenumbers11StringPiece12find_last_ofEcm.exit, label %.lr.ph, !llvm.loop !12
 
-_ZNK4i18n12phonenumbers11StringPiece12find_last_ofEcm.exit: ; preds = %20, %.lr.ph.i.i, %40, %.lr.ph, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit, %11, %8, %3
-  %.09 = phi i64 [ -1, %8 ], [ -1, %3 ], [ %.sroa.speculated.i.i, %11 ], [ %.sroa.speculated, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit ], [ %41, %40 ], [ -1, %.lr.ph ], [ %21, %20 ], [ -1, %.lr.ph.i.i ]
+_ZNK4i18n12phonenumbers11StringPiece12find_last_ofEcm.exit: ; preds = %20, %.lr.ph.i.i, %40, %.lr.ph, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit, %11, %8, %3
+  %.09 = phi i64 [ -1, %8 ], [ -1, %3 ], [ %.sroa.speculated.i.i, %11 ], [ %.sroa.speculated, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit ], [ %41, %40 ], [ -1, %.lr.ph ], [ %21, %20 ], [ -1, %.lr.ph.i.i ]
   ret i64 %.09
 }
 
@@ -759,9 +759,9 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece16find_last_no
   store i8 1, ptr %27, align 1
   %28 = add nuw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %28, %11
-  br i1 %exitcond.not.i, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit.preheader, label %.lr.ph.i15, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader, label %.lr.ph.i15, !llvm.loop !8
 
-_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit.preheader: ; preds = %.lr.ph.i15
+_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader: ; preds = %.lr.ph.i15
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 %.sroa.speculated
   %31 = load i8, ptr %30, align 1
@@ -771,12 +771,12 @@ _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit.pr
   %35 = trunc i8 %34 to i1
   br i1 %35, label %.lr.ph, label %_ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofEcm.exit
 
-.lr.ph:                                           ; preds = %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit.preheader, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit
-  %.022 = phi i64 [ %37, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit ], [ %.sroa.speculated, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit.preheader ]
+.lr.ph:                                           ; preds = %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit
+  %.022 = phi i64 [ %37, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit ], [ %.sroa.speculated, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader ]
   %36 = icmp eq i64 %.022, 0
-  br i1 %36, label %_ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofEcm.exit, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit
+  br i1 %36, label %_ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofEcm.exit, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit
 
-_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit: ; preds = %.lr.ph
+_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit: ; preds = %.lr.ph
   %37 = add i64 %.022, -1
   %38 = getelementptr inbounds i8, ptr %29, i64 %37
   %39 = load i8, ptr %38, align 1
@@ -786,8 +786,8 @@ _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit: ;
   %43 = trunc i8 %42 to i1
   br i1 %43, label %.lr.ph, label %_ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofEcm.exit, !llvm.loop !14
 
-_ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofEcm.exit: ; preds = %19, %.lr.ph.i, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit, %.lr.ph, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit.preheader, %12, %8, %3
-  %.010 = phi i64 [ -1, %3 ], [ %.sroa.speculated, %8 ], [ %.sroa.speculated, %12 ], [ %.sroa.speculated, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit.preheader ], [ %37, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.argprom.exit ], [ -1, %.lr.ph ], [ -1, %.lr.ph.i ], [ %20, %19 ]
+_ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofEcm.exit: ; preds = %19, %.lr.ph.i, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit, %.lr.ph, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader, %12, %8, %3
+  %.010 = phi i64 [ -1, %3 ], [ %.sroa.speculated, %8 ], [ %.sroa.speculated, %12 ], [ %.sroa.speculated, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader ], [ %37, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit ], [ -1, %.lr.ph ], [ -1, %.lr.ph.i ], [ %20, %19 ]
   ret i64 %.010
 }
 

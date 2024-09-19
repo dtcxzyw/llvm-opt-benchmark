@@ -1433,7 +1433,7 @@ _ZN2cv4gapi7kernelsIJN6custom17OCVPostProcessingEEEENS_14GKernelPackageEv.exit: 
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %28), !noalias !16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #24, !noalias !19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull @.str.40, ptr noundef nonnull align 1 dereferenceable(1) %28)
-          to label %_ZNK2cv4gapi2ie6ParamsIZ4mainE10SemSegmNetE3tagB5cxx11Ev.argprom.exit.i.i unwind label %209, !noalias !22
+          to label %_ZNK2cv4gapi2ie6ParamsIZ4mainE10SemSegmNetE3tagB5cxx11Ev.exit.i.i unwind label %209, !noalias !22
 
 209:                                              ; preds = %_ZN2cv4gapi7kernelsIJN6custom17OCVPostProcessingEEEENS_14GKernelPackageEv.exit
   %210 = landingpad { ptr, i32 }
@@ -1441,19 +1441,19 @@ _ZN2cv4gapi7kernelsIJN6custom17OCVPostProcessingEEEENS_14GKernelPackageEv.exit: 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #24, !noalias !22
   br label %.body104
 
-_ZNK2cv4gapi2ie6ParamsIZ4mainE10SemSegmNetE3tagB5cxx11Ev.argprom.exit.i.i: ; preds = %_ZN2cv4gapi7kernelsIJN6custom17OCVPostProcessingEEEENS_14GKernelPackageEv.exit
+_ZNK2cv4gapi2ie6ParamsIZ4mainE10SemSegmNetE3tagB5cxx11Ev.exit.i.i: ; preds = %_ZN2cv4gapi7kernelsIJN6custom17OCVPostProcessingEEEENS_14GKernelPackageEv.exit
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #24, !noalias !22
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %28), !noalias !16
   %211 = getelementptr inbounds i8, ptr %29, i64 32
   invoke void @_ZN2cv4gapi2ie7backendEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::gapi::GBackend") align 8 %211)
-          to label %_ZNK2cv4gapi2ie6ParamsIZ4mainE10SemSegmNetE7backendEv.argprom.exit.i.i unwind label %216, !noalias !22
+          to label %_ZNK2cv4gapi2ie6ParamsIZ4mainE10SemSegmNetE7backendEv.exit.i.i unwind label %216, !noalias !22
 
-_ZNK2cv4gapi2ie6ParamsIZ4mainE10SemSegmNetE7backendEv.argprom.exit.i.i: ; preds = %_ZNK2cv4gapi2ie6ParamsIZ4mainE10SemSegmNetE3tagB5cxx11Ev.argprom.exit.i.i
+_ZNK2cv4gapi2ie6ParamsIZ4mainE10SemSegmNetE7backendEv.exit.i.i: ; preds = %_ZNK2cv4gapi2ie6ParamsIZ4mainE10SemSegmNetE3tagB5cxx11Ev.exit.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %212 = invoke noalias noundef nonnull dereferenceable(736) ptr @_Znwm(i64 noundef 736) #27
           to label %.noexc.i.i unwind label %218, !noalias !22
 
-.noexc.i.i:                                       ; preds = %_ZNK2cv4gapi2ie6ParamsIZ4mainE10SemSegmNetE7backendEv.argprom.exit.i.i
+.noexc.i.i:                                       ; preds = %_ZNK2cv4gapi2ie6ParamsIZ4mainE10SemSegmNetE7backendEv.exit.i.i
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4util3any11holder_implINS_4gapi2ie6detail9ParamDescEEE, i64 16), ptr %212, align 8, !noalias !26
   %213 = getelementptr inbounds i8, ptr %212, i64 8
   invoke void @_ZN2cv4gapi2ie6detail9ParamDescC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(728) %213, ptr noundef nonnull align 8 dereferenceable(728) %52)
@@ -1465,12 +1465,12 @@ _ZNK2cv4gapi2ie6ParamsIZ4mainE10SemSegmNetE7backendEv.argprom.exit.i.i: ; preds 
   call void @_ZdlPv(ptr noundef nonnull %212) #23, !noalias !26
   br label %.body.i.i
 
-216:                                              ; preds = %_ZNK2cv4gapi2ie6ParamsIZ4mainE10SemSegmNetE3tagB5cxx11Ev.argprom.exit.i.i
+216:                                              ; preds = %_ZNK2cv4gapi2ie6ParamsIZ4mainE10SemSegmNetE3tagB5cxx11Ev.exit.i.i
   %217 = landingpad { ptr, i32 }
           cleanup
   br label %220
 
-218:                                              ; preds = %_ZNK2cv4gapi2ie6ParamsIZ4mainE10SemSegmNetE7backendEv.argprom.exit.i.i
+218:                                              ; preds = %_ZNK2cv4gapi2ie6ParamsIZ4mainE10SemSegmNetE7backendEv.exit.i.i
   %219 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i
@@ -19189,8 +19189,8 @@ attributes #29 = { nounwind willreturn memory(none) }
 !17 = distinct !{!17, !18, !"_ZN2cv4gapi8networksIJRKNS0_2ie6ParamsIZ4mainE10SemSegmNetEEEEENS0_11GNetPackageEDpOT_: argument 0"}
 !18 = distinct !{!18, !"_ZN2cv4gapi8networksIJRKNS0_2ie6ParamsIZ4mainE10SemSegmNetEEEEENS0_11GNetPackageEDpOT_"}
 !19 = !{!20, !14, !17}
-!20 = distinct !{!20, !21, !"_ZNK2cv4gapi2ie6ParamsIZ4mainE10SemSegmNetE3tagB5cxx11Ev.argprom: argument 0"}
-!21 = distinct !{!21, !"_ZNK2cv4gapi2ie6ParamsIZ4mainE10SemSegmNetE3tagB5cxx11Ev.argprom"}
+!20 = distinct !{!20, !21, !"_ZNK2cv4gapi2ie6ParamsIZ4mainE10SemSegmNetE3tagB5cxx11Ev: argument 0"}
+!21 = distinct !{!21, !"_ZNK2cv4gapi2ie6ParamsIZ4mainE10SemSegmNetE3tagB5cxx11Ev"}
 !22 = !{!17}
 !23 = !{!24}
 !24 = distinct !{!24, !25, !"_ZNK2cv4gapi2ie6ParamsIZ4mainE10SemSegmNetE6paramsEv: argument 0"}

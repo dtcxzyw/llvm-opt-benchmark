@@ -554,7 +554,7 @@ remote_exists.exit99:                             ; preds = %remote_exists.exit,
   br i1 %tobool74.not, label %if.end83, label %if.then75
 
 if.then75:                                        ; preds = %remote_exists.exit99
-  %call76 = call fastcc ptr @lock_remote.argelim(ptr noundef nonnull @.str.10)
+  %call76 = call fastcc ptr @lock_remote(ptr noundef nonnull @.str.10)
   %tobool77.not = icmp eq ptr %call76, null
   br i1 %tobool77.not, label %if.else, label %if.then78
 
@@ -911,7 +911,7 @@ if.then228:                                       ; preds = %if.then226
   br label %for.inc298
 
 if.end233:                                        ; preds = %if.end219
-  %call236 = call fastcc ptr @lock_remote.argelim(ptr noundef nonnull %name204)
+  %call236 = call fastcc ptr @lock_remote(ptr noundef nonnull %name204)
   %tobool237.not = icmp eq ptr %call236, null
   br i1 %tobool237.not, label %if.then238, label %if.end248
 
@@ -1006,7 +1006,7 @@ if.then291:                                       ; preds = %if.end289
   br label %if.end296
 
 if.end296:                                        ; preds = %if.then291, %if.end289
-  call fastcc void @unlock_remote.argelim(ptr noundef %call236)
+  call fastcc void @unlock_remote(ptr noundef %call236)
   call fastcc void @check_locks()
   call void @strvec_clear(ptr noundef nonnull %commit_argv) #15
   call void @release_revisions(ptr noundef nonnull %revs) #15
@@ -1060,7 +1060,7 @@ cleanup:                                          ; preds = %if.then109, %if.the
 
 if.then319:                                       ; preds = %if.then312, %if.then309, %cleanup
   %rc.0146 = phi i32 [ %rc.0, %cleanup ], [ %rc.2, %if.then309 ], [ %rc.2, %if.then312 ]
-  call fastcc void @unlock_remote.argelim(ptr noundef %info_ref_lock.1)
+  call fastcc void @unlock_remote(ptr noundef %info_ref_lock.1)
   br label %if.end321
 
 if.end321:                                        ; preds = %locking_available.exit, %if.else, %if.then319, %cleanup
@@ -1155,7 +1155,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @lock_remote.argelim(ptr noundef %path) unnamed_addr #0 {
+define internal fastcc ptr @lock_remote(ptr noundef %path) unnamed_addr #0 {
 entry:
   %tv.i = alloca %struct.timeval, align 8
   %buf.i = alloca %struct.strbuf, align 8
@@ -1912,7 +1912,7 @@ return:                                           ; preds = %if.then, %if.else, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @unlock_remote.argelim(ptr noundef nonnull %lock) unnamed_addr #0 {
+define internal fastcc void @unlock_remote(ptr noundef nonnull %lock) unnamed_addr #0 {
 entry:
   %buf.i = alloca %struct.strbuf, align 8
   %results = alloca %struct.slot_results, align 8
@@ -2418,7 +2418,7 @@ while.body:                                       ; preds = %entry, %while.body
   %lock.04 = phi ptr [ %4, %while.body ], [ %1, %entry ]
   %next1 = getelementptr inbounds i8, ptr %lock.04, i64 120
   %4 = load ptr, ptr %next1, align 8
-  tail call fastcc void @unlock_remote.argelim(ptr noundef %lock.04)
+  tail call fastcc void @unlock_remote(ptr noundef %lock.04)
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !19
 

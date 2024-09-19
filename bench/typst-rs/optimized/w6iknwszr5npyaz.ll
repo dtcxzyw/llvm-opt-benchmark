@@ -203,7 +203,7 @@ define hidden noundef nonnull ptr @_ZN3std2io5error5Error3new17hc760458b07e5e3bb
   %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !22
   %10 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #19, !noalias !22
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdcadd9a730c0eec2E.argprom.exit"
+  br i1 %11, label %12, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdcadd9a730c0eec2E.exit"
 
 12:                                               ; preds = %3
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef 8, i64 noundef 24) #18
@@ -227,7 +227,7 @@ define hidden noundef nonnull ptr @_ZN3std2io5error5Error3new17hc760458b07e5e3bb
 17:                                               ; preds = %13
   resume { ptr, i32 } %14
 
-"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdcadd9a730c0eec2E.argprom.exit": ; preds = %3
+"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdcadd9a730c0eec2E.exit": ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !17
   %18 = tail call noundef nonnull ptr @_ZN3std2io5error5Error4_new17h5db3f91af4b4c4a5E(i8 noundef %0, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.06ada1c35303809ea1743888554a512f.1)
@@ -569,7 +569,7 @@ define hidden noundef i128 @"_ZN5typst4util4hash17LazyHash$LT$T$GT$15get_or_set_
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
 define hidden noundef i128 @_ZN5typst4util4hash9hash_item17hfca31474057cdca5E.llvm.11417486217840573292(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
-"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h13a85eec880b9716E.argprom.exit":
+"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h13a85eec880b9716E.exit":
   %1 = alloca { { { i64, i64, i64, i64 }, i64, i64, i64, i64, i64, {} } }, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %1)
   %.sroa.412.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
@@ -1527,8 +1527,8 @@ attributes #21 = { cold noreturn nounwind }
 !17 = !{!18, !20}
 !18 = distinct !{!18, !19, !"_ZN152_$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17he994e9d1d64b4dd5E: argument 0"}
 !19 = distinct !{!19, !"_ZN152_$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17he994e9d1d64b4dd5E"}
-!20 = distinct !{!20, !21, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdcadd9a730c0eec2E.argprom: argument 0"}
-!21 = distinct !{!21, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdcadd9a730c0eec2E.argprom"}
+!20 = distinct !{!20, !21, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdcadd9a730c0eec2E: argument 0"}
+!21 = distinct !{!21, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdcadd9a730c0eec2E"}
 !22 = !{!23, !18, !20}
 !23 = distinct !{!23, !24, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb9125a77054bb3faE: argument 0"}
 !24 = distinct !{!24, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb9125a77054bb3faE"}
@@ -1547,8 +1547,8 @@ attributes #21 = { cold noreturn nounwind }
 !37 = distinct !{!37, !"_ZN4core4hash6Hasher19write_length_prefix17hd850bb1fe1d3a4ddE"}
 !38 = distinct !{!38, !39, !"_ZN4core4hash5impls58_$LT$impl$u20$core..hash..Hash$u20$for$u20$$u5b$T$u5d$$GT$4hash17h04abf30ab0bf4836E: argument 1"}
 !39 = distinct !{!39, !"_ZN4core4hash5impls58_$LT$impl$u20$core..hash..Hash$u20$for$u20$$u5b$T$u5d$$GT$4hash17h04abf30ab0bf4836E"}
-!40 = distinct !{!40, !41, !"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h13a85eec880b9716E.argprom: argument 0"}
-!41 = distinct !{!41, !"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h13a85eec880b9716E.argprom"}
+!40 = distinct !{!40, !41, !"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h13a85eec880b9716E: argument 0"}
+!41 = distinct !{!41, !"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h13a85eec880b9716E"}
 !42 = !{!43}
 !43 = distinct !{!43, !39, !"_ZN4core4hash5impls58_$LT$impl$u20$core..hash..Hash$u20$for$u20$$u5b$T$u5d$$GT$4hash17h04abf30ab0bf4836E: argument 0"}
 !44 = !{!45, !32, !34, !36, !38, !40}
@@ -1581,8 +1581,8 @@ attributes #21 = { cold noreturn nounwind }
 !71 = !{!72, !74, !76}
 !72 = distinct !{!72, !73, !"_ZN152_$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17he994e9d1d64b4dd5E: argument 0"}
 !73 = distinct !{!73, !"_ZN152_$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17he994e9d1d64b4dd5E"}
-!74 = distinct !{!74, !75, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdcadd9a730c0eec2E.argprom: argument 0"}
-!75 = distinct !{!75, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdcadd9a730c0eec2E.argprom"}
+!74 = distinct !{!74, !75, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdcadd9a730c0eec2E: argument 0"}
+!75 = distinct !{!75, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdcadd9a730c0eec2E"}
 !76 = distinct !{!76, !77, !"_ZN3std2io5error5Error3new17hc760458b07e5e3bbE: argument 0"}
 !77 = distinct !{!77, !"_ZN3std2io5error5Error3new17hc760458b07e5e3bbE"}
 !78 = !{!79, !72, !74, !76}

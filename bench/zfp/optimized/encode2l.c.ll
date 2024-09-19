@@ -89,22 +89,22 @@ rev_fwd_xform_int64_2.exit.i:                     ; preds = %.preheader.i.i, %re
   store i64 %52, ptr %.04.i.i, align 8
   %54 = add nsw i32 %.0.i.i, -1
   %.not.i.i = icmp eq i32 %54, 0
-  br i1 %.not.i.i, label %fwd_order_int64.argprom.exit.i, label %rev_fwd_xform_int64_2.exit.i
+  br i1 %.not.i.i, label %fwd_order_int64.exit.i, label %rev_fwd_xform_int64_2.exit.i
 
-select.unfold.preheader.i.i:                      ; preds = %fwd_order_int64.argprom.exit.i
+select.unfold.preheader.i.i:                      ; preds = %fwd_order_int64.exit.i
   %.not1824.i.i = icmp eq i64 %58, 0
   br i1 %.not1824.i.i, label %rev_precision_uint64.exit.i, label %select.unfold.i.i
 
-fwd_order_int64.argprom.exit.i:                   ; preds = %rev_fwd_xform_int64_2.exit.i, %fwd_order_int64.argprom.exit.i
-  %.023.i.i = phi i64 [ %58, %fwd_order_int64.argprom.exit.i ], [ 0, %rev_fwd_xform_int64_2.exit.i ]
-  %.01522.i.i = phi i32 [ %55, %fwd_order_int64.argprom.exit.i ], [ 16, %rev_fwd_xform_int64_2.exit.i ]
-  %.01621.i.i = phi ptr [ %56, %fwd_order_int64.argprom.exit.i ], [ %4, %rev_fwd_xform_int64_2.exit.i ]
+fwd_order_int64.exit.i:                           ; preds = %rev_fwd_xform_int64_2.exit.i, %fwd_order_int64.exit.i
+  %.023.i.i = phi i64 [ %58, %fwd_order_int64.exit.i ], [ 0, %rev_fwd_xform_int64_2.exit.i ]
+  %.01522.i.i = phi i32 [ %55, %fwd_order_int64.exit.i ], [ 16, %rev_fwd_xform_int64_2.exit.i ]
+  %.01621.i.i = phi ptr [ %56, %fwd_order_int64.exit.i ], [ %4, %rev_fwd_xform_int64_2.exit.i ]
   %55 = add nsw i32 %.01522.i.i, -1
   %56 = getelementptr inbounds i8, ptr %.01621.i.i, i64 8
   %57 = load i64, ptr %.01621.i.i, align 8
   %58 = or i64 %57, %.023.i.i
   %.not.i23.i = icmp eq i32 %55, 0
-  br i1 %.not.i23.i, label %select.unfold.preheader.i.i, label %fwd_order_int64.argprom.exit.i
+  br i1 %.not.i23.i, label %select.unfold.preheader.i.i, label %fwd_order_int64.exit.i
 
 select.unfold.i.i:                                ; preds = %select.unfold.preheader.i.i, %select.unfold.i.i
   %.127.i.i = phi i64 [ %spec.select20.i.i, %select.unfold.i.i ], [ %58, %select.unfold.preheader.i.i ]
@@ -160,7 +160,7 @@ stream_write_bits.exit.i:                         ; preds = %76, %rev_precision_
   %88 = and i64 %85, %87
   store i64 %88, ptr %71, align 8
   %89 = add i32 %13, -6
-  %90 = call fastcc i32 @encode_ints_uint64.argelim(ptr noundef nonnull %10, i32 noundef %89, i32 noundef %66, ptr noundef %4)
+  %90 = call fastcc i32 @encode_ints_uint64(ptr noundef nonnull %10, i32 noundef %89, i32 noundef %66, ptr noundef %4)
   %91 = add i32 %90, 6
   %92 = icmp ult i32 %91, %11
   br i1 %92, label %93, label %rev_encode_block_int64_2.exit
@@ -288,14 +288,14 @@ fwd_xform_int64_2.exit.i:                         ; preds = %.preheader.i.i17, %
   store i64 %162, ptr %.04.i.i18, align 8
   %164 = add nsw i32 %.0.i.i20, -1
   %.not.i.i21 = icmp eq i32 %164, 0
-  br i1 %.not.i.i21, label %fwd_order_int64.argprom.exit.i22, label %fwd_xform_int64_2.exit.i
+  br i1 %.not.i.i21, label %fwd_order_int64.exit.i22, label %fwd_xform_int64_2.exit.i
 
-fwd_order_int64.argprom.exit.i22:                 ; preds = %fwd_xform_int64_2.exit.i
-  %165 = call fastcc i32 @encode_ints_uint64.argelim(ptr noundef %10, i32 noundef %13, i32 noundef %15, ptr noundef %3)
+fwd_order_int64.exit.i22:                         ; preds = %fwd_xform_int64_2.exit.i
+  %165 = call fastcc i32 @encode_ints_uint64(ptr noundef %10, i32 noundef %13, i32 noundef %15, ptr noundef %3)
   %166 = icmp ult i32 %165, %11
   br i1 %166, label %167, label %encode_block_int64_2.exit
 
-167:                                              ; preds = %fwd_order_int64.argprom.exit.i22
+167:                                              ; preds = %fwd_order_int64.exit.i22
   %168 = sub nuw i32 %11, %165
   %169 = zext i32 %168 to i64
   %170 = load i64, ptr %10, align 8
@@ -326,8 +326,8 @@ stream_pad.exit.i24:                              ; preds = %175, %167
   store i64 %.0.lcssa.i.i25, ptr %10, align 8
   br label %encode_block_int64_2.exit
 
-encode_block_int64_2.exit:                        ; preds = %fwd_order_int64.argprom.exit.i22, %stream_pad.exit.i24
-  %.0.i23 = phi i32 [ %11, %stream_pad.exit.i24 ], [ %165, %fwd_order_int64.argprom.exit.i22 ]
+encode_block_int64_2.exit:                        ; preds = %fwd_order_int64.exit.i22, %stream_pad.exit.i24
+  %.0.i23 = phi i32 [ %11, %stream_pad.exit.i24 ], [ %165, %fwd_order_int64.exit.i22 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
   br label %181
 
@@ -338,7 +338,7 @@ encode_block_int64_2.exit:                        ; preds = %fwd_order_int64.arg
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc i32 @encode_ints_uint64.argelim(ptr noalias nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noalias nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc i32 @encode_ints_uint64(ptr noalias nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noalias nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %.sroa.24.i = alloca { ptr, ptr }, align 8
   %5 = shl i32 %2, 4
   %6 = or disjoint i32 %5, 15

@@ -428,14 +428,14 @@ manifest_files_compute_size.exit.i.i:             ; preds = %116
   %.0.i.i.i.i.i = select i1 %142, i64 %.0.i.i.i.i, i64 %145
   %146 = mul i64 %.0.i.i.i.i.i, 48
   %147 = icmp ugt i64 %146, 9223372036854775806
-  br i1 %147, label %148, label %manifest_files_create.argprom.exit.i
+  br i1 %147, label %148, label %manifest_files_create.exit.i
 
 148:                                              ; preds = %manifest_files_compute_size.exit.i.i
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.38) #16
   call void @exit(i32 noundef 1) #19
   unreachable
 
-manifest_files_create.argprom.exit.i:             ; preds = %manifest_files_compute_size.exit.i.i
+manifest_files_create.exit.i:                     ; preds = %manifest_files_compute_size.exit.i.i
   store i64 %.0.i.i.i.i.i, ptr %123, align 8
   %149 = trunc i64 %.0.i.i.i.i.i to i32
   %150 = add i32 %149, -1
@@ -456,7 +456,7 @@ manifest_files_create.argprom.exit.i:             ; preds = %manifest_files_comp
   %.not24.i = icmp eq i64 %160, %118
   br i1 %.not24.i, label %parse_manifest_file.exit, label %161
 
-161:                                              ; preds = %manifest_files_create.argprom.exit.i
+161:                                              ; preds = %manifest_files_create.exit.i
   %162 = icmp slt i32 %159, 0
   br i1 %162, label %163, label %164
 
@@ -468,7 +468,7 @@ manifest_files_create.argprom.exit.i:             ; preds = %manifest_files_comp
   call void (ptr, ...) @report_fatal_error(ptr noundef nonnull @.str.37, ptr noundef %.2, i32 noundef %159, i64 noundef %118) #20
   unreachable
 
-parse_manifest_file.exit:                         ; preds = %manifest_files_create.argprom.exit.i
+parse_manifest_file.exit:                         ; preds = %manifest_files_create.exit.i
   %165 = call i32 @close(i32 noundef %110) #16
   store ptr %123, ptr %7, align 8
   %166 = getelementptr inbounds i8, ptr %7, i64 8

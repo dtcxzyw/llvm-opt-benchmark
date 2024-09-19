@@ -401,14 +401,14 @@ define dso_local void @_ZN5vcpkg23parse_git_status_outputENS_10StringViewES0_(pt
   store i32 10, ptr %24, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #17
-  %45 = invoke fastcc noundef zeroext i1 @"_ZZN5vcpkg23parse_git_status_outputENS_10StringViewES0_ENK3$_0clERNS_10ParserBaseERNS_13GitStatusLine6StatusE.argprom"(ptr noundef nonnull align 8 dereferenceable(168) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %45 = invoke fastcc noundef zeroext i1 @"_ZZN5vcpkg23parse_git_status_outputENS_10StringViewES0_ENK3$_0clERNS_10ParserBaseERNS_13GitStatusLine6StatusE"(ptr noundef nonnull align 8 dereferenceable(168) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
           to label %46 unwind label %.loopexit.split-lp52
 
 46:                                               ; preds = %44
   br i1 %45, label %47, label %126
 
 47:                                               ; preds = %46
-  %48 = invoke fastcc noundef zeroext i1 @"_ZZN5vcpkg23parse_git_status_outputENS_10StringViewES0_ENK3$_0clERNS_10ParserBaseERNS_13GitStatusLine6StatusE.argprom"(ptr noundef nonnull align 8 dereferenceable(168) %9, ptr noundef nonnull align 4 dereferenceable(4) %24)
+  %48 = invoke fastcc noundef zeroext i1 @"_ZZN5vcpkg23parse_git_status_outputENS_10StringViewES0_ENK3$_0clERNS_10ParserBaseERNS_13GitStatusLine6StatusE"(ptr noundef nonnull align 8 dereferenceable(168) %9, ptr noundef nonnull align 4 dereferenceable(4) %24)
           to label %49 unwind label %.loopexit.split-lp52
 
 49:                                               ; preds = %47
@@ -880,7 +880,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare void @_ZN5vcpkg10ParserBaseC1ENS_10StringViewES1_NS_10TextRowColE(ptr noundef nonnull align 8 dereferenceable(168), ptr, i64, ptr, i64, i64) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN5vcpkg23parse_git_status_outputENS_10StringViewES0_ENK3$_0clERNS_10ParserBaseERNS_13GitStatusLine6StatusE.argprom"(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZN5vcpkg23parse_git_status_outputENS_10StringViewES0_ENK3$_0clERNS_10ParserBaseERNS_13GitStatusLine6StatusE"(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.fmt::v10::format_arg_store", align 16
   %4 = alloca %"struct.vcpkg::LocalizedString", align 8
   %5 = alloca %"struct.vcpkg::SourceLoc", align 8

@@ -1093,7 +1093,7 @@ define internal fastcc void @genl_ctrl_event(i32 noundef range(i32 1, 9) %0, ptr
   br i1 %94, label %95, label %98
 
 95:                                               ; preds = %92
-  %96 = call fastcc i32 @nla_put_string.argelim(ptr noundef nonnull %28, ptr noundef nonnull %2)
+  %96 = call fastcc i32 @nla_put_string(ptr noundef nonnull %28, ptr noundef nonnull %2)
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %109, label %98
 
@@ -2286,7 +2286,7 @@ define internal fastcc range(i32 -90, 1) i32 @ctrl_fill_info(ptr noundef %0, i32
   br i1 %182, label %183, label %.thread12
 
 183:                                              ; preds = %177
-  %184 = call fastcc i32 @nla_put_string.argelim(ptr noundef %4, ptr noundef %166)
+  %184 = call fastcc i32 @nla_put_string(ptr noundef %4, ptr noundef %166)
   %185 = icmp eq i32 %184, 0
   br i1 %185, label %186, label %.thread12
 
@@ -2363,7 +2363,7 @@ define internal fastcc range(i32 -90, 1) i32 @ctrl_fill_info(ptr noundef %0, i32
 declare dso_local ptr @__alloc_skb(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @nla_put_string.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #11 align 16 {
+define internal fastcc i32 @nla_put_string(ptr noundef %0, ptr noundef %1) unnamed_addr #11 align 16 {
   %3 = tail call i64 @strlen(ptr noundef %1) #15
   %4 = trunc i64 %3 to i32
   %5 = add i32 %4, 1

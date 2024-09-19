@@ -61,7 +61,7 @@ define void @visibility(ptr nocapture noundef %0) local_unnamed_addr #2 {
 6:                                                ; preds = %1
   %7 = load ptr, ptr @stderr, align 8
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, i64 noundef %5, i64 noundef 8) #12
-  tail call fastcc void @graphviz_exit.argelim() #13
+  tail call fastcc void @graphviz_exit() #13
   unreachable
 
 9:                                                ; preds = %1
@@ -75,7 +75,7 @@ define void @visibility(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %14 = load ptr, ptr @stderr, align 8
   %15 = shl nuw nsw i64 %5, 3
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.1, i64 noundef %15) #12
-  tail call fastcc void @graphviz_exit.argelim() #13
+  tail call fastcc void @graphviz_exit() #13
   unreachable
 
 gv_calloc.exit.i:                                 ; preds = %9
@@ -87,7 +87,7 @@ gv_calloc.exit.i:                                 ; preds = %9
 19:                                               ; preds = %gv_calloc.exit.i
   %20 = load ptr, ptr @stderr, align 8
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str, i64 noundef %18, i64 noundef 8) #12
-  tail call fastcc void @graphviz_exit.argelim() #13
+  tail call fastcc void @graphviz_exit() #13
   unreachable
 
 22:                                               ; preds = %gv_calloc.exit.i
@@ -109,7 +109,7 @@ gv_calloc.exit23.preheader27.i:                   ; preds = %gv_calloc.exit23.pr
   %28 = load ptr, ptr @stderr, align 8
   %29 = shl nuw i64 %18, 3
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.1, i64 noundef %29) #12
-  tail call fastcc void @graphviz_exit.argelim() #13
+  tail call fastcc void @graphviz_exit() #13
   unreachable
 
 gv_calloc.exit23.i:                               ; preds = %gv_calloc.exit23.i, %gv_calloc.exit23.preheader27.i
@@ -464,7 +464,7 @@ define noalias noundef ptr @ptVis(ptr nocapture noundef readonly %0, i32 noundef
 15:                                               ; preds = %4
   %16 = load ptr, ptr @stderr, align 8
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str, i64 noundef %14, i64 noundef 8) #12
-  tail call fastcc void @graphviz_exit.argelim() #13
+  tail call fastcc void @graphviz_exit() #13
   unreachable
 
 18:                                               ; preds = %4
@@ -478,7 +478,7 @@ define noalias noundef ptr @ptVis(ptr nocapture noundef readonly %0, i32 noundef
   %23 = load ptr, ptr @stderr, align 8
   %24 = shl nuw nsw i64 %14, 3
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.1, i64 noundef %24) #12
-  tail call fastcc void @graphviz_exit.argelim() #13
+  tail call fastcc void @graphviz_exit() #13
   unreachable
 
 gv_calloc.exit:                                   ; preds = %18
@@ -1495,7 +1495,7 @@ inBetween.exit.thread:                            ; preds = %55, %48, %30, %23, 
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #6 {
+define internal fastcc void @graphviz_exit() unnamed_addr #6 {
   tail call void @exit(i32 noundef 1) #16
   unreachable
 }

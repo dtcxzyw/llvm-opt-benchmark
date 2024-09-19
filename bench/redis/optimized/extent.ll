@@ -43,12 +43,12 @@ define hidden ptr @ecache_alloc(ptr noundef %tsdn, ptr noundef %pac, ptr noundef
 entry:
   %commit = alloca i8, align 1
   store i8 1, ptr %commit, align 1
-  %call5 = call fastcc ptr @extent_recycle.argelim(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %ehooks, ptr noundef %ecache, ptr noundef %expand_edata, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, ptr noundef %commit, i1 noundef zeroext %guarded)
+  %call5 = call fastcc ptr @extent_recycle(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %ehooks, ptr noundef %ecache, ptr noundef %expand_edata, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, ptr noundef %commit, i1 noundef zeroext %guarded)
   ret ptr %call5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @extent_recycle.argelim(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %ehooks, ptr noundef %ecache, ptr noundef %expand_edata, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, ptr nocapture noundef nonnull %commit, i1 noundef zeroext %guarded) unnamed_addr #1 {
+define internal fastcc ptr @extent_recycle(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %ehooks, ptr noundef %ecache, ptr noundef %expand_edata, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, ptr nocapture noundef nonnull %commit, i1 noundef zeroext %guarded) unnamed_addr #1 {
 entry:
   %lock.i.i = getelementptr inbounds i8, ptr %ecache, i64 64
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #9
@@ -146,7 +146,7 @@ if.end:                                           ; preds = %if.end22.i, %if.the
   %and.i37.i.i = and i64 %.val33.i.i, -4096
   %add9.i.i = add i64 %sub7.i.i, %size
   %cmp.i.i = icmp ult i64 %and.i37.i.i, %add9.i.i
-  br i1 %cmp.i.i, label %extent_recycle_split.argprom.exit.thread, label %if.end.i.i
+  br i1 %cmp.i.i, label %extent_recycle_split.exit.thread, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end
   %sub11.i.i = sub i64 %and.i37.i.i, %sub7.i.i
@@ -155,7 +155,7 @@ if.end.i.i:                                       ; preds = %if.end
   br i1 %cmp13.not.i.i, label %if.end22.i.i, label %do.end16.i.i
 
 do.end16.i.i:                                     ; preds = %if.end.i.i
-  %call18.i.i = tail call fastcc ptr @extent_split_impl.argelim(ptr noundef %tsdn, ptr noundef nonnull readonly %pac, ptr noundef readonly %ehooks, ptr noundef nonnull %edata.06.i, i64 noundef %sub7.i.i, i64 noundef %sub11.i.i)
+  %call18.i.i = tail call fastcc ptr @extent_split_impl(ptr noundef %tsdn, ptr noundef nonnull readonly %pac, ptr noundef readonly %ehooks, ptr noundef nonnull %edata.06.i, i64 noundef %sub7.i.i, i64 noundef %sub11.i.i)
   %cmp19.i.i = icmp eq ptr %call18.i.i, null
   br i1 %cmp19.i.i, label %if.then12.i, label %if.end22.i.i
 
@@ -166,7 +166,7 @@ if.end22.i.i:                                     ; preds = %do.end16.i.i, %if.e
   br i1 %cmp23.not.i.i, label %if.then.i35, label %do.end26.i.i
 
 do.end26.i.i:                                     ; preds = %if.end22.i.i
-  %call27.i.i = tail call fastcc ptr @extent_split_impl.argelim(ptr noundef %tsdn, ptr noundef nonnull readonly %pac, ptr noundef readonly %ehooks, ptr noundef nonnull %edata.addr.0.i, i64 noundef %size, i64 noundef %sub12.i.i)
+  %call27.i.i = tail call fastcc ptr @extent_split_impl(ptr noundef %tsdn, ptr noundef nonnull readonly %pac, ptr noundef readonly %ehooks, ptr noundef nonnull %edata.addr.0.i, i64 noundef %size, i64 noundef %sub12.i.i)
   %cmp28.i.i = icmp eq ptr %call27.i.i, null
   br i1 %cmp28.i.i, label %do.end7.i, label %if.then.i35
 
@@ -273,7 +273,7 @@ if.end.i35.i:                                     ; preds = %if.then.i33.i, %ext
   store i64 %inc.i.i.i, ptr %n_lock_ops.i.i, align 8
   %30 = load ptr, ptr %prev_owner.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %30, %tsdn
-  br i1 %cmp.not.i.i.i, label %extent_recycle_split.argprom.exit.thread, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %extent_recycle_split.exit.thread, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i35.i
   store ptr %tsdn, ptr %prev_owner.i.i, align 8
@@ -281,9 +281,9 @@ if.then.i.i.i:                                    ; preds = %if.end.i35.i
   %31 = load i64, ptr %n_owner_switches.i.i.i, align 8
   %inc2.i.i.i = add i64 %31, 1
   store i64 %inc2.i.i.i, ptr %n_owner_switches.i.i.i, align 8
-  br label %extent_recycle_split.argprom.exit.thread
+  br label %extent_recycle_split.exit.thread
 
-extent_recycle_split.argprom.exit.thread:         ; preds = %if.end.i35.i, %if.then.i.i.i, %if.end
+extent_recycle_split.exit.thread:                 ; preds = %if.end.i35.i, %if.then.i.i.i, %if.end
   %locked.i4051 = getelementptr inbounds i8, ptr %ecache, i64 104
   store atomic i8 0, ptr %locked.i4051 monotonic, align 1
   %call1.i4252 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #9
@@ -307,7 +307,7 @@ if.then.i46:                                      ; preds = %land.lhs.true.i
   %34 = getelementptr i8, ptr %edata.addr.0.i, i64 16
   %edata.val12.i = load i64, ptr %34, align 8
   %and.i.i47 = and i64 %edata.val12.i, -4096
-  %call7.i = tail call fastcc zeroext i1 @extent_commit_impl.argelim(ptr noundef %tsdn, ptr noundef readonly %ehooks, ptr noundef nonnull %edata.addr.0.i, i64 noundef 0, i64 noundef %and.i.i47)
+  %call7.i = tail call fastcc zeroext i1 @extent_commit_impl(ptr noundef %tsdn, ptr noundef readonly %ehooks, ptr noundef nonnull %edata.addr.0.i, i64 noundef 0, i64 noundef %and.i.i47)
   %zero.not.i = xor i1 %zero, true
   %brmerge.i = or i1 %call7.i, %zero.not.i
   br i1 %brmerge.i, label %extent_commit_zero.exit, label %land.lhs.true11.i
@@ -361,8 +361,8 @@ if.then23:                                        ; preds = %if.end21
   store i8 1, ptr %commit, align 1
   br label %return
 
-return:                                           ; preds = %extent_recycle_split.argprom.exit.thread, %if.end21, %if.then23, %if.then20, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then20 ], [ %edata.addr.0.i, %if.then23 ], [ %edata.addr.0.i, %if.end21 ], [ null, %extent_recycle_split.argprom.exit.thread ]
+return:                                           ; preds = %extent_recycle_split.exit.thread, %if.end21, %if.then23, %if.then20, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then20 ], [ %edata.addr.0.i, %if.then23 ], [ %edata.addr.0.i, %if.end21 ], [ null, %extent_recycle_split.exit.thread ]
   ret ptr %retval.0
 }
 
@@ -405,7 +405,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
 
 malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.end.i.i
   %ecache_retained.i = getelementptr inbounds i8, ptr %pac, i64 38936
-  %call.i = call fastcc ptr @extent_recycle.argelim(ptr noundef %tsdn, ptr noundef nonnull %pac, ptr noundef %ehooks, ptr noundef nonnull %ecache_retained.i, ptr noundef %expand_edata, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, ptr noundef %commit, i1 noundef zeroext %guarded)
+  %call.i = call fastcc ptr @extent_recycle(ptr noundef %tsdn, ptr noundef nonnull %pac, ptr noundef %ehooks, ptr noundef nonnull %ecache_retained.i, ptr noundef %expand_edata, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, ptr noundef %commit, i1 noundef zeroext %guarded)
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %if.else.i, label %extent_alloc_retained.exit.thread19
 
@@ -547,7 +547,7 @@ if.end.i.i.i:                                     ; preds = %if.end24.i.i
   br i1 %cmp13.not.i.i.i, label %if.end22.i.i.i, label %do.end16.i.i.i
 
 do.end16.i.i.i:                                   ; preds = %if.end.i.i.i
-  %call18.i.i.i = call fastcc ptr @extent_split_impl.argelim(ptr noundef %tsdn, ptr noundef nonnull readonly %pac, ptr noundef readonly %ehooks, ptr noundef nonnull %call5.i.i, i64 noundef %sub7.i.i.i, i64 noundef %sub11.i.i.i)
+  %call18.i.i.i = call fastcc ptr @extent_split_impl(ptr noundef %tsdn, ptr noundef nonnull readonly %pac, ptr noundef readonly %ehooks, ptr noundef nonnull %call5.i.i, i64 noundef %sub7.i.i.i, i64 noundef %sub11.i.i.i)
   %cmp19.i.i.i = icmp eq ptr %call18.i.i.i, null
   br i1 %cmp19.i.i.i, label %if.then41.i.i, label %if.end22.i.i.i
 
@@ -558,7 +558,7 @@ if.end22.i.i.i:                                   ; preds = %do.end16.i.i.i, %if
   br i1 %cmp23.not.i.i.i, label %if.then27.i.i, label %do.end26.i.i.i
 
 do.end26.i.i.i:                                   ; preds = %if.end22.i.i.i
-  %call27.i.i.i = call fastcc ptr @extent_split_impl.argelim(ptr noundef %tsdn, ptr noundef nonnull readonly %pac, ptr noundef readonly %ehooks, ptr noundef nonnull %edata.0.i.i, i64 noundef %size, i64 noundef %sub12.i.i.i)
+  %call27.i.i.i = call fastcc ptr @extent_split_impl(ptr noundef %tsdn, ptr noundef nonnull readonly %pac, ptr noundef readonly %ehooks, ptr noundef nonnull %edata.0.i.i, i64 noundef %size, i64 noundef %sub12.i.i.i)
   %cmp28.i.i.i = icmp eq ptr %call27.i.i.i, null
   br i1 %cmp28.i.i.i, label %do.end.i.i, label %if.then27.i.i
 
@@ -591,7 +591,7 @@ if.then41.i.i:                                    ; preds = %if.then37.i.i, %do.
   %to_leak.1109121.i.i = phi ptr [ %call5.i.i, %do.end16.i.i.i ], [ %edata.0.i.i, %if.then37.i.i ], [ %edata.0.i.i, %do.end.i.i ]
   %pac.val.i.i = load ptr, ptr %19, align 8
   call void @emap_deregister_boundary(ptr noundef %tsdn, ptr noundef %pac.val.i.i, ptr noundef nonnull %to_leak.1109121.i.i) #9
-  call fastcc void @extents_abandon_vm.argelim(ptr noundef %tsdn, ptr noundef nonnull %pac, ptr noundef %ehooks, ptr noundef nonnull %ecache_retained.i, ptr noundef nonnull %to_leak.1109121.i.i)
+  call fastcc void @extents_abandon_vm(ptr noundef %tsdn, ptr noundef nonnull %pac, ptr noundef %ehooks, ptr noundef nonnull %ecache_retained.i, ptr noundef nonnull %to_leak.1109121.i.i)
   br label %extent_alloc_retained.exit
 
 if.end44.i.i:                                     ; preds = %if.then33.i.i, %if.end31.i.i
@@ -609,7 +609,7 @@ if.then47.i.i:                                    ; preds = %land.lhs.true.i.i
   %25 = getelementptr i8, ptr %edata.0.i.i, i64 16
   %.val56.i.i = load i64, ptr %25, align 8
   %and.i65.i.i = and i64 %.val56.i.i, -4096
-  %call49.i.i = call fastcc zeroext i1 @extent_commit_impl.argelim(ptr noundef %tsdn, ptr noundef %ehooks, ptr noundef nonnull %edata.0.i.i, i64 noundef 0, i64 noundef %and.i65.i.i)
+  %call49.i.i = call fastcc zeroext i1 @extent_commit_impl(ptr noundef %tsdn, ptr noundef %ehooks, ptr noundef nonnull %edata.0.i.i, i64 noundef 0, i64 noundef %and.i65.i.i)
   br i1 %call49.i.i, label %if.then50.i.i, label %if.end53.i.i
 
 if.then50.i.i:                                    ; preds = %if.then47.i.i
@@ -1734,12 +1734,12 @@ declare void @san_unguard_pages_pre_destroy(ptr noundef, ptr noundef, ptr nounde
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @extent_commit_wrapper(ptr noundef %tsdn, ptr nocapture noundef readonly %ehooks, ptr nocapture noundef %edata, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #1 {
 entry:
-  %call = tail call fastcc zeroext i1 @extent_commit_impl.argelim(ptr noundef %tsdn, ptr noundef %ehooks, ptr noundef %edata, i64 noundef %offset, i64 noundef %length)
+  %call = tail call fastcc zeroext i1 @extent_commit_impl(ptr noundef %tsdn, ptr noundef %ehooks, ptr noundef %edata, i64 noundef %offset, i64 noundef %length)
   ret i1 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @extent_commit_impl.argelim(ptr noundef %tsdn, ptr nocapture noundef readonly %ehooks, ptr nocapture noundef %edata, i64 noundef %offset, i64 noundef %length) unnamed_addr #1 {
+define internal fastcc zeroext i1 @extent_commit_impl(ptr noundef %tsdn, ptr nocapture noundef readonly %ehooks, ptr nocapture noundef %edata, i64 noundef %offset, i64 noundef %length) unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %edata, i64 8
   %edata.val8 = load ptr, ptr %0, align 8
@@ -1871,12 +1871,12 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden ptr @extent_split_wrapper(ptr noundef %tsdn, ptr nocapture noundef readonly %pac, ptr nocapture noundef readonly %ehooks, ptr noundef %edata, i64 noundef %size_a, i64 noundef %size_b, i1 noundef zeroext %holding_core_locks) local_unnamed_addr #1 {
 entry:
-  %call = tail call fastcc ptr @extent_split_impl.argelim(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %ehooks, ptr noundef %edata, i64 noundef %size_a, i64 noundef %size_b)
+  %call = tail call fastcc ptr @extent_split_impl(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %ehooks, ptr noundef %edata, i64 noundef %size_a, i64 noundef %size_b)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @extent_split_impl.argelim(ptr noundef %tsdn, ptr nocapture noundef readonly %pac, ptr nocapture noundef readonly %ehooks, ptr noundef %edata, i64 noundef %size_a, i64 noundef %size_b) unnamed_addr #1 {
+define internal fastcc ptr @extent_split_impl(ptr noundef %tsdn, ptr nocapture noundef readonly %pac, ptr nocapture noundef readonly %ehooks, ptr noundef %edata, i64 noundef %size_a, i64 noundef %size_b) unnamed_addr #1 {
 entry:
   %prepare = alloca %struct.emap_prepare_s, align 8
   %ptr.i.i = getelementptr inbounds i8, ptr %ehooks, i64 8
@@ -2036,12 +2036,12 @@ return:                                           ; preds = %label_error_b, %if.
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @extent_merge_wrapper(ptr noundef %tsdn, ptr nocapture noundef readonly %pac, ptr nocapture noundef readonly %ehooks, ptr noundef %a, ptr noundef %b) local_unnamed_addr #1 {
 entry:
-  %call = tail call fastcc zeroext i1 @extent_merge_impl.argelim(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %ehooks, ptr noundef %a, ptr noundef %b)
+  %call = tail call fastcc zeroext i1 @extent_merge_impl(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %ehooks, ptr noundef %a, ptr noundef %b)
   ret i1 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @extent_merge_impl.argelim(ptr noundef %tsdn, ptr nocapture noundef readonly %pac, ptr nocapture noundef readonly %ehooks, ptr noundef %a, ptr noundef %b) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @extent_merge_impl(ptr noundef %tsdn, ptr nocapture noundef readonly %pac, ptr nocapture noundef readonly %ehooks, ptr noundef %a, ptr noundef %b) unnamed_addr #1 {
 entry:
   %prepare = alloca %struct.emap_prepare_s, align 8
   %emap = getelementptr inbounds i8, ptr %pac, i64 58384
@@ -2205,7 +2205,7 @@ if.then:                                          ; preds = %land.lhs.true
   %1 = getelementptr i8, ptr %edata, i64 16
   %edata.val12 = load i64, ptr %1, align 8
   %and.i = and i64 %edata.val12, -4096
-  %call7 = tail call fastcc zeroext i1 @extent_commit_impl.argelim(ptr noundef %tsdn, ptr noundef %ehooks, ptr noundef nonnull %edata, i64 noundef 0, i64 noundef %and.i)
+  %call7 = tail call fastcc zeroext i1 @extent_commit_impl(ptr noundef %tsdn, ptr noundef %ehooks, ptr noundef nonnull %edata, i64 noundef 0, i64 noundef %and.i)
   %zero.not = xor i1 %zero, true
   %brmerge = or i1 %call7, %zero.not
   br i1 %brmerge, label %return, label %land.lhs.true11
@@ -2277,7 +2277,7 @@ declare void @emap_release_edata(ptr noundef, ptr noundef, ptr noundef, i32 noun
 declare ptr @eset_fit(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @extents_abandon_vm.argelim(ptr noundef %tsdn, ptr nocapture noundef readonly %pac, ptr nocapture noundef readonly %ehooks, ptr nocapture noundef readonly %ecache, ptr noundef %edata) unnamed_addr #1 {
+define internal fastcc void @extents_abandon_vm(ptr noundef %tsdn, ptr nocapture noundef readonly %pac, ptr nocapture noundef readonly %ehooks, ptr nocapture noundef readonly %ecache, ptr noundef %edata) unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %edata, i64 16
   %edata.val15 = load i64, ptr %0, align 8
@@ -2341,7 +2341,7 @@ do.body1:                                         ; preds = %do.body1.outer, %ex
 
 if.then:                                          ; preds = %do.body1
   tail call void @eset_remove(ptr noundef nonnull %eset.i, ptr noundef nonnull %call) #9
-  %call.i = tail call fastcc zeroext i1 @extent_merge_impl.argelim(ptr noundef %tsdn, ptr noundef nonnull readonly %pac, ptr noundef readonly %ehooks, ptr noundef %edata.addr.0.ph, ptr noundef nonnull %call)
+  %call.i = tail call fastcc zeroext i1 @extent_merge_impl(ptr noundef %tsdn, ptr noundef nonnull readonly %pac, ptr noundef readonly %ehooks, ptr noundef %edata.addr.0.ph, ptr noundef nonnull %call)
   br i1 %call.i, label %extent_coalesce.exit.thread, label %if.then3
 
 extent_coalesce.exit.thread:                      ; preds = %if.then
@@ -2371,7 +2371,7 @@ if.end6:                                          ; preds = %extent_coalesce.exi
 
 if.then11:                                        ; preds = %if.end6
   tail call void @eset_remove(ptr noundef nonnull %eset.i, ptr noundef nonnull %call9) #9
-  %call.i26 = tail call fastcc zeroext i1 @extent_merge_impl.argelim(ptr noundef %tsdn, ptr noundef nonnull readonly %pac, ptr noundef readonly %ehooks, ptr noundef nonnull %call9, ptr noundef %edata.addr.0.ph)
+  %call.i26 = tail call fastcc zeroext i1 @extent_merge_impl(ptr noundef %tsdn, ptr noundef nonnull readonly %pac, ptr noundef readonly %ehooks, ptr noundef nonnull %call9, ptr noundef %edata.addr.0.ph)
   br i1 %call.i26, label %extent_coalesce.exit34.thread, label %if.then13
 
 extent_coalesce.exit34.thread:                    ; preds = %if.then11

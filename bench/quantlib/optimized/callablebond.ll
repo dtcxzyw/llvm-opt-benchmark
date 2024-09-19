@@ -7071,7 +7071,7 @@ if.end:                                           ; preds = %if.then, %entry
   store ptr @_ZNSt17_Function_handlerIFddEN8QuantLib12CallableBond15NPVSpreadHelperEE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !165
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp15) #28
   %cmp.i2 = fcmp ogt double %accuracy, 0.000000e+00
-  br i1 %cmp.i2, label %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit.i, label %if.then.i
+  br i1 %cmp.i2, label %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream.i) #28
@@ -7240,7 +7240,7 @@ ehcleanup27.i:                                    ; preds = %cleanup.action.i, %
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %_ql_msg_stream.i) #28
   br label %lpad18.body
 
-_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit.i: ; preds = %if.end
+_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit.i: ; preds = %if.end
   %cmp.i.i = fcmp olt double %accuracy, 0x3CB0000000000000
   %.sroa.speculated.i = select i1 %cmp.i.i, double 0x3CB0000000000000, double %accuracy
   %25 = load ptr, ptr %f, align 8, !tbaa !157
@@ -7249,7 +7249,7 @@ _ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit.i: ; preds = %if.end
   %cmp.not.i.i.i.i.i211 = icmp eq ptr %26, null
   br i1 %cmp.not.i.i.i.i.i211, label %cond.false.i.i.i.i.i, label %_ZNK5boost10shared_ptrIN8QuantLib13PricingEngineEEptEv.exit.i.i.i.i, !prof !50
 
-cond.false.i.i.i.i.i:                             ; preds = %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit.i
+cond.false.i.i.i.i.i:                             ; preds = %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit.i
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.26, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib13PricingEngineEEptEv, ptr noundef nonnull @.str.27, i64 noundef 784)
           to label %.noexc213 unwind label %lpad18.loopexit.split-lp.loopexit.split-lp
 
@@ -7257,8 +7257,8 @@ cond.false.i.i.i.i.i:                             ; preds = %_ZNK8QuantLib12_GLO
   %.pre.i.i.i.i.i = load ptr, ptr %engine_.i.i.i.i, align 8, !tbaa !120
   br label %_ZNK5boost10shared_ptrIN8QuantLib13PricingEngineEEptEv.exit.i.i.i.i
 
-_ZNK5boost10shared_ptrIN8QuantLib13PricingEngineEEptEv.exit.i.i.i.i: ; preds = %.noexc213, %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit.i
-  %27 = phi ptr [ %26, %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit.i ], [ %.pre.i.i.i.i.i, %.noexc213 ]
+_ZNK5boost10shared_ptrIN8QuantLib13PricingEngineEEptEv.exit.i.i.i.i: ; preds = %.noexc213, %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit.i
+  %27 = phi ptr [ %26, %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit.i ], [ %.pre.i.i.i.i.i, %.noexc213 ]
   %vtable.i.i.i.i = load ptr, ptr %27, align 8, !tbaa !33
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %28 = load ptr, ptr %vfn.i.i.i.i, align 8
@@ -7323,14 +7323,14 @@ _ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit.i: ; preds = %if.else.
   store double %sub.i, ptr %__args.addr.i.i59.i, align 8, !tbaa !114
   %40 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !165
   %tobool.not.i.i.i61.i = icmp eq ptr %40, null
-  br i1 %tobool.not.i.i.i61.i, label %if.then.i.i195.i.invoke, label %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit66.i
+  br i1 %tobool.not.i.i.i61.i, label %if.then.i.i195.i.invoke, label %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit66.i
 
-_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit66.i: ; preds = %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit.i
+_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit66.i: ; preds = %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit.i
   %41 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !162
   %call2.i.i63.i8 = invoke noundef double %41(ptr noundef nonnull align 8 dereferenceable(16) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i59.i)
           to label %call2.i.i63.i.noexc unwind label %lpad18.loopexit.split-lp.loopexit.split-lp
 
-call2.i.i63.i.noexc:                              ; preds = %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit66.i
+call2.i.i63.i.noexc:                              ; preds = %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit66.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i59.i)
   %sub.i64.i = fsub double %div14, %call2.i.i63.i8
   br label %if.end58.i
@@ -7341,14 +7341,14 @@ _ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit80.i: ; preds = %if.els
   store double %add.i, ptr %__args.addr.i.i81.i, align 8, !tbaa !114
   %42 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !165
   %tobool.not.i.i.i83.i = icmp eq ptr %42, null
-  br i1 %tobool.not.i.i.i83.i, label %if.then.i.i195.i.invoke, label %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit88.i
+  br i1 %tobool.not.i.i.i83.i, label %if.then.i.i195.i.invoke, label %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit88.i
 
-_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit88.i: ; preds = %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit80.i
+_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit88.i: ; preds = %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit80.i
   %43 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !162
   %call2.i.i85.i10 = invoke noundef double %43(ptr noundef nonnull align 8 dereferenceable(16) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i81.i)
           to label %call2.i.i85.i.noexc unwind label %lpad18.loopexit.split-lp.loopexit.split-lp
 
-call2.i.i85.i.noexc:                              ; preds = %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit88.i
+call2.i.i85.i.noexc:                              ; preds = %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit88.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i81.i)
   %sub.i86.i = fsub double %div14, %call2.i.i85.i10
   br label %if.end58.i
@@ -7393,14 +7393,14 @@ if.end74.i:                                       ; preds = %if.end69.i
   store double %div.i, ptr %__args.addr.i.i.i.i, align 8, !tbaa !114
   %46 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !165
   %tobool.not.i.i.i.i.i = icmp eq ptr %46, null
-  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i195.i.invoke, label %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i195.i.invoke, label %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit.i.i
 
-_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit.i.i: ; preds = %if.end74.i
+_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit.i.i: ; preds = %if.end74.i
   %47 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !162
   %call2.i.i.i.i12 = invoke noundef double %47(ptr noundef nonnull align 8 dereferenceable(16) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i.i)
           to label %call2.i.i.i.i.noexc unwind label %lpad18.loopexit.split-lp.loopexit.split-lp
 
-call2.i.i.i.i.noexc:                              ; preds = %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit.i.i
+call2.i.i.i.i.noexc:                              ; preds = %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i.i.i)
   %inc.i.i = add i64 %solver.sroa.78.0, 1
   %cmp10.not127.i.i = icmp ugt i64 %inc.i.i, %maxIterations
@@ -7586,14 +7586,14 @@ if.end122.i.i:                                    ; preds = %if.else118.i.i, %if
   store double %storemerge.i.i, ptr %__args.addr.i.i72.i.i, align 8, !tbaa !114
   %68 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !165
   %tobool.not.i.i.i74.i.i = icmp eq ptr %68, null
-  br i1 %tobool.not.i.i.i74.i.i, label %if.then.i.i195.i.invoke, label %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit79.i.i
+  br i1 %tobool.not.i.i.i74.i.i, label %if.then.i.i195.i.invoke, label %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit79.i.i
 
-_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit79.i.i: ; preds = %if.end122.i.i
+_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit79.i.i: ; preds = %if.end122.i.i
   %69 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !162
   %call2.i.i76.i.i15 = invoke noundef double %69(ptr noundef nonnull align 8 dereferenceable(16) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i72.i.i)
           to label %call2.i.i76.i.i.noexc unwind label %lpad18.loopexit
 
-call2.i.i76.i.i.noexc:                            ; preds = %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit79.i.i
+call2.i.i76.i.i.noexc:                            ; preds = %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit79.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i72.i.i)
   %sub.i77.i.i = fsub double %div14, %call2.i.i76.i.i15
   %inc126.i.i = add i64 %solver.sroa.78.1, 1
@@ -7792,14 +7792,14 @@ _ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit122.i: ; preds = %if.en
   store double %94, ptr %__args.addr.i.i123.i, align 8, !tbaa !114
   %95 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !165
   %tobool.not.i.i.i125.i = icmp eq ptr %95, null
-  br i1 %tobool.not.i.i.i125.i, label %if.then.i.i195.i.invoke, label %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit130.i
+  br i1 %tobool.not.i.i.i125.i, label %if.then.i.i195.i.invoke, label %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit130.i
 
-_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit130.i: ; preds = %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit122.i
+_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit130.i: ; preds = %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit122.i
   %96 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !162
   %call2.i.i127.i19 = invoke noundef double %96(ptr noundef nonnull align 8 dereferenceable(16) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i123.i)
           to label %call2.i.i127.i.noexc unwind label %lpad18.loopexit.split-lp.loopexit
 
-call2.i.i127.i.noexc:                             ; preds = %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit130.i
+call2.i.i127.i.noexc:                             ; preds = %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit130.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i123.i)
   %sub.i128.i = fsub double %div14, %call2.i.i127.i19
   br label %if.end141.i
@@ -7815,14 +7815,14 @@ _ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit144.i: ; preds = %if.el
   store double %97, ptr %__args.addr.i.i145.i, align 8, !tbaa !114
   %98 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !165
   %tobool.not.i.i.i147.i = icmp eq ptr %98, null
-  br i1 %tobool.not.i.i.i147.i, label %if.then.i.i195.i.invoke, label %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit152.i
+  br i1 %tobool.not.i.i.i147.i, label %if.then.i.i195.i.invoke, label %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit152.i
 
-_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit152.i: ; preds = %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit144.i
+_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit152.i: ; preds = %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit144.i
   %99 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !162
   %call2.i.i149.i21 = invoke noundef double %99(ptr noundef nonnull align 8 dereferenceable(16) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i145.i)
           to label %call2.i.i149.i.noexc unwind label %lpad18.loopexit.split-lp.loopexit
 
-call2.i.i149.i.noexc:                             ; preds = %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit152.i
+call2.i.i149.i.noexc:                             ; preds = %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit152.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i145.i)
   %sub.i150.i = fsub double %div14, %call2.i.i149.i21
   br label %if.end141.i
@@ -7840,14 +7840,14 @@ _ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit166.i: ; preds = %if.el
   store double %100, ptr %__args.addr.i.i167.i, align 8, !tbaa !114
   %101 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !165
   %tobool.not.i.i.i169.i = icmp eq ptr %101, null
-  br i1 %tobool.not.i.i.i169.i, label %if.then.i.i195.i.invoke, label %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit174.i
+  br i1 %tobool.not.i.i.i169.i, label %if.then.i.i195.i.invoke, label %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit174.i
 
-_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit174.i: ; preds = %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit166.i
+_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit174.i: ; preds = %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit166.i
   %102 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !162
   %call2.i.i171.i23 = invoke noundef double %102(ptr noundef nonnull align 8 dereferenceable(16) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i167.i)
           to label %call2.i.i171.i.noexc unwind label %lpad18.loopexit.split-lp.loopexit
 
-call2.i.i171.i.noexc:                             ; preds = %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit174.i
+call2.i.i171.i.noexc:                             ; preds = %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit174.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i167.i)
   %sub.i172.i = fsub double %div14, %call2.i.i171.i23
   %inc.i = add i64 %solver.sroa.78.0, 1
@@ -7860,7 +7860,7 @@ _ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit188.i: ; preds = %if.el
   store double %103, ptr %__args.addr.i.i189.i, align 8, !tbaa !114
   %104 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !165
   %tobool.not.i.i.i191.i = icmp eq ptr %104, null
-  br i1 %tobool.not.i.i.i191.i, label %if.then.i.i195.i.invoke, label %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit196.i
+  br i1 %tobool.not.i.i.i191.i, label %if.then.i.i195.i.invoke, label %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit196.i
 
 if.then.i.i195.i.invoke:                          ; preds = %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit188.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit166.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit144.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit122.i, %if.end122.i.i, %if.then52.i.i, %if.end74.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit80.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit.i
   invoke void @_ZSt25__throw_bad_function_callv() #30
@@ -7869,12 +7869,12 @@ if.then.i.i195.i.invoke:                          ; preds = %_ZNK8QuantLib8Solve
 if.then.i.i195.i.cont:                            ; preds = %if.then.i.i195.i.invoke
   unreachable
 
-_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit196.i: ; preds = %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit188.i
+_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit196.i: ; preds = %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit188.i
   %105 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !162
   %call2.i.i193.i25 = invoke noundef double %105(ptr noundef nonnull align 8 dereferenceable(16) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i189.i)
           to label %call2.i.i193.i.noexc unwind label %lpad18.loopexit.split-lp.loopexit
 
-call2.i.i193.i.noexc:                             ; preds = %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit196.i
+call2.i.i193.i.noexc:                             ; preds = %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit196.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i189.i)
   %sub.i194.i = fsub double %div14, %call2.i.i193.i25
   br label %if.end141.i
@@ -8653,17 +8653,17 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont21, %if.
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %f) #28
   ret double %sub.i35
 
-lpad18.loopexit:                                  ; preds = %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit79.i.i
+lpad18.loopexit:                                  ; preds = %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit79.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %lpad18.body
 
-lpad18.loopexit.split-lp.loopexit:                ; preds = %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit196.i, %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit174.i, %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit152.i, %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit130.i
+lpad18.loopexit.split-lp.loopexit:                ; preds = %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit196.i, %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit174.i, %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit152.i, %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit130.i
   %lpad.loopexit109 = landingpad { ptr, i32 }
           cleanup
   br label %lpad18.body
 
-lpad18.loopexit.split-lp.loopexit.split-lp:       ; preds = %_ZNK5boost10shared_ptrIN8QuantLib13PricingEngineEEptEv.exit.i.i.i.i, %cond.false.i.i.i.i.i, %if.then.i.i195.i.invoke, %call3.i.noexc, %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit.i, %cond.false.i.i, %invoke.cont19, %do.body144.i, %_ZNK8QuantLib5Brent9solveImplINS_12_GLOBAL__N_19OASHelperEEEdRKT_d.exit.i, %do.body.i.i, %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit.i.i, %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit88.i, %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.argprom.exit66.i, %if.then.i
+lpad18.loopexit.split-lp.loopexit.split-lp:       ; preds = %_ZNK5boost10shared_ptrIN8QuantLib13PricingEngineEEptEv.exit.i.i.i.i, %cond.false.i.i.i.i.i, %if.then.i.i195.i.invoke, %call3.i.noexc, %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit.i, %cond.false.i.i, %invoke.cont19, %do.body144.i, %_ZNK8QuantLib5Brent9solveImplINS_12_GLOBAL__N_19OASHelperEEEdRKT_d.exit.i, %do.body.i.i, %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit.i.i, %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit88.i, %_ZNK8QuantLib12_GLOBAL__N_19OASHelperclEd.exit66.i, %if.then.i
   %lpad.loopexit.split-lp110 = landingpad { ptr, i32 }
           cleanup
   br label %lpad18.body

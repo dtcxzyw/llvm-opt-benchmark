@@ -3540,7 +3540,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNSt10filesystem7_
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.loopexit:             ; preds = %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit, %69, %_ZL15gmx_srenew_implIPcEvPKcS2_iRPT_m.argprom.exit, %94
+.loopexit.split-lp.loopexit.loopexit:             ; preds = %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit, %69, %_ZL15gmx_srenew_implIPcEvPKcS2_iRPT_m.exit, %94
   %lpad.loopexit98 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -3582,7 +3582,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %40
 
 46:                                               ; preds = %32, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit
   store ptr null, ptr %2, align 8
-  br label %_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.argprom.exit
+  br label %_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.exit
 
 47:                                               ; preds = %31
   %48 = invoke noundef ptr @_Z10fflib_openRKNSt10filesystem7__cxx114pathE(ptr noundef nonnull align 8 dereferenceable(40) %7)
@@ -3621,34 +3621,34 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit50: ; preds = %56
 
 62:                                               ; preds = %49, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit50
   %63 = getelementptr inbounds i8, ptr %11, i64 32
-  br label %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit.outer
+  br label %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit.outer
 
-_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit.outer: ; preds = %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit.outer.backedge, %62
-  %.0.ph = phi ptr [ null, %62 ], [ %70, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit.outer.backedge ]
-  %.036.ph = phi i32 [ 0, %62 ], [ %64, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit.outer.backedge ]
+_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit.outer:     ; preds = %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit.outer.backedge, %62
+  %.0.ph = phi ptr [ null, %62 ], [ %70, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit.outer.backedge ]
+  %.036.ph = phi i32 [ 0, %62 ], [ %64, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit.outer.backedge ]
   %64 = add nuw nsw i32 %.036.ph, 1
   %65 = zext nneg i32 %64 to i64
   %66 = sext i32 %.036.ph to i64
-  br label %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit
+  br label %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit
 
-_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit:   ; preds = %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit.outer, %94
-  %.0 = phi ptr [ %70, %94 ], [ %.0.ph, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit.outer ]
+_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit:           ; preds = %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit.outer, %94
+  %.0 = phi ptr [ %70, %94 ], [ %.0.ph, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit.outer ]
   %67 = invoke noundef zeroext i1 @_Z10get_a_lineP8_IO_FILEPci(ptr noundef %48, ptr noundef nonnull %5, i32 noundef 4096)
           to label %68 unwind label %.loopexit.split-lp.loopexit.loopexit
 
-68:                                               ; preds = %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit
+68:                                               ; preds = %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit
   br i1 %67, label %69, label %96
 
 69:                                               ; preds = %68
   %70 = invoke noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.7, i32 noundef 399, ptr noundef %.0, i64 noundef %65, i64 noundef 8)
-          to label %_ZL15gmx_srenew_implIPcEvPKcS2_iRPT_m.argprom.exit unwind label %.loopexit.split-lp.loopexit.loopexit
+          to label %_ZL15gmx_srenew_implIPcEvPKcS2_iRPT_m.exit unwind label %.loopexit.split-lp.loopexit.loopexit
 
-_ZL15gmx_srenew_implIPcEvPKcS2_iRPT_m.argprom.exit: ; preds = %69
+_ZL15gmx_srenew_implIPcEvPKcS2_iRPT_m.exit:       ; preds = %69
   %71 = getelementptr inbounds ptr, ptr %70, i64 %66
   %72 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.7, i32 noundef 400, i64 noundef 4096, i64 noundef 1)
           to label %73 unwind label %.loopexit.split-lp.loopexit.loopexit
 
-73:                                               ; preds = %_ZL15gmx_srenew_implIPcEvPKcS2_iRPT_m.argprom.exit
+73:                                               ; preds = %_ZL15gmx_srenew_implIPcEvPKcS2_iRPT_m.exit
   store ptr %72, ptr %71, align 8
   %74 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.26, ptr noundef %72, ptr noundef nonnull %6) #27
   %75 = load i32, ptr %6, align 4
@@ -3664,7 +3664,7 @@ _ZL15gmx_srenew_implIPcEvPKcS2_iRPT_m.argprom.exit: ; preds = %69
 80:                                               ; preds = %77
   %81 = load ptr, ptr %50, align 8
   %82 = icmp eq ptr %81, null
-  br i1 %82, label %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit.outer.backedge, label %83
+  br i1 %82, label %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit.outer.backedge, label %83
 
 83:                                               ; preds = %80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 40, i1 false)
@@ -3685,10 +3685,10 @@ _ZL15gmx_srenew_implIPcEvPKcS2_iRPT_m.argprom.exit: ; preds = %69
 
 _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit54: ; preds = %88
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #27
-  br label %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit.outer.backedge
+  br label %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit.outer.backedge
 
-_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit.outer.backedge: ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit54, %80
-  br label %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit.outer, !llvm.loop !60
+_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit.outer.backedge: ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit54, %80
+  br label %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit.outer, !llvm.loop !60
 
 92:                                               ; preds = %88, %83
   %93 = landingpad { ptr, i32 }
@@ -3699,7 +3699,7 @@ _ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit.outer.backedge: ; preds = %_ZN3gm
 94:                                               ; preds = %73
   %95 = load ptr, ptr %71, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.7, i32 noundef 410, ptr noundef %95)
-          to label %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit unwind label %.loopexit.split-lp.loopexit.loopexit, !llvm.loop !60
+          to label %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit unwind label %.loopexit.split-lp.loopexit.loopexit, !llvm.loop !60
 
 96:                                               ; preds = %68
   %97 = invoke noundef i32 @_Z11gmx_ffcloseP8_IO_FILE(ptr noundef %48)
@@ -3778,35 +3778,35 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit57: ; preds = %105
   %129 = icmp sgt i32 %.036.ph, 0
   br i1 %129, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %128, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit59
-  %storemerge4385 = phi i32 [ %134, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit59 ], [ 0, %128 ]
+.lr.ph:                                           ; preds = %128, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit59
+  %storemerge4385 = phi i32 [ %134, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit59 ], [ 0, %128 ]
   %130 = sext i32 %storemerge4385 to i64
   %131 = getelementptr inbounds ptr, ptr %.0, i64 %130
   %132 = load ptr, ptr %131, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.7, i32 noundef 439, ptr noundef %132)
-          to label %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit59 unwind label %.loopexit
+          to label %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit59 unwind label %.loopexit
 
-_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit59: ; preds = %.lr.ph
+_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit59:         ; preds = %.lr.ph
   %133 = load i32, ptr %6, align 4
   %134 = add nsw i32 %133, 1
   store i32 %134, ptr %6, align 4
   %135 = icmp slt i32 %134, %.036.ph
   br i1 %135, label %.lr.ph, label %._crit_edge, !llvm.loop !62
 
-._crit_edge:                                      ; preds = %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit59, %128
+._crit_edge:                                      ; preds = %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit59, %128
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.7, i32 noundef 441, ptr noundef %.0)
-          to label %_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.argprom.exit unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
-_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.argprom.exit:  ; preds = %._crit_edge, %46
+_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.exit:          ; preds = %._crit_edge, %46
   %136 = load ptr, ptr %25, align 8
   %.not.i.i.i61 = icmp eq ptr %136, null
   br i1 %.not.i.i.i61, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit62, label %137
 
-137:                                              ; preds = %_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.argprom.exit
+137:                                              ; preds = %_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.exit
   call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull %136) #27
   br label %_ZNSt10filesystem7__cxx114pathD2Ev.exit62
 
-_ZNSt10filesystem7__cxx114pathD2Ev.exit62:        ; preds = %_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.argprom.exit, %137
+_ZNSt10filesystem7__cxx114pathD2Ev.exit62:        ; preds = %_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.exit, %137
   store ptr null, ptr %25, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #27
   br label %138
@@ -7584,22 +7584,22 @@ define void @_Z24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENS0
 .lr.ph.i.i.i:                                     ; preds = %69, %99
   %.043.i.i.i = phi i64 [ %101, %99 ], [ %87, %69 ]
   %.sroa.032.042.i.i.i = phi ptr [ %100, %99 ], [ %81, %69 ]
-  %89 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENS3_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNS3_INS2_11BasicVectorIfEEEEbRKNS2_8MDLoggerEE3$_0EclINS_17__normal_iteratorIPPPcSt6vectorISN_SaISN_EEEEEEbT_.argprom.argprom"(ptr %74, ptr %.sroa.032.042.i.i.i)
+  %89 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENS3_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNS3_INS2_11BasicVectorIfEEEEbRKNS2_8MDLoggerEE3$_0EclINS_17__normal_iteratorIPPPcSt6vectorISN_SaISN_EEEEEEbT_"(ptr %74, ptr %.sroa.032.042.i.i.i)
   br i1 %89, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPPcSt6vectorIS3_SaIS3_EEEEZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENSA_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNSA_INS9_11BasicVectorIfEEEEbRKNS9_8MDLoggerEE3$_0ET_SQ_SQ_T0_.exit", label %90
 
 90:                                               ; preds = %.lr.ph.i.i.i
   %91 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i, i64 8
-  %92 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENS3_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNS3_INS2_11BasicVectorIfEEEEbRKNS2_8MDLoggerEE3$_0EclINS_17__normal_iteratorIPPPcSt6vectorISN_SaISN_EEEEEEbT_.argprom.argprom"(ptr %74, ptr nonnull %91)
+  %92 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENS3_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNS3_INS2_11BasicVectorIfEEEEbRKNS2_8MDLoggerEE3$_0EclINS_17__normal_iteratorIPPPcSt6vectorISN_SaISN_EEEEEEbT_"(ptr %74, ptr nonnull %91)
   br i1 %92, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPPcSt6vectorIS3_SaIS3_EEEEZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENSA_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNSA_INS9_11BasicVectorIfEEEEbRKNS9_8MDLoggerEE3$_0ET_SQ_SQ_T0_.exit", label %93
 
 93:                                               ; preds = %90
   %94 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i, i64 16
-  %95 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENS3_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNS3_INS2_11BasicVectorIfEEEEbRKNS2_8MDLoggerEE3$_0EclINS_17__normal_iteratorIPPPcSt6vectorISN_SaISN_EEEEEEbT_.argprom.argprom"(ptr %74, ptr nonnull %94)
+  %95 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENS3_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNS3_INS2_11BasicVectorIfEEEEbRKNS2_8MDLoggerEE3$_0EclINS_17__normal_iteratorIPPPcSt6vectorISN_SaISN_EEEEEEbT_"(ptr %74, ptr nonnull %94)
   br i1 %95, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPPcSt6vectorIS3_SaIS3_EEEEZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENSA_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNSA_INS9_11BasicVectorIfEEEEbRKNS9_8MDLoggerEE3$_0ET_SQ_SQ_T0_.exit", label %96
 
 96:                                               ; preds = %93
   %97 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i, i64 24
-  %98 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENS3_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNS3_INS2_11BasicVectorIfEEEEbRKNS2_8MDLoggerEE3$_0EclINS_17__normal_iteratorIPPPcSt6vectorISN_SaISN_EEEEEEbT_.argprom.argprom"(ptr %74, ptr nonnull %97)
+  %98 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENS3_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNS3_INS2_11BasicVectorIfEEEEbRKNS2_8MDLoggerEE3$_0EclINS_17__normal_iteratorIPPPcSt6vectorISN_SaISN_EEEEEEbT_"(ptr %74, ptr nonnull %97)
   br i1 %98, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPPcSt6vectorIS3_SaIS3_EEEEZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENSA_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNSA_INS9_11BasicVectorIfEEEEbRKNS9_8MDLoggerEE3$_0ET_SQ_SQ_T0_.exit", label %99
 
 99:                                               ; preds = %96
@@ -7624,7 +7624,7 @@ define void @_Z24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENS0
   ]
 
 104:                                              ; preds = %._crit_edge.i.i.i
-  %105 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENS3_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNS3_INS2_11BasicVectorIfEEEEbRKNS2_8MDLoggerEE3$_0EclINS_17__normal_iteratorIPPPcSt6vectorISN_SaISN_EEEEEEbT_.argprom.argprom"(ptr %74, ptr %.sroa.032.0.lcssa.i.i.i)
+  %105 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENS3_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNS3_INS2_11BasicVectorIfEEEEbRKNS2_8MDLoggerEE3$_0EclINS_17__normal_iteratorIPPPcSt6vectorISN_SaISN_EEEEEEbT_"(ptr %74, ptr %.sroa.032.0.lcssa.i.i.i)
   br i1 %105, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPPcSt6vectorIS3_SaIS3_EEEEZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENSA_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNSA_INS9_11BasicVectorIfEEEEbRKNS9_8MDLoggerEE3$_0ET_SQ_SQ_T0_.exit", label %106
 
 106:                                              ; preds = %104
@@ -7633,7 +7633,7 @@ define void @_Z24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENS0
 
 108:                                              ; preds = %106, %._crit_edge.i.i.i
   %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %107, %106 ]
-  %109 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENS3_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNS3_INS2_11BasicVectorIfEEEEbRKNS2_8MDLoggerEE3$_0EclINS_17__normal_iteratorIPPPcSt6vectorISN_SaISN_EEEEEEbT_.argprom.argprom"(ptr %74, ptr %.sroa.032.1.i.i.i)
+  %109 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENS3_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNS3_INS2_11BasicVectorIfEEEEbRKNS2_8MDLoggerEE3$_0EclINS_17__normal_iteratorIPPPcSt6vectorISN_SaISN_EEEEEEbT_"(ptr %74, ptr %.sroa.032.1.i.i.i)
   br i1 %109, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPPcSt6vectorIS3_SaIS3_EEEEZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENSA_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNSA_INS9_11BasicVectorIfEEEEbRKNS9_8MDLoggerEE3$_0ET_SQ_SQ_T0_.exit", label %110
 
 110:                                              ; preds = %108
@@ -7642,7 +7642,7 @@ define void @_Z24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENS0
 
 112:                                              ; preds = %110, %._crit_edge.i.i.i
   %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %111, %110 ]
-  %113 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENS3_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNS3_INS2_11BasicVectorIfEEEEbRKNS2_8MDLoggerEE3$_0EclINS_17__normal_iteratorIPPPcSt6vectorISN_SaISN_EEEEEEbT_.argprom.argprom"(ptr %74, ptr %.sroa.032.2.i.i.i)
+  %113 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENS3_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNS3_INS2_11BasicVectorIfEEEEbRKNS2_8MDLoggerEE3$_0EclINS_17__normal_iteratorIPPPcSt6vectorISN_SaISN_EEEEEEbT_"(ptr %74, ptr %.sroa.032.2.i.i.i)
   %spec.select.i.i.i = select i1 %113, ptr %.sroa.032.2.i.i.i, ptr %83
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPPcSt6vectorIS3_SaIS3_EEEEZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENSA_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNSA_INS9_11BasicVectorIfEEEEbRKNS9_8MDLoggerEE3$_0ET_SQ_SQ_T0_.exit"
 
@@ -8372,7 +8372,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i30
   ]
 
 305:                                              ; preds = %._crit_edge.i.i.i.i
-  %306 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_0EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_.argprom"(ptr nonnull %52, ptr %.sroa.032.0.lcssa.i.i.i.i)
+  %306 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_0EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_"(ptr nonnull %52, ptr %.sroa.032.0.lcssa.i.i.i.i)
           to label %.noexc115.i unwind label %.loopexit.split-lp290.loopexit.i
 
 .noexc115.i:                                      ; preds = %305
@@ -8384,7 +8384,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i30
 
 309:                                              ; preds = %307, %._crit_edge.i.i.i.i
   %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %308, %307 ]
-  %310 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_0EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_.argprom"(ptr nonnull %52, ptr %.sroa.032.1.i.i.i.i)
+  %310 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_0EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_"(ptr nonnull %52, ptr %.sroa.032.1.i.i.i.i)
           to label %.noexc116.i unwind label %.loopexit.split-lp290.loopexit.i
 
 .noexc116.i:                                      ; preds = %309
@@ -8396,7 +8396,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i30
 
 313:                                              ; preds = %311, %._crit_edge.i.i.i.i
   %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %312, %311 ]
-  %314 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_0EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_.argprom"(ptr nonnull %52, ptr %.sroa.032.2.i.i.i.i)
+  %314 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_0EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_"(ptr nonnull %52, ptr %.sroa.032.2.i.i.i.i)
           to label %.noexc117.i unwind label %.loopexit.split-lp290.loopexit.i
 
 .noexc117.i:                                      ; preds = %313
@@ -9185,7 +9185,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   ]
 
 530:                                              ; preds = %._crit_edge.i.i.i121.i
-  %531 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_1EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_.argprom"(ptr nonnull %53, ptr %.sroa.032.0.lcssa.i.i.i123.i)
+  %531 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_1EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_"(ptr nonnull %53, ptr %.sroa.032.0.lcssa.i.i.i123.i)
           to label %.noexc138.i unwind label %.loopexit279.loopexit.split-lp.i
 
 .noexc138.i:                                      ; preds = %530
@@ -9197,7 +9197,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
 
 534:                                              ; preds = %532, %._crit_edge.i.i.i121.i
   %.sroa.032.1.i.i.i127.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i123.i, %._crit_edge.i.i.i121.i ], [ %533, %532 ]
-  %535 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_1EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_.argprom"(ptr nonnull %53, ptr %.sroa.032.1.i.i.i127.i)
+  %535 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_1EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_"(ptr nonnull %53, ptr %.sroa.032.1.i.i.i127.i)
           to label %.noexc139.i unwind label %.loopexit279.loopexit.split-lp.i
 
 .noexc139.i:                                      ; preds = %534
@@ -9209,7 +9209,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
 
 538:                                              ; preds = %536, %._crit_edge.i.i.i121.i
   %.sroa.032.2.i.i.i124.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i123.i, %._crit_edge.i.i.i121.i ], [ %537, %536 ]
-  %539 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_1EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_.argprom"(ptr nonnull %53, ptr %.sroa.032.2.i.i.i124.i)
+  %539 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_1EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_"(ptr nonnull %53, ptr %.sroa.032.2.i.i.i124.i)
           to label %.noexc140.i unwind label %.loopexit279.loopexit.split-lp.i
 
 .noexc140.i:                                      ; preds = %538
@@ -9473,22 +9473,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit146.i:
 .lr.ph.i.i.i154.i:                                ; preds = %617, %635
   %.043.i.i.i155.i = phi i64 [ %637, %635 ], [ %623, %617 ]
   %.sroa.032.042.i.i.i156.i = phi ptr [ %636, %635 ], [ %618, %617 ]
-  %625 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_2EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_.argprom.argprom"(ptr nonnull %126, ptr %.sroa.032.042.i.i.i156.i)
+  %625 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_2EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_"(ptr nonnull %126, ptr %.sroa.032.042.i.i.i156.i)
   br i1 %625, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPPcSt6vectorIS3_SaIS3_EEEEZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINSB_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNSB_8MDLoggerEE3$_2ET_SR_SR_T0_.exit.i", label %626
 
 626:                                              ; preds = %.lr.ph.i.i.i154.i
   %627 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i156.i, i64 8
-  %628 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_2EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_.argprom.argprom"(ptr nonnull %126, ptr nonnull %627)
+  %628 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_2EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_"(ptr nonnull %126, ptr nonnull %627)
   br i1 %628, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPPcSt6vectorIS3_SaIS3_EEEEZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINSB_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNSB_8MDLoggerEE3$_2ET_SR_SR_T0_.exit.i", label %629
 
 629:                                              ; preds = %626
   %630 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i156.i, i64 16
-  %631 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_2EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_.argprom.argprom"(ptr nonnull %126, ptr nonnull %630)
+  %631 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_2EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_"(ptr nonnull %126, ptr nonnull %630)
   br i1 %631, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPPcSt6vectorIS3_SaIS3_EEEEZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINSB_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNSB_8MDLoggerEE3$_2ET_SR_SR_T0_.exit.i", label %632
 
 632:                                              ; preds = %629
   %633 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i156.i, i64 24
-  %634 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_2EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_.argprom.argprom"(ptr nonnull %126, ptr nonnull %633)
+  %634 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_2EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_"(ptr nonnull %126, ptr nonnull %633)
   br i1 %634, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPPcSt6vectorIS3_SaIS3_EEEEZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINSB_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNSB_8MDLoggerEE3$_2ET_SR_SR_T0_.exit.i", label %635
 
 635:                                              ; preds = %632
@@ -9513,7 +9513,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit146.i:
   ]
 
 640:                                              ; preds = %._crit_edge.i.i.i147.i
-  %641 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_2EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_.argprom.argprom"(ptr nonnull %126, ptr %.sroa.032.0.lcssa.i.i.i149.i)
+  %641 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_2EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_"(ptr nonnull %126, ptr %.sroa.032.0.lcssa.i.i.i149.i)
   br i1 %641, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPPcSt6vectorIS3_SaIS3_EEEEZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINSB_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNSB_8MDLoggerEE3$_2ET_SR_SR_T0_.exit.i", label %642
 
 642:                                              ; preds = %640
@@ -9522,7 +9522,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit146.i:
 
 644:                                              ; preds = %642, %._crit_edge.i.i.i147.i
   %.sroa.032.1.i.i.i153.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i149.i, %._crit_edge.i.i.i147.i ], [ %643, %642 ]
-  %645 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_2EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_.argprom.argprom"(ptr nonnull %126, ptr %.sroa.032.1.i.i.i153.i)
+  %645 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_2EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_"(ptr nonnull %126, ptr %.sroa.032.1.i.i.i153.i)
   br i1 %645, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPPcSt6vectorIS3_SaIS3_EEEEZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINSB_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNSB_8MDLoggerEE3$_2ET_SR_SR_T0_.exit.i", label %646
 
 646:                                              ; preds = %644
@@ -9531,7 +9531,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit146.i:
 
 648:                                              ; preds = %646, %._crit_edge.i.i.i147.i
   %.sroa.032.2.i.i.i150.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i149.i, %._crit_edge.i.i.i147.i ], [ %647, %646 ]
-  %649 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_2EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_.argprom.argprom"(ptr nonnull %126, ptr %.sroa.032.2.i.i.i150.i)
+  %649 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_2EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_"(ptr nonnull %126, ptr %.sroa.032.2.i.i.i150.i)
   %spec.select.i.i.i151.i = select i1 %649, ptr %.sroa.032.2.i.i.i150.i, ptr %619
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPPcSt6vectorIS3_SaIS3_EEEEZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINSB_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNSB_8MDLoggerEE3$_2ET_SR_SR_T0_.exit.i"
 
@@ -9672,7 +9672,7 @@ _ZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS1_11BasicVectorIfEEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENS3_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNS3_INS2_11BasicVectorIfEEEEbRKNS2_8MDLoggerEE3$_0EclINS_17__normal_iteratorIPPPcSt6vectorISN_SaISN_EEEEEEbT_.argprom.argprom"(ptr %.0.val.0.val, ptr nocapture readonly %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENS3_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNS3_INS2_11BasicVectorIfEEEEbRKNS2_8MDLoggerEE3$_0EclINS_17__normal_iteratorIPPPcSt6vectorISN_SaISN_EEEEEEbT_"(ptr %.0.val.0.val, ptr nocapture readonly %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9748,7 +9748,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit12.i: ; preds = %23
   %26 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %"_ZZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENS0_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNS0_INS_11BasicVectorIfEEEEbRKNS_8MDLoggerEENK3$_0clEPPc.argprom.argprom.exit" unwind label %31
+          to label %"_ZZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENS0_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNS0_INS_11BasicVectorIfEEEEbRKNS_8MDLoggerEENK3$_0clEPPc.exit" unwind label %31
 
 27:                                               ; preds = %.noexc.i, %1
   %28 = landingpad { ptr, i32 }
@@ -9777,7 +9777,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit12.i: 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #27
   resume { ptr, i32 } %.pn.pn.i
 
-"_ZZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENS0_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNS0_INS_11BasicVectorIfEEEEbRKNS_8MDLoggerEENK3$_0clEPPc.argprom.argprom.exit": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit12.i
+"_ZZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENS0_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNS0_INS_11BasicVectorIfEEEEbRKNS_8MDLoggerEENK3$_0clEPPc.exit": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit12.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
@@ -9794,7 +9794,7 @@ declare noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_s
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_0EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_.argprom"(ptr %.0.val, ptr nocapture readonly %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_0EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_"(ptr %.0.val, ptr nocapture readonly %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = load ptr, ptr %0, align 8
@@ -9834,7 +9834,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %11
   %14 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %"_ZZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS1_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS1_8MDLoggerEENK3$_0clEPPc.argprom.exit" unwind label %17
+          to label %"_ZZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS1_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS1_8MDLoggerEENK3$_0clEPPc.exit" unwind label %17
 
 15:                                               ; preds = %.noexc.i, %1
   %16 = landingpad { ptr, i32 }
@@ -9852,7 +9852,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #27
   resume { ptr, i32 } %.pn.i
 
-"_ZZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS1_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS1_8MDLoggerEENK3$_0clEPPc.argprom.exit": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
+"_ZZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS1_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS1_8MDLoggerEENK3$_0clEPPc.exit": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
@@ -9863,7 +9863,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 declare noundef i32 @_Z15gmx_strncasecmpPKcS0_i(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_1EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_.argprom"(ptr %.0.val, ptr nocapture readonly %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_1EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_"(ptr %.0.val, ptr nocapture readonly %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = load ptr, ptr %0, align 8
@@ -9903,7 +9903,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %11
   %14 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %"_ZZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS1_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS1_8MDLoggerEENK3$_1clEPPc.argprom.exit" unwind label %17
+          to label %"_ZZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS1_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS1_8MDLoggerEENK3$_1clEPPc.exit" unwind label %17
 
 15:                                               ; preds = %.noexc.i, %1
   %16 = landingpad { ptr, i32 }
@@ -9921,7 +9921,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #27
   resume { ptr, i32 } %.pn.i
 
-"_ZZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS1_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS1_8MDLoggerEENK3$_1clEPPc.argprom.exit": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
+"_ZZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS1_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS1_8MDLoggerEENK3$_1clEPPc.exit": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
@@ -9930,7 +9930,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_2EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_.argprom.argprom"(ptr %.0.val.0.val, ptr nocapture readonly %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_2EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_"(ptr %.0.val.0.val, ptr nocapture readonly %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10006,7 +10006,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit12.i: ; preds = %23
   %26 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %"_ZZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS1_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS1_8MDLoggerEENK3$_2clEPPc.argprom.argprom.exit" unwind label %31
+          to label %"_ZZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS1_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS1_8MDLoggerEENK3$_2clEPPc.exit" unwind label %31
 
 27:                                               ; preds = %.noexc.i, %1
   %28 = landingpad { ptr, i32 }
@@ -10035,7 +10035,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit12.i: 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #27
   resume { ptr, i32 } %.pn.pn.i
 
-"_ZZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS1_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS1_8MDLoggerEENK3$_2clEPPc.argprom.argprom.exit": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit12.i
+"_ZZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS1_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS1_8MDLoggerEENK3$_2clEPPc.exit": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit12.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
@@ -10976,7 +10976,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit113.i:
           cleanup
   br label %.body102
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %415, %555, %581, %797, %913, %953, %262, %.loopexit268, %._crit_edge.i114, %428, %437, %440, %531, %577, %799, %960, %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.argprom.exit183._crit_edge
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %415, %555, %581, %797, %913, %953, %262, %.loopexit268, %._crit_edge.i114, %428, %437, %440, %531, %577, %799, %960, %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit183._crit_edge
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body102
@@ -11287,16 +11287,16 @@ _ZNSt6vectorI17InteractionOfTypeSaIS0_EE5eraseEN9__gnu_cxx17__normal_iteratorIPK
   %532 = load i32, ptr %3, align 8
   %533 = sext i32 %532 to i64
   %534 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.7, i32 noundef 1578, i64 noundef %533, i64 noundef 4)
-          to label %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.argprom.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.argprom.exit:  ; preds = %531
+_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %531
   store ptr %534, ptr %44, align 8
   %535 = load i32, ptr %3, align 8
   %536 = icmp sgt i32 %535, 0
   br i1 %536, label %.lr.ph318, label %._crit_edge
 
-.lr.ph318:                                        ; preds = %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.argprom.exit, %.lr.ph318
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph318 ], [ 0, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.argprom.exit ]
+.lr.ph318:                                        ; preds = %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit, %.lr.ph318
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph318 ], [ 0, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit ]
   %537 = load ptr, ptr %44, align 8
   %538 = getelementptr inbounds i32, ptr %537, i64 %indvars.iv
   store i32 -409203, ptr %538, align 4
@@ -11306,7 +11306,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.argprom.exit:  ; preds = %531
   %541 = icmp slt i64 %indvars.iv.next, %540
   br i1 %541, label %.lr.ph318, label %._crit_edge, !llvm.loop !144
 
-._crit_edge:                                      ; preds = %.lr.ph318, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.argprom.exit
+._crit_edge:                                      ; preds = %.lr.ph318, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit
   br i1 %11, label %542, label %565
 
 542:                                              ; preds = %._crit_edge
@@ -12147,39 +12147,39 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit181: ; preds = %939
 960:                                              ; preds = %953, %.loopexit227
   %961 = load ptr, ptr %43, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.7, i32 noundef 1682, ptr noundef %961)
-          to label %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.argprom.exit183.preheader unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit183.preheader unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZL14gmx_sfree_implIiEvPKcS1_iPT_.argprom.exit183.preheader: ; preds = %960
+_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit183.preheader: ; preds = %960
   %962 = load i32, ptr %3, align 8
   %963 = icmp sgt i32 %962, 0
-  br i1 %963, label %.lr.ph323, label %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.argprom.exit183._crit_edge
+  br i1 %963, label %.lr.ph323, label %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit183._crit_edge
 
-.lr.ph323:                                        ; preds = %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.argprom.exit183.preheader, %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.argprom.exit185
-  %indvars.iv366 = phi i64 [ %indvars.iv.next367, %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.argprom.exit185 ], [ 0, %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.argprom.exit183.preheader ]
+.lr.ph323:                                        ; preds = %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit183.preheader, %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit185
+  %indvars.iv366 = phi i64 [ %indvars.iv.next367, %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit185 ], [ 0, %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit183.preheader ]
   %964 = getelementptr inbounds %struct.t_excls, ptr %580, i64 %indvars.iv366, i32 1
   %965 = load ptr, ptr %964, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.7, i32 noundef 1685, ptr noundef %965)
-          to label %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.argprom.exit185 unwind label %.loopexit
+          to label %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit185 unwind label %.loopexit
 
-_ZL14gmx_sfree_implIiEvPKcS1_iPT_.argprom.exit185: ; preds = %.lr.ph323
+_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit185:        ; preds = %.lr.ph323
   %indvars.iv.next367 = add nuw nsw i64 %indvars.iv366, 1
   %966 = load i32, ptr %3, align 8
   %967 = sext i32 %966 to i64
   %968 = icmp slt i64 %indvars.iv.next367, %967
-  br i1 %968, label %.lr.ph323, label %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.argprom.exit183._crit_edge, !llvm.loop !150
+  br i1 %968, label %.lr.ph323, label %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit183._crit_edge, !llvm.loop !150
 
-_ZL14gmx_sfree_implIiEvPKcS1_iPT_.argprom.exit183._crit_edge: ; preds = %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.argprom.exit185, %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.argprom.exit183.preheader
+_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit183._crit_edge: ; preds = %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit185, %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit183.preheader
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.7, i32 noundef 1687, ptr noundef %580)
-          to label %_ZL14gmx_sfree_implI7t_exclsEvPKcS2_iPT_.argprom.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZL14gmx_sfree_implI7t_exclsEvPKcS2_iPT_.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZL14gmx_sfree_implI7t_exclsEvPKcS2_iPT_.argprom.exit: ; preds = %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.argprom.exit183._crit_edge
+_ZL14gmx_sfree_implI7t_exclsEvPKcS2_iPT_.exit:    ; preds = %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit183._crit_edge
   %969 = getelementptr inbounds i8, ptr %46, i64 16
   %970 = load ptr, ptr %969, align 8
   %.not5.i.i.i.i = icmp eq ptr %970, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stEN3gmx20EqualCaseInsensitiveESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %_ZL14gmx_sfree_implI7t_exclsEvPKcS2_iPT_.argprom.exit, %.lr.ph.i.i.i.i
-  %.06.i.i.i.i = phi ptr [ %971, %.lr.ph.i.i.i.i ], [ %970, %_ZL14gmx_sfree_implI7t_exclsEvPKcS2_iPT_.argprom.exit ]
+.lr.ph.i.i.i.i:                                   ; preds = %_ZL14gmx_sfree_implI7t_exclsEvPKcS2_iPT_.exit, %.lr.ph.i.i.i.i
+  %.06.i.i.i.i = phi ptr [ %971, %.lr.ph.i.i.i.i ], [ %970, %_ZL14gmx_sfree_implI7t_exclsEvPKcS2_iPT_.exit ]
   %971 = load ptr, ptr %.06.i.i.i.i, align 8
   %972 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 8
   %973 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 40
@@ -12189,7 +12189,7 @@ _ZL14gmx_sfree_implI7t_exclsEvPKcS2_iPT_.argprom.exit: ; preds = %_ZL14gmx_sfree
   %.not.i.i.i.i = icmp eq ptr %971, null
   br i1 %.not.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stEN3gmx20EqualCaseInsensitiveESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !151
 
-_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stEN3gmx20EqualCaseInsensitiveESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %_ZL14gmx_sfree_implI7t_exclsEvPKcS2_iPT_.argprom.exit
+_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stEN3gmx20EqualCaseInsensitiveESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %_ZL14gmx_sfree_implI7t_exclsEvPKcS2_iPT_.exit
   %974 = load ptr, ptr %46, align 8
   %975 = getelementptr inbounds i8, ptr %46, i64 8
   %976 = load i64, ptr %975, align 8

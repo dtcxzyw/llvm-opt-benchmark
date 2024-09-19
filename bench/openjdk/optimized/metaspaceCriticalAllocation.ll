@@ -221,7 +221,7 @@ define hidden noundef zeroext i1 @_ZN27MetaspaceCriticalAllocation21try_allocate
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %3
   %.02.i = load ptr, ptr @_ZN27MetaspaceCriticalAllocation14_requests_headE, align 8
   %.not3.i = icmp eq ptr %.02.i, null
-  br i1 %.not3.i, label %"_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.argprom.exit", label %.lr.ph.i
+  br i1 %.not3.i, label %"_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %9
   %.04.i = phi ptr [ %.0.i, %9 ], [ %.02.i, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ]
@@ -232,23 +232,23 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %3
 
 7:                                                ; preds = %.lr.ph.i
   %8 = icmp ne ptr %.04.i, %0
-  br label %"_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.argprom.exit"
+  br label %"_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.exit"
 
 9:                                                ; preds = %.lr.ph.i
   %10 = getelementptr inbounds i8, ptr %.04.i, i64 24
   %.0.i = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %"_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.argprom.exit", label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %"_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.exit", label %.lr.ph.i, !llvm.loop !8
 
-"_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.argprom.exit": ; preds = %9, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %7
+"_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.exit": ; preds = %9, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %7
   %.06.i = phi i1 [ %8, %7 ], [ true, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ true, %9 ]
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %11
 
-11:                                               ; preds = %"_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.argprom.exit"
+11:                                               ; preds = %"_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.exit"
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #7
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %"_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.argprom.exit", %11
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %"_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.exit", %11
   br i1 %.06.i, label %12, label %16
 
 12:                                               ; preds = %_ZN11MutexLockerD2Ev.exit
@@ -501,7 +501,7 @@ _ZN25MetadataAllocationRequestC2EP15ClassLoaderDatamN9Metaspace12MetadataTypeE.e
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %19, %_ZN25MetadataAllocationRequestC2EP15ClassLoaderDatamN9Metaspace12MetadataTypeE.exit
   %.02.i.i = load ptr, ptr @_ZN27MetaspaceCriticalAllocation14_requests_headE, align 8
   %.not3.i.i = icmp eq ptr %.02.i.i, null
-  br i1 %.not3.i.i, label %"_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.argprom.exit.i", label %.lr.ph.i.i
+  br i1 %.not3.i.i, label %"_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.exit.i", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i, %25
   %.04.i.i = phi ptr [ %.0.i.i, %25 ], [ %.02.i.i, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i ]
@@ -512,23 +512,23 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %19, %_ZN2
 
 23:                                               ; preds = %.lr.ph.i.i
   %24 = icmp ne ptr %.04.i.i, %4
-  br label %"_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.argprom.exit.i"
+  br label %"_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.exit.i"
 
 25:                                               ; preds = %.lr.ph.i.i
   %26 = getelementptr inbounds i8, ptr %.04.i.i, i64 24
   %.0.i.i = load ptr, ptr %26, align 8
   %.not.i.i3 = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i3, label %"_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.argprom.exit.i", label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %.not.i.i3, label %"_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.exit.i", label %.lr.ph.i.i, !llvm.loop !8
 
-"_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.argprom.exit.i": ; preds = %25, %23, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i
+"_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.exit.i": ; preds = %25, %23, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i
   %.06.i.i = phi i1 [ %24, %23 ], [ true, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i ], [ true, %25 ]
   br i1 %.not.i.i.i, label %_ZN11MutexLockerD2Ev.exit.i, label %27
 
-27:                                               ; preds = %"_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.argprom.exit.i"
+27:                                               ; preds = %"_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.exit.i"
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %18) #7
   br label %_ZN11MutexLockerD2Ev.exit.i
 
-_ZN11MutexLockerD2Ev.exit.i:                      ; preds = %27, %"_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.argprom.exit.i"
+_ZN11MutexLockerD2Ev.exit.i:                      ; preds = %27, %"_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.exit.i"
   br i1 %.06.i.i, label %_ZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequest.exit, label %_ZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequest.exit.thread
 
 _ZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequest.exit: ; preds = %_ZN11MutexLockerD2Ev.exit.i

@@ -924,7 +924,7 @@ _ZNK4ncnn13Convolution1D12make_paddingERKNS_3MatERS1_RKNS_6OptionE.exit: ; preds
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %76 = load i32, ptr %75, align 4
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  call fastcc void @_ZN4ncnnL13convolution1dERKNS_3MatERS0_S2_S2_iiiiS2_RKNS_6OptionE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) %70, ptr noundef nonnull align 8 dereferenceable(72) %71, i32 noundef %72, i32 noundef %73, i32 noundef %74, i32 noundef %76, ptr noundef nonnull align 8 dereferenceable(72) %77)
+  call fastcc void @_ZN4ncnnL13convolution1dERKNS_3MatERS0_S2_S2_iiiiS2_RKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) %70, ptr noundef nonnull align 8 dereferenceable(72) %71, i32 noundef %72, i32 noundef %73, i32 noundef %74, i32 noundef %76, ptr noundef nonnull align 8 dereferenceable(72) %77)
   br label %.critedge
 
 .critedge:                                        ; preds = %69, %61, %58, %16, %_ZNK4ncnn13Convolution1D12make_paddingERKNS_3MatERS1_RKNS_6OptionE.exit
@@ -981,7 +981,7 @@ define hidden void @_ZNK4ncnn13Convolution1D12make_paddingERKNS_3MatERS1_RKNS_6O
 declare void @_ZN4ncnn3Mat6createEiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL13convolution1dERKNS_3MatERS0_S2_S2_iiiiS2_RKNS_6OptionE.argprom.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %8) unnamed_addr #3 {
+define internal fastcc void @_ZN4ncnnL13convolution1dERKNS_3MatERS0_S2_S2_iiiiS2_RKNS_6OptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %8) unnamed_addr #3 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -1382,7 +1382,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn13Convolution1D7forwardER
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %117 = load i32, ptr %116, align 4
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  call fastcc void @_ZN4ncnnL13convolution1dERKNS_3MatERS0_S2_S2_iiiiS2_RKNS_6OptionE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %6, i32 noundef %12, i32 noundef %114, i32 noundef %115, i32 noundef %117, ptr noundef nonnull align 8 dereferenceable(72) %118)
+  call fastcc void @_ZN4ncnnL13convolution1dERKNS_3MatERS0_S2_S2_iiiiS2_RKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %6, i32 noundef %12, i32 noundef %114, i32 noundef %115, i32 noundef %117, ptr noundef nonnull align 8 dereferenceable(72) %118)
   br label %.critedge4
 
 .critedge4:                                       ; preds = %113, %105, %102, %63, %60

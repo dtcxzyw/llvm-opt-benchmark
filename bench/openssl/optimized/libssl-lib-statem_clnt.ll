@@ -2032,21 +2032,21 @@ if.then4:                                         ; preds = %if.end
   %peer_rpk.i.i = getelementptr inbounds i8, ptr %s.val.i, i64 696
   %11 = load ptr, ptr %peer_rpk.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %11, null
-  br i1 %cmp.not.i.i, label %received_server_cert.argprom.exit.i, label %if.end.i30
+  br i1 %cmp.not.i.i, label %received_server_cert.exit.i, label %if.end.i30
 
-received_server_cert.argprom.exit.i:              ; preds = %if.then4
+received_server_cert.exit.i:                      ; preds = %if.then4
   %peer.i.i = getelementptr inbounds i8, ptr %s.val.i, i64 704
   %12 = load ptr, ptr %peer.i.i, align 8
   %cmp2.i.not.i = icmp eq ptr %12, null
   br i1 %cmp2.i.not.i, label %if.then.i36, label %if.end.i30
 
-if.then.i36:                                      ; preds = %received_server_cert.argprom.exit.i
+if.then.i36:                                      ; preds = %received_server_cert.exit.i
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 3079, ptr noundef nonnull @__func__.tls_construct_cke_rsa) #8
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #8
   br label %tls_construct_cke_rsa.exit.thread
 
-if.end.i30:                                       ; preds = %received_server_cert.argprom.exit.i, %if.then4
+if.end.i30:                                       ; preds = %received_server_cert.exit.i, %if.then4
   %call1.i = call ptr @tls_get_peer_pkey(ptr noundef nonnull %s) #8
   %cmp.i31 = icmp eq ptr %call1.i, null
   br i1 %cmp.i31, label %if.then2.i, label %if.end3.i

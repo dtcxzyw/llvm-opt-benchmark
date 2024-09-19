@@ -1588,7 +1588,7 @@ define noundef zeroext i1 @pkpy_pop(ptr noundef %0, i32 noundef %1) local_unname
   br i1 %.not, label %8, label %24
 
 8:                                                ; preds = %2
-  %9 = tail call fastcc noundef i32 @_ZL20count_extra_elementsPN4pkpy2VMEi.argelim(ptr noundef nonnull %0)
+  %9 = tail call fastcc noundef i32 @_ZL20count_extra_elementsPN4pkpy2VMEi(ptr noundef nonnull %0)
   store i32 %9, ptr %4, align 4
   %10 = icmp slt i32 %9, %1
   br i1 %10, label %11, label %18
@@ -1625,7 +1625,7 @@ define noundef zeroext i1 @pkpy_pop(ptr noundef %0, i32 noundef %1) local_unname
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL20count_extra_elementsPN4pkpy2VMEi.argelim(ptr noundef %0) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZL20count_extra_elementsPN4pkpy2VMEi(ptr noundef %0) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2081,7 +2081,7 @@ define noundef zeroext i1 @pkpy_pop_top(ptr noundef %0) local_unnamed_addr #4 pe
   br i1 %.not, label %7, label %21
 
 7:                                                ; preds = %1
-  %8 = tail call fastcc noundef i32 @_ZL20count_extra_elementsPN4pkpy2VMEi.argelim(ptr noundef nonnull %0)
+  %8 = tail call fastcc noundef i32 @_ZL20count_extra_elementsPN4pkpy2VMEi(ptr noundef nonnull %0)
   store i32 %8, ptr %2, align 4
   %9 = icmp slt i32 %8, 1
   br i1 %9, label %10, label %17
@@ -2186,7 +2186,7 @@ define noundef zeroext i1 @pkpy_dup_top(ptr noundef %0) local_unnamed_addr #4 pe
   br i1 %.not, label %7, label %23
 
 7:                                                ; preds = %1
-  %8 = tail call fastcc noundef i32 @_ZL20count_extra_elementsPN4pkpy2VMEi.argelim(ptr noundef nonnull %0)
+  %8 = tail call fastcc noundef i32 @_ZL20count_extra_elementsPN4pkpy2VMEi(ptr noundef nonnull %0)
   store i32 %8, ptr %2, align 4
   %9 = icmp slt i32 %8, 1
   br i1 %9, label %10, label %17
@@ -2235,7 +2235,7 @@ define noundef zeroext i1 @pkpy_rot_two(ptr noundef %0) local_unnamed_addr #4 pe
   br i1 %.not, label %7, label %24
 
 7:                                                ; preds = %1
-  %8 = tail call fastcc noundef i32 @_ZL20count_extra_elementsPN4pkpy2VMEi.argelim(ptr noundef nonnull %0)
+  %8 = tail call fastcc noundef i32 @_ZL20count_extra_elementsPN4pkpy2VMEi(ptr noundef nonnull %0)
   store i32 %8, ptr %2, align 4
   %9 = icmp slt i32 %8, 2
   br i1 %9, label %10, label %17
@@ -4352,7 +4352,7 @@ define noundef zeroext i1 @pkpy_getattr(ptr noundef %0, i32 noundef %1) local_un
   br i1 %.not, label %8, label %29
 
 8:                                                ; preds = %2
-  %9 = tail call fastcc noundef i32 @_ZL20count_extra_elementsPN4pkpy2VMEi.argelim(ptr noundef nonnull %0)
+  %9 = tail call fastcc noundef i32 @_ZL20count_extra_elementsPN4pkpy2VMEi(ptr noundef nonnull %0)
   store i32 %9, ptr %3, align 4
   %10 = icmp slt i32 %9, 1
   br i1 %10, label %11, label %18
@@ -4411,7 +4411,7 @@ define noundef zeroext i1 @pkpy_setattr(ptr noundef %0, i32 noundef %1) local_un
   br i1 %.not, label %10, label %62
 
 10:                                               ; preds = %2
-  %11 = tail call fastcc noundef i32 @_ZL20count_extra_elementsPN4pkpy2VMEi.argelim(ptr noundef nonnull %0)
+  %11 = tail call fastcc noundef i32 @_ZL20count_extra_elementsPN4pkpy2VMEi(ptr noundef nonnull %0)
   store i32 %11, ptr %3, align 4
   %12 = icmp slt i32 %11, 2
   br i1 %12, label %13, label %20
@@ -4705,7 +4705,7 @@ define noundef zeroext i1 @pkpy_setglobal(ptr noundef %0, i32 noundef %1) local_
   br i1 %.not, label %8, label %28
 
 8:                                                ; preds = %2
-  %9 = tail call fastcc noundef i32 @_ZL20count_extra_elementsPN4pkpy2VMEi.argelim(ptr noundef nonnull %0)
+  %9 = tail call fastcc noundef i32 @_ZL20count_extra_elementsPN4pkpy2VMEi(ptr noundef nonnull %0)
   store i32 %9, ptr %3, align 4
   %10 = icmp slt i32 %9, 1
   br i1 %10, label %11, label %18
@@ -5329,7 +5329,7 @@ define noundef zeroext i1 @pkpy_unpack_sequence(ptr noundef %0, i32 noundef %1) 
   br i1 %.not, label %12, label %98
 
 12:                                               ; preds = %2
-  %13 = tail call fastcc noundef i32 @_ZL20count_extra_elementsPN4pkpy2VMEi.argelim(ptr noundef nonnull %0)
+  %13 = tail call fastcc noundef i32 @_ZL20count_extra_elementsPN4pkpy2VMEi(ptr noundef nonnull %0)
   store i32 %13, ptr %3, align 4
   %14 = icmp slt i32 %13, 1
   br i1 %14, label %15, label %24
@@ -5584,7 +5584,7 @@ define noundef zeroext i1 @pkpy_get_unbound_method(ptr noundef %0, i32 noundef %
   br i1 %.not, label %11, label %65
 
 11:                                               ; preds = %2
-  %12 = tail call fastcc noundef i32 @_ZL20count_extra_elementsPN4pkpy2VMEi.argelim(ptr noundef nonnull %0)
+  %12 = tail call fastcc noundef i32 @_ZL20count_extra_elementsPN4pkpy2VMEi(ptr noundef nonnull %0)
   store i32 %12, ptr %3, align 4
   %13 = icmp slt i32 %12, 1
   br i1 %13, label %14, label %21
@@ -5720,7 +5720,7 @@ define noundef zeroext i1 @pkpy_py_repr(ptr noundef %0) local_unnamed_addr #4 pe
   br i1 %.not, label %10, label %62
 
 10:                                               ; preds = %1
-  %11 = tail call fastcc noundef i32 @_ZL20count_extra_elementsPN4pkpy2VMEi.argelim(ptr noundef nonnull %0)
+  %11 = tail call fastcc noundef i32 @_ZL20count_extra_elementsPN4pkpy2VMEi(ptr noundef nonnull %0)
   store i32 %11, ptr %2, align 4
   %12 = icmp slt i32 %11, 1
   br i1 %12, label %13, label %20
@@ -5868,7 +5868,7 @@ define noundef zeroext i1 @pkpy_py_str(ptr noundef %0) local_unnamed_addr #4 per
   br i1 %.not, label %10, label %62
 
 10:                                               ; preds = %1
-  %11 = tail call fastcc noundef i32 @_ZL20count_extra_elementsPN4pkpy2VMEi.argelim(ptr noundef nonnull %0)
+  %11 = tail call fastcc noundef i32 @_ZL20count_extra_elementsPN4pkpy2VMEi(ptr noundef nonnull %0)
   store i32 %11, ptr %2, align 4
   %12 = icmp slt i32 %11, 1
   br i1 %12, label %13, label %20
@@ -6116,7 +6116,7 @@ define noundef zeroext i1 @pkpy_vectorcall(ptr noundef %0, i32 noundef %1) local
 
 10:                                               ; preds = %2
   %11 = add nsw i32 %1, 2
-  %12 = tail call fastcc noundef i32 @_ZL20count_extra_elementsPN4pkpy2VMEi.argelim(ptr noundef nonnull %0)
+  %12 = tail call fastcc noundef i32 @_ZL20count_extra_elementsPN4pkpy2VMEi(ptr noundef nonnull %0)
   store i32 %12, ptr %3, align 4
   %13 = icmp slt i32 %12, %11
   br i1 %13, label %14, label %21

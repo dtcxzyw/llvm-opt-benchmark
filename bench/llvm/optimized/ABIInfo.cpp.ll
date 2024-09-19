@@ -1073,7 +1073,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %24, %26
   %35 = getelementptr inbounds i8, ptr %5, i64 8
   %.val19 = load ptr, ptr %35, align 8
   %.not.i.i.i.i = icmp eq ptr %.val, %.val19
-  br i1 %.not.i.i.i.i, label %"_ZN4llvm4sortIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang7CodeGen7ABIInfo23appendAttributeManglingENS_9StringRefERNS_11raw_ostreamEE3$_0EEvOT_T0_.argprom.exit", label %36
+  br i1 %.not.i.i.i.i, label %"_ZN4llvm4sortIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang7CodeGen7ABIInfo23appendAttributeManglingENS_9StringRefERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit", label %36
 
 36:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
   %37 = ptrtoint ptr %.val19 to i64
@@ -1091,27 +1091,27 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %24, %26
   %46 = getelementptr inbounds i8, ptr %.val, i64 512
   call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZNK5clang7CodeGen7ABIInfo23appendAttributeManglingEN4llvm9StringRefERNSI_11raw_ostreamEE3$_0EEEvT_SO_T0_"(ptr %.val, ptr nonnull %46, ptr nonnull %31)
   %.not7.i.i.i.i.i.i = icmp eq ptr %46, %.val19
-  br i1 %.not7.i.i.i.i.i.i, label %"_ZN4llvm4sortIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang7CodeGen7ABIInfo23appendAttributeManglingENS_9StringRefERNS_11raw_ostreamEE3$_0EEvOT_T0_.argprom.exit", label %.lr.ph.i.i.i.i.i.i
+  br i1 %.not7.i.i.i.i.i.i, label %"_ZN4llvm4sortIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang7CodeGen7ABIInfo23appendAttributeManglingENS_9StringRefERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %45, %.lr.ph.i.i.i.i.i.i
   %.sroa.0.08.i.i.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i.i.i ], [ %46, %45 ]
   call fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops14_Val_comp_iterIZNK5clang7CodeGen7ABIInfo23appendAttributeManglingEN4llvm9StringRefERNSI_11raw_ostreamEE3$_0EEEvT_T0_"(ptr %.sroa.0.08.i.i.i.i.i.i, ptr nonnull %31)
   %47 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %47, %.val19
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm4sortIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang7CodeGen7ABIInfo23appendAttributeManglingENS_9StringRefERNS_11raw_ostreamEE3$_0EEvOT_T0_.argprom.exit", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !23
+  br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm4sortIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang7CodeGen7ABIInfo23appendAttributeManglingENS_9StringRefERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !23
 
 48:                                               ; preds = %36
   call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZNK5clang7CodeGen7ABIInfo23appendAttributeManglingEN4llvm9StringRefERNSI_11raw_ostreamEE3$_0EEEvT_SO_T0_"(ptr %.val, ptr %.val19, ptr nonnull %31)
-  br label %"_ZN4llvm4sortIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang7CodeGen7ABIInfo23appendAttributeManglingENS_9StringRefERNS_11raw_ostreamEE3$_0EEvOT_T0_.argprom.exit"
+  br label %"_ZN4llvm4sortIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang7CodeGen7ABIInfo23appendAttributeManglingENS_9StringRefERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit"
 
-"_ZN4llvm4sortIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang7CodeGen7ABIInfo23appendAttributeManglingENS_9StringRefERNS_11raw_ostreamEE3$_0EEvOT_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm11raw_ostreamlsEc.exit, %45, %48
+"_ZN4llvm4sortIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang7CodeGen7ABIInfo23appendAttributeManglingENS_9StringRefERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm11raw_ostreamlsEc.exit, %45, %48
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %50 = getelementptr inbounds i8, ptr %5, i64 32
   %51 = load i64, ptr %50, align 8
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit, label %53
 
-53:                                               ; preds = %"_ZN4llvm4sortIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang7CodeGen7ABIInfo23appendAttributeManglingENS_9StringRefERNS_11raw_ostreamEE3$_0EEvOT_T0_.argprom.exit"
+53:                                               ; preds = %"_ZN4llvm4sortIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang7CodeGen7ABIInfo23appendAttributeManglingENS_9StringRefERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit"
   %54 = load ptr, ptr %22, align 8
   %55 = load ptr, ptr %20, align 8
   %56 = ptrtoint ptr %54 to i64
@@ -1162,7 +1162,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit24:               ; preds = %60, %62
   store ptr %78, ptr %68, align 8
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
-_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %76, %75, %73, %"_ZN4llvm4sortIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang7CodeGen7ABIInfo23appendAttributeManglingENS_9StringRefERNS_11raw_ostreamEE3$_0EEvOT_T0_.argprom.exit"
+_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %76, %75, %73, %"_ZN4llvm4sortIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang7CodeGen7ABIInfo23appendAttributeManglingENS_9StringRefERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit"
   %79 = load ptr, ptr %5, align 8
   %80 = load ptr, ptr %35, align 8
   %.not43 = icmp eq ptr %79, %80

@@ -86,7 +86,7 @@ define noundef ptr @mca_rcache_base_vma_module_alloc() local_unnamed_addr #0 {
 
 6:                                                ; preds = %5, %0
   %.not9.i = icmp eq ptr %2, null
-  br i1 %.not9.i, label %opal_obj_new.argprom.exit, label %7
+  br i1 %.not9.i, label %opal_obj_new.exit, label %7
 
 7:                                                ; preds = %6
   store ptr @mca_rcache_base_vma_module_t_class, ptr %2, align 8
@@ -95,7 +95,7 @@ define noundef ptr @mca_rcache_base_vma_module_alloc() local_unnamed_addr #0 {
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_rcache_base_vma_module_t_class, i64 40), align 8
   %10 = load ptr, ptr %9, align 8
   %.not6.i.i = icmp eq ptr %10, null
-  br i1 %.not6.i.i, label %opal_obj_new.argprom.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %7, %.lr.ph.i.i
   %11 = phi ptr [ %13, %.lr.ph.i.i ], [ %10, %7 ]
@@ -104,9 +104,9 @@ define noundef ptr @mca_rcache_base_vma_module_alloc() local_unnamed_addr #0 {
   %12 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i, label %opal_obj_new.argprom.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !4
 
-opal_obj_new.argprom.exit:                        ; preds = %.lr.ph.i.i, %6, %7
+opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %6, %7
   ret ptr %2
 }
 

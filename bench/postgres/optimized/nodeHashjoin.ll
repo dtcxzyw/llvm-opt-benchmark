@@ -1065,9 +1065,9 @@ ExecProcNode.exit40.i:                            ; preds = %269, %267
 288:                                              ; preds = %287, %284
   %289 = call i64 @BufFileReadMaybeEOF(ptr noundef nonnull %282, ptr noundef nonnull %13, i64 noundef 8, i1 noundef zeroext true) #6
   %290 = icmp eq i64 %289, 0
-  br i1 %290, label %ExecHashJoinGetSavedTuple.argprom.exit.thread.i, label %ExecHashJoinGetSavedTuple.argprom.exit.i
+  br i1 %290, label %ExecHashJoinGetSavedTuple.exit.thread.i, label %ExecHashJoinGetSavedTuple.exit.i
 
-ExecHashJoinGetSavedTuple.argprom.exit.thread.i:  ; preds = %288
+ExecHashJoinGetSavedTuple.exit.thread.i:          ; preds = %288
   %291 = getelementptr inbounds i8, ptr %285, i64 8
   %292 = load ptr, ptr %291, align 8
   %293 = getelementptr inbounds i8, ptr %292, i64 24
@@ -1076,7 +1076,7 @@ ExecHashJoinGetSavedTuple.argprom.exit.thread.i:  ; preds = %288
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   br label %ExecParallelHashJoinOuterGetTuple.exit.thread
 
-ExecHashJoinGetSavedTuple.argprom.exit.i:         ; preds = %288
+ExecHashJoinGetSavedTuple.exit.i:                 ; preds = %288
   %295 = load i32, ptr %13, align 4
   store i32 %295, ptr %18, align 4
   %296 = load i32, ptr %59, align 4
@@ -1093,7 +1093,7 @@ ExecHashJoinGetSavedTuple.argprom.exit.i:         ; preds = %288
   %303 = icmp eq ptr %285, null
   br i1 %303, label %ExecParallelHashJoinOuterGetTuple.exit.thread, label %304
 
-304:                                              ; preds = %ExecHashJoinGetSavedTuple.argprom.exit.i
+304:                                              ; preds = %ExecHashJoinGetSavedTuple.exit.i
   %305 = getelementptr inbounds i8, ptr %285, i64 4
   %306 = load i16, ptr %305, align 4
   %307 = and i16 %306, 2
@@ -1115,8 +1115,8 @@ ExecParallelHashJoinOuterGetTuple.exit.thread200: ; preds = %205, %304, %266, %E
   %.not161 = icmp eq i16 %312, 0
   br i1 %.not161, label %321, label %ExecParallelHashJoinOuterGetTuple.exit.thread
 
-ExecParallelHashJoinOuterGetTuple.exit.thread:    ; preds = %.lr.ph.i176, %ExecProcNode.exit40.i, %251, %273, %ExecHashJoinGetSavedTuple.argprom.exit.thread.i, %ExecHashJoinGetSavedTuple.argprom.exit.i, %304, %277, %.critedge.i, %ExecParallelHashJoinOuterGetTuple.exit.thread200
-  %.1193197 = phi ptr [ %.1193203, %ExecParallelHashJoinOuterGetTuple.exit.thread200 ], [ %.1194, %277 ], [ %.0141, %.critedge.i ], [ %.1194, %304 ], [ %.1194, %ExecHashJoinGetSavedTuple.argprom.exit.i ], [ %.1194, %ExecHashJoinGetSavedTuple.argprom.exit.thread.i ], [ %.1194, %273 ], [ %.1194, %251 ], [ %.1194, %ExecProcNode.exit40.i ], [ %.1194, %.lr.ph.i176 ]
+ExecParallelHashJoinOuterGetTuple.exit.thread:    ; preds = %.lr.ph.i176, %ExecProcNode.exit40.i, %251, %273, %ExecHashJoinGetSavedTuple.exit.thread.i, %ExecHashJoinGetSavedTuple.exit.i, %304, %277, %.critedge.i, %ExecParallelHashJoinOuterGetTuple.exit.thread200
+  %.1193197 = phi ptr [ %.1193203, %ExecParallelHashJoinOuterGetTuple.exit.thread200 ], [ %.1194, %277 ], [ %.0141, %.critedge.i ], [ %.1194, %304 ], [ %.1194, %ExecHashJoinGetSavedTuple.exit.i ], [ %.1194, %ExecHashJoinGetSavedTuple.exit.thread.i ], [ %.1194, %273 ], [ %.1194, %251 ], [ %.1194, %ExecProcNode.exit40.i ], [ %.1194, %.lr.ph.i176 ]
   %313 = load ptr, ptr %39, align 8
   %.not166 = icmp eq ptr %313, null
   br i1 %.not166, label %320, label %315
@@ -1805,9 +1805,9 @@ ExecParallelHashJoinNewBatch.exit:                ; preds = %567
 638:                                              ; preds = %637, %.preheader.i
   %639 = call i64 @BufFileReadMaybeEOF(ptr noundef nonnull %628, ptr noundef nonnull %3, i64 noundef 8, i1 noundef zeroext true) #6
   %640 = icmp eq i64 %639, 0
-  br i1 %640, label %ExecHashJoinGetSavedTuple.argprom.exit.thread.i188, label %ExecHashJoinGetSavedTuple.argprom.exit.i186
+  br i1 %640, label %ExecHashJoinGetSavedTuple.exit.thread.i188, label %ExecHashJoinGetSavedTuple.exit.i186
 
-ExecHashJoinGetSavedTuple.argprom.exit.thread.i188: ; preds = %638
+ExecHashJoinGetSavedTuple.exit.thread.i188:       ; preds = %638
   %641 = getelementptr inbounds i8, ptr %635, i64 8
   %642 = load ptr, ptr %641, align 8
   %643 = getelementptr inbounds i8, ptr %642, i64 24
@@ -1816,7 +1816,7 @@ ExecHashJoinGetSavedTuple.argprom.exit.thread.i188: ; preds = %638
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %.loopexit.i187
 
-ExecHashJoinGetSavedTuple.argprom.exit.i186:      ; preds = %638
+ExecHashJoinGetSavedTuple.exit.i186:              ; preds = %638
   %645 = load i32, ptr %3, align 4
   %646 = load i32, ptr %41, align 4
   %647 = zext i32 %646 to i64
@@ -1832,11 +1832,11 @@ ExecHashJoinGetSavedTuple.argprom.exit.i186:      ; preds = %638
   %.not94.i = icmp eq ptr %635, null
   br i1 %.not94.i, label %.loopexit.i187, label %653
 
-653:                                              ; preds = %ExecHashJoinGetSavedTuple.argprom.exit.i186
+653:                                              ; preds = %ExecHashJoinGetSavedTuple.exit.i186
   call void @ExecHashTableInsert(ptr noundef %572, ptr noundef nonnull %635, i32 noundef %645) #6
   br label %.preheader.i, !llvm.loop !14
 
-.loopexit.i187:                                   ; preds = %ExecHashJoinGetSavedTuple.argprom.exit.i186, %ExecHashJoinGetSavedTuple.argprom.exit.thread.i188
+.loopexit.i187:                                   ; preds = %ExecHashJoinGetSavedTuple.exit.i186, %ExecHashJoinGetSavedTuple.exit.thread.i188
   call void @BufFileClose(ptr noundef nonnull %628) #6
   %654 = load ptr, ptr %597, align 8
   %655 = getelementptr ptr, ptr %654, i64 %626

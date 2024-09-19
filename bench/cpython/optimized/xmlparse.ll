@@ -4271,17 +4271,17 @@ if.then7.i.i.i:                                   ; preds = %lor.lhs.false.i.i.i
 
 getDebugLevel.exit.thread.i.i:                    ; preds = %if.then7.i.i.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %afterValue.i.i.i)
-  br label %generate_hash_secret_salt.argprom.exit
+  br label %generate_hash_secret_salt.exit
 
 getDebugLevel.exit.i.i:                           ; preds = %lor.lhs.false.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %afterValue.i.i.i)
   %cmp.not.i.i = icmp eq i64 %call2.i.i.i, 0
-  br i1 %cmp.not.i.i, label %generate_hash_secret_salt.argprom.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %generate_hash_secret_salt.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %getDebugLevel.exit.i.i
   %6 = load ptr, ptr @stderr, align 8
   %call1.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.322, i32 noundef 16, i64 noundef %2, i64 noundef 8) #28
-  br label %generate_hash_secret_salt.argprom.exit
+  br label %generate_hash_secret_salt.exit
 
 if.end.i:                                         ; preds = %land.rhs.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i)
@@ -4319,25 +4319,25 @@ if.then7.i.i9.i:                                  ; preds = %lor.lhs.false.i.i11
 
 getDebugLevel.exit.thread.i10.i:                  ; preds = %if.then7.i.i9.i, %if.end.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %afterValue.i.i2.i)
-  br label %generate_hash_secret_salt.argprom.exit
+  br label %generate_hash_secret_salt.exit
 
 getDebugLevel.exit.i13.i:                         ; preds = %lor.lhs.false.i.i11.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %afterValue.i.i2.i)
   %cmp.not.i14.i = icmp eq i64 %call2.i.i7.i, 0
-  br i1 %cmp.not.i14.i, label %generate_hash_secret_salt.argprom.exit, label %if.then.i15.i
+  br i1 %cmp.not.i14.i, label %generate_hash_secret_salt.exit, label %if.then.i15.i
 
 if.then.i15.i:                                    ; preds = %getDebugLevel.exit.i13.i
   %11 = load ptr, ptr @stderr, align 8
   %call1.i16.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.323, i32 noundef 16, i64 noundef %mul.i, i64 noundef 8) #28
-  br label %generate_hash_secret_salt.argprom.exit
+  br label %generate_hash_secret_salt.exit
 
-generate_hash_secret_salt.argprom.exit:           ; preds = %getDebugLevel.exit.thread.i.i, %getDebugLevel.exit.i.i, %if.then.i.i, %getDebugLevel.exit.thread.i10.i, %getDebugLevel.exit.i13.i, %if.then.i15.i
+generate_hash_secret_salt.exit:                   ; preds = %getDebugLevel.exit.thread.i.i, %getDebugLevel.exit.i.i, %if.then.i.i, %getDebugLevel.exit.thread.i10.i, %getDebugLevel.exit.i13.i, %if.then.i15.i
   %retval.0.i = phi i64 [ %2, %getDebugLevel.exit.thread.i.i ], [ %2, %getDebugLevel.exit.i.i ], [ %2, %if.then.i.i ], [ %mul.i, %getDebugLevel.exit.thread.i10.i ], [ %mul.i, %getDebugLevel.exit.i13.i ], [ %mul.i, %if.then.i15.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %entropy.i)
   store i64 %retval.0.i, ptr %m_hash_secret_salt, align 8
   br label %if.end
 
-if.end:                                           ; preds = %generate_hash_secret_salt.argprom.exit, %entry
+if.end:                                           ; preds = %generate_hash_secret_salt.exit, %entry
   %m_ns = getelementptr inbounds i8, ptr %parser, i64 456
   %12 = load i8, ptr %m_ns, align 8
   %tobool.not = icmp eq i8 %12, 0

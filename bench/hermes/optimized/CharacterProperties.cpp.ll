@@ -44,20 +44,20 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %__len.1.i.i.i = select i1 %cmp.i.i8.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
   %__first.addr.1.i.i.i = select i1 %cmp.i.i8.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.06.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.argprom.exit.i.i, !llvm.loop !4
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i, !llvm.loop !4
 
-_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.argprom.exit.i.i: ; preds = %while.body.i.i.i
+_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i: ; preds = %while.body.i.i.i
   %cmp.not.i.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds (i8, ptr @_ZN6hermesL15UNICODE_LETTERSE, i64 2832)
   br i1 %cmp.not.i.i, label %return, label %land.rhs.i.i
 
-land.rhs.i.i:                                     ; preds = %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.argprom.exit.i.i
+land.rhs.i.i:                                     ; preds = %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i
   %agg.tmp2.sroa.0.0.copyload.i.i = load i64, ptr %__first.addr.1.i.i.i, align 4
   %p.sroa.0.0.extract.trunc.i.i.i = trunc i64 %agg.tmp2.sroa.0.0.copyload.i.i to i32
   %cmp.i4.i.i = icmp uge i32 %cp, %p.sroa.0.0.extract.trunc.i.i.i
   br label %return
 
-return:                                           ; preds = %land.rhs.i.i, %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.argprom.exit.i.i, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.argprom.exit.i.i ], [ %cmp.i4.i.i, %land.rhs.i.i ]
+return:                                           ; preds = %land.rhs.i.i, %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i ], [ %cmp.i4.i.i, %land.rhs.i.i ]
   ret i1 %retval.0
 }
 
@@ -115,20 +115,20 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %__len.1.i.i.i = select i1 %cmp.i.i8.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
   %__first.addr.1.i.i.i = select i1 %cmp.i.i8.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.06.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.argprom.exit.i.i, !llvm.loop !4
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i, !llvm.loop !4
 
-_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.argprom.exit.i.i: ; preds = %while.body.i.i.i
+_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i: ; preds = %while.body.i.i.i
   %cmp.not.i.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds (i8, ptr @_ZN6hermesL22UNICODE_COMBINING_MARKE, i64 1960)
   br i1 %cmp.not.i.i, label %_ZN6hermes6lookupIA245_NS_12UnicodeRangeEEEbRKT_j.exit, label %land.rhs.i.i
 
-land.rhs.i.i:                                     ; preds = %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.argprom.exit.i.i
+land.rhs.i.i:                                     ; preds = %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i
   %agg.tmp2.sroa.0.0.copyload.i.i = load i64, ptr %__first.addr.1.i.i.i, align 4
   %p.sroa.0.0.extract.trunc.i.i.i = trunc i64 %agg.tmp2.sroa.0.0.copyload.i.i to i32
   %cmp.i4.i.i = icmp uge i32 %cp, %p.sroa.0.0.extract.trunc.i.i.i
   br label %_ZN6hermes6lookupIA245_NS_12UnicodeRangeEEEbRKT_j.exit
 
-_ZN6hermes6lookupIA245_NS_12UnicodeRangeEEEbRKT_j.exit: ; preds = %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.argprom.exit.i.i, %land.rhs.i.i
-  %1 = phi i1 [ false, %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.argprom.exit.i.i ], [ %cmp.i4.i.i, %land.rhs.i.i ]
+_ZN6hermes6lookupIA245_NS_12UnicodeRangeEEEbRKT_j.exit: ; preds = %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i, %land.rhs.i.i
+  %1 = phi i1 [ false, %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i ], [ %cmp.i4.i.i, %land.rhs.i.i ]
   ret i1 %1
 }
 
@@ -154,20 +154,20 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %__len.1.i.i.i = select i1 %cmp.i.i8.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
   %__first.addr.1.i.i.i = select i1 %cmp.i.i8.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.06.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.argprom.exit.i.i, !llvm.loop !4
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i, !llvm.loop !4
 
-_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.argprom.exit.i.i: ; preds = %while.body.i.i.i
+_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i: ; preds = %while.body.i.i.i
   %cmp.not.i.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds (i8, ptr @_ZN6hermesL13UNICODE_DIGITE, i64 488)
   br i1 %cmp.not.i.i, label %lor.end, label %land.rhs.i.i
 
-land.rhs.i.i:                                     ; preds = %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.argprom.exit.i.i
+land.rhs.i.i:                                     ; preds = %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i
   %agg.tmp2.sroa.0.0.copyload.i.i = load i64, ptr %__first.addr.1.i.i.i, align 4
   %p.sroa.0.0.extract.trunc.i.i.i = trunc i64 %agg.tmp2.sroa.0.0.copyload.i.i to i32
   %cmp.i4.i.i = icmp uge i32 %cp, %p.sroa.0.0.extract.trunc.i.i.i
   br label %lor.end
 
-lor.end:                                          ; preds = %land.rhs.i.i, %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.argprom.exit.i.i, %entry
-  %2 = phi i1 [ true, %entry ], [ false, %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.argprom.exit.i.i ], [ %cmp.i4.i.i, %land.rhs.i.i ]
+lor.end:                                          ; preds = %land.rhs.i.i, %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i, %entry
+  %2 = phi i1 [ true, %entry ], [ false, %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i ], [ %cmp.i4.i.i, %land.rhs.i.i ]
   ret i1 %2
 }
 
@@ -192,20 +192,20 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %__len.1.i.i.i = select i1 %cmp.i.i8.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
   %__first.addr.1.i.i.i = select i1 %cmp.i.i8.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.06.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.argprom.exit.i.i, !llvm.loop !4
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i, !llvm.loop !4
 
-_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.argprom.exit.i.i: ; preds = %while.body.i.i.i
+_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i: ; preds = %while.body.i.i.i
   %cmp.not.i.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds (i8, ptr @_ZN6hermesL29UNICODE_CONNECTOR_PUNCTUATIONE, i64 48)
   br i1 %cmp.not.i.i, label %lor.end, label %land.rhs.i.i
 
-land.rhs.i.i:                                     ; preds = %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.argprom.exit.i.i
+land.rhs.i.i:                                     ; preds = %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i
   %agg.tmp2.sroa.0.0.copyload.i.i = load i64, ptr %__first.addr.1.i.i.i, align 4
   %p.sroa.0.0.extract.trunc.i.i.i = trunc i64 %agg.tmp2.sroa.0.0.copyload.i.i to i32
   %cmp.i4.i.i = icmp uge i32 %cp, %p.sroa.0.0.extract.trunc.i.i.i
   br label %lor.end
 
-lor.end:                                          ; preds = %land.rhs.i.i, %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.argprom.exit.i.i, %entry
-  %1 = phi i1 [ true, %entry ], [ false, %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.argprom.exit.i.i ], [ %cmp.i4.i.i, %land.rhs.i.i ]
+lor.end:                                          ; preds = %land.rhs.i.i, %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i, %entry
+  %1 = phi i1 [ true, %entry ], [ false, %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i ], [ %cmp.i4.i.i, %land.rhs.i.i ]
   ret i1 %1
 }
 

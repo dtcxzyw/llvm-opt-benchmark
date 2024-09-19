@@ -577,7 +577,7 @@ define dso_local void @_ZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERN
   %46 = zext i24 %45 to i64
   %47 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %43, i64 %46
   %.not11.i.i = icmp eq ptr %42, %47
-  br i1 %.not11.i.i, label %"_ZN4llvm9transformINS_14iterator_rangeIPNS_14MachineOperandEEESt20back_insert_iteratorINS_11SmallVectorIjLj16EEEEZNS_11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEE3$_0EET0_OT_SD_T1_.argprom.exit", label %.lr.ph.i.i
+  br i1 %.not11.i.i, label %"_ZN4llvm9transformINS_14iterator_rangeIPNS_14MachineOperandEEESt20back_insert_iteratorINS_11SmallVectorIjLj16EEEEZNS_11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEE3$_0EET0_OT_SD_T1_.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %28
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -601,19 +601,19 @@ define dso_local void @_ZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERN
     i8 5, label %134
     i8 6, label %134
     i8 8, label %134
-    i8 16, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.argprom.exit.i.i"
-    i8 17, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.argprom.exit.i.i"
-    i8 18, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.argprom.exit.i.i"
-    i8 4, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.argprom.exit.i.i"
-    i8 9, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.argprom.exit.i.i"
-    i8 10, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.argprom.exit.i.i"
-    i8 11, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.argprom.exit.i.i"
-    i8 12, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.argprom.exit.i.i"
-    i8 13, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.argprom.exit.i.i"
-    i8 14, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.argprom.exit.i.i"
-    i8 15, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.argprom.exit.i.i"
-    i8 19, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.argprom.exit.i.i"
-    i8 20, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.argprom.exit.i.i"
+    i8 16, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.exit.i.i"
+    i8 17, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.exit.i.i"
+    i8 18, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.exit.i.i"
+    i8 4, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.exit.i.i"
+    i8 9, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.exit.i.i"
+    i8 10, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.exit.i.i"
+    i8 11, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.exit.i.i"
+    i8 12, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.exit.i.i"
+    i8 13, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.exit.i.i"
+    i8 14, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.exit.i.i"
+    i8 15, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.exit.i.i"
+    i8 19, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.exit.i.i"
+    i8 20, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.exit.i.i"
   ]
 
 52:                                               ; preds = %49
@@ -651,7 +651,7 @@ define dso_local void @_ZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERN
   %77 = xor i64 %76, %.0.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %.sroa.0.i)
   %78 = trunc i64 %77 to i32
-  br label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.argprom.exit.i.i"
+  br label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.exit.i.i"
 
 79:                                               ; preds = %49
   %80 = and i32 %50, 255
@@ -703,17 +703,17 @@ _ZNK4llvm7APFloat14bitcastToAPIntEv.exit.i.i.i:   ; preds = %91, %90
   %108 = trunc i64 %107 to i32
   %109 = icmp eq ptr %94, null
   %or.cond.i = select i1 %93, i1 true, i1 %109
-  br i1 %or.cond.i, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.argprom.exit.i.i", label %110
+  br i1 %or.cond.i, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.exit.i.i", label %110
 
 110:                                              ; preds = %_ZNK4llvm7APFloat14bitcastToAPIntEv.exit.i.i.i
   call void @_ZdaPv(ptr noundef nonnull %94) #19
-  br label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.argprom.exit.i.i"
+  br label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.exit.i.i"
 
 111:                                              ; preds = %49
   %112 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 4
   %113 = load i32, ptr %112, align 4
   %114 = icmp slt i32 %113, 0
-  br i1 %114, label %115, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.argprom.exit.i.i"
+  br i1 %114, label %115, label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.exit.i.i"
 
 115:                                              ; preds = %111
   %116 = load ptr, ptr %1, align 8
@@ -721,13 +721,13 @@ _ZNK4llvm7APFloat14bitcastToAPIntEv.exit.i.i.i:   ; preds = %91, %90
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 68
   %119 = load i16, ptr %118, align 4
   %120 = zext i16 %119 to i32
-  br label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.argprom.exit.i.i"
+  br label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.exit.i.i"
 
 121:                                              ; preds = %49
   %122 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 16
   %123 = load i64, ptr %122, align 8
   %124 = trunc i64 %123 to i32
-  br label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.argprom.exit.i.i"
+  br label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.exit.i.i"
 
 125:                                              ; preds = %49
   %126 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 4
@@ -738,17 +738,17 @@ _ZNK4llvm7APFloat14bitcastToAPIntEv.exit.i.i.i:   ; preds = %91, %90
   %131 = and i32 %130, 268369920
   %132 = select i1 %129, i32 0, i32 %131
   %133 = or i32 %127, %132
-  br label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.argprom.exit.i.i"
+  br label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.exit.i.i"
 
 134:                                              ; preds = %49, %49, %49
   %135 = call i64 @_ZN4llvm10hash_valueERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i) #16
   %136 = trunc i64 %135 to i32
-  br label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.argprom.exit.i.i"
+  br label %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.exit.i.i"
 
 137:                                              ; preds = %49
   unreachable
 
-"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.argprom.exit.i.i": ; preds = %134, %125, %121, %115, %111, %110, %_ZNK4llvm7APFloat14bitcastToAPIntEv.exit.i.i.i, %52, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49
+"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.exit.i.i": ; preds = %134, %125, %121, %115, %111, %110, %_ZNK4llvm7APFloat14bitcastToAPIntEv.exit.i.i.i, %52, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49
   %.0.i.i.i = phi i32 [ %136, %134 ], [ %133, %125 ], [ %124, %121 ], [ %120, %115 ], [ %78, %52 ], [ 0, %49 ], [ 0, %49 ], [ 0, %49 ], [ 0, %49 ], [ 0, %49 ], [ 0, %49 ], [ 0, %49 ], [ 0, %49 ], [ 0, %49 ], [ 0, %49 ], [ 0, %49 ], [ 0, %49 ], [ 0, %49 ], [ %108, %_ZNK4llvm7APFloat14bitcastToAPIntEv.exit.i.i.i ], [ %108, %110 ], [ %113, %111 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %138 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
@@ -757,11 +757,11 @@ _ZNK4llvm7APFloat14bitcastToAPIntEv.exit.i.i.i:   ; preds = %91, %90
   %.not.i.i.i.i.i.i = icmp ugt i64 %139, %140
   br i1 %.not.i.i.i.i.i.i, label %141, label %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorIjLj16EEEEaSEOj.exit.i.i
 
-141:                                              ; preds = %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.argprom.exit.i.i"
+141:                                              ; preds = %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.exit.i.i"
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %36, i64 noundef %139, i64 noundef 4) #16
   br label %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorIjLj16EEEEaSEOj.exit.i.i
 
-_ZNSt20back_insert_iteratorIN4llvm11SmallVectorIjLj16EEEEaSEOj.exit.i.i: ; preds = %141, %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.argprom.exit.i.i"
+_ZNSt20back_insert_iteratorIN4llvm11SmallVectorIjLj16EEEEaSEOj.exit.i.i: ; preds = %141, %"_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.exit.i.i"
   %142 = load ptr, ptr %8, align 8
   %143 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
   %144 = getelementptr inbounds i32, ptr %142, i64 %143
@@ -771,15 +771,15 @@ _ZNSt20back_insert_iteratorIN4llvm11SmallVectorIjLj16EEEEaSEOj.exit.i.i: ; preds
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %146) #16
   %147 = getelementptr inbounds i8, ptr %.012.i.i, i64 32
   %.not.i.i = icmp eq ptr %147, %47
-  br i1 %.not.i.i, label %"_ZN4llvm9transformINS_14iterator_rangeIPNS_14MachineOperandEEESt20back_insert_iteratorINS_11SmallVectorIjLj16EEEEZNS_11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEE3$_0EET0_OT_SD_T1_.argprom.exit", label %49, !llvm.loop !19
+  br i1 %.not.i.i, label %"_ZN4llvm9transformINS_14iterator_rangeIPNS_14MachineOperandEEESt20back_insert_iteratorINS_11SmallVectorIjLj16EEEEZNS_11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEE3$_0EET0_OT_SD_T1_.exit", label %49, !llvm.loop !19
 
-"_ZN4llvm9transformINS_14iterator_rangeIPNS_14MachineOperandEEESt20back_insert_iteratorINS_11SmallVectorIjLj16EEEEZNS_11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEE3$_0EET0_OT_SD_T1_.argprom.exit": ; preds = %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorIjLj16EEEEaSEOj.exit.i.i, %28
+"_ZN4llvm9transformINS_14iterator_rangeIPNS_14MachineOperandEEESt20back_insert_iteratorINS_11SmallVectorIjLj16EEEEZNS_11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEE3$_0EET0_OT_SD_T1_.exit": ; preds = %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorIjLj16EEEEaSEOj.exit.i.i, %28
   %148 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %149 = load i64, ptr %148, align 8
   %150 = icmp ugt i64 %149, 7
   br i1 %150, label %151, label %._crit_edge
 
-151:                                              ; preds = %"_ZN4llvm9transformINS_14iterator_rangeIPNS_14MachineOperandEEESt20back_insert_iteratorINS_11SmallVectorIjLj16EEEEZNS_11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEE3$_0EET0_OT_SD_T1_.argprom.exit"
+151:                                              ; preds = %"_ZN4llvm9transformINS_14iterator_rangeIPNS_14MachineOperandEEESt20back_insert_iteratorINS_11SmallVectorIjLj16EEEEZNS_11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEE3$_0EET0_OT_SD_T1_.exit"
   %152 = and i64 %149, 7
   %153 = icmp eq i64 %152, 0
   br i1 %153, label %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread53, label %156
@@ -1061,7 +1061,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit42: ; preds = %_ZN4llvm
   %.not = icmp eq ptr %298, %164
   br i1 %.not, label %._crit_edge, label %165
 
-._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit42, %156, %"_ZN4llvm9transformINS_14iterator_rangeIPNS_14MachineOperandEEESt20back_insert_iteratorINS_11SmallVectorIjLj16EEEEZNS_11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEE3$_0EET0_OT_SD_T1_.argprom.exit", %_ZNK4llvm12MachineInstr11memoperandsEv.exit
+._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit42, %156, %"_ZN4llvm9transformINS_14iterator_rangeIPNS_14MachineOperandEEESt20back_insert_iteratorINS_11SmallVectorIjLj16EEEEZNS_11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEE3$_0EET0_OT_SD_T1_.exit", %_ZNK4llvm12MachineInstr11memoperandsEv.exit
   %299 = load ptr, ptr %8, align 8
   %300 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
   %301 = getelementptr inbounds i32, ptr %299, i64 %300

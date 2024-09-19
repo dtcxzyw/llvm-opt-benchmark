@@ -1441,7 +1441,7 @@ define internal range(i32 0, 2) i32 @mca_rcache_grdma_check_cached(ptr noundef %
 29:                                               ; preds = %23
   %30 = or i32 %27, %25
   store i32 %30, ptr %24, align 8
-  tail call fastcc void @mca_rcache_grdma_add_to_gc.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @mca_rcache_grdma_add_to_gc(ptr noundef nonnull %0)
   br label %39
 
 31:                                               ; preds = %23
@@ -1491,7 +1491,7 @@ define internal range(i32 -1, 1) i32 @gc_add(ptr noundef %0, ptr nocapture nound
   br i1 %13, label %15, label %14
 
 14:                                               ; preds = %9, %6
-  tail call fastcc void @mca_rcache_grdma_add_to_gc.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @mca_rcache_grdma_add_to_gc(ptr noundef nonnull %0)
   br label %15
 
 15:                                               ; preds = %9, %2, %14
@@ -1500,7 +1500,7 @@ define internal range(i32 -1, 1) i32 @gc_add(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mca_rcache_grdma_add_to_gc.retelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @mca_rcache_grdma_add_to_gc(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 92

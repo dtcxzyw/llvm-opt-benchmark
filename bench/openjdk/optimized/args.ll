@@ -99,7 +99,7 @@ define ptr @JLI_PreprocessArg(ptr noundef %0, i8 noundef zeroext %1) local_unnam
 
 17:                                               ; preds = %15
   %18 = tail call ptr @JLI_List_new(i64 noundef 8) #12
-  tail call fastcc void @expand.retelim(ptr noundef %18, ptr noundef %0, ptr noundef null)
+  tail call fastcc void @expand(ptr noundef %18, ptr noundef %0, ptr noundef null)
   br label %100
 
 19:                                               ; preds = %15, %12, %11
@@ -575,7 +575,7 @@ define zeroext range(i8 0, 2) i8 @JLI_AddArgsFromEnvVar(ptr noundef %0, ptr noun
 
 8:                                                ; preds = %6
   tail call void (ptr, ...) @JLI_ReportMessage(ptr noundef nonnull @.str.16, ptr noundef %1, ptr noundef nonnull %3) #12
-  tail call fastcc void @expand.retelim(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %1)
+  tail call fastcc void @expand(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %1)
   br label %9
 
 9:                                                ; preds = %6, %2, %8
@@ -589,7 +589,7 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #5
 declare void @JLI_ReportMessage(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @expand.retelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #2 {
+define internal fastcc void @expand(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #2 {
   %.not72 = icmp eq ptr %2, null
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %5 = add i64 %4, 1

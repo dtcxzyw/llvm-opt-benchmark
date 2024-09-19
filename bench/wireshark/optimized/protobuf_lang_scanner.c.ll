@@ -91,7 +91,7 @@ define hidden range(i32 0, 63) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
   br i1 %.not26.i, label %29, label %30
 
 29:                                               ; preds = %27
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.12) #26
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #26
   unreachable
 
 30:                                               ; preds = %27
@@ -118,7 +118,7 @@ define hidden range(i32 0, 63) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
   br i1 %.not28.i, label %41, label %42
 
 41:                                               ; preds = %37
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.12) #26
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #26
   unreachable
 
 42:                                               ; preds = %37
@@ -442,7 +442,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %177, ptr %175, align 8
   %178 = load ptr, ptr %74, align 8
   %.val = load ptr, ptr %0, align 8
-  %179 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val, ptr noundef %178)
+  %179 = tail call fastcc ptr @strdup_and_store(ptr %.val, ptr noundef %178)
   %180 = load ptr, ptr %0, align 8
   %181 = getelementptr inbounds i8, ptr %180, i64 56
   %182 = load ptr, ptr %181, align 8
@@ -472,7 +472,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %197, ptr %195, align 8
   %198 = load ptr, ptr %74, align 8
   %.val654 = load ptr, ptr %0, align 8
-  %199 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val654, ptr noundef %198)
+  %199 = tail call fastcc ptr @strdup_and_store(ptr %.val654, ptr noundef %198)
   %200 = load ptr, ptr %0, align 8
   %201 = getelementptr inbounds i8, ptr %200, i64 56
   %202 = load ptr, ptr %201, align 8
@@ -502,7 +502,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %217, ptr %215, align 8
   %218 = load ptr, ptr %74, align 8
   %.val655 = load ptr, ptr %0, align 8
-  %219 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val655, ptr noundef %218)
+  %219 = tail call fastcc ptr @strdup_and_store(ptr %.val655, ptr noundef %218)
   %220 = load ptr, ptr %0, align 8
   %221 = getelementptr inbounds i8, ptr %220, i64 56
   %222 = load ptr, ptr %221, align 8
@@ -532,7 +532,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %237, ptr %235, align 8
   %238 = load ptr, ptr %74, align 8
   %.val656 = load ptr, ptr %0, align 8
-  %239 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val656, ptr noundef %238)
+  %239 = tail call fastcc ptr @strdup_and_store(ptr %.val656, ptr noundef %238)
   %240 = load ptr, ptr %0, align 8
   %241 = getelementptr inbounds i8, ptr %240, i64 56
   %242 = load ptr, ptr %241, align 8
@@ -562,7 +562,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %257, ptr %255, align 8
   %258 = load ptr, ptr %74, align 8
   %.val657 = load ptr, ptr %0, align 8
-  %259 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val657, ptr noundef %258)
+  %259 = tail call fastcc ptr @strdup_and_store(ptr %.val657, ptr noundef %258)
   %260 = load ptr, ptr %0, align 8
   %261 = getelementptr inbounds i8, ptr %260, i64 56
   %262 = load ptr, ptr %261, align 8
@@ -592,7 +592,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %277, ptr %275, align 8
   %278 = load ptr, ptr %74, align 8
   %.val658 = load ptr, ptr %0, align 8
-  %279 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val658, ptr noundef %278)
+  %279 = tail call fastcc ptr @strdup_and_store(ptr %.val658, ptr noundef %278)
   %280 = load ptr, ptr %0, align 8
   %281 = getelementptr inbounds i8, ptr %280, i64 56
   %282 = load ptr, ptr %281, align 8
@@ -622,7 +622,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %297, ptr %295, align 8
   %298 = load ptr, ptr %74, align 8
   %.val659 = load ptr, ptr %0, align 8
-  %299 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val659, ptr noundef %298)
+  %299 = tail call fastcc ptr @strdup_and_store(ptr %.val659, ptr noundef %298)
   %300 = load ptr, ptr %0, align 8
   %301 = getelementptr inbounds i8, ptr %300, i64 56
   %302 = load ptr, ptr %301, align 8
@@ -652,7 +652,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %317, ptr %315, align 8
   %318 = load ptr, ptr %74, align 8
   %.val660 = load ptr, ptr %0, align 8
-  %319 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val660, ptr noundef %318)
+  %319 = tail call fastcc ptr @strdup_and_store(ptr %.val660, ptr noundef %318)
   %320 = load ptr, ptr %0, align 8
   %321 = getelementptr inbounds i8, ptr %320, i64 56
   %322 = load ptr, ptr %321, align 8
@@ -682,7 +682,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %337, ptr %335, align 8
   %338 = load ptr, ptr %74, align 8
   %.val661 = load ptr, ptr %0, align 8
-  %339 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val661, ptr noundef %338)
+  %339 = tail call fastcc ptr @strdup_and_store(ptr %.val661, ptr noundef %338)
   %340 = load ptr, ptr %0, align 8
   %341 = getelementptr inbounds i8, ptr %340, i64 56
   %342 = load ptr, ptr %341, align 8
@@ -712,7 +712,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %357, ptr %355, align 8
   %358 = load ptr, ptr %74, align 8
   %.val662 = load ptr, ptr %0, align 8
-  %359 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val662, ptr noundef %358)
+  %359 = tail call fastcc ptr @strdup_and_store(ptr %.val662, ptr noundef %358)
   %360 = load ptr, ptr %0, align 8
   %361 = getelementptr inbounds i8, ptr %360, i64 56
   %362 = load ptr, ptr %361, align 8
@@ -742,7 +742,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %377, ptr %375, align 8
   %378 = load ptr, ptr %74, align 8
   %.val663 = load ptr, ptr %0, align 8
-  %379 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val663, ptr noundef %378)
+  %379 = tail call fastcc ptr @strdup_and_store(ptr %.val663, ptr noundef %378)
   %380 = load ptr, ptr %0, align 8
   %381 = getelementptr inbounds i8, ptr %380, i64 56
   %382 = load ptr, ptr %381, align 8
@@ -772,7 +772,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %397, ptr %395, align 8
   %398 = load ptr, ptr %74, align 8
   %.val664 = load ptr, ptr %0, align 8
-  %399 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val664, ptr noundef %398)
+  %399 = tail call fastcc ptr @strdup_and_store(ptr %.val664, ptr noundef %398)
   %400 = load ptr, ptr %0, align 8
   %401 = getelementptr inbounds i8, ptr %400, i64 56
   %402 = load ptr, ptr %401, align 8
@@ -802,7 +802,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %417, ptr %415, align 8
   %418 = load ptr, ptr %74, align 8
   %.val665 = load ptr, ptr %0, align 8
-  %419 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val665, ptr noundef %418)
+  %419 = tail call fastcc ptr @strdup_and_store(ptr %.val665, ptr noundef %418)
   %420 = load ptr, ptr %0, align 8
   %421 = getelementptr inbounds i8, ptr %420, i64 56
   %422 = load ptr, ptr %421, align 8
@@ -832,7 +832,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %437, ptr %435, align 8
   %438 = load ptr, ptr %74, align 8
   %.val666 = load ptr, ptr %0, align 8
-  %439 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val666, ptr noundef %438)
+  %439 = tail call fastcc ptr @strdup_and_store(ptr %.val666, ptr noundef %438)
   %440 = load ptr, ptr %0, align 8
   %441 = getelementptr inbounds i8, ptr %440, i64 56
   %442 = load ptr, ptr %441, align 8
@@ -862,7 +862,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %457, ptr %455, align 8
   %458 = load ptr, ptr %74, align 8
   %.val667 = load ptr, ptr %0, align 8
-  %459 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val667, ptr noundef %458)
+  %459 = tail call fastcc ptr @strdup_and_store(ptr %.val667, ptr noundef %458)
   %460 = load ptr, ptr %0, align 8
   %461 = getelementptr inbounds i8, ptr %460, i64 56
   %462 = load ptr, ptr %461, align 8
@@ -892,7 +892,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %477, ptr %475, align 8
   %478 = load ptr, ptr %74, align 8
   %.val668 = load ptr, ptr %0, align 8
-  %479 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val668, ptr noundef %478)
+  %479 = tail call fastcc ptr @strdup_and_store(ptr %.val668, ptr noundef %478)
   %480 = load ptr, ptr %0, align 8
   %481 = getelementptr inbounds i8, ptr %480, i64 56
   %482 = load ptr, ptr %481, align 8
@@ -922,7 +922,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %497, ptr %495, align 8
   %498 = load ptr, ptr %74, align 8
   %.val669 = load ptr, ptr %0, align 8
-  %499 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val669, ptr noundef %498)
+  %499 = tail call fastcc ptr @strdup_and_store(ptr %.val669, ptr noundef %498)
   %500 = load ptr, ptr %0, align 8
   %501 = getelementptr inbounds i8, ptr %500, i64 56
   %502 = load ptr, ptr %501, align 8
@@ -952,7 +952,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %517, ptr %515, align 8
   %518 = load ptr, ptr %74, align 8
   %.val670 = load ptr, ptr %0, align 8
-  %519 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val670, ptr noundef %518)
+  %519 = tail call fastcc ptr @strdup_and_store(ptr %.val670, ptr noundef %518)
   %520 = load ptr, ptr %0, align 8
   %521 = getelementptr inbounds i8, ptr %520, i64 56
   %522 = load ptr, ptr %521, align 8
@@ -982,7 +982,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %537, ptr %535, align 8
   %538 = load ptr, ptr %74, align 8
   %.val671 = load ptr, ptr %0, align 8
-  %539 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val671, ptr noundef %538)
+  %539 = tail call fastcc ptr @strdup_and_store(ptr %.val671, ptr noundef %538)
   %540 = load ptr, ptr %0, align 8
   %541 = getelementptr inbounds i8, ptr %540, i64 56
   %542 = load ptr, ptr %541, align 8
@@ -1012,7 +1012,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %557, ptr %555, align 8
   %558 = load ptr, ptr %74, align 8
   %.val672 = load ptr, ptr %0, align 8
-  %559 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val672, ptr noundef %558)
+  %559 = tail call fastcc ptr @strdup_and_store(ptr %.val672, ptr noundef %558)
   %560 = load ptr, ptr %0, align 8
   %561 = getelementptr inbounds i8, ptr %560, i64 56
   %562 = load ptr, ptr %561, align 8
@@ -1042,7 +1042,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %577, ptr %575, align 8
   %578 = load ptr, ptr %74, align 8
   %.val673 = load ptr, ptr %0, align 8
-  %579 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val673, ptr noundef %578)
+  %579 = tail call fastcc ptr @strdup_and_store(ptr %.val673, ptr noundef %578)
   %580 = load ptr, ptr %0, align 8
   %581 = getelementptr inbounds i8, ptr %580, i64 56
   %582 = load ptr, ptr %581, align 8
@@ -1072,7 +1072,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %597, ptr %595, align 8
   %598 = load ptr, ptr %74, align 8
   %.val674 = load ptr, ptr %0, align 8
-  %599 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val674, ptr noundef %598)
+  %599 = tail call fastcc ptr @strdup_and_store(ptr %.val674, ptr noundef %598)
   %600 = load ptr, ptr %0, align 8
   %601 = getelementptr inbounds i8, ptr %600, i64 56
   %602 = load ptr, ptr %601, align 8
@@ -1102,7 +1102,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %617, ptr %615, align 8
   %618 = load ptr, ptr %74, align 8
   %.val675 = load ptr, ptr %0, align 8
-  %619 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val675, ptr noundef %618)
+  %619 = tail call fastcc ptr @strdup_and_store(ptr %.val675, ptr noundef %618)
   %620 = load ptr, ptr %0, align 8
   %621 = getelementptr inbounds i8, ptr %620, i64 56
   %622 = load ptr, ptr %621, align 8
@@ -1132,7 +1132,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %637, ptr %635, align 8
   %638 = load ptr, ptr %74, align 8
   %.val676 = load ptr, ptr %0, align 8
-  %639 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val676, ptr noundef %638)
+  %639 = tail call fastcc ptr @strdup_and_store(ptr %.val676, ptr noundef %638)
   %640 = load ptr, ptr %0, align 8
   %641 = getelementptr inbounds i8, ptr %640, i64 56
   %642 = load ptr, ptr %641, align 8
@@ -1162,7 +1162,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %657, ptr %655, align 8
   %658 = load ptr, ptr %74, align 8
   %.val677 = load ptr, ptr %0, align 8
-  %659 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val677, ptr noundef %658)
+  %659 = tail call fastcc ptr @strdup_and_store(ptr %.val677, ptr noundef %658)
   %660 = load ptr, ptr %0, align 8
   %661 = getelementptr inbounds i8, ptr %660, i64 56
   %662 = load ptr, ptr %661, align 8
@@ -1192,7 +1192,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %677, ptr %675, align 8
   %678 = load ptr, ptr %74, align 8
   %.val678 = load ptr, ptr %0, align 8
-  %679 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val678, ptr noundef %678)
+  %679 = tail call fastcc ptr @strdup_and_store(ptr %.val678, ptr noundef %678)
   %680 = load ptr, ptr %0, align 8
   %681 = getelementptr inbounds i8, ptr %680, i64 56
   %682 = load ptr, ptr %681, align 8
@@ -1222,7 +1222,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %697, ptr %695, align 8
   %698 = load ptr, ptr %74, align 8
   %.val679 = load ptr, ptr %0, align 8
-  %699 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val679, ptr noundef %698)
+  %699 = tail call fastcc ptr @strdup_and_store(ptr %.val679, ptr noundef %698)
   %700 = load ptr, ptr %0, align 8
   %701 = getelementptr inbounds i8, ptr %700, i64 56
   %702 = load ptr, ptr %701, align 8
@@ -1252,7 +1252,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %717, ptr %715, align 8
   %718 = load ptr, ptr %74, align 8
   %.val680 = load ptr, ptr %0, align 8
-  %719 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val680, ptr noundef %718)
+  %719 = tail call fastcc ptr @strdup_and_store(ptr %.val680, ptr noundef %718)
   %720 = load ptr, ptr %0, align 8
   %721 = getelementptr inbounds i8, ptr %720, i64 56
   %722 = load ptr, ptr %721, align 8
@@ -1282,7 +1282,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %737, ptr %735, align 8
   %738 = load ptr, ptr %74, align 8
   %.val681 = load ptr, ptr %0, align 8
-  %739 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val681, ptr noundef %738)
+  %739 = tail call fastcc ptr @strdup_and_store(ptr %.val681, ptr noundef %738)
   %740 = load ptr, ptr %0, align 8
   %741 = getelementptr inbounds i8, ptr %740, i64 56
   %742 = load ptr, ptr %741, align 8
@@ -1312,7 +1312,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %757, ptr %755, align 8
   %758 = load ptr, ptr %74, align 8
   %.val682 = load ptr, ptr %0, align 8
-  %759 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val682, ptr noundef %758)
+  %759 = tail call fastcc ptr @strdup_and_store(ptr %.val682, ptr noundef %758)
   %760 = load ptr, ptr %0, align 8
   %761 = getelementptr inbounds i8, ptr %760, i64 56
   %762 = load ptr, ptr %761, align 8
@@ -1342,7 +1342,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %777, ptr %775, align 8
   %778 = load ptr, ptr %74, align 8
   %.val683 = load ptr, ptr %0, align 8
-  %779 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val683, ptr noundef %778)
+  %779 = tail call fastcc ptr @strdup_and_store(ptr %.val683, ptr noundef %778)
   %780 = load ptr, ptr %0, align 8
   %781 = getelementptr inbounds i8, ptr %780, i64 56
   %782 = load ptr, ptr %781, align 8
@@ -1372,7 +1372,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %797, ptr %795, align 8
   %798 = load ptr, ptr %74, align 8
   %.val684 = load ptr, ptr %0, align 8
-  %799 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val684, ptr noundef %798)
+  %799 = tail call fastcc ptr @strdup_and_store(ptr %.val684, ptr noundef %798)
   %800 = load ptr, ptr %0, align 8
   %801 = getelementptr inbounds i8, ptr %800, i64 56
   %802 = load ptr, ptr %801, align 8
@@ -1402,7 +1402,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %817, ptr %815, align 8
   %818 = load ptr, ptr %74, align 8
   %.val685 = load ptr, ptr %0, align 8
-  %819 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val685, ptr noundef %818)
+  %819 = tail call fastcc ptr @strdup_and_store(ptr %.val685, ptr noundef %818)
   %820 = load ptr, ptr %0, align 8
   %821 = getelementptr inbounds i8, ptr %820, i64 56
   %822 = load ptr, ptr %821, align 8
@@ -1432,7 +1432,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %837, ptr %835, align 8
   %838 = load ptr, ptr %74, align 8
   %.val686 = load ptr, ptr %0, align 8
-  %839 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val686, ptr noundef %838)
+  %839 = tail call fastcc ptr @strdup_and_store(ptr %.val686, ptr noundef %838)
   %840 = load ptr, ptr %0, align 8
   %841 = getelementptr inbounds i8, ptr %840, i64 56
   %842 = load ptr, ptr %841, align 8
@@ -1462,7 +1462,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %857, ptr %855, align 8
   %858 = load ptr, ptr %74, align 8
   %.val687 = load ptr, ptr %0, align 8
-  %859 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val687, ptr noundef %858)
+  %859 = tail call fastcc ptr @strdup_and_store(ptr %.val687, ptr noundef %858)
   %860 = load ptr, ptr %0, align 8
   %861 = getelementptr inbounds i8, ptr %860, i64 56
   %862 = load ptr, ptr %861, align 8
@@ -1492,7 +1492,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %877, ptr %875, align 8
   %878 = load ptr, ptr %74, align 8
   %.val688 = load ptr, ptr %0, align 8
-  %879 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val688, ptr noundef %878)
+  %879 = tail call fastcc ptr @strdup_and_store(ptr %.val688, ptr noundef %878)
   %880 = load ptr, ptr %0, align 8
   %881 = getelementptr inbounds i8, ptr %880, i64 56
   %882 = load ptr, ptr %881, align 8
@@ -1522,7 +1522,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %897, ptr %895, align 8
   %898 = load ptr, ptr %74, align 8
   %.val689 = load ptr, ptr %0, align 8
-  %899 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val689, ptr noundef %898)
+  %899 = tail call fastcc ptr @strdup_and_store(ptr %.val689, ptr noundef %898)
   %900 = load ptr, ptr %0, align 8
   %901 = getelementptr inbounds i8, ptr %900, i64 56
   %902 = load ptr, ptr %901, align 8
@@ -1552,7 +1552,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %917, ptr %915, align 8
   %918 = load ptr, ptr %74, align 8
   %.val690 = load ptr, ptr %0, align 8
-  %919 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val690, ptr noundef %918)
+  %919 = tail call fastcc ptr @strdup_and_store(ptr %.val690, ptr noundef %918)
   %920 = load ptr, ptr %0, align 8
   %921 = getelementptr inbounds i8, ptr %920, i64 56
   %922 = load ptr, ptr %921, align 8
@@ -1582,7 +1582,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %937, ptr %935, align 8
   %938 = load ptr, ptr %74, align 8
   %.val691 = load ptr, ptr %0, align 8
-  %939 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val691, ptr noundef %938)
+  %939 = tail call fastcc ptr @strdup_and_store(ptr %.val691, ptr noundef %938)
   %940 = load ptr, ptr %0, align 8
   %941 = getelementptr inbounds i8, ptr %940, i64 56
   %942 = load ptr, ptr %941, align 8
@@ -1612,7 +1612,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %957, ptr %955, align 8
   %958 = load ptr, ptr %74, align 8
   %.val692 = load ptr, ptr %0, align 8
-  %959 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val692, ptr noundef %958)
+  %959 = tail call fastcc ptr @strdup_and_store(ptr %.val692, ptr noundef %958)
   %960 = load ptr, ptr %0, align 8
   %961 = getelementptr inbounds i8, ptr %960, i64 56
   %962 = load ptr, ptr %961, align 8
@@ -1642,7 +1642,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %977, ptr %975, align 8
   %978 = load ptr, ptr %74, align 8
   %.val693 = load ptr, ptr %0, align 8
-  %979 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val693, ptr noundef %978)
+  %979 = tail call fastcc ptr @strdup_and_store(ptr %.val693, ptr noundef %978)
   %980 = load ptr, ptr %0, align 8
   %981 = getelementptr inbounds i8, ptr %980, i64 56
   %982 = load ptr, ptr %981, align 8
@@ -1672,7 +1672,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %997, ptr %995, align 8
   %998 = load ptr, ptr %74, align 8
   %.val694 = load ptr, ptr %0, align 8
-  %999 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val694, ptr noundef %998)
+  %999 = tail call fastcc ptr @strdup_and_store(ptr %.val694, ptr noundef %998)
   %1000 = load ptr, ptr %0, align 8
   %1001 = getelementptr inbounds i8, ptr %1000, i64 56
   %1002 = load ptr, ptr %1001, align 8
@@ -1702,7 +1702,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1017, ptr %1015, align 8
   %1018 = load ptr, ptr %74, align 8
   %.val695 = load ptr, ptr %0, align 8
-  %1019 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val695, ptr noundef %1018)
+  %1019 = tail call fastcc ptr @strdup_and_store(ptr %.val695, ptr noundef %1018)
   %1020 = load ptr, ptr %0, align 8
   %1021 = getelementptr inbounds i8, ptr %1020, i64 56
   %1022 = load ptr, ptr %1021, align 8
@@ -1732,7 +1732,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1037, ptr %1035, align 8
   %1038 = load ptr, ptr %74, align 8
   %.val696 = load ptr, ptr %0, align 8
-  %1039 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val696, ptr noundef %1038)
+  %1039 = tail call fastcc ptr @strdup_and_store(ptr %.val696, ptr noundef %1038)
   %1040 = load ptr, ptr %0, align 8
   %1041 = getelementptr inbounds i8, ptr %1040, i64 56
   %1042 = load ptr, ptr %1041, align 8
@@ -1762,7 +1762,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1057, ptr %1055, align 8
   %1058 = load ptr, ptr %74, align 8
   %.val697 = load ptr, ptr %0, align 8
-  %1059 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val697, ptr noundef %1058)
+  %1059 = tail call fastcc ptr @strdup_and_store(ptr %.val697, ptr noundef %1058)
   %1060 = load ptr, ptr %0, align 8
   %1061 = getelementptr inbounds i8, ptr %1060, i64 56
   %1062 = load ptr, ptr %1061, align 8
@@ -1792,7 +1792,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1077, ptr %1075, align 8
   %1078 = load ptr, ptr %74, align 8
   %.val698 = load ptr, ptr %0, align 8
-  %1079 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val698, ptr noundef %1078)
+  %1079 = tail call fastcc ptr @strdup_and_store(ptr %.val698, ptr noundef %1078)
   %1080 = load ptr, ptr %0, align 8
   %1081 = getelementptr inbounds i8, ptr %1080, i64 56
   %1082 = load ptr, ptr %1081, align 8
@@ -1822,7 +1822,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1097, ptr %1095, align 8
   %1098 = load ptr, ptr %74, align 8
   %.val699 = load ptr, ptr %0, align 8
-  %1099 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val699, ptr noundef %1098)
+  %1099 = tail call fastcc ptr @strdup_and_store(ptr %.val699, ptr noundef %1098)
   %1100 = load ptr, ptr %0, align 8
   %1101 = getelementptr inbounds i8, ptr %1100, i64 56
   %1102 = load ptr, ptr %1101, align 8
@@ -1852,7 +1852,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1117, ptr %1115, align 8
   %1118 = load ptr, ptr %74, align 8
   %.val700 = load ptr, ptr %0, align 8
-  %1119 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val700, ptr noundef %1118)
+  %1119 = tail call fastcc ptr @strdup_and_store(ptr %.val700, ptr noundef %1118)
   %1120 = load ptr, ptr %0, align 8
   %1121 = getelementptr inbounds i8, ptr %1120, i64 56
   %1122 = load ptr, ptr %1121, align 8
@@ -1882,7 +1882,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1137, ptr %1135, align 8
   %1138 = load ptr, ptr %74, align 8
   %.val701 = load ptr, ptr %0, align 8
-  %1139 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val701, ptr noundef %1138)
+  %1139 = tail call fastcc ptr @strdup_and_store(ptr %.val701, ptr noundef %1138)
   %1140 = load ptr, ptr %0, align 8
   %1141 = getelementptr inbounds i8, ptr %1140, i64 56
   %1142 = load ptr, ptr %1141, align 8
@@ -1912,7 +1912,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1157, ptr %1155, align 8
   %1158 = load ptr, ptr %74, align 8
   %.val702 = load ptr, ptr %0, align 8
-  %1159 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val702, ptr noundef %1158)
+  %1159 = tail call fastcc ptr @strdup_and_store(ptr %.val702, ptr noundef %1158)
   %1160 = load ptr, ptr %0, align 8
   %1161 = getelementptr inbounds i8, ptr %1160, i64 56
   %1162 = load ptr, ptr %1161, align 8
@@ -1942,7 +1942,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1177, ptr %1175, align 8
   %1178 = load ptr, ptr %74, align 8
   %.val703 = load ptr, ptr %0, align 8
-  %1179 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val703, ptr noundef %1178)
+  %1179 = tail call fastcc ptr @strdup_and_store(ptr %.val703, ptr noundef %1178)
   %1180 = load ptr, ptr %0, align 8
   %1181 = getelementptr inbounds i8, ptr %1180, i64 56
   %1182 = load ptr, ptr %1181, align 8
@@ -1972,7 +1972,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1197, ptr %1195, align 8
   %1198 = load ptr, ptr %74, align 8
   %.val704 = load ptr, ptr %0, align 8
-  %1199 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val704, ptr noundef %1198)
+  %1199 = tail call fastcc ptr @strdup_and_store(ptr %.val704, ptr noundef %1198)
   %1200 = load ptr, ptr %0, align 8
   %1201 = getelementptr inbounds i8, ptr %1200, i64 56
   %1202 = load ptr, ptr %1201, align 8
@@ -2002,7 +2002,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1217, ptr %1215, align 8
   %1218 = load ptr, ptr %74, align 8
   %.val705 = load ptr, ptr %0, align 8
-  %1219 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val705, ptr noundef %1218)
+  %1219 = tail call fastcc ptr @strdup_and_store(ptr %.val705, ptr noundef %1218)
   %1220 = load ptr, ptr %0, align 8
   %1221 = getelementptr inbounds i8, ptr %1220, i64 56
   %1222 = load ptr, ptr %1221, align 8
@@ -2032,7 +2032,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1237, ptr %1235, align 8
   %1238 = load ptr, ptr %74, align 8
   %.val706 = load ptr, ptr %0, align 8
-  %1239 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val706, ptr noundef %1238)
+  %1239 = tail call fastcc ptr @strdup_and_store(ptr %.val706, ptr noundef %1238)
   %1240 = load ptr, ptr %0, align 8
   %1241 = getelementptr inbounds i8, ptr %1240, i64 56
   %1242 = load ptr, ptr %1241, align 8
@@ -2062,7 +2062,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1257, ptr %1255, align 8
   %1258 = load ptr, ptr %74, align 8
   %.val707 = load ptr, ptr %0, align 8
-  %1259 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val707, ptr noundef %1258)
+  %1259 = tail call fastcc ptr @strdup_and_store(ptr %.val707, ptr noundef %1258)
   %1260 = load ptr, ptr %0, align 8
   %1261 = getelementptr inbounds i8, ptr %1260, i64 56
   %1262 = load ptr, ptr %1261, align 8
@@ -2092,7 +2092,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1277, ptr %1275, align 8
   %1278 = load ptr, ptr %74, align 8
   %.val708 = load ptr, ptr %0, align 8
-  %1279 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val708, ptr noundef %1278)
+  %1279 = tail call fastcc ptr @strdup_and_store(ptr %.val708, ptr noundef %1278)
   %1280 = load ptr, ptr %0, align 8
   %1281 = getelementptr inbounds i8, ptr %1280, i64 56
   %1282 = load ptr, ptr %1281, align 8
@@ -2122,7 +2122,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1297, ptr %1295, align 8
   %1298 = load ptr, ptr %74, align 8
   %.val709 = load ptr, ptr %0, align 8
-  %1299 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val709, ptr noundef %1298)
+  %1299 = tail call fastcc ptr @strdup_and_store(ptr %.val709, ptr noundef %1298)
   %1300 = load ptr, ptr %0, align 8
   %1301 = getelementptr inbounds i8, ptr %1300, i64 56
   %1302 = load ptr, ptr %1301, align 8
@@ -2152,7 +2152,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1317, ptr %1315, align 8
   %1318 = load ptr, ptr %74, align 8
   %.val710 = load ptr, ptr %0, align 8
-  %1319 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val710, ptr noundef %1318)
+  %1319 = tail call fastcc ptr @strdup_and_store(ptr %.val710, ptr noundef %1318)
   %1320 = load ptr, ptr %0, align 8
   %1321 = getelementptr inbounds i8, ptr %1320, i64 56
   %1322 = load ptr, ptr %1321, align 8
@@ -2182,7 +2182,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1337, ptr %1335, align 8
   %1338 = load ptr, ptr %74, align 8
   %.val711 = load ptr, ptr %0, align 8
-  %1339 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val711, ptr noundef %1338)
+  %1339 = tail call fastcc ptr @strdup_and_store(ptr %.val711, ptr noundef %1338)
   %1340 = load ptr, ptr %0, align 8
   %1341 = getelementptr inbounds i8, ptr %1340, i64 56
   %1342 = load ptr, ptr %1341, align 8
@@ -2212,7 +2212,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1357, ptr %1355, align 8
   %1358 = load ptr, ptr %74, align 8
   %.val712 = load ptr, ptr %0, align 8
-  %1359 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val712, ptr noundef %1358)
+  %1359 = tail call fastcc ptr @strdup_and_store(ptr %.val712, ptr noundef %1358)
   %1360 = load ptr, ptr %0, align 8
   %1361 = getelementptr inbounds i8, ptr %1360, i64 56
   %1362 = load ptr, ptr %1361, align 8
@@ -2242,7 +2242,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1377, ptr %1375, align 8
   %1378 = load ptr, ptr %74, align 8
   %.val713 = load ptr, ptr %0, align 8
-  %1379 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val713, ptr noundef %1378)
+  %1379 = tail call fastcc ptr @strdup_and_store(ptr %.val713, ptr noundef %1378)
   %1380 = load ptr, ptr %0, align 8
   %1381 = getelementptr inbounds i8, ptr %1380, i64 56
   %1382 = load ptr, ptr %1381, align 8
@@ -2272,7 +2272,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1397, ptr %1395, align 8
   %1398 = load ptr, ptr %74, align 8
   %.val714 = load ptr, ptr %0, align 8
-  %1399 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val714, ptr noundef %1398)
+  %1399 = tail call fastcc ptr @strdup_and_store(ptr %.val714, ptr noundef %1398)
   %1400 = load ptr, ptr %0, align 8
   %1401 = getelementptr inbounds i8, ptr %1400, i64 56
   %1402 = load ptr, ptr %1401, align 8
@@ -2302,7 +2302,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1417, ptr %1415, align 8
   %1418 = load ptr, ptr %74, align 8
   %.val715 = load ptr, ptr %0, align 8
-  %1419 = tail call fastcc ptr @strdup_and_store.argprom(ptr %.val715, ptr noundef %1418)
+  %1419 = tail call fastcc ptr @strdup_and_store(ptr %.val715, ptr noundef %1418)
   %1420 = load ptr, ptr %0, align 8
   %1421 = getelementptr inbounds i8, ptr %1420, i64 56
   %1422 = load ptr, ptr %1421, align 8
@@ -2440,7 +2440,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %1494, label %1495, label %1496
 
 1495:                                             ; preds = %1489
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.8) #26
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.8) #26
   unreachable
 
 1496:                                             ; preds = %1489
@@ -2548,7 +2548,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not147.i, label %.loopexit.i, label %1546
 
 .loopexit.i:                                      ; preds = %1542, %.thread.i
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.9) #26
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.9) #26
   unreachable
 
 1546:                                             ; preds = %1542
@@ -2637,7 +2637,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not143.i, label %1587, label %1586
 
 1586:                                             ; preds = %1583
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.10) #26
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.10) #26
   unreachable
 
 1587:                                             ; preds = %1583, %.thread152.i, %.critedge.i
@@ -2677,7 +2677,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not141.i, label %1608, label %1607
 
 1607:                                             ; preds = %1605
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.10) #26
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.10) #26
   unreachable
 
 1608:                                             ; preds = %1605
@@ -2769,7 +2769,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not149.i, label %1668, label %1669
 
 1668:                                             ; preds = %1650
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.11) #26
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.11) #26
   unreachable
 
 1669:                                             ; preds = %1650
@@ -2860,7 +2860,7 @@ yy_get_next_buffer.exit.thread968:                ; preds = %1502, %yy_get_next_
   br label %.outer.backedge
 
 1715:                                             ; preds = %.loopexit971
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.1) #26
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.1) #26
   unreachable
 
 default.unreachable1311:                          ; preds = %yy_get_next_buffer.exit
@@ -2895,7 +2895,7 @@ define hidden nonnull ptr @protobuf_lang__create_buffer(ptr noundef %0, i32 noun
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.2) #26
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #26
   unreachable
 
 6:                                                ; preds = %3
@@ -2910,7 +2910,7 @@ define hidden nonnull ptr @protobuf_lang__create_buffer(ptr noundef %0, i32 noun
   br i1 %.not12, label %12, label %13
 
 12:                                               ; preds = %6
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.2) #26
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #26
   unreachable
 
 13:                                               ; preds = %6
@@ -3004,7 +3004,7 @@ define hidden ptr @protobuf_lang_get_extra(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @strdup_and_store.argprom(ptr nocapture %.0.val, ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @strdup_and_store(ptr nocapture %.0.val, ptr noundef %0) unnamed_addr #0 {
   %2 = tail call noalias ptr @g_strdup(ptr noundef %0) #29
   %3 = getelementptr inbounds i8, ptr %.0.val, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -3191,7 +3191,7 @@ define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 nounde
 }
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @yy_fatal_error.argprom(ptr noundef %0) unnamed_addr #9 {
+define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #9 {
   %2 = load ptr, ptr @stderr, align 8
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.13, ptr noundef %0) #31
   tail call void @exit(i32 noundef 2) #32
@@ -3220,7 +3220,7 @@ define hidden void @protobuf_lang_restart(ptr noundef %0, ptr nocapture noundef 
   br i1 %.not26.i, label %12, label %13
 
 12:                                               ; preds = %10
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.12) #26
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #26
   unreachable
 
 13:                                               ; preds = %10
@@ -3247,7 +3247,7 @@ define hidden void @protobuf_lang_restart(ptr noundef %0, ptr nocapture noundef 
   br i1 %.not28.i, label %24, label %25
 
 24:                                               ; preds = %20
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.12) #26
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #26
   unreachable
 
 25:                                               ; preds = %20
@@ -3404,7 +3404,7 @@ define hidden void @protobuf_lang__switch_to_buffer(ptr noundef %0, ptr nocaptur
   br i1 %.not26.i, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.12) #26
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #26
   unreachable
 
 8:                                                ; preds = %5
@@ -3433,7 +3433,7 @@ define hidden void @protobuf_lang__switch_to_buffer(ptr noundef %0, ptr nocaptur
   br i1 %.not28.i, label %21, label %22
 
 21:                                               ; preds = %17
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.12) #26
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #26
   unreachable
 
 22:                                               ; preds = %17
@@ -3642,7 +3642,7 @@ define hidden void @protobuf_lang_push_buffer_state(ptr noundef %0, ptr nocaptur
   br i1 %.not26.i, label %9, label %10
 
 9:                                                ; preds = %7
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.12) #26
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #26
   unreachable
 
 10:                                               ; preds = %7
@@ -3671,7 +3671,7 @@ define hidden void @protobuf_lang_push_buffer_state(ptr noundef %0, ptr nocaptur
   br i1 %.not28.i, label %23, label %24
 
 23:                                               ; preds = %19
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.12) #26
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #26
   unreachable
 
 24:                                               ; preds = %19
@@ -3866,7 +3866,7 @@ define hidden noundef ptr @protobuf_lang__scan_buffer(ptr noundef %0, i64 nounde
   br i1 %.not26, label %15, label %16
 
 15:                                               ; preds = %13
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.3) #26
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #26
   unreachable
 
 16:                                               ; preds = %13
@@ -3931,7 +3931,7 @@ define hidden nonnull ptr @protobuf_lang__scan_bytes(ptr nocapture noundef reado
   br label %21
 
 14:                                               ; preds = %3
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.4) #26
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.4) #26
   unreachable
 
 ._crit_edge:                                      ; preds = %.preheader
@@ -3965,11 +3965,11 @@ define hidden nonnull ptr @protobuf_lang__scan_bytes(ptr nocapture noundef reado
   br i1 %.not26.i, label %31, label %33
 
 31:                                               ; preds = %29
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.3) #26
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #26
   unreachable
 
 32:                                               ; preds = %25, %21, %._crit_edge
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.5) #26
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.5) #26
   unreachable
 
 33:                                               ; preds = %29
@@ -4076,7 +4076,7 @@ define hidden void @protobuf_lang_set_lineno(i32 noundef %0, ptr nocapture nound
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.6) #26
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.6) #26
   unreachable
 
 11:                                               ; preds = %5
@@ -4101,7 +4101,7 @@ define hidden void @protobuf_lang_set_column(i32 noundef %0, ptr nocapture nound
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.7) #26
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.7) #26
   unreachable
 
 11:                                               ; preds = %5

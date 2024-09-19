@@ -8375,7 +8375,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZL20DOCTEST_ANON_FUNC_13vE3$_0KiEEvRT_
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, i32 noundef %.val) #14
   %4 = load ptr, ptr %0, align 8
   %5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %"_ZZL20DOCTEST_ANON_FUNC_13vENK3$_0clIiEEDaRKT_.argprom.exit" unwind label %6
+          to label %"_ZZL20DOCTEST_ANON_FUNC_13vENK3$_0clIiEEDaRKT_.exit" unwind label %6
 
 6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
@@ -8383,7 +8383,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZL20DOCTEST_ANON_FUNC_13vE3$_0KiEEvRT_
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   resume { ptr, i32 } %7
 
-"_ZZL20DOCTEST_ANON_FUNC_13vENK3$_0clIiEEDaRKT_.argprom.exit": ; preds = %2
+"_ZZL20DOCTEST_ANON_FUNC_13vENK3$_0clIiEEDaRKT_.exit": ; preds = %2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -8562,7 +8562,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZL20DOCTEST_ANON_FUNC_13vE3$_1KiEEvRT_
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, i32 noundef %.val) #14
   %4 = load ptr, ptr %0, align 8
   %5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %"_ZZL20DOCTEST_ANON_FUNC_13vENK3$_1clIiEEDaRKT_.argprom.exit" unwind label %6
+          to label %"_ZZL20DOCTEST_ANON_FUNC_13vENK3$_1clIiEEDaRKT_.exit" unwind label %6
 
 6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
@@ -8570,7 +8570,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZL20DOCTEST_ANON_FUNC_13vE3$_1KiEEvRT_
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   resume { ptr, i32 } %7
 
-"_ZZL20DOCTEST_ANON_FUNC_13vENK3$_1clIiEEDaRKT_.argprom.exit": ; preds = %2
+"_ZZL20DOCTEST_ANON_FUNC_13vENK3$_1clIiEEDaRKT_.exit": ; preds = %2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -9893,17 +9893,17 @@ attributes #15 = { noreturn nounwind }
 !198 = distinct !{!198, !199, !"_ZN7doctest8toStringIA3_cTnNS_6detail5types9enable_ifIXntsr6detail5types7is_enumIT_EE5valueEbE4typeELb1EEENS_6StringERKS5_: argument 0"}
 !199 = distinct !{!199, !"_ZN7doctest8toStringIA3_cTnNS_6detail5types9enable_ifIXntsr6detail5types7is_enumIT_EE5valueEbE4typeELb1EEENS_6StringERKS5_"}
 !200 = !{!201}
-!201 = distinct !{!201, !202, !"_ZZL20DOCTEST_ANON_FUNC_13vENK3$_2clINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDaRT_.argprom: argument 0"}
-!202 = distinct !{!202, !"_ZZL20DOCTEST_ANON_FUNC_13vENK3$_2clINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDaRT_.argprom"}
+!201 = distinct !{!201, !202, !"_ZZL20DOCTEST_ANON_FUNC_13vENK3$_2clINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDaRT_: argument 0"}
+!202 = distinct !{!202, !"_ZZL20DOCTEST_ANON_FUNC_13vENK3$_2clINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDaRT_"}
 !203 = !{!204}
-!204 = distinct !{!204, !205, !"_ZZL20DOCTEST_ANON_FUNC_13vENK3$_2clIiEEDaRT_.argprom: argument 0"}
-!205 = distinct !{!205, !"_ZZL20DOCTEST_ANON_FUNC_13vENK3$_2clIiEEDaRT_.argprom"}
+!204 = distinct !{!204, !205, !"_ZZL20DOCTEST_ANON_FUNC_13vENK3$_2clIiEEDaRT_: argument 0"}
+!205 = distinct !{!205, !"_ZZL20DOCTEST_ANON_FUNC_13vENK3$_2clIiEEDaRT_"}
 !206 = !{!207}
-!207 = distinct !{!207, !208, !"_ZZL20DOCTEST_ANON_FUNC_13vENK3$_3clINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDaRT_.argprom: argument 0"}
-!208 = distinct !{!208, !"_ZZL20DOCTEST_ANON_FUNC_13vENK3$_3clINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDaRT_.argprom"}
+!207 = distinct !{!207, !208, !"_ZZL20DOCTEST_ANON_FUNC_13vENK3$_3clINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDaRT_: argument 0"}
+!208 = distinct !{!208, !"_ZZL20DOCTEST_ANON_FUNC_13vENK3$_3clINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDaRT_"}
 !209 = !{!210}
-!210 = distinct !{!210, !211, !"_ZZL20DOCTEST_ANON_FUNC_13vENK3$_3clIiEEDaRT_.argprom: argument 0"}
-!211 = distinct !{!211, !"_ZZL20DOCTEST_ANON_FUNC_13vENK3$_3clIiEEDaRT_.argprom"}
+!210 = distinct !{!210, !211, !"_ZZL20DOCTEST_ANON_FUNC_13vENK3$_3clIiEEDaRT_: argument 0"}
+!211 = distinct !{!211, !"_ZZL20DOCTEST_ANON_FUNC_13vENK3$_3clIiEEDaRT_"}
 !212 = !{!213, !215, !217}
 !213 = distinct !{!213, !214, !"_ZN7doctest6detail8toStreamINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_6StringERKT_: argument 0"}
 !214 = distinct !{!214, !"_ZN7doctest6detail8toStreamINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_6StringERKT_"}

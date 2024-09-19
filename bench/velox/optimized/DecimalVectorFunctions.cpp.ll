@@ -1714,9 +1714,9 @@ if.then31:                                        ; preds = %dynamic_cast.notnul
 
 if.then33:                                        ; preds = %if.then31
   %call5.i.i.i5.i.i.i.i39 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8AdditionEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8AdditionEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8AdditionEEEED2Ev.argprom.exit: ; preds = %if.then33
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8AdditionEEEED2Ev.exit: ; preds = %if.then33
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i39, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !6
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i39, i64 12
@@ -1733,9 +1733,9 @@ lpad:                                             ; preds = %if.else52, %if.then
 
 if.else:                                          ; preds = %if.then31
   %call5.i.i.i5.i.i.i.i54 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8AdditionEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8AdditionEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8AdditionEEEED2Ev.argprom.exit: ; preds = %if.else
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8AdditionEEEED2Ev.exit: ; preds = %if.else
   %_M_use_count.i.i.i.i.i.i49 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i54, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i49, align 8, !noalias !9
   %_M_weak_count.i.i.i.i.i.i50 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i54, i64 12
@@ -1748,9 +1748,9 @@ if.else37:                                        ; preds = %dynamic_cast.notnul
 
 if.then40:                                        ; preds = %if.else37
   %call5.i.i.i5.i.i.i.i93 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8AdditionEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8AdditionEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8AdditionEEEED2Ev.argprom.exit: ; preds = %if.then40
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8AdditionEEEED2Ev.exit: ; preds = %if.then40
   %_M_use_count.i.i.i.i.i.i88 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i93, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i88, align 8, !noalias !12
   %_M_weak_count.i.i.i.i.i.i89 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i93, i64 12
@@ -1760,9 +1760,9 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
 
 if.else43:                                        ; preds = %if.else37
   %call5.i.i.i5.i.i.i.i132 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8AdditionEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8AdditionEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8AdditionEEEED2Ev.argprom.exit: ; preds = %if.else43
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8AdditionEEEED2Ev.exit: ; preds = %if.else43
   %_M_use_count.i.i.i.i.i.i127 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i132, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i127, align 8, !noalias !15
   %_M_weak_count.i.i.i.i.i.i128 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i132, i64 12
@@ -1775,9 +1775,9 @@ dynamic_cast.notnull.i:                           ; preds = %dynamic_cast.notnul
 
 if.then49:                                        ; preds = %dynamic_cast.notnull.i
   %call5.i.i.i5.i.i.i.i171 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8AdditionEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8AdditionEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8AdditionEEEED2Ev.argprom.exit: ; preds = %if.then49
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8AdditionEEEED2Ev.exit: ; preds = %if.then49
   %_M_use_count.i.i.i.i.i.i166 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i171, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i166, align 8, !noalias !18
   %_M_weak_count.i.i.i.i.i.i167 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i171, i64 12
@@ -1787,9 +1787,9 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
 
 if.else52:                                        ; preds = %dynamic_cast.notnull.i
   %call5.i.i.i5.i.i.i.i210 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8AdditionEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8AdditionEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8AdditionEEEED2Ev.argprom.exit: ; preds = %if.else52
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8AdditionEEEED2Ev.exit: ; preds = %if.else52
   %_M_use_count.i.i.i.i.i.i205 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i210, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i205, align 8, !noalias !21
   %_M_weak_count.i.i.i.i.i.i206 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i210, i64 12
@@ -1797,9 +1797,9 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i210, align 8, !noalias !21
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8AdditionEEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8AdditionEEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8AdditionEEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8AdditionEEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8AdditionEEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8AdditionEEEED2Ev.argprom.exit
-  %call5.i.i.i5.i.i.i.i210.sink328 = phi ptr [ %call5.i.i.i5.i.i.i.i210, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8AdditionEEEED2Ev.argprom.exit ], [ %call5.i.i.i5.i.i.i.i171, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8AdditionEEEED2Ev.argprom.exit ], [ %call5.i.i.i5.i.i.i.i132, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8AdditionEEEED2Ev.argprom.exit ], [ %call5.i.i.i5.i.i.i.i93, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8AdditionEEEED2Ev.argprom.exit ], [ %call5.i.i.i5.i.i.i.i54, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8AdditionEEEED2Ev.argprom.exit ], [ %call5.i.i.i5.i.i.i.i39, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8AdditionEEEED2Ev.argprom.exit ]
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8AdditionEEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8AdditionEEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8AdditionEEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8AdditionEEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8AdditionEEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8AdditionEEEED2Ev.argprom.exit ]
+cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8AdditionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8AdditionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8AdditionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8AdditionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8AdditionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8AdditionEEEED2Ev.exit
+  %call5.i.i.i5.i.i.i.i210.sink328 = phi ptr [ %call5.i.i.i5.i.i.i.i210, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8AdditionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i171, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8AdditionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i132, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8AdditionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i93, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8AdditionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i54, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8AdditionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i39, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8AdditionEEEED2Ev.exit ]
+  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8AdditionEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8AdditionEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8AdditionEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8AdditionEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8AdditionEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8AdditionEEEED2Ev.exit ]
   %_M_impl.i.i.i.i.i.i207 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i210.sink328, i64 16
   store ptr %.sink, ptr %_M_impl.i.i.i.i.i.i207, align 8, !noalias !24
   %aRescale_.i.i.i.i.i.i.i.i208 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i210.sink328, i64 24
@@ -2336,9 +2336,9 @@ if.then31:                                        ; preds = %dynamic_cast.notnul
 
 if.then33:                                        ; preds = %if.then31
   %call5.i.i.i5.i.i.i.i35 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_11SubtractionEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_11SubtractionEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_11SubtractionEEEED2Ev.argprom.exit: ; preds = %if.then33
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_11SubtractionEEEED2Ev.exit: ; preds = %if.then33
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i35, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !25
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i35, i64 12
@@ -2355,9 +2355,9 @@ lpad:                                             ; preds = %if.else52, %if.then
 
 if.else:                                          ; preds = %if.then31
   %call5.i.i.i5.i.i.i.i50 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_11SubtractionEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_11SubtractionEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_11SubtractionEEEED2Ev.argprom.exit: ; preds = %if.else
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_11SubtractionEEEED2Ev.exit: ; preds = %if.else
   %_M_use_count.i.i.i.i.i.i45 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i50, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i45, align 8, !noalias !28
   %_M_weak_count.i.i.i.i.i.i46 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i50, i64 12
@@ -2370,9 +2370,9 @@ if.else37:                                        ; preds = %dynamic_cast.notnul
 
 if.then40:                                        ; preds = %if.else37
   %call5.i.i.i5.i.i.i.i89 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_11SubtractionEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_11SubtractionEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_11SubtractionEEEED2Ev.argprom.exit: ; preds = %if.then40
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_11SubtractionEEEED2Ev.exit: ; preds = %if.then40
   %_M_use_count.i.i.i.i.i.i84 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i89, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i84, align 8, !noalias !31
   %_M_weak_count.i.i.i.i.i.i85 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i89, i64 12
@@ -2382,9 +2382,9 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
 
 if.else43:                                        ; preds = %if.else37
   %call5.i.i.i5.i.i.i.i128 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_11SubtractionEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_11SubtractionEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_11SubtractionEEEED2Ev.argprom.exit: ; preds = %if.else43
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_11SubtractionEEEED2Ev.exit: ; preds = %if.else43
   %_M_use_count.i.i.i.i.i.i123 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i128, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i123, align 8, !noalias !34
   %_M_weak_count.i.i.i.i.i.i124 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i128, i64 12
@@ -2397,9 +2397,9 @@ dynamic_cast.notnull.i:                           ; preds = %dynamic_cast.notnul
 
 if.then49:                                        ; preds = %dynamic_cast.notnull.i
   %call5.i.i.i5.i.i.i.i167 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_11SubtractionEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_11SubtractionEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_11SubtractionEEEED2Ev.argprom.exit: ; preds = %if.then49
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_11SubtractionEEEED2Ev.exit: ; preds = %if.then49
   %_M_use_count.i.i.i.i.i.i162 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i167, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i162, align 8, !noalias !37
   %_M_weak_count.i.i.i.i.i.i163 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i167, i64 12
@@ -2409,9 +2409,9 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
 
 if.else52:                                        ; preds = %dynamic_cast.notnull.i
   %call5.i.i.i5.i.i.i.i206 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_11SubtractionEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_11SubtractionEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_11SubtractionEEEED2Ev.argprom.exit: ; preds = %if.else52
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_11SubtractionEEEED2Ev.exit: ; preds = %if.else52
   %_M_use_count.i.i.i.i.i.i201 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i206, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i201, align 8, !noalias !40
   %_M_weak_count.i.i.i.i.i.i202 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i206, i64 12
@@ -2419,9 +2419,9 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i206, align 8, !noalias !40
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_11SubtractionEEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_11SubtractionEEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_11SubtractionEEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_11SubtractionEEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_11SubtractionEEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_11SubtractionEEEED2Ev.argprom.exit
-  %call5.i.i.i5.i.i.i.i206.sink324 = phi ptr [ %call5.i.i.i5.i.i.i.i206, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_11SubtractionEEEED2Ev.argprom.exit ], [ %call5.i.i.i5.i.i.i.i167, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_11SubtractionEEEED2Ev.argprom.exit ], [ %call5.i.i.i5.i.i.i.i128, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_11SubtractionEEEED2Ev.argprom.exit ], [ %call5.i.i.i5.i.i.i.i89, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_11SubtractionEEEED2Ev.argprom.exit ], [ %call5.i.i.i5.i.i.i.i50, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_11SubtractionEEEED2Ev.argprom.exit ], [ %call5.i.i.i5.i.i.i.i35, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_11SubtractionEEEED2Ev.argprom.exit ]
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_11SubtractionEEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_11SubtractionEEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_11SubtractionEEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_11SubtractionEEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_11SubtractionEEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_11SubtractionEEEED2Ev.argprom.exit ]
+cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_11SubtractionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_11SubtractionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_11SubtractionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_11SubtractionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_11SubtractionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_11SubtractionEEEED2Ev.exit
+  %call5.i.i.i5.i.i.i.i206.sink324 = phi ptr [ %call5.i.i.i5.i.i.i.i206, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_11SubtractionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i167, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_11SubtractionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i128, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_11SubtractionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i89, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_11SubtractionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i50, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_11SubtractionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i35, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_11SubtractionEEEED2Ev.exit ]
+  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_11SubtractionEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_11SubtractionEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_11SubtractionEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_11SubtractionEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_11SubtractionEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_11SubtractionEEEED2Ev.exit ]
   %_M_impl.i.i.i.i.i.i203 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i206.sink324, i64 16
   store ptr %.sink, ptr %_M_impl.i.i.i.i.i.i203, align 8, !noalias !24
   %aRescale_.i.i.i.i.i.i.i.i204 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i206.sink324, i64 24
@@ -3742,9 +3742,9 @@ if.then31:                                        ; preds = %dynamic_cast.notnul
 
 if.then33:                                        ; preds = %if.then31
   %call5.i.i.i5.i.i.i.i30 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8MultiplyEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8MultiplyEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8MultiplyEEEED2Ev.argprom.exit: ; preds = %if.then33
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8MultiplyEEEED2Ev.exit: ; preds = %if.then33
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i30, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !46
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i30, i64 12
@@ -3761,9 +3761,9 @@ lpad:                                             ; preds = %if.else52, %if.then
 
 if.else:                                          ; preds = %if.then31
   %call5.i.i.i5.i.i.i.i45 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8MultiplyEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8MultiplyEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8MultiplyEEEED2Ev.argprom.exit: ; preds = %if.else
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8MultiplyEEEED2Ev.exit: ; preds = %if.else
   %_M_use_count.i.i.i.i.i.i40 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i45, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i40, align 8, !noalias !49
   %_M_weak_count.i.i.i.i.i.i41 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i45, i64 12
@@ -3776,9 +3776,9 @@ if.else37:                                        ; preds = %dynamic_cast.notnul
 
 if.then40:                                        ; preds = %if.else37
   %call5.i.i.i5.i.i.i.i84 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8MultiplyEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8MultiplyEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8MultiplyEEEED2Ev.argprom.exit: ; preds = %if.then40
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8MultiplyEEEED2Ev.exit: ; preds = %if.then40
   %_M_use_count.i.i.i.i.i.i79 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i84, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i79, align 8, !noalias !52
   %_M_weak_count.i.i.i.i.i.i80 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i84, i64 12
@@ -3788,9 +3788,9 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
 
 if.else43:                                        ; preds = %if.else37
   %call5.i.i.i5.i.i.i.i123 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8MultiplyEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8MultiplyEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8MultiplyEEEED2Ev.argprom.exit: ; preds = %if.else43
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8MultiplyEEEED2Ev.exit: ; preds = %if.else43
   %_M_use_count.i.i.i.i.i.i118 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i123, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i118, align 8, !noalias !55
   %_M_weak_count.i.i.i.i.i.i119 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i123, i64 12
@@ -3803,9 +3803,9 @@ dynamic_cast.notnull.i:                           ; preds = %dynamic_cast.notnul
 
 if.then49:                                        ; preds = %dynamic_cast.notnull.i
   %call5.i.i.i5.i.i.i.i162 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8MultiplyEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8MultiplyEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8MultiplyEEEED2Ev.argprom.exit: ; preds = %if.then49
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8MultiplyEEEED2Ev.exit: ; preds = %if.then49
   %_M_use_count.i.i.i.i.i.i157 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i162, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i157, align 8, !noalias !58
   %_M_weak_count.i.i.i.i.i.i158 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i162, i64 12
@@ -3815,9 +3815,9 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
 
 if.else52:                                        ; preds = %dynamic_cast.notnull.i
   %call5.i.i.i5.i.i.i.i201 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8MultiplyEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8MultiplyEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8MultiplyEEEED2Ev.argprom.exit: ; preds = %if.else52
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8MultiplyEEEED2Ev.exit: ; preds = %if.else52
   %_M_use_count.i.i.i.i.i.i196 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i201, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i196, align 8, !noalias !61
   %_M_weak_count.i.i.i.i.i.i197 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i201, i64 12
@@ -3825,9 +3825,9 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i201, align 8, !noalias !61
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8MultiplyEEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8MultiplyEEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8MultiplyEEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8MultiplyEEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8MultiplyEEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8MultiplyEEEED2Ev.argprom.exit
-  %call5.i.i.i5.i.i.i.i201.sink319 = phi ptr [ %call5.i.i.i5.i.i.i.i201, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8MultiplyEEEED2Ev.argprom.exit ], [ %call5.i.i.i5.i.i.i.i162, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8MultiplyEEEED2Ev.argprom.exit ], [ %call5.i.i.i5.i.i.i.i123, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8MultiplyEEEED2Ev.argprom.exit ], [ %call5.i.i.i5.i.i.i.i84, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8MultiplyEEEED2Ev.argprom.exit ], [ %call5.i.i.i5.i.i.i.i45, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8MultiplyEEEED2Ev.argprom.exit ], [ %call5.i.i.i5.i.i.i.i30, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8MultiplyEEEED2Ev.argprom.exit ]
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8MultiplyEEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8MultiplyEEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8MultiplyEEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8MultiplyEEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8MultiplyEEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8MultiplyEEEED2Ev.argprom.exit ]
+cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8MultiplyEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8MultiplyEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8MultiplyEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8MultiplyEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8MultiplyEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8MultiplyEEEED2Ev.exit
+  %call5.i.i.i5.i.i.i.i201.sink319 = phi ptr [ %call5.i.i.i5.i.i.i.i201, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8MultiplyEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i162, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8MultiplyEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i123, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8MultiplyEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i84, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8MultiplyEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i45, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8MultiplyEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i30, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8MultiplyEEEED2Ev.exit ]
+  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8MultiplyEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8MultiplyEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8MultiplyEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8MultiplyEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8MultiplyEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8MultiplyEEEED2Ev.exit ]
   %_M_impl.i.i.i.i.i.i198 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i201.sink319, i64 16
   store ptr %.sink, ptr %_M_impl.i.i.i.i.i.i198, align 8, !noalias !24
   %aRescale_.i.i.i.i.i.i.i.i199 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i201.sink319, i64 24
@@ -5162,9 +5162,9 @@ if.then31:                                        ; preds = %dynamic_cast.notnul
 
 if.then33:                                        ; preds = %if.then31
   %call5.i.i.i5.i.i.i.i34 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_6DivideEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_6DivideEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_6DivideEEEED2Ev.argprom.exit: ; preds = %if.then33
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_6DivideEEEED2Ev.exit: ; preds = %if.then33
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i34, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !67
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i34, i64 12
@@ -5181,9 +5181,9 @@ lpad:                                             ; preds = %if.else52, %if.then
 
 if.else:                                          ; preds = %if.then31
   %call5.i.i.i5.i.i.i.i49 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_6DivideEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_6DivideEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_6DivideEEEED2Ev.argprom.exit: ; preds = %if.else
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_6DivideEEEED2Ev.exit: ; preds = %if.else
   %_M_use_count.i.i.i.i.i.i44 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i49, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i44, align 8, !noalias !70
   %_M_weak_count.i.i.i.i.i.i45 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i49, i64 12
@@ -5196,9 +5196,9 @@ if.else37:                                        ; preds = %dynamic_cast.notnul
 
 if.then40:                                        ; preds = %if.else37
   %call5.i.i.i5.i.i.i.i88 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_6DivideEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_6DivideEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_6DivideEEEED2Ev.argprom.exit: ; preds = %if.then40
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_6DivideEEEED2Ev.exit: ; preds = %if.then40
   %_M_use_count.i.i.i.i.i.i83 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i88, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i83, align 8, !noalias !73
   %_M_weak_count.i.i.i.i.i.i84 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i88, i64 12
@@ -5208,9 +5208,9 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
 
 if.else43:                                        ; preds = %if.else37
   %call5.i.i.i5.i.i.i.i127 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_6DivideEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_6DivideEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_6DivideEEEED2Ev.argprom.exit: ; preds = %if.else43
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_6DivideEEEED2Ev.exit: ; preds = %if.else43
   %_M_use_count.i.i.i.i.i.i122 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i127, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i122, align 8, !noalias !76
   %_M_weak_count.i.i.i.i.i.i123 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i127, i64 12
@@ -5223,9 +5223,9 @@ dynamic_cast.notnull.i:                           ; preds = %dynamic_cast.notnul
 
 if.then49:                                        ; preds = %dynamic_cast.notnull.i
   %call5.i.i.i5.i.i.i.i166 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_6DivideEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_6DivideEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_6DivideEEEED2Ev.argprom.exit: ; preds = %if.then49
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_6DivideEEEED2Ev.exit: ; preds = %if.then49
   %_M_use_count.i.i.i.i.i.i161 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i166, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i161, align 8, !noalias !79
   %_M_weak_count.i.i.i.i.i.i162 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i166, i64 12
@@ -5235,9 +5235,9 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
 
 if.else52:                                        ; preds = %dynamic_cast.notnull.i
   %call5.i.i.i5.i.i.i.i205 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_6DivideEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_6DivideEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_6DivideEEEED2Ev.argprom.exit: ; preds = %if.else52
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_6DivideEEEED2Ev.exit: ; preds = %if.else52
   %_M_use_count.i.i.i.i.i.i200 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i205, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i200, align 8, !noalias !82
   %_M_weak_count.i.i.i.i.i.i201 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i205, i64 12
@@ -5245,9 +5245,9 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i205, align 8, !noalias !82
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_6DivideEEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_6DivideEEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_6DivideEEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_6DivideEEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_6DivideEEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_6DivideEEEED2Ev.argprom.exit
-  %call5.i.i.i5.i.i.i.i205.sink323 = phi ptr [ %call5.i.i.i5.i.i.i.i205, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_6DivideEEEED2Ev.argprom.exit ], [ %call5.i.i.i5.i.i.i.i166, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_6DivideEEEED2Ev.argprom.exit ], [ %call5.i.i.i5.i.i.i.i127, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_6DivideEEEED2Ev.argprom.exit ], [ %call5.i.i.i5.i.i.i.i88, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_6DivideEEEED2Ev.argprom.exit ], [ %call5.i.i.i5.i.i.i.i49, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_6DivideEEEED2Ev.argprom.exit ], [ %call5.i.i.i5.i.i.i.i34, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_6DivideEEEED2Ev.argprom.exit ]
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_6DivideEEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_6DivideEEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_6DivideEEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_6DivideEEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_6DivideEEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_6DivideEEEED2Ev.argprom.exit ]
+cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_6DivideEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_6DivideEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_6DivideEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_6DivideEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_6DivideEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_6DivideEEEED2Ev.exit
+  %call5.i.i.i5.i.i.i.i205.sink323 = phi ptr [ %call5.i.i.i5.i.i.i.i205, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_6DivideEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i166, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_6DivideEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i127, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_6DivideEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i88, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_6DivideEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i49, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_6DivideEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i34, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_6DivideEEEED2Ev.exit ]
+  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_6DivideEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_6DivideEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_6DivideEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_6DivideEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_6DivideEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_6DivideEEEED2Ev.exit ]
   %_M_impl.i.i.i.i.i.i202 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i205.sink323, i64 16
   store ptr %.sink, ptr %_M_impl.i.i.i.i.i.i202, align 8, !noalias !24
   %aRescale_.i.i.i.i.i.i.i.i203 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i205.sink323, i64 24
@@ -6803,9 +6803,9 @@ dynamic_cast.notnull.i:                           ; preds = %if.then.i, %if.end.
 
 if.then33:                                        ; preds = %dynamic_cast.notnull.i
   %call5.i.i.i5.i.i.i.i18 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEEED2Ev.argprom.exit: ; preds = %if.then33
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEEED2Ev.exit: ; preds = %if.then33
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i18, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !89
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i18, i64 12
@@ -6822,9 +6822,9 @@ if.else:                                          ; preds = %dynamic_cast.notnul
 
 if.then41:                                        ; preds = %if.else
   %call5.i.i.i5.i.i.i.i35 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEEED2Ev.argprom.exit: ; preds = %if.then41
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEEED2Ev.exit: ; preds = %if.then41
   %_M_use_count.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i35, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i28, align 8, !noalias !92
   %_M_weak_count.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i35, i64 12
@@ -6834,9 +6834,9 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunction
 
 if.end44:                                         ; preds = %if.else
   %call5.i.i.i5.i.i.i.i76 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEEED2Ev.argprom.exit: ; preds = %if.end44
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEEED2Ev.exit: ; preds = %if.end44
   %_M_use_count.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i76, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i69, align 8, !noalias !95
   %_M_weak_count.i.i.i.i.i.i70 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i76, i64 12
@@ -6844,9 +6844,9 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunction
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i76, align 8, !noalias !95
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEEED2Ev.argprom.exit
-  %call5.i.i.i5.i.i.i.i76.sink188 = phi ptr [ %call5.i.i.i5.i.i.i.i76, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEEED2Ev.argprom.exit ], [ %call5.i.i.i5.i.i.i.i35, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEEED2Ev.argprom.exit ], [ %call5.i.i.i5.i.i.i.i18, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEEED2Ev.argprom.exit ]
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS2_5RoundEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS2_5RoundEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS2_5RoundEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEEED2Ev.argprom.exit ]
+cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEEED2Ev.exit
+  %call5.i.i.i5.i.i.i.i76.sink188 = phi ptr [ %call5.i.i.i5.i.i.i.i76, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i35, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i18, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEEED2Ev.exit ]
+  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS2_5RoundEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS2_5RoundEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS2_5RoundEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEEED2Ev.exit ]
   %extraParams.sroa.0.0.insert.insert147.sink = or disjoint i64 %extraParams.sroa.0.0174, %extraParams.sroa.4.0176
   %_M_impl.i.i.i.i.i.i71 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i76.sink188, i64 16
   store ptr %.sink, ptr %_M_impl.i.i.i.i.i.i71, align 8, !noalias !24
@@ -7565,9 +7565,9 @@ dynamic_cast.notnull.i:                           ; preds = %invoke.cont17, %inv
 
 if.then32:                                        ; preds = %dynamic_cast.notnull.i
   %call5.i.i.i5.i.i.i.i17 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEEED2Ev.argprom.exit: ; preds = %if.then32
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEEED2Ev.exit: ; preds = %if.then32
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i17, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !98
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i17, i64 12
@@ -7584,9 +7584,9 @@ if.else:                                          ; preds = %dynamic_cast.notnul
 
 if.then40:                                        ; preds = %if.else
   %call5.i.i.i5.i.i.i.i34 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEEED2Ev.argprom.exit: ; preds = %if.then40
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEEED2Ev.exit: ; preds = %if.then40
   %_M_use_count.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i34, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i27, align 8, !noalias !101
   %_M_weak_count.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i34, i64 12
@@ -7596,9 +7596,9 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunction
 
 if.end43:                                         ; preds = %if.else
   %call5.i.i.i5.i.i.i.i75 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEEED2Ev.argprom.exit: ; preds = %if.end43
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEEED2Ev.exit: ; preds = %if.end43
   %_M_use_count.i.i.i.i.i.i68 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i75, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i68, align 8, !noalias !104
   %_M_weak_count.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i75, i64 12
@@ -7606,9 +7606,9 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunction
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i75, align 8, !noalias !104
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEEED2Ev.argprom.exit
-  %call5.i.i.i5.i.i.i.i75.sink171 = phi ptr [ %call5.i.i.i5.i.i.i.i75, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEEED2Ev.argprom.exit ], [ %call5.i.i.i5.i.i.i.i34, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEEED2Ev.argprom.exit ], [ %call5.i.i.i5.i.i.i.i17, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEEED2Ev.argprom.exit ]
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS2_3AbsEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS2_3AbsEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS2_3AbsEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEEED2Ev.argprom.exit ]
+cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEEED2Ev.exit
+  %call5.i.i.i5.i.i.i.i75.sink171 = phi ptr [ %call5.i.i.i5.i.i.i.i75, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i34, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i17, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEEED2Ev.exit ]
+  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS2_3AbsEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS2_3AbsEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS2_3AbsEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEEED2Ev.exit ]
   %extraParams.sroa.0.0.insert.insert146.sink = or disjoint i64 %extraParams.sroa.4.0, %extraParams.sroa.0.0
   %_M_impl.i.i.i.i.i.i70 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i75.sink171, i64 16
   store ptr %.sink, ptr %_M_impl.i.i.i.i.i.i70, align 8, !noalias !24
@@ -7944,9 +7944,9 @@ dynamic_cast.notnull.i:                           ; preds = %invoke.cont17, %inv
 
 if.then32:                                        ; preds = %dynamic_cast.notnull.i
   %call5.i.i.i5.i.i.i.i17 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEEED2Ev.argprom.exit: ; preds = %if.then32
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEEED2Ev.exit: ; preds = %if.then32
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i17, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !107
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i17, i64 12
@@ -7963,9 +7963,9 @@ if.else:                                          ; preds = %dynamic_cast.notnul
 
 if.then40:                                        ; preds = %if.else
   %call5.i.i.i5.i.i.i.i34 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEEED2Ev.argprom.exit: ; preds = %if.then40
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEEED2Ev.exit: ; preds = %if.then40
   %_M_use_count.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i34, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i27, align 8, !noalias !110
   %_M_weak_count.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i34, i64 12
@@ -7975,9 +7975,9 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunction
 
 if.end43:                                         ; preds = %if.else
   %call5.i.i.i5.i.i.i.i75 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEEED2Ev.argprom.exit: ; preds = %if.end43
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEEED2Ev.exit: ; preds = %if.end43
   %_M_use_count.i.i.i.i.i.i68 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i75, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i68, align 8, !noalias !113
   %_M_weak_count.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i75, i64 12
@@ -7985,9 +7985,9 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunction
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i75, align 8, !noalias !113
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEEED2Ev.argprom.exit
-  %call5.i.i.i5.i.i.i.i75.sink171 = phi ptr [ %call5.i.i.i5.i.i.i.i75, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEEED2Ev.argprom.exit ], [ %call5.i.i.i5.i.i.i.i34, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEEED2Ev.argprom.exit ], [ %call5.i.i.i5.i.i.i.i17, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEEED2Ev.argprom.exit ]
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS2_6NegateEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS2_6NegateEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS2_6NegateEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEEED2Ev.argprom.exit ]
+cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEEED2Ev.exit
+  %call5.i.i.i5.i.i.i.i75.sink171 = phi ptr [ %call5.i.i.i5.i.i.i.i75, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i34, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i17, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEEED2Ev.exit ]
+  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS2_6NegateEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS2_6NegateEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS2_6NegateEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEEED2Ev.exit ]
   %extraParams.sroa.0.0.insert.insert146.sink = or disjoint i64 %extraParams.sroa.4.0, %extraParams.sroa.0.0
   %_M_impl.i.i.i.i.i.i70 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i75.sink171, i64 16
   store ptr %.sink, ptr %_M_impl.i.i.i.i.i.i70, align 8, !noalias !24
@@ -8949,9 +8949,9 @@ if.then15:                                        ; preds = %if.end, %dynamic_ca
 
 if.end16:                                         ; preds = %dynamic_cast.notnull.i
   %call5.i.i.i5.i.i.i.i24 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionIlEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionIlEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionIlEEED2Ev.argprom.exit: ; preds = %if.end16
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionIlEEED2Ev.exit: ; preds = %if.end16
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i24, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !119
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i24, i64 12
@@ -8989,9 +8989,9 @@ if.then28:                                        ; preds = %if.end23, %dynamic_
 
 if.end29:                                         ; preds = %dynamic_cast.notnull.i49
   %call5.i.i.i5.i.i.i.i37 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionInEEED2Ev.argprom.exit unwind label %lpad
+          to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionInEEED2Ev.exit unwind label %lpad
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionInEEED2Ev.argprom.exit: ; preds = %if.end29
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionInEEED2Ev.exit: ; preds = %if.end29
   %_M_use_count.i.i.i.i.i.i34 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i37, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i34, align 8, !noalias !122
   %_M_weak_count.i.i.i.i.i.i35 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i37, i64 12
@@ -8999,9 +8999,9 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFuncti
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionInEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i37, align 8, !noalias !122
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionInEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionIlEEED2Ev.argprom.exit
-  %call5.i.i.i5.i.i.i.i37.sink167 = phi ptr [ %call5.i.i.i5.i.i.i.i37, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionInEEED2Ev.argprom.exit ], [ %call5.i.i.i5.i.i.i.i24, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionIlEEED2Ev.argprom.exit ]
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionInEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionInEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionIlEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionIlEEED2Ev.argprom.exit ]
+cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionInEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionIlEEED2Ev.exit
+  %call5.i.i.i5.i.i.i.i37.sink167 = phi ptr [ %call5.i.i.i5.i.i.i.i37, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionInEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i24, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionIlEEED2Ev.exit ]
+  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionInEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionInEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionIlEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionIlEEED2Ev.exit ]
   %_M_impl.i.i.i.i.i.i36 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i37.sink167, i64 16
   store ptr %.sink, ptr %_M_impl.i.i.i.i.i.i36, align 8, !noalias !24
   store ptr %_M_impl.i.i.i.i.i.i36, ptr %agg.result, align 8
@@ -11868,7 +11868,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionIlEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionIlEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -18895,7 +18895,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionInEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionInEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionInEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -25068,7 +25068,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS4_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS4_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -27756,7 +27756,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS4_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS4_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -30613,7 +30613,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS4_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS4_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -33284,7 +33284,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS4_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS4_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -36127,7 +36127,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS4_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS4_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -38798,7 +38798,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS4_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS4_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -41491,7 +41491,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS4_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS4_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -44176,7 +44176,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS4_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS4_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -47033,7 +47033,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS4_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS4_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -49704,7 +49704,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS4_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS4_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -52547,7 +52547,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS4_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS4_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -55218,7 +55218,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS4_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS4_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -57878,7 +57878,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS4_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS4_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -60208,7 +60208,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS4_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS4_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -62847,7 +62847,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS4_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS4_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -65364,7 +65364,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS4_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS4_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -68021,7 +68021,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS4_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS4_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -70538,7 +70538,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS4_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS4_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -73044,7 +73044,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS4_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS4_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -75579,7 +75579,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS4_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS4_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -78017,13 +78017,13 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpIlllEET_RS3_RKT0_RKT1_bhh.exit
   %value.i.sroa.0.0.insert.insert.i = add nuw nsw i128 %value.i.sroa.0.0.insert.ext.i, -100000000000000000000000000000000000000
   %30 = add i128 %value.i.sroa.0.0.insert.insert.i, %value.i.sroa.2.0.insert.shift.i
   %31 = icmp ult i128 %30, 140282366920938463463374607431768211457
-  br i1 %31, label %if.then.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_16Divide5applyIlllEEvRT_RKT0_RKT1_hh.argprom.exit
+  br i1 %31, label %if.then.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_16Divide5applyIlllEEvRT_RKT0_RKT1_hh.exit
 
 if.then.i.i:                                      ; preds = %_ZN8facebook5velox11DecimalUtil17divideWithRoundUpIlllEET_RS3_RKT0_RKT1_bhh.exit.i
   tail call void @llvm.trap()
   unreachable
 
-_ZN8facebook5velox9functions12_GLOBAL__N_16Divide5applyIlllEEvRT_RKT0_RKT1_hh.argprom.exit: ; preds = %_ZN8facebook5velox11DecimalUtil17divideWithRoundUpIlllEET_RS3_RKT0_RKT1_bhh.exit.i
+_ZN8facebook5velox9functions12_GLOBAL__N_16Divide5applyIlllEEvRT_RKT0_RKT1_hh.exit: ; preds = %_ZN8facebook5velox11DecimalUtil17divideWithRoundUpIlllEET_RS3_RKT0_RKT1_bhh.exit.i
   ret void
 }
 
@@ -78052,7 +78052,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS4_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS4_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -80825,7 +80825,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS4_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS4_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -83347,13 +83347,13 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpIllnEET_RS3_RKT0_RKT1_bhh.exit
   %value.i.sroa.0.0.insert.insert.i = add nuw nsw i128 %value.i.sroa.0.0.insert.ext.i, -100000000000000000000000000000000000000
   %30 = add i128 %value.i.sroa.0.0.insert.insert.i, %value.i.sroa.2.0.insert.shift.i
   %31 = icmp ult i128 %30, 140282366920938463463374607431768211457
-  br i1 %31, label %if.then.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_16Divide5applyIllnEEvRT_RKT0_RKT1_hh.argprom.exit
+  br i1 %31, label %if.then.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_16Divide5applyIllnEEvRT_RKT0_RKT1_hh.exit
 
 if.then.i.i:                                      ; preds = %_ZN8facebook5velox11DecimalUtil17divideWithRoundUpIllnEET_RS3_RKT0_RKT1_bhh.exit.i
   tail call void @llvm.trap()
   unreachable
 
-_ZN8facebook5velox9functions12_GLOBAL__N_16Divide5applyIllnEEvRT_RKT0_RKT1_hh.argprom.exit: ; preds = %_ZN8facebook5velox11DecimalUtil17divideWithRoundUpIllnEET_RS3_RKT0_RKT1_bhh.exit.i
+_ZN8facebook5velox9functions12_GLOBAL__N_16Divide5applyIllnEEvRT_RKT0_RKT1_hh.exit: ; preds = %_ZN8facebook5velox11DecimalUtil17divideWithRoundUpIllnEET_RS3_RKT0_RKT1_bhh.exit.i
   ret void
 }
 
@@ -83382,7 +83382,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS4_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS4_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -86281,7 +86281,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS4_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS4_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -89149,7 +89149,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS4_5RoundEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS4_5RoundEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -90499,7 +90499,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS4_5RoundEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS4_5RoundEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -91919,7 +91919,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS4_5RoundEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS4_5RoundEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -93235,7 +93235,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS4_3AbsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS4_3AbsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -93931,7 +93931,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS4_3AbsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS4_3AbsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -94177,7 +94177,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS4_3AbsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS4_3AbsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -94879,7 +94879,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS4_6NegateEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS4_6NegateEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -95575,7 +95575,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS4_6NegateEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS4_6NegateEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -95821,7 +95821,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS4_6NegateEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS4_6NegateEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -96580,115 +96580,115 @@ attributes #29 = { noreturn }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8AdditionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: %agg.result"}
-!8 = distinct !{!8, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8AdditionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
+!7 = distinct !{!7, !8, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8AdditionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: %agg.result"}
+!8 = distinct !{!8, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8AdditionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8AdditionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: %agg.result"}
-!11 = distinct !{!11, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8AdditionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
+!10 = distinct !{!10, !11, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8AdditionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: %agg.result"}
+!11 = distinct !{!11, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8AdditionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8AdditionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: %agg.result"}
-!14 = distinct !{!14, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8AdditionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
+!13 = distinct !{!13, !14, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8AdditionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: %agg.result"}
+!14 = distinct !{!14, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8AdditionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8AdditionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: %agg.result"}
-!17 = distinct !{!17, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8AdditionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
+!16 = distinct !{!16, !17, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8AdditionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: %agg.result"}
+!17 = distinct !{!17, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8AdditionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8AdditionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: %agg.result"}
-!20 = distinct !{!20, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8AdditionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
+!19 = distinct !{!19, !20, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8AdditionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: %agg.result"}
+!20 = distinct !{!20, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8AdditionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8AdditionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: %agg.result"}
-!23 = distinct !{!23, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8AdditionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
+!22 = distinct !{!22, !23, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8AdditionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: %agg.result"}
+!23 = distinct !{!23, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8AdditionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !24 = !{}
 !25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_11SubtractionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: %agg.result"}
-!27 = distinct !{!27, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_11SubtractionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
+!26 = distinct !{!26, !27, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_11SubtractionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: %agg.result"}
+!27 = distinct !{!27, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_11SubtractionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_11SubtractionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: %agg.result"}
-!30 = distinct !{!30, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_11SubtractionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
+!29 = distinct !{!29, !30, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_11SubtractionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: %agg.result"}
+!30 = distinct !{!30, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_11SubtractionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_11SubtractionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: %agg.result"}
-!33 = distinct !{!33, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_11SubtractionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
+!32 = distinct !{!32, !33, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_11SubtractionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: %agg.result"}
+!33 = distinct !{!33, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_11SubtractionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_11SubtractionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: %agg.result"}
-!36 = distinct !{!36, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_11SubtractionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
+!35 = distinct !{!35, !36, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_11SubtractionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: %agg.result"}
+!36 = distinct !{!36, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_11SubtractionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_11SubtractionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: %agg.result"}
-!39 = distinct !{!39, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_11SubtractionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
+!38 = distinct !{!38, !39, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_11SubtractionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: %agg.result"}
+!39 = distinct !{!39, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_11SubtractionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_11SubtractionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: %agg.result"}
-!42 = distinct !{!42, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_11SubtractionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
+!41 = distinct !{!41, !42, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_11SubtractionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: %agg.result"}
+!42 = distinct !{!42, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_11SubtractionEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !43 = !{!44}
 !44 = distinct !{!44, !45, !"_ZN8facebook5velox9functions12_GLOBAL__N_124decimalMultiplySignatureEv: %agg.result"}
 !45 = distinct !{!45, !"_ZN8facebook5velox9functions12_GLOBAL__N_124decimalMultiplySignatureEv"}
 !46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8MultiplyEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: %agg.result"}
-!48 = distinct !{!48, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8MultiplyEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
+!47 = distinct !{!47, !48, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8MultiplyEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: %agg.result"}
+!48 = distinct !{!48, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8MultiplyEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8MultiplyEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: %agg.result"}
-!51 = distinct !{!51, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8MultiplyEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
+!50 = distinct !{!50, !51, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8MultiplyEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: %agg.result"}
+!51 = distinct !{!51, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8MultiplyEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8MultiplyEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: %agg.result"}
-!54 = distinct !{!54, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8MultiplyEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
+!53 = distinct !{!53, !54, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8MultiplyEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: %agg.result"}
+!54 = distinct !{!54, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8MultiplyEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8MultiplyEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: %agg.result"}
-!57 = distinct !{!57, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8MultiplyEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
+!56 = distinct !{!56, !57, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8MultiplyEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: %agg.result"}
+!57 = distinct !{!57, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8MultiplyEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8MultiplyEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: %agg.result"}
-!60 = distinct !{!60, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8MultiplyEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
+!59 = distinct !{!59, !60, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8MultiplyEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: %agg.result"}
+!60 = distinct !{!60, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8MultiplyEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8MultiplyEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: %agg.result"}
-!63 = distinct !{!63, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8MultiplyEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
+!62 = distinct !{!62, !63, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8MultiplyEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: %agg.result"}
+!63 = distinct !{!63, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8MultiplyEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !64 = !{!65}
 !65 = distinct !{!65, !66, !"_ZN8facebook5velox9functions12_GLOBAL__N_122decimalDivideSignatureEv: %agg.result"}
 !66 = distinct !{!66, !"_ZN8facebook5velox9functions12_GLOBAL__N_122decimalDivideSignatureEv"}
 !67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_6DivideEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: %agg.result"}
-!69 = distinct !{!69, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_6DivideEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
+!68 = distinct !{!68, !69, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_6DivideEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: %agg.result"}
+!69 = distinct !{!69, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_6DivideEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_6DivideEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: %agg.result"}
-!72 = distinct !{!72, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_6DivideEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
+!71 = distinct !{!71, !72, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_6DivideEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: %agg.result"}
+!72 = distinct !{!72, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_6DivideEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_6DivideEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: %agg.result"}
-!75 = distinct !{!75, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_6DivideEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
+!74 = distinct !{!74, !75, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_6DivideEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: %agg.result"}
+!75 = distinct !{!75, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_6DivideEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_6DivideEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: %agg.result"}
-!78 = distinct !{!78, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_6DivideEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
+!77 = distinct !{!77, !78, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_6DivideEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: %agg.result"}
+!78 = distinct !{!78, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_6DivideEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !79 = !{!80}
-!80 = distinct !{!80, !81, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_6DivideEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: %agg.result"}
-!81 = distinct !{!81, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_6DivideEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
+!80 = distinct !{!80, !81, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_6DivideEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: %agg.result"}
+!81 = distinct !{!81, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_6DivideEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_6DivideEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: %agg.result"}
-!84 = distinct !{!84, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_6DivideEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
+!83 = distinct !{!83, !84, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_6DivideEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: %agg.result"}
+!84 = distinct !{!84, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_6DivideEEEJRhS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !85 = !{!86}
 !86 = distinct !{!86, !87, !"_ZN8facebook5velox9functions12_GLOBAL__N_121decimalRoundSignatureEv: %agg.result"}
 !87 = distinct !{!87, !"_ZN8facebook5velox9functions12_GLOBAL__N_121decimalRoundSignatureEv"}
 !88 = distinct !{!88, !5}
 !89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.argprom: %agg.result"}
-!91 = distinct !{!91, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.argprom"}
+!90 = distinct !{!90, !91, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_: %agg.result"}
+!91 = distinct !{!91, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_"}
 !92 = !{!93}
-!93 = distinct !{!93, !94, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.argprom: %agg.result"}
-!94 = distinct !{!94, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.argprom"}
+!93 = distinct !{!93, !94, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_: %agg.result"}
+!94 = distinct !{!94, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_"}
 !95 = !{!96}
-!96 = distinct !{!96, !97, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.argprom: %agg.result"}
-!97 = distinct !{!97, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.argprom"}
+!96 = distinct !{!96, !97, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_: %agg.result"}
+!97 = distinct !{!97, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_"}
 !98 = !{!99}
-!99 = distinct !{!99, !100, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.argprom: %agg.result"}
-!100 = distinct !{!100, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.argprom"}
+!99 = distinct !{!99, !100, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_: %agg.result"}
+!100 = distinct !{!100, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_"}
 !101 = !{!102}
-!102 = distinct !{!102, !103, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.argprom: %agg.result"}
-!103 = distinct !{!103, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.argprom"}
+!102 = distinct !{!102, !103, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_: %agg.result"}
+!103 = distinct !{!103, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_"}
 !104 = !{!105}
-!105 = distinct !{!105, !106, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.argprom: %agg.result"}
-!106 = distinct !{!106, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.argprom"}
+!105 = distinct !{!105, !106, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_: %agg.result"}
+!106 = distinct !{!106, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_"}
 !107 = !{!108}
-!108 = distinct !{!108, !109, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.argprom: %agg.result"}
-!109 = distinct !{!109, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.argprom"}
+!108 = distinct !{!108, !109, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_: %agg.result"}
+!109 = distinct !{!109, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_"}
 !110 = !{!111}
-!111 = distinct !{!111, !112, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.argprom: %agg.result"}
-!112 = distinct !{!112, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.argprom"}
+!111 = distinct !{!111, !112, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_: %agg.result"}
+!112 = distinct !{!112, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_"}
 !113 = !{!114}
-!114 = distinct !{!114, !115, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.argprom: %agg.result"}
-!115 = distinct !{!115, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.argprom"}
+!114 = distinct !{!114, !115, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_: %agg.result"}
+!115 = distinct !{!115, !"_ZSt11make_sharedIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEEJRiRhRNS3_11ExtraParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_"}
 !116 = !{!117}
 !117 = distinct !{!117, !118, !"_ZN8facebook5velox9functions12_GLOBAL__N_123decimalBetweenSignatureEv: %agg.result"}
 !118 = distinct !{!118, !"_ZN8facebook5velox9functions12_GLOBAL__N_123decimalBetweenSignatureEv"}

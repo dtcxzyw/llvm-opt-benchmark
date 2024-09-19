@@ -121,7 +121,7 @@ define hidden void @_ZN5osgeo4proj10SQLite3VFS6createEbbb(ptr dead_on_unwind noa
   br i1 %.not, label %16, label %14
 
 14:                                               ; preds = %12
-  invoke fastcc void @_ZZN5osgeo4proj10SQLite3VFS6createEbbbEN19InstallSqliteLoggerC2Ev.argprom()
+  invoke fastcc void @_ZZN5osgeo4proj10SQLite3VFS6createEbbbEN19InstallSqliteLoggerC2Ev()
           to label %15 unwind label %83
 
 15:                                               ; preds = %14
@@ -320,7 +320,7 @@ _ZNSt10unique_ptrIN5osgeo4proj10SQLite3VFSESt14default_deleteIS2_EED2Ev.exit: ; 
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5osgeo4proj10SQLite3VFS6createEbbbEN19InstallSqliteLoggerC2Ev.argprom() unnamed_addr #7 align 2 {
+define internal fastcc void @_ZZN5osgeo4proj10SQLite3VFS6createEbbbEN19InstallSqliteLoggerC2Ev() unnamed_addr #7 align 2 {
   %1 = tail call ptr @getenv(ptr noundef nonnull @.str) #19
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %2

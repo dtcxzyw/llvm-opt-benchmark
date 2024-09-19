@@ -975,14 +975,14 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %27 = load i32, ptr %19, align 4
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv, %28
-  br i1 %29, label %Extra_ProgressBarUpdate.argprom.exit, label %30
+  br i1 %29, label %Extra_ProgressBarUpdate.exit, label %30
 
 30:                                               ; preds = %26, %22
   %31 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %19, i32 noundef %31, ptr noundef null) #13
-  br label %Extra_ProgressBarUpdate.argprom.exit
+  br label %Extra_ProgressBarUpdate.exit
 
-Extra_ProgressBarUpdate.argprom.exit:             ; preds = %26, %30
+Extra_ProgressBarUpdate.exit:                     ; preds = %26, %30
   %.val61 = load ptr, ptr %25, align 8
   %32 = getelementptr i8, ptr %25, i64 32
   %.val62 = load ptr, ptr %32, align 8
@@ -1000,11 +1000,11 @@ Extra_ProgressBarUpdate.argprom.exit:             ; preds = %26, %30
   %.not53 = icmp eq i32 %40, 0
   br i1 %.not53, label %43, label %41
 
-41:                                               ; preds = %Extra_ProgressBarUpdate.argprom.exit
+41:                                               ; preds = %Extra_ProgressBarUpdate.exit
   %42 = add nsw i32 %.04777, 1
   br label %57
 
-43:                                               ; preds = %Extra_ProgressBarUpdate.argprom.exit
+43:                                               ; preds = %Extra_ProgressBarUpdate.exit
   %.val63 = load ptr, ptr %37, align 8
   %44 = getelementptr i8, ptr %37, i64 16
   %.val64 = load i32, ptr %44, align 8

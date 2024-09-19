@@ -39,7 +39,7 @@ define void @Abc_NodeStrashToGia_rec(ptr noundef %0, ptr nocapture noundef %1) l
   %14 = ptrtoint ptr %.val15 to i64
   %15 = and i64 %14, -2
   %.not.i = icmp eq i64 %15, 0
-  br i1 %.not.i, label %Hop_ObjChild0CopyI.argprom.exit, label %16
+  br i1 %.not.i, label %Hop_ObjChild0CopyI.exit, label %16
 
 16:                                               ; preds = %5
   %17 = inttoptr i64 %15 to ptr
@@ -47,26 +47,26 @@ define void @Abc_NodeStrashToGia_rec(ptr noundef %0, ptr nocapture noundef %1) l
   %19 = trunc i64 %14 to i32
   %20 = and i32 %19, 1
   %21 = xor i32 %18, %20
-  br label %Hop_ObjChild0CopyI.argprom.exit
+  br label %Hop_ObjChild0CopyI.exit
 
-Hop_ObjChild0CopyI.argprom.exit:                  ; preds = %5, %16
+Hop_ObjChild0CopyI.exit:                          ; preds = %5, %16
   %22 = phi i32 [ %21, %16 ], [ -1, %5 ]
   %.val16 = load ptr, ptr %10, align 8
   %23 = ptrtoint ptr %.val16 to i64
   %24 = and i64 %23, -2
   %.not.i17 = icmp eq i64 %24, 0
-  br i1 %.not.i17, label %Hop_ObjChild1CopyI.argprom.exit, label %25
+  br i1 %.not.i17, label %Hop_ObjChild1CopyI.exit, label %25
 
-25:                                               ; preds = %Hop_ObjChild0CopyI.argprom.exit
+25:                                               ; preds = %Hop_ObjChild0CopyI.exit
   %26 = inttoptr i64 %24 to ptr
   %27 = load i32, ptr %26, align 8
   %28 = trunc i64 %23 to i32
   %29 = and i32 %28, 1
   %30 = xor i32 %27, %29
-  br label %Hop_ObjChild1CopyI.argprom.exit
+  br label %Hop_ObjChild1CopyI.exit
 
-Hop_ObjChild1CopyI.argprom.exit:                  ; preds = %Hop_ObjChild0CopyI.argprom.exit, %25
-  %31 = phi i32 [ %30, %25 ], [ -1, %Hop_ObjChild0CopyI.argprom.exit ]
+Hop_ObjChild1CopyI.exit:                          ; preds = %Hop_ObjChild0CopyI.exit, %25
+  %31 = phi i32 [ %30, %25 ], [ -1, %Hop_ObjChild0CopyI.exit ]
   %32 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %22, i32 noundef %31) #13
   store i32 %32, ptr %1, align 8
   %33 = load i32, ptr %3, align 8
@@ -74,7 +74,7 @@ Hop_ObjChild1CopyI.argprom.exit:                  ; preds = %Hop_ObjChild0CopyI.
   store i32 %34, ptr %3, align 8
   br label %35
 
-35:                                               ; preds = %2, %Hop_ObjChild1CopyI.argprom.exit
+35:                                               ; preds = %2, %Hop_ObjChild1CopyI.exit
   ret void
 }
 

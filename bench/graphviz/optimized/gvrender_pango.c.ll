@@ -526,17 +526,17 @@ define internal void @cairogen_ellipse(ptr nocapture noundef readonly %0, ptr no
 
 11:                                               ; preds = %3
   tail call void @cairo_set_dash(ptr noundef %8, ptr noundef nonnull @dashed, i32 noundef 1, double noundef 0.000000e+00) #14
-  br label %cairogen_set_penstyle.argprom.exit
+  br label %cairogen_set_penstyle.exit
 
 12:                                               ; preds = %3
   tail call void @cairo_set_dash(ptr noundef %8, ptr noundef nonnull @dotted, i32 noundef 2, double noundef 0.000000e+00) #14
-  br label %cairogen_set_penstyle.argprom.exit
+  br label %cairogen_set_penstyle.exit
 
 13:                                               ; preds = %3
   tail call void @cairo_set_dash(ptr noundef %8, ptr noundef nonnull @dashed, i32 noundef 0, double noundef 0.000000e+00) #14
-  br label %cairogen_set_penstyle.argprom.exit
+  br label %cairogen_set_penstyle.exit
 
-cairogen_set_penstyle.argprom.exit:               ; preds = %11, %12, %13
+cairogen_set_penstyle.exit:                       ; preds = %11, %12, %13
   %14 = getelementptr inbounds i8, ptr %6, i64 168
   %15 = load double, ptr %14, align 8
   tail call void @cairo_set_line_width(ptr noundef %8, double noundef %15) #14
@@ -564,11 +564,11 @@ cairogen_set_penstyle.argprom.exit:               ; preds = %11, %12, %13
   %or.cond = icmp eq i32 %28, 2
   br i1 %or.cond, label %29, label %30
 
-29:                                               ; preds = %cairogen_set_penstyle.argprom.exit
+29:                                               ; preds = %cairogen_set_penstyle.exit
   call fastcc void @cairo_gradient_fill(ptr noundef %8, ptr noundef nonnull %6, i32 noundef %2, ptr noundef nonnull %1, i64 noundef 2)
   br label %40
 
-30:                                               ; preds = %cairogen_set_penstyle.argprom.exit
+30:                                               ; preds = %cairogen_set_penstyle.exit
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %40, label %31
 
@@ -614,17 +614,17 @@ define internal void @cairogen_polygon(ptr nocapture noundef readonly %0, ptr no
 
 11:                                               ; preds = %4
   tail call void @cairo_set_dash(ptr noundef %8, ptr noundef nonnull @dashed, i32 noundef 1, double noundef 0.000000e+00) #14
-  br label %cairogen_set_penstyle.argprom.exit
+  br label %cairogen_set_penstyle.exit
 
 12:                                               ; preds = %4
   tail call void @cairo_set_dash(ptr noundef %8, ptr noundef nonnull @dotted, i32 noundef 2, double noundef 0.000000e+00) #14
-  br label %cairogen_set_penstyle.argprom.exit
+  br label %cairogen_set_penstyle.exit
 
 13:                                               ; preds = %4
   tail call void @cairo_set_dash(ptr noundef %8, ptr noundef nonnull @dashed, i32 noundef 0, double noundef 0.000000e+00) #14
-  br label %cairogen_set_penstyle.argprom.exit
+  br label %cairogen_set_penstyle.exit
 
-cairogen_set_penstyle.argprom.exit:               ; preds = %11, %12, %13
+cairogen_set_penstyle.exit:                       ; preds = %11, %12, %13
   %14 = getelementptr inbounds i8, ptr %6, i64 168
   %15 = load double, ptr %14, align 8
   tail call void @cairo_set_line_width(ptr noundef %8, double noundef %15) #14
@@ -636,8 +636,8 @@ cairogen_set_penstyle.argprom.exit:               ; preds = %11, %12, %13
   %20 = icmp ugt i64 %2, 1
   br i1 %20, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %cairogen_set_penstyle.argprom.exit, %.lr.ph
-  %.032 = phi i64 [ %26, %.lr.ph ], [ 1, %cairogen_set_penstyle.argprom.exit ]
+.lr.ph:                                           ; preds = %cairogen_set_penstyle.exit, %.lr.ph
+  %.032 = phi i64 [ %26, %.lr.ph ], [ 1, %cairogen_set_penstyle.exit ]
   %21 = getelementptr inbounds %struct.pointf_s, ptr %1, i64 %.032
   %22 = load double, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 8
@@ -648,7 +648,7 @@ cairogen_set_penstyle.argprom.exit:               ; preds = %11, %12, %13
   %exitcond.not = icmp eq i64 %26, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %cairogen_set_penstyle.argprom.exit
+._crit_edge:                                      ; preds = %.lr.ph, %cairogen_set_penstyle.exit
   tail call void @cairo_close_path(ptr noundef %8) #14
   %27 = and i32 %3, -2
   %or.cond = icmp eq i32 %27, 2
@@ -704,17 +704,17 @@ define internal void @cairogen_bezier(ptr nocapture noundef readonly %0, ptr nou
 
 11:                                               ; preds = %4
   tail call void @cairo_set_dash(ptr noundef %8, ptr noundef nonnull @dashed, i32 noundef 1, double noundef 0.000000e+00) #14
-  br label %cairogen_set_penstyle.argprom.exit
+  br label %cairogen_set_penstyle.exit
 
 12:                                               ; preds = %4
   tail call void @cairo_set_dash(ptr noundef %8, ptr noundef nonnull @dotted, i32 noundef 2, double noundef 0.000000e+00) #14
-  br label %cairogen_set_penstyle.argprom.exit
+  br label %cairogen_set_penstyle.exit
 
 13:                                               ; preds = %4
   tail call void @cairo_set_dash(ptr noundef %8, ptr noundef nonnull @dashed, i32 noundef 0, double noundef 0.000000e+00) #14
-  br label %cairogen_set_penstyle.argprom.exit
+  br label %cairogen_set_penstyle.exit
 
-cairogen_set_penstyle.argprom.exit:               ; preds = %11, %12, %13
+cairogen_set_penstyle.exit:                       ; preds = %11, %12, %13
   %14 = getelementptr inbounds i8, ptr %6, i64 168
   %15 = load double, ptr %14, align 8
   tail call void @cairo_set_line_width(ptr noundef %8, double noundef %15) #14
@@ -726,8 +726,8 @@ cairogen_set_penstyle.argprom.exit:               ; preds = %11, %12, %13
   %20 = icmp ugt i64 %2, 1
   br i1 %20, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %cairogen_set_penstyle.argprom.exit, %.lr.ph
-  %.039 = phi i64 [ %36, %.lr.ph ], [ 1, %cairogen_set_penstyle.argprom.exit ]
+.lr.ph:                                           ; preds = %cairogen_set_penstyle.exit, %.lr.ph
+  %.039 = phi i64 [ %36, %.lr.ph ], [ 1, %cairogen_set_penstyle.exit ]
   %21 = getelementptr inbounds %struct.pointf_s, ptr %1, i64 %.039
   %22 = load double, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 8
@@ -748,7 +748,7 @@ cairogen_set_penstyle.argprom.exit:               ; preds = %11, %12, %13
   %37 = icmp ult i64 %36, %2
   br i1 %37, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %cairogen_set_penstyle.argprom.exit
+._crit_edge:                                      ; preds = %.lr.ph, %cairogen_set_penstyle.exit
   %38 = and i32 %3, -2
   %or.cond = icmp eq i32 %38, 2
   br i1 %or.cond, label %39, label %40
@@ -803,17 +803,17 @@ define internal void @cairogen_polyline(ptr nocapture noundef readonly %0, ptr n
 
 10:                                               ; preds = %3
   tail call void @cairo_set_dash(ptr noundef %7, ptr noundef nonnull @dashed, i32 noundef 1, double noundef 0.000000e+00) #14
-  br label %cairogen_set_penstyle.argprom.exit
+  br label %cairogen_set_penstyle.exit
 
 11:                                               ; preds = %3
   tail call void @cairo_set_dash(ptr noundef %7, ptr noundef nonnull @dotted, i32 noundef 2, double noundef 0.000000e+00) #14
-  br label %cairogen_set_penstyle.argprom.exit
+  br label %cairogen_set_penstyle.exit
 
 12:                                               ; preds = %3
   tail call void @cairo_set_dash(ptr noundef %7, ptr noundef nonnull @dashed, i32 noundef 0, double noundef 0.000000e+00) #14
-  br label %cairogen_set_penstyle.argprom.exit
+  br label %cairogen_set_penstyle.exit
 
-cairogen_set_penstyle.argprom.exit:               ; preds = %10, %11, %12
+cairogen_set_penstyle.exit:                       ; preds = %10, %11, %12
   %13 = getelementptr inbounds i8, ptr %5, i64 168
   %14 = load double, ptr %13, align 8
   tail call void @cairo_set_line_width(ptr noundef %7, double noundef %14) #14
@@ -825,8 +825,8 @@ cairogen_set_penstyle.argprom.exit:               ; preds = %10, %11, %12
   %19 = icmp ugt i64 %2, 1
   br i1 %19, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %cairogen_set_penstyle.argprom.exit, %.lr.ph
-  %.017 = phi i64 [ %25, %.lr.ph ], [ 1, %cairogen_set_penstyle.argprom.exit ]
+.lr.ph:                                           ; preds = %cairogen_set_penstyle.exit, %.lr.ph
+  %.017 = phi i64 [ %25, %.lr.ph ], [ 1, %cairogen_set_penstyle.exit ]
   %20 = getelementptr inbounds %struct.pointf_s, ptr %1, i64 %.017
   %21 = load double, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %20, i64 8
@@ -837,7 +837,7 @@ cairogen_set_penstyle.argprom.exit:               ; preds = %10, %11, %12
   %exitcond.not = icmp eq i64 %25, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %cairogen_set_penstyle.argprom.exit
+._crit_edge:                                      ; preds = %.lr.ph, %cairogen_set_penstyle.exit
   %26 = getelementptr inbounds i8, ptr %5, i64 32
   %27 = load double, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %5, i64 40

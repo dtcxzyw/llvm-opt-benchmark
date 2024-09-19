@@ -372,8 +372,8 @@ _ZNK4llvm6MDNode8operandsEv.exit:                 ; preds = %24, %28
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 960
   br label %37
 
-37:                                               ; preds = %.lr.ph73, %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.argprom.exit50.thread"
-  %.03372 = phi ptr [ %.sroa.0.0.i.i, %.lr.ph73 ], [ %112, %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.argprom.exit50.thread" ]
+37:                                               ; preds = %.lr.ph73, %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.exit50.thread"
+  %.03372 = phi ptr [ %.sroa.0.0.i.i, %.lr.ph73 ], [ %112, %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.exit50.thread" ]
   %38 = load ptr, ptr %.03372, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 -16
   %40 = load i64, ptr %39, align 8
@@ -398,7 +398,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %42, %46
   %.sroa.0.0.i.i42 = phi ptr [ %50, %46 ], [ %44, %42 ]
   %.val38 = load ptr, ptr %.sroa.0.0.i.i42, align 8
   %.not.i43 = icmp eq ptr %.val38, null
-  br i1 %.not.i43, label %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.argprom.exit", label %51
+  br i1 %.not.i43, label %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.exit", label %51
 
 51:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit
   %52 = getelementptr inbounds nuw i8, ptr %.val38, i64 128
@@ -408,27 +408,27 @@ _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %42, %46
   %56 = load i32, ptr %55, align 8
   %57 = and i32 %56, 768
   %58 = icmp eq i32 %57, 256
-  br i1 %58, label %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.argprom.exit", label %59
+  br i1 %58, label %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.exit", label %59
 
 59:                                               ; preds = %51
   %60 = load ptr, ptr %36, align 8
   %61 = call noundef ptr @_ZNK4llvm13TargetMachine9getSymbolEPKNS_11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(1232) %60, ptr noundef nonnull %54) #16
-  br label %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.argprom.exit"
+  br label %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.exit"
 
-"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.argprom.exit": ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit, %51, %59
+"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.exit": ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit, %51, %59
   %.0.i44 = phi ptr [ %61, %59 ], [ null, %_ZNK4llvm6MDNode10getOperandEj.exit ], [ null, %51 ]
   %62 = load i64, ptr %39, align 8
   %63 = and i64 %62, 2
   %.not.i.i45 = icmp eq i64 %63, 0
   br i1 %.not.i.i45, label %68, label %64
 
-64:                                               ; preds = %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.argprom.exit"
+64:                                               ; preds = %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.exit"
   %65 = getelementptr inbounds i8, ptr %38, i64 -32
   %66 = load ptr, ptr %65, align 8
   %67 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %65) #16
   br label %_ZNK4llvm6MDNode10getOperandEj.exit47
 
-68:                                               ; preds = %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.argprom.exit"
+68:                                               ; preds = %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.exit"
   %69 = lshr i64 %62, 2
   %70 = and i64 %69, 15
   %71 = sub nsw i64 0, %70
@@ -440,7 +440,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit47:            ; preds = %64, %68
   %73 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i46, i64 8
   %.val40 = load ptr, ptr %73, align 8
   %.not.i48 = icmp eq ptr %.val40, null
-  br i1 %.not.i48, label %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.argprom.exit50.thread", label %74
+  br i1 %.not.i48, label %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.exit50.thread", label %74
 
 74:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit47
   %75 = getelementptr inbounds nuw i8, ptr %.val40, i64 128
@@ -450,17 +450,17 @@ _ZNK4llvm6MDNode10getOperandEj.exit47:            ; preds = %64, %68
   %79 = load i32, ptr %78, align 8
   %80 = and i32 %79, 768
   %81 = icmp eq i32 %80, 256
-  br i1 %81, label %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.argprom.exit50.thread", label %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.argprom.exit50"
+  br i1 %81, label %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.exit50.thread", label %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.exit50"
 
-"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.argprom.exit50": ; preds = %74
+"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.exit50": ; preds = %74
   %82 = load ptr, ptr %36, align 8
   %83 = call noundef ptr @_ZNK4llvm13TargetMachine9getSymbolEPKNS_11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(1232) %82, ptr noundef nonnull %77) #16
   %84 = icmp ne ptr %.0.i44, null
   %85 = icmp ne ptr %83, null
   %or.cond = and i1 %84, %85
-  br i1 %or.cond, label %86, label %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.argprom.exit50.thread"
+  br i1 %or.cond, label %86, label %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.exit50.thread"
 
-86:                                               ; preds = %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.argprom.exit50"
+86:                                               ; preds = %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.exit50"
   %87 = load i64, ptr %39, align 8
   %88 = and i64 %87, 2
   %.not.i.i51 = icmp eq i64 %88, 0
@@ -498,14 +498,14 @@ _ZNK4llvm6MDNode10getOperandEj.exit53:            ; preds = %89, %93
   %110 = getelementptr inbounds i8, ptr %109, i64 1168
   %111 = load ptr, ptr %110, align 8
   call void %111(ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef %107, ptr noundef %108, i64 noundef %.0.i54) #16
-  br label %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.argprom.exit50.thread"
+  br label %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.exit50.thread"
 
-"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.argprom.exit50.thread": ; preds = %74, %_ZNK4llvm6MDNode10getOperandEj.exit47, %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.argprom.exit50", %_ZNK4llvm6MDNode10getOperandEj.exit53
+"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.exit50.thread": ; preds = %74, %_ZNK4llvm6MDNode10getOperandEj.exit47, %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.exit50", %_ZNK4llvm6MDNode10getOperandEj.exit53
   %112 = getelementptr inbounds i8, ptr %.03372, i64 8
   %.not37 = icmp eq ptr %112, %35
   br i1 %.not37, label %.thread, label %37
 
-.thread:                                          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread61, %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.argprom.exit50.thread", %3, %_ZNK4llvm6MDNode8operandsEv.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread
+.thread:                                          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread61, %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.exit50.thread", %3, %_ZNK4llvm6MDNode8operandsEv.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread
   %113 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
   %114 = load ptr, ptr %4, align 8
   %115 = icmp eq ptr %114, %7

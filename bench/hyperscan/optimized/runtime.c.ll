@@ -1766,7 +1766,7 @@ if.end7.i:                                        ; preds = %if.then17.i, %while
   br label %if.end57.i
 
 sw.bb55.i:                                        ; preds = %if.then52.i
-  tail call fastcc void @soleOutfixEodExec.argprom(ptr %to_id.val, ptr noundef nonnull %scratch)
+  tail call fastcc void @soleOutfixEodExec(ptr %to_id.val, ptr noundef nonnull %scratch)
   br label %if.end57.i
 
 if.end57.i:                                       ; preds = %if.end26.i, %if.end50.i, %if.end7.i, %sw.bb54.i, %mmbit_all.exit, %sw.bb55.i, %if.then28.i, %if.then30.i
@@ -1899,7 +1899,7 @@ if.end:                                           ; preds = %if.end11.i
 
 if.end.i20:                                       ; preds = %if.end
   store i8 1, ptr %in_use.i, align 4
-  %call18 = tail call fastcc i32 @hs_scan_stream_internal.argelim(ptr noundef nonnull %id, ptr noundef nonnull %data, i32 noundef %length, ptr noundef nonnull %scratch, ptr noundef %onEvent, ptr noundef %context)
+  %call18 = tail call fastcc i32 @hs_scan_stream_internal(ptr noundef nonnull %id, ptr noundef nonnull %data, i32 noundef %length, ptr noundef nonnull %scratch, ptr noundef %onEvent, ptr noundef %context)
   store i8 0, ptr %in_use.i, align 4
   br label %return
 
@@ -1909,7 +1909,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -13, 1) i32 @hs_scan_stream_internal.argelim(ptr noundef %id, ptr noundef %data, i32 noundef %length, ptr noundef %scratch, ptr noundef %onEvent, ptr noundef %context) unnamed_addr #0 {
+define internal fastcc range(i32 -13, 1) i32 @hs_scan_stream_internal(ptr noundef %id, ptr noundef %data, i32 noundef %length, ptr noundef %scratch, ptr noundef %onEvent, ptr noundef %context) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %data, null
   br i1 %tobool.not, label %return, label %if.end
@@ -3064,7 +3064,7 @@ if.end7.i:                                        ; preds = %if.then17.i, %while
   br label %if.end57.i
 
 sw.bb55.i:                                        ; preds = %if.then52.i
-  tail call fastcc void @soleOutfixEodExec.argprom(ptr %id.val, ptr noundef nonnull %scratch)
+  tail call fastcc void @soleOutfixEodExec(ptr %id.val, ptr noundef nonnull %scratch)
   br label %if.end57.i
 
 if.end57.i:                                       ; preds = %if.end26.i, %if.end50.i, %if.end7.i, %sw.bb54.i, %mmbit_all.exit, %sw.bb55.i, %if.then28.i, %if.then30.i
@@ -3491,7 +3491,7 @@ if.end7.i:                                        ; preds = %if.then17.i, %while
   br label %if.end57.i
 
 sw.bb55.i:                                        ; preds = %if.then52.i
-  tail call fastcc void @soleOutfixEodExec.argprom(ptr %id.val, ptr noundef nonnull %scratch)
+  tail call fastcc void @soleOutfixEodExec(ptr %id.val, ptr noundef nonnull %scratch)
   br label %if.end57.i
 
 if.end57.i:                                       ; preds = %if.end26.i, %if.end50.i, %if.end7.i, %sw.bb54.i, %mmbit_all.exit, %sw.bb55.i, %if.then28.i, %if.then30.i
@@ -3951,7 +3951,7 @@ do.end:                                           ; preds = %do.end.preheader, %
   %26 = load ptr, ptr %arrayidx, align 8
   %arrayidx63 = getelementptr inbounds i32, ptr %length, i64 %indvars.iv
   %27 = load i32, ptr %arrayidx63, align 4
-  %call64 = tail call fastcc i32 @hs_scan_stream_internal.argelim(ptr noundef nonnull %11, ptr noundef %26, i32 noundef %27, ptr noundef %scratch, ptr noundef %onEvent, ptr noundef %context)
+  %call64 = tail call fastcc i32 @hs_scan_stream_internal(ptr noundef nonnull %11, ptr noundef %26, i32 noundef %27, ptr noundef %scratch, ptr noundef %onEvent, ptr noundef %context)
   %cmp65.not = icmp eq i32 %call64, 0
   br i1 %cmp65.not, label %for.cond, label %return.sink.split
 
@@ -4252,7 +4252,7 @@ if.end7.i:                                        ; preds = %if.then17.i, %while
   br label %if.end57.i
 
 sw.bb55.i:                                        ; preds = %if.then52.i
-  tail call fastcc void @soleOutfixEodExec.argprom(ptr %.val, ptr noundef nonnull %scratch)
+  tail call fastcc void @soleOutfixEodExec(ptr %.val, ptr noundef nonnull %scratch)
   br label %if.end57.i
 
 if.end57.i:                                       ; preds = %if.end26.i, %if.end50.i, %if.end7.i, %sw.bb54.i, %mmbit_all.exit, %sw.bb55.i, %if.then28.i, %if.then30.i
@@ -4787,7 +4787,7 @@ if.end7.i:                                        ; preds = %if.then17.i, %while
   br label %if.end57.i
 
 sw.bb55.i:                                        ; preds = %if.then52.i
-  tail call fastcc void @soleOutfixEodExec.argprom(ptr %to_stream.val, ptr noundef nonnull %scratch)
+  tail call fastcc void @soleOutfixEodExec(ptr %to_stream.val, ptr noundef nonnull %scratch)
   br label %if.end57.i
 
 if.end57.i:                                       ; preds = %if.end26.i, %if.end50.i, %if.end7.i, %sw.bb54.i, %mmbit_all.exit, %sw.bb55.i, %if.then28.i, %if.then30.i
@@ -4906,7 +4906,7 @@ declare void @roseInitState(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @loadSomFromStream(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @soleOutfixEodExec.argprom(ptr %id.0.val, ptr noundef %scratch) unnamed_addr #0 {
+define internal fastcc void @soleOutfixEodExec(ptr %id.0.val, ptr noundef %scratch) unnamed_addr #0 {
 entry:
   %status.i = getelementptr inbounds i8, ptr %scratch, i64 328
   %0 = load i8, ptr %status.i, align 8

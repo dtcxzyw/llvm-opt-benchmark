@@ -399,9 +399,9 @@ if.end75.thread:                                  ; preds = %land.lhs.true61, %l
 if.end75:                                         ; preds = %if.then49, %lor.lhs.false, %if.end45
   br i1 %or.cond105, label %for.cond.backedge, label %if.end78
 
-for.cond.backedge:                                ; preds = %if.end75.thread, %if.end75, %eat_ws.argprom.exit, %add_string.argprom.exit
-  %tobool76.not321 = phi i1 [ true, %if.end75 ], [ false, %eat_ws.argprom.exit ], [ false, %add_string.argprom.exit ], [ true, %if.end75.thread ]
-  %bufnum.0.be = phi i32 [ %add46, %if.end75 ], [ 0, %eat_ws.argprom.exit ], [ 0, %add_string.argprom.exit ], [ %dec73, %if.end75.thread ]
+for.cond.backedge:                                ; preds = %if.end75.thread, %if.end75, %eat_ws.exit, %add_string.exit
+  %tobool76.not321 = phi i1 [ true, %if.end75 ], [ false, %eat_ws.exit ], [ false, %add_string.exit ], [ true, %if.end75.thread ]
+  %bufnum.0.be = phi i32 [ %add46, %if.end75 ], [ 0, %eat_ws.exit ], [ 0, %add_string.exit ], [ %dec73, %if.end75.thread ]
   %conv = sext i32 %bufnum.0.be to i64
   %add = add nsw i64 %conv, 512
   %call9 = call i64 @BUF_MEM_grow(ptr noundef nonnull %call, i64 noundef %add) #12
@@ -461,7 +461,7 @@ if.then29.i:                                      ; preds = %if.end21.i
   %p.addr.01.i.i = getelementptr inbounds i8, ptr %p.addr.115.i, i64 1
   %17 = load i8, ptr %p.addr.01.i.i, align 1
   %tobool.not.not2.i.i = icmp eq i8 %17, 0
-  br i1 %tobool.not.not2.i.i, label %scan_dquote.argprom.exit.i, label %while.body.i.i
+  br i1 %tobool.not.not2.i.i, label %scan_dquote.exit.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.then29.i, %if.end11.i.i
   %18 = phi i8 [ %20, %if.end11.i.i ], [ %17, %if.then29.i ]
@@ -474,16 +474,16 @@ if.then.i.i:                                      ; preds = %while.body.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %p.pn3.i.i, i64 2
   %19 = load i8, ptr %add.ptr.i.i, align 1
   %cmp7.i.i = icmp eq i8 %19, %16
-  br i1 %cmp7.i.i, label %if.end11.i.i, label %scan_dquote.argprom.exit.i
+  br i1 %cmp7.i.i, label %if.end11.i.i, label %scan_dquote.exit.i
 
 if.end11.i.i:                                     ; preds = %if.then.i.i, %while.body.i.i
   %p.addr.1.i.i = phi ptr [ %p.addr.04.i.i, %while.body.i.i ], [ %add.ptr.i.i, %if.then.i.i ]
   %p.addr.0.i.i = getelementptr inbounds i8, ptr %p.addr.1.i.i, i64 1
   %20 = load i8, ptr %p.addr.0.i.i, align 1
   %tobool.not.not.i.i = icmp eq i8 %20, 0
-  br i1 %tobool.not.not.i.i, label %scan_dquote.argprom.exit.i, label %while.body.i.i, !llvm.loop !9
+  br i1 %tobool.not.not.i.i, label %scan_dquote.exit.i, label %while.body.i.i, !llvm.loop !9
 
-scan_dquote.argprom.exit.i:                       ; preds = %if.end11.i.i, %if.then.i.i, %if.then29.i
+scan_dquote.exit.i:                               ; preds = %if.end11.i.i, %if.then.i.i, %if.then29.i
   %p.pn.lcssa.i.i = phi ptr [ %p.addr.115.i, %if.then29.i ], [ %p.pn3.i.i, %if.then.i.i ], [ %p.addr.1.i.i, %if.end11.i.i ]
   %p.addr.0.lcssa.i.i = phi ptr [ %p.addr.01.i.i, %if.then29.i ], [ %p.addr.04.i.i, %if.then.i.i ], [ %p.addr.0.i.i, %if.end11.i.i ]
   %.lcssa.i.i = phi i8 [ 0, %if.then29.i ], [ %16, %if.then.i.i ], [ 0, %if.end11.i.i ]
@@ -492,8 +492,8 @@ scan_dquote.argprom.exit.i:                       ; preds = %if.end11.i.i, %if.t
   %spec.select.i.i = select i1 %cmp14.i.i, ptr %incdec.ptr17.i.i, ptr %p.addr.0.lcssa.i.i
   br label %for.cond12.backedge.i
 
-for.cond12.backedge.i:                            ; preds = %if.then.i19.i, %if.else.i, %if.then48.i, %while.end.i.i, %scan_dquote.argprom.exit.i
-  %p.addr.1.be.i = phi ptr [ %spec.select.i.i, %scan_dquote.argprom.exit.i ], [ %cond.i, %if.then48.i ], [ %incdec.ptr67.i, %if.else.i ], [ %spec.select.i24.i, %while.end.i.i ], [ %incdec.ptr13.i.i, %if.then.i19.i ]
+for.cond12.backedge.i:                            ; preds = %if.then.i19.i, %if.else.i, %if.then48.i, %while.end.i.i, %scan_dquote.exit.i
+  %p.addr.1.be.i = phi ptr [ %spec.select.i.i, %scan_dquote.exit.i ], [ %cond.i, %if.then48.i ], [ %incdec.ptr67.i, %if.else.i ], [ %spec.select.i24.i, %while.end.i.i ], [ %incdec.ptr13.i.i, %if.then.i19.i ]
   %21 = load i8, ptr %p.addr.1.be.i, align 1
   %idxprom15.i = zext i8 %21 to i64
   %arrayidx16.i = getelementptr inbounds [256 x i16], ptr @CONF_type_default, i64 0, i64 %idxprom15.i
@@ -596,16 +596,16 @@ while.cond.i:                                     ; preds = %while.cond.i.prehea
   %31 = and i16 %30, 24
   %or.cond.i = icmp eq i16 %31, 16
   %incdec.ptr.i110 = getelementptr inbounds i8, ptr %p.addr.0.i, i64 1
-  br i1 %or.cond.i, label %while.cond.i, label %eat_ws.argprom.exit, !llvm.loop !11
+  br i1 %or.cond.i, label %while.cond.i, label %eat_ws.exit, !llvm.loop !11
 
-eat_ws.argprom.exit:                              ; preds = %while.cond.i
+eat_ws.exit:                                      ; preds = %while.cond.i
   switch i8 %29, label %for.cond.i134 [
     i8 0, label %for.cond.backedge
     i8 91, label %while.cond.i111
   ]
 
-while.cond.i111:                                  ; preds = %eat_ws.argprom.exit, %while.cond.i111
-  %p.addr.0.i112 = phi ptr [ %incdec.ptr.i116, %while.cond.i111 ], [ %incdec.ptr.i110, %eat_ws.argprom.exit ]
+while.cond.i111:                                  ; preds = %eat_ws.exit, %while.cond.i111
+  %p.addr.0.i112 = phi ptr [ %incdec.ptr.i116, %while.cond.i111 ], [ %incdec.ptr.i110, %eat_ws.exit ]
   %32 = load i8, ptr %p.addr.0.i112, align 1
   %idxprom.i113 = zext i8 %32 to i64
   %arrayidx.i114 = getelementptr inbounds [256 x i16], ptr @CONF_type_default, i64 0, i64 %idxprom.i113
@@ -662,23 +662,23 @@ while.cond.i127:                                  ; preds = %if.end.i125, %while
   %41 = and i16 %40, 24
   %or.cond.i131 = icmp eq i16 %41, 16
   %incdec.ptr.i132 = getelementptr inbounds i8, ptr %p.addr.0.i128, i64 1
-  br i1 %or.cond.i131, label %while.cond.i127, label %eat_ws.argprom.exit133, !llvm.loop !11
+  br i1 %or.cond.i131, label %while.cond.i127, label %eat_ws.exit133, !llvm.loop !11
 
-eat_ws.argprom.exit133:                           ; preds = %while.cond.i127
+eat_ws.exit133:                                   ; preds = %while.cond.i127
   switch i8 %39, label %land.lhs.true105 [
     i8 93, label %if.end110
     i8 0, label %if.end109
   ]
 
-land.lhs.true105:                                 ; preds = %eat_ws.argprom.exit133
+land.lhs.true105:                                 ; preds = %eat_ws.exit133
   %cmp106.not = icmp eq ptr %ss.0, %p.addr.0.i128
   br i1 %cmp106.not, label %if.end109, label %again95
 
-if.end109:                                        ; preds = %eat_ws.argprom.exit133, %land.lhs.true105
+if.end109:                                        ; preds = %eat_ws.exit133, %land.lhs.true105
   call void @ERR_put_error(i32 noundef 13, i32 noundef 0, i32 noundef 101, ptr noundef nonnull @.str, i32 noundef 606) #12
   br label %if.then223
 
-if.end110:                                        ; preds = %eat_ws.argprom.exit133
+if.end110:                                        ; preds = %eat_ws.exit133
   store i8 0, ptr %p.addr.0.i118, align 1
   %call111 = call fastcc i32 @str_copy(ptr noundef %conf, ptr noundef null, ptr noundef %section, ptr noundef nonnull %p.addr.0.i112)
   %tobool112.not = icmp eq i32 %call111, 0
@@ -715,10 +715,10 @@ if.then123:                                       ; preds = %if.end120
   call void @ERR_put_error(i32 noundef 13, i32 noundef 0, i32 noundef 104, ptr noundef nonnull @.str, i32 noundef 617) #12
   br label %if.then223
 
-for.cond.i134:                                    ; preds = %eat_ws.argprom.exit, %for.cond.backedge.i146
-  %43 = phi i16 [ %.pre317, %for.cond.backedge.i146 ], [ %30, %eat_ws.argprom.exit ]
-  %44 = phi i8 [ %.pre316, %for.cond.backedge.i146 ], [ %29, %eat_ws.argprom.exit ]
-  %p.addr.0.i135 = phi ptr [ %p.addr.0.be.i147, %for.cond.backedge.i146 ], [ %p.addr.0.i, %eat_ws.argprom.exit ]
+for.cond.i134:                                    ; preds = %eat_ws.exit, %for.cond.backedge.i146
+  %43 = phi i16 [ %.pre317, %for.cond.backedge.i146 ], [ %30, %eat_ws.exit ]
+  %44 = phi i8 [ %.pre316, %for.cond.backedge.i146 ], [ %29, %eat_ws.exit ]
+  %p.addr.0.i135 = phi ptr [ %p.addr.0.be.i147, %for.cond.backedge.i146 ], [ %p.addr.0.i, %eat_ws.exit ]
   %conv1.i138 = zext i16 %43 to i32
   %and2.i139 = and i32 %conv1.i138, 32
   %tobool.not.i140 = icmp eq i32 %and2.i139, 0
@@ -743,17 +743,17 @@ for.cond.backedge.i146:                           ; preds = %if.end20.i151, %if.
 if.end.i148:                                      ; preds = %for.cond.i134
   %and17.i149 = and i32 %conv1.i138, 775
   %tobool18.not.i150 = icmp eq i32 %and17.i149, 0
-  br i1 %tobool18.not.i150, label %eat_alpha_numeric.argprom.exit153, label %if.end20.i151
+  br i1 %tobool18.not.i150, label %eat_alpha_numeric.exit153, label %if.end20.i151
 
 if.end20.i151:                                    ; preds = %if.end.i148
   %incdec.ptr.i152 = getelementptr inbounds i8, ptr %p.addr.0.i135, i64 1
   br label %for.cond.backedge.i146
 
-eat_alpha_numeric.argprom.exit153:                ; preds = %if.end.i148
+eat_alpha_numeric.exit153:                        ; preds = %if.end.i148
   %cmp129 = icmp eq i8 %44, 58
   br i1 %cmp129, label %land.lhs.true131, label %if.end138
 
-land.lhs.true131:                                 ; preds = %eat_alpha_numeric.argprom.exit153
+land.lhs.true131:                                 ; preds = %eat_alpha_numeric.exit153
   %arrayidx132 = getelementptr inbounds i8, ptr %p.addr.0.i135, i64 1
   %46 = load i8, ptr %arrayidx132, align 1
   %cmp134 = icmp eq i8 %46, 58
@@ -796,10 +796,10 @@ for.cond.i154.backedge:                           ; preds = %if.end20.i171, %if.
   %p.addr.0.i155.be = phi ptr [ %cond.i165, %if.then.i161 ], [ %incdec.ptr.i172, %if.end20.i171 ]
   br label %for.cond.i154
 
-if.end138:                                        ; preds = %if.end.i168, %land.lhs.true131, %eat_alpha_numeric.argprom.exit153
-  %end.0 = phi ptr [ %p.addr.0.i135, %land.lhs.true131 ], [ %p.addr.0.i135, %eat_alpha_numeric.argprom.exit153 ], [ %p.addr.0.i155, %if.end.i168 ]
-  %psection.0 = phi ptr [ null, %land.lhs.true131 ], [ null, %eat_alpha_numeric.argprom.exit153 ], [ %p.addr.0.i, %if.end.i168 ]
-  %pname.0 = phi ptr [ %p.addr.0.i, %land.lhs.true131 ], [ %p.addr.0.i, %eat_alpha_numeric.argprom.exit153 ], [ %add.ptr, %if.end.i168 ]
+if.end138:                                        ; preds = %if.end.i168, %land.lhs.true131, %eat_alpha_numeric.exit153
+  %end.0 = phi ptr [ %p.addr.0.i135, %land.lhs.true131 ], [ %p.addr.0.i135, %eat_alpha_numeric.exit153 ], [ %p.addr.0.i155, %if.end.i168 ]
+  %psection.0 = phi ptr [ null, %land.lhs.true131 ], [ null, %eat_alpha_numeric.exit153 ], [ %p.addr.0.i, %if.end.i168 ]
+  %pname.0 = phi ptr [ %p.addr.0.i, %land.lhs.true131 ], [ %p.addr.0.i, %eat_alpha_numeric.exit153 ], [ %add.ptr, %if.end.i168 ]
   %scevgep = getelementptr i8, ptr %end.0, i64 2
   br label %while.cond.i174
 
@@ -814,17 +814,17 @@ while.cond.i174:                                  ; preds = %while.cond.i174, %i
   %or.cond.i178 = icmp eq i16 %52, 16
   %incdec.ptr.i179 = getelementptr inbounds i8, ptr %p.addr.0.i175, i64 1
   %scevgep313 = getelementptr i8, ptr %indvars.iv312, i64 1
-  br i1 %or.cond.i178, label %while.cond.i174, label %eat_ws.argprom.exit180, !llvm.loop !11
+  br i1 %or.cond.i178, label %while.cond.i174, label %eat_ws.exit180, !llvm.loop !11
 
-eat_ws.argprom.exit180:                           ; preds = %while.cond.i174
+eat_ws.exit180:                                   ; preds = %while.cond.i174
   %cmp141.not = icmp eq i8 %50, 61
   br i1 %cmp141.not, label %if.end144, label %if.then143
 
-if.then143:                                       ; preds = %eat_ws.argprom.exit180
+if.then143:                                       ; preds = %eat_ws.exit180
   call void @ERR_put_error(i32 noundef 13, i32 noundef 0, i32 noundef 102, ptr noundef nonnull @.str, i32 noundef 634) #12
   br label %if.then223
 
-if.end144:                                        ; preds = %eat_ws.argprom.exit180
+if.end144:                                        ; preds = %eat_ws.exit180
   store i8 0, ptr %end.0, align 1
   br label %while.cond.i181
 
@@ -940,7 +940,7 @@ if.end.i194:                                      ; preds = %if.end206
 if.end8.i:                                        ; preds = %if.end.i194
   %64 = load ptr, ptr %old_value.i, align 8
   %cmp.not.i = icmp eq ptr %64, null
-  br i1 %cmp.not.i, label %add_string.argprom.exit, label %if.then9.i
+  br i1 %cmp.not.i, label %add_string.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end8.i
   %call10.i = call ptr @sk_delete_ptr(ptr noundef %tv.1.val107, ptr noundef nonnull %64) #12
@@ -982,9 +982,9 @@ if.then12.i.i.i:                                  ; preds = %if.else.i.i.i
 
 value_free.exit.i:                                ; preds = %if.then12.i.i.i, %if.else.i.i.i, %if.then7.i.i.i, %if.then3.i.i.i
   call void @free(ptr noundef nonnull %65) #12
-  br label %add_string.argprom.exit
+  br label %add_string.exit
 
-add_string.argprom.exit:                          ; preds = %if.end8.i, %value_free.exit.i
+add_string.exit:                                  ; preds = %if.end8.i, %value_free.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %old_value.i)
   br label %for.cond.backedge
 

@@ -1487,7 +1487,7 @@ if.else:                                          ; preds = %if.then25
   br i1 %call29, label %if.then30, label %if.else31
 
 if.then30:                                        ; preds = %if.else
-  tail call fastcc void @trace_megasas_msi_enabled.argelim()
+  tail call fastcc void @trace_megasas_msi_enabled()
   br label %sw.epilog
 
 if.else31:                                        ; preds = %if.else
@@ -2607,7 +2607,7 @@ if.end8.i.i.i:                                    ; preds = %trace_megasas_handl
 
 if.then.i.i23.i.i:                                ; preds = %if.end8.i.i.i
   %205 = load i64, ptr %sgl.i.i.i, align 1
-  br label %megasas_sgl_get_addr.argprom.exit.i.i.i
+  br label %megasas_sgl_get_addr.exit.i.i.i
 
 if.else.i.i24.i.i:                                ; preds = %if.end8.i.i.i
   %206 = and i16 %188, 2
@@ -2616,14 +2616,14 @@ if.else.i.i24.i.i:                                ; preds = %if.end8.i.i.i
 
 if.then4.i.i.i.i:                                 ; preds = %if.else.i.i24.i.i
   %207 = load i64, ptr %sgl.i.i.i, align 1
-  br label %megasas_sgl_get_addr.argprom.exit.i.i.i
+  br label %megasas_sgl_get_addr.exit.i.i.i
 
 if.else8.i.i.i.i:                                 ; preds = %if.else.i.i24.i.i
   %208 = load i32, ptr %sgl.i.i.i, align 1
   %conv.i.i.i94.i = zext i32 %208 to i64
-  br label %megasas_sgl_get_addr.argprom.exit.i.i.i
+  br label %megasas_sgl_get_addr.exit.i.i.i
 
-megasas_sgl_get_addr.argprom.exit.i.i.i:          ; preds = %if.else8.i.i.i.i, %if.then4.i.i.i.i, %if.then.i.i23.i.i
+megasas_sgl_get_addr.exit.i.i.i:                  ; preds = %if.else8.i.i.i.i, %if.then4.i.i.i.i, %if.then.i.i23.i.i
   %addr.0.i.i.i.i = phi i64 [ %205, %if.then.i.i23.i.i ], [ %207, %if.then4.i.i.i.i ], [ %conv.i.i.i94.i, %if.else8.i.i.i.i ]
   %209 = and i16 %188, 34
   %210 = icmp eq i16 %209, 0
@@ -2639,8 +2639,8 @@ megasas_sgl_get_addr.argprom.exit.i.i.i:          ; preds = %if.else8.i.i.i.i, %
   call void @qemu_sglist_add(ptr noundef nonnull %qsg.i.i86.i, i64 noundef %addr.0.i.i.i.i, i64 noundef %conv14.i.i.i) #14
   br label %megasas_map_dcmd.exit.i.i
 
-megasas_map_dcmd.exit.i.i:                        ; preds = %megasas_sgl_get_addr.argprom.exit.i.i.i, %trace_megasas_dcmd_zero_sge.exit.i.i.i
-  %conv14.sink.i.i.i = phi i64 [ %conv14.i.i.i, %megasas_sgl_get_addr.argprom.exit.i.i.i ], [ 0, %trace_megasas_dcmd_zero_sge.exit.i.i.i ]
+megasas_map_dcmd.exit.i.i:                        ; preds = %megasas_sgl_get_addr.exit.i.i.i, %trace_megasas_dcmd_zero_sge.exit.i.i.i
+  %conv14.sink.i.i.i = phi i64 [ %conv14.i.i.i, %megasas_sgl_get_addr.exit.i.i.i ], [ 0, %trace_megasas_dcmd_zero_sge.exit.i.i.i ]
   %iov_size17.i.i.i = getelementptr inbounds i8, ptr %arrayidx14.i.i, i64 104
   store i64 %conv14.sink.i.i.i, ptr %iov_size17.i.i.i, align 8
   %211 = load i32, ptr %dcmd_opcode.i.i, align 8
@@ -4398,7 +4398,7 @@ _nocheck__trace_megasas_irq_lower.exit:           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_megasas_msi_enabled.argelim() unnamed_addr #0 {
+define internal fastcc void @trace_megasas_msi_enabled() unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -7528,7 +7528,7 @@ if.end10:                                         ; preds = %for.body
 
 if.then.i:                                        ; preds = %if.end10
   %19 = load i64, ptr %sgl.addr.0105, align 1
-  br label %megasas_sgl_get_addr.argprom.exit
+  br label %megasas_sgl_get_addr.exit
 
 if.else.i:                                        ; preds = %if.end10
   %20 = and i16 %cmd.val, 2
@@ -7537,14 +7537,14 @@ if.else.i:                                        ; preds = %if.end10
 
 if.then4.i:                                       ; preds = %if.else.i
   %21 = load i64, ptr %sgl.addr.0105, align 1
-  br label %megasas_sgl_get_addr.argprom.exit
+  br label %megasas_sgl_get_addr.exit
 
 if.else8.i:                                       ; preds = %if.else.i
   %22 = load i32, ptr %sgl.addr.0105, align 1
   %conv.i = zext i32 %22 to i64
-  br label %megasas_sgl_get_addr.argprom.exit
+  br label %megasas_sgl_get_addr.exit
 
-megasas_sgl_get_addr.argprom.exit:                ; preds = %if.then.i, %if.then4.i, %if.else8.i
+megasas_sgl_get_addr.exit:                        ; preds = %if.then.i, %if.then4.i, %if.else8.i
   %addr.0.i = phi i64 [ %19, %if.then.i ], [ %21, %if.then4.i ], [ %conv.i, %if.else8.i ]
   %23 = and i16 %cmd.val, 34
   %24 = icmp eq i16 %23, 0
@@ -7556,7 +7556,7 @@ megasas_sgl_get_addr.argprom.exit:                ; preds = %if.then.i, %if.then
   %or.cond1 = select i1 %tobool14, i1 %tobool16, i1 false
   br i1 %or.cond1, label %if.end20, label %if.then17
 
-if.then17:                                        ; preds = %megasas_sgl_get_addr.argprom.exit
+if.then17:                                        ; preds = %megasas_sgl_get_addr.exit
   %25 = load i32, ptr %cmd, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i54)
   %26 = load i32, ptr @trace_events_enabled_count, align 4
@@ -7594,7 +7594,7 @@ trace_megasas_iovec_sgl_invalid.exit:             ; preds = %if.then17, %land.lh
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i54)
   br label %unmap
 
-if.end20:                                         ; preds = %megasas_sgl_get_addr.argprom.exit
+if.end20:                                         ; preds = %megasas_sgl_get_addr.exit
   %conv13 = zext i32 %len.0.i to i64
   tail call void @qemu_sglist_add(ptr noundef nonnull %qsg, i64 noundef %addr.0.i, i64 noundef %conv13) #14
   %cmd.val.i = load i16, ptr %flags1, align 4

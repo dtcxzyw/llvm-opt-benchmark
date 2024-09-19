@@ -2781,7 +2781,7 @@ entry:
   %add.ptr3.i = getelementptr inbounds %struct.mstate_aux, ptr %add.ptr1.i, i64 %idx.ext2.i
   %add.ptr3.i.val = load i32, ptr %add.ptr3.i, align 4
   %tobool.not.i = icmp eq i32 %add.ptr3.i.val, 0
-  br i1 %tobool.not.i, label %mcshengHasAccept.argprom.exit, label %if.end.i
+  br i1 %tobool.not.i, label %mcshengHasAccept.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %n, i64 64
@@ -2791,7 +2791,7 @@ if.end.i:                                         ; preds = %entry
   %report3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -60
   %3 = load i32, ptr %add.ptr2.i, align 4
   %cmp1.not.i = icmp eq i32 %3, 0
-  br i1 %cmp1.not.i, label %mcshengHasAccept.argprom.exit, label %for.body.preheader.i
+  br i1 %cmp1.not.i, label %mcshengHasAccept.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end.i
   %wide.trip.count.i = zext i32 %3 to i64
@@ -2800,16 +2800,16 @@ for.body.preheader.i:                             ; preds = %if.end.i
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %mcshengHasAccept.argprom.exit, label %for.body.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %mcshengHasAccept.exit, label %for.body.i, !llvm.loop !14
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
   %arrayidx.i = getelementptr inbounds [0 x i32], ptr %report3.i, i64 0, i64 %indvars.iv.i
   %4 = load i32, ptr %arrayidx.i, align 4
   %cmp4.i = icmp eq i32 %4, %report
-  br i1 %cmp4.i, label %mcshengHasAccept.argprom.exit, label %for.cond.i
+  br i1 %cmp4.i, label %mcshengHasAccept.exit, label %for.cond.i
 
-mcshengHasAccept.argprom.exit:                    ; preds = %for.cond.i, %for.body.i, %entry, %if.end.i
+mcshengHasAccept.exit:                            ; preds = %for.cond.i, %for.body.i, %entry, %if.end.i
   %retval.0.i = phi i8 [ 0, %entry ], [ 0, %if.end.i ], [ 0, %for.cond.i ], [ 1, %for.body.i ]
   ret i8 %retval.0.i
 }
@@ -2846,7 +2846,7 @@ entry:
   %add.ptr3.i = getelementptr inbounds %struct.mstate_aux, ptr %add.ptr1.i, i64 %idx.ext2.i
   %add.ptr3.i.val = load i32, ptr %add.ptr3.i, align 4
   %tobool.not.i = icmp eq i32 %add.ptr3.i.val, 0
-  br i1 %tobool.not.i, label %mcshengHasAccept.argprom.exit, label %if.end.i
+  br i1 %tobool.not.i, label %mcshengHasAccept.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %n, i64 64
@@ -2856,7 +2856,7 @@ if.end.i:                                         ; preds = %entry
   %report3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -60
   %3 = load i32, ptr %add.ptr2.i, align 4
   %cmp1.not.i = icmp eq i32 %3, 0
-  br i1 %cmp1.not.i, label %mcshengHasAccept.argprom.exit, label %for.body.preheader.i
+  br i1 %cmp1.not.i, label %mcshengHasAccept.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end.i
   %wide.trip.count.i = zext i32 %3 to i64
@@ -2865,16 +2865,16 @@ for.body.preheader.i:                             ; preds = %if.end.i
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %mcshengHasAccept.argprom.exit, label %for.body.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %mcshengHasAccept.exit, label %for.body.i, !llvm.loop !14
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
   %arrayidx.i = getelementptr inbounds [0 x i32], ptr %report3.i, i64 0, i64 %indvars.iv.i
   %4 = load i32, ptr %arrayidx.i, align 4
   %cmp4.i = icmp eq i32 %4, %report
-  br i1 %cmp4.i, label %mcshengHasAccept.argprom.exit, label %for.cond.i
+  br i1 %cmp4.i, label %mcshengHasAccept.exit, label %for.cond.i
 
-mcshengHasAccept.argprom.exit:                    ; preds = %for.cond.i, %for.body.i, %entry, %if.end.i
+mcshengHasAccept.exit:                            ; preds = %for.cond.i, %for.body.i, %entry, %if.end.i
   %retval.0.i = phi i8 [ 0, %entry ], [ 0, %if.end.i ], [ 0, %for.cond.i ], [ 1, %for.body.i ]
   ret i8 %retval.0.i
 }
@@ -5364,7 +5364,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %local_ep.i.0 = select i1 %cmp53.i, i64 %cond61.i, i64 %22
   %add.ptr64.i = getelementptr inbounds i8, ptr %cur_buf.i.0, i64 %sp.i.0
   %tobool.i.not.i = icmp eq i64 %local_ep.i.0, %sp.i.0
-  br i1 %tobool.i.not.i, label %mcshengExec8_i_nm.argprom.exit, label %if.end.i.i
+  br i1 %tobool.i.not.i, label %mcshengExec8_i_nm.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body.i
   %sub65.i = sub nsw i64 %local_ep.i.0, %sp.i.0
@@ -5400,7 +5400,7 @@ do.body11.i.i:                                    ; preds = %if.end53.i.i, %with
   %c.i.2.i = phi ptr [ %c.i.0.i, %without_accel.i.i ], [ %c.i.3.i, %if.end53.i.i ]
   %s.i.2.i = phi i32 [ %s.i.0.i, %without_accel.i.i ], [ %s.i.4.i, %if.end53.i.i ]
   %tobool12.i.not.i = icmp eq i32 %s.i.2.i, 0
-  br i1 %tobool12.i.not.i, label %mcshengExec8_i_nm.argprom.exit, label %if.else.i.i
+  br i1 %tobool12.i.not.i, label %mcshengExec8_i_nm.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %do.body11.i.i
   %cmp15.i.i = icmp ult i32 %s.i.2.i, %conv14.i.i
@@ -5753,7 +5753,7 @@ if.end53.i.i:                                     ; preds = %while.body.i338.i, 
 
 do.end56.i.i:                                     ; preds = %if.end53.i.i
   %cmp57.i.i = icmp eq ptr %c.i.3.i, %add.ptr.i.i
-  br i1 %cmp57.i.i, label %mcshengExec8_i_nm.argprom.exit, label %with_accel.i.i
+  br i1 %cmp57.i.i, label %mcshengExec8_i_nm.exit, label %with_accel.i.i
 
 with_accel.i.i:                                   ; preds = %do.end56.i.i, %if.end.i.with_accel.i_crit_edge.i
   %conv66.i.pre-phi.i = phi i32 [ %.pre304.i, %if.end.i.with_accel.i_crit_edge.i ], [ %conv14.i.i, %do.end56.i.i ]
@@ -5775,7 +5775,7 @@ do.body61.i.i:                                    ; preds = %if.end136.i.i, %wit
   %c.i.4.i = phi ptr [ %c.i.1.i, %with_accel.i.i ], [ %c.i.5.i, %if.end136.i.i ]
   %s.i.5.i = phi i32 [ %s.i.1.i, %with_accel.i.i ], [ %s.i.6.i, %if.end136.i.i ]
   %tobool63.i.not.i = icmp eq i32 %s.i.5.i, 0
-  br i1 %tobool63.i.not.i, label %mcshengExec8_i_nm.argprom.exit, label %if.else65.i.i
+  br i1 %tobool63.i.not.i, label %mcshengExec8_i_nm.exit, label %if.else65.i.i
 
 if.else65.i.i:                                    ; preds = %do.body61.i.i
   %cmp67.i.i = icmp ult i32 %s.i.5.i, %conv66.i.pre-phi.i
@@ -5802,7 +5802,7 @@ if.then73.i.i:                                    ; preds = %if.then69.i.i
   %cmp6.i.not.i = icmp ult ptr %min_accel_offset.i.2.i, %add.ptr5.i376.i
   %min_accel_offset.i.3.i = select i1 %cmp6.i.not.i, ptr %min_accel_offset.i.2.i, ptr %add.ptr.i.i
   %cmp75.i.i = icmp eq ptr %call.i371.i, %add.ptr.i.i
-  br i1 %cmp75.i.i, label %mcshengExec8_i_nm.argprom.exit, label %without_accel.i.i
+  br i1 %cmp75.i.i, label %mcshengExec8_i_nm.exit, label %without_accel.i.i
 
 if.end79.i.i:                                     ; preds = %if.then69.i.i
   %108 = trunc i32 %s.i.5.i to i8
@@ -6130,7 +6130,7 @@ if.then86.i.i:                                    ; preds = %land.lhs.true84.i.i
   %cmp6.i400.not.i = icmp ult ptr %min_accel_offset.i.4.i, %add.ptr5.i399.i
   %min_accel_offset.i.5.i = select i1 %cmp6.i400.not.i, ptr %min_accel_offset.i.4.i, ptr %add.ptr.i.i
   %cmp88.i.i = icmp eq ptr %call.i393.i, %add.ptr.i.i
-  br i1 %cmp88.i.i, label %mcshengExec8_i_nm.argprom.exit, label %without_accel.i.i
+  br i1 %cmp88.i.i, label %mcshengExec8_i_nm.exit, label %without_accel.i.i
 
 if.end92.i.i:                                     ; preds = %land.lhs.true84.i.i, %if.else81.i.i
   %178 = load i8, ptr %alphaShift.i327.i, align 2
@@ -6170,9 +6170,9 @@ if.end136.i.i:                                    ; preds = %while.body.i296.i, 
   %c.i.5.i = phi ptr [ %c.i38.1.i, %exit.i111.i ], [ %incdec.ptr.i302.i, %while.body.i296.i ], [ %c.i281.0.i, %while.cond.i293.i ]
   %s.i.6.i = phi i32 [ %conv283.i120.i, %exit.i111.i ], [ %conv13.i301.i, %while.body.i296.i ], [ %s.addr.i.0.i, %while.cond.i293.i ]
   %cmp138.i.i = icmp ult ptr %c.i.5.i, %add.ptr.i.i
-  br i1 %cmp138.i.i, label %do.body61.i.i, label %mcshengExec8_i_nm.argprom.exit, !llvm.loop !10
+  br i1 %cmp138.i.i, label %do.body61.i.i, label %mcshengExec8_i_nm.exit, !llvm.loop !10
 
-mcshengExec8_i_nm.argprom.exit:                   ; preds = %do.body11.i.i, %do.body61.i.i, %if.end136.i.i, %do.end56.i.i, %if.then73.i.i, %if.then86.i.i, %while.body.i
+mcshengExec8_i_nm.exit:                           ; preds = %do.body11.i.i, %do.body61.i.i, %if.end136.i.i, %do.end56.i.i, %if.then73.i.i, %if.then86.i.i, %while.body.i
   %s.i.2 = phi i32 [ %s.i.0, %while.body.i ], [ %s.i.4.i, %do.end56.i.i ], [ %s.i.5.i, %if.then73.i.i ], [ %s.i.5.i, %if.then86.i.i ], [ %s.i.6.i, %if.end136.i.i ], [ 0, %do.body61.i.i ], [ 0, %do.body11.i.i ]
   %cmp128.i = icmp eq i64 %local_ep.i.0, 0
   %cur_buf.i.1 = select i1 %cmp128.i, ptr %1, ptr %cur_buf.i.0
@@ -6180,7 +6180,7 @@ mcshengExec8_i_nm.argprom.exit:                   ; preds = %do.body11.i.i, %do.
   %.pre.pre = load i32, ptr %cur.i52, align 8
   br i1 %cmp132.i.not, label %if.end135.i, label %while.body.i.backedge
 
-if.end135.i:                                      ; preds = %mcshengExec8_i_nm.argprom.exit
+if.end135.i:                                      ; preds = %mcshengExec8_i_nm.exit
   %idxprom138.i = zext i32 %.pre.pre to i64
   %arrayidx139.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i51, i64 0, i64 %idxprom138.i
   %184 = load i32, ptr %arrayidx139.i, align 8
@@ -6215,9 +6215,9 @@ sw.epilog.i:                                      ; preds = %if.end135.i, %if.en
   store i32 %inc158.i, ptr %cur.i52, align 8
   br label %while.body.i.backedge
 
-while.body.i.backedge:                            ; preds = %sw.epilog.i, %mcshengExec8_i_nm.argprom.exit
-  %.be = phi i32 [ %inc158.i, %sw.epilog.i ], [ %.pre.pre, %mcshengExec8_i_nm.argprom.exit ]
-  %s.i.0.be = phi i32 [ %s.i.1, %sw.epilog.i ], [ %s.i.2, %mcshengExec8_i_nm.argprom.exit ]
+while.body.i.backedge:                            ; preds = %sw.epilog.i, %mcshengExec8_i_nm.exit
+  %.be = phi i32 [ %inc158.i, %sw.epilog.i ], [ %.pre.pre, %mcshengExec8_i_nm.exit ]
+  %s.i.0.be = phi i32 [ %s.i.1, %sw.epilog.i ], [ %s.i.2, %mcshengExec8_i_nm.exit ]
   br label %while.body.i
 
 nfaExecMcSheng8_Q2i.exit:                         ; preds = %if.end135.i
@@ -6418,7 +6418,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %local_ep.i.0 = select i1 %cmp51.i, i64 %cond59.i, i64 %21
   %add.ptr62.i = getelementptr inbounds i8, ptr %cur_buf.i.0, i64 %sp.i.0
   %tobool.i.not.i = icmp eq i64 %local_ep.i.0, %sp.i.0
-  br i1 %tobool.i.not.i, label %mcshengExec16_i_nm.argprom.exit, label %if.end2.i.i
+  br i1 %tobool.i.not.i, label %mcshengExec16_i_nm.exit, label %if.end2.i.i
 
 if.end2.i.i:                                      ; preds = %while.body.i
   %sub63.i = sub nsw i64 %local_ep.i.0, %sp.i.0
@@ -7368,9 +7368,9 @@ if.end165.i.i:                                    ; preds = %do.body11.i.i, %if.
   %s.i.2.i = phi i32 [ %s.i.4.i, %if.then81.i.i ], [ %and104.i.i, %if.then100.i.i ], [ %s.i.3.i, %do.end64.i.i ], [ 0, %with_accel.i.i ], [ %s.i.5.i, %if.end156.i.i ], [ 0, %do.body11.i.i ]
   %and161.i.i = and i32 %s.i.2.i, 16383
   %.pre.pre.pre = load i32, ptr %cur.i52, align 8
-  br label %mcshengExec16_i_nm.argprom.exit
+  br label %mcshengExec16_i_nm.exit
 
-mcshengExec16_i_nm.argprom.exit:                  ; preds = %while.body.i, %if.end165.i.i
+mcshengExec16_i_nm.exit:                          ; preds = %while.body.i, %if.end165.i.i
   %.pre.pre = phi i32 [ %.pre.pre457, %while.body.i ], [ %.pre.pre.pre, %if.end165.i.i ]
   %s.i.2 = phi i32 [ %s.i.0, %while.body.i ], [ %and161.i.i, %if.end165.i.i ]
   %cmp126.i = icmp eq i64 %local_ep.i.0, 0
@@ -7378,7 +7378,7 @@ mcshengExec16_i_nm.argprom.exit:                  ; preds = %while.body.i, %if.e
   %cmp130.i.not = icmp eq i64 %local_ep.i.0, %21
   br i1 %cmp130.i.not, label %if.end133.i, label %while.body.i.backedge
 
-if.end133.i:                                      ; preds = %mcshengExec16_i_nm.argprom.exit
+if.end133.i:                                      ; preds = %mcshengExec16_i_nm.exit
   %idxprom136.i = zext i32 %.pre.pre to i64
   %arrayidx137.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i51, i64 0, i64 %idxprom136.i
   %202 = load i32, ptr %arrayidx137.i, align 8
@@ -7412,9 +7412,9 @@ sw.epilog.i:                                      ; preds = %if.end133.i, %if.en
   store i32 %inc155.i, ptr %cur.i52, align 8
   br label %while.body.i.backedge
 
-while.body.i.backedge:                            ; preds = %sw.epilog.i, %mcshengExec16_i_nm.argprom.exit
-  %.pre.pre457.be = phi i32 [ %inc155.i, %sw.epilog.i ], [ %.pre.pre, %mcshengExec16_i_nm.argprom.exit ]
-  %s.i.0.be = phi i32 [ %s.i.1, %sw.epilog.i ], [ %s.i.2, %mcshengExec16_i_nm.argprom.exit ]
+while.body.i.backedge:                            ; preds = %sw.epilog.i, %mcshengExec16_i_nm.exit
+  %.pre.pre457.be = phi i32 [ %inc155.i, %sw.epilog.i ], [ %.pre.pre, %mcshengExec16_i_nm.exit ]
+  %s.i.0.be = phi i32 [ %s.i.1, %sw.epilog.i ], [ %s.i.2, %mcshengExec16_i_nm.exit ]
   br label %while.body.i
 
 nfaExecMcSheng16_Q2i.exit:                        ; preds = %if.end133.i

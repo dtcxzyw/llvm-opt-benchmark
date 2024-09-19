@@ -914,21 +914,21 @@ key_to_val.exit89.i:                              ; preds = %._crit_edge.i87.i, 
 258:                                              ; preds = %key_to_val.exit89.i
   %259 = load i32, ptr @hf_zrtp_msg_nonce, align 4
   %260 = call ptr @proto_tree_add_item(ptr noundef %189, i32 noundef %259, ptr noundef %0, i32 noundef 88, i32 noundef 16, i32 noundef 0) #4
-  br label %dissect_Commit.argprom.exit
+  br label %dissect_Commit.exit
 
 261:                                              ; preds = %key_to_val.exit89.i
   %262 = load i32, ptr @hf_zrtp_msg_nonce, align 4
   %263 = call ptr @proto_tree_add_item(ptr noundef %189, i32 noundef %262, ptr noundef %0, i32 noundef 88, i32 noundef 16, i32 noundef 0) #4
   %264 = load i32, ptr @hf_zrtp_msg_key_id, align 4
   %265 = call ptr @proto_tree_add_item(ptr noundef %189, i32 noundef %264, ptr noundef %0, i32 noundef 104, i32 noundef 8, i32 noundef 0) #4
-  br label %dissect_Commit.argprom.exit
+  br label %dissect_Commit.exit
 
 266:                                              ; preds = %key_to_val.exit89.i
   %267 = load i32, ptr @hf_zrtp_msg_hvi, align 4
   %268 = call ptr @proto_tree_add_item(ptr noundef %189, i32 noundef %267, ptr noundef %0, i32 noundef 88, i32 noundef 32, i32 noundef 0) #4
-  br label %dissect_Commit.argprom.exit
+  br label %dissect_Commit.exit
 
-dissect_Commit.argprom.exit:                      ; preds = %258, %261, %266
+dissect_Commit.exit:                              ; preds = %258, %261, %266
   %.0.i = phi i32 [ 120, %266 ], [ 112, %261 ], [ 104, %258 ]
   %269 = load i32, ptr @hf_zrtp_msg_hmac, align 4
   %270 = call ptr @proto_tree_add_item(ptr noundef %189, i32 noundef %269, ptr noundef %0, i32 noundef %.0.i, i32 noundef 8, i32 noundef 0) #4
@@ -946,7 +946,7 @@ dissect_Commit.argprom.exit:                      ; preds = %258, %261, %266
   %276 = load i32, ptr @ett_zrtp_msg_data, align 4
   %277 = call ptr @proto_item_add_subtree(ptr noundef %275, i32 noundef %276) #4
   %.val177 = load ptr, ptr %6, align 8
-  call fastcc void @dissect_DHPart.argprom(ptr noundef %0, ptr %.val177, ptr noundef %277, i32 noundef 1)
+  call fastcc void @dissect_DHPart(ptr noundef %0, ptr %.val177, ptr noundef %277, i32 noundef 1)
   br label %358
 
 278:                                              ; preds = %271
@@ -961,7 +961,7 @@ dissect_Commit.argprom.exit:                      ; preds = %258, %261, %266
   %283 = load i32, ptr @ett_zrtp_msg_data, align 4
   %284 = call ptr @proto_item_add_subtree(ptr noundef %282, i32 noundef %283) #4
   %.val178 = load ptr, ptr %6, align 8
-  call fastcc void @dissect_DHPart.argprom(ptr noundef %0, ptr %.val178, ptr noundef %284, i32 noundef 2)
+  call fastcc void @dissect_DHPart(ptr noundef %0, ptr %.val178, ptr noundef %284, i32 noundef 2)
   br label %358
 
 285:                                              ; preds = %278
@@ -1031,7 +1031,7 @@ dissect_Commit.argprom.exit:                      ; preds = %258, %261, %266
   %322 = load i32, ptr @ett_zrtp_msg_data, align 4
   %323 = call ptr @proto_item_add_subtree(ptr noundef %321, i32 noundef %322) #4
   %.val181 = load ptr, ptr %6, align 8
-  call fastcc void @dissect_Error.argprom(ptr noundef %0, ptr %.val181, ptr noundef %323)
+  call fastcc void @dissect_Error(ptr noundef %0, ptr %.val181, ptr noundef %323)
   br label %358
 
 324:                                              ; preds = %317
@@ -1056,7 +1056,7 @@ dissect_Commit.argprom.exit:                      ; preds = %258, %261, %266
   %331 = load i32, ptr @ett_zrtp_msg_data, align 4
   %332 = call ptr @proto_item_add_subtree(ptr noundef %330, i32 noundef %331) #4
   %.val183 = load ptr, ptr %6, align 8
-  call fastcc void @dissect_GoClear.argprom(ptr noundef %0, ptr %.val183, ptr noundef %332)
+  call fastcc void @dissect_GoClear(ptr noundef %0, ptr %.val183, ptr noundef %332)
   br label %358
 
 333:                                              ; preds = %326
@@ -1081,7 +1081,7 @@ dissect_Commit.argprom.exit:                      ; preds = %258, %261, %266
   %340 = load i32, ptr @ett_zrtp_msg_data, align 4
   %341 = call ptr @proto_item_add_subtree(ptr noundef %339, i32 noundef %340) #4
   %.val185 = load ptr, ptr %6, align 8
-  call fastcc void @dissect_SASrelay.argprom(ptr noundef %0, ptr %.val185, ptr noundef %341)
+  call fastcc void @dissect_SASrelay(ptr noundef %0, ptr %.val185, ptr noundef %341)
   br label %358
 
 342:                                              ; preds = %335
@@ -1106,7 +1106,7 @@ dissect_Commit.argprom.exit:                      ; preds = %258, %261, %266
   %349 = load i32, ptr @ett_zrtp_msg_data, align 4
   %350 = call ptr @proto_item_add_subtree(ptr noundef %348, i32 noundef %349) #4
   %.val187 = load ptr, ptr %6, align 8
-  call fastcc void @dissect_Ping.argprom(ptr noundef %0, ptr %.val187, ptr noundef %350)
+  call fastcc void @dissect_Ping(ptr noundef %0, ptr %.val187, ptr noundef %350)
   br label %358
 
 351:                                              ; preds = %344
@@ -1121,10 +1121,10 @@ dissect_Commit.argprom.exit:                      ; preds = %258, %261, %266
   %356 = load i32, ptr @ett_zrtp_msg_data, align 4
   %357 = call ptr @proto_item_add_subtree(ptr noundef %355, i32 noundef %356) #4
   %.val188 = load ptr, ptr %6, align 8
-  call fastcc void @dissect_PingACK.argprom(ptr noundef %0, ptr %.val188, ptr noundef %357)
+  call fastcc void @dissect_PingACK(ptr noundef %0, ptr %.val188, ptr noundef %357)
   br label %358
 
-358:                                              ; preds = %182, %272, %286, %316, %325, %334, %343, %351, %352, %345, %336, %327, %318, %301, %279, %dissect_Commit.argprom.exit, %dissect_Hello.exit
+358:                                              ; preds = %182, %272, %286, %316, %325, %334, %343, %351, %352, %345, %336, %327, %318, %301, %279, %dissect_Commit.exit, %dissect_Hello.exit
   %359 = add i32 %25, 8
   %360 = call i32 @crc32c_tvb_offset_calculate(ptr noundef %0, i32 noundef 0, i32 noundef %359, i32 noundef -1) #4
   %361 = xor i32 %360, -1
@@ -1164,7 +1164,7 @@ declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) loca
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_DHPart.argprom(ptr noundef %0, ptr %.8.val, ptr noundef %1, i32 noundef range(i32 1, 3) %2) unnamed_addr #0 {
+define internal fastcc void @dissect_DHPart(ptr noundef %0, ptr %.8.val, ptr noundef %1, i32 noundef range(i32 1, 3) %2) unnamed_addr #0 {
   %4 = icmp eq i32 %2, 1
   %5 = select i1 %4, ptr @.str.210, ptr @.str.211
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull %5) #4
@@ -1232,7 +1232,7 @@ define internal fastcc void @dissect_Conf2ACK(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_Error.argprom(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_Error(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void @col_set_str(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.218) #4
   %3 = load i32, ptr @hf_zrtp_msg_error, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef 0) #4
@@ -1240,7 +1240,7 @@ define internal fastcc void @dissect_Error.argprom(ptr noundef %0, ptr %.8.val, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_GoClear.argprom(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_GoClear(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void @col_set_str(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.220) #4
   %3 = load i32, ptr @hf_zrtp_msg_hmac, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0) #4
@@ -1248,7 +1248,7 @@ define internal fastcc void @dissect_GoClear.argprom(ptr noundef %0, ptr %.8.val
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_SASrelay.argprom(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_SASrelay(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void @col_set_str(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.222) #4
   %3 = load i32, ptr @hf_zrtp_msg_hmac, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0) #4
@@ -1262,7 +1262,7 @@ define internal fastcc void @dissect_SASrelay.argprom(ptr noundef %0, ptr %.8.va
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_Ping.argprom(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_Ping(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void @col_set_str(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.224) #4
   %3 = load i32, ptr @hf_zrtp_msg_ping_version, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef 0) #4
@@ -1272,7 +1272,7 @@ define internal fastcc void @dissect_Ping.argprom(ptr noundef %0, ptr %.8.val, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PingACK.argprom(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_PingACK(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void @col_set_str(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.225) #4
   %3 = load i32, ptr @hf_zrtp_msg_ping_version, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef 0) #4

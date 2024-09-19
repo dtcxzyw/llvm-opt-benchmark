@@ -143,9 +143,9 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %cmp1.i = icmp eq ptr %0, null
-  br i1 %cmp1.i, label %land.lhs.true, label %check_key_level.argprom.argprom.exit
+  br i1 %cmp1.i, label %land.lhs.true, label %check_key_level.exit
 
-check_key_level.argprom.argprom.exit:             ; preds = %if.end.i
+check_key_level.exit:                             ; preds = %if.end.i
   %3 = tail call i32 @llvm.umin.i32(i32 %ctx.val.val, i32 5)
   %call.i = tail call i32 @EVP_PKEY_get_security_bits(ptr noundef nonnull %0) #10
   %sub.i = add nsw i32 %3, -1
@@ -155,7 +155,7 @@ check_key_level.argprom.argprom.exit:             ; preds = %if.end.i
   %cmp7.i.not = icmp slt i32 %call.i, %4
   br i1 %cmp7.i.not, label %land.lhs.true, label %if.end
 
-land.lhs.true:                                    ; preds = %if.end.i, %check_key_level.argprom.argprom.exit
+land.lhs.true:                                    ; preds = %if.end.i, %check_key_level.exit
   %error_depth.i = getelementptr inbounds i8, ptr %ctx, i64 172
   store i32 0, ptr %error_depth.i, align 4
   %chain.i = getelementptr inbounds i8, ptr %ctx, i64 152
@@ -171,7 +171,7 @@ land.lhs.true:                                    ; preds = %if.end.i, %check_ke
   %cmp = icmp eq i32 %call7.i, 0
   br i1 %cmp, label %return, label %if.end
 
-if.end:                                           ; preds = %entry, %land.lhs.true, %check_key_level.argprom.argprom.exit
+if.end:                                           ; preds = %entry, %land.lhs.true, %check_key_level.exit
   %error = getelementptr inbounds i8, ptr %ctx, i64 176
   store i32 95, ptr %error, align 8
   %dane = getelementptr inbounds i8, ptr %ctx, i64 240
@@ -257,7 +257,7 @@ if.then17.i.i:                                    ; preds = %if.end12.i.i
 if.then22.i.i:                                    ; preds = %if.then17.i.i
   %call24.i.i = call i32 @EVP_Digest(ptr noundef %21, i64 noundef %conv23.i.i, ptr noundef nonnull %mdbuf.i.i, ptr noundef nonnull %cmplen.i.i, ptr noundef nonnull %20, ptr noundef null) #10
   %tobool.not.i.i = icmp eq i32 %call24.i.i, 0
-  br i1 %tobool.not.i.i, label %dane_match_rpk.argprom.exit.i, label %if.end28.i.i
+  br i1 %tobool.not.i.i, label %dane_match_rpk.exit.i, label %if.end28.i.i
 
 if.end28.i.i:                                     ; preds = %if.then22.i.i, %if.then17.i.i, %if.end12.i.i
   %cmpbuf.2.i.i = phi ptr [ %mdbuf.i.i, %if.then22.i.i ], [ %21, %if.then17.i.i ], [ %cmpbuf.02.i.i, %if.end12.i.i ]
@@ -283,12 +283,12 @@ for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, 
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %call.i.i.i
   br i1 %exitcond.not.i.i, label %if.end6.i, label %for.body.i.i, !llvm.loop !4
 
-dane_match_rpk.argprom.exit.i:                    ; preds = %if.then22.i.i
+dane_match_rpk.exit.i:                            ; preds = %if.then22.i.i
   %25 = load ptr, ptr %i2dbuf.i.i, align 8
   call void @CRYPTO_free(ptr noundef %25, ptr noundef nonnull @.str, i32 noundef 3068) #10
   br label %land.lhs.true10.thread
 
-land.lhs.true10.thread:                           ; preds = %dane_match_rpk.argprom.exit.i, %cond.true
+land.lhs.true10.thread:                           ; preds = %dane_match_rpk.exit.i, %cond.true
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %i2dbuf.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %mdbuf.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cmplen.i.i)
@@ -494,7 +494,7 @@ cond.true:                                        ; preds = %land.lhs.true19
   %15 = load ptr, ptr %cert, align 8
   %ctx.val.i21 = load i32, ptr %num_untrusted, align 4
   %ctx.val28.i = load ptr, ptr %dane, align 8
-  %call.i22 = tail call fastcc i32 @dane_match_cert.argprom(i32 %ctx.val.i21, ptr %ctx.val28.i, ptr noundef %15, i32 noundef 0)
+  %call.i22 = tail call fastcc i32 @dane_match_cert(i32 %ctx.val.i21, ptr %ctx.val28.i, ptr noundef %15, i32 noundef 0)
   %cmp.not.i = icmp eq i32 %call.i22, 0
   br i1 %cmp.not.i, label %land.lhs.true.i, label %land.lhs.true7.i
 
@@ -4438,7 +4438,7 @@ if.end.i189:                                      ; preds = %land.lhs.true.i
 land.lhs.true5.i:                                 ; preds = %if.end.i189
   %ctx.val.i = load i32, ptr %num_untrusted, align 4
   %ctx.val10.i = load ptr, ptr %dane1, align 8
-  %call6.i = call fastcc i32 @dane_match_cert.argprom(i32 %ctx.val.i, ptr %ctx.val10.i, ptr noundef nonnull %call3.i, i32 noundef %47)
+  %call6.i = call fastcc i32 @dane_match_cert(i32 %ctx.val.i, ptr %ctx.val10.i, ptr noundef nonnull %call3.i, i32 noundef %47)
   %cmp7.i = icmp slt i32 %call6.i, 0
   br i1 %cmp7.i, label %while.cond.outer.backedge, label %if.end9.i
 
@@ -5426,22 +5426,22 @@ land.lhs.true14.i:                                ; preds = %if.end12.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %secbits.i.i)
   store i32 -1, ptr %secbits.i.i, align 4
   %cmp.i.i44 = icmp slt i32 %ctx.val.val.i, 1
-  br i1 %cmp.i.i44, label %check_sig_level.argprom.argprom.exit.thread38.i, label %if.end.i.i45
+  br i1 %cmp.i.i44, label %check_sig_level.exit.thread38.i, label %if.end.i.i45
 
-check_sig_level.argprom.argprom.exit.thread38.i:  ; preds = %land.lhs.true14.i
+check_sig_level.exit.thread38.i:                  ; preds = %land.lhs.true14.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %secbits.i.i)
   br label %for.inc.i42
 
 if.end.i.i45:                                     ; preds = %land.lhs.true14.i
   %call.i17.i = call i32 @X509_get_signature_info(ptr noundef %call5.i, ptr noundef null, ptr noundef null, ptr noundef nonnull %secbits.i.i, ptr noundef null) #10
   %tobool.not.i.i = icmp eq i32 %call.i17.i, 0
-  br i1 %tobool.not.i.i, label %check_sig_level.argprom.argprom.exit.thread.i, label %check_sig_level.argprom.argprom.exit.i
+  br i1 %tobool.not.i.i, label %check_sig_level.exit.thread.i, label %check_sig_level.exit.i
 
-check_sig_level.argprom.argprom.exit.thread.i:    ; preds = %if.end.i.i45
+check_sig_level.exit.thread.i:                    ; preds = %if.end.i.i45
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %secbits.i.i)
   br label %land.lhs.true17.i
 
-check_sig_level.argprom.argprom.exit.i:           ; preds = %if.end.i.i45
+check_sig_level.exit.i:                           ; preds = %if.end.i.i45
   %95 = call i32 @llvm.umin.i32(i32 %ctx.val.val.i, i32 5)
   %96 = load i32, ptr %secbits.i.i, align 4
   %sub.i.i = add nsw i32 %95, -1
@@ -5452,7 +5452,7 @@ check_sig_level.argprom.argprom.exit.i:           ; preds = %if.end.i.i45
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %secbits.i.i)
   br i1 %cmp6.i.not.i, label %land.lhs.true17.i, label %for.inc.i42
 
-land.lhs.true17.i:                                ; preds = %check_sig_level.argprom.argprom.exit.i, %check_sig_level.argprom.argprom.exit.thread.i
+land.lhs.true17.i:                                ; preds = %check_sig_level.exit.i, %check_sig_level.exit.thread.i
   store i32 %i.042.i, ptr %error_depth.i.i, align 4
   %cmp2.not.i21.i = icmp eq ptr %call5.i, null
   br i1 %cmp2.not.i21.i, label %cond.false.i27.i, label %verify_cb_cert.exit30.i
@@ -5471,7 +5471,7 @@ verify_cb_cert.exit30.i:                          ; preds = %cond.false.i27.i, %
   %cmp19.i = icmp eq i32 %call7.i26.i, 0
   br i1 %cmp19.i, label %return, label %for.inc.i42
 
-for.inc.i42:                                      ; preds = %verify_cb_cert.exit30.i, %check_sig_level.argprom.argprom.exit.i, %check_sig_level.argprom.argprom.exit.thread38.i, %if.end12.i
+for.inc.i42:                                      ; preds = %verify_cb_cert.exit30.i, %check_sig_level.exit.i, %check_sig_level.exit.thread38.i, %if.end12.i
   %inc.i = add nuw nsw i32 %i.042.i, 1
   %exitcond.not.i43 = icmp eq i32 %inc.i, %call1.i30
   br i1 %exitcond.not.i43, label %lor.lhs.false6, label %for.body.i38, !llvm.loop !19
@@ -5758,7 +5758,7 @@ return:                                           ; preds = %verify_cb_cert.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @dane_match_cert.argprom(i32 %ctx.148.val, ptr nocapture %ctx.240.val, ptr noundef %cert, i32 noundef %depth) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @dane_match_cert(i32 %ctx.148.val, ptr nocapture %ctx.240.val, ptr noundef %cert, i32 noundef %depth) unnamed_addr #0 {
 entry:
   %buf.i = alloca ptr, align 8
   %mdbuf = alloca [64 x i8], align 16
@@ -7118,7 +7118,7 @@ land.lhs.true5.i:                                 ; preds = %if.end.i
   %6 = getelementptr i8, ptr %ctx, i64 148
   %ctx.val.i = load i32, ptr %6, align 4
   %ctx.val10.i = load ptr, ptr %dane1, align 8
-  %call6.i = tail call fastcc i32 @dane_match_cert.argprom(i32 %ctx.val.i, ptr %ctx.val10.i, ptr noundef nonnull %call3.i, i32 noundef %num_untrusted)
+  %call6.i = tail call fastcc i32 @dane_match_cert(i32 %ctx.val.i, ptr %ctx.val10.i, ptr noundef nonnull %call3.i, i32 noundef %num_untrusted)
   %cmp7.i = icmp slt i32 %call6.i, 0
   br i1 %cmp7.i, label %return, label %if.end9.i
 

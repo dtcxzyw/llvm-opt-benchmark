@@ -145,7 +145,7 @@ for.body.i.i:                                     ; preds = %if.end11.i.i, %if.t
   %call3.i.i = tail call ptr @BIO_f_prefix() #7
   %call4.i.i = tail call ptr @BIO_new(ptr noundef %call3.i.i) #7
   %cmp5.i.i = icmp eq ptr %call4.i.i, null
-  br i1 %cmp5.i.i, label %setup_bio_chain.argprom.exit.thread.i, label %if.end.i.i
+  br i1 %cmp5.i.i, label %setup_bio_chain.exit.thread.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %call7.i.i = tail call ptr @BIO_push(ptr noundef nonnull %call4.i.i, ptr noundef %next.03.i.i) #7
@@ -153,7 +153,7 @@ if.end.i.i:                                       ; preds = %for.body.i.i
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %10, i64 %i.05.i.i
   store ptr %call7.i.i, ptr %arrayidx.i.i, align 8
   %cmp9.i.i = icmp eq ptr %call7.i.i, null
-  br i1 %cmp9.i.i, label %setup_bio_chain.argprom.exit.thread.i, label %if.end11.i.i
+  br i1 %cmp9.i.i, label %setup_bio_chain.exit.thread.i, label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.end.i.i
   %inc.i.i = add nuw i64 %i.05.i.i, 1
@@ -161,13 +161,13 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
   %cmp2.not.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp2.not.i.i, label %sw.epilog.i, label %for.body.i.i, !llvm.loop !5
 
-setup_bio_chain.argprom.exit.thread.i:            ; preds = %if.end.i.i, %for.body.i.i
+setup_bio_chain.exit.thread.i:                    ; preds = %if.end.i.i, %for.body.i.i
   tail call void @BIO_free_all(ptr noundef %next.03.i.i) #7
   %11 = load ptr, ptr @chain, align 8
   tail call void @CRYPTO_free(ptr noundef %11, ptr noundef nonnull @.str.7, i32 noundef 122) #7
   br label %if.then27.i
 
-if.then27.i:                                      ; preds = %if.end25.i, %setup_bio_chain.argprom.exit.thread.i
+if.then27.i:                                      ; preds = %if.end25.i, %setup_bio_chain.exit.thread.i
   %12 = load ptr, ptr @bio_err, align 8
   %call28.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %12, ptr noundef nonnull @.str.12, ptr noundef %call.i) #7
   br label %setup.exit.thread

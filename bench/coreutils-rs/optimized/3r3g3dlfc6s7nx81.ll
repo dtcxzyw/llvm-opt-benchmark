@@ -509,7 +509,7 @@ define void @_ZN8uu_tsort5Graph8add_edge17hf35e1a68172664f8E(ptr noalias noundef
   %.val30 = load ptr, ptr %14, align 8, !alias.scope !134, !noalias !137, !noundef !30
   %15 = getelementptr inbounds i8, ptr %0, i64 32
   %16 = icmp eq ptr %.val30, null
-  br i1 %16, label %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.argprom.exit.thread, label %17
+  br i1 %16, label %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit.thread, label %17
 
 17:                                               ; preds = %5
   %.val31 = load i64, ptr %15, align 8
@@ -517,9 +517,9 @@ define void @_ZN8uu_tsort5Graph8add_edge17hf35e1a68172664f8E(ptr noalias noundef
   call void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h3aa64d59031c36eeE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %13, ptr noundef nonnull %.val30, i64 noundef %.val31, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4), !noalias !145
   %18 = load i64, ptr %13, align 8, !range !146, !noalias !139, !noundef !30
   %trunc.i.i = trunc nuw i64 %18 to i1
-  br i1 %trunc.i.i, label %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.argprom.exit, label %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.argprom.exit.thread51
+  br i1 %trunc.i.i, label %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit, label %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit.thread51
 
-_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.argprom.exit.thread51: ; preds = %17
+_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit.thread51: ; preds = %17
   %.sroa.27.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %13, i64 24
   %.sroa.27.0.copyload.i.i = load i64, ptr %.sroa.27.0..sroa_idx.i.i, align 8, !noalias !139
   %19 = icmp ult i64 %.sroa.27.0.copyload.i.i, 11
@@ -527,18 +527,18 @@ _ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.argprom.exit.thread51: ; preds =
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13), !noalias !139
   br label %20
 
-_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.argprom.exit: ; preds = %17
+_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit: ; preds = %17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13), !noalias !139
-  br label %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.argprom.exit.thread
+  br label %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit.thread
 
-_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.argprom.exit.thread: ; preds = %5, %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.argprom.exit
+_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit.thread: ; preds = %5, %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit
   tail call fastcc void @_ZN8uu_tsort5Graph9init_node17he5758c583dbd4d5dE(ptr noalias noundef align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
   br label %20
 
-20:                                               ; preds = %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.argprom.exit.thread51, %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.argprom.exit.thread
+20:                                               ; preds = %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit.thread51, %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit.thread
   %.val = load ptr, ptr %14, align 8, !alias.scope !134, !noalias !137, !noundef !30
   %21 = icmp eq ptr %.val, null
-  br i1 %21, label %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.argprom.exit39.thread, label %22
+  br i1 %21, label %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit39.thread, label %22
 
 22:                                               ; preds = %20
   %.val29 = load i64, ptr %15, align 8
@@ -546,9 +546,9 @@ _ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.argprom.exit.thread: ; preds = %
   call void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h3aa64d59031c36eeE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %12, ptr noundef nonnull %.val, i64 noundef %.val29, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !153
   %23 = load i64, ptr %12, align 8, !range !146, !noalias !147, !noundef !30
   %trunc.i.i34 = trunc nuw i64 %23 to i1
-  br i1 %trunc.i.i34, label %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.argprom.exit39, label %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.argprom.exit39.thread54
+  br i1 %trunc.i.i34, label %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit39, label %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit39.thread54
 
-_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.argprom.exit39.thread54: ; preds = %22
+_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit39.thread54: ; preds = %22
   %.sroa.27.0..sroa_idx.i.i35 = getelementptr inbounds i8, ptr %12, i64 24
   %.sroa.27.0.copyload.i.i36 = load i64, ptr %.sroa.27.0..sroa_idx.i.i35, align 8, !noalias !147
   %24 = icmp ult i64 %.sroa.27.0.copyload.i.i36, 11
@@ -556,15 +556,15 @@ _ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.argprom.exit39.thread54: ; preds
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12), !noalias !147
   br label %25
 
-_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.argprom.exit39: ; preds = %22
+_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit39: ; preds = %22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12), !noalias !147
-  br label %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.argprom.exit39.thread
+  br label %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit39.thread
 
-_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.argprom.exit39.thread: ; preds = %20, %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.argprom.exit39
+_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit39.thread: ; preds = %20, %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit39
   tail call fastcc void @_ZN8uu_tsort5Graph9init_node17he5758c583dbd4d5dE(ptr noalias noundef align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   br label %25
 
-25:                                               ; preds = %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.argprom.exit39.thread54, %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.argprom.exit39.thread
+25:                                               ; preds = %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit39.thread54, %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit39.thread
   %.not.i = icmp eq i64 %2, %4
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h735d32763c880df4E.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h735d32763c880df4E.exit.thread"
 
@@ -607,7 +607,7 @@ _ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.argprom.exit39.thread: ; preds =
   tail call void @llvm.experimental.noalias.scope.decl(metadata !172)
   %35 = load ptr, ptr %34, align 8, !alias.scope !172, !noalias !175, !noundef !30
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %_ZN8uu_tsort5Graph8has_edge17h622e240521554eceE.argprom.exit.thread, label %37
+  br i1 %36, label %_ZN8uu_tsort5Graph8has_edge17h622e240521554eceE.exit.thread, label %37
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds i8, ptr %34, i64 8
@@ -616,9 +616,9 @@ _ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.argprom.exit39.thread: ; preds =
   call void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h4316325b1c29fb30E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %10, ptr noundef nonnull %35, i64 noundef %39, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !172
   %40 = load i64, ptr %10, align 8, !range !146, !noalias !177, !noundef !30
   %trunc.i3.i = trunc nuw i64 %40 to i1
-  br i1 %trunc.i3.i, label %_ZN8uu_tsort5Graph8has_edge17h622e240521554eceE.argprom.exit, label %_ZN8uu_tsort5Graph8has_edge17h622e240521554eceE.argprom.exit.thread58
+  br i1 %trunc.i3.i, label %_ZN8uu_tsort5Graph8has_edge17h622e240521554eceE.exit, label %_ZN8uu_tsort5Graph8has_edge17h622e240521554eceE.exit.thread58
 
-_ZN8uu_tsort5Graph8has_edge17h622e240521554eceE.argprom.exit.thread58: ; preds = %37
+_ZN8uu_tsort5Graph8has_edge17h622e240521554eceE.exit.thread58: ; preds = %37
   %.sroa.27.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %10, i64 24
   %.sroa.27.0.copyload.i6.i = load i64, ptr %.sroa.27.0..sroa_idx.i5.i, align 8, !noalias !177
   %41 = icmp ult i64 %.sroa.27.0.copyload.i6.i, 11
@@ -626,20 +626,20 @@ _ZN8uu_tsort5Graph8has_edge17h622e240521554eceE.argprom.exit.thread58: ; preds =
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !177
   br label %42
 
-_ZN8uu_tsort5Graph8has_edge17h622e240521554eceE.argprom.exit: ; preds = %37
+_ZN8uu_tsort5Graph8has_edge17h622e240521554eceE.exit: ; preds = %37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !177
-  br label %_ZN8uu_tsort5Graph8has_edge17h622e240521554eceE.argprom.exit.thread
+  br label %_ZN8uu_tsort5Graph8has_edge17h622e240521554eceE.exit.thread
 
-42:                                               ; preds = %_ZN8uu_tsort5Graph8has_edge17h622e240521554eceE.argprom.exit.thread58, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h735d32763c880df4E.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h173ef62a0fbc5ef5E.exit"
+42:                                               ; preds = %_ZN8uu_tsort5Graph8has_edge17h622e240521554eceE.exit.thread58, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h735d32763c880df4E.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h173ef62a0fbc5ef5E.exit"
   ret void
 
-_ZN8uu_tsort5Graph8has_edge17h622e240521554eceE.argprom.exit.thread: ; preds = %30, %_ZN8uu_tsort5Graph8has_edge17h622e240521554eceE.argprom.exit
+_ZN8uu_tsort5Graph8has_edge17h622e240521554eceE.exit.thread: ; preds = %30, %_ZN8uu_tsort5Graph8has_edge17h622e240521554eceE.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !178)
   %43 = load ptr, ptr %14, align 8, !alias.scope !178, !noalias !181, !noundef !30
   %44 = icmp eq ptr %43, null
   br i1 %44, label %select.unfold, label %45
 
-45:                                               ; preds = %_ZN8uu_tsort5Graph8has_edge17h622e240521554eceE.argprom.exit.thread
+45:                                               ; preds = %_ZN8uu_tsort5Graph8has_edge17h622e240521554eceE.exit.thread
   %46 = load i64, ptr %15, align 8, !alias.scope !178, !noalias !181, !noundef !30
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !183
   call void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17ha9dc3c48a5e6a20fE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %9, ptr noundef nonnull %43, i64 noundef %46, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4), !noalias !178
@@ -652,7 +652,7 @@ _ZN8uu_tsort5Graph8has_edge17h622e240521554eceE.argprom.exit.thread: ; preds = %
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !183
   br i1 %trunc.i, label %select.unfold, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17h7b9f0ab51c5e9c4aE.exit"
 
-select.unfold:                                    ; preds = %45, %_ZN8uu_tsort5Graph8has_edge17h622e240521554eceE.argprom.exit.thread
+select.unfold:                                    ; preds = %45, %_ZN8uu_tsort5Graph8has_edge17h622e240521554eceE.exit.thread
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ad47d7234d56c7785824cc3a22aa1256.9) #15
   unreachable
 
@@ -1357,9 +1357,9 @@ attributes #15 = { noreturn }
 !47 = !{!32, !40}
 !48 = !{!40}
 !49 = !{!50, !52}
-!50 = distinct !{!50, !51, !"_ZN12clap_builder7builder3arg3Arg13default_value17h90e29f44635ed296E.argprom: argument 0"}
-!51 = distinct !{!51, !"_ZN12clap_builder7builder3arg3Arg13default_value17h90e29f44635ed296E.argprom"}
-!52 = distinct !{!52, !51, !"_ZN12clap_builder7builder3arg3Arg13default_value17h90e29f44635ed296E.argprom: argument 1"}
+!50 = distinct !{!50, !51, !"_ZN12clap_builder7builder3arg3Arg13default_value17h90e29f44635ed296E: argument 0"}
+!51 = distinct !{!51, !"_ZN12clap_builder7builder3arg3Arg13default_value17h90e29f44635ed296E"}
+!52 = distinct !{!52, !51, !"_ZN12clap_builder7builder3arg3Arg13default_value17h90e29f44635ed296E: argument 1"}
 !53 = !{!50}
 !54 = !{!55}
 !55 = distinct !{!55, !56, !"_ZN12clap_builder7builder3arg3Arg14default_values17h4363e28e149b6414E: argument 0"}
@@ -1450,16 +1450,16 @@ attributes #15 = { noreturn }
 !140 = distinct !{!140, !141, !"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hcb83d3edef692facE: argument 0"}
 !141 = distinct !{!141, !"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hcb83d3edef692facE"}
 !142 = distinct !{!142, !141, !"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hcb83d3edef692facE: argument 1"}
-!143 = distinct !{!143, !144, !"_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.argprom: argument 0"}
-!144 = distinct !{!144, !"_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.argprom"}
+!143 = distinct !{!143, !144, !"_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE: argument 0"}
+!144 = distinct !{!144, !"_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE"}
 !145 = !{!140}
 !146 = !{i64 0, i64 2}
 !147 = !{!148, !150, !151}
 !148 = distinct !{!148, !149, !"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hcb83d3edef692facE: argument 0"}
 !149 = distinct !{!149, !"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hcb83d3edef692facE"}
 !150 = distinct !{!150, !149, !"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hcb83d3edef692facE: argument 1"}
-!151 = distinct !{!151, !152, !"_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.argprom: argument 0"}
-!152 = distinct !{!152, !"_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.argprom"}
+!151 = distinct !{!151, !152, !"_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE: argument 0"}
+!152 = distinct !{!152, !"_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE"}
 !153 = !{!148}
 !154 = !{!155, !157}
 !155 = distinct !{!155, !156, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h735d32763c880df4E: argument 0"}
@@ -1474,9 +1474,9 @@ attributes #15 = { noreturn }
 !164 = distinct !{!164, !165, !"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hcb83d3edef692facE: argument 0"}
 !165 = distinct !{!165, !"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hcb83d3edef692facE"}
 !166 = distinct !{!166, !165, !"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hcb83d3edef692facE: argument 1"}
-!167 = distinct !{!167, !168, !"_ZN8uu_tsort5Graph8has_edge17h622e240521554eceE.argprom: argument 0"}
-!168 = distinct !{!168, !"_ZN8uu_tsort5Graph8has_edge17h622e240521554eceE.argprom"}
-!169 = distinct !{!169, !168, !"_ZN8uu_tsort5Graph8has_edge17h622e240521554eceE.argprom: argument 1"}
+!167 = distinct !{!167, !168, !"_ZN8uu_tsort5Graph8has_edge17h622e240521554eceE: argument 0"}
+!168 = distinct !{!168, !"_ZN8uu_tsort5Graph8has_edge17h622e240521554eceE"}
+!169 = distinct !{!169, !168, !"_ZN8uu_tsort5Graph8has_edge17h622e240521554eceE: argument 1"}
 !170 = !{!164, !167}
 !171 = !{!167}
 !172 = !{!173}

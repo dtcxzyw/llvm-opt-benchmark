@@ -2493,7 +2493,7 @@ define hidden noundef i32 @_ZNK4ncnn21Deconvolution_x86_fma7forwardERKNS_3MatERS
   %563 = icmp eq i32 %16, 8
   %564 = icmp eq i32 %.0653, 8
   %or.cond = and i1 %563, %564
-  br i1 %or.cond, label %565, label %_ZN4ncnnL23deconvolution_pack8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit
+  br i1 %or.cond, label %565, label %_ZN4ncnnL23deconvolution_pack8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit
 
 565:                                              ; preds = %562
   %566 = getelementptr inbounds nuw i8, ptr %0, i64 520
@@ -2927,14 +2927,14 @@ define hidden noundef i32 @_ZNK4ncnn21Deconvolution_x86_fma7forwardERKNS_3MatERS
 ._crit_edge38.i:                                  ; preds = %._crit_edge.us.i, %.preheader5.lr.ph.i, %.lr.ph.split.i
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %exitcond74.not.i = icmp eq i64 %indvars.iv.next71.i, %wide.trip.count73.i
-  br i1 %exitcond74.not.i, label %_ZN4ncnnL23deconvolution_pack8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit, label %.lr.ph.splitthread-pre-split.i, !llvm.loop !40
+  br i1 %exitcond74.not.i, label %_ZN4ncnnL23deconvolution_pack8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit, label %.lr.ph.splitthread-pre-split.i, !llvm.loop !40
 
-_ZN4ncnnL23deconvolution_pack8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit: ; preds = %._crit_edge38.i, %562
+_ZN4ncnnL23deconvolution_pack8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit: ; preds = %._crit_edge38.i, %562
   %856 = icmp eq i32 %16, 4
   %or.cond9 = and i1 %856, %564
-  br i1 %or.cond9, label %857, label %_ZN4ncnnL26deconvolution_pack4to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit
+  br i1 %or.cond9, label %857, label %_ZN4ncnnL26deconvolution_pack4to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit
 
-857:                                              ; preds = %_ZN4ncnnL23deconvolution_pack8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit
+857:                                              ; preds = %_ZN4ncnnL23deconvolution_pack8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit
   %858 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %859 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %860 = load i32, ptr %19, align 4
@@ -3341,14 +3341,14 @@ _ZN4ncnnL23deconvolution_pack8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.a
 ._crit_edge38.i887:                               ; preds = %._crit_edge.us.i900, %.preheader5.lr.ph.i892, %.lr.ph.split.i885
   %indvars.iv.next71.i888 = add nuw nsw i64 %indvars.iv70.i886, 1
   %exitcond74.not.i889 = icmp eq i64 %indvars.iv.next71.i888, %wide.trip.count73.i883
-  br i1 %exitcond74.not.i889, label %_ZN4ncnnL26deconvolution_pack4to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit, label %.lr.ph.splitthread-pre-split.i890, !llvm.loop !46
+  br i1 %exitcond74.not.i889, label %_ZN4ncnnL26deconvolution_pack4to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit, label %.lr.ph.splitthread-pre-split.i890, !llvm.loop !46
 
-_ZN4ncnnL26deconvolution_pack4to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit: ; preds = %._crit_edge38.i887, %_ZN4ncnnL23deconvolution_pack8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit
+_ZN4ncnnL26deconvolution_pack4to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit: ; preds = %._crit_edge38.i887, %_ZN4ncnnL23deconvolution_pack8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit
   %1123 = icmp eq i32 %.0653, 4
   %or.cond11 = and i1 %563, %1123
-  br i1 %or.cond11, label %1124, label %_ZN4ncnnL26deconvolution_pack8to4_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit
+  br i1 %or.cond11, label %1124, label %_ZN4ncnnL26deconvolution_pack8to4_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit
 
-1124:                                             ; preds = %_ZN4ncnnL26deconvolution_pack4to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit
+1124:                                             ; preds = %_ZN4ncnnL26deconvolution_pack4to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit
   %1125 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %1126 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %1127 = load i32, ptr %19, align 4
@@ -3783,14 +3783,14 @@ _ZN4ncnnL26deconvolution_pack4to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 ._crit_edge38.i937:                               ; preds = %._crit_edge.us.i949, %.preheader5.lr.ph.i942, %.lr.ph.split.i935
   %indvars.iv.next71.i938 = add nuw nsw i64 %indvars.iv70.i936, 1
   %exitcond74.not.i939 = icmp eq i64 %indvars.iv.next71.i938, %wide.trip.count73.i933
-  br i1 %exitcond74.not.i939, label %_ZN4ncnnL26deconvolution_pack8to4_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit, label %.lr.ph.splitthread-pre-split.i940, !llvm.loop !52
+  br i1 %exitcond74.not.i939, label %_ZN4ncnnL26deconvolution_pack8to4_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit, label %.lr.ph.splitthread-pre-split.i940, !llvm.loop !52
 
-_ZN4ncnnL26deconvolution_pack8to4_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit: ; preds = %._crit_edge38.i937, %_ZN4ncnnL26deconvolution_pack4to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit
+_ZN4ncnnL26deconvolution_pack8to4_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit: ; preds = %._crit_edge38.i937, %_ZN4ncnnL26deconvolution_pack4to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit
   %1419 = icmp eq i32 %16, 1
   %or.cond13 = and i1 %1419, %564
-  br i1 %or.cond13, label %1420, label %_ZN4ncnnL26deconvolution_pack1to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit
+  br i1 %or.cond13, label %1420, label %_ZN4ncnnL26deconvolution_pack1to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit
 
-1420:                                             ; preds = %_ZN4ncnnL26deconvolution_pack8to4_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit
+1420:                                             ; preds = %_ZN4ncnnL26deconvolution_pack8to4_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit
   %1421 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %1422 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %1423 = load i32, ptr %19, align 4
@@ -4175,14 +4175,14 @@ _ZN4ncnnL26deconvolution_pack8to4_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 ._crit_edge36.i:                                  ; preds = %._crit_edge.us.i985, %.preheader.lr.ph.i, %.lr.ph.split.i981
   %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
   %exitcond72.not.i = icmp eq i64 %indvars.iv.next69.i, %wide.trip.count71.i
-  br i1 %exitcond72.not.i, label %_ZN4ncnnL26deconvolution_pack1to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit, label %.lr.ph.splitthread-pre-split.i982, !llvm.loop !58
+  br i1 %exitcond72.not.i, label %_ZN4ncnnL26deconvolution_pack1to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit, label %.lr.ph.splitthread-pre-split.i982, !llvm.loop !58
 
-_ZN4ncnnL26deconvolution_pack1to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit: ; preds = %._crit_edge36.i, %_ZN4ncnnL26deconvolution_pack8to4_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit
+_ZN4ncnnL26deconvolution_pack1to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit: ; preds = %._crit_edge36.i, %_ZN4ncnnL26deconvolution_pack8to4_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit
   %1664 = icmp eq i32 %.0653, 1
   %or.cond15 = and i1 %563, %1664
-  br i1 %or.cond15, label %1665, label %_ZN4ncnnL26deconvolution_pack8to1_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit
+  br i1 %or.cond15, label %1665, label %_ZN4ncnnL26deconvolution_pack8to1_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit
 
-1665:                                             ; preds = %_ZN4ncnnL26deconvolution_pack1to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit
+1665:                                             ; preds = %_ZN4ncnnL26deconvolution_pack1to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit
   %1666 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %1667 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %1668 = load i32, ptr %19, align 4
@@ -4476,11 +4476,11 @@ _ZN4ncnnL26deconvolution_pack1to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
   %exitcond82.not.i = icmp eq i64 %indvars.iv.next79.i, %wide.trip.count81.i
   br i1 %exitcond82.not.i, label %.loopexit1221, label %.lr.ph.splitthread-pre-split.i1006, !llvm.loop !64
 
-_ZN4ncnnL26deconvolution_pack8to1_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit: ; preds = %_ZN4ncnnL26deconvolution_pack1to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit
+_ZN4ncnnL26deconvolution_pack8to1_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit: ; preds = %_ZN4ncnnL26deconvolution_pack1to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit
   %or.cond17 = and i1 %1123, %856
-  br i1 %or.cond17, label %1810, label %_ZN4ncnnL23deconvolution_pack4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit
+  br i1 %or.cond17, label %1810, label %_ZN4ncnnL23deconvolution_pack4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit
 
-1810:                                             ; preds = %_ZN4ncnnL26deconvolution_pack8to1_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit
+1810:                                             ; preds = %_ZN4ncnnL26deconvolution_pack8to1_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit
   %1811 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %1812 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %1813 = load i32, ptr %19, align 4
@@ -4495,7 +4495,7 @@ _ZN4ncnnL26deconvolution_pack8to1_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
   %.val875 = load ptr, ptr %1812, align 8
   %1822 = load i32, ptr %73, align 8
   %1823 = icmp sgt i32 %1822, 0
-  br i1 %1823, label %.lr.ph.i1019, label %_ZN4ncnnL23deconvolution_pack4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit
+  br i1 %1823, label %.lr.ph.i1019, label %_ZN4ncnnL23deconvolution_pack4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit
 
 .lr.ph.i1019:                                     ; preds = %1810
   %factor.op.mul48.i1020 = shl i32 %1813, 4
@@ -4508,7 +4508,7 @@ _ZN4ncnnL26deconvolution_pack8to1_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
   %1828 = sext i32 %factor.op.mul.reass.i1021 to i64
   %1829 = load i32, ptr %71, align 8
   %1830 = icmp sgt i32 %1829, 0
-  br i1 %1830, label %.lr.ph.split.preheader.i1023, label %_ZN4ncnnL23deconvolution_pack4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit
+  br i1 %1830, label %.lr.ph.split.preheader.i1023, label %_ZN4ncnnL23deconvolution_pack4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit
 
 .lr.ph.split.preheader.i1023:                     ; preds = %.lr.ph.i1019
   %1831 = icmp slt i32 %1813, 1
@@ -4887,13 +4887,13 @@ _ZN4ncnnL26deconvolution_pack8to1_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 ._crit_edge38.i1028:                              ; preds = %._crit_edge.us.i1042, %.preheader5.lr.ph.i1033, %.lr.ph.split.i1026
   %indvars.iv.next71.i1029 = add nuw nsw i64 %indvars.iv70.i1027, 1
   %exitcond74.not.i1030 = icmp eq i64 %indvars.iv.next71.i1029, %wide.trip.count73.i1024
-  br i1 %exitcond74.not.i1030, label %_ZN4ncnnL23deconvolution_pack4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit, label %.lr.ph.splitthread-pre-split.i1031, !llvm.loop !70
+  br i1 %exitcond74.not.i1030, label %_ZN4ncnnL23deconvolution_pack4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit, label %.lr.ph.splitthread-pre-split.i1031, !llvm.loop !70
 
-_ZN4ncnnL23deconvolution_pack4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit: ; preds = %._crit_edge38.i1028, %.lr.ph.i1019, %1810, %_ZN4ncnnL26deconvolution_pack8to1_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit
+_ZN4ncnnL23deconvolution_pack4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit: ; preds = %._crit_edge38.i1028, %.lr.ph.i1019, %1810, %_ZN4ncnnL26deconvolution_pack8to1_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit
   %or.cond19 = and i1 %1123, %1419
-  br i1 %or.cond19, label %2077, label %_ZN4ncnnL26deconvolution_pack1to4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit
+  br i1 %or.cond19, label %2077, label %_ZN4ncnnL26deconvolution_pack1to4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit
 
-2077:                                             ; preds = %_ZN4ncnnL23deconvolution_pack4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit
+2077:                                             ; preds = %_ZN4ncnnL23deconvolution_pack4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit
   %2078 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %2079 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %2080 = load i32, ptr %19, align 4
@@ -4908,7 +4908,7 @@ _ZN4ncnnL23deconvolution_pack4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.a
   %.val876 = load ptr, ptr %2079, align 8
   %2089 = load i32, ptr %73, align 8
   %2090 = icmp sgt i32 %2089, 0
-  br i1 %2090, label %.lr.ph.i1070, label %_ZN4ncnnL26deconvolution_pack1to4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit
+  br i1 %2090, label %.lr.ph.i1070, label %_ZN4ncnnL26deconvolution_pack1to4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit
 
 .lr.ph.i1070:                                     ; preds = %2077
   %factor.op.mul46.i1071 = shl i32 %2080, 2
@@ -4921,7 +4921,7 @@ _ZN4ncnnL23deconvolution_pack4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.a
   %2095 = sext i32 %factor.op.mul.reass.i1072 to i64
   %2096 = load i32, ptr %71, align 8
   %2097 = icmp sgt i32 %2096, 0
-  br i1 %2097, label %.lr.ph.split.preheader.i1074, label %_ZN4ncnnL26deconvolution_pack1to4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit
+  br i1 %2097, label %.lr.ph.split.preheader.i1074, label %_ZN4ncnnL26deconvolution_pack1to4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit
 
 .lr.ph.split.preheader.i1074:                     ; preds = %.lr.ph.i1070
   %2098 = icmp slt i32 %2080, 1
@@ -5278,13 +5278,13 @@ _ZN4ncnnL23deconvolution_pack4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.a
 ._crit_edge36.i1079:                              ; preds = %._crit_edge.us.i1092, %.preheader.lr.ph.i1084, %.lr.ph.split.i1077
   %indvars.iv.next69.i1080 = add nuw nsw i64 %indvars.iv68.i1078, 1
   %exitcond72.not.i1081 = icmp eq i64 %indvars.iv.next69.i1080, %wide.trip.count71.i1075
-  br i1 %exitcond72.not.i1081, label %_ZN4ncnnL26deconvolution_pack1to4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit, label %.lr.ph.splitthread-pre-split.i1082, !llvm.loop !76
+  br i1 %exitcond72.not.i1081, label %_ZN4ncnnL26deconvolution_pack1to4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit, label %.lr.ph.splitthread-pre-split.i1082, !llvm.loop !76
 
-_ZN4ncnnL26deconvolution_pack1to4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit: ; preds = %._crit_edge36.i1079, %.lr.ph.i1070, %2077, %_ZN4ncnnL23deconvolution_pack4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit
+_ZN4ncnnL26deconvolution_pack1to4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit: ; preds = %._crit_edge36.i1079, %.lr.ph.i1070, %2077, %_ZN4ncnnL23deconvolution_pack4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit
   %or.cond21 = and i1 %1664, %856
-  br i1 %or.cond21, label %2322, label %_ZN4ncnnL26deconvolution_pack4to1_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit
+  br i1 %or.cond21, label %2322, label %_ZN4ncnnL26deconvolution_pack4to1_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit
 
-2322:                                             ; preds = %_ZN4ncnnL26deconvolution_pack1to4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit
+2322:                                             ; preds = %_ZN4ncnnL26deconvolution_pack1to4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit
   %2323 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %2324 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %2325 = load i32, ptr %19, align 4
@@ -5299,7 +5299,7 @@ _ZN4ncnnL26deconvolution_pack1to4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
   %.val877 = load ptr, ptr %2324, align 8
   %2334 = load i32, ptr %73, align 8
   %2335 = icmp sgt i32 %2334, 0
-  br i1 %2335, label %.lr.ph.i1120, label %_ZN4ncnnL26deconvolution_pack4to1_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit
+  br i1 %2335, label %.lr.ph.i1120, label %_ZN4ncnnL26deconvolution_pack4to1_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit
 
 .lr.ph.i1120:                                     ; preds = %2322
   %factor.op.mul56.i1121 = shl i32 %2325, 2
@@ -5312,7 +5312,7 @@ _ZN4ncnnL26deconvolution_pack1to4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
   %2340 = sext i32 %factor.op.mul.reass.i1122 to i64
   %2341 = load i32, ptr %71, align 8
   %2342 = icmp sgt i32 %2341, 0
-  br i1 %2342, label %.lr.ph.split.preheader.i1124, label %_ZN4ncnnL26deconvolution_pack4to1_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit
+  br i1 %2342, label %.lr.ph.split.preheader.i1124, label %_ZN4ncnnL26deconvolution_pack4to1_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit
 
 .lr.ph.split.preheader.i1124:                     ; preds = %.lr.ph.i1120
   %2343 = icmp slt i32 %2325, 1
@@ -5573,16 +5573,16 @@ _ZN4ncnnL26deconvolution_pack1to4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 ._crit_edge46.i1129:                              ; preds = %._crit_edge.us.i1142, %.preheader13.lr.ph.i1134, %.lr.ph.split.i1127
   %indvars.iv.next79.i1130 = add nuw nsw i64 %indvars.iv78.i1128, 1
   %exitcond82.not.i1131 = icmp eq i64 %indvars.iv.next79.i1130, %wide.trip.count81.i1125
-  br i1 %exitcond82.not.i1131, label %_ZN4ncnnL26deconvolution_pack4to1_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit, label %.lr.ph.splitthread-pre-split.i1132, !llvm.loop !82
+  br i1 %exitcond82.not.i1131, label %_ZN4ncnnL26deconvolution_pack4to1_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit, label %.lr.ph.splitthread-pre-split.i1132, !llvm.loop !82
 
-_ZN4ncnnL26deconvolution_pack4to1_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit: ; preds = %._crit_edge46.i1129, %.lr.ph.i1120, %2322, %_ZN4ncnnL26deconvolution_pack1to4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit
+_ZN4ncnnL26deconvolution_pack4to1_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit: ; preds = %._crit_edge46.i1129, %.lr.ph.i1120, %2322, %_ZN4ncnnL26deconvolution_pack1to4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit
   %or.cond23 = and i1 %1664, %1419
   %2464 = load i32, ptr %63, align 8
   %2465 = icmp sgt i32 %2464, 0
   %or.cond1383 = select i1 %or.cond23, i1 %2465, i1 false
   br i1 %or.cond1383, label %.lr.ph, label %.loopexit1221
 
-.lr.ph:                                           ; preds = %_ZN4ncnnL26deconvolution_pack4to1_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit
+.lr.ph:                                           ; preds = %_ZN4ncnnL26deconvolution_pack4to1_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit
   %2466 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %2467 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %2468 = getelementptr inbounds nuw i8, ptr %0, i64 432
@@ -5859,7 +5859,7 @@ _ZN4ncnnL26deconvolution_pack4to1_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
   %2608 = icmp slt i64 %indvars.iv.next1444, %2607
   br i1 %2608, label %2476, label %.loopexit1221, !llvm.loop !88
 
-.loopexit1221:                                    ; preds = %._crit_edge1252, %._crit_edge46.i, %1665, %.lr.ph.i1001, %1124, %.lr.ph.i928, %565, %.lr.ph.i, %.lr.ph.i878, %857, %.lr.ph.i977, %1420, %_ZN4ncnnL26deconvolution_pack4to1_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.exit, %525
+.loopexit1221:                                    ; preds = %._crit_edge1252, %._crit_edge46.i, %1665, %.lr.ph.i1001, %1124, %.lr.ph.i928, %565, %.lr.ph.i, %.lr.ph.i878, %857, %.lr.ph.i977, %1420, %_ZN4ncnnL26deconvolution_pack4to1_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.exit, %525
   invoke void @_ZNK4ncnn13Deconvolution11cut_paddingERKNS_3MatERS1_RKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(64) %3)
           to label %2609 unwind label %94
 

@@ -970,7 +970,7 @@ entry:
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %1 = load i32, ptr @_ZL17g_initializations, align 4
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-          to label %"_ZZL13do_basic_initvENK3$_0clEv.argprom.exit" unwind label %terminate.lpad.i.i.i
+          to label %"_ZZL13do_basic_initvENK3$_0clEv.exit" unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
@@ -979,7 +979,7 @@ terminate.lpad.i.i.i:                             ; preds = %entry
   tail call void @__clang_call_terminate(ptr %3) #16
   unreachable
 
-"_ZZL13do_basic_initvENK3$_0clEv.argprom.exit":   ; preds = %entry
+"_ZZL13do_basic_initvENK3$_0clEv.exit":           ; preds = %entry
   %cmp.i.i = icmp sgt i32 %1, 0
   ret i1 %cmp.i.i
 }

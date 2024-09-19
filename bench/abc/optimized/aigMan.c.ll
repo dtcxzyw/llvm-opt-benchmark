@@ -343,7 +343,7 @@ define ptr @Aig_ManDup_rec(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %31 = ptrtoint ptr %.val22 to i64
   %32 = and i64 %31, -2
   %.not.i26 = icmp eq i64 %32, 0
-  br i1 %.not.i26, label %Aig_ObjChild0Copy.argprom.exit27, label %33
+  br i1 %.not.i26, label %Aig_ObjChild0Copy.exit27, label %33
 
 33:                                               ; preds = %25
   %34 = inttoptr i64 %32 to ptr
@@ -353,17 +353,17 @@ define ptr @Aig_ManDup_rec(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %38 = ptrtoint ptr %36 to i64
   %39 = xor i64 %37, %38
   %40 = inttoptr i64 %39 to ptr
-  br label %Aig_ObjChild0Copy.argprom.exit27
+  br label %Aig_ObjChild0Copy.exit27
 
-Aig_ObjChild0Copy.argprom.exit27:                 ; preds = %25, %33
+Aig_ObjChild0Copy.exit27:                         ; preds = %25, %33
   %41 = phi ptr [ %40, %33 ], [ null, %25 ]
   %.val24 = load ptr, ptr %26, align 8
   %42 = ptrtoint ptr %.val24 to i64
   %43 = and i64 %42, -2
   %.not.i28 = icmp eq i64 %43, 0
-  br i1 %.not.i28, label %Aig_ObjChild1Copy.argprom.exit, label %44
+  br i1 %.not.i28, label %Aig_ObjChild1Copy.exit, label %44
 
-44:                                               ; preds = %Aig_ObjChild0Copy.argprom.exit27
+44:                                               ; preds = %Aig_ObjChild0Copy.exit27
   %45 = inttoptr i64 %43 to ptr
   %46 = getelementptr inbounds i8, ptr %45, i64 40
   %47 = load ptr, ptr %46, align 8
@@ -371,18 +371,18 @@ Aig_ObjChild0Copy.argprom.exit27:                 ; preds = %25, %33
   %49 = ptrtoint ptr %47 to i64
   %50 = xor i64 %48, %49
   %51 = inttoptr i64 %50 to ptr
-  br label %Aig_ObjChild1Copy.argprom.exit
+  br label %Aig_ObjChild1Copy.exit
 
-Aig_ObjChild1Copy.argprom.exit:                   ; preds = %Aig_ObjChild0Copy.argprom.exit27, %44
-  %52 = phi ptr [ %51, %44 ], [ null, %Aig_ObjChild0Copy.argprom.exit27 ]
+Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.exit27, %44
+  %52 = phi ptr [ %51, %44 ], [ null, %Aig_ObjChild0Copy.exit27 ]
   %.val25 = load i64, ptr %12, align 8
   %53 = trunc i64 %.val25 to i32
   %54 = and i32 %53, 7
   %55 = tail call ptr @Aig_Oper(ptr noundef %0, ptr noundef %41, ptr noundef %52, i32 noundef %54) #17
   br label %.sink.split
 
-.sink.split:                                      ; preds = %17, %14, %Aig_ObjChild1Copy.argprom.exit
-  %.sink = phi ptr [ %55, %Aig_ObjChild1Copy.argprom.exit ], [ %24, %17 ], [ null, %14 ]
+.sink.split:                                      ; preds = %17, %14, %Aig_ObjChild1Copy.exit
+  %.sink = phi ptr [ %55, %Aig_ObjChild1Copy.exit ], [ %24, %17 ], [ null, %14 ]
   store ptr %.sink, ptr %4, align 8
   br label %56
 

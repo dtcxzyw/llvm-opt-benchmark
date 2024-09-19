@@ -4417,7 +4417,7 @@ define void @png_write_find_filter(ptr noalias noundef %0, ptr nocapture noundef
   %.020.lcssa.i = phi ptr [ %.0201.i, %32 ], [ %.020.i, %.lr.ph.i ]
   %.022.lcssa.i = phi ptr [ %.0222.i, %32 ], [ %.022.i, %.lr.ph.i ]
   %35 = icmp ult i64 %.0.lcssa.i, %7
-  br i1 %35, label %.lr.ph12.i, label %png_setup_sub_row_only.argprom.exit
+  br i1 %35, label %.lr.ph12.i, label %png_setup_sub_row_only.exit
 
 .lr.ph.i:                                         ; preds = %32, %.lr.ph.i
   %.0225.i = phi ptr [ %.022.i, %.lr.ph.i ], [ %.0222.i, %32 ]
@@ -4445,12 +4445,12 @@ define void @png_write_find_filter(ptr noalias noundef %0, ptr nocapture noundef
   %41 = getelementptr inbounds i8, ptr %.1238.i, i64 1
   %42 = getelementptr inbounds i8, ptr %.1219.i, i64 1
   %exitcond15.not.i = icmp eq i64 %40, %7
-  br i1 %exitcond15.not.i, label %png_setup_sub_row_only.argprom.exit, label %.lr.ph12.i, !llvm.loop !113
+  br i1 %exitcond15.not.i, label %png_setup_sub_row_only.exit, label %.lr.ph12.i, !llvm.loop !113
 
 43:                                               ; preds = %.loopexit
   %44 = and i32 %.0, 16
   %.not = icmp eq i32 %44, 0
-  br i1 %.not, label %png_setup_sub_row_only.argprom.exit, label %45
+  br i1 %.not, label %png_setup_sub_row_only.exit, label %45
 
 45:                                               ; preds = %43
   %46 = getelementptr i8, ptr %0, i64 560
@@ -4468,7 +4468,7 @@ define void @png_write_find_filter(ptr noalias noundef %0, ptr nocapture noundef
   %.033.lcssa.i = phi ptr [ %.0331.i, %45 ], [ %.033.i, %.lr.ph.i129 ]
   %.035.lcssa.i = phi ptr [ %.0352.i, %45 ], [ %.035.i, %.lr.ph.i129 ]
   %48 = icmp ult i64 %.030.lcssa.i, %7
-  br i1 %48, label %.lr.ph16.i, label %png_setup_sub_row.argprom.exit
+  br i1 %48, label %.lr.ph16.i, label %png_setup_sub_row.exit
 
 .lr.ph.i129:                                      ; preds = %45, %.lr.ph.i129
   %.0356.i = phi ptr [ %.035.i, %.lr.ph.i129 ], [ %.0352.i, %45 ]
@@ -4512,31 +4512,31 @@ define void @png_write_find_filter(ptr noalias noundef %0, ptr nocapture noundef
   %68 = getelementptr inbounds i8, ptr %.13412.i, i64 1
   %69 = icmp ult i64 %66, %7
   %or.cond.i = select i1 %65, i1 %69, i1 false
-  br i1 %or.cond.i, label %.lr.ph16.i, label %png_setup_sub_row.argprom.exit, !llvm.loop !115
+  br i1 %or.cond.i, label %.lr.ph16.i, label %png_setup_sub_row.exit, !llvm.loop !115
 
-png_setup_sub_row.argprom.exit:                   ; preds = %.lr.ph16.i, %.preheader.i131
+png_setup_sub_row.exit:                           ; preds = %.lr.ph16.i, %.preheader.i131
   %.2.i = phi i64 [ %.0.lcssa.i132, %.preheader.i131 ], [ %64, %.lr.ph16.i ]
   %70 = icmp ult i64 %.2.i, %.0102
-  br i1 %70, label %71, label %png_setup_sub_row_only.argprom.exit
+  br i1 %70, label %71, label %png_setup_sub_row_only.exit
 
-71:                                               ; preds = %png_setup_sub_row.argprom.exit
+71:                                               ; preds = %png_setup_sub_row.exit
   %72 = getelementptr inbounds i8, ptr %0, i64 568
   %73 = load ptr, ptr %72, align 8
   %.not118 = icmp eq ptr %73, null
-  br i1 %.not118, label %png_setup_sub_row_only.argprom.exit, label %74
+  br i1 %.not118, label %png_setup_sub_row_only.exit, label %74
 
 74:                                               ; preds = %71
   store ptr %73, ptr %46, align 8
   store ptr %.val127, ptr %72, align 8
-  br label %png_setup_sub_row_only.argprom.exit
+  br label %png_setup_sub_row_only.exit
 
-png_setup_sub_row_only.argprom.exit:              ; preds = %.lr.ph12.i, %.preheader.i, %43, %71, %74, %png_setup_sub_row.argprom.exit
-  %.1103 = phi i64 [ %.2.i, %74 ], [ %.2.i, %71 ], [ %.0102, %png_setup_sub_row.argprom.exit ], [ %.0102, %43 ], [ %.0102, %.preheader.i ], [ %.0102, %.lr.ph12.i ]
-  %.0101 = phi ptr [ %.val127, %74 ], [ %.val127, %71 ], [ %14, %png_setup_sub_row.argprom.exit ], [ %14, %43 ], [ %.val125, %.preheader.i ], [ %.val125, %.lr.ph12.i ]
+png_setup_sub_row_only.exit:                      ; preds = %.lr.ph12.i, %.preheader.i, %43, %71, %74, %png_setup_sub_row.exit
+  %.1103 = phi i64 [ %.2.i, %74 ], [ %.2.i, %71 ], [ %.0102, %png_setup_sub_row.exit ], [ %.0102, %43 ], [ %.0102, %.preheader.i ], [ %.0102, %.lr.ph12.i ]
+  %.0101 = phi ptr [ %.val127, %74 ], [ %.val127, %71 ], [ %14, %png_setup_sub_row.exit ], [ %14, %43 ], [ %.val125, %.preheader.i ], [ %.val125, %.lr.ph12.i ]
   %75 = icmp eq i32 %.0, 32
   br i1 %75, label %76, label %84
 
-76:                                               ; preds = %png_setup_sub_row_only.argprom.exit
+76:                                               ; preds = %png_setup_sub_row_only.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
   %77 = getelementptr inbounds i8, ptr %0, i64 560
   %78 = load ptr, ptr %77, align 8
@@ -4565,7 +4565,7 @@ png_setup_sub_row_only.argprom.exit:              ; preds = %.lr.ph12.i, %.prehe
   %exitcond.not.i138 = icmp eq i64 %83, %7
   br i1 %exitcond.not.i138, label %png_setup_up_row_only.exit, label %.lr.ph.i135, !llvm.loop !119
 
-84:                                               ; preds = %png_setup_sub_row_only.argprom.exit
+84:                                               ; preds = %png_setup_sub_row_only.exit
   %85 = and i32 %.0, 32
   %.not119 = icmp eq i32 %85, 0
   br i1 %.not119, label %png_setup_up_row_only.exit, label %86

@@ -270,7 +270,7 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i14.i.i.i.i)
   %.fca.0.insert.i.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %add.ptr.i.i.i.i.i, 0
   %.fca.1.insert.i.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i, ptr %add.ptr19.i.i.i.i, 1
-  br label %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE4findIS7_EENSD_14const_iteratorERKS7_.argprom.exit.i
+  br label %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE4findIS7_EENSD_14const_iteratorERKS7_.exit.i
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %sub.i.i.i.i.i = add nsw i32 %__begin5.sroa.0.030.i.i.i.i, -1
@@ -282,14 +282,14 @@ for.end.i.i.i.i:                                  ; preds = %for.inc.i.i.i.i, %w
   %cmp.i.i16.i.i.i.i = icmp eq <16 x i8> %7, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
   %13 = bitcast <16 x i1> %cmp.i.i16.i.i.i.i to i16
   %cmp.i17.not.i.i.i.i = icmp eq i16 %13, 0
-  br i1 %cmp.i17.not.i.i.i.i, label %if.end34.i.i.i.i, label %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE4findIS7_EENSD_14const_iteratorERKS7_.argprom.exit.i
+  br i1 %cmp.i17.not.i.i.i.i, label %if.end34.i.i.i.i, label %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE4findIS7_EENSD_14const_iteratorERKS7_.exit.i
 
 if.end34.i.i.i.i:                                 ; preds = %for.end.i.i.i.i
   %add.i18.i.i.i.i = add i64 %seq.sroa.10.0.i.i.i.i, 16
   %add3.i.i.i.i.i = add i64 %add.i18.i.i.i.i, %seq.sroa.4.0.i.i.i.i
   br label %while.body.i.i.i.i, !llvm.loop !7
 
-_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE4findIS7_EENSD_14const_iteratorERKS7_.argprom.exit.i: ; preds = %for.end.i.i.i.i, %if.then.i.i.i.i
+_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE4findIS7_EENSD_14const_iteratorERKS7_.exit.i: ; preds = %for.end.i.i.i.i, %if.then.i.i.i.i
   %call25.pn.i.i.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i, %if.then.i.i.i.i ], [ { ptr null, ptr undef }, %for.end.i.i.i.i ]
   %14 = extractvalue { ptr, ptr } %call25.pn.i.i.i.i, 0
   %15 = extractvalue { ptr, ptr } %call25.pn.i.i.i.i, 1
@@ -298,12 +298,12 @@ _ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolic
   %or.cond = select i1 %cmp.i.i.i, i1 %cmp, i1 false
   br i1 %or.cond, label %if.else, label %return
 
-if.else:                                          ; preds = %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE4findIS7_EENSD_14const_iteratorERKS7_.argprom.exit.i
+if.else:                                          ; preds = %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE4findIS7_EENSD_14const_iteratorERKS7_.exit.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %output, ptr noundef nonnull align 8 dereferenceable(48) %15, i64 48, i1 false)
   br label %return
 
-return:                                           ; preds = %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE4findIS7_EENSD_14const_iteratorERKS7_.argprom.exit.i, %entry, %if.else
-  %cmp4 = phi i1 [ true, %if.else ], [ false, %entry ], [ false, %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE4findIS7_EENSD_14const_iteratorERKS7_.argprom.exit.i ]
+return:                                           ; preds = %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE4findIS7_EENSD_14const_iteratorERKS7_.exit.i, %entry, %if.else
+  %cmp4 = phi i1 [ true, %if.else ], [ false, %entry ], [ false, %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE4findIS7_EENSD_14const_iteratorERKS7_.exit.i ]
   ret i1 %cmp4
 }
 
@@ -1243,7 +1243,7 @@ if.then.i:                                        ; preds = %entry
   %cmp.i.i21.i.i = icmp ne ptr %3, %4
   %cmp6.i.i22.i.i = icmp ne i8 %5, 0
   %.not.i23.i.i = select i1 %cmp.i.i21.i.i, i1 true, i1 %cmp6.i.i22.i.i
-  br i1 %.not.i23.i.i, label %for.body.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_13NumExtensionsEvE3$_0EET_S5_.argprom.exit"
+  br i1 %.not.i23.i.i, label %for.body.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_13NumExtensionsEvE3$_0EET_S5_.exit"
 
 for.body.i.i:                                     ; preds = %if.then.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i
   %result.2 = phi i32 [ %spec.select, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i ], [ 0, %if.then.i ]
@@ -1314,13 +1314,13 @@ _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_
   %cmp.i.i.i.i = icmp ne ptr %it.sroa.0.2.i.i, %4
   %cmp6.i.i.i.i = icmp ne i32 %it.sroa.9.2.i.i, %conv.i.i.i
   %.not.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp6.i.i.i.i
-  br i1 %.not.i.i.i, label %for.body.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_13NumExtensionsEvE3$_0EET_S5_.argprom.exit", !llvm.loop !36
+  br i1 %.not.i.i.i, label %for.body.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_13NumExtensionsEvE3$_0EET_S5_.exit", !llvm.loop !36
 
 if.end.i:                                         ; preds = %entry
   %idx.ext.i.i = zext nneg i16 %this.val to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %this.val1, i64 %idx.ext.i.i
   %cmp.not4.i.i = icmp eq i16 %this.val, 0
-  br i1 %cmp.not4.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_13NumExtensionsEvE3$_0EET_S5_.argprom.exit", label %for.body.i5.i
+  br i1 %cmp.not4.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_13NumExtensionsEvE3$_0EET_S5_.exit", label %for.body.i5.i
 
 for.body.i5.i:                                    ; preds = %if.end.i, %for.body.i5.i
   %result.0 = phi i32 [ %spec.select4, %for.body.i5.i ], [ 0, %if.end.i ]
@@ -1333,9 +1333,9 @@ for.body.i5.i:                                    ; preds = %if.end.i, %for.body
   %spec.select4 = add nuw nsw i32 %result.0, %inc.i.i9.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.05.i.i, i64 32
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
-  br i1 %cmp.not.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_13NumExtensionsEvE3$_0EET_S5_.argprom.exit", label %for.body.i5.i, !llvm.loop !37
+  br i1 %cmp.not.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_13NumExtensionsEvE3$_0EET_S5_.exit", label %for.body.i5.i, !llvm.loop !37
 
-"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_13NumExtensionsEvE3$_0EET_S5_.argprom.exit": ; preds = %for.body.i5.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i, %if.then.i, %if.end.i
+"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_13NumExtensionsEvE3$_0EET_S5_.exit": ; preds = %for.body.i5.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i, %if.then.i, %if.end.i
   %result.4 = phi i32 [ 0, %if.then.i ], [ 0, %if.end.i ], [ %spec.select, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i ], [ %spec.select4, %for.body.i5.i ]
   ret i32 %result.4
 }
@@ -5516,7 +5516,7 @@ if.then.i:                                        ; preds = %entry
   %cmp.i.i21.i.i = icmp ne ptr %3, %4
   %cmp6.i.i22.i.i = icmp ne i8 %5, 0
   %.not.i23.i.i = select i1 %cmp.i.i21.i.i, i1 true, i1 %cmp6.i.i22.i.i
-  br i1 %.not.i23.i.i, label %for.body.i.i, label %"_ZN6google8protobuf8internal12ExtensionSet7ForEachIZNS2_5ClearEvE3$_0EET_S5_.argprom.exit"
+  br i1 %.not.i23.i.i, label %for.body.i.i, label %"_ZN6google8protobuf8internal12ExtensionSet7ForEachIZNS2_5ClearEvE3$_0EET_S5_.exit"
 
 for.body.i.i:                                     ; preds = %if.then.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i
   %it.sroa.0.025.i.i = phi ptr [ %it.sroa.0.2.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i ], [ %3, %if.then.i ]
@@ -5582,13 +5582,13 @@ _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_
   %cmp.i.i.i.i = icmp ne ptr %it.sroa.0.2.i.i, %4
   %cmp6.i.i.i.i = icmp ne i32 %it.sroa.9.2.i.i, %conv.i.i.i
   %.not.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp6.i.i.i.i
-  br i1 %.not.i.i.i, label %for.body.i.i, label %"_ZN6google8protobuf8internal12ExtensionSet7ForEachIZNS2_5ClearEvE3$_0EET_S5_.argprom.exit", !llvm.loop !41
+  br i1 %.not.i.i.i, label %for.body.i.i, label %"_ZN6google8protobuf8internal12ExtensionSet7ForEachIZNS2_5ClearEvE3$_0EET_S5_.exit", !llvm.loop !41
 
 if.end.i:                                         ; preds = %entry
   %idx.ext.i.i = zext nneg i16 %this.val to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %this.val1, i64 %idx.ext.i.i
   %cmp.not4.i.i = icmp eq i16 %this.val, 0
-  br i1 %cmp.not4.i.i, label %"_ZN6google8protobuf8internal12ExtensionSet7ForEachIZNS2_5ClearEvE3$_0EET_S5_.argprom.exit", label %for.body.i5.i
+  br i1 %cmp.not4.i.i, label %"_ZN6google8protobuf8internal12ExtensionSet7ForEachIZNS2_5ClearEvE3$_0EET_S5_.exit", label %for.body.i5.i
 
 for.body.i5.i:                                    ; preds = %if.end.i, %for.body.i5.i
   %it.05.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i5.i ], [ %this.val1, %if.end.i ]
@@ -5596,9 +5596,9 @@ for.body.i5.i:                                    ; preds = %if.end.i, %for.body
   tail call void @_ZN6google8protobuf8internal12ExtensionSet9Extension5ClearEv(ptr noundef nonnull align 8 dereferenceable(24) %second.i6.i)
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.05.i.i, i64 32
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
-  br i1 %cmp.not.i.i, label %"_ZN6google8protobuf8internal12ExtensionSet7ForEachIZNS2_5ClearEvE3$_0EET_S5_.argprom.exit", label %for.body.i5.i, !llvm.loop !42
+  br i1 %cmp.not.i.i, label %"_ZN6google8protobuf8internal12ExtensionSet7ForEachIZNS2_5ClearEvE3$_0EET_S5_.exit", label %for.body.i5.i, !llvm.loop !42
 
-"_ZN6google8protobuf8internal12ExtensionSet7ForEachIZNS2_5ClearEvE3$_0EET_S5_.argprom.exit": ; preds = %for.body.i5.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i, %if.then.i, %if.end.i
+"_ZN6google8protobuf8internal12ExtensionSet7ForEachIZNS2_5ClearEvE3$_0EET_S5_.exit": ; preds = %for.body.i5.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i, %if.then.i, %if.end.i
   ret void
 }
 
@@ -5966,7 +5966,7 @@ if.then.i48:                                      ; preds = %if.end17
   %cmp.i.i21.i.i = icmp ne ptr %57, %58
   %cmp6.i.i22.i.i = icmp ne i8 %59, 0
   %.not.i23.i.i = select i1 %cmp.i.i21.i.i, i1 true, i1 %cmp6.i.i22.i.i
-  br i1 %.not.i23.i.i, label %for.body.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNS2_9MergeFromEPKNS0_11MessageLiteERKS2_E3$_0EET_SA_.argprom.exit"
+  br i1 %.not.i23.i.i, label %for.body.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNS2_9MergeFromEPKNS0_11MessageLiteERKS2_E3$_0EET_SA_.exit"
 
 for.body.i.i:                                     ; preds = %if.then.i48, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i
   %it.sroa.0.025.i.i = phi ptr [ %it.sroa.0.2.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i ], [ %57, %if.then.i48 ]
@@ -6035,13 +6035,13 @@ _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_
   %cmp.i.i.i.i = icmp ne ptr %it.sroa.0.2.i.i, %58
   %cmp6.i.i.i.i = icmp ne i32 %it.sroa.9.2.i.i, %conv.i.i.i50
   %.not.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp6.i.i.i.i
-  br i1 %.not.i.i.i, label %for.body.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNS2_9MergeFromEPKNS0_11MessageLiteERKS2_E3$_0EET_SA_.argprom.exit", !llvm.loop !53
+  br i1 %.not.i.i.i, label %for.body.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNS2_9MergeFromEPKNS0_11MessageLiteERKS2_E3$_0EET_SA_.exit", !llvm.loop !53
 
 if.end.i:                                         ; preds = %if.end17
   %idx.ext.i.i = zext nneg i16 %other.val to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %other.val7, i64 %idx.ext.i.i
   %cmp.not4.i.i = icmp eq i16 %other.val, 0
-  br i1 %cmp.not4.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNS2_9MergeFromEPKNS0_11MessageLiteERKS2_E3$_0EET_SA_.argprom.exit", label %for.body.i8.i
+  br i1 %cmp.not4.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNS2_9MergeFromEPKNS0_11MessageLiteERKS2_E3$_0EET_SA_.exit", label %for.body.i8.i
 
 for.body.i8.i:                                    ; preds = %if.end.i, %for.body.i8.i
   %it.05.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i8.i ], [ %other.val7, %if.end.i ]
@@ -6051,9 +6051,9 @@ for.body.i8.i:                                    ; preds = %if.end.i, %for.body
   tail call void @_ZN6google8protobuf8internal12ExtensionSet26InternalExtensionMergeFromEPKNS0_11MessageLiteEiRKNS2_9ExtensionEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %extendee, i32 noundef %73, ptr noundef nonnull readonly align 8 dereferenceable(24) %second.i9.i, ptr noundef %74), !noalias !54
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.05.i.i, i64 32
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
-  br i1 %cmp.not.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNS2_9MergeFromEPKNS0_11MessageLiteERKS2_E3$_0EET_SA_.argprom.exit", label %for.body.i8.i, !llvm.loop !57
+  br i1 %cmp.not.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNS2_9MergeFromEPKNS0_11MessageLiteERKS2_E3$_0EET_SA_.exit", label %for.body.i8.i, !llvm.loop !57
 
-"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNS2_9MergeFromEPKNS0_11MessageLiteERKS2_E3$_0EET_SA_.argprom.exit": ; preds = %for.body.i8.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i, %if.then.i48, %if.end.i
+"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNS2_9MergeFromEPKNS0_11MessageLiteERKS2_E3$_0EET_SA_.exit": ; preds = %for.body.i8.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i, %if.then.i48, %if.end.i
   ret void
 }
 
@@ -13738,7 +13738,7 @@ if.then.i:                                        ; preds = %entry
   %cmp.i.i21.i.i = icmp ne ptr %3, %4
   %cmp6.i.i22.i.i = icmp ne i8 %5, 0
   %.not.i23.i.i = select i1 %cmp.i.i21.i.i, i1 true, i1 %cmp6.i.i22.i.i
-  br i1 %.not.i23.i.i, label %for.body.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_49InternalSerializeMessageSetWithCachedSizesToArrayEPKNS0_11MessageLiteEPhPNS0_2io19EpsCopyOutputStreamEE3$_0EET_SC_.argprom.exit"
+  br i1 %.not.i23.i.i, label %for.body.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_49InternalSerializeMessageSetWithCachedSizesToArrayEPKNS0_11MessageLiteEPhPNS0_2io19EpsCopyOutputStreamEE3$_0EET_SC_.exit"
 
 for.body.i.i:                                     ; preds = %if.then.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i
   %6 = phi ptr [ %call.i.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i ], [ %target, %if.then.i ]
@@ -13807,13 +13807,13 @@ _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_
   %cmp.i.i.i.i = icmp ne ptr %it.sroa.0.2.i.i, %4
   %cmp6.i.i.i.i = icmp ne i32 %it.sroa.9.2.i.i, %conv.i.i.i
   %.not.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp6.i.i.i.i
-  br i1 %.not.i.i.i, label %for.body.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_49InternalSerializeMessageSetWithCachedSizesToArrayEPKNS0_11MessageLiteEPhPNS0_2io19EpsCopyOutputStreamEE3$_0EET_SC_.argprom.exit", !llvm.loop !145
+  br i1 %.not.i.i.i, label %for.body.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_49InternalSerializeMessageSetWithCachedSizesToArrayEPKNS0_11MessageLiteEPhPNS0_2io19EpsCopyOutputStreamEE3$_0EET_SC_.exit", !llvm.loop !145
 
 if.end.i:                                         ; preds = %entry
   %idx.ext.i.i = zext nneg i16 %this.val to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %this.val1, i64 %idx.ext.i.i
   %cmp.not4.i.i = icmp eq i16 %this.val, 0
-  br i1 %cmp.not4.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_49InternalSerializeMessageSetWithCachedSizesToArrayEPKNS0_11MessageLiteEPhPNS0_2io19EpsCopyOutputStreamEE3$_0EET_SC_.argprom.exit", label %for.body.i9.i
+  br i1 %cmp.not4.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_49InternalSerializeMessageSetWithCachedSizesToArrayEPKNS0_11MessageLiteEPhPNS0_2io19EpsCopyOutputStreamEE3$_0EET_SC_.exit", label %for.body.i9.i
 
 for.body.i9.i:                                    ; preds = %if.end.i, %for.body.i9.i
   %19 = phi ptr [ %call.i.i11.i, %for.body.i9.i ], [ %target, %if.end.i ]
@@ -13823,9 +13823,9 @@ for.body.i9.i:                                    ; preds = %if.end.i, %for.body
   %call.i.i11.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet9Extension53InternalSerializeMessageSetItemWithCachedSizesToArrayEPKNS0_11MessageLiteEPKS2_iPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 dereferenceable(24) %second.i10.i, ptr noundef %extendee, ptr nonnull poison, i32 noundef %20, ptr noundef %19, ptr noundef %stream), !noalias !146
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.05.i.i, i64 32
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
-  br i1 %cmp.not.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_49InternalSerializeMessageSetWithCachedSizesToArrayEPKNS0_11MessageLiteEPhPNS0_2io19EpsCopyOutputStreamEE3$_0EET_SC_.argprom.exit", label %for.body.i9.i, !llvm.loop !149
+  br i1 %cmp.not.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_49InternalSerializeMessageSetWithCachedSizesToArrayEPKNS0_11MessageLiteEPhPNS0_2io19EpsCopyOutputStreamEE3$_0EET_SC_.exit", label %for.body.i9.i, !llvm.loop !149
 
-"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_49InternalSerializeMessageSetWithCachedSizesToArrayEPKNS0_11MessageLiteEPhPNS0_2io19EpsCopyOutputStreamEE3$_0EET_SC_.argprom.exit": ; preds = %for.body.i9.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i, %if.then.i, %if.end.i
+"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_49InternalSerializeMessageSetWithCachedSizesToArrayEPKNS0_11MessageLiteEPhPNS0_2io19EpsCopyOutputStreamEE3$_0EET_SC_.exit": ; preds = %for.body.i9.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i, %if.then.i, %if.end.i
   %target.addr.0 = phi ptr [ %target, %if.then.i ], [ %target, %if.end.i ], [ %call.i.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i ], [ %call.i.i11.i, %for.body.i9.i ]
   ret ptr %target.addr.0
 }
@@ -13851,7 +13851,7 @@ if.then.i:                                        ; preds = %entry
   %cmp.i.i21.i.i = icmp ne ptr %3, %4
   %cmp6.i.i22.i.i = icmp ne i8 %5, 0
   %.not.i23.i.i = select i1 %cmp.i.i21.i.i, i1 true, i1 %cmp6.i.i22.i.i
-  br i1 %.not.i23.i.i, label %for.body.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_8ByteSizeEvE3$_0EET_S5_.argprom.exit"
+  br i1 %.not.i23.i.i, label %for.body.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_8ByteSizeEvE3$_0EET_S5_.exit"
 
 for.body.i.i:                                     ; preds = %if.then.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i
   %total_size.1 = phi i64 [ %add.i.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i ], [ 0, %if.then.i ]
@@ -13921,13 +13921,13 @@ _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_
   %cmp.i.i.i.i = icmp ne ptr %it.sroa.0.2.i.i, %4
   %cmp6.i.i.i.i = icmp ne i32 %it.sroa.9.2.i.i, %conv.i.i.i
   %.not.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp6.i.i.i.i
-  br i1 %.not.i.i.i, label %for.body.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_8ByteSizeEvE3$_0EET_S5_.argprom.exit", !llvm.loop !150
+  br i1 %.not.i.i.i, label %for.body.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_8ByteSizeEvE3$_0EET_S5_.exit", !llvm.loop !150
 
 if.end.i:                                         ; preds = %entry
   %idx.ext.i.i = zext nneg i16 %this.val to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %this.val1, i64 %idx.ext.i.i
   %cmp.not4.i.i = icmp eq i16 %this.val, 0
-  br i1 %cmp.not4.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_8ByteSizeEvE3$_0EET_S5_.argprom.exit", label %for.body.i5.i
+  br i1 %cmp.not4.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_8ByteSizeEvE3$_0EET_S5_.exit", label %for.body.i5.i
 
 for.body.i5.i:                                    ; preds = %if.end.i, %for.body.i5.i
   %total_size.0 = phi i64 [ %add.i.i8.i, %for.body.i5.i ], [ 0, %if.end.i ]
@@ -13938,9 +13938,9 @@ for.body.i5.i:                                    ; preds = %if.end.i, %for.body
   %add.i.i8.i = add i64 %call.i.i7.i, %total_size.0
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.05.i.i, i64 32
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
-  br i1 %cmp.not.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_8ByteSizeEvE3$_0EET_S5_.argprom.exit", label %for.body.i5.i, !llvm.loop !151
+  br i1 %cmp.not.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_8ByteSizeEvE3$_0EET_S5_.exit", label %for.body.i5.i, !llvm.loop !151
 
-"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_8ByteSizeEvE3$_0EET_S5_.argprom.exit": ; preds = %for.body.i5.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i, %if.then.i, %if.end.i
+"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_8ByteSizeEvE3$_0EET_S5_.exit": ; preds = %for.body.i5.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i, %if.then.i, %if.end.i
   %total_size.2 = phi i64 [ 0, %if.then.i ], [ 0, %if.end.i ], [ %add.i.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i ], [ %add.i.i8.i, %for.body.i5.i ]
   ret i64 %total_size.2
 }
@@ -15733,7 +15733,7 @@ if.then.i:                                        ; preds = %entry
   %cmp.i.i22.i.i = icmp ne ptr %3, %4
   %cmp6.i.i23.i.i = icmp ne i8 %5, 0
   %.not.i24.i.i = select i1 %cmp.i.i22.i.i, i1 true, i1 %cmp6.i.i23.i.i
-  br i1 %.not.i24.i.i, label %for.body.lr.ph.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_18MessageSetByteSizeEvE3$_0EET_S5_.argprom.exit"
+  br i1 %.not.i24.i.i, label %for.body.lr.ph.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_18MessageSetByteSizeEvE3$_0EET_S5_.exit"
 
 for.body.lr.ph.i.i:                               ; preds = %if.then.i
   %6 = load i64, ptr @_ZN6google8protobuf8internal14WireFormatLite23kMessageSetItemTagsSizeE, align 8
@@ -15870,13 +15870,13 @@ _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_
   %cmp.i.i.i.i = icmp ne ptr %it.sroa.0.2.i.i, %4
   %cmp6.i.i.i.i = icmp ne i32 %it.sroa.9.2.i.i, %conv.i.i.i
   %.not.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp6.i.i.i.i
-  br i1 %.not.i.i.i, label %for.body.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_18MessageSetByteSizeEvE3$_0EET_S5_.argprom.exit", !llvm.loop !176
+  br i1 %.not.i.i.i, label %for.body.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_18MessageSetByteSizeEvE3$_0EET_S5_.exit", !llvm.loop !176
 
 if.end.i:                                         ; preds = %entry
   %idx.ext.i.i = zext nneg i16 %this.val to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %this.val1, i64 %idx.ext.i.i
   %cmp.not4.i.i = icmp eq i16 %this.val, 0
-  br i1 %cmp.not4.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_18MessageSetByteSizeEvE3$_0EET_S5_.argprom.exit", label %for.body.lr.ph.i5.i
+  br i1 %cmp.not4.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_18MessageSetByteSizeEvE3$_0EET_S5_.exit", label %for.body.lr.ph.i5.i
 
 for.body.lr.ph.i5.i:                              ; preds = %if.end.i
   %27 = load i64, ptr @_ZN6google8protobuf8internal14WireFormatLite23kMessageSetItemTagsSizeE, align 8
@@ -15954,9 +15954,9 @@ cond.end.i.i.i34.i:                               ; preds = %cond.false.i.i.i46.
   %add.i.i14.i = add i64 %retval.0.i.i.i13.i, %total_size.0
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.05.i.i, i64 32
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
-  br i1 %cmp.not.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_18MessageSetByteSizeEvE3$_0EET_S5_.argprom.exit", label %for.body.i6.i, !llvm.loop !177
+  br i1 %cmp.not.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_18MessageSetByteSizeEvE3$_0EET_S5_.exit", label %for.body.i6.i, !llvm.loop !177
 
-"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_18MessageSetByteSizeEvE3$_0EET_S5_.argprom.exit": ; preds = %"_ZZNK6google8protobuf8internal12ExtensionSet18MessageSetByteSizeEvENK3$_0clEiRKNS2_9ExtensionE.exit.i12.i", %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i, %if.then.i, %if.end.i
+"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_18MessageSetByteSizeEvE3$_0EET_S5_.exit": ; preds = %"_ZZNK6google8protobuf8internal12ExtensionSet18MessageSetByteSizeEvENK3$_0clEiRKNS2_9ExtensionE.exit.i12.i", %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i, %if.then.i, %if.end.i
   %total_size.2 = phi i64 [ 0, %if.then.i ], [ 0, %if.end.i ], [ %add.i.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i ], [ %add.i.i14.i, %"_ZZNK6google8protobuf8internal12ExtensionSet18MessageSetByteSizeEvENK3$_0clEiRKNS2_9ExtensionE.exit.i12.i" ]
   ret i64 %total_size.2
 }
@@ -16041,7 +16041,7 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i14.i.i.i.i)
   %.fca.0.insert.i.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %add.ptr.i.i.i.i.i, 0
   %.fca.1.insert.i.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i, ptr %add.ptr19.i.i.i.i, 1
-  br label %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE4findIS7_EENSD_14const_iteratorERKS7_.argprom.exit.i
+  br label %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE4findIS7_EENSD_14const_iteratorERKS7_.exit.i
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %sub.i.i.i.i.i = add nsw i32 %__begin5.sroa.0.030.i.i.i.i, -1
@@ -16053,14 +16053,14 @@ for.end.i.i.i.i:                                  ; preds = %for.inc.i.i.i.i, %w
   %cmp.i.i16.i.i.i.i = icmp eq <16 x i8> %6, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
   %12 = bitcast <16 x i1> %cmp.i.i16.i.i.i.i to i16
   %cmp.i17.not.i.i.i.i = icmp eq i16 %12, 0
-  br i1 %cmp.i17.not.i.i.i.i, label %if.end34.i.i.i.i, label %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE4findIS7_EENSD_14const_iteratorERKS7_.argprom.exit.i
+  br i1 %cmp.i17.not.i.i.i.i, label %if.end34.i.i.i.i, label %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE4findIS7_EENSD_14const_iteratorERKS7_.exit.i
 
 if.end34.i.i.i.i:                                 ; preds = %for.end.i.i.i.i
   %add.i18.i.i.i.i = add i64 %seq.sroa.10.0.i.i.i.i, 16
   %add3.i.i.i.i.i = add i64 %add.i18.i.i.i.i, %seq.sroa.4.0.i.i.i.i
   br label %while.body.i.i.i.i, !llvm.loop !7
 
-_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE4findIS7_EENSD_14const_iteratorERKS7_.argprom.exit.i: ; preds = %for.end.i.i.i.i, %if.then.i.i.i.i
+_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE4findIS7_EENSD_14const_iteratorERKS7_.exit.i: ; preds = %for.end.i.i.i.i, %if.then.i.i.i.i
   %call25.pn.i.i.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i, %if.then.i.i.i.i ], [ { ptr null, ptr undef }, %for.end.i.i.i.i ]
   %13 = extractvalue { ptr, ptr } %call25.pn.i.i.i.i, 0
   %14 = extractvalue { ptr, ptr } %call25.pn.i.i.i.i, 1
@@ -16069,13 +16069,13 @@ _ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolic
   %or.cond = select i1 %cmp.i.i.i, i1 true, i1 %cmp.not
   br i1 %or.cond, label %return, label %if.then
 
-if.then:                                          ; preds = %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE4findIS7_EENSD_14const_iteratorERKS7_.argprom.exit.i
+if.then:                                          ; preds = %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE4findIS7_EENSD_14const_iteratorERKS7_.exit.i
   %lazy_eager_verify_func = getelementptr inbounds i8, ptr %14, i64 40
   %15 = load ptr, ptr %lazy_eager_verify_func, align 8
   br label %return
 
-return:                                           ; preds = %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE4findIS7_EENSD_14const_iteratorERKS7_.argprom.exit.i, %entry, %if.then
-  %retval.0 = phi ptr [ %15, %if.then ], [ null, %entry ], [ null, %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE4findIS7_EENSD_14const_iteratorERKS7_.argprom.exit.i ]
+return:                                           ; preds = %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE4findIS7_EENSD_14const_iteratorERKS7_.exit.i, %entry, %if.then
+  %retval.0 = phi ptr [ %15, %if.then ], [ null, %entry ], [ null, %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE4findIS7_EENSD_14const_iteratorERKS7_.exit.i ]
   ret ptr %retval.0
 }
 
@@ -16143,25 +16143,25 @@ declare void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef
 define internal void @_ZZN6google8protobuf8internal16OnShutdownDeleteIN4absl12lts_2023080213flat_hash_setINS1_13ExtensionInfoENS1_12_GLOBAL__N_115ExtensionHasherENS7_11ExtensionEqESaIS6_EEEEEPT_SD_ENUlPKvE_8__invokeESF_(ptr noundef %pp) #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %isnull.i = icmp eq ptr %pp, null
-  br i1 %isnull.i, label %_ZZN6google8protobuf8internal16OnShutdownDeleteIN4absl12lts_2023080213flat_hash_setINS1_13ExtensionInfoENS1_12_GLOBAL__N_115ExtensionHasherENS7_11ExtensionEqESaIS6_EEEEEPT_SD_ENKUlPKvE_clESF_.argprom.exit, label %delete.notnull.i
+  br i1 %isnull.i, label %_ZZN6google8protobuf8internal16OnShutdownDeleteIN4absl12lts_2023080213flat_hash_setINS1_13ExtensionInfoENS1_12_GLOBAL__N_115ExtensionHasherENS7_11ExtensionEqESaIS6_EEEEEPT_SD_ENKUlPKvE_clESF_.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
   %0 = getelementptr i8, ptr %pp, i64 16
   %pp.val1.i = load i64, ptr %0, align 8
   %tobool.not.i.i.i = icmp eq i64 %pp.val1.i, 0
-  br i1 %tobool.not.i.i.i, label %_ZN4absl12lts_2023080213flat_hash_setIN6google8protobuf8internal13ExtensionInfoENS4_12_GLOBAL__N_115ExtensionHasherENS6_11ExtensionEqESaIS5_EED2Ev.argprom.exit.i, label %invoke.cont15.i.i.i
+  br i1 %tobool.not.i.i.i, label %_ZN4absl12lts_2023080213flat_hash_setIN6google8protobuf8internal13ExtensionInfoENS4_12_GLOBAL__N_115ExtensionHasherENS6_11ExtensionEqESaIS5_EED2Ev.exit.i, label %invoke.cont15.i.i.i
 
 invoke.cont15.i.i.i:                              ; preds = %delete.notnull.i
   %pp.val.i = load ptr, ptr %pp, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %pp.val.i, i64 -8
   tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i) #34
-  br label %_ZN4absl12lts_2023080213flat_hash_setIN6google8protobuf8internal13ExtensionInfoENS4_12_GLOBAL__N_115ExtensionHasherENS6_11ExtensionEqESaIS5_EED2Ev.argprom.exit.i
+  br label %_ZN4absl12lts_2023080213flat_hash_setIN6google8protobuf8internal13ExtensionInfoENS4_12_GLOBAL__N_115ExtensionHasherENS6_11ExtensionEqESaIS5_EED2Ev.exit.i
 
-_ZN4absl12lts_2023080213flat_hash_setIN6google8protobuf8internal13ExtensionInfoENS4_12_GLOBAL__N_115ExtensionHasherENS6_11ExtensionEqESaIS5_EED2Ev.argprom.exit.i: ; preds = %invoke.cont15.i.i.i, %delete.notnull.i
+_ZN4absl12lts_2023080213flat_hash_setIN6google8protobuf8internal13ExtensionInfoENS4_12_GLOBAL__N_115ExtensionHasherENS6_11ExtensionEqESaIS5_EED2Ev.exit.i: ; preds = %invoke.cont15.i.i.i, %delete.notnull.i
   tail call void @_ZdlPv(ptr noundef nonnull %pp) #34
-  br label %_ZZN6google8protobuf8internal16OnShutdownDeleteIN4absl12lts_2023080213flat_hash_setINS1_13ExtensionInfoENS1_12_GLOBAL__N_115ExtensionHasherENS7_11ExtensionEqESaIS6_EEEEEPT_SD_ENKUlPKvE_clESF_.argprom.exit
+  br label %_ZZN6google8protobuf8internal16OnShutdownDeleteIN4absl12lts_2023080213flat_hash_setINS1_13ExtensionInfoENS1_12_GLOBAL__N_115ExtensionHasherENS7_11ExtensionEqESaIS6_EEEEEPT_SD_ENKUlPKvE_clESF_.exit
 
-_ZZN6google8protobuf8internal16OnShutdownDeleteIN4absl12lts_2023080213flat_hash_setINS1_13ExtensionInfoENS1_12_GLOBAL__N_115ExtensionHasherENS7_11ExtensionEqESaIS6_EEEEEPT_SD_ENKUlPKvE_clESF_.argprom.exit: ; preds = %entry, %_ZN4absl12lts_2023080213flat_hash_setIN6google8protobuf8internal13ExtensionInfoENS4_12_GLOBAL__N_115ExtensionHasherENS6_11ExtensionEqESaIS5_EED2Ev.argprom.exit.i
+_ZZN6google8protobuf8internal16OnShutdownDeleteIN4absl12lts_2023080213flat_hash_setINS1_13ExtensionInfoENS1_12_GLOBAL__N_115ExtensionHasherENS7_11ExtensionEqESaIS6_EEEEEPT_SD_ENKUlPKvE_clESF_.exit: ; preds = %entry, %_ZN4absl12lts_2023080213flat_hash_setIN6google8protobuf8internal13ExtensionInfoENS4_12_GLOBAL__N_115ExtensionHasherENS6_11ExtensionEqESaIS5_EED2Ev.exit.i
   ret void
 }
 
@@ -20883,8 +20883,8 @@ attributes #37 = { noreturn }
 !19 = distinct !{!19, !20, !"_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE6insertIS7_TnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S7_ENSD_22SameAsElementReferenceISJ_EEEE5valueEiE4typeELi0ETnNSF_IXsr14IsDecomposableISJ_EE5valueEiE4typeELi0EEESt4pairINSD_8iteratorEbESJ_: %agg.result"}
 !20 = distinct !{!20, !"_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE6insertIS7_TnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S7_ENSD_22SameAsElementReferenceISJ_EEEE5valueEiE4typeELi0ETnNSF_IXsr14IsDecomposableISJ_EE5valueEiE4typeELi0EEESt4pairINSD_8iteratorEbESJ_"}
 !21 = !{!22, !11, !13, !15, !17, !19}
-!22 = distinct !{!22, !23, !"_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE19EmplaceDecomposableclIS7_JRKS7_EEESt4pairINSD_8iteratorEbERKT_DpOT0_.argprom: %agg.result"}
-!23 = distinct !{!23, !"_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE19EmplaceDecomposableclIS7_JRKS7_EEESt4pairINSD_8iteratorEbERKT_DpOT0_.argprom"}
+!22 = distinct !{!22, !23, !"_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE19EmplaceDecomposableclIS7_JRKS7_EEESt4pairINSD_8iteratorEbERKT_DpOT0_: %agg.result"}
+!23 = distinct !{!23, !"_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE19EmplaceDecomposableclIS7_JRKS7_EEESt4pairINSD_8iteratorEbERKT_DpOT0_"}
 !24 = !{!25, !22, !11, !13, !15, !17, !19}
 !25 = distinct !{!25, !26, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm: %agg.result"}
 !26 = distinct !{!26, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm"}
@@ -20909,8 +20909,8 @@ attributes #37 = { noreturn }
 !45 = distinct !{!45, !8}
 !46 = distinct !{!46, !8}
 !47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNS2_9MergeFromEPKNS0_11MessageLiteERKS2_E3$_0EET_SA_.argprom: %agg.result"}
-!49 = distinct !{!49, !"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNS2_9MergeFromEPKNS0_11MessageLiteERKS2_E3$_0EET_SA_.argprom"}
+!48 = distinct !{!48, !49, !"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNS2_9MergeFromEPKNS0_11MessageLiteERKS2_E3$_0EET_SA_: %agg.result"}
+!49 = distinct !{!49, !"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNS2_9MergeFromEPKNS0_11MessageLiteERKS2_E3$_0EET_SA_"}
 !50 = !{!51, !48}
 !51 = distinct !{!51, !52, !"_ZN6google8protobuf8internal12ExtensionSet7ForEachIN4absl12lts_2023080218container_internal14btree_iteratorINS6_10btree_nodeINS6_10map_paramsIiNS2_9ExtensionESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERSF_PSF_EEZNS2_9MergeFromEPKNS0_11MessageLiteERKS2_E3$_0EET0_T_ST_SS_: %agg.result"}
 !52 = distinct !{!52, !"_ZN6google8protobuf8internal12ExtensionSet7ForEachIN4absl12lts_2023080218container_internal14btree_iteratorINS6_10btree_nodeINS6_10map_paramsIiNS2_9ExtensionESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERSF_PSF_EEZNS2_9MergeFromEPKNS0_11MessageLiteERKS2_E3$_0EET0_T_ST_SS_"}
@@ -21001,8 +21001,8 @@ attributes #37 = { noreturn }
 !137 = distinct !{!137, !8}
 !138 = distinct !{!138, !8}
 !139 = !{!140}
-!140 = distinct !{!140, !141, !"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_49InternalSerializeMessageSetWithCachedSizesToArrayEPKNS0_11MessageLiteEPhPNS0_2io19EpsCopyOutputStreamEE3$_0EET_SC_.argprom: %agg.result"}
-!141 = distinct !{!141, !"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_49InternalSerializeMessageSetWithCachedSizesToArrayEPKNS0_11MessageLiteEPhPNS0_2io19EpsCopyOutputStreamEE3$_0EET_SC_.argprom"}
+!140 = distinct !{!140, !141, !"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_49InternalSerializeMessageSetWithCachedSizesToArrayEPKNS0_11MessageLiteEPhPNS0_2io19EpsCopyOutputStreamEE3$_0EET_SC_: %agg.result"}
+!141 = distinct !{!141, !"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_49InternalSerializeMessageSetWithCachedSizesToArrayEPKNS0_11MessageLiteEPhPNS0_2io19EpsCopyOutputStreamEE3$_0EET_SC_"}
 !142 = !{!143, !140}
 !143 = distinct !{!143, !144, !"_ZN6google8protobuf8internal12ExtensionSet7ForEachIN4absl12lts_2023080218container_internal14btree_iteratorINS6_10btree_nodeINS6_10map_paramsIiNS2_9ExtensionESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERSF_PSF_EEZNKS2_49InternalSerializeMessageSetWithCachedSizesToArrayEPKNS0_11MessageLiteEPhPNS0_2io19EpsCopyOutputStreamEE3$_0EET0_T_SV_SU_: %agg.result"}
 !144 = distinct !{!144, !"_ZN6google8protobuf8internal12ExtensionSet7ForEachIN4absl12lts_2023080218container_internal14btree_iteratorINS6_10btree_nodeINS6_10map_paramsIiNS2_9ExtensionESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERSF_PSF_EEZNKS2_49InternalSerializeMessageSetWithCachedSizesToArrayEPKNS0_11MessageLiteEPhPNS0_2io19EpsCopyOutputStreamEE3$_0EET0_T_SV_SU_"}

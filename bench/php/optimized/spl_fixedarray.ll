@@ -1222,7 +1222,7 @@ tailrecurse.i:                                    ; preds = %61, %18
   call void @llvm.assume(i1 %49)
   %50 = getelementptr inbounds %struct._zval_struct, ptr %47, i64 %.tr46.i
   %.not1.i.i = icmp eq i64 %48, %.tr46.i
-  br i1 %.not1.i.i, label %spl_fixedarray_init_elems.argprom.exit.i, label %.lr.ph.preheader.i38.i
+  br i1 %.not1.i.i, label %spl_fixedarray_init_elems.exit.i, label %.lr.ph.preheader.i38.i
 
 .lr.ph.preheader.i38.i:                           ; preds = %45
   %51 = getelementptr inbounds %struct._zval_struct, ptr %47, i64 %48
@@ -1234,9 +1234,9 @@ tailrecurse.i:                                    ; preds = %61, %18
   %53 = getelementptr inbounds i8, ptr %.02.i.i, i64 8
   store i32 1, ptr %53, align 8
   %.not.i40.i = icmp eq ptr %52, %50
-  br i1 %.not.i40.i, label %spl_fixedarray_init_elems.argprom.exit.i, label %.lr.ph.i39.i
+  br i1 %.not.i40.i, label %spl_fixedarray_init_elems.exit.i, label %.lr.ph.i39.i
 
-spl_fixedarray_init_elems.argprom.exit.i:         ; preds = %.lr.ph.i39.i, %45
+spl_fixedarray_init_elems.exit.i:                 ; preds = %.lr.ph.i39.i, %45
   store i64 %.tr46.i, ptr %20, align 8
   br label %61
 
@@ -1261,7 +1261,7 @@ spl_fixedarray_dtor_range.exit.i:                 ; preds = %.lr.ph.i43.i
   store ptr %60, ptr %22, align 8
   br label %61
 
-61:                                               ; preds = %spl_fixedarray_dtor_range.exit.i, %spl_fixedarray_init_elems.argprom.exit.i, %._crit_edge.i.i
+61:                                               ; preds = %spl_fixedarray_dtor_range.exit.i, %spl_fixedarray_init_elems.exit.i, %._crit_edge.i.i
   %62 = load i64, ptr %21, align 8
   store i64 -1, ptr %21, align 8
   %.not.i = icmp eq i64 %62, %.tr46.i

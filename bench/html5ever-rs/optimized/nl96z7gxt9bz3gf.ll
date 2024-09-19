@@ -233,7 +233,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   %17 = load ptr, ptr %.val1, align 8, !noalias !36, !noundef !4
   %18 = load ptr, ptr %17, align 8, !alias.scope !39, !noalias !36, !noundef !4
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %_ZN4core3ops8function6FnOnce9call_once17h10caec62625828eeE.argprom.exit, label %20
+  br i1 %19, label %_ZN4core3ops8function6FnOnce9call_once17h10caec62625828eeE.exit, label %20
 
 20:                                               ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h1a568c01e302c6f3E.exit.i.i"
   invoke void @"_ZN4core3ptr206drop_in_place$LT$alloc..boxed..Box$LT$$u5b$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$$GT$$u5d$$GT$$GT$17hccbc1bee2f0243ecE.llvm.10022686776672290337"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17)
@@ -241,7 +241,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
 
 "._ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$string_cache..dynamic_set..Set$GT$$GT$17h3a2794beb6fc2de3E.exit_crit_edge.i.i": ; preds = %20
   %.pre.i.i = load ptr, ptr %.val1, align 8, !noalias !36
-  br label %_ZN4core3ops8function6FnOnce9call_once17h10caec62625828eeE.argprom.exit
+  br label %_ZN4core3ops8function6FnOnce9call_once17h10caec62625828eeE.exit
 
 21:                                               ; preds = %20
   %22 = landingpad { ptr, i32 }
@@ -252,7 +252,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   store i64 %.fca.1.extract.i.i, ptr %24, align 8, !noalias !36
   resume { ptr, i32 } %22
 
-_ZN4core3ops8function6FnOnce9call_once17h10caec62625828eeE.argprom.exit: ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h1a568c01e302c6f3E.exit.i.i", %"._ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$string_cache..dynamic_set..Set$GT$$GT$17h3a2794beb6fc2de3E.exit_crit_edge.i.i"
+_ZN4core3ops8function6FnOnce9call_once17h10caec62625828eeE.exit: ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h1a568c01e302c6f3E.exit.i.i", %"._ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$string_cache..dynamic_set..Set$GT$$GT$17h3a2794beb6fc2de3E.exit_crit_edge.i.i"
   %25 = phi ptr [ %.pre.i.i, %"._ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$string_cache..dynamic_set..Set$GT$$GT$17h3a2794beb6fc2de3E.exit_crit_edge.i.i" ], [ %17, %"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h1a568c01e302c6f3E.exit.i.i" ]
   store ptr %14, ptr %25, align 8, !noalias !36
   %26 = getelementptr inbounds i8, ptr %25, i64 8
@@ -463,10 +463,10 @@ attributes #8 = { noreturn }
 !15 = distinct !{!15, !"_ZN75_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h66f7459f4ac9173eE"}
 !16 = !{i64 1, i64 0}
 !17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
-!19 = distinct !{!19, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
+!18 = distinct !{!18, !19, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
+!19 = distinct !{!19, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
 !20 = !{!21, !14}
-!21 = distinct !{!21, !19, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
+!21 = distinct !{!21, !19, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
 !22 = !{!23, !14}
 !23 = distinct !{!23, !24, !"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10assume_buf17h38ee87d667558e4aE: argument 0"}
 !24 = distinct !{!24, !"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10assume_buf17h38ee87d667558e4aE"}

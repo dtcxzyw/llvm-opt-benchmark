@@ -30,7 +30,7 @@ define void @Abc_NtkMarkFanins_rec(ptr nocapture noundef readonly %0, i32 nounde
   %.val3.i = load i32, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %8 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %7, i32 noundef %8)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %7, i32 noundef %8)
   %9 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %9, align 8
   %10 = sext i32 %.val3.i to i64
@@ -46,7 +46,7 @@ define void @Abc_NtkMarkFanins_rec(ptr nocapture noundef readonly %0, i32 nounde
   %.val14 = load i32, ptr %6, align 8
   %16 = getelementptr inbounds i8, ptr %.val.i, i64 224
   %17 = add nsw i32 %.val14, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %16, i32 noundef %17)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %16, i32 noundef %17)
   %18 = getelementptr i8, ptr %.val.i, i64 232
   %.val.i.i.i19 = load ptr, ptr %18, align 8
   %19 = sext i32 %.val14 to i64
@@ -105,7 +105,7 @@ define void @Abc_NtkMarkFanouts_rec(ptr nocapture noundef readonly %0, i32 nound
   %.val3.i = load i32, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %9 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %8, i32 noundef %9)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %8, i32 noundef %9)
   %10 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %10, align 8
   %11 = sext i32 %.val3.i to i64
@@ -121,7 +121,7 @@ define void @Abc_NtkMarkFanouts_rec(ptr nocapture noundef readonly %0, i32 nound
   %.val18 = load i32, ptr %7, align 8
   %17 = getelementptr inbounds i8, ptr %.val.i, i64 224
   %18 = add nsw i32 %.val18, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %17, i32 noundef %18)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %17, i32 noundef %18)
   %19 = getelementptr i8, ptr %.val.i, i64 232
   %.val.i.i.i24 = load ptr, ptr %19, align 8
   %20 = sext i32 %.val18 to i64
@@ -929,7 +929,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %Vec_PtrPush.exit, %
   %52 = load i32, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %.val64, i64 224
   %54 = add nsw i32 %.val65, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %53, i32 noundef %54)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %53, i32 noundef %54)
   %55 = getelementptr i8, ptr %.val64, i64 232
   %.val.i.i.i = load ptr, ptr %55, align 8
   %56 = sext i32 %.val65 to i64
@@ -1104,7 +1104,7 @@ Abc_NtkIncrementTravId.exit101:                   ; preds = %._crit_edge, %Vec_I
 126:                                              ; preds = %Abc_NtkIncrementTravId.exit101
   %127 = getelementptr inbounds i8, ptr %.val78, i64 224
   %128 = add nsw i32 %.val79, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %127, i32 noundef %128)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %127, i32 noundef %128)
   %129 = getelementptr i8, ptr %.val78, i64 232
   %.val.i.i.i102 = load ptr, ptr %129, align 8
   %130 = sext i32 %.val79 to i64
@@ -1116,7 +1116,7 @@ Abc_NtkIncrementTravId.exit101:                   ; preds = %._crit_edge, %Vec_I
   %133 = add nsw i32 %125, -1
   %134 = getelementptr inbounds i8, ptr %.val78, i64 224
   %135 = add nsw i32 %.val79, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %134, i32 noundef %135)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %134, i32 noundef %135)
   %136 = getelementptr i8, ptr %.val78, i64 232
   %.val.i.i.i103 = load ptr, ptr %136, align 8
   %137 = sext i32 %.val79 to i64
@@ -1135,7 +1135,7 @@ Abc_NtkIncrementTravId.exit101:                   ; preds = %._crit_edge, %Vec_I
   %145 = add nsw i32 %144, -1
   %146 = getelementptr inbounds i8, ptr %.val80, i64 224
   %147 = add nsw i32 %.val81, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %146, i32 noundef %147)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %146, i32 noundef %147)
   %148 = getelementptr i8, ptr %.val80, i64 232
   %.val.i.i.i104 = load ptr, ptr %148, align 8
   %149 = sext i32 %.val81 to i64
@@ -1172,7 +1172,7 @@ Abc_NtkIncrementTravId.exit101:                   ; preds = %._crit_edge, %Vec_I
   %.val3.i = load i32, ptr %164, align 8
   %165 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %166 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %165, i32 noundef %166)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %165, i32 noundef %166)
   %167 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i105 = load ptr, ptr %167, align 8
   %168 = sext i32 %.val3.i to i64
@@ -1371,7 +1371,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %.critedge, %Vec_Int
   %44 = load i32, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %.val53, i64 224
   %46 = add nsw i32 %.val54, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %45, i32 noundef %46)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %45, i32 noundef %46)
   %47 = getelementptr i8, ptr %.val53, i64 232
   %.val.i.i.i = load ptr, ptr %47, align 8
   %48 = sext i32 %.val54 to i64
@@ -2243,7 +2243,7 @@ declare void @Nwk_ManGraphReportMemoryUsage(ptr noundef) local_unnamed_addr #2
 declare void @Nwk_ManGraphFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

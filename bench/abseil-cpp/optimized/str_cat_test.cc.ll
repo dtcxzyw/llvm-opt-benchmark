@@ -25536,7 +25536,7 @@ _ZN7testing15AssertionResultD2Ev.exit188.i.i:     ; preds = %_ZNKSt14default_del
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %actual62.i.i) #23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond11.not.i.i = icmp eq i64 %indvars.iv.next.i, 85
-  br i1 %exitcond11.not.i.i, label %_ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.argprom.exit.i, label %for.body61.i.i, !llvm.loop !1252
+  br i1 %exitcond11.not.i.i, label %_ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.exit.i, label %for.body61.i.i, !llvm.loop !1252
 
 ehcleanup99.i.i:                                  ; preds = %_ZN7testing7MessageD2Ev.exit184.i.i, %lpad83.i.i
   %.pn9.pn.i.i = phi { ptr, i32 } [ %.pn9.i.i, %_ZN7testing7MessageD2Ev.exit184.i.i ], [ %63, %lpad83.i.i ]
@@ -25554,7 +25554,7 @@ common.resume.i:                                  ; preds = %ehcleanup122.i211.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %actual.sink.i115.sink.i) #23
   resume { ptr, i32 } %common.resume.op.i
 
-_ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.argprom.exit.i: ; preds = %_ZN7testing15AssertionResultD2Ev.exit188.i.i
+_ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.exit.i: ; preds = %_ZN7testing15AssertionResultD2Ev.exit188.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %actual.i.i) #23
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %expected.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %actual.i.i)
@@ -25596,9 +25596,9 @@ _ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.argprom.exit.i: ; preds = %_ZN7testin
   %cmp19.i.i.i.i.i = icmp ugt i32 %conv, 9
   br i1 %cmp19.i.i.i.i.i, label %while.body.i.i.i.i.i, label %if.end.i.i.i.i.i
 
-while.body.i.i.i.i.i:                             ; preds = %_ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.argprom.exit.i, %while.body.i.i.i.i.i
-  %writer.021.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %arrayidx.i.i.i.i16.i, %_ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.argprom.exit.i ]
-  %val.020.i.i.i.i.i = phi i64 [ %div.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %conv.i.i.i, %_ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.argprom.exit.i ]
+while.body.i.i.i.i.i:                             ; preds = %_ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.exit.i, %while.body.i.i.i.i.i
+  %writer.021.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %arrayidx.i.i.i.i16.i, %_ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.exit.i ]
+  %val.020.i.i.i.i.i = phi i64 [ %div.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %conv.i.i.i, %_ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.exit.i ]
   %rem.i.i.i.i.i = urem i64 %val.020.i.i.i.i.i, 10
   %69 = trunc nuw nsw i64 %rem.i.i.i.i.i to i8
   %conv1.i.i.i.i.i = or disjoint i8 %69, 48
@@ -25608,9 +25608,9 @@ while.body.i.i.i.i.i:                             ; preds = %_ZN12_GLOBAL__N_18C
   %cmp.i.i.i.i82.i = icmp ugt i64 %val.020.i.i.i.i.i, 99
   br i1 %cmp.i.i.i.i82.i, label %while.body.i.i.i.i.i, label %if.end.i.i.i.i.i, !llvm.loop !1253
 
-if.end.i.i.i.i.i:                                 ; preds = %while.body.i.i.i.i.i, %_ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.argprom.exit.i
-  %val.0.lcssa.i.i.i.i.i = phi i64 [ %conv.i.i.i, %_ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.argprom.exit.i ], [ %div.i.i.i.i.i, %while.body.i.i.i.i.i ]
-  %writer.0.lcssa.i.i.i.i.i = phi ptr [ %arrayidx.i.i.i.i16.i, %_ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.argprom.exit.i ], [ %incdec.ptr.i.i.i.i.i, %while.body.i.i.i.i.i ]
+if.end.i.i.i.i.i:                                 ; preds = %while.body.i.i.i.i.i, %_ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.exit.i
+  %val.0.lcssa.i.i.i.i.i = phi i64 [ %conv.i.i.i, %_ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.exit.i ], [ %div.i.i.i.i.i, %while.body.i.i.i.i.i ]
+  %writer.0.lcssa.i.i.i.i.i = phi ptr [ %arrayidx.i.i.i.i16.i, %_ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.exit.i ], [ %incdec.ptr.i.i.i.i.i, %while.body.i.i.i.i.i ]
   %conv2.i.i.i.i.i = trunc nuw i64 %val.0.lcssa.i.i.i.i.i to i8
   %add4.i.i.i.i.i = or disjoint i8 %conv2.i.i.i.i.i, 48
   %incdec.ptr6.i.i.i.i.i = getelementptr inbounds i8, ptr %writer.0.lcssa.i.i.i.i.i, i64 -1
@@ -26263,7 +26263,7 @@ _ZN7testing15AssertionResultD2Ev.exit246.i.i:     ; preds = %_ZNKSt14default_del
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %actual73.i.i) #23
   %indvars.iv.next260.i = add nuw nsw i64 %indvars.iv259.i, 1
   %exitcond13.not.i.i = icmp eq i64 %indvars.iv.next260.i, 85
-  br i1 %exitcond13.not.i.i, label %_ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.argprom.exit.i, label %for.body72.i.i, !llvm.loop !1279
+  br i1 %exitcond13.not.i.i, label %_ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.exit.i, label %for.body72.i.i, !llvm.loop !1279
 
 ehcleanup121.i.i:                                 ; preds = %_ZN7testing7MessageD2Ev.exit242.i.i, %lpad94.i78.i
   %.pn11.pn.i.i = phi { ptr, i32 } [ %.pn11.i.i, %_ZN7testing7MessageD2Ev.exit242.i.i ], [ %130, %lpad94.i78.i ]
@@ -26275,7 +26275,7 @@ ehcleanup122.i.i:                                 ; preds = %ehcleanup121.i.i, %
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %actual73.i.i) #23
   br label %common.resume.i
 
-_ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.argprom.exit.i: ; preds = %_ZN7testing15AssertionResultD2Ev.exit246.i.i
+_ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.exit.i: ; preds = %_ZN7testing15AssertionResultD2Ev.exit246.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %actual.i6.i) #23
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %expected.i5.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %actual.i6.i)
@@ -26320,9 +26320,9 @@ _ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.argprom.exit.i: ; preds = %_ZN7testin
   %cmp19.i.i.i.i103.i = icmp ugt i32 %136, 9
   br i1 %cmp19.i.i.i.i103.i, label %while.body.i.i.i.i248.i, label %while.end.i.i.i.i.i
 
-while.body.i.i.i.i248.i:                          ; preds = %_ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.argprom.exit.i, %while.body.i.i.i.i248.i
-  %writer.021.i.i.i.i249.i = phi ptr [ %incdec.ptr.i.i.i.i253.i, %while.body.i.i.i.i248.i ], [ %arrayidx.i.i.i.i101.i, %_ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.argprom.exit.i ]
-  %val.020.i.i.i.i250.i = phi i64 [ %div.i.i.i.i254.i, %while.body.i.i.i.i248.i ], [ %cond.i.i.i, %_ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.argprom.exit.i ]
+while.body.i.i.i.i248.i:                          ; preds = %_ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.exit.i, %while.body.i.i.i.i248.i
+  %writer.021.i.i.i.i249.i = phi ptr [ %incdec.ptr.i.i.i.i253.i, %while.body.i.i.i.i248.i ], [ %arrayidx.i.i.i.i101.i, %_ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.exit.i ]
+  %val.020.i.i.i.i250.i = phi i64 [ %div.i.i.i.i254.i, %while.body.i.i.i.i248.i ], [ %cond.i.i.i, %_ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.exit.i ]
   %rem.i.i.i.i251.i = urem i64 %val.020.i.i.i.i250.i, 10
   %138 = trunc nuw nsw i64 %rem.i.i.i.i251.i to i8
   %conv1.i.i.i.i252.i = or disjoint i8 %138, 48
@@ -26332,9 +26332,9 @@ while.body.i.i.i.i248.i:                          ; preds = %_ZN12_GLOBAL__N_18C
   %cmp.i.i.i.i255.i = icmp ugt i64 %val.020.i.i.i.i250.i, 99
   br i1 %cmp.i.i.i.i255.i, label %while.body.i.i.i.i248.i, label %while.end.i.i.i.i.i, !llvm.loop !1253
 
-while.end.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i248.i, %_ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.argprom.exit.i
-  %val.0.lcssa.i.i.i.i104.i = phi i64 [ %cond.i.i.i, %_ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.argprom.exit.i ], [ %div.i.i.i.i254.i, %while.body.i.i.i.i248.i ]
-  %writer.0.lcssa.i.i.i.i105.i = phi ptr [ %arrayidx.i.i.i.i101.i, %_ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.argprom.exit.i ], [ %incdec.ptr.i.i.i.i253.i, %while.body.i.i.i.i248.i ]
+while.end.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i248.i, %_ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.exit.i
+  %val.0.lcssa.i.i.i.i104.i = phi i64 [ %cond.i.i.i, %_ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.exit.i ], [ %div.i.i.i.i254.i, %while.body.i.i.i.i248.i ]
+  %writer.0.lcssa.i.i.i.i105.i = phi ptr [ %arrayidx.i.i.i.i101.i, %_ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.exit.i ], [ %incdec.ptr.i.i.i.i253.i, %while.body.i.i.i.i248.i ]
   %conv2.i.i.i.i106.i = trunc nuw i64 %val.0.lcssa.i.i.i.i104.i to i8
   %add4.i.i.i.i107.i = or disjoint i8 %conv2.i.i.i.i106.i, 48
   %incdec.ptr6.i.i.i.i108.i = getelementptr inbounds i8, ptr %writer.0.lcssa.i.i.i.i105.i, i64 -1
@@ -27779,7 +27779,7 @@ _ZN7testing15AssertionResultD2Ev.exit186.i:       ; preds = %_ZNKSt14default_del
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %actual62.i) #23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond11.not.i = icmp eq i64 %indvars.iv.next, 85
-  br i1 %exitcond11.not.i, label %_ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.argprom.exit, label %invoke.cont66.i, !llvm.loop !1331
+  br i1 %exitcond11.not.i, label %_ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.exit, label %invoke.cont66.i, !llvm.loop !1331
 
 ehcleanup99.i:                                    ; preds = %_ZN7testing7MessageD2Ev.exit182.i, %lpad83.i
   %.pn9.pn.i = phi { ptr, i32 } [ %.pn9.i, %_ZN7testing7MessageD2Ev.exit182.i ], [ %63, %lpad83.i ]
@@ -27797,7 +27797,7 @@ common.resume:                                    ; preds = %lpad.i.i300, %lpad.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %actual.sink.i296.sink) #23
   resume { ptr, i32 } %common.resume.op
 
-_ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.argprom.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit186.i
+_ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.exit:  ; preds = %_ZN7testing15AssertionResultD2Ev.exit186.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %actual.i) #23
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %expected.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %actual.i)
@@ -27839,9 +27839,9 @@ _ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.argprom.exit: ; preds = %_ZN7testing1
   %cmp19.i.i.i.i = icmp ugt i64 %v, 9
   br i1 %cmp19.i.i.i.i, label %while.body.i.i.i.i, label %if.end.i.i.i.i
 
-while.body.i.i.i.i:                               ; preds = %_ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.argprom.exit, %while.body.i.i.i.i
-  %writer.021.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %arrayidx.i.i.i.i16, %_ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.argprom.exit ]
-  %val.020.i.i.i.i = phi i64 [ %div.i.i.i.i, %while.body.i.i.i.i ], [ %v, %_ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.argprom.exit ]
+while.body.i.i.i.i:                               ; preds = %_ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.exit, %while.body.i.i.i.i
+  %writer.021.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %arrayidx.i.i.i.i16, %_ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.exit ]
+  %val.020.i.i.i.i = phi i64 [ %div.i.i.i.i, %while.body.i.i.i.i ], [ %v, %_ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.exit ]
   %rem.i.i.i.i = urem i64 %val.020.i.i.i.i, 10
   %69 = trunc nuw nsw i64 %rem.i.i.i.i to i8
   %conv1.i.i.i.i = or disjoint i8 %69, 48
@@ -27851,9 +27851,9 @@ while.body.i.i.i.i:                               ; preds = %_ZN12_GLOBAL__N_18C
   %cmp.i.i.i.i81 = icmp ugt i64 %val.020.i.i.i.i, 99
   br i1 %cmp.i.i.i.i81, label %while.body.i.i.i.i, label %if.end.i.i.i.i, !llvm.loop !1253
 
-if.end.i.i.i.i:                                   ; preds = %while.body.i.i.i.i, %_ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.argprom.exit
-  %val.0.lcssa.i.i.i.i = phi i64 [ %v, %_ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.argprom.exit ], [ %div.i.i.i.i, %while.body.i.i.i.i ]
-  %writer.0.lcssa.i.i.i.i = phi ptr [ %arrayidx.i.i.i.i16, %_ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.argprom.exit ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
+if.end.i.i.i.i:                                   ; preds = %while.body.i.i.i.i, %_ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.exit
+  %val.0.lcssa.i.i.i.i = phi i64 [ %v, %_ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.exit ], [ %div.i.i.i.i, %while.body.i.i.i.i ]
+  %writer.0.lcssa.i.i.i.i = phi ptr [ %arrayidx.i.i.i.i16, %_ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.exit ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
   %conv2.i.i.i.i = trunc nuw i64 %val.0.lcssa.i.i.i.i to i8
   %add4.i.i.i.i = or disjoint i8 %conv2.i.i.i.i, 48
   %incdec.ptr6.i.i.i.i = getelementptr inbounds i8, ptr %writer.0.lcssa.i.i.i.i, i64 -1
@@ -28506,7 +28506,7 @@ _ZN7testing15AssertionResultD2Ev.exit244.i:       ; preds = %_ZNKSt14default_del
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %actual73.i) #23
   %indvars.iv.next407 = add nuw nsw i64 %indvars.iv406, 1
   %exitcond13.not.i = icmp eq i64 %indvars.iv.next407, 85
-  br i1 %exitcond13.not.i, label %_ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.argprom.exit, label %for.body72.i, !llvm.loop !1357
+  br i1 %exitcond13.not.i, label %_ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.exit, label %for.body72.i, !llvm.loop !1357
 
 ehcleanup121.i:                                   ; preds = %_ZN7testing7MessageD2Ev.exit240.i, %lpad94.i77
   %.pn11.pn.i = phi { ptr, i32 } [ %.pn11.i, %_ZN7testing7MessageD2Ev.exit240.i ], [ %130, %lpad94.i77 ]
@@ -28518,7 +28518,7 @@ ehcleanup122.i:                                   ; preds = %ehcleanup121.i, %lp
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %actual73.i) #23
   br label %common.resume
 
-_ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.argprom.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit244.i
+_ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.exit:  ; preds = %_ZN7testing15AssertionResultD2Ev.exit244.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %actual.i7) #23
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %expected.i6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %actual.i7)
@@ -28561,9 +28561,9 @@ _ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.argprom.exit: ; preds = %_ZN7testing1
   %cmp19.i.i.i.i102 = icmp ugt i64 %cond.i.i, 9
   br i1 %cmp19.i.i.i.i102, label %while.body.i.i.i.i249, label %while.end.i.i.i.i
 
-while.body.i.i.i.i249:                            ; preds = %_ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.argprom.exit, %while.body.i.i.i.i249
-  %writer.021.i.i.i.i250 = phi ptr [ %incdec.ptr.i.i.i.i254, %while.body.i.i.i.i249 ], [ %arrayidx.i.i.i.i100, %_ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.argprom.exit ]
-  %val.020.i.i.i.i251 = phi i64 [ %div.i.i.i.i255, %while.body.i.i.i.i249 ], [ %cond.i.i, %_ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.argprom.exit ]
+while.body.i.i.i.i249:                            ; preds = %_ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.exit, %while.body.i.i.i.i249
+  %writer.021.i.i.i.i250 = phi ptr [ %incdec.ptr.i.i.i.i254, %while.body.i.i.i.i249 ], [ %arrayidx.i.i.i.i100, %_ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.exit ]
+  %val.020.i.i.i.i251 = phi i64 [ %div.i.i.i.i255, %while.body.i.i.i.i249 ], [ %cond.i.i, %_ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.exit ]
   %rem.i.i.i.i252 = urem i64 %val.020.i.i.i.i251, 10
   %136 = trunc nuw nsw i64 %rem.i.i.i.i252 to i8
   %conv1.i.i.i.i253 = or disjoint i8 %136, 48
@@ -28573,9 +28573,9 @@ while.body.i.i.i.i249:                            ; preds = %_ZN12_GLOBAL__N_18C
   %cmp.i.i.i.i256 = icmp ugt i64 %val.020.i.i.i.i251, 99
   br i1 %cmp.i.i.i.i256, label %while.body.i.i.i.i249, label %while.end.i.i.i.i, !llvm.loop !1253
 
-while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i249, %_ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.argprom.exit
-  %val.0.lcssa.i.i.i.i103 = phi i64 [ %cond.i.i, %_ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.argprom.exit ], [ %div.i.i.i.i255, %while.body.i.i.i.i249 ]
-  %writer.0.lcssa.i.i.i.i104 = phi ptr [ %arrayidx.i.i.i.i100, %_ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.argprom.exit ], [ %incdec.ptr.i.i.i.i254, %while.body.i.i.i.i249 ]
+while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i249, %_ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.exit
+  %val.0.lcssa.i.i.i.i103 = phi i64 [ %cond.i.i, %_ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.exit ], [ %div.i.i.i.i255, %while.body.i.i.i.i249 ]
+  %writer.0.lcssa.i.i.i.i104 = phi ptr [ %arrayidx.i.i.i.i100, %_ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.exit ], [ %incdec.ptr.i.i.i.i254, %while.body.i.i.i.i249 ]
   %conv2.i.i.i.i105 = trunc nuw i64 %val.0.lcssa.i.i.i.i103 to i8
   %add4.i.i.i.i106 = or disjoint i8 %conv2.i.i.i.i105, 48
   %incdec.ptr6.i.i.i.i107 = getelementptr inbounds i8, ptr %writer.0.lcssa.i.i.i.i104, i64 -1
@@ -29280,7 +29280,7 @@ _ZN7testing15AssertionResultD2Ev.exit250.i:       ; preds = %_ZNKSt14default_del
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %actual73.i95) #23
   %indvars.iv.next412 = add nuw nsw i64 %indvars.iv411, 1
   %exitcond14.not.i = icmp eq i64 %indvars.iv.next412, 85
-  br i1 %exitcond14.not.i, label %_ZN12_GLOBAL__N_18CheckDecIxEEvT_PKcS3_S3_.argprom.exit, label %for.body72.i204, !llvm.loop !1383
+  br i1 %exitcond14.not.i, label %_ZN12_GLOBAL__N_18CheckDecIxEEvT_PKcS3_S3_.exit, label %for.body72.i204, !llvm.loop !1383
 
 ehcleanup121.i219:                                ; preds = %_ZN7testing7MessageD2Ev.exit246.i, %lpad94.i218
   %.pn11.pn.i220 = phi { ptr, i32 } [ %.pn11.i226, %_ZN7testing7MessageD2Ev.exit246.i ], [ %197, %lpad94.i218 ]
@@ -29292,7 +29292,7 @@ ehcleanup122.i214:                                ; preds = %ehcleanup121.i219, 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %actual73.i95) #23
   br label %common.resume
 
-_ZN12_GLOBAL__N_18CheckDecIxEEvT_PKcS3_S3_.argprom.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit250.i
+_ZN12_GLOBAL__N_18CheckDecIxEEvT_PKcS3_S3_.exit:  ; preds = %_ZN7testing15AssertionResultD2Ev.exit250.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %actual.i85) #23
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %expected.i84)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %actual.i85)
@@ -29332,8 +29332,8 @@ _ZN12_GLOBAL__N_18CheckDecIxEEvT_PKcS3_S3_.argprom.exit: ; preds = %_ZN7testing1
   %add.ptr.i.i.i.i275 = getelementptr inbounds i8, ptr %buffer.i.i.i.i258, i64 16
   br label %for.body.i.i.i.i.i276
 
-for.body.i.i.i.i.i276:                            ; preds = %for.body.i.i.i.i.i276, %_ZN12_GLOBAL__N_18CheckDecIxEEvT_PKcS3_S3_.argprom.exit
-  %indvars.iv.i.i.i.i.i277 = phi i64 [ 0, %_ZN12_GLOBAL__N_18CheckDecIxEEvT_PKcS3_S3_.argprom.exit ], [ %indvars.iv.next.i.i.i.i.i283, %for.body.i.i.i.i.i276 ]
+for.body.i.i.i.i.i276:                            ; preds = %for.body.i.i.i.i.i276, %_ZN12_GLOBAL__N_18CheckDecIxEEvT_PKcS3_S3_.exit
+  %indvars.iv.i.i.i.i.i277 = phi i64 [ 0, %_ZN12_GLOBAL__N_18CheckDecIxEEvT_PKcS3_S3_.exit ], [ %indvars.iv.next.i.i.i.i.i283, %for.body.i.i.i.i.i276 ]
   %203 = shl nuw nsw i64 %indvars.iv.i.i.i.i.i277, 3
   %204 = sub nuw nsw i64 56, %203
   %shr.i.i.i.i.i278 = lshr i64 %v, %204
@@ -29945,7 +29945,7 @@ _ZN7testing15AssertionResultD2Ev.exit201.i:       ; preds = %_ZNKSt14default_del
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %actual62.i270) #23
   %indvars.iv.next417 = add nuw nsw i64 %indvars.iv416, 1
   %exitcond11.not.i397 = icmp eq i64 %indvars.iv.next417, 85
-  br i1 %exitcond11.not.i397, label %_ZN12_GLOBAL__N_18CheckHexIPvEEvT_PKcS4_S4_.argprom.exit, label %for.body61.i, !llvm.loop !1409
+  br i1 %exitcond11.not.i397, label %_ZN12_GLOBAL__N_18CheckHexIPvEEvT_PKcS4_S4_.exit, label %for.body61.i, !llvm.loop !1409
 
 ehcleanup99.i383:                                 ; preds = %_ZN7testing7MessageD2Ev.exit197.i, %lpad83.i382
   %.pn9.pn.i384 = phi { ptr, i32 } [ %.pn9.i388, %_ZN7testing7MessageD2Ev.exit197.i ], [ %266, %lpad83.i382 ]
@@ -29957,7 +29957,7 @@ ehcleanup100.i378:                                ; preds = %ehcleanup99.i383, %
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %actual62.i270) #23
   br label %common.resume
 
-_ZN12_GLOBAL__N_18CheckHexIPvEEvT_PKcS4_S4_.argprom.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit201.i
+_ZN12_GLOBAL__N_18CheckHexIPvEEvT_PKcS4_S4_.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit201.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %actual.i260) #23
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %expected.i259)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %actual.i260)

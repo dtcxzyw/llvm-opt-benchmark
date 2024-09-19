@@ -791,21 +791,21 @@ define internal i64 @unix_recv_io(i32 noundef %0, ptr noundef %1, i64 noundef %2
 121:                                              ; preds = %114
   %.pr.i = load i64, ptr @unix_recv_io.rbimpl_id, align 8
   %.not1.i = icmp eq i64 %.pr.i, 0
-  br i1 %.not1.i, label %.lr.ph.i, label %rbimpl_intern_const.argprom.exit
+  br i1 %.not1.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
 
 .lr.ph.i:                                         ; preds = %121, %.lr.ph.i
   %122 = call i64 @rb_intern2(ptr noundef nonnull @.str.26, i64 noundef 6) #6
   store i64 %122, ptr @unix_recv_io.rbimpl_id, align 8
   %.not.i = icmp eq i64 %122, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.argprom.exit.loopexit, !llvm.loop !12
+  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit.loopexit, !llvm.loop !12
 
-rbimpl_intern_const.argprom.exit.loopexit:        ; preds = %.lr.ph.i
+rbimpl_intern_const.exit.loopexit:                ; preds = %.lr.ph.i
   %.pre = load i64, ptr %4, align 8
-  br label %rbimpl_intern_const.argprom.exit
+  br label %rbimpl_intern_const.exit
 
-rbimpl_intern_const.argprom.exit:                 ; preds = %rbimpl_intern_const.argprom.exit.loopexit, %121
-  %123 = phi i64 [ %115, %121 ], [ %.pre, %rbimpl_intern_const.argprom.exit.loopexit ]
-  %.lcssa.i = phi i64 [ %.pr.i, %121 ], [ %122, %rbimpl_intern_const.argprom.exit.loopexit ]
+rbimpl_intern_const.exit:                         ; preds = %rbimpl_intern_const.exit.loopexit, %121
+  %123 = phi i64 [ %115, %121 ], [ %.pre, %rbimpl_intern_const.exit.loopexit ]
+  %.lcssa.i = phi i64 [ %.pr.i, %121 ], [ %122, %rbimpl_intern_const.exit.loopexit ]
   %124 = load i64, ptr %5, align 8
   %125 = icmp eq i64 %124, 4
   %126 = select i1 %125, i32 1, i32 2
@@ -818,8 +818,8 @@ rbimpl_intern_const.argprom.exit:                 ; preds = %rbimpl_intern_const
   %131 = call i64 @rb_funcallv(i64 noundef %123, i64 noundef %.lcssa.i, i32 noundef %126, ptr noundef nonnull %10) #6
   br label %132
 
-132:                                              ; preds = %rbimpl_intern_const.argprom.exit, %117
-  %.0 = phi i64 [ %120, %117 ], [ %131, %rbimpl_intern_const.argprom.exit ]
+132:                                              ; preds = %rbimpl_intern_const.exit, %117
+  %.0 = phi i64 [ %120, %117 ], [ %131, %rbimpl_intern_const.exit ]
   ret i64 %.0
 }
 

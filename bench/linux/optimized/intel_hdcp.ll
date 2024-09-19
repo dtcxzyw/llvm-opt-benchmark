@@ -1120,7 +1120,7 @@ define dso_local void @intel_hdcp_enable(ptr nocapture noundef readonly %0, ptr 
 
 12:                                               ; preds = %7, %4
   %.val = load ptr, ptr %1, align 8
-  tail call fastcc void @_intel_hdcp_enable.argprom(ptr noundef %0, ptr %.val, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @_intel_hdcp_enable(ptr noundef %0, ptr %.val, ptr noundef %2, ptr noundef %3)
   br label %13
 
 13:                                               ; preds = %12, %7, %4
@@ -1128,7 +1128,7 @@ define dso_local void @intel_hdcp_enable(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @_intel_hdcp_enable.argprom(ptr nocapture noundef readonly %0, ptr readonly %.0.val, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
+define internal fastcc void @_intel_hdcp_enable(ptr nocapture noundef readonly %0, ptr readonly %.0.val, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca [5 x i8], align 1
   %6 = alloca i8, align 1
@@ -2588,7 +2588,7 @@ define dso_local void @intel_hdcp_update_pipe(ptr nocapture noundef readonly %0,
 
 48:                                               ; preds = %24, %36
   %.val = load ptr, ptr %1, align 8
-  tail call fastcc void @_intel_hdcp_enable.argprom(ptr noundef %0, ptr %.val, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @_intel_hdcp_enable(ptr noundef %0, ptr %.val, ptr noundef %2, ptr noundef %3)
   br label %.thread1
 
 .thread1:                                         ; preds = %.thread, %48, %42, %4
@@ -6373,7 +6373,7 @@ intel_hdcp_get_repeater_ctl.exit:                 ; preds = %279, %280, %281, %2
   %854 = or i32 %618, 8
   %855 = load ptr, ptr %604, align 8
   call void %855(ptr noundef %603, i32 421120, i32 noundef %854, i1 noundef zeroext true) #9
-  %856 = call fastcc i32 @intel_write_sha_text.argelim(ptr noundef %599)
+  %856 = call fastcc i32 @intel_write_sha_text(ptr noundef %599)
   %857 = icmp slt i32 %856, 0
   br i1 %857, label %.loopexit91, label %.thread64
 
@@ -6715,7 +6715,7 @@ declare dso_local void @usleep_range_state(i64 noundef, i64 noundef, i32 noundef
 declare dso_local i64 @schedule_timeout_uninterruptible(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -110, 1) i32 @intel_write_sha_text.argelim(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -110, 1) i32 @intel_write_sha_text(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 7368
   %3 = getelementptr inbounds i8, ptr %0, i64 7544
   %4 = load ptr, ptr %3, align 8

@@ -332,13 +332,13 @@ if.end12:                                         ; preds = %if.end
 sw.bb:                                            ; preds = %if.end12
   %7 = getelementptr i8, ptr %a, i64 24
   %a.val = load ptr, ptr %7, align 8
-  %call13 = tail call fastcc i32 @save_box2i.argprom(ptr noundef nonnull %ctxt, ptr %a.val)
+  %call13 = tail call fastcc i32 @save_box2i(ptr noundef nonnull %ctxt, ptr %a.val)
   br label %return
 
 sw.bb14:                                          ; preds = %if.end12
   %8 = getelementptr i8, ptr %a, i64 24
   %a.val74 = load ptr, ptr %8, align 8
-  %call15 = tail call fastcc i32 @save_box2f.argprom(ptr noundef nonnull %ctxt, ptr %a.val74)
+  %call15 = tail call fastcc i32 @save_box2f(ptr noundef nonnull %ctxt, ptr %a.val74)
   br label %return
 
 sw.bb16:                                          ; preds = %if.end12
@@ -348,7 +348,7 @@ sw.bb16:                                          ; preds = %if.end12
 sw.bb18:                                          ; preds = %if.end12
   %9 = getelementptr i8, ptr %a, i64 24
   %a.val75 = load ptr, ptr %9, align 8
-  %call19 = tail call fastcc i32 @save_chromaticities.argprom(ptr noundef nonnull %ctxt, ptr %a.val75)
+  %call19 = tail call fastcc i32 @save_chromaticities(ptr noundef nonnull %ctxt, ptr %a.val75)
   br label %return
 
 sw.bb20:                                          ; preds = %if.end12
@@ -369,7 +369,7 @@ if.then.i:                                        ; preds = %sw.bb20
 sw.bb22:                                          ; preds = %if.end12
   %13 = getelementptr i8, ptr %a, i64 24
   %a.val76 = load double, ptr %13, align 8
-  %call23 = tail call fastcc i32 @save_attr_double.argprom(ptr noundef nonnull %ctxt, double %a.val76)
+  %call23 = tail call fastcc i32 @save_attr_double(ptr noundef nonnull %ctxt, double %a.val76)
   br label %return
 
 sw.bb24:                                          ; preds = %if.end12
@@ -390,7 +390,7 @@ if.then.i100:                                     ; preds = %sw.bb24
 sw.bb26:                                          ; preds = %if.end12
   %17 = getelementptr i8, ptr %a, i64 24
   %a.val77 = load float, ptr %17, align 8
-  %call27 = tail call fastcc i32 @save_attr_float.argprom(ptr noundef nonnull %ctxt, float %a.val77)
+  %call27 = tail call fastcc i32 @save_attr_float(ptr noundef nonnull %ctxt, float %a.val77)
   br label %return
 
 sw.bb28:                                          ; preds = %if.end12
@@ -400,13 +400,13 @@ sw.bb28:                                          ; preds = %if.end12
 sw.bb30:                                          ; preds = %if.end12
   %18 = getelementptr i8, ptr %a, i64 24
   %a.val78 = load i32, ptr %18, align 8
-  %call31 = tail call fastcc i32 @save_attr_int.argprom(ptr noundef nonnull %ctxt, i32 %a.val78)
+  %call31 = tail call fastcc i32 @save_attr_int(ptr noundef nonnull %ctxt, i32 %a.val78)
   br label %return
 
 sw.bb32:                                          ; preds = %if.end12
   %19 = getelementptr i8, ptr %a, i64 24
   %a.val79 = load ptr, ptr %19, align 8
-  %call33 = tail call fastcc i32 @save_keycode.argprom(ptr noundef nonnull %ctxt, ptr %a.val79)
+  %call33 = tail call fastcc i32 @save_keycode(ptr noundef nonnull %ctxt, ptr %a.val79)
   br label %return
 
 sw.bb34:                                          ; preds = %if.end12
@@ -427,25 +427,25 @@ if.then.i109:                                     ; preds = %sw.bb34
 sw.bb36:                                          ; preds = %if.end12
   %23 = getelementptr i8, ptr %a, i64 24
   %a.val80 = load ptr, ptr %23, align 8
-  %call37 = tail call fastcc i32 @save_m33f.argprom(ptr noundef nonnull %ctxt, ptr %a.val80)
+  %call37 = tail call fastcc i32 @save_m33f(ptr noundef nonnull %ctxt, ptr %a.val80)
   br label %return
 
 sw.bb38:                                          ; preds = %if.end12
   %24 = getelementptr i8, ptr %a, i64 24
   %a.val81 = load ptr, ptr %24, align 8
-  %call39 = tail call fastcc i32 @save_m33d.argprom(ptr noundef nonnull %ctxt, ptr %a.val81)
+  %call39 = tail call fastcc i32 @save_m33d(ptr noundef nonnull %ctxt, ptr %a.val81)
   br label %return
 
 sw.bb40:                                          ; preds = %if.end12
   %25 = getelementptr i8, ptr %a, i64 24
   %a.val82 = load ptr, ptr %25, align 8
-  %call41 = tail call fastcc i32 @save_m44f.argprom(ptr noundef nonnull %ctxt, ptr %a.val82)
+  %call41 = tail call fastcc i32 @save_m44f(ptr noundef nonnull %ctxt, ptr %a.val82)
   br label %return
 
 sw.bb42:                                          ; preds = %if.end12
   %26 = getelementptr i8, ptr %a, i64 24
   %a.val83 = load ptr, ptr %26, align 8
-  %call43 = tail call fastcc i32 @save_m44d.argprom(ptr noundef nonnull %ctxt, ptr %a.val83)
+  %call43 = tail call fastcc i32 @save_m44d(ptr noundef nonnull %ctxt, ptr %a.val83)
   br label %return
 
 sw.bb44:                                          ; preds = %if.end12
@@ -456,13 +456,13 @@ sw.bb46:                                          ; preds = %if.end12
   %27 = getelementptr i8, ptr %a, i64 24
   %a.val84 = load ptr, ptr %27, align 8
   %a.val84.val = load i64, ptr %a.val84, align 1
-  %call47 = tail call fastcc i32 @save_rational.argprom.argprom(ptr noundef nonnull %ctxt, i64 %a.val84.val)
+  %call47 = tail call fastcc i32 @save_rational(ptr noundef nonnull %ctxt, i64 %a.val84.val)
   br label %return
 
 sw.bb48:                                          ; preds = %if.end12
   %28 = getelementptr i8, ptr %a, i64 24
   %a.val85 = load ptr, ptr %28, align 8
-  %call49 = tail call fastcc i32 @save_string.argprom(ptr noundef nonnull %ctxt, ptr %a.val85)
+  %call49 = tail call fastcc i32 @save_string(ptr noundef nonnull %ctxt, ptr %a.val85)
   br label %return
 
 sw.bb50:                                          ; preds = %if.end12
@@ -477,51 +477,51 @@ sw.bb54:                                          ; preds = %if.end12
   %29 = getelementptr i8, ptr %a, i64 24
   %a.val86 = load ptr, ptr %29, align 8
   %a.val86.val = load i64, ptr %a.val86, align 1
-  %call55 = tail call fastcc i32 @save_timecode.argprom.argprom(ptr noundef nonnull %ctxt, i64 %a.val86.val)
+  %call55 = tail call fastcc i32 @save_timecode(ptr noundef nonnull %ctxt, i64 %a.val86.val)
   br label %return
 
 sw.bb56:                                          ; preds = %if.end12
   %30 = getelementptr i8, ptr %a, i64 24
   %a.val87 = load ptr, ptr %30, align 8
   %a.val87.val = load i64, ptr %a.val87, align 1
-  %call57 = tail call fastcc i32 @save_v2i.argprom.argprom(ptr noundef nonnull %ctxt, i64 %a.val87.val)
+  %call57 = tail call fastcc i32 @save_v2i(ptr noundef nonnull %ctxt, i64 %a.val87.val)
   br label %return
 
 sw.bb58:                                          ; preds = %if.end12
   %31 = getelementptr i8, ptr %a, i64 24
   %a.val88 = load ptr, ptr %31, align 8
   %a.val88.val = load i64, ptr %a.val88, align 1
-  %call59 = tail call fastcc i32 @save_v2f.argprom.argprom(ptr noundef nonnull %ctxt, i64 %a.val88.val)
+  %call59 = tail call fastcc i32 @save_v2f(ptr noundef nonnull %ctxt, i64 %a.val88.val)
   br label %return
 
 sw.bb60:                                          ; preds = %if.end12
   %32 = getelementptr i8, ptr %a, i64 24
   %a.val89 = load ptr, ptr %32, align 8
-  %call61 = tail call fastcc i32 @save_v2d.argprom(ptr noundef nonnull %ctxt, ptr %a.val89)
+  %call61 = tail call fastcc i32 @save_v2d(ptr noundef nonnull %ctxt, ptr %a.val89)
   br label %return
 
 sw.bb62:                                          ; preds = %if.end12
   %33 = getelementptr i8, ptr %a, i64 24
   %a.val90 = load ptr, ptr %33, align 8
-  %call63 = tail call fastcc i32 @save_v3i.argprom(ptr noundef nonnull %ctxt, ptr %a.val90)
+  %call63 = tail call fastcc i32 @save_v3i(ptr noundef nonnull %ctxt, ptr %a.val90)
   br label %return
 
 sw.bb64:                                          ; preds = %if.end12
   %34 = getelementptr i8, ptr %a, i64 24
   %a.val91 = load ptr, ptr %34, align 8
-  %call65 = tail call fastcc i32 @save_v3f.argprom(ptr noundef nonnull %ctxt, ptr %a.val91)
+  %call65 = tail call fastcc i32 @save_v3f(ptr noundef nonnull %ctxt, ptr %a.val91)
   br label %return
 
 sw.bb66:                                          ; preds = %if.end12
   %35 = getelementptr i8, ptr %a, i64 24
   %a.val92 = load ptr, ptr %35, align 8
-  %call67 = tail call fastcc i32 @save_v3d.argprom(ptr noundef nonnull %ctxt, ptr %a.val92)
+  %call67 = tail call fastcc i32 @save_v3d(ptr noundef nonnull %ctxt, ptr %a.val92)
   br label %return
 
 sw.bb68:                                          ; preds = %if.end12
   %36 = getelementptr i8, ptr %a, i64 24
   %a.val93 = load ptr, ptr %36, align 8
-  %call69 = tail call fastcc i32 @save_opaque.argprom(ptr noundef nonnull %ctxt, ptr %a.val93)
+  %call69 = tail call fastcc i32 @save_opaque(ptr noundef nonnull %ctxt, ptr %a.val93)
   br label %return
 
 sw.default:                                       ; preds = %if.end12
@@ -536,7 +536,7 @@ return:                                           ; preds = %if.then.i109, %sw.b
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_box2i.argprom(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_box2i(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca %struct.exr_attr_box2i_t, align 1
@@ -562,7 +562,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_box2f.argprom(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_box2f(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca %struct.exr_attr_box2f_t, align 1
@@ -729,7 +729,7 @@ if.end57:                                         ; preds = %for.body11, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_chromaticities.argprom(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_chromaticities(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca %struct.exr_attr_chromaticities_t, align 1
@@ -755,7 +755,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_attr_double.argprom(ptr noundef %ctxt, double %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_attr_double(ptr noundef %ctxt, double %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca double, align 8
@@ -781,7 +781,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_attr_float.argprom(ptr noundef %ctxt, float %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_attr_float(ptr noundef %ctxt, float %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca float, align 4
@@ -905,7 +905,7 @@ return:                                           ; preds = %save_attr_sz.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_attr_int.argprom(ptr noundef %ctxt, i32 %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_attr_int(ptr noundef %ctxt, i32 %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca i32, align 4
@@ -931,7 +931,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_keycode.argprom(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_keycode(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca %struct.exr_attr_keycode_t, align 1
@@ -957,7 +957,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_m33f.argprom(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_m33f(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca %struct.exr_attr_m33f_t, align 1
@@ -983,7 +983,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_m33d.argprom(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_m33d(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca %struct.exr_attr_m33d_t, align 1
@@ -1009,7 +1009,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_m44f.argprom(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_m44f(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca %struct.exr_attr_m44f_t, align 1
@@ -1035,7 +1035,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_m44d.argprom(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_m44d(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca %struct.exr_attr_m44d_t, align 1
@@ -1123,7 +1123,7 @@ if.end11:                                         ; preds = %save_attr_sz.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_rational.argprom.argprom(ptr noundef %ctxt, i64 %a.24.val.0.val) unnamed_addr #0 {
+define internal fastcc i32 @save_rational(ptr noundef %ctxt, i64 %a.24.val.0.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca %struct.exr_attr_rational_t, align 8
@@ -1149,7 +1149,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_string.argprom(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_string(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %0 = load i32, ptr %a.24.val, align 8
@@ -1351,7 +1351,7 @@ if.end6:                                          ; preds = %entry, %if.then4, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_timecode.argprom.argprom(ptr noundef %ctxt, i64 %a.24.val.0.val) unnamed_addr #0 {
+define internal fastcc i32 @save_timecode(ptr noundef %ctxt, i64 %a.24.val.0.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca %struct.exr_attr_timecode_t, align 8
@@ -1377,7 +1377,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_v2i.argprom.argprom(ptr noundef %ctxt, i64 %a.24.val.0.val) unnamed_addr #0 {
+define internal fastcc i32 @save_v2i(ptr noundef %ctxt, i64 %a.24.val.0.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca %struct.exr_attr_v2i_t, align 8
@@ -1403,7 +1403,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_v2f.argprom.argprom(ptr noundef %ctxt, i64 %a.24.val.0.val) unnamed_addr #0 {
+define internal fastcc i32 @save_v2f(ptr noundef %ctxt, i64 %a.24.val.0.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca %struct.exr_attr_v2f_t, align 8
@@ -1429,7 +1429,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_v2d.argprom(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_v2d(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca %struct.exr_attr_v2d_t, align 1
@@ -1455,7 +1455,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_v3i.argprom(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_v3i(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca %struct.exr_attr_v3i_t, align 1
@@ -1481,7 +1481,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_v3f.argprom(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_v3f(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca %struct.exr_attr_v3f_t, align 1
@@ -1507,7 +1507,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_v3d.argprom(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_v3d(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca %struct.exr_attr_v3d_t, align 1
@@ -1533,7 +1533,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_opaque.argprom(ptr noundef %ctxt, ptr %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_opaque(ptr noundef %ctxt, ptr %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %sz = alloca i32, align 4

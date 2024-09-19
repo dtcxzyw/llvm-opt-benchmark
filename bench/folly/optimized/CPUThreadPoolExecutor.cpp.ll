@@ -2256,7 +2256,7 @@ ehcleanup116:                                     ; preds = %ehcleanup112, %lpad
   %.pn131.pn.pn.pn = phi { ptr, i32 } [ %.pn131.pn.pn, %ehcleanup112 ], [ %31, %lpad22 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %task) #25
   %this.val = load ptr, ptr %threadIdCollector_, align 8, !tbaa !49
-  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_21CPUThreadPoolExecutor9threadRunESt10shared_ptrINS_18ThreadPoolExecutor6ThreadEEE3$_0Lb1EED2Ev.argprom.argelim"(ptr %this.val) #25
+  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_21CPUThreadPoolExecutor9threadRunESt10shared_ptrINS_18ThreadPoolExecutor6ThreadEEE3$_0Lb1EED2Ev"(ptr %this.val) #25
   br label %ehcleanup122
 
 if.then.i:                                        ; preds = %_ZN5folly8OptionalINS_21CPUThreadPoolExecutor7CPUTaskEE31StorageNonTriviallyDestructible5clearEv.exit
@@ -28145,7 +28145,7 @@ declare void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDef
 declare void @_ZN5folly18ThreadPoolExecutor7runTaskERKSt10shared_ptrINS0_6ThreadEEONS0_4TaskE(ptr noundef nonnull align 64 dereferenceable(481), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 16 dereferenceable(96)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_21CPUThreadPoolExecutor9threadRunESt10shared_ptrINS_18ThreadPoolExecutor6ThreadEEE3$_0Lb1EED2Ev.argprom.argelim"(ptr %this.8.val.488.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_21CPUThreadPoolExecutor9threadRunESt10shared_ptrINS_18ThreadPoolExecutor6ThreadEEE3$_0Lb1EED2Ev"(ptr %this.8.val.488.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call2.i2.i = invoke noundef i64 @_ZN5folly13getOSThreadIDEv()
           to label %call2.i.noexc.i unwind label %lpad.i.i

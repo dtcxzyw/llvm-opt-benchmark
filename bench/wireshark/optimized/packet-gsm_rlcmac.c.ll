@@ -5384,7 +5384,7 @@ dissect_ul_gprs_block.exit:                       ; preds = %131, %137, %140, %d
 
 173:                                              ; preds = %171
   %174 = getelementptr inbounds i8, ptr %3, i64 20
-  tail call fastcc void @dissect_egprs_ul_data_block.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 %33, ptr noundef nonnull %174)
+  tail call fastcc void @dissect_egprs_ul_data_block(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 %33, ptr noundef nonnull %174)
   br label %311
 
 175:                                              ; preds = %171
@@ -5552,7 +5552,7 @@ dissect_ul_rlc_ec_control_message.exit:           ; preds = %248, %.sink.split.i
 
 270:                                              ; preds = %268
   %271 = getelementptr inbounds i8, ptr %3, i64 20
-  tail call fastcc void @dissect_egprs_ul_data_block.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 %33, ptr noundef nonnull %271)
+  tail call fastcc void @dissect_egprs_ul_data_block(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 %33, ptr noundef nonnull %271)
   br label %311
 
 272:                                              ; preds = %268
@@ -5965,7 +5965,7 @@ dissect_dl_gprs_block.exit:                       ; preds = %90, %96, %99, %diss
 
 205:                                              ; preds = %203
   %206 = getelementptr inbounds i8, ptr %3, i64 20
-  tail call fastcc void @dissect_egprs_dl_data_block.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 %30, ptr noundef nonnull %206)
+  tail call fastcc void @dissect_egprs_dl_data_block(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 %30, ptr noundef nonnull %206)
   br label %374
 
 207:                                              ; preds = %203
@@ -6188,7 +6188,7 @@ dissect_dl_rlc_ec_control_message.exit:           ; preds = %switch.hole_check54
 
 336:                                              ; preds = %334
   %337 = getelementptr inbounds i8, ptr %3, i64 20
-  tail call fastcc void @dissect_egprs_dl_data_block.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 %30, ptr noundef nonnull %337)
+  tail call fastcc void @dissect_egprs_dl_data_block(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 %30, ptr noundef nonnull %337)
   br label %374
 
 338:                                              ; preds = %334
@@ -6303,7 +6303,7 @@ declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_egprs_ul_data_block.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.1532.val, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_egprs_ul_data_block(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.1532.val, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = alloca [20 x %struct.length_indicator_t], align 16
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -6399,7 +6399,7 @@ construct_egprs_data_segment_li_array.exit:       ; preds = %36, %4
 59:                                               ; preds = %57
   %60 = call i32 @tvb_reported_length(ptr noundef %0) #6
   %61 = trunc i32 %60 to i8
-  call fastcc void @dissect_egprs_data_segments.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %14, i32 noundef %.1, i8 noundef zeroext %61, i8 noundef zeroext %.2, ptr noundef %5)
+  call fastcc void @dissect_egprs_data_segments(ptr noundef %0, ptr noundef %1, ptr noundef %14, i32 noundef %.1, i8 noundef zeroext %61, i8 noundef zeroext %.2, ptr noundef %5)
   br label %64
 
 62:                                               ; preds = %57
@@ -6655,7 +6655,7 @@ define internal signext i16 @Egprs_Ack_Nack_Desc_w_len_Dissector(ptr noundef %0,
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_egprs_data_segments.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #0 {
+define internal fastcc void @dissect_egprs_data_segments(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #0 {
   %.not = icmp eq i8 %5, 0
   %.pre = zext i8 %4 to i32
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -6791,7 +6791,7 @@ define internal fastcc void @dissect_egprs_data_segments.retelim(ptr noundef %0,
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_egprs_dl_data_block.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.123688.val, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_egprs_dl_data_block(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.123688.val, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = alloca [20 x %struct.length_indicator_t], align 16
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -6856,7 +6856,7 @@ define internal fastcc void @dissect_egprs_dl_data_block.argprom(ptr noundef %0,
   %.0.lcssa.i = phi i32 [ %40, %.loopexit.loopexit ], [ 1, %4 ]
   %41 = call i32 @tvb_reported_length(ptr noundef %0) #6
   %42 = trunc i32 %41 to i8
-  call fastcc void @dissect_egprs_data_segments.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %14, i32 noundef %.0.lcssa.i, i8 noundef zeroext %42, i8 noundef zeroext %.2, ptr noundef %5)
+  call fastcc void @dissect_egprs_data_segments(ptr noundef %0, ptr noundef %1, ptr noundef %14, i32 noundef %.0.lcssa.i, i8 noundef zeroext %42, i8 noundef zeroext %.2, ptr noundef %5)
   ret void
 }
 

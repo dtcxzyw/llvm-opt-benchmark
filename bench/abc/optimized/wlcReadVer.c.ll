@@ -2298,7 +2298,7 @@ Wlc_PrsSkipSpaces.exit.i105:                      ; preds = %.loopexit
   %134 = add i8 %130, -48
   %or.cond13.i30.i = icmp ult i8 %134, 10
   %or.cond2.i31.i = or i1 %or.cond13.i30.i, %or.cond1.i29.i
-  br i1 %or.cond2.i31.i, label %Wlc_PrsIsChar.argprom.exit32.thread.i, label %135
+  br i1 %or.cond2.i31.i, label %Wlc_PrsIsChar.exit32.thread.i, label %135
 
 135:                                              ; preds = %131
   switch i8 %130, label %.loopexit115 [
@@ -2307,7 +2307,7 @@ Wlc_PrsSkipSpaces.exit.i105:                      ; preds = %.loopexit
     i8 92, label %137
   ]
 
-Wlc_PrsIsChar.argprom.exit32.thread.i:            ; preds = %131
+Wlc_PrsIsChar.exit32.thread.i:                    ; preds = %131
   %136 = icmp eq i8 %130, 92
   br i1 %136, label %137, label %141
 
@@ -2317,7 +2317,7 @@ Wlc_PrsIsChar.argprom.exit32.thread.i:            ; preds = %131
     i8 32, label %139
   ]
 
-137:                                              ; preds = %.thread.i, %Wlc_PrsIsChar.argprom.exit32.thread.i, %135
+137:                                              ; preds = %.thread.i, %Wlc_PrsIsChar.exit32.thread.i, %135
   %138 = add nsw i32 %.040.i, 1
   br label %141
 
@@ -2327,9 +2327,9 @@ Wlc_PrsIsChar.argprom.exit32.thread.i:            ; preds = %131
   %spec.select.i = zext i1 %.not27.i to i32
   br label %141
 
-141:                                              ; preds = %139, %137, %.thread.i, %Wlc_PrsIsChar.argprom.exit32.thread.i, %135, %135
-  %.117.i = phi i32 [ 0, %137 ], [ %spec.select.i, %139 ], [ 0, %.thread.i ], [ 1, %135 ], [ 1, %135 ], [ 1, %Wlc_PrsIsChar.argprom.exit32.thread.i ]
-  %.1.i = phi i32 [ %138, %137 ], [ %140, %139 ], [ %.040.i, %.thread.i ], [ %.040.i, %135 ], [ %.040.i, %135 ], [ %.040.i, %Wlc_PrsIsChar.argprom.exit32.thread.i ]
+141:                                              ; preds = %139, %137, %.thread.i, %Wlc_PrsIsChar.exit32.thread.i, %135, %135
+  %.117.i = phi i32 [ 0, %137 ], [ %spec.select.i, %139 ], [ 0, %.thread.i ], [ 1, %135 ], [ 1, %135 ], [ 1, %Wlc_PrsIsChar.exit32.thread.i ]
+  %.1.i = phi i32 [ %138, %137 ], [ %140, %139 ], [ %.040.i, %.thread.i ], [ %.040.i, %135 ], [ %.040.i, %135 ], [ %.040.i, %Wlc_PrsIsChar.exit32.thread.i ]
   %142 = getelementptr inbounds i8, ptr %.02037.i, i64 1
   %143 = getelementptr inbounds i8, ptr %.01838.i, i64 1
   store i8 %130, ptr %.01838.i, align 1
@@ -2587,7 +2587,7 @@ Wlc_PrsSkipSpaces.exit:                           ; preds = %3
   br i1 %or.cond2.i, label %.critedge, label %9
 
 9:                                                ; preds = %Wlc_PrsSkipSpaces.exit
-  switch i8 %4, label %Wlc_PrsIsChar.argprom.exit [
+  switch i8 %4, label %Wlc_PrsIsChar.exit [
     i8 95, label %.lr.ph.preheader
     i8 36, label %.lr.ph.preheader
     i8 92, label %.lr.ph.preheader
@@ -2616,7 +2616,7 @@ Wlc_PrsSkipSpaces.exit:                           ; preds = %3
   %14 = add i8 %10, -48
   %or.cond13.i30 = icmp ult i8 %14, 10
   %or.cond2.i31 = or i1 %or.cond13.i30, %or.cond1.i29
-  br i1 %or.cond2.i31, label %Wlc_PrsIsChar.argprom.exit32.thread, label %15
+  br i1 %or.cond2.i31, label %Wlc_PrsIsChar.exit32.thread, label %15
 
 15:                                               ; preds = %11
   switch i8 %10, label %._crit_edge [
@@ -2625,7 +2625,7 @@ Wlc_PrsSkipSpaces.exit:                           ; preds = %3
     i8 92, label %17
   ]
 
-Wlc_PrsIsChar.argprom.exit32.thread:              ; preds = %11
+Wlc_PrsIsChar.exit32.thread:                      ; preds = %11
   %16 = icmp eq i8 %10, 92
   br i1 %16, label %17, label %21
 
@@ -2635,7 +2635,7 @@ Wlc_PrsIsChar.argprom.exit32.thread:              ; preds = %11
     i8 32, label %19
   ]
 
-17:                                               ; preds = %15, %.thread, %Wlc_PrsIsChar.argprom.exit32.thread
+17:                                               ; preds = %15, %.thread, %Wlc_PrsIsChar.exit32.thread
   %18 = add nsw i32 %.040, 1
   br label %21
 
@@ -2645,9 +2645,9 @@ Wlc_PrsIsChar.argprom.exit32.thread:              ; preds = %11
   %spec.select = zext i1 %.not27 to i32
   br label %21
 
-21:                                               ; preds = %Wlc_PrsIsChar.argprom.exit32.thread, %15, %15, %.thread, %19, %17
-  %.117 = phi i32 [ 0, %17 ], [ %spec.select, %19 ], [ 0, %.thread ], [ 1, %15 ], [ 1, %15 ], [ 1, %Wlc_PrsIsChar.argprom.exit32.thread ]
-  %.1 = phi i32 [ %18, %17 ], [ %20, %19 ], [ %.040, %.thread ], [ %.040, %15 ], [ %.040, %15 ], [ %.040, %Wlc_PrsIsChar.argprom.exit32.thread ]
+21:                                               ; preds = %Wlc_PrsIsChar.exit32.thread, %15, %15, %.thread, %19, %17
+  %.117 = phi i32 [ 0, %17 ], [ %spec.select, %19 ], [ 0, %.thread ], [ 1, %15 ], [ 1, %15 ], [ 1, %Wlc_PrsIsChar.exit32.thread ]
+  %.1 = phi i32 [ %18, %17 ], [ %20, %19 ], [ %.040, %.thread ], [ %.040, %15 ], [ %.040, %15 ], [ %.040, %Wlc_PrsIsChar.exit32.thread ]
   %22 = getelementptr inbounds i8, ptr %.02037, i64 1
   %23 = getelementptr inbounds i8, ptr %.01838, i64 1
   store i8 %10, ptr %.01838, align 1
@@ -2659,9 +2659,9 @@ Wlc_PrsIsChar.argprom.exit32.thread:              ; preds = %11
   %.020.lcssa = phi ptr [ %.0.i, %.critedge ], [ %.02037, %15 ], [ %22, %21 ]
   %.018.lcssa = phi ptr [ @Wlc_PrsFindName.Buffer, %.critedge ], [ %.01838, %15 ], [ %23, %21 ]
   store i8 0, ptr %.018.lcssa, align 1
-  br label %Wlc_PrsIsChar.argprom.exit
+  br label %Wlc_PrsIsChar.exit
 
-Wlc_PrsIsChar.argprom.exit:                       ; preds = %9, %._crit_edge
+Wlc_PrsIsChar.exit:                               ; preds = %9, %._crit_edge
   %.019 = phi ptr [ %.020.lcssa, %._crit_edge ], [ null, %9 ]
   ret ptr %.019
 }
@@ -3513,7 +3513,7 @@ Wlc_PrsSkipSpaces.exit.i:                         ; preds = %310
   %321 = add i8 %317, -48
   %or.cond13.i30.i = icmp ult i8 %321, 10
   %or.cond2.i31.i = or i1 %or.cond13.i30.i, %or.cond1.i29.i
-  br i1 %or.cond2.i31.i, label %Wlc_PrsIsChar.argprom.exit32.thread.i, label %322
+  br i1 %or.cond2.i31.i, label %Wlc_PrsIsChar.exit32.thread.i, label %322
 
 322:                                              ; preds = %318
   switch i8 %317, label %.loopexit [
@@ -3522,7 +3522,7 @@ Wlc_PrsSkipSpaces.exit.i:                         ; preds = %310
     i8 92, label %324
   ]
 
-Wlc_PrsIsChar.argprom.exit32.thread.i:            ; preds = %318
+Wlc_PrsIsChar.exit32.thread.i:                    ; preds = %318
   %323 = icmp eq i8 %317, 92
   br i1 %323, label %324, label %328
 
@@ -3532,7 +3532,7 @@ Wlc_PrsIsChar.argprom.exit32.thread.i:            ; preds = %318
     i8 32, label %326
   ]
 
-324:                                              ; preds = %.thread.i, %Wlc_PrsIsChar.argprom.exit32.thread.i, %322
+324:                                              ; preds = %.thread.i, %Wlc_PrsIsChar.exit32.thread.i, %322
   %325 = add nsw i32 %.040.i, 1
   br label %328
 
@@ -3542,9 +3542,9 @@ Wlc_PrsIsChar.argprom.exit32.thread.i:            ; preds = %318
   %spec.select.i404 = zext i1 %.not27.i to i32
   br label %328
 
-328:                                              ; preds = %326, %324, %.thread.i, %Wlc_PrsIsChar.argprom.exit32.thread.i, %322, %322
-  %.117.i = phi i32 [ 0, %324 ], [ %spec.select.i404, %326 ], [ 0, %.thread.i ], [ 1, %322 ], [ 1, %322 ], [ 1, %Wlc_PrsIsChar.argprom.exit32.thread.i ]
-  %.1.i = phi i32 [ %325, %324 ], [ %327, %326 ], [ %.040.i, %.thread.i ], [ %.040.i, %322 ], [ %.040.i, %322 ], [ %.040.i, %Wlc_PrsIsChar.argprom.exit32.thread.i ]
+328:                                              ; preds = %326, %324, %.thread.i, %Wlc_PrsIsChar.exit32.thread.i, %322, %322
+  %.117.i = phi i32 [ 0, %324 ], [ %spec.select.i404, %326 ], [ 0, %.thread.i ], [ 1, %322 ], [ 1, %322 ], [ 1, %Wlc_PrsIsChar.exit32.thread.i ]
+  %.1.i = phi i32 [ %325, %324 ], [ %327, %326 ], [ %.040.i, %.thread.i ], [ %.040.i, %322 ], [ %.040.i, %322 ], [ %.040.i, %Wlc_PrsIsChar.exit32.thread.i ]
   %329 = getelementptr inbounds i8, ptr %.02037.i, i64 1
   %330 = getelementptr inbounds i8, ptr %.01838.i, i64 1
   store i8 %317, ptr %.01838.i, align 1
@@ -4834,7 +4834,7 @@ Wlc_PrsSkipSpaces.exit.i:                         ; preds = %522
   %533 = add i8 %529, -48
   %or.cond13.i30.i = icmp ult i8 %533, 10
   %or.cond2.i31.i = or i1 %or.cond13.i30.i, %or.cond1.i29.i
-  br i1 %or.cond2.i31.i, label %Wlc_PrsIsChar.argprom.exit32.thread.i, label %534
+  br i1 %or.cond2.i31.i, label %Wlc_PrsIsChar.exit32.thread.i, label %534
 
 534:                                              ; preds = %530
   switch i8 %529, label %.loopexit1966 [
@@ -4843,7 +4843,7 @@ Wlc_PrsSkipSpaces.exit.i:                         ; preds = %522
     i8 92, label %536
   ]
 
-Wlc_PrsIsChar.argprom.exit32.thread.i:            ; preds = %530
+Wlc_PrsIsChar.exit32.thread.i:                    ; preds = %530
   %535 = icmp eq i8 %529, 92
   br i1 %535, label %536, label %540
 
@@ -4853,7 +4853,7 @@ Wlc_PrsIsChar.argprom.exit32.thread.i:            ; preds = %530
     i8 32, label %538
   ]
 
-536:                                              ; preds = %.thread.i, %Wlc_PrsIsChar.argprom.exit32.thread.i, %534
+536:                                              ; preds = %.thread.i, %Wlc_PrsIsChar.exit32.thread.i, %534
   %537 = add nsw i32 %.040.i, 1
   br label %540
 
@@ -4863,9 +4863,9 @@ Wlc_PrsIsChar.argprom.exit32.thread.i:            ; preds = %530
   %spec.select.i = zext i1 %.not27.i to i32
   br label %540
 
-540:                                              ; preds = %538, %536, %.thread.i, %Wlc_PrsIsChar.argprom.exit32.thread.i, %534, %534
-  %.117.i = phi i32 [ 0, %536 ], [ %spec.select.i, %538 ], [ 0, %.thread.i ], [ 1, %534 ], [ 1, %534 ], [ 1, %Wlc_PrsIsChar.argprom.exit32.thread.i ]
-  %.1.i = phi i32 [ %537, %536 ], [ %539, %538 ], [ %.040.i, %.thread.i ], [ %.040.i, %534 ], [ %.040.i, %534 ], [ %.040.i, %Wlc_PrsIsChar.argprom.exit32.thread.i ]
+540:                                              ; preds = %538, %536, %.thread.i, %Wlc_PrsIsChar.exit32.thread.i, %534, %534
+  %.117.i = phi i32 [ 0, %536 ], [ %spec.select.i, %538 ], [ 0, %.thread.i ], [ 1, %534 ], [ 1, %534 ], [ 1, %Wlc_PrsIsChar.exit32.thread.i ]
+  %.1.i = phi i32 [ %537, %536 ], [ %539, %538 ], [ %.040.i, %.thread.i ], [ %.040.i, %534 ], [ %.040.i, %534 ], [ %.040.i, %Wlc_PrsIsChar.exit32.thread.i ]
   %541 = getelementptr inbounds i8, ptr %.02037.i, i64 1
   %542 = getelementptr inbounds i8, ptr %.01838.i, i64 1
   store i8 %529, ptr %.01838.i, align 1
@@ -5004,7 +5004,7 @@ Wlc_PrsSkipSpaces.exit.i1169:                     ; preds = %584
   %594 = add i8 %590, -48
   %or.cond13.i30.i1181 = icmp ult i8 %594, 10
   %or.cond2.i31.i1182 = or i1 %or.cond13.i30.i1181, %or.cond1.i29.i1180
-  br i1 %or.cond2.i31.i1182, label %Wlc_PrsIsChar.argprom.exit32.thread.i1190, label %595
+  br i1 %or.cond2.i31.i1182, label %Wlc_PrsIsChar.exit32.thread.i1190, label %595
 
 595:                                              ; preds = %591
   switch i8 %590, label %.loopexit1969 [
@@ -5013,7 +5013,7 @@ Wlc_PrsSkipSpaces.exit.i1169:                     ; preds = %584
     i8 92, label %597
   ]
 
-Wlc_PrsIsChar.argprom.exit32.thread.i1190:        ; preds = %591
+Wlc_PrsIsChar.exit32.thread.i1190:                ; preds = %591
   %596 = icmp eq i8 %590, 92
   br i1 %596, label %597, label %601
 
@@ -5023,7 +5023,7 @@ Wlc_PrsIsChar.argprom.exit32.thread.i1190:        ; preds = %591
     i8 32, label %599
   ]
 
-597:                                              ; preds = %.thread.i1191, %Wlc_PrsIsChar.argprom.exit32.thread.i1190, %595
+597:                                              ; preds = %.thread.i1191, %Wlc_PrsIsChar.exit32.thread.i1190, %595
   %598 = add nsw i32 %.040.i1175, 1
   br label %601
 
@@ -5033,9 +5033,9 @@ Wlc_PrsIsChar.argprom.exit32.thread.i1190:        ; preds = %591
   %spec.select.i1193 = zext i1 %.not27.i1192 to i32
   br label %601
 
-601:                                              ; preds = %599, %597, %.thread.i1191, %Wlc_PrsIsChar.argprom.exit32.thread.i1190, %595, %595
-  %.117.i1183 = phi i32 [ 0, %597 ], [ %spec.select.i1193, %599 ], [ 0, %.thread.i1191 ], [ 1, %595 ], [ 1, %595 ], [ 1, %Wlc_PrsIsChar.argprom.exit32.thread.i1190 ]
-  %.1.i1184 = phi i32 [ %598, %597 ], [ %600, %599 ], [ %.040.i1175, %.thread.i1191 ], [ %.040.i1175, %595 ], [ %.040.i1175, %595 ], [ %.040.i1175, %Wlc_PrsIsChar.argprom.exit32.thread.i1190 ]
+601:                                              ; preds = %599, %597, %.thread.i1191, %Wlc_PrsIsChar.exit32.thread.i1190, %595, %595
+  %.117.i1183 = phi i32 [ 0, %597 ], [ %spec.select.i1193, %599 ], [ 0, %.thread.i1191 ], [ 1, %595 ], [ 1, %595 ], [ 1, %Wlc_PrsIsChar.exit32.thread.i1190 ]
+  %.1.i1184 = phi i32 [ %598, %597 ], [ %600, %599 ], [ %.040.i1175, %.thread.i1191 ], [ %.040.i1175, %595 ], [ %.040.i1175, %595 ], [ %.040.i1175, %Wlc_PrsIsChar.exit32.thread.i1190 ]
   %602 = getelementptr inbounds i8, ptr %.02037.i1178, i64 1
   %603 = getelementptr inbounds i8, ptr %.01838.i1177, i64 1
   store i8 %590, ptr %.01838.i1177, align 1
@@ -5279,7 +5279,7 @@ Wlc_PrsSkipSpaces.exit.i1225:                     ; preds = %691
   %701 = add i8 %697, -48
   %or.cond13.i30.i1237 = icmp ult i8 %701, 10
   %or.cond2.i31.i1238 = or i1 %or.cond13.i30.i1237, %or.cond1.i29.i1236
-  br i1 %or.cond2.i31.i1238, label %Wlc_PrsIsChar.argprom.exit32.thread.i1246, label %702
+  br i1 %or.cond2.i31.i1238, label %Wlc_PrsIsChar.exit32.thread.i1246, label %702
 
 702:                                              ; preds = %698
   switch i8 %697, label %.loopexit1967 [
@@ -5288,7 +5288,7 @@ Wlc_PrsSkipSpaces.exit.i1225:                     ; preds = %691
     i8 92, label %704
   ]
 
-Wlc_PrsIsChar.argprom.exit32.thread.i1246:        ; preds = %698
+Wlc_PrsIsChar.exit32.thread.i1246:                ; preds = %698
   %703 = icmp eq i8 %697, 92
   br i1 %703, label %704, label %708
 
@@ -5298,7 +5298,7 @@ Wlc_PrsIsChar.argprom.exit32.thread.i1246:        ; preds = %698
     i8 32, label %706
   ]
 
-704:                                              ; preds = %.thread.i1247, %Wlc_PrsIsChar.argprom.exit32.thread.i1246, %702
+704:                                              ; preds = %.thread.i1247, %Wlc_PrsIsChar.exit32.thread.i1246, %702
   %705 = add nsw i32 %.040.i1231, 1
   br label %708
 
@@ -5308,9 +5308,9 @@ Wlc_PrsIsChar.argprom.exit32.thread.i1246:        ; preds = %698
   %spec.select.i1249 = zext i1 %.not27.i1248 to i32
   br label %708
 
-708:                                              ; preds = %706, %704, %.thread.i1247, %Wlc_PrsIsChar.argprom.exit32.thread.i1246, %702, %702
-  %.117.i1239 = phi i32 [ 0, %704 ], [ %spec.select.i1249, %706 ], [ 0, %.thread.i1247 ], [ 1, %702 ], [ 1, %702 ], [ 1, %Wlc_PrsIsChar.argprom.exit32.thread.i1246 ]
-  %.1.i1240 = phi i32 [ %705, %704 ], [ %707, %706 ], [ %.040.i1231, %.thread.i1247 ], [ %.040.i1231, %702 ], [ %.040.i1231, %702 ], [ %.040.i1231, %Wlc_PrsIsChar.argprom.exit32.thread.i1246 ]
+708:                                              ; preds = %706, %704, %.thread.i1247, %Wlc_PrsIsChar.exit32.thread.i1246, %702, %702
+  %.117.i1239 = phi i32 [ 0, %704 ], [ %spec.select.i1249, %706 ], [ 0, %.thread.i1247 ], [ 1, %702 ], [ 1, %702 ], [ 1, %Wlc_PrsIsChar.exit32.thread.i1246 ]
+  %.1.i1240 = phi i32 [ %705, %704 ], [ %707, %706 ], [ %.040.i1231, %.thread.i1247 ], [ %.040.i1231, %702 ], [ %.040.i1231, %702 ], [ %.040.i1231, %Wlc_PrsIsChar.exit32.thread.i1246 ]
   %709 = getelementptr inbounds i8, ptr %.02037.i1234, i64 1
   %710 = getelementptr inbounds i8, ptr %.01838.i1233, i64 1
   store i8 %697, ptr %.01838.i1233, align 1
@@ -5489,7 +5489,7 @@ Wlc_PrsSkipSpaces.exit.i1284:                     ; preds = %758
   %768 = add i8 %764, -48
   %or.cond13.i30.i1296 = icmp ult i8 %768, 10
   %or.cond2.i31.i1297 = or i1 %or.cond13.i30.i1296, %or.cond1.i29.i1295
-  br i1 %or.cond2.i31.i1297, label %Wlc_PrsIsChar.argprom.exit32.thread.i1305, label %769
+  br i1 %or.cond2.i31.i1297, label %Wlc_PrsIsChar.exit32.thread.i1305, label %769
 
 769:                                              ; preds = %765
   switch i8 %764, label %.loopexit1958 [
@@ -5498,7 +5498,7 @@ Wlc_PrsSkipSpaces.exit.i1284:                     ; preds = %758
     i8 92, label %771
   ]
 
-Wlc_PrsIsChar.argprom.exit32.thread.i1305:        ; preds = %765
+Wlc_PrsIsChar.exit32.thread.i1305:                ; preds = %765
   %770 = icmp eq i8 %764, 92
   br i1 %770, label %771, label %775
 
@@ -5508,7 +5508,7 @@ Wlc_PrsIsChar.argprom.exit32.thread.i1305:        ; preds = %765
     i8 32, label %773
   ]
 
-771:                                              ; preds = %.thread.i1306, %Wlc_PrsIsChar.argprom.exit32.thread.i1305, %769
+771:                                              ; preds = %.thread.i1306, %Wlc_PrsIsChar.exit32.thread.i1305, %769
   %772 = add nsw i32 %.040.i1290, 1
   br label %775
 
@@ -5518,9 +5518,9 @@ Wlc_PrsIsChar.argprom.exit32.thread.i1305:        ; preds = %765
   %spec.select.i1308 = zext i1 %.not27.i1307 to i32
   br label %775
 
-775:                                              ; preds = %773, %771, %.thread.i1306, %Wlc_PrsIsChar.argprom.exit32.thread.i1305, %769, %769
-  %.117.i1298 = phi i32 [ 0, %771 ], [ %spec.select.i1308, %773 ], [ 0, %.thread.i1306 ], [ 1, %769 ], [ 1, %769 ], [ 1, %Wlc_PrsIsChar.argprom.exit32.thread.i1305 ]
-  %.1.i1299 = phi i32 [ %772, %771 ], [ %774, %773 ], [ %.040.i1290, %.thread.i1306 ], [ %.040.i1290, %769 ], [ %.040.i1290, %769 ], [ %.040.i1290, %Wlc_PrsIsChar.argprom.exit32.thread.i1305 ]
+775:                                              ; preds = %773, %771, %.thread.i1306, %Wlc_PrsIsChar.exit32.thread.i1305, %769, %769
+  %.117.i1298 = phi i32 [ 0, %771 ], [ %spec.select.i1308, %773 ], [ 0, %.thread.i1306 ], [ 1, %769 ], [ 1, %769 ], [ 1, %Wlc_PrsIsChar.exit32.thread.i1305 ]
+  %.1.i1299 = phi i32 [ %772, %771 ], [ %774, %773 ], [ %.040.i1290, %.thread.i1306 ], [ %.040.i1290, %769 ], [ %.040.i1290, %769 ], [ %.040.i1290, %Wlc_PrsIsChar.exit32.thread.i1305 ]
   %776 = getelementptr inbounds i8, ptr %.02037.i1293, i64 1
   %777 = getelementptr inbounds i8, ptr %.01838.i1292, i64 1
   store i8 %764, ptr %.01838.i1292, align 1
@@ -5728,7 +5728,7 @@ Wlc_PrsSkipSpaces.exit.i1333:                     ; preds = %848
   %858 = add i8 %854, -48
   %or.cond13.i30.i1345 = icmp ult i8 %858, 10
   %or.cond2.i31.i1346 = or i1 %or.cond13.i30.i1345, %or.cond1.i29.i1344
-  br i1 %or.cond2.i31.i1346, label %Wlc_PrsIsChar.argprom.exit32.thread.i1354, label %859
+  br i1 %or.cond2.i31.i1346, label %Wlc_PrsIsChar.exit32.thread.i1354, label %859
 
 859:                                              ; preds = %855
   switch i8 %854, label %.loopexit1928 [
@@ -5737,7 +5737,7 @@ Wlc_PrsSkipSpaces.exit.i1333:                     ; preds = %848
     i8 92, label %861
   ]
 
-Wlc_PrsIsChar.argprom.exit32.thread.i1354:        ; preds = %855
+Wlc_PrsIsChar.exit32.thread.i1354:                ; preds = %855
   %860 = icmp eq i8 %854, 92
   br i1 %860, label %861, label %865
 
@@ -5747,7 +5747,7 @@ Wlc_PrsIsChar.argprom.exit32.thread.i1354:        ; preds = %855
     i8 32, label %863
   ]
 
-861:                                              ; preds = %.thread.i1355, %Wlc_PrsIsChar.argprom.exit32.thread.i1354, %859
+861:                                              ; preds = %.thread.i1355, %Wlc_PrsIsChar.exit32.thread.i1354, %859
   %862 = add nsw i32 %.040.i1339, 1
   br label %865
 
@@ -5757,9 +5757,9 @@ Wlc_PrsIsChar.argprom.exit32.thread.i1354:        ; preds = %855
   %spec.select.i1357 = zext i1 %.not27.i1356 to i32
   br label %865
 
-865:                                              ; preds = %863, %861, %.thread.i1355, %Wlc_PrsIsChar.argprom.exit32.thread.i1354, %859, %859
-  %.117.i1347 = phi i32 [ 0, %861 ], [ %spec.select.i1357, %863 ], [ 0, %.thread.i1355 ], [ 1, %859 ], [ 1, %859 ], [ 1, %Wlc_PrsIsChar.argprom.exit32.thread.i1354 ]
-  %.1.i1348 = phi i32 [ %862, %861 ], [ %864, %863 ], [ %.040.i1339, %.thread.i1355 ], [ %.040.i1339, %859 ], [ %.040.i1339, %859 ], [ %.040.i1339, %Wlc_PrsIsChar.argprom.exit32.thread.i1354 ]
+865:                                              ; preds = %863, %861, %.thread.i1355, %Wlc_PrsIsChar.exit32.thread.i1354, %859, %859
+  %.117.i1347 = phi i32 [ 0, %861 ], [ %spec.select.i1357, %863 ], [ 0, %.thread.i1355 ], [ 1, %859 ], [ 1, %859 ], [ 1, %Wlc_PrsIsChar.exit32.thread.i1354 ]
+  %.1.i1348 = phi i32 [ %862, %861 ], [ %864, %863 ], [ %.040.i1339, %.thread.i1355 ], [ %.040.i1339, %859 ], [ %.040.i1339, %859 ], [ %.040.i1339, %Wlc_PrsIsChar.exit32.thread.i1354 ]
   %866 = getelementptr inbounds i8, ptr %.02037.i1342, i64 1
   %867 = getelementptr inbounds i8, ptr %.01838.i1341, i64 1
   store i8 %854, ptr %.01838.i1341, align 1
@@ -6261,7 +6261,7 @@ Wlc_PrsSkipSpaces.exit1444:                       ; preds = %Wlc_PrsFindSymbol.e
 
 1058:                                             ; preds = %1054, %1044
   %1059 = phi ptr [ %.pre2873, %1054 ], [ %1052, %1044 ]
-  call fastcc void @Vec_IntPushUnique.retelim(ptr noundef %1059, i32 noundef %1049)
+  call fastcc void @Vec_IntPushUnique(ptr noundef %1059, i32 noundef %1049)
   br label %.backedge1974
 
 1060:                                             ; preds = %1010, %1008, %Wlc_PrsSkipSpaces.exit1428
@@ -6360,7 +6360,7 @@ Wlc_PrsSkipSpaces.exit.i1460:                     ; preds = %1075
   %1085 = add i8 %1081, -48
   %or.cond13.i30.i1472 = icmp ult i8 %1085, 10
   %or.cond2.i31.i1473 = or i1 %or.cond13.i30.i1472, %or.cond1.i29.i1471
-  br i1 %or.cond2.i31.i1473, label %Wlc_PrsIsChar.argprom.exit32.thread.i1481, label %1086
+  br i1 %or.cond2.i31.i1473, label %Wlc_PrsIsChar.exit32.thread.i1481, label %1086
 
 1086:                                             ; preds = %1082
   switch i8 %1081, label %.loopexit1932 [
@@ -6369,7 +6369,7 @@ Wlc_PrsSkipSpaces.exit.i1460:                     ; preds = %1075
     i8 92, label %1088
   ]
 
-Wlc_PrsIsChar.argprom.exit32.thread.i1481:        ; preds = %1082
+Wlc_PrsIsChar.exit32.thread.i1481:                ; preds = %1082
   %1087 = icmp eq i8 %1081, 92
   br i1 %1087, label %1088, label %1092
 
@@ -6379,7 +6379,7 @@ Wlc_PrsIsChar.argprom.exit32.thread.i1481:        ; preds = %1082
     i8 32, label %1090
   ]
 
-1088:                                             ; preds = %.thread.i1482, %Wlc_PrsIsChar.argprom.exit32.thread.i1481, %1086
+1088:                                             ; preds = %.thread.i1482, %Wlc_PrsIsChar.exit32.thread.i1481, %1086
   %1089 = add nsw i32 %.040.i1466, 1
   br label %1092
 
@@ -6389,9 +6389,9 @@ Wlc_PrsIsChar.argprom.exit32.thread.i1481:        ; preds = %1082
   %spec.select.i1484 = zext i1 %.not27.i1483 to i32
   br label %1092
 
-1092:                                             ; preds = %1090, %1088, %.thread.i1482, %Wlc_PrsIsChar.argprom.exit32.thread.i1481, %1086, %1086
-  %.117.i1474 = phi i32 [ 0, %1088 ], [ %spec.select.i1484, %1090 ], [ 0, %.thread.i1482 ], [ 1, %1086 ], [ 1, %1086 ], [ 1, %Wlc_PrsIsChar.argprom.exit32.thread.i1481 ]
-  %.1.i1475 = phi i32 [ %1089, %1088 ], [ %1091, %1090 ], [ %.040.i1466, %.thread.i1482 ], [ %.040.i1466, %1086 ], [ %.040.i1466, %1086 ], [ %.040.i1466, %Wlc_PrsIsChar.argprom.exit32.thread.i1481 ]
+1092:                                             ; preds = %1090, %1088, %.thread.i1482, %Wlc_PrsIsChar.exit32.thread.i1481, %1086, %1086
+  %.117.i1474 = phi i32 [ 0, %1088 ], [ %spec.select.i1484, %1090 ], [ 0, %.thread.i1482 ], [ 1, %1086 ], [ 1, %1086 ], [ 1, %Wlc_PrsIsChar.exit32.thread.i1481 ]
+  %.1.i1475 = phi i32 [ %1089, %1088 ], [ %1091, %1090 ], [ %.040.i1466, %.thread.i1482 ], [ %.040.i1466, %1086 ], [ %.040.i1466, %1086 ], [ %.040.i1466, %Wlc_PrsIsChar.exit32.thread.i1481 ]
   %1093 = getelementptr inbounds i8, ptr %.02037.i1469, i64 1
   %1094 = getelementptr inbounds i8, ptr %.01838.i1468, i64 1
   store i8 %1081, ptr %.01838.i1468, align 1
@@ -6662,7 +6662,7 @@ Wlc_PrsSkipSpaces.exit.i1519:                     ; preds = %1190
   %1200 = add i8 %1196, -48
   %or.cond13.i30.i1531 = icmp ult i8 %1200, 10
   %or.cond2.i31.i1532 = or i1 %or.cond13.i30.i1531, %or.cond1.i29.i1530
-  br i1 %or.cond2.i31.i1532, label %Wlc_PrsIsChar.argprom.exit32.thread.i1540, label %1201
+  br i1 %or.cond2.i31.i1532, label %Wlc_PrsIsChar.exit32.thread.i1540, label %1201
 
 1201:                                             ; preds = %1197
   switch i8 %1196, label %.loopexit1936 [
@@ -6671,7 +6671,7 @@ Wlc_PrsSkipSpaces.exit.i1519:                     ; preds = %1190
     i8 92, label %1203
   ]
 
-Wlc_PrsIsChar.argprom.exit32.thread.i1540:        ; preds = %1197
+Wlc_PrsIsChar.exit32.thread.i1540:                ; preds = %1197
   %1202 = icmp eq i8 %1196, 92
   br i1 %1202, label %1203, label %1207
 
@@ -6681,7 +6681,7 @@ Wlc_PrsIsChar.argprom.exit32.thread.i1540:        ; preds = %1197
     i8 32, label %1205
   ]
 
-1203:                                             ; preds = %.thread.i1541, %Wlc_PrsIsChar.argprom.exit32.thread.i1540, %1201
+1203:                                             ; preds = %.thread.i1541, %Wlc_PrsIsChar.exit32.thread.i1540, %1201
   %1204 = add nsw i32 %.040.i1525, 1
   br label %1207
 
@@ -6691,9 +6691,9 @@ Wlc_PrsIsChar.argprom.exit32.thread.i1540:        ; preds = %1197
   %spec.select.i1543 = zext i1 %.not27.i1542 to i32
   br label %1207
 
-1207:                                             ; preds = %1205, %1203, %.thread.i1541, %Wlc_PrsIsChar.argprom.exit32.thread.i1540, %1201, %1201
-  %.117.i1533 = phi i32 [ 0, %1203 ], [ %spec.select.i1543, %1205 ], [ 0, %.thread.i1541 ], [ 1, %1201 ], [ 1, %1201 ], [ 1, %Wlc_PrsIsChar.argprom.exit32.thread.i1540 ]
-  %.1.i1534 = phi i32 [ %1204, %1203 ], [ %1206, %1205 ], [ %.040.i1525, %.thread.i1541 ], [ %.040.i1525, %1201 ], [ %.040.i1525, %1201 ], [ %.040.i1525, %Wlc_PrsIsChar.argprom.exit32.thread.i1540 ]
+1207:                                             ; preds = %1205, %1203, %.thread.i1541, %Wlc_PrsIsChar.exit32.thread.i1540, %1201, %1201
+  %.117.i1533 = phi i32 [ 0, %1203 ], [ %spec.select.i1543, %1205 ], [ 0, %.thread.i1541 ], [ 1, %1201 ], [ 1, %1201 ], [ 1, %Wlc_PrsIsChar.exit32.thread.i1540 ]
+  %.1.i1534 = phi i32 [ %1204, %1203 ], [ %1206, %1205 ], [ %.040.i1525, %.thread.i1541 ], [ %.040.i1525, %1201 ], [ %.040.i1525, %1201 ], [ %.040.i1525, %Wlc_PrsIsChar.exit32.thread.i1540 ]
   %1208 = getelementptr inbounds i8, ptr %.02037.i1528, i64 1
   %1209 = getelementptr inbounds i8, ptr %.01838.i1527, i64 1
   store i8 %1196, ptr %.01838.i1527, align 1
@@ -6984,7 +6984,7 @@ Wlc_PrsSkipSpaces.exit.i1578:                     ; preds = %1319
   %1329 = add i8 %1325, -48
   %or.cond13.i30.i1590 = icmp ult i8 %1329, 10
   %or.cond2.i31.i1591 = or i1 %or.cond13.i30.i1590, %or.cond1.i29.i1589
-  br i1 %or.cond2.i31.i1591, label %Wlc_PrsIsChar.argprom.exit32.thread.i1599, label %1330
+  br i1 %or.cond2.i31.i1591, label %Wlc_PrsIsChar.exit32.thread.i1599, label %1330
 
 1330:                                             ; preds = %1326
   switch i8 %1325, label %.loopexit1940 [
@@ -6993,7 +6993,7 @@ Wlc_PrsSkipSpaces.exit.i1578:                     ; preds = %1319
     i8 92, label %1332
   ]
 
-Wlc_PrsIsChar.argprom.exit32.thread.i1599:        ; preds = %1326
+Wlc_PrsIsChar.exit32.thread.i1599:                ; preds = %1326
   %1331 = icmp eq i8 %1325, 92
   br i1 %1331, label %1332, label %1336
 
@@ -7003,7 +7003,7 @@ Wlc_PrsIsChar.argprom.exit32.thread.i1599:        ; preds = %1326
     i8 32, label %1334
   ]
 
-1332:                                             ; preds = %.thread.i1600, %Wlc_PrsIsChar.argprom.exit32.thread.i1599, %1330
+1332:                                             ; preds = %.thread.i1600, %Wlc_PrsIsChar.exit32.thread.i1599, %1330
   %1333 = add nsw i32 %.040.i1584, 1
   br label %1336
 
@@ -7013,9 +7013,9 @@ Wlc_PrsIsChar.argprom.exit32.thread.i1599:        ; preds = %1326
   %spec.select.i1602 = zext i1 %.not27.i1601 to i32
   br label %1336
 
-1336:                                             ; preds = %1334, %1332, %.thread.i1600, %Wlc_PrsIsChar.argprom.exit32.thread.i1599, %1330, %1330
-  %.117.i1592 = phi i32 [ 0, %1332 ], [ %spec.select.i1602, %1334 ], [ 0, %.thread.i1600 ], [ 1, %1330 ], [ 1, %1330 ], [ 1, %Wlc_PrsIsChar.argprom.exit32.thread.i1599 ]
-  %.1.i1593 = phi i32 [ %1333, %1332 ], [ %1335, %1334 ], [ %.040.i1584, %.thread.i1600 ], [ %.040.i1584, %1330 ], [ %.040.i1584, %1330 ], [ %.040.i1584, %Wlc_PrsIsChar.argprom.exit32.thread.i1599 ]
+1336:                                             ; preds = %1334, %1332, %.thread.i1600, %Wlc_PrsIsChar.exit32.thread.i1599, %1330, %1330
+  %.117.i1592 = phi i32 [ 0, %1332 ], [ %spec.select.i1602, %1334 ], [ 0, %.thread.i1600 ], [ 1, %1330 ], [ 1, %1330 ], [ 1, %Wlc_PrsIsChar.exit32.thread.i1599 ]
+  %.1.i1593 = phi i32 [ %1333, %1332 ], [ %1335, %1334 ], [ %.040.i1584, %.thread.i1600 ], [ %.040.i1584, %1330 ], [ %.040.i1584, %1330 ], [ %.040.i1584, %Wlc_PrsIsChar.exit32.thread.i1599 ]
   %1337 = getelementptr inbounds i8, ptr %.02037.i1587, i64 1
   %1338 = getelementptr inbounds i8, ptr %.01838.i1586, i64 1
   store i8 %1325, ptr %.01838.i1586, align 1
@@ -7372,7 +7372,7 @@ Wlc_PrsSkipSpaces.exit.i1637:                     ; preds = %1480
   %1490 = add i8 %1486, -48
   %or.cond13.i30.i1649 = icmp ult i8 %1490, 10
   %or.cond2.i31.i1650 = or i1 %or.cond13.i30.i1649, %or.cond1.i29.i1648
-  br i1 %or.cond2.i31.i1650, label %Wlc_PrsIsChar.argprom.exit32.thread.i1658, label %1491
+  br i1 %or.cond2.i31.i1650, label %Wlc_PrsIsChar.exit32.thread.i1658, label %1491
 
 1491:                                             ; preds = %1487
   switch i8 %1486, label %.loopexit1944 [
@@ -7381,7 +7381,7 @@ Wlc_PrsSkipSpaces.exit.i1637:                     ; preds = %1480
     i8 92, label %1493
   ]
 
-Wlc_PrsIsChar.argprom.exit32.thread.i1658:        ; preds = %1487
+Wlc_PrsIsChar.exit32.thread.i1658:                ; preds = %1487
   %1492 = icmp eq i8 %1486, 92
   br i1 %1492, label %1493, label %1497
 
@@ -7391,7 +7391,7 @@ Wlc_PrsIsChar.argprom.exit32.thread.i1658:        ; preds = %1487
     i8 32, label %1495
   ]
 
-1493:                                             ; preds = %.thread.i1659, %Wlc_PrsIsChar.argprom.exit32.thread.i1658, %1491
+1493:                                             ; preds = %.thread.i1659, %Wlc_PrsIsChar.exit32.thread.i1658, %1491
   %1494 = add nsw i32 %.040.i1643, 1
   br label %1497
 
@@ -7401,9 +7401,9 @@ Wlc_PrsIsChar.argprom.exit32.thread.i1658:        ; preds = %1487
   %spec.select.i1661 = zext i1 %.not27.i1660 to i32
   br label %1497
 
-1497:                                             ; preds = %1495, %1493, %.thread.i1659, %Wlc_PrsIsChar.argprom.exit32.thread.i1658, %1491, %1491
-  %.117.i1651 = phi i32 [ 0, %1493 ], [ %spec.select.i1661, %1495 ], [ 0, %.thread.i1659 ], [ 1, %1491 ], [ 1, %1491 ], [ 1, %Wlc_PrsIsChar.argprom.exit32.thread.i1658 ]
-  %.1.i1652 = phi i32 [ %1494, %1493 ], [ %1496, %1495 ], [ %.040.i1643, %.thread.i1659 ], [ %.040.i1643, %1491 ], [ %.040.i1643, %1491 ], [ %.040.i1643, %Wlc_PrsIsChar.argprom.exit32.thread.i1658 ]
+1497:                                             ; preds = %1495, %1493, %.thread.i1659, %Wlc_PrsIsChar.exit32.thread.i1658, %1491, %1491
+  %.117.i1651 = phi i32 [ 0, %1493 ], [ %spec.select.i1661, %1495 ], [ 0, %.thread.i1659 ], [ 1, %1491 ], [ 1, %1491 ], [ 1, %Wlc_PrsIsChar.exit32.thread.i1658 ]
+  %.1.i1652 = phi i32 [ %1494, %1493 ], [ %1496, %1495 ], [ %.040.i1643, %.thread.i1659 ], [ %.040.i1643, %1491 ], [ %.040.i1643, %1491 ], [ %.040.i1643, %Wlc_PrsIsChar.exit32.thread.i1658 ]
   %1498 = getelementptr inbounds i8, ptr %.02037.i1646, i64 1
   %1499 = getelementptr inbounds i8, ptr %.01838.i1645, i64 1
   store i8 %1486, ptr %.01838.i1645, align 1
@@ -7642,7 +7642,7 @@ Wlc_PrsSkipSpaces.exit.i1696:                     ; preds = %1567
   %1577 = add i8 %1573, -48
   %or.cond13.i30.i1708 = icmp ult i8 %1577, 10
   %or.cond2.i31.i1709 = or i1 %or.cond13.i30.i1708, %or.cond1.i29.i1707
-  br i1 %or.cond2.i31.i1709, label %Wlc_PrsIsChar.argprom.exit32.thread.i1717, label %1578
+  br i1 %or.cond2.i31.i1709, label %Wlc_PrsIsChar.exit32.thread.i1717, label %1578
 
 1578:                                             ; preds = %1574
   switch i8 %1573, label %.loopexit1947 [
@@ -7651,7 +7651,7 @@ Wlc_PrsSkipSpaces.exit.i1696:                     ; preds = %1567
     i8 92, label %1580
   ]
 
-Wlc_PrsIsChar.argprom.exit32.thread.i1717:        ; preds = %1574
+Wlc_PrsIsChar.exit32.thread.i1717:                ; preds = %1574
   %1579 = icmp eq i8 %1573, 92
   br i1 %1579, label %1580, label %1584
 
@@ -7661,7 +7661,7 @@ Wlc_PrsIsChar.argprom.exit32.thread.i1717:        ; preds = %1574
     i8 32, label %1582
   ]
 
-1580:                                             ; preds = %.thread.i1718, %Wlc_PrsIsChar.argprom.exit32.thread.i1717, %1578
+1580:                                             ; preds = %.thread.i1718, %Wlc_PrsIsChar.exit32.thread.i1717, %1578
   %1581 = add nsw i32 %.040.i1702, 1
   br label %1584
 
@@ -7671,9 +7671,9 @@ Wlc_PrsIsChar.argprom.exit32.thread.i1717:        ; preds = %1574
   %spec.select.i1720 = zext i1 %.not27.i1719 to i32
   br label %1584
 
-1584:                                             ; preds = %1582, %1580, %.thread.i1718, %Wlc_PrsIsChar.argprom.exit32.thread.i1717, %1578, %1578
-  %.117.i1710 = phi i32 [ 0, %1580 ], [ %spec.select.i1720, %1582 ], [ 0, %.thread.i1718 ], [ 1, %1578 ], [ 1, %1578 ], [ 1, %Wlc_PrsIsChar.argprom.exit32.thread.i1717 ]
-  %.1.i1711 = phi i32 [ %1581, %1580 ], [ %1583, %1582 ], [ %.040.i1702, %.thread.i1718 ], [ %.040.i1702, %1578 ], [ %.040.i1702, %1578 ], [ %.040.i1702, %Wlc_PrsIsChar.argprom.exit32.thread.i1717 ]
+1584:                                             ; preds = %1582, %1580, %.thread.i1718, %Wlc_PrsIsChar.exit32.thread.i1717, %1578, %1578
+  %.117.i1710 = phi i32 [ 0, %1580 ], [ %spec.select.i1720, %1582 ], [ 0, %.thread.i1718 ], [ 1, %1578 ], [ 1, %1578 ], [ 1, %Wlc_PrsIsChar.exit32.thread.i1717 ]
+  %.1.i1711 = phi i32 [ %1581, %1580 ], [ %1583, %1582 ], [ %.040.i1702, %.thread.i1718 ], [ %.040.i1702, %1578 ], [ %.040.i1702, %1578 ], [ %.040.i1702, %Wlc_PrsIsChar.exit32.thread.i1717 ]
   %1585 = getelementptr inbounds i8, ptr %.02037.i1705, i64 1
   %1586 = getelementptr inbounds i8, ptr %.01838.i1704, i64 1
   store i8 %1573, ptr %.01838.i1704, align 1
@@ -7887,7 +7887,7 @@ Wlc_PrsSkipSpaces.exit.i1755:                     ; preds = %1648
   %1658 = add i8 %1654, -48
   %or.cond13.i30.i1767 = icmp ult i8 %1658, 10
   %or.cond2.i31.i1768 = or i1 %or.cond13.i30.i1767, %or.cond1.i29.i1766
-  br i1 %or.cond2.i31.i1768, label %Wlc_PrsIsChar.argprom.exit32.thread.i1776, label %1659
+  br i1 %or.cond2.i31.i1768, label %Wlc_PrsIsChar.exit32.thread.i1776, label %1659
 
 1659:                                             ; preds = %1655
   switch i8 %1654, label %.loopexit1950 [
@@ -7896,7 +7896,7 @@ Wlc_PrsSkipSpaces.exit.i1755:                     ; preds = %1648
     i8 92, label %1661
   ]
 
-Wlc_PrsIsChar.argprom.exit32.thread.i1776:        ; preds = %1655
+Wlc_PrsIsChar.exit32.thread.i1776:                ; preds = %1655
   %1660 = icmp eq i8 %1654, 92
   br i1 %1660, label %1661, label %1665
 
@@ -7906,7 +7906,7 @@ Wlc_PrsIsChar.argprom.exit32.thread.i1776:        ; preds = %1655
     i8 32, label %1663
   ]
 
-1661:                                             ; preds = %.thread.i1777, %Wlc_PrsIsChar.argprom.exit32.thread.i1776, %1659
+1661:                                             ; preds = %.thread.i1777, %Wlc_PrsIsChar.exit32.thread.i1776, %1659
   %1662 = add nsw i32 %.040.i1761, 1
   br label %1665
 
@@ -7916,9 +7916,9 @@ Wlc_PrsIsChar.argprom.exit32.thread.i1776:        ; preds = %1655
   %spec.select.i1779 = zext i1 %.not27.i1778 to i32
   br label %1665
 
-1665:                                             ; preds = %1663, %1661, %.thread.i1777, %Wlc_PrsIsChar.argprom.exit32.thread.i1776, %1659, %1659
-  %.117.i1769 = phi i32 [ 0, %1661 ], [ %spec.select.i1779, %1663 ], [ 0, %.thread.i1777 ], [ 1, %1659 ], [ 1, %1659 ], [ 1, %Wlc_PrsIsChar.argprom.exit32.thread.i1776 ]
-  %.1.i1770 = phi i32 [ %1662, %1661 ], [ %1664, %1663 ], [ %.040.i1761, %.thread.i1777 ], [ %.040.i1761, %1659 ], [ %.040.i1761, %1659 ], [ %.040.i1761, %Wlc_PrsIsChar.argprom.exit32.thread.i1776 ]
+1665:                                             ; preds = %1663, %1661, %.thread.i1777, %Wlc_PrsIsChar.exit32.thread.i1776, %1659, %1659
+  %.117.i1769 = phi i32 [ 0, %1661 ], [ %spec.select.i1779, %1663 ], [ 0, %.thread.i1777 ], [ 1, %1659 ], [ 1, %1659 ], [ 1, %Wlc_PrsIsChar.exit32.thread.i1776 ]
+  %.1.i1770 = phi i32 [ %1662, %1661 ], [ %1664, %1663 ], [ %.040.i1761, %.thread.i1777 ], [ %.040.i1761, %1659 ], [ %.040.i1761, %1659 ], [ %.040.i1761, %Wlc_PrsIsChar.exit32.thread.i1776 ]
   %1666 = getelementptr inbounds i8, ptr %.02037.i1764, i64 1
   %1667 = getelementptr inbounds i8, ptr %.01838.i1763, i64 1
   store i8 %1654, ptr %.01838.i1763, align 1
@@ -8126,7 +8126,7 @@ Wlc_PrsSkipSpaces.exit.i1816:                     ; preds = %1722
   %1732 = add i8 %1728, -48
   %or.cond13.i30.i1828 = icmp ult i8 %1732, 10
   %or.cond2.i31.i1829 = or i1 %or.cond13.i30.i1828, %or.cond1.i29.i1827
-  br i1 %or.cond2.i31.i1829, label %Wlc_PrsIsChar.argprom.exit32.thread.i1837, label %1733
+  br i1 %or.cond2.i31.i1829, label %Wlc_PrsIsChar.exit32.thread.i1837, label %1733
 
 1733:                                             ; preds = %1729
   switch i8 %1728, label %.loopexit1953 [
@@ -8135,7 +8135,7 @@ Wlc_PrsSkipSpaces.exit.i1816:                     ; preds = %1722
     i8 92, label %1735
   ]
 
-Wlc_PrsIsChar.argprom.exit32.thread.i1837:        ; preds = %1729
+Wlc_PrsIsChar.exit32.thread.i1837:                ; preds = %1729
   %1734 = icmp eq i8 %1728, 92
   br i1 %1734, label %1735, label %1739
 
@@ -8145,7 +8145,7 @@ Wlc_PrsIsChar.argprom.exit32.thread.i1837:        ; preds = %1729
     i8 32, label %1737
   ]
 
-1735:                                             ; preds = %.thread.i1838, %Wlc_PrsIsChar.argprom.exit32.thread.i1837, %1733
+1735:                                             ; preds = %.thread.i1838, %Wlc_PrsIsChar.exit32.thread.i1837, %1733
   %1736 = add nsw i32 %.040.i1822, 1
   br label %1739
 
@@ -8155,9 +8155,9 @@ Wlc_PrsIsChar.argprom.exit32.thread.i1837:        ; preds = %1729
   %spec.select.i1840 = zext i1 %.not27.i1839 to i32
   br label %1739
 
-1739:                                             ; preds = %1737, %1735, %.thread.i1838, %Wlc_PrsIsChar.argprom.exit32.thread.i1837, %1733, %1733
-  %.117.i1830 = phi i32 [ 0, %1735 ], [ %spec.select.i1840, %1737 ], [ 0, %.thread.i1838 ], [ 1, %1733 ], [ 1, %1733 ], [ 1, %Wlc_PrsIsChar.argprom.exit32.thread.i1837 ]
-  %.1.i1831 = phi i32 [ %1736, %1735 ], [ %1738, %1737 ], [ %.040.i1822, %.thread.i1838 ], [ %.040.i1822, %1733 ], [ %.040.i1822, %1733 ], [ %.040.i1822, %Wlc_PrsIsChar.argprom.exit32.thread.i1837 ]
+1739:                                             ; preds = %1737, %1735, %.thread.i1838, %Wlc_PrsIsChar.exit32.thread.i1837, %1733, %1733
+  %.117.i1830 = phi i32 [ 0, %1735 ], [ %spec.select.i1840, %1737 ], [ 0, %.thread.i1838 ], [ 1, %1733 ], [ 1, %1733 ], [ 1, %Wlc_PrsIsChar.exit32.thread.i1837 ]
+  %.1.i1831 = phi i32 [ %1736, %1735 ], [ %1738, %1737 ], [ %.040.i1822, %.thread.i1838 ], [ %.040.i1822, %1733 ], [ %.040.i1822, %1733 ], [ %.040.i1822, %Wlc_PrsIsChar.exit32.thread.i1837 ]
   %1740 = getelementptr inbounds i8, ptr %.02037.i1825, i64 1
   %1741 = getelementptr inbounds i8, ptr %.01838.i1824, i64 1
   store i8 %1728, ptr %.01838.i1824, align 1
@@ -8621,7 +8621,7 @@ Wlc_PrsSkipSpaces.exit.i:                         ; preds = %.preheader
   %64 = add i8 %60, -48
   %or.cond13.i30.i = icmp ult i8 %64, 10
   %or.cond2.i31.i = or i1 %or.cond13.i30.i, %or.cond1.i29.i
-  br i1 %or.cond2.i31.i, label %Wlc_PrsIsChar.argprom.exit32.thread.i, label %65
+  br i1 %or.cond2.i31.i, label %Wlc_PrsIsChar.exit32.thread.i, label %65
 
 65:                                               ; preds = %61
   switch i8 %60, label %.loopexit [
@@ -8630,7 +8630,7 @@ Wlc_PrsSkipSpaces.exit.i:                         ; preds = %.preheader
     i8 92, label %67
   ]
 
-Wlc_PrsIsChar.argprom.exit32.thread.i:            ; preds = %61
+Wlc_PrsIsChar.exit32.thread.i:                    ; preds = %61
   %66 = icmp eq i8 %60, 92
   br i1 %66, label %67, label %71
 
@@ -8640,7 +8640,7 @@ Wlc_PrsIsChar.argprom.exit32.thread.i:            ; preds = %61
     i8 32, label %69
   ]
 
-67:                                               ; preds = %.thread.i, %Wlc_PrsIsChar.argprom.exit32.thread.i, %65
+67:                                               ; preds = %.thread.i, %Wlc_PrsIsChar.exit32.thread.i, %65
   %68 = add nsw i32 %.040.i, 1
   br label %71
 
@@ -8650,9 +8650,9 @@ Wlc_PrsIsChar.argprom.exit32.thread.i:            ; preds = %61
   %spec.select.i = zext i1 %.not27.i to i32
   br label %71
 
-71:                                               ; preds = %69, %67, %.thread.i, %Wlc_PrsIsChar.argprom.exit32.thread.i, %65, %65
-  %.117.i = phi i32 [ 0, %67 ], [ %spec.select.i, %69 ], [ 0, %.thread.i ], [ 1, %65 ], [ 1, %65 ], [ 1, %Wlc_PrsIsChar.argprom.exit32.thread.i ]
-  %.1.i = phi i32 [ %68, %67 ], [ %70, %69 ], [ %.040.i, %.thread.i ], [ %.040.i, %65 ], [ %.040.i, %65 ], [ %.040.i, %Wlc_PrsIsChar.argprom.exit32.thread.i ]
+71:                                               ; preds = %69, %67, %.thread.i, %Wlc_PrsIsChar.exit32.thread.i, %65, %65
+  %.117.i = phi i32 [ 0, %67 ], [ %spec.select.i, %69 ], [ 0, %.thread.i ], [ 1, %65 ], [ 1, %65 ], [ 1, %Wlc_PrsIsChar.exit32.thread.i ]
+  %.1.i = phi i32 [ %68, %67 ], [ %70, %69 ], [ %.040.i, %.thread.i ], [ %.040.i, %65 ], [ %.040.i, %65 ], [ %.040.i, %Wlc_PrsIsChar.exit32.thread.i ]
   %72 = getelementptr inbounds i8, ptr %.02037.i, i64 1
   %73 = getelementptr inbounds i8, ptr %.01838.i, i64 1
   store i8 %60, ptr %.01838.i, align 1
@@ -9144,8 +9144,8 @@ Abc_TtReadHexNumber.exit:                         ; preds = %Abc_TtReadHexDigit.
   store i32 %7, ptr %3, align 4
   br label %169
 
-169:                                              ; preds = %Wlc_PrsIsChar.argprom.exit.thread, %Abc_TtReadHexNumber.exit
-  %.2 = phi ptr [ %104, %Abc_TtReadHexNumber.exit ], [ %174, %Wlc_PrsIsChar.argprom.exit.thread ]
+169:                                              ; preds = %Wlc_PrsIsChar.exit.thread, %Abc_TtReadHexNumber.exit
+  %.2 = phi ptr [ %104, %Abc_TtReadHexNumber.exit ], [ %174, %Wlc_PrsIsChar.exit.thread ]
   %.2.val = load i8, ptr %.2, align 1
   %170 = and i8 %.2.val, -33
   %171 = add i8 %170, -65
@@ -9153,16 +9153,16 @@ Abc_TtReadHexNumber.exit:                         ; preds = %Abc_TtReadHexDigit.
   %172 = add i8 %.2.val, -48
   %or.cond13.i = icmp ult i8 %172, 10
   %or.cond2.i = or i1 %or.cond13.i, %or.cond1.i
-  br i1 %or.cond2.i, label %Wlc_PrsIsChar.argprom.exit.thread, label %173
+  br i1 %or.cond2.i, label %Wlc_PrsIsChar.exit.thread, label %173
 
 173:                                              ; preds = %169
   switch i8 %.2.val, label %.loopexit [
-    i8 95, label %Wlc_PrsIsChar.argprom.exit.thread
-    i8 36, label %Wlc_PrsIsChar.argprom.exit.thread
-    i8 92, label %Wlc_PrsIsChar.argprom.exit.thread
+    i8 95, label %Wlc_PrsIsChar.exit.thread
+    i8 36, label %Wlc_PrsIsChar.exit.thread
+    i8 92, label %Wlc_PrsIsChar.exit.thread
   ]
 
-Wlc_PrsIsChar.argprom.exit.thread:                ; preds = %173, %173, %173, %169
+Wlc_PrsIsChar.exit.thread:                        ; preds = %173, %173, %173, %169
   %174 = getelementptr inbounds i8, ptr %.2, i64 1
   br label %169, !llvm.loop !45
 
@@ -9172,7 +9172,7 @@ Wlc_PrsIsChar.argprom.exit.thread:                ; preds = %173, %173, %173, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntPushUnique.retelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntPushUnique(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0

@@ -8682,7 +8682,7 @@ mz_zip_array_ensure_capacity.exit370:             ; preds = %222
 
 377:                                              ; preds = %.loopexit381
   %.val360 = load ptr, ptr %110, align 8
-  call fastcc void @mz_zip_reader_sort_central_dir_offsets_by_filename.argprom(i32 %.val, ptr %.val360)
+  call fastcc void @mz_zip_reader_sort_central_dir_offsets_by_filename(i32 %.val, ptr %.val360)
   br label %378
 
 378:                                              ; preds = %.loopexit381, %377, %368, %354, %348, %338, %328, %306, %298, %252, %243, %mz_zip_array_ensure_capacity.exit370, %mz_zip_array_ensure_capacity.exit366, %174, %167, %162, %155, %144, %141, %138, %135, %130, %78, %54, %50, %.loopexit382, %11
@@ -16895,7 +16895,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %69, %72
   store i64 -1, ptr %.20..20..20..20..sroa_idx, align 4
   %.42..42..42..42..sroa_idx = getelementptr inbounds i8, ptr %7, i64 42
   store i32 -1, ptr %.42..42..42..42..sroa_idx, align 2
-  %350 = call fastcc i32 @mz_zip_writer_update_zip64_extension_block.argprom(ptr noundef %9, ptr noundef %0, ptr noundef %347, i32 noundef %58, ptr noundef %117, ptr noundef %349, ptr noundef %5)
+  %350 = call fastcc i32 @mz_zip_writer_update_zip64_extension_block(ptr noundef %9, ptr noundef %0, ptr noundef %347, i32 noundef %58, ptr noundef %117, ptr noundef %349, ptr noundef %5)
   %.not807 = icmp eq i32 %350, 0
   br i1 %.not807, label %351, label %355
 
@@ -17337,7 +17337,7 @@ mz_zip_array_ensure_capacity.exit885.thread:      ; preds = %565, %575
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @mz_zip_writer_update_zip64_extension_block.argprom(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull readonly %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef nonnull readonly %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @mz_zip_writer_update_zip64_extension_block(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull readonly %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef nonnull readonly %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #7 {
   %8 = alloca [64 x i8], align 16
   %9 = add nuw nsw i32 %3, 64
   %10 = zext nneg i32 %9 to i64
@@ -21070,7 +21070,7 @@ tdefl_huffman_enforce_max_code_size.exit:         ; preds = %.loopexit.i, %tdefl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @mz_zip_reader_sort_central_dir_offsets_by_filename.argprom(i32 %.16.val, ptr nocapture readonly %.104.val) unnamed_addr #12 {
+define internal fastcc void @mz_zip_reader_sort_central_dir_offsets_by_filename(i32 %.16.val, ptr nocapture readonly %.104.val) unnamed_addr #12 {
   %1 = getelementptr inbounds i8, ptr %.104.val, i64 32
   %2 = icmp ult i32 %.16.val, 2
   br i1 %2, label %.loopexit, label %3

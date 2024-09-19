@@ -143,9 +143,9 @@ define internal void @"_ZN4core3ptr52drop_in_place$LT$actix_http..error..Payload
   %narrow = select i1 %7, i8 %6, i8 4
   switch i8 %narrow, label %8 [
     i8 0, label %14
-    i8 1, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h27fbfce45a35d934E.argprom.exit"
-    i8 2, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h27fbfce45a35d934E.argprom.exit"
-    i8 3, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h27fbfce45a35d934E.argprom.exit"
+    i8 1, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h27fbfce45a35d934E.exit"
+    i8 2, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h27fbfce45a35d934E.exit"
+    i8 3, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h27fbfce45a35d934E.exit"
     i8 4, label %21
   ]
 
@@ -168,13 +168,13 @@ define internal void @"_ZN4core3ptr52drop_in_place$LT$actix_http..error..Payload
 
 "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hbe6ded984013275eE.exit": ; preds = %8, %12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !32
-  br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h27fbfce45a35d934E.argprom.exit"
+  br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h27fbfce45a35d934E.exit"
 
 14:                                               ; preds = %1
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %15, align 8, !noundef !4
   %16 = icmp eq ptr %.val, null
-  br i1 %16, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h27fbfce45a35d934E.argprom.exit", label %17
+  br i1 %16, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h27fbfce45a35d934E.exit", label %17
 
 17:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !36
@@ -190,19 +190,19 @@ define internal void @"_ZN4core3ptr52drop_in_place$LT$actix_http..error..Payload
 
 "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hbe6ded984013275eE.exit.i": ; preds = %19, %17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !36
-  br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h27fbfce45a35d934E.argprom.exit"
+  br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h27fbfce45a35d934E.exit"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h27fbfce45a35d934E.argprom.exit": ; preds = %28, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hbe6ded984013275eE.exit.i.i", %21, %21, %21, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hbe6ded984013275eE.exit.i", %14, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hbe6ded984013275eE.exit", %1, %1, %1
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h27fbfce45a35d934E.exit": ; preds = %28, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hbe6ded984013275eE.exit.i.i", %21, %21, %21, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hbe6ded984013275eE.exit.i", %14, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hbe6ded984013275eE.exit", %1, %1, %1
   ret void
 
 21:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
   switch i8 %5, label %22 [
-    i8 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h27fbfce45a35d934E.argprom.exit"
+    i8 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h27fbfce45a35d934E.exit"
     i8 1, label %28
-    i8 2, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h27fbfce45a35d934E.argprom.exit"
-    i8 3, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h27fbfce45a35d934E.argprom.exit"
+    i8 2, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h27fbfce45a35d934E.exit"
+    i8 3, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h27fbfce45a35d934E.exit"
   ]
 
 22:                                               ; preds = %21
@@ -224,7 +224,7 @@ define internal void @"_ZN4core3ptr52drop_in_place$LT$actix_http..error..Payload
 
 "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hbe6ded984013275eE.exit.i.i": ; preds = %26, %22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !61
-  br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h27fbfce45a35d934E.argprom.exit"
+  br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h27fbfce45a35d934E.exit"
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds i8, ptr %0, i64 8
@@ -239,7 +239,7 @@ define internal void @"_ZN4core3ptr52drop_in_place$LT$actix_http..error..Payload
   %36 = getelementptr inbounds i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !alias.scope !71, !noundef !4
   tail call void %32(ptr noalias noundef nonnull align 8 dereferenceable(8) %33, ptr noundef %35, i64 noundef %37)
-  br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h27fbfce45a35d934E.argprom.exit"
+  br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h27fbfce45a35d934E.exit"
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

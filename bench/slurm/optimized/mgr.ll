@@ -3117,7 +3117,7 @@ _setup_normal_io.exit.i:                          ; preds = %604, %601
 
 767:                                              ; preds = %762
   %768 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.104) #15
-  call fastcc void @exec_wait_kill_children.retelim(ptr noundef %.2140247.i)
+  call fastcc void @exec_wait_kill_children(ptr noundef %.2140247.i)
   br label %1053
 
 769:                                              ; preds = %762
@@ -3368,45 +3368,45 @@ _unblock_signals.exit.i:                          ; preds = %.lr.ph.i190.i, %868
 
 891:                                              ; preds = %887
   %892 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.139) #15
-  br label %prepare_stdio.argprom.exit.i
+  br label %prepare_stdio.exit.i
 
 893:                                              ; preds = %887
   %894 = call i32 @get_log_level() #15
   %895 = icmp sgt i32 %894, 6
-  br i1 %895, label %896, label %prepare_stdio.argprom.exit.i
+  br i1 %895, label %896, label %prepare_stdio.exit.i
 
 896:                                              ; preds = %893
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.140) #15
-  br label %prepare_stdio.argprom.exit.i
+  br label %prepare_stdio.exit.i
 
 897:                                              ; preds = %883, %_unblock_signals.exit.i
   %898 = call i32 @io_dup_stdio(ptr noundef %881) #15
-  br label %prepare_stdio.argprom.exit.i
+  br label %prepare_stdio.exit.i
 
-prepare_stdio.argprom.exit.i:                     ; preds = %897, %896, %893, %891
+prepare_stdio.exit.i:                             ; preds = %897, %896, %893, %891
   %899 = call i32 @acct_gather_profile_g_child_forked() #15
   %900 = getelementptr i8, ptr %765, i64 12
   %.val182.i = load i32, ptr %900, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %901 = call i64 @read(i32 noundef %.val182.i, ptr noundef nonnull %3, i64 noundef 1) #15
   %.not.i196.i = icmp eq i64 %901, 1
-  br i1 %.not.i196.i, label %_exec_wait_child_wait_for_parent.argprom.exit.thread.i, label %_exec_wait_child_wait_for_parent.argprom.exit.i
+  br i1 %.not.i196.i, label %_exec_wait_child_wait_for_parent.exit.thread.i, label %_exec_wait_child_wait_for_parent.exit.i
 
-_exec_wait_child_wait_for_parent.argprom.exit.thread.i: ; preds = %prepare_stdio.argprom.exit.i
+_exec_wait_child_wait_for_parent.exit.thread.i:   ; preds = %prepare_stdio.exit.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   br label %905
 
-_exec_wait_child_wait_for_parent.argprom.exit.i:  ; preds = %prepare_stdio.argprom.exit.i
+_exec_wait_child_wait_for_parent.exit.i:          ; preds = %prepare_stdio.exit.i
   %902 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.141) #15
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %903 = icmp slt i32 %902, 0
   br i1 %903, label %904, label %905
 
-904:                                              ; preds = %_exec_wait_child_wait_for_parent.argprom.exit.i
+904:                                              ; preds = %_exec_wait_child_wait_for_parent.exit.i
   call void @_exit(i32 noundef 1) #17
   unreachable
 
-905:                                              ; preds = %_exec_wait_child_wait_for_parent.argprom.exit.i, %_exec_wait_child_wait_for_parent.argprom.exit.thread.i
+905:                                              ; preds = %_exec_wait_child_wait_for_parent.exit.i, %_exec_wait_child_wait_for_parent.exit.thread.i
   call void @exec_task(ptr noundef nonnull %0, i32 noundef %763) #15
   br label %906
 
@@ -5108,7 +5108,7 @@ _exec_wait_info_destroy.exit:                     ; preds = %22, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @exec_wait_kill_children.retelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @exec_wait_kill_children(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call i32 @list_count(ptr noundef %0) #15
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %25, label %4
@@ -5213,7 +5213,7 @@ define internal fastcc range(i32 -1, 1) i32 @_become_user(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_exec_wait_child_wait_for_parent.argprom.retelim(i32 %.12.val) unnamed_addr #0 {
+define internal fastcc void @_exec_wait_child_wait_for_parent(i32 %.12.val) unnamed_addr #0 {
   %1 = alloca i8, align 1
   %2 = call i64 @read(i32 noundef %.12.val, ptr noundef nonnull %1, i64 noundef 1) #15
   %.not = icmp eq i64 %2, 1
@@ -6062,7 +6062,7 @@ define internal fastcc i32 @_run_script_as_user(ptr noundef %0, ptr noundef nonn
   %67 = call i32 @setpgid(i32 noundef 0, i32 noundef 0) #15
   %68 = getelementptr i8, ptr %19, i64 12
   %.val47 = load i32, ptr %68, align 4
-  call fastcc void @_exec_wait_child_wait_for_parent.argprom.retelim(i32 %.val47)
+  call fastcc void @_exec_wait_child_wait_for_parent(i32 %.val47)
   br label %69
 
 69:                                               ; preds = %74, %66

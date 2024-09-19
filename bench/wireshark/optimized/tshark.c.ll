@@ -2143,7 +2143,7 @@ sub_0305:                                         ; preds = %546
   br i1 %577, label %640, label %637
 
 637:                                              ; preds = %634
-  %638 = call fastcc i32 @_compile_dfilter.argprom(ptr noundef nonnull %.0176.lcssa, ptr noundef %16)
+  %638 = call fastcc i32 @_compile_dfilter(ptr noundef nonnull %.0176.lcssa, ptr noundef %16)
   %.not237 = icmp eq i32 %638, 0
   br i1 %.not237, label %639, label %640
 
@@ -2162,7 +2162,7 @@ sub_0305:                                         ; preds = %546
 
 642:                                              ; preds = %640
   %.0..0..0..0.101 = load volatile ptr, ptr %15, align 8
-  %643 = call fastcc i32 @_compile_dfilter.argprom(ptr noundef %.0..0..0..0.101, ptr noundef %17)
+  %643 = call fastcc i32 @_compile_dfilter(ptr noundef %.0..0..0..0.101, ptr noundef %17)
   %.not239 = icmp eq i32 %643, 0
   br i1 %.not239, label %644, label %645
 
@@ -2350,7 +2350,7 @@ sub_0309:                                         ; preds = %662
   %.0..0..0..0.124 = load volatile i32, ptr %11, align 4
   %.0..0..0..0.118 = load volatile i32, ptr %12, align 4
   %.0..0..0..0.125 = load volatile i32, ptr %10, align 4
-  %702 = call fastcc i32 @process_cap_file.argprom.argelim(ptr noundef %701, i32 noundef %.0..0..0..0.124, i32 noundef %.0..0..0..0.118, i32 noundef %.0..0..0..0.125)
+  %702 = call fastcc i32 @process_cap_file(ptr noundef %701, i32 noundef %.0..0..0..0.124, i32 noundef %.0..0..0..0.118, i32 noundef %.0..0..0..0.125)
   store volatile i32 %702, ptr %7, align 4
   br label %703
 
@@ -3261,7 +3261,7 @@ declare i32 @setup_enabled_and_disabled_protocols() local_unnamed_addr #1
 declare void @build_column_format_array(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_compile_dfilter.argprom(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_compile_dfilter(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call i64 @g_get_monotonic_time() #23
   %5 = call ptr @dfilter_expand(ptr noundef %0, ptr noundef nonnull %3) #23
@@ -3441,7 +3441,7 @@ declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 nounde
 declare i32 @_setjmp(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @process_cap_file.argprom.argelim(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @process_cap_file(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct._frame_data, align 8
   %6 = alloca %struct.wtap_rec, align 8
   %7 = alloca %struct.Buffer, align 8
@@ -3567,10 +3567,10 @@ sub_0:                                            ; preds = %.lr.ph, %.preheader
     i32 3, label %88
     i32 4, label %94
     i32 5, label %94
-    i32 6, label %write_preamble.argprom.exit.thread
+    i32 6, label %write_preamble.exit.thread
   ]
 
-write_preamble.argprom.exit.thread:               ; preds = %72
+write_preamble.exit.thread:                       ; preds = %72
   call void @llvm.lifetime.end.p0(i64 1136, ptr nonnull %15)
   br label %107
 
@@ -3579,7 +3579,7 @@ write_preamble.argprom.exit.thread:               ; preds = %72
   %76 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 16), align 8
   %77 = tail call ptr @get_ws_vcs_version_info() #23
   %78 = tail call i32 @print_preamble(ptr noundef %75, ptr noundef %76, ptr noundef %77) #23
-  br label %write_preamble.argprom.exit
+  br label %write_preamble.exit
 
 79:                                               ; preds = %72
   %.b.i = load i1, ptr @print_details, align 4
@@ -3600,7 +3600,7 @@ write_preamble.argprom.exit.thread:               ; preds = %72
   %86 = tail call i32 @ferror(ptr noundef %85) #23
   %.not4.i = icmp eq i32 %86, 0
   %87 = zext i1 %.not4.i to i32
-  br label %write_preamble.argprom.exit
+  br label %write_preamble.exit
 
 88:                                               ; preds = %72
   %89 = load ptr, ptr @output_fields, align 8
@@ -3610,7 +3610,7 @@ write_preamble.argprom.exit.thread:               ; preds = %72
   %92 = tail call i32 @ferror(ptr noundef %91) #23
   %.not3.i = icmp eq i32 %92, 0
   %93 = zext i1 %.not3.i to i32
-  br label %write_preamble.argprom.exit
+  br label %write_preamble.exit
 
 94:                                               ; preds = %72, %72
   %95 = load ptr, ptr @stdout, align 8
@@ -3620,19 +3620,19 @@ write_preamble.argprom.exit.thread:               ; preds = %72
   %97 = call i32 @ferror(ptr noundef %96) #23
   %.not.i = icmp eq i32 %97, 0
   %98 = zext i1 %.not.i to i32
-  br label %write_preamble.argprom.exit
+  br label %write_preamble.exit
 
 99:                                               ; preds = %72
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.129, i32 noundef 7, ptr noundef nonnull @.str.130, i64 noundef 4353, ptr noundef nonnull @__func__.write_preamble, ptr noundef nonnull @.str.131) #29
   unreachable
 
-write_preamble.argprom.exit:                      ; preds = %74, %84, %88, %94
+write_preamble.exit:                              ; preds = %74, %84, %88, %94
   %.0.i = phi i32 [ %98, %94 ], [ %93, %88 ], [ %87, %84 ], [ %78, %74 ]
   call void @llvm.lifetime.end.p0(i64 1136, ptr nonnull %15)
   %.not69 = icmp eq i32 %.0.i, 0
   br i1 %.not69, label %100, label %107
 
-100:                                              ; preds = %write_preamble.argprom.exit
+100:                                              ; preds = %write_preamble.exit
   %101 = tail call ptr @__errno_location() #26
   %102 = load i32, ptr %101, align 4
   switch i32 %102, label %105 [
@@ -3654,8 +3654,8 @@ write_preamble.argprom.exit:                      ; preds = %74, %84, %88, %94
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.323, ptr noundef %106) #23
   br label %show_print_file_io_error.exit
 
-107:                                              ; preds = %write_preamble.argprom.exit.thread, %71, %write_preamble.argprom.exit, %64
-  %.1 = phi ptr [ %.059, %64 ], [ null, %write_preamble.argprom.exit ], [ null, %71 ], [ null, %write_preamble.argprom.exit.thread ]
+107:                                              ; preds = %write_preamble.exit.thread, %71, %write_preamble.exit, %64
+  %.1 = phi ptr [ %.059, %64 ], [ null, %write_preamble.exit ], [ null, %71 ], [ null, %write_preamble.exit.thread ]
   %108 = getelementptr inbounds i8, ptr %16, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %108, i8 0, i64 144, i1 false)
   store ptr @read_cleanup, ptr %16, align 8
@@ -3826,7 +3826,7 @@ write_preamble.argprom.exit:                      ; preds = %74, %84, %88, %94
   %187 = load i64, ptr @tshark_elapsed.3, align 8
   %188 = add i64 %186, %187
   store i64 %188, ptr @tshark_elapsed.3, align 8
-  br i1 %184, label %.thread.i.i, label %process_packet_first_pass.argprom.exit.i
+  br i1 %184, label %.thread.i.i, label %process_packet_first_pass.exit.i
 
 .thread.i.i:                                      ; preds = %181, %171, %142
   call void @frame_data_set_after_dissect(ptr noundef nonnull %11, ptr noundef nonnull @cum_bytes) #23
@@ -3883,35 +3883,35 @@ write_preamble.argprom.exit:                      ; preds = %74, %84, %88, %94
   %215 = load i32, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
   %216 = add i32 %215, 1
   store i32 %216, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
-  br label %process_packet_first_pass.argprom.exit.thread3.i
+  br label %process_packet_first_pass.exit.thread3.i
 
 217:                                              ; preds = %.thread.i.i
   %218 = load i32, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
   %219 = add i32 %218, 1
   store i32 %219, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
-  br i1 %.not.i.i, label %process_packet_first_pass.argprom.exit.thread.i, label %process_packet_first_pass.argprom.exit.thread3.i
+  br i1 %.not.i.i, label %process_packet_first_pass.exit.thread.i, label %process_packet_first_pass.exit.thread3.i
 
-process_packet_first_pass.argprom.exit.thread3.i: ; preds = %217, %.thread9.i.i
+process_packet_first_pass.exit.thread3.i:         ; preds = %217, %.thread9.i.i
   call void @epan_dissect_reset(ptr noundef nonnull %.0.i77) #23
-  br label %process_packet_first_pass.argprom.exit.thread.i
+  br label %process_packet_first_pass.exit.thread.i
 
-process_packet_first_pass.argprom.exit.i:         ; preds = %181
+process_packet_first_pass.exit.i:                 ; preds = %181
   call void @frame_data_destroy(ptr noundef nonnull %11) #23
   call void @epan_dissect_reset(ptr noundef nonnull %.0.i77) #23
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %11)
   br label %221
 
-process_packet_first_pass.argprom.exit.thread.i:  ; preds = %process_packet_first_pass.argprom.exit.thread3.i, %217
+process_packet_first_pass.exit.thread.i:          ; preds = %process_packet_first_pass.exit.thread3.i, %217
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %11)
   %.not35.i = icmp slt i32 %143, %3
   %or.cond38.i = select i1 %140, i1 true, i1 %.not35.i
   br i1 %or.cond38.i, label %221, label %220
 
-220:                                              ; preds = %process_packet_first_pass.argprom.exit.thread.i
+220:                                              ; preds = %process_packet_first_pass.exit.thread.i
   store i32 0, ptr %19, align 4
   br label %.loopexit.i
 
-221:                                              ; preds = %process_packet_first_pass.argprom.exit.thread.i, %process_packet_first_pass.argprom.exit.i
+221:                                              ; preds = %process_packet_first_pass.exit.thread.i, %process_packet_first_pass.exit.i
   call void @wtap_rec_reset(ptr noundef nonnull %12) #23
   %222 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 248), align 8
   %223 = call i32 @wtap_read(ptr noundef %222, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %19, ptr noundef nonnull %21, ptr noundef nonnull %14) #23
@@ -3922,13 +3922,13 @@ process_packet_first_pass.argprom.exit.thread.i:  ; preds = %process_packet_firs
   %.026.i = phi i32 [ 0, %220 ], [ 0, %135 ], [ 3, %141 ], [ 0, %221 ]
   %224 = load i32, ptr %19, align 4
   %.not37.i = icmp eq ptr %.0.i77, null
-  br i1 %.not37.i, label %process_cap_file_first_pass.argprom.exit, label %225
+  br i1 %.not37.i, label %process_cap_file_first_pass.exit, label %225
 
 225:                                              ; preds = %.loopexit.i
   call void @epan_dissect_free(ptr noundef nonnull %.0.i77) #23
-  br label %process_cap_file_first_pass.argprom.exit
+  br label %process_cap_file_first_pass.exit
 
-process_cap_file_first_pass.argprom.exit:         ; preds = %.loopexit.i, %225
+process_cap_file_first_pass.exit:                 ; preds = %.loopexit.i, %225
   %.not36.i = icmp eq i32 %224, 0
   %spec.select.i = select i1 %.not36.i, i32 %.026.i, i32 1
   %226 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 248), align 8
@@ -3946,7 +3946,7 @@ process_cap_file_first_pass.argprom.exit:         ; preds = %.loopexit.i, %225
   %229 = icmp eq i32 %spec.select.i, 3
   br i1 %229, label %.thread, label %230
 
-230:                                              ; preds = %process_cap_file_first_pass.argprom.exit
+230:                                              ; preds = %process_cap_file_first_pass.exit
   %231 = call i64 @g_get_monotonic_time() #23
   call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
@@ -3983,7 +3983,7 @@ process_cap_file_first_pass.argprom.exit:         ; preds = %.loopexit.i, %225
 
 process_new_idbs.exit.i:                          ; preds = %238
   store volatile i32 0, ptr %22, align 4
-  br label %process_cap_file_second_pass.argprom.exit
+  br label %process_cap_file_second_pass.exit
 
 .loopexit5.i:                                     ; preds = %240, %.lr.ph.split.us.i.i, %230
   call void @wtap_rec_init(ptr noundef nonnull %9) #23
@@ -4169,7 +4169,7 @@ process_new_idbs.exit.i:                          ; preds = %238
   %327 = load i64, ptr @tshark_elapsed.8, align 8
   %328 = add i64 %326, %327
   store i64 %328, ptr @tshark_elapsed.8, align 8
-  br i1 %324, label %.thread.i.i89, label %process_packet_second_pass.argprom.exit.i
+  br i1 %324, label %.thread.i.i89, label %process_packet_second_pass.exit.i
 
 .thread.i.i89:                                    ; preds = %321, %309, %277
   %.05.i.i = phi ptr [ %311, %321 ], [ null, %277 ], [ %311, %309 ]
@@ -4178,7 +4178,7 @@ process_new_idbs.exit.i:                          ; preds = %238
   br i1 %.b.i.i, label %329, label %337
 
 329:                                              ; preds = %.thread.i.i89
-  call fastcc void @print_packet.argprom.argelim(ptr noundef %.046.i)
+  call fastcc void @print_packet(ptr noundef %.046.i)
   %.b57.i.i = load i1, ptr @line_buffered, align 4
   br i1 %.b57.i.i, label %330, label %333
 
@@ -4201,14 +4201,14 @@ process_new_idbs.exit.i:                          ; preds = %238
 337:                                              ; preds = %333, %.thread.i.i89
   store ptr %272, ptr getelementptr inbounds (i8, ptr @cfile, i64 264), align 8
   store ptr %272, ptr getelementptr inbounds (i8, ptr @cfile, i64 272), align 8
-  br i1 %.not.i65.i, label %process_packet_second_pass.argprom.exit.thread.i, label %338
+  br i1 %.not.i65.i, label %process_packet_second_pass.exit.thread.i, label %338
 
 338:                                              ; preds = %337
   call void @epan_dissect_reset(ptr noundef nonnull %.046.i) #23
   store ptr %.05.i.i, ptr %267, align 8
-  br label %process_packet_second_pass.argprom.exit.thread.i
+  br label %process_packet_second_pass.exit.thread.i
 
-process_packet_second_pass.argprom.exit.i:        ; preds = %321
+process_packet_second_pass.exit.i:                ; preds = %321
   store ptr %272, ptr getelementptr inbounds (i8, ptr @cfile, i64 272), align 8
   call void @epan_dissect_reset(ptr noundef nonnull %.046.i) #23
   store ptr %311, ptr %267, align 8
@@ -4219,10 +4219,10 @@ process_packet_second_pass.argprom.exit.i:        ; preds = %321
   %brmerge.i = or i1 %.not61.i, %.not60.i
   br i1 %brmerge.i, label %348, label %342
 
-process_packet_second_pass.argprom.exit.thread.i: ; preds = %338, %337
+process_packet_second_pass.exit.thread.i:         ; preds = %338, %337
   br i1 %.not61.i, label %348, label %342
 
-342:                                              ; preds = %process_packet_second_pass.argprom.exit.thread.i, %process_packet_second_pass.argprom.exit.i
+342:                                              ; preds = %process_packet_second_pass.exit.thread.i, %process_packet_second_pass.exit.i
   %343 = load ptr, ptr %10, align 8
   %344 = load i64, ptr %268, align 8
   %345 = getelementptr i8, ptr %343, i64 %344
@@ -4234,7 +4234,7 @@ process_packet_second_pass.argprom.exit.thread.i: ; preds = %338, %337
   store volatile i32 %.04412.i, ptr %22, align 4
   br label %.loopexit.i87
 
-348:                                              ; preds = %342, %process_packet_second_pass.argprom.exit.thread.i, %process_packet_second_pass.argprom.exit.i
+348:                                              ; preds = %342, %process_packet_second_pass.exit.thread.i, %process_packet_second_pass.exit.i
   call void @wtap_rec_reset(ptr noundef nonnull %9) #23
   %349 = add i32 %.04412.i, 1
   %350 = load i32, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
@@ -4253,9 +4253,9 @@ process_packet_second_pass.argprom.exit.thread.i: ; preds = %338, %337
 352:                                              ; preds = %351, %.loopexit.i87
   call void @ws_buffer_free(ptr noundef nonnull %10) #23
   call void @wtap_rec_cleanup(ptr noundef nonnull %9) #23
-  br label %process_cap_file_second_pass.argprom.exit
+  br label %process_cap_file_second_pass.exit
 
-process_cap_file_second_pass.argprom.exit:        ; preds = %process_new_idbs.exit.i, %352
+process_cap_file_second_pass.exit:                ; preds = %process_new_idbs.exit.i, %352
   %.0.i88 = phi i32 [ %.045.i, %352 ], [ 2, %process_new_idbs.exit.i ]
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
@@ -4388,7 +4388,7 @@ process_cap_file_second_pass.argprom.exit:        ; preds = %process_new_idbs.ex
   %401 = load i32, ptr @epan_auto_reset_count, align 4
   %402 = icmp uge i32 %.pre.i, %401
   %or.cond44.not.i = select i1 %.b.i.i103, i1 %402, i1 false
-  br i1 %or.cond44.not.i, label %403, label %reset_epan_mem.argprom.exit.i
+  br i1 %or.cond44.not.i, label %403, label %reset_epan_mem.exit.i
 
 403:                                              ; preds = %.loopexit.i102
   %.b.i111 = load i1, ptr @print_packet_info, align 4
@@ -4403,9 +4403,9 @@ process_cap_file_second_pass.argprom.exit:        ; preds = %process_new_idbs.ex
   %409 = call ptr @epan_new(ptr noundef nonnull getelementptr inbounds (i8, ptr @cfile, i64 248), ptr noundef nonnull @tshark_epan_new.funcs) #23
   store ptr %409, ptr @cfile, align 8
   call void @epan_dissect_init(ptr noundef %.059.i, ptr noundef %409, i32 noundef %.0.i93, i32 noundef %405) #23
-  br label %reset_epan_mem.argprom.exit.i
+  br label %reset_epan_mem.exit.i
 
-reset_epan_mem.argprom.exit.i:                    ; preds = %403, %.loopexit.i102
+reset_epan_mem.exit.i:                            ; preds = %403, %.loopexit.i102
   %410 = phi i32 [ %.pre.i, %.loopexit.i102 ], [ 0, %403 ]
   %411 = load i64, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5)
@@ -4415,7 +4415,7 @@ reset_epan_mem.argprom.exit.i:                    ; preds = %403, %.loopexit.i10
   call void @frame_data_init(ptr noundef nonnull %5, i32 noundef %412, ptr noundef nonnull %6, i64 noundef %411, i32 noundef %413) #23
   br i1 %.not.i90.i, label %.thread.i.i106, label %414
 
-414:                                              ; preds = %reset_epan_mem.argprom.exit.i
+414:                                              ; preds = %reset_epan_mem.exit.i
   %415 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 152), align 8
   %.not54.i.i = icmp eq ptr %415, null
   br i1 %.not54.i.i, label %417, label %416
@@ -4526,14 +4526,14 @@ reset_epan_mem.argprom.exit.i:                    ; preds = %403, %.loopexit.i10
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5)
   br label %478
 
-.thread.i.i106:                                   ; preds = %456, %444, %reset_epan_mem.argprom.exit.i
-  %.06.i.i = phi ptr [ %446, %456 ], [ null, %reset_epan_mem.argprom.exit.i ], [ %446, %444 ]
+.thread.i.i106:                                   ; preds = %456, %444, %reset_epan_mem.exit.i
+  %.06.i.i = phi ptr [ %446, %456 ], [ null, %reset_epan_mem.exit.i ], [ %446, %444 ]
   call void @frame_data_set_after_dissect(ptr noundef nonnull %5, ptr noundef nonnull @cum_bytes) #23
   %.b.i91.i = load i1, ptr @print_packet_info, align 4
   br i1 %.b.i91.i, label %464, label %472
 
 464:                                              ; preds = %.thread.i.i106
-  call fastcc void @print_packet.argprom.argelim(ptr noundef %.059.i)
+  call fastcc void @print_packet(ptr noundef %.059.i)
   %.b52.i.i = load i1, ptr @line_buffered, align 4
   br i1 %.b52.i.i, label %465, label %468
 
@@ -4558,19 +4558,19 @@ reset_epan_mem.argprom.exit.i:                    ; preds = %403, %.loopexit.i10
   store ptr @prev_dis_frame, ptr getelementptr inbounds (i8, ptr @cfile, i64 264), align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) @prev_cap_frame, ptr noundef nonnull align 8 dereferenceable(104) %5, i64 104, i1 false)
   store ptr @prev_cap_frame, ptr getelementptr inbounds (i8, ptr @cfile, i64 272), align 8
-  br i1 %.not.i90.i, label %process_packet_single_pass.argprom.exit.thread.i, label %process_packet_single_pass.argprom.exit.i
+  br i1 %.not.i90.i, label %process_packet_single_pass.exit.thread.i, label %process_packet_single_pass.exit.i
 
-process_packet_single_pass.argprom.exit.i:        ; preds = %472
+process_packet_single_pass.exit.i:                ; preds = %472
   call void @epan_dissect_reset(ptr noundef nonnull %.059.i) #23
   call void @frame_data_destroy(ptr noundef nonnull %5) #23
   store ptr %.06.i.i, ptr %385, align 8
-  br label %process_packet_single_pass.argprom.exit.thread.i
+  br label %process_packet_single_pass.exit.thread.i
 
-process_packet_single_pass.argprom.exit.thread.i: ; preds = %process_packet_single_pass.argprom.exit.i, %472
+process_packet_single_pass.exit.thread.i:         ; preds = %process_packet_single_pass.exit.i, %472
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5)
   br i1 %.not9.i.i95, label %478, label %473
 
-473:                                              ; preds = %process_packet_single_pass.argprom.exit.thread.i
+473:                                              ; preds = %process_packet_single_pass.exit.thread.i
   %474 = load ptr, ptr %7, align 8
   %475 = load i64, ptr %386, align 8
   %476 = getelementptr i8, ptr %474, i64 %475
@@ -4578,7 +4578,7 @@ process_packet_single_pass.argprom.exit.thread.i: ; preds = %process_packet_sing
   %.not83.i = icmp eq i32 %477, 0
   br i1 %.not83.i, label %.thread.sink.split.i, label %478
 
-478:                                              ; preds = %473, %process_packet_single_pass.argprom.exit.thread.i, %.thread8.i.i
+478:                                              ; preds = %473, %process_packet_single_pass.exit.thread.i, %.thread8.i.i
   %.not84.i = icmp slt i32 %390, %3
   %or.cond89.i = select i1 %387, i1 true, i1 %.not84.i
   br i1 %or.cond89.i, label %479, label %.thread7.i
@@ -4641,13 +4641,13 @@ process_packet_single_pass.argprom.exit.thread.i: ; preds = %process_packet_sing
 .thread.i:                                        ; preds = %388, %491, %.lr.ph.split.us.i100.i, %.thread.sink.split.i, %482, %._crit_edge.i
   %.1.i = phi i32 [ 1, %._crit_edge.i ], [ 0, %482 ], [ 2, %.thread.sink.split.i ], [ 0, %.lr.ph.split.us.i100.i ], [ 0, %491 ], [ 3, %388 ]
   %.not87.i = icmp eq ptr %.059.i, null
-  br i1 %.not87.i, label %process_cap_file_single_pass.argprom.exit, label %493
+  br i1 %.not87.i, label %process_cap_file_single_pass.exit, label %493
 
 493:                                              ; preds = %.thread.i
   call void @epan_dissect_free(ptr noundef nonnull %.059.i) #23
-  br label %process_cap_file_single_pass.argprom.exit
+  br label %process_cap_file_single_pass.exit
 
-process_cap_file_single_pass.argprom.exit:        ; preds = %.thread.i, %493
+process_cap_file_single_pass.exit:                ; preds = %.thread.i, %493
   call void @ws_buffer_free(ptr noundef nonnull %7) #23
   call void @wtap_rec_cleanup(ptr noundef nonnull %6) #23
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %6)
@@ -4655,11 +4655,11 @@ process_cap_file_single_pass.argprom.exit:        ; preds = %.thread.i, %493
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %494
 
-494:                                              ; preds = %process_cap_file_second_pass.argprom.exit, %process_cap_file_single_pass.argprom.exit
-  %.sink68 = phi i64 [ %231, %process_cap_file_second_pass.argprom.exit ], [ %120, %process_cap_file_single_pass.argprom.exit ]
-  %tshark_elapsed.9.sink = phi ptr [ @tshark_elapsed.9, %process_cap_file_second_pass.argprom.exit ], [ @tshark_elapsed.5, %process_cap_file_single_pass.argprom.exit ]
-  %.058 = phi i32 [ %spec.select.i, %process_cap_file_second_pass.argprom.exit ], [ 0, %process_cap_file_single_pass.argprom.exit ]
-  %.057 = phi i32 [ %.0.i88, %process_cap_file_second_pass.argprom.exit ], [ %.1.i, %process_cap_file_single_pass.argprom.exit ]
+494:                                              ; preds = %process_cap_file_second_pass.exit, %process_cap_file_single_pass.exit
+  %.sink68 = phi i64 [ %231, %process_cap_file_second_pass.exit ], [ %120, %process_cap_file_single_pass.exit ]
+  %tshark_elapsed.9.sink = phi ptr [ @tshark_elapsed.9, %process_cap_file_second_pass.exit ], [ @tshark_elapsed.5, %process_cap_file_single_pass.exit ]
+  %.058 = phi i32 [ %spec.select.i, %process_cap_file_second_pass.exit ], [ 0, %process_cap_file_single_pass.exit ]
+  %.057 = phi i32 [ %.0.i88, %process_cap_file_second_pass.exit ], [ %.1.i, %process_cap_file_single_pass.exit ]
   %495 = call i64 @g_get_monotonic_time() #23
   %496 = sub i64 %495, %.sink68
   store i64 %496, ptr %tshark_elapsed.9.sink, align 8
@@ -4667,9 +4667,9 @@ process_cap_file_single_pass.argprom.exit:        ; preds = %.thread.i, %493
   %or.cond.not = icmp eq i32 %497, 0
   br i1 %or.cond.not, label %532, label %.thread
 
-.thread:                                          ; preds = %process_cap_file_first_pass.argprom.exit, %494
-  %.0578 = phi i32 [ %.057, %494 ], [ 0, %process_cap_file_first_pass.argprom.exit ]
-  %.0587 = phi i32 [ %.058, %494 ], [ 3, %process_cap_file_first_pass.argprom.exit ]
+.thread:                                          ; preds = %process_cap_file_first_pass.exit, %494
+  %.0578 = phi i32 [ %.057, %494 ], [ 0, %process_cap_file_first_pass.exit ]
+  %.0587 = phi i32 [ %.058, %494 ], [ 3, %process_cap_file_first_pass.exit ]
   %498 = icmp ne i32 %.0587, 3
   %499 = icmp ne i32 %.0578, 3
   %or.cond3 = or i1 %499, %498
@@ -5403,7 +5403,7 @@ declare ptr @wtap_block_ref(ptr noundef) local_unnamed_addr #1
 declare void @epan_dissect_run_with_taps(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_packet.argprom.argelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @print_packet(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca [11 x i8], align 1
   %.b23 = load i1, ptr @print_summary, align 4
   br i1 %.b23, label %6, label %3
@@ -6091,19 +6091,19 @@ get_line_buf.exit161.i:                           ; preds = %.sink.split.i159.i,
   %287 = getelementptr inbounds i8, ptr %.0120.i, i64 22
   %288 = getelementptr inbounds i8, ptr %.0120.i, i64 16
   %289 = tail call i32 @print_line_color(ptr noundef %285, i32 noundef 0, ptr noundef %.0121.lcssa.i, ptr noundef nonnull %287, ptr noundef nonnull %288) #23
-  br label %print_columns.argprom.exit
+  br label %print_columns.exit
 
 290:                                              ; preds = %._crit_edge.i
   %291 = tail call i32 @print_line(ptr noundef %285, i32 noundef 0, ptr noundef %.0121.lcssa.i) #23
-  br label %print_columns.argprom.exit
+  br label %print_columns.exit
 
-print_columns.argprom.exit:                       ; preds = %286, %290
+print_columns.exit:                               ; preds = %286, %290
   %.0.i = phi i32 [ %289, %286 ], [ %291, %290 ]
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %2)
   %.not45 = icmp eq i32 %.0.i, 0
   br i1 %.not45, label %349, label %292
 
-292:                                              ; preds = %print_columns.argprom.exit, %9
+292:                                              ; preds = %print_columns.exit, %9
   %.b29 = load i1, ptr @print_details, align 4
   br i1 %.b29, label %293, label %333
 
@@ -6254,7 +6254,7 @@ print_columns.argprom.exit:                       ; preds = %286, %290
   %348 = tail call i32 @ferror(ptr noundef %347) #23
   br label %349
 
-349:                                              ; preds = %343, %.sink.split, %333, %337, %334, %298, %293, %print_columns.argprom.exit
+349:                                              ; preds = %343, %.sink.split, %333, %337, %334, %298, %293, %print_columns.exit
   ret void
 }
 

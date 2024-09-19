@@ -1797,7 +1797,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN32pxrInternal_v0_24__
           to label %91 unwind label %110
 
 91:                                               ; preds = %88
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L6_MergeERKSt6vectorINS_34UsdImagingDataSourceCustomPrimvars7MappingESaIS2_EES6_.argprom(ptr dead_on_unwind noalias nonnull writable align 8 @_ZZN32pxrInternal_v0_24__pxrReserved__25_GetCustomPrimvarMappingsERKNS_7UsdPrimEE21mappingsOrientationsf, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L6_MergeERKSt6vectorINS_34UsdImagingDataSourceCustomPrimvars7MappingESaIS2_EES6_(ptr dead_on_unwind noalias nonnull writable align 8 @_ZZN32pxrInternal_v0_24__pxrReserved__25_GetCustomPrimvarMappingsERKNS_7UsdPrimEE21mappingsOrientationsf, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %.sink.split unwind label %112
 
 .thread:                                          ; preds = %21, %18, %16
@@ -1903,7 +1903,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN32pxrInternal_v0_24__
           to label %129 unwind label %132
 
 129:                                              ; preds = %126
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L6_MergeERKSt6vectorINS_34UsdImagingDataSourceCustomPrimvars7MappingESaIS2_EES6_.argprom(ptr dead_on_unwind noalias nonnull writable align 8 @_ZZN32pxrInternal_v0_24__pxrReserved__25_GetCustomPrimvarMappingsERKNS_7UsdPrimEE20mappingsOrientations, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L6_MergeERKSt6vectorINS_34UsdImagingDataSourceCustomPrimvars7MappingESaIS2_EES6_(ptr dead_on_unwind noalias nonnull writable align 8 @_ZZN32pxrInternal_v0_24__pxrReserved__25_GetCustomPrimvarMappingsERKNS_7UsdPrimEE20mappingsOrientations, ptr noundef nonnull align 8 dereferenceable(24) %9)
           to label %.sink.split unwind label %134
 
 130:                                              ; preds = %124, %121, %119
@@ -2361,7 +2361,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__34UsdImagingDataSourceCus
 declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdGeomPointInstancer17UsesOrientationsfEPNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L6_MergeERKSt6vectorINS_34UsdImagingDataSourceCustomPrimvars7MappingESaIS2_EES6_.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L6_MergeERKSt6vectorINS_34UsdImagingDataSourceCustomPrimvars7MappingESaIS2_EES6_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__34UsdImagingDataSourceCustomPrimvars7MappingESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN32pxrInternal_v0_24__pxrReserved__25_GetCustomPrimvarMappingsERKNS_7UsdPrimEE12baseMappings)
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5396,7 +5396,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_p
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceC2ERKSt10shared_ptrINS_21HdContainerDataSourceEE.exit.i: ; preds = %30, %27, %.noexc
   %32 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
-          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceEED2Ev.argprom.exit unwind label %33, !noalias !28
+          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceEED2Ev.exit unwind label %33, !noalias !28
 
 33:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceC2ERKSt10shared_ptrINS_21HdContainerDataSourceEE.exit.i
   %34 = landingpad { ptr, i32 }
@@ -5426,7 +5426,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceC2ERKSt10
 45:                                               ; preds = %33
   unreachable
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceEED2Ev.argprom.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceC2ERKSt10shared_ptrINS_21HdContainerDataSourceEE.exit.i
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceC2ERKSt10shared_ptrINS_21HdContainerDataSourceEE.exit.i
   %46 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i32 1, ptr %46, align 8, !noalias !28
   %47 = getelementptr inbounds nuw i8, ptr %32, i64 12
@@ -5453,7 +5453,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDat
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %53
 
-53:                                               ; preds = %52, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceEED2Ev.argprom.exit
+53:                                               ; preds = %52, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceEED2Ev.exit
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %55 = load ptr, ptr %54, align 8
   %.not.i.i.i7 = icmp eq ptr %55, null
@@ -13521,8 +13521,8 @@ attributes #23 = { noreturn }
 !26 = distinct !{!26, !"_ZSt20dynamic_pointer_castIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceENS0_16HdDataSourceBaseEESt10shared_ptrIT_ERKS3_IT0_E"}
 !27 = !{!25, !22}
 !28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSource3NewIJRKSt10shared_ptrINS_21HdContainerDataSourceEEEEES3_IS1_EDpOT_.argprom: argument 0"}
-!30 = distinct !{!30, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSource3NewIJRKSt10shared_ptrINS_21HdContainerDataSourceEEEEES3_IS1_EDpOT_.argprom"}
+!29 = distinct !{!29, !30, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSource3NewIJRKSt10shared_ptrINS_21HdContainerDataSourceEEEEES3_IS1_EDpOT_: argument 0"}
+!30 = distinct !{!30, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSource3NewIJRKSt10shared_ptrINS_21HdContainerDataSourceEEEEES3_IS1_EDpOT_"}
 !31 = distinct !{!31, !6}
 !32 = distinct !{!32, !6}
 !33 = !{!34}

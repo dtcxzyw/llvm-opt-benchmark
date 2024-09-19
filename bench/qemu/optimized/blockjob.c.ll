@@ -149,7 +149,7 @@ declare ptr @job_get_locked(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @block_job_get(ptr noundef %id) local_unnamed_addr #0 {
-glib_autoptr_cleanup_QemuLockable.argprom.exit:
+glib_autoptr_cleanup_QemuLockable.exit:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 122) #7
@@ -1291,11 +1291,11 @@ for.body.us:
   %busy = getelementptr inbounds i8, ptr %0, i64 180
   %4 = load i8, ptr %busy, align 4
   %tobool3.us = trunc i8 %4 to i1
-  br i1 %tobool3.us, label %lor.lhs.false.us, label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br i1 %tobool3.us, label %lor.lhs.false.us, label %glib_autoptr_cleanup_QemuLockable.exit
 
 lor.lhs.false.us:                                 ; preds = %for.body.us
   %call4.us = tail call zeroext i1 @job_is_completed_locked(ptr noundef nonnull %0) #7
-  br i1 %call4.us, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %qemu_lockable_auto_unlock.exit.us
+  br i1 %call4.us, label %glib_autoptr_cleanup_QemuLockable.exit, label %qemu_lockable_auto_unlock.exit.us
 
 qemu_lockable_auto_unlock.exit.us:                ; preds = %lor.lhs.false.us
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 132) #7
@@ -1304,7 +1304,7 @@ qemu_lockable_auto_unlock.exit.us:                ; preds = %lor.lhs.false.us
   %tobool5.not = icmp eq ptr %5, null
   br i1 %tobool5.not, label %return, label %if.then6
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %for.body.us, %lor.lhs.false.us
+glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %for.body.us, %lor.lhs.false.us
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 132) #7
   br label %return
 
@@ -1312,8 +1312,8 @@ if.then6:                                         ; preds = %qemu_lockable_auto_
   %call8 = tail call zeroext i1 %5(ptr noundef nonnull %0) #7
   br label %return
 
-return:                                           ; preds = %glib_autoptr_cleanup_QemuLockable.argprom.exit, %qemu_lockable_auto_unlock.exit.us, %if.then6
-  %retval.1 = phi i1 [ false, %glib_autoptr_cleanup_QemuLockable.argprom.exit ], [ %call8, %if.then6 ], [ true, %qemu_lockable_auto_unlock.exit.us ]
+return:                                           ; preds = %glib_autoptr_cleanup_QemuLockable.exit, %qemu_lockable_auto_unlock.exit.us, %if.then6
+  %retval.1 = phi i1 [ false, %glib_autoptr_cleanup_QemuLockable.exit ], [ %call8, %if.then6 ], [ true, %qemu_lockable_auto_unlock.exit.us ]
   ret i1 %retval.1
 }
 
@@ -1354,7 +1354,7 @@ return:                                           ; preds = %for.body, %for.end
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @child_job_get_parent_aio_context(ptr nocapture noundef readonly %c) #0 {
-glib_autoptr_cleanup_QemuLockable.argprom.exit:
+glib_autoptr_cleanup_QemuLockable.exit:
   %opaque = getelementptr inbounds i8, ptr %c, i64 32
   %0 = load ptr, ptr %opaque, align 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8

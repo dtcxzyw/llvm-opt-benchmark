@@ -2072,9 +2072,9 @@ while.body.i46.us.us:                             ; preds = %sw.bb45.split.us.sp
 while.end.loopexit.i59.us.us:                     ; preds = %while.body.i46.us.us
   %5 = trunc nuw nsw i64 %indvars.iv.next8.i55.us.us to i32
   %6 = and i64 %indvars.iv.next.i52.us.us, 4294967294
-  br label %construct_path_with_fanout.argprom.exit68.us.us
+  br label %construct_path_with_fanout.exit68.us.us
 
-construct_path_with_fanout.argprom.exit68.us.us:  ; preds = %sw.bb45.split.us.split.us.us.us, %while.end.loopexit.i59.us.us
+construct_path_with_fanout.exit68.us.us:          ; preds = %sw.bb45.split.us.split.us.us.us, %while.end.loopexit.i59.us.us
   %i.0.lcssa.i60.us.us = phi i32 [ 0, %sw.bb45.split.us.split.us.us.us ], [ %5, %while.end.loopexit.i59.us.us ]
   %j.0.lcssa.i61.us.us = phi i64 [ 0, %sw.bb45.split.us.split.us.us.us ], [ %6, %while.end.loopexit.i59.us.us ]
   %idx.ext.i62.us.us = zext i32 %i.0.lcssa.i60.us.us to i64
@@ -2087,8 +2087,8 @@ construct_path_with_fanout.argprom.exit68.us.us:  ; preds = %sw.bb45.split.us.sp
   %call52.us.us = tail call i32 %fn(ptr noundef %11, ptr noundef nonnull %val_oid51.us.us, ptr noundef nonnull @for_each_note_helper.path, ptr noundef %cb_data) #16
   br label %sw.epilog.us.us
 
-sw.epilog.us.us:                                  ; preds = %sw.bb.split.us.split.us.us.us, %construct_path_with_fanout.argprom.exit68.us.us
-  %ret.2.us.us = phi i32 [ %call52.us.us, %construct_path_with_fanout.argprom.exit68.us.us ], [ %call3.us.us, %sw.bb.split.us.split.us.us.us ]
+sw.epilog.us.us:                                  ; preds = %sw.bb.split.us.split.us.us.us, %construct_path_with_fanout.exit68.us.us
+  %ret.2.us.us = phi i32 [ %call52.us.us, %construct_path_with_fanout.exit68.us.us ], [ %call3.us.us, %sw.bb.split.us.split.us.us.us ]
   %tobool53.not.us.us = icmp eq i32 %ret.2.us.us, 0
   br i1 %tobool53.not.us.us, label %for.cond.us.us, label %return
 
@@ -2126,7 +2126,7 @@ sw.bb45.split.us.split.us.us.us:                  ; preds = %redo.us.us.us.us
   %and46.us.us = and i64 %8, -4
   %11 = inttoptr i64 %and46.us.us to ptr
   %call.i44.us.us = tail call ptr @hash_to_hex(ptr noundef %11) #16
-  br i1 %tobool.not1.i45, label %construct_path_with_fanout.argprom.exit68.us.us, label %while.body.i46.us.us
+  br i1 %tobool.not1.i45, label %construct_path_with_fanout.exit68.us.us, label %while.body.i46.us.us
 
 redo.us.us.us.us.unreachabledefault:              ; preds = %redo.us.us.us.us
   unreachable
@@ -2171,9 +2171,9 @@ while.body.i46.us:                                ; preds = %sw.bb45.split.us.sp
 while.end.loopexit.i59.us:                        ; preds = %while.body.i46.us
   %17 = trunc nuw nsw i64 %indvars.iv.next8.i55.us to i32
   %18 = and i64 %indvars.iv.next.i52.us, 4294967294
-  br label %construct_path_with_fanout.argprom.exit68.us
+  br label %construct_path_with_fanout.exit68.us
 
-construct_path_with_fanout.argprom.exit68.us:     ; preds = %sw.bb45.split.us.split.us80, %while.end.loopexit.i59.us
+construct_path_with_fanout.exit68.us:             ; preds = %sw.bb45.split.us.split.us80, %while.end.loopexit.i59.us
   %i.0.lcssa.i60.us = phi i32 [ 0, %sw.bb45.split.us.split.us80 ], [ %17, %while.end.loopexit.i59.us ]
   %j.0.lcssa.i61.us = phi i64 [ 0, %sw.bb45.split.us.split.us80 ], [ %18, %while.end.loopexit.i59.us ]
   %idx.ext.i62.us = zext i32 %i.0.lcssa.i60.us to i64
@@ -2186,8 +2186,8 @@ construct_path_with_fanout.argprom.exit68.us:     ; preds = %sw.bb45.split.us.sp
   %call52.us = tail call i32 %fn(ptr noundef %20, ptr noundef nonnull %val_oid51.us, ptr noundef nonnull @for_each_note_helper.path, ptr noundef %cb_data) #16
   br label %sw.epilog.us
 
-sw.epilog.us:                                     ; preds = %sw.bb.split.us.split.us79, %construct_path_with_fanout.argprom.exit68.us
-  %ret.2.us = phi i32 [ %call52.us, %construct_path_with_fanout.argprom.exit68.us ], [ %call3.us, %sw.bb.split.us.split.us79 ]
+sw.epilog.us:                                     ; preds = %sw.bb.split.us.split.us79, %construct_path_with_fanout.exit68.us
+  %ret.2.us = phi i32 [ %call52.us, %construct_path_with_fanout.exit68.us ], [ %call3.us, %sw.bb.split.us.split.us79 ]
   %tobool53.not.us = icmp eq i32 %ret.2.us, 0
   br i1 %tobool53.not.us, label %for.cond.us, label %return
 
@@ -2206,7 +2206,7 @@ sw.bb45.split.us.split.us80:                      ; preds = %redo.preheader.us
   %and46.us = and i64 %13, -4
   %20 = inttoptr i64 %and46.us to ptr
   %call.i44.us = tail call ptr @hash_to_hex(ptr noundef %20) #16
-  br i1 %tobool.not1.i45, label %construct_path_with_fanout.argprom.exit68.us, label %while.body.i46.us
+  br i1 %tobool.not1.i45, label %construct_path_with_fanout.exit68.us, label %while.body.i46.us
 
 for.cond:                                         ; preds = %sw.epilog
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2315,7 +2315,7 @@ sw.bb45.split:                                    ; preds = %redo
   %and46 = and i64 %22, -4
   %34 = inttoptr i64 %and46 to ptr
   %call.i44 = tail call ptr @hash_to_hex(ptr noundef %34) #16
-  br i1 %tobool.not1.i45, label %construct_path_with_fanout.argprom.exit68, label %while.body.i46
+  br i1 %tobool.not1.i45, label %construct_path_with_fanout.exit68, label %while.body.i46
 
 while.body.i46:                                   ; preds = %sw.bb45.split, %while.body.i46
   %indvars.iv7.i47 = phi i64 [ %indvars.iv.next8.i55, %while.body.i46 ], [ 0, %sw.bb45.split ]
@@ -2341,9 +2341,9 @@ while.body.i46:                                   ; preds = %sw.bb45.split, %whi
 while.end.loopexit.i59:                           ; preds = %while.body.i46
   %38 = trunc nuw nsw i64 %indvars.iv.next8.i55 to i32
   %39 = and i64 %indvars.iv.next.i52, 4294967294
-  br label %construct_path_with_fanout.argprom.exit68
+  br label %construct_path_with_fanout.exit68
 
-construct_path_with_fanout.argprom.exit68:        ; preds = %sw.bb45.split, %while.end.loopexit.i59
+construct_path_with_fanout.exit68:                ; preds = %sw.bb45.split, %while.end.loopexit.i59
   %i.0.lcssa.i60 = phi i32 [ 0, %sw.bb45.split ], [ %38, %while.end.loopexit.i59 ]
   %j.0.lcssa.i61 = phi i64 [ 0, %sw.bb45.split ], [ %39, %while.end.loopexit.i59 ]
   %idx.ext.i62 = zext i32 %i.0.lcssa.i60 to i64
@@ -2356,8 +2356,8 @@ construct_path_with_fanout.argprom.exit68:        ; preds = %sw.bb45.split, %whi
   %call52 = tail call i32 %fn(ptr noundef %34, ptr noundef nonnull %val_oid51, ptr noundef nonnull @for_each_note_helper.path, ptr noundef %cb_data) #16
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.end, %redo, %construct_path_with_fanout.argprom.exit68, %sw.bb.split
-  %ret.2 = phi i32 [ %call52, %construct_path_with_fanout.argprom.exit68 ], [ %call3, %sw.bb.split ], [ %call30, %if.end ], [ %ret.1, %redo ]
+sw.epilog:                                        ; preds = %if.end, %redo, %construct_path_with_fanout.exit68, %sw.bb.split
+  %ret.2 = phi i32 [ %call52, %construct_path_with_fanout.exit68 ], [ %call3, %sw.bb.split ], [ %call30, %if.end ], [ %ret.1, %redo ]
   %tobool53.not = icmp eq i32 %ret.2, 0
   br i1 %tobool53.not, label %for.cond, label %return
 

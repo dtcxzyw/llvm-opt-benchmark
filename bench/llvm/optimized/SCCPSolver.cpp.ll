@@ -804,7 +804,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5countEPKS1_.exit.i: ; preds = %.lr.ph.i.
   br i1 %.not158.i, label %103, label %281
 
 103:                                              ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5countEPKS1_.exit.i
-  %104 = call fastcc noundef zeroext i1 @"_ZZN4llvmL17replaceSignedInstERNS_10SCCPSolverERNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionEENK3$_0clES4_.argprom"(ptr nonnull readonly %0, ptr noundef %77)
+  %104 = call fastcc noundef zeroext i1 @"_ZZN4llvmL17replaceSignedInstERNS_10SCCPSolverERNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionEENK3$_0clES4_"(ptr nonnull readonly %0, ptr noundef %77)
   br i1 %104, label %105, label %281
 
 105:                                              ; preds = %103
@@ -900,7 +900,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5countEPKS1_.exit98.i: ; preds = %.lr.ph.
   br i1 %.not157.i, label %150, label %281
 
 150:                                              ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5countEPKS1_.exit98.i
-  %151 = call fastcc noundef zeroext i1 @"_ZZN4llvmL17replaceSignedInstERNS_10SCCPSolverERNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionEENK3$_0clES4_.argprom"(ptr nonnull readonly %0, ptr noundef %124)
+  %151 = call fastcc noundef zeroext i1 @"_ZZN4llvmL17replaceSignedInstERNS_10SCCPSolverERNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionEENK3$_0clES4_"(ptr nonnull readonly %0, ptr noundef %124)
   br i1 %151, label %152, label %281
 
 152:                                              ; preds = %150
@@ -1076,11 +1076,11 @@ _ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5countEPKS1_.exit140.i: ; preds = %.lr.ph
   br i1 %.not.i, label %232, label %281
 
 232:                                              ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5countEPKS1_.exit140.i
-  %233 = call fastcc noundef zeroext i1 @"_ZZN4llvmL17replaceSignedInstERNS_10SCCPSolverERNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionEENK3$_0clES4_.argprom"(ptr nonnull readonly %0, ptr noundef %180)
+  %233 = call fastcc noundef zeroext i1 @"_ZZN4llvmL17replaceSignedInstERNS_10SCCPSolverERNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionEENK3$_0clES4_"(ptr nonnull readonly %0, ptr noundef %180)
   br i1 %233, label %234, label %281
 
 234:                                              ; preds = %232
-  %235 = call fastcc noundef zeroext i1 @"_ZZN4llvmL17replaceSignedInstERNS_10SCCPSolverERNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionEENK3$_0clES4_.argprom"(ptr nonnull readonly %0, ptr noundef %182)
+  %235 = call fastcc noundef zeroext i1 @"_ZZN4llvmL17replaceSignedInstERNS_10SCCPSolverERNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionEENK3$_0clES4_"(ptr nonnull readonly %0, ptr noundef %182)
   br i1 %235, label %236, label %281
 
 236:                                              ; preds = %234
@@ -21596,7 +21596,7 @@ declare noundef zeroext i1 @_ZN4llvm31wouldInstructionBeTriviallyDeadEPKNS_11Ins
 declare { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN4llvmL17replaceSignedInstERNS_10SCCPSolverERNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionEENK3$_0clES4_.argprom"(ptr nocapture readonly %.0.val, ptr noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN4llvmL17replaceSignedInstERNS_10SCCPSolverERNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionEENK3$_0clES4_"(ptr nocapture readonly %.0.val, ptr noundef %0) unnamed_addr #0 align 2 {
   %2 = load i8, ptr %0, align 8
   %3 = icmp ugt i8 %2, 21
   br i1 %3, label %20, label %4

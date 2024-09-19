@@ -1482,7 +1482,7 @@ _sapi_cgi_putenv.exit340:                         ; preds = %.thread469.i, %278
 
 .critedge403.thread485.i:                         ; preds = %.critedge403.i, %.critedge403.thread.i, %_sapi_cgi_putenv.exit340
   %.0313477.i = phi ptr [ %.0313479534537.i, %.critedge403.thread.i ], [ %230, %.critedge403.i ], [ %288, %_sapi_cgi_putenv.exit340 ]
-  %299 = call fastcc ptr @_sapi_cgi_putenv.argelim(ptr noundef nonnull @.str.139, ptr noundef %254)
+  %299 = call fastcc ptr @_sapi_cgi_putenv(ptr noundef nonnull @.str.139, ptr noundef %254)
   br label %300
 
 300:                                              ; preds = %.critedge403.thread485.i, %.critedge403.thread481.i, %.thread522.i, %.thread.i, %290
@@ -1692,7 +1692,7 @@ _sapi_cgi_putenv.exit:                            ; preds = %352, %.thread489.i
   br label %.sink.split.i
 
 381:                                              ; preds = %.critedge406.i, %.critedge406.thread.i
-  %382 = call fastcc ptr @_sapi_cgi_putenv.argelim(ptr noundef nonnull @.str.141, ptr noundef %.0315.i)
+  %382 = call fastcc ptr @_sapi_cgi_putenv(ptr noundef nonnull @.str.141, ptr noundef %.0315.i)
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %381, %379, %373
@@ -3897,7 +3897,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare ptr @fcgi_quick_putenv(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @_sapi_cgi_putenv.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_sapi_cgi_putenv(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge, label %3
 

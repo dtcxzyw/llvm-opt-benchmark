@@ -146,8 +146,8 @@ define internal i32 @dissect_ecp(ptr noundef %0, ptr nocapture noundef readonly 
   %.not3856 = icmp eq i32 %16, 0
   br i1 %.not3856, label %.outer._crit_edge, label %.lr.ph58
 
-.lr.ph58:                                         ; preds = %.lr.ph, %dissect_vdp_org_specific_tlv.argprom.exit
-  %.0374557 = phi i32 [ %.pre-phi, %dissect_vdp_org_specific_tlv.argprom.exit ], [ 4, %.lr.ph ]
+.lr.ph58:                                         ; preds = %.lr.ph, %dissect_vdp_org_specific_tlv.exit
+  %.0374557 = phi i32 [ %.pre-phi, %dissect_vdp_org_specific_tlv.exit ], [ 4, %.lr.ph ]
   %17 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0374557) #2
   %18 = lshr i16 %17, 9
   %19 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0374557) #2
@@ -204,7 +204,7 @@ define internal i32 @dissect_ecp(ptr noundef %0, ptr nocapture noundef readonly 
   %57 = add i32 %.0374557, 30
   %.off.i = add i8 %54, -1
   %switch.i = icmp ult i8 %.off.i, 2
-  br i1 %switch.i, label %58, label %dissect_vdp_org_specific_tlv.argprom.exit
+  br i1 %switch.i, label %58, label %dissect_vdp_org_specific_tlv.exit
 
 58:                                               ; preds = %32
   %59 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %57) #2
@@ -215,7 +215,7 @@ define internal i32 @dissect_ecp(ptr noundef %0, ptr nocapture noundef readonly 
   %64 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %35, ptr noundef %0, i32 noundef %57, i32 noundef 2, i32 noundef %60, ptr noundef null, ptr noundef nonnull @.str.58, i32 noundef %61, ptr noundef nonnull %63) #2
   %.0211.i.i = add i32 %.0374557, 32
   %.not.i.i = icmp eq i16 %59, 0
-  br i1 %.not.i.i, label %dissect_vdp_fi_macvid.argprom.exit.i, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %dissect_vdp_fi_macvid.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %58, %.lr.ph.i.i
   %.0214.i.i = phi i32 [ %.021.i.i, %.lr.ph.i.i ], [ %.0211.i.i, %58 ]
@@ -229,15 +229,15 @@ define internal i32 @dissect_ecp(ptr noundef %0, ptr nocapture noundef readonly 
   %70 = add nuw nsw i32 %.03.i.i, 1
   %.021.i.i = add i32 %.021.in2.i.i, 10
   %exitcond.not.i.i = icmp eq i32 %70, %61
-  br i1 %exitcond.not.i.i, label %dissect_vdp_fi_macvid.argprom.exit.i, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %exitcond.not.i.i, label %dissect_vdp_fi_macvid.exit.i, label %.lr.ph.i.i, !llvm.loop !4
 
-dissect_vdp_fi_macvid.argprom.exit.i:             ; preds = %.lr.ph.i.i, %58
+dissect_vdp_fi_macvid.exit.i:                     ; preds = %.lr.ph.i.i, %58
   %.021.lcssa.i.i = phi i32 [ %.0211.i.i, %58 ], [ %.021.i.i, %.lr.ph.i.i ]
   %71 = sub i32 %.021.lcssa.i.i, %57
   %72 = and i32 %71, 65535
   %73 = add nuw nsw i32 %72, 30
   %.pre = add i32 %73, %.0374557
-  br label %dissect_vdp_org_specific_tlv.argprom.exit
+  br label %dissect_vdp_org_specific_tlv.exit
 
 74:                                               ; preds = %.lr.ph58
   br i1 %.not.i, label %.outer._crit_edge, label %75
@@ -264,13 +264,13 @@ dissect_vdp_fi_macvid.argprom.exit.i:             ; preds = %.lr.ph.i.i, %58
   %90 = tail call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %89, ptr noundef %0, i32 noundef %.0374557, i32 noundef 1, i32 noundef 0) #2
   br label %.outer._crit_edge
 
-dissect_vdp_org_specific_tlv.argprom.exit:        ; preds = %dissect_vdp_fi_macvid.argprom.exit.i, %32
-  %.pre-phi = phi i32 [ %.pre, %dissect_vdp_fi_macvid.argprom.exit.i ], [ %57, %32 ]
+dissect_vdp_org_specific_tlv.exit:                ; preds = %dissect_vdp_fi_macvid.exit.i, %32
+  %.pre-phi = phi i32 [ %.pre, %dissect_vdp_fi_macvid.exit.i ], [ %57, %32 ]
   %91 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.pre-phi, i32 noundef 1) #2
   %.not38 = icmp eq i32 %91, 0
   br i1 %.not38, label %.outer._crit_edge, label %.lr.ph58
 
-.outer._crit_edge:                                ; preds = %dissect_vdp_org_specific_tlv.argprom.exit, %.lr.ph, %75, %74, %84
+.outer._crit_edge:                                ; preds = %dissect_vdp_org_specific_tlv.exit, %.lr.ph, %75, %74, %84
   %92 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   ret i32 %92
 }

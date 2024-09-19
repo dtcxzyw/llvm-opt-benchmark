@@ -368,7 +368,7 @@ if.end85:                                         ; preds = %if.end.i45, %SRP_us
   %v1.i = getelementptr inbounds i8, ptr %call.i43, i64 16
   %s2.i = getelementptr inbounds i8, ptr %call.i43, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %s2.i, i8 0, i64 16, i1 false)
-  %call.i46 = call fastcc i32 @t_fromb64.argelim(ptr noundef %tmp.i, ptr noundef %20)
+  %call.i46 = call fastcc i32 @t_fromb64(ptr noundef %tmp.i, ptr noundef %20)
   %cmp.i47 = icmp slt i32 %call.i46, 0
   br i1 %cmp.i47, label %SRP_user_pwd_set_sv.exit.thread, label %if.end.i48
 
@@ -379,7 +379,7 @@ if.end.i48:                                       ; preds = %if.end85
   br i1 %cmp6.i, label %SRP_user_pwd_set_sv.exit.thread, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i48
-  %call10.i = call fastcc i32 @t_fromb64.argelim(ptr noundef %tmp.i, ptr noundef %19)
+  %call10.i = call fastcc i32 @t_fromb64(ptr noundef %tmp.i, ptr noundef %19)
   %cmp11.i = icmp slt i32 %call10.i, 0
   br i1 %cmp11.i, label %err.i, label %if.end13.i
 
@@ -538,7 +538,7 @@ for.end:                                          ; preds = %for.cond, %for.cond
   br i1 %cmp.i, label %SRP_gN_new_init.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %for.end
-  %call1.i = call fastcc i32 @t_fromb64.argelim(ptr noundef %tmp.i, ptr noundef %ch)
+  %call1.i = call fastcc i32 @t_fromb64(ptr noundef %tmp.i, ptr noundef %ch)
   %cmp2.i = icmp slt i32 %call1.i, 0
   br i1 %cmp2.i, label %err.i, label %if.end4.i
 
@@ -949,7 +949,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %call = call fastcc i32 @t_fromb64.argelim(ptr noundef %tmp, ptr noundef nonnull %N)
+  %call = call fastcc i32 @t_fromb64(ptr noundef %tmp, ptr noundef nonnull %N)
   %cmp7 = icmp slt i32 %call, 1
   br i1 %cmp7, label %err, label %if.end9
 
@@ -959,7 +959,7 @@ if.end9:                                          ; preds = %if.then6
   br i1 %cmp12, label %err, label %if.end14
 
 if.end14:                                         ; preds = %if.end9
-  %call16 = call fastcc i32 @t_fromb64.argelim(ptr noundef %tmp, ptr noundef %g)
+  %call16 = call fastcc i32 @t_fromb64(ptr noundef %tmp, ptr noundef %g)
   %cmp17 = icmp slt i32 %call16, 1
   br i1 %cmp17, label %err, label %if.end19
 
@@ -997,7 +997,7 @@ if.then33:                                        ; preds = %if.end31
   br i1 %cmp36, label %err, label %if.end49
 
 if.else41:                                        ; preds = %if.end31
-  %call43 = call fastcc i32 @t_fromb64.argelim(ptr noundef %tmp2, ptr noundef nonnull %3)
+  %call43 = call fastcc i32 @t_fromb64(ptr noundef %tmp2, ptr noundef nonnull %3)
   %cmp44 = icmp slt i32 %call43, 1
   br i1 %cmp44, label %err, label %if.end49
 
@@ -1084,7 +1084,7 @@ err:                                              ; preds = %if.then78, %if.end6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @t_fromb64.argelim(ptr noundef nonnull %a, ptr noundef %src) unnamed_addr #0 {
+define internal fastcc i32 @t_fromb64(ptr noundef nonnull %a, ptr noundef %src) unnamed_addr #0 {
 entry:
   %outl = alloca i32, align 4
   %outl2 = alloca i32, align 4

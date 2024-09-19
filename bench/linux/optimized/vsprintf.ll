@@ -2336,7 +2336,7 @@ symbol_string.exit:                               ; preds = %98, %.thread.i, %91
   %137 = ashr i64 %136, 40
   %138 = trunc nsw i64 %137 to i32
   %139 = icmp slt i32 %.lcssa53.i, %138
-  br i1 %139, label %140, label %resource_string.argprom.exit, !prof !13
+  br i1 %139, label %140, label %resource_string.exit, !prof !13
 
 140:                                              ; preds = %.thread.i12
   %141 = sub i32 %138, %.lcssa53.i
@@ -2386,7 +2386,7 @@ symbol_string.exit:                               ; preds = %98, %.thread.i, %91
 167:                                              ; preds = %165, %._crit_edge.i.i14
   %.pre-phi.i.i16 = phi i64 [ %.pre.i.i15, %._crit_edge.i.i14 ], [ %153, %165 ]
   %168 = getelementptr i8, ptr %.lcssa54.i, i64 %.pre-phi.i.i16
-  br label %resource_string.argprom.exit
+  br label %resource_string.exit
 
 .preheader.i.i13:                                 ; preds = %140, %174
   %169 = phi i32 [ %171, %174 ], [ %141, %140 ]
@@ -2402,7 +2402,7 @@ symbol_string.exit:                               ; preds = %98, %.thread.i, %91
 174:                                              ; preds = %173, %.preheader.i.i13
   %175 = getelementptr i8, ptr %170, i64 1
   %176 = icmp eq i32 %171, 0
-  br i1 %176, label %resource_string.argprom.exit, label %.preheader.i.i13, !llvm.loop !38
+  br i1 %176, label %resource_string.exit, label %.preheader.i.i13, !llvm.loop !38
 
 widen_string.exit.thread.i:                       ; preds = %102
   %177 = getelementptr inbounds i8, ptr %15, i64 1
@@ -3114,7 +3114,7 @@ widen_string.exit44.i:                            ; preds = %505, %widen_string.
   %559 = ashr i64 %558, 40
   %560 = trunc nsw i64 %559 to i32
   %561 = icmp slt i32 %.lcssa20.i, %560
-  br i1 %561, label %562, label %resource_string.argprom.exit, !prof !13
+  br i1 %561, label %562, label %resource_string.exit, !prof !13
 
 562:                                              ; preds = %.thread1.i
   %563 = sub i32 %560, %.lcssa20.i
@@ -3164,7 +3164,7 @@ widen_string.exit44.i:                            ; preds = %505, %widen_string.
 589:                                              ; preds = %587, %._crit_edge.i48.i
   %.pre-phi.i50.i = phi i64 [ %.pre.i49.i, %._crit_edge.i48.i ], [ %575, %587 ]
   %590 = getelementptr i8, ptr %.lcssa21.i, i64 %.pre-phi.i50.i
-  br label %resource_string.argprom.exit
+  br label %resource_string.exit
 
 .preheader.i47.i:                                 ; preds = %562, %596
   %591 = phi i32 [ %593, %596 ], [ %563, %562 ]
@@ -3180,9 +3180,9 @@ widen_string.exit44.i:                            ; preds = %505, %widen_string.
 596:                                              ; preds = %595, %.preheader.i47.i
   %597 = getelementptr i8, ptr %592, i64 1
   %598 = icmp eq i32 %593, 0
-  br i1 %598, label %resource_string.argprom.exit, label %.preheader.i47.i, !llvm.loop !38
+  br i1 %598, label %resource_string.exit, label %.preheader.i47.i, !llvm.loop !38
 
-resource_string.argprom.exit:                     ; preds = %174, %596, %.thread.i12, %167, %.thread1.i, %589
+resource_string.exit:                             ; preds = %174, %596, %.thread.i12, %167, %.thread1.i, %589
   %599 = phi ptr [ %590, %589 ], [ %.lcssa21.i, %.thread1.i ], [ %168, %167 ], [ %.lcssa54.i, %.thread.i12 ], [ %597, %596 ], [ %175, %174 ]
   call void @llvm.lifetime.end.p0(i64 75, ptr nonnull %15) #19
   br label %hex_string.exit
@@ -4095,7 +4095,7 @@ ip6_addr_string.exit.i:                           ; preds = %1119, %1112, %.thre
   %.val7.i = load i8, ptr %1124, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, i8 0, i64 16, i1 false), !annotation !5
-  %1125 = call fastcc ptr @ip4_string.argprom(ptr noundef nonnull %12, ptr noundef readonly %3, i8 %18, i8 %.val7.i)
+  %1125 = call fastcc ptr @ip4_string(ptr noundef nonnull %12, ptr noundef readonly %3, i8 %18, i8 %.val7.i)
   %1126 = ashr i64 %4, 48
   %1127 = trunc nsw i64 %1126 to i32
   %1128 = icmp ult i64 %4, 281474976710656
@@ -4133,7 +4133,7 @@ ip6_addr_string.exit.i:                           ; preds = %1119, %1112, %.thre
   %1144 = ashr i64 %1143, 40
   %1145 = trunc nsw i64 %1144 to i32
   %1146 = icmp slt i32 %.lcssa1.i.i, %1145
-  br i1 %1146, label %1147, label %ip4_addr_string.argprom.exit.i, !prof !13
+  br i1 %1146, label %1147, label %ip4_addr_string.exit.i, !prof !13
 
 1147:                                             ; preds = %.thread.i10.i
   %1148 = sub i32 %1145, %.lcssa1.i.i
@@ -4183,7 +4183,7 @@ ip6_addr_string.exit.i:                           ; preds = %1119, %1112, %.thre
 1174:                                             ; preds = %1172, %._crit_edge.i.i13.i
   %.pre-phi.i.i15.i = phi i64 [ %.pre.i.i14.i, %._crit_edge.i.i13.i ], [ %1160, %1172 ]
   %1175 = getelementptr i8, ptr %.lcssa2.i11.i, i64 %.pre-phi.i.i15.i
-  br label %ip4_addr_string.argprom.exit.i
+  br label %ip4_addr_string.exit.i
 
 .preheader.i.i12.i:                               ; preds = %1147, %1181
   %1176 = phi i32 [ %1178, %1181 ], [ %1148, %1147 ]
@@ -4199,9 +4199,9 @@ ip6_addr_string.exit.i:                           ; preds = %1119, %1112, %.thre
 1181:                                             ; preds = %1180, %.preheader.i.i12.i
   %1182 = getelementptr i8, ptr %1177, i64 1
   %1183 = icmp eq i32 %1178, 0
-  br i1 %1183, label %ip4_addr_string.argprom.exit.i, label %.preheader.i.i12.i, !llvm.loop !38
+  br i1 %1183, label %ip4_addr_string.exit.i, label %.preheader.i.i12.i, !llvm.loop !38
 
-ip4_addr_string.argprom.exit.i:                   ; preds = %1181, %1174, %.thread.i10.i
+ip4_addr_string.exit.i:                           ; preds = %1181, %1174, %.thread.i10.i
   %1184 = phi ptr [ %1175, %1174 ], [ %.lcssa2.i11.i, %.thread.i10.i ], [ %1182, %1181 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #19
   br label %hex_string.exit
@@ -4228,7 +4228,7 @@ ip4_addr_string.argprom.exit.i:                   ; preds = %1181, %1174, %.thre
   br i1 %1196, label %.thread.i23.i, label %.preheader.i16.i
 
 .thread.i23.i:                                    ; preds = %1187
-  %1197 = call fastcc ptr @ip4_string.argprom(ptr noundef nonnull %11, ptr noundef readonly %1189, i8 %18, i8 0)
+  %1197 = call fastcc ptr @ip4_string(ptr noundef nonnull %11, ptr noundef readonly %1189, i8 %18, i8 0)
   br label %1228
 
 .preheader.i16.i:                                 ; preds = %1187, %1207
@@ -4268,7 +4268,7 @@ ip4_addr_string.argprom.exit.i:                   ; preds = %1181, %1174, %.thre
 1217:                                             ; preds = %1207
   %1218 = and i8 %1209, 1
   %1219 = icmp eq i8 %1218, 0
-  %1220 = call fastcc ptr @ip4_string.argprom(ptr noundef nonnull %11, ptr noundef readonly %1189, i8 %18, i8 %1208)
+  %1220 = call fastcc ptr @ip4_string(ptr noundef nonnull %11, ptr noundef readonly %1189, i8 %18, i8 %1208)
   br i1 %1219, label %1228, label %1221
 
 1221:                                             ; preds = %1217
@@ -6445,7 +6445,7 @@ widen_string.exit.thread.i105:                    ; preds = %2446
 2521:                                             ; preds = %5
   %2522 = getelementptr i8, ptr %0, i64 1
   %.val8 = load i8, ptr %2522, align 1
-  %2523 = tail call fastcc ptr @dentry_name.argprom(ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 %4, i8 %.val8)
+  %2523 = tail call fastcc ptr @dentry_name(ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 %4, i8 %.val8)
   br label %hex_string.exit
 
 2524:                                             ; preds = %5
@@ -6871,7 +6871,7 @@ widen_string.exit.thread.i126:                    ; preds = %2704
   %2778 = load ptr, ptr %2777, align 8
   %2779 = getelementptr i8, ptr %0, i64 1
   %.val.i127 = load i8, ptr %2779, align 1
-  %2780 = tail call fastcc ptr @dentry_name.argprom(ptr noundef %1, ptr noundef %2, ptr noundef %2778, i64 %4, i8 %.val.i127)
+  %2780 = tail call fastcc ptr @dentry_name(ptr noundef %1, ptr noundef %2, ptr noundef %2778, i64 %4, i8 %.val.i127)
   br label %hex_string.exit
 
 2781:                                             ; preds = %5
@@ -8469,8 +8469,8 @@ fwnode_full_name_string.exit.i:                   ; preds = %3495, %3487, %3484
   %3724 = tail call fastcc ptr @default_pointer(ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 %4)
   br label %hex_string.exit
 
-hex_string.exit:                                  ; preds = %3720, %3622, %3405, %3478, %3545, %3262, %3326, %2949, %3172, %3155, %2851, %2774, %2701, %2627, %2516, %2171, %2251, %2067, %1739, %1010, %1595, %1662, %675, %710, %742, %3713, %3679, %3615, %3581, %3538, %fwnode_full_name_string.exit.i, %3471, %.thread.i164, %3398, %3364, %3319, %3285, %3255, %3221, %._crit_edge.i, %3158, %3148, %3114, %3077, %3033, %2942, %.thread.i140, %2874, %widen_string.exit.thread.i137, %2844, %.thread.i130, %widen_string.exit.thread.i126, %2767, %.thread.i118, %2694, %2660, %2620, %2586, %2529, %2527, %widen_string.exit.thread.i105, %2509, %.thread.i97, %2244, %2210, %2177, %2164, %.thread.i80, %widen_string.exit.thread.i77, %2060, %2026, %1983, %.thread4.i, %1665, %1732, %.thread.i49, %1655, %.thread45.i, %1588, %1554, %ip6_addr_string_sa.exit.i, %ip4_addr_string_sa.exit.i, %ip4_addr_string.argprom.exit.i, %ip6_addr_string.exit.i, %1003, %.thread.i40, %668, %.thread.i19, %600, %3723, %3647, %3641, %3639, %3625, %2521, %fourcc_string.exit, %1979, %uuid_string.exit, %mac_address_string.exit, %752, %750, %resource_string.argprom.exit, %symbol_string.exit
-  %3725 = phi ptr [ %3724, %3723 ], [ %3648, %3647 ], [ %3642, %3641 ], [ %3640, %3639 ], [ %3636, %3625 ], [ %2523, %2521 ], [ %2445, %fourcc_string.exit ], [ %1980, %1979 ], [ %1934, %uuid_string.exit ], [ %939, %mac_address_string.exit ], [ %751, %750 ], [ %753, %752 ], [ %599, %resource_string.argprom.exit ], [ %101, %symbol_string.exit ], [ %1, %600 ], [ %669, %668 ], [ %.lcssa11.i, %.thread.i19 ], [ %1184, %ip4_addr_string.argprom.exit.i ], [ %1122, %ip6_addr_string.exit.i ], [ %1523, %ip6_addr_string_sa.exit.i ], [ %1288, %ip4_addr_string_sa.exit.i ], [ %1589, %1588 ], [ %1555, %1554 ], [ %1656, %1655 ], [ %.lcssa50.i, %.thread45.i ], [ %1004, %1003 ], [ %.lcssa67.i, %.thread.i40 ], [ %1767, %.thread4.i ], [ %1, %1665 ], [ %1733, %1732 ], [ %.lcssa7.i, %.thread.i49 ], [ %2100, %widen_string.exit.thread.i77 ], [ %1984, %1983 ], [ %2061, %2060 ], [ %2027, %2026 ], [ %2179, %2177 ], [ %2245, %2244 ], [ %2211, %2210 ], [ %2165, %2164 ], [ %.lcssa13.i81, %.thread.i80 ], [ %2520, %widen_string.exit.thread.i105 ], [ %2510, %2509 ], [ %.lcssa4.i98, %.thread.i97 ], [ %2555, %2529 ], [ %2528, %2527 ], [ %2621, %2620 ], [ %2587, %2586 ], [ %2695, %2694 ], [ %2661, %2660 ], [ %2780, %widen_string.exit.thread.i126 ], [ %2768, %2767 ], [ %.lcssa4.i119, %.thread.i118 ], [ %2857, %widen_string.exit.thread.i137 ], [ %2878, %2874 ], [ %2845, %2844 ], [ %.lcssa5.i, %.thread.i130 ], [ %3078, %3077 ], [ %3034, %3033 ], [ %3189, %._crit_edge.i ], [ %1, %3158 ], [ %3149, %3148 ], [ %3115, %3114 ], [ %2943, %2942 ], [ %.lcssa59.i, %.thread.i140 ], [ %3256, %3255 ], [ %3222, %3221 ], [ %3320, %3319 ], [ %3286, %3285 ], [ %3399, %3398 ], [ %3365, %3364 ], [ %3539, %3538 ], [ %3503, %fwnode_full_name_string.exit.i ], [ %3472, %3471 ], [ %.lcssa21.i165, %.thread.i164 ], [ %3616, %3615 ], [ %3582, %3581 ], [ %3714, %3713 ], [ %3680, %3679 ], [ %743, %742 ], [ %711, %710 ], [ %676, %675 ], [ %1663, %1662 ], [ %1596, %1595 ], [ %1011, %1010 ], [ %1740, %1739 ], [ %2068, %2067 ], [ %2252, %2251 ], [ %2172, %2171 ], [ %2517, %2516 ], [ %2628, %2627 ], [ %2702, %2701 ], [ %2775, %2774 ], [ %2852, %2851 ], [ %3156, %3155 ], [ %3173, %3172 ], [ %2950, %2949 ], [ %3327, %3326 ], [ %3263, %3262 ], [ %3546, %3545 ], [ %3479, %3478 ], [ %3406, %3405 ], [ %3623, %3622 ], [ %3721, %3720 ]
+hex_string.exit:                                  ; preds = %3720, %3622, %3405, %3478, %3545, %3262, %3326, %2949, %3172, %3155, %2851, %2774, %2701, %2627, %2516, %2171, %2251, %2067, %1739, %1010, %1595, %1662, %675, %710, %742, %3713, %3679, %3615, %3581, %3538, %fwnode_full_name_string.exit.i, %3471, %.thread.i164, %3398, %3364, %3319, %3285, %3255, %3221, %._crit_edge.i, %3158, %3148, %3114, %3077, %3033, %2942, %.thread.i140, %2874, %widen_string.exit.thread.i137, %2844, %.thread.i130, %widen_string.exit.thread.i126, %2767, %.thread.i118, %2694, %2660, %2620, %2586, %2529, %2527, %widen_string.exit.thread.i105, %2509, %.thread.i97, %2244, %2210, %2177, %2164, %.thread.i80, %widen_string.exit.thread.i77, %2060, %2026, %1983, %.thread4.i, %1665, %1732, %.thread.i49, %1655, %.thread45.i, %1588, %1554, %ip6_addr_string_sa.exit.i, %ip4_addr_string_sa.exit.i, %ip4_addr_string.exit.i, %ip6_addr_string.exit.i, %1003, %.thread.i40, %668, %.thread.i19, %600, %3723, %3647, %3641, %3639, %3625, %2521, %fourcc_string.exit, %1979, %uuid_string.exit, %mac_address_string.exit, %752, %750, %resource_string.exit, %symbol_string.exit
+  %3725 = phi ptr [ %3724, %3723 ], [ %3648, %3647 ], [ %3642, %3641 ], [ %3640, %3639 ], [ %3636, %3625 ], [ %2523, %2521 ], [ %2445, %fourcc_string.exit ], [ %1980, %1979 ], [ %1934, %uuid_string.exit ], [ %939, %mac_address_string.exit ], [ %751, %750 ], [ %753, %752 ], [ %599, %resource_string.exit ], [ %101, %symbol_string.exit ], [ %1, %600 ], [ %669, %668 ], [ %.lcssa11.i, %.thread.i19 ], [ %1184, %ip4_addr_string.exit.i ], [ %1122, %ip6_addr_string.exit.i ], [ %1523, %ip6_addr_string_sa.exit.i ], [ %1288, %ip4_addr_string_sa.exit.i ], [ %1589, %1588 ], [ %1555, %1554 ], [ %1656, %1655 ], [ %.lcssa50.i, %.thread45.i ], [ %1004, %1003 ], [ %.lcssa67.i, %.thread.i40 ], [ %1767, %.thread4.i ], [ %1, %1665 ], [ %1733, %1732 ], [ %.lcssa7.i, %.thread.i49 ], [ %2100, %widen_string.exit.thread.i77 ], [ %1984, %1983 ], [ %2061, %2060 ], [ %2027, %2026 ], [ %2179, %2177 ], [ %2245, %2244 ], [ %2211, %2210 ], [ %2165, %2164 ], [ %.lcssa13.i81, %.thread.i80 ], [ %2520, %widen_string.exit.thread.i105 ], [ %2510, %2509 ], [ %.lcssa4.i98, %.thread.i97 ], [ %2555, %2529 ], [ %2528, %2527 ], [ %2621, %2620 ], [ %2587, %2586 ], [ %2695, %2694 ], [ %2661, %2660 ], [ %2780, %widen_string.exit.thread.i126 ], [ %2768, %2767 ], [ %.lcssa4.i119, %.thread.i118 ], [ %2857, %widen_string.exit.thread.i137 ], [ %2878, %2874 ], [ %2845, %2844 ], [ %.lcssa5.i, %.thread.i130 ], [ %3078, %3077 ], [ %3034, %3033 ], [ %3189, %._crit_edge.i ], [ %1, %3158 ], [ %3149, %3148 ], [ %3115, %3114 ], [ %2943, %2942 ], [ %.lcssa59.i, %.thread.i140 ], [ %3256, %3255 ], [ %3222, %3221 ], [ %3320, %3319 ], [ %3286, %3285 ], [ %3399, %3398 ], [ %3365, %3364 ], [ %3539, %3538 ], [ %3503, %fwnode_full_name_string.exit.i ], [ %3472, %3471 ], [ %.lcssa21.i165, %.thread.i164 ], [ %3616, %3615 ], [ %3582, %3581 ], [ %3714, %3713 ], [ %3680, %3679 ], [ %743, %742 ], [ %711, %710 ], [ %676, %675 ], [ %1663, %1662 ], [ %1596, %1595 ], [ %1011, %1010 ], [ %1740, %1739 ], [ %2068, %2067 ], [ %2252, %2251 ], [ %2172, %2171 ], [ %2517, %2516 ], [ %2628, %2627 ], [ %2702, %2701 ], [ %2775, %2774 ], [ %2852, %2851 ], [ %3156, %3155 ], [ %3173, %3172 ], [ %2950, %2949 ], [ %3327, %3326 ], [ %3263, %3262 ], [ %3546, %3545 ], [ %3479, %3478 ], [ %3406, %3405 ], [ %3623, %3622 ], [ %3721, %3720 ]
   ret ptr %3725
 }
 
@@ -11379,7 +11379,7 @@ widen_string.exit:                                ; preds = %74, %109, %.thread,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @dentry_name.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 %3, i8 %.1.val) unnamed_addr #0 align 16 {
+define internal fastcc ptr @dentry_name(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 %3, i8 %.1.val) unnamed_addr #0 align 16 {
   %5 = alloca [4 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !5
@@ -12328,7 +12328,7 @@ ip4_string.specialized.1.exit:                    ; preds = %.loopexit.i
 declare i16 @llvm.bswap.i16(i16) #15
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc noundef ptr @ip4_string.argprom(ptr noundef writeonly %0, ptr nocapture noundef readonly %1, i8 %.0.val, i8 %.2.val) unnamed_addr #14 align 16 {
+define internal fastcc noundef ptr @ip4_string(ptr noundef writeonly %0, ptr nocapture noundef readonly %1, i8 %.0.val, i8 %.2.val) unnamed_addr #14 align 16 {
   %3 = alloca [4 x i8], align 4
   %.0.val.fr = freeze i8 %.0.val
   %4 = icmp eq i8 %.0.val.fr, 105

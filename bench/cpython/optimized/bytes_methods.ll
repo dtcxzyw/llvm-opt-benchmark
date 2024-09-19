@@ -1038,22 +1038,22 @@ if.end4:                                          ; preds = %if.end
   %2 = getelementptr i8, ptr %.val5, i64 96
   %.val5.val = load ptr, ptr %2, align 8
   %cmp.not.i = icmp eq ptr %.val5.val, null
-  br i1 %cmp.not.i, label %if.then7, label %_PyIndex_Check.argprom.argprom.exit
+  br i1 %cmp.not.i, label %if.then7, label %_PyIndex_Check.exit
 
-_PyIndex_Check.argprom.argprom.exit:              ; preds = %if.end4
+_PyIndex_Check.exit:                              ; preds = %if.end4
   %nb_index.i = getelementptr inbounds i8, ptr %.val5.val, i64 264
   %3 = load ptr, ptr %nb_index.i, align 8
   %cmp2.i.not = icmp eq ptr %3, null
   br i1 %cmp2.i.not, label %if.then7, label %if.end10
 
-if.then7:                                         ; preds = %if.end4, %_PyIndex_Check.argprom.argprom.exit
+if.then7:                                         ; preds = %if.end4, %_PyIndex_Check.exit
   %4 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name = getelementptr inbounds i8, ptr %.val5, i64 24
   %5 = load ptr, ptr %tp_name, align 8
   %call9 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %4, ptr noundef nonnull @.str.10, ptr noundef %5) #13
   br label %return
 
-if.end10:                                         ; preds = %_PyIndex_Check.argprom.argprom.exit
+if.end10:                                         ; preds = %_PyIndex_Check.exit
   %call11 = tail call i64 @PyNumber_AsSsize_t(ptr noundef nonnull %0, ptr noundef null) #13
   %cmp = icmp eq i64 %call11, -1
   br i1 %cmp, label %land.lhs.true, label %if.end15

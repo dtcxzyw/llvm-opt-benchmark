@@ -1380,14 +1380,14 @@ _ZN4core4sync6atomic11atomic_load17hbbb682351badd959E.llvm.6180704580393161520.e
 _ZN4core4sync6atomic11atomic_load17hbbb682351badd959E.llvm.6180704580393161520.exit: ; preds = %_ZN4core4sync6atomic11atomic_load17hbbb682351badd959E.llvm.6180704580393161520.exit.preheader, %27
   %.0 = phi i64 [ %31, %27 ], [ %.0.ph, %_ZN4core4sync6atomic11atomic_load17hbbb682351badd959E.llvm.6180704580393161520.exit.preheader ]
   %23 = icmp eq i64 %.0, 0
-  br i1 %23, label %_ZN4core3ops8function5FnMut8call_mut17h46579894f6bbeeabE.argprom.exit, label %24
+  br i1 %23, label %_ZN4core3ops8function5FnMut8call_mut17h46579894f6bbeeabE.exit, label %24
 
 24:                                               ; preds = %_ZN4core4sync6atomic11atomic_load17hbbb682351badd959E.llvm.6180704580393161520.exit
   %25 = icmp sgt i64 %.0, -1
   br i1 %25, label %27, label %26
 
 26:                                               ; preds = %24
-  tail call fastcc void @"_ZN5alloc4sync17Weak$LT$T$C$A$GT$7upgrade17checked_increment18panic_cold_display17hbb4b2509bf82363dE.argprom"() #35
+  tail call fastcc void @"_ZN5alloc4sync17Weak$LT$T$C$A$GT$7upgrade17checked_increment18panic_cold_display17hbb4b2509bf82363dE"() #35
   unreachable
 
 27:                                               ; preds = %24
@@ -1396,9 +1396,9 @@ _ZN4core4sync6atomic11atomic_load17hbbb682351badd959E.llvm.6180704580393161520.e
   %30 = extractvalue { i64, i64 } %29, 0
   %31 = extractvalue { i64, i64 } %29, 1
   %switch = icmp eq i64 %30, 0
-  br i1 %switch, label %_ZN4core3ops8function5FnMut8call_mut17h46579894f6bbeeabE.argprom.exit, label %_ZN4core4sync6atomic11atomic_load17hbbb682351badd959E.llvm.6180704580393161520.exit
+  br i1 %switch, label %_ZN4core3ops8function5FnMut8call_mut17h46579894f6bbeeabE.exit, label %_ZN4core4sync6atomic11atomic_load17hbbb682351badd959E.llvm.6180704580393161520.exit
 
-_ZN4core3ops8function5FnMut8call_mut17h46579894f6bbeeabE.argprom.exit: ; preds = %_ZN4core4sync6atomic11atomic_load17hbbb682351badd959E.llvm.6180704580393161520.exit, %27
+_ZN4core3ops8function5FnMut8call_mut17h46579894f6bbeeabE.exit: ; preds = %_ZN4core4sync6atomic11atomic_load17hbbb682351badd959E.llvm.6180704580393161520.exit, %27
   %.sroa.3.0 = phi i64 [ %31, %27 ], [ 0, %_ZN4core4sync6atomic11atomic_load17hbbb682351badd959E.llvm.6180704580393161520.exit ]
   %.sroa.0.0 = phi i64 [ 0, %27 ], [ 1, %_ZN4core4sync6atomic11atomic_load17hbbb682351badd959E.llvm.6180704580393161520.exit ]
   %32 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
@@ -2532,7 +2532,7 @@ define hidden noundef zeroext i1 @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9is_unique17h
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-define internal fastcc void @"_ZN5alloc4sync17Weak$LT$T$C$A$GT$7upgrade17checked_increment18panic_cold_display17hbb4b2509bf82363dE.argprom"() unnamed_addr #15 {
+define internal fastcc void @"_ZN5alloc4sync17Weak$LT$T$C$A$GT$7upgrade17checked_increment18panic_cold_display17hbb4b2509bf82363dE"() unnamed_addr #15 {
   %1 = alloca [1 x { ptr, ptr }], align 8
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
@@ -2573,7 +2573,7 @@ define hidden noundef ptr @"_ZN5alloc4sync17Weak$LT$T$C$A$GT$7upgrade17h9c8c728d
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %8
-  tail call fastcc void @"_ZN5alloc4sync17Weak$LT$T$C$A$GT$7upgrade17checked_increment18panic_cold_display17hbb4b2509bf82363dE.argprom"() #35
+  tail call fastcc void @"_ZN5alloc4sync17Weak$LT$T$C$A$GT$7upgrade17checked_increment18panic_cold_display17hbb4b2509bf82363dE"() #35
   unreachable
 
 11:                                               ; preds = %8

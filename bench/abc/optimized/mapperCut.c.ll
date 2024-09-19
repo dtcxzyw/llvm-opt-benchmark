@@ -181,13 +181,13 @@ Abc_Clock.exit:                                   ; preds = %1, %10
 
 .preheader.i.i:                                   ; preds = %.loopexit.i.i
   %.not15.i.i = icmp ult i32 %40, 9
-  br i1 %.not15.i.i, label %Map_CutTableStart.argprom.exit, label %.lr.ph.i.i
+  br i1 %.not15.i.i, label %Map_CutTableStart.exit, label %.lr.ph.i.i
 
 42:                                               ; preds = %.lr.ph.i.i
   %43 = add nuw nsw i32 %.01116.i.i, 2
   %44 = mul nuw nsw i32 %43, %43
   %.not.i.i = icmp ugt i32 %44, %40
-  br i1 %.not.i.i, label %Map_CutTableStart.argprom.exit, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %Map_CutTableStart.exit, label %.lr.ph.i.i, !llvm.loop !10
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %42
   %.01116.i.i = phi i32 [ %43, %42 ], [ 3, %.preheader.i.i ]
@@ -195,7 +195,7 @@ Abc_Clock.exit:                                   ; preds = %1, %10
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %.loopexit.i.i.backedge, label %42, !llvm.loop !9
 
-Map_CutTableStart.argprom.exit:                   ; preds = %.preheader.i.i, %42
+Map_CutTableStart.exit:                           ; preds = %.preheader.i.i, %42
   %47 = getelementptr inbounds i8, ptr %calloc5.i, i64 8
   store i32 %40, ptr %47, align 8
   %48 = sext i32 %40 to i64
@@ -217,7 +217,7 @@ Map_CutTableStart.argprom.exit:                   ; preds = %.preheader.i.i, %42
   %58 = icmp sgt i32 %37, 0
   br i1 %58, label %.lr.ph69, label %._crit_edge70
 
-.lr.ph69:                                         ; preds = %Map_CutTableStart.argprom.exit
+.lr.ph69:                                         ; preds = %Map_CutTableStart.exit
   %59 = getelementptr inbounds i8, ptr %calloc5.i, i64 24
   %60 = getelementptr inbounds i8, ptr %0, i64 104
   %61 = getelementptr inbounds i8, ptr %0, i64 1776
@@ -225,8 +225,8 @@ Map_CutTableStart.argprom.exit:                   ; preds = %.preheader.i.i, %42
   %wide.trip.count = zext nneg i32 %37 to i64
   br label %62
 
-62:                                               ; preds = %.lr.ph69, %Extra_ProgressBarUpdate.argprom.exit
-  %indvars.iv80 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next81, %Extra_ProgressBarUpdate.argprom.exit ]
+62:                                               ; preds = %.lr.ph69, %Extra_ProgressBarUpdate.exit
+  %indvars.iv80 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next81, %Extra_ProgressBarUpdate.exit ]
   %63 = load ptr, ptr %34, align 8
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds ptr, ptr %64, i64 %indvars.iv80
@@ -258,7 +258,7 @@ Map_CutTableStart.argprom.exit:                   ; preds = %.preheader.i.i, %42
 78:                                               ; preds = %62
   %79 = call i32 @Map_NodeIsAnd(ptr noundef %66) #17
   %.not33 = icmp eq i32 %79, 0
-  br i1 %.not33, label %Extra_ProgressBarUpdate.argprom.exit, label %80
+  br i1 %.not33, label %Extra_ProgressBarUpdate.exit, label %80
 
 80:                                               ; preds = %78
   %81 = getelementptr inbounds i8, ptr %66, i64 160
@@ -905,19 +905,19 @@ Map_CutCompute.exit:                              ; preds = %.lr.ph76.i, %.prehe
   %333 = load i32, ptr %39, align 4
   %334 = sext i32 %333 to i64
   %335 = icmp slt i64 %indvars.iv80, %334
-  br i1 %335, label %Extra_ProgressBarUpdate.argprom.exit, label %336
+  br i1 %335, label %Extra_ProgressBarUpdate.exit, label %336
 
 336:                                              ; preds = %332, %Map_CutCompute.exit
   %337 = trunc nuw nsw i64 %indvars.iv80 to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %39, i32 noundef %337, ptr noundef nonnull @.str) #17
-  br label %Extra_ProgressBarUpdate.argprom.exit
+  br label %Extra_ProgressBarUpdate.exit
 
-Extra_ProgressBarUpdate.argprom.exit:             ; preds = %336, %332, %78
+Extra_ProgressBarUpdate.exit:                     ; preds = %336, %332, %78
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count
   br i1 %exitcond83.not, label %._crit_edge70, label %62, !llvm.loop !29
 
-._crit_edge70:                                    ; preds = %Extra_ProgressBarUpdate.argprom.exit, %Map_CutTableStart.argprom.exit
+._crit_edge70:                                    ; preds = %Extra_ProgressBarUpdate.exit, %Map_CutTableStart.exit
   call void @Extra_ProgressBarStop(ptr noundef %39) #17
   %338 = load ptr, ptr %55, align 8
   %.not.i39 = icmp eq ptr %338, null

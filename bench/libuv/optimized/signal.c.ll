@@ -349,7 +349,7 @@ color119.i:                                       ; preds = %do.body82.i, %color
   %parent.1.i = phi ptr [ null, %if.end79.i ], [ %21, %color119.sink.split.i ], [ %spec.select.i, %do.body82.i ]
   %color.0.i = phi i32 [ %8, %if.end79.i ], [ %20, %color119.sink.split.i ], [ %8, %do.body82.i ]
   %cmp120.i = icmp eq i32 %color.0.i, 0
-  br i1 %cmp120.i, label %if.then121.i, label %uv__signal_tree_s_RB_REMOVE.argprom.exit
+  br i1 %cmp120.i, label %if.then121.i, label %uv__signal_tree_s_RB_REMOVE.exit
 
 if.then121.i:                                     ; preds = %color119.i
   %uv__signal_tree.promoted.i.i = load ptr, ptr @uv__signal_tree, align 8
@@ -372,7 +372,7 @@ lor.lhs.false.i.i:                                ; preds = %while.cond.i.i
 
 land.rhs.i.i:                                     ; preds = %while.cond.i.i
   %cmp2.not.old.i.i = icmp eq ptr %23, null
-  br i1 %cmp2.not.old.i.i, label %uv__signal_tree_s_RB_REMOVE.argprom.exit, label %while.body.i.i
+  br i1 %cmp2.not.old.i.i, label %uv__signal_tree_s_RB_REMOVE.exit, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i, %lor.lhs.false.i.i
   %tree_entry3.i.i = getelementptr inbounds i8, ptr %parent.addr.0.i.i, i64 112
@@ -757,15 +757,15 @@ if.end486.i.i:                                    ; preds = %lor.lhs.false325.i.
 while.end.i.i:                                    ; preds = %if.end469.i.i, %if.end224.i.i
   %elm.addr.1.i.i = phi ptr [ %elm.addr.158.i.i, %if.end469.i.i ], [ %elm.addr.157.i.i, %if.end224.i.i ]
   %tobool487.not.i.i = icmp eq ptr %elm.addr.1.i.i, null
-  br i1 %tobool487.not.i.i, label %uv__signal_tree_s_RB_REMOVE.argprom.exit, label %if.then488.i.i
+  br i1 %tobool487.not.i.i, label %uv__signal_tree_s_RB_REMOVE.exit, label %if.then488.i.i
 
 if.then488.i.i:                                   ; preds = %lor.lhs.false.i.i, %while.end.i.i
   %elm.addr.16.i.i = phi ptr [ %elm.addr.1.i.i, %while.end.i.i ], [ %elm.addr.0.i.i, %lor.lhs.false.i.i ]
   %rbe_color490.i.i = getelementptr inbounds i8, ptr %elm.addr.16.i.i, i64 136
   store i32 0, ptr %rbe_color490.i.i, align 8
-  br label %uv__signal_tree_s_RB_REMOVE.argprom.exit
+  br label %uv__signal_tree_s_RB_REMOVE.exit
 
-uv__signal_tree_s_RB_REMOVE.argprom.exit:         ; preds = %land.rhs.i.i, %color119.i, %while.end.i.i, %if.then488.i.i
+uv__signal_tree_s_RB_REMOVE.exit:                 ; preds = %land.rhs.i.i, %color119.i, %while.end.i.i, %if.then488.i.i
   %74 = load i32, ptr %signum, align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %lookup.i)
   %signum1.i = getelementptr inbounds i8, ptr %lookup.i, i64 104
@@ -778,9 +778,9 @@ uv__signal_tree_s_RB_REMOVE.argprom.exit:         ; preds = %land.rhs.i.i, %colo
   %tobool.not6.i.i = icmp eq ptr %tmp.05.i.i, null
   br i1 %tobool.not6.i.i, label %if.then4, label %while.body.i.i12
 
-while.body.i.i12:                                 ; preds = %uv__signal_tree_s_RB_REMOVE.argprom.exit, %if.end5.i.i
-  %tmp.08.i.i = phi ptr [ %tmp.0.i.i14, %if.end5.i.i ], [ %tmp.05.i.i, %uv__signal_tree_s_RB_REMOVE.argprom.exit ]
-  %res.07.i.i = phi ptr [ %res.1.i.i, %if.end5.i.i ], [ null, %uv__signal_tree_s_RB_REMOVE.argprom.exit ]
+while.body.i.i12:                                 ; preds = %uv__signal_tree_s_RB_REMOVE.exit, %if.end5.i.i
+  %tmp.08.i.i = phi ptr [ %tmp.0.i.i14, %if.end5.i.i ], [ %tmp.05.i.i, %uv__signal_tree_s_RB_REMOVE.exit ]
+  %res.07.i.i = phi ptr [ %res.1.i.i, %if.end5.i.i ], [ null, %uv__signal_tree_s_RB_REMOVE.exit ]
   %signum1.i.i.i = getelementptr inbounds i8, ptr %tmp.08.i.i, i64 104
   %75 = load i32, ptr %signum1.i.i.i, align 8
   %cmp.i.i.i = icmp slt i32 %74, %75
@@ -815,24 +815,24 @@ if.end5.i.i:                                      ; preds = %if.else.i.i, %if.en
   %rbe_right.i.i13 = getelementptr inbounds i8, ptr %tmp.08.i.i, i64 %.sink.i.i
   %tmp.0.i.i14 = load ptr, ptr %rbe_right.i.i13, align 8
   %tobool.not.i.i = icmp eq ptr %tmp.0.i.i14, null
-  br i1 %tobool.not.i.i, label %uv__signal_tree_s_RB_NFIND.argprom.exit.i, label %while.body.i.i12
+  br i1 %tobool.not.i.i, label %uv__signal_tree_s_RB_NFIND.exit.i, label %while.body.i.i12
 
-uv__signal_tree_s_RB_NFIND.argprom.exit.i:        ; preds = %if.end5.i.i
+uv__signal_tree_s_RB_NFIND.exit.i:                ; preds = %if.end5.i.i
   %cmp.not.i = icmp eq ptr %res.1.i.i, null
-  br i1 %cmp.not.i, label %if.then4, label %uv__signal_tree_s_RB_NFIND.argprom.exit.land.lhs.true_crit_edge.i
+  br i1 %cmp.not.i, label %if.then4, label %uv__signal_tree_s_RB_NFIND.exit.land.lhs.true_crit_edge.i
 
-uv__signal_tree_s_RB_NFIND.argprom.exit.land.lhs.true_crit_edge.i: ; preds = %uv__signal_tree_s_RB_NFIND.argprom.exit.i
+uv__signal_tree_s_RB_NFIND.exit.land.lhs.true_crit_edge.i: ; preds = %uv__signal_tree_s_RB_NFIND.exit.i
   %signum2.phi.trans.insert.i = getelementptr inbounds i8, ptr %res.1.i.i, i64 104
   %.pre.i = load i32, ptr %signum2.phi.trans.insert.i, align 8
   br label %land.lhs.true.i
 
-land.lhs.true.i:                                  ; preds = %if.else.i.i, %uv__signal_tree_s_RB_NFIND.argprom.exit.land.lhs.true_crit_edge.i
-  %78 = phi i32 [ %.pre.i, %uv__signal_tree_s_RB_NFIND.argprom.exit.land.lhs.true_crit_edge.i ], [ %75, %if.else.i.i ]
-  %retval.0.i9.i = phi ptr [ %res.1.i.i, %uv__signal_tree_s_RB_NFIND.argprom.exit.land.lhs.true_crit_edge.i ], [ %tmp.08.i.i, %if.else.i.i ]
+land.lhs.true.i:                                  ; preds = %if.else.i.i, %uv__signal_tree_s_RB_NFIND.exit.land.lhs.true_crit_edge.i
+  %78 = phi i32 [ %.pre.i, %uv__signal_tree_s_RB_NFIND.exit.land.lhs.true_crit_edge.i ], [ %75, %if.else.i.i ]
+  %retval.0.i9.i = phi ptr [ %res.1.i.i, %uv__signal_tree_s_RB_NFIND.exit.land.lhs.true_crit_edge.i ], [ %tmp.08.i.i, %if.else.i.i ]
   %cmp3.i = icmp eq i32 %78, %74
   br i1 %cmp3.i, label %if.else, label %if.then4
 
-if.then4:                                         ; preds = %uv__signal_tree_s_RB_REMOVE.argprom.exit, %uv__signal_tree_s_RB_NFIND.argprom.exit.i, %land.lhs.true.i
+if.then4:                                         ; preds = %uv__signal_tree_s_RB_REMOVE.exit, %uv__signal_tree_s_RB_NFIND.exit.i, %land.lhs.true.i
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %lookup.i)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %sa.i)
   %idxprom.i = sext i32 %74 to i64
@@ -1106,24 +1106,24 @@ if.end5.i.i:                                      ; preds = %if.else.i.i, %if.en
   %rbe_right.i.i = getelementptr inbounds i8, ptr %tmp.08.i.i, i64 %.sink.i.i
   %tmp.0.i.i = load ptr, ptr %rbe_right.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %tmp.0.i.i, null
-  br i1 %tobool.not.i.i, label %uv__signal_tree_s_RB_NFIND.argprom.exit.i, label %while.body.i.i
+  br i1 %tobool.not.i.i, label %uv__signal_tree_s_RB_NFIND.exit.i, label %while.body.i.i
 
-uv__signal_tree_s_RB_NFIND.argprom.exit.i:        ; preds = %if.end5.i.i
+uv__signal_tree_s_RB_NFIND.exit.i:                ; preds = %if.end5.i.i
   %cmp.not.i = icmp eq ptr %res.1.i.i, null
-  br i1 %cmp.not.i, label %if.end9.split, label %uv__signal_tree_s_RB_NFIND.argprom.exit.land.lhs.true_crit_edge.i
+  br i1 %cmp.not.i, label %if.end9.split, label %uv__signal_tree_s_RB_NFIND.exit.land.lhs.true_crit_edge.i
 
-uv__signal_tree_s_RB_NFIND.argprom.exit.land.lhs.true_crit_edge.i: ; preds = %uv__signal_tree_s_RB_NFIND.argprom.exit.i
+uv__signal_tree_s_RB_NFIND.exit.land.lhs.true_crit_edge.i: ; preds = %uv__signal_tree_s_RB_NFIND.exit.i
   %signum2.phi.trans.insert.i = getelementptr inbounds i8, ptr %res.1.i.i, i64 104
   %.pre.i = load i32, ptr %signum2.phi.trans.insert.i, align 8
   br label %land.lhs.true.i
 
-land.lhs.true.i:                                  ; preds = %if.else.i.i, %uv__signal_tree_s_RB_NFIND.argprom.exit.land.lhs.true_crit_edge.i
-  %4 = phi i32 [ %.pre.i, %uv__signal_tree_s_RB_NFIND.argprom.exit.land.lhs.true_crit_edge.i ], [ %1, %if.else.i.i ]
-  %retval.0.i9.i = phi ptr [ %res.1.i.i, %uv__signal_tree_s_RB_NFIND.argprom.exit.land.lhs.true_crit_edge.i ], [ %tmp.08.i.i, %if.else.i.i ]
+land.lhs.true.i:                                  ; preds = %if.else.i.i, %uv__signal_tree_s_RB_NFIND.exit.land.lhs.true_crit_edge.i
+  %4 = phi i32 [ %.pre.i, %uv__signal_tree_s_RB_NFIND.exit.land.lhs.true_crit_edge.i ], [ %1, %if.else.i.i ]
+  %retval.0.i9.i = phi ptr [ %res.1.i.i, %uv__signal_tree_s_RB_NFIND.exit.land.lhs.true_crit_edge.i ], [ %tmp.08.i.i, %if.else.i.i ]
   %cmp3.i = icmp eq i32 %4, %signum
   br i1 %cmp3.i, label %lor.lhs.false, label %if.end9.split
 
-if.end9.split:                                    ; preds = %if.end9, %uv__signal_tree_s_RB_NFIND.argprom.exit.i, %land.lhs.true.i
+if.end9.split:                                    ; preds = %if.end9, %uv__signal_tree_s_RB_NFIND.exit.i, %land.lhs.true.i
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %lookup.i)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %sa.i)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %sa_old.i)
@@ -1325,7 +1325,7 @@ if.end23.i.i:                                     ; preds = %if.end18.i.i
 
 if.else.i:                                        ; preds = %if.end23.i.i
   %cmp27.i.not.i = icmp ugt ptr %handle, %tmp.013.i
-  br i1 %cmp27.i.not.i, label %if.end5.i, label %uv__signal_tree_s_RB_INSERT.argprom.exit
+  br i1 %cmp27.i.not.i, label %if.end5.i, label %uv__signal_tree_s_RB_INSERT.exit
 
 if.end5.i:                                        ; preds = %if.else.i, %if.end23.i.i, %if.end18.i.i, %if.end14.i.i, %if.end11.i.i, %if.end6.i.i, %if.end.i.i, %while.body.i
   %.sink.i = phi i64 [ 112, %while.body.i ], [ 112, %if.end6.i.i ], [ 112, %if.end14.i.i ], [ 112, %if.end23.i.i ], [ 120, %if.end18.i.i ], [ 120, %if.end11.i.i ], [ 120, %if.end.i.i ], [ 120, %if.else.i ]
@@ -1367,7 +1367,7 @@ if.end26.i:                                       ; preds = %if.else24.i, %if.el
   store ptr %handle, ptr %tree_entry16.sink.i, align 8
   %19 = load ptr, ptr %rbe_parent25.i, align 8
   %cmp.not2.i.i = icmp eq ptr %19, null
-  br i1 %cmp.not2.i.i, label %uv__signal_tree_s_RB_INSERT_COLOR.argprom.exit.i, label %land.rhs.i.i48
+  br i1 %cmp.not2.i.i, label %uv__signal_tree_s_RB_INSERT_COLOR.exit.i, label %land.rhs.i.i48
 
 land.rhs.i.i48:                                   ; preds = %if.end26.i, %while.cond.backedge.i.i
   %20 = phi ptr [ %26, %while.cond.backedge.i.i ], [ %19, %if.end26.i ]
@@ -1376,7 +1376,7 @@ land.rhs.i.i48:                                   ; preds = %if.end26.i, %while.
   %rbe_color.i.i = getelementptr inbounds i8, ptr %20, i64 136
   %21 = load i32, ptr %rbe_color.i.i, align 8
   %cmp2.i.i = icmp eq i32 %21, 1
-  br i1 %cmp2.i.i, label %while.body.i.i49, label %uv__signal_tree_s_RB_INSERT_COLOR.argprom.exit.loopexit.i
+  br i1 %cmp2.i.i, label %while.body.i.i49, label %uv__signal_tree_s_RB_INSERT_COLOR.exit.loopexit.i
 
 while.body.i.i49:                                 ; preds = %land.rhs.i.i48
   %rbe_parent4.i.i = getelementptr inbounds i8, ptr %20, i64 128
@@ -1410,7 +1410,7 @@ while.cond.backedge.i.i:                          ; preds = %if.end261.i.i, %if.
   %rbe_parent.i.i = getelementptr inbounds i8, ptr %elm.addr.0.be.i.i, i64 128
   %26 = load ptr, ptr %rbe_parent.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %26, null
-  br i1 %cmp.not.i.i, label %uv__signal_tree_s_RB_INSERT_COLOR.argprom.exit.loopexit.i, label %land.rhs.i.i48
+  br i1 %cmp.not.i.i, label %uv__signal_tree_s_RB_INSERT_COLOR.exit.loopexit.i, label %land.rhs.i.i48
 
 if.end.i21.i:                                     ; preds = %land.lhs.true.i.i, %if.then.i.i
   %rbe_right19.i.i = getelementptr inbounds i8, ptr %20, i64 120
@@ -1601,22 +1601,22 @@ if.end261.i.i:                                    ; preds = %if.then242.i.i, %do
   store ptr %40, ptr %rbe_parent238.i.i, align 8
   br label %while.cond.backedge.i.i
 
-uv__signal_tree_s_RB_INSERT_COLOR.argprom.exit.loopexit.i: ; preds = %while.cond.backedge.i.i, %land.rhs.i.i48
+uv__signal_tree_s_RB_INSERT_COLOR.exit.loopexit.i: ; preds = %while.cond.backedge.i.i, %land.rhs.i.i48
   %.pre17.i = load ptr, ptr @uv__signal_tree, align 8
-  br label %uv__signal_tree_s_RB_INSERT_COLOR.argprom.exit.i
+  br label %uv__signal_tree_s_RB_INSERT_COLOR.exit.i
 
-uv__signal_tree_s_RB_INSERT_COLOR.argprom.exit.i: ; preds = %uv__signal_tree_s_RB_INSERT_COLOR.argprom.exit.loopexit.i, %if.end26.i
-  %44 = phi ptr [ %.pre17.i, %uv__signal_tree_s_RB_INSERT_COLOR.argprom.exit.loopexit.i ], [ %18, %if.end26.i ]
+uv__signal_tree_s_RB_INSERT_COLOR.exit.i:         ; preds = %uv__signal_tree_s_RB_INSERT_COLOR.exit.loopexit.i, %if.end26.i
+  %44 = phi ptr [ %.pre17.i, %uv__signal_tree_s_RB_INSERT_COLOR.exit.loopexit.i ], [ %18, %if.end26.i ]
   %rbe_color279.i.i = getelementptr inbounds i8, ptr %44, i64 136
   store i32 0, ptr %rbe_color279.i.i, align 8
-  br label %uv__signal_tree_s_RB_INSERT.argprom.exit
+  br label %uv__signal_tree_s_RB_INSERT.exit
 
-uv__signal_tree_s_RB_INSERT.argprom.exit:         ; preds = %if.else.i, %uv__signal_tree_s_RB_INSERT_COLOR.argprom.exit.i
+uv__signal_tree_s_RB_INSERT.exit:                 ; preds = %if.else.i, %uv__signal_tree_s_RB_INSERT_COLOR.exit.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %data.i.i53)
   store i8 42, ptr %data.i.i53, align 1
   br label %do.body.i.i54
 
-do.body.i.i54:                                    ; preds = %land.rhs.i.i57, %uv__signal_tree_s_RB_INSERT.argprom.exit
+do.body.i.i54:                                    ; preds = %land.rhs.i.i57, %uv__signal_tree_s_RB_INSERT.exit
   %45 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %call.i.i55 = call i64 @write(i32 noundef %45, ptr noundef nonnull %data.i.i53, i64 noundef 1) #10
   %46 = and i64 %call.i.i55, 2147483648
@@ -2035,24 +2035,24 @@ if.end5.i.i:                                      ; preds = %if.else.i.i, %if.en
   %rbe_right.i.i = getelementptr inbounds i8, ptr %tmp.08.i.i, i64 %.sink.i.i
   %tmp.0.i.i = load ptr, ptr %rbe_right.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %tmp.0.i.i, null
-  br i1 %tobool.not.i.i, label %uv__signal_tree_s_RB_NFIND.argprom.exit.i, label %while.body.i.i
+  br i1 %tobool.not.i.i, label %uv__signal_tree_s_RB_NFIND.exit.i, label %while.body.i.i
 
-uv__signal_tree_s_RB_NFIND.argprom.exit.i:        ; preds = %if.end5.i.i
+uv__signal_tree_s_RB_NFIND.exit.i:                ; preds = %if.end5.i.i
   %cmp.not.i = icmp eq ptr %res.1.i.i, null
-  br i1 %cmp.not.i, label %uv__signal_first_handle.exit.thread, label %uv__signal_tree_s_RB_NFIND.argprom.exit.land.lhs.true_crit_edge.i
+  br i1 %cmp.not.i, label %uv__signal_first_handle.exit.thread, label %uv__signal_tree_s_RB_NFIND.exit.land.lhs.true_crit_edge.i
 
-uv__signal_tree_s_RB_NFIND.argprom.exit.land.lhs.true_crit_edge.i: ; preds = %uv__signal_tree_s_RB_NFIND.argprom.exit.i
+uv__signal_tree_s_RB_NFIND.exit.land.lhs.true_crit_edge.i: ; preds = %uv__signal_tree_s_RB_NFIND.exit.i
   %signum2.phi.trans.insert.i = getelementptr inbounds i8, ptr %res.1.i.i, i64 104
   %.pre.i = load i32, ptr %signum2.phi.trans.insert.i, align 8
   br label %land.lhs.true.i
 
-land.lhs.true.i:                                  ; preds = %if.else.i.i, %uv__signal_tree_s_RB_NFIND.argprom.exit.land.lhs.true_crit_edge.i
-  %8 = phi i32 [ %.pre.i, %uv__signal_tree_s_RB_NFIND.argprom.exit.land.lhs.true_crit_edge.i ], [ %5, %if.else.i.i ]
-  %retval.0.i9.i = phi ptr [ %res.1.i.i, %uv__signal_tree_s_RB_NFIND.argprom.exit.land.lhs.true_crit_edge.i ], [ %tmp.08.i.i, %if.else.i.i ]
+land.lhs.true.i:                                  ; preds = %if.else.i.i, %uv__signal_tree_s_RB_NFIND.exit.land.lhs.true_crit_edge.i
+  %8 = phi i32 [ %.pre.i, %uv__signal_tree_s_RB_NFIND.exit.land.lhs.true_crit_edge.i ], [ %5, %if.else.i.i ]
+  %retval.0.i9.i = phi ptr [ %res.1.i.i, %uv__signal_tree_s_RB_NFIND.exit.land.lhs.true_crit_edge.i ], [ %tmp.08.i.i, %if.else.i.i ]
   %cmp3.i10 = icmp eq i32 %8, %signum
   br i1 %cmp3.i10, label %land.rhs.lr.ph, label %uv__signal_first_handle.exit.thread
 
-uv__signal_first_handle.exit.thread:              ; preds = %if.end, %uv__signal_tree_s_RB_NFIND.argprom.exit.i, %land.lhs.true.i
+uv__signal_first_handle.exit.thread:              ; preds = %if.end, %uv__signal_tree_s_RB_NFIND.exit.i, %land.lhs.true.i
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %lookup.i)
   br label %for.end
 

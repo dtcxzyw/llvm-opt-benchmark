@@ -1248,7 +1248,7 @@ H5D__init_space.exit:                             ; preds = %157
   %378 = load ptr, ptr %39, align 8
   %379 = getelementptr inbounds i8, ptr %378, i64 4656
   %.val = load ptr, ptr %28, align 8
-  %380 = call fastcc i32 @H5D__build_file_prefix.argprom(ptr %.val, i32 noundef 2, ptr noundef nonnull %379)
+  %380 = call fastcc i32 @H5D__build_file_prefix(ptr %.val, i32 noundef 2, ptr noundef nonnull %379)
   %381 = icmp slt i32 %380, 0
   br i1 %381, label %382, label %386
 
@@ -1262,7 +1262,7 @@ H5D__init_space.exit:                             ; preds = %157
   %387 = load ptr, ptr %39, align 8
   %388 = getelementptr inbounds i8, ptr %387, i64 4664
   %.val208 = load ptr, ptr %28, align 8
-  %389 = call fastcc i32 @H5D__build_file_prefix.argprom(ptr %.val208, i32 noundef 0, ptr noundef nonnull %388)
+  %389 = call fastcc i32 @H5D__build_file_prefix(ptr %.val208, i32 noundef 0, ptr noundef nonnull %388)
   %390 = icmp slt i32 %389, 0
   br i1 %390, label %391, label %395
 
@@ -2481,7 +2481,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__append_flush_setup(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5D__build_file_prefix.argprom(ptr %.0.val, i32 noundef range(i32 0, 3) %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5D__build_file_prefix(ptr %.0.val, i32 noundef range(i32 0, 3) %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @H5F_get_extpath(ptr noundef %.0.val) #12
   switch i32 %0, label %31 [
@@ -2749,7 +2749,7 @@ define ptr @H5D_open(ptr nocapture noundef readonly %0, i64 noundef %1) local_un
 
 31:                                               ; preds = %21
   %.val71 = load ptr, ptr %7, align 8
-  %32 = call fastcc i32 @H5D__build_file_prefix.argprom(ptr %.val71, i32 noundef 2, ptr noundef nonnull %5)
+  %32 = call fastcc i32 @H5D__build_file_prefix(ptr %.val71, i32 noundef 2, ptr noundef nonnull %5)
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %34, label %38
 
@@ -2761,7 +2761,7 @@ define ptr @H5D_open(ptr nocapture noundef readonly %0, i64 noundef %1) local_un
 
 38:                                               ; preds = %31
   %.val = load ptr, ptr %7, align 8
-  %39 = call fastcc i32 @H5D__build_file_prefix.argprom(ptr %.val, i32 noundef 0, ptr noundef nonnull %6)
+  %39 = call fastcc i32 @H5D__build_file_prefix(ptr %.val, i32 noundef 0, ptr noundef nonnull %6)
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %41, label %45
 

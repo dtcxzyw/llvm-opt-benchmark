@@ -220,14 +220,14 @@ ExecProcNode.exit.i:                              ; preds = %42, %40
   %52 = getelementptr inbounds i8, ptr %44, i64 6
   %53 = load i16, ptr %52, align 2
   %54 = icmp sgt i16 %.val.val.i, %53
-  br i1 %54, label %slot_getsomeattrs.exit.i.i.i, label %fetch_tuple_flag.argprom.argprom.exit.i
+  br i1 %54, label %slot_getsomeattrs.exit.i.i.i, label %fetch_tuple_flag.exit.i
 
 slot_getsomeattrs.exit.i.i.i:                     ; preds = %50
   %55 = sext i16 %.val.val.i to i32
   call void @slot_getsomeattrs_int(ptr noundef nonnull %44, i32 noundef %55) #7
-  br label %fetch_tuple_flag.argprom.argprom.exit.i
+  br label %fetch_tuple_flag.exit.i
 
-fetch_tuple_flag.argprom.argprom.exit.i:          ; preds = %slot_getsomeattrs.exit.i.i.i, %50
+fetch_tuple_flag.exit.i:                          ; preds = %slot_getsomeattrs.exit.i.i.i, %50
   %56 = getelementptr inbounds i8, ptr %44, i64 24
   %57 = load ptr, ptr %56, align 8
   %58 = sext i16 %.val.val.i to i64
@@ -239,7 +239,7 @@ fetch_tuple_flag.argprom.argprom.exit.i:          ; preds = %slot_getsomeattrs.e
   %64 = load ptr, ptr %38, align 8
   br i1 %63, label %65, label %78
 
-65:                                               ; preds = %fetch_tuple_flag.argprom.argprom.exit.i
+65:                                               ; preds = %fetch_tuple_flag.exit.i
   %66 = call ptr @LookupTupleHashEntry(ptr noundef %64, ptr noundef nonnull %44, ptr noundef nonnull %3, ptr noundef null) #7
   %67 = load i8, ptr %3, align 1
   %68 = trunc i8 %67 to i1
@@ -261,7 +261,7 @@ fetch_tuple_flag.argprom.argprom.exit.i:          ; preds = %slot_getsomeattrs.e
   %.sink.i.i = getelementptr inbounds i8, ptr %77, i64 %.sink.idx.i.i
   br label %.sink.split.i
 
-78:                                               ; preds = %fetch_tuple_flag.argprom.argprom.exit.i
+78:                                               ; preds = %fetch_tuple_flag.exit.i
   %79 = call ptr @LookupTupleHashEntry(ptr noundef %64, ptr noundef nonnull %44, ptr noundef null, ptr noundef null) #7
   %.not28.i = icmp eq ptr %79, null
   br i1 %.not28.i, label %85, label %80
@@ -422,23 +422,23 @@ ExecProcNode.exit.i21:                            ; preds = %144, %142
   %.val.val.i16 = load i16, ptr %162, align 8
   %163 = load i16, ptr %131, align 2
   %164 = icmp sgt i16 %.val.val.i16, %163
-  br i1 %164, label %fetch_tuple_flag.argprom.argprom.exit.i17.sink.split, label %fetch_tuple_flag.argprom.argprom.exit.i17.preheader
+  br i1 %164, label %fetch_tuple_flag.exit.i17.sink.split, label %fetch_tuple_flag.exit.i17.preheader
 
-fetch_tuple_flag.argprom.argprom.exit.i17.sink.split: ; preds = %200, %159
+fetch_tuple_flag.exit.i17.sink.split:             ; preds = %200, %159
   %.val45.val.i.sink = phi i16 [ %.val.val.i16, %159 ], [ %.val45.val.i, %200 ]
   %.sink = phi ptr [ %127, %159 ], [ %177, %200 ]
   %165 = sext i16 %.val45.val.i.sink to i32
   call void @slot_getsomeattrs_int(ptr noundef nonnull %.sink, i32 noundef %165) #7
-  br label %fetch_tuple_flag.argprom.argprom.exit.i17.preheader
+  br label %fetch_tuple_flag.exit.i17.preheader
 
-fetch_tuple_flag.argprom.argprom.exit.i17.preheader: ; preds = %159, %fetch_tuple_flag.argprom.argprom.exit.i17.sink.split
-  %.pn.i.ph = phi ptr [ %.sink, %fetch_tuple_flag.argprom.argprom.exit.i17.sink.split ], [ %127, %159 ]
-  %.val45.val.sink.i.ph = phi i16 [ %.val45.val.i.sink, %fetch_tuple_flag.argprom.argprom.exit.i17.sink.split ], [ %.val.val.i16, %159 ]
-  br label %fetch_tuple_flag.argprom.argprom.exit.i17
+fetch_tuple_flag.exit.i17.preheader:              ; preds = %159, %fetch_tuple_flag.exit.i17.sink.split
+  %.pn.i.ph = phi ptr [ %.sink, %fetch_tuple_flag.exit.i17.sink.split ], [ %127, %159 ]
+  %.val45.val.sink.i.ph = phi i16 [ %.val45.val.i.sink, %fetch_tuple_flag.exit.i17.sink.split ], [ %.val.val.i16, %159 ]
+  br label %fetch_tuple_flag.exit.i17
 
-fetch_tuple_flag.argprom.argprom.exit.i17:        ; preds = %fetch_tuple_flag.argprom.argprom.exit.i17.preheader, %200
-  %.pn.i = phi ptr [ %177, %200 ], [ %.pn.i.ph, %fetch_tuple_flag.argprom.argprom.exit.i17.preheader ]
-  %.val45.val.sink.i = phi i16 [ %.val45.val.i, %200 ], [ %.val45.val.sink.i.ph, %fetch_tuple_flag.argprom.argprom.exit.i17.preheader ]
+fetch_tuple_flag.exit.i17:                        ; preds = %fetch_tuple_flag.exit.i17.preheader, %200
+  %.pn.i = phi ptr [ %177, %200 ], [ %.pn.i.ph, %fetch_tuple_flag.exit.i17.preheader ]
+  %.val45.val.sink.i = phi i16 [ %.val45.val.i, %200 ], [ %.val45.val.sink.i.ph, %fetch_tuple_flag.exit.i17.preheader ]
   %.sink68.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
   %166 = load ptr, ptr %.sink68.i, align 8
   %167 = sext i16 %.val45.val.sink.i to i64
@@ -456,11 +456,11 @@ fetch_tuple_flag.argprom.argprom.exit.i17:        ; preds = %fetch_tuple_flag.ar
   %.not.i47.i = icmp eq ptr %174, null
   br i1 %.not.i47.i, label %ExecProcNode.exit48.i, label %175
 
-175:                                              ; preds = %fetch_tuple_flag.argprom.argprom.exit.i17
+175:                                              ; preds = %fetch_tuple_flag.exit.i17
   call void @ExecReScan(ptr noundef nonnull %124) #7
   br label %ExecProcNode.exit48.i
 
-ExecProcNode.exit48.i:                            ; preds = %175, %fetch_tuple_flag.argprom.argprom.exit.i17
+ExecProcNode.exit48.i:                            ; preds = %175, %fetch_tuple_flag.exit.i17
   %176 = load ptr, ptr %130, align 8
   %177 = call ptr %176(ptr noundef nonnull %124) #7
   %178 = icmp eq ptr %177, null
@@ -521,7 +521,7 @@ ExecQualAndReset.exit.i:                          ; preds = %184
   %202 = getelementptr inbounds i8, ptr %177, i64 6
   %203 = load i16, ptr %202, align 2
   %204 = icmp sgt i16 %.val45.val.i, %203
-  br i1 %204, label %fetch_tuple_flag.argprom.argprom.exit.i17.sink.split, label %fetch_tuple_flag.argprom.argprom.exit.i17
+  br i1 %204, label %fetch_tuple_flag.exit.i17.sink.split, label %fetch_tuple_flag.exit.i17
 
 205:                                              ; preds = %194, %183
   call fastcc void @set_output_count(ptr noundef nonnull %0, ptr noundef nonnull %126)

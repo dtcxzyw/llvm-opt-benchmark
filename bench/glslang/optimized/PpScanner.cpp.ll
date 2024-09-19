@@ -204,15 +204,15 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
 
 39:                                               ; preds = %.loopexit381
   %40 = icmp slt i32 %1, 1025
-  br i1 %40, label %41, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit"
+  br i1 %40, label %41, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit"
 
 41:                                               ; preds = %39
   %42 = add nsw i32 %1, 1
   %43 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %15
   store i8 46, ptr %43, align 1
-  br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit"
+  br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit"
 
-"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit": ; preds = %39, %41
+"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit": ; preds = %39, %41
   %.8 = phi i32 [ %42, %41 ], [ %1, %39 ]
   %44 = getelementptr inbounds i8, ptr %0, i64 400
   %45 = load ptr, ptr %44, align 8
@@ -225,7 +225,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   %52 = icmp eq i32 %51, 35
   br i1 %52, label %53, label %126
 
-53:                                               ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit"
+53:                                               ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit"
   %54 = getelementptr inbounds i8, ptr %0, i64 312
   %55 = load i32, ptr %54, align 8
   %56 = icmp sgt i32 %55, 0
@@ -309,7 +309,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   %102 = load ptr, ptr %101, align 8
   %103 = tail call noundef i32 %102(ptr noundef nonnull align 8 dereferenceable(24) %99) #13
   %.not192 = icmp eq i32 %103, 70
-  br i1 %.not192, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit239", label %104
+  br i1 %.not192, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit239", label %104
 
 104:                                              ; preds = %96, %88, %.thread331
   %.2 = phi i32 [ %87, %.thread331 ], [ %95, %88 ], [ %103, %96 ]
@@ -321,7 +321,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   tail call void (ptr, ptr, ptr, ptr, ptr, ...) %109(ptr noundef nonnull align 8 dereferenceable(1280) %106, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #13
   br label %126
 
-"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit239": ; preds = %96
+"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit239": ; preds = %96
   %110 = add nuw nsw i32 %.8, 1
   %111 = zext nneg i32 %.8 to i64
   %112 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %111
@@ -342,39 +342,39 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   %123 = getelementptr inbounds i8, ptr %3, i64 32
   br i1 %122, label %124, label %125
 
-124:                                              ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit239"
+124:                                              ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit239"
   store i64 -4503599627370496, ptr %123, align 8
   br label %516
 
-125:                                              ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit239"
+125:                                              ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit239"
   store i64 9218868437227405312, ptr %123, align 8
   br label %516
 
-126:                                              ; preds = %104, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit"
-  %.1 = phi i32 [ %.2, %104 ], [ %51, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit" ]
+126:                                              ; preds = %104, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit"
+  %.1 = phi i32 [ %.2, %104 ], [ %51, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit" ]
   %127 = icmp eq i32 %.1, 48
   br i1 %127, label %.lr.ph390, label %.preheader379
 
-.preheader379:                                    ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit241", %126
-  %.1324.lcssa = phi i32 [ %.8, %126 ], [ %.12, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit241" ]
-  %.3.lcssa = phi i32 [ %.1, %126 ], [ %141, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit241" ]
+.preheader379:                                    ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit241", %126
+  %.1324.lcssa = phi i32 [ %.8, %126 ], [ %.12, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit241" ]
+  %.3.lcssa = phi i32 [ %.1, %126 ], [ %141, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit241" ]
   %128 = add i32 %.3.lcssa, -48
   %129 = icmp ult i32 %128, 10
   br i1 %129, label %.lr.ph396, label %._crit_edge.thread
 
-.lr.ph390:                                        ; preds = %126, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit241"
-  %.1324389 = phi i32 [ %.12, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit241" ], [ %.8, %126 ]
+.lr.ph390:                                        ; preds = %126, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit241"
+  %.1324389 = phi i32 [ %.12, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit241" ], [ %.8, %126 ]
   %130 = icmp slt i32 %.1324389, 1025
-  br i1 %130, label %131, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit241"
+  br i1 %130, label %131, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit241"
 
 131:                                              ; preds = %.lr.ph390
   %132 = add nsw i32 %.1324389, 1
   %133 = sext i32 %.1324389 to i64
   %134 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %133
   store i8 48, ptr %134, align 1
-  br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit241"
+  br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit241"
 
-"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit241": ; preds = %.lr.ph390, %131
+"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit241": ; preds = %.lr.ph390, %131
   %.12 = phi i32 [ %132, %131 ], [ %.1324389, %.lr.ph390 ]
   %135 = load ptr, ptr %44, align 8
   %136 = getelementptr inbounds i8, ptr %135, i64 -8
@@ -386,12 +386,12 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   %142 = icmp eq i32 %141, 48
   br i1 %142, label %.lr.ph390, label %.preheader379, !llvm.loop !8
 
-.lr.ph396:                                        ; preds = %.preheader379, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit242"
-  %.4395 = phi i32 [ %155, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit242" ], [ %.3.lcssa, %.preheader379 ]
-  %.0156394 = phi i32 [ %spec.select, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit242" ], [ %.1324.lcssa, %.preheader379 ]
-  %.2325393 = phi i32 [ %.13, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit242" ], [ %.1324.lcssa, %.preheader379 ]
+.lr.ph396:                                        ; preds = %.preheader379, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit242"
+  %.4395 = phi i32 [ %155, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit242" ], [ %.3.lcssa, %.preheader379 ]
+  %.0156394 = phi i32 [ %spec.select, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit242" ], [ %.1324.lcssa, %.preheader379 ]
+  %.2325393 = phi i32 [ %.13, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit242" ], [ %.1324.lcssa, %.preheader379 ]
   %143 = icmp slt i32 %.2325393, 1025
-  br i1 %143, label %144, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit242"
+  br i1 %143, label %144, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit242"
 
 144:                                              ; preds = %.lr.ph396
   %145 = trunc nuw i32 %.4395 to i8
@@ -399,9 +399,9 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   %147 = sext i32 %.2325393 to i64
   %148 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %147
   store i8 %145, ptr %148, align 1
-  br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit242"
+  br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit242"
 
-"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit242": ; preds = %.lr.ph396, %144
+"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit242": ; preds = %.lr.ph396, %144
   %.13 = phi i32 [ %146, %144 ], [ %.2325393, %.lr.ph396 ]
   %.not195 = icmp eq i32 %.4395, 48
   %spec.select = select i1 %.not195, i32 %.0156394, i32 %.13
@@ -416,7 +416,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   %157 = icmp ult i32 %156, 10
   br i1 %157, label %.lr.ph396, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit242"
+._crit_edge:                                      ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit242"
   %158 = icmp sgt i32 %spec.select, %.1324.lcssa
   br i1 %158, label %159, label %._crit_edge.thread
 
@@ -468,7 +468,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
 
 175:                                              ; preds = %._crit_edge.thread
   %176 = icmp slt i32 %.0323, 1025
-  br i1 %176, label %177, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit243"
+  br i1 %176, label %177, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit243"
 
 177:                                              ; preds = %175
   %178 = trunc nuw i32 %.0139 to i8
@@ -476,9 +476,9 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   %180 = sext i32 %.0323 to i64
   %181 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %180
   store i8 %178, ptr %181, align 1
-  br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit243"
+  br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit243"
 
-"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit243": ; preds = %175, %177
+"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit243": ; preds = %175, %177
   %.14 = phi i32 [ %179, %177 ], [ %.0323, %175 ]
   %182 = getelementptr inbounds i8, ptr %0, i64 400
   %183 = load ptr, ptr %182, align 8
@@ -493,11 +493,11 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
     i32 43, label %190
   ]
 
-190:                                              ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit243", %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit243"
+190:                                              ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit243", %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit243"
   %191 = icmp eq i32 %189, 45
   %192 = zext i1 %191 to i8
   %193 = icmp slt i32 %.14, 1025
-  br i1 %193, label %194, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit244"
+  br i1 %193, label %194, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit244"
 
 194:                                              ; preds = %190
   %195 = trunc i32 %189 to i8
@@ -505,9 +505,9 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   %197 = sext i32 %.14 to i64
   %198 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %197
   store i8 %195, ptr %198, align 1
-  br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit244"
+  br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit244"
 
-"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit244": ; preds = %190, %194
+"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit244": ; preds = %190, %194
   %.15 = phi i32 [ %196, %194 ], [ %.14, %190 ]
   %199 = load ptr, ptr %182, align 8
   %200 = getelementptr inbounds i8, ptr %199, i64 -8
@@ -518,25 +518,25 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   %205 = tail call noundef i32 %204(ptr noundef nonnull align 8 dereferenceable(24) %201) #13
   br label %206
 
-206:                                              ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit243", %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit244"
-  %.4327 = phi i32 [ %.14, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit243" ], [ %.15, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit244" ]
-  %.1153 = phi i8 [ 0, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit243" ], [ %192, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit244" ]
-  %.6 = phi i32 [ %189, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit243" ], [ %205, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit244" ]
+206:                                              ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit243", %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit244"
+  %.4327 = phi i32 [ %.14, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit243" ], [ %.15, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit244" ]
+  %.1153 = phi i8 [ 0, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit243" ], [ %192, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit244" ]
+  %.6 = phi i32 [ %189, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit243" ], [ %205, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit244" ]
   %207 = add i32 %.6, -48
   %or.cond12 = icmp ult i32 %207, 10
   br i1 %or.cond12, label %.lr.ph407, label %227
 
-.lr.ph407:                                        ; preds = %206, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit245"
-  %208 = phi i32 [ %225, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit245" ], [ %207, %206 ]
-  %.7406 = phi i32 [ %224, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit245" ], [ %.6, %206 ]
-  %.1144405 = phi i32 [ %.2145, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit245" ], [ 0, %206 ]
-  %.5328404 = phi i32 [ %.16, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit245" ], [ %.4327, %206 ]
+.lr.ph407:                                        ; preds = %206, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245"
+  %208 = phi i32 [ %225, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245" ], [ %207, %206 ]
+  %.7406 = phi i32 [ %224, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245" ], [ %.6, %206 ]
+  %.1144405 = phi i32 [ %.2145, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245" ], [ 0, %206 ]
+  %.5328404 = phi i32 [ %.16, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245" ], [ %.4327, %206 ]
   %209 = icmp slt i32 %.1144405, 500
   %210 = mul nsw i32 %.1144405, 10
   %211 = add nsw i32 %208, %210
   %.2145 = select i1 %209, i32 %211, i32 %.1144405
   %212 = icmp slt i32 %.5328404, 1025
-  br i1 %212, label %213, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit245"
+  br i1 %212, label %213, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245"
 
 213:                                              ; preds = %.lr.ph407
   %214 = trunc nuw i32 %.7406 to i8
@@ -544,9 +544,9 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   %216 = sext i32 %.5328404 to i64
   %217 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %216
   store i8 %214, ptr %217, align 1
-  br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit245"
+  br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245"
 
-"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit245": ; preds = %.lr.ph407, %213
+"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245": ; preds = %.lr.ph407, %213
   %.16 = phi i32 [ %215, %213 ], [ %.5328404, %.lr.ph407 ]
   %218 = load ptr, ptr %182, align 8
   %219 = getelementptr inbounds i8, ptr %218, i64 -8
@@ -568,10 +568,10 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   tail call void (ptr, ptr, ptr, ptr, ptr, ...) %232(ptr noundef nonnull align 8 dereferenceable(1280) %229, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2) #13
   br label %.loopexit376
 
-.loopexit376:                                     ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit245", %227
-  %.3326 = phi i32 [ %.4327, %227 ], [ %.16, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit245" ]
-  %.0143 = phi i32 [ 0, %227 ], [ %.2145, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit245" ]
-  %.5 = phi i32 [ %.6, %227 ], [ %224, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit245" ]
+.loopexit376:                                     ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245", %227
+  %.3326 = phi i32 [ %.4327, %227 ], [ %.16, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245" ]
+  %.0143 = phi i32 [ 0, %227 ], [ %.2145, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245" ]
+  %.5 = phi i32 [ %.6, %227 ], [ %224, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245" ]
   %233 = trunc nuw i8 %.1153 to i1
   br i1 %233, label %234, label %.thread333
 
@@ -680,7 +680,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   %274 = load ptr, ptr %273, align 8
   %275 = getelementptr inbounds i8, ptr %274, i64 768
   %276 = load i32, ptr %275, align 8
-  switch i32 %276, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247" [
+  switch i32 %276, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247" [
     i32 1, label %277
     i32 2, label %311
   ]
@@ -713,32 +713,32 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   %298 = getelementptr inbounds i8, ptr %297, i64 32
   %299 = load ptr, ptr %298, align 8
   tail call void %299(ptr noundef nonnull align 8 dereferenceable(24) %296) #13
-  br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247"
+  br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247"
 
 300:                                              ; preds = %277
   %301 = icmp slt i32 %.3326339, 1025
-  br i1 %301, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit246", label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247.thread"
+  br i1 %301, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit246", label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread"
 
-"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit246": ; preds = %300
+"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit246": ; preds = %300
   %302 = trunc i32 %.5345 to i8
   %303 = sext i32 %.3326339 to i64
   %304 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %303
   store i8 %302, ptr %304, align 1
   %.not369 = icmp eq i32 %.3326339, 1024
-  br i1 %.not369, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247.thread", label %305
+  br i1 %.not369, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread", label %305
 
-305:                                              ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit246"
+305:                                              ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit246"
   %306 = add nsw i32 %.3326339, 1
   %307 = trunc nuw i32 %285 to i8
   %308 = add nsw i32 %.3326339, 2
   %309 = sext i32 %306 to i64
   %310 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %309
   store i8 %307, ptr %310, align 1
-  br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247"
+  br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247"
 
 311:                                              ; preds = %.thread347
   %312 = icmp slt i32 %.3326339, 1025
-  br i1 %312, label %313, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247.thread"
+  br i1 %312, label %313, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread"
 
 313:                                              ; preds = %311
   %314 = trunc i32 %.5345 to i8
@@ -746,7 +746,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   %316 = sext i32 %.3326339 to i64
   %317 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %316
   store i8 %314, ptr %317, align 1
-  br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247"
+  br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247"
 
 318:                                              ; preds = %.loopexit
   %319 = getelementptr inbounds i8, ptr %0, i64 312
@@ -793,7 +793,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   %344 = load ptr, ptr %343, align 8
   %345 = getelementptr inbounds i8, ptr %344, i64 768
   %346 = load i32, ptr %345, align 8
-  switch i32 %346, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247" [
+  switch i32 %346, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247" [
     i32 1, label %347
     i32 2, label %381
   ]
@@ -826,32 +826,32 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   %368 = getelementptr inbounds i8, ptr %367, i64 32
   %369 = load ptr, ptr %368, align 8
   tail call void %369(ptr noundef nonnull align 8 dereferenceable(24) %366) #13
-  br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247"
+  br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247"
 
 370:                                              ; preds = %347
   %371 = icmp slt i32 %.3326339, 1025
-  br i1 %371, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit249", label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247.thread"
+  br i1 %371, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit249", label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread"
 
-"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit249": ; preds = %370
+"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit249": ; preds = %370
   %372 = trunc i32 %.5345 to i8
   %373 = sext i32 %.3326339 to i64
   %374 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %373
   store i8 %372, ptr %374, align 1
   %.not368 = icmp eq i32 %.3326339, 1024
-  br i1 %.not368, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247.thread", label %375
+  br i1 %.not368, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread", label %375
 
-375:                                              ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit249"
+375:                                              ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit249"
   %376 = add nsw i32 %.3326339, 1
   %377 = trunc nuw i32 %355 to i8
   %378 = add nsw i32 %.3326339, 2
   %379 = sext i32 %376 to i64
   %380 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %379
   store i8 %377, ptr %380, align 1
-  br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247"
+  br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247"
 
 381:                                              ; preds = %.thread351
   %382 = icmp slt i32 %.3326339, 1025
-  br i1 %382, label %383, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247.thread"
+  br i1 %382, label %383, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread"
 
 383:                                              ; preds = %381
   %384 = trunc i32 %.5345 to i8
@@ -859,7 +859,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   %386 = sext i32 %.3326339 to i64
   %387 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %386
   store i8 %384, ptr %387, align 1
-  br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247"
+  br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247"
 
 388:                                              ; preds = %.loopexit
   %389 = getelementptr inbounds i8, ptr %0, i64 312
@@ -904,7 +904,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
 
 .thread358:                                       ; preds = %403, %388, %392, %404
   %409 = icmp slt i32 %.3326339, 1025
-  br i1 %409, label %410, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247.thread"
+  br i1 %409, label %410, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread"
 
 410:                                              ; preds = %.thread358
   %411 = trunc i32 %.5345 to i8
@@ -912,7 +912,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   %413 = sext i32 %.3326339 to i64
   %414 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %413
   store i8 %411, ptr %414, align 1
-  br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247"
+  br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247"
 
 415:                                              ; preds = %.loopexit
   %416 = getelementptr inbounds i8, ptr %0, i64 400
@@ -923,18 +923,18 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   %421 = getelementptr inbounds i8, ptr %420, i64 32
   %422 = load ptr, ptr %421, align 8
   tail call void %422(ptr noundef nonnull align 8 dereferenceable(24) %419) #13
-  br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247"
+  br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247"
 
-"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247": ; preds = %.thread351, %.thread347, %410, %383, %375, %313, %305, %357, %415, %287
+"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247": ; preds = %.thread351, %.thread347, %410, %383, %375, %313, %305, %357, %415, %287
   %.6329 = phi i32 [ %.3326339, %287 ], [ %.3326339, %357 ], [ %.3326339, %415 ], [ %308, %305 ], [ %315, %313 ], [ %378, %375 ], [ %385, %383 ], [ %412, %410 ], [ %.3326339, %.thread347 ], [ %.3326339, %.thread351 ]
   %.0141 = phi i1 [ false, %287 ], [ false, %357 ], [ false, %415 ], [ true, %305 ], [ true, %313 ], [ false, %375 ], [ false, %383 ], [ false, %410 ], [ false, %.thread347 ], [ false, %.thread351 ]
   %.0140 = phi i1 [ false, %287 ], [ false, %357 ], [ false, %415 ], [ false, %305 ], [ false, %313 ], [ true, %375 ], [ true, %383 ], [ false, %410 ], [ false, %.thread347 ], [ false, %.thread351 ]
   %423 = icmp sgt i32 %.6329, 1024
-  br i1 %423, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247.thread", label %429
+  br i1 %423, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread", label %429
 
-"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247.thread": ; preds = %370, %300, %.thread358, %381, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit249", %311, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit246", %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247"
-  %.0140365 = phi i1 [ %.0140, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247" ], [ false, %.thread358 ], [ true, %381 ], [ true, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit249" ], [ false, %311 ], [ false, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit246" ], [ false, %300 ], [ true, %370 ]
-  %.0141363 = phi i1 [ %.0141, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247" ], [ false, %.thread358 ], [ false, %381 ], [ false, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit249" ], [ true, %311 ], [ true, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit246" ], [ true, %300 ], [ false, %370 ]
+"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread": ; preds = %370, %300, %.thread358, %381, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit249", %311, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit246", %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247"
+  %.0140365 = phi i1 [ %.0140, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247" ], [ false, %.thread358 ], [ true, %381 ], [ true, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit249" ], [ false, %311 ], [ false, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit246" ], [ false, %300 ], [ true, %370 ]
+  %.0141363 = phi i1 [ %.0141, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247" ], [ false, %.thread358 ], [ false, %381 ], [ false, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit249" ], [ true, %311 ], [ true, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit246" ], [ true, %300 ], [ false, %370 ]
   %424 = getelementptr inbounds i8, ptr %0, i64 256
   %425 = load ptr, ptr %424, align 8
   %426 = load ptr, ptr %425, align 8
@@ -943,10 +943,10 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   tail call void (ptr, ptr, ptr, ptr, ptr, ...) %428(ptr noundef nonnull align 8 dereferenceable(1280) %425, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2) #13
   br label %429
 
-429:                                              ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247.thread", %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247"
-  %.0140364 = phi i1 [ %.0140365, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247.thread" ], [ %.0140, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247" ]
-  %.0141362 = phi i1 [ %.0141363, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247.thread" ], [ %.0141, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247" ]
-  %.7330 = phi i32 [ 1024, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247.thread" ], [ %.6329, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.argprom.exit247" ]
+429:                                              ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread", %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247"
+  %.0140364 = phi i1 [ %.0140365, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread" ], [ %.0140, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247" ]
+  %.0141362 = phi i1 [ %.0141363, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread" ], [ %.0141, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247" ]
+  %.7330 = phi i32 [ 1024, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread" ], [ %.6329, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247" ]
   %430 = sext i32 %.7330 to i64
   %431 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %430
   store i8 0, ptr %431, align 1
@@ -2444,7 +2444,7 @@ switch.early.test643:                             ; preds = %126
 .loopexit:                                        ; preds = %505, %._crit_edge
   %.10558 = phi i32 [ %.9557.lcssa, %._crit_edge ], [ %509, %505 ]
   %.24 = phi i32 [ %.22.lcssa, %._crit_edge ], [ %.26, %505 ]
-  switch i32 %.10558, label %"_ZZN7glslang10TPpContext12tStringInput4scanEPNS_8TPpTokenEENK3$_0clEi.argprom.exit" [
+  switch i32 %.10558, label %"_ZZN7glslang10TPpContext12tStringInput4scanEPNS_8TPpTokenEENK3$_0clEi.exit" [
     i32 104, label %512
     i32 102, label %512
     i32 101, label %512
@@ -2459,10 +2459,10 @@ switch.early.test643:                             ; preds = %126
   %514 = tail call noundef i32 @_ZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %513, i32 noundef %.24, i32 noundef %.10558, ptr noundef %1)
   br label %.loopexit817
 
-"_ZZN7glslang10TPpContext12tStringInput4scanEPNS_8TPpTokenEENK3$_0clEi.argprom.exit": ; preds = %.loopexit
+"_ZZN7glslang10TPpContext12tStringInput4scanEPNS_8TPpTokenEENK3$_0clEi.exit": ; preds = %.loopexit
   br i1 %or.cond59, label %515, label %522
 
-515:                                              ; preds = %"_ZZN7glslang10TPpContext12tStringInput4scanEPNS_8TPpTokenEENK3$_0clEi.argprom.exit"
+515:                                              ; preds = %"_ZZN7glslang10TPpContext12tStringInput4scanEPNS_8TPpTokenEENK3$_0clEi.exit"
   %516 = load ptr, ptr %11, align 8
   %517 = getelementptr inbounds i8, ptr %516, i64 256
   %518 = load ptr, ptr %517, align 8
@@ -2472,7 +2472,7 @@ switch.early.test643:                             ; preds = %126
   tail call void (ptr, ptr, ptr, ptr, ptr, ...) %521(ptr noundef nonnull align 8 dereferenceable(1280) %518, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2) #13
   br label %522
 
-522:                                              ; preds = %515, %"_ZZN7glslang10TPpContext12tStringInput4scanEPNS_8TPpTokenEENK3$_0clEi.argprom.exit"
+522:                                              ; preds = %515, %"_ZZN7glslang10TPpContext12tStringInput4scanEPNS_8TPpTokenEENK3$_0clEi.exit"
   %523 = and i32 %.10558, -33
   %or.cond61 = icmp eq i32 %523, 85
   br i1 %or.cond61, label %524, label %574
@@ -2743,7 +2743,7 @@ switch.early.test643:                             ; preds = %126
   br i1 %679, label %658, label %680, !llvm.loop !18
 
 680:                                              ; preds = %673
-  switch i32 %677, label %"_ZZN7glslang10TPpContext12tStringInput4scanEPNS_8TPpTokenEENK3$_0clEi.argprom.exit644" [
+  switch i32 %677, label %"_ZZN7glslang10TPpContext12tStringInput4scanEPNS_8TPpTokenEENK3$_0clEi.exit644" [
     i32 104, label %681
     i32 102, label %681
     i32 101, label %681
@@ -2758,12 +2758,12 @@ switch.early.test643:                             ; preds = %126
   %683 = tail call noundef i32 @_ZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %682, i32 noundef %.35, i32 noundef %677, ptr noundef %1)
   br label %.loopexit817
 
-"_ZZN7glslang10TPpContext12tStringInput4scanEPNS_8TPpTokenEENK3$_0clEi.argprom.exit644": ; preds = %680
+"_ZZN7glslang10TPpContext12tStringInput4scanEPNS_8TPpTokenEENK3$_0clEi.exit644": ; preds = %680
   %684 = and i32 %677, -33
   %or.cond73 = icmp eq i32 %684, 85
   br i1 %or.cond73, label %685, label %735
 
-685:                                              ; preds = %"_ZZN7glslang10TPpContext12tStringInput4scanEPNS_8TPpTokenEENK3$_0clEi.argprom.exit644"
+685:                                              ; preds = %"_ZZN7glslang10TPpContext12tStringInput4scanEPNS_8TPpTokenEENK3$_0clEi.exit644"
   %686 = icmp slt i32 %.35, 1024
   br i1 %686, label %687, label %692
 
@@ -2845,7 +2845,7 @@ switch.early.test643:                             ; preds = %126
   tail call void %734(ptr noundef nonnull align 8 dereferenceable(32) %0) #13
   br label %765
 
-735:                                              ; preds = %"_ZZN7glslang10TPpContext12tStringInput4scanEPNS_8TPpTokenEENK3$_0clEi.argprom.exit644"
+735:                                              ; preds = %"_ZZN7glslang10TPpContext12tStringInput4scanEPNS_8TPpTokenEENK3$_0clEi.exit644"
   switch i32 %684, label %759 [
     i32 76, label %736
     i32 83, label %743

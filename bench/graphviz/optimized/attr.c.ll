@@ -66,7 +66,7 @@ define ptr @agdatadict(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr
   br i1 %.not5.i, label %13, label %agnodeattr_init.exit
 
 13:                                               ; preds = %10, %.lr.ph16
-  tail call fastcc void @agmakeattrs.retelim(ptr noundef %0, ptr noundef nonnull %.016.i14)
+  tail call fastcc void @agmakeattrs(ptr noundef %0, ptr noundef nonnull %.016.i14)
   br label %agnodeattr_init.exit
 
 agnodeattr_init.exit:                             ; preds = %10, %13
@@ -88,7 +88,7 @@ agnodeattr_init.exit:                             ; preds = %10, %13
   br i1 %.not5.i10, label %20, label %agedgeattr_init.exit
 
 20:                                               ; preds = %17, %.lr.ph
-  tail call fastcc void @agmakeattrs.retelim(ptr noundef %0, ptr noundef nonnull %.0.i12)
+  tail call fastcc void @agmakeattrs(ptr noundef %0, ptr noundef nonnull %.0.i12)
   br label %agedgeattr_init.exit
 
 agedgeattr_init.exit:                             ; preds = %17, %20
@@ -769,14 +769,14 @@ agmakedatadict.exit:                              ; preds = %.lr.ph.i38.i, %16, 
   %118 = tail call ptr @agparent(ptr noundef %0) #7
   %.not = icmp eq ptr %118, null
   %spec.select = select i1 %.not, ptr %0, ptr %118
-  tail call fastcc void @agmakeattrs.retelim(ptr noundef %spec.select, ptr noundef %0)
+  tail call fastcc void @agmakeattrs(ptr noundef %spec.select, ptr noundef %0)
   ret void
 }
 
 declare ptr @agparent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agmakeattrs.retelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @agmakeattrs(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr @AgDataRecName, align 8
   %4 = tail call ptr @agbindrec(ptr noundef %1, ptr noundef %3, i32 noundef 32, i32 noundef 0) #7
   %5 = load i32, ptr %1, align 8
@@ -990,7 +990,7 @@ define void @agnodeattr_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %.not5, label %8, label %9
 
 8:                                                ; preds = %5, %2
-  tail call fastcc void @agmakeattrs.retelim(ptr noundef %0, ptr noundef %1)
+  tail call fastcc void @agmakeattrs(ptr noundef %0, ptr noundef %1)
   br label %9
 
 9:                                                ; preds = %8, %5
@@ -1028,7 +1028,7 @@ define void @agedgeattr_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %.not5, label %8, label %9
 
 8:                                                ; preds = %5, %2
-  tail call fastcc void @agmakeattrs.retelim(ptr noundef %0, ptr noundef %1)
+  tail call fastcc void @agmakeattrs(ptr noundef %0, ptr noundef %1)
   br label %9
 
 9:                                                ; preds = %8, %5

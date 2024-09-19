@@ -128,30 +128,30 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @pmix20_bfrop_print(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %pmix_pointer_array_get_item.argprom.exit.thread, label %6
+  br i1 %5, label %pmix_pointer_array_get_item.exit.thread, label %6
 
 6:                                                ; preds = %4
   %7 = zext i16 %3 to i32
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i = icmp sgt i32 %8, %7
-  br i1 %.not.i, label %pmix_pointer_array_get_item.argprom.exit, label %pmix_pointer_array_get_item.argprom.exit.thread
+  br i1 %.not.i, label %pmix_pointer_array_get_item.exit, label %pmix_pointer_array_get_item.exit.thread
 
-pmix_pointer_array_get_item.argprom.exit:         ; preds = %6
+pmix_pointer_array_get_item.exit:                 ; preds = %6
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %10 = zext i16 %3 to i64
   %11 = getelementptr inbounds ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %pmix_pointer_array_get_item.argprom.exit.thread, label %14
+  br i1 %13, label %pmix_pointer_array_get_item.exit.thread, label %14
 
-14:                                               ; preds = %pmix_pointer_array_get_item.argprom.exit
+14:                                               ; preds = %pmix_pointer_array_get_item.exit
   %15 = getelementptr inbounds i8, ptr %12, i64 160
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %16(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) #7
-  br label %pmix_pointer_array_get_item.argprom.exit.thread
+  br label %pmix_pointer_array_get_item.exit.thread
 
-pmix_pointer_array_get_item.argprom.exit.thread:  ; preds = %6, %pmix_pointer_array_get_item.argprom.exit, %4, %14
-  %.0 = phi i32 [ %17, %14 ], [ -27, %4 ], [ -16, %pmix_pointer_array_get_item.argprom.exit ], [ -16, %6 ]
+pmix_pointer_array_get_item.exit.thread:          ; preds = %6, %pmix_pointer_array_get_item.exit, %4, %14
+  %.0 = phi i32 [ %17, %14 ], [ -27, %4 ], [ -16, %pmix_pointer_array_get_item.exit ], [ -16, %6 ]
   ret i32 %.0
 }
 

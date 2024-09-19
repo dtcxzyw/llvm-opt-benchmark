@@ -459,12 +459,12 @@ proto_item_set_generated.exit:                    ; preds = %17, %30, %33
   %106 = getelementptr inbounds i8, ptr %13, i64 24
   br label %107
 
-107:                                              ; preds = %.lr.ph, %dissect_segment_data.argprom.exit
-  %.0110 = phi i8 [ %60, %.lr.ph ], [ %108, %dissect_segment_data.argprom.exit ]
-  %.085108 = phi i32 [ %64, %.lr.ph ], [ %438, %dissect_segment_data.argprom.exit ]
-  %.086107 = phi i32 [ %61, %.lr.ph ], [ %437, %dissect_segment_data.argprom.exit ]
-  %.1106 = phi i32 [ 16, %.lr.ph ], [ %436, %dissect_segment_data.argprom.exit ]
-  %.sroa.8.0105 = phi ptr [ null, %.lr.ph ], [ %.sroa.8.1, %dissect_segment_data.argprom.exit ]
+107:                                              ; preds = %.lr.ph, %dissect_segment_data.exit
+  %.0110 = phi i8 [ %60, %.lr.ph ], [ %108, %dissect_segment_data.exit ]
+  %.085108 = phi i32 [ %64, %.lr.ph ], [ %438, %dissect_segment_data.exit ]
+  %.086107 = phi i32 [ %61, %.lr.ph ], [ %437, %dissect_segment_data.exit ]
+  %.1106 = phi i32 [ 16, %.lr.ph ], [ %436, %dissect_segment_data.exit ]
+  %.sroa.8.0105 = phi ptr [ null, %.lr.ph ], [ %.sroa.8.1, %dissect_segment_data.exit ]
   %108 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.085108) #7
   %109 = add i32 %.085108, 4
   %110 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %109, i32 noundef %24) #7
@@ -491,7 +491,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %30, %33
   %125 = load i32, ptr @hf_lbmpdm_segment_len, align 4
   %126 = call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %125, ptr noundef %0, i32 noundef %109, i32 noundef 4, i32 noundef %24) #7
   %.not.i91 = icmp eq ptr %.sroa.8.0105, null
-  br i1 %.not.i91, label %dissect_segment_data.argprom.exit.sink.split, label %127
+  br i1 %.not.i91, label %dissect_segment_data.exit.sink.split, label %127
 
 127:                                              ; preds = %112
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %12)
@@ -510,7 +510,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %30, %33
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   %130 = icmp eq ptr %129, null
-  br i1 %130, label %dissect_segment_data.argprom.exit.sink.split, label %131
+  br i1 %130, label %dissect_segment_data.exit.sink.split, label %131
 
 131:                                              ; preds = %127
   %132 = add i32 %.085108, 8
@@ -526,7 +526,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %30, %33
 .preheader.i:                                     ; preds = %.lr.ph.i, %131
   %137 = load i32, ptr %.sroa.8.0105, align 8
   %.not8.i = icmp eq i32 %137, 0
-  br i1 %.not8.i, label %dissect_segment_data.argprom.exit, label %.lr.ph7.i
+  br i1 %.not8.i, label %dissect_segment_data.exit, label %.lr.ph7.i
 
 .lr.ph7.i:                                        ; preds = %.preheader.i
   %138 = getelementptr i8, ptr %129, i64 40
@@ -568,7 +568,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %30, %33
   %154 = load i32, ptr %.sroa.8.0105, align 8
   %155 = zext i32 %154 to i64
   %156 = icmp ult i64 %indvars.iv.next.i, %155
-  br i1 %156, label %143, label %dissect_segment_data.argprom.exit, !llvm.loop !6
+  br i1 %156, label %143, label %dissect_segment_data.exit, !llvm.loop !6
 
 157:                                              ; preds = %107
   %158 = load i32, ptr @hf_lbmpdm_segment, align 4
@@ -670,7 +670,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %30, %33
   br label %.preheader.i92
 
 .preheader.i92:                                   ; preds = %.lr.ph138.i.preheader, %._crit_edge.i
-  br i1 %180, label %.lr.ph140.preheader.i, label %dissect_segment_data.argprom.exit
+  br i1 %180, label %.lr.ph140.preheader.i, label %dissect_segment_data.exit
 
 .lr.ph140.preheader.i:                            ; preds = %.preheader.i92
   %wide.trip.count150.i = zext nneg i32 %172 to i64
@@ -695,7 +695,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %30, %33
 220:                                              ; preds = %219, %.lr.ph140.i
   %indvars.iv.next148.i = add nuw nsw i64 %indvars.iv147.i, 1
   %exitcond151.not.i = icmp eq i64 %indvars.iv.next148.i, %wide.trip.count150.i
-  br i1 %exitcond151.not.i, label %dissect_segment_data.argprom.exit, label %.lr.ph140.i, !llvm.loop !8
+  br i1 %exitcond151.not.i, label %dissect_segment_data.exit, label %.lr.ph140.i, !llvm.loop !8
 
 221:                                              ; preds = %107
   %222 = load ptr, ptr %72, align 8
@@ -842,7 +842,7 @@ lbmpdm_definition_add.exit.i:                     ; preds = %280, %277
   %299 = icmp sgt i32 %298, 0
   %300 = icmp ne i32 %270, 0
   %301 = select i1 %299, i1 %300, i1 false
-  br i1 %301, label %.lr.ph.i96, label %dissect_segment_data.argprom.exit
+  br i1 %301, label %.lr.ph.i96, label %dissect_segment_data.exit
 
 .lr.ph.i96:                                       ; preds = %297
   %302 = add i32 %.085108, 28
@@ -1050,7 +1050,7 @@ switch.lookup:                                    ; preds = %384
   %415 = icmp sgt i32 %413, 0
   %416 = icmp ne i32 %414, 0
   %417 = select i1 %415, i1 %416, i1 false
-  br i1 %417, label %307, label %dissect_segment_data.argprom.exit, !llvm.loop !9
+  br i1 %417, label %307, label %dissect_segment_data.exit, !llvm.loop !9
 
 418:                                              ; preds = %107
   %419 = load i32, ptr @hf_lbmpdm_segment, align 4
@@ -1067,17 +1067,17 @@ switch.lookup:                                    ; preds = %384
   %430 = call ptr @proto_tree_add_item(ptr noundef %422, i32 noundef %428, ptr noundef %0, i32 noundef %429, i32 noundef 2, i32 noundef %24) #7
   %431 = load i32, ptr @hf_lbmpdm_segment_len, align 4
   %432 = call ptr @proto_tree_add_item(ptr noundef %422, i32 noundef %431, ptr noundef %0, i32 noundef %109, i32 noundef 4, i32 noundef %24) #7
-  br label %dissect_segment_data.argprom.exit.sink.split
+  br label %dissect_segment_data.exit.sink.split
 
-dissect_segment_data.argprom.exit.sink.split:     ; preds = %112, %127, %418
+dissect_segment_data.exit.sink.split:             ; preds = %112, %127, %418
   %.sink = phi ptr [ %422, %418 ], [ %116, %127 ], [ %116, %112 ]
   %433 = load i32, ptr @hf_lbmpdm_segment_data, align 4
   %434 = add i32 %.085108, 8
   %435 = call ptr @proto_tree_add_item(ptr noundef %.sink, i32 noundef %433, ptr noundef %0, i32 noundef %434, i32 noundef %110, i32 noundef 0) #7
-  br label %dissect_segment_data.argprom.exit
+  br label %dissect_segment_data.exit
 
-dissect_segment_data.argprom.exit:                ; preds = %411, %220, %153, %dissect_segment_data.argprom.exit.sink.split, %297, %.preheader.i92, %.preheader.i
-  %.sroa.8.1 = phi ptr [ %.sroa.8.0105, %.preheader.i ], [ %204, %.preheader.i92 ], [ %.sroa.8.0105, %297 ], [ %.sroa.8.0105, %dissect_segment_data.argprom.exit.sink.split ], [ %.sroa.8.0105, %153 ], [ %204, %220 ], [ %.sroa.8.0105, %411 ]
+dissect_segment_data.exit:                        ; preds = %411, %220, %153, %dissect_segment_data.exit.sink.split, %297, %.preheader.i92, %.preheader.i
+  %.sroa.8.1 = phi ptr [ %.sroa.8.0105, %.preheader.i ], [ %204, %.preheader.i92 ], [ %.sroa.8.0105, %297 ], [ %.sroa.8.0105, %dissect_segment_data.exit.sink.split ], [ %.sroa.8.0105, %153 ], [ %204, %220 ], [ %.sroa.8.0105, %411 ]
   %436 = add i32 %111, %.1106
   %437 = sub i32 %.086107, %111
   %438 = add i32 %111, %.085108
@@ -1086,8 +1086,8 @@ dissect_segment_data.argprom.exit:                ; preds = %411, %220, %153, %d
   %441 = select i1 %439, i1 %440, i1 false
   br i1 %441, label %107, label %.loopexit, !llvm.loop !10
 
-.loopexit:                                        ; preds = %dissect_segment_data.argprom.exit, %63, %proto_item_set_generated.exit, %5
-  %.088 = phi i32 [ 0, %5 ], [ 16, %proto_item_set_generated.exit ], [ 16, %63 ], [ %436, %dissect_segment_data.argprom.exit ]
+.loopexit:                                        ; preds = %dissect_segment_data.exit, %63, %proto_item_set_generated.exit, %5
+  %.088 = phi i32 [ 0, %5 ], [ 16, %proto_item_set_generated.exit ], [ 16, %63 ], [ %436, %dissect_segment_data.exit ]
   ret i32 %.088
 }
 

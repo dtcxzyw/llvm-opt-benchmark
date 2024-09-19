@@ -3493,12 +3493,12 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %71, %72
 90:                                               ; preds = %86
   %91 = getelementptr inbounds i8, ptr %77, i64 -32
   call void @_ZNK5clang15DeclarationName11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %19, ptr noundef nonnull align 8 dereferenceable(8) %91) #18
-  br label %"_ZZN5clang7CodeGen13CodeGenModule23createUnnamedGlobalFromERKNS_7VarDeclEPN4llvm8ConstantENS_9CharUnitsEENK3$_0clB5cxx11EPKNS_11DeclContextE.argprom.exit"
+  br label %"_ZZN5clang7CodeGen13CodeGenModule23createUnnamedGlobalFromERKNS_7VarDeclEPN4llvm8ConstantENS_9CharUnitsEENK3$_0clB5cxx11EPKNS_11DeclContextE.exit"
 
 92:                                               ; preds = %86
   %93 = getelementptr inbounds i8, ptr %77, i64 -32
   call void @_ZNK5clang15DeclarationName11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %19, ptr noundef nonnull align 8 dereferenceable(8) %93) #18
-  br label %"_ZZN5clang7CodeGen13CodeGenModule23createUnnamedGlobalFromERKNS_7VarDeclEPN4llvm8ConstantENS_9CharUnitsEENK3$_0clB5cxx11EPKNS_11DeclContextE.argprom.exit"
+  br label %"_ZZN5clang7CodeGen13CodeGenModule23createUnnamedGlobalFromERKNS_7VarDeclEPN4llvm8ConstantENS_9CharUnitsEENK3$_0clB5cxx11EPKNS_11DeclContextE.exit"
 
 94:                                               ; preds = %86
   %95 = and i32 %88, 256
@@ -3582,7 +3582,7 @@ _ZN5clang10GlobalDeclC2EPKNS_12FunctionDeclEj.exit.i: ; preds = %116, %_ZNK5clan
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 %131, ptr %133, ptr noundef nonnull align 1 dereferenceable(1) %7) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !51
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
-  br label %"_ZZN5clang7CodeGen13CodeGenModule23createUnnamedGlobalFromERKNS_7VarDeclEPN4llvm8ConstantENS_9CharUnitsEENK3$_0clB5cxx11EPKNS_11DeclContextE.argprom.exit"
+  br label %"_ZZN5clang7CodeGen13CodeGenModule23createUnnamedGlobalFromERKNS_7VarDeclEPN4llvm8ConstantENS_9CharUnitsEENK3$_0clB5cxx11EPKNS_11DeclContextE.exit"
 
 134:                                              ; preds = %76
   switch i16 %81, label %141 [
@@ -3593,7 +3593,7 @@ _ZN5clang10GlobalDeclC2EPKNS_12FunctionDeclEj.exit.i: ; preds = %116, %_ZNK5clan
 135:                                              ; preds = %134
   %136 = getelementptr inbounds i8, ptr %77, i64 -8
   call void @_ZNK5clang15DeclarationName11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %19, ptr noundef nonnull align 8 dereferenceable(8) %136) #18
-  br label %"_ZZN5clang7CodeGen13CodeGenModule23createUnnamedGlobalFromERKNS_7VarDeclEPN4llvm8ConstantENS_9CharUnitsEENK3$_0clB5cxx11EPKNS_11DeclContextE.argprom.exit"
+  br label %"_ZZN5clang7CodeGen13CodeGenModule23createUnnamedGlobalFromERKNS_7VarDeclEPN4llvm8ConstantENS_9CharUnitsEENK3$_0clB5cxx11EPKNS_11DeclContextE.exit"
 
 137:                                              ; preds = %134
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #18, !noalias !51
@@ -3604,7 +3604,7 @@ _ZN5clang10GlobalDeclC2EPKNS_12FunctionDeclEj.exit.i: ; preds = %116, %_ZNK5clan
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %140, ptr noundef nonnull @.str.31, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.31, i64 7)) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 7) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #18
-  br label %"_ZZN5clang7CodeGen13CodeGenModule23createUnnamedGlobalFromERKNS_7VarDeclEPN4llvm8ConstantENS_9CharUnitsEENK3$_0clB5cxx11EPKNS_11DeclContextE.argprom.exit"
+  br label %"_ZZN5clang7CodeGen13CodeGenModule23createUnnamedGlobalFromERKNS_7VarDeclEPN4llvm8ConstantENS_9CharUnitsEENK3$_0clB5cxx11EPKNS_11DeclContextE.exit"
 
 141:                                              ; preds = %134
   %142 = icmp eq i16 %81, 6
@@ -3617,9 +3617,9 @@ _ZN5clang10GlobalDeclC2EPKNS_12FunctionDeclEj.exit.i: ; preds = %116, %_ZNK5clan
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %145, ptr noundef nonnull @.str.32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.32, i64 10)) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 10) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #18
-  br label %"_ZZN5clang7CodeGen13CodeGenModule23createUnnamedGlobalFromERKNS_7VarDeclEPN4llvm8ConstantENS_9CharUnitsEENK3$_0clB5cxx11EPKNS_11DeclContextE.argprom.exit"
+  br label %"_ZZN5clang7CodeGen13CodeGenModule23createUnnamedGlobalFromERKNS_7VarDeclEPN4llvm8ConstantENS_9CharUnitsEENK3$_0clB5cxx11EPKNS_11DeclContextE.exit"
 
-"_ZZN5clang7CodeGen13CodeGenModule23createUnnamedGlobalFromERKNS_7VarDeclEPN4llvm8ConstantENS_9CharUnitsEENK3$_0clB5cxx11EPKNS_11DeclContextE.argprom.exit": ; preds = %90, %92, %_ZN5clang10GlobalDeclC2EPKNS_12FunctionDeclEj.exit.i, %135, %137, %141
+"_ZZN5clang7CodeGen13CodeGenModule23createUnnamedGlobalFromERKNS_7VarDeclEPN4llvm8ConstantENS_9CharUnitsEENK3$_0clB5cxx11EPKNS_11DeclContextE.exit": ; preds = %90, %92, %_ZN5clang10GlobalDeclC2EPKNS_12FunctionDeclEj.exit.i, %135, %137, %141
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
@@ -3636,7 +3636,7 @@ _ZN5clang10GlobalDeclC2EPKNS_12FunctionDeclEj.exit.i: ; preds = %116, %_ZNK5clan
   %.not.i26 = or i1 %151, %.not2.i
   br i1 %.not.i26, label %_ZN4llvmplERKNS_5TwineES2_.exit, label %153
 
-153:                                              ; preds = %"_ZZN5clang7CodeGen13CodeGenModule23createUnnamedGlobalFromERKNS_7VarDeclEPN4llvm8ConstantENS_9CharUnitsEENK3$_0clB5cxx11EPKNS_11DeclContextE.argprom.exit"
+153:                                              ; preds = %"_ZZN5clang7CodeGen13CodeGenModule23createUnnamedGlobalFromERKNS_7VarDeclEPN4llvm8ConstantENS_9CharUnitsEENK3$_0clB5cxx11EPKNS_11DeclContextE.exit"
   %154 = inttoptr i64 %152 to ptr
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 16
   %156 = load ptr, ptr %155, align 8
@@ -3645,9 +3645,9 @@ _ZN5clang10GlobalDeclC2EPKNS_12FunctionDeclEj.exit.i: ; preds = %116, %_ZNK5clan
   %159 = and i64 %158, 4294967295
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
-_ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %153, %"_ZZN5clang7CodeGen13CodeGenModule23createUnnamedGlobalFromERKNS_7VarDeclEPN4llvm8ConstantENS_9CharUnitsEENK3$_0clB5cxx11EPKNS_11DeclContextE.argprom.exit"
-  %.sroa.3.0.i = phi i64 [ %159, %153 ], [ 0, %"_ZZN5clang7CodeGen13CodeGenModule23createUnnamedGlobalFromERKNS_7VarDeclEPN4llvm8ConstantENS_9CharUnitsEENK3$_0clB5cxx11EPKNS_11DeclContextE.argprom.exit" ]
-  %.sroa.0.0.i = phi ptr [ %157, %153 ], [ @.str.6, %"_ZZN5clang7CodeGen13CodeGenModule23createUnnamedGlobalFromERKNS_7VarDeclEPN4llvm8ConstantENS_9CharUnitsEENK3$_0clB5cxx11EPKNS_11DeclContextE.argprom.exit" ]
+_ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %153, %"_ZZN5clang7CodeGen13CodeGenModule23createUnnamedGlobalFromERKNS_7VarDeclEPN4llvm8ConstantENS_9CharUnitsEENK3$_0clB5cxx11EPKNS_11DeclContextE.exit"
+  %.sroa.3.0.i = phi i64 [ %159, %153 ], [ 0, %"_ZZN5clang7CodeGen13CodeGenModule23createUnnamedGlobalFromERKNS_7VarDeclEPN4llvm8ConstantENS_9CharUnitsEENK3$_0clB5cxx11EPKNS_11DeclContextE.exit" ]
+  %.sroa.0.0.i = phi ptr [ %157, %153 ], [ @.str.6, %"_ZZN5clang7CodeGen13CodeGenModule23createUnnamedGlobalFromERKNS_7VarDeclEPN4llvm8ConstantENS_9CharUnitsEENK3$_0clB5cxx11EPKNS_11DeclContextE.exit" ]
   store ptr %17, ptr %16, align 8, !alias.scope !60
   %160 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %.sroa.0.0.i, ptr %160, align 8, !alias.scope !60
@@ -8002,7 +8002,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_7PHINodeEEEPT_S4_RKNS_5TwineE.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL32createUnnamedGlobalForMemcpyFromRN5clang7CodeGen13CodeGenModuleERKNS_7VarDeclERNS0_11CGBuilderTyEPN4llvm8ConstantENS_9CharUnitsE.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(3600) %1, ptr noundef nonnull align 8 dereferenceable(100) %2, ptr noundef %3, i64 %4) unnamed_addr #0 {
+define internal fastcc void @_ZL32createUnnamedGlobalForMemcpyFromRN5clang7CodeGen13CodeGenModuleERKNS_7VarDeclERNS0_11CGBuilderTyEPN4llvm8ConstantENS_9CharUnitsE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(3600) %1, ptr noundef nonnull align 8 dereferenceable(100) %2, ptr noundef %3, i64 %4) unnamed_addr #0 {
   %6 = alloca %"class.clang::CodeGen::Address", align 8
   call void @_ZN5clang7CodeGen13CodeGenModule23createUnnamedGlobalFromERKNS_7VarDeclEPN4llvm8ConstantENS_9CharUnitsE(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::Address") align 8 %6, ptr noundef nonnull align 8 dereferenceable(3600) %1, ptr noundef nonnull align 8 dereferenceable(100) %2, ptr noundef %3, i64 %4)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8816,7 +8816,7 @@ _ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit: ; preds = %74
   store i64 %.sroa.5202.0, ptr %.sroa.4240.0..sroa_idx, align 8
   store ptr %.sroa.6205.0, ptr %.sroa.6205.0.in, align 8
   store ptr %78, ptr %77, align 8
-  call fastcc void @_ZL27emitStoresForInitAfterBZeroRN5clang7CodeGen13CodeGenModuleEPN4llvm8ConstantENS0_7AddressEbRNS0_11CGBuilderTyEb.argprom(ptr noundef nonnull %5, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(160) %4, i1 noundef zeroext %6)
+  call fastcc void @_ZL27emitStoresForInitAfterBZeroRN5clang7CodeGen13CodeGenModuleEPN4llvm8ConstantENS0_7AddressEbRNS0_11CGBuilderTyEb(ptr noundef nonnull %5, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(160) %4, i1 noundef zeroext %6)
   br label %.critedge103
 
 _ZL27shouldUseMemSetToInitializePN4llvm8ConstantEmRKNS_10DataLayoutE.exit: ; preds = %_ZL36shouldUseBZeroPlusStoresToInitializePN4llvm8ConstantEm.exit
@@ -9052,7 +9052,7 @@ _ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit146: ; preds = %_Z
   %.sroa.0262.0.copyload = load i64, ptr %2, align 8
   %.sroa.3264.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
   %.sroa.3264.0.copyload = load i64, ptr %.sroa.3264.0..sroa_idx, align 8
-  call fastcc void @_ZL32createUnnamedGlobalForMemcpyFromRN5clang7CodeGen13CodeGenModuleERKNS_7VarDeclERNS0_11CGBuilderTyEPN4llvm8ConstantENS_9CharUnitsE.argprom(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(3600) %0, ptr noundef nonnull align 8 dereferenceable(100) %1, ptr noundef nonnull %5, i64 %.sroa.3264.0.copyload)
+  call fastcc void @_ZL32createUnnamedGlobalForMemcpyFromRN5clang7CodeGen13CodeGenModuleERKNS_7VarDeclERNS0_11CGBuilderTyEPN4llvm8ConstantENS_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(3600) %0, ptr noundef nonnull align 8 dereferenceable(100) %1, ptr noundef nonnull %5, i64 %.sroa.3264.0.copyload)
   %.sroa.0266.0.copyload = load i64, ptr %18, align 8
   %.sroa.4268.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 16
   %.sroa.4268.0.copyload = load i64, ptr %.sroa.4268.0..sroa_idx, align 8
@@ -14428,7 +14428,7 @@ declare void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 derefe
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL27emitStoresForInitAfterBZeroRN5clang7CodeGen13CodeGenModuleEPN4llvm8ConstantENS0_7AddressEbRNS0_11CGBuilderTyEb.argprom(ptr noundef %0, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @_ZL27emitStoresForInitAfterBZeroRN5clang7CodeGen13CodeGenModuleEPN4llvm8ConstantENS0_7AddressEbRNS0_11CGBuilderTyEb(ptr noundef %0, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %"class.clang::CodeGen::Address", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.clang::CodeGen::Address", align 8
@@ -14489,7 +14489,7 @@ define internal fastcc void @_ZL27emitStoresForInitAfterBZeroRN5clang7CodeGen13C
 30:                                               ; preds = %27
   store i16 257, ptr %23, align 8
   call void @_ZN5clang7CodeGen11CGBuilderTy18createConstGEP2_32ILb1EEENS0_7AddressES3_jjRKN4llvm5TwineE(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::Address") align 8 %6, ptr noundef nonnull align 8 dereferenceable(160) %3, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %1, i32 noundef 0, i32 noundef %.021, ptr noundef nonnull align 8 dereferenceable(34) %7)
-  call fastcc void @_ZL27emitStoresForInitAfterBZeroRN5clang7CodeGen13CodeGenModuleEPN4llvm8ConstantENS0_7AddressEbRNS0_11CGBuilderTyEb.argprom(ptr noundef nonnull %25, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %6, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext %4)
+  call fastcc void @_ZL27emitStoresForInitAfterBZeroRN5clang7CodeGen13CodeGenModuleEPN4llvm8ConstantENS0_7AddressEbRNS0_11CGBuilderTyEb(ptr noundef nonnull %25, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %6, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext %4)
   br label %31
 
 31:                                               ; preds = %24, %27, %30
@@ -14545,7 +14545,7 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %43, %45
   store i16 257, ptr %38, align 8
   %58 = trunc nuw nsw i64 %indvars.iv to i32
   call void @_ZN5clang7CodeGen11CGBuilderTy18createConstGEP2_32ILb1EEENS0_7AddressES3_jjRKN4llvm5TwineE(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::Address") align 8 %8, ptr noundef nonnull align 8 dereferenceable(160) %3, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %1, i32 noundef 0, i32 noundef %58, ptr noundef nonnull align 8 dereferenceable(34) %9)
-  call fastcc void @_ZL27emitStoresForInitAfterBZeroRN5clang7CodeGen13CodeGenModuleEPN4llvm8ConstantENS0_7AddressEbRNS0_11CGBuilderTyEb.argprom(ptr noundef nonnull %52, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %8, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext %4)
+  call fastcc void @_ZL27emitStoresForInitAfterBZeroRN5clang7CodeGen13CodeGenModuleEPN4llvm8ConstantENS0_7AddressEbRNS0_11CGBuilderTyEb(ptr noundef nonnull %52, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %8, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext %4)
   br label %59
 
 59:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit, %54, %57
@@ -17945,8 +17945,8 @@ attributes #21 = { builtin nounwind }
 !49 = distinct !{!49, !50, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: argument 0"}
 !50 = distinct !{!50, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
 !51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZZN5clang7CodeGen13CodeGenModule23createUnnamedGlobalFromERKNS_7VarDeclEPN4llvm8ConstantENS_9CharUnitsEENK3$_0clB5cxx11EPKNS_11DeclContextE.argprom: argument 0"}
-!53 = distinct !{!53, !"_ZZN5clang7CodeGen13CodeGenModule23createUnnamedGlobalFromERKNS_7VarDeclEPN4llvm8ConstantENS_9CharUnitsEENK3$_0clB5cxx11EPKNS_11DeclContextE.argprom"}
+!52 = distinct !{!52, !53, !"_ZZN5clang7CodeGen13CodeGenModule23createUnnamedGlobalFromERKNS_7VarDeclEPN4llvm8ConstantENS_9CharUnitsEENK3$_0clB5cxx11EPKNS_11DeclContextE: argument 0"}
+!53 = distinct !{!53, !"_ZZN5clang7CodeGen13CodeGenModule23createUnnamedGlobalFromERKNS_7VarDeclEPN4llvm8ConstantENS_9CharUnitsEENK3$_0clB5cxx11EPKNS_11DeclContextE"}
 !54 = !{!55}
 !55 = distinct !{!55, !56, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_: argument 0"}
 !56 = distinct !{!56, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_"}
@@ -18046,8 +18046,8 @@ attributes #21 = { builtin nounwind }
 !150 = distinct !{!150, !151, !"_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE: argument 0"}
 !151 = distinct !{!151, !"_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE"}
 !152 = !{!153}
-!153 = distinct !{!153, !154, !"_ZL32createUnnamedGlobalForMemcpyFromRN5clang7CodeGen13CodeGenModuleERKNS_7VarDeclERNS0_11CGBuilderTyEPN4llvm8ConstantENS_9CharUnitsE.argprom: argument 0"}
-!154 = distinct !{!154, !"_ZL32createUnnamedGlobalForMemcpyFromRN5clang7CodeGen13CodeGenModuleERKNS_7VarDeclERNS0_11CGBuilderTyEPN4llvm8ConstantENS_9CharUnitsE.argprom"}
+!153 = distinct !{!153, !154, !"_ZL32createUnnamedGlobalForMemcpyFromRN5clang7CodeGen13CodeGenModuleERKNS_7VarDeclERNS0_11CGBuilderTyEPN4llvm8ConstantENS_9CharUnitsE: argument 0"}
+!154 = distinct !{!154, !"_ZL32createUnnamedGlobalForMemcpyFromRN5clang7CodeGen13CodeGenModuleERKNS_7VarDeclERNS0_11CGBuilderTyEPN4llvm8ConstantENS_9CharUnitsE"}
 !155 = distinct !{!155, !10}
 !156 = distinct !{!156, !10}
 !157 = distinct !{!157, !10}

@@ -457,18 +457,18 @@ ifconfig.exit.i:                                  ; preds = %81, %32
   call void @slurm_xfree(ptr noundef nonnull %5) #5
   %84 = call i32 @slurm_get_log_level() #5
   %85 = icmp sgt i32 %84, 6
-  br i1 %85, label %86, label %job_attr_get_netinfo.argprom.exit
+  br i1 %85, label %86, label %job_attr_get_netinfo.exit
 
 86:                                               ; preds = %ifconfig.exit.i
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.15, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.job_attr_get_netinfo, ptr noundef nonnull @__func__.job_attr_get_netinfo, ptr noundef nonnull @job_attr_get.attr) #5
-  br label %job_attr_get_netinfo.argprom.exit
+  br label %job_attr_get_netinfo.exit
 
-job_attr_get_netinfo.argprom.exit:                ; preds = %ifconfig.exit.i, %86
+job_attr_get_netinfo.exit:                        ; preds = %ifconfig.exit.i, %86
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %87
 
-87:                                               ; preds = %26, %16, %job_attr_get_netinfo.argprom.exit, %23, %11, %7
-  %.0 = phi ptr [ @job_attr_get.attr, %job_attr_get_netinfo.argprom.exit ], [ @job_attr_get.attr, %23 ], [ @job_attr_get.attr, %11 ], [ %8, %7 ], [ null, %16 ], [ null, %26 ]
+87:                                               ; preds = %26, %16, %job_attr_get_netinfo.exit, %23, %11, %7
+  %.0 = phi ptr [ @job_attr_get.attr, %job_attr_get_netinfo.exit ], [ @job_attr_get.attr, %23 ], [ @job_attr_get.attr, %11 ], [ %8, %7 ], [ null, %16 ], [ null, %26 ]
   ret ptr %.0
 }
 

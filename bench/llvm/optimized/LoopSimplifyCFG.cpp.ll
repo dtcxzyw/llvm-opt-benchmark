@@ -1450,9 +1450,9 @@ _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.i.i.i.i: ; preds 
   %.v.i.i.i.i.i.i = zext i32 %.v.v.i.i.i.i.i.i to i64
   %477 = getelementptr inbounds ptr, ptr %473, i64 %.v.i.i.i.i.i.i
   %.not1.i.i.i.i = icmp eq ptr %.0.i.i.i150.i.i.i, %477
-  br i1 %.not1.i.i.i.i, label %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockES3_E_clES3_S3_.argprom.exit.thread243.i.i.i, label %478
+  br i1 %.not1.i.i.i.i, label %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockES3_E_clES3_S3_.exit.thread243.i.i.i, label %478
 
-_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockES3_E_clES3_S3_.argprom.exit.thread243.i.i.i: ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.i.i.i.i
+_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockES3_E_clES3_S3_.exit.thread243.i.i.i: ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.i.i.i.i
   store i8 1, ptr %44, align 1
   br label %.loopexit.i.i.i
 
@@ -1461,13 +1461,13 @@ _ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBl
   %.not9.i.i.i.i = icmp eq ptr %479, null
   %480 = icmp eq ptr %479, %446
   %or.cond.i.i.i.i = or i1 %.not9.i.i.i.i, %480
-  br i1 %or.cond.i.i.i.i, label %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockES3_E_clES3_S3_.argprom.exit.thread.i.i.i, label %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockES3_E_clES3_S3_.argprom.exit.i.i.i
+  br i1 %or.cond.i.i.i.i, label %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockES3_E_clES3_S3_.exit.thread.i.i.i, label %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockES3_E_clES3_S3_.exit.i.i.i
 
-_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockES3_E_clES3_S3_.argprom.exit.thread.i.i.i: ; preds = %478
+_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockES3_E_clES3_S3_.exit.thread.i.i.i: ; preds = %478
   store i8 0, ptr %44, align 1
   br label %486
 
-_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockES3_E_clES3_S3_.argprom.exit.i.i.i: ; preds = %478
+_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockES3_E_clES3_S3_.exit.i.i.i: ; preds = %478
   %481 = getelementptr inbounds nuw i8, ptr %.val38.i.i.i, i64 8
   %482 = load ptr, ptr %481, align 8
   %483 = call noundef ptr @_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_(ptr noundef nonnull align 8 dereferenceable(144) %482, ptr noundef %444) #15
@@ -1477,7 +1477,7 @@ _ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBl
   store i8 %485, ptr %44, align 1
   br i1 %.not256.i.i.i, label %.loopexit.i.i.i, label %486
 
-486:                                              ; preds = %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockES3_E_clES3_S3_.argprom.exit.i.i.i, %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockES3_E_clES3_S3_.argprom.exit.thread.i.i.i
+486:                                              ; preds = %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockES3_E_clES3_S3_.exit.i.i.i, %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockES3_E_clES3_S3_.exit.thread.i.i.i
   %487 = load ptr, ptr %28, align 8
   %488 = call noundef ptr @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopLatchEv(ptr noundef nonnull align 8 dereferenceable(152) %487) #15
   %489 = load ptr, ptr %63, align 8, !noalias !59
@@ -1568,22 +1568,22 @@ _ZN4llvm10successorsEPNS_10BasicBlockE.exit.i175.i.i.i: ; preds = %513
   %.090.i.i.i.i.i.i.i.i.i.i = phi i32 [ %534, %532 ], [ %520, %_ZN4llvm10successorsEPNS_10BasicBlockE.exit.i175.i.i.i ]
   %.sroa.15.089.i.i.i.i.i.i.i.i.i.i = phi i32 [ %533, %532 ], [ 0, %_ZN4llvm10successorsEPNS_10BasicBlockE.exit.i175.i.i.i ]
   %522 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES6_EUlS6_E_EclINS4_12SuccIteratorINS4_11InstructionES5_EEEEbT_(ptr noundef nonnull readonly align 8 dereferenceable(24) %20, ptr %514, i32 %.sroa.15.089.i.i.i.i.i.i.i.i.i.i)
-  br i1 %522, label %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES3_.argprom.exit.i.i.i, label %523
+  br i1 %522, label %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES3_.exit.i.i.i, label %523
 
 523:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i177.i.i.i
   %524 = or disjoint i32 %.sroa.15.089.i.i.i.i.i.i.i.i.i.i, 1
   %525 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES6_EUlS6_E_EclINS4_12SuccIteratorINS4_11InstructionES5_EEEEbT_(ptr noundef nonnull readonly align 8 dereferenceable(24) %20, ptr %514, i32 %524)
-  br i1 %525, label %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES3_.argprom.exit.i.i.i, label %526
+  br i1 %525, label %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES3_.exit.i.i.i, label %526
 
 526:                                              ; preds = %523
   %527 = or disjoint i32 %.sroa.15.089.i.i.i.i.i.i.i.i.i.i, 2
   %528 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES6_EUlS6_E_EclINS4_12SuccIteratorINS4_11InstructionES5_EEEEbT_(ptr noundef nonnull readonly align 8 dereferenceable(24) %20, ptr %514, i32 %527)
-  br i1 %528, label %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES3_.argprom.exit.i.i.i, label %529
+  br i1 %528, label %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES3_.exit.i.i.i, label %529
 
 529:                                              ; preds = %526
   %530 = or disjoint i32 %.sroa.15.089.i.i.i.i.i.i.i.i.i.i, 3
   %531 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES6_EUlS6_E_EclINS4_12SuccIteratorINS4_11InstructionES5_EEEEbT_(ptr noundef nonnull readonly align 8 dereferenceable(24) %20, ptr %514, i32 %530)
-  br i1 %531, label %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES3_.argprom.exit.i.i.i, label %532
+  br i1 %531, label %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES3_.exit.i.i.i, label %532
 
 532:                                              ; preds = %529
   %533 = add nuw nsw i32 %.sroa.15.089.i.i.i.i.i.i.i.i.i.i, 4
@@ -1596,7 +1596,7 @@ _ZN4llvm10successorsEPNS_10BasicBlockE.exit.i175.i.i.i: ; preds = %513
   %.0.i.i.i15.i7.i.i.i.i = phi ptr [ %514, %_ZN4llvm10successorsEPNS_10BasicBlockE.exit.i175.i.i.i ], [ null, %_ZN4llvm10successorsEPNS_10BasicBlockE.exit.thread.i.i.i.i ], [ %514, %532 ]
   %.sroa.15.0.lcssa.i.i.i.i.i.i.i.i.i.i = phi i32 [ 0, %_ZN4llvm10successorsEPNS_10BasicBlockE.exit.i175.i.i.i ], [ 0, %_ZN4llvm10successorsEPNS_10BasicBlockE.exit.thread.i.i.i.i ], [ %533, %532 ]
   %536 = sub nsw i32 %.sink.i.i.i8.i.i.i.i, %.sroa.15.0.lcssa.i.i.i.i.i.i.i.i.i.i
-  switch i32 %536, label %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES3_.argprom.exit.thread.i.i.i [
+  switch i32 %536, label %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES3_.exit.thread.i.i.i [
     i32 3, label %537
     i32 2, label %541
     i32 1, label %545
@@ -1604,7 +1604,7 @@ _ZN4llvm10successorsEPNS_10BasicBlockE.exit.i175.i.i.i: ; preds = %513
 
 537:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i
   %538 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES6_EUlS6_E_EclINS4_12SuccIteratorINS4_11InstructionES5_EEEEbT_(ptr noundef nonnull readonly align 8 dereferenceable(24) %20, ptr %.0.i.i.i15.i7.i.i.i.i, i32 %.sroa.15.0.lcssa.i.i.i.i.i.i.i.i.i.i)
-  br i1 %538, label %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES3_.argprom.exit.i.i.i, label %539
+  br i1 %538, label %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES3_.exit.i.i.i, label %539
 
 539:                                              ; preds = %537
   %540 = add nsw i32 %.sroa.15.0.lcssa.i.i.i.i.i.i.i.i.i.i, 1
@@ -1613,7 +1613,7 @@ _ZN4llvm10successorsEPNS_10BasicBlockE.exit.i175.i.i.i: ; preds = %513
 541:                                              ; preds = %539, %._crit_edge.i.i.i.i.i.i.i.i.i.i
   %.sroa.15.1.i.i.i.i.i.i.i.i.i.i = phi i32 [ %.sroa.15.0.lcssa.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i ], [ %540, %539 ]
   %542 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES6_EUlS6_E_EclINS4_12SuccIteratorINS4_11InstructionES5_EEEEbT_(ptr noundef nonnull readonly align 8 dereferenceable(24) %20, ptr %.0.i.i.i15.i7.i.i.i.i, i32 %.sroa.15.1.i.i.i.i.i.i.i.i.i.i)
-  br i1 %542, label %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES3_.argprom.exit.i.i.i, label %543
+  br i1 %542, label %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES3_.exit.i.i.i, label %543
 
 543:                                              ; preds = %541
   %544 = add nsw i32 %.sroa.15.1.i.i.i.i.i.i.i.i.i.i, 1
@@ -1622,14 +1622,14 @@ _ZN4llvm10successorsEPNS_10BasicBlockE.exit.i175.i.i.i: ; preds = %513
 545:                                              ; preds = %543, %._crit_edge.i.i.i.i.i.i.i.i.i.i
   %.sroa.15.2.i.i.i.i.i.i.i.i.i.i = phi i32 [ %.sroa.15.0.lcssa.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i ], [ %544, %543 ]
   %546 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES6_EUlS6_E_EclINS4_12SuccIteratorINS4_11InstructionES5_EEEEbT_(ptr noundef nonnull readonly align 8 dereferenceable(24) %20, ptr %.0.i.i.i15.i7.i.i.i.i, i32 %.sroa.15.2.i.i.i.i.i.i.i.i.i.i)
-  br i1 %546, label %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES3_.argprom.exit.i.i.i, label %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES3_.argprom.exit.thread.i.i.i
+  br i1 %546, label %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES3_.exit.i.i.i, label %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES3_.exit.thread.i.i.i
 
-_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES3_.argprom.exit.thread.i.i.i: ; preds = %545, %._crit_edge.i.i.i.i.i.i.i.i.i.i
+_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES3_.exit.thread.i.i.i: ; preds = %545, %._crit_edge.i.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   br label %_ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit201.i.i.i
 
-_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES3_.argprom.exit.i.i.i: ; preds = %529, %526, %523, %.lr.ph.i.i.i.i.i.i.i177.i.i.i, %545, %541, %537
+_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES3_.exit.i.i.i: ; preds = %529, %526, %523, %.lr.ph.i.i.i.i.i.i.i177.i.i.i, %545, %541, %537
   %.sink.i.i.i9.i.i.i.i = phi i32 [ %.sink.i.i.i8.i.i.i.i, %537 ], [ %.sink.i.i.i8.i.i.i.i, %541 ], [ %.sink.i.i.i8.i.i.i.i, %545 ], [ %519, %.lr.ph.i.i.i.i.i.i.i177.i.i.i ], [ %519, %523 ], [ %519, %526 ], [ %519, %529 ]
   %.sroa.9.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %.sroa.15.0.lcssa.i.i.i.i.i.i.i.i.i.i, %537 ], [ %.sroa.15.1.i.i.i.i.i.i.i.i.i.i, %541 ], [ %.sroa.15.2.i.i.i.i.i.i.i.i.i.i, %545 ], [ %530, %529 ], [ %527, %526 ], [ %524, %523 ], [ %.sroa.15.089.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i177.i.i.i ]
   %.not258.i.i.i = icmp eq i32 %.sink.i.i.i9.i.i.i.i, %.sroa.9.0.i.i.i.i.i.i.i.i.i.i
@@ -1637,7 +1637,7 @@ _ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBl
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   br i1 %.not258.i.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit201.i.i.i, label %547
 
-547:                                              ; preds = %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES3_.argprom.exit.i.i.i
+547:                                              ; preds = %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES3_.exit.i.i.i
   %548 = load ptr, ptr %63, align 8, !noalias !66
   %549 = load ptr, ptr %61, align 8, !noalias !66
   %550 = icmp eq ptr %548, %549
@@ -1676,12 +1676,12 @@ _ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBl
   %564 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %61, ptr noundef %509) #15, !noalias !66
   br label %_ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit201.i.i.i
 
-_ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit201.i.i.i: ; preds = %.lr.ph.i.i197.i.i.i, %563, %561, %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES3_.argprom.exit.i.i.i, %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES3_.argprom.exit.thread.i.i.i
+_ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit201.i.i.i: ; preds = %.lr.ph.i.i197.i.i.i, %563, %561, %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES3_.exit.i.i.i, %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES3_.exit.thread.i.i.i
   %565 = getelementptr inbounds i8, ptr %.sroa.0203.0302.i.i.i, i64 8
   %.not257.i.i.i = icmp eq ptr %565, %507
   br i1 %.not257.i.i.i, label %.loopexit.i.i.i, label %508, !llvm.loop !69
 
-.loopexit.i.i.i:                                  ; preds = %_ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit201.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i156.i.i.i, %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockES3_E_clES3_S3_.argprom.exit.i.i.i, %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockES3_E_clES3_S3_.argprom.exit.thread243.i.i.i
+.loopexit.i.i.i:                                  ; preds = %_ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit201.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i156.i.i.i, %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockES3_E_clES3_S3_.exit.i.i.i, %_ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockES3_E_clES3_S3_.exit.thread243.i.i.i
   %566 = load ptr, ptr %347, align 8
   %567 = load ptr, ptr %26, align 8
   %568 = icmp eq ptr %566, %567

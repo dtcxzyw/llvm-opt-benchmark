@@ -211,11 +211,11 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.then4:                                         ; preds = %if.end
   %call5 = tail call ptr @create_bitmap_mapping(ptr noundef nonnull %call2, ptr noundef nonnull %to_pack) #18
-  call fastcc void @bitmap_builder_init.argprom(ptr noundef %bb, ptr noundef nonnull %call2)
+  call fastcc void @bitmap_builder_init(ptr noundef %bb, ptr noundef nonnull %call2)
   br label %if.end6
 
 if.else.split:                                    ; preds = %if.end
-  call fastcc void @bitmap_builder_init.argprom(ptr noundef %bb, ptr noundef null)
+  call fastcc void @bitmap_builder_init(ptr noundef %bb, ptr noundef null)
   br label %if.end6
 
 if.end6:                                          ; preds = %if.else.split, %if.then4
@@ -283,7 +283,7 @@ if.end12.i.i:                                     ; preds = %for.end.i.i, %for.b
   %12 = load ptr, ptr %arrayidx15.i.i, align 8
   %tobool16.not.i.i = icmp eq ptr %12, null
   %.pre145 = load i32, ptr %stride.i.i, align 4
-  br i1 %tobool16.not.i.i, label %if.end20.i.i, label %bb_data_at.argprom.exit
+  br i1 %tobool16.not.i.i, label %if.end20.i.i, label %bb_data_at.exit
 
 if.end20.i.i:                                     ; preds = %if.end12.i.i
   %conv22.i.i = zext i32 %9 to i64
@@ -291,9 +291,9 @@ if.end20.i.i:                                     ; preds = %if.end12.i.i
   %mul.i.i = shl nuw nsw i64 %conv23.i.i, 5
   %call24.i.i = call ptr @xcalloc(i64 noundef %conv22.i.i, i64 noundef %mul.i.i) #18
   store ptr %call24.i.i, ptr %arrayidx15.i.i, align 8
-  br label %bb_data_at.argprom.exit
+  br label %bb_data_at.exit
 
-bb_data_at.argprom.exit:                          ; preds = %if.end12.i.i, %if.end20.i.i
+bb_data_at.exit:                                  ; preds = %if.end12.i.i, %if.end20.i.i
   %13 = phi ptr [ %12, %if.end12.i.i ], [ %call24.i.i, %if.end20.i.i ]
   %mul33.i.i = mul i32 %.pre145, %rem.i.i
   %idxprom34.i.i = zext i32 %mul33.i.i to i64
@@ -303,12 +303,12 @@ bb_data_at.argprom.exit:                          ; preds = %if.end12.i.i, %if.e
   %tobool.not.i = icmp eq ptr %14, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
-if.then.i:                                        ; preds = %bb_data_at.argprom.exit
+if.then.i:                                        ; preds = %bb_data_at.exit
   %call.i27 = call ptr @bitmap_new() #18
   store ptr %call.i27, ptr %bitmap.i, align 8
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.then.i, %bb_data_at.argprom.exit
+if.end.i:                                         ; preds = %if.then.i, %bb_data_at.exit
   call void @prio_queue_put(ptr noundef nonnull %queue, ptr noundef %7) #18
   %15 = load i32, ptr %nr.i, align 4
   %tobool2.not50.i = icmp eq i32 %15, 0
@@ -836,7 +836,7 @@ if.then81.i.i:                                    ; preds = %if.end71.i.i
   %104 = load i32, ptr %n_occupied.i.i, align 8
   %inc97.i.i = add i32 %104, 1
   store i32 %inc97.i.i, ptr %n_occupied.i.i, align 8
-  br label %store_selected.argprom.exit
+  br label %store_selected.exit
 
 if.else98.i.i:                                    ; preds = %if.end71.i.i
   %and106.i.i = and i32 %shr78.i.i, 1
@@ -860,7 +860,7 @@ if.then108.i.i:                                   ; preds = %if.else98.i.i
   %108 = load i32, ptr %size124.i.i, align 4
   %inc125.i.i = add i32 %108, 1
   store i32 %inc125.i.i, ptr %size124.i.i, align 4
-  br label %store_selected.argprom.exit
+  br label %store_selected.exit
 
 if.then.i36:                                      ; preds = %if.else98.i.i
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %byval-temp4.i)
@@ -869,7 +869,7 @@ if.then.i36:                                      ; preds = %if.else98.i.i
   call void (ptr, ...) @die(ptr noundef nonnull @.str.18, ptr noundef %call5.i) #19
   unreachable
 
-store_selected.argprom.exit:                      ; preds = %if.then81.i.i, %if.then108.i.i
+store_selected.exit:                              ; preds = %if.then81.i.i, %if.then108.i.i
   %idxprom6.pre-phi.i = phi i64 [ %idxprom110.i.i, %if.then108.i.i ], [ %idxprom83.i.i, %if.then81.i.i ]
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %byval-temp4.i)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %byval-temp.i.i)
@@ -884,8 +884,8 @@ store_selected.argprom.exit:                      ; preds = %if.then81.i.i, %if.
   call void @display_progress(ptr noundef %111, i64 noundef %conv16) #18
   br label %if.end17
 
-if.end17:                                         ; preds = %store_selected.argprom.exit, %if.end13
-  %nr_stored.1 = phi i32 [ %inc, %store_selected.argprom.exit ], [ %nr_stored.0126, %if.end13 ]
+if.end17:                                         ; preds = %store_selected.exit, %if.end13
+  %nr_stored.1 = phi i32 [ %inc, %store_selected.exit ], [ %nr_stored.0126, %if.end13 ]
   %call18121 = call ptr @pop_commit(ptr noundef %arrayidx35.i.i) #18
   %tobool19.not122 = icmp eq ptr %call18121, null
   br i1 %tobool19.not122, label %if.then38, label %while.body
@@ -931,7 +931,7 @@ if.end12.i.i60:                                   ; preds = %for.end.i.i59, %whi
   %116 = load ptr, ptr %arrayidx15.i.i63, align 8
   %tobool16.not.i.i64 = icmp eq ptr %116, null
   %.pre147 = load i32, ptr %stride.i.i, align 4
-  br i1 %tobool16.not.i.i64, label %if.end20.i.i70, label %bb_data_at.argprom.exit80
+  br i1 %tobool16.not.i.i64, label %if.end20.i.i70, label %bb_data_at.exit80
 
 if.end20.i.i70:                                   ; preds = %if.end12.i.i60
   %conv22.i.i71 = zext i32 %113 to i64
@@ -939,9 +939,9 @@ if.end20.i.i70:                                   ; preds = %if.end12.i.i60
   %mul.i.i74 = shl nuw nsw i64 %conv23.i.i73, 5
   %call24.i.i75 = call ptr @xcalloc(i64 noundef %conv22.i.i71, i64 noundef %mul.i.i74) #18
   store ptr %call24.i.i75, ptr %arrayidx15.i.i63, align 8
-  br label %bb_data_at.argprom.exit80
+  br label %bb_data_at.exit80
 
-bb_data_at.argprom.exit80:                        ; preds = %if.end12.i.i60, %if.end20.i.i70
+bb_data_at.exit80:                                ; preds = %if.end12.i.i60, %if.end20.i.i70
   %117 = phi ptr [ %116, %if.end12.i.i60 ], [ %call24.i.i75, %if.end20.i.i70 ]
   %mul33.i.i67 = mul i32 %.pre147, %rem.i.i65
   %idxprom34.i.i68 = zext i32 %mul33.i.i67 to i64
@@ -950,12 +950,12 @@ bb_data_at.argprom.exit80:                        ; preds = %if.end12.i.i60, %if
   %tobool22.not = icmp eq ptr %118, null
   br i1 %tobool22.not, label %if.else26, label %if.then23
 
-if.then23:                                        ; preds = %bb_data_at.argprom.exit80
+if.then23:                                        ; preds = %bb_data_at.exit80
   %119 = load ptr, ptr %bitmap.i, align 8
   call void @bitmap_or(ptr noundef nonnull %118, ptr noundef %119) #18
   br label %if.end36
 
-if.else26:                                        ; preds = %bb_data_at.argprom.exit80
+if.else26:                                        ; preds = %bb_data_at.exit80
   %tobool27.not = icmp eq i32 %reused.0123, 0
   %120 = load ptr, ptr %bitmap.i, align 8
   br i1 %tobool27.not, label %if.else32, label %if.then28
@@ -1081,13 +1081,13 @@ bitmap_builder_clear.exit:                        ; preds = %for.body.i.i.i, %fo
   call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.2, i32 noundef 550, ptr noundef nonnull @.str.3, ptr noundef %138, ptr noundef nonnull @.str.5, i64 noundef %conv42) #18
   %140 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i.i = icmp eq i32 %140, 0
-  br i1 %tobool1.not.i.i, label %stop_progress.argprom.exit, label %if.end3.i.i
+  br i1 %tobool1.not.i.i, label %stop_progress.exit, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %bitmap_builder_clear.exit
   %call.i.i92 = call ptr @gettext(ptr noundef nonnull @.str.19) #18
-  br label %stop_progress.argprom.exit
+  br label %stop_progress.exit
 
-stop_progress.argprom.exit:                       ; preds = %bitmap_builder_clear.exit, %if.end3.i.i
+stop_progress.exit:                               ; preds = %bitmap_builder_clear.exit, %if.end3.i.i
   %retval.0.i.i = phi ptr [ %call.i.i92, %if.end3.i.i ], [ @.str.19, %bitmap_builder_clear.exit ]
   call void @stop_progress_msg(ptr noundef nonnull getelementptr inbounds (i8, ptr @writer, i64 64), ptr noundef %retval.0.i.i) #18
   %141 = load i32, ptr getelementptr inbounds (i8, ptr @writer, i64 56), align 8
@@ -1095,9 +1095,9 @@ stop_progress.argprom.exit:                       ; preds = %bitmap_builder_clea
   %or.cond = select i1 %cmp.not.not119, i1 true, i1 %cmp21.not.i
   br i1 %or.cond, label %if.end45, label %while.body.i93
 
-while.body.i93:                                   ; preds = %stop_progress.argprom.exit, %for.end.i
-  %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %for.end.i ], [ 0, %stop_progress.argprom.exit ]
-  %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %for.end.i ], [ 1, %stop_progress.argprom.exit ]
+while.body.i93:                                   ; preds = %stop_progress.exit, %for.end.i
+  %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %for.end.i ], [ 0, %stop_progress.exit ]
+  %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %for.end.i ], [ 1, %stop_progress.exit ]
   %142 = load ptr, ptr getelementptr inbounds (i8, ptr @writer, i64 48), align 8
   %arrayidx.i94 = getelementptr inbounds %struct.bitmapped_commit, ptr %142, i64 %indvars.iv30.i
   %bitmap.i95 = getelementptr inbounds i8, ptr %arrayidx.i94, i64 8
@@ -1160,7 +1160,7 @@ for.end.i:                                        ; preds = %for.inc.i99, %for.b
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
   br i1 %cmp.i100, label %while.body.i93, label %if.end45, !llvm.loop !20
 
-if.end45:                                         ; preds = %for.end.i, %stop_progress.argprom.exit
+if.end45:                                         ; preds = %for.end.i, %stop_progress.exit
   %cond = sext i1 %cmp.not.not119 to i32
   ret i32 %cond
 }
@@ -1182,7 +1182,7 @@ declare ptr @prepare_bitmap_git(ptr noundef) local_unnamed_addr #2
 declare ptr @create_bitmap_mapping(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bitmap_builder_init.argprom(ptr nocapture noundef nonnull %bb, ptr noundef %old_bitmap) unnamed_addr #1 {
+define internal fastcc void @bitmap_builder_init(ptr nocapture noundef nonnull %bb, ptr noundef %old_bitmap) unnamed_addr #1 {
 entry:
   %revs = alloca %struct.rev_info, align 8
   %reusable = alloca ptr, align 8
@@ -1207,8 +1207,8 @@ entry:
   %cmp7.not = icmp eq i32 %3, 0
   br i1 %cmp7.not, label %for.end, label %for.body
 
-for.body:                                         ; preds = %entry, %bb_data_at.argprom.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %bb_data_at.argprom.exit ], [ 0, %entry ]
+for.body:                                         ; preds = %entry, %bb_data_at.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %bb_data_at.exit ], [ 0, %entry ]
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @writer, i64 48), align 8
   %arrayidx = getelementptr inbounds %struct.bitmapped_commit, ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx, align 8
@@ -1257,7 +1257,7 @@ if.end12.i.i:                                     ; preds = %for.end.i.i, %for.b
   %arrayidx15.i.i = getelementptr inbounds ptr, ptr %11, i64 %idxprom14.i.i
   %12 = load ptr, ptr %arrayidx15.i.i, align 8
   %tobool16.not.i.i = icmp eq ptr %12, null
-  br i1 %tobool16.not.i.i, label %if.end20.i.i, label %bb_data_at.argprom.exit
+  br i1 %tobool16.not.i.i, label %if.end20.i.i, label %bb_data_at.exit
 
 if.end20.i.i:                                     ; preds = %if.end12.i.i
   %13 = load i32, ptr %bb, align 8
@@ -1272,9 +1272,9 @@ if.end20.i.i:                                     ; preds = %if.end12.i.i
   %.pre.i.i = load ptr, ptr %slab.i.i, align 8
   %arrayidx31.phi.trans.insert.i.i = getelementptr inbounds ptr, ptr %.pre.i.i, i64 %idxprom14.i.i
   %.pre4.i.i = load ptr, ptr %arrayidx31.phi.trans.insert.i.i, align 8
-  br label %bb_data_at.argprom.exit
+  br label %bb_data_at.exit
 
-bb_data_at.argprom.exit:                          ; preds = %if.end12.i.i, %if.end20.i.i
+bb_data_at.exit:                                  ; preds = %if.end12.i.i, %if.end20.i.i
   %16 = phi ptr [ %12, %if.end12.i.i ], [ %.pre4.i.i, %if.end20.i.i ]
   %17 = load i32, ptr %stride1.i.i, align 4
   %mul33.i.i = mul i32 %17, %rem.i.i
@@ -1298,7 +1298,7 @@ bb_data_at.argprom.exit:                          ; preds = %if.end12.i.i, %if.e
   %cmp = icmp ult i64 %indvars.iv.next, %20
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !21
 
-for.end:                                          ; preds = %bb_data_at.argprom.exit, %entry
+for.end:                                          ; preds = %bb_data_at.exit, %entry
   %call15 = call i32 @prepare_revision_walk(ptr noundef nonnull %revs) #18
   %tobool.not = icmp eq i32 %call15, 0
   br i1 %tobool.not, label %while.cond.preheader, label %if.then
@@ -1314,7 +1314,7 @@ if.then:                                          ; preds = %for.end
   call void (ptr, ...) @die(ptr noundef nonnull @.str.13) #19
   unreachable
 
-while.cond:                                       ; preds = %while.cond.outer, %bb_data_at.argprom.exit122
+while.cond:                                       ; preds = %while.cond.outer, %bb_data_at.exit122
   %call16 = call ptr @get_revision(ptr noundef nonnull %revs) #18
   %tobool17.not = icmp eq ptr %call16, null
   br i1 %tobool17.not, label %for.cond130.preheader, label %while.body
@@ -1373,7 +1373,7 @@ if.end12.i.i102:                                  ; preds = %for.end.i.i101, %wh
   %arrayidx15.i.i105 = getelementptr inbounds ptr, ptr %27, i64 %idxprom14.i.i104
   %28 = load ptr, ptr %arrayidx15.i.i105, align 8
   %tobool16.not.i.i106 = icmp eq ptr %28, null
-  br i1 %tobool16.not.i.i106, label %if.end20.i.i112, label %bb_data_at.argprom.exit122
+  br i1 %tobool16.not.i.i106, label %if.end20.i.i112, label %bb_data_at.exit122
 
 if.end20.i.i112:                                  ; preds = %if.end12.i.i102
   %29 = load i32, ptr %bb, align 8
@@ -1388,9 +1388,9 @@ if.end20.i.i112:                                  ; preds = %if.end12.i.i102
   %.pre.i.i119 = load ptr, ptr %slab.i.i, align 8
   %arrayidx31.phi.trans.insert.i.i120 = getelementptr inbounds ptr, ptr %.pre.i.i119, i64 %idxprom14.i.i104
   %.pre4.i.i121 = load ptr, ptr %arrayidx31.phi.trans.insert.i.i120, align 8
-  br label %bb_data_at.argprom.exit122
+  br label %bb_data_at.exit122
 
-bb_data_at.argprom.exit122:                       ; preds = %if.end12.i.i102, %if.end20.i.i112
+bb_data_at.exit122:                               ; preds = %if.end12.i.i102, %if.end20.i.i112
   %32 = phi ptr [ %28, %if.end12.i.i102 ], [ %.pre4.i.i121, %if.end20.i.i112 ]
   %33 = load i32, ptr %stride1.i.i, align 4
   %mul33.i.i109 = mul i32 %33, %rem.i.i107
@@ -1401,7 +1401,7 @@ bb_data_at.argprom.exit122:                       ; preds = %if.end12.i.i102, %i
   %tobool21.not = icmp eq ptr %34, null
   br i1 %tobool21.not, label %while.cond, label %if.end23, !llvm.loop !22
 
-if.end23:                                         ; preds = %bb_data_at.argprom.exit122
+if.end23:                                         ; preds = %bb_data_at.exit122
   %commit_mask20.le = getelementptr inbounds i8, ptr %arrayidx35.i.i111, i64 8
   br i1 %tobool24.not, label %if.end29, label %land.lhs.true
 
@@ -1513,7 +1513,7 @@ if.end12.i.i140:                                  ; preds = %for.end.i.i139, %if
   %49 = load ptr, ptr %arrayidx15.i.i143, align 8
   %tobool16.not.i.i144 = icmp eq ptr %49, null
   %.pre27 = load i32, ptr %stride1.i.i, align 4
-  br i1 %tobool16.not.i.i144, label %if.end20.i.i150, label %bb_data_at.argprom.exit160
+  br i1 %tobool16.not.i.i144, label %if.end20.i.i150, label %bb_data_at.exit160
 
 if.end20.i.i150:                                  ; preds = %if.end12.i.i140
   %50 = load i32, ptr %bb, align 8
@@ -1528,9 +1528,9 @@ if.end20.i.i150:                                  ; preds = %if.end12.i.i140
   %arrayidx31.phi.trans.insert.i.i158 = getelementptr inbounds ptr, ptr %.pre.i.i157, i64 %idxprom14.i.i142
   %.pre4.i.i159 = load ptr, ptr %arrayidx31.phi.trans.insert.i.i158, align 8
   %.pre26 = load i32, ptr %stride1.i.i, align 4
-  br label %bb_data_at.argprom.exit160
+  br label %bb_data_at.exit160
 
-bb_data_at.argprom.exit160:                       ; preds = %if.end12.i.i140, %if.end20.i.i150
+bb_data_at.exit160:                               ; preds = %if.end12.i.i140, %if.end20.i.i150
   %52 = phi i32 [ %.pre27, %if.end12.i.i140 ], [ %.pre26, %if.end20.i.i150 ]
   %53 = phi ptr [ %49, %if.end12.i.i140 ], [ %.pre4.i.i159, %if.end20.i.i150 ]
   %mul33.i.i147 = mul i32 %52, %rem.i.i145
@@ -1541,14 +1541,14 @@ bb_data_at.argprom.exit160:                       ; preds = %if.end12.i.i140, %i
   %tobool70.not = icmp eq ptr %54, null
   br i1 %tobool70.not, label %if.end84.thread, label %if.end81
 
-if.end84.thread:                                  ; preds = %bb_data_at.argprom.exit160
+if.end84.thread:                                  ; preds = %bb_data_at.exit160
   %call72 = call ptr @bitmap_new() #18
   store ptr %call72, ptr %commit_mask69, align 8
   %55 = load ptr, ptr %commit_mask20.le, align 8
   call void @bitmap_or(ptr noundef %call72, ptr noundef %55) #18
   br label %if.else93
 
-if.end81:                                         ; preds = %bb_data_at.argprom.exit160
+if.end81:                                         ; preds = %bb_data_at.exit160
   %56 = load ptr, ptr %commit_mask20.le, align 8
   %call77 = call i32 @bitmap_is_subset(ptr noundef %56, ptr noundef nonnull %54) #18
   %57 = load ptr, ptr %commit_mask69, align 8
@@ -1718,9 +1718,9 @@ declare void @trace2_data_intmax_fl(ptr noundef, i32 noundef, ptr noundef, ptr n
 define dso_local void @bitmap_writer_select_commits(ptr noundef %indexed_commits, i32 noundef %indexed_commits_nr, i32 noundef %max_bitmaps) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp ugt i32 %indexed_commits_nr, 1
-  br i1 %cmp.i, label %sane_qsort.argprom.exit, label %for.cond.preheader
+  br i1 %cmp.i, label %sane_qsort.exit, label %for.cond.preheader
 
-sane_qsort.argprom.exit:                          ; preds = %entry
+sane_qsort.exit:                                  ; preds = %entry
   %conv = zext i32 %indexed_commits_nr to i64
   tail call void @qsort(ptr noundef %indexed_commits, i64 noundef %conv, i64 noundef 8, ptr noundef nonnull @date_compare) #18
   %cmp = icmp ult i32 %indexed_commits_nr, 100
@@ -1730,7 +1730,7 @@ for.cond.preheader:                               ; preds = %entry
   %cmp251.not = icmp eq i32 %indexed_commits_nr, 0
   br i1 %cmp251.not, label %return, label %for.body.preheader
 
-for.body.preheader:                               ; preds = %sane_qsort.argprom.exit, %for.cond.preheader
+for.body.preheader:                               ; preds = %sane_qsort.exit, %for.cond.preheader
   %wide.trip.count = zext nneg i32 %indexed_commits_nr to i64
   %.pre = load i32, ptr getelementptr inbounds (i8, ptr @writer, i64 56), align 8
   br label %for.body
@@ -1779,7 +1779,7 @@ push_bitmapped_commit.exit:                       ; preds = %for.body, %if.then.
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
   br i1 %exitcond57.not, label %return, label %for.body, !llvm.loop !25
 
-if.end:                                           ; preds = %sane_qsort.argprom.exit
+if.end:                                           ; preds = %sane_qsort.exit
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @writer, i64 72), align 8
   %tobool.not = icmp eq i32 %10, 0
   br i1 %tobool.not, label %if.end5, label %if.then4
@@ -1926,18 +1926,18 @@ push_bitmapped_commit.exit48:                     ; preds = %if.end47, %if.then.
 for.end51:                                        ; preds = %next_commit_index.exit, %if.then16
   %29 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i.i = icmp eq i32 %29, 0
-  br i1 %tobool1.not.i.i, label %stop_progress.argprom.exit, label %if.end3.i.i
+  br i1 %tobool1.not.i.i, label %stop_progress.exit, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %for.end51
   %call.i.i = tail call ptr @gettext(ptr noundef nonnull @.str.19) #18
-  br label %stop_progress.argprom.exit
+  br label %stop_progress.exit
 
-stop_progress.argprom.exit:                       ; preds = %for.end51, %if.end3.i.i
+stop_progress.exit:                               ; preds = %for.end51, %if.end3.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.end3.i.i ], [ @.str.19, %for.end51 ]
   tail call void @stop_progress_msg(ptr noundef nonnull getelementptr inbounds (i8, ptr @writer, i64 64), ptr noundef %retval.0.i.i) #18
   br label %return
 
-return:                                           ; preds = %push_bitmapped_commit.exit, %for.cond.preheader, %stop_progress.argprom.exit
+return:                                           ; preds = %push_bitmapped_commit.exit, %for.cond.preheader, %stop_progress.exit
   ret void
 }
 

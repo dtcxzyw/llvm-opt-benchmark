@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.8e83ed416a3104aace4e019d589542a4.10.llvm.15137969595604750360 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$uu_nl..NumberingStyle$GT$17hd8c2d2a9d41db602E.argprom"(i64 %.0.val, ptr %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$uu_nl..NumberingStyle$GT$17hd8c2d2a9d41db602E"(i64 %.0.val, ptr %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %switch = icmp ult i64 %.0.val, 3
   br i1 %switch, label %16, label %1
 
@@ -726,7 +726,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %124
   %.val99 = load i64, ptr %1, align 8, !range !174, !noundef !16
   %248 = getelementptr inbounds i8, ptr %1, i64 8
   %.val100 = load ptr, ptr %248, align 8
-  invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$uu_nl..NumberingStyle$GT$17hd8c2d2a9d41db602E.argprom"(i64 %.val99, ptr %.val100)
+  invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$uu_nl..NumberingStyle$GT$17hd8c2d2a9d41db602E"(i64 %.val99, ptr %.val100)
           to label %265 unwind label %263
 
 249:                                              ; preds = %224
@@ -882,7 +882,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %124
   %.val97 = load i64, ptr %298, align 8, !range !174, !noundef !16
   %299 = getelementptr inbounds i8, ptr %1, i64 24
   %.val98 = load ptr, ptr %299, align 8
-  invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$uu_nl..NumberingStyle$GT$17hd8c2d2a9d41db602E.argprom"(i64 %.val97, ptr %.val98)
+  invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$uu_nl..NumberingStyle$GT$17hd8c2d2a9d41db602E"(i64 %.val97, ptr %.val98)
           to label %316 unwind label %314
 
 300:                                              ; preds = %274
@@ -1038,7 +1038,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %124
   %.val95 = load i64, ptr %349, align 8, !range !174, !noundef !16
   %350 = getelementptr inbounds i8, ptr %1, i64 40
   %.val96 = load ptr, ptr %350, align 8
-  invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$uu_nl..NumberingStyle$GT$17hd8c2d2a9d41db602E.argprom"(i64 %.val95, ptr %.val96)
+  invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$uu_nl..NumberingStyle$GT$17hd8c2d2a9d41db602E"(i64 %.val95, ptr %.val96)
           to label %367 unwind label %365
 
 351:                                              ; preds = %325

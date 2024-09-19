@@ -4435,9 +4435,9 @@ define void @_ZN2cv6detail20BundleAdjusterReproj24setUpInitialCameraParamsERKSt6
   store i32 33619968, ptr %3, align 8
   store ptr %6, ptr %33, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef -1, double noundef -1.000000e+00, double noundef 0.000000e+00)
-          to label %_ZN2cvmLERNS_3MatERKd.argprom.exit unwind label %98
+          to label %_ZN2cvmLERNS_3MatERKd.exit unwind label %98
 
-_ZN2cvmLERNS_3MatERKd.argprom.exit:               ; preds = %93
+_ZN2cvmLERNS_3MatERKd.exit:                       ; preds = %93
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %102
 
@@ -4461,7 +4461,7 @@ _ZN2cvmLERNS_3MatERKd.argprom.exit:               ; preds = %93
           cleanup
   br label %158
 
-102:                                              ; preds = %_ZN2cvmLERNS_3MatERKd.argprom.exit, %91
+102:                                              ; preds = %_ZN2cvmLERNS_3MatERKd.exit, %91
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #21
   store i32 0, ptr %35, align 8
   store i32 0, ptr %36, align 4
@@ -6083,9 +6083,9 @@ define void @_ZN2cv6detail17BundleAdjusterRay24setUpInitialCameraParamsERKSt6vec
   store i32 33619968, ptr %3, align 8
   store ptr %6, ptr %33, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef -1, double noundef -1.000000e+00, double noundef 0.000000e+00)
-          to label %_ZN2cvmLERNS_3MatERKd.argprom.exit unwind label %71
+          to label %_ZN2cvmLERNS_3MatERKd.exit unwind label %71
 
-_ZN2cvmLERNS_3MatERKd.argprom.exit:               ; preds = %66
+_ZN2cvmLERNS_3MatERKd.exit:                       ; preds = %66
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %75
 
@@ -6109,7 +6109,7 @@ _ZN2cvmLERNS_3MatERKd.argprom.exit:               ; preds = %66
           cleanup
   br label %131
 
-75:                                               ; preds = %_ZN2cvmLERNS_3MatERKd.argprom.exit, %64
+75:                                               ; preds = %_ZN2cvmLERNS_3MatERKd.exit, %64
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #21
   store i32 0, ptr %35, align 8
   store i32 0, ptr %36, align 4
@@ -9634,9 +9634,9 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit115:              ; preds = %184
   store i32 33619968, ptr %13, align 8
   store ptr %39, ptr %279, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %39, ptr noundef nonnull align 8 dereferenceable(24) %13, i32 noundef -1, double noundef -1.000000e+00, double noundef 0.000000e+00)
-          to label %_ZN2cvmLERNS_3MatERKd.argprom.exit123 unwind label %.loopexit.split-lp151.loopexit.split-lp
+          to label %_ZN2cvmLERNS_3MatERKd.exit123 unwind label %.loopexit.split-lp151.loopexit.split-lp
 
-_ZN2cvmLERNS_3MatERKd.argprom.exit123:            ; preds = %278
+_ZN2cvmLERNS_3MatERKd.exit123:                    ; preds = %278
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   br label %._crit_edge174.thread
 
@@ -9722,13 +9722,13 @@ _ZN2cvmLERNS_3MatERKd.argprom.exit123:            ; preds = %278
   store i32 33619968, ptr %9, align 8
   store ptr %39, ptr %311, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %39, ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef -1, double noundef -1.000000e+00, double noundef 0.000000e+00)
-          to label %_ZN2cvmLERNS_3MatERKd.argprom.exit129 unwind label %.loopexit.split-lp151.loopexit.split-lp
+          to label %_ZN2cvmLERNS_3MatERKd.exit129 unwind label %.loopexit.split-lp151.loopexit.split-lp
 
-_ZN2cvmLERNS_3MatERKd.argprom.exit129:            ; preds = %310
+_ZN2cvmLERNS_3MatERKd.exit129:                    ; preds = %310
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %._crit_edge174.thread
 
-._crit_edge174.thread:                            ; preds = %.preheader155, %.preheader, %_ZN2cvmLERNS_3MatERKd.argprom.exit129, %_ZN2cvmLERNS_3MatERKd.argprom.exit123, %281, %._crit_edge170, %._crit_edge174
+._crit_edge174.thread:                            ; preds = %.preheader155, %.preheader, %_ZN2cvmLERNS_3MatERKd.exit129, %_ZN2cvmLERNS_3MatERKd.exit123, %281, %._crit_edge170, %._crit_edge174
   invoke void @_ZN2cv3Mat5zerosEiii(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %59, i32 noundef 3, i32 noundef 3, i32 noundef 5)
           to label %313 unwind label %.loopexit.split-lp151.loopexit.split-lp
 

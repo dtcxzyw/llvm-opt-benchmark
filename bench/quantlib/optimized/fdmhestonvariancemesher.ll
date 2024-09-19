@@ -5104,14 +5104,14 @@ entry:
   %impl_.i.i.i.i = getelementptr inbounds nuw i8, ptr %__functor.val, i64 16
   %0 = load ptr, ptr %impl_.i.i.i.i, align 8, !tbaa !78
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i.i.i.i, label %cond.false.i.i.i.i.i, label %_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_123interpolated_volatilityEJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit, !prof !13
+  br i1 %cmp.not.i.i.i.i.i, label %cond.false.i.i.i.i.i, label %_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_123interpolated_volatilityEJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit, !prof !13
 
 cond.false.i.i.i.i.i:                             ; preds = %entry
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.8, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib13Interpolation4ImplEEptEv, ptr noundef nonnull @.str.9, i64 noundef 784)
   %.pre.i.i.i.i.i = load ptr, ptr %impl_.i.i.i.i, align 8, !tbaa !78
-  br label %_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_123interpolated_volatilityEJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit
+  br label %_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_123interpolated_volatilityEJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit
 
-_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_123interpolated_volatilityEJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit: ; preds = %entry, %cond.false.i.i.i.i.i
+_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_123interpolated_volatilityEJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit: ; preds = %entry, %cond.false.i.i.i.i.i
   %1 = phi ptr [ %0, %entry ], [ %.pre.i.i.i.i.i, %cond.false.i.i.i.i.i ]
   %vtable.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !3
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 64

@@ -272,14 +272,14 @@ define internal void @"_ZN4llvm12function_refIFvPNS_5ValueEEE11callback_fnIZL18f
   %5 = add i64 %4, 1
   %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %.val) #7
   %.not.i.i.i.i = icmp ugt i64 %5, %6
-  br i1 %.not.i.i.i.i, label %7, label %"_ZZL18findAffectedValuesPN4llvm5ValueERNS_15SmallVectorImplIS1_EEENK3$_0clES1_.argprom.exit"
+  br i1 %.not.i.i.i.i, label %7, label %"_ZZL18findAffectedValuesPN4llvm5ValueERNS_15SmallVectorImplIS1_EEENK3$_0clES1_.exit"
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %.val, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %.val, ptr noundef nonnull %8, i64 noundef %5, i64 noundef 8) #7
-  br label %"_ZZL18findAffectedValuesPN4llvm5ValueERNS_15SmallVectorImplIS1_EEENK3$_0clES1_.argprom.exit"
+  br label %"_ZZL18findAffectedValuesPN4llvm5ValueERNS_15SmallVectorImplIS1_EEENK3$_0clES1_.exit"
 
-"_ZZL18findAffectedValuesPN4llvm5ValueERNS_15SmallVectorImplIS1_EEENK3$_0clES1_.argprom.exit": ; preds = %2, %7
+"_ZZL18findAffectedValuesPN4llvm5ValueERNS_15SmallVectorImplIS1_EEENK3$_0clES1_.exit": ; preds = %2, %7
   %9 = load ptr, ptr %.val, align 8
   %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.val) #7
   %11 = getelementptr inbounds ptr, ptr %9, i64 %10

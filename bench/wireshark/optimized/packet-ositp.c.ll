@@ -757,7 +757,7 @@ define internal fastcc i32 @dissect_ositp_internal(ptr noundef %0, ptr noundef %
   br i1 %.not95.i, label %87, label %88
 
 87:                                               ; preds = %81
-  call fastcc void @ositp_decode_var_part.retelim(ptr noundef %.1110, i32 noundef %78, i32 noundef %80, i32 noundef %47, i32 noundef %50, ptr noundef nonnull %1, ptr noundef %63)
+  call fastcc void @ositp_decode_var_part(ptr noundef %.1110, i32 noundef %78, i32 noundef %80, i32 noundef %47, i32 noundef %50, ptr noundef nonnull %1, ptr noundef %63)
   br label %88
 
 88:                                               ; preds = %81, %87
@@ -850,7 +850,7 @@ ositp_decode_CR_CC.exit:                          ; preds = %42, %90, %98
   %137 = add i32 %.2, 7
   %138 = add i8 %23, -6
   %139 = zext i8 %138 to i32
-  call fastcc void @ositp_decode_var_part.retelim(ptr noundef %.1110, i32 noundef %137, i32 noundef %139, i32 noundef 4, i32 noundef %105, ptr noundef nonnull %1, ptr noundef %126)
+  call fastcc void @ositp_decode_var_part(ptr noundef %.1110, i32 noundef %137, i32 noundef %139, i32 noundef 4, i32 noundef %105, ptr noundef nonnull %1, ptr noundef %126)
   br label %140
 
 140:                                              ; preds = %121, %.thread.i
@@ -1178,7 +1178,7 @@ proto_item_set_generated.exit.thread.i:           ; preds = %.thread268.i
   br i1 %.not46.i, label %._crit_edge.i, label %285
 
 285:                                              ; preds = %284
-  call fastcc void @ositp_decode_var_part.retelim(ptr noundef %.1110, i32 noundef %.1.i, i32 noundef %.pre.i121, i32 noundef 4, i32 noundef %149, ptr noundef nonnull %1, ptr noundef %.0218272.i)
+  call fastcc void @ositp_decode_var_part(ptr noundef %.1110, i32 noundef %.1.i, i32 noundef %.pre.i121, i32 noundef 4, i32 noundef %149, ptr noundef nonnull %1, ptr noundef %.0218272.i)
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %285, %284
@@ -1480,7 +1480,7 @@ ositp_decode_DT.exit:                             ; preds = %153, %154, %162, %2
   %423 = add i32 %.174.i, %.2
   %424 = add nsw i8 %.175.i, %23
   %.pre.i124 = zext i8 %424 to i32
-  call fastcc void @ositp_decode_var_part.retelim(ptr noundef %.1110, i32 noundef %423, i32 noundef %.pre.i124, i32 noundef 4, i32 noundef %330, ptr noundef nonnull %1, ptr noundef %413)
+  call fastcc void @ositp_decode_var_part(ptr noundef %.1110, i32 noundef %423, i32 noundef %.pre.i124, i32 noundef 4, i32 noundef %330, ptr noundef nonnull %1, ptr noundef %413)
   br label %._crit_edge.i125
 
 ._crit_edge.i125:                                 ; preds = %.thread163, %407
@@ -1672,7 +1672,7 @@ ositp_decode_ED.exit:                             ; preds = %332, %333, %336, %3
   %529 = add i32 %.2, 6
   %530 = add nsw i8 %23, -5
   %531 = zext i8 %530 to i32
-  call fastcc void @ositp_decode_var_part.retelim(ptr noundef %.1110, i32 noundef %529, i32 noundef %531, i32 noundef 4, i32 noundef %516, ptr noundef nonnull %1, ptr noundef %520)
+  call fastcc void @ositp_decode_var_part(ptr noundef %.1110, i32 noundef %529, i32 noundef %531, i32 noundef 4, i32 noundef %516, ptr noundef nonnull %1, ptr noundef %520)
   br label %532
 
 532:                                              ; preds = %514, %.critedge.thread.i135
@@ -1740,7 +1740,7 @@ ositp_decode_ED.exit:                             ; preds = %332, %333, %336, %3
   %573 = add i32 %.2, 5
   %574 = add nsw i8 %23, -4
   %575 = zext i8 %574 to i32
-  call fastcc void @ositp_decode_var_part.retelim(ptr noundef %.1110, i32 noundef %573, i32 noundef %575, i32 noundef 4, i32 noundef %544, ptr noundef nonnull %1, ptr noundef %561)
+  call fastcc void @ositp_decode_var_part(ptr noundef %.1110, i32 noundef %573, i32 noundef %575, i32 noundef 4, i32 noundef %544, ptr noundef nonnull %1, ptr noundef %561)
   br label %576
 
 576:                                              ; preds = %557, %.critedge125.thread.i
@@ -1784,7 +1784,7 @@ ositp_decode_ED.exit:                             ; preds = %332, %333, %336, %3
   %603 = add i32 %.2, 10
   %604 = add nsw i8 %23, -9
   %605 = zext i8 %604 to i32
-  call fastcc void @ositp_decode_var_part.retelim(ptr noundef %.1110, i32 noundef %603, i32 noundef %605, i32 noundef 4, i32 noundef %544, ptr noundef nonnull %1, ptr noundef %592)
+  call fastcc void @ositp_decode_var_part(ptr noundef %.1110, i32 noundef %603, i32 noundef %605, i32 noundef 4, i32 noundef %544, ptr noundef nonnull %1, ptr noundef %592)
   br label %606
 
 606:                                              ; preds = %588, %.critedge129.thread.i
@@ -1993,7 +1993,7 @@ ositp_decode_ED.exit:                             ; preds = %332, %333, %336, %3
   %708 = add i32 %.148.i, %.2
   %709 = add nsw i8 %.149.i, %23
   %.pre.i146 = zext i8 %709 to i32
-  call fastcc void @ositp_decode_var_part.retelim(ptr noundef %.1110, i32 noundef %708, i32 noundef %.pre.i146, i32 noundef 4, i32 noundef %694, ptr noundef nonnull %1, ptr noundef %698)
+  call fastcc void @ositp_decode_var_part(ptr noundef %.1110, i32 noundef %708, i32 noundef %.pre.i146, i32 noundef 4, i32 noundef %694, ptr noundef nonnull %1, ptr noundef %698)
   br label %._crit_edge.i147
 
 ._crit_edge.i147:                                 ; preds = %.thread169, %692
@@ -2056,7 +2056,7 @@ ositp_decode_ED.exit:                             ; preds = %332, %333, %336, %3
   %746 = add i32 %.2, 5
   %747 = add nsw i8 %23, -4
   %748 = zext i8 %747 to i32
-  call fastcc void @ositp_decode_var_part.retelim(ptr noundef %.1110, i32 noundef %746, i32 noundef %748, i32 noundef 4, i32 noundef %720, ptr noundef nonnull %1, ptr noundef %737)
+  call fastcc void @ositp_decode_var_part(ptr noundef %.1110, i32 noundef %746, i32 noundef %748, i32 noundef 4, i32 noundef %720, ptr noundef nonnull %1, ptr noundef %737)
   br label %749
 
 749:                                              ; preds = %733, %.thread.i155
@@ -2085,7 +2085,7 @@ ositp_decode_ED.exit:                             ; preds = %332, %333, %336, %3
   %765 = add i32 %.2, 2
   %766 = add i8 %23, -1
   %767 = zext i8 %766 to i32
-  call fastcc void @ositp_decode_var_part.retelim(ptr noundef %.1110, i32 noundef %765, i32 noundef %767, i32 noundef 0, i32 noundef %37, ptr noundef nonnull %1, ptr noundef %760)
+  call fastcc void @ositp_decode_var_part(ptr noundef %.1110, i32 noundef %765, i32 noundef %767, i32 noundef 0, i32 noundef %37, ptr noundef nonnull %1, ptr noundef %760)
   br label %768
 
 768:                                              ; preds = %754, %.thread46.i
@@ -2204,7 +2204,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare i32 @dissector_try_heuristic(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ositp_decode_var_part.retelim(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 256) %2, i32 noundef range(i32 0, 256) %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @ositp_decode_var_part(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 256) %2, i32 noundef range(i32 0, 256) %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %.not417 = icmp eq i32 %2, 0

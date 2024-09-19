@@ -1221,7 +1221,7 @@ while.end583.i:                                   ; preds = %do.end571.i
   %as585.i = getelementptr inbounds i8, ptr %114, i64 528
   %115 = load ptr, ptr %as585.i, align 16
   %116 = load i64, ptr %addr553.i, align 8
-  call fastcc void @rcu_read_auto_lock.retelim()
+  call fastcc void @rcu_read_auto_lock()
   %current_map.i.i = getelementptr inbounds i8, ptr %115, i64 32
   %117 = load atomic i64, ptr %current_map.i.i monotonic, align 8
   %118 = inttoptr i64 %117 to ptr
@@ -1270,7 +1270,7 @@ if.else.i1524.i:                                  ; preds = %memory_access_is_di
   br label %if.end.i1526.i
 
 if.end.i1526.i:                                   ; preds = %if.else.i1524.i, %if.then6.i1529.i
-  call fastcc void @glib_autoptr_cleanup_RCUReadAuto.argprom(ptr nonnull inttoptr (i64 1 to ptr))
+  call fastcc void @glib_autoptr_cleanup_RCUReadAuto(ptr nonnull inttoptr (i64 1 to ptr))
   %128 = load i8, ptr %data578.i, align 1
   %conv619.i = zext i8 %128 to i64
   br label %if.end770.sink.split.i
@@ -1282,7 +1282,7 @@ while.end632.i:                                   ; preds = %do.end571.i
   %as634.i = getelementptr inbounds i8, ptr %130, i64 528
   %131 = load ptr, ptr %as634.i, align 16
   %132 = load i64, ptr %addr553.i, align 8
-  call fastcc void @rcu_read_auto_lock.retelim()
+  call fastcc void @rcu_read_auto_lock()
   %current_map.i522.i = getelementptr inbounds i8, ptr %131, i64 32
   %133 = load atomic i64, ptr %current_map.i522.i monotonic, align 8
   %134 = inttoptr i64 %133 to ptr
@@ -1331,7 +1331,7 @@ if.else.i1493.i:                                  ; preds = %memory_access_is_di
   br label %if.end.i1495.i
 
 if.end.i1495.i:                                   ; preds = %if.else.i1493.i, %if.then6.i1498.i
-  call fastcc void @glib_autoptr_cleanup_RCUReadAuto.argprom(ptr nonnull inttoptr (i64 1 to ptr))
+  call fastcc void @glib_autoptr_cleanup_RCUReadAuto(ptr nonnull inttoptr (i64 1 to ptr))
   %144 = load i16, ptr %data627.i, align 2
   %call.i534.i = call zeroext i1 @target_words_bigendian() #18
   %145 = call i16 @llvm.bswap.i16(i16 %144)
@@ -1346,7 +1346,7 @@ while.end682.i:                                   ; preds = %do.end571.i
   %as684.i = getelementptr inbounds i8, ptr %147, i64 528
   %148 = load ptr, ptr %as684.i, align 16
   %149 = load i64, ptr %addr553.i, align 8
-  call fastcc void @rcu_read_auto_lock.retelim()
+  call fastcc void @rcu_read_auto_lock()
   %current_map.i535.i = getelementptr inbounds i8, ptr %148, i64 32
   %150 = load atomic i64, ptr %current_map.i535.i monotonic, align 8
   %151 = inttoptr i64 %150 to ptr
@@ -1395,7 +1395,7 @@ if.else.i1462.i:                                  ; preds = %memory_access_is_di
   br label %if.end.i1464.i
 
 if.end.i1464.i:                                   ; preds = %if.else.i1462.i, %if.then6.i1467.i
-  call fastcc void @glib_autoptr_cleanup_RCUReadAuto.argprom(ptr nonnull inttoptr (i64 1 to ptr))
+  call fastcc void @glib_autoptr_cleanup_RCUReadAuto(ptr nonnull inttoptr (i64 1 to ptr))
   %161 = load i32, ptr %data677.i, align 4
   %call.i547.i = call zeroext i1 @target_words_bigendian() #18
   %162 = call i32 @llvm.bswap.i32(i32 %161)
@@ -1410,7 +1410,7 @@ while.end731.i:                                   ; preds = %do.end571.i
   %as733.i = getelementptr inbounds i8, ptr %164, i64 528
   %165 = load ptr, ptr %as733.i, align 16
   %166 = load i64, ptr %addr553.i, align 8
-  call fastcc void @rcu_read_auto_lock.retelim()
+  call fastcc void @rcu_read_auto_lock()
   %current_map.i549.i = getelementptr inbounds i8, ptr %165, i64 32
   %167 = load atomic i64, ptr %current_map.i549.i monotonic, align 8
   %168 = inttoptr i64 %167 to ptr
@@ -1459,7 +1459,7 @@ if.else.i1431.i:                                  ; preds = %memory_access_is_di
   br label %if.end.i1433.i
 
 if.end.i1433.i:                                   ; preds = %if.else.i1431.i, %if.then6.i1436.i
-  call fastcc void @glib_autoptr_cleanup_RCUReadAuto.argprom(ptr nonnull inttoptr (i64 1 to ptr))
+  call fastcc void @glib_autoptr_cleanup_RCUReadAuto(ptr nonnull inttoptr (i64 1 to ptr))
   %call.i561.i = call zeroext i1 @target_words_bigendian() #18
   br i1 %call.i561.i, label %if.then.i563.i, label %if.end770.i
 
@@ -2393,7 +2393,7 @@ declare i32 @llvm.bswap.i32(i32) #12
 declare i64 @llvm.bswap.i64(i64) #12
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rcu_read_auto_lock.retelim() unnamed_addr #0 {
+define internal fastcc void @rcu_read_auto_lock() unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i = getelementptr inbounds i8, ptr %call.i, i64 12
@@ -2416,7 +2416,7 @@ rcu_read_lock.exit:                               ; preds = %entry, %while.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @glib_autoptr_cleanup_RCUReadAuto.argprom(ptr readnone %_ptr.0.val) unnamed_addr #0 {
+define internal fastcc void @glib_autoptr_cleanup_RCUReadAuto(ptr readnone %_ptr.0.val) unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %_ptr.0.val, null
   br i1 %tobool.not.i, label %glib_autoptr_clear_RCUReadAuto.exit, label %if.then.i

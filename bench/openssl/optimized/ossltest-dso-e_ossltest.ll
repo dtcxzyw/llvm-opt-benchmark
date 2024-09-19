@@ -201,14 +201,14 @@ lor.lhs.false26:                                  ; preds = %lor.lhs.false23
 if.then:                                          ; preds = %lor.lhs.false26, %lor.lhs.false23, %lor.lhs.false20, %lor.lhs.false17, %lor.lhs.false14, %lor.lhs.false10, %lor.lhs.false7, %lor.lhs.false4, %lor.lhs.false, %ERR_load_OSSLTEST_strings.exit
   %2 = load i32, ptr @lib_code, align 4
   %cmp.i10 = icmp eq i32 %2, 0
-  br i1 %cmp.i10, label %if.then.i12, label %ERR_OSSLTEST_error.argprom.exit
+  br i1 %cmp.i10, label %if.then.i12, label %ERR_OSSLTEST_error.exit
 
 if.then.i12:                                      ; preds = %if.then
   %call.i13 = tail call i32 @ERR_get_next_error_library() #8
   store i32 %call.i13, ptr @lib_code, align 4
-  br label %ERR_OSSLTEST_error.argprom.exit
+  br label %ERR_OSSLTEST_error.exit
 
-ERR_OSSLTEST_error.argprom.exit:                  ; preds = %if.then, %if.then.i12
+ERR_OSSLTEST_error.exit:                          ; preds = %if.then, %if.then.i12
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.9, i32 noundef 54, ptr noundef nonnull @__func__.ERR_OSSLTEST_error) #8
   %3 = load i32, ptr @lib_code, align 4
@@ -216,8 +216,8 @@ ERR_OSSLTEST_error.argprom.exit:                  ; preds = %if.then, %if.then.i
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 427, ptr noundef null) #8
   br label %return
 
-return:                                           ; preds = %lor.lhs.false26, %ERR_OSSLTEST_error.argprom.exit
-  %retval.0 = phi i32 [ 0, %ERR_OSSLTEST_error.argprom.exit ], [ 1, %lor.lhs.false26 ]
+return:                                           ; preds = %lor.lhs.false26, %ERR_OSSLTEST_error.exit
+  %retval.0 = phi i32 [ 0, %ERR_OSSLTEST_error.exit ], [ 1, %lor.lhs.false26 ]
   ret i32 %retval.0
 }
 
@@ -639,7 +639,7 @@ define internal ptr @ossltest_load_privkey(ptr nocapture readnone %eng, ptr noun
 entry:
   %call.i = tail call i32 @OPENSSL_strncasecmp(ptr noundef %key_id, ptr noundef nonnull @.str.4, i64 noundef 3) #8
   %cmp.i = icmp eq i32 %call.i, 0
-  br i1 %cmp.i, label %cond.true.i, label %load_key.argprom.exit
+  br i1 %cmp.i, label %cond.true.i, label %load_key.exit
 
 cond.true.i:                                      ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %key_id, i64 3
@@ -647,14 +647,14 @@ cond.true.i:                                      ; preds = %entry
   %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.7, ptr noundef nonnull %add.ptr.i) #10
   %call2.i = tail call ptr @BIO_new_file(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull @.str.8) #8
   %tobool3.not.i = icmp eq ptr %call2.i, null
-  br i1 %tobool3.not.i, label %load_key.argprom.exit, label %if.end5.i
+  br i1 %tobool3.not.i, label %load_key.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %cond.true.i
   %call9.i = tail call ptr @PEM_read_bio_PrivateKey(ptr noundef nonnull %call2.i, ptr noundef null, ptr noundef null, ptr noundef null) #8
   %call11.i = tail call i32 @BIO_free(ptr noundef nonnull %call2.i) #8
-  br label %load_key.argprom.exit
+  br label %load_key.exit
 
-load_key.argprom.exit:                            ; preds = %entry, %cond.true.i, %if.end5.i
+load_key.exit:                                    ; preds = %entry, %cond.true.i, %if.end5.i
   %retval.0.i = phi ptr [ %call9.i, %if.end5.i ], [ null, %entry ], [ null, %cond.true.i ]
   ret ptr %retval.0.i
 }
@@ -666,7 +666,7 @@ define internal ptr @ossltest_load_pubkey(ptr nocapture readnone %eng, ptr nound
 entry:
   %call.i = tail call i32 @OPENSSL_strncasecmp(ptr noundef %key_id, ptr noundef nonnull @.str.4, i64 noundef 3) #8
   %cmp.i = icmp eq i32 %call.i, 0
-  br i1 %cmp.i, label %cond.true.i, label %load_key.argprom.exit
+  br i1 %cmp.i, label %cond.true.i, label %load_key.exit
 
 cond.true.i:                                      ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %key_id, i64 3
@@ -674,14 +674,14 @@ cond.true.i:                                      ; preds = %entry
   %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull %add.ptr.i) #10
   %call2.i = tail call ptr @BIO_new_file(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull @.str.8) #8
   %tobool3.not.i = icmp eq ptr %call2.i, null
-  br i1 %tobool3.not.i, label %load_key.argprom.exit, label %if.end5.i
+  br i1 %tobool3.not.i, label %load_key.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %cond.true.i
   %call8.i = tail call ptr @PEM_read_bio_PUBKEY(ptr noundef nonnull %call2.i, ptr noundef null, ptr noundef null, ptr noundef null) #8
   %call11.i = tail call i32 @BIO_free(ptr noundef nonnull %call2.i) #8
-  br label %load_key.argprom.exit
+  br label %load_key.exit
 
-load_key.argprom.exit:                            ; preds = %entry, %cond.true.i, %if.end5.i
+load_key.exit:                                    ; preds = %entry, %cond.true.i, %if.end5.i
   %retval.0.i = phi ptr [ %call8.i, %if.end5.i ], [ null, %entry ], [ null, %cond.true.i ]
   ret ptr %retval.0.i
 }

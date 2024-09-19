@@ -6699,12 +6699,12 @@ declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #20
 define internal void @"_ZNSt17_Function_handlerIFvvEZN7V3Error18v3errorAcquireLockEbE3$_0E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZN12V3ThreadPool1sEvE3s_s acquire, align 8
   %3 = icmp eq i8 %2, 0
-  br i1 %3, label %4, label %"_ZSt10__invoke_rIvRZN7V3Error18v3errorAcquireLockEbE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES4_E4typeEOS5_DpOS6_.argprom.exit", !prof !7
+  br i1 %3, label %4, label %"_ZSt10__invoke_rIvRZN7V3Error18v3errorAcquireLockEbE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES4_E4typeEOS5_DpOS6_.exit", !prof !7
 
 4:                                                ; preds = %1
   %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #27
   %.not.i.i.i.i = icmp eq i32 %5, 0
-  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZN7V3Error18v3errorAcquireLockEbE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES4_E4typeEOS5_DpOS6_.argprom.exit", label %6
+  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZN7V3Error18v3errorAcquireLockEbE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES4_E4typeEOS5_DpOS6_.exit", label %6
 
 6:                                                ; preds = %4
   invoke void @_ZN12V3ThreadPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(392) @_ZZN12V3ThreadPool1sEvE3s_s)
@@ -6713,7 +6713,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN7V3Error18v3errorAcquireLo
 7:                                                ; preds = %6
   %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12V3ThreadPoolD2Ev, ptr nonnull @_ZZN12V3ThreadPool1sEvE3s_s, ptr nonnull @__dso_handle) #27
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #27
-  br label %"_ZSt10__invoke_rIvRZN7V3Error18v3errorAcquireLockEbE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES4_E4typeEOS5_DpOS6_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN7V3Error18v3errorAcquireLockEbE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES4_E4typeEOS5_DpOS6_.exit"
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
@@ -6721,7 +6721,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN7V3Error18v3errorAcquireLo
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #27
   resume { ptr, i32 } %10
 
-"_ZSt10__invoke_rIvRZN7V3Error18v3errorAcquireLockEbE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES4_E4typeEOS5_DpOS6_.argprom.exit": ; preds = %1, %4, %7
+"_ZSt10__invoke_rIvRZN7V3Error18v3errorAcquireLockEbE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES4_E4typeEOS5_DpOS6_.exit": ; preds = %1, %4, %7
   %11 = tail call noundef zeroext i1 @_ZN12V3ThreadPool19waitIfStopRequestedEv(ptr noundef nonnull align 8 dereferenceable(392) @_ZZN12V3ThreadPool1sEvE3s_s)
   ret void
 }

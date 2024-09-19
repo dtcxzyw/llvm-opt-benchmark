@@ -664,19 +664,19 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
   %21 = load i32, ptr %20, align 4
   %22 = sub nsw i32 %19, %15
   %23 = getelementptr inbounds i8, ptr %13, i64 176
-  %24 = call fastcc zeroext i8 @storeEdge.argelim(ptr noundef %13, double noundef %6, double noundef %7, double noundef %8, double noundef %9, i32 noundef %17, i32 noundef %19, i32 noundef %21, i8 noundef zeroext 0)
+  %24 = call fastcc zeroext i8 @storeEdge(ptr noundef %13, double noundef %6, double noundef %7, double noundef %8, double noundef %9, i32 noundef %17, i32 noundef %19, i32 noundef %21, i8 noundef zeroext 0)
   %25 = getelementptr inbounds i8, ptr %13, i64 88
   %26 = fadd double %6, %8
   %27 = fadd double %7, %9
-  %28 = call fastcc zeroext i8 @storeEdge.argelim(ptr noundef %25, double noundef %26, double noundef %27, double noundef %10, double noundef %11, i32 noundef %17, i32 noundef %19, i32 noundef %21, i8 noundef zeroext 0)
+  %28 = call fastcc zeroext i8 @storeEdge(ptr noundef %25, double noundef %26, double noundef %27, double noundef %10, double noundef %11, i32 noundef %17, i32 noundef %19, i32 noundef %21, i8 noundef zeroext 0)
   %29 = icmp eq i8 %28, 0
   %30 = icmp eq i8 %24, 0
-  %31 = call fastcc zeroext i8 @storeEdge.argelim(ptr noundef %23, double noundef %6, double noundef %7, double noundef %10, double noundef %11, i32 noundef %17, i32 noundef %19, i32 noundef %21, i8 noundef zeroext 1)
+  %31 = call fastcc zeroext i8 @storeEdge(ptr noundef %23, double noundef %6, double noundef %7, double noundef %10, double noundef %11, i32 noundef %17, i32 noundef %19, i32 noundef %21, i8 noundef zeroext 1)
   %32 = icmp eq i8 %31, 0
   %33 = getelementptr inbounds i8, ptr %13, i64 264
   %34 = fadd double %6, %10
   %35 = fadd double %7, %11
-  %36 = call fastcc zeroext i8 @storeEdge.argelim(ptr noundef %33, double noundef %34, double noundef %35, double noundef %8, double noundef %9, i32 noundef %17, i32 noundef %19, i32 noundef %21, i8 noundef zeroext 1)
+  %36 = call fastcc zeroext i8 @storeEdge(ptr noundef %33, double noundef %34, double noundef %35, double noundef %8, double noundef %9, i32 noundef %17, i32 noundef %19, i32 noundef %21, i8 noundef zeroext 1)
   %37 = icmp eq i8 %36, 0
   %.not595 = select i1 %37, i1 %32, i1 false
   %.not592 = select i1 %.not595, i1 %29, i1 false
@@ -1800,19 +1800,19 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %29 = fadd double %9, %13
   %30 = fadd double %10, %14
   %31 = fadd double %11, %15
-  %32 = call fastcc zeroext i8 @storeEdge.argelim(ptr noundef %17, double noundef %6, double noundef %7, double noundef %28, double noundef %29, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 0)
+  %32 = call fastcc zeroext i8 @storeEdge(ptr noundef %17, double noundef %6, double noundef %7, double noundef %28, double noundef %29, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 0)
   %33 = getelementptr inbounds i8, ptr %17, i64 88
   %34 = fadd double %6, %28
   %35 = fadd double %7, %29
-  %36 = call fastcc zeroext i8 @storeEdge.argelim(ptr noundef %33, double noundef %34, double noundef %35, double noundef %30, double noundef %31, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 0)
+  %36 = call fastcc zeroext i8 @storeEdge(ptr noundef %33, double noundef %34, double noundef %35, double noundef %30, double noundef %31, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 0)
   %37 = icmp eq i8 %36, 0
   %38 = icmp eq i8 %32, 0
-  %39 = call fastcc zeroext i8 @storeEdge.argelim(ptr noundef %27, double noundef %6, double noundef %7, double noundef %30, double noundef %31, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 1)
+  %39 = call fastcc zeroext i8 @storeEdge(ptr noundef %27, double noundef %6, double noundef %7, double noundef %30, double noundef %31, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 1)
   %40 = icmp eq i8 %39, 0
   %41 = getelementptr inbounds i8, ptr %17, i64 616
   %42 = fadd double %6, %30
   %43 = fadd double %7, %31
-  %44 = call fastcc zeroext i8 @storeEdge.argelim(ptr noundef %41, double noundef %42, double noundef %43, double noundef %28, double noundef %29, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 1)
+  %44 = call fastcc zeroext i8 @storeEdge(ptr noundef %41, double noundef %42, double noundef %43, double noundef %28, double noundef %29, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 1)
   %45 = icmp eq i8 %44, 0
   %.not1090 = select i1 %45, i1 %40, i1 false
   %.not1087 = select i1 %.not1090, i1 %37, i1 false
@@ -1830,16 +1830,16 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %54 = fsub double %9, %13
   %55 = fsub double %10, %14
   %56 = fsub double %11, %15
-  %57 = call fastcc zeroext i8 @storeEdge.argelim(ptr noundef %47, double noundef %50, double noundef %52, double noundef %53, double noundef %54, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 1)
+  %57 = call fastcc zeroext i8 @storeEdge(ptr noundef %47, double noundef %50, double noundef %52, double noundef %53, double noundef %54, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 1)
   %58 = getelementptr inbounds i8, ptr %17, i64 264
   %59 = fadd double %53, %50
   %60 = fadd double %54, %52
-  %61 = call fastcc zeroext i8 @storeEdge.argelim(ptr noundef %58, double noundef %59, double noundef %60, double noundef %55, double noundef %56, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 1)
-  %62 = call fastcc zeroext i8 @storeEdge.argelim(ptr noundef %48, double noundef %50, double noundef %52, double noundef %55, double noundef %56, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 0)
+  %61 = call fastcc zeroext i8 @storeEdge(ptr noundef %58, double noundef %59, double noundef %60, double noundef %55, double noundef %56, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 1)
+  %62 = call fastcc zeroext i8 @storeEdge(ptr noundef %48, double noundef %50, double noundef %52, double noundef %55, double noundef %56, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 0)
   %63 = getelementptr inbounds i8, ptr %17, i64 440
   %64 = fadd double %50, %55
   %65 = fadd double %52, %56
-  %66 = call fastcc zeroext i8 @storeEdge.argelim(ptr noundef %63, double noundef %64, double noundef %65, double noundef %53, double noundef %54, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 0)
+  %66 = call fastcc zeroext i8 @storeEdge(ptr noundef %63, double noundef %64, double noundef %65, double noundef %53, double noundef %54, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 0)
   %67 = icmp sgt i32 %26, 1024
   %68 = add nsw i32 %26, 1
   br i1 %67, label %69, label %.thread
@@ -3443,7 +3443,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @storeEdge.argelim(ptr nocapture noundef nonnull writeonly %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i8 noundef zeroext range(i8 0, 2) %8) unnamed_addr #6 {
+define internal fastcc zeroext range(i8 0, 2) i8 @storeEdge(ptr nocapture noundef nonnull writeonly %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i8 noundef zeroext range(i8 0, 2) %8) unnamed_addr #6 {
   %10 = fadd double %1, %3
   %11 = fadd double %2, %4
   store double %1, ptr %0, align 8

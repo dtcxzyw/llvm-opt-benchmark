@@ -647,7 +647,7 @@ select.unfold.i:                                  ; preds = %259, %248
   %263 = getelementptr i8, ptr %.sroa.6.0107.i, i64 -8
   %.val.i = load ptr, ptr %263, align 8
   %.not7.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not7.i.i, label %_ZL18setCannotDuplicatePN4llvm10CoroIdInstE.argprom.exit.i, label %.lr.ph.i.i
+  br i1 %.not7.i.i, label %_ZL18setCannotDuplicatePN4llvm10CoroIdInstE.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %select.unfold.i, %_ZN4llvm8dyn_castINS_13CoroBeginInstENS_4UserEEEDcPT0_.exit.thread.i.i
   %.sroa.01.08.i.i = phi ptr [ %289, %_ZN4llvm8dyn_castINS_13CoroBeginInstENS_4UserEEEDcPT0_.exit.thread.i.i ], [ %.val.i, %select.unfold.i ]
@@ -700,9 +700,9 @@ _ZN4llvm8dyn_castINS_13CoroBeginInstENS_4UserEEEDcPT0_.exit.thread.i.i: ; preds 
   %288 = getelementptr inbounds nuw i8, ptr %.sroa.01.08.i.i, i64 8
   %289 = load ptr, ptr %288, align 8
   %.not.i57.i = icmp eq ptr %289, null
-  br i1 %.not.i57.i, label %_ZL18setCannotDuplicatePN4llvm10CoroIdInstE.argprom.exit.i, label %.lr.ph.i.i
+  br i1 %.not.i57.i, label %_ZL18setCannotDuplicatePN4llvm10CoroIdInstE.exit.i, label %.lr.ph.i.i
 
-_ZL18setCannotDuplicatePN4llvm10CoroIdInstE.argprom.exit.i: ; preds = %_ZN4llvm8dyn_castINS_13CoroBeginInstENS_4UserEEEDcPT0_.exit.thread.i.i, %select.unfold.i
+_ZL18setCannotDuplicatePN4llvm10CoroIdInstE.exit.i: ; preds = %_ZN4llvm8dyn_castINS_13CoroBeginInstENS_4UserEEEDcPT0_.exit.thread.i.i, %select.unfold.i
   %290 = call noundef ptr @_ZNK4llvm11Instruction11getFunctionEv(ptr noundef nonnull align 8 dereferenceable(72) %145) #9
   %291 = load i32, ptr %249, align 4
   %292 = and i32 %291, 134217727
@@ -714,7 +714,7 @@ _ZL18setCannotDuplicatePN4llvm10CoroIdInstE.argprom.exit.i: ; preds = %_ZN4llvm8
   %.not.i.i.i.i.i.i = icmp eq ptr %297, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i.i, label %298
 
-298:                                              ; preds = %_ZL18setCannotDuplicatePN4llvm10CoroIdInstE.argprom.exit.i
+298:                                              ; preds = %_ZL18setCannotDuplicatePN4llvm10CoroIdInstE.exit.i
   %299 = getelementptr inbounds i8, ptr %295, i64 72
   %300 = load ptr, ptr %299, align 8
   %301 = getelementptr inbounds i8, ptr %295, i64 80
@@ -729,7 +729,7 @@ _ZL18setCannotDuplicatePN4llvm10CoroIdInstE.argprom.exit.i: ; preds = %_ZN4llvm8
   store ptr %304, ptr %305, align 8
   br label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i.i
 
-_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i.i:  ; preds = %303, %298, %_ZL18setCannotDuplicatePN4llvm10CoroIdInstE.argprom.exit.i
+_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i.i:  ; preds = %303, %298, %_ZL18setCannotDuplicatePN4llvm10CoroIdInstE.exit.i
   store ptr %290, ptr %296, align 8
   %.not4.i.i.i.i.i.i = icmp eq ptr %290, null
   br i1 %.not4.i.i.i.i.i.i, label %_ZN4llvm10CoroIdInst16setCoroutineSelfEv.exit.i, label %306

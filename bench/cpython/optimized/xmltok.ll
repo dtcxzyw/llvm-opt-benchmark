@@ -5460,7 +5460,7 @@ sw.epilog187:                                     ; preds = %if.end178, %sw.defa
   br i1 %cmp120, label %while.body122, label %return, !llvm.loop !31
 
 sw.bb188:                                         ; preds = %while.body
-  %call189 = call fastcc i32 @normal_checkPiTarget.argprom(ptr noundef nonnull %ptr, ptr noundef nonnull %ptr.addr.1161, ptr noundef %tok)
+  %call189 = call fastcc i32 @normal_checkPiTarget(ptr noundef nonnull %ptr, ptr noundef nonnull %ptr.addr.1161, ptr noundef %tok)
   %tobool190.not = icmp eq i32 %call189, 0
   br i1 %tobool190.not, label %if.then191, label %if.end192
 
@@ -6021,7 +6021,7 @@ return:                                           ; preds = %sw.bb, %sw.bb20, %s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @normal_checkPiTarget.argprom(ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef nonnull writeonly %tokPtr) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @normal_checkPiTarget(ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef nonnull writeonly %tokPtr) unnamed_addr #10 {
 entry:
   store i32 11, ptr %tokPtr, align 4
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
@@ -11759,7 +11759,7 @@ sw.epilog190:                                     ; preds = %if.end176, %land.lh
   br i1 %cmp122, label %while.body124, label %return, !llvm.loop !62
 
 sw.bb191:                                         ; preds = %cond.end64
-  %call192 = call fastcc i32 @little2_checkPiTarget.argprom(ptr noundef %ptr, ptr noundef nonnull %ptr.addr.0146, ptr noundef %tok)
+  %call192 = call fastcc i32 @little2_checkPiTarget(ptr noundef %ptr, ptr noundef nonnull %ptr.addr.0146, ptr noundef %tok)
   %tobool193.not = icmp eq i32 %call192, 0
   br i1 %tobool193.not, label %if.then194, label %if.end195
 
@@ -12308,7 +12308,7 @@ return:                                           ; preds = %sw.bb29, %sw.bb38, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @little2_checkPiTarget.argprom(ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef nonnull writeonly %tokPtr) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @little2_checkPiTarget(ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef nonnull writeonly %tokPtr) unnamed_addr #10 {
 entry:
   store i32 11, ptr %tokPtr, align 4
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
@@ -17826,7 +17826,7 @@ sw.epilog193:                                     ; preds = %if.end179, %land.lh
   br i1 %cmp124, label %while.body126, label %return, !llvm.loop !92
 
 sw.bb194:                                         ; preds = %cond.end66
-  %call195 = call fastcc i32 @big2_checkPiTarget.argprom(ptr noundef nonnull %ptr, ptr noundef nonnull %ptr.addr.0146, ptr noundef %tok)
+  %call195 = call fastcc i32 @big2_checkPiTarget(ptr noundef nonnull %ptr, ptr noundef nonnull %ptr.addr.0146, ptr noundef %tok)
   %tobool196.not = icmp eq i32 %call195, 0
   br i1 %tobool196.not, label %if.then197, label %if.end198
 
@@ -18384,7 +18384,7 @@ return:                                           ; preds = %sw.bb30, %sw.bb39, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @big2_checkPiTarget.argprom(ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef nonnull writeonly %tokPtr) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @big2_checkPiTarget(ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef nonnull writeonly %tokPtr) unnamed_addr #10 {
 entry:
   store i32 11, ptr %tokPtr, align 4
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64

@@ -259,7 +259,7 @@ define void @wtap_block_unref(ptr noundef %0) local_unnamed_addr #0 {
   %.val.i = load ptr, ptr %0, align 8
   %22 = getelementptr i8, ptr %.val.i, i64 48
   %.val.val.i = load ptr, ptr %22, align 8
-  tail call fastcc void @wtap_block_free_option.argprom.argprom(ptr %.val.val.i, ptr noundef %21)
+  tail call fastcc void @wtap_block_free_option(ptr %.val.val.i, ptr noundef %21)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %23 = load ptr, ptr %14, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 8
@@ -5463,7 +5463,7 @@ define range(i32 -6, 1) i32 @wtap_block_remove_option(ptr noundef readonly %0, i
   %.val = load ptr, ptr %0, align 8
   %27 = getelementptr i8, ptr %.val, i64 48
   %.val.val = load ptr, ptr %27, align 8
-  tail call fastcc void @wtap_block_free_option.argprom.argprom(ptr %.val.val, ptr noundef nonnull %22)
+  tail call fastcc void @wtap_block_free_option(ptr %.val.val, ptr noundef nonnull %22)
   %28 = load ptr, ptr %16, align 8
   %29 = tail call ptr @g_array_remove_index(ptr noundef %28, i32 noundef %26) #15
   br label %.loopexit
@@ -5479,7 +5479,7 @@ define range(i32 -6, 1) i32 @wtap_block_remove_option(ptr noundef readonly %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @wtap_block_free_option.argprom.argprom(ptr %.0.val.48.val, ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @wtap_block_free_option(ptr %.0.val.48.val, ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = zext i32 %2 to i64
   %4 = inttoptr i64 %3 to ptr
@@ -5619,7 +5619,7 @@ define range(i32 -6, 1) i32 @wtap_block_remove_nth_option_instance(ptr noundef r
   %.val = load ptr, ptr %0, align 8
   %30 = getelementptr i8, ptr %.val, i64 48
   %.val.val = load ptr, ptr %30, align 8
-  tail call fastcc void @wtap_block_free_option.argprom.argprom(ptr %.val.val, ptr noundef nonnull %23)
+  tail call fastcc void @wtap_block_free_option(ptr %.val.val, ptr noundef nonnull %23)
   %31 = load ptr, ptr %17, align 8
   %32 = tail call ptr @g_array_remove_index(ptr noundef %31, i32 noundef %29) #15
   br label %.loopexit

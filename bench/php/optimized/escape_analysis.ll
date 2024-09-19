@@ -159,7 +159,7 @@ define hidden range(i32 -1, 1) i32 @zend_ssa_escape_analysis(ptr noundef %0, ptr
 83:                                               ; preds = %74
   %84 = getelementptr inbounds i8, ptr %78, i64 28
   %85 = load i8, ptr %84, align 4
-  switch i8 %85, label %is_local_def.argprom.exit [
+  switch i8 %85, label %is_local_def.exit [
     i8 71, label %128
     i8 72, label %128
     i8 31, label %128
@@ -170,13 +170,13 @@ define hidden range(i32 -1, 1) i32 @zend_ssa_escape_analysis(ptr noundef %0, ptr
 86:                                               ; preds = %83
   %87 = call ptr @zend_optimizer_get_class_entry_from_op1(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %78) #4
   %.not.i = icmp eq ptr %87, null
-  br i1 %.not.i, label %is_local_def.argprom.exit, label %88
+  br i1 %.not.i, label %is_local_def.exit, label %88
 
 88:                                               ; preds = %86
   %89 = getelementptr inbounds i8, ptr %87, i64 384
   %90 = load ptr, ptr %89, align 8
   %.not24.i = icmp eq ptr %90, null
-  br i1 %.not24.i, label %91, label %is_local_def.argprom.exit
+  br i1 %.not24.i, label %91, label %is_local_def.exit
 
 91:                                               ; preds = %88
   %92 = getelementptr inbounds i8, ptr %87, i64 360
@@ -184,43 +184,43 @@ define hidden range(i32 -1, 1) i32 @zend_ssa_escape_analysis(ptr noundef %0, ptr
   %94 = getelementptr inbounds i8, ptr %93, i64 120
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %95, @zend_std_get_constructor
-  br i1 %96, label %97, label %is_local_def.argprom.exit
+  br i1 %96, label %97, label %is_local_def.exit
 
 97:                                               ; preds = %91
   %98 = getelementptr inbounds i8, ptr %93, i64 16
   %99 = load ptr, ptr %98, align 8
   %100 = icmp eq ptr %99, @zend_objects_destroy_object
-  br i1 %100, label %101, label %is_local_def.argprom.exit
+  br i1 %100, label %101, label %is_local_def.exit
 
 101:                                              ; preds = %97
   %102 = getelementptr inbounds i8, ptr %87, i64 256
   %103 = load ptr, ptr %102, align 8
   %.not25.i = icmp eq ptr %103, null
-  br i1 %.not25.i, label %104, label %is_local_def.argprom.exit
+  br i1 %.not25.i, label %104, label %is_local_def.exit
 
 104:                                              ; preds = %101
   %105 = getelementptr inbounds i8, ptr %87, i64 264
   %106 = load ptr, ptr %105, align 8
   %.not26.i = icmp eq ptr %106, null
-  br i1 %.not26.i, label %107, label %is_local_def.argprom.exit
+  br i1 %.not26.i, label %107, label %is_local_def.exit
 
 107:                                              ; preds = %104
   %108 = getelementptr inbounds i8, ptr %87, i64 280
   %109 = load ptr, ptr %108, align 8
   %.not27.i = icmp eq ptr %109, null
-  br i1 %.not27.i, label %110, label %is_local_def.argprom.exit
+  br i1 %.not27.i, label %110, label %is_local_def.exit
 
 110:                                              ; preds = %107
   %111 = getelementptr inbounds i8, ptr %87, i64 288
   %112 = load ptr, ptr %111, align 8
   %.not28.i = icmp eq ptr %112, null
-  br i1 %.not28.i, label %113, label %is_local_def.argprom.exit
+  br i1 %.not28.i, label %113, label %is_local_def.exit
 
 113:                                              ; preds = %110
   %114 = getelementptr inbounds i8, ptr %87, i64 16
   %115 = load ptr, ptr %114, align 8
   %.not29.i = icmp eq ptr %115, null
-  br i1 %.not29.i, label %._crit_edge332, label %is_local_def.argprom.exit
+  br i1 %.not29.i, label %._crit_edge332, label %is_local_def.exit
 
 ._crit_edge332:                                   ; preds = %113
   %.pre = load i8, ptr %48, align 8
@@ -230,12 +230,12 @@ define hidden range(i32 -1, 1) i32 @zend_ssa_escape_analysis(ptr noundef %0, ptr
   %117 = getelementptr inbounds i8, ptr %76, i64 12
   %118 = load i32, ptr %117, align 4
   %119 = icmp eq i32 %118, %81
-  br i1 %119, label %120, label %is_local_def.argprom.exit
+  br i1 %119, label %120, label %is_local_def.exit
 
 120:                                              ; preds = %116
   %121 = getelementptr inbounds i8, ptr %78, i64 28
   %122 = load i8, ptr %121, align 4
-  switch i8 %122, label %is_local_def.argprom.exit [
+  switch i8 %122, label %is_local_def.exit [
     i8 22, label %128
     i8 23, label %128
     i8 24, label %128
@@ -248,7 +248,7 @@ define hidden range(i32 -1, 1) i32 @zend_ssa_escape_analysis(ptr noundef %0, ptr
     i8 -121, label %128
   ]
 
-is_local_def.argprom.exit:                        ; preds = %120, %116, %113, %110, %107, %104, %101, %97, %91, %88, %86, %83
+is_local_def.exit:                                ; preds = %120, %116, %113, %110, %107, %104, %101, %97, %91, %88, %86, %83
   %123 = load i8, ptr %48, align 8
   %124 = and i8 %123, 48
   %125 = icmp eq i8 %124, 16
@@ -277,8 +277,8 @@ is_local_def.argprom.exit:                        ; preds = %120, %116, %113, %1
   %139 = add nsw i32 %.0231289, 1
   br label %140
 
-140:                                              ; preds = %44, %65, %69, %128, %132, %135, %is_local_def.argprom.exit, %61
-  %.3234 = phi i32 [ %.0231289, %44 ], [ %spec.select, %61 ], [ %139, %135 ], [ %.0231289, %132 ], [ %.0231289, %128 ], [ %spec.select269, %is_local_def.argprom.exit ], [ %.0231289, %69 ], [ %.0231289, %65 ]
+140:                                              ; preds = %44, %65, %69, %128, %132, %135, %is_local_def.exit, %61
+  %.3234 = phi i32 [ %.0231289, %44 ], [ %spec.select, %61 ], [ %139, %135 ], [ %.0231289, %132 ], [ %.0231289, %128 ], [ %spec.select269, %is_local_def.exit ], [ %.0231289, %69 ], [ %.0231289, %65 ]
   %indvars.iv.next320 = add nsw i64 %indvars.iv319, 1
   %lftr.wideiv322 = trunc i64 %indvars.iv.next320 to i32
   %exitcond323.not = icmp eq i32 %7, %lftr.wideiv322

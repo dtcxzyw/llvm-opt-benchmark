@@ -375,13 +375,13 @@ switch.early.test.i:                              ; preds = %85
   %.112.i.i.i.i.i = select i1 %95, i64 %98, i64 %93
   %.1.i.i.i.i.i = select i1 %95, ptr %96, ptr %.04.i.i.i.i.i
   %99 = icmp sgt i64 %.112.i.i.i.i.i, 0
-  br i1 %99, label %.lr.ph.i.i.i.i.i, label %_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_113X86TableEntryEEERjEEDaOT_OT0_.argprom.exit.i.i, !llvm.loop !4
+  br i1 %99, label %.lr.ph.i.i.i.i.i, label %_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_113X86TableEntryEEERjEEDaOT_OT0_.exit.i.i, !llvm.loop !4
 
-_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_113X86TableEntryEEERjEEDaOT_OT0_.argprom.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i
+_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_113X86TableEntryEEERjEEDaOT_OT0_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %100 = icmp eq ptr %.1.i.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120X86CompressEVEXTableE, i64 5744)
   br i1 %100, label %_ZL16CompressEVEXImplRN4llvm12MachineInstrERKNS_12X86SubtargetE.exit, label %101
 
-101:                                              ; preds = %_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_113X86TableEntryEEERjEEDaOT_OT0_.argprom.exit.i.i
+101:                                              ; preds = %_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_113X86TableEntryEEERjEEDaOT_OT0_.exit.i.i
   %102 = load i16, ptr %.1.i.i.i.i.i, align 2
   %.not.i36.i = icmp eq i16 %41, %102
   br i1 %.not.i36.i, label %103, label %_ZL16CompressEVEXImplRN4llvm12MachineInstrERKNS_12X86SubtargetE.exit
@@ -643,8 +643,8 @@ _ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.thread.i.i: ; pr
   tail call void @_ZN4llvm12MachineInstr11tieOperandsEjj(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.016.028, i32 noundef 0, i32 noundef 1) #11
   br label %_ZL16CompressEVEXImplRN4llvm12MachineInstrERKNS_12X86SubtargetE.exit
 
-_ZL16CompressEVEXImplRN4llvm12MachineInstrERKNS_12X86SubtargetE.exit: ; preds = %112, %.lr.ph, %35, %_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_113X86TableEntryEEERjEEDaOT_OT0_.argprom.exit.i.i, %101, %122, %125, %128, %131, %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i, %161, %"_ZZL16CompressEVEXImplRN4llvm12MachineInstrERKNS_12X86SubtargetEENK3$_1clEj.exit.i", %183, %187
-  %.028.i = phi i1 [ false, %.lr.ph ], [ false, %35 ], [ false, %"_ZZL16CompressEVEXImplRN4llvm12MachineInstrERKNS_12X86SubtargetEENK3$_1clEj.exit.i" ], [ true, %187 ], [ true, %183 ], [ false, %101 ], [ false, %_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_113X86TableEntryEEERjEEDaOT_OT0_.argprom.exit.i.i ], [ false, %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i ], [ false, %131 ], [ false, %128 ], [ false, %125 ], [ false, %122 ], [ false, %161 ], [ false, %112 ]
+_ZL16CompressEVEXImplRN4llvm12MachineInstrERKNS_12X86SubtargetE.exit: ; preds = %112, %.lr.ph, %35, %_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_113X86TableEntryEEERjEEDaOT_OT0_.exit.i.i, %101, %122, %125, %128, %131, %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i, %161, %"_ZZL16CompressEVEXImplRN4llvm12MachineInstrERKNS_12X86SubtargetEENK3$_1clEj.exit.i", %183, %187
+  %.028.i = phi i1 [ false, %.lr.ph ], [ false, %35 ], [ false, %"_ZZL16CompressEVEXImplRN4llvm12MachineInstrERKNS_12X86SubtargetEENK3$_1clEj.exit.i" ], [ true, %187 ], [ true, %183 ], [ false, %101 ], [ false, %_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_113X86TableEntryEEERjEEDaOT_OT0_.exit.i.i ], [ false, %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i ], [ false, %131 ], [ false, %128 ], [ false, %125 ], [ false, %122 ], [ false, %161 ], [ false, %112 ]
   %188 = or i1 %.127, %.028.i
   %189 = icmp ne ptr %.sroa.016.028, null
   tail call void @llvm.assume(i1 %189)

@@ -2973,7 +2973,7 @@ mas_wr_end_piv.exit:                              ; preds = %.loopexit7.i, %135,
 
 187:                                              ; preds = %183
   %188 = load ptr, ptr %96, align 8
-  tail call fastcc void @mas_new_root.retelim(ptr noundef %2, ptr noundef %188)
+  tail call fastcc void @mas_new_root(ptr noundef %2, ptr noundef %188)
   br label %190
 
 189:                                              ; preds = %183, %mas_wr_end_piv.exit
@@ -10647,7 +10647,7 @@ define internal fastcc void @mas_wr_spanning_store(ptr nocapture noundef readonl
 
 43:                                               ; preds = %39
   %44 = load ptr, ptr %10, align 8
-  call fastcc void @mas_new_root.retelim(ptr noundef %14, ptr noundef %44)
+  call fastcc void @mas_new_root(ptr noundef %14, ptr noundef %44)
   br label %618
 
 45:                                               ; preds = %39, %35
@@ -11618,7 +11618,7 @@ define internal fastcc void @mas_wr_spanning_store(ptr nocapture noundef readonl
   store i64 0, ptr %36, align 8
   store i64 -1, ptr %283, align 8
   %598 = load ptr, ptr %10, align 8
-  call fastcc void @mas_new_root.retelim(ptr noundef %14, ptr noundef %598)
+  call fastcc void @mas_new_root(ptr noundef %14, ptr noundef %598)
   br label %618
 
 599:                                              ; preds = %589
@@ -11655,7 +11655,7 @@ define internal fastcc void @mas_wr_spanning_store(ptr nocapture noundef readonl
   store ptr %5, ptr %615, align 8
   %616 = trunc nuw nsw i32 %50 to i8
   %617 = add nuw nsw i8 %616, 1
-  call fastcc void @mas_spanning_rebalance.retelim(ptr noundef %14, ptr noundef nonnull %2, i8 noundef zeroext %617)
+  call fastcc void @mas_spanning_rebalance(ptr noundef %14, ptr noundef nonnull %2, i8 noundef zeroext %617)
   br label %618
 
 618:                                              ; preds = %611, %596, %74, %43
@@ -11668,7 +11668,7 @@ define internal fastcc void @mas_wr_spanning_store(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @mas_new_root.retelim(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc void @mas_new_root(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #4 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -13499,7 +13499,7 @@ mas_free.exit:                                    ; preds = %595, %590, %579, %5
   %961 = load i64, ptr %.sink237, align 8
   store i64 %961, ptr %.sink236, align 8
   store i64 %961, ptr %.sink234, align 8
-  call fastcc void @mas_spanning_rebalance.retelim(ptr noundef %650, ptr noundef nonnull %8, i8 noundef zeroext %679)
+  call fastcc void @mas_spanning_rebalance(ptr noundef %650, ptr noundef nonnull %8, i8 noundef zeroext %679)
   br label %962
 
 962:                                              ; preds = %960, %746
@@ -15615,7 +15615,7 @@ define internal fastcc void @mas_mab_cp(ptr nocapture noundef readonly %0, i8 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @mas_spanning_rebalance.retelim(ptr nocapture noundef %0, ptr nocapture noundef %1, i8 noundef zeroext range(i8 1, 33) %2) unnamed_addr #1 align 16 {
+define internal fastcc void @mas_spanning_rebalance(ptr nocapture noundef %0, ptr nocapture noundef %1, i8 noundef zeroext range(i8 1, 33) %2) unnamed_addr #1 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca %struct.ma_state, align 8
   %6 = alloca %struct.ma_state, align 8

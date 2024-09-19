@@ -517,13 +517,13 @@ define noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream12SkipFallba
   %.0.i = phi i32 [ %10, %3 ], [ %38, %25 ]
   %14 = load ptr, ptr %11, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %"_ZN6google8protobuf8internal18EpsCopyInputStream10AppendSizeIZNS2_12SkipFallbackEPKciE3$_0EES5_S5_iRKT_.argprom.exit", label %16
+  br i1 %15, label %"_ZN6google8protobuf8internal18EpsCopyInputStream10AppendSizeIZNS2_12SkipFallbackEPKciE3$_0EES5_S5_iRKT_.exit", label %16
 
 16:                                               ; preds = %13
   %17 = sub nsw i32 %.020.i, %.0.i
   %18 = load i32, ptr %12, align 4
   %19 = icmp slt i32 %18, 17
-  br i1 %19, label %"_ZN6google8protobuf8internal18EpsCopyInputStream10AppendSizeIZNS2_12SkipFallbackEPKciE3$_0EES5_S5_iRKT_.argprom.exit", label %20
+  br i1 %19, label %"_ZN6google8protobuf8internal18EpsCopyInputStream10AppendSizeIZNS2_12SkipFallbackEPKciE3$_0EES5_S5_iRKT_.exit", label %20
 
 20:                                               ; preds = %16
   %21 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream10NextBufferEii(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 0, i32 noundef -1)
@@ -535,7 +535,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i: ; preds =
   %24 = getelementptr inbounds i8, ptr %0, i64 80
   store i32 1, ptr %24, align 8
   store ptr %23, ptr %0, align 8
-  br label %"_ZN6google8protobuf8internal18EpsCopyInputStream10AppendSizeIZNS2_12SkipFallbackEPKciE3$_0EES5_S5_iRKT_.argprom.exit"
+  br label %"_ZN6google8protobuf8internal18EpsCopyInputStream10AppendSizeIZNS2_12SkipFallbackEPKciE3$_0EES5_S5_iRKT_.exit"
 
 25:                                               ; preds = %20
   %26 = ptrtoint ptr %23 to i64
@@ -561,9 +561,9 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i: ; preds =
 40:                                               ; preds = %25
   %41 = sext i32 %17 to i64
   %42 = getelementptr inbounds i8, ptr %33, i64 %41
-  br label %"_ZN6google8protobuf8internal18EpsCopyInputStream10AppendSizeIZNS2_12SkipFallbackEPKciE3$_0EES5_S5_iRKT_.argprom.exit"
+  br label %"_ZN6google8protobuf8internal18EpsCopyInputStream10AppendSizeIZNS2_12SkipFallbackEPKciE3$_0EES5_S5_iRKT_.exit"
 
-"_ZN6google8protobuf8internal18EpsCopyInputStream10AppendSizeIZNS2_12SkipFallbackEPKciE3$_0EES5_S5_iRKT_.argprom.exit": ; preds = %13, %16, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i, %40
+"_ZN6google8protobuf8internal18EpsCopyInputStream10AppendSizeIZNS2_12SkipFallbackEPKciE3$_0EES5_S5_iRKT_.exit": ; preds = %13, %16, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i, %40
   %.019.i = phi ptr [ %42, %40 ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i ], [ null, %16 ], [ null, %13 ]
   ret ptr %.019.i
 }

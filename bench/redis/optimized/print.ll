@@ -276,7 +276,7 @@ sw.epilog.i:                                      ; preds = %if.end.i, %if.else8
 sw.bb83.i:                                        ; preds = %sw.epilog.i
   %call84.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18)
   %f.val = load ptr, ptr %k.i, align 8, !tbaa !25
-  tail call fastcc void @PrintConstant.argprom(ptr %f.val, i32 noundef %shr6.i)
+  tail call fastcc void @PrintConstant(ptr %f.val, i32 noundef %shr6.i)
   br label %sw.epilog148.i
 
 sw.bb85.i:                                        ; preds = %sw.epilog.i, %sw.epilog.i
@@ -315,7 +315,7 @@ if.then103.i:                                     ; preds = %sw.bb100.i
   %call104.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18)
   %and105.i = and i32 %shr6.i, 255
   %f.val6 = load ptr, ptr %k.i, align 8, !tbaa !25
-  tail call fastcc void @PrintConstant.argprom(ptr %f.val6, i32 noundef %and105.i)
+  tail call fastcc void @PrintConstant(ptr %f.val6, i32 noundef %and105.i)
   br label %sw.epilog148.i
 
 sw.bb107.i:                                       ; preds = %sw.epilog.i, %sw.epilog.i, %sw.epilog.i, %sw.epilog.i, %sw.epilog.i, %sw.epilog.i, %sw.epilog.i, %sw.epilog.i, %sw.epilog.i
@@ -333,7 +333,7 @@ if.then112.i:                                     ; preds = %sw.bb107.i
 if.then116.i:                                     ; preds = %if.then112.i
   %and117.i = and i32 %shr4.i, 255
   %f.val7 = load ptr, ptr %k.i, align 8, !tbaa !25
-  tail call fastcc void @PrintConstant.argprom(ptr %f.val7, i32 noundef %and117.i)
+  tail call fastcc void @PrintConstant(ptr %f.val7, i32 noundef %and117.i)
   br label %if.end120.i
 
 if.else118.i:                                     ; preds = %if.then112.i
@@ -349,7 +349,7 @@ if.end120.i:                                      ; preds = %if.else118.i, %if.t
 if.then124.i:                                     ; preds = %if.end120.i
   %and125.i = and i32 %shr6.i, 255
   %f.val8 = load ptr, ptr %k.i, align 8, !tbaa !25
-  tail call fastcc void @PrintConstant.argprom(ptr %f.val8, i32 noundef %and125.i)
+  tail call fastcc void @PrintConstant(ptr %f.val8, i32 noundef %and125.i)
   br label %sw.epilog148.i
 
 if.else126.i:                                     ; preds = %if.end120.i
@@ -413,7 +413,7 @@ for.body.i17:                                     ; preds = %for.body.i17.prehea
   %add.i18 = add nuw nsw i32 %i.010.i, 1
   %call1.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %add.i18)
   %f.val9 = load ptr, ptr %40, align 8, !tbaa !25
-  tail call fastcc void @PrintConstant.argprom(ptr %f.val9, i32 noundef %i.010.i)
+  tail call fastcc void @PrintConstant(ptr %f.val9, i32 noundef %i.010.i)
   %41 = load ptr, ptr @stdout, align 8, !tbaa !24
   %call.i.i19 = tail call noundef i32 @putc(i32 noundef 10, ptr noundef %41)
   %exitcond.not.i = icmp eq i32 %add.i18, %39
@@ -502,7 +502,7 @@ for.end:                                          ; preds = %for.body, %if.end
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @PrintConstant.argprom(ptr nocapture readonly %f.16.val, i32 noundef %i) unnamed_addr #0 {
+define internal fastcc void @PrintConstant(ptr nocapture readonly %f.16.val, i32 noundef %i) unnamed_addr #0 {
 entry:
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr inbounds %struct.lua_TValue, ptr %f.16.val, i64 %idxprom

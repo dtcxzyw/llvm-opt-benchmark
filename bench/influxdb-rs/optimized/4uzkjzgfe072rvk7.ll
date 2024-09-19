@@ -2094,13 +2094,13 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io
   %20 = icmp ult i64 %19, -9223372036854775807
   tail call void @llvm.assume(i1 %20)
   %21 = icmp eq i64 %17, 0
-  br i1 %21, label %"_ZN4core3ptr43drop_in_place$LT$std..io..error..Custom$GT$17h6a112bd0cc48195fE.argprom.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.11290379560268722015.exit.i4.i.i"
+  br i1 %21, label %"_ZN4core3ptr43drop_in_place$LT$std..io..error..Custom$GT$17h6a112bd0cc48195fE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.11290379560268722015.exit.i4.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.11290379560268722015.exit.i4.i.i": ; preds = %14
   tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %17, i64 noundef %19) #13
-  br label %"_ZN4core3ptr43drop_in_place$LT$std..io..error..Custom$GT$17h6a112bd0cc48195fE.argprom.exit"
+  br label %"_ZN4core3ptr43drop_in_place$LT$std..io..error..Custom$GT$17h6a112bd0cc48195fE.exit"
 
-"_ZN4core3ptr43drop_in_place$LT$std..io..error..Custom$GT$17h6a112bd0cc48195fE.argprom.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.11290379560268722015.exit.i4.i.i", %14
+"_ZN4core3ptr43drop_in_place$LT$std..io..error..Custom$GT$17h6a112bd0cc48195fE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.11290379560268722015.exit.i4.i.i", %14
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 24, i64 noundef 8) #13
   ret void
 
@@ -4642,28 +4642,28 @@ define internal fastcc void @"_ZN4core3ptr98drop_in_place$LT$alloc..vec..Vec$LT$
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   %.val3 = load i64, ptr %19, align 8, !noundef !4
   %20 = icmp eq i64 %.val3, 0
-  br i1 %20, label %"_ZN4core3ptr105drop_in_place$LT$alloc..raw_vec..RawVec$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$$GT$17h2f0dc8bae46092d7E.argprom.exit", label %21
+  br i1 %20, label %"_ZN4core3ptr105drop_in_place$LT$alloc..raw_vec..RawVec$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$$GT$17h2f0dc8bae46092d7E.exit", label %21
 
 21:                                               ; preds = %.body
   %22 = mul nuw i64 %.val3, 56
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %22, i64 noundef 8) #13
-  br label %"_ZN4core3ptr105drop_in_place$LT$alloc..raw_vec..RawVec$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$$GT$17h2f0dc8bae46092d7E.argprom.exit"
+  br label %"_ZN4core3ptr105drop_in_place$LT$alloc..raw_vec..RawVec$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$$GT$17h2f0dc8bae46092d7E.exit"
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h95614576c810846aE.exit": ; preds = %5
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   %.val1 = load i64, ptr %23, align 8, !noundef !4
   %24 = icmp eq i64 %.val1, 0
-  br i1 %24, label %"_ZN4core3ptr105drop_in_place$LT$alloc..raw_vec..RawVec$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$$GT$17h2f0dc8bae46092d7E.argprom.exit4", label %25
+  br i1 %24, label %"_ZN4core3ptr105drop_in_place$LT$alloc..raw_vec..RawVec$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$$GT$17h2f0dc8bae46092d7E.exit4", label %25
 
 25:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h95614576c810846aE.exit"
   %26 = mul nuw i64 %.val1, 56
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %26, i64 noundef 8) #13
-  br label %"_ZN4core3ptr105drop_in_place$LT$alloc..raw_vec..RawVec$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$$GT$17h2f0dc8bae46092d7E.argprom.exit4"
+  br label %"_ZN4core3ptr105drop_in_place$LT$alloc..raw_vec..RawVec$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$$GT$17h2f0dc8bae46092d7E.exit4"
 
-"_ZN4core3ptr105drop_in_place$LT$alloc..raw_vec..RawVec$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$$GT$17h2f0dc8bae46092d7E.argprom.exit4": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h95614576c810846aE.exit", %25
+"_ZN4core3ptr105drop_in_place$LT$alloc..raw_vec..RawVec$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$$GT$17h2f0dc8bae46092d7E.exit4": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h95614576c810846aE.exit", %25
   ret void
 
-"_ZN4core3ptr105drop_in_place$LT$alloc..raw_vec..RawVec$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$$GT$17h2f0dc8bae46092d7E.argprom.exit": ; preds = %21, %.body
+"_ZN4core3ptr105drop_in_place$LT$alloc..raw_vec..RawVec$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$$GT$17h2f0dc8bae46092d7E.exit": ; preds = %21, %.body
   resume { ptr, i32 } %13
 }
 

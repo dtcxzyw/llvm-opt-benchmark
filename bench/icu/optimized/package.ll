@@ -313,7 +313,7 @@ entry:
   %errorCode = alloca i32, align 4
   %type = alloca i8, align 1
   %prefix = alloca [68 x i8], align 16
-  tail call fastcc void @_ZL18extractPackageNamePKcPci.argelim(ptr noundef %filename, ptr noundef %this)
+  tail call fastcc void @_ZL18extractPackageNamePKcPci(ptr noundef %filename, ptr noundef %this)
   %inLength = getelementptr inbounds i8, ptr %this, i64 1160
   %call = call fastcc noundef ptr @_ZL8readFilePKcS0_RiRc(ptr noundef null, ptr noundef %filename, ptr noundef nonnull align 4 dereferenceable(4) %inLength, ptr noundef nonnull align 1 dereferenceable(1) %type)
   %inData = getelementptr inbounds i8, ptr %this, i64 128
@@ -1040,7 +1040,7 @@ if.end362:                                        ; preds = %if.end349, %_ZN6icu
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL18extractPackageNamePKcPci.argelim(ptr noundef %filename, ptr nocapture noundef nonnull writeonly %pkg) unnamed_addr #12 {
+define internal fastcc void @_ZL18extractPackageNamePKcPci(ptr noundef %filename, ptr nocapture noundef nonnull writeonly %pkg) unnamed_addr #12 {
 entry:
   %call = tail call ptr @findBasename(ptr noundef %filename)
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #24
@@ -1083,7 +1083,7 @@ if.end9:                                          ; preds = %if.end
 define internal fastcc noalias noundef ptr @_ZL8readFilePKcS0_RiRc(ptr noundef %path, ptr noundef %name, ptr nocapture noundef nonnull align 4 dereferenceable(4) %length, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %type) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
 entry:
   %filename = alloca [1024 x i8], align 16
-  call fastcc void @_ZL16makeFullFilenamePKcS0_Pci.argelim(ptr noundef %path, ptr noundef %name, ptr noundef %filename)
+  call fastcc void @_ZL16makeFullFilenamePKcS0_Pci(ptr noundef %path, ptr noundef %name, ptr noundef %filename)
   %call = call noalias ptr @fopen(ptr noundef nonnull %filename, ptr noundef nonnull @.str.39)
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1373,7 +1373,7 @@ entry:
   %ds = alloca [4 x ptr], align 16
   %errorCode = alloca i32, align 4
   %outInt32 = alloca i32, align 4
-  call fastcc void @_ZL18extractPackageNamePKcPci.argelim(ptr noundef %filename, ptr noundef %prefix)
+  call fastcc void @_ZL18extractPackageNamePKcPci(ptr noundef %filename, ptr noundef %prefix)
   %cmp.not = icmp eq ptr %comment, null
   br i1 %cmp.not, label %if.end34, label %if.then
 
@@ -3040,7 +3040,7 @@ if.end23:                                         ; preds = %if.end14
 
 if.end25:                                         ; preds = %if.end23, %land.lhs.true, %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %errorCode.i)
-  call fastcc void @_ZL16makeFullFilenamePKcS0_Pci.argelim(ptr noundef %filesPath, ptr noundef %outName, ptr noundef %filename)
+  call fastcc void @_ZL16makeFullFilenamePKcS0_Pci(ptr noundef %filesPath, ptr noundef %outName, ptr noundef %filename)
   store i32 0, ptr %errorCode.i, align 4
   %strlen.i = call i64 @strlen(ptr nonnull dereferenceable(1) %filename)
   %strchr.i = getelementptr inbounds i8, ptr %filename, i64 %strlen.i
@@ -3353,7 +3353,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #18
 declare ptr @findBasename(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL16makeFullFilenamePKcS0_Pci.argelim(ptr noundef %path, ptr noundef %name, ptr noundef nonnull %filename) unnamed_addr #7 {
+define internal fastcc void @_ZL16makeFullFilenamePKcS0_Pci(ptr noundef %path, ptr noundef %name, ptr noundef nonnull %filename) unnamed_addr #7 {
 entry:
   %cmp.not = icmp eq ptr %path, null
   br i1 %cmp.not, label %if.end16, label %land.lhs.true

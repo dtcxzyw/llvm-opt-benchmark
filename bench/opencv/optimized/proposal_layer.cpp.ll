@@ -8624,9 +8624,9 @@ define linkonce_odr hidden void @_ZN2cv3dnn17ProposalLayerImpl15getObjectScoresE
   store i64 9223372034707292160, ptr %45, align 8, !noalias !90
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZN2cv3dnn14dnn4_v20240521L5sliceERKNS_3MatERKNS1_6_RangeES7_.argprom.exit, label %.lr.ph.i, !llvm.loop !93
+  br i1 %exitcond.not.i, label %_ZN2cv3dnn14dnn4_v20240521L5sliceERKNS_3MatERKNS1_6_RangeES7_.exit, label %.lr.ph.i, !llvm.loop !93
 
-_ZN2cv3dnn14dnn4_v20240521L5sliceERKNS_3MatERKNS1_6_RangeES7_.argprom.exit: ; preds = %.lr.ph.i
+_ZN2cv3dnn14dnn4_v20240521L5sliceERKNS_3MatERKNS1_6_RangeES7_.exit: ; preds = %.lr.ph.i
   %.sroa.2.0.insert.ext = zext i32 %34 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %46 = ashr exact i32 %34, 1
@@ -10148,8 +10148,8 @@ attributes #27 = { nounwind willreturn memory(read) }
 !88 = distinct !{!88, !5}
 !89 = distinct !{!89, !5}
 !90 = !{!91}
-!91 = distinct !{!91, !92, !"_ZN2cv3dnn14dnn4_v20240521L5sliceERKNS_3MatERKNS1_6_RangeES7_.argprom: argument 0"}
-!92 = distinct !{!92, !"_ZN2cv3dnn14dnn4_v20240521L5sliceERKNS_3MatERKNS1_6_RangeES7_.argprom"}
+!91 = distinct !{!91, !92, !"_ZN2cv3dnn14dnn4_v20240521L5sliceERKNS_3MatERKNS1_6_RangeES7_: argument 0"}
+!92 = distinct !{!92, !"_ZN2cv3dnn14dnn4_v20240521L5sliceERKNS_3MatERKNS1_6_RangeES7_"}
 !93 = distinct !{!93, !5}
 !94 = distinct !{!94, !5}
 !95 = distinct !{!95, !5}

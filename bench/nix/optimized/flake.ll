@@ -13751,7 +13751,7 @@ define internal fastcc void @_ZN3nix5flakeL21fetchOrSubstituteTreeERNS_9EvalStat
   %.val = load ptr, ptr %4, align 8
   %27 = getelementptr inbounds i8, ptr %4, i64 8
   %.val48 = load ptr, ptr %27, align 8
-  call fastcc void @_ZN3nix5flakeL18lookupInFlakeCacheERKSt6vectorISt4pairINS_8FlakeRefES2_INS_9StorePathES3_EESaIS6_EERKS3_.argprom(ptr dead_on_unwind noalias writable align 8 %9, ptr %.val, ptr %.val48, ptr noundef nonnull align 8 dereferenceable(136) %2)
+  call fastcc void @_ZN3nix5flakeL18lookupInFlakeCacheERKSt6vectorISt4pairINS_8FlakeRefES2_INS_9StorePathES3_EESaIS6_EERKS3_(ptr dead_on_unwind noalias writable align 8 %9, ptr %.val, ptr %.val48, ptr noundef nonnull align 8 dereferenceable(136) %2)
   invoke void @_ZN3nix8fetchers5InputC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %2)
           to label %.noexc unwind label %103
 
@@ -14157,7 +14157,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZN3nix3refINS_5StoreEED2Ev.exit62:               ; preds = %_ZN3nix8FlakeRefD2Ev.exit, %186, %199, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i61
   %.val49 = load ptr, ptr %4, align 8
   %.val50 = load ptr, ptr %27, align 8
-  invoke fastcc void @_ZN3nix5flakeL18lookupInFlakeCacheERKSt6vectorISt4pairINS_8FlakeRefES2_INS_9StorePathES3_EESaIS6_EERKS3_.argprom(ptr dead_on_unwind noalias writable align 8 %15, ptr %.val49, ptr %.val50, ptr noundef nonnull align 8 dereferenceable(136) %2)
+  invoke fastcc void @_ZN3nix5flakeL18lookupInFlakeCacheERKSt6vectorISt4pairINS_8FlakeRefES2_INS_9StorePathES3_EESaIS6_EERKS3_(ptr dead_on_unwind noalias writable align 8 %15, ptr %.val49, ptr %.val50, ptr noundef nonnull align 8 dereferenceable(136) %2)
           to label %204 unwind label %105
 
 204:                                              ; preds = %_ZN3nix3refINS_5StoreEED2Ev.exit62
@@ -14890,7 +14890,7 @@ _ZNSt8optionalISt4pairIN3nix9StorePathENS1_8FlakeRefEEED2Ev.exit117: ; preds = %
 declare void @_ZN3nix9EvalState8rootPathESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind writable sret(%"struct.nix::SourcePath") align 8, ptr noundef nonnull align 8 dereferenceable(1248), i64, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3nix5flakeL18lookupInFlakeCacheERKSt6vectorISt4pairINS_8FlakeRefES2_INS_9StorePathES3_EESaIS6_EERKS3_.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr readnone %.8.val, ptr noundef nonnull align 8 dereferenceable(136) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3nix5flakeL18lookupInFlakeCacheERKSt6vectorISt4pairINS_8FlakeRefES2_INS_9StorePathES3_EESaIS6_EERKS3_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr readnone %.8.val, ptr noundef nonnull align 8 dereferenceable(136) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -48729,7 +48729,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZNSt10shared_ptrIKN3nix5flake4NodeEED2Ev.exit.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %57, %44, %27
   %62 = load ptr, ptr %12, align 8
   %.not.i.i.i.i10.i.i = icmp eq ptr %62, null
-  br i1 %.not.i.i.i.i10.i.i, label %"_ZSt10__invoke_rIvRZN3nix5flake9lockFlakeERNS0_9EvalStateERKNS0_8FlakeRefERKNS1_9LockFlagsEE3$_0JRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10FlakeInputESt4lessISI_ESaISt4pairIKSI_SJ_EEENS0_3refINS1_4NodeEEERKSt6vectorISI_SaISI_EESt10shared_ptrIKSU_ES10_RSN_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES16_E4typeEOS17_DpOS18_.argprom.exit", label %63
+  br i1 %.not.i.i.i.i10.i.i, label %"_ZSt10__invoke_rIvRZN3nix5flake9lockFlakeERNS0_9EvalStateERKNS0_8FlakeRefERKNS1_9LockFlagsEE3$_0JRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10FlakeInputESt4lessISI_ESaISt4pairIKSI_SJ_EEENS0_3refINS1_4NodeEEERKSt6vectorISI_SaISI_EESt10shared_ptrIKSU_ES10_RSN_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES16_E4typeEOS17_DpOS18_.exit", label %63
 
 63:                                               ; preds = %_ZNSt10shared_ptrIKN3nix5flake4NodeEED2Ev.exit.i.i
   %64 = getelementptr inbounds i8, ptr %62, i64 8
@@ -48765,7 +48765,7 @@ _ZNSt10shared_ptrIKN3nix5flake4NodeEED2Ev.exit.i.i: ; preds = %_ZNSt16_Sp_counte
 79:                                               ; preds = %77, %75
   %.0.i.i.i.i.i.i.i = phi i32 [ %67, %75 ], [ %78, %77 ]
   %80 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %80, label %81, label %"_ZSt10__invoke_rIvRZN3nix5flake9lockFlakeERNS0_9EvalStateERKNS0_8FlakeRefERKNS1_9LockFlagsEE3$_0JRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10FlakeInputESt4lessISI_ESaISt4pairIKSI_SJ_EEENS0_3refINS1_4NodeEEERKSt6vectorISI_SaISI_EESt10shared_ptrIKSU_ES10_RSN_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES16_E4typeEOS17_DpOS18_.argprom.exit"
+  br i1 %80, label %81, label %"_ZSt10__invoke_rIvRZN3nix5flake9lockFlakeERNS0_9EvalStateERKNS0_8FlakeRefERKNS1_9LockFlagsEE3$_0JRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10FlakeInputESt4lessISI_ESaISt4pairIKSI_SJ_EEENS0_3refINS1_4NodeEEERKSt6vectorISI_SaISI_EESt10shared_ptrIKSU_ES10_RSN_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES16_E4typeEOS17_DpOS18_.exit"
 
 81:                                               ; preds = %79
   %82 = load ptr, ptr %62, align 8
@@ -48790,14 +48790,14 @@ _ZNSt10shared_ptrIKN3nix5flake4NodeEED2Ev.exit.i.i: ; preds = %_ZNSt16_Sp_counte
 92:                                               ; preds = %90, %87
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %88, %87 ], [ %91, %90 ]
   %93 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %93, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3nix5flake9lockFlakeERNS0_9EvalStateERKNS0_8FlakeRefERKNS1_9LockFlagsEE3$_0JRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10FlakeInputESt4lessISI_ESaISt4pairIKSI_SJ_EEENS0_3refINS1_4NodeEEERKSt6vectorISI_SaISI_EESt10shared_ptrIKSU_ES10_RSN_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES16_E4typeEOS17_DpOS18_.argprom.exit"
+  br i1 %93, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3nix5flake9lockFlakeERNS0_9EvalStateERKNS0_8FlakeRefERKNS1_9LockFlagsEE3$_0JRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10FlakeInputESt4lessISI_ESaISt4pairIKSI_SJ_EEENS0_3refINS1_4NodeEEERKSt6vectorISI_SaISI_EESt10shared_ptrIKSU_ES10_RSN_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES16_E4typeEOS17_DpOS18_.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %92, %68
   %94 = load ptr, ptr %62, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 24
   %96 = load ptr, ptr %95, align 8
   tail call void %96(ptr noundef nonnull align 8 dereferenceable(16) %62) #29
-  br label %"_ZSt10__invoke_rIvRZN3nix5flake9lockFlakeERNS0_9EvalStateERKNS0_8FlakeRefERKNS1_9LockFlagsEE3$_0JRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10FlakeInputESt4lessISI_ESaISt4pairIKSI_SJ_EEENS0_3refINS1_4NodeEEERKSt6vectorISI_SaISI_EESt10shared_ptrIKSU_ES10_RSN_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES16_E4typeEOS17_DpOS18_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN3nix5flake9lockFlakeERNS0_9EvalStateERKNS0_8FlakeRefERKNS1_9LockFlagsEE3$_0JRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10FlakeInputESt4lessISI_ESaISt4pairIKSI_SJ_EEENS0_3refINS1_4NodeEEERKSt6vectorISI_SaISI_EESt10shared_ptrIKSU_ES10_RSN_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES16_E4typeEOS17_DpOS18_.exit"
 
 97:                                               ; preds = %_ZN3nix3refINS_5flake4NodeEEC2ERKS3_.exit.i.i
   %98 = landingpad { ptr, i32 }
@@ -48806,7 +48806,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void @_ZN3nix3refINS_5flake4NodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #29
   resume { ptr, i32 } %98
 
-"_ZSt10__invoke_rIvRZN3nix5flake9lockFlakeERNS0_9EvalStateERKNS0_8FlakeRefERKNS1_9LockFlagsEE3$_0JRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10FlakeInputESt4lessISI_ESaISt4pairIKSI_SJ_EEENS0_3refINS1_4NodeEEERKSt6vectorISI_SaISI_EESt10shared_ptrIKSU_ES10_RSN_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES16_E4typeEOS17_DpOS18_.argprom.exit": ; preds = %_ZNSt10shared_ptrIKN3nix5flake4NodeEED2Ev.exit.i.i, %79, %92, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN3nix5flake9lockFlakeERNS0_9EvalStateERKNS0_8FlakeRefERKNS1_9LockFlagsEE3$_0JRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10FlakeInputESt4lessISI_ESaISt4pairIKSI_SJ_EEENS0_3refINS1_4NodeEEERKSt6vectorISI_SaISI_EESt10shared_ptrIKSU_ES10_RSN_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES16_E4typeEOS17_DpOS18_.exit": ; preds = %_ZNSt10shared_ptrIKN3nix5flake4NodeEED2Ev.exit.i.i, %79, %92, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   ret void
@@ -48814,7 +48814,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix5flake10FlakeInputESt4lessIS6_ESaISt4pairIKS6_S9_EEENS7_3refINS8_4NodeEEERKSt6vectorIS6_SaIS6_EESt10shared_ptrIKSK_ESQ_RSD_bEZNS8_9lockFlakeERNS7_9EvalStateERKNS7_8FlakeRefERKNS8_9LockFlagsEE3$_0E10_M_managerERSt9_Any_dataRKS16_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #4 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix5flake9lockFlakeERNS1_9EvalStateERKNS1_8FlakeRefERKNS2_9LockFlagsEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix5flake9lockFlakeERNS1_9EvalStateERKNS1_8FlakeRefERKNS2_9LockFlagsEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -48823,30 +48823,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKSt3mapINSt7__c
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN3nix5flake9lockFlakeERNS_9EvalStateERKNS_8FlakeRefERKNS0_9LockFlagsEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5flake9lockFlakeERNS1_9EvalStateERKNS1_8FlakeRefERKNS2_9LockFlagsEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5flake9lockFlakeERNS1_9EvalStateERKNS1_8FlakeRefERKNS2_9LockFlagsEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5flake9lockFlakeERNS1_9EvalStateERKNS1_8FlakeRefERKNS2_9LockFlagsEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5flake9lockFlakeERNS1_9EvalStateERKNS1_8FlakeRefERKNS2_9LockFlagsEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %7, ptr noundef nonnull readonly align 8 dereferenceable(88) %.val6, i64 88, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5flake9lockFlakeERNS1_9EvalStateERKNS1_8FlakeRefERKNS2_9LockFlagsEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5flake9lockFlakeERNS1_9EvalStateERKNS1_8FlakeRefERKNS2_9LockFlagsEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3nix5flake9lockFlakeERNS1_9EvalStateERKNS1_8FlakeRefERKNS2_9LockFlagsEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3nix5flake9lockFlakeERNS1_9EvalStateERKNS1_8FlakeRefERKNS2_9LockFlagsEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #32
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5flake9lockFlakeERNS1_9EvalStateERKNS1_8FlakeRefERKNS2_9LockFlagsEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5flake9lockFlakeERNS1_9EvalStateERKNS1_8FlakeRefERKNS2_9LockFlagsEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3nix5flake9lockFlakeERNS1_9EvalStateERKNS1_8FlakeRefERKNS2_9LockFlagsEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3nix5flake9lockFlakeERNS1_9EvalStateERKNS1_8FlakeRefERKNS2_9LockFlagsEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -53676,20 +53676,20 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %1888 = load i64, ptr %1887, align 8
   %1889 = icmp ult i64 %1888, 16
   call void @llvm.assume(i1 %1889)
-  br label %"_ZN7FinallyIZZN3nix5flake9lockFlakeERNS0_9EvalStateERKNS0_8FlakeRefERKNS1_9LockFlagsEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10FlakeInputESt4lessISH_ESaISt4pairIKSH_SI_EEENS0_3refINS1_4NodeEEERKSt6vectorISH_SaISH_EESt10shared_ptrIKST_ESZ_RSM_bEUlvE_ED2Ev.argprom.exit"
+  br label %"_ZN7FinallyIZZN3nix5flake9lockFlakeERNS0_9EvalStateERKNS0_8FlakeRefERKNS1_9LockFlagsEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10FlakeInputESt4lessISH_ESaISt4pairIKSH_SI_EEENS0_3refINS1_4NodeEEERKSt6vectorISH_SaISH_EESt10shared_ptrIKST_ESZ_RSM_bEUlvE_ED2Ev.exit"
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i666: ; preds = %_ZN3nix3refINS_5flake4NodeEED2Ev.exit665
   call void @_ZdlPv(ptr noundef %1884) #32
-  br label %"_ZN7FinallyIZZN3nix5flake9lockFlakeERNS0_9EvalStateERKNS0_8FlakeRefERKNS1_9LockFlagsEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10FlakeInputESt4lessISH_ESaISt4pairIKSH_SI_EEENS0_3refINS1_4NodeEEERKSt6vectorISH_SaISH_EESt10shared_ptrIKST_ESZ_RSM_bEUlvE_ED2Ev.argprom.exit"
+  br label %"_ZN7FinallyIZZN3nix5flake9lockFlakeERNS0_9EvalStateERKNS0_8FlakeRefERKNS1_9LockFlagsEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10FlakeInputESt4lessISH_ESaISt4pairIKSH_SI_EEENS0_3refINS1_4NodeEEERKSt6vectorISH_SaISH_EESt10shared_ptrIKST_ESZ_RSM_bEUlvE_ED2Ev.exit"
 
-"_ZN7FinallyIZZN3nix5flake9lockFlakeERNS0_9EvalStateERKNS0_8FlakeRefERKNS1_9LockFlagsEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10FlakeInputESt4lessISH_ESaISt4pairIKSH_SI_EEENS0_3refINS1_4NodeEEERKSt6vectorISH_SaISH_EESt10shared_ptrIKST_ESZ_RSM_bEUlvE_ED2Ev.argprom.exit": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i667, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i666
+"_ZN7FinallyIZZN3nix5flake9lockFlakeERNS0_9EvalStateERKNS0_8FlakeRefERKNS1_9LockFlagsEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10FlakeInputESt4lessISH_ESaISt4pairIKSH_SI_EEENS0_3refINS1_4NodeEEERKSt6vectorISH_SaISH_EESt10shared_ptrIKST_ESZ_RSM_bEUlvE_ED2Ev.exit": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i667, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i666
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %1883) #29
   call void @_ZN3nix8fetchers5InputD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %1882) #29
   %1890 = load ptr, ptr %679, align 8
   %.not.i.i.i.i668 = icmp eq ptr %1890, null
   br i1 %.not.i.i.i.i668, label %_ZN3nix3refINS_5flake10LockedNodeEED2Ev.exit674, label %1891
 
-1891:                                             ; preds = %"_ZN7FinallyIZZN3nix5flake9lockFlakeERNS0_9EvalStateERKNS0_8FlakeRefERKNS1_9LockFlagsEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10FlakeInputESt4lessISH_ESaISt4pairIKSH_SI_EEENS0_3refINS1_4NodeEEERKSt6vectorISH_SaISH_EESt10shared_ptrIKST_ESZ_RSM_bEUlvE_ED2Ev.argprom.exit"
+1891:                                             ; preds = %"_ZN7FinallyIZZN3nix5flake9lockFlakeERNS0_9EvalStateERKNS0_8FlakeRefERKNS1_9LockFlagsEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10FlakeInputESt4lessISH_ESaISt4pairIKSH_SI_EEENS0_3refINS1_4NodeEEERKSt6vectorISH_SaISH_EESt10shared_ptrIKST_ESZ_RSM_bEUlvE_ED2Ev.exit"
   %1892 = getelementptr inbounds i8, ptr %1890, i64 8
   %1893 = load atomic i64, ptr %1892 acquire, align 8
   %1894 = icmp eq i64 %1893, 4294967297
@@ -53757,7 +53757,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void %1924(ptr noundef nonnull align 8 dereferenceable(16) %1890) #29
   br label %_ZN3nix3refINS_5flake10LockedNodeEED2Ev.exit674
 
-_ZN3nix3refINS_5flake10LockedNodeEED2Ev.exit674:  ; preds = %"_ZN7FinallyIZZN3nix5flake9lockFlakeERNS0_9EvalStateERKNS0_8FlakeRefERKNS1_9LockFlagsEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10FlakeInputESt4lessISH_ESaISt4pairIKSH_SI_EEENS0_3refINS1_4NodeEEERKSt6vectorISH_SaISH_EESt10shared_ptrIKST_ESZ_RSM_bEUlvE_ED2Ev.argprom.exit", %1907, %1920, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i673
+_ZN3nix3refINS_5flake10LockedNodeEED2Ev.exit674:  ; preds = %"_ZN7FinallyIZZN3nix5flake9lockFlakeERNS0_9EvalStateERKNS0_8FlakeRefERKNS1_9LockFlagsEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10FlakeInputESt4lessISH_ESaISt4pairIKSH_SI_EEENS0_3refINS1_4NodeEEERKSt6vectorISH_SaISH_EESt10shared_ptrIKST_ESZ_RSM_bEUlvE_ED2Ev.exit", %1907, %1920, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i673
   call void @_ZN3nix5flake5FlakeD1Ev(ptr noundef nonnull align 8 dereferenceable(600) %82) #29
   %1925 = load ptr, ptr %649, align 8
   %1926 = icmp eq ptr %1925, %680
@@ -53853,7 +53853,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit677: ; preds = %_Z
 
 1943:                                             ; preds = %.critedge287.thread835, %1935, %1933
   %.pn251.pn.pn = phi { ptr, i32 } [ %.pn251.pn838, %.critedge287.thread835 ], [ %1934, %1933 ], [ %1936, %1935 ]
-  call fastcc void @"_ZN7FinallyIZZN3nix5flake9lockFlakeERNS0_9EvalStateERKNS0_8FlakeRefERKNS1_9LockFlagsEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10FlakeInputESt4lessISH_ESaISt4pairIKSH_SI_EEENS0_3refINS1_4NodeEEERKSt6vectorISH_SaISH_EESt10shared_ptrIKST_ESZ_RSM_bEUlvE_ED2Ev.argprom"(ptr %1596) #29
+  call fastcc void @"_ZN7FinallyIZZN3nix5flake9lockFlakeERNS0_9EvalStateERKNS0_8FlakeRefERKNS1_9LockFlagsEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10FlakeInputESt4lessISH_ESaISt4pairIKSH_SI_EEENS0_3refINS1_4NodeEEERKSt6vectorISH_SaISH_EESt10shared_ptrIKST_ESZ_RSM_bEUlvE_ED2Ev"(ptr %1596) #29
   br label %.body599
 
 .body599:                                         ; preds = %.loopexit, %.loopexit.split-lp, %1591, %1578, %1580, %1943
@@ -55211,7 +55211,7 @@ _ZNSt10shared_ptrIN3nix5flake10LockedNodeEED2Ev.exit: ; preds = %_ZN3nix3refINS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN7FinallyIZZN3nix5flake9lockFlakeERNS0_9EvalStateERKNS0_8FlakeRefERKNS1_9LockFlagsEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10FlakeInputESt4lessISH_ESaISt4pairIKSH_SI_EEENS0_3refINS1_4NodeEEERKSt6vectorISH_SaISH_EESt10shared_ptrIKST_ESZ_RSM_bEUlvE_ED2Ev.argprom"(ptr nocapture %.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN7FinallyIZZN3nix5flake9lockFlakeERNS0_9EvalStateERKNS0_8FlakeRefERKNS1_9LockFlagsEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10FlakeInputESt4lessISH_ESaISt4pairIKSH_SI_EEENS0_3refINS1_4NodeEEERKSt6vectorISH_SaISH_EESt10shared_ptrIKST_ESZ_RSM_bEUlvE_ED2Ev"(ptr nocapture %.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %1 = getelementptr inbounds i8, ptr %.0.val, i64 8
   %2 = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -136
@@ -55227,13 +55227,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %9 = load i64, ptr %8, align 8
   %10 = icmp ult i64 %9, 16
   tail call void @llvm.assume(i1 %10)
-  br label %"_ZZZN3nix5flake9lockFlakeERNS_9EvalStateERKNS_8FlakeRefERKNS0_9LockFlagsEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10FlakeInputESt4lessISG_ESaISt4pairIKSG_SH_EEENS_3refINS0_4NodeEEERKSt6vectorISG_SaISG_EESt10shared_ptrIKSS_ESY_RSL_bENKUlvE_clEv.argprom.exit"
+  br label %"_ZZZN3nix5flake9lockFlakeERNS_9EvalStateERKNS_8FlakeRefERKNS0_9LockFlagsEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10FlakeInputESt4lessISG_ESaISt4pairIKSG_SH_EEENS_3refINS0_4NodeEEERKSt6vectorISG_SaISG_EESt10shared_ptrIKSS_ESY_RSL_bENKUlvE_clEv.exit"
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i: ; preds = %0
   tail call void @_ZdlPv(ptr noundef %5) #32
-  br label %"_ZZZN3nix5flake9lockFlakeERNS_9EvalStateERKNS_8FlakeRefERKNS0_9LockFlagsEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10FlakeInputESt4lessISG_ESaISt4pairIKSG_SH_EEENS_3refINS0_4NodeEEERKSt6vectorISG_SaISG_EESt10shared_ptrIKSS_ESY_RSL_bENKUlvE_clEv.argprom.exit"
+  br label %"_ZZZN3nix5flake9lockFlakeERNS_9EvalStateERKNS_8FlakeRefERKNS0_9LockFlagsEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10FlakeInputESt4lessISG_ESaISt4pairIKSG_SH_EEENS_3refINS0_4NodeEEERKSt6vectorISG_SaISG_EESt10shared_ptrIKSS_ESY_RSL_bENKUlvE_clEv.exit"
 
-"_ZZZN3nix5flake9lockFlakeERNS_9EvalStateERKNS_8FlakeRefERKNS0_9LockFlagsEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10FlakeInputESt4lessISG_ESaISt4pairIKSG_SH_EEENS_3refINS0_4NodeEEERKSt6vectorISG_SaISG_EESt10shared_ptrIKSS_ESY_RSL_bENKUlvE_clEv.argprom.exit": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
+"_ZZZN3nix5flake9lockFlakeERNS_9EvalStateERKNS_8FlakeRefERKNS0_9LockFlagsEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10FlakeInputESt4lessISG_ESaISt4pairIKSG_SH_EEENS_3refINS0_4NodeEEERKSt6vectorISG_SaISG_EESt10shared_ptrIKSS_ESY_RSL_bENKUlvE_clEv.exit": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #29
   tail call void @_ZN3nix8fetchers5InputD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #29
   ret void

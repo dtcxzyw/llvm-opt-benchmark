@@ -968,17 +968,17 @@ define internal i32 @dissect_dect(ptr noundef %0, ptr nocapture noundef readonly
 38:                                               ; preds = %13
   tail call void @col_set_str(ptr noundef %37, i32 noundef 34, ptr noundef nonnull @.str.586) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %31, ptr noundef nonnull @.str.587) #5
-  call fastcc void @dissect_afield.argelim(i32 noundef 0, ptr noundef %5, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %17, ptr noundef %36)
+  call fastcc void @dissect_afield(i32 noundef 0, ptr noundef %5, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %17, ptr noundef %36)
   %39 = load i8, ptr %5, align 1
-  tail call fastcc void @dissect_bfield.argelim(i8 noundef zeroext %39, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %17, ptr noundef %36)
+  tail call fastcc void @dissect_bfield(i8 noundef zeroext %39, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %17, ptr noundef %36)
   br label %43
 
 40:                                               ; preds = %13
   tail call void @col_set_str(ptr noundef %37, i32 noundef 34, ptr noundef nonnull @.str.588) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %31, ptr noundef nonnull @.str.589) #5
-  call fastcc void @dissect_afield.argelim(i32 noundef 1, ptr noundef %5, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %17, ptr noundef %36)
+  call fastcc void @dissect_afield(i32 noundef 1, ptr noundef %5, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %17, ptr noundef %36)
   %41 = load i8, ptr %5, align 1
-  tail call fastcc void @dissect_bfield.argelim(i8 noundef zeroext %41, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %17, ptr noundef %36)
+  tail call fastcc void @dissect_bfield(i8 noundef zeroext %41, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %17, ptr noundef %36)
   br label %43
 
 42:                                               ; preds = %13
@@ -1015,7 +1015,7 @@ declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr 
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_afield.argelim(i32 noundef range(i32 0, 2) %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_afield(i32 noundef range(i32 0, 2) %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca [8 x i8], align 1
   %8 = getelementptr inbounds i8, ptr %2, i64 408
   %9 = load ptr, ptr %8, align 8
@@ -1678,7 +1678,7 @@ calc_rcrc.exit:                                   ; preds = %.thread.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bfield.argelim(i8 noundef zeroext %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_bfield(i8 noundef zeroext %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [21 x i8], align 16
   %7 = alloca [128 x i8], align 16
   %8 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef 19) #5

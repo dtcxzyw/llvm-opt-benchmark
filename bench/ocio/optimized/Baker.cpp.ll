@@ -2553,12 +2553,12 @@ if.then171.critedge:                              ; preds = %land.rhs.i
 
 if.then171:                                       ; preds = %if.then171.critedge, %if.end.i.i
   %call172 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_view) #21
-  %call174 = invoke fastcc noundef zeroext i1 @"_ZZNK19OpenColorIO_v2_4dev5Baker4bakeERSoENK3$_0clENS_8ViewTypeEPKcS5_.argprom"(ptr nonnull %this, i32 noundef 1, ptr noundef %call164425, ptr noundef %call172)
+  %call174 = invoke fastcc noundef zeroext i1 @"_ZZNK19OpenColorIO_v2_4dev5Baker4bakeERSoENK3$_0clENS_8ViewTypeEPKcS5_"(ptr nonnull %this, i32 noundef 1, ptr noundef %call164425, ptr noundef %call172)
           to label %invoke.cont173 unwind label %lpad22.loopexit
 
 invoke.cont173:                                   ; preds = %if.then171
   %call179 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_view) #21
-  %call181 = invoke fastcc noundef zeroext i1 @"_ZZNK19OpenColorIO_v2_4dev5Baker4bakeERSoENK3$_0clENS_8ViewTypeEPKcS5_.argprom"(ptr nonnull %this, i32 noundef 0, ptr noundef %call164425, ptr noundef %call179)
+  %call181 = invoke fastcc noundef zeroext i1 @"_ZZNK19OpenColorIO_v2_4dev5Baker4bakeERSoENK3$_0clENS_8ViewTypeEPKcS5_"(ptr nonnull %this, i32 noundef 0, ptr noundef %call164425, ptr noundef %call179)
           to label %if.end188.thread unwind label %lpad22.loopexit
 
 if.end188.thread:                                 ; preds = %invoke.cont173
@@ -3618,7 +3618,7 @@ declare noundef i32 @_ZNK19OpenColorIO_v2_4dev6Config17getNumDisplaysAllEv(ptr n
 declare noundef ptr @_ZNK19OpenColorIO_v2_4dev6Config13getDisplayAllEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZNK19OpenColorIO_v2_4dev5Baker4bakeERSoENK3$_0clENS_8ViewTypeEPKcS5_.argprom"(ptr nocapture readonly %this.0.val, i32 noundef range(i32 0, 2) %type, ptr noundef %display, ptr noundef %view) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZNK19OpenColorIO_v2_4dev5Baker4bakeERSoENK3$_0clENS_8ViewTypeEPKcS5_"(ptr nocapture readonly %this.0.val, i32 noundef range(i32 0, 2) %type, ptr noundef %display, ptr noundef %view) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.11", align 8
   %ref.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8

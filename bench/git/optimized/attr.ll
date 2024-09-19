@@ -158,20 +158,20 @@ if.end:                                           ; preds = %if.end38.i
   store i64 %namelen, ptr %keylen2.i, align 8
   %call5.i = call ptr @hashmap_get(ptr noundef nonnull @g_attr_hashmap, ptr noundef nonnull %k.i, ptr noundef null) #21
   %tobool.not.i14 = icmp eq ptr %call5.i, null
-  br i1 %tobool.not.i14, label %attr_hashmap_get.argprom.exit.thread, label %attr_hashmap_get.argprom.exit
+  br i1 %tobool.not.i14, label %attr_hashmap_get.exit.thread, label %attr_hashmap_get.exit
 
-attr_hashmap_get.argprom.exit.thread:             ; preds = %if.end
+attr_hashmap_get.exit.thread:                     ; preds = %if.end
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %k.i)
   br label %do.body
 
-attr_hashmap_get.argprom.exit:                    ; preds = %if.end
+attr_hashmap_get.exit:                            ; preds = %if.end
   %value.i = getelementptr inbounds i8, ptr %call5.i, i64 32
   %6 = load ptr, ptr %value.i, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %k.i)
   %tobool2.not = icmp eq ptr %6, null
   br i1 %tobool2.not, label %do.body, label %if.end16
 
-do.body:                                          ; preds = %attr_hashmap_get.argprom.exit.thread, %attr_hashmap_get.argprom.exit
+do.body:                                          ; preds = %attr_hashmap_get.exit.thread, %attr_hashmap_get.exit
   %cmp.i15 = icmp ugt i64 %namelen, -5
   br i1 %cmp.i15, label %if.then.i, label %st_add.exit
 
@@ -195,13 +195,13 @@ st_add.exit19:                                    ; preds = %st_add.exit
   %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @g_attr_hashmap, i64 40), align 8
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not.i20 = icmp eq i8 %bf.clear.i, 0
-  br i1 %tobool.not.i20, label %if.end.i, label %hashmap_get_size.argprom.exit
+  br i1 %tobool.not.i20, label %if.end.i, label %hashmap_get_size.exit
 
 if.end.i:                                         ; preds = %st_add.exit19
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 308, ptr noundef nonnull @.str.10) #22
   unreachable
 
-hashmap_get_size.argprom.exit:                    ; preds = %st_add.exit19
+hashmap_get_size.exit:                            ; preds = %st_add.exit19
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @g_attr_hashmap, i64 24), align 8
   store i32 %7, ptr %call6, align 4
   %call.i22 = call ptr @xmalloc(i64 noundef 40) #21
@@ -219,26 +219,26 @@ hashmap_get_size.argprom.exit:                    ; preds = %st_add.exit19
   %bf.load.i24 = load i8, ptr getelementptr inbounds (i8, ptr @g_attr_hashmap, i64 40), align 8
   %bf.clear.i25 = and i8 %bf.load.i24, 1
   %tobool.not.i26 = icmp eq i8 %bf.clear.i25, 0
-  br i1 %tobool.not.i26, label %if.end.i28, label %hashmap_get_size.argprom.exit29
+  br i1 %tobool.not.i26, label %if.end.i28, label %hashmap_get_size.exit29
 
-if.end.i28:                                       ; preds = %hashmap_get_size.argprom.exit
+if.end.i28:                                       ; preds = %hashmap_get_size.exit
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 308, ptr noundef nonnull @.str.10) #22
   unreachable
 
-hashmap_get_size.argprom.exit29:                  ; preds = %hashmap_get_size.argprom.exit
+hashmap_get_size.exit29:                          ; preds = %hashmap_get_size.exit
   %8 = load i32, ptr %call6, align 4
   %9 = load i32, ptr getelementptr inbounds (i8, ptr @g_attr_hashmap, i64 24), align 8
   %sub = add i32 %9, -1
   %cmp.not = icmp eq i32 %8, %sub
   br i1 %cmp.not, label %if.end16, label %if.then13
 
-if.then13:                                        ; preds = %hashmap_get_size.argprom.exit29
+if.then13:                                        ; preds = %hashmap_get_size.exit29
   %call14 = call fastcc ptr @_(ptr noundef nonnull @.str.7)
   call void (ptr, ...) @die(ptr noundef %call14) #22
   unreachable
 
-if.end16:                                         ; preds = %hashmap_get_size.argprom.exit29, %attr_hashmap_get.argprom.exit
-  %a.0 = phi ptr [ %6, %attr_hashmap_get.argprom.exit ], [ %call6, %hashmap_get_size.argprom.exit29 ]
+if.end16:                                         ; preds = %hashmap_get_size.exit29, %attr_hashmap_get.exit
+  %a.0 = phi ptr [ %6, %attr_hashmap_get.exit ], [ %call6, %hashmap_get_size.exit29 ]
   %call.i30 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @g_attr_hashmap, i64 48)) #21
   br label %return
 
@@ -1032,18 +1032,18 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   %bcmp3.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) @default_attr_source.attr_source, ptr noundef nonnull readonly dereferenceable(32) %call.i, i64 32)
-  br label %is_null_oid.argprom.exit
+  br label %is_null_oid.exit
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i
   %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) @default_attr_source.attr_source, ptr noundef nonnull readonly dereferenceable(20) %call.i, i64 20)
-  br label %is_null_oid.argprom.exit
+  br label %is_null_oid.exit
 
-is_null_oid.argprom.exit:                         ; preds = %if.then.i.i.i, %if.end.i.i.i
+is_null_oid.exit:                                 ; preds = %if.then.i.i.i, %if.end.i.i.i
   %retval.0.in.in.i.i.i = phi i32 [ %bcmp3.i.i.i, %if.then.i.i.i ], [ %bcmp.i.i.i, %if.end.i.i.i ]
   %retval.0.in.i.i.i.not = icmp eq i32 %retval.0.in.in.i.i.i, 0
   br i1 %retval.0.in.i.i.i.not, label %if.then, label %if.end
 
-if.then:                                          ; preds = %is_null_oid.argprom.exit
+if.then:                                          ; preds = %is_null_oid.exit
   %4 = load ptr, ptr @default_attr_source_tree_object_name, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %if.end.i, label %lor.lhs.false.i
@@ -1108,18 +1108,18 @@ if.end.i.i.i1:                                    ; preds = %if.else.i.i.i, %if.
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i1
   %bcmp3.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) @default_attr_source.attr_source, ptr noundef nonnull readonly dereferenceable(32) %call.i.i, i64 32)
-  br label %is_null_oid.argprom.exit.i
+  br label %is_null_oid.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i.i.i1
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) @default_attr_source.attr_source, ptr noundef nonnull readonly dereferenceable(20) %call.i.i, i64 20)
-  br label %is_null_oid.argprom.exit.i
+  br label %is_null_oid.exit.i
 
-is_null_oid.argprom.exit.i:                       ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
+is_null_oid.exit.i:                               ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
   %retval.0.in.in.i.i.i.i = phi i32 [ %bcmp3.i.i.i.i, %if.then.i.i.i.i ], [ %bcmp.i.i.i.i, %if.end.i.i.i.i ]
   %retval.0.in.i.i.i.not.i = icmp eq i32 %retval.0.in.in.i.i.i.i, 0
   br i1 %retval.0.in.i.i.i.not.i, label %if.end17.i, label %if.end
 
-if.end17.i:                                       ; preds = %is_null_oid.argprom.exit.i
+if.end17.i:                                       ; preds = %is_null_oid.exit.i
   %14 = load ptr, ptr @the_repository, align 8
   %15 = load ptr, ptr @default_attr_source_tree_object_name, align 8
   %call18.i = tail call i32 @repo_get_oid_treeish(ptr noundef %14, ptr noundef %15, ptr noundef nonnull @default_attr_source.attr_source) #21
@@ -1133,7 +1133,7 @@ if.then22.i:                                      ; preds = %if.end17.i
   tail call void (ptr, ...) @die(ptr noundef %call23.i) #22
   unreachable
 
-if.end:                                           ; preds = %if.end17.i, %is_null_oid.argprom.exit.i, %if.end12.i, %land.lhs.true6.i, %is_null_oid.argprom.exit
+if.end:                                           ; preds = %if.end17.i, %is_null_oid.exit.i, %if.end12.i, %land.lhs.true6.i, %is_null_oid.exit
   %call.i4 = tail call ptr @null_oid() #21
   %16 = load i32, ptr getelementptr inbounds (i8, ptr @default_attr_source.attr_source, i64 32), align 4
   %tobool.not.i.i5 = icmp eq i32 %16, 0
@@ -1159,13 +1159,13 @@ if.end.i.i9:                                      ; preds = %if.else.i.i6, %if.t
 
 if.then.i.i.i18:                                  ; preds = %if.end.i.i9
   %bcmp3.i.i.i19 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) @default_attr_source.attr_source, ptr noundef nonnull readonly dereferenceable(32) %call.i4, i64 32)
-  br label %is_null_oid.argprom.exit22
+  br label %is_null_oid.exit22
 
 if.end.i.i.i13:                                   ; preds = %if.end.i.i9
   %bcmp.i.i.i14 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) @default_attr_source.attr_source, ptr noundef nonnull readonly dereferenceable(20) %call.i4, i64 20)
-  br label %is_null_oid.argprom.exit22
+  br label %is_null_oid.exit22
 
-is_null_oid.argprom.exit22:                       ; preds = %if.then.i.i.i18, %if.end.i.i.i13
+is_null_oid.exit22:                               ; preds = %if.then.i.i.i18, %if.end.i.i.i13
   %retval.0.in.in.i.i.i15 = phi i32 [ %bcmp3.i.i.i19, %if.then.i.i.i18 ], [ %bcmp.i.i.i14, %if.end.i.i.i13 ]
   %retval.0.in.i.i.i16.not = icmp eq i32 %retval.0.in.in.i.i.i15, 0
   %default_attr_source.attr_source. = select i1 %retval.0.in.i.i.i16.not, ptr null, ptr @default_attr_source.attr_source
@@ -1536,24 +1536,24 @@ prepare_attr_stack.exit:                          ; preds = %push_stack.exit.i, 
   %bf.load.i.i = load i8, ptr getelementptr inbounds (i8, ptr @g_attr_hashmap, i64 40), align 8
   %bf.clear.i.i = and i8 %bf.load.i.i, 1
   %tobool.not.i.i20 = icmp eq i8 %bf.clear.i.i, 0
-  br i1 %tobool.not.i.i20, label %if.end.i.i25, label %hashmap_get_size.argprom.exit.i
+  br i1 %tobool.not.i.i20, label %if.end.i.i25, label %hashmap_get_size.exit.i
 
 if.end.i.i25:                                     ; preds = %prepare_attr_stack.exit
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 308, ptr noundef nonnull @.str.10) #22
   unreachable
 
-hashmap_get_size.argprom.exit.i:                  ; preds = %prepare_attr_stack.exit
+hashmap_get_size.exit.i:                          ; preds = %prepare_attr_stack.exit
   %43 = load i32, ptr getelementptr inbounds (i8, ptr @g_attr_hashmap, i64 24), align 8
   %all_attrs_nr.i = getelementptr inbounds i8, ptr %check, i64 16
   %44 = load i32, ptr %all_attrs_nr.i, align 8
   %cmp.i = icmp ult i32 %43, %44
   br i1 %cmp.i, label %if.then.i, label %if.end.i21
 
-if.then.i:                                        ; preds = %hashmap_get_size.argprom.exit.i
+if.then.i:                                        ; preds = %hashmap_get_size.exit.i
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 152, ptr noundef nonnull @.str.36) #22
   unreachable
 
-if.end.i21:                                       ; preds = %hashmap_get_size.argprom.exit.i
+if.end.i21:                                       ; preds = %hashmap_get_size.exit.i
   %cmp3.not.i = icmp eq i32 %43, %44
   br i1 %cmp3.not.i, label %if.end15.i, label %if.then4.i
 
@@ -1587,7 +1587,7 @@ if.end15.i:                                       ; preds = %for.body.i, %if.the
   %call.i22.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @g_attr_hashmap, i64 48)) #21
   %49 = load i32, ptr %all_attrs_nr.i, align 8
   %cmp184.i = icmp sgt i32 %49, 0
-  br i1 %cmp184.i, label %for.body20.lr.ph.i, label %all_attrs_init.argprom.exit
+  br i1 %cmp184.i, label %for.body20.lr.ph.i, label %all_attrs_init.exit
 
 for.body20.lr.ph.i:                               ; preds = %if.end15.i
   %all_attrs21.i = getelementptr inbounds i8, ptr %check, i64 24
@@ -1605,9 +1605,9 @@ for.body20.i:                                     ; preds = %for.body20.i, %for.
   %52 = load i32, ptr %all_attrs_nr.i, align 8
   %53 = sext i32 %52 to i64
   %cmp18.i = icmp slt i64 %indvars.iv.next.i, %53
-  br i1 %cmp18.i, label %for.body20.i, label %all_attrs_init.argprom.exit, !llvm.loop !22
+  br i1 %cmp18.i, label %for.body20.i, label %all_attrs_init.exit, !llvm.loop !22
 
-all_attrs_init.argprom.exit:                      ; preds = %for.body20.i, %if.end15.i
+all_attrs_init.exit:                              ; preds = %for.body20.i, %if.end15.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %iter.i)
   %all_attrs = getelementptr inbounds i8, ptr %check, i64 24
   %54 = load ptr, ptr %all_attrs, align 8
@@ -1615,8 +1615,8 @@ all_attrs_init.argprom.exit:                      ; preds = %for.body20.i, %if.e
   %tobool.not12.i = icmp eq ptr %55, null
   br i1 %tobool.not12.i, label %fill.exit, label %for.body.i26
 
-for.body.i26:                                     ; preds = %all_attrs_init.argprom.exit, %for.inc12.i
-  %stack.addr.013.i = phi ptr [ %65, %for.inc12.i ], [ %55, %all_attrs_init.argprom.exit ]
+for.body.i26:                                     ; preds = %all_attrs_init.exit, %for.inc12.i
+  %stack.addr.013.i = phi ptr [ %65, %for.inc12.i ], [ %55, %all_attrs_init.exit ]
   %num_matches.i = getelementptr inbounds i8, ptr %stack.addr.013.i, i64 24
   %56 = load i32, ptr %num_matches.i, align 8
   %cmp.not10.i = icmp eq i32 %56, 0
@@ -1774,7 +1774,7 @@ for.inc14.i:                                      ; preds = %for.inc.i43, %for.b
   %84 = select i1 %cmp.i44, i1 %tobool.i, i1 false
   br i1 %84, label %for.body.i34, label %fill.exit, !llvm.loop !26
 
-fill.exit:                                        ; preds = %for.inc14.i, %all_attrs_init.argprom.exit, %determine_macros.exit
+fill.exit:                                        ; preds = %for.inc14.i, %all_attrs_init.exit, %determine_macros.exit
   ret void
 }
 

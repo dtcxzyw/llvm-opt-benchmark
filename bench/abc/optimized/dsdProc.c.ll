@@ -717,9 +717,9 @@ dsdKernelCopyListPlusOne.exit730:                 ; preds = %.lr.ph.i726, %207
   %260 = load ptr, ptr %250, align 8
   %261 = call i32 @Extra_bddSuppCheckContainment(ptr noundef %.val, ptr noundef %259, ptr noundef %260, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
   %262 = icmp eq i32 %261, 0
-  br i1 %262, label %dsdKernelCheckContainment.argprom.exit.thread, label %263
+  br i1 %262, label %dsdKernelCheckContainment.exit.thread, label %263
 
-dsdKernelCheckContainment.argprom.exit.thread:    ; preds = %240
+dsdKernelCheckContainment.exit.thread:            ; preds = %240
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %.thread834
@@ -1152,7 +1152,7 @@ dsdKernelCopyListPlusOne.exit762:                 ; preds = %.lr.ph.i758, %474, 
   %491 = inttoptr i64 %490 to ptr
   br label %dsdKernelCopyListPlusOne.exit
 
-.thread834:                                       ; preds = %390, %395, %._crit_edge899.thread, %391, %dsdKernelCheckContainment.argprom.exit.thread, %.thread838, %401, %413
+.thread834:                                       ; preds = %390, %395, %._crit_edge899.thread, %391, %dsdKernelCheckContainment.exit.thread, %.thread838, %401, %413
   %492 = add nsw i32 %256, %254
   %493 = icmp eq i32 %257, %492
   br i1 %493, label %494, label %518
@@ -1235,7 +1235,7 @@ dsdKernelCopyListPlusOne.exit762:                 ; preds = %.lr.ph.i758, %474, 
 535:                                              ; preds = %533
   %536 = load ptr, ptr %9, align 8
   %.val688 = load ptr, ptr %0, align 8
-  call fastcc void @dsdKernelComputeSumOfComponents.argprom(ptr %.val688, ptr noundef %536, i32 noundef %532, ptr noundef %12, ptr noundef nonnull %13, i32 noundef 0)
+  call fastcc void @dsdKernelComputeSumOfComponents(ptr %.val688, ptr noundef %536, i32 noundef %532, ptr noundef %12, ptr noundef nonnull %13, i32 noundef 0)
   %537 = load ptr, ptr %12, align 8
   call void @Cudd_Ref(ptr noundef %537) #11
   %538 = load ptr, ptr %13, align 8
@@ -1295,7 +1295,7 @@ dsdKernelCopyListPlusOne.exit769:                 ; preds = %.lr.ph.i765, %535
 565:                                              ; preds = %533
   %566 = load ptr, ptr %9, align 8
   %.val689 = load ptr, ptr %0, align 8
-  call fastcc void @dsdKernelComputeSumOfComponents.argprom(ptr %.val689, ptr noundef %566, i32 noundef %532, ptr noundef %14, ptr noundef null, i32 noundef 1)
+  call fastcc void @dsdKernelComputeSumOfComponents(ptr %.val689, ptr noundef %566, i32 noundef %532, ptr noundef %14, ptr noundef null, i32 noundef 1)
   %567 = load ptr, ptr %14, align 8
   call void @Cudd_Ref(ptr noundef %567) #11
   %568 = call ptr @Cudd_bddXor(ptr noundef %17, ptr noundef nonnull %20, ptr noundef %567) #11
@@ -1902,7 +1902,7 @@ dsdKernelFindContainingComponent.exit:            ; preds = %.lr.ph1105, %.lr.ph
   %909 = icmp eq i32 %908, 4
   %910 = zext i1 %909 to i32
   %.val690 = load ptr, ptr %0, align 8
-  call fastcc void @dsdKernelComputeSumOfComponents.argprom(ptr %.val690, ptr noundef nonnull @dsdKernelDecompose_rec.pNonOverlap, i32 noundef %.0542.lcssa1033, ptr noundef %15, ptr noundef null, i32 noundef %910)
+  call fastcc void @dsdKernelComputeSumOfComponents(ptr %.val690, ptr noundef nonnull @dsdKernelDecompose_rec.pNonOverlap, i32 noundef %.0542.lcssa1033, ptr noundef %15, ptr noundef null, i32 noundef %910)
   %911 = load ptr, ptr %15, align 8
   call void @Cudd_Ref(ptr noundef %911) #11
   %912 = call fastcc ptr @dsdKernelDecompose_rec(ptr noundef nonnull %0, ptr noundef %911)
@@ -2194,7 +2194,7 @@ dsdKernelFindContainingComponent.exit801:         ; preds = %.lr.ph1111, %.lr.ph
   %1067 = icmp eq i32 %1066, 4
   %1068 = zext i1 %1067 to i32
   %.val691 = load ptr, ptr %0, align 8
-  call fastcc void @dsdKernelComputeSumOfComponents.argprom(ptr %.val691, ptr noundef nonnull @dsdKernelFindCommonComponents.Common, i32 noundef %.05765.i, ptr noundef %16, ptr noundef null, i32 noundef %1068)
+  call fastcc void @dsdKernelComputeSumOfComponents(ptr %.val691, ptr noundef nonnull @dsdKernelFindCommonComponents.Common, i32 noundef %.05765.i, ptr noundef %16, ptr noundef null, i32 noundef %1068)
   %1069 = load ptr, ptr %16, align 8
   call void @Cudd_Ref(ptr noundef %1069) #11
   %1070 = call fastcc ptr @dsdKernelDecompose_rec(ptr noundef nonnull %0, ptr noundef %1069)
@@ -2461,7 +2461,7 @@ declare ptr @Cudd_bddAndAbstract(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare ptr @Cudd_bddXor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dsdKernelComputeSumOfComponents.argprom(ptr %.0.val, ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef writeonly %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @dsdKernelComputeSumOfComponents(ptr %.0.val, ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef writeonly %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %.0.val, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64

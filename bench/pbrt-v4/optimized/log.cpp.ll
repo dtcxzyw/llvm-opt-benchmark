@@ -1766,10 +1766,10 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp44.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp47.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp50.i.i.i.i.i)
-  call fastcc void @"_ZZN4pbrt11InitLoggingENS_8LogLevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbENK3$_1clEv.argprom"(ptr noalias align 8 %prevUsage.i.i.i.i.i)
+  call fastcc void @"_ZZN4pbrt11InitLoggingENS_8LogLevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbENK3$_1clEv"(ptr noalias align 8 %prevUsage.i.i.i.i.i)
   %0 = load atomic i8, ptr @_ZN4pbrtL22shutdownLogUtilizationE.0 seq_cst, align 1
   %tobool.i.i5.i.i.i.i.i = trunc i8 %0 to i1
-  br i1 %tobool.i.i5.i.i.i.i.i, label %"_ZNSt6thread8_InvokerISt5tupleIJZN4pbrt11InitLoggingENS2_8LogLevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbE3$_0EEEclEv.argprom.exit", label %while.body.lr.ph.i.i.i.i.i
+  br i1 %tobool.i.i5.i.i.i.i.i, label %"_ZNSt6thread8_InvokerISt5tupleIJZN4pbrt11InitLoggingENS2_8LogLevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbE3$_0EEEclEv.exit", label %while.body.lr.ph.i.i.i.i.i
 
 while.body.lr.ph.i.i.i.i.i:                       ; preds = %entry
   %tv_nsec.i.i.i.i.i.i = getelementptr inbounds i8, ptr %rec.i.i.i.i.i.i, i64 8
@@ -1797,7 +1797,7 @@ while.body.i.i.i.i.i:                             ; preds = %land.end53.i.i.i.i.
   %call.i.i.i.i.i.i = call i32 @nanosleep(ptr noundef nonnull %rec.i.i.i.i.i.i, ptr noundef nonnull %rem.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rec.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rem.i.i.i.i.i.i)
-  call fastcc void @"_ZZN4pbrt11InitLoggingENS_8LogLevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbENK3$_1clEv.argprom"(ptr noalias align 8 %currentUsage.i.i.i.i.i)
+  call fastcc void @"_ZZN4pbrt11InitLoggingENS_8LogLevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbENK3$_1clEv"(ptr noalias align 8 %currentUsage.i.i.i.i.i)
   %1 = load i32, ptr @_ZN4pbrt7logging8logLevelE, align 4
   %cmp.i.i.i.i.i = icmp slt i32 %1, 1
   br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %land.end53.i.i.i.i.i
@@ -1925,9 +1925,9 @@ land.end53.i.i.i.i.i:                             ; preds = %_ZN4pbrt3LogIJllllE
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %prevUsage.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %currentUsage.i.i.i.i.i, i64 64, i1 false)
   %33 = load atomic i8, ptr @_ZN4pbrtL22shutdownLogUtilizationE.0 seq_cst, align 1
   %tobool.i.i.i.i.i.i.i = trunc i8 %33 to i1
-  br i1 %tobool.i.i.i.i.i.i.i, label %"_ZNSt6thread8_InvokerISt5tupleIJZN4pbrt11InitLoggingENS2_8LogLevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbE3$_0EEEclEv.argprom.exit", label %while.body.i.i.i.i.i, !llvm.loop !6
+  br i1 %tobool.i.i.i.i.i.i.i, label %"_ZNSt6thread8_InvokerISt5tupleIJZN4pbrt11InitLoggingENS2_8LogLevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbE3$_0EEEclEv.exit", label %while.body.i.i.i.i.i, !llvm.loop !6
 
-"_ZNSt6thread8_InvokerISt5tupleIJZN4pbrt11InitLoggingENS2_8LogLevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbE3$_0EEEclEv.argprom.exit": ; preds = %land.end53.i.i.i.i.i, %entry
+"_ZNSt6thread8_InvokerISt5tupleIJZN4pbrt11InitLoggingENS2_8LogLevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbE3$_0EEEclEv.exit": ; preds = %land.end53.i.i.i.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %prevUsage.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %currentUsage.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i)
@@ -1943,7 +1943,7 @@ land.end53.i.i.i.i.i:                             ; preds = %_ZN4pbrt3LogIJllllE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4pbrt11InitLoggingENS_8LogLevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbENK3$_1clEv.argprom"(ptr noalias nonnull align 8 %agg.result) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4pbrt11InitLoggingENS_8LogLevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbENK3$_1clEv"(ptr noalias nonnull align 8 %agg.result) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stat = alloca %"class.std::basic_ifstream", align 8
   %line = alloca %"class.std::__cxx11::basic_string", align 8

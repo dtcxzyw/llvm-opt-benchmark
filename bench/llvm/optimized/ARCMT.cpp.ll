@@ -2116,10 +2116,10 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_
   call void @_ZN4llvm6TripleC1ERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(34) %3) #16
   %140 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %141 = load i32, ptr %140, align 4
-  switch i32 %141, label %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.argprom.exit.thread64 [
+  switch i32 %141, label %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.exit.thread64 [
     i32 26, label %142
     i32 5, label %142
-    i32 27, label %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.argprom.exit.thread
+    i32 27, label %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.exit.thread
     i32 1, label %150
     i32 9, label %158
   ]
@@ -2158,13 +2158,13 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_
   %160 = extractvalue { i64, i64 } %.fr, 0
   %161 = trunc i64 %160 to i32
   %162 = icmp ult i32 %161, 10
-  br i1 %162, label %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.argprom.exit.thread64, label %163
+  br i1 %162, label %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.exit.thread64, label %163
 
 163:                                              ; preds = %158
   %.not.i25 = icmp eq i32 %161, 10
-  br i1 %.not.i25, label %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.argprom.exit, label %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.argprom.exit.thread
+  br i1 %.not.i25, label %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.exit, label %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.exit.thread
 
-_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.argprom.exit.thread: ; preds = %163, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_.exit
+_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.exit.thread: ; preds = %163, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
@@ -2173,7 +2173,7 @@ _ZL13HasARCRuntimeRN5clang18CompilerInvocationE.argprom.exit.thread: ; preds = %
   %166 = load i64, ptr %165, align 8
   br label %175
 
-_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.argprom.exit.thread64: ; preds = %158, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_.exit
+_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.exit.thread64: ; preds = %158, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
@@ -2182,7 +2182,7 @@ _ZL13HasARCRuntimeRN5clang18CompilerInvocationE.argprom.exit.thread64: ; preds =
   %169 = load i64, ptr %168, align 8
   br label %178
 
-_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.argprom.exit: ; preds = %163
+_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.exit: ; preds = %163
   %170 = and i64 %160, 9223372032559808512
   %171 = icmp ugt i64 %170, 30064771071
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
@@ -2193,15 +2193,15 @@ _ZL13HasARCRuntimeRN5clang18CompilerInvocationE.argprom.exit: ; preds = %163
   %174 = load i64, ptr %173, align 8
   br i1 %171, label %175, label %178
 
-175:                                              ; preds = %150, %142, %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.argprom.exit.thread, %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.argprom.exit
-  %176 = phi i64 [ %166, %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.argprom.exit.thread ], [ %174, %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.argprom.exit ], [ %149, %142 ], [ %157, %150 ]
-  %177 = phi ptr [ %165, %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.argprom.exit.thread ], [ %173, %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.argprom.exit ], [ %148, %142 ], [ %156, %150 ]
+175:                                              ; preds = %150, %142, %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.exit.thread, %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.exit
+  %176 = phi i64 [ %166, %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.exit.thread ], [ %174, %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.exit ], [ %149, %142 ], [ %157, %150 ]
+  %177 = phi ptr [ %165, %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.exit.thread ], [ %173, %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.exit ], [ %148, %142 ], [ %156, %150 ]
   br label %178
 
-178:                                              ; preds = %150, %142, %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.argprom.exit.thread64, %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.argprom.exit, %175
-  %179 = phi i64 [ %176, %175 ], [ %174, %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.argprom.exit ], [ %169, %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.argprom.exit.thread64 ], [ %149, %142 ], [ %157, %150 ]
-  %180 = phi ptr [ %177, %175 ], [ %173, %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.argprom.exit ], [ %168, %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.argprom.exit.thread64 ], [ %148, %142 ], [ %156, %150 ]
-  %181 = phi i64 [ 134217728, %175 ], [ 0, %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.argprom.exit ], [ 0, %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.argprom.exit.thread64 ], [ 0, %142 ], [ 0, %150 ]
+178:                                              ; preds = %150, %142, %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.exit.thread64, %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.exit, %175
+  %179 = phi i64 [ %176, %175 ], [ %174, %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.exit ], [ %169, %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.exit.thread64 ], [ %149, %142 ], [ %157, %150 ]
+  %180 = phi ptr [ %177, %175 ], [ %173, %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.exit ], [ %168, %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.exit.thread64 ], [ %148, %142 ], [ %156, %150 ]
+  %181 = phi i64 [ 134217728, %175 ], [ 0, %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.exit ], [ 0, %_ZL13HasARCRuntimeRN5clang18CompilerInvocationE.exit.thread64 ], [ 0, %142 ], [ 0, %150 ]
   %182 = and i64 %179, -134217729
   %183 = or disjoint i64 %181, %182
   store i64 %183, ptr %180, align 8
@@ -7642,13 +7642,13 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit2.i:         ; preds = %15, %14
   %23 = load ptr, ptr %17, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 64
   store ptr %24, ptr %17, align 8
-  br label %"_ZZN5clang5arcmt17getFileRemappingsERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaIS9_EEN4llvm9StringRefEPNS_18DiagnosticConsumerEENK3$_0clESE_SE_.argprom.exit"
+  br label %"_ZZN5clang5arcmt17getFileRemappingsERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaIS9_EEN4llvm9StringRefEPNS_18DiagnosticConsumerEENK3$_0clESE_SE_.exit"
 
 25:                                               ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit2.i
   call void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %.val, ptr %18, ptr noundef nonnull align 8 dereferenceable(64) %8)
-  br label %"_ZZN5clang5arcmt17getFileRemappingsERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaIS9_EEN4llvm9StringRefEPNS_18DiagnosticConsumerEENK3$_0clESE_SE_.argprom.exit"
+  br label %"_ZZN5clang5arcmt17getFileRemappingsERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaIS9_EEN4llvm9StringRefEPNS_18DiagnosticConsumerEENK3$_0clESE_SE_.exit"
 
-"_ZZN5clang5arcmt17getFileRemappingsERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaIS9_EEN4llvm9StringRefEPNS_18DiagnosticConsumerEENK3$_0clESE_SE_.argprom.exit": ; preds = %21, %25
+"_ZZN5clang5arcmt17getFileRemappingsERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaIS9_EEN4llvm9StringRefEPNS_18DiagnosticConsumerEENK3$_0clESE_SE_.exit": ; preds = %21, %25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #16

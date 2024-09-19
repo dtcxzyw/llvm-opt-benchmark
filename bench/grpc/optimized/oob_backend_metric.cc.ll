@@ -2849,7 +2849,7 @@ if.end.i.i.i:                                     ; preds = %delete.notnull.i.i.
   %producer_2.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load ptr, ptr %producer_2.i.i.i, align 8
   %cmp.i5.i.i.i = icmp eq ptr %13, null
-  br i1 %cmp.i5.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12OrcaProducerEED2Ev.exit.i.i.i, label %"_ZSt10__invoke_rIvRZN9grpc_core11OrcaWatcher13SetSubchannelEPNS0_10SubchannelEE3$_0JPPNS2_21DataProducerInterfaceEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
+  br i1 %cmp.i5.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12OrcaProducerEED2Ev.exit.i.i.i, label %"_ZSt10__invoke_rIvRZN9grpc_core11OrcaWatcher13SetSubchannelEPNS0_10SubchannelEE3$_0JPPNS2_21DataProducerInterfaceEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
 _ZN9grpc_core13RefCountedPtrINS_12OrcaProducerEED2Ev.exit.i.i.i: ; preds = %if.end.i.i.i
   %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #23, !noalias !80
@@ -2878,9 +2878,9 @@ _ZN9grpc_core13RefCountedPtrINS_12OrcaProducerEED2Ev.exit.i.i.i: ; preds = %if.e
   %16 = getelementptr inbounds i8, ptr %__functor, i64 8
   %17 = load ptr, ptr %16, align 8
   store i8 1, ptr %17, align 1
-  br label %"_ZSt10__invoke_rIvRZN9grpc_core11OrcaWatcher13SetSubchannelEPNS0_10SubchannelEE3$_0JPPNS2_21DataProducerInterfaceEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN9grpc_core11OrcaWatcher13SetSubchannelEPNS0_10SubchannelEE3$_0JPPNS2_21DataProducerInterfaceEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
-"_ZSt10__invoke_rIvRZN9grpc_core11OrcaWatcher13SetSubchannelEPNS0_10SubchannelEE3$_0JPPNS2_21DataProducerInterfaceEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit": ; preds = %if.end.i.i.i, %_ZN9grpc_core13RefCountedPtrINS_12OrcaProducerEED2Ev.exit.i.i.i
+"_ZSt10__invoke_rIvRZN9grpc_core11OrcaWatcher13SetSubchannelEPNS0_10SubchannelEE3$_0JPPNS2_21DataProducerInterfaceEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %if.end.i.i.i, %_ZN9grpc_core13RefCountedPtrINS_12OrcaProducerEED2Ev.exit.i.i.i
   ret void
 }
 

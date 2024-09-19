@@ -3231,7 +3231,7 @@ dissect_spice_mini_data_header.exit:              ; preds = %16, %28
   ]
 
 313:                                              ; preds = %312
-  call fastcc void @dissect_POINT16.retelim(ptr noundef %0, ptr noundef %.0131, i32 noundef %53)
+  call fastcc void @dissect_POINT16(ptr noundef %0, ptr noundef %.0131, i32 noundef %53)
   %314 = add i32 %53, 4
   %315 = load i32, ptr @hf_cursor_trail_len, align 4
   %316 = call ptr @proto_tree_add_item(ptr noundef %.0131, i32 noundef %315, ptr noundef %0, i32 noundef %314, i32 noundef 2, i32 noundef -2147483648) #4
@@ -3247,14 +3247,14 @@ dissect_spice_mini_data_header.exit:              ; preds = %16, %28
   br label %dissect_spice_playback_server.exit
 
 326:                                              ; preds = %312
-  call fastcc void @dissect_POINT16.retelim(ptr noundef %0, ptr noundef %.0131, i32 noundef %53)
+  call fastcc void @dissect_POINT16(ptr noundef %0, ptr noundef %.0131, i32 noundef %53)
   %327 = add i32 %53, 5
   %328 = call fastcc i32 @dissect_RedCursor(ptr noundef %0, ptr noundef %.0131, i32 noundef %327)
   %329 = add i32 %328, %327
   br label %dissect_spice_playback_server.exit
 
 330:                                              ; preds = %312
-  call fastcc void @dissect_POINT16.retelim(ptr noundef %0, ptr noundef %.0131, i32 noundef %53)
+  call fastcc void @dissect_POINT16(ptr noundef %0, ptr noundef %.0131, i32 noundef %53)
   %331 = add i32 %53, 4
   br label %dissect_spice_playback_server.exit
 
@@ -4301,7 +4301,7 @@ declare i32 @tvb_get_letohil(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_POINT16.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_POINT16(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call signext i16 @tvb_get_letohis(ptr noundef %0, i32 noundef %2) #4
   %5 = add i32 %2, 2
   %6 = tail call signext i16 @tvb_get_letohis(ptr noundef %0, i32 noundef %5) #4
@@ -4691,7 +4691,7 @@ define internal fastcc i32 @dissect_Image(ptr noundef %0, ptr noundef %1, ptr no
   %117 = load i32, ptr @hf_spice_lz_rgb_image_size, align 4
   %118 = tail call ptr @proto_tree_add_uint(ptr noundef %116, i32 noundef %117, ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef %113) #4
   %119 = add i32 %3, 22
-  tail call fastcc void @dissect_ImageLZ_common.retelim(ptr noundef %0, ptr noundef %116, i32 noundef %119, i32 noundef 1, i32 noundef %113)
+  tail call fastcc void @dissect_ImageLZ_common(ptr noundef %0, ptr noundef %116, i32 noundef %119, i32 noundef 1, i32 noundef %113)
   br label %dissect_ImageQuic.exit
 
 120:                                              ; preds = %4
@@ -4702,7 +4702,7 @@ define internal fastcc i32 @dissect_Image(ptr noundef %0, ptr noundef %1, ptr no
   %125 = load i32, ptr @hf_spice_glz_rgb_image_size, align 4
   %126 = tail call ptr @proto_tree_add_uint(ptr noundef %124, i32 noundef %125, ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef %121) #4
   %127 = add i32 %3, 22
-  tail call fastcc void @dissect_ImageLZ_common.retelim(ptr noundef %0, ptr noundef %124, i32 noundef %127, i32 noundef 0, i32 noundef %121)
+  tail call fastcc void @dissect_ImageLZ_common(ptr noundef %0, ptr noundef %124, i32 noundef %127, i32 noundef 0, i32 noundef %121)
   br label %dissect_ImageQuic.exit
 
 128:                                              ; preds = %4
@@ -4777,7 +4777,7 @@ dissect_ImageGLZ_RGB.exit:                        ; preds = %163, %170
   %.022.i = phi i32 [ 4, %163 ], [ 0, %170 ]
   %.021.i = phi ptr [ %167, %163 ], [ %172, %170 ]
   %.0.i = phi i32 [ %164, %163 ], [ %147, %170 ]
-  call fastcc void @dissect_ImageLZ_common.retelim(ptr noundef nonnull %160, ptr noundef %.021.i, i32 noundef %.022.i, i32 noundef 0, i32 noundef %.0.i)
+  call fastcc void @dissect_ImageLZ_common(ptr noundef nonnull %160, ptr noundef %.021.i, i32 noundef %.022.i, i32 noundef 0, i32 noundef %.0.i)
   br label %dissect_ImageZLIB_GLZ_stream.exit.i
 
 173:                                              ; preds = %150
@@ -4802,7 +4802,7 @@ dissect_ImageZLIB_GLZ_stream.exit.i:              ; preds = %173, %dissect_Image
   %186 = load ptr, ptr @jpeg_handle, align 8
   %187 = tail call i32 @call_dissector(ptr noundef %186, ptr noundef %185, ptr noundef %2, ptr noundef %184) #4
   %188 = add i32 %178, %181
-  tail call fastcc void @dissect_ImageLZ_common.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %188, i32 noundef 1, i32 noundef %178)
+  tail call fastcc void @dissect_ImageLZ_common(ptr noundef %0, ptr noundef %1, i32 noundef %188, i32 noundef 1, i32 noundef %178)
   br label %dissect_ImageQuic.exit
 
 189:                                              ; preds = %4
@@ -4986,7 +4986,7 @@ declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noun
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ImageLZ_common.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_ImageLZ_common(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = add i32 %4, %2
   %7 = load i32, ptr @hf_spice_lz_magic, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef 0) #4

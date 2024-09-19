@@ -1263,9 +1263,9 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_dirty_bitmap_load_enter.exit:               ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %cmp.not = icmp eq i32 %version_id, 1
-  br i1 %cmp.not, label %if.end, label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br i1 %cmp.not, label %if.end, label %glib_autoptr_cleanup_QemuLockable.exit
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %trace_dirty_bitmap_load_enter.exit
+glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %trace_dirty_bitmap_load_enter.exit
   %lock = getelementptr inbounds i8, ptr %opaque, i64 1632
   %6 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %7 = inttoptr i64 %6 to ptr
@@ -2002,8 +2002,8 @@ if.then47:                                        ; preds = %fail
   call void @g_hash_table_destroy(ptr noundef nonnull %alias_map.0) #11
   br label %return
 
-return:                                           ; preds = %fail, %if.then47, %glib_autoptr_cleanup_QemuLockable.argprom.exit
-  %retval.0 = phi i32 [ -22, %glib_autoptr_cleanup_QemuLockable.argprom.exit ], [ %ret.3, %if.then47 ], [ %ret.3, %fail ]
+return:                                           ; preds = %fail, %if.then47, %glib_autoptr_cleanup_QemuLockable.exit
+  %retval.0 = phi i32 [ -22, %glib_autoptr_cleanup_QemuLockable.exit ], [ %ret.3, %if.then47 ], [ %ret.3, %fail ]
   ret i32 %retval.0
 }
 

@@ -10303,7 +10303,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   store ptr %9, ptr %3, align 8
-  br label %"_ZSt10__invoke_rIbRZN10open_spiel5chess12_GLOBAL__N_15PerftERKNS1_10ChessBoardEiE3$_0JRKNS1_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN10open_spiel5chess12_GLOBAL__N_15PerftERKNS1_10ChessBoardEiE3$_0JRKNS1_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit"
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %.val, align 8
@@ -10363,9 +10363,9 @@ _ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__
   store ptr %29, ptr %3, align 8
   %31 = getelementptr inbounds %"struct.open_spiel::chess::Move", ptr %25, i64 %21
   store ptr %31, ptr %5, align 8
-  br label %"_ZSt10__invoke_rIbRZN10open_spiel5chess12_GLOBAL__N_15PerftERKNS1_10ChessBoardEiE3$_0JRKNS1_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN10open_spiel5chess12_GLOBAL__N_15PerftERKNS1_10ChessBoardEiE3$_0JRKNS1_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit"
 
-"_ZSt10__invoke_rIbRZN10open_spiel5chess12_GLOBAL__N_15PerftERKNS1_10ChessBoardEiE3$_0JRKNS1_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %7, %_ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i
+"_ZSt10__invoke_rIbRZN10open_spiel5chess12_GLOBAL__N_15PerftERKNS1_10ChessBoardEiE3$_0JRKNS1_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit": ; preds = %7, %_ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i
   ret i1 true
 }
 

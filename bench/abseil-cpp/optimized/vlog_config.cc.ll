@@ -625,20 +625,20 @@ _ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit: ; preds = %entry.
 
 cond.true.i.i.i.i:                                ; preds = %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.div.i.i, 230584300921369395
-  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE8allocateERS4_m.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE8allocateERS4_m.exit.i.i.i.i
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #23
   unreachable
 
-_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE8allocateERS4_m.argprom.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i
+_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE8allocateERS4_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i
   %call5.i.i.i.i1.i9.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #22
   %__x.val5.i.pre = load ptr, ptr %2, align 8
   br label %invoke.cont.i
 
-invoke.cont.i:                                    ; preds = %_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE8allocateERS4_m.argprom.exit.i.i.i.i, %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit
-  %__x.val5.i = phi ptr [ %__x.val.i, %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit ], [ %__x.val5.i.pre, %_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE8allocateERS4_m.argprom.exit.i.i.i.i ]
-  %this.val.i = phi ptr [ null, %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit ], [ %call5.i.i.i.i1.i9.i, %_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE8allocateERS4_m.argprom.exit.i.i.i.i ]
+invoke.cont.i:                                    ; preds = %_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE8allocateERS4_m.exit.i.i.i.i, %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit
+  %__x.val5.i = phi ptr [ %__x.val.i, %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit ], [ %__x.val5.i.pre, %_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE8allocateERS4_m.exit.i.i.i.i ]
+  %this.val.i = phi ptr [ null, %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit ], [ %call5.i.i.i.i1.i9.i, %_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE8allocateERS4_m.exit.i.i.i.i ]
   store ptr %this.val.i, ptr %infos, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %infos, i64 8
   %add.ptr.i.i.i = getelementptr inbounds %"struct.absl::log_internal::(anonymous namespace)::VModuleInfo", ptr %this.val.i, i64 %sub.ptr.div.i.i
@@ -910,13 +910,13 @@ invoke.contthread-pre-split:                      ; preds = %for.body.i.i.i
 invoke.cont:                                      ; preds = %invoke.contthread-pre-split, %entry
   %this.val = phi ptr [ %this.val.pr, %invoke.contthread-pre-split ], [ %0, %entry ]
   %tobool.not.i.i = icmp eq ptr %this.val, null
-  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EED2Ev.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   tail call void @_ZdlPv(ptr noundef nonnull %this.val) #24
-  br label %_ZNSt12_Vector_baseIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EED2Ev.argprom.exit
+  br label %_ZNSt12_Vector_baseIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EED2Ev.exit
 
-_ZNSt12_Vector_baseIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EED2Ev.argprom.exit: ; preds = %invoke.cont, %if.then.i.i
+_ZNSt12_Vector_baseIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
   ret void
 }
 
@@ -1395,7 +1395,7 @@ invoke.cont.i:                                    ; preds = %_ZN4absl12log_inter
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i11.i
 
 if.then.i11.i:                                    ; preds = %invoke.cont.i
-  invoke fastcc void @_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvRS4_PT_DpOT0_.argprom(ptr noundef %38, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %module_is_path.i, ptr noundef nonnull readonly align 4 dereferenceable(4) %log_level.addr.i)
+  invoke fastcc void @_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvRS4_PT_DpOT0_(ptr noundef %38, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %module_is_path.i, ptr noundef nonnull readonly align 4 dereferenceable(4) %log_level.addr.i)
           to label %.noexc.i unwind label %lpad15.i
 
 .noexc.i:                                         ; preds = %if.then.i11.i
@@ -1641,7 +1641,7 @@ if.then.i.i16.i:                                  ; preds = %invoke.cont.i
   br i1 %cmp.i.i.i.i, label %if.then13.i.i.i, label %if.else.i.i.i
 
 if.then13.i.i.i:                                  ; preds = %if.then.i.i16.i
-  invoke fastcc void @_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvRS4_PT_DpOT0_.argprom(ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %module_is_path.i, ptr noundef nonnull readonly align 4 dereferenceable(4) %log_level.addr.i)
+  invoke fastcc void @_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvRS4_PT_DpOT0_(ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %module_is_path.i, ptr noundef nonnull readonly align 4 dereferenceable(4) %log_level.addr.i)
           to label %.noexc.i unwind label %lpad21.i
 
 .noexc.i:                                         ; preds = %if.then13.i.i.i
@@ -1654,7 +1654,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i16.i
   store ptr %13, ptr %__tmp.i.i.i, align 8
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__tmp.i.i.i, i64 8
   store i8 0, ptr %_M_storage.i.i.i.i, align 8
-  invoke fastcc void @_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvRS4_PT_DpOT0_.argprom(ptr noundef nonnull %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %module_is_path.i, ptr noundef nonnull readonly align 4 dereferenceable(4) %log_level.addr.i)
+  invoke fastcc void @_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvRS4_PT_DpOT0_(ptr noundef nonnull %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %module_is_path.i, ptr noundef nonnull readonly align 4 dereferenceable(4) %log_level.addr.i)
           to label %.noexc17.i unwind label %lpad21.i
 
 .noexc17.i:                                       ; preds = %if.else.i.i.i
@@ -2131,7 +2131,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvRS4_PT_DpOT0_.argprom(ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %__args1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %__args3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvRS4_PT_DpOT0_(ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %__args1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %__args3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp.i.i = alloca %"class.std::allocator.16", align 1
@@ -2151,7 +2151,7 @@ entry:
   %7 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
   %8 = load ptr, ptr %7, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %__p, i64 %6, ptr %8, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
-          to label %_ZNSt15__new_allocatorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvPT_DpOT0_.argprom.exit unwind label %lpad.i.i
+          to label %_ZNSt15__new_allocatorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvPT_DpOT0_.exit unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %entry
   %9 = landingpad { ptr, i32 }
@@ -2159,7 +2159,7 @@ lpad.i.i:                                         ; preds = %entry
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #19
   resume { ptr, i32 } %9
 
-_ZNSt15__new_allocatorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvPT_DpOT0_.argprom.exit: ; preds = %entry
+_ZNSt15__new_allocatorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvPT_DpOT0_.exit: ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i)
   %frombool.i.i = and i8 %2, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #19
@@ -2181,13 +2181,13 @@ entry:
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %this.val17 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %cmp.i = icmp eq i64 %sub.ptr.sub.i.i, 9223372036854775800
-  br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE12_M_check_lenEmPKc.argprom.exit
+  br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE12_M_check_lenEmPKc.exit
 
 if.then.i:                                        ; preds = %entry
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #23
   unreachable
 
-_ZNKSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE12_M_check_lenEmPKc.argprom.exit: ; preds = %entry
+_ZNKSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 40
   %cmp.i.i = icmp eq ptr %this.val18, %this.val17
   %.sroa.speculated.i = select i1 %cmp.i.i, i64 1, i64 %sub.ptr.div.i.i
@@ -2199,22 +2199,22 @@ _ZNKSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE12_M_check
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 40
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_M_allocateEm.argprom.exit, label %cond.true.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_M_allocateEm.exit, label %cond.true.i
 
-cond.true.i:                                      ; preds = %_ZNKSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE12_M_check_lenEmPKc.argprom.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 40
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #22
-  br label %_ZNSt12_Vector_baseIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_M_allocateEm.argprom.exit
+  br label %_ZNSt12_Vector_baseIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_M_allocateEm.argprom.exit: ; preds = %_ZNKSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE12_M_check_lenEmPKc.argprom.exit, %cond.true.i
-  %cond.i19 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE12_M_check_lenEmPKc.argprom.exit ]
+_ZNSt12_Vector_baseIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i19 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.absl::log_internal::(anonymous namespace)::VModuleInfo", ptr %cond.i19, i64 %sub.ptr.div.i
-  invoke fastcc void @_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvRS4_PT_DpOT0_.argprom(ptr noundef %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 1 dereferenceable(1) %__args1, ptr noundef nonnull align 4 dereferenceable(4) %__args3)
+  invoke fastcc void @_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvRS4_PT_DpOT0_(ptr noundef %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 1 dereferenceable(1) %__args1, ptr noundef nonnull align 4 dereferenceable(4) %__args3)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_M_allocateEm.argprom.exit
+invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_M_allocateEm.exit
   %cmp.not1.i.i.i = icmp eq ptr %this.val17, %__position.coerce
-  br i1 %cmp.not1.i.i.i, label %_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit, label %for.body.i.i.i
+  br i1 %cmp.not1.i.i.i, label %_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %invoke.cont, %for.body.i.i.i
   %__cur.03.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %cond.i19, %invoke.cont ]
@@ -2230,17 +2230,17 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i, i64 40
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i, i64 40
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
-  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit, label %for.body.i.i.i, !llvm.loop !36
+  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %for.body.i.i.i, !llvm.loop !36
 
-_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit: ; preds = %for.body.i.i.i, %invoke.cont
+_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i19, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 40
   %cmp.not1.i.i.i20 = icmp eq ptr %__position.coerce, %this.val18
-  br i1 %cmp.not1.i.i.i20, label %_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit30, label %for.body.i.i.i21
+  br i1 %cmp.not1.i.i.i20, label %_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit30, label %for.body.i.i.i21
 
-for.body.i.i.i21:                                 ; preds = %_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit, %for.body.i.i.i21
-  %__cur.03.i.i.i22 = phi ptr [ %incdec.ptr1.i.i.i27, %for.body.i.i.i21 ], [ %incdec.ptr, %_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit ]
-  %__first.addr.02.i.i.i23 = phi ptr [ %incdec.ptr.i.i.i26, %for.body.i.i.i21 ], [ %__position.coerce, %_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit ]
+for.body.i.i.i21:                                 ; preds = %_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %for.body.i.i.i21
+  %__cur.03.i.i.i22 = phi ptr [ %incdec.ptr1.i.i.i27, %for.body.i.i.i21 ], [ %incdec.ptr, %_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
+  %__first.addr.02.i.i.i23 = phi ptr [ %incdec.ptr.i.i.i26, %for.body.i.i.i21 ], [ %__position.coerce, %_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i22, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i23) #19
@@ -2252,18 +2252,18 @@ for.body.i.i.i21:                                 ; preds = %_ZNSt6vectorIN4absl
   %incdec.ptr.i.i.i26 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i23, i64 40
   %incdec.ptr1.i.i.i27 = getelementptr inbounds i8, ptr %__cur.03.i.i.i22, i64 40
   %cmp.not.i.i.i28 = icmp eq ptr %incdec.ptr.i.i.i26, %this.val18
-  br i1 %cmp.not.i.i.i28, label %_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit30, label %for.body.i.i.i21, !llvm.loop !36
+  br i1 %cmp.not.i.i.i28, label %_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit30, label %for.body.i.i.i21, !llvm.loop !36
 
-_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit30: ; preds = %for.body.i.i.i21, %_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit
-  %__cur.0.lcssa.i.i.i29 = phi ptr [ %incdec.ptr, %_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit ], [ %incdec.ptr1.i.i.i27, %for.body.i.i.i21 ]
+_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit30: ; preds = %for.body.i.i.i21, %_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
+  %__cur.0.lcssa.i.i.i29 = phi ptr [ %incdec.ptr, %_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %incdec.ptr1.i.i.i27, %for.body.i.i.i21 ]
   %tobool.not.i = icmp eq ptr %this.val17, null
-  br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE13_M_deallocateEPS3_m.argprom.exit, label %if.then.i31
+  br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE13_M_deallocateEPS3_m.exit, label %if.then.i31
 
-if.then.i31:                                      ; preds = %_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit30
+if.then.i31:                                      ; preds = %_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit30
   tail call void @_ZdlPv(ptr noundef nonnull %this.val17) #24
-  br label %_ZNSt12_Vector_baseIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE13_M_deallocateEPS3_m.argprom.exit
+  br label %_ZNSt12_Vector_baseIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE13_M_deallocateEPS3_m.exit
 
-_ZNSt12_Vector_baseIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE13_M_deallocateEPS3_m.argprom.exit: ; preds = %_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit30, %if.then.i31
+_ZNSt12_Vector_baseIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit30, %if.then.i31
   %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i19, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i29, ptr %0, align 8
@@ -2271,7 +2271,7 @@ _ZNSt12_Vector_baseIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE13_M
   store ptr %add.ptr30, ptr %_M_end_of_storage, align 8
   ret void
 
-lpad:                                             ; preds = %_ZNSt12_Vector_baseIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_M_allocateEm.argprom.exit
+lpad:                                             ; preds = %_ZNSt12_Vector_baseIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_M_allocateEm.exit
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
@@ -2566,16 +2566,16 @@ attributes #24 = { builtin nounwind }
 !29 = distinct !{!29, !6}
 !30 = distinct !{!30, !6}
 !31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZSt19__relocate_object_aIN4absl12log_internal12_GLOBAL__N_111VModuleInfoES3_SaIS3_EEvPT_PT0_RT1_.argprom: %__dest"}
-!33 = distinct !{!33, !"_ZSt19__relocate_object_aIN4absl12log_internal12_GLOBAL__N_111VModuleInfoES3_SaIS3_EEvPT_PT0_RT1_.argprom"}
+!32 = distinct !{!32, !33, !"_ZSt19__relocate_object_aIN4absl12log_internal12_GLOBAL__N_111VModuleInfoES3_SaIS3_EEvPT_PT0_RT1_: %__dest"}
+!33 = distinct !{!33, !"_ZSt19__relocate_object_aIN4absl12log_internal12_GLOBAL__N_111VModuleInfoES3_SaIS3_EEvPT_PT0_RT1_"}
 !34 = !{!35}
-!35 = distinct !{!35, !33, !"_ZSt19__relocate_object_aIN4absl12log_internal12_GLOBAL__N_111VModuleInfoES3_SaIS3_EEvPT_PT0_RT1_.argprom: %__orig"}
+!35 = distinct !{!35, !33, !"_ZSt19__relocate_object_aIN4absl12log_internal12_GLOBAL__N_111VModuleInfoES3_SaIS3_EEvPT_PT0_RT1_: %__orig"}
 !36 = distinct !{!36, !6}
 !37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZSt19__relocate_object_aIN4absl12log_internal12_GLOBAL__N_111VModuleInfoES3_SaIS3_EEvPT_PT0_RT1_.argprom: %__dest"}
-!39 = distinct !{!39, !"_ZSt19__relocate_object_aIN4absl12log_internal12_GLOBAL__N_111VModuleInfoES3_SaIS3_EEvPT_PT0_RT1_.argprom"}
+!38 = distinct !{!38, !39, !"_ZSt19__relocate_object_aIN4absl12log_internal12_GLOBAL__N_111VModuleInfoES3_SaIS3_EEvPT_PT0_RT1_: %__dest"}
+!39 = distinct !{!39, !"_ZSt19__relocate_object_aIN4absl12log_internal12_GLOBAL__N_111VModuleInfoES3_SaIS3_EEvPT_PT0_RT1_"}
 !40 = !{!41}
-!41 = distinct !{!41, !39, !"_ZSt19__relocate_object_aIN4absl12log_internal12_GLOBAL__N_111VModuleInfoES3_SaIS3_EEvPT_PT0_RT1_.argprom: %__orig"}
+!41 = distinct !{!41, !39, !"_ZSt19__relocate_object_aIN4absl12log_internal12_GLOBAL__N_111VModuleInfoES3_SaIS3_EEvPT_PT0_RT1_: %__orig"}
 !42 = !{!43}
 !43 = distinct !{!43, !44, !"_ZSt19__relocate_object_aISt8functionIFvvEES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
 !44 = distinct !{!44, !"_ZSt19__relocate_object_aISt8functionIFvvEES2_SaIS2_EEvPT_PT0_RT1_"}

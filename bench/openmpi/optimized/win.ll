@@ -480,14 +480,14 @@ define internal i32 @ompi_win_finalize() #0 {
   %3 = icmp ugt i32 %1, 1
   br i1 %3, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %0, %opal_pointer_array_get_item.argprom.exit.thread
-  %.038 = phi i64 [ %38, %opal_pointer_array_get_item.argprom.exit.thread ], [ 1, %0 ]
+.lr.ph:                                           ; preds = %0, %opal_pointer_array_get_item.exit.thread
+  %.038 = phi i64 [ %38, %opal_pointer_array_get_item.exit.thread ], [ 1, %0 ]
   %4 = trunc i64 %.038 to i32
   %5 = icmp slt i32 %4, 0
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_windows, i64 88), align 8
   %7 = icmp sle i32 %6, %4
   %8 = select i1 %5, i1 true, i1 %7
-  br i1 %8, label %opal_pointer_array_get_item.argprom.exit.thread, label %9
+  br i1 %8, label %opal_pointer_array_get_item.exit.thread, label %9
 
 9:                                                ; preds = %.lr.ph
   %10 = load i8, ptr @opal_uses_threads, align 1
@@ -506,17 +506,17 @@ define internal i32 @ompi_win_finalize() #0 {
   %18 = getelementptr inbounds ptr, ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = trunc i8 %15 to i1
-  br i1 %20, label %21, label %opal_pointer_array_get_item.argprom.exit
+  br i1 %20, label %21, label %opal_pointer_array_get_item.exit
 
 21:                                               ; preds = %14
   %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpi_windows, i64 32)) #7
-  br label %opal_pointer_array_get_item.argprom.exit
+  br label %opal_pointer_array_get_item.exit
 
-opal_pointer_array_get_item.argprom.exit:         ; preds = %14, %21
+opal_pointer_array_get_item.exit:                 ; preds = %14, %21
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %opal_pointer_array_get_item.argprom.exit.thread, label %23
+  br i1 %.not, label %opal_pointer_array_get_item.exit.thread, label %23
 
-23:                                               ; preds = %opal_pointer_array_get_item.argprom.exit
+23:                                               ; preds = %opal_pointer_array_get_item.exit
   %24 = load i8, ptr @ompi_debug_show_handle_leaks, align 1
   %25 = trunc i8 %24 to i1
   %26 = icmp ne ptr %19, @ompi_mpi_win_null
@@ -545,14 +545,14 @@ ompi_win_invalid.exit:                            ; preds = %23
 
 ompi_win_invalid.exit.thread:                     ; preds = %30, %ompi_win_invalid.exit, %23
   %37 = tail call i32 @ompi_win_free(ptr noundef nonnull %19)
-  br label %opal_pointer_array_get_item.argprom.exit.thread
+  br label %opal_pointer_array_get_item.exit.thread
 
-opal_pointer_array_get_item.argprom.exit.thread:  ; preds = %.lr.ph, %opal_pointer_array_get_item.argprom.exit, %ompi_win_invalid.exit.thread
+opal_pointer_array_get_item.exit.thread:          ; preds = %.lr.ph, %opal_pointer_array_get_item.exit, %ompi_win_invalid.exit.thread
   %38 = add nuw i64 %.038, 1
   %exitcond.not = icmp eq i64 %38, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %opal_pointer_array_get_item.argprom.exit.thread, %0
+._crit_edge:                                      ; preds = %opal_pointer_array_get_item.exit.thread, %0
   %39 = load ptr, ptr @ompi_mpi_win_null, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 48
   %41 = load ptr, ptr %40, align 8

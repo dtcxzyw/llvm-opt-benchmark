@@ -254,7 +254,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN3gmx14TopologyHolder22regi
   %4 = getelementptr inbounds i8, ptr %.val, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not7.i.i.i.i = icmp eq ptr %3, %5
-  br i1 %.not7.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3gmx14TopologyHolder22registerDomDecCallbackEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %.not7.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3gmx14TopologyHolder22registerDomDecCallbackEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %1
   %6 = getelementptr inbounds i8, ptr %.val, i64 16
@@ -270,9 +270,9 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN3gmx14TopologyHolder22regi
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
   %13 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %13, %5
-  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3gmx14TopologyHolder22registerDomDecCallbackEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %7
+  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3gmx14TopologyHolder22registerDomDecCallbackEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %7
 
-"_ZSt10__invoke_rIvRZN3gmx14TopologyHolder22registerDomDecCallbackEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %7, %1
+"_ZSt10__invoke_rIvRZN3gmx14TopologyHolder22registerDomDecCallbackEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %7, %1
   ret void
 }
 

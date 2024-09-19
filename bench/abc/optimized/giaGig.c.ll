@@ -1784,7 +1784,7 @@ Vec_IntPush.exit203:                              ; preds = %.Vec_IntGrow.exit10
 
 353:                                              ; preds = %350, %348
   %.4 = phi ptr [ %.3, %348 ], [ %351, %350 ]
-  call fastcc void @Abc_TtReadHex.retelim(ptr noundef %3, ptr noundef nonnull %.4)
+  call fastcc void @Abc_TtReadHex(ptr noundef %3, ptr noundef nonnull %.4)
   %354 = load ptr, ptr %17, align 8
   %355 = load i64, ptr %3, align 8
   %356 = trunc i64 %355 to i32
@@ -2141,7 +2141,7 @@ Vec_IntPush.exit244:                              ; preds = %.Vec_IntGrow.exit10
 
 509:                                              ; preds = %506, %504
   %.7 = phi ptr [ %.6, %504 ], [ %507, %506 ]
-  call fastcc void @Abc_TtReadHex.retelim(ptr noundef %3, ptr noundef nonnull %.7)
+  call fastcc void @Abc_TtReadHex(ptr noundef %3, ptr noundef nonnull %.7)
   %510 = load ptr, ptr %14, align 8
   %511 = load i64, ptr %3, align 8
   %512 = getelementptr inbounds i8, ptr %510, i64 4
@@ -3002,7 +3002,7 @@ Vec_IntPush.exit337:                              ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @Abc_TtReadHex.retelim(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #9 {
+define internal fastcc void @Abc_TtReadHex(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #9 {
   %3 = load i8, ptr %1, align 1
   %4 = icmp eq i8 %3, 48
   br i1 %4, label %5, label %9
@@ -3979,7 +3979,7 @@ Gia_ManAppendCo.exit:                             ; preds = %Vec_IntPush.exit.i,
   %373 = sext i32 %372 to i64
   %374 = getelementptr inbounds i32, ptr %.pre276.pre, i64 %373
   %375 = load i32, ptr %374, align 4
-  call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %12, i32 noundef %375)
+  call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %12, i32 noundef %375)
   %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 1
   %376 = load ptr, ptr %267, align 8
   %377 = getelementptr i8, ptr %376, i64 4
@@ -4004,7 +4004,7 @@ Gia_ManAppendCo.exit:                             ; preds = %Vec_IntPush.exit.i,
   %389 = sext i32 %388 to i64
   %390 = getelementptr inbounds i32, ptr %.pre276.pre, i64 %389
   %391 = load i32, ptr %390, align 4
-  call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %12, i32 noundef %391)
+  call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %12, i32 noundef %391)
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
   %392 = load ptr, ptr %359, align 8
   %393 = getelementptr i8, ptr %392, i64 4
@@ -4150,7 +4150,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 declare i32 @Kit_TruthToGia(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #2 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648

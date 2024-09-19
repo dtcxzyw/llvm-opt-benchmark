@@ -446,7 +446,7 @@ _ZN4llvm9BitVectorD2Ev.exit:                      ; preds = %1, %9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %.val = load ptr, ptr %10, align 8
   %.not.i.i.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i.i, label %_ZNSt14priority_queueIPKN4llvm12LiveIntervalESt6vectorIS3_SaIS3_EEN12_GLOBAL__N_115CompSpillWeightEED2Ev.argprom.exit, label %11
+  br i1 %.not.i.i.i.i, label %_ZNSt14priority_queueIPKN4llvm12LiveIntervalESt6vectorIS3_SaIS3_EEN12_GLOBAL__N_115CompSpillWeightEED2Ev.exit, label %11
 
 11:                                               ; preds = %_ZN4llvm9BitVectorD2Ev.exit
   %12 = getelementptr inbounds i8, ptr %0, i64 784
@@ -455,22 +455,22 @@ _ZN4llvm9BitVectorD2Ev.exit:                      ; preds = %1, %9
   %14 = ptrtoint ptr %.val to i64
   %15 = sub i64 %13, %14
   tail call void @_ZdlPvm(ptr noundef nonnull %.val, i64 noundef %15) #22
-  br label %_ZNSt14priority_queueIPKN4llvm12LiveIntervalESt6vectorIS3_SaIS3_EEN12_GLOBAL__N_115CompSpillWeightEED2Ev.argprom.exit
+  br label %_ZNSt14priority_queueIPKN4llvm12LiveIntervalESt6vectorIS3_SaIS3_EEN12_GLOBAL__N_115CompSpillWeightEED2Ev.exit
 
-_ZNSt14priority_queueIPKN4llvm12LiveIntervalESt6vectorIS3_SaIS3_EEN12_GLOBAL__N_115CompSpillWeightEED2Ev.argprom.exit: ; preds = %_ZN4llvm9BitVectorD2Ev.exit, %11
+_ZNSt14priority_queueIPKN4llvm12LiveIntervalESt6vectorIS3_SaIS3_EEN12_GLOBAL__N_115CompSpillWeightEED2Ev.exit: ; preds = %_ZN4llvm9BitVectorD2Ev.exit, %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN4llvm7SpillerESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm7SpillerEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN4llvm7SpillerEEclEPS1_.exit.i: ; preds = %_ZNSt14priority_queueIPKN4llvm12LiveIntervalESt6vectorIS3_SaIS3_EEN12_GLOBAL__N_115CompSpillWeightEED2Ev.argprom.exit
+_ZNKSt14default_deleteIN4llvm7SpillerEEclEPS1_.exit.i: ; preds = %_ZNSt14priority_queueIPKN4llvm12LiveIntervalESt6vectorIS3_SaIS3_EEN12_GLOBAL__N_115CompSpillWeightEED2Ev.exit
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %17) #20
   br label %_ZNSt10unique_ptrIN4llvm7SpillerESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm7SpillerESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt14priority_queueIPKN4llvm12LiveIntervalESt6vectorIS3_SaIS3_EEN12_GLOBAL__N_115CompSpillWeightEED2Ev.argprom.exit, %_ZNKSt14default_deleteIN4llvm7SpillerEEclEPS1_.exit.i
+_ZNSt10unique_ptrIN4llvm7SpillerESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt14priority_queueIPKN4llvm12LiveIntervalESt6vectorIS3_SaIS3_EEN12_GLOBAL__N_115CompSpillWeightEED2Ev.exit, %_ZNKSt14default_deleteIN4llvm7SpillerEEclEPS1_.exit.i
   store ptr null, ptr %16, align 8
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm12RegAllocBaseE, i64 16), ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 456
@@ -1052,7 +1052,7 @@ _ZNSt6vectorIPKN4llvm12LiveIntervalESaIS3_EE9push_backERKS3_.exit.i: ; preds = %
   %41 = ashr exact i64 %40, 3
   %42 = add nsw i64 %41, -1
   %43 = icmp sgt i64 %41, 1
-  br i1 %43, label %.lr.ph.i.i.i, label %_ZNSt14priority_queueIPKN4llvm12LiveIntervalESt6vectorIS3_SaIS3_EEN12_GLOBAL__N_115CompSpillWeightEE4pushERKS3_.argprom.exit
+  br i1 %43, label %.lr.ph.i.i.i, label %_ZNSt14priority_queueIPKN4llvm12LiveIntervalESt6vectorIS3_SaIS3_EEN12_GLOBAL__N_115CompSpillWeightEE4pushERKS3_.exit
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt6vectorIPKN4llvm12LiveIntervalESaIS3_EE9push_backERKS3_.exit.i
   %44 = getelementptr i8, ptr %37, i64 116
@@ -1068,15 +1068,15 @@ _ZNSt6vectorIPKN4llvm12LiveIntervalESaIS3_EE9push_backERKS3_.exit.i: ; preds = %
   %48 = getelementptr i8, ptr %47, i64 116
   %.val.i.i.i.i = load float, ptr %48, align 4
   %49 = fcmp olt float %.val.i.i.i.i, %.val.val.i.i.i
-  br i1 %49, label %50, label %_ZNSt14priority_queueIPKN4llvm12LiveIntervalESt6vectorIS3_SaIS3_EEN12_GLOBAL__N_115CompSpillWeightEE4pushERKS3_.argprom.exit
+  br i1 %49, label %50, label %_ZNSt14priority_queueIPKN4llvm12LiveIntervalESt6vectorIS3_SaIS3_EEN12_GLOBAL__N_115CompSpillWeightEE4pushERKS3_.exit
 
 50:                                               ; preds = %45
   %51 = getelementptr inbounds ptr, ptr %35, i64 %.010.i.i.i
   store ptr %47, ptr %51, align 8
   %52 = icmp sgt i64 %.010.i.i.i, 2
-  br i1 %52, label %45, label %_ZNSt14priority_queueIPKN4llvm12LiveIntervalESt6vectorIS3_SaIS3_EEN12_GLOBAL__N_115CompSpillWeightEE4pushERKS3_.argprom.exit, !llvm.loop !6
+  br i1 %52, label %45, label %_ZNSt14priority_queueIPKN4llvm12LiveIntervalESt6vectorIS3_SaIS3_EEN12_GLOBAL__N_115CompSpillWeightEE4pushERKS3_.exit, !llvm.loop !6
 
-_ZNSt14priority_queueIPKN4llvm12LiveIntervalESt6vectorIS3_SaIS3_EEN12_GLOBAL__N_115CompSpillWeightEE4pushERKS3_.argprom.exit: ; preds = %45, %50, %_ZNSt6vectorIPKN4llvm12LiveIntervalESaIS3_EE9push_backERKS3_.exit.i
+_ZNSt14priority_queueIPKN4llvm12LiveIntervalESt6vectorIS3_SaIS3_EEN12_GLOBAL__N_115CompSpillWeightEE4pushERKS3_.exit: ; preds = %45, %50, %_ZNSt6vectorIPKN4llvm12LiveIntervalESaIS3_EE9push_backERKS3_.exit.i
   %.0.lcssa.i.i.i = phi i64 [ %42, %_ZNSt6vectorIPKN4llvm12LiveIntervalESaIS3_EE9push_backERKS3_.exit.i ], [ %.010.i.i.i, %45 ], [ %.0911.i.i.i, %50 ]
   %53 = getelementptr inbounds ptr, ptr %35, i64 %.0.lcssa.i.i.i
   store ptr %37, ptr %53, align 8
@@ -1158,7 +1158,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_17RABasic7dequeueEv(ptr nocapture n
 46:                                               ; preds = %40, %36, %._crit_edge.i.i.i.i
   %.1.i.i.i.i = phi i64 [ %42, %40 ], [ %.0.lcssa.i.i.i.i, %36 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %47 = icmp sgt i64 %.1.i.i.i.i, 0
-  br i1 %47, label %.lr.ph.i.i.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm12LiveIntervalESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_115CompSpillWeightEEEEvT_SG_SG_RT0_.argprom.exit.i.i
+  br i1 %47, label %.lr.ph.i.i.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm12LiveIntervalESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_115CompSpillWeightEEEEvT_SG_SG_RT0_.exit.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %46
   %48 = getelementptr i8, ptr %13, i64 116
@@ -1174,23 +1174,23 @@ define internal noundef ptr @_ZN12_GLOBAL__N_17RABasic7dequeueEv(ptr nocapture n
   %52 = getelementptr i8, ptr %51, i64 116
   %.val.i.i.i.i.i.i = load float, ptr %52, align 4
   %53 = fcmp olt float %.val.i.i.i.i.i.i, %.val.val.i.i.i.i.i
-  br i1 %53, label %54, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm12LiveIntervalESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_115CompSpillWeightEEEEvT_SG_SG_RT0_.argprom.exit.i.i
+  br i1 %53, label %54, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm12LiveIntervalESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_115CompSpillWeightEEEEvT_SG_SG_RT0_.exit.i.i
 
 54:                                               ; preds = %49
   %55 = getelementptr inbounds ptr, ptr %.val, i64 %.010.i.i.i.i.i
   store ptr %51, ptr %55, align 8
   %56 = icmp sgt i64 %.010.i.i.i.i.i, 2
-  br i1 %56, label %49, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm12LiveIntervalESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_115CompSpillWeightEEEEvT_SG_SG_RT0_.argprom.exit.i.i, !llvm.loop !6
+  br i1 %56, label %49, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm12LiveIntervalESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_115CompSpillWeightEEEEvT_SG_SG_RT0_.exit.i.i, !llvm.loop !6
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm12LiveIntervalESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_115CompSpillWeightEEEEvT_SG_SG_RT0_.argprom.exit.i.i: ; preds = %54, %49, %46
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm12LiveIntervalESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_115CompSpillWeightEEEEvT_SG_SG_RT0_.exit.i.i: ; preds = %54, %49, %46
   %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %46 ], [ %.010.i.i.i.i.i, %49 ], [ %.0911.i.i.i.i.i, %54 ]
   %57 = getelementptr inbounds ptr, ptr %.val, i64 %.0.lcssa.i.i.i.i.i
   store ptr %13, ptr %57, align 8
   %.pre.i = load ptr, ptr %3, align 8
   br label %_ZNSt14priority_queueIPKN4llvm12LiveIntervalESt6vectorIS3_SaIS3_EEN12_GLOBAL__N_115CompSpillWeightEE3popEv.exit
 
-_ZNSt14priority_queueIPKN4llvm12LiveIntervalESt6vectorIS3_SaIS3_EEN12_GLOBAL__N_115CompSpillWeightEE3popEv.exit: ; preds = %5, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm12LiveIntervalESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_115CompSpillWeightEEEEvT_SG_SG_RT0_.argprom.exit.i.i
-  %58 = phi ptr [ %.val3, %5 ], [ %.pre.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm12LiveIntervalESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_115CompSpillWeightEEEEvT_SG_SG_RT0_.argprom.exit.i.i ]
+_ZNSt14priority_queueIPKN4llvm12LiveIntervalESt6vectorIS3_SaIS3_EEN12_GLOBAL__N_115CompSpillWeightEE3popEv.exit: ; preds = %5, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm12LiveIntervalESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_115CompSpillWeightEEEEvT_SG_SG_RT0_.exit.i.i
+  %58 = phi ptr [ %.val3, %5 ], [ %.pre.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm12LiveIntervalESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_115CompSpillWeightEEEEvT_SG_SG_RT0_.exit.i.i ]
   %59 = getelementptr inbounds i8, ptr %58, i64 -8
   store ptr %59, ptr %3, align 8
   br label %60
@@ -1958,7 +1958,7 @@ define internal noundef ptr @_ZThn56_N12_GLOBAL__N_17RABasic7dequeueEv(ptr nocap
 46:                                               ; preds = %40, %36, %._crit_edge.i.i.i.i.i
   %.1.i.i.i.i.i = phi i64 [ %42, %40 ], [ %.0.lcssa.i.i.i.i.i, %36 ], [ %.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %47 = icmp sgt i64 %.1.i.i.i.i.i, 0
-  br i1 %47, label %.lr.ph.i.i.i.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm12LiveIntervalESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_115CompSpillWeightEEEEvT_SG_SG_RT0_.argprom.exit.i.i.i
+  br i1 %47, label %.lr.ph.i.i.i.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm12LiveIntervalESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_115CompSpillWeightEEEEvT_SG_SG_RT0_.exit.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %46
   %48 = getelementptr i8, ptr %13, i64 116
@@ -1974,23 +1974,23 @@ define internal noundef ptr @_ZThn56_N12_GLOBAL__N_17RABasic7dequeueEv(ptr nocap
   %52 = getelementptr i8, ptr %51, i64 116
   %.val.i.i.i.i.i.i.i = load float, ptr %52, align 4
   %53 = fcmp olt float %.val.i.i.i.i.i.i.i, %.val.val.i.i.i.i.i.i
-  br i1 %53, label %54, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm12LiveIntervalESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_115CompSpillWeightEEEEvT_SG_SG_RT0_.argprom.exit.i.i.i
+  br i1 %53, label %54, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm12LiveIntervalESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_115CompSpillWeightEEEEvT_SG_SG_RT0_.exit.i.i.i
 
 54:                                               ; preds = %49
   %55 = getelementptr inbounds ptr, ptr %.val.i, i64 %.010.i.i.i.i.i.i
   store ptr %51, ptr %55, align 8
   %56 = icmp sgt i64 %.010.i.i.i.i.i.i, 2
-  br i1 %56, label %49, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm12LiveIntervalESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_115CompSpillWeightEEEEvT_SG_SG_RT0_.argprom.exit.i.i.i, !llvm.loop !6
+  br i1 %56, label %49, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm12LiveIntervalESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_115CompSpillWeightEEEEvT_SG_SG_RT0_.exit.i.i.i, !llvm.loop !6
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm12LiveIntervalESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_115CompSpillWeightEEEEvT_SG_SG_RT0_.argprom.exit.i.i.i: ; preds = %54, %49, %46
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm12LiveIntervalESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_115CompSpillWeightEEEEvT_SG_SG_RT0_.exit.i.i.i: ; preds = %54, %49, %46
   %.0.lcssa.i.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i, %46 ], [ %.0911.i.i.i.i.i.i, %54 ], [ %.010.i.i.i.i.i.i, %49 ]
   %57 = getelementptr inbounds ptr, ptr %.val.i, i64 %.0.lcssa.i.i.i.i.i.i
   store ptr %13, ptr %57, align 8
   %.pre.i.i = load ptr, ptr %3, align 8
   br label %_ZNSt14priority_queueIPKN4llvm12LiveIntervalESt6vectorIS3_SaIS3_EEN12_GLOBAL__N_115CompSpillWeightEE3popEv.exit.i
 
-_ZNSt14priority_queueIPKN4llvm12LiveIntervalESt6vectorIS3_SaIS3_EEN12_GLOBAL__N_115CompSpillWeightEE3popEv.exit.i: ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm12LiveIntervalESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_115CompSpillWeightEEEEvT_SG_SG_RT0_.argprom.exit.i.i.i, %5
-  %58 = phi ptr [ %.val3.i, %5 ], [ %.pre.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm12LiveIntervalESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_115CompSpillWeightEEEEvT_SG_SG_RT0_.argprom.exit.i.i.i ]
+_ZNSt14priority_queueIPKN4llvm12LiveIntervalESt6vectorIS3_SaIS3_EEN12_GLOBAL__N_115CompSpillWeightEE3popEv.exit.i: ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm12LiveIntervalESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_115CompSpillWeightEEEEvT_SG_SG_RT0_.exit.i.i.i, %5
+  %58 = phi ptr [ %.val3.i, %5 ], [ %.pre.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm12LiveIntervalESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_115CompSpillWeightEEEEvT_SG_SG_RT0_.exit.i.i.i ]
   %59 = getelementptr inbounds i8, ptr %58, i64 -8
   store ptr %59, ptr %3, align 8
   br label %_ZN12_GLOBAL__N_17RABasic7dequeueEv.exit

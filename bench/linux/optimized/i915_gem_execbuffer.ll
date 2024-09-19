@@ -1943,7 +1943,7 @@ define internal fastcc i32 @eb_lookup_vmas(ptr noundef %0) unnamed_addr #0 align
   %170 = phi i32 [ %169, %168 ], [ %.ph, %.thread47 ], [ -4, %139 ]
   tail call void @i915_vma_close(ptr noundef %110) #13
   %.val = load ptr, ptr %124, align 8
-  tail call fastcc void @i915_vma_put.argprom(ptr %.val)
+  tail call fastcc void @i915_vma_put(ptr %.val)
   tail call void @i915_lut_handle_free(ptr noundef nonnull %121) #13
   tail call fastcc void @i915_gem_object_put(ptr noundef nonnull %63)
   %171 = icmp eq i32 %170, -17
@@ -2078,7 +2078,7 @@ define internal fastcc i32 @eb_lookup_vmas(ptr noundef %0) unnamed_addr #0 align
 249:                                              ; preds = %188, %193, %207, %218, %199
   %250 = getelementptr i8, ptr %.ph55, i64 184
   %.val33 = load ptr, ptr %250, align 8
-  tail call fastcc void @i915_vma_put.argprom(ptr %.val33)
+  tail call fastcc void @i915_vma_put(ptr %.val33)
   br label %.thread58
 
 251:                                              ; preds = %232, %238, %247
@@ -5688,7 +5688,7 @@ declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #2
 declare dso_local void @__intel_wakeref_put_last(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @i915_vma_put.argprom(ptr %.184.val) unnamed_addr #5 align 16 {
+define internal fastcc void @i915_vma_put(ptr %.184.val) unnamed_addr #5 align 16 {
   %1 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %.184.val, i32 -1, ptr elementtype(i32) %.184.val) #13, !srcloc !15
   %2 = icmp eq i32 %1, 1
   br i1 %2, label %6, label %3
@@ -7010,7 +7010,7 @@ define internal fastcc i32 @eb_parse(ptr noundef %0) unnamed_addr #0 align 16 {
   %121 = load ptr, ptr %120, align 8
   %122 = getelementptr inbounds i8, ptr %121, i64 32
   %123 = load ptr, ptr %122, align 8
-  %124 = tail call fastcc ptr @shadow_batch_pin.argelim(ptr noundef %0, ptr noundef %119, ptr noundef %123)
+  %124 = tail call fastcc ptr @shadow_batch_pin(ptr noundef %0, ptr noundef %119, ptr noundef %123)
   %125 = icmp ugt ptr %124, inttoptr (i64 -4096 to ptr)
   br i1 %125, label %126, label %.thread
 
@@ -8280,7 +8280,7 @@ declare dso_local void @drm_mm_remove_node(ptr noundef) local_unnamed_addr #2
 declare dso_local ptr @intel_gt_get_buffer_pool(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @shadow_batch_pin.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc ptr @shadow_batch_pin(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = tail call ptr @i915_vma_instance(ptr noundef %1, ptr noundef %2, ptr noundef null) #13
   %5 = icmp ugt ptr %4, inttoptr (i64 -4096 to ptr)
   br i1 %5, label %13, label %6

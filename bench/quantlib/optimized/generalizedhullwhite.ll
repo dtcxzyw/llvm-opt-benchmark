@@ -7528,7 +7528,7 @@ ehcleanup:                                        ; preds = %lpad.i.body, %lpad.
 define noundef double @_ZNK8QuantLib20GeneralizedHullWhite1BEdd(ptr noundef nonnull align 8 dereferenceable(400) %this, double noundef %t, double noundef %T) unnamed_addr #6 align 2 {
 entry:
   %speed_ = getelementptr inbounds nuw i8, ptr %this, i64 208
-  %call = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_122integrateMeanReversionERKNS_13InterpolationEdd.argelim(ptr noundef nonnull align 8 dereferenceable(32) %speed_, double noundef %t)
+  %call = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_122integrateMeanReversionERKNS_13InterpolationEdd(ptr noundef nonnull align 8 dereferenceable(32) %speed_, double noundef %t)
   %call2 = tail call double @exp(double noundef %call) #28, !tbaa !137
   %sub = fsub double %T, %t
   %mul = fmul double %sub, 3.650000e+02
@@ -7617,7 +7617,7 @@ _ZNK8QuantLib13InterpolationclEdb.exit36:         ; preds = %_ZNK8QuantLib13Inte
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_122integrateMeanReversionERKNS_13InterpolationEdd.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %a, double noundef %T) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_122integrateMeanReversionERKNS_13InterpolationEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %a, double noundef %T) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %integrator = alloca %"class.QuantLib::SimpsonIntegral", align 8
   %ref.tmp = alloca %"class.std::function", align 8
@@ -7721,7 +7721,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #13
 define noundef double @_ZNK8QuantLib20GeneralizedHullWhite1VEdd(ptr noundef nonnull align 8 dereferenceable(400) %this, double noundef %t, double noundef %T) local_unnamed_addr #6 align 2 {
 entry:
   %speed_ = getelementptr inbounds nuw i8, ptr %this, i64 208
-  %call = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_122integrateMeanReversionERKNS_13InterpolationEdd.argelim(ptr noundef nonnull align 8 dereferenceable(32) %speed_, double noundef %t)
+  %call = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_122integrateMeanReversionERKNS_13InterpolationEdd(ptr noundef nonnull align 8 dereferenceable(32) %speed_, double noundef %t)
   %sub = fsub double %T, %t
   %mul = fmul double %sub, 3.650000e+02
   %conv = fptoui double %mul to i64

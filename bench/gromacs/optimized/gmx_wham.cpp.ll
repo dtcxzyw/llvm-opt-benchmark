@@ -1339,7 +1339,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %119, %327, %329, %331, %333, %336, %339, %342, %352, %362, %367, %369, %371, %373, %375, %377, %379, %382, %389, %405, %413, %416, %424, %427, %448, %_ZL19enforceEqualWeightsP16t_UmbrellaWindowi.exit, %742, %._crit_edge452, %796, %802, %809, %888, %945, %1728, %1730, %._crit_edge455, %1774, %1779, %1781, %1783, %_ZL19freeUmbrellaWindowsP16t_UmbrellaWindowi.exit, %432, %434, %1716, %1727, %1785, %456, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i, %541, %._crit_edge21.i, %577, %594, %609, %651, %666, %.critedge.i, %._crit_edge15.i, %.noexc159, %811, %819, %841, %857, %862, %.noexc195, %890, %897, %911, %950, %991, %1021, %1097, %.noexc243, %_ZNSt10filesystem7__cxx114pathD2Ev.exit227.i, %_ZL10smoothIactP16t_UmbrellaWindowiP15UmbrellaOptions.argprom.exit.i, %.noexc247, %.loopexit.i, %_ZL19computeAverageForceP16t_UmbrellaWindowiP15UmbrellaOptions.argprom.exit.i, %.noexc291, %1539, %._crit_edge45.i, %._crit_edge49.i, %.noexc297, %1603, %._crit_edge.i299, %_ZL30checkReactionCoordinateCoveredP16t_UmbrellaWindowiP15UmbrellaOptions.argprom.exit, %1786, %._crit_edge.i325
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %119, %327, %329, %331, %333, %336, %339, %342, %352, %362, %367, %369, %371, %373, %375, %377, %379, %382, %389, %405, %413, %416, %424, %427, %448, %_ZL19enforceEqualWeightsP16t_UmbrellaWindowi.exit, %742, %._crit_edge452, %796, %802, %809, %888, %945, %1728, %1730, %._crit_edge455, %1774, %1779, %1781, %1783, %_ZL19freeUmbrellaWindowsP16t_UmbrellaWindowi.exit, %432, %434, %1716, %1727, %1785, %456, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i, %541, %._crit_edge21.i, %577, %594, %609, %651, %666, %.critedge.i, %._crit_edge15.i, %.noexc159, %811, %819, %841, %857, %862, %.noexc195, %890, %897, %911, %950, %991, %1021, %1097, %.noexc243, %_ZNSt10filesystem7__cxx114pathD2Ev.exit227.i, %_ZL10smoothIactP16t_UmbrellaWindowiP15UmbrellaOptions.exit.i, %.noexc247, %.loopexit.i, %_ZL19computeAverageForceP16t_UmbrellaWindowiP15UmbrellaOptions.exit.i, %.noexc291, %1539, %._crit_edge45.i, %._crit_edge49.i, %.noexc297, %1603, %._crit_edge.i299, %_ZL30checkReactionCoordinateCoveredP16t_UmbrellaWindowiP15UmbrellaOptions.exit, %1786, %._crit_edge.i325
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1614,7 +1614,7 @@ thread-pre-split:                                 ; preds = %415
 
 432:                                              ; preds = %426, %421
   %433 = load ptr, ptr @_ZZ8gmx_whamiPPcE3opt, align 8
-  invoke fastcc void @_ZL12read_wham_inPKcPPPcPiP15UmbrellaOptions.argprom(ptr noundef %433, ptr noundef %88, ptr noundef %85)
+  invoke fastcc void @_ZL12read_wham_inPKcPPPcPiP15UmbrellaOptions(ptr noundef %433, ptr noundef %88, ptr noundef %85)
           to label %434 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 434:                                              ; preds = %432
@@ -1623,7 +1623,7 @@ thread-pre-split:                                 ; preds = %415
   %437 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 8), align 8
   %438 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 24), align 8
   %439 = select i1 %436, ptr %437, ptr %438
-  invoke fastcc void @_ZL12read_wham_inPKcPPPcPiP15UmbrellaOptions.argprom(ptr noundef %439, ptr noundef %89, ptr noundef %86)
+  invoke fastcc void @_ZL12read_wham_inPKcPPPcPiP15UmbrellaOptions(ptr noundef %439, ptr noundef %89, ptr noundef %86)
           to label %440 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 440:                                              ; preds = %434
@@ -1973,7 +1973,7 @@ _ZL6fgets3P8_IO_FILEPcPi.exit.i:                  ; preds = %_ZL6fgets3P8_IO_FIL
 ._crit_edge21.i:                                  ; preds = %._crit_edge17.i, %547
   %putchar.i = call i32 @putchar(i32 10)
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.255, ptr noundef nonnull @.str.219, i32 noundef 2842, ptr noundef %463)
-          to label %_ZL22readPullCoordSelectionP15UmbrellaOptionsPPci.argprom.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZL22readPullCoordSelectionP15UmbrellaOptionsPPci.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 576:                                              ; preds = %545, %503
   %.sink.i = phi ptr [ %78, %545 ], [ %77, %503 ]
@@ -1981,7 +1981,7 @@ _ZL6fgets3P8_IO_FILEPcPi.exit.i:                  ; preds = %_ZL6fgets3P8_IO_FIL
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i) #21
   br label %.body
 
-_ZL22readPullCoordSelectionP15UmbrellaOptionsPPci.argprom.exit: ; preds = %._crit_edge21.i
+_ZL22readPullCoordSelectionP15UmbrellaOptionsPPci.exit: ; preds = %._crit_edge21.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %74)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %75)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %76)
@@ -1990,8 +1990,8 @@ _ZL22readPullCoordSelectionP15UmbrellaOptionsPPci.argprom.exit: ; preds = %._cri
   %.pre = load i32, ptr %85, align 4
   br label %577
 
-577:                                              ; preds = %_ZL22readPullCoordSelectionP15UmbrellaOptionsPPci.argprom.exit, %454
-  %578 = phi i32 [ %.pre, %_ZL22readPullCoordSelectionP15UmbrellaOptionsPPci.argprom.exit ], [ %441, %454 ]
+577:                                              ; preds = %_ZL22readPullCoordSelectionP15UmbrellaOptionsPPci.exit, %454
+  %578 = phi i32 [ %.pre, %_ZL22readPullCoordSelectionP15UmbrellaOptionsPPci.exit ], [ %441, %454 ]
   %579 = sext i32 %578 to i64
   %580 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.265, ptr noundef nonnull @.str.219, i32 noundef 325, i64 noundef %579, i64 noundef 152)
           to label %.noexc133 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -2076,7 +2076,7 @@ _ZL19initUmbrellaWindowsi.exit:                   ; preds = %.lr.ph.i129, %.noex
   %603 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 64), align 8
   %604 = getelementptr inbounds %struct.t_coordselection, ptr %603, i64 %indvars.iv.i141
   %605 = select i1 %602, ptr %604, ptr null
-  invoke fastcc void @_ZL15read_tpr_headerPKcP16t_UmbrellaHeaderP15UmbrellaOptionsP16t_coordselection.argprom(ptr noundef %600, ptr noundef %87, ptr noundef %605)
+  invoke fastcc void @_ZL15read_tpr_headerPKcP16t_UmbrellaHeaderP15UmbrellaOptionsP16t_coordselection(ptr noundef %600, ptr noundef %87, ptr noundef %605)
           to label %.noexc146 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc146:                                        ; preds = %599
@@ -2113,7 +2113,7 @@ _ZL19initUmbrellaWindowsi.exit:                   ; preds = %.lr.ph.i129, %.noex
   %618 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 64), align 8
   %619 = getelementptr inbounds %struct.t_coordselection, ptr %618, i64 %indvars.iv.i141
   %620 = select i1 %617, ptr %619, ptr null
-  invoke fastcc void @_ZL12read_pull_xfPKcP16t_UmbrellaHeaderP16t_UmbrellaWindowP15UmbrellaOptionsbPfS7_P16t_coordselection.argprom(ptr noundef %615, ptr noundef %87, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef %620)
+  invoke fastcc void @_ZL12read_pull_xfPKcP16t_UmbrellaHeaderP16t_UmbrellaWindowP15UmbrellaOptionsbPfS7_P16t_coordselection(ptr noundef %615, ptr noundef %87, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef %620)
           to label %.noexc149 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc149:                                        ; preds = %614
@@ -2215,7 +2215,7 @@ _ZL19initUmbrellaWindowsi.exit:                   ; preds = %.lr.ph.i129, %.noex
   %660 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 64), align 8
   %661 = getelementptr inbounds %struct.t_coordselection, ptr %660, i64 %indvars.iv21.i
   %662 = select i1 %659, ptr %661, ptr null
-  invoke fastcc void @_ZL15read_tpr_headerPKcP16t_UmbrellaHeaderP15UmbrellaOptionsP16t_coordselection.argprom(ptr noundef %657, ptr noundef %87, ptr noundef %662)
+  invoke fastcc void @_ZL15read_tpr_headerPKcP16t_UmbrellaHeaderP15UmbrellaOptionsP16t_coordselection(ptr noundef %657, ptr noundef %87, ptr noundef %662)
           to label %.noexc152 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc152:                                        ; preds = %656
@@ -2253,7 +2253,7 @@ _ZL19initUmbrellaWindowsi.exit:                   ; preds = %.lr.ph.i129, %.noex
   %676 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 64), align 8
   %677 = getelementptr inbounds %struct.t_coordselection, ptr %676, i64 %indvars.iv21.i
   %678 = select i1 %675, ptr %677, ptr null
-  invoke fastcc void @_ZL12read_pull_xfPKcP16t_UmbrellaHeaderP16t_UmbrellaWindowP15UmbrellaOptionsbPfS7_P16t_coordselection.argprom(ptr noundef %672, ptr noundef %87, ptr noundef %673, i1 noundef zeroext false, ptr noundef null, ptr noundef null, ptr noundef %678)
+  invoke fastcc void @_ZL12read_pull_xfPKcP16t_UmbrellaHeaderP16t_UmbrellaWindowP15UmbrellaOptionsbPfS7_P16t_coordselection(ptr noundef %672, ptr noundef %87, ptr noundef %673, i1 noundef zeroext false, ptr noundef null, ptr noundef null, ptr noundef %678)
           to label %.noexc155 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc155:                                        ; preds = %671
@@ -2755,7 +2755,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i181:     ; preds = %817, %814
 .noexc196:                                        ; preds = %.noexc195
   store ptr %865, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 184), align 8
   %866 = icmp sgt i32 %813, 0
-  br i1 %866, label %.lr.ph.preheader.i189, label %_ZL9setup_tabPKcP15UmbrellaOptions.argprom.exit
+  br i1 %866, label %.lr.ph.preheader.i189, label %_ZL9setup_tabPKcP15UmbrellaOptions.exit
 
 .lr.ph.preheader.i189:                            ; preds = %.noexc196
   %wide.trip.count6.i = zext nneg i32 %813 to i64
@@ -2780,7 +2780,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i181:     ; preds = %817, %814
   store double %877, ptr %879, align 8
   %indvars.iv.next4.i = add nuw nsw i64 %indvars.iv3.i, 1
   %exitcond7.not.i = icmp eq i64 %indvars.iv.next4.i, %wide.trip.count6.i
-  br i1 %exitcond7.not.i, label %_ZL9setup_tabPKcP15UmbrellaOptions.argprom.exit, label %.lr.ph.i190, !llvm.loop !24
+  br i1 %exitcond7.not.i, label %_ZL9setup_tabPKcP15UmbrellaOptions.exit, label %.lr.ph.i190, !llvm.loop !24
 
 880:                                              ; preds = %860, %844, %825, %823
   %.sink.i178 = phi ptr [ %65, %860 ], [ %64, %844 ], [ %63, %825 ], [ %62, %823 ]
@@ -2788,7 +2788,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i181:     ; preds = %817, %814
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i178) #21
   br label %.body
 
-_ZL9setup_tabPKcP15UmbrellaOptions.argprom.exit:  ; preds = %.lr.ph.i190, %.noexc196
+_ZL9setup_tabPKcP15UmbrellaOptions.exit:          ; preds = %.lr.ph.i190, %.noexc196
   %881 = load double, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 200), align 8
   %882 = load double, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 208), align 8
   %883 = load double, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 216), align 8
@@ -2802,7 +2802,7 @@ _ZL9setup_tabPKcP15UmbrellaOptions.argprom.exit:  ; preds = %.lr.ph.i190, %.noex
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %65)
   br label %885
 
-885:                                              ; preds = %_ZL9setup_tabPKcP15UmbrellaOptions.argprom.exit, %806
+885:                                              ; preds = %_ZL9setup_tabPKcP15UmbrellaOptions.exit, %806
   %886 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 136), align 8
   %887 = trunc i8 %886 to i1
   br i1 %887, label %888, label %942
@@ -3612,7 +3612,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit227.i:     ; preds = %1117, %1114
 ._crit_edge14.split.us.us.i.i:                    ; preds = %1191, %.noexc246
   %indvars.iv.next24.i.i = add nuw nsw i64 %indvars.iv23.i.i, 1
   %exitcond27.not.i.i = icmp eq i64 %indvars.iv.next24.i.i, %wide.trip.count23.i
-  br i1 %exitcond27.not.i.i, label %_ZL10smoothIactP16t_UmbrellaWindowiP15UmbrellaOptions.argprom.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !41
+  br i1 %exitcond27.not.i.i, label %_ZL10smoothIactP16t_UmbrellaWindowiP15UmbrellaOptions.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !41
 
 .lr.ph13.us.i.i:                                  ; preds = %.noexc246
   %1178 = getelementptr inbounds i8, ptr %1171, i64 40
@@ -3723,12 +3723,12 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit227.i:     ; preds = %1117, %1114
   %.pre28.i.i = load ptr, ptr %1172, align 8
   br label %1191
 
-_ZL10smoothIactP16t_UmbrellaWindowiP15UmbrellaOptions.argprom.exit.i: ; preds = %._crit_edge14.split.us.us.i.i
+_ZL10smoothIactP16t_UmbrellaWindowiP15UmbrellaOptions.exit.i: ; preds = %._crit_edge14.split.us.us.i.i
   %1232 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 128), align 8
   %1233 = invoke noundef zeroext i1 @_Z31output_env_get_print_xvgr_codesPK16gmx_output_env_t(ptr noundef %1232)
           to label %.noexc247 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc247:                                        ; preds = %_ZL10smoothIactP16t_UmbrellaWindowiP15UmbrellaOptions.argprom.exit.i
+.noexc247:                                        ; preds = %_ZL10smoothIactP16t_UmbrellaWindowiP15UmbrellaOptions.exit.i
   %1234 = select i1 %1233, ptr @.str.357, ptr @.str.4
   %1235 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1113, ptr noundef nonnull @.str.356, ptr noundef nonnull %1234) #21
   %1236 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 128), align 8
@@ -3780,7 +3780,7 @@ _ZL10smoothIactP16t_UmbrellaWindowiP15UmbrellaOptions.argprom.exit.i: ; preds = 
 
 .loopexit.i:                                      ; preds = %._crit_edge71.i, %._crit_edge68.i
   invoke void @_Z9xvgrcloseP8_IO_FILE(ptr noundef %1113)
-          to label %_ZL34calcIntegratedAutocorrelationTimesP16t_UmbrellaWindowiP15UmbrellaOptionsPKcS4_.argprom.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZL34calcIntegratedAutocorrelationTimesP16t_UmbrellaWindowiP15UmbrellaOptionsPKcS4_.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 1257:                                             ; preds = %.body218.i, %1026, %993, %.body.i
   %.sink.i219 = phi ptr [ %48, %.body218.i ], [ %47, %1026 ], [ %46, %993 ], [ %41, %.body.i ]
@@ -3788,7 +3788,7 @@ _ZL10smoothIactP16t_UmbrellaWindowiP15UmbrellaOptions.argprom.exit.i: ; preds = 
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i219) #21
   br label %.body
 
-_ZL34calcIntegratedAutocorrelationTimesP16t_UmbrellaWindowiP15UmbrellaOptionsPKcS4_.argprom.exit: ; preds = %.loopexit.i
+_ZL34calcIntegratedAutocorrelationTimesP16t_UmbrellaWindowiP15UmbrellaOptionsPKcS4_.exit: ; preds = %.loopexit.i
   %1258 = load ptr, ptr %40, align 8
   %1259 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.237, ptr noundef %1258)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
@@ -3806,7 +3806,7 @@ _ZL34calcIntegratedAutocorrelationTimesP16t_UmbrellaWindowiP15UmbrellaOptionsPKc
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %52)
   br label %1260
 
-1260:                                             ; preds = %_ZL34calcIntegratedAutocorrelationTimesP16t_UmbrellaWindowiP15UmbrellaOptionsPKcS4_.argprom.exit, %942
+1260:                                             ; preds = %_ZL34calcIntegratedAutocorrelationTimesP16t_UmbrellaWindowiP15UmbrellaOptionsPKcS4_.exit, %942
   %1261 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 156), align 4
   %1262 = icmp ne i32 %1261, 0
   %1263 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 160), align 8
@@ -4140,14 +4140,14 @@ _ZL12averageSigmaP16t_UmbrellaWindowi.exit:       ; preds = %._crit_edge84.i, %1
 ._crit_edge7.i.i:                                 ; preds = %._crit_edge.i.i, %.noexc290
   %indvars.iv.next24.i.i278 = add nuw nsw i64 %indvars.iv23.i.i277, 1
   %exitcond27.not.i.i279 = icmp eq i64 %indvars.iv.next24.i.i278, %wide.trip.count23.i
-  br i1 %exitcond27.not.i.i279, label %_ZL19computeAverageForceP16t_UmbrellaWindowiP15UmbrellaOptions.argprom.exit.i, label %1381, !llvm.loop !53
+  br i1 %exitcond27.not.i.i279, label %_ZL19computeAverageForceP16t_UmbrellaWindowiP15UmbrellaOptions.exit.i, label %1381, !llvm.loop !53
 
-_ZL19computeAverageForceP16t_UmbrellaWindowiP15UmbrellaOptions.argprom.exit.i: ; preds = %._crit_edge7.i.i
+_ZL19computeAverageForceP16t_UmbrellaWindowiP15UmbrellaOptions.exit.i: ; preds = %._crit_edge7.i.i
   %1451 = sext i32 %1363 to i64
   %1452 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.374, ptr noundef nonnull @.str.219, i32 noundef 2665, i64 noundef %1451, i64 noundef 8)
           to label %.noexc291 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc291:                                        ; preds = %_ZL19computeAverageForceP16t_UmbrellaWindowiP15UmbrellaOptions.argprom.exit.i
+.noexc291:                                        ; preds = %_ZL19computeAverageForceP16t_UmbrellaWindowiP15UmbrellaOptions.exit.i
   %1453 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.375, ptr noundef nonnull @.str.219, i32 noundef 2666, i64 noundef %1451, i64 noundef 8)
           to label %.noexc292 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -4540,9 +4540,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i265:     ; preds = %1559, %1556
 
 .noexc297:                                        ; preds = %._crit_edge49.i
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.375, ptr noundef nonnull @.str.219, i32 noundef 2742, ptr noundef %1453)
-          to label %_ZL21guessPotByIntegrationP16t_UmbrellaWindowiP15UmbrellaOptionsPKc.argprom.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZL21guessPotByIntegrationP16t_UmbrellaWindowiP15UmbrellaOptionsPKc.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZL21guessPotByIntegrationP16t_UmbrellaWindowiP15UmbrellaOptionsPKc.argprom.exit: ; preds = %.noexc297
+_ZL21guessPotByIntegrationP16t_UmbrellaWindowiP15UmbrellaOptionsPKc.exit: ; preds = %.noexc297
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %37)
@@ -4550,7 +4550,7 @@ _ZL21guessPotByIntegrationP16t_UmbrellaWindowiP15UmbrellaOptionsPKc.argprom.exit
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %39)
   br label %1603
 
-1603:                                             ; preds = %_ZL21guessPotByIntegrationP16t_UmbrellaWindowiP15UmbrellaOptionsPKc.argprom.exit, %_ZL12averageSigmaP16t_UmbrellaWindowi.exit
+1603:                                             ; preds = %_ZL21guessPotByIntegrationP16t_UmbrellaWindowiP15UmbrellaOptionsPKc.exit, %_ZL12averageSigmaP16t_UmbrellaWindowi.exit
   %1604 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %1605 = sext i32 %1604 to i64
   %1606 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.219, i32 noundef 2609, i64 noundef %1605, i64 noundef 4)
@@ -4671,24 +4671,24 @@ _ZL21guessPotByIntegrationP16t_UmbrellaWindowiP15UmbrellaOptionsPKc.argprom.exit
 
 ._crit_edge.i299:                                 ; preds = %1660, %._crit_edge11.i
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.219, i32 noundef 2643, ptr noundef %1606)
-          to label %_ZL30checkReactionCoordinateCoveredP16t_UmbrellaWindowiP15UmbrellaOptions.argprom.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZL30checkReactionCoordinateCoveredP16t_UmbrellaWindowiP15UmbrellaOptions.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZL30checkReactionCoordinateCoveredP16t_UmbrellaWindowiP15UmbrellaOptions.argprom.exit: ; preds = %._crit_edge.i299
+_ZL30checkReactionCoordinateCoveredP16t_UmbrellaWindowiP15UmbrellaOptions.exit: ; preds = %._crit_edge.i299
   %1663 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %1664 = sext i32 %1663 to i64
   %1665 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.206, ptr noundef nonnull @.str.219, i32 noundef 3327, i64 noundef %1664, i64 noundef 8)
-          to label %_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.argprom.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.argprom.exit:  ; preds = %_ZL30checkReactionCoordinateCoveredP16t_UmbrellaWindowiP15UmbrellaOptions.argprom.exit
+_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit:          ; preds = %_ZL30checkReactionCoordinateCoveredP16t_UmbrellaWindowiP15UmbrellaOptions.exit
   %1666 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 116), align 4
   %1667 = trunc i8 %1666 to i1
   br i1 %1667, label %1668, label %.preheader581
 
-1668:                                             ; preds = %_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.argprom.exit
+1668:                                             ; preds = %_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit
   store i32 1, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 120), align 8
   br label %.preheader581
 
-.preheader581:                                    ; preds = %1668, %_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.argprom.exit
+.preheader581:                                    ; preds = %1668, %_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit
   br label %1669
 
 1669:                                             ; preds = %.preheader581, %1698
@@ -4701,7 +4701,7 @@ _ZL13gmx_snew_implIdEvPKcS1_iRPT_m.argprom.exit:  ; preds = %_ZL30checkReactionC
   br i1 %1672, label %1673, label %1674
 
 1673:                                             ; preds = %1669
-  invoke fastcc void @_ZL14setup_acc_whamPKdP16t_UmbrellaWindowiP15UmbrellaOptions.argprom(ptr noundef %1665, ptr noundef %580, i32 noundef %578)
+  invoke fastcc void @_ZL14setup_acc_whamPKdP16t_UmbrellaWindowiP15UmbrellaOptions(ptr noundef %1665, ptr noundef %580, i32 noundef %578)
           to label %1674 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1674:                                             ; preds = %1673, %1669
@@ -4822,7 +4822,7 @@ _ZL13gmx_snew_implIdEvPKcS1_iRPT_m.argprom.exit:  ; preds = %_ZL30checkReactionC
   br i1 %1715, label %1716, label %1723
 
 1716:                                             ; preds = %1712
-  invoke fastcc void @_ZL27prof_normalization_and_unitPdP15UmbrellaOptions.argprom(ptr noundef %1665)
+  invoke fastcc void @_ZL27prof_normalization_and_unitPdP15UmbrellaOptions(ptr noundef %1665)
           to label %1717 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 1717:                                             ; preds = %1716
@@ -4845,7 +4845,7 @@ _ZL13gmx_snew_implIdEvPKcS1_iRPT_m.argprom.exit:  ; preds = %_ZL30checkReactionC
   br i1 %1726, label %1727, label %1728
 
 1727:                                             ; preds = %1724
-  invoke fastcc void @_ZL17symmetrizeProfilePdP15UmbrellaOptions.argprom(ptr noundef %1665)
+  invoke fastcc void @_ZL17symmetrizeProfilePdP15UmbrellaOptions(ptr noundef %1665)
           to label %1728 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 1728:                                             ; preds = %1727, %1724
@@ -5003,19 +5003,19 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit323:       ; preds = %1744, %1747
           to label %1785 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 1785:                                             ; preds = %1783
-  invoke fastcc void @_ZL16do_bootstrappingPKcS0_S0_S0_PcPdP16t_UmbrellaWindowiP15UmbrellaOptions.argprom(ptr noundef %1780, ptr noundef %1782, ptr noundef %1784, ptr noundef %90, ptr noundef %91, ptr noundef %1665, ptr noundef %580, i32 noundef %578)
+  invoke fastcc void @_ZL16do_bootstrappingPKcS0_S0_S0_PcPdP16t_UmbrellaWindowiP15UmbrellaOptions(ptr noundef %1780, ptr noundef %1782, ptr noundef %1784, ptr noundef %90, ptr noundef %91, ptr noundef %1665, ptr noundef %580, i32 noundef %578)
           to label %1786 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 1786:                                             ; preds = %1785, %1776
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.206, ptr noundef nonnull @.str.219, i32 noundef 3401, ptr noundef %1665)
-          to label %_ZL14gmx_sfree_implIdEvPKcS1_iPT_.argprom.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZL14gmx_sfree_implIdEvPKcS1_iPT_.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZL14gmx_sfree_implIdEvPKcS1_iPT_.argprom.exit:   ; preds = %1786
+_ZL14gmx_sfree_implIdEvPKcS1_iPT_.exit:           ; preds = %1786
   %1787 = load i32, ptr %85, align 4
   %1788 = icmp sgt i32 %1787, 0
   br i1 %1788, label %.lr.ph75.preheader.i, label %._crit_edge.i325
 
-.lr.ph75.preheader.i:                             ; preds = %_ZL14gmx_sfree_implIdEvPKcS1_iPT_.argprom.exit
+.lr.ph75.preheader.i:                             ; preds = %_ZL14gmx_sfree_implIdEvPKcS1_iPT_.exit
   %wide.trip.count.i326 = zext nneg i32 %1787 to i64
   br label %.lr.ph75.i
 
@@ -5197,7 +5197,7 @@ _ZL14gmx_sfree_implIdEvPKcS1_iPT_.argprom.exit:   ; preds = %1786
   %exitcond.not.i332 = icmp eq i64 %indvars.iv.next84.i331, %wide.trip.count.i326
   br i1 %exitcond.not.i332, label %._crit_edge.i325, label %.lr.ph75.i, !llvm.loop !70
 
-._crit_edge.i325:                                 ; preds = %.noexc354, %_ZL14gmx_sfree_implIdEvPKcS1_iPT_.argprom.exit
+._crit_edge.i325:                                 ; preds = %.noexc354, %_ZL14gmx_sfree_implIdEvPKcS1_iPT_.exit
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.265, ptr noundef nonnull @.str.219, i32 noundef 385, ptr noundef %580)
           to label %_ZL19freeUmbrellaWindowsP16t_UmbrellaWindowi.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -5462,7 +5462,7 @@ declare noundef ptr @_Z11opt2fn_nullPKciPK8t_filenm(ptr noundef, i32 noundef, pt
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12read_wham_inPKcPPPcPiP15UmbrellaOptions.argprom(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL12read_wham_inPKcPPPcPiP15UmbrellaOptions(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca [2050 x i8], align 16
   %6 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -5673,7 +5673,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #9
 declare void @_Z9xvgrcloseP8_IO_FILE(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14setup_acc_whamPKdP16t_UmbrellaWindowiP15UmbrellaOptions.argprom(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14setup_acc_whamPKdP16t_UmbrellaWindowiP15UmbrellaOptions(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %5 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
   %6 = fpext float %5 to double
@@ -6003,7 +6003,7 @@ _ZL13tabulated_potdP15UmbrellaOptions.exit:       ; preds = %76
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL27prof_normalization_and_unitPdP15UmbrellaOptions.argprom(ptr nocapture noundef %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL27prof_normalization_and_unitPdP15UmbrellaOptions(ptr nocapture noundef %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %4 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 97), align 1
@@ -6120,7 +6120,7 @@ define internal fastcc void @_ZL27prof_normalization_and_unitPdP15UmbrellaOption
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17symmetrizeProfilePdP15UmbrellaOptions.argprom(ptr nocapture noundef %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL17symmetrizeProfilePdP15UmbrellaOptions(ptr nocapture noundef %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %4 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
@@ -6219,7 +6219,7 @@ define internal fastcc void @_ZL17symmetrizeProfilePdP15UmbrellaOptions.argprom(
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16do_bootstrappingPKcS0_S0_S0_PcPdP16t_UmbrellaWindowiP15UmbrellaOptions.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr nocapture noundef readonly %5, ptr noundef %6, i32 noundef %7) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16do_bootstrappingPKcS0_S0_S0_PcPdP16t_UmbrellaWindowiP15UmbrellaOptions(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr nocapture noundef readonly %5, ptr noundef %6, i32 noundef %7) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.gmx::InternalError", align 8
   %10 = alloca %"class.gmx::ExceptionInitializer", align 8
   %11 = alloca %"class.gmx::ExceptionInfo", align 8
@@ -6908,21 +6908,21 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit108.i:     ; preds = %316, %313
   %334 = load i32, ptr %332, align 8
   %335 = sext i32 %334 to i64
   %336 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.420, ptr noundef nonnull @.str.219, i32 noundef 976, i64 noundef %335, i64 noundef 8)
-          to label %_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.argprom.exit.us.us.i unwind label %.loopexit.split-lp.loopexit.split.us.split.us.i
+          to label %_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.exit.us.us.i unwind label %.loopexit.split-lp.loopexit.split.us.split.us.i
 
-_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.argprom.exit.us.us.i: ; preds = %.lr.ph18.split.us.split.us.i
+_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.exit.us.us.i: ; preds = %.lr.ph18.split.us.split.us.i
   store ptr %336, ptr %333, align 8
   %337 = load i32, ptr %332, align 8
   %338 = icmp sgt i32 %337, 0
   br i1 %338, label %.lr.ph13.us.us.i, label %._crit_edge14.split.us.split.us.us.us.i
 
-._crit_edge14.split.us.split.us.us.us.i:          ; preds = %341, %_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.argprom.exit.us.us.i
+._crit_edge14.split.us.split.us.us.us.i:          ; preds = %341, %_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.exit.us.us.i
   %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
   %exitcond75.not.i = icmp eq i64 %indvars.iv.next72.i, %wide.trip.count74.i
   br i1 %exitcond75.not.i, label %._crit_edge19.i, label %.lr.ph18.split.us.split.us.i, !llvm.loop !86
 
-.lr.ph13.us.us.i:                                 ; preds = %_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.argprom.exit.us.us.i, %341
-  %indvars.iv68.i = phi i64 [ %indvars.iv.next69.i, %341 ], [ 0, %_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.argprom.exit.us.us.i ]
+.lr.ph13.us.us.i:                                 ; preds = %_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.exit.us.us.i, %341
+  %indvars.iv68.i = phi i64 [ %indvars.iv.next69.i, %341 ], [ 0, %_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.exit.us.us.i ]
   %339 = load ptr, ptr %333, align 8
   %340 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.421, ptr noundef nonnull @.str.219, i32 noundef 979, i64 noundef %330, i64 noundef 8)
           to label %341 unwind label %.loopexit.split.us.split.us.split.us.split.us.i
@@ -6957,21 +6957,21 @@ _ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.argprom.exit.us.us.i: ; preds = %.lr.ph18.sp
   %351 = load i32, ptr %349, align 8
   %352 = sext i32 %351 to i64
   %353 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.420, ptr noundef nonnull @.str.219, i32 noundef 976, i64 noundef %352, i64 noundef 8)
-          to label %_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.argprom.exit.us.i unwind label %.loopexit.split-lp.loopexit.split.us.split.i
+          to label %_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.exit.us.i unwind label %.loopexit.split-lp.loopexit.split.us.split.i
 
-_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.argprom.exit.us.i: ; preds = %.lr.ph18.split.us.split.i
+_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.exit.us.i:    ; preds = %.lr.ph18.split.us.split.i
   store ptr %353, ptr %350, align 8
   %354 = load i32, ptr %349, align 8
   %355 = icmp sgt i32 %354, 0
   br i1 %355, label %.lr.ph13.us.i, label %._crit_edge14.split.us.split.us21.i
 
-._crit_edge14.split.us.split.us21.i:              ; preds = %.lr.ph10.us.us.i, %_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.argprom.exit.us.i
+._crit_edge14.split.us.split.us21.i:              ; preds = %.lr.ph10.us.us.i, %_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.exit.us.i
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %exitcond67.not.i = icmp eq i64 %indvars.iv.next64.i, %wide.trip.count74.i
   br i1 %exitcond67.not.i, label %._crit_edge19.i, label %.lr.ph18.split.us.split.i, !llvm.loop !86
 
-.lr.ph13.us.i:                                    ; preds = %_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.argprom.exit.us.i, %.lr.ph10.us.us.i
-  %indvars.iv60.i = phi i64 [ %indvars.iv.next61.i, %.lr.ph10.us.us.i ], [ 0, %_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.argprom.exit.us.i ]
+.lr.ph13.us.i:                                    ; preds = %_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.exit.us.i, %.lr.ph10.us.us.i
+  %indvars.iv60.i = phi i64 [ %indvars.iv.next61.i, %.lr.ph10.us.us.i ], [ 0, %_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.exit.us.i ]
   %356 = load ptr, ptr %350, align 8
   %357 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.421, ptr noundef nonnull @.str.219, i32 noundef 979, i64 noundef %330, i64 noundef 8)
           to label %.lr.ph10.us.us.i unwind label %.loopexit.split.us.split.split.us.i
@@ -7014,15 +7014,15 @@ _ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.argprom.exit.us.i: ; preds = %.lr.ph18.split
   %374 = load i32, ptr %372, align 8
   %375 = sext i32 %374 to i64
   %376 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.420, ptr noundef nonnull @.str.219, i32 noundef 976, i64 noundef %375, i64 noundef 8)
-          to label %_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.argprom.exit.i unwind label %.loopexit.split-lp.loopexit.split.i
+          to label %_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.exit.i unwind label %.loopexit.split-lp.loopexit.split.i
 
-_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.argprom.exit.i: ; preds = %.lr.ph18.split.i
+_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.exit.i:       ; preds = %.lr.ph18.split.i
   store ptr %376, ptr %373, align 8
   %377 = load i32, ptr %372, align 8
   %378 = icmp sgt i32 %377, 0
   br i1 %378, label %.lr.ph13.i, label %._crit_edge14.split.i
 
-.lr.ph13.i:                                       ; preds = %_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.argprom.exit.i
+.lr.ph13.i:                                       ; preds = %_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.exit.i
   %379 = getelementptr inbounds i8, ptr %372, i64 8
   br label %380
 
@@ -7089,7 +7089,7 @@ _ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.argprom.exit.i: ; preds = %.lr.ph18.split.i
   %414 = icmp slt i64 %indvars.iv.next48.i, %413
   br i1 %414, label %380, label %._crit_edge14.split.i, !llvm.loop !87
 
-._crit_edge14.split.i:                            ; preds = %._crit_edge11.i.loopexit, %_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.argprom.exit.i
+._crit_edge14.split.i:                            ; preds = %._crit_edge11.i.loopexit, %_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.exit.i
   %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
   %exitcond54.not.i = icmp eq i64 %indvars.iv.next51.i, %wide.trip.count74.i
   br i1 %exitcond54.not.i, label %._crit_edge19.i, label %.lr.ph18.split.i, !llvm.loop !86
@@ -7199,11 +7199,11 @@ _ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.argprom.exit.i: ; preds = %.lr.ph18.split.i
 453:                                              ; preds = %450, %._crit_edge19.i
   %454 = load ptr, ptr %264, align 8
   %.not.i.i.i113.i = icmp eq ptr %454, null
-  br i1 %.not.i.i.i113.i, label %_ZL16calc_cumulativesP16t_UmbrellaWindowiP15UmbrellaOptionsPKcS4_.argprom.exit, label %455
+  br i1 %.not.i.i.i113.i, label %_ZL16calc_cumulativesP16t_UmbrellaWindowiP15UmbrellaOptionsPKcS4_.exit, label %455
 
 455:                                              ; preds = %453
   call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %264, ptr noundef nonnull %454) #21
-  br label %_ZL16calc_cumulativesP16t_UmbrellaWindowiP15UmbrellaOptionsPKcS4_.argprom.exit
+  br label %_ZL16calc_cumulativesP16t_UmbrellaWindowiP15UmbrellaOptionsPKcS4_.exit
 
 common.resume:                                    ; preds = %458, %.body, %.body253, %1219, %1221, %1106, %1108, %985, %987, %886, %888, %545, %547, %610, %.body50.i, %1326, %.body111.i
   %common.resume.op = phi { ptr, i32 } [ %.pn90.i, %.body111.i ], [ %.pn.i221, %1326 ], [ %.pn40.i, %.body50.i ], [ %611, %610 ], [ %546, %545 ], [ %.pn.pn21.i.i, %547 ], [ %887, %886 ], [ %.pn.pn21.i318, %888 ], [ %986, %985 ], [ %.pn.pn21.i310, %987 ], [ %1107, %1106 ], [ %.pn.pn21.i302, %1108 ], [ %1220, %1219 ], [ %.pn.pn21.i, %1221 ], [ %459, %458 ], [ %.pn197.pn, %.body253 ], [ %.pn.pn, %.body ]
@@ -7214,7 +7214,7 @@ common.resume:                                    ; preds = %458, %.body, %.body
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %65) #21
   br label %common.resume
 
-_ZL16calc_cumulativesP16t_UmbrellaWindowiP15UmbrellaOptionsPKcS4_.argprom.exit: ; preds = %453, %455
+_ZL16calc_cumulativesP16t_UmbrellaWindowiP15UmbrellaOptionsPKcS4_.exit: ; preds = %453, %455
   store ptr null, ptr %264, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %65) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64)
@@ -7246,7 +7246,7 @@ _ZL16calc_cumulativesP16t_UmbrellaWindowiP15UmbrellaOptionsPKcS4_.argprom.exit: 
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %79) #21
   br label %common.resume
 
-.loopexit53:                                      ; preds = %.lr.ph91, %.preheader, %_ZL16calc_cumulativesP16t_UmbrellaWindowiP15UmbrellaOptionsPKcS4_.argprom.exit, %205
+.loopexit53:                                      ; preds = %.lr.ph91, %.preheader, %_ZL16calc_cumulativesP16t_UmbrellaWindowiP15UmbrellaOptionsPKcS4_.exit, %205
   call void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %80, ptr noundef nonnull align 8 dereferenceable(8) %78, i8 noundef zeroext 2)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %82) #21
   %460 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %81)
@@ -7381,9 +7381,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %472, %475
   br i1 %.not.i.i.i209, label %507, label %_ZN3gmx22UniformIntDistributionIiEC2Eii.exit.preheader.i
 
 _ZN3gmx22UniformIntDistributionIiEC2Eii.exit.preheader.i: ; preds = %497
-  br i1 %178, label %.lr.ph.i210, label %_ZL17getRandomIntArrayiiPiPN3gmx16ThreeFry2x64FastILj64EEE.argprom.exit.thread
+  br i1 %178, label %.lr.ph.i210, label %_ZL17getRandomIntArrayiiPiPN3gmx16ThreeFry2x64FastILj64EEE.exit.thread
 
-_ZL17getRandomIntArrayiiPiPN3gmx16ThreeFry2x64FastILj64EEE.argprom.exit.thread: ; preds = %_ZN3gmx22UniformIntDistributionIiEC2Eii.exit.preheader.i
+_ZL17getRandomIntArrayiiPiPN3gmx16ThreeFry2x64FastILj64EEE.exit.thread: ; preds = %_ZN3gmx22UniformIntDistributionIiEC2Eii.exit.preheader.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %62)
   br label %.loopexit
 
@@ -7406,7 +7406,7 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit.us.i: ; preds = %.split.us.us.i
   store i32 %504, ptr %506, align 4
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next36.i, %479
-  br i1 %exitcond39.not.i, label %_ZL17getRandomIntArrayiiPiPN3gmx16ThreeFry2x64FastILj64EEE.argprom.exit, label %.split.us.us.i, !llvm.loop !99
+  br i1 %exitcond39.not.i, label %_ZL17getRandomIntArrayiiPiPN3gmx16ThreeFry2x64FastILj64EEE.exit, label %.split.us.us.i, !llvm.loop !99
 
 507:                                              ; preds = %497
   call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.426, ptr noundef nonnull @.str.427, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZN3gmx22UniformIntDistributionIiE10param_typeC1EiiENKUlvE_clEv, ptr noundef nonnull @.str.428, i32 noundef 98) #27
@@ -7629,14 +7629,14 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit.i:   ; preds = %.split10.i
   store i32 %607, ptr %612, align 4
   %indvars.iv.next.i212 = add nuw nsw i64 %indvars.iv.i211, 1
   %exitcond.not.i213 = icmp eq i64 %indvars.iv.next.i212, %479
-  br i1 %exitcond.not.i213, label %_ZL17getRandomIntArrayiiPiPN3gmx16ThreeFry2x64FastILj64EEE.argprom.exit, label %.split.i, !llvm.loop !99
+  br i1 %exitcond.not.i213, label %_ZL17getRandomIntArrayiiPiPN3gmx16ThreeFry2x64FastILj64EEE.exit, label %.split.i, !llvm.loop !99
 
-_ZL17getRandomIntArrayiiPiPN3gmx16ThreeFry2x64FastILj64EEE.argprom.exit: ; preds = %_ZN3gmx22UniformIntDistributionIiEC2Eii.exit.i, %_ZN3gmx22UniformIntDistributionIiEC2Eii.exit.us.i
+_ZL17getRandomIntArrayiiPiPN3gmx16ThreeFry2x64FastILj64EEE.exit: ; preds = %_ZN3gmx22UniformIntDistributionIiEC2Eii.exit.i, %_ZN3gmx22UniformIntDistributionIiEC2Eii.exit.us.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %62)
   br label %.lr.ph96
 
-.lr.ph96:                                         ; preds = %_ZL17getRandomIntArrayiiPiPN3gmx16ThreeFry2x64FastILj64EEE.argprom.exit, %.lr.ph96
-  %indvars.iv163 = phi i64 [ %indvars.iv.next164, %.lr.ph96 ], [ 0, %_ZL17getRandomIntArrayiiPiPN3gmx16ThreeFry2x64FastILj64EEE.argprom.exit ]
+.lr.ph96:                                         ; preds = %_ZL17getRandomIntArrayiiPiPN3gmx16ThreeFry2x64FastILj64EEE.exit, %.lr.ph96
+  %indvars.iv163 = phi i64 [ %indvars.iv.next164, %.lr.ph96 ], [ 0, %_ZL17getRandomIntArrayiiPiPN3gmx16ThreeFry2x64FastILj64EEE.exit ]
   %613 = getelementptr inbounds i32, ptr %498, i64 %indvars.iv163
   %614 = load i32, ptr %613, align 4
   %615 = sext i32 %614 to i64
@@ -7864,17 +7864,17 @@ _ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit: ; preds = %._crit_edge.i268, 
 763:                                              ; preds = %762, %.lr.ph11.i
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next21.i, %479
-  br i1 %exitcond25.not.i, label %_ZL18setRandomBsWeightsP16t_UmbrellaWindowiP15UmbrellaOptions.argprom.exit, label %.lr.ph11.i, !llvm.loop !105
+  br i1 %exitcond25.not.i, label %_ZL18setRandomBsWeightsP16t_UmbrellaWindowiP15UmbrellaOptions.exit, label %.lr.ph11.i, !llvm.loop !105
 
-_ZL18setRandomBsWeightsP16t_UmbrellaWindowiP15UmbrellaOptions.argprom.exit: ; preds = %763
+_ZL18setRandomBsWeightsP16t_UmbrellaWindowiP15UmbrellaOptions.exit: ; preds = %763
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.219, i32 noundef 1270, ptr noundef nonnull %674)
   br label %.loopexit
 
 764:                                              ; preds = %487, %487
   br i1 %178, label %.lr.ph94, label %.loopexit
 
-.lr.ph94:                                         ; preds = %764, %_ZL22create_synthetic_histoP16t_UmbrellaWindowS0_iP15UmbrellaOptions.argprom.exit
-  %indvars.iv158 = phi i64 [ %indvars.iv.next159, %_ZL22create_synthetic_histoP16t_UmbrellaWindowS0_iP15UmbrellaOptions.argprom.exit ], [ 0, %764 ]
+.lr.ph94:                                         ; preds = %764, %_ZL22create_synthetic_histoP16t_UmbrellaWindowS0_iP15UmbrellaOptions.exit
+  %indvars.iv158 = phi i64 [ %indvars.iv.next159, %_ZL22create_synthetic_histoP16t_UmbrellaWindowS0_iP15UmbrellaOptions.exit ], [ 0, %764 ]
   %765 = getelementptr inbounds i32, ptr %164, i64 %indvars.iv158
   %766 = load i32, ptr %765, align 4
   %767 = getelementptr inbounds i32, ptr %165, i64 %indvars.iv158
@@ -8207,7 +8207,7 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfR
 
 .preheader5.i:                                    ; preds = %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfRT_.exit.i
   %956 = icmp sgt i32 %776, 0
-  br i1 %956, label %.lr.ph11.i224, label %_ZL22create_synthetic_histoP16t_UmbrellaWindowS0_iP15UmbrellaOptions.argprom.exit
+  br i1 %956, label %.lr.ph11.i224, label %_ZL22create_synthetic_histoP16t_UmbrellaWindowS0_iP15UmbrellaOptions.exit
 
 .lr.ph11.i224:                                    ; preds = %.preheader5.i
   %957 = getelementptr inbounds i8, ptr %769, i64 8
@@ -8215,7 +8215,7 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfR
 
 .preheader.i:                                     ; preds = %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfRT_.exit.i
   %958 = icmp sgt i32 %776, 0
-  br i1 %958, label %.lr.ph14.i, label %_ZL22create_synthetic_histoP16t_UmbrellaWindowS0_iP15UmbrellaOptions.argprom.exit
+  br i1 %958, label %.lr.ph14.i, label %_ZL22create_synthetic_histoP16t_UmbrellaWindowS0_iP15UmbrellaOptions.exit
 
 .lr.ph14.i:                                       ; preds = %.preheader.i
   %959 = getelementptr inbounds i8, ptr %771, i64 16
@@ -8448,7 +8448,7 @@ _ZL16searchCumulativePKdidPi.exit.us.i:           ; preds = %._crit_edge.i.loope
   store double %1083, ptr %1081, align 8
   %1084 = add nuw nsw i32 %.113.us.i, 1
   %exitcond22.not.i = icmp eq i32 %1084, %776
-  br i1 %exitcond22.not.i, label %_ZL22create_synthetic_histoP16t_UmbrellaWindowS0_iP15UmbrellaOptions.argprom.exit, label %.lr.ph14.split.us.i, !llvm.loop !108
+  br i1 %exitcond22.not.i, label %_ZL22create_synthetic_histoP16t_UmbrellaWindowS0_iP15UmbrellaOptions.exit, label %.lr.ph14.split.us.i, !llvm.loop !108
 
 ._crit_edge.i.loopexit.us.i:                      ; preds = %.lr.ph.i.us.i
   %1085 = load double, ptr %1063, align 8
@@ -8659,7 +8659,7 @@ _ZL16searchCumulativePKdidPi.exit.i:              ; preds = %1192, %1187, %_ZN3g
   store double %1197, ptr %1195, align 8
   %1198 = add nuw nsw i32 %.113.i, 1
   %exitcond21.not.i = icmp eq i32 %1198, %776
-  br i1 %exitcond21.not.i, label %_ZL22create_synthetic_histoP16t_UmbrellaWindowS0_iP15UmbrellaOptions.argprom.exit, label %.lr.ph14.split.i, !llvm.loop !108
+  br i1 %exitcond21.not.i, label %_ZL22create_synthetic_histoP16t_UmbrellaWindowS0_iP15UmbrellaOptions.exit, label %.lr.ph14.split.i, !llvm.loop !108
 
 1199:                                             ; preds = %1318, %.lr.ph11.i224
   %1200 = phi i32 [ %.pre23.i, %.lr.ph11.i224 ], [ %1319, %1318 ]
@@ -8890,7 +8890,7 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfR
   %1319 = phi i32 [ %.pre.i, %1310 ], [ %1279, %.loopexit2.i ]
   %.3.i = phi i32 [ %1317, %1310 ], [ %.210.i, %.loopexit2.i ]
   %1320 = icmp slt i32 %.3.i, %776
-  br i1 %1320, label %1199, label %_ZL22create_synthetic_histoP16t_UmbrellaWindowS0_iP15UmbrellaOptions.argprom.exit, !llvm.loop !111
+  br i1 %1320, label %1199, label %_ZL22create_synthetic_histoP16t_UmbrellaWindowS0_iP15UmbrellaOptions.exit, !llvm.loop !111
 
 1321:                                             ; preds = %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfRT_.exit.i
   call void @_ZNSt10filesystem7__cxx114pathC2IA125_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %58, ptr noundef nonnull align 1 dereferenceable(125) @.str.219, i8 noundef zeroext 2)
@@ -8912,7 +8912,7 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfR
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i) #21
   br label %common.resume
 
-_ZL22create_synthetic_histoP16t_UmbrellaWindowS0_iP15UmbrellaOptions.argprom.exit: ; preds = %1318, %_ZL16searchCumulativePKdidPi.exit.i, %_ZL16searchCumulativePKdidPi.exit.us.i, %.preheader5.i, %.preheader.i
+_ZL22create_synthetic_histoP16t_UmbrellaWindowS0_iP15UmbrellaOptions.exit: ; preds = %1318, %_ZL16searchCumulativePKdidPi.exit.i, %_ZL16searchCumulativePKdidPi.exit.us.i, %.preheader5.i, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %56)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %57)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %58)
@@ -8920,8 +8920,8 @@ _ZL22create_synthetic_histoP16t_UmbrellaWindowS0_iP15UmbrellaOptions.argprom.exi
   %exitcond162.not = icmp eq i64 %indvars.iv.next159, %479
   br i1 %exitcond162.not, label %.loopexit, label %.lr.ph94, !llvm.loop !112
 
-.loopexit:                                        ; preds = %_ZL22create_synthetic_histoP16t_UmbrellaWindowS0_iP15UmbrellaOptions.argprom.exit, %.lr.ph96, %_ZL17getRandomIntArrayiiPiPN3gmx16ThreeFry2x64FastILj64EEE.argprom.exit.thread, %764, %_ZL18setRandomBsWeightsP16t_UmbrellaWindowiP15UmbrellaOptions.argprom.exit, %487
-  %.1 = phi ptr [ %.0101, %487 ], [ %.0101, %_ZL18setRandomBsWeightsP16t_UmbrellaWindowiP15UmbrellaOptions.argprom.exit ], [ %.0101, %764 ], [ %498, %_ZL17getRandomIntArrayiiPiPN3gmx16ThreeFry2x64FastILj64EEE.argprom.exit.thread ], [ %498, %.lr.ph96 ], [ %.0101, %_ZL22create_synthetic_histoP16t_UmbrellaWindowS0_iP15UmbrellaOptions.argprom.exit ]
+.loopexit:                                        ; preds = %_ZL22create_synthetic_histoP16t_UmbrellaWindowS0_iP15UmbrellaOptions.exit, %.lr.ph96, %_ZL17getRandomIntArrayiiPiPN3gmx16ThreeFry2x64FastILj64EEE.exit.thread, %764, %_ZL18setRandomBsWeightsP16t_UmbrellaWindowiP15UmbrellaOptions.exit, %487
+  %.1 = phi ptr [ %.0101, %487 ], [ %.0101, %_ZL18setRandomBsWeightsP16t_UmbrellaWindowiP15UmbrellaOptions.exit ], [ %.0101, %764 ], [ %498, %_ZL17getRandomIntArrayiiPiPN3gmx16ThreeFry2x64FastILj64EEE.exit.thread ], [ %498, %.lr.ph96 ], [ %.0101, %_ZL22create_synthetic_histoP16t_UmbrellaWindowS0_iP15UmbrellaOptions.exit ]
   %1327 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 176), align 8
   %1328 = trunc i8 %1327 to i1
   br i1 %1328, label %1329, label %1424
@@ -9240,11 +9240,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit49.i: 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #21
   %1422 = load ptr, ptr %484, align 8
   %.not.i.i.i52.i = icmp eq ptr %1422, null
-  br i1 %.not.i.i.i52.i, label %_ZL16print_histogramsPKcP16t_UmbrellaWindowiiP15UmbrellaOptionsS0_.argprom.exit, label %1423
+  br i1 %.not.i.i.i52.i, label %_ZL16print_histogramsPKcP16t_UmbrellaWindowiiP15UmbrellaOptionsS0_.exit, label %1423
 
 1423:                                             ; preds = %1419
   call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %484, ptr noundef nonnull %1422) #21
-  br label %_ZL16print_histogramsPKcP16t_UmbrellaWindowiiP15UmbrellaOptionsS0_.argprom.exit
+  br label %_ZL16print_histogramsPKcP16t_UmbrellaWindowiiP15UmbrellaOptionsS0_.exit
 
 .body50.i:                                        ; preds = %1417, %.body.i233, %1353, %1347
   %.pn40.i = phi { ptr, i32 } [ %.pn37.pn.i, %.body.i233 ], [ %.pn.i245, %1353 ], [ %1348, %1347 ], [ %1418, %1417 ]
@@ -9252,7 +9252,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit49.i: 
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %45) #21
   br label %common.resume
 
-_ZL16print_histogramsPKcP16t_UmbrellaWindowiiP15UmbrellaOptionsS0_.argprom.exit: ; preds = %1419, %1423
+_ZL16print_histogramsPKcP16t_UmbrellaWindowiiP15UmbrellaOptionsS0_.exit: ; preds = %1419, %1423
   store ptr null, ptr %484, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
@@ -9269,7 +9269,7 @@ _ZL16print_histogramsPKcP16t_UmbrellaWindowiiP15UmbrellaOptionsS0_.argprom.exit:
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %55)
   br label %1424
 
-1424:                                             ; preds = %_ZL16print_histogramsPKcP16t_UmbrellaWindowiiP15UmbrellaOptionsS0_.argprom.exit, %.loopexit
+1424:                                             ; preds = %_ZL16print_histogramsPKcP16t_UmbrellaWindowiiP15UmbrellaOptionsS0_.exit, %.loopexit
   %1425 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %1426 = sext i32 %1425 to i64
   %1427 = shl nsw i64 %1426, 3
@@ -9286,7 +9286,7 @@ _ZL16print_histogramsPKcP16t_UmbrellaWindowiiP15UmbrellaOptionsS0_.argprom.exit:
   br i1 %1431, label %1432, label %1433
 
 1432:                                             ; preds = %1428
-  call fastcc void @_ZL14setup_acc_whamPKdP16t_UmbrellaWindowiP15UmbrellaOptions.argprom(ptr noundef %152, ptr noundef %177, i32 noundef %.0180.lcssa)
+  call fastcc void @_ZL14setup_acc_whamPKdP16t_UmbrellaWindowiP15UmbrellaOptions(ptr noundef %152, ptr noundef %177, i32 noundef %.0180.lcssa)
   br label %1433
 
 1433:                                             ; preds = %1432, %1428
@@ -9400,7 +9400,7 @@ _ZL16print_histogramsPKcP16t_UmbrellaWindowiiP15UmbrellaOptionsS0_.argprom.exit:
   br i1 %1471, label %1472, label %1473
 
 1472:                                             ; preds = %1468
-  call fastcc void @_ZL27prof_normalization_and_unitPdP15UmbrellaOptions.argprom(ptr noundef %152)
+  call fastcc void @_ZL27prof_normalization_and_unitPdP15UmbrellaOptions(ptr noundef %152)
   br label %1473
 
 1473:                                             ; preds = %1472, %1468
@@ -9409,7 +9409,7 @@ _ZL16print_histogramsPKcP16t_UmbrellaWindowiiP15UmbrellaOptionsS0_.argprom.exit:
   br i1 %1475, label %1476, label %1477
 
 1476:                                             ; preds = %1473
-  call fastcc void @_ZL17symmetrizeProfilePdP15UmbrellaOptions.argprom(ptr noundef %152)
+  call fastcc void @_ZL17symmetrizeProfilePdP15UmbrellaOptions(ptr noundef %152)
   br label %1477
 
 1477:                                             ; preds = %1476, %1473
@@ -10145,7 +10145,7 @@ define internal fastcc noundef range(i32 1, 3) i32 @_ZL14whaminFileTypePc(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15read_tpr_headerPKcP16t_UmbrellaHeaderP15UmbrellaOptionsP16t_coordselection.argprom(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef readonly %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15read_tpr_headerPKcP16t_UmbrellaHeaderP15UmbrellaOptionsP16t_coordselection(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef readonly %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.t_inputrec, align 8
   %6 = alloca %class.t_state, align 8
@@ -10297,9 +10297,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZN26PartialDeseria
   %65 = getelementptr inbounds i8, ptr %1, i64 8
   %66 = sext i32 %44 to i64
   %67 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.284, ptr noundef nonnull @.str.219, i32 noundef 1568, i64 noundef %66, i64 noundef 292)
-          to label %_ZL13gmx_snew_implI11t_pullcoordEvPKcS2_iRPT_m.argprom.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZL13gmx_snew_implI11t_pullcoordEvPKcS2_iRPT_m.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZL13gmx_snew_implI11t_pullcoordEvPKcS2_iRPT_m.argprom.exit: ; preds = %52
+_ZL13gmx_snew_implI11t_pullcoordEvPKcS2_iRPT_m.exit: ; preds = %52
   store ptr %67, ptr %65, align 8
   %68 = load ptr, ptr %41, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 4
@@ -10307,7 +10307,7 @@ _ZL13gmx_snew_implI11t_pullcoordEvPKcS2_iRPT_m.argprom.exit: ; preds = %52
   %71 = icmp sgt i32 %70, 0
   br i1 %71, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %_ZL13gmx_snew_implI11t_pullcoordEvPKcS2_iRPT_m.argprom.exit
+.lr.ph:                                           ; preds = %_ZL13gmx_snew_implI11t_pullcoordEvPKcS2_iRPT_m.exit
   %72 = getelementptr inbounds i8, ptr %5, i64 396
   %.not191 = icmp eq ptr %2, null
   br label %76
@@ -10729,7 +10729,7 @@ _ZL13gmx_snew_implI11t_pullcoordEvPKcS2_iRPT_m.argprom.exit: ; preds = %52
   %exitcond.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %186, !llvm.loop !128
 
-._crit_edge:                                      ; preds = %304, %_ZL13gmx_snew_implI11t_pullcoordEvPKcS2_iRPT_m.argprom.exit, %.preheader
+._crit_edge:                                      ; preds = %304, %_ZL13gmx_snew_implI11t_pullcoordEvPKcS2_iRPT_m.exit, %.preheader
   %305 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 116), align 4
   %306 = trunc i8 %305 to i1
   %.b182 = load i1, ptr @_ZZL15read_tpr_headerPKcP16t_UmbrellaHeaderP15UmbrellaOptionsP16t_coordselectionE5first, align 4
@@ -10891,7 +10891,7 @@ _ZL13gmx_snew_implI11t_pullcoordEvPKcS2_iRPT_m.argprom.exit: ; preds = %52
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12read_pull_xfPKcP16t_UmbrellaHeaderP16t_UmbrellaWindowP15UmbrellaOptionsbPfS7_P16t_coordselection.argprom(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef %2, i1 noundef zeroext %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr noundef readonly %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL12read_pull_xfPKcP16t_UmbrellaHeaderP16t_UmbrellaWindowP15UmbrellaOptionsbPfS7_P16t_coordselection(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef %2, i1 noundef zeroext %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr noundef readonly %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4

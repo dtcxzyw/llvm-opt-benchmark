@@ -610,13 +610,13 @@ define i32 @Dsd_TreeCollectDecomposableVars(ptr nocapture noundef readonly %0, p
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, -2
   %9 = inttoptr i64 %8 to ptr
-  %10 = call fastcc i32 @Dsd_TreeCollectDecomposableVars_rec.argprom(ptr noundef %9, ptr noundef %1, ptr noundef %3)
+  %10 = call fastcc i32 @Dsd_TreeCollectDecomposableVars_rec(ptr noundef %9, ptr noundef %1, ptr noundef %3)
   %11 = load i32, ptr %3, align 4
   ret i32 %11
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @Dsd_TreeCollectDecomposableVars_rec.argprom(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @Dsd_TreeCollectDecomposableVars_rec(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load i16, ptr %4, align 8
   %6 = icmp slt i16 %5, 2
@@ -635,7 +635,7 @@ define internal fastcc range(i32 0, 2) i32 @Dsd_TreeCollectDecomposableVars_rec.
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, -2
   %14 = inttoptr i64 %13 to ptr
-  %15 = tail call fastcc i32 @Dsd_TreeCollectDecomposableVars_rec.argprom(ptr noundef %14, ptr noundef %1, ptr noundef %2)
+  %15 = tail call fastcc i32 @Dsd_TreeCollectDecomposableVars_rec(ptr noundef %14, ptr noundef %1, ptr noundef %2)
   %.not37 = icmp eq i32 %15, 0
   %spec.select = select i1 %.not37, i32 %.0303, i32 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

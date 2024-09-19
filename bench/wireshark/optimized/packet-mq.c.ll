@@ -2632,7 +2632,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1920 = private unnamed_addr constant [24 x i8] c"Work Information Header\00", align 1
 @.str.1921 = private unnamed_addr constant [11 x i8] c" C.R=%d.%d\00", align 1
 @switch.table.dissect_mq_gmo = private unnamed_addr constant [4 x i32] [i32 72, i32 80, i32 100, i32 112], align 4
-@switch.table.dissect_mq_encoding.argelim = private unnamed_addr constant [3 x ptr] [ptr @.str.1830, ptr @.str.1831, ptr @.str.1832], align 8
+@switch.table.dissect_mq_encoding = private unnamed_addr constant [3 x ptr] [ptr @.str.1830, ptr @.str.1831, ptr @.str.1832], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_mq() local_unnamed_addr #0 {
@@ -3540,13 +3540,13 @@ define internal fastcc i32 @dissect_mq_od(ptr noundef %0, ptr noundef readonly %
 121:                                              ; preds = %108
   %122 = add i32 %3, 336
   %123 = load i32, ptr @ett_mq_od_objstr, align 4
-  tail call fastcc void @dissect_mq_charv.argelim(ptr noundef %0, ptr noundef %48, i32 noundef %122, i32 noundef %123, ptr noundef nonnull @.str.1811, ptr noundef nonnull %4)
+  tail call fastcc void @dissect_mq_charv(ptr noundef %0, ptr noundef %48, i32 noundef %122, i32 noundef %123, ptr noundef nonnull @.str.1811, ptr noundef nonnull %4)
   %124 = add i32 %3, 356
   %125 = load i32, ptr @ett_mq_od_selstr, align 4
-  tail call fastcc void @dissect_mq_charv.argelim(ptr noundef %0, ptr noundef %48, i32 noundef %124, i32 noundef %125, ptr noundef nonnull @.str.1812, ptr noundef nonnull %4)
+  tail call fastcc void @dissect_mq_charv(ptr noundef %0, ptr noundef %48, i32 noundef %124, i32 noundef %125, ptr noundef nonnull @.str.1812, ptr noundef nonnull %4)
   %126 = add i32 %3, 376
   %127 = load i32, ptr @ett_mq_od_resobjstr, align 4
-  tail call fastcc void @dissect_mq_charv.argelim(ptr noundef %0, ptr noundef %48, i32 noundef %126, i32 noundef %127, ptr noundef nonnull @.str.1813, ptr noundef nonnull %4)
+  tail call fastcc void @dissect_mq_charv(ptr noundef %0, ptr noundef %48, i32 noundef %126, i32 noundef %127, ptr noundef nonnull @.str.1813, ptr noundef nonnull %4)
   %128 = load i32, ptr @hf_mq_od_resolvobjtyp, align 4
   %129 = add i32 %3, 396
   %130 = load i32, ptr %15, align 4
@@ -3696,7 +3696,7 @@ define internal fastcc range(i32 0, 365) i32 @dissect_mq_md(ptr noundef %0, ptr 
   %59 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %56, ptr noundef %0, i32 noundef %57, i32 noundef 4, i32 noundef %58) #7
   %60 = load i32, ptr @hf_mq_md_encoding, align 4
   %61 = load i32, ptr %14, align 4
-  tail call fastcc void @dissect_mq_encoding.argelim(ptr noundef %36, i32 noundef %60, ptr noundef %0, i32 noundef %22, i32 noundef %61)
+  tail call fastcc void @dissect_mq_encoding(ptr noundef %36, i32 noundef %60, ptr noundef %0, i32 noundef %22, i32 noundef %61)
   %62 = load i32, ptr @hf_mq_md_ccsid, align 4
   %63 = load i32, ptr %14, align 4
   %64 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %62, ptr noundef %0, i32 noundef %24, i32 noundef 4, i32 noundef %63) #7
@@ -4430,7 +4430,7 @@ define internal fastcc void @dissect_mq_pdu(ptr noundef %0, ptr noundef %1, ptr 
   %118 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %116, ptr noundef %0, i32 noundef %117, i32 noundef 8, i32 noundef 0) #7
   %119 = load i32, ptr @hf_mq_tsh_encoding, align 4
   %120 = load i32, ptr %10, align 4
-  tail call fastcc void @dissect_mq_encoding.argelim(ptr noundef %95, i32 noundef %119, ptr noundef %0, i32 noundef %45, i32 noundef %120)
+  tail call fastcc void @dissect_mq_encoding(ptr noundef %95, i32 noundef %119, ptr noundef %0, i32 noundef %45, i32 noundef %120)
   %121 = load i32, ptr @hf_mq_tsh_ccsid, align 4
   %122 = load i32, ptr %10, align 4
   %123 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %121, ptr noundef %0, i32 noundef %.pre-phi2660, i32 noundef 2, i32 noundef %122) #7
@@ -4856,7 +4856,7 @@ dissect_mq_addCR_colinfo.exit2542:                ; preds = %269, %277
 383:                                              ; preds = %379, %379
   %384 = load i32, ptr @ett_mq_open_option, align 4
   %385 = load i32, ptr @hf_mq_open_options, align 4
-  tail call fastcc void @dissect_mq_MQOO.argelim(ptr noundef %0, ptr noundef %381, i32 noundef %378, i32 noundef %384, i32 noundef %385, ptr noundef nonnull %8)
+  tail call fastcc void @dissect_mq_MQOO(ptr noundef %0, ptr noundef %381, i32 noundef %378, i32 noundef %384, i32 noundef %385, ptr noundef nonnull %8)
   %.pr = load i8, ptr %44, align 2
   br label %386
 
@@ -4868,7 +4868,7 @@ dissect_mq_addCR_colinfo.exit2542:                ; preds = %269, %277
   ]
 
 388:                                              ; preds = %386, %386
-  tail call fastcc void @dissect_mq_MQCO.argelim(ptr noundef %0, ptr noundef %381, i32 noundef %378, ptr noundef nonnull %8)
+  tail call fastcc void @dissect_mq_MQCO(ptr noundef %0, ptr noundef %381, i32 noundef %378, ptr noundef nonnull %8)
   br label %389
 
 389:                                              ; preds = %386, %388, %376
@@ -5416,7 +5416,7 @@ dissect_mq_addCR_colinfo.exit2546:                ; preds = %682, %684
   %708 = tail call ptr @proto_tree_add_item(ptr noundef %691, i32 noundef %706, ptr noundef %0, i32 noundef %663, i32 noundef 4, i32 noundef %707) #7
   %709 = add nuw nsw i32 %.0, 20
   %710 = load i32, ptr @ett_mq_gmo_option, align 4
-  tail call fastcc void @dissect_mq_MQGMO.argelim(ptr noundef %0, ptr noundef %691, i32 noundef %709, i32 noundef %710, ptr noundef nonnull %8)
+  tail call fastcc void @dissect_mq_MQGMO(ptr noundef %0, ptr noundef %691, i32 noundef %709, i32 noundef %710, ptr noundef nonnull %8)
   %711 = load i32, ptr @hf_mq_msgreq_WaitIntrv, align 4
   %712 = add nuw nsw i32 %.0, 24
   %713 = load i32, ptr %10, align 4
@@ -5450,7 +5450,7 @@ dissect_mq_addCR_colinfo.exit2546:                ; preds = %682, %684
   %739 = load i32, ptr @hf_mq_msgreq_encoding, align 4
   %740 = add nuw nsw i32 %.0, 48
   %741 = load i32, ptr %10, align 4
-  tail call fastcc void @dissect_mq_encoding.argelim(ptr noundef %691, i32 noundef %739, ptr noundef %0, i32 noundef %740, i32 noundef %741)
+  tail call fastcc void @dissect_mq_encoding(ptr noundef %691, i32 noundef %739, ptr noundef %0, i32 noundef %740, i32 noundef %741)
   %742 = load i32, ptr @hf_mq_msgreq_MsgSeqNum, align 4
   %743 = add nuw nsw i32 %.0, 52
   %744 = load i32, ptr %10, align 4
@@ -5461,7 +5461,7 @@ dissect_mq_addCR_colinfo.exit2546:                ; preds = %682, %684
   %749 = tail call ptr @proto_tree_add_item(ptr noundef %691, i32 noundef %746, ptr noundef %0, i32 noundef %747, i32 noundef 4, i32 noundef %748) #7
   %750 = add nuw nsw i32 %.0, 60
   %751 = load i32, ptr @ett_mq_gmo_matchoption, align 4
-  tail call fastcc void @dissect_mq_MQMO.argelim(ptr noundef %0, ptr noundef %691, i32 noundef %750, i32 noundef %751, ptr noundef nonnull %8)
+  tail call fastcc void @dissect_mq_MQMO(ptr noundef %0, ptr noundef %691, i32 noundef %750, i32 noundef %751, ptr noundef nonnull %8)
   %752 = load i32, ptr %10, align 4
   %753 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %750, i32 noundef %752) #7
   %754 = add nuw nsw i32 %.0, 64
@@ -6199,10 +6199,10 @@ thread-pre-split2572:                             ; preds = %.lr.ph, %1170, %399
   %1197 = add i32 %.1, 8
   %1198 = load i32, ptr @ett_mq_open_option, align 4
   %1199 = load i32, ptr @hf_mq_open_options, align 4
-  call fastcc void @dissect_mq_MQOO.argelim(ptr noundef %0, ptr noundef %1190, i32 noundef %1197, i32 noundef %1198, i32 noundef %1199, ptr noundef nonnull %8)
+  call fastcc void @dissect_mq_MQOO(ptr noundef %0, ptr noundef %1190, i32 noundef %1197, i32 noundef %1198, i32 noundef %1199, ptr noundef nonnull %8)
   %1200 = add i32 %.1, 12
   %1201 = load i32, ptr @ett_mq_lpoo_lpiopts, align 4
-  call fastcc void @dissect_mq_LPOO_LPIOPTS.argelim(ptr noundef %0, ptr noundef %1190, i32 noundef %1200, i32 noundef %1201, ptr noundef nonnull %8)
+  call fastcc void @dissect_mq_LPOO_LPIOPTS(ptr noundef %0, ptr noundef %1190, i32 noundef %1200, i32 noundef %1201, ptr noundef nonnull %8)
   %1202 = load i32, ptr @hf_mq_lpoo_defpersist, align 4
   %1203 = add i32 %.1, 16
   %1204 = load i32, ptr %10, align 4
@@ -6391,7 +6391,7 @@ dissect_mq_addCR_colinfo.exit2550:                ; preds = %1269, %1275
   %1300 = load i32, ptr %11, align 4
   %1301 = call ptr @proto_tree_add_item(ptr noundef %1285, i32 noundef %1298, ptr noundef %0, i32 noundef %1299, i32 noundef 64, i32 noundef %1300) #7
   %1302 = add i32 %.10, 92
-  call fastcc void @dissect_mq_sid.argelim(ptr noundef %0, ptr noundef %1285, ptr noundef nonnull %8, i32 noundef %1302)
+  call fastcc void @dissect_mq_sid(ptr noundef %0, ptr noundef %1285, ptr noundef nonnull %8, i32 noundef %1302)
   br label %1303
 
 1303:                                             ; preds = %1283, %1297, %1267, %1263
@@ -6621,7 +6621,7 @@ thread-pre-split2604:                             ; preds = %1351
   %1420 = call ptr @proto_tree_add_item(ptr noundef %1401, i32 noundef %1417, ptr noundef %0, i32 noundef %1418, i32 noundef 48, i32 noundef %1419) #7
   %1421 = load i32, ptr @hf_mq_dlh_encoding, align 4
   %1422 = load i32, ptr %10, align 4
-  call fastcc void @dissect_mq_encoding.argelim(ptr noundef %1401, i32 noundef %1421, ptr noundef %0, i32 noundef %1390, i32 noundef %1422)
+  call fastcc void @dissect_mq_encoding(ptr noundef %1401, i32 noundef %1421, ptr noundef %0, i32 noundef %1390, i32 noundef %1422)
   %1423 = load i32, ptr @hf_mq_dlh_ccsid, align 4
   %1424 = load i32, ptr %10, align 4
   %1425 = call ptr @proto_tree_add_item(ptr noundef %1401, i32 noundef %1423, ptr noundef %0, i32 noundef %1391, i32 noundef 4, i32 noundef %1424) #7
@@ -6899,7 +6899,7 @@ thread-pre-split2608:                             ; preds = %1504, %1514
   %1608 = call ptr @proto_tree_add_item(ptr noundef %1599, i32 noundef %1606, ptr noundef %0, i32 noundef %1567, i32 noundef 4, i32 noundef %1607) #7
   %1609 = load i32, ptr @hf_mq_head_encoding, align 4
   %1610 = load i32, ptr %10, align 4
-  call fastcc void @dissect_mq_encoding.argelim(ptr noundef %1599, i32 noundef %1609, ptr noundef %0, i32 noundef %1571, i32 noundef %1610)
+  call fastcc void @dissect_mq_encoding(ptr noundef %1599, i32 noundef %1609, ptr noundef %0, i32 noundef %1571, i32 noundef %1610)
   %1611 = load i32, ptr @hf_mq_head_ccsid, align 4
   %1612 = load i32, ptr %10, align 4
   %1613 = call ptr @proto_tree_add_item(ptr noundef %1599, i32 noundef %1611, ptr noundef %0, i32 noundef %1575, i32 noundef 4, i32 noundef %1612) #7
@@ -7489,7 +7489,7 @@ declare i32 @strip_trailing_blanks(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mq_charv.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc void @dissect_mq_charv(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
   %7 = add i32 %2, 12
   %8 = getelementptr inbounds i8, ptr %5, i64 12
   %9 = load i32, ptr %8, align 4
@@ -7587,7 +7587,7 @@ define internal fastcc noundef i32 @dissect_mq_or(ptr noundef %0, ptr noundef %1
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mq_encoding.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_mq_encoding(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca [128 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   %7 = tail call i32 @tvb_get_guint32(ptr noundef %2, i32 noundef %3, i32 noundef %4) #7
@@ -7673,7 +7673,7 @@ define internal fastcc void @dissect_mq_encoding.argelim(ptr noundef %0, i32 nou
 
 switch.lookup:                                    ; preds = %27
   %38 = zext nneg i32 %36 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_mq_encoding.argelim, i64 0, i64 %38
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_mq_encoding, i64 0, i64 %38
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %39
 
@@ -7694,7 +7694,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mq_MQGMO.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @dissect_mq_MQGMO(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %4, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %2, i32 noundef %7) #7
@@ -7718,7 +7718,7 @@ define internal fastcc void @dissect_mq_MQGMO.argelim(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mq_MQMO.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @dissect_mq_MQMO(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %4, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %2, i32 noundef %7) #7
@@ -7862,7 +7862,7 @@ declare void @col_clear_fence(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mq_MQOO.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc void @dissect_mq_MQOO(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %5, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %2, i32 noundef %8) #7
@@ -7885,7 +7885,7 @@ define internal fastcc void @dissect_mq_MQOO.argelim(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mq_MQCO.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_mq_MQCO(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %2, i32 noundef %6) #7
@@ -8118,7 +8118,7 @@ define internal fastcc range(i32 0, 520) i32 @dissect_mq_xid(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mq_LPOO_LPIOPTS.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @dissect_mq_LPOO_LPIOPTS(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %4, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %2, i32 noundef %7) #7
@@ -8424,7 +8424,7 @@ dissect_mq_addCR_colinfo.exit:                    ; preds = %20, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mq_sid.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_mq_sid(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #7
   %7 = load i32, ptr @hf_mq_sidlen, align 4

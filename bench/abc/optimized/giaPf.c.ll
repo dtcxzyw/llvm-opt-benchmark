@@ -77,7 +77,7 @@ define void @Pf_StoCreateGateAdd(ptr nocapture noundef readonly %0, i64 noundef 
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %5
-  tail call fastcc void @Vec_WecPushLevel.retelim(ptr noundef nonnull %15)
+  tail call fastcc void @Vec_WecPushLevel(ptr noundef nonnull %15)
   %.pre = load ptr, ptr %14, align 8
   br label %19
 
@@ -856,7 +856,7 @@ Vec_MemHashLookup.exit:                           ; preds = %171, %.lr.ph.i18, %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_WecPushLevel.retelim(ptr nocapture noundef %0) unnamed_addr #1 {
+define internal fastcc void @Vec_WecPushLevel(ptr nocapture noundef %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = load i32, ptr %0, align 8
@@ -1684,8 +1684,8 @@ Vec_MemAllocForTT.exit:                           ; preds = %Abc_PrimeCudd.exit.
   store ptr %120, ptr %121, align 8
   %122 = getelementptr inbounds i8, ptr %25, i64 24
   store ptr %118, ptr %122, align 8
-  call fastcc void @Vec_WecPushLevel.retelim(ptr noundef nonnull %118)
-  call fastcc void @Vec_WecPushLevel.retelim(ptr noundef nonnull %118)
+  call fastcc void @Vec_WecPushLevel(ptr noundef nonnull %118)
+  call fastcc void @Vec_WecPushLevel(ptr noundef nonnull %118)
   call void @Pf_StoDeriveMatches(ptr noundef nonnull %25, i32 noundef 0)
   %123 = getelementptr inbounds i8, ptr %25, i64 32
   %124 = load ptr, ptr %123, align 8
@@ -2008,14 +2008,14 @@ define void @Pf_ObjMergeOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %40 = getelementptr i8, ptr %39, i64 208
   %.val173 = load ptr, ptr %40, align 8
   %.not.i = icmp ne ptr %.val173, null
-  br i1 %.not.i, label %41, label %Gia_ObjSibl.argprom.exit
+  br i1 %.not.i, label %41, label %Gia_ObjSibl.exit
 
 41:                                               ; preds = %2
   %42 = getelementptr inbounds i32, ptr %.val173, i64 %13
   %43 = load i32, ptr %42, align 4
-  br label %Gia_ObjSibl.argprom.exit
+  br label %Gia_ObjSibl.exit
 
-Gia_ObjSibl.argprom.exit:                         ; preds = %2, %41
+Gia_ObjSibl.exit:                                 ; preds = %2, %41
   %44 = phi i32 [ %43, %41 ], [ 0, %2 ]
   %45 = sext i32 %27 to i64
   %46 = getelementptr inbounds %struct.Pf_Cut_t_, ptr %5, i64 %45
@@ -2024,7 +2024,7 @@ Gia_ObjSibl.argprom.exit:                         ; preds = %2, %41
   %49 = icmp sgt i32 %23, 0
   br i1 %49, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %Gia_ObjSibl.argprom.exit
+.lr.ph.preheader:                                 ; preds = %Gia_ObjSibl.exit
   %wide.trip.count = zext nneg i32 %23 to i64
   br label %.lr.ph
 
@@ -2037,7 +2037,7 @@ Gia_ObjSibl.argprom.exit:                         ; preds = %2, %41
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
-._crit_edge:                                      ; preds = %.lr.ph, %Gia_ObjSibl.argprom.exit
+._crit_edge:                                      ; preds = %.lr.ph, %Gia_ObjSibl.exit
   %.not = icmp eq i32 %44, 0
   br i1 %.not, label %.loopexit436, label %Gia_ObjSiblObj.exit
 
@@ -2149,15 +2149,15 @@ Pf_CutParams.exit:                                ; preds = %68, %._crit_edge.i,
   %111 = getelementptr i8, ptr %110, i64 40
   %.val176 = load ptr, ptr %111, align 8
   %.not.i184 = icmp eq ptr %.val176, null
-  br i1 %.not.i184, label %Gia_ObjIsMuxId.argprom.exit.thread, label %Gia_ObjIsMuxId.argprom.exit
+  br i1 %.not.i184, label %Gia_ObjIsMuxId.exit.thread, label %Gia_ObjIsMuxId.exit
 
-Gia_ObjIsMuxId.argprom.exit:                      ; preds = %.loopexit436
+Gia_ObjIsMuxId.exit:                              ; preds = %.loopexit436
   %112 = getelementptr inbounds i32, ptr %.val176, i64 %13
   %113 = load i32, ptr %112, align 4
   %.not412 = icmp eq i32 %113, 0
-  br i1 %.not412, label %Gia_ObjIsMuxId.argprom.exit.thread, label %Gia_ObjFaninId2.argprom.exit
+  br i1 %.not412, label %Gia_ObjIsMuxId.exit.thread, label %Gia_ObjFaninId2.exit
 
-Gia_ObjFaninId2.argprom.exit:                     ; preds = %Gia_ObjIsMuxId.argprom.exit
+Gia_ObjFaninId2.exit:                             ; preds = %Gia_ObjIsMuxId.exit
   %114 = ashr i32 %113, 1
   %115 = call fastcc i32 @Pf_ManPrepareCuts(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %114, i32 noundef 1)
   %116 = load ptr, ptr %0, align 8
@@ -2166,7 +2166,7 @@ Gia_ObjFaninId2.argprom.exit:                     ; preds = %Gia_ObjIsMuxId.argp
   %.not.i186 = icmp eq ptr %118, null
   br i1 %.not.i186, label %Gia_ObjFaninC2.exit, label %119
 
-119:                                              ; preds = %Gia_ObjFaninId2.argprom.exit
+119:                                              ; preds = %Gia_ObjFaninId2.exit
   %120 = getelementptr i8, ptr %116, i64 32
   %.val.i187 = load ptr, ptr %120, align 8
   %121 = ptrtoint ptr %14 to i64
@@ -2180,8 +2180,8 @@ Gia_ObjFaninId2.argprom.exit:                     ; preds = %Gia_ObjIsMuxId.argp
   %128 = and i32 %127, 1
   br label %Gia_ObjFaninC2.exit
 
-Gia_ObjFaninC2.exit:                              ; preds = %Gia_ObjFaninId2.argprom.exit, %119
-  %129 = phi i32 [ 0, %Gia_ObjFaninId2.argprom.exit ], [ %128, %119 ]
+Gia_ObjFaninC2.exit:                              ; preds = %Gia_ObjFaninId2.exit, %119
+  %129 = phi i32 [ 0, %Gia_ObjFaninId2.exit ], [ %128, %119 ]
   %130 = sext i32 %115 to i64
   %131 = getelementptr inbounds %struct.Pf_Cut_t_, ptr %10, i64 %130
   %132 = mul nsw i32 %32, %27
@@ -3138,26 +3138,26 @@ Pf_SetAddCut.exit.us.us.us:                       ; preds = %204, %240, %272, %2
   %646 = icmp ult ptr %645, %46
   br i1 %646, label %.preheader434.us.us, label %.loopexit424, !llvm.loop !45
 
-Gia_ObjIsMuxId.argprom.exit.thread:               ; preds = %.loopexit436, %Gia_ObjIsMuxId.argprom.exit
+Gia_ObjIsMuxId.exit.thread:                       ; preds = %.loopexit436, %Gia_ObjIsMuxId.exit
   %.val178 = load i64, ptr %14, align 4
   %647 = and i64 %.val178, 2147483648
   %.not.i.i234 = icmp ne i64 %647, 0
   %648 = and i64 %.val178, 536870911
   %649 = icmp eq i64 %648, 536870911
   %narrow.i.not.i = or i1 %.not.i.i234, %649
-  br i1 %narrow.i.not.i, label %Gia_ObjIsXor.argprom.exit, label %650
+  br i1 %narrow.i.not.i, label %Gia_ObjIsXor.exit, label %650
 
-650:                                              ; preds = %Gia_ObjIsMuxId.argprom.exit.thread
+650:                                              ; preds = %Gia_ObjIsMuxId.exit.thread
   %651 = trunc i64 %.val178 to i32
   %652 = and i32 %651, 536870911
   %653 = lshr i64 %.val178, 32
   %654 = trunc nuw i64 %653 to i32
   %655 = and i32 %654, 536870911
   %656 = icmp uge i32 %652, %655
-  br label %Gia_ObjIsXor.argprom.exit
+  br label %Gia_ObjIsXor.exit
 
-Gia_ObjIsXor.argprom.exit:                        ; preds = %Gia_ObjIsMuxId.argprom.exit.thread, %650
-  %.not39.i = phi i1 [ true, %Gia_ObjIsMuxId.argprom.exit.thread ], [ %656, %650 ]
+Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit.thread, %650
+  %.not39.i = phi i1 [ true, %Gia_ObjIsMuxId.exit.thread ], [ %656, %650 ]
   %657 = mul nsw i32 %32, %27
   %658 = sitofp i32 %657 to double
   %659 = getelementptr inbounds i8, ptr %0, i64 152
@@ -3167,7 +3167,7 @@ Gia_ObjIsXor.argprom.exit:                        ; preds = %Gia_ObjIsMuxId.argp
   %662 = icmp sgt i32 %27, 0
   br i1 %662, label %.preheader.lr.ph, label %.loopexit424
 
-.preheader.lr.ph:                                 ; preds = %Gia_ObjIsXor.argprom.exit
+.preheader.lr.ph:                                 ; preds = %Gia_ObjIsXor.exit
   %663 = icmp sgt i32 %32, 0
   %664 = getelementptr inbounds i8, ptr %0, i64 160
   %665 = icmp eq i32 %21, 0
@@ -4114,8 +4114,8 @@ Pf_SetAddCut.exit375.us:                          ; preds = %722, %.lr.ph134.i.u
   %1127 = icmp ult ptr %1126, %46
   br i1 %1127, label %.preheader.us, label %.loopexit424, !llvm.loop !50
 
-.loopexit424:                                     ; preds = %._crit_edge487.split.us.us.us, %._crit_edge504.us, %.preheader.lr.ph, %.preheader434.lr.ph, %Gia_ObjFaninC2.exit, %Gia_ObjIsXor.argprom.exit
-  %.6 = phi i32 [ %.0153, %Gia_ObjIsXor.argprom.exit ], [ %.0153, %Gia_ObjFaninC2.exit ], [ %.0153, %.preheader434.lr.ph ], [ %.0153, %.preheader.lr.ph ], [ %.9.us, %._crit_edge504.us ], [ %.5.us.us.us, %._crit_edge487.split.us.us.us ]
+.loopexit424:                                     ; preds = %._crit_edge487.split.us.us.us, %._crit_edge504.us, %.preheader.lr.ph, %.preheader434.lr.ph, %Gia_ObjFaninC2.exit, %Gia_ObjIsXor.exit
+  %.6 = phi i32 [ %.0153, %Gia_ObjIsXor.exit ], [ %.0153, %Gia_ObjFaninC2.exit ], [ %.0153, %.preheader434.lr.ph ], [ %.0153, %.preheader.lr.ph ], [ %.9.us, %._crit_edge504.us ], [ %.5.us.us.us, %._crit_edge487.split.us.us.us ]
   %1128 = load ptr, ptr %8, align 16
   %1129 = getelementptr inbounds i8, ptr %1128, i64 12
   %1130 = load float, ptr %1129, align 4

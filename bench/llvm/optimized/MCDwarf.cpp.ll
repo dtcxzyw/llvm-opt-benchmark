@@ -1936,7 +1936,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread86:       ; preds = %8, %_ZN4llvmeqENS_9
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %13, ptr noundef nonnull align 8 dereferenceable(17) %4, i64 17, i1 false)
   %56 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %55) #18
-  br i1 %56, label %_ZL10isRootFileRKN4llvm11MCDwarfFileERNS_9StringRefES4_St8optionalINS_3MD59MD5ResultEE.argprom.exit.thread, label %57
+  br i1 %56, label %_ZL10isRootFileRKN4llvm11MCDwarfFileERNS_9StringRefES4_St8optionalINS_3MD59MD5ResultEE.exit.thread, label %57
 
 57:                                               ; preds = %54
   %58 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %55) #18
@@ -1944,7 +1944,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread86:       ; preds = %8, %_ZN4llvmeqENS_9
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8
   %.sroa.2.0.copyload.i = load i64, ptr %27, align 8
   %.not.i.i.i = icmp eq i64 %59, %.sroa.2.0.copyload.i
-  br i1 %.not.i.i.i, label %60, label %_ZL10isRootFileRKN4llvm11MCDwarfFileERNS_9StringRefES4_St8optionalINS_3MD59MD5ResultEE.argprom.exit.thread
+  br i1 %.not.i.i.i, label %60, label %_ZL10isRootFileRKN4llvm11MCDwarfFileERNS_9StringRefES4_St8optionalINS_3MD59MD5ResultEE.exit.thread
 
 60:                                               ; preds = %57
   %61 = icmp eq i64 %59, 0
@@ -1953,7 +1953,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread86:       ; preds = %8, %_ZN4llvmeqENS_9
 _ZN4llvmneENS_9StringRefES0_.exit.i:              ; preds = %60
   %bcmp.i.i.i = tail call i32 @bcmp(ptr %58, ptr %.sroa.0.0.copyload.i, i64 %59)
   %.not.i40 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %.not.i40, label %_ZN4llvmneENS_9StringRefES0_.exit.thread2.i, label %_ZL10isRootFileRKN4llvm11MCDwarfFileERNS_9StringRefES4_St8optionalINS_3MD59MD5ResultEE.argprom.exit.thread
+  br i1 %.not.i40, label %_ZN4llvmneENS_9StringRefES0_.exit.thread2.i, label %_ZL10isRootFileRKN4llvm11MCDwarfFileERNS_9StringRefES4_St8optionalINS_3MD59MD5ResultEE.exit.thread
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread2.i:      ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.i, %60
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 484
@@ -1965,7 +1965,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread2.i:      ; preds = %_ZN4llvmneENS_9Stri
   %68 = trunc i8 %67 to i1
   %.not.i.i = xor i1 %64, true
   %brmerge.i.i = or i1 %.not.i.i, %68
-  br i1 %brmerge.i.i, label %_ZL10isRootFileRKN4llvm11MCDwarfFileERNS_9StringRefES4_St8optionalINS_3MD59MD5ResultEE.argprom.exit, label %69
+  br i1 %brmerge.i.i, label %_ZL10isRootFileRKN4llvm11MCDwarfFileERNS_9StringRefES4_St8optionalINS_3MD59MD5ResultEE.exit, label %69
 
 69:                                               ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread2.i
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 468
@@ -1974,15 +1974,15 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread2.i:      ; preds = %_ZN4llvmneENS_9Stri
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %13)
   br i1 %.not7.i.i.i.i.i.i.i, label %71, label %75
 
-_ZL10isRootFileRKN4llvm11MCDwarfFileERNS_9StringRefES4_St8optionalINS_3MD59MD5ResultEE.argprom.exit.thread: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.i, %54, %57
+_ZL10isRootFileRKN4llvm11MCDwarfFileERNS_9StringRefES4_St8optionalINS_3MD59MD5ResultEE.exit.thread: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.i, %54, %57
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %13)
   br label %75
 
-_ZL10isRootFileRKN4llvm11MCDwarfFileERNS_9StringRefES4_St8optionalINS_3MD59MD5ResultEE.argprom.exit: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread2.i
+_ZL10isRootFileRKN4llvm11MCDwarfFileERNS_9StringRefES4_St8optionalINS_3MD59MD5ResultEE.exit: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread2.i
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %13)
   br i1 %68, label %75, label %71
 
-71:                                               ; preds = %69, %_ZL10isRootFileRKN4llvm11MCDwarfFileERNS_9StringRefES4_St8optionalINS_3MD59MD5ResultEE.argprom.exit
+71:                                               ; preds = %69, %_ZL10isRootFileRKN4llvm11MCDwarfFileERNS_9StringRefES4_St8optionalINS_3MD59MD5ResultEE.exit
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %73 = load i8, ptr %72, align 8
   %74 = and i8 %73, -2
@@ -1990,7 +1990,7 @@ _ZL10isRootFileRKN4llvm11MCDwarfFileERNS_9StringRefES4_St8optionalINS_3MD59MD5Re
   store i32 0, ptr %0, align 8
   br label %204
 
-75:                                               ; preds = %69, %_ZL10isRootFileRKN4llvm11MCDwarfFileERNS_9StringRefES4_St8optionalINS_3MD59MD5ResultEE.argprom.exit.thread, %_ZL10isRootFileRKN4llvm11MCDwarfFileERNS_9StringRefES4_St8optionalINS_3MD59MD5ResultEE.argprom.exit, %52
+75:                                               ; preds = %69, %_ZL10isRootFileRKN4llvm11MCDwarfFileERNS_9StringRefES4_St8optionalINS_3MD59MD5ResultEE.exit.thread, %_ZL10isRootFileRKN4llvm11MCDwarfFileERNS_9StringRefES4_St8optionalINS_3MD59MD5ResultEE.exit, %52
   %76 = icmp eq i32 %7, 0
   br i1 %76, label %77, label %113
 
@@ -2402,19 +2402,19 @@ define dso_local void @_ZN4llvm15MCDwarfLineAddr6encodeERNS_9MCContextENS_22MCDw
   %11 = getelementptr i8, ptr %.val, i64 28
   %.val.val = load i32, ptr %11, align 4
   %12 = icmp eq i32 %.val.val, 1
-  br i1 %12, label %_ZL14ScaleAddrDeltaRN4llvm9MCContextEm.argprom.argprom.exit, label %13
+  br i1 %12, label %_ZL14ScaleAddrDeltaRN4llvm9MCContextEm.exit, label %13
 
 13:                                               ; preds = %5
   %14 = zext i32 %.val.val to i64
   %15 = udiv i64 %3, %14
-  br label %_ZL14ScaleAddrDeltaRN4llvm9MCContextEm.argprom.argprom.exit
+  br label %_ZL14ScaleAddrDeltaRN4llvm9MCContextEm.exit
 
-_ZL14ScaleAddrDeltaRN4llvm9MCContextEm.argprom.argprom.exit: ; preds = %5, %13
+_ZL14ScaleAddrDeltaRN4llvm9MCContextEm.exit:      ; preds = %5, %13
   %.0.i = phi i64 [ %15, %13 ], [ %3, %5 ]
   %16 = icmp eq i64 %2, 9223372036854775807
   br i1 %16, label %17, label %76
 
-17:                                               ; preds = %_ZL14ScaleAddrDeltaRN4llvm9MCContextEm.argprom.argprom.exit
+17:                                               ; preds = %_ZL14ScaleAddrDeltaRN4llvm9MCContextEm.exit
   %18 = icmp eq i64 %.0.i, %9
   br i1 %18, label %19, label %30
 
@@ -2532,7 +2532,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit64: ; preds = %_ZN4llvm
   %.not.i.i.i65 = icmp ugt i64 %74, %75
   br i1 %.not.i.i.i65, label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit66.sink.split, label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit66
 
-76:                                               ; preds = %_ZL14ScaleAddrDeltaRN4llvm9MCContextEm.argprom.argprom.exit
+76:                                               ; preds = %_ZL14ScaleAddrDeltaRN4llvm9MCContextEm.exit
   %.sroa.6.0.extract.trunc = zext nneg i24 %.sroa.21.0.extract.shift.i to i64
   %sext = shl i64 %.sroa.4.0.extract.trunc, 56
   %77 = ashr exact i64 %sext, 56
@@ -4063,8 +4063,8 @@ define dso_local void @_ZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamer
   switch i32 %69, label %70 [
     i32 0, label %71
     i32 8, label %71
-    i32 2, label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i
-    i32 10, label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i
+    i32 2, label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i
+    i32 10, label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i
     i32 3, label %76
     i32 11, label %76
     i32 4, label %77
@@ -4079,15 +4079,15 @@ define dso_local void @_ZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamer
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load i32, ptr %74, align 8
-  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i
+  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i
 
 76:                                               ; preds = %58, %58
-  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i
+  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i
 
 77:                                               ; preds = %58, %58
-  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i
+  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i
 
-_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i: ; preds = %77, %76, %71, %58, %58
+_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i: ; preds = %77, %76, %71, %58, %58
   %.0.i.i = phi i32 [ 8, %77 ], [ 4, %76 ], [ %75, %71 ], [ 2, %58 ], [ 2, %58 ]
   %78 = load ptr, ptr %.053122, align 8
   tail call void @_ZN4llvm10MCStreamer15emitSymbolValueEPKNS_8MCSymbolEjb(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %78, i32 noundef %.0.i.i, i1 noundef zeroext false) #18
@@ -4107,7 +4107,7 @@ _ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i: ; preds = %77, %76,
   %92 = trunc i8 %91 to i1
   br i1 %92, label %93, label %_ZL12emitAbsValueRN4llvm10MCStreamerEPKNS_6MCExprEj.exit.i
 
-93:                                               ; preds = %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i
+93:                                               ; preds = %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i
   %94 = tail call noundef ptr @_ZN4llvm9MCContext16createTempSymbolEv(ptr noundef nonnull align 8 dereferenceable(2432) %87) #18
   %95 = load ptr, ptr %0, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 272
@@ -4116,8 +4116,8 @@ _ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i: ; preds = %77, %76,
   %98 = tail call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %94, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %87, ptr null) #18
   br label %_ZL12emitAbsValueRN4llvm10MCStreamerEPKNS_6MCExprEj.exit.i
 
-_ZL12emitAbsValueRN4llvm10MCStreamerEPKNS_6MCExprEj.exit.i: ; preds = %93, %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i
-  %.0.i.i.i = phi ptr [ %98, %93 ], [ %86, %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i ]
+_ZL12emitAbsValueRN4llvm10MCStreamerEPKNS_6MCExprEj.exit.i: ; preds = %93, %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i
+  %.0.i.i.i = phi ptr [ %98, %93 ], [ %86, %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i ]
   tail call void @_ZN4llvm10MCStreamer9emitValueEPKNS_6MCExprEjNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %.0.i.i.i, i32 noundef 4, ptr null) #18
   %99 = and i64 %.0.i, 4294967295
   %100 = load ptr, ptr %0, align 8
@@ -4155,8 +4155,8 @@ _ZL12emitAbsValueRN4llvm10MCStreamerEPKNS_6MCExprEj.exit.i: ; preds = %93, %_ZL1
   switch i32 %118, label %119 [
     i32 0, label %120
     i32 8, label %120
-    i32 2, label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit42.i
-    i32 10, label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit42.i
+    i32 2, label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit42.i
+    i32 10, label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit42.i
     i32 3, label %125
     i32 11, label %125
     i32 4, label %126
@@ -4172,19 +4172,19 @@ _ZL12emitAbsValueRN4llvm10MCStreamerEPKNS_6MCExprEj.exit.i: ; preds = %93, %_ZL1
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = load i32, ptr %123, align 8
-  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit42.i
+  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit42.i
 
 125:                                              ; preds = %115, %115
-  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit42.i
+  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit42.i
 
 126:                                              ; preds = %115, %115
-  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit42.i
+  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit42.i
 
-_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit42.i: ; preds = %126, %125, %120, %115, %115
+_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit42.i: ; preds = %126, %125, %120, %115, %115
   %.0.i41.i = phi i32 [ 8, %126 ], [ 4, %125 ], [ %124, %120 ], [ 2, %115 ], [ 2, %115 ]
   br i1 %63, label %130, label %127
 
-127:                                              ; preds = %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit42.i
+127:                                              ; preds = %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit42.i
   %128 = load ptr, ptr %64, align 8
   %.not34.i = icmp eq ptr %128, null
   br i1 %.not34.i, label %130, label %129
@@ -4193,7 +4193,7 @@ _ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit42.i: ; preds = %126, %
   tail call void @_ZN4llvm10MCStreamer15emitSymbolValueEPKNS_8MCSymbolEjb(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull %128, i32 noundef %.0.i41.i, i1 noundef zeroext false) #18
   br label %_ZN12_GLOBAL__N_116FrameEmitterImpl17EmitCompactUnwindERKN4llvm16MCDwarfFrameInfoE.exit
 
-130:                                              ; preds = %127, %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit42.i
+130:                                              ; preds = %127, %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit42.i
   %131 = load ptr, ptr %0, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 520
   %133 = load ptr, ptr %132, align 8
@@ -4260,7 +4260,7 @@ _ZNSt6vectorIN4llvm16MCDwarfFrameInfoESaIS1_EEC2IPKS1_vEET_S7_RKS2_.exit: ; pred
   store ptr %155, ptr %156, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %157 = icmp eq ptr %152, %155
-  br i1 %157, label %"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.argprom.exit", label %158
+  br i1 %157, label %"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.exit", label %158
 
 158:                                              ; preds = %_ZNSt6vectorIN4llvm16MCDwarfFrameInfoESaIS1_EEC2IPKS1_vEET_S7_RKS2_.exit
   %159 = ptrtoint ptr %155 to i64
@@ -4303,27 +4303,27 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN4llvm16MCDwarfFrameInf
 
 174:                                              ; preds = %172, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN4llvm16MCDwarfFrameInfoESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.i.i.i
   call void @_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN4llvm16MCDwarfFrameInfoESt6vectorIS3_SaIS3_EEEES3_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #18
-  br label %"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.argprom.exit"
+  br label %"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.exit"
 
-"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.argprom.exit": ; preds = %_ZNSt6vectorIN4llvm16MCDwarfFrameInfoESaIS1_EEC2IPKS1_vEET_S7_RKS2_.exit, %174
+"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.exit": ; preds = %_ZNSt6vectorIN4llvm16MCDwarfFrameInfoESaIS1_EEC2IPKS1_vEET_S7_RKS2_.exit, %174
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %175 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %176 = getelementptr inbounds i8, ptr %4, i64 24
   %177 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %.outer
 
-.outer:                                           ; preds = %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitFDEERKN4llvm8MCSymbolERKNS1_16MCDwarfFrameInfoEbS4_.exit, %"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.argprom.exit"
-  %178 = phi ptr [ %617, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitFDEERKN4llvm8MCSymbolERKNS1_16MCDwarfFrameInfoEbS4_.exit ], [ %0, %"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.argprom.exit" ]
-  %.sroa.077.0.ph = phi ptr [ %.us-phi, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitFDEERKN4llvm8MCSymbolERKNS1_16MCDwarfFrameInfoEbS4_.exit ], [ %152, %"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.argprom.exit" ]
-  %.sroa.081.0.ph = phi ptr [ %.sroa.081.1, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitFDEERKN4llvm8MCSymbolERKNS1_16MCDwarfFrameInfoEbS4_.exit ], [ null, %"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.argprom.exit" ]
-  %.sroa.382.0.ph = phi i32 [ %.sroa.382.1, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitFDEERKN4llvm8MCSymbolERKNS1_16MCDwarfFrameInfoEbS4_.exit ], [ 0, %"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.argprom.exit" ]
-  %.sroa.6.0.ph = phi i32 [ %.sroa.6.1, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitFDEERKN4llvm8MCSymbolERKNS1_16MCDwarfFrameInfoEbS4_.exit ], [ -1, %"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.argprom.exit" ]
-  %.sroa.983.0.ph = phi i8 [ %.sroa.983.1, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitFDEERKN4llvm8MCSymbolERKNS1_16MCDwarfFrameInfoEbS4_.exit ], [ 0, %"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.argprom.exit" ]
-  %.sroa.12.0.ph = phi i8 [ %.sroa.12.1, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitFDEERKN4llvm8MCSymbolERKNS1_16MCDwarfFrameInfoEbS4_.exit ], [ 0, %"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.argprom.exit" ]
-  %.sroa.16.0.ph = phi i32 [ %.sroa.16.1, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitFDEERKN4llvm8MCSymbolERKNS1_16MCDwarfFrameInfoEbS4_.exit ], [ -1, %"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.argprom.exit" ]
-  %.sroa.19.0.ph = phi i8 [ %.sroa.19.1, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitFDEERKN4llvm8MCSymbolERKNS1_16MCDwarfFrameInfoEbS4_.exit ], [ 0, %"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.argprom.exit" ]
-  %.sroa.22.0.ph = phi i8 [ %.sroa.22.1, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitFDEERKN4llvm8MCSymbolERKNS1_16MCDwarfFrameInfoEbS4_.exit ], [ 0, %"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.argprom.exit" ]
-  %.048.ph = phi ptr [ %.149, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitFDEERKN4llvm8MCSymbolERKNS1_16MCDwarfFrameInfoEbS4_.exit ], [ null, %"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.argprom.exit" ]
+.outer:                                           ; preds = %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitFDEERKN4llvm8MCSymbolERKNS1_16MCDwarfFrameInfoEbS4_.exit, %"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.exit"
+  %178 = phi ptr [ %617, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitFDEERKN4llvm8MCSymbolERKNS1_16MCDwarfFrameInfoEbS4_.exit ], [ %0, %"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.exit" ]
+  %.sroa.077.0.ph = phi ptr [ %.us-phi, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitFDEERKN4llvm8MCSymbolERKNS1_16MCDwarfFrameInfoEbS4_.exit ], [ %152, %"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.exit" ]
+  %.sroa.081.0.ph = phi ptr [ %.sroa.081.1, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitFDEERKN4llvm8MCSymbolERKNS1_16MCDwarfFrameInfoEbS4_.exit ], [ null, %"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.exit" ]
+  %.sroa.382.0.ph = phi i32 [ %.sroa.382.1, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitFDEERKN4llvm8MCSymbolERKNS1_16MCDwarfFrameInfoEbS4_.exit ], [ 0, %"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.exit" ]
+  %.sroa.6.0.ph = phi i32 [ %.sroa.6.1, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitFDEERKN4llvm8MCSymbolERKNS1_16MCDwarfFrameInfoEbS4_.exit ], [ -1, %"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.exit" ]
+  %.sroa.983.0.ph = phi i8 [ %.sroa.983.1, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitFDEERKN4llvm8MCSymbolERKNS1_16MCDwarfFrameInfoEbS4_.exit ], [ 0, %"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.exit" ]
+  %.sroa.12.0.ph = phi i8 [ %.sroa.12.1, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitFDEERKN4llvm8MCSymbolERKNS1_16MCDwarfFrameInfoEbS4_.exit ], [ 0, %"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.exit" ]
+  %.sroa.16.0.ph = phi i32 [ %.sroa.16.1, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitFDEERKN4llvm8MCSymbolERKNS1_16MCDwarfFrameInfoEbS4_.exit ], [ -1, %"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.exit" ]
+  %.sroa.19.0.ph = phi i8 [ %.sroa.19.1, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitFDEERKN4llvm8MCSymbolERKNS1_16MCDwarfFrameInfoEbS4_.exit ], [ 0, %"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.exit" ]
+  %.sroa.22.0.ph = phi i8 [ %.sroa.22.1, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitFDEERKN4llvm8MCSymbolERKNS1_16MCDwarfFrameInfoEbS4_.exit ], [ 0, %"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.exit" ]
+  %.048.ph = phi ptr [ %.149, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitFDEERKN4llvm8MCSymbolERKNS1_16MCDwarfFrameInfoEbS4_.exit ], [ null, %"_ZN4llvm11stable_sortIRSt6vectorINS_16MCDwarfFrameInfoESaIS2_EEZNS_19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbE3$_0EEvOT_T0_.exit" ]
   br i1 %147, label %.outer.split.us, label %.outer.split
 
 .outer.split.us:                                  ; preds = %.outer
@@ -4662,7 +4662,7 @@ _ZN4llvm11SmallStringILj8EED2Ev.exit.i:           ; preds = %272, %271, %268
 353:                                              ; preds = %352
   %354 = load ptr, ptr %187, align 8
   %.not62.i = icmp eq ptr %354, null
-  br i1 %.not62.i, label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i65, label %355
+  br i1 %.not62.i, label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i65, label %355
 
 355:                                              ; preds = %353
   %356 = load i32, ptr %189, align 4
@@ -4670,8 +4670,8 @@ _ZN4llvm11SmallStringILj8EED2Ev.exit.i:           ; preds = %272, %271, %268
   switch i32 %357, label %358 [
     i32 0, label %359
     i32 8, label %359
-    i32 2, label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i65
-    i32 10, label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i65
+    i32 2, label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i65
+    i32 10, label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i65
     i32 3, label %365
     i32 11, label %365
     i32 4, label %366
@@ -4688,15 +4688,15 @@ _ZN4llvm11SmallStringILj8EED2Ev.exit.i:           ; preds = %272, %271, %268
   %362 = getelementptr inbounds nuw i8, ptr %361, i64 8
   %363 = load i32, ptr %362, align 8
   %364 = add i32 %363, 2
-  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i65
+  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i65
 
 365:                                              ; preds = %355, %355
-  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i65
+  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i65
 
 366:                                              ; preds = %355, %355
-  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i65
+  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i65
 
-_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i65: ; preds = %366, %365, %359, %355, %355, %353
+_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i65: ; preds = %366, %365, %359, %355, %355, %353
   %.059.i = phi i32 [ 1, %353 ], [ 10, %366 ], [ 6, %365 ], [ %364, %359 ], [ 4, %355 ], [ 4, %355 ]
   %367 = getelementptr inbounds nuw i8, ptr %.us-phi127, i64 24
   %368 = load ptr, ptr %367, align 8
@@ -4709,7 +4709,7 @@ _ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i65: ; preds = %366, %
   %.not64.i = icmp eq ptr %373, null
   br i1 %.not64.i, label %398, label %374
 
-374:                                              ; preds = %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i65
+374:                                              ; preds = %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i65
   %375 = load i32, ptr %189, align 4
   %376 = zext i32 %375 to i64
   %377 = load ptr, ptr %178, align 8
@@ -4759,7 +4759,7 @@ _ZL15EmitPersonalityRN4llvm10MCStreamerERKNS_8MCSymbolEj.exit.i: ; preds = %397,
   call void @_ZN4llvm10MCStreamer9emitValueEPKNS_6MCExprEjNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(288) %178, ptr noundef %388, i32 noundef %.0.i.i72.i, ptr null) #18
   br label %398
 
-398:                                              ; preds = %_ZL15EmitPersonalityRN4llvm10MCStreamerERKNS_8MCSymbolEj.exit.i, %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i65
+398:                                              ; preds = %_ZL15EmitPersonalityRN4llvm10MCStreamerERKNS_8MCSymbolEj.exit.i, %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i65
   %399 = load ptr, ptr %367, align 8
   %.not65.i = icmp eq ptr %399, null
   br i1 %.not65.i, label %406, label %400
@@ -5001,8 +5001,8 @@ _ZL12emitAbsValueRN4llvm10MCStreamerEPKNS_6MCExprEj.exit56.i: ; preds = %526, %5
   switch i32 %546, label %547 [
     i32 0, label %548
     i32 8, label %548
-    i32 2, label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i70
-    i32 10, label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i70
+    i32 2, label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i70
+    i32 10, label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i70
     i32 3, label %555
     i32 11, label %555
     i32 4, label %556
@@ -5021,15 +5021,15 @@ _ZL12emitAbsValueRN4llvm10MCStreamerEPKNS_6MCExprEj.exit56.i: ; preds = %526, %5
   %552 = load ptr, ptr %551, align 8
   %553 = getelementptr inbounds nuw i8, ptr %552, i64 8
   %554 = load i32, ptr %553, align 8
-  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i70
+  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i70
 
 555:                                              ; preds = %541, %541
-  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i70
+  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i70
 
 556:                                              ; preds = %541, %541
-  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i70
+  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i70
 
-_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i70: ; preds = %556, %555, %548, %541, %541
+_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i70: ; preds = %556, %555, %548, %541, %541
   %557 = phi ptr [ %544, %556 ], [ %544, %555 ], [ %549, %548 ], [ %544, %541 ], [ %544, %541 ]
   %558 = phi i32 [ %543, %556 ], [ %543, %555 ], [ %550, %548 ], [ %543, %541 ], [ %543, %541 ]
   %.0.i.i71 = phi i32 [ 8, %556 ], [ 4, %555 ], [ %554, %548 ], [ 2, %541 ], [ 2, %541 ]
@@ -5053,7 +5053,7 @@ _ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i70: ; preds = %556, %
   %575 = trunc i8 %574 to i1
   br i1 %575, label %576, label %_ZL12emitAbsValueRN4llvm10MCStreamerEPKNS_6MCExprEj.exit58.i
 
-576:                                              ; preds = %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i70
+576:                                              ; preds = %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i70
   %577 = call noundef ptr @_ZN4llvm9MCContext16createTempSymbolEv(ptr noundef nonnull align 8 dereferenceable(2432) %570) #18
   %578 = load ptr, ptr %568, align 8
   %579 = getelementptr inbounds i8, ptr %578, i64 272
@@ -5062,8 +5062,8 @@ _ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i70: ; preds = %556, %
   %581 = call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %577, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %570, ptr null) #18
   br label %_ZL12emitAbsValueRN4llvm10MCStreamerEPKNS_6MCExprEj.exit58.i
 
-_ZL12emitAbsValueRN4llvm10MCStreamerEPKNS_6MCExprEj.exit58.i: ; preds = %576, %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i70
-  %.0.i.i57.i = phi ptr [ %581, %576 ], [ %567, %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit.i70 ]
+_ZL12emitAbsValueRN4llvm10MCStreamerEPKNS_6MCExprEj.exit58.i: ; preds = %576, %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i70
+  %.0.i.i57.i = phi ptr [ %581, %576 ], [ %567, %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i70 ]
   call void @_ZN4llvm10MCStreamer9emitValueEPKNS_6MCExprEjNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(288) %568, ptr noundef %.0.i.i57.i, i32 noundef %.0.i.i71, ptr null) #18
   %582 = load i8, ptr %15, align 8
   %583 = trunc i8 %582 to i1
@@ -5073,7 +5073,7 @@ _ZL12emitAbsValueRN4llvm10MCStreamerEPKNS_6MCExprEj.exit58.i: ; preds = %576, %_
   %585 = getelementptr inbounds nuw i8, ptr %.us-phi127, i64 24
   %586 = load ptr, ptr %585, align 8
   %.not.i72 = icmp eq ptr %586, null
-  br i1 %.not.i72, label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit60.i, label %587
+  br i1 %.not.i72, label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit60.i, label %587
 
 587:                                              ; preds = %584
   %588 = load i32, ptr %191, align 8
@@ -5081,8 +5081,8 @@ _ZL12emitAbsValueRN4llvm10MCStreamerEPKNS_6MCExprEj.exit58.i: ; preds = %576, %_
   switch i32 %589, label %590 [
     i32 0, label %591
     i32 8, label %591
-    i32 2, label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit60.i
-    i32 10, label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit60.i
+    i32 2, label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit60.i
+    i32 10, label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit60.i
     i32 3, label %597
     i32 11, label %597
     i32 4, label %598
@@ -5099,27 +5099,27 @@ _ZL12emitAbsValueRN4llvm10MCStreamerEPKNS_6MCExprEj.exit58.i: ; preds = %576, %_
   %594 = getelementptr inbounds nuw i8, ptr %593, i64 8
   %595 = load i32, ptr %594, align 8
   %596 = zext i32 %595 to i64
-  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit60.i
+  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit60.i
 
 597:                                              ; preds = %587, %587
-  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit60.i
+  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit60.i
 
 598:                                              ; preds = %587, %587
-  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit60.i
+  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit60.i
 
-_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit60.i: ; preds = %598, %597, %591, %587, %587, %584
+_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit60.i: ; preds = %598, %597, %591, %587, %587, %584
   %.0.i73 = phi i64 [ 0, %584 ], [ 8, %598 ], [ 4, %597 ], [ %596, %591 ], [ 2, %587 ], [ 2, %587 ]
   %599 = call noundef i32 @_ZN4llvm10MCStreamer19emitULEB128IntValueEmj(ptr noundef nonnull align 8 dereferenceable(288) %568, i64 noundef %.0.i73, i32 noundef 0) #18
   %600 = load ptr, ptr %585, align 8
   %.not51.i = icmp eq ptr %600, null
   br i1 %.not51.i, label %603, label %601
 
-601:                                              ; preds = %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit60.i
+601:                                              ; preds = %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit60.i
   %602 = load i32, ptr %191, align 8
   call fastcc void @_ZL13emitFDESymbolRN4llvm16MCObjectStreamerERKNS_8MCSymbolEjb(ptr noundef nonnull align 8 dereferenceable(424) %568, ptr noundef nonnull align 8 dereferenceable(32) %600, i32 noundef %602, i1 noundef zeroext true)
   br label %603
 
-603:                                              ; preds = %601, %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit60.i, %_ZL12emitAbsValueRN4llvm10MCStreamerEPKNS_6MCExprEj.exit58.i
+603:                                              ; preds = %601, %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit60.i, %_ZL12emitAbsValueRN4llvm10MCStreamerEPKNS_6MCExprEj.exit58.i
   %604 = getelementptr inbounds nuw i8, ptr %.us-phi127, i64 32
   %605 = load ptr, ptr %604, align 8
   %606 = getelementptr inbounds nuw i8, ptr %.us-phi127, i64 40
@@ -5261,19 +5261,19 @@ define dso_local void @_ZN4llvm19MCDwarfFrameEmitter16encodeAdvanceLocERNS_9MCCo
   %7 = getelementptr i8, ptr %.val, i64 28
   %.val.val = load i32, ptr %7, align 4
   %8 = icmp eq i32 %.val.val, 1
-  br i1 %8, label %_ZL14ScaleAddrDeltaRN4llvm9MCContextEm.argprom.argprom.exit, label %9
+  br i1 %8, label %_ZL14ScaleAddrDeltaRN4llvm9MCContextEm.exit, label %9
 
 9:                                                ; preds = %3
   %10 = zext i32 %.val.val to i64
   %11 = udiv i64 %1, %10
-  br label %_ZL14ScaleAddrDeltaRN4llvm9MCContextEm.argprom.argprom.exit
+  br label %_ZL14ScaleAddrDeltaRN4llvm9MCContextEm.exit
 
-_ZL14ScaleAddrDeltaRN4llvm9MCContextEm.argprom.argprom.exit: ; preds = %3, %9
+_ZL14ScaleAddrDeltaRN4llvm9MCContextEm.exit:      ; preds = %3, %9
   %.0.i = phi i64 [ %11, %9 ], [ %1, %3 ]
   %12 = icmp eq i64 %.0.i, 0
   br i1 %12, label %81, label %13
 
-13:                                               ; preds = %_ZL14ScaleAddrDeltaRN4llvm9MCContextEm.argprom.argprom.exit
+13:                                               ; preds = %_ZL14ScaleAddrDeltaRN4llvm9MCContextEm.exit
   %14 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
@@ -5410,7 +5410,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit27: ; preds = %70, %71
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %81
 
-81:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit23, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit27, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit25, %_ZL14ScaleAddrDeltaRN4llvm9MCContextEm.argprom.argprom.exit, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit
+81:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit23, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit27, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit25, %_ZL14ScaleAddrDeltaRN4llvm9MCContextEm.exit, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit
   ret void
 }
 
@@ -7246,8 +7246,8 @@ define internal fastcc void @_ZL13emitFDESymbolRN4llvm16MCObjectStreamerERKNS_8M
   switch i32 %13, label %14 [
     i32 0, label %15
     i32 8, label %15
-    i32 2, label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit
-    i32 10, label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit
+    i32 2, label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit
+    i32 10, label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit
     i32 3, label %20
     i32 11, label %20
     i32 4, label %21
@@ -7262,15 +7262,15 @@ define internal fastcc void @_ZL13emitFDESymbolRN4llvm16MCObjectStreamerERKNS_8M
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 8
-  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit
+  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit
 
 20:                                               ; preds = %4, %4
-  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit
+  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit
 
 21:                                               ; preds = %4, %4
-  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit
+  br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit
 
-_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit: ; preds = %4, %4, %15, %20, %21
+_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit: ; preds = %4, %4, %15, %20, %21
   %.0.i = phi i32 [ 8, %21 ], [ 4, %20 ], [ %19, %15 ], [ 2, %4 ], [ 2, %4 ]
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 425
   %23 = load i8, ptr %22, align 1
@@ -7278,7 +7278,7 @@ _ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit: ; preds = %4, %4, %15
   %brmerge.demorgan = and i1 %3, %24
   br i1 %brmerge.demorgan, label %25, label %_ZL12emitAbsValueRN4llvm10MCStreamerEPKNS_6MCExprEj.exit
 
-25:                                               ; preds = %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit
+25:                                               ; preds = %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit
   %26 = getelementptr inbounds nuw i8, ptr %.val, i64 152
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 352
@@ -7295,8 +7295,8 @@ _ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit: ; preds = %4, %4, %15
   %36 = tail call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %32, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %.val, ptr null) #18
   br label %_ZL12emitAbsValueRN4llvm10MCStreamerEPKNS_6MCExprEj.exit
 
-_ZL12emitAbsValueRN4llvm10MCStreamerEPKNS_6MCExprEj.exit: ; preds = %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit, %31, %25
-  %.sink = phi ptr [ %36, %31 ], [ %12, %25 ], [ %12, %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.argprom.exit ]
+_ZL12emitAbsValueRN4llvm10MCStreamerEPKNS_6MCExprEj.exit: ; preds = %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit, %31, %25
+  %.sink = phi ptr [ %36, %31 ], [ %12, %25 ], [ %12, %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit ]
   tail call void @_ZN4llvm10MCStreamer9emitValueEPKNS_6MCExprEjNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %.sink, i32 noundef %.0.i, ptr null) #18
   ret void
 }
@@ -8067,7 +8067,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
 21:                                               ; preds = %.lr.ph, %194
   %.sroa.014.043 = phi ptr [ %.sroa.014.040, %.lr.ph ], [ %.sroa.014.0, %194 ]
   %.pn42 = phi ptr [ %0, %.lr.ph ], [ %.sroa.014.043, %194 ]
-  %22 = tail call fastcc noundef zeroext i1 @"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_.argprom"(ptr noundef nonnull readonly align 8 dereferenceable(90) %.sroa.014.043, ptr noundef nonnull readonly align 8 dereferenceable(90) %0)
+  %22 = tail call fastcc noundef zeroext i1 @"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_"(ptr noundef nonnull readonly align 8 dereferenceable(90) %.sroa.014.043, ptr noundef nonnull readonly align 8 dereferenceable(90) %0)
   br i1 %22, label %23, label %50
 
 23:                                               ; preds = %21
@@ -8147,7 +8147,7 @@ _ZN4llvm16MCDwarfFrameInfoD2Ev.exit:              ; preds = %_ZSt8_DestroyIPN4ll
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false)
   %57 = getelementptr inbounds i8, ptr %.pn42, i64 152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %8, ptr noundef nonnull align 8 dereferenceable(34) %57, i64 34, i1 false)
-  %58 = call fastcc noundef zeroext i1 @"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_.argprom"(ptr noundef nonnull readonly align 8 dereferenceable(90) %3, ptr noundef nonnull readonly align 8 dereferenceable(90) %.pn42)
+  %58 = call fastcc noundef zeroext i1 @"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_"(ptr noundef nonnull readonly align 8 dereferenceable(90) %3, ptr noundef nonnull readonly align 8 dereferenceable(90) %.pn42)
   br i1 %58, label %.lr.ph.i.preheader, label %._crit_edge.i
 
 .lr.ph.i.preheader:                               ; preds = %50
@@ -8247,43 +8247,43 @@ _ZN4llvm16MCDwarfFrameInfoaSEOS0_.exit.i:         ; preds = %84, %_ZSt8_DestroyI
   %114 = load i8, ptr %113, align 8
   %115 = getelementptr inbounds i8, ptr %.sroa.0.017.i, i64 -7
   %116 = load i8, ptr %115, align 1
-  br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.argprom.exit.i.i, label %117
+  br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.exit.i.i, label %117
 
 117:                                              ; preds = %_ZN4llvm16MCDwarfFrameInfoaSEOS0_.exit.i
   %118 = load i64, ptr %60, align 8
   %119 = and i64 %118, 1
   %.not.i.i.i.i9 = icmp eq i64 %119, 0
-  br i1 %.not.i.i.i.i9, label %_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.argprom.exit.i.i, label %120
+  br i1 %.not.i.i.i.i9, label %_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.exit.i.i, label %120
 
 120:                                              ; preds = %117
   %121 = load ptr, ptr %61, align 8
   %122 = getelementptr inbounds i8, ptr %121, i64 24
   %123 = load i64, ptr %121, align 8
-  br label %_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.argprom.exit.i.i
+  br label %_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.exit.i.i
 
-_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.argprom.exit.i.i: ; preds = %120, %117, %_ZN4llvm16MCDwarfFrameInfoaSEOS0_.exit.i
+_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.exit.i.i: ; preds = %120, %117, %_ZN4llvm16MCDwarfFrameInfoaSEOS0_.exit.i
   %.sroa.0.0.i.i.i = phi ptr [ null, %_ZN4llvm16MCDwarfFrameInfoaSEOS0_.exit.i ], [ %122, %120 ], [ null, %117 ]
   %.sroa.4.0.i.i.i = phi i64 [ 0, %_ZN4llvm16MCDwarfFrameInfoaSEOS0_.exit.i ], [ %123, %120 ], [ 0, %117 ]
   %.not.i10.i.i = icmp eq ptr %102, null
-  br i1 %.not.i10.i.i, label %"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_.argprom.exit", label %124
+  br i1 %.not.i10.i.i, label %"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_.exit", label %124
 
-124:                                              ; preds = %_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.argprom.exit.i.i
+124:                                              ; preds = %_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.exit.i.i
   %125 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %126 = load i64, ptr %125, align 8
   %127 = and i64 %126, 1
   %.not.i.i11.i.i = icmp eq i64 %127, 0
-  br i1 %.not.i.i11.i.i, label %"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_.argprom.exit", label %128
+  br i1 %.not.i.i11.i.i, label %"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_.exit", label %128
 
 128:                                              ; preds = %124
   %129 = getelementptr inbounds i8, ptr %102, i64 -8
   %130 = load ptr, ptr %129, align 8
   %131 = getelementptr inbounds i8, ptr %130, i64 24
   %132 = load i64, ptr %130, align 8
-  br label %"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_.argprom.exit"
+  br label %"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_.exit"
 
-"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_.argprom.exit": ; preds = %_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.argprom.exit.i.i, %124, %128
-  %.sroa.0.0.i12.i.i = phi ptr [ null, %_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.argprom.exit.i.i ], [ %131, %128 ], [ null, %124 ]
-  %.sroa.4.0.i13.i.i = phi i64 [ 0, %_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.argprom.exit.i.i ], [ %132, %128 ], [ 0, %124 ]
+"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_.exit": ; preds = %_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.exit.i.i, %124, %128
+  %.sroa.0.0.i12.i.i = phi ptr [ null, %_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.exit.i.i ], [ %131, %128 ], [ null, %124 ]
+  %.sroa.4.0.i13.i.i = phi i64 [ 0, %_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.exit.i.i ], [ %132, %128 ], [ 0, %124 ]
   %133 = and i8 %116, 1
   %134 = and i8 %114, 1
   %135 = and i8 %110, 1
@@ -8292,7 +8292,7 @@ _ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.argprom.exit.i.i: ; preds = %120, %
   %137 = icmp eq i64 %.sroa.speculated.i.i.i, 0
   br i1 %137, label %_ZN4llvmltENS_9StringRefES0_.exit.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i: ; preds = %"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_.argprom.exit"
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i: ; preds = %"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_.exit"
   %138 = tail call i32 @memcmp(ptr noundef %.sroa.0.0.i.i.i, ptr noundef %.sroa.0.0.i12.i.i, i64 noundef %.sroa.speculated.i.i.i) #22
   %.not.i.i.i10 = icmp eq i32 %138, 0
   br i1 %.not.i.i.i10, label %_ZN4llvmltENS_9StringRefES0_.exit.thread.i, label %139
@@ -8301,7 +8301,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i: ; preds = %"_ZZN4llvm19MCD
   %.inv.i.i.i = icmp slt i32 %138, 0
   br i1 %.inv.i.i.i, label %.lr.ph.i.backedge, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i13.i
 
-_ZN4llvmltENS_9StringRefES0_.exit.i:              ; preds = %"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_.argprom.exit"
+_ZN4llvmltENS_9StringRefES0_.exit.i:              ; preds = %"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_.exit"
   %140 = icmp ult i64 %.sroa.4.0.i.i.i, %.sroa.4.0.i13.i.i
   br i1 %140, label %.lr.ph.i.backedge, label %_ZN4llvmltENS_9StringRefES0_.exit18.i
 
@@ -8464,7 +8464,7 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %9
-  %13 = tail call fastcc noundef zeroext i1 @"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_.argprom"(ptr noundef nonnull readonly align 8 dereferenceable(90) %.tr7078, ptr noundef nonnull readonly align 8 dereferenceable(90) %.tr77)
+  %13 = tail call fastcc noundef zeroext i1 @"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_"(ptr noundef nonnull readonly align 8 dereferenceable(90) %.tr7078, ptr noundef nonnull readonly align 8 dereferenceable(90) %.tr77)
   br i1 %13, label %14, label %.loopexit
 
 14:                                               ; preds = %12
@@ -8492,7 +8492,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm16MCDwarfFrameInfoESt6vectorI
   %.sroa.011.012.i = phi ptr [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm16MCDwarfFrameInfoESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i ], [ %.tr7078, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm16MCDwarfFrameInfoESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.preheader.i ]
   %23 = lshr i64 %.013.i, 1
   %24 = getelementptr inbounds %"struct.llvm::MCDwarfFrameInfo", ptr %.sroa.011.012.i, i64 %23
-  %25 = tail call fastcc noundef zeroext i1 @"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_.argprom"(ptr noundef nonnull readonly align 8 dereferenceable(90) %24, ptr noundef nonnull readonly align 8 dereferenceable(90) %19)
+  %25 = tail call fastcc noundef zeroext i1 @"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_"(ptr noundef nonnull readonly align 8 dereferenceable(90) %24, ptr noundef nonnull readonly align 8 dereferenceable(90) %19)
   %26 = getelementptr inbounds i8, ptr %24, i64 96
   %27 = xor i64 %23, -1
   %28 = add nsw i64 %.013.i, %27
@@ -8529,7 +8529,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm16MCDwarfFrameInfoESt6vectorI
   %.sroa.011.012.i58 = phi ptr [ %.sroa.011.1.i61, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm16MCDwarfFrameInfoESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i56 ], [ %.tr77, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm16MCDwarfFrameInfoESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.preheader.i55 ]
   %38 = lshr i64 %.013.i57, 1
   %39 = getelementptr inbounds %"struct.llvm::MCDwarfFrameInfo", ptr %.sroa.011.012.i58, i64 %38
-  %40 = tail call fastcc noundef zeroext i1 @"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_.argprom"(ptr noundef nonnull readonly align 8 dereferenceable(90) %33, ptr noundef nonnull readonly align 8 dereferenceable(90) %39)
+  %40 = tail call fastcc noundef zeroext i1 @"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_"(ptr noundef nonnull readonly align 8 dereferenceable(90) %33, ptr noundef nonnull readonly align 8 dereferenceable(90) %39)
   %41 = getelementptr inbounds i8, ptr %39, i64 96
   %42 = xor i64 %38, -1
   %43 = add nsw i64 %.013.i57, %42
@@ -8568,7 +8568,7 @@ tailrecurse:                                      ; preds = %"_ZSt13__upper_boun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_.argprom"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(90) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(90) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(90) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(90) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::tuple.314", align 8
   %4 = alloca %"class.std::tuple.314", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8610,23 +8610,23 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm19MCDwarfFrameEmitter4EmitE
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   %.not.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.argprom.exit.i, label %41
+  br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.exit.i, label %41
 
 41:                                               ; preds = %2
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %43 = load i64, ptr %42, align 8
   %44 = and i64 %43, 1
   %.not.i.i.i = icmp eq i64 %44, 0
-  br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.argprom.exit.i, label %45
+  br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.exit.i, label %45
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds i8, ptr %6, i64 -8
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 24
   %49 = load i64, ptr %47, align 8
-  br label %_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.argprom.exit.i
+  br label %_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.exit.i
 
-_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.argprom.exit.i: ; preds = %45, %41, %2
+_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.exit.i: ; preds = %45, %41, %2
   %.sroa.0.0.i.i = phi ptr [ null, %2 ], [ %48, %45 ], [ null, %41 ]
   %.sroa.4.0.i.i = phi i64 [ 0, %2 ], [ %49, %45 ], [ 0, %41 ]
   store i8 %24, ptr %3, align 8, !alias.scope !84
@@ -8649,7 +8649,7 @@ _ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.argprom.exit.i: ; preds = %45, %41,
   %.not.i10.i = icmp eq ptr %26, null
   br i1 %.not.i10.i, label %_ZNK12_GLOBAL__N_16CIEKeyltERKS0_.exit, label %57
 
-57:                                               ; preds = %_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.argprom.exit.i
+57:                                               ; preds = %_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.exit.i
   %58 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %59 = load i64, ptr %58, align 8
   %60 = and i64 %59, 1
@@ -8663,9 +8663,9 @@ _ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.argprom.exit.i: ; preds = %45, %41,
   %65 = load i64, ptr %63, align 8
   br label %_ZNK12_GLOBAL__N_16CIEKeyltERKS0_.exit
 
-_ZNK12_GLOBAL__N_16CIEKeyltERKS0_.exit:           ; preds = %_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.argprom.exit.i, %57, %61
-  %.sroa.0.0.i12.i = phi ptr [ null, %_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.argprom.exit.i ], [ %64, %61 ], [ null, %57 ]
-  %.sroa.4.0.i13.i = phi i64 [ 0, %_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.argprom.exit.i ], [ %65, %61 ], [ 0, %57 ]
+_ZNK12_GLOBAL__N_16CIEKeyltERKS0_.exit:           ; preds = %_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.exit.i, %57, %61
+  %.sroa.0.0.i12.i = phi ptr [ null, %_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.exit.i ], [ %64, %61 ], [ null, %57 ]
+  %.sroa.4.0.i13.i = phi i64 [ 0, %_ZNK12_GLOBAL__N_16CIEKey15PersonalityNameEv.exit.i ], [ %65, %61 ], [ 0, %57 ]
   %66 = and i8 %40, 1
   %67 = and i8 %38, 1
   %68 = and i8 %34, 1
@@ -9363,7 +9363,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   br i1 %.not28.i, label %.critedge.i, label %10
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call fastcc noundef zeroext i1 @"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_.argprom"(ptr noundef nonnull readonly align 8 dereferenceable(90) %.sroa.025.032.i, ptr noundef nonnull readonly align 8 dereferenceable(90) %.034.i)
+  %11 = tail call fastcc noundef zeroext i1 @"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_"(ptr noundef nonnull readonly align 8 dereferenceable(90) %.sroa.025.032.i, ptr noundef nonnull readonly align 8 dereferenceable(90) %.034.i)
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.033.i, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.033.i, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.033.i, i64 48
@@ -9536,7 +9536,7 @@ _ZN4llvm16MCDwarfFrameInfoaSEOS0_.exit21.i:       ; preds = %62, %_ZSt8_DestroyI
 82:                                               ; preds = %.outer, %145
   %.sroa.0.0.i = phi ptr [ %84, %145 ], [ %.sroa.0.0.i.ph, %.outer ]
   %.0.i = phi ptr [ %146, %145 ], [ %.0.i.ph, %.outer ]
-  %83 = tail call fastcc noundef zeroext i1 @"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_.argprom"(ptr noundef nonnull readonly align 8 dereferenceable(90) %.0.i, ptr noundef nonnull readonly align 8 dereferenceable(90) %.sroa.030.0.i.ph)
+  %83 = tail call fastcc noundef zeroext i1 @"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_"(ptr noundef nonnull readonly align 8 dereferenceable(90) %.0.i, ptr noundef nonnull readonly align 8 dereferenceable(90) %.sroa.030.0.i.ph)
   %84 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 -96
   %85 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 -64
   %86 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 -56
@@ -9692,7 +9692,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm16MCDwarfFrameInfoESt6vectorI
   %.sroa.011.012.i = phi ptr [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm16MCDwarfFrameInfoESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i ], [ %.tr113130, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm16MCDwarfFrameInfoESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.preheader.i ]
   %154 = lshr i64 %.013.i, 1
   %155 = getelementptr inbounds %"struct.llvm::MCDwarfFrameInfo", ptr %.sroa.011.012.i, i64 %154
-  %156 = tail call fastcc noundef zeroext i1 @"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_.argprom"(ptr noundef nonnull readonly align 8 dereferenceable(90) %155, ptr noundef nonnull readonly align 8 dereferenceable(90) %150)
+  %156 = tail call fastcc noundef zeroext i1 @"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_"(ptr noundef nonnull readonly align 8 dereferenceable(90) %155, ptr noundef nonnull readonly align 8 dereferenceable(90) %150)
   %157 = getelementptr inbounds i8, ptr %155, i64 96
   %158 = xor i64 %154, -1
   %159 = add nsw i64 %.013.i, %158
@@ -9729,7 +9729,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm16MCDwarfFrameInfoESt6vectorI
   %.sroa.011.012.i101 = phi ptr [ %.sroa.011.1.i104, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm16MCDwarfFrameInfoESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i99 ], [ %.tr129, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm16MCDwarfFrameInfoESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.preheader.i98 ]
   %169 = lshr i64 %.013.i100, 1
   %170 = getelementptr inbounds %"struct.llvm::MCDwarfFrameInfo", ptr %.sroa.011.012.i101, i64 %169
-  %171 = tail call fastcc noundef zeroext i1 @"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_.argprom"(ptr noundef nonnull readonly align 8 dereferenceable(90) %164, ptr noundef nonnull readonly align 8 dereferenceable(90) %170)
+  %171 = tail call fastcc noundef zeroext i1 @"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_"(ptr noundef nonnull readonly align 8 dereferenceable(90) %164, ptr noundef nonnull readonly align 8 dereferenceable(90) %170)
   %172 = getelementptr inbounds i8, ptr %170, i64 96
   %173 = xor i64 %169, -1
   %174 = add nsw i64 %.013.i100, %173
@@ -9778,7 +9778,7 @@ define internal fastcc noundef ptr @"_ZSt12__move_mergeIN9__gnu_cxx17__normal_it
   %.028 = phi ptr [ %67, %66 ], [ %4, %5 ]
   %.sroa.022.027 = phi ptr [ %.sroa.022.1, %66 ], [ %0, %5 ]
   %.sroa.018.026 = phi ptr [ %.sroa.018.1, %66 ], [ %2, %5 ]
-  %8 = tail call fastcc noundef zeroext i1 @"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_.argprom"(ptr noundef nonnull readonly align 8 dereferenceable(90) %.sroa.018.026, ptr noundef nonnull readonly align 8 dereferenceable(90) %.sroa.022.027)
+  %8 = tail call fastcc noundef zeroext i1 @"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_"(ptr noundef nonnull readonly align 8 dereferenceable(90) %.sroa.018.026, ptr noundef nonnull readonly align 8 dereferenceable(90) %.sroa.022.027)
   %9 = getelementptr inbounds nuw i8, ptr %.028, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %.028, i64 40
   %11 = getelementptr inbounds nuw i8, ptr %.028, i64 48
@@ -10019,7 +10019,7 @@ define internal fastcc ptr @"_ZSt12__move_mergeIPN4llvm16MCDwarfFrameInfoEN9__gn
   %.031 = phi ptr [ %.1, %67 ], [ %0, %5 ]
   %.01630 = phi ptr [ %.117, %67 ], [ %2, %5 ]
   %.sroa.0.029 = phi ptr [ %68, %67 ], [ %4, %5 ]
-  %9 = tail call fastcc noundef zeroext i1 @"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_.argprom"(ptr noundef nonnull readonly align 8 dereferenceable(90) %.01630, ptr noundef nonnull readonly align 8 dereferenceable(90) %.031)
+  %9 = tail call fastcc noundef zeroext i1 @"_ZZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamerEPNS_12MCAsmBackendEbENK3$_0clERKNS_16MCDwarfFrameInfoES8_"(ptr noundef nonnull readonly align 8 dereferenceable(90) %.01630, ptr noundef nonnull readonly align 8 dereferenceable(90) %.031)
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.029, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.029, i64 40
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.029, i64 48

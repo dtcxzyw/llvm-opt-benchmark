@@ -1106,9 +1106,9 @@ define internal fastcc void @_ZN5NbnxmL19setupAndRunInstanceERKN3gmx15BenchmarkS
 
 .noexc45.i:                                       ; preds = %135
   %137 = fcmp olt double %136, 0.000000e+00
-  br i1 %137, label %138, label %._ZN5NbnxmL16checkKernelSetupB5cxx11ERKNS_18KernelBenchOptionsE.argprom.exit.thread_crit_edge.i.i
+  br i1 %137, label %138, label %._ZN5NbnxmL16checkKernelSetupB5cxx11ERKNS_18KernelBenchOptionsE.exit.thread_crit_edge.i.i
 
-._ZN5NbnxmL16checkKernelSetupB5cxx11ERKNS_18KernelBenchOptionsE.argprom.exit.thread_crit_edge.i.i: ; preds = %.noexc45.i
+._ZN5NbnxmL16checkKernelSetupB5cxx11ERKNS_18KernelBenchOptionsE.exit.thread_crit_edge.i.i: ; preds = %.noexc45.i
   %.val5.pre.i.i = load i32, ptr %110, align 8, !noalias !9
   br label %145
 
@@ -1137,8 +1137,8 @@ define internal fastcc void @_ZN5NbnxmL19setupAndRunInstanceERKN3gmx15BenchmarkS
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #20
   br label %.body.i
 
-145:                                              ; preds = %._ZN5NbnxmL16checkKernelSetupB5cxx11ERKNS_18KernelBenchOptionsE.argprom.exit.thread_crit_edge.i.i, %133
-  %.val5.i.i = phi i32 [ %.val5.pre.i.i, %._ZN5NbnxmL16checkKernelSetupB5cxx11ERKNS_18KernelBenchOptionsE.argprom.exit.thread_crit_edge.i.i ], [ %.val.i.i, %133 ]
+145:                                              ; preds = %._ZN5NbnxmL16checkKernelSetupB5cxx11ERKNS_18KernelBenchOptionsE.exit.thread_crit_edge.i.i, %133
+  %.val5.i.i = phi i32 [ %.val5.pre.i.i, %._ZN5NbnxmL16checkKernelSetupB5cxx11ERKNS_18KernelBenchOptionsE.exit.thread_crit_edge.i.i ], [ %.val.i.i, %133 ]
   %146 = icmp eq i32 %.val5.i.i, 1
   %147 = getelementptr inbounds i8, ptr %1, i64 36
   %148 = load i8, ptr %147, align 4, !noalias !9
@@ -3528,11 +3528,11 @@ attributes #23 = { noreturn nounwind }
 !10 = distinct !{!10, !11, !"_ZN5NbnxmL26setupNbnxmForBenchInstanceERKNS_18KernelBenchOptionsERKN3gmx15BenchmarkSystemE: argument 0"}
 !11 = distinct !{!11, !"_ZN5NbnxmL26setupNbnxmForBenchInstanceERKNS_18KernelBenchOptionsERKN3gmx15BenchmarkSystemE"}
 !12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN5NbnxmL16checkKernelSetupB5cxx11ERKNS_18KernelBenchOptionsE.argprom: argument 0"}
-!14 = distinct !{!14, !"_ZN5NbnxmL16checkKernelSetupB5cxx11ERKNS_18KernelBenchOptionsE.argprom"}
+!13 = distinct !{!13, !14, !"_ZN5NbnxmL16checkKernelSetupB5cxx11ERKNS_18KernelBenchOptionsE: argument 0"}
+!14 = distinct !{!14, !"_ZN5NbnxmL16checkKernelSetupB5cxx11ERKNS_18KernelBenchOptionsE"}
 !15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZN5NbnxmL16checkKernelSetupB5cxx11ERKNS_18KernelBenchOptionsE.argprom: argument 0"}
-!17 = distinct !{!17, !"_ZN5NbnxmL16checkKernelSetupB5cxx11ERKNS_18KernelBenchOptionsE.argprom"}
+!16 = distinct !{!16, !17, !"_ZN5NbnxmL16checkKernelSetupB5cxx11ERKNS_18KernelBenchOptionsE: argument 0"}
+!17 = distinct !{!17, !"_ZN5NbnxmL16checkKernelSetupB5cxx11ERKNS_18KernelBenchOptionsE"}
 !18 = !{!19}
 !19 = distinct !{!19, !20, !"_ZSt11make_uniqueI12PairlistSetsJR14PairlistParamsbiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !20 = distinct !{!20, !"_ZSt11make_uniqueI12PairlistSetsJR14PairlistParamsbiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}

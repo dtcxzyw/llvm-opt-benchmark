@@ -4218,7 +4218,7 @@ Abc_Clock.exit:                                   ; preds = %1, %11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %15 = getelementptr inbounds i8, ptr %0, i64 72
   %16 = load ptr, ptr %15, align 8
-  call fastcc void @Abc_TtReadHex.retelim(ptr noundef %8, ptr noundef %16)
+  call fastcc void @Abc_TtReadHex(ptr noundef %8, ptr noundef %16)
   %17 = call ptr @Exa_ManAlloc(ptr noundef %0, ptr noundef nonnull %8)
   %18 = load i64, ptr %8, align 16
   %19 = and i64 %18, 1
@@ -4758,7 +4758,7 @@ Abc_Clock.exit44:                                 ; preds = %227, %230
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @Abc_TtReadHex.retelim(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #8 {
+define internal fastcc void @Abc_TtReadHex(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #8 {
   %3 = load i8, ptr %1, align 1
   %4 = icmp eq i8 %3, 48
   br i1 %4, label %5, label %9
@@ -5003,7 +5003,7 @@ Abc_Clock.exit:                                   ; preds = %1, %17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   %24 = getelementptr inbounds i8, ptr %0, i64 72
   %25 = load ptr, ptr %24, align 8
-  call fastcc void @Abc_TtReadHex.retelim(ptr noundef %14, ptr noundef %25)
+  call fastcc void @Abc_TtReadHex(ptr noundef %14, ptr noundef %25)
   %26 = call noalias dereferenceable_or_null(98656) ptr @calloc(i64 noundef 1, i64 noundef 98656) #32
   store ptr %0, ptr %26, align 8
   %27 = load i32, ptr %0, align 8
@@ -8943,7 +8943,7 @@ define noundef i32 @Exa4_ManGenStart(ptr noundef %0, i32 noundef %1, i32 noundef
 
 .split.us499:                                     ; preds = %._crit_edge488.us.us, %.preheader418.us
   %.us-phi.us = phi i32 [ 0, %.preheader418.us ], [ %.5.us.us, %._crit_edge488.us.us ]
-  call fastcc void @Exa4_ManAddClause.retelim(ptr noundef nonnull %0, ptr noundef %15, i32 noundef %.us-phi.us)
+  call fastcc void @Exa4_ManAddClause(ptr noundef nonnull %0, ptr noundef %15, i32 noundef %.us-phi.us)
   %65 = load i32, ptr %16, align 8
   %66 = load i32, ptr %18, align 4
   %67 = add nsw i32 %66, %65
@@ -9691,7 +9691,7 @@ Exa4_ManAddClause4.exit312:                       ; preds = %303, %._crit_edge.i
   br i1 %39, label %.lr.ph470, label %._crit_edge471.thread
 
 ._crit_edge471.thread:                            ; preds = %.preheader436
-  call fastcc void @Exa4_ManAddClause.retelim(ptr noundef nonnull %0, ptr noundef %15, i32 noundef 0)
+  call fastcc void @Exa4_ManAddClause(ptr noundef nonnull %0, ptr noundef %15, i32 noundef 0)
   br label %.loopexit435
 
 .preheader434:                                    ; preds = %._crit_edge467
@@ -9713,7 +9713,7 @@ Exa4_ManAddClause4.exit312:                       ; preds = %303, %._crit_edge.i
   br i1 %exitcond579.not, label %.lr.ph478.preheader, label %.lr.ph470, !llvm.loop !171
 
 .lr.ph478.preheader:                              ; preds = %.lr.ph470
-  call fastcc void @Exa4_ManAddClause.retelim(ptr noundef %0, ptr noundef %15, i32 noundef %smax)
+  call fastcc void @Exa4_ManAddClause(ptr noundef %0, ptr noundef %15, i32 noundef %smax)
   br label %.lr.ph478
 
 .loopexit429:                                     ; preds = %Exa4_ManAddClause4.exit332, %.lr.ph478
@@ -10017,7 +10017,7 @@ Exa4_ManAddClause4.exit372:                       ; preds = %413, %._crit_edge.i
   br i1 %445, label %.preheader415.us, label %.preheader416.thread
 
 .preheader416.thread:                             ; preds = %.preheader418
-  call fastcc void @Exa4_ManAddClause.retelim(ptr noundef nonnull %0, ptr noundef %15, i32 noundef 0)
+  call fastcc void @Exa4_ManAddClause(ptr noundef nonnull %0, ptr noundef %15, i32 noundef 0)
   br label %.loopexit417
 
 .preheader415.us:                                 ; preds = %.preheader418, %._crit_edge488.us
@@ -10071,7 +10071,7 @@ Exa4_ManAddClause4.exit372:                       ; preds = %413, %._crit_edge.i
   br label %.preheader
 
 .preheader416:                                    ; preds = %._crit_edge488.us
-  call fastcc void @Exa4_ManAddClause.retelim(ptr noundef nonnull %0, ptr noundef %15, i32 noundef %.5.us)
+  call fastcc void @Exa4_ManAddClause(ptr noundef nonnull %0, ptr noundef %15, i32 noundef %.5.us)
   %467 = icmp sgt i32 %.5.us, 0
   br i1 %467, label %.lr.ph496.preheader, label %.loopexit417
 
@@ -10201,7 +10201,7 @@ Exa4_ManAddClause4.exit392:                       ; preds = %477, %._crit_edge.i
   br i1 %510, label %.lr.ph506, label %._crit_edge507.thread
 
 ._crit_edge507.thread:                            ; preds = %.preheader
-  call fastcc void @Exa4_ManAddClause.retelim(ptr noundef nonnull %0, ptr noundef %15, i32 noundef 0)
+  call fastcc void @Exa4_ManAddClause(ptr noundef nonnull %0, ptr noundef %15, i32 noundef 0)
   br label %._crit_edge515
 
 .lr.ph506:                                        ; preds = %.preheader
@@ -10232,7 +10232,7 @@ Exa4_ManAddClause4.exit392:                       ; preds = %477, %._crit_edge.i
   br i1 %exitcond638.not, label %._crit_edge507, label %512, !llvm.loop !178
 
 ._crit_edge507:                                   ; preds = %520
-  call fastcc void @Exa4_ManAddClause.retelim(ptr noundef nonnull %0, ptr noundef %15, i32 noundef %.7)
+  call fastcc void @Exa4_ManAddClause(ptr noundef nonnull %0, ptr noundef %15, i32 noundef %.7)
   %521 = icmp sgt i32 %.7, 0
   br i1 %521, label %.lr.ph514.preheader, label %._crit_edge515
 
@@ -10357,7 +10357,7 @@ Exa4_ManAddClause4.exit412:                       ; preds = %531, %._crit_edge.i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @Exa4_ManAddClause.retelim(ptr nocapture noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @Exa4_ManAddClause(ptr nocapture noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2) unnamed_addr #1 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %._crit_edge.thread
 
@@ -13531,7 +13531,7 @@ define void @Exa_ManExactSynthesis4(ptr nocapture noundef readonly %0) local_unn
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %14, i8 0, i64 %12, i1 false)
   %17 = getelementptr inbounds i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
-  call fastcc void @Abc_TtReadHex.retelim(ptr noundef %2, ptr noundef %18)
+  call fastcc void @Abc_TtReadHex(ptr noundef %2, ptr noundef %18)
   %19 = load i64, ptr %2, align 16
   %20 = and i64 %19, 1
   %.not = icmp eq i64 %20, 0
@@ -14496,7 +14496,7 @@ Exa5_ManAddGroup.exit:                            ; preds = %Exa5_ManAddClause4.
 
 ._crit_edge:                                      ; preds = %173, %62
   %.0170.lcssa = phi i32 [ 0, %62 ], [ %.1171, %173 ]
-  call fastcc void @Exa5_ManAddClause.retelim(ptr noundef nonnull %0, ptr noundef nonnull %13, i32 noundef %.0170.lcssa)
+  call fastcc void @Exa5_ManAddClause(ptr noundef nonnull %0, ptr noundef nonnull %13, i32 noundef %.0170.lcssa)
   call fastcc void @Exa5_ManAddOneHot(ptr noundef nonnull %0, ptr noundef nonnull %13, i32 noundef %.0170.lcssa)
   %.pre393 = load i32, ptr %18, align 8
   br i1 %.not182, label %.loopexit302, label %174
@@ -15255,7 +15255,7 @@ Vec_IntPush.exit261:                              ; preds = %.Vec_IntGrow.exit10
 ._crit_edge335:                                   ; preds = %477, %.critedge
   %.val188 = load ptr, ptr %17, align 8
   %.val190 = load i32, ptr %15, align 4
-  tail call fastcc void @Exa5_ManAddClause.retelim(ptr noundef nonnull %0, ptr noundef %.val188, i32 noundef %.val190)
+  tail call fastcc void @Exa5_ManAddClause(ptr noundef nonnull %0, ptr noundef %.val188, i32 noundef %.val190)
   br i1 %.not179, label %482, label %481
 
 481:                                              ; preds = %._crit_edge335
@@ -15337,7 +15337,7 @@ Vec_IntFree.exit:                                 ; preds = %._crit_edge338, %49
 
 ._crit_edge342:                                   ; preds = %514, %.preheader
   %.2172.lcssa = phi i32 [ 0, %.preheader ], [ %.3173, %514 ]
-  call fastcc void @Exa5_ManAddClause.retelim(ptr noundef nonnull %0, ptr noundef nonnull %13, i32 noundef %.2172.lcssa)
+  call fastcc void @Exa5_ManAddClause(ptr noundef nonnull %0, ptr noundef nonnull %13, i32 noundef %.2172.lcssa)
   call fastcc void @Exa5_ManAddOneHot(ptr noundef nonnull %0, ptr noundef nonnull %13, i32 noundef %.2172.lcssa)
   %indvars.iv.next390 = add nsw i64 %indvars.iv389, 1
   %515 = load i32, ptr %495, align 4
@@ -15350,7 +15350,7 @@ Vec_IntFree.exit:                                 ; preds = %._crit_edge338, %49
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @Exa5_ManAddClause.retelim(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @Exa5_ManAddClause(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #1 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %._crit_edge.thread
 
@@ -16855,7 +16855,7 @@ define void @Exa_ManExactSynthesis5(ptr nocapture noundef readonly %0) local_unn
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %14, i8 0, i64 %12, i1 false)
   %17 = getelementptr inbounds i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
-  call fastcc void @Abc_TtReadHex.retelim(ptr noundef %2, ptr noundef %18)
+  call fastcc void @Abc_TtReadHex(ptr noundef %2, ptr noundef %18)
   %19 = load i64, ptr %2, align 16
   %20 = and i64 %19, 1
   %.not = icmp eq i64 %20, 0
@@ -17673,7 +17673,7 @@ Vec_WrdPush.exit24:                               ; preds = %.Vec_WrdGrow.exit10
 41:                                               ; preds = %38
   %42 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, ptr noundef nonnull @.str.80)
   %.pre = load ptr, ptr %3, align 8
-  br label %Vec_WrdDumpBin.argprom.exit
+  br label %Vec_WrdDumpBin.exit
 
 43:                                               ; preds = %38
   %.val13.i = load ptr, ptr %3, align 8
@@ -17692,18 +17692,18 @@ Vec_WrdPush.exit24:                               ; preds = %.Vec_WrdGrow.exit10
 
 50:                                               ; preds = %49, %43
   %51 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.111, i32 noundef %.val12.i, ptr noundef nonnull @.str.80)
-  br label %Vec_WrdDumpBin.argprom.exit
+  br label %Vec_WrdDumpBin.exit
 
-Vec_WrdDumpBin.argprom.exit:                      ; preds = %41, %50
+Vec_WrdDumpBin.exit:                              ; preds = %41, %50
   %52 = phi ptr [ %.pre, %41 ], [ %.val13.i, %50 ]
   %.not.i25 = icmp eq ptr %52, null
   br i1 %.not.i25, label %Vec_WrdFree.exit, label %53
 
-53:                                               ; preds = %Vec_WrdDumpBin.argprom.exit
+53:                                               ; preds = %Vec_WrdDumpBin.exit
   tail call void @free(ptr noundef nonnull %52) #33
   br label %Vec_WrdFree.exit
 
-Vec_WrdFree.exit:                                 ; preds = %Vec_WrdDumpBin.argprom.exit, %53
+Vec_WrdFree.exit:                                 ; preds = %Vec_WrdDumpBin.exit, %53
   tail call void @free(ptr noundef nonnull %0) #33
   ret void
 }
@@ -20678,7 +20678,7 @@ Exa6_ManAddClause4.exit310:                       ; preds = %308, %._crit_edge.i
   br i1 %39, label %.lr.ph448, label %._crit_edge449.thread
 
 ._crit_edge449.thread:                            ; preds = %.preheader414
-  call fastcc void @Exa6_ManAddClause.retelim(ptr noundef nonnull %0, ptr noundef %14, i32 noundef 0)
+  call fastcc void @Exa6_ManAddClause(ptr noundef nonnull %0, ptr noundef %14, i32 noundef 0)
   br label %.loopexit413
 
 .preheader412:                                    ; preds = %._crit_edge445
@@ -20700,7 +20700,7 @@ Exa6_ManAddClause4.exit310:                       ; preds = %308, %._crit_edge.i
   br i1 %exitcond556.not, label %.lr.ph456.preheader, label %.lr.ph448, !llvm.loop !319
 
 .lr.ph456.preheader:                              ; preds = %.lr.ph448
-  call fastcc void @Exa6_ManAddClause.retelim(ptr noundef %0, ptr noundef %14, i32 noundef %smax)
+  call fastcc void @Exa6_ManAddClause(ptr noundef %0, ptr noundef %14, i32 noundef %smax)
   br label %.lr.ph456
 
 .loopexit407:                                     ; preds = %Exa6_ManAddClause4.exit330, %.lr.ph456
@@ -20909,7 +20909,7 @@ Exa6_ManAddClause4.exit350:                       ; preds = %392, %._crit_edge.i
 421:                                              ; preds = %420
   %422 = or disjoint i32 %340, 1
   %423 = add i32 %341, 5
-  tail call fastcc void @Exa6_ManAddClause4.retelim(ptr noundef %0, i32 noundef %422, i32 noundef %423, i32 noundef %343, i32 noundef 0)
+  tail call fastcc void @Exa6_ManAddClause4(ptr noundef %0, i32 noundef %422, i32 noundef %423, i32 noundef %343, i32 noundef 0)
   br label %.loopexit413
 
 .loopexit413:                                     ; preds = %.loopexit407, %._crit_edge449.thread, %421, %420
@@ -21121,7 +21121,7 @@ Exa6_ManAddClause4.exit370:                       ; preds = %466, %._crit_edge.i
   br i1 %501, label %.lr.ph484, label %._crit_edge485.thread
 
 ._crit_edge485.thread:                            ; preds = %.preheader
-  call fastcc void @Exa6_ManAddClause.retelim(ptr noundef nonnull %0, ptr noundef %14, i32 noundef 0)
+  call fastcc void @Exa6_ManAddClause(ptr noundef nonnull %0, ptr noundef %14, i32 noundef 0)
   br label %._crit_edge493
 
 .lr.ph484:                                        ; preds = %.preheader
@@ -21152,7 +21152,7 @@ Exa6_ManAddClause4.exit370:                       ; preds = %466, %._crit_edge.i
   br i1 %exitcond615.not, label %._crit_edge485, label %503, !llvm.loop !326
 
 ._crit_edge485:                                   ; preds = %511
-  call fastcc void @Exa6_ManAddClause.retelim(ptr noundef nonnull %0, ptr noundef %14, i32 noundef %.7)
+  call fastcc void @Exa6_ManAddClause(ptr noundef nonnull %0, ptr noundef %14, i32 noundef %.7)
   %512 = icmp sgt i32 %.7, 0
   br i1 %512, label %.lr.ph492.preheader, label %._crit_edge493
 
@@ -21279,7 +21279,7 @@ Exa6_ManAddClause4.exit390:                       ; preds = %522, %._crit_edge.i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @Exa6_ManAddClause.retelim(ptr nocapture noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @Exa6_ManAddClause(ptr nocapture noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2) unnamed_addr #1 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %._crit_edge.thread
 
@@ -21379,7 +21379,7 @@ define internal fastcc void @Exa6_ManAddClause.retelim(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @Exa6_ManAddClause4.retelim(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @Exa6_ManAddClause4(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = alloca [4 x i32], align 16
   store i32 %1, ptr %6, align 16
   %7 = getelementptr inbounds i8, ptr %6, i64 4
@@ -21748,7 +21748,7 @@ Abc_TtSuppOnlyOne.exit:                           ; preds = %4, %Abc_Tt6FirstBit
 
 ._crit_edge238:                                   ; preds = %161, %.preheader218
   %.0142.lcssa = phi i32 [ 0, %.preheader218 ], [ %.1143, %161 ]
-  call fastcc void @Exa6_ManAddClause.retelim(ptr noundef nonnull %0, ptr noundef %11, i32 noundef %.0142.lcssa)
+  call fastcc void @Exa6_ManAddClause(ptr noundef nonnull %0, ptr noundef %11, i32 noundef %.0142.lcssa)
   %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
   %163 = load i32, ptr %9, align 4
   %164 = sext i32 %163 to i64
@@ -24018,7 +24018,7 @@ Mini_AigNodeIsPo.exit.thread.i:                   ; preds = %Mini_AigNodeIsPo.ex
 64:                                               ; preds = %._crit_edge.i
   %65 = load ptr, ptr @stdout, align 8
   %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.91) #33
-  br label %Mini_AigerWrite.argprom.exit
+  br label %Mini_AigerWrite.exit
 
 67:                                               ; preds = %._crit_edge.i
   %68 = sub nsw i32 %.022.lcssa.i, %60
@@ -24124,18 +24124,18 @@ Mini_AigerWriteUnsigned.exit54.i.i:               ; preds = %.lr.ph.i50.i.i, %Mi
 ._crit_edge.i.i:                                  ; preds = %Mini_AigerWriteUnsigned.exit54.i.i, %.preheader.i.i
   %111 = tail call i64 @fwrite(ptr nonnull @.str.118, i64 2, i64 1, ptr nonnull %62)
   %112 = tail call i32 @fclose(ptr noundef nonnull %62)
-  br label %Mini_AigerWrite.argprom.exit
+  br label %Mini_AigerWrite.exit
 
-Mini_AigerWrite.argprom.exit:                     ; preds = %64, %._crit_edge.i.i
+Mini_AigerWrite.exit:                             ; preds = %64, %._crit_edge.i.i
   %113 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.114, ptr noundef nonnull @.str.91)
   %114 = icmp slt i32 %2, 7
   br i1 %114, label %115, label %116
 
-115:                                              ; preds = %Mini_AigerWrite.argprom.exit
+115:                                              ; preds = %Mini_AigerWrite.exit
   tail call void @Exa_ManMiniVerify(ptr noundef %.1, ptr noundef %0, ptr noundef %1)
   br label %116
 
-116:                                              ; preds = %115, %Mini_AigerWrite.argprom.exit
+116:                                              ; preds = %115, %Mini_AigerWrite.exit
   %putchar = tail call i32 @putchar(i32 10)
   br label %117
 

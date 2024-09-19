@@ -5362,13 +5362,13 @@ _ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit: 
   %.sroa.033.1 = phi i32 [ %41, %38 ], [ 0, %_ZNK5clang5Token17getIdentifierInfoEv.exit ]
   store ptr null, ptr %5, align 8
   switch i16 %.sroa.131.0.copyload, label %_ZN5clang22ParsedTemplateArgumentD2Ev.exit [
-    i16 66, label %_ZL23isEndOfTemplateArgumentN5clang5TokenE.argprom.exit.thread
-    i16 52, label %_ZL23isEndOfTemplateArgumentN5clang5TokenE.argprom.exit.thread
-    i16 75, label %_ZL23isEndOfTemplateArgumentN5clang5TokenE.argprom.exit.thread
-    i16 53, label %_ZL23isEndOfTemplateArgumentN5clang5TokenE.argprom.exit.thread
+    i16 66, label %_ZL23isEndOfTemplateArgumentN5clang5TokenE.exit.thread
+    i16 52, label %_ZL23isEndOfTemplateArgumentN5clang5TokenE.exit.thread
+    i16 75, label %_ZL23isEndOfTemplateArgumentN5clang5TokenE.exit.thread
+    i16 53, label %_ZL23isEndOfTemplateArgumentN5clang5TokenE.exit.thread
   ]
 
-_ZL23isEndOfTemplateArgumentN5clang5TokenE.argprom.exit.thread: ; preds = %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit, %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit, %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit, %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit
+_ZL23isEndOfTemplateArgumentN5clang5TokenE.exit.thread: ; preds = %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit, %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit, %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit, %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 608
@@ -5377,7 +5377,7 @@ _ZL23isEndOfTemplateArgumentN5clang5TokenE.argprom.exit.thread: ; preds = %_ZN5c
   %.not = icmp eq i32 %46, 0
   br i1 %.not, label %_ZN5clang22ParsedTemplateArgumentD2Ev.exit, label %47
 
-47:                                               ; preds = %_ZL23isEndOfTemplateArgumentN5clang5TokenE.argprom.exit.thread
+47:                                               ; preds = %_ZL23isEndOfTemplateArgumentN5clang5TokenE.exit.thread
   %.sroa.08.0.copyload = load ptr, ptr %5, align 8
   %.sroa.07.0.copyload = load i32, ptr %31, align 8
   store i32 2, ptr %6, align 8
@@ -5449,13 +5449,13 @@ _ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit20
   %.sroa.1.0.copyload = phi i16 [ %.sroa.1.0.copyload.pre, %76 ], [ %75, %_ZNK5clang5Token17getIdentifierInfoEv.exit17 ]
   %.sroa.033.2 = phi i32 [ %79, %76 ], [ 0, %_ZNK5clang5Token17getIdentifierInfoEv.exit17 ]
   switch i16 %.sroa.1.0.copyload, label %_ZN5clang22ParsedTemplateArgumentD2Ev.exit [
-    i16 66, label %_ZL23isEndOfTemplateArgumentN5clang5TokenE.argprom.exit22.thread
-    i16 52, label %_ZL23isEndOfTemplateArgumentN5clang5TokenE.argprom.exit22.thread
-    i16 75, label %_ZL23isEndOfTemplateArgumentN5clang5TokenE.argprom.exit22.thread
-    i16 53, label %_ZL23isEndOfTemplateArgumentN5clang5TokenE.argprom.exit22.thread
+    i16 66, label %_ZL23isEndOfTemplateArgumentN5clang5TokenE.exit22.thread
+    i16 52, label %_ZL23isEndOfTemplateArgumentN5clang5TokenE.exit22.thread
+    i16 75, label %_ZL23isEndOfTemplateArgumentN5clang5TokenE.exit22.thread
+    i16 53, label %_ZL23isEndOfTemplateArgumentN5clang5TokenE.exit22.thread
   ]
 
-_ZL23isEndOfTemplateArgumentN5clang5TokenE.argprom.exit22.thread: ; preds = %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit20, %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit20, %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit20, %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit20
+_ZL23isEndOfTemplateArgumentN5clang5TokenE.exit22.thread: ; preds = %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit20, %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit20, %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit20, %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit20
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 608
@@ -5466,7 +5466,7 @@ _ZL23isEndOfTemplateArgumentN5clang5TokenE.argprom.exit22.thread: ; preds = %_ZN
     i32 2, label %85
   ]
 
-85:                                               ; preds = %_ZL23isEndOfTemplateArgumentN5clang5TokenE.argprom.exit22.thread, %_ZL23isEndOfTemplateArgumentN5clang5TokenE.argprom.exit22.thread
+85:                                               ; preds = %_ZL23isEndOfTemplateArgumentN5clang5TokenE.exit22.thread, %_ZL23isEndOfTemplateArgumentN5clang5TokenE.exit22.thread
   %.sroa.03.0.copyload = load ptr, ptr %7, align 8
   %.sroa.02.0.copyload = load i32, ptr %67, align 8
   store i32 2, ptr %10, align 8
@@ -5507,8 +5507,8 @@ _ZN5clang22ParsedTemplateArgumentD2Ev.exit.sink.split: ; preds = %85, %47
   call void @free(ptr noundef %103) #16
   br label %_ZN5clang22ParsedTemplateArgumentD2Ev.exit
 
-_ZN5clang22ParsedTemplateArgumentD2Ev.exit:       ; preds = %_ZN5clang22ParsedTemplateArgumentD2Ev.exit.sink.split, %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit20, %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit, %85, %47, %_ZL23isEndOfTemplateArgumentN5clang5TokenE.argprom.exit22.thread, %_ZL23isEndOfTemplateArgumentN5clang5TokenE.argprom.exit.thread
-  %.sroa.033.0 = phi i32 [ %.sroa.033.1, %_ZL23isEndOfTemplateArgumentN5clang5TokenE.argprom.exit.thread ], [ %.sroa.033.2, %_ZL23isEndOfTemplateArgumentN5clang5TokenE.argprom.exit22.thread ], [ %.sroa.033.1, %47 ], [ %.sroa.033.2, %85 ], [ %.sroa.033.1, %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit ], [ %.sroa.033.2, %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit20 ], [ %.sroa.033.0.ph, %_ZN5clang22ParsedTemplateArgumentD2Ev.exit.sink.split ]
+_ZN5clang22ParsedTemplateArgumentD2Ev.exit:       ; preds = %_ZN5clang22ParsedTemplateArgumentD2Ev.exit.sink.split, %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit20, %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit, %85, %47, %_ZL23isEndOfTemplateArgumentN5clang5TokenE.exit22.thread, %_ZL23isEndOfTemplateArgumentN5clang5TokenE.exit.thread
+  %.sroa.033.0 = phi i32 [ %.sroa.033.1, %_ZL23isEndOfTemplateArgumentN5clang5TokenE.exit.thread ], [ %.sroa.033.2, %_ZL23isEndOfTemplateArgumentN5clang5TokenE.exit22.thread ], [ %.sroa.033.1, %47 ], [ %.sroa.033.2, %85 ], [ %.sroa.033.1, %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit ], [ %.sroa.033.2, %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit20 ], [ %.sroa.033.0.ph, %_ZN5clang22ParsedTemplateArgumentD2Ev.exit.sink.split ]
   %104 = icmp eq i32 %.sroa.033.0, 0
   %105 = load ptr, ptr %19, align 8
   %106 = icmp eq ptr %105, null

@@ -1624,14 +1624,14 @@ if.then3:                                         ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i)
   %call.i = call ptr @find_commit_header(ptr noundef %call, ptr noundef nonnull @.str.15, ptr noundef nonnull %len.i) #18
   %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %get_header.argprom.exit, label %cond.true.i
+  br i1 %tobool.not.i, label %get_header.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then3
   %1 = load i64, ptr %len.i, align 8
   %call1.i = call ptr @xmemdupz(ptr noundef nonnull %call.i, i64 noundef %1) #18
-  br label %get_header.argprom.exit
+  br label %get_header.exit
 
-get_header.argprom.exit:                          ; preds = %if.then3, %cond.true.i
+get_header.exit:                                  ; preds = %if.then3, %cond.true.i
   %cond.i = phi ptr [ %call1.i, %cond.true.i ], [ null, %if.then3 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i)
   store ptr %cond.i, ptr %commit_encoding, align 8
@@ -1641,24 +1641,24 @@ if.end5:                                          ; preds = %lor.lhs.false
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i31)
   %call.i32 = call ptr @find_commit_header(ptr noundef %call, ptr noundef nonnull @.str.15, ptr noundef nonnull %len.i31) #18
   %tobool.not.i33 = icmp eq ptr %call.i32, null
-  br i1 %tobool.not.i33, label %get_header.argprom.exit37, label %cond.true.i34
+  br i1 %tobool.not.i33, label %get_header.exit37, label %cond.true.i34
 
 cond.true.i34:                                    ; preds = %if.end5
   %2 = load i64, ptr %len.i31, align 8
   %call1.i35 = call ptr @xmemdupz(ptr noundef nonnull %call.i32, i64 noundef %2) #18
-  br label %get_header.argprom.exit37
+  br label %get_header.exit37
 
-get_header.argprom.exit37:                        ; preds = %if.end5, %cond.true.i34
+get_header.exit37:                                ; preds = %if.end5, %cond.true.i34
   %cond.i36 = phi ptr [ %call1.i35, %cond.true.i34 ], [ null, %if.end5 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i31)
   %tobool7.not = icmp eq ptr %commit_encoding, null
   br i1 %tobool7.not, label %if.end9, label %if.then8
 
-if.then8:                                         ; preds = %get_header.argprom.exit37
+if.then8:                                         ; preds = %get_header.exit37
   store ptr %cond.i36, ptr %commit_encoding, align 8
   br label %if.end9
 
-if.end9:                                          ; preds = %if.then8, %get_header.argprom.exit37
+if.end9:                                          ; preds = %if.then8, %get_header.exit37
   %tobool10.not = icmp eq ptr %cond.i36, null
   %cond = select i1 %tobool10.not, ptr @.str.14, ptr %cond.i36
   %call11 = call i32 @same_encoding(ptr noundef nonnull %cond, ptr noundef nonnull %output_encoding) #18
@@ -1767,8 +1767,8 @@ if.end33:                                         ; preds = %if.then32, %if.end3
   %cond38 = select i1 %tobool34.not, ptr %call, ptr %out.1
   br label %return
 
-return:                                           ; preds = %if.then13, %if.then, %get_header.argprom.exit, %if.end33
-  %retval.0 = phi ptr [ %cond38, %if.end33 ], [ %call, %get_header.argprom.exit ], [ %call, %if.then ], [ %call, %if.then13 ]
+return:                                           ; preds = %if.then13, %if.then, %get_header.exit, %if.end33
+  %retval.0 = phi ptr [ %cond38, %if.end33 ], [ %call, %get_header.exit ], [ %call, %if.then ], [ %call, %if.then13 ]
   ret ptr %retval.0
 }
 
@@ -5043,7 +5043,7 @@ if.end24.i:                                       ; preds = %do.body.i20.i, %if.
   br i1 %cmp30.i, label %if.then32.i, label %if.end34.i
 
 if.then32.i:                                      ; preds = %if.end24.i
-  %call33.i = call fastcc ptr @_.argprom()
+  %call33.i = call fastcc ptr @_()
   call void (ptr, ...) @die(ptr noundef %call33.i) #20
   unreachable
 
@@ -7476,7 +7476,7 @@ declare void @format_trailers_from_commit(ptr noundef, ptr noundef, ptr noundef)
 declare i32 @color_parse_mem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_.argprom() unnamed_addr #1 {
+define internal fastcc ptr @_() unnamed_addr #1 {
 entry:
   %0 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not = icmp eq i32 %0, 0

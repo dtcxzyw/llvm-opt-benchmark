@@ -950,7 +950,7 @@ define void @GetCurrentDateTime(ptr nocapture noundef writeonly %0) local_unname
 
 6:                                                ; preds = %1
   store i32 320, ptr %4, align 4
-  br label %abstime2tm.argprom.exit
+  br label %abstime2tm.exit
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %5, i64 20
@@ -989,9 +989,9 @@ define void @GetCurrentDateTime(ptr nocapture noundef writeonly %0) local_unname
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %33, ptr %34, align 8
-  br label %abstime2tm.argprom.exit
+  br label %abstime2tm.exit
 
-abstime2tm.argprom.exit:                          ; preds = %6, %7
+abstime2tm.exit:                                  ; preds = %6, %7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   ret void
 }

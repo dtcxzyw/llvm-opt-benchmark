@@ -260,7 +260,7 @@ lor.lhs.false:                                    ; preds = %entry
 if.then:                                          ; preds = %lor.lhs.false, %entry
   %call4 = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %src) #23
   %call5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %src) #23
-  %call6 = tail call fastcc noundef ptr @_ZN4abslL7NewTreeEPKcmm.argelim(ptr noundef %call4, i64 noundef %call5)
+  %call6 = tail call fastcc noundef ptr @_ZN4abslL7NewTreeEPKcmm(ptr noundef %call4, i64 noundef %call5)
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -1120,7 +1120,7 @@ if.end.i.i.i:                                     ; preds = %if.then17.i.i.i, %i
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %call5 = tail call fastcc noundef ptr @_ZN4abslL7NewTreeEPKcmm.argelim(ptr noundef %src.coerce1, i64 noundef %src.coerce0)
+  %call5 = tail call fastcc noundef ptr @_ZN4abslL7NewTreeEPKcmm(ptr noundef %src.coerce1, i64 noundef %src.coerce0)
   %rep.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call5, ptr %rep.i.i.i, align 8
   store i64 1, ptr %this, align 8
@@ -1147,7 +1147,7 @@ if.end:                                           ; preds = %if.then.i.i, %_ZN4a
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN4abslL7NewTreeEPKcmm.argelim(ptr noundef %data, i64 noundef %length) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN4abslL7NewTreeEPKcmm(ptr noundef %data, i64 noundef %length) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq i64 %length, 0
   br i1 %cmp, label %return, label %if.end
@@ -1592,7 +1592,7 @@ lpad:                                             ; preds = %if.end34, %if.then.
   resume { ptr, i32 } %19
 
 if.end34:                                         ; preds = %land.lhs.true23, %invoke.cont20, %_ZN4absl13cord_internal16CordzUpdateScopeC2EPNS0_9CordzInfoENS0_18CordzUpdateTracker16MethodIdentifierE.exit
-  %call37 = invoke fastcc noundef ptr @_ZN4abslL7NewTreeEPKcmm.argelim(ptr noundef %src.coerce1, i64 noundef %src.coerce0)
+  %call37 = invoke fastcc noundef ptr @_ZN4abslL7NewTreeEPKcmm(ptr noundef %src.coerce1, i64 noundef %src.coerce0)
           to label %invoke.cont36 unwind label %lpad
 
 invoke.cont36:                                    ; preds = %if.end34
@@ -1633,7 +1633,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i68
   unreachable
 
 if.else:                                          ; preds = %if.end12
-  %call41 = tail call fastcc noundef ptr @_ZN4abslL7NewTreeEPKcmm.argelim(ptr noundef %src.coerce1, i64 noundef %src.coerce0)
+  %call41 = tail call fastcc noundef ptr @_ZN4abslL7NewTreeEPKcmm(ptr noundef %src.coerce1, i64 noundef %src.coerce0)
   store ptr %call41, ptr %rep.i.i.i.i, align 8
   store i64 1, ptr %this, align 8
   %25 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4absl13cord_internal17cordz_next_sampleE)
@@ -3276,7 +3276,7 @@ if.then8:                                         ; preds = %if.then4
   br label %return
 
 if.end21:                                         ; preds = %if.then4, %if.end
-  %call24 = tail call fastcc noundef ptr @_ZN4abslL7NewTreeEPKcmm.argelim(ptr noundef %src.coerce1, i64 noundef %src.coerce0)
+  %call24 = tail call fastcc noundef ptr @_ZN4abslL7NewTreeEPKcmm(ptr noundef %src.coerce1, i64 noundef %src.coerce0)
   %9 = load i8, ptr %this, align 8
   %10 = and i8 %9, 1
   %cmp.i.not.i = icmp eq i8 %10, 0

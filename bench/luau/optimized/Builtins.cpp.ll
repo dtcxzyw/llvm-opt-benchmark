@@ -1824,7 +1824,7 @@ _ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit107.i: ; preds = %_ZNK4Luau7Compile7B
 _ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit109.i: ; preds = %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit107.i
   %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.6.0, ptr noundef nonnull dereferenceable(7) @.str.59) #10
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %_ZN4Luau7CompileL20getBuiltinFunctionIdERKNS0_7BuiltinERKNS_14CompileOptionsE.argprom.exit, label %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit111.i
+  br i1 %44, label %_ZN4Luau7CompileL20getBuiltinFunctionIdERKNS0_7BuiltinERKNS_14CompileOptionsE.exit, label %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit111.i
 
 _ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit111.i: ; preds = %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit109.i
   %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.6.0, ptr noundef nonnull dereferenceable(13) @.str.60) #10
@@ -2257,13 +2257,13 @@ _ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit259.i: ; preds = %209
   %211 = icmp eq i32 %210, 0
   br i1 %211, label %.thread26, label %_ZNK4Luau7Compile7Builtin8isMethodEPKcS3_.exit.thread
 
-_ZN4Luau7CompileL20getBuiltinFunctionIdERKNS0_7BuiltinERKNS_14CompileOptionsE.argprom.exit: ; preds = %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit109.i
+_ZN4Luau7CompileL20getBuiltinFunctionIdERKNS0_7BuiltinERKNS_14CompileOptionsE.exit: ; preds = %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit109.i
   %212 = getelementptr inbounds i8, ptr %1, i64 48
   %213 = load i64, ptr %212, align 8
   %214 = icmp eq i64 %213, 2
   br i1 %214, label %215, label %_ZNK4Luau7Compile7Builtin8isMethodEPKcS3_.exit.thread
 
-215:                                              ; preds = %_ZN4Luau7CompileL20getBuiltinFunctionIdERKNS0_7BuiltinERKNS_14CompileOptionsE.argprom.exit
+215:                                              ; preds = %_ZN4Luau7CompileL20getBuiltinFunctionIdERKNS0_7BuiltinERKNS_14CompileOptionsE.exit
   %216 = getelementptr inbounds i8, ptr %1, i64 40
   %217 = load ptr, ptr %216, align 8
   %218 = getelementptr inbounds i8, ptr %217, i64 8
@@ -2282,7 +2282,7 @@ _ZN4Luau7CompileL20getBuiltinFunctionIdERKNS0_7BuiltinERKNS_14CompileOptionsE.ar
   store i32 %.028, ptr %226, align 4
   br label %_ZNK4Luau7Compile7Builtin8isMethodEPKcS3_.exit.thread
 
-_ZNK4Luau7Compile7Builtin8isMethodEPKcS3_.exit.thread: ; preds = %209, %_ZNK4Luau7AstNameeqEPKc.exit.i7, %215, %_ZN4Luau7CompileL20getBuiltinFunctionIdERKNS0_7BuiltinERKNS_14CompileOptionsE.argprom.exit, %204, %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit259.i, %_ZNK4Luau7Compile7Builtin8isMethodEPKcS3_.exit, %_ZNK4Luau7AstNameeqEPKc.exit225.thread.i, %.thread26, %17
+_ZNK4Luau7Compile7Builtin8isMethodEPKcS3_.exit.thread: ; preds = %209, %_ZNK4Luau7AstNameeqEPKc.exit.i7, %215, %_ZN4Luau7CompileL20getBuiltinFunctionIdERKNS0_7BuiltinERKNS_14CompileOptionsE.exit, %204, %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit259.i, %_ZNK4Luau7Compile7Builtin8isMethodEPKcS3_.exit, %_ZNK4Luau7AstNameeqEPKc.exit225.thread.i, %.thread26, %17
   ret i1 true
 }
 

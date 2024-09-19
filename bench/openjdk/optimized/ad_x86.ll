@@ -4719,7 +4719,7 @@ _ZL8rc_classi.exit470:                            ; preds = %_ZL8rc_classi.exit4
   %97 = icmp eq i16 %56, %65
   %98 = icmp eq i16 %53, %62
   %or.cond368 = and i1 %98, %97
-  br i1 %or.cond368, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit, label %99
+  br i1 %or.cond368, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %99
 
 99:                                               ; preds = %_ZL8rc_classi.exit470
   %100 = load ptr, ptr %0, align 8
@@ -4778,7 +4778,7 @@ _ZL8rc_classi.exit470:                            ; preds = %_ZL8rc_classi.exit4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %26)
   %.not.i472 = icmp eq ptr %1, null
-  br i1 %.not.i472, label %_ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exit, label %127
+  br i1 %.not.i472, label %_ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit, label %127
 
 127:                                              ; preds = %124
   switch i32 %121, label %284 [
@@ -4862,7 +4862,7 @@ _ZL8rc_classi.exit470:                            ; preds = %_ZL8rc_classi.exit4
   %160 = getelementptr inbounds i8, ptr %12, i64 40
   store i32 0, ptr %160, align 8
   call void @_ZN9Assembler4movqE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 0, ptr noundef nonnull %12) #23
-  br label %_ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exit
+  br label %_ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit
 
 161:                                              ; preds = %127
   store i32 4, ptr %13, align 8
@@ -4901,7 +4901,7 @@ _ZL8rc_classi.exit470:                            ; preds = %_ZL8rc_classi.exit4
   %177 = getelementptr inbounds i8, ptr %14, i64 40
   store i32 0, ptr %177, align 8
   call void @_ZN9Assembler4popqE7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %14) #23
-  br label %_ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exit
+  br label %_ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit
 
 178:                                              ; preds = %127
   store i32 4, ptr %15, align 8
@@ -4978,7 +4978,7 @@ _ZL8rc_classi.exit470:                            ; preds = %_ZL8rc_classi.exit4
   %212 = getelementptr inbounds i8, ptr %18, i64 40
   store i32 0, ptr %212, align 8
   call void @_ZN9Assembler4popqE7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %18) #23
-  br label %_ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exit
+  br label %_ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit
 
 213:                                              ; preds = %127
   store i32 4, ptr %19, align 8
@@ -5053,7 +5053,7 @@ _ZL8rc_classi.exit470:                            ; preds = %_ZL8rc_classi.exit4
   %245 = getelementptr inbounds i8, ptr %22, i64 40
   store i32 0, ptr %245, align 8
   call void @_ZN14MacroAssembler7vmovdquE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 0, ptr noundef nonnull %22) #23
-  br label %_ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exit
+  br label %_ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit
 
 246:                                              ; preds = %127
   store i32 4, ptr %23, align 8
@@ -5149,7 +5149,7 @@ _ZL8rc_classi.exit470:                            ; preds = %_ZL8rc_classi.exit4
   call void %256(ptr noundef nonnull align 8 dereferenceable(20) %280, ptr noundef nonnull align 8 dereferenceable(40) %283) #23
   call void @_ZN9Assembler9evmovdquqE11XMMRegister7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 0, ptr noundef nonnull %5, i32 noundef 2) #23
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  br label %_ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exit
+  br label %_ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit
 
 284:                                              ; preds = %127
   %285 = load ptr, ptr @g_assert_poison, align 8
@@ -5157,7 +5157,7 @@ _ZL8rc_classi.exit470:                            ; preds = %_ZL8rc_classi.exit4
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 1033) #24
   unreachable
 
-_ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exit: ; preds = %124, %128, %161, %178, %213, %246
+_ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; preds = %124, %128, %161, %178, %213, %246
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
@@ -5176,7 +5176,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %26)
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 286:                                              ; preds = %117
   %287 = icmp eq i32 %.0.i453, 3
@@ -5186,7 +5186,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
 
 289:                                              ; preds = %286
   %.not.i473 = icmp eq ptr %1, null
-  br i1 %.not.i473, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit, label %290
+  br i1 %.not.i473, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %290
 
 290:                                              ; preds = %289
   switch i32 %121, label %357 [
@@ -5222,7 +5222,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   %or.cond.i25.i = icmp ult i8 %304, 32
   %spec.select.i26.i = select i1 %or.cond.i25.i, i32 %305, i32 -1
   tail call void @_ZN14MacroAssembler6movdquE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i474, i32 %spec.select.i26.i) #23
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 306:                                              ; preds = %294
   %307 = sext i16 %65 to i64
@@ -5238,7 +5238,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   %or.cond.i29.i = icmp ult i8 %313, 32
   %spec.select.i30.i = select i1 %or.cond.i29.i, i32 %314, i32 -1
   tail call void @_ZN9Assembler13vextractf32x4E11XMMRegisterS0_h(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i28.i, i32 %spec.select.i30.i, i8 noundef zeroext 0) #23
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 315:                                              ; preds = %290
   %316 = load i32, ptr @UseAVX, align 4
@@ -5265,7 +5265,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   %or.cond.i33.i = icmp ult i8 %328, 32
   %spec.select.i34.i = select i1 %or.cond.i33.i, i32 %329, i32 -1
   tail call void @_ZN14MacroAssembler7vmovdquE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i32.i, i32 %spec.select.i34.i) #23
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 330:                                              ; preds = %318
   %331 = sext i16 %65 to i64
@@ -5281,7 +5281,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   %or.cond.i37.i = icmp ult i8 %337, 32
   %spec.select.i38.i = select i1 %or.cond.i37.i, i32 %338, i32 -1
   tail call void @_ZN9Assembler13vextractf64x4E11XMMRegisterS0_h(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i36.i, i32 %spec.select.i38.i, i8 noundef zeroext 0) #23
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 339:                                              ; preds = %290
   %340 = sext i16 %65 to i64
@@ -5305,11 +5305,11 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   %354 = ptrtoint ptr %353 to i64
   %355 = trunc i64 %354 to i32
   %.not.i.i = icmp eq i32 %351, %355
-  br i1 %.not.i.i, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit, label %356
+  br i1 %.not.i.i, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %356
 
 356:                                              ; preds = %339
   tail call void @_ZN9Assembler9evmovdquqE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i40.i, i32 %spec.select.i42.i, i32 noundef 2) #23
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 357:                                              ; preds = %290
   %358 = load ptr, ptr @g_assert_poison, align 8
@@ -5324,7 +5324,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
 360:                                              ; preds = %359
   %361 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %66) #23
   tail call void @_Z16vec_spill_helperP17C2_MacroAssemblerbiijP12outputStream(ptr noundef %1, i1 noundef zeroext false, i32 noundef %361, i32 noundef %57, i32 noundef %121, ptr poison)
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 362:                                              ; preds = %359
   %or.cond7 = and i1 %122, %288
@@ -5333,7 +5333,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
 363:                                              ; preds = %362
   %364 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %57) #23
   tail call void @_Z16vec_spill_helperP17C2_MacroAssemblerbiijP12outputStream(ptr noundef %1, i1 noundef zeroext true, i32 noundef %364, i32 noundef %66, i32 noundef %121, ptr poison)
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 365:                                              ; preds = %362
   %366 = load ptr, ptr @g_assert_poison, align 8
@@ -5373,7 +5373,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   br i1 %or.cond374, label %379, label %397
 
 379:                                              ; preds = %369
-  br i1 %.not367, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit, label %380
+  br i1 %.not367, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %380
 
 380:                                              ; preds = %379
   store i32 4, ptr %27, align 8
@@ -5412,10 +5412,10 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   %396 = getelementptr inbounds i8, ptr %28, i64 40
   store i32 0, ptr %396, align 8
   call void @_ZN9Assembler4popqE7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %28) #23
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 397:                                              ; preds = %369
-  br i1 %.not367, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit, label %398
+  br i1 %.not367, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %398
 
 398:                                              ; preds = %397
   store i32 4, ptr %29, align 8
@@ -5490,7 +5490,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   %430 = getelementptr inbounds i8, ptr %32, i64 40
   store i32 0, ptr %430, align 8
   call void @_ZN9Assembler4movqE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 0, ptr noundef nonnull %32) #23
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 431:                                              ; preds = %368
   %432 = or disjoint i32 %57, 1
@@ -5507,7 +5507,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   br i1 %or.cond380, label %440, label %454
 
 440:                                              ; preds = %431
-  br i1 %.not365, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit, label %441
+  br i1 %.not365, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %441
 
 441:                                              ; preds = %440
   %442 = sext i16 %65 to i64
@@ -5534,10 +5534,10 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   %453 = getelementptr inbounds i8, ptr %33, i64 40
   store i32 0, ptr %453, align 8
   call void @_ZN9Assembler4movqE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i, ptr noundef nonnull %33) #23
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 454:                                              ; preds = %431
-  br i1 %.not365, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit, label %455
+  br i1 %.not365, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %455
 
 455:                                              ; preds = %454
   %456 = sext i16 %65 to i64
@@ -5564,7 +5564,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   %467 = getelementptr inbounds i8, ptr %34, i64 40
   store i32 0, ptr %467, align 8
   call void @_ZN9Assembler4movlE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i477, ptr noundef nonnull %34) #23
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 468:                                              ; preds = %368
   %469 = or disjoint i32 %57, 1
@@ -5581,7 +5581,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   br i1 %or.cond386, label %477, label %491
 
 477:                                              ; preds = %468
-  br i1 %.not363, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit, label %478
+  br i1 %.not363, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %478
 
 478:                                              ; preds = %477
   %479 = sext i16 %65 to i64
@@ -5608,10 +5608,10 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   %490 = getelementptr inbounds i8, ptr %35, i64 40
   store i32 0, ptr %490, align 8
   call void @_ZN14MacroAssembler6movdblE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i479, ptr noundef nonnull %35)
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 491:                                              ; preds = %468
-  br i1 %.not363, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit, label %492
+  br i1 %.not363, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %492
 
 492:                                              ; preds = %491
   %493 = sext i16 %65 to i64
@@ -5638,7 +5638,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   %504 = getelementptr inbounds i8, ptr %36, i64 40
   store i32 0, ptr %504, align 8
   call void @_ZN14MacroAssembler6movfltE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i481, ptr noundef nonnull %36)
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 505:                                              ; preds = %368
   %506 = or disjoint i32 %57, 1
@@ -5650,12 +5650,12 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   %511 = or disjoint i32 %66, 1
   %512 = icmp eq i32 %511, %63
   %or.cond392 = select i1 %or.cond390, i1 %512, i1 false
-  br i1 %or.cond392, label %513, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br i1 %or.cond392, label %513, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 513:                                              ; preds = %505
   %514 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %57) #23
   %.not361 = icmp eq ptr %1, null
-  br i1 %.not361, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit, label %515
+  br i1 %.not361, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %515
 
 515:                                              ; preds = %513
   %516 = sext i16 %65 to i64
@@ -5682,7 +5682,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   %527 = getelementptr inbounds i8, ptr %37, i64 40
   store i32 0, ptr %527, align 8
   call void @_ZN14MacroAssembler4kmovE9KRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i483, ptr noundef nonnull %37) #23
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 528:                                              ; preds = %367
   switch i32 %.0.i469, label %801 [
@@ -5707,7 +5707,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   br i1 %or.cond398, label %538, label %552
 
 538:                                              ; preds = %529
-  br i1 %.not360, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit, label %539
+  br i1 %.not360, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %539
 
 539:                                              ; preds = %538
   store i32 4, ptr %38, align 8
@@ -5734,10 +5734,10 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   %or.cond.i484 = icmp ult i8 %550, 32
   %spec.select.i485 = select i1 %or.cond.i484, i32 %551, i32 -1
   call void @_ZN9Assembler4movqE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %38, i32 %spec.select.i485) #23
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 552:                                              ; preds = %529
-  br i1 %.not360, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit, label %553
+  br i1 %.not360, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %553
 
 553:                                              ; preds = %552
   store i32 4, ptr %39, align 8
@@ -5764,7 +5764,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   %or.cond.i486 = icmp ult i8 %564, 32
   %spec.select.i487 = select i1 %or.cond.i486, i32 %565, i32 -1
   call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %39, i32 %spec.select.i487) #23
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 566:                                              ; preds = %528
   %567 = or disjoint i32 %57, 1
@@ -5780,7 +5780,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   br i1 %or.cond404, label %574, label %584
 
 574:                                              ; preds = %566
-  br i1 %.not358, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit, label %575
+  br i1 %.not358, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %575
 
 575:                                              ; preds = %574
   %576 = sext i16 %65 to i64
@@ -5796,10 +5796,10 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   %or.cond.i490 = icmp ult i8 %582, 32
   %spec.select.i491 = select i1 %or.cond.i490, i32 %583, i32 -1
   tail call void @_ZN9Assembler4movqE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i489, i32 %spec.select.i491) #23
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 584:                                              ; preds = %566
-  br i1 %.not358, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit, label %585
+  br i1 %.not358, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %585
 
 585:                                              ; preds = %584
   %586 = sext i16 %65 to i64
@@ -5815,7 +5815,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   %or.cond.i494 = icmp ult i8 %592, 32
   %spec.select.i495 = select i1 %or.cond.i494, i32 %593, i32 -1
   tail call void @_ZN9Assembler4movlE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i493, i32 %spec.select.i495) #23
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 594:                                              ; preds = %528
   %595 = or disjoint i32 %57, 1
@@ -5831,7 +5831,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   br i1 %or.cond410, label %602, label %612
 
 602:                                              ; preds = %594
-  br i1 %.not356, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit, label %603
+  br i1 %.not356, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %603
 
 603:                                              ; preds = %602
   %604 = sext i16 %65 to i64
@@ -5847,10 +5847,10 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   %or.cond.i498 = icmp ult i8 %610, 32
   %spec.select.i499 = select i1 %or.cond.i498, i32 %611, i32 -1
   tail call void @_ZN9Assembler5movdqE11XMMRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i497, i32 %spec.select.i499) #23
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 612:                                              ; preds = %594
-  br i1 %.not356, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit, label %613
+  br i1 %.not356, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %613
 
 613:                                              ; preds = %612
   %614 = sext i16 %65 to i64
@@ -5866,7 +5866,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   %or.cond.i502 = icmp ult i8 %620, 32
   %spec.select.i503 = select i1 %or.cond.i502, i32 %621, i32 -1
   tail call void @_ZN9Assembler5movdlE11XMMRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i501, i32 %spec.select.i503) #23
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 622:                                              ; preds = %528
   %623 = or disjoint i32 %57, 1
@@ -5911,7 +5911,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
     i32 4, label %644
     i32 1, label %681
     i32 3, label %709
-    i32 2, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+    i32 2, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
   ]
 
 644:                                              ; preds = %643
@@ -5929,7 +5929,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   br i1 %or.cond420, label %653, label %667
 
 653:                                              ; preds = %644
-  br i1 %.not354, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit, label %654
+  br i1 %.not354, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %654
 
 654:                                              ; preds = %653
   store i32 4, ptr %40, align 8
@@ -5956,10 +5956,10 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   %or.cond.i508 = icmp ult i8 %665, 32
   %spec.select.i509 = select i1 %or.cond.i508, i32 %666, i32 -1
   call void @_ZN14MacroAssembler6movdblE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %40, i32 %spec.select.i509)
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 667:                                              ; preds = %644
-  br i1 %.not354, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit, label %668
+  br i1 %.not354, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %668
 
 668:                                              ; preds = %667
   store i32 4, ptr %41, align 8
@@ -5986,7 +5986,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   %or.cond.i510 = icmp ult i8 %679, 32
   %spec.select.i511 = select i1 %or.cond.i510, i32 %680, i32 -1
   call void @_ZN14MacroAssembler6movfltE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %41, i32 %spec.select.i511)
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 681:                                              ; preds = %643
   %682 = or disjoint i32 %57, 1
@@ -6002,7 +6002,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   br i1 %or.cond426, label %689, label %699
 
 689:                                              ; preds = %681
-  br i1 %.not352, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit, label %690
+  br i1 %.not352, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %690
 
 690:                                              ; preds = %689
   %691 = sext i16 %65 to i64
@@ -6018,10 +6018,10 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   %or.cond.i514 = icmp ult i8 %697, 32
   %spec.select.i515 = select i1 %or.cond.i514, i32 %698, i32 -1
   tail call void @_ZN9Assembler5movdqE8Register11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i513, i32 %spec.select.i515) #23
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 699:                                              ; preds = %681
-  br i1 %.not352, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit, label %700
+  br i1 %.not352, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %700
 
 700:                                              ; preds = %699
   %701 = sext i16 %65 to i64
@@ -6037,7 +6037,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   %or.cond.i518 = icmp ult i8 %707, 32
   %spec.select.i519 = select i1 %or.cond.i518, i32 %708, i32 -1
   tail call void @_ZN9Assembler5movdlE8Register11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i517, i32 %spec.select.i519) #23
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 709:                                              ; preds = %643
   %710 = or disjoint i32 %57, 1
@@ -6053,7 +6053,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   br i1 %or.cond432, label %717, label %727
 
 717:                                              ; preds = %709
-  br i1 %.not350, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit, label %718
+  br i1 %.not350, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %718
 
 718:                                              ; preds = %717
   %719 = sext i16 %65 to i64
@@ -6069,10 +6069,10 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   %or.cond.i522 = icmp ult i8 %725, 32
   %spec.select.i523 = select i1 %or.cond.i522, i32 %726, i32 -1
   tail call void @_ZN14MacroAssembler6movdblE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i521, i32 %spec.select.i523)
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 727:                                              ; preds = %709
-  br i1 %.not350, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit, label %728
+  br i1 %.not350, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %728
 
 728:                                              ; preds = %727
   %729 = sext i16 %65 to i64
@@ -6088,14 +6088,14 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   %or.cond.i526 = icmp ult i8 %735, 32
   %spec.select.i527 = select i1 %or.cond.i526, i32 %736, i32 -1
   tail call void @_ZN14MacroAssembler6movfltE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i525, i32 %spec.select.i527)
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 737:                                              ; preds = %367
   switch i32 %.0.i469, label %801 [
     i32 4, label %738
     i32 1, label %761
     i32 2, label %782
-    i32 3, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+    i32 3, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
   ]
 
 738:                                              ; preds = %737
@@ -6108,12 +6108,12 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   %744 = or disjoint i32 %66, 1
   %745 = icmp eq i32 %744, %63
   %or.cond438 = select i1 %or.cond436, i1 %745, i1 false
-  br i1 %or.cond438, label %746, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br i1 %or.cond438, label %746, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 746:                                              ; preds = %738
   %747 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %66) #23
   %.not348 = icmp eq ptr %1, null
-  br i1 %.not348, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit, label %748
+  br i1 %.not348, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %748
 
 748:                                              ; preds = %746
   store i32 4, ptr %42, align 8
@@ -6140,7 +6140,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   %or.cond.i528 = icmp ult i8 %759, 8
   %spec.select.i529 = select i1 %or.cond.i528, i32 %760, i32 -1
   call void @_ZN14MacroAssembler4kmovE7Address9KRegister(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %42, i32 %spec.select.i529) #23
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 761:                                              ; preds = %737
   %762 = or disjoint i32 %57, 1
@@ -6187,14 +6187,14 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   %786 = and i32 %785, 1
   %787 = icmp eq i32 %786, 0
   %or.cond446 = select i1 %787, i1 %784, i1 false
-  br i1 %or.cond446, label %788, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br i1 %or.cond446, label %788, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 788:                                              ; preds = %782
   %789 = or disjoint i32 %66, 1
   %790 = icmp eq i32 %789, %63
   %791 = icmp ne ptr %1, null
   %or.cond13 = and i1 %791, %790
-  br i1 %or.cond13, label %792, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br i1 %or.cond13, label %792, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 792:                                              ; preds = %788
   %793 = sext i16 %65 to i64
@@ -6210,7 +6210,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   %or.cond.i536 = icmp ult i8 %799, 8
   %spec.select.i537 = select i1 %or.cond.i536, i32 %800, i32 -1
   tail call void @_ZN14MacroAssembler4kmovE9KRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i535, i32 %spec.select.i537) #23
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 801:                                              ; preds = %737, %367, %643, %528, %368
   %802 = load ptr, ptr @g_assert_poison, align 8
@@ -6218,7 +6218,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exi
   tail call void @_Z20report_unimplementedPKci(ptr noundef nonnull @.str, i32 noundef 1511) #24
   unreachable
 
-_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.argprom.exit: ; preds = %356, %339, %330, %321, %306, %297, %289, %737, %782, %788, %792, %738, %748, %746, %643, %718, %717, %728, %727, %690, %689, %700, %699, %654, %653, %668, %667, %603, %602, %613, %612, %584, %585, %574, %575, %539, %538, %553, %552, %505, %515, %513, %478, %477, %492, %491, %441, %440, %455, %454, %380, %379, %398, %397, %_ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.argprom.exit, %360, %363, %_ZL8rc_classi.exit470
+_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit: ; preds = %356, %339, %330, %321, %306, %297, %289, %737, %782, %788, %792, %738, %748, %746, %643, %718, %717, %728, %727, %690, %689, %700, %699, %654, %653, %668, %667, %603, %602, %613, %612, %584, %585, %574, %575, %539, %538, %553, %552, %505, %515, %513, %478, %477, %492, %491, %441, %440, %455, %454, %380, %379, %398, %397, %_ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit, %360, %363, %_ZL8rc_classi.exit470
   ret i32 0
 }
 
@@ -113682,14 +113682,14 @@ define hidden void @_ZNK10xLoadPNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   %spec.select.i.i22 = select i1 %or.cond.i.i21, i32 %73, i32 -1
   %74 = getelementptr inbounds i8, ptr %0, i64 52
   %75 = load i8, ptr %74, align 4
-  call fastcc void @_ZL14x_load_barrierP14MacroAssemblerPK8MachNode7Address8RegisterS5_h.argelim(ptr noundef nonnull %1, ptr noundef %0, ptr noundef %5, i32 %spec.select.i.i22, i8 noundef zeroext %75)
+  call fastcc void @_ZL14x_load_barrierP14MacroAssemblerPK8MachNode7Address8RegisterS5_h(ptr noundef nonnull %1, ptr noundef %0, ptr noundef %5, i32 %spec.select.i.i22, i8 noundef zeroext %75)
   ret void
 }
 
 declare void @_ZN14MacroAssembler6movptrE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40), i32, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14x_load_barrierP14MacroAssemblerPK8MachNode7Address8RegisterS5_h.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 %3, i8 noundef zeroext %4) unnamed_addr #3 {
+define internal fastcc void @_ZL14x_load_barrierP14MacroAssemblerPK8MachNode7Address8RegisterS5_h(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 %3, i8 noundef zeroext %4) unnamed_addr #3 {
   %6 = alloca %class.Address, align 8
   %7 = alloca %class.Address, align 8
   %8 = alloca %class.IntelJccErratumAlignment, align 8
@@ -114168,7 +114168,7 @@ define hidden void @_ZNK10xXChgPNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   %spec.select.i.i16 = select i1 %or.cond.i.i15, i32 %44, i32 -1
   %45 = getelementptr inbounds i8, ptr %0, i64 52
   %46 = load i8, ptr %45, align 4
-  call fastcc void @_ZL14x_load_barrierP14MacroAssemblerPK8MachNode7Address8RegisterS5_h.argelim(ptr noundef nonnull %1, ptr noundef %0, ptr noundef %6, i32 %spec.select.i.i16, i8 noundef zeroext %46)
+  call fastcc void @_ZL14x_load_barrierP14MacroAssemblerPK8MachNode7Address8RegisterS5_h(ptr noundef nonnull %1, ptr noundef %0, ptr noundef %6, i32 %spec.select.i.i16, i8 noundef zeroext %46)
   ret void
 }
 

@@ -663,7 +663,7 @@ check_and_push_malloc_block.exit37.i:             ; preds = %208, %204
   store ptr %245, ptr %29, align 8
   %246 = sext i32 %236 to i64
   %247 = shl i32 %236, 2
-  %248 = call fastcc ptr @CCalloc.argelim(ptr noundef %9, i32 noundef %247)
+  %248 = call fastcc ptr @CCalloc(ptr noundef %9, i32 noundef %247)
   %249 = and i32 %241, 1
   %.not119.i = icmp eq i32 %249, 0
   %250 = and i32 %241, 6
@@ -744,14 +744,14 @@ check_and_push_malloc_block.exit37.i:             ; preds = %208, %204
 ._crit_edge222.i:                                 ; preds = %._crit_edge.i, %.preheader155.i
   %.0.lcssa.i = phi i32 [ 0, %.preheader155.i ], [ %279, %._crit_edge.i ]
   %281 = mul i32 %.0.lcssa.i, 88
-  %282 = call fastcc ptr @CCalloc.argelim(ptr noundef %9, i32 noundef %281)
+  %282 = call fastcc ptr @CCalloc(ptr noundef %9, i32 noundef %281)
   store ptr %238, ptr %220, align 8
   store ptr %282, ptr %221, align 8
   store ptr %248, ptr %222, align 8
   store i32 %.0.lcssa.i, ptr %223, align 8
   %283 = call i32 @JVM_GetMethodIxExceptionTableLength(ptr noundef %239, ptr noundef %1, i32 noundef %240) #20
   %284 = shl i32 %283, 5
-  %285 = call fastcc ptr @CCalloc.argelim(ptr noundef %9, i32 noundef %284)
+  %285 = call fastcc ptr @CCalloc(ptr noundef %9, i32 noundef %284)
   store ptr %285, ptr %224, align 8
   %286 = call i32 @JVM_GetMethodIxLocalsCount(ptr noundef %239, ptr noundef %1, i32 noundef %240) #20
   %287 = sext i32 %286 to i64
@@ -1067,7 +1067,7 @@ isLegalTarget.exit345.thread.i.i:                 ; preds = %isLegalTarget.exit3
   %.0310.i.i = phi i32 [ %399, %391 ], [ %403, %405 ]
   %414 = shl i32 %.0310.i.i, 2
   %415 = add i32 %414, 8
-  %416 = call fastcc ptr @CCalloc.argelim(ptr noundef %9, i32 noundef %415)
+  %416 = call fastcc ptr @CCalloc(ptr noundef %9, i32 noundef %415)
   %417 = load i32, ptr %381, align 4
   %418 = call noundef i32 @llvm.bswap.i32(i32 %417)
   %419 = add nsw i32 %418, %.2226.i
@@ -2227,7 +2227,7 @@ initialize_exception_table.exit.i:                ; preds = %pop_and_free.exit.i
   %950 = getelementptr inbounds i8, ptr %944, i64 48
   store i32 %947, ptr %950, align 8
   %951 = shl i32 %947, 2
-  %952 = call fastcc ptr @CCalloc.argelim(ptr noundef %9, i32 noundef %951)
+  %952 = call fastcc ptr @CCalloc(ptr noundef %9, i32 noundef %951)
   %953 = getelementptr inbounds i8, ptr %944, i64 56
   store ptr %952, ptr %953, align 8
   %954 = getelementptr inbounds i8, ptr %944, i64 64
@@ -3424,7 +3424,7 @@ declare void @JVM_GetMethodIxByteCode(ptr noundef, ptr noundef, i32 noundef, ptr
 declare i32 @JVM_GetMethodIxModifiers(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @CCalloc.argelim(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @CCalloc(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
   %3 = add i32 %1, 7
   %4 = and i32 %3, -8
   %5 = getelementptr inbounds i8, ptr %0, i64 616
@@ -4733,7 +4733,7 @@ pop_stack.exit.us:                                ; preds = %466, %.thread382.i.
   %494 = trunc nuw nsw i64 %indvars.iv.i36.us to i32
   %495 = shl nuw nsw i64 %wide.trip.count.i.us, 2
   %496 = trunc i64 %495 to i32
-  %497 = call fastcc ptr @CCalloc.argelim(ptr noundef %0, i32 noundef %496)
+  %497 = call fastcc ptr @CCalloc(ptr noundef %0, i32 noundef %496)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %497, ptr nonnull align 4 %478, i64 %495, i1 false)
   %498 = icmp sgt i32 %476, %494
   br i1 %498, label %.lr.ph208.i.us, label %update_registers.exit.us
@@ -4988,11 +4988,11 @@ copy_masks.exit.us.us.i.us:                       ; preds = %copy_masks.exit.us.
 ._crit_edge.i41.us:                               ; preds = %599, %594
   %600 = add nsw i32 %.fr221.i.us, 1
   %601 = shl i32 %600, 4
-  %602 = call fastcc ptr @CCalloc.argelim(ptr noundef %0, i32 noundef %601)
+  %602 = call fastcc ptr @CCalloc(ptr noundef %0, i32 noundef %601)
   %603 = load i32, ptr %39, align 8
   %604 = shl i32 %600, 2
   %605 = mul i32 %604, %603
-  %606 = call fastcc ptr @CCalloc.argelim(ptr noundef %0, i32 noundef %605)
+  %606 = call fastcc ptr @CCalloc(ptr noundef %0, i32 noundef %605)
   %607 = sext i32 %603 to i64
   %608 = shl nsw i64 %607, 2
   br i1 %595, label %.lr.ph.i.i.us, label %add_to_masks.exit.i.us
@@ -6140,7 +6140,7 @@ push_stack.exit.us:                               ; preds = %999, %1047, %995, %
   %.0106.lcssa.i.us = phi i32 [ 0, %1069 ], [ %.1107.i.us, %1086 ]
   %1088 = shl i32 %.0106.lcssa.i.us, 2
   %1089 = add i32 %1088, 4
-  %1090 = call fastcc ptr @CCalloc.argelim(ptr noundef %0, i32 noundef %1089)
+  %1090 = call fastcc ptr @CCalloc(ptr noundef %0, i32 noundef %1089)
   store ptr %1090, ptr %1066, align 8
   store i32 %.0106.lcssa.i.us, ptr %1090, align 4
   %1091 = load i32, ptr %24, align 8
@@ -6746,42 +6746,42 @@ define internal fastcc void @set_protected(ptr noundef nonnull %0, i32 noundef %
   %8 = getelementptr i8, ptr %0, i64 552
   %.val = load ptr, ptr %8, align 8
   %9 = icmp eq ptr %.val, null
-  br i1 %9, label %is_superclass.argprom.exit.thread, label %.preheader.i
+  br i1 %9, label %is_superclass.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %4
   %10 = load i32, ptr %.val, align 4
   %.not1.i = icmp eq i32 %10, 0
-  br i1 %.not1.i, label %is_superclass.argprom.exit.thread, label %.lr.ph.i
+  br i1 %.not1.i, label %is_superclass.exit.thread, label %.lr.ph.i
 
 11:                                               ; preds = %.lr.ph.i
   %12 = getelementptr inbounds i8, ptr %.02.i, i64 4
   %13 = load i32, ptr %12, align 4
   %.not.i = icmp eq i32 %13, 0
-  br i1 %.not.i, label %is_superclass.argprom.exit.thread, label %.lr.ph.i, !llvm.loop !60
+  br i1 %.not.i, label %is_superclass.exit.thread, label %.lr.ph.i, !llvm.loop !60
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %11
   %14 = phi i32 [ %13, %11 ], [ %10, %.preheader.i ]
   %.02.i = phi ptr [ %12, %11 ], [ %.val, %.preheader.i ]
   %15 = icmp eq i32 %14, %7
-  br i1 %15, label %is_superclass.argprom.exit, label %11
+  br i1 %15, label %is_superclass.exit, label %11
 
-is_superclass.argprom.exit:                       ; preds = %.lr.ph.i
+is_superclass.exit:                               ; preds = %.lr.ph.i
   %16 = tail call fastcc ptr @object_fullinfo_to_classclass(ptr noundef %0, i32 noundef %7)
   %17 = load ptr, ptr %5, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 200
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr %19(ptr noundef nonnull %5, ptr noundef %16) #20
   %21 = getelementptr inbounds i8, ptr %0, i64 424
-  br i1 %or.cond, label %is_superclass.argprom.exit.split.us, label %is_superclass.argprom.exit.split
+  br i1 %or.cond, label %is_superclass.exit.split.us, label %is_superclass.exit.split
 
-is_superclass.argprom.exit.split.us:              ; preds = %is_superclass.argprom.exit, %24
-  %.046.us = phi ptr [ %28, %24 ], [ %20, %is_superclass.argprom.exit ]
+is_superclass.exit.split.us:                      ; preds = %is_superclass.exit, %24
+  %.046.us = phi ptr [ %28, %24 ], [ %20, %is_superclass.exit ]
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 @JVM_GetCPFieldModifiers(ptr noundef nonnull %5, ptr noundef %22, i32 noundef %2, ptr noundef %.046.us) #20
   %.not49.us = icmp eq i32 %23, -1
   br i1 %.not49.us, label %24, label %.split.us
 
-24:                                               ; preds = %is_superclass.argprom.exit.split.us
+24:                                               ; preds = %is_superclass.exit.split.us
   %25 = load ptr, ptr %5, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 80
   %27 = load ptr, ptr %26, align 8
@@ -6791,16 +6791,16 @@ is_superclass.argprom.exit.split.us:              ; preds = %is_superclass.argpr
   %31 = load ptr, ptr %30, align 8
   tail call void %31(ptr noundef nonnull %5, ptr noundef %.046.us) #20
   %.not50.us = icmp eq ptr %28, null
-  br i1 %.not50.us, label %.thread, label %is_superclass.argprom.exit.split.us, !llvm.loop !61
+  br i1 %.not50.us, label %.thread, label %is_superclass.exit.split.us, !llvm.loop !61
 
-is_superclass.argprom.exit.split:                 ; preds = %is_superclass.argprom.exit, %34
-  %.046 = phi ptr [ %38, %34 ], [ %20, %is_superclass.argprom.exit ]
+is_superclass.exit.split:                         ; preds = %is_superclass.exit, %34
+  %.046 = phi ptr [ %38, %34 ], [ %20, %is_superclass.exit ]
   %32 = load ptr, ptr %21, align 8
   %33 = tail call i32 @JVM_GetCPMethodModifiers(ptr noundef nonnull %5, ptr noundef %32, i32 noundef %2, ptr noundef %.046) #20
   %.not49 = icmp eq i32 %33, -1
   br i1 %.not49, label %34, label %.split.us
 
-34:                                               ; preds = %is_superclass.argprom.exit.split
+34:                                               ; preds = %is_superclass.exit.split
   %35 = load ptr, ptr %5, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 80
   %37 = load ptr, ptr %36, align 8
@@ -6810,11 +6810,11 @@ is_superclass.argprom.exit.split:                 ; preds = %is_superclass.argpr
   %41 = load ptr, ptr %40, align 8
   tail call void %41(ptr noundef nonnull %5, ptr noundef %.046) #20
   %.not50 = icmp eq ptr %38, null
-  br i1 %.not50, label %.thread, label %is_superclass.argprom.exit.split, !llvm.loop !61
+  br i1 %.not50, label %.thread, label %is_superclass.exit.split, !llvm.loop !61
 
-.split.us:                                        ; preds = %is_superclass.argprom.exit.split, %is_superclass.argprom.exit.split.us
-  %.us-phi = phi i32 [ %23, %is_superclass.argprom.exit.split.us ], [ %33, %is_superclass.argprom.exit.split ]
-  %.us-phi62 = phi ptr [ %.046.us, %is_superclass.argprom.exit.split.us ], [ %.046, %is_superclass.argprom.exit.split ]
+.split.us:                                        ; preds = %is_superclass.exit.split, %is_superclass.exit.split.us
+  %.us-phi = phi i32 [ %23, %is_superclass.exit.split.us ], [ %33, %is_superclass.exit.split ]
+  %.us-phi62 = phi ptr [ %.046.us, %is_superclass.exit.split.us ], [ %.046, %is_superclass.exit.split ]
   %42 = and i32 %.us-phi, 4
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %.thread, label %43
@@ -6841,9 +6841,9 @@ is_superclass.argprom.exit.split:                 ; preds = %is_superclass.argpr
   %54 = getelementptr inbounds i8, ptr %53, i64 184
   %55 = load ptr, ptr %54, align 8
   tail call void %55(ptr noundef nonnull %5, ptr noundef %.159) #20
-  br label %is_superclass.argprom.exit.thread
+  br label %is_superclass.exit.thread
 
-is_superclass.argprom.exit.thread:                ; preds = %11, %.preheader.i, %4, %.thread
+is_superclass.exit.thread:                        ; preds = %11, %.preheader.i, %4, %.thread
   ret void
 }
 
@@ -7802,7 +7802,7 @@ define internal fastcc void @merge_into_one_successor(ptr noundef nonnull %0, i3
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %28 = shl i32 %27, 4
-  %29 = tail call fastcc ptr @CCalloc.argelim(ptr noundef %0, i32 noundef %28)
+  %29 = tail call fastcc ptr @CCalloc(ptr noundef %0, i32 noundef %28)
   br label %.lr.ph31.i
 
 .lr.ph31.i:                                       ; preds = %.lr.ph31.i, %._crit_edge.i
@@ -7871,7 +7871,7 @@ define internal fastcc void @merge_into_one_successor(ptr noundef nonnull %0, i3
 
 .lr.ph181.preheader:                              ; preds = %.lr.ph179
   %54 = shl i32 %18, 2
-  %55 = tail call fastcc ptr @CCalloc.argelim(ptr noundef %0, i32 noundef %54)
+  %55 = tail call fastcc ptr @CCalloc(ptr noundef %0, i32 noundef %54)
   br label %.lr.ph181
 
 .lr.ph181:                                        ; preds = %.lr.ph181.preheader, %.lr.ph181
@@ -7943,14 +7943,14 @@ define internal fastcc void @merge_into_one_successor(ptr noundef nonnull %0, i3
 86:                                               ; preds = %85, %66
   %87 = load i32, ptr %80, align 8
   %88 = icmp eq i32 %87, -1
-  br i1 %88, label %merge_flags.argprom.exit, label %89
+  br i1 %88, label %merge_flags.exit, label %89
 
 89:                                               ; preds = %86
   %90 = getelementptr inbounds i8, ptr %79, i64 56
   %91 = load ptr, ptr %90, align 8
   %92 = tail call i32 @llvm.smax.i32(i32 %87, i32 %67)
   %93 = shl i32 %92, 2
-  %94 = tail call fastcc ptr @CCalloc.argelim(ptr noundef %0, i32 noundef %93)
+  %94 = tail call fastcc ptr @CCalloc(ptr noundef %0, i32 noundef %93)
   %95 = zext i32 %69 to i64
   br label %96
 
@@ -8031,8 +8031,8 @@ define internal fastcc void @merge_into_one_successor(ptr noundef nonnull %0, i3
   %.0128.val = load ptr, ptr %.0128, align 8
   %131 = getelementptr i8, ptr %.0128, i64 8
   %.0128.val160 = load i32, ptr %131, align 8
-  tail call fastcc void @merge_stack.argprom.argelim(ptr noundef %0, i32 noundef %2, ptr %.0128.val, i32 %.0128.val160)
-  call fastcc void @merge_registers.argelim(ptr noundef %0, i32 noundef %2, ptr noundef nonnull %11)
+  tail call fastcc void @merge_stack(ptr noundef %0, i32 noundef %2, ptr %.0128.val, i32 %.0128.val160)
+  call fastcc void @merge_registers(ptr noundef %0, i32 noundef %2, ptr noundef nonnull %11)
   %.val = load ptr, ptr %12, align 8
   %132 = zext i32 %2 to i64
   %133 = getelementptr inbounds %struct.instruction_data_type, ptr %.val, i64 %132
@@ -8045,19 +8045,19 @@ define internal fastcc void @merge_into_one_successor(ptr noundef nonnull %0, i3
   %.not.i164 = icmp eq i16 %138, %135
   %.not17.i = icmp eq i16 %139, %137
   %or.cond.i = select i1 %.not.i164, i1 %.not17.i, i1 false
-  br i1 %or.cond.i, label %merge_flags.argprom.exit, label %140
+  br i1 %or.cond.i, label %merge_flags.exit, label %140
 
 140:                                              ; preds = %._crit_edge185
   store i16 %138, ptr %134, align 2
   store i16 %139, ptr %136, align 8
-  br label %merge_flags.argprom.exit.sink.split
+  br label %merge_flags.exit.sink.split
 
 141:                                              ; preds = %.loopexit
   %.0128.val161 = load ptr, ptr %.0128, align 8
   %142 = getelementptr i8, ptr %.0128, i64 8
   %.0128.val162 = load i32, ptr %142, align 8
-  tail call fastcc void @merge_stack.argprom.argelim(ptr noundef %0, i32 noundef %2, ptr %.0128.val161, i32 %.0128.val162)
-  call fastcc void @merge_registers.argelim(ptr noundef %0, i32 noundef %2, ptr noundef %.0127)
+  tail call fastcc void @merge_stack(ptr noundef %0, i32 noundef %2, ptr %.0128.val161, i32 %.0128.val162)
+  call fastcc void @merge_registers(ptr noundef %0, i32 noundef %2, ptr noundef %.0127)
   %.val163 = load ptr, ptr %12, align 8
   %143 = zext i32 %2 to i64
   %144 = getelementptr inbounds %struct.instruction_data_type, ptr %.val163, i64 %143
@@ -8070,27 +8070,27 @@ define internal fastcc void @merge_into_one_successor(ptr noundef nonnull %0, i3
   %.not.i165 = icmp eq i16 %149, %146
   %.not17.i166 = icmp eq i16 %150, %148
   %or.cond.i167 = select i1 %.not.i165, i1 %.not17.i166, i1 false
-  br i1 %or.cond.i167, label %merge_flags.argprom.exit, label %151
+  br i1 %or.cond.i167, label %merge_flags.exit, label %151
 
 151:                                              ; preds = %141
   store i16 %149, ptr %145, align 2
   store i16 %150, ptr %147, align 8
-  br label %merge_flags.argprom.exit.sink.split
+  br label %merge_flags.exit.sink.split
 
-merge_flags.argprom.exit.sink.split:              ; preds = %140, %151
+merge_flags.exit.sink.split:                      ; preds = %140, %151
   %.sink209 = phi ptr [ %144, %151 ], [ %133, %140 ]
   %152 = getelementptr inbounds i8, ptr %.sink209, i64 4
   %153 = load i8, ptr %152, align 4
   %154 = or i8 %153, 1
   store i8 %154, ptr %152, align 4
-  br label %merge_flags.argprom.exit
+  br label %merge_flags.exit
 
-merge_flags.argprom.exit:                         ; preds = %merge_flags.argprom.exit.sink.split, %141, %._crit_edge185, %86
+merge_flags.exit:                                 ; preds = %merge_flags.exit.sink.split, %141, %._crit_edge185, %86
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @merge_stack.argprom.argelim(ptr noundef nonnull %0, i32 noundef %1, ptr %.0.val, i32 %.8.val) unnamed_addr #0 {
+define internal fastcc void @merge_stack(ptr noundef nonnull %0, i32 noundef %1, ptr %.0.val, i32 %.8.val) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 536
   %4 = load ptr, ptr %3, align 8
   %5 = zext i32 %1 to i64
@@ -8146,7 +8146,7 @@ define internal fastcc void @merge_stack.argprom.argelim(ptr noundef nonnull %0,
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %27 = shl i32 %26, 4
-  %28 = tail call fastcc ptr @CCalloc.argelim(ptr noundef %0, i32 noundef %27)
+  %28 = tail call fastcc ptr @CCalloc(ptr noundef %0, i32 noundef %27)
   br label %.lr.ph31.i
 
 .lr.ph31.i:                                       ; preds = %.lr.ph31.i, %._crit_edge.i
@@ -8219,7 +8219,7 @@ copy_stack.exit:                                  ; preds = %.lr.ph31.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @merge_registers.argelim(ptr noundef nonnull %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @merge_registers(ptr noundef nonnull %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 536
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
@@ -8299,7 +8299,7 @@ define internal fastcc void @merge_registers.argelim(ptr noundef nonnull %0, i32
 split:                                            ; preds = %38
   %45 = trunc nuw nsw i64 %indvars.iv to i32
   %46 = shl i32 %.0, 2
-  %47 = tail call fastcc ptr @CCalloc.argelim(ptr noundef %0, i32 noundef %46)
+  %47 = tail call fastcc ptr @CCalloc(ptr noundef %0, i32 noundef %46)
   %.not225 = icmp eq i64 %indvars.iv, 0
   br i1 %.not225, label %.preheader189, label %.lr.ph198.preheader
 
@@ -8446,7 +8446,7 @@ split:                                            ; preds = %38
 
 103:                                              ; preds = %100
   %104 = shl i32 %.1162, 4
-  %105 = tail call fastcc ptr @CCalloc.argelim(ptr noundef %0, i32 noundef %104)
+  %105 = tail call fastcc ptr @CCalloc(ptr noundef %0, i32 noundef %104)
   %106 = icmp sgt i32 %.1162, 0
   br i1 %106, label %.lr.ph215, label %.lr.ph224
 
@@ -8458,7 +8458,7 @@ split:                                            ; preds = %38
   %indvars.iv265 = phi i64 [ 0, %.lr.ph215 ], [ %indvars.iv.next266, %107 ]
   %108 = load i32, ptr %69, align 8
   %109 = shl i32 %108, 2
-  %110 = tail call fastcc ptr @CCalloc.argelim(ptr noundef %0, i32 noundef %109)
+  %110 = tail call fastcc ptr @CCalloc(ptr noundef %0, i32 noundef %109)
   %111 = getelementptr inbounds %struct.mask_type, ptr %105, i64 %indvars.iv265, i32 1
   store ptr %110, ptr %111, align 8
   %indvars.iv.next266 = add nuw nsw i64 %indvars.iv265, 1

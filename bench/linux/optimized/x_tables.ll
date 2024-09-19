@@ -3057,18 +3057,18 @@ define internal ptr @xt_match_seq_start(ptr nocapture noundef readonly %0, ptr n
   store i8 0, ptr %5, align 8
   %6 = load i64, ptr %1, align 8
   %7 = icmp sgt i64 %6, 0
-  br i1 %7, label %.preheader, label %xt_mttg_seq_next.argprom.argprom.argprom.exit.thread
+  br i1 %7, label %.preheader, label %xt_mttg_seq_next.exit.thread
 
 .preheader:                                       ; preds = %2
   %8 = getelementptr i8, ptr %0, i64 104
   br label %14
 
-9:                                                ; preds = %43, %xt_mttg_seq_next.argprom.argprom.argprom.exit
+9:                                                ; preds = %43, %xt_mttg_seq_next.exit
   %10 = add i32 %15, 1
   %11 = zext i32 %10 to i64
   %12 = load i64, ptr %1, align 8
   %13 = icmp sgt i64 %12, %11
-  br i1 %13, label %14, label %xt_mttg_seq_next.argprom.argprom.argprom.exit.thread, !llvm.loop !60
+  br i1 %13, label %14, label %xt_mttg_seq_next.exit.thread, !llvm.loop !60
 
 14:                                               ; preds = %.preheader, %9
   %15 = phi i32 [ %10, %9 ], [ 0, %.preheader ]
@@ -3081,7 +3081,7 @@ define internal ptr @xt_match_seq_start(ptr nocapture noundef readonly %0, ptr n
   %18 = ptrtoint ptr %.val.val.val to i64
   %19 = getelementptr inbounds i8, ptr %.val1, i64 16
   %20 = load i8, ptr %19, align 8
-  switch i8 %20, label %xt_mttg_seq_next.argprom.argprom.argprom.exit.thread [
+  switch i8 %20, label %xt_mttg_seq_next.exit.thread [
     i8 0, label %21
     i8 1, label %26
     i8 2, label %43
@@ -3096,7 +3096,7 @@ define internal ptr @xt_match_seq_start(ptr nocapture noundef readonly %0, ptr n
   %25 = getelementptr inbounds i8, ptr %.val1, i64 8
   store ptr %24, ptr %25, align 8
   store ptr %24, ptr %.val1, align 8
-  br label %xt_mttg_seq_next.argprom.argprom.argprom.exit
+  br label %xt_mttg_seq_next.exit
 
 26:                                               ; preds = %14
   %27 = getelementptr inbounds i8, ptr %.val1, i64 8
@@ -3105,7 +3105,7 @@ define internal ptr @xt_match_seq_start(ptr nocapture noundef readonly %0, ptr n
   store ptr %29, ptr %27, align 8
   %30 = load ptr, ptr %.val1, align 8
   %31 = icmp eq ptr %29, %30
-  br i1 %31, label %32, label %xt_mttg_seq_next.argprom.argprom.argprom.exit
+  br i1 %31, label %32, label %xt_mttg_seq_next.exit
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr @xt, align 8
@@ -3123,7 +3123,7 @@ define internal ptr @xt_match_seq_start(ptr nocapture noundef readonly %0, ptr n
   %41 = getelementptr [3 x i8], ptr @xt_mttg_seq_next.next_class, i64 0, i64 %40
   %42 = load i8, ptr %41, align 1
   store i8 %42, ptr %19, align 8
-  br label %xt_mttg_seq_next.argprom.argprom.argprom.exit
+  br label %xt_mttg_seq_next.exit
 
 43:                                               ; preds = %14
   %44 = getelementptr inbounds i8, ptr %.val1, i64 8
@@ -3134,14 +3134,14 @@ define internal ptr @xt_match_seq_start(ptr nocapture noundef readonly %0, ptr n
   %48 = icmp eq ptr %46, %47
   %49 = icmp eq ptr %.val1, null
   %or.cond = or i1 %49, %48
-  br i1 %or.cond, label %xt_mttg_seq_next.argprom.argprom.argprom.exit.thread, label %9
+  br i1 %or.cond, label %xt_mttg_seq_next.exit.thread, label %9
 
-xt_mttg_seq_next.argprom.argprom.argprom.exit:    ; preds = %21, %26, %32
+xt_mttg_seq_next.exit:                            ; preds = %21, %26, %32
   %.old = icmp eq ptr %.val1, null
-  br i1 %.old, label %xt_mttg_seq_next.argprom.argprom.argprom.exit.thread, label %9
+  br i1 %.old, label %xt_mttg_seq_next.exit.thread, label %9
 
-xt_mttg_seq_next.argprom.argprom.argprom.exit.thread: ; preds = %14, %43, %xt_mttg_seq_next.argprom.argprom.argprom.exit, %9, %2
-  %50 = phi ptr [ %4, %2 ], [ null, %14 ], [ null, %43 ], [ %4, %9 ], [ null, %xt_mttg_seq_next.argprom.argprom.argprom.exit ]
+xt_mttg_seq_next.exit.thread:                     ; preds = %14, %43, %xt_mttg_seq_next.exit, %9, %2
+  %50 = phi ptr [ %4, %2 ], [ null, %14 ], [ null, %43 ], [ %4, %9 ], [ null, %xt_mttg_seq_next.exit ]
   ret ptr %50
 }
 
@@ -3192,7 +3192,7 @@ define internal ptr @xt_match_seq_next(ptr nocapture noundef readonly %0, ptr no
   %.val.val = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %.val.val, i64 592
   %.val.val.val = load ptr, ptr %7, align 8
-  %8 = tail call fastcc ptr @xt_mttg_seq_next.argprom.argprom.argprom(ptr %.val.val.val, ptr %.val1, ptr noundef %2, i1 noundef zeroext false)
+  %8 = tail call fastcc ptr @xt_mttg_seq_next(ptr %.val.val.val, ptr %.val1, ptr noundef %2, i1 noundef zeroext false)
   ret ptr %8
 }
 
@@ -3228,7 +3228,7 @@ define internal noundef i32 @xt_match_seq_show(ptr noundef %0, ptr nocapture rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @xt_mttg_seq_next.argprom.argprom.argprom(ptr %.104.val.168.val.592.val, ptr %.112.val, ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc ptr @xt_mttg_seq_next(ptr %.104.val.168.val.592.val, ptr %.112.val, ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = ptrtoint ptr %.104.val.168.val.592.val to i64
   %4 = icmp eq ptr %0, null
   br i1 %4, label %8, label %5
@@ -3314,18 +3314,18 @@ define internal ptr @xt_target_seq_start(ptr nocapture noundef readonly %0, ptr 
   store i8 0, ptr %5, align 8
   %6 = load i64, ptr %1, align 8
   %7 = icmp sgt i64 %6, 0
-  br i1 %7, label %.preheader, label %xt_mttg_seq_next.argprom.argprom.argprom.exit.thread
+  br i1 %7, label %.preheader, label %xt_mttg_seq_next.exit.thread
 
 .preheader:                                       ; preds = %2
   %8 = getelementptr i8, ptr %0, i64 104
   br label %14
 
-9:                                                ; preds = %43, %xt_mttg_seq_next.argprom.argprom.argprom.exit
+9:                                                ; preds = %43, %xt_mttg_seq_next.exit
   %10 = add i32 %15, 1
   %11 = zext i32 %10 to i64
   %12 = load i64, ptr %1, align 8
   %13 = icmp sgt i64 %12, %11
-  br i1 %13, label %14, label %xt_mttg_seq_next.argprom.argprom.argprom.exit.thread, !llvm.loop !60
+  br i1 %13, label %14, label %xt_mttg_seq_next.exit.thread, !llvm.loop !60
 
 14:                                               ; preds = %.preheader, %9
   %15 = phi i32 [ %10, %9 ], [ 0, %.preheader ]
@@ -3338,7 +3338,7 @@ define internal ptr @xt_target_seq_start(ptr nocapture noundef readonly %0, ptr 
   %18 = ptrtoint ptr %.val.val.val to i64
   %19 = getelementptr inbounds i8, ptr %.val1, i64 16
   %20 = load i8, ptr %19, align 8
-  switch i8 %20, label %xt_mttg_seq_next.argprom.argprom.argprom.exit.thread [
+  switch i8 %20, label %xt_mttg_seq_next.exit.thread [
     i8 0, label %21
     i8 1, label %26
     i8 2, label %43
@@ -3353,7 +3353,7 @@ define internal ptr @xt_target_seq_start(ptr nocapture noundef readonly %0, ptr 
   %25 = getelementptr inbounds i8, ptr %.val1, i64 8
   store ptr %24, ptr %25, align 8
   store ptr %24, ptr %.val1, align 8
-  br label %xt_mttg_seq_next.argprom.argprom.argprom.exit
+  br label %xt_mttg_seq_next.exit
 
 26:                                               ; preds = %14
   %27 = getelementptr inbounds i8, ptr %.val1, i64 8
@@ -3362,7 +3362,7 @@ define internal ptr @xt_target_seq_start(ptr nocapture noundef readonly %0, ptr 
   store ptr %29, ptr %27, align 8
   %30 = load ptr, ptr %.val1, align 8
   %31 = icmp eq ptr %29, %30
-  br i1 %31, label %32, label %xt_mttg_seq_next.argprom.argprom.argprom.exit
+  br i1 %31, label %32, label %xt_mttg_seq_next.exit
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr @xt, align 8
@@ -3380,7 +3380,7 @@ define internal ptr @xt_target_seq_start(ptr nocapture noundef readonly %0, ptr 
   %41 = getelementptr [3 x i8], ptr @xt_mttg_seq_next.next_class, i64 0, i64 %40
   %42 = load i8, ptr %41, align 1
   store i8 %42, ptr %19, align 8
-  br label %xt_mttg_seq_next.argprom.argprom.argprom.exit
+  br label %xt_mttg_seq_next.exit
 
 43:                                               ; preds = %14
   %44 = getelementptr inbounds i8, ptr %.val1, i64 8
@@ -3391,14 +3391,14 @@ define internal ptr @xt_target_seq_start(ptr nocapture noundef readonly %0, ptr 
   %48 = icmp eq ptr %46, %47
   %49 = icmp eq ptr %.val1, null
   %or.cond = or i1 %49, %48
-  br i1 %or.cond, label %xt_mttg_seq_next.argprom.argprom.argprom.exit.thread, label %9
+  br i1 %or.cond, label %xt_mttg_seq_next.exit.thread, label %9
 
-xt_mttg_seq_next.argprom.argprom.argprom.exit:    ; preds = %21, %26, %32
+xt_mttg_seq_next.exit:                            ; preds = %21, %26, %32
   %.old = icmp eq ptr %.val1, null
-  br i1 %.old, label %xt_mttg_seq_next.argprom.argprom.argprom.exit.thread, label %9
+  br i1 %.old, label %xt_mttg_seq_next.exit.thread, label %9
 
-xt_mttg_seq_next.argprom.argprom.argprom.exit.thread: ; preds = %14, %43, %xt_mttg_seq_next.argprom.argprom.argprom.exit, %9, %2
-  %50 = phi ptr [ %4, %2 ], [ null, %14 ], [ null, %43 ], [ %4, %9 ], [ null, %xt_mttg_seq_next.argprom.argprom.argprom.exit ]
+xt_mttg_seq_next.exit.thread:                     ; preds = %14, %43, %xt_mttg_seq_next.exit, %9, %2
+  %50 = phi ptr [ %4, %2 ], [ null, %14 ], [ null, %43 ], [ %4, %9 ], [ null, %xt_mttg_seq_next.exit ]
   ret ptr %50
 }
 
@@ -3412,7 +3412,7 @@ define internal ptr @xt_target_seq_next(ptr nocapture noundef readonly %0, ptr n
   %.val.val = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %.val.val, i64 592
   %.val.val.val = load ptr, ptr %7, align 8
-  %8 = tail call fastcc ptr @xt_mttg_seq_next.argprom.argprom.argprom(ptr %.val.val.val, ptr %.val1, ptr noundef %2, i1 noundef zeroext true)
+  %8 = tail call fastcc ptr @xt_mttg_seq_next(ptr %.val.val.val, ptr %.val1, ptr noundef %2, i1 noundef zeroext true)
   ret ptr %8
 }
 

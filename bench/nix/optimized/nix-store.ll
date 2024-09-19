@@ -14332,7 +14332,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEERKS7_EZN9nix_storeL14main_nix_storeEiPPcE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN9nix_storeL14main_nix_storeEiPPcE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN9nix_storeL14main_nix_storeEiPPcE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -14341,30 +14341,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRSt14_List_itera
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN9nix_storeL14main_nix_storeEiPPcE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN9nix_storeL14main_nix_storeEiPPcE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN9nix_storeL14main_nix_storeEiPPcE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN9nix_storeL14main_nix_storeEiPPcE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN9nix_storeL14main_nix_storeEiPPcE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val6, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN9nix_storeL14main_nix_storeEiPPcE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN9nix_storeL14main_nix_storeEiPPcE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN9nix_storeL14main_nix_storeEiPPcE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN9nix_storeL14main_nix_storeEiPPcE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN9nix_storeL14main_nix_storeEiPPcE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN9nix_storeL14main_nix_storeEiPPcE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN9nix_storeL14main_nix_storeEiPPcE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN9nix_storeL14main_nix_storeEiPPcE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -18110,15 +18110,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %1
   %191 = icmp ne i8 %.sroa.25.1, %.sroa.25.01573
   %192 = icmp ne i32 %.sroa.01260.01572, %.sroa.01260.1
   %or.cond1439 = select i1 %191, i1 true, i1 %192
-  br i1 %or.cond1439, label %_ZStneIZN9nix_storeL7opQueryENSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEES9_E9QueryTypeSA_ENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalISC_ERKSL_ISF_E.argprom.exit.thread, label %200
+  br i1 %or.cond1439, label %_ZStneIZN9nix_storeL7opQueryENSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEES9_E9QueryTypeSA_ENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalISC_ERKSL_ISF_E.exit.thread, label %200
 
-_ZStneIZN9nix_storeL7opQueryENSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEES9_E9QueryTypeSA_ENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalISC_ERKSL_ISF_E.argprom.exit.thread: ; preds = %190
+_ZStneIZN9nix_storeL7opQueryENSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEES9_E9QueryTypeSA_ENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalISC_ERKSL_ISF_E.exit.thread: ; preds = %190
   %193 = call ptr @__cxa_allocate_exception(i64 376) #28
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #28
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull @.str.130, ptr noundef nonnull align 1 dereferenceable(1) %39)
           to label %194 unwind label %.thread1357
 
-194:                                              ; preds = %_ZStneIZN9nix_storeL7opQueryENSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEES9_E9QueryTypeSA_ENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalISC_ERKSL_ISF_E.argprom.exit.thread
+194:                                              ; preds = %_ZStneIZN9nix_storeL7opQueryENSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEES9_E9QueryTypeSA_ENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalISC_ERKSL_ISF_E.exit.thread
   invoke void @_ZN3nix9BaseErrorC2IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERKS7_DpRKT_(ptr noundef nonnull align 8 dereferenceable(376) %193, ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %125)
           to label %195 unwind label %197
 
@@ -18127,7 +18127,7 @@ _ZStneIZN9nix_storeL7opQueryENSt7__cxx114listINS1_12basic_stringIcSt11char_trait
   invoke void @__cxa_throw(ptr nonnull %193, ptr nonnull @_ZTIN3nix10UsageErrorE, ptr nonnull @_ZN3nix10UsageErrorD2Ev) #29
           to label %1873 unwind label %197
 
-.thread1357:                                      ; preds = %_ZStneIZN9nix_storeL7opQueryENSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEES9_E9QueryTypeSA_ENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalISC_ERKSL_ISF_E.argprom.exit.thread
+.thread1357:                                      ; preds = %_ZStneIZN9nix_storeL7opQueryENSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEES9_E9QueryTypeSA_ENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalISC_ERKSL_ISF_E.exit.thread
   %196 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #28

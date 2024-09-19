@@ -384,7 +384,7 @@ _ZN12_GLOBAL__N_116sanitizeStrategyERN4llvm11VPIntrinsicERNS0_19TargetTransformI
   ]
 
 97:                                               ; preds = %_ZN12_GLOBAL__N_116sanitizeStrategyERN4llvm11VPIntrinsicERNS0_19TargetTransformInfo14VPLegalizationE.exit.i
-  %98 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117CachingVPExpander19discardEVLParameterERN4llvm11VPIntrinsicE.argprom(ptr noundef nonnull align 8 dereferenceable(88) %0)
+  %98 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117CachingVPExpander19discardEVLParameterERN4llvm11VPIntrinsicE(ptr noundef nonnull align 8 dereferenceable(88) %0)
   br label %193
 
 99:                                               ; preds = %_ZN12_GLOBAL__N_116sanitizeStrategyERN4llvm11VPIntrinsicERNS0_19TargetTransformInfo14VPLegalizationE.exit.i
@@ -466,7 +466,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i.
   %138 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store i16 257, ptr %138, align 8
   %139 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCallEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EERKNS_5TwineEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(128) %35, ptr noundef %136, ptr noundef %129, ptr nonnull %31, i64 2, ptr noundef nonnull align 8 dereferenceable(34) %32, ptr noundef null)
-  br label %_ZN12_GLOBAL__N_117CachingVPExpander16convertEVLToMaskERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueENS1_12ElementCountE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_117CachingVPExpander16convertEVLToMaskERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueENS1_12ElementCountE.exit.i.i
 
 140:                                              ; preds = %115
   %.sroa.011.0.extract.trunc.i.i.i = trunc i64 %118 to i32
@@ -518,21 +518,21 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit.i.i.i.i
   %160 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %29) #17
   %161 = load ptr, ptr %29, align 8
   %162 = icmp eq ptr %161, %145
-  br i1 %162, label %_ZN12_GLOBAL__N_117CachingVPExpander16createStepVectorERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_4TypeEj.argprom.exit.i.i.i, label %163
+  br i1 %162, label %_ZN12_GLOBAL__N_117CachingVPExpander16createStepVectorERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_4TypeEj.exit.i.i.i, label %163
 
 163:                                              ; preds = %._crit_edge.i.i.i.i
   call void @free(ptr noundef %161) #17
-  br label %_ZN12_GLOBAL__N_117CachingVPExpander16createStepVectorERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_4TypeEj.argprom.exit.i.i.i
+  br label %_ZN12_GLOBAL__N_117CachingVPExpander16createStepVectorERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_4TypeEj.exit.i.i.i
 
-_ZN12_GLOBAL__N_117CachingVPExpander16createStepVectorERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_4TypeEj.argprom.exit.i.i.i: ; preds = %163, %._crit_edge.i.i.i.i
+_ZN12_GLOBAL__N_117CachingVPExpander16createStepVectorERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_4TypeEj.exit.i.i.i: ; preds = %163, %._crit_edge.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %29)
   %164 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store i16 257, ptr %164, align 8
   %165 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateICmpENS_7CmpInst9PredicateEPNS_5ValueES4_RKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %35, i32 noundef 36, ptr noundef %159, ptr noundef %144, ptr noundef nonnull align 8 dereferenceable(34) %34)
-  br label %_ZN12_GLOBAL__N_117CachingVPExpander16convertEVLToMaskERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueENS1_12ElementCountE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_117CachingVPExpander16convertEVLToMaskERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueENS1_12ElementCountE.exit.i.i
 
-_ZN12_GLOBAL__N_117CachingVPExpander16convertEVLToMaskERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueENS1_12ElementCountE.argprom.exit.i.i: ; preds = %_ZN12_GLOBAL__N_117CachingVPExpander16createStepVectorERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_4TypeEj.argprom.exit.i.i.i, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i.i.i
-  %.0.i.i.i = phi ptr [ %139, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i.i.i ], [ %165, %_ZN12_GLOBAL__N_117CachingVPExpander16createStepVectorERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_4TypeEj.argprom.exit.i.i.i ]
+_ZN12_GLOBAL__N_117CachingVPExpander16convertEVLToMaskERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueENS1_12ElementCountE.exit.i.i: ; preds = %_ZN12_GLOBAL__N_117CachingVPExpander16createStepVectorERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_4TypeEj.exit.i.i.i, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i.i.i
+  %.0.i.i.i = phi ptr [ %139, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i.i.i ], [ %165, %_ZN12_GLOBAL__N_117CachingVPExpander16createStepVectorERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_4TypeEj.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %32)
@@ -549,7 +549,7 @@ _ZN12_GLOBAL__N_117CachingVPExpander16convertEVLToMaskERN4llvm9IRBuilderINS1_14C
   %.not.i15.i.i = icmp eq ptr %171, null
   br i1 %.not.i15.i.i, label %172, label %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit.i.i
 
-172:                                              ; preds = %_ZN12_GLOBAL__N_117CachingVPExpander16convertEVLToMaskERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueENS1_12ElementCountE.argprom.exit.i.i
+172:                                              ; preds = %_ZN12_GLOBAL__N_117CachingVPExpander16convertEVLToMaskERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueENS1_12ElementCountE.exit.i.i
   %173 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store i16 257, ptr %173, align 8
   %174 = call noundef ptr @_ZN4llvm14BinaryOperator6CreateENS_11Instruction9BinaryOpsEPNS_5ValueES4_RKNS_5TwineENS_14InsertPositionE(i32 noundef 28, ptr noundef %.0.i.i.i, ptr noundef %116, ptr noundef nonnull align 8 dereferenceable(34) %28, ptr null, i64 0) #17
@@ -578,11 +578,11 @@ _ZN12_GLOBAL__N_117CachingVPExpander16convertEVLToMaskERN4llvm9IRBuilderINS1_14C
   %.not.i.i.i.i.i = icmp eq ptr %186, %182
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
-_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i, %172, %_ZN12_GLOBAL__N_117CachingVPExpander16convertEVLToMaskERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueENS1_12ElementCountE.argprom.exit.i.i
-  %.0.i16.i.i = phi ptr [ %171, %_ZN12_GLOBAL__N_117CachingVPExpander16convertEVLToMaskERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueENS1_12ElementCountE.argprom.exit.i.i ], [ %174, %172 ], [ %174, %.lr.ph.i.i.i.i.i ]
+_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i, %172, %_ZN12_GLOBAL__N_117CachingVPExpander16convertEVLToMaskERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueENS1_12ElementCountE.exit.i.i
+  %.0.i16.i.i = phi ptr [ %171, %_ZN12_GLOBAL__N_117CachingVPExpander16convertEVLToMaskERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueENS1_12ElementCountE.exit.i.i ], [ %174, %172 ], [ %174, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %28)
   call void @_ZN4llvm11VPIntrinsic12setMaskParamEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %.0.i16.i.i) #17
-  %187 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117CachingVPExpander19discardEVLParameterERN4llvm11VPIntrinsicE.argprom(ptr noundef nonnull align 8 dereferenceable(88) %0)
+  %187 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117CachingVPExpander19discardEVLParameterERN4llvm11VPIntrinsicE(ptr noundef nonnull align 8 dereferenceable(88) %0)
   br label %188
 
 188:                                              ; preds = %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit.i.i, %99
@@ -592,19 +592,19 @@ _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit.i.i: ; preds =
   %189 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #17
   %190 = load ptr, ptr %35, align 8
   %191 = icmp eq ptr %190, %103
-  br i1 %191, label %_ZN12_GLOBAL__N_117CachingVPExpander15foldEVLIntoMaskERN4llvm11VPIntrinsicE.argprom.exit.i, label %192
+  br i1 %191, label %_ZN12_GLOBAL__N_117CachingVPExpander15foldEVLIntoMaskERN4llvm11VPIntrinsicE.exit.i, label %192
 
 192:                                              ; preds = %188
   call void @free(ptr noundef %190) #17
-  br label %_ZN12_GLOBAL__N_117CachingVPExpander15foldEVLIntoMaskERN4llvm11VPIntrinsicE.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_117CachingVPExpander15foldEVLIntoMaskERN4llvm11VPIntrinsicE.exit.i
 
-_ZN12_GLOBAL__N_117CachingVPExpander15foldEVLIntoMaskERN4llvm11VPIntrinsicE.argprom.exit.i: ; preds = %192, %188
+_ZN12_GLOBAL__N_117CachingVPExpander15foldEVLIntoMaskERN4llvm11VPIntrinsicE.exit.i: ; preds = %192, %188
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %36)
   br label %193
 
-193:                                              ; preds = %_ZN12_GLOBAL__N_117CachingVPExpander15foldEVLIntoMaskERN4llvm11VPIntrinsicE.argprom.exit.i, %97, %_ZN12_GLOBAL__N_116sanitizeStrategyERN4llvm11VPIntrinsicERNS0_19TargetTransformInfo14VPLegalizationE.exit.i
-  %.0.shrunk.i = phi i1 [ false, %_ZN12_GLOBAL__N_116sanitizeStrategyERN4llvm11VPIntrinsicERNS0_19TargetTransformInfo14VPLegalizationE.exit.i ], [ %98, %97 ], [ %.sroa.3.0.i10.i, %_ZN12_GLOBAL__N_117CachingVPExpander15foldEVLIntoMaskERN4llvm11VPIntrinsicE.argprom.exit.i ]
+193:                                              ; preds = %_ZN12_GLOBAL__N_117CachingVPExpander15foldEVLIntoMaskERN4llvm11VPIntrinsicE.exit.i, %97, %_ZN12_GLOBAL__N_116sanitizeStrategyERN4llvm11VPIntrinsicERNS0_19TargetTransformInfo14VPLegalizationE.exit.i
+  %.0.shrunk.i = phi i1 [ false, %_ZN12_GLOBAL__N_116sanitizeStrategyERN4llvm11VPIntrinsicERNS0_19TargetTransformInfo14VPLegalizationE.exit.i ], [ %98, %97 ], [ %.sroa.3.0.i10.i, %_ZN12_GLOBAL__N_117CachingVPExpander15foldEVLIntoMaskERN4llvm11VPIntrinsicE.exit.i ]
   %.0.i = zext i1 %.0.shrunk.i to i32
   %cond.i = icmp eq i64 %.sroa.3.0.i.i, 8589934592
   br i1 %cond.i, label %194, label %_ZN12_GLOBAL__N_117CachingVPExpander23expandVectorPredicationERN4llvm11VPIntrinsicE.exit
@@ -687,7 +687,7 @@ _ZN12_GLOBAL__N_117CachingVPExpander15foldEVLIntoMaskERN4llvm11VPIntrinsicE.argp
   %242 = load ptr, ptr %241, align 8
   %243 = call noundef ptr @_ZNK4llvm11VPIntrinsic12getMaskParamEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #17
   %.not.i.i16.i = icmp eq ptr %243, null
-  br i1 %.not.i.i16.i, label %_ZN12_GLOBAL__N_117CachingVPExpander33expandPredicationInBinaryOperatorERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.argprom.exit.i.i, label %244
+  br i1 %.not.i.i16.i, label %_ZN12_GLOBAL__N_117CachingVPExpander33expandPredicationInBinaryOperatorERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i, label %244
 
 244:                                              ; preds = %223
   %245 = call noundef ptr @_ZN4llvm13getSplatValueEPKNS_5ValueE(ptr noundef nonnull %243) #17
@@ -701,10 +701,10 @@ _ZN12_GLOBAL__N_117CachingVPExpander15foldEVLIntoMaskERN4llvm11VPIntrinsicE.argp
 
 _ZL13isAllTrueMaskPN4llvm5ValueE.exit.i.i.i:      ; preds = %246
   %249 = call noundef zeroext i1 @_ZNK4llvm8Constant14isAllOnesValueEv(ptr noundef nonnull align 8 dereferenceable(24) %245) #17
-  br i1 %249, label %_ZN12_GLOBAL__N_117CachingVPExpander33expandPredicationInBinaryOperatorERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.argprom.exit.i.i, label %_ZL13isAllTrueMaskPN4llvm5ValueE.exit.thread.i.i.i
+  br i1 %249, label %_ZN12_GLOBAL__N_117CachingVPExpander33expandPredicationInBinaryOperatorERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i, label %_ZL13isAllTrueMaskPN4llvm5ValueE.exit.thread.i.i.i
 
 _ZL13isAllTrueMaskPN4llvm5ValueE.exit.thread.i.i.i: ; preds = %_ZL13isAllTrueMaskPN4llvm5ValueE.exit.i.i.i, %246, %244
-  switch i32 %.sroa.01.0.extract.trunc.i.i.i, label %_ZN12_GLOBAL__N_117CachingVPExpander33expandPredicationInBinaryOperatorERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.argprom.exit.i.i [
+  switch i32 %.sroa.01.0.extract.trunc.i.i.i, label %_ZN12_GLOBAL__N_117CachingVPExpander33expandPredicationInBinaryOperatorERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i [
     i32 19, label %250
     i32 20, label %250
     i32 22, label %250
@@ -718,9 +718,9 @@ _ZL13isAllTrueMaskPN4llvm5ValueE.exit.thread.i.i.i: ; preds = %_ZL13isAllTrueMas
   %254 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i16 257, ptr %254, align 8
   %255 = call noundef ptr @_ZN4llvm13IRBuilderBase12CreateSelectEPNS_5ValueES2_S2_RKNS_5TwineEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128) %26, ptr noundef nonnull %243, ptr noundef %242, ptr noundef %253, ptr noundef nonnull align 8 dereferenceable(34) %24, ptr noundef null) #17
-  br label %_ZN12_GLOBAL__N_117CachingVPExpander33expandPredicationInBinaryOperatorERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_117CachingVPExpander33expandPredicationInBinaryOperatorERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i
 
-_ZN12_GLOBAL__N_117CachingVPExpander33expandPredicationInBinaryOperatorERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.argprom.exit.i.i: ; preds = %250, %_ZL13isAllTrueMaskPN4llvm5ValueE.exit.thread.i.i.i, %_ZL13isAllTrueMaskPN4llvm5ValueE.exit.i.i.i, %223
+_ZN12_GLOBAL__N_117CachingVPExpander33expandPredicationInBinaryOperatorERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i: ; preds = %250, %_ZL13isAllTrueMaskPN4llvm5ValueE.exit.thread.i.i.i, %_ZL13isAllTrueMaskPN4llvm5ValueE.exit.i.i.i, %223
   %.0.i.i18.i = phi ptr [ %242, %_ZL13isAllTrueMaskPN4llvm5ValueE.exit.i.i.i ], [ %242, %_ZL13isAllTrueMaskPN4llvm5ValueE.exit.thread.i.i.i ], [ %255, %250 ], [ %242, %223 ]
   %256 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #17
   %257 = extractvalue { ptr, i64 } %256, 0
@@ -1105,7 +1105,7 @@ _ZN12_GLOBAL__N_126getNeutralReductionElementERKN4llvm20VPReductionIntrinsicEPNS
   %428 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store i16 257, ptr %428, align 8
   %429 = call noundef ptr @_ZN4llvm13IRBuilderBase11CreateBinOpENS_11Instruction9BinaryOpsEPNS_5ValueES4_RKNS_5TwineEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(128) %26, i32 noundef %425, ptr noundef %427, ptr noundef %412, ptr noundef nonnull align 8 dereferenceable(34) %21, ptr noundef null)
-  br label %_ZN12_GLOBAL__N_117CachingVPExpander28expandPredicationInReductionERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_20VPReductionIntrinsicE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_117CachingVPExpander28expandPredicationInReductionERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_20VPReductionIntrinsicE.exit.i.i
 
 430:                                              ; preds = %403, %403, %403, %403, %403, %403, %403, %403
   %431 = call i64 @_ZN4llvm11VPIntrinsic29getFunctionalIntrinsicIDForVPEj(i32 noundef %421) #17
@@ -1118,17 +1118,17 @@ _ZN12_GLOBAL__N_126getNeutralReductionElementERKN4llvm20VPReductionIntrinsicEPNS
   %435 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store i16 257, ptr %435, align 8
   %436 = call noundef ptr @_ZN4llvm13IRBuilderBase21CreateBinaryIntrinsicEjPNS_5ValueES2_PNS_11InstructionERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %26, i32 noundef %432, ptr noundef nonnull %434, ptr noundef %412, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(34) %23) #17
-  br label %_ZN12_GLOBAL__N_117CachingVPExpander28expandPredicationInReductionERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_20VPReductionIntrinsicE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_117CachingVPExpander28expandPredicationInReductionERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_20VPReductionIntrinsicE.exit.i.i
 
 437:                                              ; preds = %403
   %438 = call noundef ptr @_ZN4llvm13IRBuilderBase16CreateFAddReduceEPNS_5ValueES2_(ptr noundef nonnull align 8 dereferenceable(128) %26, ptr noundef %412, ptr noundef %.0.i38.i.i) #17
-  br label %_ZN12_GLOBAL__N_117CachingVPExpander28expandPredicationInReductionERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_20VPReductionIntrinsicE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_117CachingVPExpander28expandPredicationInReductionERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_20VPReductionIntrinsicE.exit.i.i
 
 439:                                              ; preds = %403
   %440 = call noundef ptr @_ZN4llvm13IRBuilderBase16CreateFMulReduceEPNS_5ValueES2_(ptr noundef nonnull align 8 dereferenceable(128) %26, ptr noundef %412, ptr noundef %.0.i38.i.i) #17
-  br label %_ZN12_GLOBAL__N_117CachingVPExpander28expandPredicationInReductionERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_20VPReductionIntrinsicE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_117CachingVPExpander28expandPredicationInReductionERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_20VPReductionIntrinsicE.exit.i.i
 
-_ZN12_GLOBAL__N_117CachingVPExpander28expandPredicationInReductionERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_20VPReductionIntrinsicE.argprom.exit.i.i: ; preds = %439, %437, %430, %423
+_ZN12_GLOBAL__N_117CachingVPExpander28expandPredicationInReductionERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_20VPReductionIntrinsicE.exit.i.i: ; preds = %439, %437, %430, %423
   %.045.i.i.i = phi ptr [ %440, %439 ], [ %438, %437 ], [ %436, %430 ], [ %429, %423 ]
   call fastcc void @_ZL19transferDecorationsRN4llvm5ValueERNS_11VPIntrinsicE(ptr noundef nonnull align 8 dereferenceable(24) %.045.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %0)
   call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %.045.i.i.i) #17
@@ -1175,13 +1175,13 @@ _ZN12_GLOBAL__N_117CachingVPExpander28expandPredicationInReductionERN4llvm9IRBui
 
 466:                                              ; preds = %453
   %467 = call noundef ptr @_ZN4llvm13IRBuilderBase16CreateFCmpHelperENS_7CmpInst9PredicateEPNS_5ValueES4_RKNS_5TwineEPNS_6MDNodeEb(ptr noundef nonnull align 8 dereferenceable(128) %26, i32 noundef %463, ptr noundef %460, ptr noundef %462, ptr noundef nonnull align 8 dereferenceable(34) %14, ptr noundef null, i1 noundef zeroext false) #17
-  br label %_ZN12_GLOBAL__N_117CachingVPExpander29expandPredicationInComparisonERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_14VPCmpIntrinsicE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_117CachingVPExpander29expandPredicationInComparisonERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_14VPCmpIntrinsicE.exit.i.i
 
 468:                                              ; preds = %453
   %469 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateICmpENS_7CmpInst9PredicateEPNS_5ValueES4_RKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %26, i32 noundef %463, ptr noundef %460, ptr noundef %462, ptr noundef nonnull align 8 dereferenceable(34) %14)
-  br label %_ZN12_GLOBAL__N_117CachingVPExpander29expandPredicationInComparisonERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_14VPCmpIntrinsicE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_117CachingVPExpander29expandPredicationInComparisonERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_14VPCmpIntrinsicE.exit.i.i
 
-_ZN12_GLOBAL__N_117CachingVPExpander29expandPredicationInComparisonERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_14VPCmpIntrinsicE.argprom.exit.i.i: ; preds = %468, %466
+_ZN12_GLOBAL__N_117CachingVPExpander29expandPredicationInComparisonERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_14VPCmpIntrinsicE.exit.i.i: ; preds = %468, %466
   %470 = phi ptr [ %467, %466 ], [ %469, %468 ]
   call fastcc void @_ZL19transferDecorationsRN4llvm5ValueERNS_11VPIntrinsicE(ptr noundef nonnull align 8 dereferenceable(24) %470, ptr noundef nonnull align 8 dereferenceable(88) %0)
   call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %470) #17
@@ -1265,7 +1265,7 @@ _ZN12_GLOBAL__N_117CachingVPExpander29expandPredicationInComparisonERN4llvm9IRBu
   %509 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %504, ptr %509, align 8
   %510 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %26, i32 noundef 40, ptr noundef %499, ptr noundef %501, ptr noundef nonnull align 8 dereferenceable(34) %3)
-  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i
 
 511:                                              ; preds = %483
   %512 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1276,7 +1276,7 @@ _ZN12_GLOBAL__N_117CachingVPExpander29expandPredicationInComparisonERN4llvm9IRBu
   %514 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %504, ptr %514, align 8
   %515 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateZExtEPNS_5ValueEPNS_4TypeERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(128) %26, ptr noundef %499, ptr noundef %501, ptr noundef nonnull align 8 dereferenceable(34) %4, i1 noundef zeroext false)
-  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i
 
 516:                                              ; preds = %483
   %517 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -1287,7 +1287,7 @@ _ZN12_GLOBAL__N_117CachingVPExpander29expandPredicationInComparisonERN4llvm9IRBu
   %519 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %504, ptr %519, align 8
   %520 = call noundef ptr @_ZN4llvm13IRBuilderBase11CreateTruncEPNS_5ValueEPNS_4TypeERKNS_5TwineEbb(ptr noundef nonnull align 8 dereferenceable(128) %26, ptr noundef %499, ptr noundef %501, ptr noundef nonnull align 8 dereferenceable(34) %5, i1 noundef zeroext false, i1 noundef zeroext false)
-  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i
 
 521:                                              ; preds = %483
   %522 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -1298,7 +1298,7 @@ _ZN12_GLOBAL__N_117CachingVPExpander29expandPredicationInComparisonERN4llvm9IRBu
   %524 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %504, ptr %524, align 8
   %525 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %26, i32 noundef 48, ptr noundef %499, ptr noundef %501, ptr noundef nonnull align 8 dereferenceable(34) %6)
-  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i
 
 526:                                              ; preds = %483
   %527 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -1309,7 +1309,7 @@ _ZN12_GLOBAL__N_117CachingVPExpander29expandPredicationInComparisonERN4llvm9IRBu
   %529 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %504, ptr %529, align 8
   %530 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %26, i32 noundef 47, ptr noundef %499, ptr noundef %501, ptr noundef nonnull align 8 dereferenceable(34) %7)
-  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i
 
 531:                                              ; preds = %483
   %532 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -1325,11 +1325,11 @@ _ZN12_GLOBAL__N_117CachingVPExpander29expandPredicationInComparisonERN4llvm9IRBu
 
 537:                                              ; preds = %531
   %538 = call noundef ptr @_ZN4llvm13IRBuilderBase23CreateConstrainedFPCastEjPNS_5ValueEPNS_4TypeEPNS_11InstructionERKNS_5TwineEPNS_6MDNodeESt8optionalINS_12RoundingModeEESC_INS_2fp17ExceptionBehaviorEE(ptr noundef nonnull align 8 dereferenceable(128) %26, i32 noundef 108, ptr noundef %499, ptr noundef %501, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(34) %8, ptr noundef null, i16 0, i16 0) #17
-  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i
 
 539:                                              ; preds = %531
   %540 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %26, i32 noundef 42, ptr noundef %499, ptr noundef %501, ptr noundef nonnull align 8 dereferenceable(34) %8)
-  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i
 
 541:                                              ; preds = %483
   %542 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -1345,11 +1345,11 @@ _ZN12_GLOBAL__N_117CachingVPExpander29expandPredicationInComparisonERN4llvm9IRBu
 
 547:                                              ; preds = %541
   %548 = call noundef ptr @_ZN4llvm13IRBuilderBase23CreateConstrainedFPCastEjPNS_5ValueEPNS_4TypeEPNS_11InstructionERKNS_5TwineEPNS_6MDNodeESt8optionalINS_12RoundingModeEESC_INS_2fp17ExceptionBehaviorEE(ptr noundef nonnull align 8 dereferenceable(128) %26, i32 noundef 109, ptr noundef %499, ptr noundef %501, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(34) %9, ptr noundef null, i16 0, i16 0) #17
-  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i
 
 549:                                              ; preds = %541
   %550 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %26, i32 noundef 41, ptr noundef %499, ptr noundef %501, ptr noundef nonnull align 8 dereferenceable(34) %9)
-  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i
 
 551:                                              ; preds = %483
   %552 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -1365,11 +1365,11 @@ _ZN12_GLOBAL__N_117CachingVPExpander29expandPredicationInComparisonERN4llvm9IRBu
 
 557:                                              ; preds = %551
   %558 = call noundef ptr @_ZN4llvm13IRBuilderBase23CreateConstrainedFPCastEjPNS_5ValueEPNS_4TypeEPNS_11InstructionERKNS_5TwineEPNS_6MDNodeESt8optionalINS_12RoundingModeEESC_INS_2fp17ExceptionBehaviorEE(ptr noundef nonnull align 8 dereferenceable(128) %26, i32 noundef 133, ptr noundef %499, ptr noundef %501, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(34) %10, ptr noundef null, i16 0, i16 0) #17
-  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i
 
 559:                                              ; preds = %551
   %560 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %26, i32 noundef 44, ptr noundef %499, ptr noundef %501, ptr noundef nonnull align 8 dereferenceable(34) %10)
-  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i
 
 561:                                              ; preds = %483
   %562 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -1380,7 +1380,7 @@ _ZN12_GLOBAL__N_117CachingVPExpander29expandPredicationInComparisonERN4llvm9IRBu
   %564 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %504, ptr %564, align 8
   %565 = call noundef ptr @_ZN4llvm13IRBuilderBase12CreateUIToFPEPNS_5ValueEPNS_4TypeERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(128) %26, ptr noundef %499, ptr noundef %501, ptr noundef nonnull align 8 dereferenceable(34) %11, i1 noundef zeroext false)
-  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i
 
 566:                                              ; preds = %483
   %567 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -1396,11 +1396,11 @@ _ZN12_GLOBAL__N_117CachingVPExpander29expandPredicationInComparisonERN4llvm9IRBu
 
 572:                                              ; preds = %566
   %573 = call noundef ptr @_ZN4llvm13IRBuilderBase23CreateConstrainedFPCastEjPNS_5ValueEPNS_4TypeEPNS_11InstructionERKNS_5TwineEPNS_6MDNodeESt8optionalINS_12RoundingModeEESC_INS_2fp17ExceptionBehaviorEE(ptr noundef nonnull align 8 dereferenceable(128) %26, i32 noundef 110, ptr noundef %499, ptr noundef %501, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(34) %12, ptr noundef null, i16 0, i16 0) #17
-  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i
 
 574:                                              ; preds = %566
   %575 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %26, i32 noundef 45, ptr noundef %499, ptr noundef %501, ptr noundef nonnull align 8 dereferenceable(34) %12)
-  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i
 
 576:                                              ; preds = %483
   %577 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -1416,13 +1416,13 @@ _ZN12_GLOBAL__N_117CachingVPExpander29expandPredicationInComparisonERN4llvm9IRBu
 
 582:                                              ; preds = %576
   %583 = call noundef ptr @_ZN4llvm13IRBuilderBase23CreateConstrainedFPCastEjPNS_5ValueEPNS_4TypeEPNS_11InstructionERKNS_5TwineEPNS_6MDNodeESt8optionalINS_12RoundingModeEESC_INS_2fp17ExceptionBehaviorEE(ptr noundef nonnull align 8 dereferenceable(128) %26, i32 noundef 107, ptr noundef %499, ptr noundef %501, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(34) %13, ptr noundef null, i16 0, i16 0) #17
-  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i
 
 584:                                              ; preds = %576
   %585 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %26, i32 noundef 46, ptr noundef %499, ptr noundef %501, ptr noundef nonnull align 8 dereferenceable(34) %13)
-  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i
 
-_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.argprom.exit.i.i: ; preds = %584, %582, %574, %572, %561, %559, %557, %549, %547, %539, %537, %526, %521, %516, %511, %506
+_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i: ; preds = %584, %582, %574, %572, %561, %559, %557, %549, %547, %539, %537, %526, %521, %516, %511, %506
   %.0.i41.i.i = phi ptr [ %565, %561 ], [ %530, %526 ], [ %525, %521 ], [ %520, %516 ], [ %515, %511 ], [ %510, %506 ], [ %538, %537 ], [ %540, %539 ], [ %548, %547 ], [ %550, %549 ], [ %558, %557 ], [ %560, %559 ], [ %573, %572 ], [ %575, %574 ], [ %583, %582 ], [ %585, %584 ]
   call fastcc void @_ZL19transferDecorationsRN4llvm5ValueERNS_11VPIntrinsicE(ptr noundef nonnull align 8 dereferenceable(24) %.0.i41.i.i, ptr noundef nonnull align 8 dereferenceable(88) %0)
   call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %.0.i41.i.i) #17
@@ -1509,7 +1509,7 @@ _ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9I
 
 _ZNOSt8optionalIjE5valueEv.exit.i.i:              ; preds = %612
   %.sroa.06.0.extract.trunc.i.i = trunc i64 %613 to i32
-  %616 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117CachingVPExpander26expandPredicationToIntCallERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicEj.argprom(ptr noundef nonnull align 8 dereferenceable(144) %26, ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %.sroa.06.0.extract.trunc.i.i)
+  %616 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117CachingVPExpander26expandPredicationToIntCallERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicEj(ptr noundef nonnull align 8 dereferenceable(144) %26, ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %.sroa.06.0.extract.trunc.i.i)
   br label %630
 
 617:                                              ; preds = %587, %587, %587, %587, %587, %587, %587, %587
@@ -1524,11 +1524,11 @@ _ZNOSt8optionalIjE5valueEv.exit.i.i:              ; preds = %612
 
 _ZNOSt8optionalIjE5valueEv.exit42.i.i:            ; preds = %617
   %.sroa.01.0.extract.trunc.i.i = trunc i64 %618 to i32
-  %621 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117CachingVPExpander25expandPredicationToFPCallERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicEj.argprom(ptr noundef nonnull align 8 dereferenceable(144) %26, ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %.sroa.01.0.extract.trunc.i.i)
+  %621 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117CachingVPExpander25expandPredicationToFPCallERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicEj(ptr noundef nonnull align 8 dereferenceable(144) %26, ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %.sroa.01.0.extract.trunc.i.i)
   br label %630
 
 622:                                              ; preds = %587, %587, %587, %587
-  %623 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117CachingVPExpander34expandPredicationInMemoryIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.argprom(ptr noundef nonnull align 8 dereferenceable(144) %26, ptr noundef nonnull align 8 dereferenceable(88) %0)
+  %623 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117CachingVPExpander34expandPredicationInMemoryIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE(ptr noundef nonnull align 8 dereferenceable(144) %26, ptr noundef nonnull align 8 dereferenceable(88) %0)
   br label %630
 
 624:                                              ; preds = %587
@@ -1539,35 +1539,35 @@ _ZNOSt8optionalIjE5valueEv.exit42.i.i:            ; preds = %617
 
 627:                                              ; preds = %624
   %.sroa.0.0.extract.trunc.i12.i = trunc i64 %625 to i32
-  %628 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117CachingVPExpander25expandPredicationToFPCallERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicEj.argprom(ptr noundef nonnull align 8 dereferenceable(144) %26, ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %.sroa.0.0.extract.trunc.i12.i)
+  %628 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117CachingVPExpander25expandPredicationToFPCallERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicEj(ptr noundef nonnull align 8 dereferenceable(144) %26, ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %.sroa.0.0.extract.trunc.i12.i)
   %.not33.i.i = icmp eq ptr %628, null
   br i1 %.not33.i.i, label %629, label %630
 
 629:                                              ; preds = %627, %624
   br label %630
 
-630:                                              ; preds = %629, %627, %622, %_ZNOSt8optionalIjE5valueEv.exit42.i.i, %_ZNOSt8optionalIjE5valueEv.exit.i.i, %597, %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.argprom.exit.i.i, %_ZN12_GLOBAL__N_117CachingVPExpander29expandPredicationInComparisonERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_14VPCmpIntrinsicE.argprom.exit.i.i, %_ZN12_GLOBAL__N_117CachingVPExpander28expandPredicationInReductionERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_20VPReductionIntrinsicE.argprom.exit.i.i, %_ZN12_GLOBAL__N_117CachingVPExpander33expandPredicationInBinaryOperatorERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.argprom.exit.i.i
-  %.0.i.i = phi ptr [ %262, %_ZN12_GLOBAL__N_117CachingVPExpander33expandPredicationInBinaryOperatorERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.argprom.exit.i.i ], [ %.045.i.i.i, %_ZN12_GLOBAL__N_117CachingVPExpander28expandPredicationInReductionERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_20VPReductionIntrinsicE.argprom.exit.i.i ], [ %470, %_ZN12_GLOBAL__N_117CachingVPExpander29expandPredicationInComparisonERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_14VPCmpIntrinsicE.argprom.exit.i.i ], [ %.0.i41.i.i, %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.argprom.exit.i.i ], [ %0, %629 ], [ %623, %622 ], [ %621, %_ZNOSt8optionalIjE5valueEv.exit42.i.i ], [ %616, %_ZNOSt8optionalIjE5valueEv.exit.i.i ], [ %611, %597 ], [ %628, %627 ]
+630:                                              ; preds = %629, %627, %622, %_ZNOSt8optionalIjE5valueEv.exit42.i.i, %_ZNOSt8optionalIjE5valueEv.exit.i.i, %597, %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i, %_ZN12_GLOBAL__N_117CachingVPExpander29expandPredicationInComparisonERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_14VPCmpIntrinsicE.exit.i.i, %_ZN12_GLOBAL__N_117CachingVPExpander28expandPredicationInReductionERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_20VPReductionIntrinsicE.exit.i.i, %_ZN12_GLOBAL__N_117CachingVPExpander33expandPredicationInBinaryOperatorERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i
+  %.0.i.i = phi ptr [ %262, %_ZN12_GLOBAL__N_117CachingVPExpander33expandPredicationInBinaryOperatorERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i ], [ %.045.i.i.i, %_ZN12_GLOBAL__N_117CachingVPExpander28expandPredicationInReductionERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_20VPReductionIntrinsicE.exit.i.i ], [ %470, %_ZN12_GLOBAL__N_117CachingVPExpander29expandPredicationInComparisonERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_14VPCmpIntrinsicE.exit.i.i ], [ %.0.i41.i.i, %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i ], [ %0, %629 ], [ %623, %622 ], [ %621, %_ZNOSt8optionalIjE5valueEv.exit42.i.i ], [ %616, %_ZNOSt8optionalIjE5valueEv.exit.i.i ], [ %611, %597 ], [ %628, %627 ]
   call void @_ZN4llvm24IRBuilderDefaultInserterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %197) #17
   call void @_ZN4llvm15IRBuilderFolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %196) #17
   %631 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %26) #17
   %632 = load ptr, ptr %26, align 8
   %633 = icmp eq ptr %632, %198
-  br i1 %633, label %_ZN12_GLOBAL__N_117CachingVPExpander17expandPredicationERN4llvm11VPIntrinsicE.argprom.exit.i, label %634
+  br i1 %633, label %_ZN12_GLOBAL__N_117CachingVPExpander17expandPredicationERN4llvm11VPIntrinsicE.exit.i, label %634
 
 634:                                              ; preds = %630
   call void @free(ptr noundef %632) #17
-  br label %_ZN12_GLOBAL__N_117CachingVPExpander17expandPredicationERN4llvm11VPIntrinsicE.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_117CachingVPExpander17expandPredicationERN4llvm11VPIntrinsicE.exit.i
 
-_ZN12_GLOBAL__N_117CachingVPExpander17expandPredicationERN4llvm11VPIntrinsicE.argprom.exit.i: ; preds = %634, %630
+_ZN12_GLOBAL__N_117CachingVPExpander17expandPredicationERN4llvm11VPIntrinsicE.exit.i: ; preds = %634, %630
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27)
   %.not.i = icmp eq ptr %.0.i.i, %0
   %spec.select24.i = select i1 %.not.i, i32 %.0.i, i32 2
   br label %_ZN12_GLOBAL__N_117CachingVPExpander23expandVectorPredicationERN4llvm11VPIntrinsicE.exit
 
-_ZN12_GLOBAL__N_117CachingVPExpander23expandVectorPredicationERN4llvm11VPIntrinsicE.exit: ; preds = %193, %_ZN12_GLOBAL__N_117CachingVPExpander17expandPredicationERN4llvm11VPIntrinsicE.argprom.exit.i
-  %.1.i = phi i32 [ %.0.i, %193 ], [ %spec.select24.i, %_ZN12_GLOBAL__N_117CachingVPExpander17expandPredicationERN4llvm11VPIntrinsicE.argprom.exit.i ]
+_ZN12_GLOBAL__N_117CachingVPExpander23expandVectorPredicationERN4llvm11VPIntrinsicE.exit: ; preds = %193, %_ZN12_GLOBAL__N_117CachingVPExpander17expandPredicationERN4llvm11VPIntrinsicE.exit.i
+  %.1.i = phi i32 [ %.0.i, %193 ], [ %spec.select24.i, %_ZN12_GLOBAL__N_117CachingVPExpander17expandPredicationERN4llvm11VPIntrinsicE.exit.i ]
   ret i32 %.1.i
 }
 
@@ -1635,7 +1635,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull al
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117CachingVPExpander19discardEVLParameterERN4llvm11VPIntrinsicE.argprom(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117CachingVPExpander19discardEVLParameterERN4llvm11VPIntrinsicE(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::Twine", align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.llvm::IRBuilder", align 8
@@ -2678,7 +2678,7 @@ define internal fastcc void @_ZL16replaceOperationRN4llvm5ValueERNS_11VPIntrinsi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117CachingVPExpander26expandPredicationToIntCallERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicEj.argprom(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117CachingVPExpander26expandPredicationToIntCallERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicEj(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca [1 x ptr], align 8
   %5 = alloca [2 x ptr], align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -2786,7 +2786,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit28:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117CachingVPExpander25expandPredicationToFPCallERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicEj.argprom(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117CachingVPExpander25expandPredicationToFPCallERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicEj(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca [1 x ptr], align 8
   %5 = alloca [1 x ptr], align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -2968,7 +2968,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit56:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117CachingVPExpander34expandPredicationInMemoryIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.argprom(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117CachingVPExpander34expandPredicationInMemoryIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8

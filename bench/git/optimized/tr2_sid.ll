@@ -88,15 +88,15 @@ for.end:                                          ; preds = %for.cond
   %.neg.i = add i64 %4, 1
   %tobool.not1.i = icmp eq i64 %3, %.neg.i
   %tobool.not.i = select i1 %tobool.not.i.i, i1 true, i1 %tobool.not1.i
-  br i1 %tobool.not.i, label %if.then.i, label %strbuf_addch.argprom.exit
+  br i1 %tobool.not.i, label %if.then.i, label %strbuf_addch.exit
 
 if.then.i:                                        ; preds = %for.end
   tail call void @strbuf_grow(ptr noundef nonnull @tr2sid_buf, i64 noundef 1) #6
   %.pre.i = load i64, ptr getelementptr inbounds (i8, ptr @tr2sid_buf, i64 8), align 8
   %.pre2.i = add i64 %.pre.i, 1
-  br label %strbuf_addch.argprom.exit
+  br label %strbuf_addch.exit
 
-strbuf_addch.argprom.exit:                        ; preds = %for.end, %if.then.i
+strbuf_addch.exit:                                ; preds = %for.end, %if.then.i
   %inc.pre-phi.i = phi i64 [ %.pre2.i, %if.then.i ], [ %.neg.i, %for.end ]
   %5 = phi i64 [ %.pre.i, %if.then.i ], [ %4, %for.end ]
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @tr2sid_buf, i64 16), align 8
@@ -112,7 +112,7 @@ strbuf_addch.argprom.exit:                        ; preds = %for.end, %if.then.i
   store i32 %inc9, ptr @tr2sid_nr_git_parents, align 4
   br label %if.end10
 
-if.end10:                                         ; preds = %strbuf_addch.argprom.exit, %land.lhs.true, %if.end
+if.end10:                                         ; preds = %strbuf_addch.exit, %land.lhs.true, %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tb_now.i)
   call void @llvm.lifetime.start.p0(i64 2400, ptr nonnull %ctx.i)
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %hash.i)
@@ -128,15 +128,15 @@ if.end10:                                         ; preds = %strbuf_addch.argpro
   %.neg.i.i = add i64 %11, 1
   %tobool.not1.i.i = icmp eq i64 %10, %.neg.i.i
   %tobool.not.i.i7 = select i1 %tobool.not.i.i.i, i1 true, i1 %tobool.not1.i.i
-  br i1 %tobool.not.i.i7, label %if.then.i.i, label %strbuf_addch.argprom.exit.i
+  br i1 %tobool.not.i.i7, label %if.then.i.i, label %strbuf_addch.exit.i
 
 if.then.i.i:                                      ; preds = %if.end10
   call void @strbuf_grow(ptr noundef nonnull @tr2sid_buf, i64 noundef 1) #6
   %.pre.i.i = load i64, ptr getelementptr inbounds (i8, ptr @tr2sid_buf, i64 8), align 8
   %.pre2.i.i = add i64 %.pre.i.i, 1
-  br label %strbuf_addch.argprom.exit.i
+  br label %strbuf_addch.exit.i
 
-strbuf_addch.argprom.exit.i:                      ; preds = %if.then.i.i, %if.end10
+strbuf_addch.exit.i:                              ; preds = %if.then.i.i, %if.end10
   %inc.pre-phi.i.i = phi i64 [ %.pre2.i.i, %if.then.i.i ], [ %.neg.i.i, %if.end10 ]
   %12 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %11, %if.end10 ]
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @tr2sid_buf, i64 16), align 8
@@ -151,11 +151,11 @@ strbuf_addch.argprom.exit.i:                      ; preds = %if.then.i.i, %if.en
   %tobool.not.i8 = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i8, label %if.else.i, label %if.then.i9
 
-if.then.i9:                                       ; preds = %strbuf_addch.argprom.exit.i
+if.then.i9:                                       ; preds = %strbuf_addch.exit.i
   call void @strbuf_add(ptr noundef nonnull @tr2sid_buf, ptr noundef nonnull @.str.1, i64 noundef 9) #6
   br label %tr2_sid_append_my_sid_component.exit
 
-if.else.i:                                        ; preds = %strbuf_addch.argprom.exit.i
+if.else.i:                                        ; preds = %strbuf_addch.exit.i
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @hash_algos, i64 144), align 16
   call void %16(ptr noundef nonnull %ctx.i) #6
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @hash_algos, i64 160), align 16
@@ -170,15 +170,15 @@ if.else.i:                                        ; preds = %strbuf_addch.argpro
   %.neg.i5.i = add i64 %20, 1
   %tobool.not1.i6.i = icmp eq i64 %19, %.neg.i5.i
   %tobool.not.i7.i = select i1 %tobool.not.i.i4.i, i1 true, i1 %tobool.not1.i6.i
-  br i1 %tobool.not.i7.i, label %if.then.i11.i, label %strbuf_addch.argprom.exit14.i
+  br i1 %tobool.not.i7.i, label %if.then.i11.i, label %strbuf_addch.exit14.i
 
 if.then.i11.i:                                    ; preds = %if.else.i
   call void @strbuf_grow(ptr noundef nonnull @tr2sid_buf, i64 noundef 1) #6
   %.pre.i12.i = load i64, ptr getelementptr inbounds (i8, ptr @tr2sid_buf, i64 8), align 8
   %.pre2.i13.i = add i64 %.pre.i12.i, 1
-  br label %strbuf_addch.argprom.exit14.i
+  br label %strbuf_addch.exit14.i
 
-strbuf_addch.argprom.exit14.i:                    ; preds = %if.then.i11.i, %if.else.i
+strbuf_addch.exit14.i:                            ; preds = %if.then.i11.i, %if.else.i
   %inc.pre-phi.i8.i = phi i64 [ %.pre2.i13.i, %if.then.i11.i ], [ %.neg.i5.i, %if.else.i ]
   %21 = phi i64 [ %.pre.i12.i, %if.then.i11.i ], [ %20, %if.else.i ]
   %22 = load ptr, ptr getelementptr inbounds (i8, ptr @tr2sid_buf, i64 16), align 8
@@ -192,7 +192,7 @@ strbuf_addch.argprom.exit14.i:                    ; preds = %if.then.i11.i, %if.
   call void @strbuf_add(ptr noundef nonnull @tr2sid_buf, ptr noundef nonnull %hex.i, i64 noundef 8) #6
   br label %tr2_sid_append_my_sid_component.exit
 
-tr2_sid_append_my_sid_component.exit:             ; preds = %if.then.i9, %strbuf_addch.argprom.exit14.i
+tr2_sid_append_my_sid_component.exit:             ; preds = %if.then.i9, %strbuf_addch.exit14.i
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @tr2sid_buf, ptr noundef nonnull @.str.2, i32 noundef %call.i6) #6
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tb_now.i)
   call void @llvm.lifetime.end.p0(i64 2400, ptr nonnull %ctx.i)

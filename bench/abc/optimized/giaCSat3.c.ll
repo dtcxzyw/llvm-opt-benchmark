@@ -177,8 +177,8 @@ Vec_IntPush.exit41:                               ; preds = %.Vec_IntGrow.exit10
   %63 = getelementptr inbounds i8, ptr %1, i64 176
   tail call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %63, i32 noundef -1, i32 noundef -1)
   %64 = getelementptr inbounds i8, ptr %1, i64 192
-  tail call fastcc void @Vec_WecPushLevel.retelim(ptr noundef nonnull %64)
-  tail call fastcc void @Vec_WecPushLevel.retelim(ptr noundef nonnull %64)
+  tail call fastcc void @Vec_WecPushLevel(ptr noundef nonnull %64)
+  tail call fastcc void @Vec_WecPushLevel(ptr noundef nonnull %64)
   %65 = getelementptr inbounds i8, ptr %1, i64 128
   store i32 1, ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %1, i64 132
@@ -596,7 +596,7 @@ Vec_IntPush.exit9:                                ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_WecPushLevel.retelim(ptr nocapture noundef %0) unnamed_addr #5 {
+define internal fastcc void @Vec_WecPushLevel(ptr nocapture noundef %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = load i32, ptr %0, align 8
@@ -2353,7 +2353,7 @@ Cbs3_ManAssign.exit:                              ; preds = %._crit_edge.i.i, %9
   br i1 %.not66, label %126, label %130
 
 126:                                              ; preds = %120
-  %127 = tail call fastcc i32 @Cbs3_ManResolve.argelim(ptr noundef nonnull %0, i32 noundef %110, i32 noundef %119)
+  %127 = tail call fastcc i32 @Cbs3_ManResolve(ptr noundef nonnull %0, i32 noundef %110, i32 noundef %119)
   %128 = load i32, ptr %19, align 4
   %129 = add nsw i32 %128, 1
   store i32 %129, ptr %19, align 4
@@ -2413,7 +2413,7 @@ define internal fastcc void @Cbs3_ManCancelUntil(ptr nocapture noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Cbs3_ManResolve.argelim(ptr nocapture noundef %0, i32 noundef range(i32 1, 0) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #2 {
+define internal fastcc i32 @Cbs3_ManResolve(ptr nocapture noundef %0, i32 noundef range(i32 1, 0) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   %5 = getelementptr inbounds i8, ptr %0, i64 92
   %6 = load i32, ptr %5, align 4
@@ -5110,9 +5110,9 @@ define internal fastcc i32 @Cbs3_ManToSolver2_rec(ptr noundef %0, ptr noundef %1
   %10 = getelementptr inbounds i32, ptr %.val35, i64 %6
   %11 = load i32, ptr %10, align 4
   %.not.i = icmp eq i32 %11, %.val34
-  br i1 %.not.i, label %Gia_ObjUpdateTravIdCurrentId.argprom.exit, label %14
+  br i1 %.not.i, label %Gia_ObjUpdateTravIdCurrentId.exit, label %14
 
-Gia_ObjUpdateTravIdCurrentId.argprom.exit:        ; preds = %4
+Gia_ObjUpdateTravIdCurrentId.exit:                ; preds = %4
   %12 = getelementptr inbounds i8, ptr %7, i64 8
   %13 = load i32, ptr %12, align 4
   br label %common.ret42
@@ -5132,8 +5132,8 @@ Gia_ObjUpdateTravIdCurrentId.argprom.exit:        ; preds = %4
   store i32 %18, ptr %19, align 4
   br label %common.ret42
 
-common.ret42:                                     ; preds = %17, %Gia_ObjUpdateTravIdCurrentId.argprom.exit, %20
-  %common.ret42.op = phi i32 [ %45, %20 ], [ %13, %Gia_ObjUpdateTravIdCurrentId.argprom.exit ], [ %18, %17 ]
+common.ret42:                                     ; preds = %17, %Gia_ObjUpdateTravIdCurrentId.exit, %20
+  %common.ret42.op = phi i32 [ %45, %20 ], [ %13, %Gia_ObjUpdateTravIdCurrentId.exit ], [ %18, %17 ]
   ret i32 %common.ret42.op
 
 20:                                               ; preds = %14

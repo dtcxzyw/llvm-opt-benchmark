@@ -3132,7 +3132,7 @@ for.body6.i.i:                                    ; preds = %for.body6.i.i, %for
 for.end11.i.i:                                    ; preds = %for.body6.i.i, %for.end.i.i
   %7 = and i64 %bf.load.i.i.i, 8
   %tobool.not.i.i.i.i = icmp eq i64 %7, 0
-  br i1 %tobool.not.i.i.i.i, label %_ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.argprom.exit.i, label %if.then.i.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %_ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.end11.i.i
   %idxprom.i.i.i.i = zext nneg i32 %2 to i64
@@ -3142,9 +3142,9 @@ if.then.i.i.i.i:                                  ; preds = %for.end11.i.i
   %8 = load i32, ptr %arrayidx.i.i.i.i, align 4
   store i32 %8, ptr %arrayidx14.i.i.i.i, align 4
   %bf.load16.pre.i.i.i.i = load i64, ptr %arrayidx.i.i, align 4
-  br label %_ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.argprom.exit.i
+  br label %_ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.exit.i
 
-_ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.argprom.exit.i: ; preds = %if.then.i.i.i.i, %for.end11.i.i
+_ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.exit.i: ; preds = %if.then.i.i.i.i, %for.end11.i.i
   %bf.load16.i.i.i.i = phi i64 [ %bf.load16.pre.i.i.i.i, %if.then.i.i.i.i ], [ %bf.load.i.i.i, %for.end11.i.i ]
   %9 = add i64 %bf.load16.i.i.i.i, 4294967264
   %bf.shl.i.i.i.i = and i64 %9, 4294967264
@@ -3154,7 +3154,7 @@ _ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.argprom.exit.
   %cmp4.not.i.i = icmp eq i64 %bf.shl.i.i.i.i, 0
   br i1 %cmp4.not.i.i, label %_ZN4cvc58internal7Minisat6Clause10strengthenENS1_3LitE.exit, label %for.body.lr.ph.i.i
 
-for.body.lr.ph.i.i:                               ; preds = %_ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.argprom.exit.i
+for.body.lr.ph.i.i:                               ; preds = %_ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.exit.i
   %10 = lshr i64 %9, 5
   %wide.trip.count.i2.i = and i64 %10, 134217727
   br label %for.body.i.i
@@ -3172,9 +3172,9 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %exitcond.not.i5.i = icmp eq i64 %indvars.iv.next.i4.i, %wide.trip.count.i2.i
   br i1 %exitcond.not.i5.i, label %_ZN4cvc58internal7Minisat6Clause10strengthenENS1_3LitE.exit, label %for.body.i.i, !llvm.loop !7
 
-_ZN4cvc58internal7Minisat6Clause10strengthenENS1_3LitE.exit: ; preds = %for.body.i.i, %_ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.argprom.exit.i
-  %idxprom4.i.pre-phi.i = phi i64 [ 0, %_ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.argprom.exit.i ], [ %wide.trip.count.i2.i, %for.body.i.i ]
-  %abstraction.0.lcssa.i.i = phi i32 [ 0, %_ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.argprom.exit.i ], [ %or.i.i, %for.body.i.i ]
+_ZN4cvc58internal7Minisat6Clause10strengthenENS1_3LitE.exit: ; preds = %for.body.i.i, %_ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.exit.i
+  %idxprom4.i.pre-phi.i = phi i64 [ 0, %_ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.exit.i ], [ %wide.trip.count.i2.i, %for.body.i.i ]
+  %abstraction.0.lcssa.i.i = phi i32 [ 0, %_ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.exit.i ], [ %or.i.i, %for.body.i.i ]
   %arrayidx5.i.i = getelementptr inbounds [0 x %union.anon.273], ptr %data.i.i.i, i64 0, i64 %idxprom4.i.pre-phi.i
   store i32 %abstraction.0.lcssa.i.i, ptr %arrayidx5.i.i, align 4
   br label %if.end
@@ -3232,7 +3232,7 @@ for.body6.i.i59:                                  ; preds = %for.body6.i.i59, %f
 for.end11.i.i27:                                  ; preds = %for.body6.i.i59, %for.end.i.i23
   %17 = and i64 %bf.load.i.i.i11, 8
   %tobool.not.i.i.i.i28 = icmp eq i64 %17, 0
-  br i1 %tobool.not.i.i.i.i28, label %_ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.argprom.exit.i35, label %if.then.i.i.i.i29
+  br i1 %tobool.not.i.i.i.i28, label %_ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.exit.i35, label %if.then.i.i.i.i29
 
 if.then.i.i.i.i29:                                ; preds = %for.end11.i.i27
   %idxprom.i.i.i.i30 = zext nneg i32 %12 to i64
@@ -3242,9 +3242,9 @@ if.then.i.i.i.i29:                                ; preds = %for.end11.i.i27
   %18 = load i32, ptr %arrayidx.i.i.i.i31, align 4
   store i32 %18, ptr %arrayidx14.i.i.i.i33, align 4
   %bf.load16.pre.i.i.i.i34 = load i64, ptr %arrayidx.i.i, align 4
-  br label %_ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.argprom.exit.i35
+  br label %_ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.exit.i35
 
-_ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.argprom.exit.i35: ; preds = %if.then.i.i.i.i29, %for.end11.i.i27
+_ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.exit.i35: ; preds = %if.then.i.i.i.i29, %for.end11.i.i27
   %bf.load16.i.i.i.i36 = phi i64 [ %bf.load16.pre.i.i.i.i34, %if.then.i.i.i.i29 ], [ %bf.load.i.i.i11, %for.end11.i.i27 ]
   %19 = add i64 %bf.load16.i.i.i.i36, 4294967264
   %bf.shl.i.i.i.i37 = and i64 %19, 4294967264
@@ -3254,7 +3254,7 @@ _ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.argprom.exit.
   %cmp4.not.i.i40 = icmp eq i64 %bf.shl.i.i.i.i37, 0
   br i1 %cmp4.not.i.i40, label %_ZN4cvc58internal7Minisat6Clause10strengthenENS1_3LitE.exit66, label %for.body.lr.ph.i.i41
 
-for.body.lr.ph.i.i41:                             ; preds = %_ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.argprom.exit.i35
+for.body.lr.ph.i.i41:                             ; preds = %_ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.exit.i35
   %20 = lshr i64 %19, 5
   %wide.trip.count.i2.i42 = and i64 %20, 134217727
   br label %for.body.i.i43
@@ -3272,9 +3272,9 @@ for.body.i.i43:                                   ; preds = %for.body.i.i43, %fo
   %exitcond.not.i5.i53 = icmp eq i64 %indvars.iv.next.i4.i52, %wide.trip.count.i2.i42
   br i1 %exitcond.not.i5.i53, label %_ZN4cvc58internal7Minisat6Clause10strengthenENS1_3LitE.exit66, label %for.body.i.i43, !llvm.loop !7
 
-_ZN4cvc58internal7Minisat6Clause10strengthenENS1_3LitE.exit66: ; preds = %for.body.i.i43, %_ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.argprom.exit.i35
-  %idxprom4.i.pre-phi.i54 = phi i64 [ 0, %_ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.argprom.exit.i35 ], [ %wide.trip.count.i2.i42, %for.body.i.i43 ]
-  %abstraction.0.lcssa.i.i55 = phi i32 [ 0, %_ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.argprom.exit.i35 ], [ %or.i.i51, %for.body.i.i43 ]
+_ZN4cvc58internal7Minisat6Clause10strengthenENS1_3LitE.exit66: ; preds = %for.body.i.i43, %_ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.exit.i35
+  %idxprom4.i.pre-phi.i54 = phi i64 [ 0, %_ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.exit.i35 ], [ %wide.trip.count.i2.i42, %for.body.i.i43 ]
+  %abstraction.0.lcssa.i.i55 = phi i32 [ 0, %_ZN4cvc58internal7MinisatL6removeINS1_6ClauseENS1_3LitEEEvRT_RKT0_.exit.i35 ], [ %or.i.i51, %for.body.i.i43 ]
   %arrayidx5.i.i56 = getelementptr inbounds [0 x %union.anon.273], ptr %data.i.i.i, i64 0, i64 %idxprom4.i.pre-phi.i54
   store i32 %abstraction.0.lcssa.i.i55, ptr %arrayidx5.i.i56, align 4
   tail call void @_ZN4cvc58internal7Minisat6Solver12attachClauseEj(ptr noundef nonnull align 8 dereferenceable(850) %this, i32 noundef %cr)
@@ -3307,7 +3307,7 @@ for.inc.i:                                        ; preds = %land.rhs.i
 
 for.end.thread.i:                                 ; preds = %for.inc.i
   %sub414.i = add nsw i32 %22, -1
-  br label %_ZN4cvc58internal7MinisatL6removeINS1_3vecIjEEjEEvRT_RKT0_.argprom.exit
+  br label %_ZN4cvc58internal7MinisatL6removeINS1_3vecIjEEjEEvRT_RKT0_.exit
 
 for.end.loopexit.i:                               ; preds = %land.rhs.i
   %25 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -3317,7 +3317,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   %j.0.lcssa.i = phi i32 [ 0, %_ZN4cvc58internal7Minisat6Clause10strengthenENS1_3LitE.exit66 ], [ %25, %for.end.loopexit.i ]
   %sub4.i = add nsw i32 %22, -1
   %cmp55.i = icmp slt i32 %j.0.lcssa.i, %sub4.i
-  br i1 %cmp55.i, label %for.body6.preheader.i, label %_ZN4cvc58internal7MinisatL6removeINS1_3vecIjEEjEEvRT_RKT0_.argprom.exit
+  br i1 %cmp55.i, label %for.body6.preheader.i, label %_ZN4cvc58internal7MinisatL6removeINS1_3vecIjEEjEEvRT_RKT0_.exit
 
 for.body6.preheader.i:                            ; preds = %for.end.i
   %26 = zext i32 %j.0.lcssa.i to i64
@@ -3335,9 +3335,9 @@ for.body6.i:                                      ; preds = %for.body6.i, %for.b
   %sub.i = add nsw i32 %29, -1
   %30 = trunc nuw i64 %indvars.iv.next11.i to i32
   %cmp5.i = icmp sgt i32 %sub.i, %30
-  br i1 %cmp5.i, label %for.body6.i, label %_ZN4cvc58internal7MinisatL6removeINS1_3vecIjEEjEEvRT_RKT0_.argprom.exit, !llvm.loop !25
+  br i1 %cmp5.i, label %for.body6.i, label %_ZN4cvc58internal7MinisatL6removeINS1_3vecIjEEjEEvRT_RKT0_.exit, !llvm.loop !25
 
-_ZN4cvc58internal7MinisatL6removeINS1_3vecIjEEjEEvRT_RKT0_.argprom.exit: ; preds = %for.body6.i, %for.end.thread.i, %for.end.i
+_ZN4cvc58internal7MinisatL6removeINS1_3vecIjEEjEEvRT_RKT0_.exit: ; preds = %for.body6.i, %for.end.thread.i, %for.end.i
   %sub.lcssa.i = phi i32 [ %sub4.i, %for.end.i ], [ %sub414.i, %for.end.thread.i ], [ %sub.i, %for.body6.i ]
   store i32 %sub.lcssa.i, ptr %sz.i.i, align 8
   %n_occ = getelementptr inbounds i8, ptr %this, i64 984
@@ -3353,7 +3353,7 @@ _ZN4cvc58internal7MinisatL6removeINS1_3vecIjEEjEEvRT_RKT0_.argprom.exit: ; preds
   %cmp.i.i = icmp slt i32 %shr.i, %33
   br i1 %cmp.i.i, label %_ZNK4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE6inHeapEi.exit.i, label %lor.rhs.i
 
-_ZNK4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE6inHeapEi.exit.i: ; preds = %_ZN4cvc58internal7MinisatL6removeINS1_3vecIjEEjEEvRT_RKT0_.argprom.exit
+_ZNK4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE6inHeapEi.exit.i: ; preds = %_ZN4cvc58internal7MinisatL6removeINS1_3vecIjEEjEEvRT_RKT0_.exit
   %indices.i.i = getelementptr inbounds i8, ptr %this, i64 1024
   %34 = load ptr, ptr %indices.i.i, align 8
   %arrayidx.i.i.i73 = getelementptr inbounds i32, ptr %34, i64 %idxprom.i.i67
@@ -3361,7 +3361,7 @@ _ZNK4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE6inHeapEi.exit.i: ; pre
   %cmp4.i.i = icmp sgt i32 %35, -1
   br i1 %cmp4.i.i, label %if.then.i, label %lor.rhs.i
 
-lor.rhs.i:                                        ; preds = %_ZN4cvc58internal7MinisatL6removeINS1_3vecIjEEjEEvRT_RKT0_.argprom.exit, %_ZNK4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE6inHeapEi.exit.i
+lor.rhs.i:                                        ; preds = %_ZN4cvc58internal7MinisatL6removeINS1_3vecIjEEjEEvRT_RKT0_.exit, %_ZNK4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE6inHeapEi.exit.i
   %frozen.i = getelementptr inbounds i8, ptr %this, i64 1064
   %36 = load ptr, ptr %frozen.i, align 8
   %arrayidx.i.i71 = getelementptr inbounds i8, ptr %36, i64 %idxprom.i.i67
@@ -5124,7 +5124,7 @@ invoke.cont7:                                     ; preds = %invoke.cont7.lr.ph,
   %bf.load.i.i = load i64, ptr %arrayidx.i.i27, align 4
   %43 = and i64 %bf.load.i.i, 4294967264
   %cmp1.not.i = icmp eq i64 %43, 0
-  br i1 %cmp1.not.i, label %_ZN4cvc58internal7MinisatL4findINS1_6ClauseENS1_3LitEEEbRT_RKT0_.argprom.exit, label %land.rhs.preheader.i
+  br i1 %cmp1.not.i, label %_ZN4cvc58internal7MinisatL4findINS1_6ClauseENS1_3LitEEEbRT_RKT0_.exit, label %land.rhs.preheader.i
 
 land.rhs.preheader.i:                             ; preds = %invoke.cont7
   %44 = lshr i64 %bf.load.i.i, 5
@@ -5134,27 +5134,27 @@ land.rhs.preheader.i:                             ; preds = %invoke.cont7
 for.cond.i:                                       ; preds = %land.rhs.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN4cvc58internal7MinisatL4findINS1_6ClauseENS1_3LitEEEbRT_RKT0_.argprom.exit, label %land.rhs.i, !llvm.loop !45
+  br i1 %exitcond.not.i, label %_ZN4cvc58internal7MinisatL4findINS1_6ClauseENS1_3LitEEEbRT_RKT0_.exit, label %land.rhs.i, !llvm.loop !45
 
 land.rhs.i:                                       ; preds = %for.cond.i, %land.rhs.preheader.i
   %indvars.iv.i = phi i64 [ 0, %land.rhs.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
   %arrayidx.i.i28 = getelementptr inbounds [0 x %union.anon.273], ptr %data.i.i, i64 0, i64 %indvars.iv.i
   %45 = load i32, ptr %arrayidx.i.i28, align 4
   %cmp.i.not.i = icmp eq i32 %45, %add.i
-  br i1 %cmp.i.not.i, label %_ZN4cvc58internal7MinisatL4findINS1_6ClauseENS1_3LitEEEbRT_RKT0_.argprom.exit, label %for.cond.i
+  br i1 %cmp.i.not.i, label %_ZN4cvc58internal7MinisatL4findINS1_6ClauseENS1_3LitEEEbRT_RKT0_.exit, label %for.cond.i
 
-_ZN4cvc58internal7MinisatL4findINS1_6ClauseENS1_3LitEEEbRT_RKT0_.argprom.exit: ; preds = %land.rhs.i, %for.cond.i, %invoke.cont7
+_ZN4cvc58internal7MinisatL4findINS1_6ClauseENS1_3LitEEEbRT_RKT0_.exit: ; preds = %land.rhs.i, %for.cond.i, %invoke.cont7
   %46 = phi i32 [ %neg.sroa.10.0268, %invoke.cont7 ], [ %pos.sroa.13.0273, %land.rhs.i ], [ %neg.sroa.10.0268, %for.cond.i ]
   %cmp.lcssa.i206209 = phi i1 [ false, %invoke.cont7 ], [ %cmp.i.not.i, %for.cond.i ], [ %cmp.i.not.i, %land.rhs.i ]
   %47 = phi i32 [ %neg.sroa.17.0266, %invoke.cont7 ], [ %pos.sroa.22.0271, %land.rhs.i ], [ %neg.sroa.17.0266, %for.cond.i ]
   %cmp.i = icmp eq i32 %46, %47
   br i1 %cmp.i, label %if.end.i.i, label %entry.if.end_crit_edge.i
 
-entry.if.end_crit_edge.i:                         ; preds = %_ZN4cvc58internal7MinisatL4findINS1_6ClauseENS1_3LitEEEbRT_RKT0_.argprom.exit
+entry.if.end_crit_edge.i:                         ; preds = %_ZN4cvc58internal7MinisatL4findINS1_6ClauseENS1_3LitEEEbRT_RKT0_.exit
   %.pre.i32.sroa.speculated = select i1 %cmp.lcssa.i206209, ptr %pos.sroa.0.0275, ptr %neg.sroa.0.0270
   br label %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit
 
-if.end.i.i:                                       ; preds = %_ZN4cvc58internal7MinisatL4findINS1_6ClauseENS1_3LitEEEbRT_RKT0_.argprom.exit
+if.end.i.i:                                       ; preds = %_ZN4cvc58internal7MinisatL4findINS1_6ClauseENS1_3LitEEEbRT_RKT0_.exit
   %shr.i.i = ashr i32 %46, 1
   %48 = and i32 %shr.i.i, -2
   %49 = tail call i32 @llvm.smax.i32(i32 %48, i32 0)

@@ -1117,14 +1117,14 @@ if.end:                                           ; preds = %land.lhs.true.i, %e
   %dec.i.i.i = add i32 %6, -1
   store i32 %dec.i.i.i, ptr %c_recursion_remaining.i.i.i, align 4
   %cmp.i.i.i = icmp sgt i32 %6, 0
-  br i1 %cmp.i.i.i, label %cfunction_enter_call.exit, label %_Py_EnterRecursiveCallTstate.argprom.exit.i
+  br i1 %cmp.i.i.i, label %cfunction_enter_call.exit, label %_Py_EnterRecursiveCallTstate.exit.i
 
-_Py_EnterRecursiveCallTstate.argprom.exit.i:      ; preds = %if.end
+_Py_EnterRecursiveCallTstate.exit.i:              ; preds = %if.end
   %call1.i.i = tail call i32 @_Py_CheckRecursiveCall(ptr noundef nonnull %1, ptr noundef nonnull @.str.19) #5
   %tobool2.i.not.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool2.i.not.i, label %cfunction_enter_call.exit, label %return
 
-cfunction_enter_call.exit:                        ; preds = %if.end, %_Py_EnterRecursiveCallTstate.argprom.exit.i
+cfunction_enter_call.exit:                        ; preds = %if.end, %_Py_EnterRecursiveCallTstate.exit.i
   %7 = getelementptr i8, ptr %func, i64 16
   %func.val.i = load ptr, ptr %7, align 8
   %8 = getelementptr i8, ptr %func.val.i, i64 8
@@ -1152,8 +1152,8 @@ PyCFunction_GET_SELF.exit:                        ; preds = %if.end5, %if.end.i1
   store i32 %inc.i, ptr %c_recursion_remaining.i.i.i, align 4
   br label %return
 
-return:                                           ; preds = %_Py_EnterRecursiveCallTstate.argprom.exit.i, %if.then.i, %if.then3.i, %if.then1.i.i, %if.end.i.i, %cfunction_enter_call.exit, %PyCFunction_GET_SELF.exit
-  %retval.0 = phi ptr [ %call7, %PyCFunction_GET_SELF.exit ], [ null, %cfunction_enter_call.exit ], [ null, %if.end.i.i ], [ null, %if.then1.i.i ], [ null, %if.then3.i ], [ null, %if.then.i ], [ null, %_Py_EnterRecursiveCallTstate.argprom.exit.i ]
+return:                                           ; preds = %_Py_EnterRecursiveCallTstate.exit.i, %if.then.i, %if.then3.i, %if.then1.i.i, %if.end.i.i, %cfunction_enter_call.exit, %PyCFunction_GET_SELF.exit
+  %retval.0 = phi ptr [ %call7, %PyCFunction_GET_SELF.exit ], [ null, %cfunction_enter_call.exit ], [ null, %if.end.i.i ], [ null, %if.then1.i.i ], [ null, %if.then3.i ], [ null, %if.then.i ], [ null, %_Py_EnterRecursiveCallTstate.exit.i ]
   ret ptr %retval.0
 }
 
@@ -1168,14 +1168,14 @@ entry:
   %dec.i.i.i = add i32 %2, -1
   store i32 %dec.i.i.i, ptr %c_recursion_remaining.i.i.i, align 4
   %cmp.i.i.i = icmp sgt i32 %2, 0
-  br i1 %cmp.i.i.i, label %cfunction_enter_call.exit, label %_Py_EnterRecursiveCallTstate.argprom.exit.i
+  br i1 %cmp.i.i.i, label %cfunction_enter_call.exit, label %_Py_EnterRecursiveCallTstate.exit.i
 
-_Py_EnterRecursiveCallTstate.argprom.exit.i:      ; preds = %entry
+_Py_EnterRecursiveCallTstate.exit.i:              ; preds = %entry
   %call1.i.i = tail call i32 @_Py_CheckRecursiveCall(ptr noundef nonnull %1, ptr noundef nonnull @.str.19) #5
   %tobool2.i.not.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool2.i.not.i, label %cfunction_enter_call.exit, label %return
 
-cfunction_enter_call.exit:                        ; preds = %entry, %_Py_EnterRecursiveCallTstate.argprom.exit.i
+cfunction_enter_call.exit:                        ; preds = %entry, %_Py_EnterRecursiveCallTstate.exit.i
   %3 = getelementptr i8, ptr %func, i64 16
   %func.val.i = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %func.val.i, i64 8
@@ -1203,8 +1203,8 @@ PyCFunction_GET_SELF.exit:                        ; preds = %if.end, %if.end.i6
   store i32 %inc.i, ptr %c_recursion_remaining.i.i.i, align 4
   br label %return
 
-return:                                           ; preds = %_Py_EnterRecursiveCallTstate.argprom.exit.i, %cfunction_enter_call.exit, %PyCFunction_GET_SELF.exit
-  %retval.0 = phi ptr [ %call4, %PyCFunction_GET_SELF.exit ], [ null, %cfunction_enter_call.exit ], [ null, %_Py_EnterRecursiveCallTstate.argprom.exit.i ]
+return:                                           ; preds = %_Py_EnterRecursiveCallTstate.exit.i, %cfunction_enter_call.exit, %PyCFunction_GET_SELF.exit
+  %retval.0 = phi ptr [ %call4, %PyCFunction_GET_SELF.exit ], [ null, %cfunction_enter_call.exit ], [ null, %_Py_EnterRecursiveCallTstate.exit.i ]
   ret ptr %retval.0
 }
 
@@ -1279,14 +1279,14 @@ if.end9:                                          ; preds = %if.end
   %dec.i.i.i = add i32 %9, -1
   store i32 %dec.i.i.i, ptr %c_recursion_remaining.i.i.i, align 4
   %cmp.i.i.i = icmp sgt i32 %9, 0
-  br i1 %cmp.i.i.i, label %cfunction_enter_call.exit, label %_Py_EnterRecursiveCallTstate.argprom.exit.i
+  br i1 %cmp.i.i.i, label %cfunction_enter_call.exit, label %_Py_EnterRecursiveCallTstate.exit.i
 
-_Py_EnterRecursiveCallTstate.argprom.exit.i:      ; preds = %if.end9
+_Py_EnterRecursiveCallTstate.exit.i:              ; preds = %if.end9
   %call1.i.i = tail call i32 @_Py_CheckRecursiveCall(ptr noundef nonnull %1, ptr noundef nonnull @.str.19) #5
   %tobool2.i.not.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool2.i.not.i, label %cfunction_enter_call.exit, label %return
 
-cfunction_enter_call.exit:                        ; preds = %if.end9, %_Py_EnterRecursiveCallTstate.argprom.exit.i
+cfunction_enter_call.exit:                        ; preds = %if.end9, %_Py_EnterRecursiveCallTstate.exit.i
   %10 = getelementptr i8, ptr %func, i64 16
   %func.val.i = load ptr, ptr %10, align 8
   %11 = getelementptr i8, ptr %func.val.i, i64 8
@@ -1314,8 +1314,8 @@ PyCFunction_GET_SELF.exit:                        ; preds = %if.end13, %if.end.i
   store i32 %inc.i, ptr %c_recursion_remaining.i.i.i, align 4
   br label %return
 
-return:                                           ; preds = %_Py_EnterRecursiveCallTstate.argprom.exit.i, %if.then.i, %if.then3.i, %if.then1.i.i, %if.end.i.i, %cfunction_enter_call.exit, %if.then3, %if.then6, %if.then1.i, %if.end.i, %PyCFunction_GET_SELF.exit
-  %retval.0 = phi ptr [ %call15, %PyCFunction_GET_SELF.exit ], [ null, %if.end.i ], [ null, %if.then1.i ], [ null, %if.then6 ], [ null, %if.then3 ], [ null, %cfunction_enter_call.exit ], [ null, %if.end.i.i ], [ null, %if.then1.i.i ], [ null, %if.then3.i ], [ null, %if.then.i ], [ null, %_Py_EnterRecursiveCallTstate.argprom.exit.i ]
+return:                                           ; preds = %_Py_EnterRecursiveCallTstate.exit.i, %if.then.i, %if.then3.i, %if.then1.i.i, %if.end.i.i, %cfunction_enter_call.exit, %if.then3, %if.then6, %if.then1.i, %if.end.i, %PyCFunction_GET_SELF.exit
+  %retval.0 = phi ptr [ %call15, %PyCFunction_GET_SELF.exit ], [ null, %if.end.i ], [ null, %if.then1.i ], [ null, %if.then6 ], [ null, %if.then3 ], [ null, %cfunction_enter_call.exit ], [ null, %if.end.i.i ], [ null, %if.then1.i.i ], [ null, %if.then3.i ], [ null, %if.then.i ], [ null, %_Py_EnterRecursiveCallTstate.exit.i ]
   ret ptr %retval.0
 }
 
@@ -1390,14 +1390,14 @@ if.end9:                                          ; preds = %if.end
   %dec.i.i.i = add i32 %9, -1
   store i32 %dec.i.i.i, ptr %c_recursion_remaining.i.i.i, align 4
   %cmp.i.i.i = icmp sgt i32 %9, 0
-  br i1 %cmp.i.i.i, label %cfunction_enter_call.exit, label %_Py_EnterRecursiveCallTstate.argprom.exit.i
+  br i1 %cmp.i.i.i, label %cfunction_enter_call.exit, label %_Py_EnterRecursiveCallTstate.exit.i
 
-_Py_EnterRecursiveCallTstate.argprom.exit.i:      ; preds = %if.end9
+_Py_EnterRecursiveCallTstate.exit.i:              ; preds = %if.end9
   %call1.i.i = tail call i32 @_Py_CheckRecursiveCall(ptr noundef nonnull %1, ptr noundef nonnull @.str.19) #5
   %tobool2.i.not.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool2.i.not.i, label %cfunction_enter_call.exit, label %return
 
-cfunction_enter_call.exit:                        ; preds = %if.end9, %_Py_EnterRecursiveCallTstate.argprom.exit.i
+cfunction_enter_call.exit:                        ; preds = %if.end9, %_Py_EnterRecursiveCallTstate.exit.i
   %10 = getelementptr i8, ptr %func, i64 16
   %func.val.i = load ptr, ptr %10, align 8
   %11 = getelementptr i8, ptr %func.val.i, i64 8
@@ -1426,8 +1426,8 @@ PyCFunction_GET_SELF.exit:                        ; preds = %if.end13, %if.end.i
   store i32 %inc.i, ptr %c_recursion_remaining.i.i.i, align 4
   br label %return
 
-return:                                           ; preds = %_Py_EnterRecursiveCallTstate.argprom.exit.i, %if.then.i, %if.then3.i, %if.then1.i.i, %if.end.i.i, %cfunction_enter_call.exit, %if.then3, %if.then6, %if.then1.i, %if.end.i, %PyCFunction_GET_SELF.exit
-  %retval.0 = phi ptr [ %call15, %PyCFunction_GET_SELF.exit ], [ null, %if.end.i ], [ null, %if.then1.i ], [ null, %if.then6 ], [ null, %if.then3 ], [ null, %cfunction_enter_call.exit ], [ null, %if.end.i.i ], [ null, %if.then1.i.i ], [ null, %if.then3.i ], [ null, %if.then.i ], [ null, %_Py_EnterRecursiveCallTstate.argprom.exit.i ]
+return:                                           ; preds = %_Py_EnterRecursiveCallTstate.exit.i, %if.then.i, %if.then3.i, %if.then1.i.i, %if.end.i.i, %cfunction_enter_call.exit, %if.then3, %if.then6, %if.then1.i, %if.end.i, %PyCFunction_GET_SELF.exit
+  %retval.0 = phi ptr [ %call15, %PyCFunction_GET_SELF.exit ], [ null, %if.end.i ], [ null, %if.then1.i ], [ null, %if.then6 ], [ null, %if.then3 ], [ null, %cfunction_enter_call.exit ], [ null, %if.end.i.i ], [ null, %if.then1.i.i ], [ null, %if.then3.i ], [ null, %if.then.i ], [ null, %_Py_EnterRecursiveCallTstate.exit.i ]
   ret ptr %retval.0
 }
 
@@ -1457,14 +1457,14 @@ PyCFunction_GET_CLASS.exit:                       ; preds = %entry, %if.then.i
   %dec.i.i.i = add i32 %5, -1
   store i32 %dec.i.i.i, ptr %c_recursion_remaining.i.i.i, align 4
   %cmp.i.i.i = icmp sgt i32 %5, 0
-  br i1 %cmp.i.i.i, label %cfunction_enter_call.exit, label %_Py_EnterRecursiveCallTstate.argprom.exit.i
+  br i1 %cmp.i.i.i, label %cfunction_enter_call.exit, label %_Py_EnterRecursiveCallTstate.exit.i
 
-_Py_EnterRecursiveCallTstate.argprom.exit.i:      ; preds = %PyCFunction_GET_CLASS.exit
+_Py_EnterRecursiveCallTstate.exit.i:              ; preds = %PyCFunction_GET_CLASS.exit
   %call1.i.i = tail call i32 @_Py_CheckRecursiveCall(ptr noundef nonnull %1, ptr noundef nonnull @.str.19) #5
   %tobool2.i.not.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool2.i.not.i, label %cfunction_enter_call.exit, label %return
 
-cfunction_enter_call.exit:                        ; preds = %PyCFunction_GET_CLASS.exit, %_Py_EnterRecursiveCallTstate.argprom.exit.i
+cfunction_enter_call.exit:                        ; preds = %PyCFunction_GET_CLASS.exit, %_Py_EnterRecursiveCallTstate.exit.i
   %func.val.i = load ptr, ptr %m_ml.i, align 8
   %6 = getelementptr i8, ptr %func.val.i, i64 8
   %func.val.val.i = load ptr, ptr %6, align 8
@@ -1491,8 +1491,8 @@ PyCFunction_GET_SELF.exit:                        ; preds = %if.end, %if.end.i12
   store i32 %inc.i, ptr %c_recursion_remaining.i.i.i, align 4
   br label %return
 
-return:                                           ; preds = %_Py_EnterRecursiveCallTstate.argprom.exit.i, %cfunction_enter_call.exit, %PyCFunction_GET_SELF.exit
-  %retval.0 = phi ptr [ %call5, %PyCFunction_GET_SELF.exit ], [ null, %cfunction_enter_call.exit ], [ null, %_Py_EnterRecursiveCallTstate.argprom.exit.i ]
+return:                                           ; preds = %_Py_EnterRecursiveCallTstate.exit.i, %cfunction_enter_call.exit, %PyCFunction_GET_SELF.exit
+  %retval.0 = phi ptr [ %call5, %PyCFunction_GET_SELF.exit ], [ null, %cfunction_enter_call.exit ], [ null, %_Py_EnterRecursiveCallTstate.exit.i ]
   ret ptr %retval.0
 }
 
@@ -1508,18 +1508,18 @@ entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %op.val, @PyCFunction_Type
-  br i1 %cmp.i.not.i, label %if.end, label %PyObject_TypeCheck.argprom.exit
+  br i1 %cmp.i.not.i, label %if.end, label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
+PyObject_TypeCheck.exit:                          ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %op.val, ptr noundef nonnull @PyCFunction_Type) #5
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.then, label %if.end
 
-if.then:                                          ; preds = %PyObject_TypeCheck.argprom.exit
+if.then:                                          ; preds = %PyObject_TypeCheck.exit
   tail call void @_PyErr_BadInternalCall(ptr noundef nonnull @.str.3, i32 noundef 120) #5
   br label %return
 
-if.end:                                           ; preds = %entry, %PyObject_TypeCheck.argprom.exit
+if.end:                                           ; preds = %entry, %PyObject_TypeCheck.exit
   %1 = getelementptr i8, ptr %op, i64 16
   %op.val2 = load ptr, ptr %1, align 8
   %2 = getelementptr i8, ptr %op.val2, i64 8
@@ -1539,18 +1539,18 @@ entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %op.val, @PyCFunction_Type
-  br i1 %cmp.i.not.i, label %if.end, label %PyObject_TypeCheck.argprom.exit
+  br i1 %cmp.i.not.i, label %if.end, label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
+PyObject_TypeCheck.exit:                          ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %op.val, ptr noundef nonnull @PyCFunction_Type) #5
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.then, label %if.end
 
-if.then:                                          ; preds = %PyObject_TypeCheck.argprom.exit
+if.then:                                          ; preds = %PyObject_TypeCheck.exit
   tail call void @_PyErr_BadInternalCall(ptr noundef nonnull @.str.3, i32 noundef 130) #5
   br label %return
 
-if.end:                                           ; preds = %entry, %PyObject_TypeCheck.argprom.exit
+if.end:                                           ; preds = %entry, %PyObject_TypeCheck.exit
   %m_ml.i = getelementptr inbounds i8, ptr %op, i64 16
   %1 = load ptr, ptr %m_ml.i, align 8
   %ml_flags.i = getelementptr inbounds i8, ptr %1, i64 16
@@ -1575,18 +1575,18 @@ entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %op.val, @PyCFunction_Type
-  br i1 %cmp.i.not.i, label %if.end, label %PyObject_TypeCheck.argprom.exit
+  br i1 %cmp.i.not.i, label %if.end, label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
+PyObject_TypeCheck.exit:                          ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %op.val, ptr noundef nonnull @PyCFunction_Type) #5
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.then, label %if.end
 
-if.then:                                          ; preds = %PyObject_TypeCheck.argprom.exit
+if.then:                                          ; preds = %PyObject_TypeCheck.exit
   tail call void @_PyErr_BadInternalCall(ptr noundef nonnull @.str.3, i32 noundef 140) #5
   br label %return
 
-if.end:                                           ; preds = %entry, %PyObject_TypeCheck.argprom.exit
+if.end:                                           ; preds = %entry, %PyObject_TypeCheck.exit
   %1 = getelementptr i8, ptr %op, i64 16
   %op.val2 = load ptr, ptr %1, align 8
   %2 = getelementptr i8, ptr %op.val2, i64 16
@@ -1604,18 +1604,18 @@ entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %op.val, @PyCFunction_Type
-  br i1 %cmp.i.not.i, label %if.end, label %PyObject_TypeCheck.argprom.exit
+  br i1 %cmp.i.not.i, label %if.end, label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
+PyObject_TypeCheck.exit:                          ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %op.val, ptr noundef nonnull @PyCFunction_Type) #5
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.then, label %if.end
 
-if.then:                                          ; preds = %PyObject_TypeCheck.argprom.exit
+if.then:                                          ; preds = %PyObject_TypeCheck.exit
   tail call void @_PyErr_BadInternalCall(ptr noundef nonnull @.str.3, i32 noundef 150) #5
   br label %return
 
-if.end:                                           ; preds = %entry, %PyObject_TypeCheck.argprom.exit
+if.end:                                           ; preds = %entry, %PyObject_TypeCheck.exit
   %m_ml.i = getelementptr inbounds i8, ptr %op, i64 16
   %1 = load ptr, ptr %m_ml.i, align 8
   %ml_flags.i = getelementptr inbounds i8, ptr %1, i64 16
@@ -1759,21 +1759,21 @@ lor.lhs.false:                                    ; preds = %entry
   %1 = getelementptr i8, ptr %0, i64 8
   %.val6 = load ptr, ptr %1, align 8
   %cmp.i.not.i = icmp eq ptr %.val6, @PyModule_Type
-  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.argprom.exit
+  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.argprom.exit:                  ; preds = %lor.lhs.false
+PyObject_TypeCheck.exit:                          ; preds = %lor.lhs.false
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val6, ptr noundef nonnull @PyModule_Type) #5
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %lor.lhs.false, %PyObject_TypeCheck.argprom.exit, %entry
+if.then:                                          ; preds = %lor.lhs.false, %PyObject_TypeCheck.exit, %entry
   %m_ml = getelementptr inbounds i8, ptr %m, i64 16
   %2 = load ptr, ptr %m_ml, align 8
   %3 = load ptr, ptr %2, align 8
   %call2 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.6, ptr noundef %3) #5
   br label %return
 
-if.end:                                           ; preds = %PyObject_TypeCheck.argprom.exit
+if.end:                                           ; preds = %PyObject_TypeCheck.exit
   %m_ml3 = getelementptr inbounds i8, ptr %m, i64 16
   %4 = load ptr, ptr %m_ml3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -1940,25 +1940,25 @@ lor.lhs.false:                                    ; preds = %entry
   %1 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %1, align 8
   %cmp.i.not.i = icmp eq ptr %self.val, @PyCFunction_Type
-  br i1 %cmp.i.not.i, label %lor.lhs.false2, label %PyObject_TypeCheck.argprom.exit
+  br i1 %cmp.i.not.i, label %lor.lhs.false2, label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.argprom.exit:                  ; preds = %lor.lhs.false
+PyObject_TypeCheck.exit:                          ; preds = %lor.lhs.false
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %self.val, ptr noundef nonnull @PyCFunction_Type) #5
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %return, label %lor.lhs.false2
 
-lor.lhs.false2:                                   ; preds = %lor.lhs.false, %PyObject_TypeCheck.argprom.exit
+lor.lhs.false2:                                   ; preds = %lor.lhs.false, %PyObject_TypeCheck.exit
   %2 = getelementptr i8, ptr %other, i64 8
   %other.val = load ptr, ptr %2, align 8
   %cmp.i.not.i9 = icmp eq ptr %other.val, @PyCFunction_Type
-  br i1 %cmp.i.not.i9, label %if.end, label %PyObject_TypeCheck.argprom.exit14
+  br i1 %cmp.i.not.i9, label %if.end, label %PyObject_TypeCheck.exit14
 
-PyObject_TypeCheck.argprom.exit14:                ; preds = %lor.lhs.false2
+PyObject_TypeCheck.exit14:                        ; preds = %lor.lhs.false2
   %call2.i11 = tail call i32 @PyType_IsSubtype(ptr noundef %other.val, ptr noundef nonnull @PyCFunction_Type) #5
   %tobool3.i12.not = icmp eq i32 %call2.i11, 0
   br i1 %tobool3.i12.not, label %return, label %if.end
 
-if.end:                                           ; preds = %lor.lhs.false2, %PyObject_TypeCheck.argprom.exit14
+if.end:                                           ; preds = %lor.lhs.false2, %PyObject_TypeCheck.exit14
   %m_self = getelementptr inbounds i8, ptr %self, i64 24
   %3 = load ptr, ptr %m_self, align 8
   %m_self5 = getelementptr inbounds i8, ptr %other, i64 24
@@ -1992,8 +1992,8 @@ if.end.i.i:                                       ; preds = %if.end13
   store i32 %add.i.i, ptr %res.0, align 8
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %if.end13, %PyObject_TypeCheck.argprom.exit, %PyObject_TypeCheck.argprom.exit14, %entry
-  %retval.0 = phi ptr [ @_Py_NotImplementedStruct, %entry ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.argprom.exit14 ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.argprom.exit ], [ %res.0, %if.end13 ], [ %res.0, %if.end.i.i ]
+return:                                           ; preds = %if.end.i.i, %if.end13, %PyObject_TypeCheck.exit, %PyObject_TypeCheck.exit14, %entry
+  %retval.0 = phi ptr [ @_Py_NotImplementedStruct, %entry ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit14 ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit ], [ %res.0, %if.end13 ], [ %res.0, %if.end.i.i ]
   ret ptr %retval.0
 }
 
@@ -2034,21 +2034,21 @@ lor.lhs.false:                                    ; preds = %entry
   %1 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %1, align 8
   %cmp.i.not.i = icmp eq ptr %.val, @PyModule_Type
-  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.argprom.exit
+  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.argprom.exit:                  ; preds = %lor.lhs.false
+PyObject_TypeCheck.exit:                          ; preds = %lor.lhs.false
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyModule_Type) #5
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %lor.lhs.false, %PyObject_TypeCheck.argprom.exit, %entry
+if.then:                                          ; preds = %lor.lhs.false, %PyObject_TypeCheck.exit, %entry
   %m_ml = getelementptr inbounds i8, ptr %m, i64 16
   %2 = load ptr, ptr %m_ml, align 8
   %3 = load ptr, ptr %2, align 8
   %call2 = tail call ptr @PyUnicode_FromString(ptr noundef %3) #5
   br label %return
 
-if.end:                                           ; preds = %PyObject_TypeCheck.argprom.exit
+if.end:                                           ; preds = %PyObject_TypeCheck.exit
   %call3 = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 46848)) #5
   %4 = load ptr, ptr %m_self, align 8
   %m_ml5 = getelementptr inbounds i8, ptr %m, i64 16
@@ -2102,21 +2102,21 @@ lor.lhs.false:                                    ; preds = %entry
   %1 = getelementptr i8, ptr %0, i64 8
   %.val13 = load ptr, ptr %1, align 8
   %cmp.i.not.i = icmp eq ptr %.val13, @PyModule_Type
-  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.argprom.exit
+  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.argprom.exit:                  ; preds = %lor.lhs.false
+PyObject_TypeCheck.exit:                          ; preds = %lor.lhs.false
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val13, ptr noundef nonnull @PyModule_Type) #5
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %lor.lhs.false, %PyObject_TypeCheck.argprom.exit, %entry
+if.then:                                          ; preds = %lor.lhs.false, %PyObject_TypeCheck.exit, %entry
   %m_ml = getelementptr inbounds i8, ptr %m, i64 16
   %2 = load ptr, ptr %m_ml, align 8
   %3 = load ptr, ptr %2, align 8
   %call2 = tail call ptr @PyUnicode_FromString(ptr noundef %3) #5
   br label %return
 
-if.end:                                           ; preds = %PyObject_TypeCheck.argprom.exit
+if.end:                                           ; preds = %PyObject_TypeCheck.exit
   %4 = load ptr, ptr %m_self, align 8
   %5 = getelementptr i8, ptr %4, i64 8
   %.val14 = load ptr, ptr %5, align 8

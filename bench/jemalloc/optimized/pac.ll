@@ -587,11 +587,11 @@ land.end.i:                                       ; preds = %if.then4
   %time_ms.i.i.i = getelementptr inbounds i8, ptr %pac, i64 60552
   %13 = load atomic i64, ptr %time_ms.i.i.i monotonic, align 8
   %cmp4.not2.i = icmp eq ptr %decay_extents.sroa.0.131, null
-  br i1 %cmp4.not2.i, label %pac_decay_stashed.argprom.exit, label %for.body.lr.ph.i
+  br i1 %cmp4.not2.i, label %pac_decay_stashed.exit, label %for.body.lr.ph.i
 
 land.end.thread.i:                                ; preds = %if.then4
   %cmp4.not214.i = icmp eq ptr %decay_extents.sroa.0.131, null
-  br i1 %cmp4.not214.i, label %pac_decay_stashed.argprom.exit, label %if.end.i.us.i.preheader
+  br i1 %cmp4.not214.i, label %pac_decay_stashed.exit, label %if.end.i.us.i.preheader
 
 for.body.lr.ph.i:                                 ; preds = %land.end.i
   %.fr.i = freeze i64 %13
@@ -647,7 +647,7 @@ edata_list_inactive_remove.exit.us.i:             ; preds = %if.end.i.us.i, %do.
   tail call void @extent_dalloc_wrapper(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %call.i.i16, ptr noundef nonnull %14) #8
   %add14.us.i = add i64 %shr.us.i, %nunmapped.04.us.i
   %cmp4.not.us.i = icmp eq ptr %decay_extents.sroa.0.3, null
-  br i1 %cmp4.not.us.i, label %pac_decay_stashed.argprom.exit, label %if.end.i.us.i, !llvm.loop !7
+  br i1 %cmp4.not.us.i, label %pac_decay_stashed.exit, label %if.end.i.us.i, !llvm.loop !7
 
 if.end.i.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
   %30 = phi ptr [ %decay_extents.sroa.0.2, %for.inc.i ], [ %decay_extents.sroa.0.131, %for.body.lr.ph.i ]
@@ -711,9 +711,9 @@ sw.bb13.i:                                        ; preds = %if.then.i, %edata_l
 for.inc.i:                                        ; preds = %sw.bb13.i, %if.then11.i
   %nunmapped.1.i = phi i64 [ %add14.i, %sw.bb13.i ], [ %nunmapped.04.i, %if.then11.i ]
   %cmp4.not.i = icmp eq ptr %decay_extents.sroa.0.2, null
-  br i1 %cmp4.not.i, label %pac_decay_stashed.argprom.exit, label %if.end.i.i, !llvm.loop !7
+  br i1 %cmp4.not.i, label %pac_decay_stashed.exit, label %if.end.i.i, !llvm.loop !7
 
-pac_decay_stashed.argprom.exit:                   ; preds = %for.inc.i, %edata_list_inactive_remove.exit.us.i, %land.end.i, %land.end.thread.i
+pac_decay_stashed.exit:                           ; preds = %for.inc.i, %edata_list_inactive_remove.exit.us.i, %land.end.i, %land.end.thread.i
   %npurged.0.lcssa.i = phi i64 [ 0, %land.end.i ], [ 0, %land.end.thread.i ], [ %add.us.i, %edata_list_inactive_remove.exit.us.i ], [ %add.i21, %for.inc.i ]
   %nunmapped.0.lcssa.i = phi i64 [ 0, %land.end.i ], [ 0, %land.end.thread.i ], [ %add14.us.i, %edata_list_inactive_remove.exit.us.i ], [ %nunmapped.1.i, %for.inc.i ]
   %nmadvise.0.lcssa.i = phi i64 [ 0, %land.end.i ], [ 0, %land.end.thread.i ], [ %inc.us.i, %edata_list_inactive_remove.exit.us.i ], [ %inc.i, %for.inc.i ]
@@ -729,7 +729,7 @@ pac_decay_stashed.argprom.exit:                   ; preds = %for.inc.i, %edata_l
   %51 = atomicrmw sub ptr %pac_mapped.i, i64 %shl.i monotonic, align 8
   br label %if.end7
 
-if.end7:                                          ; preds = %pac_decay_stashed.argprom.exit, %pac_stash_decayed.exit
+if.end7:                                          ; preds = %pac_decay_stashed.exit, %pac_stash_decayed.exit
   %call.i.i22 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i) #8
   %cmp.i.not.i = icmp eq i32 %call.i.i22, 0
   br i1 %cmp.i.not.i, label %if.end.i25, label %if.then.i23

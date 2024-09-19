@@ -3275,9 +3275,9 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %this.val = load i64, ptr %this, align 8
   %switch.i = icmp ult i64 %this.val, 2
-  br i1 %switch.i, label %if.end, label %_ZN7rocksdb12_GLOBAL__N_111ShouldTraceERKNS_5SliceERKNS_22BlockCacheTraceOptionsE.argprom.exit
+  br i1 %switch.i, label %if.end, label %_ZN7rocksdb12_GLOBAL__N_111ShouldTraceERKNS_5SliceERKNS_22BlockCacheTraceOptionsE.exit
 
-_ZN7rocksdb12_GLOBAL__N_111ShouldTraceERKNS_5SliceERKNS_22BlockCacheTraceOptionsE.argprom.exit: ; preds = %lor.lhs.false
+_ZN7rocksdb12_GLOBAL__N_111ShouldTraceERKNS_5SliceERKNS_22BlockCacheTraceOptionsE.exit: ; preds = %lor.lhs.false
   %1 = getelementptr inbounds i8, ptr %block_key, i64 8
   %block_key.val2 = load i64, ptr %1, align 8
   %block_key.val = load ptr, ptr %block_key, align 8
@@ -3301,13 +3301,13 @@ _ZN7rocksdb12_GLOBAL__N_111ShouldTraceERKNS_5SliceERKNS_22BlockCacheTraceOptions
   %cmp4.i = icmp eq i64 %2, 0
   br i1 %cmp4.i, label %if.end, label %if.then
 
-if.then:                                          ; preds = %_ZN7rocksdb12_GLOBAL__N_111ShouldTraceERKNS_5SliceERKNS_22BlockCacheTraceOptionsE.argprom.exit, %entry
+if.then:                                          ; preds = %_ZN7rocksdb12_GLOBAL__N_111ShouldTraceERKNS_5SliceERKNS_22BlockCacheTraceOptionsE.exit, %entry
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !37
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !37
   br label %return
 
-if.end:                                           ; preds = %lor.lhs.false, %_ZN7rocksdb12_GLOBAL__N_111ShouldTraceERKNS_5SliceERKNS_22BlockCacheTraceOptionsE.argprom.exit
+if.end:                                           ; preds = %lor.lhs.false, %_ZN7rocksdb12_GLOBAL__N_111ShouldTraceERKNS_5SliceERKNS_22BlockCacheTraceOptionsE.exit
   %trace_writer_mutex_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN7rocksdb17InstrumentedMutex4LockEv(ptr noundef nonnull align 8 dereferenceable(60) %trace_writer_mutex_)
   %3 = load atomic i64, ptr %writer_ seq_cst, align 8

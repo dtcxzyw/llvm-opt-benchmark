@@ -736,7 +736,7 @@ if.end75.i.i:                                     ; preds = %invoke.cont71.i.i
   %16 = load ptr, ptr %region87.i.i, align 8
   %call89.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #15
   %conv90.i.i = trunc i64 %call89.i.i to i32
-  invoke fastcc void @_ZL29createTagStringWithAlternatesPKciS0_iS0_iS0_iS0_RN6icu_758ByteSinkEP10UErrorCode.argprom(ptr noundef %spec.store.select.i.i, i32 noundef %conv82.i.i, ptr noundef %15, i32 noundef %conv86.i.i, ptr noundef %16, i32 noundef %conv90.i.i, ptr noundef %arrayidx22.i.i.le, i32 noundef %conv31.i.i, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull %status)
+  invoke fastcc void @_ZL29createTagStringWithAlternatesPKciS0_iS0_iS0_iS0_RN6icu_758ByteSinkEP10UErrorCode(ptr noundef %spec.store.select.i.i, i32 noundef %conv82.i.i, ptr noundef %15, i32 noundef %conv86.i.i, ptr noundef %16, i32 noundef %conv90.i.i, ptr noundef %arrayidx22.i.i.le, i32 noundef %conv31.i.i, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull %status)
           to label %invoke.cont92.i.i unwind label %lpad91.i.i
 
 invoke.cont92.i.i:                                ; preds = %if.end75.i.i
@@ -1702,7 +1702,7 @@ declare void @_ZNK6icu_7513LikelySubtags20makeMaximizedLsrFromERKNS_6LocaleEbR10
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL29createTagStringWithAlternatesPKciS0_iS0_iS0_iS0_RN6icu_758ByteSinkEP10UErrorCode.argprom(ptr nocapture noundef readonly %lang, i32 noundef %langLength, ptr nocapture noundef readonly %script, i32 noundef %scriptLength, ptr nocapture noundef readonly %region, i32 noundef %regionLength, ptr noundef nonnull %trailing, i32 noundef %trailingLength, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr nocapture noundef %err) unnamed_addr #1 {
+define internal fastcc void @_ZL29createTagStringWithAlternatesPKciS0_iS0_iS0_iS0_RN6icu_758ByteSinkEP10UErrorCode(ptr nocapture noundef readonly %lang, i32 noundef %langLength, ptr nocapture noundef readonly %script, i32 noundef %scriptLength, ptr nocapture noundef readonly %region, i32 noundef %regionLength, ptr noundef nonnull %trailing, i32 noundef %trailingLength, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr nocapture noundef %err) unnamed_addr #1 {
 entry:
   %tagBuffer = alloca [157 x i8], align 16
   %0 = load i32, ptr %err, align 4

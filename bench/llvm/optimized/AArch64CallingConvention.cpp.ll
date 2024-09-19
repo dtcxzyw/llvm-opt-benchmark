@@ -1528,7 +1528,7 @@ _ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit: ; preds = %164
 _ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit.thread: ; preds = %.loopexit, %164, %164, %164, %164, %164, %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit
   %.sroa.0110.0 = phi i8 [ %.sroa.speculated, %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit ], [ %.sroa.speculated114, %164 ], [ %.sroa.speculated114, %164 ], [ %.sroa.speculated114, %164 ], [ %.sroa.speculated114, %164 ], [ %.sroa.speculated114, %164 ], [ %.sroa.speculated114, %.loopexit ]
   %.sroa.02.0.copyload = load i16, ptr %2, align 2
-  call fastcc void @_ZL16finishStackBlockRN4llvm15SmallVectorImplINS_11CCValAssignEEENS_3MVTERNS_3ISD10ArgFlagsTyERNS_7CCStateENS_5AlignE.retelim(ptr noundef nonnull align 8 dereferenceable(16) %39, i16 %.sroa.02.0.copyload, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(420) %5, i8 %.sroa.0110.0)
+  call fastcc void @_ZL16finishStackBlockRN4llvm15SmallVectorImplINS_11CCValAssignEEENS_3MVTERNS_3ISD10ArgFlagsTyERNS_7CCStateENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(16) %39, i16 %.sroa.02.0.copyload, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(420) %5, i8 %.sroa.0110.0)
   br label %.thread148
 
 .thread148:                                       ; preds = %_ZNK4llvm3MVT13is32BitVectorEv.exit, %.critedge, %36, %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit.thread, %._crit_edge168, %._crit_edge
@@ -4211,13 +4211,13 @@ define dso_local noundef zeroext i1 @_ZN4llvm27CC_AArch64_DarwinPCS_VarArgEjNS_3
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_11CCValAssignELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(26) %8)
   %26 = and i64 %4, 1073741824
   %.not.i = icmp eq i64 %26, 0
-  br i1 %.not.i, label %_ZL29CC_AArch64_Custom_Stack_BlockRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit, label %27
+  br i1 %.not.i, label %_ZL29CC_AArch64_Custom_Stack_BlockRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit, label %27
 
 27:                                               ; preds = %16
-  call fastcc void @_ZL16finishStackBlockRN4llvm15SmallVectorImplINS_11CCValAssignEEENS_3MVTERNS_3ISD10ArgFlagsTyERNS_7CCStateENS_5AlignE.retelim(ptr noundef nonnull align 8 dereferenceable(16) %17, i16 %.sroa.073.2133, ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(420) %6, i8 3)
-  br label %_ZL29CC_AArch64_Custom_Stack_BlockRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit
+  call fastcc void @_ZL16finishStackBlockRN4llvm15SmallVectorImplINS_11CCValAssignEEENS_3MVTERNS_3ISD10ArgFlagsTyERNS_7CCStateENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(16) %17, i16 %.sroa.073.2133, ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(420) %6, i8 3)
+  br label %_ZL29CC_AArch64_Custom_Stack_BlockRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit
 
-_ZL29CC_AArch64_Custom_Stack_BlockRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit: ; preds = %16, %27
+_ZL29CC_AArch64_Custom_Stack_BlockRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit: ; preds = %16, %27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   br label %93
 
@@ -4413,8 +4413,8 @@ _ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit28: ; preds = %63, %67
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_11CCValAssignELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef nonnull align 8 dereferenceable(26) %12)
   br label %93
 
-93:                                               ; preds = %28, %.critedge8, %_ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit28, %_ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit, %_ZL29CC_AArch64_Custom_Stack_BlockRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit
-  %.0 = phi i1 [ false, %_ZL29CC_AArch64_Custom_Stack_BlockRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit ], [ false, %_ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit ], [ false, %_ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit28 ], [ false, %.critedge8 ], [ true, %28 ]
+93:                                               ; preds = %28, %.critedge8, %_ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit28, %_ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit, %_ZL29CC_AArch64_Custom_Stack_BlockRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit
+  %.0 = phi i1 [ false, %_ZL29CC_AArch64_Custom_Stack_BlockRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit ], [ false, %_ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit ], [ false, %_ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit28 ], [ false, %.critedge8 ], [ true, %28 ]
   ret i1 %.0
 }
 
@@ -7473,7 +7473,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnul
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16finishStackBlockRN4llvm15SmallVectorImplINS_11CCValAssignEEENS_3MVTERNS_3ISD10ArgFlagsTyERNS_7CCStateENS_5AlignE.retelim(ptr noundef nonnull align 8 dereferenceable(16) %0, i16 %1, ptr nocapture noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(420) %3, i8 %4) unnamed_addr #0 {
+define internal fastcc void @_ZL16finishStackBlockRN4llvm15SmallVectorImplINS_11CCValAssignEEENS_3MVTERNS_3ISD10ArgFlagsTyERNS_7CCStateENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(16) %0, i16 %1, ptr nocapture noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(420) %3, i8 %4) unnamed_addr #0 {
   %6 = alloca [8 x i8], align 1
   %7 = alloca [4 x i8], align 1
   %8 = alloca %"class.llvm::TypeSize", align 8

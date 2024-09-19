@@ -10662,7 +10662,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i, i64 8
   %2 = load i32, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %__args.val, %2
-  br i1 %cmp.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rImRZN7rocksdb17WriteCommittedTxn28CommitWithoutPrepareInternalEvE3$_0JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %for.cond.i.i.i.i.i, !llvm.loop !139
+  br i1 %cmp.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rImRZN7rocksdb17WriteCommittedTxn28CommitWithoutPrepareInternalEvE3$_0JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %for.cond.i.i.i.i.i, !llvm.loop !139
 
 if.end15.i.i.i.i.i:                               ; preds = %entry
   %cfs_with_ts_tracked_when_indexing_disabled_.i.i.i = getelementptr inbounds i8, ptr %call.val1, i64 568
@@ -10681,11 +10681,11 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.end15.i.i.i.i.i
   %add.ptr8.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i32, ptr %add.ptr8.i.i.i.i.i.i.i, align 4
   %cmp.i.i.i9.i.i.i.i.i.i.i = icmp eq i32 %__args.val, %7
-  br i1 %cmp.i.i.i9.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rImRZN7rocksdb17WriteCommittedTxn28CommitWithoutPrepareInternalEvE3$_0JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %if.end3.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i9.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rImRZN7rocksdb17WriteCommittedTxn28CommitWithoutPrepareInternalEvE3$_0JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %if.end3.i.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i.i.i:                           ; preds = %lor.lhs.false.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %__args.val, %9
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rImRZN7rocksdb17WriteCommittedTxn28CommitWithoutPrepareInternalEvE3$_0JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %if.end3.i.i.i.i.i.i.i, !llvm.loop !140
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rImRZN7rocksdb17WriteCommittedTxn28CommitWithoutPrepareInternalEvE3$_0JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %if.end3.i.i.i.i.i.i.i, !llvm.loop !140
 
 if.end3.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i.i
   %__p.010.i.i.i.i.i.i.i = phi ptr [ %8, %for.cond.i.i.i.i.i.i.i ], [ %6, %if.end.i.i.i.i.i.i.i ]
@@ -10704,14 +10704,14 @@ lor.lhs.false.i.i.i.i.i.i.i:                      ; preds = %if.end3.i.i.i.i.i.i
 if.end.i.i.i:                                     ; preds = %lor.lhs.false.i.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i, %if.end15.i.i.i.i.i
   %call8.i.i.i = tail call noundef ptr @_ZN7rocksdb27WriteBatchWithIndexInternal17GetUserComparatorERKNS_19WriteBatchWithIndexEj(ptr noundef nonnull align 8 dereferenceable(16) %call.val, i32 noundef %__args.val)
   %tobool.not.i.i.i = icmp eq ptr %call8.i.i.i, null
-  br i1 %tobool.not.i.i.i, label %"_ZSt10__invoke_rImRZN7rocksdb17WriteCommittedTxn28CommitWithoutPrepareInternalEvE3$_0JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %cond.true.i.i.i
+  br i1 %tobool.not.i.i.i, label %"_ZSt10__invoke_rImRZN7rocksdb17WriteCommittedTxn28CommitWithoutPrepareInternalEvE3$_0JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %cond.true.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.end.i.i.i
   %timestamp_size_.i.i.i.i = getelementptr inbounds i8, ptr %call8.i.i.i, i64 40
   %10 = load i64, ptr %timestamp_size_.i.i.i.i, align 8
-  br label %"_ZSt10__invoke_rImRZN7rocksdb17WriteCommittedTxn28CommitWithoutPrepareInternalEvE3$_0JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
+  br label %"_ZSt10__invoke_rImRZN7rocksdb17WriteCommittedTxn28CommitWithoutPrepareInternalEvE3$_0JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
 
-"_ZSt10__invoke_rImRZN7rocksdb17WriteCommittedTxn28CommitWithoutPrepareInternalEvE3$_0JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %for.cond.i.i.i.i.i.i.i, %for.body.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %if.end.i.i.i, %cond.true.i.i.i
+"_ZSt10__invoke_rImRZN7rocksdb17WriteCommittedTxn28CommitWithoutPrepareInternalEvE3$_0JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %for.cond.i.i.i.i.i.i.i, %for.body.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %if.end.i.i.i, %cond.true.i.i.i
   %retval.0.i.i.i = phi i64 [ %10, %cond.true.i.i.i ], [ 8, %if.end.i.i.i.i.i.i.i ], [ -1, %if.end.i.i.i ], [ 8, %for.body.i.i.i.i.i ], [ 8, %for.cond.i.i.i.i.i.i.i ]
   ret i64 %retval.0.i.i.i
 }
@@ -10769,7 +10769,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i, i64 8
   %2 = load i32, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %__args.val, %2
-  br i1 %cmp.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rImRZN7rocksdb17WriteCommittedTxn14CommitInternalEvE3$_0JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %for.cond.i.i.i.i.i, !llvm.loop !139
+  br i1 %cmp.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rImRZN7rocksdb17WriteCommittedTxn14CommitInternalEvE3$_0JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %for.cond.i.i.i.i.i, !llvm.loop !139
 
 if.end15.i.i.i.i.i:                               ; preds = %entry
   %cfs_with_ts_tracked_when_indexing_disabled_.i.i.i = getelementptr inbounds i8, ptr %call.val1, i64 568
@@ -10788,11 +10788,11 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.end15.i.i.i.i.i
   %add.ptr8.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i32, ptr %add.ptr8.i.i.i.i.i.i.i, align 4
   %cmp.i.i.i9.i.i.i.i.i.i.i = icmp eq i32 %__args.val, %7
-  br i1 %cmp.i.i.i9.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rImRZN7rocksdb17WriteCommittedTxn14CommitInternalEvE3$_0JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %if.end3.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i9.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rImRZN7rocksdb17WriteCommittedTxn14CommitInternalEvE3$_0JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %if.end3.i.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i.i.i:                           ; preds = %lor.lhs.false.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %__args.val, %9
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rImRZN7rocksdb17WriteCommittedTxn14CommitInternalEvE3$_0JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %if.end3.i.i.i.i.i.i.i, !llvm.loop !140
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rImRZN7rocksdb17WriteCommittedTxn14CommitInternalEvE3$_0JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %if.end3.i.i.i.i.i.i.i, !llvm.loop !140
 
 if.end3.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i.i
   %__p.010.i.i.i.i.i.i.i = phi ptr [ %8, %for.cond.i.i.i.i.i.i.i ], [ %6, %if.end.i.i.i.i.i.i.i ]
@@ -10811,14 +10811,14 @@ lor.lhs.false.i.i.i.i.i.i.i:                      ; preds = %if.end3.i.i.i.i.i.i
 if.end.i.i.i:                                     ; preds = %lor.lhs.false.i.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i, %if.end15.i.i.i.i.i
   %call9.i.i.i = tail call noundef ptr @_ZN7rocksdb27WriteBatchWithIndexInternal17GetUserComparatorERKNS_19WriteBatchWithIndexEj(ptr noundef nonnull align 8 dereferenceable(16) %call.val, i32 noundef %__args.val)
   %tobool.not.i.i.i = icmp eq ptr %call9.i.i.i, null
-  br i1 %tobool.not.i.i.i, label %"_ZSt10__invoke_rImRZN7rocksdb17WriteCommittedTxn14CommitInternalEvE3$_0JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %cond.true.i.i.i
+  br i1 %tobool.not.i.i.i, label %"_ZSt10__invoke_rImRZN7rocksdb17WriteCommittedTxn14CommitInternalEvE3$_0JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %cond.true.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.end.i.i.i
   %timestamp_size_.i.i.i.i = getelementptr inbounds i8, ptr %call9.i.i.i, i64 40
   %10 = load i64, ptr %timestamp_size_.i.i.i.i, align 8
-  br label %"_ZSt10__invoke_rImRZN7rocksdb17WriteCommittedTxn14CommitInternalEvE3$_0JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
+  br label %"_ZSt10__invoke_rImRZN7rocksdb17WriteCommittedTxn14CommitInternalEvE3$_0JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
 
-"_ZSt10__invoke_rImRZN7rocksdb17WriteCommittedTxn14CommitInternalEvE3$_0JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %for.cond.i.i.i.i.i.i.i, %for.body.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %if.end.i.i.i, %cond.true.i.i.i
+"_ZSt10__invoke_rImRZN7rocksdb17WriteCommittedTxn14CommitInternalEvE3$_0JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %for.cond.i.i.i.i.i.i.i, %for.body.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %if.end.i.i.i, %cond.true.i.i.i
   %retval.0.i.i.i = phi i64 [ %10, %cond.true.i.i.i ], [ 8, %if.end.i.i.i.i.i.i.i ], [ -1, %if.end.i.i.i ], [ 8, %for.body.i.i.i.i.i ], [ 8, %for.cond.i.i.i.i.i.i.i ]
   ret i64 %retval.0.i.i.i
 }

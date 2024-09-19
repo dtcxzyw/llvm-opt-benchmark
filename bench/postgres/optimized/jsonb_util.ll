@@ -1507,7 +1507,7 @@ define internal fastcc zeroext i1 @equalsJsonbScalarValue(ptr nocapture noundef 
 
 6:                                                ; preds = %2
   switch i32 %3, label %33 [
-    i32 0, label %lengthCompareJsonbStringValue.argprom.exit
+    i32 0, label %lengthCompareJsonbStringValue.exit
     i32 1, label %7
     i32 2, label %16
     i32 3, label %25
@@ -1519,7 +1519,7 @@ define internal fastcc zeroext i1 @equalsJsonbScalarValue(ptr nocapture noundef 
   %9 = getelementptr i8, ptr %1, i64 8
   %.val12 = load i32, ptr %9, align 8
   %10 = icmp eq i32 %.val, %.val12
-  br i1 %10, label %11, label %lengthCompareJsonbStringValue.argprom.exit
+  br i1 %10, label %11, label %lengthCompareJsonbStringValue.exit
 
 11:                                               ; preds = %7
   %12 = getelementptr i8, ptr %1, i64 16
@@ -1529,7 +1529,7 @@ define internal fastcc zeroext i1 @equalsJsonbScalarValue(ptr nocapture noundef 
   %14 = sext i32 %.val to i64
   %bcmp = tail call i32 @bcmp(ptr %.val11, ptr %.val13, i64 %14)
   %15 = icmp eq i32 %bcmp, 0
-  br label %lengthCompareJsonbStringValue.argprom.exit
+  br label %lengthCompareJsonbStringValue.exit
 
 16:                                               ; preds = %6
   %17 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1540,7 +1540,7 @@ define internal fastcc zeroext i1 @equalsJsonbScalarValue(ptr nocapture noundef 
   %22 = ptrtoint ptr %21 to i64
   %23 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @numeric_eq, i32 noundef 0, i64 noundef %19, i64 noundef %22) #13
   %24 = icmp ne i64 %23, 0
-  br label %lengthCompareJsonbStringValue.argprom.exit
+  br label %lengthCompareJsonbStringValue.exit
 
 25:                                               ; preds = %6
   %26 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1550,7 +1550,7 @@ define internal fastcc zeroext i1 @equalsJsonbScalarValue(ptr nocapture noundef 
   %30 = xor i8 %29, %27
   %31 = and i8 %30, 1
   %32 = icmp eq i8 %31, 0
-  br label %lengthCompareJsonbStringValue.argprom.exit
+  br label %lengthCompareJsonbStringValue.exit
 
 33:                                               ; preds = %6
   %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -1566,7 +1566,7 @@ define internal fastcc zeroext i1 @equalsJsonbScalarValue(ptr nocapture noundef 
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1424, ptr noundef nonnull @__func__.equalsJsonbScalarValue) #13
   unreachable
 
-lengthCompareJsonbStringValue.argprom.exit:       ; preds = %11, %7, %6, %25, %16
+lengthCompareJsonbStringValue.exit:               ; preds = %11, %7, %6, %25, %16
   %.0 = phi i1 [ %32, %25 ], [ %24, %16 ], [ true, %6 ], [ %15, %11 ], [ false, %7 ]
   ret i1 %.0
 }
@@ -2032,9 +2032,9 @@ appendKey.exit:                                   ; preds = %._crit_edge.i, %64
   %130 = getelementptr i8, ptr %.046.us.i, i64 8
   %.0.val.us.i = load i32, ptr %130, align 8
   %131 = icmp eq i32 %.028.val.us.i, %.0.val.us.i
-  br i1 %131, label %lengthCompareJsonbStringValue.argprom.exit.us.i, label %lengthCompareJsonbStringValue.argprom.exit.thread.us.i
+  br i1 %131, label %lengthCompareJsonbStringValue.exit.us.i, label %lengthCompareJsonbStringValue.exit.thread.us.i
 
-lengthCompareJsonbStringValue.argprom.exit.us.i:  ; preds = %.lr.ph48.split.us.i
+lengthCompareJsonbStringValue.exit.us.i:          ; preds = %.lr.ph48.split.us.i
   %132 = getelementptr i8, ptr %.046.us.i, i64 16
   %.0.val38.us.i = load ptr, ptr %132, align 8
   %133 = getelementptr i8, ptr %.pn45.us.i, i64 88
@@ -2042,15 +2042,15 @@ lengthCompareJsonbStringValue.argprom.exit.us.i:  ; preds = %.lr.ph48.split.us.i
   %134 = sext i32 %.028.val.us.i to i64
   %bcmp.us.i = call i32 @bcmp(ptr %.028.val37.us.i, ptr %.0.val38.us.i, i64 %134)
   %.not.us.i = icmp eq i32 %bcmp.us.i, 0
-  br i1 %.not.us.i, label %140, label %lengthCompareJsonbStringValue.argprom.exit.thread.us.i
+  br i1 %.not.us.i, label %140, label %lengthCompareJsonbStringValue.exit.thread.us.i
 
-lengthCompareJsonbStringValue.argprom.exit.thread.us.i: ; preds = %lengthCompareJsonbStringValue.argprom.exit.us.i, %.lr.ph48.split.us.i
+lengthCompareJsonbStringValue.exit.thread.us.i:   ; preds = %lengthCompareJsonbStringValue.exit.us.i, %.lr.ph48.split.us.i
   %135 = getelementptr i8, ptr %.pn45.us.i, i64 104
   %136 = load i32, ptr %135, align 8
   %.not32.us.i = icmp eq i32 %136, 0
   br i1 %.not32.us.i, label %140, label %137
 
-137:                                              ; preds = %lengthCompareJsonbStringValue.argprom.exit.thread.us.i
+137:                                              ; preds = %lengthCompareJsonbStringValue.exit.thread.us.i
   %138 = getelementptr i8, ptr %.046.us.i, i64 72
   %.not33.us.i = icmp eq ptr %.pn45.us.i, %.046.us.i
   br i1 %.not33.us.i, label %140, label %139
@@ -2061,10 +2061,10 @@ lengthCompareJsonbStringValue.argprom.exit.thread.us.i: ; preds = %lengthCompare
   %.pre58.i = load i32, ptr %97, align 8
   br label %140
 
-140:                                              ; preds = %139, %137, %lengthCompareJsonbStringValue.argprom.exit.thread.us.i, %lengthCompareJsonbStringValue.argprom.exit.us.i
-  %141 = phi i32 [ %.pre58.i, %139 ], [ %127, %137 ], [ %127, %lengthCompareJsonbStringValue.argprom.exit.thread.us.i ], [ %127, %lengthCompareJsonbStringValue.argprom.exit.us.i ]
-  %142 = phi ptr [ %.pre57.i, %139 ], [ %128, %137 ], [ %128, %lengthCompareJsonbStringValue.argprom.exit.thread.us.i ], [ %128, %lengthCompareJsonbStringValue.argprom.exit.us.i ]
-  %.1.us.i = phi ptr [ %138, %139 ], [ %138, %137 ], [ %.046.us.i, %lengthCompareJsonbStringValue.argprom.exit.thread.us.i ], [ %.046.us.i, %lengthCompareJsonbStringValue.argprom.exit.us.i ]
+140:                                              ; preds = %139, %137, %lengthCompareJsonbStringValue.exit.thread.us.i, %lengthCompareJsonbStringValue.exit.us.i
+  %141 = phi i32 [ %.pre58.i, %139 ], [ %127, %137 ], [ %127, %lengthCompareJsonbStringValue.exit.thread.us.i ], [ %127, %lengthCompareJsonbStringValue.exit.us.i ]
+  %142 = phi ptr [ %.pre57.i, %139 ], [ %128, %137 ], [ %128, %lengthCompareJsonbStringValue.exit.thread.us.i ], [ %128, %lengthCompareJsonbStringValue.exit.us.i ]
+  %.1.us.i = phi ptr [ %138, %139 ], [ %138, %137 ], [ %.046.us.i, %lengthCompareJsonbStringValue.exit.thread.us.i ], [ %.046.us.i, %lengthCompareJsonbStringValue.exit.us.i ]
   %.028.us.i = getelementptr i8, ptr %.02847.us.i, i64 72
   %143 = ptrtoint ptr %.028.us.i to i64
   %144 = ptrtoint ptr %142 to i64
@@ -2085,9 +2085,9 @@ lengthCompareJsonbStringValue.argprom.exit.thread.us.i: ; preds = %lengthCompare
   %152 = getelementptr i8, ptr %.046.i, i64 8
   %.0.val.i = load i32, ptr %152, align 8
   %153 = icmp eq i32 %.028.val.i, %.0.val.i
-  br i1 %153, label %lengthCompareJsonbStringValue.argprom.exit.i, label %lengthCompareJsonbStringValue.argprom.exit.thread.i
+  br i1 %153, label %lengthCompareJsonbStringValue.exit.i, label %lengthCompareJsonbStringValue.exit.thread.i
 
-lengthCompareJsonbStringValue.argprom.exit.i:     ; preds = %.lr.ph48.split.i
+lengthCompareJsonbStringValue.exit.i:             ; preds = %.lr.ph48.split.i
   %154 = getelementptr i8, ptr %.046.i, i64 16
   %.0.val38.i = load ptr, ptr %154, align 8
   %155 = getelementptr i8, ptr %.pn45.i, i64 88
@@ -2095,23 +2095,23 @@ lengthCompareJsonbStringValue.argprom.exit.i:     ; preds = %.lr.ph48.split.i
   %156 = sext i32 %.028.val.i to i64
   %bcmp.i = call i32 @bcmp(ptr %.028.val37.i, ptr %.0.val38.i, i64 %156)
   %.not.i47 = icmp eq i32 %bcmp.i, 0
-  br i1 %.not.i47, label %159, label %lengthCompareJsonbStringValue.argprom.exit.thread.i
+  br i1 %.not.i47, label %159, label %lengthCompareJsonbStringValue.exit.thread.i
 
-lengthCompareJsonbStringValue.argprom.exit.thread.i: ; preds = %lengthCompareJsonbStringValue.argprom.exit.i, %.lr.ph48.split.i
+lengthCompareJsonbStringValue.exit.thread.i:      ; preds = %lengthCompareJsonbStringValue.exit.i, %.lr.ph48.split.i
   %157 = getelementptr i8, ptr %.046.i, i64 72
   %.not33.i = icmp eq ptr %.pn45.i, %.046.i
   br i1 %.not33.i, label %159, label %158
 
-158:                                              ; preds = %lengthCompareJsonbStringValue.argprom.exit.thread.i
+158:                                              ; preds = %lengthCompareJsonbStringValue.exit.thread.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %157, ptr noundef nonnull align 8 dereferenceable(72) %.02847.i, i64 72, i1 false)
   %.pre55.i = load ptr, ptr %124, align 8
   %.pre56.i = load i32, ptr %97, align 8
   br label %159
 
-159:                                              ; preds = %158, %lengthCompareJsonbStringValue.argprom.exit.thread.i, %lengthCompareJsonbStringValue.argprom.exit.i
-  %160 = phi i32 [ %.pre56.i, %158 ], [ %149, %lengthCompareJsonbStringValue.argprom.exit.thread.i ], [ %149, %lengthCompareJsonbStringValue.argprom.exit.i ]
-  %161 = phi ptr [ %.pre55.i, %158 ], [ %150, %lengthCompareJsonbStringValue.argprom.exit.thread.i ], [ %150, %lengthCompareJsonbStringValue.argprom.exit.i ]
-  %.1.i = phi ptr [ %157, %158 ], [ %157, %lengthCompareJsonbStringValue.argprom.exit.thread.i ], [ %.046.i, %lengthCompareJsonbStringValue.argprom.exit.i ]
+159:                                              ; preds = %158, %lengthCompareJsonbStringValue.exit.thread.i, %lengthCompareJsonbStringValue.exit.i
+  %160 = phi i32 [ %.pre56.i, %158 ], [ %149, %lengthCompareJsonbStringValue.exit.thread.i ], [ %149, %lengthCompareJsonbStringValue.exit.i ]
+  %161 = phi ptr [ %.pre55.i, %158 ], [ %150, %lengthCompareJsonbStringValue.exit.thread.i ], [ %150, %lengthCompareJsonbStringValue.exit.i ]
+  %.1.i = phi ptr [ %157, %158 ], [ %157, %lengthCompareJsonbStringValue.exit.thread.i ], [ %.046.i, %lengthCompareJsonbStringValue.exit.i ]
   %.028.i = getelementptr i8, ptr %.02847.i, i64 72
   %162 = ptrtoint ptr %.028.i to i64
   %163 = ptrtoint ptr %161 to i64
@@ -2813,14 +2813,14 @@ define internal i32 @lengthCompareJsonbPair(ptr nocapture noundef readonly %0, p
   %5 = getelementptr i8, ptr %1, i64 8
   %.val14 = load i32, ptr %5, align 8
   %6 = icmp eq i32 %.val, %.val14
-  br i1 %6, label %lengthCompareJsonbStringValue.argprom.exit, label %.thread
+  br i1 %6, label %lengthCompareJsonbStringValue.exit, label %.thread
 
 .thread:                                          ; preds = %3
   %7 = icmp sgt i32 %.val, %.val14
   %8 = select i1 %7, i32 1, i32 -1
   br label %24
 
-lengthCompareJsonbStringValue.argprom.exit:       ; preds = %3
+lengthCompareJsonbStringValue.exit:               ; preds = %3
   %9 = getelementptr i8, ptr %1, i64 16
   %.val15 = load ptr, ptr %9, align 8
   %10 = getelementptr i8, ptr %0, i64 16
@@ -2832,11 +2832,11 @@ lengthCompareJsonbStringValue.argprom.exit:       ; preds = %3
   %or.cond = and i1 %14, %13
   br i1 %or.cond, label %15, label %16
 
-15:                                               ; preds = %lengthCompareJsonbStringValue.argprom.exit
+15:                                               ; preds = %lengthCompareJsonbStringValue.exit
   store i8 1, ptr %2, align 1
   br label %17
 
-16:                                               ; preds = %lengthCompareJsonbStringValue.argprom.exit
+16:                                               ; preds = %lengthCompareJsonbStringValue.exit
   br i1 %13, label %17, label %24
 
 17:                                               ; preds = %15, %16

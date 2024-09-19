@@ -877,7 +877,7 @@ lor.lhs.false4:                                   ; preds = %lor.lhs.false
 if.end:                                           ; preds = %lor.lhs.false4
   %sub.i = add i64 %0, -2
   %cmp1.i = icmp sgt i64 %sub.i, 0
-  br i1 %cmp1.i, label %while.body.i, label %"_ZN4pbrt12FindIntervalIZNKS_23PiecewiseLinearSpectrumclEfE3$_0EEmmRKT_.argprom.exit"
+  br i1 %cmp1.i, label %while.body.i, label %"_ZN4pbrt12FindIntervalIZNKS_23PiecewiseLinearSpectrumclEfE3$_0EEmmRKT_.exit"
 
 while.body.i:                                     ; preds = %if.end, %while.body.i
   %size.03.i = phi i64 [ %cond8.i, %while.body.i ], [ %sub.i, %if.end ]
@@ -904,9 +904,9 @@ while.end.i:                                      ; preds = %while.body.i
   %cmp.i11.inv.i = icmp sgt i64 %cond.fr10.i, 0
   %7 = shl i64 %high.val.i.i, 32
   %8 = select i1 %cmp.i11.inv.i, i64 %7, i64 0
-  br label %"_ZN4pbrt12FindIntervalIZNKS_23PiecewiseLinearSpectrumclEfE3$_0EEmmRKT_.argprom.exit"
+  br label %"_ZN4pbrt12FindIntervalIZNKS_23PiecewiseLinearSpectrumclEfE3$_0EEmmRKT_.exit"
 
-"_ZN4pbrt12FindIntervalIZNKS_23PiecewiseLinearSpectrumclEfE3$_0EEmmRKT_.argprom.exit": ; preds = %if.end, %while.end.i
+"_ZN4pbrt12FindIntervalIZNKS_23PiecewiseLinearSpectrumclEfE3$_0EEmmRKT_.exit": ; preds = %if.end, %while.end.i
   %sext = phi i64 [ 0, %if.end ], [ %8, %while.end.i ]
   %conv12 = ashr exact i64 %sext, 32
   %arrayidx.i11 = getelementptr inbounds float, ptr %1, i64 %conv12
@@ -930,8 +930,8 @@ while.end.i:                                      ; preds = %while.body.i
   %add.i21 = fadd float %mul.i, %mul1.i
   br label %return
 
-return:                                           ; preds = %entry, %lor.lhs.false, %lor.lhs.false4, %"_ZN4pbrt12FindIntervalIZNKS_23PiecewiseLinearSpectrumclEfE3$_0EEmmRKT_.argprom.exit"
-  %retval.0 = phi float [ %add.i21, %"_ZN4pbrt12FindIntervalIZNKS_23PiecewiseLinearSpectrumclEfE3$_0EEmmRKT_.argprom.exit" ], [ 0.000000e+00, %lor.lhs.false4 ], [ 0.000000e+00, %lor.lhs.false ], [ 0.000000e+00, %entry ]
+return:                                           ; preds = %entry, %lor.lhs.false, %lor.lhs.false4, %"_ZN4pbrt12FindIntervalIZNKS_23PiecewiseLinearSpectrumclEfE3$_0EEmmRKT_.exit"
+  %retval.0 = phi float [ %add.i21, %"_ZN4pbrt12FindIntervalIZNKS_23PiecewiseLinearSpectrumclEfE3$_0EEmmRKT_.exit" ], [ 0.000000e+00, %lor.lhs.false4 ], [ 0.000000e+00, %lor.lhs.false ], [ 0.000000e+00, %entry ]
   ret float %retval.0
 }
 
@@ -1477,17 +1477,17 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %__begin2.0.add.i = add nuw nsw i64 %__begin2.0.idx1.i, 4
   %cmp.not.i = icmp ne i64 %__begin2.0.add.i, 56
   %or.cond.not.i = select i1 %cmp4.i, i1 %cmp.not.i, i1 false
-  br i1 %or.cond.not.i, label %for.body.i, label %"_ZZN4pbrt25FindMatchingNamedSpectrumB5cxx11ENS_8SpectrumEENK3$_0clES0_S0_.argprom.exit"
+  br i1 %or.cond.not.i, label %for.body.i, label %"_ZZN4pbrt25FindMatchingNamedSpectrumB5cxx11ENS_8SpectrumEENK3$_0clES0_S0_.exit"
 
-"_ZZN4pbrt25FindMatchingNamedSpectrumB5cxx11ENS_8SpectrumEENK3$_0clES0_S0_.argprom.exit": ; preds = %for.body.i
+"_ZZN4pbrt25FindMatchingNamedSpectrumB5cxx11ENS_8SpectrumEENK3$_0clES0_S0_.exit": ; preds = %for.body.i
   br i1 %cmp4.i, label %if.then, label %for.inc
 
-if.then:                                          ; preds = %"_ZZN4pbrt25FindMatchingNamedSpectrumB5cxx11ENS_8SpectrumEENK3$_0clES0_S0_.argprom.exit"
+if.then:                                          ; preds = %"_ZZN4pbrt25FindMatchingNamedSpectrumB5cxx11ENS_8SpectrumEENK3$_0clES0_S0_.exit"
   %_M_storage.i.i.le = getelementptr inbounds i8, ptr %__begin1.sroa.0.07, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.le)
   br label %return
 
-for.inc:                                          ; preds = %"_ZZN4pbrt25FindMatchingNamedSpectrumB5cxx11ENS_8SpectrumEENK3$_0clES0_S0_.argprom.exit"
+for.inc:                                          ; preds = %"_ZZN4pbrt25FindMatchingNamedSpectrumB5cxx11ENS_8SpectrumEENK3$_0clES0_S0_.exit"
   %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.07) #27
   %cmp.i.not = icmp eq ptr %call.i, getelementptr inbounds (i8, ptr @_ZN4pbrt7Spectra12_GLOBAL__N_112namedSpectraB5cxx11E, i64 8)
   br i1 %cmp.i.not, label %for.end, label %for.body
@@ -6456,7 +6456,7 @@ lor.lhs.false4.i.i:                               ; preds = %lor.lhs.false.i.i13
 if.end.i.i17:                                     ; preds = %lor.lhs.false4.i.i
   %sub.i.i.i = add i64 %10, -2
   %cmp1.i.i.i = icmp sgt i64 %sub.i.i.i, 0
-  br i1 %cmp1.i.i.i, label %while.body.i.i.i, label %"_ZN4pbrt12FindIntervalIZNKS_23PiecewiseLinearSpectrumclEfE3$_0EEmmRKT_.argprom.exit.i.i"
+  br i1 %cmp1.i.i.i, label %while.body.i.i.i, label %"_ZN4pbrt12FindIntervalIZNKS_23PiecewiseLinearSpectrumclEfE3$_0EEmmRKT_.exit.i.i"
 
 while.body.i.i.i:                                 ; preds = %if.end.i.i17, %while.body.i.i.i
   %size.03.i.i.i = phi i64 [ %cond8.i.i.i, %while.body.i.i.i ], [ %sub.i.i.i, %if.end.i.i17 ]
@@ -6483,9 +6483,9 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i
   %cmp.i11.inv.i.i.i = icmp sgt i64 %cond.fr10.i.i.i, 0
   %17 = shl i64 %high.val.i.i.i.i, 32
   %18 = select i1 %cmp.i11.inv.i.i.i, i64 %17, i64 0
-  br label %"_ZN4pbrt12FindIntervalIZNKS_23PiecewiseLinearSpectrumclEfE3$_0EEmmRKT_.argprom.exit.i.i"
+  br label %"_ZN4pbrt12FindIntervalIZNKS_23PiecewiseLinearSpectrumclEfE3$_0EEmmRKT_.exit.i.i"
 
-"_ZN4pbrt12FindIntervalIZNKS_23PiecewiseLinearSpectrumclEfE3$_0EEmmRKT_.argprom.exit.i.i": ; preds = %while.end.i.i.i, %if.end.i.i17
+"_ZN4pbrt12FindIntervalIZNKS_23PiecewiseLinearSpectrumclEfE3$_0EEmmRKT_.exit.i.i": ; preds = %while.end.i.i.i, %if.end.i.i17
   %sext.i.i = phi i64 [ 0, %if.end.i.i17 ], [ %18, %while.end.i.i.i ]
   %conv12.i.i = ashr exact i64 %sext.i.i, 32
   %arrayidx.i11.i.i = getelementptr inbounds float, ptr %11, i64 %conv12.i.i
@@ -6697,8 +6697,8 @@ _ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_17BlackbodySpectrumEEEDaS1_.exit: ; pred
   %mul.i.i54 = fmul float %retval.0.i.i.i53, %70
   br label %return
 
-return:                                           ; preds = %_ZNK4pbrt22DenselySampledSpectrumclEf.exit.i.i, %sw.bb11, %if.end.i.i.i.i, %if.then.i.i.i.i, %"_ZN4pbrt12FindIntervalIZNKS_23PiecewiseLinearSpectrumclEfE3$_0EEmmRKT_.argprom.exit.i.i", %lor.lhs.false4.i.i, %lor.lhs.false.i.i13, %sw.bb5, %if.end.i.i, %lor.lhs.false.i.i, %sw.bb3, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_17BlackbodySpectrumEEEDaS1_.exit, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS1_.exit, %sw.bb
-  %retval.0 = phi float [ %mul.i.i54, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_17BlackbodySpectrumEEEDaS1_.exit ], [ %mul.i.i, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS1_.exit ], [ %0, %sw.bb ], [ %7, %if.end.i.i ], [ 0.000000e+00, %lor.lhs.false.i.i ], [ 0.000000e+00, %sw.bb3 ], [ %add.i21.i.i, %"_ZN4pbrt12FindIntervalIZNKS_23PiecewiseLinearSpectrumclEfE3$_0EEmmRKT_.argprom.exit.i.i" ], [ 0.000000e+00, %lor.lhs.false4.i.i ], [ 0.000000e+00, %lor.lhs.false.i.i13 ], [ 0.000000e+00, %sw.bb5 ], [ %conv.i.i.i.i, %if.then.i.i.i.i ], [ %add3.i.i.i.i, %if.end.i.i.i.i ], [ %mul4.i.i, %_ZNK4pbrt22DenselySampledSpectrumclEf.exit.i.i ], [ 0.000000e+00, %sw.bb11 ]
+return:                                           ; preds = %_ZNK4pbrt22DenselySampledSpectrumclEf.exit.i.i, %sw.bb11, %if.end.i.i.i.i, %if.then.i.i.i.i, %"_ZN4pbrt12FindIntervalIZNKS_23PiecewiseLinearSpectrumclEfE3$_0EEmmRKT_.exit.i.i", %lor.lhs.false4.i.i, %lor.lhs.false.i.i13, %sw.bb5, %if.end.i.i, %lor.lhs.false.i.i, %sw.bb3, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_17BlackbodySpectrumEEEDaS1_.exit, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS1_.exit, %sw.bb
+  %retval.0 = phi float [ %mul.i.i54, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_17BlackbodySpectrumEEEDaS1_.exit ], [ %mul.i.i, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS1_.exit ], [ %0, %sw.bb ], [ %7, %if.end.i.i ], [ 0.000000e+00, %lor.lhs.false.i.i ], [ 0.000000e+00, %sw.bb3 ], [ %add.i21.i.i, %"_ZN4pbrt12FindIntervalIZNKS_23PiecewiseLinearSpectrumclEfE3$_0EEmmRKT_.exit.i.i" ], [ 0.000000e+00, %lor.lhs.false4.i.i ], [ 0.000000e+00, %lor.lhs.false.i.i13 ], [ 0.000000e+00, %sw.bb5 ], [ %conv.i.i.i.i, %if.then.i.i.i.i ], [ %add3.i.i.i.i, %if.end.i.i.i.i ], [ %mul4.i.i, %_ZNK4pbrt22DenselySampledSpectrumclEf.exit.i.i ], [ 0.000000e+00, %sw.bb11 ]
   ret float %retval.0
 }
 

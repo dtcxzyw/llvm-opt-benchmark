@@ -7105,7 +7105,7 @@ define dso_local { i32, ptr } @_ZN4llvm10sampleprof28SampleProfileWriterExtBinar
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %4)
   %.not45.i = icmp eq ptr %.val, null
-  br i1 %.not45.i, label %_ZL20splitProfileMapToTwoRKN4llvm10sampleprof16SampleProfileMapERS1_S4_.argprom.exit, label %.lr.ph.i
+  br i1 %.not45.i, label %_ZL20splitProfileMapToTwoRKN4llvm10sampleprof16SampleProfileMapERS1_S4_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -7153,9 +7153,9 @@ define dso_local { i32, ptr } @_ZN4llvm10sampleprof28SampleProfileWriterExtBinar
   call void @_ZNSt8_Rb_treeIN4llvm10sampleprof12LineLocationESt4pairIKS2_NS1_12SampleRecordEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %.sink.i, ptr noundef %40)
   %41 = load ptr, ptr %.sroa.01.06.i, align 8
   %.not4.i = icmp eq ptr %41, null
-  br i1 %.not4.i, label %_ZL20splitProfileMapToTwoRKN4llvm10sampleprof16SampleProfileMapERS1_S4_.argprom.exit, label %28
+  br i1 %.not4.i, label %_ZL20splitProfileMapToTwoRKN4llvm10sampleprof16SampleProfileMapERS1_S4_.exit, label %28
 
-_ZL20splitProfileMapToTwoRKN4llvm10sampleprof16SampleProfileMapERS1_S4_.argprom.exit: ; preds = %38, %2
+_ZL20splitProfileMapToTwoRKN4llvm10sampleprof16SampleProfileMapERS1_S4_.exit: ; preds = %38, %2
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %4)
   %42 = load ptr, ptr %0, align 8
@@ -7167,7 +7167,7 @@ _ZL20splitProfileMapToTwoRKN4llvm10sampleprof16SampleProfileMapERS1_S4_.argprom.
   %.not = icmp eq i32 %46, 0
   br i1 %.not, label %48, label %108
 
-48:                                               ; preds = %_ZL20splitProfileMapToTwoRKN4llvm10sampleprof16SampleProfileMapERS1_S4_.argprom.exit
+48:                                               ; preds = %_ZL20splitProfileMapToTwoRKN4llvm10sampleprof16SampleProfileMapERS1_S4_.exit
   %49 = load ptr, ptr %0, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 152
   %51 = load ptr, ptr %50, align 8
@@ -7252,9 +7252,9 @@ _ZL20splitProfileMapToTwoRKN4llvm10sampleprof16SampleProfileMapERS1_S4_.argprom.
   %107 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm19sampleprof_categoryEv() #22
   br label %108
 
-108:                                              ; preds = %99, %92, %81, %69, %62, %55, %48, %_ZL20splitProfileMapToTwoRKN4llvm10sampleprof16SampleProfileMapERS1_S4_.argprom.exit, %106
-  %.sroa.18.0 = phi ptr [ %47, %_ZL20splitProfileMapToTwoRKN4llvm10sampleprof16SampleProfileMapERS1_S4_.argprom.exit ], [ %54, %48 ], [ %61, %55 ], [ %68, %62 ], [ %80, %69 ], [ %91, %81 ], [ %98, %92 ], [ %105, %99 ], [ %107, %106 ]
-  %.sroa.0.0 = phi i32 [ %46, %_ZL20splitProfileMapToTwoRKN4llvm10sampleprof16SampleProfileMapERS1_S4_.argprom.exit ], [ %53, %48 ], [ %60, %55 ], [ %67, %62 ], [ %79, %69 ], [ %90, %81 ], [ %97, %92 ], [ %104, %99 ], [ 0, %106 ]
+108:                                              ; preds = %99, %92, %81, %69, %62, %55, %48, %_ZL20splitProfileMapToTwoRKN4llvm10sampleprof16SampleProfileMapERS1_S4_.exit, %106
+  %.sroa.18.0 = phi ptr [ %47, %_ZL20splitProfileMapToTwoRKN4llvm10sampleprof16SampleProfileMapERS1_S4_.exit ], [ %54, %48 ], [ %61, %55 ], [ %68, %62 ], [ %80, %69 ], [ %91, %81 ], [ %98, %92 ], [ %105, %99 ], [ %107, %106 ]
+  %.sroa.0.0 = phi i32 [ %46, %_ZL20splitProfileMapToTwoRKN4llvm10sampleprof16SampleProfileMapERS1_S4_.exit ], [ %53, %48 ], [ %60, %55 ], [ %67, %62 ], [ %79, %69 ], [ %90, %81 ], [ %97, %92 ], [ %104, %99 ], [ 0, %106 ]
   %109 = load ptr, ptr %14, align 8
   %.not5.i.i.i.i.i.i = icmp eq ptr %109, null
   br i1 %.not5.i.i.i.i.i.i, label %_ZNSt10_HashtableIN4llvm9hash_codeESt4pairIKS1_NS0_10sampleprof15FunctionSamplesEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i

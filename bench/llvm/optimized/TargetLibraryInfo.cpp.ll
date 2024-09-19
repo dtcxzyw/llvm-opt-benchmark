@@ -2072,7 +2072,7 @@ _ZL14initializeBaseRN4llvm21TargetLibraryInfoImplERKNS_6TripleE.exit.i: ; preds 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(126) %0, i8 0, i64 126, i1 false)
   %45 = getelementptr inbounds i8, ptr %0, i64 27
   store i8 60, ptr %45, align 1
-  br label %_ZL10initializeRN4llvm21TargetLibraryInfoImplERKNS_6TripleENS_8ArrayRefINS_13StringLiteralEEE.argprom.exit
+  br label %_ZL10initializeRN4llvm21TargetLibraryInfoImplERKNS_6TripleENS_8ArrayRefINS_13StringLiteralEEE.exit
 
 46:                                               ; preds = %_ZL14initializeBaseRN4llvm21TargetLibraryInfoImplERKNS_6TripleE.exit.i
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -2197,10 +2197,10 @@ _ZL16hasSinCosPiStretRKN4llvm6TripleE.exit.i.i:   ; preds = %90, %85, %83
   %.val.i.i = load i32, ptr %47, align 4
   %100 = getelementptr inbounds i8, ptr %1, i64 48
   %.val536.i.i = load i32, ptr %100, align 8
-  switch i32 %.val.i.i, label %_ZL7hasBcmpRKN4llvm6TripleE.argprom.exit.i.i [
+  switch i32 %.val.i.i, label %_ZL7hasBcmpRKN4llvm6TripleE.exit.i.i [
     i32 7, label %101
-    i32 3, label %_ZL7hasBcmpRKN4llvm6TripleE.argprom.exit.thread.i.i
-    i32 12, label %_ZL7hasBcmpRKN4llvm6TripleE.argprom.exit.thread.i.i
+    i32 3, label %_ZL7hasBcmpRKN4llvm6TripleE.exit.thread.i.i
+    i32 12, label %_ZL7hasBcmpRKN4llvm6TripleE.exit.thread.i.i
   ]
 
 101:                                              ; preds = %_ZL16hasSinCosPiStretRKN4llvm6TripleE.exit.i.i
@@ -2209,7 +2209,7 @@ _ZL16hasSinCosPiStretRKN4llvm6TripleE.exit.i.i:   ; preds = %90, %85, %83
   br i1 %spec.select.i.i.i.i, label %thread-pre-split.i.i, label %103
 
 103:                                              ; preds = %101
-  switch i32 %.val536.i.i, label %_ZL7hasBcmpRKN4llvm6TripleE.argprom.exit.i.i [
+  switch i32 %.val536.i.i, label %_ZL7hasBcmpRKN4llvm6TripleE.exit.i.i [
     i32 15, label %thread-pre-split.i.i
     i32 16, label %thread-pre-split.i.i
     i32 17, label %thread-pre-split.i.i
@@ -2217,21 +2217,21 @@ _ZL16hasSinCosPiStretRKN4llvm6TripleE.exit.i.i:   ; preds = %90, %85, %83
     i32 41, label %thread-pre-split.i.i
   ]
 
-_ZL7hasBcmpRKN4llvm6TripleE.argprom.exit.i.i:     ; preds = %103, %_ZL16hasSinCosPiStretRKN4llvm6TripleE.exit.i.i
+_ZL7hasBcmpRKN4llvm6TripleE.exit.i.i:             ; preds = %103, %_ZL16hasSinCosPiStretRKN4llvm6TripleE.exit.i.i
   %104 = getelementptr inbounds i8, ptr %0, i64 46
   %105 = load i8, ptr %104, align 2
   %106 = and i8 %105, -49
   store i8 %106, ptr %104, align 2
   %.pre.i.i = load i32, ptr %47, align 4
-  br label %_ZL7hasBcmpRKN4llvm6TripleE.argprom.exit.thread.i.i
+  br label %_ZL7hasBcmpRKN4llvm6TripleE.exit.thread.i.i
 
-_ZL7hasBcmpRKN4llvm6TripleE.argprom.exit.thread.i.i: ; preds = %_ZL7hasBcmpRKN4llvm6TripleE.argprom.exit.i.i, %_ZL16hasSinCosPiStretRKN4llvm6TripleE.exit.i.i, %_ZL16hasSinCosPiStretRKN4llvm6TripleE.exit.i.i
-  %107 = phi i32 [ %.val.i.i, %_ZL16hasSinCosPiStretRKN4llvm6TripleE.exit.i.i ], [ %.val.i.i, %_ZL16hasSinCosPiStretRKN4llvm6TripleE.exit.i.i ], [ %.pre.i.i, %_ZL7hasBcmpRKN4llvm6TripleE.argprom.exit.i.i ]
+_ZL7hasBcmpRKN4llvm6TripleE.exit.thread.i.i:      ; preds = %_ZL7hasBcmpRKN4llvm6TripleE.exit.i.i, %_ZL16hasSinCosPiStretRKN4llvm6TripleE.exit.i.i, %_ZL16hasSinCosPiStretRKN4llvm6TripleE.exit.i.i
+  %107 = phi i32 [ %.val.i.i, %_ZL16hasSinCosPiStretRKN4llvm6TripleE.exit.i.i ], [ %.val.i.i, %_ZL16hasSinCosPiStretRKN4llvm6TripleE.exit.i.i ], [ %.pre.i.i, %_ZL7hasBcmpRKN4llvm6TripleE.exit.i.i ]
   %108 = and i32 %107, -9
   %spec.select.i540.i.i = icmp eq i32 %108, 1
   br i1 %spec.select.i540.i.i, label %109, label %thread-pre-split.i.i
 
-109:                                              ; preds = %_ZL7hasBcmpRKN4llvm6TripleE.argprom.exit.thread.i.i
+109:                                              ; preds = %_ZL7hasBcmpRKN4llvm6TripleE.exit.thread.i.i
   %110 = load i32, ptr %5, align 8
   %111 = icmp eq i32 %110, 37
   br i1 %111, label %112, label %115
@@ -2245,7 +2245,7 @@ _ZL7hasBcmpRKN4llvm6TripleE.argprom.exit.thread.i.i: ; preds = %_ZL7hasBcmpRKN4l
   tail call void @_ZN4llvm21TargetLibraryInfoImpl20setAvailableWithNameENS_7LibFuncENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(208) %0, i32 noundef 282, ptr nonnull @.str.1245, i64 14)
   br label %thread-pre-split.i.i
 
-thread-pre-split.i.i:                             ; preds = %114, %112, %_ZL7hasBcmpRKN4llvm6TripleE.argprom.exit.thread.i.i, %103, %103, %103, %103, %103, %101
+thread-pre-split.i.i:                             ; preds = %114, %112, %_ZL7hasBcmpRKN4llvm6TripleE.exit.thread.i.i, %103, %103, %103, %103, %103, %101
   %.pr.i.i = load i32, ptr %5, align 8
   br label %115
 
@@ -3474,9 +3474,9 @@ _ZNK4llvm6Triple4isPSEv.exit.thread.thread.i.i:   ; preds = %_ZNK4llvm6Triple4is
 880:                                              ; preds = %.thread44.i.i, %874
   %881 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL15ClVectorLibrary, i64 128), align 8
   tail call void @_ZN4llvm21TargetLibraryInfoImpl34addVectorizableFunctionsFromVecLibENS0_13VectorLibraryERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(208) %0, i32 noundef %881, ptr noundef nonnull align 8 dereferenceable(56) %1)
-  br label %_ZL10initializeRN4llvm21TargetLibraryInfoImplERKNS_6TripleENS_8ArrayRefINS_13StringLiteralEEE.argprom.exit
+  br label %_ZL10initializeRN4llvm21TargetLibraryInfoImplERKNS_6TripleENS_8ArrayRefINS_13StringLiteralEEE.exit
 
-_ZL10initializeRN4llvm21TargetLibraryInfoImplERKNS_6TripleENS_8ArrayRefINS_13StringLiteralEEE.argprom.exit: ; preds = %44, %880
+_ZL10initializeRN4llvm21TargetLibraryInfoImplERKNS_6TripleENS_8ArrayRefINS_13StringLiteralEEE.exit: ; preds = %44, %880
   ret void
 }
 
@@ -3869,7 +3869,7 @@ _ZL20sanitizeFunctionNameN4llvm9StringRefE.exit:  ; preds = %_ZNSt11char_traitsI
   br i1 %.not, label %23, label %21
 
 21:                                               ; preds = %19
-  tail call fastcc void @_ZL13buildIndexMapN4llvm8ArrayRefINS_13StringLiteralEEE.argprom(ptr nonnull @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 501)
+  tail call fastcc void @_ZL13buildIndexMapN4llvm8ArrayRefINS_13StringLiteralEEE(ptr nonnull @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 501)
   %22 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm8DenseMapINS_9StringRefENS_7LibFuncENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEED2Ev, ptr nonnull @_ZZNK4llvm21TargetLibraryInfoImpl10getLibFuncENS_9StringRefERNS_7LibFuncEE7Indices, ptr nonnull @__dso_handle) #23
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK4llvm21TargetLibraryInfoImpl10getLibFuncENS_9StringRefERNS_7LibFuncEE7Indices) #23
   br label %23
@@ -3900,7 +3900,7 @@ _ZL20sanitizeFunctionNameN4llvm9StringRefE.exit.thread: ; preds = %_ZNSt11char_t
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13buildIndexMapN4llvm8ArrayRefINS_13StringLiteralEEE.argprom(ptr %0, i64 %1) unnamed_addr #0 {
+define internal fastcc void @_ZL13buildIndexMapN4llvm8ArrayRefINS_13StringLiteralEEE(ptr %0, i64 %1) unnamed_addr #0 {
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefENS_7LibFuncENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E7reserveEj.exit:
   %2 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) @_ZZNK4llvm21TargetLibraryInfoImpl10getLibFuncENS_9StringRefERNS_7LibFuncEE7Indices, i8 0, i64 20, i1 false)

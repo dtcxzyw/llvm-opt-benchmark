@@ -192,7 +192,7 @@ if.then17:                                        ; preds = %for.body9
   %arrayidx19 = getelementptr inbounds i8, ptr %call12, i64 8
   %7 = load ptr, ptr %arrayidx19, align 8
   %call20 = tail call zeroext i1 @qemu_plugin_bool_parse(ptr noundef %6, ptr noundef %7, ptr noundef nonnull @do_inline) #10
-  br i1 %call20, label %for.inc68, label %glib_auto_cleanup_GStrv.argprom.exit
+  br i1 %call20, label %for.inc68, label %glib_auto_cleanup_GStrv.exit
 
 if.else:                                          ; preds = %for.body9
   %call25 = tail call i32 @g_strcmp0(ptr noundef %6, ptr noundef nonnull @.str.3) #10
@@ -204,12 +204,12 @@ if.then28:                                        ; preds = %if.else
   %arrayidx30 = getelementptr inbounds i8, ptr %call12, i64 8
   %9 = load ptr, ptr %arrayidx30, align 8
   %call31 = tail call zeroext i1 @qemu_plugin_bool_parse(ptr noundef %8, ptr noundef %9, ptr noundef nonnull @verbose) #10
-  br i1 %call31, label %for.inc68, label %glib_auto_cleanup_GStrv.argprom.exit
+  br i1 %call31, label %for.inc68, label %glib_auto_cleanup_GStrv.exit
 
 if.else35:                                        ; preds = %if.else
   %call37 = tail call i32 @g_strcmp0(ptr noundef %8, ptr noundef nonnull @.str.4) #10
   %cmp38 = icmp eq i32 %call37, 0
-  br i1 %cmp38, label %if.then40, label %glib_auto_cleanup_GStrv.argprom.exit
+  br i1 %cmp38, label %if.then40, label %glib_auto_cleanup_GStrv.exit
 
 if.then40:                                        ; preds = %if.else35
   %arrayidx41 = getelementptr inbounds i8, ptr %call12, i64 8
@@ -247,7 +247,7 @@ if.then56:                                        ; preds = %for.body50
   store i32 %spec.select18, ptr %what, align 8
   br label %for.inc68
 
-glib_auto_cleanup_GStrv.argprom.exit:             ; preds = %if.else35, %if.then28, %if.then17
+glib_auto_cleanup_GStrv.exit:                     ; preds = %if.else35, %if.then28, %if.then17
   %.str.5.sink = phi ptr [ @.str.2, %if.then17 ], [ @.str.2, %if.then28 ], [ @.str.5, %if.else35 ]
   %15 = load ptr, ptr @stderr, align 8
   %call64 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull %.str.5.sink, ptr noundef %4) #11
@@ -267,8 +267,8 @@ for.end70:                                        ; preds = %for.inc68, %for.end
   tail call void @qemu_plugin_register_atexit_cb(i64 noundef %id, ptr noundef nonnull @plugin_exit, ptr noundef null) #10
   br label %return
 
-return:                                           ; preds = %glib_auto_cleanup_GStrv.argprom.exit, %for.end70
-  %retval.2 = phi i32 [ -1, %glib_auto_cleanup_GStrv.argprom.exit ], [ 0, %for.end70 ]
+return:                                           ; preds = %glib_auto_cleanup_GStrv.exit, %for.end70
+  %retval.2 = phi i32 [ -1, %glib_auto_cleanup_GStrv.exit ], [ 0, %for.end70 ]
   ret i32 %retval.2
 }
 
@@ -462,13 +462,13 @@ for.end:                                          ; preds = %for.inc, %entry
   %10 = load ptr, ptr @insns, align 8
   %call8 = tail call ptr @g_hash_table_get_values(ptr noundef %10) #10
   %tobool9.not = icmp eq ptr %call8, null
-  br i1 %tobool9.not, label %glib_autoptr_cleanup_GString.argprom.exit, label %cond.true
+  br i1 %tobool9.not, label %glib_autoptr_cleanup_GString.exit, label %cond.true
 
 cond.true:                                        ; preds = %for.end
   %next = getelementptr inbounds i8, ptr %call8, i64 8
   %11 = load ptr, ptr %next, align 8
   %tobool11.not = icmp eq ptr %11, null
-  br i1 %tobool11.not, label %glib_autoptr_cleanup_GString.argprom.exit, label %if.then12
+  br i1 %tobool11.not, label %glib_autoptr_cleanup_GString.exit, label %if.then12
 
 if.then12:                                        ; preds = %cond.true
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.118) #10
@@ -513,9 +513,9 @@ cond.end29:                                       ; preds = %for.body21, %cond.t
 for.end39:                                        ; preds = %cond.true17, %cond.end29, %if.then12
   %counts.0.lcssa = phi ptr [ null, %if.then12 ], [ %20, %cond.end29 ], [ %counts.031, %cond.true17 ]
   tail call void @g_list_free(ptr noundef %counts.0.lcssa) #10
-  br label %glib_autoptr_cleanup_GString.argprom.exit
+  br label %glib_autoptr_cleanup_GString.exit
 
-glib_autoptr_cleanup_GString.argprom.exit:        ; preds = %for.end39, %cond.true, %for.end
+glib_autoptr_cleanup_GString.exit:                ; preds = %for.end39, %cond.true, %for.end
   %21 = load ptr, ptr @insns, align 8
   tail call void @g_hash_table_destroy(ptr noundef %21) #10
   %22 = load ptr, ptr %call, align 8

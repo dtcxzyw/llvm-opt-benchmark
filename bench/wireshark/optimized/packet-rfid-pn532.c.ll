@@ -1402,7 +1402,7 @@ proto_item_set_generated.exit:                    ; preds = %87, %84, %.thread13
   br label %.loopexit
 
 315:                                              ; preds = %proto_item_set_generated.exit
-  call fastcc void @dissect_status.argelim(ptr noundef %17, ptr noundef %0)
+  call fastcc void @dissect_status(ptr noundef %17, ptr noundef %0)
   br label %.loopexit
 
 316:                                              ; preds = %proto_item_set_generated.exit
@@ -1596,7 +1596,7 @@ proto_item_set_generated.exit:                    ; preds = %87, %84, %.thread13
   br label %.loopexit
 
 455:                                              ; preds = %proto_item_set_generated.exit, %proto_item_set_generated.exit
-  call fastcc void @dissect_status.argelim(ptr noundef %17, ptr noundef %0)
+  call fastcc void @dissect_status(ptr noundef %17, ptr noundef %0)
   %456 = load i32, ptr @hf_pn532_Tg, align 4
   %457 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %456, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
   %458 = load i32, ptr @hf_pn532_nfc_id_3t, align 4
@@ -1871,7 +1871,7 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
   br label %.loopexit
 
 635:                                              ; preds = %proto_item_set_generated.exit
-  call fastcc void @dissect_status.argelim(ptr noundef %17, ptr noundef %0)
+  call fastcc void @dissect_status(ptr noundef %17, ptr noundef %0)
   %636 = load i32, ptr @hf_pn532_nfc_id_3t, align 4
   %637 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %636, ptr noundef %0, i32 noundef 3, i32 noundef 10, i32 noundef 0) #5
   %638 = load i32, ptr @hf_pn532_did_target, align 4
@@ -1898,7 +1898,7 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
   br label %.loopexit
 
 657:                                              ; preds = %proto_item_set_generated.exit
-  call fastcc void @dissect_status.argelim(ptr noundef %17, ptr noundef %0)
+  call fastcc void @dissect_status(ptr noundef %17, ptr noundef %0)
   br label %.loopexit
 
 658:                                              ; preds = %proto_item_set_generated.exit
@@ -1937,7 +1937,7 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
   br label %.loopexit
 
 681:                                              ; preds = %proto_item_set_generated.exit
-  call fastcc void @dissect_status.argelim(ptr noundef %17, ptr noundef %0)
+  call fastcc void @dissect_status(ptr noundef %17, ptr noundef %0)
   %682 = load i32, ptr @sub_selected, align 4
   %683 = icmp eq i32 %682, 3
   br i1 %683, label %684, label %691
@@ -1982,7 +1982,7 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
   br label %.loopexit
 
 712:                                              ; preds = %proto_item_set_generated.exit
-  call fastcc void @dissect_status.argelim(ptr noundef %17, ptr noundef %0)
+  call fastcc void @dissect_status(ptr noundef %17, ptr noundef %0)
   %713 = load i32, ptr @sub_selected, align 4
   %714 = icmp eq i32 %713, 1
   br i1 %714, label %715, label %721
@@ -2245,11 +2245,11 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
   br label %.loopexit
 
 919:                                              ; preds = %proto_item_set_generated.exit
-  call fastcc void @dissect_status.argelim(ptr noundef %17, ptr noundef %0)
+  call fastcc void @dissect_status(ptr noundef %17, ptr noundef %0)
   br label %.loopexit
 
 920:                                              ; preds = %proto_item_set_generated.exit
-  call fastcc void @dissect_status.argelim(ptr noundef %17, ptr noundef %0)
+  call fastcc void @dissect_status(ptr noundef %17, ptr noundef %0)
   %921 = load i32, ptr @hf_pn532_data_in, align 4
   %922 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3) #5
   %923 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %921, ptr noundef %0, i32 noundef 3, i32 noundef %922, i32 noundef 0) #5
@@ -2266,11 +2266,11 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
   br label %.loopexit
 
 932:                                              ; preds = %proto_item_set_generated.exit, %proto_item_set_generated.exit
-  call fastcc void @dissect_status.argelim(ptr noundef %17, ptr noundef %0)
+  call fastcc void @dissect_status(ptr noundef %17, ptr noundef %0)
   br label %.loopexit
 
 933:                                              ; preds = %proto_item_set_generated.exit
-  call fastcc void @dissect_status.argelim(ptr noundef %17, ptr noundef %0)
+  call fastcc void @dissect_status(ptr noundef %17, ptr noundef %0)
   %934 = load i32, ptr @hf_pn532_initiator_command, align 4
   %935 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3) #5
   %936 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %934, ptr noundef %0, i32 noundef 3, i32 noundef %935, i32 noundef 0) #5
@@ -2287,7 +2287,7 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
   br label %.loopexit
 
 945:                                              ; preds = %proto_item_set_generated.exit
-  call fastcc void @dissect_status.argelim(ptr noundef %17, ptr noundef %0)
+  call fastcc void @dissect_status(ptr noundef %17, ptr noundef %0)
   br label %.loopexit
 
 946:                                              ; preds = %proto_item_set_generated.exit
@@ -2384,7 +2384,7 @@ declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_status.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_status(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_pn532_status_nad_present, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %3, ptr noundef %1, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
   %5 = load i32, ptr @hf_pn532_status_mi, align 4

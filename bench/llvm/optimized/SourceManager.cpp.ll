@@ -2980,7 +2980,7 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
 
 _ZNK5clang6SrcMgr12ContentCache17getBufferIfLoadedEv.exit.i: ; preds = %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIN5clang6SrcMgr12ContentCacheEEEPT_m.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  br label %"_ZZN5clang13SourceManager19initializeForReplayERKS0_ENK3$_0clEPKNS_6SrcMgr12ContentCacheE.argprom.exit"
+  br label %"_ZZN5clang13SourceManager19initializeForReplayERKS0_ENK3$_0clEPKNS_6SrcMgr12ContentCacheE.exit"
 
 87:                                               ; preds = %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIN5clang6SrcMgr12ContentCacheEEEPT_m.exit.i
   call void @_ZNK4llvm12MemoryBuffer15getMemBufferRefEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::MemoryBufferRef") align 8 %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %86) #26
@@ -2994,7 +2994,7 @@ _ZNK5clang6SrcMgr12ContentCache17getBufferIfLoadedEv.exit.i: ; preds = %_ZN4llvm
   %91 = load ptr, ptr %.0.i.i.i.i.i, align 8
   store ptr %90, ptr %.0.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %91, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZN5clang13SourceManager19initializeForReplayERKS0_ENK3$_0clEPKNS_6SrcMgr12ContentCacheE.argprom.exit", label %_ZN5clang6SrcMgr12ContentCache9setBufferESt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS4_EE.exit.i.i
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZN5clang13SourceManager19initializeForReplayERKS0_ENK3$_0clEPKNS_6SrcMgr12ContentCacheE.exit", label %_ZN5clang6SrcMgr12ContentCache9setBufferESt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS4_EE.exit.i.i
 
 _ZN5clang6SrcMgr12ContentCache9setBufferESt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS4_EE.exit.i.i: ; preds = %87
   %92 = load ptr, ptr %91, align 8
@@ -3003,22 +3003,22 @@ _ZN5clang6SrcMgr12ContentCache9setBufferESt10unique_ptrIN4llvm12MemoryBufferESt1
   call void %94(ptr noundef nonnull align 8 dereferenceable(24) %91) #26
   %.pr.i.i = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %.pr.i.i, null
-  br i1 %.not.i.i.i, label %"_ZZN5clang13SourceManager19initializeForReplayERKS0_ENK3$_0clEPKNS_6SrcMgr12ContentCacheE.argprom.exit", label %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i.i
+  br i1 %.not.i.i.i, label %"_ZZN5clang13SourceManager19initializeForReplayERKS0_ENK3$_0clEPKNS_6SrcMgr12ContentCacheE.exit", label %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i.i
 
 _ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i.i: ; preds = %_ZN5clang6SrcMgr12ContentCache9setBufferESt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS4_EE.exit.i.i
   %95 = load ptr, ptr %.pr.i.i, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 8
   %97 = load ptr, ptr %96, align 8
   call void %97(ptr noundef nonnull align 8 dereferenceable(24) %.pr.i.i) #26
-  br label %"_ZZN5clang13SourceManager19initializeForReplayERKS0_ENK3$_0clEPKNS_6SrcMgr12ContentCacheE.argprom.exit"
+  br label %"_ZZN5clang13SourceManager19initializeForReplayERKS0_ENK3$_0clEPKNS_6SrcMgr12ContentCacheE.exit"
 
-"_ZZN5clang13SourceManager19initializeForReplayERKS0_ENK3$_0clEPKNS_6SrcMgr12ContentCacheE.argprom.exit": ; preds = %_ZNK5clang6SrcMgr12ContentCache17getBufferIfLoadedEv.exit.i, %87, %_ZN5clang6SrcMgr12ContentCache9setBufferESt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS4_EE.exit.i.i, %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i.i
+"_ZZN5clang13SourceManager19initializeForReplayERKS0_ENK3$_0clEPKNS_6SrcMgr12ContentCacheE.exit": ; preds = %_ZNK5clang6SrcMgr12ContentCache17getBufferIfLoadedEv.exit.i, %87, %_ZN5clang6SrcMgr12ContentCache9setBufferESt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS4_EE.exit.i.i, %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i)
   store ptr %.0.i.i.i.i.i, ptr %46, align 8
   br label %98
 
-98:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang12FileEntryRefEPNS2_6SrcMgr12ContentCacheENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_EixERKS3_.exit, %"_ZZN5clang13SourceManager19initializeForReplayERKS0_ENK3$_0clEPKNS_6SrcMgr12ContentCacheE.argprom.exit"
+98:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang12FileEntryRefEPNS2_6SrcMgr12ContentCacheENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_EixERKS3_.exit, %"_ZZN5clang13SourceManager19initializeForReplayERKS0_ENK3$_0clEPKNS_6SrcMgr12ContentCacheE.exit"
   %99 = getelementptr inbounds i8, ptr %.sroa.016.025, i64 16
   %.not13.i3.i = icmp eq ptr %99, %31
   br i1 %.not13.i3.i, label %_ZN4llvm16DenseMapIteratorIN5clang12FileEntryRefEPNS1_6SrcMgr12ContentCacheENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EELb1EEppEv.exit, label %.lr.ph.i4.i
@@ -4762,16 +4762,16 @@ _ZN4llvm9MapVectorIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpa
   %.0.val16.i.i.i = load i64, ptr %137, align 8
   %.val17.i.i.i = load i64, ptr %134, align 8
   %138 = icmp ugt i64 %.0.val16.i.i.i, %.val17.i.i.i
-  br i1 %138, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i.i.i"
+  br i1 %138, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i.i.i": ; preds = %135
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i.i.i": ; preds = %135
   %.val.i.i.i47 = load i32, ptr %133, align 4
   %139 = icmp eq i64 %.0.val16.i.i.i, %.val17.i.i.i
   %140 = icmp ult i32 %.0.val.i.i.i, %.val.i.i.i47
   %spec.select.i.i.i.i.i = select i1 %139, i1 %140, i1 false
-  br i1 %spec.select.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i.i.i", label %153
+  br i1 %spec.select.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i.i.i", label %153
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i.i.i", %135
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i.i.i", %135
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %.021.i.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %136, i64 24, i1 false)
   %141 = ptrtoint ptr %.021.i.i.i to i64
@@ -4780,7 +4780,7 @@ _ZN4llvm9MapVectorIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpa
   %144 = icmp sgt i64 %143, 0
   br i1 %144, label %.lr.ph.i.i.i.i.i.preheader.i.i.i, label %_ZSt13move_backwardIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoESC_ET0_T_SE_SD_.exit.i.i.i
 
-.lr.ph.i.i.i.i.i.preheader.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i.i.i"
+.lr.ph.i.i.i.i.i.preheader.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i.i.i"
   %145 = getelementptr inbounds i8, ptr %.pn20.i.i.i, i64 64
   br label %.lr.ph.i.i.i.i.i.i.i.i49
 
@@ -4799,42 +4799,42 @@ _ZN4llvm9MapVectorIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpa
   %152 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i, 1
   br i1 %152, label %.lr.ph.i.i.i.i.i.i.i.i49, label %_ZSt13move_backwardIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoESC_ET0_T_SE_SD_.exit.i.i.i, !llvm.loop !60
 
-_ZSt13move_backwardIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoESC_ET0_T_SE_SD_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i49, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i.i.i"
+_ZSt13move_backwardIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoESC_ET0_T_SE_SD_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i49, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i.i.i"
   store ptr %.sroa.0.0.copyload.i.i.i, ptr %.0.lcssa.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %133, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.i.i.i, i64 24, i1 false)
   br label %163
 
-153:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i.i.i"
+153:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i.i.i"
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.4.i.i.i.i)
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %.021.i.i.i, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %.pn20.i.i.i, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.4.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.4.0..sroa_idx.i.i.i.i, i64 12, i1 false)
   br label %154
 
-154:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.thread.i.i.i.i", %153
-  %.09.i.i.i.i = phi ptr [ %.021.i.i.i, %153 ], [ %.0.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.thread.i.i.i.i" ]
+154:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.thread.i.i.i.i", %153
+  %.09.i.i.i.i = phi ptr [ %.021.i.i.i, %153 ], [ %.0.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.thread.i.i.i.i" ]
   %.0.i.i.i.i = getelementptr inbounds i8, ptr %.09.i.i.i.i, i64 -32
   %155 = getelementptr i8, ptr %.09.i.i.i.i, i64 -24
   %156 = getelementptr i8, ptr %.09.i.i.i.i, i64 -8
   %.0.val11.i.i.i.i = load i64, ptr %156, align 8
   %157 = icmp ugt i64 %.0.val16.i.i.i, %.0.val11.i.i.i.i
-  br i1 %157, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.thread.i.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.i.i.i.i"
+  br i1 %157, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.thread.i.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.i.i.i.i": ; preds = %154
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.i.i.i.i": ; preds = %154
   %.0.val.i.i.i.i = load i32, ptr %155, align 4
   %158 = icmp eq i64 %.0.val16.i.i.i, %.0.val11.i.i.i.i
   %159 = icmp ult i32 %.0.val.i.i.i, %.0.val.i.i.i.i
   %spec.select.i.i.i.i.i.i = select i1 %158, i1 %159, i1 false
-  br i1 %spec.select.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.thread.i.i.i.i", label %"_ZSt25__unguarded_linear_insertIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_.exit.i.i.i"
+  br i1 %spec.select.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.thread.i.i.i.i", label %"_ZSt25__unguarded_linear_insertIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_.exit.i.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.i.i.i.i", %154
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.i.i.i.i", %154
   %160 = load ptr, ptr %.0.i.i.i.i, align 8
   store ptr %160, ptr %.09.i.i.i.i, align 8
   %161 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %161, ptr noundef nonnull readonly align 8 dereferenceable(24) %155, i64 24, i1 false)
   br label %154, !llvm.loop !61
 
-"_ZSt25__unguarded_linear_insertIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_.exit.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.i.i.i.i"
+"_ZSt25__unguarded_linear_insertIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_.exit.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.i.i.i.i"
   store ptr %.sroa.0.0.copyload.i.i.i.i, ptr %.09.i.i.i.i, align 8
   %162 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 8
   store i32 %.0.val.i.i.i, ptr %162, align 8
@@ -4888,16 +4888,16 @@ _ZSt13move_backwardIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLoc
   %.0.val16.i.i.i.i = load i64, ptr %178, align 8
   %.val17.i.i.i.i = load i64, ptr %175, align 8
   %179 = icmp ugt i64 %.0.val16.i.i.i.i, %.val17.i.i.i.i
-  br i1 %179, label %.lr.ph.i.i.i.i.i.preheader.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i.i.i.i"
+  br i1 %179, label %.lr.ph.i.i.i.i.i.preheader.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i.i.i.i": ; preds = %176
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i.i.i.i": ; preds = %176
   %.val.i.i.i.i = load i32, ptr %174, align 4
   %180 = icmp eq i64 %.0.val16.i.i.i.i, %.val17.i.i.i.i
   %181 = icmp ult i32 %.0.val.i.i.i.i53, %.val.i.i.i.i
   %spec.select.i.i.i.i.i.i54 = select i1 %180, i1 %181, i1 false
   br i1 %spec.select.i.i.i.i.i.i54, label %.lr.ph.i.i.i.i.i.preheader.i.i.i.i, label %191
 
-.lr.ph.i.i.i.i.i.preheader.i.i.i.i:               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i.i.i.i", %176
+.lr.ph.i.i.i.i.i.preheader.i.i.i.i:               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i.i.i.i", %176
   %.sroa.0.0.copyload.i.i.i.i55 = load ptr, ptr %.021.i.ptr.i.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %177, i64 24, i1 false)
   %182 = lshr exact i64 %.021.i.idx.i.i.i, 5
@@ -4924,37 +4924,37 @@ _ZSt13move_backwardIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLoc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %174, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.i.i.i.i, i64 24, i1 false)
   br label %201
 
-191:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i.i.i.i"
+191:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i.i.i.i"
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.4.i.i.i.i.i)
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %.021.i.ptr.i.i.i, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn20.i.i.i.i, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.4.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.4.0..sroa_idx.i.i.i.i.i, i64 12, i1 false)
   br label %192
 
-192:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.thread.i.i.i.i.i", %191
-  %.09.i.i.i.i.i = phi ptr [ %.021.i.ptr.i.i.i, %191 ], [ %.0.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.thread.i.i.i.i.i" ]
+192:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.thread.i.i.i.i.i", %191
+  %.09.i.i.i.i.i = phi ptr [ %.021.i.ptr.i.i.i, %191 ], [ %.0.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.thread.i.i.i.i.i" ]
   %.0.i.i.i.i.i = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 -32
   %193 = getelementptr i8, ptr %.09.i.i.i.i.i, i64 -24
   %194 = getelementptr i8, ptr %.09.i.i.i.i.i, i64 -8
   %.0.val11.i.i.i.i.i = load i64, ptr %194, align 8
   %195 = icmp ugt i64 %.0.val16.i.i.i.i, %.0.val11.i.i.i.i.i
-  br i1 %195, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.i.i.i.i.i"
+  br i1 %195, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.i.i.i.i.i": ; preds = %192
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.i.i.i.i.i": ; preds = %192
   %.0.val.i.i.i.i.i = load i32, ptr %193, align 4
   %196 = icmp eq i64 %.0.val16.i.i.i.i, %.0.val11.i.i.i.i.i
   %197 = icmp ult i32 %.0.val.i.i.i.i53, %.0.val.i.i.i.i.i
   %spec.select.i.i.i.i.i.i.i = select i1 %196, i1 %197, i1 false
-  br i1 %spec.select.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.thread.i.i.i.i.i", label %"_ZSt25__unguarded_linear_insertIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_.exit.i.i.i.i"
+  br i1 %spec.select.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.thread.i.i.i.i.i", label %"_ZSt25__unguarded_linear_insertIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.i.i.i.i.i", %192
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.i.i.i.i.i", %192
   %198 = load ptr, ptr %.0.i.i.i.i.i, align 8
   store ptr %198, ptr %.09.i.i.i.i.i, align 8
   %199 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %199, ptr noundef nonnull readonly align 8 dereferenceable(24) %193, i64 24, i1 false)
   br label %192, !llvm.loop !61
 
-"_ZSt25__unguarded_linear_insertIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_.exit.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.i.i.i.i.i"
+"_ZSt25__unguarded_linear_insertIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_.exit.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.i.i.i.i.i"
   store ptr %.sroa.0.0.copyload.i.i.i.i.i, ptr %.09.i.i.i.i.i, align 8
   %200 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
   store i32 %.0.val.i.i.i.i53, ptr %200, align 8
@@ -4988,30 +4988,30 @@ _ZSt13move_backwardIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLoc
   %.sroa.412.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.412.0..sroa_idx.i.i.i.i.i, align 8
   br label %203
 
-203:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.thread.i.i26.i.i.i", %.lr.ph.i.i.i.i
-  %.09.i.i16.i.i.i = phi ptr [ %.07.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.0.i.i17.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.thread.i.i26.i.i.i" ]
+203:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.thread.i.i26.i.i.i", %.lr.ph.i.i.i.i
+  %.09.i.i16.i.i.i = phi ptr [ %.07.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.0.i.i17.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.thread.i.i26.i.i.i" ]
   %.0.i.i17.i.i.i = getelementptr inbounds i8, ptr %.09.i.i16.i.i.i, i64 -32
   %204 = getelementptr i8, ptr %.09.i.i16.i.i.i, i64 -24
   %205 = getelementptr i8, ptr %.09.i.i16.i.i.i, i64 -8
   %.0.val11.i.i18.i.i.i = load i64, ptr %205, align 8
   %206 = icmp ugt i64 %.sroa.412.0.copyload.i.i.i.i.i, %.0.val11.i.i18.i.i.i
-  br i1 %206, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.thread.i.i26.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.i.i19.i.i.i"
+  br i1 %206, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.thread.i.i26.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.i.i19.i.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.i.i19.i.i.i": ; preds = %203
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.i.i19.i.i.i": ; preds = %203
   %.0.val.i.i20.i.i.i = load i32, ptr %204, align 4
   %207 = icmp eq i64 %.sroa.412.0.copyload.i.i.i.i.i, %.0.val11.i.i18.i.i.i
   %208 = icmp ult i32 %.sroa.2.0.copyload.i.i.i.i.i, %.0.val.i.i20.i.i.i
   %spec.select.i.i.i.i21.i.i.i = select i1 %207, i1 %208, i1 false
-  br i1 %spec.select.i.i.i.i21.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.thread.i.i26.i.i.i", label %"_ZSt25__unguarded_linear_insertIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_.exit.i22.i.i.i"
+  br i1 %spec.select.i.i.i.i21.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.thread.i.i26.i.i.i", label %"_ZSt25__unguarded_linear_insertIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_.exit.i22.i.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.thread.i.i26.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.i.i19.i.i.i", %203
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.thread.i.i26.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.i.i19.i.i.i", %203
   %209 = load ptr, ptr %.0.i.i17.i.i.i, align 8
   store ptr %209, ptr %.09.i.i16.i.i.i, align 8
   %210 = getelementptr inbounds nuw i8, ptr %.09.i.i16.i.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %210, ptr noundef nonnull readonly align 8 dereferenceable(24) %204, i64 24, i1 false)
   br label %203, !llvm.loop !61
 
-"_ZSt25__unguarded_linear_insertIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_.exit.i22.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.i.i19.i.i.i"
+"_ZSt25__unguarded_linear_insertIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_.exit.i22.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.i.i19.i.i.i"
   store ptr %.sroa.0.0.copyload.i.i14.i.i.i, ptr %.09.i.i16.i.i.i, align 8
   %211 = getelementptr inbounds nuw i8, ptr %.09.i.i16.i.i.i, i64 8
   store i32 %.sroa.2.0.copyload.i.i.i.i.i, ptr %211, align 8
@@ -5044,16 +5044,16 @@ _ZSt13move_backwardIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLoc
   %.0.val16.i34.i.i.i = load i64, ptr %217, align 8
   %.val17.i35.i.i.i = load i64, ptr %214, align 8
   %218 = icmp ugt i64 %.0.val16.i34.i.i.i, %.val17.i35.i.i.i
-  br i1 %218, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i53.i.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i36.i.i.i"
+  br i1 %218, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i53.i.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i36.i.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i36.i.i.i": ; preds = %215
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i36.i.i.i": ; preds = %215
   %.val.i37.i.i.i = load i32, ptr %213, align 4
   %219 = icmp eq i64 %.0.val16.i34.i.i.i, %.val17.i35.i.i.i
   %220 = icmp ult i32 %.0.val.i33.i.i.i, %.val.i37.i.i.i
   %spec.select.i.i.i38.i.i.i = select i1 %219, i1 %220, i1 false
-  br i1 %spec.select.i.i.i38.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i53.i.i.i", label %233
+  br i1 %spec.select.i.i.i38.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i53.i.i.i", label %233
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i53.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i36.i.i.i", %215
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i53.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i36.i.i.i", %215
   %.sroa.0.0.copyload.i54.i.i.i = load ptr, ptr %.021.i31.i.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.i28.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %216, i64 24, i1 false)
   %221 = ptrtoint ptr %.021.i31.i.i.i to i64
@@ -5062,7 +5062,7 @@ _ZSt13move_backwardIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLoc
   %224 = icmp sgt i64 %223, 0
   br i1 %224, label %.lr.ph.i.i.i.i.i.preheader.i56.i.i.i, label %_ZSt13move_backwardIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoESC_ET0_T_SE_SD_.exit.i55.i.i.i
 
-.lr.ph.i.i.i.i.i.preheader.i56.i.i.i:             ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i53.i.i.i"
+.lr.ph.i.i.i.i.i.preheader.i56.i.i.i:             ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i53.i.i.i"
   %225 = getelementptr inbounds i8, ptr %.pn20.i32.i.i.i, i64 64
   br label %.lr.ph.i.i.i.i.i.i57.i.i.i
 
@@ -5081,42 +5081,42 @@ _ZSt13move_backwardIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLoc
   %232 = icmp ugt i64 %.010.i.i.i.i.i.i58.i.i.i, 1
   br i1 %232, label %.lr.ph.i.i.i.i.i.i57.i.i.i, label %_ZSt13move_backwardIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoESC_ET0_T_SE_SD_.exit.i55.i.i.i, !llvm.loop !60
 
-_ZSt13move_backwardIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoESC_ET0_T_SE_SD_.exit.i55.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i57.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i53.i.i.i"
+_ZSt13move_backwardIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoESC_ET0_T_SE_SD_.exit.i55.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i57.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i53.i.i.i"
   store ptr %.sroa.0.0.copyload.i54.i.i.i, ptr %.val40, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %213, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.i28.i.i.i, i64 24, i1 false)
   br label %243
 
-233:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i36.i.i.i"
+233:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i36.i.i.i"
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.4.i.i27.i.i.i)
   %.sroa.0.0.copyload.i.i39.i.i.i = load ptr, ptr %.021.i31.i.i.i, align 8
   %.sroa.4.0..sroa_idx.i.i40.i.i.i = getelementptr inbounds i8, ptr %.pn20.i32.i.i.i, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.4.i.i27.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.4.0..sroa_idx.i.i40.i.i.i, i64 12, i1 false)
   br label %234
 
-234:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.thread.i.i52.i.i.i", %233
-  %.09.i.i41.i.i.i = phi ptr [ %.021.i31.i.i.i, %233 ], [ %.0.i.i42.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.thread.i.i52.i.i.i" ]
+234:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.thread.i.i52.i.i.i", %233
+  %.09.i.i41.i.i.i = phi ptr [ %.021.i31.i.i.i, %233 ], [ %.0.i.i42.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.thread.i.i52.i.i.i" ]
   %.0.i.i42.i.i.i = getelementptr inbounds i8, ptr %.09.i.i41.i.i.i, i64 -32
   %235 = getelementptr i8, ptr %.09.i.i41.i.i.i, i64 -24
   %236 = getelementptr i8, ptr %.09.i.i41.i.i.i, i64 -8
   %.0.val11.i.i43.i.i.i = load i64, ptr %236, align 8
   %237 = icmp ugt i64 %.0.val16.i34.i.i.i, %.0.val11.i.i43.i.i.i
-  br i1 %237, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.thread.i.i52.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.i.i44.i.i.i"
+  br i1 %237, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.thread.i.i52.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.i.i44.i.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.i.i44.i.i.i": ; preds = %234
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.i.i44.i.i.i": ; preds = %234
   %.0.val.i.i45.i.i.i = load i32, ptr %235, align 4
   %238 = icmp eq i64 %.0.val16.i34.i.i.i, %.0.val11.i.i43.i.i.i
   %239 = icmp ult i32 %.0.val.i33.i.i.i, %.0.val.i.i45.i.i.i
   %spec.select.i.i.i.i46.i.i.i = select i1 %238, i1 %239, i1 false
-  br i1 %spec.select.i.i.i.i46.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.thread.i.i52.i.i.i", label %"_ZSt25__unguarded_linear_insertIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_.exit.i47.i.i.i"
+  br i1 %spec.select.i.i.i.i46.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.thread.i.i52.i.i.i", label %"_ZSt25__unguarded_linear_insertIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_.exit.i47.i.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.thread.i.i52.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.i.i44.i.i.i", %234
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.thread.i.i52.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.i.i44.i.i.i", %234
   %240 = load ptr, ptr %.0.i.i42.i.i.i, align 8
   store ptr %240, ptr %.09.i.i41.i.i.i, align 8
   %241 = getelementptr inbounds nuw i8, ptr %.09.i.i41.i.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %241, ptr noundef nonnull readonly align 8 dereferenceable(24) %235, i64 24, i1 false)
   br label %234, !llvm.loop !61
 
-"_ZSt25__unguarded_linear_insertIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_.exit.i47.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.argprom.exit.i.i44.i.i.i"
+"_ZSt25__unguarded_linear_insertIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_.exit.i47.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclISt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoEPSG_EEbRT_T0_.exit.i.i44.i.i.i"
   store ptr %.sroa.0.0.copyload.i.i39.i.i.i, ptr %.09.i.i41.i.i.i, align 8
   %242 = getelementptr inbounds nuw i8, ptr %.09.i.i41.i.i.i, i64 8
   store i32 %.0.val.i33.i.i.i, ptr %242, align 8
@@ -7597,14 +7597,14 @@ define dso_local noundef i32 @_ZNK5clang13SourceManager23getPresumedColumnNumber
   %.sroa.0.0.copyload = load ptr, ptr %4, align 8
   %5 = icmp eq ptr %.sroa.0.0.copyload, null
   %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %_ZL9isInvalidIN5clang11PresumedLocEEbT_Pb.argprom.exit, label %6
+  br i1 %.not.i, label %_ZL9isInvalidIN5clang11PresumedLocEEbT_Pb.exit, label %6
 
 6:                                                ; preds = %3
   %7 = zext i1 %5 to i8
   store i8 %7, ptr %2, align 1
-  br label %_ZL9isInvalidIN5clang11PresumedLocEEbT_Pb.argprom.exit
+  br label %_ZL9isInvalidIN5clang11PresumedLocEEbT_Pb.exit
 
-_ZL9isInvalidIN5clang11PresumedLocEEbT_Pb.argprom.exit: ; preds = %3, %6
+_ZL9isInvalidIN5clang11PresumedLocEEbT_Pb.exit:   ; preds = %3, %6
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load i32, ptr %8, align 8
   %.0 = select i1 %5, i32 0, i32 %9
@@ -8299,14 +8299,14 @@ define dso_local noundef i32 @_ZNK5clang13SourceManager21getPresumedLineNumberEN
   %.sroa.0.0.copyload = load ptr, ptr %4, align 8
   %5 = icmp eq ptr %.sroa.0.0.copyload, null
   %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %_ZL9isInvalidIN5clang11PresumedLocEEbT_Pb.argprom.exit, label %6
+  br i1 %.not.i, label %_ZL9isInvalidIN5clang11PresumedLocEEbT_Pb.exit, label %6
 
 6:                                                ; preds = %3
   %7 = zext i1 %5 to i8
   store i8 %7, ptr %2, align 1
-  br label %_ZL9isInvalidIN5clang11PresumedLocEEbT_Pb.argprom.exit
+  br label %_ZL9isInvalidIN5clang11PresumedLocEEbT_Pb.exit
 
-_ZL9isInvalidIN5clang11PresumedLocEEbT_Pb.argprom.exit: ; preds = %3, %6
+_ZL9isInvalidIN5clang11PresumedLocEEbT_Pb.exit:   ; preds = %3, %6
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %9 = load i32, ptr %8, align 4
   %.0 = select i1 %5, i32 0, i32 %9
@@ -10215,7 +10215,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang13SourceManager30isInTheSameTrans
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #26
   %12 = icmp sgt i64 %11, 0
-  br i1 %12, label %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i, label %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit"
+  br i1 %12, label %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i, label %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit"
 
 _ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i: ; preds = %8, %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i ], [ %10, %8 ]
@@ -10230,19 +10230,19 @@ _ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i: ; preds = %8, %_ZSt7advanc
   %.112.i.i.i.i = select i1 %16, i64 %19, i64 %13
   %.1.i.i.i.i = select i1 %16, ptr %17, ptr %.017.i.i.i.i
   %20 = icmp sgt i64 %.112.i.i.i.i, 0
-  br i1 %20, label %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i, label %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit", !llvm.loop !134
+  br i1 %20, label %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i, label %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit", !llvm.loop !134
 
-"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit": ; preds = %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i, %8
+"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit": ; preds = %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i, %8
   %.0.lcssa.i.i.i.i = phi ptr [ %10, %8 ], [ %.1.i.i.i.i, %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i ]
   %.sroa.0.0.copyload = load i32, ptr %2, align 4
   %21 = load ptr, ptr %9, align 8
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #26
   %23 = icmp sgt i64 %22, 0
-  br i1 %23, label %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15, label %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit22"
+  br i1 %23, label %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15, label %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit22"
 
-_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15: ; preds = %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit", %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15
-  %.017.i.i.i.i16 = phi ptr [ %.1.i.i.i.i21, %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15 ], [ %21, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit" ]
-  %.01116.i.i.i.i17 = phi i64 [ %.112.i.i.i.i20, %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15 ], [ %22, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit" ]
+_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15: ; preds = %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit", %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15
+  %.017.i.i.i.i16 = phi ptr [ %.1.i.i.i.i21, %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15 ], [ %21, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit" ]
+  %.01116.i.i.i.i17 = phi i64 [ %.112.i.i.i.i20, %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15 ], [ %22, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit" ]
   %24 = lshr i64 %.01116.i.i.i.i17, 1
   %25 = getelementptr inbounds %"class.clang::FileID", ptr %.017.i.i.i.i16, i64 %24
   %26 = load i32, ptr %25, align 4
@@ -10253,18 +10253,18 @@ _ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15: ; preds = %"_ZZNK5clang1
   %.112.i.i.i.i20 = select i1 %27, i64 %30, i64 %24
   %.1.i.i.i.i21 = select i1 %27, ptr %28, ptr %.017.i.i.i.i16
   %31 = icmp sgt i64 %.112.i.i.i.i20, 0
-  br i1 %31, label %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15, label %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit22", !llvm.loop !134
+  br i1 %31, label %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15, label %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit22", !llvm.loop !134
 
-"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit22": ; preds = %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit"
-  %.0.lcssa.i.i.i.i14 = phi ptr [ %21, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit" ], [ %.1.i.i.i.i21, %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15 ]
+"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit22": ; preds = %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit"
+  %.0.lcssa.i.i.i.i14 = phi ptr [ %21, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit" ], [ %.1.i.i.i.i21, %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15 ]
   %.not = icmp eq ptr %.0.lcssa.i.i.i.i, %.0.lcssa.i.i.i.i14
   br i1 %.not, label %32, label %33
 
-32:                                               ; preds = %6, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit22"
+32:                                               ; preds = %6, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit22"
   br label %33
 
-33:                                               ; preds = %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit22", %3, %32
-  %.0 = phi i1 [ true, %32 ], [ false, %3 ], [ false, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit22" ]
+33:                                               ; preds = %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit22", %3, %32
+  %.0 = phi i1 [ true, %32 ], [ false, %3 ], [ false, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit22" ]
   ret i1 %.0
 }
 
@@ -10614,7 +10614,7 @@ define dso_local range(i16 0, 258) i16 @_ZNK5clang13SourceManager26isInTheSameTr
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #26
   %15 = icmp sgt i64 %14, 0
-  br i1 %15, label %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i.i, label %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit.i"
+  br i1 %15, label %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i.i, label %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit.i"
 
 _ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i.i: ; preds = %11, %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i.i
   %.017.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i.i ], [ %13, %11 ]
@@ -10629,19 +10629,19 @@ _ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i.i: ; preds = %11, %_ZSt7adv
   %.112.i.i.i.i.i = select i1 %19, i64 %22, i64 %16
   %.1.i.i.i.i.i = select i1 %19, ptr %20, ptr %.017.i.i.i.i.i
   %23 = icmp sgt i64 %.112.i.i.i.i.i, 0
-  br i1 %23, label %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i.i, label %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit.i", !llvm.loop !134
+  br i1 %23, label %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i.i, label %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit.i", !llvm.loop !134
 
-"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit.i": ; preds = %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i.i, %11
+"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit.i": ; preds = %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i.i, %11
   %.0.lcssa.i.i.i.i.i = phi ptr [ %13, %11 ], [ %.1.i.i.i.i.i, %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i.i ]
   %.sroa.0.0.copyload.i = load i32, ptr %2, align 4
   %24 = load ptr, ptr %12, align 8
   %25 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #26
   %26 = icmp sgt i64 %25, 0
-  br i1 %26, label %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i, label %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit22.i"
+  br i1 %26, label %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i, label %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit22.i"
 
-_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i: ; preds = %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit.i", %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i
-  %.017.i.i.i.i16.i = phi ptr [ %.1.i.i.i.i21.i, %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i ], [ %24, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit.i" ]
-  %.01116.i.i.i.i17.i = phi i64 [ %.112.i.i.i.i20.i, %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i ], [ %25, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit.i" ]
+_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i: ; preds = %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit.i", %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i
+  %.017.i.i.i.i16.i = phi ptr [ %.1.i.i.i.i21.i, %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i ], [ %24, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit.i" ]
+  %.01116.i.i.i.i17.i = phi i64 [ %.112.i.i.i.i20.i, %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i ], [ %25, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit.i" ]
   %27 = lshr i64 %.01116.i.i.i.i17.i, 1
   %28 = getelementptr inbounds %"class.clang::FileID", ptr %.017.i.i.i.i16.i, i64 %27
   %29 = load i32, ptr %28, align 4
@@ -10652,21 +10652,21 @@ _ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i: ; preds = %"_ZZNK5clan
   %.112.i.i.i.i20.i = select i1 %30, i64 %33, i64 %27
   %.1.i.i.i.i21.i = select i1 %30, ptr %31, ptr %.017.i.i.i.i16.i
   %34 = icmp sgt i64 %.112.i.i.i.i20.i, 0
-  br i1 %34, label %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i, label %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit22.i", !llvm.loop !134
+  br i1 %34, label %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i, label %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit22.i", !llvm.loop !134
 
-"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit22.i": ; preds = %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit.i"
-  %.0.lcssa.i.i.i.i14.i = phi ptr [ %24, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit.i" ], [ %.1.i.i.i.i21.i, %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i ]
+"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit22.i": ; preds = %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit.i"
+  %.0.lcssa.i.i.i.i14.i = phi ptr [ %24, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit.i" ], [ %.1.i.i.i.i21.i, %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i ]
   %.not.i = icmp eq ptr %.0.lcssa.i.i.i.i.i, %.0.lcssa.i.i.i.i14.i
-  br i1 %.not.i, label %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit22.i._ZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_.exit_crit_edge", label %_ZN4llvm13SmallDenseMapIN5clang6FileIDEZNKS1_13SourceManager26isInTheSameTranslationUnitERSt4pairIS2_jES6_E5EntryLj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S7_EEED2Ev.exit
+  br i1 %.not.i, label %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit22.i._ZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_.exit_crit_edge", label %_ZN4llvm13SmallDenseMapIN5clang6FileIDEZNKS1_13SourceManager26isInTheSameTranslationUnitERSt4pairIS2_jES6_E5EntryLj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S7_EEED2Ev.exit
 
-"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit22.i._ZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_.exit_crit_edge": ; preds = %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit22.i"
+"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit22.i._ZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_.exit_crit_edge": ; preds = %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit22.i"
   %.pre = load i32, ptr %1, align 4
   %.pre231 = load i32, ptr %2, align 4
   br label %_ZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_.exit
 
-_ZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_.exit: ; preds = %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit22.i._ZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_.exit_crit_edge", %9
-  %35 = phi i32 [ %.pre231, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit22.i._ZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_.exit_crit_edge" ], [ %.sroa.04.0.copyload.i, %9 ]
-  %36 = phi i32 [ %.pre, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit22.i._ZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_.exit_crit_edge" ], [ %.sroa.05.0.copyload.i, %9 ]
+_ZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_.exit: ; preds = %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit22.i._ZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_.exit_crit_edge", %9
+  %35 = phi i32 [ %.pre231, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit22.i._ZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_.exit_crit_edge" ], [ %.sroa.04.0.copyload.i, %9 ]
+  %36 = phi i32 [ %.pre, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit22.i._ZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_.exit_crit_edge" ], [ %.sroa.05.0.copyload.i, %9 ]
   %37 = icmp eq i32 %36, %35
   br i1 %37, label %38, label %44
 
@@ -10742,7 +10742,7 @@ _ZN4llvm13SmallDenseMapIN5clang6FileIDEZNKS1_13SourceManager26isInTheSameTransla
   %.val36.i.i.i = load i32, ptr %68, align 8, !noalias !138
   %spec.select.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i32 %.val36.i.i.i, i32 16
   %75 = icmp eq i32 %spec.select.i.i.i.i.i, 0
-  br i1 %75, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.argprom.exit.i, label %76
+  br i1 %75, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.exit.i, label %76
 
 76:                                               ; preds = %_ZN4llvm13SmallDenseMapIN5clang6FileIDEZNKS1_13SourceManager26isInTheSameTranslationUnitERSt4pairIS2_jES6_E5EntryLj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S7_EEEC2Ej.exit
   %77 = add i32 %spec.select.i.i.i.i.i, -1
@@ -10765,7 +10765,7 @@ _ZN4llvm13SmallDenseMapIN5clang6FileIDEZNKS1_13SourceManager26isInTheSameTransla
 83:                                               ; preds = %.lr.ph.i.i.i81
   %.not.i.i.i82 = icmp eq ptr %.0316.i.i.i, null
   %84 = select i1 %.not.i.i.i82, ptr %81, ptr %.0316.i.i.i
-  br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.argprom.exit.i
+  br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.exit.i
 
 85:                                               ; preds = %.lr.ph.i.i.i81
   %86 = icmp eq i32 %.sroa.05.0.copyload8.i.i.i, -1
@@ -10781,7 +10781,7 @@ _ZN4llvm13SmallDenseMapIN5clang6FileIDEZNKS1_13SourceManager26isInTheSameTransla
   %92 = icmp eq i32 %.sroa.05.0.copyload.i.i.i, %70
   br i1 %92, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E11try_emplaceIJS8_EEES5_INS_16DenseMapIteratorIS3_S8_SA_SD_Lb0EEEbERKS3_DpOT_.exit, label %.lr.ph.i.i.i81, !llvm.loop !141
 
-_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.argprom.exit.i: ; preds = %83, %_ZN4llvm13SmallDenseMapIN5clang6FileIDEZNKS1_13SourceManager26isInTheSameTranslationUnitERSt4pairIS2_jES6_E5EntryLj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S7_EEEC2Ej.exit
+_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.exit.i: ; preds = %83, %_ZN4llvm13SmallDenseMapIN5clang6FileIDEZNKS1_13SourceManager26isInTheSameTranslationUnitERSt4pairIS2_jES6_E5EntryLj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S7_EEEC2Ej.exit
   %.sink.i.i.i = phi ptr [ %84, %83 ], [ null, %_ZN4llvm13SmallDenseMapIN5clang6FileIDEZNKS1_13SourceManager26isInTheSameTranslationUnitERSt4pairIS2_jES6_E5EntryLj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S7_EEEC2Ej.exit ]
   %93 = lshr i32 %71, 1
   %94 = shl i32 %93, 2
@@ -10790,7 +10790,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26
   %.not.i.i9.i = icmp ult i32 %95, %96
   br i1 %.not.i.i9.i, label %121, label %97
 
-97:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.argprom.exit.i
+97:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.exit.i
   %98 = shl i32 %spec.select.i.i.i.i.i, 1
   call fastcc void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4growEj(ptr noundef nonnull align 1 dereferenceable(1) %4, i32 noundef %98), !noalias !138
   %.val16.i.i.i = load i32, ptr %1, align 4, !noalias !138
@@ -10802,7 +10802,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26
   %.val36.i.i.i.i.i = load i32, ptr %68, align 8, !noalias !138
   %spec.select.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i, i32 %.val36.i.i.i.i.i, i32 16
   %103 = icmp eq i32 %spec.select.i.i.i.i.i.i.i, 0
-  br i1 %103, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.argprom.exit.i.i.i, label %104
+  br i1 %103, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.exit.i.i.i, label %104
 
 104:                                              ; preds = %97
   %105 = add i32 %spec.select.i.i.i.i.i.i.i, -1
@@ -10811,7 +10811,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26
   %107 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.295", ptr %102, i64 %106
   %.sroa.05.0.copyload4.i.i.i.i.i = load i32, ptr %107, align 4, !noalias !138
   %108 = icmp eq i32 %.val16.i.i.i, %.sroa.05.0.copyload4.i.i.i.i.i
-  br i1 %108, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.argprom.exit.i.i.i, label %.lr.ph.i.i.i.i.i
+  br i1 %108, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.exit.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %104, %113
   %.sroa.05.0.copyload8.i.i.i.i.i = phi i32 [ %.sroa.05.0.copyload.i.i.i.i.i, %113 ], [ %.sroa.05.0.copyload4.i.i.i.i.i, %104 ]
@@ -10825,7 +10825,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26
 111:                                              ; preds = %.lr.ph.i.i.i.i.i
   %.not.i.i20.i.i.i = icmp eq ptr %.0316.i.i.i.i.i, null
   %112 = select i1 %.not.i.i20.i.i.i, ptr %109, ptr %.0316.i.i.i.i.i
-  br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.argprom.exit.i.i.i
+  br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.exit.i.i.i
 
 113:                                              ; preds = %.lr.ph.i.i.i.i.i
   %114 = icmp eq i32 %.sroa.05.0.copyload8.i.i.i.i.i, -1
@@ -10839,16 +10839,16 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26
   %119 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.295", ptr %102, i64 %118
   %.sroa.05.0.copyload.i.i.i.i.i = load i32, ptr %119, align 4, !noalias !138
   %120 = icmp eq i32 %.val16.i.i.i, %.sroa.05.0.copyload.i.i.i.i.i
-  br i1 %120, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.argprom.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !141
+  br i1 %120, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !141
 
-121:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.argprom.exit.i
+121:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.exit.i
   %.val18.i.i.i = load i32, ptr %66, align 4, !noalias !138
   %.neg.i.i.i = xor i32 %93, -1
   %.neg2.i.i.i = add i32 %spec.select.i.i.i.i.i, %.neg.i.i.i
   %122 = sub i32 %.neg2.i.i.i, %.val18.i.i.i
   %123 = lshr i32 %spec.select.i.i.i.i.i, 3
   %.not11.i.i.i = icmp ugt i32 %122, %123
-  br i1 %.not11.i.i.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.argprom.exit.i.i.i, label %124
+  br i1 %.not11.i.i.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.exit.i.i.i, label %124
 
 124:                                              ; preds = %121
   call fastcc void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4growEj(ptr noundef nonnull align 1 dereferenceable(1) %4, i32 noundef %spec.select.i.i.i.i.i), !noalias !138
@@ -10861,7 +10861,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26
   %.val36.i.i24.i.i.i = load i32, ptr %68, align 8, !noalias !138
   %spec.select.i.i.i.i25.i.i.i = select i1 %.not.i.i.i.i23.i.i.i, i32 %.val36.i.i24.i.i.i, i32 16
   %129 = icmp eq i32 %spec.select.i.i.i.i25.i.i.i, 0
-  br i1 %129, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.argprom.exit.i.i.i, label %130
+  br i1 %129, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.exit.i.i.i, label %130
 
 130:                                              ; preds = %124
   %131 = add i32 %spec.select.i.i.i.i25.i.i.i, -1
@@ -10870,7 +10870,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26
   %133 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.295", ptr %128, i64 %132
   %.sroa.05.0.copyload4.i.i27.i.i.i = load i32, ptr %133, align 4, !noalias !138
   %134 = icmp eq i32 %.val15.i.i.i, %.sroa.05.0.copyload4.i.i27.i.i.i
-  br i1 %134, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.argprom.exit.i.i.i, label %.lr.ph.i.i28.i.i.i
+  br i1 %134, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.exit.i.i.i, label %.lr.ph.i.i28.i.i.i
 
 .lr.ph.i.i28.i.i.i:                               ; preds = %130, %139
   %.sroa.05.0.copyload8.i.i29.i.i.i = phi i32 [ %.sroa.05.0.copyload.i.i36.i.i.i, %139 ], [ %.sroa.05.0.copyload4.i.i27.i.i.i, %130 ]
@@ -10884,7 +10884,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26
 137:                                              ; preds = %.lr.ph.i.i28.i.i.i
   %.not.i.i39.i.i.i = icmp eq ptr %.0316.i.i31.i.i.i, null
   %138 = select i1 %.not.i.i39.i.i.i, ptr %135, ptr %.0316.i.i31.i.i.i
-  br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.argprom.exit.i.i.i
+  br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.exit.i.i.i
 
 139:                                              ; preds = %.lr.ph.i.i28.i.i.i
   %140 = icmp eq i32 %.sroa.05.0.copyload8.i.i29.i.i.i, -1
@@ -10898,9 +10898,9 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26
   %145 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.295", ptr %128, i64 %144
   %.sroa.05.0.copyload.i.i36.i.i.i = load i32, ptr %145, align 4, !noalias !138
   %146 = icmp eq i32 %.val15.i.i.i, %.sroa.05.0.copyload.i.i36.i.i.i
-  br i1 %146, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.argprom.exit.i.i.i, label %.lr.ph.i.i28.i.i.i, !llvm.loop !141
+  br i1 %146, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.exit.i.i.i, label %.lr.ph.i.i28.i.i.i, !llvm.loop !141
 
-_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.argprom.exit.i.i.i: ; preds = %113, %139, %137, %130, %124, %121, %111, %104, %97
+_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.exit.i.i.i: ; preds = %113, %139, %137, %130, %124, %121, %111, %104, %97
   %147 = phi i32 [ %.val15.i.i.i, %137 ], [ %.val15.i.i.i, %130 ], [ %.val15.i.i.i, %124 ], [ %.val16.i.i.i, %111 ], [ %.val16.i.i.i, %104 ], [ %.val16.i.i.i, %97 ], [ %70, %121 ], [ %.val15.i.i.i, %139 ], [ %.val16.i.i.i, %113 ]
   %.pre-phi.i.i.i = phi i32 [ %126, %137 ], [ %126, %130 ], [ %126, %124 ], [ %100, %111 ], [ %100, %104 ], [ %100, %97 ], [ %72, %121 ], [ %126, %139 ], [ %100, %113 ]
   %.val.i.i.i.i = phi i32 [ %125, %137 ], [ %125, %130 ], [ %125, %124 ], [ %99, %111 ], [ %99, %104 ], [ %99, %97 ], [ %71, %121 ], [ %125, %139 ], [ %99, %113 ]
@@ -10913,13 +10913,13 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26
   %151 = icmp eq i32 %.sroa.01.0.copyload.i.i.i, 0
   br i1 %151, label %154, label %152
 
-152:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.argprom.exit.i.i.i
+152:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.exit.i.i.i
   %.val.i41.i.i.i = load i32, ptr %66, align 4, !noalias !138
   %153 = add i32 %.val.i41.i.i.i, -1
   store i32 %153, ptr %66, align 4, !noalias !138
   br label %154
 
-154:                                              ; preds = %152, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.argprom.exit.i.i.i
+154:                                              ; preds = %152, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.exit.i.i.i
   store i32 %147, ptr %.0.i.i10.i, align 4, !noalias !138
   %155 = getelementptr inbounds nuw i8, ptr %.0.i.i10.i, i64 4
   store i64 %69, ptr %155, align 4, !noalias !138
@@ -10961,7 +10961,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26
   %170 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.295", ptr %165, i64 %169
   %.sroa.02.0.copyload2.i.i = load i32, ptr %170, align 4
   %171 = icmp eq i32 %.val, %.sroa.02.0.copyload2.i.i
-  br i1 %171, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.argprom.exit, label %.lr.ph.i.i
+  br i1 %171, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %167, %173
   %.sroa.02.0.copyload5.i.i = phi i32 [ %.sroa.02.0.copyload.i.i, %173 ], [ %.sroa.02.0.copyload2.i.i, %167 ]
@@ -10978,21 +10978,21 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26
   %177 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.295", ptr %165, i64 %176
   %.sroa.02.0.copyload.i.i = load i32, ptr %177, align 4
   %178 = icmp eq i32 %.val, %.sroa.02.0.copyload.i.i
-  br i1 %178, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.argprom.exit, label %.lr.ph.i.i, !llvm.loop !143
+  br i1 %178, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit, label %.lr.ph.i.i, !llvm.loop !143
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %161
   %179 = zext i32 %spec.select.i.i.i.i to i64
   %180 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.295", ptr %165, i64 %179
-  br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.argprom.exit
+  br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit
 
-_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.argprom.exit: ; preds = %173, %167, %.loopexit.i
+_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit: ; preds = %173, %167, %.loopexit.i
   %.0.i.pn.i = phi ptr [ %180, %.loopexit.i ], [ %170, %167 ], [ %177, %173 ]
   %181 = zext i32 %spec.select.i.i.i.i to i64
   %182 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.295", ptr %165, i64 %181
   %.not200 = icmp eq ptr %.0.i.pn.i, %182
   br i1 %.not200, label %205, label %183
 
-183:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.argprom.exit
+183:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit
   %184 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i, i64 4
   %185 = load i32, ptr %184, align 4
   store i32 %185, ptr %1, align 4
@@ -11027,7 +11027,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26
   %.06.i90 = select i1 %203, i1 %193, i1 %204
   br label %242
 
-205:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.argprom.exit
+205:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit
   %206 = call fastcc noundef zeroext i1 @_ZL37MoveUpTranslationUnitIncludeHierarchyRSt4pairIN5clang6FileIDEjERKNS0_13SourceManagerE(ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(696) %0)
   br i1 %206, label %207, label %161, !llvm.loop !144
 
@@ -11161,8 +11161,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit139:             ; preds = %_ZN4llvmeqENS_9Stri
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %246, i64 noundef %249, i64 noundef 4) #26
   br label %_ZN4llvm13SmallDenseMapIN5clang6FileIDEZNKS1_13SourceManager26isInTheSameTranslationUnitERSt4pairIS2_jES6_E5EntryLj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S7_EEED2Ev.exit
 
-_ZN4llvm13SmallDenseMapIN5clang6FileIDEZNKS1_13SourceManager26isInTheSameTranslationUnitERSt4pairIS2_jES6_E5EntryLj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S7_EEED2Ev.exit: ; preds = %245, %242, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit22.i", %3, %48, %38
-  %.sroa.065.0 = phi i16 [ %.sroa.0.0.insert.insert.i74, %38 ], [ %.sroa.0.0.insert.insert.i80, %48 ], [ 0, %3 ], [ 0, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit22.i" ], [ %spec.select, %242 ], [ %spec.select, %245 ]
+_ZN4llvm13SmallDenseMapIN5clang6FileIDEZNKS1_13SourceManager26isInTheSameTranslationUnitERSt4pairIS2_jES6_E5EntryLj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S7_EEED2Ev.exit: ; preds = %245, %242, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit22.i", %3, %48, %38
+  %.sroa.065.0 = phi i16 [ %.sroa.0.0.insert.insert.i74, %38 ], [ %.sroa.0.0.insert.insert.i80, %48 ], [ 0, %3 ], [ 0, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit22.i" ], [ %spec.select, %242 ], [ %spec.select, %245 ]
   ret i16 %.sroa.065.0
 }
 
@@ -11192,7 +11192,7 @@ define internal fastcc noundef zeroext i1 @_ZL37MoveUpTranslationUnitIncludeHier
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #26
   %14 = icmp sgt i64 %13, 0
-  br i1 %14, label %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i.i, label %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit.i"
+  br i1 %14, label %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i.i, label %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit.i"
 
 _ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i.i: ; preds = %10, %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i.i
   %.017.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i.i ], [ %12, %10 ]
@@ -11207,19 +11207,19 @@ _ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i.i: ; preds = %10, %_ZSt7adv
   %.112.i.i.i.i.i = select i1 %18, i64 %21, i64 %15
   %.1.i.i.i.i.i = select i1 %18, ptr %19, ptr %.017.i.i.i.i.i
   %22 = icmp sgt i64 %.112.i.i.i.i.i, 0
-  br i1 %22, label %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i.i, label %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit.i", !llvm.loop !134
+  br i1 %22, label %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i.i, label %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit.i", !llvm.loop !134
 
-"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit.i": ; preds = %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i.i, %10
+"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit.i": ; preds = %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i.i, %10
   %.0.lcssa.i.i.i.i.i = phi ptr [ %12, %10 ], [ %.1.i.i.i.i.i, %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i.i ]
   %.sroa.0.0.copyload.i = load i32, ptr %0, align 4
   %23 = load ptr, ptr %11, align 8
   %24 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #26
   %25 = icmp sgt i64 %24, 0
-  br i1 %25, label %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i, label %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit22.i"
+  br i1 %25, label %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i, label %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit22.i"
 
-_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i: ; preds = %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit.i", %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i
-  %.017.i.i.i.i16.i = phi ptr [ %.1.i.i.i.i21.i, %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i ], [ %23, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit.i" ]
-  %.01116.i.i.i.i17.i = phi i64 [ %.112.i.i.i.i20.i, %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i ], [ %24, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit.i" ]
+_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i: ; preds = %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit.i", %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i
+  %.017.i.i.i.i16.i = phi ptr [ %.1.i.i.i.i21.i, %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i ], [ %23, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit.i" ]
+  %.01116.i.i.i.i17.i = phi i64 [ %.112.i.i.i.i20.i, %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i ], [ %24, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit.i" ]
   %26 = lshr i64 %.01116.i.i.i.i17.i, 1
   %27 = getelementptr inbounds %"class.clang::FileID", ptr %.017.i.i.i.i16.i, i64 %26
   %28 = load i32, ptr %27, align 4
@@ -11230,21 +11230,21 @@ _ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i: ; preds = %"_ZZNK5clan
   %.112.i.i.i.i20.i = select i1 %29, i64 %32, i64 %26
   %.1.i.i.i.i21.i = select i1 %29, ptr %30, ptr %.017.i.i.i.i16.i
   %33 = icmp sgt i64 %.112.i.i.i.i20.i, 0
-  br i1 %33, label %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i, label %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit22.i", !llvm.loop !134
+  br i1 %33, label %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i, label %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit22.i", !llvm.loop !134
 
-"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit22.i": ; preds = %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit.i"
-  %.0.lcssa.i.i.i.i14.i = phi ptr [ %23, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit.i" ], [ %.1.i.i.i.i21.i, %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i ]
+"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit22.i": ; preds = %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit.i"
+  %.0.lcssa.i.i.i.i14.i = phi ptr [ %23, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit.i" ], [ %.1.i.i.i.i21.i, %_ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i15.i ]
   %.not.i = icmp eq ptr %.0.lcssa.i.i.i.i.i, %.0.lcssa.i.i.i.i14.i
   br i1 %.not.i, label %_ZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_.exit, label %_ZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_.exit.thread
 
-_ZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_.exit: ; preds = %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit22.i", %8
+_ZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_.exit: ; preds = %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit22.i", %8
   store i32 %.sroa.0.0.extract.trunc, ptr %0, align 4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.extract.trunc, ptr %34, align 4
   br label %_ZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_.exit.thread
 
-_ZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_.exit.thread: ; preds = %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit22.i", %5, %2, %_ZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_.exit
-  %.0 = phi i1 [ false, %_ZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_.exit ], [ true, %2 ], [ true, %5 ], [ true, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.argprom.exit22.i" ]
+_ZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_.exit.thread: ; preds = %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit22.i", %5, %2, %_ZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_.exit
+  %.0 = phi i1 [ false, %_ZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_.exit ], [ true, %2 ], [ true, %5 ], [ true, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit22.i" ]
   ret i1 %.0
 }
 
@@ -17560,7 +17560,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26
   %22 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.295", ptr %18, i64 %21
   %.sroa.05.0.copyload4.i.i = load i32, ptr %22, align 4
   %23 = icmp eq i32 %.sroa.03.0.copyload, %.sroa.05.0.copyload4.i.i
-  br i1 %23, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.argprom.exit, label %.lr.ph.i.i
+  br i1 %23, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %14, %28
   %.sroa.05.0.copyload8.i.i = phi i32 [ %.sroa.05.0.copyload.i.i, %28 ], [ %.sroa.05.0.copyload4.i.i, %14 ]
@@ -17574,7 +17574,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26
 26:                                               ; preds = %.lr.ph.i.i
   %.not.i.i = icmp eq ptr %.0316.i.i, null
   %27 = select i1 %.not.i.i, ptr %24, ptr %.0316.i.i
-  br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.argprom.exit
+  br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.exit
 
 28:                                               ; preds = %.lr.ph.i.i
   %29 = icmp eq i32 %.sroa.05.0.copyload8.i.i, -1
@@ -17588,9 +17588,9 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26
   %34 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.295", ptr %18, i64 %33
   %.sroa.05.0.copyload.i.i = load i32, ptr %34, align 4
   %35 = icmp eq i32 %.sroa.03.0.copyload, %.sroa.05.0.copyload.i.i
-  br i1 %35, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.argprom.exit, label %.lr.ph.i.i, !llvm.loop !141
+  br i1 %35, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.exit, label %.lr.ph.i.i, !llvm.loop !141
 
-_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.argprom.exit: ; preds = %28, %14, %26
+_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.exit: ; preds = %28, %14, %26
   %.sink.i.i = phi ptr [ %27, %26 ], [ %22, %14 ], [ %34, %28 ]
   store i32 %.sroa.03.0.copyload, ptr %.sink.i.i, align 4
   %36 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 4
@@ -17604,7 +17604,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26
   store i32 %41, ptr %0, align 8
   br label %42
 
-42:                                               ; preds = %.lr.ph, %.lr.ph, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.argprom.exit
+42:                                               ; preds = %.lr.ph, %.lr.ph, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.exit
   %43 = getelementptr inbounds i8, ptr %.025, i64 16
   %.not = icmp eq ptr %43, %2
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !192
@@ -17714,7 +17714,7 @@ define internal fastcc void @"_ZSt13__heap_selectIPSt4pairIPKN5clang9FileEntryEZ
   %6 = sub i64 %4, %5
   %7 = ashr exact i64 %6, 5
   %8 = icmp slt i64 %7, 2
-  br i1 %8, label %"_ZSt11__make_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_SI_RT0_.argprom.exit", label %9
+  br i1 %8, label %"_ZSt11__make_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_SI_RT0_.exit", label %9
 
 9:                                                ; preds = %3
   %10 = add nsw i64 %7, -2
@@ -17756,9 +17756,9 @@ define internal fastcc void @"_ZSt13__heap_selectIPSt4pairIPKN5clang9FileEntryEZ
   %30 = getelementptr i8, ptr %28, i64 24
   %.val30.i.i = load i64, ptr %30, align 8
   %31 = icmp ugt i64 %.val28.i.i, %.val30.i.i
-  br i1 %31, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i.i"
+  br i1 %31, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i.i": ; preds = %.lr.ph.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i.i": ; preds = %.lr.ph.i.i
   %32 = getelementptr i8, ptr %28, i64 8
   %.val29.i.i = load i32, ptr %32, align 4
   %33 = getelementptr i8, ptr %26, i64 8
@@ -17767,13 +17767,13 @@ define internal fastcc void @"_ZSt13__heap_selectIPSt4pairIPKN5clang9FileEntryEZ
   %35 = icmp ult i32 %.val.i.i, %.val29.i.i
   %spec.select.i.i.i.i = select i1 %34, i1 %35, i1 false
   %cond.fr.i.i = freeze i1 %spec.select.i.i.i.i
-  br i1 %cond.fr.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i.i", label %36
+  br i1 %cond.fr.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i.i", label %36
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i.i", %.lr.ph.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i.i", %.lr.ph.i.i
   br label %36
 
-36:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i.i"
-  %37 = phi i64 [ %27, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i.i" ], [ %25, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i.i" ]
+36:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i.i"
+  %37 = phi i64 [ %27, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i.i" ], [ %25, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i.i" ]
   %38 = getelementptr inbounds %"struct.std::pair.315", ptr %0, i64 %37
   %39 = getelementptr inbounds %"struct.std::pair.315", ptr %0, i64 %.035.i.i
   %40 = load ptr, ptr %38, align 8
@@ -17801,8 +17801,8 @@ define internal fastcc void @"_ZSt13__heap_selectIPSt4pairIPKN5clang9FileEntryEZ
   %48 = icmp sgt i64 %.127.i.i, %.0.i
   br i1 %48, label %.lr.ph.i.i.i, label %"_ZSt13__adjust_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_SJ_T1_T2_.exit.i"
 
-.lr.ph.i.i.i:                                     ; preds = %47, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.argprom.exit.thread.i.i.i"
-  %.0133.i.i.i = phi i64 [ %.04.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.argprom.exit.thread.i.i.i" ], [ %.127.i.i, %47 ]
+.lr.ph.i.i.i:                                     ; preds = %47, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i.i"
+  %.0133.i.i.i = phi i64 [ %.04.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i.i" ], [ %.127.i.i, %47 ]
   %.04.in.i.i.i = add nsw i64 %.0133.i.i.i, -1
   %.04.i.i.i = sdiv i64 %.04.in.i.i.i, 2
   %49 = getelementptr inbounds %"struct.std::pair.315", ptr %0, i64 %.04.i.i.i
@@ -17810,16 +17810,16 @@ define internal fastcc void @"_ZSt13__heap_selectIPSt4pairIPKN5clang9FileEntryEZ
   %51 = getelementptr i8, ptr %49, i64 24
   %.val14.i.i.i = load i64, ptr %51, align 8
   %52 = icmp ugt i64 %.val14.i.i.i, %.sroa.46.0.copyload.i
-  br i1 %52, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.argprom.exit.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.argprom.exit.i.i.i"
+  br i1 %52, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.i.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.argprom.exit.i.i.i": ; preds = %.lr.ph.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.i.i.i": ; preds = %.lr.ph.i.i.i
   %.val.i.i.i = load i32, ptr %50, align 4
   %53 = icmp eq i64 %.val14.i.i.i, %.sroa.46.0.copyload.i
   %54 = icmp ult i32 %.val.i.i.i, %.sroa.24.0.copyload.i
   %spec.select.i.i.i.i.i = select i1 %53, i1 %54, i1 false
-  br i1 %spec.select.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.argprom.exit.thread.i.i.i", label %"_ZSt13__adjust_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_SJ_T1_T2_.exit.i"
+  br i1 %spec.select.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i.i", label %"_ZSt13__adjust_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_SJ_T1_T2_.exit.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.argprom.exit.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.argprom.exit.i.i.i", %.lr.ph.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.i.i.i", %.lr.ph.i.i.i
   %55 = getelementptr inbounds %"struct.std::pair.315", ptr %0, i64 %.0133.i.i.i
   %56 = load ptr, ptr %49, align 8
   store ptr %56, ptr %55, align 8
@@ -17828,8 +17828,8 @@ define internal fastcc void @"_ZSt13__heap_selectIPSt4pairIPKN5clang9FileEntryEZ
   %58 = icmp sgt i64 %.04.i.i.i, %.0.i
   br i1 %58, label %.lr.ph.i.i.i, label %"_ZSt13__adjust_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_SJ_T1_T2_.exit.i", !llvm.loop !194
 
-"_ZSt13__adjust_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_SJ_T1_T2_.exit.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.argprom.exit.thread.i.i.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.argprom.exit.i.i.i", %47
-  %.013.lcssa.i.i.i = phi i64 [ %.127.i.i, %47 ], [ %.0133.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.argprom.exit.i.i.i" ], [ %.04.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.argprom.exit.thread.i.i.i" ]
+"_ZSt13__adjust_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_SJ_T1_T2_.exit.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.i.i.i", %47
+  %.013.lcssa.i.i.i = phi i64 [ %.127.i.i, %47 ], [ %.0133.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.i.i.i" ], [ %.04.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i.i" ]
   %59 = getelementptr inbounds %"struct.std::pair.315", ptr %0, i64 %.013.lcssa.i.i.i
   store ptr %.sroa.03.0.copyload.i, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
@@ -17841,13 +17841,13 @@ define internal fastcc void @"_ZSt13__heap_selectIPSt4pairIPKN5clang9FileEntryEZ
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.5.i)
   %61 = icmp eq i64 %.0.i, 0
   %62 = add nsw i64 %.0.i, -1
-  br i1 %61, label %"_ZSt11__make_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_SI_RT0_.argprom.exit", label %21, !llvm.loop !195
+  br i1 %61, label %"_ZSt11__make_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_SI_RT0_.exit", label %21, !llvm.loop !195
 
-"_ZSt11__make_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_SI_RT0_.argprom.exit": ; preds = %"_ZSt13__adjust_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_SJ_T1_T2_.exit.i", %3
+"_ZSt11__make_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_SI_RT0_.exit": ; preds = %"_ZSt13__adjust_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_SJ_T1_T2_.exit.i", %3
   %63 = icmp ult ptr %1, %2
   br i1 %63, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %"_ZSt11__make_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_SI_RT0_.argprom.exit"
+.lr.ph:                                           ; preds = %"_ZSt11__make_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_SI_RT0_.exit"
   %64 = getelementptr i8, ptr %0, i64 24
   %65 = getelementptr i8, ptr %0, i64 8
   br label %66
@@ -17858,27 +17858,27 @@ define internal fastcc void @"_ZSt13__heap_selectIPSt4pairIPKN5clang9FileEntryEZ
   %.0.val11 = load i64, ptr %67, align 8
   %.val12 = load i64, ptr %64, align 8
   %68 = icmp ugt i64 %.0.val11, %.val12
-  br i1 %68, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit"
+  br i1 %68, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit": ; preds = %66
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit": ; preds = %66
   %.val = load i32, ptr %65, align 4
   %69 = getelementptr i8, ptr %.013, i64 8
   %.0.val = load i32, ptr %69, align 4
   %70 = icmp eq i64 %.0.val11, %.val12
   %71 = icmp ult i32 %.0.val, %.val
   %spec.select.i.i = select i1 %70, i1 %71, i1 false
-  br i1 %spec.select.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread", label %72
+  br i1 %spec.select.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread", label %72
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread": ; preds = %66, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit"
-  tail call fastcc void @"_ZSt10__pop_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_SI_SI_RT0_.argprom"(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %.013)
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread": ; preds = %66, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit"
+  tail call fastcc void @"_ZSt10__pop_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_SI_SI_RT0_"(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %.013)
   br label %72
 
-72:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread"
+72:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread"
   %73 = getelementptr inbounds i8, ptr %.013, i64 32
   %74 = icmp ult ptr %73, %2
   br i1 %74, label %66, label %._crit_edge, !llvm.loop !196
 
-._crit_edge:                                      ; preds = %72, %"_ZSt11__make_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_SI_RT0_.argprom.exit"
+._crit_edge:                                      ; preds = %72, %"_ZSt11__make_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_SI_RT0_.exit"
   ret void
 }
 
@@ -17908,29 +17908,29 @@ define internal fastcc noundef nonnull ptr @"_ZSt27__unguarded_partition_pivotIP
   %21 = getelementptr i8, ptr %15, i64 24
   %.val40.i = load i64, ptr %21, align 8
   %22 = icmp ugt i64 %.val38.i, %.val40.i
-  br i1 %22, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i"
+  br i1 %22, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i": ; preds = %2
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i": ; preds = %2
   %23 = icmp eq i64 %.val38.i, %.val40.i
   %24 = icmp ult i32 %.val37.i, %.val39.i
   %spec.select.i.i.i = select i1 %23, i1 %24, i1 false
-  br i1 %spec.select.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i", label %44
+  br i1 %spec.select.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i", label %44
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i", %2
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i", %2
   %25 = getelementptr i8, ptr %1, i64 -24
   %.val35.i = load i32, ptr %25, align 4
   %26 = getelementptr i8, ptr %1, i64 -8
   %.val36.i = load i64, ptr %26, align 8
   %27 = icmp ugt i64 %.val40.i, %.val36.i
-  br i1 %27, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit42.thread.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit42.i"
+  br i1 %27, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit42.thread.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit42.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit42.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit42.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i"
   %28 = icmp eq i64 %.val40.i, %.val36.i
   %29 = icmp ult i32 %.val39.i, %.val35.i
   %spec.select.i.i41.i = select i1 %28, i1 %29, i1 false
-  br i1 %spec.select.i.i41.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit42.thread.i", label %33
+  br i1 %spec.select.i.i41.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit42.thread.i", label %33
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit42.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit42.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit42.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit42.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i"
   %30 = load ptr, ptr %0, align 8
   %31 = load ptr, ptr %15, align 8
   store ptr %31, ptr %0, align 8
@@ -17943,17 +17943,17 @@ define internal fastcc noundef nonnull ptr @"_ZSt27__unguarded_partition_pivotIP
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %"_ZSt22__move_median_to_firstIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_SI_SI_SI_T0_.exit"
 
-33:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit42.i"
+33:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit42.i"
   %34 = icmp ugt i64 %.val38.i, %.val36.i
-  br i1 %34, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit44.thread.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit44.i"
+  br i1 %34, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit44.thread.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit44.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit44.i": ; preds = %33
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit44.i": ; preds = %33
   %35 = icmp eq i64 %.val38.i, %.val36.i
   %36 = icmp ult i32 %.val37.i, %.val35.i
   %spec.select.i.i43.i = select i1 %35, i1 %36, i1 false
-  br i1 %spec.select.i.i43.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit44.thread.i", label %40
+  br i1 %spec.select.i.i43.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit44.thread.i", label %40
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit44.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit44.i", %33
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit44.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit44.i", %33
   %37 = load ptr, ptr %0, align 8
   %38 = load ptr, ptr %17, align 8
   store ptr %38, ptr %0, align 8
@@ -17966,7 +17966,7 @@ define internal fastcc noundef nonnull ptr @"_ZSt27__unguarded_partition_pivotIP
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %"_ZSt22__move_median_to_firstIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_SI_SI_SI_T0_.exit"
 
-40:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit44.i"
+40:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit44.i"
   %41 = load ptr, ptr %0, align 8
   %42 = load ptr, ptr %16, align 8
   store ptr %42, ptr %0, align 8
@@ -17979,21 +17979,21 @@ define internal fastcc noundef nonnull ptr @"_ZSt27__unguarded_partition_pivotIP
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %"_ZSt22__move_median_to_firstIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_SI_SI_SI_T0_.exit"
 
-44:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i"
+44:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i"
   %45 = getelementptr i8, ptr %1, i64 -24
   %.val27.i = load i32, ptr %45, align 4
   %46 = getelementptr i8, ptr %1, i64 -8
   %.val28.i = load i64, ptr %46, align 8
   %47 = icmp ugt i64 %.val38.i, %.val28.i
-  br i1 %47, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit46.thread.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit46.i"
+  br i1 %47, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit46.thread.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit46.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit46.i": ; preds = %44
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit46.i": ; preds = %44
   %48 = icmp eq i64 %.val38.i, %.val28.i
   %49 = icmp ult i32 %.val37.i, %.val27.i
   %spec.select.i.i45.i = select i1 %48, i1 %49, i1 false
-  br i1 %spec.select.i.i45.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit46.thread.i", label %53
+  br i1 %spec.select.i.i45.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit46.thread.i", label %53
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit46.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit46.i", %44
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit46.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit46.i", %44
   %50 = load ptr, ptr %0, align 8
   %51 = load ptr, ptr %16, align 8
   store ptr %51, ptr %0, align 8
@@ -18006,17 +18006,17 @@ define internal fastcc noundef nonnull ptr @"_ZSt27__unguarded_partition_pivotIP
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %"_ZSt22__move_median_to_firstIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_SI_SI_SI_T0_.exit"
 
-53:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit46.i"
+53:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit46.i"
   %54 = icmp ugt i64 %.val40.i, %.val28.i
-  br i1 %54, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit48.thread.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit48.i"
+  br i1 %54, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit48.thread.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit48.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit48.i": ; preds = %53
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit48.i": ; preds = %53
   %55 = icmp eq i64 %.val40.i, %.val28.i
   %56 = icmp ult i32 %.val39.i, %.val27.i
   %spec.select.i.i47.i = select i1 %55, i1 %56, i1 false
-  br i1 %spec.select.i.i47.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit48.thread.i", label %60
+  br i1 %spec.select.i.i47.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit48.thread.i", label %60
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit48.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit48.i", %53
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit48.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit48.i", %53
   %57 = load ptr, ptr %0, align 8
   %58 = load ptr, ptr %17, align 8
   store ptr %58, ptr %0, align 8
@@ -18029,7 +18029,7 @@ define internal fastcc noundef nonnull ptr @"_ZSt27__unguarded_partition_pivotIP
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %"_ZSt22__move_median_to_firstIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_SI_SI_SI_T0_.exit"
 
-60:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit48.i"
+60:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit48.i"
   %61 = load ptr, ptr %0, align 8
   %62 = load ptr, ptr %15, align 8
   store ptr %62, ptr %0, align 8
@@ -18042,7 +18042,7 @@ define internal fastcc noundef nonnull ptr @"_ZSt27__unguarded_partition_pivotIP
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %"_ZSt22__move_median_to_firstIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_SI_SI_SI_T0_.exit"
 
-"_ZSt22__move_median_to_firstIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_SI_SI_SI_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit42.thread.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit44.thread.i", %40, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit46.thread.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit48.thread.i", %60
+"_ZSt22__move_median_to_firstIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_SI_SI_SI_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit42.thread.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit44.thread.i", %40, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit46.thread.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit48.thread.i", %60
   %64 = getelementptr i8, ptr %0, i64 8
   %65 = getelementptr i8, ptr %0, i64 24
   br label %66
@@ -18054,47 +18054,47 @@ define internal fastcc noundef nonnull ptr @"_ZSt27__unguarded_partition_pivotIP
   %.val19.i = load i64, ptr %65, align 8
   br label %67
 
-67:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i15", %66
-  %.1.i = phi ptr [ %.0.i, %66 ], [ %74, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i15" ]
+67:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i15", %66
+  %.1.i = phi ptr [ %.0.i, %66 ], [ %74, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i15" ]
   %68 = getelementptr i8, ptr %.1.i, i64 24
   %.1.val17.i = load i64, ptr %68, align 8
   %69 = icmp ugt i64 %.1.val17.i, %.val19.i
-  br i1 %69, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i15", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i13"
+  br i1 %69, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i15", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i13"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i13": ; preds = %67
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i13": ; preds = %67
   %70 = getelementptr i8, ptr %.1.i, i64 8
   %.1.val.i = load i32, ptr %70, align 4
   %71 = icmp eq i64 %.1.val17.i, %.val19.i
   %72 = icmp ult i32 %.1.val.i, %.val18.i
   %spec.select.i.i.i14 = select i1 %71, i1 %72, i1 false
-  br i1 %spec.select.i.i.i14, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i15", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit21.i.preheader"
+  br i1 %spec.select.i.i.i14, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i15", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit21.i.preheader"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit21.i.preheader": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i13"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit21.i.preheader": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i13"
   %73 = getelementptr i8, ptr %.1.i, i64 8
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit21.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit21.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i15": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i13", %67
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i15": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i13", %67
   %74 = getelementptr inbounds i8, ptr %.1.i, i64 32
   br label %67, !llvm.loop !197
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit21.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit21.i.backedge", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit21.i.preheader"
-  %.013.pn.i = phi ptr [ %.013.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit21.i.preheader" ], [ %.114.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit21.i.backedge" ]
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit21.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit21.i.backedge", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit21.i.preheader"
+  %.013.pn.i = phi ptr [ %.013.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit21.i.preheader" ], [ %.114.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit21.i.backedge" ]
   %.114.i = getelementptr inbounds i8, ptr %.013.pn.i, i64 -32
   %75 = getelementptr i8, ptr %.013.pn.i, i64 -8
   %.114.val16.i = load i64, ptr %75, align 8
   %76 = icmp ugt i64 %.val19.i, %.114.val16.i
-  br i1 %76, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit21.i.backedge", label %77
+  br i1 %76, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit21.i.backedge", label %77
 
-77:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit21.i"
+77:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit21.i"
   %78 = getelementptr i8, ptr %.013.pn.i, i64 -24
   %.114.val.i = load i32, ptr %78, align 4
   %79 = icmp eq i64 %.val19.i, %.114.val16.i
   %80 = icmp ult i32 %.val18.i, %.114.val.i
   %spec.select.i.i20.i = select i1 %79, i1 %80, i1 false
-  br i1 %spec.select.i.i20.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit21.i.backedge", label %81
+  br i1 %spec.select.i.i20.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit21.i.backedge", label %81
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit21.i.backedge": ; preds = %77, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit21.i"
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit21.i", !llvm.loop !198
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit21.i.backedge": ; preds = %77, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit21.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit21.i", !llvm.loop !198
 
 81:                                               ; preds = %77
   %82 = icmp ult ptr %.1.i, %.114.i
@@ -18119,7 +18119,7 @@ define internal fastcc noundef nonnull ptr @"_ZSt27__unguarded_partition_pivotIP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @"_ZSt10__pop_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_SI_SI_RT0_.argprom"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #20 {
+define internal fastcc void @"_ZSt10__pop_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_SI_SI_RT0_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #20 {
   %.sroa.5 = alloca [12 x i8], align 4
   %.sroa.03.0.copyload = load ptr, ptr %2, align 8
   %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
@@ -18154,9 +18154,9 @@ define internal fastcc void @"_ZSt10__pop_heapIPSt4pairIPKN5clang9FileEntryEZNKS
   %19 = getelementptr i8, ptr %17, i64 24
   %.val30.i = load i64, ptr %19, align 8
   %20 = icmp ugt i64 %.val28.i, %.val30.i
-  br i1 %20, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i"
+  br i1 %20, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i": ; preds = %.lr.ph.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i": ; preds = %.lr.ph.i
   %21 = getelementptr i8, ptr %17, i64 8
   %.val29.i = load i32, ptr %21, align 4
   %22 = getelementptr i8, ptr %15, i64 8
@@ -18165,13 +18165,13 @@ define internal fastcc void @"_ZSt10__pop_heapIPSt4pairIPKN5clang9FileEntryEZNKS
   %24 = icmp ult i32 %.val.i, %.val29.i
   %spec.select.i.i.i = select i1 %23, i1 %24, i1 false
   %cond.fr.i = freeze i1 %spec.select.i.i.i
-  br i1 %cond.fr.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i", label %25
+  br i1 %cond.fr.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i", label %25
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i", %.lr.ph.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i", %.lr.ph.i
   br label %25
 
-25:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i"
-  %26 = phi i64 [ %16, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.thread.i" ], [ %14, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.argprom.exit.i" ]
+25:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i"
+  %26 = phi i64 [ %16, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i" ], [ %14, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i" ]
   %27 = getelementptr inbounds %"struct.std::pair.315", ptr %0, i64 %26
   %28 = getelementptr inbounds %"struct.std::pair.315", ptr %0, i64 %.035.i
   %29 = load ptr, ptr %27, align 8
@@ -18211,8 +18211,8 @@ define internal fastcc void @"_ZSt10__pop_heapIPSt4pairIPKN5clang9FileEntryEZNKS
   %48 = icmp sgt i64 %.127.i, 0
   br i1 %48, label %.lr.ph.i.i, label %"_ZSt13__adjust_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_SJ_T1_T2_.exit"
 
-.lr.ph.i.i:                                       ; preds = %47, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.argprom.exit.thread.i.i"
-  %.0133.i.i = phi i64 [ %.04.i.i78, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.argprom.exit.thread.i.i" ], [ %.127.i, %47 ]
+.lr.ph.i.i:                                       ; preds = %47, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i"
+  %.0133.i.i = phi i64 [ %.04.i.i78, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i" ], [ %.127.i, %47 ]
   %.04.in.i.i = add nsw i64 %.0133.i.i, -1
   %.04.i.i78 = lshr i64 %.04.in.i.i, 1
   %49 = getelementptr inbounds %"struct.std::pair.315", ptr %0, i64 %.04.i.i78
@@ -18220,16 +18220,16 @@ define internal fastcc void @"_ZSt10__pop_heapIPSt4pairIPKN5clang9FileEntryEZNKS
   %51 = getelementptr i8, ptr %49, i64 24
   %.val14.i.i = load i64, ptr %51, align 8
   %52 = icmp ugt i64 %.val14.i.i, %.sroa.46.0.copyload
-  br i1 %52, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.argprom.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.argprom.exit.i.i"
+  br i1 %52, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.argprom.exit.i.i": ; preds = %.lr.ph.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.i.i": ; preds = %.lr.ph.i.i
   %.val.i.i = load i32, ptr %50, align 4
   %53 = icmp eq i64 %.val14.i.i, %.sroa.46.0.copyload
   %54 = icmp ult i32 %.val.i.i, %.sroa.24.0.copyload
   %spec.select.i.i.i.i = select i1 %53, i1 %54, i1 false
-  br i1 %spec.select.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.argprom.exit.thread.i.i", label %"_ZSt13__adjust_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_SJ_T1_T2_.exit"
+  br i1 %spec.select.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i", label %"_ZSt13__adjust_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_SJ_T1_T2_.exit"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.argprom.exit.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.argprom.exit.i.i", %.lr.ph.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.i.i", %.lr.ph.i.i
   %55 = getelementptr inbounds %"struct.std::pair.315", ptr %0, i64 %.0133.i.i
   %56 = load ptr, ptr %49, align 8
   store ptr %56, ptr %55, align 8
@@ -18238,8 +18238,8 @@ define internal fastcc void @"_ZSt10__pop_heapIPSt4pairIPKN5clang9FileEntryEZNKS
   %.not = icmp ult i64 %.04.in.i.i, 2
   br i1 %.not, label %"_ZSt13__adjust_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_SJ_T1_T2_.exit", label %.lr.ph.i.i, !llvm.loop !194
 
-"_ZSt13__adjust_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_SJ_T1_T2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.argprom.exit.i.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.argprom.exit.thread.i.i", %47
-  %.013.lcssa.i.i = phi i64 [ %.127.i, %47 ], [ 0, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.argprom.exit.thread.i.i" ], [ %.0133.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.argprom.exit.i.i" ]
+"_ZSt13__adjust_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_SJ_T1_T2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.i.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i", %47
+  %.013.lcssa.i.i = phi i64 [ %.127.i, %47 ], [ 0, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i" ], [ %.0133.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.i.i" ]
   %58 = getelementptr inbounds %"struct.std::pair.315", ptr %0, i64 %.013.lcssa.i.i
   store ptr %.sroa.03.0.copyload, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -18273,7 +18273,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPKN5clang9FileEntr
 .lr.ph.i.i:                                       ; preds = %9, %.lr.ph.i.i
   %.01.i.i = phi ptr [ %10, %.lr.ph.i.i ], [ %.022, %9 ]
   %10 = getelementptr inbounds i8, ptr %.01.i.i, i64 -32
-  tail call fastcc void @"_ZSt10__pop_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_SI_SI_RT0_.argprom"(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %10)
+  tail call fastcc void @"_ZSt10__pop_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_SI_SI_RT0_"(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %10)
   %11 = ptrtoint ptr %10 to i64
   %12 = sub i64 %11, %4
   %13 = icmp sgt i64 %12, 32
@@ -18699,8 +18699,8 @@ attributes #31 = { nounwind willreturn memory(read) }
 !158 = distinct !{!158, !"_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E6insertERKSt4pairIS5_jE"}
 !159 = distinct !{!159, !5}
 !160 = !{!161}
-!161 = distinct !{!161, !162, !"_ZSt9make_pairIRKPKN5clang9FileEntryEZNKS0_13SourceManager25noteSLocAddressSpaceUsageERNS0_17DiagnosticsEngineESt8optionalIjEE4InfoESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSD_INSE_IT0_E4typeEE6__typeEEOSF_OSK_.argprom: argument 0"}
-!162 = distinct !{!162, !"_ZSt9make_pairIRKPKN5clang9FileEntryEZNKS0_13SourceManager25noteSLocAddressSpaceUsageERNS0_17DiagnosticsEngineESt8optionalIjEE4InfoESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSD_INSE_IT0_E4typeEE6__typeEEOSF_OSK_.argprom"}
+!161 = distinct !{!161, !162, !"_ZSt9make_pairIRKPKN5clang9FileEntryEZNKS0_13SourceManager25noteSLocAddressSpaceUsageERNS0_17DiagnosticsEngineESt8optionalIjEE4InfoESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSD_INSE_IT0_E4typeEE6__typeEEOSF_OSK_: argument 0"}
+!162 = distinct !{!162, !"_ZSt9make_pairIRKPKN5clang9FileEntryEZNKS0_13SourceManager25noteSLocAddressSpaceUsageERNS0_17DiagnosticsEngineESt8optionalIjEE4InfoESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSD_INSE_IT0_E4typeEE6__typeEEOSF_OSK_"}
 !163 = distinct !{!163, !5}
 !164 = !{!165}
 !165 = distinct !{!165, !166, !"_ZSt11make_uniqueIN5clang11FileManagerEJNS0_17FileSystemOptionsERN4llvm18IntrusiveRefCntPtrINS3_3vfs18InMemoryFileSystemEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}

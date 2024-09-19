@@ -1400,33 +1400,33 @@ define internal i32 @dissect_mip6(ptr noundef %0, ptr noundef %1, ptr noundef %2
 38:                                               ; preds = %4
   %39 = load i32, ptr @hf_mip6_binding_refresh_request, align 4
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %39, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #5
-  br label %dissect_mip6_hoti.argprom.exit
+  br label %dissect_mip6_hoti.exit
 
 41:                                               ; preds = %4
   %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %dissect_mip6_hoti.argprom.exit, label %42
+  br i1 %.not.i, label %dissect_mip6_hoti.exit, label %42
 
 42:                                               ; preds = %41
   %43 = load i32, ptr @ett_mip6, align 4
   %44 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %19, ptr noundef %0, i32 noundef 6, i32 noundef 10, i32 noundef %43, ptr noundef null, ptr noundef nonnull @.str.514) #5
   %45 = load i32, ptr @hf_mip6_hoti_cookie, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %45, ptr noundef %0, i32 noundef 8, i32 noundef 8, i32 noundef 0) #5
-  br label %dissect_mip6_hoti.argprom.exit
+  br label %dissect_mip6_hoti.exit
 
 47:                                               ; preds = %4
   %.not.i149 = icmp eq ptr %19, null
-  br i1 %.not.i149, label %dissect_mip6_hoti.argprom.exit, label %48
+  br i1 %.not.i149, label %dissect_mip6_hoti.exit, label %48
 
 48:                                               ; preds = %47
   %49 = load i32, ptr @ett_mip6, align 4
   %50 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %19, ptr noundef %0, i32 noundef 6, i32 noundef 10, i32 noundef %49, ptr noundef null, ptr noundef nonnull @.str.415) #5
   %51 = load i32, ptr @hf_mip6_coti_cookie, align 4
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %51, ptr noundef %0, i32 noundef 8, i32 noundef 8, i32 noundef 0) #5
-  br label %dissect_mip6_hoti.argprom.exit
+  br label %dissect_mip6_hoti.exit
 
 53:                                               ; preds = %4
   %.not.i150 = icmp eq ptr %19, null
-  br i1 %.not.i150, label %dissect_mip6_hoti.argprom.exit, label %54
+  br i1 %.not.i150, label %dissect_mip6_hoti.exit, label %54
 
 54:                                               ; preds = %53
   %55 = load i32, ptr @ett_mip6, align 4
@@ -1437,11 +1437,11 @@ define internal i32 @dissect_mip6(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %60 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %59, ptr noundef %0, i32 noundef 8, i32 noundef 8, i32 noundef 0) #5
   %61 = load i32, ptr @hf_mip6_hot_token, align 4
   %62 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %61, ptr noundef %0, i32 noundef 16, i32 noundef 8, i32 noundef 0) #5
-  br label %dissect_mip6_hoti.argprom.exit
+  br label %dissect_mip6_hoti.exit
 
 63:                                               ; preds = %4
   %.not.i151 = icmp eq ptr %19, null
-  br i1 %.not.i151, label %dissect_mip6_hoti.argprom.exit, label %64
+  br i1 %.not.i151, label %dissect_mip6_hoti.exit, label %64
 
 64:                                               ; preds = %63
   %65 = load i32, ptr @ett_mip6, align 4
@@ -1452,13 +1452,13 @@ define internal i32 @dissect_mip6(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %70 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %69, ptr noundef %0, i32 noundef 8, i32 noundef 8, i32 noundef 0) #5
   %71 = load i32, ptr @hf_mip6_hot_token, align 4
   %72 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %71, ptr noundef %0, i32 noundef 16, i32 noundef 8, i32 noundef 0) #5
-  br label %dissect_mip6_hoti.argprom.exit
+  br label %dissect_mip6_hoti.exit
 
 73:                                               ; preds = %4
   %74 = getelementptr inbounds i8, ptr %1, i64 384
   store i32 0, ptr %74, align 8
   %.not.i152 = icmp eq ptr %19, null
-  br i1 %.not.i152, label %dissect_mip6_bu.argprom.exit, label %75
+  br i1 %.not.i152, label %dissect_mip6_bu.exit, label %75
 
 75:                                               ; preds = %73
   %76 = load i32, ptr @ett_mip6, align 4
@@ -1501,22 +1501,22 @@ define internal i32 @dissect_mip6(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %107 = zext i16 %104 to i64
   %108 = shl nuw nsw i64 %107, 2
   %109 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %77, i32 noundef %106, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef %105, ptr noundef nonnull @.str.717, i32 noundef %105, i64 noundef %108) #5
-  br label %dissect_mip6_bu.argprom.exit
+  br label %dissect_mip6_bu.exit
 
-dissect_mip6_bu.argprom.exit:                     ; preds = %73, %103
+dissect_mip6_bu.exit:                             ; preds = %73, %103
   %.b148 = load i1, ptr @proto_nemo, align 4
-  br i1 %.b148, label %110, label %dissect_mip6_hoti.argprom.exit
+  br i1 %.b148, label %110, label %dissect_mip6_hoti.exit
 
-110:                                              ; preds = %dissect_mip6_bu.argprom.exit
+110:                                              ; preds = %dissect_mip6_bu.exit
   %111 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %111, i32 noundef 34, ptr noundef nonnull @.str.715) #5
-  br label %dissect_mip6_hoti.argprom.exit
+  br label %dissect_mip6_hoti.exit
 
 112:                                              ; preds = %4
   %113 = getelementptr inbounds i8, ptr %1, i64 384
   store i32 1, ptr %113, align 8
   %.not.i153 = icmp eq ptr %19, null
-  br i1 %.not.i153, label %dissect_mip6_ba.argprom.exit, label %114
+  br i1 %.not.i153, label %dissect_mip6_ba.exit, label %114
 
 114:                                              ; preds = %112
   %115 = load i32, ptr @ett_mip6, align 4
@@ -1551,20 +1551,20 @@ dissect_mip6_bu.argprom.exit:                     ; preds = %73, %103
   %138 = zext i16 %135 to i64
   %139 = shl nuw nsw i64 %138, 2
   %140 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %116, i32 noundef %137, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef %136, ptr noundef nonnull @.str.717, i32 noundef %136, i64 noundef %139) #5
-  br label %dissect_mip6_ba.argprom.exit
+  br label %dissect_mip6_ba.exit
 
-dissect_mip6_ba.argprom.exit:                     ; preds = %112, %132
+dissect_mip6_ba.exit:                             ; preds = %112, %132
   %.b = load i1, ptr @proto_nemo, align 4
-  br i1 %.b, label %141, label %dissect_mip6_hoti.argprom.exit
+  br i1 %.b, label %141, label %dissect_mip6_hoti.exit
 
-141:                                              ; preds = %dissect_mip6_ba.argprom.exit
+141:                                              ; preds = %dissect_mip6_ba.exit
   %142 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %142, i32 noundef 34, ptr noundef nonnull @.str.715) #5
-  br label %dissect_mip6_hoti.argprom.exit
+  br label %dissect_mip6_hoti.exit
 
 143:                                              ; preds = %4
   %.not.i154 = icmp eq ptr %19, null
-  br i1 %.not.i154, label %dissect_mip6_hoti.argprom.exit, label %144
+  br i1 %.not.i154, label %dissect_mip6_hoti.exit, label %144
 
 144:                                              ; preds = %143
   %145 = load i32, ptr @ett_mip6, align 4
@@ -1573,11 +1573,11 @@ dissect_mip6_ba.argprom.exit:                     ; preds = %112, %132
   %148 = tail call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %147, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #5
   %149 = load i32, ptr @hf_mip6_be_haddr, align 4
   %150 = tail call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %149, ptr noundef %0, i32 noundef 8, i32 noundef 16, i32 noundef 0) #5
-  br label %dissect_mip6_hoti.argprom.exit
+  br label %dissect_mip6_hoti.exit
 
 151:                                              ; preds = %4
   %.not.i155 = icmp eq ptr %19, null
-  br i1 %.not.i155, label %dissect_mip6_hoti.argprom.exit, label %152
+  br i1 %.not.i155, label %dissect_mip6_hoti.exit, label %152
 
 152:                                              ; preds = %151
   %153 = load i32, ptr @ett_mip6, align 4
@@ -1598,11 +1598,11 @@ dissect_mip6_ba.argprom.exit:                     ; preds = %112, %132
   %168 = zext i16 %165 to i64
   %169 = shl nuw nsw i64 %168, 2
   %170 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %154, i32 noundef %167, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef %166, ptr noundef nonnull @.str.717, i32 noundef %166, i64 noundef %169) #5
-  br label %dissect_mip6_hoti.argprom.exit
+  br label %dissect_mip6_hoti.exit
 
 171:                                              ; preds = %4
   %.not.i156 = icmp eq ptr %19, null
-  br i1 %.not.i156, label %dissect_mip6_hoti.argprom.exit, label %172
+  br i1 %.not.i156, label %dissect_mip6_hoti.exit, label %172
 
 172:                                              ; preds = %171
   %173 = load i32, ptr @ett_mip6, align 4
@@ -1619,12 +1619,12 @@ dissect_mip6_ba.argprom.exit:                     ; preds = %112, %132
   %184 = zext i16 %181 to i64
   %185 = shl nuw nsw i64 %184, 2
   %186 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %174, i32 noundef %183, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef %182, ptr noundef nonnull @.str.717, i32 noundef %182, i64 noundef %185) #5
-  br label %dissect_mip6_hoti.argprom.exit
+  br label %dissect_mip6_hoti.exit
 
 187:                                              ; preds = %4
   %188 = load i32, ptr @hf_mip6_fast_neighbor_advertisement, align 4
   %189 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %188, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #5
-  br label %dissect_mip6_hoti.argprom.exit
+  br label %dissect_mip6_hoti.exit
 
 190:                                              ; preds = %4
   %.not = icmp eq i8 %9, 0
@@ -1642,7 +1642,7 @@ dissect_mip6_ba.argprom.exit:                     ; preds = %112, %132
   %198 = shl nuw nsw i32 %197, 4
   %199 = or disjoint i32 %198, 2
   %.not.i157 = icmp eq ptr %19, null
-  br i1 %.not.i157, label %dissect_mip6_hoti.argprom.exit, label %200
+  br i1 %.not.i157, label %dissect_mip6_hoti.exit, label %200
 
 200:                                              ; preds = %195
   %201 = load i32, ptr @ett_mip6, align 4
@@ -1652,7 +1652,7 @@ dissect_mip6_ba.argprom.exit:                     ; preds = %112, %132
   %205 = load i32, ptr @hf_mip6_has_reserved, align 4
   %206 = tail call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %205, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #5
   %.not3.i = icmp eq i8 %196, 0
-  br i1 %.not3.i, label %dissect_mip6_hoti.argprom.exit, label %.lr.ph.i
+  br i1 %.not3.i, label %dissect_mip6_hoti.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %200, %.lr.ph.i
   %.02.i = phi i32 [ %209, %.lr.ph.i ], [ 0, %200 ]
@@ -1662,11 +1662,11 @@ dissect_mip6_ba.argprom.exit:                     ; preds = %112, %132
   %209 = add nuw nsw i32 %.02.i, 1
   %210 = add nuw nsw i32 %.0171.i, 16
   %exitcond.not.i = icmp eq i32 %209, %197
-  br i1 %exitcond.not.i, label %dissect_mip6_hoti.argprom.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %dissect_mip6_hoti.exit, label %.lr.ph.i, !llvm.loop !4
 
 211:                                              ; preds = %4
   %.not.i158 = icmp eq ptr %19, null
-  br i1 %.not.i158, label %dissect_mip6_hoti.argprom.exit, label %212
+  br i1 %.not.i158, label %dissect_mip6_hoti.exit, label %212
 
 212:                                              ; preds = %211
   %213 = load i32, ptr @ett_mip6, align 4
@@ -1677,11 +1677,11 @@ dissect_mip6_ba.argprom.exit:                     ; preds = %112, %132
   %218 = tail call ptr @proto_tree_add_item(ptr noundef %214, i32 noundef %217, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #5
   %219 = load i32, ptr @hf_mip6_hb_seqnr, align 4
   %220 = tail call ptr @proto_tree_add_item(ptr noundef %214, i32 noundef %219, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #5
-  br label %dissect_mip6_hoti.argprom.exit
+  br label %dissect_mip6_hoti.exit
 
 221:                                              ; preds = %4
   %.not.i159 = icmp eq ptr %19, null
-  br i1 %.not.i159, label %dissect_mip6_hoti.argprom.exit, label %222
+  br i1 %.not.i159, label %dissect_mip6_hoti.exit, label %222
 
 222:                                              ; preds = %221
   %223 = load i32, ptr @ett_mip6, align 4
@@ -1694,11 +1694,11 @@ dissect_mip6_ba.argprom.exit:                     ; preds = %112, %132
   %230 = tail call ptr @proto_tree_add_item(ptr noundef %224, i32 noundef %229, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #5
   %231 = load i32, ptr @hf_mip6_hi_code, align 4
   %232 = tail call ptr @proto_tree_add_item(ptr noundef %224, i32 noundef %231, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #5
-  br label %dissect_mip6_hoti.argprom.exit
+  br label %dissect_mip6_hoti.exit
 
 233:                                              ; preds = %4
   %.not.i160 = icmp eq ptr %19, null
-  br i1 %.not.i160, label %dissect_mip6_hoti.argprom.exit, label %234
+  br i1 %.not.i160, label %dissect_mip6_hoti.exit, label %234
 
 234:                                              ; preds = %233
   %235 = load i32, ptr @ett_mip6, align 4
@@ -1707,11 +1707,11 @@ dissect_mip6_ba.argprom.exit:                     ; preds = %112, %132
   %238 = tail call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %237, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #5
   %239 = load i32, ptr @hf_mip6_hack_code, align 4
   %240 = tail call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %239, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #5
-  br label %dissect_mip6_hoti.argprom.exit
+  br label %dissect_mip6_hoti.exit
 
 241:                                              ; preds = %4
   %242 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #5
-  switch i8 %242, label %dissect_mip6_hoti.argprom.exit [
+  switch i8 %242, label %dissect_mip6_hoti.exit [
     i8 1, label %243
     i8 2, label %245
   ]
@@ -1720,13 +1720,13 @@ dissect_mip6_ba.argprom.exit:                     ; preds = %112, %132
   %244 = load ptr, ptr %6, align 8
   tail call void @col_append_str(ptr noundef %244, i32 noundef 25, ptr noundef nonnull @.str.720) #5
   %.not39.i = icmp eq ptr %19, null
-  br i1 %.not39.i, label %dissect_mip6_hoti.argprom.exit, label %.sink.split.i
+  br i1 %.not39.i, label %dissect_mip6_hoti.exit, label %.sink.split.i
 
 245:                                              ; preds = %241
   %246 = load ptr, ptr %6, align 8
   tail call void @col_append_str(ptr noundef %246, i32 noundef 25, ptr noundef nonnull @.str.722) #5
   %.not.i161 = icmp eq ptr %19, null
-  br i1 %.not.i161, label %dissect_mip6_hoti.argprom.exit, label %.sink.split.i
+  br i1 %.not.i161, label %dissect_mip6_hoti.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %245, %243
   %.str.723.sink.i = phi ptr [ @.str.721, %243 ], [ @.str.723, %245 ]
@@ -1750,14 +1750,14 @@ dissect_mip6_ba.argprom.exit:                     ; preds = %112, %132
   %260 = tail call ptr @proto_tree_add_item(ptr noundef %248, i32 noundef %259, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef 0) #5
   %261 = load i32, ptr @hf_pmip6_bri_res, align 4
   %262 = tail call ptr @proto_tree_add_item(ptr noundef %248, i32 noundef %261, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef 0) #5
-  br label %dissect_mip6_hoti.argprom.exit
+  br label %dissect_mip6_hoti.exit
 
 263:                                              ; preds = %4
   %264 = load i32, ptr @hf_pmip6_lri_sequence, align 4
   %265 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %264, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #5
   %266 = load i32, ptr @hf_pmip6_lri_reserved, align 4
   %267 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %266, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #5
-  br label %dissect_mip6_hoti.argprom.exit.thread.sink.split
+  br label %dissect_mip6_hoti.exit.thread.sink.split
 
 268:                                              ; preds = %4
   %269 = load i32, ptr @hf_pmip6_lra_sequence, align 4
@@ -1768,7 +1768,7 @@ dissect_mip6_ba.argprom.exit:                     ; preds = %112, %132
   %274 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %273, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
   %275 = load i32, ptr @hf_pmip6_lra_status, align 4
   %276 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %275, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
-  br label %dissect_mip6_hoti.argprom.exit.thread.sink.split
+  br label %dissect_mip6_hoti.exit.thread.sink.split
 
 277:                                              ; preds = %4
   %278 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #5
@@ -1778,21 +1778,21 @@ dissect_mip6_ba.argprom.exit:                     ; preds = %112, %132
   %282 = or disjoint i32 %280, 2
   %283 = load i32, ptr @hf_mip6_unknown_type_data, align 4
   %284 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %283, ptr noundef %0, i32 noundef 6, i32 noundef %282, i32 noundef 0) #5
-  br label %dissect_mip6_hoti.argprom.exit
+  br label %dissect_mip6_hoti.exit
 
-dissect_mip6_hoti.argprom.exit:                   ; preds = %.lr.ph.i, %.sink.split.i, %245, %243, %241, %234, %233, %222, %221, %212, %211, %200, %195, %172, %171, %152, %151, %144, %143, %64, %63, %54, %53, %48, %47, %42, %41, %dissect_mip6_ba.argprom.exit, %141, %dissect_mip6_bu.argprom.exit, %110, %277, %187, %38
-  %.0144 = phi i32 [ %281, %277 ], [ 8, %187 ], [ 12, %141 ], [ 12, %dissect_mip6_ba.argprom.exit ], [ 12, %110 ], [ 12, %dissect_mip6_bu.argprom.exit ], [ 8, %38 ], [ 16, %41 ], [ 16, %42 ], [ 16, %47 ], [ 16, %48 ], [ 24, %53 ], [ 24, %54 ], [ 24, %63 ], [ 24, %64 ], [ 24, %143 ], [ 24, %144 ], [ 12, %151 ], [ 12, %152 ], [ 12, %171 ], [ 12, %172 ], [ %199, %195 ], [ %199, %200 ], [ 12, %211 ], [ 12, %212 ], [ 10, %221 ], [ 10, %222 ], [ 10, %233 ], [ 10, %234 ], [ 12, %241 ], [ 12, %243 ], [ 12, %245 ], [ 12, %.sink.split.i ], [ %199, %.lr.ph.i ]
+dissect_mip6_hoti.exit:                           ; preds = %.lr.ph.i, %.sink.split.i, %245, %243, %241, %234, %233, %222, %221, %212, %211, %200, %195, %172, %171, %152, %151, %144, %143, %64, %63, %54, %53, %48, %47, %42, %41, %dissect_mip6_ba.exit, %141, %dissect_mip6_bu.exit, %110, %277, %187, %38
+  %.0144 = phi i32 [ %281, %277 ], [ 8, %187 ], [ 12, %141 ], [ 12, %dissect_mip6_ba.exit ], [ 12, %110 ], [ 12, %dissect_mip6_bu.exit ], [ 8, %38 ], [ 16, %41 ], [ 16, %42 ], [ 16, %47 ], [ 16, %48 ], [ 24, %53 ], [ 24, %54 ], [ 24, %63 ], [ 24, %64 ], [ 24, %143 ], [ 24, %144 ], [ 12, %151 ], [ 12, %152 ], [ 12, %171 ], [ 12, %172 ], [ %199, %195 ], [ %199, %200 ], [ 12, %211 ], [ 12, %212 ], [ 10, %221 ], [ 10, %222 ], [ 10, %233 ], [ 10, %234 ], [ 12, %241 ], [ 12, %243 ], [ 12, %245 ], [ 12, %.sink.split.i ], [ %199, %.lr.ph.i ]
   %285 = icmp ult i32 %.0144, %12
-  br i1 %285, label %dissect_mip6_hoti.argprom.exit.thread, label %344
+  br i1 %285, label %dissect_mip6_hoti.exit.thread, label %344
 
-dissect_mip6_hoti.argprom.exit.thread.sink.split: ; preds = %268, %263
+dissect_mip6_hoti.exit.thread.sink.split:         ; preds = %268, %263
   %hf_pmip6_lri_lifetime.sink = phi ptr [ @hf_pmip6_lri_lifetime, %263 ], [ @hf_pmip6_lra_lifetime, %268 ]
   %286 = load i32, ptr %hf_pmip6_lri_lifetime.sink, align 4
   %287 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %286, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #5
-  br label %dissect_mip6_hoti.argprom.exit.thread
+  br label %dissect_mip6_hoti.exit.thread
 
-dissect_mip6_hoti.argprom.exit.thread:            ; preds = %dissect_mip6_hoti.argprom.exit.thread.sink.split, %dissect_mip6_hoti.argprom.exit
-  %.0144164 = phi i32 [ %.0144, %dissect_mip6_hoti.argprom.exit ], [ 6, %dissect_mip6_hoti.argprom.exit.thread.sink.split ]
+dissect_mip6_hoti.exit.thread:                    ; preds = %dissect_mip6_hoti.exit.thread.sink.split, %dissect_mip6_hoti.exit
+  %.0144164 = phi i32 [ %.0144, %dissect_mip6_hoti.exit ], [ 6, %dissect_mip6_hoti.exit.thread.sink.split ]
   %288 = sub nsw i32 %12, %.0144164
   %289 = load i32, ptr @ett_mip6, align 4
   %290 = tail call ptr @proto_tree_add_subtree(ptr noundef %19, ptr noundef %0, i32 noundef %.0144164, i32 noundef %288, i32 noundef %289, ptr noundef null, ptr noundef nonnull @.str.724) #5
@@ -1800,7 +1800,7 @@ dissect_mip6_hoti.argprom.exit.thread:            ; preds = %dissect_mip6_hoti.a
   %.old1.i.i = icmp sgt i32 %288, 0
   br i1 %.old1.i.i, label %.preheader.i.i, label %dissect_mip6_options.exit
 
-.preheader.i.i:                                   ; preds = %dissect_mip6_hoti.argprom.exit.thread
+.preheader.i.i:                                   ; preds = %dissect_mip6_hoti.exit.thread
   %291 = getelementptr inbounds i8, ptr %1, i64 408
   br label %292
 
@@ -1889,13 +1889,13 @@ dissect_mip6_hoti.argprom.exit.thread:            ; preds = %dissect_mip6_hoti.a
   %343 = icmp sgt i32 %.160.i.i, 0
   br i1 %343, label %292, label %dissect_mip6_options.exit, !llvm.loop !6
 
-dissect_mip6_options.exit:                        ; preds = %342, %dissect_mip6_hoti.argprom.exit.thread, %312, %320
+dissect_mip6_options.exit:                        ; preds = %342, %dissect_mip6_hoti.exit.thread, %312, %320
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %344
 
-344:                                              ; preds = %dissect_mip6_options.exit, %dissect_mip6_hoti.argprom.exit
-  %.0144163 = phi i32 [ %.0144164, %dissect_mip6_options.exit ], [ %.0144, %dissect_mip6_hoti.argprom.exit ]
-  %.0143 = phi i32 [ %288, %dissect_mip6_options.exit ], [ %12, %dissect_mip6_hoti.argprom.exit ]
+344:                                              ; preds = %dissect_mip6_options.exit, %dissect_mip6_hoti.exit
+  %.0144163 = phi i32 [ %.0144164, %dissect_mip6_options.exit ], [ %.0144, %dissect_mip6_hoti.exit ]
+  %.0143 = phi i32 [ %288, %dissect_mip6_options.exit ], [ %12, %dissect_mip6_hoti.exit ]
   %345 = icmp eq i8 %34, 10
   %346 = icmp eq i8 %13, 41
   %or.cond = select i1 %345, i1 %346, i1 false

@@ -308,7 +308,7 @@ define internal i32 @dissect_mp4ves(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %33
 
 29:                                               ; preds = %22
-  tail call fastcc void @dissect_mp4ves_VisualObjectSequence.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11)
+  tail call fastcc void @dissect_mp4ves_VisualObjectSequence(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11)
   br label %33
 
 30:                                               ; preds = %22
@@ -327,7 +327,7 @@ define internal i32 @dissect_mp4ves_config(ptr noundef %0, ptr noundef %1, ptr n
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %7 = load i32, ptr @ett_mp4ves_config, align 4
   %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #4
-  tail call fastcc void @dissect_mp4ves_VisualObjectSequence.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %8)
+  tail call fastcc void @dissect_mp4ves_VisualObjectSequence(ptr noundef %0, ptr noundef %1, ptr noundef %8)
   %9 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   ret i32 %9
 }
@@ -469,7 +469,7 @@ declare zeroext i8 @tvb_get_bits8(ptr noundef, i32 noundef, i32 noundef) local_u
 declare ptr @proto_tree_add_bits_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mp4ves_VisualObjectSequence.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_mp4ves_VisualObjectSequence(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef 0, i32 noundef 32, i32 noundef 0) #4
   %5 = and i32 %4, 256
   %.not.not = icmp eq i32 %5, 0
@@ -503,7 +503,7 @@ define internal fastcc void @dissect_mp4ves_VisualObjectSequence.argelim(ptr nou
   %23 = icmp eq i8 %19, 1
   %24 = add i8 %19, -1
   %or.cond.i = icmp ult i8 %24, 2
-  br i1 %or.cond.i, label %25, label %dissect_mp4ves_visual_object_type.argprom.exit.i
+  br i1 %or.cond.i, label %25, label %dissect_mp4ves_visual_object_type.exit.i
 
 25:                                               ; preds = %15
   %26 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %22, i32 noundef 1) #4
@@ -511,7 +511,7 @@ define internal fastcc void @dissect_mp4ves_VisualObjectSequence.argelim(ptr nou
   %28 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef %22, i32 noundef 1, i32 noundef 0) #4
   %29 = add nuw nsw i32 %spec.select.i, 5
   %.not.i.i = icmp eq i8 %26, 0
-  br i1 %.not.i.i, label %dissect_mp4ves_visual_object_type.argprom.exit.i, label %30
+  br i1 %.not.i.i, label %dissect_mp4ves_visual_object_type.exit.i, label %30
 
 30:                                               ; preds = %25
   %31 = add nuw nsw i32 %spec.select.i, 9
@@ -519,32 +519,32 @@ define internal fastcc void @dissect_mp4ves_VisualObjectSequence.argelim(ptr nou
   %.not15.i.i = icmp eq i8 %32, 0
   %33 = add nuw nsw i32 %spec.select.i, 33
   %spec.select.i.i = select i1 %.not15.i.i, i32 %31, i32 %33
-  br label %dissect_mp4ves_visual_object_type.argprom.exit.i
+  br label %dissect_mp4ves_visual_object_type.exit.i
 
-dissect_mp4ves_visual_object_type.argprom.exit.i: ; preds = %30, %25, %15
+dissect_mp4ves_visual_object_type.exit.i:         ; preds = %30, %25, %15
   %.1.i = phi i32 [ %22, %15 ], [ %29, %25 ], [ %spec.select.i.i, %30 ]
   %34 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %.1.i, i32 noundef 1) #4
   %35 = add nuw nsw i32 %.1.i, 1
   %36 = and i32 %35, 7
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %dissect_mp4ves_next_start_code.argprom.exit.i, label %.preheader.preheader.i.i
+  br i1 %37, label %dissect_mp4ves_next_start_code.exit.i, label %.preheader.preheader.i.i
 
-.preheader.preheader.i.i:                         ; preds = %dissect_mp4ves_visual_object_type.argprom.exit.i
+.preheader.preheader.i.i:                         ; preds = %dissect_mp4ves_visual_object_type.exit.i
   %38 = or i32 %.1.i, 7
   %39 = add nuw nsw i32 %38, 1
   %40 = load i32, ptr @hf_mp4ves_stuffing, align 4
   %41 = sub nsw i32 %39, %.1.i
   %42 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %40, ptr noundef %0, i32 noundef %.1.i, i32 noundef %41, i32 noundef 0) #4
-  br label %dissect_mp4ves_next_start_code.argprom.exit.i
+  br label %dissect_mp4ves_next_start_code.exit.i
 
-dissect_mp4ves_next_start_code.argprom.exit.i:    ; preds = %.preheader.preheader.i.i, %dissect_mp4ves_visual_object_type.argprom.exit.i
-  %.0.i64.i = phi i32 [ %39, %.preheader.preheader.i.i ], [ %35, %dissect_mp4ves_visual_object_type.argprom.exit.i ]
+dissect_mp4ves_next_start_code.exit.i:            ; preds = %.preheader.preheader.i.i, %dissect_mp4ves_visual_object_type.exit.i
+  %.0.i64.i = phi i32 [ %39, %.preheader.preheader.i.i ], [ %35, %dissect_mp4ves_visual_object_type.exit.i ]
   %43 = tail call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.0.i64.i, i32 noundef 32, i32 noundef 0) #4
   %44 = icmp eq i32 %43, 434
   br i1 %44, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %dissect_mp4ves_next_start_code.argprom.exit.i, %dissect_mp4ves_user_data.argprom.exit.i
-  %.270.i = phi i32 [ %.0.i65.i, %dissect_mp4ves_user_data.argprom.exit.i ], [ %.0.i64.i, %dissect_mp4ves_next_start_code.argprom.exit.i ]
+.lr.ph.i:                                         ; preds = %dissect_mp4ves_next_start_code.exit.i, %dissect_mp4ves_user_data.exit.i
+  %.270.i = phi i32 [ %.0.i65.i, %dissect_mp4ves_user_data.exit.i ], [ %.0.i64.i, %dissect_mp4ves_next_start_code.exit.i ]
   %45 = load i32, ptr @hf_mp4ves_start_code_prefix, align 4
   %46 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %45, ptr noundef %0, i32 noundef %.270.i, i32 noundef 24, i32 noundef 0) #4
   %47 = add i32 %.270.i, 24
@@ -558,9 +558,9 @@ dissect_mp4ves_next_start_code.argprom.exit.i:    ; preds = %.preheader.preheade
   %52 = tail call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.0.i65.i, i32 noundef 24, i32 noundef 0) #4
   %.not.i66.i = icmp eq i32 %52, 1
   %53 = add i32 %.0.i65.i, 8
-  br i1 %.not.i66.i, label %dissect_mp4ves_user_data.argprom.exit.i, label %51, !llvm.loop !7
+  br i1 %.not.i66.i, label %dissect_mp4ves_user_data.exit.i, label %51, !llvm.loop !7
 
-dissect_mp4ves_user_data.argprom.exit.i:          ; preds = %51
+dissect_mp4ves_user_data.exit.i:                  ; preds = %51
   %54 = load i32, ptr @hf_mp4ves_user_data, align 4
   %55 = ashr i32 %50, 3
   %56 = sub i32 %.0.i65.i, %50
@@ -570,8 +570,8 @@ dissect_mp4ves_user_data.argprom.exit.i:          ; preds = %51
   %60 = icmp eq i32 %59, 434
   br i1 %60, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
-._crit_edge.i:                                    ; preds = %dissect_mp4ves_user_data.argprom.exit.i, %dissect_mp4ves_next_start_code.argprom.exit.i
-  %.2.lcssa.i = phi i32 [ %.0.i64.i, %dissect_mp4ves_next_start_code.argprom.exit.i ], [ %.0.i65.i, %dissect_mp4ves_user_data.argprom.exit.i ]
+._crit_edge.i:                                    ; preds = %dissect_mp4ves_user_data.exit.i, %dissect_mp4ves_next_start_code.exit.i
+  %.2.lcssa.i = phi i32 [ %.0.i64.i, %dissect_mp4ves_next_start_code.exit.i ], [ %.0.i65.i, %dissect_mp4ves_user_data.exit.i ]
   br i1 %23, label %61, label %dissect_mp4ves_VisualObject.exit
 
 61:                                               ; preds = %._crit_edge.i
@@ -775,7 +775,7 @@ define internal i32 @dissect_mp4ves_par_decoderConfigurationInformation(ptr noun
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %12 = load i32, ptr @ett_mp4ves_config, align 4
   %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #4
-  tail call fastcc void @dissect_mp4ves_VisualObjectSequence.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %13)
+  tail call fastcc void @dissect_mp4ves_VisualObjectSequence(ptr noundef %0, ptr noundef %1, ptr noundef %13)
   %14 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   %15 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
   br label %16

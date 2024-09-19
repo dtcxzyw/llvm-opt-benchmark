@@ -22638,9 +22638,9 @@ _ZN7testing7MessageD2Ev.exit22:                   ; preds = %76, %_ZNKSt14defaul
   %.pn15.pn = phi { ptr, i32 } [ %.pn15, %_ZN7testing7MessageD2Ev.exit22 ], [ %18, %17 ], [ %.pn, %62 ], [ %57, %56 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #39
   %83 = invoke noundef ptr @_ZN6google22InstallFailureFunctionEPFvvE(ptr noundef %7)
-          to label %"_ZN6google24glog_internal_namespace_10ScopedExitIZN23Logging_FatalThrow_Test8TestBodyEvE3$_0ED2Ev.argprom.exit" unwind label %84
+          to label %"_ZN6google24glog_internal_namespace_10ScopedExitIZN23Logging_FatalThrow_Test8TestBodyEvE3$_0ED2Ev.exit" unwind label %84
 
-"_ZN6google24glog_internal_namespace_10ScopedExitIZN23Logging_FatalThrow_Test8TestBodyEvE3$_0ED2Ev.argprom.exit": ; preds = %82
+"_ZN6google24glog_internal_namespace_10ScopedExitIZN23Logging_FatalThrow_Test8TestBodyEvE3$_0ED2Ev.exit": ; preds = %82
   resume { ptr, i32 } %.pn15.pn
 
 84:                                               ; preds = %82, %62, %56, %25
@@ -26928,28 +26928,28 @@ define internal fastcc void @"_ZN6google7logging8internal12Check_GEImplI3$_2S3_E
   %10 = load ptr, ptr %5, align 8, !noalias !310
   %.val.i = load i32, ptr %1, align 4, !noalias !310
   %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef %.val.i)
-          to label %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.argprom.exit.i" unwind label %15, !noalias !310
+          to label %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.exit.i" unwind label %15, !noalias !310
 
-"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.argprom.exit.i": ; preds = %9
+"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.exit.i": ; preds = %9
   %12 = invoke noundef ptr @_ZN6google7logging8internal21CheckOpMessageBuilder7ForVar2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %13 unwind label %15, !noalias !310
 
-13:                                               ; preds = %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.argprom.exit.i"
+13:                                               ; preds = %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.exit.i"
   %.val4.i = load i32, ptr %2, align 4, !noalias !310
   %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %12, i32 noundef %.val4.i)
-          to label %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.argprom.exit5.i" unwind label %15, !noalias !310
+          to label %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.exit5.i" unwind label %15, !noalias !310
 
-"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.argprom.exit5.i": ; preds = %13
+"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.exit5.i": ; preds = %13
   invoke void @_ZN6google7logging8internal21CheckOpMessageBuilder9NewStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %"_ZN6google7logging8internal17MakeCheckOpStringI3$_2S3_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EERKT_RKT0_PKc.exit" unwind label %15
 
-15:                                               ; preds = %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.argprom.exit5.i", %13, %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.argprom.exit.i", %9
+15:                                               ; preds = %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.exit5.i", %13, %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.exit.i", %9
   %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google7logging8internal21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #39
   resume { ptr, i32 } %16
 
-"_ZN6google7logging8internal17MakeCheckOpStringI3$_2S3_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EERKT_RKT0_PKc.exit": ; preds = %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.argprom.exit5.i"
+"_ZN6google7logging8internal17MakeCheckOpStringI3$_2S3_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EERKT_RKT0_PKc.exit": ; preds = %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.exit5.i"
   call void @_ZN6google7logging8internal21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %17
@@ -26976,28 +26976,28 @@ define internal fastcc void @"_ZN6google7logging8internal12Check_LEImplI3$_2S3_E
   %10 = load ptr, ptr %5, align 8, !noalias !313
   %.val.i = load i32, ptr %1, align 4, !noalias !313
   %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef %.val.i)
-          to label %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.argprom.exit.i" unwind label %15, !noalias !313
+          to label %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.exit.i" unwind label %15, !noalias !313
 
-"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.argprom.exit.i": ; preds = %9
+"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.exit.i": ; preds = %9
   %12 = invoke noundef ptr @_ZN6google7logging8internal21CheckOpMessageBuilder7ForVar2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %13 unwind label %15, !noalias !313
 
-13:                                               ; preds = %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.argprom.exit.i"
+13:                                               ; preds = %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.exit.i"
   %.val4.i = load i32, ptr %2, align 4, !noalias !313
   %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %12, i32 noundef %.val4.i)
-          to label %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.argprom.exit5.i" unwind label %15, !noalias !313
+          to label %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.exit5.i" unwind label %15, !noalias !313
 
-"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.argprom.exit5.i": ; preds = %13
+"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.exit5.i": ; preds = %13
   invoke void @_ZN6google7logging8internal21CheckOpMessageBuilder9NewStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %"_ZN6google7logging8internal17MakeCheckOpStringI3$_2S3_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EERKT_RKT0_PKc.exit" unwind label %15
 
-15:                                               ; preds = %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.argprom.exit5.i", %13, %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.argprom.exit.i", %9
+15:                                               ; preds = %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.exit5.i", %13, %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.exit.i", %9
   %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google7logging8internal21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #39
   resume { ptr, i32 } %16
 
-"_ZN6google7logging8internal17MakeCheckOpStringI3$_2S3_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EERKT_RKT0_PKc.exit": ; preds = %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.argprom.exit5.i"
+"_ZN6google7logging8internal17MakeCheckOpStringI3$_2S3_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EERKT_RKT0_PKc.exit": ; preds = %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.exit5.i"
   call void @_ZN6google7logging8internal21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %17
@@ -36021,12 +36021,12 @@ _Znwm.exit:                                       ; preds = %_ZnwmRKSt9nothrow_t
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @"_ZZN23Logging_FatalThrow_Test8TestBodyEvEN3$_18__invokeEv"() #30 align 2 {
-  tail call fastcc void @"_ZZN23Logging_FatalThrow_Test8TestBodyEvENK3$_1clEv.argprom"() #40
+  tail call fastcc void @"_ZZN23Logging_FatalThrow_Test8TestBodyEvENK3$_1clEv"() #40
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal fastcc void @"_ZZN23Logging_FatalThrow_Test8TestBodyEvENK3$_1clEv.argprom"() unnamed_addr #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN23Logging_FatalThrow_Test8TestBodyEvENK3$_1clEv"() unnamed_addr #30 align 2 personality ptr @__gxx_personality_v0 {
   %1 = tail call ptr @__cxa_allocate_exception(i64 16) #39
   invoke void @_ZNSt11logic_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.522)
           to label %2 unwind label %3

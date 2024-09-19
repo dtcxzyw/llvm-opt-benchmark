@@ -83,12 +83,12 @@ define noundef i32 @mca_bml_r2_finalize() #0 {
   %12 = getelementptr i8, ptr %.val, i64 272
   %.val.val = load ptr, ptr %12, align 8
   %13 = icmp eq ptr %.val.val, null
-  br i1 %13, label %bml_r2_remove_btl_progress.argprom.argprom.exit, label %.preheader.i
+  br i1 %13, label %bml_r2_remove_btl_progress.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph41
   %14 = load i64, ptr getelementptr inbounds (i8, ptr @mca_bml_r2, i64 96), align 8
   %.not3.i = icmp eq i64 %14, 0
-  br i1 %.not3.i, label %bml_r2_remove_btl_progress.argprom.argprom.exit, label %.lr.ph.i
+  br i1 %.not3.i, label %bml_r2_remove_btl_progress.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_bml_r2, i64 104), align 8
@@ -98,7 +98,7 @@ define noundef i32 @mca_bml_r2_finalize() #0 {
   %17 = add i32 %.02.i, 1
   %18 = zext i32 %17 to i64
   %19 = icmp ugt i64 %14, %18
-  br i1 %19, label %20, label %bml_r2_remove_btl_progress.argprom.argprom.exit, !llvm.loop !4
+  br i1 %19, label %20, label %bml_r2_remove_btl_progress.exit, !llvm.loop !4
 
 20:                                               ; preds = %16, %.lr.ph.i
   %21 = phi i64 [ 0, %.lr.ph.i ], [ %18, %16 ]
@@ -128,15 +128,15 @@ define noundef i32 @mca_bml_r2_finalize() #0 {
 34:                                               ; preds = %29, %24
   %.pre-phi.i = phi i64 [ %.pre5.i, %29 ], [ %27, %24 ]
   store i64 %.pre-phi.i, ptr getelementptr inbounds (i8, ptr @mca_bml_r2, i64 96), align 8
-  br label %bml_r2_remove_btl_progress.argprom.argprom.exit
+  br label %bml_r2_remove_btl_progress.exit
 
-bml_r2_remove_btl_progress.argprom.argprom.exit:  ; preds = %16, %.lr.ph41, %.preheader.i, %34
+bml_r2_remove_btl_progress.exit:                  ; preds = %16, %.lr.ph41, %.preheader.i, %34
   %35 = load i64, ptr %1, align 8
   %.not45 = icmp eq i64 %35, 0
   br i1 %.not45, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %bml_r2_remove_btl_progress.argprom.argprom.exit, %.lr.ph
-  %.037 = phi i64 [ %40, %.lr.ph ], [ 0, %bml_r2_remove_btl_progress.argprom.argprom.exit ]
+.lr.ph:                                           ; preds = %bml_r2_remove_btl_progress.exit, %.lr.ph
+  %.037 = phi i64 [ %40, %.lr.ph ], [ 0, %bml_r2_remove_btl_progress.exit ]
   %36 = getelementptr inbounds ptr, ptr %5, i64 %.037
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %10, align 8
@@ -146,7 +146,7 @@ bml_r2_remove_btl_progress.argprom.argprom.exit:  ; preds = %16, %.lr.ph41, %.pr
   %42 = icmp ult i64 %40, %41
   br i1 %42, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %bml_r2_remove_btl_progress.argprom.argprom.exit
+._crit_edge:                                      ; preds = %bml_r2_remove_btl_progress.exit
   %.not31 = icmp eq ptr %.02539, null
   br i1 %.not31, label %46, label %._crit_edge.thread
 
@@ -1270,12 +1270,12 @@ define internal noundef i32 @mca_bml_r2_del_btl(ptr noundef %0) #0 {
   %10 = getelementptr i8, ptr %.val, i64 272
   %.val.val = load ptr, ptr %10, align 8
   %11 = icmp eq ptr %.val.val, null
-  br i1 %11, label %bml_r2_remove_btl_progress.argprom.argprom.exit, label %.preheader.i
+  br i1 %11, label %bml_r2_remove_btl_progress.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %9
   %12 = load i64, ptr getelementptr inbounds (i8, ptr @mca_bml_r2, i64 96), align 8
   %.not3.i = icmp eq i64 %12, 0
-  br i1 %.not3.i, label %bml_r2_remove_btl_progress.argprom.argprom.exit, label %.lr.ph.i
+  br i1 %.not3.i, label %bml_r2_remove_btl_progress.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_bml_r2, i64 104), align 8
@@ -1285,7 +1285,7 @@ define internal noundef i32 @mca_bml_r2_del_btl(ptr noundef %0) #0 {
   %15 = add i32 %.02.i, 1
   %16 = zext i32 %15 to i64
   %17 = icmp ugt i64 %12, %16
-  br i1 %17, label %18, label %bml_r2_remove_btl_progress.argprom.argprom.exit, !llvm.loop !4
+  br i1 %17, label %18, label %bml_r2_remove_btl_progress.exit, !llvm.loop !4
 
 18:                                               ; preds = %14, %.lr.ph.i
   %19 = phi i64 [ 0, %.lr.ph.i ], [ %16, %14 ]
@@ -1315,15 +1315,15 @@ define internal noundef i32 @mca_bml_r2_del_btl(ptr noundef %0) #0 {
 32:                                               ; preds = %27, %22
   %.pre-phi.i = phi i64 [ %.pre5.i, %27 ], [ %25, %22 ]
   store i64 %.pre-phi.i, ptr getelementptr inbounds (i8, ptr @mca_bml_r2, i64 96), align 8
-  br label %bml_r2_remove_btl_progress.argprom.argprom.exit
+  br label %bml_r2_remove_btl_progress.exit
 
-bml_r2_remove_btl_progress.argprom.argprom.exit:  ; preds = %14, %9, %.preheader.i, %32
+bml_r2_remove_btl_progress.exit:                  ; preds = %14, %9, %.preheader.i, %32
   %33 = load i64, ptr %2, align 8
   %.not66 = icmp eq i64 %33, 0
   br i1 %.not66, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %bml_r2_remove_btl_progress.argprom.argprom.exit, %.lr.ph
-  %.04553 = phi i64 [ %37, %.lr.ph ], [ 0, %bml_r2_remove_btl_progress.argprom.argprom.exit ]
+.lr.ph:                                           ; preds = %bml_r2_remove_btl_progress.exit, %.lr.ph
+  %.04553 = phi i64 [ %37, %.lr.ph ], [ 0, %bml_r2_remove_btl_progress.exit ]
   %34 = getelementptr inbounds ptr, ptr %7, i64 %.04553
   %35 = load ptr, ptr %34, align 8
   %36 = call i32 @mca_bml_r2_del_proc_btl(ptr noundef %35, ptr noundef nonnull %0)
@@ -1332,8 +1332,8 @@ bml_r2_remove_btl_progress.argprom.argprom.exit:  ; preds = %14, %9, %.preheader
   %39 = icmp ult i64 %37, %38
   br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
-._crit_edge:                                      ; preds = %.lr.ph, %bml_r2_remove_btl_progress.argprom.argprom.exit
-  %40 = phi i64 [ 0, %bml_r2_remove_btl_progress.argprom.argprom.exit ], [ %38, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %bml_r2_remove_btl_progress.exit
+  %40 = phi i64 [ 0, %bml_r2_remove_btl_progress.exit ], [ %38, %.lr.ph ]
   %41 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 32), align 8
   %.not.not54 = icmp eq ptr %41, getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 16)
   br i1 %.not.not54, label %.critedge, label %.lr.ph57
@@ -1740,7 +1740,7 @@ define internal fastcc noundef ptr @mca_bml_r2_allocate_endpoint(ptr noundef %0)
 
 7:                                                ; preds = %6, %1
   %.not9.i = icmp eq ptr %3, null
-  br i1 %.not9.i, label %opal_obj_new.argprom.exit.thread, label %8
+  br i1 %.not9.i, label %opal_obj_new.exit.thread, label %8
 
 8:                                                ; preds = %7
   store ptr @mca_bml_base_endpoint_t_class, ptr %3, align 8
@@ -1749,7 +1749,7 @@ define internal fastcc noundef ptr @mca_bml_r2_allocate_endpoint(ptr noundef %0)
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_bml_base_endpoint_t_class, i64 40), align 8
   %11 = load ptr, ptr %10, align 8
   %.not6.i.i = icmp eq ptr %11, null
-  br i1 %.not6.i.i, label %opal_obj_new.argprom.exit.thread11, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %opal_obj_new.exit.thread11, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %8, %.lr.ph.i.i
   %12 = phi ptr [ %14, %.lr.ph.i.i ], [ %11, %8 ]
@@ -1758,13 +1758,13 @@ define internal fastcc noundef ptr @mca_bml_r2_allocate_endpoint(ptr noundef %0)
   %13 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not.i.i = icmp eq ptr %14, null
-  br i1 %.not.i.i, label %opal_obj_new.argprom.exit.thread11, label %.lr.ph.i.i, !llvm.loop !34
+  br i1 %.not.i.i, label %opal_obj_new.exit.thread11, label %.lr.ph.i.i, !llvm.loop !34
 
-opal_obj_new.argprom.exit.thread:                 ; preds = %7
+opal_obj_new.exit.thread:                         ; preds = %7
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.mca_bml_r2_allocate_endpoint) #15
   br label %27
 
-opal_obj_new.argprom.exit.thread11:               ; preds = %.lr.ph.i.i, %8
+opal_obj_new.exit.thread11:                       ; preds = %.lr.ph.i.i, %8
   %15 = getelementptr inbounds i8, ptr %3, i64 72
   %16 = load i64, ptr getelementptr inbounds (i8, ptr @mca_bml_r2, i64 80), align 8
   %17 = tail call i32 @mca_bml_base_btl_array_reserve(ptr noundef nonnull %15, i64 noundef %16) #15
@@ -1782,7 +1782,7 @@ opal_obj_new.argprom.exit.thread11:               ; preds = %.lr.ph.i.i, %8
   store i32 0, ptr %26, align 8
   br label %27
 
-27:                                               ; preds = %opal_obj_new.argprom.exit.thread11, %opal_obj_new.argprom.exit.thread
+27:                                               ; preds = %opal_obj_new.exit.thread11, %opal_obj_new.exit.thread
   ret ptr %3
 }
 

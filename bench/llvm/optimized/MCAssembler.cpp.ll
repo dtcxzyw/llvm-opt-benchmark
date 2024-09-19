@@ -1448,7 +1448,7 @@ define dso_local void @_ZNK4llvm11MCAssembler12layoutBundleEPNS_10MCFragmentES2_
 
 19:                                               ; preds = %10
   %20 = icmp eq i64 %17, %7
-  br i1 %20, label %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.argprom.exit.thread, label %21
+  br i1 %20, label %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.exit.thread, label %21
 
 21:                                               ; preds = %19
   %22 = icmp ult i64 %17, %7
@@ -1456,32 +1456,32 @@ define dso_local void @_ZNK4llvm11MCAssembler12layoutBundleEPNS_10MCFragmentES2_
 
 23:                                               ; preds = %21
   %24 = sub nuw nsw i64 %7, %17
-  br label %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.argprom.exit
+  br label %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.exit
 
 25:                                               ; preds = %21
   %26 = shl i32 %6, 1
   %27 = zext i32 %26 to i64
   %28 = sub nsw i64 %27, %17
-  br label %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.argprom.exit
+  br label %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.exit
 
 29:                                               ; preds = %10
   %.not.i = icmp ne i64 %16, 0
   %30 = icmp ugt i64 %17, %7
   %31 = sub nsw i64 %7, %16
   %or.cond = select i1 %.not.i, i1 %30, i1 false
-  br i1 %or.cond, label %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.argprom.exit, label %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.argprom.exit.thread
+  br i1 %or.cond, label %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.exit, label %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.exit.thread
 
-_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.argprom.exit: ; preds = %29, %23, %25
+_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.exit: ; preds = %29, %23, %25
   %.0.i = phi i64 [ %24, %23 ], [ %28, %25 ], [ %31, %29 ]
   %32 = icmp ugt i64 %.0.i, 255
-  br i1 %32, label %33, label %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.argprom.exit.thread
+  br i1 %32, label %33, label %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.exit.thread
 
-33:                                               ; preds = %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.argprom.exit
+33:                                               ; preds = %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.exit
   tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.42, i1 noundef zeroext true) #12
   unreachable
 
-_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.argprom.exit.thread: ; preds = %29, %19, %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.argprom.exit
-  %.0.i19 = phi i64 [ %.0.i, %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.argprom.exit ], [ 0, %19 ], [ 0, %29 ]
+_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.exit.thread: ; preds = %29, %19, %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.exit
+  %.0.i19 = phi i64 [ %.0.i, %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.exit ], [ 0, %19 ], [ 0, %29 ]
   %34 = trunc nuw i64 %.0.i19 to i8
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 30
   store i8 %34, ptr %35, align 2
@@ -1490,7 +1490,7 @@ _ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.argprom.exit.thread: ; 
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_14MCDataFragmentENS_10MCFragmentEEEDaPT0_.exit.thread, label %37
 
-37:                                               ; preds = %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.argprom.exit.thread
+37:                                               ; preds = %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.exit.thread
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %39 = load i8, ptr %38, align 4
   %40 = icmp eq i8 %39, 1
@@ -1507,7 +1507,7 @@ _ZN4llvm16dyn_cast_or_nullINS_14MCDataFragmentENS_10MCFragmentEEEDaPT0_.exit: ; 
   store i64 %44, ptr %45, align 8
   br label %_ZN4llvm16dyn_cast_or_nullINS_14MCDataFragmentENS_10MCFragmentEEEDaPT0_.exit.thread
 
-_ZN4llvm16dyn_cast_or_nullINS_14MCDataFragmentENS_10MCFragmentEEEDaPT0_.exit.thread: ; preds = %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.argprom.exit.thread, %37, %_ZN4llvm16dyn_cast_or_nullINS_14MCDataFragmentENS_10MCFragmentEEEDaPT0_.exit, %43
+_ZN4llvm16dyn_cast_or_nullINS_14MCDataFragmentENS_10MCFragmentEEEDaPT0_.exit.thread: ; preds = %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.exit.thread, %37, %_ZN4llvm16dyn_cast_or_nullINS_14MCDataFragmentENS_10MCFragmentEEEDaPT0_.exit, %43
   ret void
 }
 

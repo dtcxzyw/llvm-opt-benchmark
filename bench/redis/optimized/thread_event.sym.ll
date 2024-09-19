@@ -291,7 +291,7 @@ if.end.i.i:                                       ; preds = %do.end176
   fence seq_cst
   %23 = load i8, ptr %4, align 8
   %cmp4.not.i.i = icmp eq i8 %23, 0
-  br i1 %cmp4.not.i.i, label %te_adjust_thresholds_helper.argprom.argprom.exit, label %if.then6.i.i
+  br i1 %cmp4.not.i.i, label %te_adjust_thresholds_helper.exit, label %if.then6.i.i
 
 if.then6.i.i:                                     ; preds = %if.end.i.i
   store i64 0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i131.i.i, align 8
@@ -300,9 +300,9 @@ if.then6.i.i:                                     ; preds = %if.end.i.i
 if.end7.sink.split.i.i:                           ; preds = %if.then6.i.i, %if.then.i.i
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i.sink.i.i = phi ptr [ %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i.i.i, %if.then6.i.i ], [ %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i149.i.i, %if.then.i.i ]
   store i64 0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i.sink.i.i, align 8
-  br label %te_adjust_thresholds_helper.argprom.argprom.exit
+  br label %te_adjust_thresholds_helper.exit
 
-te_adjust_thresholds_helper.argprom.argprom.exit: ; preds = %if.end.i.i, %if.end7.sink.split.i.i
+te_adjust_thresholds_helper.exit:                 ; preds = %if.end.i.i, %if.end7.sink.split.i.i
   %24 = load i64, ptr @opt_tcache_gc_incr_bytes, align 8
   %cmp182 = icmp eq i64 %24, 0
   %not.tobool = xor i1 %tobool, true
@@ -310,11 +310,11 @@ te_adjust_thresholds_helper.argprom.argprom.exit: ; preds = %if.end.i.i, %if.end
   %brmerge = or i1 %is_tcache_gc_triggered.0, %or.cond3
   br i1 %brmerge, label %if.end191, label %do.end189
 
-do.end189:                                        ; preds = %te_adjust_thresholds_helper.argprom.argprom.exit
+do.end189:                                        ; preds = %te_adjust_thresholds_helper.exit
   tail call void @tcache_gc_event_handler(ptr noundef nonnull %tsd, i64 noundef -1) #5
   br label %if.end191
 
-if.end191:                                        ; preds = %te_adjust_thresholds_helper.argprom.argprom.exit, %do.end189
+if.end191:                                        ; preds = %te_adjust_thresholds_helper.exit, %do.end189
   %25 = load i64, ptr @opt_stats_interval, align 8
   %cmp214 = icmp slt i64 %25, 0
   %or.cond4 = select i1 %not.tobool, i1 true, i1 %cmp214

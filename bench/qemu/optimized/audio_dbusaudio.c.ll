@@ -233,14 +233,14 @@ declare ptr @g_object_connect(ptr noundef, ptr noundef, ...) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @dbus_audio_register_in_listener(ptr nocapture noundef readonly %s, ptr noundef %invocation, ptr noundef %fd_list, ptr noundef %arg_listener) #0 {
 entry:
-  tail call fastcc void @dbus_audio_register_listener.retelim(ptr noundef %s, ptr noundef %invocation, ptr noundef %fd_list, ptr noundef %arg_listener, i1 noundef zeroext false)
+  tail call fastcc void @dbus_audio_register_listener(ptr noundef %s, ptr noundef %invocation, ptr noundef %fd_list, ptr noundef %arg_listener, i1 noundef zeroext false)
   ret i32 1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @dbus_audio_register_out_listener(ptr nocapture noundef readonly %s, ptr noundef %invocation, ptr noundef %fd_list, ptr noundef %arg_listener) #0 {
 entry:
-  tail call fastcc void @dbus_audio_register_listener.retelim(ptr noundef %s, ptr noundef %invocation, ptr noundef %fd_list, ptr noundef %arg_listener, i1 noundef zeroext true)
+  tail call fastcc void @dbus_audio_register_listener(ptr noundef %s, ptr noundef %invocation, ptr noundef %fd_list, ptr noundef %arg_listener, i1 noundef zeroext true)
   ret i32 1
 }
 
@@ -257,7 +257,7 @@ declare i64 @g_dbus_interface_skeleton_get_type() local_unnamed_addr #4
 declare void @g_dbus_object_manager_server_export(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @dbus_audio_register_listener.retelim(ptr nocapture noundef readonly %s, ptr noundef %invocation, ptr noundef %fd_list, ptr noundef %arg_listener, i1 noundef zeroext %out) unnamed_addr #0 {
+define internal fastcc void @dbus_audio_register_listener(ptr nocapture noundef readonly %s, ptr noundef %invocation, ptr noundef %fd_list, ptr noundef %arg_listener, i1 noundef zeroext %out) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %err = alloca ptr, align 8
@@ -516,45 +516,45 @@ if.end78:                                         ; preds = %for.body61, %for.bo
 cleanup.thread:                                   ; preds = %if.then20, %if.then15, %if.then
   %socket.0.ph = phi ptr [ null, %if.then ], [ null, %if.then15 ], [ %call18, %if.then20 ]
   call void @g_free(ptr noundef %call1) #11
-  br label %glib_autoptr_cleanup_GSocketConnection.argprom.exit
+  br label %glib_autoptr_cleanup_GSocketConnection.exit
 
 cleanup:                                          ; preds = %if.end78, %if.then47, %if.then34
   call void @g_free(ptr noundef %call1) #11
   %tobool.not.i.i = icmp eq ptr %call25, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GSocketConnection.argprom.exit, label %if.then.i.i51
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GSocketConnection.exit, label %if.then.i.i51
 
 if.then.i.i51:                                    ; preds = %cleanup
   call void @g_object_unref(ptr noundef nonnull %call25) #11
-  br label %glib_autoptr_cleanup_GSocketConnection.argprom.exit
+  br label %glib_autoptr_cleanup_GSocketConnection.exit
 
-glib_autoptr_cleanup_GSocketConnection.argprom.exit: ; preds = %cleanup.thread, %cleanup, %if.then.i.i51
+glib_autoptr_cleanup_GSocketConnection.exit:      ; preds = %cleanup.thread, %cleanup, %if.then.i.i51
   %listener_conn.070 = phi ptr [ null, %cleanup.thread ], [ %call32, %cleanup ], [ %call32, %if.then.i.i51 ]
   %socket.069 = phi ptr [ %socket.0.ph, %cleanup.thread ], [ %call18, %cleanup ], [ %call18, %if.then.i.i51 ]
   %tobool.not.i.i52 = icmp eq ptr %socket.069, null
-  br i1 %tobool.not.i.i52, label %glib_autoptr_cleanup_GSocket.argprom.exit, label %if.then.i.i53
+  br i1 %tobool.not.i.i52, label %glib_autoptr_cleanup_GSocket.exit, label %if.then.i.i53
 
-if.then.i.i53:                                    ; preds = %glib_autoptr_cleanup_GSocketConnection.argprom.exit
+if.then.i.i53:                                    ; preds = %glib_autoptr_cleanup_GSocketConnection.exit
   call void @g_object_unref(ptr noundef nonnull %socket.069) #11
-  br label %glib_autoptr_cleanup_GSocket.argprom.exit
+  br label %glib_autoptr_cleanup_GSocket.exit
 
-glib_autoptr_cleanup_GSocket.argprom.exit:        ; preds = %glib_autoptr_cleanup_GSocketConnection.argprom.exit, %if.then.i.i53
+glib_autoptr_cleanup_GSocket.exit:                ; preds = %glib_autoptr_cleanup_GSocketConnection.exit, %if.then.i.i53
   %err.val = load ptr, ptr %err, align 8
   %tobool.not.i.i54 = icmp eq ptr %err.val, null
-  br i1 %tobool.not.i.i54, label %glib_autoptr_cleanup_GError.argprom.exit, label %if.then.i.i55
+  br i1 %tobool.not.i.i54, label %glib_autoptr_cleanup_GError.exit, label %if.then.i.i55
 
-if.then.i.i55:                                    ; preds = %glib_autoptr_cleanup_GSocket.argprom.exit
+if.then.i.i55:                                    ; preds = %glib_autoptr_cleanup_GSocket.exit
   call void @g_error_free(ptr noundef nonnull %err.val) #11
-  br label %glib_autoptr_cleanup_GError.argprom.exit
+  br label %glib_autoptr_cleanup_GError.exit
 
-glib_autoptr_cleanup_GError.argprom.exit:         ; preds = %glib_autoptr_cleanup_GSocket.argprom.exit, %if.then.i.i55
+glib_autoptr_cleanup_GError.exit:                 ; preds = %glib_autoptr_cleanup_GSocket.exit, %if.then.i.i55
   %tobool.not.i.i56 = icmp eq ptr %listener_conn.070, null
-  br i1 %tobool.not.i.i56, label %glib_autoptr_cleanup_GDBusConnection.argprom.exit, label %if.then.i.i57
+  br i1 %tobool.not.i.i56, label %glib_autoptr_cleanup_GDBusConnection.exit, label %if.then.i.i57
 
-if.then.i.i57:                                    ; preds = %glib_autoptr_cleanup_GError.argprom.exit
+if.then.i.i57:                                    ; preds = %glib_autoptr_cleanup_GError.exit
   call void @g_object_unref(ptr noundef nonnull %listener_conn.070) #11
-  br label %glib_autoptr_cleanup_GDBusConnection.argprom.exit
+  br label %glib_autoptr_cleanup_GDBusConnection.exit
 
-glib_autoptr_cleanup_GDBusConnection.argprom.exit: ; preds = %glib_autoptr_cleanup_GError.argprom.exit, %if.then.i.i57
+glib_autoptr_cleanup_GDBusConnection.exit:        ; preds = %glib_autoptr_cleanup_GError.exit, %if.then.i.i57
   ret void
 }
 
@@ -867,7 +867,7 @@ trace_dbus_audio_put_buffer_out.exit:             ; preds = %if.end, %land.lhs.t
   %11 = load i64, ptr %buf_pos, align 8
   %12 = load i64, ptr %buf_size, align 8
   %cmp9 = icmp ult i64 %11, %12
-  br i1 %cmp9, label %glib_autoptr_cleanup_GBytes.argprom.exit, label %if.end11
+  br i1 %cmp9, label %glib_autoptr_cleanup_GBytes.exit, label %if.end11
 
 if.end11:                                         ; preds = %trace_dbus_audio_put_buffer_out.exit
   %13 = load ptr, ptr %buf1, align 8
@@ -896,21 +896,21 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 cleanup:                                          ; preds = %while.body, %if.end11
   %tobool.not.i.i = icmp eq ptr %call16, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GVariant.argprom.exit, label %if.then.i.i15
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GVariant.exit, label %if.then.i.i15
 
 if.then.i.i15:                                    ; preds = %cleanup
   call void @g_variant_unref(ptr noundef nonnull %call16) #11
-  br label %glib_autoptr_cleanup_GVariant.argprom.exit
+  br label %glib_autoptr_cleanup_GVariant.exit
 
-glib_autoptr_cleanup_GVariant.argprom.exit:       ; preds = %cleanup, %if.then.i.i15
+glib_autoptr_cleanup_GVariant.exit:               ; preds = %cleanup, %if.then.i.i15
   %tobool.not.i.i16 = icmp eq ptr %call14, null
-  br i1 %tobool.not.i.i16, label %glib_autoptr_cleanup_GBytes.argprom.exit, label %if.then.i.i17
+  br i1 %tobool.not.i.i16, label %glib_autoptr_cleanup_GBytes.exit, label %if.then.i.i17
 
-if.then.i.i17:                                    ; preds = %glib_autoptr_cleanup_GVariant.argprom.exit
+if.then.i.i17:                                    ; preds = %glib_autoptr_cleanup_GVariant.exit
   call void @g_bytes_unref(ptr noundef nonnull %call14) #11
-  br label %glib_autoptr_cleanup_GBytes.argprom.exit
+  br label %glib_autoptr_cleanup_GBytes.exit
 
-glib_autoptr_cleanup_GBytes.argprom.exit:         ; preds = %trace_dbus_audio_put_buffer_out.exit, %glib_autoptr_cleanup_GVariant.argprom.exit, %if.then.i.i17
+glib_autoptr_cleanup_GBytes.exit:                 ; preds = %trace_dbus_audio_put_buffer_out.exit, %glib_autoptr_cleanup_GVariant.exit, %if.then.i.i17
   ret i64 %size
 }
 
@@ -1166,8 +1166,8 @@ trace_dbus_audio_read.exit:                       ; preds = %entry, %land.lhs.tr
   %9 = ptrtoint ptr %hw to i64
   br label %while.cond
 
-while.cond:                                       ; preds = %glib_autoptr_cleanup_GVariant.argprom.exit, %trace_dbus_audio_read.exit
-  %size.addr.0 = phi i64 [ %size, %trace_dbus_audio_read.exit ], [ %size.addr.2, %glib_autoptr_cleanup_GVariant.argprom.exit ]
+while.cond:                                       ; preds = %glib_autoptr_cleanup_GVariant.exit, %trace_dbus_audio_read.exit
+  %size.addr.0 = phi i64 [ %size, %trace_dbus_audio_read.exit ], [ %size.addr.2, %glib_autoptr_cleanup_GVariant.exit ]
   %call = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef null, ptr noundef nonnull %listener) #11
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %while.end, label %while.body
@@ -1202,17 +1202,17 @@ cleanup:                                          ; preds = %while.body, %do.end
   %size.addr.2 = phi i64 [ %cond, %do.end ], [ %size.addr.0, %while.body ]
   %v_data.val = load ptr, ptr %v_data, align 8
   %tobool.not.i.i = icmp eq ptr %v_data.val, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GVariant.argprom.exit, label %if.then.i.i9
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GVariant.exit, label %if.then.i.i9
 
 if.then.i.i9:                                     ; preds = %cleanup
   call void @g_variant_unref(ptr noundef nonnull %v_data.val) #11
-  br label %glib_autoptr_cleanup_GVariant.argprom.exit
+  br label %glib_autoptr_cleanup_GVariant.exit
 
-glib_autoptr_cleanup_GVariant.argprom.exit:       ; preds = %cleanup, %if.then.i.i9
+glib_autoptr_cleanup_GVariant.exit:               ; preds = %cleanup, %if.then.i.i9
   br i1 %tobool2.not, label %while.cond, label %while.end
 
-while.end:                                        ; preds = %glib_autoptr_cleanup_GVariant.argprom.exit, %while.cond
-  %size.addr.1 = phi i64 [ %size.addr.2, %glib_autoptr_cleanup_GVariant.argprom.exit ], [ %size.addr.0, %while.cond ]
+while.end:                                        ; preds = %glib_autoptr_cleanup_GVariant.exit, %while.cond
+  %size.addr.1 = phi i64 [ %size.addr.2, %glib_autoptr_cleanup_GVariant.exit ], [ %size.addr.0, %while.cond ]
   ret i64 %size.addr.1
 }
 

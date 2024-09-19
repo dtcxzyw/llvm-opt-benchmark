@@ -84,7 +84,7 @@ define dso_local i64 @tsmatchsel(ptr nocapture noundef readonly %0) local_unname
   %45 = getelementptr inbounds i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %tsquerysel.argprom.exit, label %48
+  br i1 %47, label %tsquerysel.exit, label %48
 
 48:                                               ; preds = %40
   %.not.i = icmp eq ptr %.val, null
@@ -183,7 +183,7 @@ mcelem_tsquery_selec.exit.i:                      ; preds = %._crit_edge.i.i, %6
   %106 = fpext float %105 to double
   %107 = fsub double 1.000000e+00, %106
   %108 = fmul double %.016.i, %107
-  br label %tsquerysel.argprom.exit
+  br label %tsquerysel.exit
 
 109:                                              ; preds = %48
   %110 = getelementptr i8, ptr %44, i64 8
@@ -191,15 +191,15 @@ mcelem_tsquery_selec.exit.i:                      ; preds = %._crit_edge.i.i, %6
   %112 = mul nsw i64 %111, 12
   %113 = getelementptr i8, ptr %110, i64 %112
   %114 = call fastcc double @tsquery_opr_selec(ptr noundef %110, ptr noundef %113, ptr noundef null, i32 noundef 0, float noundef 0.000000e+00)
-  br label %tsquerysel.argprom.exit
+  br label %tsquerysel.exit
 
-tsquerysel.argprom.exit:                          ; preds = %40, %103, %109
+tsquerysel.exit:                                  ; preds = %40, %103, %109
   %.0.i = phi double [ 0.000000e+00, %40 ], [ %108, %103 ], [ %114, %109 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
   br label %115
 
-115:                                              ; preds = %36, %tsquerysel.argprom.exit
-  %.0 = phi double [ %.0.i, %tsquerysel.argprom.exit ], [ 5.000000e-03, %36 ]
+115:                                              ; preds = %36, %tsquerysel.exit
+  %.0 = phi double [ %.0.i, %tsquerysel.exit ], [ 5.000000e-03, %36 ]
   %116 = getelementptr inbounds i8, ptr %3, i64 16
   %117 = load ptr, ptr %116, align 8
   %.not13 = icmp eq ptr %117, null

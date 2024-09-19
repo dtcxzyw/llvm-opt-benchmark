@@ -632,13 +632,13 @@ define hidden void @"_ZN10rayon_core8registry8Registry3new28_$u7b$$u7b$closure$u
   %.val = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %5 = atomicrmw add ptr %.val, i64 1 monotonic, align 8
   %6 = icmp slt i64 %5, 0
-  br i1 %6, label %7, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he64b5a685eaffb94E.argprom.exit"
+  br i1 %6, label %7, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he64b5a685eaffb94E.exit"
 
 7:                                                ; preds = %3
   tail call void @llvm.trap()
   unreachable
 
-"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he64b5a685eaffb94E.argprom.exit": ; preds = %3
+"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he64b5a685eaffb94E.exit": ; preds = %3
   %8 = getelementptr inbounds i8, ptr %4, i64 24
   %9 = load i8, ptr %8, align 8, !range !5, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
@@ -669,13 +669,13 @@ define hidden void @"_ZN10rayon_core8registry8Registry3new28_$u7b$$u7b$closure$u
   %.val = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %11 = atomicrmw add ptr %.val, i64 1 monotonic, align 8
   %12 = icmp slt i64 %11, 0
-  br i1 %12, label %13, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he64b5a685eaffb94E.argprom.exit"
+  br i1 %12, label %13, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he64b5a685eaffb94E.exit"
 
 13:                                               ; preds = %10
   tail call void @llvm.trap()
   unreachable
 
-"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he64b5a685eaffb94E.argprom.exit": ; preds = %10
+"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he64b5a685eaffb94E.exit": ; preds = %10
   %14 = getelementptr inbounds i8, ptr %4, i64 24
   %15 = load i8, ptr %14, align 8, !range !5, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
@@ -766,19 +766,19 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN113_$LT$tracing_subscriber..fmt..Su
   %26 = tail call noundef range(i8 0, 3) i8 @"_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite17hf83e5a6f8d4f1916E"(ptr noundef nonnull align 8 %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1), !range !216
   %27 = icmp ne i8 %26, 0
   %or.cond.not.i.i11.i.i = or i1 %27, %25
-  br i1 %or.cond.not.i.i11.i.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17hfedb0953e611b0d1E.argprom.exit13.i.i", label %28
+  br i1 %or.cond.not.i.i11.i.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17hfedb0953e611b0d1E.exit13.i.i", label %28
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds i8, ptr %0, i64 1318
   %30 = load i8, ptr %29, align 2, !range !5, !noalias !224, !noundef !4
-  br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17hfedb0953e611b0d1E.argprom.exit13.i.i"
+  br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17hfedb0953e611b0d1E.exit13.i.i"
 
-"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17hfedb0953e611b0d1E.argprom.exit13.i.i": ; preds = %28, %21
+"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17hfedb0953e611b0d1E.exit13.i.i": ; preds = %28, %21
   %.0.i.i.i12.i.i = phi i8 [ %30, %28 ], [ %26, %21 ]
   %31 = icmp eq i8 %3, 1
   br i1 %31, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite17h2e708cc5fa688d6fE.exit", label %32
 
-32:                                               ; preds = %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17hfedb0953e611b0d1E.argprom.exit13.i.i"
+32:                                               ; preds = %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17hfedb0953e611b0d1E.exit13.i.i"
   %33 = icmp eq i8 %.0.i.i.i12.i.i, 0
   br i1 %33, label %34, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite17h2e708cc5fa688d6fE.exit"
 
@@ -787,8 +787,8 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN113_$LT$tracing_subscriber..fmt..Su
   %36 = load i8, ptr %35, align 2, !range !5, !noalias !217, !noundef !4
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite17h2e708cc5fa688d6fE.exit"
 
-"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite17h2e708cc5fa688d6fE.exit": ; preds = %9, %16, %19, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17hfedb0953e611b0d1E.argprom.exit13.i.i", %32, %34
-  %.0.i.i = phi i8 [ 0, %19 ], [ 1, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17hfedb0953e611b0d1E.argprom.exit13.i.i" ], [ %.0.i.i.i12.i.i, %32 ], [ %36, %34 ], [ %18, %16 ], [ %14, %9 ]
+"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite17h2e708cc5fa688d6fE.exit": ; preds = %9, %16, %19, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17hfedb0953e611b0d1E.exit13.i.i", %32, %34
+  %.0.i.i = phi i8 [ 0, %19 ], [ 1, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17hfedb0953e611b0d1E.exit13.i.i" ], [ %.0.i.i.i12.i.i, %32 ], [ %36, %34 ], [ %18, %16 ], [ %14, %9 ]
   ret i8 %.0.i.i
 }
 
@@ -997,31 +997,31 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN113_$LT$tracing_subscriber..layer
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hda61e9d9ba0791f0E"(ptr noundef nonnull align 8 %0, i128 noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = icmp eq i128 %1, 81861206759694168833185280843234076031
-  br i1 %3, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h11efa476055caa85E.argprom.exit", label %4
+  br i1 %3, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h11efa476055caa85E.exit", label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 568
   switch i128 %1, label %10 [
-    i128 12607448037198027464039095800766607253, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h11efa476055caa85E.argprom.exit"
-    i128 -69446687048680687396193738901140408924, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h11efa476055caa85E.argprom.exit"
+    i128 12607448037198027464039095800766607253, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h11efa476055caa85E.exit"
+    i128 -69446687048680687396193738901140408924, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h11efa476055caa85E.exit"
     i128 75669237243050581987684813451057699828, label %6
     i128 22112934870606236130618177662660700094, label %8
   ]
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 580
-  br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h11efa476055caa85E.argprom.exit"
+  br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h11efa476055caa85E.exit"
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 580
-  br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h11efa476055caa85E.argprom.exit"
+  br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h11efa476055caa85E.exit"
 
 10:                                               ; preds = %4
   %11 = icmp eq i128 %1, 73676889782529201616355281012274205276
   %..i.i.i = zext i1 %11 to i64
-  br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h11efa476055caa85E.argprom.exit"
+  br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h11efa476055caa85E.exit"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17h11efa476055caa85E.argprom.exit": ; preds = %10, %6, %8, %4, %4, %2
+"_ZN4core6option15Option$LT$T$GT$7or_else17h11efa476055caa85E.exit": ; preds = %10, %6, %8, %4, %4, %2
   %.sroa.3.0 = phi ptr [ %0, %2 ], [ %0, %10 ], [ %5, %4 ], [ %5, %4 ], [ %9, %8 ], [ %7, %6 ]
   %.sroa.0.0 = phi i64 [ 1, %2 ], [ %..i.i.i, %10 ], [ 1, %4 ], [ 1, %4 ], [ 1, %8 ], [ 1, %6 ]
   %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
@@ -1128,14 +1128,14 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN113_$LT$tracing_subscriber..layer..
   %6 = tail call noundef range(i8 0, 3) i8 @"_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite17hf83e5a6f8d4f1916E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1), !range !216
   %7 = icmp ne i8 %6, 0
   %or.cond.not = or i1 %7, %5
-  br i1 %or.cond.not, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$13pick_interest17he9f02e8bfd960634E.argprom.exit", label %8
+  br i1 %or.cond.not, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$13pick_interest17he9f02e8bfd960634E.exit", label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 582
   %10 = load i8, ptr %9, align 2, !range !5, !noundef !4
-  br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$13pick_interest17he9f02e8bfd960634E.argprom.exit"
+  br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$13pick_interest17he9f02e8bfd960634E.exit"
 
-"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$13pick_interest17he9f02e8bfd960634E.argprom.exit": ; preds = %2, %8
+"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$13pick_interest17he9f02e8bfd960634E.exit": ; preds = %2, %8
   %.0.i = phi i8 [ %10, %8 ], [ %6, %2 ]
   ret i8 %.0.i
 }
@@ -4472,8 +4472,8 @@ attributes #44 = { nounwind }
 !170 = !{!171, !173}
 !171 = distinct !{!171, !172, !"_ZN10rayon_core8registry10ThreadInfo3new17hf67b86be2e94d57fE: argument 0"}
 !172 = distinct !{!172, !"_ZN10rayon_core8registry10ThreadInfo3new17hf67b86be2e94d57fE"}
-!173 = distinct !{!173, !174, !"_ZN4core3ops8function5FnMut8call_mut17h26cec95378e3d3acE.argprom: argument 0"}
-!174 = distinct !{!174, !"_ZN4core3ops8function5FnMut8call_mut17h26cec95378e3d3acE.argprom"}
+!173 = distinct !{!173, !174, !"_ZN4core3ops8function5FnMut8call_mut17h26cec95378e3d3acE: argument 0"}
+!174 = distinct !{!174, !"_ZN4core3ops8function5FnMut8call_mut17h26cec95378e3d3acE"}
 !175 = !{!176, !158, !165}
 !176 = distinct !{!176, !177, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h41bb57644ef03dd9E: argument 0"}
 !177 = distinct !{!177, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h41bb57644ef03dd9E"}
@@ -4498,8 +4498,8 @@ attributes #44 = { nounwind }
 !196 = !{!197, !199}
 !197 = distinct !{!197, !198, !"_ZN10rayon_core8registry10ThreadInfo3new17hf67b86be2e94d57fE: argument 0"}
 !198 = distinct !{!198, !"_ZN10rayon_core8registry10ThreadInfo3new17hf67b86be2e94d57fE"}
-!199 = distinct !{!199, !200, !"_ZN4core3ops8function5FnMut8call_mut17h26cec95378e3d3acE.argprom: argument 0"}
-!200 = distinct !{!200, !"_ZN4core3ops8function5FnMut8call_mut17h26cec95378e3d3acE.argprom"}
+!199 = distinct !{!199, !200, !"_ZN4core3ops8function5FnMut8call_mut17h26cec95378e3d3acE: argument 0"}
+!200 = distinct !{!200, !"_ZN4core3ops8function5FnMut8call_mut17h26cec95378e3d3acE"}
 !201 = !{!202, !204, !205, !207}
 !202 = distinct !{!202, !203, !"_ZN95_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17hbfa35ac3ef7ed710E.llvm.14686358490642834259: argument 0"}
 !203 = distinct !{!203, !"_ZN95_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17hbfa35ac3ef7ed710E.llvm.14686358490642834259"}
@@ -4989,8 +4989,8 @@ attributes #44 = { nounwind }
 !687 = !{!688, !690}
 !688 = distinct !{!688, !689, !"_ZN10rayon_core8registry10ThreadInfo3new17hf67b86be2e94d57fE: argument 0"}
 !689 = distinct !{!689, !"_ZN10rayon_core8registry10ThreadInfo3new17hf67b86be2e94d57fE"}
-!690 = distinct !{!690, !691, !"_ZN4core3ops8function5FnMut8call_mut17h26cec95378e3d3acE.argprom: argument 0"}
-!691 = distinct !{!691, !"_ZN4core3ops8function5FnMut8call_mut17h26cec95378e3d3acE.argprom"}
+!690 = distinct !{!690, !691, !"_ZN4core3ops8function5FnMut8call_mut17h26cec95378e3d3acE: argument 0"}
+!691 = distinct !{!691, !"_ZN4core3ops8function5FnMut8call_mut17h26cec95378e3d3acE"}
 !692 = !{!677}
 !693 = !{!675}
 !694 = !{!695, !697}
@@ -5165,8 +5165,8 @@ attributes #44 = { nounwind }
 !863 = !{!864, !866}
 !864 = distinct !{!864, !865, !"_ZN10rayon_core8registry10ThreadInfo3new17hf67b86be2e94d57fE: argument 0"}
 !865 = distinct !{!865, !"_ZN10rayon_core8registry10ThreadInfo3new17hf67b86be2e94d57fE"}
-!866 = distinct !{!866, !867, !"_ZN4core3ops8function5FnMut8call_mut17h26cec95378e3d3acE.argprom: argument 0"}
-!867 = distinct !{!867, !"_ZN4core3ops8function5FnMut8call_mut17h26cec95378e3d3acE.argprom"}
+!866 = distinct !{!866, !867, !"_ZN4core3ops8function5FnMut8call_mut17h26cec95378e3d3acE: argument 0"}
+!867 = distinct !{!867, !"_ZN4core3ops8function5FnMut8call_mut17h26cec95378e3d3acE"}
 !868 = !{!869}
 !869 = distinct !{!869, !870, !"_ZN93_$LT$core..ops..index_range..IndexRange$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4aeed5f8c8846addE: argument 0"}
 !870 = distinct !{!870, !"_ZN93_$LT$core..ops..index_range..IndexRange$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4aeed5f8c8846addE"}

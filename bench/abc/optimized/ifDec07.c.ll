@@ -684,9 +684,9 @@ If_Dec6DeriveCount2.exit.i:                       ; preds = %103
   %130 = sext i32 %129 to i64
   %131 = shl i64 %130, %indvars.iv11.i
   %132 = or i64 %131, %.18.i
-  br i1 %128, label %127, label %If_Dec6DeriveDisjoint.argprom.exit, !llvm.loop !19
+  br i1 %128, label %127, label %If_Dec6DeriveDisjoint.exit, !llvm.loop !19
 
-If_Dec6DeriveDisjoint.argprom.exit:               ; preds = %127
+If_Dec6DeriveDisjoint.exit:                       ; preds = %127
   %133 = or i64 %132, 504403158265495552
   br label %.loopexit98
 
@@ -954,8 +954,8 @@ If_Dec6DeriveNonDisjoint.exit:                    ; preds = %260
   %exitcond152.not = icmp eq i64 %indvars.iv.next148, 6
   br i1 %exitcond152.not, label %.loopexit96, label %15, !llvm.loop !24
 
-.loopexit98:                                      ; preds = %.loopexit96, %If_Dec6DeriveDisjoint.argprom.exit, %98
-  %.0 = phi i64 [ %133, %If_Dec6DeriveDisjoint.argprom.exit ], [ 1, %98 ], [ %.138.lcssa, %.loopexit96 ]
+.loopexit98:                                      ; preds = %.loopexit96, %If_Dec6DeriveDisjoint.exit, %98
+  %.0 = phi i64 [ %133, %If_Dec6DeriveDisjoint.exit ], [ 1, %98 ], [ %.138.lcssa, %.loopexit96 ]
   ret i64 %.0
 }
 
@@ -1398,9 +1398,9 @@ If_Dec7DeriveCount3.exit.i:                       ; preds = %202
   %230 = or i64 %229, %.18.i
   %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
   %exitcond15.not.i = icmp eq i64 %indvars.iv.next13.i, 3
-  br i1 %exitcond15.not.i, label %If_Dec7DeriveDisjoint.argprom.exit, label %223, !llvm.loop !32
+  br i1 %exitcond15.not.i, label %If_Dec7DeriveDisjoint.exit, label %223, !llvm.loop !32
 
-If_Dec7DeriveDisjoint.argprom.exit:               ; preds = %223
+If_Dec7DeriveDisjoint.exit:                       ; preds = %223
   %231 = or i64 %230, 8070450532247928832
   br label %.loopexit45
 
@@ -1409,8 +1409,8 @@ If_Dec7CofCount3.exit:                            ; preds = %194
   %exitcond103.not = icmp eq i64 %indvars.iv.next101, 7
   br i1 %exitcond103.not, label %.loopexit, label %25, !llvm.loop !33
 
-.loopexit45:                                      ; preds = %.loopexit44, %If_Dec7DeriveDisjoint.argprom.exit, %199
-  %.022 = phi i64 [ %231, %If_Dec7DeriveDisjoint.argprom.exit ], [ 1, %199 ], [ 0, %.loopexit44 ]
+.loopexit45:                                      ; preds = %.loopexit44, %If_Dec7DeriveDisjoint.exit, %199
+  %.022 = phi i64 [ %231, %If_Dec7DeriveDisjoint.exit ], [ 1, %199 ], [ 0, %.loopexit44 ]
   ret i64 %.022
 }
 
@@ -1978,15 +1978,15 @@ If_Dec7Cofactor.exit9.i:                          ; preds = %34, %32
   %.1.i = add nuw nsw i32 %.010.i, %53
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %If_Dec7SuppSize.argprom.exit, label %32, !llvm.loop !42
+  br i1 %exitcond.not.i, label %If_Dec7SuppSize.exit, label %32, !llvm.loop !42
 
-If_Dec7SuppSize.argprom.exit:                     ; preds = %If_Dec7Cofactor.exit9.i, %If_Dec7Cofactor.exit9.i31
+If_Dec7SuppSize.exit:                             ; preds = %If_Dec7Cofactor.exit9.i, %If_Dec7Cofactor.exit9.i31
   %indvars.iv.i29 = phi i64 [ %indvars.iv.next.i40, %If_Dec7Cofactor.exit9.i31 ], [ 0, %If_Dec7Cofactor.exit9.i ]
   %.010.i30 = phi i32 [ %.1.i39, %If_Dec7Cofactor.exit9.i31 ], [ 0, %If_Dec7Cofactor.exit9.i ]
   %54 = icmp eq i64 %indvars.iv.i29, 6
   br i1 %54, label %If_Dec7Cofactor.exit9.i31, label %55
 
-55:                                               ; preds = %If_Dec7SuppSize.argprom.exit
+55:                                               ; preds = %If_Dec7SuppSize.exit
   %56 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.i29
   %57 = load i64, ptr %56, align 8
   %58 = xor i64 %57, -1
@@ -2007,11 +2007,11 @@ If_Dec7SuppSize.argprom.exit:                     ; preds = %If_Dec7Cofactor.exi
   %73 = or i64 %72, %71
   br label %If_Dec7Cofactor.exit9.i31
 
-If_Dec7Cofactor.exit9.i31:                        ; preds = %55, %If_Dec7SuppSize.argprom.exit
-  %.sroa.01.07.i32 = phi i64 [ %64, %55 ], [ %.sroa.0.0, %If_Dec7SuppSize.argprom.exit ]
-  %.sroa.32.05.i33 = phi i64 [ %67, %55 ], [ %.sroa.0.0, %If_Dec7SuppSize.argprom.exit ]
-  %.sroa.3.0.i34 = phi i64 [ %73, %55 ], [ %.sroa.4.0, %If_Dec7SuppSize.argprom.exit ]
-  %.sroa.0.0.i35 = phi i64 [ %70, %55 ], [ %.sroa.4.0, %If_Dec7SuppSize.argprom.exit ]
+If_Dec7Cofactor.exit9.i31:                        ; preds = %55, %If_Dec7SuppSize.exit
+  %.sroa.01.07.i32 = phi i64 [ %64, %55 ], [ %.sroa.0.0, %If_Dec7SuppSize.exit ]
+  %.sroa.32.05.i33 = phi i64 [ %67, %55 ], [ %.sroa.0.0, %If_Dec7SuppSize.exit ]
+  %.sroa.3.0.i34 = phi i64 [ %73, %55 ], [ %.sroa.4.0, %If_Dec7SuppSize.exit ]
+  %.sroa.0.0.i35 = phi i64 [ %70, %55 ], [ %.sroa.4.0, %If_Dec7SuppSize.exit ]
   %.not.i36 = icmp ne i64 %.sroa.01.07.i32, %.sroa.0.0.i35
   %.not8.i37 = icmp ne i64 %.sroa.32.05.i33, %.sroa.3.0.i34
   %or.cond.not.i38 = select i1 %.not.i36, i1 true, i1 %.not8.i37
@@ -2019,15 +2019,15 @@ If_Dec7Cofactor.exit9.i31:                        ; preds = %55, %If_Dec7SuppSiz
   %.1.i39 = add nuw nsw i32 %.010.i30, %74
   %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i29, 1
   %exitcond.not.i41 = icmp eq i64 %indvars.iv.next.i40, 7
-  br i1 %exitcond.not.i41, label %If_Dec7SuppSize.argprom.exit42, label %If_Dec7SuppSize.argprom.exit, !llvm.loop !42
+  br i1 %exitcond.not.i41, label %If_Dec7SuppSize.exit42, label %If_Dec7SuppSize.exit, !llvm.loop !42
 
-If_Dec7SuppSize.argprom.exit42:                   ; preds = %If_Dec7Cofactor.exit9.i31
+If_Dec7SuppSize.exit42:                           ; preds = %If_Dec7Cofactor.exit9.i31
   %75 = icmp ult i32 %.1.i, 5
   %76 = icmp ult i32 %.1.i39, 5
   %or.cond = select i1 %75, i1 %76, i1 false
   br i1 %or.cond, label %77, label %82
 
-77:                                               ; preds = %If_Dec7SuppSize.argprom.exit42
+77:                                               ; preds = %If_Dec7SuppSize.exit42
   %78 = add nuw nsw i32 %.1.i39, %.1.i
   %79 = icmp sgt i32 %.057, %78
   br i1 %79, label %80, label %82
@@ -2040,9 +2040,9 @@ If_Dec7SuppSize.argprom.exit42:                   ; preds = %If_Dec7Cofactor.exi
   %81 = trunc nuw nsw i64 %indvars.iv to i32
   br label %82
 
-82:                                               ; preds = %If_Dec7SuppSize.argprom.exit42, %77, %80
-  %.121 = phi i32 [ %81, %80 ], [ %.02055, %77 ], [ %.02055, %If_Dec7SuppSize.argprom.exit42 ]
-  %.1 = phi i32 [ %78, %80 ], [ %.057, %77 ], [ %.057, %If_Dec7SuppSize.argprom.exit42 ]
+82:                                               ; preds = %If_Dec7SuppSize.exit42, %77, %80
+  %.121 = phi i32 [ %81, %80 ], [ %.02055, %77 ], [ %.02055, %If_Dec7SuppSize.exit42 ]
+  %.1 = phi i32 [ %78, %80 ], [ %.057, %77 ], [ %.057, %If_Dec7SuppSize.exit42 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
   br i1 %exitcond.not, label %83, label %7, !llvm.loop !43

@@ -218,13 +218,13 @@ _ZSt7advanceIPKN5ZXing9ByteArrayElEvRT_T0_.exit.i.i: ; preds = %_ZSt7advanceIPKN
   %.112.i.i = select i1 %16, i64 %19, i64 %10
   %.1.i.i = select i1 %16, ptr %17, ptr %.05.i.i
   %20 = icmp sgt i64 %.112.i.i, 0
-  br i1 %20, label %_ZSt7advanceIPKN5ZXing9ByteArrayElEvRT_T0_.exit.i.i, label %"_ZSt11lower_boundIPKN5ZXing9ByteArrayEiZNS0_10DataMatrixL14CreateECCBlockERS1_iiiiiE3$_0ET_S7_S7_RKT0_T1_.argprom.exit", !llvm.loop !6
+  br i1 %20, label %_ZSt7advanceIPKN5ZXing9ByteArrayElEvRT_T0_.exit.i.i, label %"_ZSt11lower_boundIPKN5ZXing9ByteArrayEiZNS0_10DataMatrixL14CreateECCBlockERS1_iiiiiE3$_0ET_S7_S7_RKT0_T1_.exit", !llvm.loop !6
 
-"_ZSt11lower_boundIPKN5ZXing9ByteArrayEiZNS0_10DataMatrixL14CreateECCBlockERS1_iiiiiE3$_0ET_S7_S7_RKT0_T1_.argprom.exit": ; preds = %_ZSt7advanceIPKN5ZXing9ByteArrayElEvRT_T0_.exit.i.i
+"_ZSt11lower_boundIPKN5ZXing9ByteArrayEiZNS0_10DataMatrixL14CreateECCBlockERS1_iiiiiE3$_0ET_S7_S7_RKT0_T1_.exit": ; preds = %_ZSt7advanceIPKN5ZXing9ByteArrayElEvRT_T0_.exit.i.i
   %21 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 384)
   br i1 %21, label %22, label %31
 
-22:                                               ; preds = %"_ZSt11lower_boundIPKN5ZXing9ByteArrayEiZNS0_10DataMatrixL14CreateECCBlockERS1_iiiiiE3$_0ET_S7_S7_RKT0_T1_.argprom.exit"
+22:                                               ; preds = %"_ZSt11lower_boundIPKN5ZXing9ByteArrayEiZNS0_10DataMatrixL14CreateECCBlockERS1_iiiiiE3$_0ET_S7_S7_RKT0_T1_.exit"
   %23 = tail call ptr @__cxa_allocate_exception(i64 16) #16
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, i32 noundef %4) #16
   %24 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 0, ptr noundef nonnull @.str.11)
@@ -258,7 +258,7 @@ _ZSt7advanceIPKN5ZXing9ByteArrayElEvRT_T0_.exit.i.i: ; preds = %_ZSt7advanceIPKN
   call void @__cxa_free_exception(ptr %23) #16
   br label %117
 
-31:                                               ; preds = %"_ZSt11lower_boundIPKN5ZXing9ByteArrayEiZNS0_10DataMatrixL14CreateECCBlockERS1_iiiiiE3$_0ET_S7_S7_RKT0_T1_.argprom.exit"
+31:                                               ; preds = %"_ZSt11lower_boundIPKN5ZXing9ByteArrayEiZNS0_10DataMatrixL14CreateECCBlockERS1_iiiiiE3$_0ET_S7_S7_RKT0_T1_.exit"
   %32 = icmp slt i32 %4, 0
   br i1 %32, label %.noexc.i, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
 

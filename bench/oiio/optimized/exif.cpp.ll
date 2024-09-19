@@ -3505,7 +3505,7 @@ if.then20.invoke:                                 ; preds = %invoke.cont17, %inv
   %20 = phi ptr [ %tiffdirs.exifdirs, %invoke.cont26 ], [ %gpsdirs, %invoke.cont17 ]
   %.in = phi ptr [ @_ZZN18OpenImageIO_v2_6_03pvt15exif_tagmap_refEvE1T, %invoke.cont26 ], [ @_ZZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEvE1T, %invoke.cont17 ]
   %21 = load ptr, ptr %.in, align 8
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L17encode_exif_entryERKNS_10ParamValueEiRSt6vectorI12TIFFDirEntrySaIS4_EERS3_IcSaIcEERKNS_3pvt6TagMapEmNS_6endianE.argprom(ptr noundef nonnull align 8 dereferenceable(39) %__begin1.sroa.0.0388, i32 noundef %19, ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %blob, ptr %21, i64 noundef %sub.ptr.sub.i, i32 noundef %endianreq)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L17encode_exif_entryERKNS_10ParamValueEiRSt6vectorI12TIFFDirEntrySaIS4_EERS3_IcSaIcEERKNS_3pvt6TagMapEmNS_6endianE(ptr noundef nonnull align 8 dereferenceable(39) %__begin1.sroa.0.0388, i32 noundef %19, ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %blob, ptr %21, i64 noundef %sub.ptr.sub.i, i32 noundef %endianreq)
           to label %for.inc unwind label %lpad.loopexit
 
 lpad.loopexit:                                    ; preds = %if.then20.invoke, %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit, %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit105, %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit120
@@ -4066,7 +4066,7 @@ _ZNSt6vectorI12TIFFDirEntrySaIS0_EED2Ev.exit382:  ; preds = %_ZNSt6vectorI12TIFF
 declare noundef zeroext i1 @_ZN18OpenImageIO_v2_6_07Strutil11starts_withENS_17basic_string_viewIcSt11char_traitsIcEEES4_(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L17encode_exif_entryERKNS_10ParamValueEiRSt6vectorI12TIFFDirEntrySaIS4_EERS3_IcSaIcEERKNS_3pvt6TagMapEmNS_6endianE.argprom(ptr noundef nonnull align 8 dereferenceable(39) %p, i32 noundef %tag, ptr nocapture noundef nonnull align 8 dereferenceable(24) %dirs, ptr noundef nonnull align 8 dereferenceable(24) %data, ptr nocapture readonly %tagmap.0.val, i64 noundef %offset_correction, i32 noundef %endianreq) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L17encode_exif_entryERKNS_10ParamValueEiRSt6vectorI12TIFFDirEntrySaIS4_EERS3_IcSaIcEERKNS_3pvt6TagMapEmNS_6endianE(ptr noundef nonnull align 8 dereferenceable(39) %p, i32 noundef %tag, ptr nocapture noundef nonnull align 8 dereferenceable(24) %dirs, ptr noundef nonnull align 8 dereferenceable(24) %data, ptr nocapture readonly %tagmap.0.val, i64 noundef %offset_correction, i32 noundef %endianreq) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %i.i171 = alloca i8, align 1
   %agg.tmp.i172 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -8490,8 +8490,8 @@ attributes #37 = { allocsize(0) }
 !12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
 !14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN5boost9container3dtlL10force_copyINS0_12vec_iteratorIPNS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEELb1EEENS3_IPSt4pairIiS8_ELb1EEEEET_RKT0_.argprom: %agg.result"}
-!16 = distinct !{!16, !"_ZN5boost9container3dtlL10force_copyINS0_12vec_iteratorIPNS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEELb1EEENS3_IPSt4pairIiS8_ELb1EEEEET_RKT0_.argprom"}
+!15 = distinct !{!15, !16, !"_ZN5boost9container3dtlL10force_copyINS0_12vec_iteratorIPNS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEELb1EEENS3_IPSt4pairIiS8_ELb1EEEEET_RKT0_: %agg.result"}
+!16 = distinct !{!16, !"_ZN5boost9container3dtlL10force_copyINS0_12vec_iteratorIPNS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEELb1EEENS3_IPSt4pairIiS8_ELb1EEEEET_RKT0_"}
 !17 = !{!18}
 !18 = distinct !{!18, !19, !"_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE6insertENS0_12vec_iteratorIPSt4pairIiS5_ELb1EEEONS0_3dtl4pairIiS5_EE: %agg.result"}
 !19 = distinct !{!19, !"_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE6insertENS0_12vec_iteratorIPSt4pairIiS5_ELb1EEEONS0_3dtl4pairIiS5_EE"}

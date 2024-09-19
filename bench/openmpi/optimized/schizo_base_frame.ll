@@ -1004,7 +1004,7 @@ check_synonym.exit:                               ; preds = %82, %77
   br i1 %.not.i, label %.loopexit164, label %.lr.ph.i, !llvm.loop !14
 
 .loopexit164:                                     ; preds = %99, %94
-  %101 = tail call fastcc ptr @pmix_obj_new_tma.argprom()
+  %101 = tail call fastcc ptr @pmix_obj_new_tma()
   %102 = tail call noalias ptr @strdup(ptr noundef nonnull %88) #16
   %103 = getelementptr inbounds i8, ptr %101, i64 144
   store ptr %102, ptr %103, align 8
@@ -1258,7 +1258,7 @@ define internal fastcc ptr @pmix_cmd_line_get_param(ptr noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @pmix_obj_new_tma.argprom() unnamed_addr #0 {
+define internal fastcc noundef ptr @pmix_obj_new_tma() unnamed_addr #0 {
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_cli_item_t_class, i64 56), align 8
   %2 = tail call noalias noundef ptr @malloc(i64 noundef %1) #21
   %3 = load i32, ptr @pmix_class_init_epoch, align 4

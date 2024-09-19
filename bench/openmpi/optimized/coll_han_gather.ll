@@ -823,7 +823,7 @@ opal_datatype_span.exit:                          ; preds = %457, %465
   %488 = mul i64 %487, %486
   %489 = getelementptr inbounds i8, ptr %3, i64 %488
   %490 = getelementptr inbounds i8, ptr %481, i64 %488
-  tail call fastcc void @ompi_datatype_copy_content_same_ddt.retelim(ptr noundef nonnull %5, i64 noundef %458, ptr noundef %489, ptr noundef %490)
+  tail call fastcc void @ompi_datatype_copy_content_same_ddt(ptr noundef nonnull %5, i64 noundef %458, ptr noundef %489, ptr noundef %490)
   br label %491
 
 491:                                              ; preds = %453, %483, %opal_datatype_span.exit, %opal_obj_new.exit
@@ -1028,7 +1028,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ompi_datatype_copy_content_same_ddt.retelim(ptr noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @ompi_datatype_copy_content_same_ddt(ptr noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 48
   %.val = load i64, ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 56

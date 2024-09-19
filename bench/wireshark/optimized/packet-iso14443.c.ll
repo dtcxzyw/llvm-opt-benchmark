@@ -1223,14 +1223,14 @@ define internal range(i32 0, 11) i32 @dissect_iso14443_cmd_type_uid(ptr noundef 
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.264) #3
   %21 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #3
   %22 = icmp eq i8 %21, -120
-  br i1 %22, label %23, label %dissect_iso14443_uid_part.argprom.exit
+  br i1 %22, label %23, label %dissect_iso14443_uid_part.exit
 
 23:                                               ; preds = %20
   %24 = load i32, ptr @hf_iso14443_ct, align 4
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %24, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #3
-  br label %dissect_iso14443_uid_part.argprom.exit
+  br label %dissect_iso14443_uid_part.exit
 
-dissect_iso14443_uid_part.argprom.exit:           ; preds = %20, %23
+dissect_iso14443_uid_part.exit:                   ; preds = %20, %23
   %.016.i = phi i32 [ 3, %23 ], [ 2, %20 ]
   %.0.i = phi i32 [ 3, %23 ], [ 4, %20 ]
   %26 = load i32, ptr @hf_iso14443_uid_cln, align 4
@@ -1242,7 +1242,7 @@ dissect_iso14443_uid_part.argprom.exit:           ; preds = %20, %23
   %.not57 = icmp eq i32 %6, 0
   br i1 %.not57, label %32, label %72
 
-32:                                               ; preds = %dissect_iso14443_uid_part.argprom.exit
+32:                                               ; preds = %dissect_iso14443_uid_part.exit
   %33 = load i32, ptr @hf_iso14443_crc, align 4
   %34 = load i32, ptr @hf_iso14443_crc_status, align 4
   %35 = tail call zeroext i16 @crc16_iso14443a_tvb_offset(ptr noundef %0, i32 noundef 0, i32 noundef %31) #3
@@ -1287,14 +1287,14 @@ dissect_iso14443_uid_part.argprom.exit:           ; preds = %20, %23
   tail call void @col_set_str(ptr noundef %60, i32 noundef 25, ptr noundef nonnull @.str.267) #3
   %61 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %62 = icmp eq i8 %61, -120
-  br i1 %62, label %63, label %dissect_iso14443_uid_part.argprom.exit60
+  br i1 %62, label %63, label %dissect_iso14443_uid_part.exit60
 
 63:                                               ; preds = %58
   %64 = load i32, ptr @hf_iso14443_ct, align 4
   %65 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %64, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
-  br label %dissect_iso14443_uid_part.argprom.exit60
+  br label %dissect_iso14443_uid_part.exit60
 
-dissect_iso14443_uid_part.argprom.exit60:         ; preds = %58, %63
+dissect_iso14443_uid_part.exit60:                 ; preds = %58, %63
   %.016.i58 = phi i32 [ 1, %63 ], [ 0, %58 ]
   %.0.i59 = phi i32 [ 3, %63 ], [ 4, %58 ]
   %66 = load i32, ptr @hf_iso14443_uid_cln, align 4
@@ -1305,8 +1305,8 @@ dissect_iso14443_uid_part.argprom.exit60:         ; preds = %58, %63
   %71 = add nuw nsw i32 %68, 1
   br label %72
 
-72:                                               ; preds = %4, %55, %dissect_iso14443_uid_part.argprom.exit60, %42, %49, %19, %32, %dissect_iso14443_uid_part.argprom.exit
-  %.0 = phi i32 [ 2, %19 ], [ %31, %dissect_iso14443_uid_part.argprom.exit ], [ %38, %32 ], [ 1, %42 ], [ 3, %49 ], [ %71, %dissect_iso14443_uid_part.argprom.exit60 ], [ 0, %55 ], [ 0, %4 ]
+72:                                               ; preds = %4, %55, %dissect_iso14443_uid_part.exit60, %42, %49, %19, %32, %dissect_iso14443_uid_part.exit
+  %.0 = phi i32 [ 2, %19 ], [ %31, %dissect_iso14443_uid_part.exit ], [ %38, %32 ], [ 1, %42 ], [ 3, %49 ], [ %71, %dissect_iso14443_uid_part.exit60 ], [ 0, %55 ], [ 0, %4 ]
   ret i32 %.0
 }
 

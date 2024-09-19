@@ -1692,7 +1692,7 @@ pmix_obj_run_destructors.exit341:                 ; preds = %.lr.ph.i338, %._cri
   br label %642
 
 642:                                              ; preds = %639, %634, %632
-  %643 = call fastcc ptr @pmix_obj_new_tma.argprom(ptr noundef nonnull @prte_rml_recv_t_class)
+  %643 = call fastcc ptr @pmix_obj_new_tma(ptr noundef nonnull @prte_rml_recv_t_class)
   %644 = getelementptr inbounds i8, ptr %643, i64 272
   call void @PMIx_Xfer_procid(ptr noundef nonnull %644, ptr noundef nonnull @prte_process_info) #10
   %645 = load i32, ptr %11, align 4
@@ -2248,8 +2248,8 @@ define internal void @allgather_recv(i32 %0, ptr noundef %1, ptr noundef %2, i32
   %.not409 = icmp eq i64 %252, 0
   br i1 %.not409, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %246, %pmix_obj_new_tma.argprom.exit
-  %.0303398 = phi i64 [ %278, %pmix_obj_new_tma.argprom.exit ], [ 0, %246 ]
+.lr.ph:                                           ; preds = %246, %pmix_obj_new_tma.exit
+  %.0303398 = phi i64 [ %278, %pmix_obj_new_tma.exit ], [ 0, %246 ]
   %253 = load i64, ptr getelementptr inbounds (i8, ptr @prte_namelist_t_class, i64 56), align 8
   %254 = call noalias noundef ptr @malloc(i64 noundef %253) #14
   %255 = load i32, ptr @pmix_class_init_epoch, align 4
@@ -2263,7 +2263,7 @@ define internal void @allgather_recv(i32 %0, ptr noundef %1, ptr noundef %2, i32
 
 258:                                              ; preds = %257, %.lr.ph
   %.not22.i = icmp eq ptr %254, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.argprom.exit, label %259
+  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %259
 
 259:                                              ; preds = %258
   %260 = call i32 @pthread_mutex_init(ptr noundef nonnull %254, ptr noundef null) #10
@@ -2278,7 +2278,7 @@ define internal void @allgather_recv(i32 %0, ptr noundef %1, ptr noundef %2, i32
   %265 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_namelist_t_class, i64 40), align 8
   %266 = load ptr, ptr %265, align 8
   %.not6.i.i = icmp eq ptr %266, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %259, %.lr.ph.i.i
   %267 = phi ptr [ %269, %.lr.ph.i.i ], [ %266, %259 ]
@@ -2287,9 +2287,9 @@ define internal void @allgather_recv(i32 %0, ptr noundef %1, ptr noundef %2, i32
   %268 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %269 = load ptr, ptr %268, align 8
   %.not.i.i = icmp eq ptr %269, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !4
 
-pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %258, %259
+pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %258, %259
   %270 = getelementptr inbounds i8, ptr %254, i64 144
   %271 = getelementptr inbounds %struct.pmix_proc, ptr %250, i64 %.0303398
   call void @PMIx_Xfer_procid(ptr noundef nonnull %270, ptr noundef %271) #10
@@ -2308,8 +2308,8 @@ pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %258, %
   %exitcond.not = icmp eq i64 %278, %252
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
-.loopexit:                                        ; preds = %pmix_obj_new_tma.argprom.exit, %246, %156, %239, %244, %230
-  %.1302 = phi i1 [ %.0301400, %156 ], [ %.0301400, %230 ], [ %237, %239 ], [ %.0301400, %244 ], [ %.0301400, %246 ], [ %.0301400, %pmix_obj_new_tma.argprom.exit ]
+.loopexit:                                        ; preds = %pmix_obj_new_tma.exit, %246, %156, %239, %244, %230
+  %.1302 = phi i1 [ %.0301400, %156 ], [ %.0301400, %230 ], [ %237, %239 ], [ %.0301400, %244 ], [ %.0301400, %246 ], [ %.0301400, %pmix_obj_new_tma.exit ]
   %279 = add nuw i64 %.0304399, 1
   %280 = load i64, ptr %7, align 8
   %281 = icmp ult i64 %279, %280
@@ -2972,7 +2972,7 @@ declare i32 @prte_rml_send_buffer_nb(i32 noundef, ptr noundef, i32 noundef) loca
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @pmix_obj_new_tma.argprom(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @pmix_obj_new_tma(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i64, ptr %2, align 8
   %4 = tail call noalias noundef ptr @malloc(i64 noundef %3) #14

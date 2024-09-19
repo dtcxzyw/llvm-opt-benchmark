@@ -4824,7 +4824,7 @@ for.cond.cleanup107:                              ; preds = %invoke.cont118, %if
   %add.ptr28.i386423.lcssa = phi ptr [ null, %if.end.i213 ], [ %add.ptr28.i386422, %invoke.cont118 ]
   store ptr %add.ptr28.i386423.lcssa, ptr %_M_end_of_storage.i.i214, align 8
   store ptr %76, ptr %vlits, align 8
-  %call132 = invoke fastcc noundef zeroext i1 @_ZN3ue2L26compatibleLiteralsForMergeERKSt6vectorISt4pairIPKNS_15rose_literal_idEjESaIS5_EES9_.argprom(ptr %call5.i.i.i.i342413.lcssa, ptr %ulits.sroa.12.0, ptr noundef nonnull align 8 dereferenceable(24) %vlits)
+  %call132 = invoke fastcc noundef zeroext i1 @_ZN3ue2L26compatibleLiteralsForMergeERKSt6vectorISt4pairIPKNS_15rose_literal_idEjESaIS5_EES9_(ptr %call5.i.i.i.i342413.lcssa, ptr %ulits.sroa.12.0, ptr noundef nonnull align 8 dereferenceable(24) %vlits)
           to label %cleanup135 unwind label %lpad84
 
 lpad84:                                           ; preds = %for.cond.cleanup107, %_ZNSt12_Vector_baseISt4pairIPKN3ue215rose_literal_idEjESaIS5_EE11_M_allocateEm.exit.i220, %if.then.i239
@@ -5237,7 +5237,7 @@ _ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3ue2L26compatibleLiteralsForMergeERKSt6vectorISt4pairIPKNS_15rose_literal_idEjESaIS5_EES9_.argprom(ptr readonly %ulits.0.val, ptr readnone %ulits.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vlits) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN3ue2L26compatibleLiteralsForMergeERKSt6vectorISt4pairIPKNS_15rose_literal_idEjESaIS5_EES9_(ptr readonly %ulits.0.val, ptr readnone %ulits.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vlits) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ulits.0.val, align 8
   %table = getelementptr inbounds i8, ptr %0, i64 112
@@ -5341,7 +5341,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %i.035.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.body.i ]
   %20 = load i64, ptr %_M_string_length.i.i.i, align 8
   %add.i.i.i.i.i = sub i64 %20, %i.035.i
-  %call13.i = tail call fastcc noundef zeroext i1 @_ZN3ue2L26stringsCanFinishAtSameSpotERKNS_11ue2_literalENS0_14const_iteratorES3_.argelim(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr nonnull %16, ptr nonnull %16, i64 %add.i.i.i.i.i)
+  %call13.i = tail call fastcc noundef zeroext i1 @_ZN3ue2L26stringsCanFinishAtSameSpotERKNS_11ue2_literalENS0_14const_iteratorES3_(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr nonnull %16, ptr nonnull %16, i64 %add.i.i.i.i.i)
   %inc.i = add nuw nsw i64 %i.035.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %umax.i
   %or.cond37.i = select i1 %call13.i, i1 true, i1 %exitcond.not.i
@@ -5371,7 +5371,7 @@ for.body.i170:                                    ; preds = %for.body.i170, %for
   %i.035.i171 = phi i64 [ 0, %for.body.lr.ph.i166 ], [ %inc.i174, %for.body.i170 ]
   %24 = load i64, ptr %_M_string_length.i.i.i168, align 8
   %add.i.i.i.i.i172 = sub i64 %24, %i.035.i171
-  %call13.i173 = tail call fastcc noundef zeroext i1 @_ZN3ue2L26stringsCanFinishAtSameSpotERKNS_11ue2_literalENS0_14const_iteratorES3_.argelim(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr nonnull %12, ptr nonnull %12, i64 %add.i.i.i.i.i172)
+  %call13.i173 = tail call fastcc noundef zeroext i1 @_ZN3ue2L26stringsCanFinishAtSameSpotERKNS_11ue2_literalENS0_14const_iteratorES3_(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr nonnull %12, ptr nonnull %12, i64 %add.i.i.i.i.i172)
   %inc.i174 = add nuw nsw i64 %i.035.i171, 1
   %exitcond.not.i175 = icmp eq i64 %inc.i174, %umax.i169
   %or.cond37.i176 = select i1 %call13.i173, i1 true, i1 %exitcond.not.i175
@@ -6474,7 +6474,7 @@ lpad144.loopexit.split-lp:                        ; preds = %if.then.i.i441, %if
 
 for.end174:                                       ; preds = %_ZNSt15_Deque_iteratorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEERKS8_PS9_EppEv.exit318, %for.end92
   %108 = phi ptr [ null, %for.end92 ], [ %call5.i.i.i.i444478.lcssa, %_ZNSt15_Deque_iteratorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEERKS8_PS9_EppEv.exit318 ]
-  %call177 = invoke fastcc noundef zeroext i1 @_ZN3ue2L26compatibleLiteralsForMergeERKSt6vectorISt4pairIPKNS_15rose_literal_idEjESaIS5_EES9_.argprom(ptr %ulits.sroa.0.0, ptr %ulits.sroa.11.0, ptr noundef nonnull align 8 dereferenceable(24) %vlits)
+  %call177 = invoke fastcc noundef zeroext i1 @_ZN3ue2L26compatibleLiteralsForMergeERKSt6vectorISt4pairIPKNS_15rose_literal_idEjESaIS5_EES9_(ptr %ulits.sroa.0.0, ptr %ulits.sroa.11.0, ptr noundef nonnull align 8 dereferenceable(24) %vlits)
           to label %invoke.cont176 unwind label %lpad175
 
 invoke.cont176:                                   ; preds = %for.end174
@@ -8516,7 +8516,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i: ; preds = %if.en
 
 lpad.i.i:                                         ; preds = %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i, %lpad.loopexit.split-lp.loopexit.i.i, %lpad.loopexit.i.i
   %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit61.i.i, %lpad.loopexit.i.i ], [ %lpad.loopexit63.i.i, %lpad.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit66.i.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit.split-lp67.i.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i ]
-  call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_18MergeKeyESt4pairIKS2_St6vectorINS0_7left_idESaIS6_EEESt10_Select1stIS9_ESt4lessIS2_ESaIS9_EE10_Auto_nodeD2Ev.argprom(ptr nonnull %call5.i.i.i.i.i.i.i432) #19
+  call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_18MergeKeyESt4pairIKS2_St6vectorINS0_7left_idESaIS6_EEESt10_Select1stIS9_ESt4lessIS2_ESaIS9_EE10_Auto_nodeD2Ev(ptr nonnull %call5.i.i.i.i.i.i.i432) #19
   br label %lpad88.body
 
 if.then.i37.i.i:                                  ; preds = %call16.i117.i.noexc.i.i, %call16.i158.i.noexc.i.i, %invoke.cont7.i.i, %_ZNK3ue29CharReachltERKS0_.exit91.i.i284, %if.end.i.i.i.i.i.2.i.i.i.i.i278, %if.end.i.i.i.i.i.1.i.i.i.i.i272, %if.end.i.i.i.i.i.i.i.i.i.i266, %if.end22.i.i260, %if.end.i.i254, %if.end49.i.i289, %_ZNK3ue29CharReachltERKS0_.exit91.i.i456, %if.end.i.i.i.i.i.2.i.i.i.i.i450, %if.end.i.i.i.i.i.1.i.i.i.i.i444, %if.end.i.i.i.i.i.i.i.i.i.i438, %if.end22.i.i432, %if.end.i.i426, %if.end49.i.i461
@@ -14031,7 +14031,7 @@ lpad24.loopexit.split-lp:                         ; preds = %if.then.i.i, %if.th
 
 for.cond.cleanup50:                               ; preds = %for.cond.cleanup77, %for.cond.cleanup
   %17 = phi ptr [ null, %for.cond.cleanup ], [ %call5.i.i.i.i290334.lcssa, %for.cond.cleanup77 ]
-  %call108 = invoke fastcc noundef zeroext i1 @_ZN3ue2L26compatibleLiteralsForMergeERKSt6vectorISt4pairIPKNS_15rose_literal_idEjESaIS5_EES9_.argprom(ptr %ulits.sroa.0.0, ptr %ulits.sroa.8.0, ptr noundef nonnull align 8 dereferenceable(24) %vlits)
+  %call108 = invoke fastcc noundef zeroext i1 @_ZN3ue2L26compatibleLiteralsForMergeERKSt6vectorISt4pairIPKNS_15rose_literal_idEjESaIS5_EES9_(ptr %ulits.sroa.0.0, ptr %ulits.sroa.8.0, ptr noundef nonnull align 8 dereferenceable(24) %vlits)
           to label %invoke.cont107 unwind label %lpad106
 
 invoke.cont70:                                    ; preds = %for.cond.cleanup77, %invoke.cont70.lr.ph
@@ -14239,7 +14239,7 @@ lpad106:                                          ; preds = %lor.lhs.false, %if.
 if.end:                                           ; preds = %invoke.cont107
   %targets_1.val = load ptr, ptr %targets_1, align 8
   %targets_1.val9 = load ptr, ptr %_M_finish.i, align 8
-  %call110 = invoke fastcc noundef zeroext i1 @_ZN3ue2L15checkPredDelaysISt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaIS9_EEEEbRKNS_13RoseBuildImplERKT_SH_.argprom(ptr noundef nonnull align 8 dereferenceable(780) %build, ptr %targets_1.val, ptr %targets_1.val9, ptr noundef nonnull align 8 dereferenceable(24) %targets_2)
+  %call110 = invoke fastcc noundef zeroext i1 @_ZN3ue2L15checkPredDelaysISt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaIS9_EEEEbRKNS_13RoseBuildImplERKT_SH_(ptr noundef nonnull align 8 dereferenceable(780) %build, ptr %targets_1.val, ptr %targets_1.val9, ptr noundef nonnull align 8 dereferenceable(24) %targets_2)
           to label %invoke.cont109 unwind label %lpad106
 
 invoke.cont109:                                   ; preds = %if.end
@@ -14248,7 +14248,7 @@ invoke.cont109:                                   ; preds = %if.end
 lor.lhs.false:                                    ; preds = %invoke.cont109
   %targets_2.val = load ptr, ptr %targets_2, align 8
   %targets_2.val10 = load ptr, ptr %_M_finish.i155, align 8
-  %call112 = invoke fastcc noundef zeroext i1 @_ZN3ue2L15checkPredDelaysISt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaIS9_EEEEbRKNS_13RoseBuildImplERKT_SH_.argprom(ptr noundef nonnull align 8 dereferenceable(780) %build, ptr %targets_2.val, ptr %targets_2.val10, ptr noundef nonnull align 8 dereferenceable(24) %targets_1)
+  %call112 = invoke fastcc noundef zeroext i1 @_ZN3ue2L15checkPredDelaysISt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaIS9_EEEEbRKNS_13RoseBuildImplERKT_SH_(ptr noundef nonnull align 8 dereferenceable(780) %build, ptr %targets_2.val, ptr %targets_2.val10, ptr noundef nonnull align 8 dereferenceable(24) %targets_1)
           to label %cleanup unwind label %lpad106
 
 cleanup:                                          ; preds = %lor.lhs.false, %invoke.cont109, %invoke.cont107
@@ -35468,7 +35468,7 @@ entry:
 declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3ue2L26stringsCanFinishAtSameSpotERKNS_11ue2_literalENS0_14const_iteratorES3_.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %u, ptr readnone %v_b.coerce0, ptr readonly %v_e.coerce0, i64 %v_e.coerce1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN3ue2L26stringsCanFinishAtSameSpotERKNS_11ue2_literalENS0_14const_iteratorES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %u, ptr readnone %v_b.coerce0, ptr readonly %v_e.coerce0, i64 %v_e.coerce1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.ue2::CharReach", align 8
   %ref.tmp6 = alloca %"struct.ue2::ue2_literal::elem", align 2
@@ -37582,7 +37582,7 @@ cleanup36:                                        ; preds = %_ZN5boost9container
 declare i32 @_ZN3ue212findMaxWidthERKNS_8NGHolderE(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3ue2L15checkPredDelaysISt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaIS9_EEEEbRKNS_13RoseBuildImplERKT_SH_.argprom(ptr noundef nonnull align 8 dereferenceable(780) %build, ptr readonly %v1.0.val, ptr readnone %v1.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %v2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN3ue2L15checkPredDelaysISt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaIS9_EEEEbRKNS_13RoseBuildImplERKT_SH_(ptr noundef nonnull align 8 dereferenceable(780) %build, ptr readonly %v1.0.val, ptr readnone %v1.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %v2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.ue2::CharReach", align 8
   %ref.tmp6.i = alloca %"struct.ue2::ue2_literal::elem", align 2
@@ -55172,7 +55172,7 @@ _ZN5boost9containerltERKNS0_6vectorIN3ue212graph_detail17vertex_descriptorINS2_9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_18MergeKeyESt4pairIKS2_St6vectorINS0_7left_idESaIS6_EEESt10_Select1stIS9_ESt4lessIS2_ESaIS9_EE10_Auto_nodeD2Ev.argprom(ptr %this.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_18MergeKeyESt4pairIKS2_St6vectorINS0_7left_idESaIS6_EEESt10_Select1stIS9_ESt4lessIS2_ESaIS9_EE10_Auto_nodeD2Ev(ptr %this.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %this.8.val, null
   br i1 %tobool.not, label %if.end, label %if.then
